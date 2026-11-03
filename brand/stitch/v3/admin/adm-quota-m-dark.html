@@ -155,7 +155,7 @@
 <!-- 1. Top App Bar (Task Header) -->
 <header class="sticky top-0 z-40 bg-[#071316]/95 backdrop-blur-md px-4 pt-3 pb-2.5 border-b border-[#1b353c] flex items-center justify-between">
 <div class="flex items-center gap-2.5">
-<button aria-label="Menu điều hướng" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#0f2125] border border-[#1f3d45] shadow-[0_1.5px_0_0_#071316] text-[#5eead4] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button aria-label="Menu điều hướng" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#0f2125] border border-[#1f3d45] shadow-[0_1.5px_0_0_#071316] text-[#5eead4] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
 <div class="flex flex-col">
@@ -168,11 +168,11 @@
 </div>
 </div>
 <div class="flex items-center gap-2">
-<button aria-label="Đồng bộ dữ liệu" class="w-10 h-10 flex items-center justify-center rounded-xl bg-[#0f2125] border border-[#1f3d45] text-[#5eead4] shadow-[0_1.5px_0_0_#071316] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button aria-label="Đồng bộ dữ liệu" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#0f2125] border border-[#1f3d45] text-[#5eead4] shadow-[0_1.5px_0_0_#071316] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span class="material-symbols-outlined" data-icon="sync">sync</span>
 </button>
 <!-- Initials Avatar Badge (LM - Linh Mai) -->
-<div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#14534d] text-[#6bd8ce] font-bold font-title-sm text-title-sm border border-[#2ba39a] shadow-[0_1.5px_0_0_#062321]">
+<div class="flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#14534d] text-[#6bd8ce] font-bold font-title-sm text-title-sm border border-[#2ba39a] shadow-[0_1.5px_0_0_#062321]">
           LM
         </div>
 </div>
@@ -197,10 +197,7 @@
           Tất cả dịch vụ vận hành trong khung miễn phí <span class="font-semibold text-[#5eead4]">(Free Tier)</span>. Cơ chế bảo vệ chủ động tự động làm mới vào <span class="font-code-sm text-code-sm font-bold text-[#6bd8ce]">07:00 sáng (GMT+7)</span>.
         </p>
 <!-- Prominent tactile Coral Emergency Button -->
-<button class="w-full h-11 tactile-btn-coral text-white rounded-xl font-label-md text-label-md font-bold flex items-center justify-center gap-2 tracking-wide transition-transform" type="button">
-<span class="material-symbols-outlined text-white" data-icon="lock_clock">lock_clock</span>
-<span>Khóa an toàn khẩn cấp</span>
-</button>
+<button class="w-full min-h-[44px] py-2.5 px-4 bg-[#c2410c] hover:bg-[#b43a08] border border-[#ea580c] shadow-[0_2.5px_0_0_#7c2d12,0_4px_12px_rgba(194,65,12,0.4)] text-[#ffffff] rounded-xl font-label-md text-label-md font-bold flex items-center justify-center gap-2 tracking-wide transition-all active:translate-y-0.5 active:shadow-[0_0.5px_0_0_#7c2d12]" type="button"><span class="material-symbols-outlined text-white text-[20px]" data-icon="lock_clock">lock_clock</span><span class="text-white font-bold text-sm tracking-wide">Khóa an toàn khẩn cấp</span></button>
 </section>
 <!-- 3. Card: Dùng nhiều hôm nay -->
 <section class="tactile-card p-4">
@@ -481,9 +478,8 @@
   Ngắt ngay lập tức khi phát hiện lỗi bất thường để ngăn chặn phát sinh hóa đơn ngoài ý muốn.
 </p>
 <!-- Vertical Switches Stack -->
-<div class="flex flex-col divide-y divide-[#183138]">
-<!-- Breaker 1: OpenAI -->
-<div class="py-2.5 flex items-center justify-between gap-3">
+<div class="flex flex-col divide-y divide-[#183138]"><!-- Breaker 1: OpenAI -->
+<div class="py-2.5 flex items-center justify-between gap-3 min-h-[48px]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-[#2dd4bf] shadow-[0_0_8px_rgba(45,212,191,0.6)]"></span>
 <div>
@@ -491,14 +487,13 @@
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px]">GPT-4o mini · Parse ngữ liệu</p>
 </div>
 </div>
-<!-- Tactile ON Switch -->
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[52px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#1c3339] peer-focus:outline-none rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#1c3339] peer-focus:outline-none rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
 <!-- Breaker 2: Gemini -->
-<div class="py-2.5 flex items-center justify-between gap-3">
+<div class="py-2.5 flex items-center justify-between gap-3 min-h-[48px]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-[#2dd4bf] shadow-[0_0_8px_rgba(45,212,191,0.6)]"></span>
 <div>
@@ -506,13 +501,13 @@
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px]">Chấm bài Writing nhanh</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[52px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
 <!-- Breaker 3: ElevenLabs -->
-<div class="py-2.5 flex items-center justify-between gap-3">
+<div class="py-2.5 flex items-center justify-between gap-3 min-h-[48px]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-[#2dd4bf] shadow-[0_0_8px_rgba(45,212,191,0.6)]"></span>
 <div>
@@ -520,13 +515,13 @@
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px]">Giọng đọc mẫu từ vựng</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[52px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
 <!-- Breaker 4: Cloudflare D1 -->
-<div class="py-2.5 flex items-center justify-between gap-3">
+<div class="py-2.5 flex items-center justify-between gap-3 min-h-[48px]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-[#2dd4bf] shadow-[0_0_8px_rgba(45,212,191,0.6)]"></span>
 <div>
@@ -534,13 +529,13 @@
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px]">Cơ sở dữ liệu SQLite Edge</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[52px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
 <!-- Breaker 5: Cloudflare R2 -->
-<div class="py-2.5 flex items-center justify-between gap-3">
+<div class="py-2.5 flex items-center justify-between gap-3 min-h-[48px]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-[#2dd4bf] shadow-[0_0_8px_rgba(45,212,191,0.6)]"></span>
 <div>
@@ -548,13 +543,13 @@
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px]">Kho lưu ảnh minh họa từ điển</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[52px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#1c3339] rounded-full peer peer-checked:bg-[#2ba39a] transition-all border border-[#23454c] shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-[#f1fdfb] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.4)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
 <!-- Breaker 6: Video Render (OFF - TRIPPED) -->
-<div class="pt-2.5 flex items-center justify-between gap-3 bg-[#241718] -mx-4 px-4 rounded-b-xl border-t border-[#5a2723]">
+<div class="pt-2.5 pb-2.5 flex items-center justify-between gap-3 bg-[#241718] -mx-4 px-4 rounded-b-xl border-t border-[#5a2723] min-h-[48px]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-[#f06543] animate-pulse"></span>
 <div>
@@ -565,13 +560,11 @@
 <p class="font-body-sm text-body-sm text-[#ffa493] font-medium text-[11px]">Tự động ngắt do đạt 95% miễn phí</p>
 </div>
 </div>
-<!-- Tactile OFF Switch -->
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[52px] min-h-[44px] cursor-pointer">
 <input class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#1c2a2d] rounded-full peer transition-all border border-[#2c3d41] shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#879391] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>
+<div class="w-12 h-7 bg-[#1c2a2d] rounded-full peer transition-all border border-[#2c3d41] shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-[#879391] after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>
 </label>
-</div>
-</div>
+</div></div>
 </section>
 <!-- 6. Card: Danh sách không giới hạn (Whitelist) -->
 <section class="tactile-card p-4">
@@ -580,14 +573,13 @@
 <h2 class="font-title-sm text-title-sm font-bold text-[#f1fdfb]">Danh sách đặc quyền (Whitelist)</h2>
 <p class="font-body-sm text-body-sm text-[#94a3b8]">Bỏ qua trần hạn mức khi kiểm thử</p>
 </div>
-<button class="h-8 px-2.5 tactile-btn-secondary rounded-lg font-label-sm text-label-sm font-bold text-[#5eead4] flex items-center gap-1" type="button">
+<button class="min-h-[44px] min-w-[44px] px-3 tactile-btn-secondary rounded-lg font-label-sm text-label-sm font-bold text-[#5eead4] flex items-center justify-center gap-1" type="button">
 <span class="material-symbols-outlined text-base" data-icon="add">add</span>
 <span>Thêm</span>
 </button>
 </div>
 <!-- Whitelist Stack (mobile card rows) -->
-<div class="space-y-2">
-<div class="p-2.5 rounded-xl bg-[#13272c] border border-[#1f3d45] flex items-center justify-between gap-2">
+<div class="space-y-2"><div class="p-2.5 rounded-xl bg-[#13272c] border border-[#1f3d45] flex items-center justify-between gap-2">
 <div class="min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-sm text-label-sm font-bold text-[#f1fdfb] truncate">linh@lexkite.internal</span>
@@ -595,9 +587,9 @@
 </div>
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px] truncate">Admin hạ tầng · 142 lượt hôm nay</p>
 </div>
-<span class="text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-1 rounded border border-[#1f4e56]">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-2 rounded-lg border border-[#1f4e56] hover:bg-[#122c31] transition-colors" type="button">
   Bypass trần
-</span>
+</button>
 </div>
 <div class="p-2.5 rounded-xl bg-[#13272c] border border-[#1f3d45] flex items-center justify-between gap-2">
 <div class="min-w-0">
@@ -607,9 +599,9 @@
 </div>
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px] truncate">Biên soạn ngữ liệu · 98 lượt</p>
 </div>
-<span class="text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-1 rounded border border-[#1f4e56]">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-2 rounded-lg border border-[#1f4e56] hover:bg-[#122c31] transition-colors" type="button">
   Bypass trần
-</span>
+</button>
 </div>
 <div class="p-2.5 rounded-xl bg-[#13272c] border border-[#1f3d45] flex items-center justify-between gap-2">
 <div class="min-w-0">
@@ -619,9 +611,9 @@
 </div>
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px] truncate">Kiểm thử tính năng · 64 lượt</p>
 </div>
-<span class="text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-1 rounded border border-[#1f4e56]">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-2 rounded-lg border border-[#1f4e56] hover:bg-[#122c31] transition-colors" type="button">
   Bypass trần
-</span>
+</button>
 </div>
 <div class="p-2.5 rounded-xl bg-[#13272c] border border-[#1f3d45] flex items-center justify-between gap-2">
 <div class="min-w-0">
@@ -631,11 +623,10 @@
 </div>
 <p class="font-body-sm text-body-sm text-[#94a3b8] text-[11px] truncate">GitHub Actions · 215 lượt test build</p>
 </div>
-<span class="text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-1 rounded border border-[#1f4e56]">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-xs font-semibold text-[#5eead4] whitespace-nowrap bg-[#0a1b1f] px-2.5 py-2 rounded-lg border border-[#1f4e56] hover:bg-[#122c31] transition-colors" type="button">
   Bypass trần
-</span>
-</div>
-</div>
+</button>
+</div></div>
 </section>
 <!-- 7. Card: Nhật ký điều phối gần nhất (Audit log) -->
 <section class="tactile-card p-4">
@@ -696,23 +687,21 @@
 </footer>
 </div>
 <!-- 9. Bottom Navigation Bar -->
-<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] bg-[#071316]/95 backdrop-blur-lg border-t border-[#1b353c] px-3 py-2 z-50 flex items-center justify-around shadow-[0_-4px_16px_rgba(0,0,0,0.6)]">
-<button class="flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-[#879391] hover:text-[#d8e5e9] transition-colors" type="button">
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] bg-[#071316]/95 backdrop-blur-lg border-t border-[#1b353c] px-3 py-2 z-50 flex items-center justify-around shadow-[0_-4px_16px_rgba(0,0,0,0.6)]"><button class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] gap-1 py-1 px-2.5 rounded-xl text-[#94a3b8] hover:text-[#d8e5e9] transition-colors" type="button">
 <span class="material-symbols-outlined text-[22px]" data-icon="dashboard">dashboard</span>
 <span class="font-label-sm text-[10px] font-medium">Tổng quan</span>
 </button>
-<button class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl bg-[#122c31] border border-[#1f4e56] text-[#5eead4] shadow-sm transition-colors" type="button">
+<button class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] gap-1 py-1 px-3 rounded-xl bg-[#122c31] border border-[#1f4e56] text-[#5eead4] shadow-sm transition-colors" type="button">
 <span class="material-symbols-outlined text-[22px]" data-icon="tune" data-weight="fill">tune</span>
 <span class="font-label-sm text-[10px] font-bold">Hạn mức</span>
 </button>
-<button class="flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-[#879391] hover:text-[#d8e5e9] transition-colors" type="button">
+<button class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] gap-1 py-1 px-2.5 rounded-xl text-[#94a3b8] hover:text-[#d8e5e9] transition-colors" type="button">
 <span class="material-symbols-outlined text-[22px]" data-icon="dns">dns</span>
 <span class="font-label-sm text-[10px] font-medium">Dịch vụ</span>
 </button>
-<button class="flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-[#879391] hover:text-[#d8e5e9] transition-colors" type="button">
+<button class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] gap-1 py-1 px-2.5 rounded-xl text-[#94a3b8] hover:text-[#d8e5e9] transition-colors" type="button">
 <span class="material-symbols-outlined text-[22px]" data-icon="settings">settings</span>
 <span class="font-label-sm text-[10px] font-medium">Cấu hình</span>
-</button>
-</nav>
+</button></nav>
 </main>
 </body></html>

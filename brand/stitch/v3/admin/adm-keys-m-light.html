@@ -182,7 +182,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-surface-variant">
 <!-- Mobile Screen Container (narrow ~390px portrait) -->
 <div class="relative w-full max-w-[390px] mx-auto min-h-screen pb-24 flex flex-col bg-surface shadow-md">
@@ -201,11 +201,7 @@
 </div>
 </div>
 <!-- Trailing Initials Avatar Badge -->
-<div class="flex items-center">
-<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary font-headline-sm text-xs flex items-center justify-center font-bold ring-2 ring-surface shadow-sm">
-          LM
-        </div>
-</div>
+<div class="flex items-center min-w-[44px] min-h-[44px] justify-center"><div class="w-9 h-9 rounded-full bg-primary text-on-primary font-headline-sm text-xs flex items-center justify-center font-bold ring-2 ring-surface shadow-sm">LM</div></div>
 </header>
 <!-- 2. System Status & Breadcrumb Strip -->
 <section class="px-margin-mobile pt-3 pb-2 bg-surface-container-low border-b border-surface-container-high flex items-center justify-between">
@@ -270,11 +266,11 @@
 </section>
 <!-- 4. Primary CTA Buttons -->
 <section class="space-y-2 pt-1">
-<button class="tactile-btn-primary w-full h-11 px-4 rounded-xl flex items-center justify-center gap-2 font-title-sm text-title-sm font-bold tracking-wide" type="button">
+<button class="tactile-btn-primary w-full h-11 px-4 rounded-xl flex items-center justify-center gap-2 font-title-sm text-title-sm font-bold tracking-wide" style="min-height: 44px; background-color: #b43410; color: #ffffff; border: 1.5px solid #852207; box-shadow: 0 2px 0 0 #5f1502;" type="button">
 <span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
           + Thêm khóa mới
         </button>
-<button class="tactile-btn-secondary w-full h-11 px-4 rounded-xl flex items-center justify-center gap-2 font-title-sm text-title-sm font-semibold" type="button">
+<button class="tactile-btn-secondary w-full h-11 px-4 rounded-xl flex items-center justify-center gap-2 font-title-sm text-title-sm font-semibold" style="min-height: 44px; color: #003633; border: 1.5px solid #004340;" type="button">
 <span class="material-symbols-outlined text-[18px]" data-icon="network_check">network_check</span>
           Kiểm tra tất cả
         </button>
@@ -299,20 +295,7 @@
 <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">9 nhà cung cấp</span>
 </div>
 <!-- Filter Chips (Horizontal scrollable without ugly bar) -->
-<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar -mx-margin-mobile px-margin-mobile">
-<button class="shrink-0 px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-bold shadow-xs" type="button">
-            Tất cả (9)
-          </button>
-<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container active:translate-y-px" type="button">
-            AI &amp; Ngôn ngữ (4)
-          </button>
-<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container active:translate-y-px" type="button">
-            Hạ tầng &amp; Cloud (3)
-          </button>
-<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container active:translate-y-px" type="button">
-            Email &amp; SMS (2)
-          </button>
-</div>
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar -mx-margin-mobile px-margin-mobile"><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-xs flex items-center justify-center active:translate-y-px" type="button">Tất cả (9)</button><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container active:translate-y-px flex items-center justify-center" type="button">AI &amp; Ngôn ngữ (4)</button><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container active:translate-y-px flex items-center justify-center" type="button">Hạ tầng &amp; Cloud (3)</button><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container active:translate-y-px flex items-center justify-center" type="button">Email &amp; SMS (2)</button></div>
 <!-- Responsive Card List for Mobile Phone -->
 <div class="space-y-3">
 <!-- Row 1: Google Gemini 1.5 Flash -->
@@ -560,7 +543,7 @@
 <span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
             Nhật ký kiểm tra &amp; xoay vòng
           </h2>
-<button class="text-primary hover:underline font-label-sm text-label-sm font-semibold" type="button">Xem thêm</button>
+<button class="text-primary hover:underline font-label-sm text-label-sm font-bold min-h-[44px] min-w-[44px] px-2 py-2 flex items-center justify-center rounded-lg" type="button">Xem thêm</button>
 </div>
 <div class="tactile-card divide-y divide-surface-container-high bg-surface-container-lowest">
 <!-- Log 1 -->
@@ -598,27 +581,6 @@
 </main>
 <!-- 8. Docked Bottom Navigation Bar (Executed exactly from Shared Components JSON spec) -->
 <!-- Active Destination: "Khóa API" (Security/Key tab) matches current screen -->
-<nav class="fixed bottom-0 left-0 right-0 w-full max-w-[390px] mx-auto z-50 flex justify-around items-center h-16 px-gutter pb-safe bg-surface-container-lowest shadow-[0_-4px_16px_rgba(7,56,54,0.08)]">
-<!-- Dest 1: Tổng quan -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#tong-quan">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-label-sm text-label-sm">Tổng quan</span>
-</a>
-<!-- Dest 2: Kênh -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#kenh">
-<span class="material-symbols-outlined" data-icon="hub">hub</span>
-<span class="font-label-sm text-label-sm">Kênh</span>
-</a>
-<!-- Dest 3: Khóa API [ACTIVE DESTINATION] -->
-<a class="flex flex-col items-center justify-center text-secondary bg-secondary-container/20 rounded-xl px-3 py-1 font-label-sm font-bold hover:bg-secondary-container/30 active:translate-y-px transition-transform duration-100" href="#khoa-api">
-<span class="material-symbols-outlined text-secondary" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
-<span class="font-label-sm text-label-sm text-secondary">Khóa API</span>
-</a>
-<!-- Dest 4: Cài đặt -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#cai-dat">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-label-sm text-label-sm">Cài đặt</span>
-</a>
-</nav>
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-[390px] mx-auto z-50 flex justify-around items-center h-16 px-gutter pb-safe bg-surface-container-lowest shadow-[0_-4px_16px_rgba(7,56,54,0.08)]"><a class="flex flex-col items-center justify-center text-on-surface px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#tong-quan"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span><span class="font-label-sm text-label-sm font-semibold">Tổng quan</span></a><a class="flex flex-col items-center justify-center text-on-surface px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#kenh"><span class="material-symbols-outlined" data-icon="hub">hub</span><span class="font-label-sm text-label-sm font-semibold">Kênh</span></a><a class="flex flex-col items-center justify-center text-secondary bg-secondary-container/20 rounded-xl px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm font-bold hover:bg-secondary-container/30 active:translate-y-px transition-transform duration-100" href="#khoa-api"><span class="material-symbols-outlined text-secondary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span><span class="font-label-sm text-label-sm text-secondary font-bold">Khóa API</span></a><a class="flex flex-col items-center justify-center text-on-surface px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#cai-dat"><span class="material-symbols-outlined" data-icon="settings">settings</span><span class="font-label-sm text-label-sm font-semibold">Cài đặt</span></a></nav>
 </div>
 </body></html>

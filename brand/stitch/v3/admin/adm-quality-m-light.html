@@ -132,7 +132,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-[#f4f7f6] text-on-surface antialiased flex justify-center min-h-screen overflow-x-hidden selection:bg-secondary-container">
 <!-- Mobile Viewport Canvas Container: Locked to 390px iPhone baseline with zero sideways scroll -->
 <div class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#f4f7f6] relative pb-24 shadow-2xl">
@@ -149,24 +149,13 @@
 </div>
 <div class="flex items-center">
 <!-- Admin initials avatar pill 'MA' (Minh Anh) -->
-<div class="w-9 h-9 rounded-full bg-secondary text-on-secondary font-headline-sm text-headline-sm flex items-center justify-center font-bold shadow-[0_2px_0_0_#072e2c] border border-surface-variant cursor-pointer active:translate-y-[1px] transition-transform">
-          MA
-        </div>
+<div aria-label="Hồ sơ quản trị viên MA" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-secondary text-on-secondary font-headline-sm text-headline-sm flex items-center justify-center font-bold shadow-[0_2px_0_0_#072e2c] border border-surface-variant cursor-pointer active:translate-y-[1px] transition-transform">MA</div>
 </div>
 </header>
 <!-- Main Content Stream (Single Column Scrollable Canvas) -->
 <main class="flex-1 px-margin pt-16 flex flex-col gap-space-md">
 <!-- Breadcrumb sub-header -->
-<div class="pt-2 flex items-center justify-between text-body-sm font-body-sm text-tertiary">
-<div class="flex items-center gap-1.5 truncate">
-<span>Hệ thống</span>
-<span class="text-outline-variant">/</span>
-<span class="font-label-md text-secondary">Kiểm định chất lượng &amp; Bản dịch tự động</span>
-</div>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-variant text-on-secondary-container font-label-sm text-label-sm shrink-0">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> Sẵn sàng
-        </span>
-</div>
+<div class="pt-2 flex items-center justify-between text-body-sm font-body-sm text-tertiary"><div class="flex items-center gap-1.5 truncate text-on-surface-variant"><span class="font-medium text-[#141d1c]">Hệ thống</span><span class="font-bold text-[#004340] px-0.5">/</span><span class="font-label-md text-secondary font-bold truncate">Kiểm định chất lượng &amp; Bản dịch tự động</span></div><span class="inline-flex items-center gap-1 px-2.5 py-1 min-h-[32px] rounded-full bg-surface-variant text-on-secondary-container font-label-sm text-label-sm font-bold shrink-0"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> Sẵn sàng</span></div>
 <!-- Header & Notice Card (Automated audit banner) -->
 <section class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-lg shadow-[0_2px_0_0_#cbd8d6] flex flex-col gap-space-md">
 <div class="flex items-start justify-between gap-space-sm">
@@ -186,18 +175,7 @@
 </div>
 </div>
 <!-- Time Range Filter Pills -->
-<div class="flex items-center gap-2 pt-1 border-t border-[#d6e3e1]/60">
-<span class="text-label-sm font-label-sm text-tertiary pr-1">Kỳ xem:</span>
-<button class="px-3 h-8 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform">
-            Hôm nay
-          </button>
-<button class="px-3 h-8 rounded-lg bg-surface-container-lowest border border-[#d6e3e1] text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors shadow-[0_1px_0_0_#d6e3e1]">
-            7 ngày
-          </button>
-<button class="px-3 h-8 rounded-lg bg-surface-container-lowest border border-[#d6e3e1] text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors shadow-[0_1px_0_0_#d6e3e1]">
-            30 ngày
-          </button>
-</div>
+<div class="flex items-center gap-2 pt-1 border-t border-[#d6e3e1]/60"><span class="text-label-sm font-label-sm text-on-surface font-semibold pr-1">Kỳ xem:</span><button class="px-4 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform font-bold">Hôm nay</button><button class="px-4 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-surface-container-lowest border border-[#cbd8d6] text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors shadow-[0_1px_0_0_#d6e3e1] font-semibold">7 ngày</button><button class="px-4 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-surface-container-lowest border border-[#cbd8d6] text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors shadow-[0_1px_0_0_#d6e3e1] font-semibold">30 ngày</button></div>
 <!-- Primary Warm Coral CTA Button -->
 <button class="w-full h-12 bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-lg flex items-center justify-center gap-2 shadow-[0_3px_0_0_#c43d1f] active:translate-y-[2px] active:shadow-[0_1px_0_0_#c43d1f] transition-all duration-100">
 <span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
@@ -205,95 +183,7 @@
 </button>
 </section>
 <!-- Score Dials Section (2x2 Grid of Tactile Metric Cards) -->
-<section class="flex flex-col gap-space-sm">
-<div class="flex items-center justify-between px-1">
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Chỉ số chất lượng (SLA)</h2>
-<span class="text-label-sm font-label-sm text-tertiary">Mục tiêu: ≥ 90</span>
-</div>
-<div class="grid grid-cols-2 gap-space-sm">
-<!-- Metric 1: Bố cục & Khung hình -->
-<div class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined" data-icon="aspect_ratio">aspect_ratio</span>
-</span>
-<span class="text-label-sm font-label-sm text-secondary bg-surface-variant px-1.5 py-0.5 rounded font-bold">+2%</span>
-</div>
-<div class="my-2 flex items-baseline gap-1.5">
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">94</span>
-<span class="text-body-sm font-body-sm text-tertiary">/100</span>
-</div>
-<!-- Tactile Mini Progress Track -->
-<div class="w-full bg-[#eaf2f1] h-1.5 rounded-full overflow-hidden mb-1.5">
-<div class="bg-secondary h-full rounded-full" style="width: 94%"></div>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface truncate">Bố cục &amp; Khung hình</span>
-<p class="text-body-sm font-body-sm text-tertiary leading-tight mt-0.5 text-[11px]">1 màn bị tràn viền 390px, 0 đè chữ.</p>
-</div>
-</div>
-<!-- Metric 2: Độ tương phản (WCAG) -->
-<div class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined" data-icon="contrast">contrast</span>
-</span>
-<span class="text-label-sm font-label-sm text-secondary bg-surface-variant px-1.5 py-0.5 rounded font-bold">+4%</span>
-</div>
-<div class="my-2 flex items-baseline gap-1.5">
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">91</span>
-<span class="text-body-sm font-body-sm text-tertiary">/100</span>
-</div>
-<div class="w-full bg-[#eaf2f1] h-1.5 rounded-full overflow-hidden mb-1.5">
-<div class="bg-secondary h-full rounded-full" style="width: 91%"></div>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface truncate">Độ tương phản (WCAG)</span>
-<p class="text-body-sm font-body-sm text-tertiary leading-tight mt-0.5 text-[11px]">2 nhãn &lt; 4.5:1, đạt AA trên 98%.</p>
-</div>
-</div>
-<!-- Metric 3: Giọng đọc & Ngữ âm -->
-<div class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined" data-icon="record_voice_over">record_voice_over</span>
-</span>
-<span class="text-label-sm font-label-sm text-tertiary bg-surface-container px-1.5 py-0.5 rounded font-medium">— 0%</span>
-</div>
-<div class="my-2 flex items-baseline gap-1.5">
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">97</span>
-<span class="text-body-sm font-body-sm text-tertiary">/100</span>
-</div>
-<div class="w-full bg-[#eaf2f1] h-1.5 rounded-full overflow-hidden mb-1.5">
-<div class="bg-secondary h-full rounded-full" style="width: 97%"></div>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface truncate">Giọng đọc &amp; Ngữ âm</span>
-<p class="text-body-sm font-body-sm text-tertiary leading-tight mt-0.5 text-[11px]">54 audio R2, bitrate 64kbps chuẩn.</p>
-</div>
-</div>
-<!-- Metric 4: Độ chính xác dịch nghĩa -->
-<div class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded-lg bg-[#fef0ec] flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="translate">translate</span>
-</span>
-<span class="text-label-sm font-label-sm text-primary bg-[#fef0ec] px-1.5 py-0.5 rounded font-bold">↓ -1%</span>
-</div>
-<div class="my-2 flex items-baseline gap-1.5">
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">88</span>
-<span class="text-body-sm font-body-sm text-tertiary">/100</span>
-</div>
-<div class="w-full bg-[#eaf2f1] h-1.5 rounded-full overflow-hidden mb-1.5">
-<div class="bg-primary-container h-full rounded-full" style="width: 88%"></div>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface truncate">Độ chính xác dịch nghĩa</span>
-<p class="text-body-sm font-body-sm text-tertiary leading-tight mt-0.5 text-[11px]">18 từ đa nghĩa cần BTV duyệt thêm.</p>
-</div>
-</div>
-</div>
-</section>
+<section class="flex flex-col gap-space-sm"><div class="flex items-center justify-between px-1"><h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Chỉ số chất lượng (SLA)</h2><span class="text-label-sm font-label-sm text-[#004340] font-bold">Mục tiêu: ≥ 90</span></div><div class="grid grid-cols-2 gap-space-sm"><!-- Metric 1: Bố cục & Khung hình --><div class="bg-surface-container-lowest rounded-xl border border-[#cbd8d6] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden"><div class="flex items-center justify-between"><span class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary"><span class="material-symbols-outlined" data-icon="aspect_ratio">aspect_ratio</span></span><span class="text-label-sm font-label-sm text-secondary bg-surface-variant px-2 py-0.5 rounded font-bold">+2%</span></div><div class="my-2 flex items-baseline gap-1"><span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold">94</span><span class="text-body-sm font-body-sm text-[#004340] font-bold">/100</span></div><div class="w-full bg-[#dbe5e2] h-2 rounded-full overflow-hidden mb-1.5"><div class="bg-secondary h-full rounded-full" style="width: 94%"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-bold truncate">Bố cục &amp; Khung hình</span><p class="text-body-sm font-body-sm text-[#141d1c] font-medium leading-tight mt-0.5 text-[11px]">1 màn bị tràn viền 390px, 0 đè chữ.</p></div></div><!-- Metric 2: Độ tương phản (WCAG) --><div class="bg-surface-container-lowest rounded-xl border border-[#cbd8d6] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden"><div class="flex items-center justify-between"><span class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary"><span class="material-symbols-outlined" data-icon="contrast">contrast</span></span><span class="text-label-sm font-label-sm text-secondary bg-surface-variant px-2 py-0.5 rounded font-bold">+4%</span></div><div class="my-2 flex items-baseline gap-1"><span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold">91</span><span class="text-body-sm font-body-sm text-[#004340] font-bold">/100</span></div><div class="w-full bg-[#dbe5e2] h-2 rounded-full overflow-hidden mb-1.5"><div class="bg-secondary h-full rounded-full" style="width: 91%"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-bold truncate">Độ tương phản (WCAG)</span><p class="text-body-sm font-body-sm text-[#141d1c] font-medium leading-tight mt-0.5 text-[11px]">2 nhãn &lt; 4.5:1, đạt AA trên 98%.</p></div></div><!-- Metric 3: Giọng đọc & Ngữ âm --><div class="bg-surface-container-lowest rounded-xl border border-[#cbd8d6] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden"><div class="flex items-center justify-between"><span class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary"><span class="material-symbols-outlined" data-icon="record_voice_over">record_voice_over</span></span><span class="text-label-sm font-label-sm text-[#004340] bg-surface-container px-2 py-0.5 rounded font-bold">— 0%</span></div><div class="my-2 flex items-baseline gap-1"><span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold">97</span><span class="text-body-sm font-body-sm text-[#004340] font-bold">/100</span></div><div class="w-full bg-[#dbe5e2] h-2 rounded-full overflow-hidden mb-1.5"><div class="bg-secondary h-full rounded-full" style="width: 97%"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-bold truncate">Giọng đọc &amp; Ngữ âm</span><p class="text-body-sm font-body-sm text-[#141d1c] font-medium leading-tight mt-0.5 text-[11px]">54 audio R2, bitrate 64kbps chuẩn.</p></div></div><!-- Metric 4: Độ chính xác dịch nghĩa --><div class="bg-surface-container-lowest rounded-xl border border-[#cbd8d6] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col justify-between relative overflow-hidden"><div class="flex items-center justify-between"><span class="w-9 h-9 rounded-lg bg-[#fef0ec] flex items-center justify-center text-secondary"><span class="material-symbols-outlined" data-icon="translate">translate</span></span><span class="text-label-sm font-label-sm text-secondary bg-[#fef0ec] px-2 py-0.5 rounded font-bold">↓ -1%</span></div><div class="my-2 flex items-baseline gap-1"><span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold">88</span><span class="text-body-sm font-body-sm text-[#004340] font-bold">/100</span></div><div class="w-full bg-[#dbe5e2] h-2 rounded-full overflow-hidden mb-1.5"><div class="bg-secondary-container h-full rounded-full" style="width: 88%"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-bold truncate">Độ chính xác dịch nghĩa</span><p class="text-body-sm font-body-sm text-[#141d1c] font-medium leading-tight mt-0.5 text-[11px]">18 từ đa nghĩa cần BTV duyệt thêm.</p></div></div></div></section>
 <!-- Section: Translation Meaning Audit (Kiểm nghĩa bản dịch song ngữ) -->
 <section class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-lg shadow-[0_2px_0_0_#cbd8d6] flex flex-col gap-space-sm">
 <div class="flex items-start justify-between">
@@ -313,78 +203,11 @@
 <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-tertiary" data-icon="search">search</span>
 <input class="w-full h-11 pl-9 pr-3 rounded-lg bg-[#ffffff] border border-[#d6e3e1] text-body-md font-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 placeholder:text-tertiary/70" placeholder="Lọc ngôn ngữ..." type="text"/>
 </div>
-<button class="h-11 px-3.5 rounded-lg border border-[#d6e3e1] bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center gap-1.5 shadow-[0_2px_0_0_#d6e3e1] active:translate-y-[1px] transition-transform shrink-0">
-<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
-<span>Xuất CSV</span>
-</button>
+<button class="h-11 min-h-[44px] min-w-[44px] px-3.5 rounded-lg border border-[#cbd8d6] bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-[0_2px_0_0_#d6e3e1] active:translate-y-[1px] transition-transform shrink-0 font-bold"><span class="material-symbols-outlined text-[20px] text-secondary" data-icon="file_download">file_download</span><span>Xuất CSV</span></button>
 </div>
 <!-- Mobile Optimized Table Card List (Zero horizontal scrolling) -->
-<div class="divide-y divide-[#d6e3e1]/70 border-t border-b border-[#d6e3e1] mt-1">
-<!-- Row 1: Tiếng Việt -->
-<div class="py-2.5 flex items-center justify-between gap-2">
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Tiếng Việt (VN)</span>
-<span class="text-body-sm font-body-sm text-tertiary">570 từ · 0 cảnh báo · 99.6%</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-[#eaf2f1] text-secondary font-label-sm text-label-sm border border-secondary/20 shrink-0">
-              Đạt chuẩn
-            </span>
-</div>
-<!-- Row 2: Tây Ban Nha -->
-<div class="py-2.5 flex items-center justify-between gap-2">
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Tây Ban Nha (ES)</span>
-<span class="text-body-sm font-body-sm text-tertiary">570 từ · 1 lệch nghĩa · 98.2%</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm border border-outline-variant shrink-0">
-              Cần duyệt 1
-            </span>
-</div>
-<!-- Row 3: Tiếng Nhật -->
-<div class="py-2.5 flex items-center justify-between gap-2">
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Tiếng Nhật (JA)</span>
-<span class="text-body-sm font-body-sm text-tertiary">554 từ · 3 cảnh báo · 94.4%</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm border border-outline-variant shrink-0">
-              Cần duyệt 3
-            </span>
-</div>
-<!-- Row 4: Tiếng Hàn -->
-<div class="py-2.5 flex items-center justify-between gap-2">
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Tiếng Hàn (KO)</span>
-<span class="text-body-sm font-body-sm text-tertiary">542 từ · 2 cảnh báo · 95.8%</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm border border-outline-variant shrink-0">
-              Cần duyệt 2
-            </span>
-</div>
-<!-- Row 5: Tiếng Trung -->
-<div class="py-2.5 flex items-center justify-between gap-2">
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Tiếng Trung (ZH)</span>
-<span class="text-body-sm font-body-sm text-tertiary">560 từ · 1 cảnh báo · 97.5%</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm border border-outline-variant shrink-0">
-              Cần duyệt 1
-            </span>
-</div>
-<!-- Row 6: Tiếng Pháp -->
-<div class="py-2.5 flex items-center justify-between gap-2">
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Tiếng Pháp (FR)</span>
-<span class="text-body-sm font-body-sm text-tertiary">530 từ · 0 cảnh báo · 99.2%</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-[#eaf2f1] text-secondary font-label-sm text-label-sm border border-secondary/20 shrink-0">
-              Đạt chuẩn
-            </span>
-</div>
-</div>
-<button class="w-full h-11 rounded-lg border border-[#d6e3e1] bg-surface-container-lowest text-secondary font-label-md text-label-md flex items-center justify-center gap-1 shadow-[0_2px_0_0_#d6e3e1] active:translate-y-[1px] transition-transform">
-<span>Xem tất cả 15 ngôn ngữ</span>
-<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
-</button>
+<div class="divide-y divide-[#d6e3e1]/70 border-t border-b border-[#d6e3e1] mt-1"><!-- Row 1: Tiếng Việt --><div class="py-2.5 min-h-[48px] flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Tiếng Việt (VN)</span><span class="text-body-sm font-body-sm text-[#141d1c] font-medium">570 từ · 0 cảnh báo · 99.6%</span></div><span class="px-3 py-1 min-h-[32px] flex items-center rounded-full bg-[#eaf2f1] text-[#004340] font-label-sm text-label-sm font-bold border border-secondary/20 shrink-0">Đạt chuẩn</span></div><!-- Row 2: Tây Ban Nha --><div class="py-2.5 min-h-[48px] flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Tây Ban Nha (ES)</span><span class="text-body-sm font-body-sm text-[#141d1c] font-medium">570 từ · 1 lệch nghĩa · 98.2%</span></div><span class="px-3 py-1 min-h-[32px] flex items-center rounded-full bg-surface-variant text-[#004340] font-label-sm text-label-sm font-bold border border-outline-variant shrink-0">Cần duyệt 1</span></div><!-- Row 3: Tiếng Nhật --><div class="py-2.5 min-h-[48px] flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Tiếng Nhật (JA)</span><span class="text-body-sm font-body-sm text-[#141d1c] font-medium">554 từ · 3 cảnh báo · 94.4%</span></div><span class="px-3 py-1 min-h-[32px] flex items-center rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold border border-outline-variant shrink-0">Cần duyệt 3</span></div><!-- Row 4: Tiếng Hàn --><div class="py-2.5 min-h-[48px] flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Tiếng Hàn (KO)</span><span class="text-body-sm font-body-sm text-[#141d1c] font-medium">542 từ · 2 cảnh báo · 95.8%</span></div><span class="px-3 py-1 min-h-[32px] flex items-center rounded-full bg-surface-variant text-[#004340] font-label-sm text-label-sm font-bold border border-outline-variant shrink-0">Cần duyệt 2</span></div><!-- Row 5: Tiếng Trung --><div class="py-2.5 min-h-[48px] flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Tiếng Trung (ZH)</span><span class="text-body-sm font-body-sm text-[#141d1c] font-medium">560 từ · 1 cảnh báo · 97.5%</span></div><span class="px-3 py-1 min-h-[32px] flex items-center rounded-full bg-surface-variant text-[#004340] font-label-sm text-label-sm font-bold border border-outline-variant shrink-0">Cần duyệt 1</span></div><!-- Row 6: Tiếng Pháp --><div class="py-2.5 min-h-[48px] flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Tiếng Pháp (FR)</span><span class="text-body-sm font-body-sm text-[#141d1c] font-medium">530 từ · 0 cảnh báo · 99.2%</span></div><span class="px-3 py-1 min-h-[32px] flex items-center rounded-full bg-[#eaf2f1] text-[#004340] font-label-sm text-label-sm font-bold border border-secondary/20 shrink-0">Đạt chuẩn</span></div></div>
+<button class="w-full h-12 min-h-[44px] rounded-lg border border-[#cbd8d6] bg-surface-container-lowest text-secondary font-label-md text-label-md flex items-center justify-center gap-1 shadow-[0_2px_0_0_#d6e3e1] active:translate-y-[1px] transition-transform font-bold"><span>Xem tất cả 15 ngôn ngữ</span><span class="material-symbols-outlined" data-icon="expand_more">expand_more</span></button>
 </section>
 <!-- Section: Danh sách màn cần sửa (Screens Needing Fix List) -->
 <section class="flex flex-col gap-space-sm mb-4">
@@ -393,7 +216,7 @@
 <h2 class="font-headline-sm text-headline-sm text-on-surface">Màn hình cần sửa</h2>
 <span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3 phát hiện</span>
 </div>
-<button class="text-label-sm font-label-sm text-secondary hover:underline">Chi tiết HIG</button>
+<button class="min-h-[44px] min-w-[44px] px-2 flex items-center text-label-sm font-label-sm text-secondary font-bold hover:underline">Chi tiết HIG</button>
 </div>
 <!-- Issue Card 1 -->
 <article class="bg-surface-container-lowest rounded-xl border border-[#d6e3e1] p-space-md shadow-[0_2px_0_0_#cbd8d6] flex flex-col gap-space-sm">
@@ -418,10 +241,7 @@
 <span class="px-2 py-0.5 rounded bg-error-container text-on-error-container text-label-sm font-label-sm">Tương phản AA</span>
 <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Chạm &lt; 44px</span>
 </div>
-<button class="h-9 px-3.5 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform flex items-center gap-1 shrink-0">
-<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
-<span>Mở sửa</span>
-</button>
+<button class="h-11 min-h-[44px] min-w-[44px] px-4 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0 font-bold"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span><span>Mở sửa</span></button>
 </div>
 </article>
 <!-- Issue Card 2 -->
@@ -449,10 +269,7 @@
 <span class="px-2 py-0.5 rounded bg-error-container text-on-error-container text-label-sm font-label-sm">Touch Target</span>
 <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Modal Header</span>
 </div>
-<button class="h-9 px-3.5 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform flex items-center gap-1 shrink-0">
-<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
-<span>Mở sửa</span>
-</button>
+<button class="h-11 min-h-[44px] min-w-[44px] px-4 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0 font-bold"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span><span>Mở sửa</span></button>
 </div>
 </article>
 <!-- Issue Card 3 -->
@@ -478,10 +295,7 @@
 <span class="px-2 py-0.5 rounded bg-error-container text-on-error-container text-label-sm font-label-sm">Text Truncate</span>
 <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Màn hình 360px</span>
 </div>
-<button class="h-9 px-3.5 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform flex items-center gap-1 shrink-0">
-<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
-<span>Mở sửa</span>
-</button>
+<button class="h-11 min-h-[44px] min-w-[44px] px-4 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_2px_0_0_#072e2c] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0 font-bold"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span><span>Mở sửa</span></button>
 </div>
 </article>
 </section>
@@ -492,27 +306,6 @@
 </main>
 <!-- Bottom Navigation Bar (Shared Component strictly mapped from JSON) -->
 <!-- Destination 2: 'Chất lượng' is active as per primary intent and Exact Match Priority -->
-<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs min-h-[64px] bg-surface-container-lowest shadow-[0_-2px_0_0_#cbd8d6] max-w-[390px] mx-auto right-0">
-<!-- Tab 1: Bảng tin (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant transition-colors duration-150 active:translate-y-[2px]" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="text-label-sm font-label-sm mt-0.5">Bảng tin</span>
-</a>
-<!-- Tab 2: Chất lượng (ACTIVE: Exact match to Admin › Chất lượng) -->
-<a aria-current="page" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg px-3 py-1 shadow-[0_2px_0_0_#072e2c] active:translate-y-[2px] transition-transform duration-100" href="#">
-<span class="material-symbols-outlined font-bold" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span class="text-label-sm font-label-sm mt-0.5 font-bold">Chất lượng</span>
-</a>
-<!-- Tab 3: Hạn mức (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant transition-colors duration-150 active:translate-y-[2px]" href="#">
-<span class="material-symbols-outlined" data-icon="speed">speed</span>
-<span class="text-label-sm font-label-sm mt-0.5">Hạn mức</span>
-</a>
-<!-- Tab 4: Cài đặt (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant transition-colors duration-150 active:translate-y-[2px]" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
-</a>
-</nav>
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs min-h-[64px] bg-surface-container-lowest shadow-[0_-2px_0_0_#cbd8d6] max-w-[390px] mx-auto right-0"><!-- Tab 1: Bảng tin (Inactive) --><a class="flex flex-col items-center justify-center text-on-surface-variant min-h-[48px] min-w-[48px] px-3 py-1 rounded-lg hover:bg-surface-variant transition-colors duration-150 active:translate-y-[2px]" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span><span class="text-label-sm font-label-sm mt-0.5 font-medium">Bảng tin</span></a><!-- Tab 2: Chất lượng (ACTIVE) --><a aria-current="page" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container min-h-[48px] min-w-[48px] rounded-lg px-4 py-1 shadow-[0_2px_0_0_#072e2c] active:translate-y-[2px] transition-transform duration-100" href="#"><span class="material-symbols-outlined font-bold" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span><span class="text-label-sm font-label-sm mt-0.5 font-bold">Chất lượng</span></a><!-- Tab 3: Hạn mức (Inactive) --><a class="flex flex-col items-center justify-center text-on-surface-variant min-h-[48px] min-w-[48px] px-3 py-1 rounded-lg hover:bg-surface-variant transition-colors duration-150 active:translate-y-[2px]" href="#"><span class="material-symbols-outlined" data-icon="speed">speed</span><span class="text-label-sm font-label-sm mt-0.5 font-medium">Hạn mức</span></a><!-- Tab 4: Cài đặt (Inactive) --><a class="flex flex-col items-center justify-center text-on-surface-variant min-h-[48px] min-w-[48px] px-3 py-1 rounded-lg hover:bg-surface-variant transition-colors duration-150 active:translate-y-[2px]" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span><span class="text-label-sm font-label-sm mt-0.5 font-medium">Cài đặt</span></a></nav>
 </div>
 </body></html>

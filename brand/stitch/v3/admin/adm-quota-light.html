@@ -289,10 +289,7 @@
 </div>
 <!-- The SINGLE warm coral primary action on this screen -->
 <div class="flex items-center gap-2.5 flex-shrink-0">
-<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-coral-500 hover:bg-coral-600 text-white font-bold text-xs tracking-wide shadow-tactile-coral transition-transform active:translate-y-0.5 min-h-[44px]">
-<span class="material-symbols-rounded text-base">emergency_home</span>
-<span>Khóa an toàn khẩn cấp</span>
-</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-coral-600 hover:bg-teal-900 text-white font-bold text-xs tracking-wide shadow-tactile-coral transition-transform active:translate-y-0.5 min-h-[44px]"><span class="material-symbols-rounded text-base text-white">emergency_home</span><span class="text-white">Khóa an toàn khẩn cấp</span></button>
 </div>
 </div>
 <!-- Top Feature Section: Dùng nhiều hôm nay -->
@@ -388,7 +385,7 @@
 <div class="flex items-center justify-between">
 <div>
 <h3 class="text-sm font-bold text-teal-950 tracking-tight">Hạn ngạch nhà cung cấp (Provider daily ceilings)</h3>
-<p class="text-xs text-teal-700">Theo dõi tiêu thụ thời gian thực so với mức trần miễn phí của các đối tác hạ tầng.</p>
+<p class="text-xs text-teal-900 font-medium">Theo dõi tiêu thụ thời gian thực so với mức trần miễn phí của các đối tác hạ tầng.</p>
 </div>
 <div class="flex items-center gap-3 text-xs">
 <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> <span class="text-teal-800">Bình thường (&lt;80%)</span></span>
@@ -513,20 +510,21 @@
             5 / 6 Cầu dao đang MỞ
           </span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-<!-- Breaker 1: OpenAI GPT-4o-mini -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"><!-- Breaker 1: OpenAI GPT-4o-mini -->
 <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
 <div class="space-y-1 pr-3">
 <div class="flex items-center gap-2">
 <span class="font-bold text-xs text-teal-950">OpenAI API (GPT-4o mini)</span>
 <span class="w-2 h-2 rounded-full bg-emerald-500" title="Hoạt động bình thường"></span>
 </div>
-<p class="text-[11px] text-teal-700 leading-tight">Giải thích ngữ pháp &amp; bài mẫu Writing Task 2</p>
-<div class="text-[10px] font-mono text-teal-800">Độ trễ trung bình: 420ms</div>
+<p class="text-[11px] text-teal-800 leading-tight">Giải thích ngữ pháp &amp; bài mẫu Writing Task 2</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Độ trễ trung bình: 420ms</div>
 </div>
-<!-- Tactile ON toggle -->
-<button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT - Nhấn để ngắt">
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT - Nhấn để ngắt">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
 <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
 </button>
 </div>
 <!-- Breaker 2: Google Gemini Flash -->
@@ -536,12 +534,14 @@
 <span class="font-bold text-xs text-teal-950">Google Gemini 1.5 Flash</span>
 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
 </div>
-<p class="text-[11px] text-teal-700 leading-tight">Phân tích từ vựng AWL &amp; gợi ý collocation</p>
-<div class="text-[10px] font-mono text-teal-800">Độ trễ trung bình: 310ms</div>
+<p class="text-[11px] text-teal-800 leading-tight">Phân tích từ vựng AWL &amp; gợi ý collocation</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Độ trễ trung bình: 310ms</div>
 </div>
-<!-- Tactile ON toggle -->
-<button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
 <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
 </button>
 </div>
 <!-- Breaker 3: ElevenLabs Audio TTS -->
@@ -551,12 +551,14 @@
 <span class="font-bold text-xs text-teal-950">ElevenLabs TTS Audio</span>
 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
 </div>
-<p class="text-[11px] text-teal-700 leading-tight">Giọng đọc bản xứ cho từ vựng mới &amp; bài nghe</p>
-<div class="text-[10px] font-mono text-teal-800">Ký tự còn: 4.820 / 10.000</div>
+<p class="text-[11px] text-teal-800 leading-tight">Giọng đọc bản xứ cho từ vựng mới &amp; bài nghe</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Ký tự còn: 4.820 / 10.000</div>
 </div>
-<!-- Tactile ON toggle -->
-<button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
 <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
 </button>
 </div>
 <!-- Breaker 4: Cloudflare D1 Database -->
@@ -566,12 +568,14 @@
 <span class="font-bold text-xs text-teal-950">Cloudflare D1 (Chính)</span>
 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
 </div>
-<p class="text-[11px] text-teal-700 leading-tight">Cơ sở dữ liệu người dùng, từ vựng và thẻ ôn tập</p>
-<div class="text-[10px] font-mono text-teal-800">Cụm: SIN (Singapore edge)</div>
+<p class="text-[11px] text-teal-800 leading-tight">Cơ sở dữ liệu người dùng, từ vựng và thẻ ôn tập</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Cụm: SIN (Singapore edge)</div>
 </div>
-<!-- Tactile ON toggle -->
-<button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
 <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
 </button>
 </div>
 <!-- Breaker 5: Cloudflare R2 Media Bucket -->
@@ -581,12 +585,14 @@
 <span class="font-bold text-xs text-teal-950">Cloudflare R2 Bucket</span>
 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
 </div>
-<p class="text-[11px] text-teal-700 leading-tight">Lưu trữ ảnh minh họa, file nghe audio TOEIC/IELTS</p>
-<div class="text-[10px] font-mono text-teal-800">Tổng file: 1.482 tệp</div>
+<p class="text-[11px] text-teal-800 leading-tight">Lưu trữ ảnh minh họa, file nghe audio TOEIC/IELTS</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Tổng file: 1.482 tệp</div>
 </div>
-<!-- Tactile ON toggle -->
-<button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
 <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
 </button>
 </div>
 <!-- Breaker 6: Video Social Render (Remotion - OFF / PAUSED) -->
@@ -596,15 +602,16 @@
 <span class="font-bold text-xs text-teal-950">Video Render Worker</span>
 <span class="w-2 h-2 rounded-full bg-rose-500" title="Đã ngắt cầu dao tự động"></span>
 </div>
-<p class="text-[11px] text-rose-800 leading-tight">Tự động ngắt do đạt 95% quota miễn phí ngày</p>
-<div class="text-[10px] font-mono text-teal-700">Chờ mở lại vào 07:00</div>
+<p class="text-[11px] text-rose-800 leading-tight font-medium">Tự động ngắt do đạt 95% quota miễn phí ngày</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Chờ mở lại vào 07:00</div>
 </div>
-<!-- Tactile OFF toggle -->
-<button class="relative w-12 h-7 bg-cream-300 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang TẮT - Nhấn để bật lại thủ công">
-<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-0 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-700">TẮT</span>
+<!-- Tactile OFF toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang TẮT - Nhấn để bật lại thủ công">
+<span class="relative w-12 h-7 bg-cream-300 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-0 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">TẮT</span>
+</span>
 </button>
-</div>
-</div>
+</div></div>
 </section>
 <!-- Two Column Bottom Section: Danh sách không giới hạn (Unlimited List Table) & Nhật ký (Log List) -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">

@@ -137,7 +137,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-on-secondary-container">
 <!-- Mobile Shell Wrapper (390px centered screen) -->
 <div class="w-full max-w-[390px] mx-auto min-h-screen flex flex-col bg-surface shadow-xl relative pb-24">
@@ -145,9 +145,7 @@
 <header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none">
 <div class="flex justify-between items-center w-full px-margin h-14 max-w-[390px] mx-auto">
 <!-- Leading: Menu Icon -->
-<button aria-label="Mở trình đơn chính" class="w-10 h-10 -ml-1.5 flex items-center justify-center rounded-xl text-secondary hover:bg-surface-container-low active:translate-y-px transition-transform">
-<span class="material-symbols-outlined text-[24px]">menu</span>
-</button>
+<button aria-label="Mở trình đơn chính" class="min-w-[44px] min-h-[44px] w-11 h-11 -ml-1.5 flex items-center justify-center rounded-xl text-secondary hover:bg-surface-container-low active:translate-y-px transition-transform"><span class="material-symbols-outlined text-[24px]">menu</span></button>
 <!-- Center: Headline Anchor -->
 <div class="flex-1 px-2 text-center truncate">
 <h1 class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-inverse-on-surface truncate tracking-tight">
@@ -156,9 +154,7 @@
 </div>
 <!-- Trailing: Admin Initials Avatar Pill -->
 <div class="flex items-center">
-<button class="w-9 h-9 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center border-2 border-surface-container-lowest shadow-sm active:translate-y-px transition-transform" title="Linh Mai · Quản trị hạ tầng">
-            LM
-          </button>
+<button class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center border-2 border-surface-container-lowest shadow-sm active:translate-y-px transition-transform" title="Linh Mai · Quản trị hạ tầng">LM</button>
 </div>
 </div>
 </header>
@@ -219,10 +215,7 @@
 </div>
 </div>
 <!-- Single Warm Tactile Coral Primary Action Button -->
-<button class="w-full h-11 button-primary-ledge font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 transition-all">
-<span class="material-symbols-outlined text-[20px]">add_circle</span>
-<span>+ Thêm kênh phân phối</span>
-</button>
+<button class="w-full min-h-[44px] h-11 bg-primary text-on-primary font-bold font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-sm active:translate-y-px transition-all"><span class="material-symbols-outlined text-[20px]">add_circle</span><span>+ Thêm kênh phân phối</span></button>
 </section>
 <!-- Card 2: Danh sách kênh xuất bản (Kênh) -->
 <section class="bg-surface-container-lowest rounded-xl p-4 card-ledge">
@@ -418,10 +411,7 @@
 </div>
 </div>
 <!-- Secondary Action Button -->
-<button class="mt-3 w-full h-11 button-secondary-ledge bg-surface-container-lowest font-label-lg text-label-lg text-secondary rounded-xl flex items-center justify-center gap-2 hover:bg-surface-container-low transition-all">
-<span class="material-symbols-outlined text-[18px]">add</span>
-<span>Tạo luật định tuyến mới</span>
-</button>
+<button class="mt-3 w-full min-h-[44px] h-11 button-secondary-ledge bg-surface-container-lowest font-label-lg text-label-lg text-secondary rounded-xl flex items-center justify-center gap-2 hover:bg-surface-container-low transition-all"><span class="material-symbols-outlined text-[18px]">add</span><span>Tạo luật định tuyến mới</span></button>
 </section>
 <!-- Card 4: Lịch đăng theo kênh (Tuần này) -->
 <section class="bg-surface-container-lowest rounded-xl p-4 card-ledge">
@@ -515,27 +505,6 @@
 </main>
 <!-- BottomNavBar (From Shared Component JSON) -->
 <!-- Screen intent is "Kênh & phân phối", so the 'Kênh' tab is mapped to active -->
-<nav aria-label="Điều hướng chính" class="fixed bottom-0 left-0 right-0 w-full max-w-[390px] mx-auto z-50 flex justify-around items-center h-16 px-gutter pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_16px_rgba(7,56,54,0.08)] dark:shadow-none">
-<!-- Tab 1: Tổng quan (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 font-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container active:translate-y-px transition-transform duration-100" href="#tong-quan">
-<span class="material-symbols-outlined text-[22px]">dashboard</span>
-<span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
-</a>
-<!-- Tab 2: Kênh (Active: highlighted per style_active_navigation) -->
-<a aria-current="page" class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed bg-secondary-container dark:bg-secondary-fixed-dim rounded-xl px-3 py-1 font-label-sm font-bold active:translate-y-px transition-transform duration-100" href="#kenh">
-<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">hub</span>
-<span class="text-label-sm font-label-sm mt-0.5">Kênh</span>
-</a>
-<!-- Tab 3: Quy tắc (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 font-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container active:translate-y-px transition-transform duration-100" href="#quy-tac">
-<span class="material-symbols-outlined text-[22px]">rule</span>
-<span class="text-label-sm font-label-sm mt-0.5">Quy tắc</span>
-</a>
-<!-- Tab 4: Cài đặt (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 font-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container active:translate-y-px transition-transform duration-100" href="#cai-dat">
-<span class="material-symbols-outlined text-[22px]">settings</span>
-<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
-</a>
-</nav>
+<nav aria-label="Điều hướng chính" class="fixed bottom-0 left-0 right-0 w-full max-w-[390px] mx-auto z-50 flex justify-around items-center h-16 px-gutter pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_16px_rgba(7,56,54,0.08)] dark:shadow-none"><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 font-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container active:translate-y-px transition-transform duration-100" href="#tong-quan"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span></a><a aria-current="page" class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed bg-secondary-container dark:bg-secondary-fixed-dim rounded-xl px-3 py-1 font-label-sm font-bold active:translate-y-px transition-transform duration-100" href="#kenh"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">hub</span><span class="text-label-sm font-label-sm mt-0.5">Kênh</span></a><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 font-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container active:translate-y-px transition-transform duration-100" href="#quy-tac"><span class="material-symbols-outlined text-[22px]">rule</span><span class="text-label-sm font-label-sm mt-0.5">Quy tắc</span></a><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 font-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container active:translate-y-px transition-transform duration-100" href="#cai-dat"><span class="material-symbols-outlined text-[22px]">settings</span><span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span></a></nav>
 </div>
 </body></html>

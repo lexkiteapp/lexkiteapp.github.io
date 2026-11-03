@@ -6,8 +6,7 @@
 <title>Admin › Trung tâm video | Lexkite</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -28,7 +27,7 @@
             "on-error-container": "#93000a",
             "on-primary-fixed": "#00201e",
             "on-tertiary-fixed": "#002020",
-            "error": "#ba1a1a",
+            "error": "#b91c1c",
             "outline-variant": "#bec9c7",
             "surface-container-highest": "#eae1da",
             "primary": "#004541",
@@ -36,33 +35,33 @@
             "on-primary": "#ffffff",
             "on-tertiary": "#ffffff",
             "secondary-fixed-dim": "#ffb4a3",
-            "on-surface-variant": "#3f4947",
+            "on-surface-variant": "#334155",
             "on-secondary": "#ffffff",
             "on-error": "#ffffff",
             "tertiary-fixed": "#beebeb",
             "inverse-on-surface": "#f9efe8",
-            "secondary": "#b52705",
+            "secondary": "#c83c1c",
             "primary-fixed-dim": "#8fd3cc",
-            "on-surface": "#1f1b17",
-            "secondary-container": "#ff5c38",
-            "outline": "#6f7977",
+            "on-surface": "#0f172a",
+            "secondary-container": "#c83c1c",
+            "outline": "#475569",
             "on-secondary-fixed": "#3d0600",
             "surface-container": "#f6ece6",
             "surface-container-lowest": "#ffffff",
             "tertiary-container": "#315b5c",
             "on-tertiary-fixed-variant": "#224d4e",
             "surface-variant": "#eae1da",
-            "on-secondary-container": "#5b0d00",
-            "primary-container": "#115e59",
+            "on-secondary-container": "#ffffff",
+            "primary-container": "#004541",
             "surface": "#fff8f5",
             "secondary-fixed": "#ffdad2",
             "surface-tint": "#216963",
-            "error-container": "#ffdad6",
+            "error-container": "#fee2e2",
             "surface-dim": "#e2d8d2",
             "surface-bright": "#fff8f5",
             "tertiary-fixed-dim": "#a3cfcf",
-            "on-background": "#1f1b17",
-            "on-primary-container": "#91d5ce"
+            "on-background": "#0f172a",
+            "on-primary-container": "#ffffff"
           },
           "borderRadius": {
             "DEFAULT": "0.25rem",
@@ -137,22 +136,22 @@
       background: transparent;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #bec9c7;
+      background: #94a3b8;
       border-radius: 4px;
     }
     .tactile-card {
-      box-shadow: 0 1px 3px rgba(31, 27, 23, 0.04), 0 1px 2px rgba(31, 27, 23, 0.02);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .tactile-card:hover {
-      box-shadow: 0 4px 10px -2px rgba(31, 27, 23, 0.07), 0 2px 4px -2px rgba(31, 27, 23, 0.04);
+      box-shadow: 0 4px 10px -2px rgba(15, 23, 42, 0.09), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
       transform: translateY(-1px);
     }
   </style>
 </head>
 <body class="min-h-full font-body-md text-on-surface antialiased bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- ================= SIDEBAR (Shared Component: SideNavBar) ================= -->
-<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-sm">
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-lowest border-r border-slate-300 shadow-sm">
 <div class="h-full w-64 p-space-md flex flex-col justify-between shrink-0">
 <!-- Top Branding & Nav Groups -->
 <div class="flex flex-col flex-1 overflow-y-auto custom-scrollbar pr-1">
@@ -160,15 +159,15 @@
 <div class="flex items-center justify-between pb-space-md mb-space-sm border-b border-surface-container">
 <div class="flex items-center gap-space-sm">
 <!-- Geometric Kite Emblem -->
-<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-xs shrink-0">
-<span class="material-symbols-outlined" data-icon="change_history">change_history</span>
+<div class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-xs shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="change_history">change_history</span>
 </div>
 <div>
-<div class="text-title-lg font-title-lg text-primary dark:text-primary-fixed tracking-tight flex items-center gap-1.5">
+<div class="text-title-lg font-title-lg text-primary tracking-tight flex items-center gap-1.5 font-bold">
                 Lexkite
-                <span class="text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-container text-primary font-bold border border-outline-variant/60">v2.4.1</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-900 border border-teal-200">v2.4.1</span>
 </div>
-<p class="text-label-sm font-label-sm text-on-surface-variant font-semibold">Language Intelligence</p>
+<p class="text-[12px] text-slate-700 font-semibold">Language Intelligence</p>
 </div>
 </div>
 </div>
@@ -176,17 +175,17 @@
 <nav class="space-y-space-md text-body-sm font-body-sm">
 <!-- GROUP 1: TỔNG QUAN -->
 <div>
-<div class="text-label-sm font-label-sm text-primary font-bold px-3 py-1 tracking-wider uppercase">TỔNG QUAN</div>
+<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">TỔNG QUAN</div>
 <div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
 <span>Tổng quan</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
 <span>Phân tích</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="campaign">campaign</span>
 <span>Quảng cáo</span>
 </a>
@@ -194,17 +193,17 @@
 </div>
 <!-- GROUP 2: NGƯỜI DÙNG -->
 <div>
-<div class="text-label-sm font-label-sm text-primary font-bold px-3 py-1 tracking-wider uppercase">NGƯỜI DÙNG</div>
+<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">NGƯỜI DÙNG</div>
 <div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="group">group</span>
 <span>Người dùng</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
 <span>Hộp thư</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
 <span>Thông báo</span>
 </a>
@@ -212,17 +211,17 @@
 </div>
 <!-- GROUP 3: CHẤT LƯỢNG -->
 <div>
-<div class="text-label-sm font-label-sm text-primary font-bold px-3 py-1 tracking-wider uppercase">CHẤT LƯỢNG</div>
+<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">CHẤT LƯỢNG</div>
 <div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="warning">warning</span>
 <span>Cảnh báo</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="bug_report">bug_report</span>
 <span>Báo lỗi</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
 <span>Chất lượng</span>
 </a>
@@ -230,29 +229,29 @@
 </div>
 <!-- GROUP 4: NỘI DUNG & VIDEO (ACTIVE CONTEXT) -->
 <div>
-<div class="text-label-sm font-label-sm text-primary font-bold px-3 py-1 tracking-wider uppercase">NỘI DUNG &amp; VIDEO</div>
+<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">NỘI DUNG &amp; VIDEO</div>
 <div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="share">share</span>
 <span>Kênh &amp; phân phối</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="smart_display">smart_display</span>
 <span>Video &amp; Social</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="movie_edit">movie_edit</span>
 <span>Video Studio</span>
 </a>
 <!-- ACTIVE TAB: Trung tâm video -->
-<a class="bg-primary dark:bg-primary-container text-on-primary rounded-lg font-label-md shadow-xs flex items-center justify-between px-3 py-2.5 min-h-[44px] transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="bg-primary text-on-primary rounded-lg font-label-md shadow-xs flex items-center justify-between px-3 py-2.5 min-h-[44px] transition-all duration-150 active:scale-[0.98]" href="#">
 <div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-primary-fixed" data-icon="video_library">video_library</span>
-<span class="font-semibold text-body-md font-body-md text-on-primary">Trung tâm video</span>
+<span class="material-symbols-outlined text-teal-200" data-icon="video_library">video_library</span>
+<span class="font-bold text-body-md font-body-md text-white">Trung tâm video</span>
 </div>
-<span class="bg-primary-container text-on-primary font-bold text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-primary-fixed-dim/30">16</span>
+<span class="bg-[#00302d] text-white font-extrabold text-[12px] px-2.5 py-0.5 rounded-full border border-teal-400/40">16</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="link">link</span>
 <span>Backlink &amp; PR</span>
 </a>
@@ -260,25 +259,25 @@
 </div>
 <!-- GROUP 5: HỆ THỐNG -->
 <div>
-<div class="text-label-sm font-label-sm text-primary font-bold px-3 py-1 tracking-wider uppercase">HỆ THỐNG</div>
+<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">HỆ THỐNG</div>
 <div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
 <span>Hạn mức</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span>
 <span>Kho Drive</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="key">key</span>
 <span>Khóa API</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="dns">dns</span>
 <span>Dịch vụ &amp; API</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="storage">storage</span>
 <span>Lưu trữ</span>
 </a>
@@ -287,20 +286,20 @@
 </nav>
 </div>
 <!-- Footer Actions & Server Status -->
-<div class="pt-space-md border-t border-surface-container space-y-2">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
+<div class="pt-space-md border-t border-slate-300 space-y-2">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
 <span class="text-body-sm font-body-sm">Cài đặt</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-on-surface font-medium hover:text-primary hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
+<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
 <span class="material-symbols-outlined text-primary" data-icon="help">help</span>
 <span class="text-body-sm font-body-sm">Hỗ trợ kỹ thuật</span>
 </a>
 <!-- Server Status Badge -->
-<div class="px-3 py-2.5 min-h-[44px] rounded-lg bg-surface-container text-label-sm font-label-sm flex items-center justify-between text-on-surface border border-outline-variant/60">
+<div class="px-3 py-2.5 min-h-[44px] rounded-lg bg-surface-container text-label-sm font-label-sm flex items-center justify-between text-slate-900 border border-slate-300">
 <div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
-<span class="text-on-surface font-semibold">Máy chủ ổn định</span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="text-slate-900 font-bold">Máy chủ ổn định</span>
 </div>
 <span class="text-primary font-mono font-bold">v2.4.1</span>
 </div>
@@ -308,49 +307,49 @@
 </div>
 </aside>
 <!-- ================= TOP NAV BAR (Shared Component: TopNavBar) ================= -->
-<header class="fixed top-0 right-0 left-64 h-16 z-20 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<header class="fixed top-0 right-0 left-64 h-16 z-20 bg-surface-container-lowest border-b border-slate-300 shadow-xs">
 <div class="flex items-center justify-between px-gutter h-16 w-full">
 <!-- Breadcrumb & Global Search -->
 <div class="flex items-center gap-space-lg flex-1 max-w-2xl">
-<!-- Breadcrumbs -->
-<nav aria-label="Breadcrumb" class="hidden xl:flex items-center gap-1.5 text-body-sm font-body-sm shrink-0">
-<span class="text-on-surface font-medium hover:text-primary cursor-pointer">Admin</span>
-<span class="material-symbols-outlined text-outline text-[16px]" data-icon="chevron_right">chevron_right</span>
-<span class="text-on-surface font-medium hover:text-primary cursor-pointer">Nội dung &amp; Video</span>
-<span class="material-symbols-outlined text-outline text-[16px]" data-icon="chevron_right">chevron_right</span>
-<span class="text-primary font-bold">Trung tâm video</span>
+<!-- Breadcrumbs with ≥44px touch friendly items and ≥4.5:1 text -->
+<nav aria-label="Breadcrumb" class="hidden xl:flex items-center text-body-sm font-body-sm shrink-0">
+<a class="min-h-[44px] flex items-center text-slate-700 hover:text-primary font-bold px-1 transition-colors" href="#">Admin</a>
+<span class="material-symbols-outlined text-slate-500 text-[18px] px-0.5" data-icon="chevron_right">chevron_right</span>
+<a class="min-h-[44px] flex items-center text-slate-700 hover:text-primary font-bold px-1 transition-colors" href="#">Nội dung &amp; Video</a>
+<span class="material-symbols-outlined text-slate-500 text-[18px] px-0.5" data-icon="chevron_right">chevron_right</span>
+<span class="min-h-[44px] flex items-center text-primary font-extrabold px-1">Trung tâm video</span>
 </nav>
-<!-- Command Search Bar -->
+<!-- Command Search Bar min-height 44px -->
 <div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-[18px]" data-icon="search">search</span>
-<input class="w-full pl-9 pr-12 min-h-[44px] py-2 text-body-sm font-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface placeholder:text-outline font-medium focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/10 transition-all duration-150" placeholder="Tìm kiếm kịch bản, từ vựng, ID video... [Ctrl K]" type="text"/>
-<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[11px] font-mono bg-surface-container px-2 py-1 rounded border border-outline-variant text-on-surface font-bold">⌘K</kbd>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-12 min-h-[44px] py-2 text-body-sm font-body-sm bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 placeholder:text-slate-600 font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-150" placeholder="Tìm kiếm kịch bản, từ vựng, ID video... [Ctrl K]" type="text"/>
+<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[11px] font-mono bg-surface-container px-2 py-1 rounded border border-slate-400 text-slate-800 font-bold">⌘K</kbd>
 </div>
 </div>
 <!-- Right Trailing Controls -->
 <div class="flex items-center gap-space-md">
 <!-- Pipeline Status Chip -->
-<div class="hidden lg:flex items-center min-h-[44px] gap-2 px-3 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/30 text-label-sm font-label-sm text-primary font-bold">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<div class="hidden lg:flex items-center min-h-[44px] gap-2 px-3 py-2 rounded-full bg-teal-50 border border-teal-300 text-label-sm font-label-sm text-teal-950 font-bold">
+<span class="w-2.5 h-2.5 rounded-full bg-teal-700"></span>
 <span>Pipeline tự động (Kokoro TTS) hoạt động</span>
 </div>
-<!-- Language Switcher -->
-<button class="min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg text-label-sm font-label-sm font-bold text-on-surface hover:bg-surface-container hover:text-primary transition-all duration-150 flex items-center justify-center border border-outline-variant/60">
+<!-- Language Switcher (≥44x44px) -->
+<button aria-label="Chuyển đổi ngôn ngữ" class="min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-lg text-body-sm font-bold text-slate-900 hover:bg-surface-container hover:text-primary transition-all duration-150 flex items-center justify-center border border-slate-300 active:scale-95">
           VI | EN
         </button>
-<!-- Notification Bell -->
-<button class="relative min-h-[44px] min-w-[44px] p-2 text-on-surface hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 flex items-center justify-center border border-outline-variant/60">
-<span class="material-symbols-outlined text-[20px] text-on-surface" data-icon="notifications">notifications</span>
-<span class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<!-- Notification Bell (≥44x44px) -->
+<button aria-label="Thông báo" class="relative min-h-[44px] min-w-[44px] p-2 text-slate-800 hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 flex items-center justify-center border border-slate-300 active:scale-95">
+<span class="material-symbols-outlined text-[22px] text-slate-800" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2.5 h-2.5 rounded-full bg-[#c83c1c] ring-2 ring-white"></span>
 </button>
-<!-- Admin Profile Anchor -->
-<div class="flex items-center gap-2.5 pl-3 min-h-[44px] border-l border-outline-variant cursor-pointer">
-<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md font-label-md tracking-tight ring-2 ring-primary-fixed/40 shrink-0">
+<!-- Admin Profile Anchor (≥44px min-h) -->
+<div class="flex items-center gap-2.5 pl-3 min-h-[44px] border-l border-slate-300 cursor-pointer">
+<div class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-primary text-white flex items-center justify-center font-bold text-label-md font-label-md tracking-tight ring-2 ring-teal-200 shrink-0">
             HM
           </div>
 <div class="hidden sm:block text-left">
-<div class="text-body-sm font-body-sm font-bold leading-tight text-on-surface">Hoàng Minh</div>
-<div class="text-[12px] leading-tight text-on-surface-variant font-semibold">Content Lead</div>
+<div class="text-body-sm font-body-sm font-bold leading-tight text-slate-900">Hoàng Minh</div>
+<div class="text-[12px] leading-tight text-slate-700 font-bold">Content Lead</div>
 </div>
 </div>
 </div>
@@ -358,84 +357,84 @@
 </header>
 <!-- ================= MAIN CONTENT CANVAS ================= -->
 <main class="ml-64 pt-16 min-h-screen bg-background text-on-surface overflow-x-hidden">
-<div class="p-gutter-lg max-w-[1520px] mx-auto space-y-gutter-lg">
+<div class="p-gutter-lg max-w-[1520px] w-full mx-auto space-y-gutter-lg">
 <!-- SECTION 1: HEADER SUMMARY & PRIMARY ACTION -->
 <section class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm border-b border-surface-container">
 <div>
-<div class="flex items-center gap-2">
-<h1 class="text-headline-md font-headline-md text-primary tracking-tight">Trung tâm video</h1>
-<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm font-bold border border-primary/20">Shorts 9:16 Studio</span>
+<div class="flex items-center gap-2 flex-wrap">
+<h1 class="text-headline-md font-headline-md text-primary tracking-tight font-bold">Trung tâm video</h1>
+<span class="px-3 py-1.5 rounded-full bg-primary text-white text-label-sm font-label-sm font-bold border border-primary/30">Shorts 9:16 Studio</span>
 </div>
-<p class="text-body-md font-body-md text-on-surface font-medium mt-1">
+<p class="text-body-md font-body-md text-slate-800 font-semibold mt-1">
             Điều phối sản xuất short video 9:16, kịch bản IELTS/TOEIC, kiểm định chất lượng (QC) và phân phối đa kênh.
           </p>
 </div>
 <div class="flex items-center gap-space-sm shrink-0 flex-wrap">
-<!-- Secondary Tactile Button -->
-<button class="min-h-[44px] px-4 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container hover:border-outline text-label-md font-label-md font-semibold flex items-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-xs">
-<span class="material-symbols-outlined text-[18px] text-primary" data-icon="sync">sync</span>
+<!-- Secondary Tactile Button (≥44px) -->
+<button class="min-h-[44px] px-4 rounded-lg bg-surface-container-lowest border border-slate-400 text-slate-900 hover:bg-surface-container hover:border-slate-600 text-label-md font-label-md font-bold flex items-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-xs">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="sync">sync</span>
 <span>Đồng bộ GrabCast</span>
 </button>
-<!-- Primary Radiant Coral Action Button -->
-<button class="min-h-[44px] px-5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-bold text-label-md font-label-md shadow-sm border border-secondary flex items-center gap-2 transition-all duration-150 active:scale-[0.98]">
-<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
-<span>Tạo kịch bản mới</span>
+<!-- Primary Radiant Coral Action Button (≥44px, Deep high-contrast coral #c83c1c with bold #ffffff) -->
+<button class="min-h-[44px] px-5 rounded-lg bg-[#c83c1c] hover:bg-[#a62f14] text-white font-extrabold text-label-md font-label-md shadow-sm border border-[#a62f14] flex items-center gap-2 transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px] text-white font-bold" data-icon="add">add</span>
+<span class="text-white">Tạo kịch bản mới</span>
 </button>
 </div>
 </section>
 <!-- SECTION 2: TO-DO STRIP (Tactile Count Cards) -->
 <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
 <!-- Card 1: Cần duyệt -->
-<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/80 hover:border-outline flex flex-col justify-between">
+<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-slate-300 hover:border-slate-500 flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Kiểm duyệt nội dung</span>
-<span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-slate-700 font-extrabold">Kiểm duyệt nội dung</span>
+<span class="w-3 h-3 rounded-full bg-amber-600 animate-pulse"></span>
 </div>
-<div class="text-headline-md font-headline-md text-primary mt-1">Cần duyệt (3)</div>
+<div class="text-headline-md font-headline-md text-primary font-bold mt-1">Cần duyệt (3)</div>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface font-medium mt-3 pt-2 border-t border-surface-container">
+<p class="text-body-sm font-body-sm text-slate-800 font-semibold mt-3 pt-2 border-t border-surface-container">
             2 bài chờ Carlos, 1 bài chờ Ama review nội dung kịch bản.
           </p>
 </div>
 <!-- Card 2: Đang dựng -->
-<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/80 hover:border-outline flex flex-col justify-between">
+<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-slate-300 hover:border-slate-500 flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Tiến trình Render</span>
-<span class="material-symbols-outlined text-[18px] text-primary-container animate-spin" data-icon="progress_activity">progress_activity</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-slate-700 font-extrabold">Tiến trình Render</span>
+<span class="material-symbols-outlined text-[20px] text-teal-800 animate-spin" data-icon="progress_activity">progress_activity</span>
 </div>
-<div class="text-headline-md font-headline-md text-primary mt-1">Đang dựng (2)</div>
+<div class="text-headline-md font-headline-md text-primary font-bold mt-1">Đang dựng (2)</div>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface font-medium mt-3 pt-2 border-t border-surface-container">
+<p class="text-body-sm font-body-sm text-slate-800 font-semibold mt-3 pt-2 border-t border-surface-container">
             Remotion engine đang render 1080×1920 (hàng đợi 42%).
           </p>
 </div>
 <!-- Card 3: Lỗi QC -->
-<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/80 hover:border-outline flex flex-col justify-between">
+<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-slate-300 hover:border-slate-500 flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-error font-bold">Cảnh báo chất lượng</span>
-<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-red-800 font-extrabold">Cảnh báo chất lượng</span>
+<span class="w-3 h-3 rounded-full bg-red-600"></span>
 </div>
-<div class="text-headline-md font-headline-md text-secondary mt-1">Lỗi QC (1)</div>
+<div class="text-headline-md font-headline-md text-[#c83c1c] font-bold mt-1">Lỗi QC (1)</div>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface font-medium mt-3 pt-2 border-t border-surface-container">
+<p class="text-body-sm font-body-sm text-slate-800 font-semibold mt-3 pt-2 border-t border-surface-container">
             Tương phản phụ đề 4.2 &lt; 4.5:1 cần tinh chỉnh màu bóng.
           </p>
 </div>
 <!-- Card 4: Bonus KPI Weekly Goal -->
-<div class="tactile-card p-space-md rounded-xl bg-primary-container text-on-primary border border-primary flex flex-col justify-between">
+<div class="tactile-card p-space-md rounded-xl bg-primary text-white border border-teal-900 flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-primary font-bold">Chỉ số tuần</span>
-<span class="material-symbols-outlined text-primary-fixed text-[18px]" data-icon="trending_up">trending_up</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-teal-200 font-extrabold">Chỉ số tuần</span>
+<span class="material-symbols-outlined text-teal-200 text-[20px]" data-icon="trending_up">trending_up</span>
 </div>
-<div class="text-headline-md font-headline-md text-on-primary mt-1">14 video</div>
+<div class="text-headline-md font-headline-md text-white font-bold mt-1">14 video</div>
 </div>
-<div class="mt-3 pt-2 border-t border-primary-fixed-dim/30 text-body-sm font-body-sm text-on-primary font-medium flex items-center justify-between">
+<div class="mt-3 pt-2 border-t border-teal-700/60 text-body-sm font-body-sm text-white font-semibold flex items-center justify-between">
 <span>Đạt 100% mục tiêu tuần</span>
-<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary text-on-primary font-bold border border-primary-fixed-dim/30">14/14</span>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded bg-[#00302d] text-white font-extrabold border border-teal-300/40">14/14</span>
 </div>
 </div>
 </section>
@@ -443,384 +442,385 @@
 <section class="space-y-space-md">
 <div class="flex items-center justify-between flex-wrap gap-2">
 <div>
-<h2 class="text-headline-sm font-headline-sm text-primary">Hàng chờ kiểm duyệt 9:16 (Review Queue)</h2>
-<p class="text-body-sm font-body-sm text-on-surface font-medium">Kiểm tra hiển thị khung hình dọc, chất lượng âm thanh Kokoro TTS và độ tương phản chuẩn WCAG</p>
+<h2 class="text-headline-sm font-headline-sm text-primary font-bold">Hàng chờ kiểm duyệt 9:16 (Review Queue)</h2>
+<p class="text-body-sm font-body-sm text-slate-800 font-semibold">Kiểm tra hiển thị khung hình dọc, chất lượng âm thanh Kokoro TTS và độ tương phản chuẩn WCAG</p>
 </div>
-<span class="text-label-md font-label-md px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary border border-primary/30 font-bold">
+<span class="min-h-[44px] inline-flex items-center text-label-md font-label-md px-4 py-2 rounded-full bg-primary text-white border border-primary font-bold">
             3 video sẵn sàng
           </span>
 </div>
 <!-- 3 Simulated 9:16 Tall Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Card 1: Carlos / Present Perfect -->
-<div class="tactile-card bg-surface-container-lowest rounded-2xl border border-outline-variant/90 overflow-hidden flex flex-col">
+<div class="tactile-card bg-surface-container-lowest rounded-2xl border border-slate-300 overflow-hidden flex flex-col">
 <!-- Simulated 9:16 Reel Display (Tall Aspect Ratio Header) -->
-<div class="relative w-full aspect-[9/16] bg-primary flex flex-col justify-between p-4 overflow-hidden text-on-primary select-none">
+<div class="relative w-full aspect-[9/16] bg-[#003734] flex flex-col justify-between p-4 overflow-hidden text-white select-none">
 <!-- Top Overlay Indicators -->
 <div class="flex items-center justify-between z-10">
-<span class="px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-inverse-surface text-on-primary backdrop-blur-sm">0:28 · 9:16 HD</span>
-<span class="px-2.5 py-1 rounded text-[11px] font-bold bg-primary-fixed text-primary backdrop-blur-sm border border-primary-fixed-dim">Kokoro TTS (Carlos)</span>
+<span class="px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-[#1e293b] text-white shadow-xs">0:28 · 9:16 HD</span>
+<span class="px-2.5 py-1 rounded text-[11px] font-bold bg-teal-100 text-teal-950 border border-teal-300">Kokoro TTS (Carlos)</span>
 </div>
 <!-- Center Chalkboard / 2D Flat Vector Simulation -->
 <div class="my-auto text-center space-y-3 z-10">
 <!-- 2D Geometric Teacher Emblem (Carlos) -->
-<div class="w-16 h-16 mx-auto rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-md border-2 border-primary-fixed-dim">
+<div class="w-16 h-16 mx-auto rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-md border-2 border-teal-300">
 <span class="material-symbols-outlined text-[36px]" data-icon="face">face</span>
 </div>
-<div class="inline-block px-3 py-1 rounded bg-inverse-surface text-primary-fixed text-label-sm font-label-sm uppercase tracking-wider font-bold">
+<div class="inline-block px-3 py-1 rounded bg-[#0f172a] text-teal-200 text-label-sm font-label-sm uppercase tracking-wider font-extrabold">
                   Ngữ pháp phản xạ
                 </div>
-<h3 class="text-headline-sm font-headline-sm text-on-primary leading-tight px-2 font-bold">
-                  Present Perfect<br/><span class="text-primary-fixed">vs</span> Past Simple
+<h3 class="text-headline-sm font-headline-sm text-white leading-tight px-2 font-bold">
+                  Present Perfect<br/><span class="text-teal-300">vs</span> Past Simple
                 </h3>
 <!-- Subtitle Preview Pill -->
-<div class="bg-inverse-surface rounded-lg p-3 mx-2 text-left border border-outline-variant shadow-inner">
-<p class="text-label-sm font-label-sm text-primary-fixed font-bold">Preview Phụ Đề:</p>
-<p class="text-body-sm font-body-sm text-on-primary italic font-semibold leading-snug">"Have you ever eaten sushi?" vs "Did you eat sushi yesterday?"</p>
+<div class="bg-[#0f172a] rounded-lg p-3 mx-2 text-left border border-slate-700 shadow-inner">
+<p class="text-label-sm font-label-sm text-teal-300 font-extrabold">Preview Phụ Đề:</p>
+<p class="text-body-sm font-body-sm text-white italic font-semibold leading-snug">"Have you ever eaten sushi?" vs "Did you eat sushi yesterday?"</p>
 </div>
 </div>
 <!-- Bottom Reel Controls & Audio Wave Simulation -->
-<div class="z-10 pt-2 border-t border-primary-fixed-dim/30 flex items-center justify-between text-label-sm font-label-sm">
+<div class="z-10 pt-2 border-t border-teal-500/40 flex items-center justify-between text-label-sm font-label-sm">
 <div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-primary-fixed text-[18px]" data-icon="graphic_eq">graphic_eq</span>
-<span class="text-on-primary font-bold">24kHz Pitch Normal</span>
+<span class="material-symbols-outlined text-teal-300 text-[18px]" data-icon="graphic_eq">graphic_eq</span>
+<span class="text-white font-bold">24kHz Pitch Normal</span>
 </div>
-<span class="text-on-primary font-mono font-bold">1080×1920</span>
+<span class="text-white font-mono font-bold">1080×1920</span>
 </div>
 <!-- Ambient Chalkboard Texture Gradient Overlay -->
-<div class="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-inverse-surface/80 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-[#0a1212]/90 pointer-events-none"></div>
 </div>
 <!-- Card Bottom Metadata & Review Action -->
 <div class="p-space-md space-y-3 flex-1 flex flex-col justify-between bg-surface-container-lowest">
 <div class="space-y-2">
-<div class="flex items-center justify-between">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-label-sm font-label-sm font-bold bg-primary text-on-primary border border-primary">
-<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-sm font-label-sm font-extrabold bg-teal-900 text-white">
+<span class="material-symbols-outlined text-[16px] text-teal-200" data-icon="verified">verified</span>
                     Đạt QA 9.4/10 · WCAG AAA
                   </span>
-<div class="flex items-center gap-1 text-on-surface-variant">
-<span class="material-symbols-outlined text-[18px]" data-icon="smart_display" title="YouTube Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="music_note" title="TikTok">music_note</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="play_circle" title="Instagram Reels">play_circle</span>
+<div class="flex items-center gap-2 text-slate-800">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="YouTube Shorts">smart_display</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Instagram Reels">play_circle</span>
 </div>
 </div>
-<div class="text-body-sm font-body-sm text-on-surface font-medium">
+<div class="text-body-sm font-body-sm text-slate-900 font-semibold">
                   Kịch bản: Carlos giới thiệu quy tắc Timeline tương phản với ví dụ sinh hoạt thường nhật.
                 </div>
 </div>
 <div class="pt-2">
-<button class="w-full min-h-[44px] rounded-lg bg-primary hover:bg-primary-container text-on-primary font-bold text-label-md font-label-md flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-xs">
-<span class="material-symbols-outlined text-[20px]" data-icon="check_circle">check_circle</span>
+<button class="w-full min-h-[44px] rounded-lg bg-primary hover:bg-[#003431] text-white font-extrabold text-label-md font-label-md flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-xs">
+<span class="material-symbols-outlined text-[20px] text-teal-200" data-icon="check_circle">check_circle</span>
 <span>Duyệt xuất bản</span>
 </button>
 </div>
 </div>
 </div>
-<!-- Card 2: Ama / Ship vs Sheep -->
-</div></section>
+</div>
+</section>
 <!-- SECTION 4: VIDEO LIBRARY TABLE (Bảng thư viện video) -->
 <section class="space-y-space-md">
-<!-- Filter Controls Bar -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/80 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Filter Controls Bar with min-h-[44px] on all inputs, selects and filter buttons -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-slate-300 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
 <!-- Left Search & Dropdowns -->
 <div class="flex flex-wrap items-center gap-space-sm flex-1">
-<!-- Inline Search -->
+<!-- Inline Search: min-h-[44px] -->
 <div class="relative min-w-[240px] flex-1 sm:flex-none">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
-<input class="w-full pl-9 pr-3 py-1.5 text-body-sm font-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container" placeholder="Lọc tên kịch bản..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-700 text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-3 min-h-[44px] py-2 text-body-sm font-body-sm bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 placeholder:text-slate-600 font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Lọc tên kịch bản..." type="text"/>
 </div>
-<!-- Template Filter Dropdown -->
-<select class="py-1.5 pl-3 pr-8 text-body-sm font-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container">
+<!-- Template Filter Dropdown: min-h-[44px] -->
+<select class="min-h-[44px] py-2 pl-3 pr-8 text-body-sm font-body-sm font-semibold bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
 <option>Tất cả mẫu</option>
 <option>Ngữ pháp phản xạ</option>
 <option>Phát âm / Âm câm</option>
 <option>Collocations IELTS</option>
 </select>
-<!-- CEFR Level Dropdown -->
-<select class="py-1.5 pl-3 pr-8 text-body-sm font-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container">
+<!-- CEFR Level Dropdown: min-h-[44px] -->
+<select class="min-h-[44px] py-2 pl-3 pr-8 text-body-sm font-body-sm font-semibold bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
 <option>Tất cả trình độ</option>
 <option>A1-A2</option>
 <option>B1-B2</option>
 <option>C1</option>
 </select>
 </div>
-<!-- Right Status Chips / Segmented Control -->
-<div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg shrink-0">
-<button class="px-3 py-1 rounded text-label-sm font-label-sm font-bold bg-surface-container-lowest text-primary shadow-xs">
+<!-- Right Status Chips / Segmented Control: min-h-[44px] per tab button -->
+<div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg shrink-0 flex-wrap">
+<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-extrabold bg-surface-container-lowest text-primary shadow-xs border border-slate-300">
               Tất cả (16)
             </button>
-<button class="px-3 py-1 rounded text-label-sm font-label-sm text-outline hover:text-on-surface">
+<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-bold text-slate-800 hover:text-primary hover:bg-surface-container-lowest transition-colors">
               Đã lên lịch (6)
             </button>
-<button class="px-3 py-1 rounded text-label-sm font-label-sm text-outline hover:text-on-surface">
+<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-bold text-slate-800 hover:text-primary hover:bg-surface-container-lowest transition-colors">
               Đã đăng (8)
             </button>
-<button class="px-3 py-1 rounded text-label-sm font-label-sm text-outline hover:text-on-surface">
+<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-bold text-slate-800 hover:text-primary hover:bg-surface-container-lowest transition-colors">
               Bản nháp (2)
             </button>
 </div>
 </div>
 <!-- Master Data Table -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/80 overflow-hidden shadow-xs">
-<div class="overflow-x-auto">
+<div class="bg-surface-container-lowest rounded-xl border border-slate-300 overflow-hidden shadow-xs">
+<div class="overflow-x-auto w-full">
 <table class="w-full text-left border-collapse">
 <thead>
-<tr class="border-b border-surface-container bg-surface-container/40 text-label-sm font-label-sm text-outline uppercase tracking-wider">
-<th class="py-3.5 px-space-md font-semibold">Mã ID</th>
-<th class="py-3.5 px-space-md font-semibold">Tiêu đề kịch bản</th>
-<th class="py-3.5 px-space-md font-semibold">Mẫu &amp; Trình độ</th>
-<th class="py-3.5 px-space-md font-semibold">Giáo viên</th>
-<th class="py-3.5 px-space-md font-semibold">Kênh phân phối</th>
-<th class="py-3.5 px-space-md font-semibold text-right">Điểm QC &amp; Âm thanh</th>
-<th class="py-3.5 px-space-md font-semibold text-right">Lịch / Ngày đăng</th>
-<th class="py-3.5 px-space-md font-semibold text-center">Trạng thái</th>
-<th class="py-3.5 px-space-md font-semibold text-center">Thao tác</th>
+<tr class="border-b border-slate-300 bg-slate-100 text-label-sm font-label-sm text-slate-800 uppercase tracking-wider">
+<th class="py-3.5 px-space-md font-bold">Mã ID</th>
+<th class="py-3.5 px-space-md font-bold">Tiêu đề kịch bản</th>
+<th class="py-3.5 px-space-md font-bold">Mẫu &amp; Trình độ</th>
+<th class="py-3.5 px-space-md font-bold">Giáo viên</th>
+<th class="py-3.5 px-space-md font-bold">Kênh phân phối</th>
+<th class="py-3.5 px-space-md font-bold text-right">Điểm QC &amp; Âm thanh</th>
+<th class="py-3.5 px-space-md font-bold text-right">Lịch / Ngày đăng</th>
+<th class="py-3.5 px-space-md font-bold text-center">Trạng thái</th>
+<th class="py-3.5 px-space-md font-bold text-center">Thao tác</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-surface-container text-body-sm font-body-sm">
+<tbody class="divide-y divide-slate-200 text-body-sm font-body-sm">
 <!-- ROW 1 -->
-<tr class="hover:bg-surface transition-colors duration-100">
-<td class="py-3.5 px-space-md font-mono text-primary font-medium">LXK-REEL-101</td>
-<td class="py-3.5 px-space-md font-medium text-on-surface">Present perfect vs Past simple</td>
-<td class="py-3.5 px-space-md">
+<tr class="hover:bg-teal-50/40 transition-colors duration-100">
+<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-101</td>
+<td class="py-3 px-space-md font-bold text-slate-900">Present perfect vs Past simple</td>
+<td class="py-3 px-space-md">
 <span class="inline-flex items-center gap-1.5">
-<span class="text-on-surface">Ngữ pháp phản xạ</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline text-[11px] font-bold">B1</span>
+<span class="text-slate-800 font-semibold">Ngữ pháp phản xạ</span>
+<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">B1</span>
 </span>
 </td>
-<td class="py-3.5 px-space-md">
+<td class="py-3 px-space-md">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center text-[12px] font-bold">C</span>
-<span>Carlos (2D)</span>
+<span class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center text-[12px] font-extrabold">C</span>
+<span class="text-slate-800 font-semibold">Carlos (2D)</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-2 text-outline">
-<span class="material-symbols-outlined text-[18px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="music_note" title="TikTok">music_note</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="play_circle" title="Reels">play_circle</span>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2 text-slate-700">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md text-right font-medium">
-<span class="text-primary font-semibold">9.4 (AAA)</span>
-<span class="text-outline text-xs block">Kokoro TTS</span>
+<td class="py-3 px-space-md text-right font-medium">
+<span class="text-teal-900 font-extrabold">9.4 (AAA)</span>
+<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
 </td>
-<td class="py-3.5 px-space-md text-right font-mono text-outline">
+<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
 <div>18/03/2025</div>
-<div class="text-xs text-on-surface-variant font-semibold">19:30</div>
+<div class="text-xs text-slate-900 font-bold">19:30</div>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-primary/10 text-primary border border-primary/20">
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-teal-100 text-teal-950 border border-teal-400">
                       Đã lên lịch
                     </span>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<button class="h-9 px-3 rounded hover:bg-surface-container text-outline hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all">
+<td class="py-3 px-space-md text-center">
+<!-- Table action 'Xem': min-height and min-width 44px -->
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
                       Xem
                     </button>
 </td>
 </tr>
 <!-- ROW 2 -->
-<tr class="hover:bg-surface transition-colors duration-100">
-<td class="py-3.5 px-space-md font-mono text-primary font-medium">LXK-REEL-102</td>
-<td class="py-3.5 px-space-md font-medium text-on-surface">Âm câm trong "Doubt", "Debt"</td>
-<td class="py-3.5 px-space-md">
+<tr class="hover:bg-teal-50/40 transition-colors duration-100">
+<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-102</td>
+<td class="py-3 px-space-md font-bold text-slate-900">Âm câm trong "Doubt", "Debt"</td>
+<td class="py-3 px-space-md">
 <span class="inline-flex items-center gap-1.5">
-<span class="text-on-surface">Phát âm IPA</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline text-[11px] font-bold">A2</span>
+<span class="text-slate-800 font-semibold">Phát âm IPA</span>
+<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">A2</span>
 </span>
 </td>
-<td class="py-3.5 px-space-md">
+<td class="py-3 px-space-md">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center text-[12px] font-bold">C</span>
-<span>Carlos (2D)</span>
+<span class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center text-[12px] font-extrabold">C</span>
+<span class="text-slate-800 font-semibold">Carlos (2D)</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-2 text-outline">
-<span class="material-symbols-outlined text-[18px]" data-icon="music_note" title="TikTok">music_note</span>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2 text-slate-700">
+<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md text-right font-medium">
-<span class="text-primary font-semibold">9.2 (AAA)</span>
-<span class="text-outline text-xs block">Kokoro TTS</span>
+<td class="py-3 px-space-md text-right font-medium">
+<span class="text-teal-900 font-extrabold">9.2 (AAA)</span>
+<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
 </td>
-<td class="py-3.5 px-space-md text-right font-mono text-outline">
+<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
 <div>19/03/2025</div>
-<div class="text-xs text-on-surface-variant font-semibold">12:00</div>
+<div class="text-xs text-slate-900 font-bold">12:00</div>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-primary/10 text-primary border border-primary/20">
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-teal-100 text-teal-950 border border-teal-400">
                       Đã lên lịch
                     </span>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<button class="h-9 px-3 rounded hover:bg-surface-container text-outline hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all">
+<td class="py-3 px-space-md text-center">
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
                       Xem
                     </button>
 </td>
 </tr>
 <!-- ROW 3 -->
-<tr class="hover:bg-surface transition-colors duration-100">
-<td class="py-3.5 px-space-md font-mono text-primary font-medium">LXK-REEL-103</td>
-<td class="py-3.5 px-space-md font-medium text-on-surface">"Once in a blue moon" dùng khi nào?</td>
-<td class="py-3.5 px-space-md">
+<tr class="hover:bg-teal-50/40 transition-colors duration-100">
+<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-103</td>
+<td class="py-3 px-space-md font-bold text-slate-900">"Once in a blue moon" dùng khi nào?</td>
+<td class="py-3 px-space-md">
 <span class="inline-flex items-center gap-1.5">
-<span class="text-on-surface">Collocations</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline text-[11px] font-bold">B2</span>
+<span class="text-slate-800 font-semibold">Collocations</span>
+<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">B2</span>
 </span>
 </td>
-<td class="py-3.5 px-space-md">
+<td class="py-3 px-space-md">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center text-[12px] font-bold">A</span>
-<span>Ama (2D)</span>
+<span class="w-7 h-7 rounded-full bg-[#c83c1c] text-white flex items-center justify-center text-[12px] font-extrabold">A</span>
+<span class="text-slate-800 font-semibold">Ama (2D)</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-2 text-outline">
-<span class="material-symbols-outlined text-[18px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="play_circle" title="Reels">play_circle</span>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2 text-slate-700">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md text-right font-medium">
-<span class="text-amber-700 font-semibold">8.9 (AA)</span>
-<span class="text-outline text-xs block">Kokoro TTS</span>
+<td class="py-3 px-space-md text-right font-medium">
+<span class="text-amber-900 font-extrabold">8.9 (AA)</span>
+<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
 </td>
-<td class="py-3.5 px-space-md text-right font-mono text-outline">
+<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
 <div>21/03/2025</div>
-<div class="text-xs text-on-surface-variant font-semibold">20:00</div>
+<div class="text-xs text-slate-900 font-bold">20:00</div>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-amber-500/10 text-amber-700 border border-amber-500/20">
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-amber-100 text-amber-950 border border-amber-400">
                       Chờ duyệt
                     </span>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<button class="h-9 px-3 rounded hover:bg-surface-container text-outline hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all">
+<td class="py-3 px-space-md text-center">
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
                       Xem
                     </button>
 </td>
 </tr>
 <!-- ROW 4 -->
-<tr class="hover:bg-surface transition-colors duration-100">
-<td class="py-3.5 px-space-md font-mono text-primary font-medium">LXK-REEL-104</td>
-<td class="py-3.5 px-space-md font-medium text-on-surface">Ship vs Sheep - Phân biệt nguyên âm</td>
-<td class="py-3.5 px-space-md">
+<tr class="hover:bg-teal-50/40 transition-colors duration-100">
+<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-104</td>
+<td class="py-3 px-space-md font-bold text-slate-900">Ship vs Sheep - Phân biệt nguyên âm</td>
+<td class="py-3 px-space-md">
 <span class="inline-flex items-center gap-1.5">
-<span class="text-on-surface">Cặp âm ngắn/dài</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline text-[11px] font-bold">A1</span>
+<span class="text-slate-800 font-semibold">Cặp âm ngắn/dài</span>
+<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">A1</span>
 </span>
 </td>
-<td class="py-3.5 px-space-md">
+<td class="py-3 px-space-md">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center text-[12px] font-bold">C</span>
-<span>Carlos (2D)</span>
+<span class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center text-[12px] font-extrabold">C</span>
+<span class="text-slate-800 font-semibold">Carlos (2D)</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-2 text-outline">
-<span class="material-symbols-outlined text-[18px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="music_note" title="TikTok">music_note</span>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2 text-slate-700">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md text-right font-medium">
-<span class="text-primary font-semibold">9.5 (AAA)</span>
-<span class="text-outline text-xs block">Kokoro TTS</span>
+<td class="py-3 px-space-md text-right font-medium">
+<span class="text-teal-900 font-extrabold">9.5 (AAA)</span>
+<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
 </td>
-<td class="py-3.5 px-space-md text-right font-mono text-outline">
+<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
 <div>22/03/2025</div>
-<div class="text-xs text-on-surface-variant font-semibold">10:00</div>
+<div class="text-xs text-slate-900 font-bold">10:00</div>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-blue-500/10 text-blue-700 border border-blue-500/20">
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-blue-100 text-blue-950 border border-blue-400">
                       Đang dựng
                     </span>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<button class="h-9 px-3 rounded hover:bg-surface-container text-outline hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all">
+<td class="py-3 px-space-md text-center">
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
                       Xem
                     </button>
 </td>
 </tr>
 <!-- ROW 5 -->
-<tr class="hover:bg-surface transition-colors duration-100">
-<td class="py-3.5 px-space-md font-mono text-primary font-medium">LXK-REEL-105</td>
-<td class="py-3.5 px-space-md font-medium text-on-surface">"Pay attention" vs "Draw attention"</td>
-<td class="py-3.5 px-space-md">
+<tr class="hover:bg-teal-50/40 transition-colors duration-100">
+<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-105</td>
+<td class="py-3 px-space-md font-bold text-slate-900">"Pay attention" vs "Draw attention"</td>
+<td class="py-3 px-space-md">
 <span class="inline-flex items-center gap-1.5">
-<span class="text-on-surface">IELTS Writing Task 2</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline text-[11px] font-bold">B2</span>
+<span class="text-slate-800 font-semibold">IELTS Writing Task 2</span>
+<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">B2</span>
 </span>
 </td>
-<td class="py-3.5 px-space-md">
+<td class="py-3 px-space-md">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center text-[12px] font-bold">A</span>
-<span>Ama (2D)</span>
+<span class="w-7 h-7 rounded-full bg-[#c83c1c] text-white flex items-center justify-center text-[12px] font-extrabold">A</span>
+<span class="text-slate-800 font-semibold">Ama (2D)</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-2 text-outline">
-<span class="material-symbols-outlined text-[18px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="music_note" title="TikTok">music_note</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="play_circle" title="Reels">play_circle</span>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2 text-slate-700">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md text-right font-medium">
-<span class="text-primary font-semibold">9.0 (AAA)</span>
-<span class="text-outline text-xs block">Kokoro TTS</span>
+<td class="py-3 px-space-md text-right font-medium">
+<span class="text-teal-900 font-extrabold">9.0 (AAA)</span>
+<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
 </td>
-<td class="py-3.5 px-space-md text-right font-mono text-outline">
+<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
 <div>17/03/2025</div>
-<div class="text-xs text-outline">Hoàn tất</div>
+<div class="text-xs text-slate-900 font-bold">Hoàn tất</div>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-surface-container text-on-surface-variant border border-outline-variant/60">
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-slate-200 text-slate-900 border border-slate-400">
                       Đã xuất bản (82 lượt xem)
                     </span>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<button class="h-9 px-3 rounded hover:bg-surface-container text-outline hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all">
+<td class="py-3 px-space-md text-center">
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
                       Xem
                     </button>
 </td>
 </tr>
 <!-- ROW 6 -->
-<tr class="hover:bg-surface transition-colors duration-100">
-<td class="py-3.5 px-space-md font-mono text-primary font-medium">LXK-REEL-106</td>
-<td class="py-3.5 px-space-md font-medium text-on-surface">5 cấu trúc ăn điểm mở bài Writing</td>
-<td class="py-3.5 px-space-md">
+<tr class="hover:bg-teal-50/40 transition-colors duration-100">
+<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-106</td>
+<td class="py-3 px-space-md font-bold text-slate-900">5 cấu trúc ăn điểm mở bài Writing</td>
+<td class="py-3 px-space-md">
 <span class="inline-flex items-center gap-1.5">
-<span class="text-on-surface">Mẫu câu Academic</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline text-[11px] font-bold">C1</span>
+<span class="text-slate-800 font-semibold">Mẫu câu Academic</span>
+<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">C1</span>
 </span>
 </td>
-<td class="py-3.5 px-space-md">
+<td class="py-3 px-space-md">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center text-[12px] font-bold">A</span>
-<span>Ama (2D)</span>
+<span class="w-7 h-7 rounded-full bg-[#c83c1c] text-white flex items-center justify-center text-[12px] font-extrabold">A</span>
+<span class="text-slate-800 font-semibold">Ama (2D)</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-2 text-outline">
-<span class="material-symbols-outlined text-[18px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="play_circle" title="Reels">play_circle</span>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2 text-slate-700">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
 </div>
 </td>
-<td class="py-3.5 px-space-md text-right font-medium">
-<span class="text-primary font-semibold">9.3 (AAA)</span>
-<span class="text-outline text-xs block">Kokoro TTS</span>
+<td class="py-3 px-space-md text-right font-medium">
+<span class="text-teal-900 font-extrabold">9.3 (AAA)</span>
+<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
 </td>
-<td class="py-3.5 px-space-md text-right font-mono text-outline">
+<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
 <div>16/03/2025</div>
-<div class="text-xs text-outline">Hoàn tất</div>
+<div class="text-xs text-slate-900 font-bold">Hoàn tất</div>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-surface-container text-on-surface-variant border border-outline-variant/60">
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-slate-200 text-slate-900 border border-slate-400">
                       Đã xuất bản (145 lượt xem)
                     </span>
 </td>
-<td class="py-3.5 px-space-md text-center">
-<button class="h-9 px-3 rounded hover:bg-surface-container text-outline hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all">
+<td class="py-3 px-space-md text-center">
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
                       Xem
                     </button>
 </td>
@@ -828,26 +828,26 @@
 </tbody>
 </table>
 </div>
-<!-- Pagination Bar -->
-<div class="p-space-md border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-lowest text-body-sm font-body-sm">
-<span class="text-outline">
-              Hiển thị <span class="font-semibold text-on-surface">6</span> trên tổng số <span class="font-semibold text-on-surface">16</span> video
+<!-- Pagination Bar with all buttons min 44x44px and deep text colors -->
+<div class="p-space-md border-t border-slate-300 flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-lowest text-body-sm font-body-sm">
+<span class="text-slate-800 font-medium">
+              Hiển thị <span class="font-extrabold text-slate-950">6</span> trên tổng số <span class="font-extrabold text-slate-950">16</span> video
             </span>
-<div class="flex items-center gap-1">
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container disabled:opacity-40" disabled="">
-<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+<div class="flex items-center gap-1.5">
+<button aria-label="Trang trước" class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-700 hover:text-slate-950 hover:bg-surface-container border border-slate-300 disabled:opacity-40 transition-colors" disabled="">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_left">chevron_left</span>
 </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center bg-primary text-on-primary font-semibold text-label-sm font-label-sm">
+<button aria-current="page" class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center bg-primary text-white font-extrabold text-body-sm shadow-xs border border-primary">
                 1
               </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container text-label-sm font-label-sm">
+<button class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-900 hover:bg-surface-container font-extrabold text-body-sm border border-slate-300 transition-colors">
                 2
               </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container text-label-sm font-label-sm">
+<button class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-900 hover:bg-surface-container font-extrabold text-body-sm border border-slate-300 transition-colors">
                 3
               </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container">
-<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+<button aria-label="Trang sau" class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-700 hover:text-slate-950 hover:bg-surface-container border border-slate-300 transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
 </button>
 </div>
 </div>

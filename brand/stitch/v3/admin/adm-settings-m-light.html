@@ -167,7 +167,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen pb-44 selection:bg-primary-fixed selection:text-primary">
 <!-- Mobile Viewport Shell (Constraint: iPhone ~390px) -->
 <div class="max-w-md mx-auto w-full min-h-screen relative flex flex-col bg-surface">
@@ -211,16 +211,7 @@
 </div>
 <div class="h-[1px] bg-surface-container w-full"></div>
 <!-- Toggle Row -->
-<div class="flex items-center justify-between py-1 min-h-[44px]">
-<div>
-<label class="text-title-sm font-title-sm text-on-surface block cursor-pointer" for="toggle-banner">Bật hiển thị banner</label>
-<span class="text-body-sm font-body-sm text-outline">Kích hoạt trên toàn bộ miền Lexkite</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer select-none">
-<input checked="" class="sr-only peer" id="toggle-banner" type="checkbox"/>
-<div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
-</label>
-</div>
+<div class="flex items-center justify-between py-1 min-h-[44px]"><div><label class="text-title-sm font-title-sm text-on-surface block cursor-pointer" for="toggle-banner">Bật hiển thị banner</label><span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Kích hoạt trên toàn bộ miền Lexkite</span></div><label class="relative min-w-[56px] min-h-[44px] inline-flex items-center justify-center cursor-pointer select-none" for="toggle-banner"><input checked="" class="sr-only peer" id="toggle-banner" type="checkbox"/><div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[8px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div></label></div>
 <!-- Banner Content Input -->
 <div class="space-y-1.5">
 <label class="text-label-md font-label-md text-on-surface" for="banner-content">Nội dung thông báo (hỗ trợ tiếng Việt)</label>
@@ -239,38 +230,10 @@
 <!-- Segmented Selector -->
 <div class="space-y-2">
 <span class="text-label-md font-label-md text-on-surface block">Kiểu thông báo</span>
-<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container rounded-xl border border-border-subtle">
-<button class="py-2 px-1 text-center rounded-lg text-label-sm font-label-sm bg-surface-card text-primary font-bold shadow-xs border border-border-subtle truncate transition-all" type="button">
-              Tin mới (Mint)
-            </button>
-<button class="py-2 px-1 text-center rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface truncate transition-all" type="button">
-              Cảnh báo bảo trì
-            </button>
-<button class="py-2 px-1 text-center rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface truncate transition-all" type="button">
-              Khảo sát
-            </button>
-</div>
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container rounded-xl border border-border-subtle"><button class="min-h-[44px] py-2 px-2 text-center rounded-lg text-label-sm font-label-sm bg-surface-card text-primary font-bold shadow-xs border border-border-subtle truncate transition-all inline-flex items-center justify-center" type="button">Tin mới (Mint)</button><button class="min-h-[44px] py-2 px-2 text-center rounded-lg text-label-sm font-label-sm text-on-surface hover:text-primary truncate transition-all inline-flex items-center justify-center font-medium" type="button">Cảnh báo bảo trì</button><button class="min-h-[44px] py-2 px-2 text-center rounded-lg text-label-sm font-label-sm text-on-surface hover:text-primary truncate transition-all inline-flex items-center justify-center font-medium" type="button">Khảo sát</button></div>
 </div>
 <!-- Live Preview Box -->
-<div class="pt-1">
-<div class="flex items-center justify-between mb-1.5">
-<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Xem trước trên ứng dụng</span>
-<span class="text-label-sm font-label-sm text-primary-container flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">smartphone</span> Thiết bị học viên
-            </span>
-</div>
-<div class="bg-surface-container-low border border-primary-fixed rounded-xl p-2.5 flex items-center justify-between gap-2 shadow-xs">
-<div class="flex items-center gap-2 min-w-0">
-<span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">campaign</span>
-<p class="font-body-sm text-body-sm text-primary truncate leading-tight">
-                🎉 Lexkite ra mắt 50 cụm từ Collocation chủ đề Môi trường...
-              </p>
-</div>
-<button aria-label="Đóng" class="w-6 h-6 flex items-center justify-center text-outline hover:text-on-surface flex-shrink-0 rounded-full hover:bg-surface-card" type="button">
-<span class="material-symbols-outlined text-[16px]">close</span>
-</button>
-</div>
-</div>
+<div class="pt-1"><div class="flex items-center justify-between mb-1.5"><span class="text-label-sm font-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Xem trước trên ứng dụng</span><span class="text-label-sm font-label-sm text-primary font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">smartphone</span> Thiết bị học viên</span></div><div class="bg-surface-container-low border border-primary-fixed rounded-xl p-2.5 flex items-center justify-between gap-2 shadow-xs min-h-[44px]"><div class="flex items-center gap-2 min-w-0 flex-1"><span class="material-symbols-outlined text-primary-container text-[20px] flex-shrink-0">campaign</span><p class="font-body-sm text-body-sm text-primary truncate leading-tight font-medium">🎉 Lexkite ra mắt 50 cụm từ Collocation chủ đề Môi trường...</p></div><button aria-label="Đóng" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface-variant hover:text-on-surface flex-shrink-0 rounded-lg hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button></div></div>
 </section>
 <!-- Card 2: AI Limits & Daily Quota Steppers -->
 <section class="bg-surface-card rounded-2xl border border-border-subtle tactile-card p-4 space-y-4">
@@ -285,96 +248,7 @@
 </div>
 <div class="h-[1px] bg-surface-container w-full"></div>
 <!-- Stepper List -->
-<div class="space-y-4">
-<!-- Stepper Item 1 -->
-<div class="space-y-2 pb-3 border-b border-surface-container">
-<div class="flex justify-between items-start gap-2">
-<div class="min-w-0">
-<span class="font-title-sm text-title-sm text-on-surface block">Chấm câu Writing Task 2</span>
-<span class="font-body-sm text-body-sm text-outline block">Mô hình Gemini 1.5 Flash - sửa ngữ pháp &amp; từ vựng</span>
-</div>
-<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap">88% tải</span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Đã dùng: <strong class="text-primary font-bold">88</strong> / 100 bài</span>
-<div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs">
-<button aria-label="Giảm" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="font-headline-sm text-title-sm text-primary font-bold px-3 min-w-[70px] text-center">100</span>
-<button aria-label="Tăng" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Stepper Item 2 -->
-<div class="space-y-2 pb-3 border-b border-surface-container">
-<div class="flex justify-between items-start gap-2">
-<div class="min-w-0">
-<span class="font-title-sm text-title-sm text-on-surface block">Tra cứu từ vựng &amp; Collocation</span>
-<span class="font-body-sm text-body-sm text-outline block">OpenAI GPT-4o mini - phân tích ngữ cảnh</span>
-</div>
-<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap">76% tải</span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Đã dùng: <strong class="text-primary font-bold">382</strong> / 500 lượt</span>
-<div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs">
-<button aria-label="Giảm" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="font-headline-sm text-title-sm text-primary font-bold px-3 min-w-[70px] text-center">500</span>
-<button aria-label="Tăng" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Stepper Item 3 -->
-<div class="space-y-2 pb-3 border-b border-surface-container">
-<div class="flex justify-between items-start gap-2">
-<div class="min-w-0">
-<span class="font-title-sm text-title-sm text-on-surface block">Sinh giọng đọc mẫu (TTS)</span>
-<span class="font-body-sm text-body-sm text-outline block">Kokoro TTS Edge (cục bộ) &amp; ElevenLabs dự phòng</span>
-</div>
-<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap">42% tải</span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Đã dùng: <strong class="text-primary font-bold">212</strong> / 500 lần</span>
-<div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs">
-<button aria-label="Giảm" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="font-headline-sm text-title-sm text-primary font-bold px-3 min-w-[70px] text-center">500</span>
-<button aria-label="Tăng" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Stepper Item 4 -->
-<div class="space-y-2">
-<div class="flex justify-between items-start gap-2">
-<div class="min-w-0">
-<span class="font-title-sm text-title-sm text-on-surface block">Đồng bộ thẻ nhớ Flashcards (FSRS)</span>
-<span class="font-body-sm text-body-sm text-outline block">Cloudflare D1 batch sync mỗi học viên</span>
-</div>
-<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap">31% tải</span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Đã dùng: <strong class="text-primary font-bold">624</strong> / 2.000 batch</span>
-<div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs">
-<button aria-label="Giảm" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="font-headline-sm text-title-sm text-primary font-bold px-3 min-w-[70px] text-center">2.000</span>
-<button aria-label="Tăng" class="w-8 h-8 flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-</div>
+<div class="space-y-4"><div class="space-y-2 pb-3 border-b border-surface-container"><div class="flex justify-between items-start gap-2"><div class="min-w-0"><span class="font-title-sm text-title-sm text-on-surface block font-semibold">Chấm câu Writing Task 2</span><span class="font-body-sm text-body-sm text-on-surface-variant block font-medium">Mô hình Gemini 1.5 Flash - sửa ngữ pháp &amp; từ vựng</span></div><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap font-bold">88% tải</span></div><div class="flex items-center justify-between pt-1"><span class="text-body-sm font-body-sm text-on-surface font-medium">Đã dùng: <strong class="text-primary font-bold">88</strong> / 100 bài</span><div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs"><button aria-label="Giảm" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">remove</span></button><span class="font-headline-sm text-title-sm text-primary font-bold px-2 min-w-[50px] text-center">100</span><button aria-label="Tăng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">add</span></button></div></div></div><div class="space-y-2 pb-3 border-b border-surface-container"><div class="flex justify-between items-start gap-2"><div class="min-w-0"><span class="font-title-sm text-title-sm text-on-surface block font-semibold">Tra cứu từ vựng &amp; Collocation</span><span class="font-body-sm text-body-sm text-on-surface-variant block font-medium">OpenAI GPT-4o mini - phân tích ngữ cảnh</span></div><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap font-bold">76% tải</span></div><div class="flex items-center justify-between pt-1"><span class="text-body-sm font-body-sm text-on-surface font-medium">Đã dùng: <strong class="text-primary font-bold">382</strong> / 500 lượt</span><div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs"><button aria-label="Giảm" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">remove</span></button><span class="font-headline-sm text-title-sm text-primary font-bold px-2 min-w-[50px] text-center">500</span><button aria-label="Tăng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">add</span></button></div></div></div><div class="space-y-2 pb-3 border-b border-surface-container"><div class="flex justify-between items-start gap-2"><div class="min-w-0"><span class="font-title-sm text-title-sm text-on-surface block font-semibold">Sinh giọng đọc mẫu (TTS)</span><span class="font-body-sm text-body-sm text-on-surface-variant block font-medium">Kokoro TTS Edge (cục bộ) &amp; ElevenLabs dự phòng</span></div><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap font-bold">42% tải</span></div><div class="flex items-center justify-between pt-1"><span class="text-body-sm font-body-sm text-on-surface font-medium">Đã dùng: <strong class="text-primary font-bold">212</strong> / 500 lần</span><div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs"><button aria-label="Giảm" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">remove</span></button><span class="font-headline-sm text-title-sm text-primary font-bold px-2 min-w-[50px] text-center">500</span><button aria-label="Tăng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">add</span></button></div></div></div><div class="space-y-2"><div class="flex justify-between items-start gap-2"><div class="min-w-0"><span class="font-title-sm text-title-sm text-on-surface block font-semibold">Đồng bộ thẻ nhớ Flashcards (FSRS)</span><span class="font-body-sm text-body-sm text-on-surface-variant block font-medium">Cloudflare D1 batch sync mỗi học viên</span></div><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface text-primary border border-border-subtle whitespace-nowrap font-bold">31% tải</span></div><div class="flex items-center justify-between pt-1"><span class="text-body-sm font-body-sm text-on-surface font-medium">Đã dùng: <strong class="text-primary font-bold">624</strong> / 2.000 batch</span><div class="inline-flex items-center bg-surface border border-border-subtle rounded-xl p-0.5 shadow-xs"><button aria-label="Giảm" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">remove</span></button><span class="font-headline-sm text-title-sm text-primary font-bold px-2 min-w-[50px] text-center">2.000</span><button aria-label="Tăng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary active:bg-surface-container hover:bg-surface-card transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">add</span></button></div></div></div></div>
 <!-- Guard Policy Note Card -->
 <div class="bg-surface p-3 rounded-xl border border-border-subtle flex items-start gap-2.5">
 <span class="material-symbols-outlined text-secondary-container text-[20px] flex-shrink-0 mt-0.5">shield</span>
@@ -395,64 +269,7 @@
 </div>
 </div>
 <div class="h-[1px] bg-surface-container w-full"></div>
-<div class="divide-y divide-surface-container">
-<!-- Toggle 1 -->
-<div class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="font-title-sm text-title-sm text-on-surface">Cảnh báo tức thì qua Telegram bot</span>
-<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container-low text-primary-container border border-primary-fixed">Bật</span>
-</div>
-<p class="font-body-sm text-body-sm text-outline mt-0.5">Gửi tin nhắn khi tác vụ Cron thất bại hoặc API quá 85% hạn ngạch</p>
-</div>
-<label class="relative inline-flex items-center cursor-pointer select-none flex-shrink-0 mt-1">
-<input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
-</label>
-</div>
-<!-- Toggle 2 -->
-<div class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="font-title-sm text-title-sm text-on-surface">Kiểm định định kỳ sức khỏe sao lưu Drive</span>
-<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container-low text-primary-container border border-primary-fixed">Bật</span>
-</div>
-<p class="font-body-sm text-body-sm text-outline mt-0.5">Quét chu kỳ 15 phút, đảm bảo tối thiểu 2 bản sao độc lập (D1/D2/D3)</p>
-</div>
-<label class="relative inline-flex items-center cursor-pointer select-none flex-shrink-0 mt-1">
-<input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
-</label>
-</div>
-<!-- Toggle 3 -->
-<div class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="font-title-sm text-title-sm text-on-surface">Tự động ngắt render video khi chạm 95% Cloud Run</span>
-<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container-low text-primary-container border border-primary-fixed">Bật</span>
-</div>
-<p class="font-body-sm text-body-sm text-outline mt-0.5">Dừng dây chuyền Remotion để tránh phát sinh chi phí ngoài dự kiến</p>
-</div>
-<label class="relative inline-flex items-center cursor-pointer select-none flex-shrink-0 mt-1">
-<input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
-</label>
-</div>
-<!-- Toggle 4 -->
-<div class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="font-title-sm text-title-sm text-on-surface">Chế độ Debug chi tiết (Verbose logs)</span>
-<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container text-text-muted border border-border-subtle">Tắt</span>
-</div>
-<p class="font-body-sm text-body-sm text-outline mt-0.5">Ghi nhật ký chi tiết mã lỗi V8 Edge Isolates vào Cloudflare Logflare</p>
-</div>
-<label class="relative inline-flex items-center cursor-pointer select-none flex-shrink-0 mt-1">
-<input class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
-</label>
-</div>
-</div>
+<div class="divide-y divide-surface-container"><div class="py-3 first:pt-0 last:pb-0 flex items-center justify-between gap-3 min-h-[44px]"><div class="flex-1 min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><label class="font-title-sm text-title-sm text-on-surface font-semibold cursor-pointer" for="toggle-alert-bot">Cảnh báo tức thì qua Telegram bot</label><span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container-low text-primary-container border border-primary-fixed">Bật</span></div><p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">Gửi tin nhắn khi tác vụ Cron thất bại hoặc API quá 85% hạn ngạch</p></div><label class="relative min-w-[56px] min-h-[44px] inline-flex items-center justify-center cursor-pointer select-none flex-shrink-0" for="toggle-alert-bot"><input checked="" class="sr-only peer" id="toggle-alert-bot" type="checkbox"/><div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[8px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div></label></div><div class="py-3 first:pt-0 last:pb-0 flex items-center justify-between gap-3 min-h-[44px]"><div class="flex-1 min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><label class="font-title-sm text-title-sm text-on-surface font-semibold cursor-pointer" for="toggle-drive-backup">Kiểm định định kỳ sức khỏe sao lưu Drive</label><span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container-low text-primary-container border border-primary-fixed">Bật</span></div><p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">Quét chu kỳ 15 phút, đảm bảo tối thiểu 2 bản sao độc lập (D1/D2/D3)</p></div><label class="relative min-w-[56px] min-h-[44px] inline-flex items-center justify-center cursor-pointer select-none flex-shrink-0" for="toggle-drive-backup"><input checked="" class="sr-only peer" id="toggle-drive-backup" type="checkbox"/><div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[8px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div></label></div><div class="py-3 first:pt-0 last:pb-0 flex items-center justify-between gap-3 min-h-[44px]"><div class="flex-1 min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><label class="font-title-sm text-title-sm text-on-surface font-semibold cursor-pointer" for="toggle-video-render">Tự động ngắt render video khi chạm 95% Cloud Run</label><span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container-low text-primary-container border border-primary-fixed">Bật</span></div><p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">Dừng dây chuyền Remotion để tránh phát sinh chi phí ngoài dự kiến</p></div><label class="relative min-w-[56px] min-h-[44px] inline-flex items-center justify-center cursor-pointer select-none flex-shrink-0" for="toggle-video-render"><input checked="" class="sr-only peer" id="toggle-video-render" type="checkbox"/><div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[8px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div></label></div><div class="py-3 first:pt-0 last:pb-0 flex items-center justify-between gap-3 min-h-[44px]"><div class="flex-1 min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><label class="font-title-sm text-title-sm text-on-surface font-semibold cursor-pointer" for="toggle-debug-logs">Chế độ Debug chi tiết (Verbose logs)</label><span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container text-text-muted border border-border-subtle">Tắt</span></div><p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">Ghi nhật ký chi tiết mã lỗi V8 Edge Isolates vào Cloudflare Logflare</p></div><label class="relative min-w-[56px] min-h-[44px] inline-flex items-center justify-center cursor-pointer select-none flex-shrink-0" for="toggle-debug-logs"><input class="sr-only peer" id="toggle-debug-logs" type="checkbox"/><div class="w-11 h-6 bg-border-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[8px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div></label></div></div>
 </section>
 <!-- Card 4: Analytics Telemetry Sampling -->
 <section class="bg-surface-card rounded-2xl border border-border-subtle tactile-card p-4 space-y-4">
@@ -489,12 +306,7 @@
             </p>
 </div>
 <!-- Preset buttons -->
-<div class="flex items-center gap-1.5 pt-1">
-<button class="flex-1 py-1.5 rounded-lg border border-border-subtle text-label-sm font-label-sm text-on-surface-variant hover:bg-surface" type="button">25%</button>
-<button class="flex-1 py-1.5 rounded-lg border border-border-subtle text-label-sm font-label-sm text-on-surface-variant hover:bg-surface" type="button">50%</button>
-<button class="flex-1 py-1.5 rounded-lg border border-border-subtle text-label-sm font-label-sm text-on-surface-variant hover:bg-surface" type="button">75%</button>
-<button class="flex-1 py-1.5 rounded-lg border border-primary-container bg-surface text-label-sm font-label-sm font-bold text-primary shadow-xs" type="button">100%</button>
-</div>
+<div class="flex items-center gap-1.5 pt-1"><button class="flex-1 min-h-[44px] py-2 rounded-lg border border-border-subtle text-label-sm font-label-sm text-on-surface font-semibold hover:bg-surface flex items-center justify-center transition-colors" type="button">25%</button><button class="flex-1 min-h-[44px] py-2 rounded-lg border border-border-subtle text-label-sm font-label-sm text-on-surface font-semibold hover:bg-surface flex items-center justify-center transition-colors" type="button">50%</button><button class="flex-1 min-h-[44px] py-2 rounded-lg border border-border-subtle text-label-sm font-label-sm text-on-surface font-semibold hover:bg-surface flex items-center justify-center transition-colors" type="button">75%</button><button class="flex-1 min-h-[44px] py-2 rounded-lg border border-primary-container bg-surface text-label-sm font-label-sm font-bold text-primary shadow-xs flex items-center justify-center transition-colors" type="button">100%</button></div>
 </div>
 </section>
 <!-- Card 5: Version & Backup Information -->
@@ -547,27 +359,6 @@
 </div>
 <!-- BottomNavBar (Shared Component Implementation) -->
 <!-- Destination 4: "Cài đặt" is Active -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-md mx-auto bg-surface-card dark:bg-inverse-surface border-t border-border-subtle dark:border-outline-variant shadow-[0_-4px_16px_rgba(13,92,88,0.06)] dark:shadow-none">
-<!-- 1. Tổng quan -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1.5 px-3 hover:bg-surface-container dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150 min-w-[64px]" href="#dashboard">
-<span class="material-symbols-outlined text-[22px]">dashboard</span>
-<span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
-</a>
-<!-- 2. Kênh -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1.5 px-3 hover:bg-surface-container dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150 min-w-[64px]" href="#channels">
-<span class="material-symbols-outlined text-[22px]">hub</span>
-<span class="text-label-sm font-label-sm mt-0.5">Kênh</span>
-</a>
-<!-- 3. Hạn mức -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1.5 px-3 hover:bg-surface-container dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150 min-w-[64px]" href="#limits">
-<span class="material-symbols-outlined text-[22px]">tune</span>
-<span class="text-label-sm font-label-sm mt-0.5">Hạn mức</span>
-</a>
-<!-- 4. Cài đặt (ACTIVE DESTINATION) -->
-<a class="flex flex-col items-center justify-center bg-surface-container-low dark:bg-surface-variant text-secondary-container dark:text-coral-hover font-bold rounded-xl py-1.5 px-3 hover:bg-surface-container dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150 min-w-[64px]" href="#settings">
-<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">settings</span>
-<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
-</a>
-</nav>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-md mx-auto bg-surface-card dark:bg-inverse-surface border-t border-border-subtle dark:border-outline-variant shadow-[0_-4px_16px_rgba(13,92,88,0.06)] dark:shadow-none"><a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[56px] min-h-[48px] py-1 px-2 hover:bg-surface-container rounded-xl active:scale-95 transition-transform duration-150" href="#dashboard"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="text-label-sm font-label-sm mt-0.5 font-medium">Tổng quan</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[56px] min-h-[48px] py-1 px-2 hover:bg-surface-container rounded-xl active:scale-95 transition-transform duration-150" href="#channels"><span class="material-symbols-outlined text-[22px]">hub</span><span class="text-label-sm font-label-sm mt-0.5 font-medium">Kênh</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[56px] min-h-[48px] py-1 px-2 hover:bg-surface-container rounded-xl active:scale-95 transition-transform duration-150" href="#limits"><span class="material-symbols-outlined text-[22px]">tune</span><span class="text-label-sm font-label-sm mt-0.5 font-medium">Hạn mức</span></a><a class="flex flex-col items-center justify-center bg-surface-container-low text-secondary-container font-bold rounded-xl min-w-[56px] min-h-[48px] py-1 px-2 active:scale-95 transition-transform duration-150" href="#settings"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">settings</span><span class="text-label-sm font-label-sm mt-0.5 font-bold">Cài đặt</span></a></nav>
 </div>
 </body></html>

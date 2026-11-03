@@ -167,24 +167,18 @@
 <!-- 1. Top App Bar (native mobile, h-14, sticky top) -->
 <header class="sticky top-0 z-40 bg-[#091518]/95 backdrop-blur-md border-b border-[#26393e] shadow-sm flex items-center justify-between px-4 h-14 w-full">
 <div class="flex items-center gap-2">
-<button aria-label="Menu điều hướng" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-lg text-primary hover:bg-[#162125] active:scale-95 transition-transform">
-<span class="material-symbols-outlined text-primary">menu</span>
-</button>
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] -ml-1 flex items-center justify-center rounded-lg text-primary hover:bg-[#162125] active:scale-95 transition-transform"><span class="material-symbols-outlined text-primary">menu</span></button>
 <div class="flex flex-col">
 <div class="flex items-center gap-1.5">
 <h1 class="text-title-md font-title-md text-[#f1f5f9] font-bold tracking-tight">Quảng cáo</h1>
 <span class="px-1.5 py-0.5 text-[10px] font-bold font-data-mono bg-[#162125] text-primary rounded border border-[#26393e]">v2.4.1</span>
 </div>
-<span class="text-[10px] font-label-sm text-[#879391] leading-tight">Admin › Quản lý quảng cáo</span>
+<span class="text-[10px] font-label-sm text-[#94a3b8] leading-tight">Admin › Quản lý quảng cáo</span>
 </div>
 </div>
 <div class="flex items-center gap-1.5">
-<button aria-label="Làm mới dữ liệu" class="w-9 h-9 flex items-center justify-center rounded-lg text-[#bcc9c7] hover:bg-[#162125] active:scale-95 transition-transform">
-<span class="material-symbols-outlined text-[19px]">refresh</span>
-</button>
-<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold border border-primary/30 shadow-inner" title="Hoàng Minh (Admin)">
-          HM
-        </div>
+<button aria-label="Làm mới dữ liệu" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#bcc9c7] hover:bg-[#162125] active:scale-95 transition-transform"><span class="material-symbols-outlined text-[19px]">refresh</span></button>
+<div class="min-w-[44px] min-h-[44px] rounded-full bg-[#114b47] text-white flex items-center justify-center text-xs font-bold border border-primary/40 shadow-inner" title="Hoàng Minh (Admin)">HM</div>
 </div>
 </header>
 <!-- Main Content Canvas -->
@@ -500,12 +494,7 @@
 <span class="text-[11px] text-[#94a3b8]">Không chèn quảng cáo trong</span>
 </div>
 <!-- Discrete Chips (44px min tap) -->
-<div class="flex items-center gap-1">
-<button class="h-11 px-2.5 rounded-md text-[11px] font-bold bg-[#162125] text-[#94a3b8] border border-[#26393e] shadow-xs active:scale-95">3d</button>
-<button class="h-11 px-2.5 rounded-md text-[11px] font-bold bg-[#162125] text-[#94a3b8] border border-[#26393e] shadow-xs active:scale-95">5d</button>
-<button class="h-11 px-3 rounded-md text-[12px] font-bold bg-primary-container text-white shadow-sm active:scale-95 border border-primary/40">7 ngày</button>
-<button class="h-11 px-2.5 rounded-md text-[11px] font-bold bg-[#162125] text-[#94a3b8] border border-[#26393e] shadow-xs active:scale-95">14d</button>
-</div>
+<div class="flex items-center gap-1"><button class="min-h-[44px] min-w-[44px] px-2.5 rounded-md text-[11px] font-bold bg-[#162125] text-[#94a3b8] border border-[#26393e] shadow-xs active:scale-95">3d</button><button class="min-h-[44px] min-w-[44px] px-2.5 rounded-md text-[11px] font-bold bg-[#162125] text-[#94a3b8] border border-[#26393e] shadow-xs active:scale-95">5d</button><button class="min-h-[44px] min-w-[44px] px-3 rounded-md text-[12px] font-bold bg-primary-container text-white shadow-sm active:scale-95 border border-primary/40">7 ngày</button><button class="min-h-[44px] min-w-[44px] px-2.5 rounded-md text-[11px] font-bold bg-[#162125] text-[#94a3b8] border border-[#26393e] shadow-xs active:scale-95">14d</button></div>
 </div>
 <div class="mt-2.5 flex items-center justify-between text-[11px] font-label-sm text-[#94a3b8] px-1">
 <span>Tỉ lệ duy trì D7 được bảo vệ:</span>
@@ -567,40 +556,10 @@
 </div>
 </section>
 <!-- 8. Nút hành động chính dưới cùng (Primary Coral CTA) -->
-<div class="pt-1 pb-4">
-<button aria-label="Lưu cấu hình quảng cáo" class="tactile-btn-coral w-full h-12 rounded-xl text-white font-title-md font-bold flex items-center justify-center gap-2 text-center">
-<span class="material-symbols-outlined text-[20px]">save</span>
-<span>Lưu cấu hình quảng cáo</span>
-</button>
-<div class="mt-2 flex items-center justify-center gap-1.5 text-center text-[11px] text-[#879391] font-medium">
-<span class="material-symbols-outlined text-[14px] text-primary">cloud_done</span>
-<span>Đã đồng bộ Cloudflare KV · Phiên bản phân phối tức thời</span>
-</div>
-</div>
+<div class="pt-1 pb-4"><button aria-label="Lưu cấu hình quảng cáo" class="tactile-btn-coral w-full min-h-[48px] h-12 rounded-xl text-white font-title-md font-bold flex items-center justify-center gap-2 text-center"><span class="material-symbols-outlined text-[20px]">save</span><span>Lưu cấu hình quảng cáo</span></button><div class="mt-2 flex items-center justify-center gap-1.5 text-center text-[11px] text-[#94a3b8] font-medium"><span class="material-symbols-outlined text-[14px] text-primary">cloud_done</span><span>Đã đồng bộ Cloudflare KV · Phiên bản phân phối tức thời</span></div></div>
 </main>
 <!-- 9. Docked Bottom Navigation Bar (Shared Component Execution, h-16, fixed bottom) -->
-<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-t border-[#26393e] shadow-lg">
-<!-- Tab 1: Tổng quan (Inactive) -->
-<a class="flex flex-col items-center justify-center text-[#879391] px-3 py-1 min-h-[44px] min-w-[44px] active:scale-95 transition-transform duration-100 hover:bg-[#162125] rounded-lg" href="#tong-quan">
-<span class="material-symbols-outlined text-[20px]">dashboard</span>
-<span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
-</a>
-<!-- Tab 2: Phân tích / Quảng cáo (Active: Phân tích) -->
-<a class="flex flex-col items-center justify-center bg-[#114b47] text-primary rounded-lg px-3 py-1 min-h-[44px] min-w-[44px] border border-primary/30 shadow-sm active:scale-95 transition-transform duration-100" href="#phan-tich">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
-<span class="text-label-sm font-label-sm mt-0.5 font-bold">Phân tích</span>
-</a>
-<!-- Tab 3: Nội dung (Inactive) -->
-<a class="flex flex-col items-center justify-center text-[#879391] px-3 py-1 min-h-[44px] min-w-[44px] active:scale-95 transition-transform duration-100 hover:bg-[#162125] rounded-lg" href="#noi-dung">
-<span class="material-symbols-outlined text-[20px]">article</span>
-<span class="text-label-sm font-label-sm mt-0.5">Nội dung</span>
-</a>
-<!-- Tab 4: Cài đặt (Inactive) -->
-<a class="flex flex-col items-center justify-center text-[#879391] px-3 py-1 min-h-[44px] min-w-[44px] active:scale-95 transition-transform duration-100 hover:bg-[#162125] rounded-lg" href="#cai-dat">
-<span class="material-symbols-outlined text-[20px]">settings</span>
-<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
-</a>
-</nav>
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-t border-[#26393e] shadow-lg"><a class="flex flex-col items-center justify-center text-[#94a3b8] px-3 py-1 min-h-[48px] min-w-[48px] active:scale-95 transition-transform duration-100 hover:bg-[#162125] rounded-lg" href="#tong-quan"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span></a><a class="flex flex-col items-center justify-center bg-[#114b47] text-primary rounded-lg px-3 py-1 min-h-[48px] min-w-[48px] border border-primary/30 shadow-sm active:scale-95 transition-transform duration-100" href="#phan-tich"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">analytics</span><span class="text-label-sm font-label-sm mt-0.5 font-bold">Phân tích</span></a><a class="flex flex-col items-center justify-center text-[#94a3b8] px-3 py-1 min-h-[48px] min-w-[48px] active:scale-95 transition-transform duration-100 hover:bg-[#162125] rounded-lg" href="#noi-dung"><span class="material-symbols-outlined text-[20px]">article</span><span class="text-label-sm font-label-sm mt-0.5">Nội dung</span></a><a class="flex flex-col items-center justify-center text-[#94a3b8] px-3 py-1 min-h-[48px] min-w-[48px] active:scale-95 transition-transform duration-100 hover:bg-[#162125] rounded-lg" href="#cai-dat"><span class="material-symbols-outlined text-[20px]">settings</span><span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span></a></nav>
 </div>
 <!-- Inline Script for interactive tactile feedback -->
 <script>

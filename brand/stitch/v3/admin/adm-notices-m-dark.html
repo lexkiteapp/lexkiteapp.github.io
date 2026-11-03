@@ -165,9 +165,7 @@
             Loại thông báo
           </label>
 <div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container-lowest rounded-lg border border-[#1f3d45]">
-<button class="min-h-[44px] rounded-md text-[13px] font-bold text-center transition-all bg-primary-container text-on-primary shadow-sm" id="tab-tintuc" onclick="selectType('Tin tức')" type="button">
-              Tin tức
-            </button>
+<button class="min-h-[44px] rounded-md text-[13px] font-bold text-center transition-all bg-primary text-[#00201e] shadow-sm" id="tab-tintuc" onclick="selectType('Tin tức')" type="button">Tin tức</button>
 <button class="min-h-[44px] rounded-md text-[13px] font-semibold text-on-surface-variant hover:text-primary transition-all" id="tab-capnhat" onclick="selectType('Cập nhật')" type="button">
               Cập nhật
             </button>
@@ -206,10 +204,7 @@
             Đối tượng người nhận
           </label>
 <div class="flex flex-wrap gap-1.5">
-<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-primary bg-primary/15 text-primary text-[13px] font-bold flex items-center gap-1.5 transition-colors" onclick="toggleChip(this)" type="button">
-<span class="material-symbols-outlined text-[16px]">check</span>
-              Tất cả học viên
-            </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-primary bg-primary/20 text-[#88f5ea] text-[13px] font-bold flex items-center gap-1.5 transition-colors" onclick="toggleChip(this)" type="button"><span class="material-symbols-outlined text-[16px]">check</span>Tất cả học viên</button>
 <button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#1f3d45] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
               Mới 7 ngày
             </button>
@@ -227,14 +222,8 @@
             Thời gian gửi
           </label>
 <div class="grid grid-cols-2 gap-2">
-<label class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 bg-surface-container border border-primary/50 rounded-lg cursor-pointer transition-colors">
-<input checked="" class="w-4 h-4 text-primary bg-surface-container-lowest focus:ring-primary border-[#1f3d45]" name="send-time" type="radio"/>
-<span class="text-[13px] font-bold text-on-surface">Gửi ngay</span>
-</label>
-<label class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 bg-surface-container-lowest border border-[#1f3d45] rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
-<input class="w-4 h-4 text-primary bg-surface-container-lowest focus:ring-primary border-[#1f3d45]" name="send-time" type="radio"/>
-<span class="text-[13px] text-on-surface-variant">Lên lịch gửi</span>
-</label>
+<label class="min-h-[44px] min-w-[44px] flex items-center gap-2.5 px-3 py-2 bg-surface-container border border-primary/50 rounded-lg cursor-pointer transition-colors"><span class="flex items-center justify-center min-w-[24px] min-h-[24px]"><input checked="" class="w-4 h-4 text-primary bg-surface-container-lowest focus:ring-primary border-[#1f3d45] cursor-pointer" name="send-time" type="radio"/></span><span class="text-[13px] font-bold text-on-surface">Gửi ngay</span></label>
+<label class="min-h-[44px] min-w-[44px] flex items-center gap-2.5 px-3 py-2 bg-surface-container-lowest border border-[#1f3d45] rounded-lg cursor-pointer hover:border-primary/50 transition-colors"><span class="flex items-center justify-center min-w-[24px] min-h-[24px]"><input class="w-4 h-4 text-primary bg-surface-container-lowest focus:ring-primary border-[#1f3d45] cursor-pointer" name="send-time" type="radio"/></span><span class="text-[13px] text-on-surface-variant">Lên lịch gửi</span></label>
 </div>
 </div>
 <!-- Action Buttons -->
@@ -278,9 +267,7 @@
 </div>
 <div class="flex-1 min-w-0 pr-2">
 <div class="flex items-center gap-1.5 mb-0.5">
-<span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary border border-primary/30" id="preview-badge">
-                  Tin tức
-                </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-[#88f5ea] border border-primary/40" id="preview-badge">Tin tức</span>
 <span class="text-[11px] text-outline">Vừa xong</span>
 </div>
 <p class="text-[14px] text-on-surface font-bold truncate leading-tight" id="preview-title">
@@ -310,9 +297,7 @@
 <h3 class="text-[14px] font-bold text-on-surface leading-snug">
                 Sửa lỗi phát âm bài nghe Part 1
               </h3>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-primary/20 text-primary border border-primary/40 shrink-0">
-                Đã gửi
-              </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-primary/20 text-[#88f5ea] border border-primary/40 shrink-0">Đã gửi</span>
 </div>
 <div class="flex items-center justify-between text-[12px] text-on-surface-variant">
 <div class="flex items-center gap-1 truncate text-outline">
@@ -337,9 +322,7 @@
 <h3 class="text-[14px] font-bold text-on-surface leading-snug">
                 Nhắc nhở chuỗi học tập 7 ngày
               </h3>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#4a1c14] text-[#ffa493] border border-[#7a2a1a] shrink-0">
-                Đang gửi
-              </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#4a1c14] text-[#ffdad3] border border-[#7a2a1a] shrink-0">Đang gửi</span>
 </div>
 <div class="flex items-center justify-between text-[12px] text-on-surface-variant">
 <div class="flex items-center gap-1 truncate text-outline">
@@ -364,9 +347,7 @@
 <h3 class="text-[14px] font-bold text-on-surface leading-snug">
                 Khảo sát giao diện luyện từ vựng
               </h3>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#2b373a] text-outline border border-[#3d4947] shrink-0">
-                Đã kết thúc
-              </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#2b373a] text-on-surface-variant border border-[#3d4947] shrink-0">Đã kết thúc</span>
 </div>
 <div class="flex items-center justify-between text-[12px] text-on-surface-variant">
 <div class="flex items-center gap-1 truncate text-outline">

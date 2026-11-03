@@ -155,26 +155,23 @@
 <!-- Mobile Viewport Shell (iPhone Max 390px bounded) -->
 <div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-28">
 <!-- Top App Bar (Shared Components standard implementation) -->
-<header class="sticky top-0 z-40 bg-[#091518]/90 backdrop-blur-md border-b border-outline-variant px-margin h-14 flex items-center justify-between shadow-sm">
-<div class="flex items-center gap-2.5">
-<button aria-label="Menu điều hướng" class="w-9 h-9 rounded-xl flex items-center justify-center text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-150" type="button">
-<span class="material-symbols-outlined text-[22px]">menu</span>
+<header class="sticky top-0 z-40 bg-[#091518]/90 backdrop-blur-md border-b border-outline-variant px-margin h-14 flex items-center justify-between shadow-sm"><div class="flex items-center gap-2">
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl flex items-center justify-center text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
 </button>
 <div class="flex flex-col">
 <h1 class="text-headline-sm font-headline-sm text-on-surface tracking-tight leading-tight">Admin › Kho Drive</h1>
 <span class="text-label-sm font-label-sm text-outline tracking-wider">Hạ tầng Google Drive pool</span>
 </div>
 </div>
-<div class="flex items-center gap-1.5">
-<button aria-label="Làm mới trạng thái" class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-primary active:rotate-180 transition-transform duration-300" type="button">
-<span class="material-symbols-outlined text-[18px]">sync</span>
+<div class="flex items-center gap-1">
+<button aria-label="Làm mới trạng thái" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg flex items-center justify-center text-outline hover:text-primary active:rotate-180 transition-transform duration-300" type="button">
+<span class="material-symbols-outlined text-[20px]">sync</span>
 </button>
-<!-- Initials Avatar Badge -->
-<div class="w-8 h-8 rounded-xl bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">
+<div class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">
           LM
         </div>
-</div>
-</header>
+</div></header>
 <!-- Sub-header Live Status Pill -->
 <div class="px-margin pt-3 pb-1">
 <div class="bg-surface-container-low border border-outline-variant rounded-xl px-3 py-1.5 flex items-center justify-between">
@@ -265,9 +262,9 @@
 </div>
 </div>
 <!-- Primary Warm Coral Tactile CTA -->
-<button class="w-full h-12 bg-secondary text-white font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 tactile-bevel transition-all duration-150 font-bold tracking-wide" type="button">
-<span class="material-symbols-outlined text-[20px]">add_to_drive</span>
-<span>Nối thêm Drive</span>
+<button class="w-full min-h-[48px] h-12 bg-[#c2410c] text-white font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 tactile-bevel transition-all duration-150 font-bold tracking-wide" style="box-shadow: 0 3px 0 0 #9a3412, 0 6px 14px -2px rgba(194, 65, 12, 0.4);" type="button">
+<span class="material-symbols-outlined text-[20px] text-white">add_to_drive</span>
+<span class="text-white font-bold">Nối thêm Drive</span>
 </button>
 </section>
 <!-- CARD 2: TÌNH TRẠNG BẢN SAO (Replicas Health) -->
@@ -325,23 +322,20 @@
 <input class="w-full h-10 pl-9 pr-3 rounded-xl border border-outline-variant bg-surface-container-low text-on-surface text-body-sm font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70" placeholder="Lọc tệp theo tên hoặc SHA-256..." type="text"/>
 </div>
 <!-- Filter Pills Strip (compact, wraps gracefully if needed) -->
-<div class="flex flex-wrap gap-1.5 pt-0.5">
-<button class="h-7 px-2.5 rounded-full bg-primary text-[#003733] font-label-sm text-label-sm flex items-center shadow-xs font-bold" type="button">
+<div class="flex flex-wrap gap-1.5 pt-0.5"><button class="min-h-[44px] px-3.5 py-2 rounded-full bg-primary text-[#003733] font-label-sm text-label-sm flex items-center shadow-xs font-bold active:scale-95 transition-all" type="button">
             Tất cả (144)
           </button>
-<button class="h-7 px-2.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all" type="button">
             Audio MP3
           </button>
-<button class="h-7 px-2.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all" type="button">
             Bản sao lưu
           </button>
-<button class="h-7 px-2.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all" type="button">
             Dữ liệu từ vựng
-          </button>
-</div>
+          </button></div>
 <!-- Structured Responsive File Rows (No horizontal overflow) -->
-<div class="flex flex-col divide-y divide-outline-variant border-t border-b border-outline-variant mt-1">
-<!-- Row 1 -->
+<div class="flex flex-col divide-y divide-outline-variant border-t border-b border-outline-variant mt-1"><!-- Row 1 -->
 <div class="py-2.5 flex items-start justify-between gap-2 hover:bg-surface-container-low/70 active:bg-surface-container-low transition-colors rounded-lg px-1">
 <div class="flex items-start gap-2 flex-1 min-w-0">
 <span class="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">audiotrack</span>
@@ -354,10 +348,10 @@
 </div>
 </div>
 </div>
-<div class="flex flex-col items-end gap-1.5 flex-shrink-0 ml-1">
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
 <span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0e3b37] text-primary border border-primary/40 font-bold">2/2 (D1, D2)</span>
-<button aria-label="Tải về file" class="w-6 h-6 flex items-center justify-center text-outline hover:text-primary active:scale-95" type="button">
-<span class="material-symbols-outlined text-[16px]">cloud_download</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
 </button>
 </div>
 </div>
@@ -374,10 +368,10 @@
 </div>
 </div>
 </div>
-<div class="flex flex-col items-end gap-1.5 flex-shrink-0 ml-1">
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
 <span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0e3b37] text-primary border border-primary/40 font-bold">2/2 (D2, D3)</span>
-<button aria-label="Tải về file" class="w-6 h-6 flex items-center justify-center text-outline hover:text-primary active:scale-95" type="button">
-<span class="material-symbols-outlined text-[16px]">cloud_download</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
 </button>
 </div>
 </div>
@@ -394,10 +388,10 @@
 </div>
 </div>
 </div>
-<div class="flex flex-col items-end gap-1.5 flex-shrink-0 ml-1">
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
 <span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0e3b37] text-primary border border-primary/40 font-bold">2/2 (D1, D3)</span>
-<button aria-label="Tải về file" class="w-6 h-6 flex items-center justify-center text-outline hover:text-primary active:scale-95" type="button">
-<span class="material-symbols-outlined text-[16px]">cloud_download</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
 </button>
 </div>
 </div>
@@ -414,12 +408,12 @@
 </div>
 </div>
 </div>
-<div class="flex flex-col items-end gap-1.5 flex-shrink-0 ml-1">
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
 <span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#93000a] text-[#ffdad6] font-bold flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[12px]">warning</span> 1/2 Sync
               </span>
-<button aria-label="Kích hoạt đồng bộ thủ công" class="w-6 h-6 flex items-center justify-center text-secondary hover:text-secondary-fixed active:scale-95" type="button">
-<span class="material-symbols-outlined text-[16px]">sync</span>
+<button aria-label="Kích hoạt đồng bộ thủ công" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-secondary hover:text-secondary-fixed active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
 </button>
 </div>
 </div>
@@ -436,14 +430,13 @@
 </div>
 </div>
 </div>
-<div class="flex flex-col items-end gap-1.5 flex-shrink-0 ml-1">
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
 <span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0e3b37] text-primary border border-primary/40 font-bold">2/2 (D1, D2)</span>
-<button aria-label="Tải về file" class="w-6 h-6 flex items-center justify-center text-outline hover:text-primary active:scale-95" type="button">
-<span class="material-symbols-outlined text-[16px]">cloud_download</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
 </button>
 </div>
-</div>
-</div>
+</div></div>
 <!-- Ledger Footer Summary -->
 <div class="flex items-center justify-between pt-1 text-label-sm font-label-sm text-outline">
 <span>Hiển thị 5 / 144 tệp</span>
@@ -509,34 +502,32 @@
             </p>
 </div>
 </div>
-<button class="w-full py-2 bg-surface-container-low hover:bg-surface-container-high rounded-xl text-primary font-label-md text-label-md flex items-center justify-center gap-1 transition-colors border border-outline-variant" type="button">
+<button class="w-full min-h-[44px] py-2.5 bg-surface-container-low hover:bg-surface-container-high rounded-xl text-primary font-label-md text-label-md flex items-center justify-center gap-1 transition-colors border border-outline-variant font-medium active:scale-95" type="button">
 <span>Xem lịch sử chi tiết</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
 </button>
 </section>
 </main>
 <!-- DOCKED BOTTOM NAVIGATION BAR (Shared Components Executed Verbatim) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin py-2 pb-safe bg-[#091518]/95 backdrop-blur-md border-t border-outline-variant shadow-md">
-<!-- Tab 1: Tổng quan -->
-<button class="flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1.5 active:translate-y-0.5 transition-all duration-150" type="button">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin py-2 pb-safe bg-[#091518]/95 backdrop-blur-md border-t border-outline-variant shadow-md"><!-- Tab 1: Tổng quan -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1 active:translate-y-0.5 transition-all duration-150" type="button">
 <span class="material-symbols-outlined text-[22px]">dashboard</span>
 <span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
 </button>
 <!-- Tab 2: Kho Drive (ACTIVE DESTINATION - Matches Primary Intent) -->
-<button class="flex flex-col items-center justify-center bg-primary text-[#003733] rounded-xl px-3 py-1.5 active:translate-y-0.5 transition-all duration-150 shadow-xs" type="button">
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center bg-primary text-[#003733] rounded-xl px-3.5 py-1 active:translate-y-0.5 transition-all duration-150 shadow-xs" type="button">
 <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">cloud</span>
 <span class="text-label-sm font-label-sm font-bold mt-0.5">Kho Drive</span>
 </button>
 <!-- Tab 3: Hạn mức -->
-<button class="flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1.5 active:translate-y-0.5 transition-all duration-150" type="button">
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1 active:translate-y-0.5 transition-all duration-150" type="button">
 <span class="material-symbols-outlined text-[22px]">speed</span>
 <span class="text-label-sm font-label-sm mt-0.5">Hạn mức</span>
 </button>
 <!-- Tab 4: Cài đặt -->
-<button class="flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1.5 active:translate-y-0.5 transition-all duration-150" type="button">
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1 active:translate-y-0.5 transition-all duration-150" type="button">
 <span class="material-symbols-outlined text-[22px]">settings</span>
 <span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
-</button>
-</nav>
+</button></nav>
 </div>
 </body></html>

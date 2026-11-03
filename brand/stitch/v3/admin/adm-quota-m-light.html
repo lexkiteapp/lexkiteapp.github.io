@@ -165,31 +165,30 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="min-h-screen flex justify-center bg-[#f7f4ed] selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- Mobile Portrait Shell Envelope (Exact 390px native container) -->
 <main class="w-full max-w-[390px] min-h-screen flex flex-col pb-10 bg-[#f7f4ed] overflow-x-hidden relative">
 <!-- 1. Top App Bar (Task Header without Global Bottom Tabs) -->
 <header class="sticky top-0 z-40 bg-[#f7f4ed]/95 backdrop-blur-md px-4 pt-3 pb-2.5 border-b border-[#e7ded1] flex items-center justify-between">
 <div class="flex items-center gap-2.5">
-<button aria-label="Menu điều hướng" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-lowest border border-[#e5dcce] shadow-[0_1.5px_0_0_#dcd3c5] text-primary active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button aria-label="Menu điều hướng" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-container-lowest border border-[#e5dcce] shadow-[0_1.5px_0_0_#dcd3c5] text-primary active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
 <div class="flex flex-col">
 <div class="flex items-center gap-1">
-<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase font-semibold">Hệ thống</span>
-<span class="font-label-sm text-label-sm text-outline">›</span>
+<span class="font-label-sm text-label-sm text-[#0d5c58] tracking-wider uppercase font-bold">Hệ thống</span>
+<span class="font-label-sm text-label-sm text-[#0d5c58] font-bold">›</span>
 <span class="font-label-sm text-label-sm text-primary font-bold">Hạn mức</span>
 </div>
 <h1 class="font-title-md text-title-md font-bold text-primary tracking-tight leading-tight">Quản lý trần tải</h1>
 </div>
 </div>
 <div class="flex items-center gap-2">
-<button aria-label="Đồng bộ dữ liệu" class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-lowest border border-[#e5dcce] text-primary shadow-[0_1.5px_0_0_#dcd3c5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button aria-label="Đồng bộ dữ liệu" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-container-lowest border border-[#e5dcce] text-primary shadow-[0_1.5px_0_0_#dcd3c5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span class="material-symbols-outlined" data-icon="sync">sync</span>
 </button>
-<!-- Initials Avatar Badge (LM - Linh Mai) -->
-<div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary-container text-on-primary font-bold font-title-sm text-title-sm border border-[#094744] shadow-[0_1.5px_0_0_#063230]">
+<div class="flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-primary-container text-on-primary font-bold font-title-sm text-title-sm border border-[#094744] shadow-[0_1.5px_0_0_#063230]">
           LM
         </div>
 </div>
@@ -226,11 +225,9 @@
 <span class="material-symbols-outlined text-primary-container" data-icon="bar_chart">bar_chart</span>
 <h2 class="font-title-sm text-title-sm font-bold text-primary">Dùng nhiều hôm nay</h2>
 </div>
-<span class="font-label-sm text-label-sm font-bold text-outline uppercase tracking-wider">4 tính năng chính</span>
+<span class="font-label-sm text-label-sm font-bold text-[#0d5c58] uppercase tracking-wider">4 tính năng chính</span>
 </div>
-<!-- Metric Items 2x2 grid -->
 <div class="grid grid-cols-2 gap-2.5">
-<!-- Item 1: Collocation -->
 <div class="p-3 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between gap-1 mb-1">
@@ -242,11 +239,10 @@
 </div>
 </div>
 <div>
-<div class="font-title-sm text-title-sm font-bold text-primary">382 <span class="font-body-sm text-body-sm font-normal text-outline">/ 500</span></div>
-<div class="font-body-sm text-body-sm text-outline-variant text-[11px] leading-tight mt-0.5">Blog + App, còn 118</div>
+<div class="font-title-sm text-title-sm font-bold text-primary">382 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ 500</span></div>
+<div class="font-body-sm text-body-sm text-[#0d5c58] font-medium text-[11px] leading-tight mt-0.5">Blog + App, còn 118</div>
 </div>
 </div>
-<!-- Item 2: Audio Pronunciation -->
 <div class="p-3 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between gap-1 mb-1">
@@ -258,11 +254,10 @@
 </div>
 </div>
 <div>
-<div class="font-title-sm text-title-sm font-bold text-primary">212 <span class="font-body-sm text-body-sm font-normal text-outline">/ 500</span></div>
-<div class="font-body-sm text-body-sm text-outline-variant text-[11px] leading-tight mt-0.5">Edge hit 89%, còn 288</div>
+<div class="font-title-sm text-title-sm font-bold text-primary">212 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ 500</span></div>
+<div class="font-body-sm text-body-sm text-[#0d5c58] font-medium text-[11px] leading-tight mt-0.5">Edge hit 89%, còn 288</div>
 </div>
 </div>
-<!-- Item 3: Writing (Warning state) -->
 <div class="p-3 rounded-xl bg-[#fff6f3] border border-[#fcd2c7] flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between gap-1 mb-1">
@@ -274,11 +269,10 @@
 </div>
 </div>
 <div>
-<div class="font-title-sm text-title-sm font-bold text-secondary">88 <span class="font-body-sm text-body-sm font-normal text-outline">/ 100</span></div>
-<div class="font-body-sm text-body-sm text-secondary font-semibold text-[11px] leading-tight mt-0.5">Sắp chạm trần, còn 12</div>
+<div class="font-title-sm text-title-sm font-bold text-secondary">88 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ 100</span></div>
+<div class="font-body-sm text-body-sm text-secondary font-bold text-[11px] leading-tight mt-0.5">Sắp chạm trần, còn 12</div>
 </div>
 </div>
-<!-- Item 4: Flashcards -->
 <div class="p-3 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex flex-col justify-between">
 <div>
 <div class="flex items-center justify-between gap-1 mb-1">
@@ -290,8 +284,8 @@
 </div>
 </div>
 <div>
-<div class="font-title-sm text-title-sm font-bold text-primary">624 <span class="font-body-sm text-body-sm font-normal text-outline">/ 2.000</span></div>
-<div class="font-body-sm text-body-sm text-outline-variant text-[11px] leading-tight mt-0.5">Batch 50 từ/request</div>
+<div class="font-title-sm text-title-sm font-bold text-primary">624 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ 2.000</span></div>
+<div class="font-body-sm text-body-sm text-[#0d5c58] font-medium text-[11px] leading-tight mt-0.5">Batch 50 từ/request</div>
 </div>
 </div>
 </div>
@@ -301,20 +295,18 @@
 <div class="flex items-center justify-between px-1">
 <div>
 <h2 class="font-title-sm text-title-sm font-bold text-primary">Trần tải nhà cung cấp</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Giám sát mức tiêu thụ 6 API cốt lõi</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">Giám sát mức tiêu thụ 6 API cốt lõi</p>
 </div>
-<!-- Status legend dots -->
 <div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-lg border border-[#e5dcce]">
 <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold">
 <span class="w-2 h-2 rounded-full bg-primary-container"></span>&lt;80%
             </span>
-<span class="text-outline text-xs">·</span>
+<span class="text-primary-container text-xs font-bold">·</span>
 <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-bold">
 <span class="w-2 h-2 rounded-full bg-secondary"></span>&gt;80%
             </span>
 </div>
 </div>
-<!-- Meter 1: AI Pool -->
 <article class="tactile-card p-3.5">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-2">
@@ -323,26 +315,25 @@
 </div>
 <div>
 <h3 class="font-title-sm text-title-sm font-bold text-primary leading-tight">AI Pool (OpenAI &amp; Gemini)</h3>
-<span class="font-label-sm text-label-sm text-outline">Token ngữ cảnh tổng</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Token ngữ cảnh tổng</span>
 </div>
 </div>
-<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-[#f2ece2] text-outline font-semibold border border-[#e4dacb]">
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-[#e6f5f3] text-primary font-bold border border-[#b6e0db]">
               Đặt lại 07:00
             </span>
 </div>
 <div class="flex items-baseline justify-between mb-1.5">
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Đã dùng: 14.280 tokens</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Đã dùng: 14.280 tokens</span>
 <span class="font-code-sm text-code-sm font-bold text-primary-container">14.280 / 25.000 (57.1%)</span>
 </div>
 <div class="w-full bg-[#efe8dc] h-2 rounded-full overflow-hidden mb-2">
 <div class="bg-primary-container h-full rounded-full transition-all duration-300" style="width: 57.1%"></div>
 </div>
-<div class="flex items-center justify-between text-[11px] text-outline font-medium">
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant font-semibold">
 <span>Giới hạn Free: 25.000 / ngày</span>
-<span class="text-primary-container font-semibold">Còn lại 10.720 tokens</span>
+<span class="text-primary font-bold">Còn lại 10.720 tokens</span>
 </div>
 </article>
-<!-- Meter 2: Cloudflare D1 Reads -->
 <article class="tactile-card p-3.5">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-2">
@@ -351,26 +342,25 @@
 </div>
 <div>
 <h3 class="font-title-sm text-title-sm font-bold text-primary leading-tight">D1 Đọc (Cloudflare DB)</h3>
-<span class="font-label-sm text-label-sm text-outline">Lượt truy vấn hàng ngày</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Lượt truy vấn hàng ngày</span>
 </div>
 </div>
-<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-[#f2ece2] text-outline font-semibold border border-[#e4dacb]">
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-[#e6f5f3] text-primary font-bold border border-[#b6e0db]">
               Đặt lại 07:00
             </span>
 </div>
 <div class="flex items-baseline justify-between mb-1.5">
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Đã đọc: 482.100 hàng</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Đã đọc: 482.100 hàng</span>
 <span class="font-code-sm text-code-sm font-bold text-primary-container">482.100 / 5.000.000 (9.6%)</span>
 </div>
 <div class="w-full bg-[#efe8dc] h-2 rounded-full overflow-hidden mb-2">
 <div class="bg-primary-container h-full rounded-full transition-all duration-300" style="width: 9.6%"></div>
 </div>
-<div class="flex items-center justify-between text-[11px] text-outline font-medium">
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant font-semibold">
 <span>Hạn mức CF Free: 5.000.000 / ngày</span>
-<span class="text-primary-container font-semibold">Dư 4.517.900 hàng</span>
+<span class="text-primary font-bold">Dư 4.517.900 hàng</span>
 </div>
 </article>
-<!-- Meter 3: Cloudflare D1 Writes (WARNING) -->
 <article class="tactile-card p-3.5 border-[#fcd2c7] bg-gradient-to-b from-white to-[#fffbf9]">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-2">
@@ -379,26 +369,25 @@
 </div>
 <div>
 <h3 class="font-title-sm text-title-sm font-bold text-secondary leading-tight">D1 Ghi (Cloudflare DB)</h3>
-<span class="font-label-sm text-label-sm text-outline">Ghi nhật ký &amp; tiến độ</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Ghi nhật ký &amp; tiến độ</span>
 </div>
 </div>
-<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-[#fff0ec] text-secondary font-bold border border-[#fcd2c7]">
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-[#ffdad2] text-secondary font-bold border border-[#fcd2c7]">
               86.4%
             </span>
 </div>
 <div class="flex items-baseline justify-between mb-1.5">
-<span class="font-body-sm text-body-sm text-secondary font-semibold">Cảnh báo chạm trần</span>
+<span class="font-body-sm text-body-sm text-secondary font-bold">Cảnh báo chạm trần</span>
 <span class="font-code-sm text-code-sm font-bold text-secondary">86.420 / 100.000 hàng</span>
 </div>
 <div class="w-full bg-[#fbd4cc] h-2 rounded-full overflow-hidden mb-2">
 <div class="bg-secondary h-full rounded-full transition-all duration-300" style="width: 86.4%"></div>
 </div>
-<div class="flex items-center justify-between text-[11px] text-secondary font-semibold">
+<div class="flex items-center justify-between text-[11px] text-secondary font-bold">
 <span>Còn an toàn 13.580 hàng ghi</span>
 <span>Đặt lại 07:00</span>
 </div>
 </article>
-<!-- Meter 4: Cloudflare R2 Egress -->
 <article class="tactile-card p-3.5">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-2">
@@ -407,26 +396,25 @@
 </div>
 <div>
 <h3 class="font-title-sm text-title-sm font-bold text-primary leading-tight">Ảnh &amp; Dữ liệu (R2 Egress)</h3>
-<span class="font-label-sm text-label-sm text-outline">Băng thông xuất kho ảnh</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Băng thông xuất kho ảnh</span>
 </div>
 </div>
-<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-[#f2ece2] text-outline font-semibold border border-[#e4dacb]">
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-[#e6f5f3] text-primary font-bold border border-[#b6e0db]">
               Đặt lại 07:00
             </span>
 </div>
 <div class="flex items-baseline justify-between mb-1.5">
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Băng thông: 1.82 GB</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Băng thông: 1.82 GB</span>
 <span class="font-code-sm text-code-sm font-bold text-primary-container">1.82 / 10 GB (18.2%)</span>
 </div>
 <div class="w-full bg-[#efe8dc] h-2 rounded-full overflow-hidden mb-2">
 <div class="bg-primary-container h-full rounded-full transition-all duration-300" style="width: 18.2%"></div>
 </div>
-<div class="flex items-center justify-between text-[11px] text-outline font-medium">
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant font-semibold">
 <span>Cache hit rate: 94.1%</span>
-<span class="text-primary-container font-semibold">Còn dư 8.18 GB</span>
+<span class="text-primary font-bold">Còn dư 8.18 GB</span>
 </div>
 </article>
-<!-- Meter 5: Video Render (CRITICAL CEILING 95%) -->
 <article class="tactile-card p-3.5 border-[#fcd2c7] bg-[#fffbf9]">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-2">
@@ -435,26 +423,25 @@
 </div>
 <div>
 <h3 class="font-title-sm text-title-sm font-bold text-secondary leading-tight">Video Render (Cloud Run)</h3>
-<span class="font-label-sm text-label-sm text-outline">Remotion render video ngắn</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Remotion render video ngắn</span>
 </div>
 </div>
-<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-[#fff0ec] text-secondary font-bold border border-[#fcd2c7]">
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-[#ffdad2] text-secondary font-bold border border-[#fcd2c7]">
               95.0%
             </span>
 </div>
 <div class="flex items-baseline justify-between mb-1.5">
-<span class="font-body-sm text-body-sm text-secondary font-semibold">Chạm trần an toàn!</span>
+<span class="font-body-sm text-body-sm text-secondary font-bold">Chạm trần an toàn!</span>
 <span class="font-code-sm text-code-sm font-bold text-secondary">19 / 20 video</span>
 </div>
 <div class="w-full bg-[#fbd4cc] h-2 rounded-full overflow-hidden mb-2">
 <div class="bg-secondary h-full rounded-full transition-all duration-300" style="width: 95%"></div>
 </div>
-<div class="flex items-center justify-between text-[11px] text-secondary font-semibold">
+<div class="flex items-center justify-between text-[11px] text-secondary font-bold">
 <span>Đã tạm dừng tạo thêm video</span>
 <span>Chỉ còn 1 lượt</span>
 </div>
 </article>
-<!-- Meter 6: Resend Email -->
 <article class="tactile-card p-3.5">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-2">
@@ -463,23 +450,23 @@
 </div>
 <div>
 <h3 class="font-title-sm text-title-sm font-bold text-primary leading-tight">Email giao dịch (Resend)</h3>
-<span class="font-label-sm text-label-sm text-outline">Xác thực OTP &amp; thông báo</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Xác thực OTP &amp; thông báo</span>
 </div>
 </div>
-<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-[#f2ece2] text-outline font-semibold border border-[#e4dacb]">
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-[#e6f5f3] text-primary font-bold border border-[#b6e0db]">
               Đặt lại 07:00
             </span>
 </div>
 <div class="flex items-baseline justify-between mb-1.5">
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Đã gửi: 28 email</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Đã gửi: 28 email</span>
 <span class="font-code-sm text-code-sm font-bold text-primary-container">28 / 100 (28%)</span>
 </div>
 <div class="w-full bg-[#efe8dc] h-2 rounded-full overflow-hidden mb-2">
 <div class="bg-primary-container h-full rounded-full transition-all duration-300" style="width: 28%"></div>
 </div>
-<div class="flex items-center justify-between text-[11px] text-outline font-medium">
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant font-semibold">
 <span>Tối đa 100 email / ngày</span>
-<span class="text-primary-container font-semibold">Còn 72 email</span>
+<span class="text-primary font-bold">Còn 72 email</span>
 </div>
 </article>
 </section>
@@ -494,98 +481,89 @@
             5 / 6 BẬT
           </span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-3 leading-snug">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3 leading-snug font-medium">
           Ngắt ngay lập tức khi phát hiện lỗi bất thường để ngăn chặn phát sinh hóa đơn ngoài ý muốn.
         </p>
-<!-- Vertical Switches Stack -->
 <div class="flex flex-col divide-y divide-[#f2ebe0]">
-<!-- Breaker 1: OpenAI -->
 <div class="py-2.5 flex items-center justify-between gap-3">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></span>
 <div>
 <p class="font-label-md text-label-md font-bold text-primary leading-tight">OpenAI API</p>
-<p class="font-body-sm text-body-sm text-outline text-[11px]">GPT-4o mini · Parse ngữ liệu</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px]">GPT-4o mini · Parse ngữ liệu</p>
 </div>
 </div>
-<!-- Tactile ON Switch -->
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#cfc5b8] peer-focus:outline-none rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#cfc5b8] peer-focus:outline-none rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
-<!-- Breaker 2: Gemini -->
 <div class="py-2.5 flex items-center justify-between gap-3">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></span>
 <div>
 <p class="font-label-md text-label-md font-bold text-primary leading-tight">Google Gemini 1.5 Flash</p>
-<p class="font-body-sm text-body-sm text-outline text-[11px]">Chấm bài Writing nhanh</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px]">Chấm bài Writing nhanh</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
-<!-- Breaker 3: ElevenLabs -->
 <div class="py-2.5 flex items-center justify-between gap-3">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></span>
 <div>
 <p class="font-label-md text-label-md font-bold text-primary leading-tight">ElevenLabs TTS Audio</p>
-<p class="font-body-sm text-body-sm text-outline text-[11px]">Giọng đọc mẫu từ vựng</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px]">Giọng đọc mẫu từ vựng</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
-<!-- Breaker 4: Cloudflare D1 -->
 <div class="py-2.5 flex items-center justify-between gap-3">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></span>
 <div>
 <p class="font-label-md text-label-md font-bold text-primary leading-tight">Cloudflare D1 Database</p>
-<p class="font-body-sm text-body-sm text-outline text-[11px]">Cơ sở dữ liệu SQLite Edge</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px]">Cơ sở dữ liệu SQLite Edge</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
-<!-- Breaker 5: Cloudflare R2 -->
 <div class="py-2.5 flex items-center justify-between gap-3">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></span>
 <div>
 <p class="font-label-md text-label-md font-bold text-primary leading-tight">Cloudflare R2 Bucket</p>
-<p class="font-body-sm text-body-sm text-outline text-[11px]">Kho lưu ảnh minh họa từ điển</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px]">Kho lưu ảnh minh họa từ điển</p>
 </div>
 </div>
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
+<div class="w-12 h-7 bg-[#cfc5b8] rounded-full peer peer-checked:bg-primary-container transition-all shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)] peer-checked:after:translate-x-5"></div>
 </label>
 </div>
-<!-- Breaker 6: Video Render (OFF - TRIPPED) -->
 <div class="pt-2.5 flex items-center justify-between gap-3 bg-[#fff9f7] -mx-4 px-4 rounded-b-xl border-t border-[#fcd2c7]">
 <div class="flex items-center gap-2.5">
 <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
 <div>
 <div class="flex items-center gap-1.5">
 <p class="font-label-md text-label-md font-bold text-secondary leading-tight">Video Render Worker</p>
-<span class="px-1.5 py-0.2 rounded bg-error-container text-error font-label-sm text-[10px] font-bold">ĐÃ NGẮT</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-[10px] font-bold">ĐÃ NGẮT</span>
 </div>
-<p class="font-body-sm text-body-sm text-secondary font-medium text-[11px]">Tự động ngắt do đạt 95% miễn phí</p>
+<p class="font-body-sm text-body-sm text-secondary font-bold text-[11px]">Tự động ngắt do đạt 95% miễn phí</p>
 </div>
 </div>
-<!-- Tactile OFF Switch -->
-<label class="relative inline-flex items-center cursor-pointer">
+<label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
 <input class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#d9cfc1] rounded-full peer transition-all shadow-inner after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)]"></div>
+<div class="w-12 h-7 bg-[#d9cfc1] rounded-full peer transition-all shadow-inner after:content-[''] after:absolute after:top-[10px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[0_2px_4px_rgba(0,0,0,0.2)]"></div>
 </label>
 </div>
 </div>
@@ -595,14 +573,13 @@
 <div class="flex items-center justify-between pb-3 mb-2.5 border-b border-[#f0e9df]">
 <div>
 <h2 class="font-title-sm text-title-sm font-bold text-primary">Danh sách đặc quyền (Whitelist)</h2>
-<p class="font-body-sm text-body-sm text-outline">Bỏ qua trần hạn mức khi kiểm thử</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">Bỏ qua trần hạn mức khi kiểm thử</p>
 </div>
-<button class="h-8 px-2.5 tactile-btn-secondary rounded-lg font-label-sm text-label-sm font-bold text-primary-container flex items-center gap-1" type="button">
+<button class="h-11 min-h-[44px] px-4 tactile-btn-secondary rounded-lg font-label-sm text-label-sm font-bold text-primary-container flex items-center gap-1 active:translate-y-0.5 transition-all" type="button">
 <span class="material-symbols-outlined text-base" data-icon="add">add</span>
 <span>Thêm</span>
 </button>
 </div>
-<!-- Whitelist Stack (mobile card rows) -->
 <div class="space-y-2">
 <div class="p-2.5 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex items-center justify-between gap-2">
 <div class="min-w-0">
@@ -610,47 +587,47 @@
 <span class="font-label-sm text-label-sm font-bold text-primary truncate">linh@lexkite.internal</span>
 <span class="px-1.5 py-0.5 rounded text-[10px] bg-[#e6f5f3] text-primary-container font-bold border border-[#bce2df]">Admin</span>
 </div>
-<p class="font-body-sm text-body-sm text-outline text-[11px] truncate">Admin hạ tầng · 142 lượt hôm nay</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px] truncate">Admin hạ tầng · 142 lượt hôm nay</p>
 </div>
-<span class="text-xs font-semibold text-primary-container whitespace-nowrap bg-white px-2 py-1 rounded border border-[#e5dcce]">
+<button class="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-primary-container whitespace-nowrap bg-white rounded-lg border border-[#e5dcce] shadow-[0_1.5px_0_0_#dcd3c5] active:translate-y-0.5 transition-all" type="button">
               Bypass trần
-            </span>
+            </button>
 </div>
 <div class="p-2.5 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex items-center justify-between gap-2">
 <div class="min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-sm text-label-sm font-bold text-primary truncate">quang@lexkite.internal</span>
-<span class="px-1.5 py-0.5 rounded text-[10px] bg-[#f2ece2] text-outline font-bold border border-[#e2d7c7]">IELTS</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-[#f2ece2] text-primary font-bold border border-[#e2d7c7]">IELTS</span>
 </div>
-<p class="font-body-sm text-body-sm text-outline text-[11px] truncate">Biên soạn ngữ liệu · 98 lượt</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px] truncate">Biên soạn ngữ liệu · 98 lượt</p>
 </div>
-<span class="text-xs font-semibold text-primary-container whitespace-nowrap bg-white px-2 py-1 rounded border border-[#e5dcce]">
+<button class="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-primary-container whitespace-nowrap bg-white rounded-lg border border-[#e5dcce] shadow-[0_1.5px_0_0_#dcd3c5] active:translate-y-0.5 transition-all" type="button">
               Bypass trần
-            </span>
+            </button>
 </div>
 <div class="p-2.5 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex items-center justify-between gap-2">
 <div class="min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-sm text-label-sm font-bold text-primary truncate">ngan.ha@lexkite.internal</span>
-<span class="px-1.5 py-0.5 rounded text-[10px] bg-[#f2ece2] text-outline font-bold border border-[#e2d7c7]">TOEIC</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-[#f2ece2] text-primary font-bold border border-[#e2d7c7]">TOEIC</span>
 </div>
-<p class="font-body-sm text-body-sm text-outline text-[11px] truncate">Kiểm thử tính năng · 64 lượt</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px] truncate">Kiểm thử tính năng · 64 lượt</p>
 </div>
-<span class="text-xs font-semibold text-primary-container whitespace-nowrap bg-white px-2 py-1 rounded border border-[#e5dcce]">
+<button class="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-primary-container whitespace-nowrap bg-white rounded-lg border border-[#e5dcce] shadow-[0_1.5px_0_0_#dcd3c5] active:translate-y-0.5 transition-all" type="button">
               Bypass trần
-            </span>
+            </button>
 </div>
 <div class="p-2.5 rounded-xl bg-[#faf7f2] border border-[#ebd8c5] flex items-center justify-between gap-2">
 <div class="min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-sm text-label-sm font-bold text-primary truncate">service-worker-ci@lexkite</span>
-<span class="px-1.5 py-0.5 rounded text-[10px] bg-[#f2ece2] text-outline font-bold border border-[#e2d7c7]">Bot</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-[#f2ece2] text-primary font-bold border border-[#e2d7c7]">Bot</span>
 </div>
-<p class="font-body-sm text-body-sm text-outline text-[11px] truncate">GitHub Actions · 215 lượt test build</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium text-[11px] truncate">GitHub Actions · 215 lượt test build</p>
 </div>
-<span class="text-xs font-semibold text-primary-container whitespace-nowrap bg-white px-2 py-1 rounded border border-[#e5dcce]">
+<button class="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-primary-container whitespace-nowrap bg-white rounded-lg border border-[#e5dcce] shadow-[0_1.5px_0_0_#dcd3c5] active:translate-y-0.5 transition-all" type="button">
               Bypass trần
-            </span>
+            </button>
 </div>
 </div>
 </section>
@@ -661,56 +638,77 @@
 <span class="material-symbols-outlined text-primary-container" data-icon="receipt_long">receipt_long</span>
 <h2 class="font-title-sm text-title-sm font-bold text-primary">Nhật ký điều phối (Audit log)</h2>
 </div>
-<span class="font-code-sm text-code-sm text-outline">Realtime</span>
+<span class="font-code-sm text-code-sm text-primary font-bold">Realtime</span>
 </div>
-<div class="relative pl-5 space-y-4 border-l-2 border-[#ebd8c5] ml-2">
-<!-- Log item 1 -->
+<div class="relative pl-5 space-y-4 border-l-2 border-[#ebd8c5] ml-2 mb-4">
 <div class="relative">
 <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-secondary border-2 border-white"></div>
 <div class="flex items-baseline justify-between gap-1">
 <p class="font-label-sm text-label-sm font-bold text-secondary">Ngắt cầu dao Video Render</p>
-<span class="font-code-sm text-code-sm text-outline text-[11px]">10:42</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold text-[11px]">10:42</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] leading-tight mt-0.5">
+<p class="font-body-sm text-body-sm text-on-surface text-[12px] leading-tight mt-0.5">
               Tự động ngắt khi chạm mốc 95% trần miễn phí (19/20 video).
             </p>
-<span class="inline-block mt-1 font-label-sm text-[10px] text-outline font-semibold">Tác nhân: Giám sát tự động</span>
+<span class="inline-block mt-1 font-label-sm text-[10px] text-on-surface-variant font-semibold">Tác nhân: Giám sát tự động</span>
 </div>
-<!-- Log item 2 -->
 <div class="relative">
 <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-primary-container border-2 border-white"></div>
 <div class="flex items-baseline justify-between gap-1">
 <p class="font-label-sm text-label-sm font-bold text-primary">Đặt lại trần ngày hoàn tất</p>
-<span class="font-code-sm text-code-sm text-outline text-[11px]">07:00</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold text-[11px]">07:00</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] leading-tight mt-0.5">
+<p class="font-body-sm text-body-sm text-on-surface text-[12px] leading-tight mt-0.5">
               Reset chu kỳ quota 24h thành công cho 6 nhà cung cấp.
             </p>
-<span class="inline-block mt-1 font-label-sm text-[10px] text-outline font-semibold">Tác nhân: Cron 07:00</span>
+<span class="inline-block mt-1 font-label-sm text-[10px] text-on-surface-variant font-semibold">Tác nhân: Cron 07:00</span>
 </div>
-<!-- Log item 3 -->
 <div class="relative">
 <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-[#8c9b99] border-2 border-white"></div>
 <div class="flex items-baseline justify-between gap-1">
 <p class="font-label-sm text-label-sm font-bold text-primary">Thêm Whitelist ngan.ha@lexkite</p>
-<span class="font-code-sm text-code-sm text-outline text-[11px]">Hôm qua</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold text-[11px]">Hôm qua</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] leading-tight mt-0.5">
+<p class="font-body-sm text-body-sm text-on-surface text-[12px] leading-tight mt-0.5">
               Cấp quyền kiểm thử tải đề thi TOEIC không chặn IP.
             </p>
-<span class="inline-block mt-1 font-label-sm text-[10px] text-outline font-semibold">Tác nhân: Linh Mai (LM)</span>
+<span class="inline-block mt-1 font-label-sm text-[10px] text-on-surface-variant font-semibold">Tác nhân: Linh Mai (LM)</span>
 </div>
 </div>
+<button class="w-full h-11 min-h-[44px] tactile-btn-secondary rounded-xl font-label-md text-label-md font-bold text-primary-container flex items-center justify-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
+<span>Xem toàn bộ nhật ký</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
 </section>
 <!-- 8. Footer: Internal Ops info -->
-<footer class="pt-2 pb-4 text-center">
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-[#e5dcce] text-outline text-[11px] font-medium shadow-sm">
+<footer class="pt-2 pb-20 text-center">
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-[#e5dcce] text-on-surface-variant text-[11px] font-bold shadow-sm">
 <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
 <span>Lexkite Internal Ops v1.4.2</span>
 <span>·</span>
 <span>Asia/Ho_Chi_Minh (GMT+7)</span>
 </div>
 </footer>
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#f7f4ed]/95 backdrop-blur-md border-t border-[#e7ded1] flex justify-center">
+<div class="w-full max-w-[390px] h-14 min-h-[48px] px-2 flex items-center justify-around">
+<button class="flex-1 h-full min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold leading-none">Tổng quan</span>
+</button>
+<button class="flex-1 h-full min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="cloud">cloud</span>
+<span class="text-[10px] font-bold leading-none">Kho Drive</span>
+</button>
+<button class="flex-1 h-full min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-primary active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="speed" data-weight="fill">speed</span>
+<span class="text-[10px] font-bold leading-none">Hạn mức</span>
+</button>
+<button class="flex-1 h-full min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span class="text-[10px] font-bold leading-none">Cài đặt</span>
+</button>
+</div>
+</nav>
 </div>
 </main>
 </body></html>

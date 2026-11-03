@@ -1,0 +1,38 @@
+[
+ {
+  "id": "adm-users2-drawer",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-drawer/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 160px | light: 19 vùng chạm < 44px (vd \"logout 32×32\") | light: tương phản 19 chữ (vd \"1.284\" 3.92<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-drawer",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-drawer/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 19 vùng chạm < 44px (vd \"logout 32×32\") | dark: tương phản 47 chữ (vd \"Bảng điều khiển trung tâm\" 2.8<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-table/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 1418px | light: 10 vùng chạm < 44px (vd \"Lexkite\n              Ad 171×37\") | light: tương phản 7 chữ (vd \"Thêm người dùng\" 3.25<4.5) | light: tên icon hiện thành chữ \"search\" (58)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-table/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tràn ngang 160px | dark: 10 vùng chạm < 44px (vd \"Lexkite\nAdmin\n\nHệ thống  171×37\") | dark: tương phản 33 chữ (vd \"570 AWL\" 4.14<4.5) | dark: tên icon hiện thành chữ \"search\" (58)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ }
+]

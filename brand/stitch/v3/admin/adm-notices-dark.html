@@ -278,10 +278,7 @@
 <kbd class="px-1.5 py-0.5 text-[10px] font-bold text-[#cbd5e1] bg-[#122226] border border-[#26393e] rounded shadow-xs">Ctrl K</kbd>
 </span>
 </div>
-<div class="flex items-center bg-[#182c31] p-1 rounded-lg border border-[#26393e] text-xs font-bold min-h-[44px]">
-<button class="px-3 py-2 min-h-[36px] rounded bg-[#1e353b] text-[#5eead4] shadow-xs leading-none border border-[#2d4a52]" type="button">VI</button>
-<button class="px-3 py-2 min-h-[36px] rounded text-[#cbd5e1] hover:text-[#f0f6f6] leading-none" type="button">EN</button>
-</div>
+<div class="flex items-center bg-[#182c31] p-1 rounded-lg border border-[#26393e] text-xs font-bold min-h-[44px]"><button class="px-3 py-2 min-h-[44px] min-w-[44px] rounded bg-[#1e353b] text-[#5eead4] shadow-xs leading-none border border-[#2d4a52] flex items-center justify-center" type="button">VI</button><button class="px-3 py-2 min-h-[44px] min-w-[44px] rounded text-[#cbd5e1] hover:text-[#f0f6f6] leading-none flex items-center justify-center" type="button">EN</button></div>
 <div class="h-5 w-[1px] bg-[#26393e]"></div>
 <div class="flex items-center gap-2.5 min-h-[44px] cursor-pointer">
 <div class="w-10 h-10 rounded-full bg-[#1e353b] text-[#5eead4] font-bold text-xs flex items-center justify-center border border-[#2dd4bf]/40 shadow-xs">
@@ -299,15 +296,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 <!-- LEFT: COMPOSER FORM (7 COLS) -->
 <div class="lg:col-span-7 tactile-card p-6">
-<div class="flex items-center justify-between pb-4 border-b border-[#26393e]">
-<div>
-<h2 class="text-base font-bold text-[#f0f6f6]">Soạn thông báo chuông</h2>
-<p class="text-xs text-[#9bb0b5] mt-0.5">Xuất hiện ngay trong biểu tượng chuông đầu trang của ứng dụng người học.</p>
-</div>
-<span class="text-xs font-medium text-[#9bb0b5] bg-[#182c31] px-2.5 py-1 rounded-md border border-[#26393e]">
-              Bản nháp tự lưu
-            </span>
-</div>
+<div class="flex items-center justify-between pb-4 border-b border-[#26393e]"><div><h2 class="text-base font-bold text-[#f0f6f6]">Soạn thông báo chuông</h2><p class="text-xs text-[#cbd5e1] mt-0.5">Xuất hiện ngay trong biểu tượng chuông đầu trang của ứng dụng người học.</p></div><span class="text-xs font-semibold text-[#cbd5e1] bg-[#182c31] px-2.5 py-1 rounded-md border border-[#26393e]">Bản nháp tự lưu</span></div>
 <form class="mt-5 space-y-4" onsubmit="event.preventDefault();"><div>
 <label class="block text-xs font-bold text-[#cbd5e1] mb-1.5 uppercase tracking-wide">
   Phân loại thông báo
@@ -328,21 +317,11 @@
 </div>
 </div>
 <div>
-<div class="flex items-center justify-between mb-1">
-<label class="text-xs font-bold text-[#cbd5e1] uppercase tracking-wide" for="title">
-  Tiêu đề thông báo <span class="text-coral-500">*</span>
-</label>
-<span class="text-[11px] text-[#9bb0b5] font-medium">Tối đa 60 ký tự</span>
-</div>
+<div class="flex items-center justify-between mb-1"><label class="text-xs font-bold text-[#cbd5e1] uppercase tracking-wide" for="title">Tiêu đề thông báo <span class="text-[#ff7a59] font-bold">*</span></label><span class="text-[11px] text-[#cbd5e1] font-medium">Tối đa 60 ký tự</span></div>
 <input class="w-full px-3.5 py-2.5 min-h-[44px] text-sm rounded-lg tactile-input font-semibold placeholder-[#9bb0b5]" id="title" placeholder="Nhập tiêu đề ngắn gọn, rõ ràng..." type="text" value="Bộ thẻ IELTS Task 2 mới: Môi trường &amp; Đô thị"/>
 </div>
 <div>
-<div class="flex items-center justify-between mb-1">
-<label class="text-xs font-bold text-[#cbd5e1] uppercase tracking-wide" for="body-content">
-  Nội dung chi tiết <span class="text-coral-500">*</span>
-</label>
-<span class="text-[11px] text-[#9bb0b5] font-medium">Tối đa 180 ký tự</span>
-</div>
+<div class="flex items-center justify-between mb-1"><label class="text-xs font-bold text-[#cbd5e1] uppercase tracking-wide" for="body-content">Nội dung chi tiết <span class="text-[#ff7a59] font-bold">*</span></label><span class="text-[11px] text-[#cbd5e1] font-medium">Tối đa 180 ký tự</span></div>
 <textarea class="w-full px-3.5 py-2.5 text-sm rounded-lg tactile-input placeholder-[#9bb0b5] resize-none font-normal leading-relaxed text-[#d8e5e9]" id="body-content" placeholder="Mô tả giá trị cho người học..." rows="3">24 từ vựng học thuật kèm ví dụ thực tế đã được cập nhật vào kho thẻ ôn luyện lặp lại ngắt quãng (FSRS). Luyện ngay 5 phút hôm nay!</textarea>
 </div>
 <div>
@@ -416,16 +395,7 @@
 </div></form>
 </div>
 <!-- RIGHT: LIVE PREVIEW INSIDE A TINY PHONE BELL DROPDOWN MOCK (5 COLS) -->
-<div class="lg:col-span-5 tactile-card p-6 bg-[#16282c]"><div class="flex items-center justify-between pb-3 border-b border-[#26393e]">
-<div>
-<span class="text-xs font-bold text-[#f0f6f6] uppercase tracking-wide">Xem trước thời gian thực</span>
-<p class="text-[11px] text-[#cbd5e1]">Giao diện chuông trên điện thoại người học (390px)</p>
-</div>
-<button class="flex items-center gap-1 text-[11px] font-semibold text-[#5eead4] bg-[#182c31] px-3 py-2 min-h-[44px] rounded border border-[#26393e]" type="button">
-<span class="material-symbols-outlined text-[16px]">smartphone</span>
-  iOS / Android
-</button>
-</div>
+<div class="lg:col-span-5 tactile-card p-6 bg-[#16282c]"><div class="flex items-center justify-between pb-3 border-b border-[#26393e]"><div><span class="text-xs font-bold text-[#f0f6f6] uppercase tracking-wide">Xem trước thời gian thực</span><p class="text-[11px] text-[#cbd5e1]">Giao diện chuông trên điện thoại người học (390px)</p></div><button class="flex items-center gap-1 text-[11px] font-semibold text-[#5eead4] bg-[#182c31] px-3 py-2 min-h-[44px] min-w-[44px] rounded border border-[#26393e] justify-center" type="button"><span class="material-symbols-outlined text-[16px]">smartphone</span> iOS / Android</button></div>
 <div class="mt-4 mx-auto max-w-[340px] bg-[#0d1a1c] rounded-2xl border-2 border-[#26393e] shadow-2xl p-3.5 relative overflow-hidden">
 <div class="flex items-center justify-between pb-2 border-b border-[#22373c] mb-3 text-[#cbd5e1]">
 <div class="flex items-center gap-1.5">
@@ -461,10 +431,7 @@
   24 từ vựng học thuật kèm ví dụ thực tế đã được cập nhật vào kho thẻ ôn luyện lặp lại ngắt quãng (FSRS). Luyện ngay 5 phút hôm nay!
 </p>
 <div class="mt-2.5 pt-2 border-t border-[#22373c] flex items-center justify-between">
-<span class="text-[11px] text-[#5eead4] font-bold flex items-center gap-1 hover:text-coral-500 transition-colors cursor-pointer py-1">
-  Mở bộ từ vựng
-  <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-</span>
+<a class="text-[11px] text-[#5eead4] font-bold flex items-center gap-1 hover:text-coral-500 transition-colors cursor-pointer min-h-[44px] py-1" href="#">Mở bộ từ vựng <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
 <span class="text-[11px] text-[#9bb0b5] font-mono">FSRS-v5</span>
 </div>
 </div>
@@ -507,11 +474,7 @@
 <div class="mt-4 overflow-x-auto">
 <table class="w-full text-left text-xs border-collapse">
 <thead>
-<tr class="border-b border-[#26393e] text-[11px] font-bold text-[#9bb0b5] uppercase tracking-wider bg-[#182c31]/70"><th class="py-3 px-4 rounded-l-lg text-[#cbd5e1]">Tiêu đề thông báo</th>
-<th class="py-3 px-4 text-[#cbd5e1]">Đối tượng</th>
-<th class="py-3 px-4 text-right text-[#cbd5e1]">Lượt đọc / Đã gửi</th>
-<th class="py-3 px-4 text-center text-[#cbd5e1]">Trạng thái</th>
-<th class="py-3 px-4 text-right rounded-r-lg text-[#cbd5e1]">Thao tác</th></tr>
+<tr class="border-b border-[#26393e] text-[11px] font-bold text-[#cbd5e1] uppercase tracking-wider bg-[#182c31]/70"><th class="py-3.5 px-4 rounded-l-lg text-[#cbd5e1]">Tiêu đề thông báo</th><th class="py-3.5 px-4 text-[#cbd5e1]">Đối tượng</th><th class="py-3.5 px-4 text-right text-[#cbd5e1]">Lượt đọc / Đã gửi</th><th class="py-3.5 px-4 text-center text-[#cbd5e1]">Trạng thái</th><th class="py-3.5 px-4 text-right rounded-r-lg text-[#cbd5e1]">Thao tác</th></tr>
 </thead>
 <tbody class="divide-y divide-[#22373c]"><tr class="hover:bg-[#182c31]/50 transition-colors">
 <td class="py-3.5 px-4">
@@ -615,38 +578,7 @@
 </button>
 </td>
 </tr>
-<tr class="hover:bg-[#182c31]/50 transition-colors bg-[#0f1c20]/50">
-<td class="py-3.5 px-4">
-<div class="font-semibold text-[#cbd5e1] text-sm line-through">
-  Thử nghiệm tính năng phòng luyện nói nhóm
-</div>
-<div class="text-[11px] text-[#9bb0b5] mt-0.5 flex items-center gap-2">
-<span class="inline-flex items-center gap-1 font-medium text-[#9bb0b5]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#9bb0b5]"></span>
-  Thử nghiệm
-</span>
-<span class="text-[#6a848a]">•</span>
-<span class="text-[#9bb0b5]">3 ngày trước</span>
-</div>
-</td>
-<td class="py-3.5 px-4 font-medium text-[#cbd5e1] whitespace-nowrap">
-  Mới trong 7 ngày
-</td>
-<td class="py-3.5 px-4 text-right whitespace-nowrap">
-<span class="font-bold text-[#cbd5e1] text-sm">6</span>
-<span class="text-[#9bb0b5] font-normal"> / </span>
-<span class="text-[#cbd5e1] font-medium">32</span>
-<span class="block text-[11px] text-[#9bb0b5] font-medium">(18.7%)</span>
-</td>
-<td class="py-3.5 px-4 text-center whitespace-nowrap">
-<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#1a2f34] text-[#cbd5e1] border border-[#26393e]">
-  Đã thu hồi
-</span>
-</td>
-<td class="py-3.5 px-4 text-right whitespace-nowrap">
-<span class="text-xs text-[#9bb0b5] italic min-h-[44px] inline-flex items-center">Đã ngừng phát</span>
-</td>
-</tr>
+<tr class="hover:bg-[#182c31]/50 transition-colors bg-[#0f1c20]/50"><td class="py-3.5 px-4"><div class="font-semibold text-[#cbd5e1] text-sm line-through">Thử nghiệm tính năng phòng luyện nói nhóm</div><div class="text-[11px] text-[#cbd5e1] mt-0.5 flex items-center gap-2"><span class="inline-flex items-center gap-1 font-medium text-[#cbd5e1]"><span class="w-1.5 h-1.5 rounded-full bg-[#cbd5e1]"></span> Thử nghiệm</span><span class="text-[#9bb0b5]">•</span><span class="text-[#cbd5e1]">3 ngày trước</span></div></td><td class="py-3.5 px-4 font-medium text-[#cbd5e1] whitespace-nowrap">Mới trong 7 ngày</td><td class="py-3.5 px-4 text-right whitespace-nowrap"><span class="font-bold text-[#cbd5e1] text-sm">6</span><span class="text-[#cbd5e1] font-normal"> / </span><span class="text-[#cbd5e1] font-medium">32</span><span class="block text-[11px] text-[#cbd5e1] font-medium">(18.7%)</span></td><td class="py-3.5 px-4 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#1a2f34] text-[#cbd5e1] border border-[#26393e]">Đã thu hồi</span></td><td class="py-3.5 px-4 text-right whitespace-nowrap"><span class="text-xs text-[#cbd5e1] italic min-h-[44px] min-w-[44px] inline-flex items-center justify-end">Đã ngừng phát</span></td></tr>
 <tr class="hover:bg-[#182c31]/50 transition-colors">
 <td class="py-3.5 px-4">
 <div class="font-bold text-[#f0f6f6] text-sm leading-snug">

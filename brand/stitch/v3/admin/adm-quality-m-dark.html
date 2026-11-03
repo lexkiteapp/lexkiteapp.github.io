@@ -87,9 +87,9 @@
 </div>
 <div class="flex items-center">
 <!-- Admin initials avatar pill 'MA' (Minh Anh) -->
-<div class="w-9 h-9 rounded-full bg-[#16383e] text-[#5eead4] border border-[#2dd4bf]/40 flex items-center justify-center font-bold text-sm shadow-[0_2px_0_0_#071f22] cursor-pointer active:scale-95 transition-transform">
+<button aria-label="Hồ sơ người dùng" class="w-11 h-11 rounded-full bg-[#16383e] text-[#5eead4] border border-[#2dd4bf]/40 flex items-center justify-center font-bold text-sm shadow-[0_2px_0_0_#071f22] cursor-pointer active:scale-95 transition-transform min-w-[44px] min-h-[44px]">
         MA
-      </div>
+      </button>
 </div>
 </header>
 <!-- Main Content Stream -->
@@ -98,7 +98,7 @@
 <div class="pt-2 flex items-center justify-between text-xs text-[#94a3b8]">
 <div class="flex items-center gap-1.5 truncate">
 <span>Hệ thống</span>
-<span class="text-[#1f3d45]">/</span>
+<span class="text-[#94a3b8]">/</span>
 <span class="font-semibold text-[#2dd4bf]">Kiểm định chất lượng &amp; Bản dịch tự động</span>
 </div>
 <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0d2a2f] text-[#5eead4] border border-[#2dd4bf]/30 font-semibold text-[11px] shrink-0">
@@ -124,18 +124,16 @@
 </div>
 </div>
 <!-- Time Range Filter Pills -->
-<div class="flex items-center gap-2 pt-2 border-t border-[#1f3d45]">
-<span class="text-[11px] font-semibold text-[#94a3b8] pr-1">Kỳ xem:</span>
-<button class="px-3 h-8 rounded-lg bg-[#143c42] border border-[#2dd4bf]/50 text-[#5eead4] font-semibold text-xs shadow-[0_2px_0_0_#061b1e] active:translate-y-[1px] transition-transform">
+<div class="flex items-center gap-2 pt-2 border-t border-[#1f3d45]"><span class="text-[11px] font-semibold text-[#94a3b8] pr-1">Kỳ xem:</span>
+<button class="px-3.5 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-[#143c42] border border-[#2dd4bf]/50 text-[#5eead4] font-semibold text-xs shadow-[0_2px_0_0_#061b1e] flex items-center justify-center active:translate-y-[1px] transition-transform">
           Hôm nay
         </button>
-<button class="px-3 h-8 rounded-lg bg-[#0b191c] border border-[#1f3d45] text-[#94a3b8] font-semibold text-xs hover:text-[#f0fdfa] hover:bg-[#142a30] transition-colors">
+<button class="px-3.5 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-[#0b191c] border border-[#1f3d45] text-[#94a3b8] font-semibold text-xs hover:text-[#f0fdfa] hover:bg-[#142a30] flex items-center justify-center transition-colors">
           7 ngày
         </button>
-<button class="px-3 h-8 rounded-lg bg-[#0b191c] border border-[#1f3d45] text-[#94a3b8] font-semibold text-xs hover:text-[#f0fdfa] hover:bg-[#142a30] transition-colors">
+<button class="px-3.5 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-[#0b191c] border border-[#1f3d45] text-[#94a3b8] font-semibold text-xs hover:text-[#f0fdfa] hover:bg-[#142a30] flex items-center justify-center transition-colors">
           30 ngày
-        </button>
-</div>
+        </button></div>
 <!-- Primary Warm Coral CTA Button -->
 <button class="w-full h-12 bg-[#ea580c] hover:bg-[#f97316] text-[#ffffff] font-headline font-semibold text-[16px] rounded-lg flex items-center justify-center gap-2 shadow-[0_3px_0_0_#9a3412] active:translate-y-[2px] active:shadow-[0_1px_0_0_#9a3412] transition-all duration-100">
 <span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
@@ -331,7 +329,7 @@
 <h2 class="font-headline font-semibold text-[17px] text-[#f0fdfa]">Màn hình cần sửa</h2>
 <span class="px-2 py-0.5 rounded-full bg-[#3d1317] border border-[#ef4444]/40 text-[#fca5a5] font-bold text-[11px]">3 phát hiện</span>
 </div>
-<button class="text-xs font-semibold text-[#2dd4bf] hover:underline">Chi tiết HIG</button>
+<button class="min-h-[44px] min-w-[44px] px-2 flex items-center justify-center text-xs font-semibold text-[#2dd4bf] hover:underline active:scale-95 transition-transform">Chi tiết HIG</button>
 </div>
 <!-- Issue Card 1 -->
 <article class="bg-[#0f2126] rounded-xl border border-[#1f3d45] p-3.5 shadow-[0_2px_0_0_#081619] flex flex-col gap-2.5">
@@ -356,7 +354,7 @@
 <span class="px-2 py-0.5 rounded bg-[#3d1317] text-[#fca5a5] border border-[#ef4444]/30 text-[11px] font-bold">Tương phản AA</span>
 <span class="px-2 py-0.5 rounded bg-[#142a30] text-[#94a3b8] border border-[#1f3d45] text-[11px] font-semibold">Chạm &lt; 44px</span>
 </div>
-<button class="h-9 px-3.5 bg-[#16383e] hover:bg-[#1e4a52] text-[#5eead4] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center gap-1 shrink-0">
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#16383e] hover:bg-[#1e4a52] text-[#5eead4] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0">
 <span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
 <span>Mở sửa</span>
 </button>
@@ -387,7 +385,7 @@
 <span class="px-2 py-0.5 rounded bg-[#3d1317] text-[#fca5a5] border border-[#ef4444]/30 text-[11px] font-bold">Touch Target</span>
 <span class="px-2 py-0.5 rounded bg-[#142a30] text-[#94a3b8] border border-[#1f3d45] text-[11px] font-semibold">Modal Header</span>
 </div>
-<button class="h-9 px-3.5 bg-[#16383e] hover:bg-[#1e4a52] text-[#5eead4] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center gap-1 shrink-0">
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#16383e] hover:bg-[#1e4a52] text-[#5eead4] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0">
 <span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
 <span>Mở sửa</span>
 </button>
@@ -416,7 +414,7 @@
 <span class="px-2 py-0.5 rounded bg-[#3d1317] text-[#fca5a5] border border-[#ef4444]/30 text-[11px] font-bold">Text Truncate</span>
 <span class="px-2 py-0.5 rounded bg-[#142a30] text-[#94a3b8] border border-[#1f3d45] text-[11px] font-semibold">Màn hình 360px</span>
 </div>
-<button class="h-9 px-3.5 bg-[#16383e] hover:bg-[#1e4a52] text-[#5eead4] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center gap-1 shrink-0">
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#16383e] hover:bg-[#1e4a52] text-[#5eead4] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0">
 <span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
 <span>Mở sửa</span>
 </button>

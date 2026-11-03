@@ -216,7 +216,7 @@ table td button, table td a {
   padding: 0.5rem 0.75rem !important;
   justify-content: flex-end;
 }
-</style></head>
+</style><style>/* QC Touch Target & Contrast Enhancements */ .tactile-card a { min-height: 44px; display: inline-flex; align-items: center; padding-top: 0.5rem; padding-bottom: 0.5rem; } table td button { min-height: 44px !important; min-width: 44px !important; display: inline-flex; align-items: center; justify-content: flex-end; } .tactile-button-coral { background-color: #ea580c !important; color: #ffffff !important; } </style></head>
 <body class="bg-[#060e10] text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-container selection:text-white">
 <!-- ========================================================================= -->
 <!-- LEFT DOCKED SIDEBAR (Shared Component: SideNavBar)                      -->
@@ -400,10 +400,7 @@ table td button, table td a {
 <span class="text-[11px] font-bold text-[#6ee7b7] tracking-wide">7/7 dịch vụ hoạt động bình thường</span>
 </div>
 <!-- Language Toggle Pill -->
-<div class="flex items-center p-0.5 rounded-lg bg-[#051013] border border-[#1a333a] min-h-[44px]">
-<button class="px-2.5 min-h-[40px] rounded font-label-sm text-label-sm font-bold bg-[#12252b] text-primary border border-[#22434d] flex items-center justify-center" type="button">VI</button>
-<button class="px-2.5 min-h-[40px] rounded font-label-sm text-label-sm text-[#cbd5e1] hover:text-[#f8fafc] flex items-center justify-center" type="button">EN</button>
-</div>
+<div class="flex items-center p-0.5 rounded-lg bg-[#051013] border border-[#1a333a] min-h-[44px]"><button class="min-w-[44px] min-h-[44px] px-3 rounded font-label-sm text-label-sm font-bold bg-[#12252b] text-primary border border-[#22434d] flex items-center justify-center" type="button">VI</button><button class="min-w-[44px] min-h-[44px] px-3 rounded font-label-sm text-label-sm text-[#cbd5e1] hover:text-white flex items-center justify-center" type="button">EN</button></div>
 <!-- Refresh / Sync Action -->
 <button class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-[#1a333a] bg-[#0f2126] text-[#cbd5e1] hover:text-primary hover:bg-[#152b31] transition-colors" title="Làm mới trạng thái" type="button">
 <span class="material-symbols-outlined text-[20px]" data-icon="refresh">refresh</span>
@@ -415,15 +412,7 @@ table td button, table td a {
 </button>
 <div class="h-5 w-px bg-[#1a333a]"></div>
 <!-- Profile Section -->
-<div class="flex items-center gap-space-sm pl-1">
-<div class="w-8 h-8 rounded-full bg-[#10383b] text-primary border border-primary/30 flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">
-          MA
-        </div>
-<div class="flex flex-col text-left">
-<span class="font-label-md text-label-md text-[#f8fafc] leading-tight">Minh Anh</span>
-<span class="text-[11px] text-[#879391] leading-none">Vận hành kỹ thuật</span>
-</div>
-</div>
+<div class="flex items-center gap-space-sm pl-1"><div class="w-9 h-9 min-w-[36px] rounded-full bg-[#10383b] text-primary border border-primary/30 flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">MA</div><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-[#f8fafc] leading-tight">Minh Anh</span><span class="text-[11px] text-[#cbd5e1] leading-none">Vận hành kỹ thuật</span></div></div>
 </div>
 </header>
 <!-- ========================================================================= -->
@@ -451,10 +440,7 @@ table td button, table td a {
 <span>Xuất cấu hình (.json)</span>
 </button>
 <!-- Signature Tactile Warm Coral Primary CTA -->
-<button class="min-h-[44px] px-5 rounded-lg tactile-button-coral font-label-md text-label-md flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
-<span>Đồng bộ &amp; Kiểm tra kết nối</span>
-</button>
+<button class="min-h-[44px] px-5 py-2.5 rounded-lg bg-[#ea580c] hover:bg-[#f97316] text-white border border-[#9a3412] font-label-md text-label-md font-bold flex items-center gap-2 shadow-sm transition-colors active:scale-[0.98]" type="button"><span class="material-symbols-outlined text-[18px] text-white" data-icon="sync">sync</span><span class="text-white tracking-wide">Đồng bộ &amp; Kiểm tra kết nối</span></button>
 </div>
 </div>
 <!-- Notice Banner / Summary Box -->

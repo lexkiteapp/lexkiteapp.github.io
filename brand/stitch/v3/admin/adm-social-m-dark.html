@@ -181,16 +181,16 @@
 <!-- ========================================== -->
 <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin h-14 max-w-md mx-auto bg-[#0d1d21]/95 backdrop-blur-md border-b border-[#1a3840] shadow-sm">
 <div class="flex items-center gap-2.5">
-<button aria-label="Menu" class="w-10 h-10 flex items-center justify-center rounded-xl text-primary hover:bg-[#16292f] transition-colors duration-150 active:scale-95" type="button">
-<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<button aria-label="Menu" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl text-primary hover:bg-[#16292f] transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="menu">menu</span>
 </button>
 <div class="flex flex-col">
 <span class="text-title-md font-title-md text-[#f1fdfb] font-semibold tracking-tight">Admin › Video &amp; Social</span>
-<span class="text-body-sm font-body-sm text-[#94a3b8] -mt-0.5">Lên lịch &amp; Kênh GrabCast</span>
+<span class="text-body-sm font-body-sm text-[#cbd5e1] -mt-0.5 font-medium">Lên lịch &amp; Kênh GrabCast</span>
 </div>
 </div>
 <div class="flex items-center">
-<div class="w-9 h-9 rounded-full bg-primary-container text-white flex items-center justify-center text-label-md font-label-md font-bold tracking-wider shadow-sm ring-2 ring-[#1e3c43]">
+<div aria-label="Hồ sơ người dùng" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#0f766e] text-white flex items-center justify-center text-[13px] font-bold tracking-wider shadow-sm ring-2 ring-[#2dd4bf] border border-[#115e59] cursor-pointer select-none">
         LM
       </div>
 </div>
@@ -206,9 +206,9 @@
 <span class="material-symbols-outlined text-primary text-[18px]" data-icon="hub">hub</span>
 <span class="text-label-md font-label-md text-primary font-bold">Cổng GrabCast v1.8</span>
 </div>
-<span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-[#142a30] text-primary border border-[#1a3840]">
+<button class="min-h-[44px] px-3 py-2 inline-flex items-center justify-center text-[11px] uppercase tracking-wider font-bold rounded-xl bg-[#142a30] text-[#6bd8ce] border border-[#1a3840] hover:bg-[#18343b] transition-colors active:scale-95 cursor-pointer" type="button">
           Auto-distribute
-        </span>
+        </button>
 </div>
 <!-- Horizontal scrollable platform chips -->
 <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
@@ -423,9 +423,11 @@
 <p class="text-[11px] font-extrabold leading-tight text-white">COMFORT-ABLE</p>
 <p class="text-[9px] text-primary font-mono">/'kʌmftəbl/</p>
 </div>
-<div class="flex items-center justify-between text-[7px] text-[#a3c7c3]">
-<span>Lexkite B2</span>
-<span class="material-symbols-outlined text-[10px]" data-icon="volume_up">volume_up</span>
+<div class="flex items-center justify-between text-[8px] text-[#e2e8f0]">
+<span class="font-medium">Lexkite B2</span>
+<button aria-label="Nghe phát âm mẫu" class="min-w-[44px] min-h-[44px] -mr-3 -mb-3 flex items-center justify-center text-primary hover:text-white transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
+</button>
 </div>
 </div>
 <!-- Video Specs -->
@@ -571,28 +573,26 @@ Lưu lại ôn trước khi thi IELTS Speaking nhé! 🎧
 <!-- ========================================== -->
 <!-- 6. BOTTOM NAVIGATION BAR (Tactile Night)   -->
 <!-- ========================================== -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-gutter py-2 pb-safe max-w-md mx-auto bg-[#0d1d21]/95 backdrop-blur-md border-t border-[#1a3840] shadow-[0_-3px_0_0_#071518]">
-<!-- Item 0: Tổng quan (Inactive) -->
-<a class="flex flex-col items-center justify-center text-[#94a3b8] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#tong-quan">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-gutter py-2 pb-safe max-w-md mx-auto bg-[#0d1d21]/95 backdrop-blur-md border-t border-[#1a3840] shadow-[0_-3px_0_0_#071518]"><!-- Item 0: Tổng quan (Inactive) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-[#cbd5e1] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#tong-quan">
 <span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="dashboard">dashboard</span>
-<span class="text-label-sm font-label-sm">Tổng quan</span>
+<span class="text-[11px] font-semibold">Tổng quan</span>
 </a>
 <!-- Item 1: Kênh & Social (ACTIVE) -->
-<a class="flex flex-col items-center justify-center text-primary bg-[#142a30] border border-[#1a3840] rounded-xl px-3 py-1 font-bold shadow-sm hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#kenh-social">
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-primary bg-[#142a30] border border-[#1a3840] rounded-xl px-3 py-1 font-bold shadow-sm hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#kenh-social">
 <span class="material-symbols-outlined text-[22px] mb-0.5 text-primary" data-icon="video_library" data-weight="fill" style="font-variation-settings: 'FILL' 1;">video_library</span>
-<span class="text-label-sm font-label-sm">Kênh &amp; Social</span>
+<span class="text-[11px] font-bold">Kênh &amp; Social</span>
 </a>
 <!-- Item 2: Lưu trữ (Inactive) -->
-<a class="flex flex-col items-center justify-center text-[#94a3b8] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#luu-tru">
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-[#cbd5e1] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#luu-tru">
 <span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="folder">folder</span>
-<span class="text-label-sm font-label-sm">Lưu trữ</span>
+<span class="text-[11px] font-semibold">Lưu trữ</span>
 </a>
 <!-- Item 3: Cài đặt (Inactive) -->
-<a class="flex flex-col items-center justify-center text-[#94a3b8] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#cai-dat">
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-[#cbd5e1] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#cai-dat">
 <span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="settings">settings</span>
-<span class="text-label-sm font-label-sm">Cài đặt</span>
-</a>
-</nav>
+<span class="text-[11px] font-semibold">Cài đặt</span>
+</a></nav>
 <!-- Interactive feedback micro-script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {

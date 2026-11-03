@@ -356,13 +356,7 @@
 </div>
 <!-- Sidebar Footer -->
 <div class="pt-space-sm border-t border-outline-variant/30 flex flex-col gap-2">
-<div class="flex items-center justify-between text-on-surface-variant text-label-sm font-label-sm px-1">
-<span class="flex items-center gap-1.5 text-outline">
-<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
-<span>Production</span>
-</span>
-<span class="font-mono text-[11px] text-outline">v2.4.1</span>
-</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm px-1 text-[#1c1c17]"><span class="flex items-center gap-1.5 font-bold"><span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span><span>Production</span></span><span class="font-mono text-[11px] font-bold text-[#2d4f4c]">v2.4.1</span></div>
 <div class="flex items-center justify-between pt-1"><a class="min-h-[44px] px-1 text-[#2d4f4c] hover:text-on-surface text-body-sm font-semibold flex items-center gap-1.5 transition-colors" href="#">
 <span class="material-symbols-outlined text-[18px]">help</span>
 <span>Trợ giúp</span>
@@ -374,18 +368,12 @@
 </div>
 </aside>
 <!-- Main Viewport Area (Left offset by 256px / w-64) -->
-<div class="ml-64 flex-1 flex flex-col min-h-screen">
+<div class="ml-64 flex-1 flex flex-col min-h-screen min-w-0">
 <!-- Top Navigation Bar (TopNavBar blueprint) -->
 <header class="h-14 px-space-xl flex justify-between items-center z-30 bg-surface border-b border-outline-variant/30 sticky top-0"><!-- Left side: Breadcrumb & Context Search -->
 <div class="flex items-center gap-space-xl">
 <!-- Breadcrumb -->
-<div class="flex items-center gap-2 text-label-sm font-label-sm text-[#2d4f4c]">
-<span class="text-on-surface font-semibold">Admin</span>
-<span class="text-outline-variant text-[11px]">›</span>
-<span class="text-on-surface font-semibold">Chất lượng</span>
-<span class="text-outline-variant text-[11px]">›</span>
-<span class="text-primary font-bold">Cảnh báo</span>
-</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-[#2d4f4c]"><span class="text-[#1c1c17] font-bold">Admin</span><span class="text-[#2d4f4c] text-[12px] font-bold">›</span><span class="text-[#1c1c17] font-bold">Chất lượng</span><span class="text-[#2d4f4c] text-[12px] font-bold">›</span><span class="text-primary font-bold">Cảnh báo</span></div>
 <!-- Global Search Input with min-h-[44px] -->
 <div class="relative w-80">
 <span class="material-symbols-outlined text-[20px] text-[#2d4f4c] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">search</span>
@@ -435,14 +423,7 @@
 <p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
             Theo dõi tác vụ định kỳ nền (Cron), lỗi JavaScript phát sinh từ trình duyệt người học và nhật ký điều phối.
           </p>
-<div class="flex items-center gap-4 mt-2 text-label-sm font-label-sm text-outline">
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px] text-primary">sync</span>
-              Đồng bộ lúc 09:42 · Tự động làm mới 60s
-            </span>
-<span>•</span>
-<span class="text-outline">Cụm máy chủ: Singapore (sin-edge-01)</span>
-</div>
+<div class="flex items-center gap-4 mt-2 text-label-sm font-label-sm text-[#2d4f4c] font-medium"><span class="flex items-center gap-1 text-[#004340] font-semibold"><span class="material-symbols-outlined text-[16px] text-primary">sync</span>Đồng bộ lúc 09:42 · Tự động làm mới 60s</span><span>•</span><span class="text-[#1c1c17] font-medium">Cụm máy chủ: Singapore (sin-edge-01)</span></div>
 </div>
 <!-- Action Buttons -->
 <div class="flex items-center gap-space-sm shrink-0"><button class="tactile-button-subtle font-bold text-label-md min-h-[44px] px-space-lg py-2.5 rounded-lg flex items-center gap-2 transition-all active:scale-[0.98]">
@@ -518,7 +499,7 @@
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse">
 <thead>
-<tr class="bg-surface-container-low/60 border-b border-[#e6ded2] text-[#2d4f4c] font-bold font-label-caps text-label-caps uppercase tracking-wider">
+<tr class="bg-surface-container-low/60 border-b border-[#e6ded2] text-[#004340] font-bold font-label-caps text-label-caps uppercase tracking-wider">
 <th class="py-3 px-space-md font-bold">Tên tác vụ &amp; Mô tả</th>
 <th class="py-3 px-space-md font-bold">Lần chạy cuối</th>
 <th class="py-3 px-space-md font-bold text-right">Thời lượng</th>
@@ -735,18 +716,7 @@
 </table>
 </div>
 <!-- Table Bottom Summary Bar -->
-<div class="p-space-md bg-surface-container-low border-t border-[#e6ded2] flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
-<div class="flex items-center gap-2">
-<span class="font-medium text-on-surface">8 tác vụ đã lên lịch</span>
-<span>•</span>
-<span class="text-emerald-700 font-semibold">7 bình thường</span>
-<span>•</span>
-<span class="text-red-700 font-semibold">1 cần chú ý</span>
-</div>
-<div class="flex items-center gap-1 text-label-sm font-label-sm text-outline">
-<span>Định cấu hình qua Lexkite Task Runner v1.9</span>
-</div>
-</div>
+<div class="p-space-md bg-surface-container-low border-t border-[#e6ded2] flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant"><div class="flex items-center gap-2"><span class="font-bold text-[#1c1c17]">8 tác vụ đã lên lịch</span><span>•</span><span class="text-[#065f46] font-bold">7 bình thường</span><span>•</span><span class="text-[#991b1b] font-bold">1 cần chú ý</span></div><div class="flex items-center gap-1 text-label-sm font-label-sm text-[#2d4f4c] font-semibold"><span>Định cấu hình qua Lexkite Task Runner v1.9</span></div></div>
 </div>
 <!-- Column B (Side Card - Lỗi JS 24 giờ) 4-Columns -->
 <div class="col-span-12 xl:col-span-4 flex flex-col gap-space-lg">
@@ -762,86 +732,11 @@
                     31 sự kiện
                   </span>
 </div>
-<p class="font-body-sm text-[12px] text-outline mt-0.5">
-                  Lọc từ học viên thực tế trên iOS Safari, Android Chrome &amp; Extension.
-                </p>
+<p class="font-body-sm text-[12px] text-[#2d4f4c] font-medium mt-0.5">Lọc từ học viên thực tế trên iOS Safari, Android Chrome &amp; Extension.</p>
 </div>
 </div>
 <!-- Error Group List -->
-<div class="flex flex-col gap-space-md">
-<!-- Error 1 -->
-<div class="p-space-sm rounded-lg border border-[#e6ded2] bg-[#fcf9f4] hover:border-red-300 transition-colors">
-<div class="flex items-start justify-between gap-2">
-<span class="font-mono text-[12px] font-bold text-red-900 leading-snug break-words">
-                    AudioContext was not allowed to start (User gesture required)
-                  </span>
-<span class="bg-red-200/80 text-red-900 font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0">
-                    14 lần
-                  </span>
-</div>
-<div class="flex items-center gap-1.5 mt-1.5">
-<span class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Tuyến:</span>
-<span class="font-mono text-[11px] bg-white px-1.5 py-0.5 rounded border border-[#e6ded2] text-on-surface">/toeic/listening-part-1</span>
-</div>
-<p class="text-[12px] text-on-surface-variant mt-1.5 leading-relaxed">
-                  Ghi chú: Thường gặp trên iOS Safari khi chạm Next quá nhanh trước khi audio buffer nạp xong.
-                </p>
-</div>
-<!-- Error 2 -->
-<div class="p-space-sm rounded-lg border border-[#e6ded2] bg-white hover:border-[#ddd4c7] transition-colors">
-<div class="flex items-start justify-between gap-2">
-<span class="font-mono text-[12px] font-semibold text-on-surface leading-snug break-words">
-                    ResizeObserver loop completed with undelivered notifications
-                  </span>
-<span class="bg-surface-container-high text-on-surface-variant font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0">
-                    9 lần
-                  </span>
-</div>
-<div class="flex items-center gap-1.5 mt-1.5">
-<span class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Tuyến:</span>
-<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded border border-[#e6ded2] text-on-surface">/vocab/irregular-verbs</span>
-</div>
-<p class="text-[12px] text-on-surface-variant mt-1.5 leading-relaxed">
-                  Ghi chú: Không ảnh hưởng trải nghiệm, xuất hiện khi bảng động co giãn trên màn hình nhỏ.
-                </p>
-</div>
-<!-- Error 3 -->
-<div class="p-space-sm rounded-lg border border-[#e6ded2] bg-white hover:border-[#ddd4c7] transition-colors">
-<div class="flex items-start justify-between gap-2">
-<span class="font-mono text-[12px] font-semibold text-on-surface leading-snug break-words">
-                    Failed to fetch: NetworkError when attempting to fetch resource
-                  </span>
-<span class="bg-surface-container-high text-on-surface-variant font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0">
-                    6 lần
-                  </span>
-</div>
-<div class="flex items-center gap-1.5 mt-1.5">
-<span class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Tuyến:</span>
-<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded border border-[#e6ded2] text-on-surface">/blog/ielts-academic-word-list</span>
-</div>
-<p class="text-[12px] text-on-surface-variant mt-1.5 leading-relaxed">
-                  Ghi chú: Học viên ngắt mạng 4G khi đang tải flashcard trắc nghiệm.
-                </p>
-</div>
-<!-- Error 4 -->
-<div class="p-space-sm rounded-lg border border-[#e6ded2] bg-white hover:border-[#ddd4c7] transition-colors">
-<div class="flex items-start justify-between gap-2">
-<span class="font-mono text-[12px] font-semibold text-red-800 leading-snug break-words">
-                    TypeError: Cannot read properties of undefined (reading "phonemes")
-                  </span>
-<span class="bg-red-100 text-red-800 font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0">
-                    2 lần
-                  </span>
-</div>
-<div class="flex items-center gap-1.5 mt-1.5">
-<span class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Tuyến:</span>
-<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded border border-[#e6ded2] text-on-surface">/toefl/reading-drill</span>
-</div>
-<p class="text-[12px] text-on-surface-variant mt-1.5 leading-relaxed">
-                  Ghi chú: Từ mới 'prolific' thiếu trường phiên âm IPA phụ.
-                </p>
-</div>
-</div>
+<div class="flex flex-col gap-space-md"><div class="p-space-sm rounded-lg border border-[#e6ded2] bg-[#fcf9f4] hover:border-red-300 transition-colors"><div class="flex items-start justify-between gap-2"><span class="font-mono text-[12px] font-bold text-[#991b1b] leading-snug break-words">AudioContext was not allowed to start (User gesture required)</span><span class="bg-red-200 text-[#7f1d1d] font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0 border border-red-300">14 lần</span></div><div class="flex items-center gap-1.5 mt-1.5"><span class="font-label-caps text-[10px] text-[#2d4f4c] uppercase tracking-wider font-bold">Tuyến:</span><span class="font-mono text-[11px] bg-white px-1.5 py-0.5 rounded border border-[#e6ded2] text-[#1c1c17] font-semibold">/toeic/listening-part-1</span></div><p class="text-[12px] text-[#1c1c17] mt-1.5 leading-relaxed font-medium">Ghi chú: Thường gặp trên iOS Safari khi chạm Next quá nhanh trước khi audio buffer nạp xong.</p></div><div class="p-space-sm rounded-lg border border-[#e6ded2] bg-white hover:border-[#ddd4c7] transition-colors"><div class="flex items-start justify-between gap-2"><span class="font-mono text-[12px] font-bold text-[#1c1c17] leading-snug break-words">ResizeObserver loop completed with undelivered notifications</span><span class="bg-surface-container-high text-[#1c1c17] font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0 border border-outline-variant/50">9 lần</span></div><div class="flex items-center gap-1.5 mt-1.5"><span class="font-label-caps text-[10px] text-[#2d4f4c] uppercase tracking-wider font-bold">Tuyến:</span><span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded border border-[#e6ded2] text-[#1c1c17] font-semibold">/vocab/irregular-verbs</span></div><p class="text-[12px] text-[#1c1c17] mt-1.5 leading-relaxed font-medium">Ghi chú: Không ảnh hưởng trải nghiệm, xuất hiện khi bảng động co giãn trên màn hình nhỏ.</p></div><div class="p-space-sm rounded-lg border border-[#e6ded2] bg-white hover:border-[#ddd4c7] transition-colors"><div class="flex items-start justify-between gap-2"><span class="font-mono text-[12px] font-bold text-[#1c1c17] leading-snug break-words">Failed to fetch: NetworkError when attempting to fetch resource</span><span class="bg-surface-container-high text-[#1c1c17] font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0 border border-outline-variant/50">6 lần</span></div><div class="flex items-center gap-1.5 mt-1.5"><span class="font-label-caps text-[10px] text-[#2d4f4c] uppercase tracking-wider font-bold">Tuyến:</span><span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded border border-[#e6ded2] text-[#1c1c17] font-semibold">/blog/ielts-academic-word-list</span></div><p class="text-[12px] text-[#1c1c17] mt-1.5 leading-relaxed font-medium">Ghi chú: Học viên ngắt mạng 4G khi đang tải flashcard trắc nghiệm.</p></div><div class="p-space-sm rounded-lg border border-[#e6ded2] bg-white hover:border-[#ddd4c7] transition-colors"><div class="flex items-start justify-between gap-2"><span class="font-mono text-[12px] font-bold text-[#991b1b] leading-snug break-words">TypeError: Cannot read properties of undefined (reading "phonemes")</span><span class="bg-red-100 text-[#7f1d1d] font-mono text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0 border border-red-300">2 lần</span></div><div class="flex items-center gap-1.5 mt-1.5"><span class="font-label-caps text-[10px] text-[#2d4f4c] uppercase tracking-wider font-bold">Tuyến:</span><span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded border border-[#e6ded2] text-[#1c1c17] font-semibold">/toefl/reading-drill</span></div><p class="text-[12px] text-[#1c1c17] mt-1.5 leading-relaxed font-medium">Ghi chú: Từ mới 'prolific' thiếu trường phiên âm IPA phụ.</p></div></div>
 <!-- Footer Action Link -->
 <div class="pt-space-sm border-t border-[#e6ded2]"><a class="min-h-[44px] text-primary hover:text-tertiary-container font-bold text-label-md flex items-center justify-between group px-1" href="#">
 <span class="flex items-center gap-2">
@@ -857,10 +752,7 @@
 <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[24px]">memory</span>
 </div>
-<div>
-<span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block">Edge V8 Isolates Memory</span>
-<span class="font-metric-md text-metric-md text-on-surface">42,8 MB <span class="text-label-sm font-normal text-outline">/ 128 MB</span></span>
-</div>
+<div><span class="font-label-caps text-[10px] text-[#2d4f4c] uppercase tracking-wider block font-bold">Edge V8 Isolates Memory</span><span class="font-metric-md text-metric-md text-[#1c1c17]">42,8 MB <span class="text-label-sm font-semibold text-[#2d4f4c]">/ 128 MB</span></span></div>
 </div>
 <span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 text-label-caps font-bold border border-emerald-200">Bình thường</span>
 </div>

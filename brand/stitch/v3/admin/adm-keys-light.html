@@ -454,30 +454,7 @@ LM
 <!-- Metric / Top Summary Cards (3 tactile cards) -->
 <section aria-label="Thống kê khóa API" class="grid grid-cols-1 md:grid-cols-3 gap-4"><!-- Card 1: Tình trạng bảo mật -->
 <div class="bg-surface-container-lowest p-5 rounded-xl tactile-card border-t-2 border-t-primary-container relative overflow-hidden">
-<div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
-<span class="text-xs font-bold text-slate-800 mr-1">Bộ lọc:</span>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold bg-primary-container text-white shadow-xs">
-Tất cả (9)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-AI &amp; Ngôn ngữ (4)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-Hạ tầng &amp; Cloud (3)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-Email &amp; Thông báo (2)
-</button>
-</div>
-<div class="flex items-center gap-2">
-<div class="relative">
-<input class="min-h-[44px] text-xs py-2 pl-9 pr-3 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface placeholder:text-slate-800 focus:outline-none focus:ring-1 focus:ring-primary w-52 font-medium" placeholder="Lọc nhanh khóa..." type="text"/>
-<span class="material-symbols-outlined absolute left-2.5 top-3 text-base text-slate-800">filter_list</span>
-</div>
-<button class="min-w-[44px] min-h-[44px] flex items-center justify-center border border-outline-variant rounded-lg text-slate-800 hover:bg-surface-container-low transition-colors" title="Tải xuống CSV">
-<span class="material-symbols-outlined text-xl">download</span>
-</button>
-</div></div>
+<div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">verified_user</span><span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Mã hóa bảo mật</span></div><span class="material-symbols-outlined text-emerald-600 text-lg">lock</span></div>
 <div class="flex items-baseline gap-2">
 <span class="font-headline-lg text-headline-lg text-primary font-bold">100%</span>
 <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">AES-256-GCM</span>
@@ -488,30 +465,7 @@ Lưu trữ server-side trong Cloudflare Encrypted Secrets, không lưu plaintext
 </div>
 <!-- Card 2: Sắp hết hạn trong 14 ngày -->
 <div class="bg-surface-container-lowest p-5 rounded-xl tactile-card border-t-2 border-t-secondary relative overflow-hidden">
-<div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
-<span class="text-xs font-bold text-slate-800 mr-1">Bộ lọc:</span>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold bg-primary-container text-white shadow-xs">
-Tất cả (9)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-AI &amp; Ngôn ngữ (4)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-Hạ tầng &amp; Cloud (3)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-Email &amp; Thông báo (2)
-</button>
-</div>
-<div class="flex items-center gap-2">
-<div class="relative">
-<input class="min-h-[44px] text-xs py-2 pl-9 pr-3 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface placeholder:text-slate-800 focus:outline-none focus:ring-1 focus:ring-primary w-52 font-medium" placeholder="Lọc nhanh khóa..." type="text"/>
-<span class="material-symbols-outlined absolute left-2.5 top-3 text-base text-slate-800">filter_list</span>
-</div>
-<button class="min-w-[44px] min-h-[44px] flex items-center justify-center border border-outline-variant rounded-lg text-slate-800 hover:bg-surface-container-low transition-colors" title="Tải xuống CSV">
-<span class="material-symbols-outlined text-xl">download</span>
-</button>
-</div></div>
+<div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xl">alarm_on</span><span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Hạn sử dụng</span></div><span class="material-symbols-outlined text-secondary text-lg">warning</span></div>
 <div class="flex items-baseline gap-2">
 <span class="font-headline-lg text-headline-lg text-secondary font-bold">1 khóa</span>
 <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-orange-50 text-secondary border border-orange-200">Cần xoay vòng</span>
@@ -522,30 +476,7 @@ Email &amp; Thông báo (2)
 </div>
 <!-- Card 3: Lần kiểm tra tự động gần nhất -->
 <div class="bg-surface-container-lowest p-5 rounded-xl tactile-card border-t-2 border-t-outline relative overflow-hidden">
-<div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
-<span class="text-xs font-bold text-slate-800 mr-1">Bộ lọc:</span>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold bg-primary-container text-white shadow-xs">
-Tất cả (9)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-AI &amp; Ngôn ngữ (4)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-Hạ tầng &amp; Cloud (3)
-</button>
-<button class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:bg-surface-container-low border border-outline-variant transition-colors">
-Email &amp; Thông báo (2)
-</button>
-</div>
-<div class="flex items-center gap-2">
-<div class="relative">
-<input class="min-h-[44px] text-xs py-2 pl-9 pr-3 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface placeholder:text-slate-800 focus:outline-none focus:ring-1 focus:ring-primary w-52 font-medium" placeholder="Lọc nhanh khóa..." type="text"/>
-<span class="material-symbols-outlined absolute left-2.5 top-3 text-base text-slate-800">filter_list</span>
-</div>
-<button class="min-w-[44px] min-h-[44px] flex items-center justify-center border border-outline-variant rounded-lg text-slate-800 hover:bg-surface-container-low transition-colors" title="Tải xuống CSV">
-<span class="material-symbols-outlined text-xl">download</span>
-</button>
-</div></div>
+<div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">health_and_safety</span><span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Trạng thái hệ thống</span></div><span class="material-symbols-outlined text-emerald-600 text-lg">check_circle</span></div>
 <div class="flex items-baseline gap-2">
 <span class="font-headline-sm text-headline-sm text-on-surface font-bold">09:15 sáng nay</span>
 <span class="text-[11px] font-semibold text-slate-800">(10 phút trước)</span>
@@ -600,15 +531,7 @@ Email &amp; Thông báo (2)
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse">
 <thead>
-<tr class="bg-surface-container-low/80 border-b border-outline-variant text-[11px] font-bold text-slate-800 uppercase tracking-wider">
-<th class="py-3.5 px-4 text-slate-800" scope="col">Nhà cung cấp &amp; Mục đích</th>
-<th class="py-3.5 px-3 text-slate-800" scope="col">Mã khóa (Masked)</th>
-<th class="py-3.5 px-3 text-slate-800" scope="col">Tài khoản liên kết</th>
-<th class="py-3.5 px-3 text-slate-800" scope="col">Trạng thái</th>
-<th class="py-3.5 px-3 text-right text-slate-800" scope="col">Lần kiểm tra</th>
-<th class="py-3.5 px-3 text-slate-800" scope="col">Hạn dùng &amp; Ghi chú</th>
-<th class="py-3.5 px-4 text-center text-slate-800" scope="col">Thao tác</th>
-</tr>
+<tr class="bg-surface-container-low/80 border-b border-outline-variant text-[11px] font-bold text-slate-900 uppercase tracking-wider"><th class="py-3.5 px-4 text-slate-900" scope="col">Nhà cung cấp &amp; Mục đích</th><th class="py-3.5 px-3 text-slate-900" scope="col">Mã khóa (Masked)</th><th class="py-3.5 px-3 text-slate-900" scope="col">Tài khoản liên kết</th><th class="py-3.5 px-3 text-slate-900" scope="col">Trạng thái</th><th class="py-3.5 px-3 text-right text-slate-900" scope="col">Lần kiểm tra</th><th class="py-3.5 px-3 text-slate-900" scope="col">Hạn dùng &amp; Ghi chú</th><th class="py-3.5 px-4 text-center text-slate-900" scope="col">Thao tác</th></tr>
 </thead>
 <tbody class="divide-y divide-outline-variant/60 font-body-md text-xs text-on-surface"><!-- Row 1: Google Gemini 1.5 Flash -->
 <tr class="hover:bg-surface-container-low/40 transition-colors">

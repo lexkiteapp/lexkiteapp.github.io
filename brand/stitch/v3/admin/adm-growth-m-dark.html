@@ -176,9 +176,7 @@
 <!-- 1. Top App Bar (Shared Component Anchor) -->
 <header class="sticky top-0 z-40 bg-[#091518]/95 backdrop-blur-md shadow-sm border-b border-[#1a2f33]">
 <div class="flex justify-between items-center w-full px-4 h-14 max-w-[390px] mx-auto">
-<button aria-label="Menu điều hướng" class="w-10 h-10 -ml-1 rounded-lg flex items-center justify-center text-[#6bd8ce] hover:bg-[#121d20] active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[22px]">menu</span>
-</button>
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] w-11 h-11 -ml-1 rounded-lg flex items-center justify-center text-[#6bd8ce] hover:bg-[#121d20] active:translate-y-0.5 transition-transform"><span class="material-symbols-outlined text-[24px]">menu</span></button>
 <div class="flex flex-col items-center justify-center flex-1 px-2 text-center">
 <div class="flex items-center gap-1.5">
 <span class="font-headline-sm text-headline-sm text-white tracking-tight leading-none">Tăng trưởng &amp; Giữ chân</span>
@@ -189,30 +187,15 @@
 </div>
 <span class="font-label-sm text-[10px] text-[#94a3b8] font-medium mt-0.5">Admin › Phân tích</span>
 </div>
-<div class="w-9 h-9 rounded-full bg-[#134e4a] text-[#88f5ea] border border-[#2ba39a]/40 flex items-center justify-center font-headline-sm text-xs font-bold tracking-tight shadow-sm ring-2 ring-[#1a2f33]">
-          HM
-        </div>
+<div class="min-w-[44px] min-h-[44px] flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-[#134e4a] text-[#88f5ea] border border-[#2ba39a]/40 flex items-center justify-center font-headline-sm text-xs font-bold tracking-tight shadow-sm ring-2 ring-[#1a2f33]">HM</div></div>
 </div>
 </header>
 <!-- Main Administrative Flow Canvas -->
 <main class="flex-1 px-4 pt-3.5 space-y-4">
 <!-- 2. Bộ điều khiển chu kỳ (Range Segmented Control) -->
 <section class="space-y-1.5">
-<div class="well-inset p-1 rounded-xl bg-[#0e1c20] border border-[#1a2f33] flex items-center justify-between">
-<button class="flex-1 py-1.5 rounded-lg font-label-md text-label-md text-[#94a3b8] hover:text-[#6bd8ce] transition-colors text-center">
-            7 ngày
-          </button>
-<button class="flex-1 py-1.5 rounded-lg bg-[#134e4a] text-white border border-[#2ba39a]/30 font-label-md text-label-md font-bold shadow-sm transition-transform active:scale-95 text-center">
-            30 ngày
-          </button>
-<button class="flex-1 py-1.5 rounded-lg font-label-md text-label-md text-[#94a3b8] hover:text-[#6bd8ce] transition-colors text-center">
-            90 ngày
-          </button>
-</div>
-<p class="font-body-sm text-[11px] text-[#707977] text-center flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[13px] text-[#707977]">verified_user</span>
-          Dữ liệu ẩn danh qua Daily Hash (không dùng cookie theo dõi)
-        </p>
+<div class="well-inset p-1 rounded-xl bg-[#0e1c20] border border-[#1a2f33] flex items-center justify-between gap-1"><button class="flex-1 min-h-[44px] py-2 rounded-lg font-label-md text-label-md text-[#94a3b8] hover:text-[#6bd8ce] transition-colors flex items-center justify-center text-center">7 ngày</button><button class="flex-1 min-h-[44px] py-2 rounded-lg bg-[#134e4a] text-white border border-[#2ba39a]/30 font-label-md text-label-md font-bold shadow-sm transition-transform active:scale-95 flex items-center justify-center text-center">30 ngày</button><button class="flex-1 min-h-[44px] py-2 rounded-lg font-label-md text-label-md text-[#94a3b8] hover:text-[#6bd8ce] transition-colors flex items-center justify-center text-center">90 ngày</button></div>
+<p class="font-body-sm text-[11px] text-[#cbd5e1] text-center flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[14px] text-[#88f5ea]">verified_user</span> Dữ liệu ẩn danh qua Daily Hash (không dùng cookie theo dõi)</p>
 </section>
 <!-- 3. Bốn thẻ chỉ số nhanh (2x2 Tactile Grid) -->
 <section class="grid grid-cols-2 gap-2.5">
@@ -285,10 +268,7 @@
 <span class="material-symbols-outlined text-[#6bd8ce] text-[18px]">filter_alt</span>
 <h2 class="font-headline-sm text-headline-sm text-white">Phễu chuyển đổi</h2>
 </div>
-<button class="tactile-btn-secondary px-2.5 py-1 rounded-md text-[#6bd8ce] font-label-sm text-[11px] font-semibold flex items-center gap-1 bg-[#121d20] border border-[#26393e]">
-<span class="material-symbols-outlined text-[14px]">download</span>
-            Xuất CSV
-          </button>
+<button class="tactile-btn-secondary min-h-[44px] px-3 py-2 rounded-lg text-[#6bd8ce] font-label-sm text-[12px] font-semibold flex items-center justify-center gap-1 bg-[#121d20] border border-[#26393e] active:scale-95"><span class="material-symbols-outlined text-[16px]">download</span> Xuất CSV</button>
 </div>
 <!-- Chunky Bars List -->
 <div class="space-y-3 pt-0.5">
@@ -547,33 +527,10 @@
 <span class="material-symbols-outlined text-[20px]">download</span>
           Xuất báo cáo tăng trưởng (PDF/CSV)
         </button>
-<footer class="text-center font-body-sm text-[11px] text-[#707977] leading-tight px-3 pb-2">
-          Hệ thống phân tích nội bộ Lexkite • Lưu lượng ẩn danh Cloudflare Edge • Thuật toán FSRS 4.5 Retain
-        </footer>
+<footer class="text-center font-body-sm text-[11px] text-[#94a3b8] leading-tight px-3 pb-2">Hệ thống phân tích nội bộ Lexkite • Lưu lượng ẩn danh Cloudflare Edge • Thuật toán FSRS 4.5 Retain</footer>
 </section>
 </main>
 <!-- 9. Docked Bottom Navigation Bar (Shared Component Anchor) -->
-<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 max-w-[390px] mx-auto bg-[#091518] border-t border-[#1a2f33] shadow-2xl">
-<!-- Tab 1: Tổng quan -->
-<a class="flex flex-col items-center justify-center text-[#94a3b8] hover:bg-[#121d20] hover:text-[#6bd8ce] transition-colors duration-150 active:scale-95 px-3 py-1 min-h-[44px] min-w-[44px] rounded-lg" href="#tong-quan">
-<span class="material-symbols-outlined text-[20px]">dashboard</span>
-<span class="font-label-sm text-label-sm mt-0.5">Tổng quan</span>
-</a>
-<!-- Tab 2: Phân tích (ACTIVE ITEM) -->
-<a class="flex flex-col items-center justify-center bg-[#134e4a] text-[#88f5ea] border border-[#2ba39a]/40 rounded-lg px-3 py-1 min-h-[44px] min-w-[44px] shadow-sm active:scale-95 transition-transform" href="#phan-tich">
-<span class="material-symbols-outlined text-[20px] text-[#6bd8ce]" style="font-variation-settings: 'FILL' 1;">analytics</span>
-<span class="font-label-sm text-label-sm mt-0.5 font-bold text-white">Phân tích</span>
-</a>
-<!-- Tab 3: Nội dung -->
-<a class="flex flex-col items-center justify-center text-[#94a3b8] hover:bg-[#121d20] hover:text-[#6bd8ce] transition-colors duration-150 active:scale-95 px-3 py-1 min-h-[44px] min-w-[44px] rounded-lg" href="#noi-dung">
-<span class="material-symbols-outlined text-[20px]">article</span>
-<span class="font-label-sm text-label-sm mt-0.5">Nội dung</span>
-</a>
-<!-- Tab 4: Cài đặt -->
-<a class="flex flex-col items-center justify-center text-[#94a3b8] hover:bg-[#121d20] hover:text-[#6bd8ce] transition-colors duration-150 active:scale-95 px-3 py-1 min-h-[44px] min-w-[44px] rounded-lg" href="#cai-dat">
-<span class="material-symbols-outlined text-[20px]">settings</span>
-<span class="font-label-sm text-label-sm mt-0.5">Cài đặt</span>
-</a>
-</nav>
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-2 py-1.5 h-16 max-w-[390px] mx-auto bg-[#091518] border-t border-[#1a2f33] shadow-2xl"><a class="flex flex-col items-center justify-center text-[#94a3b8] hover:bg-[#121d20] hover:text-[#6bd8ce] transition-colors duration-150 active:scale-95 px-2 py-1 min-h-[48px] min-w-[48px] rounded-lg" href="#tong-quan"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm mt-0.5">Tổng quan</span></a><a class="flex flex-col items-center justify-center bg-[#134e4a] text-[#88f5ea] border border-[#2ba39a]/40 rounded-lg px-2 py-1 min-h-[48px] min-w-[48px] shadow-sm active:scale-95 transition-transform" href="#phan-tich"><span class="material-symbols-outlined text-[22px] text-[#6bd8ce]" style="font-variation-settings: 'FILL' 1;">analytics</span><span class="font-label-sm text-label-sm mt-0.5 font-bold text-white">Phân tích</span></a><a class="flex flex-col items-center justify-center text-[#94a3b8] hover:bg-[#121d20] hover:text-[#6bd8ce] transition-colors duration-150 active:scale-95 px-2 py-1 min-h-[48px] min-w-[48px] rounded-lg" href="#noi-dung"><span class="material-symbols-outlined text-[22px]">article</span><span class="font-label-sm text-label-sm mt-0.5">Nội dung</span></a><a class="flex flex-col items-center justify-center text-[#94a3b8] hover:bg-[#121d20] hover:text-[#6bd8ce] transition-colors duration-150 active:scale-95 px-2 py-1 min-h-[48px] min-w-[48px] rounded-lg" href="#cai-dat"><span class="material-symbols-outlined text-[22px]">settings</span><span class="font-label-sm text-label-sm mt-0.5">Cài đặt</span></a></nav>
 </div>
 </body></html>
