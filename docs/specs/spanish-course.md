@@ -1,0 +1,67 @@
+# Spec: Khóa học tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ giao diện
+
+> TL;DR: Dạy tiếng TBN A1→C2 bằng ĐÚNG engine tiếng Anh, mở rộng nền `Target`/`tl` đã có (`specs/target-language.md`, PR #445 – pt-BR thử) thay vì sao chép. 8 đợt (W0–W7), cờ `es_course` mặc định TẮT tới khi qua toàn bộ cổng. Chưa viết code: chờ số PR mở ≤ 15 (luật xong-trước-làm-sau).
+> Đọc khi: đụng `Target`, nội dung `content/target/es/`, hoặc bất kỳ tính năng nào giả định "ngôn ngữ đang học = tiếng Anh". Soạn 03/11/2026.
+
+## 1. Mục tiêu
+Người nói vi, en, ar, de, fr, hi, id, ja, ko, pt_BR, ru, th, tr, zh_CN (giao diện `es` → không chào khóa này) học tiếng TBN đủ mọi phần như khóa tiếng Anh: từ điển/Sổ từ/SRS, ngữ pháp + drills, lộ trình ngày, phát âm, nghe/nói, gọi điện AI, thi thử, video Teach2D, ảnh từ vựng, add-on tra từ. Tiếng Anh giữ nguyên từng byte (test hồi quy `target-lang` so ảnh chụp dữ liệu en).
+
+## 2. Kiến trúc "ngôn ngữ đích" tổng quát
+- **Một bảng, không nhánh code**: `Target` thêm dòng `es` (speech lang `es-ES`, nhận giọng `es`, Kokoro, giáo viên, tiền tố lọc giọng máy, `wordFiles`). Mọi chỗ còn `if (pt)` từ lát 1 đổi thành tra bảng → thêm ngôn ngữ thứ 3 = thêm dòng + dữ liệu. Khóa thẻ `es:`+lemma, trường `tl:'es'`; đồng bộ/SRS/Ôn đã lọc theo `Target.cur()`.
+- **Dữ liệu theo tl**: `content/target/es/{schema,seed,core-*,grammar,drills,calls,exams}.json` cùng schema với pt (mở rộng: giống, số nhiều, bảng chia động từ, biến thể vùng). Mỗi module tải lười (`web/js/target/es/*.js` hoặc JSON CDN) → khung ≤ ngân sách shell, i18n ≤ 160 KB gz/ngôn ngữ không đổi.
+- **Engine dùng chung, tham số hoá `tl`**: qengine/drills, lesson engine + path-day, call engine, mock/CBT, pron coach, Teach2D (viseme lấy từ âm vị espeak → không phụ thuộc tiếng), explain-card. Mỗi engine có 1 chỗ đọc `Target.cur()`; không file nào chép đôi.
+- **Giải thích bản ngữ**: nguồn lời giải viết bằng **en** (khóa gốc cho tl ≠ en) → `i18n.yml`/gen-explain dịch 13 ngôn ngữ + vi (vi không phải nguồn ở khóa này); nhãn ngắn qua `i18n-fixed.json`. Nghĩa từ 14 ngôn ngữ: `lexicon-i18n.yml` thêm tham số `--tl es` (gói `web/packs/es/<lang>.json`).
+- **Giao diện**: chỉ màn từ Stitch (Lexkite Kit): chọn ngôn ngữ học lúc bắt đầu, công tắc ở Cài đặt, nhãn tl trên thẻ. Không màn tự vẽ.
+
+## 3. Các phần & nguồn MIỄN PHÍ (giấy phép)
+| Phần | Nguồn / cách làm | Giấy phép – lưu ý |
+|---|---|---|
+| Khung cấp độ | CEFR (Hội đồng châu Âu, dùng tự do); PCIC Instituto Cervantes chỉ làm **danh mục đối chiếu**, không chép chữ | Không sao chép văn bản PCIC |
+| Tần suất từ | FrequencyWords es (OpenSubtitles 2018) – chỉ thứ hạng | CC BY-SA 4.0, ghi công |
+| Lemma, giống, chia động từ, IPA đối chiếu | Wiktionary qua kaikki.org – **chỉ để kiểm chéo trên CI**, không phát hành dữ liệu dẫn xuất | CC BY-SA; nội dung ship tự soạn |
+| IPA | espeak-ng `es` sinh + chuẩn hoá (`scripts/lexicon/ipa.mjs` thêm bảng es) | GPL công cụ, đầu ra tự do |
+| Câu ví dụ | Tự soạn qua ai-pool; Tatoeba chỉ để đo độ tự nhiên | Tatoeba CC BY 2.0 FR |
+| Kiểm ngữ pháp | LanguageTool es tự chạy trên runner (Java) + treebank UD AnCora để thử cổng | LGPL / CC BY 4.0 |
+| Giọng (MỘT giọng) | Kokoro-82M + espeak `es`: `ef_dora` (Ama), `em_alex` (Carlos), dựng sẵn trên CI; dự phòng Piper `es_ES` | Apache-2.0 / MIT |
+| Nhận giọng | Whisper small đa ngôn ngữ (CI chấm), máy người dùng theo tầng thiết bị (luật on-device AI) – `whisper-tiny.en` hiện tại không dùng được cho es | MIT |
+| Thi thử | Định dạng DELE A1–C2 / SIELE tự soạn (`content/exams/spec/dele-*.json`, `siele.json`); ghi "luyện theo định dạng", không liên kết Cervantes, không đề thật | Tên thi là nhãn hiệu – chỉ mô tả |
+| Ảnh từ vựng | Tái dùng `img.json` khi trùng nghĩa `từ#loại` (ánh xạ es→en sense, kiểm tay mẫu); thiếu → `vocab-img-free.yml` | Không chữ trong ảnh (TEXT_OBJ) |
+| Video | Teach2D, Ama + Carlos 2D đọc es, ≤ 150 wpm, chủ duyệt mẫu trước (luật video) | 0 credit |
+
+## 4. Đợt (theo thứ tự, mỗi đợt = 1 PR + cờ tắt)
+| Đợt | Nội dung | Token Claude | Phút CI |
+|---|---|---|---|
+| W0 | Tổng quát hoá `Target` (bảng thay `if pt`), dòng `es`, cờ `es_course`, `word-audio-es` lượt mẫu 20 từ, seed 30 từ | 60k | 60 |
+| W1 | Từ vựng A1–B2 3.000 lemma (giống, số nhiều, IPA, nghĩa 14 ngôn ngữ, ví dụ, audio Ama+Carlos, `img` khi đúng nghĩa) – `target-content --tl es` theo lô 300 | 110k | 1.500 |
+| W2 | Ngữ pháp A1–C2: `grammar-inventory` es (~220 điểm), bộ chia động từ quy tắc tự viết + kiểm chéo Wiktionary, drills qua qengine, giải thích en→14 | 160k | 1.200 |
+| W3 | Phát âm (r/rr, b/v, nguyên âm thuần, trọng âm/dấu, nối âm), cặp tối thiểu, nghe chính tả, nói theo; Whisper đa ngôn ngữ tầng thiết bị | 100k | 600 |
+| W4 | Lộ trình ngày + bài học (lesson/path-day) + gọi điện AI & roleplay es (≥ 24 cuộc gọi A1–C1, ai-pool với `tl`) | 130k | 500 |
+| W5 | Thi thử DELE A1–C2 + SIELE: spec định dạng, ≥ 2 đề/cấp, chấm nói/viết qua ai-pool + rubric | 120k | 700 |
+| W6 | Video Teach2D es (mẫu → chủ duyệt → lô) + ảnh từ vựng còn thiếu + add-on tra từ es (nhận câu TBN, popup nghĩa 14 ngôn ngữ, không thêm quyền – `permissions.lock`) | 100k | 1.000 |
+| W7 | Màn Stitch (chọn ngôn ngữ học, công tắc, nhãn tl), bật cờ cho nhóm thử, đo, rà nốt chỗ giả định tiếng Anh (gợi ý, mini-game, xuất Anki/CSV có `tl`) | 90k | 300 |
+| **Tổng** | | **≈ 870k** | **≈ 5.900** (≈ 2–3 ngày đồng hồ trên 40 runner, chạy đêm theo hạn mức ai-pool) |
+
+Nhịp dự kiến: W0 ngay khi PR mở ≤ 15; mỗi đợt sau ~3–5 ngày (giới hạn là hạn mức ai-pool miễn phí + nghiệm thu, không phải CI) → ≈ 5–6 tuần.
+
+## 5. Cổng QC trên CI (trượt 1 = không gộp; không nới ngưỡng)
+1. **Chính xác ngôn ngữ**: LanguageTool es 0 lỗi trên mọi câu TBN; 2 giám khảo AI khác họ + dịch ngược; bảng chia động từ khớp Wiktionary 100 % (ngoại lệ ghi tay có lý do); IPA espeak ↔ Wiktionary lệch → gắn cờ.
+2. **Nghĩa & giải thích 14 ngôn ngữ**: `i18n-missing/qa --strict`, `explain-check` ≥ 98 %, backcheck native-score ≥ 95; không lẫn tiếng (es/en/vi lọt vào ngôn ngữ khác).
+3. **Giọng**: −16 LUFS, Whisper small es nghe lại khớp chữ (WER mục từ = 0, câu ≤ 5 %), một giọng/vai xuyên suốt.
+4. **Giao diện**: visual-qa (tương phản WCAG AA sáng/tối, khung app ≤ ngân sách, nút thoát mọi màn – `specs/exit-button.md`), stitch-quality-qc, i18n-switch.
+5. **Nội dung**: `content:gate` + content-qa, điểm chấm ≥ 95/100 mỗi lô, soát tay mẫu ≥ 5 % (min 5) bởi phiên khác người viết; đáp án đúng 100 %.
+6. **Không hồi quy tiếng Anh**: `target-lang` + `sync-pack` + toàn bộ `npm test`; workflow mới tự đỏ khi kết quả = 0, có concurrency/paths/timeout.
+
+## 6. Tiêu chí xong
+Mỗi phần ở §1 có đủ nội dung A1→C2 (từ vựng C1–C2 mở rộng sau W1 theo hàng đợi `targets.json` mục `es:*`), qua 6 cổng §5 ở cả 14 ngôn ngữ, Ama/Carlos dạy bằng giọng es, chạy được trên web/add-on/iOS/Android, cờ bật cho mọi người sau 1 tuần nhóm thử không có lỗi chặn.
+
+## 7. Rủi ro
+- **Hạn mức ai-pool** (≈ 3.000 từ × 14 ngôn ngữ + lời giải): chạy đêm, nối tiếp từ chỗ dừng; không chuyển sang dịch vụ trả phí khi chưa hỏi chủ.
+- **Giọng Kokoro es** chưa qua lượt mẫu → W0 quyết; trượt thì Piper `es_ES` (vẫn một giọng).
+- **CC BY-SA lan truyền**: chỉ dùng Wiktionary/FrequencyWords làm thứ hạng/kiểm chéo, không ship dữ liệu dẫn xuất.
+- **Dung lượng**: dữ liệu es tải lười, không vào khung/i18n; size-budget chặn.
+- **Chồng chéo với tiếng Anh**: engine nào chưa tham số hoá `tl` → sửa engine (không chép); grep `Target.cur` trước khi viết.
+- **Nhận giọng trên máy yếu**: tầng thiết bị; máy yếu chấm qua CI/Worker miễn phí, không bỏ bài nói.
+
+## 8. Điểm cần chủ quyết
+1. **Chuẩn giọng/chính tả âm**: Tây Ban Nha (distinción, `es-ES`) hay Mỹ Latinh (seseo, `es-419`)? Luật một giọng → chọn một; đề xuất `es-ES` (khớp DELE, giọng Kokoro sẵn), ghi chú khác biệt Mỹ Latinh trong bài.
+2. Đồng ý tên hiển thị "Luyện định dạng DELE/SIELE" (không liên kết Cervantes).
