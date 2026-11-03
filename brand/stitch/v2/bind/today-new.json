@@ -1,0 +1,223 @@
+{
+ "_doc": "Bản đồ gắn dữ liệu màn Hôm nay – người mới (Home v2 empty state, docs/HOME-V2.md): d do ux1.js home2() dựng. 3 bước = mục tiêu (#/lesson?pick=1) → kiểm tra trình độ (#/placement) → bài đầu (#/lesson/go); bước đang làm dùng khuôn nổi bật. Lộ trình đầy đủ (khung path) chèn sau khối mẹo. Thanh tab riêng của mẫu → thanh tab chung.",
+ "styles": true,
+ "i18n": {
+  "Lexkite": "Lexkite",
+  "Switch language": "Chọn ngôn ngữ giao diện",
+  "Learner stats": "Số liệu học",
+  "XP": "XP",
+  "Daily goal": "Mục tiêu ngày",
+  "Day streak": "Chuỗi ngày",
+  "Teacher greeting": "Lời chào của giáo viên",
+  "WELCOME TO LEXKITE": "Chào mừng đến Lexkite",
+  "Get started": "Bắt đầu nào",
+  "First Day": "Ngày đầu tiên",
+  "LET'S GO": "Bắt đầu thôi",
+  "I already know my level": "Tôi đã biết trình độ của mình",
+  "What you can do here": "Bạn có thể làm gì ở đây",
+  "Explore all": "Khám phá tất cả",
+  "Lessons": "Các bài học",
+  "Review": "Ôn tập",
+  "Quick drills": "Bài luyện nhanh",
+  "Mock tests": "Bài thi thử",
+  "Stories": "Truyện ngắn",
+  "Call a teacher": "Gọi cho giáo viên",
+  "Just 5 minutes a day keeps your streak alive.": "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày."
+ },
+ "text": {
+  "VI": "d.lang",
+  "L": "d.ini",
+  "–": "d.c.tg",
+  "Set target": "d.c.tgL",
+  "0/10": "d.c.goal",
+  "“Hi, I'm Ama! Let's get you ready in 3 small steps.”": "d.say"
+ },
+ "html": {
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(d.c.streak)",
+  ":scope > main > div > section:nth-child(1) > div:nth-child(3) > span:nth-child(2)": "e(d.c.xp)",
+  ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher"
+ },
+ "after": {
+  ":scope > main > div > section:nth-child(5)": "d.pathSec"
+ },
+ "attr": {
+  ":scope > main > header > div:nth-child(2) > button": {
+   "data-act": "'lang'",
+   "aria-haspopup": "'dialog'"
+  },
+  ":scope > main > header > div:nth-child(2) > div": {
+   "href": "'#/me'",
+   "aria-label": "t('Tài khoản')"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
+   "href": "'#/lesson?pick=1'"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2)": {
+   "href": "'#/streak'"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(3)": {
+   "href": "'#/stats'"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(4)": {
+   "href": "'#/review'"
+  },
+  ":scope > main > div > section:nth-child(2) > div:nth-child(1)": {
+   "data-tch": "1",
+   "aria-label": "'Ama'",
+   "role": "'img'"
+  },
+  ":scope > main > div > section:nth-child(3) > button:nth-child(3)": {
+   "data-href": "d.go",
+   "data-cont": "1"
+  },
+  ":scope > main > div > section:nth-child(3) > button:nth-child(4)": {
+   "data-href": "'#/lesson?pick=1'"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > span": {
+   "href": "'#/train'"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(1)": {
+   "href": "'#/lesson/go'"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(2)": {
+   "href": "'#/review'"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(3)": {
+   "href": "'#/quick'"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(4)": {
+   "href": "d.mock"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(5)": {
+   "href": "d.story"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(6)": {
+   "href": "'#/call'"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "cls": {
+  ":scope > main": {
+   "w-[390px]": "'w-full'",
+   "max-w-[390px]": "''"
+  },
+  ":scope > main > div > section:nth-child(2) > div:nth-child(1)": {
+   "p-2": "''",
+   "justify-center": "'justify-end'",
+   "lt:[border:2px_dashed_#136B66]": "''",
+   "lt:[background:#F4FAF9]": "''",
+   "dk:[border:2px_dashed_#2dd4bf]": "''",
+   "dk:[background:#0d1e23]": "''"
+  }
+ },
+ "tag": {
+  ":scope > main > header > div:nth-child(2) > div": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(3)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(4)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > span": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(3)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(4)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(5)": {
+   "to": "a"
+  },
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(6)": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > main > header > div:nth-child(2) > button": "relative after:absolute after:-inset-y-[10px] after:-inset-x-1 after:content-['']",
+  ":scope > main > header > div:nth-child(2) > div": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > section:nth-child(3) > button:nth-child(4)": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
+  ":scope > main > div > section:nth-child(2)": "rtl:flex-row-reverse"
+ },
+ "remove": [
+  ":scope > main > nav"
+ ],
+ "repeat": [
+  {
+   "list": "d.steps",
+   "as": "r",
+   "variants": {
+    "on": ":scope > main > div > section:nth-child(3) > div:nth-child(2) > div:nth-child(1)",
+    "line": ":scope > main > div > section:nth-child(3) > div:nth-child(2) > div:nth-child(2)",
+    "off": ":scope > main > div > section:nth-child(3) > div:nth-child(2) > div:nth-child(5)"
+   },
+   "samples": ":scope > main > div > section:nth-child(3) > div:nth-child(2) > div",
+   "pick": "r.v",
+   "bind": {
+    "on": {
+     "text": {
+      "1": "r.n",
+      "Choose your goal": "r.t",
+      "IELTS, TOEIC, everyday": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "data-step": "r.k",
+       "aria-current": "'step'"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     }
+    },
+    "line": {
+     "attr": {
+      ":scope": {
+       "aria-hidden": "'true'"
+      }
+     }
+    },
+    "off": {
+     "text": {
+      "3": "r.n",
+      "Your first lesson": "r.t",
+      "3 min": "r.min",
+      "High-frequency vocabulary sprint": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "data-step": "r.k"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     }
+    }
+   }
+  }
+ ]
+}

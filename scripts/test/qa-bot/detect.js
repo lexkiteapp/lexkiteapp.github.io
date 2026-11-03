@@ -121,8 +121,12 @@
       }
       // vùng chạm: link chữ nằm giữa đoạn văn được miễn (WCAG 2.5.8 ngoại lệ "inline")
       const inline = e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.parentElement && /^(p|li|span|small|label|td|figcaption|blockquote)$/i.test(e.parentElement.tagName) && e.parentElement.textContent.trim().length > txt(e).length + 8;
-      const small = /^input$/i.test(e.tagName) ? !/checkbox|radio|range/.test(e.type) && r.height < TAP - 0.5 : r.width < TAP - 0.5 || r.height < TAP - 0.5;
-      if (!inline && small && !e.closest('[aria-hidden="true"]')) add('tap', 'fail', e, `"${txt(e)}" vùng chạm ${Math.round(r.width)}×${Math.round(r.height)} < ${TAP}px`);
+      // vùng chạm THẬT gồm ::after mở rộng (cơ chế Stitch port: after:absolute + -inset-* / min 44 – cú chạm vào ::after kích hoạt chính phần tử)
+      const hb = (() => { const a = getComputedStyle(e, '::after'); const clear = c => /^(transparent|rgba\(0, 0, 0, 0\))$/.test(c); // chỉ ::after TRONG SUỐT (vùng chạm mở rộng) – chấm huy hiệu/trang trí có nền/viền/bóng không tính
+        if (!a || a.content === 'none' || a.position !== 'absolute' || a.pointerEvents === 'none' || getComputedStyle(e).position === 'static' || !clear(a.backgroundColor) || a.backgroundImage !== 'none' || parseFloat(a.borderTopWidth) || parseFloat(a.borderLeftWidth) || (a.boxShadow && a.boxShadow !== 'none')) return r;
+        const px = v => parseFloat(v) || 0; return { width: Math.max(r.width, r.width - px(a.left) - px(a.right), px(a.minWidth)), height: Math.max(r.height, r.height - px(a.top) - px(a.bottom), px(a.minHeight)) }; })();
+      const small = /^input$/i.test(e.tagName) ? !/checkbox|radio|range/.test(e.type) && r.height < TAP - 0.5 : hb.width < TAP - 0.5 || hb.height < TAP - 0.5;
+      if (!inline && small && !e.closest('[aria-hidden="true"]')) add('tap', 'fail', e, `"${txt(e)}" vùng chạm ${Math.round(hb.width)}×${Math.round(hb.height)} < ${TAP}px`);
     }
     // 6a) "rớt dòng mồ côi": hàng nút/biểu tượng/chip xuống dòng mà dòng cuối chỉ còn 1 phần tử nhỏ (vd. nút loa UK rớt khỏi hàng phiên âm)
     for (const box of D.querySelectorAll('#view *, .sidebar *, .bottom-nav *')) {

@@ -1,14 +1,15 @@
-# Cổng giọng từ đơn pt-BR (lượt mẫu word-audio-pt.yml, docs/specs/target-language.md §Giọng) – CHỈ CI.
+# Cổng giọng từ đơn ngôn ngữ đích TL (lượt mẫu word-audio-tl.yml; bảng tl-voices.json; docs/specs/target-language.md §Giọng, spanish-course.md §3/§5.3) – CHỈ CI.
 # 1) Độ to: chuẩn hoá về −16 LUFS (đo trên clip lặp 4 lần vì từ đơn < 400 ms; lặp bù gain sau bộ giới hạn), trần −1 dBTP; đo lại, lệch > 1 LU = TRƯỢT.
-# 2) Nghe lại: faster-whisper large-v3-turbo đa ngôn ngữ (PT_ASR), language='pt'; chữ nghe được (chuẩn hoá, GIỮ dấu) phải đúng từ. Không nới: từ trượt → giọng máy.
+# 2) Nghe lại: faster-whisper đa ngôn ngữ (TL_ASR, mặc định asrModel của bảng: pt large-v3-turbo, es small), language=asrLang; chữ nghe được (chuẩn hoá, GIỮ dấu) phải đúng từ. Không nới: từ trượt → giọng máy.
 #    Cách nghe GIỐNG cổng tiếng Anh (scripts/word-audio/asr_lib.py): đệm 0,6 s lặng hai đầu (Whisper nghe kẹp < 1 s rất kém), giải mã tham lam nhiệt độ 0.
-# 3) Ứng viên (pt-sample.mjs): "cut" = từ đọc trong câu mang "A palavra é: …" → cắt từ cuối theo mốc từng chữ của Whisper (như cut_wordis tiếng Anh;
+# 3) Ứng viên (tl-sample.mjs): "cut" = từ đọc trong câu mang (bảng: pt "A palavra é: …", es "La palabra es: …") → cắt từ cuối theo mốc từng chữ của Whisper (như cut_wordis tiếng Anh;
 #    câu phải được nghe ra đúng từ ở cuối, đoạn cắt vẫn phải qua đủ cổng), rồi "dot" = đọc trơ. Nhận ứng viên ĐẦU TIÊN qua cổng.
-# PT_PUBLISH=<thư mục> (lát 2, dựng cả bộ): chép CHỈ file đạt sang <thư mục>/audio/w/<khóa>.mp3 (→ scripts/media/push.mjs) + $OUT/index.json {giọng: [chữ đạt]}.
-# Đỏ khi: không file nào đạt, hoặc có file đạt ASR mà trượt độ to, hoặc tỉ lệ đạt < PT_MIN_PASS (mặc định 0.8).
+# TL_PUBLISH=<thư mục> (lát 2, dựng cả bộ): chép CHỈ file đạt sang <thư mục>/audio/w/<khóa>.mp3 (→ scripts/media/push.mjs) + $OUT/index.json {giọng: [chữ đạt]}.
+# Đỏ khi: không file nào đạt, hoặc có file đạt ASR mà trượt độ to, hoặc tỉ lệ đạt < TL_MIN_PASS (mặc định 0.8).
 import json, os, re, shutil, subprocess, sys, unicodedata
 import numpy as np
-OUT = os.environ.get('OUT', 'out/pt-sample'); MIN = float(os.environ.get('PT_MIN_PASS', '0.8')); SR = 24000
+TL = os.environ.get('TL', 'pt'); C = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tl-voices.json')))[TL]
+OUT = os.environ.get('OUT', f'out/{TL}-sample'); MIN = float(os.environ.get('TL_MIN_PASS', '0.8')); SR = 24000
 probe = json.load(open(os.path.join(OUT, 'probe.json')))
 def lufs(f, loop=3):
     o = subprocess.run(['ffmpeg', '-hide_banner', '-nostats', '-stream_loop', str(loop), '-i', f, '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
@@ -30,9 +31,9 @@ def nrm(s):
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'cine')); from whisper_det import load   # same verdict on every runner
 # Bộ nghe: large-v3-turbo đa ngôn ngữ. Lượt 41433773084 chứng minh "small" không nghe nổi từ đơn tiếng Bồ: giọng ĐỐI CHỨNG Piper pt_BR (rõ, dữ liệu CC0)
 # cũng chỉ 7/20, nghe "homem" → "O que é isso?", "gato" → "Pronto." – bộ nghe yếu chứ không phải giọng. Nghe tốt hơn = cổng chặt hơn (vẫn khớp đúng chữ).
-model = load(os.environ.get('PT_ASR', 'large-v3-turbo'))
+model = load(os.environ.get('TL_ASR', C['asrModel']))
 def hear(f, carrier=None):
-    """Chữ nghe được. Từ đơn: ghép SAU câu mang của chính giọng đó ("A palavra é:" + 0,25 s lặng + clip) rồi lấy phần sau câu mang –
+    """Chữ nghe được. Từ đơn: ghép SAU câu mang của chính giọng đó (câu mang của bảng + 0,25 s lặng + clip) rồi lấy phần sau câu mang –
     Whisper (cả large-v3-turbo) bịa chữ khi nghe từ tiếng Bồ trơ trọi: lượt 41439608580 giọng đối chứng Piper "casa" → "Realmente.", "dia" → "Tchau.".
     Bộ nghe KHÔNG được biết từ đích; câu mang không nghe ra đúng → trả nguyên văn (trượt)."""
     w = f + '.pad.wav'
@@ -40,10 +41,10 @@ def hear(f, carrier=None):
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', carrier, '-i', f, '-filter_complex', '[0:a]aresample=16000,apad=pad_dur=0.25[c];[1:a]aresample=16000[x];[c][x]concat=n=2:v=0:a=1,adelay=600:all=1,apad=pad_dur=0.6', '-ac', '1', w], check=True)
     else:
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'adelay=600:all=1,apad=pad_dur=0.6', '-ar', '16000', '-ac', '1', w], check=True)
-    segs, _ = model.transcribe(w, language='pt', beam_size=5, temperature=0.0, without_timestamps=True, condition_on_previous_text=False)
+    segs, _ = model.transcribe(w, language=C['asrLang'], beam_size=5, temperature=0.0, without_timestamps=True, condition_on_previous_text=False)
     os.remove(w); t = ' '.join(s.text for s in segs).strip()
     if carrier:
-        m = re.match(r'^\W*a\W+palavra\W+(?:é|e)\W*(.*)$', unicodedata.normalize('NFC', t), re.I | re.S)
+        m = re.match(r'^\W*' + C['carrierRe'] + r'\W*(.*)$', unicodedata.normalize('NFC', t), re.I | re.S)
         return m.group(1).strip() if m else '[câu mang] ' + t
     return t
 def pcm_of(f):
@@ -53,7 +54,7 @@ def detail(src, text):
     → nghe "comidas", "mãos"; câu mang cũng vậy → ghép vào nghe "ságua", "somente"). Chỉ cắt khi chữ viết KHÔNG tận cùng bằng âm xát s/z/x/r
     và đoạn xì dài 30–250 ms ngay sau phần hữu thanh. Trả đường dẫn wav mới (hoặc src nếu không có gì để cắt)."""
     last = re.sub(r'[^\w]+$', '', unicodedata.normalize('NFC', text).strip()).lower()
-    if not last or last[-1] in 'szxr': return src             # r cuối pt-BR = âm xát vô thanh thật [h]/[χ]
+    if not last or last[-1] in C['fricEnd']: return src       # âm xát cuối thật (bảng: pt có r cuối [h]/[χ]; es không)
     pcm = pcm_of(src); fr = SR // 100; n = len(pcm) // fr
     if n < 10: return src
     db = np.array([10 * np.log10(np.mean(pcm[i * fr:(i + 1) * fr] ** 2) + 1e-12) for i in range(n)]); db -= db.max()
@@ -69,8 +70,8 @@ def detail(src, text):
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '1', '-i', '-', dst], input=o.astype('float32').tobytes(), check=True)
     return dst
 def cut_last(word, src):
-    """Câu mang "A palavra é: TỪ." → wav chỉ còn TỪ, hoặc (None, lý do). Câu phải được nghe ra đúng từ ở cuối (= asr_lib.cut_last, language pt)."""
-    segs, _ = model.transcribe(src, language='pt', beam_size=5, temperature=0.0, word_timestamps=True, condition_on_previous_text=False)
+    """Câu mang "<carrier> TỪ." → wav chỉ còn TỪ, hoặc (None, lý do). Câu phải được nghe ra đúng từ ở cuối (= asr_lib.cut_last, language = asrLang)."""
+    segs, _ = model.transcribe(src, language=C['asrLang'], beam_size=5, temperature=0.0, word_timestamps=True, condition_on_previous_text=False)
     ws = [w for s in segs for w in (s.words or [])]; full = ''.join(w.word for w in ws).strip()
     if len(ws) < 2 or nrm(ws[-1].word) != nrm(word): return None, f'câu mang: "{full}"'
     pcm = pcm_of(src); fr = SR // 100
@@ -102,15 +103,15 @@ def gate(r):
         if last['ok']: break
     if last is None: last = {'v': r['v'], 'w': r['w'], 'ok': False, 'asr': False, 'loud': False, 'heard': '; '.join(t['heard'] for t in tried)}
     return {**last, 'tried': tried}
-CARRIER = {v: detail(f, 'A palavra é') for v, f in (probe.get('carrier') or {}).items()}
+CARRIER = {v: detail(f, C['carrier'].rstrip(':')) for v, f in (probe.get('carrier') or {}).items()}
 res = [gate(r) if r.get('f') else {**r, 'ok': False, 'why': r.get('err', 'no file')} for r in probe.get('rows', [])]
 by = {}
 for x in res: by.setdefault(x.get('v', '?'), []).append(x)
-lines = ['## Giọng từ đơn pt-BR – lượt mẫu', f"kokoro-js tự đọc pt: `{probe.get('kokoroJsGenPt')}` · giọng pt kèm kokoro-js: {probe.get('kokoroJsHasPt')} · âm vị mẫu coração: `{(probe.get('sample') or {}).get('p')}`", '', '| giọng | đạt | qua câu mang | ASR trượt | độ to trượt |', '|---|---|---|---|---|']
+lines = [f'## Giọng từ đơn {TL} ({C["espeak"]}) – lượt mẫu', f"kokoro-js tự đọc {TL}: `{probe.get('kokoroJsGenTl')}` · giọng {TL} kèm kokoro-js: {probe.get('kokoroJsHasTl')} · âm vị mẫu {C['probe']}: `{(probe.get('sample') or {}).get('p')}` · ASR {os.environ.get('TL_ASR', C['asrModel'])}", '', '| giọng | đạt | qua câu mang | ASR trượt | độ to trượt |', '|---|---|---|---|---|']
 for v, xs in by.items():
     lines.append(f"| {v} | {sum(x['ok'] for x in xs)}/{len(xs)} | {sum(1 for x in xs if x['ok'] and x.get('m') == 'cut')} | {', '.join(x['w'] + '→' + repr(x.get('heard')) for x in xs if not x.get('asr'))} | {', '.join(x['w'] for x in xs if x.get('asr') and not x.get('loud'))} |")
 json.dump(res, open(os.path.join(OUT, 'gate.json'), 'w'), ensure_ascii=False, indent=1)
-PUB = os.environ.get('PT_PUBLISH')
+PUB = os.environ.get('TL_PUBLISH')
 if PUB:
     os.makedirs(os.path.join(PUB, 'audio', 'w'), exist_ok=True); idx = {}
     for x in res:
@@ -119,12 +120,22 @@ if PUB:
     json.dump({v: sorted(ws) for v, ws in idx.items()}, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, indent=1)
 txt = '\n'.join(lines); print(txt)
 if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
-# Tiêu chí tính RIÊNG từng giọng dùng thật (PT_REQUIRE, mặc định Ama pf_dora + Carlos pm_alex); giọng khác (Piper đối chứng) chỉ báo cáo.
-REQ = [v for v in os.environ.get('PT_REQUIRE', 'pf_dora,pm_alex').split(',') if v]
+# Tiêu chí tính RIÊNG từng giọng dùng thật (TL_REQUIRE, mặc định giọng Ama + Carlos của bảng); giọng khác (Piper đối chứng) chỉ báo cáo.
+REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C['voices'])).split(',') if v]
 bad = []
 for v in REQ:
     xs = by.get(v, []); ok = sum(x['ok'] for x in xs); n = len(xs) or 1
     bad_loud = [x['w'] for x in xs if x.get('asr') and not x.get('loud')]
     if ok == 0 or bad_loud or ok / n < MIN: bad.append(f'{v} đạt {ok}/{n} (< {MIN:.0%}) hoặc trượt độ to {bad_loud}')
-    else: print(f'✓ pt-gate {v}: đạt {ok}/{n}')
-if bad: print('✗ pt-gate: ' + ' · '.join(bad)); sys.exit(1)
+    else: print(f'✓ {TL}-gate {v}: đạt {ok}/{n}')
+# Seseo (es, spanish-course.md §7–§8): âm vị đưa vào Kokoro của mọi từ có c+e/i hoặc z phải là /s/, không /θ/; mẫu PHẢI có cielo + zapato.
+if C.get('seseo'):
+    SES = re.compile(r'c[eéií]|z', re.I); rows = [r for r in probe.get('rows', []) if r.get('v') in REQ and SES.search(r.get('w', ''))]
+    need = {'cielo', 'zapato'} - {r['w'] for r in rows}
+    wrong = sorted({r['w'] + '→' + str(r.get('ph')) for r in rows if not r.get('ph') or 'θ' in r['ph'] or 's' not in r['ph']})
+    if need: bad.append(f'seseo: mẫu thiếu {sorted(need)}')
+    if wrong: bad.append(f'seseo trượt (không ra /s/): {wrong}')
+    msg = f"seseo: {len(rows)} lượt c/z · " + ('✓ đều /s/' if rows and not wrong else f'✗ {wrong}') + ' · ' + ', '.join(sorted({r['w'] + ' ' + str(r.get('ph')) for r in rows if r['w'] in ('cielo', 'zapato')}))
+    print(msg)
+    if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write('\n' + msg + '\n')
+if bad: print(f'✗ {TL}-gate: ' + ' · '.join(bad)); sys.exit(1)
