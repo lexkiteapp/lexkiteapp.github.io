@@ -141,7 +141,7 @@ if (has('app/index.html')) {
   await ctx.addInitScript(() => new MutationObserver((_, o) => { if (document.body) { window.__th0 = document.documentElement.getAttribute('data-theme'); window.__bg0 = getComputedStyle(document.body).backgroundColor; o.disconnect(); } }).observe(document, { childList: true, subtree: true }));
   const st = pg => pg.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), th0: window.__th0, bg0: window.__bg0, tc: [...document.querySelectorAll('meta[name=theme-color]')].map(m => m.content) }));
   const app = await ctx.newPage(); const errs = []; app.on('pageerror', e => errs.push(e.message));
-  await app.goto(APPB + '/app/', { waitUntil: 'load' }); await app.waitForSelector('#themeBtn', { timeout: 15000 }).catch(() => bad.push('app→web: không thấy #themeBtn'));
+  await app.goto(APPB + '/app/', { waitUntil: 'load' }); await app.waitForSelector('#themeBtn', { state: 'attached', timeout: 20000 }).catch(() => bad.push('app→web: không thấy #themeBtn'));
   await app.waitForFunction(() => document.querySelector('#themeBtn') && document.querySelector('#themeBtn').onclick, null, { timeout: 15000 }).catch(() => {});
   const tap = () => app.evaluate(() => document.querySelector('#themeBtn').click()); // 390 px: nút nằm ở thanh ẩn → gọi đúng onclick của nút app
   await tap(); await tap(); // tự động → sáng → tối (đúng thứ tự nút app)

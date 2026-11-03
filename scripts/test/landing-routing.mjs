@@ -5,9 +5,10 @@
 //  3) Gợi ý ngôn ngữ chỉ hiện cho người dùng (JS sau khi vẽ), đóng được, nhớ lựa chọn
 //  4) web/sw.js: bản cài cũ phạm vi "/" → chế độ chuyển tiếp (xóa cache khung cũ, giữ dữ liệu, offline "/" → /app/); phạm vi /app/ → cache khung app
 //  5) app.js: đăng ký SW phạm vi /app/, bí danh route gõ nhầm trỏ tới route có thật; manifest start_url/scope /app/, id giữ "/"
+import { gzSize } from '../lib/gz-canon.mjs';
+const LAND_GZ = JSON.parse(fs.readFileSync(new URL('./budget.json', import.meta.url), 'utf8')).landingGz;
 import fs from 'node:fs';
 import vm from 'node:vm';
-import zlib from 'node:zlib';
 import { JSDOM } from 'jsdom';
 import { LANGS, render, fileOf, ROUTE_JS } from '../build-landing.mjs';
 
@@ -93,8 +94,10 @@ for (const l of LANGS) {
   ok(html.includes(`href="/${l}/blog/"`), `${f}: liên kết blog cùng ngôn ngữ /${l}/blog/`);
   ok(!/href="\/(\?[^"#]*)?#\//.test(html), `${f}: còn liên kết kiểu cũ "/#/…" (phải là /app/#/…)`);
   ok(LANGS.every(x => html.includes(`<a href="${x === 'vi' ? '/' : `/${x}/`}" lang="${x}" hreflang="${x}"`)), `${f}: thanh đổi ngôn ngữ đủ 15 trang`);
-  const gz = zlib.gzipSync(html, { level: 9 }).length;
-  ok(gz <= 16 * 1024, `${f}: ${(gz / 1024).toFixed(1)} KB gzip > 16 KB – trang giới thiệu phải nhẹ`);
+  // Một thước với size-budget: gzip chuẩn (pako, scripts/lib/gz-canon.mjs) + ngưỡng budget.landingGz. zlib của Node đổi theo phiên bản
+  // (Node 22 trên CI ≠ Node 26 trên máy, lệch ~1 %) → trước đây máy xanh, CI đỏ cùng một file.
+  const gz = gzSize(Buffer.from(html));
+  ok(gz <= LAND_GZ, `${f}: ${gz} B gzip chuẩn > ${LAND_GZ} B (budget.json landingGz) – trang giới thiệu phải nhẹ`);
   ok(!/Lexkite là ứng dụng số 1|triệu người dùng|million users|★★★★★|4\.9\/5/i.test(html), `${f}: không được có số liệu/đánh giá tự nhận`);
 }
 // Chữ hiển thị đúng ngôn ngữ trang: trang không phải vi không lẫn tiếng Việt có dấu (trừ tên ngôn ngữ "Tiếng Việt" ở thanh đổi ngôn ngữ)
