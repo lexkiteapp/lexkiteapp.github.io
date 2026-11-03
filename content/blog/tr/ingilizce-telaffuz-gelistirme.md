@@ -3,7 +3,7 @@ title: "İngilizce Telaffuz Geliştirme: 7 Adım, IPA ve Pratik Rehberi"
 description: "Etkili ingilizce telaffuz geliştirme yöntemleri: Türklerin sık yaptığı 7 fonetik hata, TH ve W sesleri, kelime vurgusu ve shadowing tekniği."
 slug: ingilizce-telaffuz-gelistirme
 lang: tr
-translationKey: cai-thien-phat-am-tieng-anh
+translationKey: luyen-phat-am-tieng-anh
 category: phuong-phap
 tags: [pronunciation, speaking, phonetics, accent]
 keyword: "ingilizce telaffuz geliştirme"

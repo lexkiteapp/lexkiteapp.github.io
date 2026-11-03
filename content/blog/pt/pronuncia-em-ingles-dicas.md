@@ -3,7 +3,7 @@ title: "Como melhorar a pronúncia em inglês: guia prático de fonética"
 description: "Descubra como melhorar a pronúncia em inglês com foco nos sons difíceis para brasileiros: o temido som do th, vogais curtas vs longas e consoantes finais."
 slug: pronuncia-em-ingles-dicas
 lang: pt
-translationKey: pronuncia-em-ingles-dicas
+translationKey: luyen-phat-am-tieng-anh
 category: phat-am
 tags: [pronuncia, ingles-oral, sotaque, dicas]
 keyword: "como melhorar a pronúncia em inglês"

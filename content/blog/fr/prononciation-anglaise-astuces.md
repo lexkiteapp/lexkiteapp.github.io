@@ -3,6 +3,7 @@ title: "Prononciation anglaise astuces : corriger l'accent français"
 description: "Prononciation anglaise astuces pour francophones : éliminez le son « th », le h muet, l'accent tonique et les voyelles courtes avec des exercices ciblés."
 slug: prononciation-anglaise-astuces
 lang: fr
+translationKey: luyen-phat-am-tieng-anh
 category: phat-am
 tags: [prononciation, accent, oral, phonetique]
 keyword: "prononciation anglaise astuces"

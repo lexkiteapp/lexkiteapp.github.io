@@ -3,6 +3,7 @@ title: "Englische Aussprache Tipps: Typische Fehler deutscher Sprecher"
 description: "Englische Aussprache Tipps für Deutschsprachige: Typische Fehler bei th-Laut, w versus v, Auslautverhärtung und Satzmelodie gezielt überwinden."
 slug: englische-aussprache-tipps
 lang: de
+translationKey: luyen-phat-am-tieng-anh
 category: phat-am
 tags: [aussprache, pronunciation, tipps, th-laut]
 keyword: "englische aussprache tipps"

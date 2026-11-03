@@ -3,7 +3,7 @@ title: "ฝึกออกเสียงภาษาอังกฤษให้
 description: "วิธี ฝึกออกเสียงภาษาอังกฤษ ให้ชัดเจนและเป็นธรรมชาติ: เจาะลึก 7 จุดบกพร่องที่คนไทยมักออกเสียงผิด การลงน้ำหนักเสียง Stress และเทคนิค Shadowing."
 slug: fuek-ok-siang-phasa-angkrit
 lang: th
-translationKey: cai-thien-phat-am-tieng-anh
+translationKey: luyen-phat-am-tieng-anh
 category: phuong-phap
 tags: [pronunciation, speaking, phonetics, accent]
 keyword: "ฝึกออกเสียงภาษาอังกฤษ"

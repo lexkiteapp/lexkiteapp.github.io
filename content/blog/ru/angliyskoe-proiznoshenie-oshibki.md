@@ -3,7 +3,7 @@ title: "Английское произношение: ошибки русски
 description: "Узнайте типичные английское произношение ошибки: звуки th, w и v, оглушение согласных на конце, интонация и упражнения для постановки речи."
 slug: angliyskoe-proiznoshenie-oshibki
 lang: ru
-translationKey: cai-thien-phat-am-tieng-anh
+translationKey: luyen-phat-am-tieng-anh
 category: phat-am
 tags: [proiznoshenie, pronunciation, aktsent, fonetika]
 keyword: "английское произношение ошибки"
