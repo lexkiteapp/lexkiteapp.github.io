@@ -58,7 +58,8 @@
   }
  },
  "addClass": {
-  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-4 after:inset-x-0 after:z-10 after:content-['']"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-4 after:inset-x-0 after:z-10 after:content-['']",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div > span:nth-child(2)": "max-w-[5rem] text-center text-balance [overflow-wrap:anywhere]"
  },
  "tag": {
   ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span:nth-child(1)": {
@@ -104,5 +105,12 @@
     }
    }
   }
- ]
+ ],
+ "cls": {
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div > span:nth-child(2)": {
+   "text-[11px]": "'text-[10px]'",
+   "leading-[14px]": "'leading-[12px]'",
+   "tracking-wider": "'tracking-[0.04em]'"
+  }
+ }
 }
