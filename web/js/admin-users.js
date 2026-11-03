@@ -36,7 +36,7 @@
     'Chế độ riêng tư': 'Privacy mode', 'Che email và tên khi chia sẻ màn hình': 'Hide emails and names while screen sharing',
     'Hoạt động gần nhất@@filter': 'Last active', 'Mọi lúc': 'Any time', 'Trong 24 giờ': 'Within 24 h', 'Trong 7 ngày': 'Within 7 days', 'Trong 30 ngày': 'Within 30 days', 'Im lặng > 30 ngày': 'Silent > 30 days', 'Im lặng > 90 ngày': 'Silent > 90 days',
     'Số lần vào': 'Visits', 'Bất kỳ': 'Any', '≥ {n} lần': '≥ {n} visits', 'Mọi nhãn': 'All tags', 'Quyền': 'Access', 'Mọi quyền': 'Any access', 'Quyền AI ∞': 'Unlimited AI',
-    'Khóa đồng bộ': 'Sync block', 'Đang khóa': 'Blocked', 'Không khóa': 'Not blocked', 'Mỗi trang': 'Per page',
+    'Chọn tất cả': 'Select all', 'Khóa đồng bộ': 'Sync block', 'Đang khóa': 'Blocked', 'Không khóa': 'Not blocked', 'Mỗi trang': 'Per page',
     'Đăng ký 90 ngày': 'Sign-ups (90 days)', 'người đăng ký mới mỗi ngày (giờ VN)': 'new sign-ups per day (VN time)',
     'Giữ chân theo nhóm tuần đăng ký': 'Retention by sign-up week', 'Tỉ lệ người còn quay lại ít nhất 1 / 7 / 30 ngày sau khi đăng ký.': 'Share of users who came back at least 1 / 7 / 30 days after signing up.',
     'Tuần': 'Week', 'Người': 'Users', 'chưa đủ ngày': 'not yet', 'Phễu kích hoạt': 'Activation funnel', 'Đăng ký': 'Signed up', 'Đồng bộ ≥ 2 lần': 'Synced ≥ 2 times',
@@ -106,8 +106,8 @@
         <section class="card u-wide" aria-labelledby="uRtH"><div class="card-h"><h2 class="h3" id="uRtH">${T('Giữ chân theo nhóm tuần đăng ký')}</h2><span class="small muted">${T('Tỉ lệ người còn quay lại ít nhất 1 / 7 / 30 ngày sau khi đăng ký.')}</span></div><div id="uRt"><span class="sk sk-block" style="margin:0"></span></div></section>
       </div>
       <div class="card mt">
-        <div class="u-tools">
-          <input type="search" id="uq" placeholder="${esc(T('🔎 Tìm email, tên hoặc UID'))}" value="${esc(f.q)}" aria-label="${esc(T('Tìm người dùng'))}" aria-keyshortcuts="/">
+        <div class="u-top"><input type="search" id="uq" placeholder="${esc(T('🔎 Tìm email, tên hoặc UID'))}" value="${esc(f.q)}" aria-label="${esc(T('Tìm người dùng'))}" aria-keyshortcuts="/">
+        <div class="u-tools" data-fsheet>
           ${opt('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']], 'role')}
           ${opt('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']], 'status')}
           ${opt('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']], 'plat')}
@@ -121,13 +121,14 @@
           <label class="u-sel"><span>${T('đến ngày')}</span><input type="date" id="fto" value="${esc(f.to)}"></label>
           ${opt('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất'], ['old', 'Tham gia sớm nhất'], ['n', 'Vào nhiều nhất'], ['email', 'Email'], ['name', 'Người dùng']], 'sort')}
           <button type="button" class="btn ghost sm" id="uclr" hidden>${T('Bỏ lọc')}</button>
-        </div>
+        </div></div>
         <div class="u-selbar" id="uSelBar" role="status" aria-live="polite" hidden></div>
         <div class="tbl-wrap scroll" id="uTable" aria-busy="true"><span class="sk sk-block" style="margin:0"></span></div>
         <div class="u-pager" id="uPager"></div>
       </div>
       <section class="card mt" aria-labelledby="uCcH"><div class="card-h"><h2 class="h3" id="uCcH">${T('🌍 Người dùng theo quốc gia')}</h2><span class="small muted">${T('Lần đồng bộ gần nhất · bấm để lọc')}</span></div><div id="uCc"><span class="sk sk-block" style="margin:0"></span></div></section>
       <div class="u-bulk" id="uBulk" role="toolbar" aria-label="${esc(T('Thao tác hàng loạt'))}" hidden></div>`;
+    $('#fsort').dataset.fsNc = ''; // sắp xếp không tính là bộ lọc đang bật (số trên nút Lọc)
     const anyF = () => FKEYS.some(k => f[k]);
 
     // ---------- Chế độ xem (có sẵn + của tôi, lưu ở máy này) ----------
@@ -287,15 +288,15 @@
     function drawTable() {
       const show = k => cols.includes(k);
       $('#uTable').setAttribute('aria-busy', 'false');
-      $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col" class="u-ckc"><input type="checkbox" id="uAll" aria-label="${esc(T('Chọn tất cả trên trang'))}"></th>${th('user', T('Người dùng'))}${show('role') ? th('role', T('Vai trò')) : ''}${show('status') ? th('status', T('Trạng thái')) : ''}${show('plat') ? th('plat', T('Nền tảng')) : ''}${show('cc') ? th('cc', T('Quốc gia')) : ''}${show('created') ? th('created', T('Ngày tạo')) : ''}${show('seen') ? th('seen', T('Hoạt động gần nhất')) : ''}${show('n') ? th('n', T('Lần vào'), 'num') : ''}<th scope="col"><span class="sr-only">${T('Thao tác')}</span></th></tr></thead><tbody>
+      $('#uTable').innerHTML = `<table class="tbl u-tbl" data-cards><thead><tr><th scope="col" class="u-ckc"><label class="u-ckh"><input type="checkbox" id="uAll" aria-label="${esc(T('Chọn tất cả trên trang'))}"><span class="u-all-t" aria-hidden="true">${T('Chọn tất cả')}</span></label></th>${th('user', T('Người dùng'))}${show('role') ? th('role', T('Vai trò')) : ''}${show('status') ? th('status', T('Trạng thái')) : ''}${show('plat') ? th('plat', T('Nền tảng')) : ''}${show('cc') ? th('cc', T('Quốc gia')) : ''}${show('created') ? th('created', T('Ngày tạo')) : ''}${show('seen') ? th('seen', T('Hoạt động gần nhất')) : ''}${show('n') ? th('n', T('Lần vào'), 'num') : ''}<th scope="col"><span class="sr-only">${T('Thao tác')}</span></th></tr></thead><tbody>
         ${rows.map((u, i) => {
           const tg = tagsOf(u), nm = u.name || T('(không tên)');
-          return `<tr data-i="${i}" tabindex="-1"><td class="u-ckc"><input type="checkbox" class="u-ck" data-ck="${esc(u.uid)}" aria-label="${esc(T('Chọn {e}', { e: mask(u.email || u.name || u.uid) }))}"></td>
-          <td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b class="${priv ? 'u-pii' : ''}">${esc(mask(nm))}</b> ${!show('status') && u.blocked ? `<span class="chip bad sm">⛔ ${T('Bị khóa')}</span>` : ''}<br><span class="small muted ${priv ? 'u-pii' : ''}">${esc(mask(u.email || u.uid))}</span>${tg.length ? `<div class="u-tags">${tg.map(t => `<button type="button" class="chip sm" data-tagf="${esc(t)}">${esc(t)}</button>`).join('')}</div>` : ''}</span></div></td>
+          return `<tr data-i="${i}" data-row="${esc(u.uid)}" tabindex="-1"><td class="u-ckc" data-label=""><label class="u-ckh"><input type="checkbox" class="u-ck" data-ck="${esc(u.uid)}" aria-label="${esc(T('Chọn {e}', { e: mask(u.email || u.name || u.uid) }))}"></label></td>
+          <td class="u-c-who" data-label=""><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span class="u-who-t"><b class="u-nm ${priv ? 'u-pii' : ''}" title="${esc(mask(nm))}">${esc(mask(nm))}</b> ${!show('status') && u.blocked ? `<span class="chip bad sm">⛔ ${T('Bị khóa')}</span>` : ''}<span class="small muted u-em ${priv ? 'u-pii' : ''}" title="${esc(mask(u.email || u.uid))}">${esc(mask(u.email || u.uid))}</span>${tg.length ? `<div class="u-tags">${tg.map(t => `<button type="button" class="chip sm" data-tagf="${esc(t)}">${esc(t)}</button>`).join('')}</div>` : ''}</span></div></td>
           ${show('role') ? `<td>${c.rolePill(u.isAdmin)}</td>` : ''}${show('status') ? `<td class="u-badges">${badges(u)}</td>` : ''}
           ${show('plat') ? `<td class="nowrap">${c.platIcon(u.plat)} ${esc(c.platName(u.plat))}</td>` : ''}${show('cc') ? `<td class="nowrap">${ccCell(u.cc)}</td>` : ''}${show('created') ? `<td class="small nowrap">${rel(u.created)}</td>` : ''}
           ${show('seen') ? `<td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td>` : ''}${show('n') ? `<td class="num">${num(u.n)}</td>` : ''}
-          <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${T('Chi tiết')}</button>${u.deleted ? '' : ` <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${esc(T('Gửi thông báo'))}">📣 ${T('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${T('Xóa dữ liệu')}</button>`}</td></tr>`;
+          <td class="nowrap u-c-act" data-label=""><button type="button" class="btn ghost sm" data-uid=""${esc(u.uid)}">${T('Chi tiết')}</button>${u.deleted ? '' : ` <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${esc(T('Gửi thông báo'))}">📣 ${T('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${T('Xóa dữ liệu')}</button>`}</td></tr>`;
         }).join('') || `<tr><td colspan="${3 + cols.length}">${f.trash ? emptyState(T('Không có người dùng trong Thùng rác'), T('Người bị xóa mềm nằm đây 30 ngày trước khi bị xóa vĩnh viễn.'), '🗑') : emptyState(T('Không có người dùng khớp bộ lọc'), T('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}${anyF() ? `<p class="center"><button type="button" class="btn sm" data-clrf>${T('Bỏ lọc')}</button></p>` : ''}</td></tr>`}</tbody></table>`;
       kb = -1; drawSel();
     }
@@ -315,7 +316,9 @@
       if (t.closest('[data-clrf]')) { applyF({ sort: f.sort, dir: f.dir }); return; }
       const d = t.closest('[data-uid]'); if (d) { c.userDialog(d.dataset.uid, load); return; }
       const x = t.closest('[data-del]'); if (x) { c.userDel(x.dataset.del, x.dataset.em, load); return; }
-      const nt = t.closest('[data-notif]'); if (nt) { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: nt.dataset.notif, email: nt.dataset.em })); } catch (e) { /* bỏ qua */ } c.show('notices'); }
+      const nt = t.closest('[data-notif]'); if (nt) { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: nt.dataset.notif, email: nt.dataset.em })); } catch (e) { /* bỏ qua */ } c.show('notices'); return; }
+      // điện thoại (dạng thẻ): chạm vào thẻ = mở chi tiết (ngoài ô chọn, nút, chip nhãn)
+      const tr = t.closest('tr[data-row]'); if (tr && tr.closest('table.tbl-cards') && !t.closest('a, button, input, label, select')) c.userDialog(tr.dataset.row, load);
     });
     // shift-click trên ô chọn: chặn bôi đen chữ
     T_.addEventListener('mousedown', ev => { if (ev.shiftKey && ev.target.classList && ev.target.classList.contains('u-ck')) ev.preventDefault(); });

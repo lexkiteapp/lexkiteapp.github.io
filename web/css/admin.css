@@ -397,7 +397,7 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .u-cc .u-ccrow[aria-pressed=true] { background: color-mix(in srgb, var(--primary) 12%, transparent); box-shadow: inset 3px 0 0 var(--primary); }
 .u-sel select { width: auto; min-width: 135px; padding: .5rem .7rem; font-size: .85rem; border-radius: 9px; }
 .u-tbl td { vertical-align: middle; padding: .65rem .6rem; }
-.u-tbl td:first-child { min-width: 15rem; } /* tên/email không bị bóp từng chữ khi bảng nhiều cột – bảng tự cuộn ngang trong .tbl-wrap */
+.u-tbl td.u-c-who { min-width: 15rem; } /* tên/email không bị bóp từng chữ khi bảng nhiều cột – bảng tự cuộn ngang trong .tbl-wrap. 3/11: trước đây :first-child = cột ô chọn → ô chọn rộng 15rem, cột Người dùng bị ép (iPhone) */
 .u-who { display: flex; align-items: center; gap: .7rem; min-width: 0; } .u-who > span:last-child { min-width: 0; overflow-wrap: anywhere; }
 .u-av { width: 34px; height: 34px; border-radius: 50%; flex: none; display: inline-grid; place-items: center; font-weight: 800; font-size: .92rem; color: var(--primary); background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); box-shadow: 0 1px 2px rgba(0,0,0,.04); }
 .u-av.big { width: 48px; height: 48px; font-size: 1.25rem; }
@@ -589,3 +589,89 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .sx-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
 .sx-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); }
 .sx-l.sx-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+
+/* ---------- Điện thoại ≤640 px (owner 3/11, iPhone 390 px) – cơ chế chung js/admin.js cardTables/fsheets ---------- */
+.u-who-t { min-width: 0; display: flex; flex-direction: column; } .u-who-t > b, .u-em { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } /* email dài: cắt bằng … (title + ngăn Chi tiết hiện đủ) thay vì ngắt giữa chữ */
+.u-who-t > .chip { align-self: flex-start; margin: .15rem 0; }
+.u-ckh { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; margin: -.5rem; cursor: pointer; } .u-all-t { display: none; }
+.u-top { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin-bottom: 1rem; } .u-top > input[type=search] { flex: 1 1 240px; min-width: 0; } .u-top > .u-tools { flex: 1 1 100%; margin-bottom: 0; }
+.fs-btn, .fs-head, .fs-foot, .fs-scrim { display: none; }
+.fs-n:not(:empty) { display: inline-grid; place-items: center; min-width: 1.35rem; height: 1.35rem; padding: 0 .35rem; margin-left: .15rem; border-radius: 999px; background: var(--primary); color: var(--on-primary, #fff); font-size: .72rem; font-weight: 800; }
+.date-w { position: relative; display: inline-flex; min-width: 0; } .date-w > input { width: 100%; }
+.date-ph { position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: .85rem; pointer-events: none; }
+.date-w.has-v .date-ph, .date-w:focus-within .date-ph { display: none; }
+.date-w:not(.has-v) > input:not(:focus)::-webkit-datetime-edit { color: transparent; } /* Chrome/Android: ẩn "dd/mm/yyyy" mờ trùng gợi ý */
+.adm-more { display: none; } .adm-me-items { display: contents; }
+@media (max-width: 640px) {
+  /* Thanh trên: ☰ · logo · ⌕ · ⋯ (Về app, sáng/tối, VI|EN, email, Thoát trong menu) */
+  .adm-top { gap: .4rem; padding: 0 .5rem 0 .6rem; }
+  .adm-brand .wordmark { display: inline; font-size: 1.05rem; } .adm-brand .logo { width: 28px; height: 28px; }
+  .adm.adm-in .adm-burger, .adm.adm-in .adm-cmdk, .adm.adm-in .adm-more { display: inline-grid; place-items: center; width: 44px; height: 44px; }
+  .adm-cmdk { margin-left: auto; }
+  .adm-me { position: relative; margin-left: 0; }
+  .adm-me-items { display: none; position: absolute; right: 0; top: calc(100% + 8px); z-index: 80; min-width: 236px; max-width: calc(100vw - 24px); flex-direction: column; align-items: stretch; gap: .15rem; padding: .4rem; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+  .adm-me-items.open { display: flex; }
+  .adm-me-items .btn { justify-content: flex-start; height: auto; min-height: 44px; width: 100%; border: 0; }
+  .adm-me-items .lbl, .adm-me-items .adm-email { display: inline; }
+  .adm-me-items .adm-email { display: block; order: -1; padding: .55rem .75rem .6rem; margin-bottom: .2rem; border-bottom: 1px solid var(--line); font-size: .8rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Bảng → danh sách thẻ (mọi bảng rộng hơn khung, hoặc data-cards) */
+  .tbl.tbl-cards, .tbl.tbl-cards tbody { display: block; width: 100%; }
+  .tbl.tbl-cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .tbl.tbl-cards tr { display: flex; flex-wrap: wrap; gap: .1rem .9rem; padding: .7rem .2rem; border-bottom: 1px solid var(--line); }
+  .tbl.tbl-cards tr:last-child { border-bottom: 0; }
+  .tbl.tbl-cards td { display: flex; align-items: baseline; gap: .5rem; flex: 1 1 100%; min-width: 0; padding: .2rem .25rem; border: 0; text-align: left; white-space: normal; background: none !important; }
+  .tbl.tbl-cards td[data-label]:not([data-label=""])::before { content: attr(data-label); flex: 0 0 38%; max-width: 9.5rem; color: var(--muted); font-size: .74rem; font-weight: 700; letter-spacing: .02em; }
+  .tbl.tbl-cards td.num { justify-content: flex-start; }
+  .tbl.tbl-cards td[colspan] { display: block; }
+  .tbl.tbl-cards tr:hover td { background: none; }
+  .tbl-x:has(> .tbl-cards), .tbl-wrap:has(> .tbl-cards) { overflow-x: visible; }
+  .tbl-wrap.scroll:has(> .tbl-cards) { max-height: none; border: 0; box-shadow: none; background: none; }
+  /* Người dùng: thẻ kiểu app lớn – avatar · tên · email…, ô chọn góc phải, chip, thông tin gọn, chạm = Chi tiết */
+  .u-tbl.tbl-cards thead { position: static; width: auto; height: auto; clip: auto; overflow: visible; display: block; }
+  .u-tbl.tbl-cards thead tr { padding: 0 .2rem .35rem; border-bottom: 1px solid var(--line); } .u-tbl.tbl-cards thead th { display: none; }
+  .u-tbl.tbl-cards thead th.u-ckc { display: block; width: auto; padding: 0; border: 0; background: none; text-transform: none; letter-spacing: 0; }
+  .u-tbl.tbl-cards .u-ckh { margin: 0; justify-content: start; grid-auto-flow: column; gap: .55rem; padding-right: .6rem; } .u-tbl.tbl-cards .u-all-t { display: inline; font-size: .85rem; font-weight: 700; color: var(--text); }
+  .u-tbl.tbl-cards tbody tr { position: relative; padding: .85rem 3rem .85rem .75rem; margin: .55rem 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: var(--a-card-shadow); cursor: pointer; gap: .3rem .9rem; }
+  .u-tbl.tbl-cards tbody tr:last-child { border-bottom: 1px solid var(--line); }
+  .u-tbl.tbl-cards tbody tr.sel { border-color: var(--primary); box-shadow: inset 4px 0 0 var(--primary), var(--a-card-shadow); }
+  .u-tbl.tbl-cards tbody tr.sel td, .u-tbl.tbl-cards tr.kb td:first-child, .u-tbl.tbl-cards tr.sel td:first-child { box-shadow: none; }
+  .u-tbl.tbl-cards td.u-ckc { position: absolute; top: .2rem; right: .2rem; width: auto; padding: 0; flex: none; }
+  .u-tbl.tbl-cards .u-ckc input { width: 1.25rem; height: 1.25rem; }
+  .u-tbl.tbl-cards td.u-c-who { min-width: 0; padding: 0 0 .25rem; }
+  .u-tbl.tbl-cards .u-who { width: 100%; } .u-tbl.tbl-cards .u-av { width: 40px; height: 40px; }
+  .u-tbl.tbl-cards .u-who-t > b { font-size: .95rem; }
+  .u-tbl.tbl-cards td.u-badges, .u-tbl.tbl-cards td:has(> .pill, > .role-pill) { flex: 0 1 auto; min-width: 0; }
+  .u-tbl.tbl-cards td.u-badges::before, .u-tbl.tbl-cards td:has(> .pill, > .role-pill)::before { display: none; }
+  .u-tbl.tbl-cards td.small, .u-tbl.tbl-cards td.nowrap:not(.u-c-act), .u-tbl.tbl-cards td.num { flex: 1 1 calc(50% - .9rem); font-size: .82rem; }
+  .u-tbl.tbl-cards td.small::before, .u-tbl.tbl-cards td.nowrap:not(.u-c-act)::before, .u-tbl.tbl-cards td.num::before { flex: 0 0 auto; }
+  .u-tbl.tbl-cards td.u-c-act { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: .4rem; padding-top: .45rem; margin-top: .2rem; border-top: 1px dashed var(--line); }
+  .u-tbl.tbl-cards td.u-c-act .btn { flex: 1 1 auto; }
+  .u-tbl td.u-c-who { min-width: 0; }
+  /* Bộ lọc → nút "Lọc · n" + sheet đáy */
+  .fs-btn { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; }
+  .u-top > input[type=search] { min-height: 44px; }
+  .fsheet { display: none !important; }
+  .fsheet.open { display: flex !important; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: .5rem; position: fixed; z-index: 90; left: 0; right: 0; bottom: 0; max-height: 86dvh; overflow-y: auto; margin: 0; padding: 0 1rem calc(1rem + env(safe-area-inset-bottom)); border-radius: 20px 20px 0 0; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -12px 40px rgba(0, 0, 0, .25); animation: fs-up .2s ease-out; }
+  .fsheet.open .fs-head { display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1; padding: .7rem 0 .5rem; background: var(--surface); border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+  .fsheet.open .fs-x { width: 44px; height: 44px; }
+  .fsheet.open .fs-foot { display: flex; position: sticky; bottom: calc(-1rem - env(safe-area-inset-bottom)); padding: .6rem 0 .2rem; background: var(--surface); border-top: 1px solid var(--line); } .fsheet.open .fs-done { flex: 1; min-height: 48px; }
+  .fsheet.open > label, .fsheet.open .u-sel, .u-tools.fsheet.open .u-sel:has(select) { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: .75rem; flex: none; width: 100%; min-height: 48px; padding: .25rem 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); border-radius: 0; box-shadow: none; background: none; }
+  .fsheet.open .u-sel > span:first-child, .fsheet.open > label > span:first-child { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 650; color: var(--text); font-size: .9rem; }
+  .fsheet.open select, .fsheet.open input:not([type=checkbox]), .fsheet.open .date-w { flex: 0 1 58%; width: 58%; min-width: 0; min-height: 44px; }
+  .fsheet.open .date-w > input { width: 100%; flex: 1; }
+  .fsheet.open > button:not(.fs-x):not(.fs-done) { min-height: 44px; }
+  .fs-scrim:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 85; background: rgba(12, 22, 21, .5); }
+  body.fs-on { overflow: hidden; }
+  /* Thanh chọn hàng loạt: dính đáy màn, đủ vùng chạm, cuộn ngang các thao tác */
+  .u-bulk { left: 0; right: 0; bottom: 0; width: auto; transform: none; border-radius: 16px 16px 0 0; border-width: 2px 0 0; padding: .55rem .75rem calc(.55rem + env(safe-area-inset-bottom)); flex-wrap: nowrap; gap: .5rem; box-shadow: 0 -8px 28px rgba(0, 0, 0, .3); }
+  .u-bulk-n { flex: none; border-right: 0; padding-right: 0; max-width: 34%; } .u-bulk-n .linkbtn { white-space: normal; }
+  .u-bulk-acts { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; } .u-bulk-acts::-webkit-scrollbar { display: none; }
+  .adm .u-bulk .btn { flex: none; min-height: 44px; white-space: nowrap; }
+  body.u-bulk-on .adm-content { padding-bottom: calc(7rem + env(safe-area-inset-bottom)); }
+  /* Vùng chạm ≥ 44 px (gác admin-guard) */
+  .adm .adm-content .btn, .adm .adm-content select, .adm .adm-content input:not([type=checkbox]):not([type=radio]):not([type=range]), .adm .range-tabs button, .adm .adm-content summary { min-height: 44px; }
+  .adm .adm-content .btn.sm { padding-top: .45rem; padding-bottom: .45rem; }
+  .u-pg select { min-height: 44px; }
+}
+@keyframes fs-up { from { transform: translateY(24px); opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .fsheet.open { animation: none; } }

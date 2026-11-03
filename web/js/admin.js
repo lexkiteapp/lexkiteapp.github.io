@@ -33,7 +33,7 @@
     'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.': 'Site banner, AI limits, monitoring and analytics sampling.',
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
     'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
-    'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
+    'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out', 'Thêm': 'More', 'Lọc': 'Filter', 'Lọc · {n} đang bật': ['Filter · {n} active', 'Filter · {n} active'], 'Bộ lọc': 'Filters', 'Xong': 'Done', 'dd/mm/yyyy': 'mm/dd/yyyy',
     'Không có quyền': 'Access denied', 'Không tải được dữ liệu': 'Could not load data', 'Thử lại': 'Retry', 'Tài khoản này không có quyền quản trị': 'This account does not have admin access', 'Đăng nhập bằng tài khoản khác': 'Sign in with a different account', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
     'Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?': 'Your admin session has expired. Sign in again now?', 'Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại': 'Session expired – sign in again and retry',
     'Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?': 'Please sign in again to confirm this sensitive action. Sign in now?',
@@ -457,8 +457,18 @@
   $('#signin').onclick = signIn;
 
   // ---------- Thanh trên, thanh bên, đầu trang ----------
+  let meDoc = 0;
   const renderMe = u => {
-    $('#me').innerHTML = `<a class="btn ghost sm" href="/app/#/home" id="home" aria-label="${esc(L('Về app'))}">↩ <span class="lbl">${esc(L('Về app'))}</span></a><button type="button" class="btn ghost sm theme-btn" id="thm" title="${esc(L('Đổi giao diện sáng/tối'))}"></button><button type="button" class="btn ghost sm lang-btn" id="lng"></button><span class="adm-email" title="${esc(u.email)}">${esc(u.email)}</span><button type="button" class="btn ghost sm" id="out">${esc(L('Thoát'))}</button>`;
+    // owner 3/11 (iPhone 390 px): 5 nút + email chen chúc, logo bị cắt → ≤640 px gom vào menu ⋯ (cùng nút, cùng trình xử lý; máy tính vẫn xếp hàng ngang)
+    $('#me').innerHTML = `<button type="button" class="adm-ibtn adm-more" id="meMore" aria-haspopup="true" aria-expanded="false" aria-controls="meMenu"><span aria-hidden="true">⋯</span><span class="sr-only">${esc(L('Thêm'))}</span></button><div class="adm-me-items" id="meMenu"><a class="btn ghost sm" href="/app/#/home" id="home" aria-label="${esc(L('Về app'))}">↩ <span class="lbl">${esc(L('Về app'))}</span></a><button type="button" class="btn ghost sm theme-btn" id="thm" title="${esc(L('Đổi giao diện sáng/tối'))}"></button><button type="button" class="btn ghost sm lang-btn" id="lng"></button><span class="adm-email" title="${esc(u.email)}">${esc(u.email)}</span><button type="button" class="btn ghost sm" id="out">${esc(L('Thoát'))}</button></div>`;
+    const mm = $('#meMore'), menu = $('#meMenu'), mClose = () => { menu.classList.remove('open'); mm.setAttribute('aria-expanded', 'false'); };
+    mm.onclick = e => { e.stopPropagation(); const o = !menu.classList.contains('open'); menu.classList.toggle('open', o); mm.setAttribute('aria-expanded', String(o)); if (o) { const f = menu.querySelector('button, a'); if (f) f.focus(); } };
+    menu.addEventListener('click', e => { if (e.target.closest('#thm, #lng')) return; mClose(); }); // đổi sáng/tối, ngôn ngữ: giữ menu mở để thấy kết quả
+    if (!meDoc) { meDoc = 1; // gắn 1 lần (renderMe chạy lại khi đổi ngôn ngữ) – tra lại phần tử mỗi lần
+      const cl = () => { const m = $('#meMenu'), b = $('#meMore'); if (m && m.classList.contains('open')) { m.classList.remove('open'); if (b) b.setAttribute('aria-expanded', 'false'); return b; } };
+      document.addEventListener('click', e => { if (!e.target.closest('#me')) cl(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') { const b = cl(); if (b) b.focus(); } });
+    }
     paintTheme(); paintStatic();
     $('#thm').onclick = cycleTheme;
     $('#lng').onclick = () => setLang(LANG === 'vi' ? 'en' : 'vi');
@@ -550,6 +560,7 @@
   const sxHint = el => { const m = el.scrollWidth - el.clientWidth; el.classList.toggle('sx-l', m > 1 && el.scrollLeft > 1); el.classList.toggle('sx-r', m > 1 && el.scrollLeft < m - 1); };
   const sxRO = window.ResizeObserver ? new ResizeObserver(es => es.forEach(x => sxHint(x.target))) : null;
   const fitTables = () => {
+    cardTables(); fsheets();
     for (const t of main.querySelectorAll('table')) {
       if (t.closest(SCROLLX)) continue;
       let p = t.parentElement; while (p && p !== main && !/auto|scroll/.test(getComputedStyle(p).overflowX)) p = p.parentElement;
@@ -562,6 +573,59 @@
       if (!el.hasAttribute('tabindex') && el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0; // cuộn được bằng bàn phím
     }
   };
+  // ---------- Điện thoại ≤640 px (owner 3/11, iPhone 390 px): bảng → danh sách thẻ, bộ lọc → sheet "Lọc", ô ngày có chữ gợi ý ----------
+  // Một cơ chế cho MỌI tab: bảng nào trên điện thoại rộng hơn khung (hoặc gắn data-cards) chuyển thành thẻ – mỗi ô kèm nhãn cột (data-label lấy từ <th>);
+  // khối gắn data-fsheet = bộ lọc → nút "Lọc · n" + sheet trượt từ đáy (giữ nguyên ô, trình xử lý). data-keep-table = giữ dạng bảng (lưới số nhỏ).
+  const MOB = matchMedia('(max-width: 640px)');
+  const headTxt = th => { if (!th) return ''; const c = th.cloneNode(true); c.querySelectorAll('.sr-only, input, [aria-hidden="true"]').forEach(x => x.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); };
+  const cardTables = () => {
+    for (const t of main.querySelectorAll('table')) {
+      if (t.matches('[data-keep-table]')) continue;
+      const hr = t.tHead && t.tHead.rows[t.tHead.rows.length - 1];
+      if (hr) { // nhãn cột cho từng ô chưa có nhãn (thân bảng vẽ lại vẫn được gắn)
+        const hs = []; for (const th of hr.cells) for (let k = 0; k < (th.colSpan || 1); k++) hs.push(headTxt(th));
+        for (const r of t.tBodies[0] ? t.tBodies[0].rows : []) { let k = 0; for (const td of r.cells) { const h = hs[k]; if (h && !td.hasAttribute('data-label') && (td.colSpan || 1) === 1) td.dataset.label = h; k += td.colSpan || 1; } }
+      }
+      if (!MOB.matches) { t.classList.remove('tbl-cards'); continue; }
+      if (t.matches('[data-cards]')) { t.classList.add('tbl-cards'); continue; }
+      t.classList.remove('tbl-cards'); const box = t.closest(SCROLLX) || t.parentElement;
+      if (Math.max(t.scrollWidth, t.getBoundingClientRect().width) > box.clientWidth + 1) t.classList.add('tbl-cards');
+    }
+  };
+  const fsCount = el => [...el.querySelectorAll('select, input')].filter(x => !x.matches('[data-fs-nc], [type=search], [type=hidden]') && (x.tagName === 'SELECT' ? x.selectedIndex > 0 && x.value !== (x.options[0] || {}).value : x.type === 'checkbox' ? x.checked : x.value !== '')).length;
+  const fsPaint = el => { const b = el.previousElementSibling; if (!b || !b.classList.contains('fs-btn')) return; const n = fsCount(el); b.querySelector('.fs-n').textContent = n ? String(n) : ''; b.setAttribute('aria-label', n ? L('Lọc · {n} đang bật', { n }) : L('Lọc')); };
+  let fsScrim = null;
+  const fsOpen = (el, o) => {
+    if (!fsScrim) { fsScrim = document.createElement('div'); fsScrim.className = 'fs-scrim'; fsScrim.hidden = true; document.body.appendChild(fsScrim); fsScrim.onclick = () => main.querySelectorAll('.fsheet.open').forEach(x => fsOpen(x, false)); }
+    el.classList.toggle('open', o); fsScrim.hidden = !o; document.body.classList.toggle('fs-on', o);
+    const b = el.previousElementSibling; if (b && b.classList.contains('fs-btn')) b.setAttribute('aria-expanded', String(o));
+    if (o) { const f = el.querySelector('select, input:not([type=hidden]), button:not(.fs-x)'); if (f) f.focus({ preventScroll: true }); } else if (b && el.contains(document.activeElement)) b.focus();
+  };
+  const fsheets = () => {
+    for (const el of main.querySelectorAll('[data-fsheet]')) {
+      if (!el.dataset.fsOn) {
+        el.dataset.fsOn = 1; el.classList.add('fsheet'); if (!el.id) el.id = 'fs' + Math.random().toString(36).slice(2, 8);
+        el.setAttribute('role', 'group'); el.setAttribute('aria-label', L('Bộ lọc'));
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'btn sm fs-btn'; b.setAttribute('aria-controls', el.id); b.setAttribute('aria-expanded', 'false');
+        b.innerHTML = `<span aria-hidden="true">⚙</span> ${esc(L('Lọc'))}<span class="fs-n" aria-hidden="true"></span>`; el.before(b);
+        el.insertAdjacentHTML('afterbegin', `<div class="fs-head"><b>${esc(L('Lọc'))}</b><button type="button" class="adm-ibtn fs-x" aria-label="${esc(L('Đóng'))}">✕</button></div>`);
+        el.insertAdjacentHTML('beforeend', `<div class="fs-foot"><button type="button" class="btn primary fs-done">${esc(L('Xong'))}</button></div>`);
+        b.onclick = () => fsOpen(el, true);
+        el.addEventListener('click', e => { if (e.target.closest('.fs-x, .fs-done')) fsOpen(el, false); });
+        el.addEventListener('keydown', e => { if (e.key === 'Escape' && el.classList.contains('open')) { e.stopPropagation(); fsOpen(el, false); } });
+        el.addEventListener('change', () => fsPaint(el)); el.addEventListener('input', () => fsPaint(el));
+      }
+      fsPaint(el); if (!MOB.matches && el.classList.contains('open')) fsOpen(el, false);
+    }
+    for (const d of main.querySelectorAll('input[type=date]:not([data-ph-on])')) { // iOS: ô ngày trống không có placeholder → gợi ý phủ lên, ẩn khi đã chọn
+      d.dataset.phOn = 1; const w = document.createElement('span'); w.className = 'date-w'; d.replaceWith(w); w.appendChild(d);
+      w.insertAdjacentHTML('beforeend', `<span class="date-ph" aria-hidden="true">${esc(d.getAttribute('placeholder') || L('dd/mm/yyyy'))}</span>`);
+      if (!d.getAttribute('aria-describedby') && !d.getAttribute('placeholder')) d.setAttribute('placeholder', L('dd/mm/yyyy'));
+      const p = () => w.classList.toggle('has-v', !!d.value); d.addEventListener('input', p); d.addEventListener('change', p); p();
+    }
+    for (const d of main.querySelectorAll('.date-w')) d.classList.toggle('has-v', !!(d.querySelector('input') || {}).value); // giá trị đặt bằng mã (chế độ xem đã lưu, Bỏ lọc)
+  };
+  MOB.addEventListener ? MOB.addEventListener('change', () => fitTables()) : MOB.addListener(() => fitTables());
   let fitQ = 0; new MutationObserver(() => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fitTables(); }); }).observe(main, { childList: true, subtree: true });
   main.addEventListener('click', e => {
     const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); return; }
