@@ -10,16 +10,16 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (1213 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (76 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (862 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (870 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (159 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
-- `brand/` (1221 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
+- `brand/` (1284 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
 - `content/` (2542 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (182 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (38): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,backlinks,capacity,class,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit,i18nfix,img,jobs,keys,league,lexai,notices,ota,push,quota,report,social,social-auto,studio,sync,youtube
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:655 s/test:322 s/video:101 js/vimg:64 s/cine:50 s/lib:38 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:26 js/st:23 js/readtest:21 js/lib:20 s/pron:19 s/ci:16 js/get-app:15 js/toeic:15 s/ops:12 js/listen:12 s/stitch:11 s/word-audio:11 s/tts-ab:9 js/write:9 s/footage:8 s/teach:8 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 js/pron:6 s/capacity:5 s/cdn:5 s/content-qa:5 s/quality:5 js/lesson:5 s/audio:4 s/teacher:4 js/ads:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/ota:3 s/scriptbank:3 s/target:3 s/world:3 js/call:3 js/roleplay:3 js/tools:3
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:655 s/test:322 s/video:101 js/vimg:64 s/cine:50 s/lib:38 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:26 js/st:23 js/readtest:21 js/lib:20 s/pron:19 s/stitch:19 s/ci:16 js/get-app:15 js/toeic:15 s/ops:12 js/listen:12 s/word-audio:11 s/tts-ab:9 js/write:9 s/footage:8 s/teach:8 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 js/pron:6 s/capacity:5 s/cdn:5 s/content-qa:5 s/quality:5 js/lesson:5 s/audio:4 s/teacher:4 js/ads:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/ota:3 s/scriptbank:3 s/target:3 s/world:3 js/call:3 js/roleplay:3 js/tools:3
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md. Test: scripts/test/i18n-*.mjs
