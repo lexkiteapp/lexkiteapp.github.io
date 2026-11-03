@@ -120,6 +120,9 @@
  "cls": {
   ":scope > div > main > div:nth-child(3) > div:nth-child(3) > div > div > div": {
    "[width:65%]": "''"
+  },
+  "[class~=\"lt:text-[#8C7A6B]\"]": {
+   "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
   }
  },
  "tag": {
@@ -141,7 +144,8 @@
   ":scope > div > main > div:nth-child(5) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > div > main > div:nth-child(6) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > div > main > div:nth-child(7) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
-  ":scope > div > main > div:nth-child(2)": "rtl:flex-row-reverse"
+  ":scope > div > main > div:nth-child(2)": "rtl:flex-row-reverse",
+  "button.w-full.uppercase": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
  },
  "repeat": [
   {
@@ -214,5 +218,6 @@
     }
    }
   }
- ]
+ ],
+ "_contrast": "3/11: chữ phụ 11 px #8C7A6B trên #FFF9F3 = 3,93:1 < 4,5 (qa-bot) → #76665A (5,26:1, cùng tông) qua cls; mẫu Stitch giữ nguyên."
 }
