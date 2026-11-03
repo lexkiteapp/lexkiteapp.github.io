@@ -20,7 +20,7 @@ npx -y --cache $TMPDIR/npmc -p typescript@5.6.3 tsc -p tsconfig.check.json >/dev
 for t in "scripts/vi-lint.mjs" "scripts/i18n-missing.mjs --strict" "scripts/i18n-qa.mjs --strict" "scripts/test/size-budget.mjs" "scripts/test/unit.mjs" "scripts/test/i18n-switch.mjs" "scripts/test/learn-flow.mjs" "scripts/test/explain.mjs" "scripts/build-lexicon.mjs" "scripts/test/lex.mjs"; do o=$(node $t 2>&1); echo "$o" | tail -1 | cut -c1-150; echo "$o" | grep -q "✗\|FAIL\|Error" && F=1; done
 [ $F = 1 ] && { echo "CHECKS FAILED – merge left uncommitted"; exit 1; }
 git commit -qm "Merge $1"
-V="lexkite-$(date +%Y%m%d%H%M%S)"; sed -i '' "s/const CACHE = '[^']*';/const CACHE = '$V';/" web/sw.js; git add web/sw.js
+# Không bump web/sw.js CACHE: build tự gắn hash nội dung (scripts/lib/sw-version.mjs) – bump tay gây xung đột dây chuyền giữa các PR
 git commit -qm "$2
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"; R=https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git; git fetch -q "$R" main 2>/dev/null && git merge -q --no-edit FETCH_HEAD && git push -q "$R" HEAD:main 2>&1 | grep -v "x-access\|failed to store"; echo "pushed $(git rev-parse --short HEAD)"
