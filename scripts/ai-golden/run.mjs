@@ -58,6 +58,7 @@ async function listModels() {
     const g = pickGemini(ids); console.log(`· Gemini: ${ids.length} model, Flash mới nhất ${JSON.stringify(g)}`); if (g[0]) M.push({ route: 'gem', model: g[0], chain: true }); }
   if (ONLY.has('groq') && GROQ.size) { let ids = []; const k = GROQ.peek(0); const r = k && await fetch('https://api.groq.com/openai/v1/models', { headers: { Authorization: 'Bearer ' + k.key } }).catch(() => null); if (r && r.ok) ids = ((await r.json()).data || []).filter(m => m.active !== false).map(m => m.id);
     console.log(`· Groq: ${JSON.stringify(ids)}`);
+    qwenJudge = ids.filter(m => /qwen/i.test(m)).sort().reverse()[0] || null;
     for (const m of GROQ_OK) M.push({ route: 'groq', model: m, chain: true, listed: ids.includes(m) });
     for (const m of ['moonshotai/kimi-k2-instruct-0905', 'moonshotai/kimi-k2-instruct', 'qwen/qwen3-32b', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'llama-3.3-70b-versatile', 'openai/gpt-oss-20b']) if (ids.includes(m) && !GROQ_OK.includes(m)) M.push({ route: 'groq', model: m, chain: false }); }
   if (ONLY.has('wai') && CF.length) M.push({ route: 'wai', model: WAI_MODEL, chain: WEAK_OK });
@@ -67,14 +68,16 @@ const pmap = async (xs, n, f) => { const out = new Array(xs.length); let i = 0; 
 // giám khảo khác HỌ với ứng viên: gpt-oss-120b (Groq) chấm mọi model trừ gpt-oss → Gemini Flash
 let gemJudge = null;
 // giám khảo KHÁC HỌ với ứng viên: gpt-oss-120b (Groq) → Gemini Flash → Llama 3.3 70B (tài khoản CF_POOL) – ai còn gọi được và khác họ thì chấm
-const JUDGES = () => [['groq', 'openai/gpt-oss-120b', 'gpt-oss'], ['gem', gemJudge, 'gemini'], ['cf', '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'llama']].filter(j => j[1]);
+let qwenJudge = null, judgeFams = null; // judgeFams: chỉ họ giám khảo đã qua MỌI câu mồi mới được chấm
+ // Groq Qwen (họ thứ tư) – golden 03/11 lần 5: Gemini hết lượt + Llama 70B (CF_POOL) không gọi được → 6/20 lượt không ai chấm
+const JUDGES = () => [['groq', 'openai/gpt-oss-120b', 'gpt-oss'], ['gem', gemJudge, 'gemini'], ['cf', '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'llama'], ['groq', qwenJudge, 'qwen']].filter(j => j[1]);
 const famOf = m => /gpt-oss/.test(m) ? 'gpt-oss' : /gemini/.test(m) ? 'gemini' : /llama/.test(m) ? 'llama' : /qwen/.test(m) ? 'qwen' : 'other';
 async function judge(cand, x, only = null) {
   const q = { sys: JUDGE_SYS, prompt: judgePrompt(x), temp: 0, rp: false };
   for (const [route, model, fam] of JUDGES()) {
-    if (fam === famOf(cand.model) || (only && only !== fam)) continue;
-    const r = await call[route](model, q);
-    if (r.out && Number.isFinite(+r.out.score)) return { ...r.out, by: route + '/' + model };
+    if (fam === famOf(cand.model) || (only && only !== fam) || (judgeFams && !judgeFams.has(fam))) continue;
+    for (let t = 0; t < 2; t++) { const r = await call[route](model, q); // thử lại 1 lần (mạng / JSON hỏng)
+      if (r.out && Number.isFinite(+r.out.score)) return { ...r.out, by: route + '/' + model }; if (/no-key|no-account/.test(r.err || '')) break; }
   }
   return null;
 }
@@ -84,10 +87,11 @@ if (!models.length) { console.error('✗ không có model nào để chấm (thi
 // kiểm GIÁM KHẢO trước bằng câu mồi (có câu vô lý thật của Llama 8B ngày 03/11)
 const decoyRes = [];
 for (const d of RPJ.decoys) { const c = RPJ.cases.find(x => x.id === d.case), x = rpCase(c);
-  for (const fam of ['gpt-oss', 'gemini', 'llama']) { const j = await judge({ model: 'x' }, { ...x, L: c.L, unclear: c.unclear, reply: d.reply }, fam); if (!j) continue; // kiểm TỪNG giám khảo sẽ dùng
+  for (const fam of ['gpt-oss', 'gemini', 'llama', 'qwen']) { const j = await judge({ model: 'x' }, { ...x, L: c.L, unclear: c.unclear, reply: d.reply }, fam); if (!j) continue; // kiểm TỪNG giám khảo sẽ dùng
     const ok = (d.max == null || +j.score <= d.max) && (d.min == null || +j.score >= d.min); decoyRes.push({ case: d.case, by: j.by, score: +j.score, ok }); } }
-const judgeOk = decoyRes.length > 0 && decoyRes.every(d => d.ok);
-console.log(`· giám khảo (câu mồi): ${JSON.stringify(decoyRes)} → ${judgeOk ? 'đạt' : 'TRƯỢT'}`);
+judgeFams = new Set([...new Set(decoyRes.map(d => famOf(d.by)))].filter(f => decoyRes.filter(d => famOf(d.by) === f).every(d => d.ok)));
+const judgeOk = judgeFams.size >= 2; // ≥ 2 họ đạt câu mồi → mọi ứng viên đều có giám khảo khác họ; họ trượt câu mồi bị loại (không chấm)
+console.log(`· giám khảo (câu mồi): ${JSON.stringify(decoyRes)} → họ đạt: ${[...judgeFams].join(', ')} → ${judgeOk ? 'đạt' : 'TRƯỢT'}`);
 
 const report = { at: new Date().toISOString(), gate: GATE, judge: { ok: judgeOk, decoys: decoyRes }, models: [] };
 for (const m of models) {

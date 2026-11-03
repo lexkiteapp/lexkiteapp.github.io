@@ -232,7 +232,6 @@
 // ---- Settings ----
 'Nhắc học hằng ngày': 'Daily reminder',
 'Giờ nhắc': 'Reminder time',
-'Nhắc 15 phút trước khung giờ bạn hay học nhất (sau vài ngày học).': 'Reminds you 15 minutes before the hour you usually study (after a few days of learning).',
 'đến': 'to',
 'Không giới hạn': 'Unlimited',
 'Anh – Mỹ': 'American English',
@@ -241,7 +240,6 @@
 'Tự động': 'Auto',
 'Sáng': 'Light',
 'Tối': 'Dark',
-'Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.': 'To install: open <code>chrome://extensions</code> → turn on <i>Developer mode</i> → <i>Load unpacked</i> → select the <code>extension</code> folder.',
 'Dữ liệu': 'Data',
 'Xuất sao lưu': 'Export backup',
 'Xóa toàn bộ dữ liệu học': 'Delete all study data',
@@ -251,7 +249,6 @@
 
 // ---- Reminders & notifications ----
 'Lexkite – đến giờ học rồi!': "Lexkite: it's study time!",
-'Học vài từ mới để giữ chuỗi ngày học nhé': 'Learn a few new words to keep your streak alive',
 'Thời điểm vàng!': 'Golden time!',
 
 // ---- Welcome & onboarding ----
@@ -284,8 +281,6 @@
 'Dễ': 'Easy',
 'Quay lại': 'Back',
 'Chọn chủ đề muốn học trước': 'Pick topics to start with',
-'Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.': 'Choose 1–5 topics. You can add more later in the Library.',
-'Bắt đầu học ({n} từ)': 'Start learning ({n} words)',
 'Bắt đầu học': 'Start learning',
 'Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!': 'Your deck is ready. Time for your first review!',
 'Đã thêm “{w}” vào flashcard': 'Added “{w}” to flashcards',
@@ -346,7 +341,6 @@
 "Chưa xem hết video – chuỗi chưa được khôi phục": "Video not finished – streak not restored",
 "Chuỗi ngày học đã được giải cứu thành công!": "Your study streak has been saved!",
 "✓ Đã nhớ": "✓ Got it",
-"🔁 Cần ôn lại": "🔁 Review again",
 "Thời điểm vàng": "Golden moment",
 "Từ mới lưu": "Recently saved",
 "Từ hôm nay": "Word of the moment",
