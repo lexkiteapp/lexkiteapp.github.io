@@ -291,20 +291,6 @@
    "tests@768l",
    "me@768l"
   ],
-  "tap|div.page-head>nav.crumb.small>a": [
-   "practice@768l",
-   "settings@768l",
-   "stats@768l",
-   "practice@768d",
-   "settings@768d",
-   "stats@768d"
-  ],
-  "tap|div.row>span.say-pron>button.icon-btn.sm": [
-   "home@768l",
-   "home@768d",
-   "home@1440l",
-   "home@1440d"
-  ],
   "tap|div.set-c>span.set-btns>a.btn.sm": [
    "settings@768l",
    "settings@768d",

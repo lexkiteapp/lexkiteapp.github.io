@@ -168,9 +168,9 @@
     const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
     if (self.ST2 && ST2.path) { // 🎨 Stitch v2 "Learning Path" – khung tự sinh (web/js/st/v2/path.js · css/st-v2-path.css), chỉ gắn dữ liệu thật ở đây
       const SNAKE = ['translate-x-6', '-translate-x-8', 'translate-x-0', 'translate-x-8', '-translate-x-6', 'translate-x-0'], STT = { done: t('Đã xong'), next: t('Đang học'), lock: t('Đã khóa') };
-      const nu = unitAt(n + P.length, P.length), pct = Math.round(at / P.length * 100);
+      const nu = unitAt(n + P.length, P.length), pct = Math.round(at / P.length * 100); let pT;
       const d = { unit: { title: u.name, pct, pctText: t('{p}% hoàn thành', { p: pct }), guideHref: '#/lesson?pick=1' }, stage: t('Chặng học {n}', { n: u.no }), step: `${Math.min(at + 1, P.length)}/${P.length}`,
-        nextUnit: t('Tiếp theo: {u}', { u: nu.name }), teacher: Chars.slot('ama', { pose: 'point', size: 'l', lazy: false, clip: true, loop: true, ...(/^-/.test(SNAKE[Math.max(0, nodes.findIndex(x => x.st === 'next')) % SNAKE.length]) ? { flip: true, cls: 'absolute left-full bottom-0 ml-3' } : { cls: 'absolute right-full bottom-0 mr-3' }) }), // teacher-pose-map: Ama "point" chỉ nút đang học · chỗ giáo viên chung (teacher-slot.js): đứng sau bệ, phía còn chỗ trên màn 390 px
+        nextUnit: t('Tiếp theo: {u}', { u: nu.name }), teacher: (pT = sz => Chars.slot('ama', { pose: 'point', size: sz, lazy: false, clip: true, loop: true, ...(/^-/.test(SNAKE[Math.max(0, nodes.findIndex(x => x.st === 'next')) % SNAKE.length]) ? { flip: true, cls: 'absolute left-full bottom-0 ml-3' } : { cls: 'absolute right-full bottom-0 mr-3' }) }))('l'), // teacher-pose-map: Ama "point" chỉ nút đang học · chỗ giáo viên chung (teacher-slot.js): đứng sau bệ, phía còn chỗ trên màn 390 px
         nodes: nodes.map((x, i) => ({ st: x.st, kind: P[i].kind, cp: x.cp || (P[i].kind === 'exam'), label: x.label, title: x.label + (x.sub ? ' · ' + x.sub : ''), icon: x.icon, aria: `${x.label} – ${STT[x.st]}`, href: x.st === 'lock' ? '' : x.href, off: SNAKE[i % SNAKE.length] })) };
       // Hướng dẫn chặng (nút "Guide" có sẵn trong mẫu Stitch path) mở bảng giữ ĐỦ tính năng cũ của màn Học mà mẫu không vẽ: câu "Bạn sẽ…", kiến thức đã có, thẻ kỳ thi + thi thử, kiểm tra trình độ, đổi mục tiêu
       const guide = root => { const g = root.querySelector('[data-act="guide"]'); if (g) g.addEventListener('click', e => { e.preventDefault();
@@ -180,7 +180,7 @@
       const demoNote = root => { if (!demo) return; const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); };
       const toCur = root => { const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ } };
       // 🏠 Home v2 "Hôm nay" (docs/HOME-V2.md): khối hôm nay + lộ trình ĐẦY ĐỦ (khung path) trong khối "Your path"
-      if (ST2.today) return home2({ demo, fresh, Q, P, at, n, u, nodes, dp: d, xpTo, nxMin, guide, demoNote, toCur });
+      if (ST2.today) return home2({ demo, fresh, Q, P, at, n, u, nodes, dp: Object.assign({}, d, { teacher: pT('m') }) /* lồng trong thẻ Hôm nay: cột hẹp hơn → m (l lòi mép thẻ 360 px) */, xpTo, nxMin, guide, demoNote, toCur });
       const root = ST2.mount(view, 'path', d, 'learn');
       demoNote(root); guide(root); toCur(root);
       return;
@@ -254,7 +254,7 @@
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
     const say = b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
     // teacher-pose-map: Ama sau bệ – người mới vẫy chào (wave), đang học vòng nghỉ (idle, happy)
-    const tch = fresh => Chars.slot('ama', fresh ? { pose: 'wave', size: 'm', lazy: false, clip: true, loop: 6000 } : { pose: 'happy', size: 'm', lazy: false, idle: true });
+    const tch = fresh => Chars.slot('ama', Object.assign(fresh ? { pose: 'wave', clip: true, loop: 6000 } : { pose: 'happy', idle: true }, { size: 'm', lazy: false, style: 'margin-left:auto' })); // sát bong bóng: khung cắt rộng 1,4 khung-cao lòi mép màn 360 px nếu căn giữa ô 120 px
     const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name,
       k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
         words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
