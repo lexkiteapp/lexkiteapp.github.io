@@ -195,7 +195,7 @@ const CAP = await import('../../functions/api/capacity.js');
   ] : [];
   gql = body => { ok(/databaseId:"7ce39cd0-9333-4843-bd6f-5ccbefbde670"/.test(body.query), 'GraphQL lọc đúng D1 lexkite-sync');
     return new Response(JSON.stringify({ data: { viewer: { accounts: [{ d1: series('d1', i => ({ rowsRead: 1000, rowsWritten: high && i >= 25 ? 70e3 : 5e3 })), fn: series('fn', () => ({ requests: 2000 })), wk: [...series('wk', () => ({ requests: 300 })), ...series('wk', () => ({ requests: 200 }))], dq: dq() }] } } })); };
-  const env = { DB, CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7', MAIL: { fetch: async (u, init) => { mails.push(JSON.parse(init.body)); return new Response('{}'); } } };
+  const env = { DB, D1_PLAN: 'free', CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7', MAIL: { fetch: async (u, init) => { mails.push(JSON.parse(init.body)); return new Response('{}'); } } };
   let out = await CAP.check(env, DB);
   ok(out.ok && out.rows === 30 && out.evaluation.alert, 'check: 30 ngày, cảnh báo ghi ≥ 60 %');
   const row = await be.raw.prepare('SELECT * FROM capacity_daily ORDER BY day DESC LIMIT 1').first();
