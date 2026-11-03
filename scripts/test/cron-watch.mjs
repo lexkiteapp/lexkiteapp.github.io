@@ -42,4 +42,10 @@ assert.equal(r.bad.length, 0); assert.equal(await syncIssue(g.gh, r), 'closed');
 // sweep gọi cron-watch mỗi giờ (trước nhánh chỉ-giờ-00) + checkout đủ tệp cần đọc
 const tri = fs.readFileSync('scripts/ci/triage.mjs', 'utf8'); assert.ok(tri.indexOf("import('./cron-watch.mjs')") < tri.indexOf('getUTCHours() !== 0'));
 assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.github\/workflows\\nweb\/free-tier-state\.json/);
+// hồi quy 02/11 (kịch bản thật): free-tier-guard '17 * * * *' lượt schedule cuối 11:22Z, ci-triage '*/10' cuối 13:12Z (đổi sang cron) → 20:46Z.
+{ const at = h => Date.parse('2026-11-02T' + h + 'Z');
+  const ftg2 = { file: 'free-tier-guard.yml', state: 'active', crons: ['35 1 * * *', '17 * * * *'], since: Date.parse('2026-11-02T13:55:43Z'), lastSched: at('11:22:04') };
+  assert.equal(verdict(ftg2, at('16:55:00')), null); assert.equal(verdict(ftg2, at('16:57:00')).kind, 'stale');   // since = lần chạm workflow (#418) + 180 phút
+  const tri = { file: 'ci-triage.yml', state: 'active', crons: ['*/10 * * * *', '12 * * * *'], since: Date.parse('2026-11-02T13:12:37Z'), lastSched: at('11:02:53') };
+  assert.equal(verdict(tri, at('14:13:00')).kind, 'stale', 'ci-triage tự nó trễ lịch > 60 phút cũng phải đỏ – cron-watch chạy trong bộ canh required-gate (không phụ thuộc cron ci-triage)'); }
 console.log('✓ cron-watch: khoảng lịch, quá hạn 3× (sàn 60 phút), tắt ngoài ý muốn, đá lại lịch, issue mở/đóng');

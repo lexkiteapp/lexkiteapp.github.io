@@ -17,6 +17,7 @@
 
 ## Giám sát runner + bài học dây chuyền (3/11)
 - **Bài học**: required-gate nghe `workflow_run` của 38 workflow + `check_suite` → mỗi commit PR ~20 runner chỉ để ghi 1 status (43–66 % lượt CI, chờ hàng p50/p90 18/36 phút) mà không màn nào báo. **Luật** (`scripts/test/ci-policy.mjs` luật 5, npm test chặn PR): workflow nghe `workflow_run`/`check_suite`/`check_run` phải có `if:` mức job ở mọi job (danh sách > 5 workflow thì `if:` lọc theo `github.event.workflow_run…`), concurrency `cancel-in-progress: true` hoặc `# ci-policy: queue – <lý do>`, và không vòng A → B → A.
+- **Cron chết 13 giờ (02/11)**: GitHub bỏ lượt lịch của cả ci-triage (13:12Z→20:46Z chỉ 2 lượt) lẫn free-tier-guard (11:22Z→00:52Z) → cron-watch (chỉ chạy trong ci-triage) mù, lệnh dừng free-tier không được gỡ. Sửa: bộ canh required-gate (tự dispatch, không cần cron) chạy cron-watch mỗi lượt ~1 giờ (`CRON_WATCH: '1'`, gác bằng `--check`); `pauseWorkflows` đối chiếu trạng thái thật thay vì tin danh sách dừng của ngày cũ. Test: `scripts/test/cron-watch.mjs`, `required-gate.mjs`, `free-tier.mjs`.
 - **Chống mù**: `scripts/ci/ci-hog.mjs` (ci-triage sweep, mỗi 3 giờ, đo 24 h): workflow > **20 % số lượt** hoặc > **15 % phút-runner** (workflow ≥ 50 lượt), hoặc trung vị > **3 lượt / sha PR** → issue ci-failure "CI tốn runner bất thường" (tự đóng khi hết) + cảnh báo Quản trị `ci_hog`. Phút ≈ run_started_at→updated_at (cận dưới với matrix). Bộ canh required-gate ≈ 1.440 phút/ngày – nếu ngày vắng làm nó vượt 15 % thì issue mở là tín hiệu đúng để xem lại.
 
 ## required-gate (check tổng hợp cho PR)
