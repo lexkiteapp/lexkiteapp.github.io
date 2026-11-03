@@ -3,10 +3,11 @@
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
-import crypto from 'node:crypto';
+import { lastmodStore } from './lib/lastmod.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.en, U = SU.en;
+const LM = lastmodStore();
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
 const today = new Date().toISOString().slice(0, 10);
 const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...f], { encoding: 'utf8' }).trim() || today; } catch { return today; } };
@@ -29,7 +30,8 @@ const file = p => 'dist/' + (p.endsWith('/') ? p + 'index.html' : p + '.html');
 // Cặp vi ↔ en: hreflang hai chiều giống hệt nhau (vi, en, x-default → bản tiếng Anh cho người dùng ngôn ngữ khác)
 // type: trang bài học mới (grammar/pronunciation/ielts-writing) → sitemap-<type>.xml riêng (đo GSC theo loại) + .seo-urls-en.txt (IndexNow, build-seo-pages.mjs gộp)
 const typed = [];
-const out = (path, viPath, html, type) => { fs.mkdirSync('dist/' + path.replace(/[^/]*$/, ''), { recursive: true }); if (type) typed.push([path, lm, type, fs.existsSync(file(viPath)) ? viPath : '', html]); else if (type !== null) urls.push([path, lm]); // null = noindex → không vào sitemap
+const out = (path, viPath, html, type) => { fs.mkdirSync('dist/' + path.replace(/[^/]*$/, ''), { recursive: true }); const d = type === null ? lm : LM.date('/' + path, html, lm); // lastmod theo nội dung chính (scripts/lib/lastmod.mjs)
+  if (type) typed.push([path, d, type, fs.existsSync(file(viPath)) ? viPath : '', html]); else if (type !== null) urls.push([path, d]); // null = noindex → không vào sitemap
   const vf = file(viPath), hl = fs.existsSync(vf) ? `<link rel="alternate" hreflang="vi" href="${SITE}${viPath}"><link rel="alternate" hreflang="en" href="${SITE}${path}"><link rel="alternate" hreflang="x-default" href="${SITE}${path}">` : '';
   fs.writeFileSync(file(path), html.replace('<!--HL-->', hl));
   if (hl) { const v = fs.readFileSync(vf, 'utf8'); if (!v.includes('<link rel="alternate" hreflang="en"')) fs.writeFileSync(vf, v.replace('<meta property="og:type"', hl + '<meta property="og:type"')); } };
@@ -328,9 +330,10 @@ ${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(c2
 {
   const xl = (p, v) => (v ? `<xhtml:link rel="alternate" hreflang="vi" href="${SITE}${v}"/><xhtml:link rel="alternate" hreflang="en" href="${SITE}${p}"/><xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${p}"/>` : '');
   for (const k of Object.keys(nL)) fs.writeFileSync(`dist/sitemap-${k}.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${typed.filter(u => u[2] === k).map(([p, d, , v]) => `  <url><loc>${SITE}${p}</loc><lastmod>${d}</lastmod>${xl(p, v)}</url>`).join('\n')}\n</urlset>\n`);
-  fs.writeFileSync('.seo-urls-en.txt', typed.map(([p, , , , h]) => `${SITE}${p} ${crypto.createHash('sha1').update(h).digest('hex').slice(0, 12)}`).join('\n') + '\n');
+  fs.writeFileSync('.seo-urls-en.txt', typed.map(([p]) => `${SITE}${p} ${LM.hash('/' + p)}`).join('\n') + '\n');
   console.log(`✓ SEO (EN bài học): ${Object.entries(nL).map(([k, [a, b]]) => `${k} ${a}${b ? ` (+${b} noindex)` : ''}`).join(' · ')}`);
 }
 
 fs.writeFileSync(sm, fs.readFileSync(sm, 'utf8').replace('</urlset>', urls.map(([u, d]) => `  <url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>monthly</changefreq></url>`).join('\n') + '\n</urlset>'));
+LM.save();
 console.log(`✓ SEO (EN): ${urls.length} trang tiếng Anh + hreflang vi↔en`);

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Share Progress</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "button-text-contrast": "#1a0d00",
+            "primary-container": "#00504b",
+            "on-surface": "#211a14",
+            "on-primary-container": "#9be7de",
+            "on-secondary-fixed": "#2d1600",
+            "on-secondary-container": "#623700",
+            "secondary-fixed": "#ffdcbf",
+            "outline-variant": "#bfc9c6",
+            "on-secondary": "#ffffff",
+            "shadow-ledge-neutral": "#bec9c6",
+            "tertiary-fixed": "#ffdf9b",
+            "primary-fixed": "#aeefe7",
+            "primary": "#003734",
+            "surface-container-low": "#fff1e8",
+            "tertiary-container": "#5b4300",
+            "surface-dim": "#e6d7cd",
+            "surface-tint": "#266863",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#211a14",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface": "#fff8f5",
+            "tertiary": "#3f2e00",
+            "surface-container": "#faebe1",
+            "surface-container-highest": "#efe0d6",
+            "on-tertiary-container": "#e1ad1c",
+            "on-primary-fixed": "#00201e",
+            "surface-bright": "#fff8f5",
+            "inverse-surface": "#372f28",
+            "surface-variant": "#eee0d6",
+            "shadow-ledge-secondary": "#8c5000",
+            "primary-fixed-dim": "#92d2cb",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-high": "#f4e5db",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb872",
+            "inverse-primary": "#92d2cb",
+            "outline": "#6f7977",
+            "secondary-container": "#fc9500",
+            "on-tertiary-fixed": "#251a00",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "shadow-ledge-primary": "#136a63",
+            "secondary": "#8b5000",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#3f4947",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#f5bf31",
+            "inverse-on-surface": "#fdeee4",
+            "background": "#fff8f5",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "margin-lg": "3rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem"
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "800" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "500" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "display-lg": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Smooth custom scroll without unsightly bars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] min-h-screen flex items-center justify-center p-0 text-[#E8F1F0] antialiased font-body-md text-body-md select-none">
+<!-- Mobile Simulator Canvas: 390px fixed frame -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative overflow-hidden">
+<!-- Top Modal Header (Modal Variant §5d / Semantic Shell suppression applies: task-focused overlay) -->
+<header class="sticky top-0 z-30 bg-[#10191B]/95 backdrop-blur-md px-4 py-2 flex items-center justify-between border-b-2 border-[#283E43]"><button aria-label="Close dialog" class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center bg-[#172427] text-[#25C4B4] border-2 border-[#283E43] shadow-[0_2px_0_0_#0C1416] active:translate-y-[2px] active:shadow-none transition-transform focus:outline-none focus:ring-2 focus:ring-[#25C4B4]" type="button">
+<span class="material-symbols-outlined text-[#E8F1F0] text-xl">close</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-[#E8F1F0] tracking-tight font-extrabold text-center px-space-xs truncate">
+Share Progress
+</h1>
+<button aria-label="Share options" class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center bg-[#172427] text-[#25C4B4] border-2 border-[#283E43] shadow-[0_2px_0_0_#0C1416] active:translate-y-[2px] active:shadow-none transition-transform focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[#25C4B4] text-xl">workspace_premium</span>
+</button></header>
+<!-- Scrollable Sheet Body -->
+<div class="flex-1 overflow-y-auto no-scrollbar px-margin pt-space-sm pb-space-lg space-y-space-md"><!-- Teacher Banner / Slot with speech balloon -->
+<section class="bg-[#172427] rounded-xl border-2 border-[#283E43] p-3 shadow-[0_3px_0_0_#0C1416] flex gap-3 items-start">
+<!-- Dashed Teacher Slot for 2D character avatar -->
+<div class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-xl border-2 border-dashed border-[#25C4B4]/60 bg-[#10191B] flex flex-col items-center justify-center p-1 text-center shadow-inner">
+<span class="material-symbols-outlined text-[#25C4B4] text-base">psychology</span>
+<span class="font-label-sm text-[9px] leading-tight text-[#25C4B4] font-extrabold tracking-wider mt-0.5">TEACHER<br/>SLOT</span>
+</div>
+<!-- Speech Bubble from Coach Carlos / Ama -->
+<div class="flex-1 bg-[#1E2F33] rounded-xl rounded-tl-sm border-2 border-[#2E454B] p-2.5 shadow-sm relative">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-sm text-[#5EEAD4] font-extrabold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm fill-icon text-[#FBBF24]">verified</span>
+        Coach Carlos
+      </span>
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold bg-[#172427] px-2 py-0.5 rounded-full border border-[#283E43]">Feedback</span>
+</div>
+<p class="font-body-sm text-xs text-[#E8F1F0] leading-snug">
+      “Phenomenal leap! Moving from <strong class="text-[#5EEAD4] font-extrabold">Band 6.5 to 7.0</strong> puts you in the top tier of academic candidates. Share this milestone!”
+    </p>
+</div>
+</section>
+<!-- 1080x1350 (4:5 Aspect Ratio) Shareable Progress Card Preview in Tactile Night -->
+<div class="w-full flex justify-center py-1">
+<article class="w-full aspect-[4/5] bg-[#172427] rounded-2xl border-2 border-[#25C4B4]/70 p-4 shadow-[0_4px_0_0_#0C1416] flex flex-col justify-between relative overflow-hidden select-none">
+<!-- Background Geometric Texture & Academic Grid Accent -->
+<div class="absolute -right-12 -top-12 w-40 h-40 bg-[#1E2F33] rounded-full opacity-60 pointer-events-none"></div>
+<div class="absolute -left-10 -bottom-10 w-36 h-36 bg-[#10191B] rounded-full opacity-70 pointer-events-none"></div>
+<!-- Card Header: Brand identity + Verified Badge -->
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-7 h-7 rounded-lg bg-[#25C4B4] flex items-center justify-center text-[#10191B] shadow-sm font-bold">
+<span class="material-symbols-outlined text-lg fill-icon text-[#10191B]">kitesurfing</span>
+</div>
+<span class="font-headline-sm text-lg text-[#E8F1F0] font-extrabold tracking-tight">Lexkite</span>
+</div>
+<div class="bg-[#1E2F33] text-[#5EEAD4] font-label-sm text-[10px] uppercase font-extrabold rounded-full border border-[#2E454B] px-2.5 py-1 tracking-wider flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs fill-icon text-[#25C4B4]">verified</span>
+        IELTS Academic
+      </div>
+</div>
+<!-- Hero Milestone: Streak & Trophy Tier -->
+<div class="relative z-10 my-auto py-1 space-y-2">
+<!-- Streak Ribbon / Pill Badge -->
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 bg-[#2B2313] text-[#FBBF24] rounded-full px-2.5 py-1 border border-[#F59E0B]/40 shadow-sm">
+<span class="material-symbols-outlined text-base text-[#F59E0B] fill-icon">local_fire_department</span>
+<span class="font-label-sm text-xs font-extrabold tracking-wide">32-DAY STREAK</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-[#1E2F33] text-[#A9BDBB] rounded-full px-2 py-0.5 border border-[#283E43]">
+<span class="material-symbols-outlined text-sm text-[#25C4B4] fill-icon">workspace_premium</span>
+<span class="font-label-sm text-[11px] font-bold text-[#E8F1F0]">Top 5% Tier</span>
+</div>
+</div>
+<!-- Core Big Metric: Band Score Progression -->
+<div class="bg-[#1E2F33] rounded-xl border-2 border-[#2E454B] p-3 shadow-inner text-center relative overflow-hidden">
+<div class="flex items-center justify-center gap-2 mb-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold uppercase tracking-widest">Overall Band Score</span>
+<span class="bg-[#25C4B4]/20 text-[#5EEAD4] border border-[#25C4B4]/40 font-label-sm text-[10px] font-extrabold px-2 py-0.5 rounded-full inline-flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+            +0.5 Band Leap
+          </span>
+</div>
+<!-- Main Numeric Display -->
+<div class="flex items-baseline justify-center gap-2">
+<span class="text-[#A9BDBB]/60 font-display-lg-mobile text-2xl font-bold line-through decoration-[#EF4444]">6.5</span>
+<span class="material-symbols-outlined text-[#25C4B4] text-xl font-bold">arrow_forward</span>
+<span class="font-display-lg-mobile text-[38px] leading-tight text-[#E8F1F0] font-black tracking-tight drop-shadow-sm">7.0</span>
+</div>
+<div class="mt-1 flex justify-center">
+<span class="font-label-sm text-[11px] text-[#5EEAD4] font-extrabold bg-[#172427] px-2.5 py-0.5 rounded-full border border-[#283E43]">
+            C1 Advanced Academic CEFR
+          </span>
+</div>
+</div>
+<!-- Secondary Metrics Bento Row -->
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<!-- Metric 1: Words -->
+<div class="bg-[#1E2F33] rounded-lg border border-[#283E43] p-1.5 text-center shadow-[0_2px_0_0_#0C1416]">
+<div class="flex items-center justify-center gap-1 text-[#25C4B4] mb-0.5">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+<span class="font-headline-sm text-sm font-extrabold text-[#E8F1F0]">1,240</span>
+</div>
+<span class="font-label-sm text-[9.5px] leading-none text-[#A9BDBB] font-bold block truncate">Vocab Mastered</span>
+</div>
+<!-- Metric 2: Accuracy -->
+<div class="bg-[#1E2F33] rounded-lg border border-[#283E43] p-1.5 text-center shadow-[0_2px_0_0_#0C1416]">
+<div class="flex items-center justify-center gap-1 text-[#F59E0B] mb-0.5">
+<span class="material-symbols-outlined text-sm fill-icon text-[#F59E0B]">check_circle</span>
+<span class="font-headline-sm text-sm font-extrabold text-[#E8F1F0]">92%</span>
+</div>
+<span class="font-label-sm text-[9.5px] leading-none text-[#A9BDBB] font-bold block truncate">Accuracy Rate</span>
+</div>
+<!-- Metric 3: Mock Exams -->
+<div class="bg-[#1E2F33] rounded-lg border border-[#283E43] p-1.5 text-center shadow-[0_2px_0_0_#0C1416]">
+<div class="flex items-center justify-center gap-1 text-[#25C4B4] mb-0.5">
+<span class="material-symbols-outlined text-sm">assignment</span>
+<span class="font-headline-sm text-sm font-extrabold text-[#E8F1F0]">18</span>
+</div>
+<span class="font-label-sm text-[9.5px] leading-none text-[#A9BDBB] font-bold block truncate">Mock Exams</span>
+</div>
+</div>
+<!-- Motivational Quote / Micro Credential -->
+<p class="font-body-sm text-[12px] leading-tight text-center text-[#A9BDBB] italic font-semibold px-1 pt-1">
+        “Consistency is my superpower. Prepared with Lexkite.”
+      </p>
+</div>
+<!-- Card Candidate Footer Monogram -->
+<div class="relative z-10 pt-2 border-t border-[#283E43] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#25C4B4] text-[#10191B] font-bold text-xs flex items-center justify-center border border-[#5EEAD4] shadow-sm">
+          LN
+        </div>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-xs font-bold text-[#E8F1F0] leading-tight">Linh N.</span>
+<span class="font-label-sm text-[10px] text-[#A9BDBB] leading-tight">Target: Band 7.0 • Oct 2025</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-[#5EEAD4] font-extrabold bg-[#1E2F33] px-2 py-0.5 rounded border border-[#283E43]">
+          Official Prep
+        </span>
+</div>
+</div>
+</article>
+</div>
+<!-- Quick Share Actions Bar -->
+<section aria-label="Share format options" class="grid grid-cols-3 gap-2 pt-1">
+<!-- Save Image CTA -->
+<button class="min-h-[48px] h-12 rounded-xl bg-[#172427] text-[#E8F1F0] border-2 border-[#283E43] flex items-center justify-center gap-1.5 font-label-md text-sm shadow-[0_3px_0_0_#0C1416] active:translate-y-[2px] active:shadow-none transition-transform focus:outline-none" type="button">
+<span class="material-symbols-outlined text-lg text-[#25C4B4]">download</span>
+<span>Save image</span>
+</button>
+<!-- Copy Link CTA -->
+<button class="min-h-[48px] h-12 rounded-xl bg-[#172427] text-[#E8F1F0] border-2 border-[#283E43] flex items-center justify-center gap-1.5 font-label-md text-sm shadow-[0_3px_0_0_#0C1416] active:translate-y-[2px] active:shadow-none transition-transform focus:outline-none" type="button">
+<span class="material-symbols-outlined text-lg text-[#25C4B4]">content_copy</span>
+<span>Copy link</span>
+</button>
+<!-- More Sharing Options -->
+<button class="min-h-[48px] h-12 rounded-xl bg-[#172427] text-[#E8F1F0] border-2 border-[#283E43] flex items-center justify-center gap-1.5 font-label-md text-sm shadow-[0_3px_0_0_#0C1416] active:translate-y-[2px] active:shadow-none transition-transform focus:outline-none" type="button">
+<span class="material-symbols-outlined text-lg text-[#25C4B4]">share</span>
+<span>More</span>
+</button>
+</section></div>
+<!-- Sticky Bottom Bar (Tactile Orange/Coral CTA + Secondary link) -->
+<footer class="sticky bottom-0 z-30 bg-[#10191B] px-4 py-2 border-t-2 border-[#283E43] shadow-[0_-4px_12px_rgba(0,0,0,0.4)] flex flex-col gap-1.5"><!-- Primary Vibrant Coral/Tangerine Button with Dark Ledge -->
+<button class="w-full min-h-[50px] h-[50px] rounded-xl bg-[#FC9500] text-[#1A0D00] border-2 border-[#8C5000] font-label-lg text-base font-extrabold flex items-center justify-center gap-2 shadow-[0_4px_0_0_#8C5000] active:translate-y-1 active:shadow-none transition-transform focus:outline-none focus:ring-2 focus:ring-[#FC9500]" type="button">
+<span class="font-extrabold text-[#1A0D00]">Share to Story &amp; Feed</span>
+<span class="material-symbols-outlined text-xl text-[#1A0D00]">arrow_forward</span>
+</button>
+<!-- Secondary Customization Action: 44px tap target -->
+<button class="min-h-[44px] h-11 w-full text-center text-[#5EEAD4] font-label-md text-sm font-bold hover:text-[#25C4B4] flex items-center justify-center gap-1 transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined text-base">palette</span>
+<span>Customize card theme</span>
+</button></footer>
+</main>
+</body></html>

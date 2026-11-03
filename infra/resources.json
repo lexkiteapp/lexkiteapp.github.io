@@ -93,6 +93,21 @@
       "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
+      "key": "kokoro-model",
+      "name": "Mô hình Kokoro-82M q8 trên R2 (audio.lexkite.com/kokoro/<VER>/)",
+      "kind": "cdn",
+      "purpose": "kokoro-js chạy trên máy người dùng cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md): onnx/model_quantized.onnx 92 MB + giọng af_heart/bf_emma/am_michael/bm_george/bm_lewis, ghim commit HF, sha256 kiểm ở CI (scripts/cdn/kokoro-model.mjs, kokoro-model.yml) và trong Worker. Mỗi máy tải 1 lần (Cache Storage), không có máy chủ suy luận. Dự phòng: Hugging Face.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-audio-cdn",
+      "free": "Nằm trong R2 lexkite-audio-cdn (~95 MB / 10 GB); Cache Rule cache mọi tệp → lượt trúng biên 0 Class B; băng thông ra 0 đ",
+      "upgrade": "Không cần: tải 1 lần/máy; bật dần bằng kl_pct (functions/api/config.js)",
+      "status": "Mới 03/11/2026 – bật từ xa bằng cờ kl / kl_pct, mặc định tắt",
+      "match": [
+        "kokoro-model",
+        "audio.lexkite.com/kokoro",
+        "huggingface.co"
+      ]
+    },
+    {
       "key": "audio-origin",
       "name": "GitHub Pages âm thanh CŨ (lexkiteapp.github.io/audio) – đóng băng",
       "kind": "storage",
@@ -172,6 +187,19 @@
       "status": "Miễn phí",
       "match": [
         "lexkite-push"
+      ]
+    },
+    {
+      "key": "cronkick-worker",
+      "name": "Cloudflare Worker lexkite-cronkick",
+      "kind": "worker",
+      "purpose": "Cron 30 phút – nguồn kích ngoài GitHub (lưới an toàn cuối): ký HMAC gọi lexkite.com/api/cron-kick; Pages (GH_DISPATCH_TOKEN) dispatch free-tier-guard / required-gate / ci-triage khi GitHub bỏ lịch. Khoá chung CRON_KICK_SECRET (wrangler secret put ở Worker + wrangler pages secret put ở Pages, không commit) – docs/JOBS.md id cron-kick. GH_DISPATCH_TOKEN (Pages, PAT fine-grained Actions RW chỉ repo này) HẾT HẠN 02/11/2027 – gia hạn trước 15/10/2027 (wrangler pages secret put GH_DISPATCH_TOKEN --project-name lexkite), rồi chờ 1 deploy Pages",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-cronkick/production",
+      "free": "100.000 lượt/ngày; cron 48 lượt/ngày; 1 lượt gọi ra/lượt; Pages ≤ 4 lượt/giờ",
+      "upgrade": "Không cần",
+      "status": "Miễn phí",
+      "match": [
+        "lexkite-cronkick"
       ]
     },
     {
@@ -1172,14 +1200,45 @@
       "key": "stitch",
       "name": "Google Stitch (thiết kế UI, MCP)",
       "kind": "design",
-      "purpose": "Sinh thiết kế màn hình app/web/add-on (project 'Lexkite English Exam Prep', hệ Tactile A tối / B sáng) qua MCP; chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm, không dán mã Tailwind",
+      "purpose": "Sinh thiết kế màn hình app/web/add-on (Lexkite Kit, bảng màu A tối / B sáng) qua MCP HTTP (scripts/stitch/batch.mjs, kho brand/stitch/v3); chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm",
       "console": "https://stitch.withgoogle.com/",
-      "free": "Miễn phí ~400 credit/ngày/tài khoản",
-      "upgrade": "Hết quota → đổi tài khoản Google khác (chủ đăng nhập); khóa chỉ ở ~/.config/lexkite/stitch-key + cấu hình MCP người dùng, không vào repo",
+      "free": "Miễn phí ~400 lượt sinh/sửa mỗi tài khoản, cửa sổ trượt 24h (không reset nửa đêm); 3 tài khoản = ~1.200/ngày",
+      "upgrade": "Hết hạn mức 1 khoá → batch.mjs tự xoay sang khoá khác (project mỗi tài khoản 403 với khoá tài khoản khác → sửa/biến thể chạy đúng khoá gốc); khoá chỉ ở ~/.config/lexkite/stitch-key{,-2,-3}, không vào repo",
       "status": "Đang dùng (thiết kế)",
       "match": [
-        "stitch.withgoogle.com"
-      ]
+        "stitch.withgoogle.com",
+        "stitch.googleapis.com"
+      ],
+      "accounts": [
+        {
+          "key": "key1",
+          "file": "~/.config/lexkite/stitch-key",
+          "project": "7268539912208977707",
+          "designSystem": "assets/1b7a8a3d3d52404bb332d9ba3f783547"
+        },
+        {
+          "key": "key2",
+          "file": "~/.config/lexkite/stitch-key-2",
+          "project": "10804635390057604965",
+          "designSystem": "assets/11359391721543991869"
+        },
+        {
+          "key": "key3",
+          "file": "~/.config/lexkite/stitch-key-3",
+          "project": "18075333702575270507",
+          "designSystem": "assets/16469239436252875897"
+        },
+        {
+          "key": "key4",
+          "file": "~/.config/lexkite/stitch-key-4",
+          "status": "reserved",
+          "note": "Dự phòng / dành cho dự án khác – KHÔNG trong vòng xoay batch.mjs; chỉ dùng với --allow-reserve --reserve-project <id>"
+        }
+      ],
+      "cap": {
+        "day": 1200,
+        "unit": "lượt sinh/sửa (3 tài khoản × ~400)"
+      }
     }
   ],
   "links": {
@@ -1197,7 +1256,7 @@
       "learnenglish.britishcouncil.org",
       "ielts.org",
       "ielts.idp.com",
-      "classroom.google.com"
+      "classroom.google.com", "dash.cloudflare.com", "appstoreconnect.apple.com"
     ]
   }
 }

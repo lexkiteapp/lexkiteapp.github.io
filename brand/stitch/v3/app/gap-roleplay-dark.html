@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Speaking Role-Play — Hotel Check-in</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#091518',
+              surface: '#102227',
+              card: '#13272D',
+              panel: '#162F36',
+              border: '#1F454C',
+              'border-subtle': '#24525B',
+              ledge: '#050C0E',
+            },
+            accent: {
+              teal: '#2DD4BF',
+              'teal-bright': '#5EEAD4',
+              'teal-deep': '#0D5E58',
+              coral: '#F43F5E',
+              'coral-ledge': '#9F1239',
+              amber: '#F59E0B',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #091518;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* Tactile button mechanics - Night Mode */
+    .btn-tactile-coral {
+      background-color: #F43F5E;
+      box-shadow: 0 4px 0 #9F1239;
+      transition: all 0.08s ease-in-out;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #9F1239;
+    }
+
+    .btn-tactile-teal {
+      background-color: #0D5E58;
+      border: 2px solid #2DD4BF;
+      box-shadow: 0 4px 0 #050C0E;
+      transition: all 0.08s ease-in-out;
+    }
+    .btn-tactile-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #050C0E;
+    }
+
+    .card-tactile {
+      background-color: #13272D;
+      border: 2px solid #1F454C;
+      box-shadow: 0 4px 0 #050C0E;
+    }
+
+    .chip-tactile {
+      background-color: #13272D;
+      border: 2px solid #1F454C;
+      box-shadow: 0 3px 0 #050C0E;
+      transition: all 0.08s ease-in-out;
+    }
+    .chip-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #050C0E;
+    }
+
+    .btn-control-tactile {
+      background-color: #102227;
+      border: 2px solid #1F454C;
+      box-shadow: 0 3px 0 #050C0E;
+      transition: all 0.08s ease-in-out;
+    }
+    .btn-control-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #050C0E;
+    }
+
+    /* Dashed placeholder for 2D teacher Ama */
+    .teacher-slot-dashed {
+      border: 2px dashed #2DD4BF;
+      background-color: #10252A;
+    }
+  </style>
+</head>
+<body class="bg-[#091518]">
+<!-- Mobile Screen Container (390px native width feel, portrait) -->
+<div class="w-full max-w-[420px] min-h-screen bg-[#091518] flex flex-col justify-between border-x border-[#1F454C]/60 shadow-[0_0_50px_rgba(0,0,0,0.8)] relative">
+<!-- TOP BAR (Focus Mode: Close Button + Slim Progress Bar + Step Indicator, NO Hearts/Gems/Tabs) -->
+<header class="sticky top-0 z-30 bg-[#091518]/95 backdrop-blur-md border-b border-[#1F454C] px-4 pt-4 pb-3">
+<div class="flex items-center justify-between gap-3">
+<!-- Close (X) Button (min 44x44px tap target) -->
+<button aria-label="Exit speaking lesson" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#102227] border-2 border-[#1F454C] text-[#F0FDF4] hover:bg-[#162F36] active:translate-y-0.5 shadow-[0_3px_0_#050C0E] transition-all flex-shrink-0" type="button">
+<span class="material-symbols-rounded text-2xl font-bold">close</span>
+</button>
+<!-- Slim Progress Bar Container -->
+<div class="flex-1 px-1">
+<div class="w-full bg-[#102227] border border-[#1F454C] h-3 rounded-full overflow-hidden p-0.5 shadow-inner">
+<!-- 3 of 5 turns = 60% progress -->
+<div class="bg-[#2DD4BF] h-full rounded-full transition-all duration-300 w-3/5 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+</div>
+</div>
+<!-- Step / Turn Pill (High contrast) -->
+<div class="flex items-center gap-1 bg-[#102227] border-2 border-[#1F454C] px-3 py-1.5 rounded-full shadow-[0_3px_0_#050C0E] flex-shrink-0">
+<span class="text-xs font-black tracking-wider text-[#2DD4BF]">3 / 5</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE DIALOGUE BODY -->
+<main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto">
+<!-- SCENARIO BRIEFING CARD (Hotel Check-in, B1 Level, Role) -->
+<section class="card-tactile rounded-2xl p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#0D5E58]/60 text-[#2DD4BF] border-2 border-[#24525B] flex items-center justify-center flex-shrink-0 shadow-[0_2px_0_#050C0E]">
+<span class="material-symbols-rounded text-2xl">hotel</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-[#0D5E58] text-[#5EEAD4] border border-[#2DD4BF]/40 text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md tracking-wider">B1 Role-Play</span>
+<span class="text-xs font-bold text-[#93B7BD]">Turn 3 of 5</span>
+</div>
+<h1 class="text-sm font-black text-[#FFFFFF] mt-0.5 leading-snug">Hotel check-in · You are the guest</h1>
+</div>
+</div>
+<button aria-label="Scenario details" class="w-9 h-9 rounded-lg bg-[#102227] border border-[#1F454C] flex items-center justify-center text-[#93B7BD] hover:text-[#5EEAD4] hover:bg-[#162F36] active:translate-y-0.5 transition-all flex-shrink-0 shadow-[0_2px_0_#050C0E]" type="button">
+<span class="material-symbols-rounded text-xl">info</span>
+</button>
+</section>
+<!-- CHAT-STYLE DIALOGUE FLOW -->
+<section class="space-y-4 pt-1 pb-2">
+<!-- TURN 1: RECEPTIONIST (Teacher Slot: Ama) -->
+<div class="flex items-start gap-2.5">
+<!-- Empty rounded placeholder labeled "teacher-slot" -->
+<div class="w-11 h-11 rounded-xl teacher-slot-dashed flex flex-col items-center justify-center flex-shrink-0 shadow-[0_3px_0_#050C0E] p-0.5 text-center" title="teacher-slot">
+<span class="material-symbols-rounded text-[#2DD4BF] text-base leading-none">school</span>
+<span class="text-[8px] font-black uppercase tracking-tighter text-[#2DD4BF] leading-tight mt-0.5">teacher-slot</span>
+</div>
+<!-- Receptionist Message Bubble -->
+<div class="flex-1 card-tactile rounded-2xl rounded-tl-sm p-3.5 max-w-[88%]">
+<div class="flex items-center justify-between gap-2 mb-1">
+<span class="text-xs font-black text-[#2DD4BF] tracking-wide flex items-center gap-1">
+<span>Ama · Receptionist</span>
+</span>
+<button aria-label="Listen to audio" class="w-7 h-7 rounded-full bg-[#102227] hover:bg-[#162F36] text-[#2DD4BF] border border-[#1F454C] flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-rounded text-lg">volume_up</span>
+</button>
+</div>
+<p class="text-[14px] leading-relaxed text-[#FFFFFF] font-semibold">
+              “Good afternoon! Welcome to the Grand Azure. How can I help you today?”
+            </p>
+</div>
+</div>
+<!-- TURN 2: LEARNER REPLY (Alex Nguyen) -->
+<div class="flex flex-col items-end space-y-1.5 pl-6">
+<div class="bg-[#0A4D48] text-[#FFFFFF] rounded-2xl rounded-tr-sm p-3.5 shadow-[0_4px_0_#050C0E] border-2 border-[#2DD4BF] max-w-[92%]">
+<div class="flex items-center justify-between gap-3 mb-1">
+<span class="text-[11px] font-bold text-[#5EEAD4] uppercase tracking-wider">You (Guest)</span>
+<span class="material-symbols-rounded text-sm text-[#5EEAD4]">record_voice_over</span>
+</div>
+<p class="text-[14px] leading-relaxed font-semibold text-white">
+              “Hello! I have a reservation under Alex Nguyen for three nights.”
+            </p>
+</div>
+<!-- Positive Feedback Tagline (+15 XP) -->
+<div class="flex items-center gap-1.5 bg-[#0D3831] border border-[#10B981]/50 px-3 py-1 rounded-full shadow-[0_2px_0_#050C0E] text-[#5EEAD4]">
+<span class="material-symbols-rounded text-base font-bold text-[#10B981]">check_circle</span>
+<span class="text-xs font-extrabold tracking-wide">Great: polite request (+15 XP)</span>
+</div>
+</div>
+<!-- TURN 3: RECEPTIONIST CONTINUES (Current turn) -->
+<div class="flex items-start gap-2.5">
+<!-- Empty rounded placeholder labeled "teacher-slot" -->
+<div class="w-11 h-11 rounded-xl teacher-slot-dashed flex flex-col items-center justify-center flex-shrink-0 shadow-[0_3px_0_#050C0E] p-0.5 text-center" title="teacher-slot">
+<span class="material-symbols-rounded text-[#2DD4BF] text-base leading-none">school</span>
+<span class="text-[8px] font-black uppercase tracking-tighter text-[#2DD4BF] leading-tight mt-0.5">teacher-slot</span>
+</div>
+<!-- Receptionist Message Bubble -->
+<div class="flex-1 card-tactile rounded-2xl rounded-tl-sm p-3.5 max-w-[88%] border-2 border-[#2DD4BF]/60 shadow-[0_4px_0_#050C0E,0_0_12px_rgba(45,212,191,0.15)]">
+<div class="flex items-center justify-between gap-2 mb-1">
+<span class="text-xs font-black text-[#2DD4BF] tracking-wide flex items-center gap-1.5">
+<span>Ama · Receptionist</span>
+<span class="w-2 h-2 rounded-full bg-[#10B981] inline-block shadow-[0_0_6px_#10B981] animate-pulse"></span>
+</span>
+<button aria-label="Listen to audio" class="w-7 h-7 rounded-full bg-[#102227] hover:bg-[#162F36] text-[#2DD4BF] border border-[#1F454C] flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-rounded text-lg">volume_up</span>
+</button>
+</div>
+<p class="text-[14px] leading-relaxed text-[#FFFFFF] font-semibold">
+              “Yes, here it is! Deluxe King on floor 4. Here is your keycard. Do you have any questions before heading up?”
+            </p>
+</div>
+</div>
+</section>
+<!-- SUGGESTION CHIPS SECTION (Tap to Insert) -->
+<section class="space-y-2 pt-1">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-black uppercase tracking-wider text-[#A5C6CB] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#F59E0B] text-base">lightbulb</span>
+            Suggestions (Tap to insert)
+          </span>
+<span class="text-[11px] font-bold text-[#93B7BD]">Practice cues</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Suggestion 1: Ask about breakfast -->
+<button class="chip-tactile w-full rounded-xl px-3.5 py-2.5 text-left flex items-center justify-between gap-2 hover:bg-[#162F36] group" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] flex-shrink-0 shadow-[0_0_4px_#2DD4BF]"></span>
+<span class="text-sm font-bold text-[#F0FDF4] group-hover:text-[#5EEAD4] transition-colors truncate">
+                “Ask about breakfast”
+              </span>
+</div>
+<span class="bg-[#2D2109] text-[#FBBF24] border border-[#78350F] text-[11px] font-extrabold px-2 py-0.5 rounded-md flex-shrink-0">
+              7:00–10:00
+            </span>
+</button>
+<!-- Suggestion 2: Ask for a late checkout -->
+<button class="chip-tactile w-full rounded-xl px-3.5 py-2.5 text-left flex items-center justify-between gap-2 hover:bg-[#162F36] group" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] flex-shrink-0 shadow-[0_0_4px_#2DD4BF]"></span>
+<span class="text-sm font-bold text-[#F0FDF4] group-hover:text-[#5EEAD4] transition-colors truncate">
+                “Ask for a late checkout”
+              </span>
+</div>
+<span class="bg-[#0D3831] text-[#5EEAD4] border border-[#147a73] text-[11px] font-extrabold px-2 py-0.5 rounded-md flex-shrink-0">
+              1:00 PM
+            </span>
+</button>
+</div>
+</section>
+</main>
+<!-- BOTTOM ACTION DOCK (Generous touch targets, Microphone, Keyboard toggle, Coral Continue button) -->
+<footer class="bg-[#102227] border-t-2 border-[#1F454C] px-4 pt-3 pb-5 space-y-3 shadow-[0_-4px_16px_rgba(0,0,0,0.6)] z-30">
+<!-- CONTROLS ROW: Keyboard toggle + Big Hold-to-Answer Microphone button + Ear icon -->
+<div class="flex items-center gap-2.5">
+<!-- Keyboard Input Toggle (48px tap target) -->
+<button aria-label="Switch to keyboard input" class="btn-control-tactile w-12 h-12 rounded-xl flex items-center justify-center text-[#A5C6CB] hover:text-[#5EEAD4] hover:bg-[#162F36] flex-shrink-0" type="button">
+<span class="material-symbols-rounded text-2xl">keyboard</span>
+</button>
+<!-- Big Hold-to-Answer Microphone Button (Tactile Deep Teal, Primary interaction) -->
+<button class="btn-tactile-teal flex-1 h-12 rounded-xl text-white font-extrabold flex items-center justify-center gap-2.5 px-3 select-none" type="button">
+<span class="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-rounded text-xl text-[#5EEAD4] animate-pulse">mic</span>
+</span>
+<span class="text-sm font-black tracking-wide uppercase leading-tight truncate text-[#FFFFFF]">
+            Hold to answer
+          </span>
+</button>
+<!-- Hear Accent / Native Audio Assist (48px tap target) -->
+<button aria-label="Listen to model speaker" class="btn-control-tactile w-12 h-12 rounded-xl flex items-center justify-center text-[#2DD4BF] hover:text-[#5EEAD4] hover:bg-[#162F36] flex-shrink-0" type="button">
+<span class="material-symbols-rounded text-2xl">hearing</span>
+</button>
+</div>
+<!-- PRIMARY CTA: TACTILE WARM CORAL BUTTON -->
+<button class="btn-tactile-coral w-full min-h-[48px] py-3 px-4 rounded-xl text-white font-black text-base flex items-center justify-center gap-2 uppercase tracking-wider text-center" type="button">
+<span>Continue to next turn</span>
+<span class="material-symbols-rounded text-xl font-bold">arrow_forward</span>
+</button>
+<!-- Sub-label: Real-time speech evaluation status -->
+<div class="text-center pt-0.5">
+<p class="text-[11px] font-bold text-[#93B7BD] flex items-center justify-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_6px_#10B981] inline-block"></span>
+<span>AI Speech Evaluator Active · Pronunciation &amp; grammar checked in real time</span>
+</p>
+</div>
+</footer>
+</div>
+</body></html>

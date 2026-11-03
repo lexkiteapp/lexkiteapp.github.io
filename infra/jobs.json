@@ -913,6 +913,22 @@
    "lease": true
   },
   {
+   "id": "drive-repair",
+   "workflow": "drive-repair.yml",
+   "cron": [
+    "47 3 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 100
+   },
+   "lease": false
+  },
+  {
    "id": "code-bundle",
    "workflow": "code-bundle.yml",
    "cron": [
@@ -973,6 +989,19 @@
     "d1_internal_writes": 2000
    },
    "lease": false
+  },
+  {
+   "id": "cron-kick",
+   "worker": "workers/cronkick",
+   "cron": [
+    "*/30 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 1,
+   "est": {},
+   "lease": false,
+   "_note": "3/11: lưới an toàn cuối – Worker ký HMAC gọi /api/cron-kick; Pages (có GH_DISPATCH_TOKEN) dispatch free-tier-guard/required-gate/ci-triage khi quá ngưỡng cron-watch, chống trùng, ≤ 5 lượt, ≤ 4 lượt/giờ. Không đụng D1."
   },
   {
    "id": "lexicon-expand",

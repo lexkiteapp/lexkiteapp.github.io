@@ -3,11 +3,11 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 114,
+ "objectivesUsed": 119,
  "coverage": {
   "grammar": {
-   "items": 77,
-   "tagged": 77,
+   "items": 80,
+   "tagged": 80,
    "pct": 100
   },
   "reading": {
@@ -96,14 +96,14 @@
    "pct": 100
   },
   "vocab": {
-   "items": 8812,
-   "tagged": 8812,
+   "items": 9183,
+   "tagged": 9183,
    "pct": 100
   }
  },
  "total": {
-  "items": 9581,
-  "tagged": 9581,
+  "items": 9955,
+  "tagged": 9955,
   "pct": 100
  },
  "errors": 0

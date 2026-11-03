@@ -72,10 +72,12 @@ export async function limit(key, max, windowSec) {
 async function setup(env) {
   if (ready) return;
   const db = env.DB;
-  await once(db, 'sync', 2, async () => {
+  await once(db, 'sync', 3, async () => {
     await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
     await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
     await db.prepare('ALTER TABLE users ADD COLUMN shard INTEGER DEFAULT 0').run().catch(() => {}); // mảnh D1 chứa docs của người này (_shard.js)
+    await db.prepare('ALTER TABLE users ADD COLUMN cc TEXT').run().catch(() => {}); // mã quốc gia 2 chữ lần đồng bộ gần nhất (request.cf.country – không lưu IP)
+    await db.prepare('CREATE INDEX IF NOT EXISTS idx_users_cc ON users (cc)').run().catch(() => {}); // thống kê/lọc quốc gia ở trang quản trị không quét bảng
     await db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID').run();
     await db.prepare(DOCS_DDL).run();
   }, { env });
@@ -136,9 +138,11 @@ export async function onRequestPost({ request, env }) {
     if (shard) await once(ddb, 'docs', 1, () => ddb.prepare(DOCS_DDL).run(), { env, tag: 'DB_S' + shard });
     if (req.op === 'pull') {
       // Sổ người dùng cho trang quản trị (nền tảng: app iOS = capacitor://localhost, app Android = https://localhost): chỉ ghi khi lần thấy trước đã hơn 1 giờ (tiết kiệm lượt ghi D1)
+      // Quốc gia: mã 2 chữ Cloudflare suy từ IP (IP KHÔNG lưu) – đi chung lượt ghi sẵn có, không thêm lượt ghi D1; không rõ → giữ mã cũ
       const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'ios' : o === 'https://localhost' ? 'android' : 'web', now = Date.now();
-      await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n, shard) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1, ?6) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
-        .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat, shard).run().catch(() => {});
+      const cf = /** @type {any} */ (request).cf, cc = cf && /^[A-Z][A-Z1-9]$/.test(cf.country || '') && cf.country !== 'XX' ? cf.country : null;
+      await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n, shard, cc) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1, ?6, ?7) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1, cc = COALESCE(?7, cc) WHERE users.seen < ?4 - 3600000')
+        .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat, shard, cc).run().catch(() => {});
       // Phễu chuyển đổi: máy gửi mã khách ẩn danh 1 lần/tài khoản → gắn vid với uid (giữ liên kết đầu tiên)
       if (typeof req.vid === 'string' && /^[a-z0-9]{8,32}$/.test(req.vid)) await env.DB.prepare('INSERT OR IGNORE INTO vid_uid (vid, uid, at) VALUES (?1, ?2, ?3)').bind(req.vid, uid, now).run().catch(() => {});
       const have = req.have && typeof req.have === 'object' ? req.have : {};
