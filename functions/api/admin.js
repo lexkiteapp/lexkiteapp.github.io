@@ -68,7 +68,7 @@ async function setup(db) {
   await db.prepare('ALTER TABLE users ADD COLUMN notes TEXT').run().catch(() => {});
   await db.prepare('ALTER TABLE users ADD COLUMN cc TEXT').run().catch(() => {}); // quốc gia lần đồng bộ gần nhất (sync.js)
   await db.prepare('CREATE INDEX IF NOT EXISTS idx_users_cc ON users (cc)').run().catch(() => {});
-  // Xoá mềm (thao tác hàng loạt): deleted = lúc xoá; sau 30 ngày purgeDeleted() xoá thật (deleteUserData). blocked = 2 = khoá vì đang chờ xoá (sync.js chặn mọi blocked ≠ 0)
+  // Xóa mềm (thao tác hàng loạt): deleted = lúc xóa; sau 30 ngày purgeDeleted() xóa thật (deleteUserData). blocked = 2 = khóa vì đang chờ xóa (sync.js chặn mọi blocked ≠ 0)
   await db.prepare('ALTER TABLE users ADD COLUMN deleted INTEGER').run().catch(() => {});
   await db.prepare('CREATE INDEX IF NOT EXISTS idx_users_del ON users (deleted)').run().catch(() => {});
   await db.prepare('ALTER TABLE admin_log ADD COLUMN detail TEXT').run().catch(() => {}); // chi tiết kiểm toán (thao tác hàng loạt: hành động, số người, mẫu uid)
@@ -122,7 +122,7 @@ function userWhere(b, env) {
   const from = day(b.from), to = day(b.to, 1);
   if (Number.isFinite(from)) { a.push(from); w.push('created >= ?' + a.length); }
   if (Number.isFinite(to)) { a.push(to); w.push('created < ?' + a.length); }
-  // Hoạt động gần nhất: trong N ngày / im lặng hơn N ngày · số lần vào tối thiểu · nhãn · quyền AI · khoá · thùng rác (xoá mềm)
+  // Hoạt động gần nhất: trong N ngày / im lặng hơn N ngày · số lần vào tối thiểu · nhãn · quyền AI · khóa · thùng rác (xóa mềm)
   const days = v => { const x = Math.round(+v); return x > 0 && x <= 3650 ? x : 0; };
   if (days(b.seenIn)) { a.push(now - days(b.seenIn) * DAY); w.push('seen > ?' + a.length); }
   if (days(b.seenOut)) { a.push(now - days(b.seenOut) * DAY); w.push('seen < ?' + a.length); }
@@ -130,6 +130,7 @@ function userWhere(b, env) {
   const tag = cleanTag(b.tag); if (tag) { a.push(tag); w.push(`EXISTS (SELECT 1 FROM json_each(${TJ}) WHERE value = ?${a.length})`); }
   if (b.perk === 'ai') w.push(`EXISTS (SELECT 1 FROM quota_allow q WHERE q.id = 'u:' || users.uid)`);
   if (b.blocked === '1') w.push('COALESCE(blocked, 0) = 1'); else if (b.blocked === '0') w.push('COALESCE(blocked, 0) = 0');
+  if (Array.isArray(b.uids)) { a.push(JSON.stringify(b.uids.slice(0, BULK_MAX).map(String).filter(u => UID_RE.test(u)))); w.push('uid IN (SELECT value FROM json_each(?' + a.length + '))'); } // xuất CSV đúng các dòng đã chọn
   w.push(b.trash === 1 || b.trash === '1' ? 'deleted IS NOT NULL' : 'deleted IS NULL');
   return { sql: ' WHERE ' + w.join(' AND '), args: a, order: orderOf(b.sort, b.dir), admins };
 }
@@ -174,13 +175,13 @@ const BULK_SQL = {
   aiRevoke: [`DELETE FROM quota_allow WHERE id IN (SELECT 'u:' || value FROM json_each(?1)) RETURNING id`, J => [J]],
   delete: [`UPDATE users SET deleted = ?2, blocked = CASE WHEN COALESCE(blocked, 0) = 0 THEN 2 ELSE blocked END WHERE ${IN_UIDS} AND deleted IS NULL RETURNING uid`, (J, t, now) => [J, now]],
   restore: [`UPDATE users SET deleted = NULL, blocked = CASE WHEN blocked = 2 THEN 0 ELSE blocked END WHERE ${IN_UIDS} AND deleted IS NOT NULL RETURNING uid`, J => [J]],
-  purge: [`SELECT uid FROM users WHERE ${IN_UIDS} AND deleted IS NOT NULL`, J => [J]], // xoá vĩnh viễn ngay (chỉ người đã ở thùng rác) – deleteUserData từng người
+  purge: [`SELECT uid FROM users WHERE ${IN_UIDS} AND deleted IS NOT NULL`, J => [J]], // xóa vĩnh viễn ngay (chỉ người đã ở thùng rác) – deleteUserData từng người
 };
 const BULK_UNDO = { tagAdd: 'tagRemove', tagRemove: 'tagAdd', block: 'unblock', unblock: 'block', aiGrant: 'aiRevoke', aiRevoke: 'aiGrant', delete: 'restore', restore: 'delete' };
 const BULK_PROTECT = new Set(['block', 'delete', 'purge']);
 const BULK_DANGER = new Set(['block', 'delete', 'purge', 'aiGrant']); // cần vừa đăng nhập ≤ 15 phút như DANGER
-const PURGE_AFTER = 30 * DAY, PURGE_MAX = 200; // xoá vĩnh viễn: ~12 câu/người (DELETE_SQL) → ≤ 200 người/lệnh
-// Xoá thật tài khoản đã nằm thùng rác > 30 ngày (gọi khi mở tab Người dùng – không có việc nền/poll; ≤ 25 người/lượt, đọc chỉ mục idx_users_del)
+const PURGE_AFTER = 30 * DAY, PURGE_MAX = 200; // xóa vĩnh viễn: ~12 câu/người (DELETE_SQL) → ≤ 200 người/lệnh
+// Xóa thật tài khoản đã nằm thùng rác > 30 ngày (gọi khi mở tab Người dùng – không có việc nền/poll; ≤ 25 người/lượt, đọc chỉ mục idx_users_del)
 async function purgeDeleted(db, now = Date.now()) {
   const old = await all(db, 'SELECT uid FROM users WHERE deleted IS NOT NULL AND deleted < ? LIMIT 25', now - PURGE_AFTER);
   for (const r of old) { await deleteUserData(db, r.uid); await db.prepare('DELETE FROM quota_allow WHERE id = ?').bind('u:' + r.uid).run().catch(() => {}); }
@@ -241,7 +242,7 @@ const OPS = {
     return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: aeOn ? aeOn.n : on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
   },
   async users(db, b, who, env) {
-    await purgeDeleted(db).catch(() => {}); // xoá thật các tài khoản đã xoá mềm > 30 ngày (≤ 25/lượt, đọc chỉ mục idx_users_del – không có việc nền)
+    await purgeDeleted(db).catch(() => {}); // xóa thật các tài khoản đã xóa mềm > 30 ngày (≤ 25/lượt, đọc chỉ mục idx_users_del – không có việc nền)
     const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now(), lim = [25, 50, 100, 200].includes(+b.limit) ? +b.limit : 50;
     const [rows, cnt, k, plats] = await Promise.all([
       all(db, `SELECT uid, email, name, created, seen, plat, n, COALESCE(blocked, 0) AS blocked, tags, cc, deleted, EXISTS (SELECT 1 FROM quota_allow q WHERE q.id = 'u:' || users.uid) AS ai FROM users${f.sql} ORDER BY ${f.order} LIMIT ${lim} OFFSET ${off}`, ...f.args),
@@ -269,7 +270,7 @@ const OPS = {
   },
   /* Thao tác hàng loạt (Quản trị › Người dùng). { action, uids:[…] | all:true + filter:{…bộ lọc users}, confirm:<số người>, tag?, note? }
    * Luôn chạy phía máy chủ: kiểm quyền (adminGate), ≤ 20 lệnh/phút/quản trị, ≤ BULK_MAX người/lệnh, 1 câu SQL/lệnh (json_each – ghi đúng n dòng đổi).
-   * confirm phải bằng số người máy chủ tự tính lại (chống chọn nhầm / bộ lọc đổi giữa chừng). Không khoá/xoá tài khoản quản trị.
+   * confirm phải bằng số người máy chủ tự tính lại (chống chọn nhầm / bộ lọc đổi giữa chừng). Không khóa/xóa tài khoản quản trị.
    * Trả changed = uid THỰC SỰ đổi → máy khách hoàn tác đúng những người đó (hành động ngược: BULK_UNDO). Ghi admin_log: usersBulk:<action> + chi tiết. */
   async usersBulk(db, b, who, env) {
     const act = String(b.action || '');
@@ -290,7 +291,7 @@ const OPS = {
     if (act === 'purge' && uids.length > PURGE_MAX) throw new Error('too-many');
     if (+b.confirm !== uids.length) return { error: 'confirm', n: uids.length }; // số người đã đổi (vd. bộ lọc có người mới) → máy khách hỏi lại
     let skipped = 0;
-    if (BULK_PROTECT.has(act)) { // không bao giờ khoá/xoá tài khoản quản trị (tránh tự khoá mình)
+    if (BULK_PROTECT.has(act)) { // không bao giờ khóa/xóa tài khoản quản trị (tránh tự khóa mình)
       const admins = adminList(env);
       if (admins.length) {
         const adm = new Set((await all(db, 'SELECT uid FROM users WHERE uid IN (SELECT value FROM json_each(?1)) AND lower(email) IN (SELECT value FROM json_each(?2))', JSON.stringify(uids), JSON.stringify(admins))).map(r => r.uid));
@@ -307,8 +308,8 @@ const OPS = {
   },
   async usersExport(db, b, who, env) {
     const f = userWhere(b, env);
-    const rows = await all(db, `SELECT email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags, cc FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
-    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })) };
+    const rows = await all(db, `SELECT uid, email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags, cc, EXISTS (SELECT 1 FROM quota_allow q WHERE q.id = 'u:' || users.uid) AS ai FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
+    return { rows: rows.map(r => ({ ...r, ai: +r.ai ? 1 : 0, isAdmin: isAdm(f.admins, r.email) })) };
   },
   async user(db, b, who, env) {
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', String(b.uid));
@@ -431,7 +432,7 @@ const OPS = {
   },
   async userDelete(db, b) { // xóa dữ liệu đồng bộ theo yêu cầu của người dùng (GDPR) – tài khoản Google không bị ảnh hưởng
     const uid = String(b.uid || ''); if (!uid || b.confirm !== uid) throw new Error('confirm');
-    // Một nguồn với "Xoá tài khoản" của người dùng (account.js DELETE_SQL): trước đây bản quản trị bỏ sót league/vid_uid/lớp học/báo lỗi
+    // Một nguồn với "Xóa tài khoản" của người dùng (account.js DELETE_SQL): trước đây bản quản trị bỏ sót league/vid_uid/lớp học/báo lỗi
     await deleteUserData(db, uid);
     await db.prepare('DELETE FROM quota_allow WHERE id = ?').bind('u:' + uid).run().catch(() => {});
     return { ok: true, _audit: JSON.stringify({ uid }) };

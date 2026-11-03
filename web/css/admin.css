@@ -392,6 +392,46 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .u-av.big { width: 48px; height: 48px; font-size: 1.25rem; }
 .u-plats { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .45rem; }
 .u-dlg { width: min(720px, calc(100vw - 32px)); max-height: calc(100vh - 48px); overflow-y: auto; border-radius: 16px; box-shadow: var(--shadow-lg); }
+/* Người dùng v2 (js/admin-users.js): chọn hàng loạt, thanh thao tác nổi, ngăn chi tiết trượt phải, biểu đồ nhóm */
+.u-drawer[open] { margin: 0 0 0 auto; width: min(560px, 100vw); height: 100dvh; max-height: 100dvh; border-radius: 16px 0 0 16px; animation: u-slide .22s ease-out; }
+@keyframes u-slide { from { transform: translateX(24px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .u-drawer[open] { animation: none; } }
+.u-tl { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.u-tl li { display: flex; gap: .6rem; padding: .4rem 0 .4rem .7rem; position: relative; }
+.u-tl-i { width: 1.6rem; flex: none; text-align: center; }
+.u-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; } .u-list li { overflow-wrap: anywhere; }
+.u-ckc { width: 2.6rem; text-align: center; } .u-ckc input { width: 1.15rem; height: 1.15rem; margin: 0; cursor: pointer; accent-color: var(--primary); }
+.u-tbl tr.sel td { background: color-mix(in srgb, var(--primary) 9%, transparent); }
+.u-tbl tr.kb td:first-child { box-shadow: inset 3px 0 0 var(--primary); } .u-tbl tr:focus { outline: none; } .u-tbl tr:focus-visible td { outline: 2px solid var(--primary); outline-offset: -2px; }
+.u-sort { all: unset; cursor: pointer; font: inherit; color: inherit; white-space: nowrap; border-radius: 6px; } .u-sort:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.u-sort-i::after { content: ' ↕'; color: var(--muted); font-size: .8em; } .u-sort-i[data-dir=asc]::after { content: ' ▲'; color: inherit; } .u-sort-i[data-dir=desc]::after { content: ' ▼'; color: inherit; }
+.u-badges { display: flex; flex-wrap: wrap; gap: .25rem; min-width: 7rem; }
+.u-tags { display: flex; gap: .25rem; flex-wrap: wrap; margin-top: .2rem; } .u-tags .chip { border: 0; cursor: pointer; font: inherit; font-size: .72rem; font-weight: 700; }
+.u-pii { filter: none; letter-spacing: .02em; }
+.u-selbar { margin: -.4rem 0 .7rem; padding: .55rem .8rem; border-radius: 10px; background: var(--a-info-bg); color: var(--a-info); font-size: .86rem; font-weight: 650; }
+.u-selbar .linkbtn, .linkbtn { all: unset; cursor: pointer; text-decoration: underline; font-weight: 750; color: inherit; } .linkbtn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 4px; }
+.u-bulk { position: fixed; z-index: 40; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(1080px, calc(100vw - 32px)); display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+  padding: .6rem .75rem; border-radius: 14px; background: #12403D; color: #FFF8F4; border: 2px solid #0B2E2C; box-shadow: 0 4px 0 0 #0B2E2C, var(--shadow-lg); } /* Stitch adm-users2-table: thanh teal đậm cả sáng lẫn tối (chữ 11:1) */
+.u-bulk-n { display: flex; flex-direction: column; gap: .1rem; border-right: 1px solid rgba(255, 248, 244, .25); padding-right: .7rem; } .u-bulk-n .linkbtn { font-size: .78rem; color: #A7F3EE; }
+.adm .u-bulk .btn { background: rgba(255, 248, 244, .08); border-color: rgba(255, 248, 244, .3); color: #FFF8F4; box-shadow: 0 2px 0 0 #0B2E2C; }
+.adm .u-bulk .btn:hover { background: rgba(255, 248, 244, .16); } .adm .u-bulk .btn.danger-fill { background: #C62828; border-color: #8E1B1B; color: #fff; }
+.adm .u-bulk .btn:focus-visible { outline: 2px solid #A7F3EE; outline-offset: 2px; }
+.u-tbl tr.sel td:first-child { box-shadow: inset 4px 0 0 var(--primary); }
+.u-tools .u-sel:has(select) { flex-direction: row; align-items: center; gap: .35rem; padding: 0 .25rem 0 .75rem; border: 2px solid var(--line); border-radius: 999px; background: var(--surface); box-shadow: 0 2px 0 0 var(--line); }
+.u-tools .u-sel:has(select) select { border: 0; background-color: transparent; min-width: 0; font-weight: 700; color: var(--text); padding-left: .2rem; }
+.u-bulk[hidden] { display: none; } .u-bulk-n b { white-space: nowrap; } .u-bulk-acts { display: flex; gap: .4rem; flex-wrap: wrap; flex: 1; }
+body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
+.u-pg { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; } .u-inline { flex-direction: row; align-items: center; gap: .4rem; } .u-inline select { min-width: 0; }
+.u-view select { min-width: 11rem; }
+.u-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1rem; } .u-charts .card { margin: 0; } .u-charts .u-wide { grid-column: 1 / -1; }
+.u-funnel .row2 { cursor: default; }
+.u-ret td.u-rc { text-align: center; background: color-mix(in srgb, var(--primary) calc(var(--p, 0) * .45%), transparent); }
+.u-ret td.u-rc b { display: block; font-size: .9rem; } .u-ret td.u-rc small { color: var(--muted); font-size: .72rem; } .u-ret td.na { color: var(--muted); font-size: .75rem; }
+.u-colpick { display: grid; gap: .5rem; margin: .8rem 0; } .u-colpick label { display: flex; gap: .5rem; align-items: center; }
+.u-keys { display: grid; gap: .45rem; margin: .8rem 0; } .u-keys div { display: flex; gap: .8rem; align-items: center; } .u-keys dt { min-width: 6.5rem; } .u-keys dd { margin: 0; }
+.u-keys kbd { font: 650 .8rem/1.4 ui-monospace, monospace; padding: .1rem .45rem; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; background: var(--surface-2); }
+.a-toast.u-undo .btn { margin-left: .4rem; }
+@media (max-width: 640px) { .u-bulk { left: 16px; right: 16px; width: auto; transform: none; } .u-bulk-acts .btn { flex: 1 1 auto; } }
 .u-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem 1rem; margin: 1rem 0 .5rem; padding: .85rem 1rem; border-radius: 12px; background: var(--surface-2); border: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
 .u-facts div { min-width: 0; } .u-facts dt { font-size: .72rem; color: var(--muted); font-weight: 650; } .u-facts dd { margin: .15rem 0 0; font-size: .88rem; font-weight: 600; overflow-wrap: anywhere; }
 .u-h { margin: 1.1rem 0 .6rem; font-size: .94rem; font-weight: 750; display: flex; align-items: center; justify-content: space-between; }

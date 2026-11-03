@@ -1,4 +1,4 @@
-// Quản trị › Người dùng: thao tác hàng loạt (usersBulk), xoá mềm + hoàn tác + xoá thật sau 30 ngày, quyền AI, nhãn, bộ lọc/sắp xếp mới,
+// Quản trị › Người dùng: thao tác hàng loạt (usersBulk), xóa mềm + hoàn tác + xóa thật sau 30 ngày, quyền AI, nhãn, bộ lọc/sắp xếp mới,
 // thống kê nhóm (usersStats), nhật ký kiểm toán chi tiết, userDelete dùng chung DELETE_SQL. D1 = node:sqlite trong bộ nhớ, dữ liệu giả.
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
@@ -82,13 +82,13 @@ console.log('1. Kiểm quyền, xác nhận số người, giới hạn:');
 { const r = await call(AdminApi, '/api/admin', await tok('x1', { email: 'evil@example.com', email_verified: true }), { op: 'usersBulk', action: 'block', uids: ['u001'], confirm: 1 });
   assert.equal(r.s, 403, 'người lạ → 403'); }
 assert.equal((await B({ action: 'nuke', uids: ['u001'], confirm: 1 })).error, 'action', 'hành động lạ bị chặn');
-assert.equal((await B({ action: 'constructor', uids: ['u001'], confirm: 1 })).error, 'action', 'chặn khoá nguyên mẫu');
+assert.equal((await B({ action: 'constructor', uids: ['u001'], confirm: 1 })).error, 'action', 'chặn khóa nguyên mẫu');
 assert.equal((await B({ action: 'tagAdd', uids: ['u001'], confirm: 1 })).error, 'tag-required');
 { const r = await B({ action: 'block', uids: ['u001', 'u002'], confirm: 1 }); assert.equal(r.error, 'confirm'); assert.equal(r.n, 2, 'sai số xác nhận → trả số đúng, không đổi gì'); }
 assert.equal(sql.prepare('SELECT COUNT(*) c FROM users WHERE blocked = 1').get().c, 0);
 assert.equal((await B({ action: 'block', uids: ["u001' OR 1=1 --", 'nope'], confirm: 0 })).error, 'empty', 'uid bẩn/không tồn tại bị bỏ');
 assert.equal((await B({ action: 'block', uids: Array.from({ length: 2001 }, (_, i) => 'x' + i), confirm: 2001 })).error, 'too-many', 'trần 2.000 người/lệnh');
-assert.equal((await adm('usersBulk', { action: 'delete', uids: ['u001'], confirm: 1 }, ADM_OLD)).s, 401, 'xoá hàng loạt cần đăng nhập lại ≤ 15 phút');
+assert.equal((await adm('usersBulk', { action: 'delete', uids: ['u001'], confirm: 1 }, ADM_OLD)).s, 401, 'xóa hàng loạt cần đăng nhập lại ≤ 15 phút');
 assert.equal((await adm('usersBulk', { action: 'tagAdd', tag: 'vip', uids: ['u001'], confirm: 1 }, ADM_OLD)).s, 200, 'gắn nhãn không cần đăng nhập lại');
 
 console.log('2. Nhãn: gắn/gỡ đúng người, không trùng, tối đa 10, hoàn tác:');
@@ -104,15 +104,15 @@ assert.deepEqual((await B({ action: 'tagAdd', tag: 'beta', uids: ['u004'], confi
   assert.deepEqual(JSON.parse(sql.prepare("SELECT tags FROM users WHERE uid = 'u001'").get().tags), ['vip'], 'gỡ đúng nhãn, giữ nhãn khác'); }
 assert.equal((await U({ tag: 'beta' })).filtered, 1, 'lọc theo nhãn');
 
-console.log('3. Khoá / mở khoá: không khoá quản trị, hoàn tác chỉ người đã đổi, sync bị chặn:');
+console.log('3. Khóa / mở khóa: không khóa quản trị, hoàn tác chỉ người đã đổi, sync bị chặn:');
 sql.prepare("UPDATE users SET blocked = 1 WHERE uid = 'u006'").run();
 { const r = await B({ action: 'block', uids: ['u005', 'u006', 'adm_999'], confirm: 3 });
-  assert.deepEqual(r.changed, ['u005'], 'chỉ người chưa khoá'); assert.equal(r.skipped, 1, 'bỏ qua tài khoản quản trị');
+  assert.deepEqual(r.changed, ['u005'], 'chỉ người chưa khóa'); assert.equal(r.skipped, 1, 'bỏ qua tài khoản quản trị');
   assert.equal(sql.prepare("SELECT blocked FROM users WHERE uid = 'adm_999'").get().blocked, 0);
-  assert.equal((await sync('u005', { op: 'pull' })).s, 403, 'người bị khoá không đồng bộ được');
+  assert.equal((await sync('u005', { op: 'pull' })).s, 403, 'người bị khóa không đồng bộ được');
   const un = await B({ action: r.undo, uids: r.changed, confirm: r.changed.length }); assert.deepEqual(un.changed, ['u005']);
-  assert.equal(sql.prepare("SELECT blocked FROM users WHERE uid = 'u006'").get().blocked, 1, 'hoàn tác không mở người bị khoá từ trước'); }
-assert.equal((await U({ blocked: '1' })).filtered, 1, 'lọc người bị khoá');
+  assert.equal(sql.prepare("SELECT blocked FROM users WHERE uid = 'u006'").get().blocked, 1, 'hoàn tác không mở người bị khóa từ trước'); }
+assert.equal((await U({ blocked: '1' })).filtered, 1, 'lọc người bị khóa');
 
 console.log('4. Quyền AI (quota_allow u:<uid>):');
 { const r = await B({ action: 'aiGrant', note: 'giáo viên', uids: ['u007', 'u008'], confirm: 2 }); assert.deepEqual(r.changed.sort(), ['u007', 'u008']);
@@ -121,19 +121,19 @@ console.log('4. Quyền AI (quota_allow u:<uid>):');
   const l = await U({ perk: 'ai' }); assert.equal(l.filtered, 2); assert.ok(l.rows.every(x => x.ai === 1), 'cột ai');
   assert.deepEqual((await B({ action: 'aiRevoke', uids: ['u007'], confirm: 1 })).changed, ['u007']); }
 
-console.log('5. Xoá mềm → ẩn, chặn sync, khôi phục; xoá thật sau 30 ngày / ngay trong thùng rác:');
+console.log('5. Xóa mềm → ẩn, chặn sync, khôi phục; xóa thật sau 30 ngày / ngay trong thùng rác:');
 { const before = (await U()).total;
   const r = await B({ action: 'delete', uids: ['u001', 'u009', 'adm_999'], confirm: 3 }); assert.deepEqual(r.changed.sort(), ['u001', 'u009']); assert.equal(r.undo, 'restore');
   const l = await U(); assert.equal(l.total, before - 2, 'KPI không đếm người trong thùng rác'); assert.equal(l.kpi.trash, 2); assert.ok(!l.rows.some(x => x.uid === 'u001'), 'ẩn khỏi danh sách');
   assert.equal((await U({ trash: 1 })).filtered, 2, 'thùng rác');
-  assert.equal(docsOf('u001'), 1, 'xoá mềm giữ dữ liệu');
-  assert.equal((await sync('u001', { op: 'pull' })).s, 403, 'đang chờ xoá → chặn đồng bộ');
+  assert.equal(docsOf('u001'), 1, 'xóa mềm giữ dữ liệu');
+  assert.equal((await sync('u001', { op: 'pull' })).s, 403, 'đang chờ xóa → chặn đồng bộ');
   const back = await B({ action: 'restore', uids: ['u001'], confirm: 1 }); assert.deepEqual(back.changed, ['u001']);
   assert.equal(sql.prepare("SELECT blocked FROM users WHERE uid = 'u001'").get().blocked, 0, 'khôi phục mở lại đồng bộ');
   sql.prepare("UPDATE users SET deleted = ? WHERE uid = 'u009'").run(now - 31 * D);
-  await U(); assert.equal(sql.prepare("SELECT COUNT(*) c FROM users WHERE uid = 'u009'").get().c, 0, 'quá 30 ngày → xoá thật khi mở tab');
+  await U(); assert.equal(sql.prepare("SELECT COUNT(*) c FROM users WHERE uid = 'u009'").get().c, 0, 'quá 30 ngày → xóa thật khi mở tab');
   await B({ action: 'delete', uids: ['u010'], confirm: 1 });
-  const p = await B({ action: 'purge', uids: ['u010', 'u011'], confirm: 2 }); assert.deepEqual(p.changed, ['u010'], 'xoá vĩnh viễn chỉ người trong thùng rác');
+  const p = await B({ action: 'purge', uids: ['u010', 'u011'], confirm: 2 }); assert.deepEqual(p.changed, ['u010'], 'xóa vĩnh viễn chỉ người trong thùng rác');
   assert.equal(sql.prepare("SELECT COUNT(*) c FROM users WHERE uid = 'u011'").get().c, 1);
   assert.equal(sql.prepare("SELECT COUNT(*) c FROM users WHERE uid = 'u010'").get().c, 0); assert.equal(lastLog().op, 'usersBulk:purge'); }
 
@@ -157,10 +157,10 @@ console.log('8. Thống kê: đăng ký theo ngày, nhóm giữ chân, phễu, n
   assert.ok(st.funnel.signed >= st.funnel.synced2 && st.funnel.back1 >= st.funnel.back7);
   assert.ok(st.tags.some(t => t.k === 'ios-wave')); }
 
-console.log('9. userDelete (GDPR) dùng chung DELETE_SQL: xoá cả vid_uid + quyền AI:');
+console.log('9. userDelete (GDPR) dùng chung DELETE_SQL: xóa cả vid_uid + quyền AI:');
 { sql.prepare("INSERT INTO vid_uid (vid, uid, at) VALUES ('v1abcdefgh', 'u008', ?)").run(now);
   const r = await adm('userDelete', { uid: 'u008', confirm: 'u008' }, ADM); assert.equal(r.s, 200);
-  assert.equal(sql.prepare("SELECT COUNT(*) c FROM vid_uid WHERE uid = 'u008'").get().c, 0, 'vid_uid bị xoá (trước đây bỏ sót)');
+  assert.equal(sql.prepare("SELECT COUNT(*) c FROM vid_uid WHERE uid = 'u008'").get().c, 0, 'vid_uid bị xóa (trước đây bỏ sót)');
   assert.equal(sql.prepare("SELECT COUNT(*) c FROM quota_allow WHERE id = 'u:u008'").get().c, 0, 'quyền AI bị gỡ');
   assert.equal(JSON.parse(lastLog().detail).uid, 'u008'); }
 
