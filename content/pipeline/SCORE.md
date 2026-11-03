@@ -2,16 +2,16 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 47.8 / 100**
+**Tổng: 48.8 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **46.4** | 45.2 | 46.4% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
-| Giao tiếp | **14.1** | 14.1 | 14.1% | 100% | 0 |
+| Giao tiếp | **20.6** | 14.1 | 20.6% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
 | Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
-| Khung Can-do | **79.3** | 79.3 | 79.3% | 100% | 0 |
+| Khung Can-do | **79.7** | 79.3 | 79.7% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -48,7 +48,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | cuộc gọi Ama/Carlos | 11 / 60 | 18% | 20 |
 | roleplay | 16 / 60 | 27% | 20 |
-| tình huống Play & Speak | 1 / 40 | 3% | 20 |
+| tình huống Play & Speak | 14 / 40 | 35% | 20 |
 | mục gold (giải thích cách dùng) | 228 / 1000 | 23% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 0 / 100 | 0% | 20 |
 
@@ -97,8 +97,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 9955 / 9955 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 119 / 600 | 20% | 25 |
+| nội dung có lo hợp lệ | 9968 / 9968 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 127 / 600 | 21% | 25 |
 
 ## i18n
 
