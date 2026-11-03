@@ -134,9 +134,12 @@ Mẫu thẻ:
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 2** (`viet-tat-tieng-anh-cong-so`): VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO (`739bfc7fe`), RU (`64825b754`), TR (`628ed5cb9`), TH (`52d9e1c70`), AR (`db6397b17`), HI (`40d1beb8d`) (15 bài).
   - ✅ **Hoàn thành trọn vẹn 5/5 ngôn ngữ Cụm 4** (`ielts-reading-kiem-soat-thoi-gian`): VI (`da77cc9b9`), EN (`d8cf79284`), JA (`5c7194bd4`), ZH (`3ae66c878`), KO (`f677055f0`) (5 bài).
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Quản lý thời gian công sở** (`quan-ly-thoi-gian-tieng-anh-cong-so`): Bổ sung hoàn tất 2 ngôn ngữ cuối AR (`b998424ae`) và HI (`bd5eff083`).
-  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.013 bài viết** (1.013 files `.md` trong `content/blog/`).
-  - 100% bài viết đạt chuẩn Quality Gates: `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập (0% overlap), size-budget khung 377 KB vững vàng.
-  - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo (`toeic-part-7-doc-hieu`, `phrasal-verb-thong-dung`) theo kế hoạch.
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm TOEIC Part 7 đọc hiểu** (`toeic-part-7-doc-hieu`): Bổ sung TH (`d479cb723`), AR (`22cd37361`), HI (`bded6891a`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Cụm động từ thông dụng** (`phrasal-verb-thong-dung`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`fb678775a`).
+  - ✅ **Mở rộng Cụm Kiểm soát thời gian IELTS Reading** (`ielts-reading-kiem-soat-thoi-gian`): Bổ sung ES (`09772dd69`), FR (`6158f084d`).
+  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.018 bài viết** (1.018 files `.md` trong `content/blog/`).
+  - 100% bài viết đạt chuẩn Quality Gates: `blog-check` 0 lỗi, `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
+  - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo theo kế hoạch.
 
 ### [B5-MEGA100-P4] ⏳ CHỜ DUYỆT (03/11) · Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("100 bài khác chất lượng nữa"), tiếp tục mở rộng kho nội dung chuẩn SEO đa ngôn ngữ chất lượng cao từ 850 bài lên **950 bài** toàn repo Lexkite (100 bài mới).
