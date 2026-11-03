@@ -15,8 +15,8 @@ import { minify } from 'terser';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { esc, ld, siteChrome, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
-import { render as stRender, teacher, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
+import { esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { render as stRender, tr as stTr, teacherIdle, IDLE_JS, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -56,7 +56,8 @@ const gaText = l => ({ iph: ['Cài Lexkite lên iPhone', 'Bấm nút <b>Chia s�
 export const gaFile = l => `/js/get-app/${l}.json`;
 export const gaJson = l => JSON.stringify(gaText(l)) + '\n';
 // Nút mang lớp thành phần Stitch (btn-3d-secondary của mẫu home) – đầu trang máy tính/điện thoại (chỉ icon, 44 px) + chân trang
-const GA_CLS = { head: 'btn-3d-secondary inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-xl text-sm font-extrabold', icon: 'btn-3d-secondary inline-flex items-center justify-center w-11 h-11 rounded-xl', foot: 'btn-3d-secondary inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-xl text-sm font-extrabold' };
+const GA_V3 = 'min-h-[50px] px-5 py-3 inline-flex items-center justify-center gap-2 rounded-2xl font-bold text-[15px] active:translate-y-[2px] transition-all focus:outline-none focus:ring-2 lt:border-2 lt:border-[#D8C6A5] lt:bg-white lt:text-[#0F3D3E] lt:hover:border-[#0F3D3E] lt:hover:bg-[#FFFDF9] lt:shadow-[0_3px_0_0_#D4C3A3] lt:active:shadow-none lt:focus:ring-[#0F3D3E] dk:border dk:border-[#26393E] dk:bg-[#172427] dk:text-[#F3EDE2] dk:hover:border-[#6BD8CE] dk:hover:text-[#6BD8CE] dk:focus:ring-[#6BD8CE]';
+const GA_CLS = { foot: GA_V3 + ' mt-4' }; // chân trang: đúng lớp nút "Get the app" của mẫu landing v3 (hero dùng chính nút Stitch, bind/home.json)
 const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}" href="${appQ}" data-get-app="${place}"${web ? ` data-web="${appQ}"` : ` aria-label="${esc(ui(l, 'Tải app'))}"`} hidden>${PHONE}${look === 'icon' ? '' : `<span>${esc(ui(l, 'Tải app'))}</span>`}</a>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
@@ -158,26 +159,27 @@ function renderFull(lang) {
   const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">`;
   // ---- dữ liệu THẬT cho khung Stitch (biểu thức trong brand/stitch/web/bind/home.json; chữ thô – khung tự escape) ----
   const hlEn = vi ? 'vi' : 'en'; // trang Từ vựng/Bài mẫu chỉ có bản vi + en → hreflang đúng ngôn ngữ đích
-  const chrome = siteChrome({ lang, nav: [[app, c.nav.app, lang], [blog, c.nav.blog, lang], [vocab, c.nav.vocab, hlEn], [samples, c.nav.samples, hlEn]],
-    open: [start, c.nav.start], signin: [login, c.nav.login], home: landingHref(lang), extra: [gaBtn(lang, 'head', appQ), gaBtn(lang, 'head', appQ, false, 'icon')],
+  const chrome0 = siteChrome({ lang, nav: [[app, c.nav.app, lang], [blog, c.nav.blog, lang], [vocab, c.nav.vocab, hlEn], [samples, c.nav.samples, hlEn]],
+    open: [start, c.nav.start], signin: [login, c.nav.login], home: landingHref(lang),
     langHref: landingHref, label: c.langL, text: c.foot, tm: c.tm, getApp: gaBtn(lang, 'foot', appQ, true) });
+  // đầu trang v3: nút 🌐 hiện tên ngôn ngữ; chân trang v3: nút "Interface" mở menu ngôn ngữ thứ hai (cùng 15 liên kết hreflang, id riêng)
+  const chrome = { ...chrome0, langName: LANG_NAMES[chrome0.lang], menu2: lswMenu({ lang, langHref: landingHref, label: chrome0.langLabel, id: 'lsw-m2' }) };
   const resCol = chrome.cols[1].items, find = re => resCol.find(([u]) => re.test(u));
-  const third = (vi ? find(/^\/ngu-phap\//) : find(/\/words\/$/)) || resCol[4]; // thẻ thứ 3 (icon sách): Ngữ pháp (vi) / Từ điển (/<lang>/words/)
+  const third = (vi ? find(/^\/ngu-phap\//) : find(/\/words\/$/)) || resCol[4]; // thẻ thứ 3: Ngữ pháp (vi) / Từ điển (/<lang>/words/)
   const more = ui(lang, 'Xem thêm');
+  // 5 thẻ tài nguyên (giữ mọi liên kết cũ cho SEO) theo 3 khuôn của mẫu v3: blog (sách) · doc (tài liệu) · list (danh sách)
   const rescards = [
-    { v: 'v1', href: samples, hl: hlEn, h: c.res.samples[0], p: c.res.samples[1], more },
-    { v: 'v2', href: vi ? '/speaking/' : '/en/speaking/', hl: hlEn, h: (FOOT[lang] || FOOT.en)[8], p: '', more },
-    { v: 'v3', href: third[0], hl: /^\/[a-z]{2}\//.test(third[0]) ? third[0].slice(1, 3) : 'vi', h: third[1], p: '', more },
-    { v: 'v4', href: vocab, hl: hlEn, h: c.res.vocab[0], p: c.res.vocab[1], more },
-    { v: 'v5', href: blog, hl: lang, h: c.res.blog[0], p: c.res.blog[1], more }];
-  const wide = s => [...s].reduce((a, ch) => a + (/[\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]/.test(ch) ? 1 : .62), 0) * 36; // bề rộng ước tính ở cỡ chữ h1 điện thoại (36 px)
-  const d = { ...c, start, store: EXT_STORE, h1nw: wide(c.hero.h1b) <= 330,
-    trust: [...c.trust.map(x => [x]), [c.hero.note], [c.hero.placement, `${appQ}#/placement`]],
-    grades: ['Quên', 'Khó', 'Nhớ', 'Dễ'].map((k, i) => [ui(lang, k), i === 2]), cont: `${ui(lang, 'Tiếp tục')} ${rtl ? '←' : '→'}`, rescards,
-    // giáo viên đứng cạnh điện thoại / trong dải kêu gọi = đúng ô hình người của mẫu Stitch (≈ cao bằng hình vẽ 261–270 px ở máy tính); ảnh tĩnh rộng 1108×960 (nửa người, lề trong suốt 2 bên)
-    //   → width/height giữ tỉ lệ (CLS), cỡ hiển thị theo màn qua class; vị trí ô Ama (-left-*) chỉnh trong bind/home.json để thân người nằm đúng chỗ hình vẽ.
-    ama: teacher('ama', 'point', { size: 340, cls: 'chr max-w-none w-[200px] sm:w-[270px] lg:w-[340px] h-auto' }), carlos: teacher('carlos', 'cheer', { size: 300, cls: 'chr max-w-full w-[220px] sm:w-[300px] h-auto' }),
-    extImg: `<img class="w-full h-auto rounded-xl" src="/img/ext-lookup.webp" srcset="/img/ext-lookup-480.webp 480w, /img/ext-lookup.webp 752w" sizes="(max-width: 800px) 92vw, 752px" width="752" height="602" loading="lazy" decoding="async" alt="${esc(c.ext.alt)}">` };
+    { v: 'blog', href: blog, hl: lang, h: c.res.blog[0], p: c.res.blog[1], more },
+    { v: 'doc', href: samples, hl: hlEn, h: c.res.samples[0], p: c.res.samples[1], more },
+    { v: 'list', href: vocab, hl: hlEn, h: c.res.vocab[0], p: c.res.vocab[1], more },
+    { v: 'doc', href: vi ? '/speaking/' : '/en/speaking/', hl: hlEn, h: (FOOT[lang] || FOOT.en)[8], p: '', more },
+    { v: 'list', href: third[0], hl: /^\/[a-z]{2}\//.test(third[0]) ? third[0].slice(1, 3) : 'vi', h: third[1], p: '', more }];
+  // 6 tính năng: 4 thẻ có minh hoạ của mẫu (FSRS · gọi giáo viên AI = chấm nói/viết · luyện thi · add-on) + 2 thẻ trơn cùng khuôn
+  const F = c.features, feat = [['fsrs', 0], ['call', 2], ['exam', 1], ['ext', 3], ['plain', 4], ['plain', 5]].map(([v, i]) => ({ v, h: F[i][1], p: F[i][2] }));
+  const d = { ...c, start, login, appQ, heroLinks: [[login, ui(lang, 'Tôi đã có tài khoản')], [`${appQ}#/placement`, c.hero.placement]], store: EXT_STORE, getAppL: ui(lang, 'Tải app'), feat, rescards,
+    // giáo viên 2D (Chars.idle – #480): ảnh poster mắt mở giữ chỗ (width/height → CLS 0) + vòng nghỉ 1–3 s tắt tiếng, chỉ chạy khi không bật giảm chuyển động
+    ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 -mb-5 w-[220px] sm:w-[260px] h-auto', eager: true }),
+    carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 -mb-5 w-[200px] sm:w-[240px] h-auto' }) };
   const page = stRender('home', d, { lang, chrome });
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
@@ -214,6 +216,7 @@ ${ld(graph)}
 <a class="skip" href="#main">${esc(c.skip)}</a>
 ${page.body}
 <script>${HINT_JS}</script>
+<script>${IDLE_JS}</script>
 <script>${EXT_JS}
 self.LK_GETAPP_T='${gaFile("'+document.documentElement.lang+'")}';
 ${GETAPP_JS}</script>

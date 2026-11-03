@@ -49,10 +49,21 @@ export function protos(k, lang = 'en') { const g = { self: { ST2: {} } }; vm.run
 
 // Giáo viên 2D: CHỈ qua Chars.* (web/js/characters.js – nguồn duy nhất, như app) → ảnh tĩnh tư thế, nền trong suốt, không khung/hào quang.
 let CH = null;
+const chars = () => { if (!CH) { const g = {}; vm.runInNewContext(load('web/js/characters.js'), { self: g }); CH = g.Chars; } return CH; };
 export function teacher(who, pose, { size = 240, cls = 'chr', alt } = {}) {
-  if (!CH) { const g = {}; vm.runInNewContext(load('web/js/characters.js'), { self: g }); CH = g.Chars; }
-  return CH.img(who, { pose, size, cls, alt: alt ?? CH.name(who), lazy: true }).replace(/src="teach\//g, 'src="/teach/');
+  const C = chars(); return C.img(who, { pose, size, cls, alt: alt ?? C.name(who), lazy: true }).replace(/src="teach\//g, 'src="/teach/');
 }
+// Giáo viên "sống" (landing): Chars.idle(who) – poster mắt mở (khung 554×480, width/height giữ tỉ lệ → CLS 0) + vòng nghỉ 1–3 s VP9 alpha TẮT TIẾNG.
+//   Video không có src lúc tải (data-src) → không tốn băng thông trước khi trang xong; /js/site.js (IDLE_JS) gắn nguồn sau 'load', chỉ khi trình duyệt
+//   phát được VP9 và người dùng không bật giảm chuyển động; đang phát mới hiện (opacity) → Safari/iOS (mp4 xếp chồng alpha cần WebGL) giữ poster.
+export const IDLE_W = 554, IDLE_H = 480;
+export function teacherIdle(who, { w = 240, cls = '', alt, eager = false } = {}) {
+  const C = chars(), I = C.idle(who), h = Math.round(w * IDLE_H / IDLE_W), src = x => '/' + x;
+  return `<span class="${cls} inline-block" data-idle><img class="block w-full h-auto" src="${src(I.poster)}" alt="${esc(alt ?? C.name(who))}" width="${w}" height="${h}" decoding="async"${eager ? ' fetchpriority="high"' : ' loading="lazy"'}>` +
+    `<video class="absolute inset-0 w-full h-full opacity-0 transition-opacity" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-src="${src(I.webm)}" width="${w}" height="${h}"></video></span>`;
+}
+// Bật vòng nghỉ sau khi trang tải xong (không chặn LCP): bỏ qua nếu giảm chuyển động / không có VP9; hiện video khi đã phát được.
+export const IDLE_JS = `addEventListener('load',function(){var d=document,m=matchMedia('(prefers-reduced-motion: reduce)');if(m.matches)return;[].forEach.call(d.querySelectorAll('[data-idle] video[data-src]'),function(v){if(!v.canPlayType('video/webm; codecs="vp9"'))return;v.addEventListener('playing',function(){v.style.opacity=1},{once:true});v.src=v.getAttribute('data-src');v.removeAttribute('data-src');var p=v.play();p&&p.catch&&p.catch(function(){})})});`;
 
 // ---- Thu gọn trang đã dựng (KHÔNG đổi hình): CSS Stitch biên dịch cho cả nhóm → chỉ giữ luật trang thật dùng + đổi tên lớp Tailwind dài thành tên ngắn ----
 //   1) bỏ luật có lớp không xuất hiện trong trang (lớp trong <script> coi như có – JS thêm lúc chạy) · 2) trang không có data-theme (web tĩnh theo

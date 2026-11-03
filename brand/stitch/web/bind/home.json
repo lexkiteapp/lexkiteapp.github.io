@@ -3,7 +3,6 @@
  "unwrap": ":scope > div",
  "i18n": {
   "Add to Chrome": "Thêm vào Chrome",
-  "I already have an account": "Tôi đã có tài khoản",
   "“Hi! Ready for 5 minutes today?”": "“Chào bạn! Học 5 phút hôm nay nhé?”",
   "100% free": "Miễn phí 100%",
   "Forever, no paywalls": "Mãi mãi, không tường phí",
@@ -43,6 +42,20 @@
    },
    "text": {
     "Blog": "n[1]"
+   }
+  },
+  {
+   "list": "d.heroLinks",
+   "as": "k",
+   "sel": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > a",
+   "attr": {
+    ":scope": {
+     "href": "k[0]"
+    }
+   },
+   "html": {
+    ":scope": "e(k[1])"
    }
   },
   {
@@ -318,9 +331,6 @@
    "data-web": "d.appQ",
    "hidden": "''"
   },
-  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1)": {
-   "href": "d.login"
-  },
   ":scope > :nth-child(8) > :nth-child(4)": {
    "href": "d.start"
   },
@@ -367,6 +377,7 @@
  },
  "addClass": {
   ":scope > :nth-child(1) > :nth-child(2)": "relative",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": "flex flex-wrap gap-x-6",
   ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1)": "relative"
  }
 }

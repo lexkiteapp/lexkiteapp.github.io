@@ -30,8 +30,9 @@ b['attr'][P(2, 1, 4, 2)] = {'href': 'd.store', 'target': "'_blank'", 'rel': "'no
 key('Add to Chrome', 'Thêm vào Chrome')
 b['attr'][P(2, 1, 4, 3)] = {'href': 'd.appQ', 'data-get-app': "'hero'", 'data-web': 'd.appQ', 'hidden': "''"}
 b['text']['Get the app'] = 'd.getAppL'
-b['attr'][P(2, 1, 5, 1)] = {'href': 'd.login'}
-key('I already have an account', 'Tôi đã có tài khoản')
+# dòng liên kết phụ dưới CTA: "Tôi đã có tài khoản" (chữ mẫu) + kiểm tra trình độ (giữ lối vào cũ) – cùng khuôn liên kết của mẫu
+b['repeat'].append({'list': 'd.heroLinks', 'as': 'k', 'sel': P(2, 1, 5, 1), 'samples': P(2, 1, 5) + ' > a', 'attr': {':scope': {'href': 'k[0]'}}, 'html': {':scope': 'e(k[1])'}})
+b['addClass'][P(2, 1, 5)] = 'flex flex-wrap gap-x-6'
 key('“Hi! Ready for 5 minutes today?”', '“Chào bạn! Học 5 phút hôm nay nhé?”')
 b['after'][P(2, 2, 3, 1)] = 'd.ama'; b['remove'].append(P(2, 2, 3, 1))
 # ---- 3 dải tin cậy ----
