@@ -89,7 +89,7 @@ jobs:
     outputs: { par: '${{ steps.p.outputs.par }}' }
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: scripts/ci }
+        with: { sparse-checkout: "scripts/ci\n.github/actions" }   # no-prod action (#409) lives in .github/actions
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - id: p
         env: { GITHUB_TOKEN: '${{ github.token }}' }
