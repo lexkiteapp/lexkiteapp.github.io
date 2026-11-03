@@ -24,7 +24,7 @@ const GEM = keyRing(parseKeys(env.GEMINI_POOL, 'gemini')), GROQ = keyRing(parseK
 let cfi = 0;
 async function keyed(ring, f) {
   for (let t = 0; t < Math.min(ring.size, 12); t++) {
-    const k = ring.next(); if (!k) { await sleep(Math.min(ring.soonest(), 65e3)); continue; }
+    const k = ring.next(); if (!k) return null; // mọi khóa đang nghỉ → báo không gọi được (không chờ – lần chạy 03/11 treo 30 phút vì chờ)
     const r = await f(k.key).catch(e => ({ ok: false, status: 0, text: async () => String(e.message) }));
     if (r.status === 429) { const b = await r.text().catch(() => ''); ring.park(k.id, /per ?day|PerDay|\bRPD\b|\bTPD\b/i.test(b) ? 20 * 3600e3 : 65e3, 'q'); continue; }
     if (r.status === 401 || r.status === 403) { ring.park(k.id, 24 * 3600e3, 'auth'); continue; }
@@ -33,7 +33,8 @@ async function keyed(ring, f) {
   }
   return null;
 }
-const T = ms => AbortSignal.timeout(ms);
+const T = ms => AbortSignal.timeout(Math.min(ms, 60e3));
+const MODEL_MS = +(env.AI_GOLDEN_MODEL_MS || 8 * 60e3); // trần thời gian mỗi model – ca chưa chạy kịp = bỏ qua (không tính), > 30 % bỏ qua → model 'không gọi được'
 const call = {
   async gem(model, q) { const r = await keyed(GEM, key => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', signal: T(90e3), headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' }, body: JSON.stringify(gemBody(model, q.sys, q.prompt, q.temp, q.rp)) }));
     if (!r) return { err: 'no-key' }; if (!r.ok) return { err: r.status + ' ' + redact(await r.text()).slice(0, 120) }; return { out: parseJSON(gemText(await r.json())) }; },
@@ -55,7 +56,7 @@ async function listModels() {
     for (const m of GROQ_OK) M.push({ route: 'groq', model: m, chain: true, listed: ids.includes(m) });
     for (const m of ['moonshotai/kimi-k2-instruct-0905', 'moonshotai/kimi-k2-instruct', 'qwen/qwen3-32b', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'llama-3.3-70b-versatile', 'openai/gpt-oss-20b']) if (ids.includes(m) && !GROQ_OK.includes(m)) M.push({ route: 'groq', model: m, chain: false }); }
   if (ONLY.has('wai') && CF.length) M.push({ route: 'wai', model: WAI_MODEL, chain: WEAK_OK });
-  return M;
+  return M.sort((a, b) => 'groq gem wai'.indexOf(a.route) - 'groq gem wai'.indexOf(b.route));
 }
 const pmap = async (xs, n, f) => { const out = new Array(xs.length); let i = 0; await Promise.all(Array.from({ length: Math.min(n, xs.length) }, async () => { while (i < xs.length) { const k = i++; out[k] = await f(xs[k], k); } })); return out; };
 // giám khảo khác HỌ với ứng viên: gpt-oss-120b (Groq) chấm mọi model trừ gpt-oss → Gemini Flash
@@ -79,13 +80,16 @@ console.log(`· giám khảo (câu mồi): ${JSON.stringify(decoyRes)} → ${jud
 
 const report = { at: new Date().toISOString(), gate: GATE, judge: { ok: judgeOk, decoys: decoyRes }, models: [] };
 for (const m of models) {
-  const t0 = Date.now(), par = m.route === 'gem' ? 3 : 4;
-  const ielts = await pmap(IE, par, async c => { const r = await call[m.route](m.model, ieltsReq(c)); const s = scoreIelts(c, r.out); return { ...s, langCase: true, err: r.err || null }; });
-  const rp = await pmap(RPC, par, async c => { const x = rpCase(c), r = await call[m.route](m.model, x.req), out = r.out;
+  const t0 = Date.now(), par = m.route === 'gem' ? 3 : 4, late = () => Date.now() - t0 > MODEL_MS, tag = `${m.route} ${m.model}`;
+  // ca không gọi được (hết khóa/hết giờ) = bỏ qua, không tính là sai; ca gọi được mà trả sai khuôn vẫn tính
+  const ielts = (await pmap(IE, par, async c => { if (late()) return null; const r = await call[m.route](m.model, ieltsReq(c)); if (!r.out && /no-key|no-account|^0 |^5\d\d/.test(r.err || '')) { console.log(`    · ${tag} ielts ${c.id}: bỏ qua (${r.err})`); return null; }
+    const s = scoreIelts(c, r.out); console.log(`    ${tag} ielts ${c.id}: ${s.valid ? `band ${s.band} (${s.want}) · bắt ${s.found}/${s.total}` : 'sai khuôn ' + (r.err || '')} · ${Math.round((Date.now() - t0) / 1000)}s`); return { ...s, langCase: true, err: r.err || null }; })).filter(Boolean);
+  const rp = (await pmap(RPC, par, async c => { if (late()) return null; const x = rpCase(c), r = await call[m.route](m.model, x.req), out = r.out; if (!out && /no-key|no-account|^0 |^5\d\d/.test(r.err || '')) return null;
     const j = out && typeof out.reply === 'string' ? await judge(m, { ...x, L: c.L, unclear: c.unclear, reply: out.reply }) : null;
-    return { ...scoreRp(c, out, j), unclearCase: !!c.unclear, err: r.err || null }; });
-  const SI = sumIelts(ielts), SR = sumRp(rp), avail = ielts.some(r => r.valid) || rp.some(r => r.valid);
-  const row = { route: m.route, model: m.model, chain: m.chain, available: avail, pass: avail && SI.pass && SR.pass && judgeOk, ielts: SI, rp: SR, secs: Math.round((Date.now() - t0) / 1000), detail: { ielts, rp } };
+    return { ...scoreRp(c, out, j), unclearCase: !!c.unclear, err: r.err || null }; })).filter(Boolean);
+  const cover = (ielts.length + rp.length) / (IE.length + RPC.length);
+  const SI = sumIelts(ielts), SR = sumRp(rp), avail = cover >= 0.7;
+  const row = { route: m.route, model: m.model, chain: m.chain, available: avail, cover: Math.round(cover * 100) / 100, pass: avail && SI.pass && SR.pass && judgeOk, ielts: SI, rp: SR, secs: Math.round((Date.now() - t0) / 1000), detail: { ielts, rp } };
   report.models.push(row);
   console.log(`${row.pass ? '✓' : avail ? '✗' : '·'} ${m.route} ${m.model}${m.chain ? ' [chuỗi]' : ''}: IELTS bắt lỗi ${Math.round(SI.recall * 100)}% · band lệch ${SI.mae} · JSON ${Math.round(SI.valid * 100)}% · ngôn ngữ ${Math.round(SI.lang * 100)}% | roleplay ${SR.mean}/5 · vô lý ${SR.absurd} · hỏi lại ${Math.round(SR.clarify * 100)}% · JSON ${Math.round(SR.valid * 100)}% (${row.secs}s)`);
   for (const r of ielts) if (r.err || r.missed.length || r.diff > 0.5) console.log(`    ielts ${r.id}: band ${r.band ?? '-'} (kỳ vọng ${r.want}) · sót ${JSON.stringify(r.missed)}${r.langOk ? '' : ' · SAI NGÔN NGỮ'}${r.err ? ' · ' + r.err : ''}`);
