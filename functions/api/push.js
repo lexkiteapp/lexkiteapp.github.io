@@ -25,7 +25,7 @@ const DAY = 864e5, MAX_SEND = 40;
 export const SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, REMOTE_FROM = 3; // trùng web/js/remind.js (test reminders.mjs đối chiếu)
 // Chỉ dịch vụ push thật (chống SSRF: Worker chỉ POST tới các máy chủ này)
 export const PUSH_HOST = /^https:\/\/(fcm\.googleapis\.com|updates\.push\.services\.mozilla\.com|[a-z0-9.-]+\.push\.apple\.com|[a-z0-9.-]+\.notify\.windows\.com|push\.services\.mozilla\.com)\/[\w\-./:%~+=]+$/;
-const EV = new Set(['shown', 'open', 'ask_yes', 'ask_no', 'optin', 'optout']), TPL = /^[a-z0-9_]{0,12}$/;
+export const EV = new Set(['shown', 'open', 'ask_show', 'ask_yes', 'ask_no', 'optin', 'optout']), TPL = /^[a-z0-9_]{0,12}$/;
 const LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const cors = req => { const o = req.headers.get('Origin') || ''; return /^(https:\/\/(lexkite\.com|[\w-]+\.lexkite\.pages\.dev|lexkite\.pages\.dev)|capacitor:\/\/localhost|https?:\/\/localhost(:\d+)?)$/.test(o) ? { 'Access-Control-Allow-Origin': o, Vary: 'Origin' } : {}; };
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req), ...extra } });

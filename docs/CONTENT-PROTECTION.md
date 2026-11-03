@@ -14,14 +14,19 @@ Cập nhật 17/10/2026. Phía máy chủ/Cloudflare (phiên chính). Phía buil
 |---|---|---|---|
 | `lexkite_scraper_ua` | Custom rule | Block | Host lexkite.com/www, đường dẫn nội dung (dưới), không phải `.xml`, UA trống hoặc chứa `python-requests`, `python-urllib`, `python-httpx`, `aiohttp`, `scrapy`, `go-http-client`, `httrack`, `wget`, `libwww`, `okhttp`, `colly` |
 | `lexkite_headless` | Custom rule | Managed challenge | Như trên nhưng chỉ trang HTML (không `/packs/`), UA `HeadlessChrome`/`PhantomJS` |
-| `lexkite_content_rl` | Rate limiting | Block 10 s | > **40 request / 10 s / IP** vào đường dẫn nội dung **+ đúng 4 API công khai** `/api/ai`, `/api/contact`, `/api/report`, `/api/handoff` (`API_RL`, từ 2/11/2026; gói Free chỉ 1 luật RL → chung bộ đếm; đã thử live: request thứ ~48 → 429, mở lại sau 10 s) |
+| `lexkite_content_rl` | Rate limiting | Block 10 s | > **100 request / 10 s / IP** vào trang HTML nội dung (không `/packs/`) **+ đúng 4 API công khai** `/api/ai`, `/api/contact`, `/api/report`, `/api/handoff` (`API_RL`, từ 2/11/2026; gói Free chỉ 1 luật RL → chung bộ đếm) |
 
 **Đường dẫn nội dung:** `/<lang>/blog/` (15 ngôn ngữ), `/blog/` (301 cũ), `/tu-vung/`, `/ngu-phap/`, `/samples/`, `/speaking/`, `/viet-thu/`, `/en/vocabulary/`, `/en/samples/`, `/en/speaking/`, `/packs/` (gói nghĩa app tải lười).
 **Không bao giờ nằm trong phạm vi** (trừ 4 API khớp đúng đường dẫn ở luật RL): `/api/*`, `/sw.js`, `/js/`, `/css/`, `/icons/`, `/audio/`, `/img/`, `/i18n/`, `/screenshots/`, RSS/sitemap (`*.xml`), `media.lexkite.com`, `audio.lexkite.com` (test `scripts/test/protection.mjs` chặn hồi quy).
 **Miễn trừ mọi luật:** `cf.client.bot` (bot đã xác minh: Googlebot, Bingbot, Applebot, DuckDuckBot, Yandex, facebookexternalhit…). Luật custom còn miễn **header `X-Lexkite-CI`** = secret GitHub `LEXKITE_CI_HEADER` (bản sao `~/.config/lexkite/ci-header`, chmod 600; đã tạo 17/10/2026).
 
 **Vì sao các con số này:**
-- Mở 1 bài `/vi/blog/<bài>/` = **1 request** vào đường dẫn nội dung (CSS nội tuyến, icon ở `/icons/`, ảnh ở `media.lexkite.com`, đã đo 17/10). App chỉ tải `/packs/<lang>.json` 1 lần. Người đọc nhanh nhất ~1 trang/giây = 10/10 s → 40 dư ×4, đủ cho nhiều người chung IP (CGNAT nhà mạng, lớp học). Vượt ngưỡng chỉ bị *managed challenge* (thường tự qua), không bị chặn cứng.
+- Mở 1 bài `/vi/blog/<bài>/` = **1 request** vào đường dẫn nội dung (CSS nội tuyến, icon ở `/icons/`, ảnh ở `media.lexkite.com`, đã đo 17/10).
+- **Ngưỡng tính cho nhiều người chung 1 IP, không phải 1 người** (rà 3/11, `RL_BUDGET` trong `cf-waf-rules.mjs`): người dùng di động VN/ID/IN sau **CGNAT** nhà mạng, Wi-Fi trường/lớp học, văn phòng dùng chung 1 IP công khai. Ca xấu nhất có thật: giáo viên gửi link, **cả lớp ~50 em mở trong vài giây** → 50 request/10 s từ 1 IP. Ngưỡng cũ 40 chặn đúng ca này → nâng **100** (dư ×2). Vẫn chặn được kẻ cào thật đã gặp: **2/11 03:26 UTC, 1 IP VPS Đức (AS208137) giả UA Android, 257 request/10 s vào `/samples/`** – lọt UA rule, chỉ RL bắt được; ở ngưỡng 100 nó vẫn bị chặn sau 1 giây. Scrapy mặc định (16 luồng song song) cũng vượt 100 ngay giây đầu. Kẻ cào tự giãn < 10 req/s thì không ngưỡng nào của gói Free chặn được (ở 40 là < 4 req/s) – lớp chặn chính là luật UA/headless, ngưỡng 100 không làm yếu lớp đó.
+- **Block chứ không managed challenge:** luật chung bộ đếm với API `fetch()` (challenge trả trang HTML → app hỏng y như block), và gói Free chỉ có thời gian chặn 10 s → người thật chỉ phải chờ 10 s, không bị khóa lâu.
+- **`/packs/` không bị đếm RL** (vẫn nằm trong luật chặn UA công cụ): app `fetch('/packs/<lang>.json')` 1 lần, bị chặn thì `app.js` nhận `{}` và giữ suốt phiên → mất bản dịch; chỉ ~14 tệp nên RL vốn không chặn kịp kẻ cào nào (test kiểm số tệp < ngưỡng).
+- **Đo chặn nhầm thật:** `node scripts/cf-waf.mjs events 7` – liệt kê IP bị RL chặn theo ASN/quốc gia/UA. Dấu hiệu CGNAT: ASN nhà mạng di động (Viettel AS7552, VNPT AS45899, Mobifone AS131429, Telkomsel AS23693, Jio AS55836, Airtel AS45609) với **nhiều UA trình duyệt khác nhau** trên 1 IP → nâng `--rl-requests` (tối đa 200). Scraper: 1 UA, ASN hosting, hàng trăm request/10 s. Rà 3/11 (29/10–2/11): 240 request bị chặn, 217 là VPS Đức trên, còn lại là audit của chính mình (curl/`lexkite-live-audit` từ VNPT) – **0 người dùng thật**.
+- **Audit/crawler của mình** (SEO, `content-registry record`) không miễn được bằng header ở RL gói Free → tự giãn **≤ 5 req/s** (dưới ½ ngưỡng); 429 ở audit 2/11 là do audit chạy nhanh hơn ngưỡng cũ 40, không phải người dùng.
 - Rate limit gói Free chỉ cho dùng **đường dẫn + cf.client.bot** trong biểu thức (không host/header) → không miễn CI bằng header được; vì vậy CI tự giãn (`content-registry record` 1,5 s/request) và RL **không** tính `/blog/` trơn (trùng đường dẫn ảnh `media.lexkite.com/blog/…`).
 - **Không bật Bot Fight Mode:** gói Free không có luật bỏ qua → sẽ chặn GitHub Actions (`/api/studio`, `/api/drive` CLI, `/api/report` CLI), health check và add-on.
 - **Hotlink Protection: để TẮT.** Nó chỉ áp cho `.gif .ico .jpg .jpeg .png` trên zone, còn ảnh blog là WebP/AVIF ở `media.lexkite.com` → không bảo vệ được gì, chỉ thêm rủi ro cho `og-default.png`/icon khi hiển thị ở Google Images. Đã kiểm 17/10.
@@ -33,6 +38,7 @@ node scripts/cf-waf.mjs perms          # token làm được gì
 node scripts/cf-waf.mjs apply          # ghi luật (idempotent; giữ luật khác không phải lexkite_*); gói Free từ chối challenge cho RL → thêm --rl-action block
 node scripts/cf-waf.mjs verify --live  # so luật đang chạy + request thử thật (python-requests → 403, + header CI → 200, RSS/sw.js/api không bị chặn)
 node scripts/cf-waf.mjs live           # chỉ request thử (CI hằng tuần, không cần token)
+node scripts/cf-waf.mjs events 7       # ai bị rate limit chặn 7 ngày qua (ASN/quốc gia/UA) – soi chặn nhầm CGNAT
 ```
 Token áp luật: biến `CF_WAF_TOKEN` hoặc file `~/.config/lexkite/cf-waf-token` (dự phòng `cf-token`, nhưng token đó **không** có quyền WAF – xem §6).
 
@@ -89,4 +95,4 @@ Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WA
 ## 7. Đổi/gỡ khi cần
 - Đổi header CI: tạo giá trị mới → cập nhật `~/.config/lexkite/ci-header` + secret GitHub `LEXKITE_CI_HEADER` → `cf-waf apply`.
 - Tắt khẩn cấp: dash → Security → Security rules → tắt các luật tên `[lexkite] …` (hoặc xóa; `apply` tạo lại).
-- Người dùng thật kêu bị chặn: xem Security → Events, lọc `ref lexkite_*`; nâng `--rl-requests` (20–200).
+- Người dùng thật kêu bị chặn: `node scripts/cf-waf.mjs events 7` (hoặc Security → Events, lọc `ref lexkite_*`); nếu là CGNAT/trường học → sửa `RL_BUDGET` (hoặc `--rl-requests`, 20–200) rồi `apply`.

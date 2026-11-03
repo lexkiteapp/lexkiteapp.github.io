@@ -50,7 +50,7 @@
     applyTheme();
     updateChrome();
   }
-  const saveSettings = async () => { await Store.set('settingsAt', Date.now()); const r = await Store.set('settings', state.settings); if (window.VBNative && VBNative.scheduleReminder) VBNative.scheduleReminder({ ask: !!state.settings.onboarded }); return r; }; // app gốc: đặt lại giờ nhắc học
+  const saveSettings = async o => { await Store.set('settingsAt', Date.now()); const r = await Store.set('settings', state.settings); if (window.VBNative && VBNative.scheduleReminder) VBNative.scheduleReminder({ ask: !!(o && o.ask === true && state.settings.onboarded) }); return r; }; // app gốc: đặt lại giờ nhắc học; chỉ xin quyền khi người dùng tự bật nhắc học (saveSettings({ ask: true }))
 
   // Ngày có học = có ôn thẻ hoặc có XP
   function activeDays() {

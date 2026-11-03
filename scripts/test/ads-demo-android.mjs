@@ -21,14 +21,27 @@ const focus = () => (/(?:topResumedActivity|mResumedActivity)=ActivityRecord\{\S
 adb('logcat', '-c');
 adb('shell', 'pm', 'grant', PKG, 'android.permission.POST_NOTIFICATIONS');
 adb('shell', 'monkey', '-p', PKG, '-c', 'android.intent.category.LAUNCHER', '1');
+// Socket DevTools mang pid của tiến trình app: app bị khởi động lại (crash/hệ thống giết) → socket mới → nối lại forward mỗi lần connect()
 let sock = '';
-for (let k = 0; k < 30 && !sock; k++) { await sleep(2000); sock = (/@(webview_devtools_remote_\d+)/.exec(adb('shell', 'cat', '/proc/net/unix')) || [])[1] || ''; }
+const findSock = () => (/@(webview_devtools_remote_\d+)/.exec(adb('shell', 'cat', '/proc/net/unix')) || [])[1] || '';
+for (let k = 0; k < 30 && !sock; k++) { await sleep(2000); sock = findSock(); }
 if (!sock) { fail('Không thấy socket DevTools của WebView'); finish(); }
 adb('forward', 'tcp:9222', 'localabstract:' + sock);
 await sleep(6000);
+const pid = () => adb('shell', 'pidof', PKG).trim();
+info.pid0 = pid();
+/** Chẩn đoán khi mất DevTools: giả lập còn sống? app còn chạy (pid đổi = khởi động lại)? activity nào đang trước? WebView có trang nào? */
+const diag = async tag => {
+  let json = ''; try { json = (await (await fetch('http://127.0.0.1:9222/json')).text()).slice(0, 400); } catch (e) { json = 'ERR ' + e.message; }
+  const d = { tag, adb: adb('get-state').trim(), pid0: info.pid0, pid: pid(), focus: focus(), sock, socks: (adb('shell', 'cat', '/proc/net/unix').match(/@webview_devtools_remote_\d+/g) || []).join(' '), json,
+    log: adb('logcat', '-d', '-t', '400', '-v', 'brief').split('\n').filter(l => /lexkite|AndroidRuntime|FATAL|chromium|cr_|WebView|lowmemorykiller|ActivityManager: (Kill|Process)|am_crash|ANR/i.test(l)).slice(-25).map(l => l.slice(0, 220)) };
+  console.log('diag', JSON.stringify(d, null, 1)); (info.diag = info.diag || []).push(d); return d;
+};
 const connect = async () => {
-  let pages = []; for (let k = 0; k < 15 && !pages.length; k++) { try { pages = (await (await fetch('http://127.0.0.1:9222/json')).json()).filter(p => p.type === 'page'); } catch (e) { /* chờ */ } if (!pages.length) await sleep(2000); }
-  if (!pages.length) return false;
+  let pages = []; for (let k = 0; k < 15 && !pages.length; k++) {
+    const s2 = findSock(); if (s2 && s2 !== sock) { console.log('… socket DevTools đổi ' + sock + ' → ' + s2 + ' (app khởi động lại)'); sock = s2; adb('forward', 'tcp:9222', 'localabstract:' + sock); }
+    try { pages = (await (await fetch('http://127.0.0.1:9222/json')).json()).filter(p => p.type === 'page'); } catch (e) { /* chờ */ } if (!pages.length) await sleep(2000); }
+  if (!pages.length) { await diag('connect'); return false; }
   ws = new WebSocket(pages[0].webSocketDebuggerUrl);
   await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
   ws.onmessage = m => { const d = JSON.parse(m.data); if (d.id && pend.has(d.id)) { pend.get(d.id)(d); pend.delete(d.id); } };
@@ -51,7 +64,7 @@ for (let k = 0; k < 3; k++) {
   // mở lại như người dùng quay lại app (#/home) – tải lại giữ nguyên hash #/welcome của lần mở đầu thì vẫn là vùng cấm
   await ev("history.replaceState(null, '', location.pathname + location.search + '#/home'); location.reload(); return 1"); try { ws.close(); } catch (e) { /* bỏ qua */ }
   await sleep(8000);
-  if (!(await connect())) { fail('Mất DevTools sau khi tải lại'); finish(); }
+  if (!(await connect())) { const d = (info.diag || []).slice(-1)[0] || {}; fail('Mất DevTools sau khi tải lại – ' + (d.adb !== 'device' ? 'giả lập mất kết nối adb (' + d.adb + ')' : !d.pid ? 'app không còn chạy' : d.pid !== d.pid0 ? 'app đã khởi động lại (pid ' + d.pid0 + ' → ' + d.pid + ')' : 'WebView không có trang, activity ' + d.focus)); finish(); }
   // chờ vỏ ads.js + router vẽ trang đầu (app-loader nạp JS sau lần vẽ đầu)
   info.boot = await ev(`for (let k = 0; k < 30 && !(window.Ads && window.App && location.hash); k++) await new Promise(r => setTimeout(r, 500));
     return { plat: Capacitor.getPlatform(), plugin: !!(Capacitor.Plugins && Capacitor.Plugins.AdMob), on: !!(window.Ads && Ads.on()), cfg: (JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}).ads_android, hash: location.hash, onboarded: !!(App.state.settings || {}).onboarded }`);
