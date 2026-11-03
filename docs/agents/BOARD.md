@@ -100,7 +100,7 @@ Mẫu thẻ:
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
-### [B5-MEGA100-P4] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
+### [B5-MEGA100-P4] ⏳ CHỜ DUYỆT (03/11) · Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("100 bài khác chất lượng nữa"), tiếp tục mở rộng kho nội dung chuẩn SEO đa ngôn ngữ chất lượng cao từ 850 bài lên **950 bài** toàn repo Lexkite (100 bài mới).
 - **Yêu cầu kỹ thuật bắt buộc (100% PASS Quality Gates):**
   - Độ dài ≥ 1200 từ.
