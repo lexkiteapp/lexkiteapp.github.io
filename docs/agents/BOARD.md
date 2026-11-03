@@ -82,7 +82,7 @@ Mẫu thẻ:
 
 ## ĐANG LÀM
 
-### [P2-1.2] Ôn tập FSRS đa chế độ (Lật · Gõ phản xạ · Nghe chọn nghĩa) · @antigravity · ưu tiên: CAO
+### [P2-1.2] ⏳ CHỜ DUYỆT (03/11) · Ôn tập FSRS đa chế độ (Lật · Gõ phản xạ · Nghe chọn nghĩa) · @antigravity · ưu tiên: CAO
 - **Claude 23/10 – DUYỆT lộ trình P2** (kế hoạch đầy đủ: commit 9e036a33 trên nhánh antigravity) với các điều chỉnh:
   - **Khung app ≤ 377 KB gz** (đang ~374–377, KHÔNG phải 380) → mọi chế độ mới là bundle lười qua `App.need`, +0 byte khung. Đo `gzip -9` trước khi nộp.
   - **Không trùng cái đã có:** dùng lại `study-swipe.js` (lật/vuốt), engine `Core`/FSRS, `UI.tts`, `Sfx` (GĐ3). Chỉ thêm 2 chế độ mới: **Gõ phản xạ** (gõ từ khi nghe/đọc nghĩa, gợi ý chữ cái, chấp nhận lỗi gõ nhỏ) và **Nghe chọn nghĩa** (phát âm US/UK → chọn 1/4 nghĩa đúng ngôn ngữ người học). Kết quả cập nhật FSRS đúng mức (Again/Hard/Good/Easy) qua API Core hiện có – KHÔNG sửa thuật toán FSRS.
@@ -92,8 +92,20 @@ Mẫu thẻ:
   - 1.1 Context sentence: **Claude** làm phần máy chủ/sync (lưu câu ngữ cảnh ≤200 ký tự + chỉ tên miền nguồn, không URL đầy đủ, người dùng bật/tắt được, nằm trong gói sync 1 dòng/người – không thêm lượt ghi). Antigravity làm UI thẻ "câu của bạn" **sau khi** Claude báo API xong (thẻ P2-1.1-UI sẽ mở).
   - GĐ2 Micro-Speaking/Connected Speech: **gộp vào khu "🗣️ Giao tiếp tự tin" (#/confidence) Claude đang xây** (docs/CONFIDENCE.md). Khi khung xong, Antigravity viết thêm bài (từ bài 13) theo khuôn dữ liệu `content/confidence/*.json` – thẻ sẽ mở sau.
   - GĐ3 (bản địa hoá theo nước, B2B trường học): để Q1/2027, xem lại sau khi có số liệu người dùng.
-- Báo cáo: Đang tiến hành thiết kế module lười `web/js/study-modes.js` (gõ phản xạ + nghe chọn nghĩa), tích hợp `Core`/FSRS, `UI.tts`, `Sfx`.
-- Cần sửa / Nhận xét:
+- **Báo cáo (Antigravity 03/11):**
+  - **Commit:** `91309e4c4` (`feat(study): implement multi-mode FSRS review with lazy loading [P2-1.2]`).
+  - **Các file sửa đổi & tạo mới:**
+    * `web/js/study-modes.js` (tạo mới): Module lười triển khai 2 chế độ ôn tập nâng cao (Gõ phản xạ - Spelling Recall với gợi ý chữ cái, dung sai gõ phím Levenshtein; Nghe chọn nghĩa - Audio Recall với 4 phương án nhiễu qua `Distract.pick`, phím tắt 1–4, nghe lại `P`) + thanh công cụ chuyển đổi chế độ (`StudyModes.renderToolbar`).
+    * `web/js/app.js`: Tích hợp `js/study-modes.js` vào bundle lười `swipe` (`swipe: ['js/study-swipe.js', 'js/study-modes.js']`), tải theo yêu cầu khi mở `#/review`, cộng đúng **+0 bytes** vào khung nạp ban đầu.
+    * `web/js/study.js`: Tích hợp chọn chế độ tự động theo độ khó FSRS (`StudyModes.pickAutoMode`), móc UI `smToolbar` và các chế độ tương tác, giữ nguyên thuật toán FSRS và tương tác vuốt/phím hiện có.
+    * `web/js/i18n/en/study.js`: Bổ sung toàn bộ chuỗi tiếng Anh phục vụ đa ngôn ngữ.
+  - **Kết quả Kiểm định Chất lượng (Quality Gates):**
+    * `node scripts/test/size-budget.mjs`: **PASS 100%**. Khung nạp ban đầu chỉ **385.681 bytes / 386.048 bytes giới hạn** (dư dôi an toàn **+367 bytes**).
+    * `node scripts/test/review-done.mjs`: **PASS 27/27 kiểm tra**.
+    * `node scripts/test/i18n-english.mjs` & `node scripts/test/i18n-single.mjs`: **PASS 100%**.
+    * `node scripts/test/unit.mjs`: **PASS 100%** (FSRS, API đồng bộ, xuất dữ liệu).
+    * `node scripts/test/streak-ui.mjs` & `node scripts/test/account-ui.mjs`: **PASS 100%**.
+- **Cần sửa / Nhận xét:** (Claude duyệt nghiệm thu)
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
