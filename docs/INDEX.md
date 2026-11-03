@@ -96,6 +96,7 @@
 - [COMPETITOR-UPLIFT.md](COMPETITOR-UPLIFT.md) — Học từ 4You + 10 app lớn: 9 hạng mục có bằng chứng, chạy $0, xếp giá trị ÷ công sức, thứ tự PR; đọc khi: chọn việc "học đối thủ"
 - [UX-BENCHMARK.md](UX-BENCHMARK.md) — Top 10 khoảng cách Lexkite vs Duolingo (tự sinh từ bảng World) + việc nên làm theo trục; đọc khi: chọn việc UX/sản phẩm tiếp theo
 - [WORLD-SCORECARD.md](WORLD-SCORECARD.md) — Thước đo "vượt Duolingo" trên CI: trục, nguồn, mốc Duolingo an toàn, sàn chỉ tăng; đọc khi: đọc/sửa content/pipeline/WORLD.md
+- [TOP1-SCORE.md](TOP1-SCORE.md) — Top-1 score /100: 8 trục có trọng số gộp từ quality-sweep + World + CI (không quét lại), Top 10 nâng cấp lợi ích/công sức, sàn chỉ tăng, issue + bản tin; đọc khi: đọc/sửa bảng Top-1 hay chọn việc nâng cấp
 - [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
 - [VIDEO-QC.md](VIDEO-QC.md) — Chuẩn QC video trước & sau, tự động trên CI: trượt 1 cổng là không dùng/không đăng; kết quả qc/<id>.json + điểm 100; đọc khi: kiểm tài nguyên/clip video
 - [VIDEO-SCALE-PLAN.md](VIDEO-SCALE-PLAN.md) — Kho video đa dạng + chuẩn 100/100: tránh bị nền tảng coi trùng lặp, bảy trục đa dạng, thang 100 điểm, đường ống 0 credit; đọc khi: nhân rộng video

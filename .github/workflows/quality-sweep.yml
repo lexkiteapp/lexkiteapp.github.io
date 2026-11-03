@@ -195,7 +195,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22 }
+        with: { node-version: 22, cache: npm }
       - uses: actions/download-artifact@v4
         with: { path: qs-in, pattern: 'qs-*' }
       - name: Báo cáo
@@ -226,6 +226,27 @@ jobs:
         run: node scripts/quality/fix-queue.mjs qs-report/items.json
       - name: Dọn cache ảnh nền cũ (giữ bản mới nhất mỗi ngôn ngữ)
         run: gh cache list --key qs-baseline- --limit 100 --json id,key,createdAt --jq 'group_by(.key|split("-")[2])|map(sort_by(.createdAt)|reverse|.[1:][])|.[][]|.id' | xargs -r -n1 gh cache delete || true
+      - name: Lưu qs-report (Top-1 score hằng tuần đọc lại, không quét lại)
+        if: always()
+        run: cp qs-in/qs-lh/lh.json qs-report/lh.json 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qs-report
+          path: |
+            qs-report/items.json
+            qs-report/result.json
+            qs-report/lh.json
+          retention-days: 21
+          overwrite: true
+          if-no-files-found: ignore
+      - name: Top-1 score /100 (gộp quét đêm + World + CI; issue "Top-1 score" + 1 dòng bản tin; đỏ nếu dưới sàn) – docs/TOP1-SCORE.md
+        id: top1
+        continue-on-error: true
+        env: { GITHUB_TOKEN: '${{ github.token }}', JOURNEY_RESULT: '${{ needs.journey.result }}', QS_RUN_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}' }
+        run: |
+          npm ci --no-audit --no-fund >/dev/null
+          node scripts/top1/score.mjs --qs qs-report --lh qs-report/lh.json --ci --check --issue --summary
       - name: Trả thuê
         if: always()
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
@@ -235,3 +256,4 @@ jobs:
           total=$(node -p "require('./qs-report/result.json').total")
           if [ "$total" -gt 0 ]; then echo "::error::quality-sweep: $total lỗi – xem job summary + issue quality-sweep"; exit 1; fi
           if [ "${{ needs.journey.result }}" = failure ]; then echo "::error::journey-e2e đỏ – xem job journey"; exit 1; fi
+          if [ "${{ steps.top1.outcome }}" != success ]; then echo "::error::Top-1 score dưới sàn hoặc mất số đo – xem job summary + issue top1-score"; exit 1; fi
