@@ -3,7 +3,7 @@ title: "Phrasal Verbs Englisch Liste: Die 50 wichtigsten Verben"
 description: "Phrasal Verbs Englisch Liste mit Bedeutungen, Beispielsätzen und Eselsbrücken: Trennbare und untrennbare Verben für Beruf, Prüfung und Alltag."
 slug: phrasal-verbs-englisch-liste
 lang: de
-translationKey: phrasal-verbs-englisch-liste
+translationKey: phrasal-verb-thong-dung
 category: tu-vung
 tags: [phrasal-verbs, vokabeln, idioms]
 keyword: "phrasal verbs englisch liste"

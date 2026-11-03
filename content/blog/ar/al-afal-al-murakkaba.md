@@ -3,6 +3,7 @@ title: "الأفعال المركبة في اللغة الإنجليزية: أه
 description: "تعلم الأفعال المركبة في اللغة الإنجليزية: معاني حروف الجر، 50 فعلاً شائعاً للاستخدام اليومي، وقواعد الأفعال القابلة للفصل مع تمارين وتطبيقات."
 slug: al-afal-al-murakkaba
 lang: ar
+translationKey: phrasal-verb-thong-dung
 category: tu-vung
 tags: [phrasal-verbs, mufradat, vocabulary]
 keyword: "الأفعال المركبة في اللغة الإنجليزية"

@@ -3,7 +3,7 @@ title: "İngilizce Phrasal Verbs En Çok Kullanılanlar: 50 Deyimsel Fiil"
 description: "İngilizce phrasal verbs en çok kullanılanlar rehberi: Günlük konuşmada en sık çıkan 50 deyimsel fiil, edat mantığı, örnek cümleler ve ezber tüyoları."
 slug: ingilizce-phrasal-verbs-en-cok-kullanilanlar
 lang: tr
-translationKey: cum-dong-tu-tieng-anh-thong-dung
+translationKey: phrasal-verb-thong-dung
 category: tu-vung
 tags: [phrasal-verbs, kelime, deyimsel-fiiller]
 keyword: "ingilizce phrasal verbs en çok kullanılanlar"

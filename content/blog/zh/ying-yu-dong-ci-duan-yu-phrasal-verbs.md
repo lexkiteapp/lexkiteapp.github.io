@@ -3,7 +3,7 @@ title: "英语常用动词短语高频50例精讲：介词小品词逻辑拆解�
 description: "日常生活与雅思托福考试中最核心的英语常用动词短语高频50例精讲指南：深度剖析up、down、off、out等核心介词小品词的空间隐喻与逻辑脉络，告别机械死记硬背，结合生活例句、可拆分规则与随堂自测，助你地道运用动词短语。"
 slug: ying-yu-dong-ci-duan-yu-phrasal-verbs
 lang: zh
-translationKey: cum-dong-tu-tieng-anh-thong-dung
+translationKey: phrasal-verb-thong-dung
 category: tu-vung
 tags: [phrasal-verbs, duan-yu, ci-hui]
 keyword: "英语常用动词短语"

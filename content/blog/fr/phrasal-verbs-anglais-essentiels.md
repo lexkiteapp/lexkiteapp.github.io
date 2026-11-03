@@ -3,7 +3,7 @@ title: "Phrasal Verbs Anglais Indispensables: Top 50 et Astuces"
 description: "Découvrez les 50 phrasal verbs anglais indispensables classés par thème avec exemples concrets, astuces pour les retenir et quiz d'entraînement."
 slug: phrasal-verbs-anglais-essentiels
 lang: fr
-translationKey: cum-dong-tu-tieng-anh-thong-dung
+translationKey: phrasal-verb-thong-dung
 category: tu-vung
 tags: [phrasal-verbs, vocabulaire, verbes-a-particule]
 keyword: "phrasal verbs anglais indispensables"
