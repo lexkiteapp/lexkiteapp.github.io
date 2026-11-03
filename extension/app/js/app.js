@@ -238,6 +238,7 @@
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
@@ -1522,7 +1523,7 @@
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    setTimeout(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }, 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
