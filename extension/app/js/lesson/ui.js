@@ -190,8 +190,9 @@
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? ((window.LessonTeacher && LessonTeacher.SLOW) || 0.75) : 0.95; // 🐢 0,75× (file Kokoro giữ cao độ, không méo giọng)
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
     // karaoke: chỉ khi đang đọc đúng câu đang hiện; vòng tiến độ quanh loa của nút "Nghe lại"
-    const kw = L.kw && text === L.kwText ? L.kw : null, play = L.bub ? $('#lsnPlay') : null;
-    const onTick = (kw || play) ? f => { if (kw) kw.at(f); if (play) L.bub.playing(play, f); } : null;
+    // giữ tham chiếu lúc bắt đầu nói: tick/onEnd có thể tới SAU khi thoát bài (cleanup → L = null) – không đọc L trong callback
+    const kw = L.kw && text === L.kwText ? L.kw : null, bub = L.bub, play = bub ? $('#lsnPlay') : null;
+    const onTick = (kw || play) ? f => { if (kw) kw.at(f); if (play && play.isConnected) bub.playing(play, f); } : null;
     const done = () => { if (onTick) onTick(1); if (onEnd) onEnd(); };
     if (T) T.say(text, { rate, voice: VOICE(who), onEnd: done, onTick }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd: done }); }
   };
