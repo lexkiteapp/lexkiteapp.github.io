@@ -6,7 +6,14 @@ import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEG
 import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, siteChrome, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+// Khung Stitch v2.1 (bài viết = brand/stitch/web/post-*.html, danh sách = hub-*.html → web/js/st/web/{post,hub}.js + chrome.js; CSS web/css/st-w-{post,hub}.css)
+import { render as stRender, teacher, tr, compact } from './lib/st-web.mjs';
+import { kit, stitchBody, stitchQuiz, IMG_FILL, IMG_ABS, EMPTY_CLS, TAGS_CLS, CRUMB_A, LEGACY_CSS, HUB_JS } from './lib/blog-st.mjs';
+import { blogTools } from './lib/tools-links.mjs';
+import { blogDict } from './dict/links.mjs';
+import { blogMatch, videoHref, LABEL as VLABEL } from './lib/video-web.mjs';
+import { blogBylineData } from './lib/authority-links.mjs';
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
 import { loadAds, adsOn } from './lib/ads-static.mjs';
@@ -156,13 +163,13 @@ const thumbOf = (p, used) => { // used: ảnh đã dùng trong cùng lưới →
   if (pick) used?.add(pick.real);
   return pick ? { id: pick.real, alt: pick.alt || MEDIA[pick.real].alt || p.title } : { ...coverOf(p), fit: true };
 };
-function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 100vw' } = {}) {
+function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 100vw', cls = '' } = {}) {
   id = rid(id); const m = MEDIA[id];
   if (!m) return `<!-- thiếu ảnh ${esc(id)} -->`;
   if (!String(alt || '').trim() && m.alt) alt = m.alt; // ![](media:@s1 …) để trống alt → alt tự sinh từ bản ghi chụp
   const u = (w, f) => `${m.base || MBASE}blog/${stem(id, m)}-${w}.${f}`.replace('/blog/media/blog/', '/blog/media/');
   const set = f => m.widths.map(w => `${u(w, f)} ${w}w`).join(', '), mid = m.widths[Math.min(1, m.widths.length - 1)];
-  return `<picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${set('webp')}" sizes="${sizes}"><img src="${u(mid, 'webp')}" alt="${esc(alt)}" width="${m.w}" height="${m.h}" ${eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}></picture>`;
+  return `<picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${set('webp')}" sizes="${sizes}"><img${cls ? ` class="${cls}"` : ''} src="${u(mid, 'webp')}" alt="${esc(alt)}" width="${m.w}" height="${m.h}" ${eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}></picture>`;
 }
 const imgUrl = (id, w = 1440) => { const m = MEDIA[id]; if (!m) return `${SITE}/og-default.png`; if (m.og) return `${m.base || MBASE}blog/${m.key}-og.jpg`.replace(/^\//, SITE + '/'); const ww = m.widths.includes(w) ? w : m.widths.at(-1); return `${m.base || MBASE}blog/${stem(id, m)}-${ww}.webp`.replace(/^\//, SITE + '/'); };
 
@@ -269,9 +276,17 @@ function render(md, lang, cover) {
 // Nút đổi ngôn ngữ + danh sách chân trang: bản dịch của trang (alt = hreflang) → to(l) (chuyên mục cùng mã, trang giới thiệu) → blog ngôn ngữ đó → trang chủ ngôn ngữ đó
 const BLOG_LANGS = new Set([DEF, ...all.filter(p => p.status !== 'draft').map(p => p.lang)]); // ngôn ngữ có /<lang>/blog/ (xem vòng danh sách bên dưới)
 const parentOf = l => BLOG_LANGS.has(l) ? base(l) : landingHref(l);
-function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '' }) {
+// Đầu/chân trang chung của khung Stitch (chrome.js – từ mẫu trang chủ): cùng liên kết/chữ với trang chủ (content/landing/<lang>.json → nav), RSS vào cột Tài nguyên
+const LAND_EN = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8'));
+const landOf = l => { try { const x = JSON.parse(fs.readFileSync(`content/landing/${l}.json`, 'utf8')); return { ...LAND_EN, ...x, nav: { ...LAND_EN.nav, ...(x.nav || {}) } }; } catch (e) { return LAND_EN; } };
+const chromeOf = (lang, langHref) => { const c = landOf(lang), t = T(lang), appQ = `/app/?hl=${lang}`, vi = lang === 'vi', hlEn = vi ? 'vi' : 'en', b = base(lang);
+  return siteChrome({ lang, nav: [[appHref(lang), c.nav.app, lang], [b, c.nav.blog, lang], [vi ? '/tu-vung/' : '/en/vocabulary/', c.nav.vocab, hlEn], [vi ? '/samples/' : '/en/samples/', c.nav.samples, hlEn]],
+    open: [`${appQ}#/welcome/setup`, c.nav.start], signin: [`${appQ}#/welcome/login`, c.nav.login], home: landingHref(lang), langHref, label: c.langL, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extraRes: [[`${b}rss.xml`, 'RSS']] }); };
+// st = { k: 'post' | 'hub', d }: thân trang = khung Stitch (render() của scripts/lib/st-web.mjs, body.stw.st) – <head> SEO giữ nguyên như trang cũ
+function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '', st = null }) {
   const t = T(lang), b = base(lang), langHref = l => l === lang ? url : (alt.find(a => a.lang === l) || {}).url || to(l) || parentOf(l);
-  return `<!doctype html>
+  const page = st && stRender(st.k, st.d, { lang, chrome: chromeOf(lang, langHref) });
+  const html = `<!doctype html>
 <html lang="${lang}" dir="${T(lang).dir || 'ltr'}">
 <head>
 <meta charset="utf-8">
@@ -296,18 +311,21 @@ ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}
 <meta property="og:image:alt" content="${esc(imgAlt || title)}">
 <meta name="twitter:card" content="summary_large_image">
 ${extraHead}${jsonld.map(ld).join('\n')}
-<style>${CSS}\n${TAP_CSS}${VIDEOS.length ? BLOG_VIDEO_CSS : ''}${TOOL_BOX_CSS}</style>
+<style>${page ? `${page.css}\n${LEGACY_CSS}` : `${CSS}\n${TAP_CSS}${VIDEOS.length ? BLOG_VIDEO_CSS : ''}${TOOL_BOX_CSS}`}</style>
 </head>
-<body>
+${page ? `<body class="stw st">
+<a class="skip" href="#main">${t.skip}</a>
+${page.body}` : `<body>
 <a class="skip" href="#nd">${t.skip}</a>
 ${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samples]], open: [appHref(lang), t.open], home: landingHref(lang), lang, langHref })}
 <main id="nd">
 ${body}
 </main>
-${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref })}
+${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref })}`}
 ${script}
 </body>
 </html>`;
+  return page ? compact(html) : html; // khung Stitch: CSS nhóm → chỉ luật trang dùng + tên lớp ngắn (không đổi hình), như trang chủ
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
 const QUIZ_JS = `<script>(function(){var q=document.querySelector('.blog-quiz');if(!q)return;var l=function(){if(window._LK_QZ_S)return;window._LK_QZ_S=1;var s=document.createElement('script');s.src='/blog/quiz.js';s.defer=true;document.body.appendChild(s)};if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++)if(es[i].isIntersecting){o.disconnect();l();break}},{rootMargin:'300px'});o.observe(q)}else{l()}})();</script>`;
@@ -323,6 +341,15 @@ const quizBlock = p => {
   const L = QZ_I[p.lang] || QZ_I.en || [];
   return `<section class="blog-quiz" aria-label="${esc(L[0] || 'Quiz')}" data-quiz="${esc(JSON.stringify(cta ? { items, cta } : items))}" data-lang="${p.lang}" data-app="${esc(appHref(p.lang))}"><details class="toc"><summary>🧠 ${esc(L[0] || 'Quiz')} · ${esc(L[11] || '')}</summary><ol>${items.map(q => `<li><p><strong>${esc(q.q)}</strong></p><p>${q.options.map((o, i) => i === q.answer ? `<strong>✓ ${esc(o)}</strong>` : esc(o)).join(' · ')}</p>${q.explain ? `<p>${esc(q.explain)}</p>` : ''}</li>`).join('')}</ol></details></section>\n`;
 };
+// Mini-quiz trong thẻ Self-Check của mẫu Stitch (cùng dữ liệu/thuộc tính data-* với quizBlock → quiz.js không đổi)
+const quizSt = (p, K) => {
+  if (!p.quiz) return ''; const items = Array.isArray(p.quiz) ? p.quiz : (p.quiz && p.quiz.items) || [], cta = !Array.isArray(p.quiz) && p.quiz && p.quiz.cta;
+  if (!quizBlock(p)) return ''; const L = QZ_I[p.lang] || QZ_I.en || [];
+  return stitchQuiz(K, { label: L[0] || 'Quiz', summary: `${esc(L[0] || 'Quiz')} · ${esc(L[11] || '')}`, attrs: `aria-label="${esc(L[0] || 'Quiz')}" data-quiz="${esc(JSON.stringify(cta ? { items, cta } : items))}" data-lang="${p.lang}" data-app="${esc(appHref(p.lang))}"`,
+    items: items.map(q => `<li><p><strong>${esc(q.q)}</strong></p><p>${q.options.map((o, i) => i === q.answer ? `<strong>✓ ${esc(o)}</strong>` : esc(o)).join(' · ')}</p>${q.explain ? `<p>${esc(q.explain)}</p>` : ''}</li>`).join('') }).replace(/<strong>/g, K.strongO);
+};
+const minsOf = p => Math.max(1, Math.round(wordCount(p.body) / 220));
+const ST_ON = process.env.BLOG_STITCH !== '0'; // khung Stitch v2.1 (mặc định); BLOG_STITCH=0 = khung cũ (so sánh/khẩn cấp)
 const card = (p, h = 'h2', eager = false, used) => { const th = thumbOf(p, used); return `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic${th.fit ? ' fit' : ''}">${picture(th.id, th.alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`; };
 
 // ---------- Ghi file ----------
@@ -354,6 +381,30 @@ for (const p of posts) {
   const quizHtml = p.quiz ? quizBlock(p) : '';
   const topId = topicOf(p);
   const topicAction = topId ? `<a class="btn" href="${appHref(p.lang)}#/topic/${topId}" data-hit="cta_topic_click" data-page="blog">${t.saveTopic} ${t.dir === 'rtl' ? '←' : '→'}</a>` : '';
+  // ---- khung Stitch (bind/post.json): dữ liệu THẬT cho d.* ----
+  const K = kit(p.lang), sep = '\u0003';
+  const pieces = embedWatermark(withMid(blocks.map(x => x + sep), words, AD_MID ? adHold('blog_mid', p.lang) + sep : ''), `LK:${p.lang}/${p.slug}:${iso(pub).slice(0, 10).replace(/-/g, '')}`).split(sep).map(x => x.trim()).filter(Boolean);
+  const by = blogBylineData(p.lang, p.factChecked, x => fmtDate(x, p.lang)), catU = `${b}${sg.cat}/${p.category}/`, tagL = (p.tags || []).filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2);
+  const kits = [], vid = blogMatch(p, VIDEOS), tb = blogTools(p), db = blogDict(p);
+  if (vid) { const [lab, cta] = VLABEL[p.lang] || VLABEL.en; kits.push({ h: lab, rows: [{ href: videoHref(p.lang, vid.slug), t: vid.title, d: cta, lang: 'en', img: `<img class="${IMG_FILL}" src="${esc(vid.poster)}" alt="" width="180" height="320" loading="lazy" decoding="async">` }] }); }
+  if (tb) kits.push({ h: tb.h, rows: tb.items.map(([href, n, dd]) => ({ href, t: n, d: dd, lang: p.lang, ico: 'quiz' })) });
+  if (db) kits.push({ h: db.h, rows: db.items.map(e => ({ href: e.href, t: e.word, d: e.def, lang: 'en', ico: 'translate' })) });
+  const x = extOf(p.lang), relU = new Set();
+  const d = {
+    crumbs: crumbs.flatMap(([name, href], i) => i === crumbs.length - 1 ? [{ k: 'cur', name }] : [{ k: 'link', name, href }, { k: 'sep' }]),
+    catLink: `<a href="${catU}">${esc(cat)}</a>`, title: p.title, desc: p.description,
+    by: by ? `<a href="${by.team[0]}" rel="author">${esc(by.team[1])}</a>` : esc(t.by || 'Lexkite'), fc: by && by.fc ? `<a href="${by.fc[0]}">${esc(by.fc[1])}</a>` : '',
+    date: `<time datetime="${iso(pub)}">${fmtDate(pub, p.lang)}</time>${upd > pub + 864e5 ? ` · ${t.updated} <time datetime="${iso(upd)}">${fmtDate(upd, p.lang)}</time>` : ''}`, read: `${mins} ${t.min}`,
+    cover: picture(cv.id, cv.alt, { eager: true, cls: IMG_FILL }),
+    body: stitchBody(pieces, K, FAQ_RE) + quizSt(p, K) +
+      (tagL.length ? `<nav class="${TAGS_CLS}" aria-label="${t.tags}">${tagL.map(g => K.chip({ html: `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>` })).join('')}</nav>` : '') +
+      K.small({ html: `© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}` }),
+    tocL: t.toc, toc: toc.map((h, i) => ({ id: h.id, html: `${i + 1}. ${inline(h.txt)}` })),
+    ama: teacher('ama', 'explain', { size: 88, cls: 'chr flex-shrink-0' }), amaH: t.try, amaP: t.tryD, openL: t.open, app: appHref(p.lang),
+    topicBtn: topId ? K.teal({ href: `${appHref(p.lang)}#/topic/${topId}`, hit: 'cta_topic_click', label: t.saveTopic }) : '', kits,
+    after: adSlot(p.lang) + K.promoExt({ h: x.h, p: x.p, btn: x.btn, href: EXT_STORE, hit: 'cta_addon_click', hide: t.hide }) + K.promoPwa({ h: t.pwaH, p: t.pwaP, btn: t.pwaBtn, href: appHref(p.lang), hit: 'cta_pwa_click', hide: t.hide }),
+    relL: t.related, blog: b,
+    related: related.map(r => { const th = thumbOf(r, relU); return { href: postUrl(r), title: r.title, cat: catName(r.category, r.lang), read: `${minsOf(r)} ${t.min}`, cover: picture(th.id, th.alt, { sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw', cls: IMG_FILL }) }; }) };
   const body = `${crumbsHtml(crumbs)}
 <article class="post">
 <h1>${esc(p.title)}</h1>
@@ -368,7 +419,7 @@ ${extBox(p.lang)}
 ${pwaBox(p.lang)}
 </article>
 ${adSlot(p.lang)}${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${(u => related.map(x => card(x, 'h3', false, u)))(new Set()).join('')}</div></section>` : ''}`;
-  write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
+  write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld, st: ST_ON ? { k: 'post', d } : null,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
     script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` + SMART_CTA_JS + AD_JS }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
@@ -396,8 +447,23 @@ for (const lang of langs) {
 <nav class="cats" aria-label="${t.cat}"><a href="${b}"${g.kind === 'all' ? ' aria-current="page"' : ''}>${t.all}</a>${Object.keys(CATEGORIES).filter(k => list.some(p => p.category === k)).map(k => [k, catName(k, lang)]).map(([k, v]) => `<a href="${b}${sg.cat}/${k}/"${g.cat === k ? ' aria-current="page"' : ''}>${esc(v)}</a>`).join('')}</nav>
 ${items.length ? `<div class="grid">${(u => items.map((p, i) => card(p, 'h2', n === 1 && i < 2, u)))(new Set()).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}${sg.page}/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
+      // ---- khung danh sách Stitch (bind/hub.json – hợp đồng d ghi ở scripts/lib/st-web.mjs) ----
+      const tt = tr(lang), cr = crumbs.length > 1 ? crumbs : [[t.home, landingHref(lang)], [t.blog, b]], used = new Set();
+      const cards = items.map((p, i) => { const th = thumbOf(p, used); return { href: postUrl(p), title: p.title, excerpt: p.description, cat: catName(p.category, p.lang),
+        date: `<time datetime="${iso(when(p))}">${fmtDate(when(p), lang)}</time>`, read: `${minsOf(p)} ${t.min}`,
+        cover: picture(th.id, th.alt, { eager: n === 1 && i < 2, sizes: i ? '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' : '(min-width: 1080px) 560px, 100vw', cls: IMG_ABS }) }; });
+      const hd = { title: `${g.kind === 'all' ? (C.blogName[lang] || 'Blog') : g.h1}${n > 1 ? ` – ${t.page} ${n}` : ''}`, intro: g.desc,
+        crumbsL: tt('Đường dẫn trang'), crumbs: cr.map(([nm, cu], i) => i === cr.length - 1 ? `<span aria-current="page">${esc(nm)}</span>` : `<a class="${CRUMB_A}" href="${cu}">${esc(nm)}</a>`).join(' › '),
+        chips: [{ v: 'free', text: tt('Miễn phí 100% • Không tường phí') }], teacher: teacher('carlos', 'wave', { size: 190 }),
+        search: tt('Lọc bài viết trên trang này…'), countL: tt('Đang hiện'), count: `${items.length} / ${g.items.length}`,
+        filtersL: t.cat, filters: [{ label: t.all, href: b, on: g.kind === 'all' }, ...Object.keys(CATEGORIES).filter(k => list.some(p => p.category === k)).map(k => ({ label: catName(k, lang), href: `${b}${sg.cat}/${k}/`, on: g.cat === k }))],
+        featured: cards[0] ? { ...cards[0], date: `${cards[0].date} · ${cards[0].read}`, more: tt('Đọc toàn bài') } : {},
+        listH: tt('Bài viết mới nhất'), items: cards.slice(1), empty: items.length ? '' : `<p class="${EMPTY_CLS}">${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`,
+        pager: { label: t.page, links: [...(n > 1 ? [{ href: n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`, label: t.newer, rel: 'prev' }] : []), ...(n < pages ? [{ href: `${g.u}${sg.page}/${n + 1}/`, label: t.older, rel: 'next' }] : [])] },
+        cta: { kicker: tt('Lặp lại ngắt quãng & luyện ngắn mỗi ngày'), h: t.try, p: t.tryD, chips: [tt('Dùng trên web & Chrome')], btn: [appHref(lang), t.open], ext: [EXT_STORE, extOf(lang).btn] } };
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
-      write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
+      write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined,
+        st: ST_ON ? { k: 'hub', d: hd } : null, script: copyJs(lang) + (ST_ON ? `<script>${HUB_JS}</script><script>${EXT_JS}</script>` : '') }));
       if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
     }
   }

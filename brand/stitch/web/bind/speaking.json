@@ -1,0 +1,420 @@
+{
+ "remove": [
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(3)",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(4)",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(4)",
+  ":scope > :nth-child(3)",
+  ":scope > :nth-child(1)"
+ ],
+ "html": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.crumbs[0][0])",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.crumbs[1][0])",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": "e(d.crumbs[2][0])",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.h1)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(3)": "e(d.lead)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(1)": "d.carlos",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.carlosN)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2)": "e(d.bubble)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(1) > :nth-child(1)": "'mic'",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(1) > :nth-child(2)": "e(d.cta[2])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.partH[0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.partD[0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)": "e(d.partN[0])",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.partH[2])",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.partD[2])",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2)": "e(d.partN[2])",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.partH[1])",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.partD[1])",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.cueL)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.prepL)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.cue.q)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.youShould)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(4) > :nth-child(1)": "e(d.sampleL)",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.ctaK)",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(2)": "e(d.cta[0])",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(3)": "e(d.cta[1])",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.kit[0])",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.kit[1])",
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3) > :nth-child(2)": "e(d.kit[2])",
+  ":scope > :nth-child(2) > :nth-child(7) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.relH)",
+  ":scope > :nth-child(2) > :nth-child(7) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.relSub)",
+  ":scope > :nth-child(2) > :nth-child(7) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.allL)"
+ },
+ "attr": {
+  ":scope > :nth-child(2) > :nth-child(1)": {
+   "aria-label": "d.crumbL"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.crumbs[0][1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "href": "d.crumbs[1][1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "aria-current": "'page'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "aria-label": "d.partsL"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(1)": {
+   "href": "d.p1Href"
+  },
+  ":scope > :nth-child(2) > :nth-child(3)": {
+   "id": "'part-1'",
+   "aria-labelledby": "'ph-1'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "id": "'ph-1'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5)": {
+   "id": "'part-3'",
+   "aria-labelledby": "'ph-3'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "id": "'ph-3'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4)": {
+   "id": "'part-2'",
+   "aria-labelledby": "'ph-2'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "id": "'ph-2'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "href": "d.p2Href"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "lang": "'en'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "lang": "'en'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(3)": {
+   "lang": "'en'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5) > :nth-child(1)": {
+   "open": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "href": "d.p2Href"
+  },
+  ":scope > :nth-child(2) > :nth-child(7)": {
+   "aria-labelledby": "'rel'"
+  },
+  ":scope > :nth-child(2) > :nth-child(7) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "id": "'rel'"
+  },
+  ":scope > :nth-child(2) > :nth-child(7) > :nth-child(1) > :nth-child(2)": {
+   "href": "d.secHref"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(4) > :nth-child(1)": {
+   "uppercase": "d.cue.a.length ? 'uppercase' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5)": {
+   "mt-6": "d.cue.v.length ? 'mt-6' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2)": {
+   "lt:text-[#B37800]": "'lt:text-[#805500]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "lt:text-white": "'lt:text-[#10191B]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#98e5df]": "'lt:text-white'"
+  }
+ },
+ "tag": {
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "to": "nav"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "to": "a"
+  }
+ },
+ "text": {
+  "Examiner's Scoring Breakdown: Why this achieves Band 8.5+": "d.vocabL"
+ },
+ "repeat": [
+  {
+   "list": "d.chips",
+   "as": "c",
+   "variants": {
+    "chip": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+    "link": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > span",
+   "pick": "c.href ? 'link' : 'chip'",
+   "bind": {
+    "chip": {
+     "html": {
+      ":scope > span": "c.icon"
+     },
+     "attr": {
+      ":scope > span": {
+       "aria-hidden": "'true'"
+      }
+     },
+     "text": {
+      "IELTS 7.0–8.5 Target": "c.t"
+     }
+    },
+    "link": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "c.href"
+      }
+     },
+     "html": {
+      ":scope": "e(c.t)"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.p1",
+   "as": "q",
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > article",
+   "bind": {
+    "one": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(q.n)",
+      ":scope > :nth-child(1) > :nth-child(2)": "e(q.q)",
+      ":scope > :nth-child(1) > :nth-child(3)": "q.a",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(d.vocabL)"
+     },
+     "attr": {
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(3)": {
+       "lang": "'en'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(3)": {
+       "mb-4": "q.a ? 'mb-4' : 'hidden'"
+      },
+      ":scope > :nth-child(2)": {
+       "pt-3": "q.v.length ? 'pt-3' : 'hidden'"
+      }
+     },
+     "remove": [
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)"
+     ],
+     "repeat": [
+      {
+       "list": "q.v",
+       "as": "v",
+       "sel": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)",
+       "samples": ":scope > :nth-child(2) > :nth-child(2) > span",
+       "html": {
+        ":scope": "'<b lang=\"en\">' + e(v[0]) + '</b>' + (v[1] ? ' – ' + e(v[1]) : '')"
+       }
+      }
+     ]
+    }
+   },
+   "variants": {
+    "one": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)"
+   }
+  },
+  {
+   "list": "d.p3",
+   "as": "q",
+   "sel": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(2) > article",
+   "bind": {
+    "one": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(q.n)",
+      ":scope > :nth-child(1) > :nth-child(2)": "e(q.q)",
+      ":scope > :nth-child(1) > :nth-child(3)": "q.a",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(d.vocabL)",
+      ":scope > :nth-child(2) > :nth-child(2)": "e(q.vs)"
+     },
+     "attr": {
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(3)": {
+       "lang": "'en'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(3)": {
+       "mb-4": "q.a ? 'mb-4' : 'hidden'"
+      },
+      ":scope > :nth-child(2)": {
+       "pt-3": "q.v.length ? 'pt-3' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
+     },
+     "remove": [
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)"
+     ]
+    }
+   },
+   "variants": {
+    "one": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(2) > :nth-child(1)"
+   }
+  },
+  {
+   "list": "d.cue.points",
+   "as": "x",
+   "sel": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(3) > li",
+   "html": {
+    ":scope > :nth-child(2)": "e(x)"
+   },
+   "attr": {
+    ":scope > :nth-child(1)": {
+     "aria-hidden": "'true'"
+    }
+   }
+  },
+  {
+   "list": "d.cue.a",
+   "as": "p",
+   "sel": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(4) > :nth-child(2)",
+   "samples": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(4) > p",
+   "html": {
+    ":scope": "p"
+   },
+   "attr": {
+    ":scope": {
+     "lang": "'en'"
+    }
+   }
+  },
+  {
+   "list": "d.cue.v",
+   "as": "v",
+   "sel": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > p",
+   "html": {
+    ":scope": "'<strong lang=\"en\">' + e(v[0]) + '</strong>' + (v[1] ? ' – ' + e(v[1]) : '')"
+   }
+  },
+  {
+   "list": "d.rel",
+   "as": "c",
+   "variants": {
+    "pg": ":scope > :nth-child(2) > :nth-child(7) > :nth-child(2) > :nth-child(1)",
+    "one": ":scope > :nth-child(2) > :nth-child(7) > :nth-child(2) > :nth-child(1)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(7) > :nth-child(2) > a",
+   "pick": "c.rel ? 'pg' : 'one'",
+   "bind": {
+    "pg": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "e(c.tag)",
+      ":scope > :nth-child(2)": "e(c.title)",
+      ":scope > :nth-child(3)": "e(c.desc)",
+      ":scope > :nth-child(4) > :nth-child(1)": "'forum'",
+      ":scope > :nth-child(4) > :nth-child(2)": "e(c.meta)"
+     },
+     "attr": {
+      ":scope": {
+       "href": "c.href",
+       "rel": "c.rel"
+      },
+      ":scope > :nth-child(3)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "aria-hidden": "'true'"
+      },
+      ":scope > :nth-child(4) > :nth-child(1)": {
+       "aria-hidden": "'true'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1)": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
+     }
+    },
+    "one": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "e(c.tag)",
+      ":scope > :nth-child(2)": "e(c.title)",
+      ":scope > :nth-child(3)": "e(c.desc)",
+      ":scope > :nth-child(4) > :nth-child(1)": "'forum'",
+      ":scope > :nth-child(4) > :nth-child(2)": "e(c.meta)"
+     },
+     "attr": {
+      ":scope": {
+       "href": "c.href"
+      },
+      ":scope > :nth-child(3)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "aria-hidden": "'true'"
+      },
+      ":scope > :nth-child(4) > :nth-child(1)": {
+       "aria-hidden": "'true'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1)": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(1) > *": "shrink-0"
+ }
+}

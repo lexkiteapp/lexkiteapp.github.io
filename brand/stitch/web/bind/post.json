@@ -1,0 +1,685 @@
+{
+ "i18n": {
+  "Teacher Ama": "Giáo viên Ama",
+  "View all articles": "Xem tất cả bài viết",
+  "Read guide": "Đọc bài hướng dẫn",
+  "FREE INTERACTIVE DRILL": "Bài luyện tương tác miễn phí",
+  "Breadcrumb": "Đường dẫn trang"
+ },
+ "protos": {
+  "sec": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "attr": {
+    ":scope": {
+     "id": "'s-' + d.id"
+    }
+   }
+  },
+  "h2": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "attr": {
+    ":scope": {
+     "id": "d.id"
+    }
+   }
+  },
+  "h3": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "attr": {
+    ":scope": {
+     "id": "d.id"
+    }
+   }
+  },
+  "h4": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "attr": {
+    ":scope": {
+     "id": "d.id"
+    }
+   }
+  },
+  "lead": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "p": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(3)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "ul": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "li": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "html": {
+    ":scope > :nth-child(2)": "d.html"
+   }
+  },
+  "oli": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "num": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+   "html": {
+    ":scope": "e(d.n)"
+   },
+   "cls": {
+    ":scope": {
+     "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+    }
+   }
+  },
+  "litext": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "strong": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "tbl": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "attr": {
+    ":scope": {
+     "tabindex": "'0'"
+    }
+   }
+  },
+  "table": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "thr": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "th": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "tbody": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "tr": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "td": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(4)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "code": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "quote": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(4)",
+   "html": {
+    ":scope > :nth-child(2)": "d.html"
+   },
+   "tag": {
+    ":scope": {
+     "to": "blockquote"
+    }
+   }
+  },
+  "fig": {
+   "sel": ":scope > :nth-child(2) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "tag": {
+    ":scope": {
+     "to": "figure"
+    }
+   }
+  },
+  "cap": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(8) > :nth-child(1) > :nth-child(3)",
+   "html": {
+    ":scope": "d.html"
+   },
+   "tag": {
+    ":scope": {
+     "to": "figcaption"
+    }
+   }
+  },
+  "small": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(8) > :nth-child(1) > :nth-child(3)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "hr": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+   "html": {
+    ":scope": "''"
+   }
+  },
+  "chip": {
+   "sel": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope > :nth-child(2)": "d.html"
+   },
+   "cls": {
+    ":scope > :nth-child(2)": {
+     "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+    }
+   }
+  },
+  "link": {
+   "sel": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2)",
+   "html": {
+    ":scope": "d.html"
+   }
+  },
+  "cta": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(8)",
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(2)": "d.h",
+    ":scope > :nth-child(2) > :nth-child(1)": "e(d.btn)"
+   },
+   "attr": {
+    ":scope > :nth-child(2)": {
+     "href": "d.href",
+     "data-hit": "d.hit"
+    }
+   },
+   "addClass": {
+    ":scope > :nth-child(2) > :nth-child(2)": "ms-flip"
+   },
+   "remove": [
+    ":scope > :nth-child(1) > :nth-child(3)"
+   ],
+   "cls": {
+    ":scope > :nth-child(2)": {
+     "lt:text-white": "'lt:text-[#1e1b14]'"
+    }
+   }
+  },
+  "quiz": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5)",
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.h)"
+   },
+   "attr": {
+    ":scope": {
+     "id": "'quiz'"
+    }
+   },
+   "after": {
+    ":scope > :nth-child(1)": "d.html"
+   },
+   "remove": [
+    ":scope > :nth-child(4)",
+    ":scope > :nth-child(3)",
+    ":scope > :nth-child(2)",
+    ":scope > :nth-child(1) > :nth-child(2)"
+   ]
+  },
+  "faq": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(9)",
+   "attr": {
+    ":scope": {
+     "id": "'faq-' + d.id"
+    },
+    ":scope > :nth-child(1)": {
+     "id": "d.id"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1)": "d.h"
+   },
+   "after": {
+    ":scope > :nth-child(1)": "d.intro"
+   },
+   "repeat": [
+    {
+     "list": "d.items",
+     "as": "q",
+     "variants": {
+      "first": ":scope > :nth-child(2) > :nth-child(1)",
+      "one": ":scope > :nth-child(2) > :nth-child(2)"
+     },
+     "samples": ":scope > :nth-child(2) > details",
+     "pick": "i === 0 ? 'first' : 'one'",
+     "bind": {
+      "first": {
+       "attr": {
+        ":scope": {
+         "open": "''",
+         "id": "q.id"
+        }
+       },
+       "html": {
+        ":scope > :nth-child(1) > :nth-child(1)": "q.q",
+        ":scope > :nth-child(2)": "q.a"
+       },
+       "addClass": {
+        ":scope > :nth-child(1)": "min-h-[44px]"
+       }
+      },
+      "one": {
+       "attr": {
+        ":scope": {
+         "id": "q.id"
+        }
+       },
+       "html": {
+        ":scope > :nth-child(1) > :nth-child(1)": "q.q",
+        ":scope > :nth-child(2)": "q.a"
+       },
+       "addClass": {
+        ":scope > :nth-child(1)": "min-h-[44px]"
+       }
+      }
+     }
+    }
+   ]
+  },
+  "qa": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(9) > :nth-child(2) > :nth-child(2)",
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(1)": "d.q",
+    ":scope > :nth-child(2)": "d.a"
+   },
+   "addClass": {
+    ":scope > :nth-child(1)": "min-h-[44px]"
+   }
+  },
+  "teal": {
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3)",
+   "attr": {
+    ":scope": {
+     "href": "d.href",
+     "data-hit": "d.hit",
+     "data-page": "'blog'"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1)": "e(d.label)",
+    ":scope > :nth-child(2)": "'arrow_forward'"
+   },
+   "addClass": {
+    ":scope > :nth-child(2)": "ms-flip"
+   }
+  },
+  "promoExt": {
+   "sel": ":scope > :nth-child(2) > :nth-child(4)",
+   "attr": {
+    ":scope": {
+     "data-ext-cta": "'blog'",
+     "hidden": "''"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+     "href": "d.href",
+     "data-hit": "d.hit",
+     "data-page": "'blog'",
+     "target": "'_blank'",
+     "rel": "'noopener'"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "type": "'button'",
+     "data-ext-hide": "''"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(2)": "e(d.h)",
+    ":scope > :nth-child(1) > :nth-child(3)": "e(d.p)",
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1)": "e(d.btn)",
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "e(d.hide)"
+   },
+   "addClass": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] min-w-[44px] underline"
+   },
+   "tag": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "to": "button"
+    }
+   },
+   "remove": [
+    ":scope > :nth-child(1) > :nth-child(1)"
+   ],
+   "cls": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "dk:text-[#8BA3A6]": "'dk:text-[#EEF6F7]'",
+     "lt:text-[#f5ede0]": "'lt:text-[#FFFFFF]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+     "lt:text-white": "'lt:text-[#1e1b14]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(3)": {
+     "lt:text-[#a3f0e9]": "'lt:text-[#FFFFFF]'"
+    }
+   }
+  },
+  "promoPwa": {
+   "sel": ":scope > :nth-child(2) > :nth-child(4)",
+   "attr": {
+    ":scope": {
+     "data-pwa-cta": "'blog'",
+     "hidden": "''"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+     "href": "d.href",
+     "data-hit": "d.hit",
+     "data-page": "'blog'"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "type": "'button'",
+     "data-pwa-hide": "''"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(2)": "e(d.h)",
+    ":scope > :nth-child(1) > :nth-child(3)": "e(d.p)",
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1)": "e(d.btn)",
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "e(d.hide)"
+   },
+   "addClass": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] min-w-[44px] underline"
+   },
+   "tag": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "to": "button"
+    }
+   },
+   "remove": [
+    ":scope > :nth-child(1) > :nth-child(1)"
+   ],
+   "cls": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "dk:text-[#8BA3A6]": "'dk:text-[#EEF6F7]'",
+     "lt:text-[#f5ede0]": "'lt:text-[#FFFFFF]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+     "lt:text-white": "'lt:text-[#1e1b14]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(3)": {
+     "lt:text-[#a3f0e9]": "'lt:text-[#FFFFFF]'"
+    }
+   }
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.crumbs",
+   "as": "c",
+   "variants": {
+    "link": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+    "sep": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)",
+    "cur": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > *",
+   "pick": "c.k",
+   "bind": {
+    "link": {
+     "attr": {
+      ":scope": {
+       "href": "c.href"
+      }
+     },
+     "html": {
+      ":scope": "e(c.name)"
+     },
+     "addClass": {
+      ":scope": "inline-flex items-center justify-center min-h-[44px] min-w-[44px]"
+     }
+    },
+    "sep": {},
+    "cur": {
+     "attr": {
+      ":scope": {
+       "aria-current": "'page'"
+      }
+     },
+     "html": {
+      ":scope": "e(c.name)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.toc",
+   "as": "x",
+   "variants": {
+    "first": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+    "one": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > a",
+   "pick": "i === 0 ? 'first' : 'one'",
+   "bind": {
+    "first": {
+     "attr": {
+      ":scope": {
+       "href": "'#' + x.id"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(2)": "x.html"
+     },
+     "addClass": {
+      ":scope": "min-h-[44px]",
+      ":scope > :nth-child(1)": "ms-flip"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+      }
+     }
+    },
+    "one": {
+     "attr": {
+      ":scope": {
+       "href": "'#' + x.id"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(2)": "x.html"
+     },
+     "addClass": {
+      ":scope": "min-h-[44px]",
+      ":scope > :nth-child(1)": "ms-flip"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.kits",
+   "as": "k",
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3)",
+   "html": {
+    ":scope > :nth-child(1)": "e(k.h)"
+   },
+   "attr": {
+    ":scope": {
+     "aria-label": "k.h"
+    }
+   },
+   "repeat": [
+    {
+     "list": "k.rows",
+     "as": "r",
+     "sel": ":scope > :nth-child(3)",
+     "samples": ":scope > a",
+     "attr": {
+      ":scope": {
+       "href": "r.href"
+      },
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+       "lang": "r.lang"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "r.img || '<span class=\"material-symbols-outlined text-[20px]\">' + r.ico + '</span>'",
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(r.t)",
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(r.d)",
+      ":scope > :nth-child(2)": "'chevron_right'"
+     },
+     "addClass": {
+      ":scope > :nth-child(2)": "ms-flip",
+      ":scope > :nth-child(1) > :nth-child(1)": "overflow-hidden"
+     }
+    }
+   ]
+  },
+  {
+   "list": "d.related",
+   "as": "x",
+   "sel": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(2) > :nth-child(3)",
+   "samples": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(2) > a",
+   "attr": {
+    ":scope": {
+     "href": "x.href"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1)": "x.cover",
+    ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(x.cat)",
+    ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(x.read)",
+    ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(x.title)"
+   },
+   "addClass": {
+    ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "ms-flip"
+   },
+   "cls": {
+    ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+     "lt:text-[#FFC94A]": "'lt:text-[#B53A22]'"
+    }
+   }
+  }
+ ],
+ "html": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "d.catLink",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.title)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4)": "e(d.desc)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1)": "'LK'",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(2)": "d.by",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(3) > :nth-child(2)": "d.date",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(5) > :nth-child(2)": "e(d.read)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(7) > :nth-child(2)": "d.fc || ''",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1)": "d.body",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.tocL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.read)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(3)": "e(d.amaH)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.amaP)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(1)": "e(d.openL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(2)": "'arrow_forward'",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.relL)"
+ },
+ "after": {
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "d.cover",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "d.ama",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3)": "d.topicBtn || ''",
+  ":scope > :nth-child(2) > :nth-child(3)": "d.after"
+ },
+ "attr": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3)": {
+   "href": "d.app"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2)": {
+   "href": "d.blog"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)": {
+   "aria-label": "d.tocL"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(6)": {
+   "sm:inline": "d.fc ? 'sm:inline' : 'sm:hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(7)": {
+   "flex": "d.fc ? 'flex' : 'hidden'",
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)": {
+   "tactile-card": "d.toc.length >= 3 ? 'tactile-card' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5)": {
+   "mt-16": "d.related.length ? 'mt-16' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  }
+ },
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1)": "flex-wrap",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1)": "min-w-0",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2)": "min-w-0",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(2)": "ms-flip",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2)": "min-h-[44px]",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "ms-flip"
+ },
+ "tag": {
+  ":scope > :nth-child(2)": {
+   "to": "div"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)": {
+   "to": "nav"
+  }
+ },
+ "remove": [
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(1)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2)",
+  ":scope > :nth-child(2) > :nth-child(4)",
+  ":scope > footer",
+  ":scope > header"
+ ]
+}

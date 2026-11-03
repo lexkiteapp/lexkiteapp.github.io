@@ -1,0 +1,637 @@
+{
+ "chrome": true,
+ "i18n": {
+  "Curriculum Features": "Tính năng học tập",
+  "Browser Extension": "Tiện ích trình duyệt",
+  "Learning Path": "Lộ trình học tập",
+  "Open Syllabus": "Học liệu mở",
+  "Got Questions?": "Có thắc mắc?",
+  "Ready to climb?": "Sẵn sàng bứt phá?",
+  "Open menu": "Mở menu"
+ },
+ "repeat": [
+  {
+   "list": "d.nav",
+   "as": "n",
+   "sel": ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > a",
+   "attr": {
+    ":scope": {
+     "href": "n[0]",
+     "hreflang": "n[2]"
+    }
+   },
+   "text": {
+    "Blog": "n[1]"
+   },
+   "addClass": {
+    ":scope": "inline-flex items-center min-h-[44px] min-w-[44px]"
+   }
+  },
+  {
+   "list": "d.nav",
+   "as": "n",
+   "sel": ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+   "samples": ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1) > a",
+   "attr": {
+    ":scope": {
+     "href": "n[0]",
+     "hreflang": "n[2]"
+    }
+   },
+   "text": {
+    "Vocabulary": "n[1]"
+   },
+   "addClass": {
+    ":scope": "flex items-center min-h-[44px]"
+   }
+  },
+  {
+   "list": "d.cols",
+   "as": "c",
+   "variants": {
+    "one": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(2)",
+    "wide": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(4)"
+   },
+   "samples": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(2), :scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(3), :scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(4)",
+   "pick": "i === 2 ? 'wide' : 'one'",
+   "bind": {
+    "one": {
+     "text": {
+      "Product": "c.h"
+     },
+     "repeat": [
+      {
+       "list": "c.items",
+       "as": "it",
+       "sel": ":scope > ul > li:nth-child(1)",
+       "samples": ":scope > ul > li",
+       "attr": {
+        ":scope > a": {
+         "href": "it[0]"
+        }
+       },
+       "text": {
+        "Learning Path": "it[1]"
+       },
+       "addClass": {
+        ":scope > a": "inline-flex items-center min-h-[44px] min-w-[44px]"
+       }
+      }
+     ],
+     "cls": {
+      ":scope > ul": {
+       "space-y-2": "'space-y-0'"
+      }
+     }
+    },
+    "wide": {
+     "text": {
+      "Company": "c.h"
+     },
+     "repeat": [
+      {
+       "list": "c.items",
+       "as": "it",
+       "sel": ":scope > ul > li:nth-child(1)",
+       "samples": ":scope > ul > li",
+       "attr": {
+        ":scope > a": {
+         "href": "it[0]"
+        }
+       },
+       "text": {
+        "About Lexkite": "it[1]"
+       },
+       "addClass": {
+        ":scope > a": "inline-flex items-center min-h-[44px] min-w-[44px]"
+       }
+      }
+     ],
+     "cls": {
+      ":scope > ul": {
+       "space-y-2": "'space-y-0'"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.langs",
+   "as": "g",
+   "variants": {
+    "cur": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2) > :nth-child(2)",
+    "one": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2) > :nth-child(3)"
+   },
+   "samples": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2) > a",
+   "pick": "g.cur ? 'cur' : 'one'",
+   "bind": {
+    "cur": {
+     "attr": {
+      ":scope": {
+       "href": "g.href",
+       "lang": "g.l",
+       "hreflang": "g.l",
+       "aria-current": "'true'"
+      }
+     },
+     "text": {
+      "English": "g.name"
+     },
+     "addClass": {
+      ":scope": "inline-flex items-center min-h-[44px] min-w-[44px] justify-center"
+     }
+    },
+    "one": {
+     "attr": {
+      ":scope": {
+       "href": "g.href",
+       "lang": "g.l",
+       "hreflang": "g.l"
+      }
+     },
+     "text": {
+      "Español": "g.name"
+     },
+     "addClass": {
+      ":scope": "inline-flex items-center min-h-[44px] min-w-[44px] justify-center"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.trust",
+   "as": "x",
+   "variants": {
+    "item": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5) > :nth-child(1)",
+    "link": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5) > div",
+   "pick": "x[1] ? 'link' : 'item'",
+   "bind": {
+    "item": {
+     "text": {
+      "100% Free forever": "x[0]"
+     }
+    },
+    "link": {
+     "html": {
+      ":scope > :nth-child(2)": "e(x[0])"
+     },
+     "attr": {
+      ":scope": {
+       "href": "x[1]"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "a",
+       "addClass": "underline min-h-[44px]"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.grades",
+   "as": "g",
+   "variants": {
+    "ok": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)",
+    "one": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > div",
+   "pick": "g[1] ? 'ok' : 'one'",
+   "bind": {
+    "ok": {
+     "text": {
+      "B · resilient": "g[0]"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+      }
+     }
+    },
+    "one": {
+     "text": {
+      "A · resisted": "g[0]"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.rescards",
+   "as": "r",
+   "variants": {
+    "v1": ":scope > :nth-child(6) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+    "v2": ":scope > :nth-child(6) > :nth-child(1) > :nth-child(2) > :nth-child(2)",
+    "v3": ":scope > :nth-child(6) > :nth-child(1) > :nth-child(2) > :nth-child(3)",
+    "v4": ":scope > :nth-child(6) > :nth-child(1) > :nth-child(2) > :nth-child(4)",
+    "v5": ":scope > :nth-child(6) > :nth-child(1) > :nth-child(2) > :nth-child(5)"
+   },
+   "samples": ":scope > :nth-child(6) > :nth-child(1) > :nth-child(2) > a",
+   "pick": "r.v",
+   "bind": {
+    "v1": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2) > :nth-child(2)": "ms-flip"
+     },
+     "text": {
+      "Writing samples": "r.h",
+      "Band 8.0 & 9.0 model essays with sentence-by-sentence Lexical Resource breakdowns.": "r.p",
+      "Explore essays": "r.more"
+     }
+    },
+    "v2": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2) > :nth-child(2)": "ms-flip"
+     },
+     "text": {
+      "Speaking topics": "r.h",
+      "Part 2 cue cards and Part 3 abstract discussion prompts with natural native discourse markers.": "r.p",
+      "Cue card bank": "r.more"
+     }
+    },
+    "v3": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2) > :nth-child(2)": "ms-flip"
+     },
+     "text": {
+      "Grammar": "r.h",
+      "Inversion structures, third conditionals, gerund patterns, and common preposition slips.": "r.p",
+      "Rules & drills": "r.more"
+     }
+    },
+    "v4": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2) > :nth-child(2)": "ms-flip"
+     },
+     "text": {
+      "Vocabulary lists": "r.h",
+      "Curated topic sets: Environment, Technology, Urban Planning, Health, and Academic Nuances.": "r.p",
+      "Browse 180 sets": "r.more"
+     }
+    },
+    "v5": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2) > :nth-child(2)": "ms-flip"
+     },
+     "text": {
+      "Blog": "r.h",
+      "Deep dives by Teacher Ama and Carlos on exam changes, grading rubrics, and memory science.": "r.p",
+      "Read articles": "r.more"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.faq",
+   "as": "q",
+   "variants": {
+    "first": ":scope > :nth-child(7) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+    "one": ":scope > :nth-child(7) > :nth-child(1) > :nth-child(2) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(7) > :nth-child(1) > :nth-child(2) > details",
+   "pick": "i === 0 ? 'first' : 'one'",
+   "bind": {
+    "first": {
+     "attr": {
+      ":scope": {
+       "open": "''"
+      }
+     },
+     "text": {
+      "Is Lexkite really 100% free?": "q[0]",
+      "Yes. There are no paywalls, hidden credit card forms, or \"hearts\" lockouts that stop your practice. All core drills, spaced repetition decks, and the browser extension remain entirely open to all learners worldwide.": "q[1]"
+     },
+     "addClass": {
+      ":scope > summary": "min-h-[44px]"
+     }
+    },
+    "one": {
+     "text": {
+      "How does the spaced repetition algorithm (FSRS) work?": "q[0]",
+      "Lexkite utilizes the Free Spaced Repetition Scheduler (FSRS), an advanced cognitive memory model that outperforms traditional SM-2. It measures word complexity and your response lag to compute the optimal moment to review words just as neural recall begins to fade.": "q[1]"
+     },
+     "addClass": {
+      ":scope > summary": "min-h-[44px]"
+     }
+    }
+   }
+  }
+ ],
+ "html": {
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(1)": "d.globe",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1)": "d.globe",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "d.getApp",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "d.ama",
+  ":scope > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "d.extImg",
+  ":scope > :nth-child(8) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "d.carlos"
+ },
+ "after": {
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=2\" width=\"44\" height=\"44\" alt=\"\">'",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=2\" width=\"40\" height=\"40\" alt=\"\">'",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(2)": "d.extra[0]",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)": "d.extra[1]",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4)": "d.menu",
+  ":scope > :nth-child(9) > :nth-child(1)": "d.js ? '<script>' + d.js + '</script>' : ''"
+ },
+ "attr": {
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.home"
+  },
+  ":scope > :nth-child(1) > :nth-child(1)": {
+   "data-lsw": "''"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(1)": {
+   "type": "'button'",
+   "aria-haspopup": "'true'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'lsw-m'",
+   "aria-label": "d.lswLabel"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+   "type": "'button'",
+   "aria-haspopup": "'true'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'lsw-m'",
+   "aria-label": "d.lswLabel",
+   "data-lsw-alt": "''"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+   "type": "'button'",
+   "aria-controls": "'mnav'",
+   "aria-expanded": "'false'",
+   "data-mnav": "''"
+  },
+  ":scope > :nth-child(1) > :nth-child(2)": {
+   "id": "'mnav'"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(2)": {
+   "href": "d.signin[0]"
+  },
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "href": "d.signin[0]"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(3)": {
+   "href": "d.start[0]"
+  },
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "href": "d.start[0]"
+  },
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.home"
+  },
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2)": {
+   "aria-label": "d.langLabel"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+   "href": "d.start",
+   "data-cta": "'start'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+   "href": "d.store",
+   "target": "'_blank'",
+   "rel": "'noopener'",
+   "data-ext-cta": "'land'",
+   "hidden": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "lang": "'en'",
+   "dir": "'ltr'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3)": {
+   "lang": "'en'",
+   "dir": "'ltr'"
+  },
+  ":scope > :nth-child(3)": {
+   "id": "'features'"
+  },
+  ":scope > :nth-child(4)": {
+   "id": "'addon'"
+  },
+  ":scope > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(5) > :nth-child(1)": {
+   "href": "d.store",
+   "target": "'_blank'",
+   "rel": "'noopener'",
+   "data-ext-cta": "'feat'",
+   "hidden": "''"
+  },
+  ":scope > :nth-child(5)": {
+   "id": "'how'"
+  },
+  ":scope > :nth-child(6)": {
+   "id": "'free'"
+  },
+  ":scope > :nth-child(7)": {
+   "id": "'faq'"
+  },
+  ":scope > :nth-child(8) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+   "href": "d.start"
+  },
+  ":scope > :nth-child(8) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+   "href": "d.store",
+   "target": "'_blank'",
+   "rel": "'noopener'",
+   "data-ext-cta": "'final'",
+   "hidden": "''"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "whitespace-nowrap": "d.h1nw ? 'whitespace-nowrap' : 'whitespace-normal'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "lt:bg-[#2BA39A]": "'lt:bg-[#1F7A75]'",
+   "lt:border-[#1F7A75]": "'lt:border-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "opacity-90": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(3)": {
+   "lt:bg-[#1F7A75]/50": "'lt:bg-[#12514D]/50'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(2)": {
+   "text-[#FFB054]": "'lt:text-[#B53A22] dk:text-[#FFB054]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5)": {
+   "text-white": "'lt:text-[#0F3D3E] dk:text-[#091518]'",
+   "dk:bg-[#1B8A4E]": "'dk:bg-[#2FBF71]'",
+   "dk:border-[#2FBF71]": "'dk:border-[#1B8A4E]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#2FBF71]": "'lt:text-[#0F3D3E]'",
+   "dk:text-[#1B8A4E]": "'dk:text-[#091518]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "opacity-90": "''",
+   "dk:text-teal-100": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(5) > :nth-child(2)": {
+   "dk:bg-black/25": "'dk:bg-white/20'"
+  },
+  ":scope > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(3) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(8) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(3)": {
+   "lt:text-[#4E6668]/70": "'lt:text-[#4E6668]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "-left-12": "'-left-16'",
+   "sm:-left-16": "'sm:-left-[140px] lg:-left-[160px]'"
+  },
+  ".btn-3d-primary": {
+   "text-white": "'text-[#10191B]'"
+  }
+ },
+ "addClass": {
+  ":scope > :nth-child(1) > :nth-child(1)": "lsw",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(3) > :nth-child(2)": "ms-flip",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
+  ":scope > :nth-child(8) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(1)": "min-h-[44px] min-w-[44px] justify-center",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(2)": "inline-flex items-center min-h-[44px]",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(3)": "min-h-[44px]",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)": "min-h-[44px] min-w-[44px] justify-center",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] min-w-[44px]",
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "flex items-center justify-center min-h-[44px]",
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "flex items-center justify-center min-h-[44px]",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "min-h-[44px]"
+ },
+ "tag": {
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2)": {
+   "to": "nav"
+  }
+ },
+ "remove": [
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+  ":scope > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+  ":scope > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2)",
+  ":scope > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(3) > :nth-child(2)",
+  ":scope > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(2)",
+  ":scope > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(5) > :nth-child(2)",
+  ":scope > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(6) > :nth-child(2)",
+  ":scope > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(3)",
+  ":scope > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+  ":scope > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2)",
+  ":scope > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(3) > :nth-child(2)",
+  ":scope > :nth-child(7) > :nth-child(1) > :nth-child(1) > :nth-child(3)"
+ ],
+ "text": {
+  "Lexkite": "'Lexkite'",
+  "EN": "d.code",
+  "Sign in": "d.signin[1]",
+  "Get started": "d.start[1]",
+  "Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice.": "d.foot",
+  "Supported Languages:": "d.langLabel",
+  "© 2025 Lexkite Prep Inc. Tactile vocabulary mastery for IELTS, TOEIC & TOEFL. All rights reserved.": "d.copy",
+  "IELTS® is a registered trademark of Cambridge Assessment English and IDP. Lexkite is an independent educational suite.": "d.tm",
+  "For IELTS, TOEIC & TOEFL learners": "d.hero.eyebrow",
+  "English vocabulary that": "d.hero.h1a",
+  "sticks": "d.hero.h1b",
+  ", scores that climb.": "''",
+  "Master high-band collocations, formal nuances, and active recall with spaced repetition — structured like an addictive tactile game, 100% free.": "d.hero.lead",
+  "Start free": "d.hero.cta",
+  "Add to Chrome": "d.ext.btn",
+  "820 XP": "'820 XP'",
+  "IELTS Academic": "'/səˈsteɪnəbl/'",
+  "Unit 3": "'adj'",
+  "Writing Task 1 & Cohesion": "'sustainable'",
+  "Band 7.5+": "'B2'",
+  "\"The economy proved": "'Governments must invest in'",
+  "resilient": "'sustainable'",
+  "against shocks.\"": "'energy to protect future generations.'",
+  "Excellent!": "d.card.meaning",
+  "+10 XP • Academic Lexicon": "'+10 XP'",
+  "CONTINUE →": "d.cont",
+  "Everything you need to build your vocabulary": "d.featuresH",
+  "Tested cognitive models engineered for Cambridge IELTS, ETS TOEFL, and TOEIC exam criteria.": "d.featuresSub",
+  "Smart flashcards (FSRS)": "d.features[0][1]",
+  "IELTS, TOEIC & TOEFL practice": "d.features[1][1]",
+  "AI feedback on writing & speaking": "d.features[2][1]",
+  "Chrome add-on": "d.features[3][1]",
+  "Grammar & pronunciation": "d.features[4][1]",
+  "In 15 languages": "d.features[5][1]",
+  "Algorithmic interval scheduling serves cards right before memory decay occurs. Prioritizes C1/C2 collocations with zero cramming fatigue.": "d.features[0][2]",
+  "Targeted drills for Academic Writing Task 2, TOEIC Part 5 Incomplete Sentences, and TOEFL Integrated Reading passages with verified corpora.": "d.features[1][2]",
+  "Instant Lexical Resource scoring. Swap repeated low-band words like \"very bad\" or \"important\" for high-impact synonyms like \"detrimental\" and \"pivotal\".": "d.features[2][2]",
+  "Double-click any unfamiliar word on BBC, The Economist, or Wikipedia to inspect IPA phonetic transcription, band levels, and sync straight to your phone.": "d.features[3][2]",
+  "Dual UK Received Pronunciation and US General American audio with clear pitch markers, connected speech patterns, and preposition traps.": "d.features[4][2]",
+  "Bilingual definitions, false friends alerts, and native language grammar interference notes in Vietnamese, Spanish, Korean, Japanese, Chinese, and more.": "d.features[5][2]",
+  "Look up words on any website with one double-click": "d.ext.h",
+  "Turn your everyday web reading into high-scoring exam vocabulary. As you read The Economist, BBC, or academic papers, instant IELTS Band labels appear directly inline.": "d.ext.p",
+  "Real-time CEFR & IELTS Band tags (6.5, 7.5, 8.5)": "d.ext.pts[0]",
+  "Dual UK / US native pronunciation with stress marks": "d.ext.pts[1]",
+  "Instantly syncs to your phone for evening S-curve review": "d.ext.pts[2]",
+  "Install Chrome Extension (Free)": "d.ext.btn",
+  "economist.com/finance/logistical-shocks": "''",
+  "How it works": "d.stepsH",
+  "Pick your exam & target": "d.steps[0][0]",
+  "Learn a little every day": "d.steps[1][0]",
+  "Practise & track progress": "d.steps[2][0]",
+  "Select IELTS (Academic or General), TOEIC 850+, or TOEFL iBT. Lexkite tunes your syllabus to the exact vocabulary frequency curves required by your target score.": "d.steps[0][1]",
+  "Complete a 5-minute bite-sized drill on your phone or laptop. Contextual fill-in-the-blanks, minimal pair audio, and phrase assembly keep momentum strong without burnout.": "d.steps[1][1]",
+  "Inspect your estimated readiness score anytime. Watch words migrate from \"At Risk\" to \"Solid\" to \"Permanently Mastered\" in your personal memory graph.": "d.steps[2][1]",
+  "Free learning resources": "d.resH",
+  "All curriculum notes are public and open-access.": "d.resSub",
+  "Frequently asked questions": "d.faqH",
+  "Start building your vocabulary today": "d.finalH",
+  "Join learners mastering exam-ready academic phrases. No credit card, no ads, always free.": "d.finalP",
+  "Start learning — free": "d.hero.cta"
+ }
+}

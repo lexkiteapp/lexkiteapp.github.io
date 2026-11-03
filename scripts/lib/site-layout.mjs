@@ -37,7 +37,7 @@ export const CSS = `:root{${LT};--primary:#CC3F1C;--primary-ink:#fff;--primary-s
 @media (prefers-color-scheme:dark){:root{${DK};--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:8px;top:-60px;background:var(--surface);padding:8px 12px;z-index:9}.skip:focus{top:8px}
+.skip{position:absolute;left:8px;top:-60px;background:var(--surface);padding:8px 12px;z-index:9;min-height:44px;display:inline-flex;align-items:center}.skip:focus{top:8px}
 header.top{background:var(--surface);border-bottom:1px solid var(--line)}.bar{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;min-height:44px;gap:8px;font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-.02em}.logo b{color:var(--primary)}.logo img{border-radius:8px}
 nav.main{display:flex;gap:4px 14px;flex-wrap:wrap;font-weight:600;font-size:15px;margin-left:auto;align-items:center}nav.main a{color:var(--text);text-decoration:none}nav.main a:hover{color:var(--primary)}
@@ -223,16 +223,42 @@ export const TM_NOTE = {
 };
 // Lần nhắc đầu trong đoạn giới thiệu chân trang: "Lexkite – …" → "Lexkite™ – …" (không thêm nếu đã có)
 export const tmFirst = s => String(s || '').replace(/Lexkite(?!™)/, 'Lexkite™');
-export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '' }) => {
+// Cột chân trang (Sản phẩm · Học miễn phí · Thông tin & pháp lý) – nguồn duy nhất cho siteFooter (khung cũ) và siteChrome (khung Stitch)
+const footCols = (lang, extra = []) => {
   const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
-  const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
   const product = [[app, f[3]], [`${app}#/settings`, f[4]]];
   const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...toolFoot(lang), ...extra]; // + công cụ miễn phí (scripts/lib/tools-links.mjs) // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
   const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, f[17] || FOOT.en[17]]];
+  return { f, cols: [[f[0], product], [f[1], res], [f[2], co]] };
+};
+export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '' }) => {
+  const { f, cols } = footCols(lang, extra);
+  const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p>${getApp}</div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p>${getApp}</div>${cols.map(([h, items]) => col(h, items)).join('')}</div>
 <nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>
 <script>${LSW_JS}</script>`;
+};
+// ---------- Vỏ chung theo Stitch v2.1 (web/js/st/web/chrome.js – TỰ SINH từ brand/stitch/web/home-*.html + bind/home.json) ----------
+// Trả dữ liệu THẬT cho ST2.chrome(d) (scripts/lib/st-web.mjs render(…, {chrome})): cùng liên kết với siteHeader/siteFooter (footCols, langSwitch, TM_NOTE).
+//   CHỮ THÔ (chưa escape – khung tự escape); các trường *html (menu, extra, getApp) là HTML dựng sẵn. Trang nào cũng truyền được (blog, bài mẫu…):
+//   nav [[href, chữ, hreflang]] · open/signin [href, chữ] · extra: HTML chèn cạnh nút (vd "Tải app") · langHref(l) = trang tương đương bằng ngôn ngữ l.
+//   Menu ngôn ngữ = khối lsw cũ (LSW_JS + LSW_CSS: aria-haspopup, 1 menu ẩn 15 mục lang/hreflang) gắn lên thanh đầu trang Stitch: nút 🌐 máy tính là nút chính,
+//   nút 🌐 điện thoại (data-lsw-alt) bấm hộ nút chính + soi aria-expanded. Nút ☰ (aria-controls/expanded) bật lớp `hidden` của khung menu Stitch.
+//   Cả hai trong MNAV_JS (nối sau LSW_JS, không handler nội tuyến → hợp CSP).
+export const MNAV_JS = `(function(d){var g=d.querySelector('[data-lsw-alt]'),r=g&&g.closest('[data-lsw]'),q=r&&r.querySelector('[aria-haspopup]');if(q&&q!==g){g.onclick=function(){q.click()};new MutationObserver(function(){g.setAttribute('aria-expanded',q.getAttribute('aria-expanded'))}).observe(q,{attributes:true,attributeFilter:['aria-expanded']})}
+var b=d.querySelector('[data-mnav]'),m=b&&d.getElementById(b.getAttribute('aria-controls'));if(!m)return;b.onclick=function(){var o=m.classList.toggle('hidden');b.setAttribute('aria-expanded',o?'false':'true')};d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.classList.contains('hidden')){m.classList.add('hidden');b.setAttribute('aria-expanded','false');b.focus()}})})(document);`;
+export const lswMenu = ({ lang, langHref = landingHref, label, id = 'lsw-m' }) => { const L = esc(label || (FOOT[lang] || FOOT.en)[16]), cur = lang in LANG_NAMES ? lang : 'en';
+  return `<ul class="lsw-m" id="${id}" role="menu" aria-label="${L}" translate="no" hidden>${Object.entries(LANG_NAMES).map(([l, n]) => `<li role="none"><a href="${langHref(l)}" lang="${l}" hreflang="${l}" role="menuitem"${l === 'ar' ? ' dir="rtl"' : ''}${l === cur ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul>`; };
+// Biến màu chung của khối cũ (lsw, lhint, quiz.js, ô quảng cáo…) trên trang khung Stitch (body.stw) = token Stitch --st-* (tự đổi sáng/tối) – landing + blog
+export const STW_VARS = 'body.stw{--surface:rgb(var(--st-surface-container-lowest));--line:rgb(var(--st-outline-variant));--text:rgb(var(--st-on-surface));--muted:rgb(var(--st-on-surface-variant));--primary:rgb(var(--st-secondary));--accent-soft:rgb(var(--st-secondary-container)/.25);--tap:44px;color:var(--text)}';
+export const siteChrome = ({ lang = 'en', nav = [], open, signin, home, extra = '', langHref = landingHref, label, text = '', tm = '', year = new Date().getFullYear(), extraRes = [], getApp = '', js = '' }) => {
+  const { f, cols } = footCols(lang, extraRes), cur = lang in LANG_NAMES ? lang : 'en', L = label || f[16];
+  return { lang: cur, code: cur.toUpperCase(), home: home || landingHref(cur), nav, start: open, signin: signin || open,
+    lswLabel: `${cur.toUpperCase()} – ${L}: ${LANG_NAMES[cur]}`, langLabel: L,
+    menu: lswMenu({ lang: cur, langHref, label: L }), globe: GLOBE.replace('<svg ', '<svg width="16" height="16" '), extra: Array.isArray(extra) ? extra : [extra, extra],
+    cols: cols.map(([h, items]) => ({ h, items })), foot: tmFirst(text), getApp, tm, copy: `© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}`,
+    langs: Object.entries(LANG_NAMES).map(([l, name]) => ({ l, name, href: langHref(l), cur: l === cur })), js: LSW_JS + '\n' + MNAV_JS + (js ? '\n' + js : '') };
 };
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
 export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site + u })) });

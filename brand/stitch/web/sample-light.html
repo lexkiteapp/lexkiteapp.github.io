@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Writing Task 2 – Band 8.0 Sample | Lexkite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Newsreader"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+              dark: '#0F3D3E',
+              muted: '#4E6668',
+              teal: '#2BA39A',
+              tealDeep: '#1F7A75',
+              tealLedge: '#12514D',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FFB054',
+              gold: '#FFC94A',
+              ink: '#10191B',
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 5px 0 #B53A22',
+            'tactile-btn-pressed': '0 2px 0 #B53A22',
+            'tactile-teal': '0 5px 0 #12514D',
+            'tactile-card': '0 4px 0 #D8CFBC',
+            'tactile-subtle': '0 2px 0 #E2D7C2',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tactile button mechanics & interactive states */
+    .btn-tactile-coral {
+      background: linear-gradient(180deg, #FF6F56 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 #B53A22;
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    .btn-tactile-teal {
+      background: linear-gradient(180deg, #32B6AC 0%, #2BA39A 100%);
+      box-shadow: 0 5px 0 #12514D;
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #12514D;
+    }
+
+    .btn-tactile-white {
+      background: #FFFFFF;
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-white:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Essay highlighted badges */
+    .hl-vocab {
+      background-color: #E6F5F4;
+      color: #0F5B54;
+      border-bottom: 2px solid #2BA39A;
+      padding: 0.12rem 0.35rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.15s;
+    }
+    .hl-vocab:hover {
+      background-color: #D3EFEA;
+    }
+
+    .hl-link {
+      background-color: #FFF3E2;
+      color: #9A5A00;
+      border-bottom: 2px solid #FFB054;
+      padding: 0.12rem 0.35rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.15s;
+    }
+    .hl-link:hover {
+      background-color: #FFE7C7;
+    }
+
+    .hl-gram {
+      background-color: #FEECE8;
+      color: #B2301B;
+      border-bottom: 2px solid #F2553B;
+      padding: 0.12rem 0.35rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.15s;
+    }
+    .hl-gram:hover {
+      background-color: #FDD7CF;
+    }
+
+    /* Audio play mini tactile */
+    .phrase-card {
+      transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.12s;
+    }
+    .phrase-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #D8CFBC;
+    }
+    .phrase-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-brand-ink font-sans antialiased min-h-screen selection:bg-brand-teal selection:text-white">
+
+  <!-- ==================== SHARED PUBLIC HEADER ==================== -->
+  <header class="sticky top-0 z-50 bg-[#FFF7EA]/95 backdrop-blur-md border-b-2 border-brand-border/80">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 h-18 flex items-center justify-between py-3">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <!-- SVG Kite Mark -->
+        <div class="w-9 h-9 relative flex items-center justify-center">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform group-hover:scale-105">
+            <!-- Kite faceted diamond body -->
+            <path d="M20 3L35 17L20 37L5 17L20 3Z" fill="#2BA39A"/>
+            <path d="M20 3L35 17L20 22L5 17L20 3Z" fill="#32B6AC"/>
+            <path d="M20 22L35 17L20 37L20 22Z" fill="#1F7A75"/>
+            <!-- Center diamond core -->
+            <path d="M20 12L24 18L20 25L16 18L20 12Z" fill="#FFC94A"/>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-[22px] font-extrabold tracking-tight text-brand-dark font-sans leading-none">Lexkite</span>
+          <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-brand-border/60 text-brand-muted uppercase tracking-wider">Prep</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#" class="px-3.5 py-2 text-[14px] font-bold text-brand-dark/80 hover:text-brand-dark rounded-lg hover:bg-brand-border/30 transition-colors">Blog</a>
+        <a href="#" class="px-3.5 py-2 text-[14px] font-bold text-brand-dark/80 hover:text-brand-dark rounded-lg hover:bg-brand-border/30 transition-colors">Vocabulary</a>
+        <a href="#" class="px-3.5 py-2 text-[14px] font-bold text-brand-teal rounded-lg bg-brand-teal/10 font-bold border-b-2 border-brand-teal">Samples</a>
+        <a href="#" class="px-3.5 py-2 text-[14px] font-bold text-brand-dark/80 hover:text-brand-dark rounded-lg hover:bg-brand-border/30 transition-colors flex items-center gap-1.5">
+          <span>Open app</span>
+          <span class="material-symbols-rounded text-[16px] text-brand-muted">open_in_new</span>
+        </a>
+      </nav>
+
+      <!-- Trailing Controls & CTAs -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Language Globe Chip -->
+        <button class="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-brand-border bg-white text-[12px] font-extrabold text-brand-dark shadow-sm hover:bg-amber-50/50 transition-colors">
+          <span class="material-symbols-rounded text-[16px] text-brand-muted">language</span>
+          <span>EN</span>
+        </button>
+
+        <!-- Ghost Sign in -->
+        <a href="#" class="hidden sm:inline-flex text-[14px] font-extrabold text-brand-dark hover:text-brand-teal px-3 py-1.5 transition-colors">Sign in</a>
+
+        <!-- 3D Tactile "Get started" button -->
+        <a href="#" class="btn-tactile-coral text-white font-extrabold text-[13px] sm:text-[14px] px-4 sm:px-5 py-2 rounded-xl flex items-center gap-1.5 shadow-tactile-btn">
+          <span>Get started</span>
+          <span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="md:hidden p-2 rounded-lg border border-brand-border bg-white text-brand-dark hover:bg-brand-border/20 transition-colors" aria-label="Toggle Navigation">
+          <span class="material-symbols-rounded text-[22px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <main class="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 sm:py-8 lg:py-10">
+
+    <!-- Breadcrumb Row -->
+    <nav class="flex items-center gap-2 text-[13px] font-bold text-brand-muted mb-4 overflow-x-auto whitespace-nowrap pb-1">
+      <a href="#" class="hover:text-brand-dark transition-colors flex items-center gap-1">
+        <span class="material-symbols-rounded text-[16px]">home</span>
+        <span>Home</span>
+      </a>
+      <span class="text-brand-border text-base">›</span>
+      <a href="#" class="hover:text-brand-dark transition-colors">Samples</a>
+      <span class="text-brand-border text-base">›</span>
+      <span class="text-brand-dark font-extrabold">Writing Task 2</span>
+    </nav>
+
+    <!-- Page Title & Taxonomy Header -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-center gap-2.5 mb-3">
+        <!-- Band Score Badge -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-[12px] font-extrabold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span>Band 8.0 Model</span>
+        </div>
+        <!-- Task Type Badge -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border-2 border-brand-border text-brand-dark text-[12px] font-bold">
+          <span class="material-symbols-rounded text-[15px] text-brand-teal">edit_note</span>
+          <span>Opinion / Discussion (Double-Sided)</span>
+        </div>
+        <!-- Word count & timing metadata -->
+        <div class="inline-flex items-center gap-3 text-[12px] font-bold text-brand-muted ml-auto sm:ml-0">
+          <span class="flex items-center gap-1"><span class="material-symbols-rounded text-[15px]">schedule</span> 40 mins recommended</span>
+          <span>•</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-rounded text-[15px]">format_align_left</span> 288 words</span>
+        </div>
+      </div>
+
+      <h1 class="text-[28px] sm:text-[34px] lg:text-[40px] font-extrabold text-brand-dark tracking-tight leading-[1.18] max-w-4xl">
+        IELTS Writing Task 2 – Band 8.0 Sample
+      </h1>
+      <p class="text-[15px] sm:text-[16px] text-brand-muted mt-2 max-w-3xl leading-relaxed">
+        Full official examiner-standard answer analyzed with syntactic patterns, lexical cohesion connectors, and advanced topic collocations for academic test readiness.
+      </p>
+    </div>
+
+    <!-- 2-COLUMN DESKTOP GRID (Content 820px + Sticky Side Rail 360px) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+      <!-- ==================== LEFT COLUMN: STUDY DESK ARTIFACTS ==================== -->
+      <section class="lg:col-span-8 flex flex-col gap-6 sm:gap-8">
+
+        <!-- 1. Question Card -->
+        <div class="bg-white rounded-2xl border-2 border-brand-border p-5 sm:p-6 shadow-tactile-card">
+          <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-brand-border/60">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 font-extrabold text-[13px]">Q</span>
+              <span class="text-[13px] font-extrabold tracking-wider uppercase text-brand-dark">Official Essay Prompt</span>
+            </div>
+            <span class="text-[12px] font-bold text-brand-muted bg-[#FFF7EA] px-2.5 py-0.5 rounded-full border border-brand-border">Cambridge IELTS Academic</span>
+          </div>
+
+          <div class="bg-[#FFF7EA]/80 rounded-xl p-4 sm:p-5 border-l-4 border-brand-coral">
+            <blockquote class="text-[16px] sm:text-[17px] font-medium text-brand-dark leading-relaxed italic">
+              “Some people believe that university education should be completely free for everyone, regardless of their financial background. Others argue that students should contribute to their tuition fees because higher education primarily benefits the individual.”
+            </blockquote>
+            <p class="text-[14px] font-extrabold text-brand-dark mt-3 not-italic">
+              Discuss both views and give your own opinion. Give reasons for your answer and include any relevant examples from your knowledge or experience.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. Structure Outline Card -->
+        <div class="bg-white rounded-2xl border-2 border-brand-border p-5 sm:p-6 shadow-tactile-card">
+          <div class="flex items-center justify-between mb-4 pb-2 border-b border-brand-border/60">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-brand-teal text-[22px]">account_tree</span>
+              <h2 class="text-[15px] font-extrabold text-brand-dark uppercase tracking-wider">Essay Structure Outline</h2>
+            </div>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-brand-teal/10 text-brand-teal font-mono">4-Paragraph Architecture</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <!-- Intro -->
+            <div class="p-3.5 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/40">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-5 h-5 rounded-full bg-brand-dark text-white text-[11px] font-extrabold flex items-center justify-center">1</span>
+                <span class="text-[13px] font-extrabold text-brand-dark">Introduction</span>
+              </div>
+              <p class="text-[13px] text-brand-muted leading-snug">
+                Paraphrase the tertiary education funding dilemma + state clear thesis that government subsidy with nominal contributions yields optimal social mobility.
+              </p>
+            </div>
+
+            <!-- Body 1 -->
+            <div class="p-3.5 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/40">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-5 h-5 rounded-full bg-brand-dark text-white text-[11px] font-extrabold flex items-center justify-center">2</span>
+                <span class="text-[13px] font-extrabold text-brand-dark">Body Paragraph 1</span>
+              </div>
+              <p class="text-[13px] text-brand-muted leading-snug">
+                <strong>View 1 (Free access):</strong> Democratic equalization, preventing generational socio-economic inequality, and cultivating skilled workforce.
+              </p>
+            </div>
+
+            <!-- Body 2 -->
+            <div class="p-3.5 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/40">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-5 h-5 rounded-full bg-brand-dark text-white text-[11px] font-extrabold flex items-center justify-center">3</span>
+                <span class="text-[13px] font-extrabold text-brand-dark">Body Paragraph 2</span>
+              </div>
+              <p class="text-[13px] text-brand-muted leading-snug">
+                <strong>View 2 (Personal fees):</strong> Private salary returns, institutional quality retention, avoiding excessive burden on taxpayer coffers.
+              </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="p-3.5 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/40">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-5 h-5 rounded-full bg-brand-dark text-white text-[11px] font-extrabold flex items-center justify-center">4</span>
+                <span class="text-[13px] font-extrabold text-brand-dark">Conclusion</span>
+              </div>
+              <p class="text-[13px] text-brand-muted leading-snug">
+                Synthesize both viewpoints: propose an income-contingent repayable loan mechanism balancing meritocratic equity and state solvency.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Colour Key Legend Card -->
+        <div class="bg-white rounded-2xl border-2 border-brand-border p-4 sm:p-5 shadow-tactile-card">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
+            <span class="text-[12px] font-extrabold tracking-wider uppercase text-brand-muted flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-brand-amber text-[18px]">palette</span>
+              Interactive Linguistic Colour Key
+            </span>
+            <span class="text-[11px] font-medium text-brand-muted">Click or hover highlights to trace rubric components</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+            <!-- Teal Item -->
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#E6F5F4] border border-[#2BA39A]/40">
+              <span class="w-3 h-3 rounded-full bg-brand-teal"></span>
+              <span class="text-[13px] font-extrabold text-[#0F5B54]">Topic Vocabulary</span>
+              <span class="text-[11px] font-bold text-brand-teal/80 bg-white/80 px-1.5 py-0.5 rounded">C1/C2 Lexis</span>
+            </div>
+
+            <!-- Amber Item -->
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#FFF3E2] border border-[#FFB054]/40">
+              <span class="w-3 h-3 rounded-full bg-brand-amber"></span>
+              <span class="text-[13px] font-extrabold text-[#9A5A00]">Linking & Discourse</span>
+              <span class="text-[11px] font-bold text-amber-700/80 bg-white/80 px-1.5 py-0.5 rounded">Cohesion</span>
+            </div>
+
+            <!-- Coral Item -->
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#FEECE8] border border-[#F2553B]/40">
+              <span class="w-3 h-3 rounded-full bg-brand-coral"></span>
+              <span class="text-[13px] font-extrabold text-[#B2301B]">Grammar Structures</span>
+              <span class="text-[11px] font-bold text-brand-coral/80 bg-white/80 px-1.5 py-0.5 rounded">Syntactic Range</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Model Answer (Focused Study Desk Reading Area) -->
+        <article class="bg-white rounded-2xl border-2 border-brand-border p-6 sm:p-8 lg:p-10 shadow-tactile-card">
+          <div class="flex items-center justify-between mb-6 pb-3 border-b-2 border-brand-border/60">
+            <div>
+              <span class="text-[11px] font-extrabold tracking-widest uppercase text-brand-muted">Official Transcribed Essay</span>
+              <h2 class="text-[20px] sm:text-[22px] font-extrabold text-brand-dark">Model Answer (Band 8.0)</h2>
+            </div>
+            <button class="btn-tactile-white border-2 border-brand-border text-brand-dark px-3 py-1.5 rounded-xl text-[12px] font-extrabold flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[16px] text-brand-teal">content_copy</span>
+              <span>Copy essay</span>
+            </button>
+          </div>
+
+          <!-- Comfortable Reading Width Paragraphs with annotations -->
+          <div class="font-serif text-[18px] sm:text-[19px] leading-[1.8] text-[#1c2e32] flex flex-col gap-6 max-w-[720px]">
+            
+            <!-- Paragraph 1 -->
+            <p>
+              <span class="hl-link">Whether</span> tertiary education <span class="hl-gram">ought to be entirely subsidised</span> by the state or co-funded by undergraduates remains a fiercely debated subject in modern socio-economic discourse. While proponents of state-sponsored tuition champion the principle of <span class="hl-vocab">meritocratic access</span>, <span class="hl-link">others contend that</span> graduates reap substantial personal dividends that justify financial contribution. <span class="hl-link">In my estimation</span>, a balanced framework encompassing <span class="hl-vocab">income-contingent student contributions</span> offers the most sustainable pathway for social mobility and institutional vitality.
+            </p>
+
+            <!-- Paragraph 2 -->
+            <p>
+              <span class="hl-link">On the one hand</span>, advocates for free higher education argue that intellectual capital is a public utility rather than a commodified privilege. When university admissions are liberated from tuition costs, individuals from <span class="hl-vocab">underprivileged backgrounds</span> are no longer deterred by <span class="hl-vocab">prohibitive debt burdens</span>, thereby dismantling entrenched generational inequality. <span class="hl-link">Furthermore</span>, <span class="hl-gram">not only does widespread graduation stimulate</span> overall technological productivity, <span class="hl-gram">but it also equips</span> the domestic economy with vital specialists, such as epidemiologists and software engineers, whose collective contributions far <span class="hl-vocab">outweigh initial exchequer outlays</span>.
+            </p>
+
+            <!-- Paragraph 3 -->
+            <p>
+              <span class="hl-link">On the other hand</span>, compelling arguments underline the necessity of direct student financing. Given that tertiary degree holders statistically command significantly higher <span class="hl-vocab">lifetime earning potential</span> compared to non-graduates, <span class="hl-gram">it is frequently regarded as inequitable</span> to expect the general tax base—many of whom never entered university—to underwrite private professional ascension. <span class="hl-link">Moreover</span>, public universities reliant entirely on government coffers frequently encounter severe <span class="hl-vocab">budgetary bottlenecks</span>, which inevitably <span class="hl-vocab">compromise infrastructural standards</span> and teaching caliber unless supplemental revenue streams are preserved.
+            </p>
+
+            <!-- Paragraph 4 -->
+            <p>
+              <span class="hl-link">In conclusion</span>, while the idealistic vision of universal gratis tuition is commendable, practical fiscal constraints and fairness dictate that students share the burden. <span class="hl-gram">Were governments to implement</span> flexible, state-underwritten loans payable only after reaching a prosperous income threshold, society would successfully preserve both <span class="hl-vocab">uncompromised educational equity</span> and <span class="hl-vocab">fiscal solvency</span>.
+            </p>
+          </div>
+
+          <!-- Bottom Examiner Rubric Scorecard -->
+          <div class="mt-8 pt-6 border-t-2 border-brand-border/60 bg-[#FFF7EA]/50 -mx-6 sm:-mx-8 lg:-mx-10 -mb-6 sm:-mb-8 lg:-mb-10 p-6 sm:p-8 rounded-b-2xl">
+            <h3 class="text-[13px] font-extrabold uppercase tracking-wider text-brand-dark mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-brand-teal text-[18px]">verified</span>
+              Cambridge Examiner Scoring Breakdown
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="bg-white p-3 rounded-xl border border-brand-border shadow-tactile-subtle">
+                <span class="text-[11px] font-bold text-brand-muted block">Task Achievement</span>
+                <span class="text-[18px] font-extrabold text-brand-dark">Band 8.5</span>
+                <span class="text-[10px] text-emerald-700 block font-medium">Fully developed position</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-brand-border shadow-tactile-subtle">
+                <span class="text-[11px] font-bold text-brand-muted block">Coherence & Cohesion</span>
+                <span class="text-[18px] font-extrabold text-brand-dark">Band 8.0</span>
+                <span class="text-[10px] text-emerald-700 block font-medium">Flawless paragraph flow</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-brand-border shadow-tactile-subtle">
+                <span class="text-[11px] font-bold text-brand-muted block">Lexical Resource</span>
+                <span class="text-[18px] font-extrabold text-brand-dark">Band 8.5</span>
+                <span class="text-[10px] text-emerald-700 block font-medium">Precise academic lexis</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-brand-border shadow-tactile-subtle">
+                <span class="text-[11px] font-bold text-brand-muted block">Grammar Accuracy</span>
+                <span class="text-[18px] font-extrabold text-brand-dark">Band 8.0</span>
+                <span class="text-[10px] text-emerald-700 block font-medium">Complex inversions</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Useful Phrases Section (27 Phrases in Two Columns) -->
+        <div class="bg-white rounded-2xl border-2 border-brand-border p-6 sm:p-8 shadow-tactile-card">
+          <div class="flex items-center justify-between mb-5 pb-3 border-b-2 border-brand-border/60">
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-[20px] font-extrabold text-brand-dark">Useful phrases (27)</h2>
+                <span class="px-2 py-0.5 rounded-full bg-brand-coral/10 text-brand-coral text-[11px] font-extrabold">Exam Gold</span>
+              </div>
+              <p class="text-[13px] text-brand-muted mt-0.5">High-scoring academic collocations extracted from this essay to add to your Lexkite deck.</p>
+            </div>
+            <button class="hidden sm:inline-flex btn-tactile-white border-2 border-brand-border text-brand-dark text-[12px] font-extrabold px-3 py-1.5 rounded-xl items-center gap-1.5">
+              <span class="material-symbols-rounded text-brand-teal text-[16px]">bookmark_add</span>
+              <span>Save all 27</span>
+            </button>
+          </div>
+
+          <!-- Two Column Phrase Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            
+            <!-- Col 1 Phrases -->
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">meritocratic access</span>
+                <span class="text-[12px] text-brand-muted">equal opportunity based on talent rather than wealth</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0" title="Listen pronunciation">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">income-contingent contributions</span>
+                <span class="text-[12px] text-brand-muted">loan repayments calibrated strictly to salary level</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">prohibitive debt burdens</span>
+                <span class="text-[12px] text-brand-muted">unmanageable loans that deter matriculation</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">dismantling entrenched inequality</span>
+                <span class="text-[12px] text-brand-muted">breaking long-standing systemic social disparities</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">lifetime earning potential</span>
+                <span class="text-[12px] text-brand-muted">cumulative financial trajectory over a working career</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">underwrite private ascension</span>
+                <span class="text-[12px] text-brand-muted">taxpayers funding individual career progression</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">severe budgetary bottlenecks</span>
+                <span class="text-[12px] text-brand-muted">acute monetary shortages choking institutional ops</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">compromise infrastructural standards</span>
+                <span class="text-[12px] text-brand-muted">deteriorate laboratory, library, and tech facilities</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">outweigh initial exchequer outlays</span>
+                <span class="text-[12px] text-brand-muted">economic benefits surpassing initial government spending</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors block">preserve fiscal solvency</span>
+                <span class="text-[12px] text-brand-muted">maintain state budgetary stability without bankruptcy</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <!-- Col 2 Connectors & Patterns -->
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-amber transition-colors block">In my estimation</span>
+                <span class="text-[12px] text-brand-muted">nuanced C1 synonym for 'In my personal opinion'</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-amber hover:bg-brand-amber hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-amber transition-colors block">reap substantial personal dividends</span>
+                <span class="text-[12px] text-brand-muted">enjoy significant long-term personal gains</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-amber hover:bg-brand-amber hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-coral transition-colors block">not only does X stimulate... but it also</span>
+                <span class="text-[12px] text-brand-muted">negative inversion grammar pattern for Task 2 Band 8</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-coral hover:bg-brand-coral hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <div class="phrase-card p-3 rounded-xl border-2 border-brand-border bg-[#FFF7EA]/30 flex items-start justify-between gap-3 shadow-tactile-subtle cursor-pointer group">
+              <div>
+                <span class="text-[14px] font-extrabold text-brand-dark group-hover:text-brand-coral transition-colors block">Were governments to implement...</span>
+                <span class="text-[12px] text-brand-muted">inverted conditional hypothesis ('If governments implemented')</span>
+              </div>
+              <button class="w-8 h-8 rounded-lg bg-white border border-brand-border flex items-center justify-center text-brand-coral hover:bg-brand-coral hover:text-white transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+            </div>
+
+            <!-- Truncated preview notice showing total 27 count -->
+            <div class="md:col-span-2 p-3 bg-brand-border/20 border border-dashed border-brand-border rounded-xl flex items-center justify-between text-[13px] font-bold text-brand-muted">
+              <span>+ 13 additional collocations indexed in the Lexkite Drill Deck</span>
+              <a href="#" class="text-brand-teal hover:underline font-extrabold flex items-center gap-1">
+                <span>View all 27 cards</span>
+                <span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ==================== RIGHT COLUMN: STICKY SIDE RAIL ==================== -->
+      <aside class="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-24">
+
+        <!-- Practice Widget Box with 2D Illustrated Teacher Ama -->
+        <div class="bg-white rounded-2xl border-2 border-brand-border p-6 shadow-tactile-card relative overflow-hidden">
+          
+          <!-- Top tag -->
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-extrabold text-[11px] uppercase tracking-wider">Interactive Drill</span>
+            <div class="flex items-center gap-1 text-[12px] font-extrabold text-amber-600">
+              <span class="material-symbols-rounded text-[16px]">local_fire_department</span>
+              <span>+35 XP</span>
+            </div>
+          </div>
+
+          <h3 class="text-[19px] font-extrabold text-brand-dark leading-tight mb-2">
+            Practise this essay's vocabulary in Lexkite
+          </h3>
+          <p class="text-[13px] text-brand-muted mb-4 leading-relaxed">
+            Test yourself on the 27 collocations and grammar inversions before they decay from memory.
+          </p>
+
+          <!-- 2D Illustrated Teacher Slot (Ama: Black woman, curly hair bun, yellow headband, coral blouse, navy blazer, standing full-body) -->
+          <div class="my-4 py-3 px-4 bg-[#FFF7EA] rounded-xl border border-brand-border flex items-center gap-4">
+            
+            <!-- Ama full body vector avatar slot -->
+            <div class="w-18 h-28 relative flex-shrink-0 flex items-center justify-center">
+              <svg width="70" height="110" viewBox="0 0 70 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Soft floor shadow -->
+                <ellipse cx="35" cy="104" rx="26" ry="5" fill="#E5D9C2"/>
+                
+                <!-- Navy Blazer / Skirt -->
+                <path d="M22 68L20 98H33L35 70H22Z" fill="#1A2C38"/>
+                <path d="M35 70L37 98H50L48 68H35Z" fill="#13232E"/>
+                
+                <!-- Legs / Shoes -->
+                <rect x="25" y="98" width="6" height="4" rx="2" fill="#0F171E"/>
+                <rect x="39" y="98" width="6" height="4" rx="2" fill="#0F171E"/>
+
+                <!-- Coral Blouse -->
+                <path d="M24 45H46L49 68H21L24 45Z" fill="#F2553B"/>
+                
+                <!-- Navy Blazer Open Front -->
+                <path d="M19 45L27 68H20L15 48L19 45Z" fill="#1F3644"/>
+                <path d="M51 45L43 68H50L55 48L51 45Z" fill="#192C38"/>
+                
+                <!-- Right Hand Pointing Gesturing upward toward CTA -->
+                <path d="M49 50L62 38L64 42L52 56L49 50Z" fill="#7A4B3A"/>
+                <circle cx="63" cy="38" r="3" fill="#7A4B3A"/>
+
+                <!-- Left Arm relaxed -->
+                <path d="M21 50L14 62L17 65L24 55L21 50Z" fill="#7A4B3A"/>
+
+                <!-- Neck -->
+                <rect x="32" y="38" width="6" height="8" rx="2" fill="#7A4B3A"/>
+
+                <!-- Head / Face -->
+                <circle cx="35" cy="30" r="11" fill="#7A4B3A"/>
+                
+                <!-- Friendly Glasses -->
+                <circle cx="31" cy="30" r="3.5" stroke="#FFC94A" stroke-width="1.2" fill="none"/>
+                <circle cx="39" cy="30" r="3.5" stroke="#FFC94A" stroke-width="1.2" fill="none"/>
+                <line x1="34.5" y1="30" x2="35.5" y2="30" stroke="#FFC94A" stroke-width="1.2"/>
+
+                <!-- Warm Smile -->
+                <path d="M33 36C34.2 37.2 35.8 37.2 37 36" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+
+                <!-- Yellow Headband -->
+                <path d="M24 24C27 20 43 20 46 24" stroke="#FFC94A" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- Curly Bun Hair -->
+                <circle cx="35" cy="15" r="9" fill="#1C1815"/>
+                <circle cx="28" cy="18" r="6" fill="#1C1815"/>
+                <circle cx="42" cy="18" r="6" fill="#1C1815"/>
+                <circle cx="25" cy="26" r="4" fill="#1C1815"/>
+                <circle cx="45" cy="26" r="4" fill="#1C1815"/>
+              </svg>
+            </div>
+
+            <!-- Speech bubble note from Ama -->
+            <div class="text-[12px] leading-snug">
+              <span class="font-extrabold text-brand-dark block mb-0.5">Teacher Ama's Tip:</span>
+              <span class="text-brand-muted italic">“Examiners award higher bands when you vary sentence starters. Tap below to master the 4 inversion formulas!”</span>
+            </div>
+          </div>
+
+          <!-- Chunky 3D Practise CTA Button -->
+          <a href="#" class="btn-tactile-coral w-full py-3.5 px-4 rounded-xl text-white font-extrabold text-[15px] flex items-center justify-center gap-2 shadow-tactile-btn text-center block">
+            <span class="material-symbols-rounded text-[20px]">play_circle</span>
+            <span>Practise this in Lexkite</span>
+          </a>
+
+          <!-- Secondary Deck Sync Button -->
+          <button class="btn-tactile-white w-full mt-3 py-2.5 px-4 rounded-xl border-2 border-brand-border text-brand-dark font-extrabold text-[13px] flex items-center justify-center gap-1.5 shadow-tactile-subtle">
+            <span class="material-symbols-rounded text-brand-teal text-[18px]">add_to_photos</span>
+            <span>Save to "Writing 7.5+ Deck"</span>
+          </button>
+        </div>
+
+        <!-- Quick Band Reference Sheet -->
+        <div class="bg-white rounded-2xl border-2 border-brand-border p-5 shadow-tactile-card">
+          <h4 class="text-[14px] font-extrabold uppercase tracking-wider text-brand-dark mb-3 flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-brand-teal text-[18px]">menu_book</span>
+            <span>Quick Task 2 Cheat-Sheet</span>
+          </h4>
+          <ul class="text-[13px] text-brand-muted space-y-2.5">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-rounded text-brand-teal text-[16px] mt-0.5">check_circle</span>
+              <span><strong>Word floor:</strong> Minimum 250 words; target 275–290 to prevent penalization.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-rounded text-brand-teal text-[16px] mt-0.5">check_circle</span>
+              <span><strong>Balanced view:</strong> Devote roughly equal word count to each perspective before your thesis.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-rounded text-brand-teal text-[16px] mt-0.5">check_circle</span>
+              <span><strong>Inverted conditional:</strong> Use <em>"Were governments to..."</em> for effortless Band 8.5 range.</span>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- ==================== YOU MAY ALSO LIKE (4 RELATED SAMPLES) ==================== -->
+    <section class="mt-12 sm:mt-16 pt-8 border-t-2 border-brand-border">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-widest text-brand-muted">More High-Scoring Models</span>
+          <h2 class="text-[22px] sm:text-[26px] font-extrabold text-brand-dark">You may also like</h2>
+        </div>
+        <a href="#" class="text-[13px] font-extrabold text-brand-teal hover:underline flex items-center gap-1">
+          <span>View all Writing samples</span>
+          <span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- 4 Related Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Related Card 1 -->
+        <a href="#" class="bg-white rounded-2xl border-2 border-brand-border p-5 shadow-tactile-card hover:-translate-y-1 transition-transform group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-1 mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 text-[10px] font-extrabold">Band 8.5</span>
+              <span class="text-[11px] font-bold text-brand-muted">Task 2 • Tech</span>
+            </div>
+            <h3 class="text-[15px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors leading-snug mb-2">
+              Artificial intelligence in healthcare diagnostics
+            </h3>
+            <p class="text-[12px] text-brand-muted line-clamp-2">
+              Discuss the replacement of human general practitioners by automated diagnostic systems.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between text-[11px] font-bold text-brand-muted">
+            <span>22 collocations</span>
+            <span class="text-brand-teal flex items-center">Read sample ›</span>
+          </div>
+        </a>
+
+        <!-- Related Card 2 -->
+        <a href="#" class="bg-white rounded-2xl border-2 border-brand-border p-5 shadow-tactile-card hover:-translate-y-1 transition-transform group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-1 mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 text-[10px] font-extrabold">Band 8.0</span>
+              <span class="text-[11px] font-bold text-brand-muted">Task 2 • Environment</span>
+            </div>
+            <h3 class="text-[15px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors leading-snug mb-2">
+              Taxing international aviation fuel to curb emissions
+            </h3>
+            <p class="text-[12px] text-brand-muted line-clamp-2">
+              Should global airline corporations bear individual carbon penalties for freight pollution?
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between text-[11px] font-bold text-brand-muted">
+            <span>19 collocations</span>
+            <span class="text-brand-teal flex items-center">Read sample ›</span>
+          </div>
+        </a>
+
+        <!-- Related Card 3 -->
+        <a href="#" class="bg-white rounded-2xl border-2 border-brand-border p-5 shadow-tactile-card hover:-translate-y-1 transition-transform group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-1 mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 text-[10px] font-extrabold">Band 8.0</span>
+              <span class="text-[11px] font-bold text-brand-muted">Task 2 • Society</span>
+            </div>
+            <h3 class="text-[15px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors leading-snug mb-2">
+              Remote work models and city center depopulation
+            </h3>
+            <p class="text-[12px] text-brand-muted line-clamp-2">
+              The impact of flexible telecommuting on urban housing markets and commercial centers.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between text-[11px] font-bold text-brand-muted">
+            <span>24 collocations</span>
+            <span class="text-brand-teal flex items-center">Read sample ›</span>
+          </div>
+        </a>
+
+        <!-- Related Card 4 -->
+        <a href="#" class="bg-white rounded-2xl border-2 border-brand-border p-5 shadow-tactile-card hover:-translate-y-1 transition-transform group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-1 mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 text-[10px] font-extrabold">Band 7.5</span>
+              <span class="text-[11px] font-bold text-brand-muted">Task 1 • Academic</span>
+            </div>
+            <h3 class="text-[15px] font-extrabold text-brand-dark group-hover:text-brand-teal transition-colors leading-snug mb-2">
+              Process Diagram: Desalination and water distribution
+            </h3>
+            <p class="text-[12px] text-brand-muted line-clamp-2">
+              Report describing the sequential osmosis purification stages in regional coastal plants.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between text-[11px] font-bold text-brand-muted">
+            <span>16 collocations</span>
+            <span class="text-brand-teal flex items-center">Read sample ›</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==================== SHARED PUBLIC FOOTER ==================== -->
+  <footer class="mt-16 sm:mt-24 border-t-2 border-brand-border bg-white pt-12 pb-8">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6">
+      
+      <!-- Top Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-brand-border/60">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 3L35 17L20 37L5 17L20 3Z" fill="#2BA39A"/>
+              <path d="M20 3L35 17L20 22L5 17L20 3Z" fill="#32B6AC"/>
+              <path d="M20 12L24 18L20 25L16 18L20 12Z" fill="#FFC94A"/>
+            </svg>
+            <span class="text-[20px] font-extrabold text-brand-dark">Lexkite</span>
+          </div>
+          <p class="text-[14px] text-brand-muted leading-relaxed max-w-sm">
+            Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice.
+          </p>
+          <div class="mt-4 flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded bg-brand-border/30 text-brand-dark text-[11px] font-bold">100% Free Access</span>
+            <span class="px-2.5 py-1 rounded bg-brand-border/30 text-brand-dark text-[11px] font-bold">No Paywalls</span>
+          </div>
+        </div>
+
+        <!-- Col 1: Product -->
+        <div>
+          <h4 class="text-[12px] font-extrabold uppercase tracking-wider text-brand-dark mb-3">Product</h4>
+          <ul class="space-y-2 text-[13px] font-medium text-brand-muted">
+            <li><a href="#" class="hover:text-brand-teal transition-colors">IELTS Learning Path</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Spaced Flashcards</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Speaking Drills</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Chrome Add-on</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Band Predictor</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Resources -->
+        <div>
+          <h4 class="text-[12px] font-extrabold uppercase tracking-wider text-brand-dark mb-3">Resources</h4>
+          <ul class="space-y-2 text-[13px] font-medium text-brand-muted">
+            <li><a href="#" class="text-brand-teal font-bold transition-colors">Writing Task 2 Samples</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Task 1 Model Answers</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Collocation Dictionary</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">CEFR Level Test</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Open Corpus Research</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div>
+          <h4 class="text-[12px] font-extrabold uppercase tracking-wider text-brand-dark mb-3">Company</h4>
+          <ul class="space-y-2 text-[13px] font-medium text-brand-muted">
+            <li><a href="#" class="hover:text-brand-teal transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Teacher Carlos & Ama</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-brand-teal transition-colors">System Status</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Language Row -->
+      <div class="pt-6 pb-4 flex flex-wrap items-center justify-between gap-4 text-[12px] text-brand-muted">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="font-extrabold text-brand-dark">Supported Languages:</span>
+          <a href="#" class="text-brand-teal font-bold hover:underline">English</a>
+          <a href="#" class="hover:text-brand-dark">Español</a>
+          <a href="#" class="hover:text-brand-dark">Tiếng Việt</a>
+          <a href="#" class="hover:text-brand-dark">한국어</a>
+          <a href="#" class="hover:text-brand-dark">日本語</a>
+          <a href="#" class="hover:text-brand-dark">简体中文</a>
+          <a href="#" class="hover:text-brand-dark">繁體中文</a>
+          <a href="#" class="hover:text-brand-dark">Bahasa Indonesia</a>
+          <a href="#" class="hover:text-brand-dark">ไทย</a>
+          <a href="#" class="hover:text-brand-dark">Português</a>
+          <a href="#" class="hover:text-brand-dark">Français</a>
+          <a href="#" class="hover:text-brand-dark">Deutsch</a>
+          <a href="#" class="hover:text-brand-dark">العربية</a>
+          <a href="#" class="hover:text-brand-dark">हिन्दी</a>
+          <a href="#" class="hover:text-brand-dark">Türkçe</a>
+        </div>
+        <div class="text-[12px] text-brand-muted">
+          © 2025 Lexkite Prep Inc. All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
+

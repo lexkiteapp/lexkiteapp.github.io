@@ -6,7 +6,7 @@ import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
+import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
 const today = new Date().toISOString().slice(0, 10);
@@ -20,13 +20,15 @@ const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/voca
 const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', SITE], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
 // <head>: meta, canonical, og, JSON-LD – giữ nguyên từng thẻ như bản cũ (build-samples-en.mjs chèn hreflang trước og:type)
-const head = (title, desc0, canon, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${canon}"><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="vi_VN"><meta property="og:url" content="${canon}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${ld({ "@context": "https://schema.org", "@type": "LearningResource", name: title, description: desc, url: canon, inLanguage: "vi", isAccessibleForFree: true, educationalLevel: "IELTS / TOEIC", provider: { "@type": "Organization", name: "Lexkite", url: SITE }, ...(o.lr || {}) })}${ld(crumbs(canon, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${o.smp ? smpHead() : ''}`; };
+const head = (title, desc0, canon, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${canon}"><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="vi_VN"><meta property="og:url" content="${canon}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${ld({ "@context": "https://schema.org", "@type": "LearningResource", name: title, description: desc, url: canon, inLanguage: "vi", isAccessibleForFree: true, educationalLevel: "IELTS / TOEIC", provider: { "@type": "Organization", name: "Lexkite", url: SITE }, ...(o.lr || {}) })}${ld(crumbs(canon, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${o.smp && !o.st ? smpHead() : ''}`; };
 // canon: URL đầy đủ; name: tên ngắn hiển thị ở breadcrumb
 // o: { smp: giao diện bài mẫu (samples-ui.mjs), lr: thuộc tính thêm cho LearningResource, ld: JSON-LD thêm }
 const page = (title, desc, canon, body, name, enId, o = {}) => {
   const p = canon.slice(SITE.length), sec = p.split('/')[0], id = p.split('/')[1];
   const vis = [['Trang chủ', '/'], [SEC[sec] || sec, `/${sec}/`], ...(id ? [[name || title, `/${p}`]] : [])];
-  return seoPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, body: o.smp ? body + smpTail() : body, alt: EN[sec] ? `/${EN[sec]}/${enId ?? id ?? ''}` : '', section: `/${sec}/` });
+  const alt = EN[sec] ? `/${EN[sec]}/${enId ?? id ?? ''}` : '';
+  if (o.st) return stPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
+  return seoPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, body: o.smp ? body + smpTail() : body, alt, section: `/${sec}/` });
 };
 const hero = (h1, { emoji = '', lead = '', chips = [] } = {}) => `<header class="hero"><h1>${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}${h1}</h1>${lead ? `<p>${lead}</p>` : ''}${chips.length ? `<div class="sub">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</div>` : ''}</header>`;
 const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('vi', `/${sec}/`)}\n${filterBox('vi')}`;
@@ -39,7 +41,7 @@ const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy �
 // ===== Writing Task 2 =====
 // Giao diện bài mẫu: scripts/lib/samples-ui.mjs (thẻ đoạn có vai trò, dàn bài + chú thích màu dính bên phải, chạm cụm từ xem nghĩa, thẻ cụm từ, bài trước/sau)
 fs.mkdirSync('dist/samples', { recursive: true });
-const { PROMPTS, MODELS } = loadWriting();
+const { PROMPTS, MODELS } = loadWriting(), { audioKey } = loadVocab();
 const done = [];
 for (const p of PROMPTS) { const m = MODELS.find(x => x.id === 't2-' + p.id); if (m) done.push([p, m]); }
 const t2Card = ([p, m]) => smpCard({ href: `/samples/${p.id}`, cls: typeCls(p.type), tag: p.type, title: p.text, band: m.band, meta: [`${m.words} ${U.words}`, `${docStats(m.text).phrases} ${U.phrases}`, U.min(mins(m.words))], key: `${p.type} ${p.topic}` });
@@ -48,19 +50,13 @@ done.forEach(([p, m], di) => {
   const paras = parseDoc(m.text, 'vi'), st = docStats(m.text), prev = done[di - 1], next = done[di + 1];
   const title = `IELTS Writing Task 2 bài mẫu band ${m.band}: ${short(p.text, 70)}`;
   const desc = `Bài mẫu IELTS Writing Task 2 band ${m.band} (${p.type}, ${m.words} từ) có chú giải ${gl.length} cụm từ hay kèm nghĩa tiếng Việt: ${plain(m.text).slice(0, 90)}…`;
-  const body = `<article class="page smp smp-doc ${typeCls(p.type)}">${hero2({ kicker: ['IELTS Writing Task 2', `Dạng đề: ${p.type}`], h1: `Bài mẫu IELTS Writing Task 2 – Band ${esc(m.band)}`,
-    statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [paras.length, U.paras], [st.phrases, U.phrases], [st.links, U.links], [mins(m.words), U.minL]]) })}
-${promptBox(U.prompt, `<p>${esc(p.text)}</p>`)}
-${ctaBox(`${APP}#/model/t2-${p.id}`, '✍️ Luyện viết đề này miễn phí trên Lexkite', 'Mở đề trong app', 'Xem bài mẫu tương tác, dàn ý và từ nối ngay trong app.')}
-<div class="ess-grid">${sideHtml(paras, 'vi')}<div class="ess-main"><h2>Bài mẫu</h2>${wm(docHtml(paras, 'vi'), `samples/${p.id}`)}
-<h2>Từ vựng & cụm từ hay (${gl.length})</h2>${phraseCards(gl)}${saveBox(`${APP}#/model/t2-${p.id}`, 'vi')}</div></div>
-${ctaKit(`${APP}#/write/${p.id}`, 'Tự viết bài và được chấm điểm ngay', 'Viết bài', 'Đếm từ, gợi ý ý tưởng và chấm theo 4 tiêu chí IELTS.')}
-${pager2(prev && [`/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/samples/${next[0].id}`, short(next[0].text, 90)], 'vi')}
-${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
-${extBox('vi', 'samples')}
-${pwaBox('vi', 'samples')}</article>`;
+  // Khung Stitch v2.1 (brand/stitch/web/sample-*.html): đề, dàn bài, chú thích màu, bài mẫu (thủy ấn, chạm cụm từ xem nghĩa), cụm từ + nghĩa (+ nút nghe nếu có audio), CTA app, Ama, bài trước/sau + liên quan, add-on/PWA
+  const ess = wm(paras.map(x => `<p>${x.html}</p>`).join('\u0000'), `samples/${p.id}`).split('\u0000').map(x => x.slice(3, -4));
+  const card = ([d, rel]) => writingCard('vi', `/samples/${d[0].id}`, d, rel);
+  const body = writingD('vi', { p, m, paras, st, gl, ess, h1: `Bài mẫu IELTS Writing Task 2 – Band ${m.band}`, lead: desc, modelHref: `${APP}#/model/t2-${p.id}`, writeHref: `${APP}#/write/${p.id}`,
+    secHref: '/samples/', secName: SEC.samples, ak: audioKey, rel: pagerRel(prev, relatedOf(done, done[di], d => d[0].type === p.type, 4), next, (a, b) => !!b && a[0].id === b[0].id).map(card) });
   fs.writeFileSync(`dist/samples/${p.id}.html`, page(title, desc, `${SITE}samples/${p.id}`, body, `Band ${m.band}: ${short(p.text, 50)}`, undefined,
-    { smp: 1, lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
+    { smp: 1, st: 'sample', ext: extBox('vi', 'samples') + pwaBox('vi', 'samples'), lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
 });
 {
   const byType = {}; for (const d of done) (byType[d[0].type] = byType[d[0].type] || []).push(d);
@@ -95,20 +91,12 @@ ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.m
     const title = `IELTS Speaking chủ đề ${b.title}: câu hỏi Part 1, 2, 3 & câu trả lời mẫu`;
     const desc = `Bộ câu hỏi IELTS Speaking chủ đề ${b.title} (Part 1–3) kèm câu trả lời mẫu band 8 và từ vựng nghĩa tiếng Việt. Cue card: ${b.p2.q}`;
     const prev = made[i - 1], next = made[i + 1];
-    const body = `<article class="page smp smp-doc narrow ${topicCls(b.topic)}">${hero2({ kicker: ['IELTS Speaking', 'Part 1 · Part 2 · Part 3'], h1: `IELTS Speaking – ${esc(b.title)}`,
-      statsHtml: stats([[qs(b).length, U.questions], [nV, U.phrases], [mins(nW), U.minL]]) })}
-<nav class="jump" aria-label="${U.partsL}"><a href="#part-1">Part 1</a><a href="#part-2">Part 2 – Cue card</a><a href="#part-3">Part 3</a></nav>
-${ctaBox(`${APP}#/speaking/p1/${i}`, '🎙️ Luyện nói chủ đề này (ghi âm & chấm)', 'Luyện nói', 'Ghi âm câu trả lời và nhận nhận xét phát âm, độ trôi chảy.')}
-${part(1, '💬', 'Part 1', b.p1.map((q, k) => qa(q, k + 1)).join(''))}
-${part(2, '🃏', 'Part 2 – Cue card', `<div class="q cue"><p class="ck">Cue card</p><p lang="en">${esc(b.p2.q)}</p><p class="ys" lang="en">${U.youShould}</p><ul lang="en">${b.p2.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div><div class="qa">${ans(b.p2.q)}</div>`)}
-${part(3, '🧠', 'Part 3', b.p3.map((q, k) => qa(q, k + 1)).join(''))}
-${ctaKit(`${APP}#/speaking/p2/${i}`, 'Thử nói Part 2 với đồng hồ đếm giờ', 'Bắt đầu', '1 phút chuẩn bị, 2 phút nói – như phòng thi thật.')}
-${pager2(prev && [`/speaking/${prev[0]}`, prev[1].title], next && [`/speaking/${next[0]}`, next[1].title], 'vi', true)}
-${related(relatedOf(made, made[i], () => true, 4), spCard)}
-${extBox('vi', 'speaking')}
-${pwaBox('vi', 'speaking')}</article>`;
+    // Khung Stitch v2.1 (brand/stitch/web/speaking-*.html): Part 1/2/3 + cue card + câu trả lời mẫu (tô từ vựng thật) + từ vựng nghĩa tiếng Việt, Carlos (listen), CTA luyện nói, chủ đề trước/sau + liên quan, add-on/PWA
+    const card = ([[cid, cb], rel]) => speakingCard('vi', `/speaking/${cid}`, cb, cb.title, rel);
+    const body = speakingD('vi', { b, i, N: made.length, S, topic: '', h1: `IELTS Speaking – ${b.title}`, lead: desc, p1Href: `${APP}#/speaking/p1/${i}`, p2Href: `${APP}#/speaking/p2/${i}`, secHref: '/speaking/',
+      rel: pagerRel(prev, relatedOf(made, made[i], () => true, 4), next, (a, x) => !!x && a[0] === x[0]).map(card) });
     fs.writeFileSync(`dist/speaking/${id}.html`, page(title, desc, `${SITE}speaking/${id}`, body, b.title, enSlug(b.title),
-      { smp: 1, lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${b.title}`, timeRequired: `PT${mins(nW)}M` } }));
+      { smp: 1, st: 'speaking', ext: extBox('vi', 'speaking') + pwaBox('vi', 'speaking'), lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${b.title}`, timeRequired: `PT${mins(nW)}M` } }));
   }
   const nQ = made.reduce((a, [, b]) => a + qs(b).length, 0);
   fs.writeFileSync('dist/speaking/index.html', page(`${made.length} chủ đề IELTS Speaking có câu trả lời mẫu – Lexkite`, `Trọn bộ ${made.length} chủ đề IELTS Speaking Part 1, 2, 3 với câu trả lời mẫu band 8 và từ vựng tiếng Việt, luyện nói miễn phí.`, `${SITE}speaking/`,
