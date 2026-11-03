@@ -142,6 +142,7 @@ body.call-on{overflow:hidden}
     poFix(view);
     probe().then(() => { const p = $('#callPriv'); if (p) p.textContent = (PRIV[mode()] || PRIV.ask)(); });
     $('#callGo').onclick = () => start(c);
+    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
   }
 
   function start(c) {

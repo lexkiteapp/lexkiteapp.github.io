@@ -99,6 +99,7 @@
   };
   routes.lesson = async function (arg) {
     css(); cleanup();
+    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); // mặt vẽ + mốc nạp từ bản đồ bài → câu đầu của giáo viên phát pre
     const demo = /[?&]demo=1\b/.test(location.hash);
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
