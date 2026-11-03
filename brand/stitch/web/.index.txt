@@ -1,0 +1,7 @@
+# Stitch v2.1 web (project 7268539912208977707, design system assets/1b7a8a3d3d52404bb332d9ba3f783547 "Lexkite Kit"), 31/10/2026
+# trang  light-id                          dark-id (edit_screens của bản sáng → cùng bố cục)
+home     7bfa09416f5349cc9327386711fbeff3  fa2d1b994aa04b1089dce74f939a8e47
+sample   19d00841f24448e39d2e8b7b4acf08b1  27bd68a6647d4f3eae2073a426c74668
+speaking 2a9b62bf5442496eaffcade8f6436274  7918d3fb13114649970532797a753759
+post     2e22ce68a95f478384d7023b7bb751c9  077709043b314b0d8e712ef8b9fa9c0e
+hub      8d3c34f55ba04dada17e708112bb9c2b  4c2bd949303245c39505a198e5a67aa5
