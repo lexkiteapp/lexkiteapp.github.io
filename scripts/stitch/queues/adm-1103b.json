@@ -1,0 +1,221 @@
+[
+ {
+  "id": "adm-analytics",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Phân tích selected. Screen: Admin › Phân tích (live traffic). Header \"Phân tích\" with a soft pill \"Live · tự cập nhật 30s · 15:24\" with a pulsing green dot, and one muted line \"Tự động/bot & quản trị hôm nay: 37 phiên (đã loại) · Ngày theo giờ Việt Nam (UTC+7)\". A row of six compact KPI tiles, each icon + label + big number + small sub-line: Đang online (5 phút) 3 · Lượt xem hôm nay 412 (58 phiên) · Khách hôm nay 46 (thiết bị khác nhau) · Trang/khách 8,9 · Thời gian TB 6 phút 12 giây · Tổng lượt xem 18.940 (2.311 khách từ trước đến nay). A wide soft area chart card \"14 ngày qua\". A world map card \"Khách theo quốc gia · hôm nay\" with countries filled in a cream→amber→coral scale and a small legend (Ít, 1, 2–5, 6–20, 21–100, 100+, Nhiều khách) plus \"9 quốc gia · 46 khách · 2 không rõ\". Then a responsive grid of equal cards: \"Quốc gia hôm nay\" (flag + full country name + horizontal bar + count, including long names like Việt Nam, Hoa Kỳ, Vương quốc Anh, Cộng hòa Dominica, Ấn Độ, Philippines – names never cut), \"Đang xem · 3 online\" (route list like #/today, #/vocab), \"Trang xem nhiều hôm nay\" (routes with bars), \"Nguồn giới thiệu hôm nay\" (google.com, facebook.com, direct), \"Trang xem nhiều · 7 ngày\", and \"Nền tảng\": a small table with columns Nền tảng | Hôm nay | 30 ngày, rows Web, PWA, Add-on Chrome, iOS, Android, each number cell showing the count with a thin proportional bar beneath it, all inside the card."
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-analytics/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "draft",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Native phone layout (narrow iPhone-width screen, single column, no sidebar): a slim top app bar with a menu button, the page title and the initials avatar; content stacks in full-width cards with comfortable side margins; tables keep every column inside the card (short headers, numbers right-aligned, long names wrap to two lines rather than being cut); nothing scrolls sideways. Screen: Admin › Phân tích (live traffic). Header \"Phân tích\" with a soft pill \"Live · tự cập nhật 30s · 15:24\" with a pulsing green dot, and one muted line \"Tự động/bot & quản trị hôm nay: 37 phiên (đã loại) · Ngày theo giờ Việt Nam (UTC+7)\". A row of six compact KPI tiles, each icon + label + big number + small sub-line: Đang online (5 phút) 3 · Lượt xem hôm nay 412 (58 phiên) · Khách hôm nay 46 (thiết bị khác nhau) · Trang/khách 8,9 · Thời gian TB 6 phút 12 giây · Tổng lượt xem 18.940 (2.311 khách từ trước đến nay). A wide soft area chart card \"14 ngày qua\". A world map card \"Khách theo quốc gia · hôm nay\" with countries filled in a cream→amber→coral scale and a small legend (Ít, 1, 2–5, 6–20, 21–100, 100+, Nhiều khách) plus \"9 quốc gia · 46 khách · 2 không rõ\". Then a responsive grid of equal cards: \"Quốc gia hôm nay\" (flag + full country name + horizontal bar + count, including long names like Việt Nam, Hoa Kỳ, Vương quốc Anh, Cộng hòa Dominica, Ấn Độ, Philippines – names never cut), \"Đang xem · 3 online\" (route list like #/today, #/vocab), \"Trang xem nhiều hôm nay\" (routes with bars), \"Nguồn giới thiệu hôm nay\" (google.com, facebook.com, direct), \"Trang xem nhiều · 7 ngày\", and \"Nền tảng\": a small table with columns Nền tảng | Hôm nay | 30 ngày, rows Web, PWA, Add-on Chrome, iOS, Android, each number cell showing the count with a thin proportional bar beneath it, all inside the card."
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "light",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-analytics-m/draft",
+  "prompt": "Re-lay out this same screen as a native phone screen (narrow iPhone width, single column, no sidebar, slim top app bar with menu button, title and initials avatar). Keep every section and all content, stack cards full width, make tables fit inside their cards with right-aligned number columns and wrapped long names; nothing may scroll sideways or be cut off. Bright Day light theme."
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-analytics-m/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Phân tích selected. Screen: Admin › Phân tích, lower section \"Chi tiết · 30 ngày\". A segmented range control (Hôm nay, 7 ngày, 30 ngày, 90 ngày) with 30 ngày selected. Cards: \"Phiên theo ngày\" bar chart for 30 days with day labels; \"Nguồn truy cập\" list with bars (Trực tiếp, Google, Facebook, Chrome Web Store, Khác); \"Quốc gia\" ranked list with flags, full country names and counts; \"Trang vào đầu tiên\" list of routes; \"Tần suất (số phiên mỗi khách)\" small histogram 1×, 2×, 3–5×, 6–10×, 10×+; \"Nền tảng · 30 ngày\" table with columns Nền tảng | Khách | Phiên | Tỉ lệ and inline bars. Footer note in muted text: \"Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật.\""
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-analytics-details/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "draft",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Native phone layout (narrow iPhone-width screen, single column, no sidebar): a slim top app bar with a menu button, the page title and the initials avatar; content stacks in full-width cards with comfortable side margins; tables keep every column inside the card (short headers, numbers right-aligned, long names wrap to two lines rather than being cut); nothing scrolls sideways. Screen: Admin › Phân tích, lower section \"Chi tiết · 30 ngày\". A segmented range control (Hôm nay, 7 ngày, 30 ngày, 90 ngày) with 30 ngày selected. Cards: \"Phiên theo ngày\" bar chart for 30 days with day labels; \"Nguồn truy cập\" list with bars (Trực tiếp, Google, Facebook, Chrome Web Store, Khác); \"Quốc gia\" ranked list with flags, full country names and counts; \"Trang vào đầu tiên\" list of routes; \"Tần suất (số phiên mỗi khách)\" small histogram 1×, 2×, 3–5×, 6–10×, 10×+; \"Nền tảng · 30 ngày\" table with columns Nền tảng | Khách | Phiên | Tỉ lệ and inline bars. Footer note in muted text: \"Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật.\""
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "light",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-analytics-details-m/draft",
+  "prompt": "Re-lay out this same screen as a native phone screen (narrow iPhone width, single column, no sidebar, slim top app bar with menu button, title and initials avatar). Keep every section and all content, stack cards full width, make tables fit inside their cards with right-aligned number columns and wrapped long names; nothing may scroll sideways or be cut off. Bright Day light theme."
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-analytics-details-m/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-overview",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Tổng quan selected. Screen: Admin › Tổng quan – system health, real humans and automated jobs on one screen. Greeting line \"Chào buổi chiều\" with today's date. Four KPI tiles with tiny sparklines: Người thật hôm nay 46 (so với hôm qua 39), Người thật 7 ngày 214, Đăng nhập hôm nay 12, Lỗi JS (24 giờ) 2 loại. A \"Cần chú ý\" card with 3 colored status rows (CI: 1 workflow đỏ trong 24 h; Kho Drive đã dùng 71%; Hạn mức AI 82%). A \"Tác vụ tự động\" card listing scheduled jobs with green/amber status dots and last-run times. A \"Báo lỗi mới\" list with 3 short rows. A 30-day line chart card of daily real visitors. Sample numbers are small and honest."
+ },
+ {
+  "id": "adm-overview",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-overview/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-reports",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Báo lỗi selected. Screen: Admin › Báo lỗi – user bug reports inbox: triage, assign, reply. Filter chips on top: Mới (4), Đang xử lý (2), Đã sửa, Tất cả. Left: list of report rows (type chip Lỗi / Sai nội dung / Góp ý, one-line preview, screen route like #/vocab, time, status dot). Right: selected report detail: title, route + device chips (Android · Chrome 131), the user's message in a quoted card, an automatic console-error snippet card in monospace, assignee picker, and buttons: coral \"Đánh dấu đã sửa\", secondary \"Trả lời\", quiet \"Lưu trữ\". All buttons use the Kit colors (no plain white buttons)."
+ },
+ {
+  "id": "adm-reports",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-reports/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-quota",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Hạn mức selected. Screen: Admin › Hạn mức – per-feature limits, provider circuit breakers, locks and unlimited list. Top: \"Dùng nhiều hôm nay\" card listing features with used/limit. A grid of meter cards for providers versus their free daily ceilings: AI pool, D1 đọc, D1 ghi, Ảnh, Video render, Email – each a rounded progress bar (teal ok, amber near limit, red over), \"đã dùng / trần\" numbers and a \"đặt lại 07:00\" chip. A \"Cầu dao nhà cung cấp\" card with tactile on/off toggles per provider. A \"Danh sách không giới hạn\" table and a short \"Nhật ký\" list. Every meter card uses the Kit card surface."
+ },
+ {
+  "id": "adm-quota",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-quota/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-growth",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Phân tích selected. Screen: Admin › Phân tích › Tăng trưởng & giữ chân. Range segmented control (7 ngày, 30 ngày, 90 ngày). A funnel card \"Phễu chuyển đổi\": Truy cập → Đăng ký → Bài học đầu tiên → Quay lại ngày 7 as chunky horizontal bars with counts and percentages (small honest numbers). A retention cohort grid by week with teal shades and readable percentages in every cell. An \"Add-on Chrome\" card: installs, active users, uninstalls as three mini stats with a small line chart. A \"Nguồn đăng ký\" bar list."
+ },
+ {
+  "id": "adm-growth",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-growth/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-notices",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Thông báo selected. Screen: Admin › Thông báo – send notices to learners' bell: compose, schedule, choose audience, recall, see reads. Left: a composer form (Tiêu đề, Nội dung, optional link, type as tactile segmented buttons Tin tức / Cập nhật / Nhắc nhở, audience chips Tất cả / Mới 7 ngày / Ngôn ngữ, schedule start). Right: a live preview of the notification inside a tiny phone bell dropdown mock. Below: \"Đã gửi\" table with columns Tiêu đề, Đối tượng, Lượt đọc (e.g. 18 / 46), Trạng thái pill, and a \"Thu hồi\" action. Coral \"Gửi\" primary button with a dark readable label. No extra stats chips, no CSV export, no infrastructure footer."
+ },
+ {
+  "id": "adm-notices",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-notices/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-studio",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Video Studio selected. Screen: Admin › Video Studio – automated video production line from idea to schedule. A horizontal pipeline of stage columns: Ý tưởng → Kịch bản → Dựng → QA → Kho GrabCast → Lên lịch → Đã đăng, each with a count badge. Video cards inside columns show a flat 2D illustrated thumbnail (a simple cartoon teacher character drawn in flat 2D, never a photo), English title like \"Present perfect in 30 seconds\", template chip, language chip EN, and a small progress bar on rendering items. Right side panel for the selected video: 9:16 preview frame with the same flat 2D illustration, QA checklist with pass/warn icons (Tương phản, Phụ đề, Âm lượng −16 LUFS), and buttons coral \"Duyệt\" and secondary \"Dựng lại\". Every action that publishes is clearly labelled."
+ },
+ {
+  "id": "adm-studio",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-studio/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-social",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Video & Social selected. Screen: Admin › Video & Social – compose posts, posting calendar and channels (via GrabCast). Top: a channel health strip with platform chips (YouTube Shorts, TikTok, Facebook Reels) each with a small green/amber status dot. Main: a weekly calendar grid (Thứ 2 → Chủ nhật) with scheduled posts as small cards (platform icon, flat 2D thumbnail, time). Right panel: the selected post with caption in a Kit-styled text area, platform toggles, and buttons coral \"Lên lịch\" and secondary \"Đăng ngay\". No made-up view or follower numbers; no search chip in the top bar other than the standard command field."
+ },
+ {
+  "id": "adm-social",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-social/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-signin",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout, no sidebar. Screen: Admin sign-in gate. A calm centered card on the cream background with subtle soft shapes: the Lexkite kite logo, title \"Lexkite Admin\", one short line \"Chỉ dành cho quản trị viên\", and one big tactile \"Đăng nhập bằng Google\" button styled with the Kit (teal or coral surface with the Google \"G\" mark, not a plain white button). Below a small muted note \"Quyền truy cập được giới hạn theo email\". Nothing else: no extra pills, no footer."
+ },
+ {
+  "id": "adm-signin",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-signin/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "draft",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Native phone layout (narrow iPhone-width screen, single column, no sidebar): a slim top app bar with a menu button, the page title and the initials avatar; content stacks in full-width cards with comfortable side margins; tables keep every column inside the card (short headers, numbers right-aligned, long names wrap to two lines rather than being cut); nothing scrolls sideways. Screen: Admin › Tổng quan – system health, real humans and automated jobs on one screen. Greeting line \"Chào buổi chiều\" with today's date. Four KPI tiles with tiny sparklines: Người thật hôm nay 46 (so với hôm qua 39), Người thật 7 ngày 214, Đăng nhập hôm nay 12, Lỗi JS (24 giờ) 2 loại. A \"Cần chú ý\" card with 3 colored status rows (CI: 1 workflow đỏ trong 24 h; Kho Drive đã dùng 71%; Hạn mức AI 82%). A \"Tác vụ tự động\" card listing scheduled jobs with green/amber status dots and last-run times. A \"Báo lỗi mới\" list with 3 short rows. A 30-day line chart card of daily real visitors. Sample numbers are small and honest."
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "light",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-overview-m/draft",
+  "prompt": "Re-lay out this same screen as a native phone screen (narrow iPhone width, single column, no sidebar, slim top app bar with menu button, title and initials avatar). Keep every section and all content, stack cards full width, make tables fit inside their cards with right-aligned number columns and wrapped long names; nothing may scroll sideways or be cut off. Bright Day light theme."
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-overview-m/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical."
+ }
+]

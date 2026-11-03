@@ -90,7 +90,8 @@ jobs:
         with: { name: nav-sweep, path: out/nav-sweep, retention-days: 7, if-no-files-found: ignore }
 
   before-after:
-    if: always() && github.event_name == 'pull_request'
+    # !cancelled(): vẫn so khi bot đỏ (có artifact), KHÔNG chạy khi lượt bị huỷ (bot huỷ = không có artifact qa-bot → đỏ giả; ci-policy luật 4)
+    if: ${{ !cancelled() && github.event_name == 'pull_request' && needs.bot.result != 'skipped' }}
     needs: bot
     runs-on: ubuntu-latest
     timeout-minutes: 30

@@ -27,5 +27,5 @@ const rd = J('reading.js'), li = J('listening.js'), app = J('app.js');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#qResult \.feedback'\), 'read'/.test(rd), 'reading.js gọi NextStep sau khi chấm');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#lRes \.feedback'\), 'listen'/.test(li), 'listening.js gọi NextStep sau khi chấm');
 ok(/nxs: \['js\/i18n\/en\/nextstep\.js', 'js\/next-step\.js'\]/.test(app) && !/next-step\.js/.test(fs.readFileSync('web/sw.js', 'utf8').match(/const SHELL = \[([\s\S]*?)\];/)[1]), "gói lười 'nxs' (không nằm trong khung app)");
-ok(/LAZY="[^"]*\bnextstep\b/.test(fs.readFileSync('scripts/build-i18n.sh', 'utf8')) && ['es', 'ja', 'ar', 'hi'].every(l => fs.existsSync(`web/js/i18n/${l}/nextstep.js`)), 'i18n: nhóm nextstep có file cho từng ngôn ngữ');
+ok(/LAZY="[^"]*\bnextstep\b/.test(fs.readFileSync('scripts/build-i18n.sh', 'utf8')) && ['es', 'ja', 'ar', 'hi'].every(l => fs.existsSync(`i18n/ui/${l}/nextstep.js`) && fs.existsSync(`web/js/i18n/${l}/nextstep.js`)), 'i18n: nhóm nextstep có file cho từng ngôn ngữ');
 console.log(fails ? `✗ next-step: ${fails}/${n} lỗi` : `✓ next-step: ${n} kiểm tra`); process.exit(fails ? 1 : 0);

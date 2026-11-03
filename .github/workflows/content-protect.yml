@@ -1,5 +1,6 @@
 # Bảo vệ nội dung hằng tuần (miễn phí): kiểm chuỗi băm sổ đăng ký → ghi ảnh chụp băm kho nội dung học (đề, lời giải, từ vựng)
-# → kiểm WAF chống cào thật sự hoạt động → dò bản sao chép qua Brave Search (chỉ khi có secret BRAVE_SEARCH_KEY).
+# → kiểm WAF chống cào thật sự hoạt động → dò bản sao chép qua Brave Search (chỉ khi có secret BRAVE_SEARCH_KEY)
+# + dò canary kho đề/từ qua GitHub code search (GITHUB_TOKEN) → Quản trị (Cảnh báo + tab Backlink) + issue content-copy.
 # Push lên main đổi add-on (extension/manifest.json – lên phiên bản) hoặc landing → chỉ ghi mốc phát hành + đóng dấu OpenTimestamps.
 # OpenTimestamps (content/protection/ots/<hash>.ots): đóng dấu mục mới + upgrade bằng chứng pending; lỗi chỉ cảnh báo (continue-on-error).
 # Cuối job: scripts/verify-dns.mjs kiểm DNS/header bảo mật (docs/AUDIT-2026-10.md).
@@ -60,7 +61,7 @@ jobs:
           git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
           git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
           git commit -qm "Registry: ảnh chụp băm / mốc phát hành / OpenTimestamps $(date -u +%F) [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
           exit 1
       - name: WAF chống cào hoạt động (request thử thật)
         if: github.event_name != 'push'
@@ -74,6 +75,7 @@ jobs:
         continue-on-error: true
         env:
           BRAVE_SEARCH_KEY: ${{ secrets.BRAVE_SEARCH_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}   # GitHub code search tìm canary (content/protection/canaries.json) – miễn phí
         run: |
           set +e; node scripts/copy-watch.mjs --posts 6 | tee watch.txt; c=${PIPESTATUS[0]}
           echo "code=$c" >> "$GITHUB_OUTPUT"; [ "$c" = 3 ] && exit 0 || exit $c
@@ -92,7 +94,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh label create content-copy --color B60205 --force >/dev/null 2>&1 || true
-          body=$(printf '%s\n\n%s' "Có trang ngoài chứa nguyên văn câu trong bài Lexkite. Xử lý theo docs/legal/DMCA-KIT.md." "$(cat watch.txt)")
+          body=$(printf '%s\n\n%s' "Có trang ngoài chứa nguyên văn câu trong bài Lexkite hoặc canary kho đề/từ. Xử lý theo docs/legal/DMCA-KIT.md." "$(cat watch.txt)")
           n=$(gh issue list --label content-copy --state open --json number -q '.[0].number')
           if [ -n "$n" ]; then gh issue comment "$n" --body "$body"; else gh issue create --title "Nghi bị chép nội dung" --label content-copy --body "$body"; fi
       - name: DNS & header bảo mật (DNSSEC/CAA/DMARC/SPF/HSTS/security.txt – infra/resources.json dns-security)

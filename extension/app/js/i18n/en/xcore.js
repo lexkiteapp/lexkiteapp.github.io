@@ -74,7 +74,6 @@
 '{title} – câu {n}: {q}': '{title} – Q{n}: {q}',
 '{a}/{b} đã trả lời': '{a}/{b} answered',
 'Bấm để bỏ tô sáng': 'Tap to remove highlight',
-'Thêm ghi chú': 'Add note',
 'Ghi chú': 'Note',
 'Đáp án:': 'Answer:',
 "Phần": "Section", "Thời gian": "Time", "Quản trị hệ thống": "System admin", "Quản trị": "Admin", "Người dùng": "Users", "Chỉ quản trị viên": "Admins only", "Phân tích": "Analytics", "Hộp thư": "Inbox", "Cảnh báo": "Alerts", "Chất lượng": "Quality", "Người dùng, hộp thư, phân tích, chất lượng, Gemini API": "Users, inbox, analytics, quality, Gemini API",

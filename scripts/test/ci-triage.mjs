@@ -6,13 +6,20 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, issueTitle, redStreak, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
+// --- đỏ liên tiếp (3/11: quality-sweep đỏ 6 đêm 27/10–1/11, issue không nói "lặp lại")
+const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });
+ok(redStreak([R('failure', 1), R('failure', 2), R('cancelled', 3), R('failure', 3), R('success', 0), R('failure', 4, 'pull_request')]).n === 3, 'đỏ liên tiếp: bỏ PR/huỷ, dừng ở lượt xanh');
+ok(redStreak([R('success', 4), R('failure', 3)]).n === 0, 'lượt mới nhất xanh → 0');
+ok(redStreak([R('failure', 2), R('failure', 1)]).since === '2026-11-01T23:00:00Z', 'mốc bắt đầu chuỗi đỏ');
+ok(issueTitle('Quality sweep', 6) === 'CI đỏ: Quality sweep (đỏ 6 lượt liền)' && issueTitle('x', 2) === 'CI đỏ: x', 'tiêu đề báo khi ≥ 3 lượt liền');
+ok(/Đỏ \*\*6 lượt liên tiếp\*\*.*cần người sửa gốc/.test(issueBody({ name: 'Q', file: 'q.yml', run: { html_url: 'u', head_branch: 'main' }, cls: { kind: 'real', why: 'x' }, log: '', streak: { n: 6, since: '2026-10-27T23:09:11Z' } })), 'thân issue có chuỗi đỏ');
 // --- phân loại (log thật)
 const LOG = {
   ytm500: "Error: youtube packs → 500 error\n    at ytApi (file:///scripts/video/yt-upload.mjs:19:31)\n  body: { error: 'error' }\n##[error]Process completed with exit code 1.",
@@ -38,6 +45,15 @@ ok(!/ghp_a/.test(ex) && !/me@x\.com/.test(ex) && !/^2026-/.test(ex), 'trích log
 ok(issueBody({ name: 'i18n', file: 'i18n.yml', run: { html_url: 'u', run_attempt: 1, event: 'schedule' }, cls: classify(LOG.i18n), log: LOG.i18n }).includes('<!-- ci-triage:wf=i18n.yml -->'), 'issue có dấu workflow');
 const d = digest([{ name: 'a' }, { name: 'a' }, { name: 'b' }], { a: 'failure', b: 'success' }, [{ number: 7, title: 'CI đỏ: a', html_url: 'h' }]);
 ok(d.red === 1 && d.failed === 2 && /#7/.test(d.text) && /Only notify for failed workflows/.test(d.text), 'bản tin ngày');
+
+// --- check đỏ chung trên nhiều PR (3/11: 5 PR đỏ size-budget, 5 PR đỏ before-after mà không ai báo)
+{ const { commonRed } = await import('../ci/pr-common-red.mjs');
+  const c = commonRed([{ number: 1, failed: ['npm test', 'bot'] }, { number: 2, failed: ['npm test'] }, { number: 3, failed: ['npm test', 'render (a, short)'] }, { number: 4, failed: ['render (b, wide)', 'render (b, short)'] }, { number: 5, failed: ['render (c, short)'] }, { number: 6, failed: [] }]);
+  ok(c.groups.length === 2 && c.groups[0].check === 'npm test' && c.groups[0].prs.join() === '1,2,3', 'check đỏ chung: npm test ở 3 PR');
+  ok(c.groups[1].check === 'render' && c.groups[1].prs.join() === '3,4,5', 'job ma trận "render (x, y)" gộp theo tên bước, 1 PR đếm 1 lần');
+  ok(!c.groups.some(g => g.check === 'bot') && /#1 #2 #3/.test(c.text), 'đỏ ở < 3 PR không báo; tóm tắt có số PR');
+  ok(commonRed([{ number: 1, failed: ['x'] }]).groups.length === 0 && /không có check đỏ chung/.test(commonRed([]).text), 'không có nhóm → báo không có');
+  ok(/pr-common-red\.mjs/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')) && /pull-requests: read/.test(fs.readFileSync(path.join(ROOT, '.github/workflows/ci-triage.yml'), 'utf8')), 'sweep gọi pr-common-red + workflow có quyền đọc PR'); }
 
 // --- D1 hết hạn mức → 429 quota-guard (không 500)
 ok(isD1Limit(new Error('D1_ERROR: Exceeded daily rows read limit')), 'isD1Limit: hết dòng đọc');

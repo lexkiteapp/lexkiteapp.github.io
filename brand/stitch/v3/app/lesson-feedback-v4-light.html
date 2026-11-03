@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lektion - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#005047",
+            "surface": "#fbf9f6",
+            "secondary-fixed": "#ffdad2",
+            "tertiary-container": "#003f38",
+            "on-background": "#1b1c1a",
+            "surface-container-highest": "#e4e2df",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#eae8e5",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fbf9f6",
+            "secondary-fixed-dim": "#ffb4a3",
+            "on-primary-container": "#7da8a8",
+            "primary": "#002627",
+            "tertiary-fixed-dim": "#7cd6c7",
+            "on-primary-fixed": "#002020",
+            "on-secondary-fixed": "#3d0600",
+            "inverse-surface": "#30312f",
+            "on-error": "#ffffff",
+            "surface-variant": "#e4e2df",
+            "on-primary-fixed-variant": "#224d4e",
+            "outline-variant": "#c0c8c8",
+            "secondary-container": "#fd5835",
+            "primary-fixed": "#beebeb",
+            "on-secondary-container": "#570c00",
+            "on-surface-variant": "#404848",
+            "surface-container-low": "#f5f3f0",
+            "inverse-on-surface": "#f2f0ed",
+            "tertiary": "#002722",
+            "primary-fixed-dim": "#a3cfcf",
+            "on-tertiary-fixed": "#00201c",
+            "error-container": "#ffdad6",
+            "outline": "#717978",
+            "surface-tint": "#3b6566",
+            "background": "#fbf9f6",
+            "tertiary-fixed": "#98f3e3",
+            "surface-container": "#efeeeb",
+            "on-secondary-fixed-variant": "#8c1900",
+            "inverse-primary": "#a3cfcf",
+            "primary-container": "#0f3d3e",
+            "on-tertiary-container": "#54afa1",
+            "on-surface": "#1b1c1a",
+            "secondary": "#b52603",
+            "surface-dim": "#dbdad7",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin-tablet": "2rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.25rem",
+            "gutter-desktop": "2rem",
+            "gutter": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "3rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["34px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .shadow-ledge-coral {
+      box-shadow: 0 4px 0 #8c1900;
+    }
+    .shadow-ledge-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 transparent;
+    }
+    .shadow-ledge-neutral {
+      box-shadow: 0 4px 0 #e4e2df;
+    }
+    .shadow-ledge-neutral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 transparent;
+    }
+    .shadow-ledge-correct {
+      box-shadow: 0 4px 0 #005047;
+    }
+    .shadow-sheet {
+      box-shadow: 0 -4px 16px rgba(0, 38, 39, 0.08);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Frame Container (Max 390px Viewport) -->
+<div class="relative w-full max-w-[390px] bg-surface flex flex-col min-h-screen border-x-2 border-surface-container-high overflow-hidden select-none">
+<!-- TopAppBar (Shared Anchor Implementation) -->
+<header class="bg-surface border-b-2 border-surface-container-high sticky top-0 z-30 flex justify-between items-center w-full px-4 h-14 max-w-md mx-auto">
+<div class="flex items-center gap-3 w-full">
+<!-- Close Button (min 44x44 tap target) -->
+<button aria-label="Lektion beenden" class="w-11 h-11 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container-high active:translate-y-0.5 transition-transform duration-100 ease-out focus:outline-none">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<!-- Progress Bar Meter -->
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="65" class="flex-1 h-3.5 bg-surface-container-high rounded-full overflow-hidden p-0.5 border border-outline-variant/30" role="progressbar">
+<div class="h-full bg-primary-container rounded-full relative transition-all duration-300 w-[65%]">
+<div class="absolute inset-x-0 top-0 h-[1.5px] bg-tertiary-fixed-dim/60 rounded-full"></div>
+</div>
+</div>
+<!-- Unit & XP Pill -->
+<div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1 rounded-full border border-surface-container-highest shrink-0">
+<span class="material-symbols-outlined text-[16px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-tight">+12 XP</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Lesson Content Area (with +240px bottom padding for pinned sheet clearance) -->
+<main class="flex-1 overflow-y-auto px-4 pt-4 pb-[260px] flex flex-col gap-4">
+<!-- Stage & CEFR Level Category Chip -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container text-surface font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">school</span>
+          B2 · Grammatik
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">
+          Aufgabe 7 von 11
+        </span>
+</div>
+<!-- Teacher Slot & Instructions Card (Side-by-side Bento Row) -->
+<section class="bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl p-3.5 shadow-ledge-neutral flex items-center gap-3">
+<!-- 96x96 empty teacher slot for 2D character code insertion -->
+<div aria-label="Lehrer Platzhalter" class="w-[96px] h-[96px] shrink-0 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-[28px] text-outline mb-1">face</span>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface-variant font-bold">[teacher-slot]</span>
+</div>
+<!-- Speech Bubble Prompt -->
+<div class="flex-1 bg-surface-container-low p-3 rounded-lg border border-surface-container-highest relative">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+            Wähle die passende Zeitform für eine vollendete Handlung mit Gegenwartsbezug.
+          </p>
+</div>
+</section>
+<!-- Audio Interaction Dock (Dual Pill Buttons, min 44px target) -->
+<section class="grid grid-cols-2 gap-2.5">
+<button class="h-11 px-3 bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl shadow-ledge-neutral flex items-center justify-center gap-2 hover:bg-surface-container-high transition-transform duration-100 ease-out focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-label-md text-label-md text-primary font-bold">Anhören (1.0×)</span>
+</button>
+<button class="h-11 px-3 bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl shadow-ledge-neutral flex items-center justify-center gap-2 hover:bg-surface-container-high transition-transform duration-100 ease-out focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">speed</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">Langsam (0.75×)</span>
+</button>
+</section>
+<!-- Target Sentence Prompt Card -->
+<section class="bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl p-4 shadow-ledge-neutral">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-2 font-bold">
+          Satz vervollständigen
+        </span>
+<div class="font-body-lg text-body-lg text-on-surface font-semibold leading-relaxed">
+          She 
+          <span class="inline-block border-b-2 border-primary-container text-primary font-bold px-2 py-0.5 bg-tertiary-fixed/30 rounded mx-1">
+            has lived
+          </span> 
+          in Berlin since October, so she knows the city very well.
+        </div>
+</section>
+<!-- Multiple Choice Options -->
+<fieldset class="flex flex-col gap-2.5">
+<legend class="sr-only">Wähle die richtige Antwortoption</legend>
+<!-- Option 1: CORRECT (Selected & Evaluated State) -->
+<div aria-label="has lived - Richtig" class="w-full min-h-[52px] px-4 py-3 bg-tertiary-fixed/25 border-2 border-on-tertiary-fixed-variant rounded-xl shadow-ledge-correct flex items-center justify-between transition-all" role="status">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-on-tertiary-fixed-variant text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</span>
+<span class="font-label-lg text-label-lg font-bold text-on-tertiary-fixed-variant">has lived</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant font-bold uppercase tracking-wider">Richtig</span>
+</div>
+<!-- Option 2: Default Unselected -->
+<button class="w-full min-h-[52px] px-4 py-3 bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl shadow-ledge-neutral flex items-center justify-between opacity-80 cursor-default text-left" disabled="" type="button">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center font-label-sm text-[12px] text-outline font-bold">A</span>
+<span class="font-label-lg text-label-lg font-medium text-on-surface">lives</span>
+</div>
+</button>
+<!-- Option 3: Default Unselected -->
+<button class="w-full min-h-[52px] px-4 py-3 bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl shadow-ledge-neutral flex items-center justify-between opacity-80 cursor-default text-left" disabled="" type="button">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center font-label-sm text-[12px] text-outline font-bold">B</span>
+<span class="font-label-lg text-label-lg font-medium text-on-surface">is living</span>
+</div>
+</button>
+<!-- Option 4: Default Unselected -->
+<button class="w-full min-h-[52px] px-4 py-3 bg-surface-container-lowest border-2 border-surface-container-highest rounded-xl shadow-ledge-neutral flex items-center justify-between opacity-80 cursor-default text-left" disabled="" type="button">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center font-label-sm text-[12px] text-outline font-bold">C</span>
+<span class="font-label-lg text-label-lg font-medium text-on-surface">lived</span>
+</div>
+</button>
+</fieldset>
+</main>
+<!-- Pinned Correct Answer Feedback Sheet -->
+<footer class="absolute bottom-0 inset-x-0 bg-surface-bright border-t-2 border-on-tertiary-fixed-variant shadow-sheet z-40 px-4 pt-3.5 pb-6 flex flex-col gap-3">
+<!-- Feedback Header Banner -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-on-tertiary-fixed-variant text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] font-bold">check_circle</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg font-extrabold text-on-tertiary-fixed-variant leading-none">
+              Richtig! +2 XP
+            </div>
+<div class="font-label-sm text-[11px] text-on-surface-variant font-semibold mt-0.5">
+              Ama: Super!
+            </div>
+</div>
+</div>
+<button aria-label="Erklärung vorlesen" class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-container-highest active:translate-y-0.5 transition-transform duration-100 ease-out focus:outline-none">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- German Linguistic Explanation (Full expansion room without truncation) -->
+<div class="bg-tertiary-fixed/20 border border-on-tertiary-fixed-variant/30 rounded-lg p-2.5">
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+          Wir verwenden das <strong class="text-primary font-bold">Present Perfect</strong> („has lived“), wenn eine Handlung in der Vergangenheit begonnen hat und bis in die Gegenwart andauert (Signalwort <strong class="text-primary font-bold">„since“</strong>).
+        </p>
+</div>
+<!-- Primary Action CTA Button: Weiter -->
+<button class="w-full h-[52px] bg-secondary-container text-on-primary rounded-xl font-label-lg text-label-lg font-bold border-2 border-secondary shadow-ledge-coral flex items-center justify-center gap-2 tracking-wide focus:outline-none" type="button">
+<span>Weiter</span>
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>

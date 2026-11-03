@@ -96,7 +96,6 @@
 'Đăng xuất khỏi Lexkite?': 'Sign out of Lexkite?',
 'Dữ liệu học vẫn ở lại trên máy này và đã được sao lưu trong tài khoản. Đăng nhập lại bất cứ lúc nào để đồng bộ tiếp.': 'Your study data stays on this device and is already backed up to your account. Sign in again anytime to keep syncing.',
 'Đăng nhập để khôi phục dữ liệu học của bạn.': 'Sign in to restore your study data.',
-'Học không cần tài khoản': 'Continue without an account',
 
 // ui.js
 'Cần cho phép dùng micro – bấm biểu tượng 🎙️/🔒 trên thanh địa chỉ và chọn “Cho phép”.': 'Microphone access needed – click the 🎙️/🔒 icon in the address bar and choose “Allow”.',
@@ -104,6 +103,7 @@
 'Không nghe thấy gì – bấm micro rồi đọc to, rõ ràng nhé.': 'Didn’t hear anything – tap the mic and speak loudly and clearly.',
 'Không tìm thấy micro – kiểm tra tai nghe/micro của máy.': 'No microphone found – check your headset or mic.',
 'Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).': 'Couldn’t reach the speech recognition service (internet required).',
+'Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.': 'On-device speech recognition couldn’t start – check your internet, then tap the mic to try again.',
 'Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.': 'This browser doesn’t support speech recognition – please use Chrome or Edge.',
 'Micro đang bận – thử lại sau 1 giây.': 'Microphone is busy – try again in a second.',
 'Lỗi nhận dạng: {err}': 'Recognition error: {err}',
@@ -531,7 +531,6 @@
 '{title} – câu {n}: {q}': '{title} – Q{n}: {q}',
 '{a}/{b} đã trả lời': '{a}/{b} answered',
 'Bấm để bỏ tô sáng': 'Tap to remove highlight',
-'Thêm ghi chú': 'Add note',
 'Ghi chú': 'Note',
 'Đáp án:': 'Answer:',
 "Phần": "Section", "Thời gian": "Time", "Quản trị hệ thống": "System admin", "Quản trị": "Admin", "Người dùng": "Users", "Chỉ quản trị viên": "Admins only", "Phân tích": "Analytics", "Hộp thư": "Inbox", "Cảnh báo": "Alerts", "Chất lượng": "Quality", "Người dùng, hộp thư, phân tích, chất lượng, Gemini API": "Users, inbox, analytics, quality, Gemini API",
@@ -838,8 +837,6 @@
 '{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.': '{done}/{total} units complete · Learn in cycles: introduce → practice → listen → test, then review at the optimal time.',
 'Bài này đang khóa': 'This unit is locked',
 'Hoàn thành bài trước (kiểm tra đạt ≥ 80%) hoặc học ≥ 80% số từ của bài này để mở khóa.': 'Complete the previous unit (score ≥ 80% on its test) or learn ≥ 80% of this unit’s words to unlock it.',
-'Xem trước bộ từ': 'Preview word set',
-'{n} từ · đã học {pct}%': '{n} words · {pct}% learned',
 'điểm kiểm tra {score}%': 'test score {score}%',
 'Đóng': 'Close',
 
@@ -888,9 +885,9 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {
 'Chính xác!': 'Correct!', 'Chưa đúng': 'Not quite',
 }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Từ vừa quên – xem lại 1 lần nữa:': 'Words you just forgot – look again:', 'Số thẻ đến hạn 7 ngày tới': 'Cards due in the next 7 days', 'Mai': 'Tmrw' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Số thẻ đến hạn 7 ngày tới': 'Cards due in the next 7 days', 'Mai': 'Tmrw' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hay đi với': 'Goes with', 'Đồng nghĩa': 'Synonyms', 'Định nghĩa': 'Definition', 'Ví dụ': 'Example', 'Nghe cả câu': 'Play sentence' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Nghe từ, nhớ lại nghĩa rồi chạm để lật': 'Listen, recall the meaning, then tap to flip', 'nghe lại': 'replay' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'nghe lại': 'replay' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.': 'Exam coming up or want more? Review {n} cards due in the next 2 days now.', 'Ôn trước →': 'Review ahead →' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại lỗi sai': 'Retry mistakes', 'Xem danh sách': 'View list', 'Gõ đáp án của bạn': 'Type your answer', 'Hiện đáp án': 'Show answer', 'Mình làm đúng': 'I got it right', 'Vẫn sai': 'Still wrong' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại {n} lỗi sai': 'Retry {n} mistakes', 'Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất': 'Recall the answer yourself – fixing mistakes is the fastest way to score higher' }); })(typeof self !== 'undefined' ? self : this);
@@ -904,7 +901,6 @@
 'Bàn luận vấn đề xã hội và mô tả số liệu, biểu đồ bằng từ chính xác': 'Discuss social issues and describe data and charts with precise words',
 'Viết và nói theo phong cách học thuật: nêu quan điểm, nối ý mạch lạc': 'Write and speak in an academic style: give opinions and link ideas clearly',
 'Diễn đạt tự nhiên và chính xác với collocation, thành ngữ': 'Express yourself naturally and precisely with collocations and idioms',
-'Mục tiêu: nhận ra, hiểu và dùng được {n} từ về “{name}”.': 'Goal: recognise, understand and use {n} words about “{name}”.',
 'Nghe giọng Anh–Anh': 'British pronunciation',
 'Phân bố mức độ nhớ': 'How well you remembered',
 'Cấp độ CEFR': 'CEFR level',
@@ -1157,7 +1153,6 @@
 // ---- Settings ----
 'Nhắc học hằng ngày': 'Daily reminder',
 'Giờ nhắc': 'Reminder time',
-'Nhắc 15 phút trước khung giờ bạn hay học nhất (sau vài ngày học).': 'Reminds you 15 minutes before the hour you usually study (after a few days of learning).',
 'đến': 'to',
 'Không giới hạn': 'Unlimited',
 'Anh – Mỹ': 'American English',
@@ -1166,7 +1161,6 @@
 'Tự động': 'Auto',
 'Sáng': 'Light',
 'Tối': 'Dark',
-'Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.': 'To install: open <code>chrome://extensions</code> → turn on <i>Developer mode</i> → <i>Load unpacked</i> → select the <code>extension</code> folder.',
 'Dữ liệu': 'Data',
 'Xuất sao lưu': 'Export backup',
 'Xóa toàn bộ dữ liệu học': 'Delete all study data',
@@ -1176,7 +1170,6 @@
 
 // ---- Reminders & notifications ----
 'Lexkite – đến giờ học rồi!': "Lexkite: it's study time!",
-'Học vài từ mới để giữ chuỗi ngày học nhé': 'Learn a few new words to keep your streak alive',
 'Thời điểm vàng!': 'Golden time!',
 
 // ---- Welcome & onboarding ----
@@ -1209,8 +1202,6 @@
 'Dễ': 'Easy',
 'Quay lại': 'Back',
 'Chọn chủ đề muốn học trước': 'Pick topics to start with',
-'Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.': 'Choose 1–5 topics. You can add more later in the Library.',
-'Bắt đầu học ({n} từ)': 'Start learning ({n} words)',
 'Bắt đầu học': 'Start learning',
 'Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!': 'Your deck is ready. Time for your first review!',
 'Đã thêm “{w}” vào flashcard': 'Added “{w}” to flashcards',
@@ -1271,7 +1262,6 @@
 "Chưa xem hết video – chuỗi chưa được khôi phục": "Video not finished – streak not restored",
 "Chuỗi ngày học đã được giải cứu thành công!": "Your study streak has been saved!",
 "✓ Đã nhớ": "✓ Got it",
-"🔁 Cần ôn lại": "🔁 Review again",
 "Thời điểm vàng": "Golden moment",
 "Từ mới lưu": "Recently saved",
 "Từ hôm nay": "Word of the moment",
@@ -1581,17 +1571,12 @@
 'Học trước 7 giờ sáng trong 5 ngày': 'Study before 7 am on 5 days',
 'Thợ săn từ': 'Word Hunter',
 'Học 50 từ mới trong một ngày': 'Learn 50 new words in one day',
-'Kit đây! Học 5 phút cùng mình nhé?': "It's Kit! Five minutes together?",
 'Kit nhớ bạn rồi đó 🐦': "Kit misses you 🐦",
-'Bay một vòng từ vựng không?': "Up for a quick word flight?",
 'Đến giờ cất cánh rồi! 🪁': "Time to take off! 🪁",
 'Có {n} thẻ đang chờ – xong nhanh thôi, mình ở đây cùng bạn.': "{n} cards are waiting – it'll be quick, I'm right here with you.",
-'{n} thẻ sắp quên – ôn bây giờ là nhớ lâu nhất đó!': "{n} cards are about to fade – reviewing now makes them stick longest!",
 'Giữ chuỗi 🔥{s} ngày nhé – chỉ cần ôn {n} thẻ.': "Keep your 🔥{s}-day streak – just {n} cards to review.",
 'Ôn {n} thẻ hôm nay để bắt đầu chuỗi ngày học nhé!': "Review {n} cards today to start your streak!",
-'Hôm nay chưa có thẻ cần ôn – học thêm vài từ mới không?': "Nothing due today – how about a few new words?",
 'Một bài nghe ngắn 5 phút trước khi ngủ nhé?': "A short 5-minute listening before bed?",
-'Đọc một đoạn ngắn và lưu 3 từ hay – nhẹ nhàng thôi!': "Read a short passage and save 3 good words – nice and easy!",
 'Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến': "Vocabulary for IELTS, TOEIC & real-world English",
 'Miễn phí · Dữ liệu học thuộc về bạn': "Free · Your study data belongs to you",
 'Tuyệt vời! Đó chính là cách Lexkite giúp bạn nhớ lâu.': "Great! That's how Lexkite makes words stick.",
@@ -1671,6 +1656,8 @@
 "Khoe thành tích": "Share your progress",
 "Lớp học": "Classroom",
 "Giáo viên giao bài, học sinh nhập mã lớp": "Teachers assign work, students join with a class code",
+"Học qua video": "Learn with videos",
+"Video YouTube theo chủ đề, lặp đoạn, lưu từ": "YouTube videos by topic, loop parts, save words",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */

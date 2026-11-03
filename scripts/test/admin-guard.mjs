@@ -12,8 +12,8 @@ import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
 import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
 import { waitFn } from '../lib/pw-wait.mjs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
-const browser = await pw.chromium.launch();
-const SHOTS = [['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark']];
+const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); // PW_CHANNEL=chrome: chạy thử nhanh bằng Chrome có sẵn
+const SHOTS = [['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light']];
 
 if (process.argv[2] === '--compare') { // TRƯỚC | SAU cạnh nhau, thu nhỏ để soát nhanh
   const OUT = process.argv[3] || 'out/admin-guard', made = [];
@@ -45,7 +45,9 @@ const QUOTA = { day: iso(0).slice(0, 10), breaker: 0.8, providers: [{ p: 'gemini
   flags: [{ id: 'u9', feature: 'explain', strikes: 2, last: NOW }], allow: [{ id: 'u1', note: 'tester', by: 'admin@example.com', at: NOW }],
   features: [{ feature: 'explain', free: 20, anon: 5, store: 'kv', custom: false, ipx: 3, bans: 0 }, { feature: 'tts', free: 50, anon: 10, store: 'kv', custom: true, ipx: 2, bans: 1 }],
   audit: [{ at: NOW, by: 'admin@example.com', op: 'block', target: 'ip:ff00', detail: '24h' }] };
-const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [820, 'dark', 'vi'], [390, 'light', 'en']];
+// owner 3/11: bảng Nền tảng tràn thẻ + tên nước bị cắt ở cột ~300 px → thêm 360 (tối), 768, 1024. ADMIN_GUARD_W=360,1440 = chỉ chạy các bề rộng đó (thử nhanh)
+const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [360, 'dark', 'vi']]
+  .filter(([w]) => !process.env.ADMIN_GUARD_W || process.env.ADMIN_GUARD_W.split(',').includes(String(w)));
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
   const U = { uid: 'guard', email: 'admin@example.com', displayName: 'Guard', photoURL: '', getIdToken: async () => 'x' };
   window.__AUTH = { currentUser: U, onAuthStateChanged: cb => setTimeout(() => cb(U), 0), signOut: async () => {}, signInWithPopup: async () => {} };`;
@@ -81,7 +83,7 @@ for (const [width, scheme, lang] of CONFIGS) {
     cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
     await waitFn(page, () => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
-    const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav' }).catch(e => ({ err: [e.message] }));
+    const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav', boxes: '.card, .ds-card, .lt, .kpi' }).catch(e => ({ err: [e.message] }));
     // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
     res.shell = await page.evaluate(() => {
       const o = [], over = document.scrollingElement.scrollWidth - innerWidth;
@@ -90,6 +92,11 @@ for (const [width, scheme, lang] of CONFIGS) {
         const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), txt = []; for (let t; (t = tw.nextNode());) { const rg = document.createRange(); rg.selectNodeContents(t); if (rg.getBoundingClientRect().right > innerWidth + 1 && !sc(t)) txt.push('chữ "' + t.textContent.trim().slice(0, 24) + '" trong ' + t.parentElement.tagName.toLowerCase() + '.' + [...t.parentElement.classList].slice(0, 2).join('.')); }
         const wide = [...document.querySelectorAll('body *')].filter(e => e.scrollWidth > innerWidth).sort((x, y) => y.scrollWidth - x.scrollWidth).slice(0, 2).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ':' + e.scrollWidth + '/' + Math.round(e.getBoundingClientRect().width));
         o.push(`trang tràn ngang ${over} px (${[...who, ...txt.slice(-3)].join(', ')} · rộng: ${wide.join(', ')})`); }
+      // lưới thẻ không bị CSS khác đè (3/11: css/adm.css cũng định nghĩa .adm-grid, nạp sau → thẻ 220 px, điện thoại 2 cột ~150 px)
+      for (const g of document.querySelectorAll('.adm-content .adm-grid')) {
+        const gw = g.clientWidth, min = Math.min(300, gw) - 2;
+        for (const c of g.children) { const w = c.getBoundingClientRect().width; if (w > 0 && w < min && !c.matches('[data-narrow-ok]')) { o.push(`thẻ ${c.className} "${(c.textContent || '').trim().slice(0, 20)}" bị ép còn ${Math.round(w)} px trong lưới ${gw} px`); break; } }
+      }
       const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
       if (innerWidth > 900 && side && !side.hidden) {
         const sr = side.getBoundingClientRect(), mr = main.getBoundingClientRect(), cr = cont.getBoundingClientRect(), pad = parseFloat(getComputedStyle(cont).paddingLeft) + parseFloat(getComputedStyle(cont).paddingRight);

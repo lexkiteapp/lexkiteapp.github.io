@@ -1,3 +1,4 @@
+# ci-policy: queue – ghi backlog lượt đỏ trên main tuần tự, huỷ là mất bản ghi lượt đỏ
 # Mỗi lượt QA đỏ trên main (do ci-filler hoặc lịch) → 1 dòng trong docs/QA-BACKLOG.md. Không mở PR/issue theo lỗi.
 name: QA backlog
 on:
@@ -29,4 +30,4 @@ jobs:
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add docs/QA-BACKLOG.md; git diff --cached --quiet && exit 0
           git commit -qm "QA-BACKLOG: lỗi mới từ $LX_EVENT [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1

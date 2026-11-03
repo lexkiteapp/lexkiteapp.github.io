@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Bright Day - السفر والضيافة</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+Arabic:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "surface-card": "#172427",
+            "surface-pod": "#1E2F33",
+            "border-pod": "#2A4349",
+            "border-dark": "#23383E",
+            "ledge-dark": "#0B1416",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "primary": "#2DD4BF",
+            "primary-container": "#14B8A6",
+            "primary-dim": "#115e59",
+            "secondary": "#F59E0B"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "margin": "1rem",
+            "margin-tablet": "1.5rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "label-lg": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "label-sm": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "label-md": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "body-lg": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-xl": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-md": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "body-md": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-lg": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-sm": ["Noto Sans Arabic", "Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile physical extruded keys - Dark Tactile Night Tokens */
+    .tactile-card {
+      background-color: #172427;
+      border: 2px solid #23383E;
+      box-shadow: 0 4px 0 #0B1416;
+    }
+    .tactile-btn-primary {
+      background-color: #14B8A6;
+      box-shadow: 0 4px 0 #084841;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #084841;
+    }
+    .tactile-btn-orange {
+      background-color: #F59E0B;
+      color: #1C1003;
+      box-shadow: 0 4px 0 #92400E;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #92400E;
+    }
+    .tactile-btn-ghost {
+      box-shadow: 0 3px 0 #0B1416;
+      border: 2px solid #23383E;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-ghost:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #0B1416;
+    }
+    .word-card {
+      background-color: #172427;
+      border: 2px solid #23383E;
+      box-shadow: 0 4px 0 #0B1416;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .word-card:hover {
+      box-shadow: 0 6px 0 #081012;
+      transform: translateY(-2px);
+    }
+    .teacher-slot {
+      background-color: #172427;
+      border: 2px dashed #14B8A6;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] min-h-screen font-body-md antialiased selection:bg-[#2DD4BF]/30 selection:text-[#2DD4BF] pb-36">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-sm border-b-2 border-[#23383E] shadow-[0_4px_0_#0B1416]">
+<div class="flex justify-between items-center w-full px-4 py-3 max-w-[430px] mx-auto">
+<!-- Right: Back Button pointing right for RTL -->
+<button aria-label="الرجوع" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#172427] border-2 border-[#23383E] text-[#E8F1F0] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform duration-100"><span class="material-symbols-outlined text-[#2DD4BF] text-xl" data-icon="arrow_forward">arrow_forward</span></button>
+<!-- Center Brand & Screen Identity -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#172427] rounded-full border-2 border-[#23383E] shadow-[0_2px_0_#0B1416]">
+<!-- Kite diamond icon visual -->
+<span class="w-3.5 h-3.5 rotate-45 bg-[#FF6B57] inline-block rounded-xs border border-[#991B1B]"></span>
+<span class="font-headline-sm text-headline-sm text-[#2DD4BF] font-bold tracking-tight">Lexkite</span>
+</div>
+</div>
+<!-- Left: Search & Settings Tools -->
+<div class="flex items-center gap-1.5">
+<button aria-label="بحث في الكلمات" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#172427] border-2 border-[#23383E] text-[#A9BDBB] hover:text-[#E8F1F0] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform duration-100"><span class="material-symbols-outlined text-xl" data-icon="search">search</span></button>
+<button aria-label="الإعدادات" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#172427] border-2 border-[#23383E] text-[#A9BDBB] hover:text-[#E8F1F0] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform duration-100"><span class="material-symbols-outlined text-xl" data-icon="settings">settings</span></button>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS CONTAINER -->
+<main class="max-w-[430px] mx-auto px-4 pt-5 pb-8 space-y-4">
+<!-- BREADCRUMB & TOPIC HEADER -->
+<div class="tactile-card rounded-DEFAULT p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#1E2F33] border border-[#2A4349] text-[#2DD4BF] font-bold text-xs shadow-inner">
+<span class="material-symbols-outlined text-base" data-icon="menu_book">menu_book</span>
+</span>
+<span class="font-label-sm text-label-sm text-[#2DD4BF] font-extrabold uppercase tracking-wide">
+            B1 مفردات الموضوع
+          </span>
+</div>
+<button aria-label="حفظ في المفضلة" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#1E2F33] border border-[#2A4349] text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors"><span class="material-symbols-outlined text-xl" data-icon="bookmark_border">bookmark_border</span></button>
+</div>
+<!-- Main Subject Title & Meta Description -->
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#E8F1F0] font-extrabold tracking-tight">
+            السفر والضيافة
+          </h1>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#78350F]/40 text-[#FBBF24] border border-[#B45309]/60">
+            Travel &amp; Hospitality
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1.5 leading-relaxed">
+          المطارات، تسجيل الوصول في الفندق، الترانزيت، وإجراءات السفر الدولية.
+        </p>
+</div>
+<!-- CEFR & Exam Tags -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/30 text-xs font-extrabold">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] inline-block"></span>
+          B1 CEFR
+        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E2F33] text-[#FBBF24] border border-[#F59E0B]/30 text-xs font-extrabold">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B] inline-block"></span>
+          IELTS &amp; TOEIC
+        </span>
+<span class="inline-flex items-center gap-1 text-[#A9BDBB] font-label-sm text-xs mr-auto">
+<span class="material-symbols-outlined text-sm text-[#F59E0B]" data-icon="local_fire_department">local_fire_department</span>
+          سلسلة دراسية نشطة
+        </span>
+</div>
+</div>
+<!-- PROGRESS & STATS 3-COLUMN TACTILE CARD -->
+<section class="tactile-card rounded-DEFAULT p-4 space-y-3.5">
+<div class="grid grid-cols-3 gap-2 text-center divide-x divide-x-reverse divide-[#23383E]">
+<!-- Total words -->
+<div class="px-1">
+<p class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">إجمالي الكلمات</p>
+<p class="font-headline-md text-headline-md text-[#E8F1F0] font-extrabold mt-0.5">240</p>
+<span class="inline-block mt-0.5 text-[11px] font-bold text-[#2DD4BF] bg-[#1E2F33] border border-[#2A4349] px-2 py-0.5 rounded-full">كلمة بالوحدة</span>
+</div>
+<!-- Mastered -->
+<div class="px-1">
+<p class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">أتقنتها</p>
+<p class="font-headline-md text-headline-md text-[#2DD4BF] font-extrabold mt-0.5">68</p>
+<span class="inline-block mt-0.5 text-[11px] font-bold text-[#2DD4BF] bg-[#1E2F33] border border-[#2A4349] px-2 py-0.5 rounded-full">28% منجز</span>
+</div>
+<!-- Daily Target -->
+<div class="px-1">
+<p class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">الهدف اليومي</p>
+<p class="font-headline-md text-headline-md text-[#FBBF24] font-extrabold mt-0.5">20+</p>
+<span class="inline-block mt-0.5 text-[11px] font-bold text-[#FBBF24] bg-[#78350F]/40 border border-[#B45309]/50 px-2 py-0.5 rounded-full">مستحقة اليوم</span>
+</div>
+</div>
+<!-- Resin 3D Progress Bar (Right to Left Fill) -->
+<div class="space-y-1.5 pt-1">
+<div class="flex justify-between items-center text-xs font-bold text-[#A9BDBB]">
+<span>تقدم المنهج</span>
+<span class="font-extrabold text-[#E8F1F0]">68 من 240 كلمة</span>
+</div>
+<div class="relative w-full h-3.5 bg-[#0B1416] rounded-full overflow-hidden p-0.5 border border-[#23383E]">
+<!-- Bar fills 28% from right -->
+<div class="h-full bg-gradient-to-l from-[#14B8A6] to-[#2DD4BF] rounded-full relative" style="width: 28%;">
+<!-- Resin specular shine stripe -->
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- TEACHER SLOT (.teacher-slot) -->
+<div class="teacher-slot rounded-DEFAULT p-3.5 flex items-start gap-3 shadow-[0_4px_0_#0B1416]">
+<div class="w-10 h-10 shrink-0 rounded-full bg-[#14B8A6] text-[#051F1D] flex items-center justify-center font-bold shadow-[0_2px_0_#0B1416]">
+<span class="material-symbols-outlined text-xl" data-icon="school">school</span>
+</div>
+<div class="space-y-1 text-right flex-1">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-[#2DD4BF] font-extrabold">خانة المعلمة • نصيحة المدربة</span>
+<span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8F1F0] font-medium leading-snug">
+          «انتبه جيداً للمتلازمات اللفظية الشائعة مثل <span class="font-bold underline decoration-[#F59E0B] decoration-2 text-[#2DD4BF]" dir="ltr">board the flight</span> و <span class="font-bold underline decoration-[#F59E0B] decoration-2 text-[#2DD4BF]" dir="ltr">excess baggage</span>.»
+        </p>
+</div>
+</div>
+<!-- FILTER ROW & STAT PILLS -->
+<section class="space-y-2 pt-1">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5 font-label-md text-label-md font-bold text-[#E8F1F0]">
+<span class="material-symbols-outlined text-lg text-[#2DD4BF]" data-icon="tune">tune</span>
+<span>تصفية الكلمات</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">عرض 240 كلمة</span>
+</div>
+<!-- Tactile Pills Horizontal Scroll -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar"><button class="shrink-0 px-4 py-2.5 min-h-[44px] rounded-full bg-[#14B8A6] text-[#051F1D] font-label-sm text-label-sm font-extrabold shadow-[0_3px_0_#084841] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-transform"><span>كل الكلمات</span><span class="bg-[#051F1D]/20 text-[#051F1D] px-2 py-0.5 rounded-full text-xs font-black">240</span></button><button class="shrink-0 px-4 py-2.5 min-h-[44px] rounded-full bg-[#172427] text-[#E8F1F0] font-label-sm text-label-sm font-bold border-2 border-[#23383E] shadow-[0_3px_0_#0B1416] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-transform"><span class="w-2 h-2 rounded-full bg-[#38BDF8]"></span><span>جديدة</span><span class="text-[#A9BDBB] text-xs font-bold">124</span></button><button class="shrink-0 px-4 py-2.5 min-h-[44px] rounded-full bg-[#172427] text-[#E8F1F0] font-label-sm text-label-sm font-bold border-2 border-[#23383E] shadow-[0_3px_0_#0B1416] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-transform"><span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span><span>قيد التعلم</span><span class="text-[#A9BDBB] text-xs font-bold">48</span></button></div>
+</section>
+<!-- WORD CARDS CONTAINER (5 DISPLAYED ITEMS) -->
+<div class="space-y-3.5 pt-1">
+<!-- CARD 1: departure -->
+<article class="word-card rounded-DEFAULT p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#E8F1F0] tracking-tight" dir="ltr">
+                departure
+              </span>
+<span class="px-2 py-0.5 rounded-md text-xs font-bold bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4349]">
+                اسم / NOUN
+              </span>
+</div>
+<!-- IPA in LTR -->
+<p class="text-xs font-bold text-[#A9BDBB]/80 text-right" dir="ltr">
+              /dɪˈpɑː.tʃər/ • UK / US
+            </p>
+</div>
+<!-- Speaker button -->
+<button aria-label="نطق كلمة departure" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#1E2F33] border-2 border-[#2DD4BF]/60 text-[#2DD4BF] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span></button>
+</div>
+<!-- Arabic Definition -->
+<p class="font-body-md text-body-md text-[#E8F1F0] font-medium leading-relaxed bg-[#1E2F33] p-3 rounded-lg border border-[#2A4349]">
+          إجراءات المغادرة وبدء الرحلة، خاصة في محطات السفر والمطارات.
+        </p>
+<!-- Collocations & Mastery Indicator -->
+<div class="flex items-center justify-between pt-1 border-t border-[#23383E]">
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold text-[#2DD4BF]" dir="ltr">
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">departure lounge</span>
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">scheduled departure</span>
+</div>
+<!-- 3-dot mastery gauge -->
+<div class="flex items-center gap-1 shrink-0 mr-2" title="مستوى الإتقان">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+</div>
+</div>
+</article>
+<!-- CARD 2: itinerary -->
+<article class="word-card rounded-DEFAULT p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#E8F1F0] tracking-tight" dir="ltr">
+                itinerary
+              </span>
+<span class="px-2 py-0.5 rounded-md text-xs font-bold bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4349]">
+                اسم / NOUN
+              </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#78350F]/40 text-[#FBBF24] border border-[#B45309]/60">
+                مستحقة / DUE
+              </span>
+</div>
+<p class="text-xs font-bold text-[#A9BDBB]/80 text-right" dir="ltr">
+              /aɪˈtɪn.ər.ər.i/ • UK / US
+            </p>
+</div>
+<button aria-label="نطق كلمة itinerary" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#1E2F33] border-2 border-[#2DD4BF]/60 text-[#2DD4BF] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span></button>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-medium leading-relaxed bg-[#1E2F33] p-3 rounded-lg border border-[#2A4349]">
+          خطة سفر مفصلة أو جدول زمني يوضح مسار الرحلة والمواعيد والأماكن.
+        </p>
+<div class="flex items-center justify-between pt-1 border-t border-[#23383E]">
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold text-[#2DD4BF]" dir="ltr">
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">detailed itinerary</span>
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">planned route</span>
+</div>
+<div class="flex items-center gap-1 shrink-0 mr-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+</div>
+</div>
+</article>
+<!-- CARD 3: accommodate -->
+<article class="word-card rounded-DEFAULT p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#E8F1F0] tracking-tight" dir="ltr">
+                accommodate
+              </span>
+<span class="px-2 py-0.5 rounded-md text-xs font-bold bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4349]">
+                فعل / VERB
+              </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#312E81]/50 text-[#A5B4FC] border border-[#4338CA]/60">
+                مفردات آيلتس الأساسية
+              </span>
+</div>
+<p class="text-xs font-bold text-[#A9BDBB]/80 text-right" dir="ltr">
+              /əˈkɒm.ə.deɪt/
+            </p>
+</div>
+<button aria-label="نطق كلمة accommodate" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#1E2F33] border-2 border-[#2DD4BF]/60 text-[#2DD4BF] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span></button>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-medium leading-relaxed bg-[#1E2F33] p-3 rounded-lg border border-[#2A4349]">
+          توفير مكان للإقامة أو استيعاب عدد كافٍ من النزلاء والمسافرين.
+        </p>
+<div class="flex items-center justify-between pt-1 border-t border-[#23383E]">
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold text-[#2DD4BF]" dir="ltr">
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">accommodate guests</span>
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">room capacity</span>
+</div>
+<div class="flex items-center gap-1 shrink-0 mr-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+</div>
+</div>
+</article>
+<!-- CARD 4: complimentary -->
+<article class="word-card rounded-DEFAULT p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center flex-wrap gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#E8F1F0] tracking-tight" dir="ltr">
+                complimentary
+              </span>
+<span class="px-2 py-0.5 rounded-md text-xs font-bold bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4349]">
+                صفة / ADJECTIVE
+              </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#1E3A8A]/50 text-[#93C5FD] border border-[#1D4ED8]/60">
+                جديد / NEW
+              </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#881337]/50 text-[#FDA4AF] border border-[#BE123C]/60">
+                مصطلحات الفندقة
+              </span>
+</div>
+<p class="text-xs font-bold text-[#A9BDBB]/80 text-right" dir="ltr">
+              /ˌkɒm.plɪˈmen.tər.i/
+            </p>
+</div>
+<button aria-label="نطق كلمة complimentary" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#1E2F33] border-2 border-[#2DD4BF]/60 text-[#2DD4BF] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span></button>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-medium leading-relaxed bg-[#1E2F33] p-3 rounded-lg border border-[#2A4349]">
+          يُقدَّم مجاناً كخدمة ضيافة أو بادرة ترحيب بالنزيل دون مقابل إضافي.
+        </p>
+<div class="flex items-center justify-between pt-1 border-t border-[#23383E]">
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold text-[#2DD4BF]" dir="ltr">
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">complimentary breakfast</span>
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">free wifi</span>
+</div>
+<div class="flex items-center gap-1 shrink-0 mr-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+</div>
+</div>
+</article>
+<!-- CARD 5: layover -->
+<article class="word-card rounded-DEFAULT p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#E8F1F0] tracking-tight" dir="ltr">
+                layover
+              </span>
+<span class="px-2 py-0.5 rounded-md text-xs font-bold bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4349]">
+                اسم / NOUN
+              </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#064E3B]/50 text-[#6EE7B7] border border-[#047857]/60">
+                ترانزيت ومحطات التوقف
+              </span>
+</div>
+<p class="text-xs font-bold text-[#A9BDBB]/80 text-right" dir="ltr">
+              /ˈleɪˌoʊ.vər/
+            </p>
+</div>
+<button aria-label="نطق كلمة layover" class="w-11 h-11 rounded-full flex items-center justify-center bg-[#1E2F33] border-2 border-[#2DD4BF]/60 text-[#2DD4BF] shadow-[0_2px_0_#0B1416] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span></button>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-medium leading-relaxed bg-[#1E2F33] p-3 rounded-lg border border-[#2A4349]">
+          فترة توقف أو استراحة قصيرة بين رحلتين قبل استكمال مسار السفر.
+        </p>
+<div class="flex items-center justify-between pt-1 border-t border-[#23383E]">
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold text-[#2DD4BF]" dir="ltr">
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">4-hour layover</span>
+<span class="bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A4349]">connecting flight</span>
+</div>
+<div class="flex items-center gap-1 shrink-0 mr-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2A4349]"></span>
+</div>
+</div>
+</article>
+</div>
+<!-- PAGINATION BUTTON -->
+<div class="pt-2">
+<button class="tactile-btn-ghost w-full min-h-[48px] py-3.5 px-4 rounded-DEFAULT bg-[#172427] text-[#E8F1F0] font-label-md text-label-md font-bold flex items-center justify-center gap-2"><span>عرض الـ 20 كلمة التالية</span><span class="text-base leading-none">∨</span></button>
+</div>
+</main>
+<!-- STICKY BOTTOM ACTION CTA DOCK -->
+<div class="fixed bottom-16 left-0 w-full z-40 px-4 py-2 pointer-events-none">
+<div class="max-w-[430px] mx-auto pointer-events-auto">
+<button class="tactile-btn-orange w-full min-h-[52px] py-3.5 px-6 rounded-DEFAULT font-headline-sm text-headline-sm font-extrabold flex items-center justify-between text-[#1C1003]"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-2xl text-[#1C1003]" data-icon="play_circle">play_circle</span><span class="text-[#1C1003]">تعلّم 20 كلمة • ~4 دقائق</span></div><span class="text-xl font-black text-[#1C1003]">←</span></button>
+</div>
+</div>
+<!-- BOTTOM NAVIGATION BAR -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#172427] border-t-2 border-[#23383E] shadow-[0_-4px_0_#0B1416]">
+<div class="flex justify-around items-center px-4 py-2 max-w-[430px] mx-auto"><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] px-3 py-1 rounded-full transition-colors" href="#today"><span class="material-symbols-outlined text-2xl" data-icon="calendar_today">calendar_today</span><span class="font-label-sm text-label-sm mt-0.5">اليوم</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] bg-[#14B8A6] text-[#051F1D] rounded-full px-4 py-1 shadow-[0_2px_0_#084841]" href="#vocab"><span class="material-symbols-outlined text-2xl" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span><span class="font-label-sm text-label-sm mt-0.5 font-extrabold">المفردات</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] px-3 py-1 rounded-full transition-colors" href="#skills"><span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span><span class="font-label-sm text-label-sm mt-0.5">المهارات</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] px-3 py-1 rounded-full transition-colors" href="#tests"><span class="material-symbols-outlined text-2xl" data-icon="quiz">quiz</span><span class="font-label-sm text-label-sm mt-0.5">الاختبارات</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] px-3 py-1 rounded-full transition-colors" href="#me"><span class="material-symbols-outlined text-2xl" data-icon="person">person</span><span class="font-label-sm text-label-sm mt-0.5">حسابي</span></a></div>
+</nav>
+<!-- Interactive script for tactile button feedback & audio pronunciation simulation -->
+<script>
+    document.querySelectorAll('[data-icon="volume_up"]').forEach(btn => {
+      btn.closest('button').addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.add('scale-95', 'bg-[#2DD4BF]/20');
+        setTimeout(() => {
+          this.classList.remove('scale-95', 'bg-[#2DD4BF]/20');
+        }, 180);
+      });
+    });
+  </script>
+</body></html>

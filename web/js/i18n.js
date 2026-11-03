@@ -1,6 +1,5 @@
-/* Đa ngôn ngữ giao diện (i18n). Khóa dịch = chuỗi gốc tiếng Việt trong mã (kiểu gettext): t('Ôn tập') → "Review".
- * Ngôn ngữ: lựa chọn đã lưu → ngôn ngữ trình duyệt → mặc định English. Chỉ nạp file của ngôn ngữ đang dùng.
- * Nội dung học (nghĩa từ, giải thích) theo "ngôn ngữ người học" (learnLang) – mặc định theo giao diện. */
+/* i18n: khóa = câu tiếng Việt trong mã, t('Ôn tập') → "Review"; gói 13 ngôn ngữ dùng khóa băm (docs/I18N-PIPELINE.md §1b).
+ * Ngôn ngữ: đã lưu → trình duyệt → English. learnLang (nghĩa/giải thích) mặc định theo giao diện. */
 (function (g) {
   if (g.document) g.document.addEventListener('DOMContentLoaded', () => { g.__lkReady = 1; });
   const LANGS = {
@@ -9,8 +8,7 @@
     ko: ['Korean', '한국어'], hi: ['Hindi', 'हिन्दी'], ar: ['Arabic', 'العربية'], ru: ['Russian', 'Русский'], tr: ['Turkish', 'Türkçe'],
   };
   const RTL = new Set(['ar']);
-  // Ngôn ngữ đã có bản dịch giao diện đầy đủ (file js/i18n/<lang>.js). Ngôn ngữ khác → dùng English cho CẢ giao diện lẫn nội dung,
-  // tránh giao diện một thứ tiếng, nội dung một thứ tiếng. Thêm ngôn ngữ mới: sinh file bằng scripts/gen-i18n.mjs rồi thêm mã vào đây.
+  // Ngôn ngữ có bản dịch đủ; khác → English cho cả giao diện lẫn nội dung. Thêm ngôn ngữ: docs/I18N-PIPELINE.md §5.
   const SUPPORTED = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
   const KEY = 'vb.uiLang';
   const read = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
@@ -24,7 +22,7 @@
   }
   const lang = detect();
   // Lần đầu vào (chưa chọn ngôn ngữ, không có ?hl): đoán theo quốc gia qua Cloudflare /cdn-cgi/trace (miễn phí, không tốn lượt Functions).
-  // Chỉ chạy 1 lần; khác ngôn ngữ đang hiện → lưu & tải lại. Người dùng đổi lại bất kỳ lúc nào (đầu trang chào mừng / Cài đặt) và lựa chọn đó luôn được ưu tiên.
+  // Chỉ 1 lần; khác ngôn ngữ đang hiện → lưu & tải lại. Lựa chọn của người dùng luôn ưu tiên.
   const GEO = { VN: 'vi', JP: 'ja', KR: 'ko', CN: 'zh', TW: 'zh', HK: 'zh', MO: 'zh', TH: 'th', ID: 'id', BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt', ES: 'es', MX: 'es', AR: 'es', CO: 'es', CL: 'es', PE: 'es', VE: 'es', EC: 'es', GT: 'es', CU: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es', NI: 'es', CR: 'es', PA: 'es', UY: 'es', FR: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', ML: 'fr', DE: 'de', AT: 'de', RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', TR: 'tr', SA: 'ar', AE: 'ar', EG: 'ar', IQ: 'ar', MA: 'ar', DZ: 'ar', JO: 'ar', KW: 'ar', QA: 'ar', OM: 'ar', LB: 'ar', TN: 'ar', LY: 'ar', YE: 'ar', BH: 'ar', SY: 'ar', SD: 'ar' };
   if (g.document && g.fetch && /^https?:$/.test(location.protocol) && !read(KEY) && !read('vb.geo') && !/[?&]hl=/.test(location.search) && !(g.navigator && navigator.webdriver)) {
     fetch('/cdn-cgi/trace').then(r => (r.ok ? r.text() : '')).then(tx => {
@@ -36,9 +34,16 @@
   }
   /** @type {Record<string, Record<string, string>>} */
   const D = g.I18N_DICT = g.I18N_DICT || {};
+  // khóa băm "_"+FNV-1a(câu): scripts/lib/i18n-pack.mjs
+  const HK = {};
+  function tr(l, s) {
+    const d = D[l], v = d && d[s]; if (v !== undefined || !d || l === 'en' || typeof s !== 'string' || (D.en && D.en[s] == null)) return v;
+    let h = HK[s]; if (!h) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) x = Math.imul(x ^ s.charCodeAt(i), 0x01000193); h = HK[s] = '_' + (x >>> 0).toString(36); }
+    return d[h];
+  }
   // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
   function t(src, vars) {
-    let s = lang === 'vi' ? src : ((D[lang] && D[lang][src]) || (D.en && D.en[src]) || src);
+    let s = lang === 'vi' ? src : (tr(lang, src) || (D.en && D.en[src]) || src);
     if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m));
     if (RTL.has(lang) && typeof s === 'string') s = s.replace(/ →$/, ' ←').replace(/^← /, '→ '); // mũi tên "tiếp/quay lại" quay theo chiều đọc RTL
     return s;
@@ -61,7 +66,7 @@
   const FLAG = { vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' };
   const flag = l => FLAG[l] || FLAG[String(l || '').split('-')[0]] || '🌐';
   g.t = t;
-  g.I18N = { t, apply, set, whenReady: () => Promise.resolve(), tk: (k, v) => ({ k, v }), // tk: khóa + biến để lưu (dịch lúc vẽ bằng t(k, v)), không lưu chữ đã dịch
+  g.I18N = { t, apply, set, tr, has: (l, k) => l === 'vi' || tr(l, k) !== undefined, whenReady: () => Promise.resolve(), tk: (k, v) => ({ k, v }), // tk: khóa + biến để lưu (dịch lúc vẽ bằng t(k, v)), không lưu chữ đã dịch
      lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect, FLAG, flag };
   if (g.document) {
     document.documentElement.lang = lang;
