@@ -140,7 +140,7 @@ for (const f of FINAL.filter(x => x.k)) {
   // Giảm chuyển động + giáo viên + giọng + khớp miệng + âm hiệu ứng (tiếng Anh, sáng)
   for (const rm of [true, false]) { const { ctx, page, errs } = await session({ scheme: 'light', hl: 'en', rm });
     await visit(page, k, errs); await page.waitForTimeout(rm ? 900 : 2600);
-    if (f.ready) put(f.stitch, 'port', !!(await page.$(f.ready)), `chưa tới trạng thái ${f.ready}`);
+    if (f.ready) put(f.stitch, 'port', !!(await page.waitForSelector(f.ready, { state: 'attached', timeout: 6000 }).catch(() => null)), `chưa tới trạng thái ${f.ready}`); // chờ trạng thái (màn async), không ngủ cố định
     if (rm) { const a = await page.evaluate(RM).catch(() => []); put(f.stitch, 'reduced-motion', !a.length, a.slice(0, 3).join(' · ')); }
     else {
       if (f.speaks) await page.waitForFunction(() => { const t = (window.__qc || {}).talk || []; return t.some(x => x.on) && !document.querySelector('.tch.speaking'); }, null, { timeout: 8000 }).catch(() => {}); // câu đầu nói xong (≤ 8 s)

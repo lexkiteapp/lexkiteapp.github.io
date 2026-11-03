@@ -77,10 +77,13 @@
 - [REMINDERS.md](REMINDERS.md) — Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test; đọc khi: sửa nhắc học/push
 - [specs/tutor-daily.md](specs/tutor-daily.md) — Gia sư 1-1 hằng ngày Ama/Carlos: buổi 5–15 phút, lời gia sư, nhắc giọng gia sư, báo cáo tuần, $0 ở 1M DAU; đọc khi: sửa Buổi học hôm nay/thẻ gia sư
 - [specs/landing.md](specs/landing.md) — Spec landing lexkite.com (?home=1): so 5 app lớn, section, CTA, Stitch + port, tiêu chí xong; đọc khi: sửa build-landing.mjs, vẽ lại landing.
+- [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
 - [Khung học chung Next/Back + xếp câu, điền từ](specs/learn-flow-nav.md) — hiện trạng điều hướng ~30 màn học, Enter/thanh FOCUS, ChoiceKit tiles/accept, cổng nav-sweep; đọc khi thêm/sửa màn học hoặc nav-sweep đỏ
 - [specs/target-language.md](specs/target-language.md) — Ngôn ngữ đích (học tiếng Bồ Đào Nha pt-BR, thử): Target/tl khác ngôn ngữ nghĩa, khóa thẻ `pt:`, giọng theo bảng, Kokoro + espeak pt-br, bộ 30 từ mẫu, cờ pt_pilot; đọc khi: đụng thẻ/SRS, giọng, nội dung ngôn ngữ đích
+- [content-lots.md](content-lots.md) — Lô nội dung cho phiên Sonnet (lộ trình SCORE ≥ 95): file riêng, mẫu chuẩn, cổng, token, điểm/công; đọc khi mở/soát một lô nội dung
+- [specs/sense-v2.md](specs/sense-v2.md) — Mô hình nghĩa từ v2 (P0.2): nhiều nghĩa/từ#loại, CEFR theo nghĩa, ví dụ theo độ dài cấp, collocation, pattern, register, họ từ; cổng sense-check; đọc khi sửa/sinh content/lexicon/senses.json
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
 - [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi
@@ -100,6 +103,7 @@
 - [COMPETITOR-UPLIFT.md](COMPETITOR-UPLIFT.md) — Học từ 4You + 10 app lớn: 9 hạng mục có bằng chứng, chạy $0, xếp giá trị ÷ công sức, thứ tự PR; đọc khi: chọn việc "học đối thủ"
 - [UX-BENCHMARK.md](UX-BENCHMARK.md) — Top 10 khoảng cách Lexkite vs Duolingo (tự sinh từ bảng World) + việc nên làm theo trục; đọc khi: chọn việc UX/sản phẩm tiếp theo
 - [WORLD-SCORECARD.md](WORLD-SCORECARD.md) — Thước đo "vượt Duolingo" trên CI: trục, nguồn, mốc Duolingo an toàn, sàn chỉ tăng; đọc khi: đọc/sửa content/pipeline/WORLD.md
+- [HOME-V2.md](HOME-V2.md) — Trang chủ v2 "Hôm nay": benchmark Duolingo/Busuu/ELSA → khối home, ưu tiên HIỆN tính năng sẵn có; đọc khi: sửa #/home
 - [TOP1-SCORE.md](TOP1-SCORE.md) — Top-1 score /100: 8 trục có trọng số gộp từ quality-sweep + World + CI (không quét lại), Top 10 nâng cấp lợi ích/công sức, sàn chỉ tăng, issue + bản tin; đọc khi: đọc/sửa bảng Top-1 hay chọn việc nâng cấp
 - [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
 - [VIDEO-QC.md](VIDEO-QC.md) — Chuẩn QC video trước & sau, tự động trên CI: trượt 1 cổng là không dùng/không đăng; kết quả qc/<id>.json + điểm 100; đọc khi: kiểm tài nguyên/clip video

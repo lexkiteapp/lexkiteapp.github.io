@@ -37,6 +37,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:03 | `cf-pool-probe` | `3 0 * * *`<br>`33 */3 * * *` | reports | gh_minutes | 1 | neurons≈121 | — |
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
+| 00:07 | `d1-usage-watch` | `7,27,47 * * * *` | reports | d1_main, gh_minutes | 1 | d1_main_reads≈10, d1_main_writes≈2 | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
 | 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
@@ -49,6 +50,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
 | 00:52 | `social-auto` | `52 */2 * * *` | publishing | grabcast_social, d1_main | 3 | grabcast_social_calls≈60, d1_main_reads≈600, d1_main_writes≈120 | — |
 | 00:53 | `preview-site` | `53 */3 * * *` | publishing | gh_minutes | 8 | — | — |
+| 00:53 | `report-autofix` | `53 */3 * * *` | reports | gh_minutes | 1 | d1_main_reads≈200 | — |
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
@@ -75,6 +77,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 04:23 | `drive-shorts` | `23 4 * * *` | archive | drive_pool, d1_internal | 20 | d1_internal_reads≈20000, drive_calls≈1500 | ✓ |
 | 04:40 | `capacity-sim` | `40 4 * * 1` | reports | gh_minutes | 10 | — | — |
 | 04:40 | `vocab-img-free` | `40 4 * * 1` | bulk | gh_minutes | 6 | images≈0 | — |
+| 04:41 | `report-shots` | `41 4 * * 1` | archive | gh_minutes | 2 | — | — |
 | 04:47 | `video-web` | `47 4 * * *` | render | gh_minutes, drive_pool, d1_internal | 40 | d1_internal_reads≈300, drive_calls≈100 | ✓ |
 | 05:30 | `d1b-migrate` | `30 5 * * *` | archive | d1_internal, d1_main_read, drive_pool | 45 | d1_main_reads≈40000, d1_internal_reads≈2000 | ✓ |
 | 06:03 | `ads-revenue` | `3 6 * * *` | reports | gh_minutes, d1_main | 2 | d1_main_reads≈1500, d1_main_writes≈300 | — |
@@ -109,7 +112,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
-| `scripts/build-seo-pages.mjs` – /<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt) | `loadBrowserIndex` | build-web → indexnow |
+| `scripts/lib/seo-words.mjs` – /<lang>/words/ (build-seo-pages: trang + sitemap-words + IndexNow .seo-urls.txt) + hộp từ blog 13 ngôn ngữ (build-blog qua lib/blog-words.mjs) | `loadBrowserIndex` | build-web → indexnow |
 | `scripts/gen-word-audio.mjs` – hàng âm thanh Kokoro Anh/Mỹ (kho từ qua scripts/word-audio/lib.mjs) | `loadAllPlus` | word-audio mỗi 4 giờ |
 | `scripts/word-audio/lib.mjs` – kho từ cần giọng đọc từ đơn s3 (gen-word-audio.mjs, merge.mjs) | `loadAllPlus` | word-audio mỗi 4 giờ |
 | `scripts/scriptbank/lib.mjs` – điểm học kịch bản video (từ#loại tra kho) | `expandRows` | script-bank 00:50 UTC |
@@ -144,4 +147,6 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/dict/wordnet.mjs` – trích Open English WordNet → content/dict/wordnet.json, chỉ giữ từ đơn có trong kho (docs/SEO-DICT-PAGES.md) | `loadBrowserIndex` | tay (chạy lại khi kho từ lớn thêm) → build.mjs đọc file đã commit |
 | `scripts/sentence-audio/render.mjs` – phiên âm từ điển (Anh/Mỹ) cho phương án render lại cụm ≤ 3 chữ trượt cổng ASR câu | `loadAllPlus` | sentence-audio-asr mỗi 4 giờ |
 | `scripts/tts-ab/coverage.mjs` – docs/TTS-AB.md §Độ phủ – % chuỗi app phát có giọng Kokoro dựng sẵn (từ đơn audio/w + câu ví dụ audio/l của mọi từ trong chỉ mục tra từ) | `loadBrowserIndex` | tts-ab (độ phủ) |
+| `scripts/lexicon/core.mjs` –  | bỏ qua: danh sách từ lõi cho lô nghĩa gold P0.2 chỉ chọn từ kho viết tay (loadAll) – mục mở rộng 20k chưa vào lô gold | — |
+| `scripts/content-qa/sense-check.mjs` –  | bỏ qua: cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
