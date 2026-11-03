@@ -39,9 +39,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
+        env: { LX_ONLY_CUES: '${{ github.event.inputs.only_call_cues }}' }
         run: |
           left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
-          [ "${{ github.event.inputs.only_call_cues }}" = "true" ] && left=0
+          [ "$LX_ONLY_CUES" = "true" ] && left=0
           echo "left=$left" >> "$GITHUB_OUTPUT"
           # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
           echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
