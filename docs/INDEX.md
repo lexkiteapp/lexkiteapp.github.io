@@ -7,6 +7,7 @@
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
+- [ACCOUNTS-LEDGER.md](ACCOUNTS-LEDGER.md) — Sổ tài khoản & khóa trong Admin: dịch vụ/khóa thuộc email nào, giữ ở đâu (chỉ tên), hạn + nhắc 14 ngày, có/thiếu secret. Đọc khi thêm secret hoặc gia hạn token.
 - [ASSET-LIBRARY.md](ASSET-LIBRARY.md) — Kho tài nguyên hình ảnh mô-đun (nhân vật, biểu cảm, phòng, đạo cụ…) để ghép tổ hợp vô hạn cho video, Call Mia, roleplay, bài học; đọc khi: sản xuất hoặc ghép tài nguyên ảnh/nhân vật
 - [AUDIT-2026-10.md](AUDIT-2026-10.md) — Audit 17/10/2026 về SEO, pháp lý, khung trang, bảo mật (Critical/High/Medium/Low) cùng các sửa đã làm và đề xuất còn mở; đọc khi: tra lại vì sao một lỗi/chính sách được sửa
 - [AUTOMATION.md](AUTOMATION.md) — Quy trình tự động A→Z cho video học + phân phối trên GitHub Actions và Cloudflare ($0), mỗi bước có cổng QC; người chỉ duyệt ở 2 điểm; đọc khi: sửa đường ống tự động video/phân phối
@@ -16,6 +17,7 @@
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
+- [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
 - [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 40 runner GitHub Pro (repo giữ công khai): việc nền ≤ ~20 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng
@@ -73,6 +75,7 @@
 - [RETENTION.md](RETENTION.md) — Lớp giữ thói quen: lịch tuần, mốc chuỗi, rã băng, sự kiện mùa, rương mỹ phẩm, widget giáo viên (cờ ret); đọc khi: sửa streak/thưởng
 - [REMINDERS.md](REMINDERS.md) — Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test; đọc khi: sửa nhắc học/push
 - [specs/tutor-daily.md](specs/tutor-daily.md) — Gia sư 1-1 hằng ngày Ama/Carlos: buổi 5–15 phút, lời gia sư, nhắc giọng gia sư, báo cáo tuần, $0 ở 1M DAU; đọc khi: sửa Buổi học hôm nay/thẻ gia sư
+- [specs/landing.md](specs/landing.md) — Spec landing lexkite.com (?home=1): so 5 app lớn, section, CTA, Stitch + port, tiêu chí xong; đọc khi: sửa build-landing.mjs, vẽ lại landing.
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
 - [Khung học chung Next/Back + xếp câu, điền từ](specs/learn-flow-nav.md) — hiện trạng điều hướng ~30 màn học, Enter/thanh FOCUS, ChoiceKit tiles/accept, cổng nav-sweep; đọc khi thêm/sửa màn học hoặc nav-sweep đỏ

@@ -47,7 +47,7 @@
       steps: ['Fresh tea leaves are picked by hand', 'Leaves are withered on racks for 12 to 18 hours', 'Withered leaves are rolled to release their juices', 'Rolled leaves are left to oxidise for 2 to 4 hours', 'Leaves are dried with hot air at 120°C', 'Dried tea is sorted and graded by size', 'Tea is packed and shipped to buyers'],
       overview: 'Overall, the production of black tea involves seven main stages, beginning with the picking of fresh leaves and ending with the packing and shipping of the finished product.' },
     // ---------- Bản đồ ----------
-    { id: 'island', type: 'map', title: 'The maps show a small island before and after the construction of a tourist resort.',
+    { id: 'island', type: 'map', road: 'Main road', title: 'The maps show a small island before and after the construction of a tourist resort.',
       maps: [['Before', [['Forest', 1, 1, 2, 2, '#16a34a'], ['Farmland', 1, 3, 2, 1, '#84cc16'], ['Beach', 3, 1, 2, 1, '#f59e0b'], ['Fishing huts', 3, 2, 2, 1, '#94a3b8'], ['Jetty', 3, 3, 2, 1, '#64748b']]],
              ['After', [['Hotel', 1, 1, 2, 1, '#6d5dfc'], ['Forest', 1, 2, 2, 1, '#16a34a'], ['Car park', 1, 3, 2, 1, '#94a3b8'], ['Beach', 3, 1, 2, 1, '#f59e0b'], ['Chalets', 3, 2, 2, 1, '#c026d3'], ['Ferry pier', 3, 3, 2, 1, '#0ea5a4']]]],
       overview: 'Overall, the island has been transformed from a quiet fishing and farming area into a tourist destination with new accommodation and transport facilities, although the beach, the main road and part of the forest have been retained.' },

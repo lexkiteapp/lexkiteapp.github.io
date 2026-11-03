@@ -36,6 +36,7 @@
   async function load() {
     state.cards = await Cards.mine(); // thẻ của ngôn ngữ đích đang học (web/js/target.js; 'en' = như cũ)
     state.settings = { ...DEFAULT_SETTINGS, theme: 'auto', sfx: true, ...(await Store.get('settings', {})) };
+    try { if (window.lkT && localStorage.getItem('lk.themeAt')) state.settings.theme = lkT() || 'auto'; } catch (e) { /* bỏ qua */ } // đổi ở landing/blog sau lần lưu cuối của app → theo lựa chọn mới nhất (lkT so mốc)
     SRS.retentionTarget = state.settings.retention || 0.9;
     // Một lần: sửa lỗi chính tả hỏi/ngã từ dữ liệu Google trong các thẻ đã lưu trước đây
     if (!state.settings.viFix1 && window.Dict && Dict.fixDeep) {
@@ -131,11 +132,16 @@
   const avatarHtml = () => `<span class="avatar">${avatarInner()}</span>`;
 
   // ---------- Theme ----------
-  function applyTheme() {
-    const t = state.settings.theme;
-    if (t === 'auto') document.documentElement.removeAttribute('data-theme');
-    else document.documentElement.setAttribute('data-theme', t);
+  // Một lựa chọn chung app ↔ trang ngoài (landing, blog, pháp lý…): localStorage 'lk.theme' (+ mốc 'lk.themeAt'), cùng mã chống nháy
+  // trong <head> (scripts/lib/site-layout.mjs THEME_HEAD → lkT()); đổi ở tab khác → sự kiện storage. Thanh trình duyệt (meta theme-color) theo --bg.
+  function applyTheme(o) {
+    const t = state.settings.theme, r = document.documentElement, F = t === 'light' || t === 'dark';
+    if (F) r.setAttribute('data-theme', t); else r.removeAttribute('data-theme');
+    const bg = F && getComputedStyle(r).getPropertyValue('--bg').trim();
+    document.querySelectorAll('meta[name=theme-color]').forEach(m => { if (!m.dataset.c) m.dataset.c = m.content; m.content = bg || m.dataset.c; });
+    if (!(o && o.remote)) try { const ls = localStorage; if ((ls.getItem('lk.theme') || 'auto') !== t || !ls.getItem('lk.themeAt')) { if (F) ls.setItem('lk.theme', t); else ls.removeItem('lk.theme'); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
   }
+  addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' ? e.newValue : 'auto'; applyTheme({ remote: 1 }); } });
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
     $('#langBtn').onclick = () => App.need('lsw').then(() => { const b = $('#langBtn'); if (!window.LkLangMenu) return; b.onclick = null; b.parentNode.lsw = 0; LkLangMenu(b.parentNode); b.click(); }); } // giao hẳn cho lang-menu.js (kể cả khi nó đã chạy trước từ trang chào) → không tự bấm lặp mở/đóng
@@ -232,6 +238,7 @@
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
@@ -1523,7 +1530,7 @@
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    setTimeout(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }, 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
