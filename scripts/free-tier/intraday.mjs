@@ -76,7 +76,10 @@ export function writeIntraday(next, now, file = STATE) {
 export async function pauseWorkflows(token, { pause, already = [] }, fetcher = fetch, repo = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io') {
   const gh = (p, method = 'GET') => fetcher(`https://api.github.com/repos/${repo}/actions/workflows/${p}`, { method, headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'User-Agent': 'lexkite-free-tier-guard' } });
   if (!pause) { for (const w of already) await gh(`${w}/enable`, 'PUT'); return []; }
-  const out = [...already];
+  // đối chiếu trạng thái THẬT (3/11): `already` là danh sách lưu từ lượt trước (có thể của ngày cũ) – workflow trong đó mà nay đang
+  // active (đã bị bật tay / đã mở lại) thì KHÔNG còn bị dừng → bỏ khỏi danh sách để vòng dưới dừng lại đúng theo mức hôm nay.
+  const out = [];
+  for (const w of already) { const r = await gh(w); if (r.ok && (await r.json()).state === 'active') continue; out.push(w); }
   for (const w of PAUSE) {
     if (out.includes(w)) continue;
     const r = await gh(w); if (!r.ok) continue;

@@ -1,7 +1,7 @@
 // cron-watch (scripts/ci/cron-watch.mjs, ci-triage sweep mỗi giờ): báo đỏ workflow có cron mà > 3 khoảng lịch không chạy hoặc bị tắt ngoài ý muốn.
 // Hồi quy 02/11: ci-filler bật lại 03:47Z nhưng 0 lượt schedule → phải đỏ sau ≤ 60 phút. Không gọi mạng (gh giả).
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { maxGap, limitMin, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK } from '../ci/cron-watch.mjs';
+import { maxGap, limitMin, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK, BACKFILL_MAX, dispatchable, backfillOrder } from '../ci/cron-watch.mjs';
 
 assert.equal(maxGap(['4-59/10 * * * *']), 10); assert.equal(maxGap(['17 * * * *']), 60); assert.equal(maxGap(['35 1 * * *', '17 * * * *']), 60);
 assert.equal(maxGap(['0 1 * * 1']), 7 * 1440); assert.equal(maxGap(['40 2,4,7,10,13,16,19,22 * * *']), 4 * 60);
@@ -46,4 +46,29 @@ assert.equal(r.bad.length, 0); assert.equal(await syncIssue(g.gh, r), 'closed');
 // sweep gọi cron-watch mỗi giờ (trước nhánh chỉ-giờ-00) + checkout đủ tệp cần đọc
 const tri = fs.readFileSync('scripts/ci/triage.mjs', 'utf8'); assert.ok(tri.indexOf("import('./cron-watch.mjs')") < tri.indexOf('getUTCHours() !== 0'));
 assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.github\/workflows\\nweb\/free-tier-state\.json/);
+// hồi quy 02/11 (kịch bản thật): free-tier-guard '17 * * * *' lượt schedule cuối 11:22Z, ci-triage '*/10' cuối 13:12Z (đổi sang cron) → 20:46Z.
+{ const at = h => Date.parse('2026-11-02T' + h + 'Z');
+  const ftg2 = { file: 'free-tier-guard.yml', state: 'active', crons: ['35 1 * * *', '17 * * * *'], since: Date.parse('2026-11-02T13:55:43Z'), lastSched: at('11:22:04') };
+  assert.equal(verdict(ftg2, at('16:55:00')), null); assert.equal(verdict(ftg2, at('16:57:00')).kind, 'stale');   // since = lần chạm workflow (#418) + 180 phút
+  const tri = { file: 'ci-triage.yml', state: 'active', crons: ['*/10 * * * *', '12 * * * *'], since: Date.parse('2026-11-02T13:12:37Z'), lastSched: at('11:02:53') };
+  assert.equal(verdict(tri, at('14:13:00')).kind, 'stale', 'ci-triage tự nó trễ lịch > 60 phút cũng phải đỏ – cron-watch chạy trong bộ canh required-gate (không phụ thuộc cron ci-triage)'); }
+// hồi quy 03/11 00–03Z: GitHub bỏ lịch hàng loạt (cả repo 13 lượt schedule) → bù lượt bằng dispatch: free-tier-guard trước, trần 5, chống trùng
+{ const d2 = fs.mkdtempSync(path.join(os.tmpdir(), 'cwb-')), w2 = path.join(d2, 'wf'); fs.mkdirSync(w2); fs.mkdirSync(path.join(d2, 'infra'));
+  const names = ['free-tier-guard.yml', 'vocab-img-scene.yml', 'a1.yml', 'a2.yml', 'a3.yml', 'a4.yml', 'a5.yml', '0busy.yml', '0req.yml'];
+  for (const n of names) fs.writeFileSync(path.join(w2, n), `on:\n  schedule:\n    - cron: '17 * * * *'\n  workflow_dispatch:\n${n === '0req.yml' ? "    inputs:\n      x:\n        required: true\n" : ''}`);
+  fs.writeFileSync(path.join(d2, 'infra/jobs.json'), JSON.stringify({ jobs: [{ id: 'v', workflow: 'vocab-img-scene.yml' }] }));
+  const now = Date.parse('2026-11-03T03:00:00Z'), calls = [];
+  const gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`);
+    if (p.startsWith('/actions/workflows?')) return { workflows: names.map((n, i) => ({ id: i + 1, path: '.github/workflows/' + n, state: 'active', updated_at: '2026-11-02T13:55:43Z' })) };
+    const m = p.match(/^\/actions\/workflows\/(\d+)\/runs\?(.*)$/); if (m) { const n = names[m[1] - 1];
+      if (m[2].includes('event=schedule')) return { workflow_runs: [{ created_at: '2026-11-02T22:17:00Z' }] };
+      return { workflow_runs: [n === '0busy.yml' ? { status: 'queued', event: 'workflow_dispatch', created_at: '2026-11-03T02:59:00Z' } : { status: 'completed', event: 'schedule', created_at: '2026-11-02T22:17:00Z' }] }; }
+    return {}; };
+  const r = await cronWatch(gh, { now, wfDir: w2, root: d2 });
+  const disp = calls.filter(c => c.endsWith('/dispatches')).map(c => names[+c.match(/workflows\/(\d+)/)[1] - 1]);
+  assert.equal(disp[0], 'free-tier-guard.yml', 'free-tier-guard bù trước tiên'); assert.equal(disp[1], 'vocab-img-scene.yml', 'rồi job trong infra/jobs.json');
+  assert.equal(disp.length, BACKFILL_MAX, 'trần bù mỗi lần gọi'); assert.ok(!disp.includes('0busy.yml') && !disp.includes('0req.yml'), 'không bù khi đang có lượt chờ / input bắt buộc');
+  assert.ok(r.bad.find(b => b.file === '0busy.yml').why.includes('không bù') && r.bad.find(b => b.file === '0req.yml').why.includes('không bù được'));
+  assert.ok(dispatchable("on:\n  workflow_dispatch:\n    inputs:\n      a: { description: 'x', default: '1' }\n") && !dispatchable("on:\n  schedule:\n    - cron: '1 * * * *'\n"));
+  assert.deepEqual(backfillOrder(['z.yml', 'free-tier-guard.yml', 'j.yml'], new Set(['j.yml'])), ['free-tier-guard.yml', 'j.yml', 'z.yml']); }
 console.log('✓ cron-watch: khoảng lịch, quá hạn 3× (sàn 60 phút), tắt ngoài ý muốn, đá lại lịch, issue mở/đóng');

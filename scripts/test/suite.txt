@@ -40,6 +40,7 @@ node scripts/test/quiz.mjs
 node scripts/test/notices.mjs
 node scripts/test/classroom.mjs
 node scripts/test/user-mgmt.mjs
+node scripts/test/users-bulk.mjs
 node scripts/test/account-delete.mjs
 node scripts/test/choice-kit.mjs
 node scripts/test/verbs.mjs

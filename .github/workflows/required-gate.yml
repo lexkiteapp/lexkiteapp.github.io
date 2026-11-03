@@ -21,6 +21,7 @@ permissions:
   checks: read
   actions: write   # chỉ để tự dispatch lượt canh kế tiếp (cron GitHub bỏ lượt hàng giờ ngày 02/11)
   pull-requests: read
+  issues: write   # cron-watch: issue "Lịch CI không chạy"
 # bộ canh: 1 chạy + 1 chờ, KHÔNG huỷ lượt đang canh; dispatch theo PR là nhóm riêng (không phải xếp sau 54 phút canh)
 concurrency:
   group: required-gate-${{ inputs.pr || 'watch' }}
@@ -34,7 +35,8 @@ jobs:
       # chỉ lấy script từ nhánh mặc định – không bao giờ checkout mã PR
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: scripts/ci
+          sparse-checkout: "scripts/ci\nscripts/test/jobs-check.mjs\n.github/workflows\ninfra/jobs.json\nweb/free-tier-state.json"   # cron-watch: đọc cron workflow + paused
+          sparse-checkout-cone-mode: false
           fetch-depth: 1
           persist-credentials: false
       - name: Canh + đăng status required-gate
@@ -42,6 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           IN_PR: ${{ inputs.pr }}
+          CRON_WATCH: '1'   # canh lịch cron mỗi lượt – không phụ thuộc cron của ci-triage (02/11 chết 13 giờ)
           GATE_CHAIN_REF: ${{ github.event.repository.default_branch }}
         run: |
           if [ -n "$IN_PR" ]; then node scripts/ci/required-gate.mjs --pr "$IN_PR"; else node scripts/ci/required-gate.mjs --watch 54; fi
