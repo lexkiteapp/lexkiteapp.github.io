@@ -9,6 +9,7 @@
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
     voice: w => VOICE[id(w)],
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
+    head: (w, x2) => f(w, 'head-bare' + (x2 ? '-2x' : '') + '.webp'), // "đầu trơn" (khung poster, đã xóa mắt/mày/miệng/ria) – nền cho mặt VẼ khớp miệng (web/js/call/face.js)
     still: (w, p) => f(w, 'still-' + ok(w, p) + '.webp'), // ảnh tĩnh từng tư thế (đã 2×, nền trong suốt)
     // vòng nghỉ 1–3 s mắt mở (Home/lộ trình): webm = VP9 alpha (Chrome/Firefox/Android), mp4 = H.264 xếp chồng alpha (Safari, ghép WebGL như clip), poster = khung đầu
     idle: w => ({ webm: f(w, 'idle.webm'), mp4: f(w, 'idle.mp4'), poster: f(w, 'idle-poster.webp') }),

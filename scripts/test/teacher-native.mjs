@@ -49,8 +49,13 @@ if (!/\.tslot-fig\{[^}]*bottom:0;overflow:hidden;overflow:clip\}/.test(sl) || /c
     const h = out(o), sh = /<i class="tslot-shadow"><\/i><span class="tslot-fig">/.test(h);
     if (!h.includes(`data-ground="${want}"`) || !h.includes(` tslot-${want}`) || /tslot-ledge/.test(h) || sh !== (want === 'fade')) err.push(`Chars.slot(${JSON.stringify(o)}) phải ra ground '${want}'${want === 'fade' ? ' + bóng .tslot-shadow trước khung' : ' không bóng'}, không bệ rời – đang: ${h.slice(0, 160)}`);
   } }
-if (!/v\.readyState >= 2 && v\.currentTime !== ft\) \{ ft = v\.currentTime;\s*gl\.texImage2D/.test(sl)) err.push('teacher-slot.js: clip WebGL phải chỉ tải texture khi video sang khung mới (currentTime đổi) – tải mỗi rAF làm giật trên WebKit/ProMotion (live 3/11: tay Ama giật)');
+if (!/v\.readyState >= 2 && v\.currentTime !== ft\) \{ ft = v\.currentTime;\s*gl\.texImage2D/.test(fs.readFileSync(path.join(ROOT, 'web/js/teacher-live.js'), 'utf8'))) err.push('teacher-live.js: clip WebGL phải chỉ tải texture khi video sang khung mới (currentTime đổi) – tải mỗi rAF làm giật trên WebKit/ProMotion (live 3/11: tay Ama giật)');
 if (!/prefers-reduced-motion:no-preference/.test(sl)) err.push('teacher-slot.js: chuyển động phải nằm trong prefers-reduced-motion:no-preference');
+// Phát clip (WebGL/video) tải lười ở teacher-live.js – khung app chỉ giữ ảnh tĩnh + CSS (size-budget, 3/11); vẫn đủ: H.264 xếp chồng WebGL + VP9α, lite → ảnh tĩnh
+{ const lv = fs.existsSync(path.join(ROOT, 'web/js/teacher-live.js')) ? fs.readFileSync(path.join(ROOT, 'web/js/teacher-live.js'), 'utf8') : '';
+  if (!/g\.TeacherLive = el =>/.test(lv) || !/getContext\('webgl'/.test(lv) || !/video\/webm; codecs="vp9"/.test(lv) || !/saveData/.test(lv) || !/IntersectionObserver/.test(lv)) err.push('teacher-live.js: thiếu bộ phát clip (TeacherLive: WebGL + VP9α + lite + chỉ tải khi hiện trên màn)');
+  if (/getContext\(|createElement\('video'\)/.test(sl) || !/teacher-live\.js/.test(sl) || !/\.tslot\[data-clip\]/.test(sl)) err.push('teacher-slot.js: bộ phát clip phải ở teacher-live.js (tải lười khi có .tslot[data-clip]), không nằm trong khung app');
+  if (/teacher-live\.js/.test(fs.readFileSync(path.join(ROOT, 'web/sw.js'), 'utf8').match(/const SHELL = \[([\s\S]*?)\];/)[1])) err.push('web/sw.js: teacher-live.js không được vào SHELL (tải lười)'); }
 const idx = fs.readFileSync(path.join(ROOT, 'web/app/index.html'), 'utf8');
 if (!(idx.indexOf('js/characters.js') > 0 && idx.indexOf('js/teacher-slot.js') > idx.indexOf('js/characters.js'))) err.push('web/app/index.html: teacher-slot.js phải nạp ngay sau characters.js');
 if (err.length) { console.error('✗ teacher-native:\n  ' + err.join('\n  ')); process.exit(1); }

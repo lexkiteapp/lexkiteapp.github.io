@@ -13,12 +13,14 @@ import { stats as adsStatsOf, guardOf, revPack as adsRevPack } from './_ads.js';
 import { SEL as ADS_REV_SEL } from './ads-report.js';
 import { setupQuota, resetState as resetQuotaState } from './_quota.js';
 import { deleteUserData } from './account.js';
+import { d1Usage, isShed, secsToReset } from './_d1guard.js';
+import { meter, spent, addSpent, overBudget, isShedError } from './_readbudget.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu)
 const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min'];
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', ...ADS_KEYS];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
 const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
@@ -166,11 +168,17 @@ async function docJson(body) {
   return null;
 }
 // Đệm kết quả trong Cache API của Cloudflare (giảm lượt đọc D1 khi trang Quản trị tự cập nhật)
-async function cached(key, ttl, fn) {
+// 03/11: mỗi lần tính xong còn lưu bản "cũ" 24 h (stale/…); khi op vượt ngân sách đọc hoặc D1 ≥ 85 % (_readbudget.js meter ném ShedError) → trả bản cũ kèm _stale (giờ tính), không chạm D1
+export async function cached(key, ttl, fn) {
   const c = typeof caches === 'undefined' ? null : /** @type {any} */ (caches).default, req = new Request('https://cache.lexkite.internal/' + key); // không có Cache API (dev/test) → đọc thẳng
   try { const hit = await c.match(req); if (hit) return hit.json(); } catch (e) { /* không có cache (dev) */ }
-  const out = await fn();
-  try { await c.put(req, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=' + ttl } })); } catch (e) { /* bỏ qua */ }
+  const old = new Request('https://cache.lexkite.internal/stale/' + key);
+  let out; try { out = await fn(); } catch (e) {
+    if (!isShedError(e)) throw e;
+    try { const hit = await c.match(old); if (hit) { const j = await hit.json(); return { ...j.v, _stale: j.at }; } } catch (e2) { /* không có bản cũ */ }
+    throw e;
+  }
+  try { await c.put(req, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=' + ttl } })); await c.put(old, new Response(JSON.stringify({ at: Date.now(), v: out }), { headers: { 'Cache-Control': 'max-age=86400' } })); } catch (e) { /* bỏ qua */ }
   return out;
 }
 
@@ -752,7 +760,7 @@ const OPS = {
       }
       const copy = JSON.parse((await one(db, "SELECT v FROM config WHERE k = 'bw_copy'")).v || 'null');
       if (copy) { const sus = (copy.probes || []).reduce((a, p) => a + (p.suspects || []).length, 0);
-        out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: copy.configured === false ? tx(b, 'chưa bật dò tự động (BRAVE_SEARCH_KEY)', 'auto search off (BRAVE_SEARCH_KEY)') : sus ? tx(b, `${sus} trang ngoài chứa nguyên văn`, `${sus} external page(s) with verbatim text`) : tx(b, 'không thấy', 'none found') }); }
+        out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: sus ? tx(b, `${sus} trang ngoài chứa nguyên văn/canary`, `${sus} external page(s) with verbatim text/canary`) : copy.configured === false ? tx(b, 'chỉ dò canary trên GitHub – bật Brave (BRAVE_SEARCH_KEY) để dò cả web', 'canary GitHub search only – add BRAVE_SEARCH_KEY for web search') : tx(b, 'không thấy', 'none found') }); }
     } catch (e) { /* chưa có bảng bw_* (chưa chạy lần nào) */ }
     const u = await OPS.usage(db, b);
     for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
@@ -847,6 +855,7 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 // Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
 const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$|^noticeCreate$|^noticeRevoke$|^userTag$|^userBlock$|^userReset$|^userRestore$|^userExportData$|^usersBulk$/; // (xuất danh sách người dùng cũng ghi nhật ký)
+const READ_FREE = new Set(['whoami', 'ping']); // không đọc D1 – ngoài ngân sách
 const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove', 'userBlock', 'userReset', 'userRestore', 'userExportData']);
 const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
 async function audit(env, req, email, op, ok, detail = null) {
@@ -880,11 +889,25 @@ export async function onRequestPost({ request, env }) {
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: chặn op 'constructor'/'__proto__' (Object(env) → lộ bí mật)
   if ((DANGER.has(b.op) || (b.op === 'usersBulk' && BULK_DANGER.has(b.action))) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });
+  // Ngân sách đọc theo route (sự cố 03/11, _readbudget.js): op đọc đi qua meter(); vượt ngân sách op/tổng Quản trị hoặc D1 ≥ 85 % → chỉ bản đệm, không chạm D1
+  const isRead = !WRITE.test(b.op) && !READ_FREE.has(b.op);
+  let db = env.DB, m = null, why = null;
+  if (isRead) {
+    const u = await d1Usage(env, env.DB).catch(() => null);
+    why = isShed(u) ? 'd1-85' : overBudget(await spent(b.op), b.op);
+    m = meter(env.DB, { stale: !!why, why }); db = /** @type {any} */ (m);
+  }
   try {
-    await setup(env.DB); const out = await fn(env.DB, b, who, env);
+    await setup(env.DB); const out = await fn(db, b, who, env);
+    if (m && m.reads) await addSpent(b.op, m.reads);
+    if (why && out && typeof out === 'object' && !Array.isArray(out)) out._budget = { why, retry: secsToReset() }; // trang hiện dải "số liệu đệm" nhẹ
     const det = out && typeof out === 'object' ? out._audit : null; if (det != null) delete out._audit; // chi tiết kiểm toán chỉ vào admin_log, không trả máy khách
     if (WRITE.test(b.op)) await audit(env, request, who.email, b.op === 'usersBulk' ? 'usersBulk:' + String(b.action).slice(0, 20) : b.op, !(out && out.error), det);
     return json(request, 200, out);
   }
-  catch (e) { return json(request, 500, { error: String(e && e.message || e).slice(0, 200) }); }
+  catch (e) {
+    if (m && m.reads) await addSpent(b.op, m.reads).catch(() => {});
+    if (isShedError(e)) { const r = json(request, 429, { error: 'quota-shed', why: e.why, retry: secsToReset() }); r.headers.set('Retry-After', String(secsToReset())); return r; }
+    return json(request, 500, { error: String(e && e.message || e).slice(0, 200) });
+  }
 }

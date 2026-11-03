@@ -28,3 +28,6 @@ pas-sit-light 45068b5f4ec24ce28bc1a5ba8fd91bd6 (Lexkite Situation — Café & re
 pas-sit-dark c08d044dcea84df89345f4de817fcb85 (Lexkite Situation — Café & restaurant, Tactile Night DONE-pill fix; key3 project 18075333702575270507)
 pas-drill-light d99a0c00da2c4af8b2df64250a03ba90 (Lexkite Speaking Drill — Say it in 3 beats, clean classes; key3 project 18075333702575270507)
 pas-drill-dark 3af039605d8b49a488407a9d39f5f7d1 (Lexkite Speaking Drill — Say it in 3 beats, Tactile Night; key3 project 18075333702575270507)
+today-light 161ef34efafd4729816377ad7f952b86 / today-dark 30b0c1ef10034be6bddcbbc26ec76007 (Home v2 Today – chủ duyệt 31/10, bản sao app/home-v2/today-*)
+today-new-light a4e2a4cdd838421baf6da5331e548b86 / today-new-dark fc5ac0e346c7485c9c14da0a00749ab7 (Home v2 người mới – app/home-v2/new-*)
+today-desk-light a987323cf148447f9f563b64d5200507 / today-desk-dark c6b09b9251974eeebb54dcd4efe97497 (Home v2 desktop – app/home-v2/desk-*; today-rail dùng chung)

@@ -14,7 +14,7 @@
           explain: 'Cuộc kiểm tra "được lên lịch vào" thứ Ba tới → bị động "is scheduled for + thời gian". "scheduled" (quá khứ chủ động) và "was scheduling" sai thì, sai thể; "schedules" mang nghĩa chủ động (cuộc kiểm tra tự lên lịch) – vô lý.' },
         { n: 104, q: 'Ms. Haddad will lead the training sessions ------- Mr. Torres is on leave.', options: ['during', 'despite', 'unless', 'while'], a: 3, cue: 'Mr. Torres is on leave',
           explain: 'Theo sau là mệnh đề (Mr. Torres is on leave) và ý nghĩa là "trong khi/trong thời gian" → liên từ "while". "during" và "despite" là giới từ, chỉ đi với danh từ; "unless" (trừ khi) không hợp nghĩa.' },
-        { n: 105, q: 'The Ravenwood Hotel recently ------- its lobby to create more seating space for guests.', options: ['expanded', 'expanding', 'expansion', 'expansive'], a: 0, cue: 'recently ------- its lobby',
+        { n: 105, q: 'The Hollin Crest Hotel recently ------- its lobby to create more seating space for guests.', options: ['expanded', 'expanding', 'expansion', 'expansive'], a: 0, cue: 'recently ------- its lobby',
           explain: 'Câu thiếu động từ chính, có "recently" và tân ngữ "its lobby" → động từ quá khứ "expanded" (đã mở rộng). "expanding" không thể làm động từ chính khi thiếu "be"; "expansion" là danh từ; "expansive" là tính từ.' },
         { n: 106, q: 'Our customer service representatives are trained to handle complaints ------- and professionally.', options: ['calm', 'calmness', 'calmer', 'calmly'], a: 3, cue: 'and professionally',
           explain: 'Cấu trúc song song với "and professionally" (trạng từ) và cùng bổ nghĩa cho động từ "handle" → trạng từ "calmly" (một cách bình tĩnh). "calm/calmer" là tính từ; "calmness" là danh từ.' },

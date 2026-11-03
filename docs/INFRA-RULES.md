@@ -22,6 +22,12 @@ Repo công khai: sổ chỉ ghi mục đích, bảng điều khiển, hạn mứ
 | Video | nhúng YouTube (youtube-nocookie) | không giới hạn | — |
 | Dữ liệu người dùng | D1 `lexkite-sync` | 5 GB | Workers Paid |
 
+## D1 – luật đọc (sự cố 03/11)
+- Câu SQL mới **không được** quét toàn bảng `sessions` (hay bảng nhật ký lớn): đọc bảng tổng hợp (`stats_day`, `pageviews_day`) hoặc theo chỉ mục. Cổng `scripts/test/sessions-scan-gate.mjs` (EXPLAIN) đỏ khi có SCAN mới; ngoại lệ ghi lý do ở `scripts/test/sessions-scan-allow.json`.
+- Trang Quản trị: mọi op đọc qua ngân sách route (`functions/api/_readbudget.js`) + `cached()`; tự làm mới chỉ khi tab hiển thị **và** có thao tác trong 10 phút.
+- Gói: tài khoản chính **Workers Paid** từ 03/11/2026 (D1 25 tỷ đọc + 50 triệu ghi/tháng đã gồm, vượt tính tiền) – bộ chặn & ngân sách route giữ nguyên, ngưỡng tính trên dự báo tháng. Cảnh báo 50 % / 75 %, tiết kiệm ≥ 85 %, trần chi tiêu ≥ 100 % (báo ngay): docs/CAPACITY.md §6. Khoá đọc số liệu Cloudflare cho Pages chỉ được quyền *Account Analytics: Read* (không đặt token có quyền Edit làm secret Pages). Đường người dùng (đồng bộ, đăng nhập, tiến độ) không bao giờ gọi cầu dao. Nâng gói trả phí = quyết định của chủ.
+- CI không gọi prod `/api` (docs/CAPACITY.md §A5, `scripts/test/no-prod-hosts.mjs`).
+
 ## Mail
 - Nhận: `support@`, `contact@lexkite.com` → Gmail chính (Cloudflare Email Routing).
 - Gửi nội bộ: Worker `lexkite-mail` (binding `SEB`, chỉ tới địa chỉ đã xác minh) – bản tin quản trị 8h, duyệt dịch đêm.

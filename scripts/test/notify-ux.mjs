@@ -18,7 +18,7 @@ const TPL = vm.runInNewContext('(' + src.match(/const TPL = (\{[\s\S]*?\n {2}\})
 const pairs = Object.values(TPL).flat().map(([id, a, b]) => ({ id, a, b }));
 ok(pairs.length >= 15, `đọc được ${pairs.length} mẫu nhắc`);
 const LANGS = fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(x => x.replace(/#.*/, '').trim()).filter(Boolean);
-const dict = l => { const g = { I18N_DICT: {} }; g.self = g; const f = l === 'en' ? 'web/js/i18n/en/remind.js' : `web/js/i18n/${l}/remind.js`; vm.runInNewContext(rd(f), g); return g.I18N_DICT[l] || {}; };
+const dict = l => { const g = { I18N_DICT: {} }; g.self = g; const f = l === 'en' ? 'web/js/i18n/en/remind.js' : `i18n/ui/${l}/remind.js`; vm.runInNewContext(rd(f), g); return g.I18N_DICT[l] || {}; };
 // Từ/cụm dọa mất, trách móc, gấp gáp (Duolingo-kiểu "streak at risk") – chuẩn Headspace/Apple: khích lệ, cho quyền chủ động
 const BAD = {
   vi: /gặp nguy|đừng để|sắp mất|mất chuỗi|sắp quên|quên mất|thất vọng|buồn lắm|nhanh lên|kẻo|cơ hội cuối/i,
