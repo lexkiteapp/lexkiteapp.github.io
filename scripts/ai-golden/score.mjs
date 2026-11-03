@@ -4,7 +4,7 @@ export const GATE = {
   rp: { mean: 4.0, absurd: 1, valid: 0.95, clarify: 1 },        // giám khảo TB ≥ 4/5 · tối đa 1 câu vô lý / lạc vai · JSON đúng khuôn · câu khó hiểu → hỏi lại
 };
 export const LANGS = { vi: 'Vietnamese', en: 'English', es: 'Spanish', pt: 'Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
-const norm = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[“”"«»]/g, '').replace(/\s+/g, ' ').trim();
+const norm = s => String(s || '').replace(/\*+/g, '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[“”"«»]/g, '').replace(/\s+/g, ' ').trim();
 /** lỗi e { q, fix } có được bắt? – một mục errors[] trích ĐÚNG CHỖ (quote chứa q, q chứa quote, hoặc chung ≥ 8 ký tự liền) và fix chứa một phương án đúng
  *  (so theo RANH GIỚI TỪ – "it helps" không bị coi là còn "it help") và không còn nguyên cụm sai. Golden 03/11: so chuỗi con thô làm gpt-oss-120b bị chấm oan 81 %. */
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

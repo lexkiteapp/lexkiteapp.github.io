@@ -15,7 +15,7 @@
     return k;
   }
   const setKey = async k => { await Store.set('aiKey', k); if (bridge()) try { await bridge().call('aiKeySet', { aiKey: k }); } catch (e) { /* bỏ qua */ } };
-  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Read the response sentence by sentence and find every grammatical error before scoring; quote the learner's exact words when pointing out errors. Return ONLY valid JSON matching the requested schema.`;
+  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Read the response sentence by sentence and find every grammatical error before scoring; quote the learner's exact words when pointing out errors. Write plain text inside the JSON strings (no markdown, no asterisks or bold). Return ONLY valid JSON matching the requested schema.`;
   const SCHEMA = kind => `JSON schema:
 {
   "overall": number (IELTS band, multiple of 0.5),

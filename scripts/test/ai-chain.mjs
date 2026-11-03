@@ -133,6 +133,7 @@ ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.think
   ok(!S.caught({ q: 'it help', fix: 'helps' }, [{ quote: 'education are important', fix: 'education is important' }]), 'caught: sửa sai chỗ → không tính (lỗi 03/11)');
   ok(S.caught({ q: 'in the dinner', fix: 'at dinner|for dinner' }, [{ quote: 'eat rice with my family in the dinner', fix: 'eat rice with my family for dinner' }]), 'caught: nhiều phương án đúng');
   // golden 03/11 lần 3: so chuỗi con thô chấm oan gpt-oss-120b (81 % → 98 % khi so theo ranh giới từ)
+  ok(S.caught({ q: 'invest more money on', fix: 'money in' }, [{ quote: 'invest more money **on** public transport', fix: 'invest more money **in** public transport' }]), 'caught: bỏ dấu markdown ** trong trích/sửa (golden lần 7)');
   ok(S.caught({ q: 'it help', fix: 'helps' }, [{ quote: 'it help', fix: 'it helps' }]), 'caught: "it helps" không bị coi là còn lỗi "it help"');
   ok(S.caught({ q: 'chart illustrate', fix: 'illustrates' }, [{ quote: 'illustrate', fix: 'illustrates' }]), 'caught: trích ngắn hơn cụm lỗi vẫn đúng chỗ');
   ok(S.caught({ q: 'busy and stress', fix: 'stressful' }, [{ quote: 'and stress my', fix: 'and stressful, my' }]), 'caught: trích chồng lấn ≥ 8 ký tự');
