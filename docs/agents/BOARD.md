@@ -132,9 +132,10 @@ Mẫu thẻ:
 - **Tiến độ:**
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 1** (`ielts-speaking-part-3-chien-luoc`): VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI (15 bài).
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 2** (`viet-tat-tieng-anh-cong-so`): VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO (`739bfc7fe`), RU (`64825b754`), TR (`628ed5cb9`), TH (`52d9e1c70`), AR (`db6397b17`), HI (`40d1beb8d`) (15 bài).
-  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.006 bài viết** (1.006 files `.md` trong `content/blog/`).
-  - 100% bài viết đạt chuẩn Quality Gates: `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
-  - Sẵn sàng chuyển tiếp sang Cụm 3 (`tu-de-nham-lan-trong-tieng-anh`) và Cụm 4 theo kế hoạch.
+  - ✅ **Hoàn thành trọn vẹn 5/5 ngôn ngữ Cụm 4** (`ielts-reading-kiem-soat-thoi-gian`): VI (`da77cc9b9`), EN (`d8cf79284`), JA (`5c7194bd4`), ZH (`3ae66c878`), KO (`f677055f0`) (5 bài).
+  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.011 bài viết** (1.011 files `.md` trong `content/blog/`).
+  - 100% bài viết đạt chuẩn Quality Gates: `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập (0% overlap giữa 5 bài mới), size-budget khung 377 KB vững vàng.
+  - Sẵn sàng chuyển tiếp sang Cụm 3 (`tu-de-nham-lan-trong-tieng-anh`) theo kế hoạch.
 
 ### [B5-MEGA100-P4] ⏳ CHỜ DUYỆT (03/11) · Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("100 bài khác chất lượng nữa"), tiếp tục mở rộng kho nội dung chuẩn SEO đa ngôn ngữ chất lượng cao từ 850 bài lên **950 bài** toàn repo Lexkite (100 bài mới).
