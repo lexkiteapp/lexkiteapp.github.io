@@ -75,8 +75,8 @@ for (const l of LANGS) {
   const head = html.slice(0, html.indexOf('</head>'));
   ok(/^<!doctype html>\n<html lang="[a-z]{2}"/.test(html) && html.includes(`<html lang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}>`), `${f}: html lang/dir`);
   ok(head.indexOf('id="lk-route"') > 0 && head.indexOf('id="lk-route"') < head.indexOf('<style>') && head.indexOf('id="lk-route"') < head.indexOf('<title>'), `${f}: script định tuyến phải nằm đầu <head> (trước khi vẽ)`);
-  ok(!/<script[^>]+src=/.test(html), `${f}: không được tải script ngoài (LCP)`);
-  ok(!/<link[^>]+rel="stylesheet"/.test(html), `${f}: CSS phải nội tuyến (không chặn hiển thị)`);
+  ok([...html.matchAll(/<script\b([^>]*\bsrc=[^>]*)>/g)].every(([, a]) => /(^|\s)defer(\s|$)/.test(a) && /\ssrc="\/js\/[\w./-]+\?v=[0-9a-f]{8}"/.test(a)), `${f}: script ngoài phải defer, cùng gốc dưới /js/ và có ?v=<hash> (LCP)`);
+  ok([...html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '').matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)].every(([t]) => /\smedia="print"/.test(t) && /\sdata-swap[\s>]/.test(t)), `${f}: không có stylesheet chặn hiển thị (chỉ media="print" data-swap + bản <noscript>)`);
   ok(head.includes(`<link rel="canonical" href="${expectHref(l)}">`), `${f}: canonical tự trỏ`);
   const alts = [...head.matchAll(/<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)">/g)];
   ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === expectHref('en')), `${f}: cần 15 hreflang + x-default (/en/)`);
@@ -109,10 +109,14 @@ for (const l of LANGS.filter(x => x !== 'vi')) {
 }
 
 // ---------- 3) Gợi ý ngôn ngữ (chỉ người dùng thật, sau khi vẽ) ----------
-// JS dùng chung trang tĩnh nằm ở file /js/site-ui.js (defer) → jsdom chạy inline cùng nội dung
-const inlUi = h => h.replace(/<script src="\/js\/site-ui\.js[^"]*" defer><\/script>|<script>addEventListener\("load"[^<]{0,160}\/js\/site-ui\.js[^<]{0,80}<\/script>/g, () => `<script>${rd('web/js/site-ui.js')}</script>`); // landing: nạp sau load (đã rút gọn)
+// jsdom không tải file: <script defer src="/js/…?v="> → chạy đúng file web/js/… ở cuối <body> (như defer: sau khi parse xong DOM)
+const deferInline = html => { const js = []; html = html.replace(/<script defer src="(\/js\/[^"?]+)\?v=[0-9a-f]+"><\/script>/g, (_, p) => { js.push(rd('web' + p)); return ''; });
+  if (js.some(c => c.includes('/js/site-ui.js'))) js.push(rd('web/js/site-ui.js')); // site.js nạp site-ui.js (#303) sau load – jsdom không tải <script src> → chạy luôn nội dung
+  return html.replace('</body>', () => js.map(c => `<script>${c}</script>`).join('') + '</body>'); };
+// + JS dùng chung trang tĩnh (#303) ở /js/site-ui.js (defer / nạp sau load) → chạy inline cùng nội dung
+const inlUi = h => h.replace(/<script src="\/js\/site-ui\.js[^"]*" defer><\/script>|<script>addEventListener\("load"[^<]{0,160}\/js\/site-ui\.js[^<]{0,80}<\/script>/g, () => `<script>${rd('web/js/site-ui.js')}</script>`);
 async function hint(file, langs, local = {}) {
-  const html = inlUi(rd(file)).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = deferInline(inlUi(rd(file))).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); w.fetch = u => Promise.resolve({ json: () => JSON.parse(rd('web' + new URL(u, 'https://lexkite.com/').pathname)) }); } }); // chữ gợi ý tải từ web/js/lhint.json khi cần
   await new Promise(r => setTimeout(r, 30));
   return dom.window;
@@ -136,13 +140,15 @@ async function hint(file, langs, local = {}) {
   const { landingHref, LANG_NAMES, seoPage } = await import('../lib/site-layout.mjs');
   for (const l of LANGS) {
     const doc = new JSDOM(rd(fileOf(l))).window.document, sw = doc.querySelectorAll('header [data-lsw]'), b = doc.querySelector('[data-lsw] button'), m = doc.querySelector('[data-lsw] [role=menu]');
-    const items = [...doc.querySelectorAll('[data-lsw] [role=menuitem]')];
+    const items = [...doc.querySelectorAll('header [data-lsw] [role=menuitem]')], foot = [...doc.querySelectorAll('footer [data-lsw] [role=menuitem]')];
+    // chân trang v3: nút "Interface" mở menu thứ hai – cùng 15 liên kết hreflang, id riêng
+    ok(foot.length === LANGS.length && foot.every((a, i) => a.getAttribute('href') === items[i].getAttribute('href') && a.lang === items[i].lang) && doc.querySelector('footer [data-lsw] [aria-haspopup]').getAttribute('aria-controls') === foot[0].closest('[role=menu]').id, `${fileOf(l)}: menu ngôn ngữ chân trang đủ 15 mục, đúng menu`);
     ok(sw.length === 1 && b && b.getAttribute('aria-haspopup') === 'true' && b.getAttribute('aria-expanded') === 'false' && b.getAttribute('aria-controls') === m.id && m.hidden, `${fileOf(l)}: nút đổi ngôn ngữ (aria-haspopup/expanded/controls, menu ẩn sẵn)`);
-    ok(b && b.textContent.trim() === l.toUpperCase() && b.getAttribute('aria-label').endsWith(LANG_NAMES[l]) && !/Language/.test(l === 'en' ? '' : b.getAttribute('aria-label')), `${fileOf(l)}: nút hiện mã ${l.toUpperCase()}, nhãn đúng ngôn ngữ trang`);
+    ok(b && b.textContent.replace(/language|expand_more/g, '').trim() === LANG_NAMES[l] && b.getAttribute('aria-label').endsWith(LANG_NAMES[l]) && !/Language/.test(l === 'en' ? '' : b.getAttribute('aria-label')), `${fileOf(l)}: nút hiện tên ngôn ngữ trang (mẫu landing v3), nhãn đúng ngôn ngữ trang`);
     ok(items.length === LANGS.length && items.every(a => a.getAttribute('href') === landingHref(a.lang) && a.getAttribute('hreflang') === a.lang && a.textContent === LANG_NAMES[a.lang]) && items.filter(a => a.hasAttribute('aria-current')).map(a => a.lang).join() === l && items.find(a => a.lang === 'ar').getAttribute('dir') === 'rtl', `${fileOf(l)}: 15 ngôn ngữ tên bản địa, lang/hreflang, trỏ trang chủ từng ngôn ngữ, đánh dấu ngôn ngữ hiện tại, ar RTL`);
   }
   // Hành vi bàn phím/chuột chạy thật trong jsdom (trang ar để thử RTL); KHÔNG tự chuyển trang theo lựa chọn đã nhớ
-  const html = inlUi(rd('web/ar/index.html')).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = deferInline(inlUi(rd('web/ar/index.html'))).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/ar/', runScripts: 'dangerously', beforeParse(w) { w.localStorage.setItem('vb.uiLang', 'ja'); w.localStorage.setItem('lk.lhint', '1'); } });
   await new Promise(r => setTimeout(r, 10));
   const w = dom.window, d = w.document, b = d.querySelector('[data-lsw] button'), m = d.getElementById(b.getAttribute('aria-controls')), key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
