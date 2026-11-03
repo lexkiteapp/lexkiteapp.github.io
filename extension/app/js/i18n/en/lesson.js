@@ -41,7 +41,6 @@ D.en = Object.assign(D.en || {}, {
 'Kiểm tra đáp án': "Check answer",
 'Từ bạn đã tra': "Your lookup",
 'Ghép cặp': "Match the pairs",
-'Gõ từ bạn nghe': "Type what you hear",
 'Chọn từ đúng': "Pick the right word",
 'Nói tên hình': "Say what you see",
 'Đây là gì?': "What is this?",
@@ -64,7 +63,6 @@ D.en = Object.assign(D.en || {}, {
 "Lựa chọn đúng": "Correct choice",
 "Tăng điểm": "Score booster",
 "Nói hay hơn": "Better phrase",
-"Chạm cụm từ để nghe phát âm chuẩn": "Tap a phrase to hear the native pronunciation",
 "Đối thoại": "Dialogue",
 "Phụ đề": "Captions",
 });

@@ -9,6 +9,7 @@
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
 - [ACCOUNTS-LEDGER.md](ACCOUNTS-LEDGER.md) — Sổ tài khoản & khóa trong Admin: dịch vụ/khóa thuộc email nào, giữ ở đâu (chỉ tên), hạn + nhắc 14 ngày, có/thiếu secret. Đọc khi thêm secret hoặc gia hạn token.
 - [ASSET-LIBRARY.md](ASSET-LIBRARY.md) — Kho tài nguyên hình ảnh mô-đun (nhân vật, biểu cảm, phòng, đạo cụ…) để ghép tổ hợp vô hạn cho video, Call Mia, roleplay, bài học; đọc khi: sản xuất hoặc ghép tài nguyên ảnh/nhân vật
+- [OWNER-DECISIONS.md](OWNER-DECISIONS.md) — Sổ tra nhanh quyết định quan trọng của chủ (pháp nhân LLC Wyoming, bản quyền/nhãn hiệu free-first, nội dung private, mục tiêu điểm nội dung, chi phí/CI) kèm link doc gốc; đọc khi: cần biết chủ đã chốt gì
 - [AUDIT-2026-10.md](AUDIT-2026-10.md) — Audit 17/10/2026 về SEO, pháp lý, khung trang, bảo mật (Critical/High/Medium/Low) cùng các sửa đã làm và đề xuất còn mở; đọc khi: tra lại vì sao một lỗi/chính sách được sửa
 - [AUTOMATION.md](AUTOMATION.md) — Quy trình tự động A→Z cho video học + phân phối trên GitHub Actions và Cloudflare ($0), mỗi bước có cổng QC; người chỉ duyệt ở 2 điểm; đọc khi: sửa đường ống tự động video/phân phối
 - [BACKLOG.md](BACKLOG.md) — Việc tồn đọng theo thứ tự ưu tiên: đang làm, chờ anh chủ; việc xong chuyển xuống mục đã xong; đọc khi: chọn việc mới cần làm
@@ -17,6 +18,7 @@
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
+- [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch (oEmbed, RSS, Data API có trần), add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
