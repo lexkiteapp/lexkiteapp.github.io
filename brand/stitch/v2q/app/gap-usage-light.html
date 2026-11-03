@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Word Usage &amp; Collocations: make (v.)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF9F4',
+            'ink-primary': '#1C1003',
+            'ink-secondary': '#3E3228',
+            'ink-muted': '#534338',
+            'brand-teal': '#136B66',
+            'brand-teal-light': '#E6F5F3',
+            'brand-amber': '#F59E0B',
+            'brand-amber-ledge': '#D97706',
+            'tactile-border': '#E8DBD0',
+            'tactile-ledge': '#D8C7B8',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">
+    body {
+      background-color: #FFF9F4;
+      color: #1C1003;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Native tap state feel */
+    .pressable:active {
+      transform: translateY(2px);
+    }
+    .pressable-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #B45309 !important;
+    }
+  </style>
+</head>
+<body class="bg-cream-bg min-h-screen">
+<!-- BEGIN: MobileDeviceContainer -->
+<!-- Constrained strictly to 390px native mobile phone view with no external mockup chrome -->
+<main class="max-w-[390px] mx-auto min-h-screen pb-28 relative flex flex-col bg-cream-bg px-4 pt-3" data-purpose="mobile-viewport">
+<!-- BEGIN: TopBar -->
+<header class="flex items-center justify-between py-2 mb-3" data-purpose="top-navigation-header">
+<!-- Back Button -->
+<button aria-label="Go back" class="pressable w-10 h-10 rounded-full bg-white border border-tactile-border shadow-sm flex items-center justify-center text-ink-primary hover:bg-[#FDF6EE] transition-colors">
+<svg class="w-5 h-5 text-ink-primary" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Brand Logo & Name -->
+<div class="flex items-center gap-2" data-purpose="brand-logo">
+<div class="w-7 h-7 rounded-lg bg-brand-teal flex items-center justify-center shadow-sm">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24">
+<polygon fill="none" points="12,2 21,9 12,22 3,9" stroke="currentColor" stroke-linejoin="round" stroke-width="2.5"></polygon>
+<line stroke="currentColor" stroke-width="2" x1="12" x2="12" y1="2" y2="22"></line>
+<line stroke="currentColor" stroke-width="2" x1="3" x2="21" y1="9" y2="9"></line>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-ink-primary">Lexkite</span>
+</div>
+<!-- User Stats Pills -->
+<div class="flex items-center gap-1.5" data-purpose="user-status-badges">
+<!-- Streak Counter -->
+<div class="flex items-center gap-1 bg-white border border-[#EADBCC] rounded-full px-2.5 py-1 shadow-sm">
+<!-- Flame Vector -->
+<svg class="w-3.5 h-3.5 text-[#E65100]" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.527.82-1.173 1.55-1.92 2.152C7.38 5.86 6.5 6.945 6.5 8.5c0 1.25.5 2.25 1 3a5.002 5.002 0 006.5-6.5c0-.62-.23-1.22-.605-1.747v-.001a4.99 4.99 0 00-1-1.699zm-4.32 8.795C7.478 11.02 7.5 10.237 7.5 9.5c0-.85.347-1.583.874-2.222.753-.913 1.62-1.767 2.457-2.736.31.428.536.924.636 1.458.156.83-.064 1.68-.525 2.378-.475.72-1.205 1.246-1.867 1.972zM10 18a6 6 0 100-12 6 6 0 000 12zm0-2a4 4 0 100-8 4 4 0 000 8z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-xs font-extrabold text-ink-primary">14</span>
+</div>
+<!-- XP Counter -->
+<div class="flex items-center gap-1 bg-white border border-[#EADBCC] rounded-full px-2.5 py-1 shadow-sm">
+<!-- Lightning Bolt Vector -->
+<svg class="w-3.5 h-3.5 text-brand-teal" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-xs font-extrabold text-ink-primary">420</span>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: EyebrowSection -->
+<div class="flex items-center justify-between mb-2.5 px-0.5" data-purpose="eyebrow-labels">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-extrabold tracking-wider text-ink-muted uppercase">PRACTICE • HIGH-YIELD COLLOCATIONS</span>
+</div>
+<span class="text-[10px] font-bold text-brand-teal bg-[#D9F1EE] px-2 py-0.5 rounded-full border border-brand-teal/20">B1 • IELTS 6.5+</span>
+</div>
+<!-- END: EyebrowSection -->
+<!-- BEGIN: HeadwordCard -->
+<section class="bg-white rounded-3xl p-5 border border-tactile-border shadow-sm border-b-4 border-b-tactile-ledge mb-3" data-purpose="headword-definition">
+<!-- Title & Speaker Action -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-baseline gap-2">
+<h1 class="text-3xl font-extrabold text-ink-primary tracking-tight">make</h1>
+<span class="text-base font-bold italic text-ink-secondary">(v.)</span>
+</div>
+<!-- Pronunciation & Past tense with robust AAA readable contrast -->
+<div class="flex items-center gap-2 mt-1 text-sm font-semibold text-ink-secondary">
+<span>/meɪk/</span>
+<span class="text-ink-secondary">•</span>
+<span class="font-bold text-ink-primary">past: <strong class="font-extrabold">made</strong></span>
+</div>
+</div>
+<!-- Audio Pronounce Button -->
+<button aria-label="Listen to pronunciation of make" class="pressable w-11 h-11 rounded-full bg-[#E5F5F3] text-brand-teal flex items-center justify-center border border-brand-teal/30 shadow-sm hover:bg-brand-teal hover:text-white transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Meaning Explanation Box -->
+<div class="mt-3.5 bg-[#FAF3EC] border border-[#ECDCCB] rounded-2xl p-3 flex items-start gap-2.5">
+<svg class="w-4 h-4 text-ink-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10" stroke="currentColor"></circle>
+<line stroke="currentColor" x1="12" x2="12" y1="16" y2="12"></line>
+<circle cx="12" cy="8" fill="currentColor" r="1"></circle>
+</svg>
+<p class="text-[13px] leading-snug font-semibold text-ink-primary">
+          Used for producing results, decisions, or changes (unlike <span class="font-extrabold text-[#B91C1C]">do</span> which focuses on general actions or duties).
+        </p>
+</div>
+</section>
+<!-- END: HeadwordCard -->
+<!-- BEGIN: TeacherSlot -->
+<!-- Empty dashed teacher slot with coach tip (Strictly NO person or character illustrations) -->
+<div class="teacher-slot border-2 border-dashed border-[#136B66]/60 bg-[#E6F5F3]/60 rounded-2xl p-3.5 flex items-center gap-3.5 mb-4 shadow-sm" data-purpose="teacher-coach-tip">
+<div class="w-10 h-10 rounded-xl bg-white border border-[#136B66]/30 flex items-center justify-center shrink-0 text-brand-teal shadow-xs">
+<!-- Graduation Cap / Pedagogical Vector -->
+<svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="text-[11px] font-extrabold tracking-wide text-brand-teal uppercase">TEACHER AMA</span>
+<span class="text-[11px] text-ink-secondary">• Coach Tip</span>
+</div>
+<p class="text-[12.5px] leading-tight font-bold text-ink-primary">
+          “Remember the quick rule: we <span class="font-extrabold text-brand-teal underline decoration-brand-teal/40">make mistakes</span>, but we <span class="font-extrabold text-[#9A3412] underline decoration-[#9A3412]/40">do homework</span>!”
+        </p>
+</div>
+</div>
+<!-- END: TeacherSlot -->
+<!-- BEGIN: HighFrequencyGrid -->
+<section class="mb-4" data-purpose="high-frequency-collocations">
+<div class="flex items-center justify-between mb-2 px-1">
+<h2 class="text-xs font-extrabold tracking-wider uppercase text-ink-primary">HIGH-FREQUENCY: MAKE + NOUN</h2>
+<div class="flex items-center gap-1 text-[11px] font-bold text-brand-teal">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834 1.344l-1.591 1.591M20.25 10.5H18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Tap to hear</span>
+</div>
+</div>
+<!-- 2x2 Tactile Cards Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card 1 -->
+<div class="pressable bg-white rounded-2xl p-3 border border-tactile-border border-b-4 border-b-tactile-ledge shadow-xs cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[10px] font-extrabold bg-[#E7F6F3] text-brand-teal px-1.5 py-0.5 rounded border border-brand-teal/20 tracking-wider">CORE</span>
+<svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-extrabold text-ink-primary leading-snug"><span class="text-brand-teal">MAKE</span> a decision</p>
+<p class="text-[11px] font-semibold text-ink-muted mt-0.5">Choose firmly</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="pressable bg-white rounded-2xl p-3 border border-tactile-border border-b-4 border-b-tactile-ledge shadow-xs cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[10px] font-extrabold bg-[#E7F6F3] text-brand-teal px-1.5 py-0.5 rounded border border-brand-teal/20 tracking-wider">CORE</span>
+<svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-extrabold text-ink-primary leading-snug"><span class="text-brand-teal">MAKE</span> progress</p>
+<p class="text-[11px] font-semibold text-ink-muted mt-0.5">Move forward</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="pressable bg-white rounded-2xl p-3 border border-tactile-border border-b-4 border-b-tactile-ledge shadow-xs cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[10px] font-extrabold bg-[#E7F6F3] text-brand-teal px-1.5 py-0.5 rounded border border-brand-teal/20 tracking-wider">CORE</span>
+<svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-extrabold text-ink-primary leading-snug"><span class="text-brand-teal">MAKE</span> an effort</p>
+<p class="text-[11px] font-semibold text-ink-muted mt-0.5">Try hard</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="pressable bg-white rounded-2xl p-3 border border-tactile-border border-b-4 border-b-tactile-ledge shadow-xs cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[10px] font-extrabold bg-[#E7F6F3] text-brand-teal px-1.5 py-0.5 rounded border border-brand-teal/20 tracking-wider">CORE</span>
+<svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-extrabold text-ink-primary leading-snug"><span class="text-brand-teal">MAKE</span> a mistake</p>
+<p class="text-[11px] font-semibold text-ink-muted mt-0.5">Get it wrong</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HighFrequencyGrid -->
+<!-- BEGIN: QuickComparison -->
+<section class="bg-white rounded-3xl p-4 border border-tactile-border border-b-4 border-b-tactile-ledge mb-4 shadow-sm" data-purpose="comparison-table">
+<h2 class="text-base font-extrabold text-ink-primary mb-3">Quick Comparison: DO vs. MAKE</h2>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- DO Column -->
+<div class="bg-[#FAF2EB] rounded-2xl p-3 border border-[#EEDBCA]">
+<span class="inline-block text-[11px] font-black uppercase text-[#9A3412] bg-[#FEE2E2]/70 px-2 py-0.5 rounded mb-2">DO</span>
+<p class="text-[11px] font-bold text-ink-secondary mb-2.5 leading-tight">Tasks, duties &amp; routine activities</p>
+<ul class="space-y-1.5 text-xs font-bold text-ink-primary">
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C2410C]"></span>
+<span>do homework</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C2410C]"></span>
+<span>do business</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C2410C]"></span>
+<span>do research</span>
+</li>
+</ul>
+</div>
+<!-- MAKE Column -->
+<div class="bg-[#EBF7F5] rounded-2xl p-3 border border-[#D0ECE7]">
+<span class="inline-block text-[11px] font-black uppercase text-brand-teal bg-[#D3EFEA] px-2 py-0.5 rounded mb-2">MAKE</span>
+<p class="text-[11px] font-bold text-ink-secondary mb-2.5 leading-tight">Creating results, choices &amp; sounds</p>
+<ul class="space-y-1.5 text-xs font-bold text-ink-primary">
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+<span>make a decision</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+<span>make progress</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+<span>make an effort</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- END: QuickComparison -->
+<!-- BEGIN: ExamContextExamples -->
+<section class="mb-4" data-purpose="exam-sentences">
+<div class="flex items-center justify-between mb-2 px-1">
+<h2 class="text-xs font-extrabold tracking-wider uppercase text-ink-primary">IELTS • EXAM CONTEXT EXAMPLES</h2>
+<span class="text-[10px] font-bold bg-[#D4EFEA] text-brand-teal px-2 py-0.5 rounded-full border border-brand-teal/20 tracking-wider">NATIVE ACCENT</span>
+</div>
+<!-- Example Card 1 -->
+<article class="bg-white rounded-2xl p-3.5 border border-tactile-border border-b-4 border-b-tactile-ledge mb-2.5 shadow-xs">
+<div class="flex items-start justify-between gap-2 mb-2">
+<p class="text-sm font-semibold text-ink-primary leading-snug">
+            “Candidates must <span class="bg-[#D9F2EE] text-brand-teal font-extrabold px-1.5 py-0.5 rounded">make an effort</span> to organize their ideas coherently.”
+          </p>
+<button aria-label="Listen to example 1" class="pressable w-8 h-8 rounded-full bg-[#FAF3EC] border border-[#EBD9C7] flex items-center justify-center shrink-0 text-ink-secondary hover:bg-brand-teal hover:text-white transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-ink-muted">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>IELTS Writing Task 2 • Band 7+</span>
+</div>
+</article>
+<!-- Example Card 2 -->
+<article class="bg-white rounded-2xl p-3.5 border border-tactile-border border-b-4 border-b-tactile-ledge shadow-xs">
+<div class="flex items-start justify-between gap-2 mb-2">
+<p class="text-sm font-semibold text-ink-primary leading-snug">
+            “We have <span class="bg-[#D9F2EE] text-brand-teal font-extrabold px-1.5 py-0.5 rounded">made rapid progress</span> since adopting the new study schedule.”
+          </p>
+<button aria-label="Listen to example 2" class="pressable w-8 h-8 rounded-full bg-[#FAF3EC] border border-[#EBD9C7] flex items-center justify-center shrink-0 text-ink-secondary hover:bg-brand-teal hover:text-white transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.083-1.638.322-2.426C2.806 8.727 3.63 8.25 4.51 8.25h2.24z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-ink-muted">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Speaking Part 3 • Formal Register</span>
+</div>
+</article>
+</section>
+<!-- END: ExamContextExamples -->
+<!-- BEGIN: CommonTestTrap -->
+<section class="bg-[#FFF4F2] border border-[#FBCFC8] border-b-4 border-b-[#E8B6AE] rounded-3xl p-4 mb-5 shadow-xs" data-purpose="exam-warning-card">
+<div class="flex items-center gap-2 mb-2 text-[#991B1B]">
+<!-- Alert Triangle Vector -->
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-black tracking-wider uppercase">COMMON TEST TRAP</span>
+</div>
+<!-- Comparison Badge Container -->
+<div class="bg-white rounded-2xl p-2.5 border border-[#F7D4CF] flex items-center justify-around mb-2.5">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#B91C1C]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-bold line-through text-[#B91C1C]">do a mistake</span>
+</div>
+<svg class="w-4 h-4 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-extrabold text-brand-teal">make a mistake</span>
+</div>
+</div>
+<p class="text-xs font-semibold text-ink-primary leading-relaxed">
+        Saying <em class="font-extrabold text-[#991B1B] not-italic">“I did a mistake”</em> is an immediate flag for IELTS &amp; TOEIC evaluators.
+      </p>
+</section>
+<!-- END: CommonTestTrap -->
+<!-- BEGIN: PracticeCtaSection -->
+<div class="flex flex-col items-center mb-4" data-purpose="drill-cta-action">
+<button class="pressable-btn w-full bg-brand-amber text-ink-primary font-black py-4 px-6 rounded-2xl shadow-[0_4px_0_0_#D97706] hover:bg-[#F29505] flex items-center justify-center gap-2 text-base transition-all">
+<span>Start 3-Minute Practice Drill</span>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<span class="text-xs font-bold text-ink-secondary mt-2">Earn +25 XP • Master 4 exam collocations</span>
+</div>
+<!-- END: PracticeCtaSection -->
+</main>
+<!-- END: MobileDeviceContainer -->
+<!-- BEGIN: BottomNavigation -->
+<!-- Fixed mobile tab bar adhering to 390px native layout -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-white/95 backdrop-blur-md border-t border-tactile-border px-3 py-2 flex items-center justify-around z-50 shadow-lg" data-purpose="bottom-tab-navigation">
+<!-- Tab: Today -->
+<button class="pressable flex flex-col items-center gap-0.5 text-ink-muted hover:text-ink-primary transition-colors">
+<svg class="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Today</span>
+</button>
+<!-- Tab: Vocab -->
+<button class="pressable flex flex-col items-center gap-0.5 text-ink-muted hover:text-ink-primary transition-colors">
+<svg class="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Vocab</span>
+</button>
+<!-- Tab: Skills (Active) -->
+<button class="pressable flex flex-col items-center gap-0.5">
+<div class="bg-brand-teal text-white px-3.5 py-1 rounded-full shadow-sm">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-extrabold text-brand-teal">Skills</span>
+</button>
+<!-- Tab: Tests -->
+<button class="pressable flex flex-col items-center gap-0.5 text-ink-muted hover:text-ink-primary transition-colors">
+<svg class="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Tests</span>
+</button>
+<!-- Tab: Me -->
+<button class="pressable flex flex-col items-center gap-0.5 text-ink-muted hover:text-ink-primary transition-colors">
+<svg class="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Me</span>
+</button>
+</nav>
+<!-- END: BottomNavigation -->
+</body></html>

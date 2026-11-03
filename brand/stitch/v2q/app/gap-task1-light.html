@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS Writing Task 1 Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fff8f5;
+      color: #172427;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tactile-card {
+      background: #ffffff;
+      border: 2px solid #ecd8cb;
+      border-radius: 20px;
+      box-shadow: 0 4px 0 0 #ebd8cd;
+    }
+
+    .tactile-chip {
+      background: #ffffff;
+      border: 1.5px solid #d4c0b4;
+      border-radius: 9999px;
+      box-shadow: 0 2px 0 0 #d4c0b4;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #d4c0b4;
+    }
+
+    .tactile-btn {
+      background: #f59e0b;
+      color: #1a0d00;
+      border: 2px solid #d97706;
+      box-shadow: 0 4px 0 0 #b45309;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #b45309;
+    }
+
+    .teacher-slot {
+      width: 58px;
+      height: 58px;
+      min-width: 58px;
+      border-radius: 16px;
+      border: 2px dashed #006a60;
+      background-color: #e2f6f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .speech-bubble {
+      position: relative;
+      background: #ffffff;
+      border: 2px solid #ecd8cb;
+      border-radius: 20px;
+      box-shadow: 0 4px 0 0 #ebd8cd;
+    }
+
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 22px;
+      width: 14px;
+      height: 14px;
+      background: #ffffff;
+      border-left: 2px solid #ecd8cb;
+      border-bottom: 2px solid #ecd8cb;
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body class="bg-[#fff8f5] w-full min-h-screen text-[#172427]">
+<div class="w-full max-w-[390px] mx-auto min-h-screen px-4 py-4 flex flex-col gap-3.5 pb-8 box-border">
+<!-- 1. FOCUS Top Bar -->
+<header class="flex items-center justify-between gap-3 pt-0.5">
+<button aria-label="Close" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white border-2 border-[#ecd8cb] shadow-[0_2px_0_0_#ebd8cd] flex items-center justify-center text-[#172427] hover:bg-[#fff1e8] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Segmented / Pill Progress Track -->
+<div class="flex-1 h-3.5 bg-[#e8ded6] rounded-full overflow-hidden p-0.5 border border-[#e2d4ca]">
+<div class="h-full bg-[#006a60] rounded-full w-[45%]"></div>
+</div>
+<!-- Lives Counter Badge with Heart -->
+<div class="h-11 min-h-[44px] px-3.5 rounded-full bg-white border-2 border-[#ecd8cb] shadow-[0_2px_0_0_#ebd8cd] flex items-center gap-1.5 font-extrabold text-[#1a0d00]">
+<svg class="w-4 h-4 fill-[#dc2626]" viewbox="0 0 24 24">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+<span class="text-[15px] font-extrabold text-[#172427]">5</span>
+</div>
+</header>
+<!-- 2. Coach / Teacher Prompt Card -->
+<section class="flex items-start gap-3 mt-0.5">
+<!-- Empty Dashed Teacher Slot -->
+<div aria-label="Teacher Slot" class="teacher-slot flex-shrink-0">
+<svg class="w-5 h-5 text-[#006a60]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+</svg>
+<span class="text-[8px] font-extrabold tracking-wider text-[#006a60] uppercase leading-none">TEACHER</span>
+<span class="text-[8px] font-bold tracking-wider text-[#006a60] uppercase leading-none">SLOT</span>
+</div>
+<!-- Speech Bubble -->
+<div class="speech-bubble flex-1 p-3.5 pl-4">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full bg-[#006a60]"></span>
+<span class="text-[12px] font-extrabold tracking-wide uppercase text-[#006a60]">AMA • IELTS COACH</span>
+</div>
+<h2 class="text-[15px] font-extrabold text-[#172427] leading-snug">Start with an overview.</h2>
+<p class="text-[12px] font-semibold text-[#304044] leading-relaxed mt-0.5">
+          Summarize the two contrasting trend trajectories before breaking down individual figures.
+        </p>
+</div>
+</section>
+<!-- 3. Task Prompt Card -->
+<section class="tactile-card p-4 flex flex-col gap-3">
+<!-- Badges Row -->
+<div class="flex items-center justify-between">
+<div class="px-2.5 py-1 rounded-full bg-[#def2ee] border border-[#006a60] flex items-center">
+<span class="text-[11px] font-extrabold text-[#006a60] tracking-wide uppercase">IELTS ACADEMIC • TASK 1</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-[#fef3c7] border border-[#d97706] flex items-center gap-1.5 shadow-[0_1px_0_0_#d97706]">
+<svg class="w-3.5 h-3.5 text-[#854d0e]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+<span class="text-[11.5px] font-extrabold text-[#78350f]">14:20 left</span>
+</div>
+</div>
+<!-- Title & Prompt Description -->
+<div>
+<h1 class="text-[17px] font-extrabold text-[#172427] leading-tight">Energy Consumption Shifts</h1>
+<p class="text-[12px] font-medium text-[#2d3d40] leading-relaxed mt-1">
+          Summarise the information by selecting and reporting the main features, and make comparisons where relevant. Write at least 150 words.
+        </p>
+</div>
+<!-- Chart Box -->
+<div class="bg-[#faf5f0] border-2 border-[#eddcd2] rounded-2xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[12px] font-extrabold text-[#172427] leading-tight max-w-[210px]">
+            Renewable Energy vs Fossil Fuel Usage (2000–2020)
+          </span>
+<span class="text-[11px] font-bold text-[#4a5e62]">% Share</span>
+</div>
+<!-- High-Fidelity SVG Chart -->
+<div class="relative w-full h-[145px] mt-1">
+<svg class="w-full h-full" fill="none" viewbox="0 0 310 140" xmlns="http://www.w3.org/2000/svg">
+<!-- Dashed grid lines and Y-axis labels -->
+<line stroke="#e6d4c8" stroke-dasharray="3 3" stroke-width="1.2" x1="34" x2="300" y1="16" y2="16"></line>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="8" y="20">80%</text>
+<line stroke="#e6d4c8" stroke-dasharray="3 3" stroke-width="1.2" x1="34" x2="300" y1="42" y2="42"></line>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="8" y="46">60%</text>
+<line stroke="#e6d4c8" stroke-dasharray="3 3" stroke-width="1.2" x1="34" x2="300" y1="68" y2="68"></line>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="8" y="72">40%</text>
+<line stroke="#e6d4c8" stroke-dasharray="3 3" stroke-width="1.2" x1="34" x2="300" y1="94" y2="94"></line>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="8" y="98">20%</text>
+<line stroke="#d5c1b5" stroke-width="1.5" x1="34" x2="300" y1="118" y2="118"></line>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="14" y="122">0%</text>
+<!-- X-axis year labels -->
+<text fill="#2d3d40" font-size="10" font-weight="700" x="44" y="134">2000</text>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="102" y="134">2005</text>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="162" y="134">2010</text>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="222" y="134">2015</text>
+<text fill="#2d3d40" font-size="10" font-weight="700" x="278" y="134">2020</text>
+<!-- Line 1: Fossil Fuels (declining ~75% to ~38%) -->
+<polyline fill="none" points="54,23 114,35 174,49 234,67 288,80" stroke="#d97706" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<circle cx="54" cy="23" fill="#f59e0b" r="4.5" stroke="#78350f" stroke-width="2"></circle>
+<circle cx="114" cy="35" fill="#f59e0b" r="4.5" stroke="#78350f" stroke-width="2"></circle>
+<circle cx="174" cy="49" fill="#f59e0b" r="4.5" stroke="#78350f" stroke-width="2"></circle>
+<circle cx="234" cy="67" fill="#f59e0b" r="4.5" stroke="#78350f" stroke-width="2"></circle>
+<circle cx="288" cy="80" fill="#f59e0b" r="4.5" stroke="#78350f" stroke-width="2"></circle>
+<!-- Line 2: Renewable Energy (rising 10% to ~60%) -->
+<polyline fill="none" points="54,106 114,98 174,83 234,63 288,41" stroke="#006a60" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<circle cx="54" cy="106" fill="#14b8a6" r="4.5" stroke="#004d46" stroke-width="2"></circle>
+<circle cx="114" cy="98" fill="#14b8a6" r="4.5" stroke="#004d46" stroke-width="2"></circle>
+<circle cx="174" cy="83" fill="#14b8a6" r="4.5" stroke="#004d46" stroke-width="2"></circle>
+<circle cx="234" cy="63" fill="#14b8a6" r="4.5" stroke="#004d46" stroke-width="2"></circle>
+<circle cx="288" cy="41" fill="#14b8a6" r="4.5" stroke="#004d46" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- Legend -->
+<div class="flex items-center justify-center gap-5 pt-1 border-t border-[#ebd9cd]">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-[#006a60]"></span>
+<span class="text-[11.5px] font-extrabold text-[#172427]">Renewable Energy</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-[#d97706]"></span>
+<span class="text-[11.5px] font-extrabold text-[#172427]">Fossil Fuels</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Useful Trend Phrases Section -->
+<section class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5 text-[#006a60]">
+<svg class="w-4 h-4 text-[#006a60]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M12 2a6 6 0 0 1 6 6c0 2.22-1.2 4.16-3 5.2V16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.8c-1.8-1.04-3-2.98-3-5.2a6 6 0 0 1 6-6z"></path>
+<path d="M9 21h6"></path>
+</svg>
+<span class="text-[12px] font-extrabold uppercase tracking-wide">USEFUL TREND PHRASES</span>
+</div>
+<span class="text-[11px] font-semibold text-[#4b5563]">Tap to insert</span>
+</div>
+<!-- Quick Insert Tactile Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-0.5 no-scrollbar">
+<button class="tactile-chip min-h-[40px] px-3.5 py-2 text-[12px] font-bold text-[#172427] whitespace-nowrap hover:border-[#006a60]" type="button">
+          + rose steadily
+        </button>
+<button class="tactile-chip min-h-[40px] px-3.5 py-2 text-[12px] font-bold text-[#172427] whitespace-nowrap hover:border-[#006a60]" type="button">
+          + gradual decline
+        </button>
+<button class="tactile-chip min-h-[40px] px-3.5 py-2 text-[12px] font-bold text-[#172427] whitespace-nowrap hover:border-[#006a60]" type="button">
+          + in contrast
+        </button>
+</div>
+</section>
+<!-- 5. Report Editor Card -->
+<section class="tactile-card p-4 flex flex-col gap-3">
+<!-- Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<svg class="w-4 h-4 text-[#006a60]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M12 20h9"></path>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+</svg>
+<h3 class="text-[14px] font-extrabold text-[#172427]">Your Report</h3>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#059669]"></span>
+<span class="text-[11.5px] font-bold text-[#065f46]">Autosaved</span>
+</div>
+</div>
+<!-- Text Body Preview -->
+<div class="p-3 bg-[#fffaf6] border border-[#ecd8cb] rounded-xl text-[13px] leading-relaxed text-[#172427] font-medium min-h-[92px]">
+        The line graph illustrates the consumption trends of renewable and fossil energy sources between 2000 and 2020. Overall, while fossil fuel usage experienced a gradual decline, renewable energy witnessed significant growth over the two-decade period.
+      </div>
+<!-- Footer Metrics Row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<!-- Circular Progress Ring -->
+<div class="relative w-6 h-6 flex items-center justify-center">
+<svg class="w-6 h-6 -rotate-90" viewbox="0 0 24 24">
+<circle cx="12" cy="12" fill="none" r="9" stroke="#e5e7eb" stroke-width="3"></circle>
+<circle cx="12" cy="12" fill="none" r="9" stroke="#006a60" stroke-dasharray="56.5" stroke-dashoffset="20.3" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+</div>
+<span class="text-[13px] font-extrabold text-[#172427]">
+            96 <span class="text-[#4b5563] font-semibold">/ 150 words</span>
+</span>
+</div>
+<!-- Goal Pill -->
+<span class="px-2.5 py-1 rounded-full bg-[#fef3c7] border border-[#f59e0b] text-[11.5px] font-extrabold text-[#854d0e]">
+          54 words to goal
+        </span>
+</div>
+</section>
+<!-- 6. Bottom Action CTA -->
+<footer class="mt-1">
+<button class="tactile-btn w-full min-h-[52px] py-3.5 px-6 rounded-2xl font-extrabold text-[16px] flex items-center justify-center gap-2 cursor-pointer" type="button">
+<span>Get feedback</span>
+<span class="text-[16px]">★</span>
+</button>
+</footer>
+</div>
+</body></html>

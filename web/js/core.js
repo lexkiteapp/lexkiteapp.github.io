@@ -381,6 +381,11 @@
       const newCount = Math.min(newAvail, Math.max(0, (settings || DEFAULT_SETTINGS).dailyNew - introduced));
       return { due, newCount, total: due + newCount };
     },
+    // Thẻ mới vào phiên ôn hôm nay (cũ nhất trước, tối đa newCount) – dùng chung cho phiên ôn (study.js) và số liệu màn Ôn (ux1.js)
+    newToday(map, settings, stats) {
+      const n = Cards.dueCount(map, settings, stats).newCount;
+      return Object.values(map).filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => a.added - b.added).slice(0, n);
+    },
   };
 
   // ---------- Thời điểm vàng ----------

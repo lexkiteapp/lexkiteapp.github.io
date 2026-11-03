@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Day 5 Reward - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-fixed": "#261a00",
+            "tertiary": "#f4bf40",
+            "secondary": "#ffb4a6",
+            "primary-container": "#2ba39a",
+            "error": "#ffb4ab",
+            "background": "#091518",
+            "tertiary-container": "#ba8b00",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-low": "#121d20",
+            "on-surface": "#d8e5e9",
+            "on-primary": "#003733",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-secondary": "#660800",
+            "surface-dim": "#091518",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "inverse-on-surface": "#263236",
+            "on-primary-container": "#00322e",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#6bd8ce",
+            "surface-container-lowest": "#051013",
+            "on-secondary-fixed": "#3f0300",
+            "on-background": "#d8e5e9",
+            "primary": "#6bd8ce",
+            "secondary-fixed": "#ffdad3",
+            "outline": "#879391",
+            "error-container": "#93000a",
+            "outline-variant": "#3d4947",
+            "surface-variant": "#2b373a",
+            "on-error": "#690005",
+            "primary-fixed": "#88f5ea",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary-container": "#981201",
+            "on-surface-variant": "#bcc9c7",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-high": "#202c2f",
+            "surface-container-highest": "#2b373a",
+            "surface": "#091518",
+            "inverse-primary": "#006a64",
+            "inverse-surface": "#d8e5e9",
+            "on-tertiary": "#402e00",
+            "tertiary-fixed-dim": "#f4bf40",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-secondary-container": "#ffa493",
+            "on-tertiary-container": "#392900",
+            "surface-container": "#162125"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined-unfilled {
+      font-family: 'Material Symbols Outlined';
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased flex justify-center selection:bg-primary selection:text-on-primary">
+<main class="w-[390px] min-h-screen bg-background flex flex-col justify-between p-4 relative overflow-hidden">
+<!-- Top & Main Content Wrapper -->
+<div class="flex flex-col gap-4">
+<!-- 1. Top focus bar -->
+<header class="flex items-center justify-between w-full pt-1 pb-1">
+<!-- Close/Exit button -->
+<button aria-label="Close session" class="w-10 h-10 rounded-full bg-surface-container-low border border-outline-variant/60 flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-[0_3px_0_0_#051013] active:translate-y-0.5 active:shadow-[0_1px_0_0_#051013] transition-all">
+<span class="material-symbols-outlined-unfilled text-lg">close</span>
+</button>
+<!-- DAY 5 REWARD badge pill -->
+<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container border border-primary/25 shadow-sm">
+<span class="text-sm">🏆</span>
+<span class="font-label text-xs font-extrabold tracking-wider text-primary">DAY 5 REWARD</span>
+</div>
+</header>
+<!-- 2. Heading & Subtext -->
+<section class="mt-1">
+<h1 class="font-headline text-[28px] font-extrabold text-on-surface leading-tight tracking-tight">
+          Day 5 complete!
+        </h1>
+<p class="font-body text-[15px] font-medium text-on-surface-variant leading-snug mt-1">
+          You learned 8 words and kept your 6–day streak.
+        </p>
+</section>
+<!-- 3. Illustration & Teacher Slot Row -->
+<section class="grid grid-cols-2 gap-3 items-end mt-1">
+<!-- Left: Speech bubble + Teacher Slot -->
+<div class="flex flex-col gap-2 relative">
+<!-- Speech Bubble -->
+<div class="relative bg-surface-container border border-outline-variant/80 rounded-xl px-3 py-2 shadow-[0_3px_0_0_#051013]">
+<p class="font-headline text-xs font-bold text-on-surface tracking-wide flex items-center gap-1">
+              On to Day 6! 🚀
+            </p>
+<!-- Downward speech triangle indicator -->
+<div class="absolute -bottom-1.5 left-6 w-3 h-3 bg-surface-container border-r border-b border-outline-variant/80 rotate-45"></div>
+</div>
+<!-- Empty Dashed Teacher Slot -->
+<div class="teacher-slot h-28 w-full bg-[#0c1f22] border-2 border-dashed border-primary-container rounded-2xl flex flex-col items-center justify-center gap-1.5 text-center px-2 select-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="school">school</span>
+<span class="font-label text-[11px] font-extrabold tracking-wider text-primary">TEACHER SLOT</span>
+</div>
+</div>
+<!-- Right: Vector Treasure Chest Illustration -->
+<div class="relative flex items-center justify-center h-40">
+<!-- Glow Behind Chest -->
+<div class="absolute w-28 h-28 bg-tertiary/10 rounded-full blur-xl pointer-events-none"></div>
+<!-- Chest Graphic -->
+<svg class="w-full h-full max-h-36 drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)]" fill="none" viewbox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+<!-- Sparkles & Stars -->
+<path d="M125 18L127 24L133 26L127 28L125 34L123 28L117 26L123 24Z" fill="#ffdf9e"></path>
+<circle cx="34" cy="28" fill="#f4bf40" r="2.5"></circle>
+<path d="M42 16L43.5 20.5L48 22L43.5 23.5L42 28L40.5 23.5L36 22L40.5 20.5Z" fill="#88f5ea"></path>
+<circle cx="132" cy="46" fill="#ffdad3" r="2"></circle>
+<!-- Bursting Coins -->
+<g filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.4))">
+<!-- Coin 1 -->
+<ellipse cx="62" cy="38" fill="#f4bf40" rx="10" ry="7" stroke="#ba8b00" stroke-width="1.5"></ellipse>
+<ellipse cx="62" cy="38" fill="#ffdf9e" rx="6.5" ry="4"></ellipse>
+<!-- Coin 2 -->
+<ellipse cx="94" cy="32" fill="#f4bf40" rx="11" ry="8" stroke="#ba8b00" stroke-width="1.5"></ellipse>
+<ellipse cx="94" cy="32" fill="#ffdf9e" rx="7.5" ry="4.5"></ellipse>
+<!-- Coin 3 (Center Top) -->
+<ellipse cx="78" cy="22" fill="#ffdf9e" rx="12" ry="8.5" stroke="#ba8b00" stroke-width="1.5"></ellipse>
+<ellipse cx="78" cy="22" fill="#f4bf40" rx="8" ry="5"></ellipse>
+<!-- Coin 4 -->
+<ellipse cx="108" cy="42" fill="#f4bf40" rx="9" ry="6" stroke="#ba8b00" stroke-width="1.5"></ellipse>
+<!-- Coin 5 -->
+<ellipse cx="50" cy="48" fill="#f4bf40" rx="8" ry="5.5" stroke="#ba8b00" stroke-width="1.5"></ellipse>
+</g>
+<!-- Chest Base Bottom Shadow -->
+<rect fill="#051013" height="14" rx="7" width="112" x="24" y="112"></rect>
+<!-- Chest Back Interior -->
+<path d="M30 62C30 52 40 48 80 48C120 48 130 52 130 62V72H30V62Z" fill="#392900"></path>
+<!-- Open Lid -->
+<path d="M22 42C24 24 50 18 80 18C110 18 136 24 138 42L142 56C142 58 138 60 80 60C22 60 18 58 18 56L22 42Z" fill="#981201" stroke="#3d4947" stroke-width="1.5"></path>
+<!-- Lid Gold Rim -->
+<path d="M19 55C22 57 50 62 80 62C110 62 138 57 141 55L142 58C142 61 110 65 80 65C50 65 18 61 18 58L19 55Z" fill="#f4bf40"></path>
+<!-- Lid Bands -->
+<path d="M46 22C52 30 52 48 52 58" stroke="#ba8b00" stroke-linecap="round" stroke-width="3"></path>
+<path d="M114 22C108 30 108 48 108 58" stroke="#ba8b00" stroke-linecap="round" stroke-width="3"></path>
+<!-- Chest Body -->
+<path d="M26 62H134L128 114C128 117 125 120 121 120H39C35 120 32 117 32 114L26 62Z" fill="#660800"></path>
+<!-- Chest Front Highlight & Wood Planks -->
+<path d="M30 64H130L127 86H33L30 64Z" fill="#981201" opacity="0.6"></path>
+<!-- Front Gold Straps -->
+<rect fill="#f4bf40" height="57" rx="1.5" stroke="#ba8b00" stroke-width="1" width="10" x="46" y="62"></rect>
+<circle cx="51" cy="70" fill="#261a00" r="1.5"></circle>
+<circle cx="51" cy="110" fill="#261a00" r="1.5"></circle>
+<rect fill="#f4bf40" height="57" rx="1.5" stroke="#ba8b00" stroke-width="1" width="10" x="104" y="62"></rect>
+<circle cx="109" cy="70" fill="#261a00" r="1.5"></circle>
+<circle cx="109" cy="110" fill="#261a00" r="1.5"></circle>
+<!-- Center Gold Lock Plate -->
+<path d="M70 60H90V76C90 81.5 85.5 86 80 86C74.5 86 70 81.5 70 76V60Z" fill="#ffdf9e" stroke="#ba8b00" stroke-width="1.5"></path>
+<!-- Keyhole -->
+<circle cx="80" cy="70" fill="#392900" r="2.5"></circle>
+<path d="M79 71H81L81.5 77H78.5L79 71Z" fill="#392900"></path>
+<!-- Bottom Rim -->
+<rect fill="#3f0300" height="5" rx="2" width="100" x="30" y="114"></rect>
+</svg>
+</div>
+</section>
+<!-- 4. Reward Cards (2-column grid) -->
+<section class="grid grid-cols-2 gap-3 mt-1">
+<!-- Left: Lesson XP Card -->
+<div class="bg-surface-container-low rounded-2xl p-3.5 border border-outline-variant/60 shadow-[0_5px_0_0_#091315] flex flex-col justify-between transition-all">
+<div class="flex items-center justify-between mb-3">
+<div class="w-9 h-9 rounded-xl bg-tertiary-container/30 border border-tertiary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="bolt">bolt</span>
+</div>
+<span class="font-label text-[10px] text-tertiary tracking-widest font-extrabold uppercase bg-tertiary/10 px-2 py-0.5 rounded-full border border-tertiary/20">BOOST</span>
+</div>
+<div>
+<div class="font-headline text-xl font-extrabold text-[#e8f1f0] leading-none mb-1">
+              +20 XP
+            </div>
+<div class="font-label text-xs font-bold text-on-surface-variant">
+              Lesson XP
+            </div>
+</div>
+</div>
+<!-- Right: Streak Freeze Protection Card -->
+<div class="bg-surface-container-low rounded-2xl p-3.5 border border-outline-variant/60 shadow-[0_5px_0_0_#091315] flex flex-col justify-between transition-all">
+<div class="flex items-center justify-between mb-3">
+<div class="w-9 h-9 rounded-xl bg-primary-container/20 border border-primary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="ac_unit">ac_unit</span>
+</div>
+<span class="font-label text-[10px] text-primary tracking-widest font-extrabold uppercase bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20">EQUIPPED</span>
+</div>
+<div>
+<div class="font-headline text-xl font-extrabold text-[#e8f1f0] leading-none mb-1">
+              +1 Freeze
+            </div>
+<div class="font-label text-xs font-bold text-on-surface-variant">
+              Protection
+            </div>
+</div>
+</div>
+</section>
+<!-- 5. Streak Milestone Card -->
+<section class="bg-surface-container-low rounded-2xl p-3.5 border border-outline-variant/60 shadow-[0_5px_0_0_#091315] flex items-center gap-3">
+<!-- Flame Badge -->
+<div class="w-12 h-12 rounded-full bg-secondary-container/50 border border-secondary/40 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(255,180,166,0.15)]">
+<span class="material-symbols-outlined text-secondary text-2xl drop-shadow-[0_2px_4px_rgba(255,180,166,0.4)]" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<!-- Streak Info -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="font-headline text-sm font-extrabold text-[#e8f1f0]">6–Day Streak</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
+</div>
+<p class="font-body text-xs font-medium text-on-surface-variant leading-snug line-clamp-2">
+            You're on fire! 1 day ahead of your weekly goal.
+          </p>
+</div>
+<!-- Goal Pill (6/7) -->
+<div class="shrink-0 px-2.5 py-1 rounded-xl bg-surface-container border border-outline-variant flex items-center justify-center">
+<span class="font-headline text-xs font-extrabold text-on-surface">6 / 7</span>
+</div>
+</section>
+</div>
+<!-- 6. Actions (Bottom Cluster) -->
+<footer class="flex flex-col items-center gap-3 w-full pt-4 pb-2">
+<!-- Primary CTA: Warm Coral/Orange Tactile Button with Dark Ink Text -->
+<button class="w-full h-14 rounded-2xl bg-gradient-to-r from-[#ff7e5f] via-[#feb47b] to-[#f4bf40] text-[#1a0d00] font-headline text-base font-extrabold tracking-wide flex items-center justify-center gap-2 border-t border-white/30 shadow-[0_6px_0_0_#b35300] active:translate-y-1 active:shadow-[0_2px_0_0_#b35300] transition-all cursor-pointer" type="button">
+<span>Collect</span>
+<span class="font-bold text-lg leading-none select-none">➔</span>
+</button>
+<!-- Secondary Link -->
+<button class="font-body text-xs font-bold text-primary hover:text-primary-fixed transition-colors py-1 flex items-center gap-1 cursor-pointer" type="button">
+<span>Review Today's 8 Vocabulary Cards</span>
+<span class="text-sm font-bold leading-none">›</span>
+</button>
+</footer>
+</main>
+</body></html>

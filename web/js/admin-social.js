@@ -287,7 +287,14 @@
       return used.includes(String(p.id)) || (cap.length > 8 && String(p.caption || '').trim() === cap);
     });
   };
-  const remember = (src, pid) => { if (!src || !pid) return; const u = LS.get('used', {}); u[src] = [...new Set([...(u[src] || []), String(pid)])].slice(-20); const ks = Object.keys(u); if (ks.length > 300) delete u[ks[0]]; LS.set('used', u); };
+  const remember = (src, pid) => { if (!src || !pid) return; const u = LS.get('used', {}); u[src] = [...new Set([...(u[src] || []), String(pid)])].slice(-20); const ks = Object.keys(u); if (ks.length > 300) delete u[ks[0]]; LS.set('used', u); if (window.AdminSync) AdminSync.store('socused').patch(String(src).slice(0, 120), u[src].map(String).slice(-20)).catch(() => {}); }; // "đã đăng" dùng chung mọi admin (D1 ns socused)
+  /** Kéo bản chung "bài nguồn đã dùng" về bản đệm trình duyệt (gộp); đẩy bản cũ của máy này lên lần đầu. */
+  const usedSync = async () => { try {
+    if (!window.AdminSync) await new Promise(y => { const sc = document.createElement('script'); sc.src = 'js/admin-sync.js'; sc.onload = y; sc.onerror = y; document.head.appendChild(sc); });
+    if (!window.AdminSync) return; const st = AdminSync.store('socused'), r = await st.get(), m = r.v || {}, u = LS.get('used', {});
+    for (const k of Object.keys(m)) u[k] = [...new Set([...(u[k] || []), ...m[k]])].slice(-20);
+    LS.set('used', u); for (const k of Object.keys(u)) if (!(k in m) && /^[A-Za-z0-9_.:-]{1,120}$/.test(k)) st.patch(k, u[k].map(String).slice(-20)).catch(() => {});
+  } catch (e) { /* ngoại tuyến → bản đệm */ } };
   const localInput = d => new Date(+d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16);
   const isVideo = o => /^video\//.test(String(pick(o, 'content_type', 'mime_type', 'mime') || '')) || String(pick(o, 'type', 'kind') || '') === 'video' || /\.(mp4|mov|webm|m4v)$/i.test(String(pick(o, 'filename', 'name', 'key') || ''));
   const https = u => (typeof u === 'string' && /^https:\/\//.test(u) ? u : '');
@@ -333,6 +340,7 @@
     const C = { src: null, title: '', cap: '', fc: '', link: '', acc: [], at: '', pt: '', pv: '', srv: {}, mid: null, midFor: null, idem: uid(), tt: null, ttFor: null, q: '', busy: false,
       per: { youtube: { cap: '', privacy: 'public', cat: '27', tags: '', ai: false, notify: true }, tiktok: { cap: '', privacy: '', comment: false, duet: false, stitch: false, aigc: false }, instagram: { cap: '', fc: '', feed: true }, facebook_page: { cap: '', fc: '' }, threads: { cap: '' } } };
     let pre = pending; pending = null;
+    usedSync(); // bài nguồn đã dùng: dùng chung mọi admin
     if (pre) { C.title = String(pre.title || '').slice(0, 100); C.cap = String(pre.caption || ''); }
 
     const head = `<div class="soc-head"><div><h2>${S('🎬 Video & Social')}</h2><p class="small muted" style="margin:.2rem 0 0">${S('Lưu video trên Drive và đăng lên các kênh qua GrabCast.')}</p><p class="tiny muted" id="socTz" style="margin:.25rem 0 0"></p></div>

@@ -383,6 +383,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Ngôn ngữ đang học': 'Learning language',
 'Thêm 30 từ cơ bản': 'Add 30 core words',
 'Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ': 'Added {n} Portuguese words to your word list',
+'Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ': 'Added {n} Spanish words to your word list',
 'Không tải được bộ từ, thử lại sau': 'Could not load the word set. Please try again later.',
 'Định nghĩa tiếng Anh': 'English definitions',
 'Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)': 'Natural voices for listening & examiner (streams audio)',

@@ -269,3 +269,19 @@ export function wsdUnwrap(o, ids) {
   if (o && typeof o === 'object') for (const key of ['probes', 'answers', 'senses', 'result', 'results', 'out']) { const r = flat(o[key]); if (r && Object.values(r).some(v => v !== undefined)) return r; }
   return null;
 }
+
+// 03/11 hạn ngạch retry: mục làm lại (rớt vi/ví dụ, đã thử một lần với nguồn hiện tại) chỉ chiếm ≤ share × N để ứng viên MỚI luôn được xử lý;
+// ứng viên mới ít hơn phần còn lại → retry lấp chỗ trống (không bỏ phí lượt). Thứ tự giữ nguyên (tần suất giảm dần). Thuần hàm, có test.
+export const RETRY_SHARE = 0.25;
+export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
+  const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
+  const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));
+  return [...r, ...f].slice(0, N);
+}
+// sản lượng tách theo nguồn mục: mới vs làm lại (cầu dao chuỗi đo trên mục MỚI – mục retry là phần còn lại khó, không đại diện cho kho ứng viên)
+export function yieldSplit(rows) {
+  const o = { fresh: { judged: 0, pass: 0, yield: 0 }, retry: { judged: 0, pass: 0, yield: 0 } };
+  for (const r of rows) { const g = o[r.retry ? 'retry' : 'fresh']; if (r.judged) g.judged++; if (r.pass) g.pass++; }
+  for (const g of Object.values(o)) g.yield = +(g.pass / Math.max(1, g.judged)).toFixed(3);
+  return o;
+}
