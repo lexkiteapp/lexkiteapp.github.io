@@ -152,6 +152,6 @@ El dominio del ritmo sonoro requiere herramientas interactivas que brinden retro
 
 - **Transcripciones fonéticas contextualizadas**: Verifica al instante la forma débil y la sílaba tónica de cualquier palabra en el diccionario inteligente de Lexkite.
 - **Sistema de repetición espaciada FSRS**: Fija expresiones y colocaciones avanzadas en tu memoria a largo plazo sin esfuerzo memorístico pasivo.
-- **Entrenamiento guiado con micrófono**: Accede a la [sección de práctica de habla en Lexkite](/#/practice/speak) para grabar tu voz, comparar tu pronunciación con estándares de referencia y ganar soltura vocal.
+- **Entrenamiento guiado con micrófono**: Accede a la [sección de práctica de habla en Lexkite](/#/practice/speak) para grabar tu voz, comparar tu pronunciación con estándares de referencia y ganar soltura vocal. Consulta también nuestra guía integral sobre [cómo mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/) para estructurar tu entrenamiento auditivo diario.
 
 Inicia sesión en la [aplicación web de Lexkite](/#/) hoy mismo y transforma tu acento oracional en inglés en una ventaja competitiva para tu carrera internacional.

@@ -122,7 +122,7 @@ Otra técnica respaldada por la neurociencia lingüística para apagar el traduc
 
 Para afinar la comprensión auditiva que alimenta tu banco de pensamiento subconsciente, revisa nuestros consejos en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/) y aprende a construir vocabulario por contexto con [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/).
 
-Evita caer en trampas semánticas leyendo nuestro análisis de [falsos amigos inglés español](/es/blog/falsos-amigos-ingles-espanol/) y pule los finales regulares con la guía de [pronunciación ed en inglés](/es/blog/pronunciacion-ed-en-ingles/). Puedes explorar también [modelos de texto](/samples/) auténticos para observar cómo fluyen las oraciones sin traducciones forzadas.
+Evita caer en trampas semánticas leyendo nuestro análisis de [falsos amigos inglés español](/es/blog/falsos-amigos-ingles-espanol/) y pule los finales regulares con la guía de [pronunciación ed en inglés](/es/blog/pronunciacion-ed-en-ingles/). Si deseas perfeccionar la claridad de tus sonidos vocálicos y consonánticos, revisa nuestro tutorial sobre [cómo mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/). Puedes explorar también [modelos de texto](/samples/) auténticos para observar cómo fluyen las oraciones sin traducciones forzadas.
 
 Consolida la retención a largo plazo repasando conceptos diariamente en el [módulo de repaso espaciado](/app/#/review) del Lexkite.
 

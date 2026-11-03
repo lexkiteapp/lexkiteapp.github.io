@@ -167,7 +167,7 @@ En Lexkite, la sección de [Listening IELTS](/#/listening) tiene los botones Esc
 
 ![Pantalla de juegos y ejercicios de Lexkite con Aprendizaje inteligente, Emparejar, Pronunciación, Opción múltiple, Rellenar huecos, Escuchar y escribir y Prueba, y selector de fuente de palabras](media:practice "Elige primero la fuente de palabras y después el ejercicio que encaje con tu objetivo del día")
 
-Las palabras que conoces escritas pero no reconoces al oído merecen práctica propia: en [juegos y ejercicios](/#/practice) usa Escuchar y escribir con tu propia libreta como fuente. Los sonidos que te cuestan, como /ɪ/ frente a /iː/ o /ʃ/ frente a /tʃ/, puedes practicarlos uno a uno en la [biblioteca de pronunciación](/#/pron). Y si un fallo se repite, búscalo en el [registro de errores](/#/mistakes), donde se agrupan aparte los de Listening.
+Las palabras que conoces escritas pero no reconoces al oído merecen práctica propia: en [juegos y ejercicios](/#/practice) usa Escuchar y escribir con tu propia libreta como fuente. Los sonidos que te cuestan, como /ɪ/ frente a /iː/ o /ʃ/ frente a /tʃ/, puedes practicarlos uno a uno en la [biblioteca de pronunciación](/#/pron) y siguiendo los pasos de nuestra guía sobre [cómo mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/). Y si un fallo se repite, búscalo en el [registro de errores](/#/mistakes), donde se agrupan aparte los de Listening.
 
 ![Registro de errores de Lexkite que agrupa los fallos en vocabulario, gramática, lectura y comprensión auditiva para repasarlos](media:mistakes "Tener los fallos de Listening separados te muestra qué tipo de error se repite más")
 
