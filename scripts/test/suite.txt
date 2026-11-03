@@ -90,6 +90,8 @@ node scripts/test/report-ui.mjs
 node scripts/test/quota.mjs
 node scripts/test/capacity.mjs
 node scripts/test/admin-rollup.mjs
+node scripts/test/d1-cap.mjs
+node scripts/test/sessions-scan-gate.mjs
 node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
