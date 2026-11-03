@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Today (Editorial Exam Horizon)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'canvas-ivory': '#FAF7F2',
+            'ink-deep': '#092C2E',
+            'ink-muted': '#4B6667',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#12514D',
+            'seafoam-tint': '#E8F7F5',
+            'coral-cta': '#F2553B',
+            'coral-ledge': '#B53A22',
+            'amber-sun': '#FFB054',
+            'gold-accent': '#FFC94A',
+            'card-border': '#E4DDD0',
+            'card-ledge': '#D5CCA8',
+            'charcoal-ink': '#1B0B04',
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #DED5C4',
+            'tactile-card-pressed': '0 1px 0 #DED5C4',
+            'tactile-cta': '0 6px 0 #B53A22',
+            'tactile-cta-pressed': '0 2px 0 #B53A22',
+            'tactile-sub': '0 3px 0 #2BA39A',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF7F2;
+      color: #092C2E;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+
+    .material-symbols-rounded {
+      font-family: 'Material Symbols Rounded';
+      font-weight: 600;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile button interaction simulation */
+    .tactile-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #B53A22 !important;
+    }
+    .tactile-sub-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #2BA39A !important;
+    }
+
+    /* Teacher slot: 140x170 empty dashed box strictly with no human avatar */
+    .teacher-slot {
+      width: 140px;
+      height: 170px;
+      border: 2px dashed #2BA39A;
+      background-color: #E8F7F5;
+    }
+
+    /* Robust text wrapping everywhere for multilingual copy */
+    * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF7F2] min-h-screen flex flex-col items-center">
+<!-- Mobile Viewport 390px Edge-to-Edge -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#FAF7F2] flex flex-col pb-28 relative select-none">
+<!-- 1. Top Fixed App Bar (56px) -->
+<header class="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur border-b border-[#E4DDD0] px-4 h-14 flex items-center justify-between">
+<!-- App Brand Logo -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-teal-brand flex items-center justify-center shadow-[0_2px_0_#12514D]">
+<span class="material-symbols-rounded text-white text-xl">near_me</span>
+</div>
+<span class="text-xl font-extrabold text-[#092C2E] tracking-tight">Lexkite</span>
+</div>
+<!-- Header Pills: Flame Streak & Lightning XP -->
+<div class="flex items-center gap-2 justify-end">
+<!-- Streak Pill -->
+<div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-[#E4DDD0] shadow-[0_2px_0_#DED5C4]">
+<span class="material-symbols-rounded text-coral-cta text-[18px]">local_fire_department</span>
+<span class="text-xs font-extrabold text-[#092C2E] leading-none">14</span>
+</div>
+<!-- XP Pill -->
+<div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-[#E4DDD0] shadow-[0_2px_0_#DED5C4]">
+<span class="material-symbols-rounded text-amber-sun text-[18px]">bolt</span>
+<span class="text-xs font-extrabold text-[#092C2E] leading-none">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<div class="px-4 pt-3.5 flex flex-col gap-4">
+<!-- 2. Academic Target Header -->
+<section class="bg-white rounded-2xl p-4 border border-[#E4DDD0] shadow-tactile-card flex flex-col gap-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<!-- IELTS Band 7.5 Target Pill -->
+<div class="inline-flex items-center gap-1.5 bg-[#E8F7F5] border border-teal-brand/40 px-2.5 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+<span class="text-[11px] font-extrabold text-teal-deep uppercase tracking-wide">IELTS Band 7.5 Target • Academic English</span>
+</div>
+<span class="text-[11px] font-bold text-ink-muted">18d to exam</span>
+</div>
+<div>
+<h1 class="text-[22px] font-extrabold text-[#092C2E] leading-tight mt-0.5">
+            Guten Tag, Learner Kai
+          </h1>
+<p class="text-xs font-medium text-ink-muted mt-1 leading-relaxed">
+            Cohesion and discourse mastery active · 10 min daily habit target
+          </p>
+</div>
+</section>
+<!-- 3. Coach Briefing Station (Wide tactile card with empty 140x170 .teacher-slot) -->
+<section class="bg-white rounded-2xl p-4 border border-[#E4DDD0] shadow-tactile-card flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-teal-brand text-lg">school</span>
+<h2 class="text-xs font-extrabold text-[#092C2E] uppercase tracking-wider">Coach Briefing Station</h2>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#E8F7F5] text-teal-deep border border-teal-brand/30 uppercase">
+            Examiner Tip: Band 7.0 Cohesion
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<!-- Empty .teacher-slot container (140x170 dashed boundary box, strictly no human avatar) -->
+<div class="teacher-slot rounded-xl shrink-0 flex flex-col items-center justify-center p-2 text-center shadow-inner">
+<span class="material-symbols-rounded text-teal-deep text-3xl mb-1.5">school</span>
+<span class="text-[10px] font-extrabold text-teal-deep uppercase leading-tight tracking-wider">teacher-slot</span>
+<span class="text-[9px] font-semibold text-ink-muted mt-1 leading-tight">140 × 170<br/>Boundary</span>
+</div>
+<!-- Coach Notes & Guidance -->
+<div class="flex-1 min-w-0 flex flex-col justify-center gap-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+<span class="text-[11px] font-extrabold text-teal-deep uppercase tracking-wide">Coach Ama · Lead Examiner</span>
+</div>
+<p class="text-xs font-semibold text-[#092C2E] leading-relaxed">
+              “Your discourse collocations are peaking! Focus on subordinating markers like <span class="font-extrabold">‘notwithstanding’</span> to secure Band 7.5+ in Task 2.”
+            </p>
+<div class="pt-1 flex items-center gap-1 text-[11px] font-bold text-teal-deep">
+<span class="material-symbols-rounded text-sm">verified</span>
+<span>Cambridge Criteria Aligned</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Core Mission Card (Singular focal card with Dominant Primary CTA) -->
+<section class="bg-white rounded-2xl p-4 border border-[#E4DDD0] shadow-tactile-card flex flex-col gap-3.5">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-full bg-[#E8F7F5] border border-teal-brand/40 text-[11px] font-extrabold text-teal-deep uppercase tracking-wide">
+            Unit 3 • Complex Sentence Linkers &amp; Cohesion
+          </span>
+<span class="text-xs font-bold text-ink-muted">Stage 3 of 4</span>
+</div>
+<div>
+<h3 class="text-base font-extrabold text-[#092C2E] leading-snug">
+            Advanced Discourse Flow &amp; Concession Drills
+          </h3>
+<p class="text-xs text-ink-muted mt-1 leading-relaxed">
+            Cambridge Writing Criteria: Coherence &amp; Cohesion (25% total weight). Target connectors: <span class="font-bold text-[#092C2E]">“substantiate”</span>, <span class="font-bold text-[#092C2E]">“inasmuch as”</span>, and <span class="font-bold text-[#092C2E]">“notwithstanding”</span>.
+          </p>
+</div>
+<!-- Progress Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs font-bold">
+<span class="text-ink-muted">Mastery Progress</span>
+<span class="text-[#092C2E]">65%</span>
+</div>
+<div class="w-full bg-[#E4DDD0] h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-gradient-to-r from-teal-brand to-amber-sun h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Singular Dominant Primary CTA (Coral gradient, 6px bottom ledge #B53A22, dark brown-black text) -->
+<button class="tactile-btn w-full min-h-[54px] py-3.5 px-4 rounded-2xl bg-gradient-to-r from-coral-cta to-amber-sun text-charcoal-ink font-extrabold text-sm tracking-wide flex items-center justify-center gap-2 border-b-[6px] border-coral-ledge shadow-tactile-cta cursor-pointer transition-all">
+<span class="leading-snug text-center">CONTINUE SESSION (5 MIN) →</span>
+</button>
+</section>
+<!-- 5. Spaced Memory Engine Block (FSRS spaced repetition status) -->
+<section class="bg-white rounded-2xl p-4 border border-[#E4DDD0] shadow-tactile-card flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 flex-1 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-amber-sun/20 border-2 border-amber-sun/40 flex items-center justify-center text-amber-sun shrink-0 shadow-[0_3px_0_#E59E44]">
+<span class="material-symbols-rounded text-2xl text-[#D97706]">history_edu</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-black text-coral-cta uppercase tracking-wider">FSRS Spaced Engine</span>
+<span class="w-1.5 h-1.5 rounded-full bg-coral-cta"></span>
+</div>
+<h4 class="text-sm font-extrabold text-[#092C2E] leading-snug">
+              18 Items Due for Recall
+            </h4>
+<p class="text-[11px] text-ink-muted leading-tight truncate">
+              Retention Forecast: 91% · resilient, ubiquitous +16
+            </p>
+</div>
+</div>
+<!-- Secondary Action Button -->
+<button class="tactile-sub-btn shrink-0 min-h-[44px] px-3 py-2.5 rounded-xl bg-[#E8F7F5] border-2 border-teal-brand text-teal-deep font-extrabold text-xs tracking-wide shadow-tactile-sub cursor-pointer flex items-center justify-center">
+          Review Queue
+        </button>
+</section>
+<!-- 6. Daily Milestone Quests (Structured card with 3 milestones, robust wrapping) -->
+<section class="bg-white rounded-2xl p-4 border border-[#E4DDD0] shadow-tactile-card flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-amber-sun text-lg">flag</span>
+<h3 class="text-xs font-extrabold text-[#092C2E] uppercase tracking-wider">Daily Milestone Quests</h3>
+</div>
+<span class="text-xs font-extrabold text-teal-deep bg-[#E8F7F5] px-2.5 py-0.5 rounded-full border border-teal-brand/30">
+            2 / 3 Abgeschlossen
+          </span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Milestone 1 (Completed) -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-[#F6FBFB] border border-[#E4DDD0] gap-2.5">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<span class="w-5 h-5 rounded-full bg-teal-brand text-white flex items-center justify-center text-xs font-black shrink-0">✓</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#092C2E] leading-snug">5 akademische Kollokationen festigen</p>
+<div class="w-24 bg-[#E4DDD0] h-1.5 rounded-full mt-1 overflow-hidden">
+<div class="bg-teal-brand h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+<span class="text-[11px] font-extrabold text-teal-deep shrink-0">+20 XP</span>
+</div>
+<!-- Milestone 2 (Completed) -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-[#F6FBFB] border border-[#E4DDD0] gap-2.5">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<span class="w-5 h-5 rounded-full bg-teal-brand text-white flex items-center justify-center text-xs font-black shrink-0">✓</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#092C2E] leading-snug">1 Audio-Ausspracheübung abschließen</p>
+<div class="w-24 bg-[#E4DDD0] h-1.5 rounded-full mt-1 overflow-hidden">
+<div class="bg-teal-brand h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+<span class="text-[11px] font-extrabold text-teal-deep shrink-0">+15 XP</span>
+</div>
+<!-- Milestone 3 (In Progress) -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-white border-2 border-amber-sun/50 shadow-sm gap-2.5">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<span class="w-5 h-5 rounded-full border-2 border-amber-sun text-amber-sun flex items-center justify-center text-[10px] font-black shrink-0">○</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#092C2E] leading-snug">Mindestens 80% im Konnektoren-Schnelltest</p>
+<div class="w-24 bg-[#E4DDD0] h-1.5 rounded-full mt-1 overflow-hidden">
+<div class="bg-amber-sun h-full rounded-full" style="width: 40%;"></div>
+</div>
+</div>
+</div>
+<span class="text-[11px] font-extrabold text-coral-cta shrink-0">+25 XP</span>
+</div>
+</div>
+</section>
+</div>
+<!-- 7. Fixed Bottom Tab Bar (Exactly 5 tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-[#E4DDD0] shadow-[0_-4px_12px_rgba(9,44,46,0.06)] flex justify-center">
+<div class="w-full max-w-[390px] h-16 px-2 flex items-center justify-around">
+<!-- Tab 1: Today (ACTIVE - 2px teal border + seafoam tint) -->
+<button aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-12 rounded-xl bg-[#E8F7F5] border-2 border-teal-brand text-teal-deep shadow-[0_2px_0_#2BA39A] cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none">calendar_today</span>
+<span class="text-[10px] font-extrabold uppercase mt-0.5 tracking-wider">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-12 text-ink-muted hover:text-[#092C2E] cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none text-ink-muted">menu_book</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-12 text-ink-muted hover:text-[#092C2E] cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none text-ink-muted">psychology</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-12 text-ink-muted hover:text-[#092C2E] cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none text-ink-muted">quiz</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-12 text-ink-muted hover:text-[#092C2E] cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none text-ink-muted">person</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Me</span>
+</button>
+</div>
+</nav>
+</main>
+</body></html>

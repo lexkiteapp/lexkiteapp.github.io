@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Tests Hub</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#2b373a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-fixed-variant": "#00504b",
+            "on-primary-container": "#00322e",
+            "surface-tint": "#2dd4bf",
+            "inverse-surface": "#d8e5e9",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary": "#003733",
+            "surface-dim": "#10191B",
+            "surface": "#10191B",
+            "primary-container": "#136a63",
+            "primary-fixed": "#88f5ea",
+            "secondary": "#f59e0b",
+            "outline-variant": "#22363A",
+            "inverse-on-surface": "#263236",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-surface-variant": "#A9BDBB",
+            "on-tertiary-container": "#392900",
+            "on-background": "#E8F1F0",
+            "on-error": "#690005",
+            "surface-container-low": "#121d20",
+            "inverse-primary": "#006a64",
+            "on-tertiary-fixed": "#261a00",
+            "surface-container-lowest": "#0b1213",
+            "primary": "#2dd4bf",
+            "outline": "#879391",
+            "on-surface": "#E8F1F0",
+            "on-secondary-container": "#1A0D00",
+            "tertiary-fixed-dim": "#f59e0b",
+            "surface-container-high": "#202c2f",
+            "on-tertiary": "#402e00",
+            "surface-bright": "#2f3b3e",
+            "surface-container": "#172427",
+            "secondary-container": "#f59e0b",
+            "primary-fixed-dim": "#2dd4bf",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed": "#00201e",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "on-secondary": "#660800",
+            "tertiary": "#f4bf40",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-variant": "#1E2F33",
+            "secondary-fixed": "#ffdad3",
+            "tertiary-container": "#ba8b00",
+            "error": "#ffb4ab",
+            "background": "#10191B"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "gutter-md": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-lg": "3rem",
+            "space-md": "1rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen flex justify-center selection:bg-[#2dd4bf] selection:text-[#10191B]">
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col pb-28 relative">
+<header class="sticky top-0 z-40 bg-[#10191B] shadow-[0_4px_0_0_#1E2F33] px-space-md pt-3 pb-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-DEFAULT bg-[#136A63] text-[#2DD4BF] flex items-center justify-center shadow-[0_3px_0_0_#0b1213] border border-[#2DD4BF]/40">
+<span class="material-symbols-outlined fill-icon text-[18px]">send</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-[#2DD4BF] tracking-tight leading-none">Lexkite</div>
+<div class="font-label-sm text-label-sm text-[#A9BDBB] font-semibold">Prep Hub</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 bg-[#1E2F33] px-2 py-1 rounded-full border border-[#22363A]">
+<span class="material-symbols-outlined fill-icon text-[#F59E0B] text-[16px]">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-[#E8F1F0]">0</span>
+</div>
+<div class="flex items-center gap-1 bg-[#1E2F33] px-2 py-1 rounded-full border border-[#22363A]">
+<span class="material-symbols-outlined fill-icon text-[#F59E0B] text-[16px]">stars</span>
+<span class="font-label-sm text-label-sm text-[#E8F1F0] font-bold">0 XP</span>
+</div>
+<button aria-label="Notifications" class="w-10 h-10 min-w-[44px] min-h-[44px] rounded-full bg-[#1E2F33] border-2 border-[#22363A] shadow-[0_2px_0_0_#0b1213] flex items-center justify-center text-[#E8F1F0] active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
+</div>
+</div>
+<div class="mt-3">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#E8F1F0]">Tests Hub</h1>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Exam Simulation &amp; Diagnostic Practice</p>
+</div>
+<nav aria-label="Exam types" class="flex gap-2 mt-3 overflow-x-auto no-scrollbar pb-1"><button class="shrink-0 min-h-[44px] bg-[#164E48] text-[#5EEAD4] font-label-md text-label-md px-4 py-2.5 rounded-full border-2 border-[#2DD4BF] shadow-[0_3px_0_0_#0b1213] active:translate-y-[2px] transition-all font-bold flex items-center justify-center">IELTS Academic</button><button class="shrink-0 min-h-[44px] bg-[#172427] text-[#E8F1F0] font-label-md text-label-md px-4 py-2.5 rounded-full border-2 border-[#22363A] shadow-[0_3px_0_0_#0b1213] active:translate-y-[2px] transition-all flex items-center justify-center">TOEIC</button><button class="shrink-0 min-h-[44px] bg-[#172427] text-[#E8F1F0] font-label-md text-label-md px-4 py-2.5 rounded-full border-2 border-[#22363A] shadow-[0_3px_0_0_#0b1213] active:translate-y-[2px] transition-all flex items-center justify-center">TOEFL iBT</button></nav>
+</header>
+<div class="px-space-md pt-5 flex flex-col gap-5">
+<section class="bg-[#172427] border-2 border-[#22363A] rounded-lg p-5 shadow-[0_4px_0_0_#0b1213] text-center flex flex-col items-center">
+<div class="relative w-32 h-28 my-1 flex items-center justify-center">
+<div class="absolute w-24 h-24 bg-[#1E2F33] rounded-full opacity-60"></div>
+<div class="relative z-10 w-20 h-24 bg-[#122225] border-2 border-[#2DD4BF] rounded-DEFAULT shadow-[0_4px_0_0_#0b1213] flex flex-col items-center p-1.5 transform -rotate-3 transition-transform hover:rotate-0">
+<div class="w-8 h-3 bg-[#F59E0B] rounded-full mb-1 shadow-[0_1px_0_0_#B45309]"></div>
+<div class="w-full flex-1 bg-[#172427] rounded-md border border-[#22363A] p-1.5 flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined fill-icon text-[#F59E0B] text-2xl">school</span>
+<div class="w-8 h-1 bg-[#1E2F33] rounded-full"></div>
+<div class="w-6 h-1 bg-[#1E2F33] rounded-full"></div>
+</div>
+</div>
+<div class="absolute -top-1 -right-1 z-20 w-8 h-8 rounded-full bg-[#1E2F33] border-2 border-[#F59E0B] shadow-[0_2px_0_0_#0b1213] flex items-center justify-center">
+<span class="material-symbols-outlined fill-icon text-[#F59E0B] text-base">award_star</span>
+</div>
+<div class="absolute bottom-2 left-2 z-20 w-6 h-6 rounded-full bg-[#1E2F33] border border-[#2DD4BF] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[14px]">bolt</span>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#E8F1F0] mt-1">No test scores yet</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] max-w-[280px] mt-1.5 leading-snug">
+          Take your first diagnostic sprint or full mock exam to unlock predicted band scores and weakness analytics.
+        </p>
+<button class="w-full min-h-[48px] mt-4 bg-[#F59E0B] text-[#1A0D00] font-label-lg text-label-lg py-3.5 px-4 rounded-DEFAULT border-2 border-[#B45309] shadow-[0_4px_0_0_#B45309] active:translate-y-[3px] active:shadow-[0_1px_0_0_#B45309] transition-all flex items-center justify-center gap-2 font-bold"><span class="material-symbols-outlined fill-icon text-[20px] text-[#1A0D00]">play_arrow</span><span>Take First Diagnostic Test (15 min)</span></button>
+<div class="flex items-center gap-2 mt-3 text-[#A9BDBB] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">verified</span>
+<span>Calibrated for IELTS Band 4.0 - 9.0</span>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-2.5">
+<h3 class="font-label-lg text-label-lg text-[#E8F1F0]">Available Simulation Modes</h3>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Fresh Start</span>
+</div>
+<div class="flex flex-col gap-3"><article class="bg-[#172427] border-2 border-[#22363A] rounded-DEFAULT p-3.5 shadow-[0_4px_0_0_#0b1213] flex items-center justify-between gap-3"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#22363A]"><span class="material-symbols-outlined text-xl">assignment</span></div><div><h4 class="font-label-md text-label-md text-[#E8F1F0]">Full Mock Exam Simulation</h4><p class="font-body-sm text-body-sm text-[#A9BDBB] text-[13px] leading-tight mt-0.5">2h 45m · 4 complete modules</p><span class="inline-block mt-1 font-label-sm text-[11px] text-[#2DD4BF] font-bold bg-[#1E2F33] px-2 py-0.5 rounded-full border border-[#22363A]">Timed Exam Room</span></div></div><button class="shrink-0 min-h-[44px] min-w-[88px] bg-[#134E4A] text-[#E8F1F0] font-label-md text-label-md px-3.5 py-2.5 rounded-DEFAULT border-2 border-[#2DD4BF]/50 shadow-[0_3px_0_0_#0b1213] active:translate-y-[2px] transition-all font-semibold flex items-center justify-center">Start Mock</button></article><article class="bg-[#172427] border-2 border-[#22363A] rounded-DEFAULT p-3.5 shadow-[0_4px_0_0_#0b1213] flex items-center justify-between gap-3"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-DEFAULT bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center shrink-0 border border-[#22363A]"><span class="material-symbols-outlined text-xl">desktop_windows</span></div><div><div class="flex items-center gap-1.5"><h4 class="font-label-md text-label-md text-[#E8F1F0]">Official CBT Simulator</h4></div><p class="font-body-sm text-body-sm text-[#A9BDBB] text-[13px] leading-tight mt-0.5">Split-screen reading &amp; typing</p><span class="inline-block mt-1 font-label-sm text-[11px] text-[#F59E0B] font-bold bg-[#1E2F33] px-2 py-0.5 rounded-full border border-[#22363A]">Computer Delivered</span></div></div><button class="shrink-0 min-h-[44px] min-w-[80px] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md px-3.5 py-2.5 rounded-DEFAULT border-2 border-[#22363A] shadow-[0_3px_0_0_#0b1213] active:translate-y-[2px] transition-all font-semibold flex items-center justify-center">Preview</button></article></div>
+</section>
+<section class="bg-[#172427] rounded-DEFAULT border-2 border-[#1E2F33] p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#2DD4BF] text-xl shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-snug">
+          Standard IELTS timing and computer-delivered interface calibration. No diagnostic answers are submitted until you finish a section.
+        </p>
+</section>
+</div>
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t-2 border-[#1E2F33] shadow-[0_-4px_0_0_#0b1213]"><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px]" href="#today"><span class="material-symbols-outlined" data-icon="today">today</span><span class="font-label-sm text-label-sm mt-0.5">Today</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px]" href="#vocab"><span class="material-symbols-outlined" data-icon="menu_book">menu_book</span><span class="font-label-sm text-label-sm mt-0.5">Vocab</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px]" href="#skills"><span class="material-symbols-outlined" data-icon="bolt">bolt</span><span class="font-label-sm text-label-sm mt-0.5">Skills</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] bg-[#F59E0B] text-[#1A0D00] rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#B45309] active:translate-y-[2px] font-bold" href="#tests"><span class="material-symbols-outlined fill-icon text-[#1A0D00]" data-icon="assignment">assignment</span><span class="font-label-sm text-label-sm mt-0.5">Tests</span></a><a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px]" href="#me"><span class="material-symbols-outlined" data-icon="person">person</span><span class="font-label-sm text-label-sm mt-0.5">Me</span></a></nav>
+</main>
+</body></html>

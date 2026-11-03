@@ -9,17 +9,21 @@
 // Dùng: node scripts/test/stitch-refs-qc.mjs [brand/stitch/v2q] [out/stitch-quality-qc]   (CI: .github/workflows/stitch-quality-qc.yml)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process'; import { chromium } from 'playwright';
 import { textBoxes, contrastMiss, brightShare } from '../lib/pixel-contrast.mjs';
-const [SRC = 'brand/stitch/v2q', OUT = 'out/stitch-quality-qc'] = process.argv.slice(2);
-const SURF = ['app', 'email', 'share', 'og'], MAX_BRIGHT_DARK = 0.12, MIN_BRIGHT_LIGHT = 0.35, WORD_DRIFT = 0.2;
+const [SRC = 'brand/stitch/v2q', OUT = 'out/stitch-quality-qc'] = process.argv.slice(2).filter(a => !a.startsWith('--'));
+// --strict-layout (kho v3): tràn ngang + vùng chạm < 44px là LỖI; kho cũ chỉ ghi vào info (cảnh báo) cho tới khi sửa xong.
+const STRICT = process.argv.includes('--strict-layout'), TAP = 44;
+// --all: chấm cả màn chưa PASS (verdict QC/PICK, kho v3) để biết cần sửa gì – chỉ màn PASS/PICK làm CI đỏ.
+const ALL = process.argv.includes('--all'), GATED = v => v === 'PASS' || v === 'PICK';
+const SURF = ['app', 'email', 'share', 'og', 'ext'], MAX_BRIGHT_DARK = 0.12, MIN_BRIGHT_LIGHT = 0.35, WORD_DRIFT = 0.2;
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
 fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
 const rows = [];
 for (const s of SURF) { const f = path.join(SRC, s, '.index.txt'); if (!fs.existsSync(f)) continue;
   for (const l of fs.readFileSync(f, 'utf8').split('\n')) { if (!l.trim() || l.startsWith('#')) continue;
     const [head] = l.split(' | '), [page, , , dev, verdict, ...flags] = head.split(/\s+/);
-    if (verdict === 'PASS') rows.push({ s, page, w: dev === 'DESKTOP' ? 1280 : 390, teacher: flags.includes('teacher-slot') }); } }
+    if (GATED(verdict) || ALL) rows.push({ s, page, gated: GATED(verdict), w: dev === 'DESKTOP' ? 1280 : 390, teacher: flags.includes('teacher-slot') }); } }
 const browser = await chromium.launch(), report = [];
-for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], info: {} }, words = {};
+for (const r of rows) { const res = { surface: r.s, page: r.page, gated: r.gated, fails: [], info: {} }, words = {};
   for (const m of ['light', 'dark']) { const f = path.join(SRC, r.s, `${r.page}-${m}.html`); if (!fs.existsSync(f)) { res.fails.push(`${m}: thiếu file`); continue; }
     const sv = fs.readFileSync(f, 'utf8').match(/<svg[^>]*?\swidth="(\d+)"[^>]*?\sheight="(\d+)"/); // ảnh tĩnh SVG: khung = đúng cỡ ảnh (không tính lề trắng)
     const ctx = await browser.newContext({ viewport: sv ? { width: +sv[1], height: +sv[2] } : { width: r.w, height: r.w > 800 ? 900 : 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: m });
@@ -29,6 +33,16 @@ for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], inf
     // Chụp fullPage: phần tử fixed (top bar, tab bar, CTA dưới) bị vẽ đè giữa trang → neo về đúng chỗ khi cuộn: thanh trên ở đầu trang, thanh dưới ở cuối trang.
     await p.evaluate(() => { const H = document.documentElement.scrollHeight, fx = [...document.querySelectorAll('body *')].filter(e => getComputedStyle(e).position === 'fixed');
       for (const e of fx) { const r = e.getBoundingClientRect(); e.style.position = 'absolute'; e.style.bottom = 'auto'; e.style.top = (r.top > innerHeight / 2 ? H - (innerHeight - r.top) : r.top) + 'px'; } });
+    // 6. tràn ngang + 7. vùng chạm ≥ 44px (nút/link/ô nhập; link chữ nằm trong câu được miễn như WCAG 2.5.8)
+    const lay = await p.evaluate(TAP => { const W = document.documentElement.clientWidth, over = document.documentElement.scrollWidth - W, small = [];
+      for (const e of document.querySelectorAll('a[href],button,[role=button],input:not([type=hidden]),select,textarea,[onclick]')) {
+        const b = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!b.width || !b.height || cs.visibility === 'hidden' || e.closest('[aria-hidden=true]')) continue;
+        if (cs.display === 'inline' && e.parentElement && e.parentElement.textContent.trim().length > e.textContent.trim().length + 20) continue;
+        if (b.width < TAP - 0.5 || b.height < TAP - 0.5) small.push(`${(e.textContent || e.getAttribute('aria-label') || e.tagName).trim().slice(0, 24)} ${Math.round(b.width)}×${Math.round(b.height)}`); }
+      return { over, small }; }, TAP);
+    res.info[m + 'Layout'] = { overflowPx: lay.over, smallTaps: lay.small.slice(0, 12), smallTapCount: lay.small.length };
+    if (STRICT && lay.over > 1) res.fails.push(`${m}: tràn ngang ${lay.over}px`);
+    if (STRICT && lay.small.length) res.fails.push(`${m}: ${lay.small.length} vùng chạm < ${TAP}px (vd "${lay.small[0]}")`);
     const png = path.join(OUT, 'png', `${r.s}-${r.page}-${m}.png`); await p.screenshot({ path: png, fullPage: true });
     await p.evaluate(() => { for (const e of document.querySelectorAll('svg text, svg tspan')) { const fl = getComputedStyle(e).fill; if (/^rgb/.test(fl)) e.style.color = fl; } }); // chữ SVG: màu thật = fill
     const boxes = await p.evaluate(textBoxes), txt = await p.evaluate(() => document.body.innerText);
@@ -53,8 +67,8 @@ for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], inf
 await browser.close();
 for (const s of SURF) { const imgs = fs.readdirSync(path.join(OUT, 'png')).filter(f => f.startsWith(s + '-')).sort(); if (!imgs.length) continue;
   try { execFileSync('montage', [...imgs.flatMap(f => ['-label', f.replace(/\.png$/, ''), path.join(OUT, 'png', f)]), '-tile', '8x', '-geometry', '320x900>+6+6', '-pointsize', '12', '-background', '#888', '-quality', '75', path.join(OUT, `sheet-${s}.jpg`)]); } catch {} }
-const bad = report.filter(r => r.fails.length);
+const bad = report.filter(r => r.fails.length), gatedBad = bad.filter(r => r.gated);
 fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify(report, null, 1));
 const md = `### Stitch quality QC – ${report.length - bad.length}/${report.length} màn đạt\n\n` + (bad.length ? '| màn | lỗi |\n|---|---|\n' + bad.map(r => `| ${r.surface}/${r.page} | ${r.fails.join('<br>')} |`).join('\n') : 'Tất cả đạt.') + '\n';
 fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
-console.log(md); process.exit(bad.length ? 1 : 0);
+console.log(md); process.exit(gatedBad.length ? 1 : 0);

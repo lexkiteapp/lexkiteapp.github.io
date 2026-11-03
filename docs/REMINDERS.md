@@ -47,4 +47,5 @@ Repo đã sẵn (2/11): `aps-environment` trong `App.entitlements`, `remote-noti
 5. Bật: `wrangler pages secret put FCM_ON` (giá trị `1`) – app gốc bản kế tiếp (đã có plugin `@capacitor-firebase/messaging`) tự đăng ký.
 
 ## 6. Test
+Chuẩn giọng/toast chung: [specs/notifications.md](specs/notifications.md) – `scripts/test/notify-ux.mjs` chặn lời dọa/trách ở 15 ngôn ngữ + câu FCM, độ dài, biến, hành vi toast.
 `scripts/test/reminders.mjs` (npm test): lập lịch ở 4 múi giờ thật (Asia/Ho_Chi_Minh, America/New_York qua mốc DST 01/11, Asia/Kolkata +5:30, Pacific/Auckland) – đúng giờ địa phương, ≤ 1/ngày, giờ yên lặng, giãn cách, lời cuối ngày 14, không lặp mẫu 7 ngày, lọc loại, FCM chỉ ngày ≥ 3; máy chủ `slotFor`/`pickDue` cùng 4 múi + DST; chống SSRF; SW push/click; câu FCM 15 ngôn ngữ (`scripts/push-copy.mjs --check`). Cùng các cổng chung: i18n-missing/qa/leak/switch, size-budget, axe, d1-scan, jobs-check, infra-check.

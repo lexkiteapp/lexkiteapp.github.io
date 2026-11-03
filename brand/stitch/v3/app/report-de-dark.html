@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite - Problem melden</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#8c5000",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary-fixed": "#ffdcbf",
+            "surface-container-highest": "#efe0d6",
+            "primary-fixed-dim": "#88d4cb",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#372f28",
+            "on-surface": "#211a14",
+            "surface-dim": "#e6d7cd",
+            "on-secondary-container": "#633700",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#251a00",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "secondary-fixed-dim": "#ffb872",
+            "tertiary-container": "#785a00",
+            "surface-container-low": "#fff1e8",
+            "on-surface-variant": "#3f4947",
+            "surface-bright": "#fff8f5",
+            "tertiary-fixed": "#ffdf9b",
+            "on-background": "#211a14",
+            "error-container": "#ffdad6",
+            "surface": "#fff8f5",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#a4f1e7",
+            "background": "#fff8f5",
+            "tertiary-fixed-dim": "#f5bf31",
+            "surface-container": "#faebe1",
+            "on-secondary": "#ffffff",
+            "tertiary": "#5b4300",
+            "outline": "#6f7977",
+            "on-primary-container": "#9be7de",
+            "primary": "#00504b",
+            "on-secondary-fixed": "#2d1600",
+            "surface-variant": "#efe0d6",
+            "inverse-primary": "#88d4cb",
+            "on-primary-fixed-variant": "#00504a",
+            "inverse-on-surface": "#fdeee3",
+            "on-tertiary-container": "#ffd370",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#f4e5db",
+            "on-primary-fixed": "#00201d",
+            "error": "#ba1a1a",
+            "outline-variant": "#bec9c6",
+            "secondary-container": "#fd9500",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#126a63",
+            "primary-container": "#136a63"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-md": "2rem",
+            "gutter-md": "1.5rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "margin-lg": "3rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased flex justify-center selection:bg-[#F59E0B] selection:text-[#1A0D00]">
+<!-- 390px Dedicated Mobile Frame Container without outer desktop frame or bezel -->
+<div class="w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-28">
+<!-- Top App Bar (Sticky Docked Mobile Shell Header) -->
+<header class="sticky top-0 z-40 bg-[#172427]/95 backdrop-blur-md px-space-md py-space-sm h-16 flex items-center justify-between shadow-[0_4px_0_0_#0D1517] border-b-2 border-[#25393D]">
+<button aria-label="Zurückkehren" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A3F44] shadow-[0_3px_0_0_#10191B] active:translate-y-0.5 active:shadow-[0_1px_0_0_#10191B] transition-all text-[#2DD4BF]" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-[#E8F1F0] tracking-tight">Problem melden</h1>
+<div class="min-h-[32px] px-2.5 py-1 rounded-full bg-[#1E2F33] border-2 border-[#2A3F44] shadow-[0_2px_0_0_#10191B] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse"></span>
+<span class="font-label-sm text-[11px] text-[#2DD4BF] uppercase tracking-wider font-extrabold">V2.4 AKTIV</span>
+</div>
+</header>
+<!-- Main Scrollable Content Canvas -->
+<main class="flex-1 px-space-md pt-space-md flex flex-col gap-space-lg bg-[#10191B]">
+<!-- Coach Guidance Bubble Card -->
+<section aria-label="Support-Assistent Coach Carlos" class="bg-[#172427] rounded-DEFAULT border-2 border-[#25393D] shadow-[0_4px_0_0_#0D1517] p-space-md flex gap-3.5 items-start">
+<!-- Dashed Empty Teacher Container strictly no human face -->
+<div class="teacher-slot w-14 h-14 shrink-0 rounded-DEFAULT border-2 border-dashed border-[#2DD4BF]/50 bg-[#1A282B] flex flex-col items-center justify-center p-1 text-center">
+<span class="material-symbols-outlined text-[#5EEAD4] text-[20px]">school</span>
+<span class="font-label-sm text-[9px] text-[#5EEAD4] leading-none font-extrabold mt-1">LEHRER-SLOT</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="font-label-md text-label-md text-[#E8F1F0] tracking-tight font-extrabold">COACH CARLOS</span>
+<span class="text-[#2A3F44] font-bold text-[12px]">•</span>
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">Support-Assistent</span>
+</div>
+<p class="font-body-sm text-[13px] text-[#A9BDBB] leading-snug">
+            Ist dir eine Fehlübersetzung, ein fehlerhaftes Prüfungskriterium oder ein unerwarteter Systemfehler aufgefallen? Gib uns Bescheid, damit unser Akademieteam das Problem innerhalb von 24 Stunden beheben kann!
+          </p>
+</div>
+</section>
+<!-- Category Selection Matrix -->
+<section aria-labelledby="cat-title" class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-label-sm text-label-sm text-[#A9BDBB] font-extrabold uppercase tracking-wider" id="cat-title">
+            FEHLERKATEGORIE <span class="text-[#F87171]">*</span>
+</h2>
+<span class="font-label-sm text-[11px] text-[#F59E0B] font-extrabold bg-[#251A00]/80 px-2 py-0.5 rounded-full border border-[#F59E0B]/30">
+            Eine auswählen
+          </span>
+</div>
+<!-- 2x2 Interactive Selection Grid -->
+<div aria-label="Fehlerkategorie auswählen" class="grid grid-cols-2 gap-space-sm" role="radiogroup">
+<!-- 1. Software-Fehler (Active/Selected State) -->
+<button aria-checked="true" class="relative text-left p-3 rounded-DEFAULT bg-[#1E3738] border-2 border-[#2DD4BF] shadow-[0_4px_0_0_#0D1517] flex flex-col justify-between min-h-[108px] transition-all" role="radio" type="button">
+<div class="flex items-center justify-between w-full mb-1.5">
+<div class="w-8 h-8 rounded-full bg-[#2DD4BF] text-[#003733] flex items-center justify-center shadow-[inset_0_2px_0_rgba(255,255,255,0.4)]">
+<span class="material-symbols-outlined text-[18px]">bug_report</span>
+</div>
+<span class="material-symbols-outlined fill-1 text-[#2DD4BF] text-[18px]">check_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#E8F1F0] font-extrabold leading-tight">Software-Fehler</p>
+<p class="font-body-sm text-[11px] text-[#A9BDBB] leading-tight mt-0.5">Absturz oder Systemfehler</p>
+</div>
+</button>
+<!-- 2. Falsche Antwort -->
+<button aria-checked="false" class="relative text-left p-3 rounded-DEFAULT bg-[#172427] border-2 border-[#25393D] shadow-[0_4px_0_0_#0D1517] active:translate-y-1 active:shadow-[0_0_0_0_#0D1517] flex flex-col justify-between min-h-[108px] transition-all" role="radio" type="button">
+<div class="w-8 h-8 rounded-full bg-[#1E2F33] text-[#A9BDBB] flex items-center justify-center border border-[#2A3F44]">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#E8F1F0] font-extrabold leading-tight">Falsche Antwort</p>
+<p class="font-body-sm text-[11px] text-[#A9BDBB] leading-tight mt-0.5">Übung oder Bewertungsraster</p>
+</div>
+</button>
+<!-- 3. Übersetzungsfehler -->
+<button aria-checked="false" class="relative text-left p-3 rounded-DEFAULT bg-[#172427] border-2 border-[#25393D] shadow-[0_4px_0_0_#0D1517] active:translate-y-1 active:shadow-[0_0_0_0_#0D1517] flex flex-col justify-between min-h-[108px] transition-all" role="radio" type="button">
+<div class="w-8 h-8 rounded-full bg-[#1E2F33] text-[#A9BDBB] flex items-center justify-center border border-[#2A3F44]">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#E8F1F0] font-extrabold leading-tight">Übersetzungsfehler</p>
+<p class="font-body-sm text-[11px] text-[#A9BDBB] leading-tight mt-0.5">Benutzeroberfläche oder Glossar</p>
+</div>
+</button>
+<!-- 4. Idee / Vorschlag -->
+<button aria-checked="false" class="relative text-left p-3 rounded-DEFAULT bg-[#172427] border-2 border-[#25393D] shadow-[0_4px_0_0_#0D1517] active:translate-y-1 active:shadow-[0_0_0_0_#0D1517] flex flex-col justify-between min-h-[108px] transition-all" role="radio" type="button">
+<div class="w-8 h-8 rounded-full bg-[#1E2F33] text-[#5EEAD4] flex items-center justify-center border border-[#2A3F44]">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#E8F1F0] font-extrabold leading-tight">Idee / Vorschlag</p>
+<p class="font-body-sm text-[11px] text-[#A9BDBB] leading-tight mt-0.5">Funktionswunsch</p>
+</div>
+</button>
+</div>
+</section>
+<!-- Detailed Description Input Container -->
+<section aria-labelledby="desc-title" class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-[#A9BDBB] font-extrabold uppercase tracking-wider" for="description-field" id="desc-title">
+            DETAILLIERTE BESCHREIBUNG <span class="text-[#F87171]">*</span>
+</label>
+<span class="font-label-sm text-[12px] text-[#A9BDBB] font-bold">0 / 500 Zeichen</span>
+</div>
+<div class="bg-[#1E2F33] rounded-DEFAULT border-2 border-[#2A3F44] shadow-[0_4px_0_0_#0D1517] focus-within:border-[#2DD4BF] focus-within:shadow-[0_4px_0_0_#134e4a] transition-all overflow-hidden flex flex-col">
+<textarea class="w-full p-space-md border-0 bg-transparent text-[#E8F1F0] font-body-sm text-[14px] leading-relaxed placeholder:text-[#A9BDBB]/60 focus:ring-0 resize-none outline-none" id="description-field" placeholder="Was ist passiert? Z. B. Beim IELTS-Leseverstehen in Abschnitt 3 brach die Audiodatei bei Frage 14 unerwartet ab ..." rows="4"></textarea>
+<!-- Current Route Info Bar -->
+<div class="bg-[#172427] border-t-2 border-[#25393D] px-3 py-2 flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0">info</span>
+<span class="font-body-sm text-[12px] text-[#A9BDBB] truncate font-medium">
+                Aktuelle Ansicht: <span class="font-mono text-[#E8F1F0] font-bold">#/drill/cbt-reading-14</span>
+</span>
+</div>
+<button class="min-w-[44px] min-h-[44px] px-2 text-[#2DD4BF] font-label-sm text-label-sm hover:underline flex items-center justify-center font-extrabold shrink-0" type="button">
+              Ändern
+            </button>
+</div>
+</div>
+</section>
+<!-- Attach Screenshot Toggle and File Chip -->
+<section aria-label="Anhänge" class="flex flex-col gap-space-sm">
+<!-- Toggle Row Card -->
+<div class="bg-[#172427] rounded-DEFAULT border-2 border-[#25393D] shadow-[0_3px_0_0_#0D1517] p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] flex items-center justify-center text-[#2DD4BF] shrink-0 border border-[#2A3F44]">
+<span class="material-symbols-outlined text-[20px]">camera_alt</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-[#E8F1F0] font-extrabold leading-snug">Aktuellen Screenshot anhängen</p>
+<p class="font-body-sm text-[12px] text-[#A9BDBB] leading-tight mt-0.5">Aktuelle Übungsansicht automatisch erfassen (empfohlen)</p>
+</div>
+</div>
+<!-- Tactile Toggle Switch (min 44x44px clickable target) -->
+<button aria-checked="true" aria-label="Screenshot anhängen aktivieren" class="min-w-[44px] min-h-[44px] flex items-center justify-center shrink-0" role="switch" type="button">
+<div class="w-12 h-7 bg-[#2DD4BF] rounded-full p-0.5 border-2 border-[#14B8A6] shadow-[inset_0_2px_0_rgba(0,0,0,0.25)] flex items-center justify-end pr-1 cursor-pointer">
+<div class="w-5 h-5 rounded-full bg-[#003733] shadow-[0_2px_2px_rgba(0,0,0,0.3)]"></div>
+</div>
+</button>
+</div>
+<!-- Attached File Chip -->
+<div class="bg-[#1E2F33] rounded-DEFAULT border-2 border-[#2A3F44] p-2.5 flex items-center justify-between gap-2 shadow-[0_2px_0_0_#0D1517]">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-DEFAULT bg-[#172427] border border-[#25393D] flex items-center justify-center text-[#2DD4BF] shrink-0">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm text-[#E8F1F0] font-bold truncate">drill_reading_cbt_autosave.png</p>
+<p class="font-body-sm text-[11px] text-[#A9BDBB] truncate">390 × 844 px • 248 KB • Automatisch angehängt</p>
+</div>
+</div>
+<!-- Remove button with min 44x44px touch target -->
+<button aria-label="Datei entfernen" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-DEFAULT flex items-center justify-center text-[#A9BDBB] hover:text-[#F87171] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</section>
+<!-- Email Follow-Up Section -->
+<section aria-labelledby="email-label" class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-[11px] text-[#A9BDBB] font-extrabold uppercase tracking-wider" for="email-field" id="email-label">
+            DEINE E-MAIL-ADRESSE FÜR RÜCKFRAGEN
+          </label>
+<div class="flex items-center gap-1 font-label-sm text-[11px] text-[#5EEAD4] bg-[#122828] px-2 py-0.5 rounded-full border border-[#2DD4BF]/30 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Automatisch ausgefüllt</span>
+</div>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[#A9BDBB] text-[20px]">mail</span>
+<input class="w-full pl-11 pr-3.5 py-3 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A3F44] shadow-[0_3px_0_0_#0D1517] text-[#E8F1F0] font-body-md text-[14px] font-bold focus:border-[#2DD4BF] focus:shadow-[0_3px_0_0_#134e4a] outline-none" id="email-field" readonly="" type="email" value="linh.prep@lexkite.learner.io"/>
+</div>
+</section>
+<!-- Submit Action Button & Privacy -->
+<section class="flex flex-col gap-3 pt-space-xs">
+<!-- 3D Tactile Orange Submit Button (strictly ink typography, NEVER white on sunny orange) -->
+<button class="w-full min-h-[54px] py-3.5 px-4 rounded-DEFAULT bg-[#F59E0B] border-2 border-[#D97706] shadow-[0_4px_0_0_#9A3412] active:translate-y-1 active:shadow-[0_0_0_0_#9A3412] text-[#1A0D00] font-headline-sm text-headline-sm flex items-center justify-center gap-2 transition-all" type="button">
+<span class="font-extrabold tracking-tight">Feedback &amp; Bericht senden</span>
+<span class="material-symbols-outlined text-[22px] font-extrabold">send</span>
+</button>
+<!-- Privacy Disclaimer Note -->
+<div class="p-2.5 rounded-DEFAULT bg-[#172427] border border-[#25393D] flex items-start gap-2">
+<span class="material-symbols-outlined text-[#A9BDBB] text-[16px] shrink-0 mt-0.5">lock</span>
+<p class="font-body-sm text-[11px] text-[#A9BDBB] leading-relaxed">
+<strong class="font-bold text-[#E8F1F0]">Datenschutzhinweis:</strong> Diagnosedaten und Geräteinformationen werden sicher übertragen. Es werden keine persönlichen Chatverläufe oder Mikrofonaufnahmen übermittelt.
+          </p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Docked Canonical 5-Tab Shell, min 64px height, each tab min 44x44px) -->
+<nav aria-label="Hauptnavigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 bg-[#172427] px-space-xs py-space-xs h-20 flex justify-around items-center shadow-[0_-4px_0_0_#0D1517] border-t-2 border-[#25393D]">
+<!-- 1. Heute -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs transition-transform active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Heute</span>
+</button>
+<!-- 2. Wortschatz -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs transition-transform active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Wortschatz</span>
+</button>
+<!-- 3. Fertigkeiten -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs transition-transform active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Fertigkeiten</span>
+</button>
+<!-- 4. Prüfungen (Active Contextual Tab State) -->
+<button aria-current="page" class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center bg-[#F59E0B] text-[#1A0D00] rounded-full px-space-sm py-space-xs border-2 border-[#D97706] shadow-[0_2px_0_0_#9A3412] transition-transform active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px] font-extrabold">assignment</span>
+<span class="font-label-sm text-[11px] font-extrabold mt-0.5">Prüfungen</span>
+</button>
+<!-- 5. Me / Profil -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs transition-transform active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Ich</span>
+</button>
+</nav>
+</div>
+</body></html>
