@@ -87,7 +87,24 @@
       if (e.children.length === 0 && e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflowX !== 'visible') out.push({ kind: 'clip', detail: `${label(e)} chữ bị cắt trong ô` });
     }
   }
+  // Quy trình: mỗi mũi tên phải chỉ về bước kế tiếp (→ khi bước kế bên phải cùng hàng, ↓ khi bước kế ở dưới);
+  // mũi tên cuối hàng chỉ vào khoảng trống (bước kế đã xuống dòng) cũng tính lỗi
+  function checkFlow(root, out) {
+    root.querySelectorAll('.proc').forEach(proc => {
+      [...proc.querySelectorAll('.parrow')].forEach(ar => {
+        const prev = ar.previousElementSibling, next = ar.nextElementSibling; if (!prev || !next) return;
+        const a = ar.getBoundingClientRect(), p = prev.getBoundingClientRect(), n = next.getBoundingClientRect();
+        const m = new DOMMatrix(getComputedStyle(ar).transform === 'none' ? undefined : getComputedStyle(ar).transform);
+        const down = Math.abs(m.b) > 0.7; // xoay ~90° → chỉ xuống
+        const nextRight = n.left >= p.right - 1 && Math.abs((n.top + n.bottom) / 2 - (p.top + p.bottom) / 2) < p.height / 2;
+        const nextBelow = n.top >= p.bottom - 1;
+        if (nextRight && down) out.push({ kind: 'flow', detail: `mũi tên sau ${label(prev)} chỉ xuống nhưng bước kế ở bên phải` });
+        else if (!nextRight && nextBelow && !down) out.push({ kind: 'flow', detail: `mũi tên sau ${label(prev)} chỉ ngang nhưng bước kế ở dòng dưới` });
+        if (a.width && (a.right > proc.getBoundingClientRect().right + 0.5)) out.push({ kind: 'clip', detail: `mũi tên sau ${label(prev)} tràn khung` });
+      });
+    });
+  }
   window.FigureLayout = {
-    check(root) { const out = []; root.querySelectorAll('svg[viewBox]').forEach(s => checkSvg(s, out)); checkHtml(root, out); return out; },
+    check(root) { const out = []; root.querySelectorAll('svg[viewBox]').forEach(s => checkSvg(s, out)); checkHtml(root, out); checkFlow(root, out); return out; },
   };
 })();
