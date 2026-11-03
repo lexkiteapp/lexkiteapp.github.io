@@ -101,7 +101,7 @@
   "situation": {
    "cafe": ["I.A1.03", "I.A2.06"],
    "lost-luggage": ["I.B1.05", "I.B1.02"],
-   "ask-directions": ["I.A2.06"],
+   "ask-directions": ["I.A2.02", "I.A1.05"],
    "police-report": ["I.B1.02", "I.B1p.01"],
    "flat-viewing": ["I.B1.10", "I.B1p.03"],
    "landlord-repair": ["I.B1.05", "I.B1p.01"],
