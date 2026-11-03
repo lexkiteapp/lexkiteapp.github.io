@@ -5,9 +5,11 @@
 //  4) không mồ côi: trang tự-canonical phải có ≥ 1 liên kết vào từ trang khác (trừ trang gốc ngôn ngữ /, /<lang>/)
 //  5) trang noindex không nằm trong sitemap; dist < 18.000 file (trần Cloudflare Pages 20.000)
 //  6) chuỗi trang tĩnh đủ 15 ngôn ngữ (scripts/lib/seo-pages-i18n.mjs)
+//  7) độ dày trang từ /<lang>/words/<slug> index được ≥ DEPTH_MIN (scripts/lib/word-depth.mjs – docs/specs/seo-words-depth.md); FAQPage = đúng chữ <details> trên trang
 // Dùng: node scripts/test/seo-pages.mjs [dist]
 import fs from 'node:fs'; import path from 'node:path';
 import { LANGS, S, POS, YOU } from '../lib/seo-pages-i18n.mjs';
+import { measure, deep, DEPTH_MIN } from '../lib/word-depth.mjs';
 const D = process.argv[2] || 'dist', O = 'https://lexkite.com', MAX_FILES = 18000;
 if (!fs.existsSync(path.join(D, 'sitemap.xml'))) { console.log(`⚠ seo-pages: chưa build ${D}/ – bỏ qua`); process.exit(0); }
 const bad = [], B = (m) => bad.push(m);
@@ -33,6 +35,16 @@ for (const f of files) {
   const lang = (h.match(/<html[^>]*\slang=["']([^"']+)/i) || [])[1] || '';
   const redirect = /http-equiv=["']refresh["']/i.test(head);
   pages.set(u, { f: rel, lang, noindex, canon, title, desc, alts, redirect });
+  // 7) độ dày + FAQPage khớp chữ hiển thị (trang từ index được)
+  if (!noindex && /^\/[a-z]{2}\/words\/(?!index\.html)[^/]+\.html$/.test(rel)) {
+    const d = measure(h); if (!deep(d)) B(`${rel}: dưới ngưỡng độ dày (${d.blocks} khối/${d.words} chữ < ${DEPTH_MIN.blocks}/${DEPTH_MIN.words}) mà vẫn index`);
+    const un = s => String(s).replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+    const shown = new Map([...h.matchAll(/<details><summary>([^<]*)<\/summary><p>([^<]*)<\/p><\/details>/g)].map(m => [un(m[1]), un(m[2])]));
+    for (const m of head.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { let j; try { j = JSON.parse(m[1]); } catch { B(`${rel}: JSON-LD hỏng`); continue; }
+      if (j['@type'] !== 'FAQPage') continue;
+      if ((j.mainEntity || []).length < 2) B(`${rel}: FAQPage < 2 câu`);
+      for (const q of j.mainEntity || []) if (shown.get(q.name) !== (q.acceptedAnswer || {}).text) B(`${rel}: FAQPage "${String(q.name).slice(0, 40)}" không khớp chữ hiển thị`); }
+  }
   for (const m of h.matchAll(/<a\s[^>]*href=["']([^"'#][^"']*)["']/gi)) { const t = norm(m[1]); if (t && t !== u) inbound.set(t, (inbound.get(t) || 0) + 1); }
 }
 const titles = new Map(), descs = new Map();
