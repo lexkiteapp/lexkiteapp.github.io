@@ -27,6 +27,7 @@ jobs:
         with: { ref: "${{ inputs.before || github.base_ref }}", path: before-src, sparse-checkout: web }
       - name: Ảnh trước (không chặn)
         if: inputs.before != '' || github.event_name == 'pull_request'
+        continue-on-error: true
         run: node scripts/test/teacher-motion-webkit.mjs before-src/web out/teacher-motion/before --report
       - name: Chạy cổng
         run: node scripts/test/teacher-motion-webkit.mjs web out/teacher-motion
