@@ -1,3 +1,4 @@
+# ci-policy: queue – dựng web sau mỗi lượt render, tuần tự để không sót clip
 # Bản WEB của short bản tin – "một clip, hai nơi dùng" (docs/VIDEO-SCALE-PLAN.md §10). Chạy SAU khi cine-render lưu bài ĐẠT QA
 # (workflow_run) + hằng ngày + chạy tay. 0 đồng: ffmpeg trên runner, phụ đề CHỈ tiếng Anh (mốc từng từ; không phụ đề dịch – chủ 22/10),
 # file lên GitHub Release 'wv-<bài>' của repo này (GITHUB_TOKEN) → phục vụ qua media.lexkite.com/video/ (Worker lexkite-media, cache 1 năm).

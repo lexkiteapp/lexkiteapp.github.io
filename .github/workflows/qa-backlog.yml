@@ -1,3 +1,4 @@
+# ci-policy: queue – ghi backlog lượt đỏ trên main tuần tự, huỷ là mất bản ghi lượt đỏ
 # Mỗi lượt QA đỏ trên main (do ci-filler hoặc lịch) → 1 dòng trong docs/QA-BACKLOG.md. Không mở PR/issue theo lỗi.
 name: QA backlog
 on:

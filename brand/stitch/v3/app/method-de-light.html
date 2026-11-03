@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Bright Day - Lernmethodik</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#e2d8d0",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f9efe6",
+            "on-primary-fixed": "#00201e",
+            "surface-tint": "#106a65",
+            "outline": "#6f7978",
+            "on-secondary-fixed-variant": "#683c00",
+            "surface-container": "#f6ece4",
+            "on-background": "#1f1b16",
+            "on-primary-container": "#9ce9e2",
+            "secondary": "#895100",
+            "on-error-container": "#93000a",
+            "secondary-container": "#fe9d19",
+            "on-secondary-container": "#663b00",
+            "on-primary-fixed-variant": "#00504c",
+            "error-container": "#ffdad6",
+            "on-surface": "#1f1b16",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#88d4cd",
+            "surface-container-low": "#fcf2e9",
+            "tertiary": "#8e190f",
+            "background": "#fff8f3",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fff8f3",
+            "primary-fixed": "#a4f0e9",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed": "#2c1600",
+            "primary": "#00514d",
+            "surface-bright": "#fff8f3",
+            "outline-variant": "#bec9c7",
+            "on-error": "#ffffff",
+            "surface-container-high": "#f0e7de",
+            "secondary-fixed-dim": "#ffb86c",
+            "primary-fixed-dim": "#88d4cd",
+            "on-tertiary-container": "#ffd0c9",
+            "surface-container-highest": "#eae1d8",
+            "tertiary-container": "#b03224",
+            "surface-variant": "#eae1d8",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "inverse-surface": "#34302a",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "tertiary-fixed": "#ffdad4",
+            "secondary-fixed": "#ffdcbc",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#136b66",
+            "on-tertiary-fixed": "#410000"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical mechanical button ledges */
+    .tactile-button-primary {
+      background-color: #136b66;
+      color: #ffffff;
+      box-shadow: 0 4px 0 #00504c;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-button-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #00504c;
+    }
+    .tactile-button-orange {
+      background-color: #fe9d19;
+      color: #1f1b16;
+      box-shadow: 0 4px 0 #895100;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-button-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #895100;
+    }
+    .tactile-card {
+      background-color: #ffffff;
+      border: 2px solid #eae1d8;
+      box-shadow: 0 4px 0 #e2d8d0;
+      border-radius: 1.25rem;
+    }
+    .tactile-chip {
+      border: 2px solid #eae1d8;
+      box-shadow: 0 2px 0 #e2d8d0;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Device Shell Canvas (390px portrait viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-36 border-x border-surface-container-high shadow-2xl">
+<!-- Top App Bar (Shared Components JSON Anchor) -->
+<header class="bg-surface dark:bg-inverse-surface border-b-2 border-outline-variant dark:border-outline shadow-[0_4px_0_theme(colors.outline-variant)] dark:shadow-none docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center w-full px-5 py-3 max-w-[390px] mx-auto">
+<button aria-label="Zurück" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 border-2 border-surface-container-highest shadow-[0_2px_0_theme(colors.surface-dim)]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary tracking-tight">Lexkite Bright Day</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider scale-90 -mt-0.5">LERNMETHODIK</span>
+</div>
+<button aria-label="Einstellungen und Optionen" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 border-2 border-surface-container-highest shadow-[0_2px_0_theme(colors.surface-dim)]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Sub-badge Banner -->
+<div class="px-4 pt-4">
+<div class="bg-surface-container-low border-2 border-surface-variant rounded-full py-1.5 px-3 flex items-center justify-center gap-1.5 shadow-[0_2px_0_#eae1d8]">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-secondary tracking-widest text-center">PÄDAGOGISCHER RAHMEN • CEFR- &amp; IELTS-AUSGERICHTET</span>
+</div>
+</div>
+<!-- Main Content Container -->
+<main class="px-4 pt-4 space-y-6">
+<!-- Hero Header Section -->
+<section class="space-y-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-surface-dim">
+<span class="material-symbols-outlined text-primary text-base" data-icon="lightbulb">lightbulb</span>
+<span class="text-label-sm font-label-sm text-primary">Bright-Day-Pädagogik</span>
+</div>
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight leading-tight">
+          Wie Lexkite lehrt
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+          Ein wissenschaftlich fundierter 4-Stufen-Zyklus für dauerhafte Wortschatzverankerung und mühelose Prüfungskompetenz.
+        </p>
+</section>
+<!-- Teacher Slot: Empty dashed card placeholder with quote bubble -->
+<section class="relative">
+<div class="teacher-slot w-full border-2 border-dashed border-primary/50 bg-primary-fixed/20 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2 min-h-[96px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="school">school</span>
+<span class="text-label-md font-label-md text-primary tracking-wide uppercase">LEHRKRAFT-BEREICH</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant/80">Interaktive 2D-Lehrkraft wird während des Live-Sprints hier geladen</span>
+</div>
+<!-- Speech Bubble cue from Coach Ama -->
+<div class="mt-3 relative bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-3.5 shadow-[0_3px_0_#e2d8d0]">
+<div class="flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs shrink-0 shadow-[0_1px_0_#895100]">
+              CA
+            </div>
+<div class="space-y-0.5">
+<span class="text-label-sm font-label-sm text-secondary block">Coach Ama • Leitende IELTS-Dozentin</span>
+<p class="text-body-sm font-body-sm text-on-surface italic">
+                „Sprachbeherrschung entsteht nicht durch Pauken – sondern durch haptische, zeitlich verteilte Tages-Sprints.“
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- The 4-Step Pedagogical Loop -->
+<section class="space-y-3.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Der 4-Stufen-Zyklus</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Neurolinguistisch kalibrierte Lernprogression</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary bg-primary-fixed px-2.5 py-0.5 rounded-full border border-primary/20 shrink-0">Täglicher 15-Min-Ablauf</span>
+</div>
+<!-- Step 1 Card: Learn -->
+<div class="tactile-card p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center text-label-lg font-label-lg shadow-[0_3px_0_#00504c]">
+                01
+              </div>
+<div>
+<span class="text-label-sm font-label-sm text-primary tracking-wider uppercase">SCHRITT 1 • ENTDECKEN</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Lernen im lebendigen Kontext</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm border border-surface-variant">B1–C2-Korpus</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong class="text-primary font-bold">Kontextuelle Entdeckung:</strong> Hochfrequente Kollokationen und authentische B1–C2-Korpussätze statt isolierter Vokabellisten.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="check_circle">check_circle</span> Kollokations-Blöcke
+            </span>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="check_circle">check_circle</span> Authentische Audioaufnahmen
+            </span>
+</div>
+</div>
+<!-- Step 2 Card: Practise -->
+<div class="tactile-card p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center text-label-lg font-label-lg shadow-[0_3px_0_#895100]">
+                02
+              </div>
+<div>
+<span class="text-label-sm font-label-sm text-secondary tracking-wider uppercase">SCHRITT 2 • VERINNERLICHEN</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Aktiver Gedächtnisabruf</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm border border-surface-variant">Haptische Übung</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong class="text-secondary font-bold">Aktiver Abruf:</strong> 3-Takt-Rhythmus-Shadowing, interaktive Minimalpaare und haptische Satzbau-Übungen.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="headphones">headphones</span> 3-Takt-Shadowing
+            </span>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="build">build</span> Satzbau-Generator
+            </span>
+</div>
+</div>
+<!-- Step 3 Card: Review -->
+<div class="tactile-card p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center text-label-lg font-label-lg shadow-[0_3px_0_#00201e]">
+                03
+              </div>
+<div>
+<span class="text-label-sm font-label-sm text-primary tracking-wider uppercase">SCHRITT 3 • BEHALTEN</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Adaptive Intervall-Wiederholung</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm border border-surface-variant">SM-2-Algorithmus</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong class="text-primary font-bold">SM-2-Gedächtnisoptimierung:</strong> Intelligente Zeitabstände rufen verblassende Wörter exakt vor dem Absinken der Vergessenskurve ab.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="timeline">timeline</span> Ebbinghaus-Kurvenschutz
+            </span>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="alarm">alarm</span> Verfalls-Vorwarnungen
+            </span>
+</div>
+</div>
+<!-- Step 4 Card: Test -->
+<div class="tactile-card p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container text-on-tertiary flex items-center justify-center text-label-lg font-label-lg shadow-[0_3px_0_#8c170e]">
+                04
+              </div>
+<div>
+<span class="text-label-sm font-label-sm text-tertiary tracking-wider uppercase">SCHRITT 4 • VALIDIEREN</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Diagnostischer Nachweis</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm border border-surface-variant">Echtzeit-KI</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong class="text-tertiary font-bold">Diagnostischer Nachweis:</strong> Zeitgesteuerte IELTS- &amp; TOEIC-Prüfungssimulationen mit sofortiger KI-Notenprognose und Fehler-Heatmaps.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="analytics">analytics</span> Präzise 0,5-Band-Prognose
+            </span>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-bright border border-surface-dim text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="speed">speed</span> Teilbereichs-Diagnostik
+            </span>
+</div>
+</div>
+</section>
+<!-- 15-Minute Micro-Study Plan Comparison Bento -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Effizienz-Vergleich</h2>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2.5 py-0.5 rounded-full border border-surface-dim shrink-0">Messwert-Test</span>
+</div>
+<div class="tactile-card p-4 space-y-4">
+<div class="text-label-md font-label-md text-on-surface tracking-wide uppercase">
+            KLASSISCHES PAUKEN VS. LEXKITE 15-MIN-SPRINT
+          </div>
+<!-- Comparison Rows -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Left: Cramming -->
+<div class="bg-surface-container-low border border-surface-variant rounded-xl p-3 flex flex-col justify-between space-y-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+<span class="text-label-sm font-label-sm">Klassisches Pauken (2 Std.)</span>
+</div>
+<div class="space-y-1">
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-outline">32%</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">30-Tage-Behaltensrate</div>
+</div>
+<div class="pt-2 border-t border-surface-dim text-body-sm font-body-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span> Hohe Prüfungserschöpfung
+              </div>
+</div>
+<!-- Right: Lexkite -->
+<div class="bg-primary-container text-on-primary rounded-xl p-3 border-2 border-primary shadow-[0_3px_0_#00504c] flex flex-col justify-between space-y-2">
+<div class="flex items-center gap-1.5 text-on-primary-container">
+<span class="material-symbols-outlined text-base" data-icon="bolt">bolt</span>
+<span class="text-label-sm font-label-sm">Lexkite (15 Min.)</span>
+</div>
+<div class="space-y-1">
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-on-primary font-extrabold">89%</div>
+<div class="text-label-sm font-label-sm text-on-primary-container">30-Tage-Behaltensrate</div>
+</div>
+<div class="pt-2 border-t border-primary/40 text-body-sm font-body-sm text-on-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span> Keine Prüfungsangst
+              </div>
+</div>
+</div>
+<!-- Resin Progress Bar Trajectory -->
+<div class="space-y-1.5 pt-1">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Prüfungsreife-Geschwindigkeit</span>
+<span class="text-primary font-bold">2,8-fach schnellerer Stufensprung</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden p-0.5 border border-surface-variant relative shadow-inner">
+<div class="h-full bg-secondary-container rounded-full relative" style="width: 82%;">
+<div class="absolute inset-x-0 top-0 h-1 bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Research-Backed Principles (3 tactile feature cards) -->
+<section class="space-y-3 pt-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Kognitionswissenschaftliche Grundlagen</h2>
+<div class="space-y-2.5">
+<!-- Card 1 -->
+<div class="tactile-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0 border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="text-label-lg font-label-lg text-on-surface">Optimierung der kognitiven Belastung</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Kurze Mikromodule verhindern die Überlastung des Kurzzeit- und Arbeitsgedächtnisses.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="tactile-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary shrink-0 border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="text-label-lg font-label-lg text-on-surface">Kollokationsfokussierte Wortbausteine</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Wortgruppen ganzheitlich abspeichern, um Verzögerungen durch mentale Übersetzung unter Zeitdruck zu minimieren.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="tactile-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0 border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="text-label-lg font-label-lg text-on-surface">Akzent- &amp; Prosodie-Rückmeldung</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Spektralanalyse in Echtzeit trainiert authentische Sprachmelodie und Intonation für Band 7+ im Sprechteil.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive FAQ Accordion -->
+<section class="space-y-3 pt-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Häufig gestellte Fragen</h2>
+<div class="space-y-2">
+<!-- FAQ 1 (Open State) -->
+<div class="tactile-card overflow-hidden border-2 border-primary/40">
+<button class="w-full p-4 flex justify-between items-center text-left bg-surface-container-low min-h-[48px]" onclick="toggleFaq('faq-1')">
+<span class="text-label-lg font-label-lg text-on-surface pr-2">Warum 15 Minuten am Tag?</span>
+<span class="material-symbols-outlined text-primary shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_up" id="icon-faq-1">keyboard_arrow_up</span>
+</button>
+<div class="p-4 pt-1 bg-surface-container-lowest border-t border-surface-variant" id="faq-1">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                15 Minuten entsprechen exakt der neurologischen Schwelle aktiver, bewusster Konzentration. Tägliche Mikroeinheiten verhindern den Erschöpfungseffekt von Wochenend-Pauksitzungen und gewährleisten eine nachhaltige Gewohnheitsbildung sowie einen 3-fach höheren Behaltenswert über 90 Tage.
+              </p>
+</div>
+</div>
+<!-- FAQ 2 (Closed State) -->
+<div class="tactile-card overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center text-left bg-surface-container-low min-h-[48px]" onclick="toggleFaq('faq-2')">
+<span class="text-label-lg font-label-lg text-on-surface pr-2">Wie orientiert sich Lexkite an den IELTS- &amp; CEFR-Standards?</span>
+<span class="material-symbols-outlined text-outline shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_down" id="icon-faq-2">keyboard_arrow_down</span>
+</button>
+<div class="p-4 pt-1 bg-surface-container-lowest border-t border-surface-variant hidden" id="faq-2">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                Jede Aufgabe, jeder Wortbaustein und jeder Diagnosetext stammt unmittelbar aus authentischen Korpora des British Council und der Cambridge-Prüfungen. Bewertet werden Wortschatzumfang, Kohäsion, grammatikalische Genauigkeit und Aussprache gemäß den offiziellen Deskriptoren für Band 9.
+              </p>
+</div>
+</div>
+<!-- FAQ 3 (Closed State) -->
+<div class="tactile-card overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center text-left bg-surface-container-low min-h-[48px]" onclick="toggleFaq('faq-3')">
+<span class="text-label-lg font-label-lg text-on-surface pr-2">Kann ich offline oder am Desktop lernen?</span>
+<span class="material-symbols-outlined text-outline shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_down" id="icon-faq-3">keyboard_arrow_down</span>
+</button>
+<div class="p-4 pt-1 bg-surface-container-lowest border-t border-surface-variant hidden" id="faq-3">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                Ja. Die täglichen Kartensätze werden automatisch heruntergeladen, sodass Sie auch unterwegs ohne Internetverbindung üben können. Ihre Fortschritte synchronisieren sich nahtlos zwischen den mobilen Apps und unserem Desktop-Schreiblabor.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Seal Endnote -->
+<div class="text-center pt-2 pb-6 space-y-1">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="verified_user">verified_user</span>
+<p class="text-label-sm font-label-sm text-[#1C1003]">Empirische Pädagogik • Keine Spielereien • Evidenzbasiert</p>
+</div>
+</main>
+<!-- Sticky Floating CTA Above Bottom Nav -->
+<div class="fixed bottom-16 left-0 w-full z-40 px-4 max-w-[390px] mx-auto pointer-events-none">
+<div class="pointer-events-auto bg-surface-container-lowest/90 backdrop-blur-md p-2 rounded-2xl border-2 border-surface-variant shadow-[0_4px_12px_rgba(31,27,22,0.12)]">
+<button class="w-full min-h-[56px] py-2 tactile-button-orange rounded-xl flex items-center justify-between px-5 active:scale-[0.99] transition-all">
+<div class="flex flex-col text-left">
+<span class="text-label-lg font-label-lg font-extrabold tracking-tight text-[#1C1003]">Jetzt lernen →</span>
+<span class="text-label-sm font-label-sm text-[#1C1003]/80">+15 EP • Inklusive Einstufungstest</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-[#1C1003]/10 flex items-center justify-center text-[#1C1003] shrink-0">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Shared Components JSON Anchor) -->
+<!-- Destination count: 5 | Active intent: 'Fertigkeiten' (Skills) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-outline-variant dark:border-outline shadow-[0_-4px_0_theme(colors.outline-variant)] dark:shadow-none docked full-width bottom-0">
+<!-- Tab 1: Heute -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Heute</span>
+</button>
+<!-- Tab 2: Wortschatz -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Wortschatz</span>
+</button>
+<!-- Tab 3: Fertigkeiten (ACTIVE TAB - Maps to Skills) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3 py-1.5 shadow-[0_2px_0_theme(colors.secondary)] hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined filled" data-icon="psychology">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Fertigkeiten</span>
+</button>
+<!-- Tab 4: Prüfungen -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="text-label-sm font-label-sm mt-0.5">Prüfungen</span>
+</button>
+<!-- Tab 5: Mein Profil -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Mein Profil</span>
+</button>
+</nav>
+</div>
+<!-- Inline Micro-Interactions Script for FAQs -->
+<script>
+    function toggleFaq(id) {
+      const panel = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        icon.textContent = 'keyboard_arrow_up';
+        icon.classList.add('text-primary');
+        icon.classList.remove('text-outline');
+      } else {
+        panel.classList.add('hidden');
+        icon.textContent = 'keyboard_arrow_down';
+        icon.classList.remove('text-primary');
+        icon.classList.add('text-outline');
+      }
+    }
+  </script>
+</body></html>
