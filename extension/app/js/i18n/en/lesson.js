@@ -18,6 +18,7 @@ D.en = Object.assign(D.en || {}, {
 'Đang nghe bạn nói…': 'Listening to you…',
 'Bạn nói: {s}': 'You said: {s}',
 'Chưa rõ – thử lại nhé': 'Not clear yet – try again',
+'Hoặc chọn “Không nói được lúc này” để học tiếp.': 'Or choose “Can’t speak now” to keep learning.',
 'Thiết bị này chưa nhận được giọng nói.': "This device can't recognize speech yet.",
 'Trọng âm rơi vào âm tiết {n}/{m}': 'Stress falls on syllable {n} of {m}',
 'Anh – Mỹ đọc khác:': 'UK and US pronunciation differ:',

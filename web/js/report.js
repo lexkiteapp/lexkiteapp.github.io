@@ -26,7 +26,7 @@
 
   // Bản tiếng Anh của module này nằm riêng (js/i18n/en/report.js) để khung app không phình – nạp trước khi vẽ
   let dictP;
-  const have = l => w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'];
+  const have = l => (w.I18N && w.I18N.has ? w.I18N.has(l, 'Báo cáo sự cố') : !!(w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'])); // gói khóa băm → I18N.has (dự phòng: i18n.js cũ trong bộ đệm)
   const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (have('en') && (I.lang() === 'en' || have(I.lang())))) ? Promise.resolve() : new Promise(r => {
     const l = I.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
     loadOne('js/i18n/en/report.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/report.js`) : null)).then(r);

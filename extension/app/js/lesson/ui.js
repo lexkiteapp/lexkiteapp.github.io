@@ -388,10 +388,18 @@
     }
     on('lsnMic', () => {
       const out = $('#lsnHeard'), mic = $('#lsnMic'); if (L.checked) return;
+      const lab = mic.querySelector('span:not(.material-symbols-outlined)'), retry = msg => { out.textContent = msg; if (lab) lab.textContent = t('Thử lại'); };
+      let fin = false; // mỗi lần chạm micro luôn kết thúc bằng câu trả lời hoặc lời nhắn rõ ràng + nút Thử lại (không bao giờ im lặng)
       mic.disabled = true; out.textContent = t('Đang nghe bạn nói…');
       L.rec = UI.recognize(it.answer, 'en-US', {
-        result: ({ heard, score }) => { mic.disabled = false; out.textContent = t('Bạn nói: {s}', { s: heard || '…' }); L.spoken++; if (score >= 70) submit(score / 100, heard); else { L.tries = (L.tries || 0) + 1; if (L.tries >= 2) { L.tries = 0; submit(score / 100, heard); } else out.textContent += ' · ' + t('Chưa rõ – thử lại nhé'); } },
-        error: code => { mic.disabled = false; out.textContent = code === 'unsupported' ? t('Thiết bị này chưa nhận được giọng nói.') : t('Chưa rõ – thử lại nhé'); if (code === 'unsupported') { setOff('speak'); L.sess.replace(x => E.adapt(x, offNow())); setTimeout(next, 900); } },
+        result: ({ heard, score }) => { fin = true; mic.disabled = false; out.textContent = t('Bạn nói: {s}', { s: heard || '…' }); L.spoken++; L.micErr = 0; if (score >= 70) submit(score / 100, heard); else { L.tries = (L.tries || 0) + 1; if (L.tries >= 2) { L.tries = 0; submit(score / 100, heard); } else { out.textContent += ' · ' + t('Chưa rõ – thử lại nhé'); if (lab) lab.textContent = t('Thử lại'); } } },
+        error: code => {
+          fin = true; mic.disabled = false;
+          if (code === 'unsupported') { out.textContent = t('Thiết bị này chưa nhận được giọng nói.'); setOff('speak'); L.sess.replace(x => E.adapt(x, offNow())); setTimeout(next, 900); return; }
+          L.micErr = code === 'no-speech' ? L.micErr || 0 : (L.micErr || 0) + 1; // micro/quyền/mạng hỏng 2 lần → chỉ lối học tiếp
+          retry(UI.recErrorText(code) + (L.micErr >= 2 ? ' ' + t('Hoặc chọn “Không nói được lúc này” để học tiếp.') : ''));
+        },
+        end: () => { L.rec = null; mic.disabled = false; if (!fin) retry(UI.recErrorText('no-speech')); },
       });
       if (!L.rec) { mic.disabled = false; }
     });

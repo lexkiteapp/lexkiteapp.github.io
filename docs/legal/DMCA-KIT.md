@@ -158,6 +158,6 @@ Date: [YYYY-MM-DD]
 3. **Đăng ký quyền tác giả Mỹ (tùy chọn, ~$45–$65/tác phẩm, copyright.gov/registration):** cần có đăng ký trước khi kiện tại Mỹ và để đòi bồi thường luật định; nộp theo nhóm (blog: *Group Registration of Short Online Literary Works*; kho đề: *literary work* hoặc *database*).
 4. **Nhãn hiệu "Lexkite":** USPTO (`https://www.uspto.gov/trademarks/apply`, ~$350/nhóm; nhóm 9 app + 41 giáo dục) · Việt Nam – Cục Sở hữu trí tuệ (`https://ipvietnam.gov.vn`, khoảng 1–2 triệu đồng/nhóm) · quốc tế qua hệ thống Madrid (WIPO) khi có đăng ký gốc. Tra trùng trước: USPTO Trademark Search, WIPO Global Brand Database, IP Vietnam WIPO Publish. Sau khi có số đơn: đổi ™ → ® chỉ khi đã **cấp** (Mỹ).
 5. **Đưa nội dung sang repo private** (đề, lời giải, kho từ, blog nguồn): quyết định kiến trúc (ảnh hưởng runner miễn phí/Pages) – owner quyết; sau khi chuyển, `LICENSE` vẫn giữ cho phần còn công khai.
-6. **Token Zenodo (miễn phí, làm ngay được):** `docs/CONTENT-PROTECTION.md` §4c → secret `ZENODO_TOKEN` (job hằng tháng đang tắt chờ token).
+6. **Token Zenodo (miễn phí):** ĐÃ CÓ 3/11/2026 – secret `ZENODO_TOKEN` (`docs/CONTENT-PROTECTION.md` §4c). Xoay vòng: tạo token mới cùng scope → cập nhật secret → xóa token cũ.
 7. **Brave Search API key (miễn phí):** để dò bản chép trên toàn web (không chỉ GitHub) – `docs/CONTENT-PROTECTION.md` §6 bước 5.
 

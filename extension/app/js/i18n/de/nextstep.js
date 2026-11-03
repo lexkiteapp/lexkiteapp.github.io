@@ -1,3 +1,3 @@
-/* UI de – nextstep (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"Bài đọc tiếp theo: {name}":"Nächster Text: {name}","Phần tiếp theo: {name}":"Nächster Teil: {name}"});
+/* SINH từ i18n/ui/de/nextstep.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"_1kcb6km":"Nächster Text: {name}","_1drh103":"Nächster Teil: {name}"});
 })(typeof self !== 'undefined' ? self : this);
