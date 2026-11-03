@@ -49,7 +49,7 @@ const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi
   .filter(([w]) => !process.env.ADMIN_GUARD_W || process.env.ADMIN_GUARD_W.split(',').includes(String(w)));
 // Điện thoại (<640 px, owner 3/11 iPhone): vùng chạm ≥ 44 px, chữ không ngắt giữa từ, bảng không cuộn ngang (phải thành thẻ), thanh trên không tràn.
 const MOBILE = () => {
-  const vis = e => { const r = e.getBoundingClientRect(); if (r.width < 1 || r.height < 1) return null; const cs = getComputedStyle(e); if (cs.visibility === 'hidden' || +cs.opacity === 0) return null; if (e.closest('[hidden], .sr-only, .adm-skip, dialog:not([open]), .adm-side:not(.open), .fsheet:not(.open)')) return null; return r; };
+  const vis = e => { const r = e.getBoundingClientRect(); if (r.width < 1 || r.height < 1) return null; const cs = getComputedStyle(e); if (cs.visibility === 'hidden' || +cs.opacity === 0) return null; if (e.closest('.tbl-cards:not(.u-tbl) thead, .u-tbl.tbl-cards thead th:not(.u-ckc), [hidden], .sr-only, .adm-skip, dialog:not([open]), .adm-side:not(.open), .fsheet:not(.open)')) return null; return r; };
   const nm = e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + [...e.classList].slice(0, 2).map(c => '.' + c).join('') + ' "' + ((e.getAttribute('aria-label') || e.textContent || e.value || '').trim().slice(0, 18)) + '"';
   const tap = [], seen = new Set(), sheet = document.querySelector('.fsheet.open'), menu = document.querySelector('#meMenu.open');
   const scope = sheet || menu ? [sheet, menu, ...(sheet ? [] : [document.querySelector('.adm-top')])].filter(Boolean) : [document.querySelector('.adm-top'), document.querySelector('.adm-content'), document.querySelector('#uBulk')].filter(Boolean);
@@ -134,14 +134,15 @@ for (const [width, scheme, lang] of CONFIGS) {
     if (width < 640 && r === 'users') { // trạng thái điện thoại: sheet Lọc, thanh chọn hàng loạt dính đáy, menu ⋯ – cũng phải qua gác
       for (const [st, open, close] of [['sheet', '.fs-btn', '.fsheet.open .fs-done'], ['bulk', '#uTable tbody .u-ckh', '[data-bulk=clear]'], ['menu', '#meMore', '#meMore']]) {
         const el = await page.$$(open); if (!el.length) { add('trạng thái', `${tag} #users~${st}: thiếu ${open}`); continue; }
-        await el[0].click(); if (st === 'bulk' && el[1]) await el[1].click(); await page.waitForTimeout(350);
+        const ck = async e => { try { await e.click({ timeout: 4000 }); return ''; } catch (x) { return (x.message.match(/<[^>]+>[^\n]*intercepts pointer events/) || [x.message.split('\n')[0]])[0]; } };
+        let er = await ck(el[0]); if (!er && st === 'bulk' && el[1]) er = await ck(el[1]); if (er) add('trạng thái', `${tag} #users~${st}: bấm ${open} lỗi – ${er}`); await page.waitForTimeout(350);
         const m = await page.evaluate(MOBILE); m.shell = await page.evaluate(() => { const o = [], over = document.scrollingElement.scrollWidth - innerWidth; if (over > 1) o.push(`trang tràn ngang ${over} px`); return o; });
         if (st === 'sheet' && !(await page.$('.fsheet.open'))) m.shell.push('sheet Lọc không mở');
         if (st === 'bulk') { const b = await page.evaluate(() => { const e = document.querySelector('#uBulk'); if (!e || e.hidden) return 'thanh chọn hàng loạt không hiện'; const r = e.getBoundingClientRect(); return innerHeight - r.bottom > 2 ? `thanh chọn hàng loạt không dính đáy (cách ${Math.round(innerHeight - r.bottom)} px)` : ''; }); if (b) m.shell.push(b); }
         if (st === 'menu' && !(await page.$('#meMenu.open'))) m.shell.push('menu ⋯ không mở');
         for (const [k, v] of Object.entries(m)) if (v.length) add(k, `${tag} #users~${st}: ${v.join(' | ')}`);
         if (SHOTS.find(([sr, w, th]) => sr === 'users~' + st && w === width && th === scheme)) await page.screenshot({ path: path.join(OUT, `${TAG}-users~${st}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 70 });
-        const c = await page.$(close); if (c && await c.isVisible()) await c.click(); else await page.keyboard.press('Escape'); await page.waitForTimeout(200);
+        const c = await page.$(close); let ce = c && await c.isVisible() ? await ck(c) : 'x'; if (ce && ce !== 'x') add('trạng thái', `${tag} #users~${st}: bấm ${close} lỗi – ${ce}`); if (ce) await page.keyboard.press('Escape'); await page.waitForTimeout(200);
       }
     }
     if (width < 640) await page.screenshot({ path: path.join(OUT, `m-${TAG}-${r.replace(/\//g, '_')}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 50, fullPage: true }); // owner 3/11: chụp MỌI trang ở 360/390 sáng/tối

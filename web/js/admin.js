@@ -608,6 +608,7 @@
         el.setAttribute('role', 'group'); el.setAttribute('aria-label', L('Bộ lọc'));
         const b = document.createElement('button'); b.type = 'button'; b.className = 'btn sm fs-btn'; b.setAttribute('aria-controls', el.id); b.setAttribute('aria-expanded', 'false');
         b.innerHTML = `<span aria-hidden="true">⚙</span> ${esc(L('Lọc'))}<span class="fs-n" aria-hidden="true"></span>`; el.before(b);
+        const body = document.createElement('div'); body.className = 'fs-body'; while (el.firstChild) body.appendChild(el.firstChild); el.appendChild(body); // đầu/thân cuộn/chân tách riêng → chân không đè nút
         el.insertAdjacentHTML('afterbegin', `<div class="fs-head"><b>${esc(L('Lọc'))}</b><button type="button" class="adm-ibtn fs-x" aria-label="${esc(L('Đóng'))}">✕</button></div>`);
         el.insertAdjacentHTML('beforeend', `<div class="fs-foot"><button type="button" class="btn primary fs-done">${esc(L('Xong'))}</button></div>`);
         b.onclick = () => fsOpen(el, true);

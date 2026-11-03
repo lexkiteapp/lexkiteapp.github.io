@@ -595,7 +595,7 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .u-who-t > .chip { align-self: flex-start; margin: .15rem 0; }
 .u-ckh { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; margin: -.5rem; cursor: pointer; } .u-all-t { display: none; }
 .u-top { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin-bottom: 1rem; } .u-top > input[type=search] { flex: 1 1 240px; min-width: 0; } .u-top > .u-tools { flex: 1 1 100%; margin-bottom: 0; }
-.fs-btn, .fs-head, .fs-foot, .fs-scrim { display: none; }
+.fs-btn, .fs-head, .fs-foot, .fs-scrim { display: none; } .fs-body { display: contents; }
 .fs-n:not(:empty) { display: inline-grid; place-items: center; min-width: 1.35rem; height: 1.35rem; padding: 0 .35rem; margin-left: .15rem; border-radius: 999px; background: var(--primary); color: var(--on-primary, #fff); font-size: .72rem; font-weight: 800; }
 .date-w { position: relative; display: inline-flex; min-width: 0; } .date-w > input { width: 100%; }
 .date-ph { position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: .85rem; pointer-events: none; }
@@ -651,15 +651,16 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .fs-btn { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; }
   .u-top > input[type=search] { min-height: 44px; }
   .fsheet { display: none !important; }
-  .fsheet.open { display: flex !important; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: .5rem; position: fixed; z-index: 90; left: 0; right: 0; bottom: 0; max-height: 86dvh; overflow-y: auto; margin: 0; padding: 0 1rem calc(1rem + env(safe-area-inset-bottom)); border-radius: 20px 20px 0 0; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -12px 40px rgba(0, 0, 0, .25); animation: fs-up .2s ease-out; }
-  .fsheet.open .fs-head { display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1; padding: .7rem 0 .5rem; background: var(--surface); border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+  .fsheet.open { display: flex !important; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; position: fixed; z-index: 90; left: 0; right: 0; bottom: 0; max-height: 86dvh; overflow: hidden; margin: 0; padding: 0 1rem calc(.75rem + env(safe-area-inset-bottom)); border-radius: 20px 20px 0 0; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -12px 40px rgba(0, 0, 0, .25); animation: fs-up .2s ease-out; }
+  .fsheet.open .fs-head { display: flex; flex: none; align-items: center; justify-content: space-between; padding: .7rem 0 .5rem; background: var(--surface); border-bottom: 1px solid var(--line); font-size: 1.05rem; }
   .fsheet.open .fs-x { width: 44px; height: 44px; }
-  .fsheet.open .fs-foot { display: flex; position: sticky; bottom: calc(-1rem - env(safe-area-inset-bottom)); padding: .6rem 0 .2rem; background: var(--surface); border-top: 1px solid var(--line); } .fsheet.open .fs-done { flex: 1; min-height: 48px; }
-  .fsheet.open > label, .fsheet.open .u-sel, .u-tools.fsheet.open .u-sel:has(select) { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: .75rem; flex: none; width: 100%; min-height: 48px; padding: .25rem 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); border-radius: 0; box-shadow: none; background: none; }
-  .fsheet.open .u-sel > span:first-child, .fsheet.open > label > span:first-child { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 650; color: var(--text); font-size: .9rem; }
+  .fsheet.open .fs-body { display: flex; flex-direction: column; gap: .25rem; flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: .25rem 0; }
+  .fsheet.open .fs-foot { display: flex; flex: none; padding: .6rem 0 0; background: var(--surface); border-top: 1px solid var(--line); } .fsheet.open .fs-done { flex: 1; min-height: 48px; }
+  .fsheet.open .fs-body > label, .fsheet.open .u-sel, .u-tools.fsheet.open .u-sel:has(select) { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: .75rem; flex: none; width: 100%; min-height: 48px; padding: .25rem 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); border-radius: 0; box-shadow: none; background: none; }
+  .fsheet.open .u-sel > span:first-child, .fsheet.open .fs-body > label > span:first-child { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 650; color: var(--text); font-size: .9rem; }
   .fsheet.open select, .fsheet.open input:not([type=checkbox]), .fsheet.open .date-w { flex: 0 1 58%; width: 58%; min-width: 0; min-height: 44px; }
   .fsheet.open .date-w > input { width: 100%; flex: 1; }
-  .fsheet.open > button:not(.fs-x):not(.fs-done) { min-height: 44px; }
+  .fsheet.open .fs-body > button { min-height: 44px; }
   .fs-scrim:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 85; background: rgba(12, 22, 21, .5); }
   body.fs-on { overflow: hidden; }
   /* Thanh chọn hàng loạt: dính đáy màn, đủ vùng chạm, cuộn ngang các thao tác */
@@ -671,6 +672,10 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   /* Vùng chạm ≥ 44 px (gác admin-guard) */
   .adm .adm-content .btn, .adm .adm-content select, .adm .adm-content input:not([type=checkbox]):not([type=radio]):not([type=range]), .adm .range-tabs button, .adm .adm-content summary { min-height: 44px; }
   .adm .adm-content .btn.sm { padding-top: .45rem; padding-bottom: .45rem; }
+  .adm .adm-content :is(button, [role=button], [role=tab], a.vx-tab, a.ax-tab, a.btn, summary), .adm .u-bulk :is(button, .linkbtn), .adm-brand { min-height: 44px; }
+  .adm .adm-content :is(button, [role=tab], a.vx-tab, a.ax-tab).chip, .adm .adm-content :is(.rp-chip, .chip-f, .cl-tab, .vx-tab, .ax-tab) { display: inline-flex; align-items: center; }
+  .adm .adm-content :is(.icon-btn-s, .copy, .reset, .th-sort, .u-sort) { min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  .adm .adm-content .linkbtn, .adm .u-bulk .linkbtn { display: inline-flex; align-items: center; min-height: 44px; }
   .u-pg select { min-height: 44px; }
 }
 @keyframes fs-up { from { transform: translateY(24px); opacity: .4; } }
