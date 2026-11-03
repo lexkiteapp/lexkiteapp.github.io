@@ -4,6 +4,7 @@
 // Dùng: node scripts/test/theme-static.mjs [thư mục=dist|web] [--shots dir] [--chrome]   (CI: theme-qa.yml; --chrome = Chrome cài sẵn trên máy)
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
+import { THEME_COLOR } from '../lib/site-layout.mjs';
 const require = createRequire(import.meta.url), AXE = fs.readFileSync(require.resolve('axe-core'), 'utf8');
 const args = process.argv.slice(2), opt = k => args.includes(k) ? args[args.indexOf(k) + 1] : null;
 const ROOT = path.resolve(args.find((a, i) => !a.startsWith('--') && !/^--/.test(args[i - 1] || '')) || (fs.existsSync('dist') ? 'dist' : 'web'));
@@ -130,6 +131,38 @@ if (SHOTS && has('app/index.html')) {
   await page.evaluate(() => scrollTo(0, innerHeight * .9)); await page.waitForTimeout(200); await shot();
   await page.locator('.site-foot').scrollIntoViewIfNeeded().catch(() => {}); await page.evaluate(() => scrollTo(0, document.body.scrollHeight)); await page.waitForTimeout(200); await shot();
   fs.writeFileSync(path.join(SHOTS, 'app-blog.txt'), JSON.stringify(r) + '\n'); checks++; await ctx.close();
+}
+// HỒI QUY lỗi chủ báo 3/11 ("đổi sáng/tối trong app, trang ngoài app không theo"): dùng APP THẬT (/app/, bấm #themeBtn như người học),
+// rồi mở landing + blog cùng origin → đúng giao diện NGAY khung vẽ đầu (không nháy) + thanh trình duyệt (theme-color) theo nền;
+// đồng bộ trực tiếp 2 chiều giữa tab app ↔ tab landing (sự kiện storage); tải lại app sau khi đổi ở landing → app theo, không nháy.
+if (has('app/index.html')) {
+  const APPB = 'https://lexkite.com', TC = THEME_COLOR;
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: 'light', reducedMotion: 'reduce', serviceWorkers: 'block' }); await serve(ctx, APPB);
+  await ctx.addInitScript(() => new MutationObserver((_, o) => { if (document.body) { window.__th0 = document.documentElement.getAttribute('data-theme'); window.__bg0 = getComputedStyle(document.body).backgroundColor; o.disconnect(); } }).observe(document, { childList: true, subtree: true }));
+  const st = pg => pg.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), th0: window.__th0, bg0: window.__bg0, tc: [...document.querySelectorAll('meta[name=theme-color]')].map(m => m.content) }));
+  const app = await ctx.newPage(); const errs = []; app.on('pageerror', e => errs.push(e.message));
+  await app.goto(APPB + '/app/', { waitUntil: 'load' }); await app.waitForSelector('#themeBtn', { timeout: 15000 }).catch(() => bad.push('app→web: không thấy #themeBtn'));
+  await app.waitForFunction(() => document.querySelector('#themeBtn') && document.querySelector('#themeBtn').onclick, null, { timeout: 15000 }).catch(() => {});
+  await app.click('#themeBtn'); await app.click('#themeBtn'); // tự động → sáng → tối (đúng thứ tự nút app)
+  const a = await st(app); if (a.th !== 'dark' || a.tc.some(c => c.toUpperCase() !== TC.dark)) bad.push(`app→web: app sau 2 lần bấm data-theme=${a.th}, theme-color=${a.tc}`);
+  for (const p of ['/en/', '/', '/en/blog/'].filter(p => has(p + 'index.html'))) {
+    const pg = await ctx.newPage(); await pg.goto(APPB + p, { waitUntil: 'load' }); const r = await st(pg); checks++;
+    if (r.th0 !== 'dark' || r.th !== 'dark') bad.push(`app→web ${p}: app chọn Tối nhưng trang vẽ đầu data-theme=${r.th0}, sau tải=${r.th}`);
+    if (r.bg0 && lum(r.bg0) >= .2) bad.push(`app→web ${p}: nháy – nền lúc vẽ đầu ${r.bg0} không tối`);
+    await pg.waitForFunction(() => window.LkUi, null, { timeout: 8000 }).catch(() => {});
+    if ((await st(pg)).tc.some(c => c.toUpperCase() !== TC.dark)) bad.push(`app→web ${p}: theme-color không theo Tối (${(await st(pg)).tc})`);
+    await pg.close();
+  }
+  const land = await ctx.newPage(); await land.goto(APPB + '/en/', { waitUntil: 'load' }); await land.waitForFunction(() => window.LkUi, null, { timeout: 8000 }).catch(() => {});
+  await app.bringToFront(); await app.click('#themeBtn'); await land.waitForTimeout(300); // tối → tự động (máy sáng)
+  if ((await st(land)).th !== null) bad.push(`app→web trực tiếp: app về Tự động nhưng tab landing data-theme=${(await st(land)).th}`);
+  await land.bringToFront(); await land.click('.site-foot [data-tsv=dark]').catch(() => land.click('[data-tsw] >> visible=true')); await app.waitForTimeout(300);
+  const want = (await st(land)).th; if (!want || (await st(app)).th !== want) bad.push(`web→app trực tiếp: chọn ${want} ở landing nhưng tab app data-theme=${(await st(app)).th}`);
+  await app.reload({ waitUntil: 'load' }); const b = await st(app);
+  if (b.th0 !== want || b.th !== want) bad.push(`web→app tải lại: chọn ${want} ở landing nhưng app vẽ đầu ${b.th0}, sau tải ${b.th}`);
+  await app.waitForTimeout(800); if ((await st(app)).th !== want) bad.push(`web→app tải lại: app khởi động xong đổi lại thành ${(await st(app)).th} (ghi đè lựa chọn mới)`);
+  if (errs.length) bad.push(`app→web: lỗi JS app ${errs[0]}`);
+  checks += 3; await ctx.close();
 }
 await browser.close();
 if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }

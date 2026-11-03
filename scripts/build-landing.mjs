@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { minify } from 'terser';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { HINT_FILE, CSS, FOOT_CSS, SEO_L, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeSwitch, TSW_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { HINT_FILE, CSS, FOOT_CSS, SEO_L, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, TSW_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -217,6 +217,9 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, j);
   }
   { const f = new URL('web' + HINT_FILE, R), j = JSON.stringify(SUG) + '\n'; if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + HINT_FILE); } else fs.writeFileSync(f, j); }
+  // App /app/: CÙNG chống nháy + theme-color với trang ngoài (một nguồn site-layout THEME_HEAD/THEME_META); add-on dùng bản file web/js/lkt.js (MV3 cấm nội tuyến)
+  { const f = new URL('web/app/index.html', R), cur = fs.readFileSync(f, 'utf8'), html = themeHead(cur); if (check) { if (html !== cur) stale.push('web/app/index.html'); } else if (html !== cur) fs.writeFileSync(f, html); }
+  { const f = new URL('web/js/lkt.js', R), j = LKT_JS(); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web/js/lkt.js'); } else fs.writeFileSync(f, j); }
   { const f = new URL('web/js/site-ui.js', R), j = SITE_UI_JS(); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web/js/site-ui.js'); } else fs.writeFileSync(f, j); } // JS dùng chung trang tĩnh (site-layout SITE_UI)
   for (const n of ['bye', 'blog-lang']) { const f = new URL(`web/${n}.html`, R), cur = fs.readFileSync(f, 'utf8'), html = themePage(cur); if (check) { if (html !== cur) stale.push(`web/${n}.html`); } else if (html !== cur) fs.writeFileSync(f, html); } // trang viết tay: chống nháy bản mới
   { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }

@@ -7,7 +7,7 @@
 // Trình duyệt thật (tương phản axe sáng + tối, không nháy): scripts/test/theme-static.mjs (CI theme-qa.yml).
 // Dùng: node scripts/test/theme-switch.mjs [dist]  (mặc định kiểm web/ + dist/ nếu đã dựng)
 import fs from 'node:fs'; import path from 'node:path'; import { JSDOM } from 'jsdom';
-import { THEME_HEAD, TSW_JS, LANG_JS, FOOT_JS, SITE_UI_JS, SITE_UI_V, themeCss, themeLabels, themeSwitch, themePill, siteFooter, LANG_NAMES } from '../lib/site-layout.mjs';
+import { THEME_HEAD, THEME_META, THEME_COLOR, LKT_JS, TSW_JS, LANG_JS, FOOT_JS, SITE_UI_JS, SITE_UI_V, themeCss, themeLabels, themeSwitch, themePill, siteFooter, LANG_NAMES } from '../lib/site-layout.mjs';
 
 const bad = []; let pages = 0;
 const ok = (c, m) => { if (!c) bad.push(m); };
@@ -27,6 +27,7 @@ for (const root of roots) for (const f of walk(root)) {
   const firstCss = Math.min(...[head.search(/<style[\s>]/i), head.search(/<link[^>]+rel="?stylesheet/i)].filter(i => i >= 0).concat(Infinity));
   ok(at >= 0 && head.includes(THEME_HEAD), `${f}: thiếu script chống nháy giao diện trong <head>`);
   ok(at < 0 || at < firstCss, `${f}: script chống nháy phải đứng trước mọi <style>/<link stylesheet>`);
+  ok(head.includes(THEME_META) && (head.match(/<meta name="theme-color"/g) || []).length === 2, `${f}: theme-color phải là cặp sáng/tối theo nền (site-layout THEME_META)`);
   for (const [, c] of h.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)) if (themeCss(c) !== c) { ok(false, `${f}: còn @media (prefers-color-scheme) chưa đổi sang mẫu data-theme`); break; }
   if (/data-lsw/.test(h)) {
     ok(/<button type="button" class="tsw" data-tsw/.test(h), `${f}: có nút ngôn ngữ nhưng thiếu nút giao diện`);
@@ -39,6 +40,16 @@ for (const root of roots) for (const f of walk(root)) {
 ok(pages >= (roots.includes('dist') ? 1000 : 60), `chỉ thấy ${pages} trang – sai thư mục?`);
 for (const root of roots) { const f = path.join(root, 'js/site-ui.js'); ok(fs.existsSync(f) && (root !== 'web' || fs.readFileSync(f, 'utf8') === SITE_UI_JS()), `${f}: thiếu hoặc cũ so với site-layout – chạy node scripts/build-landing.mjs`); } // dist: bản đã rút gọn
 
+// App /app/ + add-on: CÙNG mã chống nháy + theme-color với trang ngoài (một nguồn) – hồi quy lỗi 3/11 "trang ngoài không theo app"
+{ const h = fs.readFileSync('web/app/index.html', 'utf8'), head = (h.match(/<head>([\s\S]*?)<\/head>/i) || [, ''])[1], at = head.indexOf(THEME_HEAD), css = head.search(/<link[^>]+rel="?stylesheet|<style[\s>]/i);
+  ok(at >= 0 && at < css, 'web/app/index.html: thiếu THEME_HEAD trước CSS (chạy node scripts/build-landing.mjs)');
+  ok(head.includes(THEME_META), 'web/app/index.html: thiếu cặp theme-color THEME_META');
+  ok(fs.existsSync('web/js/lkt.js') && fs.readFileSync('web/js/lkt.js', 'utf8') === LKT_JS(), 'web/js/lkt.js cũ so với THEME_HEAD – chạy node scripts/build-landing.mjs');
+  const e = fs.existsSync('extension/app/index.html') ? fs.readFileSync('extension/app/index.html', 'utf8') : '', eh = (e.match(/<head>([\s\S]*?)<\/head>/i) || [, ''])[1];
+  ok(!e || (eh.indexOf('<script src="js/lkt.js"></script>') >= 0 && eh.indexOf('<script src="js/lkt.js"></script>') < eh.search(/<link[^>]+rel="?stylesheet/i) && !eh.includes('<script data-lkt>')), 'extension/app/index.html: phải nạp js/lkt.js (không nội tuyến, MV3) trước CSS – chạy bash scripts/build-extension.sh');
+  const A = fs.readFileSync('web/js/app.js', 'utf8');
+  ok(/localStorage[\s\S]{0,200}'lk\.theme'/.test(A) && /addEventListener\('storage'[^\n]*'lk\.theme'/.test(A) && /lkT\(\)/.test(A), 'web/js/app.js: applyTheme phải ghi lk.theme, nghe storage và khởi động theo lkT() (đồng bộ với trang ngoài)'); }
+
 // Nhãn: đủ 15 ngôn ngữ, khác bản tiếng Việt gốc (đã dịch thật qua pipeline docs/I18N-PIPELINE.md), không rỗng
 for (const l of Object.keys(LANG_NAMES)) {
   const L = themeLabels(l);
@@ -49,7 +60,7 @@ for (const l of Object.keys(LANG_NAMES)) {
 
 // Hành vi (jsdom)
 const run = (stored, mq = false) => {
-  const dom = new JSDOM(`<!doctype html><html><head><meta charset="utf-8">${THEME_HEAD}</head><body>${themeSwitch('ja')}${themeSwitch('ja')}${themePill('ja')}</body></html>`, { url: 'https://lexkite.com/ja/', runScripts: 'outside-only' });
+  const dom = new JSDOM(`<!doctype html><html><head><meta charset="utf-8">${THEME_HEAD}${THEME_META}</head><body>${themeSwitch('ja')}${themeSwitch('ja')}${themePill('ja')}</body></html>`, { url: 'https://lexkite.com/ja/', runScripts: 'outside-only' });
   const w = dom.window; if (stored) w.localStorage.setItem('lk.theme', stored);
   w.matchMedia = () => ({ matches: mq });
   w.eval((THEME_HEAD.match(/<script data-lkt>([\s\S]*)<\/script>/) || [])[1]); w.eval(TSW_JS); return w;
@@ -61,8 +72,11 @@ w.document.querySelector('[data-tsw]').click();
 ok(w.document.documentElement.getAttribute('data-theme') === 'light' && w.localStorage.getItem('lk.theme') === 'light' && lab(w, 1) === `${L[3]}: ${L[1]}`, 'bấm 1 → sáng, lưu lk.theme, mọi nút cùng đổi nhãn');
 w.document.querySelector('[data-tsw]').click();
 ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && w.localStorage.getItem('lk.theme') === 'dark' && lab(w) === `${L[3]}: ${L[2]}`, 'bấm 2 → tối');
+const tcs = w => [...w.document.querySelectorAll('meta[name=theme-color]')].map(m => m.content).join(',');
+ok(tcs(w) === `${THEME_COLOR.dark},${THEME_COLOR.dark}`, `ép tối → cả 2 thẻ theme-color = nền tối (${tcs(w)})`);
 w.document.querySelector('[data-tsw]').click();
 ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === null, 'bấm 3 → tự động (xoá lk.theme)');
+ok(tcs(w) === `${THEME_COLOR.light},${THEME_COLOR.dark}`, `tự động → theme-color trả về theo media sáng/tối (${tcs(w)})`);
 // Viên 3 nút chân trang (bản vẽ Stitch): bấm thẳng một trạng thái; aria-pressed đúng nút đang chọn, đồng bộ với nút vòng
 const pr = w => [...w.document.querySelectorAll('[data-tsv]')].map(b => b.getAttribute('aria-pressed')).join(',');
 ok(pr(w) === 'true,false,false', 'viên: tự động → nút "theo hệ thống" aria-pressed=true');
