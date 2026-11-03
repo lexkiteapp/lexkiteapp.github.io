@@ -21,7 +21,7 @@ concurrency: { group: drive-shorts, cancel-in-progress: false }
 permissions: { contents: read }
 jobs:
   backup:
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion != 'cancelled' && github.event.workflow_run.conclusion != 'skipped')   # ci-policy 4a: lượt nguồn huỷ/bỏ qua → không có gì mới, không chiếm runner
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion != 'cancelled' && github.event.workflow_run.conclusion != 'skipped')   # ci-policy 5a: lượt nguồn huỷ/bỏ qua → không có gì mới, không chiếm runner
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:

@@ -49,7 +49,7 @@ export async function fetchRuns(gh, now = Date.now(), hours = 24, step = 2) {
 export async function syncIssue(gh, { bad, md }, label = 'ci-failure') {
   const open = ((await gh(`/issues?state=open&labels=${label}&per_page=100`)) || []).find(i => (i.body || '').includes(MARK));
   if (!bad.length) { if (open) await gh(`/issues/${open.number}`, { method: 'PATCH', body: { state: 'closed', state_reason: 'completed', body: open.body + '\n\n✅ Không còn workflow vượt ngưỡng runner (ci-triage tự đóng).' } }); return open ? 'closed' : 'ok'; }
-  const body = `${MARK}\n${md}\n\nSửa tận gốc: workflow_run/check_suite cần if: mức job + concurrency (scripts/test/ci-policy.mjs luật 4); ngưỡng + bài học: docs/CI-RUNNERS.md § Giám sát.`;
+  const body = `${MARK}\n${md}\n\nSửa tận gốc: workflow_run/check_suite cần if: mức job + concurrency (scripts/test/ci-policy.mjs luật 5); ngưỡng + bài học: docs/CI-RUNNERS.md § Giám sát.`;
   if (open) await gh(`/issues/${open.number}`, { method: 'PATCH', body: { title: TITLE, body } });
   else await gh('/issues', { method: 'POST', body: { title: TITLE, body, labels: [label] } });
   return open ? 'updated' : 'opened';
