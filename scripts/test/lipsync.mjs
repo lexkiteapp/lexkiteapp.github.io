@@ -73,5 +73,9 @@ assert.deepEqual(sp.map(x => [x.v, x.s]), [['B', 0], ['D', .1]]);
   console.log('lipsync temper ok'); }
 // mốc nén (cues.js v3): delta bước 5 ms khứ hồi đúng, mốc lẻ giữ ms tuyệt đối, idempotent
 { const LS2 = LS, raw = 'X0 F280 B525 G600 X3240', z = LS2.packCues(raw);
-  assert.equal(z, '+X0 F56 B49 G15 X528'); assert.equal(LS2.packCues(z), z); assert.equal(LS2.packCues('X0 B123'), 'X0 B123');
+  assert.equal(z, '*X0F1kB1dGfXeo'); assert.equal(LS2.packCues(z), z); assert.equal(LS2.packCues('X0 B123'), 'X0 B123'); assert.equal(LS2.packCues('+X0 F56 B49 G15 X528'), z);
+  assert.deepEqual(LS2.unpack([3500, '+X0 F56 B49 G15 X528']).cues, LS2.unpack([3500, raw]).cues);
   assert.deepEqual(LS2.unpack([3500, z, 'AAAA~2.gA==']).cues, LS2.unpack([3500, raw]).cues); assert.equal(LS2.unpack([3500, z, 'AAAA~2.gA==']).env.length, 10); console.log('lipsync cues-pack ok'); }
+// từ điển gọn (packDict): giải lại đúng từng từ như bản "word PH ON"
+{ const raw = fs.readFileSync('content/lexicon/cmudict-subset.txt', 'utf8').split('\n').slice(0, 3000).join('\n'), z = LS.packDict(raw);
+  assert.ok(z.startsWith('#P:') && z.length < raw.length * 0.75, 'gọn hơn'); assert.equal(LS.packDict(z), z); assert.deepEqual(LS.parseDict(z), LS.parseDict(raw)); console.log('lipsync dict-pack ok'); }

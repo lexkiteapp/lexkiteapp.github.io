@@ -28,6 +28,7 @@ if (process.argv.includes('--count')) process.exit(0);
 // từ điển nhỏ cho chế độ live (không có mốc): chỉ các từ trong kịch bản Call (spec §4 – giữ nhẹ)
 const want = new Set([...lines.values()].flatMap(l => l.text.toLowerCase().match(/[a-z']+/g) || []));
 const dict = fs.readFileSync('content/lexicon/cmudict-subset.txt', 'utf8').split('\n').filter(l => want.has(l.split(' ')[0])).join('\n');
+const dictZ = LS.packDict(dict); // gọn: bảng tra âm vị + 1 ký tự/âm vị (LipSync.parseDict giải, không mất gì)
 
 const rms100 = f => { const b = fs.readFileSync(f); let o = 12; while (b.toString('ascii', o, o + 4) !== 'data') o += 8 + b.readUInt32LE(o + 4);
   const n = b.readUInt32LE(o + 4) / 2, s = o + 8, hop = 240, R = []; for (let i = 0; i + hop <= n; i += hop) { let e = 0; for (let j = 0; j < hop; j++) { const x = b.readInt16LE(s + 2 * (i + j)) / 32768; e += x * x; } R.push(Math.sqrt(e / hop)); } return R; };
@@ -67,8 +68,8 @@ if (todo.length) {
 }
 if (rows.length) { fs.mkdirSync(NEW.replace(/\/[^/]+$/, ''), { recursive: true }); fs.writeFileSync(NEW, JSON.stringify({ ...fresh, ...Object.fromEntries(rows.map(r => [r.key, K[r.key] ?? 0])) })); }
 const keys = Object.keys(K).filter(k => lines.has(k)).sort(), good = keys.filter(k => K[k]), body = Object.fromEntries(keys.map(k => [k, K[k]]));
-fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64, "~n." = n nhóm "AAAA"; mốc "+…" = delta bước 5 ms – giải: LipSync.unpack] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
-  + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 3, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
+fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64, "~n." = n nhóm "AAAA"; mốc "*…" = delta bước 5 ms base36 – giải: LipSync.unpack] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
+  + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 4, k: body, dict: dictZ })}; })(typeof self !== 'undefined' ? self : this);\n`);
 const bad = rows.filter(r => !r.pass), md = [`## Mốc khớp miệng – ${good.length}/${lines.size} câu có mốc (${keys.length - good.length} trượt cổng → live) · lượt này ${rows.length} câu, trượt cổng ${bad.length}`, '',
   rows.length ? `lệch max ${Math.max(0, ...rows.filter(r => r.lagMs != null).map(r => Math.abs(r.lagMs)))} ms · đúng hình min ${Math.min(100, ...rows.filter(r => r.visemePct != null).map(r => r.visemePct))} % · nháy ${rows.reduce((a, r) => a + (r.flicker || 0), 0)}` : '',
   ...(bad.length ? ['', '| khóa | câu | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|', ...bad.map(r => `| ${r.key} | ${r.text.slice(0, 60)} | ${r.lagMs ?? r.err} | ${r.visemePct ?? ''} | ${r.flicker ?? ''} |`)] : [])].join('\n');

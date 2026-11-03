@@ -24,7 +24,13 @@
     return out;
   }
   let DICT = null; // { word: 'HH AH0 L OW1' } – nạp tùy chọn (CMUdict BSD, content/lexicon/cmudict-subset.txt)
-  const parseDict = txt => { const d = {}; for (const l of txt.split('\n')) { const m = /^([a-z']+) (.+)$/.exec(l); if (m && !d[m[1]]) d[m[1]] = m[2]; } return d; };
+  // từ điển gọn (cues.js v4, packDict): dòng đầu "#P:<âm vị cách nhau dấu cách>" = bảng tra, mỗi từ "word <1 ký tự/âm vị>" → giải về "AH0 B AW1 T" (không mất gì)
+  const DA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*+-/<=>@^_|~';
+  const parseDict = txt => { const d = {}, L = txt.split('\n'), T = L[0].startsWith('#P:') ? L.shift().slice(3).split(' ') : null;
+    for (const l of L) { const m = /^([a-z']+) (.+)$/.exec(l); if (m && !d[m[1]]) d[m[1]] = T ? [...m[2]].map(c => T[DA.indexOf(c)]).join(' ') : m[2]; } return d; };
+  /** Ngược của parseDict: "word PH ON" mỗi dòng → dạng gọn có bảng tra (call_cues.mjs). */
+  const packDict = txt => { if (txt.startsWith('#P:')) return txt; const L = txt.split('\n').filter(l => /^[a-z']/.test(l)), P = [...new Set(L.flatMap(l => l.split(' ').slice(1)))].sort(); if (P.length > DA.length) return txt;
+    return '#P:' + P.join(' ') + '\n' + L.map(l => { const [w, ...p] = l.split(' '); return w + ' ' + p.map(x => DA[P.indexOf(x)]).join(''); }).join('\n'); };
 
   /** Chữ → các đơn vị {v, w (trọng số thời lượng), wi (chỉ số từ), ci (vị trí ký tự)}; dấu câu → khoảng im có trọng số. */
   function units(text) {
@@ -174,16 +180,19 @@
     return rms => { if (rms > floor * 2.2) { on = true; quiet = 0; } else if (on && rms < floor * 1.4 && ++quiet > (o.hang ?? 4)) on = false; return on; };
   }
 
-  /** Giải 1 mục LK_CUES (cues.js, scripts/lipsync/call_cues.mjs): [ms, mốc, độ lớn tiếng] → { dur, cues, env }. Không mất gì:
-   *  mốc "X0 B120 …" (ms tuyệt đối) hoặc "+X0 B24 …" (+ = delta theo bước 5 ms) · độ lớn tiếng base64 8 bit, "~n." = n nhóm "AAAA" (đoạn im). */
+  /** Giải 1 mục LK_CUES (cues.js, scripts/lipsync/call_cues.mjs): [ms, mốc, độ lớn tiếng] → { dur, cues, env }. Không mất gì. Mốc:
+   *  "X0 B120 …" ms tuyệt đối · "+X0 B24 …" delta bước 5 ms · "*X0Bo…" delta bước 5 ms, số base36, không dấu cách (hình = chữ HOA, số = chữ thường/số).
+   *  Độ lớn tiếng: base64 8 bit, "~n." = n nhóm "AAAA" (đoạn im). */
   function unpack(e, b64 = s => Array.from(atob(s), ch => ch.charCodeAt(0))) {
-    const dur = e[0] / 1000, d = e[1][0] === '+', tk = (d ? e[1].slice(1) : e[1]).split(' ');
-    let t = 0; const cues = tk.map(x => { t = d ? t + 5 * x.slice(1) : +x.slice(1); return { value: x[0], start: t / 1000 }; });
+    const dur = e[0] / 1000, c = e[1], m = c[0], tk = m === '*' ? [...c.slice(1).matchAll(/([A-Z])([0-9a-z]+)/g)].map(x => [x[1], parseInt(x[2], 36)])
+      : (m === '+' ? c.slice(1) : c).split(' ').map(x => [x[0], +x.slice(1)]);
+    let t = 0; const cues = tk.map(([v, n]) => { t = m === '*' || m === '+' ? t + 5 * n : n; return { value: v, start: t / 1000 }; });
     cues.forEach((x, i) => { x.end = i < cues.length - 1 ? cues[i + 1].start : dur; });
     return { dur, cues, env: e[2] == null ? null : b64(e[2].replace(/~(\d+)\./g, (_, n) => 'AAAA'.repeat(+n))).map(v => v / 255) };
   }
-  /** Ngược của unpack cho phần mốc: ms tuyệt đối → delta bước 5 ms ("+…") khi mọi mốc chia hết cho 5 (còn lại giữ nguyên). Idempotent. */
-  const packCues = s => { if (s[0] === '+') return s; const tk = s.split(' '), ms = tk.map(x => +x.slice(1)); if (ms.some(m => m % 5)) return s; let p = 0; return '+' + tk.map((x, i) => { const r = x[0] + (ms[i] - p) / 5; p = ms[i]; return r; }).join(' '); };
-  const api = { unpack, packCues, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  /** Ngược của unpack cho phần mốc → dạng gọn nhất không mất: "*" (delta bước 5 ms, base36) khi mọi mốc chia hết cho 5; còn lại giữ ms tuyệt đối. Idempotent. */
+  const packCues = s => { if (s[0] === '*') return s; const q = unpack([0, s]).cues.map(x => [x.value, Math.round(x.start * 1000)]); if (q.some(([, ms]) => ms % 5)) return s[0] === '+' ? q.map(([v, ms]) => v + ms).join(' ') : s;
+    let p = 0; return '*' + q.map(([v, ms]) => { const r = v + ((ms - p) / 5).toString(36); p = ms; return r; }).join(''); };
+  const api = { unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);
