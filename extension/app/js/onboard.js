@@ -80,16 +80,33 @@
         <p class="small muted onb-free">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>`;
     };
     const canAcct = () => g.Sync && g.Sync.gBtn && g.Sync.can !== false && !state.user;
+    // 🎨 Bước có khung Stitch (brand/stitch/v2/bind/onb-<bước>.json, web/js/st/v2/onb-<bước>.js) → ST2.mount; bước chưa port giữ khung cũ bên dưới
+    const TPL = { comm: 'c4', ielts: 'c1', toeic: 'c2', toefl: 'c3', work: 'c2' };
+    const vsOf = (x, on) => (on && x.vs ? `<div class="trk-vs" role="group" aria-label="${esc(x.name)}">${x.vs.map(([k, nm]) => `<button type="button" data-tv="${k}" aria-pressed="${(pick.v[x.id] || x.vs[0][0]) === k}">${esc(nm)}</button>`).join('')}</div>` : '');
+    const v2 = (k, say) => {
+      const n = pick.step, S = g.ST2;
+      if (!S || !S.mount || !S['onb-' + k]) return false;
+      const K = TK(), meta = n === 0 ? `<div class="onb-meta px-5 max-w-xl mx-auto w-full">${canAcct() ? `<button type="button" class="onb-acct" id="setupIn">${t('Đã có tài khoản?')} <b>${t('Đăng nhập')}</b></button>` : '<span></span>'}${App.langPicker ? App.langPicker() : ''}</div>` : '';
+      const d = { step: n + 1, steps: STEPS.length, stepTxt: `${n + 1} / ${STEPS.length}`, pct: Math.round((n + 1) / STEPS.length * 100), progAria: t('Tiến độ'), meta, say,
+        kicker: g.Chars ? Chars.name('ama') : 'Kit', teacher: g.Chars ? Chars.img('ama', { kind: 'still', pose: pick.said === k ? 'cheer' : 'point', size: 120, alt: '', cls: 'w-full h-full object-contain object-bottom' }) : '' };
+      if (k === 'goal' && K) K.setupGoal(pick); // nạp CSS .trk-vs (chip biến thể) của tracks.js
+      if (k === 'goal') Object.assign(d, { q: t('Mục tiêu của bạn là gì?'), foot: t('Chọn 1 gói – có thể học thêm gói khác sau.'),
+        tracks: (K ? K.IDS : []).map(id => { const x = K.TR[id], on = id === pick.track; return { id, on, tpl: TPL[id] || 'c4', name: x.name, sub: x.benefit, badge: x.em, vs: vsOf(x, on) }; }) });
+      S.mount(view, 'onb-' + k, d, null);
+      // thẻ gói = div role=radio của mẫu → bàn phím Enter/Space như bấm
+      view.querySelectorAll('[role=radio][data-track]').forEach(c => c.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); } });
+      return true;
+    };
     const draw = () => {
       const n = pick.step, last = n === STEPS.length - 1, [mood, say] = kitLine();
-      view.innerHTML = `<div class="onb">
+      if (v2(STEPS[n], say)) { /* khung Stitch */ } else { document.body.classList.remove('st', 'v2on'); view.innerHTML = `<div class="onb">
         <div class="onb-top"><button type="button" class="onb-back" id="onbBack" aria-label="${esc(t('Quay lại'))}">${document.dir === 'rtl' ? '→' : '←'}</button>
           <div class="progress" role="progressbar" aria-label="${esc(t('Tiến độ'))}" aria-valuemin="1" aria-valuemax="${STEPS.length}" aria-valuenow="${n + 1}"><i style="width:${(n + 1) / STEPS.length * 100}%"></i></div></div>
         ${n === 0 ? `<div class="onb-meta">${canAcct() ? `<button type="button" class="onb-acct" id="setupIn">${t('Đã có tài khoản?')} <b>${t('Đăng nhập')}</b></button>` : '<span></span>'}${App.langPicker ? App.langPicker() : ''}</div>` : ''}
         <div class="onb-kit">${g.Kit ? Kit.svg(mood, 64) : ''}<div class="onb-say" role="status" aria-live="polite">${esc(say)}</div></div>
         <div class="onb-body" data-step="${STEPS[n]}">${body()}</div>
         <div class="onb-foot">${last ? `<button type="button" class="btn primary lg block" id="go">${pick.lv === 'test' ? '🧭 ' + t('Làm bài kiểm tra đầu vào') : t('Bắt đầu Ngày {n}', { n: 1 })} →</button>` : `<button type="button" class="btn primary lg block" id="obNext">${t('Tiếp tục')} →</button>`}</div>
-      </div>`;
+      </div>`; }
       $('#onbBack').onclick = () => { if (n) { pick.step--; pick.said = ''; draw(); } else location.hash = '#/welcome'; };
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; draw(); const q = $('#onbQ'); if (q) { q.tabIndex = -1; q.focus({ preventScroll: true }); } };
       const acct = $('#setupIn'); if (acct) { acct.onclick = e => { e.stopPropagation(); D.login(); }; if (login && !pick.shownLogin) { pick.shownLogin = 1; acct.classList.add('hl'); acct.focus(); } }

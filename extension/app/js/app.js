@@ -253,7 +253,7 @@
     nxs: ['js/i18n/en/nextstep.js', 'js/next-step.js'], league: ['js/league.js'], classroom: ['js/i18n/en/classroom.js', 'js/classroom.js'], // 🏫 Lớp học (giáo viên/học sinh)
     criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
     resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
-    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], onb: ['js/onboard.js'], // 🚀 thiết lập lần đầu từng bước (chuỗi ở en/pathx.js) // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
+    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], onb: ['js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/onb-goal.js', 'js/characters.js', 'js/onboard.js'], // 🚀 thiết lập lần đầu từng bước (chuỗi ở en/pathx.js) // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
     ota: ['js/i18n/en/ota.js', 'js/ota-key.js', 'js/ota.js'], // 🔄 cập nhật OTA + nhắc cập nhật app (chỉ app gốc, docs/OTA.md)
     remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
@@ -306,7 +306,7 @@
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
-  const BCSS = { say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
+  const BCSS = { onb: 'css/st-v2-onb-goal.css', say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
   const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || []).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
@@ -1278,8 +1278,8 @@
   // Bộ chọn ngôn ngữ giao diện: chỉ liệt kê ngôn ngữ đã dịch đầy đủ (tránh giao diện nửa nọ nửa kia)
   // ≤ 3 ngôn ngữ: nút bấm; nhiều hơn: danh sách thả xuống, tên ngôn ngữ viết bằng chính tiếng đó (Español, 日本語…)
   App.langPicker = () => I18N.SUPPORTED.length <= 3
-    ? `<div class="tabs" data-lang-pick style="display:inline-flex" translate="no">${I18N.SUPPORTED.map(l => `<button data-v="${l}" class="${I18N.lang() === l ? 'on' : ''}">${I18N.LANGS[l][1]}</button>`).join('')}</div>`
-    : `<select class="input lang-select" data-lang-select aria-label="Language" translate="no">${I18N.SUPPORTED.map(l => `<option value="${l}" ${I18N.lang() === l ? 'selected' : ''}>${I18N.LANGS[l][1]}</option>`).join('')}</select>`;
+    ? `<div class="tabs" data-lang-pick style="display:inline-flex" translate="no">${I18N.SUPPORTED.map(l => `<button data-v="${l}" lang="${l}" class="${I18N.lang() === l ? 'on' : ''}">${I18N.LANGS[l][1]}</button>`).join('')}</div>`
+    : `<select class="input lang-select" data-lang-select aria-label="Language" translate="no">${I18N.SUPPORTED.map(l => `<option value="${l}" lang="${l}" ${I18N.lang() === l ? 'selected' : ''}>${I18N.LANGS[l][1]}</option>`).join('')}</select>`;
   document.addEventListener('change', e => { if (e.target.matches && e.target.matches('[data-lang-select]') && e.target.value !== I18N.lang()) I18N.set(e.target.value); });
   document.addEventListener('click', e => { const b = e.target.closest('[data-lang-pick] [data-v]'); if (b && b.dataset.v !== I18N.lang()) I18N.set(b.dataset.v); });
   routes.welcome = function (step) {
