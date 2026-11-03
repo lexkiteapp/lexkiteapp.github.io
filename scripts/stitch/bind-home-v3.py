@@ -32,7 +32,7 @@ b['attr'][P(2, 1, 4, 1)] = {'href': 'd.start', 'data-cta': "'start'"}
 b['html'][P(2, 1, 4, 1, 1)] = 'e(d.hero.cta)'
 b['attr'][P(2, 1, 4, 2)] = {'href': 'd.store', 'target': "'_blank'", 'rel': "'noopener'", 'data-ext-cta': "'land'", 'hidden': "''"}
 key('Add to Chrome', 'Thêm vào Chrome')
-b['attr'][P(2, 1, 4, 3)] = {'href': 'd.appQ', 'data-get-app': "'hero'", 'data-web': 'd.appQ', 'hidden': "''"}
+b['attr'][P(2, 1, 4, 3)] = {'href': 'd.appQ', 'data-get-app': "'head'", 'hidden': "''"}
 b['text']['Get the app'] = 'd.getAppL'
 # dòng liên kết phụ dưới CTA: "Tôi đã có tài khoản" (chữ mẫu) + kiểm tra trình độ (giữ lối vào cũ) – cùng khuôn liên kết của mẫu
 b['repeat'].append({'list': 'd.heroLinks', 'as': 'k', 'sel': P(2, 1, 5, 1), 'samples': P(2, 1, 5) + ' > a', 'attr': {':scope': {'href': 'k[0]'}}, 'html': {':scope': 'e(k[1])'}})
