@@ -393,7 +393,9 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .u-plats { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .45rem; }
 .u-dlg { width: min(720px, calc(100vw - 32px)); max-height: calc(100vh - 48px); overflow-y: auto; border-radius: 16px; box-shadow: var(--shadow-lg); }
 /* Người dùng v2 (js/admin-users.js): chọn hàng loạt, thanh thao tác nổi, ngăn chi tiết trượt phải, biểu đồ nhóm */
-.u-drawer[open] { margin: 0 0 0 auto; width: min(560px, 100vw); height: 100dvh; max-height: 100dvh; border-radius: 16px 0 0 16px; animation: u-slide .22s ease-out; }
+.u-drawer[open] { margin: 0 0 0 auto; width: min(440px, 100vw); height: 100dvh; max-height: 100dvh; border-radius: 16px 0 0 16px; animation: u-slide .22s ease-out; }
+.u-drawer::backdrop { background: rgba(28, 22, 18, .45); } /* Stitch adm-users2-drawer: nền mờ, bảng phía sau giữ nguyên */
+.u-drawer .u-act-bar { position: sticky; bottom: -1px; z-index: 1; background: var(--surface); border-top: 1px solid var(--line); padding: .7rem 0; margin-top: 1rem; } /* nút nguy hiểm ghim ở đáy ngăn */
 @keyframes u-slide { from { transform: translateX(24px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .u-drawer[open] { animation: none; } }
 .u-tl { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
