@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { serve } from '../quality/serve.mjs';
+import { HUBS, FIXED } from './lib/learn-samples.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/exit-sweep')), THEMES = arg('themes', 'light,dark').split(',');
@@ -24,14 +25,11 @@ const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gestur
 const fails = [], rows = [];
 const fail = (where, msg) => { fails.push(`${where}: ${msg}`); console.log('✗', where, msg); };
 
-// Bài cụ thể cho route cần tham số: link đầu tiên tới #/<route>/… tìm ở các trang trung tâm này
-const HUBS = { listen: ['listening'], dictation: ['listening'], 'listen-test': ['listening', 'tests'], read: ['reading'], 'toeic-r': ['toeic'], 'toeic-test': ['toeic', 'tests'], 'toeic-sw': ['toeic'], 'toefl-p': ['toefl'], practice: ['practice', 'train', 'home'], grammar: ['grammar'], task1: ['task1', 'skills'], write: ['write', 'skills'], speaking: ['speaking', 'skills'], roleplay: ['roleplay', 'skills'], mock: ['mock', 'tests'], letters: ['letters', 'skills'], pron: ['pron', 'skills'] };
-const FIXED = { lesson: '/lesson/go?demo=1', mock: '/mock/run?s=reading&r=1&l=1' }; // mock: nút Bắt đầu dựng link bằng JS
 
 const ctxOf = async (theme, flag = true) => {
   const ctx = await browser.newContext({ ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
-  await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th.th })); if (th.flag) localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, { th: theme, flag });
+  await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th.th })); localStorage.setItem('lk.exitbar', th.flag ? '1' : '0'); } catch { /* */ } }, { th: theme, flag });
   return ctx;
 };
 const ready = page => page.waitForFunction(() => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));

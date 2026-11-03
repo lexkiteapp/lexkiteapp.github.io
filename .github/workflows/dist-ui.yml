@@ -41,3 +41,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with: { name: admin-ads-shots-fixture, path: out/admin-ads, retention-days: 7 }
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: ads-qc-shots, path: out/ads-qc, retention-days: 14 }

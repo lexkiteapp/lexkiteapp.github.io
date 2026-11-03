@@ -8,6 +8,9 @@ on:
     paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs']
 permissions:
   contents: read
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   lh:
     runs-on: ubuntu-latest
