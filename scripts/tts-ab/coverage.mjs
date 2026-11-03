@@ -26,15 +26,13 @@ const hf = words.filter(w => have.has(lineKey('bf_emma', w))).length; R.handsfre
 // 4) Kho câu dựng sẵn (listening IELTS/TOEIC/TOEFL, mock, reading, speaking, call, stories…) – collect() là mẫu số
 const { jobs } = collect(); let jh = 0, jf = 0; for (const [k] of jobs) { if (have.has(k)) jh++; if (fail.has(k)) jf++; }
 R.corpus = { total: jobs.size, prebuilt: pct(jh, jobs.size), asr_fail_kept_old: pct(jf, jobs.size), s2_rerendered: s2.size };
-// 5) Chỗ phát KHÔNG có trong kho dựng sẵn (theo mã – web/js/ui.js UI.tts): luôn rơi về speechSynthesis / TTS máy
-R.device_only = ['mock Part 2 (tiền tố "Now I\'d like you to talk about…" không có khóa → quy tắc mọi-câu-con)', 'toeic.js speaking prompts', 'phrases.js', 'pron.js + pron/rhythm.js + pron/sayit.js câu',
-  'speak/app.js tình huống SPK', 'confidence.js, criteria.js, settings.js thử giọng, grammar.js câu ví dụ', 'roleplay.js câu trả lời AI (động)',
-  'nghĩa tiếng Việt ở rảnh tay (vi-VN)', 'add-on content.js + popup.js (tra từ trên trang)', 'listening.js Player: không có TTS gốc của máy, đi thẳng speechSynthesis'];
+// 5) Phần đọc động (không có trong kho dựng sẵn → engine đọc động / giọng máy): khai báo theo chỗ gọi, có cổng npm test (scripts/audio/tts-sites.json)
+R.device_only = Object.entries(JSON.parse(fs.readFileSync('scripts/audio/tts-sites.json', 'utf8')).sites).filter(([, x]) => x.dynamic).map(([f, x]) => `${f}: ${x.dynamic}`);
 fs.mkdirSync(OUT.replace(/\/[^/]+$/, ''), { recursive: true }); fs.writeFileSync(OUT, JSON.stringify(R, null, 1));
 const L = ['## Độ phủ giọng dựng sẵn (Kokoro, audio.lexkite.com)', '| chỗ phát | tổng | có file dựng sẵn |', '|---|---|---|',
   `| Từ đơn (audio/w) | ${R.words.total} | Mỹ ${R.words.us_af_heart}% · Anh ${R.words.uk_bf_emma}% |`,
   `| Câu ví dụ (audio/l) | ${R.examples.total} | Mỹ ${R.examples.us_af_heart}% · Anh ${R.examples.uk_bf_emma}% |`,
   `| Rảnh tay – từ (audio/l bf_emma) | ${R.handsfree_word.total} | ${R.handsfree_word.bf_emma}% |`,
   `| Kho câu (listening, mock, reading, speaking, call, stories) | ${R.corpus.total} | ${R.corpus.prebuilt}% (trượt ASR giữ bản cũ ${R.corpus.asr_fail_kept_old}%) |`,
-  '', '**Luôn dùng giọng máy (speechSynthesis), 0 % dựng sẵn:**', ...R.device_only.map(x => '- ' + x)];
+  '', '**Phần đọc động (chưa dựng sẵn được – engine đọc động, cuối cùng giọng máy):**', ...R.device_only.map(x => '- ' + x)];
 console.log(L.join('\n')); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, L.join('\n') + '\n');
