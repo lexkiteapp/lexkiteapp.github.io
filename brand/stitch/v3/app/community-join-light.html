@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join community - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: "#10191B",
+              card: "#172427",
+              raised: "#1E2F33",
+              border: "#26393E",
+              text: "#E8F1F0",
+              secondary: "#A9BDBB",
+              teal: "#2DD4BF",
+              tealLight: "#5EEAD4",
+              coral: "#FF5C38",
+              coralHover: "#ff6c4a"
+            }
+          },
+          borderRadius: {
+            "card": "18px",
+            "btn": "16px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile coral CTA button */
+    .btn-tactile-coral {
+      background: linear-gradient(180deg, #FF6F4E 0%, #FF5C38 100%);
+      box-shadow: 0 4px 0 #9E2F16;
+      transition: all 0.1s ease;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #9E2F16;
+    }
+  </style>
+</head>
+<body class="bg-[#f5f3ee] text-[#114b47] font-body antialiased flex justify-center selection:bg-[#2DD4BF] selection:text-[#10191B] min-h-screen">
+<!-- Mobile Portrait Container (390px fixed canvas width) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#f5f3ee] flex flex-col pb-28 relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 h-14 px-4 flex items-center justify-between bg-[#f5f3ee]/95 backdrop-blur-md border-b border-[#d5deda] max-w-[390px] mx-auto">
+<div class="flex items-center space-x-2">
+<button aria-label="Go back" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-[#e7f0ee] text-[#114b47] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-[17px] font-bold text-[#114b47] tracking-tight">Join community</h1>
+</div>
+<!-- Right Badge: Lexkite Trust Lock -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6f4f2] border border-[#9bd1cb]"><span class="material-symbols-outlined text-[15px] text-[#0f514b]" data-icon="verified_user">verified_user</span><span class="text-[11px] font-headline font-extrabold text-[#0f514b] tracking-wider">VERIFIED</span></div>
+</header>
+<!-- Content Spacer for Fixed 56px Header -->
+<div class="h-14 w-full shrink-0"></div>
+<!-- Main Scrollable Body Content -->
+<div class="px-4 pt-4 flex flex-col gap-4">
+<!-- Section 1: Teacher Slot & Speech Bubble Prompt -->
+<section class="flex items-start gap-3 pt-1"><div class="flex flex-col items-center shrink-0 w-20"><div class="w-16 h-16 rounded-2xl border-2 border-dashed border-[#0d9488]/50 bg-[#ffffff] shadow-sm flex flex-col items-center justify-center text-center p-1 relative"><span class="material-symbols-outlined text-[#0f514b] text-2xl" data-icon="school">school</span><span class="text-[9px] font-headline font-extrabold tracking-wider text-[#0f514b] leading-none mt-1">[TEACHER]</span></div><span class="text-[9.5px] font-bold text-[#335c59] uppercase tracking-wider text-center mt-1.5 leading-tight">AMA &amp; CARLOS</span></div><div class="relative bg-[#ffffff] border border-[#d5deda] rounded-2xl p-3.5 flex-1 shadow-sm"><div class="absolute -left-2 top-4 w-3.5 h-3.5 bg-[#ffffff] border-l border-b border-[#d5deda] transform rotate-45"></div><p class="font-headline font-bold text-sm text-[#114b47] leading-snug">A safe place to practise together</p><p class="text-xs text-[#335c59] font-medium mt-1 leading-relaxed">Read our community standards and set your safety controls before diving in.</p></div></section>
+<!-- Section 2: Community Standards Card (4 RULES) -->
+<section class="bg-[#ffffff] border border-[#d5deda] rounded-[18px] p-4 flex flex-col gap-3.5 shadow-sm"><div class="flex items-center justify-between border-b border-[#e2ebe8] pb-3"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#b45309] text-xl" data-icon="gavel">gavel</span><h2 class="font-headline font-bold text-[15px] tracking-wide text-[#114b47]">Community standards</h2></div><span class="text-[11px] font-headline font-extrabold text-[#0f514b] px-2 py-0.5 rounded-md bg-[#e6f4f2] border border-[#9bd1cb] tracking-wide">4 RULES</span></div><div class="flex flex-col divide-y divide-[#e2ebe8] gap-3 [&amp;&gt;div:not(:first-child)]:pt-3"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-xl bg-[#f0f7f5] border border-[#d5deda] flex items-center justify-center shrink-0 text-[#0f514b]"><span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span></div><div class="flex-1 min-w-0"><h3 class="font-headline font-bold text-sm text-[#114b47] leading-tight">Be kind and patient</h3><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Encourage peers making mistakes; feedback is constructive.</p></div></div><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-xl bg-[#fef9c3] border border-[#fef08a] flex items-center justify-center shrink-0 text-[#a16207]"><span class="material-symbols-outlined text-xl" data-icon="groups">groups</span></div><div class="flex-1 min-w-0"><h3 class="font-headline font-bold text-sm text-[#114b47] leading-tight">English practice only – no dating or selling</h3><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Dedicated strictly to IELTS, TOEIC &amp; academic drills.</p></div></div><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-xl bg-[#f0f7f5] border border-[#d5deda] flex items-center justify-center shrink-0 text-[#0f514b]"><span class="material-symbols-outlined text-xl" data-icon="shield">shield</span></div><div class="flex-1 min-w-0"><h3 class="font-headline font-bold text-sm text-[#114b47] leading-tight">Never share phone, email or social handles</h3><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Protect your personal identity; keep discussions inside Lexkite.</p></div></div><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-xl bg-[#ffedea] border border-[#ffdad2] flex items-center justify-center shrink-0 text-[#b52705]"><span class="material-symbols-outlined text-xl" data-icon="flag">flag</span></div><div class="flex-1 min-w-0"><h3 class="font-headline font-bold text-sm text-[#114b47] leading-tight">Report or block anytime – we review fast</h3><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Our moderation team responds within minutes to keep rooms safe.</p></div></div></div></section>
+<!-- Section 3: Your Public Profile Card -->
+<section class="bg-[#ffffff] border border-[#d5deda] rounded-[18px] p-4 flex flex-col gap-4 shadow-sm"><div class="flex items-center justify-between"><h2 class="font-headline font-bold text-[16px] text-[#114b47]">Your public profile</h2><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#e6f4f2] border border-[#9bd1cb] text-[#0f514b] text-[11px] font-headline font-bold"><span class="material-symbols-outlined text-[13px]" data-icon="lock">lock</span>Privacy first</span></div><div class="flex flex-col gap-1.5"><label class="text-xs font-headline font-semibold text-[#335c59]" for="nickname-input">Display name (nickname, not real name)</label><div class="relative flex items-center"><input class="w-full h-12 bg-[#f8faf8] border border-[#d5deda] rounded-xl px-3.5 pr-11 text-sm font-headline font-bold text-[#114b47] placeholder:text-[#335c59]/60 focus:outline-none focus:border-[#0d9488] transition-colors" id="nickname-input" placeholder="Pick a study nickname" type="text" value="AlexLearner"/><div class="absolute right-3.5 flex items-center text-[#0d9488] pointer-events-none"><span class="material-symbols-outlined filled text-xl" data-icon="check_circle">check_circle</span></div></div><p class="text-[11px] font-medium text-[#335c59] flex items-center gap-1 mt-0.5"><span class="material-symbols-outlined text-xs" data-icon="visibility_off">visibility_off</span>Your real identity stays private</p></div><div class="flex flex-col gap-2.5 pt-2 border-t border-[#e2ebe8]"><span class="text-xs font-headline font-semibold text-[#335c59]">Study avatar color</span><div class="flex items-center gap-2.5"><div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#2DD4BF] text-[#114b47] font-headline font-black text-lg flex items-center justify-center shrink-0 transition-colors shadow-sm" id="avatar-preview">A</div><div aria-label="Avatar color selection" class="flex items-center gap-2 flex-wrap" role="radiogroup"><button aria-label="Teal swatch" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#2DD4BF] flex items-center justify-center ring-2 ring-[#0d9488] ring-offset-2 ring-offset-[#ffffff] transition-all" onclick="selectColor(this, '#2DD4BF', '#114b47')" type="button"><span class="material-symbols-outlined text-[#114b47] text-lg font-bold" data-icon="check">check</span></button><button aria-label="Yellow swatch" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#EAB308] border border-[#d5deda] flex items-center justify-center hover:scale-105 transition-all" onclick="selectColor(this, '#EAB308', '#114b47')" type="button"></button><button aria-label="Coral swatch" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#FF5C38] border border-[#d5deda] flex items-center justify-center hover:scale-105 transition-all" onclick="selectColor(this, '#FF5C38', '#FFFFFF')" type="button"></button><button aria-label="Purple swatch" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#6366F1] border border-[#d5deda] flex items-center justify-center hover:scale-105 transition-all" onclick="selectColor(this, '#6366F1', '#FFFFFF')" type="button"></button><button aria-label="Emerald swatch" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#0D9488] border border-[#d5deda] flex items-center justify-center hover:scale-105 transition-all" onclick="selectColor(this, '#0D9488', '#FFFFFF')" type="button"></button></div></div></div><div class="flex flex-col divide-y divide-[#e2ebe8] pt-1 border-t border-[#e2ebe8]"><div class="flex items-center justify-between gap-3 py-2.5 min-h-[48px]"><div class="flex-1 min-w-0 pr-1"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-headline font-bold text-sm text-[#114b47]">Show my level</span><span class="text-[10px] font-headline font-extrabold px-1.5 py-0.5 rounded bg-[#fef9c3] text-[#a16207] border border-[#fef08a]">B2 / IELTS 6.5</span></div><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Visible to peer study partners</p></div><button aria-checked="true" class="w-12 h-7 min-w-[48px] min-h-[44px] flex items-center justify-end px-1 bg-[#0d9488] rounded-full transition-colors duration-150 focus:outline-none" onclick="toggleSwitch(this)" role="switch" type="button"><div class="w-6 h-6 rounded-full bg-[#ffffff] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[15px] font-bold text-[#0d9488]" data-icon="check">check</span></div></button></div><div class="flex items-center justify-between gap-3 py-2.5 min-h-[48px]"><div class="flex-1 min-w-0 pr-1"><span class="font-headline font-bold text-sm text-[#114b47] block">Allow voice rooms</span><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Join 5-minute spoken English breakout pods</p></div><button aria-checked="true" class="w-12 h-7 min-w-[48px] min-h-[44px] flex items-center justify-end px-1 bg-[#0d9488] rounded-full transition-colors duration-150 focus:outline-none" onclick="toggleSwitch(this)" role="switch" type="button"><div class="w-6 h-6 rounded-full bg-[#ffffff] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[15px] font-bold text-[#0d9488]" data-icon="check">check</span></div></button></div><div class="flex items-center justify-between gap-3 py-2.5 min-h-[48px]"><div class="flex-1 min-w-0 pr-1"><div class="flex items-center gap-1.5"><span class="font-headline font-bold text-sm text-[#114b47]">Allow direct messages</span><span class="text-[10px] font-headline font-extrabold px-1.5 py-0.5 rounded bg-[#e7f0ee] text-[#335c59] border border-[#d5deda]">OFF</span></div><p class="text-xs text-[#335c59] mt-0.5 leading-snug">Only permitted in group practice rooms</p></div><button aria-checked="false" class="w-12 h-7 min-w-[48px] min-h-[44px] flex items-center justify-start px-1 bg-[#e7f0ee] border border-[#d5deda] rounded-full transition-colors duration-150 focus:outline-none" onclick="toggleSwitch(this)" role="switch" type="button"><div class="w-6 h-6 rounded-full bg-[#ffffff] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[14px] text-[#335c59]" data-icon="close">close</span></div></button></div></div></section>
+<!-- Section 4: Safety / Age Notice Callout Card -->
+<section class="rounded-[16px] border border-[#d5deda] bg-[#ffffff] p-3.5 flex items-start gap-3 shadow-sm"><div class="w-9 h-9 rounded-xl bg-[#e6f4f2] flex items-center justify-center shrink-0 text-[#0f514b] border border-[#9bd1cb]"><span class="material-symbols-outlined text-lg" data-icon="shield">shield</span></div><p class="text-xs text-[#114b47] font-normal leading-relaxed"><strong class="font-bold text-[#0f514b]">Age requirement:</strong> Ages 13–17 join teen rooms only: no direct messages, voice only with other teens. Under 13: not available.</p></section>
+</div>
+<!-- Section 5: Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-[#f5f3ee]/95 backdrop-blur-md border-t border-[#d5deda] px-4 py-3 max-w-[390px] mx-auto"><button class="btn-tactile-coral w-full min-h-[50px] px-6 rounded-btn flex items-center justify-center gap-2 text-white font-headline font-bold text-[15px] tracking-wide" type="button"><span>I agree, let's go</span><span class="material-symbols-outlined text-lg font-bold" data-icon="arrow_forward">arrow_forward</span></button><p class="text-center text-[11px] text-[#335c59] font-medium mt-2">By continuing you abide by the Lexkite Code of Conduct.</p></div>
+</main>
+<script>
+  // Color Swatch Selection Interactive Logic
+  function selectColor(buttonElement, color, textColor) {
+    const swatches = buttonElement.parentElement.querySelectorAll('button');
+    swatches.forEach(s => {
+      s.className = 'w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-[#26393E] flex items-center justify-center hover:scale-105 transition-all';
+      s.innerHTML = '';
+      if (s === buttonElement) {
+        s.style.backgroundColor = color;
+      }
+    });
+
+    buttonElement.className = 'w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center ring-2 ring-[#5EEAD4] ring-offset-2 ring-offset-[#172427] transition-all';
+    buttonElement.style.backgroundColor = color;
+    buttonElement.innerHTML = `<span class="material-symbols-outlined text-lg font-bold" data-icon="check" style="color:${textColor}">check</span>`;
+
+    const preview = document.getElementById('avatar-preview');
+    if (preview) {
+      preview.style.backgroundColor = color;
+      preview.style.color = textColor;
+    }
+  }
+
+  // Toggle Switch Interactive Logic
+  function toggleSwitch(btn) {
+    const isChecked = btn.getAttribute('aria-checked') === 'true';
+    const newState = !isChecked;
+    btn.setAttribute('aria-checked', String(newState));
+
+    const thumb = btn.querySelector('div');
+    const icon = thumb.querySelector('.material-symbols-outlined');
+
+    if (newState) {
+      btn.className = 'w-12 h-7 min-w-[48px] min-h-[44px] flex items-center justify-end px-1 bg-[#2DD4BF] rounded-full transition-colors duration-150 focus:outline-none';
+      thumb.className = 'w-6 h-6 rounded-full bg-[#10191B] flex items-center justify-center shadow-sm';
+      icon.innerText = 'check';
+      icon.className = 'material-symbols-outlined text-[15px] font-bold text-[#2DD4BF]';
+    } else {
+      btn.className = 'w-12 h-7 min-w-[48px] min-h-[44px] flex items-center justify-start px-1 bg-[#1E2F33] border border-[#26393E] rounded-full transition-colors duration-150 focus:outline-none';
+      thumb.className = 'w-6 h-6 rounded-full bg-[#26393E] flex items-center justify-center shadow-sm';
+      icon.innerText = 'close';
+      icon.className = 'material-symbols-outlined text-[14px] text-[#A9BDBB]';
+    }
+  }
+</script>
+</body></html>

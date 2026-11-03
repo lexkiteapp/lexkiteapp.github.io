@@ -37,7 +37,12 @@ export const THEME_HEAD = `<script data-lkt>function lkT(){try{var s=localStorag
 export const THEME_COLOR = { light: TKALL.light['--bg'], dark: TKALL.dark['--bg'] };
 export const THEME_META = `<meta name="theme-color" media="(prefers-color-scheme:light)" content="${THEME_COLOR.light}"><meta name="theme-color" media="(prefers-color-scheme:dark)" content="${THEME_COLOR.dark}">`;
 // Chỉ phần <head> (chống nháy + theme-color), không đụng CSS – dùng cho trang tĩnh (qua themePage) và app web/app/index.html (build-landing.mjs)
-export const themeHead = html => {
+// Quyền nội dung (docs/CONTENT-PROTECTION.md §8): từ chối khai thác văn bản/dữ liệu (TDMRep W3C, EU DSM Điều 4).
+// Không có "noindex"/"nofollow" → Googlebot/Bingbot lập chỉ mục như cũ. Chèn 1 lần (idempotent) ngay sau chống nháy.
+export const IP_META = '<meta name="tdm-reservation" content="1">'; // © hiển thị ở chân mọi trang (siteFooter, app) – không thêm meta copyright (trang giới thiệu sát ngân sách gzip)
+const ipMeta = html => html.includes('name="tdm-reservation"') ? html : html.replace(/(<meta name="theme-color"[^>]*>(?:\s*<meta name="theme-color"[^>]*>)*)/i, x => x + IP_META);
+export const themeHead = html => ipMeta(themeHead0(html));
+const themeHead0 = html => {
   const meta = /<meta name="theme-color"/i.test(html); // trang chưa có theme-color → thêm ngay sau chống nháy
   html = html.replace(/<meta name="theme-color"[^>]*>(?:\s*<meta name="theme-color"[^>]*>)*/i, () => THEME_META);
   const H = meta ? THEME_HEAD : THEME_HEAD + THEME_META;
@@ -51,7 +56,7 @@ const TSW_KEYS = ['Giao diện theo hệ thống', 'Giao diện sáng', 'Giao di
 export const themeLabels = lang => {
   if (TSW_L[lang]) return TSW_L[lang];
   let D = {};
-  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(rdWeb(`js/i18n/${lang}.js`), { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
+  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(lang === 'en' ? rdWeb('js/i18n/en.js') : fs.readFileSync(new URL(`../../i18n/ui/${lang}.js`, import.meta.url), 'utf8'), /* nguồn khóa nguyên câu – web/js/i18n/<lang>.js là gói khóa băm */ { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
   const out = TSW_KEYS.map(k => lang === 'vi' ? k : D[k]);
   if (out.some(x => !x)) return (TSW_L[lang] = lang in LANG_NAMES && lang !== 'en' ? themeLabels('en') : out.map((x, i) => x || TSW_KEYS[i]));
   return (TSW_L[lang] = out);

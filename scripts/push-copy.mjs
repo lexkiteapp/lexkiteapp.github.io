@@ -8,7 +8,7 @@ const GROUP = { fixed: 'report' }; // còn lại: nhóm "remind"
 const LANGS = ['en', ...fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'))];
 const load = f => { const c = { self: {}, I18N_DICT: {} }; c.self = c; vm.runInNewContext(fs.readFileSync(f, 'utf8'), c); return Object.values(c.I18N_DICT)[0] || {}; };
 const out = { vi: Object.fromEntries(Object.entries(KEYS).map(([k, [t, b]]) => [k, [t, b]])) };
-const dicts = {}, dict = (l, g) => (dicts[l + g] = dicts[l + g] || load(`web/js/i18n/${l}/${g}.js`));
+const dicts = {}, dict = (l, g) => (dicts[l + g] = dicts[l + g] || load(l === 'en' ? `web/js/i18n/en/${g}.js` : `i18n/ui/${l}/${g}.js`));
 for (const l of LANGS) out[l] = Object.fromEntries(Object.entries(KEYS).map(([k, ks]) => { const g = GROUP[k] || 'remind'; return [k, ks.map(x => dict(l, g)[x] || dict('en', g)[x])]; }));
 for (const [l, v] of Object.entries(out)) for (const [k, a] of Object.entries(v)) if (!a[0] || !a[1] || (l !== 'vi' && /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđ]/i.test(a.join(' ')))) { console.error(`✗ push-copy: ${l}.${k} thiếu hoặc lẫn tiếng Việt`); process.exit(1); }
 const txt = JSON.stringify(out, null, 1) + '\n', F = 'workers/push/copy.json';
