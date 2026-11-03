@@ -23,7 +23,7 @@ for (const [f, n] of Object.entries(raw)) {
 }
 for (const [f, k] of Object.entries(KNOWN)) if ((raw[f] || 0) < k) err.push(`${f}: còn ${raw[f] || 0} < ${k} trong teacher-native.known.json – hạ số trong danh sách (chỉ được giảm)`);
 const sl = fs.readFileSync(path.join(ROOT, 'web/js/teacher-slot.js'), 'utf8');
-if (!/clip-path:inset\(-60% -60% 0 -60%\)/.test(sl) || !/tslot-ledge/.test(sl)) err.push('teacher-slot.js: thiếu khung cắt đáy hoặc bệ che hông (vệt cắt sẽ lộ)');
+if (!/\.tslot-fig\{[^}]*bottom:0;overflow:hidden/.test(sl) || /clip-path|mask-image/.test(sl) || !/tslot-ledge/.test(sl)) err.push('teacher-slot.js: thiếu khung cắt đáy (overflow, không clip-path/mask – final-qc coi mặt nạ là dán) hoặc bệ che hông (vệt cắt sẽ lộ)');
 if (!/prefers-reduced-motion:no-preference/.test(sl)) err.push('teacher-slot.js: chuyển động phải nằm trong prefers-reduced-motion:no-preference');
 const idx = fs.readFileSync(path.join(ROOT, 'web/app/index.html'), 'utf8');
 if (!(idx.indexOf('js/characters.js') > 0 && idx.indexOf('js/teacher-slot.js') > idx.indexOf('js/characters.js'))) err.push('web/app/index.html: teacher-slot.js phải nạp ngay sau characters.js');
