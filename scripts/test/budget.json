@@ -1,8 +1,10 @@
 {
   "_note": "Ngân sách dung lượng (byte). Chỉ nâng khi có lý do rõ trong commit; contentWarn tự hạ khi nội dung tốt lên. Xem docs/CONTENT-RULES.md",
-  "shellGz": 386048,
-  "fileGz": 163840,
-  "_shellNote": "28/10: trần giữ 386048 (377 KB); khung 375→355 KB (Node 26) – 529 khóa i18n chỉ module tải lười dùng chuyển en.js → en/lazyui.js (gói i18nl). Báo cáo từng module: scripts/test/shell-size.mjs. 23/10 (P2-1.2): 386560→386048 (377 KB) – trả lại trần cũ: chế độ Gõ/Nghe ôn tập + thẻ \"Câu của bạn\" (render ctx P2-1.1) chuyển sang study-modes.js tải lười (App.need('rmodes')); study.js gọn hơn (~550 B gz). Trước: 386048→386560 (+512 B) – P2-1.1 móc ctx/src trong core.js + ctxOf.",
+  "shellGz": 382976,
+  "fileGz": 162656,
+  "landingGz": 16265,
+  "_gzNote": "01/11: fileGz 163840 → 162656, landingGz 16384 → 16265 – cùng hệ số quy đổi sang gzip chuẩn (382345/385126, làm tròn xuống) như shellGz: thước mới không được lỏng hơn thước cũ.",
+  "_shellNote": "01/11: trần 386048 → 382976 (377 → 374 KB) – KHÔNG nới: đổi thước sang gzip chuẩn (pako = zlib gốc, scripts/lib/gz-canon.mjs) vì zlib của Node chính thức (CI) nén kém hơn zlib gốc ~0,72% và lệch theo bản dựng/CPU (cùng mã: CI 385126 B, chuẩn 382345 B); 386048 × 382345/385126 = 383260 → làm tròn XUỐNG 374 KB. Khung nay đếm cả script/CSS nạp ngay trong web/app/index.html (report-pill.js, css/tactile.css, +6 KB) và bỏ league.js nạp thừa. Tạo chỗ trống thật: trang Bài mẫu/Sổ cụm từ → phrases-model.js, trang Từ điển → dict-page.js (tải lười), khóa i18n chỉ trang lười dùng → en/lazyui.js; khóa test scripts/test/shell-lazy.mjs. 28/10: trần giữ 386048 (377 KB); khung 375→355 KB (Node 26) – 529 khóa i18n chỉ module tải lười dùng chuyển en.js → en/lazyui.js (gói i18nl). Báo cáo từng module: scripts/test/shell-size.mjs. 23/10 (P2-1.2): 386560→386048 (377 KB) – trả lại trần cũ: chế độ Gõ/Nghe ôn tập + thẻ \"Câu của bạn\" (render ctx P2-1.1) chuyển sang study-modes.js tải lười (App.need('rmodes')); study.js gọn hơn (~550 B gz). Trước: 386048→386560 (+512 B) – P2-1.1 móc ctx/src trong core.js + ctxOf.",
   "allowBig": [],
   "totalJs": 19970000,
   "contentWarn": 15,

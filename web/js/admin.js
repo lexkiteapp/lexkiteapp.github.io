@@ -96,6 +96,7 @@
     'Tăng trưởng': 'Growth', 'Khách mới & khách quay lại theo ngày': 'New vs. returning visitors per day', 'Tài khoản đăng ký mới': 'New sign-ups', 'Chưa có đăng ký mới trong khoảng này': 'No new sign-ups in this range',
     'Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật: loại bot, máy chủ đám mây (CI GitHub, máy ảo Android/iOS), header CI, chế độ sandbox và tài khoản quản trị. "Hôm nay" theo giờ Việt Nam (UTC+7).': 'Self-hosted anonymous analytics: no cookies, no stored IPs; country comes from Cloudflare. Humans only: bots, cloud servers (GitHub CI, Android/iOS emulators), the CI header, sandbox mode and admin accounts are excluded. "Today" is Vietnam time (UTC+7).',
     'Đã loại trong khoảng này: {n} phiên.': 'Excluded in this period: {n} sessions.', 'Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)': 'Automation/bots & admin today: {n} sessions (excluded)', 'Ngày theo giờ Việt Nam (UTC+7)': 'Days in Vietnam time (UTC+7)',
+    '{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)': ['{n} late session: held by the browser while /api was down, then re-sent (counted on its original day)', '{n} late sessions: held by browsers while /api was down, then re-sent (counted on their original day)'],
     'CI của mình': 'Our CI', 'App trên máy ảo CI': 'App on CI emulator', 'Bot/công cụ (UA)': 'Bot/tool (UA)', 'Bot đã xác minh': 'Verified bot', 'Máy chủ đám mây': 'Cloud server', 'Không rõ': 'Unknown',
     // Người dùng
     'Xóa vĩnh viễn dữ liệu đồng bộ?': 'Permanently delete synced data?', 'Xóa toàn bộ dữ liệu đồng bộ của {e}. Tài khoản Google không bị ảnh hưởng. Không thể hoàn tác.': 'This deletes all synced data of {e}. The Google account is not affected. This cannot be undone.',
@@ -682,7 +683,7 @@
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
-    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>`;
+    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
   };
   const liveCard = l => {
     const t = l.today || {}, tot = l.total || {};

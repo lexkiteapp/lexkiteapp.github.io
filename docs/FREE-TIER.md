@@ -1,6 +1,6 @@
 # FREE-TIER – giữ hệ thống ở 0 đồng khi traffic tăng (SEO hạng mục 6)
 
-> TL;DR: `free-tier-guard.yml` đo số dùng thật mỗi ngày so với trần gói miễn phí; ≥ 60 % cảnh báo, ≥ 80 % mở issue `free-tier`; Worker có chế độ "shed" khi lượt gần trần. Không bao giờ tự nâng gói.
+> TL;DR: `free-tier-guard.yml` đo số dùng thật mỗi ngày (đủ mục) + MỖI GIỜ (lượt Workers+Functions hôm nay, ngoại suy) so với trần gói miễn phí; ≥ 60 % cảnh báo, ≥ 80 % mở issue `free-tier`; Worker có chế độ "shed" khi lượt gần trần. Không bao giờ tự nâng gói.
 > Đọc khi: thêm Worker/trang tự sinh/việc nền, hoặc khi có issue `free-tier`. Chi phí D1 theo người dùng: docs/CAPACITY.md.
 
 ## 1. Trần gói miễn phí đang theo dõi (`scripts/free-tier/limits.mjs`)
@@ -25,12 +25,20 @@
 - ≥ 60 % → `::warning` + bảng Summary. ≥ 80 % → issue nhãn `free-tier` (cập nhật nội dung + 1 bình luận/ngày); hết nguy cơ → tự bình luận và đóng.
 - Thiếu khoá → bỏ qua trung tính phần đó (xanh + ghi chú). Có khoá mà không lấy được số → đỏ.
 
+- **Bản trong ngày (mỗi giờ :17, `scripts/free-tier/intraday.mjs`)** – sự cố 01/11: bản ngày chỉ nhìn hôm qua → 174k/100k trong ngày không ai thấy, /api chết 16:22–24:00Z. Nay: 1 truy vấn GraphQL (`workersInvocationsAdaptive` + `pagesFunctionsInvocationsAdaptiveGroups`, `datetime_geq` 00:00Z), ngoại suy tới 24:00 theo nhịp ≤ 3 giờ gần nhất; mức = max(thực tế, ngoại suy): ≥ 60 % dừng workflow nền gọi prod (`PAUSE`, chỉ cái đang active, ghi tên vào `paused`), ≥ 80 % shed + issue. Trong ngày chỉ lên mức; qua 00:00Z tự gỡ shed + mở lại đúng workflow đã dừng. Ghi file khi đổi; deploy Pages chỉ khi shed đổi. Bản ngày không còn tự bật/gỡ shed. Hồi quy: số thật theo giờ 01/11 (`scripts/test/fixtures/cf-hourly-2026-11-01.json`) phải bật shed trước 100k (lượt :17 đầu tiên có ≥ 1 giờ dữ liệu – 01:17Z, thực tế 7,9k, ngoại suy 148k – đã bật; < 1 giờ chỉ tính số thực tế).
+
 ## 3. Giảm tải chủ động (không cắt tính năng)
 - **Trình duyệt trước**: lượt trong `max-age` không tới Worker. Ảnh/âm thanh tên theo mã băm: `max-age=1 năm, immutable`. `media.lexkite.com/library/*`: `max-age=1 ngày, stale-while-revalidate=7 ngày`.
 - **Cache biên trong Worker** (`workers/lib/edge.mjs` → `edgeCached`): Cache API + SWR tự làm (bản lưu 30 ngày, quá `fresh` → trả bản cũ + làm mới nền). Trúng cache = 0 lượt đọc R2 (Class B), 0 lượt gốc. **Không** giảm lượt Worker (mỗi yêu cầu tới route Worker vẫn tính 1 lượt) – vì vậy §4 có Cache Rule/fail-open.
 - **Chế độ shed**: guard ghi `web/free-tier-state.json` `{"mode":"shed"}` khi Workers+Functions ≥ 80 % (chỉ commit khi đổi → 1 build). Worker đọc file tĩnh này (`mode()`, Pages tĩnh không tính lượt Functions, cache 5 phút). Shed: trả bản cache, không làm mới nền; trang thí điểm chưa ổn định → `X-Robots-Tag: noindex, follow` (`shedRobots`) để bot không kéo thêm trang mới. Lỗi đọc trạng thái → `normal` (không bao giờ chặn người dùng).
 - **Worker từ điển** (`workers/dict`): tầng 1 Workers Static Assets (0 lượt script); tầng 2 (R2) bọc `edgeCached(…, { fresh: 86400, shed })`, header `max-age=600, s-maxage=86400, stale-while-revalidate=604800`. Shed còn chặn `scripts/dict/stage.mjs` lên bậc mở index (trang thí điểm mới giữ noindex; lùi bậc vẫn chạy). `shedRobots` dành cho trang tự sinh mới khác. Test: `scripts/test/free-tier.mjs`.
+- **Proxy từ điển/dịch máy** (`functions/api/dictlookup.js`, web + app di động): mỗi lượt tra = 1 lượt Functions dù trúng đệm biên → giảm bằng `Cache-Control` trình duyệt (từ điển 1 ngày, dịch 1 giờ; `sw.js` không ép no-cache cho đường này), bộ nhớ đệm trong máy khách (`Dict`, `vb.cx.*`) và add-on gọi thẳng nguồn (host_permissions, 0 lượt). Theo dõi trong guard; tới ngưỡng bảng dưới thì xử lý theo bảng.
 - **Cache Rules miễn phí cho tĩnh**: có ích khi gốc **không** phải Worker (vd. CNAME proxied tới GitHub Pages + Cache Rule "Eligible for cache, Edge TTL 1 năm") → lượt lặp = 0 lượt Worker. Với route đã có Worker thì Worker chạy trước cache, Cache Rule không cứu được lượt.
+
+## R2 – media/audio tĩnh và chốt $0 (02/11/2026)
+- **Hiện tại** (lượt chép đầu 02/11 10:00Z): **2,28 GB / 101.305 tệp** = media 932 MB / 32.792 tệp (blog, library, vimg m4+m1, video wv-*) + audio 1.344 MB / 68.513 tệp. Free: 10 GB · 1 triệu Class A · 10 triệu Class B / tháng.
+- **Tăng ước tính**: audio/l tăng 24.490 tệp ≈ 0,6 GB trong 9 ngày (24/10→02/11, chủ yếu backfill giọng câu) → **≈ 2 GB/tháng khi còn backfill** (chạm 80 % ≈ 3 tháng); ổn định ≈ 0,3 GB/tháng (vimg tới ~240 MB, video web ~50 MB/tháng, giọng từ mở rộng). Class A: lượt chép đầu ~100k PUT (10 %), sau đó vài nghìn/tháng. Class B: lượt trúng cache biên (Cache Rule immutable 1 năm) = 0; chỉ lượt trượt cache tính.
+- **Chốt $0** (free-tier guard mỗi giờ, `scripts/free-tier/intraday.mjs` `r2Gate`): % = lớn nhất của dung lượng / Class A / Class B (từ đầu tháng). **Class B ≥ 50 %** → `::warning` (nhiều lượt trượt cache biên; GET phải ra `cf-cache-status: HIT`, HEAD luôn `DYNAMIC` – không phải lỗi). **≥ 80 %** → issue `free-tier`. **≥ 90 %** → `cutover.mjs rollbackAll` (media + audio về Worker, nguồn GitHub) + `web/free-tier-state.json` `r2: "frozen"` → `cdn-mirror` không ghi, `media-store` lùi về repo GitHub. Không tự gỡ; gỡ tay (đầu tháng mới hoặc sau khi dọn): xoá trường `r2` rồi `cdn-mirror.yml` action `switch`. Test: `scripts/test/free-tier.mjs` (2,3 / 8,2 / 9,1 GB, Class A 80 %, Class B 9,5 triệu).
 
 ## 4. Ngưỡng nâng gói & việc của chủ (guard KHÔNG tự nâng)
 | Khi | Việc |

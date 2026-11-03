@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "collocations ภาษาอังกฤษ ielts"
 cover: dict
 coverAlt: "หน้าจอพจนานุกรม Lexkite สำหรับคำว่า resilient แสดงการออกเสียงและกลุ่มคำ collocation"
-publishAt: ""
+publishAt: 2026-11-28T07:10:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

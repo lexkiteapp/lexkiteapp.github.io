@@ -306,6 +306,40 @@ SERIES = dict(usuk='US or UK?', verbs='Verb Forms Challenge', stress="Where's th
               grammar='Grammar in 60s', dictation='What Did She Say?', toeic='TOEIC Word', review='Remember This?', call='Ask Ama')
 
 
+def say_mask(s): return re.sub(r'[A-Za-z]+', lambda m: m[0][0] + '•' * (len(m[0]) - 1), s)   # = mask() in scripts/say-native/build.mjs
+
+
+def react(p):   # Say it like a native (content/say-native/series.json, docs/SAY-NATIVE.md): situation hook -> reaction pose -> the phrase -> repeat -> meaning -> swap / don't -> quiz
+    S_ = next(s for s in json.load(open(f'{ROOT}/content/say-native/series.json'))['series'] if s['id'] == p['series'])
+    k_ = [i['key'] for i in S_['items']]; it = S_['items'][k_.index(p['key'])]
+    ipa, dfn, _ = bank(it['key'].lower()); assert ipa and dfn, ('phrase not in the audited lexicon (IPA + definition)', it['key'])   # same row as build.mjs: r[10]||r[1], r[4]
+    hook = (p.get('hook') or it['when']).rstrip('.!?') + '?'; wh = {w.lower() for w in words(it['when'])}
+    assert len(words(hook)) <= 6 and all(w.lower() in wh for w in words(hook)), ('hook must be <= 6 words taken from `when`', hook, it['when'])
+    sw, dn, q = it['swap'], it.get('dont'), it['quiz']; right = q['options'][q['answer']]
+    rude = bool(dn) and dn['reg'] == 'rude'; shown = dn and (say_mask(dn['text']) if rude else dn['text'])
+    ans = right if right[0].isupper() else re.split(r'(?<=[.!?])\s+', q['ask'].rstrip('…').strip())[-1] + ' ' + right   # 'You are…' + 'over the moon.'
+    lines = [
+        L('h', hook, 1.2, pose=True),   # the silence after the hook = the teacher's reaction pose (host.py / build.py)
+        L('p', it['say']),
+        L('r', f"Repeat after me: {it['say']}", 1.6, repeat=True),   # 1.6 s silent gap = the learner's turn
+        L('m', it['mean']),
+        L('s', f"Not this! Try: {sw['text']}" if dn else f"Or say: {sw['text']}"),
+        L('q', f"Quick quiz! {q['ask']}", 2.6, quiz=True),
+        L('a', ans),
+        L('c', 'Save this. Free on lexkite.com.')]
+    if dn:   # the don't line is shown, never voiced; a rude one is masked and never in the quiz
+        bad = dn['text'].lower().rstrip('!.?')
+        assert not any(bad in l['text'].lower() for l in lines), ('dont line would be voiced', dn['text'])
+        assert not (rude and any(bad in o.lower() for o in q['options'])), ('rude line in the quiz', dn['text'])
+    return dict(lines=lines, teacher=S_['teacher'], pose=dict(clip=it['pose'], after='h'),
+                data=dict(key=it['key'], say=it['say'], ipa=ipa, define=dfn, reg=it['reg'], mean=it['mean'], when=it['when'], swap=sw,
+                          dont=dn and dict(text=shown, reg=dn['reg'], masked=rude), quiz=dict(stem=q['ask'], options=q['options'], answer=q['answer'])),
+                cta=cta('phrases', '#/phrases', 'Learn real phrases'), hook=dict(line='h', text=hook), src=dict(say=S_['id'], key=it['key'], item=k_.index(p['key'])))
+
+
+T['react'] = react; SERIES['react'] = 'Say it like a native'   # 9:16 reaction-card short (owner OK Stitch brand/stitch/say/video-frame 31/10)
+
+
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
 
 
@@ -313,6 +347,8 @@ def make(row):
     t = row['template']; who = row['teacher']
     assert who in REG['people'], ('teacher not in web/teach/characters.json', who)
     sp = T[t](row['in'])
+    if 'teacher' in sp:   # react: the series' own teacher (Ama = female voice, Carlos = male voice) + a pose from that teacher's registry clips
+        assert sp.pop('teacher') == who and sp['pose']['clip'] in REG['people'][who]['clips'], ('react: series teacher / pose mismatch', who, sp['pose'])
     ep = dict(id=row['id'], template=t, series=SERIES[t], part=row.get('part', 1), theme=row['theme'], teacher=who,
               voice=REG['people'][who]['voice']['video'], speed=row.get('speed', 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm

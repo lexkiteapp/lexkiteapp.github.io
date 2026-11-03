@@ -122,7 +122,7 @@
           <div class="card">
             <textarea class="input" id="t1" style="min-height:260px;font-size:1.02rem;line-height:1.7" placeholder="The ${d.type === 'map' ? 'maps illustrate' : d.type === 'process' ? 'diagram illustrates' : 'chart shows'}…">${esc(drafts[d.id] || '')}</textarea>
             <div class="row between" style="margin-top:.7rem"><div class="row"><b id="wc">${t('{n} từ', { n: 0 })}</b><span class="timer" id="clock" style="font-size:1rem">20:00</span><button class="btn sm" id="tBtn">⏱ ${t('Bấm giờ')}</button></div>
-              <button class="btn primary" id="go">🔍 ${t('Phân tích bài Task 1')}</button></div>
+              <button class="btn primary" id="go" data-lk-primary>🔍 ${t('Phân tích bài Task 1')}</button></div>
           </div>
           <div id="t1Res"></div>
         </div>

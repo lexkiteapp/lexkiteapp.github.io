@@ -175,7 +175,7 @@
   // Thẻ thuộc thư viện có sẵn: chỉ lưu phần riêng của người học (lịch ôn, ngữ cảnh, ghi chú…)
   const LIB_FIELDS = ['ipa', 'pos', 'vi', 'def', 'ex', 'col', 'syn', 'level', 'emoji', 'topic'];
   function slim(c) {
-    const lib = IELTS_DATA.INDEX[c.word.toLowerCase()];
+    const lib = !c.tl && IELTS_DATA.INDEX[c.word.toLowerCase()]; // thẻ ngôn ngữ đích khác (tl): không rút gọn theo kho tiếng Anh
     const o = { ...c };
     delete o.sentences; delete o.ipaUS; // tra lại được khi cần
     if (lib) {
@@ -189,7 +189,7 @@
     return o;
   }
   function fat(o) {
-    const lib = o.L ? IELTS_DATA.INDEX[o.word.toLowerCase()] : null;
+    const lib = o.L && !o.tl ? IELTS_DATA.INDEX[o.word.toLowerCase()] : null;
     const c = { ...Cards.make(lib || o), ...o };
     delete c.L;
     c.contexts = c.contexts || [];

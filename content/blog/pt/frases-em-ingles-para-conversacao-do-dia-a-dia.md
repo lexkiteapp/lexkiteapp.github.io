@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sorry, I didn't catch that' sinaliza educadamente que você não ouviu, convidando a pessoa a repetir."
   }
 ]
+publishAt: 2026-12-05T20:56:00-03:00
 ---
 
 Para grande parte dos estudantes de inglês, o maior desafio não é resolver exercícios gramaticais no papel, mas sim conseguir falar com naturalidade, segurança e espontaneidade nas situações do cotidiano. Seja para pedir um café em uma cafeteria movimentada, pedir informações na rua durante uma viagem internacional ou bater papo com colegas de trabalho no intervalo, dominar **frases em ingles para conversacao** é o divisor de águas entre o conhecimento teórico travado e a fluência comunicativa real.

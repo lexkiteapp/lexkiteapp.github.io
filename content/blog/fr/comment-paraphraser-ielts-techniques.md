@@ -59,6 +59,7 @@ quiz: [
     explain: "L'article précise que dans les exercices True/False/Not Given ou Matching Headings, la quasi-totalité des pièges repose sur des reformulations du texte."
   }
 ]
+publishAt: 2026-12-05T19:39:00+01:00
 ---
 
 Savoir **comment paraphraser ielts** avec précision et aisance représente la compétence charnière permettant de franchir le palier du 6.5 pour décrocher un solide Band 7.5 à 8.5. Dans l'épreuve de **Writing Task 2**, recopier mot pour mot le sujet dans l'introduction est formellement sanctionné : ces fragments répétés sont tout simplement soustraits du décompte officiel des mots. Dès la première phrase, l'examinateur scrute votre capacité à reformuler une idée avec élégance et souplesse lexicale.
