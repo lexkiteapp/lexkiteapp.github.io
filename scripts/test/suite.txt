@@ -176,6 +176,7 @@ node scripts/test/layout-guards.mjs
 node scripts/test/mobile-guards.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
+node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
@@ -205,6 +206,8 @@ node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/content-qa/sense-check.mjs
+node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
