@@ -27,10 +27,10 @@ def norm16(src, dst):
 def nrm(s):
     s = unicodedata.normalize('NFC', s).casefold()
     return re.sub(r'\s+', ' ', re.sub(r'[^\w\s-]', '', s)).strip()
-from faster_whisper import WhisperModel
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'cine')); from whisper_det import load   # same verdict on every runner
 # Bộ nghe: large-v3-turbo đa ngôn ngữ. Lượt 41433773084 chứng minh "small" không nghe nổi từ đơn tiếng Bồ: giọng ĐỐI CHỨNG Piper pt_BR (rõ, dữ liệu CC0)
 # cũng chỉ 7/20, nghe "homem" → "O que é isso?", "gato" → "Pronto." – bộ nghe yếu chứ không phải giọng. Nghe tốt hơn = cổng chặt hơn (vẫn khớp đúng chữ).
-model = WhisperModel(os.environ.get('PT_ASR', 'large-v3-turbo'), device='cpu', compute_type='int8')
+model = load(os.environ.get('PT_ASR', 'large-v3-turbo'))
 def hear(f, carrier=None):
     """Chữ nghe được. Từ đơn: ghép SAU câu mang của chính giọng đó ("A palavra é:" + 0,25 s lặng + clip) rồi lấy phần sau câu mang –
     Whisper (cả large-v3-turbo) bịa chữ khi nghe từ tiếng Bồ trơ trọi: lượt 41439608580 giọng đối chứng Piper "casa" → "Realmente.", "dia" → "Tchau.".
