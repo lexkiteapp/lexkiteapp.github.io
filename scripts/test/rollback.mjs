@@ -103,6 +103,7 @@ const back = wf('d1-backup.yml'); ok(/cron: '15 0 \* \* 1,2'/.test(back) && /d1-
     const y = wf(w + '.yml');
     ok(y.includes('scripts/ops/flag.mjs ' + k) && /failure\(\)/.test(y), w + '.yml: bước failure() đặt cờ ' + k);
     ok(y.includes('scripts/ops/ledger-push.mjs'), w + '.yml: sổ đẩy qua ledger-push (gộp khi xung đột)');
+    ok(!/^\s+run: [^|>\n]*"[^"\n]*: [^"\n]*"\s*$/m.test(y), w + '.yml: run: một dòng không chứa ": " trong chuỗi (YAML hỏng → workflow chết ngay, 3/11)');
   }
 }
 fs.rmSync(tmp, { recursive: true, force: true });
