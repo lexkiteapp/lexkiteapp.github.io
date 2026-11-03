@@ -216,6 +216,8 @@ Uji pemahaman etika penulisan email bisnismu lewat tiga kuis berikut.
 * C) *See ya,*
 *(Kunci jawaban: A. "Best regards" adalah penutup bisnis paling profesional dan universal).*
 
+Kuasai juga teknik tes sertifikasi internasional melalui panduan [TOEIC Part 5 strategi tata bahasa](/id/blog/strategi-toeic-part-5-tata-bahasa-kosakata/) untuk mempercepat pemahaman kalimat kerja formal.
+
 {{cta: /#/write | Latih keterampilan menulis formal di Lexkite}}
 
 ## Pertanyaan yang sering diajukan (FAQ)

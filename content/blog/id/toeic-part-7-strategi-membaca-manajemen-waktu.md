@@ -44,7 +44,7 @@ Wacana tunggal diletakkan di bagian depan, sedangkan wacana ganda dan tripel men
 
 Agar dapat menjawab seluruh 54 pertanyaan tanpa menebak sembarangan, bagi jatah 75 menit Reading Anda dengan presisi:
 
-- **Part 5 (30 soal)**: Selesaikan dalam **10 menit** (sekitar 20 detik per soal).
+- **Part 5 (30 soal)**: Selesaikan dalam **10 menit** (sekitar 20 detik per soal) dengan metode di [TOEIC Part 5 strategi tata bahasa dan kosakata](/id/blog/strategi-toeic-part-5-tata-bahasa-kosakata/).
 - **Part 6 (16 soal)**: Selesaikan dalam **8 menit** (sekitar 30 detik per soal).
 - **Pengecekan Lembar Jawaban**: **2 menit**.
 - **Part 7 (54 soal)**: Gunakan **55 menit penuh** (rata-rata 60 detik per soal).
