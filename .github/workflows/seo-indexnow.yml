@@ -26,7 +26,8 @@ jobs:
         run: |
           git diff --quiet -- content/seo/lastmod.json 2>/dev/null && [ -z "$(git status --porcelain content/seo)" ] && { echo "sổ lastmod không đổi"; exit 0; }
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add content/seo/lastmod.json && git commit -qm "SEO: cập nhật sổ lastmod theo nội dung trang"
+          node -e "JSON.parse(require('fs').readFileSync('content/seo/lastmod.json','utf8'))" && node scripts/test/lastmod.mjs   # commit bot phải qua test (main không đỏ)
+          git add content/seo/lastmod.json && git commit -qm "SEO: cập nhật sổ lastmod theo nội dung trang [CF-Pages-Skip]"
           for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 10; done; exit 1
       - name: Lần trước
         uses: actions/cache/restore@v4
