@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Active Cohort &amp; Curriculum Courses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined-variant {
+      font-family: 'Material Symbols Rounded';
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF9F4] text-[#1C1917] font-sans antialiased m-0 p-0">
+<!-- Mobile Container: Edge-to-Edge full width, fills 390px mobile viewport -->
+<div class="w-full min-h-screen bg-[#FFF9F4] text-[#1C1917] pb-24 flex flex-col">
+<!-- 1. TOP APP BAR -->
+<header class="sticky top-0 z-40 w-full px-4 pt-3 pb-3 border-b-2 border-[#E7DFD5] bg-[#FFFDF9] flex items-center justify-between shadow-sm">
+<!-- Left: Logo & Wordmark -->
+<div class="flex items-center gap-2 min-h-[44px]">
+<svg class="flex-shrink-0" fill="none" height="28" viewbox="0 0 24 24" width="28">
+<polygon fill="#F59E0B" points="12,2 19,9 12,12 5,9"></polygon>
+<polygon fill="#0F766E" points="12,12 19,9 12,22 5,9"></polygon>
+<circle cx="12" cy="9" fill="#FFFFFF" r="1.5"></circle>
+</svg>
+<span class="font-black text-xl tracking-tight text-[#1C1917]">Lexkite</span>
+</div>
+<!-- Right: Streak 14, XP 820, Avatar L (Touch targets >= 44px) -->
+<div class="flex items-center gap-2">
+<!-- Flame Streak Pill -->
+<button aria-label="14 days streak" class="h-9 px-2.5 bg-[#FFF4EB] border border-[#FDBA74] rounded-full flex items-center gap-1.5 min-h-[44px]" type="button">
+<span class="material-symbols-rounded text-[#C2410C] text-[18px]">local_fire_department</span>
+<span class="font-extrabold text-xs text-[#7C2D12]">14</span>
+</button>
+<!-- Star XP Pill -->
+<button aria-label="820 XP points" class="h-9 px-2.5 bg-[#FEF3C7] border border-[#FCD34D] rounded-full flex items-center gap-1.5 min-h-[44px]" type="button">
+<span class="material-symbols-rounded text-[#B45309] text-[18px]">star</span>
+<span class="font-extrabold text-xs text-[#78350F]">820</span>
+</button>
+<!-- Profile Avatar L -->
+<button aria-label="Profile" class="w-9 h-9 rounded-full bg-[#0F766E] text-white font-black text-sm flex items-center justify-center border-2 border-[#093633] shadow-sm min-h-[44px] min-w-[36px]" type="button">
+          L
+        </button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="w-full flex flex-col">
+<!-- 2. TEACHER AMA NOTIFICATION CARD -->
+<section class="mx-4 mt-4 p-4 rounded-2xl bg-[#FFFDF9] border-2 border-[#E7DFD5] shadow-[0_4px_0_#E7DFD5] flex items-center gap-3.5">
+<!-- Rounded dashed box with graduation cap icon -->
+<div aria-hidden="true" class="w-16 h-16 rounded-2xl border-2 border-dashed border-[#0F766E] bg-[#E6F4F1] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-rounded text-[#0F766E] text-3xl">school</span>
+</div>
+<!-- Notification Message Details -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-[#0F766E]"></span>
+<span class="font-extrabold text-[12px] tracking-wider text-[#0F766E] uppercase">TEACHER AMA</span>
+</div>
+<h2 class="font-extrabold text-[15px] text-[#1C1917] leading-tight">
+            “Your homework is half done!”
+          </h2>
+<p class="text-[12px] text-[#57534E] mt-1 font-semibold leading-relaxed">
+            Unit 4 homework deadline is approaching. Keep momentum!
+          </p>
+</div>
+</section>
+<!-- 3. ACTIVE COHORT CARD -->
+<section class="mx-4 mt-4 p-5 rounded-2xl bg-[#FFFDF9] border-2 border-[#E7DFD5] shadow-[0_4px_0_#E7DFD5] flex flex-col gap-3.5">
+<!-- Pill Chips Header -->
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-[#E6F4F1] text-[#0F766E] border border-[#A7D7D0] font-extrabold text-[11px] tracking-wide uppercase">
+              ACTIVE COHORT
+            </span>
+<span class="flex items-center gap-1 font-bold text-xs text-[#57534E] bg-[#F5EFEB] px-2.5 py-1 rounded-full border border-[#E7DFD5]">
+<span class="material-symbols-rounded text-[14px]">group</span>
+              18 learners
+            </span>
+</div>
+<span class="font-extrabold text-xs text-[#1C1003] bg-[#FDE68A] px-2.5 py-1 rounded-full border border-[#F59E0B]">
+            Due Friday
+          </span>
+</div>
+<!-- Cohort title & Unit detail -->
+<div>
+<h3 class="font-extrabold text-xl text-[#1C1917] tracking-tight leading-snug">
+            IELTS Evening B
+          </h3>
+<p class="font-bold text-sm text-[#0F766E] mt-0.5">
+            Unit 4 vocabulary
+          </p>
+</div>
+<!-- Progress Tracker -->
+<div class="bg-[#F4FAF8] p-3 rounded-xl border border-[#D1EAE5] flex flex-col gap-2">
+<div class="flex items-center justify-between text-xs">
+<span class="font-extrabold text-[#44403C]">6 of 12 exercises finished</span>
+<span class="font-black text-[#0F766E]">50% completed</span>
+</div>
+<!-- Rounded Progress Bar Track -->
+<div class="w-full h-3 bg-white rounded-full border border-[#B7DFD8] overflow-hidden p-0.5">
+<div class="h-full bg-[#0F766E] rounded-full transition-all duration-300" style="width: 50%;"></div>
+</div>
+</div>
+<!-- Primary CTA: Chunky tactile orange button -->
+<button class="w-full min-h-[48px] py-3.5 px-4 rounded-xl bg-[#F59E0B] text-[#1C1003] font-black text-[15px] border-2 border-[#B45309] shadow-[0_4px_0_#B45309] active:translate-y-1 active:shadow-none flex items-center justify-center gap-2 transition-all mt-1" type="button">
+<span>Continue IELTS Evening B</span>
+<span class="material-symbols-rounded text-lg">arrow_forward</span>
+</button>
+</section>
+<!-- 4. JOIN A CLASS CARD -->
+<section class="mx-4 mt-4 p-4 rounded-2xl bg-[#FFFDF9] border-2 border-[#E7DFD5] shadow-[0_4px_0_#E7DFD5] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div aria-hidden="true" class="w-11 h-11 rounded-xl bg-[#FEF3C7] border border-[#FCD34D] text-[#78350F] flex items-center justify-center font-black text-xl flex-shrink-0 shadow-sm">
+            #
+          </div>
+<div>
+<h3 class="font-extrabold text-[15px] text-[#1C1917] leading-tight">
+              Join a class
+            </h3>
+<p class="font-semibold text-xs text-[#78716C] mt-0.5">
+              Got teacher code?
+            </p>
+</div>
+</div>
+<button class="bg-[#0E524D] text-white font-extrabold px-5 py-2.5 rounded-xl border-2 border-[#093633] shadow-[0_3px_0_#093633] min-h-[44px] text-xs tracking-wide active:translate-y-0.5 active:shadow-none flex items-center justify-center" type="button">
+          Join
+        </button>
+</section>
+<!-- 5. CURRICULUM COURSES SECTION -->
+<section class="mx-4 mt-6 flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-extrabold text-lg text-[#1C1917]">
+            Curriculum courses
+          </h3>
+<button class="font-bold text-xs text-[#0F766E] hover:underline px-2 py-1 min-h-[44px] flex items-center" type="button">
+            View all (6)
+          </button>
+</div>
+<!-- Course 1: IELTS Foundations -->
+<article class="p-3.5 rounded-2xl bg-[#FFFDF9] border-2 border-[#E7DFD5] shadow-[0_4px_0_#E7DFD5] flex flex-col gap-2.5">
+<div class="flex items-start justify-between min-h-[44px]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#E6F4F1] border border-[#A7D7D0] text-[#0F766E] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-rounded text-xl">menu_book</span>
+</div>
+<div>
+<h4 class="font-extrabold text-[15px] text-[#1C1917] leading-snug">
+                  IELTS Foundations
+                </h4>
+<p class="font-semibold text-xs text-[#78716C]">
+                  24 lessons • Band 5.5 to 6.5
+                </p>
+</div>
+</div>
+<span class="font-black text-xs text-[#0F766E] bg-[#E6F4F1] px-2.5 py-1 rounded-full border border-[#A7D7D0]">
+              75%
+            </span>
+</div>
+<!-- Mini Progress Bar -->
+<div class="w-full h-2 bg-[#E7DFD5]/50 rounded-full overflow-hidden">
+<div class="h-full bg-[#0F766E] rounded-full" style="width: 75%;"></div>
+</div>
+</article>
+<!-- Course 2: Band 7 Writing -->
+<article class="p-3.5 rounded-2xl bg-[#FFFDF9] border-2 border-[#E7DFD5] shadow-[0_4px_0_#E7DFD5] flex flex-col gap-2.5">
+<div class="flex items-start justify-between min-h-[44px]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#FEF3C7] border border-[#FCD34D] text-[#B45309] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-rounded text-xl">edit</span>
+</div>
+<div>
+<h4 class="font-extrabold text-[15px] text-[#1C1917] leading-snug">
+                  Band 7 Writing
+                </h4>
+<p class="font-semibold text-xs text-[#78716C]">
+                  18 lessons • Task 1 &amp; Task 2
+                </p>
+</div>
+</div>
+<span class="font-black text-xs text-[#78350F] bg-[#FEF3C7] px-2.5 py-1 rounded-full border border-[#FCD34D]">
+              40%
+            </span>
+</div>
+<!-- Mini Progress Bar -->
+<div class="w-full h-2 bg-[#E7DFD5]/50 rounded-full overflow-hidden">
+<div class="h-full bg-[#F59E0B] rounded-full" style="width: 40%;"></div>
+</div>
+</article>
+<!-- Course 3: Everyday Speaking -->
+<article class="p-3.5 rounded-2xl bg-[#FFFDF9] border-2 border-[#E7DFD5] shadow-[0_4px_0_#E7DFD5] flex flex-col gap-2.5">
+<div class="flex items-start justify-between min-h-[44px]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#FFEDD5] border border-[#FDBA74] text-[#C2410C] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-rounded text-xl">mic</span>
+</div>
+<div>
+<h4 class="font-extrabold text-[15px] text-[#1C1917] leading-snug">
+                  Everyday Speaking
+                </h4>
+<p class="font-semibold text-xs text-[#78716C]">
+                  30 drills • Fluency &amp; IPA
+                </p>
+</div>
+</div>
+<span class="font-black text-xs text-[#7C2D12] bg-[#FFEDD5] px-2.5 py-1 rounded-full border border-[#FDBA74]">
+              15%
+            </span>
+</div>
+<!-- Mini Progress Bar -->
+<div class="w-full h-2 bg-[#E7DFD5]/50 rounded-full overflow-hidden">
+<div class="h-full bg-[#EA580C] rounded-full" style="width: 15%;"></div>
+</div>
+</article>
+</section>
+</main>
+<!-- 6. DOCKED BOTTOM NAVIGATION (Edge-to-Edge full width) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 right-0 h-16 bg-[#FFFDF9] border-t-2 border-[#E7DFD5] flex items-center justify-around z-50 px-2">
+<!-- Tab 1: Today (Active) -->
+<button class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] py-1 text-[#0D625B]" type="button">
+<div class="px-3 py-1 rounded-full bg-[#CCECE7] text-[#0D625B] flex items-center justify-center mb-0.5">
+<span class="material-symbols-rounded text-[20px]">home</span>
+</div>
+<span class="text-[10px] font-black tracking-tight">Today</span>
+</button>
+<!-- Tab 2: Vocab (Due Badge) -->
+<button class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] py-1 text-[#57534E]" type="button">
+<div class="relative flex items-center justify-center mb-0.5">
+<span class="material-symbols-outlined-variant text-[22px]">menu_book</span>
+<span class="absolute -top-1 -right-2.5 min-w-[16px] h-4 bg-[#DC2626] text-white text-[9px] font-black rounded-full flex items-center justify-center px-1 shadow-sm">
+            2
+          </span>
+</div>
+<span class="text-[10px] font-bold">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] py-1 text-[#57534E]" type="button">
+<div class="flex items-center justify-center mb-0.5">
+<span class="material-symbols-outlined-variant text-[22px]">psychology</span>
+</div>
+<span class="text-[10px] font-bold">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] py-1 text-[#57534E]" type="button">
+<div class="flex items-center justify-center mb-0.5">
+<span class="material-symbols-outlined-variant text-[22px]">assignment</span>
+</div>
+<span class="text-[10px] font-bold">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] py-1 text-[#57534E]" type="button">
+<div class="flex items-center justify-center mb-0.5">
+<span class="material-symbols-outlined-variant text-[22px]">person</span>
+</div>
+<span class="text-[10px] font-bold">Me</span>
+</button>
+</nav>
+</div>
+</body></html>
