@@ -98,7 +98,7 @@
 <!-- Controls & Metadata Group (No lives, No hearts) -->
 <div class="flex items-center gap-2.5 sm:gap-4 shrink-0">
 <!-- XP Chip -->
-<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#2C2614] border border-[#785918] text-xs font-black text-amber-300 shadow-[0_2px_0_#0B1315]">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#2C2614] border border-[#785918] text-xs font-black text-amber-300 shadow-[0_2px_0_#0B1315] min-h-[44px]">
 <span class="material-symbols-rounded text-amber-400 text-[18px]">bolt</span>
 <span>+15 XP</span>
 </div>
@@ -199,7 +199,7 @@
 <legend class="sr-only">Choose the correct collocation for decision</legend>
 <!-- OPTION A (Active / Selected State) -->
 <label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-teal-brand text-night-text-primary border-2 border-teal-accent shadow-tactile-selected cursor-pointer transition-all">
-<input checked="" class="sr-only" name="workbench_answer" type="radio" value="make"/>
+<input checked="" class="absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer" name="workbench_answer" type="radio" value="make"/>
 <div class="flex items-center gap-3.5 flex-1 min-w-0 pr-2">
 <span class="w-9 h-9 rounded-xl bg-teal-selected flex items-center justify-center font-extrabold text-sm text-teal-light border border-teal-subtle shrink-0">
                 A
@@ -219,7 +219,7 @@
 </label>
 <!-- OPTION B (Unselected) -->
 <label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-night-raised hover:bg-[#253A40] text-night-text-primary border-2 border-night-border-subtle shadow-tactile-option cursor-pointer touch-option-btn transition-all">
-<input class="sr-only" name="workbench_answer" type="radio" value="do"/>
+<input class="absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer" name="workbench_answer" type="radio" value="do"/>
 <div class="flex items-center gap-3.5 flex-1 min-w-0 pr-2">
 <span class="w-9 h-9 rounded-xl bg-night-surface flex items-center justify-center font-extrabold text-sm text-night-text-secondary border border-night-border shrink-0">
                 B
@@ -237,7 +237,7 @@
 </label>
 <!-- OPTION C (Unselected) -->
 <label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-night-raised hover:bg-[#253A40] text-night-text-primary border-2 border-night-border-subtle shadow-tactile-option cursor-pointer touch-option-btn transition-all">
-<input class="sr-only" name="workbench_answer" type="radio" value="give"/>
+<input class="absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer" name="workbench_answer" type="radio" value="give"/>
 <div class="flex items-center gap-3.5 flex-1 min-w-0 pr-2">
 <span class="w-9 h-9 rounded-xl bg-night-surface flex items-center justify-center font-extrabold text-sm text-night-text-secondary border border-night-border shrink-0">
                 C
@@ -255,7 +255,7 @@
 </label>
 <!-- OPTION D (Unselected) -->
 <label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-night-raised hover:bg-[#253A40] text-night-text-primary border-2 border-night-border-subtle shadow-tactile-option cursor-pointer touch-option-btn transition-all">
-<input class="sr-only" name="workbench_answer" type="radio" value="take"/>
+<input class="absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer" name="workbench_answer" type="radio" value="take"/>
 <div class="flex items-center gap-3.5 flex-1 min-w-0 pr-2">
 <span class="w-9 h-9 rounded-xl bg-night-surface flex items-center justify-center font-extrabold text-sm text-night-text-secondary border border-night-border shrink-0">
                 D

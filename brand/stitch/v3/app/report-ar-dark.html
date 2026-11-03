@@ -180,7 +180,7 @@
 </div>
 <!-- Mirrored Tactile Switch -->
 <label class="relative inline-flex items-center cursor-pointer flex-shrink-0 min-w-[48px] min-h-[48px] justify-center">
-<input checked="" class="sr-only peer" type="checkbox"/>
+<input checked="" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer" type="checkbox"/>
 <div class="w-12 h-7 bg-night-raised border border-night-border-raised peer-focus:outline-none rounded-full peer peer-checked:bg-teal-mint peer-checked:after:-translate-x-5 after:content-[''] after:absolute after:top-[12.5px] after:right-[4px] after:bg-[#10191B] peer-checked:after:bg-[#00201e] after:border-teal-mint after:border after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm"></div>
 </label>
 </section>
@@ -212,10 +212,7 @@
 </section>
 <!-- Primary Action CTA Button -->
 <section class="pt-2 flex flex-col gap-2.5">
-<button class="w-full min-h-[52px] px-5 py-3 rounded-[20px] bg-tactile-coral hover:bg-tactile-coral-hover text-tactile-ink font-extrabold text-[16px] tracking-wide shadow-tactile-btn active:translate-y-1 active:shadow-tactile-btn-active flex items-center justify-center gap-2 transition-all" type="button">
-<span>إرسال الملاحظات والتقرير</span>
-<span class="text-[18px] font-black leading-none">◂</span>
-</button>
+<button class="w-full min-h-[52px] px-5 py-3 rounded-[20px] bg-tactile-coral hover:bg-tactile-coral-hover text-tactile-ink font-extrabold text-[16px] tracking-wide shadow-tactile-btn active:translate-y-1 active:shadow-tactile-btn-active flex items-center justify-center gap-2 transition-all" type="button"><span class="text-[#1A0F02] font-black">إرسال الملاحظات والتقرير</span><span class="text-[18px] font-black leading-none text-[#1A0F02]">◂</span></button>
 <!-- Privacy Note -->
 <p class="text-[12px] font-medium text-[#B8CECC] text-center leading-relaxed px-2"><span class="material-symbols-rounded text-[14px] align-middle text-teal-mint ml-0.5">lock</span> <strong class="text-ink-primary">ملاحظة الخصوصية:</strong> يتم إرسال سجلات التشخيص ومعلومات الجهاز بشكل آمن. لا يتم تضمين أي سجل محادثات شخصية أو تسجيلات للميكروفون.</p>
 </section>

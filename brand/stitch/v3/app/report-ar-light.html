@@ -99,7 +99,7 @@
 <section class="flex flex-col gap-2">
 <div class="flex items-center justify-between">
 <label class="text-[13px] font-extrabold text-brand-teal">
-            نوع المشكلة <span class="text-tactile-coral">*</span>
+            نوع المشكلة <span class="text-red-600 font-black">*</span>
 </label>
 <span class="text-[12px] font-semibold text-[#6f7977]">اختر واحدة</span>
 </div>
@@ -143,21 +143,14 @@
 <section class="flex flex-col gap-2">
 <div class="flex items-center justify-between">
 <label class="text-[13px] font-extrabold text-brand-teal" for="issue-description">
-            الوصف التفصيلي <span class="text-tactile-coral">*</span>
+            الوصف التفصيلي <span class="text-red-600 font-black">*</span>
 </label>
-<span class="text-[11px] font-bold text-[#3f4947]" dir="ltr">0 / 500 حرف</span>
+<span class="text-[11px] font-bold text-[#0a1f1c]" dir="ltr">0 / 500 حرف</span>
 </div>
 <div class="relative bg-cream-surface rounded-[20px] border-2 border-cream-border focus-within:border-brand-teal shadow-tactile-card transition-all p-3">
 <textarea class="w-full bg-transparent text-[14px] font-semibold text-[#0a1f1c] placeholder-[#9ca3af] resize-none focus:outline-none leading-relaxed text-right" id="issue-description" placeholder="ما الذي حدث؟ مثال: أثناء القراءة في القسم 3 لاختبار IELTS، انقطع صوت السؤال رقم 14 بشكل غير متوقع..." rows="4"></textarea>
 <!-- Route line & change button -->
-<div class="pt-2 mt-2 border-t border-cream-border/60 flex items-center justify-between text-[11px] font-bold text-[#6f7977]">
-<span class="flex items-center gap-1.5 text-brand-teal-muted">
-<span class="material-symbols-rounded text-[16px]">info</span>
-<span>المسار الحالي:</span>
-<span class="text-[11px] font-bold text-[#3f4947]" dir="ltr">0 / 500 حرف</span>
-</span>
-<button class="text-brand-teal hover:underline min-h-[44px] min-w-[44px] inline-flex items-center justify-center font-bold px-2" type="button">تغيير</button>
-</div>
+<div class="pt-2 mt-2 border-t border-cream-border/60 flex items-center justify-between text-[11px] font-bold text-[#6f7977]"><span class="flex items-center gap-1.5 text-brand-teal-muted"><span class="material-symbols-rounded text-[16px]">info</span><span>المسار الحالي:</span><span class="text-[11px] font-bold text-[#0a1f1c]" dir="ltr">0 / 500 حرف</span></span><button class="text-brand-teal hover:underline min-h-[44px] min-w-[44px] flex items-center justify-center font-bold px-3 py-2 cursor-pointer" type="button">تغيير</button></div>
 </div>
 </section>
 <!-- Attach Screenshot Toggle Card -->
@@ -172,10 +165,7 @@
 </div>
 </div>
 <!-- Mirrored Tactile Switch -->
-<label class="relative inline-flex items-center cursor-pointer flex-shrink-0 min-w-[48px] min-h-[48px] justify-center">
-<input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-12 h-7 bg-[#d1d5db] peer-focus:outline-none rounded-full peer peer-checked:bg-brand-teal peer-checked:after:-translate-x-5 after:content-[''] after:absolute after:top-[12.5px] after:right-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm"></div>
-</label>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0 min-w-[48px] min-h-[48px] justify-center"><input checked="" class="peer absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" type="checkbox"/><div class="w-12 h-7 bg-[#d1d5db] peer-focus:outline-none rounded-full peer peer-checked:bg-brand-teal peer-checked:after:-translate-x-5 after:content-[''] after:absolute after:top-[12.5px] after:right-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm pointer-events-none"></div></label>
 </section>
 <!-- Captured preview thumbnail card -->
 <div class="bg-cream-card rounded-2xl p-2.5 border-2 border-cream-border flex items-center justify-between">

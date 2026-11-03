@@ -125,8 +125,8 @@
 </head>
 <body class="bg-background text-on-surface antialiased min-h-screen pb-28 select-none font-body-md max-w-[390px] w-full mx-auto overflow-x-hidden">
 <!-- Top App Bar -->
-<header class="sticky top-0 z-40 bg-surface w-full shadow-[0_4px_0_#eae1d8]">
-<div class="flex items-center justify-between px-3 h-16 max-w-screen-md mx-auto">
+<header class="sticky top-0 z-40 bg-surface w-full shadow-[0_4px_0_#eae1d8] max-w-[390px] overflow-x-hidden">
+<div class="flex items-center justify-between px-3 h-16 mx-auto">
 <div class="flex items-center gap-2">
 <button aria-label="Zurück" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all text-on-surface min-w-[44px] min-h-[44px]">
 <span class="material-symbols-outlined text-[22px]">arrow_back</span>
@@ -150,7 +150,7 @@
 </div>
 </header>
 <!-- Main Content Container -->
-<main class="max-w-screen-md mx-auto px-4 pt-4 space-y-4">
+<main class="mx-auto px-4 pt-4 space-y-4 w-full overflow-x-hidden">
 <!-- Teacher Slot (.teacher-slot) -->
 <div class="teacher-slot flex items-center justify-between p-3 rounded-2xl border-2 border-dashed border-outline-variant bg-surface-container-low">
 <div class="flex items-center gap-3">
@@ -353,7 +353,7 @@
 </div>
 </main>
 <!-- Docked Bottom Navigation Bar (Shared Component Anchor) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-screen-md mx-auto bg-surface shadow-[0_-4px_0_#eae1d8] max-w-[390px] left-1/2 -translate-x-1/2">
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-2 mx-auto bg-surface shadow-[0_-4px_0_#eae1d8] max-w-[390px] left-1/2 -translate-x-1/2">
 <!-- Tab 1: Heute (Today) -->
 <button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-colors active:translate-y-[2px]">
 <span class="material-symbols-outlined text-[22px]">today</span>

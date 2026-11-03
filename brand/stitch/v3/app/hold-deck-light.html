@@ -7,9 +7,9 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -118,7 +118,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-[#fcfaf6] text-on-surface antialiased min-h-screen pb-28 select-none">
 <!-- Top App Bar (Shared Components Anchor Execution) -->
 <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin h-16 bg-[#fcfaf6] border-b border-outline-variant/30 shadow-sm">
@@ -127,7 +127,7 @@
 </button>
 <div class="flex flex-col items-center">
 <span class="font-headline-md text-headline-md text-secondary font-bold tracking-tight">My Deck</span>
-<span class="font-label-sm text-label-sm text-secondary/80 tracking-wider">IELTS & TOEFL CORE</span>
+<span class="font-label-sm text-label-sm text-[#1B4542] font-bold tracking-wider">IELTS &amp; TOEFL CORE</span>
 </div>
 <button aria-label="Deck options" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-lowest border-2 border-secondary/20 shadow-[0_3px_0_rgba(33,105,99,0.15)] text-secondary active:translate-y-0.5 active:shadow-[0_1px_0_rgba(33,105,99,0.15)] transition-all" type="button">
 <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">bookmark</span>
@@ -145,7 +145,7 @@
 <div class="flex-1">
 <div class="flex items-center justify-between mb-1">
 <span class="font-label-md text-label-md text-secondary tracking-tight">[teacher-slot] Ama - Teacher slot</span>
-<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded-full text-secondary font-bold">Method</span>
+<span class="font-label-sm text-label-sm bg-secondary-container px-2 py-0.5 rounded-full text-[#00201e] font-bold">Method</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface font-medium leading-relaxed">
             Reviewing 15-20 words spaced across 3 days yields 82% higher recall on IELTS Task 2.
@@ -168,7 +168,7 @@
 <span class="font-label-lg text-label-lg text-secondary bg-surface-container px-3 py-1 rounded-xl border border-secondary/20 font-bold">
             39%
           </span>
-<p class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase mt-1">Mastered</p>
+<p class="font-label-sm text-label-sm text-[#1e3431] font-bold uppercase mt-1">Mastered</p>
 </div>
 </div>
 <!-- Segmented Progress Bar -->
@@ -214,9 +214,7 @@
 <div>
 <div class="flex items-center gap-2 mb-1">
 <h2 class="font-headline-md text-headline-md text-secondary font-bold">Quiz Sprint</h2>
-<span class="bg-surface-container text-secondary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full border border-secondary/30">
-                3-minute sprint
-              </span>
+<span class="bg-surface-container text-[#00201e] font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full border border-secondary/30">3-minute sprint</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface font-normal">
               Rapid collocation and active context choice challenges
@@ -248,20 +246,18 @@
 </button>
 </section>
 <!-- Filter Row (Natural wrap support) -->
-<section aria-label="Deck filters" class="flex flex-wrap items-center gap-2 pt-1">
-<button class="h-9 px-3 rounded-full bg-secondary text-on-secondary font-label-md text-label-md font-bold shadow-[0_2px_0_#0d524d] flex items-center gap-1 flex-shrink-0" type="button">
+<section aria-label="Deck filters" class="flex flex-wrap items-center gap-2 pt-1"><button class="min-h-[44px] px-3.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md font-bold shadow-[0_2px_0_#0d524d] flex items-center gap-1 flex-shrink-0 active:translate-y-0.5" type="button">
 <span>Topic: All Topics</span>
 <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
 </button>
-<button class="h-9 px-3 rounded-full bg-surface-container-lowest border border-secondary/30 text-secondary font-label-md text-label-md font-bold shadow-[0_2px_0_rgba(33,105,99,0.1)] flex items-center gap-1 flex-shrink-0" type="button">
-<span>Source: IELTS & TOEFL</span>
+<button class="min-h-[44px] px-3.5 rounded-full bg-surface-container-lowest border border-secondary/30 text-secondary font-label-md text-label-md font-bold shadow-[0_2px_0_rgba(33,105,99,0.1)] flex items-center gap-1 flex-shrink-0 active:translate-y-0.5" type="button">
+<span>Source: IELTS &amp; TOEFL</span>
 <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
 </button>
-<button class="h-9 px-3 rounded-full bg-surface-container-lowest border border-secondary/30 text-secondary font-label-md text-label-md font-bold shadow-[0_2px_0_rgba(33,105,99,0.1)] flex items-center gap-1 flex-shrink-0" type="button">
-<span>Mastery: Learning & Mastered</span>
+<button class="min-h-[44px] px-3.5 rounded-full bg-surface-container-lowest border border-secondary/30 text-secondary font-label-md text-label-md font-bold shadow-[0_2px_0_rgba(33,105,99,0.1)] flex items-center gap-1 flex-shrink-0 active:translate-y-0.5" type="button">
+<span>Mastery: Learning &amp; Mastered</span>
 <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
-</button>
-</section>
+</button></section>
 <!-- Saved Word Cards -->
 <section aria-label="Saved vocabulary list" class="space-y-space-md">
 <!-- Word Card 1: Resilient -->
@@ -312,7 +308,7 @@
 <span class="material-symbols-outlined text-[16px]">school</span>
 <span>IELTS Writing Task 2 · Formal debate</span>
 </div>
-<span class="text-on-surface-variant font-semibold">Band 7.5+</span>
+<span class="text-[#1e3431] font-bold">Band 7.5+</span>
 </div>
 </article>
 <!-- Word Card 2: Ubiquitous -->
@@ -363,7 +359,7 @@
 <span class="material-symbols-outlined text-[16px]">record_voice_over</span>
 <span>TOEFL Academic Lexicon · Speaking Part 3</span>
 </div>
-<span class="text-on-surface-variant font-semibold">High Frequency</span>
+<span class="text-[#1e3431] font-bold">High Frequency</span>
 </div>
 </article>
 </section>

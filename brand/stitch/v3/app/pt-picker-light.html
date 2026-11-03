@@ -147,7 +147,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-background min-h-screen flex flex-col items-center antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed-variant">
 <!-- Mobile Onboarding Container (Max 420px width for ideal 390px viewport rendering) -->
 <main class="w-full max-w-md min-h-screen flex flex-col justify-between px-5 py-4 sm:px-6">
@@ -214,7 +214,7 @@
 <legend class="sr-only">Target Language Selection</legend>
 <!-- Option 1: English (Selected by default) -->
 <label class="group relative flex items-center justify-between w-full min-h-[76px] p-4 rounded-[20px] border-2 border-[#134E4A] bg-[#F4F9F8] tactile-card-selected cursor-pointer select-none transition-transform duration-100 active:scale-[0.99]" for="lang-en">
-<input checked="" class="sr-only peer" id="lang-en" name="target_language" type="radio" value="english"/>
+<input checked="" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 min-w-[44px] min-h-[44px] peer" id="lang-en" name="target_language" type="radio" value="english"/>
 <!-- Left content: Mark + Info -->
 <div class="flex items-center space-x-3.5 flex-1 pr-3 min-w-0">
 <!-- Typographic glyph badge -->
@@ -236,13 +236,11 @@
 </div>
 </div>
 <!-- Selection Indicator: Active checkmark in teal circle -->
-<div class="w-7 h-7 min-w-[28px] min-h-[28px] rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm transition-transform duration-150">
-<span class="material-symbols-outlined text-base font-bold" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
-</div>
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center"><div class="w-7 h-7 rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm transition-transform duration-150"><span class="material-symbols-outlined text-base font-bold" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span></div></div>
 </label>
 <!-- Option 2: Português (Unselected) -->
 <label class="group relative flex items-center justify-between w-full min-h-[76px] p-4 rounded-[20px] border-[1.5px] border-[#E8E2D9] bg-surface-container-lowest tactile-card-base hover:border-secondary hover:bg-surface-container-low cursor-pointer select-none transition-transform duration-100 active:scale-[0.99]" for="lang-pt">
-<input class="sr-only peer" id="lang-pt" name="target_language" type="radio" value="portuguese"/>
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 min-w-[44px] min-h-[44px] peer" id="lang-pt" name="target_language" type="radio" value="portuguese"/>
 <!-- Left content: Mark + Info -->
 <div class="flex items-center space-x-3.5 flex-1 pr-3 min-w-0">
 <!-- Typographic glyph badge -->
@@ -265,19 +263,14 @@
 </div>
 </div>
 <!-- Selection Indicator: Empty circle -->
-<div class="w-7 h-7 min-w-[28px] min-h-[28px] rounded-full border-2 border-[#D6CEC2] bg-surface-container-lowest group-hover:border-secondary flex items-center justify-center transition-colors">
-<span class="w-2.5 h-2.5 rounded-full bg-transparent"></span>
-</div>
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center"><div class="w-7 h-7 rounded-full border-2 border-[#D6CEC2] bg-surface-container-lowest group-hover:border-secondary flex items-center justify-center transition-colors"><span class="w-2.5 h-2.5 rounded-full bg-transparent"></span></div></div>
 </label>
 </fieldset>
 </div>
 <!-- Footer / Bottom Action Section: Fixed or docked feel with rich vertical breathing room -->
 <footer class="w-full pt-3 pb-2 space-y-3">
 <!-- Primary Coral Tactile Button -->
-<button class="tactile-button-primary w-full min-h-[56px] h-14 rounded-2xl bg-primary-container text-on-primary font-label-lg text-label-lg tracking-wide flex items-center justify-center space-x-2 transition-all duration-100 focus:outline-none focus:ring-4 focus:ring-primary-fixed" id="continue-button" type="button">
-<span>Continue</span>
-<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
-</button>
+<button class="w-full min-h-[56px] h-14 rounded-2xl bg-[#C8371B] text-[#FFFFFF] font-label-lg text-label-lg tracking-wide flex items-center justify-center space-x-2 transition-all duration-100 focus:outline-none focus:ring-4 focus:ring-primary-fixed shadow-[0_4px_0_0_#9E250E] active:translate-y-[2px] active:shadow-[0_1px_0_0_#9E250E]" id="continue-button" type="button"><span>Continue</span><span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span></button>
 <!-- Discreet reassurance meta -->
 <p class="text-center text-label-sm font-label-sm text-[#4A6361]">
         Step 2 of 4 · Takes 1 minute

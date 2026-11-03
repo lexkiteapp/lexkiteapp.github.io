@@ -8,17 +8,17 @@
     </radialGradient>
 
     <!-- Tactile Ledge & Drop Shadows for Dark Theme -->
-    <filter id="heroCardShadowDark" x="-10%" y="-10%" width="120%" height="125%">
-      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#02080A" flood-opacity="0.9"/>
+    <filter id="heroCardShadowDark" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#02080A" flood-opacity="0.85"/>
       <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0F766E" flood-opacity="0.25"/>
     </filter>
 
-    <filter id="subCardShadowDark" x="-12%" y="-12%" width="124%" height="130%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#02080A" flood-opacity="0.8"/>
+    <filter id="subCardShadowDark" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#02080A" flood-opacity="0.75"/>
     </filter>
 
-    <filter id="pillLedgeShadowDark" x="-10%" y="-15%" width="120%" height="135%">
-      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#02080A" flood-opacity="0.7"/>
+    <filter id="pillLedgeShadowDark" x="-5%" y="-10%" width="110%" height="125%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#02080A" flood-opacity="0.6"/>
     </filter>
 
     <!-- Kite Emblem Gradients -->
@@ -56,15 +56,15 @@
   <rect width="1080" height="1920" fill="url(#bgCanvasGradDark)"/>
 
   <!-- Atmospheric Glow & Ambient Dust in Negative Space -->
-  <circle cx="300" cy="350" r="450" fill="#14B8A6" opacity="0.08"/>
-  <circle cx="850" cy="850" r="500" fill="#FB7185" opacity="0.05"/>
-  <circle cx="500" cy="1500" r="550" fill="#F59E0B" opacity="0.05"/>
+  <circle cx="300" cy="350" r="400" fill="#14B8A6" opacity="0.08"/>
+  <circle cx="800" cy="850" r="400" fill="#FB7185" opacity="0.05"/>
+  <circle cx="500" cy="1500" r="450" fill="#F59E0B" opacity="0.05"/>
 
   <use href="#starDustAmberDark" x="120" y="180" transform="scale(1.2)" opacity="0.65"/>
-  <use href="#starDustTealDark" x="960" y="240" transform="scale(1.1)" opacity="0.75"/>
-  <use href="#starDustAmberDark" x="980" y="740" transform="scale(0.85)" opacity="0.55"/>
+  <use href="#starDustTealDark" x="940" y="240" transform="scale(1.1)" opacity="0.75"/>
+  <use href="#starDustAmberDark" x="960" y="740" transform="scale(0.85)" opacity="0.55"/>
   <use href="#starDustTealDark" x="90" y="860" transform="scale(0.9)" opacity="0.6"/>
-  <circle cx="990" cy="520" r="7" fill="#F97316" opacity="0.6"/>
+  <circle cx="980" cy="520" r="6" fill="#F97316" opacity="0.6"/>
   <circle cx="80" cy="460" r="6" fill="#2DD4BF" opacity="0.5"/>
 
   <!-- ================= TOP THIRD: SERIES CHIP & HOOK QUESTION ================= -->
@@ -182,7 +182,7 @@
       <!-- Phonetic Breakdown with WRONG stress -->
       <!-- cum-FORT-a-ble (stress placed on 2nd syllable "FORT") -->
       <g transform="translate(198, 160)">
-        <text x="0" y="0" font-size="34" font-weight="700" fill="#CBD5E1" text-anchor="middle">
+        <text x="0" y="0" font-size="34" font-weight="700" fill="#E2E8F0" text-anchor="middle">
           cum-<tspan font-weight="900" font-size="44" fill="#FF4D6D">FORT</tspan>-a-ble
         </text>
       </g>
@@ -223,10 +223,10 @@
         <text x="42" y="27" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="1">SAY THIS</text>
       </g>
 
-      <!-- Phonetic Breakdown with RIGHT stress -->
+      <!-- Phonetic Breakdown with RIGHT stress: High-contrast crisp white and glowing teal (> 5:1 on #0F282D) -->
       <!-- KUMF-tuh-bul (stress placed on 1st syllable "KUMF") -->
       <g transform="translate(198, 160)">
-        <text x="0" y="0" font-size="34" font-weight="700" fill="#99F6E4" text-anchor="middle">
+        <text x="0" y="0" font-size="34" font-weight="800" fill="#FFFFFF" text-anchor="middle">
           <tspan font-weight="900" font-size="44" fill="#2DD4BF">KUMF</tspan>-tuh-bul
         </text>
       </g>
@@ -317,18 +317,18 @@
       <circle cx="16" cy="11" r="2.5" fill="#F59E0B"/>
     </g>
 
-    <!-- Clear labels -->
+    <!-- Clear labels with high contrast -->
     <text x="170" y="142" font-size="17" font-weight="900" fill="#2DD4BF" letter-spacing="1.5" text-anchor="middle">TEACHER-SLOT</text>
     <text x="170" y="168" font-size="14" font-weight="800" fill="#E8F1F0" text-anchor="middle">Teacher Carlos (2D) loads here</text>
-    <text x="170" y="194" font-size="12" font-weight="700" fill="#A9BDBB" text-anchor="middle">• Real-time Video Layer •</text>
+    <text x="170" y="194" font-size="13" font-weight="700" fill="#C5D7D5" text-anchor="middle">• Real-time Video Layer •</text>
   </g>
 
-  <!-- Next to Teacher Slot: Rapid Repeat Interactive Prompt Pill -->
-  <g transform="translate(450, 1450)" filter="url(#subCardShadowDark)">
+  <!-- Next to Teacher Slot: Rapid Repeat Interactive Prompt Pill (widened/positioned to stay strictly within 1080px canvas: x=440, width=560 -> right=1000px) -->
+  <g transform="translate(440, 1450)" filter="url(#subCardShadowDark)">
     <!-- Ledge -->
-    <rect x="0" y="8" width="550" height="170" rx="30" fill="#040C0E"/>
+    <rect x="0" y="8" width="560" height="170" rx="30" fill="#040C0E"/>
     <!-- Body -->
-    <rect x="0" y="0" width="550" height="170" rx="30" fill="#142A30" stroke="#234E57" stroke-width="2.5"/>
+    <rect x="0" y="0" width="560" height="170" rx="30" fill="#142A30" stroke="#234E57" stroke-width="2.5"/>
 
     <!-- Eyebrow Pill -->
     <g transform="translate(36, 26)">
@@ -346,8 +346,8 @@
       </text>
     </g>
 
-    <!-- Mini waveform decoration on right -->
-    <g transform="translate(460, 85)">
+    <!-- Mini waveform decoration on right (positioned cleanly inside card: x=480) -->
+    <g transform="translate(480, 85)">
       <line x1="-20" y1="-8" x2="-20" y2="8" stroke="#2DD4BF" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="-10" y1="-18" x2="-10" y2="18" stroke="#2DD4BF" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="0" y1="-28" x2="0" y2="28" stroke="#FF4D6D" stroke-width="4" stroke-linecap="round"/>
@@ -357,7 +357,7 @@
   </g>
 
   <!-- ================= BOTTOM: BRAND WATERMARK & FOLLOW FOR MORE ================= -->
-  <!-- Safely positioned inside vertical safe area (above y=1750, well clear of UI overlays) -->
+  <!-- Centered at x=540, width=640 (left=220, right=860), well within bounds -->
   <g transform="translate(540, 1750)">
     <!-- Follow for more banner with tactile raised feel -->
     <g filter="url(#subCardShadowDark)">
@@ -389,7 +389,7 @@
       <!-- Secondary line -->
       <text x="16" y="0" font-size="18" font-weight="800" fill="#E8F1F0" letter-spacing="0.3">lexkite.com</text>
       <circle cx="120" cy="-6" r="3.5" fill="#4B666E"/>
-      <text x="138" y="0" font-size="16" font-weight="700" fill="#A9BDBB">Daily English</text>
+      <text x="138" y="0" font-size="16" font-weight="700" fill="#C5D7D5">Daily English</text>
     </g>
   </g>
 </svg>

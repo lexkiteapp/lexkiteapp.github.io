@@ -143,9 +143,7 @@
 <!-- TOP APP BAR (Shared Component Anchor) -->
 <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 h-14 bg-surface border-b-2 border-outline-variant shadow-[0_2px_0_0_#051013]">
 <div class="flex items-center space-x-2">
-<button aria-label="Audio controls" class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 ease-out border-2 border-outline-variant shadow-[0_2px_0_0_#051013]" type="button">
-<span class="material-symbols-outlined text-[20px]">volume_up</span>
-</button>
+<button aria-label="Audio controls" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 ease-out border-2 border-outline-variant shadow-[0_2px_0_0_#051013]" type="button"><span class="material-symbols-outlined text-[20px]">volume_up</span></button>
 <div class="flex items-baseline space-x-1 pl-1">
 <span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary">Lexkite</span>
 </div>
@@ -157,9 +155,7 @@
 <span class="material-symbols-outlined text-[14px] mx-0.5 text-outline">chevron_right</span>
 <span class="text-primary font-bold">Phrases</span>
 </div>
-<button aria-label="Settings" class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 ease-out border-2 border-outline-variant shadow-[0_2px_0_0_#051013]" type="button">
-<span class="material-symbols-outlined text-[20px]">settings</span>
-</button>
+<button aria-label="Settings" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 ease-out border-2 border-outline-variant shadow-[0_2px_0_0_#051013]" type="button"><span class="material-symbols-outlined text-[20px]">settings</span></button>
 </div>
 </header>
 <!-- MAIN SCROLLABLE VIEWPORT -->
@@ -225,20 +221,7 @@
 <input class="w-full pl-11 pr-4 py-3 bg-surface-container-low border-2 border-outline-variant rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-0 shadow-[0_2px_0_0_#051013] transition-all" id="pattern-search" placeholder="Search sentence patterns or keywords..." type="search"/>
 </div>
 <!-- Filter Chips Row -->
-<div aria-label="Pattern category filters" class="flex items-center space-x-2 overflow-x-auto pb-1.5 pt-0.5 no-scrollbar" role="tablist">
-<!-- Active Pill: Opinions -->
-<button aria-selected="true" class="tactile-pressable flex-shrink-0 px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md border-2 border-primary-fixed shadow-[0_3px_0_0_#003733]" role="tab" type="button">
-          Opinions
-        </button>
-<!-- Inactive Pill: Agreeing -->
-<button aria-selected="false" class="tactile-pressable flex-shrink-0 px-4 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container" role="tab" type="button">
-          Agreeing
-        </button>
-<!-- Inactive Pill: Describing trends -->
-<button aria-selected="false" class="tactile-pressable flex-shrink-0 px-4 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container" role="tab" type="button">
-          Describing trends
-        </button>
-</div>
+<div aria-label="Pattern category filters" class="flex items-center space-x-2 overflow-x-auto pb-1.5 pt-0.5 no-scrollbar" role="tablist"><button aria-selected="true" class="tactile-pressable flex-shrink-0 min-h-[44px] px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md border-2 border-primary-fixed shadow-[0_3px_0_0_#003733] flex items-center justify-center" role="tab" type="button">Opinions</button><button aria-selected="false" class="tactile-pressable flex-shrink-0 min-h-[44px] px-4 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container flex items-center justify-center" role="tab" type="button">Agreeing</button><button aria-selected="false" class="tactile-pressable flex-shrink-0 min-h-[44px] px-4 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container flex items-center justify-center" role="tab" type="button">Describing trends</button></div>
 </section>
 <!-- FORMULA CARDS SECTION -->
 <section aria-label="Sentence pattern list" class="space-y-4 mb-6">
@@ -321,41 +304,12 @@
 </section>
 <!-- PRIMARY ACTION (Tactile Warm Coral Primary Button) -->
 <section class="mt-2 mb-8">
-<button class="w-full min-h-[54px] rounded-2xl bg-[#ff6b4a] text-white font-label-lg text-label-lg border-2 border-[#ff856a] shadow-[0_4px_0_0_#b53b20] flex items-center justify-center space-x-2 py-3.5 px-6 tactile-pressable hover:bg-[#ff5733] active:translate-y-1 active:shadow-none" type="button">
-<span class="font-bold tracking-wide">Practise these 5</span>
-<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-</button>
+<button class="w-full min-h-[54px] rounded-2xl bg-[#ff6b4a] text-white font-extrabold font-label-lg text-label-lg border-2 border-[#ff856a] shadow-[0_4px_0_0_#b53b20] flex items-center justify-center space-x-2 py-3.5 px-6 tactile-pressable hover:bg-[#ff5733] active:translate-y-1 active:shadow-none" type="button"><span class="font-extrabold tracking-wide text-white">Practise these 5</span><span class="material-symbols-outlined text-[20px] text-white font-bold">arrow_forward</span></button>
 </section>
 </main>
 <!-- BOTTOM NAVIGATION BAR (Shared Component Anchor) -->
 <!-- Contextual Lock: Skills is the active section as explicitly defined by "Skills › Phrases" -->
-<nav aria-label="Primary Mobile Navigation" class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-2 py-1.5 h-18 bg-surface pb-safe border-t-2 border-outline-variant shadow-[0_-2px_0_0_#051013]">
-<!-- Tab 1: Today (Inactive) -->
-<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#today">
-<span class="material-symbols-outlined text-[22px]">today</span>
-<span class="mt-1">Today</span>
-</a>
-<!-- Tab 2: Vocab (Inactive) -->
-<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#vocab">
-<span class="material-symbols-outlined text-[22px]">menu_book</span>
-<span class="mt-1">Vocab</span>
-</a>
-<!-- Tab 3: Skills (Active - Exact Semantic Match for current page context) -->
-<a aria-current="page" class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 bg-primary text-on-primary rounded-xl border-2 border-primary-fixed shadow-[0_3px_0_0_#003733] -translate-y-0.5 font-label-sm text-label-sm active:translate-y-1 active:shadow-none transition-all duration-75" href="#skills">
-<span class="material-symbols-outlined text-[22px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
-<span class="mt-1 font-bold">Skills</span>
-</a>
-<!-- Tab 4: Tests (Inactive) -->
-<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#tests">
-<span class="material-symbols-outlined text-[22px]">assignment_turned_in</span>
-<span class="mt-1">Tests</span>
-</a>
-<!-- Tab 5: Me (Inactive) -->
-<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#me">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="mt-1">Me</span>
-</a>
-</nav>
+<nav aria-label="Primary Mobile Navigation" class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-2 py-1.5 h-18 bg-surface pb-safe border-t-2 border-outline-variant shadow-[0_-2px_0_0_#051013]"><a class="flex flex-col items-center justify-center flex-1 min-h-[44px] py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#today"><span class="material-symbols-outlined text-[22px]">today</span><span class="mt-1">Today</span></a><a class="flex flex-col items-center justify-center flex-1 min-h-[44px] py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#vocab"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="mt-1">Vocab</span></a><a aria-current="page" class="flex flex-col items-center justify-center flex-1 min-h-[44px] py-1.5 px-1 bg-primary text-on-primary rounded-xl border-2 border-primary-fixed shadow-[0_3px_0_0_#003733] -translate-y-0.5 font-label-sm text-label-sm active:translate-y-1 active:shadow-none transition-all duration-75" href="#skills"><span class="material-symbols-outlined text-[22px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span><span class="mt-1 font-bold">Skills</span></a><a class="flex flex-col items-center justify-center flex-1 min-h-[44px] py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#tests"><span class="material-symbols-outlined text-[22px]">assignment_turned_in</span><span class="mt-1">Tests</span></a><a class="flex flex-col items-center justify-center flex-1 min-h-[44px] py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#me"><span class="material-symbols-outlined text-[22px]">person</span><span class="mt-1">Me</span></a></nav>
 <!-- Inline Micro-interactions -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {

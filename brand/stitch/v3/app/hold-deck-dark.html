@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -115,7 +115,8 @@
     body {
       min-height: max(884px, 100dvh);
     }
-    .material-symbols-outlined {
+    .material-symbols-outlined,
+    .material-symbols-rounded {
       font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
       line-height: 1;
       display: inline-block;
@@ -133,15 +134,15 @@
 <body class="bg-background text-on-surface antialiased min-h-screen pb-28 select-none selection:bg-primary-container selection:text-white">
 <!-- Top App Bar (Shared Components Anchor Execution) -->
 <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin h-16 bg-[#091518]/95 backdrop-blur-md border-b-2 border-outline-variant shadow-[0_2px_0_0_#051013]">
-<button aria-label="Go back" class="tactile-pressable w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_2px_0_0_#051013] text-primary hover:bg-surface-container" type="button">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+<button aria-label="Go back" class="tactile-pressable min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_2px_0_0_#051013] text-primary hover:bg-surface-container" type="button">
+<span class="material-symbols-rounded text-primary" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
 </button>
 <div class="flex flex-col items-center">
 <span class="font-headline-md text-headline-md text-[#f0f6f6] font-bold tracking-tight">My Deck</span>
 <span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-bold">IELTS &amp; TOEFL CORE</span>
 </div>
-<button aria-label="Deck options" class="tactile-pressable w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_2px_0_0_#051013] text-primary hover:bg-surface-container" type="button">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+<button aria-label="Deck options" class="tactile-pressable min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_2px_0_0_#051013] text-primary hover:bg-surface-container" type="button">
+<span class="material-symbols-rounded text-primary" style="font-variation-settings: 'FILL' 0;">bookmark</span>
 </button>
 </header>
 <!-- Main Canvas -->
@@ -196,7 +197,7 @@
 </section>
 <!-- Two Tactile Action Cards -->
 <section aria-label="Practice Actions" class="grid grid-cols-1 gap-space-sm">
-<!-- Card 1: Flashcards (Primary Warm Coral 3D Button) -->
+<!-- Card 1: Flashcards (Rich Red-Coral High-Contrast Tactile Button) -->
 <div class="rounded-2xl bg-surface-container-low border-2 border-outline-variant p-space-md shadow-[0_4px_0_0_#051013] flex flex-col justify-between space-y-3">
 <div class="flex items-start justify-between gap-2">
 <div>
@@ -211,11 +212,11 @@
             </p>
 </div>
 <div class="w-10 h-10 rounded-xl bg-surface-container border border-outline-variant flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">style</span>
 </div>
 </div>
-<button class="tactile-pressable w-full min-h-[48px] bg-[#ff6b4a] hover:bg-[#ff5733] text-white font-label-lg text-label-lg rounded-2xl border-2 border-[#ff856a] shadow-[0_4px_0_0_#b53b20] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2 font-bold tracking-wide" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<button class="tactile-pressable w-full min-h-[48px] bg-[#c53013] hover:bg-[#b02a10] text-[#ffffff] font-label-lg text-label-lg rounded-2xl border-2 border-[#e04526] shadow-[0_4px_0_0_#6b1505] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2 font-bold tracking-wide" type="button">
+<span class="material-symbols-rounded text-white" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
           Review 14 cards
         </button>
 </div>
@@ -234,43 +235,43 @@
             </p>
 </div>
 <div class="w-10 h-10 rounded-xl bg-[#ba8b00]/20 border border-[#ba8b00]/40 flex items-center justify-center text-tertiary flex-shrink-0">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">bolt</span>
 </div>
 </div>
 <button class="tactile-pressable w-full min-h-[48px] bg-surface-container-high hover:bg-[#26373b] text-primary font-label-lg text-label-lg rounded-2xl border-2 border-[#2ba39a]/40 shadow-[0_4px_0_0_#051013] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2 font-bold tracking-wide" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">timer</span>
+<span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 0;">timer</span>
           Start Sprint
         </button>
 </div>
 </section>
 <!-- Deck Utility Action Bar -->
 <section aria-label="Deck Utilities" class="grid grid-cols-3 gap-2">
-<button class="tactile-pressable min-h-[46px] px-2 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#051013] text-on-surface hover:text-primary hover:bg-surface-container flex items-center justify-center gap-1 transition-all" type="button">
-<span class="material-symbols-outlined text-[18px] text-primary">share</span>
+<button class="tactile-pressable min-h-[46px] min-w-[44px] px-2 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#051013] text-on-surface hover:text-primary hover:bg-surface-container flex items-center justify-center gap-1 transition-all" type="button">
+<span class="material-symbols-rounded text-[18px] text-primary">share</span>
 <span class="font-label-md text-label-md font-bold">Export / Share</span>
 </button>
-<button class="tactile-pressable min-h-[46px] px-2 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#051013] text-on-surface hover:text-primary hover:bg-surface-container flex items-center justify-center gap-1 transition-all" type="button">
-<span class="material-symbols-outlined text-[18px] text-primary">upload_file</span>
+<button class="tactile-pressable min-h-[46px] min-w-[44px] px-2 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#051013] text-on-surface hover:text-primary hover:bg-surface-container flex items-center justify-center gap-1 transition-all" type="button">
+<span class="material-symbols-rounded text-[18px] text-primary">upload_file</span>
 <span class="font-label-md text-label-md font-bold">Import</span>
 </button>
-<button class="tactile-pressable min-h-[46px] px-2 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#051013] text-on-surface hover:text-primary hover:bg-surface-container flex items-center justify-center gap-1 transition-all" type="button">
-<span class="material-symbols-outlined text-[18px] text-primary">folder_zip</span>
+<button class="tactile-pressable min-h-[46px] min-w-[44px] px-2 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#051013] text-on-surface hover:text-primary hover:bg-surface-container flex items-center justify-center gap-1 transition-all" type="button">
+<span class="material-symbols-rounded text-[18px] text-primary">folder_zip</span>
 <span class="font-label-md text-label-md font-bold">Anki (.apkg)</span>
 </button>
 </section>
-<!-- Filter Row (Natural wrap support) -->
+<!-- Filter Row (All targets >= 44x44px touch area) -->
 <section aria-label="Deck filters" class="flex flex-wrap items-center gap-2 pt-1">
-<button class="tactile-pressable h-9 px-3 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-[0_2px_0_0_#003733] border border-primary-fixed flex items-center gap-1 flex-shrink-0" type="button">
+<button class="tactile-pressable min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-[0_2px_0_0_#003733] border border-primary-fixed flex items-center gap-1 flex-shrink-0" type="button">
 <span>Topic: All Topics</span>
-<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+<span class="material-symbols-rounded text-[18px]">arrow_drop_down</span>
 </button>
-<button class="tactile-pressable h-9 px-3 rounded-full bg-surface-container-low border border-outline-variant text-on-surface font-label-md text-label-md font-bold shadow-[0_2px_0_0_#051013] hover:bg-surface-container flex items-center gap-1 flex-shrink-0" type="button">
+<button class="tactile-pressable min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface font-label-md text-label-md font-bold shadow-[0_2px_0_0_#051013] hover:bg-surface-container flex items-center gap-1 flex-shrink-0" type="button">
 <span>Source: IELTS &amp; TOEFL</span>
-<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+<span class="material-symbols-rounded text-[18px] text-on-surface-variant">arrow_drop_down</span>
 </button>
-<button class="tactile-pressable h-9 px-3 rounded-full bg-surface-container-low border border-outline-variant text-on-surface font-label-md text-label-md font-bold shadow-[0_2px_0_0_#051013] hover:bg-surface-container flex items-center gap-1 flex-shrink-0" type="button">
+<button class="tactile-pressable min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface font-label-md text-label-md font-bold shadow-[0_2px_0_0_#051013] hover:bg-surface-container flex items-center gap-1 flex-shrink-0" type="button">
 <span>Mastery: Learning &amp; Mastered</span>
-<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+<span class="material-symbols-rounded text-[18px] text-on-surface-variant">arrow_drop_down</span>
 </button>
 </section>
 <!-- Saved Word Cards -->
@@ -293,13 +294,13 @@
               </span>
 </div>
 </div>
-<!-- Quick Action Buttons -->
+<!-- Quick Action Buttons (Min 44x44px touch targets) -->
 <div class="flex items-center gap-1.5">
-<button aria-label="Play audio for resilient" class="tactile-pressable w-11 h-11 rounded-xl bg-surface-container text-primary border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container-high flex items-center justify-center transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<button aria-label="Play audio for resilient" class="tactile-pressable min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-surface-container text-primary border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container-high flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-rounded text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
 </button>
-<button aria-label="Edit word note for resilient" class="tactile-pressable w-11 h-11 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant hover:text-primary shadow-[0_3px_0_0_#051013] hover:bg-surface-container flex items-center justify-center transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<button aria-label="Edit word note for resilient" class="tactile-pressable min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant hover:text-primary shadow-[0_3px_0_0_#051013] hover:bg-surface-container flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-rounded text-[20px]">edit_note</span>
 </button>
 </div>
 </div>
@@ -310,7 +311,7 @@
 <!-- Exam Example Box (Inlaid Recess Well) -->
 <div class="rounded-xl bg-surface-container border border-outline-variant p-space-sm space-y-1">
 <div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span class="material-symbols-rounded text-[16px]">menu_book</span>
 <span class="font-label-sm text-label-sm font-bold uppercase tracking-wide">Authentic Exam Example</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface font-medium italic leading-relaxed">
@@ -320,7 +321,7 @@
 <!-- Register & Context -->
 <div class="flex items-center justify-between text-on-surface-variant pt-1 border-t border-outline-variant font-label-sm text-label-sm">
 <div class="flex items-center gap-1 font-bold text-primary">
-<span class="material-symbols-outlined text-[16px]">school</span>
+<span class="material-symbols-rounded text-[16px]">school</span>
 <span>IELTS Writing Task 2 · Formal debate</span>
 </div>
 <span class="text-on-surface-variant font-semibold">Band 7.5+</span>
@@ -344,13 +345,13 @@
               </span>
 </div>
 </div>
-<!-- Quick Action Buttons -->
+<!-- Quick Action Buttons (Min 44x44px touch targets) -->
 <div class="flex items-center gap-1.5">
-<button aria-label="Play audio for ubiquitous" class="tactile-pressable w-11 h-11 rounded-xl bg-surface-container text-primary border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container-high flex items-center justify-center transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<button aria-label="Play audio for ubiquitous" class="tactile-pressable min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-surface-container text-primary border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container-high flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-rounded text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
 </button>
-<button aria-label="Edit word note for ubiquitous" class="tactile-pressable w-11 h-11 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant hover:text-primary shadow-[0_3px_0_0_#051013] hover:bg-surface-container flex items-center justify-center transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<button aria-label="Edit word note for ubiquitous" class="tactile-pressable min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant hover:text-primary shadow-[0_3px_0_0_#051013] hover:bg-surface-container flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-rounded text-[20px]">edit_note</span>
 </button>
 </div>
 </div>
@@ -361,7 +362,7 @@
 <!-- Exam Example Box (Inlaid Recess Well) -->
 <div class="rounded-xl bg-surface-container border border-outline-variant p-space-sm space-y-1">
 <div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span class="material-symbols-rounded text-[16px]">menu_book</span>
 <span class="font-label-sm text-label-sm font-bold uppercase tracking-wide">Authentic Exam Example</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface font-medium italic leading-relaxed">
@@ -371,7 +372,7 @@
 <!-- Register & Context -->
 <div class="flex items-center justify-between text-on-surface-variant pt-1 border-t border-outline-variant font-label-sm text-label-sm">
 <div class="flex items-center gap-1 font-bold text-primary">
-<span class="material-symbols-outlined text-[16px]">record_voice_over</span>
+<span class="material-symbols-rounded text-[16px]">record_voice_over</span>
 <span>TOEFL Academic Lexicon · Speaking Part 3</span>
 </div>
 <span class="text-on-surface-variant font-semibold">High Frequency</span>
@@ -382,28 +383,28 @@
 <!-- Bottom Navigation Bar (Shared Components Anchor Execution) -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-space-xs h-20 bg-[#091518]/95 backdrop-blur-md border-t-2 border-outline-variant shadow-[0_-2px_0_0_#051013]">
 <!-- Tab 1: Today -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px]" href="#">
-<span class="material-symbols-outlined text-[24px]">calendar_today</span>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-[24px]">calendar_today</span>
 <span class="font-label-md text-label-md mt-0.5">Today</span>
 </a>
 <!-- Tab 2: Vocab (ACTIVE STATE: Semantic match to 'My Deck' vocabulary canvas) -->
-<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl px-3 py-1 border-2 border-primary-fixed shadow-[0_3px_0_0_#003733] -translate-y-0.5 active:translate-y-0.5 transition-transform duration-100 min-w-[56px]" href="#">
-<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl px-3 py-1 border-2 border-primary-fixed shadow-[0_3px_0_0_#003733] -translate-y-0.5 active:translate-y-0.5 transition-transform duration-100 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-[24px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
 <span class="font-label-md text-label-md font-bold mt-0.5">Vocab</span>
 </a>
 <!-- Tab 3: Skills -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px]" href="#">
-<span class="material-symbols-outlined text-[24px]">psychology</span>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-[24px]">psychology</span>
 <span class="font-label-md text-label-md mt-0.5">Skills</span>
 </a>
 <!-- Tab 4: Tests -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px]" href="#">
-<span class="material-symbols-outlined text-[24px]">assignment</span>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-[24px]">assignment</span>
 <span class="font-label-md text-label-md mt-0.5">Tests</span>
 </a>
 <!-- Tab 5: Me -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px]" href="#">
-<span class="material-symbols-outlined text-[24px]">person</span>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary active:translate-y-0.5 transition-transform duration-100 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-[24px]">person</span>
 <span class="font-label-md text-label-md mt-0.5">Me</span>
 </a>
 </nav>
