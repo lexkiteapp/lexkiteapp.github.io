@@ -1,3 +1,3 @@
-/* UI fr – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"Đã đọc tất cả":"Tout marquer comme lu","Chưa có thông báo mới":"Aucune nouvelle notification","Thông báo quan trọng":"Avis important","Vừa xong":"À l’instant","Chưa đọc":"Non lu","{n} chưa đọc":"{n} non lu"});
+/* SINH từ i18n/ui/fr/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"_1kkzwis":"Tout marquer comme lu","_1aqpffv":"Aucune nouvelle notification","_7vdlnl":"Avis important","_mem4lx":"À l’instant","_cilyra":"Non lu","_1dkub36":"{n} non lu"});
 })(typeof self !== 'undefined' ? self : this);

@@ -8670,3 +8670,37 @@ freshly	ok	ok
 resentment	ok	ok
 humility	ok	ok
 influx	ok	ok
+cigar	ok	ok
+dungeon	ok	ok
+metropolis	ok	ok
+glitter	ok	ok
+ambush	ok	ok
+arrogance	ok	ok
+ware	cut_wordis: câu mang: "The word is where?" · dot100:"Where's..." 0.96s · cut_wordis100: câu mang: "The word is where?" · cut_next: câu mang: "Next word, wear." · plain095:"Weird." 0.62s · dot090:"Where?" 1.06s	cut_wordis: câu mang: "The word is where." · dot100:"Where?" 0.58s · cut_wordis100: câu mang: "The word is where." · cut_next: câu mang: "Next word, where?" · plain095:"Where?" 0.60s · dot090:"Where?" 0.62s
+asbestos	ok	ok
+lax	cut_wordis: câu mang: "The word is laxy." · dot100:"Laxie" 0.74s · cut_wordis100: câu mang: "The word is Laxey." · cut_next: câu mang: "Next word, laxy." · plain095:"Relax." 0.70s · dot090:"Relax." 0.82s	ok
+skipper	ok	ok
+vineyard	ok	ok
+comparatively	ok	ok
+liberalism	ok	ok
+shuffle	ok	ok
+thug	ok	ok
+espionage	ok	ok
+moderation	ok	ok
+alias	ok	ok
+manpower	ok	ok
+rejoice	ok	ok
+coronation	ok	ok
+imaginative	ok	ok
+tanker	ok	ok
+legalization	ok	ok
+exemplary	ok	ok
+satirical	ok	ok
+unavoidable	ok	ok
+populace	cut_wordis: câu mang: "The word is populist." · dot100:"Populosa" 0.84s · cut_wordis100: câu mang: "The word is populous." · cut_next: câu mang: "Next word, Populacy." · plain095:"Populous" 0.84s · dot090:"Populosa" 0.96s	cut_wordis: câu mang: "The word is populous." · dot100:"Populous" 0.86s · cut_wordis100: câu mang: "The word is populous." · cut_next: câu mang: "Next word, Populous." · plain095:"Populous" 0.84s · dot090:"Populous" 0.94s
+proprietor	ok	ok
+valiant	ok	ok
+congenital	ok	ok
+mockery	ok	ok
+proficient	ok	ok
+irreversible	ok	ok

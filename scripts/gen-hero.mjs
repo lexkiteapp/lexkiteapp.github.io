@@ -1,15 +1,17 @@
 // Sinh khung trang chào mừng dựng sẵn trong web/app/index.html (giữa <!--hero--> … <!--/hero-->) cho đủ 15 ngôn ngữ.
 // Mục đích: chữ tiêu đề hiện ngay khi HTML về (LCP nhanh), không chờ ~300 KB JavaScript + bản dịch.
-// Chuỗi lấy từ chính bản dịch giao diện (web/js/i18n/*.js) → không lệch nội dung với trang thật. Chạy trong build-i18n.sh.
+// Chuỗi lấy từ chính bản dịch giao diện (web/js/i18n/en.js + nguồn i18n/ui/<lang>.js) → không lệch nội dung với trang thật. Chạy trong build-i18n.sh.
 import fs from 'fs';
+import { loadSrc } from './lib/i18n-pack.mjs';
 const root = new URL('../web/', import.meta.url);
 const load = f => { const g = {}; new Function('self', fs.readFileSync(new URL('js/i18n/' + f, root), 'utf8'))(g); return g.I18N_DICT; };
 const KEYS = ['Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến', 'Từ vựng vững,', 'band điểm bứt phá.', 'Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.', 'Bắt đầu miễn phí →', 'Tôi đã có tài khoản'];
 const EN = load('en.js').en, T = { vi: KEYS };
 T.en = KEYS.map(k => EN[k] || k);
-for (const f of fs.readdirSync(new URL('js/i18n/', root))) {
+// 13 ngôn ngữ: đọc NGUỒN i18n/ui/<lang>.js (khóa nguyên câu) – web/js/i18n/<lang>.js là gói khóa băm (scripts/lib/i18n-pack.mjs)
+for (const f of fs.readdirSync(new URL('../i18n/ui/', import.meta.url)).sort()) {
   const m = f.match(/^([a-z]{2})\.js$/); if (!m || m[1] === 'en') continue;
-  const D = (load(f) || {})[m[1]] || {}; T[m[1]] = KEYS.map((k, i) => D[k] || T.en[i]);
+  const D = loadSrc(m[1]); T[m[1]] = KEYS.map((k, i) => D[k] || T.en[i]);
 }
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 for (const l in T) T[l] = T[l].map(esc);
