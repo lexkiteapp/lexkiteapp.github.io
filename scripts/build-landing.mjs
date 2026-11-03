@@ -56,7 +56,8 @@ const gaText = l => ({ iph: ['Cài Lexkite lên iPhone', 'Bấm nút <b>Chia s�
 export const gaFile = l => `/js/get-app/${l}.json`;
 export const gaJson = l => JSON.stringify(gaText(l)) + '\n';
 // Nút mang lớp thành phần Stitch (btn-3d-secondary của mẫu home) – đầu trang máy tính/điện thoại (chỉ icon, 44 px) + chân trang
-const GA_V3 = 'min-h-[50px] px-5 py-3 inline-flex items-center justify-center gap-2 rounded-2xl font-bold text-[15px] active:translate-y-[2px] transition-all focus:outline-none focus:ring-2 lt:border-2 lt:border-[#D8C6A5] lt:bg-white lt:text-[#0F3D3E] lt:hover:border-[#0F3D3E] lt:hover:bg-[#FFFDF9] lt:shadow-[0_3px_0_0_#D4C3A3] lt:active:shadow-none lt:focus:ring-[#0F3D3E] dk:border dk:border-[#26393E] dk:bg-[#172427] dk:text-[#F3EDE2] dk:hover:border-[#6BD8CE] dk:hover:text-[#6BD8CE] dk:focus:ring-[#6BD8CE]';
+// lớp = đúng nút "Get the app" của khung Stitch v3 TỰ SINH (web/js/st/web/home.js) – không chép tay màu (brand-check)
+const GA_V3 = (rd('web/js/st/web/home.js').match(/<a href="\$\{e\(d\.appQ\)\}" class="([^"]+)" data-get-app/) || [])[1].replace(/\bgap-\d\b/, '') + ' gap-2';
 const GA_CLS = { foot: GA_V3 + ' mt-4' }; // chân trang: đúng lớp nút "Get the app" của mẫu landing v3 (hero dùng chính nút Stitch, bind/home.json)
 const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}" href="${appQ}" data-get-app="${place}"${web ? ` data-web="${appQ}"` : ` aria-label="${esc(ui(l, 'Tải app'))}"`} hidden>${PHONE}${look === 'icon' ? '' : `<span>${esc(ui(l, 'Tải app'))}</span>`}</a>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
@@ -64,7 +65,7 @@ const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
 // Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn tsp tsb"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
-// Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của #303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
+// Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của PR 303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
 const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
 // ----- CSS riêng của landing (chỉ phần mẫu Stitch không vẽ: giữ chỗ nút add-on/Tải app chống CLS, link bỏ qua, dải gợi ý ngôn ngữ, menu đổi ngôn ngữ) -----
 // Màu = token Stitch (--st-*, cùng nguồn brand/stitch/tokens.dtcg.json, tự đổi sáng/tối) → biến dùng chung của khối lsw/lhint.
@@ -89,7 +90,7 @@ export function purgeCss(css, page) {
 }
 // Khung Stitch: CSS biên dịch cho cả nhóm trang → compact() (scripts/lib/st-web.mjs) chỉ giữ luật trang dùng, bỏ nhánh data-theme (trang tĩnh theo
 // prefers-color-scheme), bỏ biến --st-* thừa và đổi tên lớp Tailwind dài thành tên ngắn – không đổi hình, giữ landing ≤ 16 KB gzip.
-function renderPurged(lang) { return compact(themePage(renderFull(lang))); } // themePage (#303): chống nháy + luật màu theo nút giao diện → compact giữ nhánh [data-theme]
+function renderPurged(lang) { return compact(themePage(renderFull(lang))); } // themePage (PR 303): chống nháy + luật màu theo nút giao diện → compact giữ nhánh [data-theme]
 // ----- Thu gọn JS nội tuyến (terser: bỏ khoảng trắng/chú thích, đổi tên biến cục bộ – không đổi hành vi) sau khi đã lọc CSS (lọc CSS đọc tên lớp trong script
 // từ bản gốc). 27/10: ru 16489 B gzip trên Node 22 > 16384 → còn ≈ 16 000 B, không cắt nội dung/tính năng, không nâng ngân sách.
 // render() giữ đồng bộ: mọi đoạn script của 15 trang được thu gọn sẵn một lần lúc nạp module (await cấp cao nhất, xem MINI bên dưới).
@@ -123,7 +124,7 @@ export function criticalCss(css, html) {
   const S = doc.querySelectorAll('section'), first = S[Math.min(1, S.length - 1)], crit = new Set();
   for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
   const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
-    let q = sel.replace(/:root(?::not\(\[data-theme=\w+\]\)|\[data-theme=\w+\])/g, ':root').replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '') /* nhánh nút giao diện (#303): trang lúc build không có data-theme → so như :root, kẻo vẽ đầu sai nền khi ép tối/sáng */.replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
+    let q = sel.replace(/:root(?::not\(\[data-theme=\w+\]\)|\[data-theme=\w+\])/g, ':root').replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '') /* nhánh nút giao diện (PR 303): trang lúc build không có data-theme → so như :root, kẻo vẽ đầu sai nền khi ép tối/sáng */.replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
     let r; try { r = [...doc.querySelectorAll(q)].some(e => crit.has(e)); } catch { r = true; }
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
@@ -164,7 +165,7 @@ function renderFull(lang) {
     open: [start, c.nav.start], signin: [login, c.nav.login], home: landingHref(lang),
     langHref: landingHref, label: c.langL, text: c.foot, tm: c.tm, getApp: gaBtn(lang, 'foot', appQ, true) });
   // đầu trang v3: nút 🌐 hiện tên ngôn ngữ; chân trang v3: nút "Interface" mở menu ngôn ngữ thứ hai (cùng 15 liên kết hreflang, id riêng)
-  // nút giao diện (#303, một nguồn với app 'lk.theme'): nút Stitch đầu trang mang data-tsw + nhãn 15 ngôn ngữ; chân trang: viên Tự động/Sáng/Tối themePill
+  // nút giao diện (PR 303, một nguồn với app 'lk.theme'): nút Stitch đầu trang mang data-tsw + nhãn 15 ngôn ngữ; chân trang: viên Tự động/Sáng/Tối themePill
   const TL = themeLabels(chrome0.lang), tsw = themeSwitch(chrome0.lang);
   const chrome = { ...chrome0, langName: LANG_NAMES[chrome0.lang], menu2: lswMenu({ lang, langHref: landingHref, label: chrome0.langLabel, id: 'lsw-m2' }),
     tswL: TL.join('|'), tswA: `${TL[3]}: ${TL[0]}`, tswSvg: tsw.slice(tsw.indexOf('<svg'), tsw.lastIndexOf('</button>')), pill: themePill(chrome0.lang) };
@@ -181,7 +182,7 @@ function renderFull(lang) {
   // 6 tính năng: 4 thẻ có minh hoạ của mẫu (FSRS · gọi giáo viên AI = chấm nói/viết · luyện thi · add-on) + 2 thẻ trơn cùng khuôn
   const F = c.features, feat = [['fsrs', 0], ['call', 2], ['exam', 1], ['ext', 3], ['plain', 4], ['plain', 5]].map(([v, i]) => ({ v, h: F[i][1], p: F[i][2] }));
   const d = { ...c, start, login, appQ, heroLinks: [[login, ui(lang, 'Tôi đã có tài khoản')], [`${appQ}#/placement`, c.hero.placement]], store: EXT_STORE, getAppL: ui(lang, 'Tải app'), feat, rescards,
-    // giáo viên 2D (Chars.idle – #480): ảnh poster mắt mở giữ chỗ (width/height → CLS 0) + vòng nghỉ 1–3 s tắt tiếng, chỉ chạy khi không bật giảm chuyển động
+    // giáo viên 2D (Chars.idle – PR 480): ảnh poster mắt mở giữ chỗ (width/height → CLS 0) + vòng nghỉ 1–3 s tắt tiếng, chỉ chạy khi không bật giảm chuyển động
     ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 -mb-5 w-[220px] sm:w-[260px] h-auto', eager: true }),
     carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 -mb-5 w-[200px] sm:w-[240px] h-auto' }) };
   const page = stRender('home', d, { lang, chrome });
