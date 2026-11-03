@@ -45,7 +45,7 @@
       <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
       <nav class="set-nav" aria-label="${t('Cài đặt')}">${NAV.map(([id, ic, l]) => `<button type="button" data-jump="${id}"><span aria-hidden="true">${ic}</span> ${l}</button>`).join('')}</nav>
       <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div><div id="leagueSetBox" style="margin-top:.75rem"></div></section>
-      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">${UI.icon('shield')}${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-grid">${adminTiles()}</div></section>
+      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">${UI.icon('shield')}${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-tiles">${adminTiles()}</div></section>
       ${sec('look', UI.icon('palette') + t('Giao diện'),
         row('🌐 ' + t('Ngôn ngữ giao diện'), App.langPicker())
         + row('📖 ' + t('Nghĩa từ hiển thị bằng'), seg('sMean', [['vi', 'Tiếng Việt', ' translate="no" lang="vi" data-keep-vi'], ['en', t('Định nghĩa tiếng Anh')]], I18N.meanLang()))
