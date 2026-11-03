@@ -27,7 +27,11 @@
 - Dev/phiên: clone private vào `../lexkite-content` + `npm run content:link`. Phiên viết lô nội dung commit/PR ở repo private.
 
 ## 3. CI và cổng chống lộ
-- **Phút private ≈ 0:** repo private tắt Actions. Mọi việc (gate, build, audio, lexicon, explain, lô Sonnet, xưởng) chạy runner public, checkout private bằng key. PR nội dung ở private: phiên gọi `content-ci.yml` (workflow_dispatch, `pr=N`) + cron 15 phút quét PR mở → chạy gate trên runner public → đặt commit status ở repo private. Nếu có việc buộc chạy ở private: chỉ việc nhẹ, ngân sách ≤ 300/3.000 phút/tháng, monitor báo khi > 50%.
+- **Ràng buộc cứng owner: $0, repo private gần như KHÔNG chạy workflow.** Repo private **tắt Actions** (Settings › Actions › Disable) và không có `.github/workflows/`. Mọi job (build, test, gate, audio, lexicon, explain, lô Sonnet, xưởng) chạy runner public miễn phí, chỉ checkout repo private bằng deploy key RO/RW.
+  - CI cho PR nội dung ở private: phiên gọi `content-ci.yml` ở repo public (workflow_dispatch, `pr=N`) + cron 15 phút quét PR mở → gate chạy runner public → đặt commit status ở repo private qua PAT. Không cần workflow nào ở private.
+  - Nếu sau này buộc phải có job ở private: chỉ việc nhẹ (< 2 phút/lượt), ngân sách ≤ 300 / 3.000 phút/tháng của gói Pro, phải sửa spec này trước.
+  - **Giám sát phút:** `free-tier-guard.yml` (đã có, runner public) thêm bước đọc `GET /users/lexkiteapp/settings/billing/usage` (PAT quyền *Plan: read*), lọc `repositoryName=lexkite-content`, product Actions → cảnh báo (issue + push owner) khi ≥ 50 % của 3.000 phút, lỗi đỏ khi ≥ 80 %. Thêm cổng: test `ci-policy` fail nếu repo private có workflow hoặc Actions đang bật (`GET /repos/lexkiteapp/lexkite-content/actions/permissions` phải `enabled:false`).
+  - **Spending limit $0:** tài khoản cá nhân không có API đặt budget (chỉ org/enterprise có) → checklist owner bấm 1 lần ở lô 0: (1) github.com/settings/billing › Budgets and alerts → Actions = **$0**, bật "Stop usage when budget limit is reached"; (2) cùng chỗ cho Packages/Codespaces/Git LFS = $0; (3) repo `lexkite-content` › Settings › Actions › **Disable actions**. Em kiểm lại bằng API (permissions + usage) và ghi kết quả vào `owner-pending`.
 - **Cổng `scripts/test/content-leak.mjs` (trong `npm test`, không cần secret):**
   1. Không file tracked nào ở public khớp `content-private.json` (trừ `fixtures/`); `.gitignore` có đủ.
   2. Dấu vân tay: job đêm tạo Bloom filter từ băm câu chuẩn hoá (≥ 8 từ) của nội dung private → `fixtures/content-bloom.bin` (không đảo ngược được). Diff public nào chứa câu trúng Bloom → fail, chỉ in `file:dòng`.
@@ -61,4 +65,4 @@
 - Lô 2–5: tag `pre-content-lot-N` trước mỗi lô; `scripts/content/restore.mjs --area <khu>` chép file từ private về 1 PR public + đặt cờ `public`. Có test chạy thử restore trên fixtures.
 
 ## 8. Chi phí
-$0: repo private + deploy key + Environments miễn phí ở gói Pro; phút private ≈ 0; runner public như cũ. Không cần mua gì. Rủi ro chính: PAT hết hạn → monitor `free-tier-guard` báo trước 14 ngày.
+**$0 (ràng buộc cứng):** repo private + deploy key + Environments miễn phí ở gói Pro; Actions ở private tắt, budget $0 (checklist §3), giám sát 50 %; runner public như cũ. Không cần mua gì. Rủi ro chính: PAT hết hạn → monitor `free-tier-guard` báo trước 14 ngày.
