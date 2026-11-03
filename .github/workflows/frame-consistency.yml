@@ -2,8 +2,10 @@
 # – thanh trên, nút Back/X ≥ 44 + đích, thanh 5 tab, khung nội dung, thẻ, tiêu đề, CTA, màu token, icon cùng khái niệm.
 # Đỏ khi có lệch (không allowlist). Báo cáo: artifact frame-consistency (report.md + raw.json). Hermetic, 0 lượt chạm prod.
 name: Frame consistency
+# Chạy trên main (push) + tay: chưa vào PR/required-gate khi còn lệch chờ PR khác gộp (danh sách trong report.md); về 0 → thêm pull_request + required-gate.
 on:
-  pull_request:
+  push:
+    branches: [main]
     paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', '.github/workflows/frame-consistency.yml']
   workflow_dispatch:
 permissions:

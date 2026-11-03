@@ -21,14 +21,9 @@
 .tk-num{font-family:var(--font-display);font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:reduce){.tk-bar>i{transition:none}
 }
-/* §5d Một khung app – chuẩn chung cho MỌI route (cổng frame-consistency.yml): thanh trên 56, thanh 5 tab 64, nút điều hướng ≥ 44, màn học không thanh tab/thanh chung */
-@media (max-width:900px){.topbar{height:56px;min-height:56px;padding-top:0;padding-bottom:0;box-sizing:border-box}
-.bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0;box-sizing:border-box;align-items:stretch}
+/* §5d Một khung app – chuẩn chung cho MỌI route (cổng frame-consistency.yml): thanh 5 tab 64, nút điều hướng ≥ 44, tiêu đề trang font display */
+@media (max-width:900px){.bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0;box-sizing:border-box;align-items:stretch}
 html.native .bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0}
 }
 .crumb a,a.icon-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
-body.lk-learn .sidebar,body.lk-learn .bottom-nav,body.lk-learn .topbar,body.focus .topbar{display:none}
-body.lk-learn .shell{grid-template-columns:1fr}
 .view h1{font-family:var(--font-display)}
-body.lk-learn .view{padding-top:0}
-body.lk-learn .study-top{position:sticky;top:0;z-index:20;box-sizing:border-box;height:calc(56px + env(safe-area-inset-top,0px));min-height:0;margin-top:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:0;align-items:center;background:var(--bg)}
