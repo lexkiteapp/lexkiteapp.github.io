@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- Trang dựng thử cho scripts/test/figure-layout.mjs: nạp đúng CSS + mã vẽ đề của app, vẽ MỌI đề Task 1
+     trong 2 ngữ cảnh thật (trang #/task1 và phòng thi #/mock), rồi window.FigureLayout.check từng hình. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link id="gf" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=block">
+<link rel="stylesheet" href="../../../web/css/style.css">
+<style>.fx-ctx { margin: 1rem 0; } body.fallback, body.fallback * { --font: sans-serif !important; }</style>
+<script>
+  // Vỏ tối thiểu cho task1.js (UI/Core/App) – chỉ phần mã vẽ dùng tới
+  window.t = (s, o) => String(s).replace(/\{(\w+)\}/g, (_, k) => (o || {})[k] ?? '');
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  window.UI = { $: s => document.querySelector(s), $$: s => [...document.querySelectorAll(s)], esc, toast() {} };
+  window.Core = { Store: { get: async (k, d) => d, set() {} } };
+  window.App = { state: {}, routes: {}, view: document.createElement('div'), guard: f => f };
+</script>
+<script src="../../../web/js/write/task1-more.js"></script>
+<script src="../../../web/js/write/task1-more2.js"></script>
+<script src="../../../web/js/task1.js"></script>
+<script src="../lib/figure-layout.js"></script>
+</head><body><main class="view" id="root"></main>
+<script>
+  // Dựng theo đúng khung của 2 nơi hiển thị: trang Task 1 (lưới 1fr + cột 300 px ở ≥ 900 px) và phòng thi (card toàn chiều rộng)
+  window.renderAll = () => {
+    const wide = innerWidth >= 900, root = document.getElementById('root');
+    root.innerHTML = App.task1.SETS.map(d => `
+      <section class="fx-ctx"><div class="grid" style="grid-template-columns:${wide ? 'minmax(0,1fr) 300px' : '1fr'}"><div class="card">
+        <div class="chart-wrap" data-fig="${d.id}@task1">${App.task1.draw(d)}</div></div><div></div></div></section>
+      <section class="fx-ctx"><div class="card"><b>Writing Task 1</b><p class="small">${esc(d.title)}</p><div class="t1chart" data-fig="${d.id}@mock">${App.task1.draw(d)}</div></div></section>`).join('');
+    return App.task1.SETS.length;
+  };
+  window.checkAll = () => [...document.querySelectorAll('[data-fig]')].map(el => ({ fig: el.dataset.fig, issues: FigureLayout.check(el) })).filter(x => x.issues.length);
+</script></body></html>
