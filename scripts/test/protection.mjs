@@ -1,7 +1,7 @@
 // Test bảo vệ nội dung: bộ dựng luật WAF (scripts/lib/cf-waf-rules.mjs), sổ băm (scripts/lib/content-registry.mjs),
 // WebSub/copy-watch (hàm thuần) và sổ thật trong repo còn nguyên chuỗi băm. Không gọi mạng.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, CI_HEADER } from '../lib/cf-waf-rules.mjs';
+import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, RL_BUDGET, CI_HEADER, API_RL } from '../lib/cf-waf-rules.mjs';
 import { readRegistry, verifyChain, appendEntry, recordPublish, recordArchive, recordDataset, recordRelease, datasetRoot, sha256, REGISTRY, OTS_DIR, otsPath, otsPending, stampable, otsState, registryLines } from '../lib/content-registry.mjs';
 import { spawnSync } from 'node:child_process';
 import { feedsFor } from '../websub-ping.mjs';
@@ -30,11 +30,22 @@ ok(['python-requests', 'scrapy', 'aiohttp', 'go-http-client', 'httrack', 'wget',
 ok(R.custom[1].expression.includes('"headlesschrome"') && !R.custom[1].expression.includes('"/packs/"'), 'headless chỉ thử thách trang HTML (không /packs/ mà app tải trong e2e)');
 const rl = R.ratelimit[0];
 ok(rl.ratelimit.period === 10 && rl.ratelimit.characteristics.includes('ip.src'), 'rate limit 10 s theo IP (gói Free)');
-ok(rl.ratelimit.requests_per_period >= 30 && rl.ratelimit.requests_per_period === RL_DEFAULT.requests, 'ngưỡng ≥ 30 req/10 s');
+ok(rl.ratelimit.requests_per_period >= 30 && rl.ratelimit.requests_per_period <= 200 && rl.ratelimit.requests_per_period === RL_DEFAULT.requests, 'ngưỡng 30–200 req/10 s');
 ok(rl.ratelimit.requests_per_period >= 4 * 10, 'ngưỡng ≥ 4× người đọc nhanh nhất (~10 trang/10 s, 1 request nội dung/trang)');
 ok(!/http\.host|http\.request\.headers|user_agent/.test(rl.expression), 'rate limit chỉ dùng path + cf.client.bot (giới hạn gói Free)');
+// API công khai (audit bảo mật 2/11): /api/ai, /api/contact, /api/report, /api/handoff bị đếm ở rate limit, khớp ĐÚNG đường dẫn
+for (const a of ['/api/ai', '/api/contact', '/api/report', '/api/handoff']) ok(API_RL.includes(a) && rl.expression.includes(`"${a}"`), `rate limit phủ ${a}`);
+ok(/http\.request\.uri\.path in \{"\/api\/ai"/.test(rl.expression) && !rl.expression.includes('starts_with(http.request.uri.path, "/api'), 'API chỉ khớp đúng đường dẫn (không tiền tố /api/ – sync/studio/drive/CLI không bị đếm)');
+ok(API_RL.every(a => !/^\/api\/(sync|studio|drive|lexai|quota|admin)/.test(a)), 'không đếm API nội bộ/CI');
+ok(!R.custom.some(r => r.expression.includes('"/api/')), 'luật chặn/thử thách không bao giờ chạm /api/*');
+// CGNAT/lớp học (3/11): nhiều người thật chung 1 IP – ngưỡng phải đủ cho cả lớp cùng mở 1 link, mà vẫn chặn scraper thật đã gặp
+ok(rl.ratelimit.requests_per_period >= RL_BUDGET.classroomBurst * 2, `ngưỡng ≥ 2× lớp ${RL_BUDGET.classroomBurst} người chung IP cùng mở 1 link (CGNAT/Wi-Fi trường)`);
+ok(rl.ratelimit.requests_per_period * 2 <= RL_BUDGET.scraperSeenPer10s, 'ngưỡng ≤ ½ tốc độ scraper thật 2/11 (257 req/10 s) → vẫn bị chặn');
+ok(!rl.expression.includes('"/packs/"') && R.custom[0].expression.includes('"/packs/"'), '/packs/ (app fetch, chặn = mất bản dịch cả phiên) không bị đếm RL nhưng vẫn chặn UA công cụ');
+const packFiles = fs.existsSync('web/packs') ? fs.readdirSync('web/packs').length : 0;
+ok(packFiles > 0 && packFiles < rl.ratelimit.requests_per_period, `/packs/ chỉ ${packFiles} tệp < ngưỡng → RL vốn không bảo vệ được gói nghĩa`);
 ok(!rl.expression.includes('starts_with(http.request.uri.path, "/blog/")'), 'rate limit không tính /blog/ trơn (trùng đường ảnh media.lexkite.com/blog/…)');
-ok(rl.action === 'block' && rl.ratelimit.mitigation_timeout === 10, 'vượt ngưỡng → chặn 10 s (gói Free không cho challenge)');
+ok(rl.action === 'block' && rl.ratelimit.mitigation_timeout === 10, 'vượt ngưỡng → chặn 10 s (gói Free; luật chung với API fetch nên challenge vô ích)');
 ok(buildRules({ ciSecret: SECRET, rl: { action: 'block' } }).ratelimit[0].ratelimit.mitigation_timeout === 10, 'hành động block → timeout 10 s');
 throws(() => buildRules({ ciSecret: '' }), 'thiếu secret CI → lỗi');
 throws(() => buildRules({ ciSecret: 'short' }), 'secret quá ngắn → lỗi');
@@ -111,7 +122,7 @@ for (const [nm, y] of [['blog-publish', bp], ['content-protect', cp]]) {
 ok(bp.indexOf('- name: Sổ băm nội dung') < bp.indexOf('- name: OpenTimestamps'), 'blog-publish: đóng dấu sau khi ghi sổ bài mới');
 ok(/push:[\s\S]*'extension\/manifest\.json'[\s\S]*'content\/landing\/\*\*'/.test(cp) && /release addon/.test(cp) && /release landing/.test(cp), 'content-protect: push add-on lên bản/landing → ghi mốc phát hành');
 ok(/if: github\.event_name != 'push'/.test(step(cp, 'Dò bản sao chép')) && /if: github\.event_name != 'push'/.test(step(cp, 'WAF chống cào')), 'content-protect: lần chạy do push không dò bản sao/WAF');
-ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
+ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8') + fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
 if (fs.existsSync(OTS_DIR)) {
   const hashes = new Set(readRegistry().map(e => e.hash)), fl = fs.readdirSync(OTS_DIR).filter(f => !f.startsWith('.'));
   ok(fl.every(f => /^[0-9a-f]{64}\.ots$/.test(f) && hashes.has(f.slice(0, 64))), `${OTS_DIR}: mọi bằng chứng ứng với 1 mục sổ (không file lạ)`);

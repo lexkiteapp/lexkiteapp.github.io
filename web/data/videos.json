@@ -145,5 +145,41 @@
    "poster": "https://media.lexkite.com/video/news_pharmacy_three_974c28/p-11aae25e.webp",
    "vtt_en": "https://media.lexkite.com/video/news_pharmacy_three_974c28/en-6f3dde53.vtt"
   }
+ ],
+ "embeds": [
+  {
+   "id": "mo_tip_since_for_embed",
+   "title": "Since vs for",
+   "template": "tip",
+   "source": "video-motion (PR #191)",
+   "words": [
+    "since",
+    "for"
+   ],
+   "grammar": [
+    "present-perfect"
+   ],
+   "cefr": "A2",
+   "duration": 38,
+   "test": true,
+   "renditions": {
+    "sq45": {
+     "w": 1080,
+     "h": 1350,
+     "src": "https://media.lexkite.com/video/mo_tip_since_for_embed/sq45.mp4",
+     "poster": "https://media.lexkite.com/video/mo_tip_since_for_embed/sq45.poster.jpg",
+     "vtt_en": "https://media.lexkite.com/video/mo_tip_since_for_embed/sq45.en.vtt",
+     "chapters": "https://media.lexkite.com/video/mo_tip_since_for_embed/sq45.chapters.vtt"
+    },
+    "wide": {
+     "w": 1920,
+     "h": 1080,
+     "src": "https://media.lexkite.com/video/mo_tip_since_for_embed/wide.mp4",
+     "poster": "https://media.lexkite.com/video/mo_tip_since_for_embed/wide.poster.jpg",
+     "vtt_en": "https://media.lexkite.com/video/mo_tip_since_for_embed/wide.en.vtt",
+     "chapters": "https://media.lexkite.com/video/mo_tip_since_for_embed/wide.chapters.vtt"
+    }
+   }
+  }
  ]
 }
