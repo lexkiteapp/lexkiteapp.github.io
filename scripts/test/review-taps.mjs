@@ -52,6 +52,9 @@ const LANGS = ['vi', 'en', ...fs.readFileSync(path.resolve(ROOT, '../scripts/i18
 async function run(type, name, opts, scheme) {
   const browser = await type.launch(), ctx = await browser.newContext({ ...opts, colorScheme: scheme, serviceWorkers: 'block' }); await serve(ctx, ROOT);
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
+  // Đếm request đang bay: chuyển trang khi fetch (lex-index.json, packs/<lang>.json) còn dở làm WebKit báo "access control checks" (không phải lỗi app) → chỉ đi tiếp khi mạng đã lặng.
+  let inflight = 0; page.on('request', () => inflight++); page.on('requestfinished', () => inflight--); page.on('requestfailed', () => inflight--);
+  const quiet = async () => { for (let q = 0, end = Date.now() + 15000; q < 3 && Date.now() < end;) { await page.waitForTimeout(150); q = inflight === 0 ? q + 1 : 0; } };
   const tag = `${name}/${scheme}`;
   // Chờ bằng tín hiệu thật của app, không đoán thời gian: lượt điều hướng CUỐI đã vẽ xong (App.drawn: token mới nhất + đúng hash),
   // rồi mọi hiệu ứng hữu hạn trong #view (mờ-trồi khi đổi trang) chạy xong → toạ độ chạm ổn định.
@@ -95,10 +98,11 @@ async function run(type, name, opts, scheme) {
   for (const href of await page.locator(DECK).evaluateAll(as => as.map(a => a.getAttribute('href')))) { const sel = `${DECK.split('[')[0]}[href="${href}"]`; // lấy href trước (thứ tự bộ có thể đổi sau khi mở phiên ôn)
     await check(`thẻ bộ ${href}`, sel, href); await check(`chip đến hạn của ${href}`, sel, href, 0, ':scope > div:last-child > span:first-child'); }
   if (scheme === 'dark') { // sweep 15 ngôn ngữ giao diện (Đức/Nga/Hindi dài hơn, Ả Rập phải-sang-trái): chữ trong vòng không tràn
-    const seen = new Set(); for (const L of LANGS) { await page.goto(`https://lk.test/app/?sandbox=1&hl=${L}${HUB}`, { waitUntil: 'load' }); await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(700);
+    const seen = new Set(); for (const L of LANGS) { await quiet(); await page.goto(`https://lk.test/app/?sandbox=1&hl=${L}${HUB}`, { waitUntil: 'load' }); await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(700); await page.evaluate(() => App.loadPack()); // gói nghĩa của ngôn ngữ này (app tự gọi sau 1,5 s) → tải xong rồi mới đi tiếp, không bị cắt giữa chừng
       const f = await ringCheck(page, `${tag}/${L}`); if (f) seen.add(f.text); if (L === 'de' || L === 'ru') await page.screenshot({ path: path.join(OUT, `ring-${name}-${L}.png`), clip: { x: 0, y: 40, width: 375, height: 330 } }); }
     ok(seen.size >= 12, `${tag}: nhãn vòng đã dịch theo ngôn ngữ (${seen.size} bản khác nhau / ${LANGS.length})`);
-    await page.goto(`https://lk.test/app/?sandbox=1&hl=vi${HUB}`, { waitUntil: 'load' }); }
+    await quiet(); await page.goto(`https://lk.test/app/?sandbox=1&hl=vi${HUB}`, { waitUntil: 'load' }); await quiet(); }
+  await quiet();
   ok(!errs.length, `${tag}: không lỗi JS${errs.length ? ': ' + errs.slice(0, 3).join(' | ') : ''}`);
   await browser.close(); }
 
