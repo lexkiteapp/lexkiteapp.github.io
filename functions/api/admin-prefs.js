@@ -23,7 +23,7 @@ async function sharedAlerts(db) {
 const ALLOWED_TABS = new Set([
   'overview', 'analytics', 'live', 'users', 'inbox', 'alerts',
   'reports', 'quality', 'services', 'growth', 'social', 'dist',
-  'studio', 'video', 'backlinks', 'drive', 'keys', 'quota', 'notices', 'settings'
+  'studio', 'video', 'backlinks', 'drive', 'keys', 'accounts', 'quota', 'notices', 'settings'
 ]);
 const ALLOWED_LANGS = new Set(['vi', 'en']);
 const ALLOWED_THEMES = new Set(['auto', 'light', 'dark']);

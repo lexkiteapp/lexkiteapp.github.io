@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Console - Cảnh báo v2.4.1</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#6bd8ce",
+            "primary-container": "#2ba39a",
+            "on-primary": "#003733",
+            "secondary": "#ffb4a6",
+            "secondary-container": "#981201",
+            "surface": "#091518",
+            "surface-card": "#0f1d21",
+            "surface-dim": "#091518",
+            "surface-border": "#213a42",
+            "outline": "#879391",
+            "teal-brand": "#2dd4bf",
+            "teal-dark": "#0c181b",
+            "teal-light": "#0f2d2b",
+            "teal-border": "#1d5c58",
+            "coral-cta": "#ff5c38",
+            "coral-cta-hover": "#f95738",
+            "error-bg": "#221115",
+            "error-border": "#5c1d24",
+            "error-text": "#f87171",
+            "error-badge": "#3d1318",
+            "success-bg": "#0d281e",
+            "success-text": "#34d399",
+            "success-border": "#134e38"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #091518;
+      color: #d8e5e9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .tactile-card {
+      background-color: #0f1d21;
+      border: 1px solid #213a42;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 0 #14282e;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 450, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center bg-[#091518]">
+<!-- Mobile Viewport Container (strictly 390px native phone canvas) -->
+<main class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-24 shadow-2xl overflow-x-hidden border-x border-[#1a2c31]">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-3.5 h-14 bg-[#0c181b] border-b border-[#213a42] shadow-md max-w-[390px] mx-auto right-0">
+<div class="flex items-center gap-2">
+<button aria-label="Menu tác vụ" class="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-[#16292f] text-[#d8e5e9] active:scale-95 transition-transform" id="menu-toggle-btn">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h1 class="text-[16px] font-bold text-[#2dd4bf] leading-tight">Cảnh báo</h1>
+<span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 bg-[#0f2d2b] text-[#2dd4bf] border border-[#1d5c58] rounded leading-none">v2.4.1</span>
+</div>
+<span class="text-[10px] text-[#879391] font-medium leading-tight">Admin › Cảnh báo</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-[#2dd4bf] hover:bg-[#16292f] active:scale-95 transition-all" title="Làm mới dữ liệu">
+<span class="material-symbols-outlined text-[19px]">refresh</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-[#134e4a] text-[#e2f8fa] flex items-center justify-center text-[12px] font-bold tracking-tight shadow-xs border border-[#2dd4bf]/40" title="Hoàng Minh - Quản trị viên">
+          HM
+        </div>
+</div>
+</header>
+<!-- Sub-header Edge Network Status Bar -->
+<div class="mt-14 px-3.5 py-2 bg-[#0c181b] border-b border-[#213a42] flex items-center justify-between text-[11.5px] text-[#879391]">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#2dd4bf] inline-block shadow-[0_0_6px_#2dd4bf]"></span>
+<span class="font-medium text-[#d8e5e9] text-[11.5px]">Cloudflare Edge</span>
+<span class="text-[10px] text-[#55696d]">•</span>
+<span class="text-[11px] font-bold text-[#34d399] bg-[#0d281e] px-1.5 py-0.5 rounded border border-[#134e38]">4/4 ổn định</span>
+</div>
+<div class="text-[11px] font-mono text-[#879391] tracking-tight">
+        Cập nhật 15:42
+      </div>
+</div>
+<!-- Navigation Tabs Cluster (Touch Target >= 44px) -->
+<nav class="bg-[#0c181b] px-2.5 pt-1.5 border-b border-[#213a42] sticky top-14 z-30 flex items-stretch gap-1">
+<!-- Tab 1: Active -->
+<button class="flex-1 min-h-[44px] pb-2 pt-1.5 px-1 border-b-2 border-[#2dd4bf] text-[#2dd4bf] font-bold flex items-center justify-center gap-1.5 transition-colors">
+<span class="text-[13px] font-bold whitespace-nowrap">Tác vụ tự động</span>
+<span class="px-1.5 py-0.5 text-[10px] font-bold bg-[#14b8a6] text-[#042f2e] rounded-full leading-none">6</span>
+</button>
+<!-- Tab 2: Inactive -->
+<button class="flex-1 min-h-[44px] pb-2 pt-1.5 px-1 border-b-2 border-transparent text-[#879391] hover:text-[#2dd4bf] flex items-center justify-center gap-1 transition-colors">
+<span class="text-[13px] font-medium whitespace-nowrap">Lỗi JS</span>
+<span class="px-1.5 py-0.5 text-[10px] font-semibold bg-[#2b1216] text-[#f87171] border border-[#5c1d24] rounded-full leading-none">2 mới</span>
+</button>
+<!-- Tab 3: Inactive -->
+<button class="flex-1 min-h-[44px] pb-2 pt-1.5 px-1 border-b-2 border-transparent text-[#879391] hover:text-[#2dd4bf] flex items-center justify-center gap-1 transition-colors">
+<span class="text-[13px] font-medium whitespace-nowrap">Nhật ký</span>
+</button>
+</nav>
+<!-- Main Content Flow -->
+<div class="p-3.5 flex flex-col gap-3.5">
+<!-- Urgent CI Alert Strip -->
+<div class="bg-[#221115] border border-[#5c1d24] rounded-lg p-3 flex items-start gap-2.5 shadow-sm">
+<span class="material-symbols-outlined text-[#ff5c38] text-[20px] mt-0.5 flex-shrink-0" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#ffb4a6] uppercase tracking-wider">CI WORKFLOW ĐỎ</span>
+<span class="font-mono text-[11px] text-[#ff5c38] font-semibold">14:10</span>
+</div>
+<p class="text-[12px] text-[#fecdd3] mt-1 leading-snug">
+            1 pipeline lỗi trong 24h qua. Đã gắn nhãn <span class="font-mono bg-[#35161b] text-[#f87171] px-1 rounded text-[11px] border border-[#5c1d24]">ci-failure</span>
+</p>
+<div class="mt-2 flex justify-end">
+<a class="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#ff8066] hover:text-[#ff9c88] hover:underline active:opacity-80" href="#">
+              Chi tiết workflow <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 1: Cron Jobs Grid / Mobile Rows -->
+<section class="tactile-card rounded-lg overflow-hidden">
+<!-- Card Header -->
+<div class="px-3.5 py-3 bg-[#132428] border-b border-[#213a42] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2dd4bf] text-[20px]">schedule</span>
+<h2 class="text-[#e2f8fa] font-bold text-[14.5px]">Tác vụ đã lên lịch (Cron)</h2>
+</div>
+<span class="text-[11px] font-mono text-[#879391] font-medium bg-[#0c181b] px-2 py-0.5 rounded border border-[#213a42]">
+            6 Jobs
+          </span>
+</div>
+<!-- Job Rows Table Layout -->
+<div class="divide-y divide-[#213a42]">
+<!-- Job 1 -->
+<div class="p-3 bg-[#0f1d21] hover:bg-[#14262b] transition-colors">
+<div class="flex items-start justify-between gap-2">
+<span class="font-semibold text-[#e2f8fa] text-[13px] leading-tight">
+                Đồng bộ thẻ FSRS v5
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#0d281e] text-[#34d399] border border-[#134e38] flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#34d399] mr-1.5"></span>Đạt
+              </span>
+</div>
+<div class="mt-1.5 flex items-center justify-between text-[11.5px] font-mono text-[#879391]">
+<span>Chạy: 15:30 (1.2s)</span>
+<span class="text-[#2dd4bf] font-medium">Tới: 15:45</span>
+</div>
+</div>
+<!-- Job 2 -->
+<div class="p-3 bg-[#0f1d21] hover:bg-[#14262b] transition-colors">
+<div class="flex items-start justify-between gap-2">
+<span class="font-semibold text-[#e2f8fa] text-[13px] leading-tight">
+                Gửi email ôn tập ngắt quãng
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#0d281e] text-[#34d399] border border-[#134e38] flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#34d399] mr-1.5"></span>Đạt
+              </span>
+</div>
+<div class="mt-1.5 flex items-center justify-between text-[11.5px] font-mono text-[#879391]">
+<span>Chạy: 07:00 (4.8s)</span>
+<span class="text-[#2dd4bf] font-medium">Tới: Mai 07:00</span>
+</div>
+</div>
+<!-- Job 3 -->
+<div class="p-3 bg-[#0f1d21] hover:bg-[#14262b] transition-colors">
+<div class="flex items-start justify-between gap-2">
+<span class="font-semibold text-[#e2f8fa] text-[13px] leading-tight">
+                Dọn dẹp audio cache tạm
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#0d281e] text-[#34d399] border border-[#134e38] flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#34d399] mr-1.5"></span>Đạt
+              </span>
+</div>
+<div class="mt-1.5 flex items-center justify-between text-[11.5px] font-mono text-[#879391]">
+<span>Chạy: 03:00 (18.4s)</span>
+<span class="text-[#2dd4bf] font-medium">Tới: Đêm nay 03:00</span>
+</div>
+</div>
+<!-- Job 4 -->
+<div class="p-3 bg-[#0f1d21] hover:bg-[#14262b] transition-colors">
+<div class="flex items-start justify-between gap-2">
+<span class="font-semibold text-[#e2f8fa] text-[13px] leading-tight">
+                Kiểm tra link bài học hỏng
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#0d281e] text-[#34d399] border border-[#134e38] flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#34d399] mr-1.5"></span>Đạt
+              </span>
+</div>
+<div class="mt-1.5 flex items-center justify-between text-[11.5px] font-mono text-[#879391]">
+<span>Chạy: CN 12:00 (32.1s)</span>
+<span class="text-[#2dd4bf] font-medium">Tới: CN tuần tới</span>
+</div>
+</div>
+<!-- Job 5: Error Job -->
+<div class="p-3 bg-[#1d1417] hover:bg-[#25171b] transition-colors border-l-4 border-l-[#f87171]">
+<div class="flex items-start justify-between gap-2">
+<span class="font-semibold text-[#e2f8fa] text-[13px] leading-tight">
+                Deploy edge-worker build
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#2b1216] text-[#f87171] border border-[#5c1d24] flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#f87171] mr-1.5"></span>Lỗi
+              </span>
+</div>
+<div class="mt-1.5 flex items-center justify-between text-[11.5px] font-mono text-[#879391]">
+<span class="text-[#f87171] font-medium">Chạy: 14:10 (45s)</span>
+<span class="text-[#ff9c88] font-bold">Tới: Tạm dừng</span>
+</div>
+</div>
+<!-- Job 6: In progress -->
+<div class="p-3 bg-[#0c262b] hover:bg-[#0f2e34] transition-colors border-l-4 border-l-[#2dd4bf]">
+<div class="flex items-start justify-between gap-2">
+<span class="font-semibold text-[#e2f8fa] text-[13px] leading-tight">
+                Tạo backup dữ liệu người học
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#092227] text-[#38bdf8] border border-[#164e63] flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-ping mr-1.5"></span>Đang chạy
+              </span>
+</div>
+<div class="mt-1.5 flex items-center justify-between text-[11.5px] font-mono text-[#879391]">
+<span>Chạy: 15:40 (Đang đo)</span>
+<span class="text-[#2dd4bf] font-medium">Tới: 16:40</span>
+</div>
+</div>
+</div>
+<!-- Primary Action Callout: Coral Warm Button (min 44px height) -->
+<div class="p-3 bg-[#132428] border-t border-[#213a42]">
+<button class="w-full min-h-[44px] bg-[#ff5c38] hover:bg-[#f95738] active:scale-[0.98] text-[#091518] font-bold text-[13.5px] rounded-lg shadow-md border border-[#ff7859] flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[19px] font-bold">play_arrow</span>
+<span>+ Kích hoạt tác vụ thủ công</span>
+</button>
+</div>
+</section>
+<!-- Card 2: Client JS Errors (Grouping 24h) -->
+<section class="tactile-card rounded-lg overflow-hidden">
+<div class="px-3.5 py-3 bg-[#132428] border-b border-[#213a42] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#f87171] text-[20px]">code_blocks</span>
+<h2 class="text-[#e2f8fa] font-bold text-[14.5px]">Lỗi JS (24 giờ)</h2>
+</div>
+<span class="text-[11px] font-mono text-[#f87171] font-semibold bg-[#2b1216] px-2 py-0.5 rounded border border-[#5c1d24]">
+            6 phát hiện
+          </span>
+</div>
+<div class="p-3 flex flex-col gap-3">
+<!-- Error Item 1 -->
+<div class="border border-[#213a42] rounded-lg p-2.5 bg-[#0f1d21] hover:border-[#2dd4bf]/60 transition-colors">
+<div class="flex items-start justify-between gap-1.5">
+<span class="font-mono text-[12px] font-semibold text-[#f87171] break-all leading-snug">
+                TypeError: AudioContext decodeAudioData failed
+              </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#2b1216] text-[#f87171] border border-[#5c1d24] flex-shrink-0">
+                3 lần
+              </span>
+</div>
+<div class="mt-2 pt-2 border-t border-[#1a2d33] flex flex-wrap items-center justify-between gap-1 text-[11px] text-[#879391]">
+<span class="font-mono text-[#2dd4bf] bg-[#162b31] px-1.5 py-0.5 rounded border border-[#213a42]">#/study/flashcard</span>
+<span class="text-[#a1b3b5]">iOS Safari 17.2</span>
+<span class="font-bold text-[#ffb4a6] bg-[#3a181c] border border-[#5c1d24] px-1.5 py-0.5 rounded">Cần xử lý</span>
+</div>
+</div>
+<!-- Error Item 2 -->
+<div class="border border-[#213a42] rounded-lg p-2.5 bg-[#0f1d21] hover:border-[#2dd4bf]/60 transition-colors">
+<div class="flex items-start justify-between gap-1.5">
+<span class="font-mono text-[12px] font-semibold text-[#f87171] break-all leading-snug">
+                IndexedDB quota exceeded on offline cache
+              </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#2b1216] text-[#f87171] border border-[#5c1d24] flex-shrink-0">
+                1 lần
+              </span>
+</div>
+<div class="mt-2 pt-2 border-t border-[#1a2d33] flex flex-wrap items-center justify-between gap-1 text-[11px] text-[#879391]">
+<span class="font-mono text-[#2dd4bf] bg-[#162b31] px-1.5 py-0.5 rounded border border-[#213a42]">#/deck</span>
+<span class="text-[#a1b3b5]">Chrome Android</span>
+<span class="font-bold text-[#34d399] bg-[#0d281e] border border-[#134e38] px-1.5 py-0.5 rounded">Đã ghi nhận</span>
+</div>
+</div>
+<!-- Error Item 3 -->
+<div class="border border-[#213a42] rounded-lg p-2.5 bg-[#0f1d21] hover:border-[#2dd4bf]/60 transition-colors">
+<div class="flex items-start justify-between gap-1.5">
+<span class="font-mono text-[12px] font-semibold text-[#f87171] break-all leading-snug">
+                NetworkTimeout: TTS Carlos audio buffer
+              </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#2b1216] text-[#f87171] border border-[#5c1d24] flex-shrink-0">
+                2 lần
+              </span>
+</div>
+<div class="mt-2 pt-2 border-t border-[#1a2d33] flex flex-wrap items-center justify-between gap-1 text-[11px] text-[#879391]">
+<span class="font-mono text-[#2dd4bf] bg-[#162b31] px-1.5 py-0.5 rounded border border-[#213a42]">#/today</span>
+<span class="text-[#a1b3b5]">Edge Windows</span>
+<span class="font-bold text-[#f4bf40] bg-[#332609] border border-[#6b500c] px-1.5 py-0.5 rounded">Đang thử lại</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Card 3: Audit Log Preview -->
+<section class="tactile-card rounded-lg overflow-hidden">
+<div class="px-3.5 py-3 bg-[#132428] border-b border-[#213a42] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2dd4bf] text-[20px]">history_edu</span>
+<h2 class="text-[#e2f8fa] font-bold text-[14.5px]">Nhật ký quản trị</h2>
+</div>
+<a class="text-[11.5px] font-bold text-[#2dd4bf] hover:text-[#5eead4] hover:underline" href="#">Xem hết →</a>
+</div>
+<div class="p-3 divide-y divide-[#1a2d33]">
+<!-- Action 1 -->
+<div class="py-2.5 first:pt-0 last:pb-0 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-[#134e4a] text-[#e2f8fa] flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5 border border-[#2dd4bf]/40">
+              HM
+            </div>
+<div class="flex-1 min-w-0">
+<p class="text-[12px] text-[#d8e5e9] leading-snug">
+<span class="font-bold text-[#2dd4bf]">Hoàng Minh (HM)</span> đã cập nhật hạn mức AI (Kokoro TTS) thành <span class="font-mono bg-[#162b31] px-1 rounded text-[#e2f8fa] border border-[#213a42]">50 lượt/ngày</span>
+</p>
+<span class="text-[10.5px] font-mono text-[#879391] block mt-1">12 phút trước</span>
+</div>
+</div>
+<!-- Action 2 -->
+<div class="py-2.5 first:pt-0 last:pb-0 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-[#18393f] text-[#e2f8fa] flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5 border border-[#2dd4bf]/30">
+              LN
+            </div>
+<div class="flex-1 min-w-0">
+<p class="text-[12px] text-[#d8e5e9] leading-snug">
+<span class="font-bold text-[#2dd4bf]">Lê Nam (LN)</span> đã sửa lỗi phát âm bài học <span class="font-mono text-[#ff8066] font-semibold">#LXK-BUG-104</span>
+</p>
+<span class="text-[10.5px] font-mono text-[#879391] block mt-1">1 giờ trước</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Navigation Drawer (Side drawer for mobile trigger) -->
+<div class="fixed inset-0 bg-[#000000]/70 z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="nav-drawer-backdrop">
+<div class="fixed inset-y-0 left-0 z-50 flex flex-col w-72 max-w-xs p-4 bg-[#0c181b] border-r border-[#213a42] shadow-2xl transform -translate-x-full transition-transform duration-300" id="nav-drawer">
+<!-- Header Drawer -->
+<div class="flex items-center justify-between pb-4 border-b border-[#213a42]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#134e4a] text-[#e2f8fa] flex items-center justify-center font-bold text-[14px] border border-[#2dd4bf]/40">
+              HM
+            </div>
+<div>
+<h3 class="font-bold text-[#e2f8fa] text-[15px]">Hoàng Minh</h3>
+<p class="text-[11px] text-[#879391]">Quản trị viên hệ thống</p>
+</div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-[#16292f] text-[#879391]" id="close-drawer-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Menu Items -->
+<nav class="mt-4 flex flex-col gap-1.5 flex-1">
+<!-- Item 1: Active -->
+<a class="flex items-center gap-2.5 bg-[#0f2d2b] text-[#2dd4bf] font-bold rounded-lg px-3 py-2 border border-[#1d5c58]" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="text-[13px]">Tác vụ tự động</span>
+</a>
+<!-- Item 2 -->
+<a class="flex items-center gap-2.5 text-[#d8e5e9] rounded-lg px-3 py-2 hover:bg-[#16292f] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#879391]">code_blocks</span>
+<span class="text-[13px] font-medium">Lỗi JS</span>
+</a>
+<!-- Item 3 -->
+<a class="flex items-center gap-2.5 text-[#d8e5e9] rounded-lg px-3 py-2 hover:bg-[#16292f] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#879391]">history_edu</span>
+<span class="text-[13px] font-medium">Nhật ký quản trị</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-[#213a42] text-[11px] text-[#879391] flex justify-between items-center">
+<span>Lexkite Console</span>
+<span class="font-mono text-[#2dd4bf]">v2.4.1</span>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (4 destinations docked) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 bg-[#0c181b] border-t border-[#213a42] shadow-lg max-w-[390px] mx-auto right-0">
+<!-- Nav Item 1: Tổng quan -->
+<a class="flex flex-col items-center justify-center text-[#879391] py-1 min-h-[44px] min-w-[56px] hover:bg-[#16292f] rounded-lg transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-[10.5px] font-medium mt-0.5">Tổng quan</span>
+</a>
+<!-- Nav Item 2: Cảnh báo (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center text-[#2dd4bf] font-bold py-1 min-h-[44px] min-w-[56px] relative active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#2dd4bf]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-[10.5px] font-bold mt-0.5 text-[#2dd4bf]">Cảnh báo</span>
+<!-- Active indicator pip -->
+<span class="w-1.5 h-1.5 rounded-full bg-[#2dd4bf] absolute top-1 shadow-[0_0_6px_#2dd4bf]"></span>
+</a>
+<!-- Nav Item 3: Báo lỗi -->
+<a class="flex flex-col items-center justify-center text-[#879391] py-1 min-h-[44px] min-w-[56px] hover:bg-[#16292f] rounded-lg transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">report_problem</span>
+<span class="text-[10.5px] font-medium mt-0.5">Báo lỗi</span>
+</a>
+<!-- Nav Item 4: Cài đặt -->
+<a class="flex flex-col items-center justify-center text-[#879391] py-1 min-h-[44px] min-w-[56px] hover:bg-[#16292f] rounded-lg transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-[10.5px] font-medium mt-0.5">Cài đặt</span>
+</a>
+</nav>
+</main>
+<script>
+    // Navigation Drawer Toggle Logic
+    const menuToggle = document.getElementById('menu-toggle-btn');
+    const closeBtn = document.getElementById('close-drawer-btn');
+    const backdrop = document.getElementById('nav-drawer-backdrop');
+    const drawer = document.getElementById('nav-drawer');
+
+    function openDrawer() {
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100');
+      drawer.classList.remove('-translate-x-full');
+    }
+
+    function closeDrawer() {
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      backdrop.classList.remove('opacity-100');
+      drawer.classList.add('-translate-x-full');
+    }
+
+    if (menuToggle && closeBtn && backdrop) {
+      menuToggle.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeDrawer();
+      });
+    }
+  </script>
+</body></html>

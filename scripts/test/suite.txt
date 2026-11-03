@@ -117,6 +117,7 @@ node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
+node scripts/test/accounts.mjs
 node scripts/test/ai-pool.mjs
 node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
@@ -163,6 +164,7 @@ node scripts/test/no-prod-hosts.mjs
 node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
+node scripts/test/klocal.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
@@ -178,6 +180,7 @@ node scripts/test/landing-routing.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
+node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
 node scripts/test/content-check.mjs
 node scripts/test/content-qa.mjs
@@ -218,3 +221,4 @@ node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/lastmod.mjs

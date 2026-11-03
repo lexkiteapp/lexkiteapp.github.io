@@ -42,6 +42,7 @@ export async function stamps(env) {
   const last = async (area, run) => { try { const r = await run(); if (r && r.at) out[area] = { at: +r.at, by: maskEmail(r.by) }; } catch (e) { /* bảng chưa tạo */ } };
   await last('keys', () => db.prepare("SELECT at, email AS by FROM key_audit WHERE ok = 1 AND op IN ('add', 'set', 'delete') ORDER BY id DESC LIMIT 1").first());
   await last('drive', () => internalDb(env).prepare("SELECT at, who AS by FROM drive_audit WHERE ok = 1 AND act NOT IN ('list', 'get_link', 'preview') ORDER BY id DESC LIMIT 1").first());
+  await last('accounts', () => db.prepare('SELECT at, by FROM acct_ledger ORDER BY at DESC LIMIT 1').first());
   await last('quota', () => db.prepare('SELECT at, email AS by FROM quota_audit ORDER BY id DESC LIMIT 1').first());
   try { for (const r of (await db.prepare("SELECT k, at, by FROM config WHERE k LIKE 'adm_shared:%'").all()).results || []) out['shared:' + r.k.slice(11)] = { at: +r.at || 0, by: maskEmail(r.by) }; } catch (e) { /* chưa có */ }
   return out;

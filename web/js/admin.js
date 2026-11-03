@@ -11,7 +11,7 @@
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
     'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Quảng cáo': 'Ads', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.': 'Per-platform flags, kill switch, estimated revenue, frequency caps, retention guard and consent by region.', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
-    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
+    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Sổ tài khoản & khóa': 'Accounts & keys', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.': 'Which email/account owns each service and key, where it is stored (names only), expiry and renewal reminders.', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
     'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.': 'Synced accounts: search, filter, inspect, export CSV, delete data on request.',
@@ -216,7 +216,7 @@
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
     ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
-    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
+    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['accounts', '🗂️', 'Sổ tài khoản & khóa', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
   const ITEM = {}; NAV.forEach(([g, items]) => items.forEach(([k, icon, label, desc, badge]) => { ITEM[k] = { k, icon, label, desc, badge, group: g }; }));
@@ -543,6 +543,26 @@
     const a = e.target.closest('a[data-tab]'); if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault(); go(a.dataset.tab === tab ? a.dataset.tab : a.getAttribute('href'));
   });
+  // ---------- Bảng không bao giờ tràn thẻ (owner 3/11: bảng Nền tảng lòi khỏi thẻ ở ~300 px) ----------
+  // Mọi tab (kể cả js/admin-*.js) vẽ vào #main: bảng nào chưa nằm trong khung cuộn thì tự bọc .tbl-x (cuộn ngang TRONG thẻ);
+  // mọi khung cuộn ngang được gắn gợi ý mờ mép (.sx-l/.sx-r) khi còn nội dung bên trái/phải. Quét gộp 1 lần/khung hình.
+  const SCROLLX = '.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]';
+  const sxHint = el => { const m = el.scrollWidth - el.clientWidth; el.classList.toggle('sx-l', m > 1 && el.scrollLeft > 1); el.classList.toggle('sx-r', m > 1 && el.scrollLeft < m - 1); };
+  const sxRO = window.ResizeObserver ? new ResizeObserver(es => es.forEach(x => sxHint(x.target))) : null;
+  const fitTables = () => {
+    for (const t of main.querySelectorAll('table')) {
+      if (t.closest(SCROLLX)) continue;
+      let p = t.parentElement; while (p && p !== main && !/auto|scroll/.test(getComputedStyle(p).overflowX)) p = p.parentElement;
+      if (p && p !== main) { p.dataset.sx = ''; continue; } // khung cuộn tự viết (style="overflow-x:auto") → chỉ gắn gợi ý
+      const w = document.createElement('div'); w.className = 'tbl-x'; t.replaceWith(w); w.appendChild(t);
+    }
+    for (const el of main.querySelectorAll(SCROLLX)) {
+      if (el.dataset.sxOn) { sxHint(el); continue; }
+      el.dataset.sxOn = 1; el.addEventListener('scroll', () => sxHint(el), { passive: true }); if (sxRO) sxRO.observe(el); sxHint(el);
+      if (!el.hasAttribute('tabindex') && el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0; // cuộn được bằng bàn phím
+    }
+  };
+  let fitQ = 0; new MutationObserver(() => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fitTables(); }); }).observe(main, { childList: true, subtree: true });
   main.addEventListener('click', e => {
     const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); return; }
     if (e.target.closest('[data-retry]')) show(tab, { force: true });
@@ -716,7 +736,7 @@
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card"><h3>${L('📱 Nền tảng')}</h3><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      <div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3><div class="tbl-x"><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td><span class="pl-n"><span aria-hidden="true">${platIcon(k)}</span><span>${esc(platName(k))}</span></span></td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table></div><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
@@ -1307,6 +1327,10 @@
       };
       await lazy('AdminKeys', 'js/admin-keys.js'); main.innerHTML = '';
       AdminKeys.render(main, kapi, L, { esc, num, when, lang: () => LANG });
+    },
+    async accounts() { // 🗂️ Sổ tài khoản & khóa – js/admin-accounts.js (tải lười) → /api/admin-accounts (docs/ACCOUNTS-LEDGER.md)
+      await lazy('AdminAccounts', 'js/admin-accounts.js'); main.innerHTML = '';
+      AdminAccounts.render(main, L, { esc, when, lang: () => LANG });
     },
     async ads() { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
       await lazy('AdminAds', 'js/admin-ads.js'); main.innerHTML = '';
