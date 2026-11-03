@@ -42,4 +42,6 @@
 
 **Chạy.** Tự chạy thứ Hai 02:30 UTC, khi có workflow_dispatch, hoặc khi push lên main đụng các file của bảng. Muốn thử trên nhánh thì dispatch với `ref` = nhánh đó. Ở nhánh không phải main thì không đo Duolingo và không commit. Chấm nhanh tại chỗ (tĩnh, ~3 s): `node scripts/world-scorecard.mjs`. Probe chỉ chạy trên CI.
 
+**Top-1 score.** Lượt tuần này cũng chấm bảng Top-1 (gộp World + quét đêm mới nhất) và nâng sàn của nó – `docs/TOP1-SCORE.md`.
+
 **Thêm trục.** Thêm 1 mục vào `world.axes.json`, viết hàm đo trong `measure()` (tĩnh, hoặc qua `reports/world/*.json` do CI ghi), rồi thêm test.
