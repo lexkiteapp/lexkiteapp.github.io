@@ -52,7 +52,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 3. Ngân sách dung lượng
-- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
+- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (không tính `admin-*.js` và nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
@@ -76,7 +76,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Sau commit bot "i18n: cập nhật…" xem `--stat`: hàng trăm dòng bị xoá = mất bản dịch (harvest hết lượt).
 
 ## 6. Nội dung & blog
-- Nội dung học: `docs/CONTENT-PIPELINE.md` + `docs/CONTENT-RULES.md`; `npm run content:queue`, `npm run content:gate`; đáp án đúng 100%, tự soạn, không bản quyền; lời giải có bản en (`explain-check` ≥ 98 %).
+- Nội dung học: `docs/CONTENT-PIPELINE.md` + `docs/CONTENT-RULES.md`; `npm run content:queue`, `npm run content:gate`; đáp án đúng 100%, tự soạn, không bản quyền; lời giải có bản en (`explain-check` ≥ 98 %); khung A1→C2 + Call: `CURRICULUM-PLAN.md`.
 - Blog: `docs/BLOG-RUNBOOK.md`; `node scripts/blog-check.mjs` 0 lỗi 0 cảnh báo, qualityScore ≥ 92; ≤ 1 bài/ngôn ngữ/ngày; slug vĩnh viễn.
 - Alt/chú thích ảnh PHẢI khớp `content/blog/shots.json`, không hứa tính năng không có (B1 8/11 sai, B3 72/72 sai) – cổng `[caption-truth]`, `[alt-truth]`.
 - Gộp blog Antigravity: `git diff <mốc> HEAD -- content/blog | git apply -3`, gộp `briefs.json` theo lang+slug, kiểm `publishAt` bài cũ không đổi; không checkout cả `content/blog`.
@@ -96,7 +96,6 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
 - Lỗi Kling/footage (script, cả lô, nhiều lượt) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; dry-run, thử 1 trước.
 - CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
-- Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
 - Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file (`wrangler pages secret put`, GitHub API libsodium). Repo công khai.
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.

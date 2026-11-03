@@ -30,6 +30,7 @@
 - [CONTENT-QA.md](CONTENT-QA.md) — Cổng QA nội dung bắt buộc cho mọi nguồn: sổ nguồn, bảy lớp kiểm, baseline chỉ được giảm, luồng cho nội dung sinh tự động; đọc khi: thêm/sinh nội dung học hàng loạt
 - [CONTENT-ROADMAP.md](CONTENT-ROADMAP.md) — Lộ trình nội dung (audit 24/10): điểm từng mảng, lỗi chặn, cách sửa, thứ tự làm và ai làm; đọc khi: chọn mảng nội dung cần nâng
 - [CONTENT-WORLD-PLAN.md](CONTENT-WORLD-PLAN.md) — Chuẩn đích top 1 (CEFR/EVP/EGP/GSE/đặc tả đề) + kế hoạch P0/P1/P2 và 7 PR P0; đọc khi: mở PR nội dung mới hoặc nâng chỉ tiêu
+- [CURRICULUM-PLAN.md](CURRICULUM-PLAN.md) — Khung chương trình A1→C2 (kỹ năng × chủ đề × chức năng), kho kịch bản chung `sc:`, thiết kế lại Call, chống nhàm/nhớ lâu, mốc "nói như bản xứ", PR giai đoạn 1; đọc khi: thêm cuộc gọi/roleplay/tình huống nói/sổ mẫu câu hoặc chọn việc nội dung tiếp
 - [CONTENT-RULES.md](CONTENT-RULES.md) — Quy tắc nội dung học (từ vựng, bài tập, đề thi): nguồn & bản quyền, chuẩn từng loại, đa ngôn ngữ, dung lượng/tốc độ, cổng kiểm; đọc khi: thêm hoặc sửa bất kỳ nội dung học
 - [COORDINATION.md](COORDINATION.md) — Phối hợp Claude ⇄ Antigravity: quy tắc vàng, phân vùng file, việc mở, phân vùng đang giữ; đọc khi: sửa ngoài vùng của mình hoặc gộp nhánh
 - [CREDIT-RULES.md](CREDIT-RULES.md) — Luật bắt buộc khi tiêu credit (Kling/dịch vụ trả phí): làm hết phần 0 credit trước, phân tích, dry-run, thử 1 cái, hỏng 2 lần thì dừng; đọc khi: TRƯỚC mọi việc tốn credit
@@ -74,6 +75,7 @@
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
 - [Khung học chung Next/Back + xếp câu, điền từ](specs/learn-flow-nav.md) — hiện trạng điều hướng ~30 màn học, Enter/thanh FOCUS, ChoiceKit tiles/accept, cổng nav-sweep; đọc khi thêm/sửa màn học hoặc nav-sweep đỏ
 - [specs/target-language.md](specs/target-language.md) — Ngôn ngữ đích (học tiếng Bồ Đào Nha pt-BR, thử): Target/tl khác ngôn ngữ nghĩa, khóa thẻ `pt:`, giọng theo bảng, Kokoro + espeak pt-br, bộ 30 từ mẫu, cờ pt_pilot; đọc khi: đụng thẻ/SRS, giọng, nội dung ngôn ngữ đích
+- [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
 - [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi
 - [ROLLBACK.md](ROLLBACK.md) — Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh; đọc khi: CÓ SỰ CỐ hoặc cần khôi phục
 - [SCALING-PLAN.md](SCALING-PLAN.md) — Kế hoạch mở rộng Cloudflare Workers > 100k người học/ngày: giới hạn gói miễn phí, chốt phòng thủ, lộ trình nâng cấp, bước bật gói Paid; đọc khi: cân nhắc nâng gói
@@ -88,6 +90,7 @@
 - [STORE-READINESS.md](STORE-READINESS.md) — Sẵn sàng lên Google Play & App Store (com.lexkite.app): trạng thái hiện tại, checklist Play, App Store, chung, và khi bật AdMob; đọc khi: nộp/cập nhật app lên store
 - [TECH-RADAR.md](TECH-RADAR.md) — Tech radar: chuẩn chọn công nghệ (miễn phí, tiên tiến, chạy ở máy người dùng/biên); danh sách áp dụng, theo dõi, không dùng và lý do; đọc khi: thêm thư viện/dịch vụ
 - [TOKEN-RULES.md](TOKEN-RULES.md) — Luật tiết kiệm token: đọc ít, giao việc cho agent ngắn, không chờ/poll, gộp kiểm thử, nội dung hàng loạt, báo cáo ngắn; đọc khi: ĐẦU MỖI PHIÊN và khi giao việc
+- [COMPETITOR-UPLIFT.md](COMPETITOR-UPLIFT.md) — Học từ 4You + 10 app lớn: 9 hạng mục có bằng chứng, chạy $0, xếp giá trị ÷ công sức, thứ tự PR; đọc khi: chọn việc "học đối thủ"
 - [UX-BENCHMARK.md](UX-BENCHMARK.md) — Top 10 khoảng cách Lexkite vs Duolingo (tự sinh từ bảng World) + việc nên làm theo trục; đọc khi: chọn việc UX/sản phẩm tiếp theo
 - [WORLD-SCORECARD.md](WORLD-SCORECARD.md) — Thước đo "vượt Duolingo" trên CI: trục, nguồn, mốc Duolingo an toàn, sàn chỉ tăng; đọc khi: đọc/sửa content/pipeline/WORLD.md
 - [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
