@@ -11,7 +11,7 @@ import { FX, BFX, VFX, VIT, NOW } from './fixtures/admin-fx.mjs';
 import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
 import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
-const browser = await pw.chromium.launch();
+const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); // PW_CHANNEL=chrome: chạy thử nhanh bằng Chrome có sẵn
 const SHOTS = [['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark']];
 
 if (process.argv[2] === '--compare') { // TRƯỚC | SAU cạnh nhau, thu nhỏ để soát nhanh
@@ -44,7 +44,9 @@ const QUOTA = { day: iso(0).slice(0, 10), breaker: 0.8, providers: [{ p: 'gemini
   flags: [{ id: 'u9', feature: 'explain', strikes: 2, last: NOW }], allow: [{ id: 'u1', note: 'tester', by: 'admin@example.com', at: NOW }],
   features: [{ feature: 'explain', free: 20, anon: 5, store: 'kv', custom: false, ipx: 3, bans: 0 }, { feature: 'tts', free: 50, anon: 10, store: 'kv', custom: true, ipx: 2, bans: 1 }],
   audit: [{ at: NOW, by: 'admin@example.com', op: 'block', target: 'ip:ff00', detail: '24h' }] };
-const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [820, 'dark', 'vi'], [390, 'light', 'en']];
+// owner 3/11: bảng Nền tảng tràn thẻ + tên nước bị cắt ở cột ~300 px → thêm 360 (tối), 768, 1024. ADMIN_GUARD_W=360,1440 = chỉ chạy các bề rộng đó (thử nhanh)
+const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [360, 'dark', 'vi']]
+  .filter(([w]) => !process.env.ADMIN_GUARD_W || process.env.ADMIN_GUARD_W.split(',').includes(String(w)));
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
   const U = { uid: 'guard', email: 'admin@example.com', displayName: 'Guard', photoURL: '', getIdToken: async () => 'x' };
   window.__AUTH = { currentUser: U, onAuthStateChanged: cb => setTimeout(() => cb(U), 0), signOut: async () => {}, signInWithPopup: async () => {} };`;
@@ -80,7 +82,7 @@ for (const [width, scheme, lang] of CONFIGS) {
     cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
     await page.waitForFunction(() => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
-    const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav' }).catch(e => ({ err: [e.message] }));
+    const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav', boxes: '.card, .ds-card, .lt, .kpi' }).catch(e => ({ err: [e.message] }));
     // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
     res.shell = await page.evaluate(() => {
       const o = [], over = document.scrollingElement.scrollWidth - innerWidth;

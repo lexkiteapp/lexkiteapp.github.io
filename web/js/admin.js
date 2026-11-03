@@ -543,6 +543,26 @@
     const a = e.target.closest('a[data-tab]'); if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault(); go(a.dataset.tab === tab ? a.dataset.tab : a.getAttribute('href'));
   });
+  // ---------- Bảng không bao giờ tràn thẻ (owner 3/11: bảng Nền tảng lòi khỏi thẻ ở ~300 px) ----------
+  // Mọi tab (kể cả js/admin-*.js) vẽ vào #main: bảng nào chưa nằm trong khung cuộn thì tự bọc .tbl-x (cuộn ngang TRONG thẻ);
+  // mọi khung cuộn ngang được gắn gợi ý mờ mép (.sx-l/.sx-r) khi còn nội dung bên trái/phải. Quét gộp 1 lần/khung hình.
+  const SCROLLX = '.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]';
+  const sxHint = el => { const m = el.scrollWidth - el.clientWidth; el.classList.toggle('sx-l', m > 1 && el.scrollLeft > 1); el.classList.toggle('sx-r', m > 1 && el.scrollLeft < m - 1); };
+  const sxRO = window.ResizeObserver ? new ResizeObserver(es => es.forEach(x => sxHint(x.target))) : null;
+  const fitTables = () => {
+    for (const t of main.querySelectorAll('table')) {
+      if (t.closest(SCROLLX)) continue;
+      let p = t.parentElement; while (p && p !== main && !/auto|scroll/.test(getComputedStyle(p).overflowX)) p = p.parentElement;
+      if (p && p !== main) { p.dataset.sx = ''; continue; } // khung cuộn tự viết (style="overflow-x:auto") → chỉ gắn gợi ý
+      const w = document.createElement('div'); w.className = 'tbl-x'; t.replaceWith(w); w.appendChild(t);
+    }
+    for (const el of main.querySelectorAll(SCROLLX)) {
+      if (el.dataset.sxOn) { sxHint(el); continue; }
+      el.dataset.sxOn = 1; el.addEventListener('scroll', () => sxHint(el), { passive: true }); if (sxRO) sxRO.observe(el); sxHint(el);
+      if (!el.hasAttribute('tabindex') && el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0; // cuộn được bằng bàn phím
+    }
+  };
+  let fitQ = 0; new MutationObserver(() => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fitTables(); }); }).observe(main, { childList: true, subtree: true });
   main.addEventListener('click', e => {
     const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); return; }
     if (e.target.closest('[data-retry]')) show(tab, { force: true });
@@ -716,7 +736,7 @@
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card"><h3>${L('📱 Nền tảng')}</h3><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      <div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3><div class="tbl-x"><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td><span class="pl-n"><span aria-hidden="true">${platIcon(k)}</span><span>${esc(platName(k))}</span></span></td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table></div><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
