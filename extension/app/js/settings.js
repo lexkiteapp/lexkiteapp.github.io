@@ -10,13 +10,15 @@
   const adminTiles = () => [['overview', '📊', t('Tổng quan'), t('Người dùng, truy cập, việc cần xử lý')], ['analytics', '📈', t('Phân tích'), t('Nguồn truy cập, quốc gia, thiết bị, tốc độ')], ['users', '👥', t('Người dùng'), t('Danh sách, tìm kiếm, chi tiết')], ['inbox', '✉️', t('Hộp thư'), t('Tin nhắn liên hệ & trả lời')], ['alerts', '🚨', t('Cảnh báo'), t('Workflow, lỗi JavaScript, dung lượng')], ['quality', '🩺', t('Chất lượng'), t('Rà soát hằng ngày & bản dịch')], ['services', '🔑', t('Dịch vụ & API'), t('Tài khoản, khóa, hạn mức miễn phí')], ['settings', '⚙️', t('Cài đặt hệ thống'), t('Thông báo, hạn mức AI, Gemini API')]]
     .map(([id, ic, l, d]) => `<a class="adm-tile" href="${App.adminUrl(id)}" target="_blank" rel="noopener"><span class="adm-ic" aria-hidden="true">${ic}</span><span class="adm-tx"><b>${l}</b><small>${d}</small></span></a>`).join('');
   // Bộ từ mẫu ngôn ngữ đích (content/target/<tl>/seed.json → bản sao web/js/target-<tl>-seed.json, scripts/target/build.mjs) → thẻ tl, khóa '<tl>:từ' (Core.tlKey)
+  // chuỗi thông báo theo ngôn ngữ đích – để chữ nguyên văn trong t() cho bộ quét i18n (thêm ngôn ngữ = thêm một dòng)
+  const TL_TOAST = { pt: n => t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n }), es: n => t('Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ', { n }) };
   async function addTlSeed(tl) {
     const r = await fetch('js/target-' + tl + '-seed.json'); if (!r.ok) throw new Error('seed ' + r.status);
     const j = await r.json(); let n = 0;
     await Core.Cards.mutate(m => {
       for (const w of j.words || []) {
         const k = Core.tlKey(w.word, tl); if (m[k]) continue;
-        m[k] = Core.Cards.make({ word: w.word, pos: w.pos, ipa: w.ipa, def: w.gl.en, vi: w.gl.vi, ex: w.ex.pt, topic: tl + '-core', emoji: w.emoji || '📘', tl }, { gl: w.gl, exEn: w.ex.en, ...(w.gender ? { gender: w.gender } : {}), ...(w.img ? { img: w.img } : {}) });
+        m[k] = Core.Cards.make({ word: w.word, pos: w.pos, ipa: w.ipa, def: w.gl.en, vi: w.gl.vi, ex: w.ex[tl], topic: tl + '-core', emoji: w.emoji || '📘', tl }, { gl: w.gl, exEn: w.ex.en, ...(w.gender ? { gender: w.gender } : {}), ...(w.img ? { img: w.img } : {}) });
         n++;
       }
       return m;
@@ -29,10 +31,10 @@
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
     const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
     const row = (label, ctl, hint = '') => (ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`), `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`);
-    // 🌍 Ngôn ngữ đang học (ngôn ngữ đích – web/js/target.js, docs/specs/target-language.md): chỉ hiện khi cờ pt_pilot / lk.pt bật
+    // 🌍 Ngôn ngữ đang học (ngôn ngữ đích – web/js/target.js, docs/specs/target-language.md): chỉ hiện khi cờ một ngôn ngữ đích bật (Target.avail: pt_pilot/lk.pt, es_course/lk.es)
     const TL = window.Target && Target.enabled() ? Target.cur() : '';
-    const tlRow = () => (TL ? row('🌍 ' + t('Ngôn ngữ đang học'), seg('sTl', [['en', 'English', ' translate="no" lang="en"'], ['pt', 'Português (beta)', ' translate="no" lang="pt"']], TL)
-      + (TL === 'pt' ? ` <button type="button" class="btn sm" id="sTlSeed">${t('Thêm 30 từ cơ bản')}</button>` : '')) : '');
+    const tlRow = () => (TL ? row('🌍 ' + t('Ngôn ngữ đang học'), seg('sTl', Target.avail().map(k => [k, k === 'en' ? 'English' : Target.table(k).label, ` translate="no" lang="${k}"`]), TL)
+      + (TL !== 'en' ? ` <button type="button" class="btn sm" id="sTlSeed">${t('Thêm 30 từ cơ bản')}</button>` : '')) : '');
     const OFFP = !!(window.LKAudio && LKAudio.offline.supported() && LKAudio.offline.flag()); // 📥 gói nghe offline (cờ offline_pack)
     const tog = (id, on, label, hint = '') => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${on ? 'checked' : ''}></label>`;
     const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
@@ -141,7 +143,7 @@
     $$('#sTl [data-v]').forEach(b => b.onclick = () => { if (b.dataset.v !== Target.cur()) { Target.set(b.dataset.v); routes.settings(); } });
     const tlSeed = $('#sTlSeed'); if (tlSeed) tlSeed.onclick = async () => {
       tlSeed.disabled = true;
-      try { const n = await addTlSeed('pt'); toast(t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n })); Target.set('pt'); } catch (e) { toast(t('Không tải được bộ từ, thử lại sau'), { action: t('Thử lại'), onAction: () => tlSeed.onclick() }); } finally { tlSeed.disabled = false; }
+      try { const tl = Target.cur(), n = await addTlSeed(tl); toast(TL_TOAST[tl](n)); Target.set(tl); } catch (e) { toast(t('Không tải được bộ từ, thử lại sau'), { action: t('Thử lại'), onAction: () => tlSeed.onclick() }); } finally { tlSeed.disabled = false; }
     };
     $('#sRate').oninput = e => { s.ttsRate = +e.target.value; $('#vRate').textContent = s.ttsRate.toFixed(2) + '×'; save(); };
     $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
