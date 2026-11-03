@@ -143,6 +143,11 @@ export async function digest(env) {
     const is = await (await fetch('https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/issues?labels=quality-sweep&state=open&per_page=1', { headers: { 'User-Agent': 'lexkite-digest' } })).json();
     if (Array.isArray(is) && is[0]) wfLines.push(`• ${String(is[0].body || 'quality-sweep').split('\n')[0].replace(/\*/g, '').slice(0, 200)} – ${is[0].html_url}`);
   } catch (_) { /* GitHub tạm lỗi – bỏ qua */ }
+  // 6c. Top-1 score /100 (scripts/top1/score.mjs, docs/TOP1-SCORE.md): 1 dòng từ issue "Top-1 score" (tiêu đề = điểm, dòng 2 thân = điểm vs Duolingo)
+  try {
+    const is = await (await fetch('https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/issues?labels=top1-score&state=open&per_page=1', { headers: { 'User-Agent': 'lexkite-digest' } })).json();
+    if (Array.isArray(is) && is[0]) wfLines.push(`• ${String(is[0].title || 'Top-1 score').slice(0, 80)} – ${is[0].html_url}`);
+  } catch (_) { /* GitHub tạm lỗi – bỏ qua */ }
 
   // 7. Tự xác nhận bản dịch hàng đêm
   let judgeLine = null;

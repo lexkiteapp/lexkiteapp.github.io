@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 
 export const KEY = '${{ secrets.BOT_DEPLOY_KEY }}', SKIP = '[skip ci]';
 // script đẩy thẳng main của repo chính → regex nhận lời gọi có đẩy trong workflow
-export const SCRIPT_MAIN = { 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/ };
+export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledger-push\.mjs/, 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/ };
 // đẩy vào kho KHÁC (media/footage/shorts) hoặc chạy tay trên máy → không thuộc ruleset main
 const EXTERNAL = new Set(['scripts/media/push.mjs', 'scripts/lib/media-store.mjs', 'scripts/blog-media.mjs', 'scripts/video/library.mjs',
   'scripts/video/bank3d/upload.sh', 'scripts/cine/shorts_migrate.py', 'scripts/mergecheck.sh' /* người chạy, gộp nhánh cục bộ */, 'scripts/deploy-github.sh' /* cũ */]);
