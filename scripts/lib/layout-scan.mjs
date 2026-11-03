@@ -2,12 +2,14 @@
 // gốc quét + bộ chọn để dùng cho app học lẫn trang quản trị. Trả về { overlap, clip, spill, dup, svgtext }:
 //  overlap: thẻ/nút/ô chữ chồng nhau > 4 px · clip: bị khung overflow:hidden hoặc mép màn hình cắt (khung CUỘN ngang thì được)
 //  spill: chữ tràn khỏi nút/chip · dup: cùng IPA/loa 2 lần trong một khối · svgtext: chữ trong SVG bị phóng/co theo viewBox (cao > 24 px hoặc < 7 px)
+//  box (khi truyền boxes): phần tử/chữ lòi ra ngoài viền thẻ cha (không nằm trong vùng cuộn ngang) – ca bảng Nền tảng owner 3/11
+//  trunc (khi truyền boxes): chữ bị cắt "…"/line-clamp mà không có title/aria-label → mất thông tin (ca tên nước "CN · C…")
 // Ngoại lệ có chủ đích: badge/chấm định vị tuyệt đối < 48 px, mặt sau thẻ lật (.flash .face), [data-ov-ok], phần tử fixed/sticky.
 export const APP_SEL = '.card, .btn, button, a.chip, .chip, input, select, textarea, .icon-btn, h1, h2, h3, .tabs, .quest-line, .hub-card';
 export const ADMIN_SEL = APP_SEL + ', .kpi, .vid-box, .vid-row, .ach-x.xw, .ach-v, .ach-gl em, .pg-t, .side-a, table';
 
-export function scan({ root = '#view', sel = APP_SEL, okScroll = '' } = {}) {
-  const W = innerWidth, out = { overlap: [], clip: [], spill: [], dup: [], svgtext: [] };
+export function scan({ root = '#view', sel = APP_SEL, okScroll = '', boxes = '' } = {}) {
+  const W = innerWidth, out = { overlap: [], clip: [], spill: [], dup: [], svgtext: [], ...(boxes ? { box: [], trunc: [] } : {}) };
   const lab = el => (el.id ? '#' + el.id : el.tagName.toLowerCase() + (typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.') : '')) + ` "${(el.textContent || el.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ').slice(0, 24)}"`;
   const cs = el => getComputedStyle(el);
   const shown = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const s = cs(e); if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity < .05) return false; if (e.matches('[data-ov-ok], .flash .face, .skel, details:not([open]) > :not(summary)') || (e !== el && e.matches('[aria-hidden="true"]:not(.ach-cs):not(.ach-g)'))) return false; } return true; };
@@ -53,6 +55,31 @@ export function scan({ root = '#view', sel = APP_SEL, okScroll = '' } = {}) {
   // chữ SVG co giãn theo viewBox (vd. viewBox 76 px kéo rộng 600 px → chữ 10 px thành 80 px, ngày đè nhau)
   for (const t of all.filter(e => e.tagName === 'text' && e.textContent.trim() && shown(e))) {
     const h = t.getBoundingClientRect().height; if (h > 24 || (h > 0 && h < 7)) out.svgtext.push(`${lab(t.closest('svg') || t)} chữ "${t.textContent.trim().slice(0, 10)}" cao ${Math.round(h)} px`);
+  }
+  if (boxes) {
+    const scrolls = (e, stop) => { for (let p = e.parentElement; p && p !== stop; p = p.parentElement) if (/auto|scroll|hidden|clip/.test(cs(p).overflowX) || (okScroll && p.matches(okScroll))) return true; return false; };
+    const pop = e => e.closest('dialog, [popover], [role="tooltip"], [role="menu"], [role="listbox"], .sr-only, .visually-hidden');
+    const own = [...new Set(scope.flatMap(s => [...s.querySelectorAll(boxes)]))].filter(b => shown(b) && !floating(b));
+    for (const b of own) {
+      const br = b.getBoundingClientRect(); if (br.width < 2) continue;
+      const kids = [...b.querySelectorAll('*')].filter(e => !e.closest('svg') || e.tagName === 'svg');
+      for (const e of kids) {
+        if (e.closest(boxes) !== b || pop(e) || !shown(e) || floating(e) || scrolls(e, b)) continue;
+        const s = cs(e), r = e.getBoundingClientRect(); if (r.width < 1 || r.height < 1) continue;
+        if (/absolute/.test(s.position) && r.width < 48 && r.height < 48) continue;
+        if (r.right > br.right + 1 || r.left < br.left - 1) out.box.push(`${lab(e)} lòi ra ngoài ${lab(b)} ${Math.round(r.left - br.left)}..${Math.round(r.right - br.right)} px`);
+        const tip = () => { for (let p = e; p && p !== b.parentElement; p = p.parentElement) if (p.getAttribute('title') || p.getAttribute('aria-label') || p.getAttribute('data-tip')) return true; return false; };
+        const ell = s.textOverflow === 'ellipsis' && /hidden|clip/.test(s.overflowX) && e.scrollWidth > e.clientWidth + 1;
+        const clamp = s.webkitLineClamp && s.webkitLineClamp !== 'none' && e.scrollHeight > e.clientHeight + 1;
+        if ((ell || clamp) && e.textContent.trim() && !tip()) out.trunc.push(`${lab(e)} bị cắt chữ (${e.scrollWidth}/${e.clientWidth} px) không có title`);
+      }
+      const tw = document.createTreeWalker(b, NodeFilter.SHOW_TEXT);
+      for (let t; (t = tw.nextNode());) {
+        const pe = t.parentElement; if (!t.textContent.trim() || !pe || pe.closest(boxes) !== b || pe.closest('svg') || pop(pe) || !shown(pe) || floating(pe) || scrolls({ parentElement: pe }, b)) continue;
+        const rg = document.createRange(); rg.selectNodeContents(t); const r = rg.getBoundingClientRect();
+        if (r.width && (r.right > br.right + 1 || r.left < br.left - 1)) out.box.push(`chữ "${t.textContent.trim().slice(0, 24)}" (${lab(pe)}) lòi ra ngoài ${lab(b)} ${Math.round(r.right - br.right)} px`);
+      }
+    }
   }
   for (const k in out) out[k] = [...new Set(out[k])].slice(0, 15);
   return out;
