@@ -93,6 +93,7 @@ export function checkWorkflow(src) {
   for (const ev of ['workflow_run', 'check_suite', 'pull_request', 'pull_request_target', 'push']) if (new RegExp(`^  ${ev}:`, 'm').test(on)) out.push(`không được nghe ${ev} (mỗi sự kiện chiếm 1 runner – bộ canh --watch thay thế)`);
   if (!/^  schedule:/m.test(on)) out.push('thiếu lịch khởi động bộ canh');
   if (!/--watch /.test(src)) out.push('thiếu bước --watch');
+  if (!/GATE_CHAIN_REF:/.test(src) || !/actions: write/.test(src)) out.push('thiếu tự nối (GATE_CHAIN_REF + actions: write) – cron GitHub có lúc bỏ lượt hàng giờ');
   if (/cancel-in-progress: true/.test(src)) out.push('bộ canh không được huỷ lượt đang canh (cancel-in-progress phải false)');
   return out;
 }
@@ -126,6 +127,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     if (h('x-ratelimit-remaining') != null) { rate.remaining = +h('x-ratelimit-remaining'); rate.reset = +h('x-ratelimit-reset') * 1000; }
     if (r.status === 304 && c) return c.body;   // GET có điều kiện: 304 không trừ hạn mức API
     if (!r.ok) throw new Error(`${init.method || 'GET'} ${p} → ${r.status} ${(await r.text()).slice(0, 200)}`);
+    if (r.status === 204) return null;   // dispatches: không có thân
     const body = await r.json();
     if (get && h('etag')) etags.set(u, { etag: h('etag'), body });
     return body;
@@ -149,6 +151,8 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     post: (sha, { state, description }, targetUrl) => call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state, description, context: CONTEXT, ...(targetUrl ? { target_url: targetUrl } : {}) }) }),
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
+    // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
+    dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     gateState: async sha => ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(s => s.context === CONTEXT),
   };
 }
@@ -181,8 +185,10 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
     // Mỗi vòng: 1 lệnh liệt kê lượt chạy gần nhất + PR mở (ETag – 304 không trừ hạn mức) → chỉ đánh giá sha thật sự có thể đổi trạng thái.
     const end = clock.now() + Number(arg('--watch')) * 60e3, seen = new Map(), born = new Map(), since = () => clock.now() - 14 * 864e5, out = [];
     const YOUNG = 90e3;   // sha mới thấy < 90 s: chưa chắc các workflow đã kịp tạo lượt chạy → không cho xanh sớm
-    let first = true;
+    let first = true, chained = !env.GATE_CHAIN_REF || dry;
+    const CHAIN_BEFORE = 6 * 60e3;   // còn ≤ 6 phút: xếp sẵn lượt kế tiếp (concurrency giữ nó chờ tới khi lượt này xong) – không phụ thuộc cron
     while (clock.now() < end) {
+      if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
       const t = clock.now(), prs = (await A.openPrs()).filter(p => Date.parse(p.updated_at) >= since()), shas = [...new Set(prs.map(p => p.head.sha))];
       if (first) {   // mồi: gate đã xanh/đỏ thì ghi nhận (1 lệnh/PR), pending/thiếu thì đánh giá ngay
         for (const sha of shas) { const g = await A.gateState(sha); if (g && g.state !== 'pending') seen.set(sha, { at: Date.parse(g.updated_at || g.created_at) || t, state: g.state, desc: g.description }); }

@@ -3,7 +3,7 @@
 # Bộ canh (3/11): trước đây mỗi workflow xong (workflow_run ×38 + check_suite) khởi động 1 runner chỉ để ghi 1 status → ~20 runner/commit,
 # 66 % lượt CI, giành chỗ check thật. Nay 1 runner canh liên tục: mỗi 30–60 s liệt kê lượt chạy gần nhất + PR mở (ETag), chỉ đánh giá sha
 # có thể đổi trạng thái (lượt đỏ → đỏ ngay; lượt cuối xong → xanh). Lịch 30 phút khởi động, mỗi lượt canh 54 phút, concurrency 1 chạy + 1 chờ
-# → nối tiếp không hở. Không nghe sự kiện PR nên không cần danh sách workflow; PR fork vẫn được đánh giá (token của lịch có quyền ghi status).
+# → nối tiếp không hở; còn 6 phút thì tự dispatch lượt kế tiếp (cron GitHub bỏ lượt 13 giờ ngày 02/11 – lịch chỉ là lưới). Không nghe sự kiện PR nên không cần danh sách workflow; PR fork vẫn được đánh giá (token của lịch có quyền ghi status).
 # Gác hồi quy: node scripts/ci/required-gate.mjs --check (prepush) + scripts/test/required-gate.mjs. Tài liệu: docs/CI-RUNNERS.md § required-gate.
 name: required-gate
 on:
@@ -19,7 +19,7 @@ permissions:
   contents: read
   statuses: write
   checks: read
-  actions: read
+  actions: write   # chỉ để tự dispatch lượt canh kế tiếp (cron GitHub bỏ lượt hàng giờ ngày 02/11)
   pull-requests: read
 # bộ canh: 1 chạy + 1 chờ, KHÔNG huỷ lượt đang canh; dispatch theo PR là nhóm riêng (không phải xếp sau 54 phút canh)
 concurrency:
@@ -42,5 +42,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           IN_PR: ${{ inputs.pr }}
+          GATE_CHAIN_REF: ${{ github.event.repository.default_branch }}
         run: |
           if [ -n "$IN_PR" ]; then node scripts/ci/required-gate.mjs --pr "$IN_PR"; else node scripts/ci/required-gate.mjs --watch 54; fi

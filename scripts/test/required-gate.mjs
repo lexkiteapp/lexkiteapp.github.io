@@ -146,6 +146,18 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   runsAt.splice(1, 3, [60e3, [{ head_sha: 'h1', status: 'completed', conclusion: 'failure', updated_at: 50e3, n: 'A' }, { head_sha: 'h1', status: 'in_progress', updated_at: 0, n: 'B' }]]);
   await run(['--watch', '3'], {}, A, () => {}, clock);
   ok(posted.join() === 'pending,failure', 'bộ canh: lượt đỏ → đỏ ngay ở vòng sau: ' + posted.join());
+  // tự nối: đúng 1 lần dispatch khi còn ≤ 6 phút (không phụ thuộc cron); --dry hoặc thiếu GATE_CHAIN_REF thì không
+  {
+    const disp = []; t = 0;
+    await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async ref => disp.push([ref, t]) }, () => {}, clock);
+    ok(disp.length === 1 && disp[0][0] === 'main' && disp[0][1] >= 14 * 60e3 && disp[0][1] < 20 * 60e3, 'tự nối: 1 dispatch khi còn ≤ 6 phút: ' + JSON.stringify(disp));
+    const d2 = []; t = 0;
+    await run(['--watch', '20', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d2.push(1) }, () => {}, clock);
+    ok(!d2.length, '--dry không tự nối');
+    t = 0; const logs = [];
+    await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => { throw new Error('403'); } }, m => logs.push(m), clock);
+    ok(logs.some(m => /không tự nối/.test(m)), 'dispatch lỗi → cảnh báo, bộ canh vẫn chạy hết lượt');
+  }
   // hạn mức API sắp hết → giãn vòng tới lúc đặt lại
   t = 0; const sl = []; const A2 = { ...A, rate: { remaining: 10, reset: 600e3 } };
   await run(['--watch', '30', '--dry'], {}, A2, () => {}, { now: () => t, sleep: async ms => { sl.push(ms); t += ms; } });
