@@ -103,7 +103,8 @@ body.adm {
 .adm h2.h3 { font-size: 1rem; font-weight: 700; margin: 0; letter-spacing: 0; }
 .card > h2.h3 { margin-bottom: .7rem; }
 .mt { margin-top: 1rem; }
-.adm .card { border-radius: var(--a-r); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--a-card-shadow); padding: 1.15rem 1.3rem; }
+.adm .card { border-radius: var(--a-r); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--a-card-shadow); padding: 1.15rem 1.3rem; min-width: 0; overflow-wrap: break-word; } /* min-width 0: thẻ trong grid/flex không bị nội dung kéo rộng; break-word: chuỗi dài (URL, email) xuống dòng thay vì lòi khỏi thẻ */
+@media (max-width: 560px) { .adm .card { padding: 1rem 1.05rem; } }
 .adm h3 { margin: 0 0 .7rem; font-size: 1rem; font-weight: 700; }
 .card-h { display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-wrap: wrap; margin-bottom: .85rem; }
 .card-h h3 { margin: 0; }
@@ -304,9 +305,14 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .savebar .sp { flex: 1; }
 
 /* ---------- Biểu đồ nhẹ (SVG/HTML) ---------- */
-.hbars .row2 { display: grid; grid-template-columns: minmax(80px, 36%) 1fr auto; gap: .75rem; align-items: center; font-size: .86rem; padding: .38rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+/* Thanh ngang (quốc gia, trang, nguồn, thiết bị…): nhãn KHÔNG bị cắt "…" – xuống dòng gọn (tối đa 3 dòng + title); khung hẹp < 420 px
+   (điện thoại, thẻ trong lưới 3–4 cột) → nhãn + số trên một hàng, thanh bên dưới, nên tên nước luôn đọc đủ (owner 3/11: "CN · C…") */
+.hbars { container-type: inline-size; }
+.hbars .row2 { display: grid; grid-template-columns: minmax(6.5rem, 40%) minmax(2.5rem, 1fr) auto; grid-template-areas: "k t v"; gap: .3rem .75rem; align-items: center; font-size: .86rem; padding: .38rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
 .hbars .row2:last-child { border-bottom: 0; }
-.hbars .k { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 550; }
+.hbars .k { grid-area: k; min-width: 0; font-weight: 550; line-height: 1.3; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.hbars .track { grid-area: t; } .hbars .v { grid-area: v; }
+@container (max-width: 420px) { .hbars .row2 { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "k v" "t t"; } }
 .hbars .track { height: 7px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
 .hbars .track i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 85%, var(--accent))); min-width: 3px; }
 .hbars .v { font-weight: 750; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
@@ -362,6 +368,11 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .jvm-tooltip { background: var(--text) !important; color: var(--bg) !important; font: 600 .78rem/1.3 system-ui, sans-serif !important; padding: .35rem .6rem !important; border-radius: 8px !important; z-index: 60; box-shadow: var(--shadow-lg) !important; }
 .live-grid { margin-top: 0; margin-bottom: .4rem; }
 .plat-tbl td, .plat-tbl th { padding: .5rem .45rem; }
+/* Bảng Nền tảng: icon dính chữ (chữ dài xuống dòng cạnh icon, không bao giờ icon một dòng riêng); số căn phải, thanh mini nằm trên số khi thẻ hẹp */
+.plat-card { container-type: inline-size; }
+.pl-n { display: inline-flex; align-items: baseline; gap: .4rem; min-width: 0; } .pl-n > span:first-child { flex: none; }
+.plat-tbl td.num { white-space: nowrap; }
+@container (max-width: 460px) { .plat-tbl .mini { display: block; width: 100%; min-width: 2.5rem; margin: 0 0 .3rem auto; } .plat-tbl td.num { white-space: normal; } }
 .adm-main svg { touch-action: pan-x pan-y; } .adm-main .world-map svg { touch-action: none; }
 .range-tabs { display: inline-flex; gap: 3px; padding: 3px; border-radius: 11px; background: var(--surface-2); border: 1px solid var(--line); flex-wrap: wrap; box-shadow: var(--a-card-shadow); }
 .range-tabs button { all: unset; cursor: pointer; padding: .32rem .75rem; border-radius: 8px; font-size: .82rem; font-weight: 600; color: var(--muted); transition: all .14s ease; }
@@ -571,3 +582,10 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 @container (max-width: 520px) { .ach-v.f:not(.k) { display: none; } .ach-x.xw { visibility: hidden; } .ach-x.xn { visibility: visible; } .ach-p { height: min(var(--ach-h, 200px), 170px); } }
 .ach.line .ach-cs { gap: 0; justify-content: stretch; } .ach.line .ach-c { max-width: none; }
 .tbl-x { position: relative; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; } /* bảng rộng cuộn trong khung; relative = giữ cả .sr-only định vị tuyệt đối bên trong (không làm trang tràn ngang) */
+
+/* Khung cuộn ngang (bảng rộng) – gợi ý còn nội dung: mép mờ dần phía còn cuộn được (js/admin.js fitTables gắn .sx-l/.sx-r; bảng trần tự được bọc .tbl-x) */
+:where(.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]) { max-width: 100%; overscroll-behavior-x: contain; scrollbar-width: thin; }
+:where(.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]):focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+.sx-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
+.sx-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); }
+.sx-l.sx-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }

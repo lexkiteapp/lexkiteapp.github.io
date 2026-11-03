@@ -14,6 +14,8 @@ const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('
 // ---------- 1) registry ----------
 if (IDS.join() !== 'ama,carlos') errs.push(`registry phải đúng 2 người ama,carlos – đang: ${IDS}`);
 const g = {}; new Function('self', fs.readFileSync('web/js/characters.js', 'utf8'))(g); const C = g.Chars;
+{ const h = {}, src = fs.readFileSync('web/js/characters.js', 'utf8'); new Function('self', src)(h); h.Chars.slot = () => 'x'; new Function('self', src)(h); // gói lười 'pas' nạp lại characters.js
+  if (typeof h.Chars.slot !== 'function') errs.push('characters.js nạp lại xoá mất Chars.slot (teacher-slot.js) – phải Object.assign(g.Chars || {}, …)'); }
 if (C.ids.join() !== IDS.join()) errs.push(`Chars.ids ${C.ids} ≠ characters.json ${IDS}`);
 for (const who of IDS) if (C.voice(who) !== ((R.people[who].voice || {}).app)) errs.push(`Chars.voice(${who}) ${C.voice(who)} ≠ characters.json voice.app ${(R.people[who].voice || {}).app}`);
 if (C.poses.join() !== R.poses.join()) errs.push(`Chars.poses ≠ characters.json poses`);

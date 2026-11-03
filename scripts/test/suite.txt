@@ -178,6 +178,7 @@ node scripts/test/landing-routing.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
+node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
 node scripts/test/content-check.mjs
 node scripts/test/content-qa.mjs
@@ -218,3 +219,4 @@ node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/lastmod.mjs
