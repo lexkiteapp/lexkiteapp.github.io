@@ -4,6 +4,9 @@ on:
   push:
     branches: ['hair-try*']
 permissions: { contents: read, actions: read }
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   try:
     runs-on: ubuntu-latest
