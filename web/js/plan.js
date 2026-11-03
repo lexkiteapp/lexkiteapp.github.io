@@ -17,7 +17,7 @@
   const MK = ['{title} – câu {n}: {q}', '{title} – Câu {n}: {q}', 'Test {t} – Câu {n}: {q}', 'Thi thử – câu {n}: {q}', 'Từ tiếng Anh nghĩa là “{vi}”?', 'Điền từ: {sentence}', 'Nghĩa của “{word}”?', 'Gõ lại từ bạn nghe được', '(bỏ trống)', 'Nghe: “…{cue}…”', 'Tham khảo: “…{cue}…”'];
   const unkey = s => {
     const D = window.I18N_DICT || {};
-    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], I18N.tr(I18N.lang(), k)].filter(Boolean))) {
+    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], (I18N.tr ? I18N.tr(I18N.lang(), k) : D[I18N.lang()] && D[I18N.lang()][k])].filter(Boolean))) {
       const names = []; const re = new RegExp('^' + pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\\{(\w+)\\\}/g, (m, n) => { names.push(n); return '([\\s\\S]*?)'; }) + '$');
       const m = re.exec(s); if (m) return { k, v: Object.fromEntries(names.map((n, i) => [n, m[i + 1]])) };
     }
