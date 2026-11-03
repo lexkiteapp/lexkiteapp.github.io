@@ -112,6 +112,36 @@ delete store['/__meta']; await run('push', {}); ok(shown.length === 3, 'SW push:
 await run('notificationclick', { notification: { close() {}, data: { url: '/app/#/review', tpl: 'due1' } } });
 ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'), 'SW click: đếm open theo mẫu');
 
+// ---- Hồi quy 2/11 (số đo thật ntf_daily 24/10–2/11: optout:os 46 > ask_yes 29, gen1 20/32 lượt hiện, 0 dòng open:*) ----
+{
+  process.env.TZ = 'Asia/Ho_Chi_Minh'; const R = load();
+  const late = new Date(2026, 10, 2, 21, 0).getTime(), morn = new Date(2026, 10, 2, 9, 0).getTime(), nx = { u: 'Travel', url: '#/practice/learn?src=topic%3Atravel' };
+  const b = { now: late, settings: { reminderOn: true, reminderAuto: false, reminderTime: '20:00', quietStart: '22:00', quietEnd: '07:00', dailyGoal: 20 }, stats: { hours: Array(24).fill(0), days: {} }, streak: 0, cards: [] };
+  // gen1: mở trang SAU giờ nhắc → kế hoạch bỏ mất hôm nay → nhắc trong app / service worker rơi về câu chung chung
+  ok(!R.plan(b).some(x => x.d === 0), 'app gốc/add-on: giờ hôm nay đã qua → không lên lịch quá khứ');
+  const pt = R.plan({ ...b, past: true, next: nx }); ok(pt[0] && pt[0].d === 0 && pt[0].tpl !== 'gen1', 'web (past): vẫn có lời nhắc HÔM NAY đã cá nhân hóa, không rơi về gen1: ' + (pt[0] && pt[0].tpl));
+  // người mới (chưa thẻ đến hạn, chưa từ kèm câu) → bài đang học dở + mục tiêu ngày
+  const nw = R.plan({ ...b, now: morn, next: nx }), wk = nw.filter(x => x.d <= 7);
+  ok(nw.some(x => x.type === 'path' && /Travel/.test(x.title) && x.url === nx.url), 'người mới: mẫu "bài đang học dở" kèm tên bài + liên kết sâu');
+  ok(nw.some(x => x.type === 'gstart' && /20/.test(x.title)), 'người mới: mẫu mục tiêu ngày ({g} thẻ)');
+  ok(wk.every(x => x.tpl !== 'gen1' && ['path', 'gstart', 'conf', 'week', 'streak'].includes(x.type)) && new Set(wk.map(x => x.tpl)).size === wk.length, 'người mới: không câu chung chung, không lặp mẫu 7 ngày: ' + wk.map(x => x.tpl));
+  ok(!R.plan({ ...b, now: morn, next: { u: 'X', url: 'javascript:alert(1)' } }).some(x => x.type === 'path'), 'bài đang dở: liên kết không phải #/ bị bỏ');
+  ok(!R.plan({ ...b, now: morn, next: nx, settings: { ...b.settings, remTypes: { path: false, goal: false } } }).some(x => x.type === 'path' || x.type === 'gstart'), 'tắt loại "Bài đang học"/"Mục tiêu" → không dùng mẫu người mới');
+  ok(!R.plan({ ...b, now: morn, cards: [card('cope', morn - DAY, '')] }).some(x => x.type === 'gstart'), 'người đã có thẻ đến hạn → không chen mẫu mục tiêu người mới');
+  for (const k of ['path', 'gstart']) ok(R.TPL[k].every(([id]) => /^[a-z0-9_]{1,12}$/.test(id)), 'mã mẫu ' + k + ' hợp lệ cho bộ đếm máy chủ');
+  // optout:os: chỉ đếm khi quyền ĐỔI (trước đây: mỗi lần lưu Cài đặt trên app gốc lại xin quyền → đếm lặp)
+  ok(R.permStep('denied', 'denied') === null && R.permStep(null, 'denied').ev === '' && R.permStep('default', 'denied').ev === 'optout' && R.permStep('denied', 'granted').ev === 'optin' && R.permStep('default', 'granted').ev === '' && R.permStep('granted', 'prompt-with-rationale').st === 'default', 'quyền: đếm optout/optin chỉ khi đổi thật, lần đầu chỉ ghi nhớ');
+  let prev = 'default', cnt = 0; for (let i = 0; i < 10; i++) { const r = R.permStep(prev, 'denied'); if (r) { prev = r.st; if (r.ev === 'optout') cnt++; } } ok(cnt === 1, 'quyền: 10 lần lưu Cài đặt khi đã bị chặn → đúng 1 optout:os (' + cnt + ')');
+  // hỏi mềm: tối đa 2 lần, lần 2 chỉ sau "Để sau" + ≥ 7 ngày + ≥ 3 ngày học mới
+  const d3 = Object.fromEntries([1, 2, 3].map(i => [key(new Date(late + i * DAY)), 4]));
+  ok(R.askDue({ n: 0 }, {}, late) && !R.askDue({ n: 1, at: late, no: 0 }, d3, late + 30 * DAY) && !R.askDue({ n: 2, at: late, no: 1 }, d3, late + 30 * DAY), 'hỏi mềm: lần đầu được hỏi; đã đồng ý / đã hỏi 2 lần → không hỏi nữa');
+  ok(!R.askDue({ n: 1, at: late, no: 1 }, d3, late + 6 * DAY) && R.askDue({ n: 1, at: late, no: 1 }, d3, late + 7 * DAY) && !R.askDue({ n: 1, at: late, no: 1 }, { [key(new Date(late + DAY))]: 5 }, late + 20 * DAY), 'hỏi mềm: hỏi lại chỉ sau ≥ 7 ngày VÀ ≥ 3 ngày học mới');
+  ok(S.EV.has('ask_show') && S.EV.has('open'), 'máy chủ nhận ask_show (mẫu số tỉ lệ đồng ý) và open');
+  const src = f => fs.readFileSync(f, 'utf8');
+  ok(/scheduleReminder\(\{ ask: !!\(o && o\.ask === true/.test(src('web/js/app.js')) && /s\.reminderOn = e\.target\.checked;[^\n]*save\(\{ ask: s\.reminderOn \}\)/.test(src('web/js/settings.js')), 'app gốc: lưu Cài đặt KHÔNG tự xin quyền; chỉ khi người dùng bật "Nhắc học"');
+  ok(/localNotificationActionPerformed[^\n]*Remind\.opened\(\)/.test(src('web/js/native.js')), 'app gốc: bấm thông báo → đếm open ngay (kể cả khi app chỉ quay lại từ nền)');
+  ok(/pick\(\/\^ask_yes/.test(src('web/js/admin-push.js')), 'Quản trị: tỉ lệ đồng ý cộng cả ask_yes:a1/a2');
+}
 // ---- Add-on (extension/background.js): dùng CHUNG Remind.plan – giờ yên lặng, ≤ 1/ngày, văn bản cụ thể (số thẻ), liên kết sâu, không quyền mới ----
 {
   process.env.TZ = 'Asia/Ho_Chi_Minh';
@@ -142,10 +172,14 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
     ok(first && first.when > now && new Date(first.when).getHours() === 20 && new Date(first.when).getMinutes() === 0, 'add-on: một báo thức hẹn đúng giờ trong kế hoạch Remind (không còn lặp 24h cố định)');
     ok(first && first.periodInMinutes === undefined, 'add-on: báo thức một lần, kế hoạch dựng lại sau mỗi lần nhắc');
     mem.settings.quietStart = '00:00'; mem.settings.quietEnd = '00:00'; // tắt chốt giờ yên lặng theo đồng hồ thật để kiểm xác định
+    const posted = []; g.fetch = async (u, o) => { posted.push([u, JSON.parse((o && o.body) || '{}')]); return { ok: true, json: async () => ({}), text: async () => '' }; };
     await g.sendReminder(false, first.when);
     // Chủ nhật kế hoạch ưu tiên tổng kết tuần (remind.js: dt.getDay() === 0) – kiểm đúng loại theo thứ của mốc, không phụ thuộc ngày chạy CI
     const txt = notes[0] && notes[0].title + ' / ' + notes[0].message, sun = new Date(first.when).getDay() === 0;
     ok(notes.length === 1 && (sun ? /tuần|week/i.test(txt) : /3/.test(txt)), 'add-on: tới giờ → thông báo cụ thể (' + (sun ? 'CN: tổng kết tuần' : 'số thẻ đến hạn') + '): ' + txt);
+    const evOf = k => posted.filter(([u, j]) => /lexkite\.com\/api\/push$/.test(u) && j.op === 'ev' && j.e[0][0] === k).map(([, j]) => j.e[0][1]);
+    ok(notes[0] && evOf('shown')[0] && notes[0].id.includes('~' + evOf('shown')[0] + '|'), 'add-on: lời nhắc đếm shown theo mẫu, id mang mã mẫu (' + (notes[0] && notes[0].id.split('|')[0]) + ')');
+    vm.runInContext('remClick', g)(notes[0].id); ok(evOf('open').length === 1 && evOf('open')[0] === evOf('shown')[0], 'add-on: bấm thông báo → đếm open theo mẫu (CTR add-on đo được)');
     await g.sendReminder(false, first.when); ok(notes.length === 1, 'add-on: tối đa 1 lời nhắc/ngày (gọi lại cùng ngày không hiện thêm)');
     await g.sendReminder(false, first.when + 3 * 864e5); ok(notes.length === 1 || notes.length === 2, 'add-on: mốc không có trong kế hoạch không gây lỗi');
     mem.settings.quietStart = '22:00'; mem.settings.quietEnd = '08:00'; notes.length = 0;
