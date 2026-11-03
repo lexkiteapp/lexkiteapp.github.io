@@ -9,7 +9,7 @@
     "probe": { "cmd": "node scripts/sentence-audio/todo.mjs --count", "left_re": "cần nghe (\\d+)" }, "note": "Kokoro câu: Whisper kiểm + render lại câu trượt" },
   { "id": "audio-sentences", "workflow": "audio.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "inputs": { "limit": "1500" },
     "probe": { "cmd": "node scripts/gen-audio.mjs --limit 0", "left_re": "cần tạo (\\d+)" }, "note": "Kokoro câu mới (audio/l)" },
-  { "id": "teach-video", "workflow": "teach-video.yml", "cpu_bound": true, "quota_bound": false, "shards_input": "shards", "max_shards": 24, "inputs": {},
+  { "id": "teach-video", "workflow": "teach-video.yml", "cpu_bound": true, "quota_bound": false, "eligible": false, "hold": "owner 3/11: lip-sync must meet the #293 standard (shared visemes.json rig + sync gate) and the owner approves 2-3 samples before any batch", "shards_input": "shards", "max_shards": 24, "inputs": {},
     "probe": { "cmd": "python3 scripts/video/teach2d/gen.py --todo --count", "left_re": "cần render (\\d+)" }, "note": "Video Teach2D: tập đã qua cổng máy (reviewed.json) chưa vào bank.json – Kokoro + Remotion, 0 credit, không gọi media/api thật (scripts/media/origin.py)" },
   { "id": "mobile-qa", "workflow": "mobile-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "QA mobile (Playwright) trên main" },
   { "id": "visual-qa", "workflow": "visual-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "QA giao diện 15 ngôn ngữ" },

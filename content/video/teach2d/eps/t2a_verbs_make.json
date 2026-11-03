@@ -21,7 +21,7 @@
   },
   {
    "id": "p",
-   "text": "Past: made. He made a fortune selling software.",
+   "text": "Past: made. He made her a bookshelf.",
    "pause": 0.42
   },
   {
@@ -36,13 +36,13 @@
   },
   {
    "id": "q",
-   "text": "Quick quiz! He blank a gesture to show us the way. Maked, or made?",
+   "text": "Quick quiz! I blank this cake myself. Maked, or made?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Made! He made a gesture to show us the way.",
+   "text": "Made! I made this cake myself.",
    "pause": 0.42
   },
   {
@@ -62,7 +62,7 @@
   "pp": "made",
   "over": "maked",
   "quiz": {
-   "stem": "He ___ a gesture to show us the way.",
+   "stem": "I ___ this cake myself.",
    "options": [
     "maked",
     "made"
@@ -81,8 +81,8 @@
   "text": "make · made · made"
  },
  "est": {
-  "words": 59,
-  "seconds": 34.9,
-  "wpm": 101
+  "words": 50,
+  "seconds": 30.5,
+  "wpm": 98
  }
 }

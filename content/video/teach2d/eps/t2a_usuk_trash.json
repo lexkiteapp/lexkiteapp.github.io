@@ -1,5 +1,5 @@
 {
- "id": "t2a_usuk_subway",
+ "id": "t2a_usuk_trash",
  "template": "usuk",
  "series": "US or UK?",
  "part": 1,
@@ -16,17 +16,17 @@
   },
   {
    "id": "us",
-   "text": "In America, people say subway.",
+   "text": "In America, people say trash.",
    "pause": 0.42
   },
   {
    "id": "uk",
-   "text": "In Britain, people say underground. Same thing!",
+   "text": "In Britain, people say rubbish. Same thing!",
    "pause": 0.42
   },
   {
    "id": "x",
-   "text": "I take the subway to work.",
+   "text": "Please take out the trash.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Underground!",
+   "text": "Rubbish!",
    "pause": 0.42
   },
   {
@@ -52,23 +52,23 @@
   }
  ],
  "data": {
-  "us": "subway",
-  "uk": "underground",
-  "ipa_us": "/ˈsʌbweɪ/",
-  "ipa_uk": "/ˈʌndərɡraʊnd/",
+  "us": "trash",
+  "uk": "rubbish",
+  "ipa_us": "/træʃ/",
+  "ipa_uk": "/ˈrʌbɪʃ/",
   "same": "Same thing!",
   "quiz": {
    "options": [
-    "subway",
-    "underground"
+    "trash",
+    "rubbish"
    ],
    "answer": 1
   }
  },
  "cta": {
   "area": "dictionary",
-  "route": "#/dict/subway",
-  "link": "https://lexkite.com/app/#/dict/subway",
+  "route": "#/dict/trash",
+  "link": "https://lexkite.com/app/#/dict/trash",
   "say": "Look up any word"
  },
  "hook": {
@@ -76,8 +76,8 @@
   "text": "US or UK?"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.6,
-  "wpm": 98
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
  }
 }

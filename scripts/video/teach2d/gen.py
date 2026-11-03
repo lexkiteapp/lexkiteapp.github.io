@@ -473,12 +473,13 @@ def cand_verbs(F):
         subj = r"(?:^|\b(?:I|you|he|she|we|they|You|He|She|We|They)\s+)"
         past = [s for s in F['ex'] if clean(s) and re.search(subj + rf"{P}\b", s) and not re.search(rf"\b(have|has|had|is|are|was|were|be|been|being|'ve|'s)\s+(\w+\s+)?{P}\b", s, re.I)]
         if not past: continue
+        past.sort(key=lambda s: (len(words(s)), s))   # shortest first: the social short must stay <= 28 s (qc.py duration)
         if P != PP:   # quiz: past participle after have / be (the past form there is the classic mistake)
             qs = [s for s in F['ex'] if clean(s) and re.search(rf"\b(have|has|had|haven't|hasn't|is|are|was|were|been)\s+(not\s+|never\s+|just\s+|already\s+|ever\s+)?{PP}\b", s) and len(re.findall(rf'\b{PP}\b', s)) == 1]
             if not qs: continue
-            q = sorted(qs, key=lambda s: (not s.endswith(f' {PP}.'), len(s), s))[0]; opts, right = [P, PP], PP
+            q = sorted(qs, key=lambda s: (not s.endswith(f' {PP}.'), len(words(s)), s))[0]; opts, right = [P, PP], PP
         else:          # past == participle: quiz = the over-regularised form vs the real one
-            qs = [s for s in past[1:] if len(re.findall(rf'\b{P}\b', s)) == 1] or past[:1]; q = qs[0]; opts, right = [over, P], P
+            qs = [s for s in past[1:] if len(re.findall(rf'\b{P}\b', s)) == 1] or past[:1]; q = min(qs, key=lambda s: (len(words(s)), s)); opts, right = [over, P], P
         stem = re.sub(rf'\b{right}\b', '___', q, count=1)
         say = (stem[:-len(' ___.')] + f' {opts[0]}, or {opts[1]}?') if stem.endswith(' ___.') else f"{stem.replace('___', 'blank')} {opts[0].capitalize()}, or {opts[1]}?"
         yield dict(template='verbs', point=b, heads=[b], taught=[b, P, PP, over], slug=b,
@@ -543,6 +544,37 @@ def taught_re(ws):   # the taught words + their inflections are exempt from the 
 def lvl_ok(w, F):   # not in NGSL but an A1-B1 word of our audited bank (birthday, airport, laptop): still <= B1
     w = w.lower().replace('’', "'")
     return any((F['words'].get(x) or {}).get('cefr') in CEFR_OK for x in {w, re.sub(r"'s$", '', w), re.sub('s$', '', w), re.sub('es$', '', w), re.sub('ies$', 'y', w), re.sub('ed$', '', w), re.sub('d$', '', w), re.sub('ing$', '', w), re.sub('ing$', 'e', w)})
+
+
+SYL_S, LINE_S, TAIL, MARGIN = 0.285, 0.16, 0.7, 1.1   # Kokoro speech time fitted on 11 CI renders 3/11 (max error 1.07 s); gaps = spec pauses + 0.7 s exactly
+
+
+def syl(w):
+    w = w.lower(); n = len(re.findall('[aeiouy]+', w))
+    return max(1, n - (n > 1 and w.endswith('e') and not w.endswith(('le', 'ee'))))
+
+
+def short_secs(ep):   # predicted social short length + fit margin (qc.py duration gate: 18-28 s, owner 29/10)
+    t = ' '.join(l['text'] for l in ep['lines'])
+    return SYL_S * sum(syl(w) for w in re.findall("[A-Za-z']+", t)) + LINE_S * len(ep['lines']) + sum(l['pause'] for l in ep['lines']) + TAIL + MARGIN
+
+
+_FONT = {}
+
+
+def text_w(s, sz, ipa=False):   # same fonts and widths as build.py (Jakarta 800 / Noto Sans for IPA)
+    from PIL import ImageFont
+    k = (sz, ipa)
+    if k not in _FONT:
+        f = ImageFont.truetype(f"{ROOT}/brand/social/src/fonts/{'NotoSans-Medium.ttf' if ipa else 'PlusJakartaSans-VF.ttf'}", sz)
+        if not ipa: f.set_variation_by_axes([800])
+        _FONT[k] = f
+    return _FONT[k].getlength(s)
+
+
+def fits(row):   # build.py card geometry that the layout gate rejects: US/UK split card = 2 halves of 450 px, the VS medallion 60 px either side of the seam
+    if row['template'] == 'usuk': return all(text_w(row['in'][k], 48, True) <= 320 for k in ('ipa_us', 'ipa_uk'))
+    return True
 
 
 def phash_far(ph, others, bits=10): return all(bin(int(ph, 16) ^ int(o, 16)).count('1') >= bits for o in others)
@@ -612,6 +644,8 @@ def plan(n):
             try: ep = make(row)
             except AssertionError as e: skip('shape:' + str(e.args[0][0])); continue
             if not hook_gate(row, ep): skip('hook'); continue
+            if not 18 <= short_secs(ep) <= 28: skip('duration'); continue   # 3/11: 8 shorts ran 30-34 s (verbs with long sentences)
+            if not fits(row): skip('layout'); continue
             pool[t].append([row, ep, taught_re(row['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines']))])
     allc = [x for t in CANDS for x in pool[t]]
     wl = sorted({r['in']['word'] for r, _, _ in allc if r['template'] in ('review', 'guess')})

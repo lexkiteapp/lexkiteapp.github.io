@@ -275,7 +275,58 @@
    },
    "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app TOEIC reading bank Part 5 (answer key + cue), quiz answer spoken; social cut ≤ 28 s)"
   },
-  "t2a_stress_activity": {
+  "t2_react_calmdown": {
+   "template": "react",
+   "hook": "A meeting gets loud?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "A meeting gets loud?",
+    "p": "Let's all calm down.",
+    "r": "Repeat after me: Let's all calm down.",
+    "m": "Let's be less angry.",
+    "s": "Not this! Try: Let's take a short break.",
+    "q": "Quick quiz! A meeting gets loud. You say…",
+    "a": "Let's all calm down.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_react_lookintoit": {
+   "template": "react",
+   "hook": "A client reports a bug?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "A client reports a bug?",
+    "p": "I'll look into it.",
+    "r": "Repeat after me: I'll look into it.",
+    "m": "I will check this problem.",
+    "s": "Not this! Try: Let me check.",
+    "q": "Quick quiz! A customer has a problem. You say…",
+    "a": "I'll look into it.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_react_overthemoon": {
+   "template": "react",
+   "hook": "Passed your driving test?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "Passed your driving test?",
+    "p": "I'm over the moon!",
+    "r": "Repeat after me: I'm over the moon!",
+    "m": "I'm extremely happy.",
+    "s": "Or say: I'm really happy.",
+    "q": "Quick quiz! You got the job! You're…",
+    "a": "You're over the moon.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2a_stress_athletic": {
    "template": "stress",
    "hook": "Where's the stress?",
    "hook_true": true,
@@ -288,15 +339,15 @@
     "hook": true,
     "dup": true
    },
-   "hash": "0e1e3a777b0f",
+   "hash": "831ddfcfd1e3",
    "script": {
-    "h": "Where's the stress? Active!",
-    "a": "Active. Stress on the first part.",
-    "b": "Now say activity.",
+    "h": "Where's the stress? Athlete!",
+    "a": "Athlete. Stress on the first part.",
+    "b": "Now say athletic.",
     "m": "The stress moves to the second part.",
-    "r": "Say it with me: activity.",
+    "r": "Say it with me: athletic.",
     "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Activity.",
+    "ans": "The second part. Athletic.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -350,9 +401,9 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_verbs_build": {
+  "t2a_verbs_make": {
    "template": "verbs",
-   "hook": "build · built · built",
+   "hook": "make · made · made",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
@@ -363,20 +414,20 @@
     "hook": true,
     "dup": true
    },
-   "hash": "52447539dad4",
+   "hash": "194bf9250647",
    "script": {
-    "h": "Three forms of build. Ready?",
-    "b": "Base form: build.",
-    "p": "Past: built. They built an extension at the back of the house.",
-    "pp": "Past participle: built.",
-    "w": "Not builded! Build is irregular.",
-    "q": "Quick quiz! They blank an extension at the back of the house. Builded, or built?",
-    "a": "Built! They built an extension at the back of the house.",
+    "h": "Three forms of make. Ready?",
+    "b": "Base form: make.",
+    "p": "Past: made. He made her a bookshelf.",
+    "pp": "Past participle: made.",
+    "w": "Not maked! Make is irregular.",
+    "q": "Quick quiz! I blank this cake myself. Maked, or made?",
+    "a": "Made! I made this cake myself.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_electricity": {
+  "t2a_stress_historic": {
    "template": "stress",
    "hook": "Where's the stress?",
    "hook_true": true,
@@ -389,15 +440,15 @@
     "hook": true,
     "dup": true
    },
-   "hash": "eb6e51dc060c",
+   "hash": "3147dabe206c",
    "script": {
-    "h": "Where's the stress? Electric!",
-    "a": "Electric. Stress on the second part.",
-    "b": "Now say electricity.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: electricity.",
+    "h": "Where's the stress? History!",
+    "a": "History. Stress on the first part.",
+    "b": "Now say historic.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: historic.",
     "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Electricity.",
+    "ans": "The second part. Historic.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -451,9 +502,9 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_verbs_fall": {
+  "t2a_verbs_say": {
    "template": "verbs",
-   "hook": "fall · fell · fallen",
+   "hook": "say · said · said",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
@@ -464,20 +515,20 @@
     "hook": true,
     "dup": true
    },
-   "hash": "b21ec6fa6df8",
+   "hash": "3d0504087759",
    "script": {
-    "h": "Three forms of fall. Ready?",
-    "b": "Base form: fall.",
-    "p": "Past: fell. He broke his arm when he fell off his bike.",
-    "pp": "Past participle: fallen.",
-    "w": "Not falled! Fall is irregular.",
-    "q": "Quick quiz! The crime rate in the city has fell, or fallen?",
-    "a": "Fallen! The crime rate in the city has fallen.",
+    "h": "Three forms of say. Ready?",
+    "b": "Base form: say.",
+    "p": "Past: said. It's time we said goodbye.",
+    "pp": "Past participle: said.",
+    "w": "Not sayed! Say is irregular.",
+    "q": "Quick quiz! She blank she was unlucky. Sayed, or said?",
+    "a": "Said! She said she was unlucky.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_athletic": {
+  "t2a_stress_presenter": {
    "template": "stress",
    "hook": "Where's the stress?",
    "hook_true": true,
@@ -490,15 +541,15 @@
     "hook": true,
     "dup": true
    },
-   "hash": "831ddfcfd1e3",
+   "hash": "2a9f7e398990",
    "script": {
-    "h": "Where's the stress? Athlete!",
-    "a": "Athlete. Stress on the first part.",
-    "b": "Now say athletic.",
+    "h": "Where's the stress? Present!",
+    "a": "Present. Stress on the first part.",
+    "b": "Now say presenter.",
     "m": "The stress moves to the second part.",
-    "r": "Say it with me: athletic.",
+    "r": "Say it with me: presenter.",
     "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Athletic.",
+    "ans": "The second part. Presenter.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -552,739 +603,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_verbs_grow": {
-   "template": "verbs",
-   "hook": "grow · grew · grown",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "a54ab83cbd9b",
-   "script": {
-    "h": "Three forms of grow. Ready?",
-    "b": "Base form: grow.",
-    "p": "Past: grew. I grew up in a small town by the sea.",
-    "pp": "Past participle: grown.",
-    "w": "Not growed! Grow is irregular.",
-    "q": "Quick quiz! The festival has blank enormously in recent years. Grew, or grown?",
-    "a": "Grown! The festival has grown enormously in recent years.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_authority": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "54289a5c671e",
-   "script": {
-    "h": "Where's the stress? Author!",
-    "a": "Author. Stress on the first part.",
-    "b": "Now say authority.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: authority.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Authority.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_afford": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "bc173dff0943",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: afford.",
-    "q": "Think! What does it mean?",
-    "b": "It means to have enough money to pay for something.",
-    "x": "We can't afford a new car this year.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_gas": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "01ec50dc4d4c",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say gas.",
-    "uk": "In Britain, people say petrol. Same thing!",
-    "x": "We need to stop for gas.",
-    "q": "Quick quiz! You're in Edinburgh. Which word do people use?",
-    "a": "Petrol!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_hear": {
-   "template": "verbs",
-   "hook": "hear · heard · heard",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "9d87d9214683",
-   "script": {
-    "h": "Three forms of hear. Ready?",
-    "b": "Base form: hear.",
-    "p": "Past: heard. I heard a strange noise in the night.",
-    "pp": "Past participle: heard.",
-    "w": "Not heared! Hear is irregular.",
-    "q": "Quick quiz! I blank a strange sound outside the window. Heared, or heard?",
-    "a": "Heard! I heard a strange sound outside the window.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_bureaucratic": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "e3633e91cbf9",
-   "script": {
-    "h": "Where's the stress? Bureaucrat!",
-    "a": "Bureaucrat. Stress on the first part.",
-    "b": "Now say bureaucratic.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: bureaucratic.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Bureaucratic.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_amaze": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "7dd469c311af",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: amaze.",
-    "q": "Think! What does it mean?",
-    "b": "It means to cause wonder.",
-    "x": "The view from the top will amaze you.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_cookie": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "9d525c49331e",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say cookie.",
-    "uk": "In Britain, people say biscuit. Same thing!",
-    "x": "Can I have another cookie?",
-    "q": "Quick quiz! You're in London. Which word do people use?",
-    "a": "Biscuit!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_make": {
-   "template": "verbs",
-   "hook": "make · made · made",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "194bf9250647",
-   "script": {
-    "h": "Three forms of make. Ready?",
-    "b": "Base form: make.",
-    "p": "Past: made. He made a fortune selling software.",
-    "pp": "Past participle: made.",
-    "w": "Not maked! Make is irregular.",
-    "q": "Quick quiz! He blank a gesture to show us the way. Maked, or made?",
-    "a": "Made! He made a gesture to show us the way.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_economic": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "1172047b8a56",
-   "script": {
-    "h": "Where's the stress? Economy!",
-    "a": "Economy. Stress on the second part.",
-    "b": "Now say economic.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: economic.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Economic.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_analyze": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "ed9c27202c02",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: analyze.",
-    "q": "Think! What does it mean?",
-    "b": "It means to study carefully to find out the meaning of.",
-    "x": "We need to analyze the results carefully.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_mail": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "3c490e434be1",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say mail.",
-    "uk": "In Britain, people say post. Same thing!",
-    "x": "Did the mail come today?",
-    "q": "Quick quiz! You're in Manchester. Which word do people use?",
-    "a": "Post!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_meet": {
-   "template": "verbs",
-   "hook": "meet · met · met",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "92fda001e70c",
-   "script": {
-    "h": "Three forms of meet. Ready?",
-    "b": "Base form: meet.",
-    "p": "Past: met. I met a former classmate at the business conference.",
-    "pp": "Past participle: met.",
-    "w": "Not meeted! Meet is irregular.",
-    "q": "Quick quiz! I blank an old friend yesterday. Meeted, or met?",
-    "a": "Met! I met an old friend yesterday.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_historic": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "3147dabe206c",
-   "script": {
-    "h": "Where's the stress? History!",
-    "a": "History. Stress on the first part.",
-    "b": "Now say historic.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: historic.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Historic.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_apologize": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "c3d559ba9b66",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: apologize.",
-    "q": "Think! What does it mean?",
-    "b": "It means to say sorry because of a mistake or injury you made.",
-    "x": "I apologize for the delay.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_movie": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "f3911e948bc3",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say movie.",
-    "uk": "In Britain, people say film. Same thing!",
-    "x": "Let's watch a movie tonight.",
-    "q": "Quick quiz! You're in Liverpool. Which word do people use?",
-    "a": "Film!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_say": {
-   "template": "verbs",
-   "hook": "say · said · said",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "3d0504087759",
-   "script": {
-    "h": "Three forms of say. Ready?",
-    "b": "Base form: say.",
-    "p": "Past: said. He said bye to his colleagues before leaving.",
-    "pp": "Past participle: said.",
-    "w": "Not sayed! Say is irregular.",
-    "q": "Quick quiz! It's time we blank goodbye. Sayed, or said?",
-    "a": "Said! It's time we said goodbye.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_humanity": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "8b24552dea05",
-   "script": {
-    "h": "Where's the stress? Human!",
-    "a": "Human. Stress on the first part.",
-    "b": "Now say humanity.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: humanity.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Humanity.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_appreciate": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "9fdd3b6d543b",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: appreciate.",
-    "q": "Think! What does it mean?",
-    "b": "It means to be thankful for.",
-    "x": "I really appreciate your help.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_soccer": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "34e954fa2314",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say soccer.",
-    "uk": "In Britain, people say football. Same thing!",
-    "x": "My son plays soccer after school.",
-    "q": "Quick quiz! You're in Edinburgh. Which word do people use?",
-    "a": "Football!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_see": {
-   "template": "verbs",
-   "hook": "see · saw · seen",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "f21c9d9d419e",
-   "script": {
-    "h": "Three forms of see. Ready?",
-    "b": "Base form: see.",
-    "p": "Past: saw. He grinned when he saw his exam result.",
-    "pp": "Past participle: seen.",
-    "w": "Not seed! See is irregular.",
-    "q": "Quick quiz! The city has blank rapid growth. Saw, or seen?",
-    "a": "Seen! The city has seen rapid growth.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_presenter": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "2a9f7e398990",
-   "script": {
-    "h": "Where's the stress? Present!",
-    "a": "Present. Stress on the first part.",
-    "b": "Now say presenter.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: presenter.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Presenter.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_assist": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "b7add52a4b1b",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: assist.",
-    "q": "Think! What does it mean?",
-    "b": "It means to help.",
-    "x": "Volunteers assist visitors at the museum.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_subway": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "6a1bfeecebcf",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say subway.",
-    "uk": "In Britain, people say underground. Same thing!",
-    "x": "I take the subway to work.",
-    "q": "Quick quiz! You're in Manchester. Which word do people use?",
-    "a": "Underground!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_sit": {
-   "template": "verbs",
-   "hook": "sit · sat · sat",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "819318568927",
-   "script": {
-    "h": "Three forms of sit. Ready?",
-    "b": "Base form: sit.",
-    "p": "Past: sat. We sat around a big round table.",
-    "pp": "Past participle: sat.",
-    "w": "Not sitted! Sit is irregular.",
-    "q": "Quick quiz! We blank around an oval table in the meeting room. Sitted, or sat?",
-    "a": "Sat! We sat around an oval table in the meeting room.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_similarity": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "bd840bc298a0",
-   "script": {
-    "h": "Where's the stress? Similar!",
-    "a": "Similar. Stress on the first part.",
-    "b": "Now say similarity.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: similarity.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Similarity.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_attach": {
-   "template": "review",
-   "hook": "Remember this word?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "00d951382dcb",
-   "script": {
-    "h": "Remember this word?",
-    "f": "Here's your card: attach.",
-    "q": "Think! What does it mean?",
-    "b": "It means to fasten or join one thing to another.",
-    "x": "Please attach a photo to your application.",
-    "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_usuk_check": {
-   "template": "usuk",
-   "hook": "US or UK?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "340834059306",
-   "script": {
-    "h": "U.S. or U.K.?",
-    "us": "In America, people say check.",
-    "uk": "In Britain, people say bill. Same thing!",
-    "x": "Can we have the check, please?",
-    "q": "Quick quiz! You're in Liverpool. Which word do people use?",
-    "a": "Bill!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_sleep": {
-   "template": "verbs",
-   "hook": "sleep · slept · slept",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "76252fc011fd",
-   "script": {
-    "h": "Three forms of sleep. Ready?",
-    "b": "Base form: sleep.",
-    "p": "Past: slept. I've got backache because I slept on the floor yesterday.",
-    "pp": "Past participle: slept.",
-    "w": "Not sleeped! Sleep is irregular.",
-    "q": "Quick quiz! I've got backache because I blank on the floor yesterday. Sleeped, or slept?",
-    "a": "Slept! I've got backache because I slept on the floor yesterday.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_stress_artistic": {
    "template": "stress",
    "hook": "Where's the stress?",
@@ -1311,7 +629,7 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_review_beat": {
+  "t2a_review_admire": {
    "template": "review",
    "hook": "Remember this word?",
    "hook_true": true,
@@ -1324,18 +642,18 @@
     "hook": true,
     "dup": true
    },
-   "hash": "08f2b826dd49",
+   "hash": "abf2a248c4c9",
    "script": {
     "h": "Remember this word?",
-    "f": "Here's your card: beat.",
+    "f": "Here's your card: admire.",
     "q": "Think! What does it mean?",
-    "b": "It means to win against another person or team.",
-    "x": "Our team beat the champions three goals to one.",
+    "b": "It means to feel respect or wonder toward someone.",
+    "x": "I admire her courage.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_usuk_schedule": {
+  "t2a_usuk_gas": {
    "template": "usuk",
    "hook": "US or UK?",
    "hook_true": true,
@@ -1348,40 +666,14 @@
     "hook": true,
     "dup": true
    },
-   "hash": "a6804704af2c",
+   "hash": "01ec50dc4d4c",
    "script": {
     "h": "U.S. or U.K.?",
-    "us": "In America, people say schedule.",
-    "uk": "In Britain, people say timetable. Same thing!",
-    "x": "Check the train schedule before you go.",
+    "us": "In America, people say gas.",
+    "uk": "In Britain, people say petrol. Same thing!",
+    "x": "We need to stop for gas.",
     "q": "Quick quiz! You're in Edinburgh. Which word do people use?",
-    "a": "Timetable!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_speak": {
-   "template": "verbs",
-   "hook": "speak · spoke · spoken",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "93374d8f1c5e",
-   "script": {
-    "h": "Three forms of speak. Ready?",
-    "b": "Base form: speak.",
-    "p": "Past: spoke. She spoke in a calm and friendly manner.",
-    "pp": "Past participle: spoken.",
-    "w": "Not speaked! Speak is irregular.",
-    "q": "Quick quiz! English is blank all over the world. Spoke, or spoken?",
-    "a": "Spoken! English is spoken all over the world.",
+    "a": "Petrol!",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -1412,7 +704,7 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_review_bend": {
+  "t2a_review_afford": {
    "template": "review",
    "hook": "Remember this word?",
    "hook_true": true,
@@ -1425,13 +717,486 @@
     "hook": true,
     "dup": true
    },
-   "hash": "035309b944b7",
+   "hash": "bc173dff0943",
    "script": {
     "h": "Remember this word?",
-    "f": "Here's your card: bend.",
+    "f": "Here's your card: afford.",
     "q": "Think! What does it mean?",
-    "b": "It means to make something not straight.",
-    "x": "Bend your knees when you lift something heavy.",
+    "b": "It means to have enough money to pay for something.",
+    "x": "We can't afford a new car this year.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_cookie": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9d525c49331e",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say cookie.",
+    "uk": "In Britain, people say biscuit. Same thing!",
+    "x": "Can I have another cookie?",
+    "q": "Quick quiz! You're in London. Which word do people use?",
+    "a": "Biscuit!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_stress_objective": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bf01e11a822d",
+   "script": {
+    "h": "Where's the stress? Object!",
+    "a": "Object. Stress on the first part.",
+    "b": "Now say objective.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: objective.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Objective.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_amaze": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7dd469c311af",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: amaze.",
+    "q": "Think! What does it mean?",
+    "b": "It means to cause wonder.",
+    "x": "The view from the top will amaze you.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_mail": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3c490e434be1",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say mail.",
+    "uk": "In Britain, people say post. Same thing!",
+    "x": "Did the mail come today?",
+    "q": "Quick quiz! You're in Manchester. Which word do people use?",
+    "a": "Post!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_stress_organic": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c1b04b214e21",
+   "script": {
+    "h": "Where's the stress? Organ!",
+    "a": "Organ. Stress on the first part.",
+    "b": "Now say organic.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: organic.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Organic.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_analyze": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ed9c27202c02",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: analyze.",
+    "q": "Think! What does it mean?",
+    "b": "It means to study carefully to find out the meaning of.",
+    "x": "We need to analyze the results carefully.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_movie": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f3911e948bc3",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say movie.",
+    "uk": "In Britain, people say film. Same thing!",
+    "x": "Let's watch a movie tonight.",
+    "q": "Quick quiz! You're in Liverpool. Which word do people use?",
+    "a": "Film!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_stress_progressive": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9d4de83ba0f9",
+   "script": {
+    "h": "Where's the stress? Progress!",
+    "a": "Progress. Stress on the first part.",
+    "b": "Now say progressive.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: progressive.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Progressive.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_apologize": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c3d559ba9b66",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: apologize.",
+    "q": "Think! What does it mean?",
+    "b": "It means to say sorry because of a mistake or injury you made.",
+    "x": "I apologize for the delay.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_soccer": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "34e954fa2314",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say soccer.",
+    "uk": "In Britain, people say football. Same thing!",
+    "x": "My son plays soccer after school.",
+    "q": "Quick quiz! You're in Edinburgh. Which word do people use?",
+    "a": "Football!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_stress_referee": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f15aed1a0682",
+   "script": {
+    "h": "Where's the stress? Refer!",
+    "a": "Refer. Stress on the second part.",
+    "b": "Now say referee.",
+    "m": "The stress moves to the third part.",
+    "r": "Say it with me: referee.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The third part. Referee.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_appreciate": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9fdd3b6d543b",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: appreciate.",
+    "q": "Think! What does it mean?",
+    "b": "It means to be thankful for.",
+    "x": "I really appreciate your help.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_fall": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d9aad36c7b0d",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say fall.",
+    "uk": "In Britain, people say autumn. Same thing!",
+    "x": "The leaves turn red in the fall.",
+    "q": "Quick quiz! You're in London. Which word do people use?",
+    "a": "Autumn!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_stress_specific": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8644dc9181b2",
+   "script": {
+    "h": "Where's the stress? Specify!",
+    "a": "Specify. Stress on the first part.",
+    "b": "Now say specific.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: specific.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Specific.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_assist": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b7add52a4b1b",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: assist.",
+    "q": "Think! What does it mean?",
+    "b": "It means to help.",
+    "x": "Volunteers assist visitors at the museum.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_check": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "340834059306",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say check.",
+    "uk": "In Britain, people say bill. Same thing!",
+    "x": "Can we have the check, please?",
+    "q": "Quick quiz! You're in Liverpool. Which word do people use?",
+    "a": "Bill!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_attach": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "00d951382dcb",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: attach.",
+    "q": "Think! What does it mean?",
+    "b": "It means to fasten or join one thing to another.",
+    "x": "Please attach a photo to your application.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_usuk_schedule": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a6804704af2c",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say schedule.",
+    "uk": "In Britain, people say timetable. Same thing!",
+    "x": "Check the train schedule before you go.",
+    "q": "Quick quiz! You're in Edinburgh. Which word do people use?",
+    "a": "Timetable!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_beat": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "08f2b826dd49",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: beat.",
+    "q": "Think! What does it mean?",
+    "b": "It means to win against another person or team.",
+    "x": "Our team beat the champions three goals to one.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
@@ -1461,59 +1226,7 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_verbs_teach": {
-   "template": "verbs",
-   "hook": "teach · taught · taught",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "d1f2378a1f94",
-   "script": {
-    "h": "Three forms of teach. Ready?",
-    "b": "Base form: teach.",
-    "p": "Past: taught. He taught himself to play the guitar.",
-    "pp": "Past participle: taught.",
-    "w": "Not teached! Teach is irregular.",
-    "q": "Quick quiz! He blank himself to play the guitar. Teached, or taught?",
-    "a": "Taught! He taught himself to play the guitar.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_familiarity": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "ee118b67b22c",
-   "script": {
-    "h": "Where's the stress? Familiar!",
-    "a": "Familiar. Stress on the second part.",
-    "b": "Now say familiarity.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: familiarity.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Familiarity.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_bore": {
+  "t2a_review_bend": {
    "template": "review",
    "hook": "Remember this word?",
    "hook_true": true,
@@ -1526,13 +1239,13 @@
     "hook": true,
     "dup": true
    },
-   "hash": "435fcf970dc4",
+   "hash": "035309b944b7",
    "script": {
     "h": "Remember this word?",
-    "f": "Here's your card: bore.",
+    "f": "Here's your card: bend.",
     "q": "Think! What does it mean?",
-    "b": "It means to make someone not interested in something.",
-    "x": "Long speeches bore me.",
+    "b": "It means to make something not straight.",
+    "x": "Bend your knees when you lift something heavy.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
@@ -1562,59 +1275,7 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_verbs_write": {
-   "template": "verbs",
-   "hook": "write · wrote · written",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "945890397517",
-   "script": {
-    "h": "Three forms of write. Ready?",
-    "b": "Base form: write.",
-    "p": "Past: wrote. I wrote every new word in my notebook.",
-    "pp": "Past participle: written.",
-    "w": "Not writed! Write is irregular.",
-    "q": "Quick quiz! She has blank a series of books for children. Wrote, or written?",
-    "a": "Written! She has written a series of books for children.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_humidity": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "52f38cce935e",
-   "script": {
-    "h": "Where's the stress? Humid!",
-    "a": "Humid. Stress on the first part.",
-    "b": "Now say humidity.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: humidity.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Humidity.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_review_caller": {
+  "t2a_review_bore": {
    "template": "review",
    "hook": "Remember this word?",
    "hook_true": true,
@@ -1627,13 +1288,13 @@
     "hook": true,
     "dup": true
    },
-   "hash": "01d630c20643",
+   "hash": "435fcf970dc4",
    "script": {
     "h": "Remember this word?",
-    "f": "Here's your card: caller.",
+    "f": "Here's your card: bore.",
     "q": "Think! What does it mean?",
-    "b": "It means a person who makes a phone call.",
-    "x": "The caller asked to speak to the sales manager.",
+    "b": "It means to make someone not interested in something.",
+    "x": "Long speeches bore me.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
@@ -1663,9 +1324,9 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_verbs_catch": {
-   "template": "verbs",
-   "hook": "catch · caught · caught",
+  "t2a_review_caller": {
+   "template": "review",
+   "hook": "Remember this word?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
@@ -1676,22 +1337,20 @@
     "hook": true,
     "dup": true
    },
-   "hash": "9b247bd6862b",
+   "hash": "01d630c20643",
    "script": {
-    "h": "Three forms of catch. Ready?",
-    "b": "Base form: catch.",
-    "p": "Past: caught. The fish was still alive when we caught it.",
-    "pp": "Past participle: caught.",
-    "w": "Not catched! Catch is irregular.",
-    "q": "Quick quiz! The fish was still alive when we blank it. Catched, or caught?",
-    "a": "Caught! The fish was still alive when we caught it.",
-    "sh": "Send this to a friend!",
+    "h": "Remember this word?",
+    "f": "Here's your card: caller.",
+    "q": "Think! What does it mean?",
+    "b": "It means a person who makes a phone call.",
+    "x": "The caller asked to speak to the sales manager.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_interviewee": {
-   "template": "stress",
-   "hook": "Where's the stress?",
+  "t2a_usuk_trash": {
+   "template": "usuk",
+   "hook": "US or UK?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
@@ -1702,15 +1361,14 @@
     "hook": true,
     "dup": true
    },
-   "hash": "17cafc711ec5",
+   "hash": "ff6eab2de710",
    "script": {
-    "h": "Where's the stress? Interview!",
-    "a": "Interview. Stress on the first part.",
-    "b": "Now say interviewee.",
-    "m": "The stress moves to the fourth part.",
-    "r": "Say it with me: interviewee.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The fourth part. Interviewee.",
+    "h": "U.S. or U.K.?",
+    "us": "In America, people say trash.",
+    "uk": "In Britain, people say rubbish. Same thing!",
+    "x": "Please take out the trash.",
+    "q": "Quick quiz! You're in Manchester. Which word do people use?",
+    "a": "Rubbish!",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -1736,58 +1394,6 @@
     "b": "It means a person or team that has won a competition.",
     "x": "She is the national tennis champion.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_verbs_hold": {
-   "template": "verbs",
-   "hook": "hold · held · held",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "c7a917726bc3",
-   "script": {
-    "h": "Three forms of hold. Ready?",
-    "b": "Base form: hold.",
-    "p": "Past: held. We held a farewell party for the retiring director.",
-    "pp": "Past participle: held.",
-    "w": "Not holded! Hold is irregular.",
-    "q": "Quick quiz! We blank a farewell party for the retiring director. Holded, or held?",
-    "a": "Held! We held a farewell party for the retiring director.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_majority": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "d1c2cdb70746",
-   "script": {
-    "h": "Where's the stress? Major!",
-    "a": "Major. Stress on the first part.",
-    "b": "Now say majority.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: majority.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Majority.",
-    "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -1840,32 +1446,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_minority": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "0b657d60e148",
-   "script": {
-    "h": "Where's the stress? Minor!",
-    "a": "Minor. Stress on the first part.",
-    "b": "Now say minority.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: minority.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Minority.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_guess_celebrity": {
    "template": "guess",
    "hook": "Guess the word!",
@@ -1912,32 +1492,6 @@
     "b": "It means to press a button.",
     "x": "Click the link to download the file.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_objective": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "bf01e11a822d",
-   "script": {
-    "h": "Where's the stress? Object!",
-    "a": "Object. Stress on the first part.",
-    "b": "Now say objective.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: objective.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Objective.",
-    "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -1990,32 +1544,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_optimistic": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "137361dd5f2f",
-   "script": {
-    "h": "Where's the stress? Optimist!",
-    "a": "Optimist. Stress on the first part.",
-    "b": "Now say optimistic.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: optimistic.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Optimistic.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_guess_neighbor": {
    "template": "guess",
    "hook": "Guess the word!",
@@ -2065,32 +1593,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_organic": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "c1b04b214e21",
-   "script": {
-    "h": "Where's the stress? Organ!",
-    "a": "Organ. Stress on the first part.",
-    "b": "Now say organic.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: organic.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Organic.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_review_combine": {
    "template": "review",
    "hook": "Remember this word?",
@@ -2112,32 +1614,6 @@
     "b": "It means to mix several things together to form one thing.",
     "x": "Combine the ingredients in a large bowl.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_popularity": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "f170b69fc56d",
-   "script": {
-    "h": "Where's the stress? Popular!",
-    "a": "Popular. Stress on the first part.",
-    "b": "Now say popularity.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: popularity.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Popularity.",
-    "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -2165,32 +1641,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_progressive": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "9d4de83ba0f9",
-   "script": {
-    "h": "Where's the stress? Progress!",
-    "a": "Progress. Stress on the first part.",
-    "b": "Now say progressive.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: progressive.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Progressive.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_review_confuse": {
    "template": "review",
    "hook": "Remember this word?",
@@ -2212,32 +1662,6 @@
     "b": "It means to make someone unable to understand or think clearly.",
     "x": "These two words often confuse learners.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_publicity": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "33c829013c8b",
-   "script": {
-    "h": "Where's the stress? Public!",
-    "a": "Public. Stress on the first part.",
-    "b": "Now say publicity.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: publicity.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Publicity.",
-    "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -2265,32 +1689,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_referee": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "f15aed1a0682",
-   "script": {
-    "h": "Where's the stress? Refer!",
-    "a": "Refer. Stress on the second part.",
-    "b": "Now say referee.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: referee.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. Referee.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_review_cooler": {
    "template": "review",
    "hook": "Remember this word?",
@@ -2315,32 +1713,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2a_stress_specific": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "8644dc9181b2",
-   "script": {
-    "h": "Where's the stress? Specify!",
-    "a": "Specify. Stress on the first part.",
-    "b": "Now say specific.",
-    "m": "The stress moves to the second part.",
-    "r": "Say it with me: specific.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The second part. Specific.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2a_review_copier": {
    "template": "review",
    "hook": "Remember this word?",
@@ -2362,32 +1734,6 @@
     "b": "It means a machine that makes copies of documents.",
     "x": "The copier on the second floor is out of paper.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2a_stress_university": {
-   "template": "stress",
-   "hook": "Where's the stress?",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "9f0efff61e1f",
-   "script": {
-    "h": "Where's the stress? Universe!",
-    "a": "Universe. Stress on the first part.",
-    "b": "Now say university.",
-    "m": "The stress moves to the third part.",
-    "r": "Say it with me: university.",
-    "q": "Quick quiz! Where's the stress?",
-    "ans": "The third part. University.",
-    "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -2579,6 +1925,30 @@
     "q": "Think! What does it mean?",
     "b": "It means a set of information stored on a computer.",
     "x": "I saved the file on my laptop.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_flood": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8d39693e04d2",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: flood.",
+    "q": "Think! What does it mean?",
+    "b": "It means a large amount of water covering land that is usually dry.",
+    "x": "The flood damaged hundreds of homes.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
@@ -4359,6 +3729,30 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
+  "t2a_review_create": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d5013a79b7dd",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: create.",
+    "q": "Think! What does it mean?",
+    "b": "It means to make, cause, or bring into existence.",
+    "x": "The new factory will create two hundred jobs.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
   "t2a_review_discuss": {
    "template": "review",
    "hook": "Remember this word?",
@@ -4715,6 +4109,30 @@
     "q": "Think! What does it mean?",
     "b": "It means a female child.",
     "x": "The girl in the red coat is my cousin.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_grandma": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0a2af20ddacb",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: grandma.",
+    "q": "Think! What does it mean?",
+    "b": "It means the mother of your father or mother.",
+    "x": "Grandma will take care of you.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
@@ -5703,6 +5121,54 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
+  "t2a_review_sit": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aa9cb5bb4108",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: sit.",
+    "q": "Think! What does it mean?",
+    "b": "It means to be in a resting position on a chair.",
+    "x": "Come and sit next to me.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_sleep": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "dd3c1325f829",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: sleep.",
+    "q": "Think! What does it mean?",
+    "b": "It means to rest your body in bed, as at night time.",
+    "x": "I couldn't sleep because of the heat.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
   "t2a_review_sofa": {
    "template": "review",
    "hook": "Remember this word?",
@@ -6231,6 +5697,30 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
+  "t2a_review_write": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3611871f5e6f",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: write.",
+    "q": "Think! What does it mean?",
+    "b": "It means to make letters and words on paper or a screen.",
+    "x": "Please write your name at the top of the page.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
   "t2a_review_ability": {
    "template": "review",
    "hook": "Remember this word?",
@@ -6591,6 +6081,30 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
+  "t2a_review_bin": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a5dd4d0c4eed",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: bin.",
+    "q": "Think! What does it mean?",
+    "b": "It means a container for storing things.",
+    "x": "Please put your rubbish in the bin.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
   "t2a_review_bookshelf": {
    "template": "review",
    "hook": "Remember this word?",
@@ -6635,6 +6149,30 @@
     "q": "Think! What does it mean?",
     "b": "It means a round container used for holding things like rice or soup.",
     "x": "I had a bowl of rice for lunch.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_breeze": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "552e6e8ef015",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: breeze.",
+    "q": "Think! What does it mean?",
+    "b": "It means a light and gentle wind.",
+    "x": "There's a nice breeze here.",
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
@@ -7575,56 +7113,461 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2_react_calmdown": {
-   "template": "react",
-   "hook": "A meeting gets loud?",
+  "t2a_review_heater": {
+   "template": "review",
+   "hook": "Remember this word?",
    "hook_true": true,
    "script_reviewed": true,
-   "script": {
-    "h": "A meeting gets loud?",
-    "p": "Let's all calm down.",
-    "r": "Repeat after me: Let's all calm down.",
-    "m": "Let's be less angry.",
-    "s": "Not this! Try: Let's take a short break.",
-    "q": "Quick quiz! A meeting gets loud. You say…",
-    "a": "Let's all calm down.",
-    "c": "Save this. Free on lexkite.com."
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
    },
-   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+   "hash": "f02af8fbc8e9",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: heater.",
+    "q": "Think! What does it mean?",
+    "b": "It means a device that makes heat.",
+    "x": "The heater in the meeting room isn't working.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
   },
-  "t2_react_lookintoit": {
-   "template": "react",
-   "hook": "A client reports a bug?",
+  "t2a_review_hit": {
+   "template": "review",
+   "hook": "Remember this word?",
    "hook_true": true,
    "script_reviewed": true,
-   "script": {
-    "h": "A client reports a bug?",
-    "p": "I'll look into it.",
-    "r": "Repeat after me: I'll look into it.",
-    "m": "I will check this problem.",
-    "s": "Not this! Try: Let me check.",
-    "q": "Quick quiz! A customer has a problem. You say…",
-    "a": "I'll look into it.",
-    "c": "Save this. Free on lexkite.com."
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
    },
-   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+   "hash": "8ab347636822",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: hit.",
+    "q": "Think! What does it mean?",
+    "b": "It means to touch someone or something quickly and with force.",
+    "x": "The ball hit the window, but it didn't break.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
   },
-  "t2_react_overthemoon": {
-   "template": "react",
-   "hook": "Passed your driving test?",
+  "t2a_review_hold": {
+   "template": "review",
+   "hook": "Remember this word?",
    "hook_true": true,
    "script_reviewed": true,
-   "script": {
-    "h": "Passed your driving test?",
-    "p": "I'm over the moon!",
-    "r": "Repeat after me: I'm over the moon!",
-    "m": "I'm extremely happy.",
-    "s": "Or say: I'm really happy.",
-    "q": "Quick quiz! You got the job! You're…",
-    "a": "You're over the moon.",
-    "c": "Save this. Free on lexkite.com."
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
    },
-   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+   "hash": "4dac33160854",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: hold.",
+    "q": "Think! What does it mean?",
+    "b": "It means to use hands or arms to carry or keep something.",
+    "x": "Please hold the door open for me.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_honey": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a6e2619745a6",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: honey.",
+    "q": "Think! What does it mean?",
+    "b": "It means a sweet yellow liquid made by bees.",
+    "x": "This honey is really good.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_hurt": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9ab72abc8e5f",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: hurt.",
+    "q": "Think! What does it mean?",
+    "b": "It means to cause pain, damage, or injury.",
+    "x": "I hurt my back lifting a heavy box.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_knee": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e4b039c6178c",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: knee.",
+    "q": "Think! What does it mean?",
+    "b": "It means the middle part of your leg that bends.",
+    "x": "She hurt her knee while running.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_knock": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4077a859ae64",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: knock.",
+    "q": "Think! What does it mean?",
+    "b": "It means to hit something to get people's attention.",
+    "x": "Please knock before you enter.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_lab": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c98393bdd98e",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: lab.",
+    "q": "Think! What does it mean?",
+    "b": "It means a room for scientific work.",
+    "x": "The samples were sent to the lab for testing.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_lake": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8d46bb870e5c",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: lake.",
+    "q": "Think! What does it mean?",
+    "b": "It means a large area of water surrounded by land.",
+    "x": "We went swimming in the lake.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_lamp": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "af5a2b521de4",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: lamp.",
+    "q": "Think! What does it mean?",
+    "b": "It means a device that gives light.",
+    "x": "Turn off the desk lamp when you leave.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_lawyer": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "997a49f83565",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: lawyer.",
+    "q": "Think! What does it mean?",
+    "b": "It means a professional who is paid to help people with the law.",
+    "x": "She asked a lawyer to check the contract.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_librarian": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0e91a8846e44",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: librarian.",
+    "q": "Think! What does it mean?",
+    "b": "It means a person who works in a library.",
+    "x": "The librarian helped me find the old annual reports.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_link": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "351185dba6ea",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: link.",
+    "q": "Think! What does it mean?",
+    "b": "It means a connection.",
+    "x": "I'll send you the link to the website.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_lock": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8b724fa64cc9",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: lock.",
+    "q": "Think! What does it mean?",
+    "b": "It means to close something with a device so others can't open it.",
+    "x": "Don't forget to lock the door when you leave.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_marry": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fc8581a2717e",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: marry.",
+    "q": "Think! What does it mean?",
+    "b": "It means to become the husband or wife of someone.",
+    "x": "They plan to marry next spring.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_metal": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0c182ce30d88",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: metal.",
+    "q": "Think! What does it mean?",
+    "b": "It means a hard material such as iron, gold or steel.",
+    "x": "The chair is made of metal and plastic.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_microwave": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d805fd7e312c",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: microwave.",
+    "q": "Think! What does it mean?",
+    "b": "It means an oven that cooks food quickly using waves.",
+    "x": "There is a microwave in the staff kitchen.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_midday": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3d10114111f3",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: midday.",
+    "q": "Think! What does it mean?",
+    "b": "It means the middle of the day.",
+    "x": "Please come home at midday.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_review_pack": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "576b50186258",
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: pack.",
+    "q": "Think! What does it mean?",
+    "b": "It means to put things in a suitcase to go on a trip.",
+    "x": "I need to pack my suitcase tonight.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

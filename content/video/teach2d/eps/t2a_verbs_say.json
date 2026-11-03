@@ -21,7 +21,7 @@
   },
   {
    "id": "p",
-   "text": "Past: said. He said bye to his colleagues before leaving.",
+   "text": "Past: said. It's time we said goodbye.",
    "pause": 0.42
   },
   {
@@ -36,13 +36,13 @@
   },
   {
    "id": "q",
-   "text": "Quick quiz! It's time we blank goodbye. Sayed, or said?",
+   "text": "Quick quiz! She blank she was unlucky. Sayed, or said?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Said! It's time we said goodbye.",
+   "text": "Said! She said she was unlucky.",
    "pause": 0.42
   },
   {
@@ -62,7 +62,7 @@
   "pp": "said",
   "over": "sayed",
   "quiz": {
-   "stem": "It's time we ___ goodbye.",
+   "stem": "She ___ she was unlucky.",
    "options": [
     "sayed",
     "said"
@@ -81,8 +81,8 @@
   "text": "say · said · said"
  },
  "est": {
-  "words": 53,
-  "seconds": 31.9,
-  "wpm": 100
+  "words": 50,
+  "seconds": 30.5,
+  "wpm": 98
  }
 }
