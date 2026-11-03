@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 # 🟩 Chuẩn bị clip phông xanh mới trên CI (thay cho chạy trên máy – chủ 28/10, máy quá tải): mỗi clip id có dl/<id>.mp4 (+ dl/<id>.720.mp4) và
 # tools/prep_args/<id>.txt ("<who> <facebox> <mouth> <crop_y>") trong lexkite-footage → upscale 720p → interp24 → chroma_key → expand → bank → gesture_qc.
 # Kết quả = artifact green-prep-<id> (dl24, stacked, kfull, kmask, meta, qa) – đẩy vào kho (tải về, không tính toán) rồi chạy matte-pro.yml.
@@ -10,6 +11,7 @@ permissions: { contents: read }
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { ids: '${{ steps.p.outputs.ids }}' }
     steps:
       - id: p
