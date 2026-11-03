@@ -36,7 +36,7 @@ jobs:
             git diff --cached --quiet && continue
             git commit -q -m "Bản dịch câu bài học: $l [CF-Pages-Skip] [skip ci]"
             [ "$GITHUB_REF" = refs/heads/main ] || continue   # nhánh khác: giữ cục bộ → artifact ở bước cuối
-            ok=0; for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && { ok=1; break; }; sleep $((i * 7)); done
+            ok=0; for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin main && git push -q origin HEAD:main && { ok=1; break; }; sleep $((i * 7)); done
             [ "$ok" = 1 ] || { echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1; }
           done
       - name: Độ phủ

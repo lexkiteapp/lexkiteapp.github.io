@@ -65,6 +65,7 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(checkWorkflow(y.replace('on:\n', 'on:\n  pull_request:\n')).some(v => /pull_request/.test(v)), 'hồi quy: thêm pull_request (1 runner/commit) → lỗi');
   ok(checkWorkflow(y.replace('cancel-in-progress: false', 'cancel-in-progress: true')).length === 1, 'huỷ lượt đang canh → lỗi');
   ok(checkWorkflow(y.replace('--watch 54', '--sweep')).some(v => /--watch/.test(v)), 'thiếu --watch → lỗi');
+  ok(checkWorkflow(y.replace("CRON_WATCH: '1'", "CRON_WATCH: '0'")).some(v => /canh lịch cron/.test(v)), 'bỏ canh lịch cron độc lập → lỗi (hồi quy 02/11)');
   ok(!/^\s*paths(-ignore)?:/m.test(y.split('\njobs:')[0]), 'không paths-filter');
   const watch = +(y.match(/--watch (\d+)/) || [])[1], tmo = +(y.match(/timeout-minutes: (\d+)/) || [])[1], crons = (y.match(/cron: '([\d,]+) \* \* \* \*'/) || [, ''])[1].split(',').length;
   ok(watch < tmo && watch >= 60 / crons, `canh ${watch} phút < timeout ${tmo}, ≥ khoảng cách lịch ${60 / crons} phút (nối tiếp không hở)`);
@@ -157,6 +158,16 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     t = 0; const logs = [];
     await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => { throw new Error('403'); } }, m => logs.push(m), clock);
     ok(logs.some(m => /không tự nối/.test(m)), 'dispatch lỗi → cảnh báo, bộ canh vẫn chạy hết lượt');
+  }
+  // hồi quy 02/11: cron của ci-triage (nơi duy nhất chạy cron-watch) chết 13 giờ → monitor mù. Bộ canh (tự nối, không cần cron) chạy cron-watch mỗi lượt
+  {
+    let cw = 0; t = 0;
+    await run(['--watch', '3'], { CRON_WATCH: '1' }, { ...A, cronWatch: async () => { cw++; return { bad: [{ file: 'free-tier-guard.yml', why: '193 phút không có lượt schedule' }] }; } }, () => {}, clock);
+    ok(cw === 1, 'bộ canh chạy cron-watch đúng 1 lần mỗi lượt: ' + cw);
+    t = 0; const lg = []; const out = await run(['--watch', '3'], { CRON_WATCH: '1' }, { ...A, cronWatch: async () => { throw new Error('API 500'); } }, m => lg.push(m), clock);
+    ok(lg.some(m => /cron-watch lỗi/.test(m)) && Array.isArray(out), 'cron-watch lỗi không làm dừng bộ canh');
+    t = 0; let c3 = 0; await run(['--watch', '3', '--dry'], { CRON_WATCH: '1' }, { ...A, cronWatch: async () => { c3++; return { bad: [] }; } }, () => {}, clock);
+    ok(!c3, '--dry không đá lịch');
   }
   // hạn mức API sắp hết → giãn vòng tới lúc đặt lại
   t = 0; const sl = []; const A2 = { ...A, rate: { remaining: 10, reset: 600e3 } };

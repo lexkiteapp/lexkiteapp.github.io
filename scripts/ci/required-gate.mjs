@@ -93,6 +93,7 @@ export function checkWorkflow(src) {
   for (const ev of ['workflow_run', 'check_suite', 'pull_request', 'pull_request_target', 'push']) if (new RegExp(`^  ${ev}:`, 'm').test(on)) out.push(`không được nghe ${ev} (mỗi sự kiện chiếm 1 runner – bộ canh --watch thay thế)`);
   if (!/^  schedule:/m.test(on)) out.push('thiếu lịch khởi động bộ canh');
   if (!/--watch /.test(src)) out.push('thiếu bước --watch');
+  if (!/CRON_WATCH: '1'/.test(src) || !/sparse-checkout:[^\n]*\n?[^\n]*\.github\/workflows/.test(src) || !/issues: write/.test(src)) out.push("thiếu canh lịch cron độc lập (CRON_WATCH: '1' + checkout .github/workflows + issues: write)");
   if (!/GATE_CHAIN_REF:/.test(src) || !/actions: write/.test(src)) out.push('thiếu tự nối (GATE_CHAIN_REF + actions: write) – cron GitHub có lúc bỏ lượt hàng giờ');
   if (/cancel-in-progress: true/.test(src)) out.push('bộ canh không được huỷ lượt đang canh (cancel-in-progress phải false)');
   return out;
@@ -185,6 +186,15 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
     // Mỗi vòng: 1 lệnh liệt kê lượt chạy gần nhất + PR mở (ETag – 304 không trừ hạn mức) → chỉ đánh giá sha thật sự có thể đổi trạng thái.
     const end = clock.now() + Number(arg('--watch')) * 60e3, seen = new Map(), born = new Map(), since = () => clock.now() - 14 * 864e5, out = [];
     const YOUNG = 90e3;   // sha mới thấy < 90 s: chưa chắc các workflow đã kịp tạo lượt chạy → không cho xanh sớm
+    // canh lịch cron (3/11): cron-watch trước chỉ chạy trong ci-triage – mà cron của ci-triage cũng bị GitHub bỏ 13 giờ (02/11 13:12Z→20:46Z, 2 lượt)
+    // → monitor mù đúng lúc cần. Bộ canh tự nối (không phụ thuộc cron) chạy cron-watch 1 lần mỗi lượt (~1 giờ): báo + đá lại lịch chết.
+    if (env.CRON_WATCH === '1' && !dry) try {
+      const r = await (A.cronWatch || (async () => {
+        const m = await import('./cron-watch.mjs'), gh = (p, o = {}) => A.call(p, { method: o.method, ...(o.body ? { body: JSON.stringify(o.body) } : {}) }).catch(e => { log('::warning::cron-watch API: ' + e.message); return null; });
+        const res = await m.cronWatch(gh); res.issue = await m.syncIssue(gh, res); return res;
+      }))();
+      log(`lịch cron: ${r.bad.length ? r.bad.map(b => `${b.file} (${b.why})`).join('; ') : 'mọi workflow đúng hạn'}${r.issue ? ` · issue ${r.issue}` : ''}`);
+    } catch (e) { log('::warning::cron-watch lỗi (bộ canh vẫn chạy): ' + e.message); }
     let first = true, chained = !env.GATE_CHAIN_REF || dry;
     const CHAIN_BEFORE = 6 * 60e3;   // còn ≤ 6 phút: xếp sẵn lượt kế tiếp (concurrency giữ nó chờ tới khi lượt này xong) – không phụ thuộc cron
     while (clock.now() < end) {

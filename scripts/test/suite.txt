@@ -43,6 +43,7 @@ node scripts/test/quiz.mjs
 node scripts/test/notices.mjs
 node scripts/test/classroom.mjs
 node scripts/test/user-mgmt.mjs
+node scripts/test/users-bulk.mjs
 node scripts/test/account-delete.mjs
 node scripts/test/choice-kit.mjs
 node scripts/test/verbs.mjs
@@ -209,3 +210,5 @@ node scripts/test/ci-policy.mjs
 node scripts/test/suite-guard.mjs
 node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
+node scripts/test/logic-invariants.mjs
+node scripts/test/top1-score.mjs
