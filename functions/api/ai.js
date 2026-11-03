@@ -94,7 +94,8 @@ export async function onRequestPost({ request, env, waitUntil }) {
     const day = new Date().toISOString().slice(0, 10), up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1'; // '*' / '*rp': đồng hồ "AI hôm nay" ở Quản trị
     const weakSeen = () => { if (waitUntil && Date.now() - alertAt > 600e3) { alertAt = Date.now(); waitUntil(refreshAlerts(env).catch(() => {})); } };
     let r;
-    try { r = await runChain(env, sys, prompt, { temp: rp ? 0.7 : 0, rp, use }); // chấm: nhiệt độ 0 – cùng bài ra cùng band (golden 03/11: 0,2 dao động ±0,5) }
+    // chấm: nhiệt độ 0 – cùng bài ra cùng band (golden 03/11: 0,2 dao động ±0,5)
+    try { r = await runChain(env, sys, prompt, { temp: rp ? 0.7 : 0, rp, use }); }
     catch (e) {
       if (e.message !== 'no-model') throw e;
       console.log('ai busy', e.diag || ''); // xem bằng wrangler pages deployment tail – không trả về công khai
