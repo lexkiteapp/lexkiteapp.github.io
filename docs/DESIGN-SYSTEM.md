@@ -79,6 +79,16 @@ The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) us
 - Build: `node scripts/build-stitch-css.mjs` → `web/css/st-{home,lesson,goal}.css` (Tailwind 3.4.17, no preflight, ≤ 10 KB gz each, lazy via BCSS). `--check` on CI = drift gate; `--fonts` re-downloads self-hosted Plus Jakarta Sans (latin/latin-ext/vietnamese WOFF2, swap) + Material Symbols subset (icon names from `ms('…')` / `@icons`).
 - Gate: `scripts/test/stitch-diff.mjs` (SSIM + row rhythm vs `brand/stitch/*.jpg`, thresholds only go up, axe WCAG 2.2 AA inside `.st`), owner sheets `side-*.jpg` / `desk-*.jpg`. Gallery: `web/design/gallery.html` (light/dark/RTL).
 
+## 5d. ONE app frame (HARD, 31/10) – paste the prompt block into every Stitch prompt
+- Canvas: phone 390 px wide, portrait; content column max 390 px (desktop = same column centred + sidebar, never a stretched desktop layout). CI frame check fails desktop-width or off-frame output.
+- Top bar, three fixed variants: **hub** (title left, one icon action right; tabs below), **inner** (Back arrow left + title; ≤ 1 action right), **modal/focus** (Close X left + slim progress bar or title; nothing else, no lives/gems). Back/X ≥ 44 × 44 px, high contrast; Esc / system back / iOS swipe work; soft confirm only if progress would be lost.
+- Bottom: hub screens show the 5 tabs **Today · Vocab · Skills · Tests · Me** (active one highlighted); inner and focus screens show no tabs. One primary CTA per screen, sticky at the bottom of focus screens, full-width on phone.
+- Rhythm: 16 px side gutter, 12/16/24 px vertical steps, rounded tactile cards (§0/§5b), every touch target ≥ 44 px, text ≥ 4.5:1 (large 3:1) in both themes.
+- Teacher slot: an empty rounded "teacher-slot" box (Stitch draws no people); code fills it with the 2D Ama/Carlos (`Chars.*`), same light and scale as the UI, grounded, no crop/halo.
+- i18n: labels must survive +40 % (de/ru) and RTL (ar): wrap, never truncate or shrink buttons.
+- Prompt block (verbatim): "Mobile phone, portrait, a single 390 px app screen of Lexkite (English learning for IELTS, TOEIC, TOEFL). Feel: friendly, tactile, game-like but calm; Lexkite Kit design system. Top bar: <hub | inner with back arrow | focus with close X and slim progress bar>; back/close buttons at least 44 px. <Five bottom tabs Today, Vocab, Skills, Tests, Me with X highlighted | no bottom tabs>. One primary button. No hearts, lives or gems; no photos or drawn people: show an empty rounded 'teacher-slot' where the teacher goes. All text strongly readable (4.5:1), every tap target at least 44 px, labels wrap for 40 % longer text."
+- Tools: `scripts/stitch/batch.mjs` (3-key queue runner, state + credits per key), `qc-pick.mjs` / `queue-fix.mjs` (machine-QC fix rounds), CI "Stitch quality QC" + `stitch-diff`.
+
 ## 6. Checks before shipping UI
 `npm test` (size budget: shell ≤ 374 KB gz (canonical gzip, scripts/lib/gz-canon.mjs), a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.

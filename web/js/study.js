@@ -279,7 +279,7 @@
       <p class="muted tiny center kbd-hint" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
     </div>`;
     App.bindCommon();
-    const say = () => speak(c.word, accent(), UI.audioFor(c, accent()));
+    const say = on => speak(c.word, accent(), UI.audioFor(c, accent()), false, typeof on === 'function' ? on : undefined);
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
     // Nghe riêng giọng UK/US
     $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
@@ -350,7 +350,7 @@
       else if (e.key.toLowerCase() === 'z' && session.last) undo();
     };
     const ub = $('#undoBtn'); if (ub) ub.onclick = () => undo();
-    if (!rev && state.settings.autoSpeak) say();
+    if (!rev && mode === 'flip' && state.settings.autoSpeak) say(); // Gõ: đọc = lộ đáp án · Nghe: study-modes tự phát
 
     let graded = false;
     async function grade(g, el, swiped) {

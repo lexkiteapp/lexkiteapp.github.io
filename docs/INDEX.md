@@ -14,6 +14,7 @@
 - [BLOG-RUNBOOK.md](BLOG-RUNBOOK.md) — Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, 6 bước viết bài; đọc khi: viết/lên lịch/sửa bài blog hoặc ảnh blog
 - [BRAND-RULES.md](BRAND-RULES.md) — Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video; đọc khi: đụng logo, màu, tên, watermark
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
+- [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
@@ -73,6 +74,7 @@
 - [REMINDERS.md](REMINDERS.md) — Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test; đọc khi: sửa nhắc học/push
 - [specs/tutor-daily.md](specs/tutor-daily.md) — Gia sư 1-1 hằng ngày Ama/Carlos: buổi 5–15 phút, lời gia sư, nhắc giọng gia sư, báo cáo tuần, $0 ở 1M DAU; đọc khi: sửa Buổi học hôm nay/thẻ gia sư
 - [specs/landing.md](specs/landing.md) — Spec landing lexkite.com (?home=1): so 5 app lớn, section, CTA, Stitch + port, tiêu chí xong; đọc khi: sửa build-landing.mjs, vẽ lại landing.
+- [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
 - [Khung học chung Next/Back + xếp câu, điền từ](specs/learn-flow-nav.md) — hiện trạng điều hướng ~30 màn học, Enter/thanh FOCUS, ChoiceKit tiles/accept, cổng nav-sweep; đọc khi thêm/sửa màn học hoặc nav-sweep đỏ
 - [specs/target-language.md](specs/target-language.md) — Ngôn ngữ đích (học tiếng Bồ Đào Nha pt-BR, thử): Target/tl khác ngôn ngữ nghĩa, khóa thẻ `pt:`, giọng theo bảng, Kokoro + espeak pt-br, bộ 30 từ mẫu, cờ pt_pilot; đọc khi: đụng thẻ/SRS, giọng, nội dung ngôn ngữ đích
