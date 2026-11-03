@@ -273,7 +273,8 @@
   ":scope > main > div > section:nth-child(6) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > main > div > section:nth-child(8) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > main > div > section:nth-child(10) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
-  ":scope > main > div > section:nth-child(2)": "rtl:flex-row-reverse"
+  ":scope > main > div > section:nth-child(2)": "rtl:flex-row-reverse",
+  ":scope > main > div > section:nth-child(7) button": "min-h-[44px]"
  },
  "remove": [
   ":scope > main > nav"
