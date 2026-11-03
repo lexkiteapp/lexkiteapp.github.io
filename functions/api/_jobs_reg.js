@@ -284,6 +284,21 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "content-evidence",
+   "workflow": "content-evidence.yml",
+   "cron": [
+    "41 3 * * *",
+    "23 4 1 * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "contrast",
    "workflow": "contrast.yml",
    "cron": [
