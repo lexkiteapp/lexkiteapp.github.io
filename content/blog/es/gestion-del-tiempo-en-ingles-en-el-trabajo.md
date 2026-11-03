@@ -94,7 +94,7 @@ Observa cómo un Director de Logística y un Ingeniero de Sistemas de Almacén n
 
 Hablar con soltura y firmeza en conversaciones de alta exigencia corporativa requiere una práctica verbal metódica y constante:
 
-1. **Repetición espaciada con el algoritmo FSRS:** Incorpora las estructuras de negociación y priorización a tus repasos diarios para interiorizarlas sin necesidad de traducir mentalmente. Conoce más sobre el [método de repetición espaciada](/es/blog/como-aprender-vocabulario-en-ingles/).
+1. **Repetición espaciada con el algoritmo FSRS:** Incorpora las estructuras de negociación y priorización a tus repasos diarios para interiorizarlas sin necesidad de traducir mentalmente. Conoce más sobre el [método de repetición espaciada](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/).
 2. **Técnica de Shadowing con audios de directivos:** Escucha grabaciones de reuniones internacionales y replica la entonación tranquila y convincente de líderes nativos. Aprende cómo aplicar la [técnica de Shadowing en inglés](/es/blog/tecnica-shadowing-ingles-paso-a-paso/).
 3. **Simulaciones interactivas con IA:** Pon en práctica la negociación de plazos y el rechazo cortés de tareas en el simulador de conversación [/#/speaking](/#/speaking) y analiza la precisión de tu dicción en [/#/practice/speak](/#/practice/speak).
 

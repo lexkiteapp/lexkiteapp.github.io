@@ -105,7 +105,7 @@ Si un día solo tienes cinco minutos, haz únicamente el repaso: mantener la cad
 
 ![Tarjeta de aprendizaje de Lexkite para el phrasal verb "come up with" con definición, ejemplo y errores frecuentes](media:practice-learn "Cada expresión nueva llega con ejemplo, truco de memoria y error típico: menos traducción literal")
 
-3. **Repasa cuando toca.** En el [repaso con flashcards](/#/review), el algoritmo FSRS decide qué tarjetas necesitas hoy. Tú solo intentas recordar, das la vuelta y valoras cómo de bien la sabías.
+3. **Repasa cuando toca.** En el [repaso con flashcards](/#/review), el algoritmo de [repetición espaciada para aprender inglés](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/) FSRS decide qué tarjetas necesitas hoy. Tú solo intentas recordar, das la vuelta y valoras cómo de bien la sabías.
 
 ![Sesión de repaso de flashcards en Lexkite con la palabra "pollution", su transcripción fonética y la barra de progreso](media:review "El repaso espaciado te muestra hoy solo las palabras que estás a punto de olvidar")
 
