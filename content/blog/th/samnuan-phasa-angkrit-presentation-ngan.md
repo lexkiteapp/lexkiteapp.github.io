@@ -3,7 +3,7 @@ title: "ภาษาอังกฤษ presentation: รวมประโยค
 description: "ภาษาอังกฤษ presentation รวมประโยคและสำนวนเปิด-ปิดการนำเสนอ อธิบายกราฟสถิติ จัดการช่วงถาม-ตอบ Q&A สำหรับการประชุมธุรกิจระดับสากล"
 slug: samnuan-phasa-angkrit-presentation-ngan
 lang: th
-translationKey: tieng-anh-thuyet-trinh-presentation-skills
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [speaking, presentations, business-english]
 keyword: "ภาษาอังกฤษ presentation"

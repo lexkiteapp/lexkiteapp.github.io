@@ -3,7 +3,7 @@ title: "İngilizce Sunum Kalıpları: Profesyonel İfadeler ve İpuçları"
 description: "ingilizce sunum kalıpları giriş, gelişme, slayt geçişleri, grafik anlatımı ve soru-cevap yönetimi için profesyonel iş İngilizcesi cümleleri."
 slug: ingilizce-sunum-yapma-teknikleri-ve-kaliplari
 lang: tr
-translationKey: tieng-anh-thuyet-trinh-presentation-skills
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [speaking, presentations, business-english]
 keyword: "ingilizce sunum kalıpları"

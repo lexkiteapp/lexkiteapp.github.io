@@ -3,7 +3,7 @@ title: "Presentaciones de Trabajo en Inglés: Frases y Estructura"
 description: "Guía completa para dar presentaciones de trabajo en inglés: frases clave para abrir, describir datos y gráficos, hacer transiciones y responder preguntas."
 slug: presentaciones-de-trabajo-en-ingles
 lang: es
-translationKey: presentaciones-de-trabajo-en-ingles
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [presentaciones, business-english, reuniones]
 keyword: "presentaciones de trabajo en inglés"

@@ -3,7 +3,7 @@ title: "Thuyết Trình Tiếng Anh: Mẫu Câu Chuyên Nghiệp Theo Tiến Tr�
 description: "Cẩm nang thuyết trình tiếng anh chuyên nghiệp: cấu trúc bài nói chuẩn mực, mẫu câu chuyển slide mượt mà, phân tích biểu đồ và làm chủ phần Q&A."
 slug: thuyet-trinh-tieng-anh-mau-cau-va-cau-truc
 lang: vi
-translationKey: presentaciones-de-trabajo-en-ingles
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [thuyet-trinh, presentation, speaking, tieng-anh-cong-so]
 keyword: "thuyết trình tiếng anh"

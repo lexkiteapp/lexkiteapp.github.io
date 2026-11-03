@@ -3,7 +3,7 @@ title: "商务英语 presentation 句型：精选开场、图表过渡与答辩�
 description: "商务英语 presentation 句型完整实战指南：精选从开场破冰、议程说明、主体过渡、数据图表解读到问答答辩全流程的高效职场表达，配合董事会汇报真实案例与技术故障应急话术，助你在跨国工作会议中展现极具说服力的高端职业风采。"
 slug: shang-wu-ying-yu-yan-jiang-presentation-ju-xing
 lang: zh
-translationKey: tieng-anh-thuyet-trinh-presentation-skills
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [speaking, presentations, business-english]
 keyword: "商务英语 presentation 句型"

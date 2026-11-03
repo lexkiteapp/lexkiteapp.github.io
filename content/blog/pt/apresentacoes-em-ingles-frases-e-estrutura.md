@@ -3,7 +3,7 @@ title: "Apresentações em Inglês Frases: Guia Prático para o Trabalho"
 description: "Guia completo de apresentações em inglês frases essenciais para abertura, transição de slides, análise de gráficos e condução segura da sessão de perguntas."
 slug: apresentacoes-em-ingles-frases-e-estrutura
 lang: pt
-translationKey: presentaciones-de-trabajo-en-ingles
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [apresentacoes, business-english, speaking, carreira]
 keyword: "apresentações em inglês frases"

@@ -4,7 +4,7 @@ title: "Präsentation auf Englisch Phrasen: Der Business-Leitfaden"
 description: "Präsentation auf Englisch Phrasen: Kompletter Leitfaden mit Formulierungen für Begrüßung, Agenda, Folienübergänge, Diagramme und Q&A im Beruf."
 keyword: "präsentation auf englisch phrasen"
 lang: de
-translationKey: business-english-presentations
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [business-english, presentation, meeting]
 cover: placement

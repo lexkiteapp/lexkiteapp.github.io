@@ -3,7 +3,7 @@ title: "Presentasi Bahasa Inggris: Frasa Kunci dan Struktur Profesional"
 description: "Panduan lengkap presentasi bahasa inggris: frasa pembuka percaya diri, transisi slide mulus, analisis grafik data, dan tips menjawab sesi tanya jawab."
 slug: frasa-presentasi-bahasa-inggris-bisnis
 lang: id
-translationKey: presentaciones-de-trabajo-en-ingles
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [presentasi, business-english, speaking, karier]
 keyword: "presentasi bahasa inggris"

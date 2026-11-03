@@ -3,7 +3,7 @@ title: "英語 プレゼンテーション フレーズ：構成とスライド�
 description: "英語プレゼンテーションのフレーズ集：オープニングの挨拶からスライド切り替えの繋ぎ表現、データグラフの効果的な解説、そして質疑応答で慌てずにスマートに対処するための必須英語表現まで体系的に徹底解説します。実践的な語彙を身につけて国際舞台で自信を持って発信しましょう。"
 slug: business-eigo-presentation-phrases-kotsu
 lang: ja
-translationKey: presentaciones-de-trabajo-en-ingles
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [presentation, business-eigo, speaking]
 keyword: "英語 プレゼンテーション フレーズ"

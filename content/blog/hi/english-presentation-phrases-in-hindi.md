@@ -5,6 +5,7 @@ description: "Presentation in english tips in hindi: ऑफिस मीटि�
 readMinutes: 12
 category: "ky-nang"
 cluster: "presentation-tips"
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 tags: [speaking, business-english, presentation]
 keyword: "presentation in english tips in hindi"
 cover: speaking

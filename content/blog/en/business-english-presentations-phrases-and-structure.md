@@ -3,7 +3,7 @@ title: "Business English Presentations: Essential Phrases and Delivery"
 description: "Master business english presentations with opening hooks, seamless slide transitions, data storytelling phrases, and confident Q&A handling."
 slug: business-english-presentations-phrases-and-structure
 lang: en
-translationKey: presentaciones-de-trabajo-en-ingles
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [business-english, presentations, public-speaking, workplace]
 keyword: "business english presentations"

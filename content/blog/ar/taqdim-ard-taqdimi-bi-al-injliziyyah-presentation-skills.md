@@ -4,7 +4,7 @@ title: "تقديم عرض تقديمي باللغة الإنجليزية: أهم
 description: "تقديم عرض تقديمي باللغة الإنجليزية: دليل شامل لعبارات الافتتاحية والانتقال بين الشرائح وإدارة أسئلة الجمهور بثقة واحترافية في بيئة العمل الدولية."
 keyword: "تقديم عرض تقديمي باللغة الإنجليزية"
 lang: ar
-translationKey: business-english-presentations
+translationKey: thuyet-trinh-tieng-anh-presentation-skills
 category: ky-nang
 tags: [presentation, business-english, speaking]
 cover: placement
