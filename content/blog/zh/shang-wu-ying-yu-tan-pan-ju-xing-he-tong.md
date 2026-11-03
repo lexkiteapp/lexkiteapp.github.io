@@ -94,7 +94,7 @@ qualityScore: 95
 | *We cannot agree to these terms.* | *That condition presents substantial administrative complexity for our legal division.* | 避免情绪化生硬回绝，借助法务合规客观阻力予以委婉拒绝。 |
 | *You must authorize this amendment now.* | *Finalizing the paperwork today allows us to secure these preferential terms for your account.* | 借助锁定优惠条件的积极动因推动签约，而非强加施压。 |
 
-您可以在[/#/speaking](/#/speaking)的对话模块中演练临场反驳技巧，并在[/#/practice/speak](/#/practice/speak)的录音工坊中精准校准关键商务句型的发音。结合[FSRS间隔重复记忆法](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/)可以牢固沉淀商务术语，同时参考[英语易混词辨析](/zh/blog/ying-yu-yi-hun-ci-bian-xi-confusing-words/)可避免合同起草中的歧义漏洞。
+您可以在[/#/speaking](/#/speaking)的对话模块中演练临场反驳技巧，并在[/#/practice/speak](/#/practice/speak)的录音工坊中精准校准关键商务句型的发音。结合[FSRS间隔重复记忆法](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/)可以牢固沉淀商务术语，研读 [托业Part 5解题技巧](/zh/blog/toeic-part-5-jie-ti-ji-qiao/) 掌握严谨句法，同时参考[英语易混词辨析](/zh/blog/ying-yu-yi-hun-ci-bian-xi-confusing-words/)可避免合同起草中的歧义漏洞。
 
 {{youtube: | Shang wu ying yu tan pan ju xing he tong}}
 
