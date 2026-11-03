@@ -16,7 +16,8 @@
   function voiceScore(v, accent, gender) {
     let s = 0;
     const n = v.name || '', lang = String(v.lang || '').replace('_', '-');
-    if (lang === accent) s += 100; else if (lang.startsWith(g.Target ? g.Target.prefixFor(accent) : 'en')) s += 10; else return -1; // tiền tố theo ngôn ngữ đích (web/js/target.js); accent tiếng Anh → 'en' như cũ
+    const fb = g.Target && g.Target.speechLangs ? g.Target.speechLangs(g.Target.tlOfAccent(accent)) : [], fi = fb.indexOf(lang); // dự phòng của bảng (es-419 → es-MX → es-US); tiếng Anh = [] như cũ
+    if (lang === accent) s += 100; else if (fi > 0) s += 60 - 10 * fi; else if (lang.startsWith(g.Target ? g.Target.prefixFor(accent) : 'en')) s += 10; else return -1; // tiền tố theo ngôn ngữ đích (web/js/target.js); accent tiếng Anh → 'en' như cũ
     if (/Natural|Neural|Online/i.test(n)) s += 60;                       // Edge: Microsoft Sonia/Ryan/Libby Online (Natural)
     if (/^Google (UK|US) English/i.test(n)) s += 50;                       // Chrome
     if (/Premium|Enhanced|Siri/i.test(n)) s += 45;                         // macOS/iOS giọng tải thêm
