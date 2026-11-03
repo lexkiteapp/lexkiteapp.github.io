@@ -37,7 +37,12 @@ export const THEME_HEAD = `<script data-lkt>function lkT(){try{var s=localStorag
 export const THEME_COLOR = { light: TKALL.light['--bg'], dark: TKALL.dark['--bg'] };
 export const THEME_META = `<meta name="theme-color" media="(prefers-color-scheme:light)" content="${THEME_COLOR.light}"><meta name="theme-color" media="(prefers-color-scheme:dark)" content="${THEME_COLOR.dark}">`;
 // Chỉ phần <head> (chống nháy + theme-color), không đụng CSS – dùng cho trang tĩnh (qua themePage) và app web/app/index.html (build-landing.mjs)
-export const themeHead = html => {
+// Quyền nội dung (docs/CONTENT-PROTECTION.md §8): từ chối khai thác văn bản/dữ liệu (TDMRep W3C, EU DSM Điều 4).
+// Không có "noindex"/"nofollow" → Googlebot/Bingbot lập chỉ mục như cũ. Chèn 1 lần (idempotent) ngay sau chống nháy.
+export const IP_META = '<meta name="tdm-reservation" content="1">'; // © hiển thị ở chân mọi trang (siteFooter, app) – không thêm meta copyright (trang giới thiệu sát ngân sách gzip)
+const ipMeta = html => html.includes('name="tdm-reservation"') ? html : html.replace(/(<meta name="theme-color"[^>]*>(?:\s*<meta name="theme-color"[^>]*>)*)/i, x => x + IP_META);
+export const themeHead = html => ipMeta(themeHead0(html));
+const themeHead0 = html => {
   const meta = /<meta name="theme-color"/i.test(html); // trang chưa có theme-color → thêm ngay sau chống nháy
   html = html.replace(/<meta name="theme-color"[^>]*>(?:\s*<meta name="theme-color"[^>]*>)*/i, () => THEME_META);
   const H = meta ? THEME_HEAD : THEME_HEAD + THEME_META;

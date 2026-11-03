@@ -760,7 +760,7 @@ const OPS = {
       }
       const copy = JSON.parse((await one(db, "SELECT v FROM config WHERE k = 'bw_copy'")).v || 'null');
       if (copy) { const sus = (copy.probes || []).reduce((a, p) => a + (p.suspects || []).length, 0);
-        out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: copy.configured === false ? tx(b, 'chưa bật dò tự động (BRAVE_SEARCH_KEY)', 'auto search off (BRAVE_SEARCH_KEY)') : sus ? tx(b, `${sus} trang ngoài chứa nguyên văn`, `${sus} external page(s) with verbatim text`) : tx(b, 'không thấy', 'none found') }); }
+        out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: sus ? tx(b, `${sus} trang ngoài chứa nguyên văn/canary`, `${sus} external page(s) with verbatim text/canary`) : copy.configured === false ? tx(b, 'chỉ dò canary trên GitHub – bật Brave (BRAVE_SEARCH_KEY) để dò cả web', 'canary GitHub search only – add BRAVE_SEARCH_KEY for web search') : tx(b, 'không thấy', 'none found') }); }
     } catch (e) { /* chưa có bảng bw_* (chưa chạy lần nào) */ }
     const u = await OPS.usage(db, b);
     for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
