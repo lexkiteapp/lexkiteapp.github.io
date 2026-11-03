@@ -27,7 +27,7 @@ export function collect() {
   }
   // Cuộc gọi Ama/Carlos (#/call, docs/CALL.md): mỗi câu giáo viên nói (câu hỏi, câu đáp nhánh, câu kết) 1 file theo giọng người gọi → sprite khớp môi đúng độ dài file
   {
-    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const k of c.CALLS || []) {
       const v = V[k.who] || V.ama, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
