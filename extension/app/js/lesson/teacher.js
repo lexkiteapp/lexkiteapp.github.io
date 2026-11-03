@@ -80,7 +80,7 @@
         ctx.drawImage(pic, 0, 0, 1108, 960);
         for (const p of LF.parts(who, s, id)) if (p) g.LipPaint.draw(ctx, p);
       }
-      cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; stats.blink = Math.round((s.blink || 0) * 100) / 100; // blink: test mắt mở trên khung ghép (call-e2e) raf = requestAnimationFrame(frame);
+      cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; stats.blink = Math.round((s.blink || 0) * 100) / 100; raf = requestAnimationFrame(frame); // blink: test mắt mở trên khung ghép (call-e2e)
     };
     let cur = null, held = null; // held = [biểu cảm, tên tư thế] do pose(p) giữ tới pose(null) – như ảnh tư thế, nhưng miệng vẫn khớp khi nói
     const talkEmo = () => (emoUntil && idleEmo && idleEmo !== 'listen' ? idleEmo : held ? held[0] : undefined); // vừa phản ứng xong mà nói luôn → giữ biểu cảm khi nói
@@ -92,7 +92,7 @@
       if (dead) return;
       cv = D.createElement('canvas'); cv.className = 'tch-face'; cv.setAttribute('aria-hidden', 'true');
       ctx = cv.getContext('2d'); if (!ctx || !g.Path2D) { dead = true; return onFail(); }
-      rig.appendChild(cv); rig.dataset.face = who; fit(); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA) stats.t0 = performance.now();
+      rig.appendChild(cv); rig.dataset.face = who; fit(); stats.t0 = performance.now(); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA)
       if (g.ResizeObserver) { ro = new ResizeObserver(() => { if (!dead) fit(); }); ro.observe(rig); ro.observe(cv); }
       raf = requestAnimationFrame(frame);
     };

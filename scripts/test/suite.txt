@@ -2,6 +2,9 @@
 # Thêm test: thêm MỘT dòng (cuối file, hoặc cạnh test cùng mảng). .gitattributes merge=union → hai PR cùng thêm ở cùng chỗ tự gộp khi rebase/merge.
 # Dòng trống và dòng bắt đầu bằng # bị bỏ qua. Lệnh chạy qua sh nên được dùng ! | 2>/dev/null. Bộ chạy: scripts/test/run-suite.mjs
 node scripts/ext-syntax.mjs
+node scripts/test/comment-code.mjs --self
+node scripts/test/comment-code.mjs
+node scripts/test/teacher-loop.mjs
 node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
