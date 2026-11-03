@@ -28,7 +28,7 @@ Nút thắt còn lại: **lượt gọi** (≈ 41/DAU: 29 Functions + 12 Worker 
 | Mô phỏng 1 ngày của từng hồ sơ, gọi **mã thật** `functions/api/*` (sync, hit, config, notices, league, class, ai, img); máy khách đẩy thân nén gzip như `web/js/sync.js` | `scripts/capacity/sim.mjs` (`--legacy` = cờ cũ) |
 | Đồng hồ D1: `meta.rows_read` / `rows_written` từng yêu cầu + `EXPLAIN QUERY PLAN` mọi câu SQL | `scripts/capacity/meter.mjs` |
 | Mô hình hạn mức, ngoại suy DAU, giá Paid, luật cảnh báo | `scripts/capacity/model.mjs`, `functions/api/_capacity.js` |
-| CI: Miniflare trước/sau + ước lượng node:sqlite; đỏ khi có SCAN ở đường người dùng hoặc số đo = 0 | `.github/workflows/capacity-sim.yml` |
+| CI: Miniflare trước/sau + ước lượng node:sqlite; đỏ khi có SCAN ở đường người dùng hoặc số đo = 0; trang Quản trị > 5.000 dòng/lần mở hoặc SCAN sessions | `.github/workflows/capacity-sim.yml`, `scripts/capacity/admin-sim.mjs` |
 | Test (`npm test`) | `scripts/test/capacity.mjs`, `scripts/test/sync-pack.mjs`, `scripts/test/schema-lock.mjs` |
 
 Hồ sơ/ngày: **anon** khách 4 phút · **light** 6 phút, 13 thẻ · **typical** 2 phiên 12+10 phút, 50 thẻ, 1 chấm AI, bảng xếp hạng, add-on · **heavy** 4 phiên 90 phút, 180 thẻ, 5 chấm + 10 lượt hội thoại AI, lớp học · **teacher**.
@@ -73,6 +73,23 @@ Hỗn hợp DAU giả định: anon 30 %, light 35 %, typical 25 %, heavy 8 %, t
 - **D1 Xác thực không trạng thái**: Firebase ID token kiểm chữ ký RS256 ngay tại Functions (`claims()`), JWKS đệm trong isolate 1 giờ + đệm biên Cloudflare (`cacheTtl`); không có D1 trong xác thực. Đồng bộ đọc đúng 1 dòng `users` (khoá/mảnh).
 - **D2 Dữ liệu công khai**: `/api/config` đệm biên 5 phút + ETag/304; `/api/notices` danh sách công khai đệm biên 60 s; từ điển/bài học/âm thanh là tệp tĩnh (Pages/CDN); `/api/img` Cache API. Khách chưa đăng nhập: 0 dòng D1 khi bộ đệm ấm (trừ beacon thống kê, nay chủ yếu ở AE).
 - **D3 Giới hạn tốc độ**: Cache API (`limit()`, `gate()` store `edge`); trạng thái hạn mức dùng chung 60 s/trung tâm. D1 chỉ đếm chính xác cho AI/handoff/liên hệ (ít lượt).
+
+- **D4 Trang Quản trị đọc bảng tổng hợp** (sự cố 03/11 – trước đó Quản trị nằm NGOÀI cổng capacity-sim = giám sát mù).
+  - Đo thật (GraphQL `d1QueriesAdaptiveGroups`, `node scripts/capacity/d1-sources.mjs --date=…`): 03/11 đọc **4,30 triệu dòng (86 % Free)** – quản trị 4,26 tr · người dùng 22k · việc nền 13k; 02/11: 1,93 tr (quản trị 1,66 tr). Nguyên nhân: Tổng quan/Phân tích/Trực tiếp/Tăng trưởng chạy ~25 câu quét cả bảng `sessions` mỗi lần mở (Phân tích không đệm), Trực tiếp tự làm mới 30 giây/lần, danh sách vid quản trị (`vid_uid JOIN users json_each`) đọc 507 lần/ngày. admin-guard e2e dùng fixtures, chặn mọi mạng – không phải nguồn.
+  - Thiết kế (`functions/api/_rollup.js`): `stats_day` 1 dòng/ngày VN = JSON tổng hợp **chính xác** (đếm, tổng, AVG với NULL như SQLite, tập vid để đếm khách không trùng qua nhiều ngày, p75 LCP từ bảng tần suất, "đã loại" theo loại, cờ ret=0/đã thử theo nền tảng cho Tăng trưởng). Tăng dần, không cần cron: ngày thiếu/cũ → 1 câu `sessions WHERE day >= ?` (chỉ mục `sessions_day`) + 1 lô ghi. Ngày **chốt** sau hết ngày + 37 giờ (phiên gửi bù ≤ 36 giờ); chưa chốt dựng lại ≤ 10 phút/lần; danh sách vid quản trị đổi (băm `xh`) hoặc `ROLLUP_VER` đổi → dựng lại. Hôm nay: bộ nhớ isolate 20 giây; Trực tiếp chỉ đọc phiên vừa đổi (`last > ?`, chỉ mục `sessions_last`), đọc đủ hôm nay 15 phút/lần.
+  - Đệm kết quả: Phân tích 5 phút (theo khoảng ngày + danh sách quản trị), Tổng quan 60 giây ("đang online" luôn tươi), Trực tiếp 20 giây/10 phút, Tăng trưởng 10 phút, vid quản trị 10 phút (isolate + Cache API). Không thêm chỉ mục `lower(email)`: sync.js ghi `users.email` mỗi lượt → +1 dòng ghi ở đường người dùng.
+  - Khác biệt có chủ đích: Giờ cao điểm/Thứ trong tuần theo ngày VN của khoảng (trước: mốc trượt `now − days`). Mọi số khác khớp SQL cũ từng trường (`scripts/test/admin-rollup.mjs`).
+  - Cổng: `scripts/test/admin-rollup.mjs` (npm test: khớp SQL cũ, ≤ 5.000 dòng/lần mở ấm, 0 SCAN sessions, tự làm mới ≤ 80 dòng) · `scripts/capacity/admin-sim.mjs` (Miniflare trong `capacity-sim.yml`, dữ liệu giống production; đỏ khi > 5.000 hoặc SCAN sessions) · cron `capacity.js` tách nguồn đọc (§6).
+  - Số đo trước → sau (1 lần mở = Tổng quan + Phân tích 30 + Trực tiếp + Tăng trưởng 30 + Dung lượng, 2.796 phiên/20 ngày, **Miniflare = rows_read thật**, capacity-sim 03/11):
+
+    | | Tổng quan | Phân tích 30 | Trực tiếp | Tăng trưởng 30 | Dung lượng | **Tổng** |
+    |---|---:|---:|---:|---:|---:|---:|
+    | Trước (SQL cũ) | 6.618 | 56.450 | 9.402 | 61.471 | 489 | **134.430** |
+    | Sau – lạnh (lần đầu dựng stats_day) | 3.102 | 157 | 5 | 729 | 510 | **4.503** |
+    | Sau – ấm (isolate mới) | 421 | 157 | 5 | 729 | 510 | **1.822** (74×) |
+
+    1 giờ Trực tiếp tự làm mới 30 giây/lần: **219.312 → 5.826** dòng (38×). Ngày như 03/11 (~25 lần mở + vài giờ để mở Trực tiếp): ≈ 4,3 tr → ước < 0,1 tr.
+  - Quay lại: biến Pages `ADMIN_ROLLUP=0` → SQL cũ (`LEGACY` trong admin.js). Còn quét: `users` (≈ 80 dòng, theo số tài khoản) – xem lại khi > 10k tài khoản.
 
 ### E. Cách ly
 Đường người dùng ở D1 chính `lexkite-sync`; việc nền chuyển sang D1 nội bộ (tài khoản 2 – bộ điều phối `infra/jobs.json`, `_d1b.js`, cầu dao `_d1guard.js` của luồng khác). Việc người dùng không bao giờ gọi cầu dao.
@@ -148,8 +165,10 @@ Trần Free sau: lượt ≈ 2.420 · ghi ≈ 2.450 · đọc ≈ 38.000 DAU. Pa
 - `.github/workflows/capacity-watch.yml` (01:25 UTC, đăng ký ở `infra/jobs.json`) → `scripts/capacity/check.mjs` → `POST /api/capacity {op:'check'}` (HMAC `LEXKITE_DRIVE_CLI_KEY`, 1 lượt/ngày).
 - `functions/api/capacity.js`: GraphQL 30 ngày – D1 `lexkite-sync` (đọc/ghi), Pages Functions + mọi Worker (cùng hạn mức 100k) → `capacity_daily` → `evaluate()`: ≥ 60 % Free 3 ngày liền hoặc dự báo 80 % trong 14 ngày; X = ngày dự báo chạm 100 %.
 - Báo: chuông Quản trị (`drive_alerts` kind `capacity`) + thư ≤ 1/24 h; hết nguy cơ → tự gỡ. Quản trị › Hạn mức › 📈 Xu hướng 30 ngày.
+- **Nguồn đọc** (từ 03/11): cùng lượt cron đọc `d1QueriesAdaptiveGroups` hôm qua + hôm nay → `_capacity.js d1Source()` chia **người dùng · quản trị · việc nền** → `capacity_daily.src`; quản trị hoặc việc nền ≥ 10 % hạn mức đọc Free (`SRC_BUDGET`) → chuông `capacity-src` (Hạn mức) + thư ≤ 1/24 h; thư nâng gói kèm dòng nguồn đọc. Đo tay: `node scripts/capacity/d1-sources.mjs --date=YYYY-MM-DD` (sandbox Mac: thêm `NODE_USE_ENV_PROXY=1`).
 - **Chưa có khoá** → `/api/capacity` 503 `no-analytics-token` → workflow **bỏ qua trung tính** (xanh + ghi chú), không đỏ.
 
 ## 7. Lịch sử
 - 23/10 (lượt 1): chỉ mục `quota_flag(until)`, `notices(revoked, at)`; dọn `sessions` theo `day`; đệm biên trạng thái hạn mức, thông báo, config (+ETag); cảnh báo nâng gói. Đọc: heavy 2.649 → 797.
 - 23/10 (lượt 2 – kiến trúc §2): gói đồng bộ 1 dòng, cổng lược đồ, Analytics Engine + hybrid, bộ định tuyến mảnh, SW âm thanh 2000, `ai_cache` OR IGNORE. Ghi typical 112 → 53; trần Free 1.190 → 2.420 DAU.
+- 03/11: Quản trị đọc 4,26 tr/ngày (85 % Free) → bảng tổng hợp `stats_day` + đệm + đồng hồ D1 Quản trị + cảnh báo tách nguồn đọc (§D4, §6).
