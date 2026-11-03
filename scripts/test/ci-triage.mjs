@@ -6,13 +6,20 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, issueTitle, redStreak, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
+// --- đỏ liên tiếp (3/11: quality-sweep đỏ 6 đêm 27/10–1/11, issue không nói "lặp lại")
+const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });
+ok(redStreak([R('failure', 1), R('failure', 2), R('cancelled', 3), R('failure', 3), R('success', 0), R('failure', 4, 'pull_request')]).n === 3, 'đỏ liên tiếp: bỏ PR/huỷ, dừng ở lượt xanh');
+ok(redStreak([R('success', 4), R('failure', 3)]).n === 0, 'lượt mới nhất xanh → 0');
+ok(redStreak([R('failure', 2), R('failure', 1)]).since === '2026-11-01T23:00:00Z', 'mốc bắt đầu chuỗi đỏ');
+ok(issueTitle('Quality sweep', 6) === 'CI đỏ: Quality sweep (đỏ 6 lượt liền)' && issueTitle('x', 2) === 'CI đỏ: x', 'tiêu đề báo khi ≥ 3 lượt liền');
+ok(/Đỏ \*\*6 lượt liên tiếp\*\*.*cần người sửa gốc/.test(issueBody({ name: 'Q', file: 'q.yml', run: { html_url: 'u', head_branch: 'main' }, cls: { kind: 'real', why: 'x' }, log: '', streak: { n: 6, since: '2026-10-27T23:09:11Z' } })), 'thân issue có chuỗi đỏ');
 // --- phân loại (log thật)
 const LOG = {
   ytm500: "Error: youtube packs → 500 error\n    at ytApi (file:///scripts/video/yt-upload.mjs:19:31)\n  body: { error: 'error' }\n##[error]Process completed with exit code 1.",

@@ -42,7 +42,7 @@ jobs:
           git add infra/backups/d1-main.json
           git diff --cached --quiet && { echo "sổ không đổi"; exit 0; }
           git commit -qm "d1-backup #${{ github.run_number }}: sổ sao lưu D1 [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && echo "changed=1" >> "$GITHUB_OUTPUT" && exit 0; sleep 5; done; exit 1
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && echo "changed=1" >> "$GITHUB_OUTPUT" && exit 0; sleep 5; done; exit 1
       - name: Diễn tập khôi phục (bản mới nhất → D1 cục bộ Miniflare, đối chiếu số dòng)
         if: ${{ steps.lease.outputs.skip != '1' && steps.commit.outputs.changed == '1' }}
         run: |

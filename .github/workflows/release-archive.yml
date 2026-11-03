@@ -35,7 +35,7 @@ jobs:
           git add infra/backups/releases.json
           git diff --cached --quiet && { echo "sổ không đổi"; exit 0; }
           git commit -qm "release-archive #${{ github.run_number }}: sổ bản phát hành [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: node scripts/jobs/lease.mjs release release-archive --status "${{ job.status }}"

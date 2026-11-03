@@ -38,9 +38,18 @@ export function excerpt(log, max = 40) {
 }
 
 export const marker = file => `<!-- ci-triage:wf=${file} -->`;
-export const issueTitle = name => `CI đỏ: ${name}`;
-export function issueBody({ name, file, run, cls, log }) {
+export const STREAK_ALERT = 3;
+export const issueTitle = (name, streak = 0) => `CI đỏ: ${name}` + (streak >= STREAK_ALERT ? ` (đỏ ${streak} lượt liền)` : '');
+/** Số lượt đỏ LIÊN TIẾP mới nhất (thuần, có test) trên cùng nhánh, bỏ PR + huỷ/bỏ qua – 3/11: quality-sweep đỏ 6 đêm liền, issue chỉ ghi "đỏ". */
+export function redStreak(runs) {
+  let n = 0, since = '';
+  for (const r of [...(runs || [])].filter(r => r && r.event !== 'pull_request' && r.status === 'completed' && !['cancelled', 'skipped'].includes(r.conclusion))
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))) { if (r.conclusion !== 'failure') break; n++; since = r.created_at; }
+  return { n, since };
+}
+export function issueBody({ name, file, run, cls, log, streak }) {
   return `${marker(file)}\nWorkflow **${name}** (\`${file}\`) đỏ – ci-triage xếp loại **${cls.kind}** (${cls.why}).\n\n` +
+    (streak && streak.n >= 2 ? `- ${streak.n >= STREAK_ALERT ? '🔥' : '🔁'} Đỏ **${streak.n} lượt liên tiếp** trên ${run.head_branch || 'main'} (từ ${String(streak.since).slice(0, 16)}Z)${streak.n >= STREAK_ALERT ? ' – lỗi lặp lại, không phải nhiễu: cần người sửa gốc' : ''}\n` : '') +
     `- Lượt mới nhất: ${run.html_url} (attempt ${run.run_attempt || 1}, sự kiện ${run.event}, ${run.updated_at || run.created_at})\n` +
     `- Issue tự đóng khi workflow xanh lại (ci-triage quét mỗi giờ). Thân issue được cập nhật tại chỗ, không bình luận → không thêm thư.\n\n` +
     '```\n' + excerpt(log) + '\n```\n';
@@ -100,11 +109,13 @@ async function openIssues() { return ((await gh(`/issues?state=open&labels=${LAB
 async function ensureLabel() { if (!(await gh(`/labels/${LABEL}`))) await gh('/labels', { method: 'POST', body: { name: LABEL, color: 'b60205', description: 'Workflow đỏ thật – ci-triage tự mở/đóng' } }).catch(() => {}); }
 
 async function upsertIssue(run, cls, log) {
-  const file = String(run.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, ''), body = issueBody({ name: run.name, file, run, cls, log });
+  const file = String(run.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '');
+  const br = encodeURIComponent(run.head_branch || 'main'), streak = redStreak((((await gh(`/actions/workflows/${run.workflow_id}/runs?branch=${br}&per_page=20`).catch(() => null)) || {}).workflow_runs) || []);
+  const body = issueBody({ name: run.name, file, run, cls, log, streak });
   const cur = (await openIssues()).find(i => (i.body || '').includes(marker(file)));
-  if (cur) { await gh(`/issues/${cur.number}`, { method: 'PATCH', body: { body } }); return `cập nhật #${cur.number}`; }
+  if (cur) { await gh(`/issues/${cur.number}`, { method: 'PATCH', body: { body, title: issueTitle(run.name, streak.n) } }); return `cập nhật #${cur.number}${streak.n >= STREAK_ALERT ? ` (đỏ ${streak.n} lượt liền)` : ''}`; }
   await ensureLabel();
-  const i = await gh('/issues', { method: 'POST', body: { title: issueTitle(run.name), body, labels: [LABEL] } });
+  const i = await gh('/issues', { method: 'POST', body: { title: issueTitle(run.name, streak.n), body, labels: [LABEL] } });
   return `mở #${i && i.number}`;
 }
 

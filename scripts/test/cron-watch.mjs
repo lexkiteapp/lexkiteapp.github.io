@@ -1,7 +1,7 @@
 // cron-watch (scripts/ci/cron-watch.mjs, ci-triage sweep mỗi giờ): báo đỏ workflow có cron mà > 3 khoảng lịch không chạy hoặc bị tắt ngoài ý muốn.
 // Hồi quy 02/11: ci-filler bật lại 03:47Z nhưng 0 lượt schedule → phải đỏ sau ≤ 60 phút. Không gọi mạng (gh giả).
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { maxGap, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK } from '../ci/cron-watch.mjs';
+import { maxGap, limitMin, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK } from '../ci/cron-watch.mjs';
 
 assert.equal(maxGap(['4-59/10 * * * *']), 10); assert.equal(maxGap(['17 * * * *']), 60); assert.equal(maxGap(['35 1 * * *', '17 * * * *']), 60);
 assert.equal(maxGap(['0 1 * * 1']), 7 * 1440); assert.equal(maxGap(['40 2,4,7,10,13,16,19,22 * * *']), 4 * 60);
@@ -18,7 +18,11 @@ assert.equal(verdict(ftg, T).kind, 'stale'); assert.equal(verdict({ ...ftg, sinc
 assert.ok(OFF_OK['video.yml']); assert.equal(verdict({ file: 'video.yml', state: 'disabled_manually', crons: ['0 3 * * *'] }, T), null);
 assert.equal(verdict({ file: 'ci-filler.yml', state: 'disabled_manually', crons: ['4-59/10 * * * *'] }, T).kind, 'off');
 assert.equal(verdict({ file: 'ci-filler.yml', state: 'disabled_manually', crons: ['4-59/10 * * * *'] }, T, { paused: new Set(['ci-filler.yml']) }), null); // free-tier guard dừng
-assert.equal(verdict({ file: 'x.yml', state: 'disabled_manually', crons: [] }, T), null); assert.equal(FLOOR_MIN, 60);
+assert.equal(verdict({ file: 'x.yml', state: 'disabled_manually', crons: [] }, T), null);
+// 3/11: quality-sweep ('40 22 * * *') mất lượt đêm 2/11 – lịch đêm báo sau 24 h + 6 h, không đợi 3 ngày; tuần: 7 ngày + 6 h
+assert.equal(limitMin(1440), 1800); assert.equal(limitMin(7 * 1440), 7 * 1440 + 360); assert.equal(limitMin(60), 180); assert.equal(limitMin(10), 60);
+const qs = { file: 'quality-sweep.yml', state: 'active', crons: ['40 22 * * *'], since: 0, lastSched: Date.parse('2026-11-01T23:11:08Z') };
+assert.equal(verdict(qs, Date.parse('2026-11-03T05:30:00Z')).kind, 'stale'); assert.equal(verdict(qs, Date.parse('2026-11-02T23:30:00Z')), null); assert.equal(FLOOR_MIN, 60);
 
 // cronWatch + syncIssue với gh giả: phát hiện, đá lại lịch, mở issue; hết lỗi → đóng
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'cw-')), wfd = path.join(dir, 'wf'); fs.mkdirSync(wfd);

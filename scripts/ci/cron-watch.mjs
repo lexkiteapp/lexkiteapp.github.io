@@ -13,7 +13,10 @@ export const OFF_OK = {
   'explain.yml': 'GrabCast: tắt tới all-clear', 'lexicon-expand.yml': 'GrabCast: tắt tới all-clear', 'script-bank.yml': 'GrabCast: tắt tới all-clear',
   'video-tpl1b.yml': 'GrabCast: tắt tới all-clear', 'video.yml': 'GrabCast: tắt tới all-clear', 'vocab-img-scene.yml': 'GrabCast: tắt tới all-clear', 'vocab-img.yml': 'GrabCast: tắt tới all-clear',
 };
-export const FLOOR_MIN = 60, TIMES = 3;
+export const FLOOR_MIN = 60, TIMES = 3, LONG_GAP = 720, GRACE_MIN = 360;
+/** Ngưỡng (phút) coi lịch là không chạy. Lịch dày: max(60, 3 × khoảng). Lịch ≥ 12 h (đêm/tuần): khoảng + 6 h – 3/11 quality-sweep bị GitHub
+ *  bỏ lượt đêm 2/11 mà 3 × 1440 = 3 ngày mới báo → lượt quét đêm mất mà không ai biết. */
+export const limitMin = gap => gap >= LONG_GAP ? gap + GRACE_MIN : Math.max(FLOOR_MIN, TIMES * gap);
 export const MARK = '<!-- ci-triage:cron -->', TITLE = 'Lịch CI không chạy (cron)';
 
 /** Khoảng lịch dài nhất (phút) giữa 2 lượt liên tiếp của mọi dòng cron (vòng tuần). */
@@ -30,8 +33,8 @@ export const cronsOf = yml => [...String(yml).matchAll(/^\s*-\s*cron:\s*['"]([^'
 export function verdict(wf, now, { paused = new Set() } = {}) {
   if (!wf.crons.length) return null;
   if (wf.state !== 'active') return OFF_OK[wf.file] || paused.has(wf.file) ? null : { file: wf.file, kind: 'off', why: `đang tắt (${wf.state}) – không có trong OFF_OK / jobs.json paused / free-tier paused` };
-  const lim = Math.max(FLOOR_MIN, TIMES * maxGap(wf.crons)), base = Math.max(wf.lastSched || 0, wf.since || 0), age = (now - base) / 6e4;
-  return age > lim ? { file: wf.file, kind: 'stale', why: `${Math.round(age)} phút không có lượt schedule (ngưỡng ${lim} = max(${FLOOR_MIN}, ${TIMES} × ${maxGap(wf.crons)}))` } : null;
+  const gap = maxGap(wf.crons), lim = limitMin(gap), base = Math.max(wf.lastSched || 0, wf.since || 0), age = (now - base) / 6e4;
+  return age > lim ? { file: wf.file, kind: 'stale', why: `${Math.round(age)} phút không có lượt schedule (ngưỡng ${lim} = ${gap >= LONG_GAP ? `${gap} + ${GRACE_MIN}` : `max(${FLOOR_MIN}, ${TIMES} × ${gap})`})` } : null;
 }
 export function pausedSet(root = '.') {
   const s = new Set();

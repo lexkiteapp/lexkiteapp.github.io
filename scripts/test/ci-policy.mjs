@@ -8,6 +8,9 @@
 //  4) Workflow chạy trên PR (pull_request/_target – kết quả job = check của PR): job có `needs:` không dùng `always()` trần: `always()` vẫn chạy khi CẢ lượt đã bị huỷ (huỷ tay/concurrency/giải phóng runner)
 //     → job tải artifact của job bị huỷ đỏ "Artifact not found" và nhuộm đỏ PR (3/11: before-after đỏ ở #311 #323 #325 #326 #331 vì bot bị huỷ).
 //     Dùng `!cancelled()` (chạy cả khi job trước đỏ, không chạy khi lượt bị huỷ), hoặc có chặn rõ `needs.<job>.result != 'cancelled'`.
+//  5) Bước đẩy kết quả lên nhánh mà `git pull --rebase` phải chịu được cây làm việc bẩn: build/script hay sửa tệp đã theo dõi mà không add
+//     → "cannot pull with rebase: You have unstaged changes" (i18n 23/10, world-scorecard 2/11 đỏ 2 lượt liền). Dùng `--autostash`,
+//     hoặc cất phần còn sót trước đó trong cùng job (`git stash push` / `git reset --hard`).
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -44,6 +47,10 @@ export function violations(file, src) {
   for (const ev of ['push', 'pull_request']) if (t.events.has(ev) && !scoped(ev) && !reason(src, 'all-paths')) out.push(`${file}: ${ev} không có paths (hoặc dòng "# ci-policy: all-paths – <lý do>")`);
   if (t.events.has('pull_request') || t.events.has('pull_request_target')) for (const j of jobs(src)) { const c = (j.text.match(/^    if:([^\n]*)/m) || [])[1] || '';
     if (/^    needs:/m.test(j.text) && /\balways\(\)/.test(c) && !/!=\s*'cancelled'/.test(c)) out.push(`${file}: job "${j.id}" có needs + if: always() – lượt bị huỷ vẫn chạy rồi đỏ; dùng !cancelled()`); }
+  for (const j of jobs(src)) for (const m of j.text.matchAll(/^.*\bgit\b[^\n]*\bpull\b[^\n]*--rebase\b.*$/gm)) {
+    const before = j.text.slice(0, m.index);
+    if (!/--autostash\b/.test(m[0]) && !/\bgit\b[^\n]*\b(stash push|reset (-q )?--hard)\b/.test(before)) out.push(`${file}: job "${j.id}" có git pull --rebase không --autostash (cây bẩn → "cannot pull with rebase")`);
+  }
   return out;
 }
 
@@ -70,6 +77,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(violations('x.yml', nd.replace("&& github.event_name == 'pull_request'", "&& needs.b.result != 'cancelled'")).length === 0, "always() + chặn != 'cancelled' → đạt");
   ok(violations('x.yml', nd.replace('  pull_request:\n', '  push:\n    branches: [main]\n')).length === 0, 'workflow không chạy trên PR: chưa áp luật 4');
   ok(violations('x.yml', pr.replace('    timeout-minutes: 5\n', "    timeout-minutes: 5\n    steps:\n      - if: always()\n        run: x\n").replace('    steps: []\n', '')).length === 0, 'always() mức bước (upload artifact) không bị chặn');
+  const push = base.replace('    steps: []\n', "    steps:\n      - run: |\n          git commit -qm x\n          git pull -q --rebase origin main && git push\n");
+  ok(violations('x.yml', push).some(v => /autostash/.test(v)), 'pull --rebase không autostash → lỗi (world-scorecard 2/11)');
+  ok(violations('x.yml', push.replace('--rebase', '--rebase --autostash')).length === 0, 'pull --rebase --autostash → đạt');
+  ok(violations('x.yml', push.replace('git commit -qm x', 'git commit -qm x; git stash push -q -u || true')).length === 0, 'cất phần sót trước khi pull → đạt (i18n)');
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f));
   for (const f of files) for (const v of violations(f, fs.readFileSync(path.join(WF, f), 'utf8'))) ok(false, v);
