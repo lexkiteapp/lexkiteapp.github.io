@@ -3,7 +3,7 @@ title: "Auf Englisch denken lernen: Schluss mit mentalem Übersetzen"
 description: "Auf Englisch denken lernen ohne ständiges Übersetzen: Schritt-für-Schritt-Methode, Phrasenblöcke und praktische Übungen für spontanes Sprechen."
 slug: auf-englisch-denken-ohne-uebersetzen
 lang: de
-translationKey: auf-englisch-denken-ohne-uebersetzen
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [fluency, denken-auf-englisch, methode]
 keyword: "auf englisch denken lernen"

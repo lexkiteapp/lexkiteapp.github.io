@@ -3,7 +3,7 @@ title: "How to Think in English: 4 Practical Reflex Habits"
 description: "Master how to think in English without translating in your head: understand mental processing lag, 4 daily reflex habits, and a practical 15-minute routine."
 slug: how-to-think-in-english-without-translating
 lang: en
-translationKey: how-to-think-in-english-without-translating
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [thinking-in-english, fluency, vocabulary, habits]
 keyword: "how to think in english"

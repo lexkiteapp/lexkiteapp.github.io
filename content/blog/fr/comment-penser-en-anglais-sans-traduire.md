@@ -3,7 +3,7 @@ title: "Comment Penser en Anglais sans Traduire: 4 Étapes"
 description: "Comment penser en anglais sans traduire mentalement depuis le français: La méthode des 4 étapes, le chunking lexical et les exercices de monologue intérieur."
 slug: comment-penser-en-anglais-sans-traduire
 lang: fr
-translationKey: comment-penser-en-anglais-sans-traduire
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [fluidite, methode, penser-en-anglais]
 keyword: "comment penser en anglais sans traduire"

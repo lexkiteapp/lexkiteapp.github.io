@@ -3,7 +3,7 @@ title: "Cómo Pensar en Inglés sin Traducir: 4 Pasos para la Fluidez"
 description: "Descubre cómo pensar en inglés sin traducir mentalmente: ejercicios diarios, técnica de narración interna y métodos para hablar con fluidez natural."
 slug: como-pensar-en-ingles-sin-traducir
 lang: es
-translationKey: como-pensar-en-ingles-sin-traducir
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [fluidez, metodo, pensar-en-ingles]
 keyword: "cómo pensar en inglés sin traducir"

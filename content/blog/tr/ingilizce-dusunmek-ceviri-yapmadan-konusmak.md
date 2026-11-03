@@ -4,7 +4,7 @@ title: "Ingilizce Dusunmek Ceviri Yapmadan Konusmak Rehberi"
 description: "Ingilizce dusunmek ceviri yapmadan konusmak için zihinsel teknikler, iç ses değiştirme egzersizleri ve akıcı konuşma alışkanlıkları bu rehberde."
 keyword: "ingilizce dusunmek ceviri yapmadan konusmak"
 lang: tr
-translationKey: ky-nang-withi-khit-pen-phasa-angkrit-mai-plae-thai
+translationKey: tu-duy-bang-tieng-anh
 category: ky-nang
 tags: [akicilik, konusma, dusunme]
 cover: speaking

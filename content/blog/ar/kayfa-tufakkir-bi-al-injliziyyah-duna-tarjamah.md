@@ -4,7 +4,7 @@ title: "Kayfa Tufakkir bi al Injliziyyah Duna Tarjamah: 4 خطوات"
 description: "Kayfa tufakkir bi al injliziyyah duna tarjamah: دليل التوقف عن الترجمة الذهنية الداخلية، وتقنية التظليل Shadowing، وبناء الطلاقة التلقائية في الكلام."
 keyword: "kayfa tufakkir bi al injliziyyah duna tarjamah"
 lang: ar
-translationKey: khoa-hoc-cach-suy-nghi-bang-tieng-anh
+translationKey: tu-duy-bang-tieng-anh
 category: ky-nang
 tags: [ky-nang, fluency, suy-nghi-tieng-anh]
 cover: speaking

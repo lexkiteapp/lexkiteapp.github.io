@@ -4,7 +4,7 @@ title: "英語脳 作り方 翻訳しない：頭の中の日本語訳を消し�
 description: "英語脳 作り方 翻訳しない技術を徹底解説。英語を聞いて日本語に訳さずイメージで直感理解する4段階ステップ、日常の英語ひとり言の実践法、シャドーイングとチャンクリーディングで瞬発力を鍛える科学的トレーニングを詳しく紹介します。"
 keyword: "英語脳 作り方 翻訳しない"
 lang: ja
-translationKey: tu-duy-bang-tieng-anh-khong-dich
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [phuong-phap, speaking, phan-xa]
 cover: speaking

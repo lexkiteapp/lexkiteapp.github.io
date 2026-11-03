@@ -4,7 +4,7 @@ title: "Cara Berpikir dalam Bahasa Inggris Tanpa Menerjemahkan di Kepala"
 description: "Panduan cara berpikir dalam bahasa inggris tanpa menerjemahkan di kepala. Kuasai 4 langkah latihan self-talk, teknik visual labeling, dan shadowing aktif."
 keyword: "cara berpikir dalam bahasa inggris tanpa menerjemahkan"
 lang: id
-translationKey: tu-duy-bang-tieng-anh-khong-dich
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [phuong-phap, speaking, phan-xa]
 cover: speaking

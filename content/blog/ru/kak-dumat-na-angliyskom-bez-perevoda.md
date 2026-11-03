@@ -4,7 +4,7 @@ title: "Kak Dumat na Angliyskom Bez Perevoda v Golove"
 description: "Kak dumat na angliyskom bez perevoda в голове: 4-этапная методика развития языкового мышления, практика внутреннего монолога и техника shadowing."
 keyword: "kak dumat na angliyskom bez perevoda"
 lang: ru
-translationKey: ky-nang-withi-khit-pen-phasa-angkrit-mai-plae-thai
+translationKey: tu-duy-bang-tieng-anh
 category: ky-nang
 tags: [beglost, myshlenie, razgovorniy]
 cover: speaking

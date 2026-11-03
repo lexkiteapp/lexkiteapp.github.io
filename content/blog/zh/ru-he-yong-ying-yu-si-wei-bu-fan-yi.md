@@ -3,7 +3,7 @@ title: "如何用英语思维思考全攻略：告别脑中中文翻译卡顿的
 description: "如何用英语思维思考全景训练指南：彻底告别大脑中文直译转换卡顿，掌握从实物具象名词直接映射、核心语块（Chunks）储存、到日常内心英文独白与场景化自我辩论的四步进阶法，零成本重塑大脑双语神经通路，轻松实现母语般的流利脱口而出。"
 slug: ru-he-yong-ying-yu-si-wei-bu-fan-yi
 lang: zh
-translationKey: ru-he-yong-ying-yu-si-wei-bu-fan-yi
+translationKey: tu-duy-bang-tieng-anh
 category: phuong-phap
 tags: [ying-yu-si-wei, kou-yu, liu-li]
 keyword: "如何用英语思维思考"
