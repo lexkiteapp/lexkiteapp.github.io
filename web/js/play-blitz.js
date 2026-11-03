@@ -63,7 +63,7 @@
     if (ch && list.length < 4) { toast(t('Link thách đấu không còn dùng được – chơi bộ từ của bạn')); list = [...pool('due'), ...pool('deck')].filter(w => mean(w)); }
     const items = ch ? list : order(list, state.cards, endOfToday(), Math.random);
     if (items.length < 4) return emptySource(src);
-    const lib = () => TOPICS.flatMap(x => x.words).slice(0, 400).map(norm);
+    const lib = () => { const o = []; for (const tp of TOPICS) { for (const w of tp.words) { if (o.length >= 400) return o; o.push(norm(w)); } } return o; }; // dừng ở 400, không trải cả kho 20k từ
     const cands = items.length >= 12 ? items : [...items, ...lib()];
     const title = ch ? `👥 ${t('Thách đấu: vượt {n} điểm', { n: ch.s })}` : `⚡ ${t('Thử thách 60 giây')}`;
     const S = { i: 0, q: items.slice(), score: 0, combo: 0, best: 0, right: 0, n: 0, graded: new Set(), missed: [], used: 0, at: performance.now(), paused: false, over: false, busy: false };

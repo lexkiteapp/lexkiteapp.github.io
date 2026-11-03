@@ -17,6 +17,25 @@ Chủ app 3/11: "chơi đa dạng, cuốn, thách đấu bạn bè, UI/UX + âm 
 | ELSA | rung + điểm phát âm tức thì | paywall |
 Xu hướng 2026: phiên ≤ 2 phút, haptic tinh tế, reduced-motion là mặc định tôn trọng, AI cá nhân hoá trên máy, không dark-pattern.
 
+## Chọn game (chấm 1–5: Học = giá trị ghi nhớ trên SRS · Cuốn = vòng lặp hấp dẫn · Nhẹ = chi phí máy yếu)
+| Game | Học | Cuốn | Nhẹ | Vì sao / mẫu tham chiếu | Mốc |
+|---|---|---|---|---|---|
+| Thử thách 60 giây (nhận diện nhanh) | 4 | 5 | 5 | Speed Review (Memrise) + nhịp Kahoot, kỷ lục + thách bạn | M1 ✅ |
+| Ghép cặp tốc độ trên thẻ đến hạn | 3 | 5 | 5 | Match (Quizlet) / Match Madness (Duolingo) – đã có lõi Ghép thẻ | M2 |
+| Gõ nhanh chữ thiếu (nhớ chủ động) | 5 | 4 | 5 | recall > nhận diện → nhớ lâu nhất; gợi ý chữ cái như rmodes | M2 |
+| Nghe liên hoàn (chính tả 1 từ) | 5 | 4 | 4 | luyện nghe + chính tả, giọng Ama/Carlos (Kokoro) | M2 |
+| Câu thật – chọn từ đúng ngữ cảnh | 5 | 3 | 5 | câu ví dụ IELTS/TOEIC thật, collocation | M2 |
+| Đoán từ qua ảnh | 3 | 4 | 3 | img.json (không chữ trong ảnh), ảnh tải lười, ≤ 30 KB/ảnh | M2 |
+| Đấu bạn bất đồng bộ / giải tuần | 3 | 5 | 4 | xã hội = giữ chân mạnh nhất; dùng api/league sẵn có | M3 |
+| Arcade bắn chữ kiểu Blast | 2 | 4 | 2 | canvas nặng, học ít → loại (không trò vô nghĩa) | ✗ |
+Nguyên tắc cuốn mà không ép: phiên ≤ 2 phút, mục tiêu rõ (vượt kỷ lục/bạn), phản hồi < 100 ms, phần thưởng thay đổi (combo, kỷ lục, rương mốc), chơi lại 1 chạm; sau câu sai luôn có "mẹo nhớ" ngắn (gốc từ, collocation) để dễ nhớ.
+
+## Hiệu năng (bắt buộc mọi mini-game)
+- Mỗi game ≤ 15 KB gz, tải lười, 0 byte vào khung app; không thư viện game/canvas (trừ pháo giấy có sẵn).
+- Chỉ animate `transform`/`opacity` (CSS có sẵn), không đọc layout trong vòng lặp; đồng hồ 5 Hz (không rAF liên tục), dừng khi tab ẩn, dọn hết timer/listener khi rời màn.
+- Dữ liệu chuẩn bị 1 lần đầu lượt (không duyệt cả kho 20k từ mỗi câu); âm giải mã sau lần chạm đầu.
+- Mục tiêu: INP < 100 ms, 60 fps, không long task > 50 ms trên CPU chậm 4× (gate CI `perf-*`/visual-qa khi có màn Stitch).
+
 ## Luật thiết kế
 - Mọi mini-game lấy từ **thẻ đến hạn → từ yếu → sổ từ**; kết quả quy về Again/Hard/Good **chỉ cho thẻ đến hạn** (thẻ chưa đến hạn không bị đẩy xa giả tạo); sai → `logMistake` + hỏi lại trong lượt.
 - Không tim/mạng/gem; hết giờ = kết thúc nhẹ nhàng, có "Chơi lại". Tab ẩn → dừng giờ.
