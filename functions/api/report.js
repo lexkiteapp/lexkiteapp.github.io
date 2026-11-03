@@ -60,6 +60,7 @@ export async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
   for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT', 'shot_b INTEGER']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
+  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
 }
@@ -250,6 +251,7 @@ async function thank(env, db, q, id) {
   if (q.near('mail')) { await ev(db, id, 'system', 'mail-skipped', 'quota').run(); return false; }
   const ok = await mail(env, 'user', thanksMail(r, etaPub(r, await etaCfg(db))));
   await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', ok ? 'thanks' : 'thanks · ' + MAIL_ST), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
+  await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', 'thanks'), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
   return ok;
 }
 
