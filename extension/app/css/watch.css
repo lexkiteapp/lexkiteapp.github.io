@@ -40,7 +40,7 @@
 .wt-bar { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; padding: .5rem 0 0; }
 .wt-bar .btn { min-height: 40px; min-width: 44px; }
 .wt-ab { display: inline-flex; gap: .3rem; flex-wrap: wrap; }
-.wt-title { font-size: 1.15rem; margin: .75rem 0 .1rem; }
+.wt-title { font-family: var(--font-display); margin: .75rem 0 .1rem; } /* cỡ h1 chuẩn (--fs-xl) như tiêu đề màn học khác – frame-consistency title.* */
 .wt-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: .75rem; margin-top: .75rem; }
 .wt-tools h2 { font-size: 1rem; margin: 0 0 .5rem; display: flex; gap: .4rem; align-items: center; }
 .wt-form { display: flex; flex-wrap: wrap; gap: .4rem; }
