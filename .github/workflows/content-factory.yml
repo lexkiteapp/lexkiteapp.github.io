@@ -61,7 +61,7 @@ jobs:
         with: { name: 'factory-${{ matrix.area }}-${{ matrix.kind }}-s${{ matrix.shard }}', path: out/factory/, retention-days: 14, if-no-files-found: ignore }
   collect:
     needs: [plan, gen]
-    if: always() && needs.plan.outputs.count != '0'
+    if: ${{ !cancelled() && needs.plan.outputs.count != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
