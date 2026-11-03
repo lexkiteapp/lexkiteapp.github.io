@@ -1,0 +1,35 @@
+# 🎞️ Cổng chuyển động giáo viên trên WebKit (Safari) – clip WebGL chỗ giáo viên mượt + viền nét (live 3/11: tay Ama giật, viền méo trên iPhone).
+# macOS vì WebKit trên Linux không giải mã H.264. Chạy tay với before=<ref>: chụp thêm ảnh TRƯỚC (không chặn) để đính PR.
+name: teacher-motion
+on:
+  pull_request:
+    paths: ['web/js/teacher-slot.js', 'web/js/characters.js', 'web/teach/**', 'scripts/test/teacher-motion-webkit.mjs', '.github/workflows/teacher-motion.yml']
+  workflow_dispatch:
+    inputs:
+      before: { description: 'ref để chụp ảnh trước (vd. main), trống = bỏ qua', required: false, default: '' }
+permissions:
+  contents: read
+concurrency: { group: 'teacher-motion-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
+jobs:
+  webkit:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài playwright webkit
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install webkit >/dev/null
+      - if: inputs.before != ''
+        uses: actions/checkout@v4
+        with: { ref: '${{ inputs.before }}', path: before-src, sparse-checkout: web }
+      - name: Ảnh trước (không chặn)
+        if: inputs.before != ''
+        run: node scripts/test/teacher-motion-webkit.mjs before-src/web out/teacher-motion/before --report
+      - name: Chạy cổng
+        run: node scripts/test/teacher-motion-webkit.mjs web out/teacher-motion
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: teacher-motion, path: out/teacher-motion, retention-days: 7 }
