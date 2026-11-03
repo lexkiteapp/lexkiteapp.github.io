@@ -3,6 +3,7 @@
 // Dùng: node scripts/test/post-deploy-check.mjs [base=https://lexkite.com] [thư-mục-ra=out/post-deploy]   Env: WAIT_SW=1 (chờ live có sw.js bằng repo, tối đa 6 phút), LEXKITE_CI_HEADER, PDC_IGNORE (regex bỏ qua, thêm vào mặc định)
 // Tương phản/visual guard dùng lại scripts/test/contrast.mjs (bước riêng trong workflow). Không gọi API trả phí.
 import { chromium } from 'playwright';
+import { shellHash, liveHash } from '../lib/sw-version.mjs';
 import fs from 'fs';
 import { routeCiHeader } from '../lib/http.mjs';
 const BASE = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, '');
@@ -13,13 +14,13 @@ const CI = process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE
 const IGNORE = new RegExp(['favicon', '/cdn-cgi/', '/api/hit', process.env.PDC_IGNORE].filter(Boolean).join('|'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// Chờ Cloudflare build xong: sw.js live (lexkite-<số>) khớp bản repo; hết giờ vẫn chạy tiếp (không đỏ vì chờ)
+// Chờ Cloudflare build xong: hash nội dung trong sw.js live (lexkite-0-<hash>) khớp hash tính từ web/ của repo; hết giờ vẫn chạy tiếp (không đỏ vì chờ)
 async function waitLive() {
-  const want = (fs.existsSync('web/sw.js') ? fs.readFileSync('web/sw.js', 'utf8').match(/lexkite-\d+/) || [] : [])[0];
-  if (!want) return 'không đọc được web/sw.js – bỏ qua chờ';
+  let want = ''; try { want = shellHash('web'); } catch (e) { /* không có web/ */ }
+  if (!want) return 'không tính được hash web/ – bỏ qua chờ';
   const t0 = Date.now(); let live = '';
   while (Date.now() - t0 < 6 * 60e3) {
-    try { live = ((await (await fetch(BASE + '/sw.js?x=' + Date.now(), { headers: CI })).text()).match(/lexkite-\d+/) || [])[0]; } catch (e) { live = ''; }
+    try { live = liveHash(await (await fetch(BASE + '/sw.js?x=' + Date.now(), { headers: CI })).text()); } catch (e) { live = ''; }
     if (live === want) return `live = ${want} sau ${Math.round((Date.now() - t0) / 1000)}s`;
     await sleep(20000);
   }

@@ -3,6 +3,8 @@
  *   { op: 'pull', have: { cards_0: 'hash', … } } → { docs: { meta: {...}, cards_3: {...} } }  (chỉ trả tài liệu có hash khác)
  *   { op: 'push', docs: { meta: { h, body }, cards_0: { h, body } } } → { ok: true, n }
  * Mỗi người chỉ đọc/ghi được dữ liệu của chính mình (uid lấy từ token đã xác minh chữ ký Google). */
+import { isD1Limit } from './_d1limit.js';
+import { secsToReset } from './_d1guard.js';
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
 import { docsDb, pickShard } from './_shard.js';
@@ -190,7 +192,8 @@ export async function onRequestPost({ request, env }) {
     return json(request, 400, { error: 'op' });
   } catch (e) {
     // Hết hạn mức D1 trong ngày → báo client tạm nghỉ (dữ liệu vẫn trên máy)
-    const quota = /limit|exceeded|quota|too many/i.test(String(e && e.message));
-    return json(request, quota ? 429 : 500, { error: quota ? 'quota' : 'server' });
+    // retry = giây tới 00:00 UTC (hạn mức đặt lại) → máy khách nghỉ đúng tới lúc đó (+ rải 1–21 phút), không phải cố định 6 giờ (sự cố 03/11)
+    const quota = isD1Limit(e) || /limit|exceeded|quota|too many/i.test(String(e && e.message));
+    return json(request, quota ? 429 : 500, quota ? { error: 'quota', retry: secsToReset() } : { error: 'server' });
   }
 }

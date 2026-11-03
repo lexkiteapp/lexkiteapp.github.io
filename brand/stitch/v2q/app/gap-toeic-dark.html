@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite TOEIC Listening Part 1</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#88f5ea",
+            "on-tertiary-container": "#392900",
+            "surface-container": "#162125",
+            "surface": "#091518",
+            "outline": "#879391",
+            "on-tertiary": "#402e00",
+            "primary": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "primary-container": "#2ba39a",
+            "on-secondary-container": "#ffa493",
+            "secondary": "#ffb4a6",
+            "on-error": "#690005",
+            "inverse-primary": "#006a64",
+            "surface-container-high": "#202c2f",
+            "on-primary-fixed-variant": "#00504b",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-dim": "#091518",
+            "error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-highest": "#2b373a",
+            "on-surface-variant": "#bcc9c7",
+            "surface-variant": "#2b373a",
+            "surface-container-lowest": "#051013",
+            "surface-container-low": "#121d20",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary-fixed": "#3f0300",
+            "background": "#091518",
+            "on-background": "#d8e5e9",
+            "on-primary": "#003733",
+            "on-secondary": "#660800",
+            "error": "#ffb4ab",
+            "tertiary": "#f4bf40",
+            "on-background": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#2f3b3e",
+            "outline-variant": "#3d4947",
+            "inverse-surface": "#d8e5e9",
+            "secondary-fixed": "#ffdad3",
+            "secondary-container": "#981201",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-tertiary-fixed": "#261a00",
+            "tertiary-container": "#ba8b00",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-tint": "#6bd8ce"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #091518;
+      color: #d8e5e9;
+      user-select: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface flex justify-center items-start min-h-screen p-0 m-0">
+<!-- Native 390px Mobile Canvas (Tactile Night) -->
+<main class="w-[390px] min-h-screen bg-surface flex flex-col justify-between px-4 pt-3 pb-6 relative overflow-x-hidden selection:bg-primary-container selection:text-surface">
+<!-- 1. Top Focus Bar -->
+<header class="w-full flex items-center justify-between gap-3 mb-3">
+<!-- Circular Close Button -->
+<button aria-label="Close Drill" class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/60 shadow-[0_3px_0_0_#051013] active:translate-y-0.5 active:shadow-[0_1px_0_0_#051013] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px] text-[#e8f1f0]">close</span></button>
+<!-- Progress Bar (Dark teal track with mint-teal fill) -->
+<div class="flex-1 h-3.5 bg-[#162b2e] rounded-full overflow-hidden p-[2px] border border-outline-variant/40 shadow-inner">
+<div class="h-full bg-primary-container rounded-full w-[45%] transition-all duration-300"></div>
+</div>
+<!-- Life Counter Badge -->
+<div class="h-9 px-3 rounded-full bg-surface-container-high border border-outline-variant/60 shadow-[0_2px_0_0_#051013] flex items-center gap-1.5 font-label text-[13px] font-extrabold text-on-surface"><span class="text-[#e8f1f0] font-extrabold text-[14px]">5</span><svg aria-hidden="true" class="w-4 h-4 fill-[#ff5c5c] shrink-0" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+</header>
+<div class="flex flex-col gap-3">
+<!-- 2. Module Tags & Timer Header -->
+<section class="flex items-center justify-between w-full">
+<div class="flex items-center gap-2">
+<span class="bg-[#0d3032] text-[#5eead4] border border-[#164e52] px-2.5 py-1 rounded-md text-[11px] font-extrabold tracking-wider">
+            PHOTOGRAPHS
+          </span>
+<span class="text-[#cde1df] text-[13px] font-bold">
+            Listen &amp; select
+          </span>
+</div>
+<!-- Timer Pill -->
+<div class="flex items-center gap-1 bg-surface-container-high border border-outline-variant/60 px-2.5 py-1 rounded-full text-tertiary font-label text-[12px] font-extrabold shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-[15px] text-tertiary">timer</span>
+<span class="text-[#fbbf24] tracking-tight">00:48</span>
+</div>
+</section>
+<!-- 3. Teacher Slot Row -->
+<section class="w-full flex items-stretch gap-2.5">
+<!-- Empty Teacher Slot (STRICTLY NO person, face or circle crop) -->
+<div class="teacher-slot w-[74px] shrink-0 min-h-[64px] bg-[#0c1f22] border-2 border-dashed border-[#2ba39a] rounded-xl flex flex-col items-center justify-center gap-1 p-1">
+<span class="material-symbols-outlined text-primary text-[22px]">school</span>
+<span class="text-[9px] font-extrabold text-primary tracking-wider text-center leading-none">TEACHER<br/>SLOT</span>
+</div>
+<!-- Speech Bubble with Left Arrow Pointer -->
+<div class="flex-1 bg-surface-container-low border border-[#243538] rounded-xl p-2.5 relative shadow-[0_3px_0_0_#060e10] flex flex-col justify-center"><div class="absolute -left-[7px] top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-r-[7px] border-r-[#243538]"></div><div class="absolute -left-[5px] top-1/2 -translate-y-1/2 w-0 h-0 border-y-[5px] border-y-transparent border-r-[6px] border-r-surface-container-low"></div><div class="flex items-center gap-1.5 mb-0.5"><span class="w-2 h-2 rounded-full bg-[#5eead4]"></span><span class="text-[11px] font-extrabold text-[#5eead4] tracking-wide">CARLOS · TUTOR TIP</span></div><p class="text-[12.5px] font-semibold text-[#e8f1f0] leading-snug">“Listen for the action verb in the sentence.”</p></div>
+</section>
+<!-- 4. Photograph Stimulus Card -->
+<section class="w-full bg-surface-container-low border border-[#243538] rounded-2xl p-2.5 shadow-[0_5px_0_0_#060e10]">
+<!-- Stimulus Display Box -->
+<div class="w-full bg-[#0c1a1d] rounded-xl border border-outline-variant/30 p-2 relative flex flex-col items-center overflow-hidden">
+<!-- Zoom Icon (Top Right) -->
+<button aria-label="Zoom image" class="absolute top-2 right-2 w-7 h-7 rounded-lg bg-[#1e2f33] border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors z-10" type="button">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span>
+</button>
+<!-- Tactile Night Stylized Desktop Workstation Illustration -->
+<div class="w-full h-32 relative flex items-center justify-center">
+<svg class="w-full h-full max-h-32" fill="none" viewbox="0 0 320 128" xmlns="http://www.w3.org/2000/svg">
+<!-- Back Wall Horizon & Grid Tone -->
+<rect fill="#0c1a1d" height="128" rx="8" width="320"></rect>
+<line stroke="#16292c" stroke-width="2" x1="16" x2="304" y1="104" y2="104"></line>
+<!-- Desk Surface (Dark Slate) -->
+<rect fill="#122024" height="14" rx="3" stroke="#20363a" stroke-width="1.5" width="272" x="24" y="98"></rect>
+<rect fill="#0a1416" height="12" width="8" x="36" y="112"></rect>
+<rect fill="#0a1416" height="12" width="8" x="276" y="112"></rect>
+<!-- Potted Plant on Desk (Left) -->
+<path d="M46 88 L58 88 L55 98 L49 98 Z" fill="#1a3237" stroke="#2ba39a" stroke-width="1"></path>
+<!-- Foliage leaves in muted mint -->
+<path d="M52 88 C46 82 43 72 50 68 C54 74 53 82 52 88 Z" fill="#2ba39a" opacity="0.85"></path>
+<path d="M52 88 C58 83 62 74 56 70 C52 75 52 83 52 88 Z" fill="#6bd8ce" opacity="0.9"></path>
+<!-- Computer Monitor (Center) -->
+<!-- Stand -->
+<rect fill="#1b2a2e" height="14" rx="1" stroke="#2d4247" stroke-width="1" width="12" x="154" y="86"></rect>
+<ellipse cx="160" cy="98" fill="#162327" rx="18" ry="3"></ellipse>
+<!-- Screen Outer Body -->
+<rect fill="#132125" height="66" rx="5" stroke="#2e464c" stroke-width="2" width="120" x="100" y="24"></rect>
+<!-- Screen Active Display (Deep teal/night backdrop) -->
+<rect fill="#081417" height="54" rx="3" width="112" x="104" y="28"></rect>
+<!-- Charts / UI Elements on Monitor -->
+<rect fill="#3d5e63" height="3" rx="1.5" width="30" x="110" y="34"></rect>
+<!-- Bar Chart with teal & amber bars -->
+<rect fill="#2ba39a" height="16" rx="1.5" width="8" x="114" y="60"></rect>
+<rect fill="#6bd8ce" height="26" rx="1.5" width="8" x="126" y="50"></rect>
+<rect fill="#f4bf40" height="32" rx="1.5" width="8" x="138" y="44"></rect>
+<rect fill="#2ba39a" height="20" rx="1.5" width="8" x="150" y="56"></rect>
+<!-- Donut Mini Widget -->
+<circle cx="186" cy="54" fill="none" r="14" stroke="#162e33" stroke-width="4"></circle>
+<circle cx="186" cy="54" fill="none" r="14" stroke="#6bd8ce" stroke-dasharray="45 50" stroke-linecap="round" stroke-width="4"></circle>
+<circle cx="186" cy="54" fill="none" r="14" stroke="#ba8b00" stroke-dasharray="20 70" stroke-dashoffset="-45" stroke-linecap="round" stroke-width="4"></circle>
+<!-- Coffee Mug on Desk (Right) -->
+<rect fill="#2b3b40" height="13" rx="2" stroke="#3d565c" stroke-width="1" width="11" x="236" y="85"></rect>
+<path d="M247 88 C250 88 250 93 247 93" fill="none" stroke="#3d565c" stroke-width="1.5"></path>
+<!-- Warm subtle steam -->
+<path d="M239 81 Q241 78 239 75" opacity="0.4" stroke="#ffdad3" stroke-linecap="round" stroke-width="1"></path>
+<path d="M243 82 Q245 79 243 76" opacity="0.3" stroke="#ffdad3" stroke-linecap="round" stroke-width="1"></path>
+</svg>
+</div>
+<!-- Image Label / Caption Pill -->
+<div class="mt-1 mb-0.5 bg-[#122226] border border-[#253e43] px-3 py-1 rounded-full text-[11px] font-bold text-on-surface-variant flex items-center gap-1.5">
+<span>📷</span>
+<span>Image Statement 1–A</span>
+</div>
+</div>
+<!-- Tactile Audio Controls -->
+<div class="mt-2.5 flex items-center gap-2">
+<!-- Primary Audio Button: 🔊 Play Statement -->
+<button class="flex-1 h-11 bg-[#136a63] hover:bg-[#187d75] border border-[#259b90] rounded-xl shadow-[0_4px_0_0_#003733] active:translate-y-1 active:shadow-none flex items-center justify-center gap-2 text-white font-bold text-[14px] transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+<span>Play Statement</span>
+<!-- Active Mini Waveform -->
+<div class="flex items-center gap-[2px] h-3 ml-1">
+<span class="w-[2.5px] h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="w-[2.5px] h-3 bg-primary rounded-full"></span>
+<span class="w-[2.5px] h-1.5 bg-primary rounded-full"></span>
+<span class="w-[2.5px] h-3 bg-primary rounded-full"></span>
+</div>
+</button>
+<!-- Circular Replay Button -->
+<button aria-label="Replay Audio" class="w-11 h-11 shrink-0 bg-[#1e2f33] hover:bg-[#25393e] border border-outline-variant/60 rounded-xl shadow-[0_4px_0_0_#060e10] active:translate-y-1 active:shadow-none flex items-center justify-center text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">replay</span>
+</button>
+</div>
+<!-- Status Row -->
+<div class="mt-2 pt-1.5 border-t border-[#1b2b2e] flex items-center justify-between text-[11.5px] font-bold"><div class="flex items-center gap-1.5 text-[#5eead4]"><span class="w-2 h-2 rounded-full bg-[#5eead4] inline-block animate-ping"></span><span class="text-[#5eead4] font-bold">Audio ready</span></div><span class="text-[#cde1df] font-semibold">1x speed · US accent</span></div>
+</section>
+<!-- 5. Option Selection Section -->
+<section class="w-full flex flex-col gap-2">
+<!-- Header Row -->
+<div class="flex items-center justify-between px-0.5"><span class="text-[11px] font-extrabold tracking-wider text-[#cde1df]">SELECT STATEMENT</span><span class="text-[11px] font-semibold text-[#cde1df]">Tap letter to mark</span></div>
+<!-- 2x2 Grid of 4 Statement Cards -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Statement A (Unselected) -->
+<button class="w-full bg-[#121d20] hover:bg-[#162428] border border-[#243538] rounded-xl p-2.5 flex items-center justify-between shadow-[0_4px_0_0_#060e10] active:translate-y-1 active:shadow-[0_1px_0_0_#060e10] transition-all text-left" type="button">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center font-extrabold text-[12px] text-on-surface">
+                A
+              </span>
+<span class="font-bold text-[13px] text-on-surface">Statement A</span>
+</div>
+<div class="w-4 h-4 rounded-full border-2 border-outline-variant/60"></div>
+</button>
+<!-- Statement B (SELECTED) -->
+<button class="w-full bg-[#0a2e2b] border-2 border-[#2ba39a] rounded-xl p-2.5 flex items-center justify-between shadow-[0_4px_0_0_#00322e] active:translate-y-1 active:shadow-[0_1px_0_0_#00322e] transition-all text-left ring-1 ring-[#2ba39a]/30" type="button">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-[#164e48] border border-[#2ba39a] flex items-center justify-center font-extrabold text-[12px] text-primary">
+                B
+              </span>
+<div class="flex flex-col">
+<span class="font-extrabold text-[13px] text-primary leading-tight">Statement B</span>
+<span class="text-[9px] font-extrabold text-[#5eead4] tracking-wider leading-none">SELECTED</span>
+</div>
+</div>
+<!-- Checkmark Circle -->
+<div class="w-5 h-5 rounded-full bg-[#2ba39a] flex items-center justify-center text-surface shadow-sm">
+<span class="material-symbols-outlined text-[15px] font-bold">check</span>
+</div>
+</button>
+<!-- Statement C (Unselected) -->
+<button class="w-full bg-[#121d20] hover:bg-[#162428] border border-[#243538] rounded-xl p-2.5 flex items-center justify-between shadow-[0_4px_0_0_#060e10] active:translate-y-1 active:shadow-[0_1px_0_0_#060e10] transition-all text-left" type="button">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center font-extrabold text-[12px] text-on-surface">
+                C
+              </span>
+<span class="font-bold text-[13px] text-on-surface">Statement C</span>
+</div>
+<div class="w-4 h-4 rounded-full border-2 border-outline-variant/60"></div>
+</button>
+<!-- Statement D (Unselected) -->
+<button class="w-full bg-[#121d20] hover:bg-[#162428] border border-[#243538] rounded-xl p-2.5 flex items-center justify-between shadow-[0_4px_0_0_#060e10] active:translate-y-1 active:shadow-[0_1px_0_0_#060e10] transition-all text-left" type="button">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center font-extrabold text-[12px] text-on-surface">
+                D
+              </span>
+<span class="font-bold text-[13px] text-on-surface">Statement D</span>
+</div>
+<div class="w-4 h-4 rounded-full border-2 border-outline-variant/60"></div>
+</button>
+</div>
+<!-- Explanatory Footnote -->
+<p class="text-[11px] font-medium text-center pt-0.5 text-[#cde1df]">ⓘ In the TOEIC test, options are spoken only and not printed.</p>
+</section>
+</div>
+<!-- 6. Primary CTA Button -->
+<footer class="w-full mt-4 pt-1">
+<!-- Full-width tactile button: "Next ➔" in vibrant warm orange with tactile bottom shadow -->
+<button class="w-full h-14 bg-gradient-to-r from-[#ea580c] to-[#f59e0b] hover:from-[#f97316] hover:to-[#fbbf24] border border-[#f59e0b]/50 rounded-2xl shadow-[0_6px_0_0_#9a3412] active:translate-y-1.5 active:shadow-[0_1px_0_0_#9a3412] flex items-center justify-center gap-2 transition-all" type="button">
+<!-- Label strictly uses deep brown-black ink typography (#1a0d00) for maximum WCAG AA contrast -->
+<span class="font-extrabold text-[17px] text-[#1a0d00] tracking-wide">Next</span>
+<span class="material-symbols-outlined text-[20px] text-[#1a0d00] font-black">arrow_forward</span>
+</button>
+</footer>
+</main>
+</body></html>

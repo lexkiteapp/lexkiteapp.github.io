@@ -16,8 +16,7 @@ FILES=$(cd web && find js css sw.js -type f \( -name '*.js' -o -name '*.css' \) 
 before=$(cd web && cat $FILES | wc -c)
 (cd web && npx -y esbuild@0.24.0 $FILES --minify --charset=utf8 --log-level=warning --outdir=../dist --outbase=. --allow-overwrite)
 # Phiên bản bộ nhớ đệm (service worker) theo NỘI DUNG: ai đẩy code (phiên chính, phiên phụ, bot dịch) cũng tự làm mới cache người dùng
-H=$(cd web && find js css app/index.html i18n -type f \( -name '*.js' -o -name '*.css' -o -name '*.html' -o -name '*.json' \) | sort | xargs cat | shasum | cut -c1-10)
-perl -0pi -e "s/(lexkite-\d+)(-[0-9a-f]+)?(['\"])/\1-$H\3/" dist/sw.js
+H=$(node scripts/lib/sw-version.mjs web --stamp dist/sw.js)  # hash nội dung khung app (nguồn duy nhất, các bộ canh deploy dùng chung); web/sw.js giữ CACHE cố định – không bump tay
 grep -q "lexkite-[0-9]*-$H" dist/sw.js && echo "✓ sw cache: …-$H" || { echo "✗ không gắn được phiên bản cache vào dist/sw.js"; exit 1; }
 after=$(cd dist && cat $FILES | wc -c)
 gz=$(cd dist && cat $FILES | gzip -9 | wc -c)
