@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#10191B]" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Examinations &amp; Practice Tests</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#10191B",
+            "surface-low": "#10191B",
+            "surface-card": "#172427",
+            "surface-raised": "#1E2F33",
+            "surface-border": "#23363B",
+            "text-primary": "#E8F1F0",
+            "text-secondary": "#A9BDBB",
+            "brand-teal": "#2DD4BF",
+            "brand-teal-dark": "#14B8A6",
+            "cta-amber": "#F59E0B"
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "2rem",
+            xl: "3rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile Night Press Physics */
+    .tactile-btn-amber {
+      background-color: #F59E0B;
+      color: #1C1003;
+      box-shadow: 0 4px 0 #B45309;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-amber:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B45309;
+    }
+
+    .tactile-btn-teal {
+      background-color: #0d766e;
+      color: #E8F1F0;
+      box-shadow: 0 4px 0 #084c47;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-teal:hover {
+      background-color: #0f8b82;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #084c47;
+    }
+
+    .tactile-card {
+      background-color: #172427;
+      border: 2px solid #23363B;
+      box-shadow: 0 4px 0 #091012;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-card-interactive:hover {
+      border-color: #2DD4BF;
+      box-shadow: 0 6px 0 #091012;
+      transform: translateY(-2px);
+    }
+    .tactile-card-interactive:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #091012;
+    }
+
+    .teacher-slot {
+      border: 2px dashed #2DD4BF;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, rgba(16, 25, 27, 0.7) 100%);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body-md antialiased min-h-screen flex selection:bg-[#2DD4BF] selection:text-[#10191B]">
+<!-- ========================================================================= -->
+<!-- 1. LEFT SIDEBAR NAVIGATION (Desktop 280px Fixed Tactile Hub Rail)        -->
+<!-- ========================================================================= -->
+<aside class="w-72 shrink-0 bg-[#10191B] border-r-2 border-[#23363B] flex flex-col justify-between p-4 sticky top-0 h-screen select-none z-30">
+<div class="flex flex-col gap-6">
+<!-- Lexkite Brand Header -->
+<div class="flex items-center gap-3 px-3 pt-2">
+<div class="w-11 h-11 rounded-DEFAULT bg-[#14B8A6] text-[#10191B] flex items-center justify-center shadow-[0_3px_0_#091012]">
+<span class="material-symbols-outlined text-[26px]">navigation</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-[#2DD4BF] font-black tracking-tight leading-tight">Lexkite</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold tracking-wider">IELTS &amp; Workplace Prep</span>
+</div>
+</div>
+<!-- Current Track Selector Badge -->
+<div class="px-2">
+<div class="bg-[#172427] border-2 border-[#23363B] rounded-DEFAULT p-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block shadow-[0_0_0_2px_#10191B]"></span>
+<span class="font-label-sm text-label-sm text-[#E8F1F0] font-bold">Academic Band 7 Track</span>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB] text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Primary Canonical 5 Destinations -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5 px-1">
+<!-- Destination: Today -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all active:translate-y-0.5" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span>Today</span>
+</a>
+<!-- Destination: Vocab -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all active:translate-y-0.5" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">book_4</span>
+<span>Vocab</span>
+<span class="ml-auto bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm px-2 py-0.5 rounded-full border border-[#23363B]">42 due</span>
+</a>
+<!-- Destination: Skills -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all active:translate-y-0.5" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span>Skills</span>
+</a>
+<!-- Destination: Tests (ACTIVELY HIGHLIGHTED) -->
+<a aria-current="page" class="flex items-center gap-3.5 px-4 min-h-[50px] rounded-DEFAULT font-label-md text-label-md text-[#10191B] bg-[#2DD4BF] shadow-[0_4px_0_#091012] font-extrabold translate-y-[-1px]" href="#tests">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">quiz</span>
+<span class="tracking-wide">Tests</span>
+<span class="ml-auto bg-[#14B8A6] text-[#091012] px-2 py-0.5 rounded-full font-label-sm text-label-sm border border-[#5eead4]">Sim Hub</span>
+</a>
+<!-- Destination: Me -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all active:translate-y-0.5" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span>Me</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom: Language Selector & Editorial Help Links -->
+<div class="flex flex-col gap-3 px-1 pt-4 border-t-2 border-[#23363B]">
+<!-- Language Pill Selector -->
+<div class="bg-[#172427] border-2 border-[#23363B] rounded-DEFAULT p-2 flex items-center justify-between shadow-[0_2px_0_#091012] min-h-[48px]"><a class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-[#2DD4BF] transition-colors py-2 px-1" href="#blog">Blog</a><span>·</span><a class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-[#2DD4BF] transition-colors py-2 px-1" href="#about">About Lexkite</a><span>·</span><a class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-[#2DD4BF] transition-colors py-2 px-1" href="#support">Support</a></div>
+<!-- Footer Micro Links -->
+<div class="flex items-center justify-between px-2 pt-1 font-label-sm text-label-sm text-[#A9BDBB]"><a class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-[#2DD4BF] transition-colors py-2 px-1" href="#blog">Blog</a><span>·</span><a class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-[#2DD4BF] transition-colors py-2 px-1" href="#about">About Lexkite</a><span>·</span><a class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-[#2DD4BF] transition-colors py-2 px-1" href="#support">Support</a></div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- 2. MAIN HUB CANVAS (Constrained to Desktop Grid at 1280px)                 -->
+<!-- ========================================================================= -->
+<main class="flex-1 min-w-0 max-w-[1000px] px-8 py-8 flex flex-col gap-8 pb-20">
+<!-- TOP BAR / SUB-HEADER -->
+<header class="flex flex-col gap-4 border-b-2 border-[#23363B] pb-6">
+<!-- Breadcrumb + Quick Action Row -->
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-[#A9BDBB] font-bold">
+<span>EXAMINATION SUITE</span>
+<span>/</span>
+<span class="text-[#2DD4BF] font-extrabold">IELTS ACADEMIC CBT v2.4</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-[#E8F1F0] tracking-tight font-black">
+            Examinations &amp; Practice Tests
+          </h1>
+</div>
+<!-- Quick Action: Diagnostic History & Analytics -->
+<a class="min-h-[44px] px-4 rounded-DEFAULT bg-[#172427] border-2 border-[#23363B] shadow-[0_3px_0_#091012] hover:bg-[#1E2F33] text-[#E8F1F0] flex items-center gap-2 font-label-md text-label-md active:translate-y-0.5 transition-all" href="#analytics">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">analytics</span>
+<span>Diagnostic History &amp; Analytics</span>
+</a>
+</div>
+<!-- Exam Picker Chips (Accommodating +40% localized string expansion) -->
+<div aria-label="Exam Track Selection" class="flex items-center gap-3 overflow-x-auto pt-2 pb-1" role="tablist">
+<!-- Active: IELTS Academic -->
+<button aria-selected="true" class="min-h-[44px] px-5 rounded-full bg-[#14B8A6] text-[#091012] font-label-md text-label-md shadow-[0_3px_0_#091012] flex items-center gap-2 shrink-0 border-2 border-[#2DD4BF] transition-all font-bold" role="tab">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="whitespace-normal text-left">IELTS Academic</span>
+</button>
+<!-- Inactive Option: TOEIC Full Test -->
+<button aria-selected="false" class="min-h-[44px] px-5 rounded-full bg-[#172427] text-[#A9BDBB] font-label-md text-label-md border-2 border-[#23363B] shadow-[0_3px_0_#091012] hover:border-[#2DD4BF] hover:text-[#E8F1F0] flex items-center gap-2 shrink-0 active:translate-y-0.5 transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]">domain_verification</span>
+<span class="whitespace-normal text-left">TOEIC Full Test</span>
+</button>
+<!-- Inactive Option: TOEFL iBT -->
+<button aria-selected="false" class="min-h-[44px] px-5 rounded-full bg-[#172427] text-[#A9BDBB] font-label-md text-label-md border-2 border-[#23363B] shadow-[0_3px_0_#091012] hover:border-[#2DD4BF] hover:text-[#E8F1F0] flex items-center gap-2 shrink-0 active:translate-y-0.5 transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span class="whitespace-normal text-left">TOEFL iBT</span>
+</button>
+<!-- Inactive Option: CEFR Diagnostic -->
+<button aria-selected="false" class="min-h-[44px] px-5 rounded-full bg-[#172427] text-[#A9BDBB] font-label-md text-label-md border-2 border-[#23363B] shadow-[0_3px_0_#091012] hover:border-[#2DD4BF] hover:text-[#E8F1F0] flex items-center gap-2 shrink-0 active:translate-y-0.5 transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span class="whitespace-normal text-left">CEFR Diagnostic (A1–C2)</span>
+</button>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 3. HERO READINESS SCORE CARD + TEACHER COACH SLOT                         -->
+<!-- ========================================================================= -->
+<section aria-label="Current Test Readiness" class="tactile-card rounded-xl p-6 relative overflow-hidden">
+<!-- Top Badges / Target Status -->
+<div class="flex items-center justify-between flex-wrap gap-3 pb-6 border-b-2 border-[#23363B]">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-[#2a2215] text-[#ffc875] font-label-sm text-label-sm border border-[#6b4712] font-black flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+<span>Target Exam: Nov 28, 2025</span>
+</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] font-bold">In 32 days</span>
+</div>
+<div class="flex items-center gap-2 bg-[#1E2F33] px-3 py-1.5 rounded-full border border-[#23363B]">
+<span class="w-3 h-3 rounded-full bg-[#2DD4BF] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-[#2DD4BF] font-extrabold tracking-wide">STATUS: ON TRACK FOR BAND 7.0</span>
+</div>
+</div>
+<!-- Core Score & Breakdown Grid -->
+<div class="grid grid-cols-12 gap-6 pt-6 items-center">
+<!-- Band Score Physical Widget -->
+<div class="col-span-12 lg:col-span-5 flex items-center gap-5 bg-[#10191B] p-4 rounded-lg border-2 border-[#23363B]">
+<div class="w-24 h-24 rounded-full bg-[#14B8A6] text-[#10191B] flex flex-col items-center justify-center shrink-0 shadow-[0_4px_0_#091012] border-2 border-[#5eead4]">
+<span class="font-headline-lg text-headline-lg font-black leading-none">6.5</span>
+<span class="font-label-sm text-[10px] tracking-wider text-[#06332f] font-bold uppercase mt-1">Band Score</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">Overall Projected Readiness</span>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+              Needs +0.5 improvement in Writing Task 2 coherence to clear your institutional requirement.
+            </p>
+</div>
+</div>
+<!-- Four Module Score Pills -->
+<div class="col-span-12 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+<!-- Listening -->
+<div class="bg-[#1E2F33] border-2 border-[#23363B] rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#091012]">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">LISTENING</span>
+<span class="font-headline-md text-headline-md font-black text-[#2DD4BF] my-1">7.0</span>
+<span class="font-label-sm text-[11px] text-[#5eead4] font-extrabold">Band Met ✓</span>
+</div>
+<!-- Reading -->
+<div class="bg-[#1E2F33] border-2 border-[#23363B] rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#091012]">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">READING</span>
+<span class="font-headline-md text-headline-md font-black text-[#2DD4BF] my-1">6.5</span>
+<span class="font-label-sm text-[11px] text-[#F59E0B] font-extrabold">−0.5 to goal</span>
+</div>
+<!-- Writing (Weakest) -->
+<div class="bg-[#3b1c1d] border-2 border-[#7f1d1d] rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#091012]">
+<span class="font-label-sm text-label-sm text-[#fca5a5] font-black">WRITING</span>
+<span class="font-headline-md text-headline-md font-black text-[#f87171] my-1">6.0</span>
+<span class="font-label-sm text-[11px] text-[#fca5a5] font-black">Action Required</span>
+</div>
+<!-- Speaking -->
+<div class="bg-[#1E2F33] border-2 border-[#23363B] rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#091012]">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">SPEAKING</span>
+<span class="font-headline-md text-headline-md font-black text-[#2DD4BF] my-1">6.5</span>
+<span class="font-label-sm text-[11px] text-[#F59E0B] font-extrabold">−0.5 to goal</span>
+</div>
+</div>
+</div>
+<!-- Coach Ama Dynamic Slot & Feedback Quote (Strictly No Characters/Photos) -->
+<div class="mt-6 pt-5 border-t-2 border-[#23363B] flex items-start gap-4 bg-[#10191B] rounded-lg p-4 border border-[#23363B]">
+<!-- Teacher Slot Container -->
+<div class="teacher-slot w-14 h-14 rounded-DEFAULT shrink-0 flex flex-col items-center justify-center text-center p-1" title="Teacher Slot: 2D Coach Ama is mounted here dynamically">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">smart_toy</span>
+<span class="font-label-sm text-[9px] text-[#2DD4BF] font-black leading-none mt-1">teacher-slot</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-[#2DD4BF] font-extrabold">Lead IELTS Coach Ama</span>
+<span class="font-label-sm text-[11px] bg-[#1E2F33] text-[#5eead4] border border-[#23363B] px-2 py-0.5 rounded-full font-bold">Certified Examiner Logic</span>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] italic">
+            “Your Task 2 lexical resource is performing at Band 7.5, but coherence paragraph transitions slipped in Test #4. Prioritize the 15-minute argument connector drill to securely lift your composite to Band 7.0 before Saturday’s full run.”
+          </p>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. CORE TEST MODULES (Bento Grid: Full Sim vs 15-min Rapid Sprint)       -->
+<!-- ========================================================================= -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-[#E8F1F0] font-extrabold">
+          Diagnostic &amp; Simulation Modes
+        </h2>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">CBT Standard Environment · 2025 Rubric</span>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- CARD 1: Full Exam Simulation (Featured Card) -->
+<div class="col-span-12 md:col-span-7 tactile-card rounded-xl p-6 flex flex-col justify-between border-2 border-[#23363B] relative">
+<div class="flex flex-col gap-4">
+<!-- Badges Row -->
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="bg-[#2a2215] text-[#ffc875] font-label-sm text-label-sm font-black px-3 py-1 rounded-full border border-[#6b4712]">
+                OFFICIAL TIMING &amp; FORMAT
+              </span>
+<span class="bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-full border border-[#23363B] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>2 hrs 45 mins</span>
+</span>
+</div>
+<!-- Title & Description -->
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-lg text-headline-lg font-black text-[#E8F1F0] tracking-tight">
+                Full Exam Simulation
+              </h3>
+<p class="font-body-md text-body-md text-[#A9BDBB] leading-relaxed">
+                Computer-Based Test replica covering all four modules consecutively under authentic test conditions with strict audio timeouts and locked word processor controls.
+              </p>
+</div>
+<!-- Module Sequence Breakdown -->
+<div class="grid grid-cols-4 gap-2 pt-2">
+<div class="bg-[#10191B] p-2 rounded-DEFAULT border border-[#23363B] text-center">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold block">1. AUDIO</span>
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">Listening (30m)</span>
+</div>
+<div class="bg-[#10191B] p-2 rounded-DEFAULT border border-[#23363B] text-center">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold block">2. TEXTS</span>
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">Reading (60m)</span>
+</div>
+<div class="bg-[#10191B] p-2 rounded-DEFAULT border border-[#23363B] text-center">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold block">3. TASKS</span>
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">Writing (60m)</span>
+</div>
+<div class="bg-[#10191B] p-2 rounded-DEFAULT border border-[#23363B] text-center">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold block">4. VOICE</span>
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">Speaking (14m)</span>
+</div>
+</div>
+<!-- Distinct Feature Points -->
+<ul class="flex flex-col gap-2 text-[#A9BDBB] font-body-sm text-body-sm pt-2">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px]">verified</span>
+<span>Authentic Cambridge/IDP scoring rubric and instant band descriptor breakdown</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px]">splitscreen</span>
+<span>Includes optional 10-minute scheduled rest break between Reading and Writing</span>
+</li>
+</ul>
+</div>
+<!-- Tactile Primary Amber CTA Button -->
+<div class="pt-6">
+<button class="tactile-btn-amber w-full min-h-[52px] px-6 rounded-DEFAULT font-label-lg text-label-lg font-black tracking-wide flex items-center justify-center gap-3 cursor-pointer">
+<span>Start Full Mock Test</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- CARD 2: Quick Diagnostic Sprint -->
+<div class="col-span-12 md:col-span-5 tactile-card rounded-xl p-6 flex flex-col justify-between border-2 border-[#23363B] bg-[#172427]">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="bg-[#102a28] text-[#5eead4] font-label-sm text-label-sm font-black px-3 py-1 rounded-full border border-[#14b8a6]">
+                RAPID EVALUATION
+              </span>
+<span class="bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-full border border-[#23363B] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>15 mins</span>
+</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-lg text-headline-lg font-black text-[#2DD4BF] tracking-tight">
+                Quick Diagnostic Sprint
+              </h3>
+<p class="font-body-md text-body-md text-[#A9BDBB] leading-relaxed">
+                20 adaptive high-frequency items designed to test grammatical trap detection, paraphrasing agility, and lexical precision under tight time pressure.
+              </p>
+</div>
+<!-- Sprint Spec List -->
+<div class="bg-[#10191B] p-3.5 rounded-DEFAULT border-2 border-[#23363B] flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-[#A9BDBB]">ADAPTIVE ALGORITHM</span>
+<span class="text-[#2DD4BF] font-bold">Real-time Level Adjust</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-[#A9BDBB]">TARGETED DOMAINS</span>
+<span class="text-[#2DD4BF] font-bold">Lexical &amp; Sentence Traps</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-[#A9BDBB]">BENCHMARK REPORT</span>
+<span class="text-[#2DD4BF] font-bold">Instant Error Heatmap</span>
+</div>
+</div>
+</div>
+<!-- Tactile Secondary Deep Teal CTA Button -->
+<div class="pt-6">
+<button class="tactile-btn-teal w-full min-h-[52px] px-6 rounded-DEFAULT font-label-lg text-label-lg font-black tracking-wide flex items-center justify-center gap-3 cursor-pointer">
+<span>Start 15-min Sprint</span>
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. CBT SKILL SIMULATIONS INTERFACE PRACTICE ROW                            -->
+<!-- ========================================================================= -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h2 class="font-headline-md text-headline-md text-[#E8F1F0] font-extrabold">
+            CBT Skill Simulations
+          </h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+            Master the official computer-delivered interface affordances before your test appointment
+          </p>
+</div>
+<span class="font-label-sm text-label-sm bg-[#1E2F33] px-3 py-1 rounded-full text-[#A9BDBB] border border-[#23363B] font-bold">
+          4 Hardware Tools
+        </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Tool 1: Listening Player & Auto-Notetaker -->
+<div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer">
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#102a28] text-[#2DD4BF] flex items-center justify-center shadow-[0_3px_0_#091012] border border-[#14b8a6]">
+<span class="material-symbols-outlined text-[26px]">headphones</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0] leading-snug">
+                Audio Player &amp; Notetaker
+              </h4>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+                Simulate single-play audio constraints, volume dials, and keyboard shortcut notepads.
+              </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#23363B] font-label-sm text-label-sm text-[#2DD4BF] font-extrabold">
+<span>Launch Player</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</div>
+</div>
+<!-- Tool 2: Reading Split-Screen Highlighter -->
+<div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer">
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#2a2215] text-[#F59E0B] flex items-center justify-center shadow-[0_3px_0_#091012] border border-[#6b4712]">
+<span class="material-symbols-outlined text-[26px]">splitscreen_left</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0] leading-snug">
+                Split-Screen Highlighter
+              </h4>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+                Master passage split panes, official color text-marking, and matching-heading dropzones.
+              </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#23363B] font-label-sm text-label-sm text-[#F59E0B] font-extrabold">
+<span>Test Split View</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</div>
+</div>
+<!-- Tool 3: Timed Essay Editor -->
+<div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer">
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#3b1c1d] text-[#f87171] flex items-center justify-center shadow-[0_3px_0_#091012] border border-[#7f1d1d]">
+<span class="material-symbols-outlined text-[26px]">keyboard</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0] leading-snug">
+                Timed Essay Editor
+              </h4>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+                Practice without auto-spellcheck. Real-time dynamic word counter and strict 60m autosave.
+              </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#23363B] font-label-sm text-label-sm text-[#f87171] font-extrabold">
+<span>Open Wordpad</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</div>
+</div>
+<!-- Tool 4: Speaking Part 2 Cue-Card Voice Recorder -->
+<div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer">
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#1E2F33] text-[#E8F1F0] flex items-center justify-center shadow-[0_3px_0_#091012] border border-[#23363B]">
+<span class="material-symbols-outlined text-[26px]">mic</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0] leading-snug">
+                Part 2 Cue-Card Mic
+              </h4>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+                Strict 1-minute digital preparation timer followed by uninterrupted 2-minute voice recording.
+              </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#23363B] font-label-sm text-label-sm text-[#E8F1F0] font-extrabold">
+<span>Calibrate Mic</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. PAST RESULTS & ANALYTICS LIST                                          -->
+<!-- ========================================================================= -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-[#E8F1F0] font-extrabold">
+            Recent Mock Tests &amp; Diagnostics
+          </h2>
+<span class="bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold border border-[#23363B]">14 tests on file</span>
+</div>
+<a class="font-label-md text-label-md text-[#2DD4BF] hover:underline font-extrabold flex items-center gap-1 min-h-[44px]" href="#all-tests">
+<span>View All 14 Tests</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+<!-- Tactile Row List Container -->
+<div class="flex flex-col gap-3">
+<!-- Item 1: IELTS Academic Mock #4 -->
+<div class="tactile-card rounded-DEFAULT p-4 flex items-center justify-between flex-wrap gap-4 border-2 border-[#23363B] hover:bg-[#1E2F33] transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#14B8A6] text-[#091012] flex flex-col items-center justify-center font-black shadow-[0_3px_0_#091012] shrink-0 border border-[#5eead4]">
+<span class="text-sm leading-none font-black">6.5</span>
+<span class="text-[9px] uppercase font-bold text-[#06332f]">BAND</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">IELTS Academic Mock #4</span>
+<span class="bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold border border-[#23363B]">Yesterday, 14:20</span>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">
+<span>Listening: <strong class="text-[#E8F1F0]">7.0</strong></span>
+<span>·</span>
+<span>Reading: <strong class="text-[#E8F1F0]">6.5</strong></span>
+<span>·</span>
+<span class="text-[#f87171] font-bold">Writing: 6.0</span>
+<span>·</span>
+<span>Speaking: <strong class="text-[#E8F1F0]">6.5</strong></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] hover:bg-[#23363B] font-label-md text-label-md font-extrabold flex items-center gap-2 border border-[#23363B] transition-colors">
+<span>Review Mistake Heatmap</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Quick Diagnostic Sprint -->
+<div class="tactile-card rounded-DEFAULT p-4 flex items-center justify-between flex-wrap gap-4 border-2 border-[#23363B] hover:bg-[#1E2F33] transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#F59E0B] text-[#1C1003] flex flex-col items-center justify-center font-black shadow-[0_3px_0_#091012] shrink-0 border border-[#fbbf24]">
+<span class="text-sm leading-none font-black">7.0</span>
+<span class="text-[9px] uppercase font-bold text-[#451a03]">SPRINT</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">Quick Diagnostic Sprint</span>
+<span class="bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold border border-[#23363B]">3 days ago</span>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">
+<span>17 / 20 correct</span>
+<span>·</span>
+<span class="text-[#F59E0B] font-bold">Trap Accuracy: 85%</span>
+<span>·</span>
+<span>Elapsed: 13m 42s</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-[#1E2F33] text-[#E8F1F0] hover:bg-[#23363B] font-label-md text-label-md font-extrabold flex items-center gap-2 border border-[#23363B] transition-colors">
+<span>Review 3 missed items</span>
+<span class="material-symbols-outlined text-[18px]">troubleshoot</span>
+</button>
+</div>
+</div>
+<!-- Item 3: IELTS Academic Mock #3 -->
+<div class="tactile-card rounded-DEFAULT p-4 flex items-center justify-between flex-wrap gap-4 border-2 border-[#23363B] opacity-85 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#1E2F33] text-[#A9BDBB] flex flex-col items-center justify-center font-black shadow-[0_3px_0_#091012] shrink-0 border border-[#23363B]">
+<span class="text-sm leading-none font-black">6.0</span>
+<span class="text-[9px] uppercase font-bold text-[#A9BDBB]">BAND</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-[#E8F1F0]">IELTS Academic Mock #3</span>
+<span class="bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold border border-[#23363B]">Oct 18, 2025</span>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">
+<span>Listening: 6.5</span>
+<span>·</span>
+<span>Reading: 6.0</span>
+<span>·</span>
+<span>Writing: 5.5</span>
+<span>·</span>
+<span>Speaking: 6.0</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-extrabold uppercase tracking-wider px-3 py-1 bg-[#1E2F33] rounded-full border border-[#23363B]">
+              Archived
+            </span>
+<button class="min-h-[44px] px-3 rounded-DEFAULT hover:bg-[#1E2F33] text-[#A9BDBB] hover:text-[#E8F1F0] font-label-md text-label-md font-extrabold transition-colors min-w-[44px]">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

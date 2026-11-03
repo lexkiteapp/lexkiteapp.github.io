@@ -4,7 +4,7 @@
 set -e
 cd "$(dirname "$0")/.."
 node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-on, icon.svg (docs/BRAND-RULES.md)
-node scripts/ci/required-gate.mjs --sync  # workflow chạy trên PR → required-gate.yml (workflow_run)
+node scripts/ci/required-gate.mjs --check  # gate = bộ canh lịch, không quay lại workflow_run (docs/CI-RUNNERS.md)
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
 node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js (Play & Speak)

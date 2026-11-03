@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Today (Bento Split &amp; Sprint)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'canvas-sand': '#FFF8F0',
+            'ink-deep': '#0A3334',
+            'ink-muted': '#486364',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#12514D',
+            'teal-light': '#EBF7F5',
+            'teal-surface': '#F2FBF9',
+            'coral-accent': '#FF5733',
+            'coral-ledge': '#B53A22',
+            'amber-sun': '#FFB054',
+            'border-subtle': '#EFE4D6',
+            'card-ledge': '#E2D5C3',
+          },
+          boxShadow: {
+            'bento': '0 4px 0 #E2D5C3',
+            'bento-pressed': '0 2px 0 #E2D5C3',
+            'tactile-cta': '0 5px 0 #B53A22',
+            'tactile-cta-pressed': '0 2px 0 #B53A22',
+            'sub-btn': '0 3px 0 #2BA39A',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F0;
+      color: #0A3334;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* Tactile button active states */
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22 !important;
+    }
+    .tactile-sub:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #2BA39A !important;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #E2D5C3 !important;
+    }
+
+    /* Teacher slot: dashed empty container, no drawing or human avatar */
+    .teacher-slot {
+      border: 2px dashed #2BA39A;
+      background-color: #EBF7F5;
+    }
+
+    /* Respect wrapping for translated copy */
+    * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+<body class="bg-canvas-sand min-h-screen flex flex-col items-center">
+<!-- Mobile Viewport 390px Edge-to-Edge -->
+<main class="w-full max-w-[390px] min-h-screen bg-canvas-sand flex flex-col pb-24 relative select-none">
+<!-- 1. TOP APP BAR (Compact Lexkite Brand Mark + Streak + XP) -->
+<header class="sticky top-0 z-40 bg-[#FFF8F0]/95 backdrop-blur border-b border-border-subtle px-4 h-14 flex items-center justify-between">
+<!-- App Brand Logo -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-teal-brand flex items-center justify-center text-white shadow-[0_2px_0_#12514D]">
+<span class="material-symbols-rounded text-lg">near_me</span>
+</div>
+<span class="text-xl font-extrabold text-ink-deep tracking-tight">Lexkite</span>
+</div>
+<!-- Streak & XP Status Pills -->
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-border-subtle shadow-sm">
+<span class="material-symbols-rounded text-coral-accent text-base">local_fire_department</span>
+<span class="text-xs font-extrabold text-ink-deep">14 Tage</span>
+</div>
+<!-- XP Badge -->
+<div class="inline-flex items-center gap-1 bg-white px-2.5 py-1 rounded-full border border-border-subtle shadow-sm">
+<span class="material-symbols-rounded text-amber-sun text-base">bolt</span>
+<span class="text-xs font-extrabold text-ink-deep">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Main Bento Feed -->
+<div class="px-4 pt-3.5 flex flex-col gap-3.5">
+<!-- 2. INTEGRATED COACH & MOMENTUM HERO BANNER -->
+<section class="bg-white rounded-[20px] p-3.5 border-2 border-border-subtle shadow-bento flex items-start gap-3">
+<!-- Teacher Slot: Empty dashed container with mortarboard icon -->
+<div class="teacher-slot w-[68px] h-[78px] rounded-2xl shrink-0 flex flex-col items-center justify-center p-1 text-center shadow-inner">
+<span class="material-symbols-rounded text-teal-deep text-2xl mb-1">school</span>
+<span class="text-[9px] font-extrabold text-teal-deep uppercase tracking-wider leading-none">teacher-slot</span>
+</div>
+<!-- Coach Ama Advice Bubble -->
+<div class="flex-1 min-w-0 bg-teal-surface rounded-xl p-2.5 border border-teal-brand/20 relative">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-brand"></span>
+<span class="text-[10px] font-extrabold text-teal-deep uppercase tracking-wider">Coach Ama · IELTS Momentum</span>
+</div>
+<p class="text-xs font-semibold text-ink-deep leading-snug">
+            „Deine akademischen Konnektoren sitzen gut! Festige heute 3 Schlüssellinks für Task 2.“
+          </p>
+</div>
+</section>
+<!-- 3. HERO ACTION TILE (Unit 3 Focal Card with Chunky CTA) -->
+<section class="bg-white rounded-[20px] p-4 border-2 border-border-subtle shadow-bento flex flex-col gap-3.5">
+<div class="flex items-center justify-between gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-teal-light border border-teal-brand/30 text-[11px] font-extrabold text-teal-deep uppercase tracking-wider">
+            Unit 3 · Academic Writing
+          </span>
+<span class="text-xs font-extrabold text-ink-muted">65% abgeschlossen</span>
+</div>
+<div>
+<h2 class="text-base font-extrabold text-ink-deep leading-tight">
+            Cohesion &amp; Linking Devices
+          </h2>
+<p class="text-xs text-ink-muted mt-1 leading-relaxed">
+            Stufe 3 von 4 · Meistere High-Scoring Konnektoren wie <span class="font-bold text-ink-deep">„substantiate“</span> &amp; <span class="font-bold text-ink-deep">„notwithstanding“</span>
+</p>
+</div>
+<!-- Segmented Visual Progress Bar -->
+<div class="grid grid-cols-4 gap-1.5 w-full">
+<div class="h-2 rounded-full bg-teal-brand"></div>
+<div class="h-2 rounded-full bg-teal-brand"></div>
+<div class="h-2 rounded-full bg-gradient-to-r from-teal-brand to-amber-sun"></div>
+<div class="h-2 rounded-full bg-[#E8E2D8]"></div>
+</div>
+<!-- Massive Primary CTA (Physical ledge, wrapping text friendly) -->
+<button class="tactile-cta w-full min-h-[52px] py-3.5 px-4 rounded-2xl bg-gradient-to-r from-coral-accent to-amber-sun text-ink-deep font-extrabold text-sm tracking-wide flex items-center justify-center gap-2 border-b-4 border-coral-ledge shadow-tactile-cta cursor-pointer transition-transform">
+<span class="leading-tight text-center">5-MINUTEN-DRILL STARTEN</span>
+<span class="material-symbols-rounded text-lg shrink-0 font-bold">arrow_forward</span>
+</button>
+</section>
+<!-- 4. 2-COLUMN BENTO DUO -->
+<section class="grid grid-cols-2 gap-3">
+<!-- Bento Left: Spaced Recall -->
+<div class="bg-white rounded-[20px] p-3.5 border-2 border-border-subtle shadow-bento flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 mb-2">
+<div class="w-7 h-7 rounded-lg bg-coral-accent/15 flex items-center justify-center text-coral-accent">
+<span class="material-symbols-rounded text-lg">history_edu</span>
+</div>
+<span class="text-[10px] font-extrabold text-coral-accent uppercase tracking-wider">Recall Queue</span>
+</div>
+<h3 class="text-sm font-extrabold text-ink-deep leading-tight">
+              Spaced Recall
+            </h3>
+<p class="text-xs font-black text-coral-accent mt-0.5">
+              18 Wörter fällig
+            </p>
+<p class="text-[11px] text-ink-muted mt-1 leading-snug truncate">
+              resilient · affect · ubiquity
+            </p>
+</div>
+<!-- Instant Review Action (≥48px height target) -->
+<button class="tactile-sub mt-3 w-full min-h-[44px] py-2.5 px-3 rounded-xl bg-teal-light border-2 border-teal-brand text-teal-deep font-extrabold text-xs tracking-wider uppercase shadow-sub-btn cursor-pointer flex items-center justify-center gap-1">
+<span>Review</span>
+<span class="material-symbols-rounded text-sm">bolt</span>
+</button>
+</div>
+<!-- Bento Right: Daily XP Goal Ring -->
+<div class="bg-white rounded-[20px] p-3.5 border-2 border-border-subtle shadow-bento flex flex-col items-center justify-between text-center">
+<div class="w-full flex items-center justify-between">
+<span class="text-[10px] font-extrabold text-teal-deep uppercase tracking-wider">Tagesziel</span>
+<span class="text-[10px] font-bold text-ink-muted">70%</span>
+</div>
+<!-- Radial Goal Progress Ring -->
+<div class="relative w-20 h-20 my-1 flex items-center justify-center">
+<svg class="w-20 h-20 transform -rotate-90" viewbox="0 0 64 64">
+<!-- Background Ring -->
+<circle cx="32" cy="32" fill="transparent" r="26" stroke="#EFE4D6" stroke-width="6"></circle>
+<!-- Progress Ring: 70% of 163.36 ~ 114 filled -->
+<circle cx="32" cy="32" fill="transparent" r="26" stroke="#2BA39A" stroke-dasharray="163.36" stroke-dashoffset="49" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-sm font-black text-ink-deep leading-none">14/20</span>
+<span class="text-[9px] font-extrabold text-ink-muted uppercase leading-none mt-1">XP Goal</span>
+</div>
+</div>
+<p class="text-[11px] font-bold text-ink-muted leading-tight">
+            Noch <span class="text-ink-deep font-extrabold">6 XP</span> bis Tagesziel
+          </p>
+</div>
+</section>
+<!-- 5. QUEST LIST (Flexible multi-line wrapping with clean states) -->
+<section class="bg-white rounded-[20px] p-4 border-2 border-border-subtle shadow-bento flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-amber-sun text-lg">flag</span>
+<h3 class="text-xs font-extrabold text-ink-deep uppercase tracking-wider">Heutige Quests</h3>
+</div>
+<span class="text-xs font-extrabold text-teal-deep bg-teal-light px-2.5 py-0.5 rounded-full border border-teal-brand/30">
+            2 / 3 erledigt
+          </span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Quest 1 (Done) -->
+<div class="flex items-center justify-between gap-2.5 p-3 rounded-xl bg-teal-surface border border-teal-brand/20">
+<div class="flex items-start gap-2.5 min-w-0 flex-1">
+<div class="w-5 h-5 rounded-full bg-teal-brand text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-rounded text-sm font-black">check</span>
+</div>
+<span class="text-xs font-bold text-ink-deep leading-snug">
+                5 akademische Kollokationen sichern
+              </span>
+</div>
+<span class="text-xs font-black text-teal-deep shrink-0 pl-1">+20 XP</span>
+</div>
+<!-- Quest 2 (Done - accommodates long German string without clipping) -->
+<div class="flex items-center justify-between gap-2.5 p-3 rounded-xl bg-teal-surface border border-teal-brand/20">
+<div class="flex items-start gap-2.5 min-w-0 flex-1">
+<div class="w-5 h-5 rounded-full bg-teal-brand text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-rounded text-sm font-black">check</span>
+</div>
+<span class="text-xs font-bold text-ink-deep leading-snug">
+                Schließe 1 Audio-Ausspracheübung ab
+              </span>
+</div>
+<span class="text-xs font-black text-teal-deep shrink-0 pl-1">+15 XP</span>
+</div>
+<!-- Quest 3 (Pending Active Quest) -->
+<div class="flex items-center justify-between gap-2.5 p-3 rounded-xl bg-white border-2 border-amber-sun/50 shadow-sm">
+<div class="flex items-start gap-2.5 min-w-0 flex-1">
+<div class="w-5 h-5 rounded-full border-2 border-amber-sun text-amber-sun flex items-center justify-center shrink-0 mt-0.5 bg-amber-sun/10">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-sun"></span>
+</div>
+<span class="text-xs font-bold text-ink-deep leading-snug">
+                Mindestens 80% im Konnektoren-Schnelltest erreichen
+              </span>
+</div>
+<span class="text-xs font-black text-coral-accent shrink-0 pl-1">+25 XP</span>
+</div>
+</div>
+</section>
+</div>
+<!-- 6. FIXED BOTTOM TAB BAR (Exactly 5 tabs, 'Today' active, tap targets ≥48px) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-border-subtle shadow-[0_-4px_16px_rgba(10,51,52,0.06)] flex justify-center">
+<div class="w-full max-w-[390px] h-16 px-2 flex items-center justify-between">
+<!-- Tab 1: Today (ACTIVE - 2px teal border + soft teal tint) -->
+<button aria-current="page" class="flex flex-col items-center justify-center flex-1 h-12 min-h-[48px] mx-1 rounded-xl bg-teal-light border-2 border-teal-brand text-teal-deep shadow-[0_2px_0_#2BA39A] cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none">calendar_today</span>
+<span class="text-[10px] font-extrabold uppercase mt-0.5 tracking-wider">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center flex-1 h-12 min-h-[48px] mx-1 text-ink-muted hover:text-ink-deep cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none">menu_book</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center flex-1 h-12 min-h-[48px] mx-1 text-ink-muted hover:text-ink-deep cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none">psychology</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center flex-1 h-12 min-h-[48px] mx-1 text-ink-muted hover:text-ink-deep cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none">quiz</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center flex-1 h-12 min-h-[48px] mx-1 text-ink-muted hover:text-ink-deep cursor-pointer">
+<span class="material-symbols-rounded text-xl leading-none">person</span>
+<span class="text-[10px] font-bold uppercase mt-0.5 tracking-wider">Me</span>
+</button>
+</div>
+</nav>
+</main>
+</body></html>

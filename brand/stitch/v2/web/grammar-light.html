@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Present Perfect Grammar Guide (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFAF3',
+              100: '#FFF7EA',
+              200: '#F7EDE0',
+              300: '#E2D4BE',
+              400: '#C9BC9F',
+            },
+            teal: {
+              brand: '#1B827A',
+              deep: '#0F3D3E',
+              mid: '#14615B',
+              soft: '#E0F5F2',
+              ledge: '#0B4743',
+            },
+            coral: {
+              brand: '#E4472D',
+              amber: '#FF9E3B',
+              ledge: '#9F2410',
+              soft: '#FDEDE8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-flex;
+      vertical-align: middle;
+    }
+
+    /* 3D Tactile Physics */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #E2D4BE;
+      border-bottom-width: 5px;
+      border-bottom-color: #C9BC9F;
+      border-radius: 20px;
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(135deg, #F3573D 0%, #FF9E3B 100%);
+      border: 2px solid #D83C24;
+      border-bottom: 5px solid #9F2410;
+      border-radius: 16px;
+      color: #190902;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(228, 71, 45, 0.28);
+      transition: all 0.12s ease-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+      box-shadow: 0 1px 4px rgba(228, 71, 45, 0.2);
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      border: 2px solid #D9C9B0;
+      border-bottom: 5px solid #B8A88E;
+      border-radius: 16px;
+      color: #0F3D3E;
+      font-weight: 800;
+      transition: all 0.12s ease-out;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+    }
+
+    .tactile-quiz-btn {
+      background: #FFFFFF;
+      border: 2px solid #DCCFBA;
+      border-bottom: 4px solid #C0B29A;
+      border-radius: 14px;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      color: #0F3D3E;
+    }
+    .tactile-quiz-btn:hover {
+      border-color: #1B827A;
+      transform: translateY(-1px);
+    }
+    .tactile-quiz-btn.selected-correct {
+      background: #E8F7F0;
+      border-color: #1B8452;
+      border-bottom: 4px solid #105E39;
+      color: #0B3D25;
+    }
+
+    /* Chunky formula block */
+    .formula-block {
+      border-radius: 14px;
+      border-bottom-width: 4px;
+      box-shadow: 0 2px 6px rgba(15, 61, 62, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-[#1B827A] selection:text-white">
+<!-- ================= TOP SITE HEADER ================= -->
+<header class="sticky top-0 z-50 bg-[#FFF7EA]/95 backdrop-blur-md border-b-2 border-cream-300">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#1B827A] border-2 border-[#105550] flex items-center justify-center shadow-sm shadow-[#1B827A]/30 group-hover:scale-105 transition-transform">
+<!-- Kite emblem SVG -->
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L19 11L12 21L5 11L12 2Z" fill="#FFF7EA" stroke="#0F3D3E" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M5 11L19 11" stroke="#0F3D3E" stroke-width="1.8"></path>
+<path d="M12 2V21" stroke="#0F3D3E" stroke-width="1.8"></path>
+<circle cx="12" cy="11" fill="#E4472D" r="2.2"></circle>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+<!-- Variant B: Grammar Hub badge with high contrast -->
+<span class="text-xs font-extrabold uppercase tracking-wider bg-[#E0F5F2] text-[#14615B] px-3 py-1 rounded-full border-2 border-[#98D7CE] hidden sm:inline-block">Grammar Hub</span>
+</a>
+<!-- Navigation links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-extrabold text-[#14615B] hover:text-[#0F3D3E] transition-colors" href="#">Courses</a>
+<a class="text-sm font-extrabold text-[#0F3D3E] border-b-2 border-[#1B827A] pb-0.5" href="#">Grammar</a>
+<a class="text-sm font-extrabold text-[#14615B] hover:text-[#0F3D3E] transition-colors" href="#">Vocabulary</a>
+<a class="text-sm font-extrabold text-[#14615B] hover:text-[#0F3D3E] transition-colors" href="#">Speaking Lab</a>
+<a class="text-sm font-extrabold text-[#14615B] hover:text-[#0F3D3E] transition-colors" href="#">Free Tests</a>
+</nav>
+<!-- Action buttons -->
+<div class="flex items-center gap-4">
+<a class="text-sm font-extrabold text-[#0F3D3E] hover:text-[#1B827A] px-3 py-2 transition-colors hidden sm:block" href="#">Log in</a>
+<a class="tactile-btn-primary px-5 py-2.5 text-sm inline-flex items-center gap-1.5 cursor-pointer font-extrabold text-[#190902]" href="#">
+<span>Start free</span>
+<span class="material-symbols-rounded text-base font-bold">bolt</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="flex-1 max-w-5xl w-full mx-auto px-6 py-10 md:py-14 space-y-12">
+<!-- BREADCRUMB & HEADER TITLE -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-xs font-extrabold text-[#14615B] uppercase tracking-wider">
+<a class="hover:underline" href="#">Grammar</a>
+<span>•</span>
+<a class="hover:underline" href="#">Verb Tenses</a>
+<span>•</span>
+<span class="text-[#0F3D3E]">Present Perfect</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start md:items-center gap-3.5">
+<!-- Illustrated clock icon badge -->
+<div class="w-14 h-14 rounded-2xl bg-[#E0F5F2] border-2 border-[#1B827A] border-b-4 border-b-[#0B4743] flex items-center justify-center text-[#14615B] flex-shrink-0 shadow-sm">
+<span class="material-symbols-rounded text-3xl">schedule</span>
+</div>
+<div>
+<h1 class="text-3xl md:text-4xl font-extrabold text-[#0F3D3E] tracking-tight">Present Perfect</h1>
+<p class="text-[#14615B] font-bold text-sm md:text-base">Connecting past actions to the present moment</p>
+</div>
+</div>
+<!-- High-Legibility Chips & Metadata -->
+<div class="flex items-center gap-2.5 flex-wrap">
+<span class="px-3.5 py-1.5 rounded-full bg-[#E0F5F2] border-2 border-[#81CDC3] text-[#0C433F] font-extrabold text-xs tracking-wide shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-[#14615B]">stars</span> Level B1–B2
+          </span>
+<span class="px-3.5 py-1.5 rounded-full bg-[#F5ECDB] border-2 border-[#D8C6A5] text-[#1D2D2E] font-extrabold text-xs flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-[#14615B]">timer</span> 4 min read
+          </span>
+<span class="px-3.5 py-1.5 rounded-full bg-[#E3F6EC] border-2 border-[#76C99C] text-[#0C433F] font-extrabold text-xs flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-[#147040]">verified</span> IELTS 7.0+ Core
+          </span>
+</div>
+</div>
+</div>
+<!-- ================= 1. BIG COLORFUL FORMULA CARD ================= -->
+<section class="tactile-card p-6 md:p-8 space-y-6">
+<div class="flex items-center justify-between border-b-2 border-cream-300 pb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#E0F5F2] border-2 border-[#1B827A] text-[#0B3A36] flex items-center justify-center font-black text-sm">
+            Fx
+          </div>
+<h2 class="text-xl font-extrabold text-[#0F3D3E]">Sentence Formula</h2>
+</div>
+<span class="text-xs font-black uppercase tracking-wider text-[#0B3A36] bg-[#E0F5F2] px-3.5 py-1 rounded-full border-2 border-[#90D3C9]">Affirmative</span>
+</div>
+<!-- Formula Blocks Grid -->
+<div class="grid grid-cols-1 md:grid-cols-7 gap-3 items-center text-center">
+<!-- Block 1: Subject -->
+<div class="md:col-span-2 formula-block bg-[#E8F8F5] border-2 border-[#1B827A] border-b-[#0B4743] p-5">
+<span class="text-xs font-black uppercase tracking-wider text-[#14615B] block mb-1">Subject</span>
+<p class="text-xl md:text-2xl font-extrabold text-[#0F3D3E]">I / You / We / They</p>
+<span class="text-xs font-bold text-[#14615B] mt-1 block">or He / She / It</span>
+</div>
+<!-- Plus sign -->
+<div class="md:col-span-1 flex justify-center text-cream-400">
+<div class="w-8 h-8 rounded-full bg-cream-200 border-2 border-cream-300 flex items-center justify-center font-extrabold text-[#0F3D3E] text-lg">
+            +
+          </div>
+</div>
+<!-- Block 2: Auxiliary Verb -->
+<div class="md:col-span-2 formula-block bg-[#FDEDE8] border-2 border-[#E4472D] border-b-[#9F2410] p-5">
+<span class="text-xs font-black uppercase tracking-wider text-[#8A2514] block mb-1">Auxiliary</span>
+<p class="text-2xl md:text-3xl font-extrabold text-[#9F2410]">have / has</p>
+<span class="text-xs font-extrabold text-[#23373B] mt-1 block">'ve / 's short forms</span>
+</div>
+<!-- Plus sign -->
+<div class="md:col-span-1 flex justify-center text-cream-400">
+<div class="w-8 h-8 rounded-full bg-cream-200 border-2 border-cream-300 flex items-center justify-center font-extrabold text-[#0F3D3E] text-lg">
+            +
+          </div>
+</div>
+<!-- Block 3: Past Participle (V3) -->
+<div class="md:col-span-1 formula-block bg-[#FFF4DC] border-2 border-[#D89617] border-b-[#8B5604] p-5">
+<span class="text-xs font-black uppercase tracking-wider text-[#7A4204] block mb-1">Past Participle</span>
+<p class="text-2xl md:text-3xl font-extrabold text-[#7A4204]">V3</p>
+<span class="text-xs font-extrabold text-[#1E2D30] mt-1 block">worked / done / seen</span>
+</div>
+</div>
+<!-- Quick sample banner -->
+<div class="bg-cream-100 rounded-xl border-2 border-cream-300 p-4 flex items-center justify-between flex-wrap gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded text-[#1B827A] text-2xl">chat_bubble</span>
+<span class="text-sm font-bold text-[#0F3D3E]">
+            Example: “I <span class="text-[#962010] font-black underline decoration-2 underline-offset-2">have lived</span> in Tokyo for three years.”
+          </span>
+</div>
+<span class="text-xs font-extrabold text-[#14615B] bg-white px-3 py-1 rounded-md border-2 border-[#D8C6A5]">
+          Unfinished time state
+        </span>
+</div>
+</section>
+<!-- ================= 2. WHEN TO USE IT (3 KEY SCENARIOS) ================= -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-xl md:text-2xl font-extrabold text-[#0F3D3E] flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-[#0A524D] text-white flex items-center justify-center text-xs font-black">1</span>
+          When to Use It
+        </h2>
+<span class="text-xs font-extrabold text-[#14615B] uppercase tracking-wide">3 Main Triggers</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Card 1: Life Experience -->
+<div class="tactile-card p-6 flex flex-col justify-between hover:border-[#1B827A] transition-colors">
+<div class="space-y-3">
+<div class="w-12 h-12 rounded-2xl bg-[#E0F5F2] border-2 border-[#1B827A] border-b-4 border-b-[#0B4743] flex items-center justify-center text-[#14615B]">
+<span class="material-symbols-rounded text-2xl">public</span>
+</div>
+<h3 class="text-lg font-extrabold text-[#0F3D3E]">Life Experience</h3>
+<p class="text-xs font-bold text-[#1D3E3F] leading-relaxed">Things you have done anytime up to now. Exact date doesn't matter.</p>
+</div>
+<div class="mt-6 pt-4 border-t-2 border-cream-300 bg-cream-50 -mx-6 -mb-6 p-4 rounded-b-[18px]">
+<span class="text-xs font-extrabold text-[#0F3D3E] block mb-1">“She <span class="bg-[#D1F0EA] text-[#0D4E49] px-2 py-0.5 rounded font-black border border-[#79CBBF]">has visited</span> Paris twice.”</span>
+<span class="text-[11px] font-extrabold text-[#14615B] flex items-center gap-1">
+<span class="material-symbols-rounded text-sm text-[#14615B]">check_circle</span> Keywords: ever, never, already
+            </span>
+</div>
+</div>
+<!-- Card 2: Recent Finished Action with Present Effect -->
+<div class="tactile-card p-6 flex flex-col justify-between hover:border-[#E4472D] transition-colors">
+<div class="space-y-3">
+<div class="w-12 h-12 rounded-2xl bg-[#FDEDE8] border-2 border-[#E4472D] border-b-4 border-b-[#9F2410] flex items-center justify-center text-[#8F2312]">
+<span class="material-symbols-rounded text-2xl">bolt</span>
+</div>
+<h3 class="text-lg font-extrabold text-[#0F3D3E]">Present Result</h3>
+<p class="text-xs font-bold text-[#1D3E3F] leading-relaxed">Action finished recently, but its result matters right now in the present.</p>
+</div>
+<div class="mt-6 pt-4 border-t-2 border-cream-300 bg-cream-50 -mx-6 -mb-6 p-4 rounded-b-[18px]">
+<span class="text-xs font-extrabold text-[#0F3D3E] block mb-1">“I <span class="bg-[#FCDFD7] text-[#8F2312] px-2 py-0.5 rounded font-black border border-[#F5A391]">have lost</span> my keys (can't enter).”</span>
+<span class="text-[11px] font-extrabold text-[#8F2312] flex items-center gap-1">
+<span class="material-symbols-rounded text-sm text-[#8F2312]">check_circle</span> Keywords: just, already, yet
+            </span>
+</div>
+</div>
+<!-- Card 3: Unfinished Duration -->
+<div class="tactile-card p-6 flex flex-col justify-between hover:border-[#D89617] transition-colors">
+<div class="space-y-3">
+<div class="w-12 h-12 rounded-2xl bg-[#FFF4DC] border-2 border-[#D89617] border-b-4 border-b-[#8B5604] flex items-center justify-center text-[#7A4204]">
+<span class="material-symbols-rounded text-2xl">all_inclusive</span>
+</div>
+<h3 class="text-lg font-extrabold text-[#0F3D3E]">Unfinished State</h3>
+<p class="text-xs font-bold text-[#1D3E3F] leading-relaxed">Started in the past and still true right now today.</p>
+</div>
+<div class="mt-6 pt-4 border-t-2 border-cream-300 bg-cream-50 -mx-6 -mb-6 p-4 rounded-b-[18px]">
+<span class="text-xs font-extrabold text-[#0F3D3E] block mb-1">“They <span class="bg-[#FFE8B8] text-[#7A4204] px-2 py-0.5 rounded font-black border border-[#E3B755]">have known</span> each other for 10 yrs.”</span>
+<span class="text-[11px] font-extrabold text-[#7A4204] flex items-center gap-1">
+<span class="material-symbols-rounded text-sm text-[#7A4204]">check_circle</span> Keywords: since 2018, for 5 years
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 3. COMMON MISTAKES & EXAMINER INSIGHT ================= -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+<!-- Common Mistake Card (Left 2 cols) -->
+<div class="lg:col-span-2 tactile-card p-6 md:p-7 space-y-5">
+<div class="flex items-center justify-between border-b-2 border-cream-300 pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-[#8F2312] text-2xl font-bold">warning</span>
+<h2 class="text-xl font-extrabold text-[#0F3D3E]">Top Exam Trap: Past Simple vs Present Perfect</h2>
+</div>
+<span class="text-xs font-extrabold text-[#7A1D0E] bg-[#FFE1D9] px-3 py-1 rounded-full border-2 border-[#ECA698]">
+            -0.5 Band Slip
+          </span>
+</div>
+<p class="text-sm font-bold text-[#14615B] leading-relaxed">
+          Never use present perfect with finished specific time markers (<em class="text-[#0F3D3E]">yesterday, last year, in 2021, when I was 10</em>).
+        </p>
+<!-- Red Cross vs Green Check Comparison Tiles -->
+<div class="space-y-3">
+<!-- Row 1: Wrong -->
+<div class="bg-[#FFF0ED] border-2 border-[#ECA698] border-l-4 border-l-[#8F2312] rounded-xl p-4 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#8F2312] text-white flex items-center justify-center flex-shrink-0 font-extrabold shadow-sm">
+<span class="material-symbols-rounded text-lg">close</span>
+</div>
+<div>
+<p class="text-sm font-extrabold text-[#0F3D3E]">“I <span class="line-through text-[#85180C] font-black">have seen</span> him yesterday.”</p>
+<span class="text-xs font-extrabold text-[#85180C]">Mistake: 'Yesterday' is a finished time</span>
+</div>
+</div>
+<span class="text-xs font-black uppercase px-2.5 py-1 rounded bg-white text-[#85180C] border-2 border-[#ECA698]">Incorrect</span>
+</div>
+<!-- Row 2: Correct -->
+<div class="bg-[#EAF8F1] border-2 border-[#80CFA5] border-l-4 border-l-[#125433] rounded-xl p-4 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#125433] text-white flex items-center justify-center flex-shrink-0 font-extrabold shadow-sm">
+<span class="material-symbols-rounded text-lg">check</span>
+</div>
+<div>
+<p class="text-sm font-extrabold text-[#0F3D3E]">“I <span class="text-[#125433] underline font-black">saw</span> him yesterday.” <span class="text-xs font-extrabold text-[#14615B]">or</span> “I <span class="text-[#125433] underline font-black">have seen</span> him today.”</p>
+<span class="text-xs font-extrabold text-[#125433]">Correct: Specific past = Past Simple; Open day = Present Perfect</span>
+</div>
+</div>
+<span class="text-xs font-black uppercase px-2.5 py-1 rounded bg-white text-[#125433] border-2 border-[#80CFA5]">Accurate</span>
+</div>
+</div>
+<div class="bg-cream-100 rounded-xl p-3.5 flex items-center gap-2.5 text-xs font-bold text-[#14615B] border-2 border-cream-300">
+<span class="material-symbols-rounded text-[#1B827A] text-lg font-bold">lightbulb</span>
+<span><strong class="text-[#0F3D3E]">Quick Rule:</strong> If there is a clock date/calendar tag, drop "have". Keep it simple!</span>
+</div>
+</div>
+<!-- Teacher Slot & Tip Bubble (Right 1 col) -->
+<div class="tactile-card p-6 flex flex-col items-center text-center space-y-4">
+<span class="text-xs font-black uppercase tracking-wider text-[#14615B]">Teacher Advice</span>
+<!-- Empty dashed teacher slot (140x170) as specified -->
+<div class="w-[140px] h-[170px] rounded-2xl border-2 border-dashed border-[#1B827A] bg-[#E0F5F2]/50 flex flex-col items-center justify-center text-[#14615B] relative overflow-hidden group">
+<span class="material-symbols-rounded text-3xl mb-1 text-[#1B827A]">school</span>
+<span class="text-xs font-extrabold text-[#0F3D3E] tracking-wider uppercase">TEACHER</span>
+<span class="text-[10px] font-bold text-[#14615B]">140 × 170 slot</span>
+</div>
+<!-- Teacher speech bubble -->
+<div class="bg-cream-100 border-2 border-cream-300 rounded-2xl p-4 text-left relative shadow-sm w-full">
+<!-- Speech triangle pointer -->
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-cream-100 border-t-2 border-l-2 border-cream-300 rotate-45"></div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-xs font-black text-[#0F3D3E]">Teacher Carlos</span>
+<span class="text-[10px] font-extrabold bg-[#D0EFEB] text-[#0C433F] px-1.5 py-0.5 rounded border border-[#9ADAD1]">IELTS Coach</span>
+</div>
+<p class="text-xs font-bold text-[#0F3D3E] leading-relaxed">
+            “Examiners listen for Present Perfect when you discuss personal habits or changes over time in IELTS Speaking Part 1.”
+          </p>
+</div>
+</div>
+</section>
+<!-- ================= 4. MINI 3-QUESTION QUIZ ================= -->
+<section class="tactile-card p-6 md:p-8 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-cream-300 pb-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-[#0A524D] text-white flex items-center justify-center text-xs font-black">2</span>
+<h2 class="text-xl font-extrabold text-[#0F3D3E]">Mini Practice Quiz</h2>
+</div>
+<p class="text-xs font-bold text-[#14615B] mt-0.5">Test your understanding with 3 quick checks</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-cream-200 text-[#0F3D3E] font-black text-xs border-2 border-cream-300">
+            3 Questions
+          </span>
+<span class="px-3 py-1 rounded-full bg-[#FFE8B8] text-[#7A4204] font-black text-xs border border-[#E3B755] flex items-center gap-1">
+<span class="material-symbols-rounded text-sm">bolt</span> +15 XP
+          </span>
+</div>
+</div>
+<!-- Question Cards List -->
+<div class="space-y-6">
+<!-- Q1 -->
+<div class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-5 space-y-3.5">
+<div class="flex items-center justify-between text-xs font-black text-[#14615B]">
+<span>QUESTION 1 OF 3</span>
+<span class="text-[#0B4743] font-black uppercase">Unfinished Time</span>
+</div>
+<p class="text-base font-extrabold text-[#0F3D3E]">
+            “She ________ in London since October 2022.”
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<button class="tactile-quiz-btn p-3.5 text-left text-sm font-extrabold flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-2 border-[#8A9C9B] inline-block"></span>
+<span>A. lived</span>
+</span>
+</button>
+<button class="tactile-quiz-btn selected-correct p-3.5 text-left text-sm font-black flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-[5px] border-[#125433] bg-white inline-block"></span>
+<span>B. has lived</span>
+</span>
+<span class="material-symbols-rounded text-[#125433] text-lg font-bold">check_circle</span>
+</button>
+<button class="tactile-quiz-btn p-3.5 text-left text-sm font-extrabold flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-2 border-[#8A9C9B] inline-block"></span>
+<span>C. was living</span>
+</span>
+</button>
+</div>
+<p class="text-xs font-black text-[#125433] flex items-center gap-1.5 pt-1">
+<span class="material-symbols-rounded text-[#125433] text-base">verified</span> Spot on! "Since October" requires Present Perfect.
+          </p>
+</div>
+<!-- Q2 -->
+<div class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-5 space-y-3.5">
+<div class="flex items-center justify-between text-xs font-black text-[#14615B]">
+<span>QUESTION 2 OF 3</span>
+<span class="text-[#8F2312] font-black uppercase">Finished Past Trap</span>
+</div>
+<p class="text-base font-extrabold text-[#0F3D3E]">
+            “They ________ their project two days ago.”
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<button class="tactile-quiz-btn selected-correct p-3.5 text-left text-sm font-black flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-[5px] border-[#125433] bg-white inline-block"></span>
+<span>A. finished</span>
+</span>
+<span class="material-symbols-rounded text-[#125433] text-lg font-bold">check_circle</span>
+</button>
+<button class="tactile-quiz-btn p-3.5 text-left text-sm font-extrabold flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-2 border-[#8A9C9B] inline-block"></span>
+<span>B. have finished</span>
+</span>
+</button>
+<button class="tactile-quiz-btn p-3.5 text-left text-sm font-extrabold flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-2 border-[#8A9C9B] inline-block"></span>
+<span>C. has finished</span>
+</span>
+</button>
+</div>
+</div>
+<!-- Q3 -->
+<div class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-5 space-y-3.5">
+<div class="flex items-center justify-between text-xs font-black text-[#14615B]">
+<span>QUESTION 3 OF 3</span>
+<span class="text-[#7A4204] font-black uppercase">Life Experience</span>
+</div>
+<p class="text-base font-extrabold text-[#0F3D3E]">
+            “________ you ever seen the Northern Lights?”
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<button class="tactile-quiz-btn p-3.5 text-left text-sm font-extrabold flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-2 border-[#8A9C9B] inline-block"></span>
+<span>A. Did</span>
+</span>
+</button>
+<button class="tactile-quiz-btn selected-correct p-3.5 text-left text-sm font-black flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-[5px] border-[#125433] bg-white inline-block"></span>
+<span>B. Have</span>
+</span>
+<span class="material-symbols-rounded text-[#125433] text-lg font-bold">check_circle</span>
+</button>
+<button class="tactile-quiz-btn p-3.5 text-left text-sm font-extrabold flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border-2 border-[#8A9C9B] inline-block"></span>
+<span>C. Were</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5. TACTILE CTA BANNER ================= -->
+<section class="tactile-card bg-gradient-to-br from-white to-cream-100 p-8 md:p-10 border-2 border-[#1B827A]/50 text-center relative overflow-hidden">
+<!-- Background subtle floating bubbles -->
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-[#E0F5F2]/70 pointer-events-none"></div>
+<div class="absolute -left-6 -top-6 w-24 h-24 rounded-full bg-[#FDEDE8]/70 pointer-events-none"></div>
+<div class="max-w-xl mx-auto space-y-5 relative z-10">
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0F5F2] text-[#0C433F] font-black text-xs border-2 border-[#98D7CE]">
+<span class="material-symbols-rounded text-[#14615B] text-sm">sports_esports</span>
+          Gamified Grammar Engine
+        </div>
+<h2 class="text-2xl md:text-3xl font-extrabold text-[#0F3D3E] tracking-tight">
+          Master Present Perfect with Bite-Sized Drills
+        </h2>
+<p class="text-sm font-bold text-[#14615B] leading-relaxed">
+          Unlock 50+ sentence completion drills, listening tasks, and instant pronunciation feedback. Completely free forever.
+        </p>
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="tactile-btn-primary w-full sm:w-auto px-8 py-3.5 text-base flex items-center justify-center gap-2 cursor-pointer font-extrabold text-[#190902]" href="#">
+<span>Practise in the Lexkite App</span>
+<span class="material-symbols-rounded text-lg font-bold">arrow_forward</span>
+</a>
+<a class="tactile-btn-secondary w-full sm:w-auto px-6 py-3.5 text-sm flex items-center justify-center gap-2 cursor-pointer font-extrabold text-[#0F3D3E]" href="#">
+<span class="material-symbols-rounded text-base text-[#14615B]">bookmark</span>
+<span>Save to Study Deck</span>
+</a>
+</div>
+<div class="pt-2 flex items-center justify-center gap-6 text-xs font-black text-[#14615B]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-rounded text-[#125433] text-sm font-bold">lock_open</span> 100% Free
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-rounded text-[#14615B] text-sm font-bold">offline_bolt</span> No hearts or lockouts
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-rounded text-[#8F2312] text-sm font-bold">devices</span> iOS • Android • Web
+          </span>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= FRIENDLY SITE FOOTER ================= -->
+<footer class="bg-cream-100 border-t-2 border-cream-300 mt-16 py-12">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Copyright -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-[#1B827A] flex items-center justify-center text-white font-black text-sm">
+          LK
+        </div>
+<div>
+<p class="text-sm font-extrabold text-[#0F3D3E]">Lexkite Prep</p>
+<p class="text-xs font-bold text-[#14615B]">Tactile exam preparation for IELTS &amp; TOEIC learners. Free forever.</p>
+</div>
+</div>
+<!-- Footer Quick Links -->
+<div class="flex items-center gap-6 text-xs font-extrabold text-[#14615B] flex-wrap justify-center">
+<a class="hover:text-[#0F3D3E] transition-colors" href="#">Grammar Library</a>
+<a class="hover:text-[#0F3D3E] transition-colors" href="#">Speaking Drills</a>
+<a class="hover:text-[#0F3D3E] transition-colors" href="#">Academic Vocabulary</a>
+<a class="hover:text-[#0F3D3E] transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-[#0F3D3E] transition-colors" href="#">Editorial Standards</a>
+</div>
+<!-- Sign off -->
+<p class="text-xs font-extrabold text-[#14615B]">
+        © 2026 Lexkite Inc.
+      </p>
+</div>
+</footer>
+</body></html>

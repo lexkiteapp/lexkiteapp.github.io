@@ -522,6 +522,8 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
 // Dự báo dung lượng + cảnh báo ngoài (22/10): forecastPool, poolpct, EXT_KINDS không bị health xoá
 { const G = 1073741824, f = mod.forecastPool([{ day: '2026-10-01', used: 10 * G }, { day: '2026-10-11', used: 20 * G }], 30 * G);
   ok(f && f.gb_month === 30 && f.days_left === 30, 'forecastPool: +1 GB/ngày → 30 GB/tháng, còn 30 ngày');
+  { const snaps = [{ day: '2026-10-01', used: 0 }, { day: '2026-10-05', used: 400 * G }, ...Array.from({ length: 21 }, (_, i) => ({ day: new Date(Date.parse('2026-10-10') + i * 864e5).toISOString().slice(0, 10), used: (400 + i) * G }))], w = mod.forecastPool(snaps, 100 * G);
+    ok(w && w.gb_month < 40 && w.since >= '2026-10-15', 'forecastPool: đợt dồn kho 400 GB đầu kỳ nằm NGOÀI cửa sổ 14 ngày → dự báo theo tốc độ gần đây (' + (w && w.gb_month) + ' GB/tháng, từ ' + (w && w.since) + ')'); }
   ok(mod.forecastPool([{ day: '2026-10-01', used: 5 }], 1) === null && mod.forecastPool([{ day: '2026-10-01', used: 9 }, { day: '2026-10-05', used: 9 }], 1).days_left === null, 'forecastPool: thiếu dữ liệu → null; không tăng → days_left null');
   const rows = [{ id: 1, email: 'a@x', status: 'ok', weight: 100, quota_total: 100 * G, quota_used: 85 * G }];
   ok(mod.evalAlerts(rows, {}).some(a => a.kind === 'poolpct'), 'pool ≥ 80% → cảnh báo poolpct');

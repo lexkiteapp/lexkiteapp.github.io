@@ -40,6 +40,7 @@ node scripts/test/quiz.mjs
 node scripts/test/notices.mjs
 node scripts/test/classroom.mjs
 node scripts/test/user-mgmt.mjs
+node scripts/test/users-bulk.mjs
 node scripts/test/account-delete.mjs
 node scripts/test/choice-kit.mjs
 node scripts/test/verbs.mjs
@@ -101,7 +102,9 @@ node scripts/test/drive-ui.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
 node scripts/test/cron-watch.mjs
+node scripts/test/ci-hog.mjs
 node scripts/test/reminders.mjs
+node scripts/test/notify-ux.mjs
 node scripts/test/focus-targets.mjs
 node --check scripts/test/journey-e2e.mjs
 node scripts/push-copy.mjs --check
@@ -203,3 +206,6 @@ node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
 node scripts/test/suite-guard.mjs
 node scripts/test/codemap-budget.mjs
+node scripts/test/whisper-det.mjs
+node scripts/test/logic-invariants.mjs
+node scripts/test/top1-score.mjs

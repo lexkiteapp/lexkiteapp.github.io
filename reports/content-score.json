@@ -1,44 +1,44 @@
 {
- "total": 53.3,
+ "total": 53.4,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 46.2,
-   "coverage": 46.2,
+   "score": 46.4,
+   "coverage": 46.4,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9148,
+     "have": 9183,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9148,
-     "std": 9148,
+     "have": 9183,
+     "std": 9183,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4660,
+     "have": 4669,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2706,
+     "have": 2724,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 5987,
+     "have": 6015,
      "std": 20000,
      "w": 5,
      "future": false
@@ -52,7 +52,7 @@
     },
     {
      "k": "C2",
-     "have": 277,
+     "have": 289,
      "std": 1000,
      "w": 10,
      "future": false
@@ -124,7 +124,7 @@
     },
     {
      "k": "tự luận",
-     "have": 1117,
+     "have": 1125,
      "std": 3000,
      "w": 20,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 9920,
-     "std": 9920,
+     "have": 9955,
+     "std": 9955,
      "w": 35,
      "future": false
     },
@@ -449,28 +449,28 @@
   },
   "learn": {
    "name": "Dễ học – dễ nhớ",
-   "score": 89.5,
-   "coverage": 89.5,
+   "score": 90.7,
+   "coverage": 90.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "Ngữ pháp",
-     "have": 96.2,
+     "have": 96.4,
      "std": 100,
      "w": 25,
      "future": false
     },
     {
      "k": "Bài lộ trình",
-     "have": 95.4,
+     "have": 100,
      "std": 100,
      "w": 25,
      "future": false
     },
     {
      "k": "Bộ từ",
-     "have": 70.8,
+     "have": 71,
      "std": 100,
      "w": 25,
      "future": false
@@ -522,7 +522,5 @@
    ]
   }
  },
- "fails": [
-  "Dễ học – dễ nhớ: 89.5 < sàn 89.8 (điểm giảm)"
- ]
+ "fails": []
 }

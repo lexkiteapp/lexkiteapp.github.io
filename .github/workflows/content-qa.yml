@@ -81,4 +81,4 @@ jobs:
         run: |
           git diff --quiet -- content/pipeline/SCORE.md content/pipeline/LEARN.md && exit 0
           git config user.name 'github-actions[bot]' && git config user.email '41898283+github-actions[bot]@users.noreply.github.com'
-          git add content/pipeline/SCORE.md content/pipeline/LEARN.md && git commit -m 'content:score – cập nhật SCORE.md + LEARN.md [skip ci] [CF-Pages-Skip]' && git pull --rebase -q && git push
+          git add content/pipeline/SCORE.md content/pipeline/LEARN.md && git commit -m 'content:score – cập nhật SCORE.md + LEARN.md [skip ci] [CF-Pages-Skip]' && git pull --rebase --autostash -q && git push
