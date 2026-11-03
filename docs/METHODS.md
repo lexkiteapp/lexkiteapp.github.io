@@ -72,7 +72,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Không gọi `t()` lúc nạp module, dữ liệu lưu KHÓA (`I18N-PIPELINE.md` §2.8); chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
 - Chuỗi dữ liệu qua `t(biến)` không bị `i18n-missing` bắt → tự kiểm khóa tiếng Anh. Chữ quản trị soạn: luôn `esc()` + lọc URL.
 - Khoá cụm tiếng Anh mẫu (cấu trúc, câu ví dụ) trước khi dịch máy.
-- Xung đột bản dịch 13 ngôn ngữ: sửa ở NGUỒN `i18n/ui/<lang>…` (giữ cả 2 phía) → `node scripts/i18n-dedupe.cjs && node scripts/i18n-pack.mjs` (gói khóa băm `web/js/i18n/<lang>` sinh lại, đừng sửa tay) → size-budget + i18n-switch. docs/I18N-PIPELINE.md §1b.
+- Xung đột dịch: sửa nguồn `i18n/ui/`, chạy `i18n-dedupe.cjs` + `i18n-pack.mjs` (I18N-PIPELINE §1b).
 - Sau commit bot "i18n: cập nhật…" xem `--stat`: hàng trăm dòng bị xoá = mất bản dịch (harvest hết lượt).
 
 ## 6. Nội dung & blog
