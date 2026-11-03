@@ -1,3 +1,4 @@
+// ĐANG THAY bằng R2 tĩnh lexkite-media-cdn (docs/CAPACITY.md §A5, scripts/cdn/) – Worker giữ deploy làm đường lùi: scripts/cdn/cutover.mjs rollback --host media.
 // media.lexkite.com – CDN ảnh (blog, ảnh chụp app) + kho dựng video /library/ (scripts/video/library.mjs): Cloudflare đứng trước kho GitHub Pages lexkiteapp/lexkite-media.
 // Máy chủ gần người dùng. Ảnh blog: tên có mã băm → cache 1 năm immutable. /library/: tên chuẩn cố định (có thể cập nhật bằng _vN) → cache 1 ngày.
 // MP4 hỗ trợ Range (tua video). Khi kho gần 1 GB: đổi ORIGIN sang R2, URL giữ nguyên.
