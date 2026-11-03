@@ -274,7 +274,7 @@ const OWN = {
 ],
 'noun-plurals': [
 { t: 'own', q: "Write about some people or animals you saw recently.", hint: "I saw some children/sheep …", a: ["I saw some children playing in the park.", "There were many sheep on the farm."], ex: "Danh từ số nhiều bất quy tắc: child → children, sheep → sheep, man → men." },
-{ t: 'own', q: "Write about things in your kitchen with -ies, -ves or -es plurals.", hint: "There are … knives / … boxes …", a: ["There are three knives in the drawer.", "We keep the boxes on the top shelf."], ex: "knife → knives (-f → -ves), box → boxes (-x → -es), city → cities (-y → -ies)." },
+{ t: 'own', q: "Write about things in your kitchen with -ies, -ves or -es plurals.", hint: "There are … knives / … boxes …", a: ["There are three knives in the drawer.", "We keep the boxes on the top shelf."], ex: "Danh từ đổi đuôi khi thành số nhiều: knife → knives (-f → -ves), box → boxes (-x → -es), city → cities (-y → -ies)." },
 ],
 'possessive-case': [
 { t: 'own', q: "Write about something that belongs to a friend.", hint: "My friend's …", a: ["My friend's house is near the river.", "Tom's sister works in a hospital."], ex: "Sở hữu cách với người → N's + N (my friend's house)." },
