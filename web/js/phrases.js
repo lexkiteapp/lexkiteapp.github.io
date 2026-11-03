@@ -161,10 +161,15 @@
     if (!el || !view.contains(el) || el.closest(NO_LOOKUP) || document.body.classList.contains('bare')) return null;
     const t = cleanText(sel.getRangeAt(0).cloneContents());
     if (!t || t.length > 600 || !/[A-Za-z]{2}/.test(t) || /[À-ỹ]/.test(t)) return null;
-    const block = el.closest('p, li, .example-box, .ex, .meaning, .sent, .tl, .lq-item, div');
-    const full = block ? cleanText(block) : t;
-    const sents = full.match(/[^.!?]+[.!?]+["”’)]*|[^.!?]+$/g) || [full];
-    let sentence = (sents.find(x => x.toLowerCase().includes(t.toLowerCase().slice(0, 40))) || full).trim();
+    // Ngữ cảnh: ưu tiên câu có cấu trúc (data-sent: câu ví dụ/ngữ cảnh tiếng Anh của thẻ) – không cào chữ thẻ cha (tên từ, phiên âm, nhãn UK/US, "💬 Ví dụ")
+    const pick = (full, k) => { const sents = full.match(/[^.!?]+[.!?]+["”’)]*|[^.!?]+$/g) || [full]; return sents.find(x => x.toLowerCase().includes(k)); };
+    const key = t.toLowerCase().slice(0, 40), own = el.closest('[data-sent]');
+    let sentence = own && own.dataset.sent ? (pick(own.dataset.sent.replace(/\s+/g, ' ').trim(), key) || '').trim() : '';
+    if (!sentence) {
+      const block = el.closest('p, li, blockquote, figure, .say-tx, .example-box, .ex, .meaning, .sent, .tl, .lq-item, div');
+      const full = block ? UI.ttsClean(cleanText(block)) : t;
+      sentence = (pick(full, key) || full).trim();
+    }
     if (sentence.length > 300) sentence = sentence.slice(0, 297) + '…';
     return { text: t.replace(/^[^A-Za-z(]+|[^A-Za-z)]+$/g, ''), sentence, rect: sel.getRangeAt(0).getBoundingClientRect() };
   };
