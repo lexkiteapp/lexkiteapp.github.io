@@ -17,7 +17,7 @@
     'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)',
     'Dự báo: +{g} GB/tháng (từ {s}) · {d}': 'Forecast: +{g} GB/month (since {s}) · {d}', 'còn ≈ {n} ngày tới khi đầy': '≈ {n} days until full', 'không tăng': 'not growing', 'Dự báo: cần ≥ 2 ngày số liệu (health hằng ngày)': 'Forecast: needs ≥ 2 days of data (daily health)',
     '🎬 Shorts: {b} ({p}% Drive) · {n} file': '🎬 Shorts: {b} ({p}% of this Drive) · {n} files', '🎬 Kho shorts: {b} · {m} master (TB {a}) · còn chứa ≈ {c} clip (≈ 10 MB/master, tới ngưỡng 90 %)': '🎬 Shorts archive: {b} · {m} masters (avg {a}) · room for ≈ {c} more clips (≈ 10 MB/master, up to the 90 % stop)',
-    'Sổ kho': 'Ledger', '🗄️ Kho Drive riêng': '🗄️ Private Drive storage', 'Sao lưu bản gốc, clip và bản dựng của kho tài nguyên vào Google Drive của chính bạn (nguồn sao lưu 2). App chỉ thấy file do nó tạo (quyền drive.file).': 'Back up originals, clips and renders of the asset library to your own Google Drive (backup source 2). The app only sees files it created (drive.file scope).',
+    'Vừa cập nhật bởi {who}': 'Just updated by {who}', 'Sổ kho': 'Ledger', '🗄️ Kho Drive riêng': '🗄️ Private Drive storage', 'Sao lưu bản gốc, clip và bản dựng của kho tài nguyên vào Google Drive của chính bạn (nguồn sao lưu 2). App chỉ thấy file do nó tạo (quyền drive.file).': 'Back up originals, clips and renders of the asset library to your own Google Drive (backup source 2). The app only sees files it created (drive.file scope).',
     '➕ Kết nối Google Drive': '➕ Connect Google Drive', '🔄 Tải lại': '🔄 Reload', 'Đang mở Google…': 'Opening Google…', 'Tổng dung lượng': 'Total capacity', 'Đã dùng': 'Used', 'Còn trống': 'Free', '{n} Drive': ['{n} Drive', '{n} Drives'],
     'Chưa nối Drive nào. Bấm "Kết nối Google Drive" và đăng nhập tài khoản Google muốn dùng.': 'No Drive connected yet. Click "Connect Google Drive" and sign in with the Google account to use.',
     'Đang nhận file': 'Accepting files', 'Đang rút (không nhận file mới)': 'Draining (no new files)', 'Mất quyền – cần nối lại': 'Access lost – reconnect', '{n} file · {b}': ['{n} file · {b}', '{n} files · {b}'], 'Kiểm tra gần nhất: {t}': 'Last check: {t}',
@@ -117,6 +117,7 @@
     return list.filter(ok).filter(x => !qq || String(x.email).toLowerCase().includes(qq) || String(x.id) === qq).sort(cmp);
   }
   let gen = 0;
+const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { const sc = document.createElement('script'); sc.src = 'js/admin-sync.js'; sc.onload = y; sc.onerror = y; document.head.appendChild(sc); }); // đồng bộ giữa các admin (admin-sync.js)
   function render(box, dapi, L, h) {
     const esc = h.esc, lang = h.lang || (() => 'vi'), when = h.when || (t => (t ? new Date(t).toLocaleString() : '–')), my = ++gen;
     const S = (vi, vars) => {
@@ -154,6 +155,7 @@
     };
     let D = null;
     dapi('list').then(d => { if (my !== gen) return; D = d; draw(); }).catch(e => { if (my !== gen) return; box.innerHTML = `<div class="card"><p class="small">${esc(e.code === 'timeout' ? S('Máy chủ phản hồi quá lâu – thử lại sau ít phút') : e.code === 'network' ? S('Mất kết nối mạng – kiểm tra mạng rồi thử lại') : errTxt(e))}</p><button type="button" class="btn sm" data-retry>${S('Thử lại')}</button></div>`; box.querySelector('[data-retry]').onclick = reload; });
+    syncJs().then(() => { if (my === gen && window.AdminSync) AdminSync.watch(['drive'], () => dapi('list').then(d => { if (my === gen && D) { D = d; draw(); } }), { box, S }); }); // admin khác nối/ngắt/sửa Drive → thấy ngay
 
     function draw() {
       const d = D, c = d.configured || {}, ready = c.client && c.secret && c.key;

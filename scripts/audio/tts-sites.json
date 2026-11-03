@@ -28,6 +28,7 @@
   "web/js/study-modes.js": { "groups": ["words-uk", "words-us", "examples-uk", "examples-us"] },
   "web/js/quick.js": { "groups": ["words-uk", "words-us"] },
   "web/js/listening.js": { "groups": ["listening", "words-uk", "words-us"] },
+  "web/js/watch.js": { "groups": ["words-uk", "words-us"], "dynamic": "từ người học gõ khi xem video YouTube (#/watch) – từ ngoài kho đọc động" },
   "web/js/dict-page.js": { "groups": ["examples-uk", "examples-us"], "dynamic": "định nghĩa/câu từ điển ngoài (Dict API) cho từ ngoài kho" },
   "web/js/plan.js": { "groups": ["words-uk", "words-us"], "dynamic": "đáp án câu sai lấy từ bài làm" },
   "web/js/handsfree.js": { "groups": ["words-uk"], "dynamic": "nghĩa tiếng mẹ đẻ (Kokoro không có tiếng Việt) – giọng máy" },
