@@ -99,6 +99,14 @@
    "r-morning": "L.A2p.01"
   },
   "situation": {
+   "supermarket": ["I.A1.04", "I.A2.03"],
+   "pharmacy": ["I.A2p.03", "I.A2.06"],
+   "bank": ["I.B1.05", "I.B1p.01"],
+   "post-office": ["I.A2.03", "I.A1.04"],
+   "hairdresser": ["I.A2.03", "I.A2.06"],
+   "dentist": ["I.A2p.03", "I.B1p.01"],
+   "restaurant-order": ["I.A1.03", "I.A2.06"],
+   "taxi": ["I.A1.09", "I.A2.03"],
    "cafe": ["I.A1.03", "I.A2.06"]
   },
   "call": {
