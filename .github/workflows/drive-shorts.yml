@@ -1,3 +1,4 @@
+# ci-policy: queue – sao lưu short lên Drive tuần tự, huỷ lượt đang chạy là sót file vừa render
 # Sao lưu shorts ĐẠT (lexkiteapp/lexkite-shorts) lên Kho Drive riêng – scripts/video/drive-shorts.mjs.
 # Idempotent (sha trong index.json + sổ drive_files), tiếp tục được (ghi index sau mỗi short), có nhịp nghỉ.
 # Ghi vị trí file (item.drive.{video,cover}) ngược vào shorts/index.json của lexkite-shorts, rồi tải manifest thư viện quản trị
@@ -20,6 +21,7 @@ concurrency: { group: drive-shorts, cancel-in-progress: false }
 permissions: { contents: read }
 jobs:
   backup:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion != 'cancelled' && github.event.workflow_run.conclusion != 'skipped')   # ci-policy 4a: lượt nguồn huỷ/bỏ qua → không có gì mới, không chiếm runner
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
