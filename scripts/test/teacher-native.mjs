@@ -24,6 +24,8 @@ for (const [f, n] of Object.entries(raw)) {
 for (const [f, k] of Object.entries(KNOWN)) if ((raw[f] || 0) < k) err.push(`${f}: còn ${raw[f] || 0} < ${k} trong teacher-native.known.json – hạ số trong danh sách (chỉ được giảm)`);
 const sl = fs.readFileSync(path.join(ROOT, 'web/js/teacher-slot.js'), 'utf8');
 if (!/\.tslot-fig\{[^}]*bottom:0;overflow:hidden/.test(sl) || /clip-path|mask-image/.test(sl) || !/tslot-ledge/.test(sl)) err.push('teacher-slot.js: thiếu khung cắt đáy (overflow, không clip-path/mask – final-qc coi mặt nạ là dán) hoặc bệ che hông (vệt cắt sẽ lộ)');
+{ const fg = (sl.match(/\.tslot-fig\{[^}]*\}/) || [''])[0], lr = ['left', 'right'].map(k => +((fg.match(new RegExp(k + ':calc\\(var\\(--h\\)\\*-([.\\d]+)\\)')) || [])[1]));
+  if (!lr.every(x => x >= 0.243 && x <= 0.3)) err.push(`teacher-slot.js: .tslot-fig lố ngang phải vừa ảnh (0,243–0,3 khung-cao mỗi bên: ảnh 1,385, khung 0,9) – đang ${lr.join('/')}; rộng hơn → tràn ngang màn 360 px, hẹp hơn → cắt tay`); }
 if (!/prefers-reduced-motion:no-preference/.test(sl)) err.push('teacher-slot.js: chuyển động phải nằm trong prefers-reduced-motion:no-preference');
 const idx = fs.readFileSync(path.join(ROOT, 'web/app/index.html'), 'utf8');
 if (!(idx.indexOf('js/characters.js') > 0 && idx.indexOf('js/teacher-slot.js') > idx.indexOf('js/characters.js'))) err.push('web/app/index.html: teacher-slot.js phải nạp ngay sau characters.js');
