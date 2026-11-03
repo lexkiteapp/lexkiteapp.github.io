@@ -1,0 +1,37 @@
+# 🧱 Một khung app: mọi route của app thật (390/1280 × sáng/tối) so với chuẩn biến thể hub/inner/focus (docs/DESIGN-SYSTEM.md §5d)
+# – thanh trên, nút Back/X ≥ 44 + đích, thanh 5 tab, khung nội dung, thẻ, tiêu đề, CTA, màu token, icon cùng khái niệm.
+# Đỏ khi có lệch (không allowlist). Báo cáo: artifact frame-consistency (report.md + raw.json). Hermetic, 0 lượt chạm prod.
+name: Frame consistency
+on:
+  pull_request:
+    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', '.github/workflows/frame-consistency.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: frame-consistency-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  frame:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Cài + build dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+          echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Quét khung mọi route
+        run: node scripts/test/frame-consistency.mjs --root dist --out out/frame-consistency
+      - name: Tóm tắt
+        if: always()
+        run: test -f out/frame-consistency/report.md && head -c 60000 out/frame-consistency/report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: frame-consistency, path: out/frame-consistency, retention-days: 7 }
