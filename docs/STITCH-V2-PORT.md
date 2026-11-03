@@ -25,6 +25,7 @@ Code KHÔNG vẽ lại giao diện: bộ chuyển sinh khung, mình chỉ gắn 
 - `attr` {bộ chọn: {thuộc tính: biểu thức}} · `cls` {bộ chọn: {class mẫu: biểu thức class}} (class trả về phải viết nguyên văn trong file JS) ·
   `addClass` (chỉ class không đổi hình: cắt tràn, móc test) · `tag` {bộ chọn: {to:'a'}} · `after` {bộ chọn: biểu thức} (chèn, vd giáo viên) · `remove` (CHỈ chỗ giữ chỗ người/ảnh Stitch).
 - `repeat` [{list, as, variants {tên: bộ chọn mẫu}, samples (mọi mẫu Stitch cần gỡ), pick (biểu thức → tên khuôn), bind {tên: {phép…}}}] – danh sách thật, nhiều khuôn.
+- `styles: true` – mẫu có class tự đặt trong `<style>` (.tactile-card, .speech-bubble::before…) → đổi ra class thuộc tính tuỳ ý (kèm active:/hover:/before:/after:). `keep` + `parts` lấy 1 phần khung; `src: '<màn>'` = dùng cặp HTML của màn khác (vd `today-rail` ← `today-desk`).
 - `protos` {tên: bộ chọn | {sel, …phép}} – phần tử mẫu làm KHUÔN cho nội dung dựng lúc build (lấy TRƯỚC các phép khác) → `ST2.P.<trang>(t, e).<tên>(d)`; web: `protos(k, lang)` (scripts/lib/st-web.mjs). Vd thân bài markdown (bind/post.json).
 - `keys` {khóa Việt: chữ EN} – chữ generator tự dựng (không có trong mẫu) đi cùng pipeline dịch v2web; dùng `tr(lang)(khóa)`.
 - `shell: true` – chỉ màn Học: đầu trang + thanh tab chung (shell.js). Màn khác có header/nav riêng của Stitch → giữ; dùng chung → `remove` + tab qua mount.

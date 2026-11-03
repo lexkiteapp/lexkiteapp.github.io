@@ -16,6 +16,10 @@ if (IDS.join() !== 'ama,carlos') errs.push(`registry phải đúng 2 người am
 const g = {}; new Function('self', fs.readFileSync('web/js/characters.js', 'utf8'))(g); const C = g.Chars;
 { const h = {}, src = fs.readFileSync('web/js/characters.js', 'utf8'); new Function('self', src)(h); h.Chars.slot = () => 'x'; new Function('self', src)(h); // gói lười 'pas' nạp lại characters.js
   if (typeof h.Chars.slot !== 'function') errs.push('characters.js nạp lại xoá mất Chars.slot (teacher-slot.js) – phải Object.assign(g.Chars || {}, …)'); }
+{ const h = {}; new Function('self', fs.readFileSync('web/js/characters.js', 'utf8'))(h); new Function('self', fs.readFileSync('web/js/teacher-slot.js', 'utf8'))(h); // vòng nghỉ trong chỗ giáo viên (Home "Hôm nay", spec home-upgrade L2)
+  const I = h.Chars.idle('ama'), s = h.Chars.slot('ama', { size: 'm', idle: true }), w = h.Chars.slot('ama', { pose: 'wave', size: 'm', clip: true, loop: 6000 });
+  if (!s.includes(`data-clip="${I.mp4}"`) || !s.includes(`data-webm="${I.webm}"`) || !s.includes('data-loop="0"') || !s.includes('data-pose="happy"') || !/still-happy/.test(s)) errs.push('Chars.slot({idle:true}) phải gắn idle.mp4 (WebGL) + idle.webm (VP9α) lặp liền (data-loop="0"), tư thế happy, ảnh tĩnh happy bên dưới: ' + s.slice(0, 160));
+  if (!w.includes(`data-clip="${h.Chars.clip('ama', 'wave')}"`) || !w.includes('data-loop="6000"') || /data-webm/.test(w)) errs.push('Chars.slot clip tư thế: phải giữ clip + nghỉ 6 s, không gắn vòng nghỉ: ' + w.slice(0, 160)); }
 if (C.ids.join() !== IDS.join()) errs.push(`Chars.ids ${C.ids} ≠ characters.json ${IDS}`);
 for (const who of IDS) if (C.voice(who) !== ((R.people[who].voice || {}).app)) errs.push(`Chars.voice(${who}) ${C.voice(who)} ≠ characters.json voice.app ${(R.people[who].voice || {}).app}`);
 if (C.poses.join() !== R.poses.join()) errs.push(`Chars.poses ≠ characters.json poses`);

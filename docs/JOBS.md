@@ -107,7 +107,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
-| `scripts/build-seo-pages.mjs` – /<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt) | `loadBrowserIndex` | build-web → indexnow |
+| `scripts/lib/seo-words.mjs` – /<lang>/words/ (build-seo-pages: trang + sitemap-words + IndexNow .seo-urls.txt) + hộp từ blog 13 ngôn ngữ (build-blog qua lib/blog-words.mjs) | `loadBrowserIndex` | build-web → indexnow |
 | `scripts/gen-word-audio.mjs` – hàng âm thanh Kokoro Anh/Mỹ (kho từ qua scripts/word-audio/lib.mjs) | `loadAllPlus` | word-audio mỗi 4 giờ |
 | `scripts/word-audio/lib.mjs` – kho từ cần giọng đọc từ đơn s3 (gen-word-audio.mjs, merge.mjs) | `loadAllPlus` | word-audio mỗi 4 giờ |
 | `scripts/scriptbank/lib.mjs` – điểm học kịch bản video (từ#loại tra kho) | `expandRows` | script-bank 00:50 UTC |
