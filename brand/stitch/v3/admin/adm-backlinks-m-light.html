@@ -146,16 +146,14 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-[#faf8f5] text-on-surface antialiased font-body-md flex justify-center min-h-screen">
 <!-- iPhone 390px Viewport Shell -->
 <div class="w-full max-w-[390px] min-h-screen bg-[#faf8f5] flex flex-col relative pb-20 shadow-2xl overflow-x-hidden border-x border-[#d8d0c2]/50">
 <!-- TopAppBar (Shared Component Implementation) -->
 <header class="sticky top-0 z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-space-md h-14">
 <div class="flex items-center gap-space-sm min-w-0">
-<button aria-label="Menu" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low active:scale-95 transition-transform duration-150" type="button">
-<span class="material-symbols-outlined text-[22px]">menu</span>
-</button>
+<button aria-label="Menu" class="min-w-[44px] min-h-[44px] w-11 h-11 -ml-1 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low active:scale-95 transition-transform duration-150" type="button"><span class="material-symbols-outlined text-[22px]">menu</span></button>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="text-headline-sm font-headline-sm font-semibold text-on-surface truncate">Backlink &amp; Thương hiệu</span>
@@ -164,11 +162,7 @@
 <span class="text-body-sm font-body-sm text-[#4a5a5c] text-[11px] truncate leading-tight">Admin › Backlink, PR &amp; Thương hiệu</span>
 </div>
 </div>
-<div class="flex items-center shrink-0">
-<div class="w-8 h-8 rounded-full bg-[#115e59] text-white flex items-center justify-center font-bold text-[12px] border border-[#0f4c4a] shadow-sm">
-          HM
-        </div>
-</div>
+<div class="flex items-center shrink-0"><button aria-label="Tài khoản cá nhân HM" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full active:scale-95 transition-transform" type="button"><span class="w-8 h-8 rounded-full bg-[#115e59] text-white flex items-center justify-center font-bold text-[12px] border border-[#0f4c4a] shadow-sm">HM</span></button></div>
 </header>
 <!-- Main Content Canvas -->
 <main class="flex-1 px-space-md py-4 space-y-4">
@@ -188,10 +182,7 @@
 <span>Chu kỳ tiếp theo: 24h</span>
 </div>
 </div>
-<button class="shrink-0 px-3 py-2 bg-primary-container text-white text-label-md font-label-md rounded-lg shadow-sm border border-[#f0532d] hover:bg-[#f0532d] active:scale-95 transition-all duration-150 flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-[16px]">refresh</span>
-<span>Kiểm tra ngay</span>
-</button>
+<button class="shrink-0 px-3.5 py-2 min-h-[44px] bg-[#ba1a1a] text-white text-label-md font-label-md rounded-lg shadow-sm border border-[#ba1a1a] hover:bg-[#991b1b] active:scale-95 transition-all duration-150 flex items-center justify-center gap-1.5" type="button"><span class="material-symbols-outlined text-[18px]">refresh</span><span>Kiểm tra ngay</span></button>
 </div>
 <div class="w-full bg-[#f4efe6] h-1.5 rounded-full overflow-hidden">
 <div class="bg-[#115e59] h-full rounded-full w-[91.3%]"></div>
@@ -260,20 +251,7 @@
 </div>
 </section>
 <!-- 3. Filter Tabs (Pill Style) -->
-<nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[#115e59] text-white shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
-<span>Backlink &amp; PR</span>
-<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px] font-bold">46</span>
-</button>
-<button class="shrink-0 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest text-[#4a5a5c] border border-[#d8d0c2] hover:bg-[#f4efe6] flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
-<span>Tên miền nhái</span>
-<span class="px-1.5 py-0.2 rounded-full bg-[#f4efe6] text-[10px] text-[#9f1239] font-bold">2</span>
-</button>
-<button class="shrink-0 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest text-[#4a5a5c] border border-[#d8d0c2] hover:bg-[#f4efe6] flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
-<span>MXH &amp; Re-up</span>
-<span class="px-1.5 py-0.2 rounded-full bg-[#f4efe6] text-[10px] text-[#115e59] font-bold">5</span>
-</button>
-</nav>
+<nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5"><button class="shrink-0 px-3.5 py-2 min-h-[44px] rounded-full text-label-md font-label-md bg-[#115e59] text-white shadow-sm flex items-center justify-center gap-1.5 active:scale-95 transition-transform" type="button"><span>Backlink &amp; PR</span><span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px] font-bold">46</span></button><button class="shrink-0 px-3.5 py-2 min-h-[44px] rounded-full text-label-md font-label-md bg-surface-container-lowest text-[#132628] border border-[#d8d0c2] hover:bg-[#f4efe6] flex items-center justify-center gap-1.5 active:scale-95 transition-transform" type="button"><span>Tên miền nhái</span><span class="px-1.5 py-0.5 rounded-full bg-[#f4efe6] text-[10px] text-[#9f1239] font-bold">2</span></button><button class="shrink-0 px-3.5 py-2 min-h-[44px] rounded-full text-label-md font-label-md bg-surface-container-lowest text-[#132628] border border-[#d8d0c2] hover:bg-[#f4efe6] flex items-center justify-center gap-1.5 active:scale-95 transition-transform" type="button"><span>MXH &amp; Re-up</span><span class="px-1.5 py-0.5 rounded-full bg-[#f4efe6] text-[10px] text-[#115e59] font-bold">5</span></button></nav>
 <!-- 4. DANH SÁCH TRỞ VỀ GẦN NHẤT (Recent Backlinks) -->
 <section class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card overflow-hidden">
 <!-- Card Header -->
@@ -456,10 +434,7 @@
                 Trang web sao chép giao diện đăng nhập và yêu cầu người dùng trả phí trọn đời 299k qua mã QR giả.
               </p>
 </div>
-<button class="w-full py-2 px-3 bg-surface-container-lowest text-[#ba1a1a] border border-[#fecdd3] hover:bg-[#fff1f2] rounded-lg text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-98 transition-all" type="button">
-<span class="material-symbols-outlined text-[16px]">send_and_archive</span>
-<span>Gửi khiếu nại Registrar</span>
-</button>
+<button class="w-full min-h-[44px] py-2 px-3 bg-surface-container-lowest text-[#ba1a1a] border border-[#ba1a1a] hover:bg-[#fff1f2] rounded-lg text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-98 transition-all font-semibold" type="button"><span class="material-symbols-outlined text-[18px]">send_and_archive</span><span>Gửi khiếu nại Registrar</span></button>
 </article>
 <!-- Alert 2 -->
 <article class="p-3.5 space-y-2.5">
@@ -481,10 +456,7 @@
                 Copy toàn bộ chuỗi clip giải thích thuật toán FSRS của Ama/Carlos, cắt watermark và gắn bio bán khóa học.
               </p>
 </div>
-<button class="w-full py-2 px-3 bg-[#115e59] text-white hover:bg-[#0f4c4a] rounded-lg text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-98 transition-all shadow-sm" type="button">
-<span class="material-symbols-outlined text-[16px]">copyright</span>
-<span>Báo cáo DMCA</span>
-</button>
+<button class="w-full min-h-[44px] py-2 px-3 bg-[#115e59] text-white hover:bg-[#0f4c4a] rounded-lg text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-98 transition-all shadow-sm font-semibold" type="button"><span class="material-symbols-outlined text-[18px]">copyright</span><span>Báo cáo DMCA</span></button>
 </article>
 </div>
 </section>

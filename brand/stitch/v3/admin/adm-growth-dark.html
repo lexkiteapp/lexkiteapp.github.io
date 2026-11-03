@@ -107,7 +107,7 @@
     }
   </style>
 </head>
-<body class="bg-night-900 text-slate-100 font-sans antialiased min-h-screen flex selection:bg-teal-900 selection:text-teal-300">
+<body class="bg-night-900 text-slate-100 font-sans antialiased min-h-screen flex selection:bg-teal-900 selection:text-teal-300 overflow-x-hidden">
 <!-- ==================== LEFT SIDEBAR ==================== -->
 <aside class="w-64 flex-shrink-0 bg-night-800 border-r border-night-border flex flex-col h-screen sticky top-0 z-30 select-none">
 <!-- Brand Header -->
@@ -136,106 +136,27 @@
 <!-- Group: Tổng quan -->
 <div>
 <p class="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Tổng quan</p>
-<nav class="space-y-0.5">
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">space_dashboard</span>
-<span>Tổng quan</span>
-</a>
-<!-- SELECTED ITEM -->
-<a class="flex items-center justify-between px-3 py-2 rounded-xl font-bold bg-teal-500/15 text-teal-300 border border-teal-500/40 shadow-tactile-teal min-h-[40px]" href="#">
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-rounded text-lg text-teal-400">insights</span>
-<span class="text-white">Phân tích</span>
-</div>
-<span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">campaign</span>
-<span>Quảng cáo</span>
-</a>
-</nav>
+<nav class="space-y-0.5"><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">space_dashboard</span><span>Tổng quan</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-xl font-bold bg-teal-500/20 text-teal-200 border border-teal-500/50 shadow-tactile-teal min-h-[44px]" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-rounded text-lg text-teal-300">insights</span><span class="text-white">Phân tích</span></div><span class="w-2 h-2 rounded-full bg-teal-300 animate-pulse"></span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">campaign</span><span>Quảng cáo</span></a></nav>
 </div>
 <!-- Group: Người dùng -->
 <div>
 <p class="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Người dùng</p>
-<nav class="space-y-0.5">
-<a class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-rounded text-lg text-teal-400">group</span>
-<span>Người dùng</span>
-</div>
-<span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-night-750 text-slate-300 border border-night-border">318</span>
-</a>
-<a class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-rounded text-lg text-teal-400">mail</span>
-<span>Hộp thư</span>
-</div>
-<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-coral-700/40 text-coral-500 border border-coral-500/40">3</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">notifications</span>
-<span>Thông báo</span>
-</a>
-</nav>
+<nav class="space-y-0.5"><a class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-rounded text-lg text-teal-400">group</span><span>Người dùng</span></div><span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-night-750 text-slate-200 border border-night-border">318</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-rounded text-lg text-teal-400">mail</span><span>Hộp thư</span></div><span class="text-xs font-bold px-2 py-0.5 rounded-full bg-coral-500 text-white border border-coral-500/50">3</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">notifications</span><span>Thông báo</span></a></nav>
 </div>
 <!-- Group: Chất lượng -->
 <div>
 <p class="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Chất lượng</p>
-<nav class="space-y-0.5">
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">warning_amber</span>
-<span>Cảnh báo</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">bug_report</span>
-<span>Báo lỗi</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">verified</span>
-<span>Chất lượng</span>
-</a>
-</nav>
+<nav class="space-y-0.5"><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">warning</span><span>Cảnh báo</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">bug_report</span><span>Báo lỗi</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">verified</span><span>Chất lượng</span></a></nav>
 </div>
 <!-- Group: Nội dung & Video -->
 <div>
 <p class="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Nội dung &amp; Video</p>
-<nav class="space-y-0.5">
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">hub</span>
-<span>Kênh &amp; phân phối</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">smart_display</span>
-<span>Video &amp; Social</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">movie_edit</span>
-<span>Video Studio</span>
-</a>
-</nav>
+<nav class="space-y-0.5"><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">hub</span><span>Kênh &amp; phân phối</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">smart_display</span><span>Video &amp; Social</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">movie_edit</span><span>Video Studio</span></a></nav>
 </div>
 <!-- Group: Hệ thống -->
 <div>
 <p class="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Hệ thống</p>
-<nav class="space-y-0.5">
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">speed</span>
-<span>Hạn mức</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">cloud_sync</span>
-<span>Kho Drive</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">key</span>
-<span>Khóa API</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:bg-night-700 hover:text-white transition-colors min-h-[38px]" href="#">
-<span class="material-symbols-rounded text-lg text-teal-400">settings</span>
-<span>Cài đặt</span>
-</a>
-</nav>
+<nav class="space-y-0.5"><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">speed</span><span>Hạn mức</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">cloud_sync</span><span>Kho Drive</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">key</span><span>Khóa API</span></a><a class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-slate-200 hover:bg-night-700 hover:text-white transition-colors min-h-[44px]" href="#"><span class="material-symbols-rounded text-lg text-teal-400">settings</span><span>Cài đặt</span></a></nav>
 </div>
 </div>
 <!-- Sidebar Footer -->
@@ -266,26 +187,18 @@
 <!-- Search field with Ctrl K -->
 <div class="relative w-64">
 <span class="material-symbols-rounded absolute left-3 top-1/2 -translate-y-1/2 text-lg text-slate-400">search</span>
-<input class="w-full pl-9 pr-14 py-2 bg-night-750 text-xs text-slate-200 rounded-xl border border-night-border focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-all placeholder:text-slate-400 shadow-tactile-subtle font-medium" placeholder="Tìm tính năng, số liệu..." readonly="" type="text"/>
+<input class="w-full pl-9 pr-14 py-2.5 min-h-[44px] bg-night-750 text-xs text-slate-100 rounded-xl border border-night-border focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-all placeholder:text-slate-300 shadow-tactile-subtle font-medium" placeholder="Tìm tính năng, số liệu..." readonly="" type="text"/>
 <div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center">
 <kbd class="px-1.5 py-0.5 text-[10px] font-mono font-semibold text-slate-300 bg-night-850 border border-night-border rounded shadow-xs">Ctrl K</kbd>
 </div>
 </div>
 <!-- Language Switcher: VI | EN -->
-<div class="flex items-center rounded-xl p-0.5 bg-night-750 border border-night-border text-xs font-semibold shadow-tactile-subtle">
-<button class="px-2.5 py-1.5 rounded-lg bg-teal-500/20 text-teal-300 border border-teal-500/30 shadow-xs min-h-[30px] flex items-center">VI</button>
-<button class="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 min-h-[30px] flex items-center transition-colors">EN</button>
-</div>
+<div class="flex items-center rounded-xl p-0.5 bg-night-750 border border-night-border text-xs font-semibold shadow-tactile-subtle"><button class="px-3 py-2 rounded-lg bg-teal-500/20 text-teal-200 border border-teal-500/40 shadow-xs min-h-[44px] min-w-[44px] flex items-center justify-center font-bold">VI</button><button class="px-3 py-2 rounded-lg text-slate-200 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center font-semibold transition-colors">EN</button></div>
 <!-- Notification Bell (min 44x44 click target) -->
-<button class="w-10 h-10 rounded-xl border border-night-border bg-night-750 hover:bg-night-700 text-slate-300 flex items-center justify-center transition-colors shadow-tactile-subtle relative" title="Thông báo hệ thống">
-<span class="material-symbols-rounded text-xl">notifications</span>
-<span class="w-2 h-2 rounded-full bg-coral-500 absolute top-2 right-2 ring-2 ring-night-800"></span>
-</button>
+<button class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-xl border border-night-border bg-night-750 hover:bg-night-700 text-slate-200 flex items-center justify-center transition-colors shadow-tactile-subtle relative" title="Thông báo hệ thống"><span class="material-symbols-rounded text-xl">notifications</span><span class="w-2.5 h-2.5 rounded-full bg-coral-500 absolute top-2 right-2 ring-2 ring-night-800"></span></button>
 <!-- Admin Initials Avatar -->
 <div class="flex items-center gap-2 pl-2 border-l border-night-border">
-<div class="w-10 h-10 rounded-xl bg-teal-950 border border-teal-500/40 flex items-center justify-center text-teal-300 font-bold text-xs shadow-tactile-subtle" title="Quản trị viên: Minh Anh (Lexkite Lead)">
-            MA
-          </div>
+<div class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-xl bg-teal-950 border border-teal-500/50 flex items-center justify-center text-teal-200 font-bold text-xs shadow-tactile-subtle" title="Quản trị viên: Minh Anh (Lexkite Lead)">MA</div>
 <div class="text-left hidden lg:block">
 <p class="text-xs font-bold text-slate-100 leading-tight">Minh Anh</p>
 <p class="text-[11px] text-slate-400 leading-tight">Admin nhóm nhỏ</p>
@@ -300,19 +213,13 @@
 <div>
 <div class="flex items-center gap-2">
 <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-teal-950/80 text-teal-400 border border-teal-500/40">Bản thử nghiệm đóng</span>
-<span class="text-xs text-slate-400">Cập nhật hôm nay lúc 09:30 · Dữ liệu thực tế, trung thực</span>
+<span class="text-xs text-slate-300 font-medium">Cập nhật hôm nay lúc 09:30 · Dữ liệu thực tế, trung thực</span>
 </div>
-<p class="text-xs text-slate-300 mt-1 max-w-2xl leading-relaxed">
-            Theo dõi dòng người học trải nghiệm Lexkite (IELTS, TOEFL, TOEIC) từ lúc truy cập web tới việc duy trì nhịp ôn luyện 7 ngày.
-          </p>
+<p class="text-xs text-slate-200 mt-1 max-w-2xl leading-relaxed font-normal">Theo dõi dòng người học trải nghiệm Lexkite (IELTS, TOEFL, TOEIC) từ lúc truy cập web tới việc duy trì nhịp ôn luyện 7 ngày.</p>
 </div>
 <div class="flex items-center gap-3">
 <!-- Time Range Segmented Control -->
-<div class="flex items-center p-1 bg-night-800 border border-night-border rounded-xl shadow-tactile-subtle">
-<button class="px-3.5 py-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 rounded-lg transition-colors min-h-[32px]">7 ngày</button>
-<button class="px-3.5 py-1.5 text-xs font-bold text-teal-300 bg-teal-500/15 border border-teal-500/40 rounded-lg shadow-tactile-teal min-h-[32px]">30 ngày</button>
-<button class="px-3.5 py-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 rounded-lg transition-colors min-h-[32px]">90 ngày</button>
-</div>
+<div class="flex items-center p-1 bg-night-800 border border-night-border rounded-xl shadow-tactile-subtle"><button class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center">7 ngày</button><button class="px-3.5 py-2.5 text-xs font-bold text-teal-200 bg-teal-500/20 border border-teal-500/50 rounded-lg shadow-tactile-teal min-h-[44px] min-w-[44px] flex items-center justify-center">30 ngày</button><button class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center">90 ngày</button></div>
 <!-- The SINGLE Warm Coral Primary Action per view (per brand rules) -->
 <button class="tactile-button-coral px-4 py-2 text-white font-bold text-xs rounded-xl flex items-center gap-2 min-h-[44px]">
 <span class="material-symbols-rounded text-lg">download</span>
@@ -467,7 +374,7 @@
 <span class="material-symbols-rounded text-teal-400 text-base">lightbulb</span>
 <span><strong class="text-slate-100">Điểm sáng:</strong> 76,1% người vừa tạo tài khoản đã hoàn thành ngay bài kiểm tra mẫu đầu tiên.</span>
 </div>
-<a class="text-teal-400 hover:text-teal-300 font-bold underline underline-offset-2 flex-shrink-0" href="#">Chi tiết bước</a>
+<a class="text-teal-300 hover:text-teal-200 font-bold underline underline-offset-2 flex-shrink-0 py-2.5 px-2 inline-flex items-center min-h-[44px]" href="#">Chi tiết bước</a>
 </div>
 </section>
 <!-- ADD-ON CHROME CARD (5 cols) -->
@@ -535,7 +442,7 @@
 </div>
 <div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-slate-300">
 <span>Đánh giá Chrome Web Store: <strong class="text-slate-100 font-mono">4.9/5</strong> (24 review)</span>
-<a class="text-teal-400 hover:text-teal-300 font-bold underline underline-offset-2" href="#">Xem logs đồng bộ</a>
+<a class="text-teal-300 hover:text-teal-200 font-bold underline underline-offset-2 py-2.5 px-2 inline-flex items-center min-h-[44px]" href="#">Xem logs đồng bộ</a>
 </div>
 </section>
 </div>
@@ -562,148 +469,7 @@
 </div>
 <!-- Responsive Table Container -->
 <div class="overflow-x-auto mt-4">
-<table class="w-full text-xs border-collapse">
-<thead>
-<tr class="text-left text-slate-400 border-b border-night-border bg-night-750/50">
-<th class="py-2.5 px-3 font-semibold whitespace-nowrap">Tuần nhập môn</th>
-<th class="py-2.5 px-3 font-semibold text-right whitespace-nowrap">Số người</th>
-<th class="py-2.5 px-2 font-semibold text-center w-14">T0</th>
-<th class="py-2.5 px-2 font-semibold text-center w-14">T+1</th>
-<th class="py-2.5 px-2 font-semibold text-center w-14">T+2</th>
-<th class="py-2.5 px-2 font-semibold text-center w-14">T+3</th>
-<th class="py-2.5 px-2 font-semibold text-center w-14">T+4</th>
-<th class="py-2.5 px-2 font-semibold text-center w-14">T+5</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-night-border font-mono">
-<!-- Row 1: 03/02 - 09/02 -->
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">
-                    03/02 – 09/02
-                  </td>
-<td class="py-2.5 px-3 text-right font-bold text-slate-100">48</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-[11px] border border-teal-600/40">100%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-[11px] border border-teal-400/40">43,7%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-[11px] border border-teal-500/40">35,4%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-teal-200 font-medium flex items-center justify-center text-[11px] border border-teal-700/50">29,2%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-900 text-teal-300 font-medium flex items-center justify-center text-[11px] border border-teal-700/40">25,0%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-900 text-teal-300 font-medium flex items-center justify-center text-[11px] border border-teal-700/40">22,9%</div>
-</td>
-</tr>
-<!-- Row 2: 10/02 - 16/02 -->
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">
-                    10/02 – 16/02
-                  </td>
-<td class="py-2.5 px-3 text-right font-bold text-slate-100">54</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-[11px] border border-teal-600/40">100%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-[11px] border border-teal-400/40">46,3%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-[11px] border border-teal-500/40">37,0%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-teal-200 font-medium flex items-center justify-center text-[11px] border border-teal-700/50">31,5%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-900 text-teal-300 font-medium flex items-center justify-center text-[11px] border border-teal-700/40">27,8%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-</tr>
-<!-- Row 3: 17/02 - 23/02 -->
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">
-                    17/02 – 23/02
-                  </td>
-<td class="py-2.5 px-3 text-right font-bold text-slate-100">62</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-[11px] border border-teal-600/40">100%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-[11px] border border-teal-400/40">48,4%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-[11px] border border-teal-500/40">38,7%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-teal-200 font-medium flex items-center justify-center text-[11px] border border-teal-700/50">32,2%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-</tr>
-<!-- Row 4: 24/02 - 02/03 -->
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">
-                    24/02 – 02/03
-                  </td>
-<td class="py-2.5 px-3 text-right font-bold text-slate-100">71</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-[11px] border border-teal-600/40">100%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-[11px] border border-teal-400/40">50,7%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-[11px] border border-teal-500/40">40,8%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-</tr>
-<!-- Row 5: 03/03 - 09/03 (Tuần này) -->
-<tr class="hover:bg-night-750/60 transition-colors bg-teal-950/30">
-<td class="py-2.5 px-3 font-sans font-bold text-slate-100 whitespace-nowrap flex items-center gap-1.5">
-<span>03/03 – 09/03</span>
-<span class="text-[9px] uppercase px-1 py-0.2 rounded bg-teal-950 text-teal-300 font-bold border border-teal-500/40">Mới</span>
-</td>
-<td class="py-2.5 px-3 text-right font-bold text-slate-100">83</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-[11px] border border-teal-600/40">100%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-teal-500 text-night-950 font-bold flex items-center justify-center text-[11px] border border-teal-300/60">54,2%</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-<td class="p-1.5">
-<div class="h-8 rounded-lg bg-night-950 text-slate-500 flex items-center justify-center text-[11px] border border-night-border">—</div>
-</td>
-</tr>
-</tbody>
-</table>
+<table class="w-full text-xs border-collapse font-mono"><thead class="font-sans"><tr class="text-left text-slate-300 border-b border-night-border bg-night-750/50"><th class="py-3 px-3 font-semibold whitespace-nowrap">Tuần nhập môn</th><th class="py-3 px-3 font-semibold text-right whitespace-nowrap">Số người</th><th class="py-3 px-2 font-semibold text-center w-14">T0</th><th class="py-3 px-2 font-semibold text-center w-14">T+1</th><th class="py-3 px-2 font-semibold text-center w-14">T+2</th><th class="py-3 px-2 font-semibold text-center w-14">T+3</th><th class="py-3 px-2 font-semibold text-center w-14">T+4</th><th class="py-3 px-2 font-semibold text-center w-14">T+5</th></tr></thead><tbody class="divide-y divide-night-border font-mono"><tr class="hover:bg-night-750/60 transition-colors"><td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">03/02 – 09/02</td><td class="py-2.5 px-3 text-right font-bold text-slate-100">48</td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-xs border border-teal-600/50">100%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-xs border border-teal-400/50">43,7%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-xs border border-teal-500/50">35,4%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-teal-200 font-medium flex items-center justify-center text-xs border border-teal-700/50">29,2%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-900 text-teal-200 font-medium flex items-center justify-center text-xs border border-teal-700/50">25,0%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-900 text-teal-200 font-medium flex items-center justify-center text-xs border border-teal-700/50">22,9%</div></td></tr><tr class="hover:bg-night-750/60 transition-colors"><td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">10/02 – 16/02</td><td class="py-2.5 px-3 text-right font-bold text-slate-100">54</td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-xs border border-teal-600/50">100%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-xs border border-teal-400/50">46,3%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-xs border border-teal-500/50">37,0%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-teal-200 font-medium flex items-center justify-center text-xs border border-teal-700/50">31,5%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-900 text-teal-200 font-medium flex items-center justify-center text-xs border border-teal-700/50">27,8%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td></tr><tr class="hover:bg-night-750/60 transition-colors"><td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">17/02 – 23/02</td><td class="py-2.5 px-3 text-right font-bold text-slate-100">62</td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-xs border border-teal-600/50">100%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-xs border border-teal-400/50">48,4%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-xs border border-teal-500/50">38,7%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-teal-200 font-medium flex items-center justify-center text-xs border border-teal-700/50">32,2%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td></tr><tr class="hover:bg-night-750/60 transition-colors"><td class="py-2.5 px-3 font-sans font-medium text-slate-100 whitespace-nowrap">24/02 – 02/03</td><td class="py-2.5 px-3 text-right font-bold text-slate-100">71</td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-xs border border-teal-600/50">100%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-600 text-white font-semibold flex items-center justify-center text-xs border border-teal-400/50">50,7%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-700 text-slate-100 font-semibold flex items-center justify-center text-xs border border-teal-500/50">40,8%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td></tr><tr class="hover:bg-night-750/60 transition-colors bg-teal-950/30"><td class="py-2.5 px-3 font-sans font-bold text-slate-100 whitespace-nowrap flex items-center gap-1.5"><span>03/03 – 09/03</span><span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-teal-950 text-teal-300 font-bold border border-teal-500/40">Mới</span></td><td class="py-2.5 px-3 text-right font-bold text-slate-100">83</td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-800 text-white font-bold flex items-center justify-center text-xs border border-teal-600/50">100%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-teal-500 text-night-950 font-bold flex items-center justify-center text-xs border border-teal-300/60">54,2%</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td><td class="p-1.5"><div class="min-h-[44px] rounded-lg bg-night-950 text-slate-400 flex items-center justify-center text-xs border border-night-border">—</div></td></tr></tbody></table>
 </div>
 <div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-slate-300">
 <span>Mỗi ô hiển thị tỷ lệ % học viên có ít nhất 1 bài tập ôn giãn cách (FSRS) trong tuần.</span>
@@ -827,129 +593,7 @@
 </div>
 </div>
 <div class="overflow-x-auto mt-2">
-<table class="w-full text-xs text-left">
-<thead>
-<tr class="text-slate-400 border-b border-night-border bg-night-750/30">
-<th class="py-3 px-4 font-semibold">Người học (Ký danh)</th>
-<th class="py-3 px-4 font-semibold">Mục tiêu thi</th>
-<th class="py-3 px-4 font-semibold">Ngày đăng ký</th>
-<th class="py-3 px-4 font-semibold text-right">Bài đã làm</th>
-<th class="py-3 px-4 font-semibold text-right">Từ vựng đã thuộc</th>
-<th class="py-3 px-4 font-semibold text-right">Chuỗi học (Streak)</th>
-<th class="py-3 px-4 font-semibold text-right">Trạng thái D7</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-night-border">
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-3 px-4">
-<div class="flex items-center gap-2.5">
-<div class="w-7 h-7 rounded-lg bg-teal-950 border border-teal-500/40 text-teal-300 font-bold flex items-center justify-center text-[11px] font-mono">
-                      AL
-                    </div>
-<div>
-<p class="font-bold text-slate-100">Alex M.</p>
-<p class="text-[11px] text-slate-400">alex.m***@gmail.com</p>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/40">
-                    IELTS Academic 7.5
-                  </span>
-</td>
-<td class="py-3 px-4 font-mono text-slate-400">28/02/2025</td>
-<td class="py-3 px-4 font-mono text-right font-bold text-slate-100">14</td>
-<td class="py-3 px-4 font-mono text-right text-teal-300">86 từ</td>
-<td class="py-3 px-4 font-mono text-right text-orange-400 font-bold">7 ngày 🔥</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950/80 text-teal-400 border border-teal-500/40">
-<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> Đạt D7
-                  </span>
-</td>
-</tr>
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-3 px-4">
-<div class="flex items-center gap-2.5">
-<div class="w-7 h-7 rounded-lg bg-amber-950/80 border border-amber-500/40 text-amber-300 font-bold flex items-center justify-center text-[11px] font-mono">
-                      TH
-                    </div>
-<div>
-<p class="font-bold text-slate-100">Thu Hà</p>
-<p class="text-[11px] text-slate-400">thuha.n***@edu.vn</p>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-teal-950/80 text-teal-400 border border-teal-500/40">
-                    TOEFL iBT 100+
-                  </span>
-</td>
-<td class="py-3 px-4 font-mono text-slate-400">01/03/2025</td>
-<td class="py-3 px-4 font-mono text-right font-bold text-slate-100">9</td>
-<td class="py-3 px-4 font-mono text-right text-teal-300">54 từ</td>
-<td class="py-3 px-4 font-mono text-right text-orange-400 font-bold">6 ngày 🔥</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-950/80 text-amber-300 border border-amber-500/40">
-<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Đang đếm (D6)
-                  </span>
-</td>
-</tr>
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-3 px-4">
-<div class="flex items-center gap-2.5">
-<div class="w-7 h-7 rounded-lg bg-sky-950/80 border border-sky-500/40 text-sky-300 font-bold flex items-center justify-center text-[11px] font-mono">
-                      QD
-                    </div>
-<div>
-<p class="font-bold text-slate-100">Quốc Dũng</p>
-<p class="text-[11px] text-slate-400">dung.le***@outlook.com</p>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-950/80 text-blue-400 border border-blue-500/40">
-                    TOEIC 850
-                  </span>
-</td>
-<td class="py-3 px-4 font-mono text-slate-400">02/03/2025</td>
-<td class="py-3 px-4 font-mono text-right font-bold text-slate-100">5</td>
-<td class="py-3 px-4 font-mono text-right text-teal-300">32 từ</td>
-<td class="py-3 px-4 font-mono text-right text-orange-400 font-bold">5 ngày 🔥</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-950/80 text-amber-300 border border-amber-500/40">
-<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Đang đếm (D5)
-                  </span>
-</td>
-</tr>
-<tr class="hover:bg-night-750/60 transition-colors">
-<td class="py-3 px-4">
-<div class="flex items-center gap-2.5">
-<div class="w-7 h-7 rounded-lg bg-rose-950/80 border border-rose-500/40 text-rose-300 font-bold flex items-center justify-center text-[11px] font-mono">
-                      LN
-                    </div>
-<div>
-<p class="font-bold text-slate-100">Lan Nhi</p>
-<p class="text-[11px] text-slate-400">lannhi.tran***@gmail.com</p>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/40">
-                    IELTS Academic 6.5
-                  </span>
-</td>
-<td class="py-3 px-4 font-mono text-slate-400">25/02/2025</td>
-<td class="py-3 px-4 font-mono text-right font-bold text-slate-100">12</td>
-<td class="py-3 px-4 font-mono text-right text-teal-300">70 từ</td>
-<td class="py-3 px-4 font-mono text-right text-slate-400">Đứt chuỗi (N4)</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-night-750 text-slate-300 border border-night-border">
-                    Cần nhắc nhở
-                  </span>
-</td>
-</tr>
-</tbody>
-</table>
+<table class="w-full text-xs text-left"><thead><tr class="text-slate-300 border-b border-night-border bg-night-750/30"><th class="py-3.5 px-4 font-semibold">Người học (Ký danh)</th><th class="py-3.5 px-4 font-semibold">Mục tiêu thi</th><th class="py-3.5 px-4 font-semibold">Ngày đăng ký</th><th class="py-3.5 px-4 font-semibold text-right">Bài đã làm</th><th class="py-3.5 px-4 font-semibold text-right">Từ vựng đã thuộc</th><th class="py-3.5 px-4 font-semibold text-right">Chuỗi học (Streak)</th><th class="py-3.5 px-4 font-semibold text-right">Trạng thái D7</th></tr></thead><tbody class="divide-y divide-night-border"><tr class="hover:bg-night-750/60 transition-colors"><td class="py-3.5 px-4"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-teal-950 border border-teal-500/50 text-teal-300 font-bold flex items-center justify-center text-xs font-mono">AL</div><div><p class="font-bold text-slate-100">Alex M.</p><p class="text-xs text-slate-300">alex.m***@gmail.com</p></div></div></td><td class="py-3.5 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-500/40">IELTS Academic 7.5</span></td><td class="py-3.5 px-4 font-mono text-slate-300">28/02/2025</td><td class="py-3.5 px-4 font-mono text-right font-bold text-slate-100">14</td><td class="py-3.5 px-4 font-mono text-right text-teal-300 font-semibold">86 từ</td><td class="py-3.5 px-4 font-mono text-right text-orange-400 font-bold">7 ngày 🔥</td><td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-teal-950/80 text-teal-300 border border-teal-500/40"><span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> Đạt D7</span></td></tr><tr class="hover:bg-night-750/60 transition-colors"><td class="py-3.5 px-4"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-amber-950/80 border border-amber-500/50 text-amber-300 font-bold flex items-center justify-center text-xs font-mono">TH</div><div><p class="font-bold text-slate-100">Thu Hà</p><p class="text-xs text-slate-300">thuha.n***@edu.vn</p></div></div></td><td class="py-3.5 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-semibold bg-teal-950/80 text-teal-300 border border-teal-500/40">TOEFL iBT 100+</span></td><td class="py-3.5 px-4 font-mono text-slate-300">01/03/2025</td><td class="py-3.5 px-4 font-mono text-right font-bold text-slate-100">9</td><td class="py-3.5 px-4 font-mono text-right text-teal-300 font-semibold">54 từ</td><td class="py-3.5 px-4 font-mono text-right text-orange-400 font-bold">6 ngày 🔥</td><td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-950/80 text-amber-300 border border-amber-500/40"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Đang đếm (D6)</span></td></tr><tr class="hover:bg-night-750/60 transition-colors"><td class="py-3.5 px-4"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-sky-950/80 border border-sky-500/50 text-sky-300 font-bold flex items-center justify-center text-xs font-mono">QD</div><div><p class="font-bold text-slate-100">Quốc Dũng</p><p class="text-xs text-slate-300">dung.le***@outlook.com</p></div></div></td><td class="py-3.5 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-semibold bg-blue-950/80 text-blue-300 border border-blue-500/40">TOEIC 850</span></td><td class="py-3.5 px-4 font-mono text-slate-300">02/03/2025</td><td class="py-3.5 px-4 font-mono text-right font-bold text-slate-100">5</td><td class="py-3.5 px-4 font-mono text-right text-teal-300 font-semibold">32 từ</td><td class="py-3.5 px-4 font-mono text-right text-orange-400 font-bold">5 ngày 🔥</td><td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-950/80 text-amber-300 border border-amber-500/40"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Đang đếm (D5)</span></td></tr><tr class="hover:bg-night-750/60 transition-colors"><td class="py-3.5 px-4"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-rose-950/80 border border-rose-500/50 text-rose-300 font-bold flex items-center justify-center text-xs font-mono">LN</div><div><p class="font-bold text-slate-100">Lan Nhi</p><p class="text-xs text-slate-300">lannhi.tran***@gmail.com</p></div></div></td><td class="py-3.5 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-500/40">IELTS Academic 6.5</span></td><td class="py-3.5 px-4 font-mono text-slate-300">25/02/2025</td><td class="py-3.5 px-4 font-mono text-right font-bold text-slate-100">12</td><td class="py-3.5 px-4 font-mono text-right text-teal-300 font-semibold">70 từ</td><td class="py-3.5 px-4 font-mono text-right text-slate-300">Đứt chuỗi (N4)</td><td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-night-750 text-slate-200 border border-night-border">Cần nhắc nhở</span></td></tr></tbody></table>
 </div>
 </section>
 <!-- Operational Footer Note -->
