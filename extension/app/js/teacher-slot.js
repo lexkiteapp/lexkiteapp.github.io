@@ -7,7 +7,7 @@
   // bệ cao 0,16 khung che dải 72 %→86 % ảnh (vạt áo) → mép nhìn thấy duy nhất là mặt bệ bo tròn; đầu cách đỉnh khung ~7 %.
   const CSS = `.tslot{--h:112px;position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
 .tslot-xs{--h:48px}.tslot-s{--h:72px}.tslot-m{--h:112px}.tslot-l{--h:152px}.tslot-xl{--h:208px}
-.tslot-fig{position:absolute;inset:0;clip-path:inset(-60% -60% 0 -60%)}
+.tslot-fig{position:absolute;top:-60%;left:-60%;right:-60%;bottom:0;overflow:hidden}
 .tslot-img{position:absolute;left:50%;bottom:calc(var(--h)*-.18);height:calc(var(--h)*1.2);width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
 .tslot-flip .tslot-img{transform:translateX(-50%) scaleX(-1)}
 canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{opacity:1}.tslot.live img.tslot-img{visibility:hidden}
