@@ -481,8 +481,8 @@
     }
   },
   "idle": {
-    "_note": "Vòng nghỉ 1–3 s (Home/lộ trình, chủ 3/11) dựng bởi scripts/teach/idle.py từ clip tư thế đã có – 0 credit. out = meta do script ghi (đừng sửa tay). closed_ok = ảnh tĩnh được phép nhắm mắt có chủ đích (mặc định rỗng).",
-    "closed_ok": [],
+    "_note": "Vòng nghỉ 1–3 s (Home/lộ trình, chủ 3/11) dựng bởi scripts/teach/idle.py từ clip tư thế đã có – 0 credit. out = meta do script ghi (đừng sửa tay). closed_ok = ảnh tĩnh được phép nhắm mắt có chủ đích: head-bare(-2x) = lớp NỀN mặt vẽ đã xóa mắt/mày/miệng (mắt do web/js/call/face.js vẽ lên, #293), không bao giờ hiện một mình.",
+    "closed_ok": ["ama/head-bare.webp","ama/head-bare-2x.webp","carlos/head-bare.webp","carlos/head-bare-2x.webp"],
     "people": {
       "ama": {
         "pose": "happy",
