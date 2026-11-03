@@ -89,9 +89,12 @@ for who, P in R['people'].items():
     def eye_scores(cf, cm, a, z):   # độ mở mắt từng khung [a, z) trên khung 1× đã cắt (cùng phép ghép với ảnh tĩnh)
         import numpy as np
         raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex',
-                              f'[1:v]trim=start_frame={a}:end_frame={z},setpts=N/TB,format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},setpts=N/TB,crop={crop},{SC}[c];[c][a]alphamerge',
-                              '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
-        return [openness(f, F['eye_y']) for f in np.frombuffer(raw, np.uint8).reshape(-1, H, W, 4)]
+                              f'[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),crop={crop},{SC}[c];[c][a]alphamerge',
+                              '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
+        fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 4)
+        n = min(int(probe(x, 'nb_read_frames')) for x in (cf, cm)); want_n = min(z, n) - a
+        if len(fr) != want_n: errs.append(f'{cf}: đo mắt {len(fr)} khung ≠ {want_n} – chỉ số khung lệch (fps/pts), không chọn ảnh được'); return [0.0] * want_n
+        return [openness(f, F['eye_y']) for f in fr]
 
     t_sc = eye_scores(f'{G}/kfull_pro/{t0}.mp4', f'{G}/kmask_pro/{t0}.mkv', 0, 10 ** 6)
     ref = sorted(t_sc)[int(len(t_sc) * 0.9)]   # độ mở bình thường của người này (clip talk, phân vị 90)
