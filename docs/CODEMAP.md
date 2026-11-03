@@ -14,7 +14,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `.github/workflows/` (159 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1288 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (2542 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (2543 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (183 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
@@ -125,10 +125,10 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [push,pr,manual,call] journey-e2e: Hành trình người dùng đầu-cuối…
 
 ## Test (271) → vùng phủ (file đích chi tiết: json `tests`)
-- `web/js`: account-delete account-flow account-ui admin-gate admin-share admin-ui ads-admin ads-cls ads analytics anki audio-play audio-voice call-engine choice-kit client-security clips-perf confidence criteria dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app ipa-accent landing-routing league learn-flow lex mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui reminders report-ui retention sel-translate shell-size social-ui speak-ipa speak static-routes streak-flame streak-ui sync-drive target-lang teacher-native theme-switch tutor unit usage verbs video-web
+- `web/js`: account-delete account-flow account-ui admin-gate admin-share admin-ui ads-admin ads-cls ads analytics anki audio-play audio-voice call-engine choice-kit client-security clips-perf confidence criteria dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app ipa-accent js-budget landing-routing league learn-flow lex mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui reminders report-ui retention sel-translate shell-size social-ui speak-ipa speak static-routes streak-flame streak-ui sync-drive target-lang teacher-native theme-switch tutor unit usage verbs video-web
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe call-e2e ci-policy clutter confidence-shots content-check contrast crawl d1-scan docs-budget e2e explain-shots figure-layout final-qc i18n-switch lazyfix listing-check native-facade nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps route-race run-suite screens seo-pages seo-sitemap seo-words-shots serve-web smoke teacher-native-shots toeic-read-e2e tools-ui ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep
 - `functions/api`: accounts admin-ads-shots admin-dist-shots admin-guard admin-prefs ads-revenue ai-pool api-security capacity classroom clip-bulk dist-roles distribution drive hit-retry jobs keys live-check notices pr-check quota report schema-lock social-auto social-meta-oauth social-meta social-mgr social-proxy sync-ctx sync-pack user-mgmt users-bulk ux1-rollout yt-manual
-- `scripts`: authority-pages axe blog-images bot-push-key brand-check ci-triage codemap-budget explain-check i18n-english i18n-single journey-e2e js-budget layout-guards lesson-content links-js mobile-polish mqa-parity-self mqa-parity pack-gloss pages-skip protection samples-ui sentence-asr tools-pages ux1 word-ipa world-scorecard
+- `scripts`: authority-pages axe blog-images bot-push-key brand-check ci-triage codemap-budget explain-check i18n-english i18n-single journey-e2e layout-guards lesson-content links-js mobile-polish mqa-parity-self mqa-parity pack-gloss pages-skip protection samples-ui sentence-asr tools-pages ux1 word-ipa world-scorecard
 - `content/video`: characters-gate library studio video-layout video-pron video-templates video
 - `scripts/ci`: audio-coverage ci-hog commit-regen cron-watch gh-api no-pr-branch-push qa-fill
 - `scripts/video`: capsplit motion-core motion overlay-gates put-session shorts-scale tpl1b-pipeline
