@@ -44,11 +44,12 @@ canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{
     gl.bindTexture(gl.TEXTURE_2D, gl.createTexture()); for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.LINEAR);
     for (const k of [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T]) gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE);
     const v = document.createElement('video'); Object.assign(v, { muted: true, playsInline: true, preload: 'metadata', crossOrigin: 'anonymous' }); v.setAttribute('playsinline', '');
-    let raf = 0, seen = true, t = 0;
+    let raf = 0, seen = true, t = 0, ft = -1;
+    // chỉ tải texture khi video SANG KHUNG MỚI: clip 24 fps, rAF 60/120 Hz (iPhone ProMotion) → texImage2D(video) thừa 2,5–5×/khung, WebKit chép chậm → rớt khung, tay giật
     const draw = () => { raf = 0; if (!el.isConnected) { v.pause(); v.removeAttribute('src'); return; }
-      if (v.readyState >= 2) { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); el.classList.add('live'); }
+      if (v.readyState >= 2 && v.currentTime !== ft) { ft = v.currentTime; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); el.classList.add('live'); }
       if (!v.paused) raf = requestAnimationFrame(draw); };
-    const go = () => { if (seen && v.paused && el.isConnected) v.play().then(() => { if (!raf) raf = requestAnimationFrame(draw); }).catch(() => {}); };
+    const go = () => { if (seen && v.paused && el.isConnected) ft = -1, v.play().then(() => { if (!raf) raf = requestAnimationFrame(draw); }).catch(() => {}); };
     v.onloadeddata = () => { cv.width = v.videoWidth; cv.height = v.videoHeight / 2; cv.className = 'tslot-img'; cv.setAttribute('aria-hidden', 'true'); fig.appendChild(cv); go(); };
     v.onended = () => { if (el.dataset.loop) { clearTimeout(t); t = setTimeout(() => { v.currentTime = 0; go(); }, +el.dataset.loop); } }; // cử chỉ lặp có nghỉ (tay xuôi đầu/cuối clip → nối liền)
     v.onerror = () => { fig.querySelector('canvas') && cv.remove(); el.classList.remove('live'); }; // lỗi clip → giữ ảnh tĩnh

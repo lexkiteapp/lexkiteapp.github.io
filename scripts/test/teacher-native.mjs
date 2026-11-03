@@ -49,6 +49,7 @@ if (!/\.tslot-fig\{[^}]*bottom:0;overflow:hidden;overflow:clip\}/.test(sl) || /c
     const h = out(o), sh = /<i class="tslot-shadow"><\/i><span class="tslot-fig">/.test(h);
     if (!h.includes(`data-ground="${want}"`) || !h.includes(` tslot-${want}`) || /tslot-ledge/.test(h) || sh !== (want === 'fade')) err.push(`Chars.slot(${JSON.stringify(o)}) phải ra ground '${want}'${want === 'fade' ? ' + bóng .tslot-shadow trước khung' : ' không bóng'}, không bệ rời – đang: ${h.slice(0, 160)}`);
   } }
+if (!/v\.readyState >= 2 && v\.currentTime !== ft\) \{ ft = v\.currentTime;\s*gl\.texImage2D/.test(sl)) err.push('teacher-slot.js: clip WebGL phải chỉ tải texture khi video sang khung mới (currentTime đổi) – tải mỗi rAF làm giật trên WebKit/ProMotion (live 3/11: tay Ama giật)');
 if (!/prefers-reduced-motion:no-preference/.test(sl)) err.push('teacher-slot.js: chuyển động phải nằm trong prefers-reduced-motion:no-preference');
 const idx = fs.readFileSync(path.join(ROOT, 'web/app/index.html'), 'utf8');
 if (!(idx.indexOf('js/characters.js') > 0 && idx.indexOf('js/teacher-slot.js') > idx.indexOf('js/characters.js'))) err.push('web/app/index.html: teacher-slot.js phải nạp ngay sau characters.js');
