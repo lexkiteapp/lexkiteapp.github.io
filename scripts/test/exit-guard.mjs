@@ -21,7 +21,7 @@ ok(keys.length >= 8, 'tìm được khóa t() trong exit-guard.js (' + keys.leng
 const dictOf = file => { const ctx = { I18N_DICT: {} }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(file, 'utf8'), ctx); return Object.values(ctx.I18N_DICT)[0] || {}; };
 const langs = fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 for (const lang of ['en', ...langs.filter(l => l !== 'en' && l !== 'vi')]) {
-  const f = `web/js/i18n/${lang}.js`; if (!fs.existsSync(f)) { ok(false, 'thiếu ' + f); continue; }
+  const f = lang === 'en' ? 'web/js/i18n/en.js' : `i18n/ui/${lang}.js`; // 13 ngôn ngữ: nguồn khóa nguyên câu (web/js/i18n/<lang>.js là gói khóa băm) if (!fs.existsSync(f)) { ok(false, 'thiếu ' + f); continue; }
   const D = dictOf(f), miss = keys.filter(k => !D[k] || D[k] === k || /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(D[k])); // chữ chỉ tiếng Việt có
   ok(!miss.length, `${lang}.js (từ điển khung) thiếu/chưa dịch khóa ExitGuard: ${miss.join(' | ')}`);
 }

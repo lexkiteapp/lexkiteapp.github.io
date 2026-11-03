@@ -49,7 +49,7 @@
   if (typeof document === 'undefined') { g.Export = { buildXlsx, rowsOf, HEAD }; return; }
   const d = document;
   let dictP = null;
-  const have = l => g.I18N_DICT && g.I18N_DICT[l] && g.I18N_DICT[l]['Dữ liệu của bạn'];
+  const have = l => g.I18N && g.I18N.has(l, 'Dữ liệu của bạn'); // gói ngôn ngữ khóa băm → tra qua I18N.has
   const dict = () => dictP || (dictP = (!g.I18N || I18N.lang() === 'vi' || (have('en') && (I18N.lang() === 'en' || have(I18N.lang())))) ? Promise.resolve() : new Promise(r => {
     const l = I18N.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
     loadOne('js/i18n/en/export.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/export.js`) : null)).then(r);

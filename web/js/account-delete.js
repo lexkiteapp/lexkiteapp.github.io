@@ -8,7 +8,7 @@
   const { esc, toast } = UI;
   const I = w.I18N;
   let dictP;
-  const have = l => w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Xóa tài khoản Lexkite?'];
+  const have = l => w.I18N && w.I18N.has(l, 'Xóa tài khoản Lexkite?'); // gói ngôn ngữ khóa băm → tra qua I18N.has
   const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (have('en') && (I.lang() === 'en' || have(I.lang())))) ? Promise.resolve() : new Promise(r => {
     const l = I.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
     loadOne('js/i18n/en/account.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/account.js`) : null)).then(r);

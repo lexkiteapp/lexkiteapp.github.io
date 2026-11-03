@@ -15,7 +15,7 @@ Code KHÔNG vẽ lại giao diện: bộ chuyển sinh khung, mình chỉ gắn 
    `css/st-v2-<màn>.css` vào `BCSS`. Thêm file dựng dữ liệu vào `V2DATA` (scripts/build-stitch-css.mjs) nếu nó có class Tailwind viết tay.
 5. CSS: `TAILWIND_DIR=$TMPDIR/tw/node_modules/tailwindcss node scripts/build-stitch-css.mjs` (icon mới: thêm `--fonts`, cần `NODE_USE_ENV_PROXY=1`). ≤ 10 KB gz/màn.
 6. Dịch: khóa Việt mới trong code → `web/js/i18n/en/<nhóm>.js`; nhãn ≤ 3 chữ → dịch tay 13 ngôn ngữ vào `scripts/i18n-fixed.json`, rồi `node scripts/i18n-fix.mjs`
-   (nhóm v2: file `web/js/i18n/<lang>/v2.js` đã có). Kiểm `node scripts/i18n-qa.mjs --strict`.
+   (nhóm v2: nguồn `i18n/ui/<lang>/v2.js` → gói `web/js/i18n/<lang>/v2.js`). Kiểm `node scripts/i18n-qa.mjs --strict`.
 7. Test của màn (scripts/test/*.mjs) phải kiểm ĐỦ ý cũ trên khung mới (không xóa ý nào). `npm run prepush` rồi commit + `git push real stitch-v2`.
 8. CI `Stitch diff`: thêm màn vào `SCREENS` + `V2REF` (scripts/test/stitch-diff.mjs); tờ Stitch | app tối | app sáng trong artifact `stitch-diff`.
 

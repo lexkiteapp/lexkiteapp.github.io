@@ -19,8 +19,8 @@ const MIXED = 'Kiểm thử add-on (E2E): Some jobs were not successful';
 const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const loadDict = l => {
   const g = {};
-  new Function('self', rd(`web/js/i18n/${l}.js`))(g);
-  try { new Function('self', rd(`web/js/i18n/${l}/extpanel.js`))(g); } catch (e) {}
+  new Function('self', rd(`i18n/ui/${l}.js`))(g); // nguồn khóa nguyên câu (web/js/i18n/<lang>.js là gói khóa băm)
+  try { new Function('self', rd(`i18n/ui/${l}/extpanel.js`))(g); } catch (e) {}
   return g.I18N_DICT[l];
 };
 

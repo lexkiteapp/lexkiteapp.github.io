@@ -10,10 +10,18 @@ Mục tiêu: 15 ngôn ngữ giao diện, **không lẫn tiếng, không sót, kh
 |---|---|---|
 | Khóa (chuỗi gốc) | Tiếng Việt trong mã: `t('Ôn tập')` | Người viết tính năng |
 | Tiếng Anh | `web/js/i18n/en/<nhóm>.js` → gộp thành `en.js` bằng `scripts/build-i18n.sh` | Viết tay, cùng commit với tính năng |
-| 13 ngôn ngữ khác | `web/js/i18n/<lang>.js` (danh sách: `scripts/i18n-langs.txt`) | Dịch máy từ tiếng Anh (`scripts/gen-i18n.mjs`, chạy trong GitHub Action) |
+| 13 ngôn ngữ khác – **nguồn** | `i18n/ui/<lang>.js` + `i18n/ui/<lang>/<nhóm>.js` (danh sách: `scripts/i18n-langs.txt`), khóa = nguyên câu tiếng Việt | Dịch máy từ tiếng Anh (`scripts/gen-i18n.mjs`, chạy trong GitHub Action); sửa tay được |
+| 13 ngôn ngữ khác – **gói chạy** | `web/js/i18n/<lang>.js` + `web/js/i18n/<lang>/<nhóm>.js`, khóa băm | **Sinh** bằng `node scripts/i18n-pack.mjs` – đừng sửa tay |
 | Bản dịch tay | `scripts/i18n-fixed.json` | Viết tay – **luôn đè lên dịch máy** (`scripts/i18n-fix.mjs`) |
 
 Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa ở hai file `en/*.js` (bản sau sẽ đè bản trước).
+
+### 1b. Gói chạy khóa băm (từ 3/11/2026)
+- Trước 3/11 mỗi gói ngôn ngữ lặp nguyên câu tiếng Việt làm khóa: 3,5 MB trên 7,9 MB chỉ là khóa. Nay **nguồn** (dễ đọc, như cũ) nằm ở `i18n/ui/`, ngoài `web/` (không triển khai, không tính ngân sách `totalJs`). **Gói chạy** trong `web/js/i18n/<lang>` lưu khóa `hk(câu)` = `"_"` + FNV-1a 32 bit base36 (≤ 8 ký tự). Đo 3/11: web/js bớt 2 764 645 B; mỗi người học tải ít hơn ~30 % gzip (de: 193 → 134 KB nếu mở hết nhóm).
+- Tra cứu: `web/js/i18n.js` thử `D[lang][câu]` rồi `D[lang][hk(câu)]` (chỉ khi en có khóa đó → chuỗi lạ không trùng nhầm). Hai khóa trùng băm, hoặc khóa có bản dịch mà en không có → gói giữ **nguyên câu** làm khóa. Khóa nguyên câu dạng `_abc12` bị cấm (lỗi khi dựng).
+- Mã cần tra một ngôn ngữ cụ thể: `I18N.has(l, câu)` / `I18N.tr(l, câu)` – **không** đọc `I18N_DICT[l][câu]`. Add-on: `xd(src)` trong `extension/{background,content,popup,writecheck}.js` (tra băm trước, vì nền en của background giữ khóa nguyên câu). Script Node đọc **nguồn**: `loadLang(lang)` / `loadSrc(lang, nhóm)` trong `scripts/lib/i18n-pack.mjs`.
+- Ai sinh lại gói: `build-i18n.sh`, `gen-i18n.mjs`, `i18n-fix.mjs`, `confidence/build.mjs --write`, `build-extension.sh`, `mergecheck.sh`; bot `i18n.yml` add cả `i18n/ui` lẫn `web/js/i18n`. Kiểm: `node scripts/i18n-pack.mjs --check` (trong `i18n-qa.mjs`) và `scripts/test/i18n-pack.mjs` (ghép lại 100 % chuỗi mọi ngôn ngữ, trùng băm, chạy thật `i18n.js` từng ngôn ngữ, add-on).
+- **PR đang sửa `web/js/i18n/<lang>/…` (không phải en)**: chuyển thay đổi sang `i18n/ui/<lang>/…` rồi `node scripts/i18n-pack.mjs`. Xung đột ở gói chạy: lấy bên nào cũng được rồi chạy lại `i18n-pack` (preview-resolve hợp khóa cả `i18n/ui/**`).
 
 ## 2. Quy tắc khi thêm chữ mới vào giao diện
 1. Mọi chữ hiển thị đều qua `t()` (HTML tĩnh: `data-i18n`). Không ghép chuỗi kiểu `t('Ôn') + ' ' + n + t('thẻ')`; dùng biến `t('Ôn {n} thẻ', { n })`.
@@ -40,8 +48,8 @@ Khóa chỉ module tải lười dùng nằm ở `en/lazyui.js` (gói `i18nl`, A
 Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), không bao giờ hiện tiếng Việt.
 
 ## 4. Luồng chạy
-1. Viết tính năng + `en/*.js` (+ `i18n-fixed.json` cho nhãn ngắn) → `bash scripts/build-i18n.sh`.
-2. Ship (`scripts/i18n-sync.sh` tự dịch ngay khóa mới bằng curl + áp bản dịch tay + i18n-qa) → GitHub Action `i18n.yml`: `gen-i18n.mjs` cho từng ngôn ngữ (chỉ dịch khóa mới) → `i18n-fix.mjs` (áp bản dịch tay) → `i18n-qa.mjs` (báo cáo) → commit `i18n: cập nhật bản dịch giao diện tự động`.
+1. Viết tính năng + `en/*.js` (+ `i18n-fixed.json` cho nhãn ngắn) → `bash scripts/build-i18n.sh` (gộp en.js, tách nhóm ở nguồn `i18n/ui`, sinh gói khóa băm).
+2. Ship (`scripts/i18n-sync.sh` tự dịch ngay khóa mới bằng curl + áp bản dịch tay + i18n-qa) → GitHub Action `i18n.yml`: `gen-i18n.mjs` cho từng ngôn ngữ (chỉ dịch khóa mới) → `i18n-fix.mjs` (áp bản dịch tay vào nguồn `i18n/ui`) → `i18n-pack.mjs` (gói khóa băm) → `i18n-qa.mjs` (báo cáo) → commit `i18n: cập nhật bản dịch giao diện tự động`.
 3. Sau mỗi đợt tính năng lớn: chạy `i18n-qa.mjs --short`, dịch tay thêm nhãn ngắn mới.
 
 ## 5. Mở thêm ngôn ngữ mới

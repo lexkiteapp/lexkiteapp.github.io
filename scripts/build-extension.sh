@@ -8,6 +8,8 @@ APP="$ROOT/extension/app"
 if [[ "${1:-}" == "--check" ]]; then TMP="$(mktemp -d "${TMPDIR:-/tmp}/extchk.XXXXXX")"; trap 'rm -rf "$TMP"' EXIT; APP="$TMP/app"; fi
 # Đồng bộ tại chỗ (rsync ghi file tạm rồi đổi tên, xóa file thừa sau cùng): thư mục app không bao giờ trống,
 # nên Chrome khởi động lại service worker giữa lúc build cũng không gặp lỗi importScripts.
+# Gói dịch 13 ngôn ngữ (khóa băm) sinh từ nguồn i18n/ui trước khi chép – bản add-on luôn khớp nguồn (docs/I18N-PIPELINE.md)
+[[ "${1:-}" == "--check" ]] || node "$ROOT/scripts/i18n-pack.mjs" >/dev/null
 mkdir -p "$APP" "$ROOT/extension/icons"
 rsync -a --delete-after --delete-excluded --exclude '.*' --exclude 'admin.js' --exclude 'sync-drive.js' --exclude 'admin-*.js' --exclude 'admin-growth.js' --exclude 'admin-social.js' --exclude 'admin-studio.js' --exclude 'admin-drive.js' --exclude 'admin-reports.js' --exclude 'admin-quota.js' --exclude 'admin-drive.js' --exclude 'admin.css' --exclude 'vendor/jsvectormap' --exclude 'jsvectormap.min.css' --exclude '/js/klocal*.js' --exclude '/js/ads/' --exclude '/js/site-ui.js' --exclude '/js/lhint.json' --exclude '/js/i18n/*/ads.js' --exclude '/teach/*/*-hd.mp4' "$ROOT/web/app/index.html" "$ROOT/web/manifest.webmanifest" "$ROOT/web/css" "$ROOT/web/js" "$ROOT/web/icons" "$ROOT/web/teach" "$ROOT/web/sfx" "$APP/"
 # Nhân vật: cùng bộ 2D duy nhất với web (web/teach/, registry characters.json) – add-on trông y hệt web, không giấu giáo viên (docs/CHARACTERS.md)

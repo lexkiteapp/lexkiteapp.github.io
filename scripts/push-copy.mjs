@@ -8,7 +8,7 @@ const load = f => { const c = { self: {}, I18N_DICT: {} }; c.self = c; vm.runInN
 const out = { vi: Object.fromEntries(Object.entries(KEYS).map(([k, [t, b]]) => [k, [t, b]])) };
 const en = load('web/js/i18n/en/remind.js');
 for (const l of LANGS) {
-  const d = l === 'en' ? en : load(`web/js/i18n/${l}/remind.js`);
+  const d = l === 'en' ? en : load(`i18n/ui/${l}/remind.js`);
   out[l] = Object.fromEntries(Object.entries(KEYS).map(([k, ks]) => [k, ks.map(x => d[x] || en[x])]));
 }
 for (const [l, v] of Object.entries(out)) for (const [k, a] of Object.entries(v)) if (!a[0] || !a[1] || (l !== 'vi' && /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđ]/i.test(a.join(' ')))) { console.error(`✗ push-copy: ${l}.${k} thiếu hoặc lẫn tiếng Việt`); process.exit(1); }

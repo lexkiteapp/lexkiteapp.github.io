@@ -36,9 +36,19 @@
   }
   /** @type {Record<string, Record<string, string>>} */
   const D = g.I18N_DICT = g.I18N_DICT || {};
+  // Gói 13 ngôn ngữ lưu khóa băm hk(câu tiếng Việt) (scripts/lib/i18n-pack.mjs – nguồn dễ đọc ở i18n/ui/); en giữ khóa nguyên câu.
+  // Trùng băm → tệp sinh giữ nguyên câu làm khóa (băm không có) nên tra nguyên câu trước. Chỉ tra băm khi en có khóa (gói ngôn ngữ = bản dịch của en) → chuỗi lạ không trùng nhầm.
+  const HK = new Map();
+  function hk(s) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + (x >>> 0).toString(36); }
+  function tr(l, src) {
+    const d = D[l]; if (!d || typeof src !== 'string') return d ? d[src] : undefined;
+    if (d[src] !== undefined || l === 'en' || (D.en && D.en[src] == null)) return d[src];
+    let h = HK.get(src); if (h === undefined) HK.set(src, h = hk(src));
+    return d[h];
+  }
   // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
   function t(src, vars) {
-    let s = lang === 'vi' ? src : ((D[lang] && D[lang][src]) || (D.en && D.en[src]) || src);
+    let s = lang === 'vi' ? src : (tr(lang, src) || (D.en && D.en[src]) || src);
     if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m));
     if (RTL.has(lang) && typeof s === 'string') s = s.replace(/ →$/, ' ←').replace(/^← /, '→ '); // mũi tên "tiếp/quay lại" quay theo chiều đọc RTL
     return s;
@@ -61,7 +71,7 @@
   const FLAG = { vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' };
   const flag = l => FLAG[l] || FLAG[String(l || '').split('-')[0]] || '🌐';
   g.t = t;
-  g.I18N = { t, apply, set, whenReady: () => Promise.resolve(), tk: (k, v) => ({ k, v }), // tk: khóa + biến để lưu (dịch lúc vẽ bằng t(k, v)), không lưu chữ đã dịch
+  g.I18N = { t, apply, set, tr, has: (l, src) => l === 'vi' || tr(l, src) !== undefined, hk, /* tr/has: tra một ngôn ngữ cụ thể (gói khóa băm) – đừng đọc I18N_DICT[l][câu] trực tiếp */ whenReady: () => Promise.resolve(), tk: (k, v) => ({ k, v }), // tk: khóa + biến để lưu (dịch lúc vẽ bằng t(k, v)), không lưu chữ đã dịch
      lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect, FLAG, flag };
   if (g.document) {
     document.documentElement.lang = lang;
