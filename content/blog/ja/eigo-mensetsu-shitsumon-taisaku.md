@@ -3,7 +3,7 @@ title: "英語面接質問対策完全ガイド：外資系・転職で頻出の
 description: "英語 面接 質問 対策を徹底解説。外資系企業やグローバル転職で頻出の質問10選、好印象を与える自己紹介、STAR法を活用した強み・実績の伝え方、逆質問のマナーまで例文付きでまとめました。面接官の意図を見抜き、自信を持って自己アピールするための実践ガイドです。"
 slug: eigo-mensetsu-shitsumon-taisaku
 lang: ja
-translationKey: eigo-mensetsu-shitsumon-taisaku
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [mensetsu, job-interview, speaking, tenshoku]
 keyword: "英語 面接 質問 対策"

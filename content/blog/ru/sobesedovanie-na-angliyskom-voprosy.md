@@ -3,7 +3,7 @@ title: "Собеседование на английском: вопросы, о
 description: "Узнайте, как пройти собеседование на английском вопросы и ответы: 10 главных вопросов рекрутера, метод STAR, правила самопрезентации и частые ошибки."
 slug: sobesedovanie-na-angliyskom-voprosy
 lang: ru
-translationKey: phong-van-tieng-anh-cau-hoi-va-tra-loi
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [sobesedovanie, job-interview, karera, speaking]
 keyword: "собеседование на английском вопросы"

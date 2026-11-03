@@ -3,7 +3,7 @@ title: "Job Interview Questions in English: Proven STAR Method Answers"
 description: "Master job interview questions in english with the STAR method: sample high-impact answers, essential action verbs, and strategic questions for recruiters."
 slug: job-interview-questions-and-answers-in-english
 lang: en
-translationKey: phong-van-xin-viec-tieng-anh-star
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [job-interview, interview-questions, career-skills, speaking]
 keyword: "job interview questions in english"

@@ -3,7 +3,7 @@ title: "Câu Hỏi Phỏng Vấn Tiếng Anh: Mẹo Trả Lời Chuẩn STAR Th�
 description: "Tổng hợp các câu hỏi phỏng vấn tiếng anh thường gặp nhất cùng cấu trúc trả lời STAR chuẩn mực, từ vựng hành động đắt giá và câu hỏi ngược lại."
 slug: cau-hoi-phong-van-tieng-anh-va-tra-loi
 lang: vi
-translationKey: phong-van-xin-viec-tieng-anh-star
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [phong-van, job-interview, speaking, su-nghiep]
 keyword: "câu hỏi phỏng vấn tiếng anh"

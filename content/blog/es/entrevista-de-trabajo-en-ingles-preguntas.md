@@ -3,7 +3,7 @@ title: "Preguntas frecuentes entrevista de trabajo en inglés: método STAR"
 description: "Domina las preguntas frecuentes entrevista de trabajo en inglés con el método STAR: respuestas modelo, vocabulario clave de impacto y errores a evitar."
 slug: entrevista-de-trabajo-en-ingles-preguntas
 lang: es
-translationKey: phong-van-xin-viec-tieng-anh-star
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [entrevista, job-interview, speaking, carrera]
 keyword: "preguntas frecuentes entrevista de trabajo en inglés"

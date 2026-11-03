@@ -3,7 +3,7 @@ title: "English me Interview ki Taiyari Kaise Kare: प्रश्न, उत�
 description: "सीखें english me interview ki taiyari kaise kare: 10 सबसे आम प्रश्न, STAR तकनीक से प्रभावी उत्तर देने के नियम, बॉडी लैंग्वेज और पेशेवर संवाद के टिप्स।"
 slug: job-interview-english-questions-hindi
 lang: hi
-translationKey: phong-van-tieng-anh-cau-hoi-va-tra-loi
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [interview, speaking, career, vyavsay]
 keyword: "english me interview ki taiyari kaise kare"

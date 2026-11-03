@@ -3,7 +3,7 @@ title: "영어 면접 질문 완벽 대비: 외국계 기업 빈출 10선과 STA
 description: "영어 면접 질문 완벽 대비 가이드: 외국계 기업 빈출 질문 10선, 합격을 부르는 STAR 기법 답변 공식, 1분 자기소개(Elevator Pitch) 템플릿과 긴장감을 극복하는 스피킹 실전 팁을 확인하세요."
 slug: yeongeo-myeonjeop-jajunawonun-jilmun
 lang: ko
-translationKey: small-talk-tieng-anh
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [myeonjeop, job-interview, speaking, chwieop]
 keyword: "영어 면접 질문"

@@ -3,7 +3,7 @@ title: "สัมภาษณ์งานภาษาอังกฤษ: 10 ค�
 description: "เตรียมพร้อม สัมภาษณ์งานภาษาอังกฤษ คำถาม ยอดนิยม 10 ข้อ: วิธีตอบด้วยเทคนิค STAR แนะนำตัว 90 วินาที ตอบจุดแข็งจุดอ่อนอย่างมั่นใจ และข้อควรระวัง."
 slug: samphat-ngan-phasa-angkrit-khamtham
 lang: th
-translationKey: phong-van-tieng-anh-cau-hoi-va-tra-loi
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [interview, speaking, career, phasa-angkrit]
 keyword: "สัมภาษณ์งานภาษาอังกฤษ คำถาม"

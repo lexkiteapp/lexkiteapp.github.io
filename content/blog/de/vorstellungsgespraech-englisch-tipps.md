@@ -3,7 +3,7 @@ title: "Vorstellungsgespräch auf Englisch: Fragen und STAR-Methode"
 description: "Vorstellungsgespräch auf Englisch meistern: Die häufigsten Fragen, perfekte Antworten mit der STAR-Methode und überzeugende Formulierungen für Ihren Erfolg."
 slug: vorstellungsgespraech-englisch-tipps
 lang: de
-translationKey: phong-van-tieng-anh-xin-viec
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [job-interview, karriere, speaking, beruf]
 keyword: "vorstellungsgespräch auf englisch"

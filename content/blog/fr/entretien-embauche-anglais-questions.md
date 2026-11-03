@@ -3,7 +3,7 @@ title: "Entretien d'embauche en anglais questions : réussir avec STAR"
 description: "Entretien d'embauche en anglais questions clés : maîtrisez la méthode STAR, préparez des réponses percutantes et séduisez les recruteurs internationaux."
 slug: entretien-embauche-anglais-questions
 lang: fr
-translationKey: phong-van-tieng-anh-xin-viec
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [job-interview, carriere, speaking, travail]
 keyword: "entretien d'embauche en anglais questions"

@@ -3,7 +3,7 @@ title: "Entrevista de emprego em inglês perguntas mais comuns e respostas"
 description: "Prepare-se para entrevista de emprego em inglês perguntas frequentes: método STAR para responder, apresentação pessoal de impacto e vocabulário corporativo."
 slug: entrevista-de-emprego-em-ingles-perguntas
 lang: pt
-translationKey: entrevista-de-emprego-em-ingles-perguntas
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [entrevista, job-interview, carreira, speaking]
 keyword: "entrevista de emprego em inglês perguntas"

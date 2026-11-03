@@ -3,7 +3,7 @@ title: "Pertanyaan interview bahasa Inggris dan jawabannya: metode STAR"
 description: "10 pertanyaan interview bahasa Inggris dan jawabannya: panduan metode STAR, contoh jawaban berbobot, kosakata aksi profesional, dan tips mengatasi gugup."
 slug: pertanyaan-interview-bahasa-inggris
 lang: id
-translationKey: phong-van-xin-viec-tieng-anh-star
+translationKey: cau-hoi-phong-van-tieng-anh
 category: ky-nang
 tags: [interview, wawancara-kerja, speaking, karir]
 keyword: "pertanyaan interview bahasa inggris dan jawabannya"
