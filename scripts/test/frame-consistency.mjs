@@ -6,8 +6,10 @@
 //   nhất quán logic: cùng khái niệm (Ôn tập, chuỗi ngày, XP) cùng icon ở mọi trang.
 // Chuẩn biến thể: hằng số §5d (thanh trên 56, thanh tab 64, nút ≥ 44, 5 tab Today/Vocab/Skills/Tests/Me) + giá trị đa số của biến thể
 // (một CSS dùng chung → mọi route cùng số; route lệch đa số = có chỗ ghi đè riêng). Bảng route → biến thể: scripts/test/frame-variants.json.
-// Không allowlist: lệch nào cũng đỏ (docs/METHODS.md no-cuts). Chỉ chạy trên CI (frame-consistency.yml).
-// Dùng: node scripts/test/frame-consistency.mjs [--root dist | --base URL] [--out out/frame-consistency] [--only home,vocab]
+// Ratchet (chỉ giảm): scripts/test/frame-consistency.known.json = số lệch đã biết theo khóa route|khổ|thuộc tính. Đỏ khi có khóa MỚI,
+// khi số lệch của một khóa tăng, hoặc khi khóa đã hết lệch/giảm mà known chưa hạ (chạy --write-known rồi commit → baseline chỉ đi xuống).
+// Chỉ chạy trên CI (frame-consistency.yml).
+// Dùng: node scripts/test/frame-consistency.mjs [--root dist | --base URL] [--out out/frame-consistency] [--only home,vocab] [--write-known]
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -221,4 +223,20 @@ Object.entries(byProp).sort((a, b) => b[1].size - a[1].size).forEach(([p, s]) =>
   const g = {}; dev.filter(d => d.prop === p).forEach(d => { const k = `${d.got} → ${d.want}`.slice(0, 150); (g[k] = g[k] || new Set()).add(d.route + '@' + d.combo); });
   Object.entries(g).sort((a, b) => b[1].size - a[1].size).slice(0, 6).forEach(([k, v]) => console.log(`      ${k}  ×${v.size} (${[...v].slice(0, 4).join(' ')})`)); });
 await browser.close(); if (srv) srv.close();
-process.exit(dev.length ? 1 : 0);
+// ---------- ratchet ----------
+const KNOWN_F = new URL('./frame-consistency.known.json', import.meta.url);
+const cur = {}; dev.forEach(d => { const k = `${d.route}|${d.combo}|${d.prop}`; cur[k] = (cur[k] || 0) + 1; });
+const sorted = o => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
+if (process.argv.includes('--write-known')) {
+  const doc = { _note: 'Baseline ratchet của scripts/test/frame-consistency.mjs – CHỈ được giảm (mỗi PR sửa một cụm thì hạ số). Sinh bằng --write-known.', total: dev.length, keys: sorted(cur) };
+  fs.writeFileSync(KNOWN_F, JSON.stringify(doc, null, 0).replace(/,"/g, ',\n"') + '\n'); console.log('đã ghi known:', dev.length, 'lệch,', Object.keys(cur).length, 'khóa');
+}
+const known = fs.existsSync(KNOWN_F) ? JSON.parse(fs.readFileSync(KNOWN_F, 'utf8')) : { total: 0, keys: {} };
+const worse = Object.entries(cur).filter(([k, n]) => n > (known.keys[k] || 0)).map(([k, n]) => `${k}: ${known.keys[k] || 0} → ${n}`);
+const better = Object.entries(known.keys).filter(([k, n]) => (cur[k] || 0) < n).map(([k, n]) => `${k}: ${n} → ${cur[k] || 0}`);
+console.log(`ratchet: hiện ${dev.length} lệch / baseline ${known.total}`);
+if (worse.length) console.log('✗ lệch MỚI hoặc tăng (sửa gốc, không nâng baseline):\n  ' + worse.slice(0, 80).join('\n  '));
+if (better.length) console.log('✗ đã giảm – hạ baseline: node scripts/test/frame-consistency.mjs --write-known rồi commit known.json:\n  ' + better.slice(0, 80).join('\n  '));
+if (!worse.length && !better.length) console.log('✓ frame-consistency khớp baseline');
+fs.writeFileSync(OUT + '/known-now.json', JSON.stringify({ total: dev.length, keys: sorted(cur) }));
+process.exit(worse.length || better.length ? 1 : 0);

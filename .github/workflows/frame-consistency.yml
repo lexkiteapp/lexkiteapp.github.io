@@ -2,11 +2,13 @@
 # – thanh trên, nút Back/X ≥ 44 + đích, thanh 5 tab, khung nội dung, thẻ, tiêu đề, CTA, màu token, icon cùng khái niệm.
 # Đỏ khi có lệch (không allowlist). Báo cáo: artifact frame-consistency (report.md + raw.json). Hermetic, 0 lượt chạm prod.
 name: Frame consistency
-# Chạy trên main (push) + tay: chưa vào PR/required-gate khi còn lệch chờ PR khác gộp (danh sách trong report.md); về 0 → thêm pull_request + required-gate.
+# Ratchet: đỏ khi có lệch mới/tăng hoặc khi lệch giảm mà frame-consistency.known.json chưa hạ (baseline chỉ đi xuống).
 on:
+  pull_request:
+    paths: ['scripts/test/frame-consistency.known.json', 'web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', '.github/workflows/frame-consistency.yml']
   push:
     branches: [main]
-    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', '.github/workflows/frame-consistency.yml']
+    paths: ['web/**', 'extension/app/**', 'scripts/test/frame-consistency.*']
   workflow_dispatch:
 permissions:
   contents: read
@@ -30,7 +32,7 @@ jobs:
           sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Quét khung mọi route
-        run: node scripts/test/frame-consistency.mjs --root dist --out out/frame-consistency
+        run: node scripts/test/frame-consistency.mjs --root dist --out out/frame-consistency || { echo '--- known-now.json (baseline hiện tại) ---'; cat out/frame-consistency/known-now.json; echo; exit 1; }
       - name: Tóm tắt
         if: always()
         run: test -f out/frame-consistency/report.md && head -c 60000 out/frame-consistency/report.md >> "$GITHUB_STEP_SUMMARY" || true
