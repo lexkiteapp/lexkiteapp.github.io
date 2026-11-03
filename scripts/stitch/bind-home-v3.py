@@ -14,6 +14,10 @@ b['after'][P(1, 1, 1, 1)] = LOGO(40); b['remove'].append(P(1, 1, 1, 1))
 b['repeat'].append({'list': 'd.nav.slice(1)', 'as': 'n', 'sel': P(1, 1, 2, 1), 'samples': P(1, 1, 2) + ' > a',
                     'attr': {':scope': {'href': 'n[0]', 'hreflang': 'n[2]'}}, 'text': {'Blog': 'n[1]'}})
 b['attr'][P(1, 2)] = {'data-lsw': "''"}; b['addClass'][P(1, 2)] = 'relative'
+# điện thoại = bố cục mẫu mobile v3: hàng 1 logo + nút, hàng 2 Blog/Từ vựng (nav xuống dòng); nút ngôn ngữ chỉ còn icon < sm (không cuộn ngang ở 390)
+b['addClass'][P(1)] = 'flex-wrap gap-y-1'
+b['cls'] = {P(1, 1): {'flex': "'contents md:flex'"}, P(1, 1, 2): {'hidden': "'flex order-last w-full md:w-auto md:order-none'"}, P(1, 2): {'gap-3': "'gap-2 sm:gap-3'"}}
+b['addClass'][P(1, 2, 1, 2)] = 'hidden sm:inline'
 b['attr'][P(1, 2, 1)] = {'type': "'button'", 'aria-haspopup': "'true'", 'aria-expanded': "'false'", 'aria-controls': "'lsw-m'", 'aria-label': 'd.lswLabel'}
 b['text']['English'] = 'd.langName'
 b['after'][P(1, 2, 1)] = 'd.menu'
@@ -84,12 +88,13 @@ b['html'][P(8, 3)] = 'e(d.finalP)'
 b['attr'][P(8, 4)] = {'href': 'd.start'}; b['html'][P(8, 4, 1)] = 'e(d.hero.cta)'
 # ---- 9 chân trang (→ chrome.js) ----
 b['after'][P(9, 1, 1, 1, 1)] = LOGO(32); b['remove'].append(P(9, 1, 1, 1, 1))
-b['tag'][P(9, 1, 1, 1)] = {'to': 'a'}; b['attr'][P(9, 1, 1, 1)] = {'href': 'd.home'}
+b['tag'][P(9, 1, 1, 1)] = {'to': 'a', 'addClass': 'min-h-[44px] min-w-[44px]'}; b['attr'][P(9, 1, 1, 1)] = {'href': 'd.home'}
 b['html'][P(9, 1, 1, 2)] = 'e(d.foot)'
 b['html'][P(9, 1, 1, 3)] = "e(d.copy) + '<span class=\"block mt-2 font-medium\">' + e(d.tm) + '</span>'"
 b['after'][P(9, 1, 1, 3)] = 'd.getApp'
-cb = {'html': {R(1): 'e(c.h)'}, 'repeat': [{'list': 'c.items', 'as': 'it', 'sel': ':scope > ul > li:nth-child(1)', 'samples': ':scope > ul > li',
-      'attr': {':scope > a': {'href': 'it[0]'}}, 'html': {':scope > a': 'e(it[1])'}}]}
+cb = {'html': {R(1): 'e(c.h)'}, 'tag': {R(1): {'to': 'h3'}},  # h4 → h3: không nhảy cấp tiêu đề (h2 CTA cuối → h3 chân trang; Lighthouse heading-order)
+      'repeat': [{'list': 'c.items', 'as': 'it', 'sel': ':scope > ul > li:nth-child(1)', 'samples': ':scope > ul > li',
+      'attr': {':scope > a': {'href': 'it[0]'}}, 'html': {':scope > a': 'e(it[1])'}, 'addClass': {':scope > a': 'min-w-[44px]'}}]}
 b['repeat'].append({'list': 'd.cols', 'as': 'c', 'sel': P(9, 1, 2), 'samples': ', '.join(P(9, 1, i) for i in (2, 3, 4)), **cb})
 b['html'][P(9, 2, 1, 1)] = 'e(d.langLabel)'
 b['attr'][P(9, 2, 1)] = {'data-lsw': "''"}; b['addClass'][P(9, 2, 1)] = 'relative'

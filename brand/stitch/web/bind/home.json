@@ -246,6 +246,11 @@
    "html": {
     ":scope > :nth-child(1)": "e(c.h)"
    },
+   "tag": {
+    ":scope > :nth-child(1)": {
+     "to": "h3"
+    }
+   },
    "repeat": [
     {
      "list": "c.items",
@@ -259,6 +264,9 @@
      },
      "html": {
       ":scope > a": "e(it[1])"
+     },
+     "addClass": {
+      ":scope > a": "min-w-[44px]"
      }
     }
    ]
@@ -350,7 +358,8 @@
  },
  "tag": {
   ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
-   "to": "a"
+   "to": "a",
+   "addClass": "min-h-[44px] min-w-[44px]"
   }
  },
  "remove": [
@@ -377,7 +386,20 @@
  },
  "addClass": {
   ":scope > :nth-child(1) > :nth-child(2)": "relative",
+  ":scope > :nth-child(1)": "flex-wrap gap-y-1",
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "hidden sm:inline",
   ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": "flex flex-wrap gap-x-6",
   ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1)": "relative"
+ },
+ "cls": {
+  ":scope > :nth-child(1) > :nth-child(1)": {
+   "flex": "'contents md:flex'"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "hidden": "'flex order-last w-full md:w-auto md:order-none'"
+  },
+  ":scope > :nth-child(1) > :nth-child(2)": {
+   "gap-3": "'gap-2 sm:gap-3'"
+  }
  }
 }

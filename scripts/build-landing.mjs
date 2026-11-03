@@ -62,7 +62,7 @@ const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}"
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
-// Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
+// Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
 // Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của #303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
 const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
@@ -71,7 +71,7 @@ const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) 
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-flex!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
 ${STW_VARS}
 [data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
-.lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-on-secondary));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
+.lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-surface));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
 ${LSW_CSS}.lsw-m{z-index:60}
 ${TSW_ICON}${TSP_CSS}summary::-webkit-details-marker{display:none}`;
 
@@ -117,7 +117,8 @@ const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any
 export function criticalCss(css, html) {
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
-  const first = doc.querySelector('section'), crit = new Set();
+  // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
+  const S = doc.querySelectorAll('section'), first = S[Math.min(1, S.length - 1)], crit = new Set();
   for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
   const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
     let q = sel.replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '').replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
@@ -213,7 +214,7 @@ ${alt}
 ${LCSS}</style>
 ${ld(graph)}
 </head>
-<body class="stw st" data-lhint="lhint">
+<body class="stw st" data-lhint="lhint btn">
 <a class="skip" href="#main">${esc(c.skip)}</a>
 ${page.body}
 <script>${SITE_UI_LAZY.replace(/^<script>|<\/script>$/g, '')}</script>

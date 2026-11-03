@@ -77,7 +77,8 @@ export function compact(html) {
   const m = html.match(/<style>([\s\S]*?)<\/style>/); if (!m) return html;
   const page = html.replace(m[0], () => '\u0000'), scripts = [...page.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(x => x[1]).join('\n'), markup = page.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '');
   const used = new Map(); for (const a of markup.matchAll(/\sclass="([^"]*)"/g)) for (const c of a[1].split(/\s+/)) if (c) used.set(c, (used.get(c) || 0) + 1);
-  const words = new Set(scripts.match(/[A-Za-z_][\w-]*/g) || []), theme = /data-theme/.test(page), have = c => used.has(c) || words.has(c);
+  // + lớp do JS NGOÀI trang thêm (vd dải gợi ý ngôn ngữ của /js/site-ui.js): khai báo trong data-lhint="lớp …" → không bị lọc khỏi CSS
+  const words = new Set([...(scripts.match(/[A-Za-z_][\w-]*/g) || []), ...[...markup.matchAll(/\sdata-lhint="([^"]*)"/g)].flatMap(m => m[1].split(/\s+/))]), theme = /data-theme/.test(page), have = c => used.has(c) || words.has(c);
   const keepSel = sel => (theme || !/(?<!:not\()\[data-theme=/.test(sel)) && [...sel.matchAll(CLS)].every(x => /^\d/.test(x[1]) || have(unesc(x[1])));
   const purge = css => blocks(css).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports)/.test(sel)) { const inner = purge(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
