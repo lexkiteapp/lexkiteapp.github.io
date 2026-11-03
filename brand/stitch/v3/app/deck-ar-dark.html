@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ليكسكايت - مجموعات المفردات</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font & Arabic Font Support -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Sans+Arabic:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "surface-container": "#172427",
+            "surface-container-low": "#172427",
+            "surface-container-high": "#1E2F33",
+            "surface-container-highest": "#1E2F33",
+            "surface-variant": "#1E2F33",
+            "on-background": "#E8F1F0",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "outline": "#A9BDBB",
+            "outline-variant": "#23383E",
+            "primary": "#2DD4BF",
+            "primary-container": "#14B8A6",
+            "on-primary": "#042F2E",
+            "primary-fixed": "#2DD4BF",
+            "on-primary-fixed": "#042F2E",
+            "secondary": "#F59E0B",
+            "secondary-container": "#F59E0B",
+            "on-secondary": "#1C1003",
+            "ledge": "#0B1416",
+            "border-custom": "#23383E",
+            "chip-border": "#294248"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.25rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "sans": ["Noto Sans Arabic", "Plus Jakarta Sans", "system-ui", "sans-serif"],
+            "body-lg": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "label-lg": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "label-md": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "body-sm": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-lg": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-md": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-xl": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "body-md": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Noto Sans Arabic", "Plus Jakarta Sans"],
+            "label-sm": ["Noto Sans Arabic", "Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "22px", "fontWeight": "800" }],
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "800" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "800" }],
+            "headline-xl": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+    /* Directional RTL flipping for standard back & navigation icons */
+    .rtl-flip {
+      transform: scaleX(-1);
+    }
+    /* Physical mechanical press states - Tactile Night */
+    .btn-ledge-amber {
+      background-color: #F59E0B;
+      color: #1C1003;
+      box-shadow: 0 4px 0 0 #9A3412;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-ledge-amber:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #9A3412;
+    }
+    .btn-ledge-teal {
+      box-shadow: 0 4px 0 0 #0B1416;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-ledge-teal:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #0B1416;
+    }
+    .card-ledge {
+      box-shadow: 0 4px 0 0 #0B1416;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .chip-ledge {
+      box-shadow: 0 2px 0 0 #0B1416;
+    }
+    .chip-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #0B1416;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen flex justify-center selection:bg-[#2DD4BF] selection:text-[#042F2E]">
+<!-- Mobile Viewport Wrapper (390px fixed container style) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-24 shadow-2xl overflow-x-hidden border-x-2 border-[#23383E]">
+<!-- 2. TopAppBar (RTL Layout) -->
+<header class="bg-[#10191B] sticky top-0 z-40 border-b-2 border-[#23383E] shadow-[0_2px_0_0_#0B1416] flex justify-between items-center w-full px-3 h-14">
+<!-- Leading Action: Back arrow pointing right for RTL (>= 44x44px touch target) -->
+<button aria-label="الرجوع" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[#2DD4BF] hover:bg-[#172427] active:translate-y-[2px] transition-transform" type="button">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[24px] rtl-flip">arrow_back</span>
+</button>
+<!-- Center brand/title with subtext -->
+<div class="flex flex-col items-center text-center px-1">
+<h1 class="text-headline-md font-headline-md text-[#2DD4BF] font-extrabold tracking-tight leading-tight">
+          مجموعات المفردات
+        </h1>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] tracking-normal font-bold">
+          5 مجموعات نشطة · التكرار المتباعد
+        </span>
+</div>
+<!-- Status pills on left (in RTL) -->
+<div class="flex items-center gap-1">
+<div class="flex items-center gap-1.5 bg-[#1E2F33] border-2 border-[#23383E] rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#0B1416]">
+<span class="text-label-md font-label-md text-[#E8F1F0] font-extrabold flex items-center gap-0.5">
+            14 <span class="text-[#F59E0B]">🔥</span>
+</span>
+<span class="w-[1px] h-3 bg-[#23383E] mx-0.5"></span>
+<span class="text-label-md font-label-md text-[#2DD4BF] font-extrabold flex items-center gap-0.5">
+            420 <span class="material-symbols-outlined text-[16px] text-[#2DD4BF] material-symbols-fill">diamond</span>
+</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 px-4 pt-4 pb-6 space-y-4">
+<!-- 3. Page Header -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-[#E8F1F0] font-extrabold tracking-tight">
+            مجموعات المفردات
+          </h2>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] mt-0.5">
+            5 مجموعات نشطة · نظام التكرار المتباعد
+          </p>
+</div>
+<button aria-label="البحث والتصفية" class="min-w-[44px] min-h-[44px] flex items-center justify-center bg-[#172427] border-2 border-[#23383E] rounded-xl shadow-[0_2px_0_0_#0B1416] active:translate-y-0.5 active:shadow-none transition-transform" type="button">
+<span class="material-symbols-outlined text-[#E8F1F0] text-[22px]">search</span>
+</button>
+</div>
+<!-- 4. Daily Drill Hero Card -->
+<section class="bg-[#172427] border-2 border-[#23383E] rounded-[20px] p-4 card-ledge relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="inline-flex items-center gap-1.5 bg-[#1E2F33] text-[#F59E0B] border-2 border-[#294248] rounded-full px-2.5 py-0.5 text-label-sm font-label-sm font-extrabold mb-2 shadow-[0_2px_0_0_#0B1416]">
+<span class="material-symbols-outlined text-[15px] text-[#F59E0B] material-symbols-fill">schedule</span>
+              مراجعة يومية
+            </div>
+<p class="text-headline-md font-headline-md text-[#E8F1F0] font-extrabold tracking-tight leading-snug">
+              32 بطاقة مستحقة اليوم في جميع المجموعات
+            </p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] mt-1 leading-snug">
+              المدة المقدرة: حوالي 12 دقيقة لنسبة حفظ دائمة 95%.
+            </p>
+</div>
+<!-- Geometric tactile timer marker -->
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] border-2 border-[#23383E] flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#0B1416]">
+<span class="material-symbols-outlined text-[#F59E0B] text-[28px] material-symbols-fill">timer</span>
+</div>
+</div>
+<!-- Big Primary CTA: arrow pointing left for RTL progress -->
+<button class="mt-4 w-full min-h-[48px] border-2 border-[#9A3412] rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 btn-ledge-amber px-4 py-3 tracking-normal font-extrabold text-[#1C1003]" type="button">
+<span>مراجعة جميع البطاقات المستحقة (32)</span>
+<span class="text-[20px] font-bold">←</span>
+</button>
+</section>
+<!-- 5. Filter Row -->
+<div class="space-y-3 pt-1">
+<div class="flex items-center gap-2">
+<!-- Tactile Teal Primary Action -->
+<button class="min-h-[44px] px-4 flex items-center justify-center gap-2 bg-[#14B8A6] text-[#042F2E] border-2 border-[#2DD4BF] rounded-xl font-label-md text-label-md btn-ledge-teal shrink-0 font-extrabold" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>+ مجموعة جديدة</span>
+</button>
+<!-- Quick Filter Action button >= 44px -->
+<button aria-label="تصفية المجموعات" class="min-w-[44px] min-h-[44px] flex items-center justify-center bg-[#172427] border-2 border-[#23383E] rounded-xl shadow-[0_2px_0_0_#0B1416] active:translate-y-0.5 active:shadow-none transition-transform" type="button">
+<span class="material-symbols-outlined text-[#E8F1F0] text-[20px]">filter_list</span>
+</button>
+</div>
+<!-- Horizontal Filter Chips / Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="min-h-[44px] px-4 py-1.5 rounded-full bg-[#14B8A6] text-[#042F2E] border-2 border-[#2DD4BF] font-label-sm text-label-sm chip-ledge flex items-center gap-1 whitespace-nowrap font-extrabold" type="button">
+<span>الكل (5)</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#294248] font-label-sm text-label-sm chip-ledge flex items-center gap-1.5 whitespace-nowrap font-extrabold" type="button">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+<span>مستحقة (3)</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#294248] font-label-sm text-label-sm chip-ledge flex items-center gap-1.5 whitespace-nowrap font-extrabold" type="button">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF] material-symbols-fill">verified</span>
+<span>متقنة (1)</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#294248] font-label-sm text-label-sm chip-ledge flex items-center gap-1 whitespace-nowrap font-extrabold" type="button">
+<span>مؤرشفة</span>
+</button>
+</div>
+</div>
+<!-- 6. Personal Deck Cards List -->
+<section class="space-y-3.5 pt-1">
+<!-- DECK CARD 1 -->
+<article class="bg-[#172427] border-2 border-[#23383E] rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-[#1E2F33] border border-[#294248] text-[12px] font-extrabold text-[#E8F1F0]">
+                  آيلتس أكاديمي · 240 كلمة
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-[#E8F1F0] font-extrabold leading-tight">
+                متلازمات آيلتس الأكاديمية +Band 7
+              </h3>
+</div>
+<button aria-label="خيارات إضافية" class="min-w-[44px] min-h-[44px] -ml-1 -mt-1 flex items-center justify-center rounded-lg text-[#A9BDBB] hover:bg-[#1E2F33] active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<!-- Progress Bar & Due Details (Fills right to left in RTL) -->
+<div class="mt-4 pt-3 border-t-2 border-[#23383E] space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-[#A9BDBB] font-bold">مستوى الإتقان: 68%</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#1E2F33] border-2 border-[#294248] text-[#F59E0B] font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#0B1416]">
+                ⚡ 14 مستحقة اليوم
+              </span>
+</div>
+<div class="w-full h-3 bg-[#10191B] rounded-full border-2 border-[#23383E] overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] flex justify-start">
+<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-[#1E2F33] border-2 border-[#294248] rounded-xl text-[#2DD4BF] font-label-md text-label-md flex items-center gap-1.5 chip-ledge font-extrabold hover:bg-[#23383E] transition" type="button">
+<span>دراسة المجموعة ←</span>
+</button>
+</div>
+</article>
+<!-- DECK CARD 2 -->
+<article class="bg-[#172427] border-2 border-[#23383E] rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-[#1E2F33] border border-[#294248] text-[12px] font-extrabold text-[#E8F1F0]">
+                  B2 أعمال · 120 كلمة
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-[#E8F1F0] font-extrabold leading-tight">
+                تعابير ومصطلحات بيئة العمل
+              </h3>
+</div>
+<button aria-label="خيارات إضافية" class="min-w-[44px] min-h-[44px] -ml-1 -mt-1 flex items-center justify-center rounded-lg text-[#A9BDBB] hover:bg-[#1E2F33] active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-[#23383E] space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-[#A9BDBB] font-bold">مستوى الإتقان: 85%</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#1E2F33] border-2 border-[#294248] text-[#F59E0B] font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#0B1416]">
+                ⚡ 8 مستحقة اليوم
+              </span>
+</div>
+<div class="w-full h-3 bg-[#10191B] rounded-full border-2 border-[#23383E] overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] flex justify-start">
+<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-[#1E2F33] border-2 border-[#294248] rounded-xl text-[#2DD4BF] font-label-md text-label-md flex items-center gap-1.5 chip-ledge font-extrabold hover:bg-[#23383E] transition" type="button">
+<span>دراسة المجموعة ←</span>
+</button>
+</div>
+</article>
+<!-- DECK CARD 3 -->
+<article class="bg-[#172427] border-2 border-[#23383E] rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-[#1E2F33] border border-[#294248] text-[12px] font-extrabold text-[#E8F1F0]">
+                  B1–B2 تشخيصي · 64 كلمة
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-[#E8F1F0] font-extrabold leading-tight">
+                فخاخ الاختبار الشائعة (الأصدقاء المزيفون)
+              </h3>
+</div>
+<button aria-label="خيارات إضافية" class="min-w-[44px] min-h-[44px] -ml-1 -mt-1 flex items-center justify-center rounded-lg text-[#A9BDBB] hover:bg-[#1E2F33] active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-[#23383E] space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-[#A9BDBB] font-bold">مستوى الإتقان: 42%</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#1E2F33] border-2 border-[#294248] text-[#F59E0B] font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#0B1416]">
+                ⚡ 10 مستحقة اليوم
+              </span>
+</div>
+<div class="w-full h-3 bg-[#10191B] rounded-full border-2 border-[#23383E] overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] flex justify-start">
+<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-[#1E2F33] border-2 border-[#294248] rounded-xl text-[#2DD4BF] font-label-md text-label-md flex items-center gap-1.5 chip-ledge font-extrabold hover:bg-[#23383E] transition" type="button">
+<span>دراسة المجموعة ←</span>
+</button>
+</div>
+</article>
+<!-- DECK CARD 4 -->
+<article class="bg-[#172427] border-2 border-[#23383E] rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-[#1E2F33] border border-[#294248] text-[12px] font-extrabold text-[#E8F1F0]">
+                  الإنجليزية المحكية · 85 كلمة
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-[#E8F1F0] font-extrabold leading-tight">
+                المحادثة وتناول الطعام في المطاعم
+              </h3>
+</div>
+<button aria-label="خيارات إضافية" class="min-w-[44px] min-h-[44px] -ml-1 -mt-1 flex items-center justify-center rounded-lg text-[#A9BDBB] hover:bg-[#1E2F33] active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-[#23383E] space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-[#A9BDBB] font-bold">مستوى الإتقان: 96%</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#1E2F33] border-2 border-[#14B8A6] text-[#2DD4BF] font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#0B1416]">
+                ✓ تمت مراجعة الكل
+              </span>
+</div>
+<div class="w-full h-3 bg-[#10191B] rounded-full border-2 border-[#23383E] overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] flex justify-start">
+<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-[#1E2F33] border-2 border-[#294248] rounded-xl text-[#A9BDBB] font-label-md text-label-md flex items-center gap-1.5 chip-ledge font-extrabold hover:text-[#E8F1F0] transition" type="button">
+<span>إعادة المراجعة ↺</span>
+</button>
+</div>
+</article>
+</section>
+<!-- 7. Anki Import Card -->
+<section class="bg-[#172427] border-2 border-[#23383E] rounded-[20px] p-4 card-ledge">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-2xl bg-[#1E2F33] border-2 border-[#23383E] flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#0B1416]">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[24px] material-symbols-fill">sync_saved_locally</span>
+</div>
+<div class="flex-1">
+<h3 class="text-headline-md font-headline-md text-[#E8F1F0] font-extrabold tracking-tight">
+              استيراد مجموعة من Anki
+            </h3>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] mt-1 leading-snug">
+              استورد بطاقات .apkg أو .csv مباشرة إلى ليكسكايت مع جدولة تلقائية وفق خوارزمية التكرار المتباعد (Spaced Repetition).
+            </p>
+</div>
+</div>
+<button class="mt-4 w-full min-h-[48px] bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#294248] rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 chip-ledge hover:bg-[#23383E] transition-colors font-extrabold" type="button">
+<span>📁 اختيار ملف .apkg</span>
+</button>
+</section>
+<!-- 8. Empty Decks Status -->
+<section class="bg-[#172427]/70 border-2 border-dashed border-[#23383E] rounded-[20px] p-4 text-center">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-[#1E2F33] border-2 border-[#294248] flex items-center justify-center mb-2 shadow-[0_2px_0_0_#0B1416]">
+<span class="material-symbols-outlined text-[#A9BDBB] text-[24px]">folder_open</span>
+</div>
+<h4 class="text-body-lg font-body-lg text-[#E8F1F0] font-bold">
+            لا توجد مجموعات فارغة مخصصة
+          </h4>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] max-w-[280px] mt-0.5 leading-snug">
+            تحتوي جميع المجموعات حالياً على مفردات نشطة مجدولة للمراجعة والتكرار.
+          </p>
+<button class="mt-3 min-h-[44px] px-3.5 py-1 text-label-sm font-label-sm text-[#2DD4BF] font-extrabold flex items-center gap-1 active:translate-y-0.5 transition-transform" type="button">
+<span>+ إنشاء مجموعة مخصصة</span>
+</button>
+</div>
+</section>
+<!-- 9. Teacher Slot Card (.teacher-slot) -->
+<section aria-label="خانة المعلمة" class="teacher-slot w-full bg-[#172427] border-2 border-dashed border-[#14B8A6] rounded-[20px] p-4 relative">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-[#A9BDBB] tracking-wider uppercase font-extrabold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">school</span>
+            خانة المعلمة • نصيحة تعليمية
+          </span>
+<span class="text-[11px] font-bold px-2 py-0.5 bg-[#1E2F33] rounded-full border border-[#14B8A6]/40 text-[#2DD4BF]">
+            نصيحة تعليمية
+          </span>
+</div>
+<div class="bg-[#1E2F33] rounded-xl border-2 border-[#23383E] p-3 shadow-[0_2px_0_0_#0B1416]">
+<p class="text-body-sm font-body-sm text-[#E8F1F0] leading-snug">
+<strong class="font-extrabold text-[#2DD4BF]">نصيحة المدربة:</strong> ادرس 10–15 بطاقة في الجلسة الواحدة لتعزيز التثبيت العصبي في الذاكرة وتجنب الإرهاق الذهني.
+          </p>
+</div>
+</section>
+</main>
+<!-- 10. Docked Bottom Navigation Bar (RTL order from right to left) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-[#10191B] border-t-2 border-[#23383E] shadow-[0_-2px_0_0_#0B1416] max-w-[390px] left-1/2 -translate-x-1/2">
+<!-- 1. اليوم (Today) -->
+<a aria-label="اليوم" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-1 text-[#A9BDBB] hover:text-[#2DD4BF] active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">اليوم</span>
+</a>
+<!-- 2. المفردات (Vocab - ACTIVE teal pill) -->
+<a aria-current="page" aria-label="المفردات (نشط)" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-1 bg-[#14B8A6] text-[#042F2E] border-2 border-[#2DD4BF] rounded-xl shadow-[0_2px_0_0_#0B1416] active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px] material-symbols-fill">style</span>
+<span class="text-label-sm font-label-sm font-extrabold mt-0.5">المفردات</span>
+</a>
+<!-- 3. المهارات (Skills) -->
+<a aria-label="المهارات" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-1 text-[#A9BDBB] hover:text-[#2DD4BF] active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">military_tech</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">المهارات</span>
+</a>
+<!-- 4. الاختبارات (Tests) -->
+<a aria-label="الاختبارات" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-1 text-[#A9BDBB] hover:text-[#2DD4BF] active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">الاختبارات</span>
+</a>
+<!-- 5. حسابي (Me) -->
+<a aria-label="حسابي" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-1 text-[#A9BDBB] hover:text-[#2DD4BF] active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">حسابي</span>
+</a>
+</nav>
+</div>
+</body></html>

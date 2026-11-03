@@ -212,16 +212,31 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "cdn-mirror",
+   "workflow": "cdn-mirror.yml",
+   "cron": [
+    "47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
+    "*/10 * * * *",
     "12 * * * *"
    ],
    "priority": "reports",
    "resources": [
     "gh_minutes"
    ],
-   "minutes": 5,
+   "minutes": 1,
    "est": {
     "d1_internal_reads": 10
    },
@@ -918,6 +933,22 @@ export const REG = {
    "lease": true
   },
   {
+   "id": "drive-repair",
+   "workflow": "drive-repair.yml",
+   "cron": [
+    "47 3 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 100
+   },
+   "lease": false
+  },
+  {
    "id": "code-bundle",
    "workflow": "code-bundle.yml",
    "cron": [
@@ -1077,6 +1108,20 @@ export const REG = {
     "gh_minutes"
    ],
    "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "world-scorecard",
+   "workflow": "world-scorecard.yml",
+   "cron": [
+    "30 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
    "est": {},
    "lease": false
   }

@@ -3,6 +3,7 @@
 // Ruleset main (cần status required-gate, cấm force-push/xoá) chỉ cho DeployKey + admin vượt – GITHUB_TOKEN bị chặn trên repo cá nhân.
 // Push bằng khoá deploy LẠI kích workflow `on: push` (GITHUB_TOKEN thì không) → mọi commit bot lên main mang [skip ci] để giữ nguyên hành vi cũ
 // (không thêm lượt chạy, không vòng lặp; deploy cần thì workflow tự gọi `gh workflow run pages-deploy.yml` như trước).
+//   (khoá có điều kiện: `github.event_name != 'pull_request' && …` hoặc `github.ref == 'refs/heads/main' && …` – mã nhánh/PR không cầm khoá)
 //   1) job có `git push` tới main (HEAD:main, bare push, HEAD:$BR / github.ref_name khi workflow chạy được trên main) hoặc gọi script đẩy main
 //      → phải có actions/checkout repo chính (không path/repository, không persist-credentials: false) với ssh-key: ${{ secrets.BOT_DEPLOY_KEY }}
 //   2) push main bằng URL https://x-access-token… → đỏ (token bị ruleset chặn)
@@ -17,14 +18,14 @@ import { fileURLToPath } from 'node:url';
 
 export const KEY = '${{ secrets.BOT_DEPLOY_KEY }}', SKIP = '[skip ci]';
 // script đẩy thẳng main của repo chính → regex nhận lời gọi có đẩy trong workflow
-export const SCRIPT_MAIN = { 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/ };
+export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledger-push\.mjs/, 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/ };
 // đẩy vào kho KHÁC (media/footage/shorts) hoặc chạy tay trên máy → không thuộc ruleset main
 const EXTERNAL = new Set(['scripts/media/push.mjs', 'scripts/lib/media-store.mjs', 'scripts/blog-media.mjs', 'scripts/video/library.mjs',
   'scripts/video/bank3d/upload.sh', 'scripts/cine/shorts_migrate.py', 'scripts/mergecheck.sh' /* người chạy, gộp nhánh cục bộ */, 'scripts/deploy-github.sh' /* cũ */]);
 
 const isComment = l => /^\s*#/.test(l);
 const STEP = /^\s*- (?:name|uses|run|id|if|env|with|shell|timeout-minutes|continue-on-error|working-directory)\b/;
-const SSHKEY = /ssh-key:\s*['"]?\$\{\{\s*(?:github\.event_name\s*!=\s*'pull_request'\s*&&\s*)?secrets\.BOT_DEPLOY_KEY(?:\s*\|\|\s*'')?\s*\}\}['"]?/;
+const SSHKEY = /ssh-key:\s*['"]?\$\{\{\s*(?:(?:github\.event_name\s*!=\s*'pull_request'|github\.ref\s*==\s*'refs\/heads\/main')\s*&&\s*)?secrets\.BOT_DEPLOY_KEY(?:\s*\|\|\s*'')?\s*\}\}['"]?/;
 const MAINVAR =/\$\{?BR\}?\b|GITHUB_REF_NAME|github\.ref_name/;
 
 /** Workflow có thể chạy trên main? (lịch/dispatch/workflow_run, hoặc push không giới hạn nhánh / có main) */
@@ -139,6 +140,7 @@ if (self) {
     ['script đẩy main thiếu khoá', W(sched, CO0 + run('node scripts/vocab-img/publish.mjs --result r.json --push')), 1],
     ['script đẩy main đủ khoá', W(sched, CO + run('node scripts/vocab-img/publish.mjs --result r.json --push')), 0],
     ['khoá có điều kiện không-PR', W(sched, `      - uses: actions/checkout@v4\n        with: { ssh-key: "\${{ github.event_name != 'pull_request' && secrets.BOT_DEPLOY_KEY || '' }}" }\n` + run('git commit -qm "x [skip ci]"\ngit push -q origin HEAD:main')), 0],
+    ['khoá chỉ khi chạy trên main', W(sched, `      - uses: actions/checkout@v4\n        with: { ssh-key: "\${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }\n` + run('git commit -qm "x [skip ci]"\ngit push -q origin HEAD:main')), 0],
     ['checkout path khác', W(sched, `      - uses: actions/checkout@v4\n        with: { path: x, ssh-key: '${KEY}' }\n` + run('git commit -qm "x [skip ci]"\ngit push -q origin HEAD:main')), 1],
     ['2 commit 1 dòng thiếu 1', W(sched, CO + run('git commit -qm "a [skip ci]"; git commit -qm "b"; git push -q origin HEAD:main')), 1],
   ];

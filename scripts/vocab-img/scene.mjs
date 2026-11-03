@@ -31,6 +31,18 @@ export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday mo
 // Phong cách e4 NGẮN (cùng bảng màu/nét s1), đặt SAU câu cảnh; không nhắc chữ/biểu tượng (nhắc → hiện ra).
 export const SCENE_STYLE_E4 = 'Flat vector illustration, simple rounded shapes, clean dark teal outlines, big expressive faces, deep teal, warm orange, golden yellow and soft pink, ' +
   'plain light cream background, the people and key objects large and centered, purely pictorial, friendly, suitable for young children.';
+// MẪU 02/11 (chưa duyệt – chỉ pilot, VIMG_STYLE=lite): ít chi tiết hơn để giảm chữ lạc + ảnh > 6 KB (vòng 2 #358: chữ 14, size 13, thị giác bác 18 / 90 nghĩa).
+// Cùng bảng màu/nét/nền s1; bớt vật nền, mảng màu phẳng lớn. Không nhắc chữ/biểu tượng (nhắc → hiện ra). Lịch fill KHÔNG dùng tới khi chủ duyệt hình.
+export const SCENE_STYLE_LITE = 'Minimal flat vector illustration with very few shapes: only the people and the one or two objects that matter, nothing else in the scene, ' +
+  'large flat areas of color, thick clean dark teal outlines, simple friendly faces, deep teal, warm orange, golden yellow and soft pink, ' +
+  'plain light cream background, blank smooth surfaces, the people and key objects large and centered, purely pictorial, suitable for young children.';
+// MẪU lite+ 02/11 (chưa duyệt – chỉ pilot, VIMG_STYLE=liteplus): lite trượt kiểm nghĩa 1 → 4 / 18 vì bỏ mất chi tiết mang nghĩa (mistake chỉ còn "tờ giấy", specify mất "khác cỡ").
+// Giữ lite (ít vật, mảng phẳng, ≤ 6 KB) nhưng thẻ có thêm `key` = 1–2 chi tiết then chốt không chữ (cổng keyOk), đặt sau câu cảnh, phong cách bảo vẽ chúng to rõ.
+export const SCENE_STYLE_LITEPLUS = 'Minimal flat vector illustration with few shapes: only the people and the key details that show the meaning, no other objects and no background scenery, ' +
+  'the key details large, bold and easy to see, large flat areas of color, thick clean dark teal outlines, simple friendly faces, deep teal, warm orange, golden yellow and soft pink, ' +
+  'plain light cream background, blank smooth surfaces, purely pictorial, suitable for young children.';
+export const isLitePlus = (env = process.env) => env.VIMG_STYLE === 'liteplus';
+export const sceneStyle = (env = process.env) => (env.VIMG_STYLE === 'lite' ? SCENE_STYLE_LITE : isLitePlus(env) ? SCENE_STYLE_LITEPLUS : SCENE_STYLE_E4);
 // khuôn theo lớp từ (nghĩa CẢNH = trừu tượng): câu nhấn thêm sau mô tả thẻ – đặt TRƯỚC SCENE_STYLE (FLUX ưu tiên đầu prompt)
 export const SCENE_CLASS = {
   noun: 'The one key moment that shows the idea fills the frame, every detail supports it.',
@@ -59,7 +71,8 @@ export function promptScene(k, sc, attempt = 1) {
     const pick = g => { const L = PEOPLE.filter(p => new RegExp('\\ba ' + g + '\\b').test(p)); return L[(h >>> (3 * i++)) % L.length]; };
     let s = scrub(String(sc.ps).replace(/["“”]/g, ''), String(k).split('#')[0]).replace(/\ban? (woman|man)\b/gi, (m, g) => pick(g.toLowerCase()));
     const fr = FRAMES[(h + attempt - 1) % FRAMES.length];
-    return `Illustration, ${fr}: ${s.replace(/\.+$/, '')}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE_E4}`;
+    const key = isLitePlus() && sc.key ? scrub(String(sc.key).replace(/["“”]/g, ''), String(k).split('#')[0]).replace(/\.+$/, '') : '';
+    return `Illustration, ${fr}: ${s.replace(/\.+$/, '')}.${key ? ' Key detail' + (/;/.test(key) ? 's' : '') + ': ' + key + '.' : ''}${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${sceneStyle()}`;
   }
   // >>> (không >>): fnv không dấu, >> 3 ra số ÂM → PEOPLE[-n] = undefined ("undefined (interviewer)" trong prompt e2)
   const h = fnv(k), raw = String(sc.sc || '');
@@ -113,11 +126,41 @@ cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The f
 quickly (adv) ["He ran quickly to catch the bus."] -> {"ex":"He ran quickly to catch the bus.","ps":"a man sprints with long strides and a determined face toward a big green bus","check":"Is the man moving at high speed?","cap":"a man running hard toward a green bus","who":1,"draw":5}
 agreement (n) ["They reached an agreement after a long talk."] -> {"ex":"They reached an agreement after a long talk.","ps":"a woman and a man across a small table smile and shake hands firmly","check":"Have the two people just settled something together?","cap":"two people smiling and shaking hands over a table","who":2,"draw":4}
 Reply JSON only.`;
+// lite+ (chỉ VIMG_STYLE=liteplus): thêm trường key – lite bỏ chi tiết mang nghĩa → giám khảo nghĩa bác. Vật thường có chữ → vẽ TRƠN + dấu không chữ.
+export const KEY_SYS = `
+Also add "key" to every card: the 1 or 2 details of ps that carry the meaning, so a picture with ONLY the people and these details still shows w. Each detail 2-12 words, separated by "; ".
+A detail must be visible and wordless. If the meaning needs something that usually carries writing (a test, a form, a price), draw it as a plain blank sheet with a mark instead: a big red cross mark, a big green tick mark, a red circle. Never weapons, blood, fighting, alcohol or cigarettes in ps or key (the pictures are for children).
+Key examples: mistake (n) "a woman points at a big red cross mark on a boy's blank sheet" -> "key":"a big red cross mark on a blank sheet; the boy's surprised face"; specify (v) -> "key":"one small box and one very large box"; vacant (adj) -> "key":"a completely empty chair and desk".`;
+export const sceneSys = (env = process.env) => SCENE_SYS + (isLitePlus(env) ? KEY_SYS : '');
 export const sceneUser = items => JSON.stringify(items.map(({ k, e, fix }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)), ...(fix ? { fix: String(fix).slice(0, 240) } : {}) })));
 // e6 (01/11, lượt fill 41205453283): 610/1.221 ảnh trượt vì CHỮ – câu cảnh nhắc vật mang chữ (sách, vé, giấy tờ, bảng, quầy, bến xe buýt…).
 // Thêm vật mới gây chữ → thêm vào đây + test (không nới giám khảo). Vật chính là TỪ ĐANG HỌC thì được (book#n vẽ quyển sách).
-export const TEXT_OBJ = /\b(books?|textbooks?|notebooks?|novels?|cookbooks?|magazines?|newspapers?|papers?|documents?|reports?|(?:paper|printed|application) forms?|questionnaires?|surveys? sheets?|checklists?|agendas?|ballots?|tickets?|passports?|diplomas?|certificates?|blueprints?|worksheets?|flyers?|leaflets?|brochures?|posters?|menus?|maps?|receipts?|invoices?|contracts?|letters?|envelopes?|labels?|cards?|notes?|whiteboards?|blackboards?|chalkboards?|(?:notice|project|menu|score|sign|bulletin) ?boards?|clipboards?|signs?|signboards?|billboards?|banners?|price tags?|name tags?|cash|banknotes?|bills|bookshops?|bookstores?|storefronts?|shop fronts?|bus stops?|booths?|calendars?|clocks?|scoreboards?|jerseys?|badges?|trophies|trophy|stamps?|license plates?|charts?|graphs?)\b/i;
+export const TEXT_OBJ = /\b(books?|textbooks?|notebooks?|novels?|cookbooks?|magazines?|newspapers?|papers?|documents?|reports?|(?:paper|printed|application) forms?|questionnaires?|surveys? sheets?|checklists?|flashcards?|(?:exam|test|answer|score) sheets?|agendas?|ballots?|tickets?|passports?|diplomas?|certificates?|blueprints?|worksheets?|flyers?|leaflets?|brochures?|posters?|menus?|maps?|receipts?|invoices?|contracts?|letters?|envelopes?|labels?|cards?|notes?|whiteboards?|blackboards?|chalkboards?|(?:notice|project|menu|score|sign|bulletin) ?boards?|clipboards?|signs?|signboards?|billboards?|banners?|price tags?|name tags?|cash|banknotes?|bills|bookshops?|bookstores?|storefronts?|shop fronts?|bus stops?|booths?|calendars?|clocks?|scoreboards?|jerseys?|badges?|trophies|trophy|stamps?|license plates?|charts?|graphs?)\b/i;
 export const SCREEN = /\b(laptops?|computers?|monitors?|screens?|(?:smart)?phones?|tablets?|tvs?|televisions?)\b/i;
+// lite+ 02/11: thẻ protected area#n "a hunter with a gun" → giám khảo 'api: unsafe' (ảnh cho trẻ em). Vũ khí/bạo lực/chất kích thích trong ps hoặc key → thẻ viết lại kèm lý do.
+// Chính từ đang học (gun#n, blood test#n) được vẽ; dao chỉ khi nấu ăn, máu chỉ khi y tế; lính/ống tiêm không chặn (ally#n, flu shot#n). Thêm loại mới → thêm vào đây + test (không nới giám khảo).
+export const UNSAFE = /\b(guns?|rifles?|pistols?|revolvers?|shotguns?|firearms?|weapons?|swords?|daggers?|spears?|bombs?|grenades?|explosives?|bullets?|ammunition|blood|bleeding|corpses?|dead bod(?:y|ies)|kill(?:s|ed|ing)?|murder\w*|stab(?:s|bed|bing)?|attack(?:s|ed|ing)?|punch(?:es|ed|ing)?|violen\w*|wars?|drunk|beers?|wine|cigarettes?|knives|knife)\b/i;
+const MED = /\b(nurse|doctor|clinic|test tubes?|donat\w*|donor|lab)\b/i;
+const COOK = /\b(kitchen|cook\w*|chop\w*|slic\w*|cutting board|bread|vegetables?|fruit|cake|onions?|apples?|carrots?|butter)\b/i;
+/** vật/cảnh không an toàn trong câu (trừ khi chính là từ đang học; dao khi nấu ăn) → từ | '' */
+export function unsafeHit(s, w) {
+  const t = String(s || '').replace(/\b(bullet points?|punch bowls?)\b/gi, ''), m = t.match(new RegExp(UNSAFE.source, 'gi')) || [], W = String(w || '').toLowerCase().split(/\s+/);
+  return (m.find(x => !wordRe(w).test(x) && !W.includes(x.toLowerCase().replace(/s$/, '')) && !(/^kni/i.test(x) && COOK.test(t)) && !(/^blood/i.test(x) && MED.test(t))) || '').toLowerCase();
+}
+/** lite+: key = 1–2 chi tiết then chốt (ngăn ';'), mỗi chi tiết 2–12 từ, không chữ/biểu tượng/màn hình/vật mang chữ/không an toàn → lý do | '' */
+export function keyOk(e, key) {
+  const parts = String(key || '').split(';').map(x => x.trim()).filter(Boolean);
+  if (!parts.length) return 'no key detail';
+  if (parts.length > 2) return 'key has more than 2 details';
+  if (parts.some(x => { const n = x.split(/\s+/).length; return n < 2 || n > 12; })) return 'key detail not 2-12 words';
+  const k = parts.join('; ');
+  if (/\b(text|letters?|words?|written|writing|numbers?|digits?|price|caption)\b/i.test(k)) return 'key asks for text/symbol';
+  { const h = negHit(k, e.w); if (h) return 'key uses a symbol: ' + h; }
+  { const t = textObj(k, e.w); if (t) return 'key has a text object: ' + t.toLowerCase(); }
+  { const m = k.match(SCREEN); if (m && !wordRe(e.w).test(m[0])) return 'key shows a screen'; }
+  { const u = unsafeHit(k, e.w); if (u) return 'key is unsafe: ' + u; }
+  return '';
+}
 const BEHIND = /\b(seen from behind|from behind|back of the|from the back)\b/i;
 const STOP = new Set('a an the is are was were be been being do does did of to in on at by for with and or but this that these those it its they them their there here who what which while as into from up down out over under one two three some any each other another very just not no yes picture image clearly shown shows show visible person people woman man girl boy'.split(' '));
 const content = s => String(s || '').toLowerCase().match(/[a-z]+/g)?.filter(x => x.length > 2 && !STOP.has(x)).map(x => x.replace(/(ing|ed|es|s)$/, '')) || [];
@@ -137,7 +180,7 @@ export function textObj(ps, w) {
   return m.find(x => { const t = x.toLowerCase(); return !(W && (t === W || t.replace(/s$/, '') === W.replace(/s$/, '') || W.split(/\s+/).includes(t.replace(/s$/, '')))); }) || '';
 }
 /** kiểm thẻ cảnh: ex phải là câu của kho, không chữ trong sc, cap không chứa từ */
-export function sceneOk(e, c) {
+export function sceneOk(e, c, env = process.env) {
   if (!c || typeof c !== 'object') return 'no card';
   if (c.skip) return 'skip: ' + String(c.skip).slice(0, 60);
   const exs = [].concat(e.ex || []).map(s => String(s).trim());
@@ -155,6 +198,8 @@ export function sceneOk(e, c) {
     if (wordRe(e.w).test(c.check)) return 'check names the word';
     if (/\b(indicat\w*|represent\w*|illustrat\w*|symboli[sz]\w*|the idea of|the concept of)\b/i.test(c.check)) return 'check asks for a label';
     if (checkEcho(c.ps, c.check) >= CHECK_ECHO) return 'check repeats ps';
+    { const u = unsafeHit(c.ps, e.w); if (u) return 'ps is unsafe: ' + u; }
+    if (isLitePlus(env)) return keyOk(e, c.key);
     return '';
   }
   if (!c.sc || String(c.sc).split(/\s+/).length < 8) return 'sc too short';
@@ -219,7 +264,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
   else if (process.argv.includes('--cards') || process.argv.includes('--refix')) {
     const { createPool, normOut } = await import('../lib/ai-pool.mjs');
     // mục = {k, w, fix?} (không phải chuỗi k): ai-pool normOut khớp lại câu trả lời lệch khoá – 24/10 lượt fill đầu: 194/200 'no card' vì mục là chuỗi
-    const AI = createPool({ prompt: req => ({ sys: SCENE_SYS, user: sceneUser(req.items.map(x => ({ k: x.k || x, e: lex[x.k || x], fix: x.fix }))), temp: 0.3 }) });
+    const AI = createPool({ prompt: req => ({ sys: sceneSys(), user: sceneUser(req.items.map(x => ({ k: x.k || x, e: lex[x.k || x], fix: x.fix }))), temp: 0.3 }) });
     let add = 0, bad = 0, up = 0, fixed = 0; const why0 = {};
     let todo;
     if (process.argv.includes('--refix')) {
@@ -253,7 +298,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
         const last = x.tries + 1 >= CARD_TRIES;
         if (c && c.skip && (last || x.refix)) { if (!x.refix) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } continue; }
         if (/^skip: draw/.test(why) && last && !x.refix) { cards.items[k] = { skip: 'draw ' + c.draw + ': ' + String(c.ps || '').slice(0, 60), v: SCENE_V, by: r.model }; add++; continue; }
-        if (!why) { const old = cards.items[k] || {}; cards.items[k] = { ex: c.ex, ps: String(c.ps).replace(/["“”]/g, '').slice(0, 200), sc: String(c.ps).replace(/["“”]/g, '').slice(0, 200), check: String(c.check).slice(0, 160), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), draw: +c.draw, v: SCENE_V, by: r.model, ...(x.tries ? { tries: x.tries + 1 } : {}), ...(x.refix ? { refix: (old.refix || 0) + 1 } : {}) }; add++; continue; }
+        if (!why) { const old = cards.items[k] || {}; cards.items[k] = { ex: c.ex, ps: String(c.ps).replace(/["“”]/g, '').slice(0, 200), sc: String(c.ps).replace(/["“”]/g, '').slice(0, 200), check: String(c.check).slice(0, 160), cap: String(c.cap).slice(0, 120), ...(c.key ? { key: String(c.key).replace(/["“”]/g, '').slice(0, 160) } : {}), who: Math.min(2, +c.who || 0), draw: +c.draw, v: SCENE_V, by: r.model, ...(x.tries ? { tries: x.tries + 1 } : {}), ...(x.refix ? { refix: (old.refix || 0) + 1 } : {}) }; add++; continue; }
         why0[why.replace(/:.*/, '')] = (why0[why.replace(/:.*/, '')] || 0) + 1;
         // trượt cổng → viết lại NGAY (lô sau) kèm lý do, không bỏ nghĩa; hết lần → đếm hỏng, lượt sau viết tiếp
         if (!last) { q.push({ ...x, tries: x.tries + 1, fix: c && c.skip ? 'skip is the last resort: try the template for this part of speech with the most visible sentence' : why }); continue; }
