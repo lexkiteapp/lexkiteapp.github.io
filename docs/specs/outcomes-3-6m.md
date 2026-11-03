@@ -47,7 +47,7 @@ Danh mục nhiệm vụ = lô S-OUT-TASK (§7). Lộ trình chọn theo kết qu
 
 ## 5. Đo tiến bộ (mốc 1 – đã làm)
 - Bài đo ~12': (1) đọc to đoạn 40–60 từ → **độ rõ** (% từ máy nghe đúng) + wpm; (2) nói tự do 1–2' theo đề → wpm, tổng từ, MATTR, lỗi/100 từ; (3) viết 10' (80–150 từ) → số từ, độ dài câu TB, lỗi/100 từ, MATTR, từ nối/100 từ.
-- Rubric minh bạch, mỗi khía cạnh quy ra CEFR (bảng ngưỡng trong `web/js/outcomes-core.js`, test khóa), tổng = trung vị; luôn ghi "ước tính, không phải chứng chỉ". Hiệu chuẩn lại bằng mẫu CI như `CURRICULUM-PLAN.md` §11 (mốc 3).
+- Rubric minh bạch, mỗi khía cạnh quy ra CEFR (bảng ngưỡng trong `web/js/outcomes-core.js`, test khóa), tổng = trung vị thấp; luôn ghi "ước tính, không phải chứng chỉ". Trần: Chính xác/Vốn từ ≤ B2 (máy chỉ bắt lỗi phổ biến, MATTR-50 không đo độ tinh của từ), các khía cạnh khác ≤ C1; nói < 10 giây hoặc < 20 từ, viết < 30 từ, vốn từ < 50 từ → "chưa chấm", không ra A1. Hiệu chuẩn lại bằng mẫu CI như `CURRICULUM-PLAN.md` §11 (mốc 3).
 - Đề song song theo cấp (a = A1–A2, b = B1–B2, c = C1+), mỗi lần đo lấy đề **khác** lần trước để không học thuộc nhưng so được.
 - 4 tuần/lần: trang `#/outcome` báo đến hạn, biểu đồ từng chỉ số theo thời gian, **nghe lại bản ghi lần đầu cạnh bản mới nhất**, đọc 2 bài viết cạnh nhau.
 - Lưu: chỉ số + bài viết trong `settings.outcomes` (đồng bộ D1/Drive sẵn có, gộp hợp theo id, không mất lần đo khi 2 máy cùng làm). **Âm thanh chỉ ở máy** (IndexedDB `lexkite-voice`, không gửi đi đâu) – quyền riêng tư; người học xóa được.

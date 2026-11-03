@@ -9,16 +9,19 @@
   const RUBRIC = {
     wpm: { at: [55, 80, 105, 125, 145] }, // nói tự do, từ/phút (bản ghi chữ – không tính từ đệm)
     acc: { at: [60, 75, 85, 92, 97] }, // đọc to: % từ máy nghe đúng (độ rõ)
-    mattr: { at: [0.55, 0.62, 0.68, 0.74, 0.8] }, // đa dạng từ (MATTR cửa sổ 25)
+    mattr: { at: [0.5, 0.6, 0.68, 0.75, 0.82] }, // đa dạng từ (MATTR cửa sổ 50 – cửa sổ 25 thổi phồng bài ngắn: đoạn A2 lặp từ 0,63 vẫn ra B1)
     epw: { at: [15, 10, 6, 3, 1.5], low: true }, // lỗi / 100 từ
     sl: { at: [7, 10, 13, 16, 19] }, // độ dài câu viết TB (từ)
     ww: { at: [40, 80, 120, 160, 200] }, // số từ viết trong 10 phút
     link: { at: [0.5, 1.5, 2.5, 3.5, 4.5] }, // từ nối / 100 từ
   };
-  const MIN_SPEECH = 20, MIN_WRITE = 30, GAP_DAYS = 28, DAY = 864e5;
+  // Trần theo khía cạnh: máy chỉ bắt lỗi phổ biến (LK_WRITE) và MATTR không đo độ tinh của từ → Chính xác/Vốn từ tối đa B2;
+  // tốc độ/độ rõ/viết tối đa C1 cho tới khi hiệu chuẩn CI (mốc 3) – không bao giờ hứa C2 từ số đo máy.
+  const CAP = { fl: 'C1', rg: 'B2', ac: 'B2', ph: 'C1', wr: 'C1' };
+  const MIN_SPEECH = 20, MIN_SEC = 10, MIN_RANGE = 50, MIN_WRITE = 30, GAP_DAYS = 28, DAY = 864e5;
   const words = s => String(s || '').match(/[A-Za-z][A-Za-z'’-]*/g) || [];
   const r1 = x => Math.round(x * 10) / 10, r2 = x => Math.round(x * 100) / 100;
-  function mattr(ws, win = 25) {
+  function mattr(ws, win = 50) {
     const a = ws.map(w => w.toLowerCase().replace(/’/g, "'"));
     if (!a.length) return 0;
     if (a.length <= win) return r2(new Set(a).size / a.length);
@@ -41,7 +44,7 @@
   const per100 = (n, w) => (w ? r1(n / w * 100) : 0);
   function speech(o) {
     const text = String((o && o.text) || '').trim(), sec = Math.max(0, +(o && o.sec) || 0), ws = words(text), E = errors(text);
-    return { w: ws.length, sec: Math.round(sec), wpm: sec >= 5 ? Math.round(ws.length / (sec / 60)) : 0, mattr: mattr(ws), epw: per100(E.n, ws.length), few: ws.length < MIN_SPEECH, errs: E.rules, items: E.items };
+    return { w: ws.length, sec: Math.round(sec), wpm: sec >= MIN_SEC ? Math.round(ws.length / (sec / 60)) : 0, mattr: mattr(ws), epw: per100(E.n, ws.length), few: ws.length < MIN_SPEECH || sec < MIN_SEC, errs: E.rules, items: E.items }; // < 10 giây: không đủ để đo trôi chảy
   }
   // Đọc to: căn chữ theo LCS giữa đoạn mẫu và câu máy nghe được → % từ khớp (độ rõ)
   function read(o) {
@@ -66,11 +69,14 @@
   const idx = l => LV.indexOf(l);
   const median = ls => { const a = ls.filter(Boolean).map(idx).sort((x, y) => x - y); if (!a.length) return null; return LV[a[(a.length - 1) >> 1]]; }; // trung vị thấp – không thổi phồng
   function estimate(c) {
-    const sp = c && c.sp && !c.sp.few ? c.sp : null, rd = c && c.rd && c.rd.w ? c.rd : null, wr = c && c.wr && !c.wr.few ? c.wr : null;
+    // Kiểm lại ngưỡng từ số đo (không tin cờ few đã lưu – bản ghi cũ/khác phiên bản vẫn chấm đúng luật hiện hành)
+    const okSp = p => p && !p.few && p.w >= MIN_SPEECH && (p.sec == null || p.sec >= MIN_SEC), okWr = p => p && !p.few && p.w >= MIN_WRITE;
+    const sp = c && okSp(c.sp) ? c.sp : null, rd = c && c.rd && c.rd.w ? c.rd : null, wr = c && okWr(c.wr) ? c.wr : null;
     const wsum = (sp ? sp.w : 0) + (wr ? wr.w : 0);
     const mat = wsum ? ((sp ? sp.mattr * sp.w : 0) + (wr ? wr.mattr * wr.w : 0)) / wsum : null;
     const epw = wsum ? ((sp ? sp.epw * sp.w : 0) + (wr ? wr.epw * wr.w : 0)) / wsum : null;
-    const e = { fl: sp ? level('wpm', sp.wpm) : null, rg: mat == null ? null : level('mattr', mat), ac: epw == null ? null : level('epw', epw), ph: rd ? level('acc', rd.acc) : null, wr: wr ? median([level('ww', wr.w), level('sl', wr.sl), level('link', wr.link)]) : null };
+    const e = { fl: sp ? level('wpm', sp.wpm) : null, rg: mat == null || wsum < MIN_RANGE ? null : level('mattr', mat), ac: epw == null ? null : level('epw', epw), ph: rd ? level('acc', rd.acc) : null, wr: wr ? median([level('ww', wr.w), level('sl', wr.sl), level('link', wr.link)]) : null };
+    for (const k of Object.keys(CAP)) if (e[k] && idx(e[k]) > idx(CAP[k])) e[k] = CAP[k];
     const got = [e.fl, e.rg, e.ac, e.ph, e.wr].filter(Boolean);
     e.all = got.length >= 2 ? median(got) : null;
     return e;
@@ -111,6 +117,6 @@
     if (o.wr && o.wr.text) o.wr.text = String(o.wr.text).slice(0, 1500);
     return o;
   }
-  g.Outcomes = { LV, RUBRIC, GAP_DAYS, MIN_SPEECH, MIN_WRITE, words, mattr, errors, speech, read, writing, level, estimate, merge, due, bandOf, pickForm, xpFor, topFixes, slim };
+  g.Outcomes = { LV, RUBRIC, CAP, GAP_DAYS, MIN_SPEECH, MIN_WRITE, words, mattr, errors, speech, read, writing, level, estimate, merge, due, bandOf, pickForm, xpFor, topFixes, slim };
   if (typeof module !== 'undefined' && module.exports) module.exports = g.Outcomes;
 })(typeof self !== 'undefined' ? self : globalThis);

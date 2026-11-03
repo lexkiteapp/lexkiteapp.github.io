@@ -74,12 +74,12 @@
 .oc-mic{display:flex;align-items:center;gap:.8rem}.oc-mic .btn{min-height:48px;min-width:48px}
 .oc-clock{font-variant-numeric:tabular-nums;font-weight:700;font-size:1.2rem}
 .oc-wrap textarea{width:100%;min-height:11rem;font:inherit;font-size:1rem;line-height:1.55;padding:.8rem;border-radius:var(--radius-sm);border:1px solid var(--line-2);background:var(--surface);color:var(--text);box-sizing:border-box}
-.oc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem}
+.oc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:.5rem}
 .oc-dim{background:var(--surface-2);border-radius:var(--radius-sm);padding:.7rem .8rem;display:grid;gap:.15rem}
 .oc-dim b{font-size:1.25rem}.oc-dim span{font-size:.85rem;color:var(--muted)}
 .oc-fix{border-left:3px solid var(--again);padding:.4rem .7rem;background:var(--surface-2);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
 .oc-fix del{color:var(--again)}.oc-fix ins{color:var(--good);text-decoration:none;font-weight:700}
-.oc-chart{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem}
+.oc-chart{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem}
 .oc-chart figure{margin:0;background:var(--surface-2);border-radius:var(--radius-sm);padding:.6rem .7rem}
 .oc-chart figcaption{font-size:.85rem;color:var(--muted)}.oc-chart svg{width:100%;height:56px;display:block}
 .oc-cmp{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.oc-cmp>div{background:var(--surface-2);border-radius:var(--radius-sm);padding:.7rem;min-width:0}
@@ -103,7 +103,7 @@
     return `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><path d="${path}" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>${xy.map(p => `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3.2" fill="var(--primary)"/>`).join('')}</svg>`;
   }
   const METRICS = () => [
-    [t('Từ/phút khi nói'), c => c.sp && !c.sp.few ? c.sp.wpm : null, false],
+    [t('Từ/phút khi nói'), c => c.sp && !c.sp.few && c.sp.wpm ? c.sp.wpm : null, false],
     [t('Độ rõ khi đọc to (%)'), c => c.rd && c.rd.w ? c.rd.acc : null, false],
     [t('Lỗi / 100 từ'), c => { const s = c.sp && !c.sp.few ? c.sp : null, w = c.wr && !c.wr.few ? c.wr : null, n = (s ? s.w : 0) + (w ? w.w : 0); return n ? Math.round(((s ? s.epw * s.w : 0) + (w ? w.epw * w.w : 0)) / n * 10) / 10 : null; }, true],
     [t('Đa dạng từ (MATTR)'), c => { const v = [c.sp && !c.sp.few && c.sp.mattr, c.wr && !c.wr.few && c.wr.mattr].filter(x => x); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length * 100) / 100 : null; }, false],
@@ -118,14 +118,14 @@
         <a class="btn primary lg block" href="#/outcome/go">${t('Bắt đầu bài đo')}</a></div></div>`;
       return;
     }
-    const e = last.est || {};
+    const e = O.estimate(last); // tính lại theo rubric hiện hành (hiệu chuẩn lại không để mức cũ lệch giữa các lần đo)
     const metrics = METRICS().map(([label, get, low]) => {
       const vals = checks.map(get), a = vals.find(v => v != null), b = [...vals].reverse().find(v => v != null);
       if (b == null) return '';
       const dv = a != null && checks.length > 1 ? Math.round((b - a) * 100) / 100 : null, good = dv != null && (low ? dv < 0 : dv > 0);
       return `<figure><figcaption>${esc(label)}</figcaption>${spark(vals, low)}<div><b>${b}</b>${dv ? ` <span class="small oc-delta ${good ? 'up' : 'down'}">${dv > 0 ? '+' : ''}${dv}</span>` : ''}</div></figure>`;
     }).join('');
-    const col = (c, label) => `<div><b>${esc(label)}</b><div class="small muted">${esc(fmtDate(c.at))} · ${esc((c.est && c.est.all) || '–')}</div>
+    const col = (c, label) => `<div><b>${esc(label)}</b><div class="small muted">${esc(fmtDate(c.at))} · ${esc(O.estimate(c).all || '–')}</div>
       <div data-aud="${esc(c.id)}:sp"></div><div data-aud="${esc(c.id)}:rd"></div>${c.wr && c.wr.text ? `<p lang="en">${esc(c.wr.text)}</p>` : ''}</div>`;
     view.innerHTML = `<div class="oc-wrap">
       <div class="card"><div class="oc-step">${t('Đo đầu ra')}</div><h2>${t('Tiến bộ nói + viết')}</h2>

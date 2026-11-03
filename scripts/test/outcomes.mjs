@@ -13,8 +13,9 @@ let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 ok(O.words("I don't know, it's fine.").length === 5, 'words');
 ok(O.mattr(O.words('a a a a')) === 0.25 && O.mattr(O.words('one two three')) === 1, 'mattr ngắn = TTR');
 const long = Array.from({ length: 60 }, (_, i) => 'w' + (i % 30)).join(' ').replace(/w(\d+)/g, (m, d) => 'word' + 'abcdefghijklmnopqrstuvwxyzabcd'[d]);
-ok(O.mattr(O.words(long)) > 0.9, 'mattr cửa sổ trượt');
+ok(O.mattr(O.words(long)) === 0.52 && O.mattr(O.words(long), 25) > 0.9, 'mattr cửa sổ trượt 50 (25 thổi phồng)');
 const sp = O.speech({ text: 'my brother he go to the market every day and I am agree that it is a good idea because the fruit there is fresh and cheap', sec: 20 });
+ok(O.speech({ text: sp.text || 'a '.repeat(30), sec: 4 }).few && O.speech({ text: 'a '.repeat(30), sec: 4 }).wpm === 0, 'nói < 10 giây → few, không chấm trôi chảy (lỗi thật: 2 giây ra A1)');
 ok(sp.w === 27 && sp.wpm === 81 && !sp.few, 'speech: số từ + wpm ' + sp.w + '/' + sp.wpm);
 ok(sp.errs['lk:sva-3'] === 1 && sp.errs['lk:be-agree'] === 1 && sp.epw === 7.4, 'speech: LK_WRITE bắt lỗi (he go, am agree) ' + JSON.stringify(sp.errs));
 ok(O.speech({ text: 'hello there', sec: 2 }).wpm === 0 && O.speech({ text: 'hello there', sec: 2 }).few, 'nói quá ngắn → few, không chia cho ~0 giây');
@@ -37,6 +38,10 @@ ok(e.fl === 'B2' && e.ph === 'B2' && e.rg === 'B2' && e.ac === 'B2' && e.wr === 
 const e2 = O.estimate({ sp: { w: 5, few: true, wpm: 300, mattr: 1, epw: 0 }, rd: null, wr: null });
 ok(e2.fl === null && e2.all === null, 'estimate: nói 5 từ không được chấm C2');
 ok(O.estimate({}).all === null, 'estimate rỗng');
+ok(O.estimate({ sp: { w: 41, sec: 2, wpm: 0, mattr: 0.8, epw: 2, few: false } }).fl === null, 'bản ghi cũ few:false nhưng 2 giây → vẫn chưa chấm trôi chảy');
+const hi = O.estimate({ sp: { w: 200, wpm: 190, mattr: 0.95, epw: 0, few: false }, rd: { acc: 100, w: 50 }, wr: { w: 250, sl: 25, link: 6, mattr: 0.95, epw: 0, few: false } });
+ok(hi.ac === 'B2' && hi.rg === 'B2' && hi.fl === 'C1' && hi.ph === 'C1' && hi.wr === 'C1' && hi.all === 'C1', 'trần khía cạnh: số đo máy không hứa C2 ' + JSON.stringify(hi));
+ok(O.estimate({ sp: { w: 25, wpm: 100, mattr: 0.9, epw: 2, few: false }, rd: { acc: 80, w: 40 } }).rg === null, 'vốn từ cần ≥ 50 từ');
 
 // 4. Gộp lần đo: hợp, giao hoán, lũy đẳng, giữ tối đa 36
 const A = [{ id: 'x1', at: 1 }, { id: 'x2', at: 5 }], B = [{ id: 'x3', at: 3 }, { id: 'x2', at: 5 }];
