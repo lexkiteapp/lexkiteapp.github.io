@@ -113,8 +113,7 @@
     const list = Object.values(state.cards);
     const end = endOfToday() + ahead * DAY;
     const due = list.filter(c => (c.srs.reps > 0 || c.srs.last) && c.srs.due <= end).sort((a, b) => a.srs.due - b.srs.due);
-    const { newCount } = ahead ? { newCount: 0 } : Cards.dueCount(state.cards, state.settings, state.stats);
-    const fresh = list.filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => a.added - b.added).slice(0, newCount);
+    const fresh = ahead ? [] : Cards.newToday(state.cards, state.settings, state.stats);
     const q = [...due];
     fresh.forEach((c, i) => q.splice(Math.min(q.length, i * 3 + 1), 0, c));
     const cap = +state.settings.sessionCap || 0;
