@@ -17,7 +17,7 @@ permissions:
   contents: read
 concurrency:
   group: report-autofix-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'live' }}
-  cancel-in-progress: false   # không huỷ lượt chờ: mỗi PR gộp là 1 tín hiệu
+  cancel-in-progress: true   # nhóm theo PR (mỗi PR gộp 1 lượt, không bị lượt khác huỷ); nhóm live: lượt mới quét lại toàn bộ (idempotent) nên huỷ lượt cũ không mất tín hiệu – ci-policy workflow_run
 jobs:
   merged:
     if: github.event_name == 'pull_request' && github.event.pull_request.merged && (contains(github.event.pull_request.title, 'LX-') || contains(github.event.pull_request.body, 'LX-') || contains(github.event.pull_request.head.ref, 'LX-'))
