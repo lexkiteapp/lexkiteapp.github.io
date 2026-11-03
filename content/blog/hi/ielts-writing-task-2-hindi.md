@@ -3,7 +3,7 @@ title: "IELTS Writing Task 2 Format in Hindi: निबंध संरचना
 description: "सीखें ielts writing task 2 format in hindi: 4-पैराग्राफ संरचना, 5 मुख्य निबंध प्रकार, 4 मार्किंग क्राइटेरिया, बैंड 8 मॉडल निबंध और समय प्रबंधन की रणनीति।"
 slug: ielts-writing-task-2-hindi
 lang: hi
-translationKey: ielts-writing-task-2-format
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, essay]
 keyword: "ielts writing task 2 format in hindi"

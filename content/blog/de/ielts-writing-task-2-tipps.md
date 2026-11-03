@@ -3,7 +3,7 @@ title: "IELTS Writing Task 2 Tipps: Schritt für Schritt zu Band 7+"
 description: "Beste IELTS Writing Task 2 Tipps für einen überzeugenden Essay: 4-Absätze-Struktur, akademische Formulierungen, Linking Words und Bewertungskriterien."
 slug: ielts-writing-task-2-tipps
 lang: de
-translationKey: ielts-writing-task-2-bi-quyet
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, essay]
 keyword: "ielts writing task 2 tipps"

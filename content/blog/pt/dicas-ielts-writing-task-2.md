@@ -3,7 +3,7 @@ title: "Dicas IELTS Writing Task 2: estrutura e guia para nota 7+"
 description: "Confira as melhores dicas ielts writing task 2 para redação nota 7+: estrutura de 4 parágrafos, conectivos formais, vocabulário acadêmico e modelos."
 slug: dicas-ielts-writing-task-2
 lang: pt
-translationKey: meo-viet-ielts-writing-task-2
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, redacao]
 keyword: "dicas ielts writing task 2"

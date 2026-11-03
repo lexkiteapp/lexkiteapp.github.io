@@ -3,7 +3,7 @@ title: "IELTS Writing Task 2 Structure: Méthode Réussie en 4 Paragraphes"
 description: "Maîtrisez l'IELTS Writing Task 2 structure : plan en 4 paragraphes, connecteurs logiques académiques, critères d'évaluation et astuces pour viser le Band 7+."
 slug: ielts-writing-task-2-plan
 lang: fr
-translationKey: ielts-writing-task-2-bi-quyet
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, dissertation]
 keyword: "ielts writing task 2 structure"

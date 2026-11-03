@@ -3,7 +3,7 @@ title: "IELTS Writing Task 2: структура эссе, шаблон и Band 
 description: "Узнайте, какая ielts writing task 2 структура эссе приносит Band 8: шаблон из 4 абзацев, 5 типов вопросов, критерии оценки и тайм-менеджмент на 40 минут."
 slug: ielts-writing-task-2-struktura
 lang: ru
-translationKey: ielts-writing-task-2-format
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, esse]
 keyword: "ielts writing task 2 структура"

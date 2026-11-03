@@ -3,7 +3,7 @@ title: "IELTS Writing Task 2 Şablon Rehberi: 7+ Band 4 Paragraf Yapısı"
 description: "IELTS writing task 2 şablon ve yapı rehberi. 4 paragraflı kompozisyon düzeni, 7.0+ band akademik bağlaçlar ve sınavda puan kazandıran örnek essay analizi."
 slug: ielts-writing-task-2-ornekleri
 lang: tr
-translationKey: huong-dan-viet-ielts-task-2
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, sablon]
 keyword: "ielts writing task 2 şablon"

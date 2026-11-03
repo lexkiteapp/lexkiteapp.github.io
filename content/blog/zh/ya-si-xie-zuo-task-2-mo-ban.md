@@ -3,7 +3,7 @@ title: "雅思写作 Task 2 模板：四段式高分结构与告别中式套句�
 description: "雅思写作 task 2 模板与四段式高分结构深度解析：彻底告别生硬死板的中式大词模板，掌握TR任务回应逻辑、CC连贯衔接技巧、LR学术词汇替换与GRA多样句型框架。本文提供经典题型模板与高分范文剖析，助你稳步突破写作5.5分瓶颈，斩获大作文7分以上优异成绩。"
 slug: ya-si-xie-zuo-task-2-mo-ban
 lang: zh
-translationKey: ielts-writing-task-2-structure
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ya-si, ielts, xie-zuo, task-2, mo-ban]
 keyword: "雅思写作 task 2 模板"

@@ -3,7 +3,7 @@ title: "كتابة ielts writing task 2: الهيكل النموذجي لحصد 
 description: "دليل كتابة ielts writing task 2 بالتفصيل: هيكل الأربع فقرات المعتمد، ومعايير التقييم الأربعة، ونماذج مقالات باند 8 مع نصائح عملية."
 slug: ielts-writing-task-2-ar
 lang: ar
-translationKey: ielts-writing-task-2-structure
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, hoc-viet]
 keyword: "كتابة ielts writing task 2"

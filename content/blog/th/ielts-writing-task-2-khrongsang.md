@@ -3,7 +3,7 @@ title: "IELTS Writing Task 2 โครงสร้างเอสเส 4 ย่
 description: "เจาะลึก ielts writing task 2 โครงสร้าง 4 ย่อหน้ามาตรฐาน: วิธีเขียน Introduction, Body, Conclusion ให้ได้คะแนน Band 8 พร้อมเทคนิคบริหารเวลา 40 นาที."
 slug: ielts-writing-task-2-khrongsang
 lang: th
-translationKey: ielts-writing-task-2-format
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, essay]
 keyword: "ielts writing task 2 โครงสร้าง"

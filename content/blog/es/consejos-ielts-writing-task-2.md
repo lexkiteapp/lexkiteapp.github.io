@@ -3,7 +3,7 @@ title: "Consejos IELTS Writing Task 2: estructura y guía para banda 7+"
 description: "Descubre los mejores consejos IELTS Writing Task 2 para hispanohablantes: estructura de 4 párrafos, conectores académicos, ejemplos y cómo alcanzar banda 7+."
 slug: consejos-ielts-writing-task-2
 lang: es
-translationKey: meo-viet-ielts-writing-task-2
+translationKey: cau-truc-ielts-writing-task-2
 category: ielts
 tags: [ielts, writing, task-2, redaccion]
 keyword: "consejos ielts writing task 2"
