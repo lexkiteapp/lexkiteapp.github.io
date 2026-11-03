@@ -67,6 +67,7 @@ jobs:
     needs: gate
     if: github.event.inputs.mode == 'batch'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
