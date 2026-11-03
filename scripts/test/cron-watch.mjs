@@ -1,7 +1,7 @@
 // cron-watch (scripts/ci/cron-watch.mjs, ci-triage sweep mỗi giờ): báo đỏ workflow có cron mà > 3 khoảng lịch không chạy hoặc bị tắt ngoài ý muốn.
 // Hồi quy 02/11: ci-filler bật lại 03:47Z nhưng 0 lượt schedule → phải đỏ sau ≤ 60 phút. Không gọi mạng (gh giả).
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { maxGap, limitMin, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK, BACKFILL_MAX, dispatchable, backfillOrder, KICK_SETTLE_MS } from '../ci/cron-watch.mjs';
+import { maxGap, limitMin, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK, BACKFILL_MAX, dispatchable, backfillOrder, KICK_SETTLE_MS, KICK_EVERY_MS } from '../ci/cron-watch.mjs';
 import { isZombie, zombieRuns } from '../ci/zombie.mjs'; import { activeWorkflows } from '../ci/filler.mjs';
 
 assert.equal(maxGap(['4-59/10 * * * *']), 10); assert.equal(maxGap(['17 * * * *']), 60); assert.equal(maxGap(['35 1 * * *', '17 * * * *']), 60);
@@ -32,7 +32,7 @@ fs.writeFileSync(path.join(wfd, 'ok.yml'), "on:\n  schedule:\n    - cron: '4-59/
 fs.writeFileSync(path.join(wfd, 'manual.yml'), "on:\n  workflow_dispatch:\n");
 const mk = (lastFiller, issues = []) => { const calls = []; return { calls, gh: async (p, o = {}) => {
   calls.push(`${o.method || 'GET'} ${p}`);
-  if (p.startsWith('/actions/workflows?')) return { workflows: [{ id: 1, path: '.github/workflows/ci-filler.yml', state: 'active', updated_at: '2026-11-02T03:47:12Z' }, { id: 2, path: '.github/workflows/ok.yml', state: 'active', updated_at: '2026-10-01T00:00:00Z' }, { id: 3, path: '.github/workflows/manual.yml', state: 'active' }] };
+  if (p.startsWith('/actions/workflows?')) return { workflows: [{ id: 1, path: '.github/workflows/ci-filler.yml', state: 'active', updated_at: '2026-11-01T03:47:12Z' }, { id: 2, path: '.github/workflows/ok.yml', state: 'active', updated_at: '2026-10-01T00:00:00Z' }, { id: 3, path: '.github/workflows/manual.yml', state: 'active' }] };
   if (p.startsWith('/actions/workflows/1/runs')) return { workflow_runs: lastFiller ? [{ created_at: lastFiller }] : [] };
   if (p.startsWith('/actions/workflows/2/runs')) return { workflow_runs: [{ created_at: '2026-11-02T04:44:00Z' }] };
   if (p.startsWith('/issues?')) return issues;
@@ -60,7 +60,7 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   fs.writeFileSync(path.join(d2, 'infra/jobs.json'), JSON.stringify({ jobs: [{ id: 'v', workflow: 'vocab-img-scene.yml' }] }));
   const now = Date.parse('2026-11-03T03:00:00Z'), calls = [];
   const gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`);
-    if (p.startsWith('/actions/workflows?')) return { workflows: names.map((n, i) => ({ id: i + 1, path: '.github/workflows/' + n, state: 'active', updated_at: '2026-11-02T13:55:43Z' })) };
+    if (p.startsWith('/actions/workflows?')) return { workflows: names.map((n, i) => ({ id: i + 1, path: '.github/workflows/' + n, state: 'active', updated_at: '2026-11-01T13:55:43Z' })) };
     const m = p.match(/^\/actions\/workflows\/(\d+)\/runs\?(.*)$/); if (m) { const n = names[m[1] - 1];
       if (m[2].includes('event=schedule')) return { workflow_runs: [{ created_at: '2026-11-02T22:17:00Z' }] };
       return { workflow_runs: [n === '0busy.yml' ? { status: 'queued', event: 'workflow_dispatch', created_at: '2026-11-03T02:59:00Z' } : { status: 'completed', event: 'schedule', created_at: '2026-11-02T22:17:00Z' }] }; }
@@ -97,4 +97,16 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   const rz = await cronWatch(gh2, { now, wfDir: wf, root: wf, settleMs: 0 });
   assert.equal(disp.length, 1, 'lượt zombie không chặn dispatch bù'); assert.ok(rz.bad.some(b => b.kind === 'zombie') && /Lượt kẹt queued/.test(rz.md) && /DELETE \/actions\/runs\/1/.test(rz.md), 'zombie vào bad + md');
   assert.ok(!activeWorkflows([{ ...old }], now).size && activeWorkflows([{ ...old, created_at: '2026-11-03T22:30:00Z' }], now).has('d1-usage-watch.yml'), 'ci-filler không coi zombie là đang chạy'); }
+// chưa từng có lượt schedule: báo 'never' dù vừa đá/bật lại (đá không reset đồng hồ), đá ≤ 1 lần/24 giờ, vẫn dispatch bù; workflow mới trong ngưỡng thì chưa báo
+{ const now = Date.parse('2026-11-03T23:00:00Z'), created = Date.parse('2026-11-01T14:21:56Z'), crons = ['4-59/10 * * * *'];
+  assert.equal(verdict({ file: 'ci-filler.yml', state: 'active', crons, since: now - 6e5, created, lastSched: 0 }, now).kind, 'never');
+  assert.equal(verdict({ file: 'x.yml', state: 'active', crons, since: now - 6e5, created: now - 30 * 6e4, lastSched: 0 }, now), null);
+  const wf = fs.mkdtempSync(path.join(os.tmpdir(), 'cwn-')); fs.writeFileSync(path.join(wf, 'ci-filler.yml'), "on:\n  schedule:\n    - cron: '4-59/10 * * * *'\n  workflow_dispatch:\n");
+  const go = async updated => { const calls = [], gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`);
+      if (p.startsWith('/actions/workflows?')) return { workflows: [{ id: 5, path: '.github/workflows/ci-filler.yml', state: 'active', created_at: '2026-11-01T14:21:56Z', updated_at: updated }] };
+      if (p.startsWith('/actions/workflows/5/runs')) return { workflow_runs: [] };
+      return {}; };
+    return { calls, r: await cronWatch(gh, { now, wfDir: wf, root: wf, sleep: async () => {} }) }; };
+  const a = await go(new Date(now - 6e5).toISOString()); assert.ok(a.r.bad[0].kind === 'never' && /CHƯA TỪNG/.test(a.r.md), 'vừa đá vẫn báo'); assert.ok(!a.calls.some(c => c.endsWith('/disable')), 'đá trong 24 giờ: không đá lại'); assert.ok(a.calls.some(c => c.endsWith('/dispatches')), 'vẫn dispatch bù');
+  const b = await go(new Date(now - KICK_EVERY_MS - 6e4).toISOString()); assert.ok(b.calls.some(c => c.endsWith('/disable')), 'quá 24 giờ: đá lại'); }
 console.log('✓ cron-watch: khoảng lịch, quá hạn 3× (sàn 60 phút), tắt ngoài ý muốn, đá lại lịch, issue mở/đóng, lượt zombie');

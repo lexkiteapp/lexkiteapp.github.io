@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isZombie } from './zombie.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
 export const SELF_JOB = 'required-gate-eval';      // tên job của chính workflow này – không tự chờ mình (bộ canh chạy trên main nên không bám head PR)
@@ -153,11 +154,17 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
+    lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
+    dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     gateState: async sha => ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(s => s.context === CONTEXT),
   };
 }
 
+// 3/11: GitHub không chạy cron dày của 2 workflow này (0 lượt schedule từ ngày tạo) → ci-filler không lấp runner (12/40 dù còn việc tồn). Bộ canh chạy liên tục nên làm nhịp: mỗi workflow 1 dispatch/khoảng, cron giữ làm lưới.
+export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20 };
+/** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
+export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
 export async function run(argv, env = process.env, A = null, log = console.log, clock = { now: () => Date.now(), sleep: ms => new Promise(r => setTimeout(r, ms)) }) {
   const arg = k => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : undefined; };
   const dry = argv.includes('--dry'), url = env.RUN_URL || '';
@@ -197,7 +204,13 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
     } catch (e) { log('::warning::cron-watch lỗi (bộ canh vẫn chạy): ' + e.message); }
     let first = true, chained = !env.GATE_CHAIN_REF || dry;
     const CHAIN_BEFORE = 6 * 60e3;   // còn ≤ 6 phút: xếp sẵn lượt kế tiếp (concurrency giữ nó chờ tới khi lượt này xong) – không phụ thuộc cron
+    const paceAt = new Map();
     while (clock.now() < end) {
+      if (env.GATE_CHAIN_REF && !dry && A.dispatchFile) for (const [file, gap] of Object.entries(PACED)) {
+        if (clock.now() < (paceAt.get(file) || 0)) continue;
+        paceAt.set(file, clock.now() + 60e3);
+        try { if (paceDue(await A.lastRun(file), gap, clock.now())) { await A.dispatchFile(file, env.GATE_CHAIN_REF); log(`⏱ nhịp ${file}: đã dispatch`); paceAt.set(file, clock.now() + gap * 60e3); } } catch (e) { log(`::warning::nhịp ${file}: ${e.message}`); }
+      }
       if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
       const t = clock.now(), prs = (await A.openPrs()).filter(p => Date.parse(p.updated_at) >= since()), shas = [...new Set(prs.map(p => p.head.sha))];
       if (first) {   // mồi: gate đã xanh/đỏ thì ghi nhận (1 lệnh/PR), pending/thiếu thì đánh giá ngay

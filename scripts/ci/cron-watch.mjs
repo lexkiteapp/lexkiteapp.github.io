@@ -23,6 +23,8 @@ export const limitMin = gap => gap >= LONG_GAP ? gap + GRACE_MIN : Math.max(FLOO
 export const BACKFILL_MAX = 5, PRIORITY = ['free-tier-guard.yml'];
 // 3/11: dispatch ngay sau disable → enable: lượt tạo ra có thể không bao giờ được queue (zombie, xem zombie.mjs – issue #571: đá 22:01:34Z, dispatch 22:02:00Z → kẹt) → chờ GitHub ổn định.
 export const KICK_SETTLE_MS = 60e3;
+// 3/11: đá mỗi giờ không làm cron chạy lại (ci-filler 0 lượt schedule dù đá nhiều lần; cả repo còn ~63 lượt/ngày từ 2/11, trùng ngày bắt đầu đá) mà còn reset đồng hồ cảnh báo → issue tự đóng rồi mở lại. Mỗi workflow ≤ 1 lần/24 giờ.
+export const KICK_EVERY_MS = 24 * 3600e3;
 /** Có dispatch bù được không (thuần): có workflow_dispatch và không có input bắt buộc thiếu mặc định. */
 export function dispatchable(yml) {
   const m = String(yml).match(/^  workflow_dispatch:[^\n]*\n((?:    [^\n]*\n|\s*\n)*)/m);
@@ -48,11 +50,13 @@ export function maxGap(crons) {
 }
 export const cronsOf = yml => [...String(yml).matchAll(/^\s*-\s*cron:\s*['"]([^'"]+)['"]/gm)].map(m => m[1]);
 
-/** wf: { file, state, crons, since (ms – đổi trạng thái/tạo), lastSched (ms|0) } → null | { file, why, kind } */
+/** wf: { file, state, crons, since (ms – đổi trạng thái/tạo), created (ms), lastSched (ms|0) } → null | { file, why, kind }. 'never': chưa từng có lượt schedule – không tính lại từ lúc đá/bật lại. */
 export function verdict(wf, now, { paused = new Set() } = {}) {
   if (!wf.crons.length) return null;
   if (wf.state !== 'active') return OFF_OK[wf.file] || paused.has(wf.file) ? null : { file: wf.file, kind: 'off', why: `đang tắt (${wf.state}) – không có trong OFF_OK / jobs.json paused / free-tier paused` };
-  const gap = maxGap(wf.crons), lim = limitMin(gap), base = Math.max(wf.lastSched || 0, wf.since || 0), age = (now - base) / 6e4;
+  const gap0 = maxGap(wf.crons);
+  if (!wf.lastSched && wf.created && (now - wf.created) / 6e4 > limitMin(gap0)) return { file: wf.file, kind: 'never', why: `CHƯA TỪNG có lượt schedule kể từ ${new Date(wf.created).toISOString().slice(0, 10)}: GitHub không chạy cron này` };
+  const gap = gap0, lim = limitMin(gap), base = Math.max(wf.lastSched || 0, wf.since || 0), age = (now - base) / 6e4;
   return age > lim ? { file: wf.file, kind: 'stale', why: `${Math.round(age)} phút không có lượt schedule (ngưỡng ${lim} = ${gap >= LONG_GAP ? `${gap} + ${GRACE_MIN}` : `max(${FLOOR_MIN}, ${TIMES} × ${gap})`})` } : null;
 }
 export function pausedSet(root = '.') {
@@ -66,22 +70,26 @@ export function pausedSet(root = '.') {
 export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflows', root = '.', kick = true, settleMs = KICK_SETTLE_MS, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const list = [];
   for (let p = 1; p <= 5; p++) { const r = (await gh(`/actions/workflows?per_page=100&page=${p}`)) || {}; list.push(...(r.workflows || [])); if (!r.workflows || r.workflows.length < 100) break; }
-  const paused = pausedSet(root), bad = [], stale = [];
+  const paused = pausedSet(root), bad = [], stale = []; let kicked = false;
   for (const w of list) {
     const file = w.path.split('/').pop(), f = `${wfDir}/${file}`;
     if (!fs.existsSync(f)) continue;
     const crons = cronsOf(fs.readFileSync(f, 'utf8')); if (!crons.length) continue;
     const last = ((((await gh(`/actions/workflows/${w.id}/runs?event=schedule&per_page=1`)) || {}).workflow_runs) || [])[0];
-    const v = verdict({ file, state: w.state, crons, since: Date.parse(w.updated_at || w.created_at) || 0, lastSched: last ? Date.parse(last.created_at) : 0 }, now, { paused });
+    const since = Date.parse(w.updated_at || w.created_at) || 0, v = verdict({ file, state: w.state, crons, since, created: Date.parse(w.created_at) || 0, lastSched: last ? Date.parse(last.created_at) : 0 }, now, { paused });
     if (!v) continue;
-    if (v.kind === 'stale' && kick) { await gh(`/actions/workflows/${w.id}/disable`, { method: 'PUT' }); await gh(`/actions/workflows/${w.id}/enable`, { method: 'PUT' }); v.why += ' → đã đá lại lịch (disable → enable)'; }
-    if (v.kind === 'stale') stale.push({ v, w, file, yml: fs.readFileSync(f, 'utf8'), lim: Math.max(FLOOR_MIN, TIMES * maxGap(crons)) });
+    const dead = v.kind === 'stale' || v.kind === 'never';
+    if (dead && kick) {
+      if (now - since >= KICK_EVERY_MS) { await gh(`/actions/workflows/${w.id}/disable`, { method: 'PUT' }); await gh(`/actions/workflows/${w.id}/enable`, { method: 'PUT' }); kicked = true; v.why += ' → đã đá lại lịch (disable → enable)'; }
+      else v.why += ' · đã đổi trạng thái trong 24 giờ, không đá lại';
+    }
+    if (dead) stale.push({ v, w, file, yml: fs.readFileSync(f, 'utf8'), lim: Math.max(FLOOR_MIN, TIMES * maxGap(crons)) });
     bad.push(v);
   }
   if (kick) {   // bù lượt: chống trùng = bỏ qua nếu đang có lượt chờ/chạy hoặc đã có lượt (bất kỳ sự kiện) trong 1 khoảng lịch; concurrency của workflow lo phần còn lại
     let used = 0; const jobs = new Set(); try { for (const j of JSON.parse(fs.readFileSync(`${root}/infra/jobs.json`, 'utf8')).jobs) if (j.workflow) jobs.add(j.workflow); } catch (e) { /* bỏ qua */ }
     const byFile = new Map(stale.map(x => [x.file, x]));
-    if (byFile.size && settleMs) await sleep(settleMs);
+    if (kicked && byFile.size && settleMs) await sleep(settleMs);
     for (const file of backfillOrder(byFile.keys(), jobs)) {
       const { v, w, yml } = byFile.get(file);
       if (!dispatchable(yml)) { v.why += ' · không bù được (không có workflow_dispatch/input bắt buộc)'; continue; }
