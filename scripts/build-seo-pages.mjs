@@ -9,9 +9,10 @@ import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'
 import { loadBrowserIndex } from './lexicon/shards.mjs';
 import { seoPic } from './lexicon/img.mjs';
 import { loadVocab } from './lib/seo-data.mjs';
-import { CSS, SEO_CSS, UI_JS, esc, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
+import { CSS, SEO_CSS, UI_JS, esc, themePage, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
 import { LANGS, S, POS, YOU, fill } from './lib/seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './lib/tools-links.mjs';
+import { lastmodStore } from './lib/lastmod.mjs';
 // Liên kết nội bộ sang bài kiểm tra trình độ miễn phí (docs/SEO-TOOLS.md) – chuỗi theo ngôn ngữ trang, thiếu bản dịch → không hiện
 const toolLine = l => { const s = toolStrings(l); return s ? `<p><a href="${toolPath(l, 'test')}">${esc(s.toeic.otherTool)}</a></p>` : ''; };
 
@@ -75,13 +76,15 @@ const inSet = {}; for (const l of LANGS) inSet[l] = new Map(setOf[l].map(e => [e
 // ---------- Khung trang ----------
 const urls = []; // [url, lastmod, alts, type, lang]
 const hashes = [];
+const LM = lastmodStore();
 const url = p => SITE + p;
 const fileOf = p => path.join(D, p.endsWith('/') ? p + 'index.html' : p + '.html');
 const usedT = new Set(), usedD = new Set(); // tiêu đề/mô tả duy nhất trong mỗi ngôn ngữ (cổng seo-pages)
 const uniq = (set, l, s, alt) => { let v = s; if (set.has(l + v)) v = alt; set.add(l + v); return v; };
 const write = (p, html, { lm, alts, type, lang, index }) => {
-  const f = fileOf(p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html);
-  if (index) { urls.push([url(p), lm, alts, type, lang]); hashes.push(url(p) + ' ' + crypto.createHash('sha1').update(html).digest('hex').slice(0, 12)); }
+  const f = fileOf(p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html = themePage(html)); // chống nháy giao diện (site-layout themePage)
+  // lastmod + băm IndexNow theo nội dung chính của từng trang (scripts/lib/lastmod.mjs) – đổi khung/asset không đẩy cả site về "hôm nay"
+  if (index) { urls.push([url(p), LM.date(p, html, lm), alts, type, lang]); hashes.push(url(p) + ' ' + LM.hash(p)); }
 };
 const hl = alts => alts.map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${url(p)}">`).join('');
 const withDefault = (alts, enPath) => (alts.length ? [...alts, ['x-default', enPath || alts[0][1]]] : []);
@@ -207,5 +210,6 @@ sm('sitemap-conversations.xml', urls.filter(u => u[3] === 'conversations'));
 // + trang bài học tiếng Anh (build-samples-en.mjs: ngữ pháp, phát âm, IELTS Writing) → cùng một danh sách IndexNow
 const extra = fs.existsSync('.seo-urls-en.txt') ? fs.readFileSync('.seo-urls-en.txt', 'utf8').split('\n').filter(Boolean) : [];
 fs.writeFileSync('.seo-urls.txt', [...hashes, ...extra].join('\n') + '\n');
+if (LM.save({ prefixes: LANGS.flatMap(l => [`/${l}/words/`, `/${l}/conversations/`]) })) console.log('· lastmod: đã ghi sổ content/seo/lastmod.json');
 const per = LANGS.map(l => `${l} ${setOf[l].length}`).join(', ');
 console.log(`✓ SEO trang app: ${nW} trang từ (${nWthin} noindex; ${per}) + ${nC} bài giao tiếp (${nCthin} noindex) + ${LANGS.length * 2} mục lục · ${urls.length} URL index được · dist/data/seo-twins.json`);

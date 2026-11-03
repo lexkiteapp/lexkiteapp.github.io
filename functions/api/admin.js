@@ -1,6 +1,6 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
  * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
 import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
@@ -10,6 +10,8 @@ import { purgeNotices } from './notices.js';
 import { purgeConfig, ADS_PUBLIC } from './config.js';
 import { stats as adsStatsOf, guardOf, revPack as adsRevPack } from './_ads.js';
 import { SEL as ADS_REV_SEL } from './ads-report.js';
+import { setupQuota, resetState as resetQuotaState } from './_quota.js';
+import { deleteUserData } from './account.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
@@ -64,6 +66,13 @@ async function setup(db) {
   await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
   await db.prepare('ALTER TABLE users ADD COLUMN tags TEXT').run().catch(() => {});
   await db.prepare('ALTER TABLE users ADD COLUMN notes TEXT').run().catch(() => {});
+  await db.prepare('ALTER TABLE users ADD COLUMN cc TEXT').run().catch(() => {}); // quốc gia lần đồng bộ gần nhất (sync.js)
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_users_cc ON users (cc)').run().catch(() => {});
+  // Xóa mềm (thao tác hàng loạt): deleted = lúc xóa; sau 30 ngày purgeDeleted() xóa thật (deleteUserData). blocked = 2 = khóa vì đang chờ xóa (sync.js chặn mọi blocked ≠ 0)
+  await db.prepare('ALTER TABLE users ADD COLUMN deleted INTEGER').run().catch(() => {});
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_users_del ON users (deleted)').run().catch(() => {});
+  await db.prepare('ALTER TABLE admin_log ADD COLUMN detail TEXT').run().catch(() => {}); // chi tiết kiểm toán (thao tác hàng loạt: hành động, số người, mẫu uid)
+  await setupQuota(db).catch(() => {}); // bảng quota_allow (quyền AI không giới hạn) – cột "AI ∞" và thao tác cấp/gỡ quyền
   await db.prepare('CREATE INDEX IF NOT EXISTS idx_user_backups_uid ON user_backups (uid, at)').run().catch(() => {});
   ready = true;
 }
@@ -106,8 +115,34 @@ function userWhere(b, env) {
   else if (b.status === 'dormant') { a.push(now - 30 * DAY); w.push('seen < ?' + a.length); }
   else if (b.status === 'new7') { a.push(now - 7 * DAY); w.push('created > ?' + a.length); }
   if (/^(web|ios|android|ext|app)$/.test(b.plat || '')) { a.push(b.plat); w.push('plat = ?' + a.length); }
-  return { sql: w.length ? ' WHERE ' + w.join(' AND ') : '', args: a, order: b.sort === 'new' ? 'created DESC' : 'seen DESC', admins };
+  if (b.cc === '??') w.push('cc IS NULL'); // chưa rõ quốc gia (tài khoản chưa đồng bộ lại từ khi có cột cc)
+  else if (/^[A-Z][A-Z1-9]$/.test(b.cc || '')) { a.push(b.cc); w.push('cc = ?' + a.length); }
+  // Ngày tham gia (YYYY-MM-DD, giờ Việt Nam như biểu đồ đăng ký): từ ngày … đến hết ngày …
+  const day = (x, end) => /^\d{4}-\d{2}-\d{2}$/.test(x || '') ? Date.parse(x + 'T00:00:00+07:00') + (end ? DAY : 0) : NaN;
+  const from = day(b.from), to = day(b.to, 1);
+  if (Number.isFinite(from)) { a.push(from); w.push('created >= ?' + a.length); }
+  if (Number.isFinite(to)) { a.push(to); w.push('created < ?' + a.length); }
+  // Hoạt động gần nhất: trong N ngày / im lặng hơn N ngày · số lần vào tối thiểu · nhãn · quyền AI · khóa · thùng rác (xóa mềm)
+  const days = v => { const x = Math.round(+v); return x > 0 && x <= 3650 ? x : 0; };
+  if (days(b.seenIn)) { a.push(now - days(b.seenIn) * DAY); w.push('seen > ?' + a.length); }
+  if (days(b.seenOut)) { a.push(now - days(b.seenOut) * DAY); w.push('seen < ?' + a.length); }
+  const nMin = Math.round(+b.nMin); if (nMin > 1 && nMin < 1e7) { a.push(nMin); w.push('n >= ?' + a.length); }
+  const tag = cleanTag(b.tag); if (tag) { a.push(tag); w.push(`EXISTS (SELECT 1 FROM json_each(${TJ}) WHERE value = ?${a.length})`); }
+  if (b.perk === 'ai') w.push(`EXISTS (SELECT 1 FROM quota_allow q WHERE q.id = 'u:' || users.uid)`);
+  if (b.blocked === '1') w.push('COALESCE(blocked, 0) = 1'); else if (b.blocked === '0') w.push('COALESCE(blocked, 0) = 0');
+  if (Array.isArray(b.uids)) { a.push(JSON.stringify(b.uids.slice(0, BULK_MAX).map(String).filter(u => UID_RE.test(u)))); w.push('uid IN (SELECT value FROM json_each(?' + a.length + '))'); } // xuất CSV đúng các dòng đã chọn
+  w.push(b.trash === 1 || b.trash === '1' ? 'deleted IS NOT NULL' : 'deleted IS NULL');
+  return { sql: ' WHERE ' + w.join(' AND '), args: a, order: orderOf(b.sort, b.dir), admins };
 }
+// Sắp xếp theo cột (danh sách trắng – không bao giờ ghép chuỗi máy khách vào SQL); sort cũ new/old/n giữ nguyên nghĩa
+const SORT_COLS = { seen: 'seen', created: 'created', n: 'n', email: "lower(COALESCE(email, ''))", name: "lower(COALESCE(name, ''))", plat: "COALESCE(plat, '')", cc: "COALESCE(cc, '')", deleted: 'deleted' };
+function orderOf(sort, dir) {
+  if (sort === 'new') return 'created DESC'; if (sort === 'old') return 'created ASC'; if (sort === 'n' && !dir) return 'n DESC, seen DESC';
+  const c = SORT_COLS[sort] || 'seen', d = dir === 'asc' ? 'ASC' : 'DESC';
+  return `${c} ${d}, uid ${d}`; // uid: thứ tự ổn định giữa các trang
+}
+const TJ = "(CASE WHEN json_valid(tags) THEN tags ELSE '[]' END)"; // tags hỏng → coi như rỗng (json_each không ném lỗi)
+const cleanTag = t => { const x = typeof t === 'string' ? t.trim().replace(/[\u0000-\u001f]/g, '').slice(0, 30) : ''; return x; };
 const isAdm = (admins, email) => admins.includes(String(email || '').toLowerCase());
 // Đọc tài liệu đồng bộ (dạng {json} hoặc {z: gzip base64}) – chỉ dùng cho tài liệu nhỏ (meta)
 async function docJson(body) {
@@ -119,11 +154,38 @@ async function docJson(body) {
 }
 // Đệm kết quả trong Cache API của Cloudflare (giảm lượt đọc D1 khi trang Quản trị tự cập nhật)
 async function cached(key, ttl, fn) {
-  const c = caches.default, req = new Request('https://cache.lexkite.internal/' + key);
+  const c = typeof caches === 'undefined' ? null : /** @type {any} */ (caches).default, req = new Request('https://cache.lexkite.internal/' + key); // không có Cache API (dev/test) → đọc thẳng
   try { const hit = await c.match(req); if (hit) return hit.json(); } catch (e) { /* không có cache (dev) */ }
   const out = await fn();
   try { await c.put(req, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=' + ttl } })); } catch (e) { /* bỏ qua */ }
   return out;
+}
+
+// Thao tác hàng loạt: ?1 = JSON mảng uid, ?2 = nhãn hoặc ghi chú, ?3 = bây giờ, ?4 = email quản trị. RETURNING = người thực sự đổi.
+const BULK_MAX = 2000, UID_RE = /^[A-Za-z0-9_.:-]{1,128}$/;
+const IN_UIDS = 'uid IN (SELECT value FROM json_each(?1))';
+const cleanNote = t => String(t || '').trim().slice(0, 200);
+// [SQL, (uids JSON, nhãn/ghi chú, bây giờ, email quản trị) → tham số]
+const BULK_SQL = {
+  tagAdd: [`UPDATE users SET tags = json_insert(${TJ}, '$[#]', ?2) WHERE ${IN_UIDS} AND NOT EXISTS (SELECT 1 FROM json_each(${TJ}) WHERE value = ?2) AND json_array_length(${TJ}) < 10 RETURNING uid`, (J, t) => [J, t]],
+  tagRemove: [`UPDATE users SET tags = (SELECT json_group_array(value) FROM json_each(${TJ}) WHERE value <> ?2) WHERE ${IN_UIDS} AND EXISTS (SELECT 1 FROM json_each(${TJ}) WHERE value = ?2) RETURNING uid`, (J, t) => [J, t]],
+  block: [`UPDATE users SET blocked = 1 WHERE ${IN_UIDS} AND COALESCE(blocked, 0) = 0 AND deleted IS NULL RETURNING uid`, J => [J]],
+  unblock: [`UPDATE users SET blocked = 0 WHERE ${IN_UIDS} AND blocked = 1 RETURNING uid`, J => [J]],
+  aiGrant: [`INSERT INTO quota_allow (id, note, at, by) SELECT 'u:' || value, ?2, ?3, ?4 FROM json_each(?1) WHERE true ON CONFLICT (id) DO NOTHING RETURNING id`, (J, t, now, by) => [J, t || 'bulk', now, by]],
+  aiRevoke: [`DELETE FROM quota_allow WHERE id IN (SELECT 'u:' || value FROM json_each(?1)) RETURNING id`, J => [J]],
+  delete: [`UPDATE users SET deleted = ?2, blocked = CASE WHEN COALESCE(blocked, 0) = 0 THEN 2 ELSE blocked END WHERE ${IN_UIDS} AND deleted IS NULL RETURNING uid`, (J, t, now) => [J, now]],
+  restore: [`UPDATE users SET deleted = NULL, blocked = CASE WHEN blocked = 2 THEN 0 ELSE blocked END WHERE ${IN_UIDS} AND deleted IS NOT NULL RETURNING uid`, J => [J]],
+  purge: [`SELECT uid FROM users WHERE ${IN_UIDS} AND deleted IS NOT NULL`, J => [J]], // xóa vĩnh viễn ngay (chỉ người đã ở thùng rác) – deleteUserData từng người
+};
+const BULK_UNDO = { tagAdd: 'tagRemove', tagRemove: 'tagAdd', block: 'unblock', unblock: 'block', aiGrant: 'aiRevoke', aiRevoke: 'aiGrant', delete: 'restore', restore: 'delete' };
+const BULK_PROTECT = new Set(['block', 'delete', 'purge']);
+const BULK_DANGER = new Set(['block', 'delete', 'purge', 'aiGrant']); // cần vừa đăng nhập ≤ 15 phút như DANGER
+const PURGE_AFTER = 30 * DAY, PURGE_MAX = 200; // xóa vĩnh viễn: ~12 câu/người (DELETE_SQL) → ≤ 200 người/lệnh
+// Xóa thật tài khoản đã nằm thùng rác > 30 ngày (gọi khi mở tab Người dùng – không có việc nền/poll; ≤ 25 người/lượt, đọc chỉ mục idx_users_del)
+async function purgeDeleted(db, now = Date.now()) {
+  const old = await all(db, 'SELECT uid FROM users WHERE deleted IS NOT NULL AND deleted < ? LIMIT 25', now - PURGE_AFTER);
+  for (const r of old) { await deleteUserData(db, r.uid); await db.prepare('DELETE FROM quota_allow WHERE id = ?').bind('u:' + r.uid).run().catch(() => {}); }
+  return old.length;
 }
 
 const OPS = {
@@ -180,19 +242,74 @@ const OPS = {
     return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: aeOn ? aeOn.n : on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
   },
   async users(db, b, who, env) {
-    const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now();
+    await purgeDeleted(db).catch(() => {}); // xóa thật các tài khoản đã xóa mềm > 30 ngày (≤ 25/lượt, đọc chỉ mục idx_users_del – không có việc nền)
+    const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now(), lim = [25, 50, 100, 200].includes(+b.limit) ? +b.limit : 50;
     const [rows, cnt, k, plats] = await Promise.all([
-      all(db, `SELECT uid, email, name, created, seen, plat, n, COALESCE(blocked, 0) AS blocked, tags FROM users${f.sql} ORDER BY ${f.order} LIMIT 50 OFFSET ${off}`, ...f.args),
+      all(db, `SELECT uid, email, name, created, seen, plat, n, COALESCE(blocked, 0) AS blocked, tags, cc, deleted, EXISTS (SELECT 1 FROM quota_allow q WHERE q.id = 'u:' || users.uid) AS ai FROM users${f.sql} ORDER BY ${f.order} LIMIT ${lim} OFFSET ${off}`, ...f.args),
       one(db, `SELECT COUNT(*) AS n FROM users${f.sql}`, ...f.args),
-      one(db, 'SELECT COUNT(*) AS total, SUM(seen > ?1) AS act1, SUM(seen > ?2) AS act7, SUM(seen > ?3) AS act30, SUM(created > ?2) AS new7 FROM users', now - DAY, now - 7 * DAY, now - 30 * DAY),
-      all(db, "SELECT COALESCE(plat, '') AS k, COUNT(*) AS n FROM users GROUP BY k ORDER BY n DESC"),
+      one(db, 'SELECT SUM(deleted IS NULL) AS total, SUM(deleted IS NULL AND seen > ?1) AS act1, SUM(deleted IS NULL AND seen > ?2) AS act7, SUM(deleted IS NULL AND seen > ?3) AS act30, SUM(deleted IS NULL AND created > ?2) AS new7, SUM(deleted IS NOT NULL) AS trash, SUM(deleted IS NULL AND COALESCE(blocked, 0) = 1) AS blocked FROM users', now - DAY, now - 7 * DAY, now - 30 * DAY),
+      all(db, "SELECT COALESCE(plat, '') AS k, COUNT(*) AS n FROM users WHERE deleted IS NULL GROUP BY k ORDER BY n DESC"),
     ]);
-    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })), filtered: cnt.n || 0, total: k.total || 0, kpi: k, plats, offset: off };
+    // Người dùng theo quốc gia (chỉ đọc chỉ mục idx_users_cc; đệm 5 phút ở Cache API – trang quản trị lọc/lật trang không đọc lại D1)
+    const countries = await cached('admin-users-cc', 300, () => all(db, "SELECT COALESCE(cc, '') AS k, COUNT(*) AS n FROM users GROUP BY cc ORDER BY n DESC LIMIT 250")).catch(() => []);
+    return { rows: rows.map(r => ({ ...r, ai: +r.ai ? 1 : 0, isAdmin: isAdm(f.admins, r.email) })), filtered: cnt.n || 0, total: k.total || 0, kpi: k, plats, countries, offset: off, limit: lim };
+  },
+  // Biểu đồ tab Người dùng (đệm 10 phút): đăng ký 90 ngày (giờ VN), giữ chân theo nhóm tuần đăng ký, phễu kích hoạt, nhãn hay dùng.
+  // Chỉ dùng cột sẵn có của users (created, seen, n): "giữ chân D1/D7/D30" = tỉ lệ người trong nhóm còn quay lại ít nhất 1/7/30 ngày sau khi đăng ký.
+  async usersStats(db) {
+    return cached('admin-users-stats-v1', 600, async () => {
+      const now = Date.now(), VN = 7 * 3600000, since = now - 90 * DAY, wk = 7 * DAY, c0 = now - 12 * wk;
+      const [signups, cohorts, fun, tags] = await Promise.all([
+        all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? AND deleted IS NULL GROUP BY day ORDER BY day`, since),
+        all(db, `SELECT CAST((created - ?1) / ${wk} AS INTEGER) AS w, COUNT(*) AS n, SUM(seen - created >= ${DAY}) AS d1, SUM(seen - created >= ${7 * DAY}) AS d7, SUM(seen - created >= ${30 * DAY}) AS d30 FROM users WHERE created >= ?1 AND deleted IS NULL GROUP BY w ORDER BY w`, c0),
+        one(db, `SELECT COUNT(*) AS signed, SUM(n >= 2) AS synced2, SUM(seen - created >= ${DAY}) AS back1, SUM(seen - created >= ${7 * DAY}) AS back7, SUM(seen > ?1) AS active7 FROM users WHERE deleted IS NULL`, now - 7 * DAY),
+        all(db, `SELECT j.value AS k, COUNT(*) AS n FROM users, json_each(${TJ}) j WHERE users.tags IS NOT NULL AND users.deleted IS NULL GROUP BY j.value ORDER BY n DESC LIMIT 30`),
+      ]);
+      return { at: now, signups, cohorts: cohorts.map(c => ({ ...c, start: c0 + c.w * wk })), funnel: fun, tags };
+    });
+  },
+  /* Thao tác hàng loạt (Quản trị › Người dùng). { action, uids:[…] | all:true + filter:{…bộ lọc users}, confirm:<số người>, tag?, note? }
+   * Luôn chạy phía máy chủ: kiểm quyền (adminGate), ≤ 20 lệnh/phút/quản trị, ≤ BULK_MAX người/lệnh, 1 câu SQL/lệnh (json_each – ghi đúng n dòng đổi).
+   * confirm phải bằng số người máy chủ tự tính lại (chống chọn nhầm / bộ lọc đổi giữa chừng). Không khóa/xóa tài khoản quản trị.
+   * Trả changed = uid THỰC SỰ đổi → máy khách hoàn tác đúng những người đó (hành động ngược: BULK_UNDO). Ghi admin_log: usersBulk:<action> + chi tiết. */
+  async usersBulk(db, b, who, env) {
+    const act = String(b.action || '');
+    if (!Object.hasOwn(BULK_SQL, act)) throw new Error('action');
+    if (await limit('admbulk:' + String(who && who.email || ''), 20, 60)) throw new Error('too-fast');
+    const tag = cleanTag(b.tag); if ((act === 'tagAdd' || act === 'tagRemove') && !tag) throw new Error('tag-required');
+    let uids;
+    if (b.all === true) {
+      const f = userWhere({ ...(b.filter && typeof b.filter === 'object' ? b.filter : {}) }, env);
+      uids = (await all(db, `SELECT uid FROM users${f.sql} ORDER BY uid LIMIT ${BULK_MAX + 1}`, ...f.args)).map(r => r.uid);
+    } else {
+      const want = [...new Set((Array.isArray(b.uids) ? b.uids : []).map(u => String(u || '')).filter(u => UID_RE.test(u)))];
+      if (want.length > BULK_MAX) throw new Error('too-many');
+      uids = want.length ? (await all(db, 'SELECT uid FROM users WHERE uid IN (SELECT value FROM json_each(?))', JSON.stringify(want))).map(r => r.uid) : [];
+    }
+    if (!uids.length) throw new Error('empty');
+    if (uids.length > BULK_MAX) throw new Error('too-many');
+    if (act === 'purge' && uids.length > PURGE_MAX) throw new Error('too-many');
+    if (+b.confirm !== uids.length) return { error: 'confirm', n: uids.length }; // số người đã đổi (vd. bộ lọc có người mới) → máy khách hỏi lại
+    let skipped = 0;
+    if (BULK_PROTECT.has(act)) { // không bao giờ khóa/xóa tài khoản quản trị (tránh tự khóa mình)
+      const admins = adminList(env);
+      if (admins.length) {
+        const adm = new Set((await all(db, 'SELECT uid FROM users WHERE uid IN (SELECT value FROM json_each(?1)) AND lower(email) IN (SELECT value FROM json_each(?2))', JSON.stringify(uids), JSON.stringify(admins))).map(r => r.uid));
+        skipped = adm.size; uids = uids.filter(u => !adm.has(u));
+      }
+    }
+    const now = Date.now(), by = String(who && who.email || 'admin').slice(0, 120), J = JSON.stringify(uids);
+    const [q, args] = BULK_SQL[act], rows = uids.length ? await all(db, q, ...args(J, tag || cleanNote(b.note), now, by)) : [];
+    const changed = rows.map(r => String(r.uid || r.id || '').replace(/^u:/, '')).filter(Boolean);
+    if (act === 'aiGrant' || act === 'aiRevoke') resetQuotaState();
+    if (act === 'purge') for (const u of changed) { await deleteUserData(db, u); await db.prepare('DELETE FROM quota_allow WHERE id = ?').bind('u:' + u).run().catch(() => {}); }
+    const detail = JSON.stringify({ action: act, n: uids.length, changed: changed.length, skipped, tag: tag || undefined, all: b.all === true || undefined, sample: changed.slice(0, 20) });
+    return { ok: true, action: act, n: uids.length, changed, skipped, undo: BULK_UNDO[act] || null, _audit: detail };
   },
   async usersExport(db, b, who, env) {
     const f = userWhere(b, env);
-    const rows = await all(db, `SELECT email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
-    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })) };
+    const rows = await all(db, `SELECT uid, email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags, cc, EXISTS (SELECT 1 FROM quota_allow q WHERE q.id = 'u:' || users.uid) AS ai FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
+    return { rows: rows.map(r => ({ ...r, ai: +r.ai ? 1 : 0, isAdmin: isAdm(f.admins, r.email) })) };
   },
   async user(db, b, who, env) {
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', String(b.uid));
@@ -212,7 +329,21 @@ const OPS = {
         learn = { xp: g.xp || 0, studyDays: days.length, lastStudy: days[days.length - 1] || '', streak, reviews: tot.reviews || 0, newWords: tot.newWords || 0, quizzes: tot.quizzes || 0, readings: tot.readings || 0, spoken: tot.spoken || 0, badges: Object.keys(g.badges || {}).length, chunks: top.chunks || 0 };
       }
     }
-    return { user: { ...u, tags, notes: u.notes || '', blocked: +u.blocked ? 1 : 0, isAdmin: isAdm(adminList(env), u.email) }, docs, learn, backups };
+    // Ngăn chi tiết: quyền AI, báo lỗi người này gửi, thông báo đã đọc, dòng thời gian (gộp từ các mốc sẵn có – không đọc bảng lớn)
+    const uid = String(b.uid);
+    const [ai, reports, reads] = await Promise.all([
+      one(db, 'SELECT at, by, note FROM quota_allow WHERE id = ?', 'u:' + uid).catch(() => ({})),
+      all(db, 'SELECT tok, at, status, cat, area, substr(msg, 1, 160) AS msg FROM reports WHERE uid = ? ORDER BY at DESC LIMIT 10', uid).catch(() => []), // scan-ok: bảng báo lỗi nhỏ, ≤ 10 dòng, chỉ khi mở ngăn chi tiết
+      all(db, 'SELECT r.read_at AS at, r.clicked, n.title FROM notice_reads r LEFT JOIN notices n ON n.id = r.id WHERE r.uid = ? ORDER BY r.read_at DESC LIMIT 10', uid).catch(() => []),
+    ]);
+    const tl = [{ at: u.created, k: 'signup' }, { at: u.seen, k: 'seen', plat: u.plat || '', cc: u.cc || '' }]
+      .concat(learn && learn.lastStudy ? [{ at: Date.parse(learn.lastStudy + 'T12:00:00Z'), k: 'study' }] : [])
+      .concat(backups.map(x => ({ at: x.at, k: 'backup', by: x.by, why: x.reason })))
+      .concat(reports.map(x => ({ at: x.at, k: 'report', id: x.tok, status: x.status })))
+      .concat(reads.map(x => ({ at: x.at, k: 'notice', title: x.title || '', clicked: +x.clicked ? 1 : 0 })))
+      .concat(u.deleted ? [{ at: u.deleted, k: 'deleted' }] : [])
+      .filter(x => Number.isFinite(+x.at) && +x.at > 0).sort((x, y) => y.at - x.at).slice(0, 30);
+    return { user: { ...u, tags, notes: u.notes || '', blocked: +u.blocked ? 1 : 0, isAdmin: isAdm(adminList(env), u.email), ai: ai && ai.at ? { at: ai.at, by: ai.by || '', note: ai.note || '' } : null }, docs, learn, backups, reports, reads, timeline: tl };
   },
   async userTag(db, b) {
     const uid = String(b.uid || '').trim();
@@ -301,13 +432,10 @@ const OPS = {
   },
   async userDelete(db, b) { // xóa dữ liệu đồng bộ theo yêu cầu của người dùng (GDPR) – tài khoản Google không bị ảnh hưởng
     const uid = String(b.uid || ''); if (!uid || b.confirm !== uid) throw new Error('confirm');
-    await db.batch([
-      db.prepare('DELETE FROM docs WHERE uid = ?').bind(uid),
-      db.prepare('DELETE FROM user_backups WHERE uid = ?').bind(uid),
-      db.prepare('DELETE FROM notice_reads WHERE uid = ?').bind(uid),
-      db.prepare('DELETE FROM users WHERE uid = ?').bind(uid)
-    ]);
-    return { ok: true };
+    // Một nguồn với "Xóa tài khoản" của người dùng (account.js DELETE_SQL): trước đây bản quản trị bỏ sót league/vid_uid/lớp học/báo lỗi
+    await deleteUserData(db, uid);
+    await db.prepare('DELETE FROM quota_allow WHERE id = ?').bind('u:' + uid).run().catch(() => {});
+    return { ok: true, _audit: JSON.stringify({ uid }) };
   },
   async inbox(db, b) {
     const f = b.filter === 'all' ? '' : 'WHERE COALESCE(handled, 0) = 0';
@@ -415,7 +543,7 @@ const OPS = {
   },
   // ---- Gemini API: khóa dán trong Quản trị (D1 config 'gemini_key', không bao giờ trả về nguyên khóa) ----
   async ping() { return { ok: true }; },
-  async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 100') }; },
+  async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country, detail FROM admin_log ORDER BY id DESC LIMIT 100') }; },
   // ---- Nhiều khóa Gemini xoay vòng (D1 config 'gemini_keys' = [{k, at, by}]) – không bao giờ trả nguyên khóa ----
   // 💰 Quản trị › Quảng cáo (js/admin-ads.js): ext_events 'ad*' 35 ngày – PK (day, kind) → SEARCH theo khoảng ngày, đệm 10 phút;
   // doanh thu THẬT: ads_rev (PK day,src,dim,key – SEARCH khoảng ngày, ≤ ~4.500 dòng/100 ngày) do Action ads-revenue.yml ghi qua /api/ads-report; chưa có bảng → real.connected = false
@@ -605,12 +733,13 @@ const OPS = {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
 // Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
-const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$|^noticeCreate$|^noticeRevoke$|^userTag$|^userBlock$|^userReset$|^userRestore$|^userExportData$/; // (xuất danh sách người dùng cũng ghi nhật ký)
+const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$|^noticeCreate$|^noticeRevoke$|^userTag$|^userBlock$|^userReset$|^userRestore$|^userExportData$|^usersBulk$/; // (xuất danh sách người dùng cũng ghi nhật ký)
 const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove', 'userBlock', 'userReset', 'userRestore', 'userExportData']);
 const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
-async function audit(env, req, email, op, ok) {
+async function audit(env, req, email, op, ok, detail = null) {
   try { const h = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('lexkite-adm|' + ipOf(req))))].slice(0, 6).map(x => x.toString(16).padStart(2, '0')).join('');
-    await env.DB.prepare('INSERT INTO admin_log (at, email, op, ok, ip, country) VALUES (?, ?, ?, ?, ?, ?)').bind(Date.now(), String(email || '').slice(0, 120), String(op || '').slice(0, 40), ok ? 1 : 0, h, (req.cf && req.cf.country) || '').run(); } catch (e) { /* nhật ký không được làm hỏng thao tác */ }
+    if (detail != null) await env.DB.prepare('INSERT INTO admin_log (at, email, op, ok, ip, country, detail) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(Date.now(), String(email || '').slice(0, 120), String(op || '').slice(0, 40), ok ? 1 : 0, h, (req.cf && req.cf.country) || '', String(detail).slice(0, 2000)).run();
+    else await env.DB.prepare('INSERT INTO admin_log (at, email, op, ok, ip, country) VALUES (?, ?, ?, ?, ?, ?)').bind(Date.now(), String(email || '').slice(0, 120), String(op || '').slice(0, 40), ok ? 1 : 0, h, (req.cf && req.cf.country) || '').run(); } catch (e) { /* nhật ký không được làm hỏng thao tác */ }
 }
 
 // Cổng xác thực quản trị dùng chung (admin.js, social.js): Origin của mình · giới hạn tốc độ theo IP · Firebase ID token + email trong ADMIN_EMAILS.
@@ -637,7 +766,12 @@ export async function onRequestPost({ request, env }) {
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: chặn op 'constructor'/'__proto__' (Object(env) → lộ bí mật)
-  if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });
-  try { await setup(env.DB); const out = await fn(env.DB, b, who, env); if (WRITE.test(b.op)) await audit(env, request, who.email, b.op, true); return json(request, 200, out); }
+  if ((DANGER.has(b.op) || (b.op === 'usersBulk' && BULK_DANGER.has(b.action))) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });
+  try {
+    await setup(env.DB); const out = await fn(env.DB, b, who, env);
+    const det = out && typeof out === 'object' ? out._audit : null; if (det != null) delete out._audit; // chi tiết kiểm toán chỉ vào admin_log, không trả máy khách
+    if (WRITE.test(b.op)) await audit(env, request, who.email, b.op === 'usersBulk' ? 'usersBulk:' + String(b.action).slice(0, 20) : b.op, !(out && out.error), det);
+    return json(request, 200, out);
+  }
   catch (e) { return json(request, 500, { error: String(e && e.message || e).slice(0, 200) }); }
 }

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS CBT Reading Practice</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#fbf6f0',
+            surfaceCard: '#ffffff',
+            ink: '#1a0f02',
+            inkMuted: '#4a3f35',
+            tealBrand: '#136a63',
+            tealDark: '#0e4e48',
+            tealLight: '#e6f3f1',
+            accentOrange: '#f5820d',
+            accentOrangeBorder: '#b35a00',
+            badgeBg: '#fbe2a7',
+            badgeInk: '#5d3800',
+            borderTone: '#e3d7cb',
+            cyanTag: '#7be3d5'
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #fbf6f0;
+      color: #1a0f02;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Smooth button transitions */
+    .tactile-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #b35a00 !important;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-surface text-ink min-h-screen flex justify-center selection:bg-tealBrand selection:text-white">
+<!-- Mobile Viewport Container (Edge-to-Edge 390px Max) -->
+<main class="w-full max-w-[390px] flex flex-col min-h-screen bg-surface relative pb-28">
+<!-- BEGIN: TopHeader -->
+<header class="w-full px-4 pt-4 pb-2 bg-surface sticky top-0 z-20" data-purpose="top-navigation">
+<div class="flex items-center justify-between gap-3 mb-2">
+<!-- Close Button (min 44x44px touch target) -->
+<button aria-label="Close session" class="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-borderTone shadow-sm text-ink active:scale-95 transition-transform" type="button">
+<svg class="w-5 h-5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Session Title & Tag -->
+<div class="flex-1 flex flex-col items-center">
+<div class="flex items-center gap-1.5">
+<span class="text-base font-bold text-tealDark">Drill Session</span>
+<span class="px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider rounded-md bg-stone-200 text-stone-800 border border-stone-300">
+              IELTS CBT
+            </span>
+</div>
+<span class="text-xs font-semibold text-inkMuted mt-0.5">Reading 14 of 26</span>
+</div>
+<!-- Bookmark/Favorite Button (min 44x44px touch target) -->
+<button aria-label="Save question" class="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-borderTone shadow-sm text-ink active:scale-95 transition-transform" type="button">
+<svg class="w-5 h-5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Slim Progress Bar -->
+<div class="w-full bg-[#e3d7cb] rounded-full h-1.5 overflow-hidden my-2">
+<div aria-valuemax="26" aria-valuemin="1" aria-valuenow="14" class="bg-tealBrand h-1.5 rounded-full" role="progressbar" style="width: 54%;"></div>
+</div>
+<!-- Timer and Controls Bar -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 px-3 py-1 bg-white border border-borderTone rounded-full shadow-sm">
+<svg class="w-4 h-4 text-tealBrand stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M12 7v5l3 2" stroke-linecap="round"></path>
+</svg>
+<span class="text-xs font-bold text-ink tracking-tight font-mono">38:12</span>
+<span class="text-[11px] font-medium text-inkMuted">remaining</span>
+</div>
+<!-- Hide Timer Button (min 44x44px touch area) -->
+<button class="min-h-[44px] min-w-[44px] px-2 flex items-center justify-end text-xs font-bold text-tealDark underline underline-offset-2 active:opacity-75" type="button">
+          Hide
+        </button>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- Main Content Area -->
+<div class="px-4 flex flex-col gap-3.5 mt-1">
+<!-- BEGIN: CoachTipCard -->
+<section aria-label="Coach Tip" class="bg-surfaceCard border border-borderTone rounded-2xl p-3 shadow-sm flex items-start gap-3" data-purpose="coach-tip">
+<!-- Teacher Slot: Empty dashed placeholder with graduation cap -->
+<div aria-hidden="true" class="w-14 h-14 min-w-[56px] border-2 border-dashed border-tealBrand/60 rounded-xl bg-tealLight/50 flex flex-col items-center justify-center text-tealDark p-1">
+<svg class="w-5 h-5 fill-tealDark" viewbox="0 0 24 24">
+<path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.33 20.55 9 12 13.67 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"></path>
+</svg>
+<span class="text-[8px] font-bold tracking-tight uppercase mt-0.5 text-center leading-tight">teacher slot</span>
+</div>
+<!-- Tip Text Bubble Content -->
+<div class="flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-xs font-bold text-ink">Coach Ama • IELTS Tip</span>
+<span class="px-2 py-0.5 bg-badgeBg text-badgeInk rounded-full text-[10px] font-extrabold uppercase tracking-wide">
+              High-Scoring
+            </span>
+</div>
+<p class="text-xs text-inkMuted mt-1 leading-relaxed">
+            "Remember: <span class="font-extrabold text-[#b82214]">FALSE</span> means the text states the direct opposite. If it's not mentioned at all, pick <span class="font-extrabold text-tealDark">NOT GIVEN</span>!"
+          </p>
+</div>
+</section>
+<!-- END: CoachTipCard -->
+<!-- BEGIN: AcademicStimulusCard -->
+<article class="bg-surfaceCard border border-borderTone rounded-2xl p-4 shadow-sm" data-purpose="reading-passage">
+<!-- Stimulus Header -->
+<div class="flex items-start gap-2 mb-2">
+<svg class="w-5 h-5 text-tealBrand mt-0.5 shrink-0 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<div>
+<span class="text-[10px] font-extrabold tracking-widest text-tealBrand uppercase block">ACADEMIC STIMULUS</span>
+<h1 class="text-base font-bold text-ink leading-tight">The Termite Mound Architecture</h1>
+</div>
+</div>
+<div class="h-px bg-stone-200 w-full my-2.5"></div>
+<!-- Highlight & Text Controls Toolbar -->
+<div class="flex items-center justify-between bg-stone-100/80 px-2.5 py-1.5 rounded-xl border border-stone-200 mb-3">
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 text-xs font-semibold text-inkMuted">
+<svg class="w-3.5 h-3.5 text-inkMuted" fill="currentColor" viewbox="0 0 20 20">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+<span>Highlight</span>
+</div>
+<!-- Indicator Chips -->
+<span class="w-3.5 h-3.5 rounded-full bg-[#fde047] border border-amber-300 inline-block shadow-sm"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-[#67e8f9] border border-cyan-300 inline-block shadow-sm"></span>
+</div>
+<div class="px-2 py-0.5 bg-white border border-stone-300 rounded-md text-[11px] font-bold text-ink font-mono shadow-2xs">
+            Font 100%
+          </div>
+</div>
+<!-- Passage Text -->
+<div class="text-xs leading-relaxed text-ink space-y-2.5">
+<p>
+<strong class="font-bold text-tealDark mr-1">[A]</strong>
+            Engineers designing modern bioclimatic office towers have increasingly abandoned industrial heating systems in favour of natural termite models. In Harare, the Eastgate Centre mimics the internal passive ventilation shafts engineered by 
+            <mark class="bg-[#fde047] px-1 py-0.5 rounded text-ink font-semibold">Macrotermes colonies</mark>.
+          </p>
+<p>
+<strong class="font-bold text-tealDark mr-1">[B]</strong>
+            By continuously venting warmer internal air through high chimneys during nightfall, the structure regulates internal temperatures without consuming standard refrigerants. Traditional synthetic cladding was completely bypassed in order to reduce capital outlay by 35 percent.
+          </p>
+</div>
+<!-- Expander Button (min 44px touch target) -->
+<div class="mt-3 pt-2 border-t border-dashed border-stone-200 text-center">
+<span class="text-[11px] font-semibold text-inkMuted block mb-1">Paragraphs A–B of 6</span>
+<button class="w-full min-h-[44px] px-3 py-2 border border-borderTone bg-white hover:bg-stone-50 text-xs font-bold text-tealDark rounded-xl flex items-center justify-center gap-1.5 active:bg-stone-100 transition-colors shadow-2xs" type="button">
+<span>Expand full passage (680 words)</span>
+<svg class="w-4 h-4 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</article>
+<!-- END: AcademicStimulusCard -->
+<!-- BEGIN: QuestionCard -->
+<section aria-label="Current Question" class="bg-surfaceCard border border-borderTone rounded-2xl p-4 shadow-sm" data-purpose="interactive-question">
+<!-- Header Banner & Review Flag -->
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<div class="bg-cyanTag/40 border border-tealBrand/30 rounded-xl px-2.5 py-1 text-tealDark text-[11px] font-bold">
+            Questions 14–17 • True / False / Not Given
+          </div>
+<button aria-label="Flag question for review" class="min-h-[44px] min-w-[44px] px-2 flex items-center gap-1 text-xs font-bold text-inkMuted hover:text-tealDark active:scale-95" type="button">
+<svg class="w-3.5 h-3.5 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Review</span>
+</button>
+</div>
+<p class="text-[11px] italic text-inkMuted mb-3">
+          Choose the correct answer according to the stimulus above.
+        </p>
+<!-- Question Prompt Bubble -->
+<div class="bg-[#fbf6f0] border border-borderTone rounded-xl p-3 flex items-start gap-2.5 mb-4 shadow-inner">
+<div class="w-6 h-6 min-w-[24px] bg-tealBrand text-white text-xs font-bold rounded-full flex items-center justify-center">
+            14
+          </div>
+<p class="text-xs font-medium text-ink leading-snug">
+            Harare's Eastgate Centre relies primarily on organic termite blueprints rather than electric HVAC refrigeration.
+          </p>
+</div>
+<!-- Question Answer Options (min 44px touch targets) -->
+<fieldset class="space-y-2">
+<legend class="sr-only">Choose an answer for Question 14</legend>
+<!-- Option A (Selected) -->
+<label class="min-h-[48px] px-3 py-2 flex items-center justify-between rounded-xl border-2 border-tealBrand bg-tealLight cursor-pointer transition-all active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 min-w-[24px] rounded-full bg-tealBrand text-white text-xs font-bold flex items-center justify-center">
+                A
+              </span>
+<span class="text-xs font-extrabold text-tealDark tracking-wide">TRUE</span>
+</div>
+<!-- Checkmark Selected State Icon -->
+<div class="w-5 h-5 rounded-full bg-tealBrand text-white flex items-center justify-center">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input checked="" class="sr-only" name="ielts_q14" type="radio" value="TRUE"/>
+</label>
+<!-- Option B (Unselected) -->
+<label class="min-h-[48px] px-3 py-2 flex items-center justify-between rounded-xl border border-borderTone bg-white hover:bg-stone-50 cursor-pointer transition-all active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 min-w-[24px] rounded-full border border-stone-300 text-inkMuted text-xs font-semibold flex items-center justify-center">
+                B
+              </span>
+<span class="text-xs font-bold text-ink tracking-wide">FALSE</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-stone-300"></div>
+<input class="sr-only" name="ielts_q14" type="radio" value="FALSE"/>
+</label>
+<!-- Option C (Unselected) -->
+<label class="min-h-[48px] px-3 py-2 flex items-center justify-between rounded-xl border border-borderTone bg-white hover:bg-stone-50 cursor-pointer transition-all active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 min-w-[24px] rounded-full border border-stone-300 text-inkMuted text-xs font-semibold flex items-center justify-center">
+                C
+              </span>
+<span class="text-xs font-bold text-ink tracking-wide">NOT GIVEN</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-stone-300"></div>
+<input class="sr-only" name="ielts_q14" type="radio" value="NOT_GIVEN"/>
+</label>
+</fieldset>
+<!-- Question Navigation Hints & Progress Dots -->
+<div class="flex items-center justify-between mt-4 pt-2.5 border-t border-stone-200">
+<div aria-label="Question indicators" class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tealBrand"></span>
+<span class="w-2 h-2 rounded-full bg-stone-300"></span>
+<span class="w-2 h-2 rounded-full bg-stone-300"></span>
+<span class="w-2 h-2 rounded-full bg-stone-300"></span>
+</div>
+<button class="min-h-[44px] px-2 flex items-center gap-1 text-xs font-bold text-tealDark hover:underline active:opacity-75" type="button">
+<span>Question 15 below</span>
+<svg class="w-3.5 h-3.5 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</section>
+<!-- END: QuestionCard -->
+</div>
+<!-- BEGIN: BottomActionArea -->
+<!-- Sticky Footer with Warm Coral Tactile Button -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-surface/95 backdrop-blur-xs border-t border-borderTone px-4 pt-2.5 pb-4 z-30" data-purpose="action-dock">
+<!-- Primary Action: Raised tactile drop-shadow button -->
+<button class="tactile-button w-full min-h-[50px] bg-accentOrange hover:bg-[#e07505] text-ink font-black text-sm tracking-wide rounded-2xl flex items-center justify-center gap-2 border border-accentOrangeBorder shadow-[0_4px_0_0_#b35a00] transition-transform select-none" type="button">
+<span>Save &amp; Next Question</span>
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Autosave status info -->
+<div class="flex items-center justify-center gap-1.5 mt-2 text-[11px] font-semibold text-inkMuted">
+<svg class="w-3 h-3 text-inkMuted" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path>
+</svg>
+<span>Autosaves answers every 10 seconds</span>
+</div>
+</div>
+<!-- END: BottomActionArea -->
+</main>
+</body></html>

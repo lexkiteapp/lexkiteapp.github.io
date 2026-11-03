@@ -1,0 +1,16 @@
+{
+  "_": "Chỗ giáo viên còn đặt trần, chờ chuyển sang Chars.slot (chỉ được GIẢM). Màn nào thuộc PR khác đang mở thì chuyển sau khi PR đó gộp.",
+  "raw": {
+    "web/js/call.js": 1,
+    "web/js/lesson/teacher.js": 3,
+    "web/js/say.js": 3,
+    "web/js/speak/app.js": 1,
+    "web/js/st/common.js": 1
+  },
+  "runtime": [
+    "call",
+    "lesson"
+  ],
+  "_runtime": "Màn còn ảnh đặt trần (poster Call #311/#293, LessonTeacher #293): vệt cắt chỉ cảnh báo. Chỉ được BỚT khi chuyển màn sang Chars.slot.",
+  "_main_1103": "3/11 gộp main vào #314: main thêm 6 chỗ đặt trần sau khi cổng ra đời. remind.js đã chuyển Chars.slot; say.js 3 (2 ô giáo viên trong khung Stitch say-front/back + 1 ảnh vẽ canvas thẻ chia sẻ) và speak/app.js 1 (khung Stitch pas) ghi tạm – chuyển sang slot cùng lượt port Stitch có ô bệ (giữ SSIM), chỉ được GIẢM."
+}

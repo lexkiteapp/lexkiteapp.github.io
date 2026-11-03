@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leave lesson?</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#091518",
+            "tertiary": "#f4bf40",
+            "on-surface": "#d8e5e9",
+            "inverse-surface": "#d8e5e9",
+            "primary-fixed-dim": "#6bd8ce",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary": "#003733",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-container": "#392900",
+            "surface-container-highest": "#2b373a",
+            "surface-tint": "#6bd8ce",
+            "surface-dim": "#091518",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container": "#162125",
+            "on-tertiary": "#402e00",
+            "on-tertiary-fixed": "#261a00",
+            "on-primary-fixed-variant": "#00504b",
+            "inverse-primary": "#006a64",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#2ba39a",
+            "on-error": "#690005",
+            "inverse-on-surface": "#263236",
+            "on-primary-fixed": "#00201e",
+            "tertiary-container": "#ba8b00",
+            "surface-container-low": "#121d20",
+            "outline": "#879391",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-variant": "#2b373a",
+            "primary": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "secondary": "#ffb4a6",
+            "on-secondary": "#660800",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-high": "#202c2f",
+            "on-background": "#d8e5e9",
+            "secondary-fixed": "#ffdad3",
+            "surface": "#091518",
+            "primary-fixed": "#88f5ea",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-container": "#ffa493",
+            "on-secondary-fixed-variant": "#900f00",
+            "error-container": "#93000a",
+            "secondary-container": "#981201",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container-lowest": "#051013",
+            "outline-variant": "#3d4947"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .speech-arrow {
+      position: absolute;
+      left: -9px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 9px solid #1E434B;
+    }
+    .speech-arrow-inner {
+      position: absolute;
+      left: -7px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 7px solid #10252A;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#091518] text-[#d8e5e9] antialiased min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Viewport Canvas (390px, edge-to-edge) -->
+<main class="w-[390px] min-h-screen bg-[#091518] flex flex-col justify-between relative overflow-hidden pb-8">
+<!-- Top Bar Component -->
+<header class="h-[56px] bg-[#0B1A1E] border-b-2 border-[#162F36] px-4 flex items-center shrink-0 w-full z-10">
+<button aria-label="Close dialog and return to lesson" class="w-10 h-10 rounded-full bg-[#132B32] border border-[#234E57] shadow-[0_2px_0_0_#060F12] flex items-center justify-center text-[#2DD4BF] active:translate-y-[1px] active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<h1 class="ml-3 text-white font-extrabold text-lg tracking-tight">Leave lesson?</h1>
+</header>
+<!-- Main Content Canvas -->
+<div class="px-4 flex-1 flex flex-col justify-center py-2">
+<!-- Upper Coach Area -->
+<section class="flex items-center gap-3 w-full">
+<!-- Dashed Teacher Slot -->
+<div aria-hidden="true" class="teacher-slot w-[110px] h-[128px] shrink-0 rounded-2xl border-2 border-dashed border-[#2DD4BF]/60 bg-[#0E2228]/80"></div>
+<!-- Speech Bubble Card -->
+<div class="relative bg-[#10252A] border-2 border-[#1E434B] shadow-[0_4px_0_0_#060F12] rounded-2xl p-4 flex-1">
+<div class="speech-arrow"></div>
+<div class="speech-arrow-inner"></div>
+<h2 class="text-white font-bold text-base leading-tight">Wait, don't go!</h2>
+<p class="text-[#A5C6CB] text-sm font-medium mt-1 leading-snug">You'll lose this lesson's progress</p>
+</div>
+</section>
+<!-- Main Warning Card -->
+<section class="bg-[#10252A] border-2 border-[#1E434B] shadow-[0_6px_0_0_#060F12] rounded-3xl p-6 text-center my-6">
+<!-- Top Medallion Badge -->
+<div class="w-14 h-14 mx-auto rounded-2xl bg-[#1A3840] border-2 border-[#2A5964] flex items-center justify-center shadow-[0_3px_0_0_#0B1B20]">
+<span class="material-symbols-outlined text-[#F59E0B] text-[30px]" data-icon="hourglass_top">hourglass_top</span>
+</div>
+<!-- Warning Headline & Description -->
+<h3 class="text-white text-2xl font-black tracking-tight mt-4">Progress will be lost</h3>
+<p class="text-[#C4D7D9] text-sm font-medium leading-relaxed mt-2 max-w-[280px] mx-auto">
+          Stay for 2 more minutes to finish your drill and keep your daily streak alive!
+        </p>
+<!-- Streak Warning Badge Pill -->
+<div class="rounded-full py-2 px-4 mx-auto mt-4 inline-flex items-center gap-2 bg-[#201D16] border-2 border-[#D97706]/70 shadow-[0_2px_0_0_#0B0E0F]">
+<span class="material-symbols-outlined text-[#F59E0B] text-[18px]" data-icon="local_fire_department">local_fire_department</span>
+<span class="text-[#FDE68A] font-extrabold text-xs tracking-wide">Day 14 streak on the line</span>
+</div>
+</section>
+</div>
+<!-- Bottom Action Area -->
+<footer class="px-4 shrink-0 flex flex-col items-center w-full">
+<!-- Primary CTA: Keep Learning -->
+<button class="w-full h-[52px] rounded-2xl bg-[#F59E0B] border-2 border-[#D97706] shadow-[0_4px_0_0_#9A3412] flex items-center justify-center gap-2 active:translate-y-[2px] active:shadow-[0_2px_0_0_#9A3412] transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[#1C1003] text-[22px]" data-icon="play_arrow">play_arrow</span>
+<span class="text-[#1C1003] font-black text-base tracking-wide">Keep learning</span>
+</button>
+<!-- Secondary Ghost Action: End Lesson -->
+<button class="w-full min-h-[44px] py-3 mt-3 text-[#FF9A8B] font-bold text-sm tracking-wide text-center transition-colors hover:text-[#FFAAA0] active:opacity-75 flex items-center justify-center cursor-pointer" type="button">
+        End lesson
+      </button>
+</footer>
+</main>
+</body></html>
