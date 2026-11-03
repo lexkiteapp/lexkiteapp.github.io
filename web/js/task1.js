@@ -52,7 +52,7 @@
   };
 
   // ---------- Vẽ biểu đồ (SVG) ----------
-  // Bố cục tính theo nội dung (độ dài chữ ước lượng, số hàng/cột) thay vì toạ độ cố định → không tràn khung, không đè chữ.
+  // Bố cục tính theo nội dung (độ dài chữ ước lượng, số hàng/cột) thay vì tọa độ cố định → không tràn khung, không đè chữ.
   // Màn hẹp (< 600 px) dùng khung 340 đơn vị + chú giải dưới biểu đồ để chữ không bị thu quá nhỏ.
   // Cổng CI scripts/test/figure-layout.mjs vẽ MỌI đề ở 360 px/1280 px × sáng/tối và chặn chồng/tràn/thiếu tương phản.
   const narrow = () => (window.innerWidth || 1024) < 600;

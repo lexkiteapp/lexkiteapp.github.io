@@ -24,6 +24,7 @@ for (const v of VIEWS) for (const theme of ['light', 'dark']) for (const font of
   const n = await page.evaluate(() => window.renderAll());
   await page.evaluate(() => document.fonts.ready);
   const res = await page.evaluate(() => window.checkAll());
+  if (font === 'bvp') for (const t of await page.evaluate(() => window.selfTest())) if (!t.ok) found.push({ tag: `${v.name}/${theme}`, fig: '(tự kiểm bộ dò)', issues: [{ kind: 'detector', detail: `hình lỗi cố ý loại "${t.kind}" không bị bắt (bắt được: ${t.got.join(', ') || 'không'})` }] });
   const tag = `${v.name}/${theme}/${font}`;
   if (errs.length) found.push({ tag, fig: '(trang)', issues: errs.map(m => ({ kind: 'js', detail: m })) });
   figs += n * 2;
