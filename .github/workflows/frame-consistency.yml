@@ -1,6 +1,6 @@
 # 🧱 Một khung app: mọi route của app thật (390/1280 × sáng/tối) so với chuẩn biến thể hub/inner/focus (docs/DESIGN-SYSTEM.md §5d)
 # – thanh trên, nút Back/X ≥ 44 + đích, thanh 5 tab, khung nội dung, thẻ, tiêu đề, CTA, màu token, icon cùng khái niệm.
-# Đỏ khi có lệch (không allowlist). Báo cáo: artifact frame-consistency (report.md + raw.json). Hermetic, 0 lượt chạm prod.
+# Ratchet theo scripts/test/frame-consistency.known.json. Báo cáo: artifact frame-consistency (report.md + raw.json). Hermetic, 0 lượt chạm prod.
 name: Frame consistency
 # Ratchet: đỏ khi có lệch mới/tăng hoặc khi lệch giảm mà frame-consistency.known.json chưa hạ (baseline chỉ đi xuống).
 on:
