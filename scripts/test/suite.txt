@@ -27,6 +27,8 @@ node scripts/test/i18n-english.mjs
 node scripts/test/unit.mjs
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
+node scripts/test/sfx-loudness.mjs
+node scripts/test/play-blitz.mjs
 node scripts/test/review-modes.mjs
 node scripts/test/review-modes-ui.js web
 node scripts/build-lexicon.mjs

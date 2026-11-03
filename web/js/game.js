@@ -95,6 +95,7 @@
       const after = levelOf(s.xp).level;
       if (after > before) events.push({ type: 'level', level: after, title: levelOf(s.xp).title });
       if (delta.matchTime && (!s.best.match || delta.matchTime < s.best.match)) s.best.match = delta.matchTime;
+      if (delta.blitzScore && delta.blitzScore > (s.best.blitz || 0)) s.best.blitz = delta.blitzScore; // ⏱️ kỷ lục Thử thách 60 giây
       // Thói quen theo giờ học (đếm tối đa 1 lần/ngày): cú đêm 22h–4h, chim sớm 4h–7h
       if (gained > 0) { const h = new Date().getHours(); if ((h >= 22 || h < 4) && !d.night) { d.night = 1; s.total.night = (s.total.night || 0) + 1; } if (h >= 4 && h < 7 && !d.early) { d.early = 1; s.total.early = (s.total.early || 0) + 1; } }
       // Huy hiệu
@@ -138,9 +139,9 @@
   // Hiệu ứng thêm (tap/streak/shimmer/combo) nạp lười trong streak-ui.js qua Sfx.extend; trước khi nạp xong gọi là không làm gì
   for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
   Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); }; // khóa: lớp game feel đã giữ âm này
-  // 🎮 Lớp "game feel" (docs/GAME-FEEL.md): công tắc Cài đặt hoặc ?feel=1 / ?feel=0, nhớ trong vb.feel; chỉ khi bật mới nạp js/feel.js
-  // Sfx.feel() → đang bật? · Sfx.feel(true|false) → lưu + bật/tắt ngay (không cần tải lại)
-  const feelGet = () => { try { return g.localStorage.getItem('vb.feel') === '1'; } catch (e) { return false; } };
+  // 🎮 Lớp "game feel" (docs/GAME-FEEL.md, docs/specs/play-learn.md): BẬT mặc định từ 3/11; tắt bằng công tắc Cài đặt hoặc ?feel=0, nhớ trong vb.feel.
+  // Sfx.feel() → đang bật? · Sfx.feel(true|false) → lưu + bật/tắt ngay (không cần tải lại). Không có localStorage → vẫn bật (âm vẫn theo settings.sfx).
+  const feelGet = () => { try { return g.localStorage.getItem('vb.feel') !== '0'; } catch (e) { return true; } };
   const feelLoad = () => { if (g.Feel || !g.document || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
   Sfx.feel = on => {
     if (on === undefined) return feelGet();
