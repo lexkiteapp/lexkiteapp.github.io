@@ -2,7 +2,7 @@
 //   1) Khung app (SHELL trong web/sw.js ∪ script/CSS nạp ngay trong web/app/index.html – tải ngay lần đầu, mọi thiết bị): tổng gzip ≤ budget.shellGz
 //      gzip CHUẨN (pako = zlib gốc, scripts/lib/gz-canon.mjs) → máy & CI ra cùng một số; không dùng zlib của Node (lệch theo bản dựng/CPU)
 //   2) Mỗi file dữ liệu tải lười (web/js/**): gzip ≤ budget.fileGz – lớn hơn thì tách lô (data1/data2…) để mạng yếu vẫn mượt
-//   3) Tổng web/js (trừ admin-*.js – chỉ trang quản trị – và nguồn dựng en.js không ai nạp; scripts/lib/js-budget.mjs): không vượt budget.totalJs (byte thô)
+//   3) Tổng web/js (trừ admin.js/admin-*.js + thư viện chỉ trang quản trị nạp – và nguồn dựng en.js không ai nạp; scripts/lib/js-budget.mjs): không vượt budget.totalJs (byte thô)
 //      Còn < 1% trống → cảnh báo sớm (::warning:: trên CI) để rà dữ liệu thừa TRƯỚC khi các PR cùng đỏ (3/11: main còn 12 KB, 5 PR đỏ cùng lúc)
 //   4) Cảnh báo content-check không được TĂNG so với mốc (chỉ được giảm; giảm thì tự hạ mốc bằng --update)
 // Dùng: node scripts/test/size-budget.mjs [--update]
@@ -10,7 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { gzSize, firstLoadFiles, swShell } from '../lib/gz-canon.mjs'; // gzip chuẩn (pako = zlib gốc): cùng số trên máy & CI
 import { execFileSync } from 'child_process';
-import { jsTotal } from '../lib/js-budget.mjs'; // byte người học tải: bỏ admin-*.js + nguồn dựng en.js (đã gộp vào en.js)
+import { jsTotal } from '../lib/js-budget.mjs'; // byte người học tải: bỏ mã chỉ quản trị + nguồn dựng en.js (đã gộp vào en.js)
 const B = 'scripts/test/budget.json', budget = JSON.parse(fs.readFileSync(B, 'utf8'));
 const gz = f => gzSize(fs.readFileSync(f)), kb = n => (n / 1024).toFixed(0) + ' KB';
 const errs = [];

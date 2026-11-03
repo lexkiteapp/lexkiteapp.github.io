@@ -1,5 +1,8 @@
 // Tổng web/js cho ngân sách size-budget (scripts/test/size-budget.mjs) – một chỗ định nghĩa "byte người học tải".
-//  - admin-*.js: chỉ trang quản trị, không tải cho người học/add-on.
+//  - admin.js + admin-*.js: chỉ web/admin.html nạp, không tải cho người học/add-on (build-mobile.sh cũng bỏ admin.js).
+//    3/11: regex cũ chỉ bắt admin-*.js → admin.js (180 KB) bị đếm như byte người học.
+//  - Thư viện chỉ mã quản trị nạp (vd. vendor/jsvectormap – bản đồ tab Phân tích, ~134 KB): đường dẫn js/… xuất hiện trong mã quản trị
+//    nhưng KHÔNG xuất hiện trong mã người học (web/extension ngoài admin) → không tính. Người học tham chiếu tới là tính lại ngay.
 //  - Nguồn dựng en.js (web/js/i18n/en/<nhóm>.js của vòng `for f in …` trong scripts/build-i18n.sh): build-i18n.sh GỘP chúng vào en.js,
 //    trình duyệt chỉ tải en.js → đếm cả hai là tính chuỗi tiếng Anh HAI lần (3/11: ~126 KB, main kẹt 19 958 132/19 970 000 B → mọi PR thêm JS đỏ).
 //    Chỉ bỏ nhóm KHÔNG được nạp lúc chạy: nhóm nào có đường dẫn `i18n/en/<nhóm>.js` (hoặc tên nhóm cạnh `i18n/en/` – kiểu map tên → `js/i18n/en/${n}.js`)
@@ -7,7 +10,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const isAdmin = p => /(^|\/)admin-[^/]*\.js$/.test(p);
+const isAdmin = p => /(^|\/)admin(-[^/]*)?\.js$/.test(p);
+export { isAdmin };
 /** Danh sách nhóm nguồn gộp vào en.js – đọc từ chính build-i18n.sh (thuần). */
 export function enBuildGroups(sh) { const m = String(sh).match(/for f in ([\w ]+); do cat "en\/\$f\.js"/); return m ? m[1].trim().split(/\s+/) : []; }
 /** Nhóm có được nạp lúc chạy không (thuần): corpus = văn bản mã web/extension (ngoài web/js/i18n). */
@@ -16,11 +20,11 @@ export function loadedAtRuntime(group, corpus) {
   const q = new RegExp(`['"\`]${group}['"\`]`);
   return String(corpus).split('\n').some(l => l.includes('i18n/en/') && q.test(l));
 }
-function corpusOf(root) {
+function corpusOf(root, skip = () => false) {
   let out = '';
   const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name), rel = path.relative(root, p);
     if (e.isDirectory()) { if (!/^(web\/js\/i18n|extension\/app)$/.test(rel) && e.name !== 'node_modules' && !e.name.startsWith('.')) walk(p); }
-    else if (/\.(m?js|html|json)$/.test(e.name) && fs.statSync(p).size < 2e6) out += fs.readFileSync(p, 'utf8') + '\n'; } };
+    else if (/\.(m?js|html|json)$/.test(e.name) && !skip(rel) && fs.statSync(p).size < 2e6) out += fs.readFileSync(p, 'utf8') + '\n'; } };
   for (const d of ['web', 'extension']) if (fs.existsSync(path.join(root, d))) walk(path.join(root, d));
   return out;
 }
@@ -30,11 +34,25 @@ export function buildOnlyEn(root = '.') {
   const corpus = corpusOf(root);
   return enBuildGroups(fs.readFileSync(sh, 'utf8')).filter(g => !loadedAtRuntime(g, corpus)).map(g => `web/js/i18n/en/${g}.js`).filter(f => fs.existsSync(path.join(root, f)));
 }
-/** { total, skipped: [{file, size}] } – byte thô web/js/**.js trừ admin-*.js và nguồn dựng en. */
+const isAdminSrc = rel => rel === 'web/admin.html' || (rel.startsWith('web/js/') && isAdmin(rel));
+/** Đường dẫn web/js/… mà mã quản trị nạp (thuần): adminText = admin.html + admin*.js. */
+export function adminRefs(adminText) { return [...new Set((String(adminText).match(/\bjs\/[\w./-]+\.js\b/g) || []).map(r => 'web/' + r))]; }
+/** Tham chiếu có thuộc người học không (thuần): corpus = mã web/extension ngoài trang quản trị. So cả 'js/x/y.js' lẫn 'x/y.js'. */
+export function learnerUses(file, corpus) { const r = file.replace(/^web\//, ''); return String(corpus).includes(r) || String(corpus).includes(r.replace(/^js\//, '/')); }
+/** File web/js chỉ trang quản trị nạp (ngoài admin*.js) → [đường dẫn tương đối]. */
+export function adminOnlyDeps(root = '.') {
+  const W = path.join(root, 'web'); if (!fs.existsSync(path.join(W, 'admin.html'))) return [];
+  let txt = fs.readFileSync(path.join(W, 'admin.html'), 'utf8');
+  for (const f of fs.readdirSync(path.join(W, 'js'))) if (isAdmin(f)) txt += '\n' + fs.readFileSync(path.join(W, 'js', f), 'utf8');
+  const corpus = corpusOf(root, isAdminSrc);
+  return adminRefs(txt).filter(f => !isAdmin(f) && fs.existsSync(path.join(root, f)) && !learnerUses(f, corpus));
+}
+/** { total, skipped: [{file, size}], admin: [{file, size}] } – byte thô web/js/**.js trừ admin*.js, thư viện chỉ quản trị dùng và nguồn dựng en. */
 export function jsTotal(root = '.') {
-  const skip = new Set(buildOnlyEn(root)); let total = 0; const skipped = [];
+  const skip = new Set(buildOnlyEn(root)), adm = new Set(adminOnlyDeps(root)); let total = 0; const skipped = [], admin = [];
   const walk = d => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const p = path.join(d, e.name);
-    if (e.isDirectory()) walk(p); else if (p.endsWith('.js') && !isAdmin(p)) { const s = fs.statSync(path.join(root, p)).size; if (skip.has(p)) skipped.push({ file: p, size: s }); else total += s; } } };
+    if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) { const s = fs.statSync(path.join(root, p)).size;
+      if (isAdmin(p) || adm.has(p)) admin.push({ file: p, size: s }); else if (skip.has(p)) skipped.push({ file: p, size: s }); else total += s; } } };
   walk('web/js');
-  return { total, skipped };
+  return { total, skipped, admin };
 }
