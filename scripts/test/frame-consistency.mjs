@@ -164,7 +164,7 @@ for (const r of ROUTES) { const v = VAR.routes[r]?.variant; if (!v) continue;
     if (!m.top) D(r, k, 'topbar', 'không có', 'có thanh trên');
     else {
       if (w === 390 && m.top.h !== SPEC.top) D(r, k, 'topbar.h', m.top.h, SPEC.top);
-      if (m.top.el !== N.topEl) D(r, k, 'topbar.variant', m.top.el, N.topEl);
+      if (m.top.global !== (v !== 'focus')) D(r, k, 'topbar.variant', m.top.el, v === 'focus' ? 'thanh riêng của màn học (không header.topbar chung)' : 'header.topbar');
       if (m.top.y > 1) D(r, k, 'topbar.y', m.top.y, 0);
     }
     // Back/X
