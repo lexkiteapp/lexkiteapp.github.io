@@ -58,7 +58,10 @@ async function run(name, bt) {
   // (1) chạm Bắt đầu → 30 s đọc câu hỏi → tự phát (không có cú chạm lúc đó)
   { const { browser, page, errs } = await open(bt), k = name + ' · tự phát sau 30 s';
     if (!(await goPart(page))) { bad(k, 'không mở được Thi thử Listening'); await page.screenshot({ path: `${OUT}/${name}-open.png` }); await browser.close(); return; }
-    await page.tap('#mkStart'); await page.waitForSelector('#mkClock', { timeout: 10000 });
+    await page.tap('#mkStart'); await page.waitForSelector('#xClock .xclk', { timeout: 10000 });
+    const c0 = await page.$eval('#xClock .xclk-t', e => e.textContent).catch(() => '');
+    if (!/^(29|30):\d\d$/.test(c0)) bad(k, `đồng hồ Listening 30′ không hiện đúng: "${c0}"`);
+    if (!(await page.$('#xPrep .xprep-ring'))) bad(k, 'không có màn chuẩn bị (đọc câu hỏi) trước khi tự phát');
     await page.waitForTimeout(33000);
     await page.waitForFunction(() => window.__aud.ok.length >= 2, null, { timeout: 15000 }).catch(() => {});
     const a = await aud(page);
@@ -71,8 +74,8 @@ async function run(name, bt) {
   { const { browser, page, errs } = await open(bt), k = name + ' · bị chặn → Bấm để nghe';
     if (!(await goPart(page))) { bad(k, 'không mở được Thi thử Listening'); await browser.close(); return; }
     await page.evaluate(() => document.getElementById('mkStart').click()); // click giả (không phải cú chạm) → chưa mở khóa
-    await page.waitForSelector('#mkSkip', { timeout: 10000 });
-    await page.evaluate(() => document.getElementById('mkSkip').click());
+    await page.waitForSelector('#xPrep [data-a="go"]', { timeout: 10000 });
+    await page.evaluate(() => document.querySelector('#xPrep [data-a="go"]').click());
     const btn = await page.waitForSelector('#lkTapPlay', { timeout: 8000 }).catch(() => null);
     const before = await aud(page);
     if (!btn) { bad(k, `không hiện nút "Bấm để nghe" khi bị chặn (chặn ${before.blocked}, phát ${before.ok.length}, giọng máy chặn ${before.ttsBlocked}/nói ${before.tts}, mp3 sẵn ${before.hq}, speechSynthesis ${before.sp}, đang: "${before.now}"; nhật ký: ${before.log})`); await page.screenshot({ path: `${OUT}/${name}-blocked.png` }); await browser.close(); return; }
@@ -89,8 +92,38 @@ async function run(name, bt) {
     await browser.close(); }
 }
 
+// (3) Một phần thi thật (#/listen/…?mode=exam): màn chuẩn bị → "Nghe ngay" (cú chạm) → có tiếng; (4) luyện tập mở thẳng bằng link, không cú chạm:
+// 3-2-1 rồi tự phát → trình duyệt chặn → PHẢI hiện nút "Bấm để nghe" (không im lặng), chạm → có tiếng
+async function single(name, bt) {
+  { const { browser, page, errs } = await open(bt), k = name + ' · 1 phần thi thật: chuẩn bị → Nghe ngay';
+    await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/listen/t1p1?mode=exam`, { waitUntil: 'load' });
+    const go = await page.waitForSelector('#lPrep [data-a="go"]', { timeout: 20000 }).catch(() => null);
+    if (!go) bad(k, 'không có màn chuẩn bị trước khi phát');
+    else {
+      const txt = await page.$eval('#lPrep', e => e.textContent);
+      if (!/\d/.test(txt)) bad(k, 'màn chuẩn bị không đếm ngược: ' + txt.slice(0, 80));
+      await page.tap('#lPrep [data-a="go"]');
+      await page.waitForFunction(() => window.__aud.ok.length >= 2, null, { timeout: 15000 }).catch(() => {});
+      const a = await aud(page); if (a.ok.length < 2) bad(k, `chạm "Nghe ngay" không có tiếng (${a.ok.length} câu, chặn ${a.blocked}; ${a.log})`); else console.log(`  ✓ thi thật: phát ${a.ok.length} câu`);
+      if (await page.$('#lPrep')) bad(k, 'màn chuẩn bị không biến mất sau khi phát');
+    }
+    if (errs.length) bad(k, 'lỗi JS: ' + errs.join(' | '));
+    await browser.close(); }
+  { const { browser, page, errs } = await open(bt), k = name + ' · luyện tập tự phát bị chặn → nút to';
+    await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/listen/t1p1`, { waitUntil: 'load' });
+    await page.waitForSelector('#lPrep', { timeout: 20000 }).catch(() => {});
+    const btn = await page.waitForSelector('#lkTapPlay', { timeout: 12000 }).catch(() => null);
+    await page.screenshot({ path: `${OUT}/${name}-practice-blocked.png` });
+    if (!btn) bad(k, 'tự phát bị chặn nhưng không hiện nút "Bấm để nghe" (lỗi im lặng)');
+    else { await page.tap('#lkTapPlay'); await page.waitForFunction(() => window.__aud.ok.length >= 2, null, { timeout: 15000 }).catch(() => {}); const a = await aud(page); if (a.ok.length < 2) bad(k, `chạm nút vẫn không có tiếng (${a.ok.length})`); else console.log(`  ✓ luyện tập: bị chặn → chạm → ${a.ok.length} câu`); }
+    if (errs.length) bad(k, 'lỗi JS: ' + errs.join(' | '));
+    await browser.close(); }
+}
+
 await run('chromium-iphone', chromium);
 await run('webkit-iphone', webkit);
+await single('chromium-iphone', chromium);
+await single('webkit-iphone', webkit);
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify({ fails }, null, 1));
 console.log(fails.length ? `\n❌ ${fails.length} lỗi:\n` + fails.join('\n') : '\n✅ ios-audio: Thi thử Listening có tiếng khi tự phát; bị chặn → "Bấm để nghe" phát tiếp đúng câu');
 process.exit(fails.length ? 1 : 0);

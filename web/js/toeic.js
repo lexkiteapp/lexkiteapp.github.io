@@ -106,17 +106,32 @@
     const LP = T().listening.filter(p => p.test === n).sort((a, b) => a.part - b.part), RT = T().reading.find(x => x.test === n);
     if (!LP.length || !RT) return routes.toeic();
     const res = { L: {}, R: {} };
-    let player = null, timer = null;
+    let player = null, timer = null, run = null, clk = null;
+    // Đồng hồ = ExamClock (mốc thời gian): Listening 45′ và Reading 75′ theo chuẩn ETS cho 100 câu, đề ít câu hơn thì chia theo tỉ lệ
+    const KL = 'toeic.' + n + '.L', KR = 'toeic.' + n + '.R', STD = window.ExamClock ? ExamClock.STD.toeic : null;
     // Lưu bài làm dở (đề dài ~2 giờ): tải lại trang / app bị tắt vẫn tiếp tục được – Listening theo Part, Reading từng đáp án + đồng hồ
     const SK = 'lk.toeicRun.' + n;
     const save = x => { try { localStorage.setItem(SK, JSON.stringify({ ...x, res, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
     const saved = (() => { try { const x = JSON.parse(localStorage.getItem(SK) || 'null'); return x && Date.now() - x.at < 864e5 ? x : null; } catch (e) { return null; } })();
-    const clearRun = () => { try { localStorage.removeItem(SK); } catch (e) { /* bỏ qua */ } };
+    const clearRun = () => { try { localStorage.removeItem(SK); } catch (e) { /* bỏ qua */ } if (App.listening.runDrop) App.listening.runDrop(KL); if (window.ExamClock) ExamClock.clear(KR); };
     document.body.classList.add('bare');
     window.onbeforeunload = () => t('Bạn đang làm bài thi – rời trang sẽ mất kết quả.');
-    App.cleanup = () => { if (player) player.stop(); clearInterval(timer); document.body.classList.remove('bare'); window.onbeforeunload = null; };
+    App.cleanup = () => { if (player) player.stop(); if (run) run.stop(); if (clk) clk.stop(); clearInterval(timer); document.body.classList.remove('bare'); window.onbeforeunload = null; };
     const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><b>💼 TOEIC Mock · Test ${n}</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<a class="btn sm ghost" href="#/toeic" data-confirm="${esc(t('Thoát bài thi?'))}">${t('Thoát')}</a></div></div>`;
+    const enrich = (p, r) => { Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); return r; };
+    // Listening như thi thật: chuẩn bị 5 giây rồi TỰ PHÁT từng Part, chỉ nghe 1 lần, hết Part tự sang Part kế, hết giờ/hết Part cuối → sang Reading
     const lPart = k => {
+      if (App.listening.runSection && window.ExamClock) {
+        const items = LP.reduce((a, p) => a + QE.numsOf(p).length, 0);
+        save({ stage: 'L', k });
+        run = App.listening.runSection({
+          key: KL, parts: LP, secs: Math.max(10, Math.round(STD.listening * items / STD.items)) * 60, review: 30, prepSecs: STD.prep, gap: 5, name: 'TOEIC Listening',
+          frame: (j, p, inner) => `${bar('Listening · Part ' + p.part, '<span id="xClock"></span>')}<div style="margin-top:1rem"></div>${inner}`,
+          collect: (p, box) => enrich(p, QE.collect(p, box)),
+          onDone: (r, timeUp) => { run = null; Object.assign(res.L, r); save({ stage: 'R' }); if (timeUp) toast(t('Hết giờ Listening – chuyển sang Reading')); reading(); window.scrollTo({ top: 0 }); },
+        });
+        return;
+      }
       const p = LP[k];
       view.innerHTML = `${bar('Listening · Part ' + p.part)}<div class="card lplayer" style="margin-top:1rem"><b id="tState">🔊 ${t('Đang phát – chỉ nghe 1 lần')}</b><span class="lnow small muted" id="lNow"></span></div>
         <div class="card" id="lQs">${QE.questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" disabled>${k < LP.length - 1 ? t('Phần tiếp') + ' →' : t('Sang Reading') + ' →'}</button></div></div>`;
@@ -124,13 +139,13 @@
       player = App.listening.Player(p, { onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
       player.play(0);
       setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 30000);
-      $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.L, r); save(k < LP.length - 1 ? { stage: 'L', k: k + 1 } : { stage: 'R' }); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
+      $('#tNext').onclick = () => { player.stop(); const r = enrich(p, QE.collect(p, $('#lQs'))); Object.assign(res.L, r); save(k < LP.length - 1 ? { stage: 'L', k: k + 1 } : { stage: 'R' }); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
     };
     const reading = (restore) => {
       const units = RT.parts.flatMap(pt => unitsOf(pt).map(u => ({ ...u, part: pt.part })));
       const mins = Math.max(20, Math.round(units.reduce((a, u) => a + u.groups.reduce((b, g) => b + g.items.length, 0), 0) * 0.75));
       const nums = units.flatMap(u => QE.numsOf({ groups: u.groups }));
-      view.innerHTML = `${bar('Reading', `<span class="small muted" id="tCnt"></span><span class="mk-clock" id="tClock"></span>`)}<div class="tx-wrap"><div id="tq">${units.map(unitHtml).join('')}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">${t('Nộp bài')}</button></div></div>
+      view.innerHTML = `${bar('Reading', `<span class="small muted" id="tCnt"></span><span ${window.ExamClock ? '' : 'class="mk-clock" '}id="tClock"></span>`)}<div class="tx-wrap"><div id="tq">${units.map(unitHtml).join('')}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">${t('Nộp bài')}</button></div></div>
         <aside class="tx-nav card"><b class="small">${t('Bảng câu hỏi')}</b><div class="tx-grid">${nums.map(q => `<button data-go="${q}">${q}</button>`).join('')}</div><div class="tiny muted" style="margin-top:.5rem">${t('Ô tô màu = đã trả lời · bấm số để nhảy tới câu')}</div></aside></div>`;
       QE.bind($('#tq'));
       // Bảng câu hỏi: đánh dấu câu đã làm, bấm để nhảy tới
@@ -143,9 +158,13 @@
       $('#tq').addEventListener('change', () => { paint(); keep(); }); $('#tq').addEventListener('input', paint); paint();
       $$('.tx-grid [data-go]').forEach(b => b.onclick = () => { const q = b.dataset.go, el = $(`#tq [data-item="${q}"]`) || $$('#tq [data-item]').find(x => x.dataset.item.split(',').includes(q)); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('tx-flash'); setTimeout(() => el.classList.remove('tx-flash'), 1200); } });
       let left = restore && restore.left > 0 ? restore.left : mins * 60; const tick = () => { left--; if (left % 15 === 0) keep(); const c = $('#tClock'); if (c) { c.textContent = `${String(Math.floor(left / 60)).padStart(2, '0')}:${String(left % 60).padStart(2, '0')}`; c.classList.toggle('warn', left < 300); } if (left <= 0) submit(); };
-      tick(); timer = setInterval(tick, 1000);
-      const submit = () => { clearInterval(timer); units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
+      if (!window.ExamClock) { tick(); timer = setInterval(tick, 1000); }
+      const submit = () => { clearInterval(timer); if (clk) { clk.done(); clk = null; } units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
       $('#tSub').onclick = () => { const miss = nums.filter(q => !answered(q)).length; if (confirm(miss ? t('Còn {n} câu chưa làm. Vẫn nộp bài?', { n: miss }) : t('Nộp bài Reading?'))) submit(); };
+      if (window.ExamClock) {
+        if (!restore) ExamClock.clear(KR);
+        clk = ExamClock.mount($('#tClock'), { key: KR, secs: mins * 60, left: restore && restore.left, name: 'TOEIC Reading', onTick: L => { left = L; }, onEnd: () => { clk = null; left = 0; toast(t('Hết giờ Reading – bài đã được tự nộp')); submit(); } });
+      }
     };
     const finish = async () => {
       App.cleanup(); App.cleanup = null; clearRun();
@@ -191,7 +210,7 @@
     $('#tTest').onclick = () => UI.tts('This is a sound check. If you can hear this clearly, you are ready.', 'en-US');
     $('#tGo').onclick = () => { clearRun(); lPart(0); };
     if (saved) {
-      $('#tGo').insertAdjacentHTML('beforebegin', `<button class="btn lg block" id="tResume" style="margin-top:1.1rem">⏯ ${saved.stage === 'R' ? t('Tiếp tục bài đang làm – Reading (còn {m} phút)', { m: Math.ceil((saved.left || 0) / 60) || '…' }) : t('Tiếp tục bài đang làm – Listening Part {p}', { p: (LP[saved.k] || LP[0]).part })}</button>`);
+      $('#tGo').insertAdjacentHTML('beforebegin', `<button class="btn lg block" id="tResume" style="margin-top:1.1rem">⏯ ${saved.stage === 'R' ? t('Tiếp tục bài đang làm – Reading (còn {m} phút)', { m: Math.ceil((saved.left || 0) / 60) || '…' }) : t('Tiếp tục bài đang làm – Listening Part {p}', { p: (LP[((App.listening.runResume && App.listening.runResume(KL)) || saved).k] || LP[0]).part })}</button>`);
       $('#tResume').onclick = () => { Object.assign(res, saved.res || {}); if (saved.stage === 'R') reading(saved); else lPart(Math.min(saved.k || 0, LP.length - 1)); };
     }
   };
