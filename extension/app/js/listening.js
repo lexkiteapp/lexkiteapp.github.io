@@ -53,12 +53,41 @@
   const aUrl = k => window.audioUrl ? window.audioUrl(k) : 'https://audio.lexkite.com/audio/l/' + k + '.mp3';
   let audioDown = 0;
   const hqOn = () => state.settings.hqVoice !== false && window.KVoice && window.LISTEN_AUDIO && audioDown < 3;
+  // 📱 iOS Safari/WebKit: chỉ phát được phần tử <audio> đã từng phát TRONG một cú chạm, và giọng máy (speechSynthesis) cũng phải nói lần đầu trong cú chạm.
+  // Trước đây mỗi câu tạo new Audio() + Thi thử tự bắt đầu sau 30 s (từ bộ đếm giờ) → iPhone im lặng, chữ vẫn báo "Đang phát" → không làm bài được.
+  // Nay: MỘT phần tử dùng chung cho mọi câu/mọi bài, mở khóa ở cú chạm đầu tiên trên trang (WAV im lặng + câu nói rỗng); vẫn bị chặn → opts.onBlocked(resume).
+  const SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=';
+  const shared = typeof Audio !== 'undefined' ? new Audio() : null;
+  // Mở khóa CHỈ bằng cú chạm thật (isTrusted) và chỉ đánh dấu khi đã thật sự thử trong cú chạm đó. Trước đây cờ chung 'unlocked' bị chốt = true bởi
+  // click giả (script) / lần thử bị từ chối thứ hai (phần tử đã có src → bỏ qua mà vẫn chốt) → cú chạm thật "Bấm để nghe" không mồi được giọng máy,
+  // câu kế tiếp đọc bằng giọng máy bị chặn lại → im lặng (e2e ios-audio đỏ 01/11). Âm thanh và giọng máy mở khóa riêng, thử lại ở cú chạm sau nếu hỏng.
+  let audioOk = false, ttsOk = false;
+  const unlock = e => {
+    if (e && e.isTrusted === false) return;
+    // chỉ mồi khi phần tử chưa từng phát bài nào (src trống/WAV im lặng): mồi giữa 2 câu sẽ bắn 'ended' vào trình phát đang giữ phần tử → nhảy câu
+    if (shared && !audioOk && shared.paused && [null, '', SILENT].includes(shared.getAttribute('src'))) {
+      try { shared.src = SILENT; audioOk = true; const pr = shared.play(); if (pr && pr.catch) pr.catch(() => { audioOk = false; }); } catch (err) { audioOk = false; }
+    }
+    if (!ttsOk && 'speechSynthesis' in window && !speechSynthesis.speaking) { try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); ttsOk = true; } catch (err) { /* thử lại ở cú chạm sau */ } }
+  };
+  ['touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, unlock, { capture: true, passive: true }));
+  const blockedErr = e => !!e && (e.name === 'NotAllowedError' || /not allowed|user gesture|denied permission/i.test(String(e.message || e)));
+  // Nút mặc định khi bị chặn: nổi giữa đáy màn hình, 1 chạm → phát tiếp (cú chạm mở khóa âm thanh). Màn nào muốn đặt nút riêng thì truyền opts.onBlocked.
+  const tapToPlay = resume => {
+    let b = document.getElementById('lkTapPlay'); if (b) b.remove();
+    b = document.createElement('button'); b.type = 'button'; b.id = 'lkTapPlay'; b.className = 'btn primary lg lk-tapplay';
+    b.innerHTML = '<span aria-hidden="true">🔊</span> ' + esc(t('Bấm để nghe'));
+    b.onclick = () => { b.remove(); resume(); };
+    document.body.appendChild(b); try { b.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ }
+    const gone = () => { b.remove(); removeEventListener('hashchange', gone); }; addEventListener('hashchange', gone);
+  };
   function Player(p, opts = {}) {
     const cast = castVoices(p), kv = window.KVoice ? KVoice.voices(p) : null;
     const q = p.script.map((l, i) => ({ ...l, i }));
     let pos = 0, playing = false, seq = 0, timer = null, el = null;
     const rate = () => opts.rate ? opts.rate() : (state.settings.listenRate || 0.95);
-    const stopNow = () => { seq++; clearTimeout(timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (el) { el.onended = el.onerror = null; el.pause(); el = null; } };
+    const own = {}; // phần tử dùng chung: chỉ trình phát đang giữ nó mới được dừng (trình phát khác đã lấy thì để yên)
+    const stopNow = () => { seq++; clearTimeout(timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (el) { if (el.__own === own) { el.onplaying = el.onended = el.onerror = null; el.pause(); } el = null; } };
     const hqKey = l => { if (!kv || !hqOn()) return null; const k = KVoice.lineKey(l.say ? kv._narrator : (kv[l.s] || kv._narrator), l.say || l.t); return LISTEN_AUDIO.has(k) ? k : null; };
     function step(my) {
       if (my !== seq) return;
@@ -70,26 +99,41 @@
       if (l.say && opts.skipNarrator) { next(); return; }
       const key = hqKey(l);
       if (key) {
-        el = new Audio(aUrl(key)); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
+        el = shared || new Audio(); el.__own = own; el.src = aUrl(key); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
         const me = el; let ok = false;
-        el.onplaying = () => { ok = true; audioDown = 0; };
-        el.onended = () => { if (el === me) timer = setTimeout(next, l.say ? 600 : 280); };
-        el.onerror = () => { if (el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
+        // Canh giờ mp3 (iOS mạng chập chờn: play() treo không báo lỗi, hoặc phát xong mà không có 'ended') → không treo im lặng ở 1 câu:
+        // 8 s chưa phát → coi như lỗi tải (giọng máy đọc câu này); đang phát quá độ dài file + 3 s → sang câu kế (mỗi câu vẫn chỉ 1 lần).
+        let wd = setTimeout(() => { if (my !== seq || el !== me || ok) return; me.onplaying = me.onended = me.onerror = null; me.pause(); el = null; audioDown++; ttsLine(); }, 8000);
+        el.onplaying = () => { if (my !== seq) return; ok = true; audioDown = 0; clearTimeout(wd); const d = me.duration; if (isFinite(d) && d > 0) wd = setTimeout(() => { if (my === seq && el === me) { me.onended = null; me.pause(); timer = setTimeout(next, 280); } }, (d / (me.playbackRate || 1) + 3) * 1000); };
+        el.onended = () => { clearTimeout(wd); if (my === seq && el === me) timer = setTimeout(next, l.say ? 600 : 280); };
+        el.onerror = () => { clearTimeout(wd); if (my !== seq || el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
         let pr; try { pr = el.play(); } catch (e) { pr = Promise.reject(e); }
-        if (pr && pr.catch) pr.catch(() => { if (el === me && !ok) { el = null; ttsLine(); } });
+        if (pr && pr.catch) pr.catch(e => { if (my !== seq || el !== me || ok) return; clearTimeout(wd); if (blockedErr(e)) { el = null; blocked(); return; } el = null; ttsLine(); });
         // tải trước câu kế tiếp → không bị khựng giữa các câu
         const nx = q.slice(pos + 1).find(x => x.t || x.say), nk = nx && hqKey(nx); if (nk) { const pre = new Audio(); pre.preload = 'auto'; pre.src = aUrl(nk); }
         return;
       }
       ttsLine();
+      // Trình duyệt chặn phát (không có cú chạm) → dừng ở câu này; resume() gọi TRONG cú chạm phát tiếp đúng câu đó (không phát lại từ đầu → vẫn "nghe 1 lần")
+      function blocked() {
+        stopNow(); playing = false; opts.onState && opts.onState(false); // seq mới → các câu/sự kiện còn lại của lượt bị chặn không tự nhảy câu
+        const resume = () => { unlock(); stopNow(); playing = true; opts.onState && opts.onState(true); step(seq); };
+        (opts.onBlocked || tapToPlay)(resume);
+      }
       function ttsLine() {
       if (!('speechSynthesis' in window)) { timer = setTimeout(next, 300); return; }
       const c = l.say ? cast._narrator : (cast[l.s] || cast._narrator);
       const parts = UI.splitSentences(l.say || l.t);
+      // Bộ canh giờ: bộ đọc giọng máy đôi khi nuốt câu (không bao giờ báo onstart/onend – iOS sau khi khóa màn hình, trình duyệt không có giọng) → trước đây bài nghe
+      // TREO im lặng ở câu đó. Chưa bắt đầu nói sau 4 s, hoặc nói quá lâu so với độ dài câu → coi như xong, sang câu kế (mỗi câu vẫn chỉ phát 1 lần).
+      let said = false, wd = 0; const fin = () => { if (said || my !== seq) return; said = true; clearTimeout(wd); timer = setTimeout(next, l.say ? 600 : 280); };
+      const words = (l.say || l.t || '').split(/\s+/).length, cap = 4000 + words * 900 / (l.say ? 0.95 : rate());
+      wd = setTimeout(() => { if (my !== seq || said) return; if (!speechSynthesis.speaking) { said = true; speechSynthesis.cancel(); timer = setTimeout(next, 280); } else wd = setTimeout(() => { if (my === seq && !said) { said = true; speechSynthesis.cancel(); timer = setTimeout(next, 280); } }, cap); }, 4000);
       parts.forEach((t, k) => {
         const u = new SpeechSynthesisUtterance(t);
         u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = l.say ? 0.95 : rate();
-        if (k === parts.length - 1) u.onend = u.onerror = () => { timer = setTimeout(next, l.say ? 600 : 280); };
+        u.onerror = e => { if (my !== seq || said) return; if (e && e.error === 'not-allowed') { said = true; clearTimeout(wd); speechSynthesis.cancel(); blocked(); return; } if (k === parts.length - 1) fin(); };
+        if (k === parts.length - 1) u.onend = fin;
         speechSynthesis.speak(u);
       });
       }

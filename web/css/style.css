@@ -680,6 +680,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 
 /* ===== Luyện nghe ===== */
 .lplayer { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; position: sticky; top: 64px; z-index: 5; margin: 1rem 0; }
+.lk-tapplay { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(88px + env(safe-area-inset-bottom, 0px)); z-index: 80; box-shadow: var(--shadow-lg); max-width: calc(100vw - 32px); } /* iOS chặn tự phát → 1 chạm để nghe (listening.js tapToPlay) */
 .lplayer select { border: 1px solid var(--line); border-radius: 10px; padding: .45rem .5rem; background: var(--surface); color: inherit; font: inherit; }
 .lnow { margin-left: auto; }
 .lgrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1rem; align-items: start; }
