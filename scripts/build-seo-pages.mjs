@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Trang tĩnh index được cho nội dung app (docs/SEO-ARCH.md): Từ điển /<lang>/words/<slug> + Giao tiếp tự tin /<lang>/conversations/<id>, 15 ngôn ngữ.
-// MỘT NGUỒN, chỉ đọc: kho từ (IELTS_DATA.INDEX như trình duyệt – scripts/lexicon/shards.mjs), web/packs/<lang>.json, web/js/notes/*.json,
+// MỘT NGUỒN, chỉ đọc: kho từ + gói nghĩa + ghi chú qua scripts/lib/seo-words.mjs (chọn trang + nội dung trang từ, dùng chung với build-blog),
 //   content/confidence/units/*.json + content/confidence/i18n/<lang>.json.
 // Ghi: dist/<lang>/words/**, dist/<lang>/conversations/**, dist/sitemap-words-<lang>.xml, dist/sitemap-conversations.xml,
 //   dist/data/seo-twins.json (app → bản tĩnh, web/js/seo-twin.js), .seo-urls.txt (URL + băm nội dung cho IndexNow – không deploy).

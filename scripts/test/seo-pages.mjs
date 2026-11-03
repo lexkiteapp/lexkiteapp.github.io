@@ -6,7 +6,7 @@
 //  5) trang noindex không nằm trong sitemap; dist < 18.000 file (trần Cloudflare Pages 20.000)
 //  6) chuỗi trang tĩnh đủ 15 ngôn ngữ (scripts/lib/seo-pages-i18n.mjs)
 //  7) độ dày trang từ /<lang>/words/<slug> index được ≥ DEPTH_MIN (scripts/lib/word-depth.mjs – docs/specs/seo-words-depth.md); FAQPage = đúng chữ <details> trên trang
-//  8) hộp "từ trong bài" của blog (scripts/lib/blog-words.mjs, 13 ngôn ngữ): mọi link → /<lang>/words/<slug> tới trang CÓ THẬT, KHÔNG noindex; mỗi ngôn ngữ có blog ≥ 1 bài có hộp
+//  8) hộp "từ trong bài" của blog (scripts/lib/blog-words.mjs, 13 ngôn ngữ): mọi link → /<lang>/words/<slug> tới trang CÓ THẬT, KHÔNG noindex; blog 13 ngôn ngữ có ≥ 1 bài có hộp (chống mất tính năng)
 // Dùng: node scripts/test/seo-pages.mjs [dist]
 import fs from 'node:fs'; import path from 'node:path';
 import { LANGS, S, POS, YOU } from '../lib/seo-pages-i18n.mjs';
@@ -54,7 +54,8 @@ for (const f of files) {
 }
 for (const [f, t] of blogWordLinks) { const q = pages.get(t); if (!q) B(`${f}: hộp từ link tới trang không có → ${t}`); else if (q.noindex) B(`${f}: hộp từ link tới trang noindex → ${q.f}`); }
 for (const p of pages.values()) if (BLOG_WORDS_LANGS.includes(p.lang) && new RegExp(`^/${p.lang}/blog/`).test(p.f)) blogLangs.add(p.lang);
-if (process.env.SEO_PAGES !== '0') for (const l of blogLangs) if (!blogBox.has(l)) B(`blog ${l}: không bài nào có hộp "từ trong bài" → /${l}/words/ (scripts/lib/blog-words.mjs)`);
+// Có hộp hay không tuỳ bài đã đăng có từ nhấn trùng trang /words/ (3/11: 10/13 ngôn ngữ có) → cổng chống mất cả tính năng: blog 13 ngôn ngữ có ≥ 1 bài có hộp
+if (process.env.SEO_PAGES !== '0' && blogLangs.size && !blogBox.size) B(`blog ${[...blogLangs].join('/')}: không bài nào có hộp "từ trong bài" → /<lang>/words/ (scripts/lib/blog-words.mjs)`);
 const titles = new Map(), descs = new Map();
 for (const [u, p] of pages) {
   if (p.noindex || p.redirect) continue;
