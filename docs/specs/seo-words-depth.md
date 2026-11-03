@@ -25,6 +25,9 @@
 | Luyện tiếp (công cụ) | `scripts/lib/tools-links.mjs`: trang cấp CEFR + bài test trình độ + TOEIC | ngôn ngữ trang |
 
 Một nguồn logic làm giàu: `enrich()` export từ `scripts/dict/build.mjs` (trang từ điển `/vi/tu-dien/` dùng chung, đầu ra JSON không đổi byte).
+Một nguồn chọn trang + dựng nội dung: `scripts/lib/seo-words.mjs` (`setOf`, `idxW`, `bodyOf`, `indexable`) – `build-seo-pages.mjs` sinh trang từ đây (đầu ra trùng byte trước khi tách), `build-blog.mjs` (chạy TRƯỚC) dùng `indexable()` = đúng điều kiện robots của builder.
+
+**Liên kết vào (blog → /words/, 13 ngôn ngữ es/pt/fr/de/id/th/zh/ja/ko/hi/ar/ru/tr):** `scripts/lib/blog-words.mjs › blogWordsBox` – từ nhấn `*từ*` trong bài (cả dạng biến tố -s/-es/-ed/-ing) + thẻ/từ khoá một chữ → ≤ 8 link `/<lang>/words/<slug>` CHỈ tới trang `indexable` (không mỏng, đạt `DEPTH_MIN`); nhãn hộp dịch tay 13 ngôn ngữ; `SEO_PAGES=0` → không hộp. vi/en đã có hộp sang trang từ điển (`scripts/dict/links.mjs › blogDictBox`, SEO-DICT-PAGES §3b). Đo 3/11 (cả bài chưa tới giờ đăng): 4–11 bài/ngôn ngữ có hộp, ≈ 100 link – giới hạn bởi giao giữa từ nhấn trong bài và 400 trang /words/ mỗi ngôn ngữ (`SEO_N_OTHER`).
 
 ## 3. Trình bày & tốc độ
 - HTML tĩnh, 0 JS mới (FAQ = `<details>`), CSS thêm < 1 KB trong `<style>` sẵn có. Ảnh minh hoạ giữ `loading="lazy"` + `width/height` → CLS 0.
@@ -36,7 +39,9 @@ Một nguồn logic làm giàu: `enrich()` export từ `scripts/dict/build.mjs` 
 - Builder: trang mỏng cũ (`thin()`) HOẶC dưới `DEPTH_MIN` → `noindex,follow`, rời sitemap/hreflang, vẫn sinh + vẫn có link (không xoá trang).
 - `scripts/test/seo-pages.mjs` (npm test, trên dist): mọi trang `/<lang>/words/<slug>` index được phải đạt `DEPTH_MIN`; FAQPage khớp chữ `<details>`; giữ nguyên các cổng cũ (canonical, tiêu đề/mô tả không trùng, hreflang hai chiều, không mồ côi).
 - Ngưỡng chỉ được TĂNG. Chốt 5/30 theo số đo thật: sau làm giàu, en trung vị 7 khối/51 chữ riêng, p10 37 chữ; 5/30 chặn 33/8.138 trang đang index (chỉ có nghĩa + 1 câu), trong đó 4 trang có hiển thị GSC (30 lượt/28 ngày, 0 lượt bấm). Mức 250 chữ riêng (dự kiến ban đầu) cần dữ liệu chưa có – ghi chú tiếng Anh theo L1 do người soạn (SEO-DICT-PAGES §10); nâng ngưỡng khi kho có thêm.
+- `scripts/test/seo-pages.mjs` §8: link trong hộp từ của blog 13 ngôn ngữ phải tới trang `/<lang>/words/` có thật, không noindex; mỗi ngôn ngữ có blog ≥ 1 bài có hộp.
 - Unit test thước đo: `scripts/test/word-depth.mjs` (npm test).
+- IndexNow (`.github/workflows/seo-indexnow.yml`) chạy khi đổi bất kỳ nguồn nào ở §2 (gồm `web/js/usage/**`, WordNet, `models.js`, `speak/samples.js`, `word-depth.mjs`, `scripts/dict/build.mjs`, `scripts/lib/seo-words.mjs`).
 
 ## 5. Không làm / ranh giới
 - Không đụng `content/dict/stage.json` và thứ tự mở index trang từ điển (từ đã mở ở `/tu-dien/` vẫn noindex ở `/words/`).

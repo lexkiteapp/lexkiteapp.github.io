@@ -1,11 +1,11 @@
 # Báo IndexNow (Bing, Yandex, Naver…) các trang tĩnh Từ điển + Giao tiếp mới/đổi nội dung (docs/SEO-ARCH.md §4).
-# Push main đụng nguồn → sinh lại danh sách URL + băm (scripts/build-seo-pages.mjs → .seo-urls.txt) → so với lần trước (cache Actions, miễn phí)
+# Push main đụng nguồn (mọi nguồn nội dung trang /words/ – docs/specs/seo-words-depth.md §2) → sinh lại danh sách URL + băm (scripts/build-seo-pages.mjs → .seo-urls.txt) → so với lần trước (cache Actions, miễn phí)
 # → chờ Cloudflare Pages deploy xong → scripts/indexnow.mjs (dùng chung với blog). Không cron, không tốn D1/AI.
 name: SEO IndexNow
 on:
   push:
     branches: [main]
-    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs']
+    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/wordnet.json', 'web/js/models.js', 'web/js/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
   workflow_dispatch:
     inputs:
       all: { description: 'Gửi lại toàn bộ URL (bỏ qua so sánh)', type: boolean, default: false }
