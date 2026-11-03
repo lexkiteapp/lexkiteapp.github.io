@@ -13,6 +13,8 @@ import { CSS, SEO_CSS, UI_JS, esc, themePage, clip, ld, siteHeader, siteFooter, 
 import { LANGS, S, POS, YOU, fill } from './lib/seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './lib/tools-links.mjs';
 import { lastmodStore } from './lib/lastmod.mjs';
+import { loadSources, enrich } from './dict/build.mjs';
+import { measure, deep } from './lib/word-depth.mjs';
 // Liên kết nội bộ sang bài kiểm tra trình độ miễn phí (docs/SEO-TOOLS.md) – chuỗi theo ngôn ngữ trang, thiếu bản dịch → không hiện
 const toolLine = l => { const s = toolStrings(l); return s ? `<p><a href="${toolPath(l, 'test')}">${esc(s.toeic.otherTool)}</a></p>` : ''; };
 
@@ -63,7 +65,8 @@ for (const l of LANGS) {
   else setOf[l] = ranked.filter(e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); }).slice(0, N_OTHER);
 }
 // Trang mỏng → noindex: nghĩa bản địa là dịch máy thô (cờ 0) hoặc không có collocation/đồng nghĩa/cụm (chỉ 1 ví dụ)
-const phrasesOf = new Map(); { const byTok = new Map(); for (const e of Object.values(INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = byTok.get(t) || byTok.set(t, []).get(t); if (a.length < 6) a.push(e); } for (const e of ranked) phrasesOf.set(e, (byTok.get(e.word.toLowerCase()) || []).filter(p => p.word !== e.word)); }
+const byTok = new Map(); for (const e of Object.values(INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = byTok.get(t) || byTok.set(t, []).get(t); if (a.length < 6) a.push(e); }
+const phrasesOf = new Map(); for (const e of ranked) phrasesOf.set(e, (byTok.get(e.word.toLowerCase()) || []).filter(p => p.word !== e.word));
 const thin = (l, e) => (l !== 'en' && l !== 'vi' && (gloss(l, e) || [])[1] === 0) || (!(e.col || []).length && !(e.syn || []).length && !phrasesOf.get(e).length);
 const idxW = {}; for (const l of LANGS) idxW[l] = new Set(setOf[l].filter(e => !thin(l, e)));
 // Từ đã mở index ở trang từ điển (docs/SEO-DICT-PAGES.md §1, content/dict/stage.json): trang /words/ của từ đó → noindex, rời sitemap/hreflang;
@@ -88,7 +91,7 @@ const write = (p, html, { lm, alts, type, lang, index }) => {
 };
 const hl = alts => alts.map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${url(p)}">`).join('');
 const withDefault = (alts, enPath) => (alts.length ? [...alts, ['x-default', enPath || alts[0][1]]] : []);
-const CSS2 = `.wd .mean{font-size:1.25rem;margin:.2rem 0 .6rem}.wd .ipa{font-family:var(--ipa,inherit)}.wd .pr{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.wd blockquote{margin:.4rem 0;padding:.6rem .9rem;border-inline-start:4px solid var(--accent);background:var(--accent-soft);border-radius:8px}.wd .chips a,.wd .chips span{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;margin:.2rem .3rem .2rem 0;padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:inherit}.wd .note{margin:.3rem 0}.wd .mt{font-size:.8rem;color:var(--muted)}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}.dlg p{margin:.35rem 0}.dlg b{display:inline-block;min-width:4.5rem}.ph{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.7rem 0;background:var(--surface)}.ph .say{font-size:1.1rem;font-weight:600}.ph .no{color:var(--muted);text-decoration:line-through}.pager{display:flex;justify-content:space-between;gap:1rem;margin:1.2rem 0}.wd section{margin:1.1rem 0}.wd h2{font-size:1.15rem;margin:.2rem 0 .4rem}`;
+const CSS2 = `.wd .mean{font-size:1.25rem;margin:.2rem 0 .6rem}.wd .ipa{font-family:var(--ipa,inherit)}.wd .pr{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.wd blockquote{margin:.4rem 0;padding:.6rem .9rem;border-inline-start:4px solid var(--accent);background:var(--accent-soft);border-radius:8px}.wd .chips a,.wd .chips span{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;margin:.2rem .3rem .2rem 0;padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:inherit}.wd .note{margin:.3rem 0}.wd .mt{font-size:.8rem;color:var(--muted)}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}.dlg p{margin:.35rem 0}.dlg b{display:inline-block;min-width:4.5rem}.ph{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.7rem 0;background:var(--surface)}.ph .say{font-size:1.1rem;font-weight:600}.ph .no{color:var(--muted);text-decoration:line-through}.pager{display:flex;justify-content:space-between;gap:1rem;margin:1.2rem 0}.wd section{margin:1.1rem 0}.wd h2{font-size:1.15rem;margin:.2rem 0 .4rem}.wd h3{font-size:1rem;margin:.6rem 0 .3rem}.wd .senses{padding-inline-start:1.3rem}.wd .senses li,.wd .pat li,.wd .mis li,.wd .cf li{margin:.4rem 0}.wd .senses .mean{font-size:1.05rem}.wd .no{color:var(--muted);text-decoration:line-through}.wd details{border:1px solid var(--line);border-radius:10px;padding:0 .8rem;margin:.4rem 0}.wd summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}.wd details p{margin:0 0 .6rem}`;
 const page = ({ lang, title, desc, p, alts, crumbs, body, jsonld = [], robots = '', langHref, section }) => {
   const t = S[lang], dir = RTL.has(lang) ? ' dir="rtl"' : '';
   const nav = [[`/${lang}/blog/`, 'Blog'], [`/${lang}/words/`, t.words], [`/${lang}/conversations/`, t.conv]].map(([h, n]) => [h, esc(n), h === section ? ' aria-current="page"' : '']);
@@ -108,39 +111,100 @@ const appLink = (lang, route) => `${appHref(lang)}#/${route}`;
 const cta = (title, note, href, btn) => `<div class="cta"><p><strong>${esc(title)}</strong><small>${esc(note)}</small></p><a class="btn" href="${href}">${esc(btn)} →</a></div>`;
 
 // ---------- Trang từ ----------
-const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs');
+// Độ dày (docs/specs/seo-words-depth.md): khối nào có dữ liệu thật mới hiện; trang dưới DEPTH_MIN → noindex,follow (vẫn sinh, vẫn được liên kết).
+const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
 const wPath = (l, e) => `/${l}/words/${slug.get(e)}`;
 const twins = { v: 1, w: {}, c: {}, t: {} };
-let nW = 0, nWthin = 0;
+const DX = loadSources(LANGS); // "Cách dùng từ", kho câu tự soạn, WordNet, bài blog đã đăng – cùng nguồn trang từ điển (scripts/dict/build.mjs)
+const VI_RE = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/js/models.js, câu trả lời mẫu Speaking web/js/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
+const MORE_EX = (() => {
+  const ctx = {}; ctx.self = ctx; ctx.window = ctx; vm.createContext(ctx);
+  for (const f of ['web/js/models.js', 'web/js/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
+  const texts = [...(ctx.MODELS || []).map(m => String(m.text || '').replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]+)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1')), ...Object.values(ctx.SPEAK_SAMPLES || {}).map(x => String(x.a || ''))];
+  const by = new Map();
+  for (const tx0 of texts) for (const s0 of tx0.split(/(?<=[.!?])\s+/)) { const s = s0.replace(/\s+/g, ' ').trim(); if (s.length < 25 || s.length > 130 || VI_RE.test(s) || /[[\]{}<>_|]/.test(s) || !/^[A-Z“"']/.test(s)) continue; for (const t of new Set(s.toLowerCase().match(/[a-z]+/g) || [])) { const a = by.get(t) || by.set(t, []).get(t); if (a.length < 20 && !a.includes(s)) a.push(s); } }
+  for (const a of by.values()) a.sort((x, y) => x.length - y.length || x.localeCompare(y));
+  return by;
+})();
+const okL = (l, s) => !!s && !(l !== 'vi' && VI_RE.test(s)); // chữ Việt không lọt trang ngôn ngữ khác
+const tx = (l, s) => (l === 'vi' || l === 'en' ? esc(s) : en(s)); // giải thích: vi/en đúng ngôn ngữ trang; 13 ngôn ngữ còn lại là chữ tiếng Anh gốc → lang="en"
+const sec = (id, d, h, inner) => `<section aria-labelledby="h-${id}"${d ? ` data-d="${d}"` : ''}><h2 id="h-${id}">${esc(h)}</h2>${inner}</section>`;
+const hiW = (s, k) => esc(s).replace(new RegExp(`\\b(${k.replace(/[^a-z' -]/g, '')}[a-z]*)`, 'i'), '<b>$1</b>');
+const built = {}; // l → Map(mục → { body, faq, m })
+let nW = 0, nWthin = 0, nWshallow = 0;
 for (const l of LANGS) {
   const t = S[l], list = setOf[l], P = POS[l];
-  twins.w[l] = {};
+  built[l] = new Map();
   list.forEach((e, i) => {
-    const w = e.word, k = w.toLowerCase(), g = gloss(l, e), idx = idxW[l].has(e);
+    const w = e.word, k = w.toLowerCase(), g = gloss(l, e), dx = enrich(DX, e, l, byTok);
     const m = l === 'en' ? e.def : l === 'vi' ? e.vi : g[0];
-    const alts = idx ? withDefault(LANGS.filter(x => idxW[x].has(e)).map(x => [x, wPath(x, e)]), idxW.en.has(e) ? wPath('en', e) : '') : [];
-    const p = wPath(l, e), W = cap(w), pos = P[gpos(e.pos)] || e.pos || '';
-    const title = fill(t.wTitle, { w: W }) + ' | Lexkite', desc = uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
-    const link = x => { const y = inSet[l].get(String(x).toLowerCase()); return y ? `<a href="${wPath(l, y)}" lang="en" dir="ltr">${esc(x)}</a>` : `<span lang="en" dir="ltr">${esc(x)}</span>`; };
+    const W = cap(w), pos = P[gpos(e.pos)] || e.pos || '';
+    const link = x => { const y = inSet[l].get(String(x).toLowerCase()); return y && y !== e ? `<a href="${wPath(l, y)}" lang="en" dir="ltr">${esc(x)}</a>` : `<span lang="en" dir="ltr">${esc(x)}</span>`; };
     const tp = topicOf.get(e.topic), rel = list.filter(x => x !== e && x.topic === e.topic).slice(0, 8);
     const near = rel.length >= 4 ? rel : [...rel, ...list.slice(Math.max(0, i - 4), i + 5).filter(x => x !== e && !rel.includes(x))].slice(0, 8);
-    const au = audioKey(w), n = l === 'vi' ? notes[k] : null;
+    const au = audioKey(w), n = l === 'vi' ? notes[k] : null, ipaUS = e.ipaUS || dx.ipaUS;
+    // Nghĩa theo từ loại: mục chính + more[] (từ loại khác của cùng từ trong kho); 13 ngôn ngữ: nghĩa gói theo đúng từ#loại, không có → định nghĩa tiếng Anh
+    const senses = [{ pos, m, mt: g && g[1] === 0, def: e.def }, ...(e.more || []).map(x => { const gx = l === 'vi' ? [x.vi] : l === 'en' ? [x.def] : (packs[l][k + '#' + gpos(x.pos)] || null); return { pos: P[gpos(x.pos)] || x.pos || '', m: gx && gx[0], mt: gx && gx[1] === 0, def: x.def, ex: x.ex, ipa: x.ipa && x.ipa !== e.ipa ? x.ipa : '' }; })];
+    const sm = s => (s.m ? `${s.m === s.def && l === 'en' ? `<span lang="en">${esc(s.m)}</span>` : esc(s.m)}${s.mt ? ` <span class="mt">(${esc(t.mt)})</span>` : ''}` : en(s.def));
+    const meanHtml = senses.length === 1 ? `<p class="mean"${l === 'en' ? ' lang="en"' : ''}>${esc(m)}${g && g[1] === 0 ? ` <span class="mt">(${esc(t.mt)})</span>` : ''}</p>${l !== 'en' ? `<p><b>${esc(t.def)}:</b> ${en(e.def)}</p>` : ''}`
+      : `<ol class="senses">${senses.map(s => `<li><span class="chip">${esc(s.pos)}</span>${s.ipa ? ` <span class="ipa" dir="ltr">${esc(s.ipa)}</span>` : ''} <span class="mean">${sm(s)}</span>${l !== 'en' && s.m ? `<br><b>${esc(t.def)}:</b> ${en(s.def)}` : ''}${s.ex ? `<br><i lang="en" dir="ltr">${hiW(s.ex, k)}</i>` : ''}</li>`).join('')}</ol>`;
+    const exRe = new RegExp(`\\b${k.replace(/[^a-z' -]/g, '')}`, 'i'), moreEx = [k, k + 's', k + 'es', k + 'ed', k + 'd', k + 'ing'].flatMap(f => MORE_EX.get(f) || []).filter(s => exRe.test(s));
+    const exs = [...new Set([e.ex, e.ex2, ...dx.examples, ...moreEx].filter(s => okL('en', s)))].slice(0, 5);
+    const ph = phrasesOf.get(e), phSet = new Set(ph.map(x => x.word.toLowerCase()));
+    const col = dx.col.filter(c => okL('en', c) && !phSet.has(c.toLowerCase())), pats = dx.patterns.filter(x => okL('en', x.h));
+    const syn = dx.syn.filter(x => x.toLowerCase() !== k), ant = dx.ant.filter(x => x.toLowerCase() !== k), fam0 = dx.fam.filter(x => x.toLowerCase() !== k);
+    const conf = dx.confus.filter(c => c.items.length > 1), mis = dx.mistakes.filter(x => x.w && x.r);
+    // Ghi chú tự soạn (web/js/notes, soạn cho người Việt): cặp "Sai: … → Đúng: …" là câu tiếng Anh → dùng được mọi ngôn ngữ (không kèm giải thích tiếng Việt);
+    // trang vi đã hiện nguyên ghi chú nên không lặp. Họ từ "x (n), y (adj)" → chip có từ loại + link (mọi ngôn ngữ).
+    const nt = notes[k] || {};
+    if (l !== 'vi') for (const [, a, b] of String(nt.e || '').matchAll(/Sai:\s*(.+?)\s*→\s*Đúng:\s*(.+?)(?=\s*\(|\.\s|\.$|;|$)/g)) if (mis.length < 4 && okL('en', a + b) && !mis.some(x => x.w === a)) mis.push({ w: a.trim(), r: b.trim(), why: '' });
+    const famN = String(nt.f || '').split(/,\s*/).map(x => x.match(/^([A-Za-z][A-Za-z' -]*?)\s*\((\w+)\.?\)$/)).filter(x => x && x[1].toLowerCase() !== k).map(x => [x[1], P[gpos(x[2])] || '']);
+    const wnS = dx.wnS.slice(0, 3);
+    // FAQ: câu hỏi cố định (dịch tay), trả lời = đúng chữ đang hiện trên trang
+    const faq = [[fill(t.fqM, { w }), senses.map(s => (senses.length > 1 ? s.pos + ': ' : '') + (s.m || s.def)).join(' · ')]];
+    if (e.ipa) faq.push([fill(t.fqP, { w }), `${t.uk} ${e.ipa}${ipaUS ? ` · ${t.us} ${ipaUS}` : ''}`]);
+    if (syn.length) faq.push([fill(t.fqS, { w }), syn.join(', ')]);
+    const c0 = conf.find(c => okL(l, c.tip)); if (c0) faq.push([fill(t.fqD, { a: c0.items[0].h.split(/\s*\(/)[0], b: c0.items[1].h.split(/\s*\(/)[0] }), c0.tip]);
+    const fam = [...famN, ...fam0.filter(x => !famN.some(([y]) => y.toLowerCase() === x.toLowerCase())).map(x => [x, ''])].slice(0, 10);
+    const ts = toolStrings(l), lvU = String(e.level || '').toUpperCase();
+    const tools = ts ? [ts.levels && ts.levels[lvU] && [toolPath(l, 'test', lvU), fill(ts.level.h1, { lv: lvU, name: ts.levels[lvU].name })], [toolPath(l, 'test'), ts.nav.levelTest], [toolPath(l, 'toeic'), ts.nav.toeic]].filter(Boolean) : [];
     const body = `<article class="page wd">
 <header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`, t.ph)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp ? `<span class="chip">${en(tp.name || tp.id)}</span>` : ''}</div></header>
-<section aria-labelledby="h-m"><h2 id="h-m">${esc(t.mean)}</h2><p class="mean"${l === 'en' ? ' lang="en"' : ''}>${esc(m)}${g && g[1] === 0 ? ` <span class="mt">(${esc(t.mt)})</span>` : ''}</p>${l !== 'en' ? `<p><b>${esc(t.def)}:</b> ${en(e.def)}</p>` : ''}</section>
-<section aria-labelledby="h-p"><h2 id="h-p">${esc(t.pron)}</h2><p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${e.ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(e.ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p></section>
-<section aria-labelledby="h-e"><h2 id="h-e">${esc(t.ex)}</h2><blockquote lang="en" dir="ltr">${esc(e.ex)}</blockquote></section>
-${(e.col || []).length ? `<section aria-labelledby="h-c"><h2 id="h-c">${esc(t.col)}</h2><p class="chips">${e.col.map(x => `<span lang="en" dir="ltr">${esc(x)}</span>`).join('')}</p></section>` : ''}
-${(e.syn || []).length ? `<section aria-labelledby="h-s"><h2 id="h-s">${esc(t.syn)}</h2><p class="chips">${e.syn.map(link).join('')}</p></section>` : ''}
-${phrasesOf.get(e).length ? `<section aria-labelledby="h-f"><h2 id="h-f">${esc(fill(t.phr, { w }))}</h2><ul>${phrasesOf.get(e).map(x => `<li>${link(x.word)} – ${esc(l === 'vi' ? x.vi || x.def : l === 'en' ? x.def : (gloss(l, x) || [x.def])[0])}</li>`).join('')}</ul></section>` : ''}
-${n ? `<section aria-labelledby="h-n"><h2 id="h-n">${esc(t.notes)}</h2>${[['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')}</section>` : ''}
-${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}${toolLine(l)}
-${near.length ? `<section aria-labelledby="h-r"><h2 id="h-r">${esc(t.rel)}</h2><p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p></section>` : ''}
+${sec('m', 'mean', senses.length > 1 ? t.means : t.mean, meanHtml)}
+${sec('p', 'pron', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p>`)}
+${sec('e', 'ex', exs.length > 1 ? t.exs : t.ex, exs.map(s => `<blockquote lang="en" dir="ltr">${hiW(s, k)}</blockquote>`).join(''))}
+${col.length || pats.length ? sec('c', 'col', t.col, `${col.length ? `<p class="chips">${col.map(x => `<span lang="en" dir="ltr">${esc(x)}</span>`).join('')}</p>` : ''}${pats.length ? `<h3>${esc(t.pat)}</h3><ul class="pat">${pats.map(x => `<li><b lang="en" dir="ltr">${esc(x.h)}</b>${okL(l, x.m) ? ` – ${tx(l, x.m)}` : ''}${x.ex ? `<br><i lang="en" dir="ltr">${esc(x.ex)}</i>` : ''}</li>`).join('')}</ul>` : ''}`) : ''}
+${ph.length ? sec('f', 'phr', fill(t.phr, { w }), `<ul>${ph.map(x => `<li>${link(x.word)} – ${esc(l === 'vi' ? x.vi || x.def : l === 'en' ? x.def : (gloss(l, x) || [x.def])[0])}</li>`).join('')}</ul>`) : ''}
+${syn.length || ant.length ? sec('s', 'syn', syn.length && ant.length ? t.synAnt : syn.length ? t.syn : t.ant, `${syn.length ? `<p class="chips">${syn.map(link).join('')}</p>` : ''}${syn.length && ant.length ? `<p><b>${esc(t.ant)}:</b></p>` : ''}${ant.length ? `<p class="chips">${ant.map(link).join('')}</p>` : ''}`) : ''}
+${fam.length ? sec('w', 'fam', t.nf, `<p class="chips">${fam.map(([x, ps]) => `${link(x).replace(/<\/(a|span)>$/, ps ? ` <small lang="${l}"${RTL.has(l) ? ' dir="rtl"' : ''}>${esc(ps)}</small></$1>` : '</$1>')}`).join('')}</p>`) : ''}
+${conf.length ? sec('k', 'conf', t.conf, conf.map(c => `<div class="cf"><ul>${c.items.map(x => { const [hw, ...rest] = x.h.split(/(?=\s*\()/); return `<li><b>${link(hw.trim())}</b>${rest.length ? esc(rest.join('')) : ''}${okL(l, x.m) ? ` – ${tx(l, x.m)}` : ''}${x.ex ? `<br><i lang="en" dir="ltr">${esc(x.ex)}</i>` : ''}</li>`; }).join('')}</ul>${okL(l, c.tip) ? `<p class="note"><b>${esc(t.tip)}:</b> ${tx(l, c.tip)}</p>` : ''}</div>`).join('')) : ''}
+${mis.length ? sec('x', 'mis', t.mis, `<ul class="mis">${mis.map(x => `<li><span class="no" lang="en" dir="ltr">✗ ${esc(x.w)}</span> → <b lang="en" dir="ltr">✓ ${esc(x.r)}</b>${okL(l, x.why) ? `<br>${tx(l, x.why)}` : ''}</li>`).join('')}</ul>`) : ''}
+${n ? sec('n', 'notes', t.notes, [['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q] && !(q === 'f' && famN.length)).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')) : ''}
+${wnS.length ? sec('o', 'wn', t.wn, `<ol lang="en" dir="ltr">${wnS.map(x => `<li>${esc(x.g)}${x.x ? `<br><i>“${esc(x.x)}”</i>` : ''}</li>`).join('')}</ol><p class="mt">${esc(t.wnSrc)}: <a href="https://en-word.net/" rel="noopener">Open English WordNet</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>)</p>`) : ''}
+${faq.length >= 2 ? sec('q', 'faq', t.fq, faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')) : ''}
+${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}
+${tools.length ? sec('t', '', t.tools, `<ul>${tools.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}</ul>`) : ''}
+${dx.blogs.length ? sec('b', '', t.blog, `<ul>${dx.blogs.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`) : ''}
+${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}
 <nav class="pager" aria-label="${esc(t.words)}">${list[i - 1] ? `<a href="${wPath(l, list[i - 1])}" rel="prev" lang="en" dir="ltr">← ${esc(list[i - 1].word)}</a>` : '<span></span>'}${list[i + 1] ? `<a href="${wPath(l, list[i + 1])}" rel="next" lang="en" dir="ltr">${esc(list[i + 1].word)} →</a>` : ''}</nav>
-</article>`;
+</article>`.replace(/\n{2,}/g, '\n');
+    if (idxW[l].has(e) && !deep(measure(body))) { idxW[l].delete(e); nWshallow++; } // dưới ngưỡng độ dày → noindex (trước khi dựng hreflang của mọi ngôn ngữ)
+    built[l].set(e, { body, faq: faq.length >= 2 ? faq : null, m });
+  });
+}
+for (const l of LANGS) {
+  const t = S[l], list = setOf[l];
+  twins.w[l] = {};
+  list.forEach(e => {
+    const w = e.word, k = w.toLowerCase(), idx = idxW[l].has(e), { body, faq, m } = built[l].get(e);
+    const alts = idx ? withDefault(LANGS.filter(x => idxW[x].has(e)).map(x => [x, wPath(x, e)]), idxW.en.has(e) ? wPath('en', e) : '') : [];
+    const p = wPath(l, e), W = cap(w);
+    const title = fill(t.wTitle, { w: W }) + ' | Lexkite', desc = uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
     const jl = { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: w, description: m, inLanguage: l, url: url(p), inDefinedTermSet: { '@type': 'DefinedTermSet', name: t.words, url: `${SITE}/${l}/words/` } };
+    const fq = faq && { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }; // chữ = đúng <details> trên trang (cổng seo-pages kiểm)
     const langHref = x => (idxW[x] && idxW[x].has(e) ? wPath(x, e) : `/${x}/words/`);
-    write(p, page({ lang: l, title, desc, p, alts, crumbs: [[t.home, landingHref(l)], [t.words, `/${l}/words/`], [w, p]], body, jsonld: [jl], robots: idx ? '' : 'noindex,follow', langHref, section: `/${l}/words/` }), { lm: lmW, alts, type: 'words', lang: l, index: idx });
+    write(p, page({ lang: l, title, desc, p, alts, crumbs: [[t.home, landingHref(l)], [t.words, `/${l}/words/`], [w, p]], body, jsonld: fq ? [jl, fq] : [jl], robots: idx ? '' : 'noindex,follow', langHref, section: `/${l}/words/` }), { lm: lmW, alts, type: 'words', lang: l, index: idx });
     nW++; if (!idx) nWthin++;
     if (idx) twins.w[l][k] = slug.get(e);
   });
@@ -212,4 +276,4 @@ const extra = fs.existsSync('.seo-urls-en.txt') ? fs.readFileSync('.seo-urls-en.
 fs.writeFileSync('.seo-urls.txt', [...hashes, ...extra].join('\n') + '\n');
 if (LM.save({ prefixes: LANGS.flatMap(l => [`/${l}/words/`, `/${l}/conversations/`]) })) console.log('· lastmod: đã ghi sổ content/seo/lastmod.json');
 const per = LANGS.map(l => `${l} ${setOf[l].length}`).join(', ');
-console.log(`✓ SEO trang app: ${nW} trang từ (${nWthin} noindex; ${per}) + ${nC} bài giao tiếp (${nCthin} noindex) + ${LANGS.length * 2} mục lục · ${urls.length} URL index được · dist/data/seo-twins.json`);
+console.log(`✓ SEO trang app: ${nW} trang từ (${nWthin} noindex, trong đó ${nWshallow} vì dưới ngưỡng độ dày; ${per}) + ${nC} bài giao tiếp (${nCthin} noindex) + ${LANGS.length * 2} mục lục · ${urls.length} URL index được · dist/data/seo-twins.json`);
