@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { serve } from '../quality/serve.mjs';
 import { HUBS, FIXED } from './lib/learn-samples.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/nav-sweep')), STEPS = +arg('steps', '40');
@@ -24,7 +25,7 @@ const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gestur
 const ctx = await browser.newContext({ ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, locale: 'en-US', serviceWorkers: 'block' });
 await noProd(ctx);
 await ctx.addInitScript(() => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: 'light' })); } catch { /* */ } });
-const ready = page => page.waitForFunction(() => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
+const ready = page => waitFn(page, () => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
 const go = async (page, hash) => { await page.evaluate(x => { location.hash = x; }, hash); await sleep(1300); };
 
 // ---------- bài mẫu (như exit-sweep) ----------

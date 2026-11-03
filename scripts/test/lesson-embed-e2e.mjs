@@ -6,6 +6,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
 import { serve, scan, MIME } from './ux-guard-lib.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const [ROOT = 'web', FIX = 'out/lv-fixture', OUT = 'out/lesson-embed'] = process.argv.slice(2);
 fs.mkdirSync(OUT, { recursive: true });
 const EMB = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/videos.json'), 'utf8')).embeds || [];
@@ -59,12 +60,12 @@ async function run(width, scheme, lang) {
   if (st.tracks !== 'captions:en,chapters:en') bad('track: ' + st.tracks);
   if (!st.go) bad('thiếu nút Tiếp tục của bài');
   if (!st.bub || /Xem video bài học/.test(st.bub) && lang !== 'vi') bad('nhãn bước chưa dịch: ' + st.bub);
-  await page.waitForFunction(() => { const n = document.querySelector('.lv-chs'); return n && !n.hidden && n.querySelectorAll('.lv-ch').length >= 1; }, null, { timeout: 8000 }).catch(() => bad('không có nút chương'));
-  await page.waitForFunction(() => { const x = document.querySelector('#lsnVid video'); return x && x.readyState >= 1; }, null, { timeout: 10000 }).catch(() => bad('video không nạp được metadata'));
+  await waitFn(page, () => { const n = document.querySelector('.lv-chs'); return n && !n.hidden && n.querySelectorAll('.lv-ch').length >= 1; }, null, { timeout: 8000 }).catch(() => bad('không có nút chương'));
+  await waitFn(page, () => { const x = document.querySelector('#lsnVid video'); return x && x.readyState >= 1; }, null, { timeout: 10000 }).catch(() => bad('video không nạp được metadata'));
   await page.waitForTimeout(400); await check('lesson-video');
   // 3) phát (tắt tiếng – không có cử chỉ người dùng) → phụ đề EN đang hiện, có cue
   await v.evaluate(x => { x.muted = true; return x.play(); }).catch(e => bad('play: ' + e.message));
-  await page.waitForFunction(() => { const x = document.querySelector('#lsnVid video'); return x && x.currentTime > 1.2; }, null, { timeout: 15000 }).catch(() => bad('video không chạy'));
+  await waitFn(page, () => { const x = document.querySelector('#lsnVid video'); return x && x.currentTime > 1.2; }, null, { timeout: 15000 }).catch(() => bad('video không chạy'));
   const cap = await v.evaluate(x => [...x.textTracks].map(t => `${t.kind}:${t.mode}:${t.cues ? t.cues.length : 0}`).join(','));
   if (!/^captions:showing:[1-9]/.test(cap)) bad('phụ đề EN không hiện: ' + cap);
   await check('lesson-video-playing');
@@ -73,7 +74,7 @@ async function run(width, scheme, lang) {
   if (ch.cur !== 'true') bad(`chương cuối không được đánh dấu (t=${ch.t.toFixed(2)} ${ch.label})`);
   // 5) hết video (end card "Next step →") → bài tự bấm nút Tiếp tục → sang bước kế
   await v.evaluate(x => { x.currentTime = Math.max(0, x.duration - 0.4); return x.play(); }).catch(() => {});
-  await page.waitForFunction(() => App._lsn && App._lsn.sess.cur && App._lsn.sess.cur.type !== 'video' && !document.querySelector('#lsnVid'), null, { timeout: 10000 }).catch(() => bad('hết video nhưng bài không sang bước kế'));
+  await waitFn(page, () => App._lsn && App._lsn.sess.cur && App._lsn.sess.cur.type !== 'video' && !document.querySelector('#lsnVid'), null, { timeout: 10000 }).catch(() => bad('hết video nhưng bài không sang bước kế'));
   await check('lesson-after-video');
   const nAfter = net.filter(u => /media\.lexkite\.com/.test(u)).length; if (!nAfter) bad('không có yêu cầu media nào (fixture không được dùng?)');
   console.log(`· ${tag}: ${st.fmt} · ${ch.n} chương · ${cap}`);

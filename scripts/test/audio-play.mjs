@@ -140,7 +140,7 @@ for (const name of which) {
   check(gap >= 400 + 200, `có khoảng nghỉ giữa câu (câu 0,4 s + nghỉ → ${Math.round(gap)} ms)`);
   await page.evaluate(() => { __res.seq2 = []; });
   await step(() => UI.tts('Three. Four.', 'en-GB', 0.95, { onSentence: i => __res.seq2.push(i), onEnd: () => { __res.four = 1; } }));
-  await page.waitForFunction(() => window.__res.seq2.length === 1);
+  await waitFn(page, () => window.__res.seq2.length === 1);
   await page.waitForTimeout(450); // câu 1 (0,4 s) vừa xong → đang trong khoảng nghỉ
   await page.evaluate(() => UI.stopSpeak());
   await page.waitForTimeout(600);
