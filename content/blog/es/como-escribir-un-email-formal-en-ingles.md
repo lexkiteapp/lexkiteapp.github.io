@@ -3,7 +3,7 @@ title: "Cómo escribir un email formal en inglés: fórmulas y plantillas"
 description: "Aprende cómo escribir un email formal en inglés paso a paso: saludos, fórmulas de cortesía, plantillas profesionales de oficina y errores comunes de traducción."
 slug: como-escribir-un-email-formal-en-ingles
 lang: es
-translationKey: cach-viet-email-tieng-anh-chuyen-nghiep
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [email, business-english, trabajo, formal]
 keyword: "cómo escribir un email formal en inglés"

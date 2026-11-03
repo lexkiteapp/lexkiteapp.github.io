@@ -3,7 +3,7 @@ title: "Business English Email schreiben: Vorlagen und Formulierungen"
 description: "Business English Email schreiben leicht gemacht: Professionelle Vorlagen, die besten Anreden, Schlusssätze und Höflichkeitsfloskeln für den Berufsalltag."
 slug: business-english-email-schreiben
 lang: de
-translationKey: viet-email-tieng-anh-thuong-mai
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [business-english, email, beruf, korrespondenz]
 keyword: "business english email schreiben"

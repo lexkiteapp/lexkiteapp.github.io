@@ -3,7 +3,7 @@ title: "İngilizce İş Maili Nasıl Yazılır? Profesyonel E-Posta Şablonları
 description: "İngilizce iş maili nasıl yazılır? Resmi hitaplar, talep ve takip cümleleri, profesyonel kapanış kalıpları ve kullanıma hazır iş e-postası şablonları rehberi."
 slug: ingilizce-is-maili-nasil-yazilir
 lang: tr
-translationKey: cach-viet-email-tieng-anh-chuyen-nghiep
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [is-maili, business-english, e-posta, resmi]
 keyword: "ingilizce iş maili nasıl yazılır"

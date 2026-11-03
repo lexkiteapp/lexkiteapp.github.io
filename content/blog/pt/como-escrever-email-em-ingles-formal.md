@@ -3,7 +3,7 @@ title: "Como escrever email em inglês formal: guia com frases prontas"
 description: "Aprenda como escrever email em inglês formal para trabalho: saudações profissionais, pedidos educados, despedidas e modelos para o ambiente corporativo."
 slug: como-escrever-email-em-ingles-formal
 lang: pt
-translationKey: como-escrever-email-em-ingles-formal
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [email, ingles-para-trabalho, business-english, formal]
 keyword: "como escrever email em inglês formal"

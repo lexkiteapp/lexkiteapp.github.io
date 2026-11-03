@@ -3,7 +3,7 @@ title: "Cara menulis email bahasa Inggris formal: struktur & template"
 description: "Pelajari cara menulis email bahasa Inggris formal untuk urusan kantor: salam pembuka, ungkapan sopan, lampiran file, dan contoh template email bisnis praktis."
 slug: cara-menulis-email-bahasa-inggris-bisnis
 lang: id
-translationKey: cach-viet-email-tieng-anh-chuyen-nghiep
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [email, bisnis, karir, business-english]
 keyword: "cara menulis email bahasa inggris formal"

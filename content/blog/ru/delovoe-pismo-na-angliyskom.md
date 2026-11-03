@@ -3,7 +3,7 @@ title: "Деловое письмо на английском: правила, �
 description: "Узнайте, как составить деловое письмо на английском: структура имейла, тема письма, приветствия, вежливые фразы, 5 готовых шаблонов и частые ошибки."
 slug: delovoe-pismo-na-angliyskom
 lang: ru
-translationKey: viet-email-tieng-anh-chuyen-nghiep
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [delovoy-angliyskiy, pismo, email, biznes]
 keyword: "деловое письмо на английском"

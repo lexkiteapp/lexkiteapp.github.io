@@ -3,7 +3,7 @@ title: "ビジネス英語メールの書き方完全ガイド：基本構成・
 description: "ビジネス英語 メール 書き方を徹底解説。件名、書き出し、用件の伝え方、丁寧な依頼、感謝、結びの挨拶まで、失礼にならない基本マナーと定番フレーズ・シーン別例文をまとめました。グローバルビジネスで信頼されるメール作成術です。"
 slug: business-eigo-mail-kakikata
 lang: ja
-translationKey: business-eigo-mail-kakikata
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [business-eigo, mail, shigoto, teikeibun]
 keyword: "ビジネス英語 メール 書き方"

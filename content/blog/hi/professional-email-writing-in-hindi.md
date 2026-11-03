@@ -3,7 +3,7 @@ title: "English me Email Kaise Likhe: प्रारूप, नियम और
 description: "सीखें english me email kaise likhe: पेशेवर ईमेल प्रारूप, 5 मुख्य व्यावसायिक टेम्पलेट्स, विषय पंक्ति, अभिवादन और सामान्य गलतियों से बचने के नियम।"
 slug: professional-email-writing-in-hindi
 lang: hi
-translationKey: viet-email-tieng-anh-chuyen-nghiep
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [email, writing, business, vyavsay]
 keyword: "english me email kaise likhe"

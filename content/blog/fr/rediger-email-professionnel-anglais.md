@@ -3,7 +3,7 @@ title: "Rédiger un mail professionnel en anglais : modèles et formules"
 description: "Rédiger un mail professionnel en anglais impeccable : formules de politesse, objets percutants et 4 modèles prêts à l'emploi pour vos échanges au travail."
 slug: rediger-email-professionnel-anglais
 lang: fr
-translationKey: viet-email-tieng-anh-thuong-mai
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [business-english, email, professionnel, travail]
 keyword: "rédiger un mail professionnel en anglais"

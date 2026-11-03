@@ -3,7 +3,7 @@ title: "เขียน Email ภาษาอังกฤษ ทางการ:
 description: "วิธี เขียน email ภาษาอังกฤษ ทางการ ให้ดูเป็นมืออาชีพ: โครงสร้าง 5 ส่วน, หัวข้ออีเมล, คำขึ้นต้น-ลงท้าย, 5 แม่แบบใช้งานจริง และข้อผิดพลาดที่พบบ่อย."
 slug: khian-email-phasa-angkrit-thang-kan
 lang: th
-translationKey: viet-email-tieng-anh-chuyen-nghiep
+translationKey: cach-viet-email-tieng-anh
 category: ky-nang
 tags: [email, writing, business, phasa-angkrit]
 keyword: "เขียน email ภาษาอังกฤษ ทางการ"
