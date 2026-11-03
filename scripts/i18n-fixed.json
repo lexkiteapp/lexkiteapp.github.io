@@ -30,21 +30,6 @@
     "ru": "Заметка",
     "tr": "Not"
   },
-  "Thêm ghi chú": {
-    "es": "Añadir nota",
-    "pt": "Adicionar nota",
-    "fr": "Ajouter une note",
-    "de": "Notiz hinzufügen",
-    "id": "Tambah catatan",
-    "th": "เพิ่มบันทึก",
-    "zh": "添加笔记",
-    "ja": "メモを追加",
-    "ko": "메모 추가",
-    "hi": "नोट जोड़ें",
-    "ar": "إضافة ملاحظة",
-    "ru": "Добавить заметку",
-    "tr": "Not ekle"
-  },
   "Bỏ tô sáng": {
     "es": "Quitar resaltado",
     "pt": "Remover destaque",
@@ -3425,21 +3410,6 @@
     "ar": "مسارك إلى IELTS",
     "ru": "Ваш путь к IELTS",
     "tr": "IELTS yolun"
-  },
-  "Xem trước bộ từ": {
-    "es": "Vista previa del conjunto",
-    "pt": "Pré-visualizar conjunto",
-    "fr": "Aperçu de la liste",
-    "de": "Wortset ansehen",
-    "id": "Pratinjau set kata",
-    "th": "ดูชุดคำล่วงหน้า",
-    "zh": "预览词集",
-    "ja": "単語セットのプレビュー",
-    "ko": "단어 세트 미리보기",
-    "hi": "शब्द सेट देखें",
-    "ar": "معاينة المجموعة",
-    "ru": "Просмотр набора",
-    "tr": "Kelime setini önizle"
   },
   "Xem danh sách từ": {
     "es": "Ver lista de palabras",
@@ -15589,10 +15559,6 @@
     "ja": "忘れかけている単語はまだありません",
     "zh": "暂无即将遗忘的单词",
     "ko": "아직 잊혀 가는 단어가 없어요"
-  },
-  "Bay một vòng từ vựng không?": {
-    "ja": "サクッと単語フライトしませんか？",
-    "ko": "가볍게 단어 비행 한 번 할까요?"
   },
   "Hôm nay bạn đã ôn hết!": {
     "ja": "今日の分はすべて完了です！"
