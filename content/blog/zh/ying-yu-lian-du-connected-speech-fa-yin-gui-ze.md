@@ -3,7 +3,7 @@ title: "英语连读规则 (Connected Speech) 解析：连读、弱读与发音"
 description: "英语连读规则全方位深度精讲指南：系统解析辅音连元音、加音滑音、辅音脱落与音变同化四大核心语音现象，揭秘美音闪音T与弱读Schwa中元音发音奥秘，配合每天15分钟影子跟读训练法，助你彻底突破听力瓶颈并练就地道自然的流利英语口音。"
 slug: ying-yu-lian-du-connected-speech-fa-yin-gui-ze
 lang: zh
-translationKey: connected-speech-tieng-anh-noi-am
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [pronunciation, connected-speech, listening]
 keyword: "英语连读规则"

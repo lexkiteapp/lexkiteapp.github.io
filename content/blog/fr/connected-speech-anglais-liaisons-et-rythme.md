@@ -3,7 +3,7 @@ title: "Connected speech anglais : comprendre les liaisons orales"
 description: "Comprenez enfin les anglophones rapides grâce au connected speech anglais : liaisons, élisions, réductions d accent et exercices d écoute ciblés."
 slug: connected-speech-anglais-liaisons-et-rythme
 lang: fr
-translationKey: noi-am-tieng-anh-connected-speech
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [prononciation, listening, connected-speech]
 keyword: "connected speech anglais"

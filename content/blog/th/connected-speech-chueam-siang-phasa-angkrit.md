@@ -3,7 +3,7 @@ title: "Connected Speech ภาษาอังกฤษ: กฎการเช�
 description: "connected speech ภาษาอังกฤษ กฎ 5 ข้อของการเชื่อมเสียง การตัดเสียง การกลืนเสียง และเทคนิค Shadowing เพื่อพูดลื่นไหลและฟังฝรั่งพูดเร็วรู้เรื่อง"
 slug: connected-speech-chueam-siang-phasa-angkrit
 lang: th
-translationKey: connected-speech-tieng-anh-noi-am
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [pronunciation, connected-speech, listening]
 keyword: "connected speech ภาษาอังกฤษ"

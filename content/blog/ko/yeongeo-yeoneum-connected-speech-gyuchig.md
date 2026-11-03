@@ -3,7 +3,7 @@ title: "영어 연음 법칙 총정리 : 빠른 원어민 발음과 리스닝 �
 description: "영어 연음 법칙 완벽 마스터: 자음-모음 연음, 자음 탈락, 음자동화, 슈와(Schwa) 약형 규칙을 체계적으로 익혀 미드와 원어민의 빠른 영어를 막힘없이 리스닝하고 자연스러운 억양으로 발음해 보세요."
 slug: yeongeo-yeoneum-connected-speech-gyuchig
 lang: ko
-translationKey: noi-am-tieng-anh-connected-speech
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [pronunciation, listening, connected-speech]
 keyword: "영어 연음 법칙"

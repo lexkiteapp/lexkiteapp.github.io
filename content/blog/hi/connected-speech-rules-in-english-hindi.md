@@ -5,6 +5,7 @@ description: "Connected speech in english in hindi: तेज अंग्रे
 readMinutes: 12
 category: "phat-am"
 cluster: "connected-speech"
+translationKey: noi-am-trong-tieng-anh
 tags: [pronunciation, listening, connected-speech]
 keyword: "connected speech in english in hindi"
 cover: pron

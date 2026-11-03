@@ -4,7 +4,7 @@ title: "Connected Speech Englisch Regeln: Lautverbindungen verstehen"
 description: "connected speech englisch regeln: Umfassender Leitfaden zu Linking, Assimilation und Elision für besseres Hörverstehen und flüssigere Aussprache."
 keyword: "connected speech englisch regeln"
 lang: de
-translationKey: connected-speech-linking-sounds
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [connected-speech, aussprache, listening]
 cover: placement

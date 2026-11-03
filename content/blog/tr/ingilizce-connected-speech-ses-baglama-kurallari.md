@@ -3,7 +3,7 @@ title: "İngilizce Connected Speech: Ses Bağlama Kuralları ve Telaffuz"
 description: "ingilizce connected speech ses bağlama, elision, assimilation kuralları ve anadili İngilizce olanları hızlı konuşurken anlama teknikleri."
 slug: ingilizce-connected-speech-ses-baglama-kurallari
 lang: tr
-translationKey: connected-speech-tieng-anh-noi-am
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [pronunciation, connected-speech, listening]
 keyword: "ingilizce connected speech"

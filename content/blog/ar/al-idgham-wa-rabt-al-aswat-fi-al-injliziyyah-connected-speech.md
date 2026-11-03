@@ -4,7 +4,7 @@ title: "ربط الأصوات في اللغة الإنجليزية: أسرار �
 description: "ربط الأصوات في اللغة الإنجليزية: دليل شامل لظواهر Connected Speech والإدغام وإسقاط الحروف لزيادة الطلاقة وفهم الإنجليزية السريعة بسهولة."
 keyword: "ربط الأصوات في اللغة الإنجليزية"
 lang: ar
-translationKey: connected-speech-linking-sounds
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [connected-speech, pronunciation, listening]
 cover: placement

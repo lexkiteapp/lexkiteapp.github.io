@@ -3,7 +3,7 @@ title: "Связная речь в английском : правила connect
 description: "Узнайте, как устроена связная речь в английском языке: правила слияния звуков, редукция шва (schwa), выпадение согласных и техники для понимания на слух."
 slug: connected-speech-v-angliyskom-svyaznaya-rech
 lang: ru
-translationKey: noi-am-tieng-anh-connected-speech
+translationKey: noi-am-trong-tieng-anh
 category: phat-am
 tags: [proiznoshenie, listening, connected-speech]
 keyword: "связная речь в английском"
