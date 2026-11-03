@@ -16,6 +16,8 @@
 //  6) Bước đẩy kết quả lên nhánh mà `git pull --rebase` phải chịu được cây làm việc bẩn: build/script hay sửa tệp đã theo dõi mà không add
 //     → "cannot pull with rebase: You have unstaged changes" (i18n 23/10, world-scorecard 2/11 đỏ 2 lượt liền). Dùng `--autostash`,
 //     hoặc cất phần còn sót trước đó trong cùng job (`git stash push` / `git reset --hard`).
+//  7) (3/11 – #553 gộp xanh mà main đỏ vì tsc chỉ có trong ci.yml, ci.yml không chạy trên PR): mọi lệnh kiểm trong ci.yml phải có trong scripts/test/suite.txt
+//     (npm test = cổng PR), nếu không PR xanh vẫn làm main đỏ.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -23,6 +25,17 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
+
+/** Lệnh kiểm của ci.yml thiếu trong suite.txt (thuần): so theo script node, `node --check`, `tsc -p`. */
+export function ciParity(ciYml, suite) {
+  const need = new Set();
+  for (const m of String(ciYml).matchAll(/^\s*(?:-\s*)?(?:run:\s*)?(.*)$/gm)) {
+    for (const x of m[1].matchAll(/node (scripts\/[\w./-]+)/g)) need.add(x[1]);
+    if (/node --check/.test(m[1])) need.add('node --check');
+    if (/\btsc -p /.test(m[1])) need.add('tsc -p');
+  }
+  return [...need].filter(k => !String(suite).includes(k));
+}
 
 /** Khối `on:` (thuần) → { events: Set, push: text, pull_request: text }. Hỗ trợ dạng khối (repo không dùng `on: [..]`). */
 export function triggers(src) {
@@ -136,6 +149,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
+  for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
+  ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');
   console.log(fails ? `ci-policy: ${fails} lỗi` : `✓ ci-policy: ${files.length} workflow đạt (timeout + concurrency + phạm vi + workflow_run có cổng skip, không vòng)`);
   process.exit(fails ? 1 : 0);
 }

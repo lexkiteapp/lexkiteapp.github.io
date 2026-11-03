@@ -6,6 +6,7 @@
 // Kết quả: 1 issue nhãn ci-failure "Lịch CI không chạy" (marker ci-triage:cron) – cập nhật khi còn, tự đóng khi hết. Test: scripts/test/cron-watch.mjs.
 import fs from 'node:fs';
 import { starts } from '../test/jobs-check.mjs';
+import { isZombie, zombieRuns } from './zombie.mjs';
 
 const W = 7 * 1440;
 // Tắt có chủ ý (memory/METHODS: 7 workflow GrabCast giữ TẮT tới khi all-clear + số egress) – thêm mục mới phải kèm lý do
@@ -20,6 +21,8 @@ export const limitMin = gap => gap >= LONG_GAP ? gap + GRACE_MIN : Math.max(FLOO
 // bù lượt (3/11): GitHub bỏ lịch HÀNG LOẠT lúc tải cao (03/11 00–03Z cả repo 13 lượt schedule) → không chỉ báo/đá mà dispatch bù.
 // Ưu tiên free-tier-guard (gỡ lệnh dừng), rồi workflow trong infra/jobs.json, rồi còn lại; ≤ BACKFILL_MAX lượt mỗi lần gọi (~1 giờ).
 export const BACKFILL_MAX = 5, PRIORITY = ['free-tier-guard.yml'];
+// 3/11: dispatch ngay sau disable → enable: lượt tạo ra có thể không bao giờ được queue (zombie, xem zombie.mjs – issue #571: đá 22:01:34Z, dispatch 22:02:00Z → kẹt) → chờ GitHub ổn định.
+export const KICK_SETTLE_MS = 60e3;
 /** Có dispatch bù được không (thuần): có workflow_dispatch và không có input bắt buộc thiếu mặc định. */
 export function dispatchable(yml) {
   const m = String(yml).match(/^  workflow_dispatch:[^\n]*\n((?:    [^\n]*\n|\s*\n)*)/m);
@@ -60,7 +63,7 @@ export function pausedSet(root = '.') {
 }
 
 /** gh(path, opts) như triage.mjs. Trả { bad, md }. kick = disable → enable workflow bị trễ lịch (đăng ký lại lịch). */
-export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflows', root = '.', kick = true } = {}) {
+export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflows', root = '.', kick = true, settleMs = KICK_SETTLE_MS, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const list = [];
   for (let p = 1; p <= 5; p++) { const r = (await gh(`/actions/workflows?per_page=100&page=${p}`)) || {}; list.push(...(r.workflows || [])); if (!r.workflows || r.workflows.length < 100) break; }
   const paused = pausedSet(root), bad = [], stale = [];
@@ -78,24 +81,28 @@ export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflo
   if (kick) {   // bù lượt: chống trùng = bỏ qua nếu đang có lượt chờ/chạy hoặc đã có lượt (bất kỳ sự kiện) trong 1 khoảng lịch; concurrency của workflow lo phần còn lại
     let used = 0; const jobs = new Set(); try { for (const j of JSON.parse(fs.readFileSync(`${root}/infra/jobs.json`, 'utf8')).jobs) if (j.workflow) jobs.add(j.workflow); } catch (e) { /* bỏ qua */ }
     const byFile = new Map(stale.map(x => [x.file, x]));
+    if (byFile.size && settleMs) await sleep(settleMs);
     for (const file of backfillOrder(byFile.keys(), jobs)) {
       const { v, w, yml } = byFile.get(file);
       if (!dispatchable(yml)) { v.why += ' · không bù được (không có workflow_dispatch/input bắt buộc)'; continue; }
       if (used >= BACKFILL_MAX) { v.why += ` · chờ bù lượt sau (trần ${BACKFILL_MAX}/giờ)`; continue; }
       const last = ((((await gh(`/actions/workflows/${w.id}/runs?per_page=1`)) || {}).workflow_runs) || [])[0];
-      if (last && (last.status !== 'completed' || now - Date.parse(last.created_at) < maxGap(cronsOf(yml)) * 6e4)) { v.why += ` · đã có lượt ${last.event} ${last.status} gần đây – không bù`; continue; }
+      if (last && !isZombie(last, now) && (last.status !== 'completed' || now - Date.parse(last.created_at) < maxGap(cronsOf(yml)) * 6e4)) { v.why += ` · đã có lượt ${last.event} ${last.status} gần đây – không bù`; continue; }
       const r = await gh(`/actions/workflows/${w.id}/dispatches`, { method: 'POST', body: { ref: 'main' } });
       if (r !== false) { used++; v.why += ' → đã dispatch bù 1 lượt'; v.backfilled = true; }
     }
   }
-  const md = bad.length ? `#### ⛔ Lịch CI không chạy (${bad.length})\n` + bad.map(b => `- \`${b.file}\`: ${b.why}`).join('\n') + '\n' : '- Lịch cron: mọi workflow có lượt schedule đúng hạn.\n';
+  const cron = bad.length, zombies = await zombieRuns(gh, { now, cancel: kick }).catch(e => { console.log('::warning::zombie: ' + e.message); return []; });
+  for (const z of zombies) bad.push({ file: z.file, kind: 'zombie', why: `lượt ${z.id} queued ${z.min} phút, 0 job${z.cancel ? (z.cancel === 'ok' ? ' → đã huỷ' : ` · huỷ không được (${z.cancel}): chỉ còn DELETE /actions/runs/${z.id}`) : ''}` });
+  const line = b => `- \`${b.file}\`: ${b.why}\n`;
+  const md = (cron ? `#### ⛔ Lịch CI không chạy (${cron})\n` + bad.slice(0, cron).map(line).join('') : '- Lịch cron: mọi workflow có lượt schedule đúng hạn.\n') + (zombies.length ? `#### 🧟 Lượt kẹt queued không job (${zombies.length})\n` + bad.slice(cron).map(line).join('') : '');
   return { bad, md };
 }
 /** Issue: còn lỗi → mở/cập nhật; hết → đóng. */
 export async function syncIssue(gh, { bad, md }, label = 'ci-failure') {
   const open = ((await gh(`/issues?state=open&labels=${label}&per_page=100`)) || []).find(i => (i.body || '').includes(MARK));
   if (!bad.length) { if (open) await gh(`/issues/${open.number}`, { method: 'PATCH', body: { state: 'closed', state_reason: 'completed', body: open.body + '\n\n✅ Mọi lịch chạy lại đúng hạn (ci-triage tự đóng).' } }); return open ? 'closed' : 'ok'; }
-  const body = `${MARK}\n${md}\nSửa: push 1 commit chạm workflow (GitHub đăng ký lại lịch) hoặc disable → enable; tắt có chủ ý → thêm vào OFF_OK (scripts/ci/cron-watch.mjs) kèm lý do.`;
+  const body = `${MARK}\n${md}\nSửa: push 1 commit chạm workflow (GitHub đăng ký lại lịch) hoặc disable → enable; tắt có chủ ý → thêm vào OFF_OK (scripts/ci/cron-watch.mjs) kèm lý do. Lượt kẹt queued: docs/CI-RUNNERS.md § Lượt zombie.`;
   if (open) await gh(`/issues/${open.number}`, { method: 'PATCH', body: { title: TITLE, body } });
   else await gh('/issues', { method: 'POST', body: { title: TITLE, body, labels: [label] } });
   return open ? 'updated' : 'opened';
