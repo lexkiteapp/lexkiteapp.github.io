@@ -151,9 +151,9 @@ body.call-on{overflow:hidden}
     if (!V2) { ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với {name}', { name: nm }));
       document.body.appendChild(ov); document.body.classList.add('call-on'); }
     let id = c.start, rec = null, dead = false, t0 = Date.now(), tick = 0, autoMic = false, showTr = pref('tr') !== '0' && I18N.lang() !== 'en', busy = false;
-    let turn = 0, phase = 'talk', tAsk = 0, longBuf = [], longEnd = 0, prepEnd = 0, tch = null, sayRun = 0;
+    let turn = 0, phase = 'talk', tAsk = 0, longBuf = [], longEnd = 0, prepEnd = 0, tch = null, sayRun = 0, bub = null;
     const log = [], lat = [], tr = {};
-    const close = () => { dead = true; clearInterval(tick); sayRun++; if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
+    const close = () => { dead = true; clearInterval(tick); sayRun++; if (bub) { bub.destroy(); bub = null; } if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
     App.cleanups.push(close);
     const onKey = e => { if (e.key === 'Escape') hang(); };
     document.addEventListener('keydown', onKey);
@@ -221,16 +221,25 @@ body.call-on{overflow:hidden}
       if (V2) { mic.setAttribute('aria-pressed', String(p === 'listen')); const ml = $('#cMicL', ov); if (ml) ml.textContent = p === 'listen' ? t('Đang nghe') : t('Nói'); }
     }
     // Nói lần lượt từng câu (mỗi câu 1 file Kokoro sinh sẵn) – sayRun đổi = bị ngắt lời → bỏ phần còn lại
+    // 💬 thẻ phụ đề = bong bóng lời: đuôi trỏ miệng giáo viên (đo bbox, RTL), hiện nhẹ mỗi lượt nói, karaoke; chạm từ → nghe lại từ đó
+    function capKara() {
+      const l1 = $('#cL1', ov); if (!V2 || !l1 || !window.LessonTeacher || !LessonTeacher.bubble) return null;
+      if (!bub) { const card = l1.closest('.rounded-\\[20px\\]'); bub = card ? LessonTeacher.bubble(card, $('#cTch', ov)) : null; }
+      if (bub) bub.pop();
+      return LessonTeacher.kara(l1, cur.join(' '), { cc: false, onWord: (w, span) => { if (!w || phase === 'listen') return; if (tch) tch.stop(); UI.tts(w, ACCENT, 0.9, { voice }); if (bub) bub.peek(span, w); } });
+    }
     function say(parts, then) {
       cur = parts.filter(Boolean); const my = ++sayRun;
       $('#cL1', ov).textContent = cur.join(' '); paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
+      const kw = capKara(), cnt = cur.map(x => x.trim().split(/\s+/).filter(Boolean).length); // 💬 chữ phụ đề sáng dần theo từng câu đang nói
       setPhase('talk');
       const done = () => { if (my !== sayRun || !alive()) return; setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
       const one = k => {
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
+        const k0 = cnt.slice(0, k).reduce((a, b) => a + b, 0), onTick = kw ? f => kw.part(k0, cnt[k], f) : null;
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, onTick }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);

@@ -322,12 +322,22 @@
     paint(); chk.onclick = () => submit(L.pick);
     const c = $('#lsnChat'); c.scrollIntoView({ block: 'nearest' }); setTimeout(() => say(it.prompt, false, it.who), 200);
   }
+  // 💬 truyện 2 giáo viên: chỉ câu MỚI NHẤT có đuôi, trỏ vào miệng đúng người đang nói (Ama trái / Carlos phải, RTL tự đảo theo bbox) + karaoke câu đó
+  function duoBub(n, it, p) {
+    if (L.bub) { L.bub.destroy(); if (L.bub.tail) L.bub.tail.remove(); L.bub = null; }
+    L.kw = null; L.kwText = '';
+    const card = n.querySelector(':scope > div:nth-child(2)'), who = $(it.who === 'carlos' ? '#lsnTch2' : '#lsnTch');
+    if (!card || !window.LessonTeacher || !LessonTeacher.bubble) return;
+    L.bub = LessonTeacher.bubble(card, who); L.bub.pop();
+    if (!it.radio && it.sent) { L.kwText = it.sent; L.kw = LessonTeacher.kara(p, it.sent, { cc: false, onWord: (w, span) => { if (!w || !L) return; const T = L.teachers && L.teachers[it.who === 'carlos' ? 'carlos' : 'ama']; if (T) T.stop(); UI.tts(w, 'en-US', 0.9, { voice: VOICE(it.who) }); if (L.bub) L.bub.peek(span, w); } }); }
+  }
   function lineDuo(it) {
     const chat = $('#lsnChat'), s = it.who === 'carlos' ? 'carlos' : 'ama', name = TNAME(it.who);
     if (L.log.indexOf(it) < 0) L.log.push(it); duoMode(false);
     const n = L.tl[s].cloneNode(true), p = n.querySelector('p'), b = n.querySelector('button');
     n.querySelector(':scope > div:nth-child(1) > span').textContent = name; p.textContent = it.radio ? RADIO : it.sent; p.dir = 'auto'; b.setAttribute('aria-label', t('Nghe lại') + ' · ' + name);
     chat.querySelectorAll('#lsnPlay').forEach(x => x.removeAttribute('id')); b.id = 'lsnPlay'; b.onclick = () => say(it.sent, false, it.who);
+    duoBub(n, it, p);
     chat.appendChild(n);
     const go = $('#lsnGo'); go.onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     n.scrollIntoView({ block: 'nearest' }); go.scrollIntoView({ block: 'nearest' }); go.focus({ preventScroll: true });

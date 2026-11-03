@@ -1,5 +1,5 @@
 // 💬 Bong bóng lời giáo viên (js/lesson/teacher.js: bubble/kara/weights/wordAt): đuôi trỏ đúng miệng người nói, karaoke khớp giọng ≤120 ms,
-// chạm từ, 🐢 0,75×, CC, giảm chuyển động, tương phản (chữ ≥4.5:1, icon ≥3:1), RTL, không che nút X.
+// chạm từ, 🐢 0,75×, CC, giảm chuyển động, tương phản (chữ ≥4.5:1, icon ≥3:1), RTL, không che nút X; truyện 2 giáo viên + cuộc gọi + Play & Speak (pas-drill).
 // Chạy: node scripts/test/teacher-bubble.mjs [chromium,webkit]  (không đối số = phần Node + jsdom; có tên trình duyệt = thêm Playwright, chạy trên CI audio-play.yml)
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import os from 'node:os';
 import jsdom from 'jsdom';
@@ -7,7 +7,7 @@ const SRC = fs.readFileSync('web/js/lesson/teacher.js', 'utf8');
 let total = 0, fails = 0; const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 
 // ---------- A. Karaoke khớp giọng: mốc giả kiểu Kokoro (độ dài theo âm vị + nghỉ dấu câu + im đầu/cuối) ----------
-const dom = new jsdom.JSDOM('<!doctype html><html><head></head><body></body></html>', { pretendToBeVisual: true, runScripts: 'outside-only' });
+const dom = new jsdom.JSDOM('<!doctype html><html><head></head><body></body></html>', { url: 'https://lexkite.test/', pretendToBeVisual: true, runScripts: 'outside-only' });
 const w = dom.window; w.Chars = { id: x => x, voice: x => 'af_heart', img: () => '<img class="tch-poster">', clip: () => '', still: () => '' };
 w.matchMedia = () => ({ matches: true }); w.eval(SRC);
 const T = w.LessonTeacher;
@@ -60,6 +60,50 @@ const CR = (a, b) => { const [x, y] = [L(a), L(b)].sort((p, q) => q - p); return
 for (const [fg, bg, min, m] of [['4E5F62', 'FFFFFF', 4.5, 'chữ chưa đọc (sáng)'], ['A9BFC1', '142328', 4.5, 'chữ chưa đọc (tối)'], ['0D6964', 'FFFFFF', 4.5, 'CC bật (sáng)'], ['2BA39A', '142328', 4.5, 'CC bật (tối)'], ['4E5F62', 'FFFFFF', 3, 'CC tắt (sáng)'], ['2BA39A', 'FFFFFF', 3, 'vòng tiến độ/viền focus (sáng)'], ['EEF6F7', '10191B', 4.5, 'nghĩa nhanh']]) ok(CR(fg, bg) >= min, `tương phản ${m}: ${CR(fg, bg).toFixed(2)}:1 ≥ ${min}`);
 ok(css.includes('#4E5F62') && css.includes('#A9BFC1') && css.includes('#0D6964'), 'màu đo đúng là màu trong CSS');
 b.destroy();
+
+// ---------- B2. Truyện 2 giáo viên + cuộc gọi: đuôi theo người nói, karaoke từng câu, CC không ẩn chữ ở màn không có nút CC ----------
+{
+  D.documentElement.dir = 'ltr';
+  D.body.innerHTML = '<div id="ta" class="t"><img class="tch-poster"></div><div id="tc" class="t"><img class="tch-poster"></div><div id="la"><p>Hi there.</p></div><div id="lc"><p>Hello! Nice to meet you.</p></div>';
+  const [pa, pc] = D.querySelectorAll('.tch-poster'); pa.getBoundingClientRect = rect(10, 0, 150, 160); pc.getBoundingClientRect = rect(230, 0, 150, 160);
+  D.getElementById('la').getBoundingClientRect = rect(8, 150, 300, 80); D.getElementById('lc').getBoundingClientRect = rect(82, 240, 300, 80);
+  const ba = T.bubble(D.getElementById('la'), D.getElementById('ta')), bc = T.bubble(D.getElementById('lc'), D.getElementById('tc'));
+  const xa = +D.querySelector('#la .tchb-tail').dataset.x + 9 + 8, xc = +D.querySelector('#lc .tchb-tail').dataset.x + 9 + 82;
+  ok(Math.abs(xa - 85) <= 1 && Math.abs(xc - 305) <= 1, `truyện: câu Ama trỏ Ama (${xa}px), câu Carlos trỏ Carlos (${xc}px)`);
+  bc.point(D.getElementById('ta')); ok(+D.querySelector('#lc .tchb-tail').dataset.x + 9 + 82 < 120, 'đổi người nói → đuôi chuyển sang người mới');
+  ba.destroy(); bc.destroy();
+  try { w.localStorage.setItem('lk.cc', '0'); } catch (e) { /* jsdom */ }
+  const kc = T.kara(D.querySelector('#lc p'), 'Hello! Nice to meet you.', { cc: false });
+  ok(!D.querySelector('#lc p').classList.contains('kw-off'), 'màn không có nút CC → chữ luôn hiện dù đã tắt CC ở bài học');
+  kc.part(1, 4, 0.01); const on2 = [...D.querySelectorAll('#lc .kw')].map(x => x.classList.contains('on'));
+  ok(on2[0] && on2[1] && !on2[4], 'cuộc gọi: câu 2 bắt đầu → câu 1 đã sáng hết, từ đầu câu 2 sáng');
+  kc.part(1, 4, 1); ok([...D.querySelectorAll('#lc .kw')].every(x => x.classList.contains('on')), 'cuộc gọi: hết câu 2 → sáng hết');
+  w.localStorage.removeItem('lk.cc');
+  const UI = fs.readFileSync('web/js/lesson/ui.js', 'utf8'), CALL = fs.readFileSync('web/js/call.js', 'utf8');
+  ok(/duoBub\(n, it, p\)/.test(UI) && /#lsnTch2' : '#lsnTch'/.test(UI), 'ui.js: câu thoại mới gắn bong bóng vào đúng giáo viên đang nói');
+  ok(/LessonTeacher\.bubble\(card, \$\('#cTch', ov\)\)/.test(CALL) && /kw\.part\(k0, cnt\[k\], f\)/.test(CALL) && /bub\.destroy\(\)/.test(CALL), 'call.js: thẻ phụ đề = bong bóng trỏ giáo viên, karaoke từng câu, dọn khi đóng');
+}
+
+// ---------- B3. Play & Speak (pas-drill): đuôi "Cô Ama" trỏ mặt giáo viên, RTL lật đuôi, chấm đủ tương phản ----------
+const SPK = fs.readFileSync('web/js/speak/app.js', 'utf8');
+const PAS = () => { const d2 = new jsdom.JSDOM('<!doctype html><html><head></head><body><div id="v"></div></body></html>', { runScripts: 'outside-only', pretendToBeVisual: true }); const v = d2.window;
+  v.App = { routes: {}, view: v.document.getElementById('v') }; v.I18N = { lang: () => 'en' }; v.t = x => x; v.eval(SPK); return v; };
+{
+  const v = PAS(), S = v.App.speakBubble, V = v.document.getElementById('v');
+  ok(!!S, 'speak/app.js nạp được, có App.speakBubble');
+  const mk = () => { V.innerHTML = '<div role="progressbar" aria-label="Câu 1/6"></div><span>Câu 1/6</span><section><div class="box"><img></div><div id="spkSay"><div class="absolute"></div><div class="absolute"></div><div><span class="inline-block w-2 h-2 rounded-full lt:bg-[#F59E0B] dk:bg-[#f59e0b]"></span><span>CÔ AMA</span></div><p>Hi</p></div></section>';
+    const img = V.querySelector('img'); Object.defineProperty(img, 'naturalWidth', { value: 300 }); Object.defineProperty(img, 'naturalHeight', { value: 400 }); Object.defineProperty(img, 'complete', { value: true }); return img; };
+  let img = mk(); img.getBoundingClientRect = rect(16, 100, 96, 128); V.querySelector('#spkSay').getBoundingClientRect = rect(124, 60, 230, 200);
+  S.bubbleFix(V); const tl = V.querySelector('#spkSay > .absolute'), face = 100 + 128 * S.FACE;
+  ok(Math.abs(+tl.dataset.y + 8 + 60 - face) <= 1 && tl.style.transform === '', `pas-drill: đuôi ngang mặt giáo viên (${+tl.dataset.y + 68}px / mặt ${face}px), không cố định top-6`);
+  img = mk(); img.getBoundingClientRect = rect(264, 100, 96, 128); V.querySelector('#spkSay').getBoundingClientRect = rect(20, 60, 230, 200); S.bubbleFix(V);
+  const tr = V.querySelector('#spkSay > .absolute'); ok(tr.style.transform === 'scaleX(-1)' && tr.style.right === '-9px' && tr.style.left === 'auto', 'pas-drill RTL: giáo viên bên phải → đuôi lật sang phải');
+  const dot = V.querySelector('#spkSay span.w-2'); ok(dot.classList.contains('spk-dot') && !dot.className.includes('#F59E0B'), 'chấm "Cô Ama": bỏ cam #F59E0B (2.15:1)');
+  ok(V.querySelectorAll('.spk-pdot').length === 1, 'chấm trước "Câu 1/6" = chấm thật (không ký tự • mảnh), aria-hidden');
+  ok(!/prog: '• '/.test(SPK), 'nhãn tiến độ đọc cho trình đọc màn hình không còn "•"');
+  const dc = v.document.getElementById('spk-dot-css').textContent;
+  for (const [fg, bg, m] of [['B45309', 'FFFFFF', 'chấm Cô Ama (sáng)'], ['F59E0B', '12282E', 'chấm Cô Ama (tối)'], ['136B66', 'FFF7EA', 'chấm Câu 1/6 (sáng)'], ['2DD4BF', '0B171A', 'chấm Câu 1/6 (tối)']]) ok(CR(fg, bg) >= 3 && dc.toUpperCase().includes('#' + fg), `tương phản ${m}: ${CR(fg, bg).toFixed(2)}:1 ≥ 3`);
+}
 
 // ---------- C. Trình duyệt thật (CI): bbox đuôi, X không bị che, reduced-motion, RTL ----------
 const browsers = (process.argv[2] || '').split(',').filter(Boolean);

@@ -139,9 +139,11 @@
     const api = {
       words: units, at(f) { const i = f >= 1 ? units.length : wordAt(ws.length === units.length ? ws : units.map(() => 1), f); if (i === cur) return; cur = i;
         units.forEach((s, k) => s.classList && s.classList.toggle('on', k <= i)); },
+      // part(k0, n, f): lời nói theo từng câu (cuộc gọi: mỗi câu 1 file) → tiến độ f của câu gồm từ k0..k0+n-1
+      part(k0, n, f) { const i = f >= 1 ? k0 + n - 1 : f > 0 ? k0 + Math.max(0, wordAt(ws.slice(k0, k0 + n), f)) : k0 - 1; if (i === cur) return; cur = i; units.forEach((s, k) => s.classList && s.classList.toggle('on', k <= i)); },
       cc(on) { el.classList.toggle('kw-off', !on); },
     };
-    api.cc(ccOn());
+    api.cc(o.cc === false ? true : ccOn()); // màn không có nút CC (truyện, cuộc gọi) → luôn hiện chữ
     const tap = e => { const s = e.target.closest && e.target.closest('.kw'); if (!s || !el.contains(s)) return; if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return; e.preventDefault(); e.stopPropagation(); if (o.onWord) o.onWord(s.textContent.replace(/^[^\w']+|[^\w']+$/g, ''), s); };
     el.addEventListener('click', tap); el.addEventListener('keydown', tap);
     return api;
@@ -156,7 +158,7 @@
     const fig = () => who && (who.querySelector('.tch-rig.live canvas') || who.querySelector('.tch-poster') || who);
     // đuôi trỏ đúng miệng: x = giữa hình người đang vẽ, kẹp trong bo góc thẻ; ẩn khi không có giáo viên (thiếu tài sản)
     const place = () => { const f = fig(); if (!f || !card.isConnected) return; const r = f.getBoundingClientRect(), c = card.getBoundingClientRect();
-      const ok = r.width > 0 && who.style.display !== 'none' && r.bottom > c.top - 8; tail.hidden = !ok; if (!ok) return;
+      const ok = r.width > 0 && who.style.display !== 'none'; tail.hidden = !ok; if (!ok) return;
       const x = Math.round(Math.max(18, Math.min(c.width - 36, r.left + r.width * MOUTH - c.left - 9))); card.style.setProperty('--tx', x + 'px'); tail.dataset.x = x; };
     const ro = g.ResizeObserver ? new ResizeObserver(() => place()) : null;
     const watch = () => { if (!ro) return; ro.disconnect(); ro.observe(card); if (who) ro.observe(who); };
