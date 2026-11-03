@@ -3,7 +3,7 @@ title: "간격 반복 영어 단어 암기법 : FSRS 알고리즘으로 망각�
 description: "간격 반복 영어 단어 암기법 완벽 가이드: 에빙하우스 망각곡선의 원리와 구시대 SM-2 알고리즘의 한계를 뛰어넘은 최신 차세대 FSRS(Free Spaced Repetition Scheduler) 머신러닝 모델의 수학적 원리, 그리고 평생 잊지 않는 장기기억 보관 전략을 공개합니다."
 slug: gangeok-banbok-daneo-amgi-fsrs
 lang: ko
-translationKey: gangeok-banbok-daneo-amgi-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [gangeok-banbok, fsrs, daneo]
 keyword: "간격 반복 영어 단어"

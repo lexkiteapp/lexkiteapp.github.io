@@ -3,7 +3,7 @@ title: "间隔重复背单词科学全指南：FSRS算法与艾宾浩斯遗忘�
 description: "间隔重复背单词全景科学实战指南：深入剖析艾宾浩斯遗忘曲线机制与现代自适应FSRS间隔重复记忆算法的数学模型，系统对比传统SM-2算法的局限性，手把手教你如何定制个性化记忆保留率，告别前背后忘怪圈，高效构筑坚不可摧的长期英语词汇库。"
 slug: jian-ge-chong-fu-bei-dan-ci-fsrs
 lang: zh
-translationKey: jian-ge-chong-fu-bei-dan-ci-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [jian-ge-chong-fu, fsrs, ci-hui]
 keyword: "间隔重复背单词"

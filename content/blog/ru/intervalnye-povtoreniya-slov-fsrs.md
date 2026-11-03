@@ -4,7 +4,7 @@ title: "Intervalnye Povtoreniya Slov FSRS: Kak Zapominat"
 description: "Intervalnye povtoreniya slov fsrs: преодоление кривой забывания Эббингауза, отличие от SM-2, принципы активного воспоминания и карточки слов."
 keyword: "intervalnye povtoreniya slov fsrs"
 lang: ru
-translationKey: phuong-phap-spaced-repetition-thong-sap-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [fsrs, intervalnye-povtoreniya, slova]
 cover: review

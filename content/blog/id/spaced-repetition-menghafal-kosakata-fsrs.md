@@ -4,7 +4,7 @@ title: "Spaced Repetition Menghafal Kosakata FSRS: Melawan Lupa Permanen"
 description: "Panduan spaced repetition menghafal kosakata fsrs. Pelajari sains kurva lupa Ebbinghaus, perbedaan FSRS vs SM-2, dan strategi retensi memori 90 persen."
 keyword: "spaced repetition menghafal kosakata fsrs"
 lang: id
-translationKey: phuong-phap-spaced-repetition
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [phuong-phap, fsrs, flashcard]
 cover: review

@@ -4,7 +4,7 @@ title: "Spaced Repetition FSRS Vocabulary in Hindi: शब्द याद र�
 description: "Spaced repetition fsrs vocabulary in hindi: एबिंगहॉस का भूलने का वक्र, आधुनिक FSRS एल्गोरिदम और अंग्रेजी शब्द हमेशा के लिए याद रखने का वैज्ञानिक तरीका।"
 keyword: "spaced repetition fsrs vocabulary in hindi"
 lang: hi
-translationKey: khoa-hoc-spaced-repetition-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [phuong-phap, fsrs, spaced-repetition, vocabulary]
 cover: review

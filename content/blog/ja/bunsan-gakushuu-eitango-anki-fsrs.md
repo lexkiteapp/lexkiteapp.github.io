@@ -4,7 +4,7 @@ title: "分散学習 英単語 FSRS：エビングハウスの忘却曲線を克
 description: "分散学習 英単語 FSRSアルゴリズムの仕組みと暗記法を徹底解説。従来のSM-2との違い、忘却曲線をハックして記憶定着率90%を維持する間隔反復スケジュール、効果的なデジタル単語帳の作り方まで科学的な知見を詳しく紹介します。"
 keyword: "分散学習 英単語 fsrs"
 lang: ja
-translationKey: phuong-phap-spaced-repetition
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [phuong-phap, fsrs, flashcard]
 cover: review

@@ -4,7 +4,7 @@ title: "Aralikli Tekrar Kelime Ezberleme FSRS Sistemi Rehberi"
 description: "Aralikli tekrar kelime ezberleme fsrs algoritması ile unutma eğrisini yenin. Anki ve SM-2 farkı, hafıza bilimi ve kalıcı kelime öğrenme stratejileri."
 keyword: "aralikli tekrar kelime ezberleme fsrs"
 lang: tr
-translationKey: phuong-phap-spaced-repetition-thong-sap-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [fsrs, aralikli-tekrar, kelime]
 cover: review

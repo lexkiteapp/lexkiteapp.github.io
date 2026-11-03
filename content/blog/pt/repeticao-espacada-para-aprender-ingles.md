@@ -3,7 +3,7 @@ title: "Repetição Espaçada para Aprender Inglês: Guia Definitivo FSRS"
 description: "Descubra como a repetição espaçada para aprender inglês combate a curva do esquecimento de Ebbinghaus e fixa vocabulário para sempre na memória."
 slug: repeticao-espacada-para-aprender-ingles
 lang: pt
-translationKey: repeticao-espacada-para-aprender-ingles
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [spaced-repetition, fsrs, memorizacao]
 keyword: "repetição espaçada para aprender inglês"

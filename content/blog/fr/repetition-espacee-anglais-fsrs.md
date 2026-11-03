@@ -3,7 +3,7 @@ title: "Répétition Espacée pour Apprendre l Anglais: FSRS"
 description: "Répétition espacée pour apprendre l anglais: Comment la courbe de l oubli et l algorithme FSRS ancrent durablement le vocabulaire en mémoire à long terme."
 slug: repetition-espacee-anglais-fsrs
 lang: fr
-translationKey: repetition-espacee-anglais-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [repetition-espacee, fsrs, vocabulaire]
 keyword: "répétition espacée pour apprendre l anglais"

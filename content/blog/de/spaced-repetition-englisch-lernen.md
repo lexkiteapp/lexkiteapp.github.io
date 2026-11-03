@@ -3,7 +3,7 @@ title: "Spaced Repetition Englisch lernen: FSRS für Vokabeln"
 description: "Spaced Repetition Englisch lernen: Wie die Vergessenskurve und der FSRS-Algorithmus Vokabeln dauerhaft im Gedächtnis verankern. Inklusive Praxistipps."
 slug: spaced-repetition-englisch-lernen
 lang: de
-translationKey: spaced-repetition-englisch-lernen
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [spaced-repetition, fsrs, vokabeln]
 keyword: "spaced repetition englisch lernen"

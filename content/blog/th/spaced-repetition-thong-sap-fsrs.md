@@ -4,7 +4,7 @@ title: "Spaced Repetition ท่องศัพท์ FSRS: เทคนิค�
 description: "คู่มือ spaced repetition ท่องศัพท์ fsrs เทคนิคทบทวนตามเส้นโค้งการลืม Ebbinghaus กฎเหล็กสร้างแฟลชการ์ด และวิธีจำศัพท์ระยะยาวอย่างเป็นวิทยาศาสตร์"
 keyword: "spaced repetition ท่องศัพท์ fsrs"
 lang: th
-translationKey: spaced-repetition-lap-lai-ngat-quang-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [phuong-phap, fsrs, spaced-repetition]
 cover: review

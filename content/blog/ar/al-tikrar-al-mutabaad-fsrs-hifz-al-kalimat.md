@@ -4,7 +4,7 @@ title: "Al Tikrar al Mutabaad FSRS Hifz al Kalimat: دليل شامل"
 description: "Al tikrar al mutabaad fsrs hifz al kalimat: أسرار التكرار المتباعد، خوارزمية FSRS المتقدمة، قهر منحنى النسيان وحفظ آلاف الكلمات في الذاكرة طويلة المدى."
 keyword: "al tikrar al mutabaad fsrs hifz al kalimat"
 lang: ar
-translationKey: khoa-hoc-spaced-repetition-fsrs
+translationKey: lap-lai-ngat-quang
 category: phuong-phap
 tags: [phuong-phap, fsrs, spaced-repetition, tu-vung]
 cover: review
