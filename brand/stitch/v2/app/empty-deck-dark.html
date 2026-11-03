@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My deck - Lexkite</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#981201",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-bright": "#2f3b3e",
+            "surface-container-lowest": "#051013",
+            "surface-container-low": "#121d20",
+            "surface-container": "#162125",
+            "on-background": "#d8e5e9",
+            "surface-variant": "#2b373a",
+            "primary-container": "#2ba39a",
+            "on-primary-fixed": "#00201e",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-tint": "#6bd8ce",
+            "on-primary": "#003733",
+            "outline": "#879391",
+            "outline-variant": "#3d4947",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#263236",
+            "on-tertiary-fixed": "#261a00",
+            "on-error": "#690005",
+            "tertiary": "#f4bf40",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary": "#660800",
+            "inverse-primary": "#006a64",
+            "on-secondary-container": "#ffa493",
+            "on-surface": "#d8e5e9",
+            "surface-container-highest": "#2b373a",
+            "surface-dim": "#091518",
+            "secondary-fixed": "#ffdad3",
+            "on-tertiary": "#402e00",
+            "on-surface-variant": "#bcc9c7",
+            "inverse-surface": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "on-secondary-fixed": "#3f0300",
+            "background": "#091518",
+            "surface": "#091518",
+            "on-primary-container": "#00322e",
+            "tertiary-container": "#ba8b00",
+            "primary": "#6bd8ce",
+            "on-tertiary-container": "#392900",
+            "tertiary-fixed": "#ffdf9e",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-high": "#202c2f",
+            "primary-fixed": "#88f5ea",
+            "error": "#ffb4ab"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#091518] text-[#d8e5e9] font-body min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary antialiased">
+<!-- Mobile Viewport Canvas (Strict 390px, edge-to-edge, Tactile Night) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-[76px] overflow-x-hidden">
+<!-- 1. TOP BAR (INNER variant, 56px) -->
+<header class="h-[56px] sticky top-0 z-40 bg-[#0c181b] border-b-2 border-[#182d33] shadow-[0_3px_0_0_#050c0e] px-4 flex items-center justify-between">
+<!-- Back button -->
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-[#13262b] border border-[#22444d] shadow-[0_2px_0_0_#071013] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[#e6f6f5] text-[20px]">arrow_back</span>
+</button>
+<!-- Headline -->
+<h1 class="font-headline font-extrabold text-[19px] tracking-tight text-[#f1f8f7]">
+        My deck
+      </h1>
+<!-- Search button -->
+<button aria-label="Search deck" class="w-10 h-10 rounded-full bg-[#13262b] border border-[#22444d] shadow-[0_2px_0_0_#071013] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[#e6f6f5] text-[20px]">search</span>
+</button>
+</header>
+<!-- CONTENT WRAPPER -->
+<div class="px-4 pt-4 pb-6 flex flex-col gap-4 flex-1">
+<!-- 2. TEACHER SLOT & BUBBLE ROW -->
+<section aria-label="Coach guidance" class="flex items-center gap-3">
+<!-- TEACHER SLOT -->
+<div class="w-[120px] h-[140px] shrink-0 rounded-2xl border-2 border-dashed border-[#22444d] bg-[#0c181b]/50 flex items-center justify-center relative">
+<span class="font-label text-xs font-extrabold tracking-wider text-[#a6c7c3]">TEACHER</span>
+</div>
+<!-- SPEECH BUBBLE -->
+<div class="flex-1 bg-[#13262b] border-2 border-[#22444d] rounded-2xl p-3.5 shadow-[0_4px_0_0_#071012] relative">
+<!-- Speech Pointer Left -->
+<div class="absolute -left-2 top-8 w-0 h-0 border-y-[7px] border-y-transparent border-r-[8px] border-r-[#22444d]"></div>
+<div class="absolute -left-[6px] top-8 w-0 h-0 border-y-[7px] border-y-transparent border-r-[7px] border-r-[#13262b]"></div>
+<h2 class="font-headline font-bold text-sm text-primary mb-1 flex items-center gap-1 leading-snug">
+            Start your deck! <span class="text-tertiary">✨</span>
+</h2>
+<p class="text-xs font-medium text-[#d2e4e8] leading-[18px]">
+            Every new word you bookmark while practicing will live right here.
+          </p>
+</div>
+</section>
+<!-- 3. MAIN CARD - EMPTY STATE -->
+<section aria-label="Empty Deck View" class="rounded-2xl border-2 border-[#22444d] bg-[#0e1f23] p-5 shadow-[0_5px_0_0_#071012] flex flex-col items-center text-center mt-1">
+<!-- Center Illustrated Graphic: Shiny Deck Box with Golden Spark Star -->
+<div class="w-32 h-28 relative flex items-center justify-center mt-2 mb-1">
+<!-- Ambient glowing pedestal blur -->
+<div class="absolute w-24 h-12 bg-primary/15 rounded-full blur-xl pointer-events-none"></div>
+<!-- Stylized Isometric Flashcard Case SVG -->
+<svg class="w-28 h-28 drop-shadow-[0_8px_12px_rgba(0,0,0,0.6)]" fill="none" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<!-- Back cards fan -->
+<rect fill="#162c31" height="62" rx="7" stroke="#2a525b" stroke-width="2" transform="rotate(-14 26 24)" width="46" x="26" y="24"></rect>
+<rect fill="#1d373e" height="62" rx="7" stroke="#366570" stroke-width="2" transform="rotate(10 52 16)" width="46" x="52" y="16"></rect>
+<!-- Main card front -->
+<rect fill="#13262b" height="64" rx="8" stroke="#2ba39a" stroke-width="2" width="46" x="37" y="22"></rect>
+<!-- Card content stripes -->
+<rect fill="#6bd8ce" height="4" rx="2" width="22" x="44" y="32"></rect>
+<rect fill="#31555c" height="3" rx="1.5" width="32" x="44" y="40"></rect>
+<rect fill="#31555c" height="3" rx="1.5" width="26" x="44" y="46"></rect>
+<!-- Deck Vault Base / Tray -->
+<path d="M22 66L60 84L98 66V80C98 83 95 86 91 88L63 99C61 100 59 100 57 99L29 88C25 86 22 83 22 80V66Z" fill="#0c181b" stroke="#22444d" stroke-width="2"></path>
+<!-- Case Front Rim Highlight -->
+<path d="M22 66L60 84L98 66" stroke="#3d6c77" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Tactile Brass & Teal Lexkite Emblem Badge -->
+<circle cx="60" cy="74" fill="#122a2e" r="9" stroke="#f4bf40" stroke-width="1.5"></circle>
+<!-- Star glint inside badge -->
+<path d="M60 68L61.8 72.2L66 74L61.8 75.8L60 80L58.2 75.8L54 74L58.2 72.2L60 68Z" fill="#f4bf40"></path>
+<!-- Floating Golden Spark Star (Top Right) -->
+<g transform="translate(82, 18)">
+<path d="M9 0L11.5 6.5L18 9L11.5 11.5L9 18L6.5 11.5L0 9L6.5 6.5L9 0Z" fill="#f4bf40"></path>
+<circle cx="9" cy="9" fill="#fff5d0" r="2.5"></circle>
+</g>
+<!-- Small sparkle (Left) -->
+<g transform="translate(18, 40) scale(0.65)">
+<path d="M7 0L8.8 5.2L14 7L8.8 8.8L7 14L5.2 8.8L0 7L5.2 5.2L7 0Z" fill="#6bd8ce"></path>
+</g>
+</svg>
+</div>
+<!-- Heading -->
+<h3 class="font-headline text-xl font-extrabold text-[#f1f8f7] mt-3 mb-2 tracking-tight">
+          Your deck is empty
+        </h3>
+<!-- Subtitle -->
+<p class="text-sm text-[#9bbcc4] leading-relaxed mb-6 px-1">
+          Save unfamiliar words from drills or dictionary to build your personal flashcard deck.
+        </p>
+<!-- CTA Buttons Stack -->
+<div class="w-full flex flex-col gap-3">
+<!-- PRIMARY BUTTON: "Look up a word" (Candy-Orange Tactile Button) -->
+<button class="w-full h-14 bg-gradient-to-b from-[#ff9514] to-[#f97316] border-2 border-[#ffaa3b] rounded-xl shadow-[0_6px_0_0_#a84e00] active:translate-y-1 active:shadow-[0_2px_0_0_#a84e00] transition-all flex items-center justify-center gap-2 group cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[#1a0d02] text-[22px] font-bold">search</span>
+<span class="font-headline font-extrabold text-[15px] tracking-wide text-[#1a0d02]">Look up a word</span>
+</button>
+<!-- SECONDARY BUTTON: "Browse word sets" (Tactile Dark Teal) -->
+<button class="w-full h-14 bg-[#13262b] border-2 border-primary-container rounded-xl shadow-[0_4px_0_0_#071012] active:translate-y-1 active:shadow-[0_1px_0_0_#071012] hover:bg-[#1a343b] transition-all flex items-center justify-center gap-2 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-primary text-[22px]">folder</span>
+<span class="font-headline font-bold text-[15px] tracking-wide text-primary">Browse word sets</span>
+</button>
+</div>
+</section>
+<!-- Sub-hint Pill Indicator -->
+<div class="flex items-center justify-center gap-1.5 py-1 text-center">
+<span class="material-symbols-outlined text-tertiary text-sm fill-icon">lightbulb</span>
+<span class="font-label text-xs font-bold text-[#76949d]">Tip: Tap the bookmark icon in any drill</span>
+</div>
+</div>
+<!-- 4. BOTTOM TAB BAR (CANONICAL LEXKITE, 64px, 5 TABS) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-[#0c181b] border-t-2 border-[#182d33] shadow-[0_-3px_0_0_#050c0e] z-50 px-2 flex items-center justify-around">
+<!-- Tab 1: Today (Inactive) -->
+<a class="flex-1 flex flex-col items-center justify-center py-1 text-[#76949d] hover:text-[#bcc9c7] transition-colors" href="#today">
+<span class="material-symbols-outlined text-[23px]">today</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 tracking-tight">Today</span>
+</a>
+<!-- Tab 2: Vocab (ACTIVE TAB) -->
+<a class="flex-1 flex flex-col items-center justify-center py-1 relative" href="#vocab">
+<div class="w-12 h-11 bg-[#12383c] border-2 border-primary-container rounded-xl flex flex-col items-center justify-center shadow-[0_2px_0_0_#071a1d]">
+<span class="material-symbols-outlined text-primary text-[21px] fill-icon">menu_book</span>
+<span class="font-label text-[10px] font-extrabold text-primary leading-none mt-0.5">Vocab</span>
+</div>
+<!-- Active notification dot -->
+<span class="absolute top-1 right-3.5 w-2 h-2 rounded-full bg-tertiary ring-2 ring-[#0c181b]"></span>
+</a>
+<!-- Tab 3: Skills (Inactive) -->
+<a class="flex-1 flex flex-col items-center justify-center py-1 text-[#76949d] hover:text-[#bcc9c7] transition-colors" href="#skills">
+<span class="material-symbols-outlined text-[23px]">psychology</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 tracking-tight">Skills</span>
+</a>
+<!-- Tab 4: Tests (Inactive) -->
+<a class="flex-1 flex flex-col items-center justify-center py-1 text-[#76949d] hover:text-[#bcc9c7] transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[23px]">assignment</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 tracking-tight">Tests</span>
+</a>
+<!-- Tab 5: Me (Inactive) -->
+<a class="flex-1 flex flex-col items-center justify-center py-1 text-[#76949d] hover:text-[#bcc9c7] transition-colors" href="#me">
+<span class="material-symbols-outlined text-[23px]">person</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 tracking-tight">Me</span>
+</a>
+</nav>
+</main>
+</body></html>
