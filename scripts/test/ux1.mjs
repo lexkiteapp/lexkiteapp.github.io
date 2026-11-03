@@ -115,6 +115,7 @@ if (V2) {
   w.localStorage.setItem('lk.lsn.path', '2');
   await go('#/home', '.v2-today');
   const T = $('.v2-today');
+  ok($$('.v2-today .ux1-go.lsn-start').length >= 1 && $$('.v2-today .ux1-go').every(x => x.getAttribute('data-href') === '#/lesson/go'), 'Hôm nay: nút Bắt đầu chính mang móc chung .lsn-start.ux1-go (lesson-embed/gác bố cục bấm đúng nút, không bấm nhầm thẻ truyện)');
   ok(T && $('.v2-today [data-cont][data-href="#/lesson/go"]') && /TOEIC/.test($('.v2-today [data-blk="exam"]').textContent) && $('.v2-today [data-blk="exam"] button[data-href="#/toeic"]'), 'Hôm nay: thẻ Tiếp tục → bài hiện tại; thẻ kỳ thi TOEIC + thi thử #/toeic');
   ok($('.v2-today [data-tch] img[src*="teach/ama/still-"]') && !$('.v2-today [data-tch]').textContent.trim() && /\d/.test($('.v2-today [data-tch] + div p').textContent), 'Hôm nay: Ama (Chars) đứng trong ô giáo viên, bong bóng nói số liệu thật');
   ok($$('.v2-today [data-blk="path"] .v2-path [data-st]').length === 6 && $('.v2-today [data-blk="path"] [data-cur][data-href="#/lesson/go"]') && $('.v2-today [data-blk="path"] [data-act="guide"]') && $$('.v2-today [data-st="done"]').length === 2, 'Hôm nay: khối "Lộ trình" chứa ĐỦ 6 nút (xong/đang học/khóa/kiểm tra) + nút Hướng dẫn chặng');

@@ -249,7 +249,7 @@
     const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(' lt:bg-[#FFF7EA] dk:bg-[#0B171A]', '');
     const pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`;
     const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
-    const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go?story=' + encodeURIComponent(x.id) }));
+    const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
     const say = b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
@@ -271,6 +271,7 @@
     const root = ST2.mount(view, k, d, null);
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
     prune(root); langBtn(root);
+    root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
     if (/[?&]at=path\b/.test(location.hash)) o.toCur(root); // tới thẳng nút hiện tại (liên kết cũ "bản đồ") – mặc định trang mở ở đầu "Hôm nay"
