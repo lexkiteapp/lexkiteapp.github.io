@@ -5,7 +5,8 @@
 import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
-import { growthData } from './growth.js';
+import { growthData, growthRoll } from './growth.js';
+import { loadDays, merge, top, distinctBy, sumOf, freqOf, perDay, unkey, vidsHash } from './_rollup.js';
 import { purgeNotices } from './notices.js';
 import { purgeConfig, ADS_PUBLIC } from './config.js';
 import { stats as adsStatsOf, guardOf, revPack as adsRevPack } from './_ads.js';
@@ -82,12 +83,24 @@ const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).all()).re
 const dayStr = t => new Date(t).toISOString().slice(0, 10); // ngày UTC – hạn mức nhà cung cấp (D1, AI) reset 0h UTC
 // Thống kê truy cập: "ngày" theo giờ Việt Nam (vday, hit.js) · chỉ người thật: bỏ máy tự động (cột bot) và khách là tài khoản quản trị
 // (vid đã gắn uid có email trong ADMIN_EMAILS – chỉ dùng trong SQL, không trả về máy khách)
+// Danh sách vid quản trị đệm 10 phút (bộ nhớ isolate + Cache API theo băm danh sách email): 03/11 câu này chạy 507 lượt/ngày × ~217 dòng
+// (mỗi lần Trực tiếp tự làm mới 30 giây). Không thêm chỉ mục lower(email): sync.js cập nhật users.email mỗi lượt đồng bộ → +1 dòng ghi/lượt ở đường người dùng.
+const HW_TTL = 600e3; let HW_MEM = null;
 async function humanWhere(db, env) {
-  const admins = adminList(env); let vids = [];
-  if (admins.length) vids = (await all(db, 'SELECT DISTINCT m.vid AS v FROM vid_uid m JOIN users u ON u.uid = m.uid WHERE lower(u.email) IN (SELECT value FROM json_each(?))', JSON.stringify(admins)).catch(() => []))
-    .map(r => String(r.v)).filter(v => /^[a-z0-9]{8,32}$/i.test(v)).slice(0, 300);
+  const admins = adminList(env), k = vidsHash(admins), now = Date.now(); let vids = [];
+  if (HW_MEM && HW_MEM.k === k && now - HW_MEM.at < HW_TTL) vids = HW_MEM.vids;
+  else if (admins.length) {
+    vids = await cached('admin-vids-v1?k=' + k, HW_TTL / 1000, async () => (await all(db, 'SELECT DISTINCT m.vid AS v FROM vid_uid m JOIN users u ON u.uid = m.uid WHERE lower(u.email) IN (SELECT value FROM json_each(?))', JSON.stringify(admins)).catch(() => []))
+      .map(r => String(r.v)).filter(v => /^[a-z0-9]{8,32}$/i.test(v)).slice(0, 300));
+    HW_MEM = { k, at: now, vids };
+  }
   return { vids, H: 'bot IS NULL' + (vids.length ? ` AND vid NOT IN (${vids.map(v => `'${v}'`).join(', ')})` : '') };
 }
+export const _resetAdminMem = () => { HW_MEM = null; COUNTS_MEM = null; };
+// Thống kê truy cập đọc bảng tổng hợp theo ngày (functions/api/_rollup.js, docs/CAPACITY.md §D4); ADMIN_ROLLUP=0 → SQL cũ quét `sessions` (quay lại)
+const rollOff = env => !!(env && env.ADMIN_ROLLUP === '0');
+const avgOf = (s, n) => (n ? s / n : null);
+const webPlat = k => (k == null ? 'web' : k);
 
 // Danh sách khóa Gemini (gộp khóa đơn cũ 'gemini_key' vào danh sách mới)
 async function gkList(db) {
@@ -188,6 +201,89 @@ async function purgeDeleted(db, now = Date.now()) {
   return old.length;
 }
 
+// SQL cũ quét `sessions` – chỉ chạy khi ADMIN_ROLLUP=0 (quay lại) và trong test kiểm khớp (scripts/test/admin-rollup.mjs)
+export const LEGACY = {
+  async overview(db, b, who, env) {
+    const now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), { H, vids } = await humanWhere(db, env);
+    const [u, s, c, e] = await Promise.all([
+      one(db, 'SELECT COUNT(*) AS total, SUM(created > ?1) AS new7, SUM(seen > ?2) AS act1, SUM(seen > ?1) AS act7, SUM(seen > ?3) AS act30 FROM users', now - 7 * DAY, now - DAY, now - 30 * DAY),
+      one(db, `SELECT SUM(day = ?1) AS today, COUNT(*) AS s7, COUNT(DISTINCT vid) AS v7, AVG(dur) AS dur7, AVG(pages) AS pages7 FROM sessions WHERE ${H} AND day >= ?2`, d1, d7),
+      one(db, 'SELECT COUNT(*) AS open FROM contact_msgs WHERE COALESCE(handled, 0) = 0'),
+      one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY),
+    ]);
+    // Thẻ KPI trang Tổng quan (thêm – không đổi trường cũ): người thật hôm nay/7/30 ngày + kỳ trước để tính xu hướng, đang online, phiên tự động đã loại hôm nay, chuỗi 14 ngày
+    const d0 = vday(now - DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), d60 = vday(now - 59 * DAY);
+    const [h, on, ex, ser] = await Promise.all([
+      one(db, `SELECT COUNT(DISTINCT CASE WHEN day = ?1 THEN vid END) AS d1, COUNT(DISTINCT CASE WHEN day = ?2 THEN vid END) AS p1, COUNT(DISTINCT CASE WHEN day >= ?3 THEN vid END) AS d7, COUNT(DISTINCT CASE WHEN day >= ?4 AND day < ?3 THEN vid END) AS p7, COUNT(DISTINCT CASE WHEN day >= ?5 THEN vid END) AS d30, COUNT(DISTINCT CASE WHEN day < ?5 THEN vid END) AS p30 FROM sessions WHERE ${H} AND day >= ?6`, d1, d0, d7, d14, d30, d60).catch(() => ({})),
+      one(db, `SELECT COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ?`, now - 5 * 60e3).catch(() => ({})),
+      one(db, `SELECT COUNT(*) AS s FROM sessions WHERE day = ? AND NOT (${H})`, d1).catch(() => ({})),
+      all(db, `SELECT day, COUNT(DISTINCT vid) AS v FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14).catch(() => []),
+    ]);
+    const by = Object.fromEntries(ser.map(r => [r.day, r.v]));
+    const aeOn = hitMode(env) === 'hybrid' ? await aeOnline(env, now, vids) : null; // nhịp online chỉ ở Analytics Engine (hit.js)
+    return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: aeOn ? aeOn.n : on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
+  },
+  async analytics(db, b, who, env) {
+    const days = Math.min(Math.max(+b.days || 30, 1), 365), from = vday(Date.now() - (days - 1) * DAY), { H } = await humanWhere(db, env);
+    const top = (col, n = 12) => all(db, `SELECT ${col} AS k, COUNT(*) AS n, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur FROM sessions WHERE ${H} AND day >= ? GROUP BY ${col} ORDER BY n DESC LIMIT ${n}`, from);
+    const [daily, refs, countries, devs, langs, plats, paths, sum, freq] = await Promise.all([
+      all(db, `SELECT day, COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, from),
+      top("COALESCE(NULLIF(ref, ''), '(trực tiếp)')"), top('country', 20), top('dev'), top('lang', 15), top('plat'), top('path', 15),
+      one(db, `SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret, SUM(pages <= 1 AND dur < 15) AS bounce, (SELECT lcp FROM sessions WHERE ${H} AND day >= ?1 AND lcp > 0 ORDER BY lcp LIMIT 1 OFFSET (SELECT CAST(COUNT(*) * 0.75 AS INT) FROM sessions WHERE ${H} AND day >= ?1 AND lcp > 0)) AS lcp, SUM(lcp > 0 AND lcp <= 2500) AS lcpGood, SUM(lcp > 0) AS lcpN FROM sessions WHERE ${H} AND day >= ?1`, from),
+      all(db, `SELECT CASE WHEN c = 1 THEN '1' WHEN c <= 3 THEN '2–3' WHEN c <= 7 THEN '4–7' WHEN c <= 15 THEN '8–15' ELSE '16+' END AS k, COUNT(*) AS n FROM (SELECT vid, COUNT(*) AS c FROM sessions WHERE ${H} AND day >= ? GROUP BY vid) GROUP BY k`, from),
+    ]);
+    const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
+    // Chi tiết thêm: giờ cao điểm & ngày trong tuần (giờ Việt Nam), thời lượng phiên theo nhóm, khách mới/quay lại theo ngày, đăng ký mới theo ngày
+    const VN = 7 * 3600000, since = Date.now() - days * DAY;
+    const [hours, wdays, durs, nr, signups] = await Promise.all([
+      all(db, `SELECT CAST(((at + ${VN}) / 3600000) % 24 AS INTEGER) AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND at >= ? GROUP BY k ORDER BY k`, since),
+      all(db, `SELECT CAST(((at + ${VN}) / 86400000 + 4) % 7 AS INTEGER) AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND at >= ? GROUP BY k ORDER BY k`, since),
+      all(db, `SELECT CASE WHEN dur < 15 THEN '<15 giây' WHEN dur < 60 THEN '15–60 giây' WHEN dur < 180 THEN '1–3 phút' WHEN dur < 600 THEN '3–10 phút' WHEN dur < 1800 THEN '10–30 phút' ELSE '30+ phút' END AS k, COUNT(*) AS n, MIN(dur) AS o FROM sessions WHERE ${H} AND day >= ? GROUP BY k ORDER BY o`, from),
+      all(db, `SELECT day, SUM(ret = 0) AS fresh, SUM(ret = 1) AS back FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, from),
+      all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
+    ]);
+    const excluded = await one(db, `SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day >= ? AND NOT (${H})`, from);
+    return { days, tz: TZ, from, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate, hours, wdays, durs, nr, signups, excluded };
+  },
+  // Lưu lượng trực tiếp (tự cập nhật 30 giây/lần): phần nhanh đệm 20 giây, phần nặng (tổng, 14 ngày, 30 ngày) đệm 10 phút
+  async live(db, b, who, env) {
+    const days = Math.min(Math.max(+b.days || 30, 1), 365), now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), { H, vids } = await humanWhere(db, env);
+    const fast = await cached('live-fast-v3?d=' + days, 20, async () => {
+      const on = now - 5 * 60e3;
+      const [online, viewing, today, countries, pagesToday, refs, platsToday, auto, late] = await Promise.all([
+        one(db, `SELECT COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ?`, on),
+        all(db, `SELECT COALESCE(last_path, path, 'home') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ? AND COALESCE(last_path, path, 'home') <> 'admin' GROUP BY k ORDER BY n DESC LIMIT 10`, on),
+        one(db, `SELECT COUNT(*) AS s, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors, AVG(dur) AS dur FROM sessions WHERE ${H} AND day = ?`, d1),
+        all(db, `SELECT country AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY k ORDER BY n DESC LIMIT 250`, d1),
+        all(db, 'SELECT path AS k, n FROM pageviews_day WHERE day = ? ORDER BY n DESC LIMIT 10', d1),
+        all(db, `SELECT ref AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? AND ref <> '' GROUP BY ref ORDER BY n DESC LIMIT 10`, d1),
+        all(db, `SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY k ORDER BY n DESC`, d1),
+        // Đã loại khỏi số người thật hôm nay: máy tự động theo loại (ci · ci-app · ua · bot · dc · admin) + khách là tài khoản quản trị
+        all(db, `SELECT COALESCE(bot, 'admin') AS k, COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day = ? AND NOT (${H}) GROUP BY k ORDER BY s DESC`, d1),
+        // Phiên gửi bù hôm nay (hit.js lateAt): máy khách giữ lại lúc /api chết rồi gửi lại → dấu hiệu đã có gián đoạn ghi thống kê
+        one(db, "SELECT COALESCE(SUM(n), 0) AS n FROM ext_events WHERE day = ? AND kind = 'hit:late'", d1).catch(() => ({ n: 0 })),
+      ]);
+      // Chưa có dữ liệu pageviews_day (trước khi cập nhật app) → dùng trang vào đầu tiên của phiên
+      const fb = pagesToday.length ? null : await all(db, `SELECT path AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY path ORDER BY n DESC LIMIT 10`, d1);
+      const aeOn = hitMode(env) === 'hybrid' ? await aeOnline(env, now, vids) : null; // chế độ hybrid: nhịp 3 phút chỉ ở AE → 'đang online' đọc AE
+      return { online: aeOn ? aeOn.n : online.n || 0, viewing: aeOn ? aeOn.viewing : viewing, today: { ...today, perVisitor: today.visitors ? today.views / today.visitors : 0 }, countries, pagesToday: fb || pagesToday, pagesFallback: !!fb, refs, platsToday,
+        excluded: { s: auto.reduce((a, r) => a + r.s, 0), kinds: auto }, late: late.n || 0 };
+    });
+    const slow = await cached('live-slow-v2', 600, async () => {
+      const [total, series, plats30, pages7] = await Promise.all([
+        one(db, `SELECT COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE ${H}`),
+        all(db, `SELECT day, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14),
+        all(db, `SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day >= ? GROUP BY k ORDER BY n DESC`, d30),
+        all(db, 'SELECT path AS k, SUM(n) AS n FROM pageviews_day WHERE day >= ? GROUP BY path ORDER BY n DESC LIMIT 10', d7),
+      ]);
+      const by = Object.fromEntries(series.map(r => [r.day, r]));
+      return { total, plats30, pages7, series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY); return { day: d, views: (by[d] || {}).views || 0, visitors: (by[d] || {}).visitors || 0 }; }) };
+    });
+    const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
+    return { at: now, tz: TZ, day: d1, rate, ...fast, ...slow };
+  },
+};
+
 const OPS = {
   async whoami() { return { admin: true }; }, // cổng phía máy khách: tới được đây = adminGate đã xác nhận (không trả danh sách email)
   async usage(db, b) {
@@ -196,7 +292,7 @@ const OPS = {
     const tables = await all(db, "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '_cf_%'");
     const counts = await tableCounts(db, tables.map(t => t.name));
     const w = await Promise.all([
-      one(db, 'SELECT COUNT(*) AS n FROM sessions WHERE at >= ?', t0), one(db, 'SELECT COUNT(*) AS n FROM docs WHERE updated >= ?', t0),
+      one(db, 'SELECT COUNT(*) AS n FROM sessions WHERE day >= ?1 AND at >= ?2', d1, t0) /* chỉ mục sessions_day (at không có chỉ mục → trước đây quét cả bảng); ngày VN của 0h UTC = d1 */, one(db, 'SELECT COUNT(*) AS n FROM docs WHERE updated >= ?', t0),
       one(db, 'SELECT COUNT(*) AS n FROM users WHERE seen >= ?', t0), one(db, 'SELECT COALESCE(SUM(n), 0) AS n FROM errors WHERE last >= ?', t0),
       one(db, 'SELECT COUNT(*) AS n FROM contact_msgs WHERE at >= ?', t0),
     ]);
@@ -222,24 +318,32 @@ const OPS = {
   },
   async serviceDelete(db, b) { await db.prepare('DELETE FROM services WHERE id = ?').bind(+b.id).run(); return { ok: true }; },
   async overview(db, b, who, env) {
-    const now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), { H, vids } = await humanWhere(db, env);
-    const [u, s, c, e] = await Promise.all([
-      one(db, 'SELECT COUNT(*) AS total, SUM(created > ?1) AS new7, SUM(seen > ?2) AS act1, SUM(seen > ?1) AS act7, SUM(seen > ?3) AS act30 FROM users', now - 7 * DAY, now - DAY, now - 30 * DAY),
-      one(db, `SELECT SUM(day = ?1) AS today, COUNT(*) AS s7, COUNT(DISTINCT vid) AS v7, AVG(dur) AS dur7, AVG(pages) AS pages7 FROM sessions WHERE ${H} AND day >= ?2`, d1, d7),
-      one(db, 'SELECT COUNT(*) AS open FROM contact_msgs WHERE COALESCE(handled, 0) = 0'),
-      one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY),
+    if (rollOff(env)) return LEGACY.overview(db, b, who, env);
+    const now = Date.now(), d1 = vday(now), { vids } = await humanWhere(db, env), adm = new Set(vids);
+    // "Đang online" luôn tươi (chỉ mục sessions_last: chỉ đọc phiên 5 phút gần nhất); phần còn lại đệm 60 giây
+    const [onRows, aeOn] = await Promise.all([
+      all(db, 'SELECT DISTINCT vid FROM sessions WHERE last > ?1 AND bot IS NULL', now - 5 * 60e3).catch(() => []),
+      hitMode(env) === 'hybrid' ? aeOnline(env, now, vids) : null,
     ]);
-    // Thẻ KPI trang Tổng quan (thêm – không đổi trường cũ): người thật hôm nay/7/30 ngày + kỳ trước để tính xu hướng, đang online, phiên tự động đã loại hôm nay, chuỗi 14 ngày
-    const d0 = vday(now - DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), d60 = vday(now - 59 * DAY);
-    const [h, on, ex, ser] = await Promise.all([
-      one(db, `SELECT COUNT(DISTINCT CASE WHEN day = ?1 THEN vid END) AS d1, COUNT(DISTINCT CASE WHEN day = ?2 THEN vid END) AS p1, COUNT(DISTINCT CASE WHEN day >= ?3 THEN vid END) AS d7, COUNT(DISTINCT CASE WHEN day >= ?4 AND day < ?3 THEN vid END) AS p7, COUNT(DISTINCT CASE WHEN day >= ?5 THEN vid END) AS d30, COUNT(DISTINCT CASE WHEN day < ?5 THEN vid END) AS p30 FROM sessions WHERE ${H} AND day >= ?6`, d1, d0, d7, d14, d30, d60).catch(() => ({})),
-      one(db, `SELECT COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ?`, now - 5 * 60e3).catch(() => ({})),
-      one(db, `SELECT COUNT(*) AS s FROM sessions WHERE day = ? AND NOT (${H})`, d1).catch(() => ({})),
-      all(db, `SELECT day, COUNT(DISTINCT vid) AS v FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14).catch(() => []),
-    ]);
-    const by = Object.fromEntries(ser.map(r => [r.day, r.v]));
-    const aeOn = hitMode(env) === 'hybrid' ? await aeOnline(env, now, vids) : null; // nhịp online chỉ ở Analytics Engine (hit.js)
-    return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: aeOn ? aeOn.n : on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
+    const online = aeOn ? aeOn.n : onRows.filter(r => r.vid != null && !adm.has(r.vid)).length;
+    const rest = await cached(`overview-r1?x=${vidsHash(vids)}&d=${d1}`, 60, async () => {
+      const d7 = vday(now - 6 * DAY), d0 = vday(now - DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), d60 = vday(now - 59 * DAY), y = k => vday(Date.parse(k + 'T12:00:00Z') - DAY);
+      const [u, c, e, days] = await Promise.all([
+        one(db, 'SELECT COUNT(*) AS total, SUM(created > ?1) AS new7, SUM(seen > ?2) AS act1, SUM(seen > ?1) AS act7, SUM(seen > ?3) AS act30 FROM users', now - 7 * DAY, now - DAY, now - 30 * DAY),
+        one(db, 'SELECT COUNT(*) AS open FROM contact_msgs WHERE COALESCE(handled, 0) = 0'),
+        one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY),
+        loadDays(db, d60, adm, now),
+      ]);
+      const m7 = merge(days, d7), v = (a, z) => merge(days, a, z).vids.size, exToday = merge(days, d1, d1);
+      return {
+        users: u, inbox: c, errors24: e,
+        sessions: { today: m7.s ? exToday.s : null, s7: m7.s, v7: m7.vids.size, dur7: avgOf(m7.dS, m7.dN), pages7: avgOf(m7.pS, m7.pN) },
+        humans: { d1: v(d1, d1), p1: v(d0, d0), d7: v(d7), p7: v(d14, y(d7)), d30: v(d30), p30: v(d60, y(d30)) },
+        excluded: [...exToday.ex.values()].reduce((a, t) => a + t.s, 0),
+        series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: v(k, k) }; }),
+      };
+    });
+    return { users: rest.users, sessions: rest.sessions, inbox: rest.inbox, errors24: rest.errors24, humans: rest.humans, online, excluded: rest.excluded, series: rest.series };
   },
   async users(db, b, who, env) {
     await purgeDeleted(db).catch(() => {}); // xóa thật các tài khoản đã xóa mềm > 30 ngày (≤ 25/lượt, đọc chỉ mục idx_users_del – không có việc nền)
@@ -443,66 +547,75 @@ const OPS = {
   },
   async inboxMark(db, b) { await db.prepare('UPDATE contact_msgs SET handled = ? WHERE id = ?').bind(b.handled ? 1 : 0, +b.id).run(); return { ok: true }; },
   async analytics(db, b, who, env) {
-    const days = Math.min(Math.max(+b.days || 30, 1), 365), from = vday(Date.now() - (days - 1) * DAY), { H } = await humanWhere(db, env);
-    const top = (col, n = 12) => all(db, `SELECT ${col} AS k, COUNT(*) AS n, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur FROM sessions WHERE ${H} AND day >= ? GROUP BY ${col} ORDER BY n DESC LIMIT ${n}`, from);
-    const [daily, refs, countries, devs, langs, plats, paths, sum, freq] = await Promise.all([
-      all(db, `SELECT day, COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, from),
-      top("COALESCE(NULLIF(ref, ''), '(trực tiếp)')"), top('country', 20), top('dev'), top('lang', 15), top('plat'), top('path', 15),
-      one(db, `SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret, SUM(pages <= 1 AND dur < 15) AS bounce, (SELECT lcp FROM sessions WHERE ${H} AND day >= ?1 AND lcp > 0 ORDER BY lcp LIMIT 1 OFFSET (SELECT CAST(COUNT(*) * 0.75 AS INT) FROM sessions WHERE ${H} AND day >= ?1 AND lcp > 0)) AS lcp, SUM(lcp > 0 AND lcp <= 2500) AS lcpGood, SUM(lcp > 0) AS lcpN FROM sessions WHERE ${H} AND day >= ?1`, from),
-      all(db, `SELECT CASE WHEN c = 1 THEN '1' WHEN c <= 3 THEN '2–3' WHEN c <= 7 THEN '4–7' WHEN c <= 15 THEN '8–15' ELSE '16+' END AS k, COUNT(*) AS n FROM (SELECT vid, COUNT(*) AS c FROM sessions WHERE ${H} AND day >= ? GROUP BY vid) GROUP BY k`, from),
-    ]);
-    const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
-    // Chi tiết thêm: giờ cao điểm & ngày trong tuần (giờ Việt Nam), thời lượng phiên theo nhóm, khách mới/quay lại theo ngày, đăng ký mới theo ngày
-    const VN = 7 * 3600000, since = Date.now() - days * DAY;
-    const [hours, wdays, durs, nr, signups] = await Promise.all([
-      all(db, `SELECT CAST(((at + ${VN}) / 3600000) % 24 AS INTEGER) AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND at >= ? GROUP BY k ORDER BY k`, since),
-      all(db, `SELECT CAST(((at + ${VN}) / 86400000 + 4) % 7 AS INTEGER) AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND at >= ? GROUP BY k ORDER BY k`, since),
-      all(db, `SELECT CASE WHEN dur < 15 THEN '<15 giây' WHEN dur < 60 THEN '15–60 giây' WHEN dur < 180 THEN '1–3 phút' WHEN dur < 600 THEN '3–10 phút' WHEN dur < 1800 THEN '10–30 phút' ELSE '30+ phút' END AS k, COUNT(*) AS n, MIN(dur) AS o FROM sessions WHERE ${H} AND day >= ? GROUP BY k ORDER BY o`, from),
-      all(db, `SELECT day, SUM(ret = 0) AS fresh, SUM(ret = 1) AS back FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, from),
-      all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
-    ]);
-    const excluded = await one(db, `SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day >= ? AND NOT (${H})`, from);
-    return { days, tz: TZ, from, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate, hours, wdays, durs, nr, signups, excluded };
+    if (rollOff(env)) return LEGACY.analytics(db, b, who, env);
+    const now = Date.now(), days = Math.min(Math.max(+b.days || 30, 1), 365), from = vday(now - (days - 1) * DAY), today = vday(now), { vids } = await humanWhere(db, env);
+    // Đệm 5 phút theo khoảng ngày + danh sách quản trị: mở lại trang / đổi tab không đọc D1. Giờ cao điểm & thứ trong tuần theo NGÀY VN của khoảng
+    // (trước: mốc trượt now − days; nay khớp mọi thẻ khác của trang)
+    return cached(`analytics-r1?d=${days}&x=${vidsHash(vids)}&t=${today}`, 300, async () => {
+      const VN = 7 * 3600000, since = now - days * DAY;
+      const [D, rate, signups] = await Promise.all([
+        loadDays(db, from, new Set(vids), now),
+        one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null),
+        all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
+      ]);
+      const m = merge(D, from);
+      return {
+        days, tz: TZ, from,
+        daily: perDay(D, from, '9999', (day, x) => ({ day, s: x.s, v: x.vids.size, dur: avgOf(x.dS, x.dN), pages: avgOf(x.pS, x.pN), ret: x.rN ? x.rS : null })),
+        refs: top(m, 'ref', 12, k => (k == null || k === '' ? '(trực tiếp)' : k)), countries: top(m, 'country', 20), devs: top(m, 'dev', 12), langs: top(m, 'lang', 15), plats: top(m, 'plat', 12), paths: top(m, 'path', 15),
+        sum: sumOf(m), freq: freqOf(m), rate: +((rate || {}).v) || 1,
+        hours: m.hr.map((n, k) => ({ k, n })).filter(x => x.n), wdays: m.wd.map((n, k) => ({ k, n })).filter(x => x.n),
+        durs: [...m.du].map(([k, [n, o]]) => ({ k, n, o })).sort((x, y) => (x.o == null ? -1 : y.o == null ? 1 : x.o - y.o)),
+        nr: perDay(D, from, '9999', (day, x) => ({ day, fresh: x.rN ? x.fr : null, back: x.rN ? x.bk : null })),
+        signups, excluded: { s: [...m.ex.values()].reduce((a, t) => a + t.s, 0), v: m.exV.size },
+      };
+    });
   },
-  // Lưu lượng trực tiếp (tự cập nhật 30 giây/lần): phần nhanh đệm 20 giây, phần nặng (tổng, 14 ngày, 30 ngày) đệm 10 phút
+  // Lưu lượng trực tiếp (tự cập nhật 30 giây/lần): phần nhanh đệm 20 giây (hôm nay: 1 câu theo chỉ mục sessions_day + bộ nhớ isolate 20 giây), phần nặng 10 phút (bảng tổng hợp)
   async live(db, b, who, env) {
-    const days = Math.min(Math.max(+b.days || 30, 1), 365), now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), { H, vids } = await humanWhere(db, env);
-    const fast = await cached('live-fast-v3?d=' + days, 20, async () => {
-      const on = now - 5 * 60e3;
-      const [online, viewing, today, countries, pagesToday, refs, platsToday, auto, late] = await Promise.all([
-        one(db, `SELECT COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ?`, on),
-        all(db, `SELECT COALESCE(last_path, path, 'home') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ? AND COALESCE(last_path, path, 'home') <> 'admin' GROUP BY k ORDER BY n DESC LIMIT 10`, on),
-        one(db, `SELECT COUNT(*) AS s, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors, AVG(dur) AS dur FROM sessions WHERE ${H} AND day = ?`, d1),
-        all(db, `SELECT country AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY k ORDER BY n DESC LIMIT 250`, d1),
+    if (rollOff(env)) return LEGACY.live(db, b, who, env);
+    const days = Math.min(Math.max(+b.days || 30, 1), 365), now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), { vids } = await humanWhere(db, env), adm = new Set(vids), xh = vidsHash(vids);
+    const fast = await cached(`live-fast-r1?d=${days}&x=${xh}`, 20, async () => {
+      const [onRows, pagesToday, late, D] = await Promise.all([
+        all(db, "SELECT vid, COALESCE(last_path, path, 'home') AS k FROM sessions WHERE last > ?1 AND bot IS NULL", now - 5 * 60e3),
         all(db, 'SELECT path AS k, n FROM pageviews_day WHERE day = ? ORDER BY n DESC LIMIT 10', d1),
-        all(db, `SELECT ref AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? AND ref <> '' GROUP BY ref ORDER BY n DESC LIMIT 10`, d1),
-        all(db, `SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY k ORDER BY n DESC`, d1),
-        // Đã loại khỏi số người thật hôm nay: máy tự động theo loại (ci · ci-app · ua · bot · dc · admin) + khách là tài khoản quản trị
-        all(db, `SELECT COALESCE(bot, 'admin') AS k, COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day = ? AND NOT (${H}) GROUP BY k ORDER BY s DESC`, d1),
         // Phiên gửi bù hôm nay (hit.js lateAt): máy khách giữ lại lúc /api chết rồi gửi lại → dấu hiệu đã có gián đoạn ghi thống kê
         one(db, "SELECT COALESCE(SUM(n), 0) AS n FROM ext_events WHERE day = ? AND kind = 'hit:late'", d1).catch(() => ({ n: 0 })),
+        loadDays(db, d1, adm, now),
       ]);
+      const m = merge(D, d1, d1), on = onRows.filter(r => r.vid != null && !adm.has(r.vid)), byK = new Map();
+      for (const r of on) if (r.k !== 'admin') (byK.get(r.k) || (byK.set(r.k, new Set()), byK.get(r.k))).add(r.vid);
+      const viewing = [...byK].map(([k, s]) => ({ k, n: s.size })).sort((x, y) => y.n - x.n || (x.k < y.k ? -1 : 1)).slice(0, 10);
+      const refs = [...m.dm.ref].map(([k, e]) => ({ k: unkey(k), n: e.n })).filter(x => x.k != null && x.k !== '').sort((x, y) => y.n - x.n || (x.k < y.k ? -1 : 1)).slice(0, 10);
       // Chưa có dữ liệu pageviews_day (trước khi cập nhật app) → dùng trang vào đầu tiên của phiên
-      const fb = pagesToday.length ? null : await all(db, `SELECT path AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY path ORDER BY n DESC LIMIT 10`, d1);
+      const fb = pagesToday.length ? null : [...m.dm.path].map(([k, e]) => ({ k: unkey(k), n: e.n })).sort((x, y) => y.n - x.n || (String(x.k) < String(y.k) ? -1 : 1)).slice(0, 10);
       const aeOn = hitMode(env) === 'hybrid' ? await aeOnline(env, now, vids) : null; // chế độ hybrid: nhịp 3 phút chỉ ở AE → 'đang online' đọc AE
-      return { online: aeOn ? aeOn.n : online.n || 0, viewing: aeOn ? aeOn.viewing : viewing, today: { ...today, perVisitor: today.visitors ? today.views / today.visitors : 0 }, countries, pagesToday: fb || pagesToday, pagesFallback: !!fb, refs, platsToday,
+      // Đã loại khỏi số người thật hôm nay: máy tự động theo loại (ci · ci-app · ua · bot · dc · admin) + khách là tài khoản quản trị
+      const auto = [...m.ex].map(([k, t]) => ({ k, s: t.s, v: t.v.size })).sort((x, y) => y.s - x.s || (x.k < y.k ? -1 : 1));
+      const today = { s: m.s, views: m.pS, visitors: m.vids.size, dur: avgOf(m.dS, m.dN) };
+      return { online: aeOn ? aeOn.n : new Set(on.map(r => r.vid)).size, viewing: aeOn ? aeOn.viewing : viewing, today: { ...today, perVisitor: today.visitors ? today.views / today.visitors : 0 },
+        countries: distinctBy(m, 'country', 250), pagesToday: fb || pagesToday, pagesFallback: !!fb, refs, platsToday: distinctBy(m, 'plat', 1e3, webPlat),
         excluded: { s: auto.reduce((a, r) => a + r.s, 0), kinds: auto }, late: late.n || 0 };
     });
-    const slow = await cached('live-slow-v2', 600, async () => {
-      const [total, series, plats30, pages7] = await Promise.all([
-        one(db, `SELECT COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE ${H}`),
-        all(db, `SELECT day, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14),
-        all(db, `SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day >= ? GROUP BY k ORDER BY n DESC`, d30),
+    const slow = await cached(`live-slow-r1?x=${xh}`, 600, async () => {
+      const [D, pages7] = await Promise.all([
+        loadDays(db, '0000-00-00', adm, now), // toàn bộ lịch sử: ≤ 1 dòng/ngày (≤ 400 ngày – hit.js dọn sessions quá 400 ngày)
         all(db, 'SELECT path AS k, SUM(n) AS n FROM pageviews_day WHERE day >= ? GROUP BY path ORDER BY n DESC LIMIT 10', d7),
       ]);
-      const by = Object.fromEntries(series.map(r => [r.day, r]));
-      return { total, plats30, pages7, series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY); return { day: d, views: (by[d] || {}).views || 0, visitors: (by[d] || {}).visitors || 0 }; }) };
+      const all0 = merge(D, '0000-00-00');
+      return { total: { views: all0.pS, visitors: all0.vids.size }, plats30: distinctBy(merge(D, d30), 'plat', 1e3, webPlat), pages7,
+        series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY), x = merge(D, d, d); return { day: d, views: x.pS, visitors: x.vids.size }; }) };
     });
     const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
     return { at: now, tz: TZ, day: d1, rate, ...fast, ...slow };
   },
   // Tăng trưởng & giữ chân, add-on Chrome, phễu chuyển đổi (functions/api/growth.js) – đệm 10 phút theo kỳ 7/30/90 ngày
-  async growth(db, b) { const P = [7, 30, 90].includes(+b.days) ? +b.days : 30; return cached('growth-v1?d=' + P, 600, () => growthData(db, P)); },
+  async growth(db, b, who, env) {
+    const P = [7, 30, 90].includes(+b.days) ? +b.days : 30;
+    if (rollOff(env)) return cached('growth-v1?d=' + P, 600, () => growthData(db, P));
+    const { vids } = await humanWhere(db, env);
+    return cached(`growth-r1?d=${P}&x=${vidsHash(vids)}`, 600, () => growthRoll(db, P, new Set(vids)));
+  },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
   async config(db) { const rows = (await all(db, `SELECT k, v, at, by FROM config WHERE k IN (${CONFIG_KEYS.map(() => '?').join(',')})`, ...CONFIG_KEYS)).filter(r => CONFIG_KEYS.includes(r.k)); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },
