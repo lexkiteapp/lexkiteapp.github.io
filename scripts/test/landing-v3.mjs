@@ -23,6 +23,7 @@ for (const l of LANGS) {
   ok(idle.length === 2 && idle.map(m => m[1]).join() === 'ama,carlos', `${f}: cần Ama (hero) + Carlos (cách học) qua Chars.idle, poster có width/height`);
   for (const m of idle) ok(/\bmuted\b/.test(m[2]) && /data-src="\/teach\/\w+\/idle\.webm"/.test(m[2]) && !/\s(src|autoplay)=?/.test(m[2].replace(/data-src/g, '')), `${f}: video giáo viên phải tắt tiếng, chưa có src/autoplay lúc tải`);
   ok(!/<audio|autoplay/.test(body), `${f}: không được tự phát âm thanh/video`);
+  ok(!/\banimate-(pulse|bounce|ping|spin)\b/.test(html) && !/animation:[^;}]*infinite/.test(html), `${f}: không được có chuyển động lặp vô hạn (gây khó chịu, làm mờ chữ – known-issues.json)`);
 }
 const site = fs.readFileSync('web/js/site.js', 'utf8');
 ok(/prefers-reduced-motion/.test(site) && /data-idle/.test(site), 'web/js/site.js: thiếu bật vòng nghỉ giáo viên (tôn trọng giảm chuyển động)');

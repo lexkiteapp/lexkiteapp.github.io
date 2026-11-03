@@ -405,6 +405,9 @@
   },
   ":scope > :nth-child(1) > :nth-child(2)": {
    "gap-3": "'gap-2 sm:gap-3'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "animate-pulse": "''"
   }
  }
 }

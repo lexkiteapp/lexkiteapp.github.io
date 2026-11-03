@@ -39,6 +39,8 @@ b['repeat'].append({'list': 'd.heroLinks', 'as': 'k', 'sel': P(2, 1, 5, 1), 'sam
 b['addClass'][P(2, 1, 5)] = 'flex flex-wrap gap-x-6'
 key('“Hi! Ready for 5 minutes today?”', '“Chào bạn! Học 5 phút hôm nay nhé?”')
 b['after'][P(2, 2, 3, 1)] = 'd.ama'; b['remove'].append(P(2, 2, 3, 1))
+# mẫu: bong bóng lời chào animate-pulse lặp vô hạn → lúc mờ chữ < 4,5:1 (Lighthouse color-contrast, web-sweep) + chuyển động không dừng gây khó chịu → bỏ (known-issues.json)
+b['cls'][P(2, 2, 2)] = {'animate-pulse': "''"}
 # ---- 3 dải tin cậy ----
 for en, vi in [('100% free', 'Miễn phí 100%'), ('Forever, no paywalls', 'Mãi mãi, không tường phí'), ('No ads blocking lessons', 'Không quảng cáo chặn bài học'),
                ('Pure uninterrupted focus', 'Tập trung, không bị ngắt'), ('15 interface languages', 'Giao diện 15 ngôn ngữ'), ('Learn in your native tongue', 'Học bằng tiếng mẹ đẻ'),
