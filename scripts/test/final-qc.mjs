@@ -50,7 +50,7 @@ const HOOK = () => {
 // Giáo viên trên màn: ảnh/clip Chars (teach/<who>/…) + kiểm "dán đè" + toàn thân + bóng chân. Chạy trong trang.
 const TEACH = async () => {
   const out = [], vh = innerHeight;
-  const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view canvas.tslot-img, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
+  const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view canvas.tch-face, #view canvas.tslot-img, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
   // đo "cái gì nằm trên cùng" theo HÌNH: chỗ giáo viên (.tslot, bệ) và lớp trang trí có pointer-events:none – elementFromPoint bỏ qua chúng → bệ che hông không bao giờ được thấy
   const pe = document.createElement('style'); pe.textContent = '#view, #view *{pointer-events:auto!important}'; document.head.appendChild(pe);
   for (const e of els) {
@@ -58,8 +58,8 @@ const TEACH = async () => {
     // chỗ giáo viên chung (Chars.slot): tư thế = data-pose của khung (clip/vòng nghỉ sống chạy đúng tư thế đó), khung hình đo trên ảnh tĩnh cùng khung
     const slot = e.closest('.tslot'), tch = e.closest('.tch'), live = !slot && (e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || ''))), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
       pimg = slot ? slot.querySelector('img.tslot-img') : live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
-    if (e.tagName === 'IMG' && tch && tch.querySelector('canvas.tch-cv')) continue; // poster dưới clip đang chạy: đã tính qua canvas
-    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = slot ? slot.dataset.pose || '?' : live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
+    if (e.tagName === 'IMG' && tch && (tch.querySelector('canvas.tch-cv') || (/poster/.test(e.getAttribute('src') || '') && tch.querySelector('canvas.tch-face')))) continue; // poster dưới clip / dưới mặt vẽ khớp miệng (canvas.tch-face, teacher.js): đã tính qua canvas; ảnh tư thế vẫn tính
+    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = slot ? slot.dataset.pose || '?' : live ? (e.classList.contains('tch-face') && e.parentElement.dataset.pose ? e.parentElement.dataset.pose : tch && tch.classList.contains('speaking') ? 'talk' : 'listen') /* mặt vẽ: tư thế = biểu cảm đang thể hiện (data-pose, teacher.js react/pose) */ : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
     e.scrollIntoView({ block: 'center' }); await new Promise(res => setTimeout(res, 60));
     const r = e.getBoundingClientRect(), bad = [], cut = []; let visBottom = r.bottom; // cut = nửa người/mờ/cắt: ĐẠT nếu khuất hẳn sau 1 mặt đục của Stitch (thẻ/bàn/bảng che đường hông, kiểu Duolingo)
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
