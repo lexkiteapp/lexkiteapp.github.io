@@ -14,6 +14,7 @@ export const ROWS = [
    "DRIVE_ENC_KEY",
    "LEXKITE_DRIVE_CLI_KEY",
    "LEXKITE_REPORT_CLI_KEY",
+   "REPORT_SHOT_KEY",
    "CRON_KICK_SECRET",
    "PUSH_CRON_SECRET",
    "STUDIO_CALLBACK_SECRET"
@@ -87,6 +88,19 @@ export const ROWS = [
   "manage": "https://console.cloud.google.com/auth/clients",
   "expires": "",
   "note": ""
+ },
+ {
+  "id": "pages-youtube-search",
+  "service": "YouTube Data API v3 – tìm video #/watch (khóa API, dự án GCP RIÊNG)",
+  "account": "Google · dự án riêng cho tìm kiếm",
+  "store": "pages",
+  "names": [
+   "YOUTUBE_SEARCH_KEY"
+  ],
+  "scope": "functions/api/watch.js op=search (search.list + videos.list); chưa có khóa → RSS + link YouTube search. docs/specs/video-learn.md",
+  "manage": "https://console.cloud.google.com/apis/credentials",
+  "expires": "",
+  "note": "Chờ chủ tạo (owner-pending)"
  },
  {
   "id": "pages-grabcast",
@@ -216,6 +230,7 @@ export const ROWS = [
   "store": "github",
   "names": [
    "LEXKITE_DRIVE_CLI_KEY",
+   "LEXKITE_REPORT_CLI_KEY",
    "LEXKITE_CI_HEADER",
    "STUDIO_CALLBACK_SECRET"
   ],

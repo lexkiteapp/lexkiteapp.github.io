@@ -21,8 +21,8 @@ const yml = fs.readFileSync('.github/workflows/audio.yml', 'utf8'), pm = /push:[
 assert.ok(pm, 'audio.yml cần push.paths cho nội dung tĩnh');
 const pats = [...pm[1].matchAll(/'([^']+)'/g)].map(m => new RegExp('^' + m[1].replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*\*/g, '\u0000').replace(/\*/g, '[^/]*').replace(/\u0000/g, '.*') + '$'));
 const srcs = [...new Set([...fs.readFileSync('scripts/sentence-audio/corpus.mjs', 'utf8').matchAll(/'(web\/[^'$`]+?)'/g)].map(m => m[1]))];
-// thư mục (readdirSync + lọc tên) → đủ khi có mẫu nằm trong thư mục đó; file → phải khớp mẫu
+// thư mục (readdirSync + lọc tên) → đủ khi có mẫu nằm trong thư mục đó hoặc mẫu ** cha đã phủ nó (vd web/js/speak/** phủ web/js/speak/s); file → phải khớp mẫu
 const raw = [...pm[1].matchAll(/'([^']+)'/g)].map(m => m[1]), isDir = s => !/\.\w+$/.test(s);
-const miss = srcs.filter(s => (isDir(s) ? !raw.some(p => p.startsWith(s.replace(/\/?$/, '/'))) : !pats.some(r => r.test(s))));
+const miss = srcs.filter(s => (isDir(s) ? !(raw.some(p => p.startsWith(s.replace(/\/?$/, '/'))) || pats.some(r => r.test(s.replace(/\/?$/, '/x.js')))) : !pats.some(r => r.test(s))));
 assert.deepEqual(miss, [], `audio.yml push.paths thiếu nguồn corpus: ${miss.join(', ')}`);
 console.log(`✓ tts-sites: audio.yml tự thu audio khi ${srcs.length} nguồn corpus đổi`);

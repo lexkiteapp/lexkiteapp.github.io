@@ -26,8 +26,8 @@
    "via": "loadExpand",
    "job": "build / npm test"
   },
-  "scripts/build-seo-pages.mjs": {
-   "what": "/<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt)",
+  "scripts/lib/seo-words.mjs": {
+   "what": "/<lang>/words/ (build-seo-pages: trang + sitemap-words + IndexNow .seo-urls.txt) + hộp từ blog 13 ngôn ngữ (build-blog qua lib/blog-words.mjs)",
    "via": "loadBrowserIndex",
    "job": "build-web → indexnow"
   },
@@ -189,6 +189,12 @@
    "what": "docs/TTS-AB.md §Độ phủ – % chuỗi app phát có giọng Kokoro dựng sẵn (từ đơn audio/w + câu ví dụ audio/l của mọi từ trong chỉ mục tra từ)",
    "via": "loadBrowserIndex",
    "job": "tts-ab (độ phủ)"
+  },
+  "scripts/lexicon/core.mjs": {
+   "skip": "danh sách từ lõi cho lô nghĩa gold P0.2 chỉ chọn từ kho viết tay (loadAll) – mục mở rộng 20k chưa vào lô gold"
+  },
+  "scripts/content-qa/sense-check.mjs": {
+   "skip": "cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus"
   }
  },
  "todo": {

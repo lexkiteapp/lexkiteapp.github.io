@@ -48,7 +48,7 @@
     'Xem Cảnh báo': 'Open alerts', 'Xem Lưu trữ': 'Open storage',
     'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)': 'CI: {n} workflow(s) using runners abnormally – see issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
-    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
+    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)': 'D1: read source {r} = {p}% of the Free limit on {d} (budget 10%)', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
     // Đơn vị & thời gian
     '{s} giây': '{s}s', '{m} phút {s} giây': '{m}m {s}s', '{m}p {s}s': '{m}m {s}s', 'vừa xong': 'just now', '{n} phút trước': '{n} min ago', '{n} giờ trước': '{n}h ago', '{n} ngày trước': ['{n} day ago', '{n} days ago'],
     'CN': 'Sun', 'T2': 'Mon', 'T3': 'Tue', 'T4': 'Wed', 'T5': 'Thu', 'T6': 'Fri', 'T7': 'Sat',
@@ -79,6 +79,9 @@
     'Tác vụ cần chú ý': 'Jobs needing attention', 'Tác vụ tự động (GitHub Actions)': 'Automated jobs (GitHub Actions)', 'Toàn bộ cảnh báo & nhật ký →': 'All alerts & logs →',
     'Đang chạy…': 'Running…', 'Bỏ qua': 'Skipped', 'Đang chờ': 'Queued', 'Thành công': 'Success', 'Cảnh báo@@status': 'Warning', 'Cần chú ý': 'Needs attention', 'Chưa có tác vụ': 'No jobs yet',
     // Trực tiếp
+    '⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục': '⏸ Auto-refresh paused (no activity for 10 min) – move the mouse to resume',
+    'Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).': "Today's read quota is nearly used – this section pauses until 00:00 UTC.",
+    'Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).': 'Showing cached numbers to keep D1 read quota for learners – back to normal after 00:00 UTC.',
     '📈 Lưu lượng trực tiếp': '📈 Live traffic', 'Live · tự cập nhật 30s · {t}': 'Live · auto-refresh 30s · {t}', 'Lấy mẫu {p}% – số thực ≈ × {x}': 'Sampling {p}% – actual ≈ × {x}',
     'Đang online <small>(5 phút)</small>': 'Online now <small>(5 min)</small>', 'khách có tín hiệu gần đây': 'visitors with recent activity', 'Lượt xem hôm nay': 'Views today', '{n} phiên': ['{n} session', '{n} sessions'],
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
@@ -362,9 +365,14 @@
     const j = await r.json().catch(() => ({}));
     if (r.status === 403) throw new Error('forbidden');
     if (r.status === 401 && j.error === 'reauth') { if (j.message) { if (await ask(j.message)) { await auth.signOut(); await signIn(); } throw new Error('reauth'); } return reauth(); }
+    // Ngân sách đọc D1 (sự cố 03/11, functions/api/_readbudget.js): số liệu đệm / 429 quota-shed → báo nhẹ 1 lần mỗi phiên, không lặp
+    if (r.status === 429 && j.error === 'quota-shed') { budgetNote(); throw Object.assign(new Error(L('Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).')), { code: 'quota-shed' }); }
     if (!r.ok) throw new Error(j.error || r.status);
+    if (j && (j._budget || j._stale)) budgetNote();
     return j;
   }
+  let budgetShown = false;
+  function budgetNote() { if (budgetShown) return; budgetShown = true; toast(L('Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).'), 'ok', 8000); }
   // GrabCast qua proxy /api/social (khóa chỉ ở máy chủ) – tab Video & Social. Lỗi → err.code = mã lỗi máy chủ
   async function sapi(method, path, body, opt = {}) {
     const r = await fetch('/api/social', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ method, path, query: opt.query, body: body || undefined, idem: opt.idem }) });
@@ -434,6 +442,7 @@
     return j;
   }
   let idleTimer = null, idleMin = 0, lastAct = Date.now();
+  const LIVE_IDLE = 10 * 60e3;
   function setupIdleTimer(minutes) {
     idleMin = Number(minutes) || 0;
     if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
@@ -592,11 +601,11 @@
     } catch (e) { /* huy hiệu không bắt buộc */ }
   }
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
-  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md', ci_hog: 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)' }; // giữ khớp alertTxt trong admin-drive.js
+  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', 'capacity-src': 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md', ci_hog: 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)' }; // giữ khớp alertTxt trong admin-drive.js
   let drvAl = null;
   // Cảnh báo chung một nguồn (drive_alerts) nhưng không phải loại nào cũng thuộc Kho Drive → nhãn + trang đích theo loại; huy hiệu Kho Drive chỉ đếm cảnh báo Drive
   // (27/10: cảnh báo CI hiện dưới nhãn "Kho Drive" + ⛔ ở mục Kho Drive → tưởng Drive hỏng).
-  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
+  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], 'capacity-src': ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
     ci: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], deploy: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_d1: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_code: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_rel: ['Hệ thống', 'alerts', 'Xem Cảnh báo'] };
   const DRV_DST = ['Kho Drive', 'drive', 'Xem Kho Drive'], dstOf = a => ALERT_DST[a.t] || DRV_DST;
   const paintDrv = () => {
@@ -1145,9 +1154,11 @@
       liveTimer = setInterval(async () => {
         if (tab !== 'analytics') { stopLive(); return; }
         if (document.hidden) return;
+        // Tab bỏ quên (không thao tác ≥ 10 phút) → không tự gọi nữa; di chuột/bấm phím là chạy lại (03/11: 1 tab Trực tiếp mở cả ngày ≈ 120 lượt/giờ)
+        if (Date.now() - lastAct >= LIVE_IDLE) { const c = $('#liveCard'); if (c && !c.dataset.idle) { c.dataset.idle = '1'; c.insertAdjacentHTML('afterbegin', `<p class="tiny muted" data-live-idle>${L('⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục')}</p>`); } return; }
         try {
           const n = await api('live', { days }); if (tab !== 'analytics' || !$('#liveCard')) return;
-          $('#liveCard').innerHTML = liveCard(n); $('#liveGrid').innerHTML = liveGrid(n);
+          $('#liveCard').innerHTML = liveCard(n); delete $('#liveCard').dataset.idle; $('#liveGrid').innerHTML = liveGrid(n);
           if (JSON.stringify(n.countries) !== mapKey) drawMap(n.countries);
         } catch (e) { /* lỗi mạng tạm thời – thử lại lượt sau */ }
       }, 30000);
