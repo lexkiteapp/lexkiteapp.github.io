@@ -44,7 +44,7 @@ Tekli metinler bölümün başında yer alırken, çoklu doküman setleri sınav
 
 54 sorunun tamamını telaşa kapılmadan ve rastgele işaretleme yapmadan çözebilmek için 75 dakikalık Reading sürenizi dakikası dakikasına planlayın:
 
-- **Part 5 (30 soru)**: En geç **10 dakikada** tamamlayın (soru başına yaklaşık 20 saniye).
+- **Part 5 (30 soru)**: En geç **10 dakikada** tamamlayın (soru başına yaklaşık 20 saniye) ve [TOEIC Part 5 taktikleri](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/) ile hız kazanın.
 - **Part 6 (16 soru)**: En geç **8 dakikada** tamamlayın (soru başına yaklaşık 30 saniye).
 - **Cevap Formu Kontrolü**: **2 dakika** ayırın.
 - **Part 7 (54 soru)**: **Tam 55 dakika** ayırın (soru başına ortalama 60 saniye).

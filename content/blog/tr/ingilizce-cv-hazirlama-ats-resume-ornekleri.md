@@ -157,7 +157,7 @@ Bachelor of Science in Computer Engineering | Istanbul Technical University (201
 GPA: 3.65 / 4.00
 ```
 
-Dilbilgisi kurallarınızı ve cümle yapılarınızı mükemmelleştirmek için [İngilizce dilbilgisi kaynakları](/ngu-phap/) sayfamızı ziyaret edebilir, öğrenme disiplininizi geliştirmek için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.
+Dilbilgisi kurallarınızı ve cümle yapılarınızı mükemmelleştirmek için [İngilizce dilbilgisi kaynakları](/ngu-phap/) sayfamızı ziyaret edebilir, hızlı cümle analiz teknikleri için [TOEIC Part 5 taktikleri](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/) rehberimizi inceleyebilir ve öğrenme disiplininizi geliştirmek için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.
 
 ## ATS Filtresini Geçmek İçin 7 Adımlı Kontrol Listesi (Pre-Submission Checklist)
 
