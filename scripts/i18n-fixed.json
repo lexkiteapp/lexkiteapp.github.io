@@ -33119,5 +33119,50 @@
     "ar": "الوقت المقدّر: ~{m} دقيقة · {n} جديدة",
     "ru": "Примерно ~{m} мин · новых: {n}",
     "tr": "Tahmini süre: ~{m} dk · {n} yeni"
+  },
+  "Đang tải âm thanh…": {
+    "es": "Cargando audio…",
+    "pt": "Carregando áudio…",
+    "fr": "Chargement de l’audio…",
+    "de": "Audio wird geladen…",
+    "id": "Memuat audio…",
+    "th": "กำลังโหลดเสียง…",
+    "zh": "正在加载音频…",
+    "ja": "音声を読み込み中…",
+    "ko": "오디오 불러오는 중…",
+    "hi": "ऑडियो लोड हो रहा है…",
+    "ar": "جارٍ تحميل الصوت…",
+    "ru": "Загрузка аудио…",
+    "tr": "Ses yükleniyor…"
+  },
+  "Không phát được âm thanh – bấm 🔊 thử lại": {
+    "es": "No se pudo reproducir el audio – toca 🔊 para reintentar",
+    "pt": "Não foi possível reproduzir o áudio – toque em 🔊 para tentar de novo",
+    "fr": "Impossible de lire l’audio – touchez 🔊 pour réessayer",
+    "de": "Audio konnte nicht abgespielt werden – tippe auf 🔊, um es erneut zu versuchen",
+    "id": "Audio tidak dapat diputar – ketuk 🔊 untuk mencoba lagi",
+    "th": "เล่นเสียงไม่ได้ – แตะ 🔊 เพื่อลองอีกครั้ง",
+    "zh": "无法播放音频 – 点按 🔊 重试",
+    "ja": "音声を再生できませんでした – 🔊 をタップして再試行",
+    "ko": "오디오를 재생할 수 없어요 – 🔊을 눌러 다시 시도하세요",
+    "hi": "ऑडियो नहीं चल सका – फिर से कोशिश करने के लिए 🔊 पर टैप करें",
+    "ar": "تعذّر تشغيل الصوت – اضغط 🔊 للمحاولة مرة أخرى",
+    "ru": "Не удалось воспроизвести аудио – нажмите 🔊, чтобы повторить",
+    "tr": "Ses çalınamadı – yeniden denemek için 🔊 simgesine dokunun"
+  },
+  "Hiện từ": {
+    "es": "Mostrar palabra",
+    "pt": "Mostrar palavra",
+    "fr": "Afficher le mot",
+    "de": "Wort anzeigen",
+    "id": "Tampilkan kata",
+    "th": "แสดงคำ",
+    "zh": "显示单词",
+    "ja": "単語を表示",
+    "ko": "단어 보기",
+    "hi": "शब्द दिखाएँ",
+    "ar": "إظهار الكلمة",
+    "ru": "Показать слово",
+    "tr": "Kelimeyi göster"
   }
 }

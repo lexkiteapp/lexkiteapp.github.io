@@ -236,14 +236,15 @@
         for (let i = 0; i < parts.length; i++) {
           if (my !== speakSeq) return;
           if (opts.onSentence) opts.onSentence(i, parts[i]);
-          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { break; }
+          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { if (my === speakSeq && opts.onErr) opts.onErr(); break; }
         }
         if (my === speakSeq && opts.onEnd) opts.onEnd();
       })();
       return;
     }
     if (!('speechSynthesis' in g)) { // không có giọng máy: từ đơn → thử bản ghi giọng người thật từ từ điển
-      if (!/\s/.test(text.trim()) && (!g.Target || g.Target.isEn(accent)) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio); }).catch(() => {});
+      const no = () => opts.onErr && opts.onErr();
+      if (!/\s/.test(text.trim()) && (!g.Target || g.Target.isEn(accent)) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio, 0, opts.on); else no(); }).catch(no); else no();
       if (opts.onEnd) opts.onEnd();
       return;
     }
@@ -260,7 +261,9 @@
       u.lang = accent; u.rate = base; u.pitch = 1;
       if (voice) u.voice = voice;
       u.onstart = () => { if (my === speakSeq && opts.onSentence) opts.onSentence(i, p); };
-      if (i === parts.length - 1) u.onend = u.onerror = () => { if (keep) clearInterval(keep); if (my === speakSeq && opts.onEnd) opts.onEnd(); };
+      const err = e => { if (my === speakSeq && opts.onErr && !/interrupted|canceled/.test(e && e.error)) opts.onErr(); };
+      u.onerror = err;
+      if (i === parts.length - 1) { u.onend = () => { if (keep) clearInterval(keep); if (my === speakSeq && opts.onEnd) opts.onEnd(); }; u.onerror = e => { err(e); u.onend(); }; }
       speechSynthesis.speak(u);
     });
   }
@@ -282,13 +285,13 @@
       return URL.createObjectURL(await r.blob());
     } catch (e) { return url; } // máy chủ không cho tải (CORS) → phát trực tiếp
   }
-  // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
+  // speak(text, accent, url, slow, on): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm · on(1) bắt đầu phát / on(0) mọi nguồn hỏng
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
-  function speak(text, accent, url, slow) {
+  function speak(text, accent, url, slow, on) {
     text = ttsClean(text);
     accent = accent || prefs().accent || 'en-GB';
-    const fb = () => tts(text, accent, slow ? 0.55 : undefined);
+    const fb = () => tts(text, accent, slow ? 0.55 : undefined, on ? { on, onSentence: i => i || on(1), onErr: () => on(0) } : undefined);
     // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
     // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
     if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';
@@ -301,7 +304,7 @@
       stopSpeak();
       const my = speakSeq;
       // Gốc CDN lần lượt (lỗi/404/quá giờ → gốc kế tiếp); hết gốc → giọng máy (ghi nhật ký dự phòng). Bị chặn tự phát → giọng máy, không đánh dấu thiếu file.
-      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(),
+      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(), onStart: () => on && on(1),
         onFail: why => { wordEl = null; if (why !== 'blocked') wordMiss.add(accent + wk); LA().note('tts', why + ' w:' + wk); if (my === speakSeq) fb(); } });
       return;
     }
@@ -311,7 +314,7 @@
       audioSrc(url).then(src => {
         if (my !== speakSeq) return; // người dùng đã bấm nghe từ khác
         try {
-          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1;
+          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1; if (on) audioEl.onplaying = () => on(1);
           if (src.startsWith('blob:')) audioEl.onended = () => URL.revokeObjectURL(src);
           audioEl.play().catch(fb);
         } catch (e) { fb(); }
