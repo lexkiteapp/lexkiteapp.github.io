@@ -100,6 +100,7 @@
   routes.lesson = async function (arg) {
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
+    if (/[?&]lvembed=[01]\b/.test(location.href)) lvOn(); // cờ thử trên URL bản đồ/Hôm nay → nhớ ngay (chỉ localStorage, 0 tải video): nút Bắt đầu (#/lesson/go?demo=1) không mang theo tham số
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
     const cards = demo ? DEMO() : Object.values(state.cards || {});
