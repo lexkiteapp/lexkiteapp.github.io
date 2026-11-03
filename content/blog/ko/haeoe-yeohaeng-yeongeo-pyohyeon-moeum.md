@@ -3,7 +3,7 @@ title: "해외여행 영어회화 필수표현 : 공항 호텔 식당 길찾기 
 description: "해외여행 영어회화 필수표현 상황별 완벽 가이드: 인천공항 출국 수속부터 기내 요청, 현지 호텔 체크인, 레스토랑 주문과 팁 계산, 대중교통 길 찾기, 분실 및 응급실 대처까지 당황하지 않고 술술 말하는 생존 영어 패턴을 총정리합니다."
 slug: haeoe-yeohaeng-yeongeo-pyohyeon-moeum
 lang: ko
-translationKey: haeoe-yeohaeng-yeongeo-pyohyeon-moeum
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [yeohaeng, hoehwa, chul-guk]
 keyword: "해외여행 영어회화 필수표현"

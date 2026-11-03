@@ -4,7 +4,7 @@ title: "Muhadathat Injliziyyah li al Safar: 80+ عبارة وحوار"
 description: "Muhadathat injliziyyah li al safar: دليل المحادثات الإنجليزية للسفر للخارج، عبارات المطار، حجز الفندق، المطعم، التنقل ومواقف الطوارئ."
 keyword: "muhadathat injliziyyah li al safar"
 lang: ar
-translationKey: ky-nang-bot-sonthana-phasa-angkrit-thong-thiao-tang-prathet
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [safar, travel, muhadathat, ibarat]
 cover: speaking

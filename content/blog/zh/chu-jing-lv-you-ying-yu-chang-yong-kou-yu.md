@@ -3,7 +3,7 @@ title: "出国旅游英语常用口语必备宝典：机场、酒店、点餐与
 description: "出国旅游英语常用口语全场景实用生存指南：系统收录从国际机场柜台值机行李托运、海外涉外酒店入住与退房、西餐厅地道点餐问询、异国城市交通问路到海外突发情况紧急自救求助的高频实用句型，助你零障碍从容畅游全球，告别开口焦虑与尴尬手势比划。"
 slug: chu-jing-lv-you-ying-yu-chang-yong-kou-yu
 lang: zh
-translationKey: chu-jing-lv-you-ying-yu-chang-yong-kou-yu
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [lv-you, kou-yu, ri-chang]
 keyword: "出国旅游英语常用口语"

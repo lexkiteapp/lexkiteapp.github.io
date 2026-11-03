@@ -4,7 +4,7 @@ title: "Yurt Disi Seyahat Ingilizce Diyaloglar ve Kalıplar"
 description: "Yurt disi seyahat ingilizce diyaloglar havaalanı, otel, restoran, yön sorma ve acil durum senaryoları için pratik kalıplarla bu kapsamlı rehberde."
 keyword: "yurt disi seyahat ingilizce diyaloglar"
 lang: tr
-translationKey: ky-nang-bot-sonthana-phasa-angkrit-thong-thiao-tang-prathet
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [seyahat, diyaloglar, pratik]
 cover: speaking

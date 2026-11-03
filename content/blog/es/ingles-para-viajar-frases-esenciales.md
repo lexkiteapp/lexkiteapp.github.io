@@ -3,7 +3,7 @@ title: "Inglés para Viajar Frases Esenciales: Guía Turística Completa"
 description: "Guía de inglés para viajar frases esenciales: expresiones para el aeropuerto, control de aduanas, hoteles, restaurantes y emergencias médicas."
 slug: ingles-para-viajar-frases-esenciales
 lang: es
-translationKey: ingles-para-viajar-frases-esenciales
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [viajes, turismo, frases-utiles]
 keyword: "inglés para viajar frases esenciales"

@@ -3,7 +3,7 @@ title: "Anglais pour Voyager: Phrases Utiles et Guide Pratique"
 description: "Anglais pour voyager phrases utiles: Guide complet pour l aéroport, l hôtel, le restaurant, les transports et les urgences sans stress en vacances."
 slug: anglais-pour-voyager-phrases-essentielles
 lang: fr
-translationKey: anglais-pour-voyager-phrases-essentielles
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [voyage, tourisme, phrases-utiles]
 keyword: "anglais pour voyager phrases utiles"

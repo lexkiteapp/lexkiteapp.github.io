@@ -4,7 +4,7 @@ title: "Angliyskiy dlya Puteshestviy Dialogi Frazy: 80+ Vyrazheniy"
 description: "Angliyskiy dlya puteshestviy dialogi frazy: готовые фразы и диалоги в аэропорту, отеле, кафе, для навигации в городе и в экстренных ситуациях."
 keyword: "angliyskiy dlya puteshestviy dialogi frazy"
 lang: ru
-translationKey: ky-nang-bot-sonthana-phasa-angkrit-thong-thiao-tang-prathet
+translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [puteshestviya, dialogi, frazy]
 cover: speaking
