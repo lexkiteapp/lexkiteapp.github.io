@@ -1,0 +1,35 @@
+{
+ "id": "vi-reel-mispron-4",
+ "lang": "vi",
+ "slug": "mispron-4",
+ "date": "2026-11-03",
+ "title": "4 từ người Việt hay đọc sai",
+ "topic": "4 words Vietnamese learners often say wrong",
+ "mistake": {
+  "en": "Common words Vietnamese learners pronounce wrongly",
+  "vi": "Từ quen mà người Việt hay đọc sai"
+ },
+ "template": "mispron",
+ "teachers": [
+  "carlos"
+ ],
+ "duration_s": 29.41,
+ "wpm": 69,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-mispron-4#/pron",
+ "spec": "content/video/rig/reels/vi/mispron-4.json",
+ "spec_sha": "6f5d90c41070",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-mispron-4-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-mispron-4-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-03"
+}

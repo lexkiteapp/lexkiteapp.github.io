@@ -23,6 +23,7 @@
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-s#/grammar",
  "spec": "content/video/rig/l1/vi/final-s.json",
+ "spec_sha": "e25711dcece1",
  "files": {
   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4",
   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-cover.jpg",
@@ -31,5 +32,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-02"
+ "updated": "2026-11-03"
 }

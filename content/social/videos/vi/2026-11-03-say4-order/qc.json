@@ -1,0 +1,295 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true,
+  "ipa_from_lexicon": true,
+  "ipa_glyphs": true,
+  "items_native_glyphs": true,
+  "turn_contrast": true
+ },
+ "safe_box": [
+  81,
+  254,
+  984.15625,
+  1098
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/phrases",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.2,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 27.195,
+ "words": 31,
+ "wpmSpeech": 121,
+ "wpmOverall": 68,
+ "firstVoicedS": 0.48,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 99,
+ "flicker": 0,
+ "blinksPerMin": 18,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 5.85,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    0,
+    0,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    0,
+    -20
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    15,
+    45,
+    25
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.625,
+   "lagMs": -20,
+   "lagGlobalMs": 30,
+   "lagChunksMs": [
+    0
+   ],
+   "lagEnvChunksMs": [
+    30
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    15,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.125,
+   "lagMs": -10,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    20
+   ],
+   "mouthOnsetMs": [
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.225,
+   "lagMs": -20,
+   "lagGlobalMs": 180,
+   "lagChunksMs": [
+    -10
+   ],
+   "lagEnvChunksMs": [
+    210
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    60,
+    0
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 4,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.5,
+   "lagMs": -10,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    0
+   ],
+   "lagEnvChunksMs": [
+    -20
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    15
+   ],
+   "mouthOnsetMs": [
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 773,
+   "visFrac": 0.875,
+   "scale": 1,
+   "top": 1147
+  },
+  "turn1": {
+   "visH": 780,
+   "visFrac": 0.883,
+   "scale": 1,
+   "top": 1140
+  },
+  "turn2": {
+   "visH": 776,
+   "visFrac": 0.879,
+   "scale": 1,
+   "top": 1144
+  },
+  "explain": {
+   "visH": 778,
+   "visFrac": 0.881,
+   "scale": 1,
+   "top": 1142
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true,
+   "ipa_from_lexicon": true,
+   "items_native": true,
+   "items_backcheck": true
+  },
+  "back": {
+   "hook": "How to order food in English?",
+   "caption": "Going out to eat but afraid to order in English? Save these 4 sentences now: “Can I see the menu, please?”, “What do you recommend?”, “No ice, please.”, “Can I have the bill, please?”. Listen to Ms. Ama read the sample and then read along in silence. Practice more in the Lexkite app.",
+   "glosses": []
+  },
+  "sim": {
+   "hook": 0.8,
+   "caption": 0.65
+  }
+ }
+}

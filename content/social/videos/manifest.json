@@ -1,7 +1,7 @@
 {
  "_doc": "Sinh tự động bởi scripts/rig/store.mjs – đừng sửa tay (trạng thái sửa trong meta.json từng clip).",
- "updated": "2026-11-02",
- "count": 10,
+ "updated": "2026-11-03",
+ "count": 14,
  "by_lang": {
   "es": [
    "es-age-be",
@@ -21,11 +21,15 @@
   ],
   "vi": [
    "vi-final-s",
-   "vi-final-t"
+   "vi-final-t",
+   "vi-reel-minpair-sheep",
+   "vi-reel-mispron-4",
+   "vi-reel-phrase-same-here",
+   "vi-reel-say4-order"
   ]
  },
  "by_status": {
-  "draft": 10
+  "draft": 14
  },
  "clips": [
   {
@@ -228,6 +232,86 @@
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-video.mp4",
    "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-cover.jpg",
    "caption": "content/social/videos/vi/2026-11-01-final-t/caption.txt"
+  },
+  {
+   "id": "vi-reel-minpair-sheep",
+   "lang": "vi",
+   "date": "2026-11-03",
+   "title": "4 từ dễ nhầm: nhìn khẩu hình!",
+   "topic": "4 easily confused words: watch the mouth!",
+   "mistake": "Mixing up long and short ee, and sh and ch",
+   "mistake_vi": "Nhầm i dài/i ngắn và sh/ch",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 21.12,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-minpair-sheep#/pron",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-minpair-sheep-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-minpair-sheep-cover.jpg",
+   "caption": "content/social/videos/vi/2026-11-03-minpair-sheep/caption.txt"
+  },
+  {
+   "id": "vi-reel-mispron-4",
+   "lang": "vi",
+   "date": "2026-11-03",
+   "title": "4 từ người Việt hay đọc sai",
+   "topic": "4 words Vietnamese learners often say wrong",
+   "mistake": "Common words Vietnamese learners pronounce wrongly",
+   "mistake_vi": "Từ quen mà người Việt hay đọc sai",
+   "teachers": [
+    "carlos"
+   ],
+   "duration_s": 29.41,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-mispron-4#/pron",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-mispron-4-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-mispron-4-cover.jpg",
+   "caption": "content/social/videos/vi/2026-11-03-mispron-4/caption.txt"
+  },
+  {
+   "id": "vi-reel-phrase-same-here",
+   "lang": "vi",
+   "date": "2026-11-03",
+   "title": "“Mình cũng vậy” nói sao?",
+   "topic": "How do you say “me too” naturally?",
+   "mistake": "Saying “Me too” for everything",
+   "mistake_vi": "Lúc nào cũng chỉ nói “Me too”",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 20.555,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-phrase-same-here#/phrases",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-phrase-same-here-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-phrase-same-here-cover.jpg",
+   "caption": "content/social/videos/vi/2026-11-03-phrase-same-here/caption.txt"
+  },
+  {
+   "id": "vi-reel-say4-order",
+   "lang": "vi",
+   "date": "2026-11-03",
+   "title": "Gọi món bằng tiếng Anh nói sao?",
+   "topic": "How do you order food in English?",
+   "mistake": "Not knowing short, polite lines for ordering food",
+   "mistake_vi": "Không biết câu ngắn, lịch sự khi gọi món",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 27.195,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-say4-order#/phrases",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-say4-order-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-say4-order-cover.jpg",
+   "caption": "content/social/videos/vi/2026-11-03-say4-order/caption.txt"
   }
  ]
 }

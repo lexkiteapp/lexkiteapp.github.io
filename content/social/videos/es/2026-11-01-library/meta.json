@@ -23,6 +23,7 @@
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-library#/vocab",
  "spec": "content/video/rig/l1/es/library.json",
+ "spec_sha": "a4ce80710e6f",
  "files": {
   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-video.mp4",
   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-cover.jpg",
@@ -31,5 +32,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-02"
+ "updated": "2026-11-03"
 }

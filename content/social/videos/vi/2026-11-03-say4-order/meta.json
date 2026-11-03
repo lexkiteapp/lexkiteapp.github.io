@@ -1,0 +1,35 @@
+{
+ "id": "vi-reel-say4-order",
+ "lang": "vi",
+ "slug": "say4-order",
+ "date": "2026-11-03",
+ "title": "Gọi món bằng tiếng Anh nói sao?",
+ "topic": "How do you order food in English?",
+ "mistake": {
+  "en": "Not knowing short, polite lines for ordering food",
+  "vi": "Không biết câu ngắn, lịch sự khi gọi món"
+ },
+ "template": "say4",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 27.195,
+ "wpm": 121,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-say4-order#/phrases",
+ "spec": "content/video/rig/reels/vi/say4-order.json",
+ "spec_sha": "fffd011e2215",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-say4-order-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-say4-order-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-03"
+}

@@ -23,6 +23,7 @@
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-age-be#/grammar",
  "spec": "content/video/rig/l1/es/age-be.json",
+ "spec_sha": "ec4e09e1f840",
  "files": {
   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-video.mp4",
   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-cover.jpg",
@@ -31,5 +32,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-02"
+ "updated": "2026-11-03"
 }

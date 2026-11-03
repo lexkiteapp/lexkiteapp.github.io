@@ -23,6 +23,7 @@
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
  "spec": "content/video/rig/l1/hi/know-ing.json",
+ "spec_sha": "3e4316b85b75",
  "files": {
   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-video.mp4",
   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-cover.jpg",
@@ -31,5 +32,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-02"
+ "updated": "2026-11-03"
 }

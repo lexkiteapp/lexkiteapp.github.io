@@ -23,6 +23,7 @@
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=ja-article-a#/grammar",
  "spec": "content/video/rig/l1/ja/article-a.json",
+ "spec_sha": "60709ecabead",
  "files": {
   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-article-a-video.mp4",
   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-article-a-cover.jpg",
@@ -31,5 +32,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-02"
+ "updated": "2026-11-03"
 }

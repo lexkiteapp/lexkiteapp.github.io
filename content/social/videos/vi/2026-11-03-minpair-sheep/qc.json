@@ -1,0 +1,265 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true,
+  "ipa_from_lexicon": true,
+  "ipa_glyphs": true,
+  "items_native_glyphs": true,
+  "turn_contrast": true
+ },
+ "safe_box": [
+  95,
+  262,
+  991.2265625,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/pron",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.1,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 21.12,
+ "words": 18,
+ "wpmSpeech": 95,
+ "wpmOverall": 51,
+ "firstVoicedS": 0.44,
+ "lagMaxAbsMs": 40,
+ "visemePctMin": 98,
+ "flicker": 0,
+ "blinksPerMin": 20,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 3.625,
+   "lagMs": -40,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -40,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -60,
+    20
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    85,
+    -15
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 1.925,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    80,
+    35
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.075,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    70,
+    10
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "encourage",
+   "hand": "",
+   "dur": 3.725,
+   "lagMs": -30,
+   "lagGlobalMs": -30,
+   "lagChunksMs": [
+    -10,
+    -30
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    -50
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    45,
+    5,
+    10
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 608,
+   "visFrac": 0.689,
+   "scale": 1,
+   "top": 662
+  },
+  "turn1": {
+   "visH": 615,
+   "visFrac": 0.696,
+   "scale": 1,
+   "top": 655
+  },
+  "turn2": {
+   "visH": 612,
+   "visFrac": 0.693,
+   "scale": 1,
+   "top": 658
+  },
+  "explain": {
+   "visH": 609,
+   "visFrac": 0.69,
+   "scale": 1,
+   "top": 661
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true,
+   "ipa_from_lexicon": true,
+   "items_native": true,
+   "items_backcheck": true
+  },
+  "back": {
+   "hook": "4 easily confused words: look at your mouth!",
+   "caption": "“sheep” or “ship”? “cheap” or “chip”? The long i sound must pull the lips to the sides, the short i sound should be relaxed; sh and ch differ in the way they exhale. Look at Ms. Ama's mouth, then read along in silence. Practice more in the Lexkite app.",
+   "glosses": []
+  },
+  "sim": {
+   "hook": 0.67,
+   "caption": 0.57
+  }
+ }
+}

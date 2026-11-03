@@ -70,7 +70,7 @@
    "hand": "",
    "dur": 5.475,
    "lagMs": -20,
-   "lagGlobalMs": 0,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
     10,
     0,
@@ -79,7 +79,7 @@
    "lagEnvChunksMs": [
     0,
     110,
-    0
+    -10
    ],
    "onsetDiffMs": [
     0,
@@ -207,10 +207,10 @@
  ],
  "teacher": {
   "hook": {
-   "visH": 629,
-   "visFrac": 0.747,
+   "visH": 628,
+   "visFrac": 0.746,
    "scale": 0.997,
-   "top": 641
+   "top": 642
   },
   "fix": {
    "visH": 635,

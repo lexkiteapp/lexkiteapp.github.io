@@ -1,0 +1,292 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true,
+  "ipa_from_lexicon": true,
+  "ipa_glyphs": true,
+  "items_native_glyphs": true,
+  "turn_contrast": true
+ },
+ "safe_box": [
+  81,
+  262,
+  927.46875,
+  1103
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/pron",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.7,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  }
+ ],
+ "total": 29.41,
+ "words": 19,
+ "wpmSpeech": 69,
+ "wpmOverall": 39,
+ "firstVoicedS": 0.42,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 97,
+ "flicker": 0,
+ "blinksPerMin": 18,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 6.25,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    0,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -10,
+    -20
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    20,
+    15
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 97,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.275,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    0
+   ],
+   "lagEnvChunksMs": [
+    -20
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    20,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.6,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -20
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    50
+   ],
+   "mouthOnsetMs": [
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.65,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -10
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    40
+   ],
+   "mouthOnsetMs": [
+    -15
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 4,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.775,
+   "lagMs": -20,
+   "lagGlobalMs": 240,
+   "lagChunksMs": [
+    -20,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    240,
+    250
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -35,
+    -25
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 732,
+   "visFrac": 0.869,
+   "scale": 1,
+   "top": 1188
+  },
+  "turn1": {
+   "visH": 740,
+   "visFrac": 0.879,
+   "scale": 0.997,
+   "top": 1180
+  },
+  "turn2": {
+   "visH": 734,
+   "visFrac": 0.872,
+   "scale": 0.997,
+   "top": 1186
+  },
+  "explain": {
+   "visH": 736,
+   "visFrac": 0.874,
+   "scale": 1,
+   "top": 1184
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true,
+   "ipa_from_lexicon": true,
+   "items_native": true,
+   "items_backcheck": true
+  },
+  "back": {
+   "hook": "4 words Vietnamese people often read incorrectly",
+   "caption": "Are you reading these 4 familiar words wrong? “island” does not read the letter s, “recipe” has three syllables, “vegetable” and “comfortable” have to swallow the middle sound. Listen to Mr. Carlos read the sample, then read along in silence. Practice pronunciation more in the Lexkite app.",
+   "glosses": []
+  },
+  "sim": {
+   "hook": 0.5,
+   "caption": 0.68
+  }
+ }
+}

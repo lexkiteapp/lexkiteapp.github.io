@@ -1,0 +1,256 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true,
+  "ipa_from_lexicon": true,
+  "ipa_glyphs": true,
+  "items_native_glyphs": true,
+  "turn_contrast": true
+ },
+ "safe_box": [
+  189.0390625,
+  273,
+  891.0390625,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/phrases",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 20.555,
+ "words": 18,
+ "wpmSpeech": 105,
+ "wpmOverall": 53,
+ "firstVoicedS": 0.43,
+ "lagMaxAbsMs": 30,
+ "visemePctMin": 97,
+ "flicker": 0,
+ "blinksPerMin": 23,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 1.75,
+   "lagMs": -30,
+   "lagGlobalMs": 300,
+   "lagChunksMs": [
+    -30
+   ],
+   "lagEnvChunksMs": [
+    300
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    70
+   ],
+   "mouthOnsetMs": [
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 2.125,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    30
+   ],
+   "mouthOnsetMs": [
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 97,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "happy",
+   "hand": "",
+   "dur": 3.35,
+   "lagMs": -20,
+   "lagGlobalMs": -60,
+   "lagChunksMs": [
+    0,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -40,
+    300
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -10,
+    15
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "encourage",
+   "hand": "",
+   "dur": 3.05,
+   "lagMs": -20,
+   "lagGlobalMs": -30,
+   "lagChunksMs": [
+    -20,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    300
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    35,
+    20
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 538,
+   "visFrac": 0.609,
+   "scale": 1,
+   "top": 732
+  },
+  "turn0": {
+   "visH": 546,
+   "visFrac": 0.618,
+   "scale": 1,
+   "top": 724
+  },
+  "turn2": {
+   "visH": 540,
+   "visFrac": 0.612,
+   "scale": 1,
+   "top": 730
+  },
+  "explain": {
+   "visH": 540,
+   "visFrac": 0.612,
+   "scale": 1,
+   "top": 730
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true,
+   "ipa_from_lexicon": true,
+   "items_native": true,
+   "items_backcheck": true
+  },
+  "back": {
+   "hook": "“Me too” what do you say?",
+   "caption": "Bored of saying “Me too” all the time? Try “Same here” – it means me too, very natural when chatting. For example: “I am so tired today.” – “Same here!”. Listen to Ms. Ama and then read along in silence. Practice more in the Lexkite app.",
+   "glosses": []
+  },
+  "sim": {
+   "hook": 0.6,
+   "caption": 0.66
+  }
+ }
+}

@@ -148,7 +148,7 @@
    "lagMs": -20,
    "lagGlobalMs": -20,
    "lagChunksMs": [
-    -20,
+    -10,
     0
    ],
    "lagEnvChunksMs": [
@@ -161,7 +161,7 @@
     0
    ],
    "kokoroOnsetMs": [
-    25,
+    35,
     -60,
     -45
    ],
@@ -265,7 +265,7 @@
   },
   "back": {
    "hook": "“I am knowing” is not correct!",
-   "caption": "Words like “know”, “like”, “want” do not indicate any work but state of mind, hence do not prefix them with -ing. Say “I know him”, not “I am knowing him”. Revise after the teacher and practice grammar in the Lexkite app.",
+   "caption": "Words like “know”, “like”, “want” do not indicate any work but state of mind, hence do not prefix them with -ing. Say “I know him”, not “I am knowing him”. Ama Revise after the teacher and practice grammar in the Lexkite app.",
    "glosses": [
     {
      "word": "know",
@@ -277,7 +277,7 @@
   },
   "sim": {
    "hook": 1,
-   "caption": 0.67
+   "caption": 0.68
   }
  }
 }

@@ -35,7 +35,7 @@
  "deeplink": "#/pron",
  "native_font": "BeVietnamPro-Bold.ttf",
  "lufs": -16.4,
- "truePeak": -1.5,
+ "truePeak": -1.4,
  "voices": [
   {
    "who": "carlos",

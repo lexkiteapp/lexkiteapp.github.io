@@ -1,0 +1,35 @@
+{
+ "id": "vi-reel-minpair-sheep",
+ "lang": "vi",
+ "slug": "minpair-sheep",
+ "date": "2026-11-03",
+ "title": "4 từ dễ nhầm: nhìn khẩu hình!",
+ "topic": "4 easily confused words: watch the mouth!",
+ "mistake": {
+  "en": "Mixing up long and short ee, and sh and ch",
+  "vi": "Nhầm i dài/i ngắn và sh/ch"
+ },
+ "template": "minpair",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 21.12,
+ "wpm": 95,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-minpair-sheep#/pron",
+ "spec": "content/video/rig/reels/vi/minpair-sheep.json",
+ "spec_sha": "937ae2801c24",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-minpair-sheep-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-minpair-sheep-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-03"
+}

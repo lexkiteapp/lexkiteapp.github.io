@@ -24,6 +24,7 @@
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-actually#/vocab",
  "spec": "content/video/rig/l1/pt_BR/actually.json",
+ "spec_sha": "9fca1ed9893c",
  "files": {
   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-actually-video.mp4",
   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-actually-cover.jpg",
@@ -32,5 +33,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-02"
+ "updated": "2026-11-03"
 }

@@ -125,7 +125,7 @@
    "alignChunksMs": [
     0
    ],
-   "visemePct": 100,
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -169,27 +169,30 @@
    "hand": "",
    "dur": 4.175,
    "lagMs": -20,
-   "lagGlobalMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
     -20,
     0
    ],
    "lagEnvChunksMs": [
     -20,
-    0
+    -10
    ],
    "onsetDiffMs": [
+    0,
     0,
     0,
     0
    ],
    "kokoroOnsetMs": [
     60,
+    -5,
     0,
     -35
    ],
    "mouthOnsetMs": [
     -20,
+    null,
     -20,
     -10
    ],

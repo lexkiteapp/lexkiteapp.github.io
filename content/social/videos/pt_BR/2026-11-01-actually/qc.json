@@ -35,7 +35,7 @@
  "deeplink": "#/vocab",
  "native_font": "BeVietnamPro-Bold.ttf",
  "lufs": -16.4,
- "truePeak": -1.4,
+ "truePeak": -1.5,
  "voices": [
   {
    "who": "carlos",
@@ -59,7 +59,7 @@
  "wpmSpeech": 108,
  "wpmOverall": 96,
  "firstVoicedS": 0.25,
- "lagMaxAbsMs": 20,
+ "lagMaxAbsMs": 30,
  "visemePctMin": 95,
  "flicker": 0,
  "blinksPerMin": 17,
@@ -69,11 +69,11 @@
    "emo": "explain",
    "hand": "",
    "dur": 5,
-   "lagMs": -20,
+   "lagMs": -30,
    "lagGlobalMs": -10,
    "lagChunksMs": [
     0,
-    -20
+    -30
    ],
    "lagEnvChunksMs": [
     -10,
@@ -207,10 +207,10 @@
  ],
  "teacher": {
   "hook": {
-   "visH": 628,
-   "visFrac": 0.746,
-   "scale": 1,
-   "top": 642
+   "visH": 629,
+   "visFrac": 0.747,
+   "scale": 0.997,
+   "top": 641
   },
   "explain": {
    "visH": 676,

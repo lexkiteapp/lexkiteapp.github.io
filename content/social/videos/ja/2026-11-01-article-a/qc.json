@@ -60,7 +60,7 @@
  "wpmOverall": 129,
  "firstVoicedS": 0.27,
  "lagMaxAbsMs": 20,
- "visemePctMin": 96,
+ "visemePctMin": 95,
  "flicker": 0,
  "blinksPerMin": 18,
  "rows": [
@@ -107,7 +107,7 @@
    "emo": "explain",
    "hand": "",
    "dur": 5.35,
-   "lagMs": -10,
+   "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
     0,
@@ -122,17 +122,20 @@
    "onsetDiffMs": [
     0,
     0,
+    0,
     0
    ],
    "kokoroOnsetMs": [
     -5,
     -10,
-    5
+    15,
+    -100
    ],
    "mouthOnsetMs": [
     -10,
     -10,
-    -10
+    -10,
+    -20
    ],
    "alignMs": 0,
    "alignChunksMs": [
@@ -169,7 +172,7 @@
    "alignChunksMs": [
     0
    ],
-   "visemePct": 96,
+   "visemePct": 95,
    "flicker": 0
   },
   {

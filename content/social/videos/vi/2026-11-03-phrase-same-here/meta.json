@@ -1,0 +1,35 @@
+{
+ "id": "vi-reel-phrase-same-here",
+ "lang": "vi",
+ "slug": "phrase-same-here",
+ "date": "2026-11-03",
+ "title": "“Mình cũng vậy” nói sao?",
+ "topic": "How do you say “me too” naturally?",
+ "mistake": {
+  "en": "Saying “Me too” for everything",
+  "vi": "Lúc nào cũng chỉ nói “Me too”"
+ },
+ "template": "phrase",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 20.555,
+ "wpm": 105,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-reel-phrase-same-here#/phrases",
+ "spec": "content/video/rig/reels/vi/phrase-same-here.json",
+ "spec_sha": "7b09c677075e",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-phrase-same-here-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-03-phrase-same-here-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-03"
+}

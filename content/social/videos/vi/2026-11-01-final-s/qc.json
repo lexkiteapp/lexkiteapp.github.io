@@ -35,7 +35,7 @@
  "deeplink": "#/grammar",
  "native_font": "BeVietnamPro-Bold.ttf",
  "lufs": -16.2,
- "truePeak": -1.3,
+ "truePeak": -1.4,
  "voices": [
   {
    "who": "ama",
