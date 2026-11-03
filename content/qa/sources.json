@@ -17,7 +17,8 @@
    ],
    "delegate": [
     "build-lexicon.mjs",
-    "test/lex.mjs"
+    "test/lex.mjs",
+    "content-qa/sense-check.mjs"
    ]
   },
   {
