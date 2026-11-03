@@ -258,4 +258,6 @@
 "Khoe thành tích": "Share your progress",
 "Lớp học": "Classroom",
 "Giáo viên giao bài, học sinh nhập mã lớp": "Teachers assign work, students join with a class code",
+"Học qua video": "Learn with videos",
+"Video YouTube theo chủ đề, lặp đoạn, lưu từ": "YouTube videos by topic, loop parts, save words",
 }); })(typeof self !== 'undefined' ? self : this);
