@@ -1,4 +1,4 @@
-// 🎯 Hồi quy landing v3 (Stitch brand/stitch/web/landing-v3 → khung web/js/st/web/home.js, docs/specs/landing.md) – chạy trên 15 trang đã dựng:
+// 🎯 Hồi quy landing v3 (Stitch brand/stitch/web/landing-v3 → khung brand/stitch/web/gen/home.js, docs/specs/landing.md) – chạy trên 15 trang đã dựng:
 //   đủ nội dung (no-cuts: 6 tính năng, 5 thẻ tài nguyên giữ liên kết SEO, mọi câu FAQ = JSON-LD, 3 bước), giáo viên 2D đúng Chars.idle (poster có width/height → CLS 0,
 //   video TẮT TIẾNG, không src/autoplay lúc tải → không tốn băng thông/không tự phát), không chữ lỗi (undefined/khóa Việt ở trang ngôn ngữ khác), gzip ≤ 16 KB,
 //   và bộ chuyển giữ được tuỳ chọn unwrap (đầu/chân trang tách ra chrome.js).
@@ -6,7 +6,7 @@ import fs from 'node:fs'; import zlib from 'node:zlib';
 import { LANGS, fileOf } from '../build-landing.mjs'; import { LANG_NAMES } from '../lib/site-layout.mjs';
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗ ' + m); } };
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
-const bind = JSON.parse(fs.readFileSync('brand/stitch/web/bind/home.json', 'utf8')), chrome = fs.readFileSync('web/js/st/web/chrome.js', 'utf8');
+const bind = JSON.parse(fs.readFileSync('brand/stitch/web/bind/home.json', 'utf8')), chrome = fs.readFileSync('brand/stitch/web/gen/chrome.js', 'utf8');
 ok(bind.unwrap && /header: `<header/.test(chrome) && /footer: `<footer/.test(chrome), 'bộ chuyển: unwrap + đầu/chân trang landing v3 trong chrome.js');
 for (const l of LANGS) {
   const f = fileOf(l), html = fs.readFileSync(f, 'utf8'), body = html.slice(html.indexOf('<body'));

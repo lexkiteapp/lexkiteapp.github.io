@@ -16,7 +16,7 @@ ok(/export const TAP_CSS = `[^`]*nav\.main a:not\(\.btn\)\{[^}]*min-height:44px/
 ok(/export const TAP_CSS = `[^`]*nav\.main a:not\(\.btn\)\{[^}]*min-width:44px/.test(layout), 'link thanh đầu rộng ≥ 44px (chữ ngắn như "Blog" từng chỉ 41px – web-sweep tap)');
 const about = R + 'dist/en/blog/about/index.html';
 if (fs.existsSync(about)) { const a = fs.readFileSync(about, 'utf8'); if (a.includes('v2s-web-')) { // blog đã port Stitch v2.1: đầu trang chung chrome.js – MỌI link/nút trong <header> phải min-h-[44px] (đo thật ở CI: scripts/test/stitch-web-diff.mjs)
-    const ch = rd('web/js/st/web/chrome.js'), hd = (ch.match(/header: `([\s\S]*?)`,\n footer:/) || [])[1] || '', els = hd.match(/<(a|button)\b[^>]*>/g) || [];
+    const ch = rd('brand/stitch/web/gen/chrome.js'), hd = (ch.match(/header: `([\s\S]*?)`,\n footer:/) || [])[1] || '', els = hd.match(/<(a|button)\b[^>]*>/g) || [];
     ok(els.length > 0 && els.every(x => /min-h-\[44px\]/.test(x)), `dist blog (Stitch) có luật vùng chạm: ${els.filter(x => !/min-h-\[44px\]/.test(x)).length}/${els.length} link/nút đầu trang thiếu min-h-[44px]`);
   } else ok(a.includes('nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px') && a.includes('.crumbs a{display:inline-flex;align-items:center;min-height:44px'), 'dist blog có luật vùng chạm'); ok(!/>ETS – TOE/.test(a), 'tên liên kết ngắn không xuống dòng giữa chừng (ETS – TOEIC dùng khoảng trắng không ngắt)'); }
 if (fail) { console.error(`✗ layout-guards: ${fail} lỗi`); process.exit(1); }

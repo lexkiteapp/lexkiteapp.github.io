@@ -9,7 +9,7 @@
 // Dùng: node scripts/stitch-v2-convert.mjs [màn…] [--check] [--web]    (cần jsdom – devDependency)
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import { JSDOM, VirtualConsole } from 'jsdom'; const VC = new VirtualConsole(); // im tiếng lỗi CSS @layer của jsdom (vô hại)
 const A = process.argv.slice(2), WEB = A.includes('--web'), CHECK = A.includes('--check'); // --web: trang web tĩnh (lexkite.com) – cùng phép, nguồn/đích riêng, dựng lúc build (Node) bằng scripts/lib/st-web.mjs
-const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'web/js/st/web' : 'web/js/st/v2', EN = WEB ? 'web/js/i18n/en/v2web.js' : 'web/js/i18n/en/v2.js';
+const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'brand/stitch/web/gen' : 'web/js/st/v2', EN = WEB ? 'web/js/i18n/en/v2web.js' : 'web/js/i18n/en/v2.js';
 const ALL = fs.readdirSync(path.join(SRC, 'bind')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5));
 const ONLY = A.filter(a => !a.startsWith('--')), SCREENS = ALL; // luôn chạy MỌI màn (nhanh) để en/v2.js đủ khóa; chỉ GHI file màn được nêu (ONLY)
 const errs = [], enMap = {};
@@ -117,7 +117,7 @@ function emit(root, bind, k) {
   const header = part(':scope > header'), nav = part(':scope > nav'), footer = WEB ? part(':scope > footer') : '``', main = '`' + textify(root).replace(/^<div[^>]*>|<\/div>$/g, '') + '`';
   return { header, nav, footer, main, parts, protos, root: root.getAttribute('class') || '' }; }
 
-// web: CSS thành phần trong <style> của Stitch (nút 3D, thẻ tactile, chấm FAQ…) → web/js/st/web/<trang>.css, giữ NGUYÊN giá trị Stitch.
+// web: CSS thành phần trong <style> của Stitch (nút 3D, thẻ tactile, chấm FAQ…) → brand/stitch/web/gen/<trang>.css, giữ NGUYÊN giá trị Stitch.
 //   Bỏ phần nền (html/body/@layer/@import/font icon – đã có ở WPRE). Rule giống nhau ở 2 bản → chung; khác → bản sáng/tối theo cùng cơ chế lt:/dk:.
 //   Bộ chọn mang tiền tố `:W ` – scripts/build-stitch-css.mjs thay bằng .v2s-web-<trang> (khóa phạm vi như app).
 function webCss(hl, hd) {

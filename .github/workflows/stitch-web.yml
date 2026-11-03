@@ -4,7 +4,7 @@
 name: Stitch web
 on:
   pull_request:
-    paths: ['brand/stitch/web/**', 'web/js/st/web/**', 'web/css/st-w-*', 'web/js/i18n/*/v2web.js', 'scripts/lib/st-web.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/samples-ui.mjs', 'scripts/build-landing.mjs', 'scripts/build-blog.mjs', 'scripts/build-samples*.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', 'scripts/test/stitch-web-diff.*', '.github/workflows/stitch-web.yml']
+    paths: ['brand/stitch/web/**', 'brand/stitch/web/gen/**', 'web/css/st-w-*', 'web/js/i18n/*/v2web.js', 'scripts/lib/st-web.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/samples-ui.mjs', 'scripts/build-landing.mjs', 'scripts/build-blog.mjs', 'scripts/build-samples*.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', 'scripts/test/stitch-web-diff.*', '.github/workflows/stitch-web.yml']
   workflow_dispatch:
 permissions:
   contents: read

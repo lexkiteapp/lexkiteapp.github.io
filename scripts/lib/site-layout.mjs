@@ -349,7 +349,7 @@ export const SITE_UI_V = createHash('sha256').update(SITE_UI_JS()).digest('hex')
 export const SITE_UI = `<script src="/js/site-ui.js?v=${SITE_UI_V}" defer></script>`;
 // Landing (giữ LCP: không <script src> trong HTML – landing-routing kiểm): nạp cùng file SAU sự kiện load, như js/get-app.js nạp khi cần
 export const SITE_UI_LAZY = `<script>addEventListener('load',function(){var s=document.createElement('script');s.src='/js/site-ui.js?v=${SITE_UI_V}';document.head.appendChild(s)})</script>`;
-// ---------- Vỏ chung theo Stitch v2.1 (web/js/st/web/chrome.js – TỰ SINH từ brand/stitch/web/home-*.html + bind/home.json) ----------
+// ---------- Vỏ chung theo Stitch v2.1 (brand/stitch/web/gen/chrome.js – TỰ SINH từ brand/stitch/web/home-*.html + bind/home.json) ----------
 // Trả dữ liệu THẬT cho ST2.chrome(d) (scripts/lib/st-web.mjs render(…, {chrome})): cùng liên kết với siteHeader/siteFooter (footCols, langSwitch, TM_NOTE).
 //   CHỮ THÔ (chưa escape – khung tự escape); các trường *html (menu, extra, getApp) là HTML dựng sẵn. Trang nào cũng truyền được (blog, bài mẫu…):
 //   nav [[href, chữ, hreflang]] · open/signin [href, chữ] · extra: HTML chèn cạnh nút (vd "Tải app") · langHref(l) = trang tương đương bằng ngôn ngữ l.
