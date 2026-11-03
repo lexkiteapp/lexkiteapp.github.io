@@ -141,7 +141,7 @@
     $$('#sTl [data-v]').forEach(b => b.onclick = () => { if (b.dataset.v !== Target.cur()) { Target.set(b.dataset.v); routes.settings(); } });
     const tlSeed = $('#sTlSeed'); if (tlSeed) tlSeed.onclick = async () => {
       tlSeed.disabled = true;
-      try { const n = await addTlSeed('pt'); toast(t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n })); Target.set('pt'); } catch (e) { toast(t('Không tải được bộ từ, thử lại sau')); } finally { tlSeed.disabled = false; }
+      try { const n = await addTlSeed('pt'); toast(t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n })); Target.set('pt'); } catch (e) { toast(t('Không tải được bộ từ, thử lại sau'), { action: t('Thử lại'), onAction: () => tlSeed.onclick() }); } finally { tlSeed.disabled = false; }
     };
     $('#sRate').oninput = e => { s.ttsRate = +e.target.value; $('#vRate').textContent = s.ttsRate.toFixed(2) + '×'; save(); };
     $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
