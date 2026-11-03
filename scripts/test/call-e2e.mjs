@@ -92,6 +92,19 @@ async function open(o = {}) {
 const go = (page, h) => page.evaluate(x => { location.hash = x; }, h);
 const state = page => page.evaluate(() => (window.__callState ? window.__callState() : null));
 const until = (page, fn, arg, ms = 15000) => page.waitForFunction(fn, arg, { timeout: ms });
+// Mắt mở trên khung mặt ĐÃ GHÉP (đầu trơn head-bare không mắt + mắt vector LipFace) – cùng thước scripts/teach/eyes.py: tỉ lệ điểm ảnh lòng trắng trong dải mắt
+// (x 30–70 %, y 32 ± 5,2 %) ≥ 45 % của poster-2x. Bù cho ngoại lệ head-bare trong idle.closed_ok (characters.json). null = khung đang chớp / chưa có canvas.
+const eyeOpen = page => page.evaluate(async () => {
+  const cv = document.querySelector('.tch-rig canvas.tch-face'), st = window.__callState && window.__callState().lip;
+  if (!cv || !st || (st.blink || 0) > 0.02) return null;
+  const score = c => { const w = c.width, h = c.height, x0 = Math.floor(w * .3), y0 = Math.floor(h * (.32 - .052)), x1 = Math.floor(w * .7), y1 = Math.floor(h * (.32 + .052));
+    const d = c.getContext('2d').getImageData(x0, y0, x1 - x0, y1 - y0).data; let n = 0;
+    for (let i = 0; i < d.length; i += 4) { const mx = Math.max(d[i], d[i + 1], d[i + 2]), mn = Math.min(d[i], d[i + 1], d[i + 2]); if (mx > 200 && (mx - mn) * 255 < 60 * Math.max(mx, 1) && d[i + 3] > 200) n++; }
+    return n / (d.length / 4); };
+  const who = document.querySelector('.tch-rig').dataset.face || 'ama', im = new Image(); im.src = Chars.poster(who).replace('poster.webp', 'poster-2x.webp'); await im.decode();
+  const pc = Object.assign(document.createElement('canvas'), { width: cv.width, height: cv.height }); pc.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
+  return { score: score(cv), ref: score(pc), mode: st.mode, who };
+});
 
 if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   for (const [vp, tag] of [[{ width: 1280, height: 800 }, 'd'], [{ width: 375, height: 812 }, 'm']]) {
@@ -257,7 +270,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   }
   // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
   for (const rec of [false, true]) {
-  let pendPre = false, modes = new Set(); const modes2 = new Set();
+  let pendPre = false, modes = new Set(); const modes2 = new Set(), talk = []; // talk: khung ghép lúc NÓI (mắt mở)
   const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: rec, audio: true });
   await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
   await go(page, '#/call/coffee'); await page.waitForSelector('#callGo');
@@ -275,6 +288,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
   const fps = a && b ? Math.round(1000 * (b.frames - a.frames) / (b.now - a.now)) : 0;
   ok(fps >= 50, `mặt vẽ: ${fps} fps ở CPU chậm 4× (≥ 50), khung > 50 ms: ${a && b ? b.long - a.long : '?'}`);
+  for (let i = 0; i < 40 && talk.length < 3; i++) { const e = await eyeOpen(page); if (e && e.mode !== 'idle') talk.push(e); await page.waitForTimeout(120); }
   const cued = await page.evaluate(() => Object.keys((window.LK_CUES || {}).k || {}).length);
   console.log(`  mặt vẽ: chế độ ${[...modes].join(', ')} · ${cued} câu Call có mốc CI`);
   if (!cued || modes.has('pre')) ok(true, 'mặt vẽ: câu có mốc CI phát chế độ pre (bản -ls.mp3)'); else pendPre = true; // câu đầu chưa kịp → xét lại ở câu đáp sau (chip latte)
@@ -283,8 +297,11 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   }
   if (rec) await shot(page, 'lip-m');
   await until(page, () => /Đến lượt bạn|lượt bạn/i.test(document.body.textContent), null, 15000).catch(() => {});
+  if (!rec) { const rest = []; for (let i = 0; i < 40 && rest.length < 3; i++) { const e = await eyeOpen(page); if (e && e.mode === 'idle') rest.push(e); await page.waitForTimeout(120); }
+    ok(rest.length && rest.every(e => e.score >= 0.45 * e.ref), `mặt vẽ ghép: mắt mở khi NGHỈ (${rest.map(e => `${e.score.toFixed(3)}/${e.ref.toFixed(3)}`).join(', ') || 'không bắt được khung'})`); }
   await page.waitForTimeout(300); const sh = (await state(page)).lip; ok(sh && sh.shape === 'X' && sh.open === 0, `mặt vẽ: hết tiếng → miệng ngậm (hình ${sh && sh.shape}, mở ${sh && sh.open})`);
-  const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); for (let i = 0; i < 25; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes2.add(l.mode); } }
+  const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); for (let i = 0; i < 25; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes2.add(l.mode); if (!rec && talk.length < 3 && l && l.mode !== 'idle') { const e = await eyeOpen(page); if (e && e.mode !== 'idle') talk.push(e); } } }
+  if (!rec) ok(talk.length && talk.every(e => e.score >= 0.45 * e.ref), `mặt vẽ ghép: mắt mở khi NÓI (${talk.map(e => `${e.score.toFixed(3)}/${e.ref.toFixed(3)}`).join(', ') || 'không bắt được khung'})`);
   if (!rec && pendPre) ok(modes2.has('pre'), `mặt vẽ: câu có mốc CI phát chế độ pre (câu đầu ${[...modes].join('/')}, câu sau ${[...modes2].join('/')})`);
   ok(!errs.length, 'mặt vẽ: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
   const vid = page.video(); await ctx.close(); if (vid) fs.copyFileSync(await vid.path(), path.join(OUT, 'lip-m.webm'));

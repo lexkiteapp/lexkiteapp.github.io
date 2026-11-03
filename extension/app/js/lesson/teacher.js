@@ -80,7 +80,7 @@
         ctx.drawImage(pic, 0, 0, 1108, 960);
         for (const p of LF.parts(who, s, id)) if (p) g.LipPaint.draw(ctx, p);
       }
-      cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; raf = requestAnimationFrame(frame);
+      cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; stats.blink = Math.round((s.blink || 0) * 100) / 100; // blink: test mắt mở trên khung ghép (call-e2e) raf = requestAnimationFrame(frame);
     };
     let cur = null, held = null; // held = [biểu cảm, tên tư thế] do pose(p) giữ tới pose(null) – như ảnh tư thế, nhưng miệng vẫn khớp khi nói
     const talkEmo = () => (emoUntil && idleEmo && idleEmo !== 'listen' ? idleEmo : held ? held[0] : undefined); // vừa phản ứng xong mà nói luôn → giữ biểu cảm khi nói
