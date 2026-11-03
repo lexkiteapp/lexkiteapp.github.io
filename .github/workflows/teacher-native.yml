@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency: { group: 'teacher-native-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
 jobs:
   shots:
     runs-on: ubuntu-latest
