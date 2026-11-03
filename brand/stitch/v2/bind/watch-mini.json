@@ -1,0 +1,84 @@
+{
+ "_doc": "Học qua video – 'Ẩn sân khấu' bật (#/watch/<id>): trình phát mini (giáo viên đang nói nhỏ, tiến độ, phát/dừng, Hiện sân khấu) + 4 chế độ + transcript đầy đủ. d do web/js/media/player.js. Ô tròn nét đứt → ảnh 2D người đang nói (Chars, d.tchMini). Thẻ câu mẫu = KHUÔN class (đã qua/đang phát/sắp tới) cho MediaTranscript.mount vẽ câu thật vào #wTr; chip 'ACTIVE' tự bịa → nhãn thật 'Đang phát' ở câu đang phát (player.js). Thanh tab: nhãn/href từ d.tabsNav, bỏ chấm đỏ tự bịa ở tab Từ vựng.",
+ "i18n": {
+  "Subtitles": "Phụ đề",
+  "Shadowing": "Shadowing",
+  "Dictation": "Nghe chép chính tả",
+  "Fill in": "Điền chỗ trống",
+  "Show stage": "Hiện sân khấu"
+ },
+ "text": {
+  "Coffee to go": "d.title",
+  "Aa": "'Aa'",
+  "Ama is speaking": "d.speaking",
+  "0:12 / 0:20": "d.time",
+  "Carlos": "''",
+  "Ama": "''",
+  "ACTIVE": "''",
+  "Hi! What can I get you today?": "''",
+  "Chào bạn! Hôm nay bạn muốn dùng gì?": "''",
+  "A large latte": "''",
+  "to go": "''",
+  ", please.": "''",
+  "Cho mình một ly latte lớn mang đi nhé.": "''",
+  "Sure.": "''",
+  "Anything": "''",
+  "else?": "''",
+  "Được ạ. Còn gì nữa không?": "''",
+  "No, thanks.": "''",
+  "How much": "''",
+  "is it?": "''",
+  "Không, cảm ơn. Bao nhiêu tiền vậy?": "''",
+  "That's four fifty.": "''",
+  "Bốn đô năm mươi.": "''"
+ },
+ "html": {
+  ":scope > main > nav > a:nth-of-type(1) > span:last-child": "e(d.tabsNav[0].label)",
+  ":scope > main > nav > a:nth-of-type(2) > span:last-child": "e(d.tabsNav[1].label)",
+  ":scope > main > nav > a:nth-of-type(3) > span:last-child": "e(d.tabsNav[2].label)",
+  ":scope > main > nav > a:nth-of-type(4) > span:last-child": "e(d.tabsNav[3].label)",
+  ":scope > main > nav > a:nth-of-type(5) > span:last-child": "e(d.tabsNav[4].label)"
+ },
+ "attr": {
+  ":scope > main > header > div > button": { "type": "'button'", "id": "'wBack'", "aria-label": "t('Quay lại màn trước')" },
+  ":scope > main > header > div > h1": { "lang": "'en'" },
+  ":scope > main > header > button": { "type": "'button'", "id": "'wAa'", "aria-label": "t('Cỡ chữ')" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": { "id": "'wSpk'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": { "id": "'wTime'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": { "id": "'wSeek'", "role": "'slider'", "tabindex": "'0'", "aria-label": "t('Tua')", "aria-valuemin": "'0'", "aria-valuemax": "d.durS", "aria-valuenow": "'0'", "aria-valuetext": "'0:00'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div": { "id": "'wBar'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > button": { "type": "'button'", "id": "'wPlay'", "data-a": "'play'", "aria-label": "t('Phát')" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > button > span": { "id": "'wPlayI'", "aria-hidden": "'true'" },
+  ":scope > main > div > section:nth-child(1)": { "id": "'wCtl'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > button": { "type": "'button'", "data-a": "'fold'", "aria-pressed": "'true'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > button > span:nth-child(2)": { "aria-hidden": "'true'" },
+  ":scope > main > div > nav": { "id": "'wModes'", "role": "'tablist'", "aria-label": "t('Chế độ luyện')" },
+  ":scope > main > div > nav > button:nth-child(1)": { "type": "'button'", "role": "'tab'", "data-m": "'sub'", "aria-selected": "'true'" },
+  ":scope > main > div > nav > button:nth-child(2)": { "type": "'button'", "role": "'tab'", "data-m": "'shadow'", "aria-selected": "'false'" },
+  ":scope > main > div > nav > button:nth-child(3)": { "type": "'button'", "role": "'tab'", "data-m": "'dict'", "aria-selected": "'false'" },
+  ":scope > main > div > nav > button:nth-child(4)": { "type": "'button'", "role": "'tab'", "data-m": "'cloze'", "aria-selected": "'false'" },
+  ":scope > main > div > section:nth-child(3)": { "id": "'wTr'" },
+  ":scope > main > div > section:nth-child(3) > article > button": { "aria-label": "t('Nghe lại')" },
+  ":scope > main > nav": { "aria-label": "t('Điều hướng chính của ứng dụng')" },
+  ":scope > main > nav > a:nth-of-type(1)": { "href": "d.tabsNav[0].href" },
+  ":scope > main > nav > a:nth-of-type(2)": { "href": "d.tabsNav[1].href" },
+  ":scope > main > nav > a:nth-of-type(3)": { "href": "d.tabsNav[2].href", "aria-current": "'page'" },
+  ":scope > main > nav > a:nth-of-type(4)": { "href": "d.tabsNav[3].href" },
+  ":scope > main > nav > a:nth-of-type(5)": { "href": "d.tabsNav[4].href" }
+ },
+ "cls": {
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div": { "w-[60%]": "'w-0'" }
+ },
+ "addClass": {
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "cursor-pointer touch-none after:absolute after:-inset-y-[17px] after:inset-x-0 after:content-['']"
+ },
+ "after": {
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(1)": "d.tchMini",
+  ":scope > main > div > nav": "'<div class=\"mp-panel\" id=\"wPanel\" hidden></div>'"
+ },
+ "remove": [
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+  ":scope > main > nav > a:nth-of-type(2) > div > span"
+ ],
+ "_tap": "Thanh tiến độ cao 10px: vùng chạm ≥44 bằng ::after vô hình (đã relative sẵn)."
+}

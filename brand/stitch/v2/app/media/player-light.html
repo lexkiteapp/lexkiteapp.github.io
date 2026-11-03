@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Irregular Verbs (Canonical Tab Bar)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fff8f5;
+      color: #1e2624;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Tactile card & button effects */
+    .tactile-card {
+      background: #ffffff;
+      border: 2px solid #e2d2c5;
+      border-radius: 16px;
+      box-shadow: 0 5px 0 0 #dfcdc0;
+    }
+    .tactile-btn-primary {
+      background: #f5820d;
+      border: 2px solid #b85b00;
+      box-shadow: 0 6px 0 0 #b85b00;
+      color: #1f1204;
+      border-radius: 16px;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 0 #b85b00;
+    }
+    .tactile-round-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      background: #ffffff;
+      border: 2px solid #dfcdc0;
+      box-shadow: 0 3px 0 0 #dfcdc0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #136a63;
+      transition: all 0.1s ease;
+    }
+    .tactile-round-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #dfcdc0;
+    }
+    .chip-active {
+      background: #136a63;
+      color: #ffffff;
+      border: 2px solid #0d4d48;
+      box-shadow: 0 3px 0 0 #0d4d48;
+    }
+    .chip-inactive {
+      background: #ffffff;
+      color: #334440;
+      border: 2px solid #dfcdc0;
+      box-shadow: 0 3px 0 0 #dfcdc0;
+    }
+    .verb-row {
+      transition: background-color 0.1s ease;
+    }
+    .verb-row:not(:last-child) {
+      border-bottom: 2px solid #f1e4db;
+    }
+    .speaker-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      background: #fdf5f0;
+      border: 1.5px solid #dfcdc0;
+      box-shadow: 0 2px 0 0 #dfcdc0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #136a63;
+      flex-shrink: 0;
+    }
+    .speaker-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #dfcdc0;
+    }
+    /* Hide scrollbar for clean chip rail */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#fff8f5]">
+<!-- Main Container: exactly 390px phone canvas, edge-to-edge content, no outer device frame -->
+<div class="min-h-screen bg-[#fff8f5] flex flex-col relative pb-[84px] w-full">
+<!-- TOP BAR (INNER variant): 56px, warm cream background, 2px bottom border, round tactile back button, title, bookmark icon -->
+<header class="h-[56px] w-full px-4 flex items-center justify-between border-b-2 border-[#ecdcd0] bg-[#fff8f5] sticky top-0 z-40"><div class="flex items-center gap-3">
+<button aria-label="Go back" class="w-11 h-11 rounded-full bg-white border-2 border-[#dfcdc0] shadow-[0_3px_0_0_#dfcdc0] flex items-center justify-center text-[#136a63] cursor-pointer active:translate-y-0.5 active:shadow-[0_1px_0_0_#dfcdc0] transition-all">
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<line x1="19" x2="5" y1="12" y2="12"></line>
+<polyline points="12 19 5 12 12 5"></polyline>
+</svg>
+</button>
+<h1 class="text-[19px] font-extrabold tracking-tight text-[#162320]">Coffee to go</h1>
+</div>
+<button aria-label="Text settings" class="w-11 h-11 rounded-full bg-white border-2 border-[#dfcdc0] shadow-[0_3px_0_0_#dfcdc0] flex items-center justify-center text-[#136a63] font-extrabold text-[15px] cursor-pointer active:translate-y-0.5 active:shadow-[0_1px_0_0_#dfcdc0] transition-all">
+  Aa
+</button></header>
+<!-- PAGE CONTENT (route #/verb): 16px side margins, 8px grid rhythm -->
+<main class="flex-1 px-4 pt-4 pb-4 flex flex-col gap-3.5"><!-- 1. STAGE CARD: Cosy Cafe theme, 2 empty teacher slots on a shared pedestal ledge -->
+<div class="tactile-card overflow-hidden bg-[#fffbf7] border-2 border-[#e6d7cd] rounded-[16px] shadow-[0_4px_0_0_#d9c4b5]">
+<!-- Stage scenery background -->
+<div class="relative h-[190px] w-full bg-gradient-to-b from-[#fff3ea] via-[#fceddb] to-[#f5dfce] p-3 flex flex-col justify-between overflow-hidden">
+<!-- Café background subtle decor -->
+<div class="flex items-center justify-between text-[11px] font-bold text-[#8a3800] opacity-80">
+<span class="bg-white/80 px-2 py-0.5 rounded-full border border-[#f5c69b] flex items-center gap-1">
+        ☕ Coffee counter
+      </span>
+</div>
+<!-- Two teacher slots standing on shared pedestal floor -->
+<div class="flex items-end justify-around w-full z-10 pb-1.5">
+<!-- Left slot: Ama (speaking active) -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-[82px] h-[96px] rounded-[14px] border-2 border-dashed border-[#b8c9c5] bg-white/40 shadow-sm"></div>
+<div class="px-2.5 py-0.5 rounded-full bg-[#136a63] text-white text-[11px] font-extrabold shadow-[0_2px_0_0_#0d4d48] flex items-center gap-1.5 ring-2 ring-[#a4f1e7]">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+          Ama
+        </div>
+</div>
+<!-- Right slot: Carlos -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-[82px] h-[96px] rounded-[14px] border-2 border-dashed border-[#b8c9c5] bg-white/40 shadow-sm"></div>
+<div class="px-2.5 py-0.5 rounded-full bg-white text-[#334440] text-[11px] font-bold border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0]">
+          Carlos
+        </div>
+</div>
+</div>
+<!-- Shared pedestal floor ledge -->
+<div class="absolute bottom-0 left-0 right-0 h-4 bg-[#e7cdb8] border-t-2 border-[#d9b89f]"></div>
+</div>
+</div>
+<!-- 2. CHUNKY PLAYER CONTROL ROW -->
+<div class="tactile-card p-3 bg-white border-2 border-[#e2d2c5] rounded-[16px] shadow-[0_4px_0_0_#dfcdc0] flex flex-col gap-2.5">
+<!-- Progress track & timer -->
+<div class="flex items-center gap-2.5">
+<span class="text-[11px] font-extrabold text-[#136a63] min-w-[28px]">0:07</span>
+<div class="flex-1 h-2 bg-[#f2e4d8] rounded-full overflow-hidden border border-[#e2d2c5]">
+<div class="h-full bg-[#136a63] rounded-full" style="width: 35%;"></div>
+</div>
+<span class="text-[11px] font-bold text-[#5c6d69] min-w-[28px] text-right">0:20</span>
+</div>
+<!-- Action buttons row -->
+<div class="flex items-center justify-between pt-0.5 px-1">
+<!-- 1x Speed Chip -->
+<button aria-label="Playback speed" class="h-9 px-2.5 rounded-full bg-[#fff8f5] border-2 border-[#dfcdc0] text-[12px] font-extrabold text-[#162320] shadow-[0_2px_0_0_#dfcdc0] active:translate-y-0.5 cursor-pointer">
+      1.0x
+    </button>
+<div class="flex items-center gap-3">
+<!-- Prev line button (>=44px touch) -->
+<button aria-label="Previous line" class="w-11 h-11 rounded-full bg-white border-2 border-[#dfcdc0] shadow-[0_3px_0_0_#dfcdc0] flex items-center justify-center text-[#182623] cursor-pointer active:translate-y-0.5 active:shadow-[0_1px_0_0_#dfcdc0]">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path>
+</svg>
+</button>
+<!-- Big tactile Orange Play/Pause Button (48px size, candy orange #ff9800 with deep ledge and deep brown icon) -->
+<button aria-label="Pause lesson" class="w-12 h-12 rounded-full bg-[#ff9800] border-2 border-[#c77700] shadow-[0_4px_0_0_#c77700] flex items-center justify-center text-[#1a0d00] cursor-pointer active:translate-y-0.5 active:shadow-[0_2px_0_0_#c77700]">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+</svg>
+</button>
+<!-- Next line button (>=44px touch) -->
+<button aria-label="Next line" class="w-11 h-11 rounded-full bg-white border-2 border-[#dfcdc0] shadow-[0_3px_0_0_#dfcdc0] flex items-center justify-center text-[#182623] cursor-pointer active:translate-y-0.5 active:shadow-[0_1px_0_0_#dfcdc0]">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path>
+</svg>
+</button>
+</div>
+<!-- Replay loop button -->
+<button aria-label="Repeat line" class="h-9 px-2.5 rounded-full bg-[#fff8f5] border-2 border-[#dfcdc0] text-[12px] font-extrabold text-[#136a63] shadow-[0_2px_0_0_#dfcdc0] active:translate-y-0.5 flex items-center gap-1 cursor-pointer">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<polyline points="17 1 21 5 17 9"></polyline>
+<path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+<polyline points="7 23 3 19 7 15"></polyline>
+<path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- 3. 4-OPTION TACTILE SEGMENTED CONTROL -->
+<div class="grid grid-cols-4 gap-1.5 p-1 bg-[#f4e5db] rounded-[14px] border-2 border-[#dfcdc0]">
+<button class="py-2 rounded-[10px] bg-[#136a63] text-white text-[12px] font-extrabold shadow-[0_2px_0_0_#0d4d48] text-center cursor-pointer">
+    Subtitles
+  </button>
+<button class="py-2 rounded-[10px] bg-white text-[#334440] text-[12px] font-bold border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-center cursor-pointer">
+    Shadowing
+  </button>
+<button class="py-2 rounded-[10px] bg-white text-[#334440] text-[12px] font-bold border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-center cursor-pointer">
+    Dictation
+  </button>
+<button class="py-2 rounded-[10px] bg-white text-[#334440] text-[12px] font-bold border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-center cursor-pointer">
+    Fill in
+  </button>
+</div>
+<!-- 4. SLIM TOOL ROW -->
+<div class="flex flex-col gap-2 py-0.5 w-full">
+<div class="flex items-center gap-2 w-full">
+<button class="h-8 px-2.5 rounded-full bg-white border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-[11px] font-extrabold text-[#182623] flex-shrink-0 cursor-pointer">
+    A−
+  </button>
+<button class="h-8 px-2.5 rounded-full bg-white border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-[11px] font-extrabold text-[#182623] flex-shrink-0 cursor-pointer">
+    A+
+  </button>
+<button class="h-8 px-2.5 rounded-full bg-[#d2ebe7] text-[#136a63] border border-[#a4f1e7] text-[11px] font-extrabold flex items-center gap-1 flex-1 justify-center shadow-[0_2px_0_0_#88d4cb] cursor-pointer">
+<span class="w-1.5 h-1.5 rounded-full bg-[#136a63]"></span>
+    Translation
+  </button>
+<button class="h-8 px-2.5 rounded-full bg-white border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-[11px] font-extrabold text-[#334440] flex items-center gap-1 flex-1 justify-center cursor-pointer">
+    Tiếng Việt
+    <svg class="w-3 h-3 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<polyline points="6 9 12 15 18 9"></polyline>
+</svg>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="h-8 px-2.5 rounded-full bg-[#fee8d6] text-[#8a3800] border border-[#f5c69b] text-[10px] font-extrabold uppercase flex items-center gap-1 flex-shrink-0">
+    ● Live
+  </span>
+<button class="h-8 px-2.5 rounded-full bg-white border border-[#dfcdc0] shadow-[0_2px_0_0_#dfcdc0] text-[11px] font-extrabold text-[#5c6d69] flex items-center gap-1 flex-shrink-0 cursor-pointer">
+    Hide stage
+    <svg class="w-3 h-3 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<polyline points="18 15 12 9 6 15"></polyline>
+</svg>
+</button>
+</div>
+</div>
+<!-- 5. TRANSCRIPT LIST -->
+<div class="flex flex-col gap-2.5 pb-2">
+<!-- Line 1: Carlos (past line) -->
+<div class="tactile-card p-3.5 bg-white border-2 border-[#e7d8cc] rounded-[16px] shadow-[0_3px_0_0_#dfcdc0] opacity-80">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#52635f]">Carlos</span>
+<button aria-label="Replay line 1" class="speaker-btn w-7 h-7">
+<svg class="w-3 h-3 fill-current" viewbox="0 0 24 24">
+<path d="M8 5v14l11-7z"></path>
+</svg>
+</button>
+</div>
+<p class="text-[15px] font-bold text-[#182623] leading-snug">Hi! What can I get you today?</p>
+<p class="text-[12px] font-medium text-[#5c6d69] mt-1">Chào bạn! Hôm nay bạn muốn dùng gì?</p>
+</div>
+<!-- Line 2: Ama (CURRENT LINE - Active Karaoke & highlighted) -->
+<div class="tactile-card p-3.5 bg-[#fffaf5] border-2 border-[#136a63] rounded-[16px] shadow-[0_4px_0_0_#136a63] ring-2 ring-[#a4f1e7]/60">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-[#136a63] text-white text-[10px] font-extrabold uppercase tracking-wider shadow-[0_1px_0_0_#0d4d48]">Ama</span>
+<span class="w-2 h-2 rounded-full bg-[#136a63] animate-ping"></span>
+</div>
+<span class="text-[11px] font-bold text-[#136a63] bg-[#d2ebe7] px-2 py-0.5 rounded-full">
+        Playing
+      </span>
+</div>
+<p class="text-[16px] font-extrabold text-[#111e1b] leading-relaxed">
+      A large 
+      <span class="bg-[#fef08a] text-[#854d0e] px-1.5 py-0.5 rounded-[6px] border border-[#fde047] font-black">latte</span>
+<span class="border-b-2 border-dotted border-[#136a63] text-[#136a63] cursor-pointer hover:bg-[#d2ebe7]/40 px-0.5">to go</span>, 
+      please.
+    </p>
+<p class="text-[13px] font-semibold text-[#4b5956] mt-1.5">
+      Cho mình một ly latte lớn mang đi nhé.
+    </p>
+</div>
+<!-- Line 3: Carlos (upcoming line) -->
+<div class="tactile-card p-3.5 bg-white border-2 border-[#e7d8cc] rounded-[16px] shadow-[0_3px_0_0_#dfcdc0]">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#52635f]">Carlos</span>
+<span class="text-[10px] font-bold text-[#8f9e9a]">0:14</span>
+</div>
+<p class="text-[15px] font-bold text-[#182623] leading-snug">Sure. Anything else?</p>
+<p class="text-[12px] font-medium text-[#5c6d69] mt-1">Được ạ. Còn gì nữa không?</p>
+</div>
+<div class="tactile-card p-3.5 bg-white border-2 border-[#e7d8cc] rounded-[16px] shadow-[0_3px_0_0_#dfcdc0]">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#52635f]">Ama</span>
+<button aria-label="Replay line 4" class="speaker-btn w-7 h-7">
+<svg class="w-3 h-3 fill-current" viewbox="0 0 24 24">
+<path d="M8 5v14l11-7z"></path>
+</svg>
+</button>
+</div>
+<p class="text-[15px] font-bold text-[#182623] leading-snug">
+No, thanks. <span class="border-b-2 border-dotted border-[#136a63] text-[#136a63] cursor-pointer hover:bg-[#d2ebe7]/40 px-0.5">How much</span> is it?
+</p>
+<p class="text-[12px] font-medium text-[#5c6d69] mt-1">Không, cảm ơn. Bao nhiêu tiền vậy?</p>
+</div></div></main>
+<!-- CANONICAL LEXKITE BOTTOM TAB BAR: 
+         Exactly 64px, white bar, 2px top border (#dfcdc0), exactly 5 equal tabs.
+         Icon above label.
+         Today (house), Vocab (open book, red due badge), Skills (target), Tests (flag), Me (person).
+         ACTIVE TAB = 'Vocab' with teal icon inside soft-teal rounded pill (approx 56x32) and bold teal label (#136a63).
+         INACTIVE TABS = dark grey-ink icon and label (#4b5956), no background.
+    -->
+<nav class="fixed bottom-0 h-[64px] bg-white border-t-2 border-[#dfcdc0] flex items-center justify-around px-1 z-50 w-full left-0"><!-- Tab 1: Today (Inactive) -->
+<button aria-label="Today" class="flex-1 flex flex-col items-center justify-center py-1 text-[#334155] hover:text-[#136a63] transition-colors">
+<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+<span class="text-[11px] font-bold mt-1 text-[#334155]">Today</span>
+</button>
+<!-- Tab 2: Vocab (Inactive with red due badge) -->
+<button aria-label="Vocab" class="flex-1 flex flex-col items-center justify-center py-1 text-[#334155] hover:text-[#136a63] transition-colors relative">
+<div class="relative flex items-center justify-center">
+<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+</svg>
+<span class="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-[#e63946] border border-white"></span>
+</div>
+<span class="text-[11px] font-bold mt-1 text-[#334155]">Vocab</span>
+</button>
+<!-- Tab 3: Skills (ACTIVE: teal icon inside soft-teal pill ~56x28, bold teal label) -->
+<button aria-label="Skills" class="flex-1 flex flex-col items-center justify-center py-0.5">
+<div class="relative w-[56px] h-[28px] bg-[#d2ebe7] rounded-full flex items-center justify-center text-[#136a63]">
+<svg class="w-[19px] h-[19px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<circle cx="12" cy="12" r="6"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+</svg>
+</div>
+<span class="text-[11px] font-extrabold mt-0.5 text-[#136a63]">Skills</span>
+</button>
+<!-- Tab 4: Tests (Inactive: Flag) -->
+<button aria-label="Tests" class="flex-1 flex flex-col items-center justify-center py-1 text-[#334155] hover:text-[#136a63] transition-colors">
+<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+<line x1="4" x2="4" y1="22" y2="15"></line>
+</svg>
+<span class="text-[11px] font-bold mt-1 text-[#334155]">Tests</span>
+</button>
+<!-- Tab 5: Me (Inactive: Person) -->
+<button aria-label="Me" class="flex-1 flex flex-col items-center justify-center py-1 text-[#334155] hover:text-[#136a63] transition-colors">
+<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+<span class="text-[11px] font-bold mt-1 text-[#334155]">Me</span>
+</button></nav>
+</div>
+</body>
+</html>

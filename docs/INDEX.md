@@ -103,6 +103,7 @@
 - [VIDEO-TEACH2D](VIDEO-TEACH2D.md) — 5 teaching templates (2D registry teacher + Kit cards, short + lesson embed), QC before/after render, topic plan; read before any teaching video work
 - [VIDEO-SERIES.md](VIDEO-SERIES.md) — 6 series video đánh số + bộ lọc chủ đề máy làm tốt + chuẩn pipeline quy mô lớn: lý do save/share, kho 10 tập đầu mỗi series, luật series, nhịp giảng; đọc khi: lên nội dung video
 - [VIDEO.md](VIDEO.md) — Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage; đọc khi: mọi việc video
+- [MEDIA.md](MEDIA.md) — Học qua video/audio: trình phát + transcript tương tác + 4 chế độ, cổng nội dung/bản dịch, CI giọng + mốc giờ, kế hoạch M2–M3; đọc khi: làm #/watch, transcript, thẻ tra từ, reader/podcast
 - [VISUAL-LEARNING-PLAN.md](VISUAL-LEARNING-PLAN.md) — Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn; đọc khi: thêm ảnh minh họa mới
 - [VOCAB-IMG-STYLE.md](VOCAB-IMG-STYLE.md) — Chuẩn ảnh từ vựng: nghiên cứu app lớn, khoa học học tập, phong cách nhà duy nhất, khung hình đọc được ở 96-160 px, luật theo lớp từ, dàn nhân vật; đọc khi: sinh/duyệt ảnh từ vựng
 - [TTS-AB.md](TTS-AB.md) — Phép thử A/B giọng Kokoro ↔ ElevenLabs: bộ câu, chấm CI, nghe mù, trần credit, giấy phép; đọc khi: chọn engine giọng đọc, xem sổ chi ElevenLabs

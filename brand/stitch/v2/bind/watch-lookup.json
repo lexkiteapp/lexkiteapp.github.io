@@ -1,0 +1,39 @@
+{
+ "_doc": "Thẻ tra từ/cụm từ (LookupCard.open, web/js/media/lookup-card.js) – bottom sheet trên transcript #/watch/<id>. keep = chỉ lấy tấm sheet; parts.veil = lớp mờ phía sau (chạm = đóng). d do lookup-card.js dựng: cụm/từ, loại (cụm từ/từ), nghĩa theo ngôn ngữ mẹ đẻ, def tiếng Anh, câu ngữ cảnh (cụm được tô gạch sóng), nút Lưu vào ôn tập (cam) + Đã biết (viền, chỉ khi có onKnown). Nút Nghe (giữ tính năng M1) chèn lúc chạy, cùng khuôn nút Đóng.",
+ "keep": ":scope > main > div > section:nth-child(5)",
+ "parts": { "veil": ":scope > main > div > div:nth-child(4)" },
+ "i18n": {},
+ "text": {
+  "to go": "d.text",
+  "phrase": "d.kind"
+ },
+ "html": {
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(3) > p:nth-child(1)": "e(d.mean)",
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(3) > p:nth-child(2)": "e(d.def)",
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(4) > p": "d.exHtml",
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(1) > span:nth-child(2)": "e(d.saveLbl)",
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(2) > span:nth-child(2)": "e(t('Đã biết'))"
+ },
+ "attr": {
+  ":scope > main > div > section:nth-child(5)": { "role": "'dialog'", "aria-modal": "'true'", "aria-labelledby": "'lkT'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(2) > div > h2": { "id": "'lkT'", "lang": "'en'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(2) > div": { "id": "'lkHead'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(2) > button": { "id": "'lkX'", "aria-label": "t('Đóng')" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(2) > button > span": { "aria-hidden": "'true'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(3) > p:nth-child(1)": { "id": "'lkMean'", "dir": "d.dir" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(3) > p:nth-child(2)": { "lang": "'en'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(4)": { "id": "'lkEx'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(4) > span": { "aria-hidden": "'true'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(4) > p": { "lang": "'en'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(1)": { "id": "'lkSave'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(1) > span:nth-child(1)": { "aria-hidden": "'true'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(1) > span:nth-child(2)": { "id": "'lkSaveL'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(2)": { "id": "'lkKnown'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(2) > span:nth-child(1)": { "aria-hidden": "'true'" }
+ },
+ "cls": {
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5)": { "grid": "d.acts ? 'grid' : 'hidden'", "grid-cols-2": "d.known ? 'grid-cols-2' : 'grid-cols-1'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(5) > button:nth-child(2)": { "min-h-[44px]": "d.known ? 'min-h-[44px]' : 'hidden'" },
+  ":scope > main > div > section:nth-child(5) > div > div:nth-child(4)": { "flex": "d.exHtml ? 'flex' : 'hidden'" }
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "_doc": "Học qua video (#/watch/<id>, docs/MEDIA.md §6 M2) – trình phát: sân khấu (Ama trái, Carlos phải trên 1 bục) + điều khiển + 4 chế độ + công cụ + transcript. d do web/js/media/player.js dựng từ clip thật (web/data/media/<id>.json). Ô giáo viên nét đứt → LessonTeacher (Chars, 2D) qua d.tchA/d.tchB; clip 1 người → ẩn cột phải (d.two). Thẻ câu mẫu của Stitch là KHUÔN: player.js đọc class của chúng (đã qua/đang phát/sắp tới) rồi MediaTranscript.mount vẽ câu thật vào #wTr với đúng class đó. Thanh tab: nhãn/href từ d.tabsNav (giữ icon mẫu), bỏ chấm đỏ tự bịa ở tab Từ vựng. Thanh tiến độ: role=slider (tua bằng chạm/phím), bề rộng đặt bằng JS (CSP).",
+ "i18n": {
+  "Subtitles": "Phụ đề",
+  "Shadowing": "Shadowing",
+  "Dictation": "Nghe chép chính tả",
+  "Fill in": "Điền chỗ trống",
+  "Translation": "Bản dịch",
+  "Hide stage": "Ẩn sân khấu"
+ },
+ "text": {
+  "Coffee to go": "d.title",
+  "Aa": "'Aa'",
+  "☕ Coffee counter": "d.scene",
+  "Ama": "d.nameA",
+  "Carlos": "d.nameB",
+  "0:07": "'0:00'",
+  "0:20": "d.dur",
+  "1.0x": "d.rate",
+  "Tiếng Việt": "d.langName",
+  "● Live": "t('Live')",
+  "Hi! What can I get you today?": "''",
+  "Chào bạn! Hôm nay bạn muốn dùng gì?": "''",
+  "Playing": "''",
+  "A large": "''",
+  "latte": "''",
+  "to go": "''",
+  ", \n      please.": "''",
+  "Cho mình một ly latte lớn mang đi nhé.": "''",
+  "Sure. Anything else?": "''",
+  "Được ạ. Còn gì nữa không?": "''",
+  "No, thanks.": "''",
+  "How much": "''",
+  "is it?": "''",
+  "Không, cảm ơn. Bao nhiêu tiền vậy?": "''"
+ },
+ "html": {
+  ":scope > div > nav > button:nth-child(1) > span:last-child": "e(d.tabsNav[0].label)",
+  ":scope > div > nav > button:nth-child(2) > span:last-child": "e(d.tabsNav[1].label)",
+  ":scope > div > nav > button:nth-child(3) > span:last-child": "e(d.tabsNav[2].label)",
+  ":scope > div > nav > button:nth-child(4) > span:last-child": "e(d.tabsNav[3].label)",
+  ":scope > div > nav > button:nth-child(5) > span:last-child": "e(d.tabsNav[4].label)"
+ },
+ "attr": {
+  ":scope > div > header > div > button": { "type": "'button'", "id": "'wBack'", "aria-label": "t('Quay lại màn trước')" },
+  ":scope > div > header > div > h1": { "lang": "'en'" },
+  ":scope > div > header > button": { "type": "'button'", "id": "'wAa'", "aria-label": "t('Cỡ chữ')" },
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(1)": { "id": "'wScene'" },
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)": { "id": "'wChipA'" },
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": { "id": "'wChipB'" },
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span": { "id": "'wPing'", "aria-hidden": "'true'" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": { "id": "'wCur'" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1) > div": { "id": "'wSeek'", "role": "'slider'", "tabindex": "'0'", "aria-label": "t('Tua')", "aria-valuemin": "'0'", "aria-valuemax": "d.durS", "aria-valuenow": "'0'", "aria-valuetext": "'0:00'" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1) > div > div": { "id": "'wBar'" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)": { "type": "'button'", "id": "'wRate'", "data-a": "'rate'", "aria-label": "t('Tốc độ phát')" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1)": { "type": "'button'", "data-a": "'prev'", "aria-label": "t('Câu trước')" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2)": { "type": "'button'", "id": "'wPlay'", "data-a": "'play'", "aria-label": "t('Phát')" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2) > svg > path": { "id": "'wPlayI'" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(3)": { "type": "'button'", "data-a": "'next'", "aria-label": "t('Câu tiếp')" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > button:nth-child(3)": { "type": "'button'", "data-a": "'loop'", "aria-pressed": "String(d.loop)", "aria-label": "t('Lặp câu')" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2)": { "id": "'wCtl'" },
+  ":scope > div > main > div:nth-child(3)": { "id": "'wModes'", "role": "'tablist'" },
+  ":scope > div > main > div:nth-child(3) > button:nth-child(1)": { "type": "'button'", "role": "'tab'", "data-m": "'sub'", "aria-selected": "'true'" },
+  ":scope > div > main > div:nth-child(3) > button:nth-child(2)": { "type": "'button'", "role": "'tab'", "data-m": "'shadow'", "aria-selected": "'false'" },
+  ":scope > div > main > div:nth-child(3) > button:nth-child(3)": { "type": "'button'", "role": "'tab'", "data-m": "'dict'", "aria-selected": "'false'" },
+  ":scope > div > main > div:nth-child(3) > button:nth-child(4)": { "type": "'button'", "role": "'tab'", "data-m": "'cloze'", "aria-selected": "'false'" },
+  ":scope > div > main > div:nth-child(4)": { "id": "'wTools'" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)": { "type": "'button'", "data-a": "'font-'", "aria-label": "t('Chữ nhỏ hơn')" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(2)": { "type": "'button'", "data-a": "'font+'", "aria-label": "t('Chữ lớn hơn')" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(3)": { "type": "'button'", "data-a": "'tr'", "aria-pressed": "String(d.tr)" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(3) > span": { "id": "'wTrDot'", "aria-hidden": "'true'" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(4)": { "id": "'wLangW'" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(2) > span": { "type": "'button'", "data-a": "'view'", "aria-pressed": "String(d.live)" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(2) > button": { "type": "'button'", "data-a": "'fold'", "aria-pressed": "'false'" },
+  ":scope > div > main > div:nth-child(5)": { "id": "'wTr'" },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(1) > div > button": { "aria-label": "t('Nghe lại')" },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(4) > div > button": { "aria-label": "t('Nghe lại')" },
+  ":scope > div > nav > button:nth-child(1)": { "type": "'button'", "data-href": "d.tabsNav[0].href", "aria-label": "d.tabsNav[0].label" },
+  ":scope > div > nav > button:nth-child(2)": { "type": "'button'", "data-href": "d.tabsNav[1].href", "aria-label": "d.tabsNav[1].label" },
+  ":scope > div > nav > button:nth-child(3)": { "type": "'button'", "data-href": "d.tabsNav[2].href", "aria-label": "d.tabsNav[2].label", "aria-current": "'page'" },
+  ":scope > div > nav > button:nth-child(4)": { "type": "'button'", "data-href": "d.tabsNav[3].href", "aria-label": "d.tabsNav[3].label" },
+  ":scope > div > nav > button:nth-child(5)": { "type": "'button'", "data-href": "d.tabsNav[4].href", "aria-label": "d.tabsNav[4].label" }
+ },
+ "cls": {
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(2)": { "flex": "d.two ? 'flex' : 'hidden'" },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1) > div > div": { "[width:35%]": "'w-0'" }
+ },
+ "tag": {
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(4)": { "to": "label", "addClass": "relative cursor-pointer" },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(2) > span": { "to": "button" }
+ },
+ "addClass": {
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span": "motion-reduce:animate-none",
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div > div > span:nth-child(2)": "motion-reduce:animate-none",
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1) > div": "cursor-pointer touch-none relative after:absolute after:-inset-y-[18px] after:inset-x-0 after:content-['']"
+ },
+ "after": {
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "d.tchA",
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)": "d.tchB",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > button:nth-child(4) > svg": "d.langSel",
+  ":scope > div > main > div:nth-child(3)": "'<div class=\"mp-panel\" id=\"wPanel\" hidden></div>'"
+ },
+ "remove": [
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)",
+  ":scope > div > nav > button:nth-child(2) > div > span"
+ ],
+ "_tap": "Thanh tiến độ cao 8px: vùng chạm ≥44 bằng ::after vô hình (không đổi hình Stitch)."
+}
