@@ -18,7 +18,7 @@
     'Trang Hôm nay': 'Home dashboard', 'Blog / trang SEO': 'Blog / SEO pages', 'Toàn màn hình': 'Interstitial', 'Chưa có số liệu – cờ đang tắt hoặc chưa có lượt hiển thị.': 'No data yet – flags are off or there are no impressions.',
     'Giới hạn tần suất': 'Frequency caps', 'Chỉ chỉnh được trong khoảng an toàn – không bao giờ dày hơn mặc định.': 'Editable only within safe bounds – never denser than the defaults.',
     'Toàn màn hình tối đa 1 lần mỗi … phiên học': 'Interstitial at most once every … study sessions', 'và cách nhau tối thiểu … phút': 'and at least … minutes apart', 'Không hiện toàn màn hình trong … giờ đầu': 'No interstitial in the first … hours',
-    'phiên': 'sessions', 'phút': 'min', 'giờ': 'h', 'Khoảng {a}–{b}': 'Range {a}–{b}', 'Giá trị ngoài khoảng an toàn.': 'Value outside the safe range.',
+    'phiên': 'sessions', 'phút': 'min', 'giờ': 'h', 'lần': 'times', 'Người mới: không toàn màn hình trong … phiên học đầu': 'New learners: no interstitial in the first … study sessions', 'Tối đa … lần toàn màn hình mỗi ngày': 'At most … interstitials per day', 'Khoảng {a}–{b}': 'Range {a}–{b}', 'Giá trị ngoài khoảng an toàn.': 'Value outside the safe range.',
     'eCPM ước tính (USD / 1000 lượt)': 'Estimated eCPM (USD / 1000 impressions)', 'Ngưỡng tụt giữ chân (%)': 'Retention drop threshold (%)', 'Cỡ mẫu tối thiểu mỗi nhóm': 'Minimum sample per cohort',
     'Nhóm có quảng cáo so với nhóm đối chứng (10 % không quảng cáo)': 'Ads cohort vs control cohort (10% see no ads)', 'Nhóm có QC': 'Ads cohort', 'Đối chứng': 'Control',
     'Giữ chân D1': 'D1 retention', 'Giữ chân D7': 'D7 retention', 'Thời lượng phiên TB': 'Avg session length', 'Xu hướng D1 theo tuần': 'Weekly D1 trend', 'máy mới': 'new devices',
@@ -178,7 +178,7 @@
     const plName = p => (PL[p] ? A(PL[p]) : /^rew:/.test(p) ? A('Có thưởng · {x}', { x: p.slice(4) }) : String(p).replace(/^u_/, ''));
     const ccName = c => { if (c === '_o') return A('Khác'); try { return new Intl.DisplayNames([LOC()], { type: 'region' }).of(c) || c; } catch (e) { return c; } };
     const RG = { eea: 'EEA + Anh + Thụy Sĩ (TCF v2.2)', us: 'Mỹ (luật bang)', row: 'Nơi khác' };
-    const BOUNDS = { ads_cap_sessions: [3, 20, 3, 'phiên', 'Toàn màn hình tối đa 1 lần mỗi … phiên học'], ads_cap_gap: [10, 240, 10, 'phút', 'và cách nhau tối thiểu … phút'], ads_cap_firstday: [24, 336, 24, 'giờ', 'Không hiện toàn màn hình trong … giờ đầu'] };
+    const BOUNDS = { ads_cap_sessions: [3, 20, 3, 'phiên', 'Toàn màn hình tối đa 1 lần mỗi … phiên học'], ads_cap_gap: [10, 240, 10, 'phút', 'và cách nhau tối thiểu … phút'], ads_cap_firstday: [24, 336, 24, 'giờ', 'Không hiện toàn màn hình trong … giờ đầu'], ads_cap_newbie: [5, 50, 5, 'phiên', 'Người mới: không toàn màn hình trong … phiên học đầu'], ads_cap_daymax: [1, 4, 4, 'lần', 'Tối đa … lần toàn màn hình mỗi ngày'] };
     const ADMIN = { ads_ecpm_web: [0, 50, 1, 'USD', 'eCPM ước tính (USD / 1000 lượt)', 'web'], ads_ecpm_android: [0, 50, 1, 'USD', 'eCPM ước tính (USD / 1000 lượt)', 'android'], ads_ecpm_ios: [0, 50, 1, 'USD', 'eCPM ước tính (USD / 1000 lượt)', 'ios'], ads_guard_pct: [1, 50, 5, '%', 'Ngưỡng tụt giữ chân (%)'], ads_guard_min: [50, 100000, 200, '', 'Cỡ mẫu tối thiểu mỗi nhóm'] };
     const hd = (t, d, act = '') => `<div class="ax-h"><div><h2 id="ax-t" tabindex="-1">${esc(A(t))}</h2>${d ? `<p>${esc(A(d))}</p>` : ''}</div>${act}</div>`;
     const kpi = (l, v, s = '') => `<div class="card kpi"><div class="l">${esc(A(l))}</div><div class="v">${v}</div>${s ? `<div class="s">${s}</div>` : ''}</div>`;

@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows: ['Visual QA', 'Journey E2E', 'UX cards', 'Content QA gate', 'Đo tốc độ Lighthouse', 'Kiểm thử add-on (E2E)', 'QA bot', 'Web sweep']
     types: [completed]
+    branches: [main]   # 2/11: chỉ lượt trên main mới ghi backlog – lượt PR (≈ 200/ngày) không còn sinh lượt bị bỏ qua
 permissions:
   contents: write
   actions: read

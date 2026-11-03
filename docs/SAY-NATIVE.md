@@ -7,7 +7,7 @@
 
 ## Dữ liệu (một nguồn)
 - `content/say-native/series.json` (tay): loạt → thẻ {key = headword kho từ, say, reg, mean, when, swap, dont, pose, quiz}. Loạt có `teacher` (ama | carlos).
-- `content/say-native/meanings.json`: nghĩa 13 ngôn ngữ – CI `say-native.yml` (ai-pool: Gemini/Groq → CF_POOL; 2 giám khảo khác họ, đều ≥ 4); vi = nghĩa kho từ đã duyệt.
+- `content/say-native/meanings.json`: nghĩa 13 ngôn ngữ – CI `say-native.yml` (ai-pool: Gemini/Groq → CF_POOL; 2 giám khảo khác họ, đều ≥ 4); vi = nghĩa kho từ đã duyệt. Trên nhánh PR bot KHÔNG commit: kết quả = artifact + summary + comment PR → `bash scripts/ci/bot-output.sh say-native` rồi tự commit; trên main bot commit main.
 - `node scripts/say-native/build.mjs [--check]` → `web/data/say.json`. Cổng: ≥ 3 loạt, 6–10 thẻ, key trong kho có IPA, reg hợp lệ, đủ 14 nghĩa, không chữ Việt ngoài vi, câu thô đã che và không vào quiz, pose có clip của giáo viên, id duy nhất. `--check` nằm trong `npm test` (khi say.json có trên nhánh).
 - Bản dịch `web/packs` cho idiom là dịch máy theo chữ → thẻ KHÔNG dùng packs.
 
