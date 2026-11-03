@@ -1137,6 +1137,25 @@ export const REG = {
    "minutes": 15,
    "est": {},
    "lease": false
+  },
+  {
+   "id": "content-factory",
+   "workflow": "content-factory.yml",
+   "cron": [
+    "50 17 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {
+    "gemini_calls": 600,
+    "grabcast_text": 300
+   },
+   "lease": false
   }
  ]
 };
