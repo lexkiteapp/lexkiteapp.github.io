@@ -100,6 +100,25 @@ Mẫu thẻ:
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
+### [B5-MEGA50-P5] Chiến dịch 50 bài Blog SEO Cán đích Mốc 1.000 bài Toàn Repo Lexkite · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("ok 1"), viết tiếp 50 bài blog SEO chuẩn mực đa ngôn ngữ để nâng tổng kho bài viết toàn repo Lexkite từ 950 bài lên đúng **1.000 bài viết**.
+- **Yêu cầu kỹ thuật bắt buộc (100% PASS Quality Gates):**
+  - Độ dài ≥ 1200 từ.
+  - Title: 30–65 ký tự.
+  - Description: 110–160 ký tự.
+  - Keyword viết thường, xuất hiện ở 4 vị trí: frontmatter `keyword`, `title`, `description`, trong 120 từ đầu của body, và ít nhất một `H2`.
+  - Đủ 3 ảnh app thật (`media:dict`, `media:review`, `media:practice-speak`).
+  - Caption truth tuân thủ nghiêm ngặt: chú thích độc nhất (unique) toàn repo, không chứa từ cấm ("thời gian thực/ngữ điệu/real-time/trôi chảy/fluency").
+  - Internal links: ≥ 2 link vào app (`/#/speaking`, `/#/practice/speak` hoặc `/#/`), ≥ 4 link blog cùng ngôn ngữ, ≥ 1 link `/vocabulary/` hoặc `/tu-vung/`.
+  - Giữ nguyên `publishAt: ""` để Claude lên lịch.
+  - Shingle trùng lặp toàn repo < 12.0% (`node scripts/blog-dupes.mjs`).
+- **Phân bổ 50 bài cho các Cụm chuyên đề:**
+  - Cụm 1: Chiến lược mở rộng câu trả lời và phản biện IELTS Speaking Part 3 (`ielts-speaking-part-3-chien-luoc`) - 15 ngôn ngữ.
+  - Cụm 2: Từ viết tắt tiếng Anh công sở thông dụng và quy chuẩn viết email (`viet-tat-tieng-anh-cong-so`) - 15 ngôn ngữ.
+  - Cụm 3: Phân biệt các cặp từ vựng và Collocations dễ gây nhầm lẫn (`tu-de-nham-lan-trong-tieng-anh`) - 15 ngôn ngữ.
+  - Cụm 4: Kỹ thuật kiểm soát thời gian bài thi IELTS Reading (`ielts-reading-kiem-soat-thoi-gian`) - 5 ngôn ngữ.
+- **Tiến độ:** Đang khởi động viết Cụm 1 (IELTS Speaking Part 3).
+
 ### [B5-MEGA100-P4] ⏳ CHỜ DUYỆT (03/11) · Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("100 bài khác chất lượng nữa"), tiếp tục mở rộng kho nội dung chuẩn SEO đa ngôn ngữ chất lượng cao từ 850 bài lên **950 bài** toàn repo Lexkite (100 bài mới).
 - **Yêu cầu kỹ thuật bắt buộc (100% PASS Quality Gates):**
