@@ -191,19 +191,18 @@
     const rev = session.reverse;
     const pct = session.done / Math.max(1, session.done + session.queue.length) * 100;
 
-    // Nhớ chủ động: thẻ đã ôn ≥ 2 lần thỉnh thoảng (1/3) chuyển sang gõ lại từ từ nghĩa – nhớ sâu hơn nhận diện, đổi nhịp cho đỡ nhàm
-    const typeMode = !rev && !isNew && c.srs.reps >= 2 && state.settings.typeReview !== false && c.word.length <= 30 && Math.random() < 1 / 3;
-    // Nghe & nhớ nghĩa: thẻ đã ôn ≥ 1 lần thỉnh thoảng chỉ phát âm, không hiện chữ – luyện nhận diện từ qua tai như khi nghe thật
-    const listenMode = !typeMode && !rev && !isNew && c.srs.reps >= 1 && Math.random() < 0.15;
-    const front = listenMode ? `
-        <button class="listen-big" data-say aria-label="${t('Nghe')}">🔊</button>
-        <div class="muted small" style="margin-top:1rem">${t('Nghe từ, nhớ lại nghĩa rồi chạm để lật')} <span class="kbd kbd-hint">Space</span> · <span class="kbd kbd-hint">P</span> ${t('nghe lại')}</div>` : typeMode ? `
-        ${pic(c)}
-        <div class="vi" style="font-size:1.5rem">${esc(mean(c))}</div>${posChip(c.pos)}
-        ${c.ex ? `<div class="ctx">“${cloze(c.ex, c.word)}”</div>` : ''}
-        <input class="input type-in" id="typeIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${t('Gõ từ tiếng Anh rồi Enter')}" style="margin-top:1rem;text-align:center;font-size:1.2rem">
-        <div class="muted tiny" style="margin-top:.4rem">${t('Gợi ý: bắt đầu bằng “{a}”, {n} chữ cái', { a: esc(c.word[0]), n: c.word.replace(/[^A-Za-z]/g, '').length })}</div>
-        <div id="typeRes" class="small" style="margin-top:.4rem"></div>` : rev ? `
+    // Chế độ ôn tập FSRS đa phương thức (StudyModes - tải lười ngoài khung qua bundle swipe):
+    // 1. Lật thẻ (flip) · 2. Gõ phản xạ (type) · 3. Nghe chọn nghĩa (audio)
+    let curMode = session._cardMode || (window.StudyModes ? StudyModes.pickAutoMode(c, rev) : (!rev && !isNew && c.srs.reps >= 2 && state.settings.typeReview !== false && c.word.length <= 30 && Math.random() < 1 / 3 ? 'type' : (!rev && !isNew && c.srs.reps >= 1 && Math.random() < 0.15 ? 'audio' : 'flip')));
+    const typeMode = curMode === 'type';
+    const audioMode = curMode === 'audio';
+
+    const front = (audioMode || typeMode) ? `
+        <div id="smContainer">
+          ${pic(c)}
+          ${audioMode ? `<button class="listen-big" data-say aria-label="${t('Nghe')}">🔊</button>` : `<div class="vi" style="font-size:1.5rem">${esc(mean(c))}</div>${posChip(c.pos)}`}
+          <div class="muted small" style="margin-top:1rem">${audioMode ? t('Nghe từ, nhớ lại nghĩa rồi chạm để lật') : t('Gõ từ tiếng Anh rồi Enter')}</div>
+        </div>` : rev ? `
         ${pic(c)}
         <div class="vi" style="font-size:1.6rem">${esc(mean(c))}</div>${posChip(c.pos)}
         ${c.ex ? `<div class="ctx">“${cloze(c.ex, c.word)}”</div>` : ''}
@@ -223,8 +222,9 @@
         <span class="small muted" style="white-space:nowrap" title="${t('Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên')}">✅ ${session.done} · ${t('<b>{n}</b> thẻ còn lại', { n: new Set(session.queue).size })}</span>
         <div id="studyKit" class="study-kit-mini" role="img" aria-label="Kit"></div>
       </div>
-      <div class="row between small" style="margin-bottom:.6rem">
+      <div class="row between center small" style="margin-bottom:.6rem;flex-wrap:wrap;gap:.4rem">
         <span>${isNew ? `<span class="chip lv">✨ ${t('TỪ MỚI')}</span>` : App.masteryDots(c.srs)}</span>
+        <div id="smToolbar"></div>
         <button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
       </div>
       <div class="flash" id="flash">
@@ -261,7 +261,7 @@
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
     // Nghe riêng giọng UK/US
     $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
-    if (listenMode) setTimeout(say, 250);
+    if (audioMode) setTimeout(say, 250);
     nativeFill($('.back [data-native]'), c.word, c.pos);
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
     session.queue.slice(1, 4).forEach(k => { const n = state.cards[k]; if (n && !n.audio && !n._aq && navigator.onLine) { n._aq = 1; Dict.lookup(n.word, { image: false, examples: false }).then(e => { if (e && e.found && (e.audio || e.audioUS)) Cards.patch(k, x => { if (!x.audio) x.audio = e.audio || e.audioUS; if (!x.ipaUS && e.ipaUS) x.ipaUS = e.ipaUS; }).then(c2 => { if (c2) state.cards[k] = c2; }); }).catch(() => {}); } });
@@ -283,31 +283,48 @@
 
     const fc0 = $('#flash');
     App.lazy('swipe').then(() => {
-      if (!window.StudySwipe || $('#flash') !== fc0 || graded) return;
-      updateKit(flipped ? 'happy' : 'think');
-      if (!typeMode) StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
+      if ($('#flash') !== fc0 || graded) return;
+      if (window.StudySwipe) updateKit(flipped ? 'happy' : 'think');
+      if (window.StudySwipe && curMode === 'flip') {
+        StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
+      }
+
+      if (window.StudyModes) {
+        const tb = $('#smToolbar');
+        if (tb && !tb.children.length) {
+          tb.appendChild(StudyModes.renderToolbar(curMode, m => {
+            session._cardMode = m;
+            showCard();
+          }));
+        }
+
+        const smc = $('#smContainer');
+        if (smc && curMode === 'type') {
+          StudyModes.renderType(smc, c, {
+            mean: mean(c),
+            cloze,
+            onComplete: res => {
+              flip();
+              const b = $(`[data-grade="${res.grade}"]`);
+              if (b) { b.classList.add('suggest'); b.focus(); }
+            }
+          });
+        } else if (smc && curMode === 'audio') {
+          const pool = Object.values(state.cards);
+          StudyModes.renderAudioChoice(smc, c, {
+            mean: mean(c),
+            pool,
+            getMean: mean,
+            speak: say,
+            onComplete: res => {
+              flip();
+              const b = $(`[data-grade="${res.grade}"]`);
+              if (b) { b.classList.add('suggest'); b.focus(); }
+            }
+          });
+        }
+      }
     }).catch(() => {});
-    if (typeMode) {
-      const inp = $('#typeIn'); setTimeout(() => inp.focus(), 50);
-      const norm = x => x.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
-      const dist = (a, b) => { const d = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) d[0][j] = j; for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[a.length][b.length]; };
-      inp.addEventListener('keydown', e => {
-        if (e.key !== 'Enter' || flipped) return;
-        e.preventDefault(); e.stopPropagation();
-        const v = norm(inp.value); if (!v) return;
-        const dd = dist(v, norm(c.word)), sug = dd === 0 ? 2 : dd === 1 ? 1 : 0;
-        inp.disabled = true;
-        inp.classList.remove('ans-bounce', 'ans-shake');
-        void inp.offsetWidth;
-        inp.classList.add(dd === 0 ? 'ok' : dd === 1 ? 'near' : 'bad');
-        inp.classList.add(dd === 0 ? 'ans-bounce' : 'ans-shake');
-        $('#typeRes').innerHTML = dd === 0 ? `✅ ${t('Chính xác!')}` : `${dd === 1 ? '🟡 ' + t('Gần đúng – sai 1 chữ') : '❌ ' + t('Chưa đúng')}: <b>${esc(c.word)}</b>`;
-        dd === 0 ? Sfx.correct() : Sfx.wrong && Sfx.wrong();
-        haptic(dd === 0);
-        flip();
-        const b = $(`[data-grade="${sug}"]`); if (b) { b.classList.add('suggest'); b.focus(); }
-      });
-    }
     // Từ khó nhớ: mẹo nhớ AI (lưu vào ghi chú thẻ), đọc to theo, ghi mẹo riêng
     const lb = $('[data-leech]');
     if (lb) {
