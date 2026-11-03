@@ -49,7 +49,7 @@
   "review": {"variant": "focus", "surface": ["review"]},
   "roleplay": {"variant": "inner", "surface": ["speaking"]},
   "rtype": {"variant": "focus", "surface": ["games"]},
-  "say": {"variant": "inner", "surface": []},
+  "say": {"variant": "focus", "surface": []},
   "settings": {"variant": "inner", "surface": ["settings"]},
   "skill": {"variant": "inner", "surface": ["hub-skills"]},
   "skills": {"variant": "hub", "surface": ["hub-skills"]},
