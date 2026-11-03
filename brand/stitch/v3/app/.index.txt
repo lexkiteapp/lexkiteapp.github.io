@@ -17,6 +17,12 @@ account-ar ca344b3da7ef4c7795fe9f379c206c4f 9fd352844b264ef1a7f276484012bf4d MOB
 account-de 3a4da13cf66048668060a9116e99a53c 896cbb7091ba40f5bddcf16a9f5a6d28 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "sync
 account-desktop 2d21588d139a41c8914f458b8f465b87 978fdd4573d8457b94af2d41c35dab13 DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 7 chữ (vd "18 due" 2.55<4.5) · dark: tương phản 1 chữ (vd "Danger Zone" 3.56<4.5)
 arrow_forward 78×36") · dark: tương phản 1 chữ (vd "14 معلّق" 3.83<4.5)
+community-chat 0ff73629a2c94066a915c05e277777bd ad739f2ae9364aeba43c5d1386a87c79 MOBILE QC | key4 project 16660982915050208874
+community-hub 238963ac9e3d43748ae915e8a6e82597 11671e9f92b34c4f84882a554ca03b1a MOBILE QC | key1 project 7268539912208977707
+community-invite eac459ebe33a4821abb035937a38f15f 36e8e449c2cf413da2f23867d9902f41 MOBILE QC | key5 project 7022870386131391655
+community-join 3d4de6d81b93438a959eb1a2fd7d6469 fa89edbc11c540e9aa25b2c24a1d30c4 MOBILE QC | key5 project 7022870386131391655
+community-room dc689238d26441eab95140ddf909d112 2ab8f88f3ccd48f38507b9da2a774098 MOBILE QC | key1 project 7268539912208977707
+community-speak 1e5d2d97455e443bb1e342e98845e1cb 89b85d19203048e7ba548cd0c73da8f2 MOBILE QC | key4 project 16660982915050208874
 deck 961e2e0b68054119b3aee969d3b17b4e 9fce8c3dc63e455a854736cd6fafb605 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "🔥" 2.42<4.5)
 deck-ar 3ab65ad46b3042f681aa2d513e0a6b2d 825afe877222421b8d431c5b0d69a9d9 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 10 chữ (vd "5 مجموعات نشطة · التكرار المتباعد" 4.35<4.5)
 deck-de 293e2bedc31f425fa9ae80924c04284d 3ec079a2c12344b39cf1a694293d9ce5 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 10 chữ (vd "5 aktive Sammlungen · Spaced Repetition" 4.35<4.5)

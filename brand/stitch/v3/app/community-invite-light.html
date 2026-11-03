@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Invite friends — Lexkite</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed-dim": "#f4bf40",
+            "inverse-surface": "#d8e5e9",
+            "tertiary": "#f4bf40",
+            "on-tertiary": "#402e00",
+            "surface-dim": "#091518",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface": "#091518",
+            "secondary": "#ffb4a6",
+            "on-tertiary-container": "#392900",
+            "on-secondary-container": "#ffa493",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-container": "#00322e",
+            "outline-variant": "#3d4947",
+            "surface-container-lowest": "#051013",
+            "surface-container-low": "#121d20",
+            "error": "#ffb4ab",
+            "surface-bright": "#2f3b3e",
+            "on-surface": "#d8e5e9",
+            "surface-container-highest": "#2b373a",
+            "tertiary-container": "#ba8b00",
+            "surface-variant": "#2b373a",
+            "on-tertiary-fixed": "#261a00",
+            "on-primary": "#003733",
+            "primary-fixed": "#88f5ea",
+            "inverse-primary": "#006a64",
+            "surface-tint": "#6bd8ce",
+            "inverse-on-surface": "#263236",
+            "primary": "#6bd8ce",
+            "on-surface-variant": "#bcc9c7",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#3f0300",
+            "secondary-container": "#981201",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-error-container": "#ffdad6",
+            "on-background": "#d8e5e9",
+            "outline": "#879391",
+            "secondary-fixed": "#ffdad3",
+            "on-secondary": "#660800",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#202c2f",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "background": "#091518",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container": "#162125",
+            "primary-container": "#2ba39a",
+            "on-error": "#690005"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Lexkite tactile ledge buttons */
+    .tactile-coral-cta {
+      background: linear-gradient(180deg, #FF6F4E 0%, #FA5330 100%);
+      box-shadow: 0 5px 0 #9E240E, 0 8px 16px rgba(158, 36, 14, 0.4);
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-coral-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #9E240E, 0 4px 8px rgba(158, 36, 14, 0.3);
+    }
+    .tactile-card {
+      border: 2px solid #202c2f;
+      box-shadow: 0 5px 0 #0c1619;
+    }
+    .tactile-subtle-btn {
+      border: 2px solid #2b373a;
+      box-shadow: 0 3px 0 #121d20;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-subtle-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #121d20;
+    }
+    .tactile-teal-btn {
+      border: 2px solid #6bd8ce;
+      box-shadow: 0 3px 0 #00504b;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-teal-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #00504b;
+    }
+    /* Hide scrollbar for clean app shell feel */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary" style="background-color: #F8F6F0; color: #114B47;">
+<!-- Mobile Frame (Fixed width representation 390px, max responsive) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-32" style="background-color: #F8F6F0;">
+<!-- TopAppBar (from Shared Components JSON: docked, full-width, arrow_back, Invite friends, close) -->
+<header class="fixed top-0 left-0 right-0 h-14 z-50 flex items-center justify-between px-4 w-full bg-surface dark:bg-surface border-b-2 border-surface-container-high dark:border-surface-container-high max-w-[390px] mx-auto" style="background-color: #F8F6F0; border-bottom: 1px solid #E2EBE8;">
+<button aria-label="Go back" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-surface-container-high active:translate-y-0.5 transition-transform duration-100 focus:outline-none focus:ring-2 focus:ring-primary" style="color: #0F766E;" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-lg font-bold leading-7 text-on-surface dark:text-on-surface text-center flex-1 px-2 truncate" style="color: #114B47;">
+        Invite friends
+      </h1><div aria-hidden="true" class="w-11 h-11"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-20 flex flex-col gap-6">
+<!-- Room Context Banner -->
+<section class="flex flex-col gap-2"><div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wider" style="background-color: #E6F7F5; border: 1px solid #99E2DA; color: #0F766E;">
+<span class="material-symbols-outlined text-xs" data-icon="groups" style="color: #0F766E;">groups</span>
+    GROUP POD · 6/10 SPOTS
+  </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold" style="background-color: #FEF9EB; border: 1px solid #FDE68A; color: #9A6800;">
+    IELTS Academic
+  </span>
+</div>
+<h2 class="font-headline text-2xl font-extrabold tracking-tight mt-0.5" style="color: #114B47;">
+  IELTS Band 7 Club
+</h2>
+<p class="text-sm font-medium leading-relaxed" style="color: #3D605D;">
+  Invite friends to review vocabulary, practice collocations, and compare daily sprint goals together.
+</p></section>
+<!-- Big Invite Card (Tactile Container) -->
+<section class="rounded-2xl p-5 flex flex-col items-center shadow-sm" style="background-color: #FFFFFF; border: 1px solid #E2EBE8; box-shadow: 0 4px 0 #E2EBE8;">
+<!-- Crisp Vector SVG QR Code Container -->
+<div class="w-44 h-44 p-3 rounded-xl flex items-center justify-center relative shadow-sm" style="background-color: #F8FBFB; border: 1px solid #D6E6E3;">
+<svg aria-label="QR Code to join study room" class="w-full h-full" fill="none" viewbox="0 0 132 132" xmlns="http://www.w3.org/2000/svg">
+<!-- Outer Markers (Finder Patterns) -->
+<!-- Top-Left -->
+<rect fill="none" height="36" rx="4" stroke="#0F766E" stroke-width="6" width="36" x="6" y="6"></rect>
+<rect fill="#0F766E" height="18" rx="2" width="18" x="15" y="15"></rect>
+<!-- Top-Right -->
+<rect fill="none" height="36" rx="4" stroke="#0F766E" stroke-width="6" width="36" x="90" y="6"></rect>
+<rect fill="#0F766E" height="18" rx="2" width="18" x="99" y="15"></rect>
+<!-- Bottom-Left -->
+<rect fill="none" height="36" rx="4" stroke="#0F766E" stroke-width="6" width="36" x="6" y="90"></rect>
+<rect fill="#0F766E" height="18" rx="2" width="18" x="15" y="99"></rect>
+<!-- Geometric Data Blocks -->
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="48" y="10"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="60" y="18"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="74" y="8"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="48" y="28"></rect>
+<rect fill="#0F766E" height="8" rx="1.5" width="8" x="74" y="28"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="10" y="48"></rect>
+<rect fill="#0F766E" height="8" rx="1.5" width="8" x="24" y="58"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="10" y="72"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="30" y="74"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="94" y="50"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="108" y="62"></rect>
+<rect fill="#0F766E" height="8" rx="1.5" width="8" x="92" y="74"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="114" y="76"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="48" y="92"></rect>
+<rect fill="#0F766E" height="8" rx="1.5" width="8" x="62" y="104"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="48" y="116"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="74" y="112"></rect>
+<rect fill="#5A7E7A" height="8" rx="1.5" width="8" x="74" y="94"></rect>
+<!-- Center Kite Emblem Centerpiece -->
+<rect fill="#FFFFFF" height="40" rx="8" stroke="#0F766E" stroke-width="2" width="40" x="46" y="46"></rect>
+<path d="M66 52L78 66L66 80L54 66Z" fill="#0F766E"></path>
+<circle cx="66" cy="66" fill="#FFFFFF" r="3"></circle>
+</svg>
+</div>
+<!-- Room Code Display & Copy Button -->
+<div class="w-full mt-4 flex items-center justify-between rounded-xl px-4 py-2" style="background-color: #F8FBFB; border: 1px solid #D6E6E3;">
+<div class="flex flex-col">
+<span class="text-[11px] font-bold tracking-wider uppercase" style="color: #4B6E6A;">Room code</span>
+<span class="font-mono text-xl font-bold tracking-widest" id="roomCodeText" style="color: #0F766E;">K7Q2MX</span>
+</div>
+<button class="min-h-[44px] px-3.5 flex items-center gap-1.5 rounded-lg font-semibold text-xs active:translate-y-0.5 transition-transform focus:outline-none" id="copyCodeBtn" onclick="copyCode()" style="background-color: #EBF5F3; border: 1px solid #BCE3DC; color: #0F766E; box-shadow: 0 2px 0 #BCE3DC;" type="button">
+<span class="material-symbols-outlined text-base" data-icon="content_copy" style="color: #0F766E;">content_copy</span>
+<span id="copyCodeLabel">Copy</span>
+</button>
+</div>
+<!-- Share Targets Row (Messages, Email, Copy Link) -->
+<div class="w-full grid grid-cols-3 gap-3 mt-4 pt-3" style="border-top: 1px solid #E2EBE8;">
+<!-- Target 1: Messages -->
+<button class="min-h-[52px] flex flex-col items-center justify-center gap-1.5 group focus:outline-none" type="button">
+<div class="w-12 h-12 rounded-full flex items-center justify-center group-hover:border-primary group-active:translate-y-0.5 transition-all shadow-sm" style="background-color: #F4FAF8; border: 1px solid #D1E5E1; color: #0F766E;">
+<span class="material-symbols-outlined text-xl" data-icon="chat">chat</span>
+</div>
+<span class="text-[11px] font-bold text-on-surface-variant" style="color: #3D605D;">Messages</span>
+</button>
+<!-- Target 2: Email -->
+<button class="min-h-[52px] flex flex-col items-center justify-center gap-1.5 group focus:outline-none" type="button">
+<div class="w-12 h-12 rounded-full flex items-center justify-center group-hover:border-primary group-active:translate-y-0.5 transition-all shadow-sm" style="background-color: #F4FAF8; border: 1px solid #D1E5E1; color: #0F766E;">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+<span class="text-[11px] font-bold text-on-surface-variant" style="color: #3D605D;">Email</span>
+</button>
+<!-- Target 3: Copy Link -->
+<button class="min-h-[52px] flex flex-col items-center justify-center gap-1.5 group focus:outline-none" id="copyLinkTileBtn" onclick="copyLinkFeedback()" type="button">
+<div class="w-12 h-12 rounded-full flex items-center justify-center group-hover:border-primary group-active:translate-y-0.5 transition-all shadow-sm" style="background-color: #F4FAF8; border: 1px solid #D1E5E1; color: #0F766E;">
+<span class="material-symbols-outlined text-xl" data-icon="link" id="copyLinkIcon">link</span>
+</div>
+<span class="text-[11px] font-bold text-on-surface-variant" id="copyLinkLabel" style="color: #3D605D;">Copy link</span>
+</button>
+</div>
+<!-- Expiry / Security Policy Info Note -->
+<div class="flex items-center gap-1.5 mt-4 text-[11px] font-medium" style="color: #4B6E6A;">
+<span class="material-symbols-outlined text-sm" data-icon="schedule" style="color: #4B6E6A;">schedule</span>
+<span>Link expires in 7 days · you can revoke it</span>
+</div>
+</section>
+<!-- Section: Friend Requests -->
+<section class="flex flex-col gap-3"><div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h3 class="font-headline text-base font-bold" style="color: #114B47;">Friend requests</h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold" style="background-color: #FEF9EB; border: 1px solid #FDE68A; color: #9A6800;">1 pending</span>
+</div>
+</div>
+<!-- Request Item (David Chen) -->
+<div class="rounded-2xl p-3.5 flex items-center gap-3 shadow-sm" style="background-color: #FFFFFF; border: 1px solid #E2EBE8; box-shadow: 0 3px 0 #E2EBE8;">
+<div class="w-11 h-11 rounded-full flex items-center justify-center font-headline font-bold text-base flex-shrink-0" style="background-color: #FEF9EB; border: 1.5px solid #F6BD38; color: #9A6800;">
+    D
+  </div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline font-bold text-sm truncate" style="color: #114B47;">David Chen</h4>
+<p class="text-xs truncate" style="color: #4B6E6A;">Wants to study IELTS Writing</p>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button class="min-h-[44px] min-w-[44px] px-2.5 rounded-lg text-xs font-bold active:translate-y-0.5 transition-transform focus:outline-none" style="background-color: #F8FBFB; border: 1px solid #D6E6E3; color: #4B6E6A; box-shadow: 0 2px 0 #D6E6E3;" title="Decline request" type="button">
+      Decline
+    </button>
+<button class="min-h-[44px] px-3.5 rounded-lg font-bold text-xs flex items-center justify-center focus:outline-none active:translate-y-0.5 transition-transform" style="background-color: #0F766E; border: 1px solid #0D5C56; color: #FFFFFF; box-shadow: 0 3px 0 #00504B;" title="Accept request" type="button">
+      Accept
+    </button>
+</div>
+</div></section>
+<!-- Section: Study buddies (4 Friends List) -->
+<section class="flex flex-col gap-3"><div class="flex items-center justify-between">
+<h3 class="font-headline text-base font-bold" style="color: #114B47;">Study buddies</h3>
+<span class="text-xs font-semibold" style="color: #4B6E6A;">4 study partners</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Buddy 1: Minh An -->
+<div class="rounded-2xl p-3 flex items-center gap-3 shadow-sm" style="background-color: #FFFFFF; border: 1px solid #E2EBE8; box-shadow: 0 3px 0 #E2EBE8;">
+<div class="w-11 h-11 rounded-full flex items-center justify-center font-headline font-bold text-base flex-shrink-0" style="background-color: #E6F7F5; border: 1.5px solid #0F766E; color: #0F766E;">
+      M
+    </div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline font-bold text-sm truncate" style="color: #114B47;">Minh An</h4>
+<p class="text-xs truncate" style="color: #4B6E6A;">Learned 25 words today</p>
+</div>
+<button class="min-h-[44px] px-4 rounded-xl font-bold text-xs flex items-center gap-1 flex-shrink-0 focus:outline-none active:translate-y-0.5 transition-transform" style="background-color: #E6F7F5; border: 1.5px solid #0F766E; color: #0F766E; box-shadow: 0 2px 0 #00504B;" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+      Invite
+    </button>
+</div>
+<!-- Buddy 2: Khoa Nguyen (Invited - Disabled state) -->
+<div class="rounded-2xl p-3 flex items-center gap-3 shadow-sm" style="background-color: #FFFFFF; border: 1px solid #E2EBE8; opacity: 0.9; box-shadow: 0 3px 0 #E2EBE8;">
+<div class="w-11 h-11 rounded-full flex items-center justify-center font-headline font-bold text-base flex-shrink-0" style="background-color: #FFF2EE; border: 1.5px solid #FA5330; color: #FA5330;">
+      K
+    </div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline font-bold text-sm truncate" style="color: #114B47;">Khoa Nguyen</h4>
+<p class="text-xs truncate" style="color: #4B6E6A;">Learned 18 words today</p>
+</div>
+<button aria-disabled="true" class="min-h-[44px] px-3.5 rounded-xl text-xs font-semibold flex items-center gap-1 cursor-not-allowed flex-shrink-0" disabled="" style="background-color: #F8FBFB; border: 1px solid #D6E6E3; color: #4B6E6A;" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="check" style="color: #0F766E;">check</span>
+      Invited
+    </button>
+</div>
+<!-- Buddy 3: Elena Rostova -->
+<div class="rounded-2xl p-3 flex items-center gap-3 shadow-sm" style="background-color: #FFFFFF; border: 1px solid #E2EBE8; box-shadow: 0 3px 0 #E2EBE8;">
+<div class="w-11 h-11 rounded-full flex items-center justify-center font-headline font-bold text-base flex-shrink-0" style="background-color: #FEF9EB; border: 1.5px solid #F6BD38; color: #9A6800;">
+      E
+    </div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline font-bold text-sm truncate" style="color: #114B47;">Elena Rostova</h4>
+<p class="text-xs truncate" style="color: #4B6E6A;">Learned 32 words today</p>
+</div>
+<button class="min-h-[44px] px-4 rounded-xl font-bold text-xs flex items-center gap-1 flex-shrink-0 focus:outline-none active:translate-y-0.5 transition-transform" style="background-color: #E6F7F5; border: 1.5px solid #0F766E; color: #0F766E; box-shadow: 0 2px 0 #00504B;" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+      Invite
+    </button>
+</div>
+<!-- Buddy 4: Thao Pham -->
+<div class="rounded-2xl p-3 flex items-center gap-3 shadow-sm" style="background-color: #FFFFFF; border: 1px solid #E2EBE8; box-shadow: 0 3px 0 #E2EBE8;">
+<div class="w-11 h-11 rounded-full flex items-center justify-center font-headline font-bold text-base flex-shrink-0" style="background-color: #E6F7F5; border: 1.5px solid #0F766E; color: #0F766E;">
+      T
+    </div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline font-bold text-sm truncate" style="color: #114B47;">Thao Pham</h4>
+<p class="text-xs truncate" style="color: #4B6E6A;">Learned 25 words today</p>
+</div>
+<button class="min-h-[44px] px-4 rounded-xl font-bold text-xs flex items-center gap-1 flex-shrink-0 focus:outline-none active:translate-y-0.5 transition-transform" style="background-color: #E6F7F5; border: 1.5px solid #0F766E; color: #0F766E; box-shadow: 0 2px 0 #00504B;" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+      Invite
+    </button>
+</div>
+</div></section>
+</main>
+<!-- Sticky Bottom Action Bar (Fixed Prominent Coral CTA) -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto p-4 bg-gradient-to-t from-surface via-surface/95 to-transparent backdrop-blur-sm z-40" style="background: linear-gradient(to top, #F8F6F0 80%, rgba(248, 246, 240, 0.92) 90%, transparent 100%);">
+<button class="w-full h-14 rounded-2xl tactile-coral-cta text-on-secondary font-headline font-extrabold text-base flex items-center justify-center gap-2 border-t border-secondary-fixed/30 tracking-wide focus:outline-none" id="mainShareBtn" onclick="shareNativeAction()" type="button">
+<span>Share invite link</span>
+<span class="material-symbols-outlined text-xl" data-icon="send">send</span>
+</button>
+</div>
+<!-- Notification Toast Element for Micro-interactions -->
+<div class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-primary-container text-on-primary-container text-xs font-bold px-4 py-2 rounded-full shadow-lg border border-primary flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300" id="copyToast" style="background-color: #0F766E; color: #FFFFFF; border-color: #00504B;">
+<span class="material-symbols-outlined text-base" data-icon="check_circle">check_circle</span>
+<span id="toastMessage">Copied to clipboard</span>
+</div>
+</div>
+<script>
+    function showToast(text) {
+      const toast = document.getElementById('copyToast');
+      const label = document.getElementById('toastMessage');
+      if (toast && label) {
+        label.textContent = text;
+        toast.classList.remove('opacity-0', 'pointer-events-none');
+        toast.classList.add('opacity-100');
+        setTimeout(() => {
+          toast.classList.remove('opacity-100');
+          toast.classList.add('opacity-0', 'pointer-events-none');
+        }, 2000);
+      }
+    }
+
+    function copyCode() {
+      const code = document.getElementById('roomCodeText').innerText;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).catch(() => {});
+      }
+      const label = document.getElementById('copyCodeLabel');
+      if (label) {
+        label.innerText = 'Copied!';
+        setTimeout(() => { label.innerText = 'Copy'; }, 1800);
+      }
+      showToast('Room code copied: ' + code);
+    }
+
+    function copyLinkFeedback() {
+      const link = 'https://lexkite.app/join/K7Q2MX';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(link).catch(() => {});
+      }
+      const label = document.getElementById('copyLinkLabel');
+      if (label) {
+        label.innerText = 'Copied';
+        setTimeout(() => { label.innerText = 'Copy link'; }, 1800);
+      }
+      showToast('Invite link copied!');
+    }
+
+    function shareNativeAction() {
+      const shareData = {
+        title: 'IELTS Band 7 Club on Lexkite',
+        text: 'Join my IELTS vocabulary study room with code K7Q2MX',
+        url: 'https://lexkite.app/join/K7Q2MX'
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+      } else {
+        copyLinkFeedback();
+      }
+    }
+  </script>
+</body></html>
