@@ -39,7 +39,8 @@ await browser.close();
 const total = found.reduce((a, f) => a + f.issues.length, 0);
 const byKind = {}; found.forEach(f => f.issues.forEach(i => { byKind[i.kind] = (byKind[i.kind] || 0) + 1; }));
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify({ figs, total, byKind, found }, null, 1));
-const md = [`# Bố cục hình đề – ${figs} lượt vẽ, ${total} lỗi`, '', Object.entries(byKind).map(([k, n]) => `- ${k}: ${n}`).join('\n'),
+const byTag = {}; found.forEach(f => { byTag[f.tag] = (byTag[f.tag] || 0) + f.issues.length; });
+const md = [`# Bố cục hình đề – ${figs} lượt vẽ, ${total} lỗi`, '', Object.entries(byKind).map(([k, n]) => `- ${k}: ${n}`).join('\n'), '', Object.entries(byTag).map(([k, n]) => `- ${k}: ${n}`).join('\n'),
   '', ...found.map(f => `## ${f.fig} · ${f.tag}\n${f.issues.map(i => `- **${i.kind}** ${i.detail}`).join('\n')}`)].join('\n');
 fs.writeFileSync(`${OUT}/report.md`, md);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md.slice(0, 60000) + '\n');

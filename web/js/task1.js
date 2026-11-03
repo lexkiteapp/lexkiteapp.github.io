@@ -69,16 +69,18 @@
   const inkOn = hex => { const L = lumOf(hex), dark = (L + 0.05) / (lumOf(INK) + 0.05), white = 1.05 / (L + 0.05); return dark >= white ? INK : '#ffffff'; };
   // Khung trục + chú giải chung cho đường & cột; plot(x0, x1, ys) trả phần vẽ dữ liệu
   function axesChart(d, groups, plot) {
-    const nw = narrow(), W = nw ? 340 : 640, L = 40, T = 24, LH = 13;
+    const nw = narrow(), W = nw ? Math.max(300, Math.min(560, (window.innerWidth || 360) - 50)) : 640, L = 40, T = 24, LH = 13;
     const max = Math.ceil(Math.max(...d.series.flatMap(s => s[1])) / 10) * 10 || 10;
     const lgW = Math.max(...d.series.map(s => textW(s[0], 12, true))) + 22;
-    const Rr = nw ? 12 : Math.min(240, Math.max(110, lgW + 18));
+    // đường: điểm cuối nằm ngay mép phải → chừa nửa nhãn trục x cuối để không bị cắt
+    const lastHalf = groups === d.x.length - 1 ? textW(d.x[d.x.length - 1], 11) / 2 + 4 : 0;
+    const Rr = nw ? Math.max(12, lastHalf) : Math.min(240, Math.max(110, lgW + 18, lastHalf));
     const x1 = W - Rr, step = (x1 - L) / groups;
     const xl = d.x.map(x => wrapText(x, step - 6, 11)), xLines = Math.max(...xl.map(l => l.length));
     // Chú giải: bên phải (rộng) hoặc thành hàng dưới trục (hẹp)
     const items = []; let lx = L, ly = 0;
     d.series.forEach(([name], si) => { const w = textW(name, 12, true) + 34; if (nw && lx + w > W - 8 && lx > L) { lx = L; ly++; } items.push([name, si, lx, ly]); lx += w; });
-    const plotH = nw ? 190 : 230, axisB = T + plotH, B = 8 + xLines * LH;
+    const plotH = nw ? 190 : 230, axisB = T + plotH, B = 12 + xLines * LH;
     const H = axisB + B + (nw ? (ly + 1) * 20 + 6 : 0);
     const ys = v => T + plotH * (1 - v / max);
     let g = '';
@@ -90,7 +92,7 @@
     });
     return `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="${esc(d.title)}">${g}<text x="${L - 6}" y="12" class="ch-ax">${esc(d.unit)}</text></svg>`;
   }
-  const xLabel = (lines, x, axisB) => `<text x="${x}" y="${axisB + 16}" text-anchor="middle" class="ch-ax">${tspans(lines, x, 13)}</text>`;
+  const xLabel = (lines, x, axisB) => `<text x="${x}" y="${axisB + 20}" text-anchor="middle" class="ch-ax">${tspans(lines, x, 13)}</text>`;
   function lineChart(d) {
     return axesChart(d, d.x.length - 1 || 1, (L, step, ys, xl, axisB) => {
       const xs = i => L + i * step; let g = '';
@@ -114,17 +116,23 @@
   }
   function pieCharts(d) {
     const one = (label, parts) => {
-      const tot = parts.reduce((a, p) => a + p[1], 0); let a0 = -Math.PI / 2, g = '';
+      const tot = parts.reduce((a, p) => a + p[1], 0); let a0 = -Math.PI / 2, g = '', lb = '', prev = null;
+      const p = (a, r) => `${100 + r * Math.cos(a)},${100 + r * Math.sin(a)}`;
       parts.forEach(([n, v], i) => {
         const a1 = a0 + v / tot * Math.PI * 2, large = a1 - a0 > Math.PI ? 1 : 0, c = COLORS[i % COLORS.length];
-        const p = (a, r) => `${100 + r * Math.cos(a)},${100 + r * Math.sin(a)}`;
         g += `<path d="M100,100 L${p(a0, 90)} A90,90 0 ${large} 1 ${p(a1, 90)} Z" fill="${c}" stroke="var(--surface)" stroke-width="2"><title>${esc(n)}: ${v}%</title></path>`;
-        // Lát nhỏ: đẩy nhãn ra gần mép (cung rộng hơn) để số không tràn sang lát bên cạnh
-        const am = (a0 + a1) / 2, r = (a1 - a0) < 0.6 ? 70 : 60;
-        g += `<text x="${100 + r * Math.cos(am)}" y="${100 + r * Math.sin(am) + 4}" text-anchor="middle" class="ch-pie" style="fill:${inkOn(c)}">${v}%</text>`;
+        // Số % nằm trong lát nếu cung đủ rộng; lát nhỏ → nhãn ngoài vòng tròn + vạch dẫn (kiểu đề thật), đẩy xa hơn nếu sát nhãn ngoài trước
+        const am = (a0 + a1) / 2, w = textW(v + '%', 12, true);
+        if ((a1 - a0) * 62 >= w + 12) lb += `<text x="${100 + 62 * Math.cos(am)}" y="${100 + 62 * Math.sin(am) + 4}" text-anchor="middle" class="ch-pie" style="fill:${inkOn(c)}">${v}%</text>`;
+        else {
+          let r = 108; const pos = rr => [100 + rr * Math.cos(am), 100 + rr * Math.sin(am)];
+          if (prev && Math.hypot(pos(r)[0] - prev[0], pos(r)[1] - prev[1]) < 22) r = 126;
+          const [x, y] = pos(r); prev = [x, y];
+          lb += `<line x1="${p(am, 91).split(',')[0]}" y1="${p(am, 91).split(',')[1]}" x2="${100 + (r - 10) * Math.cos(am)}" y2="${100 + (r - 10) * Math.sin(am)}" stroke="var(--muted)" stroke-width="1"/><text x="${x}" y="${y + 4}" text-anchor="middle" class="ch-pie-o">${v}%</text>`;
+        }
         a0 = a1;
       });
-      return `<figure class="t1fig"><figcaption class="t1cap">${esc(label)}</figcaption><svg viewBox="0 0 200 200" class="t1pie" role="img" aria-label="${esc(label)}: ${esc(parts.map(([n, v]) => `${n} ${v}%`).join(', '))}">${g}</svg></figure>`;
+      return `<figure class="t1fig"><figcaption class="t1cap">${esc(label)}</figcaption><svg viewBox="-42 -42 284 284" class="t1pie" role="img" aria-label="${esc(label)}: ${esc(parts.map(([n, v]) => `${n} ${v}%`).join(', '))}">${g}${lb}</svg></figure>`;
     };
     const legend = d.pies[0][1].map(([n], i) => `<span class="row nowrap" style="gap:.3rem"><i style="width:12px;height:12px;border-radius:3px;background:${COLORS[i % COLORS.length]}"></i>${esc(n)}</span>`).join('');
     return `<div class="grid g2">${d.pies.map(([l, p]) => one(l, p)).join('')}</div><div class="row center small" style="gap:.4rem 1rem;flex-wrap:wrap">${legend}</div>`;
