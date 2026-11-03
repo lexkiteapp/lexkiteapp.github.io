@@ -36,14 +36,17 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 ## 2. Repo, remote, ship
 - **Ruleset main (26316463):** gộp khi `required-gate` xanh; cấm force-push/xoá; bot đẩy qua khoá deploy + `[skip ci]` – `docs/CI-RUNNERS.md` › required-gate.
 - Remote THẬT: `https://github.com/lexkiteapp/lexkiteapp.github.io` (nhánh `main`). `origin` cục bộ là repo cũ – KHÔNG dùng.
-- Push: fetch + rebase lên main của remote thật rồi `git push https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git HEAD:main` (không in token). `gh` CLI lỗi TLS trong sandbox → gọi API bằng `curl` + `gh auth token`.
+- Push: fetch + rebase lên main của remote thật rồi `git push https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git HEAD:main` (không in token).
+- GitHub API (token CHUNG 5.000/giờ): chỉ qua `bash scripts/ci/gh-api.sh [METHOD] /path [--repo] [--poll]` (ETag 304 miễn lượt; còn < 500 tự ngủ). Không curl trần.
+- Poll PR/CI ≥ 5 phút (`--poll`); thoát 75 = hết hạn mức, KHÔNG phải PR đóng/lỗi.
+- `gh` CLI lỗi TLS; Node fetch cần proxy → dùng vỏ `.sh`.
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
 - Mergecheck (nguồn duy nhất, TOKEN-RULES §4 trỏ về đây): `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
-- Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
+- Trước ship: `npm test` (= `scripts/test/suite.txt`, test mới thêm 1 dòng ở đó; hoặc test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
-- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
+- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại required-gate, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
@@ -60,7 +63,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow "success" chưa đủ – đọc số liệu (từng báo xanh khi nhập 0 · lỗi 20). Workflow mới phải tự đỏ khi kết quả = 0.
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
-- **Runner GitHub (1/11, Pro = 40 runner):** chừa 8 cho PR/prod-release, phần rảnh `ci-filler` tự lấp từ `infra/ci-backlog.json` (`max-parallel` bắt buộc; repo giữ CÔNG KHAI để phút Actions miễn phí), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
+- Runner: `docs/CI-RUNNERS.md` (Pro 40, chừa ≥ 16, repo CÔNG KHAI).
 - **Kiểm hình (27/10):** mọi màn mới qua `LKJC.visual` (journey-e2e/checks.js) 360/390 px: FAIL lớp nổi đè nút · tràn ngang · số liệu toàn 0; cảnh báo chữ cắt · ảnh đơn sắc · nút chính < 44 px.
 - Màn mới chưa có trong journey-e2e → thêm `h.shot()` (chụp = tự kiểm hình); toast chỉ qua `UI.toast` (tự xếp hàng sau modal).
 
@@ -73,7 +76,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Sau commit bot "i18n: cập nhật…" xem `--stat`: hàng trăm dòng bị xoá = mất bản dịch (harvest hết lượt).
 
 ## 6. Nội dung & blog
-- Nội dung học: `docs/CONTENT-PIPELINE.md` + `docs/CONTENT-RULES.md`; `npm run content:queue`, `npm run content:gate`; đáp án đúng 100%, tự soạn, không bản quyền; lời giải có bản en (`explain-check` ≥ 98 %).
+- Nội dung học: `docs/CONTENT-PIPELINE.md` + `docs/CONTENT-RULES.md`; `npm run content:queue`, `npm run content:gate`; đáp án đúng 100%, tự soạn, không bản quyền; lời giải có bản en (`explain-check` ≥ 98 %); khung A1→C2 + Call: `CURRICULUM-PLAN.md`.
 - Blog: `docs/BLOG-RUNBOOK.md`; `node scripts/blog-check.mjs` 0 lỗi 0 cảnh báo, qualityScore ≥ 92; ≤ 1 bài/ngôn ngữ/ngày; slug vĩnh viễn.
 - Alt/chú thích ảnh PHẢI khớp `content/blog/shots.json`, không hứa tính năng không có (B1 8/11 sai, B3 72/72 sai) – cổng `[caption-truth]`, `[alt-truth]`.
 - Gộp blog Antigravity: `git diff <mốc> HEAD -- content/blog | git apply -3`, gộp `briefs.json` theo lang+slug, kiểm `publishAt` bài cũ không đổi; không checkout cả `content/blog`.
@@ -93,7 +96,6 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
 - Lỗi Kling/footage (script, cả lô, nhiều lượt) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; dry-run, thử 1 trước.
 - CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
-- Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
 - Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file (`wrangler pages secret put`, GitHub API libsodium). Repo công khai.
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
@@ -115,7 +117,7 @@ Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, 
 - CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
 - D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
 - Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
-- CI đỏ: `ci-triage.yml` phân loại; workflow mới phải thêm vào danh sách `workflow_run`; job gọi API bọc `scripts/ci/quota-skip.mjs`.
+- CI đỏ: `ci-triage.yml` quét 10 phút; job gọi API bọc `quota-skip.mjs`; workflow mới qua `ci-policy.mjs`.
 
 ## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
 Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:

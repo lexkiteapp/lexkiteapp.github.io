@@ -23,13 +23,13 @@ Nguồn: `brand/tokens.json` (không ghi hex ở nơi khác). Teal đậm **#0F3
 - **Hai chế độ**, mặc định theo máy (như Duolingo), chọn tay trong Cài đặt (`data-theme`). Tối = teal đậm ấm (nền #10191B · thẻ #172427 · #1E2F33), không đen lạnh; sáng giữ nền #f5f6fb. Cùng CTA cam, teal sáng, diều, giáo viên.
 - Khớp thiết kế Stitch (`out/stitch/v1/…/DESIGN.md`): nút chính = gradient `--cta-1` #FFB054 → `--cta-2` #F2553B, gờ `--cta-lip` #B53A22, **chữ `--cta-ink` #1A0E0B** (chữ trắng trên cam chỉ 1,7:1 – không dùng); chữ phụ giữ #A3B9B7 (#94A8AB của Stitch < 7:1); `--faint` #5A7175 cho ổ khóa/mờ, `--ledge` gờ nổi.
 - Ngưỡng (`brand-check`, không nới): chữ/nền ≥ 15:1 · chữ phụ ≥ 7:1 · chữ CTA ≥ 4.5:1 · teal sáng/thẻ, `--faint`, diều/nền icon ≥ 3:1.
-- Dựng PNG icon/logo/mạng xã hội + ảnh trước/sau: đẩy nhánh `brand-build*` (`.github/workflows/brand-build.yml`).
+- Dựng PNG icon/logo/mạng xã hội + ảnh trước/sau: đẩy nhánh `brand-build*` (`.github/workflows/brand-build.yml`) → `bash scripts/ci/bot-output.sh brand-build` lấy PNG về rồi tự commit (bot không đẩy vào nhánh).
 
 ## Đã bỏ (không dùng)
 Kit "lưng xanh dương" cũ: **#2F62C0, #244E9E**; nền tối lạnh cũ #0f1017… (`tokens.json` → `retired`). `scripts/test/brand-check.mjs` (trong `npm test`) chặn ship nếu chúng quay lại, và chặn màu lạ MỚI trong CSS app/add-on (màu cũ đã khóa ở `scripts/test/brand-colors.lock.json`, chỉ được bớt).
 
 ## Đổi thương hiệu
-Sửa ở nguồn (`brand/tokens.json` / kit.js) → `node scripts/build-tokens.mjs` → đẩy nhánh `brand-build*` (CI chạy `build-social-kit.mjs`) → `npm test` → ship. Mọi nơi khác tự cập nhật.
+Sửa ở nguồn (`brand/tokens.json` / kit.js) → `node scripts/build-tokens.mjs` → đẩy nhánh `brand-build*` (CI chạy `build-social-kit.mjs`; lấy về `bash scripts/ci/bot-output.sh brand-build` + commit) → `npm test` → ship. Mọi nơi khác tự cập nhật.
 
 ## Watermark video
 - Chỉ dùng **wordmark chữ** "lexkite" (phông Bricolage Grotesque ExtraBold – OFL, `brand/social/src/fonts/`) kèm mark diều nhỏ không nền (`brand/lexkite-mark-mono.svg` đổi màu trắng). **Không** đặt ô vuông app icon lên video.
