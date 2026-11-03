@@ -13,6 +13,7 @@ export const WARN_PCTS = [0.5, 0.75], SHED_PCT = 0.85;
 const CACHE = {}; // theo tài khoản: 'main' | 'b'
 // 27/10: GraphQL Analytics không có hạn chờ → chậm/treo kéo cả yêu cầu Quản trị theo. ≤ 4 s, quá hạn → số tự đếm (đường dự phòng sẵn có, như khi thiếu token).
 export const GQL_TIMEOUT_MS = 4000;
+export const CI_FRESH_MS = 45 * 60e3; // số D1 do CI đẩy lên (20 phút/lần): quá 45 phút (2 lượt hỏng) → coi như không có
 export const day = (t = Date.now()) => new Date(t).toISOString().slice(0, 10);
 /** → { reads, writes|null, source: 'cloudflare'|'own', pct, at } */
 export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which = 'main') {
@@ -27,6 +28,11 @@ export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which 
       const j = await r.json(), s = (((j.data || {}).viewer || {}).accounts || [])[0], g = s && s.d1AnalyticsAdaptiveGroups && s.d1AnalyticsAdaptiveGroups[0];
       v = g ? { reads: +g.sum.rowsRead || 0, writes: +g.sum.rowsWritten || 0, source: 'cloudflare' } : { reads: 0, writes: 0, source: 'cloudflare' };
     } catch (e) { v = null; }
+  }
+  // 03/11: Pages chưa có CF_ANALYTICS_TOKEN → số Cloudflare do CI ghi (workflow d1-usage-watch.yml, 20 phút/lần → POST /api/capacity op usage → drive_meta 'd1u:<ngày>'); còn tươi ≤ 45 phút thì tin như số Cloudflare
+  if (!v && which === 'main' && db) {
+    try { const r = await db.prepare('SELECT v FROM drive_meta WHERE k = ?').bind('d1u:' + day(now)).first(), j = r && r.v ? JSON.parse(r.v) : null;
+      if (j && now - (+j.at || 0) <= CI_FRESH_MS) v = { reads: +j.reads || 0, writes: +j.writes || 0, source: 'cloudflare', via: 'ci', seen: +j.at }; } catch (e) { /* không có số CI */ }
   }
   if (!v) {
     let n = 0; try { const r = await db.prepare('SELECT v FROM drive_meta WHERE k = ?').bind('d1r:' + day(now)).first(); n = r ? +r.v || 0 : 0; } catch (e) { n = 0; }

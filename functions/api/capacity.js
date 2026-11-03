@@ -11,6 +11,8 @@ import { evaluate, alertText, LIMITS, ALERT, fmtVN, sourcesOf, evaluateSources }
 import { adminGate, adminCors } from './admin.js';
 import { cliVerify } from './drive.js';
 import { once } from './_schema.js';
+import { watchD1 } from './_d1watch.js';
+import { resetD1Cache } from './_d1guard.js';
 
 export const D1_DB_ID = '7ce39cd0-9333-4843-bd6f-5ccbefbde670'; // lexkite-sync (wrangler.toml)
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
@@ -98,6 +100,18 @@ export async function check(env, db, now = Date.now(), fetcher = fetch) {
   return { ok: true, evaluation: ev, mailed, rows: rows.length, sources: srcHit || { day: y ? y.day : null, ...sy }, srcMailed };
 }
 
+/** CI (d1-usage-watch.yml, 20 phút/lần – Pages chưa có CF_ANALYTICS_TOKEN): { op:'usage', day, reads, writes } số Cloudflare hôm nay
+ * → drive_meta 'd1u:<ngày>' (1 dòng ghi) cho _d1guard.d1Usage đọc (ngưỡng 85 %, ngân sách Quản trị) + thang báo 50/75 % (_d1watch.js). */
+export async function usage(env, db, b, now = Date.now()) {
+  const ok = x => Number.isSafeInteger(x) && x >= 0 && x < 1e10;
+  if (!b || b.day !== dayOf(now) || !ok(b.reads) || !ok(b.writes)) return { error: 'bad-usage' };
+  await setup(db);
+  await db.prepare('INSERT INTO drive_meta (k, v) VALUES (?1, ?2) ON CONFLICT(k) DO UPDATE SET v = ?2').bind('d1u:' + b.day, JSON.stringify({ reads: b.reads, writes: b.writes, at: now })).run();
+  resetD1Cache();
+  const w = await watchD1(env, db, now, { mail: (s, t) => sendMail(env, s, t) });
+  return { ok: true, ...w };
+}
+
 /** Quản trị › Hạn mức: chuỗi đã lưu (30 ngày, tra theo khoá day) + đánh giá + hạn mức. */
 export async function trend(env, db, now = Date.now()) {
   await setup(db);
@@ -114,6 +128,7 @@ export async function onRequestPost({ request, env }) {
   try {
     if (request.headers.get('X-Drive-Sig')) { // đường CI: chỉ HMAC, chỉ op check
       if (!(await cliVerify(env, request, text))) return json(request, 401, { error: 'sig' });
+      if (b.op === 'usage') return json(request, 200, await usage(env, env.DB, b));
       if (b.op !== 'check') return json(request, 400, { error: 'op' });
       return json(request, 200, await check(env, env.DB));
     }

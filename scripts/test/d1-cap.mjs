@@ -82,6 +82,25 @@ G.resetD1Cache(); r = await W.watchD1(env, db, at(5), { mail, fetcher: gql(1e6, 
 ok(r.level === 0.75 && /ghi/.test(mails[0].s), 'dòng GHI 80 % cũng báo');
 ok(W.etaFull(0.5, at(6)) === '12:00Z' && W.etaFull(0.2, at(6)) === null, 'dự báo giờ chạm 100 %');
 
+// ---------- (3b) Pages chưa có CF_ANALYTICS_TOKEN: số do CI đẩy (capacity.js op usage → drive_meta d1u:<ngày>) ----------
+const C = await imp('capacity.js');
+meta.clear(); mails.length = 0; alerts.clear();
+const capDb = { prepare: q => { const st = db.prepare(q); return { ...st, bind(...a) { st.bind(...a); return this; }, first: st.first.bind(st), run: async () => { if (/^CREATE|^ALTER/.test(q)) return {}; return st.run(); } }; }, batch: async () => [] };
+r = await C.usage({}, capDb, { day: '2026-11-03', reads: 9e5, writes: 0 }, at(3)); // không token Pages
+ok(r.skip == null && r.level === 0 && JSON.parse(meta.get('d1u:2026-11-03')).reads === 9e5, 'op usage: lưu số CI vào drive_meta d1u:<ngày>');
+G.resetD1Cache(); let u0 = await G.d1Usage({}, capDb, at(3) + 10 * 60e3);
+ok(u0.source === 'cloudflare' && u0.via === 'ci' && u0.reads === 9e5, 'd1Usage không token: dùng số CI còn tươi (≤ 45 phút)');
+G.resetD1Cache(); u0 = await G.d1Usage({}, capDb, at(3) + 50 * 60e3);
+ok(u0.source === 'own', 'd1Usage không token: số CI quá 45 phút → không tin (tự đếm)');
+r = await C.usage({}, capDb, { day: '2026-11-03', reads: 4.4e6, writes: 0 }, at(4));
+ok(r.level === 0.75 && mails.length === 0 && alerts.get('d1').level === 'crit', 'op usage 88 %: chuông crit (thư cần MAIL binding – env rỗng → không gửi, không đánh dấu đã báo)');
+ok(!meta.has('d1warn:2026-11-03'), 'thư chưa gửi được → lượt sau thử lại (không đánh dấu)');
+G.resetD1Cache(); ok(G.isShed(await G.d1Usage({}, capDb, at(4) + 60e3)), 'số CI 88 % → chế độ tiết kiệm bật dù Pages thiếu token');
+ok((await C.usage({}, capDb, { day: '2026-11-02', reads: 1, writes: 1 }, at(4))).error === 'bad-usage' && (await C.usage({}, capDb, { day: '2026-11-03', reads: -1, writes: 0 }, at(4))).error === 'bad-usage', 'op usage: chặn ngày cũ / số âm');
+G.resetD1Cache(); u0 = await G.d1Usage(env, capDb, at(4) + 60e3, gql(1e6));
+ok(u0.source === 'cloudflare' && !u0.via && u0.reads === 1e6, 'có CF_ANALYTICS_TOKEN: đo trực tiếp GraphQL, bỏ qua số CI');
+G.resetD1Cache(); meta.clear(); alerts.clear();
+
 // ---------- (4) usagePeek / shedRead ----------
 G.resetD1Cache();
 const e2 = { ...env, DB: null };
