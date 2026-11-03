@@ -1011,6 +1011,19 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "cron-kick",
+   "worker": "workers/cronkick",
+   "cron": [
+    "*/30 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 1,
+   "est": {},
+   "lease": false,
+   "_note": "3/11: lưới an toàn cuối – Worker ký HMAC gọi /api/cron-kick; Pages (có GH_DISPATCH_TOKEN) dispatch free-tier-guard/required-gate/ci-triage khi quá ngưỡng cron-watch, chống trùng, ≤ 5 lượt, ≤ 4 lượt/giờ. Không đụng D1."
+  },
+  {
    "id": "lexicon-expand",
    "workflow": "lexicon-expand.yml",
    "cron": [

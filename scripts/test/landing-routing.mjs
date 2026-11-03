@@ -5,9 +5,10 @@
 //  3) Gợi ý ngôn ngữ chỉ hiện cho người dùng (JS sau khi vẽ), đóng được, nhớ lựa chọn
 //  4) web/sw.js: bản cài cũ phạm vi "/" → chế độ chuyển tiếp (xóa cache khung cũ, giữ dữ liệu, offline "/" → /app/); phạm vi /app/ → cache khung app
 //  5) app.js: đăng ký SW phạm vi /app/, bí danh route gõ nhầm trỏ tới route có thật; manifest start_url/scope /app/, id giữ "/"
+import { gzSize } from '../lib/gz-canon.mjs';
+const LAND_GZ = JSON.parse(fs.readFileSync(new URL('./budget.json', import.meta.url), 'utf8')).landingGz;
 import fs from 'node:fs';
 import vm from 'node:vm';
-import zlib from 'node:zlib';
 import { JSDOM } from 'jsdom';
 import { LANGS, render, fileOf, ROUTE_JS } from '../build-landing.mjs';
 
@@ -93,8 +94,10 @@ for (const l of LANGS) {
   ok(html.includes(`href="/${l}/blog/"`), `${f}: liên kết blog cùng ngôn ngữ /${l}/blog/`);
   ok(!/href="\/(\?[^"#]*)?#\//.test(html), `${f}: còn liên kết kiểu cũ "/#/…" (phải là /app/#/…)`);
   ok(LANGS.every(x => html.includes(`<a href="${x === 'vi' ? '/' : `/${x}/`}" lang="${x}" hreflang="${x}"`)), `${f}: thanh đổi ngôn ngữ đủ 15 trang`);
-  const gz = zlib.gzipSync(html, { level: 9 }).length;
-  ok(gz <= 16 * 1024, `${f}: ${(gz / 1024).toFixed(1)} KB gzip > 16 KB – trang giới thiệu phải nhẹ`);
+  // Một thước với size-budget: gzip chuẩn (pako, scripts/lib/gz-canon.mjs) + ngưỡng budget.landingGz. zlib của Node đổi theo phiên bản
+  // (Node 22 trên CI ≠ Node 26 trên máy, lệch ~1 %) → trước đây máy xanh, CI đỏ cùng một file.
+  const gz = gzSize(Buffer.from(html));
+  ok(gz <= LAND_GZ, `${f}: ${gz} B gzip chuẩn > ${LAND_GZ} B (budget.json landingGz) – trang giới thiệu phải nhẹ`);
   ok(!/Lexkite là ứng dụng số 1|triệu người dùng|million users|★★★★★|4\.9\/5/i.test(html), `${f}: không được có số liệu/đánh giá tự nhận`);
 }
 // Chữ hiển thị đúng ngôn ngữ trang: trang không phải vi không lẫn tiếng Việt có dấu (trừ tên ngôn ngữ "Tiếng Việt" ở thanh đổi ngôn ngữ)
@@ -106,10 +109,12 @@ for (const l of LANGS.filter(x => x !== 'vi')) {
 }
 
 // ---------- 3) Gợi ý ngôn ngữ (chỉ người dùng thật, sau khi vẽ) ----------
+// JS dùng chung trang tĩnh nằm ở file /js/site-ui.js (defer) → jsdom chạy inline cùng nội dung
+const inlUi = h => h.replace(/<script src="\/js\/site-ui\.js[^"]*" defer><\/script>|<script>addEventListener\("load"[^<]{0,160}\/js\/site-ui\.js[^<]{0,80}<\/script>/g, () => `<script>${rd('web/js/site-ui.js')}</script>`); // landing: nạp sau load (đã rút gọn)
 async function hint(file, langs, local = {}) {
-  const html = rd(file).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
-  const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); } });
-  await new Promise(r => setTimeout(r, 10));
+  const html = inlUi(rd(file)).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); w.fetch = u => Promise.resolve({ json: () => JSON.parse(rd('web' + new URL(u, 'https://lexkite.com/').pathname)) }); } }); // chữ gợi ý tải từ web/js/lhint.json khi cần
+  await new Promise(r => setTimeout(r, 30));
   return dom.window;
 }
 {
@@ -137,7 +142,7 @@ async function hint(file, langs, local = {}) {
     ok(items.length === LANGS.length && items.every(a => a.getAttribute('href') === landingHref(a.lang) && a.getAttribute('hreflang') === a.lang && a.textContent === LANG_NAMES[a.lang]) && items.filter(a => a.hasAttribute('aria-current')).map(a => a.lang).join() === l && items.find(a => a.lang === 'ar').getAttribute('dir') === 'rtl', `${fileOf(l)}: 15 ngôn ngữ tên bản địa, lang/hreflang, trỏ trang chủ từng ngôn ngữ, đánh dấu ngôn ngữ hiện tại, ar RTL`);
   }
   // Hành vi bàn phím/chuột chạy thật trong jsdom (trang ar để thử RTL); KHÔNG tự chuyển trang theo lựa chọn đã nhớ
-  const html = rd('web/ar/index.html').replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = inlUi(rd('web/ar/index.html')).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/ar/', runScripts: 'dangerously', beforeParse(w) { w.localStorage.setItem('vb.uiLang', 'ja'); w.localStorage.setItem('lk.lhint', '1'); } });
   await new Promise(r => setTimeout(r, 10));
   const w = dom.window, d = w.document, b = d.querySelector('[data-lsw] button'), m = d.getElementById(b.getAttribute('aria-controls')), key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
@@ -155,10 +160,20 @@ async function hint(file, langs, local = {}) {
   const nf = new JSDOM(rd('web/404.html')).window.document;
   ok(nf.querySelectorAll('[data-lsw] [role=menuitem]').length === LANGS.length && nf.querySelector('[data-lsw] [lang=ja]').getAttribute('href') === '/ja/', '404: nút đổi ngôn ngữ → trang chủ từng ngôn ngữ');
   const lg = new JSDOM(rd('web/de/terms.html')).window.document;
-  ok(lg.querySelector('[data-lsw] [lang=ko]').getAttribute('href') === '/ko/terms' && lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ → cùng trang ở ngôn ngữ kia (/ko/terms)');
+  ok(lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ đánh dấu ngôn ngữ trang');
+  // Mọi trang pháp lý: mỗi mục ngôn ngữ (đầu trang + chân trang) = bản dịch đủ có trong hreflang của trang, hoặc blog ngôn ngữ đó – không bao giờ trỏ bản nháp noindex
+  const legalBad = [];
+  for (const l of LANGS) for (const n of ['privacy', 'terms', 'schools', 'credits']) {
+    const f = `web/${l}/${n}.html`; if (!fs.existsSync(f)) continue;
+    const doc = new JSDOM(rd(f)).window.document, hl = new Set([...doc.querySelectorAll('link[rel=alternate][hreflang]')].map(x => x.getAttribute('hreflang')));
+    const done = x => fs.existsSync(`web/${x}/${n}.html`) && !/<meta name="robots" content="noindex"/.test(rd(`web/${x}/${n}.html`)); // bản dịch đủ = trang được lập chỉ mục
+    if (hl.size && [...hl].some(x => x !== 'x-default' && !done(x))) legalBad.push(`${f}: hreflang trỏ bản nháp`);
+    for (const a of doc.querySelectorAll('[data-lsw] [role=menuitem], .flangs a')) { const x = a.lang, want = x === l || done(x) ? `/${x}/${n}` : `/${x}/blog/`; if (a.getAttribute('href') !== want) legalBad.push(`${f} ${x}: ${a.getAttribute('href')} ≠ ${want}`); }
+  }
+  ok(!legalBad.length, `pháp lý: nút đổi ngôn ngữ → bản dịch theo hreflang, thiếu → /<lang>/blog/ (${legalBad.slice(0, 3).join('; ')})`);
   const sp = new JSDOM(seoPage({ lang: 'vi', head: '', crumbs: [['Trang chủ', '/'], ['Speaking', '/speaking/'], ['X', '/speaking/x']], body: '', alt: '/en/speaking/x', section: '/speaking/' })).window.document;
   const href = l => sp.querySelector(`header [data-lsw] [lang=${l}]`).getAttribute('href');
-  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ khác → trang chủ ngôn ngữ đó (header = chân trang)');
+  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/blog/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x' && sp.querySelector(`footer [lang=ja]`).getAttribute('href') === '/ja/blog/', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ chưa có bản dịch → blog ngôn ngữ đó (header = chân trang)');
 }
 
 // ---------- 4) Service worker: di chuyển bản cài cũ ----------
