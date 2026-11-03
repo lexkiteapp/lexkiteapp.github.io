@@ -4,7 +4,7 @@ title: "Frazy dlya Delovyh Vstrech na Angliyskom: 70+ Vyrazheniy"
 description: "Frazy dlya delovyh vstrech na angliyskom: готовые фразы для открытия митинга, вежливого несогласия, перебивания, презентации идей и подведения итогов."
 keyword: "frazy dlya delovyh vstrech na angliyskom"
 lang: ru
-translationKey: ky-nang-wali-phasa-angkrit-hop-prachum
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [delovoy-angliyskiy, vstrechi, frazy]
 cover: phrases

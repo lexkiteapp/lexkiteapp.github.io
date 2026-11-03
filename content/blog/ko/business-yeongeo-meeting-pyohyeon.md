@@ -3,7 +3,7 @@ title: "비즈니스 영어 회의 표현 : 글로벌 화상 미팅 주도하는
 description: "비즈니스 영어 회의 표현 완벽 가이드: Zoom, Teams 등 글로벌 화상 회의에서 어색한 침묵을 깨는 스몰토크부터, 정중한 끼어들기, 부드러운 반론 제기, 그리고 회의 후 액션 아이템 확정까지 회의 전 과정을 주도하는 핵심 템플릿을 공개합니다."
 slug: business-yeongeo-meeting-pyohyeon
 lang: ko
-translationKey: business-yeongeo-meeting-pyohyeon
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [business-english, meeting, hoehwa]
 keyword: "비즈니스 영어 회의 표현"

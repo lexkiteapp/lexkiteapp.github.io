@@ -3,7 +3,7 @@ title: "英文会议常用表达全攻略：外企跨国线上开会主持、插
 description: "跨国职场英文会议常用表达实战进阶指南：全面覆盖从远程破冰开场、主持控场、礼貌插话追问、委婉表达建设性异议到最终敲定Action Items的全流程高频地道句型，配合实战技巧助你彻底告别会议沉默尴尬，从容展现国际化专业职场气场。"
 slug: ying-wen-hui-yi-chang-yong-ju-xing
 lang: zh
-translationKey: ying-wen-hui-yi-chang-yong-ju-xing
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [shang-wu-ying-yu, hui-yi, zhi-chang]
 keyword: "英文会议常用表达"

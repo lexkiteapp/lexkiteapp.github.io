@@ -4,7 +4,7 @@ title: "Ingilizce Toplanti Kaliplari Is Hayati Icin Iletisim"
 description: "Ingilizce toplanti kaliplari is hayati iletişiminde söz alma, fikir belirtme, kibarca itiraz etme ve uzlaşma stratejileri ile hazır diyaloglar bu rehberde."
 keyword: "ingilizce toplanti kaliplari is hayati"
 lang: tr
-translationKey: ky-nang-wali-phasa-angkrit-hop-prachum
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [is-hayati, toplanti, kaliplar]
 cover: phrases

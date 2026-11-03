@@ -4,7 +4,7 @@ title: "Business English Meeting Phrases in Hindi: 60+ जरूरी फ्र
 description: "Business english meeting phrases in hindi: ऑफिस मीटिंग्स शुरू करने, विनम्रता से बीच में बोलने, राय देने और निष्कर्ष निकालने के 60+ जरूरी पेशेवर फ्रेजेस।"
 keyword: "business english meeting phrases in hindi"
 lang: hi
-translationKey: ky-nang-wali-phasa-angkrit-hop-prachum
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [business-english, meetings, phrases]
 cover: phrases

@@ -3,7 +3,7 @@ title: "Reuniões em Inglês Frases Úteis: Guia Completo para o Trabalho"
 description: "Guia completo de reuniões em inglês frases úteis: aprenda a abrir discussões, opinar com diplomacia, interromper com educação e alinhar próximos passos."
 slug: reunioes-em-ingles-frases-uteis
 lang: pt
-translationKey: reunioes-em-ingles-frases-uteis
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [business-english, reunioes, trabalho]
 keyword: "reuniões em inglês frases úteis"

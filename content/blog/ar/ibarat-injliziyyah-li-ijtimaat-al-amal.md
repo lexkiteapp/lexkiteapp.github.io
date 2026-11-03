@@ -4,7 +4,7 @@ title: "Ibarat Injliziyyah li Ijtimaat al Amal: 70+ عبارة"
 description: "Ibarat injliziyyah li ijtimaat al amal: عبارات اجتماعات العمل بالإنجليزية لبدء الميتنج، المقاطعة المهذبة، إبداء الرأي وتلخيص القرارات باحترافية."
 keyword: "ibarat injliziyyah li ijtimaat al amal"
 lang: ar
-translationKey: ky-nang-wali-phasa-angkrit-hop-prachum
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [ijtimaat-amal, business-english, ibarat]
 cover: phrases

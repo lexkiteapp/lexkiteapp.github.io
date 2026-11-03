@@ -3,7 +3,7 @@ title: "Meeting auf Englisch Phrasen: Souverän im Business"
 description: "Meeting auf Englisch Phrasen für Eröffnung, Wortmeldungen, höfliche Unterbrechungen und Protokoll: Der praktische Leitfaden für Business-Konferenzen."
 slug: meeting-auf-englisch-phrasen
 lang: de
-translationKey: meeting-auf-englisch-phrasen
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [business-english, meetings, phrasen]
 keyword: "meeting auf englisch phrasen"

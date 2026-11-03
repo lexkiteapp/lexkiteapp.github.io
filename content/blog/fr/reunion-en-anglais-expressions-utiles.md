@@ -3,7 +3,7 @@ title: "Réunion en Anglais Expressions Utiles: Guide Pro"
 description: "Réunion en anglais expressions utiles: Le guide complet pour ouvrir une séance, donner son avis diplomatiquement, interrompre et fixer les action items."
 slug: reunion-en-anglais-expressions-utiles
 lang: fr
-translationKey: reunion-en-anglais-expressions-utiles
+translationKey: tieng-anh-giao-tiep-hop-cong-so
 category: ky-nang
 tags: [business-english, reunion, travail]
 keyword: "réunion en anglais expressions utiles"
