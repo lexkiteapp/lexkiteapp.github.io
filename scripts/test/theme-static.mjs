@@ -143,7 +143,8 @@ if (has('app/index.html')) {
   const app = await ctx.newPage(); const errs = []; app.on('pageerror', e => errs.push(e.message));
   await app.goto(APPB + '/app/', { waitUntil: 'load' }); await app.waitForSelector('#themeBtn', { timeout: 15000 }).catch(() => bad.push('app→web: không thấy #themeBtn'));
   await app.waitForFunction(() => document.querySelector('#themeBtn') && document.querySelector('#themeBtn').onclick, null, { timeout: 15000 }).catch(() => {});
-  await app.click('#themeBtn'); await app.click('#themeBtn'); // tự động → sáng → tối (đúng thứ tự nút app)
+  const tap = () => app.evaluate(() => document.querySelector('#themeBtn').click()); // 390 px: nút nằm ở thanh ẩn → gọi đúng onclick của nút app
+  await tap(); await tap(); // tự động → sáng → tối (đúng thứ tự nút app)
   const a = await st(app); if (a.th !== 'dark' || a.tc.some(c => c.toUpperCase() !== TC.dark)) bad.push(`app→web: app sau 2 lần bấm data-theme=${a.th}, theme-color=${a.tc}`);
   for (const p of ['/en/', '/', '/en/blog/'].filter(p => has(p + 'index.html'))) {
     const pg = await ctx.newPage(); await pg.goto(APPB + p, { waitUntil: 'load' }); const r = await st(pg); checks++;
@@ -154,7 +155,7 @@ if (has('app/index.html')) {
     await pg.close();
   }
   const land = await ctx.newPage(); await land.goto(APPB + '/en/', { waitUntil: 'load' }); await land.waitForFunction(() => window.LkUi, null, { timeout: 8000 }).catch(() => {});
-  await app.bringToFront(); await app.click('#themeBtn'); await land.waitForTimeout(300); // tối → tự động (máy sáng)
+  await app.bringToFront(); await tap(); await land.waitForTimeout(300); // tối → tự động (máy sáng)
   if ((await st(land)).th !== null) bad.push(`app→web trực tiếp: app về Tự động nhưng tab landing data-theme=${(await st(land)).th}`);
   await land.bringToFront(); await land.click('.site-foot [data-tsv=dark]').catch(() => land.click('[data-tsw] >> visible=true')); await app.waitForTimeout(300);
   const want = (await st(land)).th; if (!want || (await st(app)).th !== want) bad.push(`web→app trực tiếp: chọn ${want} ở landing nhưng tab app data-theme=${(await st(app)).th}`);

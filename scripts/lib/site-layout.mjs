@@ -35,7 +35,7 @@ export const THEME_HEAD = `<script data-lkt>function lkT(){try{var s=localStorag
 // Thanh trình duyệt (meta theme-color) theo nền trang: sáng = B Bright Day, tối = A Tactile Night (brand/tokens.json --bg, nguồn duy nhất).
 // Hai thẻ theo media → đúng ngay khi tải ở chế độ tự động; ép sáng/tối thì TSW_JS (trang tĩnh) / applyTheme (app) ghi đè cả hai thẻ.
 export const THEME_COLOR = { light: TKALL.light['--bg'], dark: TKALL.dark['--bg'] };
-export const THEME_META = `<meta name="theme-color" media="(prefers-color-scheme: light)" content="${THEME_COLOR.light}"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="${THEME_COLOR.dark}">`;
+export const THEME_META = `<meta name="theme-color" media="(prefers-color-scheme:light)" content="${THEME_COLOR.light}"><meta name="theme-color" media="(prefers-color-scheme:dark)" content="${THEME_COLOR.dark}">`;
 // Chỉ phần <head> (chống nháy + theme-color), không đụng CSS – dùng cho trang tĩnh (qua themePage) và app web/app/index.html (build-landing.mjs)
 export const themeHead = html => {
   const meta = /<meta name="theme-color"/i.test(html); // trang chưa có theme-color → thêm ngay sau chống nháy
