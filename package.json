@@ -20,6 +20,7 @@
     "waf": "node scripts/cf-waf.mjs",
     "test:drive": "node scripts/test/d1-scan.mjs && node scripts/test/drive.mjs && node scripts/test/put-session.mjs && node scripts/test/ledger-merge.mjs && node scripts/test/drive-ui.mjs",
     "test:keys": "node scripts/test/keys.mjs",
+    "test:admin-share": "node scripts/test/admin-share.mjs",
     "library": "node scripts/video/library.mjs",
     "test:ext-i18n": "node scripts/test/ext-dict-i18n.mjs all",
     "test:tools": "node scripts/test/tools-pages.mjs",
