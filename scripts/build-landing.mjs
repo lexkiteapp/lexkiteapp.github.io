@@ -15,7 +15,7 @@ import { minify } from 'terser';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 import { render as stRender, tr as stTr, teacherIdle, IDLE_JS, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -61,21 +61,19 @@ const GA_CLS = { foot: GA_V3 + ' mt-4' }; // chân trang: đúng lớp nút "Get
 const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}" href="${appQ}" data-get-app="${place}"${web ? ` data-web="${appQ}"` : ` aria-label="${esc(ui(l, 'Tải app'))}"`} hidden>${PHONE}${look === 'icon' ? '' : `<span>${esc(ui(l, 'Tải app'))}</span>`}</a>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
-const URLS = Object.fromEntries(LANGS.map(l => [l, landingHref(l)]));
-// Chung cho 15 trang (nằm trong /js/site.js): ngôn ngữ trang = <html lang> (cùng mã với LANGS)
-const HINT_JS = `(function(){try{var P=document.documentElement.lang,S=${JSON.stringify(SUG)},U=${JSON.stringify(URLS)},ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
-var n=ls.getItem('vb.uiLang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(!S[n]||n===P)return;
-var d=document.createElement('div');d.className='lhint';d.lang=n;if(n==='ar')d.dir='rtl';d.setAttribute('role','region');d.setAttribute('aria-label',S[n][0]);
-d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';d.firstChild.textContent=S[n][0];var a=d.querySelector('a'),b=d.querySelector('button');a.href=U[n];a.textContent=S[n][1];b.setAttribute('aria-label',S[n][2]);
-var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)}catch(e){}})();`;
+// Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
+// Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
+// Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của #303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
+const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
 // ----- CSS riêng của landing (chỉ phần mẫu Stitch không vẽ: giữ chỗ nút add-on/Tải app chống CLS, link bỏ qua, dải gợi ý ngôn ngữ, menu đổi ngôn ngữ) -----
 // Màu = token Stitch (--st-*, cùng nguồn brand/stitch/tokens.dtcg.json, tự đổi sáng/tối) → biến dùng chung của khối lsw/lhint.
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-flex!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
 ${STW_VARS}
 [data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-on-secondary));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
-${LSW_CSS}.lsw-m{z-index:60}`;
+${LSW_CSS}.lsw-m{z-index:60}
+${TSW_ICON}${TSP_CSS}summary::-webkit-details-marker{display:none}`;
 
 // ----- Bỏ CSS không dùng: khung chung (site-layout CSS) phục vụ cả trang SEO/blog; landing chỉ giữ luật có lớp/id/thẻ xuất hiện trong trang
 // (kể cả trong script nội tuyến – lớp do JS thêm như .lhint, .dc, .ga, lsw vẫn được giữ) → landing ≤ 16 KB gzip (scripts/test/landing-routing.mjs)
@@ -91,7 +89,7 @@ export function purgeCss(css, page) {
 }
 // Khung Stitch: CSS biên dịch cho cả nhóm trang → compact() (scripts/lib/st-web.mjs) chỉ giữ luật trang dùng, bỏ nhánh data-theme (trang tĩnh theo
 // prefers-color-scheme), bỏ biến --st-* thừa và đổi tên lớp Tailwind dài thành tên ngắn – không đổi hình, giữ landing ≤ 16 KB gzip.
-function renderPurged(lang) { return compact(renderFull(lang)); }
+function renderPurged(lang) { return compact(themePage(renderFull(lang))); } // themePage (#303): chống nháy + luật màu theo nút giao diện → compact giữ nhánh [data-theme]
 // ----- Thu gọn JS nội tuyến (terser: bỏ khoảng trắng/chú thích, đổi tên biến cục bộ – không đổi hành vi) sau khi đã lọc CSS (lọc CSS đọc tên lớp trong script
 // từ bản gốc). 27/10: ru 16489 B gzip trên Node 22 > 16384 → còn ≈ 16 000 B, không cắt nội dung/tính năng, không nâng ngân sách.
 // render() giữ đồng bộ: mọi đoạn script của 15 trang được thu gọn sẵn một lần lúc nạp module (await cấp cao nhất, xem MINI bên dưới).
@@ -163,7 +161,10 @@ function renderFull(lang) {
     open: [start, c.nav.start], signin: [login, c.nav.login], home: landingHref(lang),
     langHref: landingHref, label: c.langL, text: c.foot, tm: c.tm, getApp: gaBtn(lang, 'foot', appQ, true) });
   // đầu trang v3: nút 🌐 hiện tên ngôn ngữ; chân trang v3: nút "Interface" mở menu ngôn ngữ thứ hai (cùng 15 liên kết hreflang, id riêng)
-  const chrome = { ...chrome0, langName: LANG_NAMES[chrome0.lang], menu2: lswMenu({ lang, langHref: landingHref, label: chrome0.langLabel, id: 'lsw-m2' }) };
+  // nút giao diện (#303, một nguồn với app 'lk.theme'): nút Stitch đầu trang mang data-tsw + nhãn 15 ngôn ngữ; chân trang: viên Tự động/Sáng/Tối themePill
+  const TL = themeLabels(chrome0.lang), tsw = themeSwitch(chrome0.lang);
+  const chrome = { ...chrome0, langName: LANG_NAMES[chrome0.lang], menu2: lswMenu({ lang, langHref: landingHref, label: chrome0.langLabel, id: 'lsw-m2' }),
+    tswL: TL.join('|'), tswA: `${TL[3]}: ${TL[0]}`, tswSvg: tsw.slice(tsw.indexOf('<svg'), tsw.lastIndexOf('</button>')), pill: themePill(chrome0.lang) };
   const resCol = chrome.cols[1].items, find = re => resCol.find(([u]) => re.test(u));
   const third = (vi ? find(/^\/ngu-phap\//) : find(/\/words\/$/)) || resCol[4]; // thẻ thứ 3: Ngữ pháp (vi) / Từ điển (/<lang>/words/)
   const more = ui(lang, 'Xem thêm');
@@ -212,10 +213,10 @@ ${alt}
 ${LCSS}</style>
 ${ld(graph)}
 </head>
-<body class="stw st">
+<body class="stw st" data-lhint="lhint">
 <a class="skip" href="#main">${esc(c.skip)}</a>
 ${page.body}
-<script>${HINT_JS}</script>
+<script>${SITE_UI_LAZY.replace(/^<script>|<\/script>$/g, '')}</script>
 <script>${IDLE_JS}</script>
 <script>${EXT_JS}
 self.LK_GETAPP_T='${gaFile("'+document.documentElement.lang+'")}';
@@ -228,8 +229,10 @@ ${GETAPP_JS}</script>
 export const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`;
 // Trang 404 (web/404.html, viết tay, song ngữ vi/en): chèn nút đổi ngôn ngữ góc trên (→ trang chủ từng ngôn ngữ) vào giữa <!--lsw--><!--/lsw-->.
 // Trang dùng token màu riêng (--card/--fg/--coral) → ánh xạ sang token của khối lsw dùng chung.
-export const render404 = html => html.replace(/<!--lsw-->[\s\S]*?<!--\/lsw-->/, () => `<!--lsw--><style>.top{position:absolute;top:12px;inset-inline-end:16px;--surface:var(--card);--text:var(--fg);--primary:var(--coral);--accent-soft:var(--line)}.top .lsw-m{display:block}${LSW_CSS}</style>
-  <div class="top">${langSwitch({ lang: 'vi', label: 'Ngôn ngữ · Language' })}</div><script>${LSW_JS}</script><!--/lsw-->`);
+// Chân trang chung (siteFooter vi + Privacy/Terms tiếng Anh như chân trang mini cũ) giữa <!--foot--><!--/foot-->; token riêng của 404 → token chân trang
+const FOOT404 = () => `<!--foot--><style>${FOOT_CSS}.site-foot{align-self:stretch;margin:40px -16px -24px;--surface:var(--card);--text:var(--fg);--muted:var(--mut);--primary:var(--coral)}</style>${siteFooter({ lang: 'vi', text: SEO_L.vi.foot, tm: SEO_L.vi.tm, langHref: landingHref, coExtra: [['/en/privacy', 'Privacy', ' lang="en"'], ['/en/terms', 'Terms', ' lang="en"']] }).replace(SITE_UI, '')}<!--/foot-->`;
+export const render404 = html => themePage(html).replace(/<!--foot-->[\s\S]*?<!--\/foot-->/, FOOT404).replace(/<!--lsw-->[\s\S]*?<!--\/lsw-->/, () => `<!--lsw--><style>.top{position:absolute;top:12px;inset-inline-end:16px;--surface:var(--card);--text:var(--fg);--primary:var(--coral);--accent-soft:var(--line)}.top{display:flex;gap:8px}.top .lsw-m{display:block}${LSW_CSS}${TSW_CSS}</style>
+  <div class="top">${themeSwitch('vi')}${langSwitch({ lang: 'vi', label: 'Ngôn ngữ · Language' })}</div>${SITE_UI}<!--/lsw-->`);
 for (const l of LANGS) for (const [, , code] of renderPurged(l).matchAll(SCRIPT)) {
   if (MINI.has(code) || !code.trim()) continue;
   const r = await minify(code, { compress: { passes: 2 }, mangle: true, format: { comments: false } }); // không ép ascii: giữ chữ UTF-8 (gợi ý 15 ngôn ngữ)
@@ -254,6 +257,12 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== txt) stale.push('web' + p); continue; }
     fs.writeFileSync(f, txt);
   }
+  { const f = new URL('web' + HINT_FILE, R), j = JSON.stringify(SUG) + '\n'; if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + HINT_FILE); } else fs.writeFileSync(f, j); }
+  // App /app/: CÙNG chống nháy + theme-color với trang ngoài (một nguồn site-layout THEME_HEAD/THEME_META); add-on dùng bản file web/js/lkt.js (MV3 cấm nội tuyến)
+  { const f = new URL('web/app/index.html', R), cur = fs.readFileSync(f, 'utf8'), html = themeHead(cur); if (check) { if (html !== cur) stale.push('web/app/index.html'); } else if (html !== cur) fs.writeFileSync(f, html); }
+  { const f = new URL('web/js/lkt.js', R), j = LKT_JS(); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web/js/lkt.js'); } else fs.writeFileSync(f, j); }
+  { const f = new URL('web/js/site-ui.js', R), j = SITE_UI_JS(); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web/js/site-ui.js'); } else fs.writeFileSync(f, j); } // JS dùng chung trang tĩnh (site-layout SITE_UI)
+  for (const n of ['bye', 'blog-lang']) { const f = new URL(`web/${n}.html`, R), cur = fs.readFileSync(f, 'utf8'), html = themePage(cur); if (check) { if (html !== cur) stale.push(`web/${n}.html`); } else if (html !== cur) fs.writeFileSync(f, html); } // trang viết tay: chống nháy bản mới
   { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }
   if (stale.length && !process.env.CI) { // cục bộ (npm test): tự dựng lại cho khỏi dừng giữa chừng; trên CI (CI=true) vẫn nghiêm ngặt
     const r = spawnSync(process.execPath, [fileURLToPath(import.meta.url)], { stdio: 'inherit' });

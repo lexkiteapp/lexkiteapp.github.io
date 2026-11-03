@@ -63,7 +63,7 @@ export function teacherIdle(who, { w = 240, cls = '', alt, eager = false } = {})
     `<video class="absolute inset-0 w-full h-full opacity-0 transition-opacity" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-src="${src(I.webm)}" width="${w}" height="${h}"></video></span>`;
 }
 // Bật vòng nghỉ sau khi trang tải xong (không chặn LCP): bỏ qua nếu giảm chuyển động / không có VP9; hiện video khi đã phát được.
-export const IDLE_JS = `addEventListener('load',function(){var d=document,m=matchMedia('(prefers-reduced-motion: reduce)');if(m.matches)return;[].forEach.call(d.querySelectorAll('[data-idle] video[data-src]'),function(v){if(!v.canPlayType('video/webm; codecs="vp9"'))return;v.addEventListener('playing',function(){v.style.opacity=1},{once:true});v.src=v.getAttribute('data-src');v.removeAttribute('data-src');var p=v.play();p&&p.catch&&p.catch(function(){})})});`;
+export const IDLE_JS = `addEventListener('load',function(){var d=document,m=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');if(!m||m.matches)return;[].forEach.call(d.querySelectorAll('[data-idle] video[data-src]'),function(v){if(!v.canPlayType('video/webm; codecs="vp9"'))return;v.addEventListener('playing',function(){v.style.opacity=1},{once:true});v.src=v.getAttribute('data-src');v.removeAttribute('data-src');var p=v.play();p&&p.catch&&p.catch(function(){})})});`;
 
 // ---- Thu gọn trang đã dựng (KHÔNG đổi hình): CSS Stitch biên dịch cho cả nhóm → chỉ giữ luật trang thật dùng + đổi tên lớp Tailwind dài thành tên ngắn ----
 //   1) bỏ luật có lớp không xuất hiện trong trang (lớp trong <script> coi như có – JS thêm lúc chạy) · 2) trang không có data-theme (web tĩnh theo
