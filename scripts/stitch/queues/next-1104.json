@@ -1,0 +1,12 @@
+[
+ {
+  "id": "settings-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "ret",
+  "from": "settings-desktop/dark",
+  "dir": "v3",
+  "note": "key2: thay màu retired (đã vá bằng code 3/11 như f009d21) – làm lại trong Stitch để nguồn khớp",
+  "prompt": "Replace the old border colour (the retired dark teal-grey border tone) everywhere with #26393E. Keep everything else identical."
+ }
+]
