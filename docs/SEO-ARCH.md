@@ -9,7 +9,7 @@ Một nguồn: `scripts/build-seo-pages.mjs` (sinh) · `scripts/test/seo-pages.m
 ## 0. Thiết kế 10 dòng (METHODS "Làm đúng 1 lần")
 1. **Mục tiêu đo được:** nội dung giá trị trong app (`#/dict/<từ>`, `#/confidence/<bài>`) có URL tĩnh, index được, 15 ngôn ngữ; GSC "Đã index" tăng theo từng loại (sitemap riêng từng loại × ngôn ngữ để đo).
 2. **Tài nguyên:** 0 đồng. Pages ≤ 18.000 file (cổng an toàn; trần Cloudflare 20.000). D1/AI/Worker: 0 lượt (trang sinh lúc build). Khung app: **+0 byte** (`seo-twin.js` nạp lười từ `notices.js`, không thuộc SHELL).
-3. **Điểm hỏng & chặn:** trùng tiêu đề / thiếu canonical / hreflang không hai chiều / trang mồ côi / vượt số file → `scripts/test/seo-pages.mjs` đỏ (npm test). Trang mỏng → `noindex,follow` + không vào sitemap/hreflang. Bản dịch máy thô (cờ gói 0) → noindex.
+3. **Điểm hỏng & chặn:** trùng tiêu đề / thiếu canonical / hreflang không hai chiều / trang mồ côi / vượt số file → `scripts/test/seo-pages.mjs` đỏ (npm test). Trang mỏng → `noindex,follow` + không vào sitemap/hreflang. Trang từ: thêm cổng độ dày `DEPTH_MIN` (`scripts/lib/word-depth.mjs`, docs/specs/seo-words-depth.md). Bản dịch máy thô (cờ gói 0) → noindex.
 4. **Ai giữ file nào:** generator + cổng + seo-twin = mảng SEO (phiên chính). Nguồn dữ liệu vẫn của chủ mảng: kho từ (`web/js/data.js`, `web/js/lib/*`, `web/packs/*`), Giao tiếp tự tin (`content/confidence/**`). Generator chỉ ĐỌC.
 5. **Công tắc tắt:** `SEO_PAGES=0 npm run build` bỏ bước sinh (trang cũ biến mất ở lần deploy sau; sitemap tự bỏ). Quay lại: revert commit generator.
 
@@ -36,7 +36,7 @@ Lỗ hổng lớn nhất: 13 ngôn ngữ ngoài vi/en chỉ có landing + blog �
 - **Bài giao tiếp:** `/<lang>/conversations/<id>`, mục lục `/<lang>/conversations/` (theo cấp A1–B2).
 - Mỗi trang: canonical = chính nó; hreflang = các ngôn ngữ có bản **index được** của cùng mục + `x-default` → bản en; nút "Mở trong app" → `/app/?hl=<lang>#/dict/<từ>` hoặc `#/confidence/<id>`.
 - Dữ liệu ngôn ngữ: nghĩa bản địa từ `web/packs/<lang>.json` (cờ ≥ 1 = theo từ loại/bảng tay; cờ 0 = dịch máy thô → noindex); vi lấy nghĩa soạn tay trong kho; ghi chú học từ `web/js/notes/*.json` (chỉ trang vi – soạn tiếng Việt). Bài giao tiếp: `content/confidence/units/*.json` + `content/confidence/i18n/<lang>.json` (chính bản dịch app đang dùng); thiếu > 10 % chuỗi → noindex.
-- **JSON-LD (chỉ loại hợp lệ):** từ = `DefinedTerm` + `inDefinedTermSet` (mục lục = `DefinedTermSet`); bài = `LearningResource` (`educationalLevel` CEFR, `isPartOf` → `Course` ở mục lục); `BreadcrumbList` mọi trang. **Không dùng FAQPage**: Google chỉ hiện FAQ cho trang chính phủ/y tế từ 08/2023 – đánh dấu sẽ vô ích và dễ bị coi là spam đánh dấu.
+- **JSON-LD (chỉ loại hợp lệ):** từ = `DefinedTerm` + `inDefinedTermSet` (mục lục = `DefinedTermSet`); bài = `LearningResource` (`educationalLevel` CEFR, `isPartOf` → `Course` ở mục lục); `BreadcrumbList` mọi trang. **FAQPage chỉ trên trang từ** có khối "Câu hỏi thường gặp" ≥ 2 câu, chữ = đúng chữ `<details>` hiển thị (cổng seo-pages kiểm) – Google chỉ hiện rich result FAQ cho trang chính phủ/y tế từ 08/2023, nên không cược thứ hạng vào nó (3/11, docs/specs/seo-words-depth.md).
 
 ### Chọn top N theo giá trị tìm kiếm (không sinh tất cả)
 Điểm mỗi mục (tính lúc build, ổn định): cấp CEFR (B1–C1 cao nhất – nhóm người học tra nhiều nhất; A1 thấp – từ quá dễ ít ai tra), thuộc bộ thi (AWL/IELTS/TOEIC/đề thi +), độ giàu (ví dụ, collocation, đồng nghĩa, IPA Mỹ, có file đọc, có ghi chú), trừ điểm cụm dài ≥ 4 từ và từ ≤ 2 chữ. Lọc cứng: phải có định nghĩa + ví dụ.
