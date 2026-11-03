@@ -933,6 +933,22 @@ export const REG = {
    "lease": true
   },
   {
+   "id": "drive-repair",
+   "workflow": "drive-repair.yml",
+   "cron": [
+    "47 3 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 100
+   },
+   "lease": false
+  },
+  {
    "id": "code-bundle",
    "workflow": "code-bundle.yml",
    "cron": [
