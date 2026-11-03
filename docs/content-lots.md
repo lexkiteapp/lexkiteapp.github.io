@@ -38,3 +38,12 @@
 | 12 | S-SKILL | Đọc ngắn A1/C2, bài đọc, nghe, chủ đề nói + mẫu (có CEFR, band) | `web/js/read/lot-<n>.js`, `web/js/listen/lot-<n>.js`, `web/js/speak/lot-<n>.js` | bài hiện có | content-check, exam-format | ~500 | 80k/lô | +4,5 | – |
 
 Không phải lô Sonnet (tầng 0/CI, chạy đêm): từ#loại 20k (`lexicon-expand.yml`, +1,94), ảnh theo nghĩa (+1,81, CF_POOL ≤ 0,6), gói nghĩa 13 ngôn ngữ (`lexicon-i18n.yml`, +1,69), collocation/đồng nghĩa/IPA Mỹ tầng 0 (≈ +0,5 cho 9.148 mục có sẵn), C2 (+1,03). Sổ mẫu câu chức năng (+2,86) + trắc nghiệm/tự luận ngữ pháp (+3,37) = xưởng #429; mục gold (+2,21) = #427/#430 – sau khi gộp mới giao Sonnet phần còn lại.
+
+## Lô Đầu ra 3–6 tháng (spec `docs/specs/outcomes-3-6m.md`, 03/11)
+Mỗi lô một tập file riêng, không trùng nhau và không trùng lô trên. Mẫu chuẩn + cổng (Opus làm trước = O7): loader + `scripts/test/outcomes-content.mjs` + đăng ký `content/qa/sources.json`. Mọi lô ghi `lo:[…]` theo `lkf.json` (kỹ năng S/W/I) và phục vụ đích nói/viết tự tin sau 3–6 tháng (`outcome-speak-write`).
+| # | Id | Việc | File riêng của lô | Số mục | Token ~ | Chặn bởi |
+|---|---|---|---|---|---|---|
+| 13 | S-OUT-TASK-gen / -work / -ielts | Nhiệm vụ đầu ra 24 tuần × 1 nhánh: đề, Can-do, 8–12 chunk, bài mẫu A2/B1/B2, tiêu chí đạt (rubric §5) | `content/outcomes/tasks/<nhánh>.json` | 24/lô | 70k/lô | O7 |
+| 14 | S-OUT-CHECK-a / -b / -c | Đề đo song song: đoạn đọc to 40–60 từ, đề nói 1–2', đề viết 10' (thêm đề 3→6 mỗi cấp, độ khó tương đương đề 1–2 trong `web/js/outcomes-forms.js`) | `content/outcomes/checks/<cấp>.json` | 4/lô | 20k/lô | O7 |
+| 15 | S-OUT-DRILL | Mỗi luật `LK_WRITE` (id trong `writecheck-rules.js`) 3 câu drill sai→đúng để nói/gõ lại, giải thích en | `content/outcomes/drills.json` | ~80 luật | 60k | O7 |
+| 16 | S-OUT-FLU | Kịch bản 4/3/2 + shadowing: 1 câu chuyện mẫu/chủ đề, 3 vòng gợi ý, câu shadowing có nhịp | `content/outcomes/fluency/<cấp>.json` (a, b, c) | 20/lô | 50k/lô | O7 |

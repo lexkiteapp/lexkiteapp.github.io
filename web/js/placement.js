@@ -143,7 +143,7 @@
         <p>${t('Điểm cần ưu tiên: <b>{weak}</b>. Kế hoạch hôm nay trên trang chủ đã được điều chỉnh theo kết quả này.', { weak })}</p>
         <p class="small muted">${t('Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.', { stage: STG[E.stage] })}</p>
         <p class="small muted pl-how">${t('Ước tính từ {n} câu thích ứng: câu khó dần khi bạn trả lời đúng, dễ dần khi bạn sai. Khoảng điểm cho biết độ chắc chắn – làm lại sau vài tuần để cập nhật.', { n: E.n })} ${t('Kết quả chỉ để tham khảo, không thay thế bài thi thật.')}</p>
-        <div class="pl-cta"><a class="btn primary lg block" href="#/home">${t('Xem kế hoạch hôm nay →')}</a><a class="btn block" href="#/path">🗺️ ${t('Lộ trình')}</a></div></div></div>`;
+        <div class="pl-cta"><a class="btn primary lg block" href="#/home">${t('Xem kế hoạch hôm nay →')}</a><a class="btn block" href="#/path">🗺️ ${t('Lộ trình')}</a><a class="btn block" href="#/outcome">📈 ${t('Đo nói + viết (12 phút)')}</a></div></div></div>`;
     };
     view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result"><div class="pl-em" aria-hidden="true">🧭</div><h2 class="pl-h">${t('Kiểm tra đầu vào (5 phút)')}</h2>
       <p>${t('20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.')}</p>
