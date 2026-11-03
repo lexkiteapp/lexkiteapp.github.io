@@ -1,6 +1,7 @@
 /* Thống kê truy cập tự xây (thay Google Analytics – không cookie, không lưu IP, miễn phí trên D1).
  * POST /api/hit (navigator.sendBeacon):
  *   { t:'s', sid, vid, ret, path, cur, ref, lang, dev, plat, dur, pages, lcp, pv }  → 1 dòng/phiên (ghi đè khi phiên cập nhật)
+ *     late:1 + t0 = phiên gửi bù sau khi /api chết (web/js/app.js lk.hitq) → ghi vào ngày gốc t0 (lateAt), đếm ext_events 'hit:late'
  *     cur = trang đang xem (→ last_path, last = lúc nhận → "đang online"); pv = { route: số lượt xem mới từ lần gửi trước } (≤ 20 trang) → pageviews_day
  *   { t:'e', msg, src, line, path, ver }                              → gộp lỗi giống nhau thành 1 dòng + đếm
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
@@ -98,6 +99,11 @@ export function devOrigin(request) {
   for (const v of [h.get('Origin'), h.get('Referer'), request.url]) { try { if (v && v !== 'null') hosts.push(new URL(v)); } catch (e) { /* bỏ qua */ } }
   return hosts.some(u => /^[a-z0-9-]+\.lexkite\.pages\.dev$/.test(u.hostname) || (u.protocol === 'http:' && !!u.port && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)));
 }
+// Phiên gửi bù (b.late = 1, b.t0 = lúc mở trang): máy khách gửi lúc /api chết (01/11 16:22→00:00 UTC hạn mức Workers 100k/ngày cạn →
+// Functions 0 lượt, bảng Live traffic về 0) nên giữ lại trong lk.hitq và gửi lại ở lần mở sau. Ghi vào ngày/giờ gốc t0 (≤ 36 giờ trước),
+// không tính "đang online"; quá hạn/sai → bỏ (không dồn vào hôm nay). Trả 0 = phiên thường, −1 = bỏ, > 0 = thời điểm gốc.
+export const LATE_MAX = 36 * 3600e3;
+export const lateAt = (b, now) => { if (!b || !b.late) return 0; const t = Math.floor(+b.t0 || 0); return t > now - LATE_MAX && t <= now - 60e3 ? t : -1; };
 const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang của người dùng" – không ghi vào lượt xem/đang xem
 
 export async function setup(db) {
@@ -178,16 +184,19 @@ export async function onRequestPost({ request, env }) {
     if (b.t === 's' && /^[a-z0-9]{8,32}$/i.test(b.sid || '')) {
       let ref = cut(b.ref, 200); try { ref = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) { ref = ''; }
       if (/(^|\.)lexkite\.(com|pages\.dev)$/.test(ref)) ref = '';
-      const day = dayOf(now), route = v => /^[a-z0-9-]{1,40}$/.test(v) && !NOT_ROUTE.has(v) ? v : '';
+      const late = lateAt(b, now); if (late < 0) return ok();
+      const at = late || now, day = dayOf(at), route = v => /^[a-z0-9-]{1,40}$/.test(v) && !NOT_ROUTE.has(v) ? v : '';
       // Phiên mở thẳng trang quản trị (#/admin) → coi là nội bộ, đếm riêng như máy tự động
       const bot = auto || (NOT_ROUTE.has(cut(b.path, 60)) ? 'admin' : null);
       // ON CONFLICT: COALESCE(bot, ?16) – một khi đã là máy tự động thì giữ nguyên (không "hoá người" ở nhịp gửi sau)
       const sid = cut(b.sid, 32), vid = cut(b.vid, 32), country = cut(request.cf && request.cf.country, 2) || 'XX', hb = !!b.hb;
       // Analytics Engine (miễn phí, hạn mức riêng, 0 dòng D1): mọi beacon phiên → 1 điểm. Bố cục: aeHit() / docs/CAPACITY.md §Kiến trúc A2
-      aeHit(env, { sid, vid, day, country, ref, dev: cut(b.dev, 10), lang: cut(b.lang, 8), plat: cut(b.plat, 8), path: cut(b.path, 60), cur: route(cut(b.cur || b.path, 40)), bot: bot || '', kind: hb ? 'hb' : 's', dur: +b.dur || 0, pages: +b.pages || 0, ret: b.ret ? 1 : 0, lcp: +b.lcp || 0, at: now });
-      if (hb && hitMode(env) === 'hybrid') return ok(); // nhịp "đang online" 3 phút: chỉ AE (Quản trị đọc "đang online" từ AE) – D1 chỉ ghi lúc vào + lúc rời trang
-      const batch = [env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path, bot) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?4, ?15, ?16) ON CONFLICT (sid) DO UPDATE SET dur = ?11, pages = ?12, lcp = COALESCE(lcp, ?14), last = ?4, last_path = COALESCE(?15, last_path), bot = COALESCE(bot, ?16)')
-        .bind(cut(b.sid, 32), cut(b.vid, 32), day, now, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(Math.max(Math.floor(+b.pages || 1), 1), 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null, bot)];
+      if (!late) aeHit(env, { sid, vid, day, country, ref, dev: cut(b.dev, 10), lang: cut(b.lang, 8), plat: cut(b.plat, 8), path: cut(b.path, 60), cur: route(cut(b.cur || b.path, 40)), bot: bot || '', kind: hb ? 'hb' : 's', dur: +b.dur || 0, pages: +b.pages || 0, ret: b.ret ? 1 : 0, lcp: +b.lcp || 0, at: now });
+      if (hb && !late && hitMode(env) === 'hybrid') return ok(); // nhịp "đang online" 3 phút: chỉ AE (Quản trị đọc "đang online" từ AE) – D1 chỉ ghi lúc vào + lúc rời trang
+      // Gửi bù: đếm 'hit:late' 1 lần/phiên (chỉ khi sid chưa có) – chạy trước lệnh ghi phiên trong cùng lô
+      const batch = late && !bot ? [env.DB.prepare("INSERT INTO ext_events (day, kind, n) SELECT ?1, 'hit:late', 1 WHERE NOT EXISTS (SELECT 1 FROM sessions WHERE sid = ?2) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1").bind(day, sid)] : [];
+      batch.push(env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path, bot) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?17, ?15, ?16) ON CONFLICT (sid) DO UPDATE SET dur = MAX(COALESCE(dur, 0), ?11), pages = MAX(COALESCE(pages, 0), ?12), lcp = COALESCE(lcp, ?14), last = MAX(COALESCE(last, 0), ?17), last_path = COALESCE(?15, last_path), bot = COALESCE(bot, ?16)')
+        .bind(cut(b.sid, 32), cut(b.vid, 32), day, at, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(Math.max(Math.floor(+b.pages || 1), 1), 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null, bot, late ? Math.min(now, late + Math.min(Math.max(+b.dur || 0, 0), 86400) * 1000) : now));
       // Lượt xem theo trang/ngày: chỉ phần tăng thêm từ lần gửi trước (tối đa 20 trang, mỗi trang ≤ 200) – cùng 1 lượt gọi D1. Máy tự động: bỏ.
       if (!bot && !hb && b.pv && typeof b.pv === 'object') for (const [k, v] of Object.entries(b.pv).slice(0, 20)) {
         const n = Math.min(Math.floor(+v || 0), 200); if (n > 0 && route(k)) batch.push(env.DB.prepare('INSERT INTO pageviews_day (day, path, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, path) DO UPDATE SET n = n + ?3').bind(day, k, n));

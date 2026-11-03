@@ -248,9 +248,15 @@
     const decks = Object.entries(groups).map(([o, l]) => { const dl = l.filter(c => ((c.srs.last || c.srs.reps > 0) && c.srs.due <= end) || fresh.has(c)).length /* phần của bộ trong phiên hôm nay (đến hạn + mới) → tổng các bộ = số trên vòng */, rs = l.map(c => SRS.retention(c.srs)).filter(x => x != null), O = App.ORIGINS[o] || {};
       return { k: o, name: O.name || o, icon: ORI_IC[o] || 'style', href: '#/deck?from=' + o, ret: rs.length ? Math.round(rs.reduce((a, b) => a + b, 0) / rs.length * 100) + '%' : '–', cards: t('{n} thẻ trong bộ', { n: l.length }), dueText: t('{n} đến hạn', { n: dl }), due: dl, n: l.length }; }).sort((a, b) => b.due - a.due || b.n - a.n);
     const d = { due, off: due || done ? C * (1 - done / (done + due)) : C, mem: t('{p}% trí nhớ', { p: avg.toFixed(1) }), lock: t('Ghi {n} thẻ vào trí nhớ dài hạn', { n: due }),
+<<<<<<< HEAD
       critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: fam }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
       cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: nNew ? t('Ước tính ~{m} phút · {n} thẻ mới', { m: Math.max(1, Math.ceil(due / 3)), n: nNew }) : t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }) /* sắp quên + quen (chip) + mới (dòng này) = số trên vòng (dc.total) */,
       famHref: ahead ? '#/review?ahead=2' : '#/review', famAria: t('Thẻ quen: {n}', { n: fam }), readyHref: ahead ? '#/review?ahead=2' : '#/review', trainHref: '#/deck?m=12', permHref: '#/deck?m=3', // ô số liệu + chip "quen" bấm được (ô Đang luyện = mức 1–2, Nhớ lâu = mức 3, như SRS.mastery)
+=======
+      critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: Math.max(0, dc.due - crit) }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
+      cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }),
+      famHref: ahead ? '#/review?ahead=2' : '#/review', famAria: t('Thẻ quen: {n}', { n: Math.max(0, dc.due - crit) }), readyHref: ahead ? '#/review?ahead=2' : '#/review', trainHref: '#/deck?m=12', permHref: '#/deck?m=3', // ô số liệu + chip "quen" bấm được (ô Đang luyện = mức 1–2, Nhớ lâu = mức 3, như SRS.mastery)
+>>>>>>> real/main
       training: studied.filter(c => SRS.mastery(c.srs) < 3).length, perm: studied.filter(c => SRS.mastery(c.srs) === 3).length, decksTitle: t('Bộ thẻ • {n} đang dùng', { n: decks.length }), decks };
     return ST2.mount(view, 'review', d, 'review');
   }

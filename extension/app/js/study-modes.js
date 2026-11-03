@@ -72,7 +72,7 @@
     const tx = trim(x.text, c.word), src = x.own && host(x.src);
     const body = o.cloze ? UI.cloze(tx, c.word) : UI.highlight(tx, c.word);
     return `<figure class="rctx${x.own ? ' own' : ''}"><figcaption class="rctx-hd"><span class="rctx-lb">${x.own ? '✍️ ' + t('Câu của bạn') : '💬 ' + t('Ví dụ')}</span>${src ? `<span class="rctx-src" title="${t('Nguồn')}"><span class="sr-only">${t('Nguồn')}: </span>${UI.esc(src)}</span>` : ''}</figcaption>
-      <blockquote class="rctx-tx" lang="en" dir="ltr">${body}</blockquote>
+      <blockquote class="rctx-tx" lang="en" dir="ltr"${o.cloze ? '' : ` data-sent="${UI.esc(tx.replace(/…/g, ''))}"`}>${body}</blockquote>
       ${o.cloze ? '' : `<div class="rctx-act"><button type="button" class="ctx-say" data-saysent="${UI.esc(tx.replace(/…/g, ''))}" title="${t('Nghe cả câu')}" aria-label="${t('Nghe cả câu')}">🔊</button><button type="button" class="ctx-say" data-saysent="${UI.esc(tx.replace(/…/g, ''))}" data-slow="1" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🐢</button></div>`}</figure>`;
   }
 

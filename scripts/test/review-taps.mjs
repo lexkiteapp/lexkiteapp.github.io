@@ -52,16 +52,31 @@ const LANGS = ['vi', 'en', ...fs.readFileSync(path.resolve(ROOT, '../scripts/i18
 async function run(type, name, opts, scheme) {
   const browser = await type.launch(), ctx = await browser.newContext({ ...opts, colorScheme: scheme, serviceWorkers: 'block' }); await serve(ctx, ROOT);
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
-  const tag = `${name}/${scheme}`, hub = async () => { await page.evaluate(h => { location.hash = h; }, HUB); await page.waitForSelector('.v2-review', { timeout: 15000 }); await page.waitForTimeout(250); };
+  const tag = `${name}/${scheme}`;
+  // Chờ bằng tín hiệu thật của app, không đoán thời gian: lượt điều hướng CUỐI đã vẽ xong (App.drawn: token mới nhất + đúng hash),
+  // rồi mọi hiệu ứng hữu hạn trong #view (mờ-trồi khi đổi trang) chạy xong → toạ độ chạm ổn định.
+  // (waitForFunction KHÔNG chờ lời hứa: hàm async luôn trả Promise = "đúng" ngay → điều kiện đồng bộ chờ riêng, hiệu ứng chờ bằng evaluate, rồi kiểm lại)
+  const drawnOk = w => { const d = App.drawn(); return d.tok === App.routeToken() && d.hash === location.hash && (!w || (location.hash === w && !!document.querySelector('#view .v2-review'))); };
+  const settle = async (want, timeout = 15000) => { const end = Date.now() + timeout;
+    while (Date.now() < end) {
+      if (!(await page.waitForFunction(drawnOk, want, { timeout: Math.max(1, end - Date.now()) }).then(() => true, () => false))) return false;
+      await page.evaluate(() => { const v = document.getElementById('view'); return Promise.all((v ? v.getAnimations({ subtree: true }) : []).filter(a => (a.effect && a.effect.getTiming().iterations) !== Infinity).map(a => a.finished.catch(() => {}))).then(() => 0); });
+      if (await page.evaluate(drawnOk, want)) return true; } // trong lúc chờ hiệu ứng lại có lượt điều hướng mới → chờ tiếp
+    return false; };
+  const diag = () => page.evaluate(() => { const d = App.drawn(), v = document.getElementById('view'), f = v && v.firstElementChild;
+    return `hash ${location.hash}, vẽ xong ${d.hash} (lượt ${d.tok}/${App.routeToken()}), #view: ${f ? f.tagName + '.' + String(f.className).slice(0, 60) : 'trống'}`; });
+  let shot = 0; const hub = async () => { await page.evaluate(h => { location.hash = h; }, HUB); if (await settle(HUB)) return true;
+    ok(false, `${tag}: màn Ôn không vẽ lại khi về ${HUB} (${await diag()})`); await page.screenshot({ path: path.join(OUT, `fail-${name}-${scheme}-${++shot}.png`) }).catch(() => {});
+    await page.evaluate(() => { location.hash = '#/home'; }); await settle(null); await page.evaluate(h => { location.hash = h; }, HUB); return settle(HUB); }; // gỡ kẹt để kiểm tiếp các nút còn lại
   await page.goto('https://lk.test/app/?sandbox=1#/home', { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.state && App.saveSettings && window.Core, null, { timeout: 30000 });
   await page.evaluate(seed); await page.goto('https://lk.test/app/?sandbox=1' + HUB, { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' });
-  await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(800);
+  await page.waitForSelector('.v2-review', { timeout: 30000 }); ok(await settle(HUB, 30000), `${tag}: màn Ôn vẽ xong lúc mở (${await diag()})`);
   ok(!(await page.evaluate(() => document.body.classList.contains('focus'))), `${tag}: màn Ôn không ở chế độ tập trung (thanh tab hiện)`);
   await page.screenshot({ path: path.join(OUT, `hub-${name}-${scheme}.png`) });
   await ringCheck(page, tag);
   // Kiểm 1 phần tử: cuộn vào giữa, không bị đè, vùng chạm ≥ 44 px, chạm → đúng trang
   const check = async (label, sel, want, nth = 0, inner = null) => {
-    await hub(); const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }
+    if (!(await hub())) return; const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }
     const pt = await loc.evaluate((el, inner) => { const t = inner ? el.closest('.relative').querySelector(inner) : el; if (!t) return { miss: 'không thấy ' + inner };
       if (!el.closest('header, nav')) t.scrollIntoView({ block: 'center' }); const r = t.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
       const slip = [], hit = (x, y) => { const h = document.elementFromPoint(x, y), k = !!h && (h === el || el.contains(h)); if (!k) slip.push(`(${Math.round(x)},${Math.round(y)})→${h ? h.tagName + '.' + String(h.className).slice(0, 40) : 'ngoài màn'}`); return k; }, top = document.elementFromPoint(cx, cy);
@@ -73,9 +88,10 @@ async function run(type, name, opts, scheme) {
     if (want === null) return;
     const before = await page.evaluate(() => location.hash); await page.touchscreen.tap(pt.x, pt.y);
     const got = await page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
-    ok(!!got, `${tag}: ${label} – chạm → ${want}${got ? '' : ' (vẫn ở ' + (await page.evaluate(() => location.hash)) + ')'}`); };
+    ok(!!got, `${tag}: ${label} – chạm → ${want}${got ? '' : ' (vẫn ở ' + (await page.evaluate(() => location.hash)) + ')'}`);
+    if (got) ok(await settle(null), `${tag}: ${label} – trang đích vẽ xong (${await diag()})`); }; // về màn Ôn khi trang đích đã vẽ xong (cả lối chuyển tiếp ?src=forgetting → học nhanh)
   for (const [label, sel, want] of TARGETS) await check(label, sel, want);
-  await hub(); const decks = await page.locator(DECK).count(); ok(decks >= 2, `${tag}: có ≥ 2 thẻ bộ (web + thư viện), thấy ${decks}`);
+  if (!(await hub())) { await browser.close(); return; } const decks = await page.locator(DECK).count(); ok(decks >= 2, `${tag}: có ≥ 2 thẻ bộ (web + thư viện), thấy ${decks}`);
   for (const href of await page.locator(DECK).evaluateAll(as => as.map(a => a.getAttribute('href')))) { const sel = `${DECK.split('[')[0]}[href="${href}"]`; // lấy href trước (thứ tự bộ có thể đổi sau khi mở phiên ôn)
     await check(`thẻ bộ ${href}`, sel, href); await check(`chip đến hạn của ${href}`, sel, href, 0, ':scope > div:last-child > span:first-child'); }
   if (scheme === 'dark') { // sweep 15 ngôn ngữ giao diện (Đức/Nga/Hindi dài hơn, Ả Rập phải-sang-trái): chữ trong vòng không tràn

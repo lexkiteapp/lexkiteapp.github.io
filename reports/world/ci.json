@@ -1,0 +1,30 @@
+{
+ "at": "2026-11-02T08:11:45.201Z",
+ "workflows": {
+  "npm-test": null,
+  "visual-qa": {
+   "conclusion": "success",
+   "at": "2026-11-02T04:27:41Z",
+   "id": 41387812184
+  },
+  "new-ui-qa": null,
+  "mobile-qa": {
+   "conclusion": "success",
+   "at": "2026-11-02T05:09:48Z",
+   "id": 41391688792
+  },
+  "journey-e2e": {
+   "conclusion": "success",
+   "at": "2026-11-01T13:35:44Z",
+   "id": 41311124108
+  },
+  "stitch-quality-qc": null
+ },
+ "mobile": {
+  "maxLcp": 9283,
+  "maxCls": 0.0878,
+  "maxInp": 136,
+  "maxTbt": 127,
+  "at": "2026-11-02T05:09:44.911Z"
+ }
+}
