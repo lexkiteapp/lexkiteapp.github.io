@@ -14,6 +14,7 @@ export const ROWS = [
    "DRIVE_ENC_KEY",
    "LEXKITE_DRIVE_CLI_KEY",
    "LEXKITE_REPORT_CLI_KEY",
+   "REPORT_SHOT_KEY",
    "CRON_KICK_SECRET",
    "PUSH_CRON_SECRET",
    "STUDIO_CALLBACK_SECRET"
@@ -203,6 +204,7 @@ export const ROWS = [
   "store": "github",
   "names": [
    "LEXKITE_DRIVE_CLI_KEY",
+   "LEXKITE_REPORT_CLI_KEY",
    "LEXKITE_CI_HEADER",
    "STUDIO_CALLBACK_SECRET"
   ],
