@@ -170,7 +170,7 @@ const softAskShown = h => h.has('#modal:not([hidden]) #raY');
 async function j1(h) {
   const { page, lang } = h;
   await page.goto(`${O}/${lang === 'vi' ? '' : lang + '/'}`, { waitUntil: 'load' });
-  const cta = page.locator('.ctas a.btn.lg').first();
+  const cta = page.locator('[data-cta=start], .ctas a.btn.lg').first()  /* nút chính hero (khung Stitch: data-cta=start) */;
   const href = await cta.getAttribute('href');
   h.ok(href && href.startsWith(`/app/?hl=${lang}#/welcome/setup`), `trang giới thiệu: nút chính trỏ ${href}`);
   // giữ ?sandbox=1 khi bấm vào app (dữ liệu tách riêng)
