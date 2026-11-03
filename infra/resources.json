@@ -175,6 +175,19 @@
       ]
     },
     {
+      "key": "cronkick-worker",
+      "name": "Cloudflare Worker lexkite-cronkick",
+      "kind": "worker",
+      "purpose": "Cron 30 phút – nguồn kích ngoài GitHub (lưới an toàn cuối): ký HMAC gọi lexkite.com/api/cron-kick; Pages (GH_DISPATCH_TOKEN) dispatch free-tier-guard / required-gate / ci-triage khi GitHub bỏ lịch. Khoá chung CRON_KICK_SECRET (wrangler secret put ở Worker + wrangler pages secret put ở Pages, không commit) – docs/JOBS.md id cron-kick",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-cronkick/production",
+      "free": "100.000 lượt/ngày; cron 48 lượt/ngày; 1 lượt gọi ra/lượt; Pages ≤ 4 lượt/giờ",
+      "upgrade": "Không cần",
+      "status": "Miễn phí",
+      "match": [
+        "lexkite-cronkick"
+      ]
+    },
+    {
       "key": "fcm",
       "name": "Firebase Cloud Messaging (lexkite-app)",
       "kind": "push",
