@@ -3,7 +3,7 @@ title: "英语介词in on at用法全解析：倒金字塔法则彻底搞懂时�
 description: "英语介词in on at用法深度解析与避坑指南：全面告别中式英语机械直译困扰，通过清晰直观的倒金字塔视觉几何思维模型，系统厘清介词在宏观年月、具体单日星期、精准钟点、地理行政区及立体空间的内在定位逻辑，配合实战演练助你彻底攻克考场语法失分盲区。"
 slug: ying-yu-jie-ci-in-on-at-yong-fa
 lang: zh
-translationKey: ying-yu-jie-ci-in-on-at-yong-fa
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [jie-ci, yu-fa, in-on-at]
 keyword: "英语介词in on at用法"

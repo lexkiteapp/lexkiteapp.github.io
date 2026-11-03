@@ -3,7 +3,7 @@ title: "Prépositions en Anglais In On At: La Règle Infaillible"
 description: "Prépositions en anglais in on at: La méthode de la pyramide inversée pour le temps et le lieu, les expressions figées et les pièges pour francophones."
 slug: prepositions-anglais-in-on-at
 lang: fr
-translationKey: prepositions-anglais-in-on-at
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [prepositions, grammaire, in-on-at]
 keyword: "prépositions en anglais in on at"

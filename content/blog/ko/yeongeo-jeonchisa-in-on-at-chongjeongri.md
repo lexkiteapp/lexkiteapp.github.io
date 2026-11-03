@@ -3,7 +3,7 @@ title: "영어 전치사 in on at 정리 : 역피라미드 법칙으로 끝내�
 description: "영어 전치사 in on at 정리 완벽 가이드: 한국어 '에'라는 한 글자에 갇혀 헷갈리던 시간과 장소 전치사를 거시적 공간에서 미시적 점으로 좁혀가는 역피라미드 시각화 공식으로 명쾌하게 정리하고 시험 함정까지 정복합니다."
 slug: yeongeo-jeonchisa-in-on-at-chongjeongri
 lang: ko
-translationKey: yeongeo-jeonchisa-in-on-at-chongjeongri
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [jeonchisa, munbeop, in-on-at]
 keyword: "영어 전치사 in on at 정리"

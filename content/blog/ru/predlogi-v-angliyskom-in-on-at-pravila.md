@@ -4,7 +4,7 @@ title: "Predlogi v Angliyskom In On At Pravila Vremeni i Mesta"
 description: "Predlogi v angliyskom in on at pravila: метод перевернутой пирамиды, предлоги времени и места, частые ошибки русскоязычных студентов и примеры."
 keyword: "predlogi v angliyskom in on at pravila"
 lang: ru
-translationKey: ngu-phap-gioi-tu-in-on-at-cach-dung
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [predlogi, in-on-at, grammatika]
 cover: grammar

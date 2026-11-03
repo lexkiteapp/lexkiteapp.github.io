@@ -4,7 +4,7 @@ title: "Prepositions in on at Rules in Hindi: समय और स्थान �
 description: "Prepositions in on at rules in hindi: समय और स्थान के लिए उल्टे पिरामिड का नियम, वाहनों में in बनाम on का अंतर और आम गलतियों से बचने के उपाय।"
 keyword: "prepositions in on at rules in hindi"
 lang: hi
-translationKey: huruf-al-jarr-in-on-at
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, prepositions, in-on-at]
 cover: grammar

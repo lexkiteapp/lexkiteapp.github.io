@@ -3,7 +3,7 @@ title: "Englische Präpositionen In On At: Regeln & Eselsbrücken"
 description: "Meistere englische präpositionen in on at für Zeit und Ort: Die umgekehrte Pyramide, feste Wendungen und typische Fehler für Deutsche erklärt."
 slug: englische-praepositionen-in-on-at
 lang: de
-translationKey: englische-praepositionen-in-on-at
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [praepositionen, grammatik, in-on-at]
 keyword: "englische präpositionen in on at"

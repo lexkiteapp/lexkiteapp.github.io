@@ -4,7 +4,7 @@ title: "Huruf al Jarr in on at Qawaid: دليل الزمان والمكان"
 description: "Huruf al jarr in on at qawaid: القواعد الكاملة لاستخدام حروف الجر in و on و at للزمان والمكان، طريقة الهرم المقلوب، والأخطاء الشائعة وحلولها."
 keyword: "huruf al jarr in on at qawaid"
 lang: ar
-translationKey: huruf-al-jarr-in-on-at
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, prepositions, in-on-at]
 cover: grammar

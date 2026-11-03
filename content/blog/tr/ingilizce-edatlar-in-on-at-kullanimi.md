@@ -4,7 +4,7 @@ title: "Ingilizce Edatlar In On At Kullanimi ve Ters Piramit"
 description: "Ingilizce edatlar in on at kullanimi zaman ve mekan kuralları, ters piramit yöntemi, sık yapılan hatalar ve pratik alıştırmalar bu rehberde."
 keyword: "ingilizce edatlar in on at kullanimi"
 lang: tr
-translationKey: ngu-phap-gioi-tu-in-on-at-cach-dung
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [edatlar, prepositions, gramer]
 cover: grammar

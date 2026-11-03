@@ -3,7 +3,7 @@ title: "Preposiciones In On At en Inglés: Guía Visual y Práctica"
 description: "Aprende las preposiciones in on at en inglés para tiempo y lugar con el método de la pirámide invertida, reglas claras y trucos sin traducir."
 slug: preposiciones-in-on-at-en-ingles
 lang: es
-translationKey: preposiciones-in-on-at-en-ingles
+translationKey: gioi-tu-in-on-at-trong-tieng-anh
 category: ngu-phap
 tags: [preposiciones, gramatica, in-on-at]
 keyword: "preposiciones in on at en inglés"
