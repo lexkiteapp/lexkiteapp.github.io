@@ -51,6 +51,9 @@ export const gemBody = (m, sys, prompt, temp = 0.2, rp = false) => ({ systemInst
   generationConfig: { responseMimeType: 'application/json', temperature: temp, maxOutputTokens: 8192, thinkingConfig: /gemini-2\./.test(m) ? { thinkingBudget: rp ? 0 : 1024 } : { thinkingLevel: 'low' } } });
 export const groqBody = (m, sys, prompt, temp = 0.2, rp = false) => ({ model: m, messages: [{ role: 'system', content: sys }, { role: 'user', content: prompt }], temperature: temp, max_completion_tokens: 8192,
   response_format: { type: 'json_object' }, ...(/gpt-oss/.test(m) ? { reasoning_effort: rp ? 'low' : 'medium' } : {}) });
+/** Groq 400 do model không sinh nổi JSON hợp lệ (không phải lỗi khóa) → thử lại không response_format */
+export const JSON_FAIL = /Failed to (generate|validate) JSON|json_validate_failed/i;
+export const groqRetry = b => { const { response_format: _, ...rest } = b; return rest; };
 export const waiBody = (sys, prompt, temp = 0.2) => ({ messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: temp, response_format: { type: 'json_object' } });
 /** text trả về của Gemini (bỏ phần "thought") */
 export const gemText = j => (((j && j.candidates) || [])[0] || { content: { parts: [] } }).content?.parts?.filter(p => !p.thought).map(p => p.text || '').join('') || '';
@@ -103,8 +106,10 @@ export async function runChain(env, sys, prompt, o = {}) {
           if (left() < 4e3 || tried >= KEY_TRIES) break; tried++;
           let r;
           try {
-            r = await fetch('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', headers: { Authorization: 'Bearer ' + c.key, 'Content-Type': 'application/json' }, signal: tmo(Math.max(3e3, left() - 2e3)),
-              body: JSON.stringify(groqBody(m, sys, prompt, temp, rp)) });
+            const go = b => fetch('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', headers: { Authorization: 'Bearer ' + c.key, 'Content-Type': 'application/json' }, signal: tmo(Math.max(3e3, left() - 2e3)), body: JSON.stringify(b) });
+            const b = groqBody(m, sys, prompt, temp, rp); r = await go(b);
+            // golden 03/11: gpt-oss ở chế độ JSON đôi khi trả 400 "Failed to generate/validate JSON" (~10 % bài chấm dài) → thử lại 1 lần không ép chế độ JSON (parseJSON tự tách)
+            if (r.status === 400 && left() > 6e3) { const t = await r.clone().text().catch(() => ''); if (JSON_FAIL.test(t)) { diag.push('groq:json-retry'); r = await go(groqRetry(b)); } }
           } catch (e) { diag.push('groq:net'); await report(env, c.id, 'err', 'net'); continue; }
           if (!r.ok) { const t = (await r.text().catch(() => '')).slice(0, 400); diag.push(`groq…${c.key.slice(-4)}:${r.status}`); await report(env, c.id, 'err', r.status, { text: t, retryAfter: r.headers.get('Retry-After') }); if (r.status === 404 || (r.status === 400 && /model/i.test(t))) { M.groqAt = 0; break; } continue; }
           const j = await r.json().catch(() => null), out = parseJSON((((j && j.choices) || [])[0] || { message: {} }).message.content);

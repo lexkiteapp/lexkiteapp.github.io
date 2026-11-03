@@ -15,7 +15,7 @@
     return k;
   }
   const setKey = async k => { await Store.set('aiKey', k); if (bridge()) try { await bridge().call('aiKeySet', { aiKey: k }); } catch (e) { /* bỏ qua */ } };
-  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Quote the learner's exact words when pointing out errors. Return ONLY valid JSON matching the requested schema.`;
+  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Read the response sentence by sentence and find every grammatical error before scoring; quote the learner's exact words when pointing out errors. Return ONLY valid JSON matching the requested schema.`;
   const SCHEMA = kind => `JSON schema:
 {
   "overall": number (IELTS band, multiple of 0.5),
@@ -23,7 +23,7 @@
   "summary": string (Vietnamese, 2-3 sentences overall verdict),
   "strengths": [string] (Vietnamese, 2-4 items),
   "improvements": [string] (Vietnamese, 3-5 concrete actions),
-  "errors": [ { "quote": string (exact learner text), "fix": string (corrected English), "why": string (Vietnamese) } ] (up to 8 most important grammar/vocabulary errors),
+  "errors": [ { "quote": string (exact learner text, short: only the words that are wrong plus 1-3 words around them), "fix": string (the same words corrected), "why": string (Vietnamese) } ] (up to 12: list EVERY grammar error first – subject-verb agreement, verb form/tense, articles, plurals/countability, prepositions, word form, word order, conditionals – one item per error, then the most important vocabulary errors),
   "vocab": [ { "from": string, "to": string (more precise/academic alternative), "note": string (Vietnamese) } ] (up to 6),
   "${kind === 'speaking' ? 'sample' : 'rewrite'}": string (${kind === 'speaking' ? 'a natural band 8 answer to the last question, 80-140 words' : 'the learner\'s weakest paragraph rewritten at band 8, keeping their ideas'})
 }

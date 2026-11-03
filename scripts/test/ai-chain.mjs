@@ -22,6 +22,7 @@ globalThis.fetch = async (url, init = {}) => {
   if (url === 'https://api.groq.com/openai/v1/models') return new Response(JSON.stringify({ data: [{ id: 'openai/gpt-oss-120b' }, { id: 'llama-3.1-8b-instant' }] }), { status: 200 });
   if (url === 'https://api.groq.com/openai/v1/chat/completions') { groqGen++; const b = JSON.parse(init.body);
     if (groqMode === 'dead') return new Response('{"error":{"message":"Invalid API Key"}}', { status: 401 });
+    if (groqMode === 'jsonfail' && b.response_format) return new Response('{"error":{"message":"Failed to generate JSON. Please adjust your prompt. See \'failed_generation\' for more details.","type":"invalid_request_error","code":"json_validate_failed"}}', { status: 400 });
     if (groqMode === '429') return new Response('{"error":{"message":"Rate limit reached ... requests per day (RPD)"}}', { status: 429 });
     return new Response(JSON.stringify({ choices: [{ message: { content: /"overall": number/.test(b.messages[1].content) ? GOOD_IELTS : '{"reply":"Sure! Small, medium or large?","advance":true}' } }] }), { status: 200 }); }
   throw new Error('mạng bị chặn: ' + url);
@@ -57,7 +58,8 @@ ok(!C.validOut({ band: 6 }, IELTS_P) && C.validOut(JSON.parse(GOOD_IELTS), IELTS
 ok(!C.validOut({ advance: true }, RP_P) && C.validOut({ reply: 'Hi', advance: true }, RP_P), 'validOut: roleplay cần reply');
 ok(!C.validOut([], 'x') && !C.validOut({}, 'x') && C.validOut({ a: 1 }, 'x'), 'validOut: object không rỗng');
 ok(C.gemText({ candidates: [{ content: { parts: [{ text: 'nghĩ', thought: true }, { text: '{"a":1}' }] } }] }) === '{"a":1}', 'gemText bỏ phần thought');
-ok(C.groqBody('openai/gpt-oss-120b', 's', 'p', 0.7, true).reasoning_effort === 'low' && C.groqBody('openai/gpt-oss-120b', 's', 'p').reasoning_effort === 'medium' && C.groqBody('x', 's', 'p').response_format.type === 'json_object', 'groqBody: gpt-oss lý luận thấp cho thoại, vừa cho chấm; JSON mode');
+ok(C.JSON_FAIL.test('{"error":{"message":"Failed to generate JSON. Please adjust your prompt."}}') && !('response_format' in C.groqRetry(C.groqBody('m', 's', 'p'))) && !C.JSON_FAIL.test('Invalid API Key'), 'Groq lỗi sinh JSON → thử lại không ép JSON (không phải lỗi khóa)');
+  ok(C.groqBody('openai/gpt-oss-120b', 's', 'p', 0.7, true).reasoning_effort === 'low' && C.groqBody('openai/gpt-oss-120b', 's', 'p').reasoning_effort === 'medium' && C.groqBody('x', 's', 'p').response_format.type === 'json_object', 'groqBody: gpt-oss lý luận thấp cho thoại, vừa cho chấm; JSON mode');
 ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.thinkingLevel === 'low' && C.gemBody('gemini-2.5-flash', 's', 'p', 0.7, true).generationConfig.thinkingConfig.thinkingBudget === 0, 'gemBody: cấu hình suy nghĩ theo đời model');
 
 // 3) chuỗi: Gemini → Groq → báo bận
@@ -70,6 +72,9 @@ ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.think
   gemMode = 'dead'; K.resetPool(); r = await C.runChain(ENV, 'sys', RP_P, { rp: true, temp: 0.7 });
   ok(r.route === 'groq' && r.out.reply, 'Gemini chết (403) → Groq');
   ok(sql.prepare("SELECT status FROM api_keys WHERE id = 'env:GEMINI_KEY'").get().status === 'dead', 'khóa Gemini 403 → đánh dấu dead trong kho');
+  groqMode = 'jsonfail'; r = await C.runChain(ENV, 'sys', IELTS_P);
+  ok(r.route === 'groq' && r.out.overall === 6 && /json-retry/.test(r.diag), 'Groq 400 "Failed to generate JSON" → thử lại không ép JSON, vẫn trả kết quả');
+  ok(sql.prepare("SELECT status FROM api_keys WHERE id = 'env:GROQ_API_KEY'").get().status === 'live', 'lỗi sinh JSON không làm khóa Groq bị đánh dấu hỏng');
   groqMode = '429'; const w0 = waiN; let err = null;
   try { await C.runChain(ENV, 'sys', RP_P, { rp: true }); } catch (e) { err = e; }
   ok(err && err.message === 'no-model' && waiN === w0, 'Gemini chết + Groq hết lượt → no-model (báo bận), KHÔNG gọi Llama 8B');
@@ -120,7 +125,7 @@ ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.think
   const norm = s => s.toLowerCase().replace(/[’]/g, "'").replace(/\s+/g, ' ');
   const missing = IE.flatMap(c => c.errors.filter(e => !norm(c.text).includes(norm(e.q))).map(e => c.id + ':' + e.q));
   ok(!missing.length, 'mọi lỗi đã biết có thật trong bài: ' + missing.join(', '));
-  ok(IE.every(c => c.errors.length <= 6 && c.band >= 3 && c.band <= 9 && S.LANGS[c.lang || 'vi']), 'mỗi bài ≤ 6 lỗi (khuôn trả tối đa 8), band hợp lệ, ngôn ngữ hỗ trợ');
+  ok(IE.every(c => c.errors.length <= 6 && c.band >= 3 && c.band <= 9 && S.LANGS[c.lang || 'vi']), 'mỗi bài ≤ 6 lỗi (khuôn trả tối đa 12), band hợp lệ, ngôn ngữ hỗ trợ');
   ok(new Set(IE.map(c => c.lang)).size >= 4, 'golden có lời giải nhiều ngôn ngữ (vi + ≥ 3 khác)');
   ok(RP.decoys.some(d => /whole bean/.test(d.reply) && d.max <= 2), 'câu mồi có câu vô lý thật ngày 03/11');
   ok(S.caught({ q: 'thinks', fix: 'think' }, [{ quote: 'many people thinks', fix: 'many people think' }]), 'caught: đúng chỗ + sửa đúng');
