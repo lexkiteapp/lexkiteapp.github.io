@@ -252,10 +252,9 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     off: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#ffffff] lt:[border:1.5px_solid_rgb(226,_232,_231)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
     on: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#E6F3F2] lt:shadow-sm lt:[border:2px_solid_rgb(13,_105,_100)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#2BA39A] dk:[box-shadow:0_5px_0_#093c37]',
   };
-  // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi). card = đứng SAU mép trên dải huy hiệu băng nền đục màu thẻ (relative z-[1] -mt-7): slot lùi 0,16 khung
-  // xuống sau mép dải (lề đáy 1,75rem − 0,16 khung) → chính dải là bệ, đường hông khuất sau mặt thẻ thật, liền màu (teacher-slot.js ground:'card').
-  // Không có dải phía dưới (mốc chúc mừng) → 'fade': thân mờ vào nền + bóng tiếp đất, không bệ lơ lửng.
-  const teach2 = (who, card) => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, ...(card ? { ground: 'card', style: 'margin-bottom:calc(1.75rem - var(--h)*.16)' } : {}) });
+  // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi) · 'fade' (teacher-slot.js): thân mờ vào nền + bóng tiếp đất. Thẻ "Mốc tiếp theo": dải huy hiệu băng (-mt-7 z-[1])
+  // CÙNG màu thẻ → không có mép thẻ nhìn thấy để đứng sau ('card' ra đường cắt ngang cứng – ảnh CI 3/11) → fade, đứng ngay trên dải: lề đáy 1,75rem + 0,05 khung để bóng elip lộ trọn.
+  const teach2 = (who, onStrip) => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, ...(onStrip ? { style: 'margin-bottom:calc(1.75rem + var(--h)*.05)' } : {}) });
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
