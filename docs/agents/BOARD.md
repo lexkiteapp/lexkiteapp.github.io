@@ -147,9 +147,9 @@ Mẫu thẻ:
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm IELTS Reading Skimming & Scanning** (`ielts-reading-skimming-scanning`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`9f6cbb0cc`).
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Tư duy bằng tiếng Anh không dịch** (`tu-duy-bang-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`46c5c9fa4`).
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Viết email tiếng Anh thương mại** (`cach-viet-email-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`809a39465`).
-  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Phương pháp STAR phỏng vấn tiếng Anh** (`phong-van-star-method-tieng-anh`): 15/15 ngôn ngữ chuẩn hóa.
-  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Câu hỏi phỏng vấn tiếng Anh và trả lời** (`cau-hoi-phong-van-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`055ba8e5f`).
-  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.026 bài viết** (1.026 files `.md` trong `content/blog/`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Small Talk tiếng Anh nơi làm việc** (`small-talk-tieng-anh`): Hoàn tất chuẩn hóa khóa `translationKey` ngôn ngữ PT (`6b95149e8`), đạt trọn vẹn 15/15 ngôn ngữ.
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Cấu trúc IELTS Writing Task 2 dàn bài 4 đoạn** (`cau-truc-ielts-writing-task-2`): Đồng nhất khóa `translationKey` trên 13 ngôn ngữ (`8792b18b9`), viết mới bài tiếng Nhật JA (`d47a079cb`), viết mới bài tiếng Hàn KO (`fd52bfbec`). Hoàn thành 15/15 ngôn ngữ chuẩn mực.
+  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.028 bài viết** (1.028 files `.md` trong `content/blog/`), nâng tổng số Cụm hoàn chỉnh 15/15 ngôn ngữ lên **56 cụm**.
   - 100% bài viết đạt chuẩn Quality Gates: `blog-check` 0 lỗi, `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
   - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo theo kế hoạch.
 
