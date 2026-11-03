@@ -20,4 +20,5 @@ LAZY="watch ux1 v2 speak goal lesson ret adoffer report anki usage explain accou
 X
 } > en.js
 node ../../../scripts/gen-hero.mjs >/dev/null  # khung trang chào mừng dựng sẵn (LCP nhanh)
-node ../../../scripts/split-i18n.mjs >/dev/null # tách nhóm tải lười cho 13 ngôn ngữ ngoài en
+node ../../../scripts/split-i18n.mjs >/dev/null # tách nhóm tải lười cho 13 ngôn ngữ ngoài en (nguồn i18n/ui/<lang>)
+node ../../../scripts/i18n-pack.mjs >/dev/null  # nguồn i18n/ui → gói chạy khóa băm web/js/i18n/<lang>(.js|/<nhóm>.js) – docs/I18N-PIPELINE.md
