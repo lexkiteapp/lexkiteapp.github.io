@@ -67,6 +67,7 @@ const MOBILE = () => {
   const tbl = [];
   for (const t of document.querySelectorAll('.adm-content table:not([data-keep-table])')) { const b = t.closest('.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]'); if (b && vis(b) && b.scrollWidth > b.clientWidth + 1) tbl.push(`bảng ${nm(t).replace(/ ".*/, '')} cuộn ngang ${b.scrollWidth}/${b.clientWidth} px`); }
   const top = document.querySelector('.adm-top'), tops = []; if (top) for (const e of top.querySelectorAll('*')) { const r = vis(e); if (r && (r.right > innerWidth + 1 || r.left < -1) && !e.closest('#meMenu')) { tops.push(nm(e) + ' ra ngoài màn hình'); break; } }
+  if (tap.length) tap.push(`[chẩn đoán] innerWidth=${innerWidth} mq640=${matchMedia('(max-width:640px)').matches} burgerMinH=${getComputedStyle(document.querySelector('#navBtn')||document.body).minHeight}`);
   return { 'vùng chạm < 44 px': tap.slice(0, 12), 'chữ ngắt giữa từ': brk, 'bảng cuộn ngang trên điện thoại': tbl, 'thanh trên tràn': tops };
 };
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
