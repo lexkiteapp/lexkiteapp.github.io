@@ -20,6 +20,8 @@ export function adminList(env) {
   return list.length ? [...new Set(list)] : ['vintagezulilyjewelry@gmail.com'];
 }
 
+const parseJson = v => { try { const x = JSON.parse(v); return x && typeof x === 'object' && !Array.isArray(x) ? x : null; } catch (_) { return null; } };
+
 export function resolvePref(rawPref, defaultJsThreshold = 50) {
   if (!rawPref || typeof rawPref !== 'object') {
     return {
@@ -85,7 +87,7 @@ export async function digest(env) {
 
   // Đọc cấu hình adm_pref của các quản trị viên 1 lần duy nhất theo khóa
   const admins = adminList(env);
-  const keysToLoad = ['alert_errors', ...admins.map(e => 'adm_pref:' + e.toLowerCase().trim())];
+  const keysToLoad = ['alert_errors', 'adm_shared:alerts', ...admins.map(e => 'adm_pref:' + e.toLowerCase().trim())];
   const cfgMap = await loadConfigAndKeys(env.DB, keysToLoad);
   const defaultLim = +((cfgMap.get('alert_errors')) || 50);
 
@@ -159,6 +161,8 @@ export async function digest(env) {
     if (rawVal) {
       try { prefObj = JSON.parse(rawVal); } catch (_) {}
     }
+    const sharedAlerts = parseJson(cfgMap.get('adm_shared:alerts')); // bản DÙNG CHUNG mọi admin (functions/api/admin-prefs.js) đè bản cũ theo email
+    if (sharedAlerts) prefObj = { ...(prefObj || {}), ...sharedAlerts };
     const pref = resolvePref(prefObj, defaultLim);
     const items = [];
 
@@ -246,8 +250,9 @@ export default {
     if (alertType && env.DB && to) {
       try {
         const row = await env.DB.prepare('SELECT v FROM config WHERE k = ?').bind('adm_pref:' + to.toLowerCase().trim()).first();
-        if (row && row.v) {
-          const pref = JSON.parse(row.v);
+        const shr = parseJson(((await env.DB.prepare('SELECT v FROM config WHERE k = ?').bind('adm_shared:alerts').first()) || {}).v);
+        if ((row && row.v) || shr) {
+          const pref = { ...(row && row.v ? JSON.parse(row.v) : {}), ...(shr || {}) };
           if (Array.isArray(pref.alertTypes) && !pref.alertTypes.includes(alertType)) {
             return Response.json({ ok: true, skipped: 'alert-disabled' });
           }
