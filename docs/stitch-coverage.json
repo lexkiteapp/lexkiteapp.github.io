@@ -57,7 +57,7 @@
   {"id":"settings","area":"app","name":"Cài đặt","routes":["settings"],"status":"ref","batch":"A7","stitch":["4cdd1e5e","3557fce0"],"ref":"brand/stitch/v3/app/settings"},
   {"id":"account","area":"app","name":"Tài khoản / đồng bộ (sheet)","routes":[],"status":"ref","batch":"A7","stitch":["44304848","1cb5174b"],"ref":"brand/stitch/v3/app/account"},
   {"id":"account-confirm","area":"app","name":"Đăng xuất · xóa tài khoản","routes":[],"status":"ref","batch":"A7","refs":{"signout":["b3a83f21","9c011724"]}},
-  {"id":"handoff","area":"app","name":"Bàn giao đăng nhập add-on","routes":["handoff"],"status":"ref","batch":"A7","refs":{"handoff":["1ed7f2ed","d47f2f41"]}},
+  {"id":"handoff","area":"app","name":"Bàn giao đăng nhập add-on","routes":["handoff"],"status":"ref","batch":"A7","refs":{"handoff":["c5b40fc8","0ece53bf"]}},
   {"id":"report","area":"app","name":"Báo lỗi / góp ý","routes":["report"],"status":"ref","batch":"A7","stitch":["dee49364","cc189b93"],"ref":"brand/stitch/v3/app/report"},
 
   {"id":"notices","area":"app","name":"Bảng thông báo","routes":[],"status":"ref","batch":"A8","refs":{"notices":["1534a2a4","36dadd7b"]}},
