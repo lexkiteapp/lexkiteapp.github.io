@@ -44,7 +44,7 @@ Die Einzeltexte stehen zu Beginn, waehrend die komplexen Mehrfachtexte das Final
 
 Um alle 54 Fragen souveraen ohne wahllose Vermutungen zu bearbeiten, teilen Sie Ihre 75 Reading-Minuten mathematisch exakt auf:
 
-- **Part 5 (30 Fragen)**: Abschluss nach **10 Minuten** (ca. 20 Sekunden pro Frage).
+- **Part 5 (30 Fragen)**: Abschluss nach **10 Minuten** (ca. 20 Sekunden pro Frage) mit den Methoden aus unserem Guide [TOEIC Part 5 Strategien zu Grammatik und Wortschatz](/de/blog/toeic-part-5-strategien-grammatik-wortschatz/).
 - **Part 6 (16 Fragen)**: Abschluss nach **8 Minuten** (ca. 30 Sekunden pro Frage).
 - **Pufferzeit / Uebertragspruefung**: **2 Minuten**.
 - **Part 7 (54 Fragen)**: Volle **55 Minuten** (durchschnittlich 60 Sekunden pro Frage).

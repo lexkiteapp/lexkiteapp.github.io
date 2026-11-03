@@ -210,7 +210,7 @@ Testen Sie Ihre Stilsicherheit in der geschäftlichen E-Mail-Korrespondenz:
 
 ## Direkt in Lexkite umsetzen
 
-Trainieren Sie das Verfassen englischer Geschäftstexte in unserem interaktiven [Schreibtrainer](/#/write). Speichern Sie wichtige geschäftliche Redewendungen in Ihrer persönlichen [Vokabelbibliothek](/#/library) und überprüfen Sie Ihren schriftlichen Wortschatz im [Testmodus](/#/practice/test). Umfangreiche Listen mit Fachbegriffen finden Sie zudem auf unserer [Wortschatzseite](/en/vocabulary/).
+Trainieren Sie das Verfassen englischer Geschäftstexte in unserem interaktiven [Schreibtrainer](/#/write) und bereiten Sie sich mit den Techniken für [TOEIC Part 5 Strategien zu Grammatik und Wortschatz](/de/blog/toeic-part-5-strategien-grammatik-wortschatz/) auf internationale Tests vor. Speichern Sie wichtige geschäftliche Redewendungen in Ihrer persönlichen [Vokabelbibliothek](/#/library) und überprüfen Sie Ihren schriftlichen Wortschatz im [Testmodus](/#/practice/test). Umfangreiche Listen mit Fachbegriffen finden Sie zudem auf unserer [Wortschatzseite](/en/vocabulary/).
 
 {{youtube: | Business English E-Mail schreiben: Die wichtigsten Phrasen für den Berufsalltag}}
 
