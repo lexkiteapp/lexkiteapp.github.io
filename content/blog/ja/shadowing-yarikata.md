@@ -128,7 +128,7 @@ qualityScore: 93
 
 ![LexkiteのIELTSリスニング練習画面。10回分のテストと英・米・豪の音声があり、速度を調整して練習・初回リスニング・書き取りを選べる](media:listening "再生速度を落とした音声でオーバーラッピングから始め、慣れたら通常速度でシャドーイングに移れる")
 
-TOEICのリスニング対策として取り入れる場合は、学習全体の中での位置づけを[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で、リーディング問題の英文を音読に活用する方法を[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)で紹介しています。
+TOEICのリスニング対策として取り入れる場合は、学習全体の中での位置づけを[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で、リーディング問題の英文を音読に活用する方法を[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)で紹介しています。個別の母音・子音やリズム全体の改善法は、[英語発音練習のコツ完全ガイド](/ja/blog/eigo-hatsuon-renshuu-kotsu/)もあわせてご覧ください。
 
 {{cta: /#/listening | 音声の速さを調整してシャドーイングを始める}}
 
