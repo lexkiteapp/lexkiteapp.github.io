@@ -676,7 +676,17 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .adm .adm-content :is(button, [role=tab], a.vx-tab, a.ax-tab).chip, .adm .adm-content :is(.rp-chip, .chip-f, .cl-tab, .vx-tab, .ax-tab) { display: inline-flex; align-items: center; }
   .adm .adm-content :is(.icon-btn-s, .copy, .reset, .th-sort, .u-sort) { min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
   .adm .adm-content .linkbtn, .adm .u-bulk .linkbtn { display: inline-flex; align-items: center; min-height: 44px; }
+  .adm .adm-content :is(button, [role=tab], a.btn), .adm .range-tabs button { min-width: 44px; }
+  .adm .adm-content a:not(.btn):not(:is(p, .pg-d, .muted p) a) { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
+  .adm .adm-content label:has(> input:is([type=checkbox], [type=radio])), .ck-hit { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; min-width: 44px; cursor: pointer; }
+  .adm .adm-content input[type=range] { min-height: 44px; }
+  /* thẻ không rộng hơn khung: chữ dài (URL, mã) tự xuống dòng, liên kết dài cắt … */
+  .tbl.tbl-cards td, .tbl.tbl-cards td.nowrap, .tbl.tbl-cards .nowrap { white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
+  .tbl.tbl-cards td > * { min-width: 0; max-width: 100%; }
+  .tbl.tbl-cards td a:not(.btn) { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 44px; }
+  .u-tbl.tbl-cards .u-badges { min-width: 0; }
   .u-pg select { min-height: 44px; }
 }
 @keyframes fs-up { from { transform: translateY(24px); opacity: .4; } }
 @media (prefers-reduced-motion: reduce) { .fsheet.open { animation: none; } }
+.ck-hit { display: inline-grid; place-items: center; min-width: 32px; min-height: 32px; cursor: pointer; } /* ô chọn trong bảng (Backlink): bọc nhãn → vùng chạm lớn, điện thoại ≥ 44 px */

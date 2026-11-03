@@ -205,7 +205,7 @@
       el.innerHTML = `<div class="tbl-x" tabindex="0" role="region" aria-label="${esc(B('Bảng'))}"><table class="tbl"><thead><tr><th scope="col">${esc(B('Nền tảng'))}</th><th scope="col">${esc(B('Tên'))}</th><th scope="col">${esc(B('Đã giữ'))}</th><th scope="col">${esc(B('Tình trạng'))}</th><th scope="col">${esc(B('Ghi chú'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${D.handles.map(h => {
         const st = h.last ? HSTATE[h.last.state] || HSTATE.unknown : HSTATE.unknown;
         return `<tr class="${h.last && h.last.level === 'regression' ? 'bad-row' : ''}"><td>${esc(h.platform)}</td><td>${ext(h.url, '@' + h.handle)}</td>
-          <td><input type="checkbox" data-own="${esc(h.k)}"${h.status === 'owned' ? ' checked' : ''} aria-label="${esc(B('Đã giữ') + ': ' + h.platform + ' @' + h.handle)}"></td>
+          <td><label class="ck-hit"><input type="checkbox" data-own="${esc(h.k)}"${h.status === 'owned' ? ' checked' : ''} aria-label="${esc(B('Đã giữ') + ': ' + h.platform + ' @' + h.handle)}"></label></td>
           <td>${chip(st)}<div class="tiny muted">${h.last ? esc(why(h.last.reasons)) : ''}</div></td><td class="small">${esc(h.notes || '')}</td>
           <td class="nowrap"><button type="button" class="btn sm ghost" data-hplay="${esc(h.k)}">${esc(B('Cách xử lý'))}</button> <button type="button" class="btn sm ghost danger" data-hdel="${esc(h.k)}">${esc(B('Xóa'))}</button></td></tr>`;
       }).join('')}</tbody></table></div>`;
