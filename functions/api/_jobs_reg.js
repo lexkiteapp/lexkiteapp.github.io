@@ -169,6 +169,25 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "d1-usage-watch",
+   "workflow": "d1-usage-watch.yml",
+   "cron": [
+    "7,27,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 10,
+    "d1_main_writes": 2
+   },
+   "lease": false,
+   "_note": "03/11 sự cố D1: số Cloudflare trong ngày cho _d1guard (85 %) + thư 50/75 % khi Pages chưa có CF_ANALYTICS_TOKEN; 1 yêu cầu prod/lượt"
+  },
+  {
    "id": "preview-site",
    "workflow": "preview-site.yml",
    "cron": [

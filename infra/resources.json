@@ -8,8 +8,8 @@
       "purpose": "Web lexkite.com, blog, nội dung học (JSON/JS tải lười), API /api/*",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/pages/view/lexkite",
       "free": "Băng thông không giới hạn · 500 build/tháng · 20.000 file/bản · 100.000 lượt Functions/ngày",
-      "upgrade": "Workers Paid 5 USD/tháng khi Functions > 100k/ngày",
-      "status": "Miễn phí",
+      "upgrade": "Đã Workers Paid từ 03/11/2026: 10 triệu lượt Workers + Functions/THÁNG đã gồm (hết trần 100k/ngày), vượt 0,30 USD/triệu",
+      "status": "Trả phí (Workers Paid)",
       "match": [
         "lexkite.com",
         "lexkite",
@@ -27,9 +27,9 @@
       "kind": "db",
       "purpose": "Đồng bộ học tập, người dùng, thống kê, tin nhắn, cấu hình, nhật ký quản trị · hạn mức chống lạm dụng (bảng quota_count, quota_config, quota_allow, quota_block, quota_flag, quota_audit – docs/QUOTAS.md); biến môi trường Pages: ADMIN_EMAILS, UNLIMITED_EMAILS (danh sách email không giới hạn, không phải khóa bí mật)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/d1",
-      "free": "5 GB · 5 triệu lượt đọc/ngày · 100.000 lượt ghi/ngày",
-      "upgrade": "Workers Paid; hoặc giảm hit_rate thống kê trong Quản trị",
-      "status": "Miễn phí",
+      "free": "Workers Paid từ 03/11/2026 (~13:40Z, tài khoản chính e34e14b7…, 5 USD/tháng): đã gồm 25 tỷ dòng đọc + 50 triệu dòng ghi/THÁNG, 5 GB/DB (tối đa 10 GB); vượt: 0,001 USD/triệu dòng đọc, 1 USD/triệu dòng ghi. (Gói Free cũ: 5 triệu đọc + 100.000 ghi/ngày.)",
+      "upgrade": "Đã Paid. Trần chi tiêu tự canh: dự báo tháng ≥ 50/75 % phần đã gồm → thư; ≥ 85 % → Quản trị/thông báo chỉ đọc đệm; ≥ 100 % → thư 'sắp tốn tiền' mỗi ngày (functions/api/_d1watch.js, docs/CAPACITY.md §6)",
+      "status": "Trả phí (Workers Paid)",
       "match": [
         "lexkite-sync"
       ],
@@ -355,6 +355,7 @@
       "status": "Nội bộ",
       "match": [
         "cache.lexkite.internal",
+        "budget.lexkite.internal",
         "rate.lexkite.internal",
         "quota.lexkite.internal",
         "notices.lexkite.internal",
