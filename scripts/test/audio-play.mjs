@@ -2,6 +2,7 @@
 //  1) mở khóa ở lần chạm đầu · 2) phát được, onEnd đúng · 3) gốc CDN đầu 404 → gốc kế tiếp · 4) gốc đầu treo → hết hạn chờ → gốc kế tiếp
 //  5) mọi gốc 404 → UI.tts rơi về giọng máy, đúng giới tính người nói (Carlos nam, Ama nữ) + ghi nhật ký dự phòng
 //  6) không chồng tiếng: giọng mới dừng giọng cũ (cả Audio tự tạo ở module khác và giọng máy); hiệu ứng sfx không bị dừng
+//  7) nhiều câu Kokoro: đúng thứ tự, có khoảng nghỉ giữa câu (SENT_GAP), dừng trong lúc nghỉ → không phát câu kế
 // Không cần máy chủ: page.route trả trang thử + file JS thật từ web/ + WAV tự sinh. Chạy: node scripts/test/audio-play.mjs [chromium,webkit]
 import { chromium, webkit } from 'playwright';
 import fs from 'node:fs';
@@ -30,7 +31,7 @@ const HTML = `<!doctype html><html><head><meta charset="utf-8"><title>audio</tit
   window.SpeechSynthesisUtterance = function (t) { this.text = t; };
   window.App = { state: { settings: { accent: 'en-GB', hqVoice: true } } };
   window.KVoice = { lineKey: (v, t) => v + '_' + t.replace(/\\W+/g, '').toLowerCase() };
-  window.LISTEN_AUDIO = new Set(['af_heart_hello', 'am_michael_ok', 'am_michael_gone', 'af_heart_gone', 'bf_emma_gone', 'af_heart_twoparts', 'bf_emma_long']);
+  window.LISTEN_AUDIO = new Set(['af_heart_hello', 'am_michael_ok', 'am_michael_gone', 'af_heart_gone', 'bf_emma_gone', 'af_heart_twoparts', 'bf_emma_long', 'bf_emma_one', 'bf_emma_two', 'bf_emma_three', 'bf_emma_four']);
   window.Chars = { ids: ['ama', 'carlos'], voice: w => ({ ama: 'af_heart', carlos: 'am_michael' })[w] };
   document.getElementById('go').onclick = () => { const f = window.__step; window.__step = null; if (f) f(); };
 </script>
@@ -128,6 +129,20 @@ for (const name of which) {
   check(await page.evaluate(() => __x.paused && document.querySelectorAll('audio').length === 0), 'LKAudio.play mới → giọng cũ dừng');
   const playing = await page.evaluate(() => [__h1.el, __other, __x].filter(e => e && !e.paused).length);
   check(playing === 0, 'chỉ một giọng đọc phát tại một thời điểm');
+  // 7) nhiều câu: thứ tự + khoảng nghỉ + dừng trong lúc nghỉ
+  await page.evaluate(() => { __said.length = 0; __res.seq = []; });
+  await step(() => UI.tts('One. Two.', 'en-GB', 0.95, { onSentence: (i, t) => __res.seq.push([i, t, performance.now()]), onEnd: () => { __res.two = 1; } }));
+  await res('two');
+  const seq = await page.evaluate(() => __res.seq), gap = seq.length === 2 ? seq[1][2] - seq[0][2] : 0;
+  check(seq.map(x => x[1]).join('|') === 'One.|Two.' && (await page.evaluate(() => __said.length)) === 0, `2 câu Kokoro đúng thứ tự, không giọng máy (${seq.map(x => x[1]).join('|')})`);
+  check(gap >= 400 + 200, `có khoảng nghỉ giữa câu (câu 0,4 s + nghỉ → ${Math.round(gap)} ms)`);
+  await page.evaluate(() => { __res.seq2 = []; });
+  await step(() => UI.tts('Three. Four.', 'en-GB', 0.95, { onSentence: i => __res.seq2.push(i), onEnd: () => { __res.four = 1; } }));
+  await page.waitForFunction(() => window.__res.seq2.length === 1);
+  await page.waitForTimeout(450); // câu 1 (0,4 s) vừa xong → đang trong khoảng nghỉ
+  await page.evaluate(() => UI.stopSpeak());
+  await page.waitForTimeout(600);
+  check((await page.evaluate(() => __res.seq2.join(','))) === '0' && (await page.evaluate(() => __res.four)) === undefined, 'dừng trong lúc nghỉ → không phát câu kế, không onEnd');
   const errs = logs.filter(l => /PAGEERROR/.test(l));
   check(errs.length === 0, 'không lỗi JS' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await browser.close();
