@@ -44,3 +44,4 @@ Mỗi lượt /api/ai đếm tuyến phục vụ vào `ai_quota` (id `m:gemini|m
 - 03/11 lần 4: gpt-oss-120b bắt 96 %, roleplay 5/5, band lệch 0,55 – khắt khe nhất quán với bài NÓI (trừ điểm/liệt kê viết hoa, dấu câu của bản chép máy) và dao động ±0,5 giữa các lần. Sửa thật: lời nhắn Nói bỏ qua viết hoa/dấu câu/ranh giới câu của bản chép máy; chấm ở nhiệt độ 0.
 - 03/11 lần 5: gpt-oss-120b bắt 98 %, band lệch 0,30, JSON 100 %, roleplay 4,93/5, 0 vô lý, hỏi lại 100 % – chỉ trượt vì 6/20 lượt không có giám khảo (Gemini 277 lần 429, Llama 70B không gọi được) → thêm giám khảo Qwen + thử lại.
 - 04/11 lần 7: gpt-oss-120b 87 % – bọc chỗ sửa bằng markdown (`**in**`, người học thấy dấu * thô) → lời nhắn yêu cầu chữ thường, bộ so khớp bỏ `*`.
+- 04/11 lần 8: gpt-oss-120b IELTS 94 % / band 0,48 / JSON 100 %, nhưng đáp "ehm the… yes" cho câu hỏi cỡ ly thì hỏi tiếp sang ý mới → lời nhắn roleplay: trả lời không đúng câu hỏi ("yes" cho câu lựa chọn) phải hỏi lại câu đó bằng lời đơn giản.

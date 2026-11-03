@@ -133,6 +133,8 @@ ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.think
   ok(!S.caught({ q: 'it help', fix: 'helps' }, [{ quote: 'education are important', fix: 'education is important' }]), 'caught: sửa sai chỗ → không tính (lỗi 03/11)');
   ok(S.caught({ q: 'in the dinner', fix: 'at dinner|for dinner' }, [{ quote: 'eat rice with my family in the dinner', fix: 'eat rice with my family for dinner' }]), 'caught: nhiều phương án đúng');
   // golden 03/11 lần 3: so chuỗi con thô chấm oan gpt-oss-120b (81 % → 98 % khi so theo ranh giới từ)
+  ok(S.caught({ q: 'many tourist', fix: 'tourists' }, [{ quote: 'tourist come', fix: 'tourists come' }]) && !S.caught({ q: 'am come', fix: 'i come|come' }, [{ quote: 'i am come from', fix: 'i am come from' }]), 'caught: trích ngắn "tourist come" (golden lần 8); sửa giữ nguyên lỗi vẫn không tính');
+  ok(/does not actually answer your last question/.test(CL.rpCase(JSON.parse(fs.readFileSync(new URL('../ai-golden/roleplay.json', import.meta.url), 'utf8')).cases[2]).req.prompt), 'lời nhắn roleplay: trả lời không đúng câu hỏi ("yes" cho câu lựa chọn) → hỏi lại');
   ok(S.caught({ q: 'invest more money on', fix: 'money in' }, [{ quote: 'invest more money **on** public transport', fix: 'invest more money **in** public transport' }]), 'caught: bỏ dấu markdown ** trong trích/sửa (golden lần 7)');
   ok(S.caught({ q: 'it help', fix: 'helps' }, [{ quote: 'it help', fix: 'it helps' }]), 'caught: "it helps" không bị coi là còn lỗi "it help"');
   ok(S.caught({ q: 'chart illustrate', fix: 'illustrates' }, [{ quote: 'illustrate', fix: 'illustrates' }]), 'caught: trích ngắn hơn cụm lỗi vẫn đúng chỗ');

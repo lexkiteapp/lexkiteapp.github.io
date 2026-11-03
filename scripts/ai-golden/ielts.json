@@ -409,8 +409,8 @@
    "lang": "vi",
    "errors": [
     {
-     "q": "am come from",
-     "fix": "come from|am from"
+     "q": "am come",
+     "fix": "i come|come from|am from|come"
     },
     {
      "q": "a city very beautiful",
@@ -422,7 +422,7 @@
     },
     {
      "q": "there have many beach",
-     "fix": "there are many beaches"
+     "fix": "there are many beaches|are many beaches"
     },
     {
      "q": "many tourist",

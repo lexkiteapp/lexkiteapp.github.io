@@ -10,7 +10,7 @@ const norm = s => String(s || '').replace(/\*+/g, '').toLowerCase().replace(/[â€
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const hasWord = (t, w) => new RegExp('(^|[^a-z0-9\'])' + esc(w) + '($|[^a-z0-9\'])').test(t);
 function lcs(a, b) { let best = 0; for (let i = 0; i < a.length; i++) for (let j = 0; j < b.length; j++) { let k = 0; while (a[i + k] && a[i + k] === b[j + k]) k++; if (k > best) best = k; } return best; }
-export const sameSpot = (quote, q) => !!quote && (quote.includes(q) || (quote.length >= 4 && q.includes(quote)) || lcs(quote, q) >= Math.min(q.length, 8));
+export const sameSpot = (quote, q) => !!quote && (quote.includes(q) || (quote.length >= 4 && q.includes(quote)) || lcs(quote, q) >= Math.min(q.length, 7));
 export function caught(e, errors) {
   const q = norm(e.q), alts = String(e.fix).split('|').map(norm);
   return (errors || []).some(x => { const qu = norm(x && x.quote), fx = norm(x && x.fix); return sameSpot(qu, q) && alts.some(a => hasWord(fx, a) && (a.includes(q) || !hasWord(fx, q))); });
