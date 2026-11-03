@@ -316,7 +316,7 @@
     const rec = askRec(), n = rec.n + 1, tag = 'a' + n; ls.set('lk.reask', { n, at: Date.now(), no: 1 });
     await nextLoad();
     const pv = build(Date.now(), false, true).find(x => x.d >= 1) || { ...generic(tr).gen }; // xem trước: đúng lời nhắc sẽ nhận (đã dịch, cá nhân hóa)
-    const who = n % 2 ? 'ama' : 'carlos', teach = g.Chars ? Chars.img(who, { kind: 'still', pose: 'encourage', size: 112, alt: '', cls: 'ra-teach' }) : '';
+    const who = n % 2 ? 'ama' : 'carlos', teach = g.Chars && Chars.slot ? Chars.slot(who, { pose: 'encourage', size: 'm', alt: '', cls: 'ra-teach' }) : ''; // đứng sau bệ (teacher-slot.js), không ảnh nửa người đặt trần
     const row = (ic, txt) => `<li class="row" style="gap:.5rem;align-items:center;justify-content:flex-start"><span aria-hidden="true">${UI.icon(ic)}</span><span>${txt}</span></li>`;
     const box = UI.modal(`<div class="stack" style="text-align:center">${teach ? `<div aria-hidden="true" style="display:flex;justify-content:center">${teach}</div>` : ''}
       <h2 id="raT" style="margin:0">${tr(n > 1 ? 'Muốn được nhắc học nhẹ nhàng không?' : 'Nhận lời nhắc học nhẹ nhàng?')}</h2>
