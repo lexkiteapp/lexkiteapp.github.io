@@ -151,7 +151,7 @@
 </div>
 <!-- Toggle clickable wrapper with min 44x44 target -->
 <label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer select-none flex-shrink-0">
-<input checked="" class="sr-only peer" id="toggle-banner" type="checkbox"/>
+<input checked="" class="absolute inset-0 min-w-[44px] min-h-[44px] w-full h-full opacity-0 cursor-pointer z-10 peer" id="toggle-banner" type="checkbox"/>
 <div class="w-12 h-7 bg-[#1a3339] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[11px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
 </label>
 </div>
@@ -341,7 +341,7 @@
 <p class="text-[12px] text-on-surface-variant mt-0.5">Gửi tin nhắn khi tác vụ Cron thất bại hoặc API quá 85% hạn ngạch</p>
 </div>
 <label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer select-none flex-shrink-0">
-<input checked="" class="sr-only peer" id="toggle-telegram" type="checkbox"/>
+<input checked="" class="absolute inset-0 min-w-[44px] min-h-[44px] w-full h-full opacity-0 cursor-pointer z-10 peer" id="toggle-telegram" type="checkbox"/>
 <div class="w-12 h-7 bg-[#1a3339] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[11px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
 </label>
 </div>
@@ -355,7 +355,7 @@
 <p class="text-[12px] text-on-surface-variant mt-0.5">Quét chu kỳ 15 phút, đảm bảo tối thiểu 2 bản sao độc lập (D1/D2/D3)</p>
 </div>
 <label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer select-none flex-shrink-0">
-<input checked="" class="sr-only peer" id="toggle-drive" type="checkbox"/>
+<input checked="" class="absolute inset-0 min-w-[44px] min-h-[44px] w-full h-full opacity-0 cursor-pointer z-10 peer" id="toggle-drive" type="checkbox"/>
 <div class="w-12 h-7 bg-[#1a3339] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[11px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
 </label>
 </div>
@@ -369,7 +369,7 @@
 <p class="text-[12px] text-on-surface-variant mt-0.5">Dừng dây chuyền Remotion để tránh phát sinh chi phí ngoài dự kiến</p>
 </div>
 <label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer select-none flex-shrink-0">
-<input checked="" class="sr-only peer" id="toggle-cloudrun" type="checkbox"/>
+<input checked="" class="absolute inset-0 min-w-[44px] min-h-[44px] w-full h-full opacity-0 cursor-pointer z-10 peer" id="toggle-cloudrun" type="checkbox"/>
 <div class="w-12 h-7 bg-[#1a3339] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[11px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
 </label>
 </div>
@@ -383,7 +383,7 @@
 <p class="text-[12px] text-on-surface-variant mt-0.5">Ghi nhật ký chi tiết mã lỗi V8 Edge Isolates vào Cloudflare Logflare</p>
 </div>
 <label class="relative inline-flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer select-none flex-shrink-0">
-<input class="sr-only peer" id="toggle-debug" type="checkbox"/>
+<input class="absolute inset-0 min-w-[44px] min-h-[44px] w-full h-full opacity-0 cursor-pointer z-10 peer" id="toggle-debug" type="checkbox"/>
 <div class="w-12 h-7 bg-[#1a3339] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[11px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-sm peer-checked:bg-secondary-container"></div>
 </label>
 </div>
@@ -409,7 +409,7 @@
 </div>
 <!-- Slider representation: min 44px vertical touch area -->
 <div class="relative py-3 flex flex-col justify-center">
-<input class="w-full h-3 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary-container focus:outline-none" id="sample-range" max="100" min="0" type="range" value="100"/>
+<input class="w-full min-h-[44px] h-11 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary-container focus:outline-none" id="sample-range" max="100" min="0" type="range" value="100"/>
 <div class="flex justify-between text-[11px] font-bold text-on-surface-variant mt-1.5 px-1">
 <span>0% (Tắt)</span>
 <span>50%</span>
@@ -474,10 +474,7 @@
   Huỷ
 </button>
 <!-- Primary Save CTA (min 44px) -->
-<button class="flex-1 min-h-[44px] py-2.5 px-4 rounded-xl bg-secondary-container hover:bg-coral-hover text-white text-[13px] font-bold flex items-center justify-center gap-2 border border-coral-pressed tactile-coral-btn transition-transform" type="button">
-<span class="material-symbols-outlined text-[20px]">check</span>
-<span>Lưu thay đổi</span>
-</button>
+<button class="flex-1 min-h-[44px] py-2.5 px-4 rounded-xl bg-secondary-container hover:bg-coral-hover text-white text-[13px] font-bold flex items-center justify-center gap-2 border border-coral-pressed tactile-coral-btn transition-transform" style="background-color: #c2410c; color: #ffffff;" type="button"><span class="material-symbols-outlined text-[20px]">check</span><span>Lưu thay đổi</span></button>
 </div>
 </div>
 <!-- BottomNavBar -->

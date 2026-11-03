@@ -391,22 +391,7 @@
 <label class="block text-xs font-bold text-teal-950 mb-1 uppercase tracking-wide">
                 Thời gian gửi
               </label>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<label class="min-h-[44px] flex items-center gap-2.5 p-3 rounded-lg border border-[#ded8c9] bg-white cursor-pointer hover:border-teal-900">
-<input checked="" class="text-teal-900 focus:ring-teal-900 w-4 h-4 cursor-pointer" name="schedule" type="radio"/>
-<div>
-<div class="text-xs font-bold text-teal-950">Gửi ngay bây giờ</div>
-<div class="text-[11px] text-stone-700 font-medium">Đẩy tới chuông tức thì</div>
-</div>
-</label>
-<label class="min-h-[44px] flex items-center gap-2.5 p-3 rounded-lg border border-[#ded8c9] bg-cream-50 cursor-pointer hover:border-teal-900">
-<input class="text-teal-900 focus:ring-teal-900 w-4 h-4 cursor-pointer" name="schedule" type="radio"/>
-<div>
-<div class="text-xs font-bold text-teal-950">Hẹn giờ phát</div>
-<div class="text-[11px] text-stone-700 font-medium">Hôm nay, 20:00 (Giờ học tối)</div>
-</div>
-</label>
-</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><label class="min-h-[44px] min-w-[44px] flex items-center gap-2.5 p-3 rounded-lg border border-[#ded8c9] bg-white cursor-pointer hover:border-teal-900"><input checked="" class="text-teal-900 focus:ring-teal-900 w-4 h-4 cursor-pointer min-h-[44px] min-w-[44px] -m-2.5 p-2.5" name="schedule" type="radio"/><div><div class="text-xs font-bold text-teal-950">Gửi ngay bây giờ</div><div class="text-[11px] text-stone-700 font-medium">Đẩy tới chuông tức thì</div></div></label><label class="min-h-[44px] min-w-[44px] flex items-center gap-2.5 p-3 rounded-lg border border-[#ded8c9] bg-cream-50 cursor-pointer hover:border-teal-900"><input class="text-teal-900 focus:ring-teal-900 w-4 h-4 cursor-pointer min-h-[44px] min-w-[44px] -m-2.5 p-2.5" name="schedule" type="radio"/><div><div class="text-xs font-bold text-teal-950">Hẹn giờ phát</div><div class="text-[11px] text-stone-700 font-medium">Hôm nay, 20:00 (Giờ học tối)</div></div></label></div>
 </div>
 <!-- Actions Row: Coral Primary Button -->
 <div class="pt-4 border-t border-[#efe9dc] flex flex-wrap items-center justify-between gap-3">
@@ -418,10 +403,7 @@
 <button class="min-h-[44px] px-5 py-2.5 rounded-xl border border-[#ded8c9] bg-white text-stone-800 hover:text-teal-900 hover:bg-cream-100 text-xs font-bold transition-colors shadow-xs" type="button">
                   Lưu nháp
                 </button>
-<button class="min-h-[44px] tactile-btn-primary px-6 py-2.5 rounded-xl text-white font-extrabold text-xs tracking-wide flex items-center gap-2 shadow-sm" type="button">
-<span class="material-symbols-outlined text-[20px]">send</span>
-<span>Gửi thông báo</span>
-</button>
+<button class="min-h-[44px] min-w-[44px] tactile-btn-primary px-6 py-2.5 rounded-xl text-white font-extrabold text-xs tracking-wide flex items-center gap-2 shadow-sm" style="background-color: #b92f14; border-bottom: 2px solid #8e230e; box-shadow: 0 2px 0 0 #721a08;" type="button"><span class="material-symbols-outlined text-[20px] text-white">send</span><span class="text-white">Gửi thông báo</span></button>
 </div>
 </div>
 </form>
@@ -453,10 +435,7 @@
 <span class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-coral-500 border border-white"></span>
 </button>
 <!-- Mini streak flame -->
-<div class="min-h-[44px] flex items-center gap-0.5 text-xs font-bold text-coral-600 bg-orange-50 px-2 py-1 rounded">
-<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
-<span>14</span>
-</div>
+<div class="min-h-[44px] min-w-[44px] flex items-center gap-0.5 text-xs font-bold text-stone-900 bg-orange-50 px-2.5 py-1 rounded border border-[#ded8c9]"><span class="material-symbols-outlined text-[16px] text-coral-600">local_fire_department</span><span class="text-stone-900 font-extrabold">14</span></div>
 </div>
 </div>
 <!-- Bell Dropdown Modal Mock -->
@@ -719,7 +698,7 @@
             Hiển thị <span class="font-bold text-teal-900">5</span> trên tổng số <span class="font-bold text-teal-900">14</span> thông báo đã phát hành
           </div>
 <div class="flex items-center gap-1.5">
-<button class="min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg border border-[#ded8c9] bg-white text-stone-600 disabled:opacity-50 flex items-center justify-center font-bold" disabled="" type="button">Trước</button>
+<button class="min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg border border-[#ded8c9] bg-white text-stone-800 flex items-center justify-center font-bold" disabled="" type="button">Trước</button>
 <span class="min-h-[44px] min-w-[44px] px-3 py-2 font-bold text-teal-900 bg-cream-200 rounded-lg border border-[#ded8c9] flex items-center justify-center">1</span>
 <button class="min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg border border-[#ded8c9] bg-white text-stone-800 hover:bg-cream-100 flex items-center justify-center font-bold" type="button">2</button>
 <button class="min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg border border-[#ded8c9] bg-white text-stone-800 hover:bg-cream-100 flex items-center justify-center font-bold" type="button">3</button>

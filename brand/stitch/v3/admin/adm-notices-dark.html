@@ -362,20 +362,8 @@
   Thời gian gửi
 </label>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<label class="flex items-center gap-2.5 p-3 min-h-[44px] rounded-lg border border-[#2dd4bf]/40 bg-[#16282c] cursor-pointer hover:border-[#2dd4bf]">
-<input checked="" class="text-[#2dd4bf] focus:ring-[#2dd4bf] w-4 h-4 bg-[#122226] border-[#26393e]" name="schedule" type="radio"/>
-<div>
-<div class="text-xs font-bold text-[#f0f6f6]">Gửi ngay bây giờ</div>
-<div class="text-[11px] text-[#cbd5e1]">Đẩy tới chuông tức thì</div>
-</div>
-</label>
-<label class="flex items-center gap-2.5 p-3 min-h-[44px] rounded-lg border border-[#26393e] bg-[#182c31] cursor-pointer hover:border-[#2dd4bf]/50">
-<input class="text-[#2dd4bf] focus:ring-[#2dd4bf] w-4 h-4 bg-[#122226] border-[#26393e]" name="schedule" type="radio"/>
-<div>
-<div class="text-xs font-bold text-[#e1eaec]">Hẹn giờ phát</div>
-<div class="text-[11px] text-[#9bb0b5]">Hôm nay, 20:00 (Giờ học tối)</div>
-</div>
-</label>
+<label class="flex items-center gap-2.5 p-3 min-h-[44px] rounded-lg border border-[#2dd4bf]/40 bg-[#16282c] cursor-pointer hover:border-[#2dd4bf]"><span class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center flex-shrink-0"><input checked="" class="text-[#2dd4bf] focus:ring-[#2dd4bf] w-5 h-5 bg-[#122226] border-[#26393e] cursor-pointer" name="schedule" type="radio"/></span><div><div class="text-xs font-bold text-[#f0f6f6]">Gửi ngay bây giờ</div><div class="text-[11px] text-[#cbd5e1]">Đẩy tới chuông tức thì</div></div></label>
+<label class="flex items-center gap-2.5 p-3 min-h-[44px] rounded-lg border border-[#26393e] bg-[#182c31] cursor-pointer hover:border-[#2dd4bf]/50"><span class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center flex-shrink-0"><input class="text-[#2dd4bf] focus:ring-[#2dd4bf] w-5 h-5 bg-[#122226] border-[#26393e] cursor-pointer" name="schedule" type="radio"/></span><div><div class="text-xs font-bold text-[#e1eaec]">Hẹn giờ phát</div><div class="text-[11px] text-[#9bb0b5]">Hôm nay, 20:00 (Giờ học tối)</div></div></label>
 </div>
 </div>
 <div class="pt-4 border-t border-[#26393e] flex items-center justify-between flex-wrap gap-3">
@@ -387,10 +375,7 @@
 <button class="px-4 py-2.5 min-h-[44px] rounded-xl border border-[#26393e] bg-[#182c31] text-[#e1eaec] hover:text-[#5eead4] hover:bg-[#1e353b] text-xs font-bold transition-colors" type="button">
   Lưu nháp
 </button>
-<button class="tactile-btn-primary px-6 py-2.5 min-h-[44px] rounded-xl text-white font-extrabold text-xs tracking-wide flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]">send</span>
-<span>Gửi thông báo</span>
-</button>
+<button class="px-6 py-2.5 min-h-[44px] rounded-xl text-white bg-[#bf3416] hover:bg-[#a72a0f] border-b-2 border-[#87230c] shadow-[0_2px_0_0_#691806] font-bold text-xs tracking-wide flex items-center gap-2 cursor-pointer transition-all active:translate-y-0.5" type="button"><span class="material-symbols-outlined text-[18px] text-white">send</span><span class="text-white font-bold">Gửi thông báo</span></button>
 </div>
 </div></form>
 </div>
@@ -416,7 +401,7 @@
 <div class="bg-[#122226] rounded-xl border border-[#26393e] p-3 shadow-md">
 <div class="flex items-center justify-between mb-2">
 <span class="text-[11px] font-bold text-[#5eead4] uppercase tracking-wider">Thông báo của bạn</span>
-<button class="text-[11px] text-[#2dd4bf] font-semibold hover:underline cursor-pointer min-h-[32px] px-1" type="button">Đã đọc tất cả</button>
+<button class="text-[11px] text-[#2dd4bf] font-semibold hover:underline cursor-pointer min-h-[44px] min-w-[44px] px-2 py-2 inline-flex items-center justify-center" type="button">Đã đọc tất cả</button>
 </div>
 <div class="p-3 rounded-lg bg-[#182c31] border border-[#26393e] shadow-xs relative">
 <span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-coral-500 shadow-[0_0_6px_rgba(255,92,56,0.8)]"></span>
@@ -620,7 +605,7 @@
   Hiển thị <span class="font-bold text-[#5eead4]">5</span> trên tổng số <span class="font-bold text-[#5eead4]">14</span> thông báo đã phát hành
 </div>
 <div class="flex items-center gap-1.5">
-<button class="px-3 py-2 min-h-[44px] min-w-[44px] rounded-lg border border-[#26393e] bg-[#182c31] text-[#9bb0b5] disabled:opacity-40 inline-flex items-center justify-center" disabled="" type="button">Trước</button>
+<button class="px-3 py-2 min-h-[44px] min-w-[44px] rounded-lg border border-[#26393e] bg-[#182c31] text-[#cbd5e1] disabled:opacity-50 inline-flex items-center justify-center font-medium" disabled="" type="button">Trước</button>
 <span class="px-3 py-2 min-h-[44px] min-w-[44px] font-bold text-[#5eead4] bg-[#1e353b] rounded-lg border border-[#2d4a52] inline-flex items-center justify-center">1</span>
 <button class="px-3 py-2 min-h-[44px] min-w-[44px] rounded-lg border border-[#26393e] bg-[#182c31] text-[#cbd5e1] hover:bg-[#1e353b] inline-flex items-center justify-center" type="button">2</button>
 <button class="px-3 py-2 min-h-[44px] min-w-[44px] rounded-lg border border-[#26393e] bg-[#182c31] text-[#cbd5e1] hover:bg-[#1e353b] inline-flex items-center justify-center" type="button">3</button>
