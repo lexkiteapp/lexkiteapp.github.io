@@ -74,7 +74,7 @@ ok(back.compareDocumentPosition($('#actions')) & w.Node.DOCUMENT_POSITION_FOLLOW
 ok(txt('.back .wc-word') === 'curriculum' && /n/.test(txt('.back .wi-pron')) && /B2/.test(txt('.back .wi-pron')) && /kəˈrɪkjələm/.test(txt('.back .wi-pron')), 'đầu thẻ: từ + từ loại + CEFR + IPA');
 ok($('.back [data-say][aria-label]'), 'nút nghe có nhãn trợ năng');
 ok(txt('.back .wi-vi').trim().length > 3, 'nghĩa hiện ngay dưới từ: ' + txt('.back .wi-vi'));
-ok(/subjects included in a course/.test(txt('.back')), 'định nghĩa tiếng Anh');
+ok(/set of subjects and topics that a school/.test(txt('.back')), 'định nghĩa tiếng Anh'); // viết lại 3/11 (không sát lời từ điển OALD – docs/CONTENT-PROTECTION.md §10)
 ok($('.back .wi-ex mark') && $('.back .wi-ex [data-speak-text]'), 'ví dụ có tô từ + nút nghe câu');
 
 // Chip cụm từ & đồng nghĩa
