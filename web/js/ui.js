@@ -218,6 +218,8 @@
   }
   // opts: { rate, onSentence(i, text), onEnd(), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
   // giọng Kokoro mặc định theo accent – bảng ngôn ngữ đích (web/js/target.js); thiếu Target → như cũ (en-US af_heart, còn lại bf_emma)
+  // Khoảng nghỉ giữa 2 câu khi phát file Kokoro nối tiếp: file cắt sát tiếng → nối liền nghe gấp; bài nghe IELTS nghỉ ~0,3 s (đo trên CI: scripts/test/audio-play.mjs)
+  const SENT_GAP = 280;
   const kvOf = a => (g.Target ? g.Target.kokoroVoice(a) : a === 'en-US' ? 'af_heart' : 'bf_emma');
   function tts(text, accent = 'en-GB', rate, opts = {}) {
     text = ttsClean(text);
@@ -239,7 +241,7 @@
             rate: pr,
             onBase: () => g.audioFail(),
             onStart: () => { if (segs[i + 1]) LA().preload(g.audioUrls(segs[i + 1][0])[0]); }, // tải trước câu kế tiếp
-            onEnd: () => play(i + 1),
+            onEnd: () => (i + 1 < segs.length ? setTimeout(() => play(i + 1), Math.round(SENT_GAP / pr)) : play(i + 1)), // nghỉ giữa câu như bài nghe; dừng/giọng mới → play() tự bỏ (speakSeq)
             onFail: why => { if (my !== speakSeq) return; hqEl = null; LA().note('tts', why + ' ' + segs[i][0]); tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true, gender }); },
           });
         };
