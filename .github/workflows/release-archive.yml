@@ -1,3 +1,4 @@
+# ci-policy: queue – lưu AAB/IPA/zip add-on tuần tự, huỷ là mất bản phát hành
 # Giữ 3 bản phát hành đã ký gần nhất của mỗi loại (AAB Play · IPA iOS · zip add-on) trên Kho Drive: 2 bản / 2 Drive + sha256 (infra/backups/releases.json).
 # Chạy ngay khi workflow build xong (workflow_run) và quét bù hằng tuần (artifact GitHub hết hạn sau 30–90 ngày). Điều phối: infra/jobs.json (lease release-archive).
 # Tài liệu: docs/ROLLBACK.md §Ứng dụng & add-on.

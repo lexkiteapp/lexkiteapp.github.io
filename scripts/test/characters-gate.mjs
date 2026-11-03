@@ -28,6 +28,13 @@ for (const who of IDS) {
     if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
   }
 }
+// vòng nghỉ 1–3 s (scripts/teach/idle.py): VP9 alpha + H.264 xếp chồng + poster mắt mở – định dạng/cỡ/mắt kiểm ở idle.py --check (characters-shots.yml)
+for (const who of Object.keys((R.idle || {}).people || {})) {
+  if (!IDS.includes(who)) { errs.push(`idle.people.${who}: không thuộc registry`); continue; }
+  for (const n of ['idle.webm', 'idle.mp4', 'idle-poster.webp']) want.add(`${who}/${n}`);
+  const I = C.idle && C.idle(who);
+  if (!I || I.webm !== `teach/${who}/idle.webm` || I.mp4 !== `teach/${who}/idle.mp4` || I.poster !== `teach/${who}/idle-poster.webp`) errs.push(`Chars.idle(${who}) ≠ teach/${who}/idle.{webm,mp4} + idle-poster.webp`);
+}
 for (const f of want) {
   const p = `web/teach/${f}`, h = R.files[f];
   if (!fs.existsSync(p)) errs.push(`thiếu ${p} (chạy CI teach-build)`); else if (!h || h.sha256 !== sha(p)) errs.push(`${p}: sha256 không khớp characters.json (chỉ CI teach-build được dựng tệp này)`);
