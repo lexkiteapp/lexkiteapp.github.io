@@ -175,6 +175,7 @@ node scripts/test/layout-guards.mjs
 node scripts/test/mobile-guards.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
+node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
@@ -191,6 +192,7 @@ node scripts/test/crawl.js web
 node scripts/test/links-js.mjs dist
 node scripts/test/seo-sitemap.mjs dist
 node scripts/test/seo-pages.mjs dist
+node scripts/test/word-depth.mjs
 node scripts/test/tools-pages.mjs
 node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs

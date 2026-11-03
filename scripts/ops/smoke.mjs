@@ -4,6 +4,9 @@
 import fs from 'fs';
 import { execFileSync } from 'child_process';
 import { arg, sleep, summary, alert } from './lib.mjs';
+import { shellHash, liveHash } from '../lib/sw-version.mjs';
+// Hash khung app của commit cần chờ: chỉ tính được khi bản checkout đúng commit đó ('' = không đối chiếu được)
+const localHash = sha => { try { return execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim().startsWith(sha) ? shellHash('web') : ''; } catch { return ''; } };
 
 export const PAGES = [['/', 'id="lk-route"'], ['/en/', 'hreflang="x-default"'], ['/vi/', '<html'], ['/app/', 'id="view"'], ['/vi/blog/', '<h2'], ['/en/blog/', 'Lexkite Blog'], ['/privacy', ''], ['/terms', ''], ['/sitemap.xml', '<loc>'], ['/robots.txt', 'Sitemap'], ['/sw.js', 'lexkite-'], ['/js/app.js', '']];
 export const APIS = [ // [đường, phương thức, kiểm]
@@ -32,7 +35,7 @@ export async function waitDeploy(sha, maxMin, base) {
     if (run) { seen = true; if (run.status === 'completed') return run.conclusion === 'success' ? 'success' : 'failure'; }
     else if (s) { seen = true; if (s.state === 'success') return 'success'; if (s.state === 'failure' || s.state === 'error') return 'failure'; }
     else if (Date.now() - t0 > 6 * 60e3 && !seen) { // 6 phút không thấy check Cloudflare → đối chiếu sw.js live với repo tại commit
-      try { const want = (await (await fetch(`https://raw.githubusercontent.com/${repo}/${sha}/web/sw.js`)).text()).match(/lexkite-\d+/), live = (await (await get(base + '/sw.js?x=' + Date.now())).text()).match(/lexkite-\d+/); if (want && live && want[0] === live[0]) return 'unknown'; } catch { /* tiếp tục chờ */ }
+      try { const want = localHash(sha), live = liveHash(await (await get(base + '/sw.js?x=' + Date.now())).text()); if (want && live === want) return 'unknown'; } catch { /* tiếp tục chờ */ } // hash nội dung (scripts/lib/sw-version.mjs) – web/sw.js giữ CACHE cố định
     }
     await sleep(20000);
   }
