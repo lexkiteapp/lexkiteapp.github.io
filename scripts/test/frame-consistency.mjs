@@ -123,10 +123,12 @@ const P0 = await mk(390, 'light');
 const live = await P0.page.evaluate(() => ({ routes: Object.keys(App.routes).filter(r => r && !/^_/.test(r)), withArg: (window.ExitGuard && ExitGuard.WITH_ARG) || [] }));
 // route cần tham số → bài mẫu (như exit-sweep/nav-sweep); còn lại mở không tham số
 const target = r => FIXED[r] ? FIXED[r] : '/' + r;
-let ROUTES = live.routes.slice().sort();
+// App.routes chỉ có route của gói đã nạp (gói lười tự đăng ký khi mở) → danh sách đủ = route trong mã nguồn (docs/codemap.json) ∪ route đang sống
+const SRC_ROUTES = Object.keys(JSON.parse(fs.readFileSync('docs/codemap.json', 'utf8')).routes || {}).map(h => h.replace(/^#\//, ''));
+let ROUTES = [...new Set([...SRC_ROUTES, ...live.routes])].sort();
 if (ONLY) ROUTES = ROUTES.filter(r => ONLY.split(',').includes(r));
 const unknown = ROUTES.filter(r => !VAR.routes[r]);
-const stale = Object.keys(VAR.routes).filter(r => !live.routes.includes(r));
+const stale = Object.keys(VAR.routes).filter(r => !SRC_ROUTES.includes(r) && !live.routes.includes(r));
 
 const res = {}; // res[route][w-theme] = probe
 const runCombo = async (P) => {
@@ -214,6 +216,9 @@ const lines = [`# frame-consistency – ${ROUTES.length} route × ${combosK.leng
 fs.writeFileSync(OUT + '/report.md', lines.join('\n'));
 fs.writeFileSync(OUT + '/raw.json', JSON.stringify({ NORM, cardNorm, res, dev }, null, 1));
 console.log(`frame-consistency: ${ROUTES.length} route, ${dev.length} lệch ở ${new Set(dev.map(d => d.route)).size} route`);
-Object.entries(byProp).sort((a, b) => b[1].size - a[1].size).forEach(([p, s]) => console.log(`  ${p}: ${s.size} route – ${[...s].slice(0, 12).join(', ')}${s.size > 12 ? '…' : ''}`));
+Object.entries(byProp).sort((a, b) => b[1].size - a[1].size).forEach(([p, s]) => {
+  console.log(`  ${p}: ${s.size} route – ${[...s].slice(0, 14).join(', ')}${s.size > 14 ? '…' : ''}`);
+  const g = {}; dev.filter(d => d.prop === p).forEach(d => { const k = `${d.got} → ${d.want}`.slice(0, 150); (g[k] = g[k] || new Set()).add(d.route + '@' + d.combo); });
+  Object.entries(g).sort((a, b) => b[1].size - a[1].size).slice(0, 6).forEach(([k, v]) => console.log(`      ${k}  ×${v.size} (${[...v].slice(0, 4).join(' ')})`)); });
 await browser.close(); if (srv) srv.close();
 process.exit(dev.length ? 1 : 0);
