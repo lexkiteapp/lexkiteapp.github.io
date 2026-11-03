@@ -253,8 +253,9 @@
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
     const say = b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
-    const tch = pose => Chars.img('ama', { kind: 'still', pose, cls: 'block w-full h-auto max-h-full object-contain object-bottom pointer-events-none select-none', alt: '', size: 120 }); // teacher-pose-map: Ama nói (talk) ở Hôm nay, vẫy chào (wave) với người mới – ảnh nguyên khung, không cắt/che/viền
-    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh ? 'wave' : 'talk'), pathHtml, unitName: u.name,
+    // teacher-pose-map: Ama đứng sau bệ (Chars.slot) – người mới: vẫy chào (wave, lặp có nghỉ 6 s); đang học: vòng nghỉ 1–3 s mắt mở (Chars.idle, tư thế happy – chủ 3/11 muốn cô sống). Giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh
+    const tch = fresh => Chars.slot('ama', fresh ? { pose: 'wave', size: 'm', lazy: false, clip: true, loop: 6000 } : { pose: 'happy', size: 'm', lazy: false, idle: true });
+    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name,
       k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
         words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
       r: { due, title: t('{n} từ đang phai dần', { n: due }), sub: t('Ôn ngay ({m} phút)', { m: Math.max(1, Math.ceil(due / 6)) }) },
