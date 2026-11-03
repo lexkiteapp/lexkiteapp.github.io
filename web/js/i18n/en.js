@@ -104,6 +104,7 @@
 'Không nghe thấy gì – bấm micro rồi đọc to, rõ ràng nhé.': 'Didn’t hear anything – tap the mic and speak loudly and clearly.',
 'Không tìm thấy micro – kiểm tra tai nghe/micro của máy.': 'No microphone found – check your headset or mic.',
 'Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).': 'Couldn’t reach the speech recognition service (internet required).',
+'Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.': 'On-device speech recognition couldn’t start – check your internet, then tap the mic to try again.',
 'Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.': 'This browser doesn’t support speech recognition – please use Chrome or Edge.',
 'Micro đang bận – thử lại sau 1 giây.': 'Microphone is busy – try again in a second.',
 'Lỗi nhận dạng: {err}': 'Recognition error: {err}',
@@ -1706,7 +1707,7 @@
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
 (function (g) { Object.assign(g.I18N_DICT.en, {
-'Kiểm tra': 'Check', 'Tiếp tục': 'Continue', 'Bỏ qua': 'Skip', 'Điền từ': 'Fill in the blank', 'Chọn nghĩa đúng': 'Choose the correct meaning',
-'Học thông minh': 'Smart Learn', 'Phòng viết': 'Writing room', 'Đọc hiểu': 'Reading', 'Đáp án': 'Answer', 'Tra từ': 'Look up a word', 'Dịch câu': 'Translate',
-'Máy nghe được: “{heard}”': 'We heard: “{heard}”', 'Chế độ luyện tập': 'Practice modes',
+  'Kiểm tra': 'Check', 'Tiếp tục': 'Continue', 'Bỏ qua': 'Skip', 'Điền từ': 'Fill in the blank', 'Chọn nghĩa đúng': 'Choose the correct meaning',
+  'Học thông minh': 'Smart Learn', 'Phòng viết': 'Writing room', 'Đọc hiểu': 'Reading', 'Đáp án': 'Answer', 'Tra từ': 'Look up a word', 'Dịch câu': 'Translate',
+  'Máy nghe được: “{heard}”': 'We heard: “{heard}”', 'Chế độ luyện tập': 'Practice modes',
 }); })(typeof self !== 'undefined' ? self : this);

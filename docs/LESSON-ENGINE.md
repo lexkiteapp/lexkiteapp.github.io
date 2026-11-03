@@ -26,6 +26,7 @@
 4. **COMBO**: đúng liên tiếp ≥ 3 → hiện "🔥 COMBO ×n", sai → về 0. **Màn kết**: +XP · tỉ lệ đúng · COMBO cao nhất · thời gian · từ cần ôn.
 5. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích** (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
 6. **"Không nghe được lúc này" / "Không nói được lúc này"**: tắt dạng đó 60 phút (`lk.lsn.off`), các bài còn lại tự đổi sang bản đọc/bản chọn; không trừ điểm.
+   Micro không bao giờ "chết" im lặng (LX-1002): mỗi lần chạm kết thúc bằng câu nghe được hoặc lời nhắn theo mã lỗi (`UI.recErrorText`) + nhãn **Thử lại**; hỏng micro/quyền/mạng 2 lần → chỉ lối "Không nói được lúc này". `UI.recognize` luôn phát đúng 1 result/error trước end (phiên kết thúc im lặng/treo → `no-speech`); dịch vụ của trình duyệt hỏng (`network`/`service-not-allowed`/`language-not-supported`) → cả phiên chuyển sang ghi âm + Whisper trên máy. Test: `scripts/test/lesson.mjs` phần F.
 7. **Cuối bài → FSRS**: từ sai ≥ 1 lần → `grade 0` (Quên) – chưa có thẻ thì `App.addWord` để vào hàng ôn; từ đến hạn đúng ngay lần đầu → `grade 2`; từ chưa đến hạn đúng → không đổi lịch. XP qua `App.reward`. Demo (`?demo=1`) không ghi gì.
 8. **0 tim, 0 năng lượng, 0 khóa**: không có giới hạn số bài/ngày.
 

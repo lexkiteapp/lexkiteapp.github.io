@@ -33824,5 +33824,35 @@
     "ar": "كل ما تحتاج معرفته عن التعلّم مع Lexkite.",
     "ru": "Всё, что нужно знать об обучении с Lexkite.",
     "tr": "Lexkite ile öğrenmek hakkında bilmen gereken her şey."
+  },
+  "Hoặc chọn “Không nói được lúc này” để học tiếp.": {
+    "es": "O elige «No puedo hablar ahora» para seguir aprendiendo.",
+    "pt": "Ou escolha “Não posso falar agora” para continuar aprendendo.",
+    "fr": "Ou choisissez « Je ne peux pas parler » pour continuer.",
+    "de": "Oder wähle „Kann gerade nicht sprechen“, um weiterzulernen.",
+    "id": "Atau pilih “Tidak bisa bicara sekarang” untuk lanjut belajar.",
+    "th": "หรือเลือก “พูดไม่ได้ตอนนี้” เพื่อเรียนต่อ",
+    "zh": "或选择“现在不方便说”继续学习。",
+    "ja": "または「今は話せない」を選んで学習を続けましょう。",
+    "ko": "또는 “지금은 말할 수 없어요”를 눌러 계속 학습하세요.",
+    "hi": "या आगे सीखने के लिए “अभी बोल नहीं सकते” चुनें।",
+    "ar": "أو اختر «لا أستطيع التحدث الآن» لمتابعة التعلّم.",
+    "ru": "Или выберите «Сейчас не могу говорить», чтобы учиться дальше.",
+    "tr": "Ya da öğrenmeye devam etmek için “Şu an konuşamıyorum”u seçin."
+  },
+  "Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.": {
+    "es": "No se pudo iniciar el reconocimiento de voz en el dispositivo: revisa tu conexión y toca el micrófono para reintentar.",
+    "pt": "Não foi possível iniciar o reconhecimento de voz no dispositivo – verifique a internet e toque no microfone para tentar de novo.",
+    "fr": "La reconnaissance vocale sur l’appareil n’a pas pu démarrer – vérifiez Internet puis touchez le micro pour réessayer.",
+    "de": "Die Spracherkennung auf dem Gerät konnte nicht starten – prüfe die Internetverbindung und tippe zum erneuten Versuch auf das Mikrofon.",
+    "id": "Pengenalan suara di perangkat belum bisa berjalan – periksa internet, lalu ketuk mikrofon untuk mencoba lagi.",
+    "th": "ยังเริ่มการจดจำเสียงบนเครื่องไม่ได้ – ตรวจสอบอินเทอร์เน็ต แล้วแตะไมค์เพื่อลองอีกครั้ง",
+    "zh": "无法启动设备端语音识别——请检查网络，然后点按麦克风重试。",
+    "ja": "端末上の音声認識を開始できませんでした。インターネット接続を確認して、マイクをタップしてもう一度お試しください。",
+    "ko": "기기 음성 인식을 시작하지 못했어요. 인터넷을 확인한 뒤 마이크를 눌러 다시 시도하세요.",
+    "hi": "डिवाइस पर वाक् पहचान शुरू नहीं हो सकी – इंटरनेट जाँचें, फिर दोबारा कोशिश करने के लिए माइक पर टैप करें।",
+    "ar": "تعذّر تشغيل التعرّف على الصوت على الجهاز – تحقّق من الإنترنت ثم انقر على الميكروفون للمحاولة مجددًا.",
+    "ru": "Не удалось запустить распознавание речи на устройстве – проверьте интернет и нажмите на микрофон, чтобы повторить.",
+    "tr": "Cihazda konuşma tanıma başlatılamadı – internetinizi kontrol edip yeniden denemek için mikrofona dokunun."
   }
 }
