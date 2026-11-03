@@ -8,7 +8,7 @@ A, OUT = sys.argv[1], sys.argv[2]; os.makedirs(OUT, exist_ok=True)
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 F = ImageFont.truetype(f'{ROOT}/brand/social/src/fonts/PlusJakartaSans-VF.ttf', 34); F.set_variation_by_axes([800])
 qcs = [json.load(open(f)) for f in sorted(glob.glob(f'{A}/tv-*/qc.json'))]
-eps = sorted({q['ep'] for q in qcs}); rows = []; md = ['# Teach2D pilots – review sheet', '', '| pilot | format | theme | score | failed gates |', '|---|---|---|---|---|']
+eps = sorted({q['ep'] for q in qcs}); rows = []; md = ['# Teach2D – review sheet', '', '| episode | format | theme | score | failed gates |', '|---|---|---|---|---|']
 for q in qcs: md.append(f"| {q['ep']} | {q['format']} | {q['theme']} | {q['score']} | {', '.join(k for k, g in q['gates'].items() if not g['ok']) or '–'} |")
 def fit(p, h):
     im = Image.open(p).convert('RGB'); return im.resize((max(1, int(im.width * h / im.height)), h))
@@ -40,6 +40,7 @@ if lrows:
 for p in glob.glob(f'{A}/tv-embed-shots-*/*.png'): Image.open(p).convert('RGB').save(f'{OUT}/embed_{os.path.basename(p)[:-4]}.jpg', quality=85)
 open(f'{OUT}/review.md', 'w').write('\n'.join(md) + '\n'); print('\n'.join(md))
 bad = [q for q in qcs if not q['ok']]
-want = {(os.path.basename(f)[:-5], fm) for f in glob.glob(f'{ROOT}/content/video/teach2d/eps/*.json') for fm in ('short', 'wide')}
+ids = json.loads(os.environ['LIST']) if os.environ.get('LIST') else [os.path.basename(f)[:-5] for f in glob.glob(f'{ROOT}/content/video/teach2d/eps/*.json')]   # this run's episodes (a batch renders a slice)
+want = {(e, fm) for e in ids for fm in ('short', 'wide')}
 miss = sorted(want - {(q['ep'], q['format']) for q in qcs}); print('missing renders:', miss or 'none')
 sys.exit(1 if not qcs or bad or miss else 0)

@@ -1,0 +1,3 @@
+/* UI id – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"Cấu trúc":"Pola","Xem giải thích chi tiết":"Lihat penjelasan lengkap","Vì sao lựa chọn của bạn sai":"Mengapa pilihanmu salah","Bằng chứng trong bài":"Bukti dalam teks","Sắc thái nghĩa":"Nuansa makna","Ví dụ thêm":"Contoh lain","Cùng nhóm":"Pola yang sama","Thêm vào ôn tập":"Tambah ke ulasan","Báo lỗi giải thích":"Laporkan kesalahan penjelasan ini","Nghe ví dụ":"Dengar contoh"});
+})(typeof self !== 'undefined' ? self : this);

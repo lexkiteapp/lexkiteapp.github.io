@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Sign out of Lexkite? (Bright Day High Contrast)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#f0e7de",
+            "primary-container": "#136b66",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "secondary": "#895100",
+            "on-secondary-fixed": "#2c1600",
+            "primary-fixed-dim": "#88d4cd",
+            "on-surface": "#1f1b16",
+            "on-error-container": "#93000a",
+            "surface": "#fff8f3",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f9efe6",
+            "on-error": "#ffffff",
+            "outline": "#6f7978",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-background": "#1f1b16",
+            "surface-variant": "#eae1d8",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#b03224",
+            "tertiary": "#8e190f",
+            "on-primary-container": "#9ce9e2",
+            "tertiary-fixed": "#ffdad4",
+            "error": "#ba1a1a",
+            "background": "#fff8f3",
+            "surface-container-low": "#fcf2e9",
+            "secondary-fixed": "#ffdcbc",
+            "primary-fixed": "#a4f0e9",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#683c00",
+            "error-container": "#ffdad6",
+            "surface-tint": "#106a65",
+            "surface-bright": "#fff8f3",
+            "on-primary-fixed-variant": "#00504c",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary-fixed": "#410000",
+            "surface-container-highest": "#eae1d8",
+            "on-secondary-container": "#663b00",
+            "secondary-container": "#fe9d19",
+            "on-surface-variant": "#3f4947",
+            "outline-variant": "#bec9c7",
+            "surface-dim": "#e2d8d0",
+            "primary": "#00514d",
+            "inverse-primary": "#88d4cd",
+            "on-tertiary-container": "#ffd0c9",
+            "inverse-surface": "#34302a",
+            "surface-container": "#f6ece4",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "2.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface flex justify-center items-center min-h-screen p-0 m-0 font-body-md select-none antialiased">
+<div class="relative w-[390px] h-[844px] overflow-hidden bg-surface flex flex-col justify-between shadow-2xl">
+<!-- ABSTRACT UNDERLYING SCREEN: Per design system and explicit requirement:
+         When a modal or sheet sits over a dimmed page, the page behind is shown ONLY
+         as plain soft geometric shapes with NO readable text to eliminate all contrast defects. -->
+<div aria-hidden="true" class="absolute inset-0 bg-surface flex flex-col p-4 pointer-events-none">
+<!-- Top header abstract placeholder -->
+<div class="flex items-center justify-between py-3 mb-4">
+<div class="w-10 h-10 rounded-2xl bg-surface-container-high border-2 border-outline-variant"></div>
+<div class="w-36 h-6 rounded-full bg-surface-container-highest"></div>
+<div class="w-10 h-10 rounded-2xl bg-surface-container-high border-2 border-outline-variant"></div>
+</div>
+<!-- Profile hero silhouette -->
+<div class="w-full bg-surface-container-lowest border-2 border-surface-variant rounded-3xl p-5 mb-4 shadow-[0_4px_0_#E8DFD4] flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-4 border-surface-variant mb-3"></div>
+<div class="w-40 h-5 rounded-full bg-surface-container-highest mb-2"></div>
+<div class="w-24 h-4 rounded-full bg-surface-container mb-3"></div>
+<div class="flex gap-2">
+<div class="w-28 h-6 rounded-full bg-surface-container-high"></div>
+<div class="w-20 h-6 rounded-full bg-surface-container-high"></div>
+</div>
+</div>
+<!-- Settings group silhouettes -->
+<div class="w-full bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-4 mb-3 space-y-3 shadow-[0_3px_0_#E8DFD4]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high"></div>
+<div class="w-32 h-4 rounded-full bg-surface-container-highest"></div>
+</div>
+<div class="w-5 h-5 rounded bg-surface-container"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high"></div>
+<div class="w-44 h-4 rounded-full bg-surface-container-highest"></div>
+</div>
+<div class="w-5 h-5 rounded bg-surface-container"></div>
+</div>
+</div>
+<div class="w-full bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-4 mb-4 space-y-3 shadow-[0_3px_0_#E8DFD4]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high"></div>
+<div class="w-36 h-4 rounded-full bg-surface-container-highest"></div>
+</div>
+<div class="w-10 h-6 rounded-full bg-surface-container-high"></div>
+</div>
+</div>
+<!-- Bottom Nav silhouette area -->
+<div class="mt-auto flex justify-around py-3 px-2 bg-surface-container-lowest border-2 border-surface-variant rounded-2xl">
+<div class="w-10 h-10 rounded-xl bg-surface-container"></div>
+<div class="w-10 h-10 rounded-xl bg-surface-container"></div>
+<div class="w-10 h-10 rounded-xl bg-surface-container"></div>
+<div class="w-10 h-10 rounded-xl bg-surface-container"></div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high"></div>
+</div>
+</div>
+<!-- WARM DIMMED SCRIM BACKDROP: Completely dims the underlying silhouette shapes with high accessibility compliance -->
+<div class="absolute inset-0 bg-[#203135]/45 backdrop-blur-[2px] transition-opacity z-10"></div>
+<!-- MODAL CONFIRMATION CONTAINER (Interactive Foreground) -->
+<div class="relative z-20 w-full h-full flex flex-col justify-end px-4 pb-6">
+<!-- Tactile Dialog Card -->
+<div class="w-full bg-surface-container-lowest border-2 border-[#E8DCD0] rounded-[28px] p-5 shadow-[0_8px_0_#E0D2C2] transition-transform duration-200">
+<!-- Header row: Sign-out Icon and Close tactile button -->
+<div class="flex items-start justify-between mb-4">
+<!-- Teal icon container with tactile depth -->
+<div class="w-14 h-14 rounded-2xl bg-[#E6F6F4] border-2 border-[#136B66] flex items-center justify-center shadow-[0_3px_0_#0D4C49]">
+<svg aria-hidden="true" class="w-7 h-7 text-[#136B66]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewbox="0 0 24 24">
+<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+<polyline points="16 17 21 12 16 7"></polyline>
+<line x1="21" x2="9" y1="12" y2="12"></line>
+</svg>
+</div>
+<!-- Tactile Close button (> 7:1 contrast) -->
+<button aria-label="Close dialog" class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-white border-2 border-[#E5D7C9] text-[#1C1003] font-black flex items-center justify-center shadow-[0_3px_0_#DDCFC0] active:translate-y-[2px] active:shadow-[0_1px_0_#DDCFC0] transition-all" type="button">
+<svg class="w-5 h-5 text-[#1C1003]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+</div>
+<!-- Heading with maximum contrast -->
+<h1 class="text-2xl font-black text-[#1C1003] tracking-tight mb-2">
+          Sign out of Lexkite?
+        </h1>
+<!-- Explanatory body text (> 5.5:1 contrast against white) -->
+<p class="text-base font-semibold text-[#4A3B2F] leading-snug mb-4">
+          Your progress is saved to your account. On this device you will see a fresh start until you sign in again.
+        </p>
+<!-- Sync Status Pill / Badge -->
+<div class="bg-[#EAF8F5] border-2 border-[#2DD4BF]/60 p-3.5 rounded-2xl flex items-center gap-3 mb-4 shadow-[0_2px_0_#C5EBE4]">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#136B66] flex items-center justify-center">
+<svg aria-hidden="true" class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+</div>
+<span class="text-sm font-bold text-[#0E4D49] leading-tight">
+            Cloud backup active: 45-day streak &amp; 1,240 words synced
+          </span>
+</div>
+<!-- Mandatory empty dashed teacher slot -->
+<div class="teacher-slot border-2 border-dashed border-[#136B66]/60 rounded-2xl p-2.5 mb-5 flex items-center justify-center bg-[#F4F9F8]">
+<span class="text-xs font-bold text-[#00514d] tracking-wide">
+            Verified Account Sync Safe
+          </span>
+</div>
+<!-- Action Button Stack -->
+<div class="flex flex-col gap-3">
+<!-- Primary 3D Button: Sign out -->
+<button class="w-full bg-[#0E5450] hover:bg-[#0B4440] text-white font-black text-lg py-3.5 px-6 rounded-2xl shadow-[0_4px_0_#072D2B] active:translate-y-[3px] active:shadow-[0_1px_0_#072D2B] flex items-center justify-center gap-2 transition-all" type="button">
+<span>Sign out</span>
+<svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<line x1="5" x2="19" y1="12" y2="12"></line>
+<polyline points="12 5 19 12 12 19"></polyline>
+</svg>
+</button>
+<!-- Secondary 3D Button: Cancel -->
+<button class="w-full bg-[#FFF9F3] hover:bg-white text-[#1C1003] font-black text-lg py-3.5 px-6 rounded-2xl border-2 border-[#E5D7C9] shadow-[0_4px_0_#DDCFC0] active:translate-y-[3px] active:shadow-[0_1px_0_#DDCFC0] flex items-center justify-center transition-all" type="button">
+            Cancel
+          </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

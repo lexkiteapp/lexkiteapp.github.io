@@ -89,7 +89,8 @@ export function collect() {
       for (const k of (x.PronPairs || {}).CONTRASTS || []) for (const p of String(k.pairs || '').split(/\s+/)) for (const w of p.split('/')) addOne(GEN['en-US'], w.split('=')[0], 'pron');
       for (const it of (x.PronCoach || {}).SENTENCES || []) bothSplit(it.s, 'pron'); }
     // Tình huống Nói (speak/app.js, giọng Mỹ, cả câu)
-    { const x = ctx(); L(x, 'web/js/speak/data.js'); for (const sc of Object.values(x.SPK || {})) for (const l of sc.lines || []) oneSplit(GEN['en-US'], l.en, 'speak-situations'); }
+    { const x = ctx(), d = 'web/js/speak/s'; if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => /^[^.]+\.js$/.test(f)).sort()) L(x, `${d}/${f}`); // gốc en từng tình huống (scripts/speak/build.mjs)
+      for (const sc of Object.values(x.SPK_B || {})) for (const l of sc.lines || []) oneSplit(GEN['en-US'], l.en, 'speak-situations'); }
     // Lời giáo viên Ama/Carlos trong #/lesson (LessonTeacher.say tra khóa CẢ CÂU theo giọng nhân vật): khen/sửa, câu hỏi truyện, câu "nói hay hơn"
     { const x = ctx(); L(x, 'web/js/lesson/gold.js'); const T = ['af_heart', 'am_michael'];
       const lines = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!', 'Almost!', 'Not quite.', "Let's try again.", 'Great job!', 'Good work. Keep going!',
@@ -102,6 +103,11 @@ export function collect() {
       const plain = t => t.replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
       for (const m of x.MODELS || []) if (m.text) bothSplit(plain(m.text), 'models');
       for (const t of ['This is how I will read words and sentences to you.', 'Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.']) bothSplit(t, 'ui-lines'); }
+    // Say it like a native (say.js: 🔊 = giọng giáo viên của loạt, UI.tts 'en-US' giọng nhân vật – cả câu như UI.tts tra trước)
+    if (fs.existsSync('web/data/say.json')) { const V = { ama: 'af_heart', carlos: 'am_michael' };
+      for (const s of JSON.parse(fs.readFileSync('web/data/say.json', 'utf8')).series || []) for (const it of s.items || []) oneSplit(V[s.teacher] || V.ama, it.say, 'say-native'); }
+    // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
+    { const x = ctx(); L(x, 'web/js/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar/*.js
     { const x = ctx(); for (const f of fs.readdirSync('web/js/grammar').filter(f => f.endsWith('.js'))) L(x, `web/js/grammar/${f}`);
       const seen = new Set(), walk = o => { if (!o || typeof o !== 'object' || seen.has(o)) return; seen.add(o); for (const [k, v] of Object.entries(o)) { if (k === 'ex') for (const t of strs(v)) bothSplit(t, 'grammar'); else walk(v); } };
