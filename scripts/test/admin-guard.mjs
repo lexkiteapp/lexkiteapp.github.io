@@ -118,6 +118,8 @@ for (const [width, scheme, lang] of CONFIGS) {
         const gw = g.clientWidth, min = Math.min(300, gw) - 2;
         for (const c of g.children) { const w = c.getBoundingClientRect().width; if (w > 0 && w < min && !c.matches('[data-narrow-ok]')) { o.push(`thẻ ${c.className} "${(c.textContent || '').trim().slice(0, 20)}" bị ép còn ${Math.round(w)} px trong lưới ${gw} px`); break; } }
       }
+      // 3/11 gốc lỗi iPhone: .u-tbl td:first-child { min-width: 15rem } trúng cột ô chọn → cột Người dùng bị ép. Ô chọn phải gọn ở mọi bề rộng.
+      for (const c of document.querySelectorAll('.u-tbl:not(.tbl-cards) td.u-ckc')) { const w = c.getBoundingClientRect().width; if (w > 72) { o.push(`cột ô chọn rộng ${Math.round(w)} px (cột Người dùng bị ép)`); break; } }
       const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
       if (innerWidth > 900 && side && !side.hidden) {
         const sr = side.getBoundingClientRect(), mr = main.getBoundingClientRect(), cr = cont.getBoundingClientRect(), pad = parseFloat(getComputedStyle(cont).paddingLeft) + parseFloat(getComputedStyle(cont).paddingRight);

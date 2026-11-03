@@ -153,6 +153,12 @@ ok($('.cf-dlg'), 'đổi #hash khi chưa lưu → hỏi xác nhận');
 $('.cf-dlg [data-yes]').click(); await tick(40);
 ok(h1() === 'Users' && $('#tabs a[aria-current]').dataset.tab === 'users', 'Bỏ thay đổi → sang Người dùng');
 
+// ---------- 4b) Thanh trên điện thoại: menu ⋯ chứa Về app / sáng-tối / ngôn ngữ / Thoát (owner 3/11 iPhone) ----------
+ok($('#meMore') && $('#meMenu #out') && $('#meMenu #lng') && $('#meMenu #thm'), 'menu ⋯ chứa nút thanh trên');
+$('#meMore').click(); ok($('#meMenu').classList.contains('open') && $('#meMore').getAttribute('aria-expanded') === 'true', 'bấm ⋯ → mở menu');
+w.document.body.click(); ok(!$('#meMenu').classList.contains('open'), 'bấm ngoài → đóng menu');
+ok($('#uTable td.u-ckc .u-ckh') && $('#uTable td.u-c-who .u-em[title]'), 'Người dùng: ô chọn có vùng chạm, email có title (hiện đủ khi rê/chạm)');
+
 // ---------- 5) Xóa dữ liệu: gõ lại UID ----------
 $('[data-del="u1"]').click(); await tick();
 const yes = $('.cf-dlg [data-yes]');
