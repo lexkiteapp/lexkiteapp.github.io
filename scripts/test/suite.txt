@@ -190,6 +190,7 @@ node scripts/test/crawl.js web
 node scripts/test/links-js.mjs dist
 node scripts/test/seo-sitemap.mjs dist
 node scripts/test/seo-pages.mjs dist
+node scripts/test/word-depth.mjs
 node scripts/test/tools-pages.mjs
 node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs

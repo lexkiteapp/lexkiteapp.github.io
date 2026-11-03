@@ -1,0 +1,272 @@
+[
+ {
+  "id": "adm-analytics",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-analytics/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 791px | light: 20 vùng chạm < 44px (vd \"dashboard\n               231×36\") | light: tương phản 57 chữ (vd \"Admin Console\" 3.32<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-analytics/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 24 vùng chạm < 44px (vd \"dashboard\nTổng quan 231×36\") | dark: tương phản 8 chữ (vd \"Tổng quan\" 4.24<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-analytics-details/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 19 vùng chạm < 44px (vd \"grid_view\n               215×36\") | light: tương phản 11 chữ (vd \"Máy chủ ổn định\" 4.36<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-analytics-details/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 19 vùng chạm < 44px (vd \"grid_view\nTổng quan 215×36\") | dark: tương phản 15 chữ (vd \"›\" 2.91<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-analytics-details-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 53 chữ (vd \"Admin\" 3.97<4.5)",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-analytics-details-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 6 chữ (vd \"›\" 3.49<4.5)",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-growth/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 724px | light: 9 vùng chạm < 44px (vd \"INPUT 256×34\") | light: tương phản 62 chữ (vd \"Nội bộ dự án\" 4.13<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-growth/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 13 vùng chạm < 44px (vd \"INPUT 256×34\") | dark: tương phản 19 chữ (vd \"3\" 3.89<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-notices/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 897px | light: 36 vùng chạm < 44px (vd \"dashboard\n               231×36\") | light: tương phản 28 chữ (vd \"Tiếng Anh thực chiến · Miễn phí\" 4.41<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-notices/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 40 vùng chạm < 44px (vd \"dashboard\nTổng quan 231×36\") | dark: tương phản 32 chữ (vd \"Tổng quan\" 4.41<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-overview/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 34 vùng chạm < 44px (vd \"dashboard\nTổng quan 262×36\") | light: tương phản 41 chữ (vd \"v2.4.2 • Admin Prod\" 4.37<4.5) | light: tên icon hiện thành chữ \"test_phoneme_aligner\" (1)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-overview/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 34 vùng chạm < 44px (vd \"dashboard\nTổng quan 263×36\") | dark: tương phản 1 chữ (vd \"›\" 1.86<4.5) | dark: tên icon hiện thành chữ \"test_phoneme_aligner\" (1)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-overview-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 5 chữ (vd \"build\n          Xử lý & Khắc phục hạ tần\" 3.12<4.5)",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-overview-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 5 chữ (vd \"build\n          Xử lý & Khắc phục hạ tần\" 3.12<4.5)",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quota",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-quota/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 862px | light: 31 vùng chạm < 44px (vd \"dashboard\n            Tổ 231×36\") | light: tương phản 4 chữ (vd \"/\" 2.32<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quota",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-quota/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 14 vùng chạm < 44px (vd \"INPUT 256×34\") | dark: tương phản 2 chữ (vd \"/\" 4.17<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-reports/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 21 vùng chạm < 44px (vd \"add_circle\nBáo cáo mới 223×38\") | light: tương phản 34 chữ (vd \"CONSOLE\" 4.35<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-reports/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 21 vùng chạm < 44px (vd \"add_circle\nBáo cáo mới 223×38\") | dark: tương phản 1 chữ (vd \"›\" 1.78<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-signin",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-signin/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"help_outline 38×38\") | light: tương phản 1 chữ (vd \"Quyền truy cập được giới hạn theo email\" 4.37<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-signin",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-signin/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"help_outline 38×38\")\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-social/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 42 vùng chạm < 44px (vd \"first_page 26×32\") | light: tương phản 72 chữ (vd \"Tiếng Anh thực chiến · Miễn phí\" 4<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-social/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 42 vùng chạm < 44px (vd \"first_page 26×32\") | dark: tương phản 17 chữ (vd \"Tổng quan\" 4.39<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-studio/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 29 vùng chạm < 44px (vd \"Lexkite Admin\n           153×33\") | light: tương phản 59 chữ (vd \"Nội bộ · v2.4.1\" 3<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-studio/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 29 vùng chạm < 44px (vd \"Lexkite Admin\n\nNội bộ ·  153×33\") | dark: tương phản 21 chữ (vd \"›\" 2.11<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-users2-confirm/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 160px | light: 22 vùng chạm < 44px (vd \"logout 32×32\") | light: tương phản 37 chữ (vd \"Lexkite\" 2.53<3)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-users2-confirm/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tràn ngang 160px | dark: 22 vùng chạm < 44px (vd \"logout 32×32\") | dark: tương phản 4 chữ (vd \"/\" 2.52<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-drawer",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-users2-drawer/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 160px | light: 19 vùng chạm < 44px (vd \"logout 32×32\") | light: tương phản 19 chữ (vd \"1.284\" 3.92<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-drawer",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-users2-drawer/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 19 vùng chạm < 44px (vd \"logout 32×32\") | dark: tương phản 47 chữ (vd \"Bảng điều khiển trung tâm\" 2.8<4.5)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-users2-table/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 1418px | light: 10 vùng chạm < 44px (vd \"Lexkite\n              Ad 171×37\") | light: tương phản 7 chữ (vd \"Thêm người dùng\" 3.25<4.5) | light: tên icon hiện thành chữ \"search\" (58)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "1",
+  "from": "adm-users2-table/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tràn ngang 160px | dark: 10 vùng chạm < 44px (vd \"Lexkite\nAdmin\n\nHệ thống  171×37\") | dark: tương phản 33 chữ (vd \"570 AWL\" 4.14<4.5) | dark: tên icon hiện thành chữ \"search\" (58)\nLayout: the page must fit a 1280-wide browser window with zero horizontal scroll – sidebar and content use flexible widths, tables wrap or shrink columns, no fixed widths wider than the window. Sidebar nav items at least 44 px tall.",
+  "device": "DESKTOP"
+ }
+]
