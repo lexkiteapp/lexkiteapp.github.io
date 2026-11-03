@@ -93,6 +93,21 @@
       "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
+      "key": "kokoro-model",
+      "name": "Mô hình Kokoro-82M q8 trên R2 (audio.lexkite.com/kokoro/<VER>/)",
+      "kind": "cdn",
+      "purpose": "kokoro-js chạy trên máy người dùng cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md): onnx/model_quantized.onnx 92 MB + giọng af_heart/bf_emma/am_michael/bm_george/bm_lewis, ghim commit HF, sha256 kiểm ở CI (scripts/cdn/kokoro-model.mjs, kokoro-model.yml) và trong Worker. Mỗi máy tải 1 lần (Cache Storage), không có máy chủ suy luận. Dự phòng: Hugging Face.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-audio-cdn",
+      "free": "Nằm trong R2 lexkite-audio-cdn (~95 MB / 10 GB); Cache Rule cache mọi tệp → lượt trúng biên 0 Class B; băng thông ra 0 đ",
+      "upgrade": "Không cần: tải 1 lần/máy; bật dần bằng kl_pct (functions/api/config.js)",
+      "status": "Mới 03/11/2026 – bật từ xa bằng cờ kl / kl_pct, mặc định tắt",
+      "match": [
+        "kokoro-model",
+        "audio.lexkite.com/kokoro",
+        "huggingface.co"
+      ]
+    },
+    {
       "key": "audio-origin",
       "name": "GitHub Pages âm thanh CŨ (lexkiteapp.github.io/audio) – đóng băng",
       "kind": "storage",

@@ -3,10 +3,10 @@
 name: Phát audio (Chromium + WebKit)
 on:
   pull_request:
-    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/lesson/teacher.js', 'web/js/settings.js', 'web/sw.js', 'web/audio/w/s3.tsv', 'web/data/offline-pack.json', 'scripts/audio/offline-pack.mjs', 'scripts/test/audio-*.mjs', '.github/workflows/audio-play.yml']
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/js/settings.js', 'web/sw.js', 'web/audio/w/s3.tsv', 'web/data/offline-pack.json', 'scripts/audio/offline-pack.mjs', 'scripts/test/audio-*.mjs', '.github/workflows/audio-play.yml']
   push:
     branches: [main]
-    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/lesson/teacher.js', 'web/sw.js', 'scripts/test/audio-*.mjs']
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/sw.js', 'scripts/test/audio-*.mjs']
   workflow_dispatch:
 permissions:
   contents: read

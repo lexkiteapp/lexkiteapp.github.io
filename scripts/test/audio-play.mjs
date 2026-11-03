@@ -3,6 +3,7 @@
 //  5) mọi gốc 404 → UI.tts rơi về giọng máy, đúng giới tính người nói (Carlos nam, Ama nữ) + ghi nhật ký dự phòng
 //  6) không chồng tiếng: giọng mới dừng giọng cũ (cả Audio tự tạo ở module khác và giọng máy); hiệu ứng sfx không bị dừng
 //  7) nhiều câu Kokoro: đúng thứ tự, có khoảng nghỉ giữa câu (SENT_GAP), dừng trong lúc nghỉ → không phát câu kế
+//  8) chữ chưa có file + Kokoro trên máy (KLocal giả): chưa sẵn → giọng máy NGAY + xin nạp; sẵn → không gọi giọng máy; lỗi giữa chừng → giọng máy đọc phần còn lại
 // Không cần máy chủ: page.route trả trang thử + file JS thật từ web/ + WAV tự sinh. Chạy: node scripts/test/audio-play.mjs [chromium,webkit]
 import { chromium, webkit } from 'playwright';
 import fs from 'node:fs';
@@ -143,6 +144,20 @@ for (const name of which) {
   await page.evaluate(() => UI.stopSpeak());
   await page.waitForTimeout(600);
   check((await page.evaluate(() => __res.seq2.join(','))) === '0' && (await page.evaluate(() => __res.four)) === undefined, 'dừng trong lúc nghỉ → không phát câu kế, không onEnd');
+  // 8) Kokoro trên máy (docs/specs/kokoro-on-device.md) – KLocal giả, không tải mô hình
+  await page.evaluate(() => { __said.length = 0; __res.want = []; window.KLocal = { ready: () => false, want: r => __res.want.push(r), stop() {}, speak: () => { throw new Error('không được gọi khi chưa sẵn'); } }; });
+  await step(() => UI.tts('Typed by the learner.', 'en-US', 1, { onEnd: () => { __res.kw = 1; } }));
+  await res('kw');
+  check((await page.evaluate(() => __said.length)) === 1 && (await page.evaluate(() => __res.want.join())) === 'dynamic', 'chưa sẵn → giọng máy ngay + xin nạp (dynamic)');
+  await page.evaluate(() => { __said.length = 0; window.KLocal = { ready: () => true, want() {}, stop() {}, speak: (parts, o) => { __res.kparts = parts; __res.kvoice = o.voice; setTimeout(() => o.onEnd(), 20); return true; } }; });
+  await step(() => UI.tts('First one. Second one.', 'en-GB', 1, { onEnd: () => { __res.kr = 1; } }));
+  await res('kr');
+  check((await page.evaluate(() => __said.length)) === 0 && (await page.evaluate(() => __res.kparts.length + '|' + __res.kvoice)) === '2|bf_emma', 'sẵn → Kokoro trên máy đọc từng câu, đúng giọng theo accent, không giọng máy');
+  await page.evaluate(() => { __said.length = 0; window.KLocal = { ready: () => true, want() {}, stop() {}, speak: (parts, o) => { setTimeout(() => o.onFail(parts.slice(1)), 20); return true; } }; });
+  await step(() => UI.tts('Alpha one. Beta two.', 'en-US', 1, { onEnd: () => { __res.kf = 1; } }));
+  await res('kf');
+  check((await page.evaluate(() => __said.map(x => x.text).join('|'))) === 'Beta two.', 'Kokoro trên máy lỗi giữa chừng → giọng máy đọc tiếp phần còn lại, không im lặng');
+  await page.evaluate(() => { delete window.KLocal; });
   const errs = logs.filter(l => /PAGEERROR/.test(l));
   check(errs.length === 0, 'không lỗi JS' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await browser.close();
