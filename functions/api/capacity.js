@@ -56,7 +56,7 @@ export async function fetchSeries(env, from, to, fetcher = fetch) {
   return [...by.values()].sort((p, q) => p.day < q.day ? -1 : 1).map(x => ({ ...x, requests: x.fn + x.workers, ...(src[x.day] ? { src: src[x.day] } : {}) }));
 }
 
-async function sendMail(env, subject, text) {
+export async function sendMail(env, subject, text) {
   if (!env.MAIL) return false;
   const to = String(env.REPORT_NOTIFY_EMAIL || '').trim();
   const r = await env.MAIL.fetch('https://mail/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subject, text: text + '\n\nhttps://lexkite.com/admin.html#quota', ...(/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(to) ? { to } : {}) }) }).catch(() => null);

@@ -7,6 +7,9 @@
 import { REG } from './_jobs_reg.js';
 export const D1_LIMITS = { reads: 5e6, writes: 1e5 };
 export const GUARD_PCT = 0.5, ALERT_PCT = 0.6, OWN_BUDGET = 1.5e6;
+// Sự cố 03/11 (Phân tích quét `sessions` → 5,1 M/5 M dòng đọc, Cloudflare báo 90 % trước mình): báo chủ ở 50 % & 75 % (functions/api/_d1watch.js, cron-kick 30 phút),
+// từ 85 % mọi đường đọc KHÔNG thiết yếu (Quản trị, thông báo…) trả số liệu đệm hoặc 429 nhẹ 'quota-shed'. Đồng bộ thẻ, đăng nhập, tiến độ học không bao giờ bị cắt.
+export const WARN_PCTS = [0.5, 0.75], SHED_PCT = 0.85;
 const CACHE = {}; // theo tài khoản: 'main' | 'b'
 // 27/10: GraphQL Analytics không có hạn chờ → chậm/treo kéo cả yêu cầu Quản trị theo. ≤ 4 s, quá hạn → số tự đếm (đường dự phòng sẵn có, như khi thiếu token).
 export const GQL_TIMEOUT_MS = 4000;
@@ -36,7 +39,31 @@ export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which 
   v.at = now; v.which = which; CACHE[which] = { at: now, day: day(now), v };
   return v;
 }
-export const resetD1Cache = () => { for (const k of Object.keys(CACHE)) delete CACHE[k]; };
+export const resetD1Cache = () => { for (const k of Object.keys(CACHE)) delete CACHE[k]; delete PEEK.p; };
+/** Giây tới 00:00 UTC (hạn mức D1 đặt lại) – dùng cho Retry-After của 429 'quota-shed' / 'quota'. */
+export const secsToReset = (now = Date.now()) => Math.max(60, Math.ceil((Date.parse(day(now) + 'T00:00:00Z') + 86400e3 - now) / 1000));
+const PEEK = {};
+/** Xem nhanh mức dùng D1 (tài khoản chính) KHÔNG chờ mạng: có số trong bộ nhớ isolate (≤ 5 phút) → trả ngay; chưa có → làm mới nền, lần này trả null (cho qua).
+ * Cho đường người dùng/không thiết yếu: không bao giờ thêm độ trễ GraphQL vào yêu cầu. */
+export function usagePeek(env, db, now = Date.now(), fetcher = fetch) {
+  const C = CACHE.main;
+  if (C && now - C.at < 300e3 && C.day === day(now)) return C.v;
+  if (!PEEK.p) PEEK.p = d1Usage(env, db, now, fetcher, 'main').catch(() => null).finally(() => { delete PEEK.p; });
+  return C && C.day === day(now) ? C.v : null; // số cũ cùng ngày (quá 5 phút) vẫn tốt hơn không có
+}
+/** ≥ 85 % dòng đọc/ghi hôm nay (số Cloudflare cả tài khoản) → chế độ tiết kiệm. Tự đếm (thiếu token) không đủ tin để cắt → false. */
+export const isShed = u => !!(u && u.source === 'cloudflare' && u.ratio >= SHED_PCT);
+export const SHED_BODY = { error: 'quota-shed', reason: 'd1-85' };
+/** Endpoint đọc không thiết yếu (thông báo, quản trị phụ…): ≥ 85 % → Response 429 nhẹ (Retry-After tới 00:00 UTC), ngược lại null. Không chờ mạng. */
+export function shedRead(env, mk) {
+  try {
+    const u = usagePeek(env, env && env.DB); if (!isShed(u)) return null;
+    const s = secsToReset(), r = mk(429, { ...SHED_BODY, pct: Math.round(u.ratio * 100), retry: s });
+    try { r.headers.set('Retry-After', String(s)); } catch (e) { /* header bất biến */ }
+    return r;
+  } catch (e) { /* cho qua */ }
+  return null;
+}
 /** which: 'main' | 'b' | ['main','b'] — mỗi tài khoản D1 đo RIÊNG. → null (cho qua) | Response 429. */
 export async function guardBackground(env, db, json, which = 'main') {
   for (const w of [].concat(which)) {
