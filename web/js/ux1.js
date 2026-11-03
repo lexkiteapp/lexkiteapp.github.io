@@ -246,7 +246,7 @@
     let mist = 0; try { mist = demo ? 0 : ((await Core.Store.get('mistakes', [])) || []).filter(x => !x.fixed).length; } catch (e) { mist = 0; }
     if (location.hash !== tok) return;
     const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
-    const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(' lt:bg-[#FFF7EA] dk:bg-[#0B171A]', '');
+    const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
     const pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`;
     const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
@@ -256,7 +256,7 @@
     const tch = pose => Chars.img('ama', { kind: 'still', pose, cls: 'block w-full h-auto max-h-full object-contain object-bottom pointer-events-none select-none', alt: '', size: 120 }); // teacher-pose-map: Ama nói (talk) ở Hôm nay, vẫy chào (wave) với người mới – ảnh nguyên khung, không cắt/che/viền
     const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh ? 'wave' : 'talk'), pathHtml, unitName: u.name,
       k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
-        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#136B66] dk:text-[#6BD8CE]">${esc(w.word)}</span>`).join(', ')}` : '' },
+        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
       r: { due, title: t('{n} từ đang phai dần', { n: due }), sub: t('Ôn ngay ({m} phút)', { m: Math.max(1, Math.ceil(due / 6)) }) },
       q: { mistN: mist, mist: t('{n} cần sửa', { n: mist }), mistHref: mist ? '#/mistakes?retry=1' : '#/mistakes', dueN: due, due: t('{n} đến hạn', { n: due }), dueHref: due ? '#/review' : '#/quick' },
       s: stories.slice(0, DSK() ? 3 : 2), mock: MOCK[b.ex] || '#/mock', story: stories[0] ? stories[0].href : '#/lesson/go' });
