@@ -140,7 +140,7 @@ for who, P in R['people'].items():
         fr = c['still'] if 'still' in c else open_frame(cf, cm, a, z, a + N * 2 // 5, f'{who}/still-{pose}')
         c['still_frame'] = fr   # ghi lại khung đã chọn (soát/tái lập)
         still(cf, cm, fr, SC2, FA2, f'{OUT}/{who}/still-{pose}.webp')
-        if pose in ('talk', 'listen'):   # clip HD cho chỗ lớn sống (Call): 2× điểm ảnh, ≤ 900 KB
+        if pose in R['hd']:   # clip HD 2× điểm ảnh, ≤ 900 KB: chỗ lớn sống (Call talk/listen) + tư thế clip của chỗ giáo viên cỡ l/xl trên màn retina (point/cheer/encourage – live 3/11: bản 1× phóng to làm viền đen tay méo khi cử động)
             oh = f'{OUT}/{who}/{pose}-hd.mp4'
             run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g.replace(f',{SC},{FA}[a]', f',{SC2},{FA2}[a]').replace(f',{SC},format=rgba[c]', f',{SC2},format=rgba[c]'),
                 '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)

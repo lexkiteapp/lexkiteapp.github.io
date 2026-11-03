@@ -1,4 +1,6 @@
 {
+  "hd": ["talk", "listen", "point", "cheer", "encourage"],
+  "_hd": "Tư thế có thêm <pose>-hd.mp4 (2×): Call + chỗ giáo viên Chars.slot cỡ l/xl khi devicePixelRatio ≥ 2. Đổi danh sách = sửa regex Chars.clip (cổng characters-gate so khớp) rồi chạy teach-build.",
   "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
   "version": 2,
   "frame": {
