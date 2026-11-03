@@ -142,6 +142,8 @@ Mẫu thẻ:
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Nối âm Connected Speech** (`noi-am-trong-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`65536acc2`).
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Viết CV chuẩn ATS** (`viet-cv-tieng-anh-chuan-ats`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`f51c0ea2f`).
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Thuyết trình tiếng Anh chuyên nghiệp** (`thuyet-trinh-tieng-anh-presentation-skills`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`6be826a9b`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Tiếng Anh giao tiếp họp công sở** (`tieng-anh-giao-tiep-hop-cong-so`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`d0735d56f`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Giới từ In On At** (`gioi-tu-in-on-at-trong-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`1e0add77f`).
   - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.026 bài viết** (1.026 files `.md` trong `content/blog/`).
   - 100% bài viết đạt chuẩn Quality Gates: `blog-check` 0 lỗi, `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
   - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo theo kế hoạch.
