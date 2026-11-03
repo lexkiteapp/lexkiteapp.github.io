@@ -3,7 +3,7 @@ title: "Técnicas Skimming Scanning IELTS Reading: Guia de 60 Minutos"
 description: "Aprende las técnicas skimming scanning ielts reading para localizar respuestas rápidamente en 60 minutos y dominar True False Not Given sin traducir."
 slug: tecnicas-skimming-scanning-ielts-reading
 lang: es
-translationKey: tecnicas-skimming-scanning-ielts-reading
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, skimming-scanning]
 keyword: "técnicas skimming scanning ielts reading"

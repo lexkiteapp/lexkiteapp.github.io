@@ -4,7 +4,7 @@ title: "IELTS Reading Skimming Scanning Tips in Hindi: 60 मिनट गाइ
 description: "Ielts reading skimming scanning tips in hindi: 60 मिनट में 3 पैसेज हल करने की रणनीति, True False Not Given के ट्रिक्स और बैंड 8 स्कोरिंग तकनीकें।"
 keyword: "ielts reading skimming scanning tips in hindi"
 lang: hi
-translationKey: ielts-reading-skimming-scanning-ky-thuat
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, skimming, scanning]
 cover: read-article

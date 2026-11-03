@@ -3,7 +3,7 @@ title: "아이엘츠 리딩 시간 단축 비법: 스키밍과 스캐닝으로 6
 description: "아이엘츠 리딩 시간 단축 완벽 가이드: 60분 시험 시간 부족의 늪에서 벗어나는 과학적 스키밍(Skimming)과 정밀 스캐닝(Scanning) 독해 전략, 패러프레이징 키워드 매칭 공식과 True False Not Given 함정 돌파법을 상세히 전수합니다."
 slug: ielts-reading-skimming-scanning-gongbubeop
 lang: ko
-translationKey: ielts-reading-skimming-scanning-gongbubeop
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, skimming-scanning]
 keyword: "아이엘츠 리딩 시간 단축"

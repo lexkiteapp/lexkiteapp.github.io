@@ -4,7 +4,7 @@ title: "IELTS Reading Skimming Scanning Istratijiyat: دليل 60 دقيقة"
 description: "Ielts reading skimming scanning istratijiyat: استراتيجيات القراءة السريعة والمسح لاختبار IELTS Reading، وإدارة 60 دقيقة وفخاخ أسئلة True False Not Given."
 keyword: "ielts reading skimming scanning istratijiyat"
 lang: ar
-translationKey: ielts-reading-skimming-scanning-ky-thuat
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, skimming, scanning]
 cover: read-article

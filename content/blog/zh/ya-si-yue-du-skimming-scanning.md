@@ -3,7 +3,7 @@ title: "雅思阅读定位技巧全攻略：略读与寻读双剑合璧攻克60�
 description: "雅思阅读定位技巧提分全攻略：深度解析略读（Skimming）与寻读（Scanning）实战心法，三级同义替换识别规则与True/False/Not Given高效解题策略，助你稳步突破雅思7.5分大关，告别时间不够做不完卷子的困境。"
 slug: ya-si-yue-du-skimming-scanning
 lang: zh
-translationKey: ya-si-yue-du-skimming-scanning
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, yue-du, skimming-scanning]
 keyword: "雅思阅读定位技巧"

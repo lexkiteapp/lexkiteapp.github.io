@@ -4,7 +4,7 @@ title: "Skimming dan Scanning IELTS Reading: Trik Cepat Raih Band 7.5+"
 description: "Kuasai teknik skimming dan scanning IELTS reading untuk menghemat waktu 60 menit. Pelajari cara menaklukkan True False Not Given dan manajemen waktu passage."
 keyword: "skimming dan scanning ielts reading"
 lang: id
-translationKey: ielts-reading-skimming-and-scanning
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, ky-nang]
 cover: reading

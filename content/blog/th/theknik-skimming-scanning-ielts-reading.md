@@ -4,7 +4,7 @@ title: "เทคนิค Skimming Scanning IELTS Reading: พิชิตค�
 description: "คู่มือเทคนิค skimming scanning ielts reading จัดการเวลา 60 นาทีอย่างแม่นยำ พร้อมกลยุทธ์จับคีย์เวิร์ด ดักทางข้อสอบ True False Not Given และตัวอย่างข้อสอบจริง"
 keyword: "เทคนิค skimming scanning ielts reading"
 lang: th
-translationKey: ky-nang-skimming-scanning-ielts-reading
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, theknik]
 cover: reading

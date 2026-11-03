@@ -4,7 +4,7 @@ title: "IELTS リーディング コツ：スキミングとスキャニング�
 description: "IELTS リーディング コツを徹底解説。時間が足りない悩みを解決するスキミングとスキャニングの具体的手順、True False Not Givenの見極め方、スコア7.0以上を突破する60分間の時間配分戦略を詳しく紹介します。"
 keyword: "ielts リーディング コツ"
 lang: ja
-translationKey: ielts-reading-skimming-and-scanning
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, ky-nang]
 cover: reading

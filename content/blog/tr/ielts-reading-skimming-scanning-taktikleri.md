@@ -4,7 +4,7 @@ title: "IELTS Reading Skimming Scanning Taktikleri: Band 8.0 Rehberi"
 description: "IELTS reading skimming scanning taktikleri ile 60 dakikayı verimli yönetin. Hızlı okuma, anahtar kelime tarama, True False Not Given tuzakları ve stratejiler."
 keyword: "ielts reading skimming scanning taktikleri"
 lang: tr
-translationKey: ky-nang-skimming-scanning-ielts-reading
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, taktikler]
 cover: reading

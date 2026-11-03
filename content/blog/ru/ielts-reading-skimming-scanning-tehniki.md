@@ -4,7 +4,7 @@ title: "IELTS Reading Skimming Scanning Tehniki: Band 8.0"
 description: "IELTS reading skimming scanning tehniki для сдачи на Band 8.0: управление 60 минутами, ловушки True False Not Given и пошаговый алгоритм чтения."
 keyword: "ielts reading skimming scanning tehniki"
 lang: ru
-translationKey: ky-nang-skimming-scanning-ielts-reading
+translationKey: ielts-reading-skimming-scanning
 category: ielts
 tags: [ielts, reading, tehniki]
 cover: reading
