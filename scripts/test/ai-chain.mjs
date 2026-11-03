@@ -132,6 +132,12 @@ ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.think
   ok(!S.caught({ q: 'thinks', fix: 'think' }, [{ quote: 'many people thinks', fix: 'many people thinks that' }]), 'caught: "sửa" mà giữ nguyên lỗi → không tính');
   ok(!S.caught({ q: 'it help', fix: 'helps' }, [{ quote: 'education are important', fix: 'education is important' }]), 'caught: sửa sai chỗ → không tính (lỗi 03/11)');
   ok(S.caught({ q: 'in the dinner', fix: 'at dinner|for dinner' }, [{ quote: 'eat rice with my family in the dinner', fix: 'eat rice with my family for dinner' }]), 'caught: nhiều phương án đúng');
+  // golden 03/11 lần 3: so chuỗi con thô chấm oan gpt-oss-120b (81 % → 98 % khi so theo ranh giới từ)
+  ok(S.caught({ q: 'it help', fix: 'helps' }, [{ quote: 'it help', fix: 'it helps' }]), 'caught: "it helps" không bị coi là còn lỗi "it help"');
+  ok(S.caught({ q: 'chart illustrate', fix: 'illustrates' }, [{ quote: 'illustrate', fix: 'illustrates' }]), 'caught: trích ngắn hơn cụm lỗi vẫn đúng chỗ');
+  ok(S.caught({ q: 'busy and stress', fix: 'stressful' }, [{ quote: 'and stress my', fix: 'and stressful, my' }]), 'caught: trích chồng lấn ≥ 8 ký tự');
+  ok(!S.caught({ q: 'am agree', fix: 'i agree|agree' }, [{ quote: 'I am agree', fix: 'I am agree with' }]), 'caught: "sửa" còn nguyên cụm sai → không tính');
+  ok(!S.caught({ q: 'rised', fix: 'rose' }, [{ quote: 'steadily', fix: 'rose steadily' }]), 'caught: sai chỗ (không chồng lấn) → không tính');
   ok(S.inLang('Tu ensayo es claro y la estructura de los párrafos es buena para el examen', 'es') && !S.inLang('Bài viết của bạn rõ ràng và có cấu trúc tốt', 'es'), 'inLang es');
   ok(S.inLang('構成がよく、論点も明確です。', 'ja') && S.inLang('مقالك واضح', 'ar') && S.inLang('Bài viết rõ ràng', 'vi') && !S.inLang('Your essay is clear', 'vi'), 'inLang ja/ar/vi');
   const c0 = IE[0], good = { overall: c0.band, criteria: [{}, {}, {}, {}], summary: 'Bài viết còn nhiều lỗi ngữ pháp cơ bản.', errors: c0.errors.map(e => ({ quote: 'x ' + e.q + ' y', fix: e.fix.split('|')[0] })) };

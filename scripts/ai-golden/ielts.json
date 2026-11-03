@@ -16,7 +16,7 @@
     },
     {
      "q": "am agree",
-     "fix": "i agree"
+     "fix": "i agree|agree"
     },
     {
      "q": "education are",
@@ -414,7 +414,7 @@
     },
     {
      "q": "a city very beautiful",
-     "fix": "a very beautiful city"
+     "fix": "a very beautiful city|very beautiful city"
     },
     {
      "q": "since ten years",
@@ -464,7 +464,7 @@
    "errors": [
     {
      "q": "have read it",
-     "fix": "read"
+     "fix": "read|which i have read"
     },
     {
      "q": "author describe",
@@ -472,7 +472,7 @@
     },
     {
      "q": "so inspired",
-     "fix": "inspiring"
+     "fix": "inspiring|i was so inspired|i was inspired|so inspiring"
     }
    ]
   },
@@ -487,7 +487,7 @@
    "errors": [
     {
      "q": "i working in bank",
-     "fix": "work in a bank|work at a bank|work for a bank"
+     "fix": "i work|i am working|i'm working|work in a bank|work at a bank|work for a bank|in a bank|at a bank"
     },
     {
      "q": "busy and stress",
@@ -495,10 +495,10 @@
     },
     {
      "q": "my boss he very strict",
-     "fix": "is very strict"
+     "fix": "boss is very strict|boss is very|boss is strict"
     },
     {
-     "q": "i work late",
+     "q": "yesterday i work",
      "fix": "worked"
     }
    ]

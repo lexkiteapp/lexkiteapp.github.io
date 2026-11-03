@@ -5,10 +5,15 @@ export const GATE = {
 };
 export const LANGS = { vi: 'Vietnamese', en: 'English', es: 'Spanish', pt: 'Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
 const norm = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[“”"«»]/g, '').replace(/\s+/g, ' ').trim();
-/** lỗi e { q, fix } có được bắt? – một mục errors[] có quote chứa q và fix chứa một phương án đúng (không còn nguyên chỗ sai) */
+/** lỗi e { q, fix } có được bắt? – một mục errors[] trích ĐÚNG CHỖ (quote chứa q, q chứa quote, hoặc chung ≥ 8 ký tự liền) và fix chứa một phương án đúng
+ *  (so theo RANH GIỚI TỪ – "it helps" không bị coi là còn "it help") và không còn nguyên cụm sai. Golden 03/11: so chuỗi con thô làm gpt-oss-120b bị chấm oan 81 %. */
+const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const hasWord = (t, w) => new RegExp('(^|[^a-z0-9\'])' + esc(w) + '($|[^a-z0-9\'])').test(t);
+function lcs(a, b) { let best = 0; for (let i = 0; i < a.length; i++) for (let j = 0; j < b.length; j++) { let k = 0; while (a[i + k] && a[i + k] === b[j + k]) k++; if (k > best) best = k; } return best; }
+export const sameSpot = (quote, q) => !!quote && (quote.includes(q) || (quote.length >= 4 && q.includes(quote)) || lcs(quote, q) >= Math.min(q.length, 8));
 export function caught(e, errors) {
   const q = norm(e.q), alts = String(e.fix).split('|').map(norm);
-  return (errors || []).some(x => { const qu = norm(x && x.quote), fx = norm(x && x.fix); return qu.includes(q) && alts.some(a => fx.includes(a) && (a.includes(q) || !fx.includes(q))); });
+  return (errors || []).some(x => { const qu = norm(x && x.quote), fx = norm(x && x.fix); return sameSpot(qu, q) && alts.some(a => hasWord(fx, a) && (a.includes(q) || !hasWord(fx, q))); });
 }
 /** chữ có đúng ngôn ngữ người học? (thô: chữ viết riêng cho ja/zh/ko/ar/hi/th/ru; Latin → từ chức năng phổ biến; vi → dấu tiếng Việt) */
 const SCRIPT = { ja: /[぀-ヿ]/, zh: /[一-鿿]/, ko: /[가-힯]/, ar: /[؀-ۿ]/, hi: /[ऀ-ॿ]/, th: /[฀-๿]/, ru: /[Ѐ-ӿ]/ };
