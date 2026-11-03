@@ -1,0 +1,33 @@
+{
+ "at": "2026-11-03T05:30:09.103Z",
+ "lang": "en",
+ "device": "Pixel 7",
+ "firstRun": {
+  "ok": true,
+  "seconds": 5.9,
+  "taps": 10,
+  "trail": [
+   ".ctas a.btn.lg",
+   "button.trk-opt",
+   "#obNext",
+   ".trk-lv [data-lv]:not([data-lv=\"test\"])",
+   "#obNext",
+   "#obNext",
+   "#obNext",
+   "#go",
+   "ol.day-steps a[data-step=\"learn\"]:not(.ok)",
+   "#known"
+  ]
+ },
+ "today": {
+  "ok": true,
+  "taps": 2,
+  "trail": [
+   "#view a.btn.primary",
+   "ol.day-steps a[data-step=\"learn\"]:not(.ok)"
+  ],
+  "at": "#known",
+  "route": "/app/?sandbox=1&hl=en#/practice/learn?src=topic%3Angsl1.1~1"
+ },
+ "errors": []
+}

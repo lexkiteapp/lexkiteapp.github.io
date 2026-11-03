@@ -191,7 +191,7 @@ jobs:
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ inputs.scene }}) [CF-Pages-Skip]" || exit 0
-          for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
+          for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase --autostash origin main; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4
         if: always()
@@ -217,6 +217,7 @@ jobs:
   news-plan:
     if: inputs.scene == 'news'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs:
       shards: ${{ steps.p.outputs.shards }}
     steps:
@@ -525,7 +526,7 @@ jobs:
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news) [CF-Pages-Skip]" || exit 0
-          for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
+          for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && break; git pull -q --rebase --autostash origin main; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4   # small QC-only artifact for news-auto.yml (ledger record) - no media
         if: always()

@@ -47,7 +47,7 @@
       <div class="card">
         <textarea class="input" id="lt" rows="14" style="font-size:1rem;line-height:1.7" placeholder="${esc(x.open)}">${esc(drafts[id] || '')}</textarea>
         <div class="row between" style="margin-top:.5rem"><div class="row"><span class="chip" id="ltWc"></span><button class="btn sm" id="ltTimer">⏱ 20:00</button></div>
-          <div class="row"><a class="btn sm" href="#/model/gt-${x.id}">📄 ${t('Xem bài mẫu')}</a><button class="btn sm primary" id="ltCheck">✅ ${t('Kiểm tra')}</button></div></div>
+          <div class="row"><a class="btn sm" href="#/model/gt-${x.id}">📄 ${t('Xem bài mẫu')}</a><button class="btn sm primary" id="ltCheck" data-lk-primary>✅ ${t('Kiểm tra')}</button></div></div>
         <div id="ltRes" style="margin-top:.8rem"></div>
       </div>`;
     const ta = $('#lt');

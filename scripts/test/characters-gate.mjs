@@ -14,6 +14,8 @@ const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('
 // ---------- 1) registry ----------
 if (IDS.join() !== 'ama,carlos') errs.push(`registry phải đúng 2 người ama,carlos – đang: ${IDS}`);
 const g = {}; new Function('self', fs.readFileSync('web/js/characters.js', 'utf8'))(g); const C = g.Chars;
+{ const h = {}, src = fs.readFileSync('web/js/characters.js', 'utf8'); new Function('self', src)(h); h.Chars.slot = () => 'x'; new Function('self', src)(h); // gói lười 'pas' nạp lại characters.js
+  if (typeof h.Chars.slot !== 'function') errs.push('characters.js nạp lại xoá mất Chars.slot (teacher-slot.js) – phải Object.assign(g.Chars || {}, …)'); }
 if (C.ids.join() !== IDS.join()) errs.push(`Chars.ids ${C.ids} ≠ characters.json ${IDS}`);
 for (const who of IDS) if (C.voice(who) !== ((R.people[who].voice || {}).app)) errs.push(`Chars.voice(${who}) ${C.voice(who)} ≠ characters.json voice.app ${(R.people[who].voice || {}).app}`);
 if (C.poses.join() !== R.poses.join()) errs.push(`Chars.poses ≠ characters.json poses`);
@@ -26,6 +28,13 @@ for (const who of IDS) {
     if (!!c.pending !== pend) errs.push(`${who}/${p}: pending trong JSON (${!!c.pending}) ≠ Chars (${pend})`);
     if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
   }
+}
+// vòng nghỉ 1–3 s (scripts/teach/idle.py): VP9 alpha + H.264 xếp chồng + poster mắt mở – định dạng/cỡ/mắt kiểm ở idle.py --check (characters-shots.yml)
+for (const who of Object.keys((R.idle || {}).people || {})) {
+  if (!IDS.includes(who)) { errs.push(`idle.people.${who}: không thuộc registry`); continue; }
+  for (const n of ['idle.webm', 'idle.mp4', 'idle-poster.webp']) want.add(`${who}/${n}`);
+  const I = C.idle && C.idle(who);
+  if (!I || I.webm !== `teach/${who}/idle.webm` || I.mp4 !== `teach/${who}/idle.mp4` || I.poster !== `teach/${who}/idle-poster.webp`) errs.push(`Chars.idle(${who}) ≠ teach/${who}/idle.{webm,mp4} + idle-poster.webp`);
 }
 for (const f of want) {
   const p = `web/teach/${f}`, h = R.files[f];

@@ -9,11 +9,30 @@
   const R = window.Remind; // ⏰ js/remind.js (gói 'remind' nạp cùng trang Cài đặt – docs/REMINDERS.md)
   const adminTiles = () => [['overview', '📊', t('Tổng quan'), t('Người dùng, truy cập, việc cần xử lý')], ['analytics', '📈', t('Phân tích'), t('Nguồn truy cập, quốc gia, thiết bị, tốc độ')], ['users', '👥', t('Người dùng'), t('Danh sách, tìm kiếm, chi tiết')], ['inbox', '✉️', t('Hộp thư'), t('Tin nhắn liên hệ & trả lời')], ['alerts', '🚨', t('Cảnh báo'), t('Workflow, lỗi JavaScript, dung lượng')], ['quality', '🩺', t('Chất lượng'), t('Rà soát hằng ngày & bản dịch')], ['services', '🔑', t('Dịch vụ & API'), t('Tài khoản, khóa, hạn mức miễn phí')], ['settings', '⚙️', t('Cài đặt hệ thống'), t('Thông báo, hạn mức AI, Gemini API')]]
     .map(([id, ic, l, d]) => `<a class="adm-tile" href="${App.adminUrl(id)}" target="_blank" rel="noopener"><span class="adm-ic" aria-hidden="true">${ic}</span><span class="adm-tx"><b>${l}</b><small>${d}</small></span></a>`).join('');
+  // Bộ từ mẫu ngôn ngữ đích (content/target/<tl>/seed.json → bản sao web/js/target-<tl>-seed.json, scripts/target/build.mjs) → thẻ tl, khóa '<tl>:từ' (Core.tlKey)
+  async function addTlSeed(tl) {
+    const r = await fetch('js/target-' + tl + '-seed.json'); if (!r.ok) throw new Error('seed ' + r.status);
+    const j = await r.json(); let n = 0;
+    await Core.Cards.mutate(m => {
+      for (const w of j.words || []) {
+        const k = Core.tlKey(w.word, tl); if (m[k]) continue;
+        m[k] = Core.Cards.make({ word: w.word, pos: w.pos, ipa: w.ipa, def: w.gl.en, vi: w.gl.vi, ex: w.ex.pt, topic: tl + '-core', emoji: w.emoji || '📘', tl }, { gl: w.gl, exEn: w.ex.en, ...(w.gender ? { gender: w.gender } : {}), ...(w.img ? { img: w.img } : {}) });
+        n++;
+      }
+      return m;
+    });
+    if (window.Sync && Sync.schedule) Sync.schedule();
+    return n;
+  }
   routes.settings = function () {
     const s = state.settings;
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
     const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
     const row = (label, ctl, hint = '') => (ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`), `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`);
+    // 🌍 Ngôn ngữ đang học (ngôn ngữ đích – web/js/target.js, docs/specs/target-language.md): chỉ hiện khi cờ pt_pilot / lk.pt bật
+    const TL = window.Target && Target.enabled() ? Target.cur() : '';
+    const tlRow = () => (TL ? row('🌍 ' + t('Ngôn ngữ đang học'), seg('sTl', [['en', 'English', ' translate="no" lang="en"'], ['pt', 'Português (beta)', ' translate="no" lang="pt"']], TL)
+      + (TL === 'pt' ? ` <button type="button" class="btn sm" id="sTlSeed">${t('Thêm 30 từ cơ bản')}</button>` : '')) : '');
     const OFFP = !!(window.LKAudio && LKAudio.offline.supported() && LKAudio.offline.flag()); // 📥 gói nghe offline (cờ offline_pack)
     const tog = (id, on, label, hint = '') => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${on ? 'checked' : ''}></label>`;
     const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
@@ -26,13 +45,14 @@
       <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
       <nav class="set-nav" aria-label="${t('Cài đặt')}">${NAV.map(([id, ic, l]) => `<button type="button" data-jump="${id}"><span aria-hidden="true">${ic}</span> ${l}</button>`).join('')}</nav>
       <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div><div id="leagueSetBox" style="margin-top:.75rem"></div></section>
-      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">${UI.icon('shield')}${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-grid">${adminTiles()}</div></section>
+      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">${UI.icon('shield')}${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-tiles">${adminTiles()}</div></section>
       ${sec('look', UI.icon('palette') + t('Giao diện'),
         row('🌐 ' + t('Ngôn ngữ giao diện'), App.langPicker())
         + row('📖 ' + t('Nghĩa từ hiển thị bằng'), seg('sMean', [['vi', 'Tiếng Việt', ' translate="no" lang="vi" data-keep-vi'], ['en', t('Định nghĩa tiếng Anh')]], I18N.meanLang()))
         + row(t('Chế độ màu'), seg('sTheme', [['auto', '🌓 ' + t('Tự động')], ['light', '☀️ ' + t('Sáng')], ['dark', '🌙 ' + t('Tối')]], s.theme)))}
       ${sec('study', UI.icon('target') + t('Mục tiêu học'),
-        slide(nc(t('Từ mới mỗi ngày:')), 'vNew', s.dailyNew, `<input type="range" min="0" max="50" id="sNew" value="${s.dailyNew}">`)
+        tlRow()
+        + slide(nc(t('Từ mới mỗi ngày:')), 'vNew', s.dailyNew, `<input type="range" min="0" max="50" id="sNew" value="${s.dailyNew}">`)
         + slide(nc(t('Mục tiêu lượt ôn mỗi ngày:')), 'vGoal', s.dailyGoal, `<input type="range" min="5" max="200" step="5" id="sGoal" value="${s.dailyGoal}">`)
         + slide(nc(t('Tối đa thẻ mỗi phiên ôn:')), 'vCap', s.sessionCap || t('Không giới hạn'), `<input type="range" min="0" max="200" step="10" id="sCap" value="${s.sessionCap}">`)
         + slide('🧠 ' + nc(t('Mục tiêu ghi nhớ (thuật toán FSRS):')), 'vRet', Math.round((s.retention || 0.9) * 100) + '%', `<input type="range" min="0.8" max="0.95" step="0.01" id="sRet" value="${s.retention || 0.9}">`, t('Khả năng còn nhớ mỗi từ khi đến lượt ôn. 90% là cân bằng tốt nhất; 95% nhớ chắc hơn nhưng số lượt ôn gần gấp đôi; 85% ít ôn hơn, hợp khi bận.')))}
@@ -54,7 +74,7 @@
         + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
         + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).') + (R && R.habitMin && R.habitMin(R.recent()) >= 0 ? ' ' + t('Kit thấy bạn hay học lúc khoảng {time}.', { time: R.hm(R.habitMin(R.recent())) }) : ''))
         + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`, t('Không nhắc trong khung giờ này. Tối đa 1 lời nhắc mỗi ngày.'))
-        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')], ['goal', t('Mục tiêu hôm nay')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
+        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')], ['goal', t('Mục tiêu hôm nay')], ['path', t('Bài đang học')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
         + '<div id="remPush"></div>'
         + `<div class="set-row"><div class="set-btns">${Store.isExtension ? '' : `<button type="button" class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button><button type="button" class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>`}<button type="button" class="btn sm ghost" id="sTest">${t('Thử gửi thông báo')}</button></div></div></div>`
         + tog('sGold', s.goldenOn, t('Nhắc “thời điểm vàng”'), t('Báo khi có từ sắp bị quên'))
@@ -81,7 +101,7 @@
     App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">${UI.icon('shield')}</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
     $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
 
-    const save = async () => { await saveSettings(); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
+    const save = async o => { await saveSettings(o); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
     $('#sAuto').onchange = e => { s.reminderAuto = e.target.checked; if (s.reminderAuto && R) { const st = R.hm(R.pickTime(state.stats, s)); s.reminderTime = st; $('#sTime').value = st; } save(); };
     $$('[id^="sTy_"]').forEach(x => { x.onchange = () => { s.remTypes = { ...(s.remTypes || {}), [x.id.slice(4)]: x.checked }; save(); }; });
     // Nhắc cả khi đóng app (Web Push, nhóm thử nhỏ theo cờ máy chủ) – iPhone chỉ khi đã thêm vào Màn hình chính
@@ -94,7 +114,7 @@
       rp.innerHTML = tog('sPush', on, t('Nhắc cả khi đóng app'), t('Dùng thông báo đẩy của trình duyệt. Nội dung học không gửi lên máy chủ.'));
       $('#sPush').onchange = async e => { try { if (e.target.checked) { if (await Notification.requestPermission() !== 'granted' || !(await R.subscribe())) throw new Error('perm'); toast('⏰ ' + t('Đã bật nhắc học')); } else await R.unsubscribe(); } catch (x) { e.target.checked = false; toast(t('Bạn chưa cho phép thông báo')); } };
     })().catch(() => {});
-    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save(); };
+    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save({ ask: s.reminderOn }); };
     $('#sTime').onchange = e => { s.reminderTime = e.target.value || '20:00'; s.reminderAuto = false; const a = $('#sAuto'); if (a) a.checked = false; save(); toast(t('Sẽ nhắc lúc {time} mỗi ngày', { time: s.reminderTime })); };
     $('#sNew').oninput = e => { s.dailyNew = +e.target.value; $('#vNew').textContent = s.dailyNew; save(); };
     $('#sGoal').oninput = e => { s.dailyGoal = +e.target.value; $('#vGoal').textContent = s.dailyGoal; save(); };
@@ -118,6 +138,11 @@
     const voiceTip = () => { const el = $('#voiceTip'); if (!el) return; const h = App.voiceTipHtml(s.accent); el.hidden = !h; el.innerHTML = h; };
     fillVoices(); voiceTip(); setTimeout(() => { fillVoices(); voiceTip(); }, 600);
     $('#sVoice').onchange = e => { s.voice = { ...(s.voice || {}), [s.accent]: e.target.value }; save(); UI.tts('This is how I will read words and sentences to you.', s.accent); };
+    $$('#sTl [data-v]').forEach(b => b.onclick = () => { if (b.dataset.v !== Target.cur()) { Target.set(b.dataset.v); routes.settings(); } });
+    const tlSeed = $('#sTlSeed'); if (tlSeed) tlSeed.onclick = async () => {
+      tlSeed.disabled = true;
+      try { const n = await addTlSeed('pt'); toast(t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n })); Target.set('pt'); } catch (e) { toast(t('Không tải được bộ từ, thử lại sau'), { action: t('Thử lại'), onAction: () => tlSeed.onclick() }); } finally { tlSeed.disabled = false; }
+    };
     $('#sRate').oninput = e => { s.ttsRate = +e.target.value; $('#vRate').textContent = s.ttsRate.toFixed(2) + '×'; save(); };
     $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
     $('#sAccent').onchange = e => { s.accent = e.target.value; s.accentPicked = true; save(); fillVoices(); if (OFFP && LKAudio.offline.on()) LKAudio.offline.enable(s.accent); /* gói offline theo giọng mới */ speak('pronunciation', s.accent); };

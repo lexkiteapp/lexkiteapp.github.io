@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Match Drill</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#633700",
+            "surface-container-low": "#fff1e8",
+            "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "on-surface": "#211a14",
+            "primary-fixed-dim": "#88d4cb",
+            "on-primary-fixed": "#00201d",
+            "on-primary-container": "#9be7de",
+            "background": "#fff8f5",
+            "surface-tint": "#126a63",
+            "surface-container": "#faebe1",
+            "surface-variant": "#efe0d6",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fff8f5",
+            "on-background": "#211a14",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#fd9500",
+            "outline-variant": "#bec9c6",
+            "on-tertiary-fixed": "#251a00",
+            "tertiary-fixed": "#ffdf9b",
+            "secondary-fixed-dim": "#ffb872",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#ffdcbf",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary-fixed": "#a4f1e7",
+            "primary-container": "#136a63",
+            "inverse-primary": "#88d4cb",
+            "surface-container-highest": "#efe0d6",
+            "outline": "#6f7977",
+            "on-tertiary-container": "#ffd370",
+            "tertiary": "#5b4300",
+            "on-surface-variant": "#3f4947",
+            "secondary": "#8c5000",
+            "inverse-surface": "#372f28",
+            "inverse-on-surface": "#fdeee3",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-dim": "#e6d7cd",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#f5bf31",
+            "primary": "#00504b",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#2d1600",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "surface": "#fff8f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem",
+            "gutter-md": "1.5rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "margin-lg": "3rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<div class="w-[390px] min-h-screen bg-[#091518] text-[#d8e5e9] flex flex-col relative select-none pb-28 font-['Plus_Jakarta_Sans',sans-serif]">
+<!-- Header: Focus Variant -->
+<header class="h-14 px-4 flex items-center justify-between gap-3 bg-[#091518] sticky top-0 z-30 border-b border-[#162a2e] shadow-[0_3px_0_0_#051013]">
+<button aria-label="Close Drill" class="w-10 h-10 rounded-full bg-[#112125] border-2 border-[#1f3b40] flex items-center justify-center text-[#d8e5e9] shadow-[0_3px_0_0_#081316] active:translate-y-1 active:shadow-none transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<div class="flex-1 px-1">
+<div class="w-full h-3.5 bg-[#112125] rounded-full relative overflow-hidden p-0.5 border border-[#1f3b40]/50 shadow-inner">
+<div class="h-full bg-[#2ba39a] rounded-full w-[66%] relative transition-all duration-300 shadow-[0_0_8px_rgba(43,163,154,0.4)]">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="h-8 px-2.5 rounded-full bg-[#162a2e] border-2 border-[#23484f] flex items-center gap-1.5 shadow-[0_2px_0_0_#081316]">
+<span class="material-symbols-outlined fill text-[#f4bf40] text-[16px]">stars</span>
+<span class="text-[12px] font-extrabold tracking-wide text-[#d8e5e9]">4/6</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-3 flex flex-col">
+<!-- Top Chips Row -->
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#13282d] border-2 border-[#1f3b40] shadow-[0_3px_0_0_#081316]">
+<span class="material-symbols-outlined text-[#6bd8ce] text-[18px]">schedule</span>
+<span class="text-[14px] text-[#6bd8ce] font-extrabold tracking-wide">0:38</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2a220b] border-2 border-[#d49b10]/70 shadow-[0_3px_0_0_#1a1405]">
+<span class="material-symbols-outlined fill text-[#f4bf40] text-[18px]">verified</span>
+<span class="text-[14px] text-[#ffdf9e] font-extrabold">4/6 pairs</span>
+</div>
+</div>
+<!-- Miss Penalty Badge -->
+<div class="flex justify-center mb-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1810] border border-[#d49b10]/40 text-[#f4bf40] shadow-[0_2px_0_0_#0e0c07]">
+<span class="w-2 h-2 rounded-full bg-[#f4bf40] animate-pulse"></span>
+<span class="text-[12px] text-[#ffdf9e] font-bold">+1 s per miss ⏱️</span>
+</div>
+</div>
+<!-- Card Tiles Grid -->
+<div class="grid grid-cols-2 gap-2.5 flex-1">
+<!-- 1. Meticulous (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#060f12]">
+<span class="text-[14px] text-[#82adb3] line-through decoration-2 font-bold">meticulous</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+<!-- 2. Very careful (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#060f12]">
+<span class="text-[14px] text-[#82adb3] line-through decoration-2 font-bold">very careful</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+<!-- 3. Candid (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[16px] text-[#e6f4f1] font-extrabold">candid</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">ADJECTIVE</span>
+</div>
+<!-- 4. Frank & direct (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[15px] text-[#e6f4f1] font-extrabold leading-tight">frank &amp; direct</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">MEANING</span>
+</div>
+<!-- 5. Ubiquitous (Selected) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#184b47] border-2 border-[#2ba39a] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#08201e] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-[#2ba39a]/40">
+<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_6px_#6bd8ce]"></div>
+<span class="text-[16px] text-[#88f5ea] font-extrabold">ubiquitous</span>
+<span class="text-[12px] text-[#6bd8ce] font-extrabold tracking-wide">SELECTED</span>
+</div>
+<!-- 6. Found everywhere (Selected) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#184b47] border-2 border-[#2ba39a] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#08201e] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-[#2ba39a]/40">
+<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_6px_#6bd8ce]"></div>
+<span class="text-[15px] text-[#88f5ea] font-extrabold leading-tight">found everywhere</span>
+<span class="text-[12px] text-[#6bd8ce] font-extrabold tracking-wide">SELECTED</span>
+</div>
+<!-- 7. Scrutinize (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[16px] text-[#e6f4f1] font-extrabold">scrutinize</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">VERB</span>
+</div>
+<!-- 8. Examine closely (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[15px] text-[#e6f4f1] font-extrabold leading-tight">examine closely</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">MEANING</span>
+</div>
+<!-- 9. Pragmatic (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[16px] text-[#e6f4f1] font-extrabold">pragmatic</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">ADJECTIVE</span>
+</div>
+<!-- 10. Practical minded (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[15px] text-[#e6f4f1] font-extrabold leading-tight">practical minded</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">MEANING</span>
+</div>
+<!-- 11. Lucid (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#060f12]">
+<span class="text-[14px] text-[#82adb3] line-through decoration-2 font-bold">lucid</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+<!-- 12. Clear & easy to understand (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#060f12]">
+<span class="text-[13px] text-[#82adb3] line-through decoration-2 leading-tight font-bold">clear &amp; easy to understand</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+</div>
+<!-- Streak Badge -->
+<div class="my-3 flex justify-center">
+<div class="h-9 px-4 rounded-full bg-[#2b1f0e] border-2 border-[#d97706] flex items-center gap-1.5 shadow-[0_3px_0_0_#1a1005]">
+<span class="material-symbols-outlined fill text-[#f59e0b] text-[18px]">bolt</span>
+<span class="text-[14px] text-[#fde68a] font-extrabold tracking-wide">2 in a row! Keep going!</span>
+</div>
+</div>
+</main>
+<!-- Bottom Check Pairs Action Area -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] p-4 bg-[#091518]/95 backdrop-blur-sm z-40 border-t border-[#162a2e]/50">
+<button class="w-full h-14 rounded-[1rem] bg-[#f59e0b] text-[#1a0f02] text-[18px] font-extrabold flex items-center justify-center gap-2 border-2 border-[#d97706] shadow-[0_6px_0_0_#92400e] active:translate-y-1.5 active:shadow-none transition-all duration-75" type="button">
+<span>Check Pairs</span>
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

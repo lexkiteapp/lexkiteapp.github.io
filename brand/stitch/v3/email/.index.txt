@@ -1,0 +1,2 @@
+# Stitch v3 kho mẫu – email (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
+email-digest 190706809c0e4e5cabb1370538076e31 2c7b2cffe95648f195a84f40596191e9 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 8 vùng chạm < 44px (vd "Open in browser open_in_ 104×17") · light: tương phản 15 chữ (vd "Inbox Preview (1280px Workspace)" 3.91<4.5) · dark: 8 vùng chạm < 44px (vd "Open in browser open_in_ 104×17") · dark: tương phản 3 chữ (vd "|" 1.58<4.5)

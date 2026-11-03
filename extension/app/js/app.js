@@ -34,15 +34,16 @@
 
   // ---------- Dữ liệu ----------
   async function load() {
-    state.cards = await Cards.all();
+    state.cards = await Cards.mine(); // thẻ của ngôn ngữ đích đang học (web/js/target.js; 'en' = như cũ)
     state.settings = { ...DEFAULT_SETTINGS, theme: 'auto', sfx: true, ...(await Store.get('settings', {})) };
+    try { if (window.lkT && localStorage.getItem('lk.themeAt')) state.settings.theme = lkT() || 'auto'; } catch (e) { /* bỏ qua */ } // đổi ở landing/blog sau lần lưu cuối của app → theo lựa chọn mới nhất (lkT so mốc)
     SRS.retentionTarget = state.settings.retention || 0.9;
     // Một lần: sửa lỗi chính tả hỏi/ngã từ dữ liệu Google trong các thẻ đã lưu trước đây
     if (!state.settings.viFix1 && window.Dict && Dict.fixDeep) {
       const all = await Cards.all(); let n = 0;
       for (const c of Object.values(all)) { const f = Dict.fixDeep(c); if (JSON.stringify(f) !== JSON.stringify(c)) { await Cards.update(f); n++; } }
       state.settings.viFix1 = 1; await Store.set('settings', state.settings);
-      if (n) state.cards = await Cards.all();
+      if (n) state.cards = await Cards.mine();
     }
     state.stats = await Stats.get();
     state.game = await Game.get();
@@ -50,7 +51,7 @@
     applyTheme();
     updateChrome();
   }
-  const saveSettings = async () => { await Store.set('settingsAt', Date.now()); const r = await Store.set('settings', state.settings); if (window.VBNative && VBNative.scheduleReminder) VBNative.scheduleReminder({ ask: !!state.settings.onboarded }); return r; }; // app gốc: đặt lại giờ nhắc học
+  const saveSettings = async o => { await Store.set('settingsAt', Date.now()); const r = await Store.set('settings', state.settings); if (window.VBNative && VBNative.scheduleReminder) VBNative.scheduleReminder({ ask: !!(o && o.ask === true && state.settings.onboarded) }); return r; }; // app gốc: đặt lại giờ nhắc học; chỉ xin quyền khi người dùng tự bật nhắc học (saveSettings({ ask: true }))
 
   // Ngày có học = có ôn thẻ hoặc có XP
   function activeDays() {
@@ -131,11 +132,16 @@
   const avatarHtml = () => `<span class="avatar">${avatarInner()}</span>`;
 
   // ---------- Theme ----------
-  function applyTheme() {
-    const t = state.settings.theme;
-    if (t === 'auto') document.documentElement.removeAttribute('data-theme');
-    else document.documentElement.setAttribute('data-theme', t);
+  // Một lựa chọn chung app ↔ trang ngoài (landing, blog, pháp lý…): localStorage 'lk.theme' (+ mốc 'lk.themeAt'), cùng mã chống nháy
+  // trong <head> (scripts/lib/site-layout.mjs THEME_HEAD → lkT()); đổi ở tab khác → sự kiện storage. Thanh trình duyệt (meta theme-color) theo --bg.
+  function applyTheme(o) {
+    const t = state.settings.theme, r = document.documentElement, F = t === 'light' || t === 'dark';
+    if (F) r.setAttribute('data-theme', t); else r.removeAttribute('data-theme');
+    const bg = F && getComputedStyle(r).getPropertyValue('--bg').trim();
+    document.querySelectorAll('meta[name=theme-color]').forEach(m => { if (!m.dataset.c) m.dataset.c = m.content; m.content = bg || m.dataset.c; });
+    if (!(o && o.remote)) try { const ls = localStorage; if ((ls.getItem('lk.theme') || 'auto') !== t || !ls.getItem('lk.themeAt')) { if (F) ls.setItem('lk.theme', t); else ls.removeItem('lk.theme'); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
   }
+  addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' ? e.newValue : 'auto'; applyTheme({ remote: 1 }); } });
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
     $('#langBtn').onclick = () => App.need('lsw').then(() => { const b = $('#langBtn'); if (!window.LkLangMenu) return; b.onclick = null; b.parentNode.lsw = 0; LkLangMenu(b.parentNode); b.click(); }); } // giao hẳn cho lang-menu.js (kể cả khi nó đã chạy trước từ trang chào) → không tự bấm lặp mở/đóng
@@ -180,7 +186,7 @@
     while (enrichQueue.length) {
       const w = enrichQueue.shift();
       const c = state.cards[w];
-      if (!c || !navigator.onLine) continue;
+      if (!c || c.tl || !navigator.onLine) continue; // thẻ ngôn ngữ đích khác: từ điển tiếng Anh không dùng được
       const e = await Dict.lookup(w, { image: c.pos === 'n' && !c.image, examples: !(c.sentences || []).length });
       if (e && e.found) {
         const cur = await Cards.patch(w, x => {
@@ -197,7 +203,7 @@
   async function addWord(entry, context, { silent } = {}) {
     const isNew = !inDeck(entry.word);
     const card = await Cards.add(entry, context);
-    state.cards[card.word.toLowerCase()] = card;
+    if (!window.Target || Target.ofCard(card) === Target.cur()) state.cards[card.word.toLowerCase()] = card;
     // Thêm lẻ → bổ sung dữ liệu ngay; thêm hàng loạt → để dành tới khi thẻ được ôn (tránh hàng trăm lượt gọi API)
     if (isNew && !silent) enrichLater(card.word.toLowerCase());
     updateChrome();
@@ -232,6 +238,7 @@
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
@@ -273,7 +280,7 @@
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
     wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
-    lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'],
+    lfx: ['js/i18n/en/lfx.js', 'js/choice-kit.js', 'js/lesson-fx.js'],
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
     i18nl: ['verbs', 'exams', 'skills', 'lazyui'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
@@ -332,7 +339,7 @@
   App.refreshIPA = () => refreshIPA();
   async function refreshIPA() {
     if (!navigator.onLine || !window.Dict) return;
-    const map = await Cards.all(), todo = Object.values(map).filter(x => x.word && (x.ipaV || 0) < IPA_V).slice(0, 150);
+    const map = await Cards.all(), todo = Object.values(map).filter(x => x.word && !x.tl && (x.ipaV || 0) < IPA_V).slice(0, 150);
     for (const card of todo) {
       if (!navigator.onLine || document.hidden) break;
       const w = card.word, lib0 = window.Lex ? ((await Lex.get(w).catch(() => null)) || {}).entry : window.IELTS_DATA && IELTS_DATA.INDEX[w.toLowerCase()];
@@ -345,7 +352,7 @@
         if (d && d.found && d.ipa && (!card.pos || !d.pos || card.pos === d.pos)) { ipa = d.ipa; ipaUS = d.ipaUS || ''; }
         await new Promise(r => setTimeout(r, 900));
       }
-      await Cards.patch(w, x => { x.ipaV = IPA_V; if (ipa) { x.ipa = ipa; if (ipaUS || fromLib) x.ipaUS = ipaUS; } });
+      await Cards.patch(w, x => { x.ipaV = IPA_V; if (ipa) { x.ipa = ipa; if (ipaUS || fromLib) x.ipaUS = ipaUS; } }, 'en');
     }
   }
 
@@ -515,6 +522,8 @@
   App.vimgReady = list => (vimgOn() ? App.need('vimg').then(() => window.VImg && VImg.ready(list)).catch(() => null) : Promise.resolve(null));
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
   App.vimgReady();
+  // thẻ ngôn ngữ đích khác: chỉ ảnh có khóa tiếng Anh từ#loại khớp ĐÚNG nghĩa (trường img, content/target/<tl>/) – không có → không ảnh
+  App.imgKey = c => (c.tl ? String(c.img || '').split('#') : [c.word, c.pos]); // [từ, loại] để gọi App.vimg; thẻ tl không có img → người gọi bỏ ảnh
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
   const notesMem = new Map(), notesP = {};
   App.notesReady = word => { const w = String(word || '').toLowerCase(); if (notesMem.has(w)) return Promise.resolve(notesMem.get(w)); return notesP[w] || (notesP[w] = Promise.all([notesFile(w), App.need('wordcard').then(() => window.WordCard && WordCard.ready)]).then(([m]) => { const n = Object.hasOwn(m, w) && m[w], h = n && window.WordCard ? WordCard.notes(n, w) : ''; notesMem.set(w, h); return h; }).catch(() => { delete notesP[w]; return ''; })); };
@@ -543,7 +552,7 @@
   // nghĩa tiếng mẹ đẻ hiện tức thì & offline; từ chưa có trong gói mới dịch lúc chạy.
   // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
   // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
-  App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
+  App.meanOf = x => { if (!x) return ''; if (x.gl) return x.gl[I18N.meanLang()] || x.gl.en || x.def || ''; /* thẻ ngôn ngữ đích khác: nghĩa 15 ngôn ngữ đi kèm thẻ */ if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
   // Nội dung soạn tiếng Việt ở giao diện ≠ vi – không bao giờ hiện tiếng Việt (docs/I18N-PIPELINE.md §2.6)
   App.viHtml = (vi, en) => { const L = I18N.learnLang(); if (!vi || L === 'vi') return esc(vi || en || ''); if (L === 'en' && en) return `<span lang="en">${esc(en)}</span>`; return `<span class="tr-wait"${en ? ` data-en="${esc(en)}"` : ''}>${esc(vi)}</span>`; };
   // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
@@ -1122,7 +1131,7 @@
     try {
       const data = JSON.parse(await f.text());
       if (!data.cards) throw new Error();
-      await Cards.save({ ...state.cards, ...data.cards });
+      await Cards.save({ ...(await Cards.all()), ...data.cards }); // kho đầy đủ: state.cards chỉ là thẻ của ngôn ngữ đích đang học
       if (data.stats) { const s = state.stats; for (const [k, v] of Object.entries(data.stats.days || {})) s.days[k] = Math.max(s.days[k] || 0, v); await Store.set('stats', s); }
       if (data.game && data.game.xp > state.game.xp) await Store.set('game', data.game);
       await load(); toast(t('Đã nhập {n} thẻ', { n: Object.keys(data.cards).length })); route();
@@ -1511,14 +1520,15 @@
       if (img.tagName === 'IMG' && img.parentElement && (img.parentElement.classList.contains('pic') || img.parentElement.classList.contains('em'))) img.parentElement.textContent = '📘';
     }, true);
     if (Store.isExtension && chrome.storage.onChanged) {
-      chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Object.assign(Object.create(null), ch.cards.newValue || {}); updateChrome(); } });
+      chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    setTimeout(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }, 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
-    document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.all(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
+    document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.mine(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
+    window.addEventListener('lk:tl', async () => { state.cards = await Cards.mine(); updateChrome(); }); // đổi ngôn ngữ đích (Cài đặt) → Sổ từ/Ôn theo ngôn ngữ mới
   })();
   // Các module khác (study.js, reading.js) đăng ký route rồi mới vẽ trang đầu tiên
   // Chỉ vẽ trang khi mọi module (study, grammar, pron, plan…) đã tải xong
