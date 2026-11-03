@@ -129,7 +129,7 @@ IMPORTANT|  - Routine spare parts ping|  - Unminuted alignment sync|
 - **ตรวจสอบตารางงานในกลุ่มที่ 2 สำหรับวันพรุ่งนี้**: ตรวจสอบว่ามีเวลาสำหรับงานพัฒนาระบบอัตโนมัติหรือการปรับปรุงคู่มือ SOP อยู่ในปฏิทินหรือไม่
 - **ตัดการทำงานออกจากความคิด (Cognitive Shutdown)**: สรุปสิ่งที่ทำเสร็จเพื่อลดความเครียดสะสม และเตรียมความพร้อมสำหรับวันรุ่งขึ้นอย่างมีพลัง
 
-เมื่อผสานทักษะภาษาอังกฤษระดับมืออาชีพเข้ากับวินัยการจัดการเวลา คุณจะกลายเป็นวิศวกรที่เป็นเสาหลักขององค์กรระดับสากล สำหรับเทคนิคการสื่อสารอื่นๆ สามารถอ่านเพิ่มเติมได้จาก [วิธีให้ Feedback ภาษาอังกฤษในที่ทำงาน](/th/blog/withi-hai-feedback-phasa-angkrit-thamma-ngan/), [วลีภาษาอังกฤษในห้องประชุม](/th/blog/wali-phasa-angkrit-hop-prachum/), [สำนวนเจรจาต่อรองภาษาอังกฤษธุรกิจ](/th/blog/samnuan-tor-rong-phasa-angrit-thurakit/) และ [การเขียนอีเมลภาษาอังกฤษแบบทางการ](/th/blog/khian-email-phasa-angkrit-thang-kan/)
+เมื่อผสานทักษะภาษาอังกฤษระดับมืออาชีพเข้ากับวินัยการจัดการเวลา คุณจะกลายเป็นวิศวกรที่เป็นเสาหลักขององค์กรระดับสากล สำหรับเทคนิคการสื่อสารอื่นๆ สามารถอ่านเพิ่มเติมได้จาก [วิธีให้ Feedback ภาษาอังกฤษในที่ทำงาน](/th/blog/withi-hai-feedback-phasa-angkrit-thamma-ngan/), [วลีภาษาอังกฤษในห้องประชุม](/th/blog/wali-phasa-angkrit-hop-prachum/), [TOEIC Part 5 เทคนิคการทำข้อสอบ 20 วินาที](/th/blog/theknik-toeic-part-5-wayakon-kham-sap/) และ [การเขียนอีเมลภาษาอังกฤษแบบทางการ](/th/blog/khian-email-phasa-angkrit-thang-kan/)
 
 {{youtube: | Kan chat kan wela phasa angkrit thamma ngan}}
 
