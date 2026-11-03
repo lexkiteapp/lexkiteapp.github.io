@@ -58,7 +58,7 @@ hold-dictionary ce641f7b2e124e7f84906df46d9ae7e0 788e4b6f2702437791677658821f7c1
 hold-mistakes d8a9e6469e0e4a1abb21daeec5e4cce5 6ba62d2d509f4bc28095c2967f122146 MOBILE QC | key3 project 18075333702575270507
 hold-stats abf67e4651ff4a21a56a041774205513 bda494d4fb564031a34aa8fed40934f3 MOBILE QC | key5 project 7022870386131391655
 hold-topic b04e03514ead49ea825b3eadb8cdf53c 49311d5e3c5d41239c9a7e53a8227f55 MOBILE QC | key4 project 16660982915050208874
-hold-web-hub bf4c5a2411274266a2c0de03304ef09b 7a381712f3e3422fa210d3b10421de37 MOBILE QC | key5 project 7022870386131391655
+hold-web-hub bf4c5a2411274266a2c0de03304ef09b 29dc3c32726043a3a2b686c81805c838 MOBILE QC | key5 project 7022870386131391655
 hold-web-post d6ee64592d2e42598b2780d2b8007665 47078a1a70264b229b65bcacc539ddd0 MOBILE QC | key4 project 16660982915050208874
 hold-web-speaking ad808a0025ff4269bb4309774da7b2e3 d1fbadb3c4dc4bc0816264d15104e5ca MOBILE QC | key2 project 10804635390057604965
 home 0afcabbfb9a7420ab188141ae2e41c26 70b7a3a3cf2a4af89e5ae6e050d56339 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "Connectors" 3.33<4.5) · light: tên icon hiện thành chữ "near_me" (13) · dark: tương phản 3 chữ (vd "✓" 3.04<4.5) · dark: tên icon hiện thành chữ "near_me" (13)
@@ -93,9 +93,9 @@ hub-vocab-error c9ef83aab9f340a580254fde0a07aaf2 03e369823bca4cd58add27aa7549de1
 hub-vocab-v4 9421f954c83b438d8cc11aa3574dae81 338b24f1944b4951aa67f25981a0c89b MOBILE QC | key5 project 7022870386131391655
 lesson-feedback 4b62eb63ab8e49e79cd2addc2baf953b 5d9e44c9c75a4072b4bea6a031059e6e MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: 1 vùng chạm < 44px (vd "bookmark 40×40") · light: tương phản 1 chữ (vd "She 
 lesson-feedback-desktop 5bda3da28e24466c87cb8f09b6d7bcc9 1907f1e92c5543ad8b27b3fa8380753e DESKTOP QC teacher-slot | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "Present Continuous (Verlaufsform im gege" 4.33<4.5)
-lesson-feedback-v4 df87c5f0e91d4cd3bdb13de6778a5a05 1f51633e73aa4e10b4b8219ce4d8854d MOBILE QC teacher-slot | key5 project 7022870386131391655
+lesson-feedback-v4 df87c5f0e91d4cd3bdb13de6778a5a05 fe70c60a544e498bba91bf6bc4db4175 MOBILE QC teacher-slot | key5 project 7022870386131391655
 lesson-map 7c152a42cda44e388fb3da6098a75fc8 056569ce2fb846d7a21f7caff2243460 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "Повтор" 4.1<4.5)
-lesson-map-v4 d0b95590cf164a5785aeb26eaedd3425 a5e5b103d119483aac2f307dc2b87930 MOBILE QC teacher-slot | key5 project 7022870386131391655
+lesson-map-v4 d0b95590cf164a5785aeb26eaedd3425 68b07c652cbe40c39ac27ebd9977cda2 MOBILE QC teacher-slot | key5 project 7022870386131391655
 lesson-question 2793d9b5edf841d496f9794c239ffa2f 64b1037ccb5946079812fa777813e2ae MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 1 chữ (vd "A" 3.36<4.5) · dark: 4 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 3 chữ (vd "Collocates with: decision, effort, progr" 3.93<4.5)
 lesson-question-ar 2d9c2a5f6dcd4debbb05b6cbef28398e a8783a10b39c45efbec7f8706e9d75b1 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 7 vùng chạm < 44px (vd "عرض التلميح 83×16") · light: tương phản 2 chữ (vd "decision" 1.91<4.5) · dark: 7 vùng chạm < 44px (vd "عرض التلميح 83×16")
 lesson-question-de 685bf8a1b5594ced9e3195ce68edd02c 6449ed57ce5445dd8e076977594ba9b9 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 3 chữ (vd "A" 1.81<4.5) · dark: 4 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 3 chữ (vd "LEHRKRAFT-TIPP" 1.67<4.5)
@@ -110,7 +110,7 @@ library-desktop e3c5a4aeb8a041f7854923c9f83df9c7 aebe3a6412514c01a2326ac67a533d0
 library-empty ae21969b23f04597875f29ded0b4db8e 8e50d3d64f7a4f239e8cbfdcac58fa9d MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 20 chữ (vd "local_fire_department
 library-error 1287150122e04936a2fedd83e66e9301 085dfc360e55459197fb945090e92c0b MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 5 chữ (vd "/dɪˈpɑːr.tʃər/" 4.37<4.5) · dark: tương phản 1 chữ (vd "Show next 20 words" 1.9<4.5)
 library-loading 4eeaaad5cdf34ebc9a32632f2e9c957c cb33e444af054d7889271e1b30357b67 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "arrow_back 40×40") · light: tương phản 2 chữ (vd "Study 20 words" 1.42<4.5) · light: chỉ 4% sáng < 35% (bản sáng bị tối?) · dark: 2 vùng chạm < 44px (vd "arrow_back 40×40")
-library-v4 2c29f8ce021047bf976bcd9ccc23b3b5 8095db7dc5e94bb1936246e3820b6e38 MOBILE QC | key5 project 7022870386131391655
+library-v4 2c29f8ce021047bf976bcd9ccc23b3b5 6e13f15655be4213b3cd2aa719ba4ac7 MOBILE QC | key5 project 7022870386131391655
 method 0620b6e84bce462bb964902f0d87dc30 d712736f62544927b5b34fbad4590e88 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Methodology" 4.35<4.5) · dark: tương phản 3 chữ (vd "Active Retrieval:" 2.22<4.5)
 method-ar 0dbed44742a84d94a65abad07306b13f 14adb0705c12477286aea4045e285d4e MOBILE QC | key3 project 18075333702575270507 · QC: light: tràn ngang 7px · light: 2 vùng chạm < 44px (vd "arrow_forward 28×44") · light: tương phản 10 chữ (vd "verified
 method-de 2fb5892837be44bbbd931605044c131c 0b0def9c14da4fd5a78d97102a5e14c8 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Empirische Pädagogik • Keine Spielereien" 4.35<4.5) · dark: tương phản 2 chữ (vd "CA" 4.34<4.5)
