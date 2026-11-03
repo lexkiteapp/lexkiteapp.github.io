@@ -44,7 +44,7 @@ Les textes simples sont positionnés au début de la section, tandis que les ens
 
 Pour traiter l'intégralité des 54 questions sans recourir au hasard, répartissez vos 75 minutes de Reading avec une rigueur absolue :
 
-- **Partie 5 (30 questions)** : Boucler en **10 minutes** (environ 20 secondes par question).
+- **Partie 5 (30 questions)** : Boucler en **10 minutes** (environ 20 secondes par question) grâce à nos [TOEIC Part 5 stratégies de grammaire et vocabulaire](/fr/blog/toeic-part-5-strategies-grammaire-vocabulaire/).
 - **Partie 6 (16 questions)** : Boucler en **8 minutes** (environ 30 secondes par question).
 - **Marge de report / Vérification** : **2 minutes**.
 - **Partie 7 (54 questions)** : Consacrer **55 minutes pleines** (une moyenne de 60 secondes par question).

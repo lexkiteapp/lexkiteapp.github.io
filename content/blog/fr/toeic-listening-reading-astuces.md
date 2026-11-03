@@ -59,7 +59,7 @@ C'est la règle d'or absolue : **ayez toujours un temps d'avance**.
 75 minutes pour 100 questions signifie que vous disposez en moyenne de 45 secondes par question. Sans discipline horaire, vous laisserez 20 questions non répondues en fin d'épreuve.
 
 Respectez scrupuleusement cette feuille de route temporelle :
-- **Partie 5 (30 questions) :** 12 minutes maximum (soit 20 à 25 secondes par phrase). Si vous ne connaissez pas la réponse, ne tergiversez pas.
+- **Partie 5 (30 questions) :** 12 minutes maximum (soit 20 à 25 secondes par phrase) en appliquant les méthodes de notre guide [TOEIC Part 5 stratégies](/fr/blog/toeic-part-5-strategies-grammaire-vocabulaire/). Si vous ne connaissez pas la réponse, ne tergiversez pas.
 - **Partie 6 (16 questions) :** 8 minutes maximum.
 - **Partie 7 (54 questions) :** 55 minutes restantes.
 
