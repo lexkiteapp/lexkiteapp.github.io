@@ -163,6 +163,7 @@ node scripts/test/audio-coverage.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs
+node scripts/test/watch.mjs
 node scripts/test/dictlookup.mjs
 node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
