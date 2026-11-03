@@ -148,9 +148,9 @@ Mẫu thẻ:
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Tư duy bằng tiếng Anh không dịch** (`tu-duy-bang-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`46c5c9fa4`).
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Viết email tiếng Anh thương mại** (`cach-viet-email-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`809a39465`).
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Small Talk tiếng Anh nơi làm việc** (`small-talk-tieng-anh`): Hoàn tất chuẩn hóa khóa `translationKey` ngôn ngữ PT (`6b95149e8`), đạt trọn vẹn 15/15 ngôn ngữ.
-  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Cấu trúc IELTS Writing Task 2 dàn bài 4 đoạn** (`cau-truc-ielts-writing-task-2`): Đồng nhất khóa `translationKey` trên 13 ngôn ngữ (`8792b18b9`), viết mới bài tiếng Nhật JA (`d47a079cb`), viết mới bài tiếng Hàn KO (`fd52bfbec`). Hoàn thành 15/15 ngôn ngữ chuẩn mực.
-  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Lặp lại ngắt quãng & Thuật toán FSRS** (`lap-lai-ngat-quang`): Đồng nhất khóa `translationKey` trên 14 ngôn ngữ (`9d6038754`), viết mới bài tiếng Tây Ban Nha ES (`b7d54be29`). Hoàn thành 15/15 ngôn ngữ chuẩn mực.
-  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.029 bài viết** (1.029 files `.md` trong `content/blog/`), nâng tổng số Cụm hoàn chỉnh 15/15 ngôn ngữ lên **57 cụm**.
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Lặp lại ngắt quãng & Thuật toán FSRS** (`lap-lai-ngat-quang`): Đồng nhất khóa `translationKey` trên 14 ngôn ngữ (`9d6038754`), viết mới bài tiếng Tây Ban Nha ES (`b7d54be29`). Hoàn thành 15/15 ngôn ngữ chuẩn mực (57 cụm).
+  - 🔄 **Đang mở rộng Cụm Chiến lược làm bài TOEIC Part 5** (`toeic-part-5-meo-lam-bai`): Viết mới bài tiếng Trung ZH (`a2a01b606`), viết mới bài tiếng Thái TH (`6be244adc`), nâng độ phủ cụm lên 6/15 ngôn ngữ (VI, EN, JA, KO, ZH, TH).
+  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.031 bài viết** (1.031 files `.md` trong `content/blog/`).
   - 100% bài viết đạt chuẩn Quality Gates: `blog-check` 0 lỗi, `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
   - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo theo kế hoạch.
 
