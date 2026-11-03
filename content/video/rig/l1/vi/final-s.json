@@ -1,0 +1,62 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "vi-final-s",
+ "lang": "vi",
+ "slug": "final-s",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Dropping -s on he/she/it verbs",
+  "vi": "Quên thêm -s cho động từ sau he/she/it (tiếng Việt không chia động từ)",
+  "l1": "Vietnamese verbs never change form, so the -s ending feels optional."
+ },
+ "hook": {
+  "bad": "She like coffee",
+  "good": "She likes coffee",
+  "add": [
+   "likes"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, she like coffee. Say, she likes coffee.",
+   "emo": "explain"
+  },
+  {
+   "text": "With he, she, and it, the verb gets an extra sound at the end. Likes. Works. Plays.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. She likes coffee. He works here.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Don't drop the end of the word.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Người Việt hay quên âm “s” này!",
+  "caption": "Bạn có hay nói “She like coffee” không? 😅 Với he/she/it, động từ phải thêm -s: “She likes coffee”. Nghe cô Ama đọc rồi lặp lại theo nhé! Luyện thêm ngữ pháp trong app Lexkite.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Vietnamese speakers often forget this “s”!",
+  "caption": "Do you often say “She like coffee”? With he/she/it, the verb needs -s: “She likes coffee”. Listen to Ama read it, then repeat after her! Practice more grammar in the Lexkite app."
+ }
+}

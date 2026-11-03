@@ -1,0 +1,68 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "es-age-be",
+ "lang": "es",
+ "slug": "age-be",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Using have for age (I have 20 years)",
+  "vi": "Nói tuổi bằng have: \"I have 20 years\" (tiếng Tây Ban Nha: tengo 20 años)",
+  "l1": "Spanish says “tengo 20 años” (have + years)."
+ },
+ "hook": {
+  "bad": "I have 20 years",
+  "good": "I am 20 years old",
+  "strike": "have",
+  "add": [
+   "am",
+   "old"
+  ],
+  "say": {
+   "20": "twenty"
+  }
+ },
+ "segments": [
+  {
+   "text": "Don't say, I have twenty years. Say, I am twenty years old.",
+   "emo": "explain"
+  },
+  {
+   "text": "In English, we use be for age, not have.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I am twenty years old.",
+   "emo": "encourage"
+  },
+  {
+   "text": "Now ask a friend. How old are you?",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "¿Dices “I have 20 years”?",
+  "caption": "En inglés la edad va con “be”, no con “have”: “I am 20 years old”. Nada de “I have 20 years” 🙅 Repite después de Carlos y practica más gramática en la app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramaticainglesa",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you say “I have 20 years”?",
+  "caption": "In English, age goes with “be”, not with “have”: “I am 20 years old”. Never “I have 20 years”. Repeat after Carlos and practice more grammar in the Lexkite app."
+ }
+}

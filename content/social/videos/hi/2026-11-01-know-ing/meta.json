@@ -1,0 +1,35 @@
+{
+ "id": "hi-know-ing",
+ "lang": "hi",
+ "slug": "know-ing",
+ "date": "2026-11-01",
+ "title": "“I am knowing” सही नहीं है!",
+ "topic": "“I am knowing” is not correct!",
+ "mistake": {
+  "en": "Overusing the present continuous with state verbs (I am knowing)",
+  "vi": "Lạm dụng thì tiếp diễn với động từ trạng thái: \"I am knowing\"",
+  "l1": "Hindi “jaanta hoon / jaan raha hoon” patterns push learners to -ing forms."
+ },
+ "template": "stop",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 19.75,
+ "wpm": 138,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
+ "spec": "content/video/rig/l1/hi/know-ing.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

@@ -1,0 +1,63 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "es-library",
+ "lang": "es",
+ "slug": "library",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "False friend: library ≠ librería",
+  "vi": "Từ bẫy: library = thư viện, không phải librería (hiệu sách)",
+  "l1": "Spanish “librería” means bookstore, so learners say library for a bookshop."
+ },
+ "hook": {
+  "a": "library",
+  "b": "bookstore"
+ },
+ "segments": [
+  {
+   "text": "Library, or bookstore? They are not the same place.",
+   "emo": "explain"
+  },
+  {
+   "text": "At a library, you borrow books for free.",
+   "emo": "explain"
+  },
+  {
+   "text": "At a bookstore, you pay for books.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I study at the library.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Now you know the difference.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/vocab",
+ "cta": "Practice it in Lexkite · Vocabulary",
+ "native": {
+  "hook": "“Library” NO es librería",
+  "caption": "Falso amigo: “library” es {m:library} y “bookstore” es {m:bookstore}. En la biblioteca pides libros prestados; en la librería los compras. Repite después de Ama y practica vocabulario en la app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#falsosamigos",
+   "#vocabularioingles",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "“Library” is NOT a bookstore",
+  "caption": "False friend: “library” means {m:library} and “bookstore” means {m:bookstore}. At the library you borrow books; at the bookstore you buy them. Repeat after Ama and practice vocabulary in the Lexkite app."
+ }
+}

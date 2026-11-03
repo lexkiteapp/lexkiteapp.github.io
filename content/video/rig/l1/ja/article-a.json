@@ -1,0 +1,63 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ja-article-a",
+ "lang": "ja",
+ "slug": "article-a",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Dropping the article a/an",
+  "vi": "Bỏ mạo từ a/an: \"I have pen\" (tiếng Nhật không có mạo từ)",
+  "l1": "Japanese has no articles."
+ },
+ "hook": {
+  "bad": "I have pen",
+  "good": "I have a pen",
+  "add": [
+   "a"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I have pen. Say, I have a pen.",
+   "emo": "explain"
+  },
+  {
+   "text": "For one thing you can count, put a before it. A pen. A book.",
+   "emo": "explain"
+  },
+  {
+   "text": "And before apple, say an. An apple.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I have a pen. I have an apple.",
+   "emo": "encourage"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "日本人が忘れがちな「a」",
+  "caption": "“I have pen” と言っていませんか？数えられるもの1つには a をつけて “I have a pen”（{m:pen}）。母音で始まる語には an：“an apple”。Carlos先生のあとに続けてどうぞ！Lexkiteアプリで文法を練習。",
+  "hashtags": [
+   "#英語学習",
+   "#英文法",
+   "#英会話",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "The “a” Japanese speakers often forget",
+  "caption": "Do you say “I have pen”? For one thing you can count, add a: “I have a pen” ({m:pen}). Before a vowel sound, use an: “an apple”. Repeat after teacher Carlos! Practice grammar in the Lexkite app."
+ }
+}

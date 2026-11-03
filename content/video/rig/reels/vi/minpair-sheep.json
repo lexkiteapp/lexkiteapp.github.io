@@ -1,0 +1,99 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "vi-reel-minpair-sheep",
+ "lang": "vi",
+ "slug": "minpair-sheep",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up long and short ee, and sh and ch",
+  "vi": "Nhầm i dài/i ngắn và sh/ch"
+ },
+ "items": [
+  {
+   "en": "sheep",
+   "native": "con cừu",
+   "gloss_en": "sheep"
+  },
+  {
+   "en": "ship",
+   "native": "con tàu",
+   "gloss_en": "ship"
+  },
+  {
+   "en": "cheap",
+   "native": "rẻ",
+   "gloss_en": "cheap"
+  },
+  {
+   "en": "chip",
+   "native": "miếng khoai chiên",
+   "gloss_en": "fried potato chip"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Sheep, ship, cheap, chip. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Sheep. Ship.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Cheap. Chip.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Sheep, ship, cheap, chip.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 từ dễ nhầm: nhìn khẩu hình!",
+  "turn": "Đến lượt bạn!",
+  "cta": "Hãy đọc theo nhé!",
+  "caption": "“sheep” (con cừu) hay “ship” (con tàu)? “cheap” (rẻ) hay “chip”? Âm i dài phải kéo môi sang hai bên, âm i ngắn thì thả lỏng; sh và ch khác nhau ở cách bật hơi. Nhìn miệng cô Ama, rồi đọc theo trong khoảng lặng nhé. Luyện thêm trong app Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#phatamtienganh",
+   "#hoctienganh",
+   "#tienganhmatgoc"
+  ]
+ },
+ "en": {
+  "hook": "4 easily confused words: watch the mouth!",
+  "caption": "“sheep” or “ship”? “cheap” or “chip”? For the long ee, spread your lips; for the short i, relax them. sh and ch differ in how the air is released. Watch Ama’s mouth, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

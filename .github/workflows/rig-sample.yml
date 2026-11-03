@@ -1,0 +1,52 @@
+# Video mẫu rig 2D (docs/specs/rig-2d-video.md): giọng Kokoro + mốc âm vị → mặt vẽ face.js khớp miệng → MP4 9:16 headless. 0 credit Kling, không chạy trên Mac.
+name: rig-sample
+on:
+  workflow_dispatch:
+    inputs:
+      spec: { description: 'content/video/rig/<id>.json', default: 'content/video/rig/ama-agree.json' }
+  push:
+    paths: ['content/video/rig/**', 'scripts/rig/**', '.github/workflows/rig-sample.yml']
+concurrency:
+  group: rig-sample-${{ github.ref }}
+  cancel-in-progress: false   # render: xếp hàng, không huỷ giữa chừng
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SPEC: ${{ inputs.spec || 'content/video/rig/ama-agree.json' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: kokoro-py-82m-v1
+      - name: Công cụ (ffmpeg, espeak-ng, Kokoro python Apache-2.0, resvg)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng aspell aspell-en >/dev/null
+          python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy fonttools
+      - name: Giọng + mốc âm vị
+        run: python3 scripts/rig/tts.py "$SPEC" qa/rig
+      - name: Khung (mặt vẽ, tay, thở, bản prefers-reduced-motion) + đo khớp miệng
+        run: node scripts/rig/timeline.mjs "$SPEC" qa/rig
+      - name: Dựng MP4 + QC (−16 LUFS, ≤150 wpm, hook, khớp miệng, giọng = giáo viên)
+        run: python3 scripts/rig/render.py "$SPEC" qa/rig
+      - name: Tóm tắt
+        if: always()
+        run: cat qa/rig/*/report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rig-sample
+          path: |
+            qa/rig/*/*.mp4
+            qa/rig/*/key-*.jpg
+            qa/rig/*/sheet.jpg
+            qa/rig/*/qc.json
+            qa/rig/*/report.md
+            qa/rig/*/metrics.json
+            qa/rig/*/timeline.json
+          retention-days: 14

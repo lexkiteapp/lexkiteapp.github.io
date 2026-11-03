@@ -1,0 +1,137 @@
+# Clip mạng xã hội theo lỗi L1 của từng ngôn ngữ người học (docs/specs/social-l1-clips.md): rig 2D Ama/Carlos nói tiếng Anh ≤B1, tiêu đề + chú thích bản địa.
+# Matrix theo spec, max_parallel do người/ci-filler tính = min(10, 40 − runner đang bận − 8) trước khi gọi. Job store: lưu kho minh bạch
+# content/social/videos/<lang>/<ngày>-<slug>/ + video/bìa vào Release social-<lang>, commit về đúng nhánh đã chạy. KHÔNG tự đăng mạng xã hội.
+name: social-clips
+on:
+  workflow_dispatch:
+    inputs:
+      specs: { description: "glob spec (cách nhau bởi dấu cách) | 'todo' = spec chưa có clip đạt (scripts/rig/todo.mjs, ci-filler)", default: 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }
+      max_parallel: { description: 'trần song song (job plan tự giảm theo min(10, 40 − đang bận − 8))', default: '10' }
+      store: { description: 'lưu kho + release (true/false)', default: 'true' }
+  push:   # nhánh PR (workflow_dispatch chỉ gọi được khi file đã ở main): đổi spec/engine → dựng lại cả lô thử
+    branches-ignore: [main]
+    paths: ['content/video/rig/l1/**', 'content/video/rig/reels/**', 'scripts/rig/**', 'scripts/test/rig-figure.py', 'scripts/test/rig-framecheck.py', '.github/workflows/social-clips.yml']
+concurrency:
+  group: social-clips-${{ github.ref }}
+  cancel-in-progress: false   # render/lưu kho: xếp hàng, không huỷ giữa chừng
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: { actions: read, contents: read }
+    outputs:
+      specs: ${{ steps.p.outputs.specs }}
+      par: ${{ steps.r.outputs.par }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test hồi quy khung giáo viên (1:1, ≥ 55 % thân, không lộ đoạn mờ; tiêm lỗi 0,62×/cắt đầu phải đỏ)
+        run: python3 -m pip install -q pillow && python3 scripts/test/rig-figure.py
+      - id: p
+        env:
+          GLOBS: ${{ inputs.specs || 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }}
+        run: |
+          shopt -s nullglob
+          if [ "$GLOBS" = todo ]; then mapfile -t files < <(node scripts/rig/todo.mjs --list | head -n 60); else files=(); for g in $GLOBS; do files+=($g); done; fi
+          echo "specs=$(printf '%s\n' "${files[@]}" | jq -R . | jq -sc 'map(select(length>0))')" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${files[@]}"
+      - id: r   # luật runner (memory ci-full-use): song song = min(10, yêu cầu, 40 − job đang chạy − 8), tối thiểu 1 (xếp hàng)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WANT: ${{ inputs.max_parallel || '10' }}
+        run: |
+          busy=0
+          for id in $(gh api "repos/$GITHUB_REPOSITORY/actions/runs?status=in_progress&per_page=100" --jq '.workflow_runs[].id'); do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$id/jobs?filter=latest&per_page=100" --jq '[.jobs[]|select(.status=="in_progress")]|length'); busy=$((busy+n))
+          done
+          par=$(( 40 - busy - 8 )); [ "$par" -gt "$WANT" ] && par=$WANT; [ "$par" -gt 10 ] && par=10; [ "$par" -lt 1 ] && par=1
+          echo "par=$par" >> "$GITHUB_OUTPUT"; echo "runner đang bận: $busy/40 → song song $par" | tee -a "$GITHUB_STEP_SUMMARY"
+  render:
+    needs: plan
+    if: needs.plan.outputs.specs != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(needs.plan.outputs.par) }}
+      matrix:
+        spec: ${{ fromJSON(needs.plan.outputs.specs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: kokoro-py-82m-v1
+      - name: Công cụ (ffmpeg, espeak-ng, aspell, phông Noto, raqm, Kokoro python Apache-2.0, resvg)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng aspell aspell-en fonts-noto-core fonts-noto-cjk libraqm0 >/dev/null
+          python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy fonttools rapidocr-onnxruntime==1.3.24
+      - name: Chữ bản địa (luật i18n-qa + dịch ngược gtx + nghĩa từ kho)
+        run: node scripts/rig/native-qa.mjs "${{ matrix.spec }}" qa/rig
+      - name: Giọng + mốc âm vị
+        run: python3 scripts/rig/tts.py "${{ matrix.spec }}" qa/rig
+      - name: Khung + đo khớp miệng
+        run: node scripts/rig/timeline.mjs "${{ matrix.spec }}" qa/rig
+      - name: Dựng MP4 + QC (vùng an toàn, phụ đề khớp, chính tả, ≤B1, deep-link, logic, chữ bản địa)
+        run: python3 scripts/rig/render.py "${{ matrix.spec }}" qa/rig
+      - name: Cổng tờ khung hình tự soát (test hồi quy rồi từng khung ~1/s – chữ thừa, đúng giáo viên 2D, vùng an toàn)
+        if: ${{ !cancelled() }}
+        run: python3 scripts/test/rig-framecheck.py && python3 scripts/rig/framecheck.py "${{ matrix.spec }}" qa/rig
+      - id: n
+        if: always()
+        run: echo "id=$(jq -r .id '${{ matrix.spec }}')" >> "$GITHUB_OUTPUT"
+      - name: Tóm tắt
+        if: always()
+        run: cat qa/rig/*/report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clip-${{ steps.n.outputs.id }}
+          path: |
+            qa/rig/*/*.mp4
+            qa/rig/*/cover.jpg
+            qa/rig/*/key-*.jpg
+            qa/rig/*/sheet.jpg
+            qa/rig/*/frames.jpg
+            qa/rig/*/qc.json
+            qa/rig/*/native-qa.json
+            qa/rig/*/report.md
+            qa/rig/*/metrics.json
+            qa/rig/*/timeline.json
+            qa/rig/*/seg-*.wav
+          retention-days: 30
+  store:
+    needs: render
+    if: always() && (inputs.store || 'true') == 'true' && needs.render.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'clip-*', path: art }
+      - name: Kho minh bạch theo ngôn ngữ + manifest + README
+        run: node scripts/rig/store.mjs art "$(date -u +%F)" "$GITHUB_REPOSITORY"
+      - name: Video + bìa → Release social-<lang> (miễn phí, công khai, không bí mật)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          while IFS=$'\t' read -r lang src name; do
+            [ -n "$lang" ] || continue
+            gh release view "social-$lang" >/dev/null 2>&1 || gh release create "social-$lang" --prerelease --title "Clip mạng xã hội · $lang" --notes "Video + ảnh bìa cho người học $lang. Chú thích, lỗi nhắm tới, điểm QC: content/social/videos/$lang/ (docs/specs/social-l1-clips.md)." --target main
+            cp "$src" "$RUNNER_TEMP/$name" && gh release upload "social-$lang" "$RUNNER_TEMP/$name" --clobber
+          done < art/uploads.tsv
+      - name: Commit kho về nhánh đã chạy
+        run: |
+          git config user.name 'github-actions[bot]'; git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add content/social/videos
+          git diff --cached --quiet && exit 0
+          git commit -qm "Kho clip mạng xã hội: cập nhật content/social/videos (social-clips #${{ github.run_number }}) [CF-Pages-Skip]"
+          # run 41546080978: lượt khác vừa ghi cùng qc.json → rebase xung đột, lần thử 2–3 vấp "unmerged files" → mất kho của lượt này.
+          # Kho là dữ liệu sinh ra: bản của lượt vừa dựng xong (commit đang replay = -X theirs) thắng; xung đột còn sót thì abort sạch rồi thử lại.
+          for i in 1 2 3; do git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0; git rebase --abort 2>/dev/null || true; sleep 5; done; exit 1

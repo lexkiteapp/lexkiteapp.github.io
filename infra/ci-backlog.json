@@ -18,6 +18,8 @@
   { "id": "content-qa", "workflow": "content-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 12 }, "note": "Cổng QA nội dung (0 token AI)" },
   { "id": "lighthouse", "workflow": "lighthouse.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 24 }, "note": "Lighthouse/CWV 14 trang (ghi reports/lighthouse.json)" },
   { "id": "ext-e2e", "workflow": "ext-e2e.yml", "cpu_bound": true, "quota_bound": false, "jobs": 6, "probe": { "stale_hours": 12 }, "note": "E2E add-on 6 ngôn ngữ" },
+  { "id": "social-clips", "workflow": "social-clips.yml", "cpu_bound": true, "quota_bound": false, "shards_input": "max_parallel", "max_shards": 10, "inputs": { "specs": "todo", "store": "true" },
+    "probe": { "cmd": "node scripts/rig/todo.mjs --count", "left_re": "cần dựng (\\d+)" }, "note": "Clip L1 + 4 khuôn Reels × 15 ngôn ngữ (rig 2D Ama/Carlos, Kokoro): chỉ spec chưa có clip đạt; trượt cổng → không xuất, không dựng lại cùng spec" },
   { "id": "vocab-img-scene", "workflow": "vocab-img-scene.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "CF_POOL ảnh – hạn mức neuron, thêm runner không giúp" },
   { "id": "lexicon-expand", "workflow": "lexicon-expand.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Gemini/CF_POOL lexicon – hạn mức" },
   { "id": "lexicon-i18n", "workflow": "lexicon-i18n.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Dịch AI – hạn mức" }

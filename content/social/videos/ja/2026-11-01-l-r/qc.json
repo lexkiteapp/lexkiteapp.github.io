@@ -1,0 +1,313 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true
+ },
+ "safe_box": [
+  153.40625,
+  272,
+  926.890625,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/pron",
+ "native_font": "NotoSansCJK-Bold.ttc",
+ "lufs": -16,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 22.075,
+ "words": 40,
+ "wpmSpeech": 125,
+ "wpmOverall": 109,
+ "firstVoicedS": 0.44,
+ "lagMaxAbsMs": 30,
+ "visemePctMin": 98,
+ "flicker": 0,
+ "blinksPerMin": 19,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 3.825,
+   "lagMs": -20,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    0
+   ],
+   "lagEnvChunksMs": [
+    0,
+    10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    95,
+    5
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 6.1,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -10,
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    95,
+    5,
+    20,
+    30
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "explain",
+   "hand": "",
+   "dur": 3.9,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    70,
+    -5,
+    0
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "encourage",
+   "hand": "palm",
+   "dur": 3.5,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    -10,
+    -10
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    45,
+    -25
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 4,
+   "emo": "happy",
+   "hand": "thumb",
+   "dur": 1.85,
+   "lagMs": -30,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -30
+   ],
+   "lagEnvChunksMs": [
+    0
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    35
+   ],
+   "mouthOnsetMs": [
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 668,
+   "visFrac": 0.757,
+   "scale": 1,
+   "top": 602
+  },
+  "explain": {
+   "visH": 671,
+   "visFrac": 0.76,
+   "scale": 1,
+   "top": 599
+  },
+  "encourage": {
+   "visH": 669,
+   "visFrac": 0.758,
+   "scale": 1,
+   "top": 601
+  },
+  "happy": {
+   "visH": 671,
+   "visFrac": 0.76,
+   "scale": 1.002,
+   "top": 599
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "Can you tell the difference between L and R?",
+   "caption": "Do “light” and “right” sound the same? For L, the tip of the tongue should be placed just behind the upper teeth, while for R, the tongue should not be placed anywhere. Let's continue saying it after Ama sensei! Practice your pronunciation with the Lexkite app.",
+   "glosses": [
+    {
+     "word": "light",
+     "sense": 1,
+     "gloss": "光",
+     "back": "light"
+    },
+    {
+     "word": "right",
+     "sense": 2,
+     "gloss": "右の",
+     "back": "on the right"
+    }
+   ]
+  },
+  "sim": {
+   "hook": 0.86,
+   "caption": 0.63
+  }
+ }
+}

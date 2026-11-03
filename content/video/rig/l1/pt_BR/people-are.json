@@ -1,0 +1,63 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "pt_BR-people-are",
+ "lang": "pt_BR",
+ "slug": "people-are",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "“People is” instead of “people are”",
+  "vi": "\"People is\" thay vì \"people are\" (o povo é là số ít)",
+  "l1": "Portuguese “o povo é / a gente é” is singular."
+ },
+ "hook": {
+  "bad": "People is nice",
+  "good": "People are nice",
+  "strike": "is",
+  "add": [
+   "are"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, people is nice. Say, people are nice.",
+   "emo": "explain"
+  },
+  {
+   "text": "In English, people means more than one person, so we use are.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. People are nice here.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! People are, never people is.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Você fala “people is”?",
+  "caption": "Em português se diz “o povo é”, mas em inglês “people” ({m:people}) é sempre plural: “people are”. Diga “People are nice”, nunca “people is”. Repita com a Ama e pratique gramática no app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesonline",
+   "#gramaticaingles",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you say “people is”?",
+  "caption": "In Portuguese you say “o povo é”, but in English “people” ({m:people}) is always plural: “people are”. Say “People are nice”, never “people is”. Repeat with Ama and practice grammar in the Lexkite app."
+ }
+}

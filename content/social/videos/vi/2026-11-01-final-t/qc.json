@@ -1,0 +1,262 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true
+ },
+ "safe_box": [
+  100,
+  267,
+  980,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/pron",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.4,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  }
+ ],
+ "total": 23.55,
+ "words": 42,
+ "wpmSpeech": 119,
+ "wpmOverall": 107,
+ "firstVoicedS": 0.26,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 97,
+ "flicker": 0,
+ "blinksPerMin": 20,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 4.35,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    0,
+    0
+   ],
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    -30
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 7.025,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -10,
+    0
+   ],
+   "lagEnvChunksMs": [
+    -10,
+    10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    20
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 97,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "encourage",
+   "hand": "",
+   "dur": 4.9,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    -10,
+    0
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    60,
+    -20
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "happy",
+   "hand": "",
+   "dur": 4.925,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    0,
+    0
+   ],
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    75,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 628,
+   "visFrac": 0.746,
+   "scale": 0.997,
+   "top": 642
+  },
+  "explain": {
+   "visH": 633,
+   "visFrac": 0.752,
+   "scale": 0.997,
+   "top": 637
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "Swallow the last sound: “white” becomes “why”!",
+   "caption": "Vietnamese people often swallow the last sound, so \"white\" sounds like \"why\". Keep the /t/ sound very soft at the end of the word! Teacher Carlos reads the sample and you repeat it. Practice pronunciation in the Lexkite app.",
+   "glosses": [
+    {
+     "word": "white",
+     "sense": 1,
+     "gloss": "màu trắng",
+     "back": "white"
+    },
+    {
+     "word": "why",
+     "sense": 1,
+     "gloss": "tại sao",
+     "back": "why"
+    }
+   ]
+  },
+  "sim": {
+   "hook": 0.86,
+   "caption": 0.77
+  }
+ }
+}

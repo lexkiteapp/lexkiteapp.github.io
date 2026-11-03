@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "pt_BR-actually",
+ "lang": "pt_BR",
+ "slug": "actually",
+ "who": "carlos",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "False friend: actually ≠ atualmente",
+  "vi": "Từ bẫy: actually ≠ atualmente (= currently, hiện nay)",
+  "l1": "Portuguese “atualmente” means currently, so learners use actually for now."
+ },
+ "hook": {
+  "a": "actually",
+  "b": "currently"
+ },
+ "segments": [
+  {
+   "text": "Actually, or currently? Many learners mix them up.",
+   "emo": "explain",
+   "who": "carlos"
+  },
+  {
+   "text": "Currently means now. I currently live in Brazil.",
+   "emo": "explain",
+   "who": "ama"
+  },
+  {
+   "text": "Actually means in fact. Actually, I love rainy days.",
+   "emo": "explain",
+   "who": "carlos"
+  },
+  {
+   "text": "Repeat after me. I currently work from home.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  }
+ ],
+ "deeplink": "#/vocab",
+ "cta": "Practice it in Lexkite · Vocabulary",
+ "native": {
+  "hook": "“Actually” NÃO é “atualmente”",
+  "caption": "Falso cognato! “currently” = {m:currently}, e “actually” = {m:actually}. Então “Actually, I love rainy days” quer dizer “Na verdade, eu amo dias de chuva”. Repita com o Carlos e a Ama e pratique vocabulário no app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesonline",
+   "#dicasdeingles",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "“Actually” does NOT mean “currently”",
+  "caption": "False friend! “currently” = {m:currently}, and “actually” = {m:actually}. So “Actually, I love rainy days” means “In fact, I love rainy days”. Repeat with Carlos and Ama and practice vocabulary in the Lexkite app."
+ }
+}

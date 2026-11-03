@@ -1,0 +1,35 @@
+{
+ "id": "vi-final-s",
+ "lang": "vi",
+ "slug": "final-s",
+ "date": "2026-11-01",
+ "title": "Người Việt hay quên âm “s” này!",
+ "topic": "Vietnamese speakers often forget this “s”!",
+ "mistake": {
+  "en": "Dropping -s on he/she/it verbs",
+  "vi": "Quên thêm -s cho động từ sau he/she/it (tiếng Việt không chia động từ)",
+  "l1": "Vietnamese verbs never change form, so the -s ending feels optional."
+ },
+ "template": "stop",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 21.475,
+ "wpm": 138,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-s#/grammar",
+ "spec": "content/video/rig/l1/vi/final-s.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

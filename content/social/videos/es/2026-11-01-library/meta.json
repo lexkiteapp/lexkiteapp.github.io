@@ -1,0 +1,35 @@
+{
+ "id": "es-library",
+ "lang": "es",
+ "slug": "library",
+ "date": "2026-11-01",
+ "title": "“Library” NO es librería",
+ "topic": "“Library” is NOT a bookstore",
+ "mistake": {
+  "en": "False friend: library ≠ librería",
+  "vi": "Từ bẫy: library = thư viện, không phải librería (hiệu sách)",
+  "l1": "Spanish “librería” means bookstore, so learners say library for a bookshop."
+ },
+ "template": "pair",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 20.6,
+ "wpm": 132,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-library#/vocab",
+ "spec": "content/video/rig/l1/es/library.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

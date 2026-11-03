@@ -1,0 +1,63 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ja-l-r",
+ "lang": "ja",
+ "slug": "l-r",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Mixing up L and R (light / right)",
+  "vi": "Lẫn L và R: \"light\" / \"right\" (tiếng Nhật chỉ có một âm giữa L và R)",
+  "l1": "Japanese has one liquid sound between L and R."
+ },
+ "hook": {
+  "a": "light",
+  "b": "right"
+ },
+ "segments": [
+  {
+   "text": "Light, or right? These are two different words.",
+   "emo": "explain"
+  },
+  {
+   "text": "Light. Your tongue touches the top of your mouth, just behind your teeth. Light.",
+   "emo": "explain"
+  },
+  {
+   "text": "Right. Your tongue does not touch anything. Right.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. Turn right at the light.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job!",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "LとRの違い、聞き分けられる？",
+  "caption": "“light”（{m:light}）と“right”（{m:right#2}）、同じに聞こえますか？Lは舌先を上の歯のすぐ後ろにつけて、Rは舌をどこにもつけません。Ama先生のあとに続けて言ってみよう！Lexkiteアプリで発音を練習。",
+  "hashtags": [
+   "#英語学習",
+   "#英語発音",
+   "#英会話",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Can you hear the difference between L and R?",
+  "caption": "Do “light” ({m:light}) and “right” ({m:right#2}) sound the same to you? For L, touch the tip of your tongue just behind your top teeth; for R, your tongue touches nothing. Repeat after teacher Ama! Practice pronunciation in the Lexkite app."
+ }
+}

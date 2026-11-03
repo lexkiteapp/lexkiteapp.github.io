@@ -1,0 +1,35 @@
+{
+ "id": "es-age-be",
+ "lang": "es",
+ "slug": "age-be",
+ "date": "2026-11-01",
+ "title": "¿Dices “I have 20 years”?",
+ "topic": "Do you say “I have 20 years”?",
+ "mistake": {
+  "en": "Using have for age (I have 20 years)",
+  "vi": "Nói tuổi bằng have: \"I have 20 years\" (tiếng Tây Ban Nha: tengo 20 años)",
+  "l1": "Spanish says “tengo 20 años” (have + years)."
+ },
+ "template": "stop",
+ "teachers": [
+  "carlos"
+ ],
+ "duration_s": 19.325,
+ "wpm": 131,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-age-be#/grammar",
+ "spec": "content/video/rig/l1/es/age-be.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

@@ -1,0 +1,233 @@
+{
+ "_doc": "Sinh tự động bởi scripts/rig/store.mjs – đừng sửa tay (trạng thái sửa trong meta.json từng clip).",
+ "updated": "2026-11-02",
+ "count": 10,
+ "by_lang": {
+  "es": [
+   "es-age-be",
+   "es-library"
+  ],
+  "hi": [
+   "hi-good-name",
+   "hi-know-ing"
+  ],
+  "ja": [
+   "ja-article-a",
+   "ja-l-r"
+  ],
+  "pt_BR": [
+   "pt_BR-actually",
+   "pt_BR-people-are"
+  ],
+  "vi": [
+   "vi-final-s",
+   "vi-final-t"
+  ]
+ },
+ "by_status": {
+  "draft": 10
+ },
+ "clips": [
+  {
+   "id": "es-age-be",
+   "lang": "es",
+   "date": "2026-11-01",
+   "title": "¿Dices “I have 20 years”?",
+   "topic": "Do you say “I have 20 years”?",
+   "mistake": "Using have for age (I have 20 years)",
+   "mistake_vi": "Nói tuổi bằng have: \"I have 20 years\" (tiếng Tây Ban Nha: tengo 20 años)",
+   "teachers": [
+    "carlos"
+   ],
+   "duration_s": 19.325,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-age-be#/grammar",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-cover.jpg",
+   "caption": "content/social/videos/es/2026-11-01-age-be/caption.txt"
+  },
+  {
+   "id": "es-library",
+   "lang": "es",
+   "date": "2026-11-01",
+   "title": "“Library” NO es librería",
+   "topic": "“Library” is NOT a bookstore",
+   "mistake": "False friend: library ≠ librería",
+   "mistake_vi": "Từ bẫy: library = thư viện, không phải librería (hiệu sách)",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 20.6,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-library#/vocab",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-cover.jpg",
+   "caption": "content/social/videos/es/2026-11-01-library/caption.txt"
+  },
+  {
+   "id": "hi-good-name",
+   "lang": "hi",
+   "date": "2026-11-01",
+   "title": "“Good name” कहना छोड़िए!",
+   "topic": "Stop saying “good name”!",
+   "mistake": "“What is your good name?”",
+   "mistake_vi": "Dịch nguyên văn \"What is your good name?\" (shubh naam)",
+   "teachers": [
+    "carlos"
+   ],
+   "duration_s": 20.6,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-good-name#/phrases",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-cover.jpg",
+   "caption": "content/social/videos/hi/2026-11-01-good-name/caption.txt"
+  },
+  {
+   "id": "hi-know-ing",
+   "lang": "hi",
+   "date": "2026-11-01",
+   "title": "“I am knowing” सही नहीं है!",
+   "topic": "“I am knowing” is not correct!",
+   "mistake": "Overusing the present continuous with state verbs (I am knowing)",
+   "mistake_vi": "Lạm dụng thì tiếp diễn với động từ trạng thái: \"I am knowing\"",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 19.75,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-cover.jpg",
+   "caption": "content/social/videos/hi/2026-11-01-know-ing/caption.txt"
+  },
+  {
+   "id": "ja-article-a",
+   "lang": "ja",
+   "date": "2026-11-01",
+   "title": "日本人が忘れがちな「a」",
+   "topic": "The “a” Japanese speakers often forget",
+   "mistake": "Dropping the article a/an",
+   "mistake_vi": "Bỏ mạo từ a/an: \"I have pen\" (tiếng Nhật không có mạo từ)",
+   "teachers": [
+    "carlos"
+   ],
+   "duration_s": 19.525,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=ja-article-a#/grammar",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-article-a-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-article-a-cover.jpg",
+   "caption": "content/social/videos/ja/2026-11-01-article-a/caption.txt"
+  },
+  {
+   "id": "ja-l-r",
+   "lang": "ja",
+   "date": "2026-11-01",
+   "title": "LとRの違い、聞き分けられる？",
+   "topic": "Can you hear the difference between L and R?",
+   "mistake": "Mixing up L and R (light / right)",
+   "mistake_vi": "Lẫn L và R: \"light\" / \"right\" (tiếng Nhật chỉ có một âm giữa L và R)",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 22.075,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=ja-l-r#/pron",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-l-r-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-l-r-cover.jpg",
+   "caption": "content/social/videos/ja/2026-11-01-l-r/caption.txt"
+  },
+  {
+   "id": "pt_BR-actually",
+   "lang": "pt_BR",
+   "date": "2026-11-01",
+   "title": "“Actually” NÃO é “atualmente”",
+   "topic": "“Actually” does NOT mean “currently”",
+   "mistake": "False friend: actually ≠ atualmente",
+   "mistake_vi": "Từ bẫy: actually ≠ atualmente (= currently, hiện nay)",
+   "teachers": [
+    "carlos",
+    "ama"
+   ],
+   "duration_s": 20.65,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-actually#/vocab",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-actually-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-actually-cover.jpg",
+   "caption": "content/social/videos/pt_BR/2026-11-01-actually/caption.txt"
+  },
+  {
+   "id": "pt_BR-people-are",
+   "lang": "pt_BR",
+   "date": "2026-11-01",
+   "title": "Você fala “people is”?",
+   "topic": "Do you say “people is”?",
+   "mistake": "“People is” instead of “people are”",
+   "mistake_vi": "\"People is\" thay vì \"people are\" (o povo é là số ít)",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 18.95,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-people-are#/grammar",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-people-are-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-people-are-cover.jpg",
+   "caption": "content/social/videos/pt_BR/2026-11-01-people-are/caption.txt"
+  },
+  {
+   "id": "vi-final-s",
+   "lang": "vi",
+   "date": "2026-11-01",
+   "title": "Người Việt hay quên âm “s” này!",
+   "topic": "Vietnamese speakers often forget this “s”!",
+   "mistake": "Dropping -s on he/she/it verbs",
+   "mistake_vi": "Quên thêm -s cho động từ sau he/she/it (tiếng Việt không chia động từ)",
+   "teachers": [
+    "ama"
+   ],
+   "duration_s": 21.475,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-s#/grammar",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-cover.jpg",
+   "caption": "content/social/videos/vi/2026-11-01-final-s/caption.txt"
+  },
+  {
+   "id": "vi-final-t",
+   "lang": "vi",
+   "date": "2026-11-01",
+   "title": "Nuốt âm cuối: “white” thành “why”!",
+   "topic": "Dropping the last sound: “white” becomes “why”!",
+   "mistake": "Dropping final consonants (white → why)",
+   "mistake_vi": "Nuốt âm cuối: \"white\" nghe thành \"why\" (tiếng Việt không bật âm cuối)",
+   "teachers": [
+    "carlos"
+   ],
+   "duration_s": 23.55,
+   "score": 100,
+   "pass": true,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-t#/pron",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-cover.jpg",
+   "caption": "content/social/videos/vi/2026-11-01-final-t/caption.txt"
+  }
+ ]
+}

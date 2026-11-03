@@ -1,0 +1,35 @@
+{
+ "id": "hi-good-name",
+ "lang": "hi",
+ "slug": "good-name",
+ "date": "2026-11-01",
+ "title": "“Good name” कहना छोड़िए!",
+ "topic": "Stop saying “good name”!",
+ "mistake": {
+  "en": "“What is your good name?”",
+  "vi": "Dịch nguyên văn \"What is your good name?\" (shubh naam)",
+  "l1": "A literal translation of the polite Hindi “shubh naam”."
+ },
+ "template": "stop",
+ "teachers": [
+  "carlos"
+ ],
+ "duration_s": 20.6,
+ "wpm": 132,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-good-name#/phrases",
+ "spec": "content/video/rig/l1/hi/good-name.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

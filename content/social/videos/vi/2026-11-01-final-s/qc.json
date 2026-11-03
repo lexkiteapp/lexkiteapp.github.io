@@ -1,0 +1,285 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true
+ },
+ "safe_box": [
+  125.6796875,
+  272,
+  954.6796875,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/grammar",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.2,
+ "truePeak": -1.3,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 21.475,
+ "words": 44,
+ "wpmSpeech": 138,
+ "wpmOverall": 123,
+ "firstVoicedS": 0.43,
+ "lagMaxAbsMs": 30,
+ "visemePctMin": 95,
+ "flicker": 0,
+ "blinksPerMin": 17,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 4.175,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    -10,
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -5,
+    -10
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 97,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 6.975,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    0,
+    -10,
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0,
+    -20,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -5,
+    10,
+    -5,
+    0,
+    10
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10,
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0,
+    0
+   ],
+   "visemePct": 95,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "encourage",
+   "hand": "palm",
+   "dur": 4.225,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    -10,
+    -10,
+    -10
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    35,
+    5,
+    -50
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0,
+    0
+   ],
+   "visemePct": 97,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "happy",
+   "hand": "thumb",
+   "dur": 3.75,
+   "lagMs": -30,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    -30,
+    -30
+   ],
+   "lagEnvChunksMs": [
+    0,
+    -30
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    45,
+    -25
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 668,
+   "visFrac": 0.757,
+   "scale": 1,
+   "top": 602
+  },
+  "fix": {
+   "visH": 675,
+   "visFrac": 0.764,
+   "scale": 1,
+   "top": 595
+  },
+  "explain": {
+   "visH": 673,
+   "visFrac": 0.762,
+   "scale": 1,
+   "top": 597
+  },
+  "encourage": {
+   "visH": 673,
+   "visFrac": 0.762,
+   "scale": 1,
+   "top": 597
+  },
+  "happy": {
+   "visH": 675,
+   "visFrac": 0.764,
+   "scale": 1.002,
+   "top": 595
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "Vietnamese people often forget this \"s\" sound!",
+   "caption": "Do you often say “She likes coffee”? 😅 With he/she/it, the verb must add -s: “She likes coffee”. Listen to Ms. Ama read it and then repeat it! Practice more grammar in the Lexkite app.",
+   "glosses": []
+  },
+  "sim": {
+   "hook": 0.67,
+   "caption": 0.83
+  }
+ }
+}

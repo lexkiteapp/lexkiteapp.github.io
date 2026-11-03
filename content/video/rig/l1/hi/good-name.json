@@ -1,0 +1,61 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "hi-good-name",
+ "lang": "hi",
+ "slug": "good-name",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "“What is your good name?”",
+  "vi": "Dịch nguyên văn \"What is your good name?\" (shubh naam)",
+  "l1": "A literal translation of the polite Hindi “shubh naam”."
+ },
+ "hook": {
+  "bad": "What is your good name?",
+  "good": "What is your name?",
+  "strike": "good"
+ },
+ "segments": [
+  {
+   "text": "Don't say, what is your good name? Say, what is your name?",
+   "emo": "explain"
+  },
+  {
+   "text": "Good name sounds strange to many English speakers.",
+   "emo": "explain"
+  },
+  {
+   "text": "To be extra polite, say, may I have your name, please?",
+   "emo": "encourage"
+  },
+  {
+   "text": "Repeat after me. May I have your name, please?",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "“Good name” कहना छोड़िए!",
+  "caption": "भारत में “What is your good name?” आम है, पर ज़्यादातर अंग्रेज़ी बोलने वालों को यह अजीब लगता है। बस कहिए “What is your name?” ({m:name})। और भी विनम्र: “May I have your name, please?” Carlos टीचर के बाद दोहराइए और Lexkite ऐप में अभ्यास कीजिए।",
+  "hashtags": [
+   "#अंग्रेज़ी_सीखें",
+   "#spokenenglish",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Stop saying “good name”!",
+  "caption": "In India “What is your good name?” is common, but most English speakers find it strange. Just say “What is your name?” ({m:name}). Even more polite: “May I have your name, please?” Repeat after teacher Carlos and practice in the Lexkite app."
+ }
+}

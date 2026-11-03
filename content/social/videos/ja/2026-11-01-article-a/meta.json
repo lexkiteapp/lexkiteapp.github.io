@@ -1,0 +1,35 @@
+{
+ "id": "ja-article-a",
+ "lang": "ja",
+ "slug": "article-a",
+ "date": "2026-11-01",
+ "title": "日本人が忘れがちな「a」",
+ "topic": "The “a” Japanese speakers often forget",
+ "mistake": {
+  "en": "Dropping the article a/an",
+  "vi": "Bỏ mạo từ a/an: \"I have pen\" (tiếng Nhật không có mạo từ)",
+  "l1": "Japanese has no articles."
+ },
+ "template": "stop",
+ "teachers": [
+  "carlos"
+ ],
+ "duration_s": 19.525,
+ "wpm": 147,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=ja-article-a#/grammar",
+ "spec": "content/video/rig/l1/ja/article-a.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-article-a-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-article-a-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

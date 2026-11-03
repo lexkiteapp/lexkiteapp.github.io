@@ -1,0 +1,35 @@
+{
+ "id": "ja-l-r",
+ "lang": "ja",
+ "slug": "l-r",
+ "date": "2026-11-01",
+ "title": "LとRの違い、聞き分けられる？",
+ "topic": "Can you hear the difference between L and R?",
+ "mistake": {
+  "en": "Mixing up L and R (light / right)",
+  "vi": "Lẫn L và R: \"light\" / \"right\" (tiếng Nhật chỉ có một âm giữa L và R)",
+  "l1": "Japanese has one liquid sound between L and R."
+ },
+ "template": "pair",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 22.075,
+ "wpm": 125,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=ja-l-r#/pron",
+ "spec": "content/video/rig/l1/ja/l-r.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-l-r-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-ja/2026-11-01-l-r-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

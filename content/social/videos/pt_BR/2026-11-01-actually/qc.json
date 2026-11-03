@@ -1,0 +1,268 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true
+ },
+ "safe_box": [
+  115.21875,
+  262,
+  965.15625,
+  1520
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/vocab",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.4,
+ "truePeak": -1.4,
+ "voices": [
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 20.65,
+ "words": 33,
+ "wpmSpeech": 108,
+ "wpmOverall": 96,
+ "firstVoicedS": 0.25,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 95,
+ "flicker": 0,
+ "blinksPerMin": 17,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 5,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    0,
+    -20
+   ],
+   "lagEnvChunksMs": [
+    -10,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    70,
+    25
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 4.025,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    -10,
+    0
+   ],
+   "lagEnvChunksMs": [
+    0,
+    -210
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -15,
+    -60
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "explain",
+   "hand": "",
+   "dur": 5.4,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    0,
+    0
+   ],
+   "lagEnvChunksMs": [
+    0,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "encourage",
+   "hand": "palm",
+   "dur": 3.875,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
+   "lagChunksMs": [
+    -10,
+    0
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    45,
+    -60
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 95,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 628,
+   "visFrac": 0.746,
+   "scale": 1,
+   "top": 642
+  },
+  "explain": {
+   "visH": 676,
+   "visFrac": 0.766,
+   "scale": 1,
+   "top": 594
+  },
+  "encourage": {
+   "visH": 672,
+   "visFrac": 0.761,
+   "scale": 1,
+   "top": 598
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "“Actually” is NOT “currently”",
+   "caption": "False cognate! “currently” = currently, and “actually” = actually. So “Actually, I love rainy days” means “Actually, I love rainy days”. Repeat with Carlos and Ama and practice vocabulary on the Lexkite app.",
+   "glosses": [
+    {
+     "word": "currently",
+     "sense": 1,
+     "gloss": "atualmente",
+     "back": "currently"
+    },
+    {
+     "word": "actually",
+     "sense": 1,
+     "gloss": "na realidade",
+     "back": "in reality"
+    }
+   ]
+  },
+  "sim": {
+   "hook": 0.6,
+   "caption": 0.89
+  }
+ }
+}

@@ -1,0 +1,60 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "vi-final-t",
+ "lang": "vi",
+ "slug": "final-t",
+ "who": "carlos",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Dropping final consonants (white → why)",
+  "vi": "Nuốt âm cuối: \"white\" nghe thành \"why\" (tiếng Việt không bật âm cuối)",
+  "l1": "Vietnamese final stops are unreleased, so English final /t/ disappears."
+ },
+ "hook": {
+  "a": "why",
+  "b": "white"
+ },
+ "segments": [
+  {
+   "text": "Why, or white? The last sound changes the word.",
+   "emo": "explain"
+  },
+  {
+   "text": "Why ends open. White ends with a short, quiet sound. Listen. Why. White.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. White. A white car. A white shirt.",
+   "emo": "encourage"
+  },
+  {
+   "text": "Nice! Keep the last sound, and people will understand you.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Nuốt âm cuối: “white” thành “why”!",
+  "caption": "Người Việt hay nuốt âm cuối, nên “white” ({m:white}) nghe thành “why” ({m:why}). Hãy giữ âm /t/ thật nhẹ ở cuối từ nhé! Thầy Carlos đọc mẫu, bạn lặp lại theo. Luyện phát âm trong app Lexkite.",
+  "hashtags": [
+   "#hoctienganh",
+   "#phatamtienganh",
+   "#tienganhgiaotiep",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Dropping the last sound: “white” becomes “why”!",
+  "caption": "Vietnamese speakers often drop the last sound, so “white” ({m:white}) sounds like “why” ({m:why}). Keep a soft /t/ at the end of the word! Carlos reads it first, you repeat after him. Practice pronunciation in the Lexkite app."
+ }
+}

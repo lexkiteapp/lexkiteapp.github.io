@@ -1,0 +1,35 @@
+{
+ "id": "pt_BR-people-are",
+ "lang": "pt_BR",
+ "slug": "people-are",
+ "date": "2026-11-01",
+ "title": "Você fala “people is”?",
+ "topic": "Do you say “people is”?",
+ "mistake": {
+  "en": "“People is” instead of “people are”",
+  "vi": "\"People is\" thay vì \"people are\" (o povo é là số ít)",
+  "l1": "Portuguese “o povo é / a gente é” is singular."
+ },
+ "template": "stop",
+ "teachers": [
+  "ama"
+ ],
+ "duration_s": 18.95,
+ "wpm": 127,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-people-are#/grammar",
+ "spec": "content/video/rig/l1/pt_BR/people-are.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-people-are-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-people-are-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

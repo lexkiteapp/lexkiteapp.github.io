@@ -1,0 +1,35 @@
+{
+ "id": "vi-final-t",
+ "lang": "vi",
+ "slug": "final-t",
+ "date": "2026-11-01",
+ "title": "Nuốt âm cuối: “white” thành “why”!",
+ "topic": "Dropping the last sound: “white” becomes “why”!",
+ "mistake": {
+  "en": "Dropping final consonants (white → why)",
+  "vi": "Nuốt âm cuối: \"white\" nghe thành \"why\" (tiếng Việt không bật âm cuối)",
+  "l1": "Vietnamese final stops are unreleased, so English final /t/ disappears."
+ },
+ "template": "pair",
+ "teachers": [
+  "carlos"
+ ],
+ "duration_s": 23.55,
+ "wpm": 119,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-t#/pron",
+ "spec": "content/video/rig/l1/vi/final-t.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

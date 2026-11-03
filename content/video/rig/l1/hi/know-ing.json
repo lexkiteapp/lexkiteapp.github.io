@@ -1,0 +1,63 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "hi-know-ing",
+ "lang": "hi",
+ "slug": "know-ing",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Overusing the present continuous with state verbs (I am knowing)",
+  "vi": "Lạm dụng thì tiếp diễn với động từ trạng thái: \"I am knowing\"",
+  "l1": "Hindi “jaanta hoon / jaan raha hoon” patterns push learners to -ing forms."
+ },
+ "hook": {
+  "bad": "I am knowing him",
+  "good": "I know him",
+  "strike": "am",
+  "add": [
+   "know"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I am knowing him. Say, I know him.",
+   "emo": "explain"
+  },
+  {
+   "text": "Know, like, and want are about your mind, not actions. So we keep them simple.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I know him. I like this song.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Simple is better.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "“I am knowing” सही नहीं है!",
+  "caption": "“know” ({m:know}), “like”, “want” जैसे शब्द कोई काम नहीं, मन की स्थिति बताते हैं, इसलिए इनके साथ -ing नहीं लगाते। कहिए “I know him”, “I am knowing him” नहीं। Ama टीचर के बाद दोहराइए और Lexkite ऐप में ग्रामर का अभ्यास कीजिए।",
+  "hashtags": [
+   "#अंग्रेज़ी_सीखें",
+   "#spokenenglish",
+   "#englishgrammar",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "“I am knowing” is not correct!",
+  "caption": "Words like “know” ({m:know}), “like” and “want” do not show an action, they show a state of mind, so they don't take -ing. Say “I know him”, not “I am knowing him”. Repeat after teacher Ama and practice grammar in the Lexkite app."
+ }
+}

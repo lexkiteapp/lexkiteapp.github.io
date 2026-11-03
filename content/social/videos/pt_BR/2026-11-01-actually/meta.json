@@ -1,0 +1,36 @@
+{
+ "id": "pt_BR-actually",
+ "lang": "pt_BR",
+ "slug": "actually",
+ "date": "2026-11-01",
+ "title": "“Actually” NÃO é “atualmente”",
+ "topic": "“Actually” does NOT mean “currently”",
+ "mistake": {
+  "en": "False friend: actually ≠ atualmente",
+  "vi": "Từ bẫy: actually ≠ atualmente (= currently, hiện nay)",
+  "l1": "Portuguese “atualmente” means currently, so learners use actually for now."
+ },
+ "template": "pair",
+ "teachers": [
+  "carlos",
+  "ama"
+ ],
+ "duration_s": 20.65,
+ "wpm": 108,
+ "qc": {
+  "score": 100,
+  "pass": true,
+  "failed": []
+ },
+ "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-actually#/vocab",
+ "spec": "content/video/rig/l1/pt_BR/actually.json",
+ "files": {
+  "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-actually-video.mp4",
+  "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-actually-cover.jpg",
+  "caption": "caption.txt",
+  "qc": "qc.json"
+ },
+ "status": "draft",
+ "posted": {},
+ "updated": "2026-11-02"
+}

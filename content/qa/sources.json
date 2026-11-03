@@ -467,6 +467,7 @@
   "content/pr": "bài PR/danh bạ",
   "content/protection": "dấu bản quyền",
   "content/video": "kịch bản video – cổng riêng docs/VIDEO.md (duyệt mẫu trước khi chạy hàng loạt)",
+  "content/social": "kho clip mạng xã hội do social-clips.yml (job store) ghi: qc.json/meta từng clip rig 2D – không phải nội dung học; kịch bản ở content/video/rig, cổng riêng docs/specs/social-l1-clips.md (QC render + tờ khung hình framecheck, clip trượt cổng không xuất)",
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
   "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
   "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",

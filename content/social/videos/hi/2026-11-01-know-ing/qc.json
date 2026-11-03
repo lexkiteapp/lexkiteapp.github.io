@@ -1,0 +1,283 @@
+{
+ "score": 100,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "teacher_full_1x": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true
+ },
+ "safe_box": [
+  102.4453125,
+  260,
+  931.234375,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/grammar",
+ "native_font": "NotoSansDevanagari-Bold.ttf",
+ "lufs": -16.1,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 19.75,
+ "words": 40,
+ "wpmSpeech": 138,
+ "wpmOverall": 122,
+ "firstVoicedS": 0.44,
+ "lagMaxAbsMs": 30,
+ "visemePctMin": 98,
+ "flicker": 0,
+ "blinksPerMin": 18,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 3.85,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    10,
+    10
+   ],
+   "lagEnvChunksMs": [
+    -10,
+    -20
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -15,
+    15
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 6.225,
+   "lagMs": -30,
+   "lagGlobalMs": 150,
+   "lagChunksMs": [
+    -10,
+    -10,
+    -30
+   ],
+   "lagEnvChunksMs": [
+    10,
+    170,
+    130
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    0,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0,
+    0
+   ],
+   "visemePct": 99,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "encourage",
+   "hand": "palm",
+   "dur": 4.15,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
+   "lagChunksMs": [
+    -20,
+    0
+   ],
+   "lagEnvChunksMs": [
+    -20,
+    -20
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    25,
+    -60,
+    -45
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "happy",
+   "hand": "thumb",
+   "dur": 3.175,
+   "lagMs": -30,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    -30,
+    -10
+   ],
+   "lagEnvChunksMs": [
+    0,
+    160
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    20,
+    20
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 100,
+   "flicker": 0
+  }
+ ],
+ "teacher": {
+  "hook": {
+   "visH": 668,
+   "visFrac": 0.757,
+   "scale": 1,
+   "top": 602
+  },
+  "fix": {
+   "visH": 676,
+   "visFrac": 0.766,
+   "scale": 1.002,
+   "top": 594
+  },
+  "explain": {
+   "visH": 672,
+   "visFrac": 0.761,
+   "scale": 1,
+   "top": 598
+  },
+  "encourage": {
+   "visH": 669,
+   "visFrac": 0.758,
+   "scale": 1,
+   "top": 601
+  },
+  "happy": {
+   "visH": 672,
+   "visFrac": 0.761,
+   "scale": 1,
+   "top": 598
+  }
+ },
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "“I am knowing” is not correct!",
+   "caption": "Words like “know”, “like”, “want” do not indicate any work but state of mind, hence do not prefix them with -ing. Say “I know him”, not “I am knowing him”. Revise after the teacher and practice grammar in the Lexkite app.",
+   "glosses": [
+    {
+     "word": "know",
+     "sense": 1,
+     "gloss": "जानना",
+     "back": "Know"
+    }
+   ]
+  },
+  "sim": {
+   "hook": 1,
+   "caption": 0.67
+  }
+ }
+}
