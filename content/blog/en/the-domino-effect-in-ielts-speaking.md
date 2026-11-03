@@ -140,7 +140,7 @@ Developing the instinct to extend answers without hesitation requires consistent
 
 Lexkite's [Speaking simulator](/#/speaking) provides structured prompt sets with built-in timing cues that challenge you to apply the AREA model in real time. Each prompt is accompanied by expandable idea branches and lexical suggestions to prevent mental blanks.
 
-Save versatile transitional phrases and concession markers into your [Phrasebook](/#/phrases) to reinforce them through spaced repetition. If you are unsure whether a word partnership sounds natural, inspect collocations and usage examples in the [Lexkite dictionary](/#/dict/resilient). For authentic high-band response demonstrations, explore annotated transcripts in [Speaking samples](/en/speaking/).
+Save versatile transitional phrases and concession markers into your [Phrasebook](/#/phrases) to reinforce them through spaced repetition. If you are unsure whether a word partnership sounds natural, inspect collocations and usage examples in the [Lexkite dictionary](/#/dict/resilient), or learn [how to practice English pronunciation](/en/blog/how-to-practice-english-pronunciation/) to polish your delivery. For authentic high-band response demonstrations, explore annotated transcripts in [Speaking samples](/en/speaking/).
 
 {{cta: /#/speaking | Master natural answer expansion on authentic IELTS prompts}}
 

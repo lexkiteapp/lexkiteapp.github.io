@@ -154,6 +154,6 @@ Transforming cognitive grammar into effortless speech rhythm requires consistent
 
 - **Bilingual Phonetic Guidance**: Check exact stress notations and weak form variations for thousands of lexical terms on Lexkite.
 - **FSRS-Powered Spaced Repetition**: Internalize collocations, business phrases, and idioms so grammatical scaffolding forms unconsciously.
-- **Microphone-Driven Speech Practice**: Open the [Lexkite speaking laboratory](/#/practice/speak) to record challenging phrases, evaluate pronunciation accuracy, and fine-tune your spoken English before critical meetings.
+- **Microphone-Driven Speech Practice**: Open the [Lexkite speaking laboratory](/#/practice/speak) to record challenging phrases, evaluate pronunciation accuracy, and learn [how to practice English pronunciation](/en/blog/how-to-practice-english-pronunciation/) to fine-tune your spoken delivery before critical meetings.
 
 Launch the [Lexkite learning web app](/#/) today and experience how sentence stress in English elevates your professional communication to international standards!

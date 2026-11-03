@@ -153,7 +153,7 @@ Ten to fifteen minutes is enough for most learners. Shadowing requires intense c
 
 ### Will shadowing improve my IELTS Speaking score?
 
-It can help with Fluency and Coherence and with Pronunciation, because you practise natural rhythm, linking and intonation. It will not replace practising answers to real questions, so combine both.
+It can help with Fluency and Coherence and with Pronunciation, because you practise natural rhythm, linking and intonation. Discover our structured guidelines on [how to practice English pronunciation](/en/blog/how-to-practice-english-pronunciation/) to fix common errors. It will not replace practising answers to real questions, so combine both.
 
 ### Can I shadow films and TV series?
 
