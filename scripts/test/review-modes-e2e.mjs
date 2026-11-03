@@ -51,7 +51,7 @@ async function run(tag, ctxOpts, lang) {
   // 2) Đổi sang Gõ giữa phiên: tiến độ giữ nguyên; gõ HOA vẫn đúng; Enter trên nút được gợi ý = chấm
   await page.selectOption('#rmSel', 'type'); await page.waitForSelector('#typeIn', { timeout: 5000 }).catch(() => {});
   ok(await doneOf(page) === 1, `${tag}: đổi chế độ giữa phiên không mất tiến độ`);
-  ok(await page.evaluate(() => document.activeElement && document.activeElement.id === 'typeIn'), `${tag} Gõ: ô gõ tự nhận focus`);
+  ok(await page.waitForFunction(() => document.activeElement && document.activeElement.id === 'typeIn', null, { timeout: 2000 }).then(() => true, () => false), `${tag} Gõ: ô gõ tự nhận focus`);
   await check('type');
   const w1 = await word(page); await page.keyboard.type(`  ${w1.toUpperCase()} `); await page.keyboard.press('Enter');
   await page.waitForSelector('#flash.flipped', { timeout: 3000 }).catch(() => {});
@@ -64,7 +64,7 @@ async function run(tag, ctxOpts, lang) {
   // 3) Nghe chọn nghĩa: 4 phương án khác nhau, có đáp án; âm thanh không treo ở "đang tải"; phím số chọn, ✓ không chỉ màu
   await page.selectOption('#rmSel', 'audio'); await page.waitForSelector('[data-opt]', { timeout: 5000 }).catch(() => {});
   await page.evaluate(() => document.activeElement && document.activeElement.blur());
-  const opts = await page.$$eval('[data-opt]', b => b.map(x => x.textContent.trim()));
+  const opts = await page.$$eval('[data-opt]', b => b.map(x => (x.querySelector('span') || x).textContent.trim())); // bỏ số phím <kbd>
   const right = await page.evaluate(() => (document.querySelector('.back .wi-vi') || {}).textContent || '');
   ok(opts.length === 4 && new Set(opts).size === 4, `${tag} Nghe: 4 phương án không trùng (${opts.join(' / ')})`);
   ok(opts.filter(o => o === right).length === 1, `${tag} Nghe: đúng 1 phương án là nghĩa của từ`);
