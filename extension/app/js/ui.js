@@ -224,11 +224,12 @@
   function tts(text, accent = 'en-GB', rate, opts = {}) {
     text = ttsClean(text);
     if (!text) return;
-    stopHq();
+    stopHq(); if (g.KLocal) g.KLocal.stop();
     const kv = LA() && LA().kokoro(opts.voice || (opts.who && g.Chars && g.Chars.voice ? g.Chars.voice(opts.who) : ''));
     const gender = opts.gender || (kv ? kv.gender : LA() && opts.who ? LA().genderFor(opts.who) : '');
+    const kvoice = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : kvOf(accent);
     if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq && LA()) {
-      const v = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : kvOf(accent), whole = g.KVoice.lineKey(v, text);
+      const v = kvoice, whole = g.KVoice.lineKey(v, text);
       const segs = g.LISTEN_AUDIO.has(whole) ? [[whole, text]] : splitSentences(text).map(p => [g.KVoice.lineKey(v, p), p]);
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
@@ -247,6 +248,21 @@
         };
         play(0);
         return;
+      }
+    }
+    // Chưa có file dựng sẵn → Kokoro chạy trên máy nếu đã sẵn (docs/specs/kokoro-on-device.md); chưa sẵn → giọng máy NGAY bên dưới, xin nạp cho lần sau
+    if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
+      const K = g.KLocal;
+      if (K && K.ready()) {
+        const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
+        if ('speechSynthesis' in g) speechSynthesis.cancel();
+        const ok = K.speak(splitSentences(text), { voice: kvoice, rate: pr, gap: Math.round(SENT_GAP / pr), onSentence: opts.onSentence,
+          onEnd: () => { if (my === speakSeq && opts.onEnd) opts.onEnd(); },
+          onFail: rest => { if (my === speakSeq) tts(rest.join(' '), accent, rate, { ...opts, noHq: true, noKl: true, gender }); } });
+        if (ok) return;
+      } else {
+        LA().stats.kl_wait = (LA().stats.kl_wait || 0) + 1;
+        if (K) K.want('dynamic'); else if (g.App && App.need) App.need('klocal').then(() => g.KLocal && g.KLocal.want('dynamic')).catch(() => {});
       }
     }
     // App iOS/Android: WebView (nhất là Android) không có giọng đọc của trình duyệt → dùng giọng gốc của hệ điều hành (miễn phí, chạy offline)
@@ -289,7 +305,7 @@
       speechSynthesis.speak(u);
     });
   }
-  const stopSpeak = () => { speakSeq++; stopHq(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
+  const stopSpeak = () => { speakSeq++; stopHq(); if (g.KLocal) g.KLocal.stop(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
   // Từ đơn: ưu tiên bản ghi giọng người thật; câu: giọng tổng hợp tốt nhất
   let audioEl = null, wordEl = null;
   // Bộ nhớ đệm bản ghi giọng người thật (Cache Storage, tối đa 400 file gần nhất): lần sau phát tức thì, nghe được cả khi offline
