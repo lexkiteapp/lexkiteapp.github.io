@@ -163,7 +163,7 @@ Task 1에서 가장 점수 비중이 큰 핵심 단락입니다. 구체적인 �
 3. **단어 수 미달 (150단어 미만):** 내용이 부족하면 Task Achievement 영역에서 감점을 받게 되므로 170단어 안팎을 목표로 하세요.
 4. **시간 분배 실패:** Task 1에 25분 이상을 쓰면 배점이 두 배인 Task 2를 망치게 됩니다. 철저히 20분 룰을 지키세요.
 
-더 폭넓은 학술 작문 테크닉은 [TOEFL iBT 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/)과 [작문 가이드](/viet-thu/)를 확인하시기 바랍니다.
+더 폭넓은 학술 작문 테크닉은 [IELTS Writing Task 2 템플릿과 4단락 구성법](/ko/blog/ielts-writing-task-2-template-4danrak/)과 [TOEFL iBT 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/)을 확인하시고 모범 에세이는 [샘플 페이지](/samples/)에서 둘러보실 수 있습니다.
 
 {{cta: /app/#/task1 | IELTS Task 1 도표 작성 연습}}
 

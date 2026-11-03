@@ -66,7 +66,7 @@ Band 6.5 이상을 안정적으로 확보하기 위해서는 학습 과정을 4�
 
 1. **Academic Reading:** 수험생들이 가장 까다로워하는 True / False / Not Given과 Matching Headings 문제를 집중 연습합니다. [IELTS Reading True False Not Given 해법](/ko/blog/ielts-reading-true-false-not-given-haebeop/)과 [IELTS Reading Skimming Scanning 공부법](/ko/blog/ielts-reading-skimming-scanning-gongbubeop/)을 적용해 지문 속 키워드를 훑어읽는 속도를 높입니다.
 2. **Academic Listening:** 음원이 재생되기 전 주어지는 짧은 시간 동안 빈칸에 들어갈 품사(명사, 숫자, 형용사 등)를 미리 예측하는 훈련을 반복합니다.
-3. **Academic Writing:** Task 1에서는 막대그래프, 꺾은선그래프, 지도 변화를 객관적으로 요약하는 법을 익힙니다. 자세한 작성법은 [IELTS Writing Task 1 도표 분석 비법](/ko/blog/ielts-writing-task-1-dopyo-bunseog-bibeop/)을 확인하세요. Task 2에서는 서론, 본론 2개, 결론의 4단락 구조를 시간 내에 완성합니다.
+3. **Academic Writing:** Task 1에서는 막대그래프, 꺾은선그래프, 지도 변화를 객관적으로 요약하는 법을 익힙니다. 자세한 작성법은 [IELTS Writing Task 1 도표 분석 비법](/ko/blog/ielts-writing-task-1-dopyo-bunseog-bibeop/)을 확인하세요. Task 2에서는 [IELTS Writing Task 2 템플릿과 4단락 구성법](/ko/blog/ielts-writing-task-2-template-4danrak/)을 익혀 서론, 본론 2개, 결론의 4단락 구조를 시간 내에 완성합니다.
 4. **Speaking Test:** Part 2에서 1분간 주어지는 준비 시간 동안 긴 문장 대신 키워드 중심의 브레인스토밍 메모를 작성하고 2분간 말하는 연습을 합니다. 템플릿은 [IELTS Speaking Part 2 3 템플릿](/ko/blog/ielts-speaking-part-2-3-template/)을 활용하세요.
 
 ### 4단계: 실전 시뮬레이션과 철저한 오답 노트

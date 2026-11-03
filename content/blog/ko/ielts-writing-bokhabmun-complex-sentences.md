@@ -125,7 +125,7 @@ IELTS 라이팅 Task 2 에세이를 작성할 때, 단어는 열심히 외워서
 - **기본형 중문**: *Smartphones are convenient, but they cause severe digital addiction.*
 - **복합문 격상형**: *Indispensable though smartphones have become to daily communication, excessive dependence on handheld screens frequently induces psychological lethargy and acute social detachment.*
 
-어휘와 문법을 함께 확장하려면 [IELTS 기술 AI 어휘 가이드](/ko/blog/ielts-technology-ai-daneo-collocation/)와 [영어 의문문 만들기 공식](/ko/blog/yeongeo-uimunmun-mandeulgi-gongsig/)을 확인하시고, [영어 단어 암기법 가이드](/ko/blog/yeongdaneo-amgibeop/)와 [영영사전 활용법](/ko/blog/yeong-yeong-sajeon-hwalyongbeop/)도 함께 참고하시기 바랍니다. 실전 에세이 견본은 [영어 샘플 페이지](/en/samples/)에서 둘러보실 수 있습니다.
+에세이의 골격을 완성하려면 [IELTS Writing Task 2 템플릿과 4단락 구성법](/ko/blog/ielts-writing-task-2-template-4danrak/)을 확인하시고, 어휘와 문법을 함께 확장하려면 [IELTS 기술 AI 어휘 가이드](/ko/blog/ielts-technology-ai-daneo-collocation/)와 [영어 의문문 만들기 공식](/ko/blog/yeongeo-uimunmun-mandeulgi-gongsig/)을 확인하시기 바랍니다. 아울러 [영어 단어 암기법 가이드](/ko/blog/yeongdaneo-amgibeop/)와 [영영사전 활용법](/ko/blog/yeong-yeong-sajeon-hwalyongbeop/)도 큰 도움이 됩니다. 실전 에세이 견본은 [영어 샘플 페이지](/en/samples/)에서 둘러보실 수 있습니다.
 
 {{youtube: | Gợi ý video hướng dẫn cách viết câu phức Complex Sentences trong IELTS Writing Task 2}}
 
