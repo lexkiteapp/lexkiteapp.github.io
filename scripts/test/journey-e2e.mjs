@@ -14,7 +14,7 @@ const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ?
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'je-out'));
 const LANGS = arg('lang', 'vi,en,ar').split(','), DEVS = arg('device', 'desktop,mobile').split(',');
 const VISUAL_DEVS = ['m360', 'm390'], VWARN = []; // kiểm hình tự động chạy trên điện thoại nhỏ (docs/METHODS.md)
-const ONLY = arg('only', '1,2,3,4,5,6,8').split(',').map(Number), EXT = process.argv.includes('--ext');
+const ONLY = arg('only', '1,2,3,4,5,6,8,9').split(',').map(Number), EXT = process.argv.includes('--ext');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 const CHECKS = fs.readFileSync(new URL('./journey-e2e/checks.js', import.meta.url), 'utf8');
@@ -509,6 +509,40 @@ async function j8(h) {
   await h.audit('dict-vimg');
 }
 
+// J9 – thi thử TOEIC chuẩn thi thật (docs/specs/exam-real.md): khung focus (đồng hồ theo mốc thật, tiến độ, cờ, phím tắt) → sheet xác nhận nộp → màn chữa bài chung → làm lại câu sai
+async function j9(h) {
+  const { page } = h;
+  await h.boot('/toeic-test/1');
+  await h.click('#tResume'); // bản lưu dở (seed) → vào thẳng Reading
+  h.ok(await h.wait('.xk-top #tClock', 15000), 'khung focus: thanh trên có chip đồng hồ');
+  await sleep(1300);
+  const c1 = await page.textContent('#tClock b'); await sleep(2100); const c2 = await page.textContent('#tClock b');
+  h.ok(/^\d{1,2}:\d\d(:\d\d)?$/.test(c1 || '') && c1 !== c2, `đồng hồ đếm ngược chạy (${c1} → ${c2})`);
+  h.ok(await h.has('.xk-sub .xk-badge'), 'hàng Part + tên Part'); h.ok(await h.has('#xkFlagCur'), 'nút cờ tròn');
+  h.ok((await page.locator('#tq .xk-unit:not([hidden])').count()) === 1, 'chỉ hiện 1 đơn vị câu hỏi');
+  await h.shot('toeic-run');
+  await h.click('#tq .xk-unit:not([hidden]) .lq-opts label');
+  h.ok((await page.textContent('#xkAns b')) === '1', 'đếm "1 / N đã làm" sau khi chọn');
+  await page.keyboard.press('f'); h.ok(await h.has('#xkFlagCur.on'), 'phím F đánh dấu câu hiện tại');
+  await h.click('#xkNext'); h.ok(/\b2\b/.test(await page.textContent('.xk-prog-t span')), 'Tiếp → câu 2');
+  await page.keyboard.press('2'); h.ok((await page.textContent('#xkAns b')) === '2', 'phím 1–4 chọn phương án');
+  await h.click('#xkMap'); h.ok(await h.wait('#modal:not([hidden]) .xk-grid'), 'bảng câu (sheet)');
+  await h.click('#modal:not([hidden]) .xk-grid [data-go]:last-child'); await sleep(500);
+  h.ok(await page.isDisabled('#xkPrev') === false, 'đơn vị cuối (nút ← bật)'); await h.click('#xkNext');
+  h.ok(await h.wait('#modal:not([hidden]) #xkSubmit'), 'sheet xác nhận nộp');
+  h.ok((await page.locator('#modal .xk-stat').count()) === 3, '3 ô Đã làm/Trống/Đánh dấu'); h.ok(await h.has('#xkBlank'), 'nút "Xem n câu trống"');
+  await h.shot('toeic-confirm');
+  await h.click('#modal:not([hidden]) #xkSubmit', { wait: 1500 });
+  h.ok(await h.wait('.xk-rv .xk-score', 25000), 'màn chữa bài: thẻ điểm ước tính');
+  h.ok(/^\d+$/.test((await page.textContent('.xk-big b')) || ''), 'điểm quy đổi là số');
+  h.ok((await page.locator('.xk-pb').count()) >= 1, 'điểm theo Part'); h.ok((await page.locator('#xkList .xk-rq').count()) >= 1, 'thẻ từng câu (lọc Sai)');
+  h.ok(await h.has('#xkRetry'), 'nút "Làm lại n câu sai"');
+  await h.shot('toeic-review');
+  await h.click('.xk-f[data-f="flag"]'); h.ok((await page.locator('#xkList .xk-rq').count()) === 1, 'lọc Đánh dấu = 1 câu');
+  await h.click('#xkRetry', { wait: 1200 }); h.ok(await h.wait('#tq .toeic-u'), 'làm lại câu sai ở chế độ luyện');
+  await h.audit('toeic-test');
+}
+
 // ---------- chạy ----------
 const ONB = { 'sbx.settings': JSON.stringify({ onboarded: true }) };
 for (const lang of LANGS) for (const dev of DEVS) {
@@ -524,6 +558,7 @@ for (const lang of LANGS) for (const dev of DEVS) {
     await journey(5, 'cài đặt nhắc học còn sau tải lại', lang, dev, j5, { seed: ONB });
     await journey(5, 'cờ quảng cáo TẮT → không ô quảng cáo', lang, dev, j5ads, { q: '', webdriverOff: true, config: { ads_web: '0', ads_kill: '0' }, seed: { 'ielts.settings': JSON.stringify({ onboarded: true }) } });
   }
+  if (ONLY.includes(9)) await journey(9, 'thi thử TOEIC: khung focus → xác nhận nộp → chữa bài → làm lại câu sai', lang, dev, j9, { seed: { ...ONB, 'lk.exam.mode': 'exam', 'lk.toeicRun.1': JSON.stringify({ stage: 'R', mode: 'exam', res: { L: {}, R: {} }, at: Date.now() }) } });
   if (ONLY.includes(6)) await journey(6, 'học sinh lớp học: không QC, không hỏi nhắc', lang, dev, j6, { q: '', ask: true, firebase: true, webdriverOff: true, config: { ads_web: '1' }, seed: { 'ielts.settings': JSON.stringify({ onboarded: true }) } });
 }
 if (EXT) for (const lang of LANGS) await j7(lang);

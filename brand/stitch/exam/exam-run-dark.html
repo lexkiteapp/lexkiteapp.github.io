@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite TOEIC Mock Test — Part 5 Reading in Progress (Bright Day)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF9F3',
+            'card-bg': '#FFFFFF',
+            'ink-primary': '#1A1816',
+            'ink-secondary': '#6B5B4E',
+            'ink-muted': '#8A7969',
+            'teal-brand': '#136B66',
+            'teal-light': '#E6F4F2',
+            'teal-border': '#208781',
+            'teal-active': '#0D5652',
+            'orange-brand': '#F59E0B',
+            'orange-dark': '#B45309',
+            'orange-ink': '#1C1003',
+            'border-subtle': '#EDE2D6',
+            'border-card': '#E8DACB',
+            'ledge-card': '#E0CEBC',
+            'ledge-btn': '#D9C8B5',
+            'ledge-orange': '#B45309',
+            'track-bg': '#EFE4D6',
+          },
+          boxShadow: {
+            'card-ledge': '0 5px 0 0 #E0CEBC',
+            'btn-ledge': '0 5px 0 0 #D9C8B5',
+            'btn-orange': '0 6px 0 0 #B45309',
+            'btn-teal': '0 5px 0 0 #0C4D49',
+            'chip-ledge': '0 3px 0 0 #E0CEBC',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Physical tactile button active states */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 var(--ledge-color, #D9C8B5) !important;
+    }
+    .tactile-orange:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #B45309 !important;
+    }
+    /* Smooth transition */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#E2E8F0] font-sans antialiased min-h-screen flex justify-center p-0 m-0">
+<!-- PHONE VIEWPORT: Exactly 390px, one column, warm cream, no device frame -->
+<main class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-[88px]">
+<!-- TOP BAR 56px (Variant: FOCUS mode for test in progress) -->
+<!-- Contains: round close (X) button, thick rounded progress bar (question 128 of 200), countdown clock chip (52:14 left) -->
+<header class="h-[56px] px-4 flex items-center justify-between gap-3 sticky top-0 bg-[#091518]/95 backdrop-blur-sm z-30 border-b border-[#234E57]">
+<!-- Close (X) button: round tactile dark button -->
+<button aria-label="Exit test" class="w-10 h-10 rounded-full bg-[#10252B] border-2 border-[#234E57] shadow-[0_3px_0_0_#051013] flex items-center justify-center text-[#E2E8F0] hover:bg-[#163038] tactile-btn transition-transform" type="button">
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Thick rounded progress bar with 128/200 progress (64%) -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center justify-between text-[11px] font-bold text-[#A5C6CB] mb-1">
+<span class="text-[#E2E8F0]">Q 128 of 200</span>
+<span class="text-[#2DD4BF] font-extrabold">64%</span>
+</div>
+<div class="w-full h-3 bg-[#1A3840] rounded-full overflow-hidden p-[2px] border border-[#234E57]">
+<div class="h-full bg-[#2DD4BF] rounded-full transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]" style="width: 64%;"></div>
+</div>
+</div>
+<!-- Small Status Chip: Countdown clock reading 52:14 left -->
+<div class="h-9 px-2.5 rounded-full bg-[#10252B] border-2 border-[#234E57] shadow-[0_2px_0_0_#051013] flex items-center gap-1.5 shrink-0">
+<!-- Clock icon -->
+<svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[12px] font-extrabold tracking-tight text-[#F59E0B] font-mono">52:14</span>
+</div>
+</header>
+<!-- CONTENT BODY (16px side margins, 8px grid rhythm) -->
+<div class="px-4 pt-3 flex flex-col gap-3">
+<!-- SLIM SUB-HEADER ROW: Section Label + Round Flag Toggle Button -->
+<div class="flex items-center justify-between pt-1">
+<!-- Section badge & label -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#10252B] border border-[#234E57] text-[11px] font-extrabold text-[#2DD4BF] uppercase tracking-wider">
+            Part 5
+          </span>
+<span class="text-[13px] font-bold text-[#A5C6CB]">Incomplete Sentences</span>
+</div>
+<!-- Round Flag-for-Review toggle button -->
+<button aria-label="Flag question for review" class="w-9 h-9 rounded-full bg-[#10252B] border-2 border-[#234E57] shadow-[0_3px_0_0_#051013] flex items-center justify-center text-[#E2E8F0] hover:border-[#F59E0B] hover:text-[#F59E0B] tactile-btn transition-all group" type="button">
+<svg class="w-4 h-4 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H19a2 2 0 012 2v7a2 2 0 01-2 2h-6.5l-1-1H5a2 2 0 00-2 2zm9-13.5V11" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- MAIN QUESTION CARD: 16px radius, 2px border, 5px bottom ledge -->
+<section class="bg-[#10252B] rounded-[16px] border-2 border-[#234E57] shadow-[0_4px_0_0_#051013] p-4 flex flex-col gap-4">
+<!-- Question Header & Instruction -->
+<div class="flex items-center justify-between border-b border-[#234E57]/60 pb-2.5">
+<div class="flex items-center gap-2">
+<!-- Question Number Indicator -->
+<span class="w-7 h-7 rounded-lg bg-[#091518] text-[#2DD4BF] font-black text-[13px] flex items-center justify-center border border-[#234E57]">
+              128
+            </span>
+<span class="text-[12px] font-bold text-[#E2E8F0] uppercase tracking-wider">Reading Comprehension</span>
+</div>
+<span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#2A1E0E] text-[#F59E0B] border border-[#F59E0B]/40">
+            1 Mark
+          </span>
+</div>
+<!-- Question Sentence with Prominent Blank -->
+<div class="text-[16px] leading-[1.6] font-bold text-[#FFFFFF]">
+<span>The marketing team decided to </span>
+<!-- The Blank: tactile pill style blank -->
+<span class="inline-flex items-center justify-center px-3 py-0.5 mx-1 min-w-[90px] h-[28px] rounded-lg bg-[#0D5E58] border-2 border-[#2DD4BF] text-[#2DD4BF] font-black text-[15px] shadow-[inset_0_2px_2px_rgba(0,0,0,0.3)] align-middle">
+            extend
+          </span>
+<span> the promotional campaign after observing an unprecedented surge in online customer engagement.</span>
+</div>
+<!-- Subtitle Prompt -->
+<p class="text-[12px] font-medium text-[#A5C6CB] -mt-1">
+          Select the word that best completes the sentence.
+        </p>
+<!-- FOUR TALL TACTILE ANSWER ROWS (A to D) -->
+<div aria-label="Answer options" class="flex flex-col gap-2.5 pt-1" role="radiogroup">
+<!-- OPTION A (SELECTED: Dark rich teal surface, bright border, 3D bottom ledge) -->
+<label class="relative flex items-center gap-3 p-3 rounded-[14px] bg-[#0D5E58] border-2 border-[#2DD4BF] shadow-[0_4px_0_0_#051013] cursor-pointer transition-transform active:translate-y-1">
+<input checked="" class="sr-only" name="toeic_answer" type="radio" value="A"/>
+<!-- Letter Badge A: Filled Teal Badge -->
+<div class="w-9 h-9 rounded-xl bg-[#2DD4BF] text-[#091518] font-black text-[15px] flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#051013]">
+              A
+            </div>
+<!-- Word Option Text -->
+<div class="flex-1">
+<span class="text-[16px] font-extrabold text-[#FFFFFF] tracking-tight">extend</span>
+<span class="text-[12px] font-medium text-[#5EEAD4] block">base verb</span>
+</div>
+<!-- Selected checkmark indicator -->
+<div class="w-6 h-6 rounded-full bg-[#2DD4BF] text-[#091518] flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</label>
+<!-- OPTION B: Unselected, dark surface with 2px border and ledge -->
+<label class="relative flex items-center gap-3 p-3 rounded-[14px] bg-[#0E1F24] border-2 border-[#234E57] shadow-[0_4px_0_0_#051013] cursor-pointer hover:bg-[#132A30] transition-all active:translate-y-1">
+<input class="sr-only" name="toeic_answer" type="radio" value="B"/>
+<!-- Letter Badge B -->
+<div class="w-9 h-9 rounded-xl bg-[#10252B] text-[#E2E8F0] font-black text-[15px] flex items-center justify-center shrink-0 border border-[#234E57]">
+              B
+            </div>
+<!-- Word Option Text -->
+<div class="flex-1">
+<span class="text-[16px] font-bold text-[#FFFFFF] tracking-tight">extension</span>
+<span class="text-[12px] font-medium text-[#8FAFB5] block">noun</span>
+</div>
+<!-- Empty radio indicator circle -->
+<div class="w-5 h-5 rounded-full border-2 border-[#234E57] shrink-0 bg-[#091518]"></div>
+</label>
+<!-- OPTION C: Unselected, dark surface -->
+<label class="relative flex items-center gap-3 p-3 rounded-[14px] bg-[#0E1F24] border-2 border-[#234E57] shadow-[0_4px_0_0_#051013] cursor-pointer hover:bg-[#132A30] transition-all active:translate-y-1">
+<input class="sr-only" name="toeic_answer" type="radio" value="C"/>
+<!-- Letter Badge C -->
+<div class="w-9 h-9 rounded-xl bg-[#10252B] text-[#E2E8F0] font-black text-[15px] flex items-center justify-center shrink-0 border border-[#234E57]">
+              C
+            </div>
+<!-- Word Option Text -->
+<div class="flex-1">
+<span class="text-[16px] font-bold text-[#FFFFFF] tracking-tight">extensive</span>
+<span class="text-[12px] font-medium text-[#8FAFB5] block">adjective</span>
+</div>
+<!-- Empty radio indicator circle -->
+<div class="w-5 h-5 rounded-full border-2 border-[#234E57] shrink-0 bg-[#091518]"></div>
+</label>
+<!-- OPTION D: Unselected, dark surface -->
+<label class="relative flex items-center gap-3 p-3 rounded-[14px] bg-[#0E1F24] border-2 border-[#234E57] shadow-[0_4px_0_0_#051013] cursor-pointer hover:bg-[#132A30] transition-all active:translate-y-1">
+<input class="sr-only" name="toeic_answer" type="radio" value="D"/>
+<!-- Letter Badge D -->
+<div class="w-9 h-9 rounded-xl bg-[#10252B] text-[#E2E8F0] font-black text-[15px] flex items-center justify-center shrink-0 border border-[#234E57]">
+              D
+            </div>
+<!-- Word Option Text -->
+<div class="flex-1">
+<span class="text-[16px] font-bold text-[#FFFFFF] tracking-tight">extensively</span>
+<span class="text-[12px] font-medium text-[#8FAFB5] block">adverb</span>
+</div>
+<!-- Empty radio indicator circle -->
+<div class="w-5 h-5 rounded-full border-2 border-[#234E57] shrink-0 bg-[#091518]"></div>
+</label>
+</div>
+</section>
+<!-- EXAM HELPER NOTE (Calm & Focused Academic Polish) -->
+<div class="flex items-center justify-between px-1 py-0.5 text-[11px] text-[#8FAFB5] font-medium">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse"></span>
+          Answers automatically saved
+        </span>
+<button class="underline hover:text-[#2DD4BF] text-[#8FAFB5] font-semibold" type="button">
+          Shortcuts: 1-4 or A-D
+        </button>
+</div>
+</div>
+<!-- BOTTOM FIXED BAR (Exactly 390px, pinned at bottom) -->
+<!-- Contains: Round previous button, Wide secondary Question Map button (127 / 200 answered), Orange primary Next button -->
+<footer class="fixed bottom-0 w-[390px] h-[76px] bg-[#091518]/95 backdrop-blur-md border-t-2 border-[#234E57] px-4 flex items-center justify-between gap-2.5 z-40">
+<!-- 1. Round Previous-Arrow Button -->
+<button aria-label="Previous question" class="w-12 h-12 rounded-[14px] bg-[#10252B] border-2 border-[#234E57] shadow-[0_4px_0_0_#051013] flex items-center justify-center text-[#E2E8F0] hover:bg-[#163038] tactile-btn transition-transform shrink-0" type="button">
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 2. Wide Secondary Button: Small grid icon + 127 / 200 answered (opens question map) -->
+<button aria-label="Open question map sheet" class="flex-1 h-12 px-3 rounded-[14px] bg-[#10252B] border-2 border-[#234E57] shadow-[0_4px_0_0_#051013] flex items-center justify-center gap-2 text-[#E2E8F0] hover:bg-[#163038] tactile-btn transition-transform" type="button">
+<!-- 3x3 Grid Icon -->
+<svg class="w-4 h-4 text-[#2DD4BF] shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+</svg>
+<span class="text-[13px] font-extrabold tracking-tight text-[#E2E8F0] whitespace-nowrap">
+<span class="text-[#2DD4BF]">127</span> / 200 answered
+        </span>
+</button>
+<!-- 3. Primary Candy-Orange Next Button: 6px darker ledge, deep brown-black label -->
+<button aria-label="Next question" class="min-w-[100px] h-12 px-4 rounded-[14px] bg-[#F59E0B] border-2 border-[#D97706] shadow-[0_5px_0_0_#9A3412] flex items-center justify-center gap-1 text-[#1C1003] font-black text-[15px] tactile-orange transition-transform shrink-0" type="button">
+<span>Next</span>
+<svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</footer>
+</main>
+</body>
+</html>

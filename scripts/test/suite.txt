@@ -197,6 +197,7 @@ node scripts/test/shell-lazy.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/say-native/build.mjs --check
+node scripts/test/exam-kit.mjs
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
