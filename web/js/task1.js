@@ -76,7 +76,10 @@
     const lastHalf = groups === d.x.length - 1 ? textW(d.x[d.x.length - 1], 11) / 2 + 4 : 0;
     const Rr = nw ? Math.max(12, lastHalf) : Math.min(240, Math.max(110, lgW + 18, lastHalf));
     const x1 = W - Rr, step = (x1 - L) / groups;
-    const xl = d.x.map(x => wrapText(x, step - 6, 11)), xLines = Math.max(...xl.map(l => l.length));
+    const xl = d.x.map(x => wrapText(x, step - 6, 11));
+    // Nhãn trục x chật (vd. 12 tháng trên điện thoại) → so le 2 hàng thay vì đè nhau; ước lượng dư 15 % cho font thật
+    const stag = d.x.length > 2 && xl.some(l => l.some(t => textW(t, 11) * 1.15 > step - 4));
+    const xLines = Math.max(...xl.map(l => l.length)) + (stag ? 1 : 0);
     // Chú giải: bên phải (rộng) hoặc thành hàng dưới trục (hẹp)
     const items = []; let lx = L, ly = 0;
     d.series.forEach(([name], si) => { const w = textW(name, 12, true) + 34; if (nw && lx + w > W - 8 && lx > L) { lx = L; ly++; } items.push([name, si, lx, ly]); lx += w; });
@@ -85,7 +88,7 @@
     const ys = v => T + plotH * (1 - v / max);
     let g = '';
     for (let k = 0; k <= 5; k++) { const v = max * k / 5; g += `<line x1="${L}" x2="${x1}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${ys(v) + 4}" text-anchor="end" class="ch-ax">${Math.round(v)}</text>`; }
-    g += plot(L, step, ys, xl, axisB);
+    g += plot(L, step, ys, xl, axisB, i => stag && i % 2 ? LH : 0);
     items.forEach(([name, si, ix, iy]) => {
       const x = nw ? ix : x1 + 12, y = nw ? axisB + B + 6 + iy * 20 : T + si * 22;
       g += `<rect x="${x}" y="${y}" width="12" height="12" rx="3" fill="${COLORS[si]}"/><text x="${x + 18}" y="${y + 11}" class="ch-lg">${esc(name)}</text>`;
@@ -94,9 +97,9 @@
   }
   const xLabel = (lines, x, axisB) => `<text x="${x}" y="${axisB + 20}" text-anchor="middle" class="ch-ax">${tspans(lines, x, 13)}</text>`;
   function lineChart(d) {
-    return axesChart(d, d.x.length - 1 || 1, (L, step, ys, xl, axisB) => {
+    return axesChart(d, d.x.length - 1 || 1, (L, step, ys, xl, axisB, off) => {
       const xs = i => L + i * step; let g = '';
-      d.x.forEach((x, i) => { g += xLabel(xl[i], xs(i), axisB); });
+      d.x.forEach((x, i) => { g += xLabel(xl[i], xs(i), axisB + off(i)); });
       d.series.forEach(([name, vals], si) => {
         g += `<polyline fill="none" stroke="${COLORS[si]}" stroke-width="3" stroke-linejoin="round" points="${vals.map((v, i) => `${xs(i)},${ys(v)}`).join(' ')}"/>`;
         vals.forEach((v, i) => { g += `<circle cx="${xs(i)}" cy="${ys(v)}" r="4" fill="${COLORS[si]}"><title>${esc(name)} ${esc(d.x[i])}: ${v}</title></circle>`; });
@@ -105,10 +108,10 @@
     });
   }
   function barChart(d) {
-    return axesChart(d, d.x.length, (L, gw, ys, xl, axisB) => {
+    return axesChart(d, d.x.length, (L, gw, ys, xl, axisB, off) => {
       const bw = gw * 0.7 / d.series.length; let g = '';
       d.x.forEach((x, i) => {
-        g += xLabel(xl[i], L + gw * i + gw / 2, axisB);
+        g += xLabel(xl[i], L + gw * i + gw / 2, axisB + off(i));
         d.series.forEach(([name, vals], si) => { const x0 = L + gw * i + gw * 0.15 + bw * si; g += `<rect x="${x0}" y="${ys(vals[i])}" width="${Math.max(1, bw - 2)}" height="${ys(0) - ys(vals[i])}" rx="3" fill="${COLORS[si]}"><title>${esc(name)} – ${esc(x)}: ${vals[i]}</title></rect>`; });
       });
       return g;
