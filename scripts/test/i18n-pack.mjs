@@ -1,5 +1,5 @@
 // Gói dịch khóa băm (scripts/lib/i18n-pack.mjs, docs/I18N-PIPELINE.md §1): không mất chuỗi nào, đổi ngôn ngữ đúng, add-on tra đúng.
-//  1. hk giống hệt ở thư viện dựng, web/js/i18n.js và 4 tệp add-on
+//  1. hk giống hệt ở thư viện dựng và 4 tệp add-on (web/js/i18n.js: mục 4)
 //  2. web/js/i18n/<lang>(.js|/<nhóm>.js) khớp nguồn i18n/ui (--check) và GHÉP LẠI đúng 100% chuỗi mọi ngôn ngữ, mọi nhóm, không thừa khóa
 //  3. hai khóa trùng băm → giữ nguyên câu, cả hai tra đúng (cặp trùng thật tìm bằng vét cạn)
 //  4. chạy thật web/js/i18n.js với gói chạy: mỗi ngôn ngữ, mọi khóa → đúng bản dịch nguồn (đổi ngôn ngữ = nạp lại với vb.uiLang khác)
@@ -15,7 +15,8 @@ const rd = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const SAMPLES = ['', 'Ôn tập', 'Xóa tài khoản Lexkite?', 'Máy nghe được: “{heard}”', '🔥 Chuỗi ngày', 'a'.repeat(500), 'Ω≈ç√∫˜µ≤≥÷ 日本語 العربية'];
 
 // 1. hk một định nghĩa, mọi nơi giống nhau
-for (const f of ['web/js/i18n.js', 'extension/background.js', 'extension/content.js', 'extension/popup.js', 'extension/writecheck.js']) {
+// web/js/i18n.js viết gọn (khung app sát trần) – cùng thuật toán được kiểm ở mục 4: mọi khóa của 13 ngôn ngữ tra qua i18n.js thật
+for (const f of ['extension/background.js', 'extension/content.js', 'extension/popup.js', 'extension/writecheck.js']) {
   const src = rd(f), m = src.match(/(?:function hk\(s\)|const hk = s =>) \{ (let x = 0x811c9dc5;[^\n]*?return '_' \+ \(x >>> 0\)\.toString\(36\);) \}/);
   ok(m, `${f}: có hàm hk chuẩn`);
   if (m) { const fn = new Function('s', m[1]); ok(SAMPLES.every(s => fn(s) === hk(s)), `${f}: hk cho kết quả khác thư viện dựng`); }
