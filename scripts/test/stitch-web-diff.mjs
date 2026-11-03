@@ -53,7 +53,7 @@ async function shot(url, vp, scheme, file) {
   await ctx.close(); return { buf, audit }; }
 
 for (const [k, u] of Object.entries(PAGES)) for (const [v, vp] of Object.entries(VPS)) { const row = [];
-  for (const sc of ['dark', 'light']) { const tag = `${k}-${v}-${sc}`, ref = path.resolve(SRC, `${k}-${sc}.html`); if (!fs.existsSync(ref)) continue;
+  for (const sc of ['dark', 'light']) { const tag = `${k}-${v}-${sc}`, ph = path.resolve(SRC, `${k}-${sc}-phone.html`), ref = v === 'phone' && fs.existsSync(ph) ? ph : path.resolve(SRC, `${k}-${sc}.html`); if (!fs.existsSync(ref)) continue; // mẫu điện thoại riêng (<trang>-<sáng|tối>-phone.html, vd landing v3) → so 390 px với đúng bản vẽ điện thoại
     const S = await shot('file://' + ref, vp, sc, path.join(OUT, 'png', `${tag}-stitch.png`)), A = await shot(BASE + u, vp, sc, path.join(OUT, 'png', `${tag}-site.png`));
     const gs = gray(S.buf), ga = gray(A.buf), h = Math.min(gs.h, ga.h), au = A.audit;
     const r = res[tag] = { ssim: +ssim(gs.g, ga.g, h).toFixed(3), rows: +rows(gs.g, ga.g, h).toFixed(3), hRatio: +(ga.h / gs.h).toFixed(2), ported: au.v2, cls: au.cls, axe: au.axe, small: au.nSmall, hscroll: au.hscroll };

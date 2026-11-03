@@ -168,6 +168,7 @@ node scripts/test/layout-guards.mjs
 node scripts/test/mobile-guards.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
+node scripts/test/landing-v3.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
