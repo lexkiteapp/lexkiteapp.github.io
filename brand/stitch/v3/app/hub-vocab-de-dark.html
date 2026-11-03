@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite - Wortschatz</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile Night Theme Styling */
+    :root {
+      --bg-dark: #10191B;
+      --card-dark: #172427;
+      --surface-raised: #1E2F33;
+      --border-dark: #263D42;
+      --ledge-dark: #101B1D;
+      --text-primary: #E8F1F0;
+      --text-secondary: #A9BDBB;
+      --teal-luminous: #2EC4B6;
+      --teal-bright: #38D9C0;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+      min-height: max(884px, 100dvh);
+    }
+    .tactile-card {
+      background: var(--card-dark);
+      border: 2px solid var(--border-dark);
+      border-bottom: 5px solid var(--ledge-dark);
+      border-radius: 20px;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      border-bottom-width: 3px;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(135deg, #F2553B 0%, #FFB054 100%);
+      border-bottom: 5px solid #8E2816;
+      color: #1B0B04;
+      transition: transform 0.06s ease, border-bottom-width 0.06s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+    }
+    .tactile-btn-secondary {
+      background: var(--surface-raised);
+      border: 2px solid var(--border-dark);
+      border-bottom: 4px solid var(--ledge-dark);
+      color: var(--text-primary);
+      transition: transform 0.06s ease, border-bottom-width 0.06s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+    .teacher-slot {
+      border: 2px dashed #2EC4B6;
+      background-color: rgba(46, 196, 182, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-24 pt-16 flex flex-col items-center bg-[#10191B] text-[#E8F1F0]">
+<!-- ================= TOP APP BAR (56px) ================= -->
+<header class="fixed top-0 left-0 w-full h-14 z-50 px-4 flex justify-between items-center bg-[#10191B]/95 backdrop-blur-md border-b-2 border-[#263D42]">
+<!-- Left: Lexkite Emblem + Wordmark -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-[#1E2F33] border border-[#263D42] flex items-center justify-center text-[#2EC4B6] shadow-sm">
+<span class="material-symbols-outlined material-symbols-fill text-[20px]" data-icon="kitesurfing">kitesurfing</span>
+</div>
+<span class="font-display text-[22px] font-extrabold tracking-tight text-[#E8F1F0]">Lexkite</span>
+</div>
+<!-- Right: Streak and XP Badges -->
+<div class="flex items-center gap-2">
+<!-- Flame Streak Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#172427] rounded-full border-2 border-[#263D42] border-b-[3px] border-b-[#101B1D] min-h-[36px]">
+<span class="material-symbols-outlined text-[#F2553B] material-symbols-fill text-[18px]" data-icon="local_fire_department">local_fire_department</span>
+<span class="font-label text-[13px] font-extrabold text-[#E8F1F0]">14</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#172427] rounded-full border-2 border-[#263D42] border-b-[3px] border-b-[#101B1D] min-h-[36px]">
+<span class="material-symbols-outlined text-[#FFC94A] material-symbols-fill text-[18px]" data-icon="bolt">bolt</span>
+<span class="font-label text-[13px] font-extrabold text-[#E8F1F0]">820 XP</span>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="w-full max-w-[390px] px-4 flex flex-col gap-5 mt-2">
+<!-- 1. SEARCH BAR & FILTER -->
+<section class="flex items-center gap-2.5">
+<div class="flex-1 flex items-center gap-2 px-3.5 h-[48px] bg-[#1E2F33] rounded-2xl border-2 border-[#263D42] border-b-[4px] border-b-[#101B1D]">
+<span class="material-symbols-outlined text-[#A9BDBB] text-[22px]" data-icon="search">search</span>
+<input class="w-full bg-transparent text-[#E8F1F0] placeholder-[#A9BDBB] font-body text-[13px] outline-none border-none p-0 focus:ring-0" placeholder="Über 4.200 Prüfungswörter, Kollokationen suchen..." type="text"/>
+</div>
+<button aria-label="Filter" class="w-[48px] h-[48px] flex items-center justify-center bg-[#1E2F33] rounded-2xl border-2 border-[#263D42] border-b-[4px] border-b-[#101B1D] active:translate-y-0.5 active:border-b-2 transition-transform text-[#E8F1F0]">
+<span class="material-symbols-outlined text-[22px]" data-icon="tune">tune</span>
+</button>
+</section>
+<!-- 2. TEACHER COACHING CALLOUT & DYNAMIC TEACHER SLOT -->
+<section class="grid grid-cols-12 gap-3 items-stretch">
+<!-- Dynamic Teacher Slot -->
+<div class="col-span-4 teacher-slot rounded-2xl flex flex-col items-center justify-center p-2 text-center min-h-[140px] bg-[#172427]">
+<span class="material-symbols-outlined text-[#2EC4B6] text-[28px] mb-1" data-icon="school">school</span>
+<span class="font-label text-[11px] font-extrabold text-[#E8F1F0] tracking-wider">LEHRER</span>
+<span class="font-label text-[9px] font-bold text-[#2EC4B6] mt-0.5 leading-tight">140 x 170 Slot</span>
+</div>
+<!-- Coach Thought Bubble -->
+<div class="col-span-8 tactile-card p-3.5 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 text-[#F2553B] mb-1">
+<span class="material-symbols-outlined material-symbols-fill text-[16px]" data-icon="schedule">schedule</span>
+<span class="font-label text-[10px] uppercase tracking-wider font-extrabold">WIEDERHOLUNGSERINNERUNG</span>
+</div>
+<p class="font-body text-[13px] leading-[18px] font-bold text-[#E8F1F0]">
+          „Wiederhole deine 18 fälligen Wörter vor Mitternacht, um Gedächtnisverlust zu verhindern!“
+        </p>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-[#38D9C0]">
+<span>Optimaler Abstand: 3,4 Tage</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- 3. ACTIVE CONTINUE DECK CARD -->
+<section class="tactile-card p-4 relative overflow-hidden">
+<!-- Top Badges & Status -->
+<div class="flex items-start justify-between gap-2 mb-3">
+<div>
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#1E2F33] rounded-lg mb-1 border border-[#263D42]">
+<span class="font-label text-[10px] font-extrabold text-[#38D9C0]">IELTS 7.5+ KARTENSATZ</span>
+</div>
+<h2 class="font-title text-[18px] leading-tight font-extrabold text-[#E8F1F0]">
+            Akademische Kollokationen &amp; Wendungen
+          </h2>
+</div>
+<!-- Daily Goal Ring Mini -->
+<div class="w-12 h-12 rounded-full border-[3px] border-[#263D42] border-t-[#2EC4B6] border-r-[#2EC4B6] flex flex-col items-center justify-center shrink-0 bg-[#1E2F33]">
+<span class="font-label text-[11px] font-extrabold text-[#E8F1F0]">14</span>
+<span class="font-label text-[8px] font-bold text-[#A9BDBB]">/20 XP</span>
+</div>
+</div>
+<!-- Progress Track & Due Counter -->
+<div class="space-y-2 mb-4">
+<div class="flex justify-between items-center text-[12px] font-bold">
+<span class="text-[#E8F1F0]">42 / 120 Wörter <span class="text-[#A9BDBB]">(35%)</span></span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-[#F2553B]/15 text-[#FF8E72] rounded-full text-[11px] font-extrabold border border-[#F2553B]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span>
+            Heute fällig: 18 Wörter
+          </span>
+</div>
+<!-- Two-tone physical progress bar -->
+<div class="w-full h-3.5 bg-[#1E2F33] rounded-full overflow-hidden p-0.5 border border-[#263D42]">
+<div class="h-full bg-gradient-to-r from-[#2EC4B6] to-[#38D9C0] rounded-full" style="width: 35%;"></div>
+</div>
+</div>
+<!-- Primary Action CTA Button -->
+<button class="w-full min-h-[52px] py-3 px-4 tactile-btn-primary rounded-2xl font-display text-[15px] font-extrabold flex items-center justify-center gap-2 text-center text-[#1B0B04]">
+<span>Kartensatz fortsetzen (42/120)</span>
+<span class="material-symbols-outlined text-[18px] shrink-0" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- 4. WORD OF THE DAY HERO CARD -->
+<section class="tactile-card p-4">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#FFC94A] material-symbols-fill text-[18px]" data-icon="stars">stars</span>
+<span class="font-label text-[11px] font-extrabold text-[#E8F1F0] uppercase tracking-wider">WORT DES TAGES</span>
+</div>
+<span class="px-2 py-0.5 bg-[#1E2F33] text-[#38D9C0] font-label text-[10px] font-extrabold rounded-md border border-[#263D42]">
+          GER C1 • IELTS 7.5+
+        </span>
+</div>
+<!-- Word Title & Audio Pronunciation -->
+<div class="flex items-center justify-between mt-1 mb-2">
+<div>
+<h3 class="font-display text-[26px] font-extrabold text-[#E8F1F0] tracking-tight">resilient</h3>
+<p class="font-body text-[13px] font-bold text-[#A9BDBB]">/rɪˈzɪl.jənt/ • Adjektiv</p>
+</div>
+<!-- Min 44x44px Audio Trigger Button -->
+<button aria-label="Aussprache abspielen" class="w-11 h-11 min-w-[44px] min-h-[44px] tactile-btn-secondary rounded-2xl flex items-center justify-center text-[#2EC4B6]">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Definition & Context -->
+<div class="bg-[#1E2F33] p-3 rounded-xl border border-[#263D42] mb-3.5 space-y-1.5">
+<p class="font-body text-[13px] font-bold text-[#E8F1F0] leading-snug">
+          Widerstandsfähig; in der Lage, sich schnell von schwierigen Bedingungen oder Rückschlägen zu erholen.
+        </p>
+<p class="font-body text-[12px] italic text-[#A9BDBB] leading-relaxed">
+          „The local tourism economy proved extraordinarily <span class="font-bold text-[#38D9C0] not-italic underline decoration-[#2EC4B6]">resilient</span> despite prolonged global supply restrictions.“
+          <span class="text-[10px] not-italic font-extrabold text-[#A9BDBB]/80 block mt-0.5">— Cambridge-Korpus</span>
+</p>
+</div>
+<!-- Quick Save Action -->
+<button class="w-full min-h-[44px] py-2.5 px-3 tactile-btn-secondary rounded-xl font-label text-[12px] font-extrabold flex items-center justify-center gap-2 text-[#E8F1F0]">
+<span class="material-symbols-outlined text-[#2EC4B6] text-[18px]" data-icon="bookmark_add">bookmark_add</span>
+<span>Im Kartensatz speichern (+5 XP)</span>
+</button>
+</section>
+<!-- 5. CURATED TOPICS (2-COLUMN TACTILE BENTO GRID) -->
+<section>
+<div class="flex items-center justify-between mb-3 px-1">
+<h3 class="font-title text-[18px] font-extrabold text-[#E8F1F0]">Kuratierte Prüfungsthemen</h3>
+<span class="font-label text-[11px] font-extrabold text-[#38D9C0]">6 Themenbereiche</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Tile 1: Environment -->
+<div class="tactile-card p-3 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-xl bg-[#1E2F33] text-[#2EC4B6] flex items-center justify-center border border-[#263D42]">
+<span class="material-symbols-outlined text-[20px]" data-icon="eco">eco</span>
+</div>
+<span class="font-label text-[10px] font-bold text-[#A9BDBB]">40 Wörter</span>
+</div>
+<div>
+<h4 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight mb-2">Umwelt &amp; Ökologie</h4>
+<div class="w-full h-2 bg-[#1E2F33] rounded-full overflow-hidden mb-1 border border-[#263D42]">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 65%;"></div>
+</div>
+<span class="font-label text-[10px] font-extrabold text-[#38D9C0]">65% gemeistert</span>
+</div>
+</div>
+<!-- Tile 2: Urban Planning -->
+<div class="tactile-card p-3 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-xl bg-[#1E2F33] text-[#58A6FF] flex items-center justify-center border border-[#263D42]">
+<span class="material-symbols-outlined text-[20px]" data-icon="apartment">apartment</span>
+</div>
+<span class="font-label text-[10px] font-bold text-[#A9BDBB]">40 Wörter</span>
+</div>
+<div>
+<h4 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight mb-2">Stadtplanung &amp; Technik</h4>
+<div class="w-full h-2 bg-[#1E2F33] rounded-full overflow-hidden mb-1 border border-[#263D42]">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 40%;"></div>
+</div>
+<span class="font-label text-[10px] font-extrabold text-[#A9BDBB]">40% gemeistert</span>
+</div>
+</div>
+<!-- Tile 3: Education & Pedagogy -->
+<div class="tactile-card p-3 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-xl bg-[#1E2F33] text-[#FFC94A] flex items-center justify-center border border-[#263D42]">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<span class="font-label text-[10px] font-bold text-[#A9BDBB]">40 Wörter</span>
+</div>
+<div>
+<h4 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight mb-2">Bildung &amp; Pädagogik</h4>
+<div class="w-full h-2 bg-[#1E2F33] rounded-full overflow-hidden mb-1 border border-[#263D42]">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 80%;"></div>
+</div>
+<span class="font-label text-[10px] font-extrabold text-[#38D9C0]">80% gemeistert</span>
+</div>
+</div>
+<!-- Tile 4: Business & Economics -->
+<div class="tactile-card p-3 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-xl bg-[#1E2F33] text-[#F2553B] flex items-center justify-center border border-[#263D42]">
+<span class="material-symbols-outlined text-[20px]" data-icon="trending_up">trending_up</span>
+</div>
+<span class="font-label text-[10px] font-bold text-[#A9BDBB]">40 Wörter</span>
+</div>
+<div>
+<h4 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight mb-2">Wirtschaft &amp; Finanzen</h4>
+<div class="w-full h-2 bg-[#1E2F33] rounded-full overflow-hidden mb-1 border border-[#263D42]">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 25%;"></div>
+</div>
+<span class="font-label text-[10px] font-extrabold text-[#A9BDBB]">25% gemeistert</span>
+</div>
+</div>
+<!-- Tile 5: Health & Mind -->
+<div class="tactile-card p-3 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-xl bg-[#1E2F33] text-[#D084F5] flex items-center justify-center border border-[#263D42]">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</div>
+<span class="font-label text-[10px] font-bold text-[#A9BDBB]">40 Wörter</span>
+</div>
+<div>
+<h4 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight mb-2">Gesundheit &amp; Psyche</h4>
+<div class="w-full h-2 bg-[#1E2F33] rounded-full overflow-hidden mb-1 border border-[#263D42]">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 90%;"></div>
+</div>
+<span class="font-label text-[10px] font-extrabold text-[#38D9C0]">90% gemeistert</span>
+</div>
+</div>
+<!-- Tile 6: Abstract & Nuances -->
+<div class="tactile-card p-3 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-xl bg-[#1E2F33] text-[#2EC4B6] flex items-center justify-center border border-[#263D42]">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span>
+</div>
+<span class="font-label text-[10px] font-bold text-[#A9BDBB]">40 Wörter</span>
+</div>
+<div>
+<h4 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight mb-2">Abstrakte Nuancen</h4>
+<div class="w-full h-2 bg-[#1E2F33] rounded-full overflow-hidden mb-1 border border-[#263D42]">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 15%;"></div>
+</div>
+<span class="font-label text-[10px] font-extrabold text-[#A9BDBB]">15% gemeistert</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. MY DECKS SECTION & ANKI / FSRS INTEGRATION -->
+<section class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-title text-[18px] font-extrabold text-[#E8F1F0]">Meine Kartensätze</h3>
+<button class="min-h-[44px] px-3.5 py-2 tactile-btn-secondary rounded-xl font-label text-[11px] font-extrabold text-[#E8F1F0] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#2EC4B6]" data-icon="add">add</span>
+<span>+ Neuer Kartensatz</span>
+</button>
+</div>
+<!-- Deck 1 -->
+<div class="tactile-card p-3.5 flex items-center justify-between gap-3">
+<div class="space-y-1">
+<h4 class="font-body text-[14px] font-extrabold text-[#E8F1F0] leading-snug">Prüfungsfallen: Verwechselbare Wortpaare</h4>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#A9BDBB] flex-wrap">
+<span>18 Wörter</span>
+<span>•</span>
+<span class="text-[#FF8E72] font-extrabold">8 heute fällig</span>
+<span>•</span>
+<span>in 2 Std.</span>
+</div>
+</div>
+<button aria-label="Kartensatz starten" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full tactile-btn-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-[#E8F1F0]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Deck 2 -->
+<div class="tactile-card p-3.5 flex items-center justify-between gap-3">
+<div class="space-y-1">
+<h4 class="font-body text-[14px] font-extrabold text-[#E8F1F0] leading-snug">Task 2 Satzverknüpfungen</h4>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#A9BDBB] flex-wrap">
+<span>24 Wörter</span>
+<span>•</span>
+<span class="text-[#FF8E72] font-extrabold">4 fällig</span>
+<span>•</span>
+<span class="text-[#38D9C0] font-extrabold">100% eingeprägt</span>
+</div>
+</div>
+<button aria-label="Kartensatz starten" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full tactile-btn-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-[#E8F1F0]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Deck 3 -->
+<div class="tactile-card p-3.5 flex items-center justify-between gap-3">
+<div class="space-y-1">
+<h4 class="font-body text-[14px] font-extrabold text-[#E8F1F0] leading-snug">Idiome &amp; Kollokationen fürs Sprechen</h4>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#A9BDBB] flex-wrap">
+<span>32 Wörter</span>
+<span>•</span>
+<span class="text-[#FF8E72] font-extrabold">6 fällig</span>
+<span>•</span>
+<span class="text-[#38D9C0] font-extrabold">75% eingeprägt</span>
+</div>
+</div>
+<button aria-label="Kartensatz starten" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full tactile-btn-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-[#E8F1F0]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Anki Import & FSRS Sync Tactile Entry -->
+<div class="tactile-card p-3.5 bg-[#172427] border-dashed border-[#2EC4B6]/60 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] text-[#2EC4B6] border border-[#263D42] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="sync_alt">sync_alt</span>
+</div>
+<div>
+<h5 class="font-body text-[13px] font-extrabold text-[#E8F1F0] leading-tight">Anki-Kartensatz importieren (.apkg)</h5>
+<p class="font-body text-[11px] font-bold text-[#A9BDBB] mt-0.5">FSRS-Lernkarten &amp; Wiederholungsverlauf synchronisieren</p>
+</div>
+</div>
+<button class="min-h-[44px] min-w-[56px] px-3.5 py-2 tactile-btn-secondary rounded-xl font-label text-[11px] font-extrabold text-[#E8F1F0] shrink-0">
+          Sync
+        </button>
+</div>
+</section>
+</main>
+<!-- ================= FIXED BOTTOM TAB NAVIGATION BAR ================= -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-[#10191B] border-t-2 border-[#263D42] shadow-lg">
+<!-- Tab 1: Heute -->
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Heute</span>
+</a>
+<!-- Tab 2: Wortschatz (ACTIVELY SELECTED) -->
+<a class="flex flex-col items-center justify-center min-w-[72px] min-h-[48px] px-2.5 py-1 bg-[#123A3B] border-2 border-[#2EC4B6] border-b-[3px] border-b-[#101B1D] text-[#38D9C0] rounded-xl shadow-sm" href="#">
+<span class="material-symbols-outlined material-symbols-fill text-[22px] text-[#38D9C0]" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[11px] font-extrabold text-[#38D9C0] mt-0.5">Wortschatz</span>
+</a>
+<!-- Tab 3: Fertigkeiten -->
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Fertigkeiten</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="quiz">quiz</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Profil -->
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Profil</span>
+</a>
+</nav>
+</body></html>

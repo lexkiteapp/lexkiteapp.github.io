@@ -6,13 +6,20 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, issueTitle, redStreak, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
+// --- đỏ liên tiếp (3/11: quality-sweep đỏ 6 đêm 27/10–1/11, issue không nói "lặp lại")
+const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });
+ok(redStreak([R('failure', 1), R('failure', 2), R('cancelled', 3), R('failure', 3), R('success', 0), R('failure', 4, 'pull_request')]).n === 3, 'đỏ liên tiếp: bỏ PR/huỷ, dừng ở lượt xanh');
+ok(redStreak([R('success', 4), R('failure', 3)]).n === 0, 'lượt mới nhất xanh → 0');
+ok(redStreak([R('failure', 2), R('failure', 1)]).since === '2026-11-01T23:00:00Z', 'mốc bắt đầu chuỗi đỏ');
+ok(issueTitle('Quality sweep', 6) === 'CI đỏ: Quality sweep (đỏ 6 lượt liền)' && issueTitle('x', 2) === 'CI đỏ: x', 'tiêu đề báo khi ≥ 3 lượt liền');
+ok(/Đỏ \*\*6 lượt liên tiếp\*\*.*cần người sửa gốc/.test(issueBody({ name: 'Q', file: 'q.yml', run: { html_url: 'u', head_branch: 'main' }, cls: { kind: 'real', why: 'x' }, log: '', streak: { n: 6, since: '2026-10-27T23:09:11Z' } })), 'thân issue có chuỗi đỏ');
 // --- phân loại (log thật)
 const LOG = {
   ytm500: "Error: youtube packs → 500 error\n    at ytApi (file:///scripts/video/yt-upload.mjs:19:31)\n  body: { error: 'error' }\n##[error]Process completed with exit code 1.",
@@ -39,6 +46,15 @@ ok(issueBody({ name: 'i18n', file: 'i18n.yml', run: { html_url: 'u', run_attempt
 const d = digest([{ name: 'a' }, { name: 'a' }, { name: 'b' }], { a: 'failure', b: 'success' }, [{ number: 7, title: 'CI đỏ: a', html_url: 'h' }]);
 ok(d.red === 1 && d.failed === 2 && /#7/.test(d.text) && /Only notify for failed workflows/.test(d.text), 'bản tin ngày');
 
+// --- check đỏ chung trên nhiều PR (3/11: 5 PR đỏ size-budget, 5 PR đỏ before-after mà không ai báo)
+{ const { commonRed } = await import('../ci/pr-common-red.mjs');
+  const c = commonRed([{ number: 1, failed: ['npm test', 'bot'] }, { number: 2, failed: ['npm test'] }, { number: 3, failed: ['npm test', 'render (a, short)'] }, { number: 4, failed: ['render (b, wide)', 'render (b, short)'] }, { number: 5, failed: ['render (c, short)'] }, { number: 6, failed: [] }]);
+  ok(c.groups.length === 2 && c.groups[0].check === 'npm test' && c.groups[0].prs.join() === '1,2,3', 'check đỏ chung: npm test ở 3 PR');
+  ok(c.groups[1].check === 'render' && c.groups[1].prs.join() === '3,4,5', 'job ma trận "render (x, y)" gộp theo tên bước, 1 PR đếm 1 lần');
+  ok(!c.groups.some(g => g.check === 'bot') && /#1 #2 #3/.test(c.text), 'đỏ ở < 3 PR không báo; tóm tắt có số PR');
+  ok(commonRed([{ number: 1, failed: ['x'] }]).groups.length === 0 && /không có check đỏ chung/.test(commonRed([]).text), 'không có nhóm → báo không có');
+  ok(/pr-common-red\.mjs/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')) && /pull-requests: read/.test(fs.readFileSync(path.join(ROOT, '.github/workflows/ci-triage.yml'), 'utf8')), 'sweep gọi pr-common-red + workflow có quyền đọc PR'); }
+
 // --- D1 hết hạn mức → 429 quota-guard (không 500)
 ok(isD1Limit(new Error('D1_ERROR: Exceeded daily rows read limit')), 'isD1Limit: hết dòng đọc');
 ok(isD1Limit({ message: 'D1 DB: daily write limit exceeded' }), 'isD1Limit: hết dòng ghi');
@@ -62,12 +78,20 @@ const marker = path.join(tmp, 'ran');
 rc = await quotaRun([node, '-e', `require('fs').writeFileSync(${JSON.stringify(marker)}, '1')`], { env: { ...base, QUOTA_SKIP: '1' }, out: sink, err: sink });
 ok(rc === 0 && !fs.existsSync(marker), 'QUOTA_SKIP=1 → bước sau không chạy');
 
-// --- workflow: danh sách ci-triage khớp, youtube-* bọc quota-skip + khoá SSH cho cả bước
+// --- workflow: ci-triage quét định kỳ, youtube-* bọc quota-skip + khoá SSH cho cả bước
 const WF = path.join(ROOT, '.github/workflows'), files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f));
 const nameOf = f => ((fs.readFileSync(path.join(WF, f), 'utf8').match(/^name:\s*(.+)$/m) || [])[1] || f).trim().replace(/^['"]|['"]$/g, '');
 const tri = fs.readFileSync(path.join(WF, 'ci-triage.yml'), 'utf8');
-{ const { sync } = await import('../ci/sync-triage.mjs'), d = sync(false); // danh sách phải khớp 2 chiều; sửa bằng 1 lệnh
-  ok(!d.missing.length && !d.stale.length, `ci-triage.yml lệch .github/workflows (thiếu: ${d.missing.join(', ') || '-'}; thừa: ${d.stale.join(', ') || '-'}) → chạy: node scripts/ci/sync-triage.mjs`); }
+// 2/11: quét định kỳ phủ MỌI workflow thay cho workflow_run (trước: ~3.400 lượt/ngày, 93 % bị bỏ qua; lượt đỏ giữ runner ngủ 5 phút)
+ok(!/^\s*workflow_run:/m.test(tri) && /cron: '\*\/10 \* \* \* \*'/.test(tri) && /triage\.mjs scan/.test(tri), 'ci-triage: quét 10 phút (scan), không workflow_run – phủ cả workflow mới');
+ok(/sweep[\s\S]*github\.event\.schedule == '12 \* \* \* \*'/.test(tri), 'ci-triage: sweep (đóng issue + bản tin 00 UTC) chỉ ở cron giờ, không lặp 6 lần/giờ');
+ok(!/setTimeout\(r, d \* 1000\)/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')), 'triage: không ngủ giữ runner chờ chạy lại');
+{ const R = (id, o) => ({ id, name: 'QA bot', event: 'schedule', conclusion: 'failure', created_at: '2026-11-02T06:00:00Z', updated_at: '2026-11-02T06:30:00Z', ...o });
+  const got = pickFailures([R(1), R(2, { event: 'pull_request' }), R(3, { name: 'ci-triage' }), R(4, { conclusion: 'success' }), R(5, { updated_at: '2026-11-02T05:00:00Z' }), R(6, { updated_at: '2026-11-02T06:10:00Z' })], '2026-11-02T06:05:00Z').map(r => r.id);
+  ok(got.join() === '6,1', `pickFailures: chỉ lượt đỏ không-PR, không phải ci-triage, kết thúc từ mốc, cũ → mới (được ${got})`);
+  const now = Date.parse('2026-11-02T07:00:00Z');
+  ok(scanSince('2026-11-02T06:50:00Z', now, 300) === '2026-11-02T06:42:00.000Z', 'scanSince: lượt trước − (trễ + 3 phút) chồng lấn');
+  ok(scanSince(null, now, 300) === '2026-11-02T04:00:00.000Z' && scanSince('2026-10-30T00:00:00Z', now, 300) === '2026-11-02T04:00:00.000Z', 'scanSince: không có/quá cũ → 3 giờ'); }
 ok(/run_attempt|rerun-failed-jobs/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')) && /attempt > 1/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')), 'triage: chỉ chạy lại khi attempt = 1');
 for (const f of files) {
   const s = fs.readFileSync(path.join(WF, f), 'utf8');

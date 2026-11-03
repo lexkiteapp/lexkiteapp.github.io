@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Onboarding - Choose Target Language</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "surface-dim": "#dbdad7",
+            "on-tertiary-fixed": "#2a1700",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#b5ede7",
+            "secondary": "#316763",
+            "tertiary-fixed": "#ffddb8",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#376d69",
+            "primary-container": "#ff6b4a",
+            "on-secondary-fixed-variant": "#144f4b",
+            "surface-container-high": "#eae8e5",
+            "surface-variant": "#e4e2df",
+            "surface-bright": "#fbf9f6",
+            "inverse-primary": "#ffb4a3",
+            "on-primary-fixed": "#3d0600",
+            "primary": "#ae3115",
+            "on-tertiary-fixed-variant": "#653e00",
+            "outline": "#8d716a",
+            "on-error": "#ffffff",
+            "surface-container": "#efeeeb",
+            "on-background": "#1b1c1a",
+            "tertiary": "#855300",
+            "on-primary-fixed-variant": "#8c1900",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#59413c",
+            "tertiary-container": "#d78900",
+            "secondary-fixed-dim": "#9ad1cb",
+            "inverse-surface": "#30312f",
+            "error-container": "#ffdad6",
+            "background": "#fbf9f6",
+            "surface-container-highest": "#e4e2df",
+            "on-surface": "#1b1c1a",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#ae3115",
+            "on-primary-container": "#661000",
+            "outline-variant": "#e1bfb8",
+            "primary-fixed-dim": "#ffb4a3",
+            "secondary-container": "#b5ede7",
+            "primary-fixed": "#ffdad2",
+            "inverse-on-surface": "#f2f0ed",
+            "on-tertiary-container": "#492c00",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary": "#ffffff",
+            "surface": "#fbf9f6",
+            "surface-container-low": "#f5f3f0",
+            "on-secondary-fixed": "#00201e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "margin": "1.25rem",
+            "space-2xl": "3rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Clay-pop bevel and elevation tokens */
+    .tactile-card-base {
+      box-shadow: 0 4px 0 0 #D6CEC2, 0 8px 16px -4px rgba(19, 78, 74, 0.04);
+    }
+    .tactile-card-selected {
+      box-shadow: 0 4px 0 0 #144f4b;
+    }
+    .tactile-button-primary {
+      box-shadow: 0 4px 0 0 #D64724;
+    }
+    .tactile-button-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D64724;
+    }
+    .tactile-nav-btn {
+      box-shadow: 0 3px 0 0 #D6CEC2;
+    }
+    .tactile-nav-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D6CEC2;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed-variant">
+<!-- Mobile Onboarding Container (Max 420px width for ideal 390px viewport rendering) -->
+<main class="w-full max-w-md min-h-screen flex flex-col justify-between px-5 py-4 sm:px-6">
+<!-- Top Area: Header with Navigation & Micro Progress Indicator -->
+<header class="w-full pt-1 pb-3">
+<!-- Shared TopAppBar layout from anchors -->
+<div class="flex items-center justify-between w-full">
+<!-- Back Arrow Button (44px target with tactile finish) -->
+<button aria-label="Go back to previous step" class="tactile-nav-btn w-11 h-11 min-w-[44px] min-h-[44px] rounded-2xl bg-surface-container-lowest border-[1.5px] border-[#E8E2D9] text-on-secondary-fixed-variant flex items-center justify-center transition-all duration-100 hover:bg-surface-container-low active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Segmented Slim Progress Tracker: Step 2 of 4 -->
+<div aria-label="Onboarding step 2 of 4" aria-valuemax="4" aria-valuemin="1" aria-valuenow="2" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-[#E8E2D9]" role="progressbar">
+<!-- Step 1: Completed -->
+<div class="w-6 h-2 rounded-full bg-secondary transition-all"></div>
+<!-- Step 2: Active Highlight -->
+<div class="w-8 h-2 rounded-full bg-secondary-fixed-dim border border-secondary transition-all"></div>
+<!-- Step 3: Pending -->
+<div class="w-2.5 h-2 rounded-full bg-surface-container-high"></div>
+<!-- Step 4: Pending -->
+<div class="w-2.5 h-2 rounded-full bg-surface-container-high"></div>
+</div>
+<!-- Trailing Action: Skip text link (From Shared Components JSON) -->
+<button class="text-label-md font-label-md text-secondary hover:text-on-secondary-fixed-variant min-h-[44px] px-2 flex items-center justify-center font-bold tracking-tight transition-colors" type="button">
+          Skip
+        </button>
+</div>
+</header>
+<!-- Content Stage: Scrollable / Flexible Center -->
+<div class="flex-1 flex flex-col justify-start pt-2 pb-6 space-y-5">
+<!-- Heading Section -->
+<section aria-labelledby="step-heading" class="space-y-1.5">
+<h1 class="text-headline-lg font-headline-lg text-[#132A29] leading-tight break-words" id="step-heading">
+          What do you want to learn?
+        </h1>
+<p class="text-body-md font-body-md text-[#4A6361] break-words">
+          You can change this anytime later in Settings.
+        </p>
+</section>
+<!-- Welcome Teacher Container (Ama Guide Card) -->
+<section aria-label="Coach Welcome Guidance" class="w-full bg-surface-container-lowest border-[1.5px] border-[#E8E2D9] rounded-[20px] p-4 tactile-card-base transition-all">
+<div class="flex items-start space-x-3.5">
+<!-- Teacher Slot: strictly empty rounded container reserved for 2D code injection -->
+<div class="flex flex-col items-center flex-shrink-0">
+<div class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-2xl border-2 border-dashed border-secondary bg-surface-container-low flex flex-col items-center justify-center text-center p-1" data-slot="[teacher-slot]" id="teacher-slot" title="Teacher avatar reserved container">
+<span class="text-label-sm font-label-sm font-bold text-secondary tracking-tight select-none">
+                [slot]
+              </span>
+</div>
+<span class="mt-1 text-[11px] leading-tight font-label-sm font-bold text-on-secondary-fixed-variant whitespace-nowrap">
+              Ama · Coach
+            </span>
+</div>
+<!-- Speech bubble message -->
+<div class="flex-1 relative bg-surface-container-low border border-[#E8E2D9] rounded-2xl rounded-tl-sm p-3 self-center">
+<p class="text-body-sm font-body-sm text-[#132A29] leading-relaxed break-words">
+              Hi, I’m Ama! Choose your target language to customize your vocabulary path and exams.
+            </p>
+</div>
+</div>
+</section>
+<!-- Selectable Language Cards (Generous touch targets, resilient wrapped text) -->
+<fieldset aria-label="Select target language" class="space-y-3.5">
+<legend class="sr-only">Target Language Selection</legend>
+<!-- Option 1: English (Selected by default) -->
+<label class="group relative flex items-center justify-between w-full min-h-[76px] p-4 rounded-[20px] border-2 border-[#134E4A] bg-[#F4F9F8] tactile-card-selected cursor-pointer select-none transition-transform duration-100 active:scale-[0.99]" for="lang-en">
+<input checked="" class="sr-only peer" id="lang-en" name="target_language" type="radio" value="english"/>
+<!-- Left content: Mark + Info -->
+<div class="flex items-center space-x-3.5 flex-1 pr-3 min-w-0">
+<!-- Typographic glyph badge -->
+<div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-surface-container-lowest border-[1.5px] border-[#134E4A] flex items-center justify-center text-on-secondary-fixed-variant font-headline-sm text-headline-sm font-bold tracking-wider shadow-sm">
+              EN
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center space-x-2 flex-wrap">
+<span class="text-headline-sm font-headline-sm text-[#132A29] break-words">
+                  English
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-secondary-fixed text-on-secondary-fixed-variant">
+                  Popular
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-secondary break-words mt-0.5 leading-snug">
+                IELTS, TOEFL &amp; Academic English
+              </p>
+</div>
+</div>
+<!-- Selection Indicator: Active checkmark in teal circle -->
+<div class="w-7 h-7 min-w-[28px] min-h-[28px] rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm transition-transform duration-150">
+<span class="material-symbols-outlined text-base font-bold" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</label>
+<!-- Option 2: Português (Unselected) -->
+<label class="group relative flex items-center justify-between w-full min-h-[76px] p-4 rounded-[20px] border-[1.5px] border-[#E8E2D9] bg-surface-container-lowest tactile-card-base hover:border-secondary hover:bg-surface-container-low cursor-pointer select-none transition-transform duration-100 active:scale-[0.99]" for="lang-pt">
+<input class="sr-only peer" id="lang-pt" name="target_language" type="radio" value="portuguese"/>
+<!-- Left content: Mark + Info -->
+<div class="flex items-center space-x-3.5 flex-1 pr-3 min-w-0">
+<!-- Typographic glyph badge -->
+<div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-surface-container border border-[#E8E2D9] flex items-center justify-center text-[#132A29] font-headline-sm text-headline-sm font-bold tracking-wider">
+              PT
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center space-x-2 flex-wrap">
+<span class="text-headline-sm font-headline-sm text-[#132A29] break-words">
+                  Português
+                </span>
+<!-- Small Beta Pill -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-tertiary-fixed text-on-tertiary-fixed border border-[#E8E2D9]">
+                  Beta
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-[#4A6361] break-words mt-0.5 leading-snug">
+                Brazilian Portuguese, 30 starter words
+              </p>
+</div>
+</div>
+<!-- Selection Indicator: Empty circle -->
+<div class="w-7 h-7 min-w-[28px] min-h-[28px] rounded-full border-2 border-[#D6CEC2] bg-surface-container-lowest group-hover:border-secondary flex items-center justify-center transition-colors">
+<span class="w-2.5 h-2.5 rounded-full bg-transparent"></span>
+</div>
+</label>
+</fieldset>
+</div>
+<!-- Footer / Bottom Action Section: Fixed or docked feel with rich vertical breathing room -->
+<footer class="w-full pt-3 pb-2 space-y-3">
+<!-- Primary Coral Tactile Button -->
+<button class="tactile-button-primary w-full min-h-[56px] h-14 rounded-2xl bg-primary-container text-on-primary font-label-lg text-label-lg tracking-wide flex items-center justify-center space-x-2 transition-all duration-100 focus:outline-none focus:ring-4 focus:ring-primary-fixed" id="continue-button" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Discreet reassurance meta -->
+<p class="text-center text-label-sm font-label-sm text-[#4A6361]">
+        Step 2 of 4 · Takes 1 minute
+      </p>
+</footer>
+</main>
+<!-- Interactive script to toggle state visually if clicked without page reload -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const radios = document.querySelectorAll('input[name="target_language"]');
+      const labels = document.querySelectorAll('fieldset label');
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          labels.forEach(label => {
+            const input = label.querySelector('input');
+            const indicator = label.querySelector('.rounded-full:last-child');
+            if (input.checked) {
+              label.classList.remove('border-[#E8E2D9]', 'bg-surface-container-lowest', 'tactile-card-base');
+              label.classList.add('border-2', 'border-[#134E4A]', 'bg-[#F4F9F8]', 'tactile-card-selected');
+              indicator.className = 'w-7 h-7 min-w-[28px] min-h-[28px] rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm transition-transform duration-150';
+              indicator.innerHTML = '<span class="material-symbols-outlined text-base font-bold" data-icon="check" style="font-variation-settings: \'FILL\' 1;">check</span>';
+            } else {
+              label.classList.remove('border-2', 'border-[#134E4A]', 'bg-[#F4F9F8]', 'tactile-card-selected');
+              label.classList.add('border-[1.5px]', 'border-[#E8E2D9]', 'bg-surface-container-lowest', 'tactile-card-base');
+              indicator.className = 'w-7 h-7 min-w-[28px] min-h-[28px] rounded-full border-2 border-[#D6CEC2] bg-surface-container-lowest group-hover:border-secondary flex items-center justify-center transition-colors';
+              indicator.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-transparent"></span>';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body></html>

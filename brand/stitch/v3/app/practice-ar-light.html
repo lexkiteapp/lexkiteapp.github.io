@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Practice Hub - Arabic RTL (Bright Day)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+Arabic:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#FFF8F5',
+              dim: '#F4ECE7',
+              container: '#FFFFFF',
+              'container-low': '#FFF1E8',
+              'container-lowest': '#FFFFFF',
+            },
+            primary: {
+              DEFAULT: '#136A63',
+              dark: '#0B4742',
+              light: '#E6F4F1',
+              container: '#D1ECE7',
+            },
+            accent: {
+              orange: '#FF7A00',
+              'orange-dark': '#E06500',
+              'orange-light': '#FFF0E5',
+              coral: '#C53030',
+              gold: '#B45309',
+              amber: '#B45309',
+              mint: '#047857',
+            },
+            ink: {
+              primary: '#111827',
+              secondary: '#1F2937',
+              muted: '#1B3D39',
+              inverse: '#FFFFFF',
+            }
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 rgba(19, 106, 99, 0.15)',
+            'tactile': '0 3px 0 0 rgba(19, 106, 99, 0.2)',
+            'tactile-btn': '0 4px 0 0 #B95300',
+            'tactile-card': '0 3px 0 0 #EAD7CD',
+            'tactile-chip': '0 2px 0 0 #E2CDC2',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #FFF8F5;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Mirror directional icons in RTL */
+    .rtl-flip {
+      transform: scaleX(-1);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF8F5] pb-24 antialiased text-right selection:bg-primary/20">
+<!-- Main Viewport Container (Native Mobile 390px edge-to-edge max-width centered) -->
+<div class="max-w-[390px] mx-auto min-h-screen bg-[#FFF8F5] relative flex flex-col">
+<!-- Top App Bar (HUB variant - RTL mirrored) -->
+<header class="sticky top-0 z-30 bg-[#FFF8F5]/95 backdrop-blur-md px-4 py-3 border-b border-[#EEDDD3] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<!-- Logo / Icon -->
+<div class="w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center shadow-tactile shrink-0">
+<span class="material-symbols-outlined text-[24px]">fitness_center</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-ink-primary leading-tight font-display tracking-tight">مركز التدريب</h1>
+<p class="text-[12px] font-semibold text-[#1B3D39] leading-tight mt-0.5">تدريب تشخيصي متكيّف</p>
+</div>
+</div>
+<!-- Streaks & XP Chips (min 44px touch targets) -->
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<button class="min-h-[44px] min-w-[44px] flex items-center gap-1.5 bg-[#FFF1E8] border border-[#E6BAA3] text-[#111827] px-3 py-2 rounded-full text-xs font-bold shadow-tactile-chip active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[#B45309] text-[18px] fill-icon">local_fire_department</span>
+<span class="font-sans font-extrabold text-[#78350F]">14 ي</span>
+</button>
+<!-- XP Chip -->
+<button class="min-h-[44px] min-w-[44px] flex items-center gap-1.5 bg-[#FFF1E8] border border-[#E6BAA3] text-[#111827] px-3 py-2 rounded-full text-xs font-bold shadow-tactile-chip active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[#B45309] text-[18px] fill-icon">stars</span>
+<span class="font-sans font-extrabold text-[#78350F]">820</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-4 pb-6 space-y-4">
+<!-- Coach Ama Diagnostic Advisory / Teacher Slot Card -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card flex items-start gap-3">
+<!-- Empty Dashed Teacher Slot (Mirrored in RTL on the right) -->
+<div class="w-16 h-16 rounded-xl border-2 border-dashed border-[#136A63] bg-[#E6F4F1]/60 flex flex-col items-center justify-center shrink-0 text-center p-1 relative">
+<span class="material-symbols-outlined text-[#0B4742] text-[22px]">school</span>
+<span class="text-[10px] font-extrabold text-[#0B4742] uppercase leading-tight mt-0.5">خانة<br/>المعلم</span>
+</div>
+<!-- Speech Bubble Context -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0B4742] inline-block shrink-0"></span>
+<span class="text-[12px] font-extrabold tracking-wide text-[#0B4742] uppercase">المدربة إيما • تقرير التشخيص</span>
+</div>
+<p class="text-[13px] font-medium text-[#1F2937] leading-relaxed">
+            "التركيز على نقاط الضعف الثلاث المحددة سيمكّنك من استعادة <span class="font-black text-[#111827] underline decoration-[#136A63]/50">+0.5 درجة</span> مباشرة قبل الاختبار التجريبي القادم."
+          </p>
+</div>
+</div>
+<!-- Hero Callout: Recommended Daily Diagnostic Drill -->
+<div class="bg-[#0B3A36] rounded-2xl p-4 text-white shadow-[0_4px_0_0_#052321] relative overflow-hidden border border-[#136A63]">
+<div class="flex items-start justify-between gap-3 mb-2.5">
+<div class="flex-1">
+<div class="inline-flex items-center gap-1 bg-[#136A63] text-[#A4F1E7] border border-[#23877F] text-[11px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>موصى به اليوم</span>
+</div>
+<h2 class="text-[17px] font-extrabold leading-snug font-display text-white">تدريب تشخيصي مختلط لمدة 10 دقائق</h2>
+<p class="text-[12px] text-[#C4E9E4] mt-1.5 leading-relaxed font-normal">
+              15 سؤالاً منتقاة بعناية وموجّهة تحديداً لمعالجة أنماط الأسئلة الأقل دقة لديك في القواعد والاستماع.
+            </p>
+</div>
+<div class="w-11 h-11 rounded-xl bg-[#136A63]/80 border border-[#23877F] flex items-center justify-center shrink-0 text-[#A4F1E7]">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+</div>
+<!-- Big Tactile CTA Button -->
+<button class="w-full mt-2 min-h-[48px] bg-accent-orange hover:bg-accent-orange-dark active:translate-y-0.5 text-[#1A0900] font-black text-sm rounded-xl py-3 px-4 shadow-[0_4px_0_0_#A84200] flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[20px] rtl-flip fill-icon">play_arrow</span>
+<span>بدء التدريب التشخيصي (10 د)</span>
+</button>
+</div>
+<!-- Detected Weak Areas Section -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#B91C1C] text-[20px]">warning</span>
+<h3 class="text-sm font-black text-ink-primary">نقاط الضعف المكتشفة</h3>
+</div>
+<span class="bg-[#FEE2E2] border border-[#FECACA] text-[#991B1B] text-[11px] font-black px-2.5 py-1 rounded-full">
+            3 وحدات عاجلة
+          </span>
+</div>
+<!-- Weak Item 1: Listening -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5 flex-1 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#E6F4F1] text-[#0B4742] flex items-center justify-center shrink-0 border border-[#BCE1DA]">
+<span class="material-symbols-outlined text-[20px]">headphones</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[11px] font-black uppercase px-2 py-0.5 rounded bg-[#FFEDD5] text-[#9A3412] border border-[#FDBA74]">الاستماع</span>
+<span class="text-[12px] font-bold text-[#1B3D39]">الجزء 3 • المحادثة</span>
+</div>
+<h4 class="text-[13px] font-bold text-ink-primary mt-1.5 leading-tight">مشتتات أكاديمية مع متحدثين متعددين</h4>
+</div>
+</div>
+<!-- Accuracy Badge (contrast >= 4.5:1) -->
+<div class="bg-[#FEE2E2] border border-[#FCA5A5] text-[#991B1B] rounded-xl px-2.5 py-1 text-center shrink-0 min-w-[54px]">
+<div class="text-[14px] font-black leading-none font-sans">52%</div>
+<div class="text-[10px] font-extrabold text-[#7F1D1D] mt-0.5">الدقة</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#F5E8E0]">
+<div class="flex items-center gap-1.5 text-[12px] font-bold text-[#1F2937]">
+<span class="material-symbols-outlined text-[17px] text-[#B91C1C]">flag</span>
+<span>8 مصائد امتحانية متكررة</span>
+</div>
+<button class="min-h-[44px] min-w-[80px] px-3.5 py-2 bg-white hover:bg-surface-dim active:translate-y-0.5 border-2 border-[#136A63]/30 text-[#0B4742] font-black text-xs rounded-xl shadow-[0_2px_0_0_#CCD8D6] flex items-center justify-center gap-1.5 transition-all">
+<span>تدرّب</span>
+<span class="material-symbols-outlined text-[17px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Weak Item 2: Grammar -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5 flex-1 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#E6F4F1] text-[#0B4742] flex items-center justify-center shrink-0 border border-[#BCE1DA]">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[11px] font-black uppercase px-2 py-0.5 rounded bg-[#FFEDD5] text-[#9A3412] border border-[#FDBA74]">القواعد</span>
+<span class="text-[12px] font-bold text-[#1B3D39]">تصريف الأفعال</span>
+</div>
+<h4 class="text-[13px] font-bold text-ink-primary mt-1.5 leading-tight">المضارع التام مقابل الماضي البسيط والقلب</h4>
+</div>
+</div>
+<!-- Accuracy Badge (contrast >= 4.5:1) -->
+<div class="bg-[#FEF3C7] border border-[#FCD34D] text-[#78350F] rounded-xl px-2.5 py-1 text-center shrink-0 min-w-[54px]">
+<div class="text-[14px] font-black leading-none font-sans">60%</div>
+<div class="text-[10px] font-extrabold text-[#78350F] mt-0.5">الدقة</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#F5E8E0]">
+<div class="flex items-center gap-1.5 text-[12px] font-bold text-[#1F2937]">
+<span class="material-symbols-outlined text-[17px] text-[#B45309]">sync_problem</span>
+<span>6 أخطاء تركيب جمل متكررة</span>
+</div>
+<button class="min-h-[44px] min-w-[80px] px-3.5 py-2 bg-white hover:bg-surface-dim active:translate-y-0.5 border-2 border-[#136A63]/30 text-[#0B4742] font-black text-xs rounded-xl shadow-[0_2px_0_0_#CCD8D6] flex items-center justify-center gap-1.5 transition-all">
+<span>تدرّب</span>
+<span class="material-symbols-outlined text-[17px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Weak Item 3: Reading -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5 flex-1 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#E6F4F1] text-[#0B4742] flex items-center justify-center shrink-0 border border-[#BCE1DA]">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[11px] font-black uppercase px-2 py-0.5 rounded bg-[#FFEDD5] text-[#9A3412] border border-[#FDBA74]">القراءة</span>
+<span class="text-[12px] font-bold text-[#1B3D39]">النص الأكاديمي 2</span>
+</div>
+<h4 class="text-[13px] font-bold text-ink-primary mt-1.5 leading-tight">عناوين الفقرات والاستنتاج السلبي</h4>
+</div>
+</div>
+<!-- Accuracy Badge (contrast >= 4.5:1) -->
+<div class="bg-[#FEE2E2] border border-[#FCA5A5] text-[#991B1B] rounded-xl px-2.5 py-1 text-center shrink-0 min-w-[54px]">
+<div class="text-[14px] font-black leading-none font-sans">58%</div>
+<div class="text-[10px] font-extrabold text-[#7F1D1D] mt-0.5">الدقة</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#F5E8E0]">
+<div class="flex items-center gap-1.5 text-[12px] font-bold text-[#1F2937]">
+<span class="material-symbols-outlined text-[17px] text-[#0B4742]">style</span>
+<span>12 بطاقة تدريب في الانتظار</span>
+</div>
+<button class="min-h-[44px] min-w-[80px] px-3.5 py-2 bg-white hover:bg-surface-dim active:translate-y-0.5 border-2 border-[#136A63]/30 text-[#0B4742] font-black text-xs rounded-xl shadow-[0_2px_0_0_#CCD8D6] flex items-center justify-center gap-1.5 transition-all">
+<span>تدرّب</span>
+<span class="material-symbols-outlined text-[17px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mistake Notebook Banner -->
+<div class="bg-[#FFF3EC] rounded-2xl border-2 border-[#F6D5C3] p-3.5 shadow-tactile-card flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#FEE2E2] text-[#B91C1C] flex items-center justify-center shrink-0 border border-[#FCA5A5]">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="text-sm font-black text-ink-primary">دفتر الأخطاء</h4>
+<span class="bg-[#DC2626] text-white text-[11px] font-black px-2 py-0.5 rounded-full font-sans shadow-sm">14 معلّق</span>
+</div>
+<p class="text-[12px] text-[#1F2937] font-semibold mt-1 leading-snug">راجع الأخطاء قبل تراجع الذاكرة</p>
+</div>
+</div>
+<button class="min-h-[44px] min-w-[80px] px-3.5 py-2 bg-white hover:bg-[#FFF8F5] active:translate-y-0.5 border-2 border-[#F6D5C3] text-[#B91C1C] font-black text-xs rounded-xl shadow-[0_2px_0_0_#E9C0AC] flex items-center justify-center gap-1.5 shrink-0 transition-all">
+<span>مراجعة</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+<!-- 5-Minute Quick Sprints Grid -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#0B4742] text-[20px]">grid_view</span>
+<h3 class="text-sm font-black text-ink-primary">تدريبات سريعة (5 دقائق)</h3>
+</div>
+<span class="text-[12px] font-bold text-[#1B3D39]">تمارين معيارية</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Drill 1: Fast Dictation -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-[#E6F4F1] text-[#0B4742] flex items-center justify-center border border-[#BCE1DA]">
+<span class="material-symbols-outlined text-[19px]">hearing</span>
+</div>
+<span class="text-[11px] font-black text-[#1F2937] bg-[#E5E7EB] border border-[#D1D5DB] px-2.5 py-0.5 rounded-full font-sans">3 د</span>
+</div>
+<h5 class="text-xs font-black text-ink-primary leading-tight">إملاء سريع</h5>
+<p class="text-[11px] text-[#1B3D39] font-medium mt-1 leading-snug">لهجات بريطانية وأمريكية</p>
+</div>
+<button class="mt-3 min-h-[44px] w-full text-right text-xs font-black text-[#0B4742] flex items-center justify-between hover:underline pt-2 border-t border-[#F5E8E0]">
+<span>تدرّب الآن</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+<!-- Drill 2: Speaking Sprint -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-[#FFEDD5] text-[#9A3412] flex items-center justify-center border border-[#FDBA74]">
+<span class="material-symbols-outlined text-[19px]">mic</span>
+</div>
+<span class="text-[11px] font-black text-[#1F2937] bg-[#E5E7EB] border border-[#D1D5DB] px-2.5 py-0.5 rounded-full font-sans">4 د</span>
+</div>
+<h5 class="text-xs font-black text-ink-primary leading-tight">تحدث سريع</h5>
+<p class="text-[11px] text-[#1B3D39] font-medium mt-1 leading-snug">نبرات صوتية ونطق IPA</p>
+</div>
+<button class="mt-3 min-h-[44px] w-full text-right text-xs font-black text-[#0B4742] flex items-center justify-between hover:underline pt-2 border-t border-[#F5E8E0]">
+<span>تدرّب الآن</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+<!-- Drill 3: Writing Fixer -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-[#E6F4F1] text-[#0B4742] flex items-center justify-center border border-[#BCE1DA]">
+<span class="material-symbols-outlined text-[19px]">edit_note</span>
+</div>
+<span class="text-[11px] font-black text-[#1F2937] bg-[#E5E7EB] border border-[#D1D5DB] px-2.5 py-0.5 rounded-full font-sans">5 د</span>
+</div>
+<h5 class="text-xs font-black text-ink-primary leading-tight">مصحح الكتابة</h5>
+<p class="text-[11px] text-[#1B3D39] font-medium mt-1 leading-snug">أدوات الربط للمهمة 2</p>
+</div>
+<button class="mt-3 min-h-[44px] w-full text-right text-xs font-black text-[#0B4742] flex items-center justify-between hover:underline pt-2 border-t border-[#F5E8E0]">
+<span>تدرّب الآن</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+<!-- Drill 4: Speed Match -->
+<div class="bg-white rounded-2xl border-2 border-[#EEDDD3] p-3.5 shadow-tactile-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-[#FEF3C7] text-[#78350F] flex items-center justify-center border border-[#FCD34D]">
+<span class="material-symbols-outlined text-[19px]">style</span>
+</div>
+<span class="text-[11px] font-black text-[#1F2937] bg-[#E5E7EB] border border-[#D1D5DB] px-2.5 py-0.5 rounded-full font-sans">60 ث</span>
+</div>
+<h5 class="text-xs font-black text-ink-primary leading-tight">تطابق سريع</h5>
+<p class="text-[11px] text-[#1B3D39] font-medium mt-1 leading-snug">ثنائيات المتلازمات الأكاديمية</p>
+</div>
+<button class="mt-3 min-h-[44px] w-full text-right text-xs font-black text-[#0B4742] flex items-center justify-between hover:underline pt-2 border-t border-[#F5E8E0]">
+<span>تدرّب الآن</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Canonical Bottom Navigation Bar (5 tabs - mirrored in RTL with Skills active) -->
+<!-- RTL Order: اليوم (Today), المفردات (Vocab), المهارات (Skills - ACTIVE), الاختبارات (Tests), أنا (Me) -->
+<!-- All touch targets at least 44x44px -->
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t-2 border-[#EEDDD3] shadow-[0_-4px_0_0_#EFE0D6] max-w-[390px] mx-auto">
+<div class="grid grid-cols-5 h-16 items-center px-1">
+<!-- Tab 1: اليوم (Today) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-[#1F2937] hover:text-primary transition-colors py-1" href="#/today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold">اليوم</span>
+</a>
+<!-- Tab 2: المفردات (Vocab) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-[#1F2937] hover:text-primary transition-colors py-1" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold">المفردات</span>
+</a>
+<!-- Tab 3: المهارات (Skills - ACTIVE) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center py-1" href="#/skills">
+<div class="flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/25 shadow-sm min-h-[38px]">
+<span class="material-symbols-outlined text-[20px] fill-icon">fitness_center</span>
+<span class="text-[11px] font-black">المهارات</span>
+</div>
+</a>
+<!-- Tab 4: الاختبارات (Tests) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-[#1F2937] hover:text-primary transition-colors py-1" href="#/tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold">الاختبارات</span>
+</a>
+<!-- Tab 5: أنا (Me) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-[#1F2937] hover:text-primary transition-colors py-1" href="#/me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold">أنا</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

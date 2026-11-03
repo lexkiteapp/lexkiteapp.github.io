@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
-        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Làm giàu & kiểm tra
@@ -37,11 +37,18 @@ jobs:
           node scripts/gen-newtab.mjs | tail -1
           node scripts/build-lexicon.mjs
       - name: Lưu kết quả (thử lại tối đa 5 lần)
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
           git add -A web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt
           git diff --cached --quiet && exit 0
           git commit -m "Kho từ theo kỳ thi: cập nhật tự động [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
           exit 1
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh wordlists <nhánh>)
+        if: github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: wordlists
+          paths: web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt

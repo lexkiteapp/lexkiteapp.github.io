@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /* Tự phân loại workflow đỏ (ci-triage.yml) – thay cho hàng loạt thư "Run failed" của GitHub.
- *   node scripts/ci/triage.mjs run     ← workflow_run completed + failure (payload ở $GITHUB_EVENT_PATH)
+ *   node scripts/ci/triage.mjs scan    ← cron 10 phút: mọi lượt đỏ (không phải PR) kết thúc từ lượt quét trước (thay workflow_run của mọi workflow, 2/11)
+ *   node scripts/ci/triage.mjs run     ← gỡ lỗi tay 1 lượt (payload workflow_run ở $GITHUB_EVENT_PATH)
  *   node scripts/ci/triage.mjs sweep   ← cron mỗi giờ: đóng issue khi workflow xanh lại; giờ 00 UTC (sau 00:10): chạy lại lượt hoãn vì hạn mức + bản tin ngày
  * Phân loại theo log của các job lỗi:
  *   quota     – 429 quota-guard / d1-budget / D1 hết hạn mức ngày → không làm gì, lượt quét sau 00:10 UTC (hạn mức đặt lại) chạy lại lượt mới nhất 1 lần
- *   transient – 5xx/mạng/Google/AI tạm hỏng → chờ TRIAGE_DELAY giây rồi "Re-run failed jobs" 1 lần (chỉ khi run_attempt = 1 → không bao giờ lặp;
+ *   transient – 5xx/mạng/Google/AI tạm hỏng → đủ TRIAGE_DELAY giây sau khi đỏ (lượt quét kế tiếp, không ngủ giữ runner) thì "Re-run failed jobs" 1 lần (chỉ khi run_attempt = 1 → không bao giờ lặp;
  *               không bao giờ chạy lại lượt đã bị thay thế: có lượt mới hơn hoặc workflow/script của nó đã đổi – supersededWhy)
  *   real      – còn lại (hoặc tạm thời nhưng đã chạy lại vẫn đỏ) → mở/cập nhật 1 issue / workflow (nhãn ci-failure, trích log); sửa thân issue, không bình luận
  * Bản tin: tóm tắt job + cảnh báo Quản trị (op ext_alert kind 'ci' của /api/drive) + 1 thư/ngày (khi có đỏ). Không đụng _d1guard/coordinator/footage-archive. */
@@ -37,9 +38,18 @@ export function excerpt(log, max = 40) {
 }
 
 export const marker = file => `<!-- ci-triage:wf=${file} -->`;
-export const issueTitle = name => `CI đỏ: ${name}`;
-export function issueBody({ name, file, run, cls, log }) {
+export const STREAK_ALERT = 3;
+export const issueTitle = (name, streak = 0) => `CI đỏ: ${name}` + (streak >= STREAK_ALERT ? ` (đỏ ${streak} lượt liền)` : '');
+/** Số lượt đỏ LIÊN TIẾP mới nhất (thuần, có test) trên cùng nhánh, bỏ PR + huỷ/bỏ qua – 3/11: quality-sweep đỏ 6 đêm liền, issue chỉ ghi "đỏ". */
+export function redStreak(runs) {
+  let n = 0, since = '';
+  for (const r of [...(runs || [])].filter(r => r && r.event !== 'pull_request' && r.status === 'completed' && !['cancelled', 'skipped'].includes(r.conclusion))
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))) { if (r.conclusion !== 'failure') break; n++; since = r.created_at; }
+  return { n, since };
+}
+export function issueBody({ name, file, run, cls, log, streak }) {
   return `${marker(file)}\nWorkflow **${name}** (\`${file}\`) đỏ – ci-triage xếp loại **${cls.kind}** (${cls.why}).\n\n` +
+    (streak && streak.n >= 2 ? `- ${streak.n >= STREAK_ALERT ? '🔥' : '🔁'} Đỏ **${streak.n} lượt liên tiếp** trên ${run.head_branch || 'main'} (từ ${String(streak.since).slice(0, 16)}Z)${streak.n >= STREAK_ALERT ? ' – lỗi lặp lại, không phải nhiễu: cần người sửa gốc' : ''}\n` : '') +
     `- Lượt mới nhất: ${run.html_url} (attempt ${run.run_attempt || 1}, sự kiện ${run.event}, ${run.updated_at || run.created_at})\n` +
     `- Issue tự đóng khi workflow xanh lại (ci-triage quét mỗi giờ). Thân issue được cập nhật tại chỗ, không bình luận → không thêm thư.\n\n` +
     '```\n' + excerpt(log) + '\n```\n';
@@ -99,11 +109,13 @@ async function openIssues() { return ((await gh(`/issues?state=open&labels=${LAB
 async function ensureLabel() { if (!(await gh(`/labels/${LABEL}`))) await gh('/labels', { method: 'POST', body: { name: LABEL, color: 'b60205', description: 'Workflow đỏ thật – ci-triage tự mở/đóng' } }).catch(() => {}); }
 
 async function upsertIssue(run, cls, log) {
-  const file = String(run.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, ''), body = issueBody({ name: run.name, file, run, cls, log });
+  const file = String(run.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '');
+  const br = encodeURIComponent(run.head_branch || 'main'), streak = redStreak((((await gh(`/actions/workflows/${run.workflow_id}/runs?branch=${br}&per_page=20`).catch(() => null)) || {}).workflow_runs) || []);
+  const body = issueBody({ name: run.name, file, run, cls, log, streak });
   const cur = (await openIssues()).find(i => (i.body || '').includes(marker(file)));
-  if (cur) { await gh(`/issues/${cur.number}`, { method: 'PATCH', body: { body } }); return `cập nhật #${cur.number}`; }
+  if (cur) { await gh(`/issues/${cur.number}`, { method: 'PATCH', body: { body, title: issueTitle(run.name, streak.n) } }); return `cập nhật #${cur.number}${streak.n >= STREAK_ALERT ? ` (đỏ ${streak.n} lượt liền)` : ''}`; }
   await ensureLabel();
-  const i = await gh('/issues', { method: 'POST', body: { title: issueTitle(run.name), body, labels: [LABEL] } });
+  const i = await gh('/issues', { method: 'POST', body: { title: issueTitle(run.name, streak.n), body, labels: [LABEL] } });
   return `mở #${i && i.number}`;
 }
 
@@ -129,23 +141,64 @@ async function superseded(run) {
   return supersededWhy(run, { newer, changed, refs });
 }
 
-async function onRun() {
-  const ev = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')), run = ev.workflow_run;
-  if (!run || run.conclusion !== 'failure') return summary('Không phải lượt đỏ – bỏ qua.');
-  if (run.event === 'pull_request') return summary('Lượt PR – để người mở PR xử lý.');
+/** Lượt đỏ cần triage trong cửa sổ quét (thuần, có test): failure, không phải PR (người mở PR lo), không phải chính ci-triage,
+ *  kết thúc từ `since`. Sắp cũ → mới để issue giữ lượt mới nhất. */
+export function pickFailures(runs, since) {
+  const t = new Date(since).getTime();
+  return (runs || []).filter(r => r && r.conclusion === 'failure' && r.event !== 'pull_request' && r.name !== 'ci-triage' && new Date(r.updated_at || r.created_at).getTime() >= t)
+    .sort((a, b) => new Date(a.updated_at || a.created_at) - new Date(b.updated_at || b.created_at));
+}
+/** Mốc bắt đầu quét (thuần): lượt ci-triage thành công trước đó − (độ trễ chạy lại + 3 phút chồng lấn), không xa hơn 3 giờ.
+ *  Chồng lấn an toàn vì mọi xử lý đều lũy đẳng (issue sửa tại chỗ; chạy lại chỉ khi attempt = 1). */
+export function scanSince(prevStartedAt, now, delaySec) {
+  const floor = now - 3 * 3600e3, p = prevStartedAt ? new Date(prevStartedAt).getTime() - (delaySec + 180) * 1e3 : floor;
+  return new Date(Math.max(floor, Math.min(p, now))).toISOString();
+}
+
+/** Xử lý 1 lượt đỏ. Tạm thời: chỉ chạy lại khi đã qua TRIAGE_DELAY kể từ lúc đỏ (không giữ runner ngủ chờ – lượt quét sau làm tiếp). */
+async function handleRun(run, { now = Date.now(), delay = 300 } = {}) {
   const log = await failedLog(run.id), cls = classify(log, { attempt: run.run_attempt || 1 });
   let act;
   if (cls.kind === 'quota') act = 'hạn mức D1 → hoãn: lượt quét sau 00:10 UTC chạy lại lượt mới nhất (1 lần)';
   else if (cls.kind === 'transient') {
-    const d = Math.max(0, Math.min(1800, +(process.env.TRIAGE_DELAY ?? 300)));
-    console.log(`tạm thời (${cls.why}) → chờ ${d}s rồi chạy lại 1 lần`); await new Promise(r => setTimeout(r, d * 1000));
-    const now = await gh(`/actions/runs/${run.id}`);
-    const sup = await superseded(run).catch(e => `không kiểm được (${e.message}) – an toàn: không chạy lại`);
-    if (now && (now.run_attempt || 1) > 1) act = 'đã có người chạy lại – bỏ qua';
-    else if (sup) act = `không chạy lại: lượt đã bị thay thế – ${sup}`;
-    else { await gh(`/actions/runs/${run.id}/rerun-failed-jobs`, { method: 'POST' }); act = 'đã chạy lại các job lỗi (lần duy nhất)'; }
+    const age = (now - new Date(run.updated_at || run.created_at).getTime()) / 1e3;
+    if (age < delay) act = `tạm thời – đợi đủ ${delay}s (mới ${Math.round(age)}s), lượt quét sau chạy lại`;
+    else {
+      const cur = await gh(`/actions/runs/${run.id}`);
+      const sup = await superseded(run).catch(e => `không kiểm được (${e.message}) – an toàn: không chạy lại`);
+      if (cur && (cur.run_attempt || 1) > 1) act = 'đã có người chạy lại – bỏ qua';
+      else if (sup) act = `không chạy lại: lượt đã bị thay thế – ${sup}`;
+      else { await gh(`/actions/runs/${run.id}/rerun-failed-jobs`, { method: 'POST' }); act = 'đã chạy lại các job lỗi (lần duy nhất)'; }
+    }
   } else act = await upsertIssue(run, cls, log);
   summary(`### ci-triage: ${run.name} #${run.run_number} (attempt ${run.run_attempt})\n- Loại: **${cls.kind}** – ${cls.why}\n- Xử lý: ${act}\n- ${run.html_url}`);
+}
+
+/** Quét định kỳ (cron 10 phút) thay cho workflow_run của MỌI workflow: trước 2/11 mỗi lượt workflow xong sinh 1 lượt ci-triage
+ *  (~3.400 lượt/ngày, 93 % bị bỏ qua) và lượt đỏ giữ runner ngủ 5 phút. Giờ: 1 lượt/10 phút phủ mọi workflow, kể cả workflow mới. */
+async function scan() {
+  const now = Date.now(), delay = Math.max(0, Math.min(1800, +(process.env.TRIAGE_DELAY ?? 300)));
+  const prev = ((((await gh('/actions/workflows/ci-triage.yml/runs?status=success&per_page=3')) || {}).workflow_runs) || [])
+    .find(r => String(r.id) !== String(process.env.GITHUB_RUN_ID || ''));
+  const since = scanSince(prev && (prev.run_started_at || prev.created_at), now, delay);
+  const created = new Date(now - 24 * 3600e3).toISOString().slice(0, 19) + 'Z';
+  const runs = [];
+  for (let page = 1; page <= 3; page++) {
+    const d = await gh(`/actions/runs?status=failure&created=%3E%3D${created}&per_page=100&page=${page}`);
+    if (!d || !Array.isArray(d.workflow_runs)) throw new Error('không liệt kê được lượt đỏ');
+    const w = d.workflow_runs;
+    runs.push(...w); if (w.length < 100) break;
+  }
+  const todo = pickFailures(runs, since);
+  summary(`Quét lượt đỏ từ ${since}: ${todo.length} lượt (trong ${runs.length} lượt đỏ 24 h).`);
+  for (const r of todo) await handleRun(r, { now, delay }).catch(e => console.log(`::warning::triage ${r.name} #${r.run_number}: ${e.message}`));
+}
+
+async function onRun() { // dùng tay: GITHUB_EVENT_PATH chứa payload workflow_run (giữ để gỡ lỗi 1 lượt)
+  const ev = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')), run = ev.workflow_run;
+  if (!run || run.conclusion !== 'failure') return summary('Không phải lượt đỏ – bỏ qua.');
+  if (run.event === 'pull_request') return summary('Lượt PR – để người mở PR xử lý.');
+  return handleRun(run, { delay: 0 });
 }
 
 async function sweep() {
@@ -161,6 +214,20 @@ async function sweep() {
       summary(`- Đóng #${i.number} (${m[1]} xanh lại)`);
     }
   }
+  // 1b) lịch cron không chạy / workflow bị tắt ngoài ý muốn (scripts/ci/cron-watch.mjs) – mỗi giờ
+  try { const cw = await import('./cron-watch.mjs'), r = await cw.cronWatch(gh, { now: +now }); summary(r.md); summary(`- Issue lịch cron: ${await cw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::${r.bad.length} workflow lịch không chạy: ${r.bad.map(b => b.file).join(', ')}`); }
+  catch (e) { console.log('::warning::cron-watch: ' + e.message); }
+  // 1c) cùng 1 check đỏ trên ≥ 3 PR mở = gốc chung ở main/workflow (scripts/ci/pr-common-red.mjs) – 3 giờ/lần (~50 lượt API) + bản tin ngày
+  let common = null;
+  if (now.getUTCHours() % 3 === 0 || force) try { const pc = await import('./pr-common-red.mjs'); common = pc.commonRed(await pc.scanPrs(gh)); summary(common.md); summary(`- Issue check đỏ chung: ${await pc.syncIssue(gh, common, LABEL)}`); if (common.groups.length) console.log(`::error::${common.groups.length} check đỏ chung trên PR mở: ${common.groups.map(g => `${g.check} (${g.prs.length})`).join(', ')}`); }
+  catch (e) { console.log('::warning::pr-common-red: ' + e.message); }
+  // 1c) workflow tốn runner bất thường (scripts/ci/ci-hog.mjs) – mỗi 3 giờ: ~12–40 lệnh API (hạn mức GITHUB_TOKEN dùng chung với required-gate)
+  if (now.getUTCHours() % 3 === 0 || force) try {
+    const h = await import('./ci-hog.mjs'), r = h.hogReport(await h.fetchRuns(gh, +now));
+    summary(r.md); summary(`- Issue runner: ${await h.syncIssue(gh, r, LABEL)}`);
+    if (r.bad.length) console.log(`::error::${r.bad.length} workflow tốn runner bất thường: ${r.bad.map(b => b.name).join(', ')}`);
+    if (process.env.LEXKITE_DRIVE_CLI_KEY) { const { driveApi } = await import('../video/library.mjs'); await driveApi('ext_alert', { kind: 'ci_hog', ok: !r.bad.length, n: Math.max(1, r.bad.length), msg: r.bad.map(b => `${b.name}: ${b.why}`).join(' · ').slice(0, 300), repo: REPO }); }
+  } catch (e) { console.log('::warning::ci-hog: ' + e.message); }
   if (now.getUTCHours() !== 0 && !force) return summary('Quét giờ: xong (hoãn hạn mức + bản tin chỉ chạy ở giờ 00 UTC).');
   // 2) lượt hoãn vì hạn mức: sau 00:10 UTC (hạn mức D1 đã đặt lại) chạy lại lượt đỏ MỚI NHẤT của mỗi workflow – 1 lần (attempt 1), bỏ nếu đã có lượt mới hơn
   const since = new Date(now - 26 * 3600e3).toISOString().slice(0, 19) + 'Z';
@@ -181,6 +248,7 @@ async function sweep() {
   const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
   // 4) runner 24 h (ci-filler): TB/đỉnh theo giờ + phút-runner rảnh khi còn tồn đọng (KPI → ~0)
   try { const f = await import('./filler.mjs'), u = f.report(await f.readLog()); d.md += '\n' + u.md; d.text += `\n\nRunner 24 h: ${u.msg}`; } catch (e) { console.log('runner report:', e.message); }
+  if (common) { d.md += '\n' + common.md; d.text += `\n\nPR mở – ${common.text}`; }
   summary(d.md);
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return console.log('Không có LEXKITE_DRIVE_CLI_KEY – chỉ ghi tóm tắt job.');
   try {
@@ -192,6 +260,7 @@ async function sweep() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2];
-  (mode === 'run' ? onRun() : mode === 'sweep' ? sweep() : Promise.reject(new Error('dùng: triage.mjs run|sweep')))
-    .catch(e => { console.log(`::warning::ci-triage lỗi: ${e.message}`); process.exitCode = 0; }); // triage không bao giờ tự báo đỏ (tránh vòng thư)
+  (mode === 'scan' ? scan() : mode === 'run' ? onRun() : mode === 'sweep' ? sweep() : Promise.reject(new Error('dùng: triage.mjs scan|sweep|run')))
+    .catch(e => { // triage/sweep không tự báo đỏ (tránh thư). Riêng scan hỏng (API liệt kê lỗi) → đỏ để lượt quét sau KHÔNG lấy lượt này làm mốc
+      console.log(`::warning::ci-triage lỗi: ${e.message}`); process.exitCode = mode === 'scan' ? 1 : 0; });  // (cửa sổ lùi về lượt xanh trước, ≤ 3 giờ – không mất lượt đỏ nào)
 }

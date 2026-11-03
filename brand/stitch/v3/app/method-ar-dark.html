@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — كيف يعلّم ليكسكايت (Tactile Night RTL)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans & Tajawal Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;family=Tajawal:wght@500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high": "#202c2f",
+            "on-secondary-container": "#ffa493",
+            "tertiary-container": "#ba8b00",
+            "tertiary": "#f4bf40",
+            "on-background": "#d8e5e9",
+            "on-tertiary-fixed": "#261a00",
+            "on-primary": "#003733",
+            "surface-container-highest": "#2b373a",
+            "surface-container": "#172427",
+            "secondary-fixed": "#ffdad3",
+            "primary": "#2DD4BF",
+            "surface-container-lowest": "#051013",
+            "inverse-on-surface": "#263236",
+            "surface-container-low": "#121d20",
+            "primary-fixed": "#88f5ea",
+            "surface-bright": "#2f3b3e",
+            "on-secondary-fixed": "#3f0300",
+            "secondary": "#ffb4a6",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-variant": "#2b373a",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-primary-fixed": "#00201e",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-container": "#14B8A6",
+            "on-error": "#690005",
+            "on-primary-container": "#00322e",
+            "on-secondary": "#660800",
+            "on-surface-variant": "#A9BDBB",
+            "inverse-surface": "#d8e5e9",
+            "surface-dim": "#091518",
+            "secondary-container": "#F59E0B",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-tint": "#2DD4BF",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-container": "#392900",
+            "background": "#10191B",
+            "outline-variant": "#23383E",
+            "on-tertiary": "#402e00",
+            "primary-fixed-dim": "#6bd8ce",
+            "inverse-primary": "#006a64",
+            "surface": "#10191B",
+            "on-surface": "#E8F1F0",
+            "tertiary-fixed": "#ffdf9e",
+            "outline": "#879391",
+            "error": "#ffb4ab",
+            /* Tactile Night Specifics */
+            "night-bg": "#10191B",
+            "night-card": "#172427",
+            "night-inset": "#1E2F33",
+            "night-border": "#23383E",
+            "night-border-inset": "#2A454C",
+            "night-teal": "#2DD4BF",
+            "night-teal-dark": "#14B8A6",
+            "night-teal-deep": "#0D3E3A",
+            "night-amber": "#F59E0B",
+            "night-coral": "#F87171"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1.5rem",
+            "xl": "2rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Tajawal", "Plus Jakarta Sans", "sans-serif"],
+            body: ["Tajawal", "Plus Jakarta Sans", "sans-serif"],
+            label: ["Tajawal", "Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Ledge tactile mechanical dark styles */
+    .tactile-card-night {
+      background-color: #172427;
+      border: 2px solid #23383E;
+      box-shadow: 0 4px 0 #0B1315;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-card-teal-night {
+      background-color: #0D3E3A;
+      border: 2px solid #14B8A6;
+      box-shadow: 0 4px 0 #051A18;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-amber-night {
+      background-color: #F59E0B;
+      border: 2px solid #D97706;
+      box-shadow: 0 4px 0 #9A3412;
+      color: #1C1003;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-amber-night:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #9A3412;
+    }
+    /* Material symbols helper */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Number font integrity: Western Arabic Numerals guarantee */
+    .num-en {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+      direction: ltr;
+      display: inline-block;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden">
+<!-- Mobile Viewport Container: 390px native portrait canvas -->
+<div class="relative w-full max-w-[390px] mx-auto min-h-screen bg-[#10191B] flex flex-col pb-28 overflow-hidden">
+<!-- SHARED COMPONENT: TopAppBar (Tactile Night RTL) -->
+<header class="sticky top-0 z-40 bg-[#10191B] border-b-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] w-full px-5 py-3 flex justify-between items-center transition-all">
+<!-- Right (Mirrored leading icon: Arrow back points right in RTL) -->
+<button aria-label="الرجوع" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#172427] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform text-[#2DD4BF] border-2 border-[#23383E] shrink-0">
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+</button>
+<!-- Center Headline (Brand / Page title) -->
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined material-symbols-fill text-[#F59E0B] text-[22px]">flight</span>
+<h1 class="text-[18px] font-bold text-[#E8F1F0] tracking-tight">Lexkite Bright Day</h1>
+</div>
+<!-- Left (Trailing icon: Settings) -->
+<button aria-label="الإعدادات" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#172427] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform text-[#2DD4BF] border-2 border-[#23383E] shrink-0">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</button>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="flex-1 px-4 pt-5 pb-8 space-y-6">
+<!-- Eyebrow Badges & Pedagogical Meta -->
+<div class="space-y-2">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#172427] border-2 border-[#23383E]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span>
+<span class="text-[12px] font-bold text-[#E8F1F0]">إطار بيداغوجي تعليمي • متوافق مع معايير CEFR و IELTS</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-[#1E2F33] border border-[#2A454C] text-[#2DD4BF] text-[12px] font-bold">
+<span class="material-symbols-outlined text-[15px]">auto_stories</span>
+            بيداغوجيا Bright Day
+          </span>
+<span class="text-[12px] font-bold text-[#A9BDBB] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#F59E0B]">verified</span>
+            مثبت علمياً
+          </span>
+</div>
+</div>
+<!-- Hero Headline & Subtitle -->
+<section class="space-y-2.5">
+<h2 class="text-[30px] font-extrabold text-[#E8F1F0] tracking-tight leading-snug">
+          كيف يعلّم ليكسكايت
+        </h2>
+<p class="text-[16px] font-medium text-[#A9BDBB] leading-relaxed">
+          حلقة تعليمية علمية مدروسة من <span class="num-en font-bold text-[#2DD4BF]">4</span> خطوات مصممة لتثبيت المفردات بشكل دائم واكتساب الطلاقة في الامتحانات بكل سلاسة.
+        </p>
+</section>
+<!-- Teacher Slot (Dashed Interactive 2D Anchor) -->
+<section class="space-y-3">
+<div class="teacher-slot relative w-full border-2 border-dashed border-[#14B8A6] bg-[#172427] rounded-lg p-5 flex flex-col items-center justify-center text-center space-y-2 shadow-[0_4px_0_0_#0B1315]">
+<div class="w-14 h-14 rounded-full bg-[#1E2F33] border-2 border-[#2A454C] flex items-center justify-center text-[#2DD4BF] shadow-inner">
+<span class="material-symbols-outlined text-[32px]">school</span>
+</div>
+<div class="space-y-0.5">
+<div class="text-[16px] font-bold text-[#2DD4BF] tracking-wide">خانة المعلمة</div>
+<p class="text-[14px] font-medium text-[#A9BDBB] max-w-[280px]">
+              يتم تحميل المرشد التفاعلي ثنائي الأبعاد هنا أثناء التدريب المباشر
+            </p>
+</div>
+<div class="inline-flex items-center gap-1 text-[12px] font-bold text-[#F59E0B] bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2A454C]">
+<span class="material-symbols-outlined text-[14px]">sensors</span>
+            جاهز للبث الحي
+          </div>
+</div>
+<!-- Coach Ama Quote Card -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night flex items-start gap-3">
+<div class="w-11 h-11 rounded-full bg-[#F59E0B] text-[#1C1003] flex items-center justify-center font-extrabold text-[16px] shrink-0 border-2 border-[#D97706] shadow-[0_2px_0_#9A3412]">
+            CA
+          </div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[14px] font-bold text-[#E8F1F0]">المدربة أما</span>
+<span class="text-[12px] font-extrabold text-[#F59E0B]">• خبيرة آيلتس الرئيسية</span>
+</div>
+<blockquote class="text-[14px] font-medium text-[#A9BDBB] leading-normal italic">
+              «إتقان اللغة لا يعتمد على الحشو والمراكمة — بل على جلسات يومية متباعدة وتفاعلية ملموسة.»
+            </blockquote>
+</div>
+</div>
+</section>
+<!-- The 4-Step Loop Section Header -->
+<section class="pt-2 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#2DD4BF] shadow-[0_0_8px_rgba(45,212,191,0.6)]"></span>
+<h3 class="text-[22px] font-bold text-[#E8F1F0]">حلقة الخطوات الأربع</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#2A454C] text-[#F59E0B] text-[12px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+            تدفق يومي لمدة <span class="num-en">15</span> دقيقة
+          </span>
+</div>
+<!-- Step 01 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-[#14B8A6] text-[#003733] flex items-center justify-center font-bold num-en shadow-[0_2px_0_#0F766E]">
+                01
+              </span>
+<span class="text-[12px] font-bold text-[#2DD4BF]">الخطوة 1 • الاكتشاف</span>
+</div>
+<span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border border-[#2A454C]">
+              B1–C2 مكنز لغوي
+            </span>
+</div>
+<h4 class="text-[18px] font-bold text-[#E8F1F0]">التعلم في سياق حي</h4>
+<div class="bg-[#1E2F33] border border-[#2A454C] rounded-md p-3 text-[14px] font-medium text-[#A9BDBB] leading-relaxed">
+            اكتشاف سياقي: متلازمات لفظية عالية العائد وجمل أصلية من مكنز CEFR B1–C2 المعتمد، وليست قوائم كلمات مجردة.
+          </div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">check_circle</span>
+              كتل المتلازمات اللفظية
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">volume_up</span>
+              صوت أصلي ناطق
+            </span>
+</div>
+</div>
+<!-- Step 02 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1C1003] flex items-center justify-center font-bold num-en shadow-[0_2px_0_#9A3412]">
+                02
+              </span>
+<span class="text-[12px] font-bold text-[#F59E0B]">الخطوة 2 • الاستيعاب الداخلي</span>
+</div>
+<span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border border-[#2A454C]">
+              تمرين تفاعلي
+            </span>
+</div>
+<h4 class="text-[18px] font-bold text-[#E8F1F0]">الاسترجاع النشط</h4>
+<div class="bg-[#1E2F33] border border-[#2A454C] rounded-md p-3 text-[14px] font-medium text-[#A9BDBB] leading-relaxed">
+            استرجاع نشط: محاكاة إيقاعية ثلاثية النبرات، أزواج صوتية متقاربة وتدريبات بناء الجمل التفاعلية.
+          </div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#F59E0B]">headphones</span>
+              محاكاة بـ <span class="num-en">3</span> نبرات
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#F59E0B]">build</span>
+              بناء التراكيب اللغوية
+            </span>
+</div>
+</div>
+<!-- Step 03 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-[#14B8A6] text-[#003733] flex items-center justify-center font-bold num-en shadow-[0_2px_0_#0F766E]">
+                03
+              </span>
+<span class="text-[12px] font-bold text-[#2DD4BF]">الخطوة 3 • التثبيت</span>
+</div>
+<span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border border-[#2A454C]">
+              خوارزمية SM-2
+            </span>
+</div>
+<h4 class="text-[18px] font-bold text-[#E8F1F0]">التكرار المتباعد المتكيف</h4>
+<div class="bg-[#1E2F33] border border-[#2A454C] rounded-md p-3 text-[14px] font-medium text-[#A9BDBB] leading-relaxed">
+            ذاكرة ذكية متكيفة: فترات ذكية تستحضر الذكريات المتلاشية مباشرة قبل هبوط منحنى النسيان.
+          </div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">trending_up</span>
+              حماية منحنى إبنجهاوس
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">alarm</span>
+              تنبيهات قبل النسيان
+            </span>
+</div>
+</div>
+<!-- Step 04 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-[#F87171] text-white flex items-center justify-center font-black num-en shadow-[0_2px_0_#B91C1C]">04</span>
+<span class="text-[12px] font-bold text-[#F87171]">الخطوة 4 • التحقق</span>
+</div>
+<span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border border-[#2A454C]">
+              ذكاء اصطناعي فوري
+            </span>
+</div>
+<h4 class="text-[18px] font-bold text-[#E8F1F0]">الإثبات التشخيصي</h4>
+<div class="bg-[#1E2F33] border border-[#2A454C] rounded-md p-3 text-[14px] font-medium text-[#A9BDBB] leading-relaxed">
+            إثبات تشخيصي: محاكاة محددة بوقت لاختبارات IELTS و TOEIC مع تقييم فوري للدرجة وخرائط حرارية لنقاط الخطأ.
+          </div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">analytics</span>
+              درجة تقديرية <span class="num-en">0.5</span>
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] text-[12px] font-bold border border-[#2A454C]">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">assignment_turned_in</span>
+              تشخيص الدرجات الفرعية
+            </span>
+</div>
+</div>
+</section>
+<!-- Efficiency Comparison Section -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<h3 class="text-[22px] font-bold text-[#E8F1F0]">مقارنة الكفاءة</h3>
+<span class="px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#A9BDBB] text-[12px] font-bold border border-[#2A454C] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">query_stats</span>
+            اختبار قياسي
+          </span>
+</div>
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-4">
+<div class="flex items-center justify-between border-b border-[#23383E] pb-2.5">
+<div>
+<div class="text-[14px] font-bold text-[#E8F1F0]">ملخص تنفيذي</div>
+<p class="text-[14px] font-medium text-[#A9BDBB]">الحفظ التقليدي المكثف مقابل تدريب ليكسكايت اليومي لـ <span class="num-en">15</span> دقيقة</p>
+</div>
+<span class="text-[12px] font-bold px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#2A454C] text-[#F59E0B] shrink-0">
+              دراسة مجموعة <span class="num-en">30</span> يوماً
+            </span>
+</div>
+<!-- Side-by-side metric boxes (mirrored RTL layout) -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Box 1 (RTL first / Right side visual priority): Lexkite 15 min -->
+<div class="bg-[#0D3E3A] border-2 border-[#14B8A6] text-[#E8F1F0] rounded-DEFAULT p-3 tactile-card-teal-night space-y-1.5 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-[12px] font-bold text-[#2DD4BF]">ليكسكايت (15 دقيقة)</span>
+<span class="material-symbols-outlined material-symbols-fill text-[#F59E0B] text-[20px]">bolt</span>
+</div>
+<div class="text-[32px] font-extrabold num-en text-[#2DD4BF] tracking-tight">89%</div>
+<div class="text-[12px] font-medium text-[#A9BDBB]">تثبيت بعد <span class="num-en">30</span> يوماً</div>
+<div class="pt-1 border-t border-[#14B8A6]/40 text-[12px] font-bold text-[#2DD4BF] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                صفر قلق امتحاني
+              </div>
+</div>
+<!-- Box 2: Traditional cramming -->
+<div class="bg-[#1B282B] border-2 border-[#23383E] rounded-DEFAULT p-3 space-y-1.5 flex flex-col justify-between shadow-[0_4px_0_0_#0B1315]">
+<div class="flex items-center justify-between">
+<span class="text-[12px] font-bold text-[#A9BDBB]">حشو تقليدي (ساعتان)</span>
+<span class="material-symbols-outlined text-[#F87171] text-[20px]">close</span>
+</div>
+<div class="text-[32px] font-extrabold num-en text-[#A9BDBB] tracking-tight">32%</div>
+<div class="text-[12px] font-medium text-[#879391]">تثبيت بعد <span class="num-en">30</span> يوماً</div>
+<div class="pt-1 border-t border-[#23383E] text-[12px] font-bold text-[#F87171] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                إجهاد اختباري مرتفع
+              </div>
+</div>
+</div>
+<!-- Progress / Velocity Indicator -->
+<div class="space-y-1.5 pt-1">
+<div class="flex justify-between items-center text-[12px] font-bold">
+<span class="text-[#E8F1F0]">سرعة الاستعداد للامتحان</span>
+<span class="text-[#1C1003] font-extrabold bg-[#F59E0B] px-2 py-0.5 rounded-full shadow-sm">
+                قفزة أسرع بمقدار <span class="num-en font-black">2.8x</span> في الدرجة
+              </span>
+</div>
+<div class="w-full h-3 rounded-full bg-[#1E2F33] overflow-hidden p-0.5 border border-[#2A454C]">
+<div class="h-full bg-gradient-to-l from-[#F59E0B] to-[#D97706] rounded-full w-[82%] relative">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cognitive Science Foundations -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[24px]">psychology</span>
+<h3 class="text-[22px] font-bold text-[#E8F1F0]">أسس العلوم المعرفية</h3>
+</div>
+<div class="space-y-2.5">
+<!-- Card 1 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-3.5 tactile-card-night flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#2A454C] py-1">
+<span class="material-symbols-outlined text-[20px]">compress</span>
+</div>
+<div class="space-y-1">
+<h5 class="text-[16px] font-bold text-[#2DD4BF]">تحسين الحمل المعرفي</h5>
+<p class="text-[14px] font-medium text-[#A9BDBB] leading-snug">
+                وحدات مصغرة تمنع تشبع الذاكرة العاملة قصيرة المدى.
+              </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-3.5 tactile-card-night flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center shrink-0 border border-[#2A454C] py-1">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+</div>
+<div class="space-y-1 py-1">
+<h5 class="text-[16px] font-bold text-[#2DD4BF]">كتل معجمية تركز على المتلازمات</h5>
+<p class="text-[14px] font-medium text-[#A9BDBB] leading-snug">
+                تخزين مجموعات الكلمات طبيعياً لتقليل زمن الترجمة تحت ضغط الوقت.
+              </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-3.5 tactile-card-night flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#2A454C] py-1">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+</div>
+<div class="space-y-1 py-1">
+<h5 class="text-[16px] font-bold text-[#2DD4BF]">تقييم النبرة والوزن الصوتي</h5>
+<p class="text-[14px] font-medium text-[#A9BDBB] leading-snug">
+                تحليل طيفي صوتي لحظي يدرّب على أنماط النبر الطبيعي للوصول إلى Band <span class="num-en">7+</span> في المحادثة.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Frequently Asked Questions (FAQ Accordions) -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[24px]">help</span>
+<h3 class="text-[22px] font-bold text-[#E8F1F0]">الأسئلة الشائعة</h3>
+</div>
+<div class="space-y-2.5">
+<!-- FAQ 1 (Open Accordion) -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-2">
+<div class="flex items-center justify-between cursor-pointer">
+<h5 class="text-[16px] font-bold text-[#E8F1F0]">لماذا <span class="num-en">15</span> دقيقة فقط في اليوم؟</h5>
+<span class="w-8 h-8 rounded-full bg-[#1E2F33] flex items-center justify-center text-[#2DD4BF] border border-[#2A454C]">
+<span class="material-symbols-outlined text-[20px]">expand_less</span>
+</span>
+</div>
+<div class="text-[14px] font-medium text-[#A9BDBB] leading-relaxed pt-2 border-t border-[#23383E]">
+<span class="num-en">15</span> دقيقة تتوافق مباشرة مع العتبة العصبية للتركيز المتعمد النشط. الجلسات اليومية الموزعة تمنع انهيار التعب الناتج عن الحفظ في عطلات نهاية الأسبوع، مما يضمن بناء العادة واستدامتها مع مؤشر استبقاء أعلى بمقدار <span class="num-en">3x</span> على مدار <span class="num-en">90</span> يوماً.
+            </div>
+</div>
+<!-- FAQ 2 (Closed) -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night">
+<div class="flex items-center justify-between cursor-pointer">
+<h5 class="text-[16px] font-bold text-[#E8F1F0]">كيف يتوافق ليكسكايت مع معايير IELTS و CEFR؟</h5>
+<span class="w-8 h-8 rounded-full bg-[#1E2F33] flex items-center justify-center text-[#A9BDBB] border border-[#2A454C]">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</div>
+</div>
+<!-- FAQ 3 (Closed) -->
+<div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night">
+<div class="flex items-center justify-between cursor-pointer">
+<h5 class="text-[16px] font-bold text-[#E8F1F0]">هل يمكنني الدراسة دون اتصال بالإنترنت أو عبر الحاسوب؟</h5>
+<span class="w-8 h-8 rounded-full bg-[#1E2F33] flex items-center justify-center text-[#A9BDBB] border border-[#2A454C]">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Sticky CTA Conversion Zone -->
+<section class="pt-4 pb-2 space-y-3">
+<div class="text-center">
+<span class="inline-flex items-center gap-1.5 text-[12px] font-bold text-[#A9BDBB] bg-[#172427] px-3 py-1.5 rounded-full border border-[#23383E]">
+<span class="material-symbols-outlined text-[16px] text-[#F59E0B]">verified_user</span>
+            بيداغوجيا تجريبية • بلا حيل تسويقية • قائمة على الأدلة
+          </span>
+</div>
+<!-- Big Chunky Amber CTA Button with RTL Left Arrow -->
+<button class="w-full bg-[#F59E0B] hover:brightness-105 rounded-DEFAULT py-3.5 px-6 tactile-btn-amber-night flex flex-col items-center justify-center gap-0.5 cursor-pointer">
+<div class="flex items-center justify-center gap-2 text-[#1C1003] text-[20px] font-bold">
+<span>ابدأ التعلم الآن</span>
+<!-- Directional arrow flipped for RTL: Points LEFT in RTL reading direction -->
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</div>
+<div class="text-[12px] font-bold text-[#1C1003]/80">
+<span class="num-en">+15 XP</span> • يشمل الاختبار التشخيصي
+          </div>
+</button>
+</section>
+</main>
+<!-- SHARED COMPONENT: BottomNavBar (Tactile Night RTL & Skills tab active) -->
+<!-- Tab items order RTL: 1. اليوم (Today), 2. المفردات (Vocab), 3. المهارات (Skills - ACTIVE), 4. الاختبارات (Tests), 5. أنا (Me) -->
+<nav aria-label="شريط التنقل السفلي" class="fixed bottom-0 left-0 w-full z-50 bg-[#10191B] border-t-2 border-[#23383E] shadow-[0_-4px_0_0_#0B1315]">
+<div class="max-w-[390px] mx-auto flex justify-around items-center px-2 py-2">
+<!-- Tab 1: اليوم (Today) -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[12px] font-bold mt-0.5">اليوم</span>
+</a>
+<!-- Tab 2: المفردات (Vocab) -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[12px] font-bold mt-0.5">المفردات</span>
+</a>
+<!-- Tab 3: المهارات (Skills) — ACTIVE DESTINATION -->
+<a class="flex flex-col items-center justify-center bg-[#14B8A6] text-[#003733] rounded-full px-3.5 py-1.5 shadow-[0_2px_0_#0F766E] active:translate-y-[2px] active:shadow-none transition-transform" href="#skills">
+<span class="material-symbols-outlined material-symbols-fill text-[22px]">psychology</span>
+<span class="text-[12px] font-extrabold mt-0.5">المهارات</span>
+</a>
+<!-- Tab 4: الاختبارات (Tests) -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#tests">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="text-[12px] font-bold mt-0.5">الاختبارات</span>
+</a>
+<!-- Tab 5: أنا / حسابي (Me) -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[12px] font-bold mt-0.5">حسابي</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

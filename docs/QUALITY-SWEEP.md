@@ -13,6 +13,8 @@ Workflow `.github/workflows/quality-sweep.yml` (22:40 UTC, sổ `infra/jobs.json
 | Add-on | `ext-e2e.mjs` vi/en/ar + `dict-perf.mjs` mục 6 (trang nặng: ngân sách +600 ms script, +40 MB heap, bấm đúp lần đầu vẫn tra được) | workflow |
 | Native | Thứ Hai: kích hoạt `ios-e2e.yml` + `native-auth-e2e.yml` (iOS Simulator + Android emulator) | workflow |
 | Báo cáo | `scripts/quality/report.mjs` → job summary, issue `quality-sweep` (mở/cập nhật; tự đóng khi sạch), ảnh lỗi trên nhánh `quality-qa`, 1 dòng trong bản tin 01:00 UTC (`workers/mail` đọc issue mở) | report.mjs |
+| Top-1 score (3/11) | Job report gộp kết quả đêm + World + CI → bảng 0–100, issue `top1-score`, đỏ khi dưới sàn; lưu artifact `qs-report` cho lượt tuần – `docs/TOP1-SCORE.md` | `scripts/top1/score.mjs` |
+| Hàng sửa (2/11) | `scripts/quality/fix-queue.mjs` → MỖI nhóm lỗi 1 issue `qs-fix` + `area:*` (add-on, learn-flow, call, ui, a11y, perf, i18n, js, app), điểm = mức × độ phủ, khử trùng bằng dấu khoá, cập nhật tại chỗ, tự đóng khi đêm sau nguồn chạy đủ mà nhóm hết; ≤ 15 mục mới/đêm. Issue gộp `quality-sweep` giữ nguyên | fix-queue.mjs, test `qs-fix-queue.mjs` |
 
 Mức độ: critical = lỗi trang/promise/5xx/axe critical · high = console, 4xx, tràn ngang, axe serious · medium = cắt chữ, đè nút, CLS · low = vùng chạm, tác vụ dài (CI nhiễu).
 
