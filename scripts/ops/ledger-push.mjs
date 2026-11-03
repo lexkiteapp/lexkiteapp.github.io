@@ -23,6 +23,7 @@ const tryGit = (...a) => { try { git(...a); return true; } catch (e) { return fa
 
 const pushed = () => { if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'changed=1\n'); return 0; }; // d1-backup.yml: chỉ diễn tập khi sổ có bản mới
 export function main(file, msg, tries = 5) {
+  if (!msg.includes('[CF-Pages-Skip]')) msg += ' [CF-Pages-Skip] [skip ci]'; // commit sổ không được kích build Pages (docs/FREE-TIER.md §7)
   git('add', file); if (tryGit('diff', '--cached', '--quiet')) { console.log('sổ không đổi'); return 0; }
   git('commit', '-qm', msg);
   const ours = JSON.parse(fs.readFileSync(file, 'utf8'));
