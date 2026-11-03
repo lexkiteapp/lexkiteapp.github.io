@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
@@ -138,7 +137,7 @@
 </div>
 <!-- Exam Switcher Pill -->
 <div class="pt-space-xs">
-<button class="w-full flex items-center justify-between px-space-md py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] transition-all">
+<button class="w-full min-h-[44px] flex items-center justify-between px-space-md py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] transition-all">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-[20px]">school</span>
 <span class="text-label-md font-label-md text-on-surface">IELTS Academic 2025</span>
@@ -150,28 +149,28 @@
 <!-- Primary 5 Navigation Items -->
 <nav class="space-y-1.5">
 <!-- Item 1: Today -->
-<a class="flex items-center gap-3.5 px-space-md py-3 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
+<a class="flex items-center gap-3.5 px-space-md min-h-[44px] py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
 <span class="material-symbols-outlined text-[22px]">calendar_today</span>
 <span>Today</span>
 </a>
 <!-- Item 2: Vocab (ACTIVE with deep teal pill and tactile drop) -->
-<a class="flex items-center gap-3.5 px-space-md py-3 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-[0_4px_0_0_#00201d] active:translate-y-1 active:shadow-none transition-all" href="#">
+<a class="flex items-center gap-3.5 px-space-md min-h-[44px] py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-[0_4px_0_0_#00201d] active:translate-y-1 active:shadow-none transition-all" href="#">
 <span class="material-symbols-outlined text-[22px]">menu_book</span>
 <span>Vocab</span>
 <span class="ml-auto px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-label-sm">Active</span>
 </a>
 <!-- Item 3: Skills -->
-<a class="flex items-center gap-3.5 px-space-md py-3 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
+<a class="flex items-center gap-3.5 px-space-md min-h-[44px] py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
 <span class="material-symbols-outlined text-[22px]">psychology</span>
 <span>Skills</span>
 </a>
 <!-- Item 4: Tests -->
-<a class="flex items-center gap-3.5 px-space-md py-3 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
+<a class="flex items-center gap-3.5 px-space-md min-h-[44px] py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
 <span class="material-symbols-outlined text-[22px]">quiz</span>
 <span>Tests</span>
 </a>
 <!-- Item 5: Me -->
-<a class="flex items-center gap-3.5 px-space-md py-3 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
+<a class="flex items-center gap-3.5 px-space-md min-h-[44px] py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
 <span class="material-symbols-outlined text-[22px]">account_circle</span>
 <span>Me</span>
 </a>
@@ -201,8 +200,8 @@
             </span>
 </div>
 </div>
-<!-- Language Switcher Pill -->
-<button class="w-full flex items-center justify-between px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant transition-colors">
+<!-- Language Switcher Pill (min-h-[44px] for touch standard) -->
+<button class="w-full min-h-[44px] flex items-center justify-between px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant transition-colors">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[18px]">translate</span>
 <span class="text-label-sm font-label-sm">English (EN)</span>
@@ -226,18 +225,18 @@
 <!-- Action Row -->
 <div class="flex items-center gap-space-sm">
 <div class="relative flex items-center">
-<input class="h-10 pl-9 pr-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:border-primary focus:outline-none focus:ring-0 shadow-[0_2px_0_0_#bec9c6]" placeholder="Search dictionary..." type="text"/>
+<input class="h-11 min-h-[44px] pl-9 pr-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:border-primary focus:outline-none focus:ring-0 shadow-[0_2px_0_0_#bec9c6]" placeholder="Search dictionary..." type="text"/>
 <span class="material-symbols-outlined absolute left-2.5 text-[18px] text-outline">search</span>
 <kbd class="absolute right-2 px-1.5 py-0.5 bg-surface-container border border-outline-variant rounded text-label-sm font-label-sm text-on-surface-variant">⌘K</kbd>
 </div>
-<button class="h-10 px-3 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-on-surface flex items-center gap-1.5 shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] transition-all hover:bg-surface-container-high">
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-on-surface flex items-center gap-1.5 shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] transition-all hover:bg-surface-container-high">
 <span class="material-symbols-outlined text-[18px] text-primary">bookmark</span>
 <span class="text-label-md font-label-md">Save</span>
 </button>
-<button class="h-10 w-10 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-on-surface flex items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] transition-all hover:bg-surface-container-high">
+<button class="h-11 w-11 min-h-[44px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-on-surface flex items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] transition-all hover:bg-surface-container-high">
 <span class="material-symbols-outlined text-[18px]">share</span>
 </button>
-<button class="h-10 px-3.5 bg-primary-container text-on-primary border-2 border-primary rounded-xl flex items-center gap-1.5 shadow-[0_3px_0_0_#00201d] active:translate-y-0.5 active:shadow-[0_1px_0_0_#00201d] transition-all">
+<button class="min-h-[44px] px-3.5 bg-primary-container text-on-primary border-2 border-primary rounded-xl flex items-center gap-1.5 shadow-[0_3px_0_0_#00201d] active:translate-y-0.5 active:shadow-[0_1px_0_0_#00201d] transition-all">
 <span class="material-symbols-outlined text-[18px]">mic</span>
 <span class="text-label-md font-label-md">Pronunciation Drill</span>
 </button>
@@ -250,12 +249,12 @@
 <!-- Large Prominent Search Field -->
 <div class="relative flex items-center">
 <span class="material-symbols-outlined absolute left-4 text-[26px] text-primary">search</span>
-<input class="w-full h-14 pl-14 pr-24 bg-surface-container-lowest border-2 border-outline-variant rounded-2xl text-headline-sm font-headline-sm text-on-surface shadow-[0_4px_0_0_#bec9c6] focus:border-primary focus:outline-none focus:ring-0" placeholder="Search 8,400+ words, idioms, collocations..." type="text" value="resilient"/>
-<div class="absolute right-4 flex items-center gap-2">
-<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-outline transition-colors" title="Clear">
+<input class="w-full h-14 min-h-[56px] pl-14 pr-28 bg-surface-container-lowest border-2 border-outline-variant rounded-2xl text-headline-sm font-headline-sm text-on-surface shadow-[0_4px_0_0_#bec9c6] focus:border-primary focus:outline-none focus:ring-0" placeholder="Search 8,400+ words, idioms, collocations..." type="text" value="resilient"/>
+<div class="absolute right-3 flex items-center gap-1">
+<button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full hover:bg-surface-container flex items-center justify-center text-outline transition-colors" title="Clear">
 <span class="material-symbols-outlined text-[20px]">close</span>
 </button>
-<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-primary transition-colors" title="Voice Search">
+<button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full hover:bg-surface-container flex items-center justify-center text-primary transition-colors" title="Voice Search">
 <span class="material-symbols-outlined text-[22px]">keyboard_voice</span>
 </button>
 </div>
@@ -268,11 +267,11 @@
 <span class="material-symbols-outlined text-[16px]">history</span>
                 Recent:
               </span>
-<button class="px-3 py-1 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors">pragmatic</button>
-<button class="px-3 py-1 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors">ubiquitous</button>
-<button class="px-3 py-1 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors">meticulous</button>
-<button class="px-3 py-1 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors">scrutinize</button>
-<button class="px-3 py-1 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors">candid</button>
+<button class="min-h-[44px] px-3.5 py-2.5 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors inline-flex items-center justify-center">pragmatic</button>
+<button class="min-h-[44px] px-3.5 py-2.5 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors inline-flex items-center justify-center">ubiquitous</button>
+<button class="min-h-[44px] px-3.5 py-2.5 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors inline-flex items-center justify-center">meticulous</button>
+<button class="min-h-[44px] px-3.5 py-2.5 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors inline-flex items-center justify-center">scrutinize</button>
+<button class="min-h-[44px] px-3.5 py-2.5 bg-surface-container rounded-full text-label-sm font-label-sm text-on-surface hover:bg-surface-container-highest transition-colors inline-flex items-center justify-center">candid</button>
 </div>
 <!-- Filter Chips Row -->
 <div class="flex items-center gap-2 flex-wrap pt-1">
@@ -280,11 +279,11 @@
 <span class="material-symbols-outlined text-[16px]">filter_list</span>
                 Filters:
               </span>
-<button class="px-3 py-1 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors">All</button>
-<button class="px-3.5 py-1 rounded-full text-label-sm font-label-sm bg-primary text-on-primary font-bold shadow-[0_3px_0_0_#00201d]">Band 7.5+</button>
-<button class="px-3 py-1 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors">CEFR C1</button>
-<button class="px-3 py-1 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors">Academic Word List (AWL)</button>
-<button class="px-3 py-1 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors">Spoken IELTS</button>
+<button class="min-h-[44px] px-3.5 py-2.5 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors inline-flex items-center justify-center">All</button>
+<button class="min-h-[44px] px-4 py-2.5 rounded-full text-label-sm font-label-sm bg-primary text-on-primary font-bold shadow-[0_3px_0_0_#00201d] inline-flex items-center justify-center">Band 7.5+</button>
+<button class="min-h-[44px] px-3.5 py-2.5 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors inline-flex items-center justify-center">CEFR C1</button>
+<button class="min-h-[44px] px-3.5 py-2.5 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors inline-flex items-center justify-center">Academic Word List (AWL)</button>
+<button class="min-h-[44px] px-3.5 py-2.5 rounded-full text-label-sm font-label-sm border-2 border-outline-variant bg-surface-container-lowest text-on-surface hover:border-primary transition-colors inline-flex items-center justify-center">Spoken IELTS</button>
 </div>
 </div>
 </section>
@@ -330,29 +329,29 @@
 </div>
 </div>
 <!-- Quick Word Action Pill -->
-<button class="px-3.5 py-2 rounded-xl bg-surface-container border-2 border-outline-variant hover:bg-surface-container-high flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm shadow-[0_2px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-none transition-all">
+<button class="min-h-[44px] px-4 py-2.5 rounded-xl bg-surface-container border-2 border-outline-variant hover:bg-surface-container-high flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm shadow-[0_2px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-none transition-all">
 <span class="material-symbols-outlined text-[18px]">favorite_border</span>
 <span>Add to Favorites</span>
 </button>
 </div>
 <!-- Part of Speech Selector Tabs -->
 <div class="flex items-center gap-space-sm">
-<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_3px_0_0_#00201d]">
+<button class="min-h-[44px] px-4 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_3px_0_0_#00201d] inline-flex items-center justify-center">
               adjective
             </button>
-<button class="px-4 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<button class="min-h-[44px] px-4 py-2.5 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors inline-flex items-center justify-center">
               noun (resilience)
             </button>
-<button class="px-4 py-2 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<button class="min-h-[44px] px-4 py-2.5 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors inline-flex items-center justify-center">
               adverb (resiliently)
             </button>
 </div>
 <!-- Teacher Slot: Empty dashed container + coach advice -->
 <div class="p-space-md rounded-2xl bg-surface-container-low border-2 border-outline-variant flex items-start gap-space-md">
-<!-- Empty Dashed Teacher Slot Container -->
-<div class="teacher-slot w-16 h-16 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-outline-variant bg-surface-container-lowest shrink-0">
-<span class="material-symbols-outlined text-[24px]">school</span>
-<span class="text-[9px] font-bold tracking-tighter">TEACHER-SLOT</span>
+<!-- Empty Dashed Teacher Slot Container (with high-contrast WCAG AA >= 4.5:1 text [#073a36]) -->
+<div class="teacher-slot w-16 h-16 rounded-xl border-2 border-dashed border-[#094843]/40 flex flex-col items-center justify-center text-[#073a36] bg-surface-container-lowest shrink-0">
+<span class="material-symbols-outlined text-[24px] text-[#073a36]">school</span>
+<span class="text-[9px] font-bold tracking-tighter text-[#073a36]">TEACHER-SLOT</span>
 </div>
 <!-- Coach Tip Bubble -->
 <div class="flex-1 space-y-1">
@@ -423,42 +422,42 @@
 </div>
 </div>
 </div>
-<!-- Essential Collocations & Phrases (Interactive Tactile Chips) -->
+<!-- Essential Collocations & Phrases (Interactive Tactile Chips >= 44px min-height) -->
 <div class="space-y-space-sm">
 <h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[22px]">hub</span>
               Essential Collocations &amp; Academic Combinations
             </h2>
 <div class="flex flex-wrap gap-2.5">
-<button class="px-4 py-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all">
+<button class="min-h-[44px] px-4 py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all inline-flex items-center justify-center">
                 highly resilient
               </button>
-<button class="px-4 py-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all">
+<button class="min-h-[44px] px-4 py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all inline-flex items-center justify-center">
                 resilient economy
               </button>
-<button class="px-4 py-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all">
+<button class="min-h-[44px] px-4 py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all inline-flex items-center justify-center">
                 climate-resilient
               </button>
-<button class="px-4 py-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all">
+<button class="min-h-[44px] px-4 py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all inline-flex items-center justify-center">
                 emotionally resilient
               </button>
-<button class="px-4 py-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all">
+<button class="min-h-[44px] px-4 py-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] hover:border-primary active:translate-y-1 active:shadow-none transition-all inline-flex items-center justify-center">
                 resilient infrastructure
               </button>
 </div>
 </div>
-<!-- Action Footers (Primary CTA + Secondary Triggers) -->
+<!-- Action Footers (Primary CTA + Secondary Triggers >= 44px min-height) -->
 <div class="pt-space-md border-t-2 border-surface-container-high flex items-center justify-between">
 <div class="flex items-center gap-space-sm">
-<button class="px-4 py-3 bg-surface-container border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all hover:bg-surface-container-high">
+<button class="min-h-[44px] px-4 py-3 bg-surface-container border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all hover:bg-surface-container-high inline-flex items-center justify-center">
                 Quick Practice Drill
               </button>
-<button class="px-4 py-3 bg-surface-container border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all hover:bg-surface-container-high">
+<button class="min-h-[44px] px-4 py-3 bg-surface-container border-2 border-outline-variant rounded-xl text-label-md font-label-md text-on-surface shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all hover:bg-surface-container-high inline-flex items-center justify-center">
                 View Synonyms &amp; Antonyms
               </button>
 </div>
 <!-- Primary Vibrant Orange Call to Action -->
-<button class="px-6 py-3.5 bg-secondary-container border-2 border-[#b85d00] rounded-xl text-[#1a0d00] font-label-lg text-label-lg font-extrabold flex items-center gap-3 shadow-[0_4px_0_0_#b85d00] active:translate-y-1 active:shadow-none transition-all hover:brightness-105">
+<button class="min-h-[44px] px-6 py-3.5 bg-secondary-container border-2 border-[#b85d00] rounded-xl text-[#1a0d00] font-label-lg text-label-lg font-extrabold flex items-center gap-3 shadow-[0_4px_0_0_#b85d00] active:translate-y-1 active:shadow-none transition-all hover:brightness-105">
 <span>+ Add to My Deck (1st Review in 4h • +15 XP)</span>
 <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>

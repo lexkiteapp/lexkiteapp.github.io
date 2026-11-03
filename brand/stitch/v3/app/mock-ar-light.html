@@ -121,7 +121,7 @@
     }
   </style>
 </head>
-<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
 <!-- Shell: TopAppBar (Shared Component logic executed) -->
 <header class="sticky top-0 z-40 flex items-center justify-between px-margin py-space-sm w-full bg-background dark:bg-inverse-surface shadow-[0_4px_0_0_#efe0d6] dark:shadow-none min-h-[60px]"><div class="flex items-center gap-space-sm">
 <button aria-label="الرجوع للخلف" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-DEFAULT text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant transition-colors active:translate-y-[2px]" type="button">
@@ -137,43 +137,43 @@
       </span>
 </div></header>
 <!-- Main Scrollable Content Canvas -->
-<main class="w-full max-w-[440px] mx-auto px-margin pt-space-md pb-32 flex-1 flex flex-col gap-space-lg">
+<main class="w-full mx-auto px-margin pt-space-md pb-32 flex-1 flex flex-col gap-space-lg max-w-[390px]">
 <!-- Hero Card: Test Overview -->
 <section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-space-md"><div class="flex flex-wrap items-center justify-between gap-space-xs">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm border border-surface-container-highest">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-full bg-surface-container-low text-primary font-bold font-label-sm text-label-sm border border-surface-container-highest">
 <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
-          معيار الأكاديمي 2025
-        </span>
-<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm border-2 border-[#D49B10] shadow-[inset_0_1.5px_0_rgba(255,255,255,0.6)]">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+ معيار الأكاديمي 2025
+</span>
+<div class="inline-flex items-center gap-1 px-3 py-1.5 min-h-[44px] rounded-full bg-tertiary-fixed text-[#211a14] font-extrabold font-label-sm text-label-sm border-2 border-[#D49B10] shadow-[inset_0_1.5px_0_rgba(255,255,255,0.6)]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">stars</span>
 <span>الدرجة المستهدفة 7.5</span>
 </div>
 </div>
 <div class="flex flex-col gap-1">
-<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold leading-tight">
-          الاختبار التجريبي الرسمي الأكاديمي لـ IELTS رقم 15
-        </h2>
-<p class="text-body-sm font-body-sm text-on-surface-variant">
-          محاكاة كاملة للاختبار المعياري مع تسلسل زمني حقيقي، ومعايير تقييم المجلس الثقافي البريطاني، ومستويات صوتية معتمدة.
-        </p>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-[#211a14] font-extrabold leading-tight">
+ الاختبار التجريبي الرسمي الأكاديمي لـ IELTS رقم 15
+</h2>
+<p class="text-body-sm font-body-sm text-[#2D3748] leading-relaxed">
+ محاكاة كاملة للاختبار المعياري مع تسلسل زمني حقيقي، ومعايير تقييم المجلس الثقافي البريطاني، ومستويات صوتية معتمدة.
+</p>
 </div>
 <div class="grid grid-cols-2 gap-space-sm pt-space-xs">
-<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-surface-container-low border border-surface-container-highest">
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-surface-container-low border border-surface-container-highest min-h-[44px]">
 <div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px]">timer</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="text-label-sm font-label-sm text-on-surface-variant">المدة</span>
-<span class="text-body-md font-body-md font-bold text-on-surface truncate">2h 44m إجمالي</span>
+<span class="text-label-sm font-label-sm font-bold text-[#2D3748]">المدة</span>
+<span class="text-body-md font-body-md font-bold text-[#211a14] truncate">2h 44m إجمالي</span>
 </div>
 </div>
-<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-surface-container-low border border-surface-container-highest">
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-surface-container-low border border-surface-container-highest min-h-[44px]">
 <div class="w-9 h-9 rounded-full bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px]">quiz</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="text-label-sm font-label-sm text-on-surface-variant">الوحدات</span>
-<span class="text-body-md font-body-md font-bold text-on-surface truncate">4 وحدات معيارية</span>
+<span class="text-label-sm font-label-sm font-bold text-[#2D3748]">الوحدات</span>
+<span class="text-body-md font-body-md font-bold text-[#211a14] truncate">4 وحدات معيارية</span>
 </div>
 </div>
 </div></section>
@@ -185,114 +185,114 @@
 <div class="flex-1 min-w-0 bg-surface-container-lowest p-space-sm rounded-DEFAULT border border-surface-container-highest shadow-sm relative">
 <div class="flex items-center gap-1.5 mb-1">
 <span class="text-label-md font-label-md font-bold text-primary">كارلوس • مدرب IELTS</span>
-<span class="inline-block px-1.5 py-0.5 rounded bg-surface-container text-[11px] font-bold text-on-surface-variant">نصيحة</span>
+<span class="inline-flex items-center justify-center px-2 py-0.5 rounded bg-surface-container text-[11px] font-bold text-[#211a14]">نصيحة</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-          «حاكَ ظروف الاختبار الحقيقية: أوقف الإشعارات وأكمل جلسة الاختبار البالغة 2h 44m دون توقف مؤقت.»
-        </p>
+<p class="text-body-sm font-body-sm text-[#2D3748] font-medium leading-relaxed">
+ «حاكَ ظروف الاختبار الحقيقية: أوقف الإشعارات وأكمل جلسة الاختبار البالغة 2h 44m دون توقف مؤقت.»
+</p>
 </div></section>
 <!-- Hardware & Audio Readiness Check -->
 <section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-space-sm"><div class="flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-[22px]">headphones</span>
-<span class="text-label-lg font-label-lg font-bold text-on-surface">فحص سماعات الرأس والصوت</span>
+<span class="text-label-lg font-label-lg font-bold text-[#211a14]">فحص سماعات الرأس والصوت</span>
 </div>
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary font-bold px-2 py-0.5 rounded bg-surface-container-low">
-<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-          مخرج استريو سليم
-        </span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary font-bold px-2.5 py-1 min-h-[44px] rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+ مخرج استريو سليم
+</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant">
-        تتطلب وحدة الاستماع صوتاً واضحاً. تأكد من توازن صوت القناتين قبل بدء الاختبار.
-      </p>
+<p class="text-body-sm font-body-sm text-[#2D3748] leading-relaxed">
+ تتطلب وحدة الاستماع صوتاً واضحاً. تأكد من توازن صوت القناتين قبل بدء الاختبار.
+</p>
 <div class="pt-space-xs">
-<button class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-surface-container-lowest text-primary font-label-lg font-label-lg border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
+<button class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-surface-container-lowest text-primary font-label-lg font-label-lg font-bold border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
 <span class="material-symbols-outlined text-[20px]">volume_up</span>
-<span>اختبار الصوت 🔊</span>
+<span>اختبار الصوت</span>
 </button>
 </div></section>
 <!-- Sections Matrix List (All 4 Modules with distinct metadata) -->
 <section class="flex flex-col gap-space-sm"><div class="flex items-center justify-between px-1">
-<h3 class="text-label-lg font-label-lg font-bold text-on-surface">تسلسل وحدات الاختبار</h3>
-<span class="text-label-sm font-label-sm text-on-surface-variant">4 من 4 جاهزة</span>
+<h3 class="text-label-lg font-label-lg font-bold text-[#211a14]">تسلسل وحدات الاختبار</h3>
+<span class="text-label-sm font-label-sm font-bold text-[#2D3748]">4 من 4 جاهزة</span>
 </div>
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-2">
 <div class="flex items-center justify-between flex-wrap gap-2">
 <div class="flex items-center gap-2.5">
-<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0">1</span>
-<h4 class="text-headline-sm font-headline-sm text-on-surface font-bold">الاستماع</h4>
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">1</span>
+<h4 class="text-headline-sm font-headline-sm text-[#211a14] font-bold">الاستماع</h4>
 </div>
-<span class="px-2.5 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold">
-<span class="material-symbols-outlined text-[14px]">check</span>
-            جاهز للصوت
-          </span>
+<span class="px-3 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold min-h-[44px]">
+<span class="material-symbols-outlined text-[16px]">check</span>
+ جاهز للصوت
+</span>
 </div>
-<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-on-surface-variant pr-9">
-<span class="font-bold text-on-surface">30 دقيقة (+10 دقائق لنقل الإجابات)</span>
-<span class="text-outline">•</span>
-<span>40 سؤالاً</span>
-<span class="text-outline">•</span>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-[#2D3748] pr-9">
+<span class="font-bold text-[#211a14]">30 دقيقة (+10 دقائق لنقل الإجابات)</span>
+<span class="text-[#2D3748] font-bold">•</span>
+<span class="font-medium">40 سؤالاً</span>
+<span class="text-[#2D3748] font-bold">•</span>
 <span class="text-primary font-bold">الحالة: جاهز</span>
 </div>
 </article>
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-2">
 <div class="flex items-center justify-between flex-wrap gap-2">
 <div class="flex items-center gap-2.5">
-<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0">2</span>
-<h4 class="text-headline-sm font-headline-sm text-on-surface font-bold">القراءة</h4>
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">2</span>
+<h4 class="text-headline-sm font-headline-sm text-[#211a14] font-bold">القراءة</h4>
 </div>
-<span class="px-2.5 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold">
-<span class="material-symbols-outlined text-[14px]">check</span>
-            تم تحميل النصوص
-          </span>
+<span class="px-3 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold min-h-[44px]">
+<span class="material-symbols-outlined text-[16px]">check</span>
+ تم تحميل النصوص
+</span>
 </div>
-<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-on-surface-variant pr-9">
-<span class="font-bold text-on-surface">60 دقيقة</span>
-<span class="text-outline">•</span>
-<span>3 نصوص أكاديمية</span>
-<span class="text-outline">•</span>
-<span>40 سؤالاً</span>
-<span class="text-outline">•</span>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-[#2D3748] pr-9">
+<span class="font-bold text-[#211a14]">60 دقيقة</span>
+<span class="text-[#2D3748] font-bold">•</span>
+<span class="font-medium">3 نصوص أكاديمية</span>
+<span class="text-[#2D3748] font-bold">•</span>
+<span class="font-medium">40 سؤالاً</span>
+<span class="text-[#2D3748] font-bold">•</span>
 <span class="text-primary font-bold">الحالة: جاهز</span>
 </div>
 </article>
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-2">
 <div class="flex items-center justify-between flex-wrap gap-2">
 <div class="flex items-center gap-2.5">
-<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0">3</span>
-<h4 class="text-headline-sm font-headline-sm text-on-surface font-bold">الكتابة</h4>
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">3</span>
+<h4 class="text-headline-sm font-headline-sm text-[#211a14] font-bold">الكتابة</h4>
 </div>
-<span class="px-2.5 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold">
-<span class="material-symbols-outlined text-[14px]">check</span>
-            المواضيع نشطة
-          </span>
+<span class="px-3 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold min-h-[44px]">
+<span class="material-symbols-outlined text-[16px]">check</span>
+ المواضيع نشطة
+</span>
 </div>
-<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-on-surface-variant pr-9">
-<span class="font-bold text-on-surface">60 دقيقة</span>
-<span class="text-outline">•</span>
-<span>مهمة 1 (150 كلمة) + مهمة 2 (250 كلمة)</span>
-<span class="text-outline">•</span>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-[#2D3748] pr-9">
+<span class="font-bold text-[#211a14]">60 دقيقة</span>
+<span class="text-[#2D3748] font-bold">•</span>
+<span class="font-medium">مهمة 1 (150 كلمة) + مهمة 2 (250 كلمة)</span>
+<span class="text-[#2D3748] font-bold">•</span>
 <span class="text-primary font-bold">الحالة: جاهز</span>
 </div>
 </article>
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-2">
 <div class="flex items-center justify-between flex-wrap gap-2">
 <div class="flex items-center gap-2.5">
-<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0">4</span>
-<h4 class="text-headline-sm font-headline-sm text-on-surface font-bold">المحادثة</h4>
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">4</span>
+<h4 class="text-headline-sm font-headline-sm text-[#211a14] font-bold">المحادثة</h4>
 </div>
-<span class="px-2.5 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold">
-<span class="material-symbols-outlined text-[14px]">mic</span>
-            تمت معايرة الميكروفون
-          </span>
+<span class="px-3 py-1 rounded-full bg-[#E8F8EE] text-[#0F5A29] font-label-sm text-label-sm border border-[#1DB954] flex items-center gap-1 font-bold min-h-[44px]">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+ تمت معايرة الميكروفون
+</span>
 </div>
-<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-on-surface-variant pr-9">
-<span class="font-bold text-on-surface">11–14 دقيقة</span>
-<span class="text-outline">•</span>
-<span>3 أجزاء تفاعلية</span>
-<span class="text-outline">•</span>
-<span>ممتحن الذكاء الاصطناعي</span>
-<span class="text-outline">•</span>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-[#2D3748] pr-9">
+<span class="font-bold text-[#211a14]">11–14 دقيقة</span>
+<span class="text-[#2D3748] font-bold">•</span>
+<span class="font-medium">3 أجزاء تفاعلية</span>
+<span class="text-[#2D3748] font-bold">•</span>
+<span class="font-medium">ممتحن الذكاء الاصطناعي</span>
+<span class="text-[#2D3748] font-bold">•</span>
 <span class="text-primary font-bold">الحالة: تمت معايرة الميكروفون</span>
 </div>
 </article></section>
@@ -302,15 +302,15 @@
 <h3 class="text-label-lg font-label-lg font-bold">قواعد ظروف الاختبار الرسمية</h3>
 </div>
 <ul class="flex flex-col gap-2 pt-1">
-<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface leading-snug">
+<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-[#211a14] leading-snug">
 <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>لا توقف مؤقت بمجرد بدء المؤقت لمحاكاة معايير مراكز الاختبار الحقيقية.</span>
 </li>
-<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface leading-snug">
+<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-[#211a14] leading-snug">
 <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>الحدود الزمنية الصارمة لكل وحدة تفرض التسليم التلقائي عند انتهاء الوقت.</span>
 </li>
-<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface leading-snug">
+<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-[#211a14] leading-snug">
 <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>حفظ تلقائي كل 10 ثوانٍ محلياً والمزامنة السحابية لضمان عدم فقدان أي تقدم.</span>
 </li>
@@ -320,21 +320,21 @@
 <span>بدء الاختبار التجريبي الكامل (2h 44m)</span>
 <span class="material-symbols-outlined text-[24px]">arrow_back</span>
 </button>
-<p class="text-center text-label-sm font-label-sm text-on-surface-variant">
-        وقت الانتهاء المتوقع: ~17:15 • يُوصى بالجلوس دون انقطاع على سطح المكتب أو الهاتف
-      </p></section>
+<p class="text-center text-label-sm font-label-sm text-[#2D3748] font-bold">
+وقت الانتهاء المتوقع: ~17:15 <span class="text-[#211a14]">•</span> يُوصى بالجلوس دون انقطاع على سطح المكتب أو الهاتف
+</p></section>
 <!-- Alternative Mode: Quick Test Alternative -->
 <section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#efe0d6] p-space-md flex flex-col gap-space-sm"><div class="flex items-center justify-between">
-<span class="text-label-md font-label-md font-bold text-on-surface">ليس لديك وقت كافٍ اليوم؟</span>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-[14px]">bolt</span>
-          +50 XP
-        </span>
+<span class="text-label-md font-label-md font-bold text-[#211a14]">ليس لديك وقت كافٍ اليوم؟</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 min-h-[44px] rounded-full bg-tertiary-fixed text-[#211a14] font-label-sm text-label-sm font-extrabold border border-[#D49B10]">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+ +50 XP
+</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant">
-        أكمل اختباراً تشخيصياً سريعاً مدته 15 دقيقة يغطي فخاخ النطاق 7+ الأكثر تكراراً. يحدّث توقعات درجاتك دون الحاجة للاختبار الكامل لمدة ساعتين و44 دقيقة.
-      </p>
-<button class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-surface-container-lowest text-primary-container font-label-lg font-label-lg border-2 border-primary-container shadow-[0_4px_0_0_#0B423E] hover:bg-surface-container-low active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
+<p class="text-body-sm font-body-sm text-[#2D3748] leading-relaxed">
+أكمل اختباراً تشخيصياً سريعاً مدته 15 دقيقة يغطي فخاخ النطاق 7+ الأكثر تكراراً. يحدّث توقعات درجاتك دون الحاجة للاختبار الكامل لمدة ساعتين و44 دقيقة.
+</p>
+<button class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-surface-container-lowest text-primary-container font-label-lg font-label-lg font-bold border-2 border-primary-container shadow-[0_4px_0_0_#0B423E] hover:bg-surface-container-low active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
 <span class="material-symbols-outlined text-[20px]">speed</span>
 <span>بدء اختبار سريع (15 دقيقة)</span>
 </button></section>

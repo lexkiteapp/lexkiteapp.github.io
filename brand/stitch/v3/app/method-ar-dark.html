@@ -142,22 +142,22 @@
     }
   </style>
 </head>
-<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden">
 <!-- Mobile Viewport Container: 390px native portrait canvas -->
-<div class="relative w-full max-w-[390px] mx-auto min-h-screen bg-[#10191B] flex flex-col pb-28">
+<div class="relative w-full max-w-[390px] mx-auto min-h-screen bg-[#10191B] flex flex-col pb-28 overflow-hidden">
 <!-- SHARED COMPONENT: TopAppBar (Tactile Night RTL) -->
 <header class="sticky top-0 z-40 bg-[#10191B] border-b-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] w-full px-5 py-3 flex justify-between items-center transition-all">
 <!-- Right (Mirrored leading icon: Arrow back points right in RTL) -->
-<button aria-label="الرجوع" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#172427] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform text-[#2DD4BF] border-2 border-[#23383E]">
+<button aria-label="الرجوع" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#172427] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform text-[#2DD4BF] border-2 border-[#23383E] shrink-0">
 <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
 </button>
 <!-- Center Headline (Brand / Page title) -->
 <div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined material-symbols-fill text-[#F59E0B] text-[22px]">drive_file_stream</span>
+<span class="material-symbols-outlined material-symbols-fill text-[#F59E0B] text-[22px]">flight</span>
 <h1 class="text-[18px] font-bold text-[#E8F1F0] tracking-tight">Lexkite Bright Day</h1>
 </div>
 <!-- Left (Trailing icon: Settings) -->
-<button aria-label="الإعدادات" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#172427] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform text-[#2DD4BF] border-2 border-[#23383E]">
+<button aria-label="الإعدادات" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#172427] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform text-[#2DD4BF] border-2 border-[#23383E] shrink-0">
 <span class="material-symbols-outlined text-[22px]">settings</span>
 </button>
 </header>
@@ -322,9 +322,7 @@
 <div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-4 tactile-card-night space-y-3">
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-2">
-<span class="w-8 h-8 rounded-full bg-[#F87171] text-[#450A0A] flex items-center justify-center font-bold num-en shadow-[0_2px_0_#B91C1C]">
-                04
-              </span>
+<span class="w-8 h-8 rounded-full bg-[#F87171] text-white flex items-center justify-center font-black num-en shadow-[0_2px_0_#B91C1C]">04</span>
 <span class="text-[12px] font-bold text-[#F87171]">الخطوة 4 • التحقق</span>
 </div>
 <span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border border-[#2A454C]">
@@ -420,7 +418,7 @@
 <div class="space-y-2.5">
 <!-- Card 1 -->
 <div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-3.5 tactile-card-night flex items-start gap-3">
-<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#2A454C]">
+<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#2A454C] py-1">
 <span class="material-symbols-outlined text-[20px]">compress</span>
 </div>
 <div class="space-y-1">
@@ -432,10 +430,10 @@
 </div>
 <!-- Card 2 -->
 <div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-3.5 tactile-card-night flex items-start gap-3">
-<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center shrink-0 border border-[#2A454C]">
+<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center shrink-0 border border-[#2A454C] py-1">
 <span class="material-symbols-outlined text-[20px]">view_in_ar</span>
 </div>
-<div class="space-y-1">
+<div class="space-y-1 py-1">
 <h5 class="text-[16px] font-bold text-[#2DD4BF]">كتل معجمية تركز على المتلازمات</h5>
 <p class="text-[14px] font-medium text-[#A9BDBB] leading-snug">
                 تخزين مجموعات الكلمات طبيعياً لتقليل زمن الترجمة تحت ضغط الوقت.
@@ -444,10 +442,10 @@
 </div>
 <!-- Card 3 -->
 <div class="bg-[#172427] border-2 border-[#23383E] rounded-DEFAULT p-3.5 tactile-card-night flex items-start gap-3">
-<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#2A454C]">
+<div class="w-9 h-9 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shrink-0 border border-[#2A454C] py-1">
 <span class="material-symbols-outlined text-[20px]">graphic_eq</span>
 </div>
-<div class="space-y-1">
+<div class="space-y-1 py-1">
 <h5 class="text-[16px] font-bold text-[#2DD4BF]">تقييم النبرة والوزن الصوتي</h5>
 <p class="text-[14px] font-medium text-[#A9BDBB] leading-snug">
                 تحليل طيفي صوتي لحظي يدرّب على أنماط النبر الطبيعي للوصول إلى Band <span class="num-en">7+</span> في المحادثة.
@@ -521,12 +519,12 @@
 <nav aria-label="شريط التنقل السفلي" class="fixed bottom-0 left-0 w-full z-50 bg-[#10191B] border-t-2 border-[#23383E] shadow-[0_-4px_0_0_#0B1315]">
 <div class="max-w-[390px] mx-auto flex justify-around items-center px-2 py-2">
 <!-- Tab 1: اليوم (Today) -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#today">
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#today">
 <span class="material-symbols-outlined text-[22px]">calendar_today</span>
 <span class="text-[12px] font-bold mt-0.5">اليوم</span>
 </a>
 <!-- Tab 2: المفردات (Vocab) -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#vocab">
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#vocab">
 <span class="material-symbols-outlined text-[22px]">menu_book</span>
 <span class="text-[12px] font-bold mt-0.5">المفردات</span>
 </a>
@@ -536,12 +534,12 @@
 <span class="text-[12px] font-extrabold mt-0.5">المهارات</span>
 </a>
 <!-- Tab 4: الاختبارات (Tests) -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#tests">
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#tests">
 <span class="material-symbols-outlined text-[22px]">quiz</span>
 <span class="text-[12px] font-bold mt-0.5">الاختبارات</span>
 </a>
 <!-- Tab 5: أنا / حسابي (Me) -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#me">
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-2.5 py-1.5 hover:bg-[#172427] active:translate-y-[2px] transition-transform rounded-DEFAULT py-2" href="#me">
 <span class="material-symbols-outlined text-[22px]">person</span>
 <span class="text-[12px] font-bold mt-0.5">حسابي</span>
 </a>

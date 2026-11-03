@@ -213,34 +213,32 @@
 </div>
 <div class="h-0.5 bg-surface-variant my-space-xs"></div>
 <!-- Canonical 5 Destinations Nav Stack -->
-<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
-<!-- 1. Today -->
-<a class="flex items-center gap-3 px-space-md py-2.5 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#/today">
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5"><!-- 1. Today -->
+<a class="flex items-center gap-3 px-space-md py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 min-h-[44px]" href="#/today">
 <span class="material-symbols-outlined text-[20px]">calendar_today</span>
 <span>Today</span>
 </a>
 <!-- 2. Vocab (ACTIVE STATE) -->
-<a aria-current="page" class="flex items-center gap-3 px-space-md py-2.5 rounded-xl font-label-md text-label-md bg-primary-container text-on-primary shadow-[0_3px_0_0_#00201d] transition-all duration-100" href="#/vocab/topic/travel">
+<a aria-current="page" class="flex items-center gap-3 px-space-md py-3 rounded-xl font-label-md text-label-md bg-primary-container text-on-primary shadow-[0_3px_0_0_#00201d] transition-all duration-100 min-h-[44px]" href="#/vocab/topic/travel">
 <span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
 <span class="font-bold">Vocab</span>
 <span class="ml-auto w-2 h-2 rounded-full bg-secondary-container"></span>
 </a>
 <!-- 3. Skills -->
-<a class="flex items-center gap-3 px-space-md py-2.5 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#/skills">
+<a class="flex items-center gap-3 px-space-md py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 min-h-[44px]" href="#/skills">
 <span class="material-symbols-outlined text-[20px]">fitness_center</span>
 <span>Skills</span>
 </a>
 <!-- 4. Tests -->
-<a class="flex items-center gap-3 px-space-md py-2.5 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#/tests">
+<a class="flex items-center gap-3 px-space-md py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 min-h-[44px]" href="#/tests">
 <span class="material-symbols-outlined text-[20px]">quiz</span>
 <span>Tests</span>
 </a>
 <!-- 5. Me -->
-<a class="flex items-center gap-3 px-space-md py-2.5 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#/me">
+<a class="flex items-center gap-3 px-space-md py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 min-h-[44px]" href="#/me">
 <span class="material-symbols-outlined text-[20px]">person</span>
 <span>Me</span>
-</a>
-</nav>
+</a></nav>
 </div>
 <!-- Bottom Segment: Gamification Stats & Language Switcher -->
 <div class="flex flex-col gap-space-sm pt-space-sm border-t-2 border-surface-variant">
@@ -264,7 +262,7 @@
 </div>
 </div>
 <!-- 15 UI Languages Switcher -->
-<button class="w-full flex items-center justify-between px-space-md py-2 rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" type="button">
+<button class="w-full flex items-center justify-between px-space-md py-2.5 min-h-[44px] rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" type="button">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">language</span>
 <span class="font-semibold text-body-sm">English (EN)</span>
@@ -278,33 +276,31 @@
 <!-- ========================================== -->
 <main class="flex-1 flex flex-col min-w-0 bg-background pb-36">
 <!-- Top Action Bar & Breadcrumb Row -->
-<header class="w-full px-gutter-lg pt-space-lg pb-space-sm flex items-center justify-between gap-space-md">
-<!-- Breadcrumbs Navigation -->
-<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
-<a class="hover:text-primary hover:underline transition-colors" href="#/library">Library</a>
+<header class="w-full px-gutter-lg pt-space-lg pb-space-sm flex items-center justify-between gap-space-md"><!-- Breadcrumbs Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md min-h-[44px]">
+<a class="hover:text-primary hover:underline transition-colors py-2" href="#/library">Library</a>
 <span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
-<a class="hover:text-primary hover:underline transition-colors" href="#/library/vocabulary-topics">Vocabulary Topics</a>
+<a class="hover:text-primary hover:underline transition-colors py-2" href="#/library/vocabulary-topics">Vocabulary Topics</a>
 <span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
-<span aria-current="page" class="font-bold text-on-surface text-primary">Travel &amp; Tourism</span>
+<span aria-current="page" class="font-bold text-on-surface text-primary py-2">Travel &amp; Tourism</span>
 </nav>
 <!-- Right Tooling: Search Bar & Bookmark Actions -->
 <div class="flex items-center gap-3">
 <!-- Tactile Search Input Container -->
-<div class="relative w-80">
+<div class="relative w-80 min-h-[44px] flex items-center">
 <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[20px] text-on-surface-variant">search</span>
-<input class="w-full pl-10 pr-14 py-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container focus:shadow-[0_3px_0_0_#136a63] transition-all" placeholder="Search 240 words in Travel..." type="text"/>
+<input class="w-full h-11 pl-10 pr-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container focus:shadow-[0_3px_0_0_#136a63] transition-all" placeholder="Search 240 words in Travel..." type="text"/>
 <kbd class="absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded-md bg-surface-variant text-[11px] font-label-sm text-on-surface-variant border border-outline-variant font-semibold">⌘K</kbd>
 </div>
 <!-- Bookmark Topic Action -->
-<button aria-label="Save topic" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center" type="button">
+<button aria-label="Save topic" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark</span>
 </button>
 <!-- Share Action -->
-<button aria-label="Share topic" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center" type="button">
+<button aria-label="Share topic" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center" type="button">
 <span class="material-symbols-outlined text-[20px]">share</span>
 </button>
-</div>
-</header>
+</div></header>
 <div class="px-gutter-lg flex flex-col gap-space-lg mt-space-sm">
 <!-- ========================================== -->
 <!-- TOPIC HERO HEADER CARD                     -->
@@ -333,16 +329,14 @@
               </p>
 </div>
 <!-- Quick Action Buttons -->
-<div class="flex flex-col sm:flex-row gap-2.5 flex-shrink-0">
-<button class="btn-tactile-ghost px-4 py-2.5 rounded-xl font-label-md text-label-md flex items-center gap-2" type="button">
+<div class="flex flex-col sm:flex-row gap-2.5 flex-shrink-0"><button class="btn-tactile-ghost min-h-[44px] px-4 py-2.5 rounded-xl font-label-md text-label-md flex items-center gap-2" type="button">
 <span class="material-symbols-outlined text-[18px]">record_voice_over</span>
 <span>Practice Pronunciation</span>
 </button>
-<button class="btn-tactile-secondary px-4 py-2.5 rounded-xl font-label-md text-label-md flex items-center gap-2" type="button">
+<button class="btn-tactile-secondary min-h-[44px] px-4 py-2.5 rounded-xl font-label-md text-label-md flex items-center gap-2" type="button">
 <span class="material-symbols-outlined text-[18px]">neurology</span>
 <span>Spaced Recall Drill</span>
-</button>
-</div>
+</button></div>
 </div>
 <!-- Mastery Metric Overview Bar -->
 <div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant flex flex-col gap-3">
@@ -407,55 +401,52 @@
 <!-- ========================================== -->
 <!-- FILTER CHIPS & SORTING BAR                 -->
 <!-- ========================================== -->
-<section class="flex flex-wrap items-center justify-between gap-space-md">
-<!-- Master Status Filter Pills -->
+<section class="flex flex-wrap items-center justify-between gap-space-md"><!-- Master Status Filter Pills -->
 <div aria-label="Word status filters" class="flex items-center gap-2" role="tablist">
 <!-- Active Pill: All (240) -->
-<button aria-selected="true" class="h-11 px-5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-[0_3px_0_0_#00201d] transition-all" role="tab" type="button">
+<button aria-selected="true" class="h-11 min-h-[44px] px-5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-[0_3px_0_0_#00201d] transition-all flex items-center justify-center" role="tab" type="button">
               All (240)
             </button>
 <!-- Inactive Pill: New (38) -->
-<button aria-selected="false" class="h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface border-2 border-outline-variant hover:border-primary-container font-label-md text-label-md font-bold transition-all" role="tab" type="button">
+<button aria-selected="false" class="h-11 min-h-[44px] px-4 rounded-full bg-surface-container-lowest text-on-surface border-2 border-outline-variant hover:border-primary-container font-label-md text-label-md font-bold transition-all flex items-center justify-center" role="tab" type="button">
               New (38)
             </button>
 <!-- Inactive Pill: Learning (60) -->
-<button aria-selected="false" class="h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface border-2 border-outline-variant hover:border-primary-container font-label-md text-label-md font-bold transition-all" role="tab" type="button">
+<button aria-selected="false" class="h-11 min-h-[44px] px-4 rounded-full bg-surface-container-lowest text-on-surface border-2 border-outline-variant hover:border-primary-container font-label-md text-label-md font-bold transition-all flex items-center justify-center" role="tab" type="button">
               Learning (60)
             </button>
 <!-- Inactive Pill: Mastered (142) -->
-<button aria-selected="false" class="h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface border-2 border-outline-variant hover:border-primary-container font-label-md text-label-md font-bold transition-all" role="tab" type="button">
+<button aria-selected="false" class="h-11 min-h-[44px] px-4 rounded-full bg-surface-container-lowest text-on-surface border-2 border-outline-variant hover:border-primary-container font-label-md text-label-md font-bold transition-all flex items-center justify-center" role="tab" type="button">
               Mastered (142)
             </button>
 </div>
 <!-- Secondary Dropdowns (i18n ready with generous targets) -->
 <div class="flex items-center gap-2.5">
 <!-- Part of Speech Dropdown -->
-<button class="h-11 px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors" type="button">
+<button class="h-11 min-h-[44px] px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors" type="button">
 <span>Part of Speech</span>
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
 </button>
 <!-- Frequency Dropdown -->
-<button class="h-11 px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors" type="button">
+<button class="h-11 min-h-[44px] px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors" type="button">
 <span>Frequency</span>
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
 </button>
 <!-- Sort By Dropdown -->
-<button class="h-11 px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors" type="button">
+<button class="h-11 min-h-[44px] px-3.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors" type="button">
 <span class="text-on-surface-variant font-medium">Sort by:</span>
 <span class="font-bold">Difficulty</span>
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
 </button>
-</div>
-</section>
+</div></section>
 <!-- ========================================== -->
 <!-- VOCABULARY WORD LIST ROWS                  -->
 <!-- ========================================== -->
-<section aria-label="Vocabulary Words" class="flex flex-col gap-3">
-<!-- WORD CARD 1: itinerary -->
+<section aria-label="Vocabulary Words" class="flex flex-col gap-3"><!-- WORD CARD 1: itinerary -->
 <article class="card-tactile rounded-2xl p-space-md flex items-center justify-between gap-space-md">
 <div class="flex items-start gap-space-md flex-1">
 <!-- Audio Pronunciation Button (min 44x44px target) -->
-<button aria-label="Listen to pronunciation of itinerary" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
+<button aria-label="Listen to pronunciation of itinerary" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
 <span class="material-symbols-outlined text-[22px]">volume_up</span>
 </button>
 <!-- Word Content Hierarchy -->
@@ -493,10 +484,10 @@
 </div>
 <!-- Item Actions -->
 <div class="flex items-center gap-1">
-<button aria-label="Bookmark itinerary" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-primary transition-colors" type="button">
+<button aria-label="Bookmark itinerary" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-primary transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
 </button>
-<button aria-label="More options for itinerary" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="More options for itinerary" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">more_vert</span>
 </button>
 </div>
@@ -505,7 +496,7 @@
 <!-- WORD CARD 2: breathtaking -->
 <article class="card-tactile rounded-2xl p-space-md flex items-center justify-between gap-space-md">
 <div class="flex items-start gap-space-md flex-1">
-<button aria-label="Listen to pronunciation of breathtaking" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
+<button aria-label="Listen to pronunciation of breathtaking" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
 <span class="material-symbols-outlined text-[22px]">volume_up</span>
 </button>
 <div class="flex flex-col gap-1.5 flex-1">
@@ -540,10 +531,10 @@
 <span class="font-label-sm text-[11px] font-bold text-amber-800">Learning (2/3)</span>
 </div>
 <div class="flex items-center gap-1">
-<button aria-label="Bookmark breathtaking" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="Bookmark breathtaking" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark_border</span>
 </button>
-<button aria-label="More options for breathtaking" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="More options for breathtaking" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">more_vert</span>
 </button>
 </div>
@@ -552,7 +543,7 @@
 <!-- WORD CARD 3: accommodate -->
 <article class="card-tactile rounded-2xl p-space-md flex items-center justify-between gap-space-md">
 <div class="flex items-start gap-space-md flex-1">
-<button aria-label="Listen to pronunciation of accommodate" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
+<button aria-label="Listen to pronunciation of accommodate" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
 <span class="material-symbols-outlined text-[22px]">volume_up</span>
 </button>
 <div class="flex flex-col gap-1.5 flex-1">
@@ -587,10 +578,10 @@
 <span class="font-label-sm text-[11px] font-bold text-amber-800">Learning (2/3)</span>
 </div>
 <div class="flex items-center gap-1">
-<button aria-label="Bookmark accommodate" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="Bookmark accommodate" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark_border</span>
 </button>
-<button aria-label="More options for accommodate" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="More options for accommodate" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">more_vert</span>
 </button>
 </div>
@@ -599,7 +590,7 @@
 <!-- WORD CARD 4: stopover -->
 <article class="card-tactile rounded-2xl p-space-md flex items-center justify-between gap-space-md">
 <div class="flex items-start gap-space-md flex-1">
-<button aria-label="Listen to pronunciation of stopover" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
+<button aria-label="Listen to pronunciation of stopover" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
 <span class="material-symbols-outlined text-[22px]">volume_up</span>
 </button>
 <div class="flex flex-col gap-1.5 flex-1">
@@ -634,10 +625,10 @@
 <span class="font-label-sm text-[11px] font-bold text-amber-800">Learning (1/3)</span>
 </div>
 <div class="flex items-center gap-1">
-<button aria-label="Bookmark stopover" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="Bookmark stopover" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark_border</span>
 </button>
-<button aria-label="More options for stopover" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="More options for stopover" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">more_vert</span>
 </button>
 </div>
@@ -646,7 +637,7 @@
 <!-- WORD CARD 5: embark -->
 <article class="card-tactile rounded-2xl p-space-md flex items-center justify-between gap-space-md">
 <div class="flex items-start gap-space-md flex-1">
-<button aria-label="Listen to pronunciation of embark" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
+<button aria-label="Listen to pronunciation of embark" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
 <span class="material-symbols-outlined text-[22px]">volume_up</span>
 </button>
 <div class="flex flex-col gap-1.5 flex-1">
@@ -681,10 +672,10 @@
 <span class="font-label-sm text-[11px] font-bold text-on-surface-variant">New (0/3)</span>
 </div>
 <div class="flex items-center gap-1">
-<button aria-label="Bookmark embark" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="Bookmark embark" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark_border</span>
 </button>
-<button aria-label="More options for embark" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="More options for embark" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">more_vert</span>
 </button>
 </div>
@@ -693,7 +684,7 @@
 <!-- WORD CARD 6: picturesque -->
 <article class="card-tactile rounded-2xl p-space-md flex items-center justify-between gap-space-md">
 <div class="flex items-start gap-space-md flex-1">
-<button aria-label="Listen to pronunciation of picturesque" class="btn-tactile-ghost w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
+<button aria-label="Listen to pronunciation of picturesque" class="btn-tactile-ghost w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center flex-shrink-0 text-primary" type="button">
 <span class="material-symbols-outlined text-[22px]">volume_up</span>
 </button>
 <div class="flex flex-col gap-1.5 flex-1">
@@ -728,16 +719,15 @@
 <span class="font-label-sm text-[11px] font-bold text-emerald-800">Mastered</span>
 </div>
 <div class="flex items-center gap-1">
-<button aria-label="Bookmark picturesque" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-primary transition-colors" type="button">
+<button aria-label="Bookmark picturesque" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-primary transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
 </button>
-<button aria-label="More options for picturesque" class="w-10 h-10 rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<button aria-label="More options for picturesque" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">more_vert</span>
 </button>
 </div>
 </div>
-</article>
-</section>
+</article></section>
 </div>
 </main>
 </div>
@@ -764,14 +754,20 @@
 <!-- Tactile Action Group -->
 <div class="flex items-center gap-3 flex-shrink-0">
 <!-- Secondary Sprint Button -->
-<button class="btn-tactile-ghost min-h-[52px] px-5 rounded-xl font-label-md text-label-md font-bold flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[20px]">bolt</span>
-<span>Quick 3-min Match Sprint</span>
+<button class="w-full flex items-center justify-between px-space-md py-2.5 min-h-[44px] rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">language</span>
+<span class="font-semibold text-body-sm">English (EN)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">arrow_drop_down</span>
 </button>
 <!-- Prominent Warm Tactile Coral CTA Button (Never white text on orange) -->
-<button class="btn-tactile-primary min-h-[52px] px-7 rounded-xl font-label-lg text-label-lg font-extrabold flex items-center gap-2 tracking-wide text-[#1a0d00] flex-shrink-0" type="button">
-<span>Study 20 words</span>
-<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+<button class="w-full flex items-center justify-between px-space-md py-2.5 min-h-[44px] rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">language</span>
+<span class="font-semibold text-body-sm">English (EN)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">arrow_drop_down</span>
 </button>
 </div>
 </aside>

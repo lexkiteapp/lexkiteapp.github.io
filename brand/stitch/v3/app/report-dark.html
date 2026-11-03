@@ -172,8 +172,8 @@
 <!-- Top App Bar (Anchored from Shared JSON) -->
 <header class="sticky top-0 z-40 flex items-center justify-between px-margin py-space-sm w-full bg-[#10191B] border-b-2 border-[#233539] shadow-[0_4px_0_0_#0a1215]">
 <div class="flex items-center space-x-3">
-<button aria-label="Back" class="flex items-center justify-center p-2 rounded-DEFAULT bg-[#172427] border-2 border-[#233539] shadow-[0_3px_0_0_#0a1215] text-[#2DD4BF] active:translate-y-[2px] active:shadow-none transition-transform" type="button">
-<span class="material-symbols-outlined">arrow_back</span>
+<button aria-label="Back" class="flex items-center justify-center w-11 h-11 rounded-DEFAULT bg-[#172427] border-2 border-[#233539] shadow-[0_3px_0_0_#0a1215] text-[#2DD4BF] active:translate-y-[2px] active:shadow-none transition-transform flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
 </button>
 <div>
 <span class="text-headline-sm font-headline-sm font-bold tracking-tight text-[#E8F1F0] block">
@@ -188,8 +188,8 @@
 <span class="inline-flex items-center px-2.5 py-1 rounded-DEFAULT text-label-sm font-label-sm font-bold bg-[#172427] border-2 border-[#233539] text-[#2DD4BF] tracking-wider">
         EXAM MODE
       </span>
-<button class="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-DEFAULT bg-[#162125] border-2 border-[#233539] text-label-sm font-label-sm text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors shadow-[0_3px_0_0_#0a1215]" type="button">
-<span class="material-symbols-outlined text-[16px]">help</span>
+<button class="hidden sm:flex items-center space-x-1.5 px-3.5 py-2.5 min-h-[44px] rounded-DEFAULT bg-[#162125] border-2 border-[#233539] text-label-sm font-label-sm text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors shadow-[0_3px_0_0_#0a1215]" type="button">
+<span class="material-symbols-outlined text-[18px]">help</span>
 <span>Support SLA: &lt;15m</span>
 </button>
 </div>
@@ -228,28 +228,22 @@
 </label>
 <span class="text-label-sm font-label-sm text-[#A9BDBB]">Select closest fit</span>
 </div>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-<!-- Software Bug (Active State) -->
-<button class="tactile-chip-active rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5"><button class="tactile-chip-active min-h-[44px] rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
 <span class="material-symbols-outlined text-[#2DD4BF] text-[18px]">check_circle</span>
 <span>Software Bug</span>
 </button>
-<!-- Wrong Answer -->
-<button class="tactile-chip-idle rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
+<button class="tactile-chip-idle min-h-[44px] rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
 <span class="material-symbols-outlined text-[18px]">spellcheck</span>
 <span>Wrong Answer</span>
 </button>
-<!-- Translation -->
-<button class="tactile-chip-idle rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
+<button class="tactile-chip-idle min-h-[44px] rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
 <span class="material-symbols-outlined text-[18px]">translate</span>
 <span>Translation</span>
 </button>
-<!-- Idea / Suggestion -->
-<button class="tactile-chip-idle rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
+<button class="tactile-chip-idle min-h-[44px] rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 text-label-md font-label-md transition-transform active:translate-y-[2px]" type="button">
 <span class="material-symbols-outlined text-[18px]">lightbulb</span>
 <span>Idea / Suggestion</span>
-</button>
-</div>
+</button></div>
 </section>
 <!-- Detailed Description Text Area with Route Anchor -->
 <section>
@@ -260,7 +254,7 @@
 <div class="flex items-center gap-1.5 text-body-sm font-body-sm text-[#A9BDBB]">
 <span>Current route:</span>
 <code class="px-2 py-0.5 rounded bg-[#10191B] border border-[#233539] text-[#2DD4BF] font-mono text-[11px]">#/drill/cbt-reading-14</code>
-<button class="text-[#2DD4BF] underline hover:text-[#88f5ea] text-label-sm font-label-sm ml-1" type="button">Change</button>
+<button class="inline-flex items-center justify-center min-h-[44px] px-2 text-[#2DD4BF] underline hover:text-[#88f5ea] text-label-sm font-label-sm ml-1" type="button">Change</button>
 </div>
 </div>
 <div class="tactile-inset rounded-lg p-3">
@@ -286,8 +280,10 @@
 </div>
 </div>
 <!-- Lightened Teal Switch -->
-<button aria-checked="true" class="w-12 h-6 bg-[#2DD4BF] rounded-full p-0.5 flex items-center justify-end shadow-inner transition-colors" role="switch" type="button">
+<button aria-checked="true" aria-label="Attach Recent Screenshot" class="min-w-[44px] min-h-[44px] flex items-center justify-end p-2 bg-transparent focus:outline-none" role="switch" type="button">
+<div class="w-12 h-6 bg-[#2DD4BF] rounded-full p-0.5 flex items-center justify-end shadow-inner transition-colors pointer-events-none">
 <div class="w-5 h-5 bg-[#091518] rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>
+</div>
 </button>
 </section>
 <!-- File Attachment Chip -->
@@ -304,14 +300,12 @@
               </span>
 </div>
 </div>
-<div class="flex items-center gap-2 flex-shrink-0 ml-3">
-<button class="p-1.5 text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors rounded" title="Preview capture" type="button">
+<div class="flex items-center gap-2 flex-shrink-0 ml-3"><button class="w-11 h-11 flex items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors rounded" title="Preview capture" type="button">
 <span class="material-symbols-outlined text-[20px]">visibility</span>
 </button>
-<button class="p-1.5 text-[#A9BDBB] hover:text-error transition-colors rounded" title="Remove attachment" type="button">
+<button class="w-11 h-11 flex items-center justify-center text-[#A9BDBB] hover:text-error transition-colors rounded" title="Remove attachment" type="button">
 <span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
+</button></div>
 </div>
 </section>
 <!-- Email Follow-up Field -->
@@ -334,7 +328,7 @@
 </section>
 <!-- Primary Action CTA Button -->
 <div class="pt-2">
-<button class="tactile-btn-primary w-full py-3.5 px-6 rounded-lg text-label-lg font-label-lg font-extrabold flex items-center justify-center gap-2 tracking-wide transition-all uppercase" type="button">
+<button class="tactile-btn-primary w-full min-h-[48px] py-3.5 px-6 rounded-lg text-label-lg font-label-lg font-extrabold flex items-center justify-center gap-2 tracking-wide transition-all uppercase" type="button">
 <span>Send Feedback &amp; Report</span>
 <span class="material-symbols-outlined text-[20px]">chevron_right</span>
 </button>
@@ -343,31 +337,29 @@
 </main>
 <!-- Bottom Navigation Bar (Canonical Shared Component from JSON) -->
 <!-- Active Tab: Tests (Index 3) mapped to IELTS Exam/Drill context -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs bg-[#10191B] border-t-2 border-[#233539] shadow-[0_-4px_0_0_#0a1215]">
-<!-- Today -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1.5 transition-colors" href="#today">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs bg-[#10191B] border-t-2 border-[#233539] shadow-[0_-4px_0_0_#0a1215]"><!-- Today -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1 transition-colors" href="#today">
 <span class="material-symbols-outlined text-[22px]">today</span>
 <span class="text-label-sm font-label-sm mt-0.5">Today</span>
 </a>
 <!-- Vocab -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1.5 transition-colors" href="#vocab">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1 transition-colors" href="#vocab">
 <span class="material-symbols-outlined text-[22px]">menu_book</span>
 <span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
 </a>
 <!-- Skills -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1.5 transition-colors" href="#skills">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1 transition-colors" href="#skills">
 <span class="material-symbols-outlined text-[22px]">psychology</span>
 <span class="text-label-sm font-label-sm mt-0.5">Skills</span>
 </a>
 <!-- Tests (ACTIVE DESTINATION) -->
-<a class="flex flex-col items-center justify-center bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/60 rounded-DEFAULT px-4 py-1 shadow-[0_3px_0_0_#0a1215] active:translate-y-[2px] transition-transform" href="#tests">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/60 rounded-DEFAULT px-4 py-1 shadow-[0_3px_0_0_#0a1215] active:translate-y-[2px] transition-transform" href="#tests">
 <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">assignment</span>
 <span class="text-label-sm font-label-sm font-bold mt-0.5">Tests</span>
 </a>
 <!-- Me -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1.5 transition-colors" href="#me">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] hover:text-[#E8F1F0] px-3 py-1 transition-colors" href="#me">
 <span class="material-symbols-outlined text-[22px]">person</span>
 <span class="text-label-sm font-label-sm mt-0.5">Me</span>
-</a>
-</nav>
+</a></nav>
 </body></html>

@@ -6,7 +6,7 @@
 <title>Lexkite Dictionary - Word Card (resilient)</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS v3 -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -91,56 +91,50 @@
 <span class="text-[11px] font-semibold text-[#136a63] font-latin tracking-wide">IELTS &amp; TOEIC Core</span>
 </div>
 <!-- Left: Streak & XP Badges -->
-<div class="flex items-center gap-1.5" data-purpose="user-status-badges">
-<!-- Streak -->
-<div class="flex items-center gap-1 bg-amber-50 border border-amber-200/80 rounded-full px-2.5 py-1 text-xs font-bold text-amber-900">
-<span class="text-amber-500 text-sm">🔥</span>
-<span class="font-latin">14</span>
+<div class="flex items-center gap-1.5" data-purpose="user-status-badges"><!-- Streak -->
+<div class="flex items-center gap-1 bg-amber-100 border border-amber-300 rounded-full px-2.5 py-1 text-xs font-bold text-amber-950 min-h-[36px]">
+<span class="material-symbols-outlined text-base text-[#a73a00] flex items-center justify-center" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-latin text-amber-950 font-black">14</span>
 </div>
 <!-- XP -->
-<div class="flex items-center gap-1 bg-amber-100/70 border border-amber-300/80 rounded-full px-2.5 py-1 text-xs font-black text-amber-950">
-<span class="text-amber-600 font-bold">⚡</span>
-<span class="font-latin text-[11px]">820 XP</span>
-</div>
-</div>
+<div class="flex items-center gap-1 bg-amber-200/80 border border-amber-400/90 rounded-full px-2.5 py-1 text-xs font-black text-amber-950 min-h-[36px]">
+<span class="material-symbols-outlined text-base text-[#7f2b00] flex items-center justify-center" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-latin text-[11px] text-amber-950 font-black">820 XP</span>
+</div></div>
 </header>
 <!-- END: HeaderSection -->
 <!-- BEGIN: MainContent -->
 <main class="flex-1 px-4 pt-3 flex flex-col gap-3">
 <!-- BEGIN: SearchBar -->
 <section class="flex flex-col gap-2" data-purpose="search-container">
-<div class="relative flex items-center bg-white rounded-2xl border border-stone-200 shadow-sm focus-within:border-[#136a63] focus-within:ring-2 focus-within:ring-[#136a63]/20 transition-all">
-<!-- Search Icon (Right for RTL) -->
-<div class="pr-3.5 pl-2 text-stone-400 pointer-events-none">
-<svg class="w-5 h-5 text-stone-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<div class="relative flex items-center bg-white rounded-2xl border border-stone-200 shadow-sm focus-within:border-[#136a63] focus-within:ring-2 focus-within:ring-[#136a63]/20 transition-all"><!-- Search Icon (Right for RTL) -->
+<div class="pr-3.5 pl-2 text-stone-600 pointer-events-none flex items-center min-h-[44px]">
+<svg class="w-5 h-5 text-stone-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
 </svg>
 </div>
-<!-- Input Field -->
-<input class="w-full bg-transparent py-2.5 px-0 text-sm font-latin font-semibold text-slate-800 focus:outline-none border-none focus:ring-0 placeholder:font-arabic placeholder:text-stone-400" placeholder="ابحث عن كلمة..." type="text" value="resilient"/>
-<!-- Action Buttons (Left for RTL) -->
-<div class="flex items-center pl-3 gap-1">
-<button aria-label="مسح النص" class="p-1 rounded-full text-stone-400 hover:text-stone-600 active:scale-95" type="button">
+<!-- Input Field with min-h-[44px] -->
+<input class="w-full bg-transparent min-h-[44px] py-2 px-0 text-sm font-latin font-semibold text-slate-800 focus:outline-none border-none focus:ring-0 placeholder:font-arabic placeholder:text-stone-500" placeholder="ابحث عن كلمة..." type="text" value="resilient"/>
+<!-- Action Buttons with min-w-[44px] min-h-[44px] touch target sizes -->
+<div class="flex items-center pl-1 gap-0.5">
+<button aria-label="مسح النص" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-stone-600 hover:text-slate-900 active:scale-95" type="button">
 <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
 </svg>
 </button>
-<button aria-label="البحث الصوتي" class="p-1.5 rounded-lg text-slate-600 hover:bg-stone-100 active:scale-95" type="button">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<button aria-label="البحث الصوتي" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-700 hover:bg-stone-100 active:scale-95" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </button>
-</div>
-</div>
+</div></div>
 <!-- Recent Pills -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5" data-purpose="recent-searches">
-<span class="text-xs font-bold text-stone-500 whitespace-nowrap">الأحدث:</span>
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5" data-purpose="recent-searches"><span class="text-xs font-bold text-stone-700 whitespace-nowrap">الأحدث:</span>
 <div class="flex items-center gap-1.5 font-latin">
-<button class="text-xs bg-white text-stone-700 px-3 py-1 rounded-full border border-stone-200/90 font-medium active:bg-stone-100 whitespace-nowrap shadow-xs" type="button">pragmatic</button>
-<button class="text-xs bg-white text-stone-700 px-3 py-1 rounded-full border border-stone-200/90 font-medium active:bg-stone-100 whitespace-nowrap shadow-xs" type="button">ubiquitous</button>
-<button class="text-xs bg-white text-stone-700 px-3 py-1 rounded-full border border-stone-200/90 font-medium active:bg-stone-100 whitespace-nowrap shadow-xs" type="button">meticulous</button>
-</div>
-</div>
+<button class="text-xs bg-white text-stone-700 px-3.5 min-h-[44px] flex items-center justify-center rounded-full border border-stone-200/90 font-medium active:bg-stone-100 whitespace-nowrap shadow-xs cursor-pointer" type="button">pragmatic</button>
+<button class="text-xs bg-white text-stone-700 px-3.5 min-h-[44px] flex items-center justify-center rounded-full border border-stone-200/90 font-medium active:bg-stone-100 whitespace-nowrap shadow-xs cursor-pointer" type="button">ubiquitous</button>
+<button class="text-xs bg-white text-stone-700 px-3.5 min-h-[44px] flex items-center justify-center rounded-full border border-stone-200/90 font-medium active:bg-stone-100 whitespace-nowrap shadow-xs cursor-pointer" type="button">meticulous</button>
+</div></div>
 </section>
 <!-- END: SearchBar -->
 <!-- BEGIN: WordSheetCard -->
@@ -163,65 +157,59 @@
 </div>
 </div>
 <!-- Pronunciations (Audio items kept LTR for phonetic transcriptions) -->
-<div class="grid grid-cols-2 gap-2 mt-1">
-<!-- UK Audio -->
-<div class="flex items-center justify-between bg-stone-50 border border-stone-200/80 rounded-xl px-2.5 py-2" dir="ltr">
+<div class="grid grid-cols-2 gap-2 mt-1"><!-- UK Audio -->
+<div class="flex items-center justify-between bg-stone-50 border border-stone-200/80 rounded-xl px-2.5 py-1.5" dir="ltr">
 <div class="flex flex-col">
-<span class="text-[10px] font-extrabold text-[#136a63] tracking-wide">UK</span>
-<span class="text-xs font-latin text-stone-600 font-medium">/rɪˈzɪl.i.ənt/</span>
+<span class="text-[10px] font-extrabold text-[#0e4e49] tracking-wide">UK</span>
+<span class="text-xs font-latin text-stone-700 font-medium">/rɪˈzɪl.i.ənt/</span>
 </div>
-<button aria-label="استمع للنطق البريطاني" class="w-8 h-8 rounded-full bg-[#136a63] text-white flex items-center justify-center shadow-sm active:scale-90" type="button">
+<button aria-label="استمع للنطق البريطاني" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#136a63] text-white flex items-center justify-center shadow-sm active:scale-90 cursor-pointer" type="button">
 <svg class="w-4 h-4 ml-0.5" fill="currentColor" viewbox="0 0 20 20">
 <path d="M10 3.75a.75.75 0 00-1.264-.546L4.703 7H3.25A2.25 2.25 0 001 9.25v1.5A2.25 2.25 0 003.25 13h1.453l4.033 3.796A.75.75 0 0010 16.25V3.75zM14.95 6.05a.75.75 0 010 1.06 4.25 4.25 0 010 6.01.75.75 0 11-1.06-1.06 2.75 2.75 0 000-3.89.75.75 0 011.06-1.06z"></path>
 </svg>
 </button>
 </div>
 <!-- US Audio -->
-<div class="flex items-center justify-between bg-stone-50 border border-stone-200/80 rounded-xl px-2.5 py-2" dir="ltr">
+<div class="flex items-center justify-between bg-stone-50 border border-stone-200/80 rounded-xl px-2.5 py-1.5" dir="ltr">
 <div class="flex flex-col">
-<span class="text-[10px] font-extrabold text-amber-700 tracking-wide">US</span>
-<span class="text-xs font-latin text-stone-600 font-medium">/rəˈzɪl.jənt/</span>
+<span class="text-[10px] font-extrabold text-amber-900 tracking-wide">US</span>
+<span class="text-xs font-latin text-stone-700 font-medium">/rəˈzɪl.jənt/</span>
 </div>
-<button aria-label="استمع للنطق الأمريكي" class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-sm active:scale-90" type="button">
+<button aria-label="استمع للنطق الأمريكي" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#a73a00] text-white flex items-center justify-center shadow-sm active:scale-90 cursor-pointer" type="button">
 <svg class="w-4 h-4 ml-0.5" fill="currentColor" viewbox="0 0 20 20">
 <path d="M10 3.75a.75.75 0 00-1.264-.546L4.703 7H3.25A2.25 2.25 0 001 9.25v1.5A2.25 2.25 0 003.25 13h1.453l4.033 3.796A.75.75 0 0010 16.25V3.75zM14.95 6.05a.75.75 0 010 1.06 4.25 4.25 0 010 6.01.75.75 0 11-1.06-1.06 2.75 2.75 0 000-3.89.75.75 0 011.06-1.06z"></path>
 </svg>
 </button>
-</div>
-</div>
+</div></div>
 <!-- Part of Speech Selectors -->
-<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1" data-purpose="pos-chips">
-<span class="bg-[#136a63] text-white text-xs font-bold px-3.5 py-1.5 rounded-full whitespace-nowrap shadow-xs">
-              صفة
-            </span>
-<span class="bg-stone-100 text-stone-700 text-xs font-medium px-3.5 py-1.5 rounded-full whitespace-nowrap border border-stone-200/80">
-              اسم (مرونة)
-            </span>
-<span class="bg-stone-100 text-stone-700 text-xs font-medium px-3.5 py-1.5 rounded-full whitespace-nowrap border border-stone-200/80">
-              ظرف (بمرونة)
-            </span>
-</div>
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1" data-purpose="pos-chips"><button class="bg-[#136a63] text-white text-xs font-bold px-4 min-h-[44px] flex items-center justify-center rounded-full whitespace-nowrap shadow-xs cursor-pointer" type="button">
+  صفة
+</button>
+<button class="bg-stone-100 text-stone-800 text-xs font-medium px-4 min-h-[44px] flex items-center justify-center rounded-full whitespace-nowrap border border-stone-200/80 active:bg-stone-200 cursor-pointer" type="button">
+  اسم (مرونة)
+</button>
+<button class="bg-stone-100 text-stone-800 text-xs font-medium px-4 min-h-[44px] flex items-center justify-center rounded-full whitespace-nowrap border border-stone-200/80 active:bg-stone-200 cursor-pointer" type="button">
+  ظرف (بمرونة)
+</button></div>
 </div>
 <!-- BEGIN: TeacherCoachSlot -->
-<section class="border-2 border-dashed border-[#136a63]/40 bg-[#f4faf9] rounded-2xl p-3 relative flex flex-col gap-1.5" data-purpose="teacher-coach-slot">
-<!-- Top Row Meta -->
+<section class="border-2 border-dashed border-[#136a63]/40 bg-[#f4faf9] rounded-2xl p-3 relative flex flex-col gap-1.5" data-purpose="teacher-coach-slot"><!-- Top Row Meta -->
 <div class="flex items-center justify-between">
-<div class="flex items-center gap-1.5 text-[#136a63] font-bold text-xs">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<div class="flex items-center gap-1.5 text-[#0e4e49] font-bold text-xs">
+<svg class="w-4 h-4 text-[#0e4e49]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="2"></path>
 <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-width="2"></path>
 </svg>
 <span>خانة المعلم</span>
 </div>
-<span class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-black px-2 py-0.5 rounded-md">
-              أولوية المهمة 2
-            </span>
+<span class="bg-amber-100 text-amber-950 border border-amber-300 text-[10px] font-black px-2 py-0.5 rounded-md">
+  أولوية المهمة 2
+</span>
 </div>
-<!-- Coach Note Quote -->
-<p class="text-xs leading-relaxed text-slate-700 font-semibold">
-            "عالي الفائدة في مهمة الكتابة 2 لاختبار آيلتس عند وصف الاقتصادات أو التكيفات المناخية!"
-          </p>
-</section>
+<!-- Coach Note Quote with dark high-contrast slate text -->
+<p class="text-xs leading-relaxed text-slate-800 font-semibold">
+  "عالي الفائدة في مهمة الكتابة 2 لاختبار آيلتس عند وصف الاقتصادات أو التكيفات المناخية!"
+</p></section>
 <!-- END: TeacherCoachSlot -->
 <!-- BEGIN: CoreMeanings -->
 <section class="flex flex-col gap-2.5" data-purpose="core-meanings-section">
@@ -307,28 +295,26 @@
 </section>
 <!-- END: ExamExamples -->
 <!-- BEGIN: EssentialCollocations -->
-<section class="flex flex-col gap-2" data-purpose="collocations-section">
-<h3 class="text-xs font-extrabold text-slate-800">
-            متلازمات لغوية أساسية وتركيبات أكاديمية
-          </h3>
-<div class="flex flex-wrap gap-1.5 pt-0.5">
-<span class="bg-[#fef3c7]/60 hover:bg-[#fef3c7] text-[#78350f] border border-amber-200 text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              مرن للغاية
-            </span>
-<span class="bg-[#fef3c7]/60 hover:bg-[#fef3c7] text-[#78350f] border border-amber-200 text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              اقتصاد مرن
-            </span>
-<span class="bg-[#fef3c7]/60 hover:bg-[#fef3c7] text-[#78350f] border border-amber-200 text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              صامد أمام المناخ
-            </span>
-<span class="bg-[#fef3c7]/60 hover:bg-[#fef3c7] text-[#78350f] border border-amber-200 text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              مرن عاطفياً
-            </span>
-<span class="bg-[#fef3c7]/60 hover:bg-[#fef3c7] text-[#78350f] border border-amber-200 text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              مواد مرنة
-            </span>
-</div>
-</section>
+<section class="flex flex-col gap-2" data-purpose="collocations-section"><h3 class="text-xs font-extrabold text-slate-800">
+  متلازمات لغوية أساسية وتركيبات أكاديمية
+</h3>
+<div class="flex flex-wrap gap-2 pt-0.5">
+<button class="bg-[#fef3c7] hover:bg-amber-200 text-[#78350f] border border-amber-300 text-xs font-bold px-3.5 min-h-[44px] flex items-center justify-center rounded-full cursor-pointer transition-colors active:scale-95" type="button">
+  مرن للغاية
+</button>
+<button class="bg-[#fef3c7] hover:bg-amber-200 text-[#78350f] border border-amber-300 text-xs font-bold px-3.5 min-h-[44px] flex items-center justify-center rounded-full cursor-pointer transition-colors active:scale-95" type="button">
+  اقتصاد مرن
+</button>
+<button class="bg-[#fef3c7] hover:bg-amber-200 text-[#78350f] border border-amber-300 text-xs font-bold px-3.5 min-h-[44px] flex items-center justify-center rounded-full cursor-pointer transition-colors active:scale-95" type="button">
+  صامد أمام المناخ
+</button>
+<button class="bg-[#fef3c7] hover:bg-amber-200 text-[#78350f] border border-amber-300 text-xs font-bold px-3.5 min-h-[44px] flex items-center justify-center rounded-full cursor-pointer transition-colors active:scale-95" type="button">
+  مرن عاطفياً
+</button>
+<button class="bg-[#fef3c7] hover:bg-amber-200 text-[#78350f] border border-amber-300 text-xs font-bold px-3.5 min-h-[44px] flex items-center justify-center rounded-full cursor-pointer transition-colors active:scale-95" type="button">
+  مواد مرنة
+</button>
+</div></section>
 <!-- END: EssentialCollocations -->
 <!-- BEGIN: CardDeckAction -->
 <div class="pt-2">

@@ -135,30 +135,21 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
 <!-- Mobile screen container (390px fixed edge-to-edge view, no device frame) -->
 <main class="w-[390px] min-h-screen bg-background relative flex flex-col pb-44 overflow-x-hidden">
 <!-- 1. Exact INNER Top App Bar (Docked Top) -->
 <header class="sticky top-0 z-40 bg-surface shadow-[0_4px_0_0_#efe0d6] px-space-md py-space-sm h-16 flex items-center justify-between border-b-2 border-surface-variant">
 <!-- Left: Back Action -->
-<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all" type="button">
-<span class="material-symbols-outlined text-primary">arrow_back</span>
-</button>
+<button aria-label="Go back" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all" type="button"><span class="material-symbols-outlined text-primary">arrow_back</span></button>
 <!-- Center: Title & Subtitle -->
 <div class="flex flex-col items-center justify-center text-center">
 <h1 class="text-headline-sm font-headline-sm text-primary tracking-tight leading-tight">Mistake Notebook</h1>
 <p class="text-label-sm font-label-sm text-on-surface-variant">#/mistakes • 25 items</p>
 </div>
 <!-- Right: Action Icons (Filter & Bookmark) -->
-<div class="flex items-center gap-1.5">
-<button aria-label="Filter items" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant bg-surface-container-lowest border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]">filter_list</span>
-</button>
-<button aria-label="Saved bookmarks" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant bg-surface-container-lowest border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]">bookmark</span>
-</button>
-</div>
+<div class="flex items-center gap-1.5"><button aria-label="Filter items" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant bg-surface-container-lowest border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all" type="button"><span class="material-symbols-outlined text-[20px]">filter_list</span></button><button aria-label="Saved bookmarks" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant bg-surface-container-lowest border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all" type="button"><span class="material-symbols-outlined text-[20px]">bookmark</span></button></div>
 </header>
 <!-- CONTENT CANVAS -->
 <div class="px-space-md pt-3 flex flex-col gap-3.5">
@@ -171,10 +162,7 @@
 </div>
 <div class="flex flex-col">
 <h2 class="text-label-lg font-label-lg text-[#5B3700] leading-snug">You are offline – showing saved content</h2>
-<p class="text-label-sm font-label-sm text-[#7D4E00] mt-0.5 flex items-center gap-1">
-<span class="inline-block w-1.5 h-1.5 rounded-full bg-[#136A63]"></span>
-                Showing 25 cached mistakes • Last synced today 09:15 AM
-              </p>
+<p class="text-label-sm font-label-sm text-[#5B3700] mt-0.5 flex items-center gap-1"><span class="inline-block w-1.5 h-1.5 rounded-full bg-[#136A63]"></span>Showing 25 cached mistakes • Last synced today 09:15 AM</p>
 </div>
 </div>
 </div>
@@ -203,28 +191,7 @@
 </div>
 </section>
 <!-- 4. Filter Pills Row -->
-<nav aria-label="Filter mistakes" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-<!-- Active Filter: All (25) -->
-<button class="shrink-0 bg-primary-container text-on-primary border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] rounded-full px-3.5 py-1.5 text-label-md font-label-md flex items-center gap-1.5 active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span>All (25)</span>
-<span class="w-2 h-2 rounded-full bg-[#1DB954] shadow-[0_0_4px_#1DB954]" title="Cached locally"></span>
-</button>
-<!-- Grammar (12) -->
-<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-surface-container active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span>Grammar (12)</span>
-<span class="text-[10px] text-outline font-bold">●</span>
-</button>
-<!-- Vocabulary (8) -->
-<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-surface-container active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span>Vocabulary (8)</span>
-<span class="text-[10px] text-outline font-bold">●</span>
-</button>
-<!-- Past 7 days dropdown -->
-<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1 hover:bg-surface-container active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span>Past 7 days</span>
-<span class="material-symbols-outlined text-[18px]">expand_more</span>
-</button>
-</nav>
+<nav aria-label="Filter mistakes" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"><button class="shrink-0 min-h-[44px] bg-primary-container text-on-primary border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] rounded-full px-4 py-2 text-label-md font-label-md flex items-center gap-1.5 active:translate-y-0.5 active:shadow-none transition-all" type="button"><span>All (25)</span><span class="w-2 h-2 rounded-full bg-[#1DB954] shadow-[0_0_4px_#1DB954]" title="Cached locally"></span></button><button class="shrink-0 min-h-[44px] bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] rounded-full px-3.5 py-2 text-label-md font-label-md flex items-center gap-1.5 hover:bg-surface-container active:translate-y-0.5 active:shadow-none transition-all" type="button"><span>Grammar (12)</span><span class="text-[10px] text-on-surface-variant font-bold">●</span></button><button class="shrink-0 min-h-[44px] bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] rounded-full px-3.5 py-2 text-label-md font-label-md flex items-center gap-1.5 hover:bg-surface-container active:translate-y-0.5 active:shadow-none transition-all" type="button"><span>Vocabulary (8)</span><span class="text-[10px] text-on-surface-variant font-bold">●</span></button><button class="shrink-0 min-h-[44px] bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] rounded-full px-3.5 py-2 text-label-md font-label-md flex items-center gap-1 hover:bg-surface-container active:translate-y-0.5 active:shadow-none transition-all" type="button"><span>Past 7 days</span><span class="material-symbols-outlined text-[18px]">expand_more</span></button></nav>
 <!-- 5. Mistake Cards List -->
 <section aria-label="Mistake cards" class="flex flex-col gap-3.5 mt-0.5">
 <!-- CARD 1: Grammar (Cached locally, active) -->
@@ -252,16 +219,7 @@
 </div>
 </div>
 <!-- Bottom card actions: Offline audio & 1x Drill -->
-<div class="flex items-center justify-between pt-1">
-<button class="h-9 px-2.5 bg-surface rounded-lg border border-surface-variant text-primary text-label-sm font-label-sm flex items-center gap-1.5 hover:bg-surface-container active:translate-y-0.5 transition-all" type="button">
-<span class="material-symbols-outlined text-[18px]">volume_up</span>
-<span>Offline audio ready</span>
-</button>
-<button class="h-9 px-4 bg-primary-container text-on-primary rounded-lg border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
-<span>Drill 1x</span>
-<span class="material-symbols-outlined text-[16px]">play_arrow</span>
-</button>
-</div>
+<div class="flex items-center justify-between pt-1"><button class="min-h-[44px] h-11 px-3 bg-surface rounded-lg border border-surface-variant text-primary text-label-sm font-label-sm flex items-center gap-1.5 hover:bg-surface-container active:translate-y-0.5 transition-all" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span><span>Offline audio ready</span></button><button class="min-h-[44px] h-11 px-4 bg-primary-container text-on-primary rounded-lg border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button"><span>Drill 1x</span><span class="material-symbols-outlined text-[16px]">play_arrow</span></button></div>
 </article>
 <!-- CARD 2: Vocabulary (Cached locally, active) -->
 <article class="bg-surface-container-lowest border-2 border-surface-variant rounded-xl p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5 transition-all">
@@ -288,16 +246,7 @@
 </div>
 </div>
 <!-- Bottom card actions -->
-<div class="flex items-center justify-between pt-1">
-<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-tertiary">history_toggle_off</span>
-              Tested yesterday
-            </span>
-<button class="h-9 px-4 bg-primary-container text-on-primary rounded-lg border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
-<span>Drill 1x</span>
-<span class="material-symbols-outlined text-[16px]">play_arrow</span>
-</button>
-</div>
+<div class="flex items-center justify-between pt-1"><span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">history_toggle_off</span>Tested yesterday</span><button class="min-h-[44px] h-11 px-4 bg-primary-container text-on-primary rounded-lg border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button"><span>Drill 1x</span><span class="material-symbols-outlined text-[16px]">play_arrow</span></button></div>
 </article>
 <!-- CARD 3: Pronunciation (DIMMED / Online AI disabled) -->
 <article class="bg-surface-container-lowest/80 border-2 border-surface-variant/80 rounded-xl p-3.5 shadow-[0_2px_0_0_#efe0d6] flex flex-col gap-2.5 relative opacity-85">
@@ -325,17 +274,7 @@
             </p>
 </div>
 <!-- Actions: Listen available, Record DISABLED -->
-<div class="flex items-center justify-between pt-1">
-<button class="h-9 px-2.5 bg-surface rounded-lg border border-surface-variant text-primary text-label-sm font-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
-<span class="material-symbols-outlined text-[18px]">volume_up</span>
-<span>Listen (Cached)</span>
-</button>
-<!-- Disabled Record button -->
-<button aria-disabled="true" class="h-9 px-3.5 bg-surface-variant text-outline rounded-lg border-2 border-outline-variant cursor-not-allowed flex items-center gap-1.5 opacity-70" disabled="" type="button">
-<span class="material-symbols-outlined text-[16px]">mic_off</span>
-<span class="text-label-sm font-label-sm line-through">Record drill</span>
-</button>
-</div>
+<div class="flex items-center justify-between pt-1"><button class="min-h-[44px] h-11 px-3 bg-surface rounded-lg border border-surface-variant text-primary text-label-sm font-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span><span>Listen (Cached)</span></button><button aria-disabled="true" class="min-h-[44px] h-11 px-3.5 bg-surface-variant text-on-surface-variant rounded-lg border-2 border-outline cursor-not-allowed flex items-center gap-1.5" disabled="" type="button"><span class="material-symbols-outlined text-[16px]">mic_off</span><span class="text-label-sm font-label-sm line-through">Record drill</span></button></div>
 </article>
 <!-- CARD 4: Grammar Agreement (Cached locally, fully interactive) -->
 <article class="bg-surface-container-lowest border-2 border-surface-variant rounded-xl p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5 transition-all">
@@ -362,16 +301,7 @@
 </div>
 </div>
 <!-- Bottom card actions -->
-<div class="flex items-center justify-between pt-1">
-<span class="text-label-sm font-label-sm text-[#136A63] font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">bolt</span>
-              Drill ready offline
-            </span>
-<button class="h-9 px-4 bg-primary-container text-on-primary rounded-lg border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
-<span>Drill 1x</span>
-<span class="material-symbols-outlined text-[16px]">play_arrow</span>
-</button>
-</div>
+<div class="flex items-center justify-between pt-1"><span class="text-label-sm font-label-sm text-[#136A63] font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bolt</span>Drill ready offline</span><button class="min-h-[44px] h-11 px-4 bg-primary-container text-on-primary rounded-lg border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button"><span>Drill 1x</span><span class="material-symbols-outlined text-[16px]">play_arrow</span></button></div>
 </article>
 </section>
 </div>
@@ -390,35 +320,7 @@
 </div>
 </div>
 <!-- 7. Canonical Lexkite BottomNavBar (Docked full-width bottom-0, fixed 390px layout) -->
-<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 flex justify-around items-center px-space-xs py-space-xs h-20 bg-surface shadow-[0_-4px_0_0_#efe0d6] border-t-2 border-surface-variant">
-<!-- Tab 1: Today -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#">
-<span class="material-symbols-outlined text-[24px]">today</span>
-<span class="text-label-sm font-label-sm mt-0.5">Today</span>
-</a>
-<!-- Tab 2: Vocab (ACTIVE with red dot and orange pill) -->
-<a aria-current="page" class="relative flex flex-col items-center justify-center bg-secondary-container text-on-secondary-fixed rounded-full px-space-md py-space-xs border-2 border-secondary shadow-[0_2px_0_0_#8c5000] active:translate-y-0.5" href="#">
-<!-- Active indicator notification red dot -->
-<span class="absolute top-1 right-2.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface-container-lowest"></span>
-<span class="material-symbols-outlined text-[24px] material-symbols-fill text-[#2d1600]">menu_book</span>
-<span class="text-label-sm font-label-sm mt-0.5 font-extrabold text-[#2d1600]">Vocab</span>
-</a>
-<!-- Tab 3: Skills -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#">
-<span class="material-symbols-outlined text-[24px]">psychology</span>
-<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
-</a>
-<!-- Tab 4: Tests -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#">
-<span class="material-symbols-outlined text-[24px]">assignment</span>
-<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
-</a>
-<!-- Tab 5: Me -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#">
-<span class="material-symbols-outlined text-[24px]">person</span>
-<span class="text-label-sm font-label-sm mt-0.5">Me</span>
-</a>
-</nav>
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 flex justify-around items-center px-space-xs py-space-xs h-20 bg-surface shadow-[0_-4px_0_0_#efe0d6] border-t-2 border-surface-variant"><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#"><span class="material-symbols-outlined text-[24px]">today</span><span class="text-label-sm font-label-sm mt-0.5">Today</span></a><a aria-current="page" class="relative min-h-[44px] flex flex-col items-center justify-center bg-secondary-container text-on-secondary-fixed rounded-full px-space-md py-space-xs border-2 border-secondary shadow-[0_2px_0_0_#8c5000] active:translate-y-0.5" href="#"><span class="absolute top-1 right-2.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface-container-lowest"></span><span class="material-symbols-outlined text-[24px] material-symbols-fill text-[#2d1600]">menu_book</span><span class="text-label-sm font-label-sm mt-0.5 font-extrabold text-[#2d1600]">Vocab</span></a><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#"><span class="material-symbols-outlined text-[24px]">psychology</span><span class="text-label-sm font-label-sm mt-0.5">Skills</span></a><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#"><span class="material-symbols-outlined text-[24px]">assignment</span><span class="text-label-sm font-label-sm mt-0.5">Tests</span></a><a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:bg-surface-container transition-transform active:translate-y-0.5" href="#"><span class="material-symbols-outlined text-[24px]">person</span><span class="text-label-sm font-label-sm mt-0.5">Me</span></a></nav>
 </main>
 <!-- Interactive micro-feedback for Retry button -->
 <script>

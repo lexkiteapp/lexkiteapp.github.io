@@ -130,9 +130,7 @@
 <span class="font-label-sm text-label-sm text-[#E8F1F0] font-extrabold">820</span>
 </div>
 <!-- Notification Bell -->
-<button aria-label="Notifications" class="w-8 h-8 rounded-full bg-[#172427] border border-[#22373B] flex items-center justify-center text-[#E8F1F0] hover:text-[#2DD4BF] active:translate-y-[1px] transition-transform" type="button">
-<span class="material-symbols-outlined text-[18px]">notifications</span>
-</button>
+<button aria-label="Notifications" class="w-11 h-11 rounded-full bg-[#172427] border border-[#22373B] flex items-center justify-center text-[#E8F1F0] hover:text-[#2DD4BF] active:translate-y-[1px] transition-transform shrink-0" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
 </div>
 </div>
 <!-- Section Title & Subtitle -->
@@ -141,21 +139,7 @@
 <p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Exam Simulation &amp; Diagnostic Practice</p>
 </div>
 <!-- Exam Filter Tabs -->
-<nav aria-label="Exam Filter" class="flex items-center gap-2 pt-1 overflow-x-auto no-scrollbar pb-1">
-<!-- IELTS Academic (Active) -->
-<button class="bg-[#0D3D39] text-[#2DD4BF] border-2 border-[#2DD4BF] px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#051A18] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-all" type="button">
-<span>IELTS Academic</span>
-<span class="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]"></span>
-</button>
-<!-- TOEIC -->
-<button class="bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#0A1012] hover:text-[#E8F1F0] hover:border-[#2B4247] transition-colors active:translate-y-[2px] active:shadow-none" type="button">
-          TOEIC
-        </button>
-<!-- TOEFL iBT -->
-<button class="bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#0A1012] hover:text-[#E8F1F0] hover:border-[#2B4247] transition-colors active:translate-y-[2px] active:shadow-none" type="button">
-          TOEFL iBT
-        </button>
-</nav>
+<nav aria-label="Exam Filter" class="flex items-center gap-2 pt-1 overflow-x-auto no-scrollbar pb-1"><button class="min-h-[44px] bg-[#0D3D39] text-[#2DD4BF] border-2 border-[#2DD4BF] px-4 py-2.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#051A18] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-all shrink-0" type="button"><span>IELTS Academic</span><span class="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]"></span></button><button class="min-h-[44px] bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] px-4 py-2.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#0A1012] hover:text-[#E8F1F0] hover:border-[#2B4247] transition-colors active:translate-y-[2px] active:shadow-none shrink-0" type="button">TOEIC</button><button class="min-h-[44px] bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] px-4 py-2.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#0A1012] hover:text-[#E8F1F0] hover:border-[#2B4247] transition-colors active:translate-y-[2px] active:shadow-none shrink-0" type="button">TOEFL iBT</button></nav>
 </header>
 <!-- CONTENT BODY CONTAINER -->
 <div class="px-4 flex flex-col gap-4 pt-2">
@@ -176,10 +160,7 @@
 </div>
 </div>
 <!-- Tactile Retry Button (44px min height & width) -->
-<button class="h-11 min-w-[5.5rem] px-3 bg-[#1E2F33] border-2 border-[#D97706] text-[#E8F1F0] rounded-DEFAULT font-label-md text-label-md font-extrabold shadow-[0_3px_0_0_#0A1012] flex items-center justify-center gap-1 active:translate-y-[2px] active:shadow-none transition-transform hover:bg-[#2A3F44] shrink-0" type="button">
-<span>Retry</span>
-<span class="material-symbols-outlined text-[16px] text-[#F59E0B]">refresh</span>
-</button>
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#D97706] text-[#E8F1F0] rounded-DEFAULT font-label-md text-label-md font-extrabold shadow-[0_3px_0_0_#0A1012] flex items-center justify-center gap-1 active:translate-y-[2px] active:shadow-none transition-transform hover:bg-[#2A3F44] shrink-0" type="button"><span>Retry</span><span class="material-symbols-outlined text-[16px] text-[#F59E0B]">refresh</span></button>
 </section>
 <!-- 3. ESTIMATED READINESS CARD (CACHED) -->
 <section class="bg-[#172427] border-2 border-[#1E2F33] rounded-DEFAULT p-4 shadow-[0_4px_0_0_#0A1012] flex flex-col gap-3">
@@ -220,48 +201,7 @@
 </div>
 </div>
 <!-- Module Score Badges (Cached vs Connection Required) -->
-<div class="grid grid-cols-2 gap-2 pt-1">
-<!-- Listening (Cached) -->
-<div class="bg-[#1E2F33] p-2.5 rounded-DEFAULT border border-[#2B4247] flex items-center justify-between">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-[#A9BDBB]">Listening</span>
-<span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">7.0</span>
-</div>
-<span class="inline-flex items-center gap-0.5 text-[#2DD4BF] text-[11px] font-bold bg-[#133331] border border-[#2DD4BF]/40 px-1.5 py-0.5 rounded">
-<span class="material-symbols-outlined text-[12px]">check_circle</span> cached
-            </span>
-</div>
-<!-- Reading (Cached) -->
-<div class="bg-[#1E2F33] p-2.5 rounded-DEFAULT border border-[#2B4247] flex items-center justify-between">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-[#A9BDBB]">Reading</span>
-<span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">6.5</span>
-</div>
-<span class="inline-flex items-center gap-0.5 text-[#2DD4BF] text-[11px] font-bold bg-[#133331] border border-[#2DD4BF]/40 px-1.5 py-0.5 rounded">
-<span class="material-symbols-outlined text-[12px]">check_circle</span> cached
-            </span>
-</div>
-<!-- Writing (Needs Connection) -->
-<div class="bg-[#172427]/70 p-2.5 rounded-DEFAULT border border-dashed border-[#22373B] flex items-center justify-between opacity-80">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-[#A9BDBB]">Writing</span>
-<span class="font-headline-sm text-headline-sm font-bold text-[#738A88]">6.0</span>
-</div>
-<span class="inline-flex items-center gap-0.5 text-[#A9BDBB] text-[11px] font-bold bg-[#282D2F] px-1 py-0.5 rounded">
-<span class="material-symbols-outlined text-[12px]">cloud_off</span> sync req.
-            </span>
-</div>
-<!-- Speaking (Needs Connection) -->
-<div class="bg-[#172427]/70 p-2.5 rounded-DEFAULT border border-dashed border-[#22373B] flex items-center justify-between opacity-80">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-[#A9BDBB]">Speaking</span>
-<span class="font-headline-sm text-headline-sm font-bold text-[#738A88]">6.5</span>
-</div>
-<span class="inline-flex items-center gap-0.5 text-[#A9BDBB] text-[11px] font-bold bg-[#282D2F] px-1 py-0.5 rounded">
-<span class="material-symbols-outlined text-[12px]">cloud_off</span> sync req.
-            </span>
-</div>
-</div>
+<div class="grid grid-cols-2 gap-2 pt-1"><div class="bg-[#1E2F33] p-2.5 rounded-DEFAULT border border-[#2B4247] flex items-center justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#A9BDBB]">Listening</span><span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">7.0</span></div><span class="inline-flex items-center gap-0.5 text-[#2DD4BF] text-[11px] font-bold bg-[#133331] border border-[#2DD4BF]/40 px-1.5 py-0.5 rounded"><span class="material-symbols-outlined text-[12px]">check_circle</span> cached</span></div><div class="bg-[#1E2F33] p-2.5 rounded-DEFAULT border border-[#2B4247] flex items-center justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#A9BDBB]">Reading</span><span class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">6.5</span></div><span class="inline-flex items-center gap-0.5 text-[#2DD4BF] text-[11px] font-bold bg-[#133331] border border-[#2DD4BF]/40 px-1.5 py-0.5 rounded"><span class="material-symbols-outlined text-[12px]">check_circle</span> cached</span></div><div class="bg-[#172427] p-2.5 rounded-DEFAULT border border-dashed border-[#2B4247] flex items-center justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#A9BDBB]">Writing</span><span class="font-headline-sm text-headline-sm font-bold text-[#E8F1F0]">6.0</span></div><span class="inline-flex items-center gap-0.5 text-[#A9BDBB] text-[11px] font-bold bg-[#1E2F33] border border-[#2B4247] px-1.5 py-0.5 rounded"><span class="material-symbols-outlined text-[12px]">cloud_off</span> sync req.</span></div><div class="bg-[#172427] p-2.5 rounded-DEFAULT border border-dashed border-[#2B4247] flex items-center justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#A9BDBB]">Speaking</span><span class="font-headline-sm text-headline-sm font-bold text-[#E8F1F0]">6.5</span></div><span class="inline-flex items-center gap-0.5 text-[#A9BDBB] text-[11px] font-bold bg-[#1E2F33] border border-[#2B4247] px-1.5 py-0.5 rounded"><span class="material-symbols-outlined text-[12px]">cloud_off</span> sync req.</span></div></div>
 </section>
 <!-- 4. FOCUS STRATEGY / COACH CARD -->
 <section class="bg-[#172427] border-2 border-[#1E2F33] rounded-DEFAULT p-3.5 shadow-[0_4px_0_0_#0A1012] flex items-start gap-3">
@@ -339,30 +279,7 @@
 </button>
 </article>
 <!-- Mode C: Full Mock Exam Simulation (Online Only / Dimmed) -->
-<article class="bg-[#172427]/50 border-2 border-dashed border-[#22373B] rounded-DEFAULT p-4 flex flex-col gap-2.5 opacity-75">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2.5">
-<div class="w-10 h-10 rounded-DEFAULT bg-[#1E2F33] flex items-center justify-center text-[#738A88]">
-<span class="material-symbols-outlined text-[22px]">cloud_off</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm font-bold text-[#738A88]">Full Mock Exam Simulation</h3>
-<p class="font-body-sm text-body-sm text-[#738A88]">Official IELTS Academic • 2h 45m</p>
-</div>
-</div>
-<span class="inline-flex items-center gap-1 bg-[#1E2F33] text-[#8EAAA7] border border-[#22373B] px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold">
-              Online only
-            </span>
-</div>
-<p class="font-body-sm text-body-sm text-[#738A88] italic">
-            Full 4-module simulation requires live proctor sync and audio stream connection.
-          </p>
-<!-- Dimmed / Disabled State Button -->
-<button class="w-full h-11 bg-[#1A272A] text-[#647B78] font-label-lg text-label-lg font-bold rounded-DEFAULT border-2 border-[#233538] cursor-not-allowed flex items-center justify-center gap-2" disabled="" type="button">
-<span class="material-symbols-outlined text-[18px]">lock</span>
-<span>Requires Online Connection</span>
-</button>
-</article>
+<article class="bg-[#172427]/70 border-2 border-dashed border-[#2B4247] rounded-DEFAULT p-4 flex flex-col gap-2.5"><div class="flex items-start justify-between"><div class="flex items-center gap-2.5"><div class="w-10 h-10 rounded-DEFAULT bg-[#1E2F33] flex items-center justify-center text-[#A9BDBB]"><span class="material-symbols-outlined text-[22px]">cloud_off</span></div><div><h3 class="font-headline-sm text-headline-sm font-bold text-[#E8F1F0]">Full Mock Exam Simulation</h3><p class="font-body-sm text-body-sm text-[#A9BDBB]">Official IELTS Academic • 2h 45m</p></div></div><span class="inline-flex items-center gap-1 bg-[#1E2F33] text-[#A9BDBB] border border-[#2B4247] px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold">Online only</span></div><p class="font-body-sm text-body-sm text-[#A9BDBB] italic">Full 4-module simulation requires live proctor sync and audio stream connection.</p><button class="w-full min-h-[44px] bg-[#1A272A] text-[#A9BDBB] font-label-lg text-label-lg font-bold rounded-DEFAULT border-2 border-[#2B4247] cursor-not-allowed flex items-center justify-center gap-2" disabled="" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span>Requires Online Connection</span></button></article>
 </section>
 <!-- 6. RECENT MOCK SCORES (CACHED) -->
 <section class="bg-[#172427] border-2 border-[#1E2F33] rounded-DEFAULT p-4 shadow-[0_4px_0_0_#0A1012] flex flex-col gap-3">
@@ -403,41 +320,10 @@
 </div>
 </div>
 <!-- Sync link -->
-<div class="pt-1 text-center">
-<a class="inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#2DD4BF] underline underline-offset-4 active:opacity-75" href="#sync">
-<span class="material-symbols-outlined text-[16px]">sync</span>
-            View detailed reports (Sync required)
-          </a>
-</div>
+<div class="pt-1 text-center"><a class="inline-flex items-center justify-center min-h-[44px] px-3 gap-1 font-label-md text-label-md font-bold text-[#2DD4BF] underline underline-offset-4 active:opacity-75" href="#sync"><span class="material-symbols-outlined text-[16px]">sync</span><span>View detailed reports (Sync required)</span></a></div>
 </section>
 </div>
 <!-- 7. CANONICAL BOTTOM NAVIGATION BAR -->
-<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t-2 border-[#1E2F33] max-w-[390px] mx-auto right-0 shadow-[0_-4px_0_0_#0A1012]">
-<!-- 1. Today (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined text-[24px]">today</span>
-<span class="font-label-sm text-label-sm">Today</span>
-</button>
-<!-- 2. Vocab (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined text-[24px]">menu_book</span>
-<span class="font-label-sm text-label-sm">Vocab</span>
-</button>
-<!-- 3. Skills (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined text-[24px]">bolt</span>
-<span class="font-label-sm text-label-sm">Skills</span>
-</button>
-<!-- 4. Tests (ACTIVE - Exact mapping from JSON & Style guidance) -->
-<button aria-current="page" class="flex flex-col items-center justify-center bg-[#F59E0B] text-[#1A0D00] rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#0A1012] active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined text-[24px] text-[#1A0D00]" data-weight="fill">assignment</span>
-<span class="font-label-sm text-label-sm font-extrabold text-[#1A0D00]">Tests</span>
-</button>
-<!-- 5. Me (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined text-[24px]">person</span>
-<span class="font-label-sm text-label-sm">Me</span>
-</button>
-</nav>
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t-2 border-[#1E2F33] max-w-[390px] mx-auto right-0 shadow-[0_-4px_0_0_#0A1012]"><button class="flex flex-col items-center justify-center min-w-[44px] min-h-[48px] text-[#A9BDBB] hover:text-[#E8F1F0] px-2 py-1.5 transition-colors active:translate-y-[2px] transition-transform duration-100" type="button"><span class="material-symbols-outlined text-[24px]">today</span><span class="font-label-sm text-label-sm">Today</span></button><button class="flex flex-col items-center justify-center min-w-[44px] min-h-[48px] text-[#A9BDBB] hover:text-[#E8F1F0] px-2 py-1.5 transition-colors active:translate-y-[2px] transition-transform duration-100" type="button"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm">Vocab</span></button><button class="flex flex-col items-center justify-center min-w-[44px] min-h-[48px] text-[#A9BDBB] hover:text-[#E8F1F0] px-2 py-1.5 transition-colors active:translate-y-[2px] transition-transform duration-100" type="button"><span class="material-symbols-outlined text-[24px]">bolt</span><span class="font-label-sm text-label-sm">Skills</span></button><button aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] bg-[#F59E0B] text-[#1A0D00] rounded-DEFAULT px-space-md py-1 shadow-[0_3px_0_0_#0A1012] active:translate-y-[2px] transition-transform duration-100" type="button"><span class="material-symbols-outlined text-[24px] text-[#1A0D00]" data-weight="fill">assignment</span><span class="font-label-sm text-label-sm font-extrabold text-[#1A0D00]">Tests</span></button><button class="flex flex-col items-center justify-center min-w-[44px] min-h-[48px] text-[#A9BDBB] hover:text-[#E8F1F0] px-2 py-1.5 transition-colors active:translate-y-[2px] transition-transform duration-100" type="button"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-label-sm">Me</span></button></nav>
 </main>
 </body></html>

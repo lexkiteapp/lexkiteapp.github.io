@@ -117,29 +117,14 @@
 </svg>
 </div>
 <!-- Input Field -->
-<input class="w-full bg-transparent py-2.5 px-0 text-sm font-latin font-semibold text-[#E8F1F0] focus:outline-none border-none focus:ring-0 placeholder:font-arabic placeholder:text-[#A9BDBB]/60" placeholder="ابحث عن كلمة..." type="text" value="resilient"/>
+<input class="w-full bg-transparent py-2.5 px-0 text-sm font-latin font-semibold text-[#E8F1F0] focus:outline-none border-none focus:ring-0 placeholder:font-arabic placeholder:text-[#A9BDBB]/60 min-h-[44px]" placeholder="ابحث عن كلمة..." type="text" value="resilient"/>
 <!-- Action Buttons (Left for RTL) -->
-<div class="flex items-center pl-3 gap-1">
-<button aria-label="مسح النص" class="p-1 rounded-full text-[#A9BDBB] hover:text-[#E8F1F0] active:scale-95" type="button">
-<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<button aria-label="البحث الصوتي" class="p-1.5 rounded-lg text-[#A9BDBB] hover:bg-[#1E2F33] active:scale-95" type="button">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-</div>
+<div class="flex items-center pl-3 gap-1"><button aria-label="مسح النص" class="w-11 h-11 flex items-center justify-center rounded-full text-[#A9BDBB] hover:text-[#E8F1F0] active:scale-95" type="button"><svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path></svg></button><button aria-label="البحث الصوتي" class="w-11 h-11 flex items-center justify-center rounded-lg text-[#A9BDBB] hover:bg-[#1E2F33] active:scale-95" type="button"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div>
 </div>
 <!-- Recent Pills -->
 <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5" data-purpose="recent-searches">
 <span class="text-xs font-bold text-[#A9BDBB] whitespace-nowrap">الأحدث:</span>
-<div class="flex items-center gap-1.5 font-latin">
-<button class="text-xs bg-[#1E2F33] text-[#E8F1F0] px-3 py-1 rounded-full border border-[#2a3d42] font-medium active:bg-[#172427] whitespace-nowrap shadow-xs" type="button">pragmatic</button>
-<button class="text-xs bg-[#1E2F33] text-[#E8F1F0] px-3 py-1 rounded-full border border-[#2a3d42] font-medium active:bg-[#172427] whitespace-nowrap shadow-xs" type="button">ubiquitous</button>
-<button class="text-xs bg-[#1E2F33] text-[#E8F1F0] px-3 py-1 rounded-full border border-[#2a3d42] font-medium active:bg-[#172427] whitespace-nowrap shadow-xs" type="button">meticulous</button>
-</div>
+<div class="flex items-center gap-1.5 font-latin"><button class="min-h-[44px] flex items-center text-xs bg-[#1E2F33] text-[#E8F1F0] px-3.5 py-2 rounded-full border border-[#2a3d42] font-medium active:bg-[#172427] whitespace-nowrap shadow-xs" type="button">pragmatic</button><button class="min-h-[44px] flex items-center text-xs bg-[#1E2F33] text-[#E8F1F0] px-3.5 py-2 rounded-full border border-[#2a3d42] font-medium active:bg-[#172427] whitespace-nowrap shadow-xs" type="button">ubiquitous</button><button class="min-h-[44px] flex items-center text-xs bg-[#1E2F33] text-[#E8F1F0] px-3.5 py-2 rounded-full border border-[#2a3d42] font-medium active:bg-[#172427] whitespace-nowrap shadow-xs" type="button">meticulous</button></div>
 </div>
 </section>
 <!-- END: SearchBar -->
@@ -163,44 +148,9 @@
 </div>
 </div>
 <!-- Pronunciations (Audio items kept LTR for phonetic transcriptions) -->
-<div class="grid grid-cols-2 gap-2 mt-1">
-<!-- UK Audio -->
-<div class="flex items-center justify-between bg-[#1E2F33] border border-[#2a3d42] rounded-xl px-2.5 py-2" dir="ltr">
-<div class="flex flex-col">
-<span class="text-[10px] font-extrabold text-[#2DD4BF] tracking-wide">UK</span>
-<span class="text-xs font-latin text-[#A9BDBB] font-medium">/rɪˈzɪl.i.ənt/</span>
-</div>
-<button aria-label="استمع للنطق البريطاني" class="w-8 h-8 rounded-full bg-[#2DD4BF] text-[#00201e] flex items-center justify-center shadow-sm active:scale-90" type="button">
-<svg class="w-4 h-4 ml-0.5" fill="currentColor" viewbox="0 0 20 20">
-<path d="M10 3.75a.75.75 0 00-1.264-.546L4.703 7H3.25A2.25 2.25 0 001 9.25v1.5A2.25 2.25 0 003.25 13h1.453l4.033 3.796A.75.75 0 0010 16.25V3.75zM14.95 6.05a.75.75 0 010 1.06 4.25 4.25 0 010 6.01.75.75 0 11-1.06-1.06 2.75 2.75 0 000-3.89.75.75 0 011.06-1.06z"></path>
-</svg>
-</button>
-</div>
-<!-- US Audio -->
-<div class="flex items-center justify-between bg-[#1E2F33] border border-[#2a3d42] rounded-xl px-2.5 py-2" dir="ltr">
-<div class="flex flex-col">
-<span class="text-[10px] font-extrabold text-amber-400 tracking-wide">US</span>
-<span class="text-xs font-latin text-[#A9BDBB] font-medium">/rəˈzɪl.jənt/</span>
-</div>
-<button aria-label="استمع للنطق الأمريكي" class="w-8 h-8 rounded-full bg-[#f59e0b] text-[#1a0f02] flex items-center justify-center shadow-sm active:scale-90" type="button">
-<svg class="w-4 h-4 ml-0.5" fill="currentColor" viewbox="0 0 20 20">
-<path d="M10 3.75a.75.75 0 00-1.264-.546L4.703 7H3.25A2.25 2.25 0 001 9.25v1.5A2.25 2.25 0 003.25 13h1.453l4.033 3.796A.75.75 0 0010 16.25V3.75zM14.95 6.05a.75.75 0 010 1.06 4.25 4.25 0 010 6.01.75.75 0 11-1.06-1.06 2.75 2.75 0 000-3.89.75.75 0 011.06-1.06z"></path>
-</svg>
-</button>
-</div>
-</div>
+<div class="grid grid-cols-2 gap-2 mt-1"><div class="flex items-center justify-between bg-[#1E2F33] border border-[#2a3d42] rounded-xl px-2.5 py-2 min-h-[44px]" dir="ltr"><div class="flex flex-col"><span class="text-[10px] font-extrabold text-[#2DD4BF] tracking-wide">UK</span><span class="text-xs font-latin text-[#A9BDBB] font-medium">/rɪˈzɪl.i.ənt/</span></div><button aria-label="استمع للنطق البريطاني" class="w-11 h-11 rounded-full bg-[#2DD4BF] text-[#00201e] flex items-center justify-center shadow-sm active:scale-90" type="button"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewbox="0 0 20 20"><path d="M10 3.75a.75.75 0 00-1.264-.546L4.703 7H3.25A2.25 2.25 0 001 9.25v1.5A2.25 2.25 0 003.25 13h1.453l4.033 3.796A.75.75 0 0010 16.25V3.75zM14.95 6.05a.75.75 0 010 1.06 4.25 4.25 0 010 6.01.75.75 0 11-1.06-1.06 2.75 2.75 0 000-3.89.75.75 0 011.06-1.06z"></path></svg></button></div><div class="flex items-center justify-between bg-[#1E2F33] border border-[#2a3d42] rounded-xl px-2.5 py-2 min-h-[44px]" dir="ltr"><div class="flex flex-col"><span class="text-[10px] font-extrabold text-amber-400 tracking-wide">US</span><span class="text-xs font-latin text-[#A9BDBB] font-medium">/rəˈzɪl.jənt/</span></div><button aria-label="استمع للنطق الأمريكي" class="w-11 h-11 rounded-full bg-[#f59e0b] text-[#1a0f02] flex items-center justify-center shadow-sm active:scale-90" type="button"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewbox="0 0 20 20"><path d="M10 3.75a.75.75 0 00-1.264-.546L4.703 7H3.25A2.25 2.25 0 001 9.25v1.5A2.25 2.25 0 003.25 13h1.453l4.033 3.796A.75.75 0 0010 16.25V3.75zM14.95 6.05a.75.75 0 010 1.06 4.25 4.25 0 010 6.01.75.75 0 11-1.06-1.06 2.75 2.75 0 000-3.89.75.75 0 011.06-1.06z"></path></svg></button></div></div>
 <!-- Part of Speech Selectors -->
-<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1" data-purpose="pos-chips">
-<span class="bg-[#2DD4BF] text-[#00201e] text-xs font-bold px-3.5 py-1.5 rounded-full whitespace-nowrap shadow-xs">
-              صفة
-            </span>
-<span class="bg-[#1E2F33] text-[#A9BDBB] text-xs font-medium px-3.5 py-1.5 rounded-full whitespace-nowrap border border-[#2a3d42]">
-              اسم (مرونة)
-            </span>
-<span class="bg-[#1E2F33] text-[#A9BDBB] text-xs font-medium px-3.5 py-1.5 rounded-full whitespace-nowrap border border-[#2a3d42]">
-              ظرف (بمرونة)
-            </span>
-</div>
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1" data-purpose="pos-chips"><span class="min-h-[44px] flex items-center bg-[#2DD4BF] text-[#00201e] text-xs font-bold px-3.5 py-2 rounded-full whitespace-nowrap shadow-xs">صفة</span><span class="min-h-[44px] flex items-center bg-[#1E2F33] text-[#A9BDBB] text-xs font-medium px-3.5 py-2 rounded-full whitespace-nowrap border border-[#2a3d42]">اسم (مرونة)</span><span class="min-h-[44px] flex items-center bg-[#1E2F33] text-[#A9BDBB] text-xs font-medium px-3.5 py-2 rounded-full whitespace-nowrap border border-[#2a3d42]">ظرف (بمرونة)</span></div>
 </div>
 <!-- BEGIN: TeacherCoachSlot -->
 <section class="border-2 border-dashed border-[#2DD4BF]/60 bg-[#10191B] rounded-2xl p-3 relative flex flex-col gap-1.5" data-purpose="teacher-coach-slot">
@@ -311,29 +261,13 @@
 <h3 class="text-xs font-extrabold text-[#E8F1F0]">
             متلازمات لغوية أساسية وتركيبات أكاديمية
           </h3>
-<div class="flex flex-wrap gap-1.5 pt-0.5">
-<span class="bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              مرن للغاية
-            </span>
-<span class="bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              اقتصاد مرن
-            </span>
-<span class="bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              صامد أمام المناخ
-            </span>
-<span class="bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              مرن عاطفياً
-            </span>
-<span class="bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors">
-              مواد مرنة
-            </span>
-</div>
+<div class="flex flex-wrap gap-1.5 pt-0.5"><span class="min-h-[44px] flex items-center bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-2 rounded-full cursor-pointer transition-colors">مرن للغاية</span><span class="min-h-[44px] flex items-center bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-2 rounded-full cursor-pointer transition-colors">اقتصاد مرن</span><span class="min-h-[44px] flex items-center bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-2 rounded-full cursor-pointer transition-colors">صامد أمام المناخ</span><span class="min-h-[44px] flex items-center bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-2 rounded-full cursor-pointer transition-colors">مرن عاطفياً</span><span class="min-h-[44px] flex items-center bg-[#1E2F33] hover:bg-[#2a3d42] text-[#f4bf40] border border-[#2a3d42] text-[11px] font-bold px-3 py-2 rounded-full cursor-pointer transition-colors">مواد مرنة</span></div>
 </section>
 <!-- END: EssentialCollocations -->
 <!-- BEGIN: CardDeckAction -->
 <div class="pt-2">
 <!-- Tactile Primary Button with 3D Ledge Effect -->
-<button class="btn-tactile-orange w-full bg-[#f59e0b] border-2 border-[#d97300] shadow-tactile rounded-2xl py-3 px-4 flex flex-col items-center justify-center transition-all cursor-pointer text-[#1a0f02] active:scale-95" data-purpose="add-to-deck-button" type="button">
+<button class="btn-tactile-orange w-full bg-[#f59e0b] border-2 border-[#d97300] shadow-tactile rounded-2xl py-3 px-4 flex flex-col items-center justify-center transition-all cursor-pointer text-[#1a0f02] active:scale-95 min-h-[44px]" data-purpose="add-to-deck-button" type="button">
 <div class="flex items-center gap-2 font-black text-sm">
 <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>

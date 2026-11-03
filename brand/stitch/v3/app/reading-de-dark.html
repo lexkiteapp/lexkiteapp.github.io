@@ -123,14 +123,12 @@
     }
   </style>
 </head>
-<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen pb-28 select-none font-body-md">
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen pb-28 select-none font-body-md overflow-x-hidden">
 <!-- Top App Bar -->
 <header class="sticky top-0 z-40 bg-[#10191B] w-full border-b border-[#23383E] shadow-[0_4px_0_#0B1416]">
 <div class="flex items-center justify-between px-3 h-16 max-w-screen-md mx-auto">
 <div class="flex items-center gap-2">
-<button aria-label="Zurück" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#2B4247] shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all text-[#E8F1F0]">
-<span class="font-label-sm text-label-sm text-[#E8F1F0] font-extrabold whitespace-nowrap">arrow_back</span>
-</button>
+<button aria-label="Zurück" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#2B4247] shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all text-[#E8F1F0]"><span class="material-symbols-outlined text-[24px] text-[#E8F1F0]">arrow_back</span></button>
 <div class="flex flex-col">
 <span class="font-headline-sm text-headline-sm text-[#2DD4BF] leading-tight font-extrabold tracking-tight">Lexkite IELTS</span>
 <span class="font-label-sm text-label-sm text-[#E8F1F0] font-extrabold whitespace-nowrap">Akademisches Leseverständnis</span>
@@ -143,9 +141,7 @@
 <span class="font-label-sm text-label-sm text-[#E8F1F0] font-extrabold whitespace-nowrap">18:45 übrig</span>
 </div>
 <!-- Bookmark Button -->
-<button aria-label="Lesezeichen setzen" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#2B4247] shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all text-[#E8F1F0]">
-<span class="font-label-sm text-label-sm text-[#E8F1F0] font-extrabold whitespace-nowrap">bookmark</span>
-</button>
+<button aria-label="Lesezeichen setzen" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#2B4247] shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all text-[#E8F1F0]"><span class="material-symbols-outlined text-[22px] text-[#E8F1F0]">bookmark</span></button>
 </div>
 </div>
 </header>
@@ -159,22 +155,10 @@
 </div>
 <div><p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase tracking-wider">Zugewiesene Lehrkraft</p><p class="font-body-sm text-body-sm font-bold text-[#E8F1F0]">teacher-slot</p></div>
 </div>
-<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant border border-surface-variant">
-        Nicht zugewiesen
-      </span>
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-[#1E2F33] text-[#A9BDBB] border border-[#2B4247] font-semibold">Nicht zugewiesen</span>
 </div>
 <!-- Segment / Tab Switcher -->
-<div class="flex p-1.5 rounded-2xl bg-[#172427] border-2 border-[#23383E] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
-<button class="flex-1 py-2.5 px-3 rounded-xl bg-[#0F4C47] border-2 border-[#2DD4BF] text-[#2DD4BF] font-label-md text-label-md shadow-[0_3px_0_#062A27] font-bold flex items-center justify-center gap-2 active:translate-y-[1px] transition-all">
-<span>📖</span>
-<span>Lesetext</span>
-</button>
-<button class="flex-1 py-2.5 px-3 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] font-label-md text-label-md font-bold flex items-center justify-center gap-2 transition-all relative">
-<span>📝</span>
-<span>Fragen (1–3)</span>
-<span class="w-2.5 h-2.5 rounded-full bg-secondary-container absolute top-2 right-4 shadow-[0_0_0_2px_#fff]"></span>
-</button>
-</div>
+<div class="flex p-1.5 rounded-2xl bg-[#172427] border-2 border-[#23383E] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]"><button class="flex-1 min-h-[44px] py-2.5 px-3 rounded-xl bg-[#0F4C47] border-2 border-[#2DD4BF] text-[#2DD4BF] font-label-md text-label-md shadow-[0_3px_0_#062A27] font-bold flex items-center justify-center gap-2 active:translate-y-[1px] transition-all"><span class="material-symbols-outlined text-[18px]">menu_book</span><span>Lesetext</span></button><button class="flex-1 min-h-[44px] py-2.5 px-3 rounded-xl text-[#E8F1F0] hover:bg-[#1E2F33] font-label-md text-label-md font-bold flex items-center justify-center gap-2 transition-all relative"><span class="material-symbols-outlined text-[18px] text-[#2DD4BF]">edit_note</span><span>Fragen (1–3)</span><span class="w-2.5 h-2.5 rounded-full bg-secondary-container absolute top-2 right-4 shadow-[0_0_0_2px_#0B1416]"></span></button></div>
 <!-- Passage Container Card -->
 <article class="bg-[#172427] rounded-2xl border-2 border-[#23383E] p-4 space-y-4 shadow-[0_4px_0_#0B1416]">
 <!-- Meta Badges & Header -->
@@ -196,36 +180,7 @@
         </h1>
 </div>
 <!-- English Passage Content -->
-<div class="space-y-4 text-on-surface leading-relaxed text-body-md font-body-md">
-<!-- Paragraph 1 -->
-<p class="p-3.5 rounded-xl bg-[#1E2F33] border border-[#2B4247] text-[#E8F1F0]">
-          Recent entomological assessments have challenged conventional assumptions regarding pollinator viability in heavily built environments. Contrary to expectations, dense metropolitan centers often foster robust colonies that outlive their countryside counterparts. This divergence is largely attributed to altered 
-          <button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: Futtersuchverhalten">
-<span class="underline decoration-primary decoration-2 underline-offset-2">foraging behavior</span>
-<span class="material-symbols-outlined text-[14px]">volume_up</span>
-</button> 
-          where rooftop apiaries exploit fragmented yet continuous micro-flora.
-        </p>
-<!-- Paragraph 2 -->
-<p class="p-3.5 rounded-xl bg-[#1E2F33] border border-[#2B4247] text-[#E8F1F0]">
-          Whereas agricultural mono-cultures generate severe nutritional deficits after brief flowering windows, urban landscaping guarantees steady 
-          <button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: Artenvielfalt">
-<span class="underline decoration-primary decoration-2 underline-offset-2">biodiversity</span>
-<span class="material-symbols-outlined text-[14px]">translate</span>
-</button> 
-          across municipal parks and residential terraces. Such 
-          <button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: Nährstoffvielfalt">
-<span class="underline decoration-primary decoration-2 underline-offset-2">nutritional variety</span>
-<span class="material-symbols-outlined text-[14px]">info</span>
-</button> 
-          fortifies the immune profiles of 
-          <button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: nachfolgende Kolonien">
-<span class="underline decoration-primary decoration-2 underline-offset-2">subsequent colonies</span>
-<span class="material-symbols-outlined text-[14px]">volume_up</span>
-</button> 
-          against widespread pathogen transmission.
-        </p>
-</div>
+<div class="space-y-4 text-on-surface leading-relaxed text-body-md font-body-md"><p class="p-3.5 rounded-xl bg-[#1E2F33] border border-[#2B4247] text-[#E8F1F0] leading-relaxed">Recent entomological assessments have challenged conventional assumptions regarding pollinator viability in heavily built environments. Contrary to expectations, dense metropolitan centers often foster robust colonies that outlive their countryside counterparts. This divergence is largely attributed to altered <button class="inline-flex items-center gap-1.5 px-2.5 py-1.5 min-h-[44px] rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: Futtersuchverhalten"><span class="underline decoration-primary decoration-2 underline-offset-2">foraging behavior</span><span class="material-symbols-outlined text-[16px]">volume_up</span></button> where rooftop apiaries exploit fragmented yet continuous micro-flora.</p><p class="p-3.5 rounded-xl bg-[#1E2F33] border border-[#2B4247] text-[#E8F1F0] leading-relaxed">Whereas agricultural mono-cultures generate severe nutritional deficits after brief flowering windows, urban landscaping guarantees steady <button class="inline-flex items-center gap-1.5 px-2.5 py-1.5 min-h-[44px] rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: Artenvielfalt"><span class="underline decoration-primary decoration-2 underline-offset-2">biodiversity</span><span class="material-symbols-outlined text-[16px]">translate</span></button> across municipal parks and residential terraces. Such <button class="inline-flex items-center gap-1.5 px-2.5 py-1.5 min-h-[44px] rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: Nährstoffvielfalt"><span class="underline decoration-primary decoration-2 underline-offset-2">nutritional variety</span><span class="material-symbols-outlined text-[16px]">info</span></button> fortifies the immune profiles of <button class="inline-flex items-center gap-1.5 px-2.5 py-1.5 min-h-[44px] rounded-lg bg-[#172427] border-b-2 border-[#2DD4BF] text-[#2DD4BF] font-bold hover:bg-[#0F4C47] transition-all" title="Wortschatz: nachfolgende Kolonien"><span class="underline decoration-primary decoration-2 underline-offset-2">subsequent colonies</span><span class="material-symbols-outlined text-[16px]">volume_up</span></button> against widespread pathogen transmission.</p></div>
 <!-- Vocabulary Callout Banner -->
 <div class="flex items-center justify-between p-3 rounded-xl bg-[#0F4C47] text-[#E8F1F0] border border-[#14B8A6] shadow-[0_3px_0_#062A27]">
 <div class="flex items-center gap-2">
@@ -260,25 +215,7 @@
           </p>
 </div>
 <!-- 3 Choice Buttons -->
-<div class="grid grid-cols-1 gap-2 pt-1">
-<!-- Choice: Richtig -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all">
-<span>Richtig</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-<!-- Choice: Falsch -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all">
-<span>Falsch</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-<!-- Choice: Nicht im Text (Selected) -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-primary-container bg-surface-container text-primary font-label-md text-label-md font-extrabold text-left flex items-center justify-between shadow-[0_3px_0_#136b66] transition-all">
-<span>Nicht im Text</span>
-<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] font-bold">check</span>
-</span>
-</button>
-</div>
+<div class="grid grid-cols-1 gap-2 pt-1"><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Richtig</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Falsch</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2DD4BF] bg-[#0F4C47] text-[#2DD4BF] font-label-md text-label-md font-extrabold text-left flex items-center justify-between shadow-[0_3px_0_#062A27] transition-all"><span>Nicht im Text</span><span class="w-5 h-5 rounded-full bg-[#2DD4BF] text-[#062A27] flex items-center justify-center"><span class="material-symbols-outlined text-[16px] font-bold">check</span></span></button></div>
 </div>
 <!-- Question 2 -->
 <div class="bg-[#172427] rounded-2xl border-2 border-[#23383E] p-4 space-y-3.5 shadow-[0_4px_0_#0B1416]">
@@ -291,25 +228,7 @@
           </p>
 </div>
 <!-- 3 Choice Buttons -->
-<div class="grid grid-cols-1 gap-2 pt-1">
-<!-- Choice: Richtig (Selected) -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-primary-container bg-surface-container text-primary font-label-md text-label-md font-extrabold text-left flex items-center justify-between shadow-[0_3px_0_#136b66] transition-all">
-<span>Richtig</span>
-<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] font-bold">check</span>
-</span>
-</button>
-<!-- Choice: Falsch -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all">
-<span>Falsch</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-<!-- Choice: Nicht im Text -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all">
-<span>Nicht im Text</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-</div>
+<div class="grid grid-cols-1 gap-2 pt-1"><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2DD4BF] bg-[#0F4C47] text-[#2DD4BF] font-label-md text-label-md font-extrabold text-left flex items-center justify-between shadow-[0_3px_0_#062A27] transition-all"><span>Richtig</span><span class="w-5 h-5 rounded-full bg-[#2DD4BF] text-[#062A27] flex items-center justify-center"><span class="material-symbols-outlined text-[16px] font-bold">check</span></span></button><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Falsch</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Nicht im Text</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button></div>
 </div>
 <!-- Question 3 -->
 <div class="bg-[#172427] rounded-2xl border-2 border-[#23383E] p-4 space-y-3.5 shadow-[0_4px_0_#0B1416]">
@@ -322,23 +241,7 @@
           </p>
 </div>
 <!-- 3 Choice Buttons -->
-<div class="grid grid-cols-1 gap-2 pt-1">
-<!-- Choice: Richtig -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all">
-<span>Richtig</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-<!-- Choice: Falsch -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all">
-<span>Falsch</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-<!-- Choice: Nicht im Text -->
-<button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] active:shadow-[0_1px_0_#eae1d8] transition-all">
-<span>Nicht im Text</span>
-<span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span>
-</button>
-</div>
+<div class="grid grid-cols-1 gap-2 pt-1"><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Richtig</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Falsch</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button><button class="min-h-[48px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2B4247] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-bold text-left flex items-center justify-between shadow-[0_3px_0_#0B1416] active:translate-y-[2px] active:shadow-[0_1px_0_#0B1416] transition-all"><span>Nicht im Text</span><span class="w-5 h-5 rounded-full border-2 border-outline-variant"></span></button></div>
 </div>
 </section>
 <!-- Primary Submit CTA Button -->

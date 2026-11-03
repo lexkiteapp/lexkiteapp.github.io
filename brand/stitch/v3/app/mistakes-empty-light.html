@@ -131,14 +131,14 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased flex flex-col justify-start items-center min-h-screen">
 <!-- Mobile Container (390px fixed view layout) -->
 <div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background relative pb-[88px]">
 <!-- Top App Bar -->
 <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm border-b-2 border-surface-variant shadow-[0_4px_0_0_#efe0d6] px-margin py-space-sm flex items-center justify-between">
 <div class="flex items-center gap-space-sm">
-<button aria-label="Back" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#efe0d6] transition-transform" type="button">
+<button aria-label="Back" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#efe0d6] transition-transform" type="button">
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
 </button>
 <div>
@@ -149,10 +149,10 @@
 </div>
 </div>
 <div class="flex items-center gap-1.5">
-<button aria-label="Filters" class="w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#efe0d6] transition-transform" type="button">
+<button aria-label="Filters" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#efe0d6] transition-transform" type="button">
 <span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
 </button>
-<button aria-label="Bookmarks" class="w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#efe0d6] transition-transform" type="button">
+<button aria-label="Bookmarks" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#efe0d6] transition-transform" type="button">
 <span class="material-symbols-outlined fill-icon text-[20px]" data-icon="bookmark">bookmark</span>
 </button>
 </div>
@@ -178,30 +178,28 @@
 </div>
 </section>
 <!-- Filter Row & Timeline Indicator -->
-<section class="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
-<div class="flex items-center gap-1.5">
-<!-- Filter All (0) Active -->
-<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] font-label-sm text-label-sm flex items-center gap-1 active:translate-y-0.5 active:shadow-[0_1px_0_0_#0B423E] transition-all" type="button">
-<span>All</span>
-<span class="bg-[#0B423E] text-primary-fixed text-[10px] px-1.5 py-0.2 rounded-full font-bold">0</span>
+<section class="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none"><div class="flex items-center gap-1.5">
+<!-- Filter All (0) Active with crisp >= 4.5:1 text-white contrast -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-primary text-white border-2 border-[#0B423E] shadow-[0_3px_0_0_#0B423E] font-label-sm text-label-sm flex items-center gap-1.5 active:translate-y-0.5 active:shadow-[0_1px_0_0_#0B423E] transition-all" type="button">
+<span class="font-bold">All</span>
+<span class="bg-white text-primary text-[10px] px-1.5 py-0.5 rounded-full font-extrabold">0</span>
 </button>
 <!-- Grammar (0) Inactive -->
-<button class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-sm text-label-sm flex items-center gap-1 active:translate-y-0.5 transition-all" type="button">
-<span>Grammar</span>
-<span class="bg-surface-container text-on-surface-variant text-[10px] px-1.5 py-0.2 rounded-full font-bold">0</span>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-sm text-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
+<span class="font-bold">Grammar</span>
+<span class="bg-surface-container text-on-surface text-[10px] px-1.5 py-0.5 rounded-full font-bold">0</span>
 </button>
 <!-- Vocabulary (0) Inactive -->
-<button class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-sm text-label-sm flex items-center gap-1 active:translate-y-0.5 transition-all" type="button">
-<span>Vocab</span>
-<span class="bg-surface-container text-on-surface-variant text-[10px] px-1.5 py-0.2 rounded-full font-bold">0</span>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-sm text-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
+<span class="font-bold">Vocab</span>
+<span class="bg-surface-container text-on-surface text-[10px] px-1.5 py-0.5 rounded-full font-bold">0</span>
 </button>
 </div>
-<!-- Timeline pill -->
-<div class="shrink-0 bg-surface-container-high px-2.5 py-1 rounded-full border border-surface-variant flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]" data-icon="calendar_today">calendar_today</span>
-<span>Past 7 days</span>
-</div>
-</section>
+<!-- Timeline pill min 44px tap target -->
+<div class="shrink-0 min-h-[44px] bg-surface-container-high px-3 py-2 rounded-full border border-surface-variant flex items-center gap-1.5 text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-bold">Past 7 days</span>
+</div></section>
 <!-- Main Tactile Empty State Card -->
 <section class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant shadow-[0_5px_0_0_#efe0d6] p-space-lg flex flex-col items-center text-center mt-1">
 <!-- Tactile Vector Illustration: Notebook + Badge + Pencil + Sparkles -->
@@ -278,34 +276,32 @@
 </main>
 <!-- Bottom Navigation Bar (Canonical Lexkite 5-tab bar with Vocab ACTIVE) -->
 <!-- Matches JSON specification: style_shell_layout, style_active_navigation, style_inactive_navigation -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm max-w-md mx-auto bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_0_#efe0d6]">
-<!-- Tab 1: Today -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container transition-transform active:translate-y-1" type="button">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm max-w-md mx-auto bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_0_#efe0d6]"><!-- Tab 1: Today -->
+<button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container rounded-xl transition-transform active:translate-y-1" type="button">
 <span class="material-symbols-outlined text-2xl" data-icon="today">today</span>
 <span class="font-label-sm text-label-sm mt-0.5 font-bold">Today</span>
 </button>
 <!-- Tab 2: Vocab (ACTIVE TAB) -->
-<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3 py-1.5 shadow-[0_3px_0_0_#8c5000] active:translate-y-1 transition-transform relative" type="button">
+<button class="min-w-[56px] min-h-[48px] flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3.5 py-1 shadow-[0_3px_0_0_#8c5000] active:translate-y-1 transition-transform relative" type="button">
 <span class="material-symbols-outlined fill-icon text-2xl text-[#2d1600]" data-icon="menu_book">menu_book</span>
 <span class="font-label-sm text-label-sm mt-0.5 text-[#2d1600] font-extrabold">Vocab</span>
 <!-- Active indicator dot -->
 <span class="absolute -top-1 right-2 w-2 h-2 rounded-full bg-primary border-2 border-white"></span>
 </button>
 <!-- Tab 3: Skills -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container transition-transform active:translate-y-1" type="button">
+<button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container rounded-xl transition-transform active:translate-y-1" type="button">
 <span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
 <span class="font-label-sm text-label-sm mt-0.5 font-bold">Skills</span>
 </button>
 <!-- Tab 4: Tests -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container transition-transform active:translate-y-1" type="button">
+<button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container rounded-xl transition-transform active:translate-y-1" type="button">
 <span class="material-symbols-outlined text-2xl" data-icon="assignment">assignment</span>
 <span class="font-label-sm text-label-sm mt-0.5 font-bold">Tests</span>
 </button>
 <!-- Tab 5: Me -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container transition-transform active:translate-y-1" type="button">
+<button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container rounded-xl transition-transform active:translate-y-1" type="button">
 <span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
 <span class="font-label-sm text-label-sm mt-0.5 font-bold">Me</span>
-</button>
-</nav>
+</button></nav>
 </div>
 </body></html>

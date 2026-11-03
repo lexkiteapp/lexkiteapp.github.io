@@ -18,6 +18,9 @@ for (const id of fs.readdirSync(SRC).filter(d => fs.existsSync(path.join(SRC, d,
   const r = qc[`${s}/${id}`], verdict = r ? (r.fails.length ? 'QC' : r.pick ? 'PICK' : 'PASS') : 'QC';
   (rows[s] ??= []).push(`${id} ${L.screenId} ${D.screenId} ${dev(id)} ${verdict}${teacher(id) ? ' teacher-slot' : ''} | ${L.key} project ${L.project}${r?.fails.length ? ' · QC: ' + r.fails.join(' · ').slice(0, 300) : ''}`);
 }
-for (const [s, rs] of Object.entries(rows)) fs.writeFileSync(path.join(DST, s, '.index.txt'),
-  `# Stitch v3 kho mẫu – ${s} (scripts/stitch/batch.mjs, 3 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC\n` + rs.join('\n') + '\n');
+// Gộp với .index.txt sẵn có (nhiều thư mục nguồn: v3, v3sys, v4…) – dòng mới thay dòng cùng màn, dòng màn khác giữ nguyên.
+for (const [s, rs] of Object.entries(rows)) { const f = path.join(DST, s, '.index.txt'), m = new Map();
+  if (fs.existsSync(f)) for (const l of fs.readFileSync(f, 'utf8').split('\n')) if (l && !l.startsWith('#')) m.set(l.split(' ')[0], l);
+  for (const l of rs) m.set(l.split(' ')[0], l);
+  fs.writeFileSync(f, `# Stitch v3 kho mẫu – ${s} (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC\n` + [...m.values()].sort().join('\n') + '\n'); }
 console.log(Object.entries(rows).map(([s, r]) => `${s}: ${r.length}`).join(' · '));

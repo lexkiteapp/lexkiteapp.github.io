@@ -130,7 +130,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
 <!-- Shell Container Constrained to 390px Mobile Viewport -->
 <div class="w-full max-w-[390px] mx-auto min-h-screen bg-background flex flex-col relative pb-28">
@@ -138,9 +138,7 @@
 <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 pt-3 pb-3 border-b-2 border-outline-variant/30 shadow-[0_4px_0_#f0e7de]">
 <div class="flex items-center justify-between gap-2">
 <!-- Back Button -->
-<button class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] flex items-center justify-center text-primary transition-all">
-<span class="material-symbols-outlined text-[22px]">arrow_back</span>
-</button>
+<button class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] flex items-center justify-center text-primary transition-all"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button>
 <!-- Brand / Screen Anchor -->
 <div class="flex flex-col items-center">
 <span class="font-headline-sm text-headline-sm text-primary leading-tight font-extrabold tracking-tight">Lexkite</span>
@@ -173,9 +171,7 @@
             5 Active collections • Spaced repetition
           </p>
 </div>
-<button class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] flex items-center justify-center text-on-surface-variant active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] transition-all">
-<span class="material-symbols-outlined text-[20px]">search</span>
-</button>
+<button class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] flex items-center justify-center text-on-surface-variant active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] transition-all"><span class="material-symbols-outlined text-[20px]">search</span></button>
 </section>
 <!-- Primary Action Buttons -->
 <section class="flex items-center gap-2.5">
@@ -191,22 +187,7 @@
 </button>
 </section>
 <!-- Filter Chips (Tactile Pills) -->
-<section class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
-<!-- Active Chip -->
-<button class="px-3.5 py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary border-2 border-primary shadow-[0_3px_0_#00201e] whitespace-nowrap active:translate-y-[1px]">
-          All (5)
-        </button>
-<!-- Inactive Chips -->
-<button class="px-3.5 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px]">
-          Due (3)
-        </button>
-<button class="px-3.5 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px]">
-          Mastered (1)
-        </button>
-<button class="px-3.5 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px]">
-          Archived
-        </button>
-</section>
+<section class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar"><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-primary text-on-primary border-2 border-primary shadow-[0_3px_0_#00201e] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">All (5)</button><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">Due (3)</button><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">Mastered (1)</button><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">Archived</button></section>
 <!-- SKELETON: Daily Drill Summary Card -->
 <section class="bg-surface-container-lowest border-2 border-surface-dim rounded-2xl p-4 shadow-[0_4px_0_#e2d8d0] relative overflow-hidden">
 <!-- Pulsing Accent Bar Highlight -->
@@ -369,32 +350,6 @@
 </section>
 </main>
 <!-- Bottom Navigation Bar (Semantic Shell: JSON Aligned & Interactive) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest border-t-2 border-outline-variant/40 shadow-[0_-4px_0_#f0e7de]">
-<!-- Tab 1: Today -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform">
-<span class="material-symbols-outlined text-[22px]">calendar_today</span>
-<span class="font-label-sm text-label-sm mt-0.5">Today</span>
-</button>
-<!-- Tab 2: Vocab (ACTIVE TAB - Maps to Decks / Vocab) -->
-<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1.5 shadow-[0_3px_0_#00201e] active:translate-y-[2px] active:shadow-none transition-transform">
-<span class="material-symbols-outlined text-[22px] fill-1">menu_book</span>
-<span class="font-label-sm text-label-sm mt-0.5 font-extrabold text-on-primary">Vocab</span>
-</button>
-<!-- Tab 3: Skills -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform">
-<span class="material-symbols-outlined text-[22px]">psychology</span>
-<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
-</button>
-<!-- Tab 4: Tests -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform">
-<span class="material-symbols-outlined text-[22px]">quiz</span>
-<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
-</button>
-<!-- Tab 5: Me -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="font-label-sm text-label-sm mt-0.5">Me</span>
-</button>
-</nav>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest border-t-2 border-outline-variant/40 shadow-[0_-4px_0_#f0e7de]"><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-sm text-label-sm mt-0.5">Today</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1.5 shadow-[0_3px_0_#00201e] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-[22px] fill-1">menu_book</span><span class="font-label-sm text-label-sm mt-0.5 font-extrabold text-on-primary">Vocab</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">psychology</span><span class="font-label-sm text-label-sm mt-0.5">Skills</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">quiz</span><span class="font-label-sm text-label-sm mt-0.5">Tests</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm mt-0.5">Me</span></button></nav>
 </div>
 </body></html>

@@ -1,163 +1,193 @@
-# Stitch v3 kho mẫu – app (scripts/stitch/batch.mjs, 3 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
-account f8bf6b4ccf9e4d2f83697d4159a53af4 4a9cee2a0a974512bf9ba1b5a6d8864e MOBILE QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "Add device
-              82×20") · light: tương phản 8 chữ (vd "LK" 3.04<4.5) · dark: 1 vùng chạm < 44px (vd "Add deviceadd_circle 82×20") · dark: tương phản 2 chữ (vd "LK" 1.17<4.5)
-account-ar be3ca6330a914f9586de87da525cc47a c54727d41bfa459db05b3dc31e236d53 MOBILE QC | key3 project 18075333702575270507
-account-de e56aa3818608486cb67c8ea510c0e4dd 26a4d3b2a4104523bd0e7927f9b061d6 MOBILE QC | key3 project 18075333702575270507
-account-desktop 462aa6a8bfcf4b1f809609e70dc45353 4326c75b9498426cb1711e8faf050b86 DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 9 chữ (vd "CEFR B2 → C1 Track" 2.55<4.5) · dark: tương phản 4 chữ (vd "Profile & Academic Settings" 2.52<3)
-deck 6afd4f0772c04eadbd2d5046c053c901 9fce8c3dc63e455a854736cd6fafb605 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 15 chữ (vd "My decks" 4.35<4.5)
-deck-ar bcb31d320ac3462e825e2777f69c29ea 825afe877222421b8d431c5b0d69a9d9 MOBILE QC | key3 project 18075333702575270507
-deck-de 6bf57d86c25241bfa609464f3e609c73 3ec079a2c12344b39cf1a694293d9ce5 MOBILE QC | key3 project 18075333702575270507
-deck-desktop 73bacdda083d47a6a75875d48e9277c7 b9e181da20a24cea88f3936e19014c49 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 16 vùng chạm < 44px (vd "settings 32×32") · light: tương phản 15 chữ (vd "Mục tiêu: 8.0 Band" 4.12<4.5) · dark: 16 vùng chạm < 44px (vd "settings 32×32")
-deck-empty ed8b17a115724305a6b8a2d6797de909 b8a6195162964fc2bacaf3591aefb9d0 MOBILE QC | key3 project 18075333702575270507
-deck-error 6995f82f67b94dbab724add2ba4679e2 c1ad00b3d83e48479363bb18a9fee8ec MOBILE QC | key3 project 18075333702575270507
-deck-loading 180fbe7540a741acb2296e4f014d0672 6e57e2cb28074433a42e98b1cc75f995 MOBILE QC | key3 project 18075333702575270507
-dict 17400aad977b49b2a0af4aeca7c32f4b 08d8fb3654844bb2a6a496e954f6e0f7 MOBILE QC | key2 project 10804635390057604965 · QC: light: 9 vùng chạm < 44px (vd "pragmatic 92×36") · light: tương phản 2 chữ (vd "C1 • Advanced" 4.43<4.5) · dark: 12 vùng chạm < 44px (vd "arrow_back 40×40")
-dict-ar 5a72269feaee46bab6392c5f38831227 1b3eb7ce6b3b4ee4a4ed13d24c9c94c7 MOBILE QC | key2 project 10804635390057604965
-dict-de 60674cfeb8b84d01a48395427e09ebc1 169e13d4c1a147e79932f17150b6ee55 MOBILE QC | key2 project 10804635390057604965
-dict-desktop 19afdc0db2674a6a91999517b9f4864a 61073f6e1493458bb13c582f032cb7d5 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 26 vùng chạm < 44px (vd "translate
-English (EN)
-
- 238×36") · light: tương phản 1 chữ (vd "TEACHER-SLOT" 1.66<4.5) · dark: 26 vùng chạm < 44px (vd "translate
-English (EN)
-
- 238×36")
-games 7444e4071f4f47fb98f1d6093b5f44ba a4a0f014ee46435498c934dd1928282a MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 16 chữ (vd "820" 3.01<4.5) · dark: tương phản 20 chữ (vd "140x170 LIVE" 1.76<4.5) · dark: mảng sáng 40% > 12% (thẻ trắng trong nền tối?)
-games-ar 340c5f6b0cd545afa8fb815346e093a6 ee6d004c1550470f8d0852965b846868 MOBILE QC | key1 project 7268539912208977707
-games-de b5e83a852267473b929311e20fc3ea8d 10ed82f0da154a2ebbf8b55f37ca9571 MOBILE QC | key1 project 7268539912208977707
-games-desktop 24e98811f05644afbf318d456cf6130b 09fd4b8c076a4aa0aeb22fef9a06d8b9 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 6 vùng chạm < 44px (vd "settings
-Settings 222×36") · light: tương phản 33 chữ (vd "Target: IELTS 7.5" 4.36<4.5) · dark: 6 vùng chạm < 44px (vd "settings
-Settings 222×36")
-grammar 9e62a2e8656b49049eedfe936e4bbc0c e5fec5b8a20c4eafa96417f9e9f59a48 MOBILE QC | key2 project 10804635390057604965 · QC: light: 5 vùng chạm < 44px (vd "✓
-          A1 Beginner
- 168×34") · light: tương phản 6 chữ (vd "High Exam Frequency" 4.03<4.5) · dark: 5 vùng chạm < 44px (vd "✓
-A1 Beginner
-100% 168×34") · dark: tương phản 1 chữ (vd "in 2021" 1.9<4.5)
-grammar-ar 4c9494cfe6694ef88324a760ef2bdf10 2e8a40d18d5840a8bc8a58668d9c64ab MOBILE QC | key2 project 10804635390057604965
-grammar-de baf117a00ff94911a87b89679b8682e5 8b4f116d76ed4474b88be7d4e8763a10 MOBILE QC | key2 project 10804635390057604965
-grammar-desktop 3a0396bfb6ff46959c8db42c22a1f1e6 c0b62250ece5420cbe37d8ed776f6e38 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 14 vùng chạm < 44px (vd "Skills 30×16") · light: tương phản 27 chữ (vd "Syllabus · CEFR" 2.09<4.5) · dark: 14 vùng chạm < 44px (vd "Skills 30×16") · dark: tương phản 6 chữ (vd "Curriculum" 4.41<4.5)
-home 0afcabbfb9a7420ab188141ae2e41c26 70b7a3a3cf2a4af89e5ae6e050d56339 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "Connectors" 3.33<4.5) · light: tên icon hiện thành chữ "near_me" (13) · dark: tương phản 3 chữ (vd "✓" 3.04<4.5) · dark: tên icon hiện thành chữ "near_me" (13)
-home-ar 29b2370af2be484e96e63ae73a56966d 2324bf722c3843d0b3b63a7ede7df6c3 MOBILE QC | key1 project 7268539912208977707
-home-de 0b84e9f552d94acba4a7165e60ae6c8e 2601bac05650456e8e1e114412d15624 MOBILE QC | key1 project 7268539912208977707
-home-v1 0afcabbfb9a7420ab188141ae2e41c26 b3b8a9aa2ae14a9b865cdf566794a047 MOBILE QC | key1 project 7268539912208977707
-home-v2 3548dc49345f4372b6a1a54823145012 61f51223e1a04efd88283f4d008f0059 MOBILE QC | key1 project 7268539912208977707
-home-v3 32bc84556be042a29517a086cf2a658a 656194f754c849d397d65e5044ca03ea MOBILE QC | key1 project 7268539912208977707
-hub-skills cb5fe88d1dda416eb9f35c5e9c188e8f de674fc15e614052a668258c10b0cc12 MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: tương phản 1 chữ (vd "AI" 2.79<4.5)
-hub-skills-ar d0195f97b1e449f9989f545cc066f833 13a93495f15b493fb25aab4a44fe982d MOBILE QC | key2 project 10804635390057604965
-hub-skills-de 626c0e4f5ef6491185bc30a0e323729a aeb55da2657045fbb2e5dcf2d07adae4 MOBILE QC | key2 project 10804635390057604965
-hub-skills-desktop 627333fc51e8475b823288ad54ece98c 36d313b8fd734a92935cfb400bed16cf DESKTOP QC | key2 project 10804635390057604965 · QC: light: tương phản 3 chữ (vd "14d" 2.91<4.5) · dark: tương phản 1 chữ (vd "Recommended Next" 4.18<4.5)
-hub-skills-empty f4654f33933e473c9b2f4ae4fe9b0d3b 828d8b8620d543f2ae866abc99d5dec7 MOBILE QC | key2 project 10804635390057604965
-hub-skills-error cb5028c82e214c8caa8de4476e3c679c f0b4ede512ab48eaa715337314c6bbd9 MOBILE QC | key2 project 10804635390057604965
-hub-skills-loading 91b1c64b08ce4be7be6796829bbb894b 80da3db1a8a645cd80e0ca0302bb4629 MOBILE QC | key2 project 10804635390057604965
-hub-tests 0296040450604711ad0cc460ab6b3013 affaf6cedc1240a78c50d6ddbd86d4f1 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "coach" 3.9<4.5) · light: tên icon hiện thành chữ "drive_file_stream" (1) · dark: tên icon hiện thành chữ "drive_file_stream" (1)
-hub-tests-ar e9288f191d1b4924b82364f28e25ec1b 124b3ec24ffc4cc5af7ac384aab7b988 MOBILE QC | key2 project 10804635390057604965
-hub-tests-de 02ec35bd13c2447099fcf87b583dd8b7 f5e4903a0e5b4ce3b1e2252c3f2b3f13 MOBILE QC | key2 project 10804635390057604965
-hub-tests-desktop 5cc28468f56f4d46b0e1005abef7fe1c fdfb68a81777446ba35aef1c1dc0cf78 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "Blog 29×16") · light: tương phản 27 chữ (vd "15 localized targets" 4.37<4.5) · dark: 4 vùng chạm < 44px (vd "Blog 29×16")
-hub-tests-empty f240ca00a24b4afd9c2533c7ee4ffd2d 27c7a83fdb2b411084e321896b909e32 MOBILE QC | key2 project 10804635390057604965
-hub-tests-error 021719bf8d5d4589957906984fa1306d c74f22f452684aa7a4bf46d52811800b MOBILE QC | key2 project 10804635390057604965
-hub-tests-loading 8553a4940f854efb838c4df0b29fe66d d47416b0eb5847ae9ebb8d21efd6e267 MOBILE QC | key2 project 10804635390057604965
-hub-vocab a27e62eda75d4718ba98c2fe629535d0 31c4c7fa7efd410f9c2663116e5d629c MOBILE QC | key1 project 7268539912208977707 · QC: light: 6 vùng chạm < 44px (vd "INPUT 238×24") · light: tương phản 41 chữ (vd "140 x 170 Slot" 2.74<4.5) · dark: 6 vùng chạm < 44px (vd "INPUT 238×24")
-hub-vocab-ar eeee84f8ce2e4cc183f4b25ebaa7355d bbbb422fe552499fbcaf0a2acc14ac0c MOBILE QC | key1 project 7268539912208977707
-hub-vocab-de f0cf64a131c048bda518217ecc6905a0 919a058d95574970a3829ab5a4a57cfe MOBILE QC | key1 project 7268539912208977707
-hub-vocab-desktop f43c0579960a4f7c874ac90c095ca9f2 9286f917c7084f349152a9ab7c140408 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 2 vùng chạm < 44px (vd "tune 30×36") · light: tương phản 19 chữ (vd "HUB" 3.04<4.5) · dark: 2 vùng chạm < 44px (vd "tune 30×36") · dark: tương phản 1 chữ (vd "14d" 4.21<4.5)
-hub-vocab-empty 22a3c0ed5d7a4b6688c3a7ea07059122 bdcf4063c48f4f00afa17f8b6fd43fb4 MOBILE QC | key1 project 7268539912208977707
-hub-vocab-error c9ef83aab9f340a580254fde0a07aaf2 03e369823bca4cd58add27aa7549de17 MOBILE QC | key1 project 7268539912208977707
-lesson-feedback 4b62eb63ab8e49e79cd2addc2baf953b 5d9e44c9c75a4072b4bea6a031059e6e MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: 1 vùng chạm < 44px (vd "bookmark 40×40") · light: tương phản 1 chữ (vd "She 
-          
-            has lived
-  " 2.36<3) · light: chỉ 1% sáng < 35% (bản sáng bị tối?) · dark: 2 vùng chạm < 44px (vd "close 40×40")
-lesson-feedback-desktop 549061d6b571467984b1e7c400239738 1907f1e92c5543ad8b27b3fa8380753e DESKTOP QC teacher-slot | key3 project 18075333702575270507 · QC: light: tương phản 5 chữ (vd "Lernbereich" 4.37<4.5)
-lesson-map b3895c17ef4744d8812100adadc5c632 056569ce2fb846d7a21f7caff2243460 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: tương phản 15 chữ (vd "(Знакомство)" 4.35<4.5) · dark: tương phản 5 chữ (vd "Повтор" 4.1<4.5)
-lesson-question 2793d9b5edf841d496f9794c239ffa2f 64b1037ccb5946079812fa777813e2ae MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 3 chữ (vd "slot" 3.79<4.5) · dark: 4 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 6 chữ (vd "teacher" 1.67<4.5)
-lesson-question-ar 7ad2c6318ec449e3b7d516419cf3cd72 988ef1cdf0644678929228b726a69d8b MOBILE QC teacher-slot | key3 project 18075333702575270507
-lesson-question-de 5b6b86839f604e0cb1bf91364f20a0d6 728462cf3c1b4867b3456b14e90360c3 MOBILE QC teacher-slot | key3 project 18075333702575270507
-lesson-question-v1 30a0d9a5941b440ab5de162055026114 369820c9eeae4941b7d9f5a793e2d404 MOBILE QC teacher-slot | key3 project 18075333702575270507
-lesson-question-v2 44f4f4463b2e4b05acd579c97ec40ea2 e8288ce3945546c2998f347ebd8e134c MOBILE QC teacher-slot | key3 project 18075333702575270507
-lesson-question-v3 6dc02c6bbda34db9bac6eafa8aad6a70 f6e3fad5070043d4a8db48b9dc0baa3a MOBILE QC teacher-slot | key3 project 18075333702575270507
-library c0af21ec123141769b6557e74a10d5f3 5422ad49b51146c1948d9e44110ee40f MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 30 chữ (vd "local_fire_department
-                IE" 2.89<4.5) · dark: mảng sáng 99% > 12% (thẻ trắng trong nền tối?) · sáng/tối lệch nội dung: 221 vs 15 chữ
-library-ar db5c82f6ed524d5f9480f4916558005d ba0adf22270044e1bb2eb89493908c11 MOBILE QC | key3 project 18075333702575270507
-library-de 919ef1ae82414313a50c657ada1e4ec5 62cf951a70f6443c9b4981ae2ea753c1 MOBILE QC | key3 project 18075333702575270507
-library-desktop 2a14e833800749f181f920cc82750c8a 839de446c2ca4b4fac3748ec4ddfa33e DESKTOP QC | key2 project 10804635390057604965 · QC: light: 23 vùng chạm < 44px (vd "calendar_today
-Today 222×40") · dark: 23 vùng chạm < 44px (vd "calendar_today
-Today 222×40") · dark: tương phản 1 chữ (vd "⭐" 1.18<4.5)
-library-empty 0bea4c90f4a645839121ca4b0c484ee1 b6c8004e951a477b89009aaff22d76b2 MOBILE QC | key3 project 18075333702575270507
-library-error ee783e20d045425598e4aca1a0b637f5 eea05cdee2504c04ac34befabad86662 MOBILE QC | key3 project 18075333702575270507
-library-loading 849addea70eb48129f432a1f51ae303d f6cf36902041414eaa22cce2266f2951 MOBILE QC | key3 project 18075333702575270507
-method 0620b6e84bce462bb964902f0d87dc30 d712736f62544927b5b34fbad4590e88 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Empirical Pedagogy • No gimmicks • Evide" 4.35<4.5) · dark: tương phản 4 chữ (vd "2D interactive mentor loads here during " 1.53<4.5)
-method-ar ee57e8230b6e4ad3ae6fa590b1e8aa89 ef28e6a816a74c468afd143bccf22b2a MOBILE QC | key3 project 18075333702575270507
-method-de ca3d79c86d37482882f5ad702f89b81f 9c32f6ae08f94a9d8a674cf547c19f1f MOBILE QC | key3 project 18075333702575270507
-method-v1 c2dd4dd8c1fc497bbca42e82afbf9a18 c24a363c79964c31a7aaedd5740330f5 MOBILE QC | key3 project 18075333702575270507
-method-v2 d5ed93c919d94c3ba17fefc4d6610994 502a1dedbb7f4bfeb1c384a1365c483e MOBILE QC | key3 project 18075333702575270507
-method-v3 ed6a1701e0894f75b6ef329b664addee 0e5a903a93f14b27bbf6b582a26c8b7e MOBILE QC | key3 project 18075333702575270507
-mistakes 78159447a5dd4c79a1cfa019105058f0 711d6351fe5a4390a5269a043c12c556 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 4 chữ (vd "Correct Standard" 4.17<4.5)
-mistakes-ar 578839fd5e56457fb513767fe6b9b40b a9e7938e021e46989d8337cf5847ef80 MOBILE QC | key2 project 10804635390057604965
-mistakes-de d4fa559031614aabba29d255ea71c395 cda66ff7be604972a9f17e47f55805b1 MOBILE QC | key2 project 10804635390057604965
-mistakes-desktop f7824516014346d2ab39c43e80895988 dc890fa7661a49db994b40d2b4dadc97 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 11 vùng chạm < 44px (vd "Help 27×16") · light: tương phản 29 chữ (vd "IELTS · TOEIC · CEFR" 4.38<4.5) · light: tên icon hiện thành chữ "waveform" (1) · dark: 11 vùng chạm < 44px (vd "Help 27×16") · dark: tương phản 1 chữ (vd "/" 2.03<4.5) · dark: tên icon hiện thành chữ "waveform" (1)
-mistakes-empty e6fe20416fa34713a062074d6526b386 15646c610af84d4ebbd4a8d96f45316a MOBILE QC | key2 project 10804635390057604965
-mistakes-error c31fe2d6b36b4f909a8875e5888cb0d1 513184e2914e4517bbb9cc17d56101bc MOBILE QC | key2 project 10804635390057604965
-mistakes-loading d856d22b8b1b4f70b3df3bfd55de6873 5ce75bb148e1421e945f53e6ab6ce214 MOBILE QC | key2 project 10804635390057604965
-mock 3a6a64d0cb304421b11e4e80336f78c8 fa72381690f74f23bded8bcfbf8c58df MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 11 chữ (vd "•" 4.38<4.5)
-mock-ar d6e8c8599fc642a1947385785efa444e 062dc54c1b54440781f02063e44204c4 MOBILE QC | key2 project 10804635390057604965
-mock-de a2a736dacaea436db6d9510573c4f294 1afd05976e024a9baf15bbfdeacd0236 MOBILE QC | key2 project 10804635390057604965
-mock-desktop 28932307b5c24b22a4db8aa85b1aafb8 3dc40d62ba3f4603b096485977036461 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 3 vùng chạm < 44px (vd "language
-English (EN) 95×24") · light: tương phản 6 chữ (vd "Streak" 4.12<4.5) · dark: 3 vùng chạm < 44px (vd "language
-English (EN) 95×24") · dark: tương phản 1 chữ (vd "⭐" 1.18<4.5)
-placement ec75f4c01b1f4f6ebd4a6ee70220bfec ca9d4b848bcf4be790e18bc0b619f7d4 MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: chỉ 1% sáng < 35% (bản sáng bị tối?)
-placement-ar 3830720e7fa849d698300ad69804467d 8e45b6da769a4a2cbee666d73a8e098e MOBILE QC teacher-slot | key1 project 7268539912208977707
-placement-de 5215efee3a024d028f7b6b67d2eb95eb 76f545f63f524691927daa5299aa6cd8 MOBILE QC teacher-slot | key1 project 7268539912208977707
-placement-desktop eba717758f2f4df7b3d97f326e472263 1c4468bae38d4b3aa63c06f9eeafe270 DESKTOP QC teacher-slot | key1 project 7268539912208977707 · QC: light: 7 vùng chạm < 44px (vd "language
-English (US) /  222×42") · dark: 7 vùng chạm < 44px (vd "language
-English (US) /  222×42")
-practice fd0051171a824da89cea0ca9b9d0c77f 19bac608daa641e99830bb880b858ed7 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 8 chữ (vd "3 priority modules" 3.8<4.5) · dark: tương phản 20 chữ (vd "3 priority modules" 3.8<4.5) · dark: mảng sáng 77% > 12% (thẻ trắng trong nền tối?)
-practice-ar bd2eccf0124948868f5d40433beffd92 836b174f5c084b12b3ef2c06b4ec9b9b MOBILE QC | key2 project 10804635390057604965
-practice-de 5f9d6d22686342b28fc37ee2bccdadd2 07ff405b51a04f15ba0f00bdb650a337 MOBILE QC | key2 project 10804635390057604965
-practice-empty e94fb5d07d5e4d71aada3a0c97ac19c3 f34c8cec086f458cab83240ff1da6865 MOBILE QC | key2 project 10804635390057604965
-practice-error 5cddaf88eafe407cb2cf12b47dfe3c87 42c352e02165453c8469abbc26b07ee7 MOBILE QC | key2 project 10804635390057604965
-practice-loading 92b69b9f347e439294d8f615b3dec0be 86deb3cd3ce74769980c0a72a457d903 MOBILE QC | key2 project 10804635390057604965
-practice-v1 fd0051171a824da89cea0ca9b9d0c77f 547e155012af44e08d2d0b2edd4baecc MOBILE QC | key2 project 10804635390057604965
-practice-v2 5ab8a40e94fb47db91377fdaae0c79d0 11782a5813d84c5a9ebae2bfe111ef5c MOBILE QC | key2 project 10804635390057604965
-practice-v3 b6f37ba2e5a045e1925cad685b20d5ec 605c989f07884f2997e41e032f6548d0 MOBILE QC | key2 project 10804635390057604965
-pron efe7f98478ba476d84af212c2836d74e 30018c664af447dea8e90d111e388af7 MOBILE QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "Replay Split Audio 99×17") · light: tương phản 1 chữ (vd "think" 1.92<4.5) · dark: mảng sáng 99% > 12% (thẻ trắng trong nền tối?) · sáng/tối lệch nội dung: 260 vs 15 chữ
-pron-ar c4bb9ce3b7b04286804c274797877720 08e9953d94404844a7fd0c1372767768 MOBILE QC | key3 project 18075333702575270507
-pron-de 9ae6221eff624645b9b61114f83435e3 c18eb0ddc7594883860e4d1c3e006ee4 MOBILE QC | key3 project 18075333702575270507
-pron-desktop 44e1bcefa5e0415ca61f7954b5b52185 b154be9f58c847f799b2043cf0880889 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 14 vùng chạm < 44px (vd "tune
-Mic Calibrated 145×36") · light: tương phản 26 chữ (vd "Cross-Section" 4.38<4.5) · dark: 14 vùng chạm < 44px (vd "tune
-Mic Calibrated 145×36") · dark: tương phản 12 chữ (vd "vs" 4.02<4.5)
-reading e2437a8b04134c5380c30d50918044aa 8c69026358924f7988d754eb528df859 MOBILE QC | key3 project 18075333702575270507 · QC: light: 7 vùng chạm < 44px (vd "arrow_back 40×40") · dark: 7 vùng chạm < 44px (vd "arrow_back 40×40")
-reading-ar 63ca60d9746a40279e029bfaca70a21b 71eaed655787401b838dd3eb91b1e496 MOBILE QC | key3 project 18075333702575270507
-reading-de 3699240c7cd84bdbade109624ff13a5f 1c0c2804474444fb9dc74e1f711a9045 MOBILE QC | key3 project 18075333702575270507
-reading-desktop 2cbf0e5b26b44cdb9e8ba863b4333ffe d53c5b53fb2b4f229c9d0f7dae4d1833 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 7 vùng chạm < 44px (vd "format_size
-Text +/- 96×36") · light: tương phản 2 chữ (vd "•" 1.83<4.5) · dark: 7 vùng chạm < 44px (vd "format_size
-Text +/- 96×36") · dark: tương phản 1 chữ (vd "•" 2.68<4.5)
-report dee493645bbd492ea88f2afa73905faf cc189b93883544ca83f6537a6a54ea8a MOBILE QC | key2 project 10804635390057604965 · QC: dark: 8 vùng chạm < 44px (vd "arrow_back 40×40") · sáng/tối lệch nội dung: 15 vs 145 chữ
-report-ar bb64d7883e984a8697b6e21e18a4b812 2480d5090f604d13a2212b14dc7a9f41 MOBILE QC | key2 project 10804635390057604965
-report-de ceb4c47377e14c2c9c8d48631bc7292d 934d19d4de304188bf84f0ee42aef896 MOBILE QC | key2 project 10804635390057604965
-report-desktop 79e615069efe4b2c840714f12d7ce01d aa37bb25ec0a499b845d505e76d3b2d5 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 9 vùng chạm < 44px (vd "calendar_today
-Today 226×42") · light: tương phản 8 chữ (vd "Carlos (Linguist)" 3.05<4.5) · dark: 9 vùng chạm < 44px (vd "calendar_today
-Today 226×42")
-review 66706e380498463cb4dedb12af785ede 07d7476e5c2c40149da6ad4d06e33966 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 2 chữ (vd "pending_actions
-        18 Due Today" 2.24<4.5)
-review-ar 83b7e8e301104853b0658151d474d3c2 174b2395c4cb4678a0b278633c6f6b52 MOBILE QC | key2 project 10804635390057604965
-review-de d94c74018fb24df79407803e5f251fd2 c438afd628e04a7a90b63e76c944b5dd MOBILE QC | key2 project 10804635390057604965
-review-empty 5f6d245df4c1451281d497249bc0c4b3 a1f155783c2441cbb881d92089b3d504 MOBILE QC | key2 project 10804635390057604965
-review-error 9841ca8fb776420c98a0eea4bec36f07 73218c2e7e9b4efda6c03d3a65e0269f MOBILE QC | key2 project 10804635390057604965
-review-loading cf61fa197eaa4818ae96d8f1f14230de 4da7b5c696cb45099d838ef739f80128 MOBILE QC | key2 project 10804635390057604965
-review-v1 66706e380498463cb4dedb12af785ede 3df542fe45d74276aec5f9adf7e10be3 MOBILE QC | key2 project 10804635390057604965
-review-v2 3c3ddcee7a1a44bb831cfa9815d23bc8 314153505e7844d1aac31acf8e2c5321 MOBILE QC | key2 project 10804635390057604965
-review-v3 e19f77a44abd40c5b4950ccc73161702 d36d0d578da64056af376221dc1c7b6b MOBILE QC | key2 project 10804635390057604965
-settings bd596c432e3b41259304115964c30364 ff112b703f1f4e07b6b921b26baaf7ee MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 1 chữ (vd "SLOT" 1.45<4.5) · dark: 2 vùng chạm < 44px (vd "INPUT 1×1")
-settings-ar 47b293d829264a6ebcd0f9acb8518216 b9d28caa165144318ca848d465277c7f MOBILE QC | key3 project 18075333702575270507
-settings-de 85f48c4928b0487b9c60ff13eb8fe72b 7a5c1e1ed63c4fdf95a676af4bf4d7fa MOBILE QC | key3 project 18075333702575270507
-settings-desktop b47925b9ba1b40b1ba1266e92d020be7 f12be984143a4880a1292b9ff8f6309c DESKTOP QC | key2 project 10804635390057604965 · QC: light: 5 vùng chạm < 44px (vd "swap_horiz 38×36") · light: tương phản 37 chữ (vd "Active Target" 4.12<4.5) · dark: 5 vùng chạm < 44px (vd "swap_horiz 38×36") · dark: tương phản 1 chữ (vd "verified
-              IELTS Certified M" 4.31<4.5)
-stats 3a35d2a52ac544d8aa85a72510e7b2c8 9afe9189997f43d4bac8dd58b4a1c6ce MOBILE QC | key1 project 7268539912208977707 · QC: light: tràn ngang 256px · light: 5 vùng chạm < 44px (vd "share
-        Share Prog 36×104") · light: tương phản 34 chữ (vd "Streak Record" 4<4.5) · dark: tương phản 7 chữ (vd "09" 4.21<4.5)
-stats-ar 46d0cdcfa6f64eb697a13feef9d9fd9f 0a2ce63723fb48faa765ac4598616f8d MOBILE QC | key1 project 7268539912208977707
-stats-de d0e4f06f52c042d19eaa6fcf748aaedf f0bde6b37cdb4f65aeaa31c156e17755 MOBILE QC | key1 project 7268539912208977707
-stats-desktop c3e8668976a04afdb6dd28b4c52be559 fe50cb2c31f1474cb0fc33a1cc42c98a DESKTOP QC | key3 project 18075333702575270507 · QC: light: 12 vùng chạm < 44px (vd "Blog & Tips 63×18") · light: tương phản 26 chữ (vd "•" 1.65<4.5) · dark: 12 vùng chạm < 44px (vd "Blog & Tips 63×18") · dark: tương phản 11 chữ (vd "31" 4.35<4.5)
-story-quiz 5323447e994643d59637eb55385a389c 72144a21457e4393bffbcf03d110b4ea MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "restart_alt
+# Stitch v3 kho mẫu – app (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
              49×20") · light: tương phản 1 chữ (vd "Hi" 4.2<4.5) · dark: 1 vùng chạm < 44px (vd "restart_altReset 49×20")
-streak-modals de7e0c9be5a54cae8c3f8c13af660d5c 68f5bb99e73e49f19a43c29b790305dd MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "•" 1.48<4.5) · dark: tương phản 1 chữ (vd "•" 1.98<4.5)
-streak-modals-ar 63c9418e375547d0b0bd3e6df77a9c8e 2912bdeb7e5f4d949733075e33c1743a MOBILE QC | key2 project 10804635390057604965
-streak-modals-de e944cc45bdc342d780365cc871c7895d 611c0a59fe8b447a8604f55739523c53 MOBILE QC | key2 project 10804635390057604965
-streak-modals-desktop 1f80c12bb0554f93aa6d1a83760f622a 099fb123096b472bb7fb34e75e7927fe DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 21 chữ (vd "Lexkite" 1.37<3) · light: tên icon hiện thành chữ "sparkles" (1) · dark: tương phản 22 chữ (vd "IELTS · CEFR Prep" 2.5<4.5) · dark: mảng sáng 13% > 12% (thẻ trắng trong nền tối?) · dark: tên icon hiện thành chữ "sparkles" (1)
+100% 171×34")
+A1 Anfänger
+Cached audio ✓ 145×34") · dark: tương phản 11 chữ (vd ""Academic research demands meticulous da" 2.65<4.5)
+English (US) /  222×42")
+Jetzt synchronisier 157×32") · light: tương phản 7 chữ (vd "LK" 2.85<4.5) · dark: 2 vùng chạm < 44px (vd "syncJetzt synchronisiere 157×32") · dark: tương phản 2 chữ (vd "LK" 1.23<4.5)
+Lesetext 173×42") · dark: tương phản 1 chữ (vd "📝" 1.92<4.5) · dark: mảng sáng 14%
+Lexkite 117×40") · dark: tương phản 1 chữ (vd "“The committee will 
+Me 36×54") · light: tương phản 4 chữ (vd "•" 4.12<4.5) · dark: tương phản 1 chữ (vd "•" 2.52<4.5)
+Mic Calibrated 145×36") · dark: tương phản 12 chữ (vd "vs" 4.02<4.5)
+Settings 222×36")
+Text +/- 96×36") · dark: tương phản 1 chữ (vd "•" 2.68<4.5)
+Today 226×42")
+account ce5c6a3f0d6f40189426dc50c42b61a7 ed1deb2699b848f5b2dc8ac8e46711eb MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 6 chữ (vd "LK" 3.04<4.5) · dark: tương phản 1 chữ (vd "Lexkite" 1.96<4.5)
+account-ar ca344b3da7ef4c7795fe9f379c206c4f 9fd352844b264ef1a7f276484012bf4d MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "تعهد عدم التتبع: بيانات الصوت والدراسة م" 3.82<4.5) · dark: tương phản 1 chữ (vd "Build 9428 · CEFR v2.4" 4.01<4.5)
+account-de 3a4da13cf66048668060a9116e99a53c 896cbb7091ba40f5bddcf16a9f5a6d28 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "sync
+account-desktop 2d21588d139a41c8914f458b8f465b87 978fdd4573d8457b94af2d41c35dab13 DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 7 chữ (vd "18 due" 2.55<4.5) · dark: tương phản 1 chữ (vd "Danger Zone" 3.56<4.5)
+arrow_forward 78×36") · dark: tương phản 1 chữ (vd "14 معلّق" 3.83<4.5)
+deck 961e2e0b68054119b3aee969d3b17b4e 9fce8c3dc63e455a854736cd6fafb605 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "🔥" 2.42<4.5)
+deck-ar 3ab65ad46b3042f681aa2d513e0a6b2d 825afe877222421b8d431c5b0d69a9d9 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 10 chữ (vd "5 مجموعات نشطة · التكرار المتباعد" 4.35<4.5)
+deck-de 293e2bedc31f425fa9ae80924c04284d 3ec079a2c12344b39cf1a694293d9ce5 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 10 chữ (vd "5 aktive Sammlungen · Spaced Repetition" 4.35<4.5)
+deck-desktop 134f113b197e4ff4abb8278f3b9e645e 3b267e4f558c474cbb6f0a62dd34f953 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "Blog 29×44") · dark: tương phản 1 chữ (vd "1" 3.36<4.5)
+deck-empty fe5c4699a6a343d3a22b85a05ddae1b8 7d6a5619a666432991defb6641b303bb MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 9 chữ (vd "My decks" 4.35<4.5) · dark: tương phản 1 chữ (vd "Tạo bộ thẻ đầu tiên" 3.01<4.5)
+deck-error 889cfba1832a49e38c8f69b82871b37c 630575ccf932414591c2b37088d3c861 MOBILE QC | key3 project 18075333702575270507 · QC: light: 16 vùng chạm < 44px (vd "arrow_back 36×36") · light: tương phản 16 chữ (vd "|" 1.37<4.5) · dark: 16 vùng chạm < 44px (vd "arrow_back 36×36") · dark: tương phản 8 chữ (vd "+ Deck" 2.02<4.5)
+deck-loading 342ae933e40a46989bb3ff2ff42a4246 6537eca77f0f4db09ba97f8d094b2d2d MOBILE QC | key3 project 18075333702575270507 · QC: light: 6 vùng chạm < 44px (vd "arrow_back 40×40") · dark: 6 vùng chạm < 44px (vd "arrow_back 40×40") · dark: tương phản 1 chữ (vd "All (5)" 3.36<4.5)
+deck-v4 a4a16a2ffa6540ecb7009f567a71e77a ee88fd18392e452992d90c31fa3689d9 MOBILE QC | key1 project 7268539912208977707
+dict 9a7f1ac6fd59427faf48670d8badee1e 9b4d2c38925149a29f21a8a6fe532728 MOBILE QC | key2 project 10804635390057604965 · QC: light: 9 vùng chạm < 44px (vd "pragmatic 92×36") · light: tương phản 2 chữ (vd "C1 • Advanced" 4.43<4.5) · dark: 12 vùng chạm < 44px (vd "arrow_back 40×40")
+dict-ar 5a80208cc9e04d3c96f68ae260346389 40d2dcd58f224593b1638bd56ed31847 MOBILE QC | key2 project 10804635390057604965 · QC: light: 8 vùng chạm < 44px (vd "INPUT 246×40") · light: tương phản 4 chữ (vd "🔥" 2.07<4.5) · dark: 8 vùng chạm < 44px (vd "INPUT 246×40")
+dict-de 22ae4f06c1c9400b97bd6e25bcca1703 309184777f6c494e933418689f3bcd01 MOBILE QC | key2 project 10804635390057604965 · QC: light: 8 vùng chạm < 44px (vd "pragmatic 92×36") · light: tương phản 2 chữ (vd "C1 • Fortgeschritten" 4.43<4.5) · dark: 8 vùng chạm < 44px (vd "pragmatic 92×36") · dark: tương phản 3 chữ (vd "Zuletzt gesucht:" 1.91<4.5) · dark: mảng sáng 15% > 12% (thẻ trắng trong nền tối?)
+dict-desktop 47fd2b2fd32e4537a49ca51fe19805ee 9bbd034ae32e46a5a8adb35d14714c00 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 26 vùng chạm < 44px (vd "translate
+email-digest-v4 fda08493da2445f7988f64efdbfecc34 6d44650d64394016a08e991652ccf5b3 DESKTOP QC | key5 project 7022870386131391655
+games 7444e4071f4f47fb98f1d6093b5f44ba a4a0f014ee46435498c934dd1928282a MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 16 chữ (vd "820" 3.01<4.5) · dark: tương phản 20 chữ (vd "140x170 LIVE" 1.76<4.5) · dark: mảng sáng 40% > 12% (thẻ trắng trong nền tối?)
+games-ar 340c5f6b0cd545afa8fb815346e093a6 ee6d004c1550470f8d0852965b846868 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 16 chữ (vd "820" 3.01<4.5) · dark: tương phản 22 chữ (vd "140 × 170 متاح" 1.76<4.5) · dark: mảng sáng 49% > 12% (thẻ trắng trong nền tối?)
+games-de b5e83a852267473b929311e20fc3ea8d 10ed82f0da154a2ebbf8b55f37ca9571 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 16 chữ (vd "820" 3.01<4.5) · dark: tương phản 4 chữ (vd "play_arrow
+games-desktop cca5a1e6a27343ecab16298bf0b445fe 1ce4d2dcf4cc481da08ffb30c7935721 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 6 vùng chạm < 44px (vd "settings
+games-v4 9503834cd25d43349d6b6194164c8920 b222d8b7c0054375a36b70f55293d88f MOBILE QC | key2 project 10804635390057604965
+gap-cbt 9e249cb3d33641c3b57cd2b103e7a822 7cfcf9c7f7d540edbfec583f2d6bf431 MOBILE QC | key2 project 10804635390057604965
+gap-handoff 6efe34a53f79478085f6e23de1ef4654 d41357d3d67a4dec8431a9c08e97b65d MOBILE QC | key3 project 18075333702575270507
+gap-league-pop 606ffda19cf24152b22eeb4404c54ffb 9ad7c2a53bca49a09f1e7bdabb4f7142 MOBILE QC | key3 project 18075333702575270507
+gap-lsn-hint ca26fbe5579a49919a365744068af128 81d1f051a1974763a48c4d03413a1b2d MOBILE QC | key2 project 10804635390057604965
+gap-lsn-listen 5185598e035f45d9b688e3c8be013348 02b4532c101a40bd8b7e1b27780ededa MOBILE QC | key1 project 7268539912208977707
+gap-lsn-timeup ef6bde77a14f4955b39e527200939768 92a6a3e833224d1aa5726b443eb710b3 MOBILE QC | key1 project 7268539912208977707
+gap-lsn-truefalse d6746d9aa2fa43e68474555581367e93 5fda3ec877154e70937ffa16a0ae39a7 MOBILE QC | key2 project 10804635390057604965
+gap-phrases baea00d2bfc84a1b9da2c572f01941ce 38706bee46f645059b9df495d89742e7 MOBILE QC | key5 project 7022870386131391655
+gap-roleplay e1ff265d6494478ab65b8b232d122631 34e56b610dca4869818a0d29f0f796c4 MOBILE QC | key3 project 18075333702575270507
+gap-toefl ea4e50fabc7a49a39ca880bb8a5e22e2 a968af0eccd5446f9debe78e8a105ab1 MOBILE QC | key4 project 16660982915050208874
+gap-toeic 263600026adc41978221fa5d5e39e1ef 62deabdfe5af4e789c5f9f6576ad721b MOBILE QC | key4 project 16660982915050208874
+gap-vday ca4e9a97ff9c4d2da6bae160e323bc9b 3c57fbc80b6c47468041c5834802484a MOBILE QC | key5 project 7022870386131391655
+gap-verbs dfe87b7ddf904fdaa41dc1c929333e06 32bd5bff34d44182be5baa38372a15dd MOBILE QC | key4 project 16660982915050208874
+grammar 05270e8fedae41b2b74b139016c07cd2 8da4a8c7b82d43e9835ae0c6523806b6 MOBILE QC | key2 project 10804635390057604965 · QC: light: 5 vùng chạm < 44px (vd "✓
+grammar-ar 3d1ad26a73e442efbb560fac29bb8253 d48097a08e0e40d3988f8be8b98b839c MOBILE QC | key2 project 10804635390057604965 · QC: dark: 5 vùng chạm < 44px (vd "✓
+grammar-de bc78bf19d45d4d6a81cfb821ccd94221 2d7d653af5ba40c9be4f4010d3963cbc MOBILE QC | key2 project 10804635390057604965 · QC: light: 5 vùng chạm < 44px (vd "✓
+grammar-desktop 188fe9255755479ea0daad719d5c19da 4bb66c6f92544a33bea6c71a5878017c DESKTOP QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "Skills 30×44") · light: tương phản 10 chữ (vd "Curriculum" 4.15<4.5) · dark: 1 vùng chạm < 44px (vd "Skills 38×44") · dark: tương phản 5 chữ (vd "Time Window" 4.41<4.5)
+grammar-v4 e1e37a5d70644276825a66dc487b9a68 025596b43db743f2a0bdffb68c6cfea8 MOBILE QC | key3 project 18075333702575270507
+hold-deck 0e8c3b888535481f87cfb8fcce8fa551 34d69066161c4ae1802566ae0c874cea MOBILE QC | key5 project 7022870386131391655
+hold-dictionary ce641f7b2e124e7f84906df46d9ae7e0 788e4b6f2702437791677658821f7c10 MOBILE QC | key1 project 7268539912208977707
+hold-mistakes d8a9e6469e0e4a1abb21daeec5e4cce5 6ba62d2d509f4bc28095c2967f122146 MOBILE QC | key3 project 18075333702575270507
+hold-stats abf67e4651ff4a21a56a041774205513 bda494d4fb564031a34aa8fed40934f3 MOBILE QC | key5 project 7022870386131391655
+hold-topic b04e03514ead49ea825b3eadb8cdf53c 49311d5e3c5d41239c9a7e53a8227f55 MOBILE QC | key4 project 16660982915050208874
+hold-web-hub bf4c5a2411274266a2c0de03304ef09b 7a381712f3e3422fa210d3b10421de37 MOBILE QC | key5 project 7022870386131391655
+hold-web-post d6ee64592d2e42598b2780d2b8007665 47078a1a70264b229b65bcacc539ddd0 MOBILE QC | key4 project 16660982915050208874
+hold-web-speaking ad808a0025ff4269bb4309774da7b2e3 d1fbadb3c4dc4bc0816264d15104e5ca MOBILE QC | key2 project 10804635390057604965
+home 0afcabbfb9a7420ab188141ae2e41c26 70b7a3a3cf2a4af89e5ae6e050d56339 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "Connectors" 3.33<4.5) · light: tên icon hiện thành chữ "near_me" (13) · dark: tương phản 3 chữ (vd "✓" 3.04<4.5) · dark: tên icon hiện thành chữ "near_me" (13)
+home-ar 29b2370af2be484e96e63ae73a56966d 2324bf722c3843d0b3b63a7ede7df6c3 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "الروابط" 3.33<4.5) · light: tên icon hiện thành chữ "near_me" (12) · dark: tương phản 1 chữ (vd "أنا" 4.04<4.5)
+home-de 0b84e9f552d94acba4a7165e60ae6c8e 2601bac05650456e8e1e114412d15624 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "Konnektoren" 3.33<4.5)
+home-v1 0afcabbfb9a7420ab188141ae2e41c26 b3b8a9aa2ae14a9b865cdf566794a047 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "Connectors" 3.33<4.5)
+home-v2 3548dc49345f4372b6a1a54823145012 61f51223e1a04efd88283f4d008f0059 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 3 chữ (vd "Recall Queue" 3.07<4.5) · dark: tương phản 1 chữ (vd "teacher-slot" 1.46<4.5)
+home-v3 32bc84556be042a29517a086cf2a658a 656194f754c849d397d65e5044ca03ea MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 5 chữ (vd "FSRS Spaced Engine" 3.33<4.5) · dark: tương phản 1 chữ (vd "+25 XP" 4.21<4.5)
+home-v4 e5c96514d4bd48d7a5846af63294ea18 f1ff5f7b2ab04972b12471b8bd27a37e MOBILE QC | key3 project 18075333702575270507
+hub-skills e37e9699f02f4e64b49601eeddb98010 5c77c0be4cba4fd1981ff7ea63bdac51 MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: tương phản 1 chữ (vd "AI" 2.79<4.5)
+hub-skills-ar 50df39d843324735866f0709a5d786a3 1cf4b9b165244f6391b5d14887fa2791 MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "notifications 36×36") · light: tương phản 3 chữ (vd "AI" 3.44<4.5) · dark: 1 vùng chạm < 44px (vd "notifications 36×36")
+hub-skills-de 5c46490e81cb4fcaacbcc43b01887d66 c053dac6e4be446ebc3468b4b4bcc67a MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: tương phản 1 chữ (vd "KI" 3.44<4.5)
+hub-skills-desktop 630493ca07634d368973d6832c046763 2ece7ebd5cce4bf9a0f8a9e66d1f6f10 DESKTOP QC | key2 project 10804635390057604965 · QC: light: tương phản 3 chữ (vd "14d" 2.91<4.5) · dark: tương phản 1 chữ (vd "Recommended Next" 4.18<4.5)
+hub-skills-empty 6fa15c87198347c0a84dd204b1d635fa 1eb6d0a0476542efbd4c055a12ad0b3e MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "notifications 36×36") · light: tương phản 4 chữ (vd "Not assessed" 2.5<4.5) · dark: 1 vùng chạm < 44px (vd "notifications 36×36")
+hub-skills-error 6ccbb2ab952d4d23b7d5526caa8c19fa 78c348c62d014420ba777a1aa601b76f MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "notifications 40×40") · light: tương phản 10 chữ (vd "14 essays graded" 4.12<4.5) · dark: 1 vùng chạm < 44px (vd "notifications 40×40") · dark: tương phản 10 chữ (vd "14 essays graded" 3.13<4.5)
+hub-skills-loading 30a90e63d74e4b9cbf4f6dd2ba66299d ec320f198bde494d9b2843ed9b3fcf99 MOBILE QC | key2 project 10804635390057604965 · QC: light: 2 vùng chạm < 44px (vd " 32×32") · dark: 2 vùng chạm < 44px (vd " 32×32")
+hub-skills-v4 6b2018436d0d423fb90ef71694d8efd1 69f9e1c40a03494785425126478dec17 MOBILE QC | key4 project 16660982915050208874
+hub-tests 39a612e2018d4bb5b2963715e8d3ae20 d6518e5ff0ec465aa051d11792c96137 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "coach" 3.9<4.5) · light: tên icon hiện thành chữ "drive_file_stream" (1) · dark: tên icon hiện thành chữ "drive_file_stream" (1)
+hub-tests-ar 6d208cfedbbe4e6f86ce38d1aafd4396 5aa067c646b343ee800d92d38a065fef MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "مدرب" 3.9<4.5) · light: tên icon hiện thành chữ "drive_file_stream" (1) · dark: tên icon hiện thành chữ "drive_file_stream" (1)
+hub-tests-de d4769ec2340b47288a70fc3f2455005e 739c532a11404aaa8d5c38c56a517c8e MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "coach" 3.9<4.5) · light: tên icon hiện thành chữ "drive_file_stream" (1) · dark: tên icon hiện thành chữ "drive_file_stream" (1)
+hub-tests-desktop 3d51d5617af54038aa8e5bdb3f4b9c03 fdfb68a81777446ba35aef1c1dc0cf78 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "Blog 37×44")
+hub-tests-empty d62813df87454c2e90aeb1e6aaf5e252 c668f8d70df64c4f9656ebeb905e43c0 MOBILE QC | key2 project 10804635390057604965 · QC: light: 7 vùng chạm < 44px (vd "notifications 32×32") · light: tương phản 2 chữ (vd "Prep Hub" 4.36<4.5) · dark: 7 vùng chạm < 44px (vd "notifications 32×32")
+hub-tests-error b645440dcb304eeba8975a5fdca7e976 226159cc589f4a67873052b013a691e4 MOBILE QC | key2 project 10804635390057604965 · QC: light: 6 vùng chạm < 44px (vd "notifications 32×32") · light: tương phản 9 chữ (vd "6.0" 2.93<3) · dark: 6 vùng chạm < 44px (vd "notifications 32×32") · dark: tương phản 6 chữ (vd "Official IELTS Academic • 2h 45m" 3.23<4.5)
+hub-tests-loading 70af95608d164d59861e1b476cba89e1 905775b584f24d7f95cbc3aec697465c MOBILE QC | key2 project 10804635390057604965 · QC: light: 5 vùng chạm < 44px (vd "notifications 32×32") · light: tên icon hiện thành chữ "drive_file_stream" (1) · dark: 5 vùng chạm < 44px (vd "notifications 32×32") · dark: mảng sáng 14% > 12% (thẻ trắng trong nền tối?) · dark: tên icon hiện thành chữ "drive_file_stream" (1)
+hub-tests-v4 baf3406e67f84f2aab6857b415cfeb6c 30d181b9299b4afd9a0ea6067bac438b MOBILE QC | key4 project 16660982915050208874
+hub-vocab a27e62eda75d4718ba98c2fe629535d0 31c4c7fa7efd410f9c2663116e5d629c MOBILE QC | key1 project 7268539912208977707 · QC: light: 6 vùng chạm < 44px (vd "INPUT 238×24") · light: tương phản 41 chữ (vd "140 x 170 Slot" 2.74<4.5) · dark: 6 vùng chạm < 44px (vd "INPUT 238×24")
+hub-vocab-ar 4bdfb136f70948d6947bd6ba13b87cba bbbb422fe552499fbcaf0a2acc14ac0c MOBILE QC | key1 project 7268539912208977707 · QC: light: 7 vùng chạm < 44px (vd "INPUT 238×24") · light: tương phản 41 chữ (vd "تنبيه التكرار المتباعد" 3.33<4.5) · dark: 7 vùng chạm < 44px (vd "INPUT 238×24") · dark: tương phản 4 chữ (vd "المعلم" 3.75<4.5) · dark: mảng sáng 32% > 12% (thẻ trắng trong nền tối?)
+hub-vocab-de 42513ce68d6342f3bddd51d92be23530 919a058d95574970a3829ab5a4a57cfe MOBILE QC | key1 project 7268539912208977707 · QC: light: 1 vùng chạm < 44px (vd "INPUT 238×24") · light: tương phản 29 chữ (vd "WIEDERHOLUNGSERINNERUNG" 4.16<4.5) · dark: 1 vùng chạm < 44px (vd "INPUT 238×24")
+hub-vocab-desktop f43c0579960a4f7c874ac90c095ca9f2 9286f917c7084f349152a9ab7c140408 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 2 vùng chạm < 44px (vd "tune 30×36") · light: tương phản 19 chữ (vd "HUB" 3.04<4.5) · dark: 2 vùng chạm < 44px (vd "tune 30×36") · dark: tương phản 1 chữ (vd "14d" 4.21<4.5)
+hub-vocab-empty 22a3c0ed5d7a4b6688c3a7ea07059122 bdcf4063c48f4f00afa17f8b6fd43fb4 MOBILE QC | key1 project 7268539912208977707 · QC: light: chỉ 1% sáng < 35% (bản sáng bị tối?)
+hub-vocab-error c9ef83aab9f340a580254fde0a07aaf2 03e369823bca4cd58add27aa7549de17 MOBILE QC | key1 project 7268539912208977707 · QC: light: 3 vùng chạm < 44px (vd "INPUT 188×20") · light: tương phản 21 chữ (vd "Slot" 2.85<4.5) · dark: 3 vùng chạm < 44px (vd "INPUT 188×20") · dark: tương phản 15 chữ (vd "Cloud Only" 2.27<4.5)
+hub-vocab-v4 9421f954c83b438d8cc11aa3574dae81 338b24f1944b4951aa67f25981a0c89b MOBILE QC | key5 project 7022870386131391655
+lesson-feedback 4b62eb63ab8e49e79cd2addc2baf953b 5d9e44c9c75a4072b4bea6a031059e6e MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: 1 vùng chạm < 44px (vd "bookmark 40×40") · light: tương phản 1 chữ (vd "She 
+lesson-feedback-desktop 5bda3da28e24466c87cb8f09b6d7bcc9 1907f1e92c5543ad8b27b3fa8380753e DESKTOP QC teacher-slot | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "Present Continuous (Verlaufsform im gege" 4.33<4.5)
+lesson-feedback-v4 df87c5f0e91d4cd3bdb13de6778a5a05 1f51633e73aa4e10b4b8219ce4d8854d MOBILE QC teacher-slot | key5 project 7022870386131391655
+lesson-map 7c152a42cda44e388fb3da6098a75fc8 056569ce2fb846d7a21f7caff2243460 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "Повтор" 4.1<4.5)
+lesson-map-v4 d0b95590cf164a5785aeb26eaedd3425 a5e5b103d119483aac2f307dc2b87930 MOBILE QC teacher-slot | key5 project 7022870386131391655
+lesson-question 2793d9b5edf841d496f9794c239ffa2f 64b1037ccb5946079812fa777813e2ae MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 1 chữ (vd "A" 3.36<4.5) · dark: 4 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 3 chữ (vd "Collocates with: decision, effort, progr" 3.93<4.5)
+lesson-question-ar 2d9c2a5f6dcd4debbb05b6cbef28398e a8783a10b39c45efbec7f8706e9d75b1 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 7 vùng chạm < 44px (vd "عرض التلميح 83×16") · light: tương phản 2 chữ (vd "decision" 1.91<4.5) · dark: 7 vùng chạm < 44px (vd "عرض التلميح 83×16")
+lesson-question-de 685bf8a1b5594ced9e3195ce68edd02c 6449ed57ce5445dd8e076977594ba9b9 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 3 chữ (vd "A" 1.81<4.5) · dark: 4 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 3 chữ (vd "LEHRKRAFT-TIPP" 1.67<4.5)
+lesson-question-v1 30a0d9a5941b440ab5de162055026114 369820c9eeae4941b7d9f5a793e2d404 MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 5 vùng chạm < 44px (vd "View hint 82×24") · light: tương phản 2 chữ (vd "Slot" 3.79<4.5) · dark: 5 vùng chạm < 44px (vd "View hint 82×24") · dark: tương phản 3 chữ (vd "•" 1.65<4.5)
+lesson-question-v2 135feee1f69242db989b7b2c59d73330 22226ce666b041a2aa7eac275e94c38c MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 7 vùng chạm < 44px (vd "View hint 64×16") · light: tương phản 1 chữ (vd "slot" 3.79<4.5) · dark: 7 vùng chạm < 44px (vd "View hint 64×16")
+lesson-question-v3 6dc02c6bbda34db9bac6eafa8aad6a70 f6e3fad5070043d4a8db48b9dc0baa3a MOBILE QC teacher-slot | key3 project 18075333702575270507 · QC: light: 7 vùng chạm < 44px (vd "kitesurfing
+lesson-question-v4 bc65d5c26e874270b5971d66998740b0 4b7074908c764e348b3bb8fb04f87cf2 MOBILE QC teacher-slot | key4 project 16660982915050208874
+library 07afaf74d3ab4c58bfde30f443d760fe d73a7e868063415d89fe30925b6f76ab MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "Study 20 words" 3.11<4.5) · dark: tương phản 2 chữ (vd "Study 20 words" 3.11<4.5)
+library-ar fe44dfbda2cd4882b6c82f1d46cb8767 048bfa75d0e04bd885de428b917b561f MOBILE QC | key3 project 18075333702575270507 · QC: light: 12 vùng chạm < 44px (vd "arrow_forward 40×40") · light: tương phản 5 chữ (vd "/dɪˈpɑː.tʃər/ • UK / US" 4.37<4.5) · dark: 12 vùng chạm < 44px (vd "arrow_forward 40×40")
+library-de 290ff10101194b9482c2ea57d6c37dcb 26dc344ea6c1459296b2a19ac07665c0 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 27 chữ (vd "local_fire_department
+library-desktop e3c5a4aeb8a041f7854923c9f83df9c7 aebe3a6412514c01a2326ac67a533d04 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 23 vùng chạm < 44px (vd "calendar_today
+library-empty ae21969b23f04597875f29ded0b4db8e 8e50d3d64f7a4f239e8cbfdcac58fa9d MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 20 chữ (vd "local_fire_department
+library-error 1287150122e04936a2fedd83e66e9301 085dfc360e55459197fb945090e92c0b MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 5 chữ (vd "/dɪˈpɑːr.tʃər/" 4.37<4.5) · dark: tương phản 1 chữ (vd "Show next 20 words" 1.9<4.5)
+library-loading 4eeaaad5cdf34ebc9a32632f2e9c957c cb33e444af054d7889271e1b30357b67 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "arrow_back 40×40") · light: tương phản 2 chữ (vd "Study 20 words" 1.42<4.5) · light: chỉ 4% sáng < 35% (bản sáng bị tối?) · dark: 2 vùng chạm < 44px (vd "arrow_back 40×40")
+library-v4 2c29f8ce021047bf976bcd9ccc23b3b5 8095db7dc5e94bb1936246e3820b6e38 MOBILE QC | key5 project 7022870386131391655
+method 0620b6e84bce462bb964902f0d87dc30 d712736f62544927b5b34fbad4590e88 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Methodology" 4.35<4.5) · dark: tương phản 3 chữ (vd "Active Retrieval:" 2.22<4.5)
+method-ar 0dbed44742a84d94a65abad07306b13f 14adb0705c12477286aea4045e285d4e MOBILE QC | key3 project 18075333702575270507 · QC: light: tràn ngang 7px · light: 2 vùng chạm < 44px (vd "arrow_forward 28×44") · light: tương phản 10 chữ (vd "verified
+method-de 2fb5892837be44bbbd931605044c131c 0b0def9c14da4fd5a78d97102a5e14c8 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Empirische Pädagogik • Keine Spielereien" 4.35<4.5) · dark: tương phản 2 chữ (vd "CA" 4.34<4.5)
+method-v1 c2dd4dd8c1fc497bbca42e82afbf9a18 c24a363c79964c31a7aaedd5740330f5 MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "Methodology" 4.35<4.5) · dark: tương phản 10 chữ (vd "Coach Ama • IELTS Master Coach" 1.63<4.5) · dark: mảng sáng 33% > 12% (thẻ trắng trong nền tối?)
+method-v2 d5ed93c919d94c3ba17fefc4d6610994 502a1dedbb7f4bfeb1c384a1365c483e MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Empirical Pedagogy • No gimmicks • Evide" 4.35<4.5) · dark: tương phản 2 chữ (vd "04" 3.72<4.5)
+method-v3 37728b7104d54cb2873d6963ca3ff3e1 0e5a903a93f14b27bbf6b582a26c8b7e MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 1 chữ (vd "Empirical Pedagogy • No gimmicks • Evide" 4.35<4.5)
+method-v4 0ee6180affbf4f4dbbe11f0c9fc8d984 60a17329145f44fa95634389e6f8024d MOBILE QC | key4 project 16660982915050208874
+mistakes 0dacc589111d49398df84d8c2d17164e 711d6351fe5a4390a5269a043c12c556 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 4 chữ (vd "Correct Standard" 4.17<4.5)
+mistakes-ar 5d907c81550340f584f3b55f1e6e9acb a9e7938e021e46989d8337cf5847ef80 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 6 chữ (vd "24 ساعة" 2.3<4.5)
+mistakes-de a6f3018d95aa4ee8b43266fd6480acb3 366ad25989cf4328a124ebba4c2b1826 MOBILE QC | key2 project 10804635390057604965 · QC: light: 13 vùng chạm < 44px (vd "arrow_back 40×40") · light: tương phản 6 chữ (vd "Sortiert nach Relevanz" 4.36<4.5) · dark: 13 vùng chạm < 44px (vd "arrow_back 40×40") · dark: tương phản 5 chữ (vd "Sortiert nach Relevanz" 4.24<4.5)
+mistakes-desktop a82984f79cbd4c428a4185aaa5dd5545 ad746dc0070a4d508436669c9622b3ef DESKTOP QC | key2 project 10804635390057604965 · QC: light: 11 vùng chạm < 44px (vd "Help 27×16") · light: tương phản 29 chữ (vd "IELTS · TOEIC · CEFR" 4.38<4.5) · light: tên icon hiện thành chữ "waveform" (1) · dark: 11 vùng chạm < 44px (vd "Help 27×16") · dark: tương phản 1 chữ (vd "/" 2.03<4.5) · dark: tên icon hiện thành chữ "waveform" (1)
+mistakes-empty ba3e8508525c4426ab8c86bc221f2760 080427080d284319bad13bb7e15d9bf8 MOBILE QC | key2 project 10804635390057604965 · QC: light: 6 vùng chạm < 44px (vd "arrow_back 40×40") · light: tương phản 1 chữ (vd "All" 4.43<4.5) · dark: 6 vùng chạm < 44px (vd "arrow_back 40×40")
+mistakes-error afef0a20d83043ae949a44d817cf8876 4813bb0a990840968735ea5ee04d63fa MOBILE QC | key2 project 10804635390057604965 · QC: light: 14 vùng chạm < 44px (vd "arrow_back 40×40") · light: tương phản 9 chữ (vd "●" 4.38<4.5) · light: lỗi JS Failed to execute 'querySelector' on 'Document': 'button:has(.material-symbols-outlined:contains("refresh")), button' is · dark: 14 vùng chạm < 44px (vd "arrow_back 40×40") · dark: tương ph
+mistakes-loading d856d22b8b1b4f70b3df3bfd55de6873 5ce75bb148e1421e945f53e6ab6ce214 MOBILE PASS | key2 project 10804635390057604965
+mistakes-v4 1a8eddb948bf487697087beaee76b4bb 3afdd7164aff45dbbc0a067befc06c47 MOBILE QC | key5 project 7022870386131391655
+mock c653bf0fb22d4a4eb345332f4fc003b4 fa72381690f74f23bded8bcfbf8c58df MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 11 chữ (vd "•" 4.38<4.5)
+mock-ar f47e258a12e74510ab0483e0a19e86ea 52e0a6cbe8984c22ad093a522d6ecfd0 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 11 chữ (vd "•" 4.38<4.5) · dark: tương phản 10 chữ (vd "•" 3.58<4.5)
+mock-de 6856b1c28ca247f0828526ae772a9910 788fe009b4db4baaa21bd8b4c1fca298 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 10 chữ (vd "•" 4.38<4.5) · dark: tương phản 10 chữ (vd "•" 1.94<4.5)
+mock-desktop 92aa7ce208d846d69313df12616aaee6 dcc77526ae0b4e17ba2d19791aecaa7f DESKTOP QC | key2 project 10804635390057604965 · QC: light: 3 vùng chạm < 44px (vd "language
+mock-v4 89c97f26857345969b28deaebfcb535e 8a57182227bf466395c5f4ad987921f0 MOBILE QC | key2 project 10804635390057604965
+placement ec75f4c01b1f4f6ebd4a6ee70220bfec ca9d4b848bcf4be790e18bc0b619f7d4 MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: chỉ 1% sáng < 35% (bản sáng bị tối?)
+placement-ar d152b4e7e6604d659c7ef2e9210bbcf7 8e45b6da769a4a2cbee666d73a8e098e MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: 1 vùng chạm < 44px (vd "استمع
+placement-de 0640ee11eeda463ab1cfa4dc9342cb13 76f545f63f524691927daa5299aa6cd8 MOBILE QC teacher-slot | key1 project 7268539912208977707 · QC: light: chỉ 1% sáng < 35% (bản sáng bị tối?)
+placement-desktop eba717758f2f4df7b3d97f326e472263 1c4468bae38d4b3aa63c06f9eeafe270 DESKTOP QC teacher-slot | key1 project 7268539912208977707 · QC: light: 7 vùng chạm < 44px (vd "language
+placement-v4 3b2c86d779014fb6bf1daed25da60ae9 70566dfa2d4c46e496069002fa8f349c MOBILE QC teacher-slot | key3 project 18075333702575270507
+practice fd0051171a824da89cea0ca9b9d0c77f 19bac608daa641e99830bb880b858ed7 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 8 chữ (vd "3 priority modules" 3.8<4.5) · dark: tương phản 20 chữ (vd "3 priority modules" 3.8<4.5) · dark: mảng sáng 77% > 12% (thẻ trắng trong nền tối?)
+practice-ar 0aceaa358f6f4ce49bc5d87da9e3203d 6ba9f7652db4407795b4b8dc7096386b MOBILE QC | key2 project 10804635390057604965 · QC: light: 9 vùng chạm < 44px (vd "تدرّب
+practice-de 6151fb1619c94c1aa9a74892826471f3 07ff405b51a04f15ba0f00bdb650a337 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 8 chữ (vd "3 Prioritätsmodule" 3.8<4.5)
+practice-empty aa8ecefcc18042e7aefba23f81e953b5 2c93b2e970004a87a24f603baf6aa301 MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "person
+practice-error 4484098b20e1439b91cfd4200a53ca3d 66a24e2cb4414612a01b4a10a909ba2d MOBILE QC | key2 project 10804635390057604965 · QC: light: 9 vùng chạm < 44px (vd "Practise offline
+practice-loading 98be04dd1d704467b3f9e765ff4fe50b 6e57be07d25b47bc8c574df397bd6ba8 MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "person
+practice-v1 fd0051171a824da89cea0ca9b9d0c77f 547e155012af44e08d2d0b2edd4baecc MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 8 chữ (vd "3 priority modules" 3.8<4.5) · dark: tương phản 5 chữ (vd "teacher slot" 1.67<4.5) · dark: mảng sáng 19% > 12% (thẻ trắng trong nền tối?)
+practice-v2 5ab8a40e94fb47db91377fdaae0c79d0 11782a5813d84c5a9ebae2bfe111ef5c MOBILE QC | key2 project 10804635390057604965 · QC: dark: tương phản 5 chữ (vd "teacher slot" 1.64<4.5) · sáng/tối lệch nội dung: 15 vs 224 chữ
+practice-v3 5ccb57f5e7cd4145b2f57caa5073713b 605c989f07884f2997e41e032f6548d0 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 7 chữ (vd "Accuracy" 4.03<4.5)
+practice-v4 b8b39030d7da4279bec9b7c9cf2e52cf 1d5933feed334e3d80860a7cbdc38838 MOBILE QC | key4 project 16660982915050208874
+pron efe7f98478ba476d84af212c2836d74e 30018c664af447dea8e90d111e388af7 MOBILE PASS | key3 project 18075333702575270507
+pron-ar a2c1d4e61c7b4b08a62e4009d53960d9 216e4a6104cc4e86b278dc72c481cdd6 MOBILE QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "إعادة تشغيل الصوت المنفص 133×17") · light: tương phản 1 chữ (vd "think" 1.92<4.5) · dark: 1 vùng chạm < 44px (vd "إعادة تشغيل الصوت المنفص 133×17")
+pron-de 97af149776644ddeb2b8070f241ac13d 1f3f6a1c13834c89a70aae60c3754b05 MOBILE QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "Getrenntes Audio erneut  192×17") · light: tương phản 1 chữ (vd "think" 1.92<4.5) · dark: 1 vùng chạm < 44px (vd "Getrenntes Audio erneut  192×17")
+pron-desktop 44e1bcefa5e0415ca61f7954b5b52185 b154be9f58c847f799b2043cf0880889 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 14 vùng chạm < 44px (vd "tune
+pt-picker ab0b36100d2d4a34b7082d45e14a821b bac5c06d7c884e288f17143f28ff95f3 MOBILE QC | key5 project 7022870386131391655
+pt-settings f630b3a746be4ad587820d0c5dc2f369 192f4efa4b7946beba274744ce1b9dde MOBILE QC | key1 project 7268539912208977707
+pt-sheet af79ec09e15546f7b3edc1f4910fe65f aadcbfd47a334f7996fb872b954cdefa MOBILE QC | key4 project 16660982915050208874
+reading e2437a8b04134c5380c30d50918044aa 8c69026358924f7988d754eb528df859 MOBILE PASS | key3 project 18075333702575270507
+reading-ar 97ade6c153bc44a79ad5b1034772dfb6 9752898e4ab24bd4bbd1515d2ee9f5c9 MOBILE QC | key3 project 18075333702575270507 · QC: light: 4 vùng chạm < 44px (vd "foraging behavior
+reading-de 5c216fc94b25487c894349f36973d433 7a22a74c523c41cfb629090b1d1fbe8c MOBILE QC | key3 project 18075333702575270507 · QC: light: tràn ngang 29px · light: 7 vùng chạm < 44px (vd "arrow_back 35×44") · light: tương phản 1 chữ (vd "schedule
+reading-desktop 2cbf0e5b26b44cdb9e8ba863b4333ffe d53c5b53fb2b4f229c9d0f7dae4d1833 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 7 vùng chạm < 44px (vd "format_size
+report 19df214a1bed455d8f452637fa4c714e 76d888f1a5204d0cab421b0af13a7449 MOBILE QC | key2 project 10804635390057604965 · QC: dark: 8 vùng chạm < 44px (vd "arrow_back 40×40") · sáng/tối lệch nội dung: 15 vs 145 chữ
+report-ar 2ba6146d046e4287a0e9b776dcef4ffc ab918210f1e542b186721d62f42c58fa MOBILE QC | key2 project 10804635390057604965 · QC: light: 4 vùng chạm < 44px (vd "تغيير 25×17") · light: tương phản 10 chữ (vd "• روبوت الدعم" 4.38<4.5) · dark: 4 vùng chạm < 44px (vd "تغيير 25×17") · dark: tương phản 3 chữ (vd "توقف أو خطأ" 4.4<4.5)
+report-de 190f46073b534f5a9656250e51e554b8 934d19d4de304188bf84f0ee42aef896 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "•" 1.37<4.5)
+report-desktop 79e615069efe4b2c840714f12d7ce01d aa37bb25ec0a499b845d505e76d3b2d5 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 9 vùng chạm < 44px (vd "calendar_today
+report-v4 fe68f8f11fe84fa2b57f0a0a21832ca3 f79c6e7620c24a34b76688bf9f44298f MOBILE QC | key2 project 10804635390057604965
+review 1d8d0a736ca9401bb639c7fcef63e4e2 07d7476e5c2c40149da6ad4d06e33966 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 2 chữ (vd "pending_actions
+review-ar 81dc3fcb22ce45b68c1c44c7aa18481b 174b2395c4cb4678a0b278633c6f6b52 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 2 chữ (vd "pending_actions
+review-de 5b2b38420e754497a38e8b79e2852927 6b0991a1777344f7af0053cb5e5b72af MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 2 chữ (vd "pending_actions
+review-empty b21ef9559cc94bd4ab907e2482414e72 929a6db552e443b6b3bdd08cf14bff3b MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "tune 36×36") · light: tương phản 7 chữ (vd "0d" 4.44<4.5) · dark: 1 vùng chạm < 44px (vd "tune 36×36")
+review-error bf27fc5d705c4eeaa22421eeaf13f789 4c1e99ac7a6a4e8c92fcce8514dcdd49 MOBILE QC | key2 project 10804635390057604965 · QC: light: 2 vùng chạm < 44px (vd "tune 36×36") · light: tương phản 12 chữ (vd "Online dictionary lookup unavailable off" 3.63<4.5) · dark: 1 vùng chạm < 44px (vd "volume_up
+review-loading 9078e36ffedc4ffc8c68105c59d37c22 ebccd1b33b354d6b97908e7f78df80fc MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "tune 36×36") · light: tương phản 7 chữ (vd "M" 4.38<4.5) · dark: 1 vùng chạm < 44px (vd "tune 36×36") · dark: tương phản 7 chữ (vd "M" 1.92<4.5) · dark: mảng sáng 46% > 12% (thẻ trắng trong nền tối?)
+review-v1 66706e380498463cb4dedb12af785ede 3df542fe45d74276aec5f9adf7e10be3 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 2 chữ (vd "18 Due Today" 2.24<4.5) · dark: tương phản 2 chữ (vd "18 Due Today" 2.24<4.5)
+review-v2 3c3ddcee7a1a44bb831cfa9815d23bc8 314153505e7844d1aac31acf8e2c5321 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "pending_actions
+review-v3 e19f77a44abd40c5b4950ccc73161702 d36d0d578da64056af376221dc1c7b6b MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "volume_up 36×36") · light: tương phản 4 chữ (vd "pending_actions
+review-v4 d7956ec26ad44d728f280daeadbf302b 931a6df0fed64faf87d6ddda1d972961 MOBILE QC | key5 project 7022870386131391655
+settings bd596c432e3b41259304115964c30364 ff112b703f1f4e07b6b921b26baaf7ee MOBILE PASS | key3 project 18075333702575270507
+settings-ar 4de7aa81c5d9499c9f457b1c823a76d8 cedfa1aa8de041e28ef916a5f69989a9 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 1 chữ (vd "SLOT" 1.45<4.5) · dark: 2 vùng chạm < 44px (vd "INPUT 1×1")
+settings-de 9074ba3a81eb4a5984cb375d35e63cc3 1df8861fe6e44391a5960a2bc5990d93 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 1 chữ (vd "SLOT" 1.45<4.5) · dark: 2 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 2 chữ (vd "SLOT" 4.16<4.5)
+settings-desktop 4056f4314ffa49a4ac56c64453f5cc01 0112b3f4c5df4ab881935d07c0c251fd DESKTOP QC | key2 project 10804635390057604965 · QC: light: 5 vùng chạm < 44px (vd "swap_horiz 38×36") · light: tương phản 37 chữ (vd "Active Target" 4.12<4.5) · dark: 5 vùng chạm < 44px (vd "swap_horiz 38×36") · dark: tương phản 1 chữ (vd "verified
+stats 2a4c6057c4034653888e8f304f6d4ede 9afe9189997f43d4bac8dd58b4a1c6ce MOBILE QC | key1 project 7268539912208977707 · QC: light: tràn ngang 256px · light: 5 vùng chạm < 44px (vd "share
+stats-ar 5f6e351df3f743d6846e292e30c4ab98 0a2ce63723fb48faa765ac4598616f8d MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 39 chữ (vd "14" 3.33<4.5) · dark: tương phản 12 chữ (vd "140 × 170" 4.36<4.5) · dark: tên icon hiện thành chữ "arrow_backward" (1)
+stats-de 803124047d4f4c8197817fd5dadbec3e 666e7735f489465d94f24cd93ad5d0d8 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 50 chữ (vd "LERNSTRÄHNE" 4<4.5) · dark: tương phản 54 chữ (vd "Stufe 7 • Wortforscher" 1.92<4.5) · dark: mảng sáng 61% > 12% (thẻ trắng trong nền tối?)
+stats-desktop bdfafe3f0a71445ba9cc053c5a93c510 77373d2402824ec698dfdcc86c25a25e DESKTOP QC | key3 project 18075333702575270507 · QC: light: 12 vùng chạm < 44px (vd "Blog & Tips 63×18") · light: tương phản 26 chữ (vd "•" 1.65<4.5) · dark: 12 vùng chạm < 44px (vd "Blog & Tips 63×18") · dark: tương phản 11 chữ (vd "31" 4.35<4.5)
+stats-v4 71db67c4704d4a32afa7addbb5e86353 e67e11f58bed4a37b40b47eb902a9e66 MOBILE QC | key3 project 18075333702575270507
+story-quiz bf31a5bf97fd44dea4285f7951f20052 c23b8988b72848259f6219bac827e206 MOBILE QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "restart_alt
+story-quiz-v4 2878b189232642389160242623fd4a9e 153612e908904505bf2c69473231fa65 MOBILE QC | key1 project 7268539912208977707
+streak-modals 8003bd9a65d34346bd50d70fe85b5b3b 3a2810751ea44da3af229c9ec62d63b2 MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "•" 1.48<4.5) · dark: tương phản 1 chữ (vd "•" 1.98<4.5)
+streak-modals-ar ea2806fce0734b8d861df7304d6bb609 5cf2b511e582486b8cf8acdbaf2be14b MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "•" 1.48<4.5) · dark: tương phản 1 chữ (vd "•" 2.63<4.5) · dark: mảng sáng 20% > 12% (thẻ trắng trong nền tối?)
+streak-modals-de 04cf457d50c242c883980418cae267a3 ff7e3bea78884d1981e82c2ef2003dde MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 3 chữ (vd "So" 3.09<4.5) · dark: tương phản 2 chữ (vd "•" 2.29<4.5)
+streak-modals-desktop 4108a4487987472a9206bfbcc805fcc9 b967ea6e87f34503b3c5a4a687d52142 DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 21 chữ (vd "Lexkite" 1.37<3) · light: tên icon hiện thành chữ "sparkles" (1) · dark: tương phản 22 chữ (vd "IELTS · CEFR Prep" 2.5<4.5) · dark: mảng sáng 13% > 12% (thẻ trắng trong nền tối?) · dark: tên icon hiện thành chữ "sparkles" (1)
+streak-modals-v4 6b9288cbf2dc4dfb94c13f7b4d6781a3 efe2c4a815fb4475a83ca87a7357d67b MOBILE QC | key4 project 16660982915050208874
+volume 136×24") · dark: 4 vùng chạm < 44px (vd "foraging behaviorvolume_ 134×24") · dark: tương phản 2 chữ (vd "📝" 1.92<4.5)
+➔ 326×40") · dark: tương phản 5 chữ (vd "READING • Academic Passage 2" 4.01<4.5)
+🔊 77×34")

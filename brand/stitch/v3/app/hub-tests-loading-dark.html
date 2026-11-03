@@ -161,7 +161,7 @@
 <!-- Logo Mark -->
 <div class="flex items-center gap-1.5 cursor-pointer">
 <div class="w-8 h-8 rounded-xl bg-[#0D3D38] border border-[#2DD4BF]/40 text-[#2DD4BF] flex items-center justify-center font-display-lg text-lg shadow-[0_2px_0_0_#061E1C] active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">drive_file_stream</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">fact_check</span>
 </div>
 <div class="flex flex-col">
 <span class="font-headline-sm text-headline-sm text-[#E8F1F0] leading-tight font-extrabold tracking-tight">Lexkite</span>
@@ -181,9 +181,7 @@
 <span class="font-label-sm text-label-sm text-[#FBBF24] font-bold">820 XP</span>
 </div>
 <!-- Notification Bell -->
-<button class="w-8 h-8 rounded-full bg-[#172427] border-2 border-[#1E2F33] flex items-center justify-center text-[#A9BDBB] shadow-[0_2px_0_0_#0D1517] active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[18px]">notifications</span>
-</button>
+<button aria-label="Notifications" class="w-11 h-11 rounded-full bg-[#172427] border-2 border-[#1E2F33] flex items-center justify-center text-[#A9BDBB] shadow-[0_2px_0_0_#0D1517] active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
 </div>
 </div>
 <!-- Title & Subtitle Row -->
@@ -195,21 +193,7 @@
 <p class="font-body-sm text-body-sm text-[#A9BDBB]">Exam Simulation &amp; Diagnostic Practice</p>
 </div>
 <!-- Exam Tabs -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
-<!-- IELTS Academic (Selected) -->
-<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0D3D38] text-[#2DD4BF] border-2 border-[#2DD4BF] shadow-[0_3px_0_0_#061E1C] active:translate-y-0.5 font-label-md text-label-md whitespace-nowrap transition-transform font-bold">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span>IELTS Academic</span>
-</button>
-<!-- TOEIC -->
-<button class="px-3.5 py-1.5 rounded-full bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#0D1517] font-label-md text-label-md whitespace-nowrap active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]">
-  TOEIC
-</button>
-<!-- TOEFL iBT -->
-<button class="px-3.5 py-1.5 rounded-full bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#0D1517] font-label-md text-label-md whitespace-nowrap active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]">
-  TOEFL iBT
-</button>
-</div></header>
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5"><button class="flex items-center gap-1.5 px-4 min-h-[44px] rounded-full bg-[#0D3D38] text-[#2DD4BF] border-2 border-[#2DD4BF] shadow-[0_3px_0_0_#061E1C] active:translate-y-0.5 font-label-md text-label-md whitespace-nowrap transition-transform font-bold"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>IELTS Academic</span></button><button class="flex items-center justify-center px-4 min-h-[44px] rounded-full bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#0D1517] font-label-md text-label-md whitespace-nowrap active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]">TOEIC</button><button class="flex items-center justify-center px-4 min-h-[44px] rounded-full bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#0D1517] font-label-md text-label-md whitespace-nowrap active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]">TOEFL iBT</button></div></header>
 <!-- 2. SKELETON LOADING CONTENT AREA -->
 <main class="flex-1 px-4 pt-3 flex flex-col gap-4"><!-- ESTIMATED READINESS CARD -->
 <section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-4 shadow-[0_4px_0_0_#0D1517] flex flex-col gap-3">
@@ -406,30 +390,6 @@
 </section></main>
 <!-- 3. BOTTOM NAVIGATION BAR (Fully Loaded & Active "Tests" Tab) -->
 <!-- Executing BottomNavBar rules verbatim from Shared Components JSON -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t-2 border-[#1E2F33] shadow-[0_-4px_12px_rgba(0,0,0,0.6)]"><!-- Tab 1: Today (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100">
-<span class="material-symbols-outlined text-[24px]">today</span>
-<span class="font-label-sm text-label-sm mt-0.5">Today</span>
-</button>
-<!-- Tab 2: Vocab (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100">
-<span class="material-symbols-outlined text-[24px]">menu_book</span>
-<span class="font-label-sm text-label-sm mt-0.5">Vocab</span>
-</button>
-<!-- Tab 3: Skills (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100">
-<span class="material-symbols-outlined text-[24px]">bolt</span>
-<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
-</button>
-<!-- Tab 4: Tests (ACTIVE - in warm amber #F59E0B with tactile ledge) -->
-<button class="flex flex-col items-center justify-center bg-[#241C12] border-2 border-[#F59E0B] text-[#F59E0B] rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#0D1517] active:translate-y-[2px] transition-transform duration-100 font-extrabold">
-<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">assignment</span>
-<span class="font-label-sm text-label-sm mt-0.5 font-extrabold">Tests</span>
-</button>
-<!-- Tab 5: Me (Inactive) -->
-<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100">
-<span class="material-symbols-outlined text-[24px]">person</span>
-<span class="font-label-sm text-label-sm mt-0.5">Me</span>
-</button></nav>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t-2 border-[#1E2F33] shadow-[0_-4px_12px_rgba(0,0,0,0.6)]"><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">today</span><span class="font-label-sm text-label-sm mt-0.5">Today</span></button><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm mt-0.5">Vocab</span></button><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">bolt</span><span class="font-label-sm text-label-sm mt-0.5">Skills</span></button><button class="flex flex-col items-center justify-center bg-[#241C12] border-2 border-[#F59E0B] text-[#F59E0B] rounded-DEFAULT min-h-[44px] min-w-[56px] px-3.5 py-1 shadow-[0_3px_0_0_#0D1517] active:translate-y-[2px] transition-transform duration-100 font-extrabold"><span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">assignment</span><span class="font-label-sm text-label-sm mt-0.5 font-extrabold">Tests</span></button><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-label-sm mt-0.5">Me</span></button></nav>
 </div>
 </body></html>

@@ -142,22 +142,20 @@
 <!-- Top App Bar (Inner Variant) -->
 <header class="sticky top-0 z-40 px-4 py-3 flex items-center justify-between backdrop-blur-sm" style="background-color: rgba(23, 36, 39, 0.95); border-bottom: 2px solid #24383C; box-shadow: 0 4px 0 0 #0C1315;">
 <div class="flex items-center gap-2.5">
-<button aria-label="Zurück" class="w-10 h-10 rounded-full flex items-center justify-center transition-all active:translate-y-0.5" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #2DD4BF; box-shadow: 0 2px 0 0 #0C1315;">
+<button aria-label="Zurück" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all active:translate-y-0.5" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #2DD4BF; box-shadow: 0 2px 0 0 #0C1315;">
 <span class="material-symbols-outlined" style="color: #2DD4BF;">arrow_back</span>
 </button>
 <div class="flex flex-col">
 <h1 class="font-headline-sm text-headline-sm leading-tight" style="color: #E8F1F0;">Fehler-Notizbuch</h1>
-<span class="font-label-sm text-label-sm" style="color: #A9BDBB;">#/fehler • 25 Einträge ausstehend</span>
+<span class="font-label-sm text-label-sm" style="color: #C4D7D5;">#/fehler • 25 Einträge ausstehend</span>
 </div>
 </div>
-<div class="flex items-center gap-1.5">
-<button aria-label="Filter" class="w-9 h-9 rounded-full flex items-center justify-center transition-all active:translate-y-0.5" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #A9BDBB; box-shadow: 0 2px 0 0 #0C1315;">
+<div class="flex items-center gap-1.5"><button aria-label="Filter" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all active:translate-y-0.5" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #C4D7D5; box-shadow: 0 2px 0 0 #0C1315;">
 <span class="material-symbols-outlined text-[18px]">tune</span>
 </button>
-<button aria-label="Lesezeichen" class="w-9 h-9 rounded-full flex items-center justify-center transition-all active:translate-y-0.5" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #A9BDBB; box-shadow: 0 2px 0 0 #0C1315;">
+<button aria-label="Lesezeichen" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all active:translate-y-0.5" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #C4D7D5; box-shadow: 0 2px 0 0 #0C1315;">
 <span class="material-symbols-outlined text-[18px]">bookmark</span>
-</button>
-</div>
+</button></div>
 </header>
 <!-- Main Content Stream -->
 <main class="px-4 pt-3 flex flex-col gap-4">
@@ -182,28 +180,24 @@ Das Wiederholen von Fehlern innerhalb von 24 Stunden verdoppelt die Merkfähigke
 <!-- Filter & Timeline Section -->
 <section class="flex flex-col gap-2.5">
 <!-- Category Pills Row -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
-<!-- Active Pill -->
-<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md active:translate-y-0.5 transition-transform" style="background-color: #136a63; color: #E8F1F0; border: 2px solid #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5"><!-- Active Pill -->
+<button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full font-label-md text-label-md active:translate-y-0.5 transition-transform flex items-center justify-center" style="background-color: #136a63; color: #FFFFFF; border: 2px solid #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
 Alle (25)
 </button>
 <!-- Inactive Pill 1 -->
-<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md active:translate-y-0.5 transition-transform" style="background-color: #1E2F33; color: #A9BDBB; border: 2px solid #2E464B; box-shadow: 0 3px 0 0 #0C1315;">
+<button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full font-label-md text-label-md active:translate-y-0.5 transition-transform flex items-center justify-center" style="background-color: #1E2F33; color: #C4D7D5; border: 2px solid #2E464B; box-shadow: 0 3px 0 0 #0C1315;">
 Grammatik (12)
 </button>
 <!-- Inactive Pill 2 -->
-<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md active:translate-y-0.5 transition-transform" style="background-color: #1E2F33; color: #A9BDBB; border: 2px solid #2E464B; box-shadow: 0 3px 0 0 #0C1315;">
+<button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full font-label-md text-label-md active:translate-y-0.5 transition-transform flex items-center justify-center" style="background-color: #1E2F33; color: #C4D7D5; border: 2px solid #2E464B; box-shadow: 0 3px 0 0 #0C1315;">
 Wortschatz (8)
-</button>
-</div>
+</button></div>
 <!-- Timeline Dropdown Filter -->
-<div class="flex items-center justify-between">
-<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full font-label-sm text-label-sm active:translate-y-0.5 transition-all" style="background-color: #1E2F33; color: #A9BDBB; border: 2px solid #2E464B; box-shadow: 0 2px 0 0 #0C1315;">
+<div class="flex items-center justify-between"><button class="flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-full font-label-sm text-label-sm active:translate-y-0.5 transition-all" style="background-color: #1E2F33; color: #C4D7D5; border: 2px solid #2E464B; box-shadow: 0 2px 0 0 #0C1315;">
 <span>Zeitraum: Letzte 7 Tage</span>
 <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
 </button>
-<span class="font-label-sm text-label-sm" style="color: #6C8280;">Sortiert nach Relevanz</span>
-</div>
+<span class="font-label-sm text-label-sm" style="color: #B4C8C5;">Sortiert nach Relevanz</span></div>
 </section>
 <!-- Mistake Cards List -->
 <section class="flex flex-col gap-3.5">
@@ -214,7 +208,7 @@ Wortschatz (8)
 <span class="px-2.5 py-0.5 rounded-full font-label-sm text-[11px] font-bold" style="background-color: #0E4742; color: #5EEAD4; border: 1px solid #1A6961;">
 Grammatik • IELTS Schreibaufgabe 2
 </span>
-<span class="font-label-sm text-[11px]" style="color: #6C8280;">Gestern</span>
+<span class="font-label-sm text-[11px]" style="color: #B4C8C5;">Gestern</span>
 </div>
 <!-- Stimulus Sentence -->
 <div class="font-body-md text-body-md font-bold px-3 py-2 rounded-DEFAULT" style="background-color: #1E2F33; border: 1px solid #2E464B; color: #E8F1F0;">
@@ -245,16 +239,14 @@ Korrekter Standard: <span style="color: #34D399;">Despite / In spite of</span>
 </p>
 </div>
 <!-- Action Buttons -->
-<div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1 active:translate-y-0.5 transition-all" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
-<span class="material-symbols-outlined text-[16px]">volume_up</span>
+<div class="flex items-center justify-end gap-2 pt-1"><button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
 <span>Anhören</span>
 </button>
-<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1 active:translate-y-0.5 transition-all" style="background-color: #136a63; border: 2px solid #2DD4BF; color: #E8F1F0; box-shadow: 0 3px 0 0 #0C1315;">
-<span class="material-symbols-outlined text-[16px]">fitness_center</span>
+<button class="min-h-[44px] px-4 py-2 rounded-full font-label-md text-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all" style="background-color: #136a63; border: 2px solid #2DD4BF; color: #FFFFFF; box-shadow: 0 3px 0 0 #0C1315;">
+<span class="material-symbols-outlined text-[18px]">fitness_center</span>
 <span>Üben (1x)</span>
-</button>
-</div>
+</button></div>
 </article>
 <!-- Card 2: Vocabulary / Collocation -->
 <article class="rounded-DEFAULT p-3.5 flex flex-col gap-2.5" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 4px 0 0 #0C1315;">
@@ -263,7 +255,7 @@ Korrekter Standard: <span style="color: #34D399;">Despite / In spite of</span>
 <span class="px-2.5 py-0.5 rounded-full font-label-sm text-[11px] font-bold" style="background-color: #382410; color: #FDBA74; border: 1px solid #5E3C1A;">
 Wortschatz • Band 7,5 Kollokation
 </span>
-<span class="font-label-sm text-[11px]" style="color: #6C8280;">Vor 2 Tagen</span>
+<span class="font-label-sm text-[11px]" style="color: #B4C8C5;">Vor 2 Tagen</span>
 </div>
 <!-- Stimulus Sentence -->
 <div class="font-body-md text-body-md font-bold px-3 py-2 rounded-DEFAULT" style="background-color: #1E2F33; border: 1px solid #2E464B; color: #E8F1F0;">
@@ -286,14 +278,14 @@ Band 8,0 Natürliche Kollokation: <span class="underline" style="color: #34D399;
 <!-- Academic Note -->
 <div class="flex items-start gap-2 p-2.5 rounded-DEFAULT" style="background-color: #1E2F33; border: 1px solid #2E464B;">
 <span class="material-symbols-outlined text-[18px] shrink-0 mt-0.5" style="color: #2DD4BF;">auto_stories</span>
-<p class="font-body-sm text-[12px] leading-[17px] font-medium" style="color: #A9BDBB;">
+<p class="font-body-sm text-[12px] leading-[17px] font-medium" style="color: #C4D7D5;">
 <span class="font-bold" style="color: #E8F1F0;">Akademischer Wortschatz:</span> Gehobene Kollokationen wie 'reach a consensus' steigern das Lexical Resource Ergebnis in Schreiben &amp; Sprechen.
 </p>
 </div>
 <!-- Action Button -->
 <div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1 active:translate-y-0.5 transition-all" style="background-color: #136a63; border: 2px solid #2DD4BF; color: #E8F1F0; box-shadow: 0 3px 0 0 #0C1315;">
-<span class="material-symbols-outlined text-[16px]">fitness_center</span>
+<button class="min-h-[44px] px-4 py-2 rounded-full font-label-md text-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all" style="background-color: #136a63; border: 2px solid #2DD4BF; color: #FFFFFF; box-shadow: 0 3px 0 0 #0C1315;">
+<span class="material-symbols-outlined text-[18px]">fitness_center</span>
 <span>Üben (1x)</span>
 </button>
 </div>
@@ -305,12 +297,12 @@ Band 8,0 Natürliche Kollokation: <span class="underline" style="color: #34D399;
 <span class="px-2.5 py-0.5 rounded-full font-label-sm text-[11px] font-bold" style="background-color: #2E2814; color: #FCD34D; border: 1px solid #544421;">
 Aussprache • Wortbetonung
 </span>
-<span class="font-label-sm text-[11px]" style="color: #6C8280;">Vor 3 Tagen</span>
+<span class="font-label-sm text-[11px]" style="color: #B4C8C5;">Vor 3 Tagen</span>
 </div>
 <!-- Target Word Display -->
 <div class="flex items-baseline justify-between px-3 py-2 rounded-DEFAULT" style="background-color: #1E2F33; border: 1px solid #2E464B;">
 <span class="font-headline-sm text-headline-sm" style="color: #5EEAD4;">photographer</span>
-<span class="font-body-sm font-semibold" style="color: #A9BDBB;">/fəˈtɒɡ.rə.fər/</span>
+<span class="font-body-sm font-semibold" style="color: #C4D7D5;">/fəˈtɒɡ.rə.fər/</span>
 </div>
 <!-- Stress Comparisons -->
 <div class="flex flex-col gap-1.5">
@@ -335,16 +327,14 @@ Korrekte Silbenbetonung: <span style="color: #34D399;">pho-TOG-ra-pher</span> (2
 </p>
 </div>
 <!-- Actions -->
-<div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1 active:translate-y-0.5 transition-all" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
-<span class="material-symbols-outlined text-[16px]">volume_up</span>
+<div class="flex items-center justify-end gap-2 pt-1"><button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all" style="background-color: #1E2F33; border: 2px solid #2E464B; color: #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
 <span>Anhören</span>
 </button>
-<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1 active:translate-y-0.5 transition-all" style="background-color: #1E2F33; border: 2px solid #2DD4BF; color: #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
-<span class="material-symbols-outlined text-[16px]">mic</span>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all" style="background-color: #1E2F33; border: 2px solid #2DD4BF; color: #2DD4BF; box-shadow: 0 3px 0 0 #0C1315;">
+<span class="material-symbols-outlined text-[18px]">mic</span>
 <span>Aufnehmen</span>
-</button>
-</div>
+</button></div>
 </article>
 <!-- Card 4: Grammar / Agreement -->
 <article class="rounded-DEFAULT p-3.5 flex flex-col gap-2.5" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 4px 0 0 #0C1315;">
@@ -353,7 +343,7 @@ Korrekte Silbenbetonung: <span style="color: #34D399;">pho-TOG-ra-pher</span> (2
 <span class="px-2.5 py-0.5 rounded-full font-label-sm text-[11px] font-bold" style="background-color: #0E4742; color: #5EEAD4; border: 1px solid #1A6961;">
 Grammatik • Kongruenz
 </span>
-<span class="font-label-sm text-[11px]" style="color: #6C8280;">Vor 4 Tagen</span>
+<span class="font-label-sm text-[11px]" style="color: #B4C8C5;">Vor 4 Tagen</span>
 </div>
 <!-- Stimulus Sentence -->
 <div class="font-body-md text-body-md font-bold px-3 py-2 rounded-DEFAULT" style="background-color: #1E2F33; border: 1px solid #2E464B; color: #E8F1F0;">
@@ -383,8 +373,8 @@ Singular-Standard: <span style="color: #34D399;">is increasing</span>
 </div>
 <!-- Action Button -->
 <div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1 active:translate-y-0.5 transition-all" style="background-color: #136a63; border: 2px solid #2DD4BF; color: #E8F1F0; box-shadow: 0 3px 0 0 #0C1315;">
-<span class="material-symbols-outlined text-[16px]">fitness_center</span>
+<button class="min-h-[44px] px-4 py-2 rounded-full font-label-md text-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all" style="background-color: #136a63; border: 2px solid #2DD4BF; color: #FFFFFF; box-shadow: 0 3px 0 0 #0C1315;">
+<span class="material-symbols-outlined text-[18px]">fitness_center</span>
 <span>Üben (1x)</span>
 </button>
 </div>
@@ -408,7 +398,7 @@ Geschätzte Dauer: 8 Min. • +50 XP
 <!-- Canonical 5-Tab Bottom Navigation Bar (Wortschatz / Vocab Active) -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs h-20 max-w-[390px] mx-auto" style="background-color: #172427; border-top: 2px solid #24383C; box-shadow: 0 -4px 0 0 #0C1315;">
 <!-- 1. Heute (Today) -->
-<a aria-label="Heute" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #A9BDBB;">
+<a aria-label="Heute" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #C4D7D5;">
 <span class="material-symbols-outlined text-[24px]">today</span>
 <span class="text-label-sm font-label-sm mt-0.5">Heute</span>
 </a>
@@ -418,17 +408,17 @@ Geschätzte Dauer: 8 Min. • +50 XP
 <span class="text-label-sm font-label-sm font-bold mt-0.5" style="color: #1a0d00;">Wortschatz</span>
 </a>
 <!-- 3. Fertigkeiten (Skills) -->
-<a aria-label="Fertigkeiten" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #A9BDBB;">
+<a aria-label="Fertigkeiten" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #C4D7D5;">
 <span class="material-symbols-outlined text-[24px]">psychology</span>
 <span class="text-label-sm font-label-sm mt-0.5 leading-none text-center">Fertigkeiten</span>
 </a>
 <!-- 4. Prüfungen (Tests) -->
-<a aria-label="Prüfungen" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #A9BDBB;">
+<a aria-label="Prüfungen" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #C4D7D5;">
 <span class="material-symbols-outlined text-[24px]">assignment</span>
 <span class="text-label-sm font-label-sm mt-0.5">Prüfungen</span>
 </a>
 <!-- 5. Profil (Me/Profile) -->
-<a aria-label="Profil" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #A9BDBB;">
+<a aria-label="Profil" class="flex flex-col items-center justify-center px-space-sm py-space-xs min-w-[48px] min-h-[48px] active:translate-y-0.5 transition-transform" href="#" style="color: #C4D7D5;">
 <span class="material-symbols-outlined text-[24px]">person</span>
 <span class="text-label-sm font-label-sm mt-0.5">Profil</span>
 </a>

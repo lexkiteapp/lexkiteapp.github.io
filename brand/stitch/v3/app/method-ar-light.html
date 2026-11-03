@@ -169,23 +169,20 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
-<body class="bg-background text-on-surface antialiased min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
 <!-- Mobile Viewport Container: 390px native portrait canvas -->
-<div class="relative w-full max-w-[390px] mx-auto min-h-screen bg-surface flex flex-col pb-28">
+<div class="relative w-full max-w-[390px] mx-auto min-h-screen bg-surface flex flex-col pb-28 overflow-x-hidden">
 <!-- SHARED COMPONENT: TopAppBar (mirrored for RTL) -->
 <header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface border-b-2 border-outline-variant dark:border-outline shadow-[0_4px_0_theme(colors.outline-variant)] dark:shadow-none w-full px-5 py-3 flex justify-between items-center transition-all">
 <!-- Right (Mirrored leading icon: Arrow back points right in RTL) -->
-<button aria-label="الرجوع" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant active:translate-y-[2px] transition-transform text-primary dark:text-inverse-primary border-2 border-outline-variant">
+<button aria-label="الرجوع" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant active:translate-y-[2px] transition-transform text-primary dark:text-inverse-primary border-2 border-outline-variant">
 <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
 </button>
 <!-- Center Headline (Brand / Page title) -->
-<div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined material-symbols-fill text-secondary-container text-[22px]">drive_file_stream</span>
-<h1 class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary tracking-tight">Lexkite Bright Day</h1>
-</div>
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-[22px]">school</span><h1 class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary tracking-tight">Lexkite Bright Day</h1></div>
 <!-- Left (Trailing icon: Settings) -->
-<button aria-label="الإعدادات" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant active:translate-y-[2px] transition-transform text-primary dark:text-inverse-primary border-2 border-outline-variant">
+<button aria-label="الإعدادات" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant active:translate-y-[2px] transition-transform text-primary dark:text-inverse-primary border-2 border-outline-variant">
 <span class="material-symbols-outlined text-[22px]">settings</span>
 </button>
 </header>
@@ -202,10 +199,7 @@
 <span class="material-symbols-outlined text-[15px]">auto_stories</span>
             بيداغوجيا Bright Day
           </span>
-<span class="text-label-sm font-label-sm text-outline flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
-            مثبت علمياً
-          </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span> مثبت علمياً</span>
 </div>
 </div>
 <!-- Hero Headline & Subtitle -->
@@ -388,7 +382,7 @@
 <div class="flex items-center justify-between border-b border-surface-dim pb-2.5">
 <div>
 <div class="text-label-md font-label-md text-on-surface">ملخص تنفيذي</div>
-<p class="text-body-sm font-body-sm text-outline">الحفظ التقليدي المكثف مقابل تدريب ليكسكايت اليومي لـ <span class="num-en">15</span> دقيقة</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-medium">الحفظ التقليدي المكثف مقابل تدريب ليكسكايت اليومي لـ <span class="num-en">15</span> دقيقة</p>
 </div>
 <span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold shrink-0">
               دراسة مجموعة <span class="num-en">30</span> يوماً
@@ -448,7 +442,7 @@
 <div class="space-y-2.5">
 <!-- Card 1 -->
 <div class="bg-surface-container-lowest border-2 border-surface-dim rounded-DEFAULT p-3.5 tactile-card flex items-start gap-3">
-<div class="w-9 h-9 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0 border border-outline-variant">
+<div class="w-9 h-9 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0 border border-outline-variant min-h-[44px]">
 <span class="material-symbols-outlined text-[20px]">compress</span>
 </div>
 <div class="space-y-1">
@@ -460,7 +454,7 @@
 </div>
 <!-- Card 2 -->
 <div class="bg-surface-container-lowest border-2 border-surface-dim rounded-DEFAULT p-3.5 tactile-card flex items-start gap-3">
-<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0 border border-outline-variant">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0 border border-outline-variant min-h-[44px]">
 <span class="material-symbols-outlined text-[20px]">view_in_ar</span>
 </div>
 <div class="space-y-1">
@@ -472,7 +466,7 @@
 </div>
 <!-- Card 3 -->
 <div class="bg-surface-container-lowest border-2 border-surface-dim rounded-DEFAULT p-3.5 tactile-card flex items-start gap-3">
-<div class="w-9 h-9 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center shrink-0 border border-outline-variant">
+<div class="w-9 h-9 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center shrink-0 border border-outline-variant min-h-[44px]">
 <span class="material-symbols-outlined text-[20px]">graphic_eq</span>
 </div>
 <div class="space-y-1">
@@ -526,7 +520,7 @@
 <!-- Bottom Sticky CTA Conversion Zone -->
 <section class="pt-4 pb-2 space-y-3">
 <div class="text-center">
-<span class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-outline bg-surface-container px-3 py-1.5 rounded-full border border-surface-dim">
+<span class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant font-bold bg-surface-container px-3 py-1.5 rounded-full border border-surface-dim">
 <span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
             بيداغوجيا تجريبية • بلا حيل تسويقية • قائمة على الأدلة
           </span>
@@ -547,33 +541,7 @@
 <!-- SHARED COMPONENT: BottomNavBar (Mirrored RTL order & Skills tab active) -->
 <!-- Tab items order RTL: 1. اليوم (Today), 2. المفردات (Vocab), 3. المهارات (Skills - ACTIVE), 4. الاختبارات (Tests), 5. أنا (Me) -->
 <nav aria-label="شريط التنقل السفلي" class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-outline-variant dark:border-outline shadow-[0_-4px_0_theme(colors.outline-variant)] dark:shadow-none">
-<div class="max-w-[390px] mx-auto flex justify-around items-center px-2 py-2">
-<!-- Tab 1: اليوم (Today) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-2.5 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#today">
-<span class="material-symbols-outlined text-[22px]">calendar_today</span>
-<span class="text-label-sm font-label-sm mt-0.5">اليوم</span>
-</a>
-<!-- Tab 2: المفردات (Vocab) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-2.5 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#vocab">
-<span class="material-symbols-outlined text-[22px]">menu_book</span>
-<span class="text-label-sm font-label-sm mt-0.5">المفردات</span>
-</a>
-<!-- Tab 3: المهارات (Skills) — ACTIVE DESTINATION -->
-<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3.5 py-1.5 shadow-[0_2px_0_theme(colors.secondary)] active:translate-y-[2px] active:shadow-none transition-transform" href="#skills">
-<span class="material-symbols-outlined material-symbols-fill text-[22px]">psychology</span>
-<span class="text-label-sm font-label-sm font-extrabold mt-0.5">المهارات</span>
-</a>
-<!-- Tab 4: الاختبارات (Tests) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-2.5 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#tests">
-<span class="material-symbols-outlined text-[22px]">quiz</span>
-<span class="text-label-sm font-label-sm mt-0.5">الاختبارات</span>
-</a>
-<!-- Tab 5: أنا / حسابي (Me) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-2.5 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#me">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="text-label-sm font-label-sm mt-0.5">حسابي</span>
-</a>
-</div>
+<div class="max-w-[390px] mx-auto flex justify-around items-center px-2 py-2"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-2.5 py-1 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#today"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="text-label-sm font-label-sm mt-0.5">اليوم</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-2.5 py-1 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#vocab"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="text-label-sm font-label-sm mt-0.5">المفردات</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3.5 py-1 shadow-[0_2px_0_theme(colors.secondary)] active:translate-y-[2px] active:shadow-none transition-transform" href="#skills"><span class="material-symbols-outlined material-symbols-fill text-[22px]">psychology</span><span class="text-label-sm font-label-sm font-extrabold mt-0.5">المهارات</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-2.5 py-1 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#tests"><span class="material-symbols-outlined text-[22px]">quiz</span><span class="text-label-sm font-label-sm mt-0.5">الاختبارات</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-2.5 py-1 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] transition-transform rounded-DEFAULT" href="#me"><span class="material-symbols-outlined text-[22px]">person</span><span class="text-label-sm font-label-sm mt-0.5">حسابي</span></a></div>
 </nav>
 </div>
 </body></html>

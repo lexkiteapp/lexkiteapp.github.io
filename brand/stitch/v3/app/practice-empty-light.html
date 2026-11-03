@@ -133,7 +133,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-background antialiased selection:bg-secondary-fixed min-h-screen pb-24">
 <!-- TOP APP BAR -->
 <header class="sticky top-0 z-40 bg-surface shadow-[0_4px_0_0_#efe0d6] px-space-md py-space-sm w-full">
@@ -149,18 +149,7 @@
 </div>
 </div>
 <!-- Streak & XP Counters -->
-<div class="flex items-center space-x-1.5">
-<!-- Streak Chip -->
-<div class="flex items-center space-x-1 bg-surface-container-lowest border-2 border-surface-variant rounded-full px-2 py-1 shadow-[0_2px_0_0_#efe0d6]">
-<span class="material-symbols-outlined fill text-secondary-container text-base" data-icon="local_fire_department">local_fire_department</span>
-<span class="text-label-sm font-label-sm text-on-background">0d</span>
-</div>
-<!-- XP Chip -->
-<div class="flex items-center space-x-1 bg-tertiary-fixed border-2 border-tertiary-fixed-dim rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#e0ab1e]">
-<span class="material-symbols-outlined fill text-tertiary text-base" data-icon="stars">stars</span>
-<span class="text-label-sm font-label-sm text-on-tertiary-fixed">0 XP</span>
-</div>
-</div>
+<div class="flex items-center space-x-1.5"><div class="flex items-center space-x-1 bg-surface-container-lowest border-2 border-surface-variant rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#efe0d6]"><span class="material-symbols-outlined fill text-secondary-container text-base" data-icon="local_fire_department">local_fire_department</span><span class="text-label-sm font-label-sm text-[#211a14] font-bold">0d</span></div><div class="flex items-center space-x-1 bg-tertiary-fixed border-2 border-tertiary-fixed-dim rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#e0ab1e]"><span class="material-symbols-outlined fill text-tertiary text-base" data-icon="stars">stars</span><span class="text-label-sm font-label-sm text-[#251a00] font-bold">0 XP</span></div></div>
 </div>
 </header>
 <!-- MAIN SCROLLABLE CONTENT CANVAS (390px edge-to-edge) -->
@@ -171,11 +160,7 @@
 <span class="material-symbols-outlined fill text-lg" data-icon="school">school</span>
 </div>
 <div class="flex-1">
-<div class="flex items-center space-x-1.5 mb-0.5">
-<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">TEACHER SLOT</span>
-<span class="text-label-sm font-label-sm text-outline">•</span>
-<span class="text-label-sm font-label-sm text-on-surface-variant font-bold">Coach Carlos</span>
-</div>
+<div class="flex items-center space-x-1.5 mb-0.5"><span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider font-bold">TEACHER SLOT</span><span class="text-label-sm font-label-sm text-[#00504b] font-bold">•</span><span class="text-label-sm font-label-sm text-[#211a14] font-bold">Coach Carlos</span></div>
 <p class="text-body-sm font-body-sm text-on-surface leading-snug">
           "Welcome to Practice! Take a quick 5-minute diagnostic sprint to identify your weak spots and build your personalized drill queue."
         </p>
@@ -216,17 +201,13 @@
 <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
 </button>
 <!-- Diagnostic Perks Strip -->
-<div class="flex items-center justify-center space-x-3 mt-space-sm pt-space-xs text-label-sm font-label-sm text-outline">
-<span class="flex items-center"><span class="material-symbols-outlined text-sm mr-1 text-primary-container" data-icon="check_circle">check_circle</span> 15 Questions</span>
-<span>•</span>
-<span class="flex items-center"><span class="material-symbols-outlined text-sm mr-1 text-primary-container" data-icon="speed">speed</span> Instant Band Est.</span>
-</div>
+<div class="flex items-center justify-center space-x-3 mt-space-sm pt-space-xs text-label-sm font-label-sm text-outline"><span class="flex items-center text-[#00504b] font-semibold"><span class="material-symbols-outlined text-sm mr-1 text-[#00504b]" data-icon="check_circle">check_circle</span> 15 Questions</span><span class="text-[#00504b] font-bold">•</span><span class="flex items-center text-[#00504b] font-semibold"><span class="material-symbols-outlined text-sm mr-1 text-[#00504b]" data-icon="speed">speed</span> Instant Band Est.</span></div>
 </section>
 <!-- QUICK START DRILLS (Bento Starter Cards) -->
 <section class="space-y-space-sm pb-space-sm">
 <div class="flex items-center justify-between">
 <h3 class="text-label-lg font-label-lg text-on-background">Or jump straight into quick drills</h3>
-<span class="text-label-sm font-label-sm text-primary font-bold">Explore all</span>
+<button class="text-label-sm font-label-sm text-primary font-bold hover:underline cursor-pointer py-1 px-2">Explore all</button>
 </div>
 <div class="grid grid-cols-2 gap-space-sm">
 <!-- Drill 1: Fast Dictation -->
@@ -290,32 +271,6 @@
 </main>
 <!-- CANONICAL BOTTOM NAVIGATION BAR -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs bg-surface-container-lowest shadow-[0_-4px_0_0_#efe0d6]">
-<div class="w-full max-w-[390px] mx-auto flex justify-around items-center">
-<!-- 1: Today -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:text-primary transition-colors duration-150">
-<span class="material-symbols-outlined text-xl" data-icon="today">today</span>
-<span class="text-label-sm font-label-sm mt-0.5">Today</span>
-</button>
-<!-- 2: Vocab -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:text-primary transition-colors duration-150">
-<span class="material-symbols-outlined text-xl" data-icon="menu_book">menu_book</span>
-<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
-</button>
-<!-- 3: Skills / Practice (ACTIVE) -->
-<button class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-DEFAULT px-space-sm py-space-xs shadow-[0_3px_0_0_#ffb872] active:translate-y-1 active:shadow-none transition-all">
-<span class="material-symbols-outlined fill text-xl" data-icon="psychology">psychology</span>
-<span class="text-label-sm font-label-sm mt-0.5 font-bold">Skills</span>
-</button>
-<!-- 4: Tests -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:text-primary transition-colors duration-150">
-<span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span>
-<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
-</button>
-<!-- 5: Me -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs hover:text-primary transition-colors duration-150">
-<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
-<span class="text-label-sm font-label-sm mt-0.5">Me</span>
-</button>
-</div>
+<div class="w-full max-w-[390px] mx-auto flex justify-around items-center"><button class="min-w-[44px] min-h-[44px] flex flex-1 flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors duration-150"><span class="material-symbols-outlined text-xl" data-icon="today">today</span><span class="text-label-sm font-label-sm mt-0.5">Today</span></button><button class="min-w-[44px] min-h-[44px] flex flex-1 flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors duration-150"><span class="material-symbols-outlined text-xl" data-icon="menu_book">menu_book</span><span class="text-label-sm font-label-sm mt-0.5">Vocab</span></button><button class="min-w-[44px] min-h-[44px] flex flex-1 flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-DEFAULT p-2 shadow-[0_3px_0_0_#ffb872] active:translate-y-1 active:shadow-none transition-all"><span class="material-symbols-outlined fill text-xl" data-icon="psychology">psychology</span><span class="text-label-sm font-label-sm mt-0.5 font-bold">Skills</span></button><button class="min-w-[44px] min-h-[44px] flex flex-1 flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors duration-150"><span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span><span class="text-label-sm font-label-sm mt-0.5">Tests</span></button><button class="min-w-[44px] min-h-[44px] flex flex-1 flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors duration-150"><span class="material-symbols-outlined text-xl" data-icon="person">person</span><span class="text-label-sm font-label-sm mt-0.5">Me</span></button></div>
 </nav>
 </body></html>

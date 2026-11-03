@@ -120,9 +120,7 @@
 <!-- Top Navigation Anchor -->
 <header class="sticky top-0 z-40 bg-[#10191B] border-b-2 border-[#23373B] shadow-[0_2px_0_0_#0B1315] px-3 h-14 flex items-center justify-between">
 <div class="flex items-center gap-2">
-<button aria-label="Go back" class="w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2B4348] shadow-[0_2px_0_0_#0B1315] active:translate-y-[2px] active:shadow-none transition-transform">
-<span class="material-symbols-outlined text-[#E8F1F0]" data-icon="arrow_back">arrow_back</span>
-</button>
+<button aria-label="Go back" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2B4348] shadow-[0_2px_0_0_#0B1315] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-[#E8F1F0]" data-icon="arrow_back">arrow_back</span></button>
 <div class="flex flex-col">
 <span class="font-headline-md text-headline-md text-[#2DD4BF] font-extrabold leading-none tracking-tight">Lexkite</span>
 <span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold tracking-wider">MY DECKS</span>
@@ -139,9 +137,7 @@
 <span class="font-label-sm text-label-sm text-[#2DD4BF] font-extrabold">420</span>
 </div>
 <!-- Search icon -->
-<button aria-label="Search decks" class="w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2B4348] shadow-[0_2px_0_0_#0B1315] active:translate-y-[2px] active:shadow-none transition-transform">
-<span class="material-symbols-outlined text-[#E8F1F0]" data-icon="search">search</span>
-</button>
+<button aria-label="Search decks" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2B4348] shadow-[0_2px_0_0_#0B1315] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-[#E8F1F0]" data-icon="search">search</span></button>
 </div>
 </header>
 <!-- Main Content Container -->
@@ -180,10 +176,7 @@
             </span>
 </div>
 <!-- Tactile 44px Retry Button -->
-<button class="w-full h-11 flex items-center justify-center gap-2 bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT border-2 border-[#2B4348] ledge-raised-dark font-extrabold active:translate-y-[2px] transition-transform">
-<span class="material-symbols-outlined text-[#2DD4BF]" data-icon="sync">sync</span>
-<span>Retry connection</span>
-</button>
+<button class="w-full h-11 min-h-[48px] px-4 py-2.5 flex items-center justify-center gap-2 bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT border-2 border-[#2B4348] ledge-raised-dark font-extrabold active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[#2DD4BF]" data-icon="sync">sync</span><span>Retry connection</span></button>
 </div>
 </section>
 <!-- Section Title & Status Count -->
@@ -197,37 +190,10 @@
           </p>
 </div>
 <!-- Quick Action Bar: + New Deck (Dimmed / Online Only) -->
-<div class="relative group">
-<button class="opacity-55 cursor-not-allowed h-9 px-3 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2B4348] flex items-center gap-1 text-[#6B7C7E] font-label-md text-label-md font-bold" disabled="" title="Online only">
-<span class="material-symbols-outlined text-[18px] text-[#6B7C7E]" data-icon="lock">lock</span>
-<span>+ Deck</span>
-</button>
-<!-- Tooltip badge indicating offline restriction -->
-<span class="absolute -top-2 -right-1 px-1.5 py-0.2 rounded-full bg-[#1E2F33] border border-[#2B4348] text-[9px] font-label-sm text-[#A9BDBB] font-extrabold">
-            Online only
-          </span>
-</div>
+<div class="relative group"><button class="min-h-[48px] px-3.5 py-2 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2B4348] flex items-center gap-1.5 text-[#E8F1F0] font-label-md text-label-md font-bold cursor-not-allowed" disabled="" title="Online only"><span class="material-symbols-outlined text-[18px] text-[#A9BDBB]" data-icon="lock">lock</span><span>+ Deck</span></button><span class="absolute -top-2 -right-1 px-1.5 py-0.5 rounded-full bg-[#172427] border border-[#2B4348] text-[9px] font-label-sm text-[#E8F1F0] font-extrabold shadow-[0_2px_0_0_#0B1315]">Online only</span></div>
 </div>
 <!-- Filter Pills Carousel -->
-<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
-<button class="h-8 px-3 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5">
-          All (4)
-        </button>
-<!-- Active Filter: Cached Only -->
-<button class="h-8 px-3.5 rounded-full border-2 border-[#14B8A6] bg-[#0D5E58] text-[#2DD4BF] font-label-sm text-label-sm font-extrabold shadow-[0_2px_0_0_#062B28] flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="cloud_done">cloud_done</span>
-<span>Cached only (3)</span>
-</button>
-<button class="h-8 px-3 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5">
-          Due (2)
-        </button>
-<button class="h-8 px-3 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5">
-          Mastered (1)
-        </button>
-<button aria-label="Sort decks" class="h-8 w-8 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] flex items-center justify-center text-[#E8F1F0] shadow-[0_2px_0_0_#0B1315] shrink-0">
-<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
-</button>
-</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar"><button class="min-h-[48px] px-4 py-2.5 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] text-[#E8F1F0] font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5 font-bold">All (4)</button><button class="min-h-[48px] px-4 py-2.5 rounded-full border-2 border-[#14B8A6] bg-[#0D5E58] text-[#FFFFFF] font-label-sm text-label-sm font-extrabold shadow-[0_2px_0_0_#062B28] flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="cloud_done">cloud_done</span><span>Cached only (3)</span></button><button class="min-h-[48px] px-4 py-2.5 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] text-[#E8F1F0] font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5 font-bold">Due (2)</button><button class="min-h-[48px] px-4 py-2.5 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] text-[#E8F1F0] font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5 font-bold">Mastered (1)</button><button aria-label="Sort decks" class="min-h-[48px] min-w-[48px] h-11 w-11 rounded-full border-2 border-[#2B4348] bg-[#1E2F33] flex items-center justify-center text-[#E8F1F0] shadow-[0_2px_0_0_#0B1315] shrink-0"><span class="material-symbols-outlined text-[18px] text-[#E8F1F0]" data-icon="tune">tune</span></button></div>
 <!-- DAILY DRILL BANNER (Tactile Amber CTA) -->
 <section class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark">
 <div class="flex items-center justify-between mb-2">
@@ -243,10 +209,7 @@
           Review 24 cached cards due today. Results will be queued and synchronized automatically.
         </p>
 <!-- Signature Amber CTA with deep brown-black ink (#1C1003) -->
-<button class="w-full h-12 rounded-DEFAULT border-2 border-[#854D0E] bg-[#F59E0B] text-[#1C1003] font-headline-sm text-headline-sm font-extrabold ledge-amber-dark flex items-center justify-center gap-2 active:translate-y-[3px]">
-<span>Review offline cards (~8 mins)</span>
-<span class="material-symbols-outlined font-extrabold text-[#1C1003]" data-icon="arrow_forward">arrow_forward</span>
-</button>
+<button class="w-full h-12 min-h-[48px] rounded-DEFAULT border-2 border-[#854D0E] bg-[#F59E0B] text-[#1C1003] font-headline-sm text-headline-sm font-extrabold ledge-amber-dark flex items-center justify-center gap-2 active:translate-y-[3px]"><span>Review offline cards (~8 mins)</span><span class="material-symbols-outlined font-extrabold text-[#1C1003]" data-icon="arrow_forward">arrow_forward</span></button>
 </section>
 <!-- DECK LIST SECTION -->
 <section class="space-y-3">
@@ -255,147 +218,13 @@
 <span class="font-label-sm text-label-sm text-[#2DD4BF] font-bold">3 READY</span>
 </div>
 <!-- DECK CARD 1: IELTS Academic Band 7+ Collocations -->
-<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark">
-<div class="flex items-start justify-between gap-2">
-<div class="flex-1">
-<div class="flex items-center gap-1.5 mb-1">
-<!-- Green Cached Badge -->
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#042F2C] border border-[#2DD4BF]/50 text-[11px] font-label-sm text-[#2DD4BF] font-extrabold">
-<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
-                  Cached
-                </span>
-<span class="font-label-sm text-label-sm text-[#FB7185] font-extrabold bg-[#2A1717] px-2 py-0.5 rounded-full border border-[#FB7185]/40">
-                  14 due today
-                </span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">
-                IELTS Academic Band 7+ Collocations
-              </h3>
-<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">
-                240 words • Phrasal chunks, essay structures &amp; lexical bundles
-              </p>
-</div>
-<!-- More menu -->
-<button aria-label="Deck options" class="w-7 h-7 flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0]">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-<!-- Tactile Primary Study Button -->
-<div class="mt-3 pt-2.5 border-t-2 border-[#23373B] flex items-center justify-between gap-3">
-<div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="speed">speed</span>
-<span>Spaced repetition</span>
-</div>
-<button class="h-10 px-4 rounded-DEFAULT border-2 border-[#14B8A6] bg-[#0D5E58] text-[#E8F1F0] font-label-md text-label-md font-extrabold ledge-study-dark flex items-center gap-1.5">
-<span>Study Deck</span>
-<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</article>
+<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#042F2C] border border-[#2DD4BF]/50 text-[11px] font-label-sm text-[#2DD4BF] font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>Cached</span><span class="font-label-sm text-label-sm text-[#FB7185] font-extrabold bg-[#2A1717] px-2.5 py-1 rounded-full border border-[#FB7185]/40">14 due today</span></div><h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">IELTS Academic Band 7+ Collocations</h3><p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">240 words • Phrasal chunks, essay structures &amp; lexical bundles</p></div><button aria-label="Deck options" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0]"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button></div><div class="mt-3 pt-2.5 border-t-2 border-[#23373B] flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="speed">speed</span><span>Spaced repetition</span></div><button class="min-h-[48px] px-4 py-2.5 rounded-DEFAULT border-2 border-[#14B8A6] bg-[#0D5E58] text-[#E8F1F0] font-label-md text-label-md font-extrabold ledge-study-dark flex items-center gap-1.5"><span>Study Deck</span><span class="material-symbols-outlined text-[18px] text-[#2DD4BF]" data-icon="arrow_forward">arrow_forward</span></button></div></article>
 <!-- DECK CARD 2: Work & Office Idioms -->
-<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark">
-<div class="flex items-start justify-between gap-2">
-<div class="flex-1">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#042F2C] border border-[#2DD4BF]/50 text-[11px] font-label-sm text-[#2DD4BF] font-extrabold">
-<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
-                  Cached
-                </span>
-<span class="font-label-sm text-label-sm text-[#FB7185] font-extrabold bg-[#2A1717] px-2 py-0.5 rounded-full border border-[#FB7185]/40">
-                  8 due today
-                </span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">
-                Work &amp; Office Idioms
-              </h3>
-<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">
-                120 words • Professional negotiation &amp; watercooler expressions
-              </p>
-</div>
-<button aria-label="Deck options" class="w-7 h-7 flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0]">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-<div class="mt-3 pt-2.5 border-t-2 border-[#23373B] flex items-center justify-between gap-3">
-<div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="bolt">bolt</span>
-<span>Quick retention</span>
-</div>
-<button class="h-10 px-4 rounded-DEFAULT border-2 border-[#14B8A6] bg-[#0D5E58] text-[#E8F1F0] font-label-md text-label-md font-extrabold ledge-study-dark flex items-center gap-1.5">
-<span>Study Deck</span>
-<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</article>
+<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#042F2C] border border-[#2DD4BF]/50 text-[11px] font-label-sm text-[#2DD4BF] font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>Cached</span><span class="font-label-sm text-label-sm text-[#FB7185] font-extrabold bg-[#2A1717] px-2.5 py-1 rounded-full border border-[#FB7185]/40">8 due today</span></div><h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">Work &amp; Office Idioms</h3><p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">120 words • Professional negotiation &amp; watercooler expressions</p></div><button aria-label="Deck options" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0]"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button></div><div class="mt-3 pt-2.5 border-t-2 border-[#23373B] flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="bolt">bolt</span><span>Quick retention</span></div><button class="min-h-[48px] px-4 py-2.5 rounded-DEFAULT border-2 border-[#14B8A6] bg-[#0D5E58] text-[#E8F1F0] font-label-md text-label-md font-extrabold ledge-study-dark flex items-center gap-1.5"><span>Study Deck</span><span class="material-symbols-outlined text-[18px] text-[#2DD4BF]" data-icon="arrow_forward">arrow_forward</span></button></div></article>
 <!-- DECK CARD 3: Dining & Social Small Talk -->
-<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark">
-<div class="flex items-start justify-between gap-2">
-<div class="flex-1">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#042F2C] border border-[#2DD4BF]/50 text-[11px] font-label-sm text-[#2DD4BF] font-extrabold">
-<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
-                  Cached
-                </span>
-<span class="font-label-sm text-label-sm text-[#2DD4BF] font-extrabold bg-[#1E2F33] px-2 py-0.5 rounded-full border border-[#2B4348]">
-                  Completed today
-                </span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">
-                Dining &amp; Social Small Talk
-              </h3>
-<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">
-                85 words • Restaurant ordering, travel etiquette &amp; greetings
-              </p>
-</div>
-<button aria-label="Deck options" class="w-7 h-7 flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0]">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-<div class="mt-3 pt-2.5 border-t-2 border-[#23373B] flex items-center justify-between gap-3">
-<div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-[16px] text-[#F59E0B]" data-icon="done_all">done_all</span>
-<span>100% Retained</span>
-</div>
-<button class="h-10 px-4 rounded-DEFAULT border-2 border-[#2B4348] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-extrabold ledge-raised-dark flex items-center gap-1.5">
-<span>Review Again</span>
-<span class="material-symbols-outlined text-[18px] text-[#A9BDBB]" data-icon="replay">replay</span>
-</button>
-</div>
-</article>
+<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 ledge-card-dark"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#042F2C] border border-[#2DD4BF]/50 text-[11px] font-label-sm text-[#2DD4BF] font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>Cached</span><span class="font-label-sm text-label-sm text-[#2DD4BF] font-extrabold bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2B4348]">Completed today</span></div><h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">Dining &amp; Social Small Talk</h3><p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">85 words • Restaurant ordering, travel etiquette &amp; greetings</p></div><button aria-label="Deck options" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0]"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button></div><div class="mt-3 pt-2.5 border-t-2 border-[#23373B] flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px] text-[#F59E0B]" data-icon="done_all">done_all</span><span>100% Retained</span></div><button class="min-h-[48px] px-4 py-2.5 rounded-DEFAULT border-2 border-[#2B4348] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md font-extrabold ledge-raised-dark flex items-center gap-1.5"><span>Review Again</span><span class="material-symbols-outlined text-[18px] text-[#A9BDBB]" data-icon="replay">replay</span></button></div></article>
 <!-- UNAVAILABLE / CLOUD-ONLY DECK (Dimmed 60% State) -->
-<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 opacity-60 relative overflow-hidden">
-<div class="flex items-start justify-between gap-2">
-<div class="flex-1">
-<div class="flex items-center gap-1.5 mb-1">
-<!-- Offline Locked Badge -->
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#1E2F33] border border-[#2B4348] text-[11px] font-label-sm text-[#A9BDBB] font-extrabold">
-<span class="material-symbols-outlined text-[14px]" data-icon="cloud_off">cloud_off</span>
-                  Not cached
-                </span>
-<span class="font-label-sm text-label-sm text-[#F87171] font-extrabold bg-[#2A1717] px-2 py-0.5 rounded-full border border-[#F87171]/40">
-                  Audio requires connection
-                </span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">
-                Common Test Pitfalls (False Friends)
-              </h3>
-<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">
-                160 words • Advanced deceptive pairs &amp; listening distractors
-              </p>
-</div>
-<span class="material-symbols-outlined text-[#6B7C7E] text-[20px]" data-icon="lock">lock</span>
-</div>
-<div class="mt-3 pt-2.5 border-t border-[#23373B] flex items-center justify-between gap-3">
-<div class="flex items-center gap-1 text-[#6B7C7E] font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-[16px]" data-icon="wifi_off">wifi_off</span>
-<span>Needs sync to download</span>
-</div>
-<button class="h-10 px-3 rounded-DEFAULT border-2 border-[#23373B] bg-[#1E2F33] text-[#6B7C7E] font-label-md text-label-md font-bold cursor-not-allowed flex items-center gap-1" disabled="">
-<span class="material-symbols-outlined text-[16px]" data-icon="cloud_download">cloud_download</span>
-<span>Needs sync</span>
-</button>
-</div>
-</article>
+<article class="rounded-DEFAULT border-2 border-[#23373B] bg-[#172427] p-3.5 opacity-60 relative overflow-hidden"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#2B4348] text-[11px] font-label-sm text-[#E8F1F0] font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="cloud_off">cloud_off</span>Not cached</span><span class="font-label-sm text-label-sm text-[#F87171] font-extrabold bg-[#2A1717] px-2.5 py-1 rounded-full border border-[#F87171]/40">Audio requires connection</span></div><h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold leading-tight">Common Test Pitfalls (False Friends)</h3><p class="font-body-sm text-body-sm text-[#A9BDBB] mt-1">160 words • Advanced deceptive pairs &amp; listening distractors</p></div><span class="material-symbols-outlined text-[#A9BDBB] text-[20px]" data-icon="lock">lock</span></div><div class="mt-3 pt-2.5 border-t border-[#23373B] flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-[#A9BDBB] font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px]" data-icon="wifi_off">wifi_off</span><span>Needs sync to download</span></div><button class="min-h-[48px] px-4 py-2.5 rounded-DEFAULT border-2 border-[#23373B] bg-[#1E2F33] text-[#A9BDBB] font-label-md text-label-md font-bold cursor-not-allowed flex items-center gap-1.5" disabled=""><span class="material-symbols-outlined text-[16px]" data-icon="cloud_download">cloud_download</span><span>Needs sync</span></button></div></article>
 </section>
 <!-- IMPORT & CLOUD SYNC MODULE (Offline notice) -->
 <section class="rounded-DEFAULT border-2 border-dashed border-[#2B4348] bg-[#172427] p-3.5 flex items-center justify-between gap-3">
@@ -410,9 +239,7 @@
             </p>
 </div>
 </div>
-<button class="px-2.5 py-1.5 rounded-DEFAULT border border-[#2B4348] bg-[#1E2F33] text-[#6B7C7E] font-label-sm text-label-sm font-bold" disabled="">
-          Disabled
-        </button>
+<button class="min-h-[48px] px-3.5 py-2.5 rounded-DEFAULT border border-[#2B4348] bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm font-bold" disabled="">Disabled</button>
 </section>
 <!-- TEACHER SLOT (Canonical .teacher-slot container with dashed tactile border) -->
 <aside aria-label="Coach tip" class="teacher-slot rounded-DEFAULT border-2 border-dashed border-[#14B8A6] bg-[#101E21] p-3.5" role="note">

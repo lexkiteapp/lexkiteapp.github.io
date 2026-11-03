@@ -131,7 +131,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed flex flex-col pb-24">
 <!-- TOP APP BAR -->
 <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-gutter py-space-sm bg-surface shadow-[0_2px_0_0_#efe0d6]">
@@ -151,9 +151,7 @@
 <span class="font-label-sm text-label-sm font-extrabold tracking-wider">14d</span>
 </div>
 <!-- Settings/Filter Icon Button -->
-<button aria-label="Settings" class="w-9 h-9 rounded-full bg-surface-container-lowest text-primary border-2 border-surface-variant flex items-center justify-center shadow-[0_2px_0_#efe0d6] active:translate-y-0.5 transition-transform duration-100">
-<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
-</button>
+<button aria-label="Settings" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest text-primary border-2 border-surface-variant flex items-center justify-center shadow-[0_2px_0_#efe0d6] active:translate-y-0.5 transition-transform duration-100"><span class="material-symbols-outlined text-lg" data-icon="tune">tune</span></button>
 </div>
 </header>
 <!-- MAIN SCROLLABLE CONTENT CANVAS (Edge-to-Edge 390px native container) -->
@@ -200,7 +198,7 @@
 <div class="flex flex-col">
 <div class="flex items-center gap-2">
 <span class="font-label-sm text-label-sm text-primary font-extrabold">Coach Carlos</span>
-<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Offline mode</span>
+<span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-surface-container-highest text-[#211a14]">Offline mode</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-tight mt-0.5">
           Ratings submitted offline will queue locally and synchronize with the FSRS retention algorithm once reconnected.
@@ -239,10 +237,7 @@
 <span class="bg-[#e8f8ee] border border-[#1db954] text-[#0f5a29] px-2 py-0.5 rounded-full font-label-sm text-label-sm font-extrabold">Band 7.5+</span>
 </div>
 <!-- Cached Audio Button -->
-<button aria-label="Play audio pronunciation" class="flex items-center gap-1 px-2.5 py-1 bg-surface-container-low border border-surface-variant rounded-full text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-base" data-icon="volume_up">volume_up</span>
-<span class="font-label-sm text-label-sm font-bold">Cached audio ✓</span>
-</button>
+<button aria-label="Play audio pronunciation" class="min-h-[44px] px-3 py-1.5 flex items-center gap-1.5 bg-surface-container-low border border-surface-variant rounded-full text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform"><span class="material-symbols-outlined text-base" data-icon="volume_up">volume_up</span><span class="font-label-sm text-label-sm font-bold">Cached audio ✓</span></button>
 </div>
 <!-- Word Stimulus & IPA -->
 <div>
@@ -278,10 +273,7 @@
 </div>
 </div>
 <!-- Dimmed Offline Notice -->
-<div class="flex items-center gap-1.5 py-1.5 px-2.5 bg-surface-container-high rounded-lg text-outline text-xs border border-dashed border-outline-variant">
-<span class="material-symbols-outlined text-sm" data-icon="cloud_off">cloud_off</span>
-<span class="font-label-sm text-label-sm font-semibold">Online dictionary lookup unavailable offline</span>
-</div>
+<div class="flex items-center gap-1.5 py-2 px-2.5 bg-surface-container-high rounded-lg text-[#211a14] text-xs border border-dashed border-outline"><span class="material-symbols-outlined text-sm text-[#211a14]" data-icon="cloud_off">cloud_off</span><span class="font-label-sm text-label-sm font-bold text-[#211a14]">Online dictionary lookup unavailable offline</span></div>
 </article>
 <!-- MEMORY RATING BUTTONS (FSRS Grid) -->
 <section class="flex flex-col gap-2">
@@ -312,36 +304,10 @@
 <span class="text-[11px] opacity-80 font-bold">5d</span>
 </button>
 </div>
-<p class="text-center font-body-sm text-body-sm text-on-surface-variant italic mt-0.5">
-        Offline reviews will queue and sync automatically
-      </p>
+<p class="text-center font-body-sm text-body-sm text-[#211a14] font-medium italic mt-0.5">Offline reviews will queue and sync automatically</p>
 </section>
 <!-- 7-DAY LOAD FORECAST (DIMMED / UNAVAILABLE IN OFFLINE) -->
-<section class="bg-surface-container border-2 border-dashed border-outline-variant rounded-DEFAULT p-3.5 opacity-60 flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-1.5 text-on-surface-variant">
-<span class="material-symbols-outlined text-base" data-icon="lock">lock</span>
-<span class="font-label-md text-label-md font-bold">7-Day Load Forecast</span>
-</div>
-<span class="text-xs bg-surface-variant px-2 py-0.5 rounded text-outline font-bold">Cloud Sync Required</span>
-</div>
-<p class="font-body-sm text-body-sm text-outline leading-tight">
-        Cloud sync required for forward forecast updates. Historical schedule cached.
-      </p>
-<!-- Disabled Chart Mock -->
-<div class="h-10 flex items-end justify-between gap-1.5 pt-2 px-1 border-b border-outline-variant">
-<div class="w-full bg-surface-dim h-4 rounded-t"></div>
-<div class="w-full bg-surface-dim h-6 rounded-t"></div>
-<div class="w-full bg-surface-dim h-8 rounded-t"></div>
-<div class="w-full bg-surface-dim h-5 rounded-t"></div>
-<div class="w-full bg-surface-dim h-7 rounded-t"></div>
-<div class="w-full bg-surface-dim h-3 rounded-t"></div>
-<div class="w-full bg-surface-dim h-6 rounded-t"></div>
-</div>
-<div class="flex justify-between text-[10px] text-outline font-bold px-1">
-<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-</div>
-</section>
+<section class="bg-surface-container border-2 border-dashed border-outline rounded-DEFAULT p-3.5 opacity-90 flex flex-col gap-2"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5 text-on-surface"><span class="material-symbols-outlined text-base text-on-surface" data-icon="lock">lock</span><span class="font-label-md text-label-md font-bold text-on-surface">7-Day Load Forecast</span></div><span class="text-xs bg-surface-variant px-2 py-0.5 rounded text-on-surface font-extrabold border border-outline-variant">Cloud Sync Required</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Cloud sync required for forward forecast updates. Historical schedule cached.</p><div class="h-10 flex items-end justify-between gap-1.5 pt-2 px-1 border-b border-outline-variant"><div class="w-full bg-surface-dim h-4 rounded-t"></div><div class="w-full bg-surface-dim h-6 rounded-t"></div><div class="w-full bg-surface-dim h-8 rounded-t"></div><div class="w-full bg-surface-dim h-5 rounded-t"></div><div class="w-full bg-surface-dim h-7 rounded-t"></div><div class="w-full bg-surface-dim h-3 rounded-t"></div><div class="w-full bg-surface-dim h-6 rounded-t"></div></div><div class="flex justify-between text-[10px] text-on-surface font-extrabold px-1"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></section>
 </main>
 <!-- CANONICAL BOTTOM NAV BAR (VOCAB ACTIVE) -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs bg-surface shadow-[0_-4px_0_0_#efe0d6]">

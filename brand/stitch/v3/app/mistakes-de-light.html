@@ -135,28 +135,22 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased flex justify-center w-full min-h-screen">
 <!-- Mobile Container (390px Native Screen) -->
 <div class="w-[390px] min-h-screen bg-background relative flex flex-col pb-44">
 <!-- Top App Bar (Inner Variant) -->
 <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm px-4 py-3 flex items-center justify-between shadow-[0_4px_0_0_#efe0d6]">
 <div class="flex items-center gap-2.5">
-<button aria-label="Zurück" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-primary">arrow_back</span>
-</button>
+<button aria-label="Zurück" class="min-w-[48px] min-h-[48px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-primary">arrow_back</span></button>
 <div class="flex flex-col">
 <h1 class="font-headline-sm text-headline-sm text-primary leading-tight">Fehler-Notizbuch</h1>
 <span class="font-label-sm text-label-sm text-on-surface-variant">#/fehler • 25 Einträge ausstehend</span>
 </div>
 </div>
 <div class="flex items-center gap-1.5">
-<button aria-label="Filter" class="w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[18px]">tune</span>
-</button>
-<button aria-label="Lesezeichen" class="w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[18px]">bookmark</span>
-</button>
+<button aria-label="Filter" class="min-w-[48px] min-h-[48px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[18px]">tune</span></button>
+<button aria-label="Lesezeichen" class="min-w-[48px] min-h-[48px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[18px]">bookmark</span></button>
 </div>
 </header>
 <!-- Main Content Stream -->
@@ -182,28 +176,9 @@
 <!-- Filter & Timeline Section -->
 <section class="flex flex-col gap-2.5">
 <!-- Category Pills Row -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
-<!-- Active Pill -->
-<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md border-2 border-on-primary-fixed-variant shadow-[0_3px_0_0_#00201d] active:translate-y-0.5 active:shadow-none transition-transform">
-            Alle (25)
-          </button>
-<!-- Inactive Pill 1 -->
-<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-transform">
-            Grammatik (12)
-          </button>
-<!-- Inactive Pill 2 -->
-<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-transform">
-            Wortschatz (8)
-          </button>
-</div>
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5"><button class="shrink-0 px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary text-on-primary font-label-md text-label-md border-2 border-on-primary-fixed-variant shadow-[0_3px_0_0_#00201d] active:translate-y-0.5 active:shadow-none transition-transform flex items-center justify-center">Alle (25)</button><button class="shrink-0 px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-transform flex items-center justify-center">Grammatik (12)</button><button class="shrink-0 px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-transform flex items-center justify-center">Wortschatz (8)</button></div>
 <!-- Timeline Dropdown Filter -->
-<div class="flex items-center justify-between">
-<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] font-label-sm text-label-sm active:translate-y-0.5 active:shadow-none transition-all">
-<span>Zeitraum: Letzte 7 Tage</span>
-<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
-</button>
-<span class="font-label-sm text-label-sm text-outline">Sortiert nach Relevanz</span>
-</div>
+<div class="flex items-center justify-between"><button class="flex items-center gap-1.5 px-3 py-2.5 min-h-[48px] rounded-full bg-surface-container text-on-surface-variant border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] font-label-sm text-label-sm active:translate-y-0.5 active:shadow-none transition-all"><span>Zeitraum: Letzte 7 Tage</span><span class="material-symbols-outlined text-[16px]">arrow_drop_down</span></button><span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Sortiert nach Relevanz</span></div>
 </section>
 <!-- Mistake Cards List -->
 <section class="flex flex-col gap-3.5">
@@ -214,7 +189,7 @@
 <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-[11px]">
               Grammatik • IELTS Schreibaufgabe 2
             </span>
-<span class="font-label-sm text-[11px] text-outline">Gestern</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Gestern</span>
 </div>
 <!-- Stimulus Sentence -->
 <div class="font-body-md text-body-md font-bold text-on-surface bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
@@ -245,16 +220,7 @@
             </p>
 </div>
 <!-- Action Buttons -->
-<div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-variant text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[16px]">volume_up</span>
-<span>Anhören</span>
-</button>
-<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[16px]">fitness_center</span>
-<span>Üben (1x)</span>
-</button>
-</div>
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest border-2 border-surface-variant text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Anhören</span></button><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">fitness_center</span><span>Üben (1x)</span></button></div>
 </article>
 <!-- Card 2: Vocabulary / Collocation -->
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
@@ -263,7 +229,7 @@
 <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px]">
               Wortschatz • Band 7,5 Kollokation
             </span>
-<span class="font-label-sm text-[11px] text-outline">Vor 2 Tagen</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Vor 2 Tagen</span>
 </div>
 <!-- Stimulus Sentence -->
 <div class="font-body-md text-body-md font-bold text-on-surface bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
@@ -291,12 +257,7 @@
             </p>
 </div>
 <!-- Action Button -->
-<div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[16px]">fitness_center</span>
-<span>Üben (1x)</span>
-</button>
-</div>
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">fitness_center</span><span>Üben (1x)</span></button></div>
 </article>
 <!-- Card 3: Pronunciation / Word Stress -->
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
@@ -305,12 +266,12 @@
 <span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px]">
               Aussprache • Wortbetonung
             </span>
-<span class="font-label-sm text-[11px] text-outline">Vor 3 Tagen</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Vor 3 Tagen</span>
 </div>
 <!-- Target Word Display -->
 <div class="flex items-baseline justify-between bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
 <span class="font-headline-sm text-headline-sm text-primary">photographer</span>
-<span class="font-body-sm text-outline font-semibold">/fəˈtɒɡ.rə.fər/</span>
+<span class="font-body-sm text-on-surface-variant font-bold">/fəˈtɒɡ.rə.fər/</span>
 </div>
 <!-- Stress Comparisons -->
 <div class="flex flex-col gap-1.5">
@@ -335,16 +296,7 @@
             </p>
 </div>
 <!-- Actions -->
-<div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-variant text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[16px]">volume_up</span>
-<span>Anhören</span>
-</button>
-<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest border-2 border-primary text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#00504b] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[16px]">mic</span>
-<span>Aufnehmen</span>
-</button>
-</div>
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest border-2 border-surface-variant text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Anhören</span></button><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest border-2 border-primary text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#00504b] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">mic</span><span>Aufnehmen</span></button></div>
 </article>
 <!-- Card 4: Grammar / Agreement -->
 <article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
@@ -353,7 +305,7 @@
 <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-[11px]">
               Grammatik • Kongruenz
             </span>
-<span class="font-label-sm text-[11px] text-outline">Vor 4 Tagen</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Vor 4 Tagen</span>
 </div>
 <!-- Stimulus Sentence -->
 <div class="font-body-md text-body-md font-bold text-on-surface bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
@@ -382,12 +334,7 @@
             </p>
 </div>
 <!-- Action Button -->
-<div class="flex items-center justify-end gap-2 pt-1">
-<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all">
-<span class="material-symbols-outlined text-[16px]">fitness_center</span>
-<span>Üben (1x)</span>
-</button>
-</div>
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">fitness_center</span><span>Üben (1x)</span></button></div>
 </article>
 </section>
 </main>

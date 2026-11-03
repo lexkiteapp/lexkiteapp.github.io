@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lexkite — Chrome Extension Popup</title>
@@ -62,9 +61,9 @@
     }
   </style>
 </head>
-<body class="bg-[#10191B] text-[#E8F1F0] font-sans antialiased m-0 p-0 min-h-screen flex items-center justify-center">
-<!-- Main Extension Popup Container (Edge to edge view, 360px popup width) -->
-<div class="w-full max-w-[390px] min-h-[580px] bg-[#10191B] mx-auto p-4 flex flex-col justify-between shadow-[0_16px_32px_rgba(0,0,0,0.6)] rounded-3xl border-2 border-[#23383D]">
+<body class="bg-[#10191B] text-[#E8F1F0] font-sans antialiased m-0 p-0 min-h-screen flex items-center justify-center p-3">
+<!-- Main Extension Popup Container (Edge to edge view, 360-390px popup width) -->
+<div class="w-full max-w-[390px] bg-[#10191B] mx-auto p-4 flex flex-col justify-between shadow-[0_16px_32px_rgba(0,0,0,0.6)] rounded-3xl border-2 border-[#23383D]">
 <!-- Top Header Bar -->
 <div>
 <div class="flex items-center justify-between pb-3 border-b-2 border-[#23383D]">
@@ -87,12 +86,13 @@
 </div>
 <!-- Sync Indicator & Keyboard Shortcut Hint -->
 <div class="flex items-center gap-2">
-<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#E8F1F0] bg-[#1E2F33] px-2.5 py-1 rounded-full border border-[#2E454B]">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#E8F1F0] bg-[#1E2F33] px-2.5 py-1.5 rounded-full border border-[#2E454B]">
 <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
 <span>Synced</span>
 </div>
-<button class="w-8 h-8 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2E454B] text-[#A9BDBB] hover:text-[#2DD4BF] shadow-[0_2px_0_#0C1416] active:translate-y-[1px] active:shadow-none transition-all" title="Pin / Options">
-<span class="material-symbols-rounded outlined text-[18px]">more_vert</span>
+<!-- QC Fix 1: Header more_vert button min 44x44px touch target -->
+<button aria-label="Pin or Options" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2E454B] text-[#A9BDBB] hover:text-[#2DD4BF] shadow-[0_2px_0_#0C1416] active:translate-y-[1px] active:shadow-none transition-all" title="Pin / Options">
+<span class="material-symbols-rounded outlined text-[20px]">more_vert</span>
 </button>
 </div>
 </div>
@@ -104,15 +104,16 @@
 </label>
 <div class="relative flex items-center">
 <span class="material-symbols-rounded outlined absolute left-3 text-[#2DD4BF] text-[20px]">search</span>
-<input class="w-full bg-[#1E2F33] text-[#E8F1F0] placeholder-[#A9BDBB] text-[14px] font-semibold pl-10 pr-24 py-2.5 rounded-2xl border-2 border-[#2E454B] focus:border-[#2DD4BF] focus:outline-none shadow-[0_3px_0_#0C1416] transition-all" id="quick-lookup" placeholder="Type word, idiom, or paste sentence..." type="text" value="serendipity"/>
-<button class="absolute right-1.5 px-3 py-1.5 rounded-xl bg-[#136B66] hover:bg-[#157973] border border-[#2DD4BF]/50 text-[#E8F1F0] text-[12px] font-extrabold flex items-center gap-1 shadow-[0_2px_0_#092526] active:translate-y-[1px] active:shadow-none transition-all">
+<input class="w-full bg-[#1E2F33] text-[#E8F1F0] placeholder-[#A9BDBB] text-[14px] font-semibold pl-10 pr-28 py-3 rounded-2xl border-2 border-[#2E454B] focus:border-[#2DD4BF] focus:outline-none shadow-[0_3px_0_#0C1416] transition-all" id="quick-lookup" placeholder="Type word, idiom, or paste sentence..." type="text" value="serendipity"/>
+<!-- QC Fix 2: Search Lookup button min-h-[44px] -->
+<button class="absolute right-1.5 h-11 min-h-[44px] px-3.5 rounded-xl bg-[#136B66] hover:bg-[#157973] border border-[#2DD4BF]/50 text-[#E8F1F0] text-[12px] font-extrabold flex items-center gap-1 shadow-[0_2px_0_#092526] active:translate-y-[1px] active:shadow-none transition-all">
 <span>Lookup</span>
-<span class="material-symbols-rounded text-[14px]">arrow_forward</span>
+<span class="material-symbols-rounded text-[15px]">arrow_forward</span>
 </button>
 </div>
 </div>
 <!-- Word of the Day Card -->
-<div class="mt-3.5 bg-[#172427] rounded-2xl border-2 border-[#23383D] p-3 shadow-[0_3px_0_#0C1416]">
+<div class="mt-3.5 bg-[#172427] rounded-2xl border-2 border-[#23383D] p-3.5 shadow-[0_3px_0_#0C1416]">
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-1.5">
 <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
@@ -128,11 +129,12 @@
 </div>
 <p class="text-[12px] font-bold text-[#2DD4BF] mt-0.5">noun • IELTS high-frequency</p>
 </div>
-<button class="w-8 h-8 rounded-xl bg-[#1E2F33] text-[#2DD4BF] border border-[#2E454B] flex items-center justify-center hover:bg-[#23383D] hover:text-[#2DD4BF] shadow-[0_2px_0_#0C1416] active:translate-y-[1px] transition-all" title="Listen pronunciation">
-<span class="material-symbols-rounded text-[18px]">volume_up</span>
+<!-- QC Fix 3: Word of the Day speaker audio button enlarged to 44x44px -->
+<button aria-label="Listen pronunciation" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#1E2F33] text-[#2DD4BF] border border-[#2E454B] flex items-center justify-center hover:bg-[#23383D] hover:text-[#2DD4BF] shadow-[0_2px_0_#0C1416] active:translate-y-[1px] transition-all flex-shrink-0" title="Listen pronunciation">
+<span class="material-symbols-rounded text-[20px]">volume_up</span>
 </button>
 </div>
-<p class="text-[13px] font-medium text-[#A9BDBB] leading-snug mt-2 pt-2 border-t border-[#23383D]">
+<p class="text-[13px] font-medium text-[#A9BDBB] leading-snug mt-2.5 pt-2.5 border-t border-[#23383D]">
           "Finding valuable, pleasant things by chance or happy accident."
         </p>
 </div>
@@ -150,20 +152,20 @@
               </div>
 </div>
 </div>
-<!-- Review CTA Button with Tactile Ledge (Deep Brown-Black Label) -->
-<button class="px-3.5 py-2 rounded-xl bg-[#F59E0B] text-[#1C1003] font-black text-[13px] shadow-[0_3px_0_#B45309] hover:bg-[#FBBF24] active:translate-y-[2px] active:shadow-none transition-all flex items-center gap-1.5 whitespace-nowrap">
+<!-- QC Fix 4: Review CTA Button min-h-[44px] -->
+<button class="h-11 min-h-[44px] px-4 rounded-xl bg-[#F59E0B] text-[#1C1003] font-black text-[13px] shadow-[0_3px_0_#B45309] hover:bg-[#FBBF24] active:translate-y-[2px] active:shadow-none transition-all flex items-center gap-1.5 whitespace-nowrap">
 <span>Review now</span>
 <span class="material-symbols-rounded text-[16px]">arrow_forward</span>
 </button>
 </div>
 </div>
 <!-- Extension Toggles Section -->
-<div class="mt-3 bg-[#172427] rounded-2xl border-2 border-[#23383D] p-3 shadow-[0_3px_0_#0C1416] space-y-2.5">
-<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BDBB] mb-1">
+<div class="mt-3 bg-[#172427] rounded-2xl border-2 border-[#23383D] p-3 shadow-[0_3px_0_#0C1416] space-y-1.5">
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BDBB] mb-0.5">
           Active Browser Tools
         </div>
-<!-- Toggle 1: Translate on hover -->
-<label class="flex items-center justify-between cursor-pointer group">
+<!-- Toggle 1: Translate on hover (QC Fix 5: min 44x44px clickable target) -->
+<label class="flex items-center justify-between cursor-pointer group py-0.5">
 <div class="flex items-center gap-2.5">
 <div class="w-7 h-7 rounded-lg bg-[#1E2F33] flex items-center justify-center text-[#2DD4BF] border border-[#2E454B]">
 <span class="material-symbols-rounded outlined text-[17px]">translate</span>
@@ -173,15 +175,15 @@
 <div class="text-[11px] font-medium text-[#A9BDBB]">Instant tooltip definition on web pages</div>
 </div>
 </div>
-<!-- Tactile Switch On -->
-<div class="relative inline-flex items-center cursor-pointer">
+<!-- Tactile Switch On with 44x44 min hit area -->
+<div class="relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-[#2E454B] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-[#2E454B] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2DD4BF] shadow-inner"></div>
+<div class="w-11 h-6 bg-[#2E454B] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12px] after:left-[2px] after:bg-white after:border-[#2E454B] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2DD4BF] shadow-inner"></div>
 </div>
 </label>
-<div class="border-t border-[#23383D] pt-2"></div>
-<!-- Toggle 2: Writing check -->
-<label class="flex items-center justify-between cursor-pointer group">
+<div class="border-t border-[#23383D]"></div>
+<!-- Toggle 2: Writing check (QC Fix 6: min 44x44px clickable target) -->
+<label class="flex items-center justify-between cursor-pointer group py-0.5">
 <div class="flex items-center gap-2.5">
 <div class="w-7 h-7 rounded-lg bg-[#1E2F33] flex items-center justify-center text-[#2DD4BF] border border-[#2E454B]">
 <span class="material-symbols-rounded outlined text-[17px]">edit_note</span>
@@ -191,31 +193,32 @@
 <div class="text-[11px] font-medium text-[#A9BDBB]">Highlight academic collocations in input fields</div>
 </div>
 </div>
-<!-- Tactile Switch On -->
-<div class="relative inline-flex items-center cursor-pointer">
+<!-- Tactile Switch On with 44x44 min hit area -->
+<div class="relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
 <input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-[#2E454B] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-[#2E454B] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2DD4BF] shadow-inner"></div>
+<div class="w-11 h-6 bg-[#2E454B] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12px] after:left-[2px] after:bg-white after:border-[#2E454B] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2DD4BF] shadow-inner"></div>
 </div>
 </label>
 </div>
 </div>
 <!-- Footer Links & Actions -->
-<div class="mt-3.5 pt-2.5 border-t-2 border-[#23383D] flex items-center justify-between text-[12px] font-bold text-[#A9BDBB]">
-<div class="flex items-center gap-3">
-<a class="flex items-center gap-1 text-[#2DD4BF] hover:underline font-extrabold hover:text-[#5EEAD4] transition-colors" href="#open-app">
-<span class="material-symbols-rounded text-[16px]">open_in_new</span>
+<div class="mt-3.5 pt-2 border-t-2 border-[#23383D] flex items-center justify-between text-[12px] font-bold text-[#A9BDBB]">
+<div class="flex items-center gap-1">
+<!-- QC Fix 7: Footer Open Web App link min 44x44px touch target -->
+<a class="min-h-[44px] px-2 inline-flex items-center gap-1.5 text-[#2DD4BF] hover:underline font-extrabold hover:text-[#5EEAD4] transition-colors rounded-lg" href="#open-app">
+<span class="material-symbols-rounded text-[17px]">open_in_new</span>
 <span>Open Web App</span>
 </a>
-<span class="text-[#23383D]">•</span>
-<a class="flex items-center gap-1 text-[#A9BDBB] hover:text-[#2DD4BF] hover:underline transition-colors" href="#settings">
-<span class="material-symbols-rounded outlined text-[16px]">settings</span>
+<span class="text-[#23383D] select-none">•</span>
+<!-- QC Fix 8: Footer Settings link min 44x44px touch target -->
+<a class="min-h-[44px] px-2 inline-flex items-center gap-1.5 text-[#A9BDBB] hover:text-[#2DD4BF] hover:underline transition-colors rounded-lg" href="#settings">
+<span class="material-symbols-rounded outlined text-[17px]">settings</span>
 <span>Settings</span>
 </a>
 </div>
-<div class="text-[11px] font-semibold text-[#879391]">
+<div class="text-[11px] font-semibold text-[#879391] pr-1">
         v2.4 • IELTS &amp; TOEIC
       </div>
 </div>
 </div>
-</body>
-</html>
+</body></html>

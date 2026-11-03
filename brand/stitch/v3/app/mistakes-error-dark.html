@@ -142,7 +142,7 @@
 <!-- 1. Exact INNER Top App Bar (Docked Top) -->
 <header class="sticky top-0 z-40 bg-[#10191B] shadow-[0_4px_0_0_#0A1315] px-space-md py-space-sm h-16 flex items-center justify-between border-b border-[#1E2F33]">
 <!-- Left: Back Action -->
-<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center text-[#2DD4BF] bg-[#172427] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] active:translate-y-1 active:shadow-none transition-all" type="button">
+<button aria-label="Go back" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-[#2DD4BF] bg-[#172427] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] active:translate-y-1 active:shadow-none transition-all" type="button">
 <span class="material-symbols-outlined text-[#2DD4BF]">arrow_back</span>
 </button>
 <!-- Center: Title & Subtitle -->
@@ -151,14 +151,12 @@
 <p class="text-label-sm font-label-sm text-[#A9BDBB]">#/mistakes • 25 items</p>
 </div>
 <!-- Right: Action Icons (Filter & Bookmark) -->
-<div class="flex items-center gap-1.5">
-<button aria-label="Filter items" class="w-9 h-9 rounded-full flex items-center justify-center text-[#A9BDBB] bg-[#172427] border border-[#2A4045] shadow-[0_2px_0_0_#0A1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
-<span class="material-symbols-outlined text-[20px]">filter_list</span>
+<div class="flex items-center gap-1.5"><button aria-label="Filter items" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-[#A9BDBB] bg-[#172427] border border-[#2A4045] shadow-[0_2px_0_0_#0A1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
 </button>
-<button aria-label="Saved bookmarks" class="w-9 h-9 rounded-full flex items-center justify-center text-[#A9BDBB] bg-[#172427] border border-[#2A4045] shadow-[0_2px_0_0_#0A1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button aria-label="Saved bookmarks" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-[#A9BDBB] bg-[#172427] border border-[#2A4045] shadow-[0_2px_0_0_#0A1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark</span>
-</button>
-</div>
+</button></div>
 </header>
 <!-- CONTENT CANVAS -->
 <div class="px-space-md pt-3 flex flex-col gap-3.5">
@@ -203,28 +201,26 @@
 </div>
 </section>
 <!-- 4. Filter Pills Row -->
-<nav aria-label="Filter mistakes" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-<!-- Active Filter: All (25) -->
-<button class="shrink-0 bg-[#134E48] text-[#2DD4BF] border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] rounded-full px-3.5 py-1.5 text-label-md font-label-md flex items-center gap-1.5 active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<nav aria-label="Filter mistakes" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"><!-- Active Filter: All (25) -->
+<button class="shrink-0 min-h-[44px] bg-[#134E48] text-[#2DD4BF] border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] rounded-full px-3.5 py-1.5 text-label-md font-label-md flex items-center gap-1.5 active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span class="font-bold">All (25)</span>
 <span class="w-2 h-2 rounded-full bg-[#2DD4BF] shadow-[0_0_6px_#2DD4BF]" title="Cached locally"></span>
 </button>
 <!-- Grammar (12) -->
-<button class="shrink-0 bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button class="shrink-0 min-h-[44px] bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span>Grammar (12)</span>
 <span class="text-[10px] text-[#879391] font-bold">●</span>
 </button>
 <!-- Vocabulary (8) -->
-<button class="shrink-0 bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button class="shrink-0 min-h-[44px] bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span>Vocabulary (8)</span>
 <span class="text-[10px] text-[#879391] font-bold">●</span>
 </button>
 <!-- Past 7 days dropdown -->
-<button class="shrink-0 bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<button class="shrink-0 min-h-[44px] bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
 <span>Past 7 days</span>
 <span class="material-symbols-outlined text-[18px]">expand_more</span>
-</button>
-</nav>
+</button></nav>
 <!-- 5. Mistake Cards List -->
 <section aria-label="Mistake cards" class="flex flex-col gap-3.5 mt-0.5">
 <!-- CARD 1: Grammar (Cached locally, active) -->
@@ -252,16 +248,14 @@
 </div>
 </div>
 <!-- Bottom card actions: Offline audio & 1x Drill -->
-<div class="flex items-center justify-between pt-1">
-<button class="h-9 px-2.5 bg-[#1E2F33] rounded-lg border border-[#2A4045] text-[#2DD4BF] text-label-sm font-label-sm flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 transition-all" type="button">
+<div class="flex items-center justify-between pt-1"><button class="h-11 min-h-[44px] px-3 bg-[#1E2F33] rounded-lg border border-[#2A4045] text-[#2DD4BF] text-label-sm font-label-sm flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 transition-all" type="button">
 <span class="material-symbols-outlined text-[18px] text-[#2DD4BF]">volume_up</span>
 <span class="font-medium text-[#E8F1F0]">Offline audio ready</span>
 </button>
-<button class="h-9 px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
+<button class="h-11 min-h-[44px] px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
 <span>Drill 1x</span>
 <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-</button>
-</div>
+</button></div>
 </article>
 <!-- CARD 2: Vocabulary (Cached locally, active) -->
 <article class="bg-[#172427] border border-[#243B3F] rounded-xl p-3.5 shadow-[0_4px_0_0_#0A1315] flex flex-col gap-2.5 transition-all">
@@ -288,24 +282,21 @@
 </div>
 </div>
 <!-- Bottom card actions -->
-<div class="flex items-center justify-between pt-1">
-<span class="text-label-sm font-label-sm text-[#A9BDBB] flex items-center gap-1">
+<div class="flex items-center justify-between pt-1"><span class="text-label-sm font-label-sm text-[#A9BDBB] flex items-center gap-1">
 <span class="material-symbols-outlined text-[16px] text-[#FBBF24]">history_toggle_off</span>
               Tested yesterday
             </span>
-<button class="h-9 px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
+<button class="h-11 min-h-[44px] px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
 <span>Drill 1x</span>
 <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-</button>
-</div>
+</button></div>
 </article>
 <!-- CARD 3: Pronunciation (DIMMED / Online AI disabled) -->
-<article class="bg-[#172427]/80 border border-[#243B3F]/70 rounded-xl p-3.5 shadow-[0_2px_0_0_#0A1315] flex flex-col gap-2.5 relative opacity-90">
-<!-- Top row -->
+<article class="bg-[#172427]/80 border border-[#243B3F]/70 rounded-xl p-3.5 shadow-[0_2px_0_0_#0A1315] flex flex-col gap-2.5 relative opacity-90"><!-- Top row -->
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-1.5">
 <span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] font-extrabold border border-[#2A4045]">Pronunciation</span>
-<span class="text-label-sm font-label-sm text-[#879391]">Word Stress</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] px-2 py-0.5 rounded bg-[#10191B] font-medium border border-[#243B3F]">Word Stress</span>
 </div>
 <!-- Online AI Tag -->
 <span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-[#2F1818] text-[#FCA5A5] border border-[#F87171]/40 px-2 py-0.5 rounded-full font-bold">
@@ -326,17 +317,16 @@
 </div>
 <!-- Actions: Listen available, Record DISABLED -->
 <div class="flex items-center justify-between pt-1">
-<button class="h-9 px-2.5 bg-[#1E2F33] rounded-lg border border-[#2A4045] text-[#2DD4BF] text-label-sm font-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
+<button class="h-11 min-h-[44px] px-3 bg-[#1E2F33] rounded-lg border border-[#2A4045] text-[#2DD4BF] text-label-sm font-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
 <span class="material-symbols-outlined text-[18px]">volume_up</span>
 <span class="text-[#E8F1F0]">Listen (Cached)</span>
 </button>
 <!-- Disabled Record button -->
-<button aria-disabled="true" class="h-9 px-3.5 bg-[#141E20] text-[#5A6E71] rounded-lg border border-[#1E2F33] cursor-not-allowed flex items-center gap-1.5 opacity-60" disabled="" type="button">
+<button aria-disabled="true" class="h-11 min-h-[44px] px-3.5 bg-[#141E20] text-[#5A6E71] rounded-lg border border-[#1E2F33] cursor-not-allowed flex items-center gap-1.5 opacity-60" disabled="" type="button">
 <span class="material-symbols-outlined text-[16px]">mic_off</span>
 <span class="text-label-sm font-label-sm line-through">Record drill</span>
 </button>
-</div>
-</article>
+</div></article>
 <!-- CARD 4: Grammar Agreement (Cached locally, fully interactive) -->
 <article class="bg-[#172427] border border-[#243B3F] rounded-xl p-3.5 shadow-[0_4px_0_0_#0A1315] flex flex-col gap-2.5 transition-all">
 <div class="flex items-center justify-between">
@@ -362,16 +352,14 @@
 </div>
 </div>
 <!-- Bottom card actions -->
-<div class="flex items-center justify-between pt-1">
-<span class="text-label-sm font-label-sm text-[#2DD4BF] font-bold flex items-center gap-1">
+<div class="flex items-center justify-between pt-1"><span class="text-label-sm font-label-sm text-[#2DD4BF] font-bold flex items-center gap-1">
 <span class="material-symbols-outlined text-[16px]">bolt</span>
               Drill ready offline
             </span>
-<button class="h-9 px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
+<button class="h-11 min-h-[44px] px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
 <span>Drill 1x</span>
 <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-</button>
-</div>
+</button></div>
 </article>
 </section>
 </div>
@@ -390,35 +378,33 @@
 </div>
 </div>
 <!-- 7. Canonical Lexkite BottomNavBar (Docked full-width bottom-0, fixed 390px layout) -->
-<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 flex justify-around items-center px-space-xs py-space-xs h-20 bg-[#10191B] shadow-[0_-4px_0_0_#0A1315] border-t border-[#1E2F33]">
-<!-- Tab 1: Today -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 flex justify-around items-center px-space-xs py-space-xs h-20 bg-[#10191B] shadow-[0_-4px_0_0_#0A1315] border-t border-[#1E2F33]"><!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
 <span class="material-symbols-outlined text-[24px]">today</span>
 <span class="text-label-sm font-label-sm mt-0.5 font-bold">Today</span>
 </a>
 <!-- Tab 2: Vocab (ACTIVE with red dot and amber pill) -->
-<a aria-current="page" class="relative flex flex-col items-center justify-center bg-[#F59E0B] text-[#1A0D00] rounded-full px-space-md py-space-xs border border-[#FBBF24] shadow-[0_2px_0_0_#D97706] active:translate-y-0.5" href="#">
+<a aria-current="page" class="relative flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-[#F59E0B] text-[#1A0D00] rounded-full px-space-md py-space-xs border border-[#FBBF24] shadow-[0_2px_0_0_#D97706] active:translate-y-0.5" href="#">
 <!-- Active indicator notification red dot -->
 <span class="absolute top-1 right-2.5 w-2.5 h-2.5 bg-[#EF4444] rounded-full border-2 border-[#10191B]"></span>
 <span class="material-symbols-outlined text-[24px] material-symbols-fill text-[#1A0D00]">menu_book</span>
 <span class="text-label-sm font-label-sm mt-0.5 font-extrabold text-[#1A0D00]">Vocab</span>
 </a>
 <!-- Tab 3: Skills -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
 <span class="material-symbols-outlined text-[24px]">psychology</span>
 <span class="text-label-sm font-label-sm mt-0.5 font-bold">Skills</span>
 </a>
 <!-- Tab 4: Tests -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
 <span class="material-symbols-outlined text-[24px]">assignment</span>
 <span class="text-label-sm font-label-sm mt-0.5 font-bold">Tests</span>
 </a>
 <!-- Tab 5: Me -->
-<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
 <span class="material-symbols-outlined text-[24px]">person</span>
 <span class="text-label-sm font-label-sm mt-0.5 font-bold">Me</span>
-</a>
-</nav>
+</a></nav>
 </main>
 <!-- Interactive micro-feedback for Retry button -->
 <script>

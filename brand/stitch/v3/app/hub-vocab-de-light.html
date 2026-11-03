@@ -193,7 +193,7 @@
 <section class="flex items-center gap-2.5">
 <div class="flex-1 flex items-center gap-2 px-3.5 h-[48px] bg-white rounded-2xl border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC]">
 <span class="material-symbols-outlined text-[#879391] text-[22px]" data-icon="search">search</span>
-<input class="w-full bg-transparent text-[#0F3D3E] placeholder-[#879391] font-body text-[13px] outline-none border-none p-0 focus:ring-0" placeholder="Über 4.200 Prüfungswörter, Kollokationen suchen..." type="text"/>
+<input class="w-full h-full min-h-[44px] bg-transparent text-[#0F3D3E] placeholder-[#596B69] font-body text-[13px] outline-none border-none px-1 py-2 focus:ring-0" placeholder="Über 4.200 Prüfungswörter, Kollokationen suchen..." type="text"/>
 </div>
 <button aria-label="Filter" class="w-[48px] h-[48px] flex items-center justify-center bg-white rounded-2xl border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC] active:translate-y-0.5 active:border-b-2 transition-transform text-[#0F3D3E]">
 <span class="material-symbols-outlined text-[22px]" data-icon="tune">tune</span>
@@ -205,23 +205,17 @@
 <div class="col-span-4 teacher-slot rounded-2xl flex flex-col items-center justify-center p-2 text-center min-h-[140px]">
 <span class="material-symbols-outlined text-[#2BA39A] text-[28px] mb-1" data-icon="school">school</span>
 <span class="font-label text-[11px] font-extrabold text-[#0F3D3E] tracking-wider">LEHRER</span>
-<span class="font-label text-[9px] font-bold text-[#186862] mt-0.5 leading-tight">140 x 170 Slot</span>
+<span class="font-label text-[9px] font-extrabold text-[#0F3D3E] mt-0.5 leading-tight">140 x 170 Slot</span>
 </div>
 <!-- Coach Thought Bubble -->
 <div class="col-span-8 tactile-card p-3.5 flex flex-col justify-between">
 <div>
-<div class="flex items-center gap-1.5 text-[#D84931] mb-1">
-<span class="material-symbols-outlined material-symbols-fill text-[16px]" data-icon="schedule">schedule</span>
-<span class="font-label text-[10px] uppercase tracking-wider font-extrabold">WIEDERHOLUNGSERINNERUNG</span>
-</div>
+<div class="flex items-center gap-1.5 text-[#8C1D18] mb-1"><span class="material-symbols-outlined material-symbols-fill text-[16px]" data-icon="schedule">schedule</span><span class="font-label text-[10px] uppercase tracking-wider font-extrabold">WIEDERHOLUNGSERINNERUNG</span></div>
 <p class="font-body text-[13px] leading-[18px] font-bold text-[#0F3D3E]">
           „Wiederhole deine 18 fälligen Wörter vor Mitternacht, um Gedächtnisverlust zu verhindern!“
         </p>
 </div>
-<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-[#186862]">
-<span>Optimaler Abstand: 3,4 Tage</span>
-<span class="material-symbols-outlined text-[15px]" data-icon="arrow_forward">arrow_forward</span>
-</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-extrabold text-[#0F3D3E]"><span>Optimaler Abstand: 3,4 Tage</span><span class="material-symbols-outlined text-[15px]" data-icon="arrow_forward">arrow_forward</span></div>
 </div>
 </section>
 <!-- 3. ACTIVE "CONTINUE DECK" CARD -->
@@ -239,18 +233,12 @@
 <!-- Daily Goal Ring Mini -->
 <div class="w-12 h-12 rounded-full border-[3px] border-[#EADEC8] border-t-[#2BA39A] border-r-[#2BA39A] flex flex-col items-center justify-center shrink-0">
 <span class="font-label text-[11px] font-extrabold text-[#0F3D3E]">14</span>
-<span class="font-label text-[8px] font-bold text-[#879391]">/20 XP</span>
+<span class="font-label text-[8px] font-bold text-[#4A6363]">/20 XP</span>
 </div>
 </div>
 <!-- Progress Track & Due Counter -->
 <div class="space-y-2 mb-4">
-<div class="flex justify-between items-center text-[12px] font-bold">
-<span class="text-[#0F3D3E]">42 / 120 Wörter <span class="text-[#879391]">(35%)</span></span>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-[#F2553B]/10 text-[#B53A22] rounded-full text-[11px] font-extrabold">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span>
-            Heute fällig: 18 Wörter
-          </span>
-</div>
+<div class="flex justify-between items-center text-[12px] font-bold"><span class="text-[#0F3D3E]">42 / 120 Wörter <span class="text-[#4A6363]">(35%)</span></span><span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#F2553B]/10 text-[#8C1D18] rounded-full text-[11px] font-extrabold min-h-[24px]"><span class="w-1.5 h-1.5 rounded-full bg-[#8C1D18]"></span>Heute fällig: 18 Wörter</span></div>
 <!-- Two-tone physical progress bar -->
 <div class="w-full h-3.5 bg-[#F0EBE0] rounded-full overflow-hidden p-0.5 border border-[#EADEC8]">
 <div class="h-full bg-gradient-to-r from-[#2BA39A] to-[#6BD8CE] rounded-full" style="width: 35%;"></div>
@@ -277,7 +265,7 @@
 <div class="flex items-center justify-between mt-1 mb-2">
 <div>
 <h3 class="font-display text-[26px] font-extrabold text-[#0F3D3E] tracking-tight">resilient</h3>
-<p class="font-body text-[13px] font-bold text-[#879391]">/rɪˈzɪl.jənt/ • Adjektiv</p>
+<p class="font-body text-[13px] font-bold text-[#4A6363]">/rɪˈzɪl.jənt/ • Adjektiv</p>
 </div>
 <!-- Min 44x44px Audio Trigger Button -->
 <button aria-label="Aussprache abspielen" class="w-11 h-11 min-w-[44px] min-h-[44px] tactile-btn-secondary rounded-2xl flex items-center justify-center text-[#0F3D3E]">
@@ -286,12 +274,10 @@
 </div>
 <!-- Definition & Context -->
 <div class="bg-[#FFF7EA] p-3 rounded-xl border border-[#EADEC8] mb-3.5 space-y-1.5">
-<p class="font-body text-[13px] font-bold text-[#0F3D3E] leading-snug">
-          Widerstandsfähig; in der Lage, sich schnell von schwierigen Bedingungen oder Rückschlägen zu erholen.
-        </p>
+<p class="font-body text-[13px] font-bold text-[#4A6363]">/rɪˈzɪl.jənt/ • Adjektiv</p>
 <p class="font-body text-[12px] italic text-[#4A6363] leading-relaxed">
           „The local tourism economy proved extraordinarily <span class="font-bold text-[#0F3D3E] not-italic underline decoration-[#2BA39A]">resilient</span> despite prolonged global supply restrictions.“
-          <span class="text-[10px] not-italic font-extrabold text-[#879391] block mt-0.5">— Cambridge-Korpus</span>
+          <span class="text-[10px] not-italic font-extrabold text-[#4A6363] block mt-0.5">— Cambridge-Korpus</span>
 </p>
 </div>
 <!-- Quick Save Action -->
@@ -304,106 +290,9 @@
 <section>
 <div class="flex items-center justify-between mb-3 px-1">
 <h3 class="font-title text-[18px] font-extrabold text-[#0F3D3E]">Kuratierte Prüfungsthemen</h3>
-<span class="font-label text-[11px] font-extrabold text-[#186862]">6 Themenbereiche</span>
+<span class="font-label text-[11px] font-extrabold text-[#0F3D3E]">6 Themenbereiche</span>
 </div>
-<div class="grid grid-cols-2 gap-3">
-<!-- Tile 1: Environment -->
-<div class="tactile-card p-3 flex flex-col justify-between">
-<div class="flex items-start justify-between mb-2">
-<div class="w-9 h-9 rounded-xl bg-[#E8F8F5] text-[#2BA39A] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="eco">eco</span>
-</div>
-<span class="font-label text-[10px] font-bold text-[#879391]">40 Wörter</span>
-</div>
-<div>
-<h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Umwelt &amp; Ökologie</h4>
-<div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1">
-<div class="h-full bg-[#2BA39A] rounded-full" style="width: 65%;"></div>
-</div>
-<span class="font-label text-[10px] font-extrabold text-[#186862]">65% gemeistert</span>
-</div>
-</div>
-<!-- Tile 2: Urban Planning -->
-<div class="tactile-card p-3 flex flex-col justify-between">
-<div class="flex items-start justify-between mb-2">
-<div class="w-9 h-9 rounded-xl bg-[#E8F0FE] text-[#286090] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="apartment">apartment</span>
-</div>
-<span class="font-label text-[10px] font-bold text-[#879391]">40 Wörter</span>
-</div>
-<div>
-<h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Stadtplanung &amp; Technik</h4>
-<div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1">
-<div class="h-full bg-[#2BA39A] rounded-full" style="width: 40%;"></div>
-</div>
-<span class="font-label text-[10px] font-extrabold text-[#879391]">40% gemeistert</span>
-</div>
-</div>
-<!-- Tile 3: Education & Pedagogy -->
-<div class="tactile-card p-3 flex flex-col justify-between">
-<div class="flex items-start justify-between mb-2">
-<div class="w-9 h-9 rounded-xl bg-[#FEF6E4] text-[#C28200] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
-</div>
-<span class="font-label text-[10px] font-bold text-[#879391]">40 Wörter</span>
-</div>
-<div>
-<h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Bildung &amp; Pädagogik</h4>
-<div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1">
-<div class="h-full bg-[#2BA39A] rounded-full" style="width: 80%;"></div>
-</div>
-<span class="font-label text-[10px] font-extrabold text-[#186862]">80% gemeistert</span>
-</div>
-</div>
-<!-- Tile 4: Business & Economics -->
-<div class="tactile-card p-3 flex flex-col justify-between">
-<div class="flex items-start justify-between mb-2">
-<div class="w-9 h-9 rounded-xl bg-[#FDEAE7] text-[#D84931] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="trending_up">trending_up</span>
-</div>
-<span class="font-label text-[10px] font-bold text-[#879391]">40 Wörter</span>
-</div>
-<div>
-<h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Wirtschaft &amp; Finanzen</h4>
-<div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1">
-<div class="h-full bg-[#2BA39A] rounded-full" style="width: 25%;"></div>
-</div>
-<span class="font-label text-[10px] font-extrabold text-[#879391]">25% gemeistert</span>
-</div>
-</div>
-<!-- Tile 5: Health & Mind -->
-<div class="tactile-card p-3 flex flex-col justify-between">
-<div class="flex items-start justify-between mb-2">
-<div class="w-9 h-9 rounded-xl bg-[#F6EEFD] text-[#8638B8] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
-</div>
-<span class="font-label text-[10px] font-bold text-[#879391]">40 Wörter</span>
-</div>
-<div>
-<h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Gesundheit &amp; Psyche</h4>
-<div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1">
-<div class="h-full bg-[#2BA39A] rounded-full" style="width: 90%;"></div>
-</div>
-<span class="font-label text-[10px] font-extrabold text-[#186862]">90% gemeistert</span>
-</div>
-</div>
-<!-- Tile 6: Abstract & Nuances -->
-<div class="tactile-card p-3 flex flex-col justify-between">
-<div class="flex items-start justify-between mb-2">
-<div class="w-9 h-9 rounded-xl bg-[#E6F8F2] text-[#127F6D] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span>
-</div>
-<span class="font-label text-[10px] font-bold text-[#879391]">40 Wörter</span>
-</div>
-<div>
-<h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Abstrakte Nuancen</h4>
-<div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1">
-<div class="h-full bg-[#2BA39A] rounded-full" style="width: 15%;"></div>
-</div>
-<span class="font-label text-[10px] font-extrabold text-[#879391]">15% gemeistert</span>
-</div>
-</div>
-</div>
+<div class="grid grid-cols-2 gap-3"><div class="tactile-card p-3 flex flex-col justify-between"><div class="flex items-start justify-between mb-2"><div class="w-9 h-9 rounded-xl bg-[#E8F8F5] text-[#127F6D] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]" data-icon="eco">eco</span></div><span class="font-label text-[10px] font-extrabold text-[#4A6363]">40 Wörter</span></div><div><h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Umwelt &amp; Ökologie</h4><div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1"><div class="h-full bg-[#2BA39A] rounded-full" style="width: 65%;"></div></div><span class="font-label text-[10px] font-extrabold text-[#0F3D3E]">65% gemeistert</span></div></div><div class="tactile-card p-3 flex flex-col justify-between"><div class="flex items-start justify-between mb-2"><div class="w-9 h-9 rounded-xl bg-[#E8F0FE] text-[#286090] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]" data-icon="apartment">apartment</span></div><span class="font-label text-[10px] font-extrabold text-[#4A6363]">40 Wörter</span></div><div><h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Stadtplanung &amp; Technik</h4><div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1"><div class="h-full bg-[#2BA39A] rounded-full" style="width: 40%;"></div></div><span class="font-label text-[10px] font-extrabold text-[#0F3D3E]">40% gemeistert</span></div></div><div class="tactile-card p-3 flex flex-col justify-between"><div class="flex items-start justify-between mb-2"><div class="w-9 h-9 rounded-xl bg-[#FEF6E4] text-[#C28200] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]" data-icon="school">school</span></div><span class="font-label text-[10px] font-extrabold text-[#4A6363]">40 Wörter</span></div><div><h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Bildung &amp; Pädagogik</h4><div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1"><div class="h-full bg-[#2BA39A] rounded-full" style="width: 80%;"></div></div><span class="font-label text-[10px] font-extrabold text-[#0F3D3E]">80% gemeistert</span></div></div><div class="tactile-card p-3 flex flex-col justify-between"><div class="flex items-start justify-between mb-2"><div class="w-9 h-9 rounded-xl bg-[#FDEAE7] text-[#8C1D18] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]" data-icon="trending_up">trending_up</span></div><span class="font-label text-[10px] font-extrabold text-[#4A6363]">40 Wörter</span></div><div><h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Wirtschaft &amp; Finanzen</h4><div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1"><div class="h-full bg-[#2BA39A] rounded-full" style="width: 25%;"></div></div><span class="font-label text-[10px] font-extrabold text-[#0F3D3E]">25% gemeistert</span></div></div><div class="tactile-card p-3 flex flex-col justify-between"><div class="flex items-start justify-between mb-2"><div class="w-9 h-9 rounded-xl bg-[#F6EEFD] text-[#8638B8] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span></div><span class="font-label text-[10px] font-extrabold text-[#4A6363]">40 Wörter</span></div><div><h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Gesundheit &amp; Psyche</h4><div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1"><div class="h-full bg-[#2BA39A] rounded-full" style="width: 90%;"></div></div><span class="font-label text-[10px] font-extrabold text-[#0F3D3E]">90% gemeistert</span></div></div><div class="tactile-card p-3 flex flex-col justify-between"><div class="flex items-start justify-between mb-2"><div class="w-9 h-9 rounded-xl bg-[#E6F8F2] text-[#127F6D] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span></div><span class="font-label text-[10px] font-extrabold text-[#4A6363]">40 Wörter</span></div><div><h4 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight mb-2">Abstrakte Nuancen</h4><div class="w-full h-2 bg-[#F0EBE0] rounded-full overflow-hidden mb-1"><div class="h-full bg-[#2BA39A] rounded-full" style="width: 15%;"></div></div><span class="font-label text-[10px] font-extrabold text-[#0F3D3E]">15% gemeistert</span></div></div></div>
 </section>
 <!-- 6. "MY DECKS" SECTION & ANKI / FSRS INTEGRATION -->
 <section class="space-y-3">
@@ -418,13 +307,7 @@
 <div class="tactile-card p-3.5 flex items-center justify-between gap-3">
 <div class="space-y-1">
 <h4 class="font-body text-[14px] font-extrabold text-[#0F3D3E] leading-snug">Prüfungsfallen: Verwechselbare Wortpaare</h4>
-<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#879391] flex-wrap">
-<span>18 Wörter</span>
-<span>•</span>
-<span class="text-[#B53A22] font-extrabold">8 heute fällig</span>
-<span>•</span>
-<span>in 2 Std.</span>
-</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#4A6363] flex-wrap"><span>18 Wörter</span><span>•</span><span class="text-[#8C1D18] font-extrabold">8 heute fällig</span><span>•</span><span>in 2 Std.</span></div>
 </div>
 <button aria-label="Kartensatz starten" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full tactile-btn-secondary flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px] text-[#0F3D3E]" data-icon="play_arrow">play_arrow</span>
@@ -434,13 +317,7 @@
 <div class="tactile-card p-3.5 flex items-center justify-between gap-3">
 <div class="space-y-1">
 <h4 class="font-body text-[14px] font-extrabold text-[#0F3D3E] leading-snug">Task 2 Satzverknüpfungen</h4>
-<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#879391] flex-wrap">
-<span>24 Wörter</span>
-<span>•</span>
-<span class="text-[#B53A22] font-extrabold">4 fällig</span>
-<span>•</span>
-<span class="text-[#186862] font-extrabold">100% eingeprägt</span>
-</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#4A6363] flex-wrap"><span>24 Wörter</span><span>•</span><span class="text-[#8C1D18] font-extrabold">4 fällig</span><span>•</span><span class="text-[#0F3D3E] font-extrabold">100% eingeprägt</span></div>
 </div>
 <button aria-label="Kartensatz starten" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full tactile-btn-secondary flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px] text-[#0F3D3E]" data-icon="play_arrow">play_arrow</span>
@@ -450,13 +327,7 @@
 <div class="tactile-card p-3.5 flex items-center justify-between gap-3">
 <div class="space-y-1">
 <h4 class="font-body text-[14px] font-extrabold text-[#0F3D3E] leading-snug">Idiome &amp; Kollokationen fürs Sprechen</h4>
-<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#879391] flex-wrap">
-<span>32 Wörter</span>
-<span>•</span>
-<span class="text-[#B53A22] font-extrabold">6 fällig</span>
-<span>•</span>
-<span class="text-[#186862] font-extrabold">75% eingeprägt</span>
-</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-[#4A6363] flex-wrap"><span>32 Wörter</span><span>•</span><span class="text-[#8C1D18] font-extrabold">6 fällig</span><span>•</span><span class="text-[#0F3D3E] font-extrabold">75% eingeprägt</span></div>
 </div>
 <button aria-label="Kartensatz starten" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full tactile-btn-secondary flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px] text-[#0F3D3E]" data-icon="play_arrow">play_arrow</span>
@@ -470,7 +341,7 @@
 </div>
 <div>
 <h5 class="font-body text-[13px] font-extrabold text-[#0F3D3E] leading-tight">Anki-Kartensatz importieren (.apkg)</h5>
-<p class="font-body text-[11px] font-bold text-[#879391] mt-0.5">FSRS-Lernkarten &amp; Wiederholungsverlauf synchronisieren</p>
+<p class="font-body text-[11px] font-bold text-[#4A6363] mt-0.5">FSRS-Lernkarten &amp; Wiederholungsverlauf synchronisieren</p>
 </div>
 </div>
 <button class="min-h-[44px] min-w-[56px] px-3.5 py-2 tactile-btn-secondary rounded-xl font-label text-[11px] font-extrabold text-[#0F3D3E] shrink-0">
@@ -481,31 +352,5 @@
 </main>
 <!-- ================= FIXED BOTTOM TAB NAVIGATION BAR (Docked Full-Width) ================= -->
 <!-- EXACTLY 5 tabs in this order: Heute, Wortschatz (SELECTED), Fertigkeiten, Tests, Profil -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-[#FFF7EA] border-t-2 border-[#EADEC8] shadow-lg">
-<!-- Tab 1: Heute -->
-<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#879391] hover:text-[#0F3D3E] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
-<span class="font-label text-[11px] font-bold mt-0.5">Heute</span>
-</a>
-<!-- Tab 2: Wortschatz (ACTIVELY SELECTED) -->
-<a class="flex flex-col items-center justify-center min-w-[72px] min-h-[48px] px-2.5 py-1 bg-[#2BA39A]/15 border-2 border-[#2BA39A] border-b-[3px] border-b-[#186862] text-[#0F3D3E] rounded-xl shadow-sm" href="#">
-<span class="material-symbols-outlined material-symbols-fill text-[22px] text-[#2BA39A]" data-icon="menu_book">menu_book</span>
-<span class="font-label text-[11px] font-extrabold text-[#186862] mt-0.5">Wortschatz</span>
-</a>
-<!-- Tab 3: Fertigkeiten -->
-<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#879391] hover:text-[#0F3D3E] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span>
-<span class="font-label text-[11px] font-bold mt-0.5">Fertigkeiten</span>
-</a>
-<!-- Tab 4: Tests -->
-<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#879391] hover:text-[#0F3D3E] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]" data-icon="quiz">quiz</span>
-<span class="font-label text-[11px] font-bold mt-0.5">Tests</span>
-</a>
-<!-- Tab 5: Profil -->
-<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#879391] hover:text-[#0F3D3E] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
-<span class="font-label text-[11px] font-bold mt-0.5">Profil</span>
-</a>
-</nav>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-[#FFF7EA] border-t-2 border-[#EADEC8] shadow-lg"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#4A6363] hover:text-[#0F3D3E] transition-colors" href="#"><span class="material-symbols-outlined text-[22px]" data-icon="today">today</span><span class="font-label text-[11px] font-bold mt-0.5">Heute</span></a><a class="flex flex-col items-center justify-center min-w-[72px] min-h-[48px] px-2.5 py-1 bg-[#2BA39A]/15 border-2 border-[#2BA39A] border-b-[3px] border-b-[#186862] text-[#0F3D3E] rounded-xl shadow-sm" href="#"><span class="material-symbols-outlined material-symbols-fill text-[22px] text-[#0F3D3E]" data-icon="menu_book">menu_book</span><span class="font-label text-[11px] font-extrabold text-[#0F3D3E] mt-0.5">Wortschatz</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#4A6363] hover:text-[#0F3D3E] transition-colors" href="#"><span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span><span class="font-label text-[11px] font-bold mt-0.5">Fertigkeiten</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#4A6363] hover:text-[#0F3D3E] transition-colors" href="#"><span class="material-symbols-outlined text-[22px]" data-icon="quiz">quiz</span><span class="font-label text-[11px] font-bold mt-0.5">Tests</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#4A6363] hover:text-[#0F3D3E] transition-colors" href="#"><span class="material-symbols-outlined text-[22px]" data-icon="person">person</span><span class="font-label text-[11px] font-bold mt-0.5">Profil</span></a></nav>
 </body></html>

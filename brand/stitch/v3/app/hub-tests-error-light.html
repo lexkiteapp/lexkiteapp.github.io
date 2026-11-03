@@ -134,7 +134,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased flex justify-center min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed">
 <!-- Mobile Root Canvas: 390px edge-to-edge -->
 <main class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-28">
@@ -162,9 +162,7 @@
 <span class="font-label-sm text-label-sm text-on-secondary-fixed font-extrabold">820</span>
 </div>
 <!-- Notification Bell -->
-<button aria-label="Notifications" class="w-8 h-8 rounded-full bg-surface-container border border-surface-container-highest flex items-center justify-center text-on-surface-variant active:translate-y-[1px] transition-transform" type="button">
-<span class="material-symbols-outlined text-[18px]">notifications</span>
-</button>
+<button aria-label="Notifications" class="w-11 h-11 rounded-full bg-surface-container border border-surface-container-highest flex items-center justify-center text-on-surface-variant active:translate-y-[1px] transition-transform" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
 </div>
 </div>
 <!-- Section Title & Subtitle -->
@@ -173,21 +171,19 @@
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Exam Simulation &amp; Diagnostic Practice</p>
 </div>
 <!-- Exam Filter Tabs -->
-<nav aria-label="Exam Filter" class="flex items-center gap-2 pt-1 overflow-x-auto no-scrollbar pb-1">
-<!-- IELTS Academic (Active) -->
-<button class="bg-primary-container text-on-primary border-2 border-[#003834] px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#003834] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-all" type="button">
+<nav aria-label="Exam Filter" class="flex items-center gap-2 pt-1 overflow-x-auto no-scrollbar pb-1"><!-- IELTS Academic (Active) -->
+<button class="min-h-[44px] bg-primary-container text-on-primary border-2 border-[#003834] px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#003834] flex items-center gap-1.5 active:translate-y-[2px] active:shadow-none transition-all" type="button">
 <span>IELTS Academic</span>
 <span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim"></span>
 </button>
 <!-- TOEIC -->
-<button class="bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#efe0d6] hover:bg-surface-container transition-colors active:translate-y-[2px] active:shadow-none" type="button">
+<button class="min-h-[44px] bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#efe0d6] hover:bg-surface-container transition-colors active:translate-y-[2px] active:shadow-none flex items-center" type="button">
           TOEIC
         </button>
 <!-- TOEFL iBT -->
-<button class="bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#efe0d6] hover:bg-surface-container transition-colors active:translate-y-[2px] active:shadow-none" type="button">
+<button class="min-h-[44px] bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant px-3.5 py-1.5 rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_0_#efe0d6] hover:bg-surface-container transition-colors active:translate-y-[2px] active:shadow-none flex items-center" type="button">
           TOEFL iBT
-        </button>
-</nav>
+        </button></nav>
 </header>
 <!-- CONTENT BODY CONTAINER -->
 <div class="px-4 flex flex-col gap-4 pt-2">
@@ -208,10 +204,7 @@
 </div>
 </div>
 <!-- Tactile Retry Button (44px min height & width) -->
-<button class="h-11 min-w-[5.5rem] px-3 bg-surface-container-lowest border-2 border-secondary text-on-secondary-fixed rounded-DEFAULT font-label-md text-label-md font-extrabold shadow-[0_3px_0_0_#8c5000] flex items-center justify-center gap-1 active:translate-y-[2px] active:shadow-none transition-transform hover:bg-surface-container-low shrink-0" type="button">
-<span>Retry</span>
-<span class="material-symbols-outlined text-[16px] text-secondary">refresh</span>
-</button>
+<button class="min-h-[44px] min-w-[44px] px-3 bg-surface-container-lowest border-2 border-secondary text-[#2d1600] rounded-DEFAULT font-label-md text-label-md font-extrabold shadow-[0_3px_0_0_#8c5000] flex items-center justify-center gap-1 active:translate-y-[2px] active:shadow-none transition-transform hover:bg-surface-container-low shrink-0" type="button"><span>Retry</span><span class="material-symbols-outlined text-[16px] text-secondary">refresh</span></button>
 </section>
 <!-- 3. ESTIMATED READINESS CARD (CACHED) -->
 <section class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-4 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-3">
@@ -252,14 +245,13 @@
 </div>
 </div>
 <!-- Module Score Badges (Cached vs Connection Required) -->
-<div class="grid grid-cols-2 gap-2 pt-1">
-<!-- Listening (Cached) -->
+<div class="grid grid-cols-2 gap-2 pt-1"><!-- Listening (Cached) -->
 <div class="bg-surface p-2.5 rounded-DEFAULT border border-surface-variant flex items-center justify-between">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Listening</span>
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">7.0</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#211a14]">7.0</span>
 </div>
-<span class="inline-flex items-center gap-0.5 text-primary text-[11px] font-bold bg-primary-fixed px-1.5 py-0.5 rounded">
+<span class="inline-flex items-center gap-0.5 text-[#003734] text-[11px] font-extrabold bg-primary-fixed px-1.5 py-0.5 rounded">
 <span class="material-symbols-outlined text-[12px]">check_circle</span> cached
             </span>
 </div>
@@ -267,33 +259,32 @@
 <div class="bg-surface p-2.5 rounded-DEFAULT border border-surface-variant flex items-center justify-between">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Reading</span>
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">6.5</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#211a14]">6.5</span>
 </div>
-<span class="inline-flex items-center gap-0.5 text-primary text-[11px] font-bold bg-primary-fixed px-1.5 py-0.5 rounded">
+<span class="inline-flex items-center gap-0.5 text-[#003734] text-[11px] font-extrabold bg-primary-fixed px-1.5 py-0.5 rounded">
 <span class="material-symbols-outlined text-[12px]">check_circle</span> cached
             </span>
 </div>
 <!-- Writing (Needs Connection) -->
-<div class="bg-surface-container-high/60 p-2.5 rounded-DEFAULT border border-dashed border-outline-variant flex items-center justify-between opacity-80">
+<div class="bg-surface-container-high/60 p-2.5 rounded-DEFAULT border border-dashed border-outline-variant flex items-center justify-between">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Writing</span>
-<span class="font-headline-sm text-headline-sm font-bold text-outline">6.0</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#211a14]">6.0</span>
 </div>
-<span class="inline-flex items-center gap-0.5 text-outline text-[11px] font-bold bg-surface-container px-1 py-0.5 rounded">
+<span class="inline-flex items-center gap-0.5 text-[#3f4947] text-[11px] font-extrabold bg-surface-container px-1 py-0.5 rounded border border-outline-variant">
 <span class="material-symbols-outlined text-[12px]">cloud_off</span> sync req.
             </span>
 </div>
 <!-- Speaking (Needs Connection) -->
-<div class="bg-surface-container-high/60 p-2.5 rounded-DEFAULT border border-dashed border-outline-variant flex items-center justify-between opacity-80">
+<div class="bg-surface-container-high/60 p-2.5 rounded-DEFAULT border border-dashed border-outline-variant flex items-center justify-between">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Speaking</span>
-<span class="font-headline-sm text-headline-sm font-bold text-outline">6.5</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#211a14]">6.5</span>
 </div>
-<span class="inline-flex items-center gap-0.5 text-outline text-[11px] font-bold bg-surface-container px-1 py-0.5 rounded">
+<span class="inline-flex items-center gap-0.5 text-[#3f4947] text-[11px] font-extrabold bg-surface-container px-1 py-0.5 rounded border border-outline-variant">
 <span class="material-symbols-outlined text-[12px]">cloud_off</span> sync req.
             </span>
-</div>
-</div>
+</div></div>
 </section>
 <!-- 4. FOCUS STRATEGY / COACH CARD -->
 <section class="bg-surface-container border-2 border-surface-container-highest rounded-DEFAULT p-3.5 shadow-[0_4px_0_0_#efe0d6] flex items-start gap-3">
@@ -365,10 +356,7 @@
             Official computer-delivered split stimulus screen available for offline practice.
           </p>
 <!-- Tactile Secondary / Neutral Action Button -->
-<button class="w-full h-11 bg-primary-container text-on-primary font-label-lg text-label-lg font-bold rounded-DEFAULT border-2 border-[#0B423E] shadow-[0_4px_0_0_#0B423E] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
-<span>Preview Simulator</span>
-<span class="material-symbols-outlined text-[18px]">open_in_new</span>
-</button>
+<button class="w-full min-h-[44px] bg-primary-container text-on-primary font-label-lg text-label-lg font-bold rounded-DEFAULT border-2 border-[#0B423E] shadow-[0_4px_0_0_#0B423E] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button"><span>Preview Simulator</span><span class="material-symbols-outlined text-[18px]">open_in_new</span></button>
 </article>
 <!-- Mode C: Full Mock Exam Simulation (Online Only / Dimmed) -->
 <article class="bg-surface-container-low/70 border-2 border-dashed border-outline-variant rounded-DEFAULT p-4 flex flex-col gap-2.5 opacity-75">
@@ -390,10 +378,7 @@
             Full 4-module simulation requires live proctor sync and audio stream connection.
           </p>
 <!-- Dimmed / Disabled State Button -->
-<button class="w-full h-11 bg-surface-variant text-outline font-label-lg text-label-lg font-bold rounded-DEFAULT border-2 border-outline-variant cursor-not-allowed flex items-center justify-center gap-2" disabled="" type="button">
-<span class="material-symbols-outlined text-[18px]">lock</span>
-<span>Requires Online Connection</span>
-</button>
+<button class="w-full min-h-[44px] bg-surface-variant text-[#3f4947] font-label-lg text-label-lg font-bold rounded-DEFAULT border-2 border-outline-variant cursor-not-allowed flex items-center justify-center gap-2" disabled="" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span>Requires Online Connection</span></button>
 </article>
 </section>
 <!-- 6. RECENT MOCK SCORES (CACHED) -->
@@ -404,7 +389,7 @@
 </div>
 <div class="space-y-2.5">
 <!-- Mock 14 -->
-<div class="p-3 bg-surface rounded-DEFAULT border border-surface-variant flex items-center justify-between">
+<div class="p-3 bg-surface rounded-DEFAULT border border-surface-variant flex items-center justify-between min-h-[44px]">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-DEFAULT bg-primary-container text-on-primary font-headline-sm text-[16px] font-extrabold flex items-center justify-center shadow-[0_2px_0_0_#00504b]">
                 7.0
@@ -419,7 +404,7 @@
             </span>
 </div>
 <!-- Mock 13 -->
-<div class="p-3 bg-surface rounded-DEFAULT border border-surface-variant flex items-center justify-between">
+<div class="p-3 bg-surface rounded-DEFAULT border border-surface-variant flex items-center justify-between min-h-[44px]">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-DEFAULT bg-secondary-container text-on-secondary-container font-headline-sm text-[16px] font-extrabold flex items-center justify-center shadow-[0_2px_0_0_#8c5000]">
                 6.5
@@ -436,41 +421,36 @@
 </div>
 <!-- Sync link -->
 <div class="pt-1 text-center">
-<a class="inline-flex items-center gap-1 font-label-md text-label-md font-bold text-primary underline underline-offset-4 active:opacity-75" href="#sync">
-<span class="material-symbols-outlined text-[16px]">sync</span>
-            View detailed reports (Sync required)
-          </a>
+<a class="inline-flex items-center justify-center min-h-[44px] px-3 gap-1 font-label-md text-label-md font-bold text-primary underline underline-offset-4 active:opacity-75" href="#sync"><span class="material-symbols-outlined text-[16px]">sync</span>View detailed reports (Sync required)</a>
 </div>
 </section>
 </div>
 <!-- 7. CANONICAL BOTTOM NAVIGATION BAR -->
 <!-- Executed exactly per Shared Components JSON specification -->
-<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-surface-variant dark:border-outline-variant shadow-[0_-4px_0_0_#efe0d6] dark:shadow-none max-w-[390px] mx-auto right-0">
-<!-- 1. Today (Inactive) -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-surface-variant dark:border-outline-variant shadow-[0_-4px_0_0_#efe0d6] dark:shadow-none max-w-[390px] mx-auto right-0"><!-- 1. Today (Inactive) -->
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
 <span class="material-symbols-outlined text-[24px]">today</span>
 <span class="font-label-sm text-label-sm">Today</span>
 </button>
 <!-- 2. Vocab (Inactive) -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
 <span class="material-symbols-outlined text-[24px]">menu_book</span>
 <span class="font-label-sm text-label-sm">Vocab</span>
 </button>
 <!-- 3. Skills (Inactive) -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
 <span class="material-symbols-outlined text-[24px]">bolt</span>
 <span class="font-label-sm text-label-sm">Skills</span>
 </button>
 <!-- 4. Tests (ACTIVE - Exact mapping from JSON & Style guidance) -->
-<button aria-current="page" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container dark:bg-secondary-container dark:text-on-secondary-container rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#8c5000] active:translate-y-[2px] transition-transform duration-100" type="button">
+<button aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-secondary-container text-on-secondary-container dark:bg-secondary-container dark:text-on-secondary-container rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#8c5000] active:translate-y-[2px] transition-transform duration-100" type="button">
 <span class="material-symbols-outlined text-[24px]" data-weight="fill">assignment</span>
-<span class="font-label-sm text-label-sm font-extrabold text-[#1E1711]">Tests</span>
+<span class="font-label-sm text-label-sm font-extrabold text-[#1a0d00]">Tests</span>
 </button>
 <!-- 5. Me (Inactive) -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:translate-y-[2px] transition-transform duration-100" type="button">
 <span class="material-symbols-outlined text-[24px]">person</span>
 <span class="font-label-sm text-label-sm">Me</span>
-</button>
-</nav>
+</button></nav>
 </main>
 </body></html>

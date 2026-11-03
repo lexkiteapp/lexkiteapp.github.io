@@ -190,7 +190,7 @@
 <span class="font-label-sm text-label-sm font-extrabold" style="color: #FDBA74;">14d</span>
 </div>
 <!-- Settings/Filter trailing icon -->
-<button aria-label="Settings" class="w-9 h-9 rounded-full border-2 flex items-center justify-center active:translate-y-0.5 transition-transform" style="background-color: #172427; border-color: #1E2F33; color: #2DD4BF; box-shadow: 0 2px 0 #0E1A1D;">
+<button aria-label="Settings" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border-2 flex items-center justify-center active:translate-y-0.5 transition-transform shrink-0" style="background-color: #172427; border-color: #1E2F33; color: #2DD4BF; box-shadow: 0 2px 0 #0E1A1D;">
 <span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
 </button>
 </div>
@@ -294,38 +294,56 @@
 </div>
 </section>
 <!-- 4. Memory Rating Section Skeleton (Again, Hard, Good, Easy) -->
-<section class="space-y-2.5">
-<div class="flex items-center justify-between px-1">
-<div class="h-4 w-28 shimmer-box rounded-md"></div>
-<div class="h-3 w-20 shimmer-box rounded-md"></div>
+<section class="space-y-2.5"><div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="bar_chart" style="color: #2DD4BF;">bar_chart</span>
+<div class="h-4 w-32 shimmer-box rounded-md"></div>
 </div>
-<div class="grid grid-cols-4 gap-2">
-<!-- Button 1: Again -->
-<div class="rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 border-2" style="background-color: #172427; border-color: #1E2F33; box-shadow: 0 3px 0 #93000a;">
-<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
-<div class="h-4 w-12 shimmer-box rounded-md"></div>
-<div class="h-2 w-9 shimmer-box rounded-full"></div>
+<div class="h-5 w-16 shimmer-box rounded-full border" style="border-color: #2A4045;"></div>
 </div>
-<!-- Button 2: Hard -->
-<div class="rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 border-2" style="background-color: #172427; border-color: #1E2F33; box-shadow: 0 3px 0 #785a00;">
-<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
-<div class="h-4 w-12 shimmer-box rounded-md"></div>
-<div class="h-2 w-9 shimmer-box rounded-full"></div>
+<!-- 7 Column Bars Simulation -->
+<div class="h-24 pt-4 flex items-end justify-between px-2 border-b pb-2" style="border-color: #1E2F33;">
+<!-- Day 1: M -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-14 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">M</span>
 </div>
-<!-- Button 3: Good -->
-<div class="rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 border-2" style="background-color: #172427; border-color: #1E2F33; box-shadow: 0 3px 0 #00504b;">
-<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
-<div class="h-4 w-12 shimmer-box rounded-md"></div>
-<div class="h-2 w-9 shimmer-box rounded-full"></div>
+<!-- Day 2: T -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-10 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">T</span>
 </div>
-<!-- Button 4: Easy -->
-<div class="rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 border-2" style="background-color: #172427; border-color: #1E2F33; box-shadow: 0 3px 0 #2ba39a;">
-<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
-<div class="h-4 w-12 shimmer-box rounded-md"></div>
-<div class="h-2 w-9 shimmer-box rounded-full"></div>
+<!-- Day 3: W -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-16 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">W</span>
+</div>
+<!-- Day 4: T -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-8 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">T</span>
+</div>
+<!-- Day 5: F -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-12 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">F</span>
+</div>
+<!-- Day 6: S -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-5 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">S</span>
+</div>
+<!-- Day 7: S -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-7 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] font-bold" style="color: #D8E5E9;">S</span>
 </div>
 </div>
-</section>
+<!-- Forecast Summary Row -->
+<div class="flex items-center justify-between pt-0.5">
+<div class="h-3.5 w-28 shimmer-box rounded-md"></div>
+<div class="h-3.5 w-20 shimmer-box rounded-md"></div>
+</div></section>
 <!-- 5. 7-Day Load Forecast Card Skeleton -->
 <section class="tactile-card rounded-DEFAULT p-4 space-y-3.5">
 <div class="flex items-center justify-between">
