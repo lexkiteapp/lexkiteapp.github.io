@@ -5,7 +5,7 @@
 name: Xưởng nội dung
 on:
   schedule:
-    - cron: '20 19 * * *'   # 02:20 VN – sau explain/script-bank, khóa Gemini/Groq đã làm mới theo ngày
+    - cron: '50 17 * * *'   # 00:50 VN (xong trước word-packs 20:30 UTC – không chồng khóa Gemini, jobs-check) – sau explain/script-bank, khóa Gemini/Groq đã làm mới theo ngày
   workflow_dispatch:
     inputs:
       area: { description: 'Mảng (all | comm | grammar)', default: 'all' }

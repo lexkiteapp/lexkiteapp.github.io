@@ -1122,7 +1122,7 @@
    "id": "content-factory",
    "workflow": "content-factory.yml",
    "cron": [
-    "20 19 * * *"
+    "50 17 * * *"
    ],
    "priority": "render",
    "resources": [
