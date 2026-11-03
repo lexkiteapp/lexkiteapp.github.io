@@ -19,8 +19,8 @@
   const tClip = (w, p) => (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) ? Chars.clip(w, p) : '');
   // Khung giáo viên có biểu cảm: clip tư thế (phát 1 lần, tắt tiếng) trên nền ảnh tĩnh; giảm chuyển động / chưa có clip → ảnh tĩnh
   // Ảnh tĩnh theo tư thế (Chars.still khi registry có – teacher-pose-map: đúng = cheer, sai = concern); không khung/viền/nền quanh giáo viên
-  const tStill = (w, pose, cls) => Chars.slot(w, { pose, size: 'xs', cls }); // chỗ giáo viên chung (teacher-slot.js): sau bệ, không vệt cắt
-  const tFace = (w, pose) => Chars.slot(w, { pose, size: 'l', clip: true, lazy: false, cls: 'absolute inset-x-0 bottom-0 mx-auto' }); // clip tư thế trên bệ (giảm chuyển động → ảnh tĩnh)
+  const tStill = (w, pose, cls) => Chars.slot(w, { pose, size: 'xs', cls }); // chỗ giáo viên chung (teacher-slot.js): mặt trong chip phản hồi (giữa dải nền nhạt) → 'fade' mặc định, không bệ/vệt cắt
+  const tFace = (w, pose) => Chars.slot(w, { pose, size: 'l', clip: true, lazy: false, cls: 'absolute inset-x-0 bottom-0 mx-auto' }); // clip tư thế (giảm chuyển động → ảnh tĩnh); đứng trên đĩa sao tròn kết bài, không mép thẻ → 'fade' mặc định: thân mờ vào đĩa + bóng tiếp đất
   // Thẻ chung: bóng tối (A) ↔ viền mảnh + bóng mềm (B)
   const CARD = 'shadow-lg border-2 border-b-[5px] border-outline-variant/80 lt:shadow-card-soft lt:border-outline-variant'; // tối: viền mảnh tách tầng (như app lớn) · sáng: viền kem + bóng mềm
   // Bộ linh kiện (tờ mẫu Stitch): nút chính cam gờ #B53A22 · nút phụ màu thẻ gờ 5 px chữ teal · viên số header (lửa / XP)

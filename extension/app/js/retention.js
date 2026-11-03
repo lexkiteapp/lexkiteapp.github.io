@@ -72,7 +72,7 @@
   const today = () => keyOf(new Date());
   const reduce = () => g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const teacherFor = n => (MILESTONES.indexOf(n) % 2 ? 'carlos' : 'ama');
-  const teachImg = (who, size, pose) => Chars.slot(who, { pose: pose || 'encourage', size: size >= 128 ? 'm' : 's', cls: 'ret-teach', lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js)
+  const teachImg = (who, size, pose) => Chars.slot(who, { pose: pose || 'encourage', size: size >= 128 ? 'm' : 's', cls: 'ret-teach', lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js) · modal/hàng chữ/giữa thẻ, không mép thẻ dưới chân → ground 'fade' mặc định (mờ vào nền + bóng tiếp đất)
   const DOW = () => [t('T2'), t('T3'), t('T4'), t('T5'), t('T6'), t('T7'), t('CN')];
   const prizeName = p => {
     const [k, id] = p.split(':');
@@ -252,7 +252,10 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     off: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#ffffff] lt:[border:1.5px_solid_rgb(226,_232,_231)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
     on: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#E6F3F2] lt:shadow-sm lt:[border:2px_solid_rgb(13,_105,_100)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#2BA39A] dk:[box-shadow:0_5px_0_#093c37]',
   };
-  const teach2 = who => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, style: 'margin-bottom:1.75rem' }); // đứng trên dải huy hiệu băng (-mt-7) bên dưới, bệ không bị che // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
+  // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi). card = đứng SAU mép trên dải huy hiệu băng nền đục màu thẻ (relative z-[1] -mt-7): slot lùi 0,16 khung
+  // xuống sau mép dải (lề đáy 1,75rem − 0,16 khung) → chính dải là bệ, đường hông khuất sau mặt thẻ thật, liền màu (teacher-slot.js ground:'card').
+  // Không có dải phía dưới (mốc chúc mừng) → 'fade': thân mờ vào nền + bóng tiếp đất, không bệ lơ lửng.
+  const teach2 = (who, card) => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, ...(card ? { ground: 'card', style: 'margin-bottom:calc(1.75rem - var(--h)*.16)' } : {}) });
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
@@ -264,7 +267,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const head = (ic, label, right) => `<div class="${V.hd}"><div class="${V.hl}"><span class="${V.ico}" aria-hidden="true">${ic}</span><h2 class="${V.lab}">${esc(label)}</h2></div>${right || ''}</div>`;
     let h = `<section class="${V.card}">${head('local_fire_department', t('Mốc tiếp theo: {n} ngày', { n: nx }), `<span class="${V.pill}"><span class="${V.pillT}">${n}/${nx}</span></span>`)}
       <div class="${V.track}" role="progressbar" aria-valuemin="0" aria-valuemax="${nx}" aria-valuenow="${n}" aria-label="${esc(t('Mốc tiếp theo: {n} ngày', { n: nx }))}"><div class="${V.fill}" style="width:${Math.min(100, Math.round(n / nx * 100))}%"></div></div>
-      <div class="flex items-end gap-3 pt-[0.5rem]">${teach2(n % 2 ? 'carlos' : 'ama')}<p class="${V.body} self-center" data-noicon>${t('Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí')}</p></div>
+      <div class="flex items-end gap-3 pt-[0.5rem]">${teach2(n % 2 ? 'carlos' : 'ama', true)}<p class="${V.body} self-center" data-noicon>${t('Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí')}</p></div>
       <div class="relative z-[1] -mt-7 pt-[0.5rem] lt:bg-[#FFFFFF] dk:bg-[#142328]">${g.StreakUI ? g.StreakUI.badgeHtml(state.game).replace('class="streak-freeze-badge"', `class="streak-freeze-badge ${V.frz}"`) : `<span>🧊×${fi.left}</span>`}</div></section>`;
     if (ev) h += `<section class="${V.card}">${head('calendar_today', t('Gom {n} mảnh', { n: ev.need }))}<p class="${V.body}">${t('Học 1 ngày = 1 mảnh')}</p>
       <div class="flex gap-1.5 pt-[0.5rem]" data-noicon role="img" aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="material-symbols-outlined text-[24px] ${i < got ? "[font-variation-settings:'FILL'_1]" : ''} ${i < got ? "lt:text-[#8A5A00] dk:text-[#FFD36B]" : "[font-variation-settings:'FILL'_0] lt:text-[#4E5F62] dk:text-[#9DB5BA]"}" aria-hidden="true">${EV_IC[ev.id] || 'eco'}</span>`).join('')}</div></section>`;
