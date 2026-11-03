@@ -1,5 +1,5 @@
 # 🎞️ Cổng chuyển động giáo viên trên WebKit (Safari) – clip WebGL chỗ giáo viên mượt + viền nét (live 3/11: tay Ama giật, viền méo trên iPhone).
-# macOS vì WebKit trên Linux không giải mã H.264. Chạy tay với before=<ref>: chụp thêm ảnh TRƯỚC (không chặn) để đính PR.
+# macOS vì WebKit trên Linux không giải mã H.264. PR tự chụp thêm ảnh TRƯỚC từ nhánh base (không chặn); chạy tay với before=<ref>.
 name: teacher-motion
 on:
   pull_request:
@@ -22,11 +22,11 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install webkit >/dev/null
-      - if: inputs.before != ''
+      - if: inputs.before != '' || github.event_name == 'pull_request'   # PR: ảnh trước = nhánh base (workflow chỉ chạy khi file giáo viên đổi)
         uses: actions/checkout@v4
-        with: { ref: '${{ inputs.before }}', path: before-src, sparse-checkout: web }
+        with: { ref: "${{ inputs.before || github.base_ref }}", path: before-src, sparse-checkout: web }
       - name: Ảnh trước (không chặn)
-        if: inputs.before != ''
+        if: inputs.before != '' || github.event_name == 'pull_request'
         run: node scripts/test/teacher-motion-webkit.mjs before-src/web out/teacher-motion/before --report
       - name: Chạy cổng
         run: node scripts/test/teacher-motion-webkit.mjs web out/teacher-motion
