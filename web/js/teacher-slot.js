@@ -29,10 +29,10 @@
   const live = el => {
     const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip, wm = el.dataset.webm; el.removeAttribute('data-clip'); el.removeAttribute('data-webm'); if (!fig || !src || lite()) return;
     const v = document.createElement('video'); Object.assign(v, { muted: true, playsInline: true, preload: 'metadata', crossOrigin: 'anonymous' }); v.setAttribute('playsinline', '');
-    if (el.dataset.loop === '0') v.loop = true; // vòng nghỉ (Chars.idle): khung cuối ≈ khung đầu (scripts/teach/idle.py) → lặp liền, không nghỉ
+    if (el.dataset.loop === '0') v.loop = true; // vòng nghỉ: lặp liền (docs/CHARACTERS.md)
     let seen = true;
     const watch = (go, load) => { if (g.IntersectionObserver) new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen) { load(); go(); } else v.pause(); }, { rootMargin: '120px' }).observe(el); else load(); };
-    // Máy không giải mã H.264 (Chromium nguồn mở, một số Linux) mà có VP9 → vòng nghỉ VP9 có alpha phát thẳng (không cần WebGL); Safari luôn có H.264 nên không vào nhánh này (Safari bỏ alpha của VP9)
+    // không có H.264 mà có VP9 → idle.webm (VP9α) phát thẳng (docs/CHARACTERS.md)
     if (wm && !v.canPlayType('video/mp4; codecs="avc1.42E01E"') && v.canPlayType('video/webm; codecs="vp9"')) {
       v.className = 'tslot-img'; v.setAttribute('aria-hidden', 'true'); v.onplaying = () => el.classList.add('live');
       v.onerror = () => { v.remove(); el.classList.remove('live'); }; // lỗi → giữ ảnh tĩnh
@@ -64,7 +64,7 @@
   const css = () => { if (on || !g.document || !document.head) return; on = 1; const s = document.createElement('style'); s.id = 'tslot-css'; s.textContent = CSS; document.head.appendChild(s); };
   g.TeacherSlot = { SIZES, css };
   const C = g.Chars; if (!C) return;
-  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ 1–3 s mắt mở (Chars.idle, tư thế mặc định happy = tư thế gốc của vòng, lặp liền; H.264 xếp chồng qua WebGL, VP9α khi máy không có H.264), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
+  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
   C.slot = (w, o = {}) => {
     css();
     const idle = !!(o.idle && C.idle), sz = SIZES[o.size] ? o.size : 'm', pose = C.poses.includes(o.pose) ? o.pose : idle ? 'happy' : 'talk';
