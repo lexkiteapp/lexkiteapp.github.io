@@ -200,6 +200,7 @@ node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
+node scripts/test/mqa-parity-self.mjs
 node scripts/say-native/build.mjs --check
 node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
