@@ -373,6 +373,8 @@
     network: () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
     unsupported: () => t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.'),
     busy: () => t('Micro đang bận – thử lại sau 1 giây.'),
+    'language-not-supported': () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
+    whisper: () => '⚠️ ' + t('Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.'),
   };
   const recErrorText = err => Object.prototype.hasOwnProperty.call(REC_ERR, err) ? REC_ERR[err]() : t('Lỗi nhận dạng: {err}', { err });
   /* recognize(target, accent, { start, result({heard, score, audio, alts}), error(code), end }) → { stop } */
@@ -411,7 +413,7 @@
           cb.end && cb.end();
         };
         media.start(); setTimeout(finish, ms); activeRec = ctl;
-      }).catch(() => { cb.error && cb.error('not-allowed'); });
+      }).catch(() => { cb.error && cb.error('not-allowed'); cb.end && cb.end(); });
       return ctl;
     };
     if (whisperOK()) return run();
@@ -420,10 +422,16 @@
     cb.end && cb.end();
     return null;
   }
+  // Dịch vụ nhận dạng của trình duyệt có API nhưng không dùng được (Edge/Chromium không tới máy chủ giọng nói, chính sách chặn…)
+  // → cả phiên chuyển sang Whisper trên máy (ghi âm MediaRecorder, chấm cục bộ) thay vì để nút micro báo lỗi mãi.
+  const SR_DOWN = { network: 1, 'service-not-allowed': 1, 'language-not-supported': 1 };
+  let srDown = false;
   function recognize(target, accent, cb = {}) {
     const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent); // Whisper trên máy = whisper-tiny.en → chỉ tiếng Anh
+    const canWhisper = en && !(g.Core && g.Core.Store.isExtension) && navigator.mediaDevices && g.MediaRecorder; // add-on: CSP không cho tải mô hình
     if (cb.whisper && en && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
     if (SR && en && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
+    if (SR && srDown && canWhisper) return recognizeWhisper(target, cb);
     if (!SR) { if (!en || g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
     if (activeRec) { const old = activeRec; activeRec = null; old._stale = true; try { old.abort(); } catch (e) { /* đã dừng */ } }
     stopSpeak();
@@ -444,16 +452,28 @@
       const done = () => { if (stream) stream.getTracks().forEach(t => t.stop()); res(chunks.length ? recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' })) : ''); };
       if (media && media.state !== 'inactive') { media.onstop = done; try { media.stop(); } catch (e) { done(); } } else done();
     }));
-    r.onresult = async e => {
+    // Luôn kết thúc bằng đúng 1 tín hiệu result/error trước end: có trình duyệt (Edge) kết thúc phiên nghe mà không báo gì → nút micro "chết" im lặng.
+    const guard = r.continuous ? 0 : setTimeout(() => { try { r.abort(); } catch (e) { /* đã dừng */ } }, cb.maxMs || 20000);
+    r.onresult = e => {
       if (r._stale) return;
+      r._fin = true;
       const alts = [...e.results[0]].map(a => a.transcript.trim()).filter(Boolean);
       const best = alts.map(a => ({ a, s: similarity(a, target) })).sort((x, y) => y.s - x.s)[0] || { a: '', s: 0 };
-      const audio = await finishAudio();
-      cb.result && cb.result({ heard: best.a, score: Math.round(best.s * 100), audio, alts });
+      r._resP = finishAudio().then(audio => { cb.result && cb.result({ heard: best.a, score: Math.round(best.s * 100), audio, alts }); }); // end chờ result (thứ tự result → end)
     };
-    r.onerror = e => { if (r._stale || e.error === 'aborted') return; cb.error && cb.error(e.error); };
-    r.onend = () => { r._ended = true; if (activeRec === r) activeRec = null; finishAudio(); if (!r._stale) cb.end && cb.end(); };
-    try { r.start(); } catch (e) { cb.error && cb.error('busy'); return null; }
+    r.onerror = e => {
+      if (r._stale || e.error === 'aborted' || r._fin) return;
+      r._fin = true;
+      if (SR_DOWN[e.error] && canWhisper) { srDown = true; r._fell = true; recognizeWhisper(target, cb); return; } // Whisper tự gọi result/error/end
+      cb.error && cb.error(e.error);
+    };
+    r.onend = () => {
+      r._ended = true; clearTimeout(guard); if (activeRec === r) activeRec = null; finishAudio();
+      if (r._stale || r._fell) return;
+      if (!r._fin) { r._fin = true; cb.error && cb.error('no-speech'); }
+      const end = () => cb.end && cb.end(); if (r._resP) r._resP.then(end, end); else end();
+    };
+    try { r.start(); } catch (e) { clearTimeout(guard); cb.error && cb.error('busy'); return null; }
     cb.start && cb.start();
     return { stop: () => { try { r.stop(); } catch (e) { /* đã dừng */ } } };
   }

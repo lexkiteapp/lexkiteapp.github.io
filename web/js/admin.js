@@ -79,6 +79,9 @@
     'Tác vụ cần chú ý': 'Jobs needing attention', 'Tác vụ tự động (GitHub Actions)': 'Automated jobs (GitHub Actions)', 'Toàn bộ cảnh báo & nhật ký →': 'All alerts & logs →',
     'Đang chạy…': 'Running…', 'Bỏ qua': 'Skipped', 'Đang chờ': 'Queued', 'Thành công': 'Success', 'Cảnh báo@@status': 'Warning', 'Cần chú ý': 'Needs attention', 'Chưa có tác vụ': 'No jobs yet',
     // Trực tiếp
+    '⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục': '⏸ Auto-refresh paused (no activity for 10 min) – move the mouse to resume',
+    'Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).': "Today's read quota is nearly used – this section pauses until 00:00 UTC.",
+    'Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).': 'Showing cached numbers to keep D1 read quota for learners – back to normal after 00:00 UTC.',
     '📈 Lưu lượng trực tiếp': '📈 Live traffic', 'Live · tự cập nhật 30s · {t}': 'Live · auto-refresh 30s · {t}', 'Lấy mẫu {p}% – số thực ≈ × {x}': 'Sampling {p}% – actual ≈ × {x}',
     'Đang online <small>(5 phút)</small>': 'Online now <small>(5 min)</small>', 'khách có tín hiệu gần đây': 'visitors with recent activity', 'Lượt xem hôm nay': 'Views today', '{n} phiên': ['{n} session', '{n} sessions'],
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
@@ -362,9 +365,14 @@
     const j = await r.json().catch(() => ({}));
     if (r.status === 403) throw new Error('forbidden');
     if (r.status === 401 && j.error === 'reauth') { if (j.message) { if (await ask(j.message)) { await auth.signOut(); await signIn(); } throw new Error('reauth'); } return reauth(); }
+    // Ngân sách đọc D1 (sự cố 03/11, functions/api/_readbudget.js): số liệu đệm / 429 quota-shed → báo nhẹ 1 lần mỗi phiên, không lặp
+    if (r.status === 429 && j.error === 'quota-shed') { budgetNote(); throw Object.assign(new Error(L('Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).')), { code: 'quota-shed' }); }
     if (!r.ok) throw new Error(j.error || r.status);
+    if (j && (j._budget || j._stale)) budgetNote();
     return j;
   }
+  let budgetShown = false;
+  function budgetNote() { if (budgetShown) return; budgetShown = true; toast(L('Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).'), 'ok', 8000); }
   // GrabCast qua proxy /api/social (khóa chỉ ở máy chủ) – tab Video & Social. Lỗi → err.code = mã lỗi máy chủ
   async function sapi(method, path, body, opt = {}) {
     const r = await fetch('/api/social', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ method, path, query: opt.query, body: body || undefined, idem: opt.idem }) });
@@ -434,6 +442,7 @@
     return j;
   }
   let idleTimer = null, idleMin = 0, lastAct = Date.now();
+  const LIVE_IDLE = 10 * 60e3;
   function setupIdleTimer(minutes) {
     idleMin = Number(minutes) || 0;
     if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
@@ -1185,7 +1194,7 @@
         <div class="card mt"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's', L('Phiên theo ngày: {r}', { r: span }))}</div>
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
-          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k), r => r.n, () => '', s.s)}</div>
+          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', s.s)}</div>
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>${L('Tần suất (số phiên mỗi khách)')}</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => (a.freq || []).find(f => f.k === k) || { k, n: 0 }), r => L('{k} lần', { k: r.k }))}</div>
           <div class="card"><h3>${L('Thiết bị')}</h3>${bars(a.devs)}<h3 class="mt">${L('Nền tảng@@h')}</h3>${bars(a.plats, r => platName(r.k))}</div>
@@ -1210,9 +1219,11 @@
       liveTimer = setInterval(async () => {
         if (tab !== 'analytics') { stopLive(); return; }
         if (document.hidden) return;
+        // Tab bỏ quên (không thao tác ≥ 10 phút) → không tự gọi nữa; di chuột/bấm phím là chạy lại (03/11: 1 tab Trực tiếp mở cả ngày ≈ 120 lượt/giờ)
+        if (Date.now() - lastAct >= LIVE_IDLE) { const c = $('#liveCard'); if (c && !c.dataset.idle) { c.dataset.idle = '1'; c.insertAdjacentHTML('afterbegin', `<p class="tiny muted" data-live-idle>${L('⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục')}</p>`); } return; }
         try {
           const n = await api('live', { days }); if (tab !== 'analytics' || !$('#liveCard')) return;
-          $('#liveCard').innerHTML = liveCard(n); $('#liveGrid').innerHTML = liveGrid(n);
+          $('#liveCard').innerHTML = liveCard(n); delete $('#liveCard').dataset.idle; $('#liveGrid').innerHTML = liveGrid(n);
           if (JSON.stringify(n.countries) !== mapKey) drawMap(n.countries);
         } catch (e) { /* lỗi mạng tạm thời – thử lại lượt sau */ }
       }, 30000);

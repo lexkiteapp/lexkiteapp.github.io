@@ -2,6 +2,7 @@
  * Mỗi 10 phút: POST lexkite.com/api/push {op:'due'} (X-Push-Cron) → máy chủ (D1 nội bộ, cầu dao + ngân sách điều phối) trả ≤ 40 thiết bị đến giờ ĐỊA PHƯƠNG
  *  · Web Push: push RỖNG (không payload → không cần mã hóa, không dữ liệu cá nhân qua dịch vụ push) + VAPID (ES256, WebCrypto). SW tự lấy câu nhắc đã dịch trong cache.
  *  · FCM HTTP v1 (app gốc, cờ FCM_ON): thông báo kéo lại/tiến bộ tuần theo NGÔN NGỮ giao diện (copy.json, 15 ngôn ngữ, rơi về en) – token OAuth từ service account (RS256).
+ *  · "Lỗi LX-… đã được sửa" (hàng đợi push_now của /api/push): web = push rỗng (SW hỏi trạng thái phiếu của máy), FCM kind 'fixed' + rid.
  * 404/410 (web) · UNREGISTERED/INVALID_ARGUMENT (FCM) → {op:'gone'} xóa đăng ký. Tổng lượt gọi ra ≤ 1 + 1 + 40 + 1 < 50 (giới hạn subrequest gói Free).
  * Bí mật: PUSH_CRON_SECRET, VAPID_PUBLIC, VAPID_PRIVATE_JWK, (tùy chọn) FCM_SA = JSON service account. Biến: API (mặc định https://lexkite.com), VAPID_SUB. */
 import COPY from './copy.json';
@@ -34,10 +35,10 @@ async function fcmToken(env, now) {
 }
 /** Câu theo ngôn ngữ giao diện; thiếu → en (không bao giờ vi cho người không-vi). */
 export const copyOf = (lang, kind) => ((COPY[lang] || COPY.en)[kind] || COPY.en[kind] || COPY.en.back);
-const ROUTE = { back: '#/review', miss: '#/home', week: '#/stats' };
+const ROUTE = { back: '#/review', miss: '#/home', week: '#/stats', fixed: '#/home' }; // fixed: mở app → nút Báo lỗi hỏi trạng thái ngay (report-pill)
 export function fcmMessage(x) {
-  const [title, body] = copyOf(x.lang, x.kind);
-  return { message: { token: x.token, notification: { title, body }, data: { route: ROUTE[x.kind] || '#/review', tpl: 'r_' + x.kind }, android: { priority: 'normal', ttl: '14400s' }, apns: { headers: { 'apns-priority': '5' }, payload: { aps: { sound: 'default' } } } } };
+  const id = /^LX-\d{4,10}$/.test(x.rid || '') ? x.rid : '', [title, body] = copyOf(x.lang, x.kind).map(s => s.replace('{id}', id).replace(/\s{2,}/g, ' '));
+  return { message: { token: x.token, notification: { title, body }, data: { route: ROUTE[x.kind] || '#/review', tpl: 'r_' + x.kind, ...(id ? { rid: id } : {}) }, android: { priority: 'normal', ttl: '14400s' }, apns: { headers: { 'apns-priority': '5' }, payload: { aps: { sound: 'default' } } } } };
 }
 async function sendFcm(auth, x) {
   const r = await fetch(`https://fcm.googleapis.com/v1/projects/${auth.project}/messages:send`, { method: 'POST', headers: { Authorization: 'Bearer ' + auth.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(fcmMessage(x)) });
