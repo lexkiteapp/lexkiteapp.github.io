@@ -54,7 +54,7 @@
       const under = [];
       for (const s of shapes) {
         const im = s.e.getScreenCTM(); if (!im) continue; const inv = im.inverse();
-        const local = pts.map(p => p.matrixTransform(inv));
+        const local = pts.map(p => { const q = p.matrixTransform(inv), sp = svg.createSVGPoint(); sp.x = q.x; sp.y = q.y; return sp; }); // Chromium cũ chỉ nhận SVGPoint
         const hit = local.map(p => (s.fill && s.e.isPointInFill(p)) || (s.thick && s.e.isPointInStroke(p)));
         const k = hit.filter(Boolean).length;
         if (s.thick && k) out.push({ kind: 'straddle', detail: `${label(t)} đè đường ${label(s.e)}` });
