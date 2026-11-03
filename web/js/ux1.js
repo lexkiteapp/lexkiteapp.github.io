@@ -291,7 +291,7 @@
       homeBase().then(b => { if (r.dataset.tok !== tok || !document.body.contains(r)) return;
         const o = ST2['today-rail'](b);
         r.innerHTML = `<div class="v2s-today-rail"><div class="${o.root.replace(/\bmin-h-screen\b/, '')}">${o.main}</div></div><div id="ux1League"></div>${promo}`;
-        const v = r.firstElementChild; prune(v); fillLeague(v, document.getElementById('ux1League')); tail();
+        const v = r.firstElementChild; ST2.css && ST2.css('today-rail', v); prune(v); fillLeague(v, document.getElementById('ux1League')); tail();
       }).catch(() => {});
       return;
     }
