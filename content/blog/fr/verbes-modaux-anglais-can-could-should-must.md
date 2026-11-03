@@ -3,7 +3,7 @@ title: "Verbes Modaux en Anglais: Can, Could, Should, Must"
 description: "Verbes modaux en anglais: Guide d utilisation complet de can, could, should, must, may et might. Règles, nuances de certitude et erreurs à éviter."
 slug: verbes-modaux-anglais-can-could-should-must
 lang: fr
-translationKey: verbes-modaux-anglais-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [modaux, grammaire, verbes]
 keyword: "verbes modaux en anglais"

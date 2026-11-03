@@ -3,7 +3,7 @@ title: "Verbos Modales en Inglés: Can, Could, Should, Must y May"
 description: "Aprende los verbos modales en inglés can could should must: reglas de uso para expresar habilidad, probabilidad, consejo y obligación sin errores."
 slug: verbos-modales-en-ingles-can-could-should-must
 lang: es
-translationKey: verbos-modales-en-ingles-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [modales, gramatica, can-should-must]
 keyword: "verbos modales en inglés can could should must"

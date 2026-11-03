@@ -4,7 +4,7 @@ title: "Al-Afal al-Naqisa Can Could Should Must: دليل القواعد"
 description: "Al-afal al-naqisa can could should must: الدليل الشامل للأفعال الناقصة في الإنجليزية، الفروق الدقيقة، أزمنة الماضي التام والأخطاء الشائعة."
 keyword: "al-afal al-naqisa can could should must"
 lang: ar
-translationKey: modal-verbs-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [grammar, modal-verbs, can-could-should-must]
 cover: grammar

@@ -4,7 +4,7 @@ title: "Ingilizce Modal Verbs Can Could Should Must Kullanimi"
 description: "Ingilizce modal verbs can could should must farkları, yetenek, ihtimal, zorunluluk ve tavsiye kipleri kuralları ile örnek cümleler bu rehberde."
 keyword: "ingilizce modal verbs can could should must"
 lang: tr
-translationKey: ngu-phap-modal-verbs-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [modal-verbs, kural, gramer]
 cover: grammar

@@ -4,7 +4,7 @@ title: "Modalnye Glagoly Can Could Should Must v Angliyskom"
 description: "Modalnye glagoly can could should must в английском: разница значений, степени вероятности, модальные перфекты, грамматические правила и примеры."
 keyword: "modalnye glagoly can could should must"
 lang: ru
-translationKey: ngu-phap-modal-verbs-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [modalnye-glagoly, grammatika, pravila]
 cover: grammar

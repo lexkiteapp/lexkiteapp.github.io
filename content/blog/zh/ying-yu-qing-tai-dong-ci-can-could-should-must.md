@@ -3,7 +3,7 @@ title: "英语情态动词用法全解析攻略：从语气强弱到推测概率
 description: "英语情态动词用法系统进阶指南：深度梳理can、could、should、must、may与might的语气强弱梯队，全面解析在肯定推测、否定质疑及对过去事实虚拟推测（情态动词+have done）中的核心规则，告别中式硬套，助你精准表达学术与日常态度。"
 slug: ying-yu-qing-tai-dong-ci-can-could-should-must
 lang: zh
-translationKey: ying-yu-qing-tai-dong-ci-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [qing-tai-dong-ci, yu-fa, modaux]
 keyword: "英语情态动词用法"

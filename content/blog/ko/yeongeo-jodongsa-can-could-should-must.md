@@ -3,7 +3,7 @@ title: "영어 조동사 정리 : 확신도 백분율과 뉘앙스로 끝내는 
 description: "영어 조동사 정리 완벽 가이드: can, could, should, must, may, might의 미묘한 뉘앙스 차이와 0%부터 100%까지의 확신도 백분율 스펙트럼, 정중한 비즈니스 완곡 화법 및 과거 사실 추측의 조동사 have p.p. 공식을 총정리합니다."
 slug: yeongeo-jodongsa-can-could-should-must
 lang: ko
-translationKey: yeongeo-jodongsa-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [jodongsa, munbeop, can-could]
 keyword: "영어 조동사 정리"

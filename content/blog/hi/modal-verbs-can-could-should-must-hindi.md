@@ -4,7 +4,7 @@ title: "Modal Verbs Can Could Should Must in Hindi: सम्पूर्ण न
 description: "Modal verbs can could should must in hindi: उपयोग के नियम, बारीक अंतर, पास्ट मोडल संरचनाएं और आम गलतियों से बचने के लिए संपूर्ण मार्गदर्शिका।"
 keyword: "modal verbs can could should must in hindi"
 lang: hi
-translationKey: modal-verbs-can-could-should-must
+translationKey: dong-tu-khuyet-thieu-can-could-should-must
 category: ngu-phap
 tags: [grammar, modal-verbs, can-could-should-must]
 cover: grammar
