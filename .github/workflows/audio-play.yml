@@ -25,9 +25,9 @@ jobs:
         run: node scripts/test/audio-voice.mjs && node scripts/audio/offline-pack.mjs --check
       - name: Cài Playwright
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 jsdom@25.0.1  # cài CÙNG lúc: npm i --no-save lần sau sẽ gỡ gói --no-save trước đó
           npx playwright install --with-deps chromium webkit
       - name: Phát audio – Chromium + WebKit
         run: node scripts/test/audio-play.mjs chromium,webkit
       - name: Bong bóng lời giáo viên – đuôi trỏ miệng, karaoke, RTL, giảm chuyển động (Chromium + WebKit)
-        run: npm i --no-save --no-audit --no-fund jsdom@25.0.1 && node scripts/test/teacher-bubble.mjs chromium,webkit
+        run: node scripts/test/teacher-bubble.mjs chromium,webkit
