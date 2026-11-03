@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -345,7 +345,17 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(m.ipa === '/məˈleərɪə/' && IC.strictEq('/məˈleərɪə/', '/məˈlɛəɹiə/') && !IC.strictEq('/mæˈleəriə/', '/məˈlɛəɹɪə/'), 'IPA Anh espeak ↔ Britfone khớp chặt (malaria)'); }
 // hạ tầng (30/10): retry tính TRONG N – 2.701 mục requeue + N mới trong 1 lượt vượt timeout → mất cả lượt
 { const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), m = /timeout-minutes: (\d+)/.exec(Y), n = /N="\$\{N:-(\d+)\}"/.exec(Y);
-  ok(/stat\.retry = pool\.length - Math\.min\(N, pool\.length\); pool = pool\.slice\(0, N\)/.test(J), 'job: retry + mới cắt về N');
+  ok(/pool = mixPool\(rt, pool, N,/.test(J) && !/pool = \[\.\.\.C\.items\.filter\(e => want\.has/.test(J), 'job: retry + mới trộn bằng mixPool, cắt về N (không còn retry đứng trước chiếm trọn)');
+  // 03/11 sản lượng 336 → 35 → 15 mục/ngày: 3.641 mục retry (rớt vi/ví dụ) chiếm trọn N, ứng viên mới không bao giờ tới → hạn ngạch retry ≤ 25 % N
+  { const R = n => Array.from({ length: n }, (_, i) => 'r' + i), F = n => Array.from({ length: n }, (_, i) => 'f' + i), P = (r, f, N, s) => mixPool(r, f, N, s);
+    let m = P(R(3641), F(9000), 600); ok(m.length === 600 && m.filter(x => x[0] === 'r').length === 150 && m.filter(x => x[0] === 'f').length === 450, 'mixPool: retry 3641 + mới 9000, N 600 → 150 retry + 450 mới (trước: 600 retry)');
+    m = P(R(3641), F(100), 600); ok(m.length === 600 && m.filter(x => x[0] === 'f').length === 100, 'mixPool: ứng viên mới thiếu → retry lấp chỗ trống, không bỏ phí lượt');
+    m = P(R(20), F(9000), 600); ok(m.length === 600 && m.filter(x => x[0] === 'r').length === 20 && m[0] === 'r0', 'mixPool: retry ít (lỗ IPA) → làm hết, đứng đầu');
+    m = P(R(500), F(9000), 600, 0); ok(m.length === 600 && m.every(x => x[0] === 'f'), 'mixPool: share 0 → toàn ứng viên mới');
+    ok(P(R(5), [], 600).length === 5 && P([], F(3), 600).length === 3, 'mixPool: một danh sách rỗng vẫn đúng');
+    const y = yieldSplit([...Array.from({ length: 450 }, (_, i) => ({ retry: false, pass: i < 90, judged: true })), ...Array.from({ length: 150 }, (_, i) => ({ retry: true, pass: i < 3, judged: i < 140 })), { retry: false, pass: false, judged: false }]);
+    ok(y.fresh.yield === 0.2 && y.fresh.judged === 450 && y.retry.pass === 3 && y.retry.judged === 140, 'yieldSplit: sản lượng tách mục mới vs retry, bỏ mục hạ tầng/lỗ nguồn khỏi mẫu số'); } 
+  { const Y2 = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'); ok(/yy=\(r\.nFresh\|\|0\)>=50\?r\.yieldFresh:r\.yield/.test(Y2) && /low=py&&\(r\.n-inf\)>=50&&yy<py\/2/.test(Y2), 'workflow: cầu dao chuỗi đo yieldFresh (mục mới) khi ≥ 50 mục mới, ngưỡng nửa pilot giữ nguyên'); }
   ok(m && n && +n[1] * 14 / 60 <= +m[1] * 0.8, `N mặc định ${n && n[1]} × 14 s/từ vừa 80 % timeout ${m && m[1]} phút`); }
 // hạ tầng (30/10 lượt 41065198770): kho Gemini cạn → dừng ngay (không đốt 166 phút ra 2.175 mục hạ tầng); dispatch không đè LX_N
 { const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), P = fs.readFileSync('scripts/lib/ai-pool.mjs', 'utf8');

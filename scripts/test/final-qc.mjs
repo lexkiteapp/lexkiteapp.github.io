@@ -50,20 +50,23 @@ const HOOK = () => {
 // Giáo viên trên màn: ảnh/clip Chars (teach/<who>/…) + kiểm "dán đè" + toàn thân + bóng chân. Chạy trong trang.
 const TEACH = async () => {
   const out = [], vh = innerHeight;
-  const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
+  const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view canvas.tslot-img, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
+  // đo "cái gì nằm trên cùng" theo HÌNH: chỗ giáo viên (.tslot, bệ) và lớp trang trí có pointer-events:none – elementFromPoint bỏ qua chúng → bệ che hông không bao giờ được thấy
+  const pe = document.createElement('style'); pe.textContent = '#view, #view *{pointer-events:auto!important}'; document.head.appendChild(pe);
   for (const e of els) {
     // clip sống (canvas/video trong .tch): tư thế = nói/nghe theo vòng đang chạy; khung hình đo trên ảnh poster cùng khung của clip
-    const tch = e.closest('.tch'), live = e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || '')), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
-      pimg = live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
+    // chỗ giáo viên chung (Chars.slot): tư thế = data-pose của khung (clip/vòng nghỉ sống chạy đúng tư thế đó), khung hình đo trên ảnh tĩnh cùng khung
+    const slot = e.closest('.tslot'), tch = e.closest('.tch'), live = !slot && (e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || ''))), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
+      pimg = slot ? slot.querySelector('img.tslot-img') : live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
     if (e.tagName === 'IMG' && tch && tch.querySelector('canvas.tch-cv')) continue; // poster dưới clip đang chạy: đã tính qua canvas
-    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
+    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = slot ? slot.dataset.pose || '?' : live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
     e.scrollIntoView({ block: 'center' }); await new Promise(res => setTimeout(res, 60));
     const r = e.getBoundingClientRect(), bad = [], cut = []; let visBottom = r.bottom; // cut = nửa người/mờ/cắt: ĐẠT nếu khuất hẳn sau 1 mặt đục của Stitch (thẻ/bàn/bảng che đường hông, kiểu Duolingo)
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
     for (let q = e, i = 0; q && i < 4 && q.id !== 'view'; q = q.parentElement, i++) { const cs = getComputedStyle(q), qr = q.getBoundingClientRect(), br = parseFloat(cs.borderTopLeftRadius) || 0;
       if (br >= 0.4 * Math.min(qr.width, qr.height) && (cs.overflow !== 'visible' || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none')) bad.push('vòng tròn/hào quang');
       if (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none' || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
-      if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push('đường cắt (khung cắt đầu/tay)'); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
+      if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push(`đường cắt (khung cắt đầu/tay: ${String(q.className).split(' ')[0] || q.tagName} lố trên ${Math.round(qr.top - r.top)} trái ${Math.round(qr.left - r.left)} phải ${Math.round(r.right - qr.right)} px, ảnh ${Math.round(r.width)}×${Math.round(r.height)}, khung ${Math.round(qr.width)}×${Math.round(qr.height)})`); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
     if (kind === 'avatar') bad.push('ảnh avatar (chỉ đầu – không phải người đứng)'); if (kind === 'poster') cut.push('ảnh nửa người');
     // toàn thân: ảnh gốc không chạm mép dưới & không mờ dần ở đáy (đo kênh alpha)
     let body = null;
@@ -78,10 +81,13 @@ const TEACH = async () => {
     // khuất sau mặt đục? lưới điểm trong dải đáy hình (15 % dưới của người → đáy thấy được): điểm trên cùng phải là phần tử KHÁC, nền đục (alpha ≥ .95)
     const pg = (getComputedStyle(document.querySelector('#view > *') || document.body).backgroundColor.match(/[\d.]+/g) || []).slice(0, 3).join(), // mặt che phải là MẶT STITCH thấy được (khác màu nền trang): tấm cùng màu nền trang không che gì (thân vẫn như bị cắt ngang)
       opaque = h => { for (let q = h, i = 0; q && i < 4 && !q.contains(e); q = q.parentElement, i++) { const c = getComputedStyle(q).backgroundColor.match(/[\d.]+/g) || []; if (c.length >= 3 && (c[3] == null ? 1 : +c[3]) >= 0.95 && c.slice(0, 3).join() !== pg) return true; } return false; };
-    let occluded = false; if (cut.length) { const y0 = r.top + (body && body.tail != null ? body.tail : 0.8) * r.height, y1 = visBottom - 1, pts = [];
+    let occluded = false, dbg = ''; if (cut.length) { const y1 = visBottom - 1, y0 = Math.min(r.top + (body && body.tail != null ? body.tail : 0.8) * r.height, visBottom - Math.max(6, 0.08 * r.height)), pts = []; // khung cắt đáy (overflow, vd. .tslot-fig) cao hơn dải đáy người → đo dải NGAY TRÊN đường cắt (phải nằm sau mặt che), không bỏ trống dải (y1 < y0 = luôn 'trôi nổi')
       for (let yi = 0; yi < 4; yi++) for (let xi = 0; xi < 5; xi++) pts.push([r.left + r.width * (0.3 + xi * 0.1), y0 + (y1 - y0) * (yi / 3)]);
-      occluded = y1 > y0 && pts.every(([x, y]) => { if (y < 0 || y >= innerHeight) return false; const h = document.elementFromPoint(x, y); return h && h !== e && !e.contains(h) && !(tch && tch.contains(h)) && opaque(h); }); }
-    if (cut.length && !occluded) bad.push(...cut.map(x => x + ' – lộ ra, không khuất sau mặt Stitch'));
+      const miss = pts.filter(([x, y]) => { if (y < 0 || y >= innerHeight) return true; const h = document.elementFromPoint(x, y); return !(h && h !== e && !e.contains(h) && !(tch && tch.contains(h)) && opaque(h)); });
+      occluded = y1 > y0 && !miss.length;
+      if (!occluded) { const h = miss[0] && document.elementFromPoint(miss[0][0], miss[0][1]); const fg = slot && slot.querySelector('.tslot-fig'), fr = fg && fg.getBoundingClientRect(), sr = slot && slot.getBoundingClientRect(), ic = getComputedStyle(e);
+        dbg = ` (dải ${Math.round(y0 - r.top)}–${Math.round(y1 - r.top)}/${Math.round(r.height)} px, ${miss.length}/20 điểm lộ${h ? ', trên cùng: ' + (h === e ? 'chính ảnh' : h.tagName.toLowerCase() + '.' + String(h.className).split(' ')[0]) : ''}${fr ? `; ảnh y ${Math.round(r.top)}–${Math.round(r.bottom)} (lúc đo dải ${Math.round(e.getBoundingClientRect().top)}) tải ${e.complete ? e.naturalWidth : "chưa"} pos ${ic.position} bottom ${ic.bottom} · khung y ${Math.round(fr.top)}–${Math.round(fr.bottom)} overflow ${getComputedStyle(fg).overflow} · slot y ${Math.round(sr.top)}–${Math.round(sr.bottom)} h ${getComputedStyle(slot).getPropertyValue('--h')}` : ''})`; } } // chẩn đoán: sửa đúng chỗ, không đoán
+    if (cut.length && !occluded) bad.push(...cut.map(x => x + ' – lộ ra, không khuất sau mặt Stitch' + dbg));
     // bóng chân: phần tử/::before/::after có radial-gradient hoặc blur nằm sát đáy hình (±28 px), chồng giữa hình
     const near = [...document.querySelectorAll('#view *')].some(q => { if (q === e) return false; const qr = q.getBoundingClientRect(), cx = r.left + r.width / 2;
       const hit = qr.width > 6 && qr.height > 1 && qr.height < 40 && Math.abs(qr.top + qr.height / 2 - r.bottom) < 28 && qr.left < cx && qr.right > cx;
@@ -91,7 +97,7 @@ const TEACH = async () => {
     const sc = r.height / vh; if (sc < 0.12) bad.push(`quá nhỏ (${Math.round(sc * 100)} % cao màn)`); if (sc > 0.8) bad.push(`quá to (${Math.round(sc * 100)} %)`);
     out.push({ who, pose: kind, h: Math.round(r.height), bad: [...new Set(bad)], body, occluded });
   }
-  return out;
+  pe.remove(); return out;
 };
 const RM = () => (document.getAnimations ? document.getAnimations() : []).filter(a => { const t = a.effect && a.effect.getTiming ? a.effect.getTiming() : {}; const el = a.effect && a.effect.target;
   return a.playState === 'running' && el && el.closest && el.closest('#view') && (t.iterations === Infinity || (+t.duration || 0) > 200); }).map(a => (a.animationName || a.transitionProperty || 'anim') + '@' + ((a.effect.target.className || a.effect.target.tagName) + '').slice(0, 30));
