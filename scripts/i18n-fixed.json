@@ -33104,5 +33104,20 @@
     "ar": "الدرس الحالي",
     "ru": "Текущий урок",
     "tr": "Mevcut ders"
+  },
+  "Ước tính ~{m} phút · {n} thẻ mới": {
+    "es": "Tiempo estimado: ~{m} min · {n} nuevas",
+    "pt": "Tempo estimado: ~{m} min · {n} novos",
+    "fr": "Temps estimé : ~{m} min · {n} nouvelles",
+    "de": "Geschätzte Zeit: ~{m} Min. · {n} neu",
+    "id": "Perkiraan waktu: ~{m} menit · {n} baru",
+    "th": "เวลาโดยประมาณ: ~{m} นาที · ใหม่ {n}",
+    "zh": "预计用时：约 {m} 分钟 · {n} 张新卡",
+    "ja": "目安 ~{m} 分 · 新規 {n} 枚",
+    "ko": "예상 시간: 약 {m}분 · 새 카드 {n}장",
+    "hi": "अनुमानित समय: ~{m} मिनट · {n} नए",
+    "ar": "الوقت المقدّر: ~{m} دقيقة · {n} جديدة",
+    "ru": "Примерно ~{m} мин · новых: {n}",
+    "tr": "Tahmini süre: ~{m} dk · {n} yeni"
   }
 }

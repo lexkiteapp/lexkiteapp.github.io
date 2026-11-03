@@ -45,6 +45,7 @@
 "{n} quen": "{n} Familiar",
 "Bắt đầu ôn": "START REVIEW",
 "Ước tính ~{m} phút": "Estimated study time: ~{m} mins",
+"Ước tính ~{m} phút · {n} thẻ mới": "Estimated study time: ~{m} mins · {n} new",
 "Bộ thẻ • {n} đang dùng": "Study Decks • {n} Active",
 "{n} thẻ trong bộ": "{n} cards",
 "{n} đến hạn": "{n} due",

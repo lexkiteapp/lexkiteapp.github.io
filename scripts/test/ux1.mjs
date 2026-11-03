@@ -170,6 +170,15 @@ if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới đ
       ok(tl.length === 3 && /^#\/review/.test(tl[0].getAttribute('href')) && tl[1].getAttribute('href') === '#/deck?m=12' && tl[2].getAttribute('href') === '#/deck?m=3', 'Ôn (Stitch v2): 3 ô số liệu là link (sẵn sàng → phiên ôn, đang luyện → #/deck?m=12, nhớ lâu → #/deck?m=3)');
       ok($('.v2-review main a[href^="#/review"][aria-label]'), 'Ôn (Stitch v2): chip "quen" là link → phiên ôn');
       ok(!$$('.v2-review main *').some(e => /active:translate-y/.test(e.getAttribute('class') || '') && !e.closest('a[href], button') && !e.querySelector('a[href][class*="after:inset-0"]')), 'Ôn (Stitch v2): mọi khối có hiệu ứng nhấn (active:translate-y) đều là link/nút (hoặc phủ kín bởi link, như thẻ bộ)'); }
+    { // số liệu nhất quán (chủ báo 1/11: vòng "11" nhưng chip "0 sắp quên / 1 quen", các bộ cộng lại 1): vòng = sắp quên + quen + mới = tổng "đến hạn" các bộ
+      for (let i = 0; i < 3; i++) App.state.cards['nw' + i] = { word: 'nw' + i, vi: 'mới ' + i, topic: 'ielts', contexts: [], col: [], syn: [], ant: [], examples: [], added: Date.now() - i, srs: { ef: 2.5, interval: 0, reps: 0, lapses: 0, due: Date.now(), last: 0 } };
+      await go('#/review?ahead=0'); await go('#/review?hub=1', '.v2-review');
+      const num = s => (String(s).match(/\d+/g) || []).map(Number), ring = +$('.v2-review main svg[viewBox="0 0 120 120"]').parentElement.querySelector('span').textContent.trim();
+      const chips = [...$('#start-review-btn').previousElementSibling.children].flatMap(c => num(c.textContent)), decks = $$('.v2-review main a[href^="#/deck?from="]').map(a => num(a.closest('.relative').lastElementChild.firstElementChild.textContent)[0]);
+      const dc = w.Core.Cards.dueCount(App.state.cards, App.state.settings, App.state.stats);
+      const nw = +(($('.v2-review main').textContent.match(/·\s*(\d+) (?:thẻ mới|new)/) || [])[1] || 0); // số thẻ mới ở dòng "Ước tính ~m phút · n thẻ mới" (giữ hàng chip như mẫu Stitch)
+      ok(ring === dc.total && chips.length === 2 && chips[0] + chips[1] + nw === ring && nw === dc.newCount && decks.reduce((a, b) => a + b, 0) === ring && dc.newCount > 0, `Ôn (Stitch v2): số liệu nhất quán – vòng ${ring} = chip ${chips.join('+')} + mới ${nw} = các bộ ${decks.join('+')} (đến hạn ${dc.due} + mới ${dc.newCount})`);
+      for (let i = 0; i < 3; i++) delete App.state.cards['nw' + i]; }
     await go('#/review?ahead=2');
     ok(!$('.v2-review'), 'Ôn: ?ahead= vẫn vào thẳng phiên ôn (không qua hub)');
   }
