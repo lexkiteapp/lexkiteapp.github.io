@@ -39,6 +39,14 @@ function resolver(ext) { const col = flat(ext.colors), fs_ = ext.fontSize || {},
     for (const p of SPACE_P) if (base.startsWith(p + '-') && sp[base.slice(p.length + 1)]) return [`${pre}${imp}${neg}${p}-[${arb(sp[base.slice(p.length + 1)])}]`];
     return [cls]; }; }
 const styleCls = s => (s || '').split(';').map(x => x.trim()).filter(Boolean).map(x => { const i = x.indexOf(':'); return `[${x.slice(0, i).trim().toLowerCase()}:${arb(x.slice(i + 1).replace(/!important/, ''))}]`; });
+// Lớp tự định nghĩa trong <style> của Stitch (.tactile-card {…}, .x:active {…}; mẫu refs-factory 31/10) → class thuộc tính tuỳ ý ngay trên phần tử.
+//   Chỉ bật khi bind có "styleRules": true (màn cũ không đổi). Chỉ bộ chọn 1 lớp (+ :hover/:active/:focus); body/thẻ khác bỏ qua.
+const PSEUDO = { hover: 'hover:', active: 'active:', focus: 'focus:', 'focus-visible': 'focus-visible:' };
+function rulesOf(html) { const r = {}; for (const st of html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)) for (const m of st[1].replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g))
+    for (const sel of m[1].split(',').map(x => x.trim())) { const q = sel.match(/^\.([\w-]+)(?::([\w-]+))?$/); if (!q || (q[2] && !PSEUDO[q[2]])) continue;
+      (r[q[1]] || (r[q[1]] = [])).push(...styleCls(m[2]).map(c => (q[2] ? PSEUDO[q[2]] : '') + c)); }
+  return r; }
+const withRules = (R, rules) => (c, has) => rules[c] ? [c, ...rules[c]] : R(c, has); // giữ tên lớp (vd material-symbols-outlined cần cho font icon)
 function classesOf(el, R) { const raw = (el.getAttribute('class') || '').split(/\s+/).filter(Boolean), has = re => raw.some(c => re.test(split(c).base)), out = [];
   for (const c of raw) out.push(...R(c, has)); out.push(...styleCls(el.getAttribute('style'))); return out; }
 
@@ -115,7 +123,7 @@ function emit(root, bind, k) {
 // ---- chạy ----
 for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
   const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8'), bind = JSON.parse(fs.readFileSync(path.join(SRC, 'bind', k + '.json'), 'utf8'));
-  const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
+  const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = bind.styleRules ? withRules(resolver(cfgOf(hl, k + '-light')), rulesOf(hl)) : resolver(cfgOf(hl, k + '-light')), RD = bind.styleRules ? withRules(resolver(cfgOf(hd, k + '-dark')), rulesOf(hd)) : resolver(cfgOf(hd, k + '-dark'));
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
   if (A.includes('--dump') && ONLY.length && !ONLY.includes(k)) continue;

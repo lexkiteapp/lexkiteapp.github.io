@@ -1,0 +1,110 @@
+{
+ "_doc": "Hub Từ vựng (#/vocab) – d do routes.vocab (web/js/hubs.js) dựng khi cờ ux1 bật. Mẫu refs-factory 31/10 (sáng 333b7fda, tối 4c28bdfc = bản sửa từ bản sáng, cùng bố cục). Số liệu bịa của mẫu (8,400 / 36 sets / 850 / 180 / 610 / 5 modes) → ẩn; Lộ trình từ vựng đặt ở chỗ '7 collections'.",
+ "styleRules": true,
+ "remove": [
+  ":scope > div > header",
+  ":scope > div > nav"
+ ],
+ "i18n": {
+  "Spaced Repetition": "Lặp lại ngắt quãng",
+  "words due": "thẻ cần ôn",
+  "Explore Categories": "Khám phá danh mục"
+ },
+ "text": {
+  "Lexical Bank": "d.exam",
+  "Vocabulary Hub": "t('Từ vựng')",
+  "8,400 words": "d.deckStat",
+  "+45 XP": "t('Hôm nay')",
+  "28": "d.due",
+  "IELTS Academic & Core Collocations": "t('Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần')",
+  "Review now": "d.cta",
+  "7 collections": "t('Lộ trình từ vựng') + ' ›'",
+  "Word games": "t('Trò chơi từ vựng')",
+  "5 modes": "''",
+  "Speed Match, Crossword & Quiz": "t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm')",
+  "Dictionary": "t('Từ điển')",
+  "IELTS & Academic": "t('Phát âm, nghĩa, ví dụ, lưu thành thẻ')",
+  "8,400": "''",
+  "My deck": "t('Sổ từ của tôi')",
+  "Custom cards": "t('{n} từ · {m} từ đã thuộc', { n: d.deckN, m: d.mastered })",
+  "142 saved": "d.deckChip",
+  "Word sets": "t('Thư viện từ')",
+  "Topic clusters": "t('Bộ từ theo chủ đề, kỳ thi và trình độ')",
+  "36 sets": "''",
+  "Phrases": "t('Cụm từ & cấu trúc')",
+  "Idioms & spoken": "t('Collocation và cấu trúc ăn điểm')",
+  "850": "''",
+  "Verbs": "t('Chia động từ')",
+  "Irregular & phrasal": "t('Mọi thì, bị động, cách đọc -ed/-s')",
+  "180": "''",
+  "Collocations": "t('Cách dùng từ')",
+  "Academic pairs": "t('Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm')",
+  "610": "''"
+ },
+ "attr": {
+  ":scope > div > main > section > button": {
+   "data-href": "d.ctaHref",
+   "aria-label": "d.ctaAria"
+  },
+  ":scope > div > main > div:nth-child(3) > span": {
+   "href": "'#/path'"
+  },
+  ":scope > div > main > div:nth-child(5)": {
+   "href": "'#/practice'"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1)": {
+   "href": "'#/dict'"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(2)": {
+   "href": "'#/deck'"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(3)": {
+   "href": "d.libHref"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(4)": {
+   "href": "'#/phrases'"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(5)": {
+   "href": "'#/verb'"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(6)": {
+   "href": "'#/usage'"
+  }
+ },
+ "tag": {
+  ":scope > div > main > div:nth-child(3) > span": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(5)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(3)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(4)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(5)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(4) > div:nth-child(6)": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > div > main > div:nth-child(3) > span": "underline-offset-2 hover:underline min-h-[44px] inline-flex items-center",
+  ":scope > div > main > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > span": "empty:hidden",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(3) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(5) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > div > main > div:nth-child(4) > div:nth-child(6) > div:nth-child(1) > span": "empty:hidden"
+ }
+}

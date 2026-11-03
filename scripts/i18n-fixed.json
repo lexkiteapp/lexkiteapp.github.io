@@ -33104,5 +33104,35 @@
     "ar": "الدرس الحالي",
     "ru": "Текущий урок",
     "tr": "Mevcut ders"
+  },
+  "Khám phá danh mục": {
+    "es": "Explorar categorías",
+    "pt": "Explorar categorias",
+    "fr": "Explorer les catégories",
+    "de": "Kategorien entdecken",
+    "id": "Jelajahi kategori",
+    "th": "สำรวจหมวดหมู่",
+    "zh": "浏览分类",
+    "ja": "カテゴリを見る",
+    "ko": "카테고리 둘러보기",
+    "hi": "श्रेणियाँ देखें",
+    "ar": "استكشف الفئات",
+    "ru": "Категории",
+    "tr": "Kategorileri keşfet"
+  },
+  "thẻ cần ôn": {
+    "es": "por repasar",
+    "pt": "para revisar",
+    "fr": "à réviser",
+    "de": "fällig",
+    "id": "perlu diulang",
+    "th": "ต้องทบทวน",
+    "zh": "待复习",
+    "ja": "復習待ち",
+    "ko": "복습할 카드",
+    "hi": "दोहराने हैं",
+    "ar": "للمراجعة",
+    "ru": "к повторению",
+    "tr": "tekrar edilecek"
   }
 }

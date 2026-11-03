@@ -28,3 +28,9 @@ pas-sit-light 45068b5f4ec24ce28bc1a5ba8fd91bd6 (Lexkite Situation — Café & re
 pas-sit-dark c08d044dcea84df89345f4de817fcb85 (Lexkite Situation — Café & restaurant, Tactile Night DONE-pill fix; key3 project 18075333702575270507)
 pas-drill-light d99a0c00da2c4af8b2df64250a03ba90 (Lexkite Speaking Drill — Say it in 3 beats, clean classes; key3 project 18075333702575270507)
 pas-drill-dark 3af039605d8b49a488407a9d39f5f7d1 (Lexkite Speaking Drill — Say it in 3 beats, Tactile Night; key3 project 18075333702575270507)
+hub-vocab-light 333b7fda885e4ec1af6a59fe613a0bbf (refs-factory key2 project 10804635390057604965, frame-hub tab-vocab)
+hub-vocab-dark 4c28bdfcfa5b4e9685212970ccfa147b (A2 1/11: Tactile Night edit of the light screen, same layout)
+hub-tests-light 0524306bdc5e485d8c5287570d1fe785 (refs-factory key2) – chưa port
+hub-tests-dark bbf2464c191d4f2687c0eea0e658bf27 (A2 1/11 edit of light, ghép 100%) – chưa port
+hub-skills-light 7e934b1df67f43d78062f02b147c85e9 (refs-factory key2) – chưa port
+hub-skills-dark 606e5ea6a9564300aa71cd82aec029fe (A2 1/11 edit of light; còn lệch cấu trúc thẻ → cần vẽ lại) – chưa port
