@@ -9,11 +9,12 @@
   'use strict';
   const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, NOREP = 7;
   const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path'], EVE = 17 * 60, BACKOFF = 3;
+  // Giọng: ấm, khích lệ, không dọa mất chuỗi/trách móc (docs/specs/notifications.md; scripts/test/notify-tone.mjs chặn từ dọa)
   // Mẫu câu theo loại (khóa tiếng Việt → I18N; biến {n} số thẻ, {w} từ, {c} câu ngữ cảnh, {s} chuỗi ngày, {d} số ngày học trong tuần)
   const TPL = {
-    due: [['due1', 'Kit đây! {n} thẻ đang chờ bạn', 'Ôn 5 phút là xong – nhớ lâu hơn hẳn.'], ['due2', '{n} từ sắp quên mất rồi', 'Ôn ngay bây giờ là lúc nhớ lâu nhất.'], ['due3', 'Một vòng ôn nhanh nhé?', '{n} thẻ đến hạn hôm nay. Mình làm cùng nhau!']],
+    due: [['due1', 'Kit đây! {n} thẻ đang chờ bạn', 'Ôn 5 phút là xong – nhớ lâu hơn hẳn.'], ['due4', '{n} từ đã đến lúc ôn', 'Ôn ngay bây giờ là lúc nhớ lâu nhất.'], ['due3', 'Một vòng ôn nhanh nhé?', '{n} thẻ đến hạn hôm nay. Mình làm cùng nhau!']],
     word: [['word1', 'Còn nhớ “{w}” không?', '“{c}” – bạn còn nhớ nghĩa chứ?'], ['word2', 'Từ của bạn hôm nay: {w}', '“{c}” – chạm để ôn lại.'], ['word3', '“{w}” đang đợi bạn', 'Bạn đã lưu từ này trong câu: “{c}”']],
-    streak: [['st1', 'Chuỗi 🔥{s} ngày đang gặp nguy!', 'Chỉ cần 1 phút để giữ chuỗi hôm nay.'], ['st2', 'Đừng để chuỗi {s} ngày tắt nhé', 'Ôn vài thẻ là giữ được – Kit tin bạn!']],
+    streak: [['st3', 'Đã 🔥{s} ngày liên tiếp – thêm hôm nay nhé?', 'Một phút ôn là đủ cho hôm nay.'], ['st4', 'Chuỗi {s} ngày của bạn thật tuyệt', 'Vài thẻ hôm nay là nối dài thêm – Kit tin bạn!']],
     conf: [['cf1', 'Thử một bài tự tin 3 phút?', 'Luyện nói câu thật, không áp lực.'], ['cf2', 'Nói tiếng Anh tự tin hơn mỗi ngày', 'Một bài ngắn hôm nay – bạn làm được!']],
     week: [['wk1', 'Tuần này: {n} lượt ôn 🎉', 'Xem tiến bộ của bạn trong tuần.'], ['wk2', 'Bạn đã học {d}/7 ngày tuần này', 'Mở để xem bảng tiến bộ tuần.']],
     goal: [['gl1', 'Đã xong {n}/{g} thẻ hôm nay', 'Còn {r} thẻ nữa là đạt mục tiêu – bạn sắp tới rồi!'], ['gl2', 'Sắp đạt mục tiêu hôm nay rồi', 'Thêm {r} thẻ là xong mục tiêu {g} thẻ. Nhẹ nhàng thôi!']],
@@ -240,7 +241,7 @@
     if (!('Notification' in g)) return force && UI.toast(tr('Trình duyệt không hỗ trợ thông báo'));
     if (Notification.permission !== 'granted') {
       if (!force) return;
-      if (await Notification.requestPermission() !== 'granted') return UI.toast(tr('Bạn chưa cho phép thông báo'));
+      if (await Notification.requestPermission() !== 'granted') return UI.toast(Notification.permission === 'denied' ? tr('Thông báo đang bị chặn – bật lại trong cài đặt trang web của trình duyệt.') : tr('Bạn chưa cho phép thông báo'));
     }
     const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(), url = location.href.split('#')[0] + (it.url || '#/review');
     if (reg) reg.showNotification(it.title, { body: it.body, icon: 'icons/icon-192.png', badge: 'icons/icon-192.png', tag: 'daily', data: { url, tpl: it.tpl } });
