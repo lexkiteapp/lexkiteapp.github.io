@@ -14,6 +14,22 @@ export const OFF_OK = {
   'video-tpl1b.yml': 'GrabCast: tắt tới all-clear', 'video.yml': 'GrabCast: tắt tới all-clear', 'vocab-img-scene.yml': 'GrabCast: tắt tới all-clear', 'vocab-img.yml': 'GrabCast: tắt tới all-clear',
 };
 export const FLOOR_MIN = 60, TIMES = 3;
+// bù lượt (3/11): GitHub bỏ lịch HÀNG LOẠT lúc tải cao (03/11 00–03Z cả repo 13 lượt schedule) → không chỉ báo/đá mà dispatch bù.
+// Ưu tiên free-tier-guard (gỡ lệnh dừng), rồi workflow trong infra/jobs.json, rồi còn lại; ≤ BACKFILL_MAX lượt mỗi lần gọi (~1 giờ).
+export const BACKFILL_MAX = 5, PRIORITY = ['free-tier-guard.yml'];
+/** Có dispatch bù được không (thuần): có workflow_dispatch và không có input bắt buộc thiếu mặc định. */
+export function dispatchable(yml) {
+  const m = String(yml).match(/^  workflow_dispatch:[^\n]*\n((?:    [^\n]*\n|\s*\n)*)/m);
+  if (!m && !/^  workflow_dispatch:/m.test(yml)) return false;
+  const body = m ? m[1] : '';
+  for (const b of body.split(/\n(?=      [\w-]+:)/)) if (/required:\s*true/.test(b) && !/default:/.test(b)) return false;
+  return true;
+}
+/** Thứ tự bù (thuần). */
+export function backfillOrder(files, jobs = new Set()) {
+  const rank = f => (PRIORITY.includes(f) ? 0 : jobs.has(f) ? 1 : 2);
+  return [...files].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+}
 export const MARK = '<!-- ci-triage:cron -->', TITLE = 'Lịch CI không chạy (cron)';
 
 /** Khoảng lịch dài nhất (phút) giữa 2 lượt liên tiếp của mọi dòng cron (vòng tuần). */
@@ -44,7 +60,7 @@ export function pausedSet(root = '.') {
 export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflows', root = '.', kick = true } = {}) {
   const list = [];
   for (let p = 1; p <= 5; p++) { const r = (await gh(`/actions/workflows?per_page=100&page=${p}`)) || {}; list.push(...(r.workflows || [])); if (!r.workflows || r.workflows.length < 100) break; }
-  const paused = pausedSet(root), bad = [];
+  const paused = pausedSet(root), bad = [], stale = [];
   for (const w of list) {
     const file = w.path.split('/').pop(), f = `${wfDir}/${file}`;
     if (!fs.existsSync(f)) continue;
@@ -53,7 +69,21 @@ export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflo
     const v = verdict({ file, state: w.state, crons, since: Date.parse(w.updated_at || w.created_at) || 0, lastSched: last ? Date.parse(last.created_at) : 0 }, now, { paused });
     if (!v) continue;
     if (v.kind === 'stale' && kick) { await gh(`/actions/workflows/${w.id}/disable`, { method: 'PUT' }); await gh(`/actions/workflows/${w.id}/enable`, { method: 'PUT' }); v.why += ' → đã đá lại lịch (disable → enable)'; }
+    if (v.kind === 'stale') stale.push({ v, w, file, yml: fs.readFileSync(f, 'utf8'), lim: Math.max(FLOOR_MIN, TIMES * maxGap(crons)) });
     bad.push(v);
+  }
+  if (kick) {   // bù lượt: chống trùng = bỏ qua nếu đang có lượt chờ/chạy hoặc đã có lượt (bất kỳ sự kiện) trong 1 khoảng lịch; concurrency của workflow lo phần còn lại
+    let used = 0; const jobs = new Set(); try { for (const j of JSON.parse(fs.readFileSync(`${root}/infra/jobs.json`, 'utf8')).jobs) if (j.workflow) jobs.add(j.workflow); } catch (e) { /* bỏ qua */ }
+    const byFile = new Map(stale.map(x => [x.file, x]));
+    for (const file of backfillOrder(byFile.keys(), jobs)) {
+      const { v, w, yml } = byFile.get(file);
+      if (!dispatchable(yml)) { v.why += ' · không bù được (không có workflow_dispatch/input bắt buộc)'; continue; }
+      if (used >= BACKFILL_MAX) { v.why += ` · chờ bù lượt sau (trần ${BACKFILL_MAX}/giờ)`; continue; }
+      const last = ((((await gh(`/actions/workflows/${w.id}/runs?per_page=1`)) || {}).workflow_runs) || [])[0];
+      if (last && (last.status !== 'completed' || now - Date.parse(last.created_at) < maxGap(cronsOf(yml)) * 6e4)) { v.why += ` · đã có lượt ${last.event} ${last.status} gần đây – không bù`; continue; }
+      const r = await gh(`/actions/workflows/${w.id}/dispatches`, { method: 'POST', body: { ref: 'main' } });
+      if (r !== false) { used++; v.why += ' → đã dispatch bù 1 lượt'; v.backfilled = true; }
+    }
   }
   const md = bad.length ? `#### ⛔ Lịch CI không chạy (${bad.length})\n` + bad.map(b => `- \`${b.file}\`: ${b.why}`).join('\n') + '\n' : '- Lịch cron: mọi workflow có lượt schedule đúng hạn.\n';
   return { bad, md };
