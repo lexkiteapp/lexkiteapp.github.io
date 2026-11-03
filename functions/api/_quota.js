@@ -20,8 +20,8 @@ import { once } from './_schema.js';
 const DAY = 86400e3;
 // [mỗi phút, mỗi ngày] · ipx = trần theo IP = ipx × mức cao nhất của các bậc · providers = cầu dao cần đọc · cost = đơn vị tính cho provider 'ai' (neuron/lượt)
 export const DEFAULTS = {
-  ai:        { anon: [5, 10],    free: [5, 30],    ipx: 3,  store: 'd1',   providers: ['ai', 'gemini'], cost: 50 }, // chấm Writing/Speaking
-  chat:      { anon: [10, 20],   free: [20, 60],   ipx: 3,  store: 'd1',   providers: ['ai', 'gemini'], cost: 8 },  // Roleplay for Work (lượt thoại)
+  ai:        { anon: [5, 10],    free: [5, 30],    ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 50 }, // chấm Writing/Speaking
+  chat:      { anon: [10, 20],   free: [20, 60],   ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 8 },  // Roleplay for Work (lượt thoại)
   handoff:   { anon: [3, 10],    free: [3, 10],    ipx: 3,  store: 'd1' },                                          // chuyển máy bằng QR (lượt tạo mã)
   contact:   { anon: [2, 5],     free: [2, 5],     ipx: 2,  store: 'd1',   providers: ['mail'] },                   // form liên hệ → thư
   sync:      { anon: [0, 0],     free: [6, 1500],  ipx: 10, store: 'edge' },                                        // đồng bộ D1 (bắt buộc đăng nhập)
@@ -35,6 +35,7 @@ export const DEFAULTS = {
 export const PROVIDERS = {
   ai: { infra: 'ai', day: 10000, unit: 'neuron' },
   gemini: { infra: 'gemini', day: 20, unit: 'call/key', perKey: true },
+  groq: { infra: 'groq', day: 1000, unit: 'call/key', perKey: true }, // chuỗi người dùng tuyến 2 (_aichain.js)
   mail: { infra: 'mail', day: 100, unit: 'mail' },
 };
 export const BREAKER = 0.8;

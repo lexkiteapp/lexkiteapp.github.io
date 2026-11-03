@@ -1,0 +1,39 @@
+# AI người dùng – chuỗi model theo chất lượng
+
+> TL;DR: Mọi tính năng AI cho người học (/api/ai: chấm Writing/Speaking, Roleplay, Call, tutor, fixer, TOEIC/TOEFL…) đi qua MỘT chuỗi `functions/api/_aichain.js`: Gemini Flash (tên đọc từ danh sách thật) → Groq gpt-oss-120b → không còn model đạt chất lượng thì báo bận (máy khách tự chấm/kịch bản). Llama 8B không phục vụ người học. Cổng: bộ golden `ai-golden.yml`; giám sát tỉ lệ model + cảnh báo > 10 %/giờ.
+> Đọc khi: sửa ai.js/_aichain.js, thêm/bớt model, thấy cảnh báo `ai:weak`, chủ hỏi "AI trên site ổn không".
+
+## 1. Sự cố gốc (03/11)
+Gọi thử live: cả 3 lượt trả `workers-ai/llama-3.1-8b` – roleplay barista hỏi "whole bean or ground coffee?", chấm IELTS chỉ bắt 1/5 lỗi và sửa sai chỗ.
+Nguyên nhân gốc (D1 `api_keys`): kho khóa của **site** chỉ có 1 khóa Gemini, chết 403 từ 24/10 (sống lại/chết lặp lại tới 02/11), và **0 khóa Groq**; 85 khóa Gemini + 109 khóa Groq chủ nạp 30/10 chỉ nằm trong secret GitHub (`GEMINI_POOL`/`GROQ_POOL`) cho CI. Cảnh báo `nolive:gemini` có gửi thư nhưng chuỗi vẫn âm thầm rơi về Llama 8B nên không ai thấy chất lượng tụt (giám sát mù: chỉ đếm khóa, không đếm model phục vụ).
+
+## 2. Chuỗi (`_aichain.js` `runChain`)
+| Thứ tự | Tuyến | Model | Khóa | Ghi chú |
+|---|---|---|---|---|
+| 1 | `gemini` | Flash số lớn nhất từ `GET /v1beta/models` (`pickGemini`, đệm 6 h; vùng chặn → dò tên qua Worker `GEM`) | kho `_keys.js` provider gemini | mỗi lượt ≤ 12 s thoại / 30 s chấm, luôn chừa giờ cho Groq |
+| 2 | `groq` | `GROQ_OK` (hiện `openai/gpt-oss-120b`), lọc theo danh sách thật | kho `_keys.js` provider groq | `reasoning_effort` low (thoại) / medium (chấm) |
+| – | `wai` | Llama 3.1 8B (binding `env.AI`, tài khoản chính) | – | **tắt cho người học** (`WEAK_OK = false`); chỉ người gọi nội bộ Quản trị (`runModel`, `allowWeak`) – trả `tier: 'low'` |
+- Kết quả phải đúng khuôn người gọi (`validOut`: chấm IELTS cần `overall` + `criteria`; thoại cần `reply`), sai khuôn → model kế.
+- Mỗi tuyến thử ≤ 3 khóa; 401/403 → khóa chết, 429 → nghỉ tới giờ reset (`report` của `_keys.js`).
+- Không model nào → `/api/ai` trả 429 `quota.busy`; máy khách: chấm theo quy tắc / Chrome AI / kịch bản soạn sẵn. Không trả câu sai.
+- Cầu dao `_quota.js`: `gemini` 20/khóa/ngày, `groq` 1.000/khóa/ngày (khớp `infra/resources.json`), ngắt ở 80 %.
+- Đệm `ai_cache`: tiền tố `v2|` (bỏ đệm cũ có câu Llama sai), chỉ lưu kết quả `tier: 'high'`.
+- Gói Pages miễn phí: 50 subrequest + 50 truy vấn D1/lượt, 10 ms CPU → `candidates(env, p, 3)` chỉ giải mã khóa cần thử, `poolCount` đếm không giải mã, kiểm sức khỏe theo lô `HEALTH_BATCH` khóa.
+
+## 3. Khóa (`ai-keys-sync.yml` → `/api/keysync`)
+Workflow (chạy tay + thứ Hai hằng tuần, chỉ `main`) đọc `GEMINI_POOL`/`GROQ_POOL`, gửi qua JWT OIDC GitHub (aud `lexkite-keysync`, đúng file workflow @main) tới `functions/api/keysync.js` → mã hóa AES-GCM vào `api_keys` (nhãn `GEMINI_POOL #n`, `notes = 'ci-sync'`). Khóa trùng (dấu vân tay) giữ nguyên trạng thái; khóa bị gỡ khỏi secret → xóa. Không bao giờ in/trả khóa. Nạp khóa mới: thêm vào secret → chạy `ai-keys-sync`.
+
+## 4. Golden (`ai-golden.yml`, `scripts/ai-golden/`)
+- `ielts.json`: 20 bài (10 Task 2, 4 Task 1, 6 Speaking) tự soạn, 83 lỗi đã biết (`q` phải nằm trong `errors[].quote`, `fix` một phương án đúng và không còn nguyên chỗ sai) + band kỳ vọng; 4 ngôn ngữ người học (vi/es/ar/ja).
+- `roleplay.json`: 20 lượt trên kịch bản thật (`web/js/roleplay/data-*.js`), có 2 lượt người học nói khó hiểu (phải hỏi lại) + câu mồi kiểm giám khảo (có câu "whole bean" thật).
+- Lời nhắn lấy THẲNG từ máy khách (`AI._p`, `RP._p` nạp trong vm – `client.mjs`), thân yêu cầu từ máy chủ (`gemBody`/`groqBody`/`waiBody`) → golden đo đúng thứ người dùng nhận.
+- Giám khảo roleplay khác họ: gpt-oss-120b chấm mọi model trừ gpt-oss (→ Gemini Flash).
+- Ngưỡng (`score.mjs` `GATE`): IELTS bắt ≥ 90 % lỗi, band lệch TB ≤ 0,5, ≥ 95 % đúng khuôn, lời giải đúng ngôn ngữ 100 %; roleplay giám khảo TB ≥ 4/5, ≤ 1 câu vô lý, câu khó hiểu → hỏi lại 100 %.
+- Đỏ khi: giám khảo trượt câu mồi, hoặc model ĐANG trong chuỗi gọi được mà không đạt, hoặc không model nào trong chuỗi gọi được. Model ngoài chuỗi (kimi/qwen/llama Groq, Llama 8B) chỉ báo điểm – muốn thêm: đạt golden rồi thêm vào `GROQ_OK`.
+- Chạy: hằng ngày 06:41 UTC + PR đụng `_aichain.js`/`ai.js`/`web/js/ai.js`/`roleplay.js`/`scripts/ai-golden`; tay: `workflow_dispatch` (input `only`).
+
+## 5. Giám sát (`_aimix.js`)
+Mỗi lượt /api/ai đếm tuyến phục vụ vào `ai_quota` (id `m:gemini|m:groq|m:wai|m:busy`, khung 10 phút). Quản trị → Khóa API và → Hạn mức hiện tỉ lệ 1 giờ / 24 giờ. Cảnh báo `ai:weak` (banner + thư ≤ 1/24 h qua `syncAlerts`) khi > 10 % lượt trong 1 giờ rơi về Llama hoặc báo bận (≥ 5 lượt; > 50 % = crit).
+
+## 6. Ngôn ngữ lời giải
+`web/js/ai.js` `forLang`: mọi lời nhắn gửi /api/ai (SYS/SCHEMA chấm IELTS và mọi `AI.ask` của toeic/toefl/fixer/assist…) viết mẫu "Vietnamese" → thay bằng ngôn ngữ người học (`I18N.learnLang`, 15 ngôn ngữ). Roleplay nhận xét cuối dùng `learnLang`. Đệm máy khách theo ngôn ngữ.

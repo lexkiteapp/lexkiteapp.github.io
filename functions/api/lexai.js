@@ -11,10 +11,10 @@ const ISS = 'https://token.actions.githubusercontent.com', AUD = 'lexkite-lexai'
 const NAMES = { en: 'English', vi: 'Vietnamese', es: 'Spanish', pt: 'Brazilian Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Simplified Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((s.length + 3) % 4)), c => c.charCodeAt(0));
 let JWKS = null, JWKS_AT = 0;
-export async function verifyOidc(token, now = Date.now()) {
+export async function verifyOidc(token, now = Date.now(), aud = AUD) {
   const [h, p, s] = String(token || '').split('.'); if (!s) return null;
   const head = JSON.parse(new TextDecoder().decode(b64u(h))), body = JSON.parse(new TextDecoder().decode(b64u(p)));
-  if (head.alg !== 'RS256' || body.iss !== ISS || body.aud !== AUD || body.repository !== REPO || !(body.exp * 1000 > now)) return null;
+  if (head.alg !== 'RS256' || body.iss !== ISS || body.aud !== aud || body.repository !== REPO || !(body.exp * 1000 > now)) return null;
   if (!JWKS || now - JWKS_AT > 3600e3) { JWKS = (await (await fetch(ISS + '/.well-known/jwks')).json()).keys || []; JWKS_AT = now; }
   const jwk = JWKS.find(k => k.kid === head.kid); if (!jwk) return null;
   const key = await crypto.subtle.importKey('jwk', jwk, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
