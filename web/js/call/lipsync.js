@@ -83,6 +83,10 @@
       if (on(k)) continue; let e = k; while (e < last && !on(e)) e++;
       const a = k / hz, b = e / hz; k = e;
       if (b - a < GAP) continue;
+      // tiếng nổ nhả âm tắc cuối từ ("direct" → t) sau khoảng đóng im: đoạn tiếng < MIN_HOLD rồi lại im ≥ GAP / hết câu → KHÔNG phải ngắt câu.
+      // Chèn X ở đây thì smooth nuốt mất tiếng nổ → miệng về nghỉ khi "t" còn kêu (call-lip.mjs: offset c_direct −148 ms) → giữ hình đang nói qua khoảng đóng.
+      let r = e; while (r <= last && on(r)) r++; let z = r; while (z <= last && !on(z)) z++;
+      if ((r - e) / hz < MIN_HOLD && (z > last || (z - r) / hz >= GAP)) continue;
       const nx = [];
       for (const c of out) {
         if (c.end <= a || c.start >= b || c.value === 'X') { nx.push(c); continue; }

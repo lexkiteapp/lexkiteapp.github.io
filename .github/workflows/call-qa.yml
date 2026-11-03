@@ -3,8 +3,10 @@
 name: call-qa
 on:
   pull_request:
-    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'web/js/audio.js', 'scripts/lipsync/**', 'scripts/cine/lipsync.py', 'scripts/test/lipsync.mjs', 'scripts/test/lipsync-cross.mjs', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/test/call-sheet.py', 'scripts/test/lip-shots.mjs', 'scripts/test/lip-sheet.py', '.github/workflows/call-qa.yml']
+    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'web/js/audio.js', 'scripts/lipsync/**', 'scripts/cine/lipsync.py', 'scripts/test/lipsync.mjs', 'scripts/test/lipsync-cross.mjs', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/test/call-sheet.py', 'scripts/test/lip-shots.mjs', 'scripts/test/lip-sheet.py', 'scripts/test/call-lip.mjs', 'scripts/test/lib/pw-launch.mjs', 'scripts/test/fixtures/lip-ssim/**', 'brand/library/cine/cafe/voices/kokoro-v4/**', 'web/js/characters.js', '.github/workflows/call-qa.yml']
   workflow_dispatch:
+    inputs:
+      repeat: { description: 'Số lượt lặp khối fps WebKit (soát chập chờn, spec call-test: 5)', default: '1' }
 permissions: { contents: read }
 concurrency:
   group: call-qa-${{ github.ref }}
@@ -32,6 +34,17 @@ jobs:
         run: node scripts/test/lipsync.mjs && node scripts/test/lipsync-cross.mjs
       - name: E2E (bản mới) + Whisper thật
         run: node scripts/test/call-e2e.mjs --out qa/after --whisper fx/name.wav
+      - name: Khớp miệng chuẩn app lớn (Chromium) – tiếng thật kokoro-v4 lệch ≤ 40/80 ms ở rate 0,75/1/1,25 + sau tua · SSIM viseme + ca méo phải đỏ · fps ≥ 50 ở 4× 375/1280 · clip
+        if: success() || failure()
+        run: node scripts/test/call-lip.mjs --out qa/lip-test
+      - uses: actions/upload-artifact@v4
+        id: clips
+        if: success() || failure()
+        with: { name: call-lip-clips, path: qa/lip-test/clips, retention-days: 14, if-no-files-found: warn }
+      - name: Link clip vào summary
+        if: (success() || failure()) && steps.clips.outputs.artifact-url
+        env: { URL: '${{ steps.clips.outputs.artifact-url }}' }
+        run: echo "🎬 Clip khớp miệng (tiếng thật, rate 1) – $URL" >> $GITHUB_STEP_SUMMARY
       - name: Ảnh bản cũ (main)
         if: always()
         run: |
@@ -53,3 +66,22 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: call-qa, path: qa, retention-days: 14 }
+  # WebKit (viewport iPhone 13, không throttle – CDP chỉ có ở Chromium): mặt vẽ trên màn Call ≥ 50 fps, khung > 50 ms ≤ 1. Soát chập chờn: dispatch repeat=5 (1 lần)
+  webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright WebKit
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps webkit
+      - name: Mặt vẽ fps WebKit
+        run: node scripts/test/call-lip.mjs --browser webkit --out qa/lip-webkit --repeat ${{ inputs.repeat || '1' }}
+      - name: Summary
+        if: always()
+        run: |
+          echo "### call-lip WebKit" >> $GITHUB_STEP_SUMMARY
+          node -e "const r=require('./qa/lip-webkit/result-webkit.json');for(const x of r.fps||[])console.log('- '+x.tag+': '+x.fps+' fps · khung >50 ms '+x.long);if(r.fails.length)console.log('✗ '+r.fails.join(' | '))" >> $GITHUB_STEP_SUMMARY || true

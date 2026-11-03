@@ -64,9 +64,9 @@
       if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(held ? held[0] : ''); } // phản ứng ngắn đã hết → về tư thế đang giữ / nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
       stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
       if (S) {
-        const t = S.clk(); talking = S.a ? playing(S.a) : (performance.now() - S.t0) / 1000 < S.dur;
+        const t = S.clk(); stats.clk = t; talking = S.a ? playing(S.a) : (performance.now() - S.t0) / 1000 < S.dur; // clk: đồng hồ media của khung vừa vẽ (scripts/test/call-lip.mjs đo lệch tiếng–miệng)
         if (S.L) { S.L.tick(t, talking && S.voiced(), Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS.LEAD)); } else s = S.M.at(t);
-      } else s = idle.at((now / 1000) % 120);
+      } else { s = idle.at((now / 1000) % 120); stats.clk = -1; }
       // miệng ngậm khi không phát (tạm dừng, hết, chờ tải, tab quay lại sau khi tiếng tắt): trộn về X trong ~80 ms, mở lại ~40 ms – không bao giờ đứng hình giữa âm
       openK = talking ? Math.min(1, openK + dt / 0.04) : Math.max(0, openK - dt / 0.08);
       if (openK < 1) { s.mouth = LM.mix('X', s.mouth, openK); if (openK < 0.5) s.shape = 'X'; s.open *= openK; }
