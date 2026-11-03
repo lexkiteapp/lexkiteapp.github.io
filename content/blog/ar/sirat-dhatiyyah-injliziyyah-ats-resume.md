@@ -4,7 +4,7 @@ title: "Sirat Dhatiyyah Injliziyyah ATS Resume: نموذج صفحة واحدة"
 description: "Sirat dhatiyyah injliziyyah ats resume: دليل كتابة سيرة ذاتية إنجليزية متوافقة مع أنظمة ATS، صيغة Google XYZ، 20 فعلاً قوياً ونموذج عملي جاهز."
 keyword: "sirat dhatiyyah injliziyyah ats resume"
 lang: ar
-translationKey: ky-nang-khian-resume-phasa-angkrit-ats-template
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [sirat-dhatiyyah, ats, karera]
 cover: write

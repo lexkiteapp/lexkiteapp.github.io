@@ -3,7 +3,7 @@ title: "영문 이력서 레주메 작성법 : 외국계 합격 1장 템플릿�
 description: "영문 이력서 레주메 작성법 완벽 가이드: 글로벌 외국계 기업의 ATS(채용 관리 시스템) 기계 필터링 통과 기준, 1페이지 표준 레이아웃, 그리고 구글의 입증된 XYZ 액션 동사 성과 기술 공식을 통해 서류 합격률을 극대화하는 노하우를 전격 공개합니다."
 slug: yeongmun-ilyeokseo-resume-jakseongbeop
 lang: ko
-translationKey: yeongmun-ilyeokseo-resume-jakseongbeop
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [resume, cv, chwieop]
 keyword: "영문 이력서 레주메 작성법"

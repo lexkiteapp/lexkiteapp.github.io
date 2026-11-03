@@ -4,7 +4,7 @@ title: "Kak Sostavit Rezume na Angliyskom ATS CV: Rukovodstvo"
 description: "Kak sostavit rezume na angliyskom ats cv: правила прохождения фильтров ATS, формула Google XYZ, 20 сильных глаголов и готовый одностраничный шаблон."
 keyword: "kak sostavit rezume na angliyskom ats cv"
 lang: ru
-translationKey: ky-nang-khian-resume-phasa-angkrit-ats-template
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [rezume, ats, karera]
 cover: write

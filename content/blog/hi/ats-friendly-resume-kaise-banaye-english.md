@@ -4,7 +4,7 @@ title: "ATS Friendly Resume Kaise Banaye English: सम्पूर्ण ग�
 description: "ATS friendly resume kaise banaye english: 1 पेज का सही फॉर्मैट, Google XYZ फॉर्मूला, 20 पावर वर्ब्स और रिक्रूटर का ध्यान खींचने के लिए व्यावहारिक नियम।"
 keyword: "ats friendly resume kaise banaye english"
 lang: hi
-translationKey: viet-cv-tieng-anh-chuan
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [resume, ats, career]
 cover: write

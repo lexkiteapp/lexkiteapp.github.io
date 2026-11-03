@@ -3,7 +3,7 @@ title: "Englischer Lebenslauf Muster: CV & Resume Leitfaden"
 description: "Englischer Lebenslauf Muster und Aufbau: So gestaltest du ein überzeugendes CV mit starken Action Verbs, ATS-Formatierung und klaren Abschnitten."
 slug: englischer-lebenslauf-cv-muster
 lang: de
-translationKey: englischer-lebenslauf-cv-muster
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [cv, resume, karriere]
 keyword: "englischer lebenslauf muster"

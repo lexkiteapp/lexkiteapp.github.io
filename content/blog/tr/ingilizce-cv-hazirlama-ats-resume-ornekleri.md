@@ -4,7 +4,7 @@ title: "Ingilizce CV Hazirlama ATS Resume Ornekleri Rehberi"
 description: "Ingilizce cv hazirlama ats resume kuralları, eylem fiilleri, taranabilir formatlar ve uluslararası iş başvuruları için hazır şablonlar bu rehberde."
 keyword: "ingilizce cv hazirlama ats resume"
 lang: tr
-translationKey: ky-nang-khian-resume-phasa-angkrit-ats-template
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [cv, resume, is-hayati]
 cover: write

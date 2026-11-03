@@ -3,7 +3,7 @@ title: "Cómo Hacer un Currículum en Inglés: Guía de Resume Profesional"
 description: "Aprende cómo hacer un currículum en inglés paso a paso: estructura estándar internacional, verbos de acción y plantillas para conseguir trabajo fuera."
 slug: como-hacer-un-curriculum-en-ingles
 lang: es
-translationKey: como-hacer-un-curriculum-en-ingles
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [cv, resume, empleo]
 keyword: "cómo hacer un currículum en inglés"

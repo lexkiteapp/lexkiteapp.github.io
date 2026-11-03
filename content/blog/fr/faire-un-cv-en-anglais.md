@@ -3,7 +3,7 @@ title: "Faire un CV en Anglais: Modèle et Verbes d Action"
 description: "Faire un CV en anglais percutant: Modèle complet, règles ATS, verbes d action indispensables et différences entre CV britannique et Resume américain."
 slug: faire-un-cv-en-anglais
 lang: fr
-translationKey: faire-un-cv-en-anglais
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [cv, resume, carriere]
 keyword: "faire un cv en anglais"

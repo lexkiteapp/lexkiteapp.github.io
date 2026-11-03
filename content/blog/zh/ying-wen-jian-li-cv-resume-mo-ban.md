@@ -3,7 +3,7 @@ title: "英文简历模板与外企求职全攻略：一页纸规范、ATS筛选
 description: "外企求职英文简历模板制作全景实战指南：深入拆解现代跨国名企ATS机器简历筛选机制，传授一页纸标准排版布局规范、教育背景与核心工作经历黄金比例，并结合谷歌经典的XYZ强动词公式打造亮眼成就量化陈述，助你大幅提升顶级外企面试邀约率。"
 slug: ying-wen-jian-li-cv-resume-mo-ban
 lang: zh
-translationKey: ying-wen-jian-li-cv-resume-mo-ban
+translationKey: viet-cv-tieng-anh-chuan-ats
 category: ky-nang
 tags: [jian-li, resume, zhi-chang]
 keyword: "英文简历模板"
