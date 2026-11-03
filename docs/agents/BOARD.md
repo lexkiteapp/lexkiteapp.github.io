@@ -135,8 +135,13 @@ Mẫu thẻ:
   - ✅ **Hoàn thành trọn vẹn 5/5 ngôn ngữ Cụm 4** (`ielts-reading-kiem-soat-thoi-gian`): VI (`da77cc9b9`), EN (`d8cf79284`), JA (`5c7194bd4`), ZH (`3ae66c878`), KO (`f677055f0`) (5 bài).
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Quản lý thời gian công sở** (`quan-ly-thoi-gian-tieng-anh-cong-so`): Bổ sung hoàn tất 2 ngôn ngữ cuối AR (`b998424ae`) và HI (`bd5eff083`).
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm TOEIC Part 7 đọc hiểu** (`toeic-part-7-doc-hieu`): Bổ sung TH (`d479cb723`), AR (`22cd37361`), HI (`bded6891a`).
-  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Cụm động từ thông dụng** (`phrasal-verb-thong-dung`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`fb678775a`).
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Kiểm soát thời gian IELTS Reading** (`ielts-reading-kiem-soat-thoi-gian`): VI, EN, JA, ZH, KO, ES (`09772dd69`), FR (`6158f084d`), DE (`71ded28de`), PT (`0b93d7b89`), ID (`20d331645`), TR (`e9c16f5e5`), TH (`fc0d3c60a`), RU (`76c4982d9`), AR (`7c677e24f`), HI (`442bc12bd`) (15/15 ngôn ngữ).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Cụm động từ thông dụng** (`phrasal-verb-thong-dung`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`fb678775a`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Tiếng Anh du lịch nước ngoài** (`tieng-anh-du-lich-nuoc-ngoai`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`f9776f185`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Động từ khuyết thiếu can/could/should/must** (`dong-tu-khuyet-thieu-can-could-should-must`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`08c2a97c6`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Nối âm Connected Speech** (`noi-am-trong-tieng-anh`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`65536acc2`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Viết CV chuẩn ATS** (`viet-cv-tieng-anh-chuan-ats`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`f51c0ea2f`).
+  - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Thuyết trình tiếng Anh chuyên nghiệp** (`thuyet-trinh-tieng-anh-presentation-skills`): Đồng nhất khóa `translationKey` trên toàn bộ 15 ngôn ngữ (`6be826a9b`).
   - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.026 bài viết** (1.026 files `.md` trong `content/blog/`).
   - 100% bài viết đạt chuẩn Quality Gates: `blog-check` 0 lỗi, `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
   - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo theo kế hoạch.
