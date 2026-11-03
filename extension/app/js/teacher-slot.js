@@ -70,6 +70,6 @@ canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{
     const im = C.img(w, { kind: 'still', pose, cls: 'tslot-img', alt: o.alt || '', size: SIZES[sz], lazy: o.lazy !== false });
     const gr = o.ground === 'card' ? 'card' : 'fade'; // không có chế độ bệ rời: bệ không thẻ phía sau = khối lơ lửng (chủ 3/11)
     if (o.clip && !pend && g.document) pend = setTimeout(hydrate, 0); // HTML chèn xong mới gắn clip
-    return `<span class="tslot tslot-${sz} tslot-${gr}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}" data-ground="${gr}"${o.clip ? ` data-clip="${C.clip(w, pose)}"` : ''}${o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}>${gr === 'fade' ? '<i class="tslot-shadow"></i>' : ''}<span class="tslot-fig">${im}</span></span>`;
+    return `<span class="tslot tslot-${sz} tslot-${gr}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}" data-ground="${gr}"${o.clip ? ` data-clip="${C.clip(w, pose, { hd: SIZES[sz] >= 152 && (g.devicePixelRatio || 1) >= 2 })}"` : ''}${o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}>${gr === 'fade' ? '<i class="tslot-shadow"></i>' : ''}<span class="tslot-fig">${im}</span></span>`;
   };
 })(self);
