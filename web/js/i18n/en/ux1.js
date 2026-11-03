@@ -50,6 +50,7 @@
 "{n} đến hạn": "{n} due",
 "Bắt đầu ôn: {n} thẻ đến hạn": "Start review session: {n} cards due",
 "Thẻ sắp quên: {n}": "Cards about to be forgotten: {n}",
+"Thẻ quen: {n}": "Familiar cards: {n}",
 "còn {n} giờ": "{n}h left",
 "Tiếp tục nước rút ngày": "Resume Daily Sprint",
 "Nước rút ngày {a}/{b}": "Daily sprint {a}/{b}",

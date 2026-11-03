@@ -1,3 +1,4 @@
+# ci-policy: all-paths – đo kích thước repo/shell cho MỌI thay đổi (file nào cũng có thể làm phình); job ngắn, PR huỷ lượt cũ
 # Cổng dung lượng repo chính (docs/STORAGE.md): cây HEAD ≤ 600 MB, mỗi commit thêm ≤ 20 MB nhị phân (ngoại lệ: "Size-Guard: allow" trong commit).
 # Media nặng → kho ngoài (infra/media-repos.json). Clone blobless + thưa: chỉ commit + cây (+ blob nhị phân mới) → nhanh dù lịch sử ~1 GB.
 name: size-guard

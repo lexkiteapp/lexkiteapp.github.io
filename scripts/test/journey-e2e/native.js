@@ -38,7 +38,7 @@
       t.ok(await wait('.pl-result', 20000), 'kiểm tra đầu vào xong'); t.ok(!askOn(), 'không hỏi sau kiểm tra đầu vào');
       await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1200); t.ok(await learn(), 'xong bài đầu');
       const asked = await wait('#modal:not([hidden]) #raY', 6000); t.ok(asked, 'hỏi nhắc học sau bài đầu'); t.audit('soft-ask');
-      if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); t.ok(+ls('lk.reask') > 0, 'ghi lk.reask'); }
+      if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); { let r = ls('lk.reask'); try { r = typeof r === 'string' ? JSON.parse(r) : r; } catch (e) { r = null; } t.ok(r && r.n === 1 && r.no === 1 && r.at > 0, 'ghi lk.reask {n:1, "để sau"}'); } }
       return t.bad; },
     async j1b() { const t = mk('j1'); t.ok(!/welcome/.test(location.hash), 'tải lại: không về màn chào'); await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1000); await learn(); await sleep(3500); t.ok(!askOn(), 'sau tải lại: không hỏi lại'); t.audit('j1b'); return t.bad; },
     async j2s() { const t = mk('j2'); await go('#/welcome/setup'); if (vis('#noAcct')) await click('#noAcct'); await click('button.trk-opt'); await click('#obNext', 250); await click('.trk-lv [data-lv]:not([data-lv="test"])'); await toLast(); await click('#go', 1500); t.ok(/#\/day/.test(location.hash), 'thiết lập → #/day'); return t.bad; },
