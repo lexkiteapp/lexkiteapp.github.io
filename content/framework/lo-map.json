@@ -99,7 +99,20 @@
    "r-morning": "L.A2p.01"
   },
   "situation": {
-   "cafe": ["I.A1.03", "I.A2.06"]
+   "cafe": ["I.A1.03", "I.A2.06"],
+   "lost-luggage": ["I.B1.05", "I.B1.02"],
+   "ask-directions": ["I.A2.06"],
+   "police-report": ["I.B1.02", "I.B1p.01"],
+   "flat-viewing": ["I.B1.10", "I.B1p.03"],
+   "landlord-repair": ["I.B1.05", "I.B1p.01"],
+   "gym-signup": ["I.A2.09", "I.A2p.06"],
+   "cinema-tickets": ["I.A2.03", "I.A2p.06"],
+   "party-invite": ["I.A2.01", "I.A2p.04"],
+   "noisy-neighbour": ["I.B1p.01", "I.B1.05"],
+   "shop-return": ["I.B1.05", "I.A2.06"],
+   "phone-plan": ["I.B1.10", "I.A2.03"],
+   "emergency-room": ["I.A2.06", "I.B1.02"],
+   "tour-booking": ["I.B1.02", "I.B2.03"]
   },
   "call": {
    "coffee": "I.A2.01",
