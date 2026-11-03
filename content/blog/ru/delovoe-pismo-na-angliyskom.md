@@ -128,7 +128,7 @@ qualityScore: 94
 3. **Грамматическая выверенность времен:** когда вы отчитываетесь о выполненных результатах за период, правильно согласуйте времена. Освежите грамматику в материале [Present Perfect и Past Simple](/ru/blog/present-perfect-i-past-simple/).
 4. **Профессиональный лексический запас:** используйте устойчивые бизнес-коллокации (*streamline processes, conduct an audit, mitigate risks*). Пополняйте словарный запас проверенными методами из статьи [как запоминать английские слова](/ru/blog/kak-zapominat-angliyskie-slova/).
 
-Если вы также готовитесь к академическому письму, изучите наш гид [структура эссе IELTS Writing Task 2](/ru/blog/ielts-writing-task-2-struktura/), а для успешного прохождения интервью ознакомьтесь со статьей [собеседование на английском: частые вопросы](/ru/blog/sobesedovanie-na-angliyskom-voprosy/).
+Если вы также готовитесь к академическому письму, изучите наш гид [структура эссе IELTS Writing Task 2](/ru/blog/ielts-writing-task-2-struktura/), для сдачи языковых сертификатов освойте методы [TOEIC Part 5 стратегии грамматики](/ru/blog/toeic-part-5-strategii-grammatika-leksika/), а для успешного прохождения интервью ознакомьтесь со статьей [собеседование на английском: частые вопросы](/ru/blog/sobesedovanie-na-angliyskom-voprosy/).
 
 > Читайте также: [Angliyskiy dlya Puteshestviy Dialogi Frazy: 80+ Vyrazheniy](/ru/blog/angliyskiy-dlya-puteshestviy-dialogi-frazy/) · [Frazy dlya Delovyh Vstrech na Angliyskom: 70+ Vyrazheniy](/ru/blog/frazy-dlya-delovyh-vstrech-na-angliyskom/)
 
