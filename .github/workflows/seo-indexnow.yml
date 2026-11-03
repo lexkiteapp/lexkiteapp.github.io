@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       all: { description: 'Gửi lại toàn bộ URL (bỏ qua so sánh)', type: boolean, default: false }
-permissions: { contents: write } # ghi sổ lastmod content/seo/lastmod.json
+permissions: { contents: read } # đẩy sổ lastmod bằng BOT_DEPLOY_KEY
 concurrency: { group: seo-indexnow, cancel-in-progress: false }
 jobs:
   ping:
@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 0 } # gitDate() = ngày dự phòng cho URL chưa có trong sổ
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', fetch-depth: 0 } # khoá deploy (ruleset chặn GITHUB_TOKEN đẩy main); fetch-depth 0: gitDate() = ngày dự phòng cho URL chưa có trong sổ
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Danh sách URL + băm
@@ -27,7 +27,7 @@ jobs:
           git diff --quiet -- content/seo/lastmod.json 2>/dev/null && [ -z "$(git status --porcelain content/seo)" ] && { echo "sổ lastmod không đổi"; exit 0; }
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           node -e "JSON.parse(require('fs').readFileSync('content/seo/lastmod.json','utf8'))" && node scripts/test/lastmod.mjs   # commit bot phải qua test (main không đỏ)
-          git add content/seo/lastmod.json && git commit -qm "SEO: cập nhật sổ lastmod theo nội dung trang [CF-Pages-Skip]"
+          git add content/seo/lastmod.json && git commit -qm "SEO: cập nhật sổ lastmod theo nội dung trang [skip ci] [CF-Pages-Skip]"
           for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 10; done; exit 1
       - name: Lần trước
         uses: actions/cache/restore@v4
