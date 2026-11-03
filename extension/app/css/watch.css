@@ -1,6 +1,9 @@
 /* 🎬 Học qua video (#/watch) – tải lười cùng gói 'watch'. Chỉ token sẵn có (docs/DESIGN-SYSTEM.md) → tự đúng sáng/tối. */
 .wt-find { display: flex; gap: .5rem; align-items: center; padding: .6rem; }
 .wt-find input { flex: 1; min-width: 0; min-height: 44px; font-size: 1rem; }
+/* ô nhập của trang dùng token (type=search mặc định lấy màu trình duyệt → frame-consistency color.non-token) */
+.wt-find input, .wt-form input { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 0 .75rem; -webkit-appearance: none; appearance: none; }
+.wt-find input::placeholder, .wt-form input::placeholder { color: var(--muted); }
 .wt-find .btn { min-height: 44px; flex: none; }
 .wt-filters { display: flex; flex-direction: column; gap: .5rem; margin: .75rem 0 .25rem; }
 .wt-lvs, .wt-sels, .wt-qs { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
