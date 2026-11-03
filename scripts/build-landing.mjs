@@ -62,7 +62,7 @@ const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}"
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
-// Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
+// Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn tsp tsb"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
 // Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của #303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
 const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
@@ -114,6 +114,8 @@ const SWAP_JS = `document.querySelectorAll('link[data-swap]').forEach(function(l
 const HEAD_CLS = [...(DC_JS + GA_JS).matchAll(/(?:className=|classList\.add\()'([\w-]+)'/g)].map(x => x[1]); // lớp #lk-dc gắn trước khi vẽ
 const PSEUDO_EL = /::?(?:before|after|first-line|first-letter)\b|::[\w-]+(?:\([^)]*\))?/g;
 const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any-link|checked|disabled|enabled|placeholder-shown|target|open|popover-open|invalid|valid|required|optional|autofill|-webkit-autofill|indeterminate|default|read-only|read-write|user-invalid|user-valid)(?![\w-])/g;
+// Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
+const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
 export function criticalCss(css, html) {
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
@@ -121,13 +123,13 @@ export function criticalCss(css, html) {
   const S = doc.querySelectorAll('section'), first = S[Math.min(1, S.length - 1)], crit = new Set();
   for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
   const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
-    let q = sel.replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '').replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
+    let q = sel.replace(/:root(?::not\(\[data-theme=\w+\]\)|\[data-theme=\w+\])/g, ':root').replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '') /* nhánh nút giao diện (#303): trang lúc build không có data-theme → so như :root, kẻo vẽ đầu sai nền khi ép tối/sáng */.replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
     let r; try { r = [...doc.querySelectorAll(q)].some(e => crit.has(e)); } catch { r = true; }
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
-    const k = splitSel(sel).filter(hit); return k.length ? k.join(',') + b.slice(j) : ''; }).join('');
+    const k = splitSel(sel).filter(x => !INTERACT.test(x) && hit(x)); return k.length ? k.join(',') + b.slice(j) : ''; }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
   return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
@@ -214,7 +216,7 @@ ${alt}
 ${LCSS}</style>
 ${ld(graph)}
 </head>
-<body class="stw st" data-lhint="lhint btn">
+<body class="stw st" data-lhint="lhint btn tsp tsb">
 <a class="skip" href="#main">${esc(c.skip)}</a>
 ${page.body}
 <script>${SITE_UI_LAZY.replace(/^<script>|<\/script>$/g, '')}</script>

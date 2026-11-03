@@ -13,14 +13,14 @@ b['attr'][P(1, 1, 1)] = {'href': 'd.home'}; b['text']['Lexkite'] = "'Lexkite'"
 b['after'][P(1, 1, 1, 1)] = LOGO(40); b['remove'].append(P(1, 1, 1, 1))
 b['repeat'].append({'list': 'd.nav.slice(1)', 'as': 'n', 'sel': P(1, 1, 2, 1), 'samples': P(1, 1, 2) + ' > a',
                     'attr': {':scope': {'href': 'n[0]', 'hreflang': 'n[2]'}}, 'text': {'Blog': 'n[1]'}})
-b['attr'][P(1, 2)] = {'data-lsw': "''"}; b['addClass'][P(1, 2)] = 'relative'
+# khối data-lsw CHỈ quanh nút + menu (link "Mở app" nằm ngoài → LANG_JS của #303 đổi được ?hl= theo ngôn ngữ đã chọn)
+b['wrap'] = {P(1, 2, 1): {'to': 'div', 'class': 'relative', 'attr': {'data-lsw': "''"}, 'append': 'd.menu'}}
 # điện thoại = bố cục mẫu mobile v3: hàng 1 logo + nút, hàng 2 Blog/Từ vựng (nav xuống dòng); nút ngôn ngữ chỉ còn icon < sm (không cuộn ngang ở 390)
 b['addClass'][P(1)] = 'flex-wrap gap-y-1'
 b['cls'] = {P(1, 1): {'flex': "'contents md:flex'"}, P(1, 1, 2): {'hidden': "'flex order-last w-full md:w-auto md:order-none'"}, P(1, 2): {'gap-3': "'gap-2 sm:gap-3'"}}
 b['addClass'][P(1, 2, 1, 2)] = 'hidden sm:inline'
 b['attr'][P(1, 2, 1)] = {'type': "'button'", 'aria-haspopup': "'true'", 'aria-expanded': "'false'", 'aria-controls': "'lsw-m'", 'aria-label': 'd.lswLabel'}
 b['text']['English'] = 'd.langName'
-b['after'][P(1, 2, 1)] = 'd.menu'
 b['attr'][P(1, 2, 2)] = {'data-tsw': "''", 'data-l': 'd.tswL', 'aria-label': 'd.tswA'}
 b['html'][P(1, 2, 2)] = 'd.tswSvg'
 b['attr'][P(1, 2, 3)] = {'href': 'd.nav[0][0]'}; b['text']['Open app'] = 'd.nav[0][1]'
