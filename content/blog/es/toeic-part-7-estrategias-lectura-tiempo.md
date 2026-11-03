@@ -44,7 +44,7 @@ Los textos simples se ubican al principio, mientras que los pasajes múltiples o
 
 Para responder las 54 preguntas sin recurrir a conjeturas apresuradas, distribuya los 75 minutos de Reading con disciplina matemática:
 
-- **Parte 5 (30 preguntas)**: Finalizar en **10 minutos** (aproximadamente 20 segundos por ítem).
+- **Parte 5 (30 preguntas)**: Finalizar en **10 minutos** (aproximadamente 20 segundos por ítem), aplicando las claves de [TOEIC Part 5 estrategias y gramática](/es/blog/toeic-part-5-estrategias-gramatica-tiempo/).
 - **Parte 6 (16 preguntas)**: Finalizar en **8 minutos** (aproximadamente 30 segundos por ítem).
 - **Margen de seguridad / Hoja de respuestas**: **2 minutos**.
 - **Parte 7 (54 preguntas)**: Disponer de **55 minutos completos** (un promedio de 60 segundos por pregunta).
