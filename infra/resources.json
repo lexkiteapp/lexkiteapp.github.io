@@ -80,6 +80,19 @@
       "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
+      "key": "report-shots-r2",
+      "name": "Cloudflare R2 lexkite-report-shots (ảnh chụp báo lỗi, riêng tư)",
+      "purpose": "Ảnh chụp đính kèm báo lỗi (functions/api/report.js, binding Pages REPORT_SHOTS, khóa report/<id>, nhị phân) – không tên miền công khai; quản trị xem qua URL ký 5 phút /api/report-shot. Xóa 60 ngày sau khi đóng phiếu.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-report-shots",
+      "match": [
+        "lexkite-report-shots"
+      ],
+      "kind": "cdn",
+      "free": "R2 Free 10 GB lưu trữ chung tài khoản · ảnh ≤ 300 KB/phiếu – thẻ Chất lượng admin hiện dung lượng + %",
+      "upgrade": "Không cần: xóa 60 ngày sau khi đóng giữ dung lượng nhỏ",
+      "status": "Chưa bật (02/11/2026) – chạy report-shots.yml action=setup rồi bỏ # [[r2_buckets]] trong wrangler.toml"
+    },
+    {
       "key": "audio-cdn-r2",
       "name": "Cloudflare R2 lexkite-audio-cdn (audio.lexkite.com tĩnh)",
       "purpose": "Bản chép tăng dần (scripts/cdn/mirror.mjs, cdn-mirror.yml) của mọi kho media kind audio (infra/media-repos.json, kho mới nhất thắng) – audio/<l|w>/<khoá>.mp3, 1 năm immutable. Tên miền riêng audio.lexkite.com + cùng Cache/Transform Rule. Đường lùi GitHub giữ ở app/SW (web/js/ui.js AUDIO_BASES, web/sw.js: lỗi/404/7 s → Pages m2 → gốc cũ).",
