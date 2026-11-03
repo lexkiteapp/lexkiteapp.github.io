@@ -7,7 +7,7 @@
   const LB = () => ({ auto: t('Tự động'), flip: t('Lật thẻ'), type: t('Gõ từ'), audio: t('Nghe chọn nghĩa') });
   // Khoảng cách Levenshtein (gõ sai nhỏ)
   const dist = (a, b) => { const d = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) d[0][j] = j; for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[a.length][b.length]; };
-  // Chuẩn hoá trước khi so: hoa/thường, dấu (café = cafe, naïve = naive), nháy cong, gạch nối/gạch dưới = khoảng trắng (well-known = well known), dấu câu thừa, khoảng trắng
+  // Chuẩn hóa trước khi so: hoa/thường, dấu (café = cafe, naïve = naive), nháy cong, gạch nối/gạch dưới = khoảng trắng (well-known = well known), dấu câu thừa, khoảng trắng
   const norm = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’‘`´]/g, "'").replace(/[-‐‑–—_/]+/g, ' ').replace(/[.,!?;:"“”()]+/g, '').replace(/\s+/g, ' ').trim();
   const tolOf = n => (n >= 8 ? 2 : n >= 4 ? 1 : 0); // từ ngắn phải đúng hẳn
 
