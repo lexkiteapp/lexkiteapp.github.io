@@ -1,5 +1,7 @@
 # Dễ học – dễ nhớ (P0-H): nguyên lý → luật máy đo, tầng 0
 
+> TL;DR: thước đo sư phạm 12 tiêu chí (truy hồi chủ động, lặp giãn cách, tải nhận thức, i+1…) chấm từng bài bằng máy, 0 token; điểm gộp vào content:score mảng "Dễ học – dễ nhớ", chỉ được tăng.
+
 Đo **sư phạm** của từng bài, khác cổng QA (độ đúng, [CONTENT-QA.md](../CONTENT-QA.md)) và `content:score` (độ phủ). Mã: `scripts/content-qa/learnability.mjs` (0 token, < 1 s) → `content/pipeline/LEARN.md` + `reports/learnability.json`; mảng "Dễ học – dễ nhớ" trong `SCORE.md`, sàn chỉ tăng (`score.budget.json` khoá `learn`). Test: `scripts/test/learnability.mjs` (job `score` của `content-qa.yml`).
 
 Đơn vị chấm: 77 bài ngữ pháp · bài lộ trình (truyện/radio `content/lesson/stories.json`) · bộ từ (mỗi `set` của kho từ; bộ < 10 từ gộp) · kỹ năng (phần nghe, bài đọc, chủ đề nói, bài mẫu viết). Mỗi tiêu chí 0–1, không áp dụng = "–"; điểm bài = trung bình có trọng số.
