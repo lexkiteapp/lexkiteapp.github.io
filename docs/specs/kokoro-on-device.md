@@ -3,6 +3,14 @@
 > TL;DR: Một giọng Kokoro mọi nơi. Chữ đã có file thì phát mp3 dựng sẵn như cũ. Chữ chưa có file (từ tự gõ, đoạn dịch, câu AI, ví dụ nguồn ngoài) do kokoro-js đọc ngay trên máy, trong Web Worker. Máy yếu, mạng tính phí, hay iOS thì giữ giọng máy. Không có máy chủ suy luận, 0 đồng.
 > Đọc khi: sửa `web/js/klocal*.js`, đổi giọng/mô hình, bật/tắt từ xa, xem số đo `kl`.
 
+## Quyết định của chủ (03/11)
+CI chỉ dựng sẵn phần **cố định** đi kèm mã nguồn của app web: corpus `scripts/sentence-audio/corpus.mjs` gồm bài nghe, câu ví dụ có sẵn, bài học, ngân hàng ý tưởng, từ trong kho… Corpus đổi theo commit, không đổi theo người dùng. Mọi chữ động (từ tự gõ ngoài kho, đoạn bôi đen, AI/Call, ví dụ lấy từ nguồn ngoài) do kokoro-js đọc trên máy. Máy không đủ sức thì dùng giọng máy.
+**Không** ghi nhận chữ người dùng thiếu file, **không** có hàng đợi làm bù, **không** endpoint hay bảng D1 cho việc này.
+Lý do:
+- Chi phí CI không tăng theo số người dùng.
+- Không có văn bản riêng tư nào lên máy chủ.
+- CI dừng hay lỡ một đêm thì người dùng không bị ảnh hưởng.
+
 ## Luồng
 1. `UI.tts(text)`: có đủ khóa trong `LISTEN_AUDIO` thì phát file như cũ.
 2. Chưa có file và `KLocal.ready()` thì đọc từng câu: Worker sinh PCM → WAV blob → `LKAudio.play` (vẫn một trình phát, chặn chồng tiếng như cũ). Câu kế được sinh trong lúc câu trước đang phát. Giữa hai câu nghỉ `SENT_GAP`.
@@ -39,6 +47,5 @@
 
 ## Chưa làm (việc sau, có thứ tự)
 1. Nút Cài đặt "Giọng chất lượng cao trên máy" (Tự động/Tắt + dung lượng + xóa), i18n 15 ngôn ngữ.
-2. Gửi gộp ẩn danh các câu bị thiếu file → CI `audio.yml` render bù hằng đêm.
-3. Playwright Chromium + WebKit với Worker giả (cấp máy, long task < 50 ms, lùi khi lỗi, công tắc tắt).
-4. WebGPU fp16 cho máy mạnh khi có số đo; LUFS chuẩn −16 khớp video.
+2. Playwright Chromium + WebKit với Worker giả (cấp máy, long task < 50 ms, lùi khi lỗi, công tắc tắt).
+3. WebGPU fp16 cho máy mạnh khi có số đo; LUFS chuẩn −16 khớp video.
