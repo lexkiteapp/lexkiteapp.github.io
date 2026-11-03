@@ -262,8 +262,9 @@ def reel_minpair(dr, t):
         txt(dr, (cx, HOOK_Y0 + 250), it['ipa'], fit(it['ipa'], f_ipa, 40, cw - 30, 26), TEAL, 'mm')
         native_line(dr, cx, HOOK_Y0 + 298, it['native'], 30, 22, cw - 40, MUTED)
 
-def frame(fr, t, teacher=True):
-    """teacher=False: cùng khung nhưng không vẽ giáo viên/tay → figure.visible_mask đo phần giáo viên thấy được (cổng teacher_full_1x)"""
+def frame(fr, t, teacher=True, plain=False):
+    """teacher=False: cùng khung nhưng không vẽ giáo viên/tay → figure.visible_mask đo phần giáo viên thấy được (cổng teacher_full_1x)
+    plain=True: ảnh rig trơn – chỉ giáo viên (cùng tư thế/vị trí/tay/khung phóng miệng), không thẻ, không chữ → framecheck biết nét vẽ nào OCR hay đọc nhầm thành chữ"""
     FB.clear(); FT.clear(); im = Image.new('RGBA', (W, H), BG + (255,))
     base = BASES[fr['who']]; face = svg_img(fr['g'], base.width, base.height); body = base.copy(); body.alpha_composite(face)
     if fr['tilt'] or fr['nod']:
@@ -276,6 +277,7 @@ def frame(fr, t, teacher=True):
         hl.paste((0, 0, 0, 0), (0, CARD_Y0 + 60, W, H))   # khuỷu/tay áo dừng sau thẻ phụ đề, không lòi xuống dưới thẻ
         im.alpha_composite(hl)
     if TPL == 'minpair': mouth_zoom(im, fr)
+    if plain: return im.convert('RGB')
     dr = ImageDraw.Draw(im)
     if LISTT:
         reel_list(dr, t)
@@ -297,6 +299,7 @@ def render(name, fj):
         im = frame(fr, i / D['fps']); im.save(d / f'{i:05d}.png', compress_level=1)
         if name == 'full' and (i % D['fps'] == 0 or i == n - 1):   # tờ khung hình ~1 khung/s + khung cuối → framecheck.py
             im.save(fc / f'{i:05d}.png'); chk.append({'i': i, 't': round(i / D['fps'], 2), 'who': fr['who'], 'seg': fr['seg'], 'boxes': [list(b) for b in FB], 'teacher': dict(FT)})
+            frame(fr, i / D['fps'], plain=True).save(fc / f'{i:05d}-rig.png')   # sau chk: frame() xóa FB/FT
     if name == 'full': (OUT / 'frames-check.json').write_text(json.dumps({'template': TPL, 'W': W, 'H': H, 'safe': [SAFE_X, SAFE_T, W - SAFE_X, SAFE_B], 'frames': chk}))
     mp4 = OUT / f"{spec['id']}{'' if name == 'full' else '-' + name}.mp4"
     sh('ffmpeg', '-y', '-v', 'error', '-framerate', str(D['fps']), '-i', str(d / '%05d.png'), '-i', str(OUT / 'voice.wav'), '-map', '0:v', '-map', '1:a', '-shortest',

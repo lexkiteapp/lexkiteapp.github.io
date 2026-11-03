@@ -10,7 +10,7 @@ on:
       store: { description: 'lưu kho + release (true/false)', default: 'true' }
   push:   # nhánh PR (workflow_dispatch chỉ gọi được khi file đã ở main): đổi spec/engine → dựng lại cả lô thử
     branches-ignore: [main]
-    paths: ['content/video/rig/l1/**', 'content/video/rig/reels/**', 'scripts/rig/**', 'scripts/test/rig-figure.py', '.github/workflows/social-clips.yml']
+    paths: ['content/video/rig/l1/**', 'content/video/rig/reels/**', 'scripts/rig/**', 'scripts/test/rig-figure.py', 'scripts/test/rig-framecheck.py', '.github/workflows/social-clips.yml']
 concurrency:
   group: social-clips-${{ github.ref }}
   cancel-in-progress: false   # render/lưu kho: xếp hàng, không huỷ giữa chừng
@@ -132,4 +132,6 @@ jobs:
           git add content/social/videos
           git diff --cached --quiet && exit 0
           git commit -qm "Kho clip mạng xã hội: cập nhật content/social/videos (social-clips #${{ github.run_number }}) [CF-Pages-Skip]"
-          for i in 1 2 3; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0; sleep 5; done; exit 1
+          # run 41546080978: lượt khác vừa ghi cùng qc.json → rebase xung đột, lần thử 2–3 vấp "unmerged files" → mất kho của lượt này.
+          # Kho là dữ liệu sinh ra: bản của lượt vừa dựng xong (commit đang replay = -X theirs) thắng; xung đột còn sót thì abort sạch rồi thử lại.
+          for i in 1 2 3; do git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0; git rebase --abort 2>/dev/null || true; sleep 5; done; exit 1

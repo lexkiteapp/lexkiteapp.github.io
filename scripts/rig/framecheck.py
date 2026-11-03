@@ -2,7 +2,11 @@
 Vào: <out>/frames-check.json + <out>/fc/*.png (render.py ghi: chữ đã vẽ + vùng giáo viên của khung đó), spec. Ra: <out>/frames.jpg (tờ khung hình,
 viền đỏ = chỗ trượt), cổng thêm vào qc.json (điểm tính lại → store.mjs không xuất clip trượt) + report.md.
   no_stray_text      OCR (RapidOCR, Apache-2.0) mọi vùng chữ thấy được phải nằm trong chữ do khuôn vẽ (không chữ lẫn trong ảnh giáo viên/nền,
-                     không chữ sót), và từ Latin OCR đọc chắc phải có trong văn bản spec/IPA/UI (bắt chữ chồng nhau, chữ cũ không xoá).
+                     không chữ sót), và từ Latin OCR đọc chắc phải có trong văn bản spec/IPA/UI (bắt chữ chồng nhau, chữ cũ không xóa).
+                     Nét vẽ đã biết: OCR cả ảnh rig trơn của khung (<out>/fc/*-rig.png – render.py vẽ chỉ giáo viên, cùng tư thế/vị trí, không chữ);
+                     hộp OCR của khung trùng hộp trên ảnh trơn (IoU ≥ KNOWN_IOU) VÀ điểm ảnh trong hộp giống ảnh trơn (sai khác ≤ KNOWN_DIFF)
+                     là nét tóc/áo OCR đọc nhầm ("7011", "10111"), không phải chữ. Chữ dán lên áo: ảnh trơn không có hộp đó / điểm ảnh khác → vẫn ĐỎ.
+                     Thiếu ảnh trơn → không miễn gì (nghiêm).
   teacher_2d_match   người trong khung = người nói của câu trong spec (segments[].who | who), là giáo viên 2D của web/teach/characters.json,
                      và điểm ảnh vùng giáo viên giống ảnh rig của người đó hơn hẳn người kia (bắt lẫn Ama ↔ Carlos, lẫn ảnh/kiểu khác).
   safe_zone_frames   mọi khung chữ đã vẽ + mọi chữ OCR thấy của từng khung nằm trong vùng an toàn 9:16 (không chỉ hộp gộp BOXES).
@@ -15,6 +19,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 PEOPLE = json.loads((ROOT / 'web/teach/characters.json').read_text())['people']
 PAD, OCR_MIN, WORD_CONF = 16, 0.5, 0.9
+KNOWN_IOU, KNOWN_DIFF = 0.5, 6.0   # nét vẽ đã biết: trùng chỗ hộp OCR trên ảnh rig trơn + điểm ảnh gần như y hệt (0–255)
 
 def norm_words(s): return re.findall(r"[a-z]+", s.lower())
 
@@ -39,6 +44,24 @@ def near(w, vocab):
     return False
 
 def inter(a, b): return max(0, min(a[2], b[2]) - max(a[0], b[0])) * max(0, min(a[3], b[3]) - max(a[1], b[1]))
+
+def iou(a, b):
+    i = inter(a, b); u = (a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - i
+    return i / u if u > 0 else 0.0
+
+def ocr_boxes(ocr, im):
+    res, _ = ocr(np.asarray(im.convert('RGB'))); out = []
+    for quad, text, conf in res or []:
+        if float(conf) < OCR_MIN: continue
+        xs, ys = [p[0] for p in quad], [p[1] for p in quad]; out.append(([min(xs), min(ys), max(xs), max(ys)], text, float(conf)))
+    return out
+
+def known_stroke(ob, im, plain, pboxes):
+    """hộp OCR là nét vẽ của ảnh rig trơn: trùng chỗ một hộp OCR trên ảnh trơn VÀ điểm ảnh trong hộp giống ảnh trơn (không có gì dán đè)"""
+    if plain is None or not any(iou(ob, pb) >= KNOWN_IOU for pb, _, _ in pboxes): return False
+    x0, y0, x1, y1 = int(max(0, ob[0])), int(max(0, ob[1])), int(min(im.width, ob[2])) + 1, int(min(im.height, ob[3])) + 1
+    a = np.asarray(im.convert('RGB').crop((x0, y0, x1, y1)), dtype=np.float32); b = np.asarray(plain.crop((x0, y0, x1, y1)), dtype=np.float32)
+    return a.size > 0 and float(np.abs(a - b).mean()) <= KNOWN_DIFF
 
 def covered(box, drawn):
     """phần diện tích hộp OCR nằm trong hợp các hộp chữ đã vẽ (nới PAD) – lưới 4 px"""
@@ -77,13 +100,13 @@ def main_dir(spec, out):
     vocab = allowed_vocab(spec, nqa); segs = spec['segments']
     from rapidocr_onnxruntime import RapidOCR
     ocr = RapidOCR()
-    rows, bad = [], {'no_stray_text': [], 'teacher_2d_match': [], 'safe_zone_frames': []}
+    rows, known, bad = [], [], {'no_stray_text': [], 'teacher_2d_match': [], 'safe_zone_frames': []}
     for F in C['frames']:
         im = Image.open(out / 'fc' / f"{F['i']:05d}.png"); drawn = [b[1:] for b in F['boxes']]; marks = []
-        res, _ = ocr(np.asarray(im.convert('RGB')))
-        for quad, text, conf in res or []:
-            if float(conf) < OCR_MIN: continue
-            xs, ys = [p[0] for p in quad], [p[1] for p in quad]; ob = [min(xs), min(ys), max(xs), max(ys)]
+        pp = out / 'fc' / f"{F['i']:05d}-rig.png"; plain = Image.open(pp).convert('RGB') if pp.exists() else None
+        pboxes = ocr_boxes(ocr, plain) if plain is not None else []
+        for ob, text, conf in ocr_boxes(ocr, im):
+            if known_stroke(ob, im, plain, pboxes): known.append((F['t'], text)); continue   # nét tóc/áo đọc nhầm, có sẵn trên ảnh trơn
             if covered(ob, drawn) < 0.6: bad['no_stray_text'].append((F['t'], text)); marks.append(ob)
             elif float(conf) >= WORD_CONF and re.fullmatch(r"[A-Za-z ,.!?'’-]+", text):
                 odd = [w for w in norm_words(text) if len(w) >= 4 and not near(w, vocab)]
@@ -110,8 +133,9 @@ def main_dir(spec, out):
     qp = out / 'qc.json'
     if qp.exists():
         qc = json.loads(qp.read_text()); qc['gates'].update(g); qc['score'] = round(100 * sum(qc['gates'].values()) / len(qc['gates']))
-        qc['framecheck'] = {'frames': len(rows), **{k: v[:12] for k, v in bad.items()}}; qp.write_text(json.dumps(qc, indent=1))
-    rep = ['', f"### Tờ khung hình ({len(rows)} khung, frames.jpg)", '', '| cổng | ok | chi tiết |', '|---|---|---|'] + [f"| {k} | {'✅' if not v else '❌'} | {'; '.join(f'{t}s {x}' for t, x in v[:4]).replace('|', '/')} |" for k, v in bad.items()]
+        qc['framecheck'] = {'frames': len(rows), 'known_strokes': known[:12], **{k: v[:12] for k, v in bad.items()}}; qp.write_text(json.dumps(qc, indent=1))
+    kn = '; '.join(f'{t}s {x}' for t, x in known[:4]).replace('|', '/')
+    rep = ['', f"### Tờ khung hình ({len(rows)} khung, frames.jpg; {len(known)} hộp OCR là nét vẽ có sẵn trên ảnh rig trơn{': ' + kn if kn else ''})", '', '| cổng | ok | chi tiết |', '|---|---|---|'] + [f"| {k} | {'✅' if not v else '❌'} | {'; '.join(f'{t}s {x}' for t, x in v[:4]).replace('|', '/')} |" for k, v in bad.items()]
     with open(out / 'report.md', 'a') as fh: fh.write('\n'.join(rep) + '\n')
     print('\n'.join(rep))
     return 0 if all(g.values()) else 1

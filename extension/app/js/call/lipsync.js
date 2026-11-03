@@ -134,7 +134,7 @@
         // mốc đã nằm đúng mép bật tiếng (LS.anchor) → giữ; mốc từ của Kokoro cùng lệch BOS, có thể rơi vào chỗ ngưng của tắc "d" (hi-good-name "Don't": 250 → 315 ms)
         const k = at(c.start), w = on(k) && (k === 0 || !on(k - 1)) ? null : near(c.start, W, 'start'); let t = w ? w.start : c.start;
         t = edge(t, 1);
-        // hình mở giữ ≥ MIN_HOLD: dời tới mép mà còn < MIN_HOLD thì smooth xoá mất hình (môi khép "p" trước tiếng nổ – hi-good-name "please" mất A → miệng mở trễ 30 ms)
+        // hình mở giữ ≥ MIN_HOLD: dời tới mép mà còn < MIN_HOLD thì smooth xóa mất hình (môi khép "p" trước tiếng nổ – hi-good-name "please" mất A → miệng mở trễ 30 ms)
         t = Math.max(p.start + 0.01, Math.min(c.end - MIN_HOLD, t)); p.end = c.start = t;
       } else if (p.value !== 'X' && c.value === 'X') { // mở → im: lúc tiếng tắt
         const w = near(c.start, W, 'end'); let t = w ? w.end : c.start;
