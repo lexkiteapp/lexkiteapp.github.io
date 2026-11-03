@@ -418,6 +418,11 @@
       ":scope": {
        "title": "x.aria"
       }
+     },
+     "cls": {
+      "span": {
+       "lt:text-[#B45309]": "'lt:text-[#92400E]'"
+      }
      }
     },
     "off": {
@@ -428,9 +433,15 @@
       ":scope": {
        "title": "x.aria"
       }
+     },
+     "cls": {
+      ":scope": {
+       "opacity-40": "''"
+      }
      }
     }
    }
   }
- ]
+ ],
+ "_contrast_wk": "3/11: chuỗi 7 ngày – chữ nhãn ngày đạt ≥ 4,5:1 (qa/stitch-diff): bỏ opacity-40 trên cả khối 'off' (chữ 1,8:1, ô tròn vẫn nhạt), nhãn tối bỏ /60, nhãn 'hôm nay' cam 10 px → #92400E (6,4:1) ở bản sáng."
 }
