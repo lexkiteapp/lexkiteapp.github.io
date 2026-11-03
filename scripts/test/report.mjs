@@ -318,5 +318,16 @@ ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act IN
   const t = R.mailT('ja'); ok(R.etaText({ kind: 'normal', h: 72 }, t) === t('Dự kiến xử lý: {t}', { t: t('trong {a}–{b} ngày', { a: 2, b: 3 }) }) && !R.etaText({ kind: 'normal', h: 72 }, t).includes('{'), 'mốc dự kiến dịch đúng, không sót biến');
 }
 
+// Mốc thông minh: mức P0–P3 + số phiếu mở xếp trước + trung vị thời gian sửa thật; lưu sau AI, trang trạng thái hiện đúng
+ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0) === 120 && R.smartH(24, 0, 999) === 96 && R.smartH(2000, 0, 30) === 2160, 'smartH: gốc, +10 %/phiếu trước (≤ 30), trung vị thật, tròn ngày, trần 90 ngày');
+{ const now = Date.now(), old = aiNext;
+  for (let i = 0; i < 3; i++) sql.prepare("INSERT INTO reports (tok, at, upd, status, cat, area, msg, sev, fixed_at, spam, sandbox) VALUES (?, ?, ?, 'fixed', 'bug', 'app', 'x', 'P2', ?, 0, 0)").run('MED' + i + 'x'.repeat(20), now - 300 * 36e5, now, now - 100 * 36e5);
+  aiNext = () => ({ severity: 'P2', area: 'app', type: 'bug', summary_vi: 'Nút không chạy', confidence: 0.8 });
+  const c = await call(good({ cat: 'bug', msg: 'The play button on the lesson screen does nothing at all.', ctx: { route: 'lesson', lang: 'en', ver: '1', plat: 'web' } }), { ip: '10.0.0.91' });
+  aiNext = old;
+  const st = await call({ op: 'status', t: c.j.token }), x = JSON.parse(sql.prepare('SELECT eta_x FROM reports WHERE tok = ?').get(c.j.token).eta_x);
+  ok(x.m === 200 && x.a >= 1 && st.j.eta.h === R.smartH(48, 200, x.a) && st.j.eta.h >= 216 && st.j.eta.h % 24 === 0, 'sau AI: mốc theo trung vị sửa thật (200 giờ) + hàng đợi, hiện trên trang trạng thái: ' + JSON.stringify(st.j.eta) + JSON.stringify(x));
+  ok(c.j.eta && c.j.eta.h >= 48, 'lúc gửi: mốc theo loại + hàng đợi'); }
+
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);
