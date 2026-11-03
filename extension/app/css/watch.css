@@ -34,6 +34,7 @@
 .wt-legal a { color: var(--primary-text); }
 /* Trình học: player 16:9 nguyên vẹn (không lớp nào đè lên), thanh điều khiển nằm DƯỚI player */
 .wt-top { margin-bottom: .5rem; }
+.wt-back { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; gap: .25rem; }
 .wt-stage { padding-bottom: .4rem; }
 .wt-player { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; border-radius: 14px; overflow: hidden; background: #000; }
 .wt-player iframe, .wt-player #wtP { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

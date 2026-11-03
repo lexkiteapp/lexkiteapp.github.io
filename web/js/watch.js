@@ -73,7 +73,7 @@
     $('#wtCC').onchange = e => { save({ cc: e.target.checked }); rerun(); };
     $('#wtFind').onsubmit = e => { e.preventDefault(); const v = $('#wtQ').value.trim(); if (!v) return $('#wtQ').focus(); const y = ytParse(v); if (y) { location.hash = '#/watch/' + y.id + (y.t ? '?t=' + y.t : ''); return; } run({ q: v, label: v }); };
     $('#wtQ').addEventListener('paste', () => setTimeout(() => { const y = ytParse($('#wtQ').value); if (y) location.hash = '#/watch/' + y.id + (y.t ? '?t=' + y.t : ''); }, 0)); // dán link → mở luôn
-    const hubEl = $('#wtHub'); // nghe trên khung riêng của trang (view tồn tại suốt phiên → không gắn vào view kẻo dồn listener)
+    const hubEl = $('#wtHub'); // gắn vào khung trang, không vào view (sống suốt phiên → dồn listener)
     hubEl.addEventListener('click', e => { const b = e.target.closest('[data-topic]'); if (b) openTopic(b.dataset.topic); const q = e.target.closest('[data-q]'); if (q) run({ q: q.dataset.q, label: q.dataset.q, topic: lastRun && lastRun.topic }); });
     hubEl.addEventListener('click', e => { const a = e.target.closest('.wt-card'); if (a) LS.set('pick', { id: a.dataset.id, title: a.dataset.title, ch: a.dataset.ch, topic: (lastRun && lastRun.topic) || '' }); });
     if (query && query.get('topic')) openTopic(query.get('topic')); else if (query && query.get('q')) run({ q: query.get('q'), label: query.get('q') });
@@ -117,7 +117,7 @@
     const meta = { id, title: (pick.id === id && pick.title) || prev.title || '', ch: (pick.id === id && pick.ch) || prev.ch || '', topic: (pick.id === id && pick.topic) || prev.topic || '' };
     const ytUrl = s => `https://www.youtube.com/watch?v=${id}${s ? '&t=' + Math.floor(s) + 's' : ''}`;
     view.innerHTML = `
-      <div class="wt-top"><a class="btn ghost sm" href="#/watch">${UI.icon('chevron-left')} ${t('Học qua video')}</a></div>
+      <div class="wt-top"><a class="btn ghost back wt-back" href="#/watch" aria-label="${t('Quay lại')}">${UI.icon('chevron-left')} ${t('Học qua video')}</a></div>
       <div class="wt-stage"><div class="wt-player"><div id="wtP"></div></div>
         <div class="wt-bar" id="wtBar" role="toolbar" aria-label="${t('Điều khiển luyện nghe')}" hidden>
           <button type="button" class="btn sm" id="wtBack" title="${t('Lùi 5 giây')}">↺ 5s</button>
