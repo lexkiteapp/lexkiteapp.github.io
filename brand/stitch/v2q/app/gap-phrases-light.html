@@ -2,128 +2,138 @@
 
 <html lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Lexkite Sentence Patterns (Bright Day Mobile)</title>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Sentence Patterns (Band 7.5+)</title>
+<!-- Fonts & Material Symbols -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
 <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
-          colors: {
-            "primary-container": "#136a63",
-            "surface-container-low": "#fff1e8",
-            "secondary-container": "#fd9500",
-            "surface-container": "#faebe1",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "inverse-primary": "#88d4cb",
-            "primary-fixed": "#a4f1e7",
-            "on-primary": "#ffffff",
-            "tertiary": "#5b4300",
-            "surface-container-highest": "#efe0d6",
-            "primary-fixed-dim": "#88d4cb",
-            "surface-container-high": "#f4e5db",
-            "background": "#fff8f5",
-            "on-secondary-fixed": "#2d1600",
-            "inverse-surface": "#372f28",
-            "on-secondary": "#ffffff",
-            "surface-bright": "#fff8f5",
-            "on-surface": "#211a14",
-            "on-primary-fixed": "#00201d",
-            "surface-tint": "#126a63",
-            "tertiary-fixed-dim": "#f5bf31",
-            "on-tertiary-container": "#ffd370",
-            "surface-dim": "#e6d7cd",
-            "on-tertiary": "#ffffff",
-            "tertiary-fixed": "#ffdf9b",
-            "error": "#ba1a1a",
-            "outline": "#6f7977",
-            "secondary": "#8c5000",
-            "on-primary-fixed-variant": "#00504a",
-            "tertiary-container": "#785a00",
-            "on-tertiary-fixed": "#251a00",
-            "on-error-container": "#93000a",
-            "on-error": "#ffffff",
-            "secondary-fixed": "#ffdcbf",
-            "surface-container-lowest": "#ffffff",
-            "primary": "#00504b",
-            "surface": "#fff8f5",
-            "inverse-on-surface": "#fdeee3",
-            "on-secondary-container": "#633700",
-            "on-primary-container": "#9be7de",
-            "outline-variant": "#bec9c6",
-            "on-secondary-fixed-variant": "#6a3b00",
-            "error-container": "#ffdad6",
-            "secondary-fixed-dim": "#ffb872",
-            "surface-variant": "#efe0d6",
+          "colors": {
+            "surface-container-low": "#fcf2e9",
+            "tertiary": "#8e190f",
+            "secondary-fixed": "#ffdcbc",
+            "primary-container": "#136b66",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "surface-bright": "#fff8f3",
+            "surface-container-high": "#f0e7de",
+            "on-background": "#1f1b16",
+            "outline-variant": "#bec9c7",
+            "on-tertiary-fixed": "#410000",
             "on-surface-variant": "#3f4947",
-            "on-background": "#211a14"
+            "tertiary-fixed": "#ffdad4",
+            "primary": "#00514d",
+            "on-secondary-fixed-variant": "#683c00",
+            "outline": "#6f7978",
+            "surface-container": "#f6ece4",
+            "inverse-surface": "#34302a",
+            "background": "#fff8f3",
+            "on-primary-fixed": "#00201e",
+            "on-primary-container": "#9ce9e2",
+            "tertiary-container": "#b03224",
+            "primary-fixed-dim": "#88d4cd",
+            "surface-variant": "#eae1d8",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00504c",
+            "on-surface": "#1f1b16",
+            "inverse-on-surface": "#f9efe6",
+            "surface-tint": "#106a65",
+            "surface-dim": "#e2d8d0",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#2c1600",
+            "on-secondary": "#ffffff",
+            "surface": "#fff8f3",
+            "primary-fixed": "#a4f0e9",
+            "on-secondary-container": "#663b00",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "secondary-container": "#fe9d19",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#eae1d8",
+            "secondary": "#895100",
+            "on-tertiary-container": "#ffd0c9",
+            "inverse-primary": "#88d4cd"
           },
-          borderRadius: {
+          "borderRadius": {
             "DEFAULT": "1rem",
             "lg": "2rem",
             "xl": "3rem",
             "full": "9999px"
           },
-          spacing: {
-            "gutter-lg": "2rem",
-            "space-xl": "2.5rem",
-            "gutter-md": "1.5rem",
-            "space-sm": "0.5rem",
-            "margin": "1rem",
-            "margin-lg": "3rem",
-            "space-xs": "0.25rem",
-            "margin-md": "2rem",
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
             "space-md": "1rem",
+            "space-sm": "0.5rem",
             "space-lg": "1.5rem",
-            "gutter": "1rem"
+            "space-xl": "2rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem"
           },
-          fontFamily: {
-            "headline-sm": ["Plus Jakarta Sans"],
-            "body-sm": ["Plus Jakarta Sans"],
-            "headline-lg": ["Plus Jakarta Sans"],
-            "display-lg-mobile": ["Plus Jakarta Sans"],
-            "label-lg": ["Plus Jakarta Sans"],
-            "headline-lg-mobile": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
+          "fontFamily": {
             "headline-md": ["Plus Jakarta Sans"],
-            "label-md": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
             "label-sm": ["Plus Jakarta Sans"],
-            "display-lg": ["Plus Jakarta Sans"]
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "mono": ["JetBrains Mono", "monospace"]
           },
-          fontSize: {
-            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
             "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
-            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
-            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
-            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
-            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
-            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
             "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
-            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
-            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }]
           }
         }
       }
     }
   </script>
 <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1;
+    /* Mechanical press physical affordances */
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
     }
-    .material-symbols-outlined.fill-1 {
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+      box-shadow: 0 1px 0 var(--tw-shadow-color) !important;
+    }
+    .material-symbols-outlined {
       font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.outline-icon {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 <style>
@@ -132,229 +142,257 @@
     }
   </style>
   </head>
-<body class="bg-background text-on-surface antialiased select-none flex justify-center w-full min-h-screen">
-<!-- Mobile Root Canvas: Strictly 390px edge-to-edge -->
-<main class="w-[390px] min-h-screen bg-background relative flex flex-col pb-44 overflow-x-hidden">
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md min-h-screen flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Viewport Canvas Container: 390px native width, edge-to-edge -->
+<main class="w-[390px] max-w-[390px] min-h-screen bg-background flex flex-col pb-28 relative shadow-2xl">
 <!-- 1. Top App Bar -->
-<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-surface-variant shadow-[0_4px_0_0_#efe0d6]">
-<!-- Brand Logo / Wordmark -->
-<div class="flex items-center gap-1.5 active:translate-y-0.5 transition-transform">
-<div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-[0_2px_0_0_#003834]">
-<span class="material-symbols-outlined fill-1 text-[18px]">flight</span>
+<header class="w-full px-4 pt-3.5 pb-2.5 flex items-center justify-between sticky top-0 bg-background/95 backdrop-blur-md z-40">
+<!-- Left: Kite Brand mark & Wordmark -->
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-[10px] bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center shadow-[0_3px_0_#e2d8d0]">
+<!-- Vector Kite Emblem -->
+<svg class="w-5 h-5 drop-shadow-sm" fill="none" viewbox="0 0 24 24">
+<path d="M12 2L18.5 10L12 20L5.5 10L12 2Z" fill="#136B66"></path>
+<path d="M12 2L18.5 10L12 13.5V2Z" fill="#FE9D19"></path>
+<path d="M12 20L18.5 10L12 13.5V20Z" fill="#E28407"></path>
+<path d="M12 20C11.5 21.8 10 22.8 9 23" stroke="#895100" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
 </div>
-<span class="font-headline-sm text-headline-sm tracking-tight text-primary">Lexkite</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm tracking-tight text-primary leading-tight font-extrabold">Lexkite</span>
 </div>
-<!-- Gamified Status Chips & Profile Avatar -->
-<div class="flex items-center gap-2">
-<!-- Streak Chip -->
-<div class="flex items-center gap-1 bg-[#FFF1D6] border-2 border-[#E8C26E] rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#D9B055] active:translate-y-0.5 transition-transform cursor-pointer">
-<span class="material-symbols-outlined fill-1 text-[#E07900] text-[16px]">local_fire_department</span>
-<span class="font-label-sm text-label-sm text-[#5C3B00] font-extrabold">14</span>
 </div>
-<!-- Points / XP Chip -->
-<div class="flex items-center gap-1 bg-surface-container-highest border-2 border-outline-variant/60 rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#D8C9BF] active:translate-y-0.5 transition-transform cursor-pointer">
-<span class="material-symbols-outlined fill-1 text-secondary-container text-[16px]">bolt</span>
-<span class="font-label-sm text-label-sm text-on-surface font-extrabold">820</span>
+<!-- Right: Gamified Chips & Profile Badge -->
+<div class="flex items-center space-x-1.5">
+<!-- IELTS Exam pill -->
+<span class="px-2 py-0.5 bg-surface-container-high border border-outline-variant/60 rounded-full font-label-sm text-label-sm text-on-surface font-extrabold tracking-wider">
+          IELTS
+        </span>
+<!-- Flame Streak chip -->
+<div class="flex items-center space-x-0.5 px-2 py-0.5 bg-secondary-fixed/50 border border-secondary-container rounded-full text-on-secondary-fixed shadow-[0_2px_0_#ffb86c]">
+<span class="material-symbols-outlined text-[15px] text-secondary-container" data-icon="local_fire_department" data-weight="fill">local_fire_department</span>
+<span class="font-label-sm text-label-sm font-extrabold">14</span>
 </div>
-<!-- User Avatar Circle -->
-<div class="w-8 h-8 rounded-full bg-[#136A63] border-2 border-[#0B423E] text-on-primary flex items-center justify-center font-headline-sm text-[14px] shadow-[0_2px_0_0_#0B423E] cursor-pointer active:translate-y-0.5 transition-transform">
+<!-- Star XP chip -->
+<div class="flex items-center space-x-0.5 px-2 py-0.5 bg-surface-container-lowest border border-surface-variant rounded-full text-on-surface shadow-[0_2px_0_#eae1d8]">
+<span class="material-symbols-outlined text-[14px] text-secondary-container" data-icon="star" data-weight="fill">star</span>
+<span class="font-label-sm text-label-sm font-extrabold">820</span>
+</div>
+<!-- Profile Avatar Pill -->
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center border-2 border-primary-fixed shadow-[0_2px_0_#00514d]">
           L
         </div>
 </div>
 </header>
-<!-- Scrollable Screen Body -->
-<div class="px-4 pt-3 flex flex-col gap-4">
-<!-- 2. Teacher Slot Card -->
-<section class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3 shadow-[0_4px_0_0_#efe0d6] flex gap-3 items-stretch">
-<!-- Dashed Teacher Slot Container -->
-<div class="w-20 shrink-0 border-2 border-dashed border-outline-variant/80 rounded-xl bg-surface-container-low/60 flex flex-col items-center justify-center p-1.5 text-center">
-<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary mb-1">
-<span class="material-symbols-outlined fill-1 text-[20px]">school</span>
+<!-- Content Stack -->
+<div class="px-4 flex flex-col space-y-3.5 pt-1">
+<!-- 2. Teacher Cue Card (Stimulus Context) -->
+<section class="w-full bg-surface-container-lowest rounded-[20px] p-3.5 border-2 border-[#EFE7DA] shadow-[0_4px_0_#E2D8D0] flex items-start space-x-3">
+<!-- Dashed empty teacher badge slot -->
+<div class="flex-shrink-0 flex flex-col items-center">
+<div class="w-12 h-12 rounded-[16px] border-2 border-dashed border-[#0F766E] bg-primary-fixed/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="school" data-weight="fill">school</span>
 </div>
-<span class="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-bold leading-tight">TEACHER<br/>SLOT</span>
+<!-- Tactile dots below -->
+<div class="flex space-x-1 mt-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
 </div>
-<!-- Speech Bubble Container -->
-<div class="flex-1 flex flex-col justify-between py-0.5">
-<div>
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="font-label-sm text-[11px] tracking-wider uppercase text-primary font-bold">Carlos • IELTS Speaking Coach</span>
 </div>
-<p class="font-headline-sm text-[15px] leading-snug text-on-surface font-bold">
-              “Steal these for Speaking Part 3.”
-            </p>
+<!-- Content -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center space-x-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-[#4A3B2F] font-bold tracking-tight">Carlos • IELTS Speaking Coach</span>
 </div>
-<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant mt-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-snug">
+            “Steal these for Speaking Part 3.”
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-tight">
             High-scoring framing devices that buy thinking time while boosting lexical resource.
           </p>
 </div>
 </section>
-<!-- 3. Header Section & Controls -->
-<section class="flex flex-col gap-3">
-<!-- Headline Row -->
+<!-- 3. Section Header Card & Filters -->
+<section class="w-full bg-surface-container-lowest rounded-[22px] p-4 border-2 border-[#EFE7DA] shadow-[0_4px_0_#E2D8D0] space-y-3.5">
+<div class="flex items-start justify-between">
 <div>
-<div class="flex items-center gap-2">
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Sentence Patterns</h1>
-<span class="bg-[#136A63] text-on-primary font-label-sm text-[11px] px-2.5 py-0.5 rounded-full border border-[#0B423E] shadow-[0_2px_0_0_#0B423E]">
-              Band 7.5+
-            </span>
+<div class="flex items-center space-x-2">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tight">
+                Sentence Patterns
+              </h1>
+<!-- Amber Pill Badge -->
+<span class="px-2.5 py-0.5 bg-[#F59E0B] text-[#1C1003] rounded-full font-label-sm text-label-sm font-extrabold shadow-[0_2px_0_#B45309]">
+                Band 7.5+
+              </span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant -mt-0.5">
-            Useful patterns for Speaking and Writing
-          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">
+              Useful patterns for Speaking and Writing
+            </p>
 </div>
-<!-- Search / Filter Input -->
-<div class="relative flex items-center">
-<span class="material-symbols-outlined text-outline absolute left-3 text-[20px]">search</span>
-<input class="w-full bg-surface-container-lowest border-2 border-surface-variant rounded-xl pl-9 pr-14 py-2 font-body-sm text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary shadow-[0_3px_0_0_#efe0d6] transition-all" placeholder="Filter patterns or prompt..." type="text"/>
-<div class="absolute right-2.5 px-2 py-0.5 rounded-md bg-surface-variant border border-outline-variant/60 font-label-sm text-[11px] text-on-surface-variant font-bold">
+<!-- Shortcut Pill -->
+<div class="px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/50 font-label-sm text-label-sm text-on-surface-variant font-bold shadow-sm">
             ⌘K
           </div>
 </div>
-<!-- Filter Chips Carousel -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-<!-- Active Chip -->
-<button class="shrink-0 flex items-center gap-1.5 bg-[#136A63] text-on-primary border-2 border-[#0B423E] px-3.5 py-1.5 rounded-full font-label-md text-label-md shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 transition-transform">
+<!-- Category Filter Pills (Tactile scrollable or stacked row) -->
+<div class="flex items-center space-x-2 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-none">
+<!-- Active Pill: Opinions 5 -->
+<button class="tactile-btn flex items-center space-x-1.5 px-3 py-1.5 bg-[#0D5E58] text-white rounded-full font-label-md text-label-md font-bold shadow-[0_3px_0_#073A36] flex-shrink-0 active:translate-y-1">
 <span>Opinions</span>
-<span class="bg-[#0B423E] text-on-primary text-[11px] px-1.5 py-0.2 rounded-full font-extrabold">5</span>
+<span class="px-1.5 py-0.2 bg-[#F59E0B] text-[#1C1003] rounded-full font-label-sm text-[11px] font-extrabold">5</span>
 </button>
-<!-- Inactive Chip 1 -->
-<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant hover:border-outline px-3.5 py-1.5 rounded-full font-label-md text-label-md shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
+<!-- Neutral tactile: Agreeing -->
+<button class="tactile-btn px-3 py-1.5 bg-surface-container rounded-full font-label-md text-label-md text-on-surface font-bold border-2 border-[#E2D8D0] shadow-[0_3px_0_#D4C7B3] flex-shrink-0">
             Agreeing
           </button>
-<!-- Inactive Chip 2 -->
-<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant hover:border-outline px-3.5 py-1.5 rounded-full font-label-md text-label-md shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
+<!-- Neutral tactile: Describing trends -->
+<button class="tactile-btn px-3 py-1.5 bg-surface-container rounded-full font-label-md text-label-md text-on-surface font-bold border-2 border-[#E2D8D0] shadow-[0_3px_0_#D4C7B3] flex-shrink-0">
             Describing trends
           </button>
 </div>
 </section>
-<!-- 4. Section Subheader -->
-<section class="flex items-center justify-between pt-1">
-<span class="font-label-sm text-[11px] tracking-wider text-on-surface-variant uppercase font-bold">
-          CURATED FOR OPINIONS (5 PATTERNS)
-        </span>
-<span class="font-label-sm text-[12px] text-primary font-bold flex items-center gap-0.5">
-<span class="material-symbols-outlined text-[15px] fill-1">check_circle</span>
+<!-- 4. Curated Status Strip -->
+<div class="w-full flex items-center justify-between px-1.5 pt-0.5">
+<div class="flex items-center space-x-1.5 font-label-sm text-[11px] font-extrabold tracking-wider text-[#4A3B2F] uppercase">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>CURATED FOR OPINIONS (5 PATTERNS)</span>
+</div>
+<div class="px-2 py-0.5 bg-surface-container rounded-full border border-outline-variant font-label-sm text-[11px] text-on-surface-variant font-bold">
           All loaded
-        </span>
-</section>
-<!-- 5. Sentence Pattern Cards -->
-<section class="flex flex-col gap-3.5">
-<!-- Formula 01 Card -->
-<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] transition-transform">
-<!-- Card Header Row -->
-<div class="flex items-center justify-between mb-2.5">
-<div class="flex items-center gap-2">
-<span class="bg-surface-container-high text-on-surface-variant border border-outline-variant/60 font-label-sm text-[10px] px-2 py-0.5 rounded-md font-extrabold tracking-wider">
-                FORMULA 01
-              </span>
-<h2 class="font-headline-sm text-[16px] text-on-surface font-bold">Stating viewpoint</h2>
+        </div>
 </div>
-<button class="w-8 h-8 rounded-full bg-surface-container-low border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[18px]">volume_up</span>
+<!-- 5. Formula Pattern Cards -->
+<!-- Card 1 -->
+<article class="w-full bg-surface-container-lowest rounded-[22px] p-4 border-2 border-[#EFE7DA] shadow-[0_4px_0_#E2D8D0] space-y-3 hover:translate-y-[-1px] transition-transform">
+<!-- Header row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="px-2.5 py-0.5 bg-primary-fixed text-primary font-label-sm text-label-sm font-extrabold rounded-md tracking-wider">
+              FORMULA 01
+            </span>
+<h3 class="font-headline-sm text-headline-sm font-extrabold text-on-surface">
+              Stating viewpoint
+            </h3>
+</div>
+<!-- Audio tactile speaker button -->
+<button aria-label="Listen pronunciation" class="tactile-btn w-9 h-9 rounded-xl bg-surface-container-low border-2 border-[#E5DACB] shadow-[0_3px_0_#D6C7B2] flex items-center justify-center text-primary active:shadow-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="volume_up" data-weight="fill">volume_up</span>
 </button>
 </div>
-<!-- Template Frame Container -->
-<div class="bg-[#EEF7F5] border border-[#BDE3DE] rounded-xl p-2.5 mb-2.5">
-<div class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-bold mb-1">
-              TEMPLATE FRAME
-            </div>
-<p class="font-headline-sm text-[15px] text-[#00504B] font-extrabold leading-snug">
-              “I’d argue that + clause”
-            </p>
-</div>
-<!-- Exam Delivery Box -->
-<div class="bg-surface-bright border border-surface-variant/80 rounded-xl p-2.5">
-<div class="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-1">
-              EXAM DELIVERY
-            </div>
-<p class="font-body-md text-[13.5px] leading-relaxed text-on-surface">
-              “<mark class="bg-emerald-100 text-teal-900 font-bold px-1.5 py-0.5 rounded">I’d argue that</mark> public transport subsidies yield far broader economic benefits than highway expansion.”
-            </p>
-</div>
-</article>
-<!-- Formula 02 Card -->
-<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] transition-transform">
-<!-- Card Header Row -->
-<div class="flex items-center justify-between mb-2.5">
-<div class="flex items-center gap-2">
-<span class="bg-surface-container-high text-on-surface-variant border border-outline-variant/60 font-label-sm text-[10px] px-2 py-0.5 rounded-md font-extrabold tracking-wider">
-                FORMULA 02
-              </span>
-<h2 class="font-headline-sm text-[16px] text-on-surface font-bold">Nuanced stance</h2>
-</div>
-<button class="w-8 h-8 rounded-full bg-surface-container-low border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[18px]">volume_up</span>
-</button>
-</div>
-<!-- Template Frame Container -->
-<div class="bg-[#EEF7F5] border border-[#BDE3DE] rounded-xl p-2.5 mb-2.5">
-<div class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-bold mb-1">
-              TEMPLATE FRAME
-            </div>
-<p class="font-headline-sm text-[15px] text-[#00504B] font-extrabold leading-snug">
-              “It is widely held that..., yet I believe...”
-            </p>
-</div>
-<!-- Exam Delivery Box -->
-<div class="bg-surface-bright border border-surface-variant/80 rounded-xl p-2.5">
-<div class="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-1">
-              EXAM DELIVERY
-            </div>
-<p class="font-body-md text-[13.5px] leading-relaxed text-on-surface">
-              “<mark class="bg-emerald-100 text-teal-900 font-bold px-1.5 py-0.5 rounded">It is widely held that</mark> degrees guarantee success, <mark class="bg-emerald-100 text-teal-900 font-bold px-1.5 py-0.5 rounded">yet I believe</mark> adaptive micro-skills matter more.”
-            </p>
-</div>
-</article>
-</section>
-</div>
-<!-- 6. Floating Action Strip (CTA) -->
-<div class="fixed bottom-[68px] w-[390px] px-4 py-2 z-30 pointer-events-none">
-<button class="pointer-events-auto w-full bg-[#FF9600] active:bg-[#F28C00] text-[#1E1711] font-label-lg text-label-lg py-3.5 px-4 rounded-2xl border-2 border-[#D97300] shadow-[0_4px_0_0_#C25E00] active:shadow-none active:translate-y-1 transition-all flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="text-xl leading-none">⚡</span>
-<span class="font-extrabold tracking-tight">Practise these 5</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="bg-[#FFF0D4] text-[#633700] text-[11px] font-extrabold px-2.5 py-1 rounded-full border border-[#E8C26E]">
-            5 min drill
+<!-- Stimulus Recessed Well: Template Frame -->
+<div class="bg-[#F4EFE6] rounded-xl p-3 border border-[#E5DACB]">
+<span class="block font-label-sm text-[11px] font-extrabold tracking-wider text-[#6F7978] uppercase mb-1">
+            TEMPLATE FRAME
           </span>
-<span class="material-symbols-outlined text-[20px] font-extrabold">arrow_forward</span>
+<p class="font-mono text-body-md font-bold text-[#136B66] italic">
+            “I'd argue that + clause”
+          </p>
 </div>
+<!-- Exam Delivery Context Box -->
+<div class="pt-1">
+<span class="inline-flex items-center space-x-1 font-label-sm text-[11px] font-extrabold tracking-wider text-secondary uppercase mb-1.5">
+<span class="material-symbols-outlined text-[13px] text-secondary-container" data-icon="star" data-weight="fill">star</span>
+<span>EXAM DELIVERY</span>
+</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            “<mark class="bg-amber-100 text-amber-950 font-bold px-1.5 py-0.5 rounded shadow-sm border border-amber-200">I'd argue that</mark> public transport subsidies yield far broader economic benefits than highway expansion.”
+          </p>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="w-full bg-surface-container-lowest rounded-[22px] p-4 border-2 border-[#EFE7DA] shadow-[0_4px_0_#E2D8D0] space-y-3 hover:translate-y-[-1px] transition-transform">
+<!-- Header row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="px-2.5 py-0.5 bg-primary-fixed text-primary font-label-sm text-label-sm font-extrabold rounded-md tracking-wider">
+              FORMULA 02
+            </span>
+<h3 class="font-headline-sm text-headline-sm font-extrabold text-on-surface">
+              Nuanced stance
+            </h3>
+</div>
+<!-- Audio tactile speaker button -->
+<button aria-label="Listen pronunciation" class="tactile-btn w-9 h-9 rounded-xl bg-surface-container-low border-2 border-[#E5DACB] shadow-[0_3px_0_#D6C7B2] flex items-center justify-center text-primary active:shadow-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="volume_up" data-weight="fill">volume_up</span>
 </button>
 </div>
-<!-- 7. Canonical Lexkite Bottom Tab Bar (5 equal tabs) -->
-<nav class="fixed bottom-0 w-[390px] bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_0_#efe0d6] z-40 py-1.5 px-2 flex justify-between items-center">
-<!-- Tab 1: Today -->
-<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[22px]">today</span>
-<span class="font-label-sm text-[11px] font-bold mt-0.5">Today</span>
+<!-- Stimulus Recessed Well: Template Frame -->
+<div class="bg-[#F4EFE6] rounded-xl p-3 border border-[#E5DACB]">
+<span class="block font-label-sm text-[11px] font-extrabold tracking-wider text-[#6F7978] uppercase mb-1">
+            TEMPLATE FRAME
+          </span>
+<p class="font-mono text-body-md font-bold text-[#136B66] italic">
+            “It is widely held that..., yet I believe...”
+          </p>
+</div>
+<!-- Exam Delivery Context Box -->
+<div class="pt-1">
+<span class="inline-flex items-center space-x-1 font-label-sm text-[11px] font-extrabold tracking-wider text-secondary uppercase mb-1.5">
+<span class="material-symbols-outlined text-[13px] text-secondary-container" data-icon="star" data-weight="fill">star</span>
+<span>EXAM DELIVERY</span>
+</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            “<mark class="bg-amber-100 text-amber-950 font-bold px-1.5 py-0.5 rounded shadow-sm border border-amber-200">It is widely held that</mark> degrees guarantee success, <mark class="bg-amber-100 text-amber-950 font-bold px-1.5 py-0.5 rounded shadow-sm border border-amber-200">yet I believe</mark> adaptive micro-skills matter more.”
+          </p>
+</div>
+</article>
+<!-- 6. Bottom Action CTA -->
+<div class="pt-2">
+<button class="tactile-btn w-full h-[54px] rounded-2xl bg-[#F59E0B] text-[#1C1003] font-headline-sm text-headline-sm font-extrabold px-4 flex items-center justify-between shadow-[0_4px_0_#B45309] active:translate-y-[3px] active:shadow-[0_1px_0_#B45309]">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt" data-weight="fill">bolt</span>
+<span>Practise these 5</span>
+</div>
+<div class="px-2.5 py-1 bg-[#FFF8F3]/90 rounded-full font-label-sm text-label-sm text-[#1C1003] font-extrabold shadow-sm border border-[#E2D8D0]">
+            5 min drill
+          </div>
 </button>
-<!-- Tab 2: Vocab -->
-<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 relative active:translate-y-0.5 transition-transform">
+</div>
+</div>
+<!-- 7. Shared Component: BottomNavBar -->
+<!-- Destination: Skills (active index 2) as this page represents Sentence Patterns / Skills training -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-outline-variant dark:border-outline shadow-[0_-4px_0_theme(colors.outline-variant)] dark:shadow-none">
+<!-- Destination 1: Today -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100">
+<span class="material-symbols-outlined text-[22px] outline-icon" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</button>
+<!-- Destination 2: Vocab (With red notification badge) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 relative">
 <div class="relative">
-<span class="material-symbols-outlined text-[22px]">menu_book</span>
-<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#FF9600] border border-white"></span>
+<span class="material-symbols-outlined text-[22px] outline-icon" data-icon="menu_book">menu_book</span>
+<span class="absolute -top-1 -right-2 px-1 bg-tertiary-container text-on-tertiary font-label-sm text-[10px] rounded-full font-extrabold leading-none py-0.5">3</span>
 </div>
-<span class="font-label-sm text-[11px] font-bold mt-0.5">Vocab</span>
+<span class="font-label-sm text-label-sm mt-0.5">Vocab</span>
 </button>
-<!-- Tab 3: Skills (Active) -->
-<button class="flex-1 flex flex-col items-center justify-center py-1">
-<div class="bg-[#EEF7F5] border-2 border-[#136A63] text-primary px-3.5 py-1 rounded-full flex flex-col items-center shadow-[0_2px_0_0_#136A63]">
-<span class="material-symbols-outlined fill-1 text-[20px]">psychology</span>
-<span class="font-label-sm text-[11px] font-extrabold leading-none mt-0.5">Skills</span>
-</div>
+<!-- Destination 3: Skills (ACTIVE DESTINATION) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3 py-1.5 shadow-[0_2px_0_theme(colors.secondary)] active:translate-y-[2px] active:shadow-none transition-transform duration-100">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology" data-weight="fill">psychology</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-extrabold">Skills</span>
 </button>
-<!-- Tab 4: Tests -->
-<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[22px]">assignment</span>
-<span class="font-label-sm text-[11px] font-bold mt-0.5">Tests</span>
+<!-- Destination 4: Tests -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100">
+<span class="material-symbols-outlined text-[22px] outline-icon" data-icon="quiz">quiz</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
 </button>
-<!-- Tab 5: Me -->
-<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="font-label-sm text-[11px] font-bold mt-0.5">Me</span>
+<!-- Destination 5: Me -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100">
+<span class="material-symbols-outlined text-[22px] outline-icon" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
 </button>
 </nav>
 </main>
+<!-- Interactive micro-feedback script -->
+<script>
+    document.querySelectorAll('.tactile-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Haptic feel vibration if supported
+        if (navigator.vibrate) {
+          navigator.vibrate(10);
+        }
+      });
+    });
+  </script>
 </body></html>

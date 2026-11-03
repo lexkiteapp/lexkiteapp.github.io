@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <title>Lexkite — Connect the Lexkite add-on</title>
@@ -16,151 +16,106 @@
       theme: {
         extend: {
           colors: {
-            "outline-variant": "#bec9c7",
-            "on-secondary-container": "#663b00",
-            "surface-container-highest": "#eae1d8",
-            "primary-fixed": "#a4f0e9",
-            "on-tertiary-container": "#ffd0c9",
-            "surface-container-high": "#f0e7de",
-            "tertiary-fixed-dim": "#ffb4a8",
-            "surface-variant": "#eae1d8",
+            "surface-container-lowest": "#051013",
+            "surface": "#091518",
+            "outline-variant": "#3d4947",
+            "outline": "#879391",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-low": "#121d20",
+            "tertiary-fixed-dim": "#f4bf40",
+            "tertiary": "#f4bf40",
+            "on-primary-fixed-variant": "#00504b",
+            "primary": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "background": "#091518",
+            "surface-tint": "#6bd8ce",
+            "on-error": "#690005",
+            "inverse-primary": "#006a64",
+            "surface-container-high": "#202c2f",
+            "inverse-surface": "#d8e5e9",
+            "on-surface-variant": "#bcc9c7",
+            "secondary": "#ffb4a6",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary-fixed": "#ffdf9e",
+            "error": "#ffb4ab",
+            "tertiary-container": "#ba8b00",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#ffa493",
+            "surface-variant": "#2b373a",
+            "surface-container-highest": "#2b373a",
+            "secondary-fixed": "#ffdad3",
+            "on-tertiary": "#402e00",
+            "surface-dim": "#091518",
+            "error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary": "#660800",
+            "primary-container": "#2ba39a",
+            "surface-container": "#162125",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-bright": "#2f3b3e",
+            "primary-fixed": "#88f5ea",
+            "on-primary": "#003733",
+            "on-tertiary-container": "#392900",
+            "on-background": "#d8e5e9",
             "on-primary-fixed": "#00201e",
-            "on-error": "#ffffff",
-            "secondary-fixed": "#ffdcbc",
-            "on-secondary-fixed-variant": "#683c00",
-            "outline": "#6f7978",
-            "on-surface-variant": "#3f4947",
-            "on-primary-container": "#9ce9e2",
-            "surface-tint": "#106a65",
-            "surface-container-lowest": "#ffffff",
-            "inverse-primary": "#88d4cd",
-            "primary-container": "#136b66",
-            "secondary": "#895100",
-            "on-secondary-fixed": "#2c1600",
-            "on-surface": "#1f1b16",
-            "tertiary": "#8e190f",
-            "inverse-surface": "#34302a",
-            "on-primary-fixed-variant": "#00504c",
-            "on-tertiary-fixed-variant": "#8c170e",
-            "on-tertiary": "#ffffff",
-            "error-container": "#ffdad6",
-            "secondary-container": "#fe9d19",
-            "on-primary": "#ffffff",
-            "surface-bright": "#fff8f3",
-            "error": "#ba1a1a",
-            "inverse-on-surface": "#f9efe6",
-            "on-background": "#1f1b16",
-            "on-tertiary-fixed": "#410000",
-            "surface-dim": "#e2d8d0",
-            "tertiary-fixed": "#ffdad4",
-            "surface-container-low": "#fcf2e9",
-            "surface-container": "#f6ece4",
-            "secondary-fixed-dim": "#ffb86c",
-            "tertiary-container": "#b03224",
-            "primary": "#00514d",
-            "background": "#fff8f3",
-            "surface": "#fff8f3",
-            "on-secondary": "#ffffff",
-            "primary-fixed-dim": "#88d4cd",
-            "on-error-container": "#93000a"
+            "inverse-on-surface": "#263236",
+            "on-primary-container": "#00322e"
           },
           borderRadius: {
-            "DEFAULT": "1rem",
-            "lg": "2rem",
-            "xl": "3rem",
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
             "full": "9999px"
           },
-          spacing: {
-            "gutter": "1rem",
-            "gutter-desktop": "1.5rem",
-            "space-xl": "2rem",
-            "space-sm": "0.5rem",
-            "margin": "1rem",
-            "margin-tablet": "1.5rem",
-            "margin-desktop": "2.5rem",
-            "space-md": "1rem",
-            "space-xs": "0.25rem",
-            "space-lg": "1.5rem"
-          },
           fontFamily: {
-            "headline-lg-mobile": ["Plus Jakarta Sans"],
-            "headline-lg": ["Plus Jakarta Sans"],
-            "label-lg": ["Plus Jakarta Sans"],
-            "headline-md": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "label-sm": ["Plus Jakarta Sans"],
-            "headline-xl-mobile": ["Plus Jakarta Sans"],
-            "body-sm": ["Plus Jakarta Sans"],
-            "headline-xl": ["Plus Jakarta Sans"],
-            "label-md": ["Plus Jakarta Sans"],
-            "headline-sm": ["Plus Jakarta Sans"]
-          },
-          fontSize: {
-            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }],
-            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }],
-            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }],
-            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
-            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
-            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
-            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }],
-            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
-            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
-            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
-            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
-            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }]
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
           }
-        }
-      }
-    };
+        },
+      },
+    }
   </script>
 <style>
     .material-symbols-outlined {
-      font-family: 'Material Symbols Outlined';
-      font-weight: normal;
-      font-style: normal;
-      font-size: 20px;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
       line-height: 1;
       display: inline-block;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      -webkit-font-feature-settings: 'liga';
-      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
     }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile 3D shadows matching Lexkite kit */
     .tactile-card {
-      box-shadow: 0 4px 0 #E2D7C7;
+      box-shadow: 0 5px 0 #060F12;
     }
-    .tactile-btn-amber {
-      box-shadow: 0 4px 0 #D97B00;
+    .tactile-btn-primary {
+      box-shadow: 0 6px 0 #ba8b00;
     }
-    .tactile-btn-amber:active {
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #ba8b00;
+    }
+    .tactile-btn-secondary {
+      box-shadow: 0 4px 0 #060F12;
+    }
+    .tactile-btn-secondary:active {
       transform: translateY(3px);
-      box-shadow: 0 1px 0 #D97B00;
+      box-shadow: 0 1px 0 #060F12;
     }
-    .tactile-btn-teal {
-      box-shadow: 0 4px 0 #0C4542;
+    .tactile-btn-icon {
+      box-shadow: 0 3px 0 #060F12;
     }
-    .tactile-btn-teal:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 #0C4542;
-    }
-    .tactile-btn-ghost {
-      box-shadow: 0 4px 0 #D6C7B2;
-    }
-    .tactile-btn-ghost:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 #D6C7B2;
-    }
-    .tactile-icon-btn {
-      box-shadow: 0 3px 0 #D6C7B2;
-    }
-    .tactile-icon-btn:active {
+    .tactile-btn-icon:active {
       transform: translateY(2px);
-      box-shadow: 0 1px 0 #D6C7B2;
-    }
-    .font-mono-code {
-      font-family: 'JetBrains Mono', monospace;
+      box-shadow: 0 1px 0 #060F12;
     }
   </style>
 <style>
@@ -168,103 +123,230 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-</head>
-<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- Mobile Viewport Container: Edge-to-Edge 390px, Task-focused screen without global nav shell -->
-<main class="w-full max-w-[390px] min-h-screen bg-background flex flex-col px-margin pb-space-xl pt-space-md">
-<!-- 1. Top Bar -->
-<header class="flex items-center justify-between w-full h-14 mb-space-sm">
-<button aria-label="Back" class="tactile-icon-btn w-11 h-11 rounded-full bg-surface-container border-2 border-outline-variant/50 flex items-center justify-center text-primary transition-transform" onclick="window.history.back()" type="button">
-<span class="material-symbols-outlined font-bold" data-icon="arrow_back">arrow_back</span>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen selection:bg-primary selection:text-on-primary">
+<main class="w-full max-w-[390px] mx-auto min-h-screen bg-surface flex flex-col pb-28 relative">
+<!-- Top Bar Component -->
+<header class="flex justify-between items-center w-full px-4 h-16 sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b-2 border-outline-variant">
+<button aria-label="Back" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container border-2 border-outline-variant text-on-surface tactile-btn-icon hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
 </button>
-<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high border-2 border-outline-variant/40">
-<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-primary tracking-wider font-bold">BROWSER SYNC</span>
+<!-- Center Pill: Browser Sync -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high border-2 border-outline-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#6bd8ce]"></span>
+<span class="font-headline font-extrabold text-[12px] tracking-wider text-primary">BROWSER SYNC</span>
 </div>
-<button aria-label="Options" class="tactile-icon-btn w-11 h-11 rounded-full bg-surface-container border-2 border-outline-variant/50 flex items-center justify-center text-on-surface-variant transition-transform" type="button">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+<button aria-label="Help" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container border-2 border-outline-variant text-primary tactile-btn-icon hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]">help_outline</span>
 </button>
 </header>
-<!-- 2. Title & Subtitle Section -->
-<section class="mt-space-xs mb-space-md"><h1 class="font-headline-lg-mobile text-headline-lg-mobile text-white font-extrabold tracking-tight leading-tight">Connect the Lexkite add-on</h1><p class="font-body-md text-body-md text-[#CBD5E1] mt-1.5 leading-normal">Link your desktop browser to study vocabulary everywhere you read.</p></section>
-<!-- 3. Sync Illustration Card -->
-<section class="mb-space-md"><div class="flex items-center justify-between px-1 mb-1.5"><span class="font-label-sm text-label-sm text-[#2DD4BF] font-bold tracking-wider uppercase">SYNC FLOW</span><span class="font-label-sm text-label-sm text-[#5EEAD4] font-bold">PHONE APP → DESKTOP</span></div><div class="tactile-card w-full bg-[#10252B] rounded-DEFAULT border-2 border-[#1D434B] p-space-md flex items-center justify-between relative overflow-hidden"><div class="absolute inset-x-8 top-1/2 -translate-y-1/2 h-0.5 border-b-2 border-dashed border-[#234E57] z-0"></div><div class="relative z-10 flex flex-col items-center"><div class="w-14 h-14 rounded-2xl bg-[#142E36] border-2 border-[#234E57] flex items-center justify-center text-[#2DD4BF] shadow-sm"><svg class="w-7 h-7 fill-current text-[#2DD4BF]" viewbox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2h-4zM4 5h16v11H4V5z"></path></svg></div><span class="font-label-md text-label-md text-white font-bold mt-2">Chrome Add-on</span><span class="font-label-sm text-label-sm text-[#CBD5E1]">Desktop Web</span></div><div class="relative z-10 flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#136B66] text-white flex items-center justify-center shadow-md border-2 border-[#234E57]"><svg class="w-5 h-5 fill-current text-[#A4F0E9]" viewbox="0 0 24 24"><path d="m18 12 4-4-4-4v3H8v2h10v3zm-12 2-4 4 4 4v-3h10v-2H6v-3z"></path></svg></div><span class="px-2.5 py-0.5 mt-1 rounded-full bg-[#2DD4BF] text-[#003733] font-label-sm text-[10px] uppercase font-extrabold tracking-wider">AUTO-LINK</span></div><div class="relative z-10 flex flex-col items-center"><div class="w-14 h-14 rounded-2xl bg-[#142E36] border-2 border-[#234E57] flex items-center justify-center text-[#2DD4BF] shadow-sm"><svg class="w-7 h-7 fill-current text-[#2DD4BF]" viewbox="0 0 24 24"><path d="M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></svg></div><span class="font-label-md text-label-md text-white font-bold mt-2">Lexkite App</span><span class="font-label-sm text-label-sm text-[#2DD4BF] font-bold">Active Now</span></div></div></section>
-<!-- 4. One-Time Pairing Code Card -->
-<section class="mb-space-md"><div class="tactile-card w-full bg-[#10252B] rounded-DEFAULT border-2 border-[#1D434B] p-space-md"><div class="flex items-center justify-between mb-space-sm"><span class="font-label-sm text-label-sm text-[#5EEAD4] font-extrabold tracking-wider uppercase">ONE-TIME PAIRING CODE</span><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F59E0B] text-[#1C1003] border border-[#BA8B00] shadow-sm"><svg class="w-3.5 h-3.5 fill-current text-[#1C1003]" viewbox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg><span class="font-label-sm text-label-sm font-extrabold tracking-tight" id="timer-display">Expires in 4:56</span></div></div><div class="p-space-sm bg-[#051013] rounded-xl border-2 border-[#1A333A] flex items-center justify-between"><div class="pl-2"><span class="font-mono-code text-[26px] font-extrabold tracking-widest text-white select-all" id="pairing-code">K7P - Q4M</span></div><button class="tactile-btn-teal px-4 py-2.5 rounded-xl bg-[#136B66] text-white font-label-md text-label-md flex items-center gap-1.5 transition-all" id="copy-btn" onclick="copyPairingCode()" type="button"><svg class="w-4 h-4 fill-current text-[#A4F0E9]" viewbox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg><span class="text-white font-bold" id="copy-btn-text">Copy</span></button></div></div></section>
-<!-- 5. Quick Setup Steps Card -->
-<section class="mb-space-md"><div class="tactile-card w-full bg-[#10252B] rounded-DEFAULT border-2 border-[#1D434B] p-space-md"><h2 class="font-label-sm text-label-sm text-[#2DD4BF] font-extrabold tracking-wider uppercase mb-space-md">QUICK SETUP STEPS</h2><div class="space-y-4"><div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#003733] flex items-center justify-center font-label-md text-label-md font-extrabold shrink-0 mt-0.5">1</div><div><p class="font-label-md text-label-md text-white font-bold leading-snug">Open the add-on</p><p class="font-body-sm text-body-sm text-[#CBD5E1] mt-0.5 leading-normal">Click the Lexkite kite icon on your browser toolbar.</p></div></div><div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#003733] flex items-center justify-center font-label-md text-label-md font-extrabold shrink-0 mt-0.5">2</div><div><p class="font-label-md text-label-md text-white font-bold leading-snug">Choose Sign in with code</p><p class="font-body-sm text-body-sm text-[#CBD5E1] mt-0.5 leading-normal">Select the code sign-in option on the welcome screen.</p></div></div><div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#003733] flex items-center justify-center font-label-md text-label-md font-extrabold shrink-0 mt-0.5">3</div><div><p class="font-label-md text-label-md text-white font-bold leading-snug">Paste the code</p><p class="font-body-sm text-body-sm text-[#CBD5E1] mt-0.5 leading-normal">Enter <span class="font-mono-code font-bold text-[#5EEAD4]">K7P-Q4M</span> to sync your word list and flashcards.</p></div></div></div></div></section>
-<!-- 6. Teacher Ama Coach Tip / Slot -->
-<section class="mb-space-lg flex items-center gap-3"><div class="teacher-slot w-16 h-16 rounded-2xl bg-[#10252B] border-2 border-dashed border-[#234E57] shrink-0 flex items-center justify-center relative shadow-sm text-[#2DD4BF]/60"><svg class="w-7 h-7 fill-current" viewbox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.7L4.7 9 12 5.05 19.3 9 12 11.7zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"></path></svg></div><div class="tactile-card flex-1 bg-[#142E36] rounded-2xl border-2 border-[#1D434B] p-3 relative"><div class="flex items-center gap-1.5 mb-1"><span class="px-2 py-0.5 rounded-full bg-[#F59E0B] text-[#1C1003] font-label-sm text-[10px] font-extrabold uppercase tracking-wide">TEACHER AMA</span></div><p class="font-body-sm text-body-sm text-white font-semibold italic">“Your words will sync both ways.”</p></div></section>
-<!-- 7. Action Buttons & Security Footer -->
-<section class="mt-auto space-y-3"><button class="tactile-btn-amber w-full h-14 rounded-2xl bg-[#F59E0B] font-label-lg text-label-lg font-extrabold flex items-center justify-center gap-2 transition-transform text-[#1C1003]" type="button"><span>Done</span><span class="text-xl leading-none font-bold">✓</span></button><button class="tactile-btn-ghost w-full h-12 rounded-2xl bg-[#142E36] border-2 border-[#234E57] text-[#E2E8F0] font-label-md text-label-md font-bold flex items-center justify-center gap-2 transition-transform" id="refresh-btn" onclick="generateNewCode()" type="button"><svg class="w-4 h-4 fill-current text-[#2DD4BF]" id="refresh-icon" viewbox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg><span>Get a new code</span></button><footer class="pt-2 pb-1 text-center"><p class="font-label-sm text-[11px] text-[#94A3B8] flex items-center justify-center gap-1.5 leading-snug"><svg class="w-3.5 h-3.5 fill-current text-[#2DD4BF] shrink-0" viewbox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg><span>End-to-end encrypted · Ready for IELTS &amp; TOEIC study decks</span></p></footer></section>
+<!-- Main Content Flow -->
+<div class="px-4 pt-5 pb-6 flex flex-col gap-5">
+<!-- Headline Hero -->
+<section class="flex flex-col gap-1.5">
+<h1 class="font-display font-extrabold text-2xl tracking-tight text-white leading-tight">
+          Connect the Lexkite add-on
+        </h1>
+<p class="font-body text-sm font-medium text-on-surface-variant leading-relaxed">
+          Link your desktop browser to study vocabulary everywhere you read.
+        </p>
+</section>
+<!-- SECTION 1: SYNC FLOW Card -->
+<section class="bg-surface-container rounded-2xl p-4 border-2 border-outline-variant tactile-card relative overflow-hidden">
+<!-- Card Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">sync</span>
+<span class="font-headline font-extrabold text-xs tracking-wider text-primary">SYNC FLOW</span>
+</div>
+<span class="font-headline font-bold text-[11px] text-primary bg-surface-container-low px-2 py-0.5 rounded-md border border-outline-variant/40">
+            PHONE APP → DESKTOP
+          </span>
+</div>
+<!-- Visual Flow Nodes -->
+<div class="pt-4 flex items-center justify-between gap-2">
+<!-- Desktop Block -->
+<div class="flex-1 bg-surface-container-low border-2 border-outline-variant rounded-xl p-3 flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-2 border border-outline-variant">
+<span class="material-symbols-outlined text-[22px]">laptop_mac</span>
+</div>
+<span class="font-headline font-bold text-xs text-white leading-tight">Desktop Web</span>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5">Chrome Add–on</span>
+</div>
+<!-- Connector with Auto-Link Badge -->
+<div class="flex flex-col items-center gap-1 px-1">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_2px_0_#0c4542]">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</div>
+<span class="font-headline font-extrabold text-[9px] tracking-wider text-primary">AUTO–LINK</span>
+</div>
+<!-- Phone Block -->
+<div class="flex-1 bg-surface-container-low border-2 border-primary/50 rounded-xl p-3 flex flex-col items-center text-center relative">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-2 border border-primary/40">
+<span class="material-symbols-outlined text-[22px]">smartphone</span>
+</div>
+<span class="font-headline font-bold text-xs text-white leading-tight">Lexkite App</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold text-primary">Active Now</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: ONE–TIME PAIRING CODE Card -->
+<section class="bg-surface-container rounded-2xl p-4 border-2 border-outline-variant tactile-card flex flex-col gap-3">
+<!-- Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">vpn_key</span>
+<span class="font-headline font-extrabold text-xs tracking-wider text-primary">ONE–TIME PAIRING CODE</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary text-on-tertiary-container font-headline font-extrabold text-[11px] border border-tertiary-container">
+<span class="material-symbols-outlined text-[13px] fill-icon">timer</span>
+<span>Expires in 4:56</span>
+</div>
+</div>
+<!-- Chunky Code Container -->
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-3.5 flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-wider">PAIRING PASSCODE</span>
+<div class="font-mono font-extrabold text-2xl tracking-widest text-primary drop-shadow-[0_0_12px_rgba(107,216,206,0.3)]">
+              K7P - Q4M
+            </div>
+</div>
+<button class="h-11 px-3.5 rounded-xl bg-surface-container-high border-2 border-primary/50 text-primary font-headline font-bold text-xs flex items-center gap-1.5 tactile-btn-secondary hover:bg-surface-bright transition-colors" id="copy-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+</section>
+<!-- SECTION 3: QUICK SETUP STEPS Card -->
+<section class="bg-surface-container rounded-2xl p-4 border-2 border-outline-variant tactile-card flex flex-col gap-3.5">
+<div class="flex items-center gap-1.5 pb-2 border-b border-outline-variant/60">
+<span class="material-symbols-outlined text-primary text-[18px]">checklist</span>
+<h2 class="font-headline font-extrabold text-xs tracking-wider text-primary">QUICK SETUP STEPS</h2>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Step 1 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline font-extrabold text-xs flex-shrink-0 mt-0.5">
+              1
+            </div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-xs text-white">Open the add–on</span>
+<span class="font-body text-xs text-on-surface-variant mt-0.5 leading-snug">Click the Lexkite kite icon on your browser toolbar.</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline font-extrabold text-xs flex-shrink-0 mt-0.5">
+              2
+            </div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-xs text-white">Choose Sign in with code</span>
+<span class="font-body text-xs text-on-surface-variant mt-0.5 leading-snug">Select the code sign–in option on the welcome screen.</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline font-extrabold text-xs flex-shrink-0 mt-0.5">
+              3
+            </div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-xs text-white">Paste the code</span>
+<span class="font-body text-xs text-on-surface-variant mt-0.5 leading-snug">
+                Enter <span class="font-mono font-bold text-primary bg-surface-container-lowest px-1.5 py-0.5 rounded border border-outline-variant">K7P–Q4M</span> to sync your word list and flashcards.
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Teacher Slot Card -->
+<section class="teacher-slot rounded-2xl p-4 border-2 border-dashed border-primary bg-surface-container-low/60 flex items-center gap-3.5">
+<!-- Academic Cap Badge (strictly no face/human per kit guidelines) -->
+<div class="w-12 h-12 rounded-full bg-surface-container-high border-2 border-primary flex items-center justify-center text-primary flex-shrink-0 shadow-[0_2px_0_#060F12]">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div class="flex flex-col items-start gap-1">
+<div class="px-2 py-0.5 rounded-full bg-tertiary text-on-tertiary font-headline font-extrabold text-[10px] tracking-wider">
+            TEACHER AMA
+          </div>
+<p class="font-headline font-bold text-sm text-[#F2EDE4] leading-snug">
+            “Your words will sync both ways.”
+          </p>
+</div>
+</section>
+<!-- SECTION 5: Primary Actions & Security -->
+<div class="flex flex-col gap-3 pt-1">
+<!-- Primary CTA: Amber with physical 3D drop ledge -->
+<button class="w-full h-14 rounded-2xl bg-tertiary text-[#1C1003] font-headline font-extrabold text-base tracking-wide flex items-center justify-center gap-2 tactile-btn-primary transition-all" type="button">
+<span>Done</span>
+<span class="material-symbols-outlined font-bold text-[20px]">check</span>
+</button>
+<!-- Secondary Action: Dark Slate with teal text -->
+<button class="w-full h-12 rounded-2xl bg-surface-container border-2 border-outline-variant text-primary font-headline font-bold text-sm flex items-center justify-center gap-2 tactile-btn-secondary hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Get a new code</span>
+</button>
+<!-- Security Note -->
+<div class="flex items-center justify-center gap-1.5 pt-1 text-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">lock</span>
+<span class="font-body text-[11px] text-on-surface-variant font-medium">
+            End–to–end encrypted · Ready for IELTS &amp; TOEIC study decks
+          </span>
+</div>
+</div>
+</div>
+<!-- Fixed Bottom Navigation Bar (Shared Component strictly mapped from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 max-w-md mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-outline-variant shadow-[0_-3px_0_0_#060F12]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:translate-y-0.5 duration-75" type="button">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="text-xs font-bold font-label">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:translate-y-0.5 duration-75" type="button">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-xs font-bold font-label">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:translate-y-0.5 duration-75" type="button">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="text-xs font-bold font-label">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:translate-y-0.5 duration-75" type="button">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-xs font-bold font-label">Tests</span>
+</button>
+<!-- Tab 5: Me (ACTIVE: Account / Browser Sync context) -->
+<button class="flex flex-col items-center justify-center text-primary-container dark:text-primary-fixed bg-surface-container dark:bg-teal-depth rounded-lg px-3 py-1 shadow-[0_2px_0_0_#0c4542] translate-y-[-2px] border-2 border-primary/40 active:translate-y-0.5 active:shadow-none transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[22px] fill-icon">person</span>
+<span class="text-xs font-bold font-label">Me</span>
+</button>
+</nav>
 </main>
-<!-- Interactive Logic for micro-interactions -->
 <script>
-    // Copy code button feedback
-    function copyPairingCode() {
-      const codeEl = document.getElementById('pairing-code');
-      const textToCopy = codeEl ? codeEl.innerText.replace(/\s+/g, '') : 'K7P-Q4M';
-      
-      navigator.clipboard?.writeText(textToCopy).catch(() => {});
-
-      const btnText = document.getElementById('copy-btn-text');
-      const copyBtn = document.getElementById('copy-btn');
-      
-      if (btnText && copyBtn) {
-        btnText.innerText = 'Copied!';
-        copyBtn.classList.add('brightness-110');
-        setTimeout(() => {
-          btnText.innerText = 'Copy';
-          copyBtn.classList.remove('brightness-110');
-        }, 2000);
-      }
+    // Micro-interaction for code copy
+    const copyBtn = document.getElementById('copy-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const textToCopy = 'K7P - Q4M';
+        navigator.clipboard?.writeText(textToCopy).then(() => {
+          const originalHTML = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Copied!</span>';
+          copyBtn.classList.add('border-primary', 'text-primary');
+          setTimeout(() => {
+            copyBtn.innerHTML = originalHTML;
+          }, 1800);
+        }).catch(() => {
+          // fallback
+          copyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Copied!</span>';
+          setTimeout(() => {
+            copyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">content_copy</span><span>Copy</span>';
+          }, 1800);
+        });
+      });
     }
-
-    // Refresh new code simulation
-    function generateNewCode() {
-      const refreshIcon = document.getElementById('refresh-icon');
-      if (refreshIcon) {
-        refreshIcon.classList.add('animate-spin');
-        setTimeout(() => {
-          refreshIcon.classList.remove('animate-spin');
-        }, 600);
-      }
-
-      const randomChars = () => {
-        const letters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-        let res = "";
-        for (let i = 0; i < 3; i++) {
-          res += letters.charAt(Math.floor(Math.random() * letters.length));
-        }
-        return res;
-      };
-
-      const newCode = `${randomChars()} - ${randomChars()}`;
-      const codeDisplay = document.getElementById('pairing-code');
-      if (codeDisplay) {
-        codeDisplay.innerText = newCode;
-      }
-
-      // Reset countdown timer display
-      secondsLeft = 300;
-      updateTimerDisplay();
-    }
-
-    // Timer countdown
-    let secondsLeft = 299;
-    function updateTimerDisplay() {
-      const timerEl = document.getElementById('timer-display');
-      if (!timerEl) return;
-      const mins = Math.floor(secondsLeft / 60);
-      const secs = secondsLeft % 60;
-      timerEl.innerText = `Expires in ${mins}:${secs < 10 ? '0' : ''}${secs}`;
-    }
-
-    setInterval(() => {
-      if (secondsLeft > 0) {
-        secondsLeft--;
-        updateTimerDisplay();
-      }
-    }, 1000);
   </script>
 </body></html>
