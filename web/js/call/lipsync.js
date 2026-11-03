@@ -4,7 +4,7 @@
  *  - "live": câu AI lúc chạy → fromText(chữ) (CMUdict + luật chữ) → con trỏ âm vị chạy theo đồng hồ âm thanh, chỉ tiến khi có tiếng (năng lượng Web Audio),
  *    im → X. speechSynthesis (không có âm thanh) → chạy theo thời gian ước lượng, neo lại ở onboundary nếu trình duyệt bắn.
  * Vẽ: stateAt(cues, t) → {a, b, k}: hình cũ a trộn sang hình mới b theo k (0..1, BLEND giây) – cùng 1 hàm cho phát thật và dựng video (đo được, không lệch).
- * Thuần (không DOM) trừ player(); test: scripts/test/lipsync.mjs. */
+ * Thuần (không DOM); test: scripts/test/lipsync.mjs. */
 (function (g) {
   /* @visemes – SINH TỪ web/js/call/visemes.json (node scripts/lipsync/visemes-sync.mjs) – bảng chung web/mốc CI/video, không sửa tay */
   const VIS = {"shapes":["X","A","B","C","D","E","F","G","H"],"names":{"X":"nghỉ","A":"M/B/P môi mím","B":"răng khép (K S T EE)","C":"mở (EH AE)","D":"mở rộng (AA)","E":"tròn nhẹ (AO ER)","F":"chu môi (UW OW W)","G":"F/V răng chạm môi dưới","H":"L lưỡi chạm răng trên"},"fallback":"B","timing":{"blend":0.06,"minHold":0.05,"lead":0.02},"leads":{"A":0.065,"G":0.045,"F":0.04},"arpabet":{"M":"A","B":"A","P":"A","F":"G","V":"G","L":"H","W":"F","UW":"F","OW":"F","UH":"F","OY":"F","AO":"E","ER":"E","R":"E","AA":"D","AY":"D","AW":"D","AE":"C","EH":"C","AH":"C","EY":"C","IH":"B","IY":"B"},"ipa":{"m":"A","b":"A","p":"A","f":"G","v":"G","l":"H","w":"F","u":"F","ʊ":"F","O":"F","Y":"F","ɔ":"E","ɜ":"E","ɝ":"E","ɚ":"E","ɹ":"E","ɑ":"D","I":"D","W":"D","æ":"C","ɛ":"C","ʌ":"C","ə":"C","ɐ":"C","ᵊ":"C","A":"C","ɪ":"B","i":"B"}};
@@ -174,48 +174,6 @@
     return rms => { if (rms > floor * 2.2) { on = true; quiet = 0; } else if (on && rms < floor * 1.4 && ++quiet > (o.hang ?? 4)) on = false; return on; };
   }
 
-  /** player(el, sheet) – sheet: { img (url sprite ngang 9 ô theo order), order, roi:[x,y,w,h] trên ảnh nền, w, h, base (url), blink? }
-   *  → { play(audio, cues|{text}), stop(), frame(cues, t) (vẽ tĩnh cho dựng video), stats } */
-  function player(el, sheet) {
-    const D = g.document, sc = () => el.clientWidth / sheet.w;
-    el.classList.add('ls'); el.innerHTML = `<div class="ls-head"><img class="ls-base" src="${sheet.base}" alt="" draggable="false"><i class="ls-m"></i><i class="ls-m"></i>${sheet.blink ? '<i class="ls-eye"></i>' : ''}</div>`;
-    const L = [...el.querySelectorAll('.ls-m')], E = el.querySelector('.ls-eye'), n = sheet.order.length;
-    const place = () => { const s = sc(), [x, y, w, h] = sheet.roi; for (const m of L) Object.assign(m.style, { left: x * s + 'px', top: y * s + 'px', width: w * s + 'px', height: h * s + 'px', backgroundImage: `url(${sheet.img})`, backgroundSize: `${n * 100}% 100%` });
-      if (E) { const [ex, ey, ew, eh] = sheet.blink.roi; Object.assign(E.style, { left: ex * s + 'px', top: ey * s + 'px', width: ew * s + 'px', height: eh * s + 'px', backgroundImage: `url(${sheet.blink.img})`, backgroundSize: '100% 100%' }); } };
-    place(); g.addEventListener('resize', place);
-    const cell = v => { const i = Math.max(0, sheet.order.indexOf(v)); return `${n > 1 ? (i / (n - 1)) * 100 : 0}% 0`; };
-    // X = miệng nghỉ của chính ảnh nền → lớp miệng trong suốt (không vá lên ảnh gốc khi im)
-    const draw = st => { const ox = st.a === 'X' ? 0 : 1, oy = st.b === 'X' ? 0 : 1;
-      L[0].style.backgroundPosition = cell(st.a); L[0].style.opacity = ox * (1 - st.k) + (st.a === st.b ? oy * st.k : 0);
-      L[1].style.backgroundPosition = cell(st.b); L[1].style.opacity = st.a === st.b ? 0 : oy * st.k; };
-    const blinkAt = t => E && (t % 4.1 > 3.98 || (t % 9.7 > 9.58)) ? 1 : 0; // chớp 120 ms, nhịp lệch nhau cho tự nhiên
-    let raf = 0, stats = { frames: 0, long: 0, worst: 0, t0: 0, sw: [] };
-    const self = {
-      stats,
-      frame(cues, t) { draw(stateAt(cues, t)); if (E) E.style.opacity = blinkAt(t); },
-      /** cues → phát theo audio.currentTime; {text, analyser} → live */
-      play(audio, src, o = {}) {
-        self.stop(); let L2 = null, prev = performance.now(), last = '';
-        const buf = src.analyser ? new Float32Array(src.analyser.fftSize) : null, vd = vad(o.vad), lat = o.latency || 0;
-        if (src.text) L2 = live(src.text, { dur: isFinite(audio.duration) ? audio.duration : 0 });
-        stats.t0 = prev; stats.frames = 0; stats.long = 0; stats.worst = 0; stats.sw = [];
-        const loop = now => {
-          const dt = (now - prev) / 1000; prev = now; stats.frames++; if (dt > 0.05) stats.long++; stats.worst = Math.max(stats.worst, dt);
-          const t = audio.currentTime - lat; let st;
-          if (L2) { let rms = 0; if (buf) { src.analyser.getFloatTimeDomainData(buf); for (const x of buf) rms += x * x; rms = Math.sqrt(rms / buf.length); }
-            const v = buf ? vd(rms) : !audio.paused; L2.tick(t, v && !audio.ended, Math.min(dt, 0.1)); st = stateAt(L2.cues, t - LEAD); }
-          else st = stateAt(src, t);
-          if (st.b !== last) { stats.sw.push([t, st.b]); last = st.b; }
-          draw(st); if (E) E.style.opacity = blinkAt(now / 1000);
-          if (!audio.ended) raf = requestAnimationFrame(loop); else { draw({ a: 'X', b: 'X', k: 1 }); self.done && self.done(L2 ? L2.cues : src); }
-        };
-        raf = requestAnimationFrame(loop); return L2;
-      },
-      stop() { cancelAnimationFrame(raf); draw({ a: 'X', b: 'X', k: 1 }); }
-    };
-    return self;
-  }
-
   /** Giải 1 mục LK_CUES (cues.js, scripts/lipsync/call_cues.mjs): [ms, mốc, độ lớn tiếng] → { dur, cues, env }. Không mất gì:
    *  mốc "X0 B120 …" (ms tuyệt đối) hoặc "+X0 B24 …" (+ = delta theo bước 5 ms) · độ lớn tiếng base64 8 bit, "~n." = n nhóm "AAAA" (đoạn im). */
   function unpack(e, b64 = s => Array.from(atob(s), ch => ch.charCodeAt(0))) {
@@ -226,6 +184,6 @@
   }
   /** Ngược của unpack cho phần mốc: ms tuyệt đối → delta bước 5 ms ("+…") khi mọi mốc chia hết cho 5 (còn lại giữ nguyên). Idempotent. */
   const packCues = s => { if (s[0] === '+') return s; const tk = s.split(' '), ms = tk.map(x => +x.slice(1)); if (ms.some(m => m % 5)) return s; let p = 0; return '+' + tk.map((x, i) => { const r = x[0] + (ms[i] - p) / 5; p = ms[i]; return r; }).join(' '); };
-  const api = { unpack, packCues, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { unpack, packCues, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);
