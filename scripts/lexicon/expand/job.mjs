@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { mixPool, RETRY_SHARE, yieldSplit, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -49,7 +49,10 @@ if (WORDS) { const want = JSON.parse(fs.readFileSync(WORDS, 'utf8')).items, miss
 } else pool = pool.slice(0, N);
 // làm lại TRƯỚC: lỗ dữ liệu nguồn + mục đưa về chờ (content/lexicon/expand/retry/words.json) – TÍNH TRONG N (30/10: 2.701 mục requeue + N mới
 // trong 1 lượt ≈ 20 giờ ≫ timeout 200 phút → mất cả lượt); retry nhiều hơn N thì lượt sau làm tiếp
-if (!NORETRY && !WORDS) { const inPool = new Set(pool.map(kk)); const seenW = new Set(); pool = [...C.items.filter(e => want.has(kk(e)) && !done.has(kk(e)) && !inPool.has(kk(e)) && !seenW.has(kk(e)) && seenW.add(kk(e))), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); pool = pool.slice(0, N); stat.retry = Math.min(stat.retry, N); }
+// 03/11 (sản lượng 336 → 35 → 15 mục/ngày): retry đứng TRƯỚC và chiếm trọn N – 3.641 mục rớt-vi/ví-dụ làm lại (requeue --funnel 01/11) nuốt cả lượt, ứng viên MỚI không bao giờ tới
+// (cùng dải Zipf 3,5: 0,67 ở 30/10 → 0,11 ở 01/11 → 0,06 ở 02/11). Hạn ngạch: retry ≤ RETRY_SHARE × N (lib.mjs mixPool); thiếu ứng viên mới thì retry lấp chỗ trống, không bỏ phí lượt.
+if (!NORETRY && !WORDS) { const inPool = new Set(pool.map(kk)); const seenW = new Set(); const rt = C.items.filter(e => want.has(kk(e)) && !done.has(kk(e)) && !inPool.has(kk(e)) && !seenW.has(kk(e)) && seenW.add(kk(e))).map(e => (e._retry = true, e));
+  pool = mixPool(rt, pool, N, +arg('--retry-share', process.env.LX_RETRY_SHARE || RETRY_SHARE)); stat.retry = pool.filter(e => e._retry).length; stat.retryWait = rt.length - stat.retry; }
 console.log(`lexicon-expand ${BATCH}: ${pool.length} từ (đã có ${done.size}) · bands ${JSON.stringify(pool.reduce((o, e) => (o[e.band] = (o[e.band] || 0) + 1, o), {}))}`);
 
 // ---- IPA: CMUdict (Mỹ) + Wiktionary/kaikki (Anh, Mỹ dự phòng)
@@ -347,7 +350,8 @@ for (const x of items) { const e = pend.items[x.k]; if (!e || !e.src || !e.src.e
   cov.col[e.col.length ? 'src' : 'none']++; cov.syn[e.syn.length ? 'wordnet' : 'none']++; cov.cefr[e.cefrSrc] = (cov.cefr[e.cefrSrc] || 0) + 1; }
 // pass = mục đạt CỦA LƯỢT NÀY (31/10: trước đếm cả lô ngày cộng dồn → yield ảo 0,59 khi lượt thật 14/600, cầu dao "< ½ pilot" không bao giờ ngắt); batchPass = cả lô
 const sec = (Date.now() - t0) / 1000, batchPass = Object.keys(pend.items).length, pass = items.filter(x => pend.items[x.k] && OUT[x.k] && OUT[x.k].pass).length;
-const rep = { batch: BATCH, n: items.length, pass, batchPass, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, defNo: stat.defNo, defRedo: stat.defRedo, defRedoOk: stat.defRedoOk, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+const ys = yieldSplit(items.map(x => ({ retry: !!x._c._retry, pass: !!(pend.items[x.k] && OUT[x.k] && OUT[x.k].pass), judged: !!OUT[x.k] && !gaps.has(x.k) })));
+const rep = { batch: BATCH, n: items.length, pass, batchPass, yieldFresh: ys.fresh.yield, nFresh: ys.fresh.judged, passFresh: ys.fresh.pass, yieldRetry: ys.retry.yield, nRetry: ys.retry.judged, passRetry: ys.retry.pass, retryWait: stat.retryWait || 0, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, defNo: stat.defNo, defRedo: stat.defRedo, defRedoOk: stat.defRedoOk, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 // kho AI cạn hoàn toàn (mọi mục bỏ qua hạ tầng, không mục nào vào hàng duyệt) = KHÔNG phải lỗi: lịch 3 giờ thử lại (27/10 – kho CF cửa sổ 24 giờ trượt)
