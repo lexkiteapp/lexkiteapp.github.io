@@ -14,7 +14,7 @@
 .tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden;overflow:clip}
 .tslot-img{position:absolute;left:50%;bottom:calc(var(--h)*-.18);height:calc(var(--h)*1.2);width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
 .tslot-flip .tslot-img{transform:translateX(-50%) scaleX(-1)}
-canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{opacity:1}.tslot.live img.tslot-img{visibility:hidden}
+:is(canvas,video).tslot-img{opacity:0;transition:opacity .18s}.tslot.live :is(canvas,video).tslot-img{opacity:1}.tslot.live img.tslot-img{visibility:hidden}
 .tslot-ledge{position:absolute;left:2%;right:2%;bottom:0;height:calc(var(--h)*.16);border-radius:999px 999px calc(var(--h)*.06) calc(var(--h)*.06);background:var(--surface-2);box-shadow:inset 0 1px 0 rgb(255 255 255/.10),inset 0 calc(var(--h)*.02) calc(var(--h)*.03) rgb(0 0 0/.10),0 calc(var(--h)*.03) 0 var(--ledge)}
 [data-ground="0"] .tslot-ledge{background:var(--bg);box-shadow:none}
 :root[data-theme="dark"] .tslot-img{filter:brightness(.95) saturate(.96)}
@@ -27,7 +27,18 @@ canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{
   const FS = 'precision mediump float;varying vec2 v;uniform sampler2D u;void main(){float a=texture2D(u,v+vec2(0.,.5)).r;gl_FragColor=vec4(min(texture2D(u,v).rgb,vec3(a)),a);}';
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))) || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; } };
   const live = el => {
-    const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip; el.removeAttribute('data-clip'); if (!fig || !src || lite()) return;
+    const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip, wm = el.dataset.webm; el.removeAttribute('data-clip'); el.removeAttribute('data-webm'); if (!fig || !src || lite()) return;
+    const v = document.createElement('video'); Object.assign(v, { muted: true, playsInline: true, preload: 'metadata', crossOrigin: 'anonymous' }); v.setAttribute('playsinline', '');
+    if (el.dataset.loop === '0') v.loop = true; // vòng nghỉ: lặp liền (docs/CHARACTERS.md)
+    let seen = true;
+    const watch = (go, load) => { if (g.IntersectionObserver) new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen) { load(); go(); } else v.pause(); }, { rootMargin: '120px' }).observe(el); else load(); };
+    // không có H.264 mà có VP9 → idle.webm (VP9α) phát thẳng (docs/CHARACTERS.md)
+    if (wm && !v.canPlayType('video/mp4; codecs="avc1.42E01E"') && v.canPlayType('video/webm; codecs="vp9"')) {
+      v.className = 'tslot-img'; v.setAttribute('aria-hidden', 'true'); v.onplaying = () => el.classList.add('live');
+      v.onerror = () => { v.remove(); el.classList.remove('live'); }; // lỗi → giữ ảnh tĩnh
+      const go = () => { if (seen && v.paused && el.isConnected) v.play().catch(() => {}); else if (!el.isConnected) { v.pause(); v.removeAttribute('src'); } };
+      fig.appendChild(v); return watch(go, () => { if (!v.src) v.src = wm; });
+    }
     const cv = document.createElement('canvas'), gl = cv.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: false }); if (!gl) return;
     const sh = (t, x) => { const o = gl.createShader(t); gl.shaderSource(o, x); gl.compileShader(o); return o; }, pr = gl.createProgram();
     gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr); if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return;
@@ -35,8 +46,7 @@ canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{
     const lp = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(lp); gl.vertexAttribPointer(lp, 2, gl.FLOAT, false, 0, 0);
     gl.bindTexture(gl.TEXTURE_2D, gl.createTexture()); for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.LINEAR);
     for (const k of [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T]) gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE);
-    const v = document.createElement('video'); Object.assign(v, { muted: true, playsInline: true, preload: 'metadata', crossOrigin: 'anonymous' }); v.setAttribute('playsinline', '');
-    let raf = 0, seen = true, t = 0;
+    let raf = 0, t = 0;
     const draw = () => { raf = 0; if (!el.isConnected) { v.pause(); v.removeAttribute('src'); return; }
       if (v.readyState >= 2) { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); el.classList.add('live'); }
       if (!v.paused) raf = requestAnimationFrame(draw); };
@@ -46,7 +56,7 @@ canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{
     v.onerror = () => { fig.querySelector('canvas') && cv.remove(); el.classList.remove('live'); }; // lỗi clip → giữ ảnh tĩnh
     // Nhẹ: chỉ tải clip khi khung hiện trên màn (0 byte nếu cuộn qua), ngoài màn thì dừng; SW + cache tĩnh (#302) → lần sau 0 byte
     const load = () => { if (!v.src) v.src = src; };
-    if (g.IntersectionObserver) new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen) { load(); go(); } else v.pause(); }, { rootMargin: '120px' }).observe(el); else load();
+    watch(go, load);
   };
   let pend = 0;
   const hydrate = () => { pend = 0; document.querySelectorAll('.tslot[data-clip]').forEach(live); };
@@ -54,12 +64,13 @@ canvas.tslot-img{opacity:0;transition:opacity .18s}.tslot.live canvas.tslot-img{
   const css = () => { if (on || !g.document || !document.head) return; on = 1; const s = document.createElement('style'); s.id = 'tslot-css'; s.textContent = CSS; document.head.appendChild(s); };
   g.TeacherSlot = { SIZES, css };
   const C = g.Chars; if (!C) return;
-  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
+  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
   C.slot = (w, o = {}) => {
     css();
-    const sz = SIZES[o.size] ? o.size : 'm', pose = C.poses.includes(o.pose) ? o.pose : 'talk';
+    const idle = !!(o.idle && C.idle), sz = SIZES[o.size] ? o.size : 'm', pose = C.poses.includes(o.pose) ? o.pose : idle ? 'happy' : 'talk';
+    const I = idle ? C.idle(w) : null, clip = I ? I.mp4 : o.clip ? C.clip(w, pose) : '';
     const im = C.img(w, { kind: 'still', pose, cls: 'tslot-img', alt: o.alt || '', size: SIZES[sz], lazy: o.lazy !== false });
-    if (o.clip && !pend && g.document) pend = setTimeout(hydrate, 0); // HTML chèn xong mới gắn clip
-    return `<span class="tslot tslot-${sz}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}"${o.ground === false ? ' data-ground="0"' : ''}${o.clip ? ` data-clip="${C.clip(w, pose)}"` : ''}${o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}><span class="tslot-fig">${im}</span><i class="tslot-ledge"></i></span>`;
+    if (clip && !pend && g.document) pend = setTimeout(hydrate, 0); // HTML chèn xong mới gắn clip
+    return `<span class="tslot tslot-${sz}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}"${o.ground === false ? ' data-ground="0"' : ''}${clip ? ` data-clip="${clip}"` : ''}${I ? ` data-webm="${I.webm}" data-loop="0"` : o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}><span class="tslot-fig">${im}</span><i class="tslot-ledge"></i></span>`;
   };
 })(self);

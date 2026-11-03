@@ -204,6 +204,10 @@
   const hook = () => { const A = g.App; if (!A) return false; const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { after(name); } catch (e) { /* không chặn vẽ trang */ } }; return true; };
   // app.js/ux1.js/path.js cùng nối App.afterRoute → nối sau cùng (sau DOMContentLoaded)
   document.addEventListener('DOMContentLoaded', () => setTimeout(() => { hook(); if (g.App && App.route && view() && view().children.length) after(); }, 0));
+  // Phông web nạp SAU khi nới (font-display swap/optional) → chữ trong nút rộng ra, nhưng hộp đã nới giữ cỡ đo lúc đầu → lệch bố cục
+  // (exit-sweep: /mock/run @768 – mặt nút 51,7 px ≠ 54 px khi không nới). Phông đổi → gỡ nới, đo lại, nới lại theo cỡ thật.
+  const regrow = () => { const x = exitEl(); if (!x || x.dataset.lkGrow == null) return; ungrow(x); const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) { x.classList.add('lk-hit44'); if (!noGrow) grow(x, r); } };
+  const F = document.fonts; if (F && F.addEventListener) { F.addEventListener('loadingdone', regrow); if (F.ready) F.ready.then(regrow, () => {}); }
 
   g.ExitGuard = {
     isLearn, ALWAYS, WITH_ARG, NOT_LEARN,
@@ -216,7 +220,7 @@
     exit: () => exit(false),
     primary: () => primaryEl(), // nav-sweep: nút Enter sẽ bấm
     _nav: () => ({ seen, popFor, popRes }),
-    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, _noGrow: v => { noGrow = !!v; }, // exit-sweep: so ảnh có/không nới (diff phải = 0)
+    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, _regrow: regrow, _noGrow: v => { noGrow = !!v; }, // exit-sweep: so ảnh có/không nới (diff phải = 0)
     _s: () => ({ cur, dirty, done, bypass, backTo, hist: hist.slice(-4), ex: !!exitEl(), exHref: exitEl() && exitEl().getAttribute('href'), exOn: !!(exitEl() && exitEl().onclick), act: document.activeElement && document.activeElement.tagName }), // chẩn đoán cho exit-sweep
   };
 })(typeof self !== 'undefined' ? self : this);

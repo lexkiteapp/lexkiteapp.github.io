@@ -4,6 +4,27 @@
  "kinds": {
   "android-aab": [
    {
+    "run": 41641815970,
+    "run_number": 769,
+    "version": "1.0.1",
+    "build": 1769,
+    "name": "lexkite-1.0.1-1769.aab",
+    "sha256": "2a74bba7fd4f03e4d063d445a0357fd455109d27e91a85c0690de75a0e95e3ab",
+    "size": 214995912,
+    "commit": "b135eb916e1f607c36fd09af5d99257590953edb",
+    "at": "2026-11-03T14:11:02Z",
+    "copies": [
+     {
+      "driveId": 17,
+      "fileId": "1Tkd8jR8SOX-kjlAmvi8dMiTbrcFosE0E"
+     },
+     {
+      "driveId": 13,
+      "fileId": "17ZPAaHNkWW6WT8Lnkp1SAU4zDWPeCdxy"
+     }
+    ]
+   },
+   {
     "run": 41628039564,
     "run_number": 766,
     "version": "1.0.1",
@@ -176,5 +197,5 @@
    }
   ]
  },
- "updated": "2026-11-03T13:04:12.575Z"
+ "updated": "2026-11-03T14:20:49.733Z"
 }
