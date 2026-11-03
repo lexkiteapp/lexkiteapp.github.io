@@ -3,7 +3,7 @@ title: "Small Talk em Inglês: Guia para Conversas Casuais e Networking"
 description: "Aprenda a fazer small talk em inglês com naturalidade: tópicos seguros para quebrar o gelo, perguntas abertas e etiqueta social para networking."
 slug: small-talk-em-ingles
 lang: pt
-translationKey: small-talk-em-ingles
+translationKey: small-talk-tieng-anh
 category: ky-nang
 tags: [conversacao, small-talk, networking]
 keyword: "small talk em inglês"
