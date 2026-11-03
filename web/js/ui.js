@@ -61,28 +61,48 @@
     if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
     if (cands.length) at(cands[cands.length - 1]);
   }
-  function toastShow(msg, ms) {
+  function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
-    t.textContent = msg; toastLift(t); t.classList.add('show'); t._msg = [msg, ms];
+    t.textContent = msg; t._msg = [msg, ms, o]; t._at = Date.now(); toast._last = [msg, t._at];
+    // Nút hành động (vd. "Thử lại"): báo lỗi bình tĩnh luôn kèm cách sửa; chỉ toast có nút mới nhận chạm (.act), còn lại không chặn thao tác bên dưới
+    t.classList.toggle('act', !!(o && o.action));
+    if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
+    toastLift(t); t.classList.add('show');
     // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
     const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
-    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
+    toastTimer(t, ms);
   }
-  function toast(msg, ms = 2400) {
-    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
-    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms]); return; }
-    toastShow(msg, ms);
+  const toastTimer = (t, ms) => { clearTimeout(toast._t); toast._t = setTimeout(() => toastHide(t), ms); };
+  function toastHide(t) {
+    clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; }
+    if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift());
+  }
+  /** UI.toast(msg, ms?, { action, onAction }?) – MỘT toast mỗi lúc, tự ẩn, không chặn thao tác (trừ nút hành động), aria-live polite.
+   *  Cùng câu đang hiện → chỉ gia hạn (không nháy lại); cùng câu vừa ẩn < 3 s → bỏ (mạng chập chờn không xả hàng loạt toast). */
+  function toast(msg, ms = 2400, o) {
+    if (ms && typeof ms === 'object') { o = ms; ms = 2400; }
+    msg = String(msg); ms = Math.max(ms, Math.min(7000, 1400 + msg.length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
+    if (o && o.action) ms = Math.max(ms, 6000); // có nút → đủ lâu để kịp chạm
+    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms, o]); return; }
+    const t = $('#toast'), L = toast._last;
+    if (t && t._msg && t._msg[0] === msg && !(o && o.action)) { toastTimer(t, ms); return; }
+    if (t && !t._msg && L && L[0] === msg && Date.now() - L[1] < 3000) return;
+    toastShow(msg, ms, o);
   }
   // Theo dõi #modal: mở ra khi toast đang hiện → cất toast vào hàng; đóng lại → hiện hàng chờ (mọi cách đóng: closeModal, gán hidden trực tiếp…)
   function watchModal() {
     const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
     new MutationObserver(() => {
       const t = $('#toast'); if (!t) return;
-      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show', 'act'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
       else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
     }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
   }
+  // Toast có nút: con trỏ/focus đang ở trên → không tự ẩn giữa chừng (WCAG 2.2.1), rời ra → đếm lại từ đầu
+  function watchToast() { const t = $('#toast'); if (!t) return; const hold = () => { if (t._msg && t._msg[2] && t._msg[2].action) clearTimeout(toast._t); }, go = () => { if (t._msg && t._msg[2] && t._msg[2].action) toastTimer(t, t._msg[1]); }; t.addEventListener('pointerenter', hold); t.addEventListener('focusin', hold); t.addEventListener('pointerleave', go); t.addEventListener('focusout', go); }
+  const onReady = f => (document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', f) : f());
   if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);
+  onReady(watchToast);
 
   let lastFocus = null;
   function modal(html) {
@@ -236,14 +256,15 @@
         for (let i = 0; i < parts.length; i++) {
           if (my !== speakSeq) return;
           if (opts.onSentence) opts.onSentence(i, parts[i]);
-          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { break; }
+          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { if (my === speakSeq && opts.onErr) opts.onErr(); break; }
         }
         if (my === speakSeq && opts.onEnd) opts.onEnd();
       })();
       return;
     }
     if (!('speechSynthesis' in g)) { // không có giọng máy: từ đơn → thử bản ghi giọng người thật từ từ điển
-      if (!/\s/.test(text.trim()) && (!g.Target || g.Target.isEn(accent)) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio); }).catch(() => {});
+      const no = () => opts.onErr && opts.onErr();
+      if (!/\s/.test(text.trim()) && (!g.Target || g.Target.isEn(accent)) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio, 0, opts.on); else no(); }).catch(no); else no();
       if (opts.onEnd) opts.onEnd();
       return;
     }
@@ -260,7 +281,9 @@
       u.lang = accent; u.rate = base; u.pitch = 1;
       if (voice) u.voice = voice;
       u.onstart = () => { if (my === speakSeq && opts.onSentence) opts.onSentence(i, p); };
-      if (i === parts.length - 1) u.onend = u.onerror = () => { if (keep) clearInterval(keep); if (my === speakSeq && opts.onEnd) opts.onEnd(); };
+      const err = e => { if (my === speakSeq && opts.onErr && !/interrupted|canceled/.test(e && e.error)) opts.onErr(); };
+      u.onerror = err;
+      if (i === parts.length - 1) { u.onend = () => { if (keep) clearInterval(keep); if (my === speakSeq && opts.onEnd) opts.onEnd(); }; u.onerror = e => { err(e); u.onend(); }; }
       speechSynthesis.speak(u);
     });
   }
@@ -282,13 +305,13 @@
       return URL.createObjectURL(await r.blob());
     } catch (e) { return url; } // máy chủ không cho tải (CORS) → phát trực tiếp
   }
-  // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
+  // speak(text, accent, url, slow, on): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm · on(1) bắt đầu phát / on(0) mọi nguồn hỏng
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
-  function speak(text, accent, url, slow) {
+  function speak(text, accent, url, slow, on) {
     text = ttsClean(text);
     accent = accent || prefs().accent || 'en-GB';
-    const fb = () => tts(text, accent, slow ? 0.55 : undefined);
+    const fb = () => tts(text, accent, slow ? 0.55 : undefined, on ? { on, onSentence: i => i || on(1), onErr: () => on(0) } : undefined);
     // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
     // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
     if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';
@@ -301,7 +324,7 @@
       stopSpeak();
       const my = speakSeq;
       // Gốc CDN lần lượt (lỗi/404/quá giờ → gốc kế tiếp); hết gốc → giọng máy (ghi nhật ký dự phòng). Bị chặn tự phát → giọng máy, không đánh dấu thiếu file.
-      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(),
+      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(), onStart: () => on && on(1),
         onFail: why => { wordEl = null; if (why !== 'blocked') wordMiss.add(accent + wk); LA().note('tts', why + ' w:' + wk); if (my === speakSeq) fb(); } });
       return;
     }
@@ -311,7 +334,7 @@
       audioSrc(url).then(src => {
         if (my !== speakSeq) return; // người dùng đã bấm nghe từ khác
         try {
-          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1;
+          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1; if (on) audioEl.onplaying = () => on(1);
           if (src.startsWith('blob:')) audioEl.onended = () => URL.revokeObjectURL(src);
           audioEl.play().catch(fb);
         } catch (e) { fb(); }

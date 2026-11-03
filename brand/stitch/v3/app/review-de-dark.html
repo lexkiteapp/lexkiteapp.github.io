@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Wiederholung</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fff8f5",
+            "surface-container-high": "#f4e5db",
+            "on-secondary": "#ffffff",
+            "secondary": "#8c5000",
+            "on-secondary-fixed": "#2d1600",
+            "primary": "#00504b",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#ffb872",
+            "secondary-container": "#fd9500",
+            "surface-tint": "#126a63",
+            "on-error": "#ffffff",
+            "on-background": "#211a14",
+            "on-surface-variant": "#3f4947",
+            "surface-container-highest": "#efe0d6",
+            "tertiary-fixed": "#ffdf9b",
+            "outline": "#6f7977",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "error-container": "#ffdad6",
+            "surface": "#fff8f5",
+            "on-tertiary-container": "#ffd370",
+            "surface-container": "#faebe1",
+            "secondary-fixed": "#ffdcbf",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#88d4cb",
+            "on-secondary-container": "#633700",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-dim": "#e6d7cd",
+            "surface-variant": "#efe0d6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#9be7de",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#f5bf31",
+            "primary-fixed": "#a4f1e7",
+            "primary-fixed-dim": "#88d4cb",
+            "tertiary-container": "#785a00",
+            "on-surface": "#211a14",
+            "inverse-surface": "#372f28",
+            "surface-container-low": "#fff1e8",
+            "on-tertiary-fixed": "#251a00",
+            "surface-bright": "#fff8f5",
+            "primary-container": "#136a63",
+            "on-primary-fixed": "#00201d",
+            "tertiary": "#5b4300",
+            "outline-variant": "#bec9c6",
+            "inverse-on-surface": "#fdeee3",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter-lg": "2rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-md": "2rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased flex justify-center min-h-screen">
+<!-- Mobile Container strictly 390px wide -->
+<main class="w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-[90px] pt-[76px] px-gutter overflow-x-hidden selection:bg-[#2DD4BF] selection:text-[#10191B]">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full max-w-[390px] right-0 mx-auto z-50 flex items-center justify-between px-gutter py-space-sm bg-[#10191B] border-b border-[#1E2F33] shadow-[0_2px_0_0_#142226]">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] flex items-center justify-center border-2 border-[#283E43] text-[#2DD4BF] shrink-0">
+<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-[17px] font-bold text-[#E8F1F0] block leading-tight truncate">IELTS Band 7.5</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold truncate block">Lexkite Lernspeicher</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<!-- Streak Flame Pill -->
+<div class="flex items-center gap-1 bg-[#2C2314] border-2 border-[#D97706] px-2.5 py-1 rounded-full shadow-[0_2px_0_0_#78350F] text-[#FDE68A]">
+<span class="material-symbols-outlined text-[18px] text-[#F59E0B]" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm font-extrabold">14 Tage</span>
+</div>
+<button aria-label="Einstellungen" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#172427] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#121D20] tactile-btn active:shadow-none text-[#A9BDBB]">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Subheader Flow Status Bar -->
+<section class="mt-2 mb-3">
+<div class="flex items-start justify-between gap-2">
+<div class="min-w-0 flex-1">
+<h1 class="font-headline-lg-mobile text-[22px] leading-[26px] font-extrabold text-[#E8F1F0] tracking-tight break-words">Wiederholungs-Warteschlange</h1>
+<p class="font-label-sm text-[11px] text-[#A9BDBB] font-semibold mt-0.5">FSRS Intervallwiederholung</p>
+</div>
+<!-- Due Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F59E0B] text-[#2C2314] font-label-sm text-[11px] font-extrabold border-2 border-[#D97706] shadow-[0_2px_0_0_#78350F] shrink-0 whitespace-nowrap self-start mt-0.5"><span class="material-symbols-outlined text-[14px] text-[#2C2314]" data-icon="pending_actions">pending_actions</span> 18 heute fällig</span>
+</div>
+</section>
+<!-- Section 2: Empty Dashed Teacher Slot & Carlos Speech Bubble -->
+<section class="mb-4">
+<div class="grid grid-cols-[88px_1fr] gap-3 items-center">
+<!-- Empty Dashed Teacher Slot with German Label & Mortarboard Icon -->
+<div aria-label="Lehrer-Bereich Platzhalter" class="teacher-slot min-h-[76px] h-full rounded-2xl border-2 border-dashed border-[#2DD4BF] bg-[#2DD4BF]/10 flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px] mb-0.5" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-sm text-[9.5px] uppercase tracking-wider text-[#5EEAD4] font-extrabold leading-tight">LEHRER-BEREICH</span>
+</div>
+<!-- Speech Bubble from Coach Carlos -->
+<div class="relative bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-3 shadow-[0_3px_0_0_#10191B]">
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#172427] border-l-2 border-b-2 border-[#1E2F33] rotate-45"></div>
+<div class="flex items-center gap-1.5 mb-0.5 flex-wrap">
+<span class="font-label-sm text-label-sm font-bold text-[#2DD4BF]">Coach Carlos</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span>
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-semibold">FSRS-Optimierer</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-snug font-medium">
+            „Qualität vor Schnelligkeit – bewerten Sie ehrlich, damit der FSRS-Algorithmus Ihre Lernkurve optimal anpasst!“
+          </p>
+</div>
+</div>
+</section>
+<!-- Section 3: Session Progress Bar -->
+<section class="mb-4 bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-3 shadow-[0_3px_0_0_#10191B]">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">Karte 4 von 18</span>
+<span class="inline-block px-1.5 py-0.2 rounded bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-[10px] font-bold">In Bearbeitung</span>
+</div>
+<div class="flex items-center gap-1 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[16px]" data-icon="memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="font-label-sm text-[11px] font-bold">92% Ziel-Behaltensrate</span>
+</div>
+</div>
+<!-- Progress Bar Track -->
+<div class="h-3.5 w-full bg-[#10191B] rounded-full overflow-hidden p-0.5 border border-[#1E2F33]">
+<div class="h-full bg-[#F59E0B] rounded-full relative" style="width: 22.2%;">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] font-label-sm text-[#A9BDBB] font-semibold">
+<span>Warteschlange: 14 ausstehend</span>
+<span class="text-[#5EEAD4]">Stabilität: +1,8x</span>
+</div>
+</section>
+<!-- Section 4: Card Stack Preview of Flashcard -->
+<section class="relative mb-5 pt-1">
+<!-- Tactile Card-Stack Peek Background Layer 2 -->
+<div class="absolute inset-x-4 top-3 h-48 bg-[#131F21] rounded-2xl border-2 border-[#1E2F33]/80 -z-20 transform translate-y-3"></div>
+<!-- Tactile Card-Stack Peek Background Layer 1 -->
+<div class="absolute inset-x-2 top-2 h-52 bg-[#152326] rounded-2xl border-2 border-[#1E2F33] -z-10 transform translate-y-1.5"></div>
+<!-- Main Flashcard -->
+<article class="bg-[#172427] border-2 border-[#203438] rounded-2xl p-4 shadow-[0_4px_0_0_#121D20] relative">
+<!-- Word Header & Target Badges -->
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-[#E8F1F0] tracking-tight">meticulous</h2>
+<!-- Audio Button -->
+<button aria-label="Aussprache von meticulous abspielen" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center border-2 border-[#283E43] shadow-[0_2px_0_0_#10191B] tactile-btn active:shadow-none">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<p class="font-body-md text-body-md text-[#A9BDBB] font-semibold tracking-wide">/məˈtɪk.jə.ləs/</p>
+<span class="text-xs font-semibold text-[#879B9A] italic">adj.</span>
+</div>
+</div>
+<!-- CEFR & Band Pills -->
+<div class="flex flex-col items-end gap-1">
+<span class="inline-block px-2 py-0.5 rounded-md bg-[#2DD4BF]/20 text-[#5EEAD4] font-label-sm text-[11px] font-extrabold border border-[#2DD4BF]/40">
+              CEFR C1
+            </span>
+<span class="inline-block px-2 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#FCD34D] font-label-sm text-[11px] font-extrabold border border-[#F59E0B]/40">
+              Band 7.5+
+            </span>
+</div>
+</div>
+<!-- Definition -->
+<div class="bg-[#1E2F33] rounded-xl p-3 border border-[#263D42] mb-3">
+<span class="font-label-sm text-[11px] text-[#2DD4BF] font-extrabold block uppercase tracking-wider mb-0.5">FORMALE DEFINITION</span>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-snug">
+            Showing great attention to detail; very careful and precise.
+          </p>
+</div>
+<!-- IELTS Writing Task 2 Context -->
+<div class="mb-3.5 pl-3 border-l-4 border-[#2DD4BF]">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-[12px] font-extrabold text-[#2DD4BF] uppercase tracking-wider">IELTS WRITING TASK 2 KONTEXT</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] italic font-medium leading-relaxed">
+            "Academic research demands <span class="text-[#5EEAD4] font-bold not-italic underline decoration-[#F59E0B] decoration-2 underline-offset-2">meticulous</span> data verification to prevent methodological errors."
+          </p>
+</div>
+<!-- Collocation Chips -->
+<div>
+<span class="font-label-sm text-[11px] font-extrabold text-[#879B9A] uppercase tracking-wider block mb-1.5">WICHTIGE KOLLOKATIONEN</span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#283E43] text-[#E8F1F0] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]" data-icon="bolt">bolt</span>
+              meticulous attention
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#283E43] text-[#E8F1F0] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]" data-icon="bolt">bolt</span>
+              meticulous planning
+            </span>
+</div>
+</div>
+</article>
+</section>
+<!-- Section 5: SRS Rating Buttons (FSRS Algorithm) -->
+<section class="mb-5">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-extrabold text-[#E8F1F0]">Erinnerungs-Bewertung</span>
+<span class="font-label-sm text-label-sm font-bold text-[#A9BDBB]">Zum Einstufen tippen</span>
+</div>
+<!-- 4 Action Buttons Grid, min 44x44px target on #1E2F33 dark surfaces -->
+<div class="grid grid-cols-4 gap-1.5">
+<!-- Nochmal (<10 Min.) - Red / Coral -->
+<button class="min-h-[62px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#EF4444] shadow-[0_3px_0_0_#991B1B] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-[13px] font-extrabold text-[#FCA5A5] leading-none mb-1">Nochmal</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#EF4444]/20 text-[#FCA5A5] font-label-sm text-[10.5px] font-extrabold leading-none">&lt;10 Min.</span>
+</button>
+<!-- Schwer (12 Std.) - Amber -->
+<button class="min-h-[62px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#F59E0B] shadow-[0_3px_0_0_#92400E] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-[13px] font-extrabold text-[#FDE68A] leading-none mb-1">Schwer</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#FDE68A] font-label-sm text-[10.5px] font-extrabold leading-none">12 Std.</span>
+</button>
+<!-- Gut (2 Tage) - Luminous Teal with EMPF. badge -->
+<button class="relative min-h-[62px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#14B8A6] shadow-[0_3px_0_0_#0F766E] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="absolute -top-2 left-1/2 -translate-x-1/2 px-1.5 py-0.2 rounded-full bg-[#14B8A6] text-[#042F2E] font-label-sm text-[9px] font-extrabold tracking-wider shadow-sm uppercase">EMPF.</span>
+<span class="font-label-md text-[13px] font-extrabold text-[#5EEAD4] leading-none mb-1">Gut</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#14B8A6]/20 text-[#5EEAD4] font-label-sm text-[10.5px] font-extrabold leading-none">2 Tage</span>
+</button>
+<!-- Einfach (5 Tage) - Emerald Green -->
+<button class="min-h-[62px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#10B981] shadow-[0_3px_0_0_#065F46] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-[13px] font-extrabold text-[#6EE7B7] leading-none mb-1">Einfach</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#10B981]/20 text-[#6EE7B7] font-label-sm text-[10.5px] font-extrabold leading-none">5 Tage</span>
+</button>
+</div>
+</section>
+<!-- Section 6: Upcoming Reviews Forecast (7-day Bar Chart) -->
+<section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-3.5 shadow-[0_3px_0_0_#10191B] mb-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-md text-[13.5px] font-extrabold text-[#E8F1F0] truncate">7-Tage-Lernlast-Prognose</span>
+</div>
+<!-- Optimal Indicator -->
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#6EE7B7] shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+<span class="font-label-sm text-[10.5px] font-bold">Optimale Behaltensrate</span>
+</div>
+</div>
+<!-- 7-day Bar Chart: Mo (18), Di (12), Mi (24), Do (15), Fr (9), Sa (21), So (14) -->
+<div class="grid grid-cols-7 gap-2 items-end h-24 pt-4 border-b border-[#1E2F33] pb-2">
+<!-- Mo: 18 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">18</span>
+<div class="w-full bg-[#F59E0B] rounded-t-md relative transition-all" style="height: 48px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-extrabold text-[#E8F1F0]">Mo</span>
+</div>
+<!-- Di: 12 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">12</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-85" style="height: 32px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">Di</span>
+</div>
+<!-- Mi: 24 (Peak) -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#FDE68A] font-extrabold">24</span>
+<div class="w-full bg-[#F59E0B] rounded-t-md relative transition-all" style="height: 64px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-[#E8F1F0]">Mi</span>
+</div>
+<!-- Do: 15 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">15</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-85" style="height: 40px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">Do</span>
+</div>
+<!-- Fr: 9 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">9</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-70" style="height: 24px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">Fr</span>
+</div>
+<!-- Sa: 21 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">21</span>
+<div class="w-full bg-[#F59E0B] rounded-t-md relative transition-all opacity-90" style="height: 56px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-[#E8F1F0]">Sa</span>
+</div>
+<!-- So: 14 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">14</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-80" style="height: 37px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">So</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 text-[11px] font-label-sm text-[#A9BDBB]">
+<span>Ø 16,1 Karten / Tag</span>
+<span class="text-[#2DD4BF] font-bold">Gesamt: 113 Karten</span>
+</div>
+</section>
+<!-- Bottom Navigation Bar -->
+<nav aria-label="Hauptnavigation" class="fixed bottom-0 left-0 w-full max-w-[390px] right-0 mx-auto z-50 flex justify-around items-center px-space-xs py-space-xs bg-[#10191B] border-t border-[#1E2F33] shadow-[0_-4px_0_0_#0D1517]">
+<!-- Item 1: Heute -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#2DD4BF]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="font-label-sm text-[11px] mt-0.5">Heute</span>
+</a>
+<!-- Item 2: Wortschatz (ACTIVE ITEM) -->
+<a aria-current="page" class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#2DD4BF] font-bold py-1 active:translate-y-0.5 transition-transform duration-100 relative" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-[11px] mt-0.5 flex items-center gap-1">
+  Wortschatz
+  <span class="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] inline-block"></span>
+</span>
+</a>
+<!-- Item 3: Fertigkeiten -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#2DD4BF]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-[11px] mt-0.5">Fertigkeiten</span>
+</a>
+<!-- Item 4: Prüfungen -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#2DD4BF]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-[11px] mt-0.5">Prüfungen</span>
+</a>
+<!-- Item 5: Profil -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#2DD4BF]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label-sm text-[11px] mt-0.5">Profil</span>
+</a>
+</nav>
+</main>
+</body></html>

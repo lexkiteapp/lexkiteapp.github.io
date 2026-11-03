@@ -1,5 +1,5 @@
 {
- "note": "L\u1ed7i giao di\u1ec7n \u0111\u00e3 bi\u1ebft (qa-bot). Ch\u1ec9 \u0111\u01b0\u1ee3c XO\u00c1 d\u00f2ng khi \u0111\u00e3 s\u1eeda \u2013 kh\u00f4ng th\u00eam d\u00f2ng \u0111\u1ec3 l\u00e0m xanh. docs/QA-BOT.md",
+ "note": "Lỗi giao diện đã biết (qa-bot). Chỉ được XOÁ dòng khi đã sửa – không thêm dòng để làm xanh. docs/QA-BOT.md",
  "known": {
   "clip|div#lsnTch>div.tch-rig": [
    "lesson@390l",
@@ -298,6 +298,12 @@
    "practice@768d",
    "settings@768d",
    "stats@768d"
+  ],
+  "tap|div.row>span.say-pron>button.icon-btn.sm": [
+   "home@768l",
+   "home@768d",
+   "home@1440l",
+   "home@1440d"
   ],
   "tap|div.set-c>span.set-btns>a.btn.sm": [
    "settings@768l",

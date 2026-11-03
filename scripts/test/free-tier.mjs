@@ -159,6 +159,16 @@ await ok('intraday: chỉ dừng workflow đang active, mở lại đúng cái �
   assert.ok(!paused.includes('i18n.yml') && paused.includes('ci-filler.yml')); assert.ok(!calls.includes('PUT i18n.yml/disable'));
   const c2 = []; assert.deepEqual(await pauseWorkflows('t', { pause: false, already: paused }, ghFake(states, c2)), []); assert.deepEqual(c2, paused.map(w => `PUT ${w}/enable`));
 });
+await ok('intraday hồi quy 02→03/11: workflow trong danh sách dừng CŨ mà đã bị bật tay → dừng lại theo mức hôm nay, không tưởng còn dừng', async () => {
+  const states = Object.fromEntries(PAUSE.map(w => [w, 'active'])); states['lighthouse.yml'] = 'disabled_manually';   // guard dừng hôm qua, chưa ai mở
+  const calls = [], old = ['ci-filler.yml', 'vocab-img-scene.yml', 'lighthouse.yml'];   // ci-filler + vocab-img-scene đã được bật tay
+  const paused = await pauseWorkflows('t', { pause: true, already: old }, ghFake(states, calls));
+  assert.ok(calls.includes('PUT ci-filler.yml/disable') && calls.includes('PUT vocab-img-scene.yml/disable'), 'workflow bật tay phải bị dừng lại: ' + calls.join(','));
+  assert.ok(paused.includes('lighthouse.yml') && !calls.includes('PUT lighthouse.yml/disable'), 'cái vẫn đang tắt do guard: giữ quyền mở lại, không gọi disable lần nữa');
+  assert.ok(paused.includes('ci-filler.yml') && paused.includes('vocab-img-scene.yml'));
+  const c2 = []; await pauseWorkflows('t', { pause: false, already: paused }, ghFake(states, c2));
+  assert.ok(['ci-filler.yml', 'vocab-img-scene.yml', 'lighthouse.yml'].every(w => c2.includes(`PUT ${w}/enable`)), 'hết mức → mở lại đủ');
+});
 await ok('intraday end-to-end 01/11 03:17Z: shed + dừng + issue, không đóng issue', async () => {
   const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftge-')), 's.json'), now = D0 + (3 * 60 + 17) * 6e4, calls = [];
   const fetcher = async (u, o = {}) => {
