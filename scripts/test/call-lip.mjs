@@ -289,6 +289,7 @@ async function fps(rep) {
       await page.waitForFunction(() => { const l = window.__callState && window.__callState().lip; return l && l.mode !== 'idle'; }, null, { timeout: 8000 }).catch(() => {});
       const cdp = BR === 'chromium' ? await ctx.newCDPSession(page) : null; if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
       await page.waitForTimeout(300); // bỏ khung chuyển tiếp lúc đổi throttle
+      await page.evaluate(() => { window.__loaf = []; try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.duration > 50) window.__loaf.push({ t: Math.round(e.startTime), d: Math.round(e.duration), blk: Math.round(e.blockingDuration || 0), render: Math.round(e.renderStart ? e.startTime + e.duration - e.renderStart : 0), sc: (e.scripts || []).map(x => `${x.invoker || ''} ${(x.sourceURL || '').split('/').pop()}:${x.sourceFunctionName || ''} ${Math.round(x.duration)}ms`).slice(0, 4) }); }).observe({ type: 'long-animation-frame', buffered: false }); } catch (e) { /* WebKit: không có LoAF */ } });
       const a = await lip(), modes = new Set(); for (let i = 0; i < 15; i++) { await page.waitForTimeout(200); const l = await lip(); if (l) modes.add(l.mode); }
       const b = await lip(); if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
       const f = a && b ? Math.round(1000 * (b.frames - a.frames) / (b.now - a.now)) : 0, lg = a && b ? b.long - a.long : 99;
@@ -296,7 +297,8 @@ async function fps(rep) {
       ok(modes.has('pre') || modes.has('live'), `${tag}: đo lúc giáo viên ĐANG NÓI (${[...modes].join('/')})`);
       ok(await page.evaluate(() => document.querySelectorAll('canvas.tch-face').length === 1), `${tag}: đúng 1 canvas mặt vẽ`);
       ok(!errs.length, `${tag}: không lỗi JS` + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
-      (report.fps ||= []).push({ tag, fps: f, long: lg, modes: [...modes] });
+      const loaf = await page.evaluate(() => window.__loaf || []); if (lg) console.log(`  khung dài (LoAF): ${JSON.stringify(loaf).slice(0, 900)}`);
+      (report.fps ||= []).push({ tag, fps: f, long: lg, modes: [...modes], loaf });
     } finally { await close(); }
   }
 }
