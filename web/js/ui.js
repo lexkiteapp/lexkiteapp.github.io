@@ -218,15 +218,18 @@
   }
   // opts: { rate, onSentence(i, text), onEnd(), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
   // giọng Kokoro mặc định theo accent – bảng ngôn ngữ đích (web/js/target.js); thiếu Target → như cũ (en-US af_heart, còn lại bf_emma)
+  // Khoảng nghỉ giữa 2 câu khi phát file Kokoro nối tiếp: file cắt sát tiếng → nối liền nghe gấp; bài nghe IELTS nghỉ ~0,3 s (đo trên CI: scripts/test/audio-play.mjs)
+  const SENT_GAP = 280;
   const kvOf = a => (g.Target ? g.Target.kokoroVoice(a) : a === 'en-US' ? 'af_heart' : 'bf_emma');
   function tts(text, accent = 'en-GB', rate, opts = {}) {
     text = ttsClean(text);
     if (!text) return;
-    stopHq();
+    stopHq(); if (g.KLocal) g.KLocal.stop();
     const kv = LA() && LA().kokoro(opts.voice || (opts.who && g.Chars && g.Chars.voice ? g.Chars.voice(opts.who) : ''));
     const gender = opts.gender || (kv ? kv.gender : LA() && opts.who ? LA().genderFor(opts.who) : '');
+    const kvoice = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : kvOf(accent);
     if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq && LA()) {
-      const v = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : kvOf(accent), whole = g.KVoice.lineKey(v, text);
+      const v = kvoice, whole = g.KVoice.lineKey(v, text);
       const segs = g.LISTEN_AUDIO.has(whole) ? [[whole, text]] : splitSentences(text).map(p => [g.KVoice.lineKey(v, p), p]);
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
@@ -239,12 +242,27 @@
             rate: pr,
             onBase: () => g.audioFail(),
             onStart: () => { if (segs[i + 1]) LA().preload(g.audioUrls(segs[i + 1][0])[0]); }, // tải trước câu kế tiếp
-            onEnd: () => play(i + 1),
+            onEnd: () => (i + 1 < segs.length ? setTimeout(() => play(i + 1), Math.round(SENT_GAP / pr)) : play(i + 1)), // nghỉ giữa câu như bài nghe; dừng/giọng mới → play() tự bỏ (speakSeq)
             onFail: why => { if (my !== speakSeq) return; hqEl = null; LA().note('tts', why + ' ' + segs[i][0]); tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true, gender }); },
           });
         };
         play(0);
         return;
+      }
+    }
+    // Chưa có file dựng sẵn → Kokoro chạy trên máy nếu đã sẵn (docs/specs/kokoro-on-device.md); chưa sẵn → giọng máy NGAY bên dưới, xin nạp cho lần sau
+    if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
+      const K = g.KLocal;
+      if (K && K.ready()) {
+        const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
+        if ('speechSynthesis' in g) speechSynthesis.cancel();
+        const ok = K.speak(splitSentences(text), { voice: kvoice, rate: pr, gap: Math.round(SENT_GAP / pr), onSentence: opts.onSentence,
+          onEnd: () => { if (my === speakSeq && opts.onEnd) opts.onEnd(); },
+          onFail: rest => { if (my === speakSeq) tts(rest.join(' '), accent, rate, { ...opts, noHq: true, noKl: true, gender }); } });
+        if (ok) return;
+      } else {
+        LA().stats.kl_wait = (LA().stats.kl_wait || 0) + 1;
+        if (K) K.want('dynamic'); else if (g.App && App.need) App.need('klocal').then(() => g.KLocal && g.KLocal.want('dynamic')).catch(() => {});
       }
     }
     // App iOS/Android: WebView (nhất là Android) không có giọng đọc của trình duyệt → dùng giọng gốc của hệ điều hành (miễn phí, chạy offline)
@@ -287,7 +305,7 @@
       speechSynthesis.speak(u);
     });
   }
-  const stopSpeak = () => { speakSeq++; stopHq(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
+  const stopSpeak = () => { speakSeq++; stopHq(); if (g.KLocal) g.KLocal.stop(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
   // Từ đơn: ưu tiên bản ghi giọng người thật; câu: giọng tổng hợp tốt nhất
   let audioEl = null, wordEl = null;
   // Bộ nhớ đệm bản ghi giọng người thật (Cache Storage, tối đa 400 file gần nhất): lần sau phát tức thì, nghe được cả khi offline
