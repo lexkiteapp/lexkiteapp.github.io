@@ -71,3 +71,7 @@ assert.deepEqual(sp.map(x => [x.v, x.s]), [['B', 0], ['D', .1]]);
   const Lm = LF3.machine('carlos', { dur: 10, emo: 'listen' }); assert.ok(Math.max(...[...Array(50)].map((_, i) => Lm.at(i / 10).nod)) > 1, 'nghe: gật nhẹ');
   assert.ok(LF3.machine('ama', { emo: 'happy' }).at(1).mouth.s > LF3.machine('ama', {}).at(1).mouth.s, 'vui: khóe miệng lên');
   console.log('lipsync temper ok'); }
+// mốc nén (cues.js v3): delta bước 5 ms khứ hồi đúng, mốc lẻ giữ ms tuyệt đối, idempotent
+{ const LS2 = LS, raw = 'X0 F280 B525 G600 X3240', z = LS2.packCues(raw);
+  assert.equal(z, '+X0 F56 B49 G15 X528'); assert.equal(LS2.packCues(z), z); assert.equal(LS2.packCues('X0 B123'), 'X0 B123');
+  assert.deepEqual(LS2.unpack([3500, z, 'AAAA~2.gA==']).cues, LS2.unpack([3500, raw]).cues); assert.equal(LS2.unpack([3500, z, 'AAAA~2.gA==']).env.length, 10); console.log('lipsync cues-pack ok'); }

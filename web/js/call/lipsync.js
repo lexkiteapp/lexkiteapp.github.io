@@ -216,6 +216,16 @@
     return self;
   }
 
-  const api = { VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  /** Giải 1 mục LK_CUES (cues.js, scripts/lipsync/call_cues.mjs): [ms, mốc, độ lớn tiếng] → { dur, cues, env }. Không mất gì:
+   *  mốc "X0 B120 …" (ms tuyệt đối) hoặc "+X0 B24 …" (+ = delta theo bước 5 ms) · độ lớn tiếng base64 8 bit, "~n." = n nhóm "AAAA" (đoạn im). */
+  function unpack(e, b64 = s => Array.from(atob(s), ch => ch.charCodeAt(0))) {
+    const dur = e[0] / 1000, d = e[1][0] === '+', tk = (d ? e[1].slice(1) : e[1]).split(' ');
+    let t = 0; const cues = tk.map(x => { t = d ? t + 5 * x.slice(1) : +x.slice(1); return { value: x[0], start: t / 1000 }; });
+    cues.forEach((x, i) => { x.end = i < cues.length - 1 ? cues[i + 1].start : dur; });
+    return { dur, cues, env: e[2] == null ? null : b64(e[2].replace(/~(\d+)\./g, (_, n) => 'AAAA'.repeat(+n))).map(v => v / 255) };
+  }
+  /** Ngược của unpack cho phần mốc: ms tuyệt đối → delta bước 5 ms ("+…") khi mọi mốc chia hết cho 5 (còn lại giữ nguyên). Idempotent. */
+  const packCues = s => { if (s[0] === '+') return s; const tk = s.split(' '), ms = tk.map(x => +x.slice(1)); if (ms.some(m => m % 5)) return s; let p = 0; return '+' + tk.map((x, i) => { const r = x[0] + (ms[i] - p) / 5; p = ms[i]; return r; }).join(' '); };
+  const api = { unpack, packCues, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

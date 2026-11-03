@@ -48,7 +48,7 @@ const pack = (cues, env) => { const pk = Math.max(...env, 1e-6); return [Math.ro
 
 // mốc mới của lượt sinh nằm cạnh mp3 (.media-out/cues-new.json): job publish gọi lại --index-only trên main mới nhất (scripts/ci/commit-regen.sh) → idempotent, không mất mốc
 const NEW = (process.env.AUDIO_OUT ? process.env.AUDIO_OUT + '/../..' : '.media-out') + '/cues-new.json', fresh = (() => { try { return JSON.parse(fs.readFileSync(NEW, 'utf8')); } catch (e) { return {}; } })();
-const K = Object.fromEntries(Object.entries({ ...old, ...fresh }).map(([k, v]) => [k, v ? [v[0], v[1], zrun(v[2])] : v])), rows = [];
+const K = Object.fromEntries(Object.entries({ ...old, ...fresh }).map(([k, v]) => [k, v ? [v[0], LS.packCues(v[1]), zrun(v[2])] : v])), rows = [];
 if (todo.length) {
   fs.mkdirSync(OUT, { recursive: true });
   fs.writeFileSync(`${QA}/in.json`, JSON.stringify(todo.map(([key, l]) => ({ id: key, text: l.text.replace(/["“”]/g, ''), voice: l.voice }))));
@@ -62,13 +62,13 @@ if (todo.length) {
     const env = rms100(back), dur = env.length / 100, kp = JSON.parse(fs.readFileSync(`${QA}/${key}.ph.json`, 'utf8'));
     const cues = fromKokoro(kp, env), s = score(l, cues, env, kp.ph), pass = Math.abs(s.lagMs) <= 45 && s.visemePct >= 80 && s.flicker === 0;
     rows.push({ key, text: l.text, ...s, pass });
-    if (pass) { const pk = pack(cues, env); K[key] = [pk[0], pk[1], zrun(pk[2])]; } else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khóa mới)
+    if (pass) { const pk = pack(cues, env); K[key] = [pk[0], LS.packCues(pk[1]), zrun(pk[2])]; } else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khóa mới)
   }
 }
 if (rows.length) { fs.mkdirSync(NEW.replace(/\/[^/]+$/, ''), { recursive: true }); fs.writeFileSync(NEW, JSON.stringify({ ...fresh, ...Object.fromEntries(rows.map(r => [r.key, K[r.key] ?? 0])) })); }
 const keys = Object.keys(K).filter(k => lines.has(k)).sort(), good = keys.filter(k => K[k]), body = Object.fromEntries(keys.map(k => [k, K[k]]));
-fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64, "~n." = n nhóm "AAAA"] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
-  + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 2, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
+fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64, "~n." = n nhóm "AAAA"; mốc "+…" = delta bước 5 ms – giải: LipSync.unpack] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
+  + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 3, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
 const bad = rows.filter(r => !r.pass), md = [`## Mốc khớp miệng – ${good.length}/${lines.size} câu có mốc (${keys.length - good.length} trượt cổng → live) · lượt này ${rows.length} câu, trượt cổng ${bad.length}`, '',
   rows.length ? `lệch max ${Math.max(0, ...rows.filter(r => r.lagMs != null).map(r => Math.abs(r.lagMs)))} ms · đúng hình min ${Math.min(100, ...rows.filter(r => r.visemePct != null).map(r => r.visemePct))} % · nháy ${rows.reduce((a, r) => a + (r.flicker || 0), 0)}` : '',
   ...(bad.length ? ['', '| khóa | câu | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|', ...bad.map(r => `| ${r.key} | ${r.text.slice(0, 60)} | ${r.lagMs ?? r.err} | ${r.visemePct ?? ''} | ${r.flicker ?? ''} |`)] : [])].join('\n');

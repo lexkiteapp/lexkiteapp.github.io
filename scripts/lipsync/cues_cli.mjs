@@ -5,7 +5,7 @@
 import fs from 'node:fs'; import { createRequire } from 'node:module';
 const req = createRequire(import.meta.url), LS = req('../../web/js/call/lipsync.js');
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
-export function decode(e) { const dur = e[0] / 1000, q = e[1].split(' ').map(x => ({ value: x[0], start: +x.slice(1) / 1000 })); q.forEach((x, i) => { x.end = i < q.length - 1 ? q[i + 1].start : dur; }); return q; }
+export function decode(e) { return LS.unpack([e[0], e[1]]).cues; } // cùng hàm giải với web (LipSync.unpack)
 export function rms100(f) { const b = fs.readFileSync(f); let o = 12; while (b.toString('ascii', o, o + 4) !== 'data') o += 8 + b.readUInt32LE(o + 4);
   const sr = b.readUInt32LE(24), n = b.readUInt32LE(o + 4) / 2, s = o + 8, hop = Math.round(sr / 100), R = []; for (let i = 0; i + hop <= n; i += hop) { let e = 0; for (let j = 0; j < hop; j++) { const x = b.readInt16LE(s + 2 * (i + j)) / 32768; e += x * x; } R.push(Math.sqrt(e / hop)); } return R; }
 export function fromKokoro(kp, env) { return LS.lead(LS.smooth(LS.align(LS.fromPhones(kp.ph, env.length / 100), env, { words: kp.words }))); }

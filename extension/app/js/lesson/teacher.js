@@ -117,8 +117,7 @@
           if (a && !isFinite(a.duration)) a.addEventListener('loadedmetadata', () => { if (S && S.L === L && a.currentTime < 0.05) live(); }, { once: true });
         };
         if (a && src.cue) {
-          const [ms, cs, eb] = src.cue, dur = ms / 1000, env = Array.from(atob(eb.replace(/~(\d+)\./g, (_, n) => 'AAAA'.repeat(+n))), ch => ch.charCodeAt(0) / 255); // "~n." = đoạn im nén (call_cues.mjs)
-          const q = cs.split(' ').map(x => ({ value: x[0], start: +x.slice(1) / 1000 })); q.forEach((x, i) => { x.end = i < q.length - 1 ? q[i + 1].start : dur; });
+          const { dur, cues: q, env } = LS.unpack(src.cue); // mốc + độ lớn tiếng nén (call_cues.mjs)
           S = { clk, a, t0, dur, M: LF.machine(who, { cues: q, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) };
           // mp3 đệm cũ / sai bản → độ dài lệch mốc > 120 ms thì chuyển live (không bao giờ khớp sai)
           a.addEventListener('loadedmetadata', () => { if (S && S.clk === clk && isFinite(a.duration) && Math.abs(a.duration - dur) > 0.12) live(); }, { once: true });
