@@ -89,5 +89,21 @@ ok(fs.statSync('scripts/ops/rollback-pages.sh').mode & 0o111, 'rollback-pages.sh
 try { execFileSync('bash', ['-n', 'scripts/ops/rollback-pages.sh']); ok(true); } catch { ok(false, 'bash -n rollback-pages.sh'); }
 const reg = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')); ok(['d1-backup', 'code-bundle', 'release-archive'].every(id => reg.jobs.some(j => j.id === id && j.lease)), 'jobs.json có d1-backup, code-bundle, release-archive (lease)');
 const back = wf('d1-backup.yml'); ok(/cron: '15 0 \* \* 1,2'/.test(back) && /d1-restore\.mjs --latest --api --drill/.test(back) && /actions\/cache\/save/.test(back), 'd1-backup.yml: 00:15 UTC sau mốc đặt lại, có diễn tập + cache tiếp tục');
+// Hồi quy 1/11: cờ backup_* phải TỰ GỠ. Script ops đặt alert(kind, false) thì cũng phải có alert(kind, true|!…) trên đường xanh,
+// và mỗi workflow sao lưu có bước `if: failure()` đặt cờ (giám sát không mù khi workflow chết ngoài script) + sổ đẩy qua ledger-push.
+{
+  const rd = f => fs.readFileSync(f, 'utf8');
+  const sc = { backup_code: ['scripts/ops/code-bundle.mjs'], backup_d1: ['scripts/ops/d1-backup.mjs', 'scripts/ops/d1-restore.mjs'], backup_rel: ['scripts/ops/release-archive.mjs'] };
+  for (const [k, fl] of Object.entries(sc)) {
+    const src = fl.map(rd).join('\n');
+    ok(new RegExp("alert\\('" + k + "', false").test(src), k + ': có đặt cờ khi lỗi');
+    ok(new RegExp("alert\\('" + k + "', (true|!)").test(src), k + ': có GỠ cờ khi xanh');
+  }
+  for (const [w, k] of [['code-bundle', 'backup_code'], ['d1-backup', 'backup_d1'], ['release-archive', 'backup_rel']]) {
+    const y = wf(w + '.yml');
+    ok(y.includes('scripts/ops/flag.mjs ' + k) && /failure\(\)/.test(y), w + '.yml: bước failure() đặt cờ ' + k);
+    ok(y.includes('scripts/ops/ledger-push.mjs'), w + '.yml: sổ đẩy qua ledger-push (gộp khi xung đột)');
+  }
+}
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(fails ? `✗ rollback: ${fails}/${n} lỗi` : `✓ rollback: ${n} kiểm tra đạt`); process.exit(fails ? 1 : 0);

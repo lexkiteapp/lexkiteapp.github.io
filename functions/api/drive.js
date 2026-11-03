@@ -328,10 +328,13 @@ async function snapUsed(db, rows, now) {
   await run(db, "DELETE FROM drive_meta WHERE k >= 'd1r:' AND k < 'd1r;' AND k < ?", d1Key(now - 14 * 864e5));
   await run(db, "DELETE FROM drive_meta WHERE k >= 'used:' AND k < 'used;' AND k < ?", 'used:' + new Date(now - 120 * 864e5).toISOString().slice(0, 10));
 }
+const FORECAST_DAYS = 14;
 /** Dự báo: snaps = [{day:'YYYY-MM-DD', used}], đã sắp tăng dần. → {gb_month, days_left, since} (null nếu chưa đủ ≥ 2 ngày dữ liệu / không tăng). */
 export function forecastPool(snaps, free) {
   if (!snaps || snaps.length < 2) return null;
-  const a = snaps[0], b = snaps[snaps.length - 1], days = (Date.parse(b.day) - Date.parse(a.day)) / 864e5;
+  const last = snaps[snaps.length - 1], win = snaps.filter(x => Date.parse(last.day) - Date.parse(x.day) <= FORECAST_DAYS * 864e5); // cửa sổ trượt: đợt dồn kho ban đầu (23/10: +133 GB/tháng) không kéo dự báo mãi
+  const use = win.length >= 2 && (Date.parse(last.day) - Date.parse(win[0].day)) / 864e5 >= 3 ? win : snaps;
+  const a = use[0], b = last, days = (Date.parse(b.day) - Date.parse(a.day)) / 864e5;
   if (!(days >= 1)) return null;
   const perDay = (b.used - a.used) / days;
   return { gb_month: +(perDay * 30 / GB).toFixed(2), days_left: perDay > 0 ? Math.floor(free / perDay) : null, since: a.day, days: Math.round(days) };
