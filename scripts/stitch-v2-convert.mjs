@@ -141,6 +141,10 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
   const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
+  // unwrap: mẫu bọc header/section/footer trong 1 khung (vd div max-w-[1280px] của landing v3) → gộp class khung vào gốc, đưa con lên gốc
+  //   (đầu/chân trang phải là con trực tiếp để tách chrome.js; hình không đổi vì gốc mang đúng class khung)
+  if (bind.unwrap) { const w = root.querySelector(bind.unwrap); if (!w || w.parentElement !== root) errs.push(`${k}: unwrap không khớp con trực tiếp: ${bind.unwrap}`);
+    else { root.setAttribute('class', root.getAttribute('class') + ' ' + (w.getAttribute('class') || '')); w.replaceWith(...w.childNodes); } }
   if (A.includes('--dump') && ONLY.length && !ONLY.includes(k)) continue;
   if (A.includes('--dump')) { const walk = (e, d, path) => { const cls = (e.getAttribute('class') || '').split(' ').filter(c => !/^(lt|dk):/.test(c)).slice(0, 4).join('.'), al = e.getAttribute('aria-label'), tx = [...e.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join(' ');
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
