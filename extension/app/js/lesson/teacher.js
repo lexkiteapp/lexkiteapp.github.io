@@ -135,8 +135,7 @@
     return self;
   }
 
-  // nạp trước mặt vẽ lúc rảnh (teacher.js nạp khi vào màn có giáo viên, trước khi họ nói) → câu đầu tiên cũng có mặt vẽ + mốc CI (bản -ls.mp3), không chờ
-  try { if (lipOn() && !saveData()) (g.requestIdleCallback || setTimeout)(() => lipLoad().catch(() => {}), { timeout: 800 }); } catch (e) { /* bỏ qua */ }
+  // mặt vẽ + mốc (cues.js ~109 KB) nạp lười khi MOUNT giáo viên (Call, bài học, Truyện) – KHÔNG nạp lúc teacher.js vào gói ux1 (Home/Today không tải thêm, call-e2e 4b kiểm)
   /** mount(el, who, { lip }) → { say(text, { rate, voice, onEnd }), stop(), destroy(), who } · lip: cho phép mặt vẽ khớp miệng (Call, sau cờ lk.lipsync) */
   function mount(el, who, mo = {}) {
     who = Chars.id(who); // nhân vật + tài sản: chỉ qua Chars (web/js/characters.js, nguồn web/teach/characters.json)

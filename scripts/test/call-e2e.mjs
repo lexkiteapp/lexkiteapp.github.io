@@ -243,6 +243,18 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
 // ===== 4b) Mặt VẼ khớp miệng (cờ lk.lipsync, docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + lớp vector thay clip, nói & nghỉ (chớp/liếc), fps ≥ 50 ở CPU 4×, không lỗi JS =====
 // Tiếng GIẢ theo mốc (fixtureAudio, không gọi kho media): câu có mốc CI (web/js/call/cues.js) phải phát chế độ "pre"; MỘT <canvas> (0 thay đổi DOM mỗi khung); video màn Call → lip-m.webm
 {
+  // Home/Today (gói ux1 có teacher.js) KHÔNG tải mặt vẽ/mốc: chỉ nạp khi mount giáo viên (ngân sách web/js tạm nâng cho #293 kèm điều kiện này)
+  {
+    const { ctx, page } = await open({ vp: { width: 375, height: 812 } }), LIP = /\/js\/call\/(cues|face|lipsync|mouths|paint)\.js/, got = [];
+    page.on('request', r => { if (LIP.test(r.url())) got.push(r.url().split('/').pop()); });
+    await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
+    for (const h of ['#/home', '#/today']) { await go(page, h); await page.waitForTimeout(2500); }
+    ok(!got.length, `Home/Today: không tải mặt vẽ/mốc khớp miệng (${got.join(', ') || '0 tệp'})`);
+    await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
+    await until(page, () => document.querySelector('.tch-rig canvas.tch-face'), null, 15000).catch(() => {});
+    ok(got.includes('cues.js') && got.includes('face.js'), `vào Call mới nạp mặt vẽ + mốc (${got.join(', ')})`);
+    await ctx.close();
+  }
   // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
   for (const rec of [false, true]) {
   let pendPre = false, modes = new Set(); const modes2 = new Set();
