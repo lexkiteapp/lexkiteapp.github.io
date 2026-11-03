@@ -59,15 +59,18 @@ export function checkEntry(k, e, ctx) {
   const exs = S.flatMap(s => s.ex || []), PH = /^(sb|sth|someone|something|one's|somebody)$/i;
   const shown = c => exs.some(x => words(c).filter(w => !PH.test(w)).every(w => has(w, x)));
   if (col.length && !col.some(shown)) E('không collocation nào được minh hoạ trong ví dụ');
-  for (const f of e.fam || []) if (norm(String(f).replace(/\(.*?\)/g, '')) === norm(head)) E(`fam chứa chính từ đầu mục: ${f}`);
+  for (const f of e.fam || []) { const fp = (String(f).match(/\((.*?)\)/) || [])[1] || ''; if (norm(String(f).replace(/\(.*?\)/g, '')) === norm(head) && (!fp || norm(fp) === norm(row[2]) || norm(fp)[0] === norm(row[2])[0])) E(`fam chứa chính từ đầu mục (cùng từ loại): ${f}`); } // cùng chữ khác từ loại (struggle v → struggle n) là họ từ hợp lệ
   return errs;
 }
 
-export function checkFile(file = 'content/lexicon/senses.json') {
-  const url = new URL('../../' + file, import.meta.url);
-  const data = fs.existsSync(url) ? JSON.parse(fs.readFileSync(url, 'utf8')) : { entries: {} };
+// Nguồn: content/lexicon/senses.json (lô gold) + content/lexicon/senses/*.json (mỗi lô Sonnet một file – docs/content-lots.md). Một từ#loại chỉ ở MỘT file.
+export function checkFile(file) {
+  const R = new URL('../../', import.meta.url), J = p => JSON.parse(fs.readFileSync(new URL(p, R), 'utf8'));
+  const files = file ? [file] : ['content/lexicon/senses.json', ...(fs.existsSync(new URL('content/lexicon/senses/', R)) ? fs.readdirSync(new URL('content/lexicon/senses/', R)).filter(f => f.endsWith('.json')).sort().map(f => 'content/lexicon/senses/' + f) : [])].filter(p => fs.existsSync(new URL(p, R)));
+  const data = { entries: {} }, dupKey = [];
+  for (const p of files) for (const [k, e] of Object.entries(J(p).entries || {})) { if (data.entries[k]) dupKey.push(`${k}: có ở 2 file (${p})`); data.entries[k] = e; }
   const all = loadAll(), rows = new Map(); for (const e of all) { const k = key(e.row); if (!rows.has(k)) rows.set(k, e.row); }
-  const ctx = { rows, seenEx: new Map() }, errs = [];
+  const ctx = { rows, seenEx: new Map() }, errs = [...dupKey];
   const ent = data.entries || {};
   for (const [k, e] of Object.entries(ent)) errs.push(...checkEntry(k, e, ctx));
   const core = coreList(all), done = core.filter(c => ent[c.k]).length;

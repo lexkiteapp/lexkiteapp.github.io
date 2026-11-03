@@ -22,6 +22,7 @@ bad(e => { e.senses[0].col = ['go abroad', 'go wrong', 'go missing']; }, /minh h
 bad(e => { e.senses[0].pat = ['go there']; }, /chỗ trống/);
 bad(e => { e.senses[0].n = 2; }, /n = 2/);
 bad(e => { e.fam = ['go (v)']; }, /fam/);
+assert.ok(!checkEntry('go#v', { ...good, fam: ['go (n)'] }, ctx()).some(m => /fam/.test(m)), 'cùng chữ khác từ loại là họ từ hợp lệ');
 bad(e => { e.senses.push({ ...e.senses[0], n: 2 }); }, /trùng/);
 if (lvl !== 'A1') bad(e => { e.senses[0].lvl = 'A1'; }, /< cấp từ/);
 else bad(e => { e.senses[0].lvl = 'B1'; }, /nghĩa dễ nhất/);
