@@ -50,5 +50,6 @@
 "Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).": "You'll see updates right in the app (My reports).",
 "Đã nhận": "Received",
 "Đã sửa trong phiên bản {v}": "Fixed in version {v}",
+"Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.": "You get this email because you asked for updates when sending the report.",
 "Vui lòng đợi {n} giây trước khi gửi tiếp.": "Please wait {n} seconds before sending another report.",
 }); })(typeof self !== 'undefined' ? self : this);

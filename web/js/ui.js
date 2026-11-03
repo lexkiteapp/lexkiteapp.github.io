@@ -178,14 +178,35 @@
   g.audioUrls = (k, kind = 'l') => AUDIO_BASES.slice(baseAt()).map(b => b.replace(/l\/$/, kind + '/') + (kind === 'l' ? lk(k) : k) + '.mp3'); // mọi gốc còn dùng được, theo thứ tự
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
+  // Làm sạch chuỗi trước khi đọc (mọi chỗ gọi tts/speak): bỏ emoji, phiên âm /…/, nhãn UK/US, từ loại, nhãn mục ("💬 Ví dụ") –
+  // chuỗi lỡ cào từ giao diện ("📚 curriculum /kəˈrɪkjələm/ UK US n 💬 Ví dụ Many people…") chỉ còn câu tiếng Anh. Câu thường giữ nguyên.
+  const EMO = /[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{1F3FB}-\u{1F3FF}\uFE0E\uFE0F\u200D\u20E3]+/gu, IPA = /(^|\s)\/[^\s/](?:[^/\n]{0,78}[^\s/])?\/(?=[\s,.;:!?)]|$)/g;
+  const POS = 'n|v|adj|adv|det|prep|pron|conj|int|num|aux|modal|phr\\.? ?v|noun|verb|adjective|adverb|determiner|preposition|pronoun|conjunction|phrasal verb|idiom';
+  const LBL = ['Ví dụ', 'Example', 'Câu ví dụ', 'Câu của bạn', 'Your sentence', 'Ngữ cảnh của bạn', 'Định nghĩa', 'Definition'];
+  const reL = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), tr = x => (typeof t === 'function' ? t(x) : x);
+  function ttsClean(text) {
+    let s = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
+    if (!s || !(new RegExp(EMO.source, 'u').test(s) || new RegExp(IPA.source).test(s))) return s; // câu thường → giữ nguyên, kể cả "the US economy"
+    const M = '\u0001', lb = list => [...new Set(list.concat(list.map(tr)))].filter(Boolean).map(reL).join('|');
+    s = s.replace(EMO, ' ' + M + ' ').replace(IPA, '$1' + M + ' ');
+    // nhãn mục (💬 Ví dụ / ✍️ Câu của bạn…) sau biểu tượng → chỉ đọc phần sau nhãn cuối (phần trước là tiêu đề thẻ: từ, phiên âm, từ loại)
+    const parts = s.split(new RegExp(`${M}\\s*(?:${lb(LBL.slice(0, 5))})\\s*:?`, 'i'));
+    if (parts.length > 1 && /[A-Za-z]/.test(parts[parts.length - 1])) s = parts[parts.length - 1];
+    const tag = new RegExp(`${M}\\s*(?:UK|US|BrE|AmE|(?:${POS})\\.?|${lb(LBL)})(?=[\\s:.,${M}]|$)\\s*:?`, 'i');
+    for (let i = 0; i < 16 && tag.test(s); i++) s = s.replace(tag, M); // "/…/ UK US n" → bỏ lần lượt từng nhãn ngay sau biểu tượng/phiên âm
+    return s.split(M).join(' ').replace(/\s+/g, ' ').replace(/\s+([,.;:!?])/g, '$1').replace(/^[\s,.;:·•|–—-]+|[\s,;:·•|–—-]+$/g, '').trim();
+  }
   // opts: { rate, onSentence(i, text), onEnd(), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
+  // giọng Kokoro mặc định theo accent – bảng ngôn ngữ đích (web/js/target.js); thiếu Target → như cũ (en-US af_heart, còn lại bf_emma)
+  const kvOf = a => (g.Target ? g.Target.kokoroVoice(a) : a === 'en-US' ? 'af_heart' : 'bf_emma');
   function tts(text, accent = 'en-GB', rate, opts = {}) {
+    text = ttsClean(text);
     if (!text) return;
     stopHq();
     const kv = LA() && LA().kokoro(opts.voice || (opts.who && g.Chars && g.Chars.voice ? g.Chars.voice(opts.who) : ''));
     const gender = opts.gender || (kv ? kv.gender : LA() && opts.who ? LA().genderFor(opts.who) : '');
     if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq && LA()) {
-      const v = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : accent === 'en-US' ? 'af_heart' : 'bf_emma', whole = g.KVoice.lineKey(v, text);
+      const v = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : kvOf(accent), whole = g.KVoice.lineKey(v, text);
       const segs = g.LISTEN_AUDIO.has(whole) ? [[whole, text]] : splitSentences(text).map(p => [g.KVoice.lineKey(v, p), p]);
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
@@ -222,7 +243,7 @@
       return;
     }
     if (!('speechSynthesis' in g)) { // không có giọng máy: từ đơn → thử bản ghi giọng người thật từ từ điển
-      if (!/\s/.test(text.trim()) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio); }).catch(() => {});
+      if (!/\s/.test(text.trim()) && (!g.Target || g.Target.isEn(accent)) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio); }).catch(() => {});
       if (opts.onEnd) opts.onEnd();
       return;
     }
@@ -265,6 +286,7 @@
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
   function speak(text, accent, url, slow) {
+    text = ttsClean(text);
     accent = accent || prefs().accent || 'en-GB';
     const fb = () => tts(text, accent, slow ? 0.55 : undefined);
     // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
@@ -273,8 +295,9 @@
     // Từ trong kho: giọng Kokoro Anh/Mỹ (scripts/gen-word-audio.mjs, audio.lexkite.com/audio/w/) – chưa có file/không mạng → giọng máy
     const wk = String(text || '').trim(), au = g.Lex && g.Lex.peekAu ? g.Lex.peekAu(wk) : undefined; // Lex biết từ không có file → không tải 404
     const lx = au && g.Lex.peek(wk), we = !url && au !== false && g.navigator && navigator.onLine && ((g.IELTS_DATA && g.IELTS_DATA.INDEX[wk.toLowerCase()]) || (lx && lx.word.toLowerCase() === wk.toLowerCase() ? lx : null));
-    if (we && !wordMiss.has(accent + wk) && LA()) {
-      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma';
+    const wv = g.Target ? g.Target.wordVoice(accent) : accent === 'en-US' ? 'af_heart' : 'bf_emma'; // '' = ngôn ngữ đích chưa có file từ dựng sẵn → giọng máy
+    if (we && wv && !wordMiss.has(accent + wk) && LA()) {
+      const v = wv;
       stopSpeak();
       const my = speakSeq;
       // Gốc CDN lần lượt (lỗi/404/quá giờ → gốc kế tiếp); hết gốc → giọng máy (ghi nhật ký dự phòng). Bị chặn tự phát → giọng máy, không đánh dấu thiếu file.
@@ -357,15 +380,15 @@
     return null;
   }
   function recognize(target, accent, cb = {}) {
-    const SR = g.SpeechRecognition || g.webkitSpeechRecognition;
-    if (cb.whisper && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
-    if (SR && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
-    if (!SR) { if (g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
+    const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent); // Whisper trên máy = whisper-tiny.en → chỉ tiếng Anh
+    if (cb.whisper && en && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
+    if (SR && en && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
+    if (!SR) { if (!en || g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
     if (activeRec) { const old = activeRec; activeRec = null; old._stale = true; try { old.abort(); } catch (e) { /* đã dừng */ } }
     stopSpeak();
     const r = new SR();
     activeRec = r;
-    r.lang = accent || 'en-GB'; r.maxAlternatives = 5; r.interimResults = false; r.continuous = false;
+    r.lang = g.Target ? g.Target.recLang(g.Target.tlOfAccent(accent), accent) : accent || 'en-GB'; r.maxAlternatives = 5; r.interimResults = false; r.continuous = false;
     if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
     let media = null, chunks = [], stream = null, audioP = null;
@@ -425,7 +448,7 @@
   // Ô ngữ cảnh có nút nghe cả câu (🔊 tốc độ chuẩn · 🐢 chậm) – dùng chung cho mọi bảng tra
   function ctxBox(sentence, word, extra = '') {
     if (!sentence) return '';
-    return `<div class="ctx-box ${extra}"><div class="ctx-tx">📌 ${highlight(sentence, word)}</div><div class="ctx-act"><button class="ctx-say" data-saysent="${esc(sentence)}" title="${t('Nghe cả câu')}" aria-label="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(sentence)}" data-slow="1" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🐢</button></div></div>`;
+    return `<div class="ctx-box ${extra}"><div class="ctx-tx" data-sent="${esc(sentence)}">📌 ${highlight(sentence, word)}</div><div class="ctx-act"><button class="ctx-say" data-saysent="${esc(sentence)}" title="${t('Nghe cả câu')}" aria-label="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(sentence)}" data-slow="1" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🐢</button></div></div>`;
   }
   if (typeof document !== 'undefined') document.addEventListener('click', e => {
     const b = e.target.closest && e.target.closest('[data-saysent]'); if (!b) return;
@@ -566,5 +589,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
