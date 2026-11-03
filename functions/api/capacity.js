@@ -12,7 +12,7 @@ import { adminGate, adminCors } from './admin.js';
 import { cliVerify } from './drive.js';
 import { once } from './_schema.js';
 import { watchD1 } from './_d1watch.js';
-import { resetD1Cache } from './_d1guard.js';
+import { resetD1Cache, planOf } from './_d1guard.js';
 
 export const D1_DB_ID = '7ce39cd0-9333-4843-bd6f-5ccbefbde670'; // lexkite-sync (wrangler.toml)
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
@@ -86,7 +86,7 @@ export async function check(env, db, now = Date.now(), fetcher = fetch) {
       srcMailed = true; await db.prepare("INSERT OR REPLACE INTO drive_meta (k, v) VALUES ('mail:capacity-src', ?)").bind(String(now)).run();
     }
   } else await db.prepare("DELETE FROM drive_alerts WHERE kind = 'capacity-src'").run();
-  const ev = evaluate(rows, LIMITS.free, ALERT, to);
+  const ev = evaluate(rows, planOf(env) === 'paid' ? LIMITS.paid : LIMITS.free, ALERT, to); // 03/11: tài khoản chính gói Paid → so phần đã gồm (quy ngày)
   let mailed = false;
   if (ev.alert) {
     const msg = `${alertText(ev)} – ${ev.reason}. Hôm qua: ${pctTxt(ev)}.${sy.text ? ` Nguồn đọc: ${sy.text}.` : ''} Trong lúc chờ: Quản trị › Cài đặt › hit_rate = 0.2 (lấy mẫu thống kê phiên) giảm ≈ 30 % dòng ghi.`;
@@ -104,9 +104,10 @@ export async function check(env, db, now = Date.now(), fetcher = fetch) {
  * → drive_meta 'd1u:<ngày>' (1 dòng ghi) cho _d1guard.d1Usage đọc (ngưỡng 85 %, ngân sách Quản trị) + thang báo 50/75 % (_d1watch.js). */
 export async function usage(env, db, b, now = Date.now()) {
   const ok = x => Number.isSafeInteger(x) && x >= 0 && x < 1e10;
-  if (!b || b.day !== dayOf(now) || !ok(b.reads) || !ok(b.writes)) return { error: 'bad-usage' };
+  const mR = b && b.mReads != null ? b.mReads : b && b.reads, mW = b && b.mWrites != null ? b.mWrites : b && b.writes; // tháng (gói Paid); thiếu → bằng hôm nay
+  if (!b || b.day !== dayOf(now) || !ok(b.reads) || !ok(b.writes) || !ok(mR) || !ok(mW) || mR < b.reads || mW < b.writes) return { error: 'bad-usage' };
   await setup(db);
-  await db.prepare('INSERT INTO drive_meta (k, v) VALUES (?1, ?2) ON CONFLICT(k) DO UPDATE SET v = ?2').bind('d1u:' + b.day, JSON.stringify({ reads: b.reads, writes: b.writes, at: now })).run();
+  await db.prepare('INSERT INTO drive_meta (k, v) VALUES (?1, ?2) ON CONFLICT(k) DO UPDATE SET v = ?2').bind('d1u:' + b.day, JSON.stringify({ reads: b.reads, writes: b.writes, mReads: mR, mWrites: mW, at: now })).run();
   resetD1Cache();
   const w = await watchD1(env, db, now, { mail: (s, t) => sendMail(env, s, t) });
   return { ok: true, ...w };
@@ -116,7 +117,7 @@ export async function usage(env, db, b, now = Date.now()) {
 export async function trend(env, db, now = Date.now()) {
   await setup(db);
   const from = dayOf(now - 29 * DAY), rows = (await db.prepare('SELECT day, reads, writes, fn, workers, requests, at, src FROM capacity_daily WHERE day >= ? ORDER BY day').bind(from).all()).results || [];
-  return { rows, evaluation: evaluate(rows, LIMITS.free, ALERT, dayOf(now)), limits: { free: LIMITS.free, paid: LIMITS.paid }, rule: ALERT, analytics: !!((env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN) && env.CF_ACCOUNT_ID) };
+  return { rows, evaluation: evaluate(rows, planOf(env) === 'paid' ? LIMITS.paid : LIMITS.free, ALERT, dayOf(now)), plan: planOf(env), limits: { free: LIMITS.free, paid: LIMITS.paid }, rule: ALERT, analytics: !!((env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN) && env.CF_ACCOUNT_ID) };
 }
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
