@@ -174,6 +174,41 @@
       setRate(r) { rate = r; }
     };
   }
+  /** AudioBuffer (tiếng đã giải mã) → RMS 100 Hz (kênh 0) – cùng thước với độ lớn tiếng trong cues.js. */
+  function envOf(buf, hz = 100) {
+    const x = buf.getChannelData(0), hop = Math.max(1, Math.round(buf.sampleRate / hz)), out = [];
+    for (let i = 0; i + hop <= x.length; i += hop) { let e = 0; for (let j = i; j < i + hop; j++) e += x[j] * x[j]; out.push(Math.sqrt(e / hop)); }
+    return out;
+  }
+  // độ lớn tiếng (căn bậc hai, chia đỉnh) trung bình của từng hình theo mốc Kokoro 256 câu (scripts/test/lipsync-lesson.mjs học lại: --learn)
+  const ELV = { X: 0.04, A: 0.49, B: 0.49, C: 0.62, D: 0.65, E: 0.62, F: 0.61, G: 0.45, H: 0.55 };
+  const EMIN = { A: 6, G: 5, F: 5 }; // khung 10 ms tối thiểu cho hình môi (M/B/P mím, F/V, chu môi) – đủ để thấy, không bị smooth nuốt
+  /** Câu KHÔNG có mốc CI nhưng có file tiếng (bài học: mọi câu đọc từ kho mp3): căn âm vị của chữ vào đường độ lớn tiếng THẬT
+   * (DP phân đoạn: mỗi âm vị 1 đoạn liền, chi phí = lệch độ lớn mong đợi + lệch thời lượng log; giữa các từ / dấu câu có thể chèn im).
+   * Đo trên 256 câu so với mốc Kokoro (lipsync-lesson.mjs): môi mím M/B/P ~80 % (live 25 %), đúng hình ~56 % (live 28 %), lệch mở miệng p95 ≤ 80 ms.
+   * Chi phí O(âm vị × khung × thời lượng), đoạn im ≤ 1,5 s → câu 10 s vài ms; chạy 1 lần mỗi câu. */
+  function fromEnv(text, dur, env, o = {}) {
+    const T = env.length, pk = Math.max(...env, 1e-6), e = env.map(x => Math.sqrt(Math.min(1, x / pk))), S1 = [0], S2 = [0];
+    for (let i = 0; i < T; i++) { S1.push(S1[i] + e[i]); S2.push(S2[i] + e[i] * e[i]); }
+    const seg = (a, b, l) => S2[b] - S2[a] - 2 * l * (S1[b] - S1[a]) + (b - a) * l * l;
+    const st = [{ v: 'X', opt: 1 }]; let pw = null; const opt = () => st[st.length - 1].opt;
+    for (const u of units(text)) { if (u.gap) { if (!opt()) st.push({ v: 'X', opt: 1 }); continue; } if (pw !== null && u.wi !== pw && !opt()) st.push({ v: 'X', opt: 1 }); st.push({ v: u.v, w: u.w }); pw = u.wi; }
+    if (!opt()) st.push({ v: 'X', opt: 1 });
+    const tw = st.reduce((s, x) => s + (x.w || 0), 0), voiced = e.filter(x => x > 0.2).length;
+    if (!T || !tw) return fromText(text, dur);
+    const k = Math.max(2, voiced) / tw, N = st.length, INF = 1e18, dp = [], bk = [];
+    for (let i = 0; i <= N; i++) { dp.push(new Float64Array(T + 1).fill(INF)); bk.push(new Int32Array(T + 1)); }
+    dp[0][0] = 0;
+    for (let i = 1; i <= N; i++) { const s = st[i - 1], l = ELV[s.v] ?? 0.5, ex = s.w ? s.w * k : 0, dmin = s.opt ? 0 : EMIN[s.v] || 1, dmax = s.opt ? 150 : Math.max(dmin + 2, Math.ceil(ex * 3.5) + 2);
+      for (let t = 0; t <= T; t++) { let best = INF, bd = 0;
+        for (let d = dmin, m = Math.min(dmax, t); d <= m; d++) { const p = dp[i - 1][t - d]; if (p >= INF) continue;
+          const c = p + seg(t - d, t, l) + (s.opt ? (d ? 1.5 : 0) : 0.6 * Math.log(d / ex) ** 2); if (c < best) { best = c; bd = d; } }
+        dp[i][t] = best; bk[i][t] = bd; } }
+    if (dp[N][T] >= INF) return fromText(text, dur);
+    const cues = []; for (let i = N, t = T; i >= 1; i--) { const d = bk[i][t]; if (d) cues.unshift({ start: (t - d) / 100, end: t / 100, value: st[i - 1].v }); t -= d; }
+    cues[0].start = 0; cues[cues.length - 1].end = Math.max(cues[cues.length - 1].end, dur);
+    return lead(smooth(align(smooth(cues), env)));
+  }
   /** Phát hiện có tiếng theo năng lượng RMS, có trễ bật/tắt (hysteresis) để không giật khi âm nhỏ giữa từ. */
   function vad(o = {}) {
     let on = false, floor = o.floor ?? 0.01, quiet = 0;
@@ -193,6 +228,6 @@
   /** Ngược của unpack cho phần mốc → dạng gọn nhất không mất: "*" (delta bước 5 ms, base36) khi mọi mốc chia hết cho 5; còn lại giữ ms tuyệt đối. Idempotent. */
   const packCues = s => { if (s[0] === '*') return s; const q = unpack([0, s]).cues.map(x => [x.value, Math.round(x.start * 1000)]); if (q.some(([, ms]) => ms % 5)) return s[0] === '+' ? q.map(([v, ms]) => v + ms).join(' ') : s;
     let p = 0; return '*' + q.map(([v, ms]) => { const r = v + ((ms - p) / 5).toString(36); p = ms; return r; }).join(''); };
-  const api = { unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromEnv, envOf, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

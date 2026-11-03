@@ -94,6 +94,9 @@ FSRS giữ bản trong `core.js` (đã chạy, có test) – không đổi sang 
 > TL;DR: Giáo viên 2D Ama/Carlos khớp **từng âm** bằng 9 hình miệng (chuẩn Rhubarb/Preston Blair) cắt từ chính clip registry, đè lên tư thế cảm xúc 2D sẵn có, có chớp mắt và nhịp đầu. Câu dựng sẵn: Kokoro + Rhubarb trên CI. Câu AI lúc chạy: chữ → âm vị (CMUdict) chạy theo đồng hồ âm thanh và năng lượng Web Audio. Đang ở **lab** (`web/lab/lipsync.html?lab=1`), chưa vào luồng Call: chờ anh duyệt video.
 > Đọc khi: sửa `web/js/call/lipsync.js`, `scripts/lipsync/*`, đưa khớp miệng vào `call.js`/`lesson/teacher.js` hoặc Play & Speak.
 
+### Câu bài học không có mốc CI (3/11)
+Câu có file mp3 nhưng chưa có mốc Kokoro (mọi câu bài học đọc từ kho, lời khen/nhắc): `teacher.js` giải mã đúng file đang phát → `LipSync.envOf` (RMS 100 Hz) → `LipSync.fromEnv` (DP phân đoạn: căn âm vị của chữ vào độ lớn tiếng thật, hình môi M/B/P – F/V – chu môi giữ ≥ 50–60 ms) → chế độ mốc; lỗi CORS/giải mã → giữ live. Cổng `scripts/test/lipsync-lesson.mjs` (npm test + call-qa, so với mốc Kokoro 256 câu): lệch mở miệng p95 ≤ 80 ms (đo 70), môi mím M/B/P ≥ 78 % (đo 80, live 25), đúng hình ≥ 50 % (đo 51, live 28). Máy yếu (> 15 % khung > 50 ms sau 1,5 s) → canvas vẽ ở dpr 1.
+
 ### Hiện trạng (trước lab)
 `lesson/teacher.js` chỉ bật vòng clip **talk** khi đang nói, **listen** khi im ([CALL.md](../CALL.md)). Miệng trong clip chạy theo nhịp của clip, không theo âm, nên lệch rõ ở từ ngắn và chỗ ngắt. Video teach2d cũng chỉ gate nói/im (`scripts/video/teach2d/qc.py`). Pilot sprite cũ (#151, `docs/mocks/teacher-pilot/b-sprite.html`) có khớp âm nhưng dùng mặt bản 3D cũ, không còn đúng nhân vật 2D.
 

@@ -45,7 +45,8 @@
   // Lớp mặt vẽ trong rig: MỘT <canvas> (đầu trơn + lớp vector LipFace qua LipPaint, nghiêng/gật quanh cổ) phủ đúng khung poster (contain, căn đáy). onFail → vòng clip.
   // Gốc fps (call-e2e 4b, CPU 4×): vá DOM SVG mỗi khung → tính lại style + MutationObserver của app mỗi khung. Canvas: 0 thay đổi DOM mỗi khung, chỉ vẽ khi trạng thái đổi.
   function face(rig, who, onFail) {
-    const LS = g.LipSync, LF = g.LipFace, LM = g.LipMouth, R = LF.RIG[who], id = 'tf' + (++uid), pic = new Image(), dpr = Math.min(2, g.devicePixelRatio || 1), hi = dpr * (rig.clientWidth || 200) > 320;
+    const LS = g.LipSync, LF = g.LipFace, LM = g.LipMouth, R = LF.RIG[who], id = 'tf' + (++uid), pic = new Image(), hi = Math.min(2, g.devicePixelRatio || 1) * (rig.clientWidth || 200) > 320;
+    let dpr = Math.min(2, g.devicePixelRatio || 1); // let: máy yếu hạ về 1 (frame)
     const seed = s => { let h = 7; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; };
     const calm = motionLow(); // giảm chuyển động: giữ khớp miệng + chớp mắt (thông tin), bỏ nghiêng/gật/liếc
     const stats = { frames: 0, long: 0, draws: 0, t0: 0, mode: 'idle', emo: '' };
@@ -60,6 +61,8 @@
     const frame = now => {
       if (dead) return;
       const dt = prev ? (now - prev) / 1000 : 1 / 60; prev = now; stats.frames++; if (dt > 0.05) stats.long++;
+      // máy yếu (> 15 % khung dài sau 1,5 s): vẽ ở độ phân giải CSS (dpr 1) – ít điểm ảnh hơn tới 4×, miệng vẫn khớp đủ khung
+      if (!stats.low && dpr > 1 && stats.frames >= 90 && stats.long > stats.frames * 0.15) { stats.low = 1; dpr = 1; if (cv) fit(); }
       let s, talking = false;
       if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(held ? held[0] : ''); } // phản ứng ngắn đã hết → về tư thế đang giữ / nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
       stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
@@ -115,7 +118,17 @@
             voiced: () => { if (a && !playing(a)) return false; if (!an) return true; an.getFloatTimeDomainData(buf); let e = 0; for (const x of buf) e += x * x; return vd(Math.sqrt(e / buf.length)); } };
           // chưa biết độ dài tiếng lúc bắt đầu → dựng lại con trỏ theo độ dài thật khi có (trước khi phát)
           if (a && !isFinite(a.duration)) a.addEventListener('loadedmetadata', () => { if (S && S.L === L && a.currentTime < 0.05) live(); }, { once: true });
+          if (a && !refined) refine();
         };
+        // câu có file tiếng nhưng chưa có mốc CI (bài học: mọi câu đọc từ kho mp3) → giải mã đúng file đang phát, căn âm vị theo độ lớn tiếng thật (LS.fromEnv)
+        // rồi chuyển sang chế độ mốc (môi mím M/B/P, tròn O/U đúng lúc); trong lúc chờ (vài chục ms) con trỏ live chạy; lỗi CORS/giải mã → giữ live
+        let refined = false;
+        const refine = () => { const url = a.currentSrc || a.src; if (!url || !ac || !g.fetch || !LS.fromEnv) return; refined = true;
+          g.fetch(url).then(r => (r.ok ? r.arrayBuffer() : Promise.reject(r.status))).then(b => new Promise((ok, no) => { const p = ac.decodeAudioData(b, ok, no); if (p && p.catch) p.catch(no); }))
+            .then(buf => { if (dead || !S || !S.L || S.a !== a || (isFinite(a.duration) && Math.abs(a.duration - buf.duration) > 0.12)) return;
+              const env = LS.envOf(buf), dur = buf.duration, cues = LS.fromEnv(src.text || '', dur, env);
+              S = { clk, a, t0, dur, node: S.node, M: LF.machine(who, { cues, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) }; stats.fit = (stats.fit || 0) + 1; })
+            .catch(() => {}); };
         if (a && src.cue) {
           const { dur, cues: q, env } = LS.unpack(src.cue); // mốc + độ lớn tiếng nén (call_cues.mjs)
           S = { clk, a, t0, dur, M: LF.machine(who, { cues: q, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) };

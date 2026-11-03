@@ -5,6 +5,7 @@ node scripts/ext-syntax.mjs
 node scripts/test/comment-code.mjs --self
 node scripts/test/comment-code.mjs
 node scripts/test/teacher-loop.mjs
+node scripts/test/lipsync-lesson.mjs
 node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
