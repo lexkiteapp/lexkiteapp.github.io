@@ -160,4 +160,4 @@ IELTS Task 1は、以下の4つの評価項目（各25%）に基づいて厳格�
 | **勝手な理由を書く** | *"Sales dropped because prices were high."* | 事実のみを述べる: *"Sales recorded a significant decline."* |
 | **単語を丸写しする** | 問題文の言い回しをそのままコピー | 同義語や品詞転換で高度にパラフレーズする |
 
-ライティング全体の総合力を高めるためには、[IELTS Writing複文の書き方](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/)を学び、文章の滑らかな接続を助ける[英語の繋ぎ言葉（linking words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/)や、客観的描写に不可欠な[英語の受動態（passive voice）](/ja/blog/eigo-judoutai-passive-voice-tsukaikata/)を習得しましょう。さらに[IELTSパラフレーズ言い換えのコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/)を取り入れることで、目標バンドスコアの突破が現実のものとなります。語彙の補強には[/tu-vung/](/tu-vung/)もご活用ください。
+ライティング全体の総合力を高めるためには、[IELTS Writing Task 2構成のコツ](/ja/blog/ielts-writing-task-2-kousei-4danraku/)で学術エッセイの枠組みを身につけ、[IELTS Writing複文の書き方](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/)を学び、文章の滑らかな接続を助ける[英語の繋ぎ言葉（linking words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/)や、客観的描写に不可欠な[英語の受動態（passive voice）](/ja/blog/eigo-judoutai-passive-voice-tsukaikata/)を習得しましょう。さらに[IELTSパラフレーズ言い換えのコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/)を取り入れることで、目標バンドスコアの突破が現実のものとなります。語彙の補強には[/tu-vung/](/tu-vung/)もご活用ください。

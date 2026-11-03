@@ -66,7 +66,7 @@ Band 6.5以上を確実に達成するためには、以下の4つの段階を�
 
 1. **アカデミック・リーディング：** 最も失点しやすいTrue / False / Not GivenやMatching Headingsに特化して演習します。[IELTSリーディングTrue False Not Givenのコツ](/ja/blog/ielts-reading-true-false-not-given-koutsu/)や[IELTSリーディングSkimming Scanningのコツ](/ja/blog/ielts-reading-skimming-scanning-kotsu/)を活用し、キーワードを瞬時にスキャンする技術を磨きます。
 2. **アカデミック・リスニング：** 音声が始まる前の先読み時間で、空欄に入る品詞（名詞、数字、形容詞など）を予測する習慣を徹底します。
-3. **アカデミック・ライティング：** Task 1では棒グラフ、折れ線グラフ、プロセスの特徴を客観的に記述する訓練を行います。[IELTS Writing Task 1グラフ分析のコツ](/ja/blog/ielts-writing-task-1-graph-bunseki-koutsu/)を押さえましょう。Task 2では4段落構成のエッセイを時間内に組み立てます。
+3. **アカデミック・ライティング：** Task 1では棒グラフ、折れ線グラフ、プロセスの特徴を客観的に記述する訓練を行います。[IELTS Writing Task 1グラフ分析のコツ](/ja/blog/ielts-writing-task-1-graph-bunseki-koutsu/)を押さえましょう。Task 2では[IELTS Writing Task 2構成のコツ](/ja/blog/ielts-writing-task-2-kousei-4danraku/)を学び、4段落構成のエッセイを時間内に組み立てます。
 4. **スピーキング・テスト：** Part 2の1分間の準備時間で、文章ではなくキーワードのみを素早くメモし、2分間流暢に話し続ける練習を重ねます。[IELTS Speaking Part 2テンプレート](/ja/blog/ielts-speaking-part-2-template/)を活用すると構成に迷いません。
 
 ### 第4段階：本番形式の模試と徹底的な復習
