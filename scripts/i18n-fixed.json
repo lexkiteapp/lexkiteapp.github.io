@@ -33206,21 +33206,6 @@
     "ru": "Для этого выбора пока нет видео.",
     "tr": "Bu seçim için henüz video yok."
   },
-  "Chủ kênh không cho phép nhúng video này – hãy mở trên YouTube.": {
-    "es": "El propietario del canal no permite insertar este vídeo: ábrelo en YouTube.",
-    "pt": "O dono do canal não permite incorporar este vídeo – abra-o no YouTube.",
-    "fr": "Le propriétaire de la chaîne n'autorise pas l'intégration de cette vidéo – ouvrez-la sur YouTube.",
-    "de": "Der Kanalinhaber erlaubt das Einbetten dieses Videos nicht – öffne es auf YouTube.",
-    "id": "Pemilik kanal tidak mengizinkan video ini disematkan – buka di YouTube.",
-    "th": "เจ้าของช่องไม่อนุญาตให้ฝังวิดีโอนี้ – เปิดดูบน YouTube",
-    "zh": "频道所有者不允许嵌入此视频——请在 YouTube 上打开。",
-    "ja": "チャンネル所有者がこの動画の埋め込みを許可していません。YouTube で開いてください。",
-    "ko": "채널 소유자가 이 영상의 퍼가기를 허용하지 않아요. YouTube에서 열어 주세요.",
-    "hi": "चैनल के मालिक ने इस वीडियो को एम्बेड करने की अनुमति नहीं दी है – इसे YouTube पर खोलें।",
-    "ar": "صاحب القناة لا يسمح بتضمين هذا الفيديو – افتحه على YouTube.",
-    "ru": "Владелец канала запретил встраивать это видео – откройте его на YouTube.",
-    "tr": "Kanal sahibi bu videonun yerleştirilmesine izin vermiyor – YouTube'da aç."
-  },
   "Câu chứa từ (tùy chọn)": {
     "es": "Frase con la palabra (opcional)",
     "pt": "Frase com a palavra (opcional)",
@@ -33265,21 +33250,6 @@
     "ar": "الصق رابط YouTube أو اكتب موضوعًا…",
     "ru": "Вставьте ссылку YouTube или введите тему…",
     "tr": "YouTube bağlantısı yapıştır veya bir konu yaz…"
-  },
-  "Dán link YouTube hoặc tìm video": {
-    "es": "Pega un enlace de YouTube o busca vídeos",
-    "pt": "Cole um link do YouTube ou pesquise vídeos",
-    "fr": "Collez un lien YouTube ou recherchez des vidéos",
-    "de": "YouTube-Link einfügen oder nach Videos suchen",
-    "id": "Tempel tautan YouTube atau cari video",
-    "th": "วางลิงก์ YouTube หรือค้นหาวิดีโอ",
-    "zh": "粘贴 YouTube 链接或搜索视频",
-    "ja": "YouTube のリンクを貼り付けるか、動画を検索",
-    "ko": "YouTube 링크를 붙여넣거나 영상을 검색하세요",
-    "hi": "YouTube लिंक पेस्ट करें या वीडियो खोजें",
-    "ar": "الصق رابط YouTube أو ابحث عن فيديوهات",
-    "ru": "Вставьте ссылку YouTube или найдите видео",
-    "tr": "YouTube bağlantısı yapıştır veya video ara"
   },
   "Ghi chú theo thời gian": {
     "es": "Notas con marca de tiempo",
@@ -33386,36 +33356,6 @@
     "ru": "Повтор A–B",
     "tr": "A–B döngüsü"
   },
-  "Lặp đoạn A–B": {
-    "es": "Repetir un fragmento (A–B)",
-    "pt": "Repetir um trecho (A–B)",
-    "fr": "Répéter un passage (A–B)",
-    "de": "Eine Stelle wiederholen (A–B)",
-    "id": "Ulangi satu bagian (A–B)",
-    "th": "เล่นซ้ำบางช่วง (A–B)",
-    "zh": "循环播放片段(A–B)",
-    "ja": "区間をループ再生(A–B)",
-    "ko": "구간 반복 (A–B)",
-    "hi": "कोई हिस्सा दोहराएँ (A–B)",
-    "ar": "تكرار مقطع (A–B)",
-    "ru": "Повторять фрагмент (A–B)",
-    "tr": "Bir bölümü döngüye al (A–B)"
-  },
-  "Mở YouTube": {
-    "es": "Abrir YouTube",
-    "pt": "Abrir o YouTube",
-    "fr": "Ouvrir YouTube",
-    "de": "YouTube öffnen",
-    "id": "Buka YouTube",
-    "th": "เปิด YouTube",
-    "zh": "打开 YouTube",
-    "ja": "YouTube を開く",
-    "ko": "YouTube 열기",
-    "hi": "YouTube खोलें",
-    "ar": "فتح YouTube",
-    "ru": "Открыть YouTube",
-    "tr": "YouTube'u aç"
-  },
   "Mở trên YouTube": {
     "es": "Abrir en YouTube",
     "pt": "Abrir no YouTube",
@@ -33476,21 +33416,6 @@
     "ru": "Находите и сохраняйте слова",
     "tr": "Kelimeleri bul ve kaydet"
   },
-  "Tra": {
-    "es": "Buscar significado",
-    "pt": "Ver significado",
-    "fr": "Voir le sens",
-    "de": "Bedeutung nachschlagen",
-    "id": "Cari arti",
-    "th": "ดูความหมาย",
-    "zh": "查看释义",
-    "ja": "意味を調べる",
-    "ko": "뜻 찾기",
-    "hi": "अर्थ देखें",
-    "ar": "البحث عن المعنى",
-    "ru": "Узнать значение",
-    "tr": "Anlamına bak"
-  },
   "Tìm": {
     "es": "Buscar",
     "pt": "Pesquisar",
@@ -33520,21 +33445,6 @@
     "ar": "كل المواضيع",
     "ru": "Все темы",
     "tr": "Tüm konular"
-  },
-  "Từ vừa nghe": {
-    "es": "Palabra que acabas de oír",
-    "pt": "Palavra que você acabou de ouvir",
-    "fr": "Mot que vous venez d'entendre",
-    "de": "Gerade gehörtes Wort",
-    "id": "Kata yang baru kamu dengar",
-    "th": "คำที่เพิ่งได้ยิน",
-    "zh": "你刚听到的单词",
-    "ja": "今聞いた単語",
-    "ko": "방금 들은 단어",
-    "hi": "अभी सुना हुआ शब्द",
-    "ar": "كلمة سمعتها للتو",
-    "ru": "Слово, которое вы только что услышали",
-    "tr": "Az önce duyduğun kelime"
   },
   "Tự động ({l})": {
     "es": "Auto ({l})",
@@ -33670,21 +33580,6 @@
     "ar": "عناصر التحكم في الاستماع",
     "ru": "Управление прослушиванием",
     "tr": "Dinleme kontrolleri"
-  },
-  "Giao tiếp mỗi ngày": {
-    "es": "Conversación cotidiana",
-    "pt": "Conversa do dia a dia",
-    "fr": "Conversation quotidienne",
-    "de": "Alltagsgespräche",
-    "id": "Percakapan sehari-hari",
-    "th": "บทสนทนาในชีวิตประจำวัน",
-    "zh": "日常对话",
-    "ja": "日常会話",
-    "ko": "일상 대화",
-    "hi": "रोज़मर्रा की बातचीत",
-    "ar": "محادثة يومية",
-    "ru": "Повседневное общение",
-    "tr": "Günlük konuşma"
   },
   "Chào hỏi, mua sắm, hỏi đường, nói chuyện nhỏ": {
     "es": "Saludos, compras, pedir indicaciones, charla informal",

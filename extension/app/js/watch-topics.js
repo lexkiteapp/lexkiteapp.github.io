@@ -1,8 +1,5 @@
-/* 🎬 Học qua video – bộ chủ đề dựng sẵn (gói lười 'watch', docs/specs/video-learn.md §3). Chỉ DỮ LIỆU, không gọi t() lúc nạp:
- * name/desc là KHÓA tiếng Việt, dịch lúc vẽ (web/js/i18n/en/watch.js → 15 ngôn ngữ).
- * Mỗi chủ đề: id · ic (UI.icon) · lv [min,max] CEFR 1..6 (A1..C2) · goals (khớp App.exam(): ielts/toeic/toefl/general, 'all' = mọi mục tiêu)
- *   · q: cụm từ khóa tìm trên YouTube (tiếng Anh – nội dung dạy chỉ tiếng Anh), q[0] là cụm chính · ch: kênh công khai cho RSS (không cần khóa API)
- *   · kw: từ lọc tiêu đề RSS (rỗng = lấy hết) · vocab: từ gốc để gợi ý theo sổ từ của người học. */
+/* 🎬 Bộ chủ đề #/watch (docs/specs/video-learn.md). Chỉ dữ liệu: name/desc là KHÓA i18n (dịch lúc vẽ); lv = CEFR 1..6; goals khớp App.exam();
+ * q = từ khóa tìm (tiếng Anh, q[0] chính); ch = kênh công khai cho RSS; kw = lọc tiêu đề RSS; vocab = gợi ý theo sổ từ. */
 (function (g) {
   const C = { TEDED: 'UCsooa4yRKGN_zEE8iknghZA', TED: 'UCAuUUnT6oDeKwE6v1NGQxug', BBCLE: 'UCHaHD477h-FeBbVh9Sh7syA', VOA: 'UCKyTokYo0nK2OA-az-sDijA', KURZ: 'UCsXVk37bltHxD1rDPwtNM8Q', CRASH: 'UCX6b17PVsYBQ0ip5gyeme-Q', VOX: 'UCLXo7UDZvByw2ixzpQCufnA', VERI: 'UCHnyfMqiRRG1u-2MsSQLbXA', SCISHOW: 'UCZYTClx2T1of7BRZ86-8fow', LUCY: 'UCz4tgANd4yy8Oe0iXCdSWfA', RACHEL: 'UCvn_XCl_mgQmt3sD753zdJA' };
   const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -18,7 +15,7 @@
 
   const T = (id, ic, lv, goals, name, desc, q, ch, kw, vocab) => ({ id, ic, lv, goals, name, desc, q, ch, kw: kw || [], vocab: vocab || [] });
   const TOPICS = [
-    T('daily', 'message-circle', [1, 3], ['all'], 'Giao tiếp mỗi ngày', 'Chào hỏi, mua sắm, hỏi đường, nói chuyện nhỏ', ['everyday english conversation', 'english small talk phrases', 'daily english dialogues'], [C.BBCLE, C.LUCY, C.VOA], ['conversation', 'phrases', 'everyday', 'talk', 'say'], ['hello', 'shop', 'buy', 'weather', 'friend']),
+    T('daily', 'message-circle', [1, 3], ['all'], 'Hội thoại đời sống', 'Chào hỏi, mua sắm, hỏi đường, nói chuyện nhỏ', ['everyday english conversation', 'english small talk phrases', 'daily english dialogues'], [C.BBCLE, C.LUCY, C.VOA], ['conversation', 'phrases', 'everyday', 'talk', 'say'], ['hello', 'shop', 'buy', 'weather', 'friend']),
     T('beginner', 'sprout', [1, 2], ['all'], 'Người mới bắt đầu', 'Câu ngắn, nói chậm, từ cơ bản', ['english for absolute beginners', 'slow easy english story', 'basic english sentences'], [C.VOA, C.BBCLE], ['beginner', 'easy', 'basic', 'learn'], ['family', 'home', 'food', 'day']),
     T('travel', 'luggage', [1, 4], ['all', 'general'], 'Du lịch', 'Sân bay, khách sạn, nhà hàng, đi lại', ['english for travel airport hotel', 'travel english conversation', 'restaurant english phrases'], [C.BBCLE, C.VOA, C.LUCY], ['travel', 'airport', 'hotel', 'trip', 'holiday', 'restaurant'], ['airport', 'hotel', 'ticket', 'luggage', 'trip']),
     T('work', 'briefcase', [3, 5], ['all', 'toeic', 'general'], 'Công việc & văn phòng', 'Họp, email, phỏng vấn, thuyết trình', ['business english meetings', 'job interview english', 'english for the office'], [C.BBCLE, C.LUCY], ['business', 'work', 'job', 'interview', 'office', 'meeting'], ['meeting', 'deadline', 'colleague', 'interview', 'manager']),

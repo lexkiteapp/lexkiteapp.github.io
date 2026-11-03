@@ -1,9 +1,5 @@
-/* 🎬 Học qua video (#/watch · #/watch/<id>) – gói lười 'watch' (watch-topics.js + file này + css/watch.css). docs/specs/video-learn.md.
- * Hub: dán link YouTube / tìm · bộ lọc (trình độ, độ dài, giọng, tốc độ nói, có phụ đề) · Xem tiếp · Gợi ý cho bạn · lưới chủ đề.
- * Kết quả: /api/watch op=search (Data API, hết hạn mức → link YouTube search) + op=feed (RSS kênh công khai). 0 byte YouTube trước khi mở video
- * (chỉ ảnh i.ytimg.com loading=lazy). Trình học: IFrame API chính thức, host youtube-nocookie – lặp A-B (seekTo), tốc độ (setPlaybackRate), lùi 5 s,
- * ghi chú theo mốc giờ, tra + lưu từ vào thẻ ôn (App.addWord, ngữ cảnh có link &t= → #/reflex dùng lại). Không che player, không đụng quảng cáo YouTube.
- * Add-on không nạp mã từ xa (build-extension.sh gỡ iframe_api) → iframe nhúng thường + mở YouTube (add-on lo phụ đề song ngữ ở đó). */
+/* 🎬 Học qua video (#/watch · #/watch/<id>) – gói lười 'watch'. Thiết kế + điều khoản YouTube: docs/specs/video-learn.md.
+ * Player = IFrame API chính thức (youtube-nocookie), không che player/quảng cáo; add-on (không nạp mã từ xa) → iframe thường + mở YouTube. */
 (function (g) {
   const { $, $$, esc, toast } = UI;
   const App = g.App, { state, routes } = App, view = App.view;
@@ -57,7 +53,7 @@
     view.innerHTML = `<div class="wt-hub" id="wtHub">
       <div class="page-head"><div><h1>${UI.icon('monitor')} ${t('Học qua video')}</h1><p class="muted">${t('Xem video YouTube thật theo chủ đề và trình độ – lặp đoạn, chỉnh tốc độ, lưu từ vào thẻ ôn.')}</p></div></div>
       <form class="card wt-find" id="wtFind" role="search">
-        <label for="wtQ" class="sr-only">${t('Dán link YouTube hoặc tìm video')}</label>
+        <label for="wtQ" class="sr-only">${t('Dán link YouTube hoặc gõ chủ đề…')}</label>
         <input id="wtQ" type="search" placeholder="${t('Dán link YouTube hoặc gõ chủ đề…')}" autocomplete="off" enterkeyhint="search" maxlength="300">
         <button class="btn primary" type="submit">${UI.icon('search')} ${t('Tìm')}</button>
       </form>
@@ -103,7 +99,7 @@
     const yt = s.fallback || 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
     const row = box.querySelector('.wt-row'); row.removeAttribute('aria-busy');
     row.innerHTML = items.length ? items.map(card).join('') : `<p class="muted">${s.offline ? t('Không có mạng – thử lại khi có kết nối.') : t('Chưa có video sẵn cho lựa chọn này.')}</p>`;
-    box.insertAdjacentHTML('beforeend', `<p class="small wt-more">${t('Không thấy video ưng ý? Tìm trên YouTube rồi dán link vào ô phía trên.')} <a class="btn sm" href="${esc(yt)}" target="_blank" rel="noopener">${UI.icon('search')} ${t('Mở YouTube')}</a></p>`);
+    box.insertAdjacentHTML('beforeend', `<p class="small wt-more">${t('Không thấy video ưng ý? Tìm trên YouTube rồi dán link vào ô phía trên.')} <a class="btn sm" href="${esc(yt)}" target="_blank" rel="noopener">${UI.icon('search')} ${t('Mở trên YouTube')}</a></p>`);
   }
 
   // ================= TRÌNH HỌC =================
@@ -127,14 +123,14 @@
           <button type="button" class="btn sm" id="wtBack" title="${t('Lùi 5 giây')}">↺ 5s</button>
           <button type="button" class="btn sm primary" id="wtPlay" aria-label="${t('Phát / dừng')}">▶</button>
           <label class="wt-sel"><span class="sr-only">${t('Tốc độ')}</span><select id="wtRate">${RATES.map(r => `<option value="${r}" ${r === 1 ? 'selected' : ''}>${r}×</option>`).join('')}</select></label>
-          <span class="wt-ab" role="group" aria-label="${t('Lặp đoạn A–B')}"><button type="button" class="btn sm" id="wtA">A</button><button type="button" class="btn sm" id="wtB">B</button><button type="button" class="btn sm" id="wtLoop" aria-pressed="false">${UI.icon('repeat')} <span id="wtABt">${t('Lặp A–B')}</span></button></span>
+          <span class="wt-ab" role="group" aria-label="${t('Lặp A–B')}"><button type="button" class="btn sm" id="wtA">A</button><button type="button" class="btn sm" id="wtB">B</button><button type="button" class="btn sm" id="wtLoop" aria-pressed="false">${UI.icon('repeat')} <span id="wtABt">${t('Lặp A–B')}</span></button></span>
         </div></div>
       <h1 class="wt-title" id="wtTitle">${esc(meta.title || t('Video YouTube'))}</h1><p class="muted small" id="wtCh">${esc(meta.ch)}</p>
       <div class="wt-tools">
         <section class="card"><h2>${UI.icon('book-a')} ${t('Tra & lưu từ')}</h2>
-          <form id="wtSave" class="wt-form"><label for="wtW" class="sr-only">${t('Từ vừa nghe')}</label><input id="wtW" placeholder="${t('Gõ từ vừa nghe…')}" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="60" required>
+          <form id="wtSave" class="wt-form"><label for="wtW" class="sr-only">${t('Gõ từ vừa nghe…')}</label><input id="wtW" placeholder="${t('Gõ từ vừa nghe…')}" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="60" required>
             <label for="wtS" class="sr-only">${t('Câu chứa từ (tùy chọn)')}</label><input id="wtS" placeholder="${t('Câu chứa từ (tùy chọn)')}" maxlength="200">
-            <button class="btn primary" type="submit">${t('Tra')}</button></form><div id="wtWord" aria-live="polite"></div></section>
+            <button class="btn primary" type="submit">${t('Tra cứu')}</button></form><div id="wtWord" aria-live="polite"></div></section>
         <section class="card"><h2>${UI.icon('notebook-pen')} ${t('Ghi chú theo thời gian')}</h2>
           <form id="wtNote" class="wt-form"><label for="wtNt" class="sr-only">${t('Ghi chú')}</label><input id="wtNt" placeholder="${t('Ghi chú tại mốc đang xem…')}" maxlength="300" required><button class="btn" type="submit">${t('Thêm')}</button></form>
           <ul class="wt-notes" id="wtNotes"></ul></section>
@@ -144,7 +140,7 @@
     const now = () => { try { return P ? P.getCurrentTime() || 0 : 0; } catch (e) { return 0; } };
     const remember = () => { const pos = now(); if (!pos && !meta.title) return; const h = LS.get('h', []).filter(x => x.id !== id); h.unshift({ ...meta, pos: Math.floor(pos), len: Math.floor(len), at: Date.now() }); LS.set('h', h.slice(0, 30)); const a = $('#wtYT'); if (a) a.href = ytUrl(pos); };
     remember();
-    if (!meta.title) get('info', { id }).then(d => { if (dead || !d || !d.title) { if (d && d.embeddable === false && !dead) toast(t('Chủ kênh không cho phép nhúng video này – hãy mở trên YouTube.'), 6000); return; } meta.title = d.title; meta.ch = d.ch; $('#wtTitle').textContent = d.title; $('#wtCh').textContent = d.ch; remember(); });
+    if (!meta.title) get('info', { id }).then(d => { if (dead || !d || !d.title) { if (d && d.embeddable === false && !dead) toast(t('Video này không phát được ở đây – hãy mở trên YouTube.'), 6000); return; } meta.title = d.title; meta.ch = d.ch; $('#wtTitle').textContent = d.title; $('#wtCh').textContent = d.ch; remember(); });
     const plain = () => { $('#wtP').outerHTML = `<iframe class="wt-if" src="https://www.youtube-nocookie.com/embed/${id}?rel=0&playsinline=1&cc_load_policy=1&cc_lang_pref=en${start ? '&start=' + start : ''}" title="${esc(meta.title || 'YouTube')}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`; };
     const abText = () => { $('#wtABt').textContent = A != null && B != null ? `${fmt(A)} → ${fmt(B)}` : A != null ? `${fmt(A)} → …` : t('Lặp A–B'); $('#wtLoop').setAttribute('aria-pressed', String(loop)); $('#wtLoop').classList.toggle('primary', loop); };
     let tick = 0, saveT = 0;
