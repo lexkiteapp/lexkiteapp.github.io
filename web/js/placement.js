@@ -137,7 +137,7 @@
       const weak = E.weak === 'vocab' ? t('từ vựng') : t('ngữ pháp');
       const STG = { s0: t('Chặng 0 · Từ cốt lõi'), s1: t('Chặng 1 · Nền tảng'), s2: t('Chặng 2 · Mở rộng chủ đề'), s3: t('Chặng 3 · Học thuật') };
       const sk = (s, label, color) => `<div class="pl-skill">${ring(s.band / 9 * 100, f1(s.band), color)}<b>${label}</b><span class="small muted">${s.cefr}</span></div>`;
-      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result">
+      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result" data-lesson-done>
         <div class="pl-em" aria-hidden="true">🎯</div><h2 class="pl-h">${t('Trình độ ước tính: Band {band}', { band: E.range })}</h2>
         <div class="pl-rings">${sk(E.vocab, t('Từ vựng'), 'var(--primary)')}${sk(E.grammar, t('Ngữ pháp'), 'var(--accent)')}</div>
         <p>${t('Điểm cần ưu tiên: <b>{weak}</b>. Kế hoạch hôm nay trên trang chủ đã được điều chỉnh theo kết quả này.', { weak })}</p>

@@ -18,7 +18,7 @@
     load().then(d => {
       const sum = {}; for (const r of d.rows || []) sum[r.k] = (sum[r.k] || 0) + (+r.n || 0);
       const pick = re => Object.entries(sum).filter(([k]) => re.test(k)).reduce((a, [, n]) => a + n, 0);
-      const yes = sum.ask_yes || 0, no = sum.ask_no || 0, optin = pick(/^optin/), optout = pick(/^optout/) + (sum.unsub || 0) + (sum.gone || 0);
+      const yes = pick(/^ask_yes(:|$)/), no = pick(/^ask_no(:|$)/), optin = pick(/^optin/), optout = pick(/^optout/) + (sum.unsub || 0) + (sum.gone || 0);
       const tpl = {}; for (const [k, n] of Object.entries(sum)) { const m = /^(shown|open):(\w+)$/.exec(k); if (m) (tpl[m[2]] = tpl[m[2]] || { shown: 0, open: 0 })[m[1]] += n; }
       const kpi = (l, v) => `<div class="kpi"><b>${v}</b><span class="tiny muted">${esc(l)}</span></div>`;
       const rows = Object.entries(tpl).sort((a, b) => b[1].shown - a[1].shown).map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${num(v.shown)}</td><td>${num(v.open)}</td><td>${v.shown ? Math.round(v.open / v.shown * 1000) / 10 + '%' : '–'}</td></tr>`).join('');
