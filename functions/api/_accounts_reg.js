@@ -90,6 +90,19 @@ export const ROWS = [
   "note": ""
  },
  {
+  "id": "pages-youtube-search",
+  "service": "YouTube Data API v3 – tìm video #/watch (khóa API, dự án GCP RIÊNG)",
+  "account": "Google · dự án riêng cho tìm kiếm",
+  "store": "pages",
+  "names": [
+   "YOUTUBE_SEARCH_KEY"
+  ],
+  "scope": "functions/api/watch.js op=search (search.list + videos.list); chưa có khóa → RSS + link YouTube search. docs/specs/video-learn.md",
+  "manage": "https://console.cloud.google.com/apis/credentials",
+  "expires": "",
+  "note": "Chờ chủ tạo (owner-pending)"
+ },
+ {
   "id": "pages-grabcast",
   "service": "GrabCast (đăng social)",
   "account": "GrabCast",

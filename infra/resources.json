@@ -359,7 +359,8 @@
         "rate.lexkite.internal",
         "quota.lexkite.internal",
         "notices.lexkite.internal",
-        "counts.lexkite.internal"
+        "counts.lexkite.internal",
+        "watch.lexkite.internal"
       ]
     },
     {
@@ -596,6 +597,19 @@
         "yt_channel",
         "yt_pack",
         "shorts/_ytpack"
+      ]
+    },
+    {
+      "key": "youtube-search",
+      "name": "YouTube Data API v3 – tìm video cho #/watch (khóa riêng YOUTUBE_SEARCH_KEY)",
+      "kind": "api",
+      "purpose": "functions/api/watch.js op=search: search.list + videos.list = 101 đơn vị/lượt, trần WATCH_SEARCH_UNITS (mặc định 9.000/ngày Pacific, D1 watch_quota), đệm Cache API 24 h + D1 watch_cache 7 ngày; hết → link YouTube search. op=info (oEmbed) + op=feed (RSS kênh công khai) không cần khóa. docs/specs/video-learn.md",
+      "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
+      "free": "10.000 đơn vị/ngày/dự án (~99 lượt tìm)",
+      "upgrade": "Xin tăng quota qua YouTube API audit (miễn phí)",
+      "status": "Chờ khóa (chủ tạo dự án GCP riêng)",
+      "match": [
+        "www.googleapis.com"
       ]
     },
     {
@@ -1270,7 +1284,8 @@
       "learnenglish.britishcouncil.org",
       "ielts.org",
       "ielts.idp.com",
-      "classroom.google.com", "dash.cloudflare.com", "appstoreconnect.apple.com"
+      "classroom.google.com", "dash.cloudflare.com", "appstoreconnect.apple.com",
+      "policies.google.com"
     ]
   }
 }
