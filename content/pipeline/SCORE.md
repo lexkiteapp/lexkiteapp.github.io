@@ -2,11 +2,11 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 47.7 / 100**
+**Tổng: 47.8 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **45.2** | 45.2 | 45.2% | 100% | 0 |
+| Kho từ | **46.2** | 45.2 | 46.2% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
 | Giao tiếp | **14.1** | 14.1 | 14.1% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
@@ -18,14 +18,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 8812 / 20000 | 44% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 8812 / 8812 | 100% | 20 |
-| collocation | 4532 / 20000 | 23% | 12 |
-| đồng nghĩa | 2520 / 20000 | 13% | 8 |
-| IPA Mỹ | 5787 / 20000 | 29% | 5 |
+| từ#loại duy nhất | 9148 / 20000 | 46% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 9148 / 9148 | 100% | 20 |
+| collocation | 4660 / 20000 | 23% | 12 |
+| đồng nghĩa | 2706 / 20000 | 14% | 8 |
+| IPA Mỹ | 5987 / 20000 | 30% | 5 |
 | ảnh theo nghĩa | 3088 / 20000 | 15% | 15 |
-| C2 | 255 / 1000 | 26% | 10 |
-| A1 | 836 / 1000 | 84% | 5 |
+| C2 | 277 / 1000 | 28% | 10 |
+| A1 | 858 / 1000 | 86% | 5 |
 
 ## Ngữ pháp
 
@@ -97,7 +97,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 9584 / 9584 | 100% | 35 |
+| nội dung có lo hợp lệ | 9920 / 9920 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 119 / 600 | 20% | 25 |
 
 ## i18n
