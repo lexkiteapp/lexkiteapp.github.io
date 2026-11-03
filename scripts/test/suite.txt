@@ -159,6 +159,8 @@ node scripts/test/no-prod-hosts.mjs
 node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
+node scripts/test/audio-coverage.mjs
+node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs
 node scripts/test/dictlookup.mjs
