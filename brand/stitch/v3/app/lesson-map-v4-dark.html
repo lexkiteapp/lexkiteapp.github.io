@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Сегодня (Карта уроков)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#0B2D2E',
+              'teal-surface': '#155051',
+              'teal-light': '#E8F5F4',
+              coral: '#F2583E',
+              'coral-active': '#D9432B',
+              'coral-shadow': '#B8321D',
+            },
+            canvas: {
+              cream: '#FAF8F4',
+              surface: '#FFFFFF',
+              border: '#E8E4DC',
+              'border-dark': '#D5CFC3',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF8F4;
+      color: #172427;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Pulsing halo ring for current node */
+    @keyframes pulseRing {
+      0% {
+        box-shadow: 0 0 0 0 rgba(242, 88, 62, 0.45), 0 5px 0 0 #B8321D;
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(242, 88, 62, 0), 0 5px 0 0 #B8321D;
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(242, 88, 62, 0), 0 5px 0 0 #B8321D;
+      }
+    }
+    .current-node-pulse {
+      animation: pulseRing 2.2s infinite ease-out;
+    }
+    /* S-curve dashed path */
+    .connector-dashed {
+      stroke: #C9C2B3;
+      stroke-width: 4;
+      stroke-dasharray: 6 6;
+      stroke-linecap: round;
+    }
+    .connector-solid {
+      stroke: #0F3D3E;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    /* Tactile bottom ledge for buttons */
+    .tactile-btn {
+      box-shadow: 0 4px 0 0 #B8321D;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B8321D;
+    }
+    .tactile-node-done {
+      box-shadow: 0 5px 0 0 #092627;
+    }
+    .tactile-node-locked {
+      box-shadow: 0 4px 0 0 #C4BEB2;
+    }
+    .tactile-node-special {
+      box-shadow: 0 5px 0 0 #1B4C68;
+    }
+    .tactile-node-review {
+      box-shadow: 0 5px 0 0 #94600E;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center bg-[#10191B] text-[#E8F1F0] p-0 sm:py-6">
+<!-- Mobile Device Shell 390px -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative shadow-xl overflow-x-hidden border-x border-[#1E2F33]">
+<!-- 1. TOP APP BAR (Hub Screen Variant: Title left + one action icon right, 44px min tap targets) -->
+<header class="sticky top-0 z-40 bg-[#172427]/95 backdrop-blur border-b border-[#26383C] px-4 py-3 flex items-center justify-between"><div class="flex items-center gap-2"><h1 class="text-[20px] font-extrabold text-[#E8F1F0] tracking-tight leading-none">Сегодня</h1><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#1E2F33] text-[#4DD0C4] border border-[#26393E]">IELTS · B2</span></div><button aria-label="Серия занятий: 14 дней" class="min-w-[44px] min-h-[44px] px-2.5 py-1 rounded-xl bg-[#1E2F33] border border-[#26393E] flex items-center justify-center gap-1.5 shadow-sm text-[#E8F1F0] hover:bg-[#25393E] transition-colors"><span class="material-symbols-rounded text-[#FF7A59] text-[20px]">local_fire_department</span><span class="text-[13px] font-extrabold text-[#E8F1F0]">14</span></button></header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 pb-28 pt-3 px-4 flex flex-col gap-4">
+<!-- UNIT BANNER / HEADER CARD -->
+<section class="bg-[#172427] text-white rounded-2xl p-4 shadow-sm relative overflow-hidden border border-[#26383C]"><div class="relative z-10"><div class="flex items-center justify-between mb-1.5"><span class="text-[12px] font-bold tracking-wider uppercase text-[#4DD0C4]">Раздел 3 · Работа и карьера</span><span class="text-[12px] font-bold text-[#E8F1F0] bg-[#1E2F33] border border-[#26393E] px-2 py-0.5 rounded-md">4 из 9 готово</span></div><h2 class="text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Деловое общение и переговоры</h2><div class="w-full bg-[#10191B] rounded-full h-2.5 mt-3 overflow-hidden border border-[#26383C]"><div class="bg-[#2BA39A] h-2.5 rounded-full" style="width: 45%;"></div></div></div></section>
+<!-- TEACHER SLOT COMPONENT (Carlos / Ama placeholder as instructed: empty rounded container labelled "teacher-slot") -->
+<section class="bg-[#172427] border-2 border-dashed border-[#26393E] rounded-2xl p-3.5 flex items-center gap-3"><div class="w-14 h-14 rounded-2xl bg-[#1E2F33] border border-[#26393E] flex flex-col items-center justify-center flex-shrink-0 text-center px-1" title="Teacher slot for runtime insertion"><span class="material-symbols-rounded text-[#4DD0C4] text-[22px]">smart_toy</span><span class="text-[9px] font-extrabold text-[#4DD0C4] tracking-tighter uppercase mt-0.5 leading-none">[teacher-slot]</span></div><div class="flex-1 min-w-0"><div class="flex items-center gap-1.5 mb-0.5"><span class="text-[13px] font-bold text-[#E8F1F0]">Карлос · Наставник</span><span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#2D1E1B] text-[#FF7A59] border border-[#FF7A59]/30">Совет дня</span></div><p class="text-[12px] font-semibold text-[#A9BDBB] leading-relaxed">«Пройдите следующий узел сегодня, чтобы закрепить глаголы влияния перед тестом!»</p></div></section>
+<!-- PATH MAP CONTAINER (Vertical node trail with winding S-curve connectors) -->
+<section aria-label="Карта уроков" class="relative py-4 flex flex-col items-center select-none"><svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" preserveaspectratio="none" viewbox="0 0 358 820"><path d="M 120 60 C 120 120, 238 115, 238 175" stroke="#2BA39A" stroke-linecap="round" stroke-width="4"></path><path d="M 238 175 C 238 235, 179 230, 179 290" stroke="#2BA39A" stroke-linecap="round" stroke-width="4"></path><path d="M 179 290 C 179 350, 110 345, 110 405" stroke="#26393E" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="4"></path><path d="M 110 405 C 110 465, 248 460, 248 520" stroke="#26393E" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="4"></path><path d="M 248 520 C 248 580, 179 575, 179 635" stroke="#26393E" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="4"></path><path d="M 179 635 C 179 695, 179 690, 179 750" stroke="#26393E" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="4"></path></svg><div class="relative z-10 flex flex-col items-center self-start ml-8 mb-7 w-[130px]"><button aria-label="Пройденный урок: Базовые термины" class="w-[72px] h-[72px] rounded-full bg-[#134E4A] text-white flex items-center justify-center border-2 border-[#2BA39A] shadow-[0_4px_0_0_#0A2927] hover:scale-105 active:translate-y-1 transition-all"><span class="material-symbols-rounded text-[34px] text-white">check</span></button><div class="flex items-center gap-1 -mt-2 bg-[#172427] px-2 py-0.5 rounded-full border border-[#2BA39A]/50 shadow-sm z-20"><span class="material-symbols-rounded text-[13px] text-[#FBBF24]">star</span><span class="material-symbols-rounded text-[13px] text-[#FBBF24]">star</span><span class="material-symbols-rounded text-[13px] text-[#FBBF24]">star</span></div><span class="mt-1 text-center text-[12px] font-bold text-[#E8F1F0] leading-tight px-2 py-0.5 rounded-lg bg-[#1E2F33] border border-[#26393E]">Базовые термины<br/>и словарь</span></div><div class="relative z-10 flex flex-col items-center self-end mr-7 mb-7 w-[130px]"><button aria-label="Пройденный урок: Собеседование" class="w-[72px] h-[72px] rounded-full bg-[#134E4A] text-white flex items-center justify-center border-2 border-[#2BA39A] shadow-[0_4px_0_0_#0A2927] hover:scale-105 active:translate-y-1 transition-all"><span class="material-symbols-rounded text-[34px] text-white">done_all</span></button><div class="flex items-center gap-1 -mt-2 bg-[#172427] px-2 py-0.5 rounded-full border border-[#2BA39A]/50 shadow-sm z-20"><span class="material-symbols-rounded text-[13px] text-[#FBBF24]">star</span><span class="material-symbols-rounded text-[13px] text-[#FBBF24]">star</span><span class="material-symbols-rounded text-[13px] text-[#526365]">star</span></div><span class="mt-1 text-center text-[12px] font-bold text-[#E8F1F0] leading-tight px-2 py-0.5 rounded-lg bg-[#1E2F33] border border-[#26393E]">Вопросы на<br/>собеседовании</span></div><div class="relative z-20 flex flex-col items-center my-1 w-[160px]"><div class="mb-2 bg-[#FF5C38] text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1 animate-bounce"><span>Текущий урок</span><span class="material-symbols-rounded text-[14px]">arrow_downward</span></div><button aria-label="Начать текущий урок: Деловые переговоры" class="w-[76px] h-[76px] rounded-full bg-[#FF5C38] text-white flex items-center justify-center current-node-pulse border-4 border-[#10191B] tactile-btn active:scale-95 transition-transform"><span class="material-symbols-rounded text-[38px] text-white">play_arrow</span></button><div class="mt-2 text-center"><span class="inline-block text-[13px] font-extrabold text-[#E8F1F0] leading-tight bg-[#1E2F33] px-2.5 py-1 rounded-lg border border-[#26393E]">Деловые<br/>переговоры</span></div></div><div class="relative z-10 flex flex-col items-center self-start ml-6 my-6 w-[140px]"><button aria-label="Специальный урок: Работа над ошибками" class="w-[72px] h-[72px] rounded-full bg-[#2E251A] text-[#F59E0B] flex items-center justify-center border-2 border-[#D97706] shadow-[0_4px_0_0_#1E160E] hover:scale-105 transition-all"><span class="material-symbols-rounded text-[32px] text-[#F59E0B]">healing</span></button><span class="mt-1.5 text-center text-[11px] font-extrabold text-[#E8F1F0] bg-[#1E2F33] border border-[#26393E] px-2.5 py-0.5 rounded-full leading-tight">Работа над<br/>ошибками</span></div><div class="relative z-10 flex flex-col items-center self-end mr-6 my-6 w-[140px]"><button aria-label="Специальный урок: История" class="w-[72px] h-[72px] rounded-full bg-[#142820] text-[#34D399] flex items-center justify-center border-2 border-[#10B981] shadow-[0_4px_0_0_#0D1A15] hover:scale-105 transition-all"><span class="material-symbols-rounded text-[32px] text-[#34D399]">auto_stories</span></button><span class="mt-1.5 text-center text-[11px] font-extrabold text-[#E8F1F0] bg-[#1E2F33] border border-[#26393E] px-2.5 py-0.5 rounded-full leading-tight">Интерактивная<br/>история</span></div><div class="relative z-10 flex flex-col items-center my-6 w-[140px]"><button aria-label="Специальный урок: Аудио Radio" class="w-[72px] h-[72px] rounded-full bg-[#142333] text-[#60A5FA] flex items-center justify-center border-2 border-[#3B82F6] shadow-[0_4px_0_0_#0E1722] hover:scale-105 transition-all"><span class="material-symbols-rounded text-[32px] text-[#60A5FA]">radio</span></button><span class="mt-1.5 text-center text-[11px] font-extrabold text-[#E8F1F0] bg-[#1E2F33] border border-[#26393E] px-3 py-0.5 rounded-full leading-tight">Практика на слух<br/>Radio IELTS</span></div><div class="relative z-10 flex flex-col items-center my-4 w-[140px]"><button aria-label="Заблокировано: Контрольный тест" class="w-[72px] h-[72px] rounded-full bg-[#1E2F33] text-[#A9BDBB] flex items-center justify-center border-2 border-[#26393E] shadow-[0_4px_0_0_#152124] cursor-not-allowed opacity-90" disabled=""><span class="material-symbols-rounded text-[32px] text-[#A9BDBB]">lock</span></button><span class="mt-1.5 text-center text-[11px] font-bold text-[#A9BDBB] leading-tight px-1">Контрольный тест<br/>по разделу</span></div></section>
+<!-- QUICK RESUME STICKY BOTTOM CARD (Above navbar, 1 primary action button) -->
+<section class="bg-[#172427] border-2 border-[#26383C] rounded-2xl p-3.5 shadow-sm mt-2"><div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#FF5C38] animate-pulse"></span><span class="text-[12px] font-bold text-[#E8F1F0]">Готовы продолжить?</span></div><span class="text-[11px] font-bold text-[#4DD0C4] bg-[#1E2F33] border border-[#26393E] px-2 py-0.5 rounded">+15 баллов XP</span></div><button class="w-full h-12 rounded-xl bg-[#F2583E] text-white font-extrabold text-[15px] flex items-center justify-center gap-2 tactile-btn active:bg-[#D9432B]"><span>Продолжить обучение</span><span class="material-symbols-rounded text-[20px]">arrow_forward</span></button></section>
+</main>
+<!-- 2. MOBILE BOTTOM TAB BAR (App Shell: exactly 5 tabs Today, Vocab, Skills, Tests, Me) -->
+<!-- Russian localized labels with 44px min tap height -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-50 bg-[#10191B] border-t-2 border-[#26383C] px-2 py-1.5 flex items-center justify-around shadow-[0_-4px_12px_rgba(0,0,0,0.4)]"><a aria-current="page" class="flex-1 min-h-[48px] flex flex-col items-center justify-center py-1 px-1 rounded-xl bg-[#1E2F33] text-[#4DD0C4] border border-[#26393E] shadow-[0_2px_0_0_#2BA39A]" href="#today"><span class="material-symbols-rounded text-[22px] text-[#4DD0C4]">today</span><span class="text-[10px] font-extrabold mt-0.5 leading-none text-[#E8F1F0]">Сегодня</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#vocab"><span class="material-symbols-rounded text-[22px]">menu_book</span><span class="text-[10px] font-bold mt-0.5 leading-none">Словарь</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#skills"><span class="material-symbols-rounded text-[22px]">psychology</span><span class="text-[10px] font-bold mt-0.5 leading-none">Навыки</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#tests"><span class="material-symbols-rounded text-[22px]">assignment</span><span class="text-[10px] font-bold mt-0.5 leading-none">Тесты</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#me"><span class="material-symbols-rounded text-[22px]">person</span><span class="text-[10px] font-bold mt-0.5 leading-none">Профиль</span></a></nav>
+</div>
+</body>
+</html>

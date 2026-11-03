@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Mistake Notebook (Arabic RTL Tactile Night)</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans, Noto Sans Arabic, Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            'night-bg': '#10191B',
+            'night-card': '#172427',
+            'night-card-hover': '#1c2d31',
+            'night-raised': '#1E2F33',
+            'night-raised-hover': '#24373c',
+            'night-border': '#25383C',
+            'night-border-subtle': '#1B2C30',
+            'night-text-primary': '#E8F1F0',
+            'night-text-muted': '#A9BDBB',
+            'night-teal': '#2DD4BF',
+            'night-teal-light': '#5EEAD4',
+            'night-teal-muted': '#144641',
+            'night-amber': '#f59e0b',
+            'night-amber-dark': '#d97706',
+            'night-amber-edge': '#b45309',
+            'night-amber-ink': '#1a0d00',
+            'night-red-box': '#2A181A',
+            'night-red-border': '#4D2427',
+            'night-red-text': '#FCA5A5',
+            'night-green-box': '#122B27',
+            'night-green-border': '#1B473F',
+            'night-green-text': '#34D399',
+            'night-yellow-box': '#292418',
+            'night-yellow-border': '#4A3D1E',
+            'night-yellow-text': '#FCD34D',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            latin: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 #0d1517',
+            'tactile-md': '0 3px 0 0 #0b1214',
+            'tactile-btn': '0 4px 0 0 #b45309',
+            'tactile-teal': '0 3px 0 0 #0d4a45',
+            'tactile-amber': '0 3px 0 0 #b45309',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #10191B;
+      color: #E8F1F0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .latin-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+      display: inline-block;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    /* Mirrored directional icons */
+    .icon-rtl-flip {
+      transform: scaleX(-1);
+    }
+  </style>
+</head>
+<body class="bg-night-bg text-night-text-primary min-h-screen flex flex-col justify-between max-w-[390px] mx-auto border-x border-night-border selection:bg-night-teal-muted selection:text-night-teal">
+<!-- TOP BAR (INNER VARIANT MIRRORED) -->
+<header class="sticky top-0 z-40 bg-night-bg/95 backdrop-blur-sm border-b-2 border-night-border px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<!-- Back Arrow (Flipped in RTL) -->
+<button aria-label="رجوع" class="w-11 h-11 flex items-center justify-center rounded-full bg-night-card hover:bg-night-raised border border-night-border shadow-tactile-sm active:translate-y-0.5 transition-all text-night-text-primary">
+<span class="material-symbols-rounded icon-rtl-flip text-xl">arrow_back</span>
+</button>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-night-text-primary leading-tight">سجل الأخطاء</h1>
+<p class="text-xs font-semibold text-night-text-muted flex items-center gap-1">
+<span class="latin-text text-[11px] font-bold text-night-teal">#/mistakes</span>
+<span>•</span>
+<span>25 خطأً معلقاً</span>
+</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Preferences / Filter Toggle -->
+<button aria-label="تصفية وتفضيلات" class="w-11 h-11 flex items-center justify-center rounded-full bg-night-card hover:bg-night-raised border border-night-border shadow-tactile-sm active:translate-y-0.5 transition-all text-night-text-primary">
+<span class="material-symbols-rounded text-xl">tune</span>
+</button>
+<!-- Bookmark button -->
+<button aria-label="العناصر المحفوظة" class="w-11 h-11 flex items-center justify-center rounded-full bg-night-card hover:bg-night-raised border border-night-border shadow-tactile-sm active:translate-y-0.5 transition-all text-night-text-primary">
+<span class="material-symbols-rounded text-xl">bookmark</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 py-4 space-y-4 pb-28">
+<!-- TEACHER SLOT CALLOUT BANNER -->
+<section class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 flex items-center gap-3.5 shadow-tactile-sm">
+<!-- Empty Dashed Teacher Slot for 2D Teacher -->
+<div class="w-12 h-12 flex-shrink-0 rounded-xl border-2 border-dashed border-night-teal bg-night-bg/60 flex flex-col items-center justify-center p-1 text-center">
+<span class="material-symbols-rounded text-night-teal text-lg">school</span>
+<span class="text-[9px] font-extrabold uppercase tracking-tight text-night-teal">المعلم</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-medium leading-snug text-night-text-primary">
+          «مراجعة الأخطاء خلال <span class="font-bold text-night-amber underline decoration-night-amber-dark decoration-2">24 ساعة</span> تضاعف نسبة الحفظ لنطاق <span class="latin-text font-bold text-night-teal-light">Band 7.5+</span>!»
+        </p>
+</div>
+</section>
+<!-- CATEGORY FILTER CHIPS ROW -->
+<section class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<!-- Active All Filter -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-night-teal text-[#08221e] font-bold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>الكل</span>
+<span class="bg-black/20 text-[#08221e] rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">25</span>
+</button>
+<!-- Grammar -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-night-raised hover:bg-night-raised-hover border-2 border-night-border text-night-text-primary font-semibold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>قواعد</span>
+<span class="bg-night-card text-night-text-muted rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">12</span>
+</button>
+<!-- Vocabulary -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-night-raised hover:bg-night-raised-hover border-2 border-night-border text-night-text-primary font-semibold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>مفردات</span>
+<span class="bg-night-card text-night-text-muted rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">8</span>
+</button>
+<!-- Pronunciation -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-night-raised hover:bg-night-raised-hover border-2 border-night-border text-night-text-primary font-semibold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>نطق</span>
+<span class="bg-night-card text-night-text-muted rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">5</span>
+</button>
+</section>
+<!-- TIMELINE RANGE DROPDOWN -->
+<div class="flex items-center justify-between text-xs font-semibold text-night-text-muted px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-night-text-muted">calendar_today</span>
+<span>الجدول الزمني</span>
+</div>
+<button class="flex items-center gap-1 px-3 py-2 rounded-xl bg-night-raised border border-night-border text-night-text-primary font-bold text-xs shadow-tactile-sm min-h-[44px] hover:bg-night-raised-hover">
+<span>آخر 7 أيام</span>
+<span class="material-symbols-rounded text-base text-night-text-muted">expand_more</span>
+</button>
+</div>
+<!-- MISTAKE CARD 1: Grammar (IELTS Task 2) -->
+<article class="bg-night-card border-2 border-night-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-night-raised border border-night-border text-night-teal-light font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm text-night-teal">spellcheck</span>
+<span>قواعد • <span class="latin-text">IELTS Task 2</span></span>
+</div>
+<span class="text-night-text-muted font-medium text-[11px]">أمس</span>
+</div>
+<!-- Context Sentence -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-night-text-muted mb-1">جملة السياق</p>
+<p class="text-sm font-semibold text-night-text-primary bg-night-bg border border-night-border rounded-xl p-3 latin-text leading-relaxed">
+          “<span class="underline decoration-red-400 decoration-2 underline-offset-4 text-red-400 font-bold">Despite of the bad weather</span>, the outdoor symposium continued.”
+        </p>
+</div>
+<!-- Comparison: Incorrect Attempt vs Correct Standard -->
+<div class="space-y-2">
+<!-- User Attempt -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-red-box border border-night-red-border text-xs">
+<span class="material-symbols-rounded text-night-red-text text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-night-red-text block mb-0.5">محاولتك</span>
+<span class="latin-text text-night-red-text line-through font-bold text-sm">Despite of</span>
+</div>
+</div>
+<!-- Correct Standard -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-green-box border border-night-green-border text-xs">
+<span class="material-symbols-rounded text-night-green-text text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-night-green-text block mb-0.5">المعيار الصحيح</span>
+<span class="latin-text text-night-green-text font-bold text-sm">Despite / In spite of</span>
+</div>
+</div>
+</div>
+<!-- Rule Explanation -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-night-yellow-box border border-night-yellow-border text-xs text-night-text-primary leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-night-amber">lightbulb</span>
+<p>
+<span class="font-extrabold text-night-yellow-text">القاعدة:</span> تأخذ كلمة <span class="latin-text font-bold text-night-teal-light">‘Despite’</span> اسماً مباشرةً دون حرف جر (<span class="latin-text font-bold">‘of’</span>). في المقابل، تتطلب عبارة <span class="latin-text font-bold text-night-teal-light">‘In spite’</span> دائماً وجود <span class="latin-text font-bold">‘of’</span>.
+        </p>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-night-raised hover:bg-night-raised-hover border border-night-border font-bold text-xs text-night-text-primary flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-night-teal">volume_up</span>
+<span>استمع</span>
+</button>
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-night-raised hover:bg-night-raised-hover border border-night-border font-bold text-xs text-night-text-primary flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-night-amber">replay</span>
+<span>تدرّب 1×</span>
+</button>
+</div>
+</article>
+<!-- MISTAKE CARD 2: Vocabulary & Band 7.5 Collocation -->
+<article class="bg-night-card border-2 border-night-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-night-raised border border-night-border text-night-teal-light font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm text-night-teal">menu_book</span>
+<span>مفردات • <span class="latin-text">Band 7.5 Collocation</span></span>
+</div>
+<span class="text-night-text-muted font-medium text-[11px]">منذ يومين</span>
+</div>
+<!-- Context Sentence -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-night-text-muted mb-1">جملة السياق</p>
+<p class="text-sm font-semibold text-night-text-primary bg-night-bg border border-night-border rounded-xl p-3 latin-text leading-relaxed">
+          “The committee decided to <span class="underline decoration-red-400 decoration-2 underline-offset-4 text-red-400 font-bold">make a decision quickly</span>.”
+        </p>
+</div>
+<!-- Comparison -->
+<div class="space-y-2">
+<!-- Weak attempt -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-red-box border border-night-red-border text-xs">
+<span class="material-symbols-rounded text-night-red-text text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-night-red-text block mb-0.5">أسلوب أكاديمي ضعيف</span>
+<span class="latin-text text-night-red-text line-through font-bold text-sm">make a decision</span>
+</div>
+</div>
+<!-- Strong collocation -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-green-box border border-night-green-border text-xs">
+<span class="material-symbols-rounded text-night-green-text text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-night-green-text block mb-0.5">متلازمة لفظية طبيعية (Band 8.0)</span>
+<span class="latin-text text-night-green-text font-bold text-sm">reach a consensus / arrive at a decision</span>
+</div>
+</div>
+</div>
+<!-- Rule / Tip -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-night-yellow-box border border-night-yellow-border text-xs text-night-text-primary leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-night-amber">lightbulb</span>
+<p>
+<span class="font-extrabold text-night-yellow-text">المفردات الأكاديمية:</span> استخدام متلازمات رفيعة المستوى مثل <span class="latin-text font-bold text-night-teal-light">‘reach a consensus’</span> يرفع تقييم معيار الموارد المعجمية (<span class="latin-text font-bold">Lexical Resource</span>) في الكتابة والمحادثة.
+        </p>
+</div>
+<!-- Action Button -->
+<div class="flex items-center justify-end pt-1">
+<button class="w-full py-2.5 px-3 rounded-xl bg-night-raised hover:bg-night-raised-hover border border-night-border font-bold text-xs text-night-text-primary flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-night-amber">replay</span>
+<span>تدرّب 1×</span>
+</button>
+</div>
+</article>
+<!-- MISTAKE CARD 3: Pronunciation & Word Stress -->
+<article class="bg-night-card border-2 border-night-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-night-raised border border-night-border text-night-teal-light font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm text-night-teal">record_voice_over</span>
+<span>نطق • نبرة الكلمة (<span class="latin-text">Word Stress</span>)</span>
+</div>
+<span class="text-night-text-muted font-medium text-[11px]">منذ 3 أيام</span>
+</div>
+<!-- Target Word -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-night-text-muted mb-1">الكلمة المستهدفة ونظام IPA</p>
+<div class="flex items-baseline gap-2 bg-night-bg border border-night-border rounded-xl p-3">
+<span class="text-base font-extrabold text-night-text-primary latin-text">photographer</span>
+<span class="text-xs font-semibold text-night-teal latin-text">/fəˈtɒɡ.rə.fər/</span>
+</div>
+</div>
+<!-- Stress Comparison -->
+<div class="space-y-2">
+<!-- Incorrect stress -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-red-box border border-night-red-border text-xs">
+<span class="material-symbols-rounded text-night-red-text text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-night-red-text block mb-0.5">موضع نبرة خاطئ</span>
+<span class="latin-text text-night-red-text line-through font-bold text-sm">PHO-to-graph-er (المقطع الأول)</span>
+</div>
+</div>
+<!-- Correct stress -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-green-box border border-night-green-border text-xs">
+<span class="material-symbols-rounded text-night-green-text text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-night-green-text block mb-0.5">النبرة المقطعية الصحيحة</span>
+<span class="latin-text text-night-green-text font-bold text-sm">pho-TOG-ra-pher (المقطع الثاني)</span>
+<span class="block text-[11px] text-night-green-text/80 font-medium latin-text mt-0.5">/fəˈtɒɡ.rə.fər/</span>
+</div>
+</div>
+</div>
+<!-- Stress Shift Principle -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-night-yellow-box border border-night-yellow-border text-xs text-night-text-primary leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-night-amber">lightbulb</span>
+<p>
+<span class="font-extrabold text-night-yellow-text">انتقال النبرة:</span> تنتقل النبرة الأساسية من المقطع الأول في كلمة <span class="latin-text font-bold text-night-teal-light">‘PHO-to-graph’</span> إلى المقطع الثاني عند إضافة اللاحقة الوظيفية <span class="latin-text font-bold">‘-er’</span>.
+        </p>
+</div>
+<!-- Audio & Record Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-night-raised hover:bg-night-raised-hover border border-night-border font-bold text-xs text-night-text-primary flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-night-teal">volume_up</span>
+<span>استمع</span>
+</button>
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-night-raised hover:bg-night-raised-hover border border-night-border font-bold text-xs text-night-text-primary flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-night-amber">mic</span>
+<span>تسجيل</span>
+</button>
+</div>
+</article>
+<!-- MISTAKE CARD 4: Grammar & Agreement -->
+<article class="bg-night-card border-2 border-night-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-night-raised border border-night-border text-night-teal-light font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm text-night-teal">draw</span>
+<span>قواعد • التوافق النحوي (<span class="latin-text">Agreement</span>)</span>
+</div>
+<span class="text-night-text-muted font-medium text-[11px]">منذ 4 أيام</span>
+</div>
+<!-- Context Sentence -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-night-text-muted mb-1">جملة السياق</p>
+<p class="text-sm font-semibold text-night-text-primary bg-night-bg border border-night-border rounded-xl p-3 latin-text leading-relaxed">
+          “The number of international students <span class="underline decoration-red-400 decoration-2 underline-offset-4 text-red-400 font-bold">are increasing rapidly</span>.”
+        </p>
+</div>
+<!-- Comparison -->
+<div class="space-y-2">
+<!-- Error -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-red-box border border-night-red-border text-xs">
+<span class="material-symbols-rounded text-night-red-text text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-night-red-text block mb-0.5">خطأ في توافق الفعل</span>
+<span class="latin-text text-night-red-text line-through font-bold text-sm">are increasing</span>
+</div>
+</div>
+<!-- Correct Singular -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-night-green-box border border-night-green-border text-xs">
+<span class="material-symbols-rounded text-night-green-text text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-night-green-text block mb-0.5">توافق المفرد القياسي</span>
+<span class="latin-text text-night-green-text font-bold text-sm">is increasing</span>
+</div>
+</div>
+</div>
+<!-- Rule -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-night-yellow-box border border-night-yellow-border text-xs text-night-text-primary leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-night-amber">lightbulb</span>
+<p>
+<span class="font-extrabold text-night-yellow-text">القاعدة:</span> تُعامل عبارة <span class="latin-text font-bold text-night-teal-light">‘The number of’</span> كوحدة مفردة وتأخذ فعلاً مفرداً (<span class="latin-text font-bold">‘is’</span>)، بينما تُعامل <span class="latin-text font-bold text-night-teal-light">‘A number of’</span> كجمع وتأخذ فعلاً بصيغة الجمع (<span class="latin-text font-bold">‘are’</span>).
+        </p>
+</div>
+<!-- Drill Button -->
+<div class="flex items-center justify-end pt-1">
+<button class="w-full py-2.5 px-3 rounded-xl bg-night-raised hover:bg-night-raised-hover border border-night-border font-bold text-xs text-night-text-primary flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-night-amber">replay</span>
+<span>تدرّب 1×</span>
+</button>
+</div>
+</article>
+<!-- BOTTOM FLOATING ACTION CONTAINER -->
+<div class="pt-2">
+<!-- Big Tactile Coral/Orange CTA Button with 3D drop ledge & deep ink text -->
+<button class="w-full py-3.5 px-4 rounded-2xl bg-night-amber hover:bg-night-amber-dark text-night-amber-ink font-extrabold text-base flex items-center justify-center gap-2 shadow-tactile-btn active:translate-y-1 active:shadow-tactile-sm transition-all min-h-[52px]">
+<span>تدرّب على هذه الـ 25 خطأً</span>
+<span class="material-symbols-rounded text-xl font-bold">bolt</span>
+</button>
+<!-- Sub-label -->
+<p class="text-center text-[11px] font-semibold text-night-text-muted mt-2">
+        جلسة مقدرة: 8 دقائق • <span class="text-night-amber font-bold latin-text">+50 XP</span>
+</p>
+</div>
+</main>
+<!-- CANONICAL 5-TAB BOTTOM NAVIGATION BAR (MIRRORED FOR RTL) -->
+<!-- Tab order in RTL: اليوم (Today) -> المفردات (Vocab - ACTIVE) -> التمارين (Practice / Skills) -> الاختبارات (Tests) -> أنا (Me / Profile) -->
+<nav aria-label="شريط التنقل الرئيسي" class="fixed bottom-0 left-0 right-0 z-50 bg-night-bg border-t-2 border-night-border max-w-[390px] mx-auto px-2 py-1.5 flex items-center justify-around shadow-[0_-4px_0_0_#0a1113]">
+<!-- 1. Today (اليوم) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-night-text-muted hover:text-night-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5 text-night-text-muted">calendar_today</span>
+<span class="text-[11px] font-bold">اليوم</span>
+</a>
+<!-- 2. Vocab (المفردات) - ACTIVE TAB -->
+<a aria-current="page" class="flex flex-col items-center justify-center py-1 px-3 rounded-2xl bg-night-amber text-night-amber-ink shadow-tactile-amber active:translate-y-0.5 transition-all min-w-[62px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5">menu_book</span>
+<span class="text-[11px] font-extrabold">المفردات</span>
+</a>
+<!-- 3. Skills / Practice (المهارات / التمارين) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-night-text-muted hover:text-night-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5 text-night-text-muted">psychology</span>
+<span class="text-[11px] font-bold">المهارات</span>
+</a>
+<!-- 4. Tests (الاختبارات) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-night-text-muted hover:text-night-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5 text-night-text-muted">assignment</span>
+<span class="text-[11px] font-bold">الاختبارات</span>
+</a>
+<!-- 5. Profile / Me (أنا) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-night-text-muted hover:text-night-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5 text-night-text-muted">person</span>
+<span class="text-[11px] font-bold">أنا</span>
+</a>
+</nav>
+</body></html>

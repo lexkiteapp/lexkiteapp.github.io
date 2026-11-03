@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Architectural Ingenuity of Ancient Aqueducts | Lexkite Academic Reader</title>
+<!-- Plus Jakarta Sans Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#bec9c7",
+            "on-primary-fixed": "#00201e",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "background": "#fff8f3",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#663b00",
+            "on-primary-container": "#9ce9e2",
+            "surface": "#fff8f3",
+            "secondary-fixed": "#ffdcbc",
+            "on-tertiary-container": "#ffd0c9",
+            "on-tertiary": "#ffffff",
+            "secondary": "#895100",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#88d4cd",
+            "on-background": "#1f1b16",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "on-tertiary-fixed": "#410000",
+            "surface-dim": "#e2d8d0",
+            "surface-tint": "#106a65",
+            "surface-container-low": "#fcf2e9",
+            "inverse-surface": "#34302a",
+            "tertiary": "#8e190f",
+            "primary": "#00514d",
+            "tertiary-container": "#b03224",
+            "secondary-container": "#fe9d19",
+            "surface-container-highest": "#eae1d8",
+            "surface-bright": "#fff8f3",
+            "surface-container": "#f6ece4",
+            "on-surface": "#1f1b16",
+            "on-primary-fixed-variant": "#00504c",
+            "primary-fixed": "#a4f0e9",
+            "secondary-fixed-dim": "#ffb86c",
+            "primary-container": "#136b66",
+            "on-surface-variant": "#3f4947",
+            "inverse-primary": "#88d4cd",
+            "surface-variant": "#eae1d8",
+            "tertiary-fixed": "#ffdad4",
+            "outline": "#6f7978",
+            "inverse-on-surface": "#f9efe6",
+            "surface-container-high": "#f0e7de",
+            "on-secondary-fixed": "#2c1600"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "gutter-desktop": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body-md min-h-screen selection:bg-[#136B66]/40 selection:text-[#5EEAD4]">
+<!-- TopNavBar (Shared Component JSON Source of Truth) -->
+<header class="bg-[#172427] border-b-2 border-[#23353A] shadow-[0_4px_0_0_#0D1517] docked full-width top-0 sticky z-50">
+<div class="w-full max-w-[1440px] mx-auto px-margin flex items-center justify-between h-20"><!-- Brand Logo -->
+<a class="text-headline-md font-headline-md font-bold text-[#5EEAD4] flex items-center gap-space-sm" href="#">
+<span class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary shadow-[0_3px_0_0_#0C4542]">
+<span class="material-symbols-outlined text-[24px]">air</span>
+</span>
+<span>Lexkite</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-space-xl">
+<a class="text-[#2DD4BF] font-bold border-b-2 border-[#2DD4BF] pb-1 font-label-lg text-label-lg transition-colors duration-150" href="#">Words</a>
+<a class="text-[#A9BDBB] font-label-lg text-label-lg pb-1 hover:text-[#5EEAD4] hover:bg-[#1E2F33] transition-colors duration-150" href="#">Tools</a>
+<a class="text-[#A9BDBB] font-label-lg text-label-lg pb-1 hover:text-[#5EEAD4] hover:bg-[#1E2F33] transition-colors duration-150" href="#">Blog</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-md">
+<!-- Chrome Extension Active Status Indicator -->
+<div class="hidden lg:flex items-center gap-space-xs bg-[#1E2F33] border-2 border-[#23353A] rounded-full px-space-md py-1 shadow-[0_2px_0_0_#0D1517]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-[#2DD4BF]">Extension v2.4 Active</span>
+</div>
+<button class="min-h-[44px] px-space-md bg-[#1E2F33] border-2 border-[#23353A] rounded-full font-label-md text-label-md text-[#E8F1F0] hover:text-[#2DD4BF] hover:bg-[#23353A] transition-colors duration-150 shadow-[0_4px_0_0_#0D1517] active:translate-y-[2px] active:shadow-[0_1px_0_0_#0D1517] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">extension</span>
+<span>Add to Chrome</span>
+</button>
+<button class="min-h-[44px] px-space-lg bg-primary-container text-on-primary rounded-full font-label-md text-label-md shadow-[0_4px_0_0_#0C4542] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#0C4542] transition-transform duration-100 flex items-center gap-space-xs" type="button">
+<span>Start free</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div></div>
+</header>
+<!-- Tactile Dynamic Toast Notification -->
+<div class="fixed top-24 left-1/2 -translate-x-1/2 z-50 animate-bounce duration-300 pointer-events-auto"><div class="bg-[#172427] border-2 border-[#2DD4BF] rounded-full px-space-lg py-2.5 shadow-[0_4px_0_0_#0D1517] flex items-center gap-space-sm text-[#E8F1F0]">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<p class="font-label-md text-label-md">
+        Added to deck: <span class="text-[#2DD4BF] font-bold">‘IELTS Academic C1’</span> <span class="text-[#A9BDBB] font-medium">(Due in 3 days)</span>
+</p>
+<button aria-label="Close notification" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#A9BDBB] hover:text-[#5EEAD4]" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div></div>
+<!-- Main Canvas (1280px Container for Article & Highlighting Simulation) -->
+<main class="w-full max-w-[1280px] mx-auto px-margin py-space-xl relative">
+<!-- Academic Article Layout: 12-Column Grid -->
+<div class="grid grid-cols-12 gap-gutter-desktop">
+<!-- Article Header & Reading Stimulus Column (Centered, Academic focus) -->
+<article class="col-span-12 lg:col-span-9 lg:col-start-2 xl:col-span-8 xl:col-start-3 bg-[#172427] border-2 border-[#23353A] rounded-lg p-space-lg md:p-space-xl shadow-[0_4px_0_0_#0D1517] relative">
+<!-- Breadcrumb & Tagging -->
+<div class="flex items-center gap-space-sm text-[#A9BDBB] font-label-sm text-label-sm mb-space-md">
+<span class="bg-[#1E2F33] text-[#2DD4BF] border-2 border-[#2DD4BF] px-space-sm py-1 rounded-full font-label-sm">
+            IELTS Academic Section 3 Reading
+          </span>
+<span>•</span>
+<span>8 min read</span>
+<span>•</span>
+<span class="text-[#2DD4BF] font-bold">Band 7.5 – 8.5 Lexical Target</span>
+</div>
+<!-- Academic Title -->
+<h1 class="font-headline-xl text-headline-xl text-[#E8F1F0] font-extrabold tracking-tight mb-space-md">
+          The Architectural Ingenuity of Ancient Aqueducts
+        </h1>
+<!-- Byline & Academic Source Citation -->
+<div class="flex items-center justify-between pb-space-lg mb-space-lg border-b-2 border-[#23353A]">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-full bg-[#1E2F33] text-[#E8F1F0] flex items-center justify-center font-bold border-2 border-[#23353A]">
+<span class="material-symbols-outlined text-[22px] text-[#2DD4BF]">account_balance</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#E8F1F0]">Dr. Valeria Rossi &amp; Prof. Alistair Vance</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Department of Classical Civilisations &amp; Hydraulic Engineering</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Bookmark reading" class="min-w-[44px] min-h-[44px] rounded-full border-2 border-[#23353A] bg-[#1E2F33] flex items-center justify-center text-[#E8F1F0] hover:text-[#2DD4BF] shadow-[0_2px_0_0_#0D1517]" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+<button aria-label="Audio reader" class="min-w-[44px] min-h-[44px] rounded-full border-2 border-[#23353A] bg-[#1E2F33] flex items-center justify-center text-[#E8F1F0] hover:text-[#2DD4BF] shadow-[0_2px_0_0_#0D1517]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Stimulus Passage Recessed Well -->
+<div class="bg-[#1E2F33] border-2 border-[#23353A] rounded-DEFAULT p-space-md md:p-space-lg mb-space-lg">
+<p class="font-label-md text-label-md text-[#2DD4BF] mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>EXCERPT FROM REVISED ARCHAEOLOGICAL SURVEY:</span>
+</p>
+<p class="font-body-md text-body-md text-[#E8F1F0] italic">
+            "To sustain cities exceeding half a million inhabitants, Roman municipal architects were compelled to devise water distribution gradients that varied by fewer than a few inches per kilometre over mountain ranges and undulating valleys."
+          </p>
+</div>
+<!-- Article Prose Paragraph 1 -->
+<p class="font-body-lg text-body-lg text-[#E8F1F0] mb-space-lg leading-relaxed">
+          The mastery of gravitational gradient management stands as one of the preeminent triumphs of antiquity. While Hellenistic cisterns and Persian <em>qanats</em> had already harnessed subterranean seepage, Roman civil engineers established an unprecedented standard of subterranean conduit levelling and monumental arcades spanning vast depressions.
+        </p>
+<!-- Paragraph 2 with Active Interactive Selection Anchor -->
+<div class="relative mb-space-lg">
+<p class="font-body-lg text-body-lg text-[#E8F1F0] leading-relaxed">
+            Constructing the Pont du Gard required not only an intuitive grasp of limestone compressive strength, but also 
+            <!-- The Selected Word with visual indicator -->
+<mark class="bg-[#136B66]/40 text-[#5EEAD4] font-bold px-1.5 py-0.5 rounded border-b-2 border-[#2DD4BF] cursor-pointer transition-all inline-flex items-center gap-0.5" id="target-word">
+<span>meticulous</span>
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] inline-block"></span>
+</mark>
+            mathematical surveying. To guarantee a uniform fall of merely 1:3000 across roughly fifty kilometres of rugged Provençal terrain, surveyors deployed the <em>chorobates</em>—a twenty-foot wooden bench equipped with plumb bobs and water channels—ensuring that error margins remained negligible over decades of civic utilization.
+          </p>
+<!-- ============================================================== -->
+<!-- FLOATING TACTILE LEXKITE EXTENSION WORD POPUP CARD             -->
+<!-- Positioned directly anchored to the highlighted headword       -->
+<!-- ============================================================== -->
+<aside aria-label="Lexkite Word Popup" class="absolute -top-[395px] left-4 md:left-24 z-40 w-[380px] sm:w-[410px] bg-[#1E2F33] border-2 border-[#2A4046] rounded-DEFAULT p-space-md shadow-[0_8px_0_0_#0D1517] transition-all">
+<!-- Popup Header: Emblem, Add-on tag, Audio pills, and Close icon -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b-2 border-[#23353A]">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_2px_0_0_#0C4542]">
+<span class="material-symbols-outlined text-[18px]">air</span>
+</span>
+<span class="font-label-md text-label-md text-[#5EEAD4] font-extrabold tracking-tight">Lexkite Add-on</span>
+</div>
+<!-- Quick Audio Pronunciation buttons (min 44x44 target) -->
+<div class="flex items-center gap-1">
+<button class="min-w-[44px] min-h-[44px] px-2 rounded-full bg-[#172427] border-2 border-[#2A4046] text-[#2DD4BF] hover:bg-[#23353A] font-label-sm text-label-sm flex items-center justify-center gap-0.5 shadow-[0_2px_0_0_#0D1517] active:translate-y-[2px]" title="Pronounce UK English" type="button">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+<span>UK</span>
+</button>
+<button class="min-w-[44px] min-h-[44px] px-2 rounded-full bg-[#172427] border-2 border-[#2A4046] text-[#2DD4BF] hover:bg-[#23353A] font-label-sm text-label-sm flex items-center justify-center gap-0.5 shadow-[0_2px_0_0_#0D1517] active:translate-y-[2px]" title="Pronounce US English" type="button">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+<span>US</span>
+</button>
+<button aria-label="Close Lexkite Popup" class="min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-[#A9BDBB] hover:text-[#5EEAD4] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Headword, IPA, Part of Speech, and CEFR Band Badge -->
+<div class="mb-space-sm">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<h2 class="font-headline-md text-headline-md font-extrabold text-[#E8F1F0]">meticulous</h2>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] tracking-wide">/məˈtɪk.jə.ləs/</span>
+</div>
+<!-- CEFR Academic Pill Badge -->
+<span class="bg-[#2A4046] text-[#FFD0C9] border-2 border-[#895100] font-label-sm text-label-sm px-2.5 py-0.5 rounded-full shadow-[0_2px_0_0_#0D1517]">
+                  C1 Academic
+                </span>
+</div>
+<p class="font-label-sm text-label-sm text-[#2DD4BF] font-bold uppercase tracking-wider mt-0.5">adjective</p>
+</div>
+<!-- Quick Translation / Clear Definition -->
+<div class="bg-[#172427] border-2 border-[#23353A] rounded-DEFAULT p-space-sm mb-space-sm">
+<p class="font-body-md text-body-md text-[#E8F1F0] leading-snug">
+                Showing great attention to detail; very careful and precise.
+              </p>
+</div>
+<!-- Key Collocations Chip Container -->
+<div class="mb-space-sm">
+<p class="font-label-sm text-label-sm text-[#A9BDBB] mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span>KEY COLLOCATIONS:</span>
+</p>
+<div class="inline-flex items-center flex-wrap gap-1.5 bg-[#172427] border-2 border-[#23353A] px-space-sm py-1 rounded-full text-[#E8F1F0] font-label-sm text-label-sm">
+<span class="text-[#2DD4BF] font-bold">meticulous research</span>
+<span class="text-[#A9BDBB]">•</span>
+<span class="text-[#2DD4BF] font-bold">meticulous planning</span>
+</div>
+</div>
+<!-- Teacher Slot: Empty rounded dashed placeholder for Teacher Ama / Carlos -->
+<div class="border-2 border-dashed border-[#2A4046] rounded-DEFAULT p-space-sm mb-space-md bg-[#172427]/60 flex items-center justify-between text-[#A9BDBB] min-h-[48px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-[#2DD4BF]">school</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide text-[#A9BDBB]">teacher-slot [Teacher Ama / Carlos loading]</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+</div>
+<!-- Tactile CTA Button: Coral with physical depth ledge, min-height 44px, High Contrast -->
+<button class="w-full min-h-[44px] bg-[#FF5252] hover:bg-[#FF6B57] text-[#FFFFFF] rounded-DEFAULT font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-[0_4px_0_0_#B91C1C] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#B91C1C] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="font-extrabold tracking-wide">+ Add to deck (IELTS C1)</span>
+</button>
+<!-- Quick Secondary Actions: min 44x44 targets -->
+<div class="grid grid-cols-2 gap-space-xs mt-space-sm pt-space-xs border-t-2 border-[#23353A]">
+<button class="min-h-[44px] px-space-sm bg-[#172427] border-2 border-[#23353A] rounded-DEFAULT font-label-sm text-label-sm text-[#E8F1F0] hover:text-[#2DD4BF] flex items-center justify-center gap-1 shadow-[0_2px_0_0_#0D1517] active:translate-y-[2px]" type="button">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Open dictionary</span>
+</button>
+<button class="min-h-[44px] px-space-sm bg-[#172427] border-2 border-[#23353A] rounded-DEFAULT font-label-sm text-label-sm text-[#E8F1F0] hover:text-[#2DD4BF] flex items-center justify-center gap-1 shadow-[0_2px_0_0_#0D1517] active:translate-y-[2px]" type="button">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+<span>Listen slow (0.75x)</span>
+</button>
+</div>
+<!-- Physical Indicator Arrow pointing to highlighted word below -->
+<div class="w-4 h-4 bg-[#1E2F33] border-r-2 border-b-2 border-[#2A4046] rotate-45 absolute -bottom-2.5 left-10 shadow-[2px_2px_0_0_#0D1517]"></div>
+</aside>
+</div>
+<!-- Article Prose Paragraph 3 -->
+<p class="font-body-lg text-body-lg text-[#E8F1F0] mb-space-lg leading-relaxed">
+          The durability of these aqueduct systems is likewise attributable to the empirical composition of hydraulic mortar. Incorporating volcanic pozzolana from the slopes of Mount Vesuvius created an interlocking crystalline matrix that not only resisted erosion from swift water flow but effectively self-healed microscopic fissures through ongoing carbonation reactions.
+        </p>
+<!-- Article Prose Paragraph 4 -->
+<p class="font-body-lg text-body-lg text-[#E8F1F0] mb-space-xl leading-relaxed">
+          Consequently, contemporary hydraulic engineering continues to re-evaluate the low-maintenance reliability of these gravity-fed distribution structures. By eschewing fossil-fuel-dependent mechanical pumps in favor of topological contour optimization, ancient infrastructure demonstrated a paradigm of longevity that modern municipal water authorities are striving to emulate.
+        </p>
+<!-- Interactive Assessment / Band 8 Comprehension Quick Practice Card -->
+<div class="border-2 border-[#23353A] rounded-lg p-space-md md:p-space-lg bg-[#1E2F33] shadow-[0_4px_0_0_#0D1517]">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-[#2DD4BF] font-extrabold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">quiz</span>
+<span>IELTS VOCABULARY CHECKPOINT</span>
+</span>
+<span class="bg-[#FF9E1B] text-[#1F1B16] font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold shadow-[0_2px_0_0_#D97B00]">
+              +15 Lexkite XP
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] mb-space-md font-bold">
+            Which word in context serves as the closest synonym for <span class="text-[#2DD4BF] underline">meticulous</span>?
+          </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Option A (Correct Selected State) -->
+<button class="min-h-[52px] px-space-md rounded-[20px] border-2 border-[#2DD4BF] bg-[#136B66]/30 shadow-[0_4px_0_0_#0C4542] text-[#5EEAD4] flex items-center justify-between font-label-md text-label-md text-left active:translate-y-[2px] transition-transform" type="button">
+<span>A. Painstaking and rigorous</span>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">check_circle</span>
+</button>
+<!-- Option B -->
+<button class="min-h-[52px] px-space-md rounded-[20px] border-2 border-[#23353A] bg-[#172427] shadow-[0_4px_0_0_#0D1517] text-[#E8F1F0] hover:border-[#2DD4BF] flex items-center justify-between font-label-md text-label-md text-left active:translate-y-[2px] transition-transform" type="button">
+<span>B. Spontaneous and hasty</span>
+<span class="w-5 h-5 rounded-full border-2 border-[#2A4046]"></span>
+</button>
+<!-- Option C -->
+<button class="min-h-[52px] px-space-md rounded-[20px] border-2 border-[#23353A] bg-[#172427] shadow-[0_4px_0_0_#0D1517] text-[#E8F1F0] hover:border-[#2DD4BF] flex items-center justify-between font-label-md text-label-md text-left active:translate-y-[2px] transition-transform" type="button">
+<span>C. Monumental and imposing</span>
+<span class="w-5 h-5 rounded-full border-2 border-[#2A4046]"></span>
+</button>
+<!-- Option D -->
+<button class="min-h-[52px] px-space-md rounded-[20px] border-2 border-[#23353A] bg-[#172427] shadow-[0_4px_0_0_#0D1517] text-[#E8F1F0] hover:border-[#2DD4BF] flex items-center justify-between font-label-md text-label-md text-left active:translate-y-[2px] transition-transform" type="button">
+<span>D. Subterranean and hidden</span>
+<span class="w-5 h-5 rounded-full border-2 border-[#2A4046]"></span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Lexkite Extension Launcher Action Button (Bottom-Right) -->
+<aside class="fixed bottom-6 right-6 z-50">
+<div class="relative group">
+<!-- Active Status Dot -->
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-[#FF9E1B] border-2 border-[#10191B] rounded-full z-10 shadow-sm flex items-center justify-center font-label-sm text-[10px] text-[#1F1B16] font-extrabold">
+        1
+      </span>
+<!-- Tactile 56x56 Button -->
+<button aria-label="Open Lexkite Assistant" class="w-14 h-14 bg-primary-container hover:bg-[#00514D] text-on-primary rounded-full flex items-center justify-center shadow-[0_4px_0_0_#0C4542] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#0C4542] transition-all" type="button">
+<span class="material-symbols-outlined text-[28px]">air</span>
+</button>
+</div>
+</aside>
+<!-- Footer (Shared Component JSON Source of Truth) -->
+<footer class="bg-[#172427] border-t-2 border-[#23353A] flat no shadows docked full-width bottom-0 mt-space-xl">
+<div class="w-full max-w-[1440px] mx-auto px-margin py-space-xl grid grid-cols-1 md:grid-cols-4 gap-gutter"><!-- Brand & Framework info -->
+<div class="md:col-span-2">
+<a class="text-headline-sm font-headline-sm font-bold text-[#5EEAD4] flex items-center gap-space-xs mb-space-sm" href="#">
+<span class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_2px_0_0_#0C4542]">
+<span class="material-symbols-outlined text-[18px]">air</span>
+</span>
+<span>Lexkite</span>
+</a>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] max-w-md mb-space-md">
+          © 2025 Lexkite Inc. Pedagogically aligned with CEFR &amp; ACTFL language proficiency frameworks.
+        </p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-[#2DD4BF] font-bold">Curriculum</span>
+<a class="text-[#A9BDBB] text-label-md font-label-md hover:text-[#5EEAD4] underline transition-colors duration-150" href="#">Curriculum Standards</a>
+<a class="text-[#A9BDBB] text-label-md font-label-md hover:text-[#5EEAD4] underline transition-colors duration-150" href="#">Phonetics Guide</a>
+<a class="text-[#A9BDBB] text-label-md font-label-md hover:text-[#5EEAD4] underline transition-colors duration-150" href="#">Chrome Extension</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-[#2DD4BF] font-bold">Policy &amp; Help</span>
+<a class="text-[#A9BDBB] text-label-md font-label-md hover:text-[#5EEAD4] underline transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-[#A9BDBB] text-label-md font-label-md hover:text-[#5EEAD4] underline transition-colors duration-150" href="#">Terms of Service</a>
+<a class="text-[#A9BDBB] text-label-md font-label-md hover:text-[#5EEAD4] underline transition-colors duration-150" href="#">Support</a>
+</div></div>
+</footer>
+</body></html>
