@@ -40,6 +40,7 @@ jobs:
     needs: video
     if: always()
     runs-on: ubuntu-latest
+    timeout-minutes: 60   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/download-artifact@v4
         with: { path: /tmp/store-video, pattern: 'video-*', merge-multiple: true }

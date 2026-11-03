@@ -4,6 +4,7 @@
 # của app ngoài xong (check_suite) → đánh giá lại; lịch 30 phút + workflow_dispatch = lưới an toàn khi sự kiện bị lỡ.
 # An toàn với PR fork: chỉ gọi API đọc + ghi 1 status, KHÔNG checkout/chạy mã PR (job pull_request chỉ chạy cho PR cùng repo).
 # Danh sách workflows: phải khớp workflow chạy được trên head PR – sửa tự động: node scripts/ci/required-gate.mjs --sync
+# ci-policy: all-paths – check bắt buộc duy nhất của ruleset main, phải chạy mọi PR (không lọc paths).
 # Tài liệu: docs/CI-RUNNERS.md § required-gate. Logic + test: scripts/ci/required-gate.mjs, scripts/test/required-gate.mjs.
 name: required-gate
 on:
@@ -29,15 +30,17 @@ on:
       - 'hair-try'
       - 'iOS → ảnh App Store'
       - 'Journey E2E'
-      - 'media-clips'
+      - 'Lesson embed video'
       - 'Mobile QA'
       - 'npm test'
       - 'Perf profile'
       - 'QA bot'
+      - 'Màn Ôn – chạm được'
       - 'Say it like a native – meanings'
       - 'size-guard'
       - 'Stitch diff'
       - 'Stitch quality QC'
+      - 'target-content'
       - 'Teach build'
       - 'teach-video'
       - 'Công cụ miễn phí (tools pages)'
@@ -47,6 +50,7 @@ on:
       - 'video-motion'
       - 'video-shard-equiv'
       - 'Web sweep'
+      - 'word-audio-pt'
   check_suite:
     types: [completed]
   schedule:
@@ -63,9 +67,6 @@ permissions:
   checks: read
   actions: read
   pull-requests: read
-concurrency:
-  group: required-gate-${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.event.check_suite.head_sha || format('{0}-{1}', github.event_name, inputs.pr) }}
-  cancel-in-progress: true
 jobs:
   gate:
     name: required-gate-eval
@@ -78,6 +79,11 @@ jobs:
       github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    # concurrency ở mức JOB (2/11): lượt bị `if` bỏ qua (workflow_run của main, check_suite của chính Actions) không vào nhóm → không còn
+    # huỷ một lượt đánh giá thật đang chạy rồi tự bỏ qua (PR treo pending tới lưới 30 phút). Lượt mới cùng sha vẫn huỷ lượt cũ – lượt cuối luôn chạy.
+    concurrency:
+      group: required-gate-${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.event.check_suite.head_sha || format('{0}-{1}', github.event_name, inputs.pr) }}
+      cancel-in-progress: true
     steps:
       # luôn lấy script từ nhánh mặc định (hoặc nhánh được dispatch) – không bao giờ checkout mã PR fork
       - uses: actions/checkout@v4

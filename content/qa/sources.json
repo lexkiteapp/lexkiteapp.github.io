@@ -224,6 +224,24 @@
    ]
   },
   {
+   "id": "target-lang",
+   "paths": [
+    "content/target"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot"
+   ],
+   "delegate": [
+    "test/target-lang.mjs"
+   ],
+   "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
+  },
+  {
    "id": "writing",
    "paths": [
     "web/js/write"
