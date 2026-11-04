@@ -146,7 +146,7 @@ quiz: [
 ### 3. 반대 측 우려를 수용하며 재반박하기 (양보 구문)
 * *Admittedly, critics might contend that this approach entails exorbitant upfront expenditures; nevertheless, the overarching societal benefits significantly outweigh the initial burden.*
 
-논증의 문법적 완성도를 높이기 위해서는 [영어 기초 문법 총정리](/ko/blog/yeongeo-gicho-munbeop-chongjeongri/)를 통해 관계사절과 분사구문을 탄탄히 다져두는 것이 유익하며, 장문 에세이 작성법을 다룬 [토플 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/)과 [아이엘츠 리딩 시간 단축 비법](/ko/blog/ielts-reading-skimming-scanning-gongbubeop/), 그리고 [아이엘츠 스피킹 파트2 템플릿](/ko/blog/ielts-speaking-part-2-3-template/)을 함께 학습하면 유기적인 시너지를 발휘할 수 있습니다. 추가적인 영문 에세이 샘플은 [리딩 및 라이팅 자료실](/samples/)에서 확인하실 수 있습니다.
+논증의 문법적 완성도를 높이기 위해서는 [영어 기초 문법 총정리](/ko/blog/yeongeo-gicho-munbeop-chongjeongri/)를 통해 관계사절과 분사구문을 탄탄히 다져두는 것이 유익하며, 장문 에세이 작성법을 다룬 [토플 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/)과 [아이엘츠 리딩 시간 단축 비법](/ko/blog/ielts-reading-skimming-scanning-gongbubeop/), 그리고 [아이엘츠 스피킹 파트2 템플릿](/ko/blog/ielts-speaking-part-2-3-template/)을 함께 학습하면 유기적인 시너지를 발휘할 수 있습니다. 또한, 2026년 대대적인 시험 시간 단축과 신설 태스크 세부 내용은 [2026 토플 개정 신유형 가이드](/ko/blog/toefl-2026-gaejeong-sin-hyeongsik-gaideu/)에서 한눈에 확인하실 수 있습니다. 추가적인 영문 에세이 샘플은 [리딩 및 라이팅 자료실](/samples/)에서 확인하실 수 있습니다.
 
 {{cta: /app/#/toefl | Lexkite에서 토플 아카데믹 라이팅 실전 연습 시작하기}}
 

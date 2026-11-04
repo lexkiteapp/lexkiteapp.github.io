@@ -229,4 +229,4 @@ qualityScore: 93
 
 TOEIC은 ETS의 등록 상표입니다. Lexkite는 독립 서비스이며 ETS와 제휴 관계가 없습니다.
 
-청해 영역에서 단기간에 점수를 올리고 싶다면 [토익 파트2 공부법: 오답 함정 피하고 만점 받는 전략](/ko/blog/toeic-listening-part-2-gongbubeop-jeonryak/)을 꼭 읽어보세요.
+청해 영역에서 단기간에 점수를 올리고 싶다면 [토익 파트2 공부법: 오답 함정 피하고 만점 받는 전략](/ko/blog/toeic-listening-part-2-gongbubeop-jeonryak/)을 꼭 읽어보세요. 또한 비즈니스 영어 외에 유학 및 글로벌 학술 평가를 준비 중이라면 시험 시간이 대폭 단축된 [2026 토플 개정 신유형 완벽 분석](/ko/blog/toefl-2026-gaejeong-sin-hyeongsik-gaideu/)도 참고해 보세요.
