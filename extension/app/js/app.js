@@ -1608,12 +1608,14 @@
         if (!replayed) { replayed = true; for (const [k, v] of Object.entries(qGet())) if (k !== sid) sendS(v); }
       }).catch(() => park(d));
     };
+    // Nguồn thật: vào /app/ thường đi qua trang tĩnh nên document.referrer là chính mình → mất Google/blog. Ưu tiên: nguồn ngoài trực tiếp → nguồn ngoài trang tĩnh ghi lại ≤ 30 phút (lk.src, site-layout SRC_JS) → site:<đoạn đường dẫn> (máy chủ lọc, xem _cpm.js normRef)
+    const ref = (() => { try { const r = document.referrer, u = r && new URL(r); if (u && u.hostname !== location.hostname) return r; const o = JSON.parse(localStorage.getItem('lk.src') || '0'); if (o && o.h && Date.now() - o.t < 18e5) return 'https://' + o.h; if (u) { const a = u.pathname.split('/').filter(Boolean); return 'site:' + ((/^[a-z]{2}$/.test(a[0]) ? a[1] : a[0]) || ''); } } catch (e) { /* bỏ qua */ } return ''; })();
     let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
     const flush = (force, hb) => { // hb: nhịp "đang online" 3 phút – máy chủ có thể chỉ ghi Analytics Engine (lượt xem dồn sang lần gửi sau)
       if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }
       if (!inSample || (!force && Date.now() - lastSent < 60000)) return;
       lastSent = Date.now(); const d = pv; if (!hb) pv = {};
-      (document.visibilityState === 'visible' ? sendS : send)({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb, t0 });
+      (document.visibilityState === 'visible' ? sendS : send)({ t: 's', sid, vid, ret, path, cur: cur(), ref, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb, t0 });
     };
     addEventListener('hashchange', () => { pages++; const r = cur(); if (r in pv || Object.keys(pv).length < 20) pv[r] = (pv[r] || 0) + 1; });
     // "Đang online": gửi 1 lần sau 15 giây rồi nhịp 3 phút/lần khi tab đang hiển thị (ẩn tab → không gửi)

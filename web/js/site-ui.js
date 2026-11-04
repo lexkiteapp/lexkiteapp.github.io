@@ -1,4 +1,4 @@
-/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */
+/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS + SRC_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */
 (function (w, d) {
 function init(r) {
 var b = r.querySelector('[aria-haspopup]'), m = r.querySelector('[role=menu]');
@@ -49,4 +49,7 @@ fetch('/js/lhint.json').then(function(r){return r.json()}).then(function(A){var 
 var e=d.createElement('div');e.className='lhint';e.lang=n;if(n==='ar')e.dir='rtl';e.setAttribute('role','region');e.setAttribute('aria-label',S[0]);
 e.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';e.firstChild.textContent=S[0];var a=e.querySelector('a'),c=e.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];c.setAttribute('aria-label',S[2]);
 var x=function(){try{ls.setItem('lk.lhint','1')}catch(z){}};a.onclick=x;c.onclick=function(){x();e.remove()};b.appendChild(e)})['catch'](function(){})}catch(z){}})(document);
+(function(d,l){try{var r=d.referrer,s=window.localStorage,h,o,a;if(!r||l.protocol!=='https:'||navigator.webdriver||s.getItem('lk.noTrack')==='1')return;h=new URL(r).hostname.replace(/^www\./,'');if(h===l.hostname)return;
+o=JSON.parse(s.getItem('lk.src')||'0');if(o&&o.h===h&&Date.now()-o.t<18e5)return;s.setItem('lk.src',JSON.stringify({h:h,t:Date.now()}));a=l.pathname.split('/').filter(Boolean);
+navigator.sendBeacon&&navigator.sendBeacon('/api/hit',JSON.stringify({t:'l',ref:h,p:(/^[a-z]{2}$/.test(a[0])?a[1]:a[0])||'',lang:d.documentElement.lang}))}catch(z){}})(document,location);
 window.LkUi=1;
