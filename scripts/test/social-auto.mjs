@@ -25,13 +25,13 @@ const H = 36e5, now = Date.now();
 // ---------- 1) Hàm thuần ----------
 {
   const d = A.cleanAuto({});
-  ok(d.on === true && d.auto_approve === false && d.plats.facebook_page && d.plats.instagram && !d.plats.tiktok && !d.plats.youtube && !d.plats.threads, 'mặc định: chạy, TỰ DUYỆT TẮT, chỉ FB + IG (TikTok/YouTube chờ duyệt app)');
+  ok(d.on === true && d.auto_approve === false && d.plan_daily === true && d.plats.facebook_page && d.plats.instagram && d.plats.tiktok && !d.plats.youtube && !d.plats.threads, 'mặc định: chạy, TỰ DUYỆT TẮT, chỉ FB + IG (TikTok/YouTube chờ duyệt app)');
   const c = A.cleanAuto({ manual_first: 0, max_per_run: 99, daily_calls: 9999, lookahead_h: 1, lead_min: 1, sync_h: 1, plats: { tiktok: 1 } });
   ok(c.manual_first === 1 && c.max_per_run === 5 && c.daily_calls === 120 && c.lookahead_h === 2 && c.lead_min === 10 && c.sync_h === 3 && c.plats.tiktok && c.plats.facebook_page, 'kẹp: ≥ 1 bài duyệt tay, ≤ 5 bài/lượt, ≤ 120 lượt GrabCast/ngày, đồng bộ ≥ 3 giờ');
   ok(A.breakerMs(401) === 12 * H && A.breakerMs(403) === 12 * H && A.breakerMs(409) && A.breakerMs(422) && A.breakerMs(429) && A.breakerMs(503) && A.breakerMs(500) && !A.breakerMs(400) && !A.breakerMs(404) && !A.breakerMs(200), 'cầu dao: 401/403/409/422/429/503/5xx dừng; 400/404 chỉ lỗi 1 bài');
   ok(!A.canAutoApprove({ ...d, auto_approve: false }, 'facebook_page', { facebook_page: 99 }) && !A.canAutoApprove({ ...d, auto_approve: true, manual_first: 5 }, 'facebook_page', { facebook_page: 4 }) && A.canAutoApprove({ ...d, auto_approve: true, manual_first: 5 }, 'facebook_page', { facebook_page: 5 }), 'tự duyệt chỉ khi công tắc BẬT và đủ N bài duyệt tay trên nền tảng đó');
   const rows = [{ platform: 'facebook_page', account_id: '2', slot_ms: now + 5 * 60e3 }, { platform: 'facebook_page', account_id: '2', slot_ms: now + 3 * H }, { platform: 'tiktok', account_id: '4', slot_ms: now + 2 * H }, { platform: 'instagram', account_id: '3', slot_ms: now + 2 * H }, { platform: 'instagram', account_id: '', slot_ms: now + 2 * H }, { platform: 'facebook_page', account_id: '2', slot_ms: now + 40 * H }];
-  ok(A.pickDue(rows, d, now).map(r => r.platform + '@' + Math.round((r.slot_ms - now) / H)).join() === 'instagram@2,facebook_page@3', 'đến hạn: trong [now + 20 phút, now + 30 giờ], nền tảng bật, có tài khoản, sớm nhất trước');
+  ok(A.pickDue(rows, { ...d, plats: { ...d.plats, tiktok: false } }, now).map(r => r.platform + '@' + Math.round((r.slot_ms - now) / H)).join() === 'instagram@2,facebook_page@3', 'đến hạn: trong [now + 20 phút, now + 30 giờ], nền tảng bật, có tài khoản, sớm nhất trước');
   ok(await A.idemKey(CA, 'gc-facebook_page-2', 'c') === await A.idemKey(CA, 'gc-facebook_page-2', 'c') && await A.idemKey(CA, 'gc-facebook_page-2', 'c') !== await A.idemKey(CA, 'gc-instagram-3', 'c') && /^[A-Za-z0-9_-]{8,80}$/.test(await A.idemKey(CA, 'x', 's')), 'Idempotency-Key ổn định theo clip + kênh + bước, hợp lệ cho GrabCast');
   ok(/^b_[A-Za-z0-9_-]{6,60}$/.test(await A.boardId(CA, 'gc-facebook_page-2')), 'id mục duyệt đúng dạng soc_board');
   ok(A.budgetLeft({ calls: { day: A.dayOf(now), n: 50 } }, d, now) === 10 && A.budgetLeft({ calls: { day: '2000-01-01', n: 50 } }, d, now) === 60, 'ngân sách theo ngày UTC, qua ngày đặt lại');
@@ -47,8 +47,8 @@ globalThis.fetch = async (url, init = {}) => {
   if (u.hostname === 'api.github.com') return new Response('no', { status: 404 });
   const p = u.pathname.replace('/api/social/', ''), J = (b, s = 200) => new Response(JSON.stringify(b), { status: s });
   calls.push({ m: init.method, p, h: init.headers || {}, body: init.body && JSON.parse(init.body) });
-  const f = GC.fail[init.method + ' ' + p.replace(/\/p_\d+/, '/:id')]; if (f) return J({ error: { code: 'x_' + f } }, f);
-  if (p === 'accounts') return J({ accounts: [{ id: 2, platform: 'facebook_page', display_name: 'Lexkite', kinds: ['reel'] }, { id: 3, platform: 'instagram', display_name: 'lexkite.app', kinds: ['reel'] }, { id: 5, platform: 'facebook_page', display_name: 'Lexkite 2', kinds: ['reel'] }] });
+  const f = GC.fail[init.method + ' ' + p.replace(/\/p_\d+/, '/:id')]; if (f) return J({ error: { code: GC.failCode || 'x_' + f } }, f);
+  if (p === 'accounts') return J({ accounts: [{ id: 4, platform: 'tiktok', display_name: 'TT', kinds: ['video'] }, { id: 2, platform: 'facebook_page', display_name: 'Lexkite', kinds: ['reel'] }, { id: 3, platform: 'instagram', display_name: 'lexkite.app', kinds: ['reel'] }, { id: 5, platform: 'facebook_page', display_name: 'Lexkite 2', kinds: ['reel'] }] });
   if (p === 'posts' && init.method === 'GET') return J({ posts: Object.values(GC.posts) });
   if (p === 'posts' && init.method === 'POST') { const k = (init.headers || {})['Idempotency-Key'], ex = Object.values(GC.posts).find(x => x._k === k); if (ex) return J({ post: ex }); const id = 'p_' + (++GC.n), b = JSON.parse(init.body); GC.posts[id] = { id, status: 'draft', _k: k, ...b, targets: b.targets.map(t => ({ ...t, platform: t.account_id === 3 ? 'instagram' : 'facebook_page' })) }; return J({ post: GC.posts[id] }); }
   if (p === 'media/upload-url') return J({ upload: { url: 'https://upload.example/x', method: 'PUT' }, media: { id: 'm_up' } });
@@ -60,6 +60,8 @@ globalThis.fetch = async (url, init = {}) => {
 if (typeof FixedLengthStream === 'undefined') globalThis.FixedLengthStream = class { constructor() { const t = new TransformStream(); this.readable = t.readable; this.writable = t.writable; } };
 const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: CLI, GRABCAST_WEBHOOK_SECRET: 'whsec_0123456789abcdefghijklmn' };
 await MGR.setupMgr(DB);
+// Kịch bản gốc cố định cài đặt (TikTok tắt, không tự xếp lịch, đồng bộ 6 giờ) để không phụ thuộc mặc định – mặc định mới được kiểm ở mục 1 và mục 3.
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, status TEXT, title TEXT, approved_at INTEGER); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c); // CC chưa duyệt
 await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng (setupDist) – không có khóa → không gọi gì
@@ -100,7 +102,7 @@ sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k
 due(CB, 'gc-instagram-3', 10); sql.prepare('UPDATE dist_social SET slot_ms = ? WHERE clip = ? AND channel_id = ?').run(Math.round(now + 9 * H), CB, 'gc-facebook_page-5');
 calls = []; r = await A.runAuto(ENV, { now: now + 2 * 60e3 });
 const p5 = Object.values(GC.posts).find(p => p.targets[0].account_id === 5), b5 = p5 && sql.prepare('SELECT * FROM soc_board WHERE post_id = ?').get(p5.id);
-ok(r.scheduled === 1 && r.review === 1 && p5 && p5.status === 'scheduled' && Date.parse(p5.scheduled_at) === ds(CB, 'gc-facebook_page-5').slot_ms, `tự duyệt: FB (đủ 1 bài duyệt tay) tự lên lịch đúng slot, IG (0) chờ duyệt (lên lịch ${r.scheduled}, chờ ${r.review})`);
+ok(r.scheduled === 2 && r.review === 1 && p5 && p5.status === 'scheduled' && Date.parse(p5.scheduled_at) === ds(CB, 'gc-facebook_page-5').slot_ms, `tự duyệt: FB (đủ 1 bài duyệt tay) tự lên lịch đúng slot, IG (0) chờ duyệt (lên lịch ${r.scheduled}, chờ ${r.review})`);
 ok(b5 && b5.state === 'scheduled' && b5.approved_by === 'autopilot' && b5.hash && calls.some(c => /^lkap-s-/.test((c.h || {})['Idempotency-Key'] || '')), 'bài tự duyệt có dấu băm + approved_by autopilot + Idempotency-Key lên lịch');
 ok((await MGR.approvalFor(ENV, p5.id, (await import(new URL('../../functions/api/_grabcast.js', import.meta.url))).gcClient(ENV))).ok, 'cổng duyệt của proxy chấp nhận bài tự duyệt (dấu băm khớp nội dung GrabCast)');
 ok((await A.manualCounts(DB)).facebook_page === 1 && !(await A.manualCounts(DB)).instagram, 'đếm bài duyệt TAY theo nền tảng (không tính autopilot)');
@@ -109,7 +111,7 @@ ok((await A.manualCounts(DB)).facebook_page === 1 && !(await A.manualCounts(DB))
 GC.posts[p1.id].status = 'published'; GC.posts[p1.id].targets[0].state = 'published';
 calls = []; r = await A.runAuto(ENV, { now: now + 7 * H });
 ok(r.synced && sql.prepare('SELECT state FROM soc_board WHERE post_id = ?').get(p1.id).state === 'published' && ds(CA, 'gc-facebook_page-2').state === 'published', 'đồng bộ nền: bài đã đăng → soc_board published + dist_social published');
-ok(calls.filter(c => c.m === 'GET').length === 2, 'đồng bộ = đúng 2 lượt GET (accounts + posts), không poll');
+ok(calls.filter(c => c.m === 'GET' && !/^posts\//.test(c.p)).length === 2 && calls.filter(c => c.m === 'GET' && /^posts\//.test(c.p)).length <= r.scheduled, 'đồng bộ = đúng 2 lượt GET (accounts + posts), không poll; GET bài chỉ khi lên lịch bài đó');
 
 // dừng cả lượt + cầu dao
 GC.fail['POST posts'] = 503; due(CB, 'gc-facebook_page-2', 9.5); sql.prepare("UPDATE dist_social SET state = 'planned' WHERE clip = ? AND channel_id = 'gc-facebook_page-2'").run(CB);
@@ -164,7 +166,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const WH = await import(new URL('../../functions/api/social/webhook.js', import.meta.url));
   const sec = ENV.GRABCAST_WEBHOOK_SECRET, whSign = (body, ts = Math.floor(Date.now() / 1000), k = sec) => ({ 'X-GrabCast-Timestamp': String(ts), 'X-GrabCast-Signature': 'sha256=' + crypto.createHmac('sha256', k).update(ts + '.' + body).digest('hex') });
   const wh = async (body, headers, env = ENV) => WH.onRequestPost({ request: new Request('https://lexkite.com/api/social/webhook', { method: 'POST', headers: { 'CF-Connecting-IP': '10.8.0.' + (ip++), ...headers }, body }), env });
-  const p5b = sql.prepare('SELECT post_id FROM soc_board WHERE approved_by = ? AND state = ?').get('autopilot', 'scheduled').post_id;
+  const p5b = p5.id;
   const ev = JSON.stringify({ type: 'post.published', post: { ...GC.posts[p5b], status: 'published' } });
   ok((await wh(ev, whSign(ev), { ...ENV, GRABCAST_WEBHOOK_SECRET: '' })).status === 503, 'webhook: chưa có secret → 503 (không nhận gì)');
   ok((await wh(ev, whSign(ev, undefined, 'wrong-secret-0123456789abcdef'))).status === 401 && (await wh(ev, whSign(ev, Math.floor(Date.now() / 1000) - 600))).status === 401 && (await wh(ev, {})).status === 401, 'webhook: sai khóa / quá cũ / thiếu chữ ký → 401');
@@ -183,7 +185,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const missing = [...keys, ...strs, ...kpi].filter(k => !(k in EN));
   ok(keys.length > 25 && !missing.length, 'thẻ autopilot: mọi chuỗi có bản tiếng Anh – thiếu: ' + missing.join(' | '));
   let confAns = () => true, saved = null, ran = 0; w.confirm = m => confAns(m);
-  const AS = { cfg: A.cleanAuto({}), state: { last_run: { at: now, due: 2, created: 1, scheduled: 0, review: 1, stop: null }, breaker: { until: now + H, code: 'x_503' }, last_sync: { at: now } }, key: true, webhook: false, manual: { facebook_page: 2 }, budget_left: 41, upcoming: [{ clip: CA, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now + H, state: 'pushed', board: 'review', channel: 'Lexkite' }], now };
+  const AS = { cfg: A.cleanAuto({ plats: { tiktok: false } }), state: { last_run: { at: now, due: 2, created: 1, scheduled: 0, review: 1, stop: null }, breaker: { until: now + H, code: 'x_503' }, last_sync: { at: now } }, key: true, webhook: false, manual: { facebook_page: 2 }, budget_left: 41, upcoming: [{ clip: CA, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now + H, state: 'pushed', board: 'review', channel: 'Lexkite' }], now };
   const sapi = async (m, p, b) => { if (p === 'lk/auto') return JSON.parse(JSON.stringify(AS)); if (p === 'lk/auto/save') { saved = b.cfg; return { cfg: A.cleanAuto(b.cfg) }; } if (p === 'lk/auto/run') { ran++; return { run: { created: 1, scheduled: 1, review: 0, calls: 6 } }; } if (p === 'lk/rules') return { rules: MGR.cleanRules({}) }; return {}; };
   const lang = { v: 'vi' }, ctx = { sapi, L: (s, v) => (v ? s.replace(/\{(\w+)\}/g, (x, k) => (v[k] != null ? v[k] : x)) : s), esc: s => String(s ?? '').replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';'), lang: () => lang.v, D: { accounts: [] }, errText: e => String(e && e.message || e), alive: () => true, LS: { get: (k, d) => d, set() {} }, modal() {} };
   const flush = async (k = 15) => { for (let i = 0; i < k; i++) await new Promise(res => setTimeout(res, 0)); };
@@ -201,6 +203,67 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   lang.v = 'en'; main.innerHTML = ''; w.AdminSocialMgr.paint('queue', main, ctx); await flush();
   const t = main.querySelector('#smgAP').textContent;
   ok(/Social autopilot/.test(t) && /Breaker open/.test(t) && /In review/.test(t) && !/[ăđơư]|[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(t), 'tiếng Anh: không lẫn tiếng Việt');
+}
+
+// ---------- 3) Lỗi ẩn đã gặp 04/11: chuỗi đăng không tự chạy và kẹt im lặng ----------
+{
+  const D = await import(new URL('../../functions/api/_distribution.js', import.meta.url));
+  const cfgs = { 'gc-tiktok-9': D.normCfg({}), 'gc-tiktok-1': D.normCfg({}), 'gc-facebook_page-2': D.normCfg({}), UCabc: D.normCfg({}) };
+  const imp = D.implicitSocialRules([], cfgs);
+  ok(imp.map(r => r.channel_id).join() === 'gc-facebook_page-2,gc-tiktok-1', 'nối kênh mà chưa có luật → luật ngầm 1 kênh/nền tảng, không đụng YouTube');
+  ok(D.routeAll(imp, cfgs, { id: 'x' }, null).length === 2, 'luật ngầm khớp mọi clip');
+  ok(D.implicitSocialRules([{ channel_id: 'gc-tiktok-9', cond: {}, active: 0 }], cfgs).every(r => !/tiktok/.test(r.channel_id)), 'luật đã TẮT = chủ ý dừng → không có luật ngầm cho nền tảng đó');
+
+  const d = A.cleanAuto({}), h = (channels, approved, planned) => { const st = {}; A.healthAlerts({ channels, approved, planned }, st, now); return (st.alerts || []).map(a => a.k).join(); };
+  ok(h(false, true, false) === 'no-channels' && h(true, false, false) === 'no-approved' && h(true, true, false) === 'nothing-planned' && h(true, true, true) === '', 'CI xanh mà chuỗi đứt → cảnh báo đúng khâu');
+  { const st = {}; A.healthAlerts({ channels: false, approved: true }, st, now); st.alerts = []; A.healthAlerts({ channels: false, approved: true }, st, now + H); ok(!st.alerts.length, 'cảnh báo không lặp mỗi lượt'); A.healthAlerts({ channels: false, approved: true }, st, now + 73 * H); ok(st.alerts.length === 1, 'hết 3 ngày nhắc lại'); }
+  ok(d.sync_h === 3, 'đồng bộ trạng thái 3 giờ/lần để sớm biết bài lỗi');
+
+  // Môi trường sạch cho từng ca
+  const reset = cfg => { sql.exec("DELETE FROM soc_board; DELETE FROM dist_social; DELETE FROM soc_lock; DELETE FROM soc_meta"); GC.posts = {}; GC.fail = {}; sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ sync_h: 24, plan_daily: false, ...cfg }), now); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto_state', ?, ?)").run(JSON.stringify({ last_sync: { at: now } }), now); };
+  const dueAt = (clip, ch, h) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, ?, ?, 'auto', 0, 'planned', ?)").run(clip, ch, /^gc-([a-z_]+)-/.exec(ch)[1], now + h * H, now);
+  const stNow = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
+
+  // Bài độc 422: không được chặn cả hàng mãi
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); dueAt(CB, 'gc-facebook_page-2', 8);
+  sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_old' }), now);
+  GC.fail = { 'POST posts': 422 }; GC.failCode = 'media_invalid';
+  let x = await A.runAuto(ENV, { now });
+  ok(x.stop && ds(CA, 'gc-facebook_page-2').state === 'failed' && stNow().fails[CA + '|gc-facebook_page-2'].n === 1, '422: dừng lượt nhưng tính lỗi cho đúng clip');
+  ok(!sql.prepare("SELECT 1 FROM soc_meta WHERE k = ?").get('media:' + CA), 'lỗi media → bỏ cache để lượt sau tải lại');
+  const stt = stNow(); delete stt.breaker; stt.fails[CA + '|gc-facebook_page-2'].n = 2; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(stt));
+  GC.fail = {}; GC.failCode = ''; x = await A.runAuto(ENV, { now: now + 60e3 });
+  ok(x.created === 1 && x.skipped.some(s => s.clip === CA && s.why === 'gave-up'), 'clip lỗi 2 lần bị bỏ qua, clip sau vẫn đăng được');
+
+  // Bật tự duyệt SAU khi bài đã nằm Chờ duyệt: trước đây kẹt mãi vì social_due không trả 'pushed'
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3);
+  x = await A.runAuto(ENV, { now });
+  ok(x.created === 1 && x.review === 1 && Object.values(GC.posts)[0].status === 'draft', 'tự duyệt tắt: bài nằm Chờ duyệt, chưa lên lịch');
+  sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ sync_h: 24, plan_daily: false, auto_approve: true, manual_first: 1 }));
+  sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
+  x = await A.runAuto(ENV, { now: now + 60e3 });
+  ok(x.scheduled === 1 && Object.values(GC.posts)[0].status === 'scheduled', 'bật tự duyệt → bài Chờ duyệt cũ được lên lịch');
+
+  // Bài GrabCast đăng lỗi: dist_social 'failed' + cảnh báo, không tự đăng lại (TikTok spam_risk)
+  reset({ sync_h: 3 }); dueAt(CA, 'gc-tiktok-4', 3);
+  await A.runAuto(ENV, { now });
+  const pid = Object.keys(GC.posts)[0]; GC.posts[pid].status = 'failed'; GC.posts[pid].targets = [{ account_id: 4, platform: 'tiktok', state: 'failed', last_error_code: 'spam_risk' }];
+  x = await A.runAuto(ENV, { now: now + 4 * H });
+  ok(ds(CA, 'gc-tiktok-4').state === 'failed' && /spam_risk/.test(ds(CA, 'gc-tiktok-4').err || ''), 'bài lỗi trên GrabCast → dist_social failed, ghi mã lỗi');
+  ok(x.alerts.some(a => /^post-failed:/.test(a.k) && /spam_risk/.test(a.text)), 'bài lỗi → cảnh báo cho người');
+  const nPosts = Object.keys(GC.posts).length; x = await A.runAuto(ENV, { now: now + 5 * H });
+  ok(Object.keys(GC.posts).length === nPosts && !calls.some(c => /retry/.test(c.p)), 'không tự đăng lại');
+  ok(Object.values(GC.posts)[0].targets && ds(CA, 'gc-tiktok-4').state === 'failed', 'giữ nguyên trạng thái lỗi');
+
+  // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
+  reset({ plan_daily: true });
+  sql.exec("ALTER TABLE yt_queue ADD COLUMN video_id TEXT; ALTER TABLE yt_queue ADD COLUMN privacy TEXT; ALTER TABLE yt_queue ADD COLUMN publish_at TEXT; ALTER TABLE yt_queue ADD COLUMN updated INTEGER; DELETE FROM yt_queue; DELETE FROM dist_ext; INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES ('gc-tiktok-4', 'tiktok', '4', 'TT', 'ok', 1)"); sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'done')").run(CA);
+  dueAt(CA, 'gc-tiktok-4', -20);
+  sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify({ last_sync: { at: now } }));
+  x = await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now });
+  const re = ds(CA, 'gc-tiktok-4');
+  ok(re && re.state === 'planned' && re.slot_ms > now, `slot đã lỡ → xếp lại trong tương lai; clip status done vẫn lên social (planned ${x.planned}, ${JSON.stringify(x.skipped)})`);
+  ok(x.health && x.health.channels && x.health.approved && x.health.planned, 'rec.health đủ 3 khâu sau khi xếp lịch');
 }
 
 console.log(fails ? `✗ social-auto: ${fails}/${n} lỗi` : `✓ social-auto: ${n} kiểm tra đạt (mặc định an toàn, cầu dao, ngân sách, đầu-cuối, chỉ mục D1, chữ ký, UI)`);

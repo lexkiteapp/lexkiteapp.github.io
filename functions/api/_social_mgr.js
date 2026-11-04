@@ -16,7 +16,7 @@ export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'publ
 export const PLAT = {
   facebook_page: { cap: 30, used: 'reels_24h', capKey: 'reels_cap', kind: 'reel' },
   instagram: { cap: 100, used: 'posts_24h', capKey: 'posts_cap', kind: 'reel', cap2200: true },
-  tiktok: { cap: 15, kind: 'video', privateOnly: 'tiktok-audit' },
+  tiktok: { cap: 15, kind: 'video' }, // Direct Post của app GrabCast được duyệt 03/11/2026 → hết giới hạn SELF_ONLY
   youtube: { cap: 6, kind: 'short', privateOnly: 'google-review' },
   threads: { cap: 250, kind: 'post' },
 };
@@ -184,7 +184,7 @@ async function approvedClips(env) {
 }
 export const bodyFor = (clip, mediaId, accs, per = {}) => ({
   title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: 'America/New_York',
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'SELF_ONLY', allow_comment: true, allow_duet: false, allow_stitch: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
   const cached = await getMeta(env.DB, 'media:' + clip.id, null); if (cached && cached.id) return cached.id;

@@ -14,6 +14,7 @@ if (r.status === 429) { console.log('⏭ bỏ qua lượt:', j.error || 429, j.p
 if (!r.ok) { console.error('✗ social-auto', r.status, j.error || '', j.cause || ''); process.exit(1); }
 const x = j.run || j;
 console.log(op === 'run' ? `autopilot: đến hạn ${x.due} · tạo ${x.created} · lên lịch ${x.scheduled} · chờ duyệt ${x.review} · lượt GrabCast ${x.calls}${x.stop ? ' · dừng: ' + x.stop : ''}${x.synced ? ' · đồng bộ ' + x.synced.posts + ' bài' : ''}${x.provider ? ' · đường FB/IG ' + x.provider.cur + (x.provider.why ? ' (' + x.provider.why + ')' : '') : ''}${x.meta && x.meta.calls ? ` · Meta: đăng ${x.meta.posted} · hẹn ${x.meta.scheduled} · container ${x.meta.containers} · ${x.meta.calls} lượt Graph${x.meta.stop ? ' · dừng ' + x.meta.stop : ''}` : ''}` : JSON.stringify({ cfg: x.cfg, last: x.state && x.state.last_run, budget_left: x.budget_left }));
+if (x.health) console.log(`chuỗi đăng: kênh ${x.health.channels ? 'có' : 'CHƯA CÓ'} · clip đã duyệt ${x.health.approved ? 'có' : 'CHƯA CÓ'} · lịch sắp tới ${x.health.planned ? 'có' : 'CHƯA CÓ'}${x.planned ? ' · vừa xếp ' + x.planned + ' bài' : ''}`);
 if (x.skipped && x.skipped.length) console.log('bỏ qua:', x.skipped.map(s => `${s.clip || ''}@${s.ch || ''}:${s.why}`).join(' '));
 for (const a of x.alerts || []) await alert(a);
 
