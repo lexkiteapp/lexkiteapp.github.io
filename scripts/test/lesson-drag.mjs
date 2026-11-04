@@ -59,7 +59,8 @@ ok(order.join() === '0,1' && /Đã gỡ/.test(said), 'phím Delete: gỡ');
 // đã chấm → khóa
 locked = true; P('pointerdown', tile(ans, 1), 70, 20); P('pointermove', doc, 90, 30); P('pointermove', doc, 0, 20); P('pointerup', doc, 0, 20);
 ok(order.join() === '0,1', 'đã chấm: không kéo được');
-// CSS: giảm chuyển động + không chặn cuộn ngoài ô
+// CSS: giữ chỗ không làm giãn dòng + giảm chuyển động + không chặn cuộn ngoài ô
+ok(/\.wa-ans\{[^}]*align-content:flex-start/.test(fs.readFileSync('web/js/word-arrange.js', 'utf8')), 'CSS: hàng đáp án giữ chiều cao nhưng dòng không giãn');
 const css = fs.readFileSync('web/js/word-arrange.js', 'utf8');
 ok(/prefers-reduced-motion:reduce\)\{[^}]*\.lsn-ghost[^}]*transition:none/.test(css) && /\.wa-ans \[data-a\],\.wa-bank \[data-i\]\{min-height:44px;touch-action:none/.test(css), 'CSS: reduced-motion + touch-action chỉ trên ô + ô ≥44 px');
 locked = false;

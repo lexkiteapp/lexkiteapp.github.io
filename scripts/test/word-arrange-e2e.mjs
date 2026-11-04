@@ -38,6 +38,14 @@ async function run(width, scheme, lang, touch) {
   const drag = async (from, x, y, during) => { const [a, b] = await center(from); await P.down(a, b); await glide(a, b, x, y); await page.waitForTimeout(220); if (during) await during(); await P.up(); await page.waitForTimeout(260); };
   // Điểm thả: ranh giới giữa thẻ thứ i-1 và i của hàng đáp án (đọc trái → phải)
   const boundary = i => page.evaluate(k => { const r = document.querySelectorAll('#lsnAns .lsn-tile')[k].getBoundingClientRect(); return [r.left + 2, r.top + r.height / 2]; }, i);
+  // Thẻ ngay trước/sau vạch trên cùng dòng (bỏ thẻ đang kéo); khe = khoảng hở sau khi dạt
+  const caretInfo = () => page.evaluate(() => {
+    const c = document.querySelector('#lsnAns .lsn-caret'), g = document.querySelector('.lsn-ghost'); if (!c || !g) return null;
+    const r = c.getBoundingClientRect(), mid = (r.top + r.bottom) / 2, row = [...document.querySelectorAll('#lsnAns .lsn-tile:not(.lsn-dragsrc)')].map(el => ({ el, b: el.getBoundingClientRect() })).filter(x => x.b.top <= mid && x.b.bottom >= mid), cx = (r.left + r.right) / 2;
+    const left = row.filter(x => (x.b.left + x.b.right) / 2 < cx).pop(), right = row.find(x => (x.b.left + x.b.right) / 2 >= cx), parse = s => s.match(/[\d.]+/g).slice(0, 3).map(Number);
+    let e = document.querySelector('#lsnAns'), bg = 'rgba(0, 0, 0, 0)'; while (e && /rgba\(0, 0, 0, 0\)|transparent/.test(bg)) { bg = getComputedStyle(e).backgroundColor; e = e.parentElement; }
+    return { prev: left ? left.el.textContent : null, next: right ? right.el.textContent : null, between: (!left || r.left >= left.b.right - 1) && (!right || r.right <= right.b.left + 1), gap: left && right ? Math.round(right.b.left - left.b.right) : null, nudged: !!(right && /translateX|matrix/.test(right.el.style.transform + getComputedStyle(right.el).transform)), col: parse(getComputedStyle(c).backgroundColor), bg: parse(bg) };
+  });
   const words = () => page.evaluate(() => [...document.querySelectorAll('#lsnAns .lsn-tile')].map(b => b.textContent));
   const bankOf = w => page.evaluateHandle(x => [...document.querySelectorAll('#lsnBank .lsn-tile')].find(b => b.textContent === x), w);
   const tap = async w => { const h = await bankOf(w); const el = h.asElement(); if (mobile && touch) await el.tap(); else await el.click(); };
@@ -67,8 +75,8 @@ async function run(width, scheme, lang, touch) {
   ok(L1.bank === L0.bank && L1.ans === L0.ans, T(`đặt thẻ không đẩy ngân hàng (${JSON.stringify(L0)} → ${JSON.stringify(L1)})`));
   const rows = await page.evaluate(() => new Set([...document.querySelectorAll('#lsnAns .lsn-tile')].map(b => Math.round(b.getBoundingClientRect().top))).size);
   if (mobile) ok(rows >= 2, T(`câu dài xuống ${rows} dòng`));
-  const info = await page.evaluate(() => { const parse = s => s.match(/[\d.]+/g).slice(0, 3).map(Number), t = document.querySelector('#lsnAns .lsn-tile'), s = getComputedStyle(t); let bg = s.backgroundColor; return { h: Math.min(...[...document.querySelectorAll('.lsn-tile')].map(b => b.getBoundingClientRect().height)), fg: parse(s.color), bg: parse(bg), dirA: getComputedStyle(document.querySelector('#lsnAns')).direction, dirP: document.documentElement.dir, hole: !!document.querySelector('#lsnBank .lsn-tile.used:disabled') }; });
-  ok(info.h >= 44, T(`ô ≥44 px (${info.h})`)); ok(ratio(info.fg, info.bg) >= 4.5, T(`tương phản chữ ô ≥4.5 (${ratio(info.fg, info.bg).toFixed(2)})`));
+  const info = await page.evaluate(() => { const parse = s => s.match(/[\d.]+/g).slice(0, 3).map(Number), t = document.querySelector('#lsnAns .lsn-tile'), s = getComputedStyle(t); let bg = s.backgroundColor; const hs = [...document.querySelectorAll('.lsn-tile')].map(b => b.getBoundingClientRect().height); return { h: Math.min(...hs), hMax: Math.max(...hs), fg: parse(s.color), bg: parse(bg), dirA: getComputedStyle(document.querySelector('#lsnAns')).direction, dirP: document.documentElement.dir, hole: !!document.querySelector('#lsnBank .lsn-tile.used:disabled') }; });
+  ok(info.h >= 44, T(`ô ≥44 px (${info.h})`)); ok(info.hMax <= info.h + 2, T(`ô đều nhau, dòng không giãn (${info.h}–${info.hMax})`)); ok(ratio(info.fg, info.bg) >= 4.5, T(`tương phản chữ ô ≥4.5 (${ratio(info.fg, info.bg).toFixed(2)})`));
   ok(info.dirA === 'ltr', T('câu tiếng Anh đọc trái → phải')); if (lang === 'ar') ok(info.dirP === 'rtl', T('giao diện ar đúng RTL'));
   ok(info.hole, T('ô đã dùng giữ chỗ, không bấm được'));
   await shot('1-thieu-tu');
@@ -76,9 +84,11 @@ async function run(width, scheme, lang, touch) {
   // 2) kéo "iced" từ dưới thả vào GIỮA large | coffee: có vạch, hai bên dạt ra, thả xong đúng chỗ, bố cục không nhảy
   const [bx, by] = await boundary(MID);
   await drag(sel('iced'), bx, by, async () => {
-    const m = await page.evaluate(k => { const c = document.querySelector('#lsnAns .lsn-caret'), ts = [...document.querySelectorAll('#lsnAns .lsn-tile')], g = document.querySelector('.lsn-ghost'); if (!c || !g) return null; const r = c.getBoundingClientRect(), p = ts[k - 1].getBoundingClientRect(), n = ts[k].getBoundingClientRect(), cs = getComputedStyle(c), parse = s => s.match(/[\d.]+/g).slice(0, 3).map(Number); let e = document.querySelector('#lsnAns'), bg = 'rgba(0, 0, 0, 0)'; while (e && /rgba\(0, 0, 0, 0\)|transparent/.test(bg)) { bg = getComputedStyle(e).backgroundColor; e = e.parentElement; } return { w: r.width, between: r.left + 1 >= p.right - 1 && r.right - 1 <= n.left + 1 && Math.abs((r.top + r.bottom) / 2 - (n.top + n.bottom) / 2) < 12, gap: n.left - p.right, col: parse(cs.backgroundColor), bg: parse(bg), z: +getComputedStyle(g).zIndex }; }, MID);
-    ok(m && m.between, T(`vạch chèn nằm giữa large | coffee ${JSON.stringify(m)}`));
-    ok(m && m.gap >= 14, T(`hai bên dạt ra (khe ${m && m.gap})`));
+    const m = await caretInfo();
+    // 390 px: large | coffee nằm hai dòng → vạch ở đầu dòng dưới, trước coffee; máy tính: giữa hai thẻ cùng dòng
+    ok(m && m.next === 'coffee' && (m.prev === 'large' || m.prev === null), T(`vạch chèn đúng chỗ, ngay trước coffee ${JSON.stringify(m)}`));
+    ok(m && m.between, T('vạch nằm giữa hai thẻ, đúng dòng'));
+    ok(m && (m.prev ? m.gap >= 14 : m.nudged), T(`hai bên dạt ra (khe ${m && m.gap}, dạt ${m && m.nudged})`));
     ok(m && ratio(m.col, m.bg) >= 3, T(`vạch chèn tương phản ≥3 (${m && ratio(m.col, m.bg).toFixed(2)})`));
     await shot('2-dang-keo');
   });
@@ -89,7 +99,10 @@ async function run(width, scheme, lang, touch) {
 
   // 3) đổi chỗ ngay trong câu rồi đổi lại
   const a0 = '#lsnAns .lsn-tile:nth-of-type(1)';
-  const [bx3, by3] = await boundary(3); await drag(a0, bx3, by3);
+  const [bx3, by3] = await boundary(3); await drag(a0, bx3, by3, async () => {
+    const m = await caretInfo();
+    ok(m && m.prev === 'I' && m.next === 'have' && m.between && m.gap >= 14, T(`giữa dòng: vạch giữa I | have, hai bên dạt ra ${JSON.stringify(m)}`));
+  });
   ok((await words()).join(' ') === ['can', 'I', 'Hi', 'have'].concat(WORDS.slice(4)).join(' '), T('kéo trong câu: đổi chỗ'));
   const [bx4, by4] = await boundary(0); await drag('#lsnAns .lsn-tile:nth-of-type(3)', bx4, by4);
   ok((await words()).join(' ') === WORDS.join(' '), T('kéo lại về đầu câu'));
@@ -121,6 +134,27 @@ async function run(width, scheme, lang, touch) {
     ok((await words()).join(' ') === WORDS.join(' '), T('cảm ứng: kéo lại từ cuối vào giữa'));
   }
 
+  // 5b) cuộn trên màn thấp (cảm ứng thật): vuốt từ khe giữa thẻ vẫn cuộn; kéo thẻ sát mép tự cuộn; Esc hủy, câu giữ nguyên
+  if (touch) {
+    await page.setViewportSize({ width, height: 420 }); await page.waitForTimeout(250);
+    const pos = () => page.evaluate(() => { let e = document.querySelector('#lsnBank'); while (e && e !== document.body) { const s = getComputedStyle(e); if (/auto|scroll/.test(s.overflowY) && e.scrollHeight > e.clientHeight + 1) return { top: e.scrollTop, max: e.scrollHeight - e.clientHeight }; e = e.parentElement; } const d = document.scrollingElement; return { top: d.scrollTop, max: d.scrollHeight - d.clientHeight }; });
+    const gapPt = await page.evaluate(() => { for (let y = 70; y < innerHeight - 20; y += 5) for (let x = 3; x < innerWidth - 3; x += 5) { const el = document.elementFromPoint(x, y); if (el && el.closest('#lsnAns, #lsnBank') && !el.closest('button')) return [x, y]; } return null; });
+    ok(!!gapPt, T('màn thấp: có khe giữa thẻ để vuốt'));
+    if (gapPt) {
+      const p0 = await pos(), dy = p0.max - p0.top > 40 ? -120 : 120;
+      await P.down(...gapPt); await glide(gapPt[0], gapPt[1], gapPt[0], gapPt[1] + dy, 8); await P.up(); await page.waitForTimeout(500);
+      const p1 = await pos(); ok(p0.max > 0 && p1.top !== p0.top, T(`vuốt từ khe giữa thẻ: trang cuộn (${p0.top} → ${p1.top}/${p0.max})`));
+    }
+    const pre = await words();
+    const tp = await page.evaluate(q => { const el = document.querySelector(q); el.scrollIntoView({ block: 'center' }); const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }, sel('seven'));
+    await page.waitForTimeout(150); const p2 = await pos();
+    await P.down(...tp); await glide(tp[0], tp[1], tp[0], 12, 8); await page.waitForTimeout(500); const p3 = await pos();
+    ok(p2.top === 0 || p3.top < p2.top, T(`kéo sát mép trên: tự cuộn (${p2.top} → ${p3.top})`));
+    await page.keyboard.press('Escape'); await P.up(); await page.waitForTimeout(200);
+    ok((await words()).join() === pre.join() && !await page.$('.lsn-ghost'), T('Esc khi đang kéo cảm ứng: câu giữ nguyên'));
+    await page.setViewportSize({ width, height: 844 }); await page.waitForTimeout(250);
+  }
+
   // 6) chấm: đề 1 (đã kéo về đúng) = đúng, đề 2 (sai thứ tự) = sai – logic chấm không đổi
   const sess = () => page.evaluate(() => { const s = App._lsn.sess; return { combo: s.combo, wrong: s.wrong.size, id: s.cur && s.cur.id }; });
   await page.click('#lsnCheck'); await page.waitForTimeout(500);
@@ -136,17 +170,6 @@ async function run(width, scheme, lang, touch) {
   await page.click('#lsnCheck'); await page.waitForTimeout(500);
   const s2 = await sess(); ok(s2.wrong === 1 && s2.combo === 0, T(`chấm: sai thứ tự → Sai ${JSON.stringify(s2)}`));
 
-  // 7) cuộn trang: màn thấp, vuốt từ khe giữa thẻ vẫn cuộn; kéo sát mép tự cuộn
-  if (touch) {
-    await page.setViewportSize({ width, height: 420 });
-    await page.evaluate(() => { const n = document.querySelector('#lsnNext'); if (n) n.click(); }); await page.waitForTimeout(800);
-    const pt = await page.evaluate(() => { const b = document.querySelector('#lsnBank'); if (!b) return null; b.scrollIntoView({ block: 'center' }); const r = b.getBoundingClientRect(); return [r.left + 3, r.top + 2]; });
-    if (pt) {
-      const sc = () => page.evaluate(() => { let e = document.querySelector('#lsnBank'); while (e && e !== document.body) { const s = getComputedStyle(e); if (/auto|scroll/.test(s.overflowY) && e.scrollHeight > e.clientHeight + 1) return e.scrollTop; e = e.parentElement; } return scrollY; });
-      const y0 = await sc(); await P.down(...pt); await glide(pt[0], pt[1], pt[0], pt[1] - 160, 8); await P.up(); await page.waitForTimeout(350);
-      ok(await sc() !== y0 || await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight), T('vuốt từ khe giữa thẻ: trang vẫn cuộn'));
-    }
-  }
   ok(!errs.length, T('không lỗi JS: ' + errs.slice(0, 2).join(' | ')));
 
   const video = page.video(); await ctx.close(); if (video) fs.renameSync(await video.path(), path.join(OUT, `${tag}.webm`));

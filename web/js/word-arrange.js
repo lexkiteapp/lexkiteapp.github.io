@@ -25,7 +25,7 @@
   }
   const reduced = () => { try { return !!(g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) { return false; } };
   const fly = (el, from) => { if (!el || !from || reduced() || !el.animate) return; const r = el.getBoundingClientRect(), dx = from.left - r.left, dy = from.top - r.top; if (!dx && !dy) return; el.animate([{ transform: `translate(${dx}px,${dy}px)` }, { transform: 'none' }], { duration: 200, easing: 'cubic-bezier(.2,.8,.2,1)' }); };
-  const CSS = `.wa-ans{position:relative;--wa-accent:rgb(var(--st-primary))}
+  const CSS = `.wa-ans{position:relative;align-content:flex-start;--wa-accent:rgb(var(--st-primary))}
 .wa-ans [data-a],.wa-bank [data-i]{min-height:44px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;transition:transform .16s cubic-bezier(.2,.8,.2,1)}
 .wa-bank [data-i].used{color:transparent!important;background:rgb(127 127 127/.14)!important;border-color:transparent!important;box-shadow:none!important;cursor:default;pointer-events:none}
 .lsn-dragsrc{opacity:.3}
@@ -65,7 +65,7 @@
     const remove = tile => { if (o.locked() || !o.get().includes(tile)) return null; const a = ansEl(tile), r = a && a.getBoundingClientRect(); return commit(o.get().filter(x => x !== tile), tile, r); };
     const undo = () => { const h = hist.pop(); if (!h || o.locked()) return null; return apply(h.order, h.tile); };
 
-    // Giữ sẵn chiều cao đủ cho mọi thẻ: thêm/gỡ/kéo không đẩy ngân hàng đi (đo một lần, đo lại khi đổi bề rộng / font tải xong)
+    // Giữ sẵn chiều cao đủ cho mọi thẻ: thêm/gỡ/kéo không đẩy ngân hàng đi (đo một lần, đo lại khi đổi bề rộng / font tải xong); align-content giữ dòng không giãn theo chiều cao này
     let lastW = -1;
     const reserve = () => {
       const w = o.ans.offsetWidth; if (!o.ans.isConnected || !w || !o.ans.parentNode) return; lastW = w;
