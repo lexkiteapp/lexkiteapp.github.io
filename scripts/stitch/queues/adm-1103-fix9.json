@@ -1,0 +1,182 @@
+[
+ {
+  "id": "adm-ads",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-ads/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 16 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 1 chữ (vd \"$8.10\" 3.33<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"$8.10\" 3.33:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-analytics/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"Hôm nay 86×40\") | light: tương phản 11 chữ (vd \"›\" 1.51<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"›\" 1.51:1; \"KL\" 3.04:1; \"+ Xuất báo cáo\" 2.7:1; \"400\" 3.73:1; \"Trung bình\" 3.73:1; \"Khách\" 3.73:1; \"Hoa Kỳ\" 2.06:1; \"6\" 2.06:1; \"#/today\" 2.06:1; \"1\" 2.67:1; \"2\" 2.5:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Hôm nay 86×40; 7 ngày 66×40; 14 ngày 74×40; 30 ngày 77×40 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-analytics-details/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"Chính sách bảo mật 112×16\") | light: tương phản 4 chữ (vd \"L\" 2.57<3) | sáng/tối lệch nội dung: 475 vs 870 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"L\" 2.57:1; \"table_chart Xuất Excel\" 3.12:1; \"•\" 1.45:1; \"•\" 1.45:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Chính sách bảo mật 112×16; Điều khoản quản trị viên 135×16 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "dark",
+  "kind": "edit",
+  "from": "adm-analytics-m/light",
+  "device": "MOBILE",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten. (pass 9)",
+  "fix": "9"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-backlinks/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 21 vùng chạm < 44px (vd \"VI 40×44\") | light: tương phản 7 chữ (vd \"Kiểm tra ngay\" 3.24<4.5) | sáng/tối lệch nội dung: 809 vs 267 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Kiểm tra ngay\" 3.24:1; \"+3 tuần này\" 4.12:1; \"Còn sống\" 4.12:1; \"Còn sống\" 4.12:1; \"Còn sống\" 4.12:1; \"Còn sống\" 4.12:1; \"Còn sống\" 4.12:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): VI 40×44; TMV 37×44; Tất cả (28) 101×17; Tất cả loại 99×17; INPUT 16×16; INPUT 16×16; open_in_new 14×20; INPUT 16×16; open_in_new 14×20; INPUT 16×16; open_in_new 14×20; INPUT 16×16 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-drive/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 8 vùng chạm < 44px (vd \"VI 36×44\") | light: tương phản 1 chữ (vd \"Nối thêm Drive\" 3.73<4.5) | sáng/tối lệch nội dung: 573 vs 181 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Nối thêm Drive\" 3.73:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): VI 36×44; EN 40×44; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "dark",
+  "kind": "edit",
+  "from": "adm-growth/light",
+  "device": "DESKTOP",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten. (pass 9)",
+  "fix": "9"
+ },
+ {
+  "id": "adm-inbox",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-inbox/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"›\" 1.65<4.5) | sáng/tối lệch nội dung: 731 vs 536 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"›\" 1.65:1; \"|\" 1.65:1; \"Admin đã hoàn tất gửi mã kích hoạt kèm h\" 2.86:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "dark",
+  "kind": "edit",
+  "from": "adm-notices/light",
+  "device": "DESKTOP",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten. (pass 9)",
+  "fix": "9"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-overview/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Làm mới dữ liệu\" 2.84<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Làm mới dữ liệu\" 2.84:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-reports/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"Admin 37×16\") | light: tương phản 4 chữ (vd \"›\" 4<4.5) | sáng/tối lệch nội dung: 828 vs 520 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"›\" 4:1; \"›\" 4:1; \"NA\" 4.18:1; \"|\" 1.37:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Admin 37×16; VI 44×36; EN 44×36; content_copy 91×16 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-services-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-services-m/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-settings/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 11 vùng chạm < 44px (vd \"Bảng điều khiển 106×36\") | light: tương phản 2 chữ (vd \"Xem ngay\" 4.42<4.5) | sáng/tối lệch nội dung: 517 vs 659 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Xem ngay\" 4.42:1; \"Lưu thay đổi\" 3.12:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Bảng điều khiển 106×36; Phân tích 61×36; Kiểm duyệt 77×36; INPUT 1×1; INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 876×10; INPUT 1×1; INPUT 1×1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-social/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"INPUT 448×40\") | light: tương phản 4 chữ (vd \"›\" 4.37<4.5) | sáng/tối lệch nội dung: 380 vs 535 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"›\" 4.37:1; \"Đang soạn\" 3.8:1; \"Đang soạn\" 3.8:1; \"schedule_send Lên lịch bài\" 3.44:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 448×40; INPUT 20×20; INPUT 20×20; INPUT 20×20; add Thêm tag 93×26 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-storage",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-storage/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"INPUT 288×36\") | light: tương phản 23 chữ (vd \"Quét & Tối ưu dung lượng\" 3.44<4.5) | sáng/tối lệch nội dung: 722 vs 353 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Quét & Tối ưu dung lượng\" 3.44:1; \"/ 5,000 MB\" 4.37:1; \"tệp tin\" 4.37:1; \"/ 20,000 từ\" 4.37:1; \"/ tháng\" 4.37:1; \"8 GB\" 4.37:1; \"5 GB\" 4.37:1; \"2.5 GB\" 4.37:1; \"0\" 4.37:1; \"12k từ (Q3)\" 3.47:1; \"16k từ (Q4)\" 3.47:1; \"20k từ: ~8.2 GB\" 3.44:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 288×36; delete_sweep Dọn dệm 98×36; Tất cả 60×36; Audio TTS 82×36; Video 59×36; Database 82×36; info 40×44 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-storage-m/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Lexkite Admin\" 3.45<4.5) | sáng/tối lệch nội dung: 120 vs 327 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lexkite Admin\" 3.45:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "dark",
+  "kind": "edit",
+  "from": "adm-studio/light",
+  "device": "DESKTOP",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten. (pass 9)",
+  "fix": "9"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-users2-confirm/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 11 vùng chạm < 44px (vd \"notifications 41×44\") | light: tương phản 6 chữ (vd \"Thêm người dùng\" 3.73<4.5) | sáng/tối lệch nội dung: 540 vs 321 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Thêm người dùng\" 3.73:1; \"Ngày tham gia:\" 3.77:1; \"Nhãn:\" 4.04:1; \"Xoá đã chọn (37)\" 3.35:1; \"TA\" 3.73:1; \"Xoá 37 người dùng\" 1.75:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): notifications 41×44; mail Gửi t 131×36; label Gán 102×36; delete_sweep 145×36; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 16×16 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-users2-table-m/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 19 chữ (vd \"Tạo học viên\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tạo học viên\" 3.11:1; \"Cập nhật 2m trước\" 4.31:1; \"Trình độ\" 4.31:1; \"Từ vựng\" 4.31:1; \"Điểm bài\" 4.31:1; \"Đang học\" 3.8:1; \"Trình độ\" 4.31:1; \"Từ vựng\" 4.31:1; \"Điểm bài\" 4.31:1; \"Trình độ\" 4.31:1; \"Từ vựng\" 4.31:1; \"Điểm bài\" 4.31:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-video",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "9",
+  "from": "adm-video/light",
+  "prompt": "Round 9 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"help Hỗ trợ kỹ thuật 232×40\") | light: tương phản 2 chữ (vd \"Tạo video mới\" 3.12<4.5) | sáng/tối lệch nội dung: 315 vs 688 chữ\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tạo video mới\" 3.12:1; \"/\" 4.36:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): help Hỗ trợ kỹ thuật 232×40; logout Đăng xuất 232×40; INPUT 299×36; notifications 36×36 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign, do not shorten.",
+  "device": "DESKTOP"
+ }
+]

@@ -1,717 +1,323 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="vi"><head>
+<html lang="vi"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Admin — Phân tích</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Báo cáo lưu lượng - Lexkite Kit</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<script>
     tailwind.config = {
-      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            "on-error": "#690005",
-            "on-primary-fixed": "#00201e",
-            "surface-container-lowest": "#051013",
-            "surface-container-high": "#202c2f",
-            "on-secondary-fixed-variant": "#900f00",
-            "tertiary-fixed": "#ffdf9e",
-            "surface-container-low": "#121d20",
-            "on-primary-fixed-variant": "#00504b",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "primary-fixed": "#88f5ea",
-            "surface-tint": "#6bd8ce",
-            "on-secondary-container": "#ffa493",
-            "background": "#091518",
-            "surface-variant": "#2b373a",
-            "on-tertiary-fixed": "#261a00",
-            "secondary": "#ffb4a6",
-            "secondary-fixed-dim": "#ffb4a6",
-            "secondary-fixed": "#ffdad3",
-            "error-container": "#93000a",
-            "surface": "#091518",
-            "primary-fixed-dim": "#6bd8ce",
-            "primary": "#6bd8ce",
-            "on-tertiary": "#402e00",
-            "on-secondary-fixed": "#3f0300",
-            "outline-variant": "#3d4947",
-            "on-surface": "#d8e5e9",
-            "inverse-on-surface": "#263236",
-            "tertiary-fixed-dim": "#f4bf40",
-            "primary-container": "#2ba39a",
-            "on-primary-container": "#00322e",
-            "on-error-container": "#ffdad6",
-            "inverse-surface": "#d8e5e9",
-            "surface-dim": "#091518",
-            "surface-container-highest": "#2b373a",
-            "inverse-primary": "#006a64",
-            "secondary-container": "#981201",
-            "tertiary-container": "#ba8b00",
-            "on-primary": "#003733",
-            "outline": "#879391",
-            "tertiary": "#f4bf40",
-            "on-secondary": "#660800",
-            "surface-container": "#162125",
-            "on-tertiary-container": "#392900",
-            "error": "#ffb4ab",
-            "on-background": "#d8e5e9",
-            "surface-bright": "#2f3b3e",
-            "on-surface-variant": "#bcc9c7"
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          spacing: {
-            "space-md": "16px",
-            "space-sm": "8px",
-            "space-xl": "32px",
-            "gutter": "16px",
-            "space-xs": "4px",
-            "space-lg": "24px",
-            "margin": "16px"
-          },
-          fontFamily: {
-            "body": ["Plus Jakarta Sans"],
-            "label": ["Plus Jakarta Sans"],
-            "title": ["Plus Jakarta Sans"],
-            "display": ["Plus Jakarta Sans"]
-          },
-          fontSize: {
-            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
-            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
-            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
-            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+            tactile: {
+              bg: '#081518',
+              card: '#0E1E22',
+              cardSecondary: '#122428',
+              cardHover: '#162B30',
+              border: '#1C353A',
+              ledge: '#050D0F',
+              accent: '#2DD4BF',
+              accentDark: '#14B8A6',
+              textPrimary: '#F0F9F8',
+              textSecondary: '#93B5B3',
+              textMuted: '#7EA4A1',
+              coral: '#F2553B',
+              coralLedge: '#8E2816',
+              coralInk: '#1B0B04'
+            }
           }
         }
       }
-    }
+    };
   </script>
-<style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1;
-    }
-    .material-symbols-outlined.fill-icon {
-      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    }
-    /* Tactile 3D Extruded Ledges */
+<style data-purpose="custom-shadows-and-scrollbar">
+    /* 3D Tactile physical button and card shadow effects */
     .tactile-card {
-      background-color: #101e22;
-      border: 2px solid #22383e;
-      box-shadow: 0 4px 0 0 #0a1214;
-      border-radius: 16px;
+      background-color: #0E1E22;
+      border: 2px solid #1C353A;
+      box-shadow: 0 4px 0 #050D0F;
     }
-    .tactile-card-inner {
-      background-color: #182c32;
-      border: 1px solid #28444c;
-      border-radius: 12px;
+    .tactile-chip {
+      background-color: #122428;
+      border: 1.5px solid #1C353A;
+      box-shadow: 0 2px 0 #050D0F;
     }
-    .tactile-btn-primary {
-      background: linear-gradient(135deg, #F2553B 0%, #FF7A59 100%);
-      box-shadow: 0 5px 0 0 #B53A22;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    .tactile-chip-active {
+      background-color: #162B30;
+      border: 1.5px solid #2DD4BF;
+      box-shadow: 0 2px 0 #050D0F;
     }
-    .tactile-btn-primary:active {
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 0 #B53A22;
+    .tactile-btn-coral {
+      background-color: #F2553B;
+      box-shadow: 0 4px 0 #8E2816;
+      color: #1B0B04;
     }
-    .tactile-btn-icon {
-      background-color: #16262b;
-      border: 1.5px solid #29444c;
-      box-shadow: 0 3px 0 0 #0a1214;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .tactile-btn-icon:active {
+    .tactile-btn-coral:active {
       transform: translateY(2px);
-      box-shadow: 0 1px 0 0 #0a1214;
+      box-shadow: 0 2px 0 #8E2816;
     }
-    @keyframes pulse-live {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+    /* Hide scrollbars for crisp UI */
+    ::-webkit-scrollbar {
+      display: none;
     }
-    .live-pulse {
-      animation: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
-<body class="bg-[#081518] text-[#EEF6F7] font-body min-h-screen antialiased selection:bg-primary selection:text-on-primary">
-<!-- Mobile Viewport Constraint (390px Native App Canvas) -->
-<div class="w-full max-w-[390px] mx-auto min-h-screen bg-[#081518] flex flex-col relative pb-12 shadow-2xl border-x border-[#1a2f34]">
-<!-- 1. Top Bar (Header) -->
-<header class="sticky top-0 z-40 bg-[#0B171A]/95 backdrop-blur-md px-margin py-3 border-b border-[#1b2f34] flex items-center justify-between h-14">
-<div class="flex items-center space-x-2.5">
-<button aria-label="Menu" class="tactile-btn-icon w-11 h-11 rounded-xl flex items-center justify-center text-[#C2D9DB] hover:text-[#EEF6F7] active:translate-y-0.5"><span class="material-symbols-outlined text-[22px]">menu</span></button>
-<div class="flex items-center space-x-2">
-<span class="font-title text-[20px] font-extrabold tracking-tight text-[#EEF6F7]">Lexkite</span>
-<span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider bg-[#103437] text-[#38E1D3] border border-[#1b555a]">ADMIN</span>
+<body class="bg-[#081518] text-[#93B5B3] font-sans antialiased flex justify-center min-h-screen">
+<!-- BEGIN: Mobile Device Viewport -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#081518] flex flex-col relative pb-24 shadow-2xl border-x border-[#1C353A]/40" data-purpose="mobile-viewport">
+<!-- BEGIN: iOS Status Bar -->
+<header class="w-full px-6 pt-3 pb-2 flex justify-between items-center text-xs font-semibold text-[#F0F9F8] select-none" data-purpose="status-bar">
+<span>09:41</span>
+<div class="flex items-center space-x-2 text-[#F0F9F8]">
+<!-- Signal strength icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 16 12">
+<rect height="3" rx="0.5" width="2.5" x="0" y="9"></rect>
+<rect height="5.5" rx="0.5" width="2.5" x="4" y="6.5"></rect>
+<rect height="8.5" rx="0.5" width="2.5" x="8" y="3.5"></rect>
+<rect height="11.5" rx="0.5" width="2.5" x="12" y="0.5"></rect>
+</svg>
+<!-- Wifi icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 16 12">
+<path clip-rule="evenodd" d="M8 2.5C4.9 2.5 2.1 3.8 0.2 5.9L8 14.5L15.8 5.9C13.9 3.8 11.1 2.5 8 2.5ZM8 0C11.8 0 15.3 1.5 17.8 4L8 14.8L-1.8 4C0.7 1.5 4.2 0 8 0Z" fill-rule="evenodd"></path>
+</svg>
+<!-- Battery icon -->
+<div class="w-5 h-2.5 border border-[#F0F9F8] rounded-sm p-0.5 flex items-center">
+<div class="w-full h-full bg-[#F0F9F8] rounded-2xs"></div>
 </div>
-</div>
-<div class="flex items-center space-x-2">
-<div class="w-10 h-10 rounded-full bg-[#18393e] border-2 border-[#2dd4bf]/40 flex items-center justify-center text-[#2dd4bf] font-bold text-sm shadow-[0_2px_0_0_#0a1214]">
-          KL
-        </div>
 </div>
 </header>
-<!-- Main Content Canvas -->
-<main class="flex-1 px-margin py-4 space-y-4">
-<!-- 2. Page Title Row & Meta -->
-<section class="space-y-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<h1 class="text-2xl font-extrabold tracking-tight text-[#EEF6F7]">Phân tích</h1>
-<div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-[#0D3D36] border border-[#185e54]">
-<span class="w-2 h-2 rounded-full bg-[#34D399] live-pulse"></span>
-<span class="text-[11px] font-black tracking-wider text-[#34D399]">LIVE</span>
+<!-- END: iOS Status Bar -->
+<!-- BEGIN: Header Navigation Bar -->
+<section class="px-4 py-3 flex items-center justify-between border-b border-[#1C353A] bg-[#0B171A]" data-purpose="top-app-bar">
+<button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#0E1E22] border border-[#1C353A] text-[#2DD4BF]" type="button">
+<svg class="w-5 h-5 stroke-current fill-none stroke-2" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div class="text-center">
+<h1 class="text-base font-bold text-[#F0F9F8] tracking-tight">Báo cáo lưu lượng</h1>
+<p class="text-[11px] text-[#7EA4A1]">Cập nhật 5 phút trước</p>
 </div>
-</div>
-<div class="text-[12px] font-medium text-[#A9BFC1] flex items-center space-x-1">
-<span class="material-symbols-outlined text-[14px]">sync</span>
-<span>30s • 15:24</span>
-</div>
-</div>
-<!-- Amber Filter Alert Notice -->
-<div class="bg-[#282114] border border-[#5C471E] rounded-xl p-3 flex items-start space-x-2.5 shadow-[0_3px_0_0_#141008]">
-<span class="material-symbols-outlined text-[#FDE047] text-[18px] shrink-0 mt-0.5">warning</span>
-<p class="text-[12px] leading-[18px] text-[#FDE047] font-medium">
-            Tự động/bot &amp; quản trị hôm nay: <span class="font-bold text-white">37 phiên</span> (đã loại) • Ngày theo giờ Việt Nam (UTC+7)
-          </p>
-</div>
+<button aria-label="Tùy chọn" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#0E1E22] border border-[#1C353A] text-[#93B5B3]" type="button">
+<svg class="w-5 h-5 stroke-current fill-none stroke-2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="1"></circle>
+<circle cx="19" cy="12" r="1"></circle>
+<circle cx="5" cy="12" r="1"></circle>
+</svg>
+</button>
 </section>
-<!-- 3. Key Metrics Grid (2 columns x 3 rows) -->
-<section class="grid grid-cols-2 gap-3">
-<!-- Metric 1: Online -->
-<div class="tactile-card p-3 relative overflow-hidden">
-<div class="flex items-center justify-between text-[#A9BFC1] mb-1">
-<span class="text-[11px] font-extrabold tracking-wider uppercase">Đang online</span>
-<span class="material-symbols-outlined text-[#34D399] text-[18px] live-pulse">wifi</span>
-</div>
-<div class="flex items-baseline space-x-1.5">
-<span class="text-[28px] font-black leading-none text-[#EEF6F7]">3</span>
-<span class="text-[12px] font-semibold text-[#34D399]">khách</span>
-</div>
-<div class="text-[11px] text-[#A9BFC1] mt-1 font-medium truncate">Trong 5 phút qua</div>
-</div>
-<!-- Metric 2: Views Today -->
-<div class="tactile-card p-3 relative overflow-hidden">
-<div class="flex items-center justify-between text-[#A9BFC1] mb-1">
-<span class="text-[11px] font-extrabold tracking-wider uppercase">Lượt xem hôm nay</span>
-<span class="material-symbols-outlined text-[#6BD8CE] text-[18px]">visibility</span>
-</div>
-<div class="text-[28px] font-black leading-none text-[#EEF6F7]">412</div>
-<div class="text-[11px] text-[#A9BFC1] mt-1 font-medium truncate">58 phiên hoạt động</div>
-</div>
-<!-- Metric 3: Visitors Today -->
-<div class="tactile-card p-3 relative overflow-hidden">
-<div class="flex items-center justify-between text-[#A9BFC1] mb-1">
-<span class="text-[11px] font-extrabold tracking-wider uppercase">Khách hôm nay</span>
-<span class="material-symbols-outlined text-[#FF7A59] text-[18px]">person</span>
-</div>
-<div class="text-[28px] font-black leading-none text-[#EEF6F7]">46</div>
-<div class="text-[11px] text-[#A9BFC1] mt-1 font-medium truncate">Thiết bị khác nhau</div>
-</div>
-<!-- Metric 4: Pages / Visitor -->
-<div class="tactile-card p-3 relative overflow-hidden">
-<div class="flex items-center justify-between text-[#A9BFC1] mb-1">
-<span class="text-[11px] font-extrabold tracking-wider uppercase">Trang / Khách</span>
-<span class="material-symbols-outlined text-[#F4BF40] text-[18px]">menu_book</span>
-</div>
-<div class="text-[28px] font-black leading-none text-[#EEF6F7]">8,9</div>
-<div class="text-[11px] text-[#A9BFC1] mt-1 font-medium truncate">Độ sâu bài học cao</div>
-</div>
-<!-- Metric 5: Avg Duration -->
-<div class="tactile-card p-3 relative overflow-hidden">
-<div class="flex items-center justify-between text-[#A9BFC1] mb-1">
-<span class="text-[11px] font-extrabold tracking-wider uppercase">Thời gian TB</span>
-<span class="material-symbols-outlined text-[#38E1D3] text-[18px]">timer</span>
-</div>
-<div class="text-[28px] font-black leading-none text-[#EEF6F7]">6p 12s</div>
-<div class="text-[11px] text-[#A9BFC1] mt-1 font-medium truncate">Đúng mục tiêu 5–min</div>
-</div>
-<!-- Metric 6: Total Views -->
-<div class="tactile-card p-3 relative overflow-hidden">
-<div class="flex items-center justify-between text-[#A9BFC1] mb-1">
-<span class="text-[11px] font-extrabold tracking-wider uppercase">Tổng lượt xem</span>
-<span class="material-symbols-outlined text-[#A9BFC1] text-[18px]">all_inclusive</span>
-</div>
-<div class="text-[28px] font-black leading-none text-[#EEF6F7]">18.940</div>
-<div class="text-[11px] text-[#A9BFC1] mt-1 font-medium truncate">2.311 khách từ trước</div>
-</div>
+<!-- END: Header Navigation Bar -->
+<!-- BEGIN: Main Scrollable Content -->
+<main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto" data-purpose="report-content">
+<!-- BEGIN: Timeframe Filter Chips -->
+<section class="flex space-x-2 overflow-x-auto pb-1" data-purpose="time-filter-chips">
+<button class="tactile-chip h-11 px-4 rounded-xl text-xs font-semibold text-[#93B5B3] shrink-0">Hôm nay</button>
+<button class="tactile-chip-active h-11 px-4 rounded-xl text-xs font-bold text-[#2DD4BF] shrink-0">7 ngày qua</button>
+<button class="tactile-chip h-11 px-4 rounded-xl text-xs font-semibold text-[#93B5B3] shrink-0">30 ngày qua</button>
+<button class="tactile-chip h-11 px-4 rounded-xl text-xs font-semibold text-[#93B5B3] shrink-0">Năm 2024</button>
 </section>
-<!-- 4. Chart Card: Views & Visitors (14 Days) -->
-<section class="tactile-card p-4 space-y-3">
-<div class="flex items-center justify-between">
+<!-- END: Timeframe Filter Chips -->
+<!-- BEGIN: Primary Metric Card -->
+<section class="tactile-card rounded-2xl p-4 flex flex-col space-y-3" data-purpose="metric-highlight">
+<div class="flex justify-between items-start">
 <div>
-<h2 class="text-sm font-bold text-[#EEF6F7]">Lượt xem &amp; Khách</h2>
-<span class="text-[11px] text-[#A9BFC1]">14 ngày gần nhất</span>
+<span class="text-xs uppercase tracking-wider text-[#7EA4A1] font-semibold">Tổng lượt truy cập</span>
+<div class="text-2xl font-extrabold text-[#F0F9F8] mt-1 tracking-tight">1,842,930</div>
 </div>
-<div class="flex items-center space-x-3 text-[11px] font-semibold">
-<div class="flex items-center space-x-1 text-[#2DD4BF]">
-<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF]"></span>
-<span>Lượt xem</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#162B30] text-[#2DD4BF] border border-[#2DD4BF]/30">
+<svg class="w-3.5 h-3.5 mr-1 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+            +18.4%
+          </span>
 </div>
-<div class="flex items-center space-x-1 text-[#FF7A59]">
-<span class="w-2.5 h-2.5 rounded-full bg-[#FF7A59]"></span>
-<span>Khách</span>
-</div>
-</div>
-</div>
-<!-- Dark Grid SVG Sparkline Chart -->
-<div class="tactile-card-inner p-2.5 h-44 relative flex flex-col justify-end">
-<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 320 120">
-<!-- Subtle Gridlines -->
-<line stroke="#253e46" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="320" y1="20" y2="20"></line>
-<line stroke="#253e46" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="320" y1="60" y2="60"></line>
-<line stroke="#253e46" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="320" y1="100" y2="100"></line>
-<!-- Gradient Definition for Views -->
+<!-- Trend Line SVG Chart -->
+<div class="h-28 w-full pt-2" data-purpose="traffic-trend-chart">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 320 80">
 <defs>
-<lineargradient id="viewsTealGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<lineargradient id="cyanFill" x1="0" x2="0" y1="0" y2="1">
 <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.35"></stop>
 <stop offset="100%" stop-color="#2DD4BF" stop-opacity="0.0"></stop>
 </lineargradient>
 </defs>
-<!-- Teal Area & Curve (Views) -->
-<polygon fill="url(#viewsTealGrad)" points="0,115 0,95 25,82 50,88 75,70 100,75 125,55 150,60 175,45 200,50 225,35 250,42 275,25 300,30 320,15 320,115"></polygon>
-<polyline fill="none" points="0,95 25,82 50,88 75,70 100,75 125,55 150,60 175,45 200,50 225,35 250,42 275,25 300,30 320,15" stroke="#2DD4BF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
-<!-- Coral Curve (Unique Visitors) -->
-<polyline fill="none" points="0,105 25,100 50,102 75,94 100,98 125,88 150,91 175,82 200,85 225,75 250,80 275,68 300,72 320,62" stroke="#FF7A59" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
-<!-- Today Point Highlight -->
-<circle cx="320" cy="15" fill="#2DD4BF" r="4" stroke="#081518" stroke-width="2"></circle>
-<circle cx="320" cy="62" fill="#FF7A59" r="3.5" stroke="#081518" stroke-width="2"></circle>
+<!-- Chart Area Fill -->
+<path d="M0,65 Q30,55 60,50 T120,42 T180,30 T240,35 T300,10 L300,80 L0,80 Z" fill="url(#cyanFill)"></path>
+<!-- Chart Line -->
+<path d="M0,65 Q30,55 60,50 T120,42 T180,30 T240,35 T300,10" fill="none" stroke="#2DD4BF" stroke-linecap="round" stroke-width="3"></path>
+<!-- Peak Point Dot -->
+<circle cx="300" cy="10" fill="#2DD4BF" r="4.5" stroke="#081518" stroke-width="2"></circle>
 </svg>
-<!-- Chart Axis Labels -->
-<div class="flex justify-between items-center text-[10px] text-[#A9BFC1] font-semibold pt-1 border-t border-[#253e46] mt-1">
-<span>14 ngày trước</span>
-<span>7 ngày</span>
-<span class="text-[#2DD4BF] font-bold">Hôm nay (412 / 46)</span>
+<div class="flex justify-between text-[11px] text-[#7EA4A1] font-medium mt-1">
+<span>T2</span>
+<span>T3</span>
+<span>T4</span>
+<span>T5</span>
+<span>T6</span>
+<span>T7</span>
+<span>CN</span>
 </div>
 </div>
-<div class="flex items-center justify-between pt-1">
-<div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-[#0E3532] text-[#2DD4BF] text-[11px] font-bold">
-<span class="material-symbols-outlined text-[14px]">trending_up</span>
-<span>+14.2% so với tuần trước</span>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#1C353A]/80 text-xs">
+<div class="bg-[#122428] p-2.5 rounded-xl border border-[#1C353A]">
+<span class="text-[#7EA4A1] block text-[11px]">Người dùng mới</span>
+<span class="text-sm font-bold text-[#F0F9F8]">429,120</span>
 </div>
-<span class="text-[11px] text-[#A9BFC1]">Cập nhật liên tục</span>
-</div>
-</section>
-<!-- 5. Customers By Country Card -->
-<section class="tactile-card p-4 space-y-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">public</span>
-<h2 class="text-sm font-bold text-[#EEF6F7]">Khách theo quốc gia</h2>
-</div>
-<span class="text-[11px] font-bold text-[#A9BFC1] bg-[#182C32] px-2 py-0.5 rounded-md border border-[#28444C]">9 quốc gia • 46 khách</span>
-</div>
-<!-- Stylized Dark Geo Indicator Map/Cluster -->
-<div class="tactile-card-inner p-3 flex items-center justify-around text-center">
-<div class="space-y-0.5">
-<div class="w-10 h-10 mx-auto rounded-full bg-[#1b4340] border border-[#2dd4bf]/50 flex items-center justify-center text-[#2DD4BF] font-black text-sm shadow-[0_2px_0_0_#0a1214]">
-              27
-            </div>
-<span class="text-[11px] font-bold text-[#EEF6F7]">VN</span>
-</div>
-<div class="space-y-0.5">
-<div class="w-8 h-8 mx-auto rounded-full bg-[#40201c] border border-[#ff7a59]/50 flex items-center justify-center text-[#FF7A59] font-black text-xs shadow-[0_2px_0_0_#0a1214]">
-              6
-            </div>
-<span class="text-[11px] font-bold text-[#EEF6F7]">US</span>
-</div>
-<div class="space-y-0.5">
-<div class="w-7 h-7 mx-auto rounded-full bg-[#3d3215] border border-[#ffc94a]/50 flex items-center justify-center text-[#FFC94A] font-black text-xs shadow-[0_2px_0_0_#0a1214]">
-              3
-            </div>
-<span class="text-[11px] font-bold text-[#EEF6F7]">UK</span>
-</div>
-<div class="space-y-0.5">
-<div class="w-6 h-6 mx-auto rounded-full bg-[#293d39] border border-[#34d399]/40 flex items-center justify-center text-[#34D399] font-black text-[10px] shadow-[0_2px_0_0_#0a1214]">
-              2
-            </div>
-<span class="text-[11px] font-bold text-[#EEF6F7]">IN</span>
-</div>
-<div class="space-y-0.5">
-<div class="w-6 h-6 mx-auto rounded-full bg-[#22353a] border border-[#a9bfc1]/30 flex items-center justify-center text-[#A9BFC1] font-black text-[10px] shadow-[0_2px_0_0_#0a1214]">
-              8
-            </div>
-<span class="text-[11px] font-bold text-[#A9BFC1]">Khác</span>
-</div>
-</div>
-<!-- Progress List -->
-<div class="space-y-2.5 pt-1">
-<!-- VN -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7] flex items-center space-x-1.5">
-<span>🇻🇳</span>
-<span>Việt Nam</span>
-</span>
-<span class="text-[#2DD4BF] font-bold">27 khách (58,7%)</span>
-</div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 58.7%"></div>
-</div>
-</div>
-<!-- US -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7] flex items-center space-x-1.5">
-<span>🇺🇸</span>
-<span>Hoa Kỳ</span>
-</span>
-<span class="text-[#FF7A59] font-bold">6 khách (13,0%)</span>
-</div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#FF7A59] rounded-full" style="width: 13.0%"></div>
-</div>
-</div>
-<!-- UK -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7] flex items-center space-x-1.5">
-<span>🇬🇧</span>
-<span>Vương quốc Anh</span>
-</span>
-<span class="text-[#FFC94A] font-bold">3 khách (6,5%)</span>
-</div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#FFC94A] rounded-full" style="width: 6.5%"></div>
-</div>
-</div>
-<!-- Philippines -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7] flex items-center space-x-1.5">
-<span>🇵🇭</span>
-<span>Philippines</span>
-</span>
-<span class="text-[#F4BF40] font-bold">3 khách (6,5%)</span>
-</div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#F4BF40] rounded-full" style="width: 6.5%"></div>
-</div>
-</div>
-</div>
-<!-- Sublist -->
-<div class="pt-2 border-t border-[#22383E] text-[11px] text-[#A9BFC1] flex flex-wrap gap-2"><span>🇮🇳 Ấn Độ: <b class="text-white font-black">2</b></span><span>•</span><span>🇯🇵 Nhật Bản: <b class="text-white font-black">2</b></span><span>•</span><span>🇩🇲 Dominica: <b class="text-white font-black">1</b></span><span>•</span><span>Khác: <b class="text-white font-black">2</b></span></div>
-</section>
-<!-- 6. Realtime Active Sessions Card -->
-<section class="tactile-card p-4 space-y-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="w-2.5 h-2.5 rounded-full bg-[#34D399] live-pulse"></span>
-<h2 class="text-sm font-bold text-[#EEF6F7]">Đang xem • 3 online</h2>
-</div>
-<span class="text-[10px] font-black uppercase text-[#34D399] tracking-wider px-2 py-0.5 rounded bg-[#0D3D36]">Realtime</span>
-</div>
-<div class="space-y-2">
-<!-- Session 1 -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="min-w-0 pr-2">
-<div class="text-xs font-bold text-[#2DD4BF] font-mono truncate">#/practice/sound-drill</div>
-<div class="text-[11px] text-[#A9BFC1] truncate mt-0.5">IELTS /θ/ • TP. Hồ Chí Minh (iOS)</div>
-</div>
-<div class="shrink-0 px-2 py-1 rounded bg-[#0E3532] border border-[#2dd4bf]/40 text-white text-[11px] font-black flex items-center space-x-1"><span class="w-1.5 h-1.5 rounded-full bg-[#34D399]"></span><span>1</span></div>
-</div>
-<!-- Session 2 -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="min-w-0 pr-2">
-<div class="text-xs font-bold text-[#2DD4BF] font-mono truncate">#/vocab/resilient</div>
-<div class="text-[11px] text-[#A9BFC1] truncate mt-0.5">Từ điển C1 • Hà Nội (Chrome Add-on)</div>
-</div>
-<div class="shrink-0 px-2 py-1 rounded bg-[#0E3532] border border-[#2dd4bf]/40 text-white text-[11px] font-black flex items-center space-x-1"><span class="w-1.5 h-1.5 rounded-full bg-[#34D399]"></span><span>1</span></div>
-</div>
-<!-- Session 3 -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="min-w-0 pr-2">
-<div class="text-xs font-bold text-[#2DD4BF] font-mono truncate">#/today</div>
-<div class="text-[11px] text-[#A9BFC1] truncate mt-0.5">Hôm nay • California, US (Web)</div>
-</div>
-<div class="shrink-0 px-2 py-1 rounded bg-[#0E3532] border border-[#2dd4bf]/40 text-white text-[11px] font-black flex items-center space-x-1"><span class="w-1.5 h-1.5 rounded-full bg-[#34D399]"></span><span>1</span></div>
+<div class="bg-[#122428] p-2.5 rounded-xl border border-[#1C353A]">
+<span class="text-[#7EA4A1] block text-[11px]">Thời gian TB</span>
+<span class="text-sm font-bold text-[#F0F9F8]">4m 32s</span>
 </div>
 </div>
 </section>
-<!-- 7. Most Viewed Pages Today Card -->
-<section class="tactile-card p-4 space-y-3">
+<!-- END: Primary Metric Card -->
+<!-- BEGIN: Traffic Intensity Heatmap Section -->
+<section class="tactile-card rounded-2xl p-4 space-y-3" data-purpose="heatmap-section">
 <div class="flex items-center justify-between">
-<h2 class="text-sm font-bold text-[#EEF6F7]">Trang xem nhiều hôm nay</h2>
-<span class="text-[11px] font-bold text-[#2DD4BF]">412 lượt</span>
+<h2 class="text-sm font-bold text-[#F0F9F8]">Mật độ lưu lượng theo giờ</h2>
+<span class="text-xs text-[#7EA4A1]">Múi giờ GMT+7</span>
 </div>
-<div class="space-y-2 text-xs">
-<!-- Row 1 -->
-<div class="flex items-center justify-between py-1 border-b border-[#22383E]/60">
-<span class="text-[#EEF6F7] font-mono font-medium truncate pr-2">#/today</span>
-<div class="text-right shrink-0">
-<span class="font-bold text-[#EEF6F7]">142</span>
-<span class="text-[11px] text-[#A9BFC1] ml-1">(34.5%)</span>
-</div>
-</div>
-<!-- Row 2 -->
-<div class="flex items-center justify-between py-1 border-b border-[#22383E]/60">
-<span class="text-[#EEF6F7] font-mono font-medium truncate pr-2">#/vocab</span>
-<div class="text-right shrink-0">
-<span class="font-bold text-[#EEF6F7]">98</span>
-<span class="text-[11px] text-[#A9BFC1] ml-1">(23.8%)</span>
+<!-- Heatmap Grid -->
+<div class="space-y-1.5" data-purpose="heatmap-grid">
+<!-- Row 1: Sáng -->
+<div class="flex items-center space-x-2 text-[11px]">
+<span class="w-12 text-[#93B5B3] shrink-0">Sáng</span>
+<div class="grid grid-cols-6 gap-1.5 flex-1">
+<div class="h-6 rounded bg-[#0E2024] border border-[#1C353A]" title="00:00 - Thấp"></div>
+<div class="h-6 rounded bg-[#0E2024] border border-[#1C353A]" title="02:00 - Thấp"></div>
+<div class="h-6 rounded bg-[#0D3A3B] border border-[#1C353A]" title="04:00 - Trung bình"></div>
+<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="06:00 - Cao"></div>
+<div class="h-6 rounded bg-[#2DD4BF] border border-[#1C353A]" title="08:00 - Rất cao"></div>
+<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="10:00 - Cao"></div>
 </div>
 </div>
-<!-- Row 3 -->
-<div class="flex items-center justify-between py-1 border-b border-[#22383E]/60">
-<span class="text-[#EEF6F7] font-mono font-medium truncate pr-2">#/practice/sound-drill</span>
-<div class="text-right shrink-0">
-<span class="font-bold text-[#EEF6F7]">64</span>
-<span class="text-[11px] text-[#A9BFC1] ml-1">(15.5%)</span>
+<!-- Row 2: Chiều -->
+<div class="flex items-center space-x-2 text-[11px]">
+<span class="w-12 text-[#93B5B3] shrink-0">Chiều</span>
+<div class="grid grid-cols-6 gap-1.5 flex-1">
+<div class="h-6 rounded bg-[#0D3A3B] border border-[#1C353A]" title="12:00 - Trung bình"></div>
+<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="14:00 - Cao"></div>
+<div class="h-6 rounded bg-[#2DD4BF] border border-[#1C353A]" title="16:00 - Rất cao"></div>
+<div class="h-6 rounded bg-[#2DD4BF] border border-[#1C353A]" title="18:00 - Rất cao"></div>
+<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="20:00 - Cao"></div>
+<div class="h-6 rounded bg-[#0D3A3B] border border-[#1C353A]" title="22:00 - Trung bình"></div>
 </div>
 </div>
-<!-- Row 4 -->
-<div class="flex items-center justify-between py-1 border-b border-[#22383E]/60">
-<span class="text-[#EEF6F7] font-mono font-medium truncate pr-2">#/diagnostic/level-test</span>
-<div class="text-right shrink-0">
-<span class="font-bold text-[#EEF6F7]">53</span>
-<span class="text-[11px] text-[#A9BFC1] ml-1">(12.9%)</span>
 </div>
+<!-- Heatmap Legend -->
+<div class="flex items-center justify-between text-[11px] text-[#7EA4A1] pt-1">
+<span>Thấp</span>
+<div class="flex space-x-1 items-center">
+<span class="w-3.5 h-3.5 rounded bg-[#0E2024] border border-[#1C353A]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#0D3A3B] border border-[#1C353A]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#14B8A6] border border-[#1C353A]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#2DD4BF] border border-[#1C353A]"></span>
 </div>
-<!-- Row 5 -->
-<div class="flex items-center justify-between py-1 border-b border-[#22383E]/60">
-<span class="text-[#EEF6F7] font-mono font-medium truncate pr-2">#/word-games/speed-type</span>
-<div class="text-right shrink-0">
-<span class="font-bold text-[#EEF6F7]">31</span>
-<span class="text-[11px] text-[#A9BFC1] ml-1">(7.5%)</span>
-</div>
-</div>
-<!-- Row 6 -->
-<div class="flex items-center justify-between py-1">
-<span class="text-[#EEF6F7] font-mono font-medium truncate pr-2">#/me</span>
-<div class="text-right shrink-0">
-<span class="font-bold text-[#EEF6F7]">24</span>
-<span class="text-[11px] text-[#A9BFC1] ml-1">(5.8%)</span>
-</div>
-</div>
+<span>Cao nhất</span>
 </div>
 </section>
-<!-- 8. Referrers Today Card -->
-<section class="tactile-card p-4 space-y-3">
+<!-- END: Traffic Intensity Heatmap Section -->
+<!-- BEGIN: Country Origin Traffic Breakdown -->
+<section class="tactile-card rounded-2xl p-4 space-y-3" data-purpose="country-breakdown">
 <div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-[#FFC94A] text-[20px]">share</span>
-<h2 class="text-sm font-bold text-[#EEF6F7]">Nguồn giới thiệu hôm nay</h2>
-</div>
-<span class="text-[11px] font-bold text-[#A9BFC1] bg-[#182C32] px-2 py-0.5 rounded-md border border-[#28444C]">58 phiên</span>
-</div>
-<div class="space-y-2">
-<!-- Direct -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7]">Direct / Trực tiếp</span>
-<span class="text-[#2DD4BF] font-bold">28</span>
-</div>
-<div class="h-1.5 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 48.2%"></div>
-</div>
-</div>
-<!-- Google SEO -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7]">google.com (SEO)</span>
-<span class="text-[#2DD4BF] font-bold">15</span>
-</div>
-<div class="h-1.5 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 25.8%"></div>
-</div>
-</div>
-<!-- Facebook IELTS -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7]">facebook.com (Cộng đồng IELTS)</span>
-<span class="text-[#2DD4BF] font-bold">9</span>
-</div>
-<div class="h-1.5 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 15.5%"></div>
-</div>
-</div>
-<!-- Chrome Store -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#EEF6F7]">Chrome Web Store</span>
-<span class="text-[#2DD4BF] font-bold">4</span>
-</div>
-<div class="h-1.5 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 6.8%"></div>
-</div>
-</div>
-<!-- Other -->
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-semibold">
-<span class="text-[#A9BFC1]">Khác (Zalo, Telegram)</span>
-<span class="text-[#A9BFC1] font-bold">2</span>
-</div>
-<div class="h-1.5 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#A9BFC1] rounded-full" style="width: 3.4%"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- 9. Most Viewed Pages 7 Days Card -->
-<section class="tactile-card p-4 space-y-3">
-<div class="flex items-center justify-between">
-<h2 class="text-sm font-bold text-[#EEF6F7]">Trang xem nhiều • 7 ngày</h2>
-<span class="text-[11px] font-bold text-[#FFC94A]">2.840 lượt</span>
+<h2 class="text-sm font-bold text-[#F0F9F8]">Quốc gia dẫn đầu</h2>
+<span class="text-xs text-[#2DD4BF] font-semibold">Xem tất cả</span>
 </div>
 <div class="space-y-2.5">
-<!-- 1 -->
-<div>
-<div class="flex justify-between text-xs mb-1">
-<span class="font-mono text-[#EEF6F7] truncate max-w-[200px]">#/today</span>
-<span class="font-bold text-[#EEF6F7]">980 lượt</span>
+<!-- Item 1: Vietnam -->
+<div class="bg-[#102226] p-3 rounded-xl border border-[#1C353A] flex flex-col space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-bold text-[#F0F9F8] flex items-center">
+<span class="mr-2">🇻🇳</span> Việt Nam
+              </span>
+<span class="font-bold text-[#2DD4BF]">1,180,450 (64%)</span>
 </div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF] rounded-full" style="width: 70%"></div>
-</div>
-</div>
-<!-- 2 -->
-<div>
-<div class="flex justify-between text-xs mb-1">
-<span class="font-mono text-[#EEF6F7] truncate max-w-[200px]">#/vocab</span>
-<span class="font-bold text-[#EEF6F7]">640 lượt</span>
-</div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF]/80 rounded-full" style="width: 48%"></div>
+<!-- Progress bar -->
+<div class="w-full bg-[#152A2F] h-2 rounded-full overflow-hidden">
+<div class="bg-[#2DD4BF] h-full rounded-full" style="width: 64%"></div>
 </div>
 </div>
-<!-- 3 -->
-<div>
-<div class="flex justify-between text-xs mb-1">
-<span class="font-mono text-[#EEF6F7] truncate max-w-[200px]">#/practice/sound-drill</span>
-<span class="font-bold text-[#EEF6F7]">485 lượt</span>
+<!-- Item 2: United States -->
+<div class="bg-[#102226] p-3 rounded-xl border border-[#1C353A] flex flex-col space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-bold text-[#F0F9F8] flex items-center">
+<span class="mr-2">🇺🇸</span> Hoa Kỳ
+              </span>
+<span class="font-bold text-[#2DD4BF]">331,727 (18%)</span>
 </div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF]/60 rounded-full" style="width: 35%"></div>
-</div>
-</div>
-<!-- 4 -->
-<div>
-<div class="flex justify-between text-xs mb-1">
-<span class="font-mono text-[#EEF6F7] truncate max-w-[200px]">#/diagnostic/level-test</span>
-<span class="font-bold text-[#EEF6F7]">390 lượt</span>
-</div>
-<div class="h-2 w-full bg-[#182C32] rounded-full overflow-hidden">
-<div class="h-full bg-[#2DD4BF]/40 rounded-full" style="width: 28%"></div>
+<!-- Progress bar -->
+<div class="w-full bg-[#152A2F] h-2 rounded-full overflow-hidden">
+<div class="bg-[#20B2AA] h-full rounded-full" style="width: 18%"></div>
 </div>
 </div>
+<!-- Item 3: Japan -->
+<div class="bg-[#102226] p-3 rounded-xl border border-[#1C353A] flex flex-col space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-bold text-[#F0F9F8] flex items-center">
+<span class="mr-2">🇯🇵</span> Nhật Bản
+              </span>
+<span class="font-bold text-[#2DD4BF]">165,863 (9%)</span>
 </div>
-</section>
-<!-- 10. Platforms Breakdown Card -->
-<section class="tactile-card p-4 space-y-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-[#38E1D3] text-[20px]">computer</span>
-<h2 class="text-sm font-bold text-[#EEF6F7]">Nền tảng</h2>
-</div>
-<span class="text-[11px] font-bold text-[#A9BFC1] bg-[#182C32] px-2 py-0.5 rounded-md border border-[#28444C]">5 nền tảng</span>
-</div>
-<div class="space-y-2">
-<!-- Web -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<span class="material-symbols-outlined text-[#38E1D3] text-[20px]">public</span>
-<div>
-<div class="text-xs font-bold text-[#EEF6F7]">Web</div>
-<div class="text-[11px] text-[#A9BFC1]">Desktop browser</div>
-</div>
-</div>
-<div class="text-right">
-<div class="text-xs font-bold text-[#38E1D3]">21 hôm nay</div>
-<div class="text-[10px] text-[#A9BFC1]">482 (30 ngày)</div>
-</div>
-</div>
-<!-- PWA -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">install_mobile</span>
-<div>
-<div class="text-xs font-bold text-[#EEF6F7]">PWA</div>
-<div class="text-[11px] text-[#A9BFC1]">Đã cài màn hình chính</div>
-</div>
-</div>
-<div class="text-right">
-<div class="text-xs font-bold text-[#2DD4BF]">11 hôm nay</div>
-<div class="text-[10px] text-[#A9BFC1]">264 (30 ngày)</div>
-</div>
-</div>
-<!-- Add-on Chrome -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<span class="material-symbols-outlined text-[#FFC94A] text-[20px]">extension</span>
-<div>
-<div class="text-xs font-bold text-[#EEF6F7]">Add-on Chrome</div>
-<div class="text-[11px] text-[#A9BFC1]">Tra từ trực tiếp</div>
-</div>
-</div>
-<div class="text-right">
-<div class="text-xs font-bold text-[#FFC94A]">8 hôm nay</div>
-<div class="text-[10px] text-[#A9BFC1]">218 (30 ngày)</div>
-</div>
-</div>
-<!-- iOS -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<span class="material-symbols-outlined text-[#FF7A59] text-[20px]">phone_iphone</span>
-<div>
-<div class="text-xs font-bold text-[#EEF6F7]">iOS</div>
-<div class="text-[11px] text-[#A9BFC1]">Safari / WebKit App</div>
-</div>
-</div>
-<div class="text-right">
-<div class="text-xs font-bold text-[#FF7A59]">4 hôm nay</div>
-<div class="text-[10px] text-[#A9BFC1]">114 (30 ngày)</div>
-</div>
-</div>
-<!-- Android -->
-<div class="tactile-card-inner p-2.5 flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<span class="material-symbols-outlined text-[#34D399] text-[20px]">android</span>
-<div>
-<div class="text-xs font-bold text-[#EEF6F7]">Android</div>
-<div class="text-[11px] text-[#A9BFC1]">Chrome Mobile</div>
-</div>
-</div>
-<div class="text-right">
-<div class="text-xs font-bold text-[#34D399]">2 hôm nay</div>
-<div class="text-[10px] text-[#A9BFC1]">82 (30 ngày)</div>
+<!-- Progress bar -->
+<div class="w-full bg-[#152A2F] h-2 rounded-full overflow-hidden">
+<div class="bg-[#14B8A6] h-full rounded-full" style="width: 9%"></div>
 </div>
 </div>
 </div>
 </section>
-<!-- 11. Big Tactile Primary CTA Button -->
-<section class="pt-2">
-<button class="tactile-btn-primary w-full h-14 rounded-2xl flex items-center justify-center space-x-2 text-[#1B0B04] font-black text-sm tracking-wide cursor-pointer focus:outline-none" onclick="this.classList.add('scale-95'); setTimeout(()=&gt;this.classList.remove('scale-95'), 150);">
-<span class="material-symbols-outlined text-[22px] font-bold">refresh</span>
-<span>LÀM MỚI DỮ LIỆU LIVE NGAY</span>
+<!-- END: Country Origin Traffic Breakdown -->
+<!-- BEGIN: Primary CTA Section -->
+<section class="pt-2" data-purpose="export-report-cta">
+<button class="tactile-btn-coral w-full h-12 rounded-xl flex items-center justify-center space-x-2 text-sm font-bold shadow transition-all duration-150" type="button">
+<svg class="w-4 h-4 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Xuất báo cáo PDF</span>
 </button>
 </section>
-<!-- 12. Footer Technical Note -->
-<footer class="pt-3 pb-6 text-center space-y-1">
-<div class="flex items-center justify-center space-x-1.5 text-[11px] font-medium text-[#A9BFC1]">
-<span class="material-symbols-outlined text-[13px] text-[#2DD4BF]">shield</span>
-<span>Lexkite Ops Engine v2.4</span>
-</div>
-<p class="text-[10px] text-[#A9BFC1]/80">
-          100% Client-Side Aggregation • Không cookie bên thứ ba
-        </p>
-</footer>
+<!-- END: Primary CTA Section -->
 </main>
+<!-- END: Main Scrollable Content -->
+<!-- BEGIN: Bottom Navigation Bar -->
+<nav class="fixed bottom-0 max-w-[390px] w-full bg-[#0B171A] border-t-2 border-[#1C353A] px-2 py-2 flex justify-around items-center z-50 shadow-2xl" data-purpose="bottom-nav">
+<!-- Nav Item 1: Trang chủ -->
+<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#93B5B3] hover:text-[#2DD4BF]" type="button">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] mt-1 font-medium">Trang chủ</span>
+</button>
+<!-- Nav Item 2: Phân tích (Active) -->
+<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#2DD4BF]" type="button">
+<div class="p-1 rounded-lg bg-[#162B30] border border-[#2DD4BF]/40">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
 </div>
+<span class="text-[10px] mt-0.5 font-bold text-[#2DD4BF]">Phân tích</span>
+</button>
+<!-- Nav Item 3: Chiến dịch -->
+<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#93B5B3] hover:text-[#2DD4BF]" type="button">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] mt-1 font-medium">Chiến dịch</span>
+</button>
+<!-- Nav Item 4: Cài đặt -->
+<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#93B5B3] hover:text-[#2DD4BF]" type="button">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="12" cy="12" r="3"></circle>
+</svg>
+<span class="text-[10px] mt-1 font-medium">Cài đặt</span>
+</button>
+</nav>
+<!-- END: Bottom Navigation Bar -->
+</div>
+<!-- END: Mobile Device Viewport -->
 </body></html>
