@@ -26,7 +26,7 @@ export function sentences() {
 
 const tl = l => (l === 'zh' ? 'zh-CN' : l);
 let warned = 0;
-async function tr(lang, list) {
+export async function tr(lang, list) {
   const q = encodeURIComponent(list.join('\n')); // GET như gen-word-packs (gtx không nhận POST); lô giới hạn theo độ dài URL ở run()
   for (let i = 0; i < 7; i++) {
     try {

@@ -11,14 +11,15 @@
   const t = (typeof self !== 'undefined' && self.t) || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s));
   const cache = new Map();
 
-  const fetchJSON = async (url, ms = 8000) => {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), ms);
+  const fetchJSON = async (url, ms = 8000, signal) => {
+    const ctrl = new AbortController(), stop = () => ctrl.abort();
+    const t = setTimeout(stop, ms);
+    if (signal) { if (signal.aborted) return null; signal.addEventListener('abort', stop, { once: true }); }
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       if (!r.ok) { ctrl.abort(); return null; } // hủy thân chưa đọc (thân treo giữ request)
       return await r.json();
-    } catch (e) { return null; } finally { clearTimeout(t); }
+    } catch (e) { return null; } finally { clearTimeout(t); if (signal) signal.removeEventListener('abort', stop); }
   };
   // Datamuse phản chiếu Origin vào Access-Control-Allow-Origin nhưng CDN đệm 24 h mà không Vary: Origin → origin khác (vd. máy dev localhost:8080) gọi trước thì MỌI trang khác cùng điểm CDN bị CORS.
   // `o=<origin>` tách khóa đệm theo origin (tham số lạ Datamuse bỏ qua). Hỏng 1 lần → nghỉ 5 phút, không bắn thêm lỗi console. → JSON | null. Test: scripts/test/datamuse-resilience.mjs
@@ -65,7 +66,7 @@
   // Sửa lỗi chính tả hỏi/ngã có sẵn trong dữ liệu từ điển Google (vd. "sản phẫm" → "sản phẩm").
   // Bảng sinh tự động từ kho tiếng Việt của Lexkite: chỉ gồm âm tiết sai chắc chắn (dạng đúng rất phổ biến, dạng sai không tồn tại),
   // đã loại các từ hợp lệ hiếm gặp như mỡ, vở, quỷ, rể, mẩu, sặc sỡ…
-  const VI_TYPO = {"chũ":"chủ","điễn":"điển","cũa":"của","thưỡng":"thưởng","đễ":"để","chĩ":"chỉ","tãi":"tải","chuyễn":"chuyển","buỗi":"buổi","chuổi":"chuỗi","điễm":"điểm","ỡ":"ở","hảy":"hãy","mổi":"mỗi","nghỉa":"nghĩa","kiễm":"kiểm","tỗng":"tổng","ngử":"ngữ","cãnh":"cảnh","quã":"quả","hiễn":"hiển","tưỡng":"tưởng","hũy":"hủy","khõi":"khỏi","dỏi":"dõi","khoãn":"khoản","gữi":"gửi","kễ":"kể","biễu":"biểu","thữ":"thử","khã":"khả","bãn":"bản","ãnh":"ảnh","thễ":"thể","giử":"giữ","lổi":"lỗi","khẫu":"khẩu","dể":"dễ","miển":"miễn","vửng":"vững","chuẫn":"chuẩn","sẳn":"sẵn","hiễu":"hiểu","trỡ":"trở","khỡi":"khởi","phõng":"phỏng","chử":"chữ","chĩnh":"chỉnh","cở":"cỡ","hõi":"hỏi","đũ":"đủ","ẫn":"ẩn","giãm":"giảm","trã":"trả","thiễu":"thiểu","ỗn":"ổn","khoãng":"khoảng","đãm":"đảm","ngẩu":"ngẫu","kiễu":"kiểu","thẵng":"thẳng","giãng":"giảng","phỗ":"phổ","nhiểm":"nhiễm","thãi":"thải","bải":"bãi","chũng":"chủng","khõe":"khỏe","dưởng":"dưỡng","tuỗi":"tuổi","tuyễn":"tuyển","đẵng":"đẳng","xữ":"xử","tữ":"tử","hưỡng":"hưởng","sãn":"sản","tĩ":"tỉ","xĩ":"xỉ","ũng":"ủng","triễn":"triển","diển":"diễn","tãng":"tảng","phãn":"phản","phãi":"phải","nhõ":"nhỏ","xãy":"xảy","cữa":"cửa","bãng":"bảng","dẩn":"dẫn","đão":"đảo","nhửng":"những","giửa":"giữa","tiễu":"tiểu","khão":"khảo","đở":"đỡ","bỡi":"bởi","thão":"thảo","quãn":"quản","khẵng":"khẳng","hửu":"hữu","phẫy":"phẩy","thũ":"thủ","trưỡng":"trưởng","biễn":"biển","thũy":"thủy","hõng":"hỏng","tỗ":"tổ","lể":"lễ","hiễm":"hiểm","sữ":"sử","gổ":"gỗ","trể":"trễ","cãm":"cảm","rổng":"rỗng","phẫm":"phẩm","hẵn":"hẳn","khỗng":"khổng","bửa":"bữa","khũng":"khủng","hoãng":"hoảng","nử":"nữ","lổ":"lỗ","chãy":"chảy","thoãi":"thoải","tỗn":"tổn","thõa":"thỏa","nhản":"nhãn","trử":"trữ","thã":"thả","vủ":"vũ","thỗi":"thổi","mủi":"mũi","lưởi":"lưỡi","cãn":"cản","võn":"vỏn"};
+  const VI_TYPO = {"chũ":"chủ","điễn":"điển","cũa":"của","thưỡng":"thưởng","đễ":"để","chĩ":"chỉ","tãi":"tải","chuyễn":"chuyển","buỗi":"buổi","chuổi":"chuỗi","điễm":"điểm","ỡ":"ở","hảy":"hãy","mổi":"mỗi","nghỉa":"nghĩa","kiễm":"kiểm","tỗng":"tổng","ngử":"ngữ","cãnh":"cảnh","quã":"quả","hiễn":"hiển","tưỡng":"tưởng","hũy":"hủy","khõi":"khỏi","dỏi":"dõi","khoãn":"khoản","gữi":"gửi","kễ":"kể","biễu":"biểu","thữ":"thử","khã":"khả","bãn":"bản","ãnh":"ảnh","thễ":"thể","giử":"giữ","lổi":"lỗi","khẫu":"khẩu","dể":"dễ","miển":"miễn","vửng":"vững","chuẫn":"chuẩn","sẳn":"sẵn","hiễu":"hiểu","trỡ":"trở","khỡi":"khởi","phõng":"phỏng","chử":"chữ","chĩnh":"chỉnh","cở":"cỡ","hõi":"hỏi","đũ":"đủ","ẫn":"ẩn","giãm":"giảm","trã":"trả","thiễu":"thiểu","ỗn":"ổn","khoãng":"khoảng","đãm":"đảm","ngẩu":"ngẫu","kiễu":"kiểu","thẵng":"thẳng","giãng":"giảng","phỗ":"phổ","nhiểm":"nhiễm","thãi":"thải","bải":"bãi","chũng":"chủng","khõe":"khỏe","dưởng":"dưỡng","tuỗi":"tuổi","tuyễn":"tuyển","đẵng":"đẳng","xữ":"xử","tữ":"tử","hưỡng":"hưởng","sãn":"sản","tĩ":"tỉ","xĩ":"xỉ","ũng":"ủng","triễn":"triển","diển":"diễn","tãng":"tảng","phãn":"phản","phãi":"phải","nhõ":"nhỏ","xãy":"xảy","cữa":"cửa","bãng":"bảng","dẩn":"dẫn","đão":"đảo","nhửng":"những","giửa":"giữa","tiễu":"tiểu","khão":"khảo","đở":"đỡ","bỡi":"bởi","thão":"thảo","quãn":"quản","khẵng":"khẳng","hửu":"hữu","phẫy":"phẩy","thũ":"thủ","trưỡng":"trưởng","biễn":"biển","thũy":"thủy","hõng":"hỏng","tỗ":"tổ","lể":"lễ","hiễm":"hiểm","sữ":"sử","gổ":"gỗ","trể":"trễ","cãm":"cảm","rổng":"rỗng","phẫm":"phẩm","hẵn":"hẳn","khỗng":"khổng","bửa":"bữa","khũng":"khủng","hoãng":"hoảng","nử":"nữ","lổ":"lỗ","chãy":"chảy","thoãi":"thỏai","tỗn":"tổn","thõa":"thỏa","nhản":"nhãn","trử":"trữ","thã":"thả","vủ":"vũ","thỗi":"thổi","mủi":"mũi","lưởi":"lưỡi","cãn":"cản","võn":"vỏn"};
   // Sửa toàn bộ chuỗi trong một mục từ / thẻ đã lưu (chỉ tác động âm tiết có dấu tiếng Việt)
   const fixDeep = o => o == null ? o : JSON.parse(JSON.stringify(o), (k, v) => typeof v === 'string' ? fixVi(v) : v);
   // Lỗi sai dấu nguyên âm có sẵn trong dữ liệu Google (âm tiết sai vẫn là từ có thật nên chỉ sửa theo cụm)
@@ -246,8 +247,8 @@
     return { ipa: pick('UK'), ipaUS: pick('US'), entries, audioUK: aud.UK, audioUS: aud.US };
   }
 
-  async function myMemory(text, tl = 'vi', sl = 'en') {
-    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}`);
+  async function myMemory(text, tl = 'vi', sl = 'en', signal) {
+    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}`, 8000, signal);
     const t = d && d.responseData && d.responseData.translatedText;
     if (!t || /MYMEMORY WARNING|INVALID/i.test(t)) return '';
     return tl === 'vi' ? fixVi(t) : t.trim();
@@ -280,15 +281,36 @@
       return fixVi(await devTimed(localTr.translate(text)));
     } catch (e) { if (deviceHung) localTr = null; return ''; }
   }
-  async function translateVi(text) {
-    const dv = await onDeviceVi(text); if (dv && dv.trim()) return dv.trim(); // Translator trên máy (gói đã có sẵn) trước – nhanh, offline, không tốn lượt
-    const d = await fetchJSON(`${GTX}&dt=t&q=${encodeURIComponent(text)}`);
-    const t = d && fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
-    return t || (await onDeviceVi(text)) || myMemory(text, 'vi', 'en');
+  // Các nguồn dịch chạy SONG SONG, lấy bản đầu tiên không rỗng, có ngân sách tổng (trước đây nối tiếp 4 s + 8 s + 4 s + 8 s → bảng "Đang dịch…" treo hàng chục giây).
+  // jobs = [[trễ ms, fn(signal)]…]: Google gtx chờ chút khi Translator trên máy đã sẵn (đỡ tốn lượt), MyMemory (hạn mức ngày) chỉ chạy khi 2 nguồn kia chậm.
+  // Xong / hết giờ / opts.signal hủy → hủy mọi yêu cầu còn chạy. Kết quả '' = không nguồn nào dịch được trong hạn.
+  const TR_MS = 8000, MM_DELAY = 900;
+  function raceTr(jobs, ms = TR_MS, signal) {
+    return new Promise(res => {
+      const ctrl = new AbortController(), timers = []; let left = jobs.length, done = false;
+      const fin = v => { if (done) return; done = true; timers.forEach(clearTimeout); ctrl.abort(); if (signal) signal.removeEventListener('abort', onAbort); res(v); };
+      const onAbort = () => fin('');
+      if (signal) { if (signal.aborted) return fin(''); signal.addEventListener('abort', onAbort, { once: true }); }
+      timers.push(setTimeout(() => fin(''), ms));
+      for (const [wait, fn] of jobs) timers.push(setTimeout(() => {
+        if (done) return;
+        Promise.resolve().then(() => fn(ctrl.signal)).catch(() => '').then(v => { v = v && String(v).trim(); if (v) fin(v); else if (--left === 0) fin(''); });
+      }, wait));
+    });
+  }
+  const gtxTr = async (text, tl, sl, signal) => { const d = await fetchJSON((tl === 'vi' && sl === 'en' ? GTX : gtxURL(sl, tl, '&dj=1')) + `&dt=t&q=${encodeURIComponent(text)}`, 8000, signal); return (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || ''; };
+  const devReady = () => !!(localTr || onDevice.size) && !deviceHung; // gói Translator trên máy đã mở → cho nó 350 ms trước Google
+  const trCache = new Map();
+  // opts: { ms (ngân sách tổng, mặc định 8 s), signal (AbortSignal – hủy khi người dùng đổi vùng chọn) }
+  async function translateVi(text, opts = {}) {
+    if (!text) return '';
+    const k = 'en|vi|' + text; if (trCache.has(k)) return trCache.get(k);
+    const r = await raceTr([[0, () => onDeviceVi(text)], [devReady() ? 350 : 0, sg => gtxTr(text, 'vi', 'en', sg).then(fixVi)], [MM_DELAY, sg => myMemory(text, 'vi', 'en', sg)]], opts.ms, opts.signal);
+    if (r) trCache.set(k, r);
+    return r;
   }
 
-  // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên
-  const trCache = new Map();
+  // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên (trCache ở trên, chung với translateVi)
   // Chrome Translator API (dịch TRÊN MÁY – nhanh, offline, không giới hạn lượt). Chỉ dùng khi gói ngôn ngữ đã có sẵn
   // ('available'), không tự kích hoạt tải mô hình. Không có → trả null để dùng đường dịch cũ.
   const onDevice = new Map();
@@ -302,14 +324,11 @@
       const out = await devTimed(tr.translate(text)); return out && out.trim() ? out.trim() : null;
     } catch (e) { if (deviceHung) onDevice.clear(); return null; }
   }
-  async function translateTo(text, tl, sl = 'en') {
+  async function translateTo(text, tl, sl = 'en', opts = {}) {
     if (!text || !tl || tl === sl) return '';
-    if (tl === 'vi' && sl === 'en') return translateVi(text);
+    if (tl === 'vi' && sl === 'en') return translateVi(text, opts);
     const k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
-    const dv = await deviceTranslate(text, tl, sl); if (dv) { trCache.set(k, dv); return dv; }
-    const d = await fetchJSON(`${gtxURL(sl, tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
-    let r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
-    if (!r) r = await myMemory(text, tl, sl);
+    const r = await raceTr([[0, () => deviceTranslate(text, tl, sl)], [devReady() ? 350 : 0, sg => gtxTr(text, tl, sl, sg)], [MM_DELAY, sg => myMemory(text, tl, sl, sg)]], opts.ms, opts.signal);
     if (r) trCache.set(k, r);
     return r;
   }
