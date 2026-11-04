@@ -2,13 +2,13 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 48.4 / 100**
+**Tổng: 49.9 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **46.4** | 45.2 | 46.4% | 100% | 0 |
+| Kho từ | **47.4** | 45.2 | 47.4% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
-| Giao tiếp | **18.1** | 14.1 | 18.1% | 100% | 0 |
+| Giao tiếp | **27.7** | 14.1 | 27.7% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
 | Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
 | Khung Can-do | **79.5** | 79.3 | 79.5% | 100% | 0 |
@@ -23,7 +23,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4669 / 20000 | 23% | 12 |
 | đồng nghĩa | 2724 / 20000 | 14% | 8 |
 | IPA Mỹ | 6015 / 20000 | 30% | 5 |
-| ảnh theo nghĩa | 3088 / 20000 | 15% | 15 |
+| ảnh theo nghĩa | 4453 / 20000 | 22% | 15 |
 | C2 | 289 / 1000 | 29% | 10 |
 | A1 | 858 / 1000 | 86% | 5 |
 
@@ -47,10 +47,10 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | cuộc gọi Ama/Carlos | 11 / 60 | 18% | 20 |
-| roleplay | 16 / 60 | 27% | 20 |
+| roleplay | 31 / 60 | 52% | 20 |
 | tình huống Play & Speak | 9 / 40 | 23% | 20 |
 | mục gold (giải thích cách dùng) | 228 / 1000 | 23% | 20 |
-| sổ mẫu câu theo chức năng (chưa làm) | 0 / 100 | 0% | 20 |
+| sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
 
 ## 4 kỹ năng
 
@@ -97,8 +97,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 9963 / 9963 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 122 / 600 | 20% | 25 |
+| nội dung có lo hợp lệ | 9978 / 9978 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 124 / 600 | 21% | 25 |
 
 ## i18n
 
