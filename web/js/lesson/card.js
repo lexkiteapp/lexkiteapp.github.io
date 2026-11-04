@@ -38,13 +38,6 @@
   const load = lang => Promise.all([get('frames').then(j => { FR = (j && j.frames) || FR; }), lang && lang !== 'en' ? get(lang).then(j => { if (j) LG[lang] = j; }) : null]).then(() => {});
   const trOf = (lang, en) => { const j = LG[lang]; return (j && j.s && j.s[norm(en)]) || ''; };
 
-  // ---------- CSS ----------
-  const CSS = `.lkc{display:flex;flex-direction:column;gap:.5rem;border-radius:12px;padding:.75rem;background:#FFF4D4;color:#422006;box-shadow:0 1px 2px rgba(0,0,0,.05)}:root[data-theme=dark] .lkc{background:#102220;color:#EEF6F7;border:1px solid #1e453e}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .lkc{background:#102220;color:#EEF6F7;border:1px solid #1e453e}}
-.lkc-l{font-size:11px;line-height:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;opacity:.85;margin:0}.lkc-s{margin:0;font-size:18px;line-height:26px;font-weight:700}.lkc-w{all:unset;cursor:pointer;border-radius:4px;display:inline-block;min-height:26px}.lkc-w:hover,.lkc-w[aria-expanded=true]{text-decoration:underline;text-underline-offset:3px}.lkc-w:focus-visible{outline:2px solid currentColor;outline-offset:1px}
-.lkc-t{margin:0;font-size:15px;line-height:22px}.lkc-g{margin:0;font-size:14px;line-height:20px;font-weight:600;min-height:20px}.lkc-g:empty{display:none}.lkc-p{margin:0;font-size:17px;line-height:24px;font-weight:800}.lkc-a{display:flex;flex-wrap:wrap;gap:.5rem}
-.lkc-b{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem;min-height:44px;padding:0 .75rem;border-radius:9999px;border:1px solid currentColor;font-size:13px;font-weight:700;line-height:1.2}.lkc-b:focus-visible{outline:2px solid currentColor;outline-offset:2px}.lkc-b .material-symbols-outlined{font-size:18px}.lkc-b[aria-expanded=true],.lkc-b.on{font-weight:800}
-.lkc-m{margin:0;font-size:14px;line-height:20px;font-weight:600}.lkc-m:empty{display:none}.lkc-x{display:flex;flex-direction:column;gap:.25rem;border-top:1px solid currentColor;padding-top:.5rem}.lkc-x[hidden]{display:none}.lkc-x b{font-weight:800}.lkc-alt{all:unset;cursor:pointer;display:flex;align-items:center;gap:.5rem;min-height:44px;font-size:15px;line-height:21px}.lkc-alt:focus-visible{outline:2px solid currentColor}.lkc-alt .material-symbols-outlined{font-size:18px;flex:none}.lkc-why{font-size:14px;line-height:20px}.lkc-why p,.lkc-why ul{margin:.25rem 0}.lkc-n{font-size:14px;line-height:20px;margin:0}`;
-  const css = () => { if (typeof document === 'undefined' || document.getElementById('lkcCss')) return; const s = document.createElement('style'); s.id = 'lkcCss'; s.textContent = CSS; document.head.appendChild(s); };
 
   // ---------- vẽ ----------
   const ic = n => `<span class="material-symbols-outlined" aria-hidden="true">${n}</span>`;
@@ -127,9 +120,9 @@
     const A = g.App; if (lg && A && A.loadPack && lg !== 'vi' && !(A.packs || {})[lg]) A.loadPack().catch(() => {}); // nghĩa khi chạm từ
     const t = g.t || (x => x), esc = g.UI ? g.UI.esc : (x => String(x)), en = s.en, tr = goodTr(s.tr || trOf(lg, en), en), f = match(en, FR);
     const spec = { en, tr: lg ? tr : '', ok: s.ok !== false, frame: f, saved: f && !s.demo ? save(f, en, tr, lg) : false, idiomMean: f && f.idiom ? (LG[lg] && LG[lg].i && LG[lg].i[f.id]) || '' : '', hard: s.hard || null, canWhy: !!s.why };
-    css(); el.innerHTML = html(spec, t, esc);
+    el.innerHTML = html(spec, t, esc);
     wire(el, spec, { t, speak: s.speak || (x => { if (g.UI && g.UI.speak) g.UI.speak(x, ((A && A.state && A.state.settings) || {}).accent); }), gloss: w => (s.gloss && s.gloss(w)) || gloss(w), why: s.why, save: () => f && save(f, en, tr, lg), unsave: () => f && unsave(f), rec: (x, cb) => rec(x, cb, s.hold) });
     return spec;
   }
-  g.LearnCard = { match, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, css, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
+  g.LearnCard = { match, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
 })(typeof self !== 'undefined' ? self : globalThis);
