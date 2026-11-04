@@ -38,7 +38,7 @@ function contrast(png, boxes) { const p = PNG.sync.read(fs.readFileSync(png)), b
   return bad; }
 for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(SRC, `${s}-${m}.html`); if (!fs.existsSync(f)) continue;
   const p = await ctx.newPage(); await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle' }).catch(() => {});
-  await p.addStyleTag({ content: STILL + BRAND_CSS });
+  await p.addStyleTag({ content: STILL + BRAND_CSS + `:root{--text:${/-dark\.html$/.test(f) ? '#F3F8F8' : '#102225'}}` });
   await p.evaluate(async src => { for (const i of document.querySelectorAll('img.logo')) { i.src = src; await i.decode().catch(() => {}); } }, BRAND_ICON);
   // Lỗi xuất của Stitch (feedback-correct-dark): class material-symbols-outlined nhưng chỉ nạp font Rounded → dùng Rounded (app cũng tự host Rounded)
   await p.evaluate(() => { const h = [...document.querySelectorAll('link[href*="Material+Symbols"]')].map(l => l.href).join(' ');
