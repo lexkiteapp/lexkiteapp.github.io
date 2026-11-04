@@ -89,7 +89,7 @@ p { margin: .4rem 0; }
 .badge { margin-left: auto; min-width: 22px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--again); color: #fff; font: 700 11px/20px var(--font); text-align: center; }
 .side-level { display: block; flex: none; margin: 0 -.75rem; padding: .7rem 1rem calc(.7rem + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--text); transition: background .15s; }
 .side-level:hover { background: var(--surface-2); }
-.side-level .avatar { width: 34px; height: 34px; font-size: .875rem; }
+.side-level .avatar { width: 34px; height: 34px; font-size: .875rem; background: var(--primary-soft); color: var(--primary-text); } /* chữ trên nền -soft đạt AA ở cả sáng/tối; gradient cam + chữ trắng chỉ 1.98 ở bản tối */
 .lv-tx { min-width: 0; }
 .lv-top { display: flex; align-items: baseline; justify-content: space-between; gap: .4rem; }
 .lv-top b { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .875rem; font-weight: 600; line-height: 1.3; }

@@ -236,6 +236,27 @@ async function ui(w, theme) {
       const nf = rec.issues.filter(i => i.sev === 'fail').length;
       console.log(`${nf || rec.errors.length ? '•' : '✓'} ${ctxKey}: ${nf} lỗi giao diện, ${rec.errors.length} lỗi JS/request`);
     }
+    // Thanh bên ở màn thấp + RTL, nhóm đang mở: mọi hàng cuộn tới được, không bị cắt/đè, không tràn ngang (có ảnh để xem)
+    if (w >= 901) for (const [h, dir] of [[760, 'ltr'], [560, 'ltr'], [760, 'rtl']]) {
+      const key = `sidebar-${h}-${dir}@${w}${theme[0]}`, rec = { state: 'sidebar', w, theme, key, issues: [], cls: 0, errors: [] };
+      try {
+        await page.setViewportSize({ width: w, height: h });
+        await page.goto('about:blank'); await boot(page, '/home');
+        await page.evaluate(d => { document.documentElement.dir = d; document.querySelector('#nav .nav-group').open = true; }, dir);
+        await sleep(400);
+        const bad = await page.evaluate(() => { const out = [], side = document.querySelector('.sidebar');
+          if (side.scrollWidth > side.clientWidth + 1) out.push(`tràn ngang ${side.scrollWidth}/${side.clientWidth}`);
+          for (const e of document.querySelectorAll('.side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width) continue;
+            e.scrollIntoView({ block: 'nearest' }); const r = e.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2), n = (e.innerText || e.id).trim().split('\n')[0];
+            if (r.bottom > innerHeight + 1 || r.top < 0) out.push(`"${n}" bị cắt (${Math.round(r.top)}…${Math.round(r.bottom)} / ${innerHeight})`);
+            else if (!hit || !(e === hit || e.contains(hit))) out.push(`"${n}" bị đè`); }
+          return out; });
+        for (const m of bad) rec.issues.push({ k: 'sidebar', sev: 'fail', sig: `sidebar|${h}|${dir}|${m}`, msg: m });
+        await page.screenshot({ path: `${OUT}/shots/${key}.png` });
+      } catch (e) { rec.errors.push('quét dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
+      R.ui.push(rec);
+      console.log(`${rec.issues.length ? '•' : '✓'} ${key}: ${rec.issues.length} lỗi thanh bên`);
+    }
     await ctx.close();
   }
 }
