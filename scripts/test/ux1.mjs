@@ -1,6 +1,6 @@
 // Test UX1 "Một app duy nhất" (cờ ux1, docs/LEARNING-PATH.md): lõi chặng (unitPlan · nextKind · calm · ease) + jsdom chạy app thật:
 // cờ mặc định TẮT (giao diện cũ nguyên vẹn) · bật → 5 tab, trang chủ = chọn mục tiêu 1 chạm → bản đồ (≤ 2 chạm tới bài đầu), Luyện "Luyện thi" đầu tiên,
-// mọi lối vào cũ (menu bên + thanh dưới) vẫn tới được qua Học/Ôn/Luyện/Giải đấu/Tôi, nút kiểm tra kỹ năng thi mở module thi có sẵn.
+// mọi lối vào cũ (menu bên + thanh dưới) vẫn tới được qua Hôm nay/Từ vựng/Kỹ năng/Thi/Tôi, nút kiểm tra kỹ năng thi mở module thi có sẵn.
 // Chạy: node scripts/test/ux1.mjs  (fixture, không tài khoản thật, không mạng)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -75,10 +75,12 @@ w.localStorage.setItem('lk.ux1', '1');
 ok(App.ux1On() && App.lessonOn(), 'bật bằng localStorage lk.ux1=1 (kéo theo bản đồ chặng)');
 await go('#/home', '.ux1-pick, .ux1-home, .v2-today-new');
 const tabs = $$('#bnav a');
-ok(tabs.length === 5 && tabs.map(a => a.dataset.tab).join(',') === 'learn,review,train,league,me' && tabs.map(a => a.getAttribute('href')).join(',') === '#/home,#/review,#/train,#/league,#/me', 'thanh dưới đúng 5 tab: Học · Ôn · Luyện · Giải đấu · Tôi');
-ok($$('#nav a').length === 5 && $$('#nav a').map(a => a.dataset.route).join(',') === 'learn,review,train,league,me', 'menu bên (máy tính) gọn = cùng 5 mục');
+ok(tabs.length === 5 && tabs.map(a => a.dataset.tab).join(',') === 'home,vocab,skills,tests,me' && tabs.map(a => a.getAttribute('href')).join(',') === '#/home,#/vocab,#/skills,#/tests,#/me', 'thanh dưới đúng 5 tab §5d: Hôm nay · Từ vựng · Kỹ năng · Thi · Tôi');
+ok($$('#nav a').length === 5 && $$('#nav a').map(a => a.dataset.route).join(',') === 'home,vocab,skills,tests,me', 'menu bên (máy tính) gọn = cùng 5 mục');
 ok(w.document.body.classList.contains('ux1') && $('#ux1Rail'), 'body.ux1 + cột phải');
-ok($('#bnav a[data-tab="review"] [data-due]'), 'tab Ôn có chấm thẻ đến hạn');
+ok($('#bnav a[data-tab="vocab"] [data-due]'), 'tab Từ vựng có chấm thẻ đến hạn');
+// Deep link cũ vẫn chạy + đánh dấu đúng tab; Giải đấu thuộc Hôm nay
+for (const [r, k] of [['league', 'home'], ['review', 'vocab'], ['train', 'skills'], ['say', 'skills'], ['mock', 'tests'], ['placement', 'tests'], ['stats', 'me'], ['deck', 'vocab'], ['home', 'home']]) ok(App.navOf(r)[0] === k, `navOf(${r}) → ${k}`);
 // Lần đầu: chọn mục tiêu 1 chạm → bản đồ
 // Home v2 (docs/HOME-V2.md): người mới (chưa xong bài, 0 XP) → "Hôm nay" trống: Ama (Chars, nguyên khung) + 3 bước; bước 1 = chọn mục tiêu (màn chọn 1 chạm cũ)
 if ($('.v2-today-new')) {
@@ -86,7 +88,7 @@ if ($('.v2-today-new')) {
   ok(steps.map(a => a.dataset.step).join(',') === 'goal,level,lesson' && steps[0].getAttribute('href') === '#/lesson?pick=1' && steps[1].getAttribute('href') === '#/placement' && /^#\/lesson\/go/.test(steps[2].getAttribute('href')) && steps[0].getAttribute('aria-current') === 'step', 'người mới: 3 bước mục tiêu → kiểm tra trình độ → bài đầu, bước đang làm nổi bật');
   ok($('.v2-today-new [data-tch] img[src*="teach/ama/still-"]') && !$('.v2-today-new [data-tch]').textContent.trim() && $('.v2-today-new [data-cont][data-href="#/lesson?pick=1"]'), 'người mới: ô giáo viên = Ama (Chars.img still) thay ô giữ chỗ; Bắt đầu → bước đang làm');
   ok(['#/lesson/go', '#/review', '#/quick', '#/call'].every(h => $(`.v2-today-new a[href="${h}"]`)) && $('.v2-today-new a[href^="#/lesson/go?story="], .v2-today-new a[href="#/lesson/go"]') && $('.v2-today-new a[href="#/mock"], .v2-today-new a[href="#/toeic"], .v2-today-new a[href="#/toefl"], .v2-today-new a[href="#/placement"]'), 'người mới: 6 ô Bài học · Ôn · Luyện nhanh · Thi thử · Truyện · Gọi giáo viên mở route có sẵn');
-  ok($('.v2-today-new nav a[data-tab="learn"][aria-current="page"]') && !$('.v2-today-new [data-show="0"]') && $('.v2-today-new [data-act="lang"]'), 'người mới: thanh tab chung (Học đang chọn) + nút ngôn ngữ; khối không dữ liệu đã gỡ');
+  ok($('.v2-today-new nav a[data-tab="home"][aria-current="page"]') && !$('.v2-today-new [data-show="0"]') && $('.v2-today-new [data-act="lang"]'), 'người mới: thanh tab chung (Hôm nay đang chọn) + nút ngôn ngữ; khối không dữ liệu đã gỡ');
   $('.v2-today-new [data-act="lang"]').click(); await tick(60);
   ok($('#modalBox [data-lang-select], #modalBox [data-lang-pick]'), 'nút ngôn ngữ mở App.langPicker');
   if (w.UI && w.UI.closeModal) w.UI.closeModal();
@@ -95,13 +97,14 @@ if ($('.v2-today-new')) {
 ok($('.ux1-pick') && $$('.ux1-pick [data-pk="ielts"]').length && $$('.ux1-pick [data-pk="toeic"]').length && $$('.ux1-pick [data-pk="toefl"]').length && $$('.ux1-pick [data-pk="general"]').length, 'lần đầu: chọn mục tiêu IELTS / TOEIC / TOEFL / Giao tiếp');
 $('.ux1-pk-tg [data-pk="toeic"][data-tg="750"]').click(); await tick(150);
 for (let i = 0; i < 60 && !$('.v2-path, .ux1-home'); i++) await tick(50); // chọn xong → về #/home (Hôm nay v2 / bản đồ)
+ok($('#lvlSkip'), 'chọn kỳ thi: mời kiểm tra trình độ ngay'); if (w.UI && w.UI.closeModal) w.UI.closeModal();
 ok(App.state.settings.exam === 'toeic' && App.state.settings.examTarget === '750' && App.state.settings.goalPick && App.state.settings.goalPick.target === 750, 'chạm 1: lưu kỳ thi + điểm mục tiêu vào settings sẵn có');
 // Màn Học = khung Stitch v2 (web/js/st/v2/path.js): kiểm cùng các ý như bản cũ trên khung mới
 const V2 = !!$('.v2-path');
 if (V2) {
   const starts = [...new Set($$('.v2 [data-cur][data-href]').map(b => b.getAttribute('data-href')))];
   ok(starts.length === 1 && starts[0] === '#/lesson/go', 'chạm 2: MỘT đích Bắt đầu tới bài đầu tiên (≤ 2 chạm)');
-  ok($('.v2 nav a[data-tab="learn"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'tab Học đang chọn (thanh tab Stitch), bản đồ giữ thanh điều hướng');
+  ok($('.v2 nav a[data-tab="home"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'tab Hôm nay đang chọn (thanh tab Stitch), bản đồ giữ thanh điều hướng');
   const nodes = $$('.v2 [data-st]');
   ok(nodes.length === 6 && nodes.every(b => (b.getAttribute('aria-label') || '').trim()) && $('.v2-path img[src*="teach/ama"]') && $$('.v2 [data-st="lock"][aria-disabled="true"]').length, 'nút có nhãn (aria), nút hiện tại có giáo viên Ama (Chars), nút khóa bị khóa');
   ok(nodes.some(b => /TOEIC/.test(b.getAttribute('aria-label') || '')), 'nút kiểm tra kỹ năng thi theo mục tiêu (TOEIC)');
@@ -124,7 +127,7 @@ if (V2) {
   if (w.UI && w.UI.closeModal) w.UI.closeModal();
   ok(!$('.v2-today [data-show="0"]') && !$('.v2-today [data-blk="due"]') === !w.Core.Cards.dueCount(App.state.cards, App.state.settings, App.state.stats).total, 'Hôm nay: khối không có dữ liệu bị ẩn (nhắc ôn chỉ khi có thẻ đến hạn)');
   ok(['#/mistakes', '#/mistakes?retry=1'].some(h => $(`.v2-today a[href="${h}"]`)) && $('.v2-today a[href="#/listening"]') && $('.v2-today a[href="#/pron"]') && $('.v2-today a[href="#/train"]') && $$('.v2-today [data-blk="week"] [title]').length === 7, 'Hôm nay: luyện nhanh (lỗi sai · từ · nghe · nói) + chuỗi 7 ngày thật');
-  ok($('.v2-today nav a[data-tab="learn"][aria-current="page"]') && !$('.v2-today a[href="#vocab"], .v2-today a[href="#"]'), 'Hôm nay: thanh tab chung, không còn liên kết giả của mẫu');
+  ok($('.v2-today nav a[data-tab="home"][aria-current="page"]') && !$('.v2-today a[href="#vocab"], .v2-today a[href="#"]'), 'Hôm nay: thanh tab chung, không còn liên kết giả của mẫu');
   { App.state.cards.zz = { word: 'zz', vi: 'zz', topic: 'mine', contexts: [], col: [], syn: [], ant: [], examples: [], added: Date.now(), srs: { ef: 2.5, interval: 3, reps: 2, lapses: 0, due: Date.now() - 1000, last: Date.now() - 4e8 } };
     await go('#/home', '.v2-today'); ok($('.v2-today [data-blk="due"] button[data-href="#/review"]'), 'Hôm nay: có thẻ đến hạn → hiện nhắc ôn'); delete App.state.cards.zz; }
   { const sid = ($$('.v2-today [data-blk="stories"] a[href^="#/lesson/go?story="]')[1] || { getAttribute: () => '' }).getAttribute('href').split('story=')[1]; // thẻ THỨ 2 (khác truyện đến lượt) → chứng minh mở đúng truyện được chọn
@@ -151,7 +154,7 @@ if (V2) {
 } else {
 const start = $$('.ux1-home .lsn-start');
 ok($('.ux1-home') && start.length === 1 && start[0].getAttribute('href') === '#/lesson/go', 'chạm 2: MỘT nút Bắt đầu tới bài đầu tiên (≤ 2 chạm)');
-ok($('#bnav a[data-tab="learn"]').getAttribute('aria-current') === 'page' && !w.document.body.classList.contains('focus'), 'tab Học đang chọn, bản đồ giữ thanh điều hướng');
+ok($('#bnav a[data-tab="home"]').getAttribute('aria-current') === 'page' && !w.document.body.classList.contains('focus'), 'tab Hôm nay đang chọn, bản đồ giữ thanh điều hướng');
 const unitTx = ($('.ux1-unit') || {}).textContent || '';
 ok(/Bạn sẽ|You'll/.test(unitTx) && $('.ux1-unit h1') && /\bu-(primary|accent|good|gold|again)\b/.test($('.ux1-unit').className), 'băng chặng: tên chủ đề + câu "Bạn sẽ…" + màu riêng');
 ok($$('.ux1-n').length === 6 && $$('.ux1-n .ux1-lbl').every(l => l.textContent.trim()) && $('.ux1-n.next .ux1-tch') && $$('.ux1-n.lock .ux1-lk').length, 'nút có nhãn (không cột icon trơn), nút hiện tại có giáo viên, nút khóa có ổ khóa');
@@ -164,6 +167,14 @@ ok(W.units('toeic', 2)[0].id === 'start' && W.units('toeic', 2)[1].id === 'work'
 ok(W.units('ielts', 4)[0].id !== 'start', 'đã kiểm tra trình độ ≥ B1 → bỏ chặng khởi động (không quá dễ)');
 const ws = W.words(6, 6);
 ok(ws.length === 4 && ws.every(x => x.word && x.def), 'từ chủ đề vừa sức cho bài (i+1)');
+// Chọn kỳ thi, chưa rõ trình độ: bài đầu mời kiểm tra 5 phút, có Bỏ qua, không ép; bỏ qua thì vào học và không hỏi lại
+const xp0 = App.state.game.xp; App.state.game.xp = 0; delete App.state.settings.plSkip;
+ok(W.needLevel(), 'đã chọn kỳ thi + chưa có kết quả/tự chọn trình độ → cần mời');
+await App.routes.lesson('go'); await tick(30);
+ok($('#lvlGo') && $('#lvlGo').getAttribute('href') === '#/placement' && $('#lvlSkip'), 'bài đầu: mời kiểm tra trình độ, có nút Bỏ qua');
+$('#lvlSkip').click(); await tick(60);
+ok(App.state.settings.plSkip && !W.needLevel() && w.document.getElementById('modal').hidden, 'Bỏ qua: lưu lựa chọn, đóng hộp, không hỏi lại');
+App.state.settings.placement = { v: 2, band: 6 }; delete App.state.settings.plSkip; ok(!W.needLevel(), 'đã có kết quả kiểm tra → không mời'); delete App.state.settings.placement; App.state.settings.exam = 'general'; ok(!W.needLevel(), 'Giao tiếp → không mời'); App.state.settings.exam = 'toeic'; App.state.settings.plSkip = 1; App.state.game.xp = xp0;
 // Nút kiểm tra kỹ năng → module thi có sẵn
 w.localStorage.setItem('lk.lsn.path', '5');
 await App.routes.lesson('go'); await tick(30);
@@ -171,7 +182,7 @@ ok(w.location.hash === '#/toeic' && w.localStorage.getItem('lk.lsn.path') === '6
 w.localStorage.setItem('lk.lsn.path', '0');
 // Luyện: "Luyện thi" đầu tiên, mọi tính năng
 await go('#/train');
-ok($('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page', 'tab Luyện đang chọn');
+ok($('#bnav a[data-tab="skills"]').getAttribute('aria-current') === 'page', '#/train thuộc tab Kỹ năng');
 const V2T = !!$('.v2-practice');
 const firstG = V2T ? $('.v2 [data-grp]:has(a[href="#/mock"])') : $('.ux1-gh'), big = V2T ? null : $('.ux1-tiles.big'), examG = V2T ? $$('.v2 [data-grp]').filter(x => x.dataset.grp === firstG.dataset.grp) : [];
 ok(firstG && /Luyện thi|Exam prep/.test(V2T ? firstG.dataset.grp : firstG.textContent) && (V2T ? ['#/mock', '#/toeic', '#/toefl', '#/tests', '#/placement', '#/criteria'].every(h => examG.some(x => x.querySelector(`a[href="${h}"]`))) : big && ['#/mock', '#/toeic', '#/toefl', '#/tests', '#/placement', '#/criteria'].every(h => big.querySelector(`a[href="${h}"]`))), 'Luyện: nhóm "Luyện thi" đầu tiên (IELTS · TOEIC · TOEFL · Thi thử · CEFR · tiêu chí)');
@@ -184,8 +195,9 @@ await go('#/me', '.me-head, .v2-me');
 ok($('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page', 'tab Tôi đang chọn');
 const me = new Set($$('#view a[href^="#/"]').filter(a => !a.closest('.v2 > header')).map(a => a.getAttribute('href')));
 const tabH = new Set(tabs.map(a => a.getAttribute('href')));
-const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h));
-ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
+const tabHubs = new Set(); for (const r of ['vocab', 'skills', 'tests']) { await go('#/' + r, '.hub-grid, .hub-hero, [class*="v2-hub"]'); $$('#view a[href^="#/"]').forEach(a => tabHubs.add(a.getAttribute('href').replace('?hub=1', ''))); }
+const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h) && !tabHubs.has(h));
+ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab (Từ vựng, Kỹ năng, Thi) / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
 for (const h of ['#/goal', '#/stats', '#/mistakes', '#/settings']) ok(me.has(h), 'Tôi có ' + h);
 if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới được + công tắc/giá trị bám cài đặt thật
   const hrefs = new Set($$('.v2-me main a[href]').map(a => a.getAttribute('href'))), acts = new Set($$('.v2-me [data-act]').map(b => b.getAttribute('data-act')));
@@ -212,7 +224,7 @@ if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới đ
 { App.state.cards.hello = { word: 'hello', vi: 'xin chào', topic: 'mine', contexts: [], col: [], syn: [], ant: [], examples: [], added: Date.now(), srs: { ef: 2.5, interval: 3, reps: 2, lapses: 0, due: Date.now() - 1000, last: Date.now() - 4e8 } };
   if (V2T) {
     await go('#/review?hub=1', '.v2-review');
-    ok($('.v2-review') && $('.v2 nav a[data-tab="review"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'Ôn (Stitch v2): hub có thanh tab Stitch, tab Ôn đang chọn');
+    ok($('.v2-review') && $('.v2 nav a[data-tab="vocab"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'Ôn (Stitch v2): hub có thanh tab Stitch, thuộc tab Từ vựng');
     ok($('.v2-review button[data-href="#/review"], .v2-review button[data-href="#/review?ahead=2"]') && $('.v2-review [role=progressbar], .v2-review svg circle'), 'Ôn (Stitch v2): nút Bắt đầu → phiên ôn thật; vòng thẻ đến hạn');
     ok($('.v2-review a[href^="#/deck?from="]') && $('.v2-review button[data-href="#/deck"]'), 'Ôn (Stitch v2): bộ thẻ theo nguồn + Quản lý → #/deck');
     ok($('.v2-review button[data-href^="#/review"][aria-label]'), 'Ôn (Stitch v2): chip thẻ sắp quên → #/review?src=forgetting (hoặc phiên ôn)');
@@ -237,8 +249,8 @@ if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới đ
 // Trang cũ vẫn chạy (không 404), có đường dẫn ngược về tab mới
 for (const h of ['#/skills', '#/tests', '#/vocab', '#/home?all=1', '#/skill/listening']) { await go(h); ok(!/Không tìm thấy trang|Page not found/.test(w.document.getElementById('view').textContent) && w.document.getElementById('view').children.length, 'trang cũ vẫn mở: ' + h); }
 await go('#/skill/listening');
-ok($('.crumb a[href="#/train"]'), 'trang con: đường dẫn ngược "Luyện ›"');
-ok(W.tabOf('mock') === 'train' && W.tabOf('goal') === 'me' && W.tabOf('lesson') === 'learn' && W.tabOf('review') === 'review', 'tab của mọi trang (mock → Luyện, goal → Tôi)');
+ok($('.crumb a[href="#/skills"]'), 'trang con: đường dẫn ngược "Kỹ năng ›"');
+ok(W.tabOf('mock') === 'tests' && W.tabOf('goal') === 'me' && W.tabOf('lesson') === 'home' && W.tabOf('review') === 'vocab' && W.tabOf('league') === 'home', 'tab của mọi trang (mock → Thi, goal → Tôi, Giải đấu → Hôm nay)');
 // Cột phải máy tính
 wide = true; await go('#/home', '.ux1-home');
 ok(($('#ux1Rail .ux1-exam') || $('#ux1Rail .v2-today-rail [data-blk="exam"]')) && ($('#ux1Rail .ux1-today') || $('#ux1Rail .v2-today-rail a[href="#/review"]')) && $('#ux1Rail #ux1League') && $('#ux1Rail .ux1-promo') && (!(w.ST2 && w.ST2['today-rail']) || ($('#ux1Rail .v2-today-rail') && $$('#ux1Rail [data-blk="week"] [title]').length === 7 && $('#ux1Rail [data-blk="exam"] button[data-href]'))), 'máy tính ≥ 1024 px: cột phải chuỗi · mục tiêu hôm nay · giải đấu · app/add-on');
@@ -311,7 +323,7 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   w.localStorage.removeItem('lk.ux1');
 }
 
-ok(['Ôn', 'Luyện', 'Giải đấu', 'Luyện thi', 'Bạn học để làm gì?'].every(k => fx[k] && Object.keys(fx[k]).length === 13), 'nhãn mới có bản dịch tay 13 ngôn ngữ (+ vi gốc, en)');
+ok(['Hôm nay', 'Từ vựng', 'Kỹ năng', 'Thi', 'Tham gia ngay', 'Ôn', 'Luyện', 'Giải đấu', 'Luyện thi', 'Bạn học để làm gì?'].every(k => fx[k] && Object.keys(fx[k]).length === 13), 'nhãn mới có bản dịch tay 13 ngôn ngữ (+ vi gốc, en)');
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));
 
 console.log(`\n${total - fails}/${total} ux1`);
