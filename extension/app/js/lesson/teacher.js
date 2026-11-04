@@ -35,7 +35,7 @@
   // nạp lười (chỉ khi cờ bật – khung app không đổi), tuần tự vì face.js đọc LipSync/LipMouth lúc nạp
   let lipP = null;
   // tải SONG SONG, chạy ĐÚNG THỨ TỰ (async=false) – face.js đọc LipSync/LipMouth lúc nạp; nhanh hơn nạp nối tiếp để câu đầu kịp mốc CI (pre)
-  const lipLoad = () => lipP || (lipP = Promise.all(['lipsync', 'mouths', 'face', 'paint', 'cues'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/call/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
+  const lipLoad = () => lipP || (lipP = Promise.all(['lipsync', 'mouths', 'face', 'paint', 'rig', 'cues'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/call/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
     .then(() => { if (g.LK_CUES && g.LK_CUES.dict) g.LipSync.setDict(g.LK_CUES.dict); }, e => { lipP = null; throw e; }));
   const POSE_EMO = { cheer: 'cheer', concern: 'concern', happy: 'happy', laugh: 'happy', encourage: 'encourage', empathy: 'concern', thinking: 'thinking', surprise: 'cheer', explain: 'explain', wave: 'happy', point: 'explain' }; // tư thế ảnh tĩnh → biểu cảm mặt vẽ (face.js EMO)
   let uid = 0, actx = null;
@@ -48,13 +48,13 @@
     const LS = g.LipSync, LF = g.LipFace, LM = g.LipMouth, R = LF.RIG[who], id = 'tf' + (++uid), pic = new Image(), hi = Math.min(2, g.devicePixelRatio || 1) * (rig.clientWidth || 200) > 320;
     let dpr = Math.min(2, g.devicePixelRatio || 1); // let: máy yếu hạ về 1 (frame)
     const seed = s => { let h = 7; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; };
-    const calm = motionLow(); // giảm chuyển động: giữ khớp miệng + chớp mắt (thông tin), bỏ nghiêng/gật/liếc
+    const calm = motionLow(); let BR = null, bc = null, head = null; // giảm chuyển động: giữ khớp miệng + chớp mắt (thông tin), bỏ nghiêng/gật/liếc
     const stats = { frames: 0, long: 0, draws: 0, t0: 0, mode: 'idle', emo: '' };
     let idleEmo = '', idle = LF.machine(who, { dur: 120, seed: seed(who), calm }), emoUntil = 0;
-    let cv = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
+    let tick30 = 0, cv = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
     const ac = audioCtx();
     const fit = () => { // canvas = đúng khung poster 1108×960 (CSS bài học/Call đặt canvas y như ảnh poster: contain căn đáy, hay phóng 172 % kiểu bán thân) – chỉ khi đổi cỡ
-      const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0), W = Math.round(Math.min(1108, w * dpr));
+      const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0, (rig.clientHeight || 0) * 1108 / 960), W /* hộp hẹp + object-fit:cover (Chars.duo): độ nét theo chiều cao khung, không theo bề ngang hộp */ = Math.round(Math.min(1108, w * dpr));
       cv.width = W; cv.height = Math.round(W * 960 / 1108); box = [W / 1108, 0, 0]; last = '';
     };
     const playing = a => !!(a && !a.paused && !a.ended && a.readyState >= 2);
@@ -74,13 +74,15 @@
       openK = talking ? Math.min(1, openK + dt / 0.04) : Math.max(0, openK - dt / 0.08);
       if (openK < 1) { s.mouth = LM.mix('X', s.mouth, openK); if (openK < 0.5) s.shape = 'X'; s.open *= openK; }
       // chỉ vẽ lại khi trạng thái đổi thấy được (bước 1/100)
-      const m = s.mouth, k = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, s.open, s.tilt / 10, s.nod / 10].map(v => Math.round((v || 0) * 100)).join();
+      const m = s.mouth, k = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, s.open, s.tilt / 10, s.nod / 10, BR ? BR.sway / 50 : 0, BR ? BR.lift / 50 : 0].map(v => Math.round((v || 0) * 100)).join();
+      if (BR) { if (stats.low) { BR.destroy(); BR = null; bc.remove(); last = ''; } else if (++tick30 % 2 === 0) BR.draw(talking || !S ? s : Object.assign({}, s, { talk: 0, beat: 0 }), now / 1000, Math.min(dt * 2, .1)); } // thân 30 fps là đủ mượt, máy yếu về ảnh 2D cũ
       if (k !== last && ctx) {
         last = k; stats.draws++;
         ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
         ctx.setTransform(box[0], 0, 0, box[0], box[1], box[2]);
+        if (BR) ctx.translate(BR.sway, BR.lift);
         if (s.tilt || s.nod) { ctx.translate(R.pivot[0], R.pivot[1]); ctx.rotate(-s.tilt * Math.PI / 180); ctx.translate(-R.pivot[0], -R.pivot[1] - s.nod); }
-        ctx.drawImage(pic, 0, 0, 1108, 960);
+        ctx.drawImage(BR ? head : pic, 0, 0, 1108, 960);
         for (const p of LF.parts(who, s, id)) if (p) g.LipPaint.draw(ctx, p);
       }
       cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; stats.blink = Math.round((s.blink || 0) * 100) / 100; raf = requestAnimationFrame(frame); // blink: test mắt mở trên khung ghép (call-e2e)
@@ -90,16 +92,21 @@
     const setIdle = emo => { idleEmo = emo; stats.emo = emo; const ps = held && held[0] === emo ? held[1] : emo; if (ps && ps !== 'listen') rig.dataset.pose = ps; else delete rig.dataset.pose; // QA (final-qc): tư thế của mặt vẽ = biểu cảm đang thể hiện
  idle = LF.machine(who, { dur: 120, seed: seed(who + emo), emo: emo || undefined, calm }); };
     let ro = null;
+    // Thân + tay (js/call/rig.js): có WebGL + không giảm chuyển động/tiết kiệm dữ liệu → đầu riêng (đầu trơn cắt mềm ở cổ) trên canvas thân; lỗi gì cũng giữ ảnh 2D nguyên khối
+    const body = () => { if (calm || saveData() || !g.LipRig) return; const c = D.createElement('canvas'); c.className = 'tch-body'; c.setAttribute('aria-hidden', 'true'); const W = 554, H = 480; c.width = W; c.height = H;
+      let r = null; try { r = g.LipRig(c, who, pic, Chars.still); } catch (e) { r = null; } if (!r) return;
+      const hc = D.createElement('canvas'); hc.width = 1108; hc.height = 960; const hx = hc.getContext('2d'), ny = g.LipRig.neck[who]; hx.drawImage(pic, 0, 0, 1108, 960); hx.globalCompositeOperation = 'destination-in'; const gr = hx.createLinearGradient(0, ny - 18, 0, ny + 34); gr.addColorStop(0, '#000'); gr.addColorStop(1, 'rgba(0,0,0,0)'); hx.fillStyle = gr; hx.fillRect(0, 0, 1108, 960);
+      rig.insertBefore(c, cv); bc = c; head = hc; BR = r; self.body = r; last = ''; };
     pic.onerror = () => { if (!dead) { dead = true; onFail(); } };
     pic.onload = () => {
       if (dead) return;
       cv = D.createElement('canvas'); cv.className = 'tch-face'; cv.setAttribute('aria-hidden', 'true');
       ctx = cv.getContext('2d'); if (!ctx || !g.Path2D) { dead = true; return onFail(); }
-      rig.appendChild(cv); rig.dataset.face = who; fit(); stats.t0 = performance.now(); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA)
+      rig.appendChild(cv); rig.dataset.face = who; fit(); stats.t0 = performance.now(); body(); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA)
       if (g.ResizeObserver) { ro = new ResizeObserver(() => { if (!dead) fit(); }); ro.observe(rig); ro.observe(cv); }
       raf = requestAnimationFrame(frame);
     };
-    if (!D.getElementById('tch-face-css')) D.head.insertAdjacentHTML('beforeend', '<style id="tch-face-css">.tch-rig .tch-face{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;pointer-events:none}.tch-rig[data-face]>img.tch-poster{visibility:hidden}.tch-rig.posed .tch-face{visibility:hidden}</style>');
+    if (!D.getElementById('tch-face-css')) D.head.insertAdjacentHTML('beforeend', '<style id="tch-face-css">.tch-rig .tch-face{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;pointer-events:none}.tch-rig .tch-body{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.tch-rig[data-face]>img.tch-poster{visibility:hidden}.tch-rig.posed :is(.tch-face,.tch-body){visibility:hidden}</style>');
     pic.src = Chars.head(who, hi);
     const self = {
       stats,
@@ -107,7 +114,7 @@
       tap: () => !!(ac && ac.state === 'running'),
       /** src: { audio?, cue?, text, dur? } – audio + cue → pre; còn lại → live (năng lượng tiếng qua AnalyserNode nếu nối được, không thì theo lúc đang phát) */
       speak(src) {
-        if (dead) return; self.quiet();
+        if (dead) return; self.quiet(); if (BR) BR.phrase(seed(src.text));
         if (ac && ac.state !== 'running') ac.resume().catch(() => {});
         const a = src.audio, t0 = performance.now(), clk = a ? () => a.currentTime : () => (performance.now() - t0) / 1000;
         let an = null, buf = null, node = null; const vd = LS.vad();
@@ -127,11 +134,11 @@
           g.fetch(url).then(r => (r.ok ? r.arrayBuffer() : Promise.reject(r.status))).then(b => new Promise((ok, no) => { const p = ac.decodeAudioData(b, ok, no); if (p && p.catch) p.catch(no); }))
             .then(buf => { if (dead || !S || !S.L || S.a !== a || (isFinite(a.duration) && Math.abs(a.duration - buf.duration) > 0.12)) return;
               const env = LS.envOf(buf), dur = buf.duration, cues = LS.fromEnv(src.text || '', dur, env);
-              S = { clk, a, t0, dur, node: S.node, M: LF.machine(who, { cues, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) }; stats.fit = (stats.fit || 0) + 1; })
+              S = { clk, a, t0, dur, node: S.node, W: LS.wordTimes(src.text || '', dur, env), M: LF.machine(who, { cues, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) }; stats.fit = (stats.fit || 0) + 1; })
             .catch(() => {}); };
         if (a && src.cue) {
           const { dur, cues: q, env } = LS.unpack(src.cue); // mốc + độ lớn tiếng nén (call_cues.mjs)
-          S = { clk, a, t0, dur, M: LF.machine(who, { cues: q, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) };
+          S = { clk, a, t0, dur, W: env && src.words ? LS.wordTimes(src.text || '', dur, env) : null, M: LF.machine(who, { cues: q, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) };
           // mp3 đệm cũ / sai bản → độ dài lệch mốc > 120 ms thì chuyển live (không bao giờ khớp sai)
           a.addEventListener('loadedmetadata', () => { if (S && S.clk === clk && isFinite(a.duration) && Math.abs(a.duration - dur) > 0.12) live(); }, { once: true });
         } else live();
@@ -143,7 +150,9 @@
       /** react('happy'|'encourage'|'cheer'|'concern'|'thinking', ms): biểu cảm ngắn trên mặt vẽ (đúng/sai) – câu nói kế tiếp mang theo biểu cảm đó */
       react(emo, ms = 1800) { if (dead || !LF.EMO[emo]) return; setIdle(emo); emoUntil = performance.now() + ms; },
       state: () => cur,
-      destroy() { dead = true; self.quiet(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); delete rig.dataset.face; }
+      /** từ đang đọc theo mốc của đúng file đang phát: số (−1 = chưa tới) · null = câu này không có mốc (chữ tĩnh, không đoán) */
+      word() { if (!S || !S.W || !S.a) return null; const t = S.a.currentTime, W = S.W; let i = -1; while (i + 1 < W.length && W[i + 1].s <= t) i++; return i; },
+      destroy() { dead = true; self.quiet(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (BR) { BR.destroy(); bc.remove(); } if (cv) cv.remove(); delete rig.dataset.face; }
     };
     return self;
   }
@@ -190,7 +199,11 @@
       if (dead) return; el.classList.toggle('speaking', on); want = on && V[1] ? 1 : 0;
       const v = V[want]; if (v && v.paused) v.play().catch(() => {});
     }
-    let hq = null;
+    let hq = null, pz = 0;
+    // Đổi tư thế: chờ giải mã rồi mờ chéo 180 ms; giảm chuyển động → đổi ngay
+    const under = on => rig.querySelectorAll('canvas,img.tch-poster').forEach(x => { x.style.visibility = on ? 'visible' : ''; });
+    const stillOut = () => rig.querySelectorAll('.tch-still').forEach(im => { im.className = 'tch-out'; if (motionLow() || im.style.opacity !== '1') im.remove(); else { im.style.opacity = '0'; setTimeout(() => im.remove(), 220); } });
+    (mo.poses || []).forEach(p => { if (!saveData()) new Image().src = Chars.still(who, p); });
     const api = {
       who,
       lip: () => (fc ? fc.stats : null), // số khung mặt vẽ (test e2e đo fps)
@@ -198,22 +211,26 @@
       // mặt vẽ: tư thế ảnh tĩnh (tài sản có sẵn) + biểu cảm tương ứng trên mặt vẽ; nói trong lúc đang tư thế → bỏ ảnh tĩnh để miệng vẽ khớp tiếng (không nói bằng ảnh tĩnh ngậm miệng)
       listen(on) { if (fc) fc.listen(on); },
       react(emo, ms) { if (fc) fc.react(emo, ms); },
-      pose(p) { let im = rig.querySelector('.tch-still'); if (fc) fc.hold(p ? POSE_EMO[p] || p : null, p); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
-        if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }
-        rig.classList.add('posed'); },
+      pose(p) { if (fc) fc.hold(p ? POSE_EMO[p] || p : null, p); const my = ++pz, calm = motionLow(); stillOut();
+        if (!p) { rig.classList.remove('posed'); under(false); return; }
+        rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 }));
+        const im = rig.lastElementChild, up = mo.visible ? Chars.lift(who, p, mo.visible) : 0; if (up) im.style.transform = `translateY(-${Math.round(up * 1000) / 10}%)`; Object.assign(im.style, { visibility: 'visible', opacity: '0', transition: calm ? 'none' : 'opacity 180ms ease-out' });
+        rig.classList.add('posed'); under(true);
+        (im.decode ? im.decode() : Promise.resolve()).then(() => { if (my !== pz) return; void im.offsetWidth; im.style.opacity = '1'; setTimeout(() => { if (my === pz) under(false); }, calm ? 0 : 180); },
+          () => { if (my === pz) { im.remove(); rig.classList.remove('posed'); under(false); } }); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
         lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
-        if (fc && rig.classList.contains('posed')) { const im = rig.querySelector('.tch-still'); if (im) im.remove(); rig.classList.remove('posed'); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
+        if (fc && rig.classList.contains('posed')) { pz++; stillOut(); rig.classList.remove('posed'); under(false); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
         const my = ++run, rate = o.rate || 0.95;
         const est = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
         // ⏱️ tiến độ lời (karaoke + vòng nút nghe lại): đồng hồ = currentTime của file Kokoro; giọng máy → đồng hồ tường theo thời lượng ước tính. 1 rAF, chỉ gọi khi đổi ≥0.5%
         let ended = false, t0 = 0, pf = -1, praf = 0;
         const prog = () => { if (ended || my !== run) return; const a = hq && hq.el, d = a && a.duration;
           const f = Math.min(1, d && isFinite(d) && d > 0 ? Math.max(0, a.currentTime - LEAD) / Math.max(0.2, d - 2 * LEAD) : t0 ? (performance.now() - t0) / (est * 1000) : 0);
-          if (Math.abs(f - pf) >= 0.005) { pf = f; try { o.onTick(f); } catch (e) { /* bỏ qua */ } } praf = requestAnimationFrame(prog); };
-        const go = () => { if (!t0 && o.onTick) { t0 = performance.now(); prog(); } };
-        const end = () => { if (ended) return; ended = true; cancelAnimationFrame(praf); if (o.onTick) try { o.onTick(1); } catch (e) { /* bỏ qua */ } if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
+          if (o.onTick && Math.abs(f - pf) >= 0.005) { pf = f; try { o.onTick(f); } catch (e) { /* bỏ qua */ } } if (o.onWord && fc) { try { o.onWord(fc.word()); } catch (e) { /* bỏ qua */ } } praf = requestAnimationFrame(prog); };
+        const go = () => { if (!t0 && (o.onTick || o.onWord)) { t0 = performance.now(); prog(); } };
+        const end = () => { if (ended) return; ended = true; cancelAnimationFrame(praf); if (o.onTick) try { o.onTick(1); } catch (e) { /* bỏ qua */ } if (o.onWord) try { o.onWord(null); } catch (e) { /* bỏ qua */ } if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
         talking(true);
         const tts = () => {
           if (my !== run) return;
@@ -248,8 +265,8 @@
   const DK = s => `@media (prefers-color-scheme: dark){:root:not([data-theme=light]) ${s}}:root[data-theme=dark] ${s}`;
   const CSS = '.tchb{position:relative}.tchb-tail{position:absolute;top:0;left:0;width:18px;height:18px;margin-top:-10px;background:inherit;border-style:solid;border-color:inherit;border-width:inherit;border-right:0;border-bottom:0;border-radius:4px 0 0 0;transform:translateX(var(--tx,0px)) rotate(45deg);pointer-events:none;z-index:1}' +
     '.tchb-pop{transform-origin:var(--tx,50%) 0;animation:tchb-in .16s cubic-bezier(.2,.8,.2,1)}@keyframes tchb-in{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}' +
-    '.kwp{--kw0:#4E5F62;--kwb:#DCE3E1}' + DK('.kwp{--kw0:#A9BFC1;--kwb:#2A434C}') +
-    '.kwp .kw{transition:color .12s linear;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent}.kwp.kw-run .kw{color:var(--kw0)}.kwp .kw.on{color:inherit}.kwp .kw:focus-visible{outline:2px solid #2BA39A;outline-offset:1px}' +
+    '.kwp{--kw0:#4E5F62;--kwb:#DCE3E1;--kwc:#0D6964}' + DK('.kwp{--kw0:#A9BFC1;--kwb:#2A434C;--kwc:#5EEAD4}') +
+    '.kwp .kw{position:relative;transition:color .12s linear;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent}.kwp .kw::after{content:"";position:absolute;inset:-5px -2px}.kwp.kw-run .kw{color:var(--kw0)}.kwp .kw.on{color:inherit}.kwp .kw.cur{color:var(--kwc);box-shadow:inset 0 -2px 0 currentColor}.kwp .kw:focus-visible{outline:2px solid #2BA39A;outline-offset:1px}' +
     '.kwp.kw-off .kw{color:transparent;background:var(--kwb)}.kwp.kw-off .kw.on{color:transparent}' +
     '.tchb-cc{position:absolute;top:1.2rem;right:3.9rem;z-index:20;min-width:2.25rem;height:1.75rem;padding:0 .4rem;border-radius:9999px;font:800 11px/1 system-ui,sans-serif;letter-spacing:.04em;border:1.5px solid currentColor;background:transparent;color:#0D6964}.tchb-cc[aria-pressed=false]{opacity:1;color:#4E5F62;text-decoration:line-through}' + DK('.tchb-cc{color:#2BA39A}') + DK('.tchb-cc[aria-pressed=false]{color:#A9BFC1}') +
     '.tchb-ring{--p:0;background:conic-gradient(currentColor calc(var(--p)*1turn),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));position:absolute;inset:-4px;border-radius:9999px;pointer-events:none;opacity:0;transition:opacity .16s}.tchb-play .tchb-ring{opacity:1}' +
@@ -258,17 +275,11 @@
   const css = () => { if (D.getElementById('tchb-css')) return; const st = D.createElement('style'); st.id = 'tchb-css'; st.textContent = CSS; D.head.appendChild(st); };
   const ccOn = () => { try { return g.localStorage.getItem(CC) !== '0'; } catch (e) { return true; } };
 
-  // Trọng số thời gian từng từ ≈ số âm tiết + nghỉ ở dấu câu (Kokoro chưa xuất mốc thời gian từng từ → ước lượng, co giãn theo độ dài file thật)
-  const SYL = w => { const s = String(w).toLowerCase().replace(/[^a-z]/g, ''); if (!s) return /\d/.test(w) ? 2 : 1; return Math.max(1, (s.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '').match(/[aeiouy]{1,2}/g) || []).length); };
-  // ≈ giây: chữ cái (âm vị) + âm tiết + nhịp nối từ + nghỉ dấu câu – hệ số đo trên giọng Kokoro af_heart/am_michael ~150 wpm
-  const weights = words => words.map(w => 0.048 * String(w).replace(/[^A-Za-z0-9]/g, '').length + 0.04 * SYL(w) + 0.07 + (/[,;:—–]$/.test(w) ? 0.22 : /[.!?…]["”’)]*$/.test(w) ? 0.3 : 0));
-  /** wordAt(weights, f) → chỉ số từ đang đọc ở tiến độ f (0..1); -1 = chưa bắt đầu */
-  function wordAt(ws, f) { if (!(f > 0)) return -1; const tot = ws.reduce((a, b) => a + b, 0); let acc = 0; for (let i = 0; i < ws.length; i++) { acc += ws[i]; if (f * tot < acc) return i; } return ws.length - 1; }
 
   /** kara(el, spoken, { onWord(word, span) }) → { at(f), cc(on) } · bọc từ của el (text, giữ thẻ con như chỗ trống .lsn-gap = n từ qua data-kn) */
   function kara(el, spoken, o = {}) {
     css(); if (!el) return null;
-    const said = String(spoken || '').trim().split(/\s+/).filter(Boolean), ws = weights(said), units = []; // units[i] = span ứng với từ nói thứ i
+    const units = []; // units[i] = span ứng với từ nói thứ i
     const walk = n => { for (const c of [...n.childNodes]) {
       if (c.nodeType === 3) { const parts = c.textContent.split(/(\s+)/), f = D.createDocumentFragment();
         for (const p of parts) { if (!p) continue; if (/^\s+$/.test(p)) { f.appendChild(D.createTextNode(p)); continue; } const s = D.createElement('span'); s.className = 'kw'; s.textContent = p; s.tabIndex = 0; /* chữ thường trong câu (không role=button: cả câu thành chục nút khó nghe, nút cỡ chữ không đạt target-size); chạm + Enter vẫn chạy */ units.push(s); f.appendChild(s); }
@@ -277,10 +288,10 @@
     walk(el); el.classList.add('kwp');
     let cur = -2;
     const api = {
-      words: units, at(f) { el.classList.toggle('kw-run', f < 1); /* chỉ mờ lúc đang đọc: chưa có tiếng/đọc xong thì chữ đủ tương phản */ const i = f >= 1 ? units.length : wordAt(ws.length === units.length ? ws : units.map(() => 1), f); if (i === cur) return; cur = i;
-        units.forEach((s, k) => s.classList && s.classList.toggle('on', k <= i)); },
-      // part(k0, n, f): lời nói theo từng câu (cuộc gọi: mỗi câu 1 file) → tiến độ f của câu gồm từ k0..k0+n-1
-      part(k0, n, f) { const i = f >= 1 ? k0 + n - 1 : f > 0 ? k0 + Math.max(0, wordAt(ws.slice(k0, k0 + n), f)) : k0 - 1; el.classList.toggle('kw-run', i < units.length - 1); if (i === cur) return; cur = i; units.forEach((s, k) => s.classList && s.classList.toggle('on', k <= i)); },
+      words: units,
+      // word(i, k0): i = từ đang đọc trong câu (mốc thật từ file giọng, LipSync.wordTimes), k0 = từ đầu của câu trong khung (cuộc gọi: mỗi câu 1 file). i < 0: chưa tới · null: hết/không có mốc → chữ tĩnh
+      word(i, k0 = 0) { const run = i != null && i >= 0; el.classList.toggle('kw-run', run); /* tiếng chưa bật (tải, kẹt mạng): chữ vẫn đủ tương phản */ const n = run ? k0 + i : -9; if (n === cur) return; cur = n;
+        units.forEach((u, k) => { if (u.classList) { u.classList.toggle('on', run && k <= n); u.classList.toggle('cur', k === n); } }); },
       cc(on) { el.classList.toggle('kw-off', !on); },
     };
     api.cc(o.cc === false ? true : ccOn()); // màn không có nút CC (truyện, cuộc gọi) → luôn hiện chữ
@@ -335,5 +346,5 @@
   const VOICE = { ama: g.Chars.voice('ama'), carlos: g.Chars.voice('carlos') }; // giọng app của giáo viên – chỉ qua Chars (registry), cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
   /** prep(): nạp trước mặt vẽ + mốc ở màn ngay TRƯỚC khi giáo viên nói (đổ chuông Call, vào bài học) – Home/Today không gọi */
   const prep = () => { try { if (lipOn() && !saveData()) lipLoad().catch(() => {}); } catch (e) { /* bỏ qua */ } };
-  g.LessonTeacher = { mount, lite, VOICE, prep, SLOW, bubble, kara, weights, wordAt };
+  g.LessonTeacher = { mount, lite, VOICE, prep, SLOW, bubble, kara };
 })(self);
