@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8"><script data-lkt>function lkT(){try{var s=localStorage,t=s.getItem('lk.theme'),p;try{p=JSON.parse(s.getItem('ielts.settings')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('ielts.settingsAt')>(+s.getItem('lk.themeAt')||0))t=p.theme;return t=='light'||t=='dark'?t:t=='auto'?'':navigator.webdriver?'':'dark'}catch(e){return navigator.webdriver?'':'dark'}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())</script>
+  <meta charset="utf-8"><script data-lkt>function lkT(){try{var s=localStorage,t=s.getItem('lk.theme'),p;try{p=JSON.parse(s.getItem('ielts.settings')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('ielts.settingsAt')>(+s.getItem('lk.themeAt')||0))t=p.theme;return t=='light'||t=='dark'?t:s.getItem('lk.theme')=='auto'?'':navigator.webdriver?'':'dark'}catch(e){return navigator.webdriver?'':'dark'}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())</script>
   <!--base--><base href="/"><script>/* App ở /app/ nhưng mọi tài nguyên (js/, css/, i18n/, packs/…) ở gốc → <base href="/">. Liên kết "#/…" vì vậy sẽ trỏ về "/#/…": chặn lại, chỉ đổi hash (không tải lại trang). Bản add-on/app di động tự bỏ khối này. */document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||(a.target&&a.target!=='_self'))return;e.preventDefault();var h=a.getAttribute('href');if(h!==location.hash)location.hash=h.slice(1)})</script><!--/base-->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Lexkite – Học từ vựng IELTS, TOEIC, TOEFL</title>
