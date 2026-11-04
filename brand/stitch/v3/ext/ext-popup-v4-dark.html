@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Extension Popup</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "page-bg": "#10191B",
+            "popup-bg": "#172427",
+            "popup-border": "#22353a",
+            "surface-raised": "#1E2F33",
+            "border-raised": "#2c444a",
+            "text-primary": "#E8F1F0",
+            "text-secondary": "#A9BDBB",
+            "brand-teal": "#2ba39a",
+            "coral-cta": "#f06543"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "body": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+    }
+  </style>
+</head>
+<body class="bg-page-bg text-text-primary min-h-screen flex items-center justify-center p-2 sm:p-4 font-body antialiased selection:bg-brand-teal selection:text-popup-bg">
+<!-- Mobile Viewport Frame (390px mock canvas) -->
+<main class="w-full max-w-[390px] flex flex-col items-center justify-center">
+<!-- Crisp Extension Popup Frame: 360px wide, dark theme card/container -->
+<div class="w-[360px] bg-popup-bg rounded-2xl border border-popup-border shadow-2xl flex flex-col overflow-hidden relative">
+<!-- ================= SHARED COMPONENT: TopAppBar ================= -->
+<header class="bg-popup-bg border-b border-popup-border flex justify-between items-center w-full px-4 py-3 shrink-0 z-20">
+<!-- Leading Icon & Brand Group -->
+<div class="flex items-center gap-2">
+<button aria-label="Lexkite Translation Mode" class="min-h-[44px] min-w-[44px] flex items-center justify-center text-text-primary hover:text-brand-teal active:translate-y-[1px] transition-colors rounded-lg" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="translate">translate</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold text-text-primary tracking-tight">Lexkite</span>
+<span class="min-h-[24px] inline-flex items-center bg-surface-raised border border-border-raised text-brand-teal text-xs font-semibold px-2 py-0.5 rounded">EN/ES</span>
+</div>
+</div>
+<!-- Trailing Icon (Settings) -->
+<div class="flex items-center">
+<button aria-label="Settings" class="min-h-[44px] min-w-[44px] flex items-center justify-center text-text-primary hover:text-brand-teal active:translate-y-[1px] transition-colors rounded-lg" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Container -->
+<div class="px-4 py-4 space-y-4">
+<!-- Quick Translate Search Field -->
+<section aria-label="Quick Translation Search">
+<form class="relative flex items-center w-full" onsubmit="event.preventDefault()">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="translate">translate</span>
+</div>
+<input class="w-full min-h-[48px] pl-11 pr-12 bg-surface-raised text-text-primary text-[15px] border border-border-raised rounded-xl focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal placeholder:text-text-secondary transition-colors" placeholder="Translate word or phrase..." type="text"/>
+<button aria-label="Submit search" class="absolute right-1 min-h-[44px] min-w-[44px] flex items-center justify-center text-text-secondary hover:text-brand-teal active:translate-y-[1px] transition-transform rounded-lg" type="submit">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</section>
+<!-- Word of the Day Card -->
+<section aria-label="Word of the Day" class="bg-surface-raised border border-border-raised rounded-2xl p-4 transition-all">
+<div class="flex items-center justify-between gap-2 flex-wrap mb-3">
+<span class="min-h-[28px] inline-flex items-center gap-1.5 bg-popup-bg px-2.5 py-1 rounded-full border border-border-raised text-xs font-semibold text-brand-teal">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span>
+Word of the day
+</span>
+<span class="text-xs font-bold text-text-secondary tracking-wider">
+C1 Advanced • IELTS
+</span>
+</div>
+<div class="flex items-start justify-between gap-2 mt-1">
+<div class="min-w-0">
+<h2 class="text-2xl font-bold text-text-primary break-words tracking-tight">Ubiquitous</h2>
+<p class="text-sm text-text-secondary tracking-wide mt-0.5">/juːˈbɪk.wɪ.təs/</p>
+</div>
+<!-- Audio Speaker Button -->
+<button aria-label="Play pronunciation" class="min-h-[44px] min-w-[44px] w-11 h-11 bg-popup-bg border border-border-raised rounded-full active:translate-y-[1px] flex items-center justify-center text-text-primary hover:text-brand-teal hover:border-brand-teal transition-all shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<p class="text-sm text-text-secondary mt-2.5 leading-relaxed break-words">
+Present, appearing, or found everywhere in daily contexts.
+</p>
+<div class="mt-4 pt-3 border-t border-border-raised flex items-center justify-between gap-2 flex-wrap">
+<button class="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-semibold text-text-primary hover:text-brand-teal active:translate-y-[1px] transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark_add">bookmark_add</span>
+Save to Deck
+</button>
+<span class="text-xs font-medium text-text-secondary">Mastery: 84%</span>
+</div>
+</section>
+<!-- Today's Review Count Card -->
+<section aria-label="Review Deck Status" class="bg-surface-raised border border-border-raised rounded-2xl p-4">
+<div class="flex items-start justify-between gap-2 flex-wrap">
+<div class="min-w-0">
+<span class="text-xs font-semibold text-text-secondary block">Today's Review</span>
+<p class="text-xl font-bold text-text-primary break-words mt-0.5">18 cards in queue</p>
+</div>
+<button aria-label="Review status" class="min-h-[44px] min-w-[44px] w-11 h-11 flex items-center justify-center bg-popup-bg border border-border-raised rounded-xl text-text-primary hover:text-brand-teal transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="history_edu">history_edu</span>
+</button>
+</div>
+<p class="text-sm text-text-secondary mt-2 break-words">
+Spaced repetition queue ready for today's session.
+</p>
+</section>
+</div>
+<!-- ================= SHARED COMPONENT: Footer ================= -->
+<footer class="bg-popup-bg border-t border-popup-border flex justify-between items-center px-4 py-2 shrink-0">
+<div class="flex items-center gap-4">
+<a class="min-h-[44px] flex items-center text-sm font-semibold text-coral-cta underline underline-offset-4 active:translate-y-[1px] transition-transform hover:opacity-90" href="#app">
+Open App
+</a>
+<a class="min-h-[44px] flex items-center text-sm font-medium text-text-secondary hover:text-text-primary active:translate-y-[1px] transition-transform" href="#settings">
+Settings
+</a>
+</div>
+<span class="text-xs text-text-secondary font-medium">
+Lexkite Fluency
+</span>
+</footer>
+</div>
+</main>
+</body></html>

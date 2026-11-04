@@ -23,6 +23,11 @@ Theo [CREDIT-RULES.md](CREDIT-RULES.md): làm phần 0 credit trước, dry-run,
 - `scripts/tts-ab/free.py --engine piper` (en_US-lessac/ryan-medium, CPU) và `--engine melo` (@cf/myshell-ai/melotts, kho CF_POOL từ 3/4 kho, không tài khoản chính).
 - Chấm thêm `sim`: cosine phổ trung bình dài hạn so với bản kokoro-video CÙNG mục (cùng voice id ≈ 1,0) → thước đo "một giọng đồng nhất".
 
+## Quyết định đọc động (chủ, 03/11)
+- **Phần cố định** trong mã nguồn app (corpus `scripts/sentence-audio/corpus.mjs`) do CI `audio.yml` dựng sẵn bằng Kokoro.
+- **Chữ động** do kokoro-js đọc trên máy người dùng ([specs/kokoro-on-device.md](specs/kokoro-on-device.md)). Máy yếu thì dùng giọng máy.
+- Không thu thập chữ người dùng thiếu file, không có hàng đợi làm bù. Như vậy chi phí không tăng theo số người dùng, không có dữ liệu riêng tư lên máy chủ, và CI dừng thì người dùng không bị ảnh hưởng.
+
 ## Độ phủ (`scripts/tts-ab/coverage.mjs`)
 % chuỗi app sẽ phát có file dựng sẵn đúng khóa (quy tắc của `web/js/ui.js`): từ đơn audio/w theo giọng Mỹ/Anh, câu ví dụ, rảnh tay, kho câu
 `collect()`; cộng danh sách chỗ phát luôn rơi về speechSynthesis (theo mã).

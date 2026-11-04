@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Focused English Learning Dashboard</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined / Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e1e3e2",
+            "tertiary-fixed-dim": "#3cddc7",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#ff5c38",
+            "surface-container": "#eceeed",
+            "primary-container": "#134e4a",
+            "tertiary": "#003630",
+            "surface-container-low": "#f2f4f3",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#003633",
+            "on-secondary-fixed-variant": "#8b1900",
+            "inverse-on-surface": "#eff1f0",
+            "inverse-primary": "#9ad1cb",
+            "on-surface": "#191c1c",
+            "on-secondary-fixed": "#3d0600",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed": "#62fae3",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb4a3",
+            "surface-dim": "#d8dada",
+            "secondary-fixed": "#ffdad2",
+            "outline-variant": "#bfc8c6",
+            "on-error": "#ffffff",
+            "secondary": "#b52705",
+            "primary-fixed-dim": "#9ad1cb",
+            "outline": "#707977",
+            "on-surface-variant": "#404847",
+            "surface-container-high": "#e6e9e8",
+            "on-tertiary-container": "#12c9b4",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#5b0d00",
+            "surface": "#f8faf9",
+            "on-background": "#191c1c",
+            "inverse-surface": "#2e3131",
+            "primary-fixed": "#b5ede7",
+            "on-tertiary-fixed-variant": "#005047",
+            "on-primary-fixed-variant": "#144f4b",
+            "surface-bright": "#f8faf9",
+            "on-tertiary-fixed": "#00201c",
+            "on-primary-container": "#87beb8",
+            "background": "#f8faf9",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#316763",
+            "surface-variant": "#e1e3e2",
+            "error": "#ba1a1a",
+            "tertiary-container": "#004f46"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-lg": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin": "2.5rem",
+            "margin-compact": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ========================================================
+       SHARED COMPONENT: SideNavBar (Strict Source of Truth)
+       ======================================================== -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col justify-between py-6 px-4 bg-surface dark:bg-surface border-r border-outline-variant dark:border-outline-variant shadow-sm z-50">
+<div class="flex flex-col w-full">
+<!-- Brand & Header -->
+<div class="flex items-center gap-3 px-3 mb-6">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center shadow-[0_3px_0_0_#003630]">
+<span class="material-symbols-outlined text-tertiary-fixed text-[24px]">kitesurfing</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight leading-none block">Lexkite</span>
+<span class="text-label-sm font-label-sm text-outline tracking-wider uppercase mt-0.5 block">Focused Learning</span>
+</div>
+</div>
+<!-- Quick New Activity CTA -->
+<button class="w-full min-h-[44px] mb-6 rounded-lg bg-secondary-container hover:bg-secondary text-white font-headline-sm text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_0_0_#C43615] active:translate-y-0.5 active:shadow-[0_1px_0_0_#C43615] transition-all duration-100">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>New Activity</span>
+</button>
+<!-- Primary Navigation Tabs (Exact 5 labels from JSON) -->
+<nav aria-label="Main Navigation" class="flex flex-col space-y-1.5">
+<!-- Active: Today -->
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-semibold shadow-[0_2px_0_0_#dce5e4]" href="#">
+<span class="material-symbols-outlined text-primary text-[22px]">calendar_today</span>
+<span class="text-label-lg font-label-lg">Today</span>
+</a>
+<!-- Inactive: Vocab -->
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-on-surface-variant dark:text-on-surface-variant font-normal hover:bg-surface-container-low dark:hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">spellcheck</span>
+<span class="text-label-lg font-label-lg">Vocab</span>
+</a>
+<!-- Inactive: Skills -->
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-on-surface-variant dark:text-on-surface-variant font-normal hover:bg-surface-container-low dark:hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">psychology</span>
+<span class="text-label-lg font-label-lg">Skills</span>
+</a>
+<!-- Inactive: Tests -->
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-on-surface-variant dark:text-on-surface-variant font-normal hover:bg-surface-container-low dark:hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">assignment</span>
+<span class="text-label-lg font-label-lg">Tests</span>
+</a>
+<!-- Inactive: Me -->
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-on-surface-variant dark:text-on-surface-variant font-normal hover:bg-surface-container-low dark:hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">person</span>
+<span class="text-label-lg font-label-lg">Me</span>
+</a>
+</nav>
+</div>
+<!-- Secondary Footer Navigation -->
+<div class="flex flex-col space-y-1.5 pt-4 border-t border-outline-variant/60">
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="text-label-md font-label-md">Help</span>
+</a>
+<!-- Active session user mini chip -->
+<div class="flex items-center gap-3 px-3 py-2 mt-2 bg-surface-container-lowest rounded-xl border border-outline-variant/50">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs">AL</div>
+<div class="min-w-0 flex-1">
+<p class="text-label-sm font-label-sm text-primary truncate">Alex Larsson</p>
+<p class="text-[10px] text-outline truncate">IELTS 7.5 Candidate</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================
+       TOP UTILITY BAR (Integrated with TopNavBar Anchor Tokens)
+       ======================================================== -->
+<header class="docked full-width top-0 sticky z-40 bg-surface-bright dark:bg-surface-bright border-b border-outline-variant dark:border-outline-variant shadow-sm flex justify-between items-center w-full px-8 py-3 min-h-[64px] pl-72">
+<!-- Left info / date indicator -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary">calendar_month</span>
+<span class="text-label-md font-label-md">Tuesday, October 24 · Week 43</span>
+</div>
+<span class="text-outline-variant">|</span>
+<!-- Goal target pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest border border-outline-variant rounded-full text-label-sm font-label-sm text-primary">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span>
+<span>EN · IELTS Band 7.5+ Target</span>
+</div>
+</div>
+<!-- Right utility actions & streak chip -->
+<div class="flex items-center gap-3">
+<!-- Daily Streak Chip (Min 44px) -->
+<div class="flex items-center gap-2 px-3.5 py-2 min-h-[44px] bg-secondary-fixed/50 border border-secondary-fixed-dim/40 rounded-full text-secondary font-label-md shadow-sm">
+<span class="material-symbols-outlined text-[20px] material-symbols-fill text-secondary">local_fire_department</span>
+<span class="font-bold">14-Day Streak</span>
+</div>
+<!-- Quick Add Action -->
+<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container border border-outline-variant text-primary font-label-md flex items-center gap-1.5 active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Quick Add</span>
+</button>
+<!-- Focus Mode Pill -->
+<button class="min-h-[44px] px-4 py-2 rounded-xl bg-primary-container text-white hover:bg-primary font-label-md flex items-center gap-2 shadow-[0_3px_0_0_#00201e] active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[18px]">center_focus_strong</span>
+<span>Focus Mode</span>
+</button>
+<!-- Icon Actions -->
+<div class="flex items-center gap-1 pl-1">
+<button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+</button>
+<button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ========================================================
+       MAIN CANVAS WORKSPACE (Desktop Max 1440px Centered)
+       ======================================================== -->
+<main class="pl-72 pr-8 py-8 w-full max-w-[1440px] mx-auto min-h-screen">
+<!-- HERO SECTION: Live Clock & Warm Personalized Greeting -->
+<section class="mb-8">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
+<div class="max-w-3xl">
+<!-- Live Time Display -->
+<div class="flex items-baseline gap-3 mb-2">
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight font-extrabold" id="live-clock">08:45</h1>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-primary font-label-md">AM</span>
+<span class="text-body-sm font-body-sm text-outline flex items-center gap-1 ml-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              Stockholm (CEST · UTC+2)
+            </span>
+</div>
+<!-- Greeting & Localized-safe Subtext (+40% expansion tolerance) -->
+<h2 class="text-headline-lg font-headline-lg text-primary tracking-tight">
+            Good morning, Alex. Ready for your 10-minute lexis sprint?
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1.5 leading-relaxed">
+            Targeting Band 7.5+ in Academic Writing &amp; Speaking. High-yield academic lexical resources, collocations, and active recall queue queued for your optimal retention cycle.
+          </p>
+</div>
+<!-- Quick motivational capsule -->
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-sm lg:self-center">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed/30 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">trending_up</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase block">Retention Score</span>
+<span class="text-headline-sm font-headline-sm text-primary font-bold">92.4%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- OMNISEARCH BAR (Centered rounded tactile bar) -->
+<section class="mb-10">
+<div class="relative w-full max-w-4xl mx-auto">
+<div class="flex items-center w-full min-h-[60px] bg-surface-container-lowest border-[1.5px] border-outline-variant/80 rounded-2xl px-5 shadow-[0_4px_16px_-2px_rgba(15,61,62,0.06),0_1px_2px_0_rgba(15,61,62,0.02)] focus-within:border-primary-container focus-within:ring-4 focus-within:ring-primary-container/10 transition-all">
+<span class="material-symbols-outlined text-[26px] text-primary mr-3.5">search</span>
+<input class="w-full bg-transparent border-none text-body-md font-body-md text-primary placeholder:text-outline focus:ring-0 focus:outline-none py-3" placeholder="Search 12,000+ academic collocations, idioms, or CEFR words (Press / to search)..." type="text"/>
+<div class="flex items-center gap-2 ml-3">
+<span class="hidden sm:inline-flex items-center px-2.5 py-1 bg-surface-container text-primary text-label-sm font-label-sm rounded-lg border border-outline-variant/60 cursor-pointer hover:bg-surface-container-high transition-colors">
+              IELTS Academic
+            </span>
+<span class="hidden sm:inline-flex items-center px-2.5 py-1 bg-surface-container text-primary text-label-sm font-label-sm rounded-lg border border-outline-variant/60 cursor-pointer hover:bg-surface-container-high transition-colors">
+              Collocations
+            </span>
+<kbd class="hidden md:inline-flex items-center px-2 py-1 bg-surface-container-low text-on-surface-variant font-label-sm rounded border border-outline-variant">
+              /
+            </kbd>
+</div>
+</div>
+</div>
+</section>
+<!-- MAIN DASHBOARD GRID: 2-Column Balanced Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10">
+<!-- LEFT COLUMN: Primary Focus (7 of 12 columns) -->
+<div class="lg:col-span-7 flex flex-col space-y-6">
+<!-- WORD OF THE DAY HERO CARD -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6 sm:p-8 shadow-[0_4px_16px_-2px_rgba(15,61,62,0.05),0_1px_2px_0_rgba(15,61,62,0.02)] transition-shadow">
+<!-- Card Header & Metadata -->
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm">
+                Word of the Day
+              </span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+                CEFR C1 · Academic Lexis
+              </span>
+</div>
+<!-- Bookmark Action Button (44x44px) -->
+<button aria-label="Bookmark word" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+</button>
+</div>
+<!-- Headword, IPA & Audio -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+<div class="flex items-baseline gap-3 flex-wrap">
+<h3 class="text-headline-xl font-headline-xl text-primary font-bold tracking-tight">
+                scrutinize
+              </h3>
+<span class="text-body-md font-body-md text-outline font-mono">/ˈskruː.tɪ.naɪz/</span>
+<span class="px-2.5 py-0.5 rounded-md bg-surface-container-high text-primary font-label-sm">verb</span>
+</div>
+<!-- Dedicated Audio Action (min 44px touch target) -->
+<div class="flex items-center gap-2">
+<button aria-label="Audio Pronunciation" class="w-11 h-11 flex items-center justify-center rounded-full bg-primary-fixed/60 hover:bg-primary-fixed text-primary shadow-[0_2px_0_0_#9ad1cb] active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+</button>
+<button class="px-3 py-2 min-h-[44px] rounded-xl bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-xs active:translate-y-0.5 transition-all">
+                Listen (1.0x)
+              </button>
+</div>
+</div>
+<!-- Definition Box -->
+<div class="mb-5">
+<p class="text-body-lg font-body-lg text-on-surface font-normal leading-relaxed">
+              To examine or inspect closely and thoroughly with critical analysis.
+            </p>
+</div>
+<!-- Authentic Exam Sentence Box (Soft Teal Container) -->
+<div class="p-4 rounded-xl bg-[#E8F2F0] border-l-4 border-primary mb-6">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wide block mb-1">
+              Authentic Exam Context (IELTS Reading / Writing Task 2)
+            </span>
+<p class="text-body-md font-body-md text-[#122625] italic leading-relaxed">
+              “Researchers must <span class="font-semibold underline decoration-primary/40 decoration-2">scrutinize</span> preliminary survey findings before publishing policy recommendations in peer-reviewed journals.”
+            </p>
+</div>
+<!-- Common Collocations Pills -->
+<div class="mb-6">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider block mb-2">
+              High-Frequency Collocations
+            </span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant text-label-md font-label-md text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary">link</span>
+                scrutinize evidence
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant text-label-md font-label-md text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary">link</span>
+                closely scrutinize
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant text-label-md font-label-md text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary">link</span>
+                scrutinize public spending
+              </span>
+</div>
+</div>
+<!-- Teacher Placeholder Slot (Strict Design System Specification) -->
+<div class="border-2 border-dashed border-[#B8CBC8] bg-[#F2F7F6] rounded-2xl p-6 mb-6 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-primary/60 border border-outline-variant shrink-0">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-bold">[teacher-slot]</span>
+<span class="text-label-md font-label-md text-primary font-bold">Ama · Lexis Coach</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#2A4543] leading-relaxed">
+                Pay attention to spelling with <code class="bg-white px-1.5 py-0.5 rounded border border-outline-variant/60 font-semibold">-ize</code> (US) vs <code class="bg-white px-1.5 py-0.5 rounded border border-outline-variant/60 font-semibold">-ise</code> (UK) in Writing Task 2. Maintain consistency throughout your essay.
+              </p>
+</div>
+</div>
+<!-- Tactile Coral Primary Action Button -->
+<button class="w-full min-h-[48px] px-7 py-3 rounded-xl bg-secondary-container hover:bg-secondary text-white font-headline-sm text-body-lg font-bold flex items-center justify-center gap-3 shadow-[0_4px_0_0_#C43615] active:translate-y-1 active:shadow-[0_1px_0_0_#C43615] transition-all">
+<span class="material-symbols-outlined text-[22px]">library_add</span>
+<span>Add to My Deck &amp; Practice</span>
+</button>
+</article>
+</div>
+<!-- RIGHT COLUMN: Active Sprints & Goal Progress (5 of 12 columns) -->
+<div class="lg:col-span-5 flex flex-col space-y-6">
+<!-- SPACED REPETITION QUEUE CARD -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6 sm:p-7 shadow-[0_4px_16px_-2px_rgba(15,61,62,0.05),0_1px_2px_0_rgba(15,61,62,0.02)]">
+<div class="flex items-center justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">schedule</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Spaced Repetition Queue</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-medium">
+              ~6 minutes
+            </span>
+</div>
+<!-- Counter highlight -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/70 mb-4">
+<div class="flex items-baseline justify-between mb-1">
+<span class="text-headline-md font-headline-md font-bold text-primary">18 words due</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold uppercase tracking-wider">High Priority</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+              Optimal retention window: next 2 hours
+            </p>
+</div>
+<!-- Mini breakdown badges -->
+<div class="space-y-2 mb-6">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-bright border border-outline-variant/60 text-body-sm">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">edit_note</span>
+                IELTS Writing Collocations
+              </span>
+<span class="font-bold text-primary bg-surface-container px-2 py-0.5 rounded text-label-sm">6</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-bright border border-outline-variant/60 text-body-sm">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">record_voice_over</span>
+                Speaking Part 3 Phrasal Verbs
+              </span>
+<span class="font-bold text-primary bg-surface-container px-2 py-0.5 rounded text-label-sm">8</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-bright border border-outline-variant/60 text-body-sm">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lightbulb</span>
+                Academic Idioms
+              </span>
+<span class="font-bold text-primary bg-surface-container px-2 py-0.5 rounded text-label-sm">4</span>
+</div>
+</div>
+<!-- Tactile Coral Primary Action Button -->
+<button class="w-full min-h-[48px] px-6 py-3 rounded-xl bg-secondary-container hover:bg-secondary text-white font-headline-sm text-body-md font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_0_#C43615] active:translate-y-1 active:shadow-[0_1px_0_0_#C43615] transition-all">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>Start Quick Review (18)</span>
+</button>
+</article>
+<!-- DAILY GOAL RING & HABIT TRACKER CARD -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6 sm:p-7 shadow-[0_4px_16px_-2px_rgba(15,61,62,0.05),0_1px_2px_0_rgba(15,61,62,0.02)]">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">track_changes</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Daily Goal Progress</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed/40 text-primary text-label-sm font-label-sm font-bold">
+              +65 / 80 XP today
+            </span>
+</div>
+<div class="flex items-center gap-6 py-2">
+<!-- Circular Progress Ring SVG -->
+<div class="relative w-28 h-28 shrink-0 flex items-center justify-center">
+<svg class="w-28 h-28 transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Circle -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#E2EAE8" stroke-width="10"></circle>
+<!-- Progress Circle (75% = 251.2 * 0.25 offset) -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#134E4A" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-headline-md font-headline-md font-bold text-primary leading-none">75%</span>
+<span class="text-label-sm font-label-sm text-outline mt-0.5">done</span>
+</div>
+</div>
+<!-- Progress Details -->
+<div class="space-y-2 flex-1">
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Vocabulary Target</span>
+<span class="text-body-md font-body-md text-primary font-semibold">15 of 20 words learned</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Active Recall Tasks</span>
+<span class="text-body-md font-body-md text-primary font-semibold">3 of 4 mini-drills finished</span>
+</div>
+</div>
+</div>
+<!-- Streak motivation pill -->
+<div class="mt-4 p-3 rounded-xl bg-surface-container-low border border-outline-variant/60 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] material-symbols-fill">verified</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<strong class="text-primary font-semibold">Maintain your streak!</strong> Complete 1 more drill before 23:59 to earn your +15 XP bonus.
+            </p>
+</div>
+</article>
+</div>
+</div>
+<!-- ========================================================
+         BOTTOM SECTION: Useful Study Shortcuts Row
+         ======================================================== -->
+<section class="mt-4 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-headline-sm font-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+          Study Accelerators &amp; Shortcuts
+        </h3>
+<span class="text-label-md font-label-md text-outline">Press Ctrl + 1-4 for quick jump</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Shortcut 1 -->
+<a class="min-h-[72px] p-4 bg-surface-container-lowest hover:bg-surface-container-low border border-outline-variant rounded-2xl flex items-center gap-3 shadow-[0_2px_0_0_#DCE5E4] hover:shadow-none active:translate-y-0.5 transition-all group" href="#">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+<span class="material-symbols-outlined text-[22px]">rule</span>
+</div>
+<div class="min-w-0 flex-1">
+<h4 class="text-label-lg font-label-lg text-primary truncate group-hover:underline">Writing Task 2 Band Descriptors</h4>
+<p class="text-body-sm font-body-sm text-outline truncate">Lexical Resource rubric reference</p>
+</div>
+</a>
+<!-- Shortcut 2 -->
+<a class="min-h-[72px] p-4 bg-surface-container-lowest hover:bg-surface-container-low border border-outline-variant rounded-2xl flex items-center gap-3 shadow-[0_2px_0_0_#DCE5E4] hover:shadow-none active:translate-y-0.5 transition-all group" href="#">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+<span class="material-symbols-outlined text-[22px]">flaky</span>
+</div>
+<div class="min-w-0 flex-1">
+<h4 class="text-label-lg font-label-lg text-primary truncate group-hover:underline">False Friends Cheat Sheet</h4>
+<p class="text-body-sm font-body-sm text-outline truncate">Latinate words commonly misused</p>
+</div>
+</a>
+<!-- Shortcut 3 -->
+<a class="min-h-[72px] p-4 bg-surface-container-lowest hover:bg-surface-container-low border border-outline-variant rounded-2xl flex items-center gap-3 shadow-[0_2px_0_0_#DCE5E4] hover:shadow-none active:translate-y-0.5 transition-all group" href="#">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+</div>
+<div class="min-w-0 flex-1">
+<h4 class="text-label-lg font-label-lg text-primary truncate group-hover:underline">Speaking Part 3 Topic Generator</h4>
+<p class="text-body-sm font-body-sm text-outline truncate">Abstract academic debate prompts</p>
+</div>
+</a>
+<!-- Shortcut 4 -->
+<a class="min-h-[72px] p-4 bg-surface-container-lowest hover:bg-surface-container-low border border-outline-variant rounded-2xl flex items-center gap-3 shadow-[0_2px_0_0_#DCE5E4] hover:shadow-none active:translate-y-0.5 transition-all group" href="#">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+<span class="material-symbols-outlined text-[22px]">history_edu</span>
+</div>
+<div class="min-w-0 flex-1">
+<h4 class="text-label-lg font-label-lg text-primary truncate group-hover:underline">Recent Mistakes (5 items)</h4>
+<p class="text-body-sm font-body-sm text-outline truncate">Prepositional collocations to retry</p>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Lightweight inline vanilla script for live clock and keyboard shortcut focus -->
+<script>
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      hours = String(hours).padStart(2, '0');
+      const clockElement = document.getElementById('live-clock');
+      if (clockElement) {
+        clockElement.textContent = `${hours}:${minutes}`;
+      }
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+
+    // Global shortcut to focus search on '/' key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+        e.preventDefault();
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+          searchInput.focus();
+        }
+      }
+    });
+  </script>
+</body></html>

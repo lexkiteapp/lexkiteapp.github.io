@@ -169,6 +169,25 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "d1-usage-watch",
+   "workflow": "d1-usage-watch.yml",
+   "cron": [
+    "7,27,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 10,
+    "d1_main_writes": 2
+   },
+   "lease": false,
+   "_note": "03/11 sự cố D1: số Cloudflare trong ngày cho _d1guard (85 %) + thư 50/75 % khi Pages chưa có CF_ANALYTICS_TOKEN; 1 yêu cầu prod/lượt"
+  },
+  {
    "id": "preview-site",
    "workflow": "preview-site.yml",
    "cron": [
@@ -189,6 +208,36 @@ export const REG = {
     "23 */3 * * *"
    ],
    "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "report-autofix",
+   "workflow": "report-autofix.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 200
+   },
+   "lease": false
+  },
+  {
+   "id": "report-shots",
+   "workflow": "report-shots.yml",
+   "cron": [
+    "41 4 * * 1"
+   ],
+   "priority": "archive",
    "resources": [
     "gh_minutes"
    ],
@@ -280,6 +329,21 @@ export const REG = {
     "gh_minutes"
    ],
    "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-evidence",
+   "workflow": "content-evidence.yml",
+   "cron": [
+    "41 3 * * *",
+    "23 4 1 * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
    "est": {},
    "lease": false
   },
@@ -933,6 +997,22 @@ export const REG = {
    "lease": true
   },
   {
+   "id": "drive-repair",
+   "workflow": "drive-repair.yml",
+   "cron": [
+    "47 3 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 100
+   },
+   "lease": false
+  },
+  {
    "id": "code-bundle",
    "workflow": "code-bundle.yml",
    "cron": [
@@ -993,6 +1073,19 @@ export const REG = {
     "d1_internal_writes": 2000
    },
    "lease": false
+  },
+  {
+   "id": "cron-kick",
+   "worker": "workers/cronkick",
+   "cron": [
+    "*/30 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 1,
+   "est": {},
+   "lease": false,
+   "_note": "3/11: lưới an toàn cuối – Worker ký HMAC gọi /api/cron-kick; Pages (có GH_DISPATCH_TOKEN) dispatch free-tier-guard/required-gate/ci-triage khi quá ngưỡng cron-watch, chống trùng, ≤ 5 lượt, ≤ 4 lượt/giờ. Không đụng D1."
   },
   {
    "id": "lexicon-expand",
@@ -1107,6 +1200,25 @@ export const REG = {
    ],
    "minutes": 15,
    "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-factory",
+   "workflow": "content-factory.yml",
+   "cron": [
+    "50 17 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {
+    "gemini_calls": 600,
+    "grabcast_text": 300
+   },
    "lease": false
   }
  ]

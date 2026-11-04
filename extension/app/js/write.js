@@ -176,7 +176,7 @@
       const w = el.dataset.alt;
       let alts = ((IELTS_DATA.INDEX[w] || {}).syn || []).slice(0, 4);
       if (alts.length < 3) {
-        try { const r = await fetch(`https://api.datamuse.com/words?ml=${encodeURIComponent(w)}&max=8`).then(x => x.json()); alts = [...new Set([...alts, ...r.map(x => x.word).filter(x => !/\s/.test(x))])].slice(0, 5); } catch (e) { /* offline */ }
+        try { const r = (await Dict.dm(`words?ml=${encodeURIComponent(w)}&max=8`)) || []; alts = [...new Set([...alts, ...r.map(x => x.word).filter(x => !/\s/.test(x))])].slice(0, 5); } catch (e) { /* offline */ }
       }
       el.innerHTML = alts.length ? '→ ' + alts.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x)}">${esc(x)}</a>`).join(' ') : t('không có gợi ý');
     });

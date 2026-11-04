@@ -1,3 +1,3 @@
-/* UI zh – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"Cấu trúc":"句型","Xem giải thích chi tiết":"查看详细解析","Vì sao lựa chọn của bạn sai":"为什么你的选项不对","Bằng chứng trong bài":"原文依据","Sắc thái nghĩa":"词义差别","Ví dụ thêm":"更多例句","Cùng nhóm":"同类搭配","Thêm vào ôn tập":"加入复习","Báo lỗi giải thích":"报告解析错误","Nghe ví dụ":"播放例句"});
+/* SINH từ i18n/ui/zh/explain.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"_19q4gg9":"句型","_alp76b":"查看详细解析","_kznktn":"为什么你的选项不对","_xp0oh3":"原文依据","_1ob6vgt":"词义差别","_44ncyk":"更多例句","_34zw0g":"同类搭配","_13yzwdi":"加入复习","_11weuv7":"报告解析错误","_1de95jp":"播放例句"});
 })(typeof self !== 'undefined' ? self : this);

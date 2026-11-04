@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - TOEFL Reading Drill</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#b0ccc7",
+            "on-primary-container": "#8ed2cc",
+            "surface": "#fff8f1",
+            "on-surface-variant": "#3f4947",
+            "outline": "#6f7978",
+            "on-primary-fixed": "#00201e",
+            "on-secondary-fixed": "#410000",
+            "on-secondary-fixed-variant": "#8c170e",
+            "tertiary-fixed": "#cce8e4",
+            "on-tertiary": "#ffffff",
+            "primary": "#004340",
+            "surface-container-low": "#faf2e8",
+            "secondary-fixed": "#ffdad4",
+            "on-tertiary-fixed-variant": "#324b48",
+            "secondary-fixed-dim": "#ffb4a8",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-fixed-dim": "#b0ccc8",
+            "inverse-surface": "#333029",
+            "tertiary-container": "#3e5754",
+            "surface-variant": "#e9e1d8",
+            "primary-fixed-dim": "#8fd3cd",
+            "tertiary": "#27403d",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#e0d9cf",
+            "on-tertiary-fixed": "#051f1d",
+            "surface-container-high": "#efe7dd",
+            "surface-container": "#f4ede3",
+            "surface-bright": "#fff8f1",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "secondary-container": "#fc6955",
+            "secondary": "#ae3123",
+            "surface-container-highest": "#e9e1d8",
+            "outline-variant": "#bec9c7",
+            "inverse-primary": "#8fd3cd",
+            "on-secondary-container": "#690000",
+            "on-primary": "#ffffff",
+            "primary-container": "#0d5c58",
+            "surface-tint": "#216964",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1e1b15",
+            "on-error": "#ffffff",
+            "primary-fixed": "#abefe9",
+            "on-background": "#1e1b15",
+            "inverse-on-surface": "#f7f0e6",
+            "background": "#fff8f1",
+            "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-md": "2rem",
+            "space-md": "1rem",
+            "margin-lg": "3rem",
+            "gutter-md": "1.5rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-2xl": "3rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FAF8F5] text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-white">
+<!-- Mobile Portrait Container (Approx 390px, max-w-md responsive) -->
+<main class="w-full max-w-[420px] bg-background min-h-screen flex flex-col shadow-xl relative border-x border-[#E6E0D6]">
+<!-- SHARED COMPONENT: TopAppBar (Docked Full-Width Top) -->
+<header class="bg-background dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-[0_2px_0_0_#D8D1C5] dark:shadow-none sticky top-0 z-30">
+<div class="flex justify-between items-center w-full px-4 h-14 max-w-lg mx-auto">
+<!-- Leading Tactile Close Button -->
+<button aria-label="Close Drill" class="w-9 h-9 rounded-xl bg-surface-container-lowest border border-[#E6E0D6] shadow-[0_2px_0_0_#D8D1C5] active:translate-y-[2px] active:shadow-none flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-tertiary transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Center Drill Label & Subtle Progress Tracker -->
+<div class="flex flex-col items-center gap-0.5">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-inverse-primary tracking-tight">
+            TOEFL Reading Drill
+          </span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-[#E6E0D6] rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full w-[40%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">4 of 10</span>
+</div>
+</div>
+<!-- Trailing Tactile Timer Action Pill -->
+<div class="h-8 px-2.5 rounded-full bg-surface-container-high border border-[#E6E0D6] shadow-[0_2px_0_0_#D8D1C5] flex items-center gap-1.5 text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="timer">timer</span>
+<span class="font-bold tabular-nums">01:24</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Lesson Canvas -->
+<section class="flex-1 px-4 py-4 space-y-4 overflow-y-auto pb-28">
+<!-- Exam Module Indicator Badge -->
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container rounded-lg border border-[#E6E0D6]">
+<span class="material-symbols-outlined text-[15px] text-primary" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm text-primary font-bold tracking-wider">VOCABULARY IN CONTEXT</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Difficulty: Advanced</span>
+</div>
+<!-- Reading Passage Card (Tactile Physical Paper Metaphor) -->
+<article class="bg-surface-container-lowest rounded-2xl border-[1.5px] border-[#E6E0D6] shadow-[0_3px_0_0_#D8D1C5] p-4 relative">
+<header class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-[#E6E0D6]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary-container" data-icon="library_books">library_books</span>
+<h2 class="text-label-md font-label-md font-bold text-primary tracking-wide">
+              PASSAGE EXCERPT: SEED FERNS &amp; CARBONIFEROUS FLORA
+            </h2>
+</div>
+<button aria-label="Listen to passage excerpt" class="w-8 h-8 rounded-lg bg-surface-container border border-[#E6E0D6] shadow-[0_2px_0_0_#D8D1C5] active:translate-y-[1px] active:shadow-none flex items-center justify-center text-primary-container" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="volume_up">volume_up</span>
+</button>
+</header>
+<p class="text-body-md font-body-md text-on-surface leading-relaxed">
+          During the late Carboniferous period, primitive seed ferns were especially 
+          <span class="inline-flex items-center px-2 py-0.5 mx-1 rounded-md bg-[#E2F2F0] border border-primary text-primary font-bold shadow-[0_1.5px_0_0_#0D5C58]">
+            abundant
+          </span>
+          in tropical lowland wetlands. Their prolific spore production allowed dense canopy coverage that outcompeted smaller ground mosses across seasonal floodplains.
+        </p>
+</article>
+<!-- Question Title -->
+<div class="pt-1">
+<h3 class="text-body-lg font-headline-sm text-primary">
+          The word <span class="font-bold underline decoration-primary-container decoration-2 underline-offset-4">abundant</span> in the passage is closest in meaning to:
+        </h3>
+</div>
+<!-- Multiple-Choice Interactive Answer Deck -->
+<div aria-label="Vocabulary options" class="space-y-2.5" role="radiogroup">
+<!-- Option [A] - SELECTED STATE -->
+<div aria-checked="true" class="w-full text-left p-3.5 rounded-2xl bg-[#F0FAF9] border-2 border-primary-container shadow-[0_3px_0_0_#0D5C58] flex items-center justify-between transition-transform active:translate-y-[2px] cursor-pointer" role="radio" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-primary-container text-white flex items-center justify-center text-label-md font-label-md font-bold shadow-[0_2px_0_0_#062B29]">
+              A
+            </span>
+<span class="text-body-lg font-body-lg text-primary font-bold">
+              plentiful
+            </span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Option [B] - UNSELECTED STATE -->
+<div aria-checked="false" class="w-full text-left p-3.5 rounded-2xl bg-surface-container-lowest border-2 border-[#E6E0D6] shadow-[0_3px_0_0_#E6E0D6] hover:border-outline-variant hover:bg-surface-container-low flex items-center justify-between transition-transform active:translate-y-[2px] cursor-pointer" role="radio" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-surface-container text-on-surface-variant border border-[#E6E0D6] flex items-center justify-center text-label-md font-label-md font-semibold">
+              B
+            </span>
+<span class="text-body-lg font-body-lg text-on-surface font-medium">
+              rare
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-[#BEC9C7] bg-white"></div>
+</div>
+<!-- Option [C] - UNSELECTED STATE -->
+<div aria-checked="false" class="w-full text-left p-3.5 rounded-2xl bg-surface-container-lowest border-2 border-[#E6E0D6] shadow-[0_3px_0_0_#E6E0D6] hover:border-outline-variant hover:bg-surface-container-low flex items-center justify-between transition-transform active:translate-y-[2px] cursor-pointer" role="radio" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-surface-container text-on-surface-variant border border-[#E6E0D6] flex items-center justify-center text-label-md font-label-md font-semibold">
+              C
+            </span>
+<span class="text-body-lg font-body-lg text-on-surface font-medium">
+              tiny
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-[#BEC9C7] bg-white"></div>
+</div>
+<!-- Option [D] - UNSELECTED STATE -->
+<div aria-checked="false" class="w-full text-left p-3.5 rounded-2xl bg-surface-container-lowest border-2 border-[#E6E0D6] shadow-[0_3px_0_0_#E6E0D6] hover:border-outline-variant hover:bg-surface-container-low flex items-center justify-between transition-transform active:translate-y-[2px] cursor-pointer" role="radio" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-surface-container text-on-surface-variant border border-[#E6E0D6] flex items-center justify-center text-label-md font-label-md font-semibold">
+              D
+            </span>
+<span class="text-body-lg font-body-lg text-on-surface font-medium">
+              colourful
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-[#BEC9C7] bg-white"></div>
+</div>
+</div>
+<!-- Coach Card with Ama's Tip & Dedicated Teacher Placeholder Slot -->
+<section class="mt-4 p-3.5 bg-surface-container rounded-2xl border-[1.5px] border-[#E6E0D6] shadow-[0_2px_0_0_#D8D1C5]">
+<div class="flex items-start gap-3">
+<!-- Exact Required Placeholder: Empty rounded dashed/bordered badge labelled '[teacher-slot]' -->
+<div class="shrink-0 flex flex-col items-center gap-1">
+<div class="w-12 h-12 rounded-xl border-2 border-dashed border-primary-container bg-surface-container-low flex flex-col items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<span class="text-[10px] font-mono tracking-tighter text-primary font-semibold">[teacher-slot]</span>
+</div>
+<!-- Coach Guidance Content -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary" data-icon="lightbulb">lightbulb</span>
+<h4 class="text-label-md font-label-md font-bold text-primary">
+                Ama’s Tip
+              </h4>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">
+              Look at the surrounding sentence. “Thrived in damp soil where nutrients were...” hints at a large quantity!
+            </p>
+</div>
+</div>
+</section>
+</section>
+<!-- Bottom Action Footer (Ergonomic Thumb Zone, No Global Nav Shell) -->
+<footer class="p-4 bg-background border-t border-[#E6E0D6] shadow-[0_-2px_6px_rgba(0,0,0,0.03)] sticky bottom-0 z-30">
+<div class="flex items-center gap-3 max-w-lg mx-auto">
+<!-- Secondary Tactile 'Back' Button -->
+<button class="h-12 px-4 rounded-xl bg-surface-container-lowest border-2 border-[#E6E0D6] text-primary font-label-lg text-label-lg shadow-[0_3px_0_0_#E6E0D6] hover:bg-surface-container active:translate-y-[2px] active:shadow-[0_1px_0_0_#E6E0D6] flex items-center justify-center gap-1 transition-all duration-100" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+<span>Back</span>
+</button>
+<!-- Primary Tactile Raised Coral CTA 'Check & Next →' Button -->
+<button class="flex-1 h-12 px-5 rounded-xl bg-[#FF6B57] text-white font-label-lg text-label-lg font-bold border-[1.5px] border-[#EA580C] shadow-[0_4px_0_0_#C93B28] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#C93B28] flex items-center justify-center gap-2 transition-all duration-100" type="button">
+<span>Check &amp; Next</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Interactive Option Switcher Script (Vanilla JS Micro-Interaction) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const options = document.querySelectorAll('[role="radio"]');
+      
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          options.forEach(opt => {
+            opt.setAttribute('aria-checked', 'false');
+            opt.className = "w-full text-left p-3.5 rounded-2xl bg-surface-container-lowest border-2 border-[#E6E0D6] shadow-[0_3px_0_0_#E6E0D6] hover:border-outline-variant hover:bg-surface-container-low flex items-center justify-between transition-transform active:translate-y-[2px] cursor-pointer";
+            
+            const badge = opt.querySelector('span:first-child');
+            if (badge) {
+              badge.className = "w-8 h-8 rounded-xl bg-surface-container text-on-surface-variant border border-[#E6E0D6] flex items-center justify-center text-label-md font-label-md font-semibold";
+            }
+            
+            const textSpan = opt.querySelector('span:nth-child(2)');
+            if (textSpan) {
+              textSpan.className = "text-body-lg font-body-lg text-on-surface font-medium";
+            }
+
+            const indicator = opt.querySelector('div:last-child');
+            if (indicator) {
+              indicator.className = "w-5 h-5 rounded-full border-2 border-[#BEC9C7] bg-white";
+              indicator.innerHTML = "";
+            }
+          });
+
+          // Apply selected styles
+          option.setAttribute('aria-checked', 'true');
+          option.className = "w-full text-left p-3.5 rounded-2xl bg-[#F0FAF9] border-2 border-primary-container shadow-[0_3px_0_0_#0D5C58] flex items-center justify-between transition-transform active:translate-y-[2px] cursor-pointer";
+          
+          const selBadge = option.querySelector('span:first-child');
+          if (selBadge) {
+            selBadge.className = "w-8 h-8 rounded-xl bg-primary-container text-white flex items-center justify-center text-label-md font-label-md font-bold shadow-[0_2px_0_0_#062B29]";
+          }
+
+          const selText = option.querySelector('span:nth-child(2)');
+          if (selText) {
+            selText.className = "text-body-lg font-body-lg text-primary font-bold";
+          }
+
+          const selIndicator = option.querySelector('div:last-child');
+          if (selIndicator) {
+            selIndicator.className = "w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-white shadow-sm";
+            selIndicator.innerHTML = '<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check" data-weight="fill" style="font-variation-settings: \'FILL\' 1;">check</span>';
+          }
+        });
+      });
+    });
+  </script>
+</body></html>
