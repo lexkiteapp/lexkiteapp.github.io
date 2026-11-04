@@ -1,0 +1,32 @@
+Copyright (c) 2025-2026 MODIAN LUXURY JEWELRY LLC, operating as Lexkite (https://lexkite.com).
+All rights reserved.
+
+This repository is published publicly only so that its build and test automation can run. Being able to
+see or download it does NOT grant any licence. No open-source licence applies to any part of it.
+
+1. Software. The source code, scripts, build files and configuration in this repository are proprietary.
+   You may not copy, modify, merge, publish, distribute, sublicense, sell or create derivative works of
+   them, in whole or in part, without prior written permission from Lexkite.
+
+2. Content. All learning content is an original work of Lexkite, including (without limitation): lessons,
+   courses, practice tests and exam questions, answer keys, explanations and model answers, vocabulary
+   definitions, example sentences and translations written by Lexkite, grammar notes, blog articles,
+   scripts, images, illustrations, audio, video, the "Kit" mascot and the characters "Ama" and "Carlos"
+   (content/, web/js/ and web/ data and media, blog, brand/). You may not copy, scrape, extract,
+   republish, redistribute, sell, or make it available in any other app, website, book, dataset or
+   service, in whole or in substantial part, without prior written permission from Lexkite.
+
+3. No AI/ML use. You may not use any part of this repository or of lexkite.com - including content
+   obtained by crawling, scraping or downloading - to train, fine-tune, evaluate, benchmark, ground or
+   otherwise develop any artificial intelligence or machine learning model or dataset. Lexkite expressly
+   reserves its rights against text and data mining under Article 4(3) of Directive (EU) 2019/790 and
+   equivalent laws (machine-readable: https://lexkite.com/.well-known/tdmrep.json, /robots.txt, /ai.txt).
+
+4. Trademarks. "Lexkite", the Lexkite logo and the Kit mascot are trademarks of MODIAN LUXURY JEWELRY LLC.
+
+5. Third-party material. Files and data owned by third parties remain under their own licences, listed in
+   NOTICE and at https://lexkite.com/en/privacy#credits. Nothing here restricts rights you have under
+   those licences for that third-party material.
+
+Permission requests and copyright notices (DMCA): https://lexkite.com/en/terms#dmca
+Personal learning use of the Lexkite service is governed by the Terms of Use: https://lexkite.com/en/terms
