@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Quản trị — Báo lỗi</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#1d363d",
+            "inverse-primary": "#006a64",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-tint": "#6bd8ce",
+            "error-container": "#93000a",
+            "surface-bright": "#2f3b3e",
+            "inverse-on-surface": "#263236",
+            "outline": "#879391",
+            "secondary": "#ffb4a6",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-fixed": "#88f5ea",
+            "on-primary-container": "#00322e",
+            "on-secondary": "#660800",
+            "surface-container-highest": "#243e46",
+            "on-primary": "#003733",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary-container": "#392900",
+            "on-secondary-container": "#ffa493",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-variant": "#1a3138",
+            "outline-variant": "#213a42",
+            "on-surface-variant": "#93aab0",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#050e11",
+            "surface-container-low": "#0f1d21",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary": "#6bd8ce",
+            "tertiary-fixed": "#ffdf9e",
+            "inverse-surface": "#d8e5e9",
+            "background": "#091518",
+            "surface-container": "#132428",
+            "on-tertiary": "#402e00",
+            "on-error": "#690005",
+            "error": "#ff7b72",
+            "tertiary-container": "#ba8b00",
+            "primary-container": "#1b4d48",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary-fixed": "#00201e",
+            "on-background": "#e2f1f0",
+            "tertiary": "#f4bf40",
+            "surface-dim": "#091518",
+            "on-primary-fixed-variant": "#00504b",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#e2f1f0",
+            "surface": "#091518",
+            "secondary-container": "#4a120b",
+            "secondary-fixed": "#ffdad3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"],
+            "mono": ["JetBrains Mono", "monospace"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Lexkite Tactile 3D Ledges - Dark Tactile Night */
+    .tactile-card {
+      box-shadow: 0 3px 0 #050e11;
+    }
+    .tactile-card-selected {
+      box-shadow: 0 3px 0 #00504b;
+    }
+    .tactile-cta {
+      box-shadow: 0 4px 0 #942918;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-cta:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #942918;
+    }
+    .tactile-secondary {
+      box-shadow: 0 3px 0 #082825;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #082825;
+    }
+    .tactile-quiet {
+      box-shadow: 0 3px 0 #050e11;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-quiet:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #050e11;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Viewport Shell (Strictly 390px Native Layout) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-24 border-x border-[#213a42]/60">
+<!-- TopAppBar (Dark Tactile Night Header) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-b-2 border-[#213a42] docked full-width top-0 h-14 right-0"><div class="flex items-center space-x-2"><button aria-label="Menu" class="w-9 h-9 rounded-lg bg-[#132428] border border-[#213a42] flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-[#182e34] active:translate-y-0.5 transition-all"><span class="material-symbols-outlined text-[20px]">menu</span></button><div class="flex items-center space-x-1.5"><div class="w-6 h-6 rounded-md bg-primary-container flex items-center justify-center text-primary font-headline font-extrabold text-xs border border-primary/30">L</div><div><div class="flex items-center gap-1.5"><span class="font-headline font-bold text-base text-[#e2f1f0] tracking-tight leading-none">Báo lỗi</span><span class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-[#132428] text-primary border border-primary/30 leading-none">v2.4.1</span></div><p class="text-[10px] text-[#93aab0] font-medium leading-tight">Admin › Báo lỗi</p></div></div></div><div class="flex items-center space-x-2"><button aria-label="Bộ lọc" class="w-8 h-8 rounded-lg bg-[#132428] border border-[#213a42] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">tune</span></button><div class="w-8 h-8 rounded-full bg-[#3d130e] text-[#ffb4a6] font-headline font-bold text-xs flex items-center justify-center shadow-inner border border-[#ff6347]/50" title="Hoàng Minh (Admin)">HM</div></div></header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 mt-14 px-4 pt-3.5 space-y-4">
+<section class="space-y-2.5">
+<div class="bg-[#0f1d21] rounded-xl p-3 border border-[#213a42] tactile-card">
+<div class="flex items-center justify-between mb-1">
+<h1 class="font-headline font-bold text-sm text-[#e2f1f0]">Hộp thư báo lỗi &amp; Góp ý</h1>
+<span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#ffb4a6]">
+<span class="w-2 h-2 rounded-full bg-[#ff6347] animate-pulse shadow-[0_0_8px_#ff6347]"></span>4 mới
+</span>
+</div>
+<p class="text-xs text-[#93aab0]">24 báo cáo tổng số · Cần phân loại ưu tiên học vụ</p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#14423e] text-[#6bd8ce] border border-[#2ba39a]/60 shadow-sm flex items-center gap-1">
+<span>Mới</span>
+<span class="bg-[#0b2825] text-primary px-1.5 py-0.2 rounded-full text-[10px] border border-primary/30">4</span>
+</button>
+<button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors">Đang xử lý (2)</button>
+<button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors">Đã sửa (18)</button>
+<button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors">Tất cả (24)</button>
+</div>
+</section>
+<section class="space-y-2">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="font-headline font-bold text-xs uppercase tracking-wider text-[#93aab0]">HÀNG CHỜ BÁO LỖI</h2>
+<span class="text-[11px] font-medium text-primary">Cập nhật tức thì</span>
+</div>
+<div class="space-y-2">
+<!-- Item 1 - Active / Selected -->
+<article class="p-3 rounded-xl bg-[#0f1d21] border-2 border-primary tactile-card-selected relative cursor-pointer">
+<div class="flex items-center justify-between gap-1 mb-1.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#441614] text-[#ffb4a6] border border-[#ff6347]/40">Lỗi âm thanh</span>
+<code class="px-1.5 py-0.5 rounded bg-[#050e11] text-[10px] text-primary font-mono font-medium border border-[#213a42]">#/study/flashcard</code>
+</div>
+<span class="text-[10px] text-[#93aab0] whitespace-nowrap">14p trước</span>
+</div>
+<p class="text-xs font-semibold text-[#e2f1f0] line-clamp-2 leading-relaxed mb-1.5">"Bấm nút nghe phát âm từ 'ubiquitous' thì bị đơ khoảng 3 giây không có tiếng."</p>
+<div class="flex items-center justify-between text-[11px]">
+<span class="inline-flex items-center gap-1.5 font-bold text-[#ffb4a6]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff6347] shadow-[0_0_6px_#ff6347]"></span>Chờ nhận
+</span>
+<span class="text-primary font-bold text-[11px] flex items-center">Đang xem chi tiết<span class="material-symbols-outlined text-[14px] ml-0.5">arrow_downward</span></span>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="p-3 rounded-xl bg-[#0f1d21] border border-[#213a42] tactile-card hover:border-[#2ba39a]/50 transition-colors cursor-pointer">
+<div class="flex items-center justify-between gap-1 mb-1.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#412b00] text-[#f4bf40] border border-[#ba8b00]/40">Sai nội dung</span>
+<code class="px-1.5 py-0.5 rounded bg-[#050e11] text-[10px] text-[#93aab0] font-mono border border-[#213a42]/70">#/skills/sentence-patterns</code>
+</div>
+<span class="text-[10px] text-[#93aab0] whitespace-nowrap">2 giờ trước</span>
+</div>
+<p class="text-xs text-[#c4dade] line-clamp-2 leading-relaxed mb-1.5">"Ví dụ câu 'I'd argue that...' bị thiếu dấu chấm ở cuối câu phiên âm."</p>
+<div class="flex items-center justify-between text-[11px]">
+<span class="inline-flex items-center gap-1.5 text-[#93aab0]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_5px_#6bd8ce]"></span>Đang xem
+</span>
+<span class="text-[#93aab0] text-[10px]">Gán bởi Ama</span>
+</div>
+</article>
+<!-- Item 3 -->
+<article class="p-3 rounded-xl bg-[#0f1d21] border border-[#213a42] tactile-card hover:border-[#2ba39a]/50 transition-colors cursor-pointer">
+<div class="flex items-center justify-between gap-1 mb-1.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#0e3a36] text-[#6bd8ce] border border-[#2ba39a]/40">Góp ý</span>
+<code class="px-1.5 py-0.5 rounded bg-[#050e11] text-[10px] text-[#93aab0] font-mono border border-[#213a42]/70">#/vocab/review</code>
+</div>
+<span class="text-[10px] text-[#93aab0] whitespace-nowrap">Hôm qua</span>
+</div>
+<p class="text-xs text-[#c4dade] line-clamp-2 leading-relaxed mb-1.5">"Mong app bổ sung thêm chế độ tự động lật thẻ sau 5 giây để luyện phản xạ."</p>
+<div class="flex items-center justify-between text-[11px]">
+<span class="inline-flex items-center gap-1.5 text-[#93aab0]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#879391]"></span>Chưa xử lý
+</span>
+<span class="text-[#93aab0] text-[10px]">Học viên Pro</span>
+</div>
+</article>
+<!-- Item 4 -->
+<article class="p-3 rounded-xl bg-[#0f1d21] border border-[#213a42] tactile-card hover:border-[#2ba39a]/50 transition-colors cursor-pointer">
+<div class="flex items-center justify-between gap-1 mb-1.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#4a1c18] text-[#ffa493] border border-[#981201]/50">Lỗi UI</span>
+<code class="px-1.5 py-0.5 rounded bg-[#050e11] text-[10px] text-[#93aab0] font-mono border border-[#213a42]/70">#/today</code>
+</div>
+<span class="text-[10px] text-[#93aab0] whitespace-nowrap">2 ngày trước</span>
+</div>
+<p class="text-xs text-[#c4dade] line-clamp-2 leading-relaxed mb-1.5">"Nút bắt đầu bài học bị che một phần bởi thanh điều hướng trên màn hình nhỏ."</p>
+<div class="flex items-center justify-between text-[11px]">
+<span class="inline-flex items-center gap-1.5 text-[#93aab0]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2ba39a] shadow-[0_0_5px_#2ba39a]"></span>Đã giao
+</span>
+<span class="text-[#93aab0] text-[10px]">Frontend Lead</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Detail Section -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="font-headline font-bold text-xs uppercase tracking-wider text-primary">CHI TIẾT BÁO CÁO</h2>
+<span class="text-xs font-mono font-bold text-primary bg-[#0f1d21] px-2 py-0.5 rounded border border-[#213a42]">#LXK-BUG-104</span>
+</div>
+<div class="bg-[#0f1d21] rounded-2xl p-3.5 border-2 border-[#213a42] tactile-card space-y-3">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-headline font-bold text-sm text-[#e2f1f0] leading-snug">Không phát âm thanh thẻ từ vựng (Kokoro TTS)</h3>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-2">
+<span class="px-2 py-0.5 rounded-md bg-[#132428] border border-[#213a42] text-[10px] font-medium text-[#c4dade] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">smartphone</span>Android 14 · Chrome 131
+</span>
+<span class="px-2 py-0.5 rounded-md bg-[#132428] border border-[#213a42] text-[10px] font-medium text-[#c4dade] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">aspect_ratio</span>Màn hình: 390×844
+</span>
+<span class="px-2 py-0.5 rounded-md bg-[#132428] border border-[#213a42] text-[10px] font-medium text-[#c4dade] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">signal_cellular_alt</span>Mạng: 4G Viettel
+</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<span class="text-[11px] font-bold text-[#93aab0] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">format_quote</span>Nội dung học viên gửi:
+</span>
+<div class="bg-[#091518] p-3 rounded-xl border border-[#213a42] text-xs text-[#e2f1f0] italic leading-relaxed">
+“Em bấm vào biểu tượng loa để nghe thầy Carlos phát âm từ 'ubiquitous' ở màn Flashcard thì giao diện bị đứng tầm 3 giây rồi im bặt. Thử lại 2 lần vẫn không có tiếng phát ra ạ.”
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-bold text-[#ff7b72] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terminal</span>Nhật ký lỗi hệ thống (Edge Log):
+</span>
+<span class="text-[10px] text-[#93aab0] font-mono">Edge-SG#12</span>
+</div>
+<div class="bg-[#050e11] p-3 rounded-xl border border-[#213a42] font-mono text-[11px] text-[#ff7b72] space-y-1 overflow-x-hidden">
+<div class="font-semibold text-[#ff7b72]">TypeError: AudioContext decodeAudioData failed</div>
+<div class="text-[#93aab0] text-[10px] break-all">Origin: Kokoro-TTS-worker /audio/cache/ubiquitous_carlos.mp3</div>
+<div class="text-[#e3b341] text-[10px]">HTTP 408 Request Timeout (Buffer latency: 3120ms)</div>
+</div>
+</div>
+<div class="space-y-1.5 pt-1">
+<label class="text-[11px] font-bold text-[#93aab0] block">Người phụ trách xử lý</label>
+<div class="relative">
+<select class="w-full bg-[#132428] border-2 border-[#213a42] text-[#e2f1f0] text-xs font-bold rounded-xl py-2.5 px-3 appearance-none focus:outline-none focus:border-primary">
+<option selected="">👤 Lê Nam (Kỹ thuật âm thanh &amp; Edge)</option>
+<option>👤 Minh (Admin)</option>
+<option>👤 Ama (Nội dung)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-[#93aab0] pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<div class="pt-2 space-y-2">
+<button class="w-full h-12 rounded-xl bg-gradient-to-r from-[#ff5c38] to-[#f9735b] text-[#050e11] font-headline font-extrabold text-sm flex items-center justify-center gap-2 tactile-cta">
+<span class="material-symbols-outlined text-[18px] text-[#050e11]">check_circle</span>Đánh dấu đã sửa
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-10 rounded-xl bg-[#143e3a] text-primary font-headline font-bold text-xs flex items-center justify-center gap-1.5 border border-[#2ba39a]/40 tactile-secondary">
+<span class="material-symbols-outlined text-[16px]">reply</span>Trả lời học viên
+</button>
+<button class="h-10 rounded-xl bg-[#132428] text-[#c4dade] font-headline font-bold text-xs flex items-center justify-center gap-1.5 border border-[#213a42] tactile-quiet">
+<span class="material-symbols-outlined text-[16px]">archive</span>Lưu trữ
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Docked Tactile Night Nav) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-t-2 border-[#213a42] docked full-width bottom-0 h-16 right-0">
+<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#learn">
+<span class="material-symbols-outlined text-[20px]">route</span>
+<span class="font-label text-xs font-bold tracking-wider mt-0.5">Learn</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center border-2 border-primary bg-[#133c38] text-primary rounded-xl px-2 py-1 active:scale-95 transition-transform duration-150" href="#review">
+<span class="material-symbols-outlined fill text-[20px]">layers</span>
+<span class="font-label text-xs font-bold tracking-wider mt-0.5">Review</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#practice">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span class="font-label text-xs font-bold tracking-wider mt-0.5">Practice</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#leagues">
+<span class="material-symbols-outlined text-[20px]">trophy</span>
+<span class="font-label text-xs font-bold tracking-wider mt-0.5">Leagues</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#me">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-label text-xs font-bold tracking-wider mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

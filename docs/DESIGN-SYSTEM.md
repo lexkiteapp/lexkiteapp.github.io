@@ -27,6 +27,7 @@ Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css
   To add an icon: put its Lucide name in `ICONS` in `scripts/build-icons.mjs` → `node scripts/build-icons.mjs <lucide-static>/package` (icons for lazy pages go in `LAZY`) → `bash scripts/build-extension.sh`.
 - Markup: in JS, `UI.icon('volume-2')`. In HTML, `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-volume-2"/></svg>`.
   Icons are always `aria-hidden`. The control carries the name (`aria-label`, `title` or visible text).
+- Sidebar (desktop, Stitch screen 03e155f8a96144c0aa416a835915bc55): nav scrolls inside; utility rows + account row pinned to the bottom; all rows ≥ 44 px; nested rows carry a guide line, no icons.
 - Active state (bottom nav, sidebar): the same glyph gets a duotone fill (`fill: currentColor; fill-opacity: .16–.2`) and a slightly heavier stroke. Never switch to a different icon.
 - Directional icons (`arrow-left`, `chevron-*`) carry the class `i-dir` and mirror in RTL (`[dir=rtl] .i-dir`).
 - Auto-upgrade: `UI.paintIcons` (MutationObserver in `ui.js`) turns leftover chrome emoji at the START of a button or link into the icon:
@@ -78,6 +79,17 @@ The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) us
 - Tokens: `brand/stitch/tokens.dtcg.json` (W3C DTCG; `$value` = dark A, `$extensions.com.lexkite.mode.light` = light B, text roles darkened for WCAG 2.2 AA). Colours become `rgb(var(--st-*) / α)` so one DOM serves both themes; `lt:` = light-only borders/soft shadows (Option B).
 - Build: `node scripts/build-stitch-css.mjs` → `web/css/st-{home,lesson,goal}.css` (Tailwind 3.4.17, no preflight, ≤ 10 KB gz each, lazy via BCSS). `--check` on CI = drift gate; `--fonts` re-downloads self-hosted Plus Jakarta Sans (latin/latin-ext/vietnamese WOFF2, swap) + Material Symbols subset (icon names from `ms('…')` / `@icons`).
 - Gate: `scripts/test/stitch-diff.mjs` (SSIM + row rhythm vs `brand/stitch/*.jpg`, thresholds only go up, axe WCAG 2.2 AA inside `.st`), owner sheets `side-*.jpg` / `desk-*.jpg`. Gallery: `web/design/gallery.html` (light/dark/RTL).
+
+## 5d. ONE app frame (HARD, 31/10) – paste the prompt block into every Stitch prompt
+- Canvas: phone 390 px wide, portrait; content column max 390 px (desktop = same column centred + sidebar, never a stretched desktop layout). CI frame check fails desktop-width or off-frame output.
+- Top bar, three fixed variants: **hub** (title left, one icon action right; tabs below), **inner** (Back arrow left + title; ≤ 1 action right), **modal/focus** (Close X left + slim progress bar or title; nothing else, no lives/gems). Back/X ≥ 44 × 44 px, high contrast; Esc / system back / iOS swipe work; soft confirm only if progress would be lost.
+- Language: exactly one switch per screen, in the top bar (`#langBtn`; on phone Today the Stitch header pill, where the app top bar is hidden). Top-bar pills share one height (`--tap`, ≥ 44 px), one fill/border and even gaps; their outer edge sits on the content edge. Desktop: the content column is centred between sidebar and rail (never parked left); wide frames and the top bar share one 1080 px column, 480 px hub columns stay centred; 24 px between top bar and first content. CI: `scripts/test/topbar-lang.mjs` (360–2560 px, vi/de/ar, light/dark).
+- Bottom: hub screens show the 5 tabs **Today · Vocab · Skills · Tests · Me** (active one highlighted); inner and focus screens show no tabs. One primary CTA per screen, sticky at the bottom of focus screens, full-width on phone.
+- Rhythm: 16 px side gutter, 12/16/24 px vertical steps, rounded tactile cards (§0/§5b), every touch target ≥ 44 px, text ≥ 4.5:1 (large 3:1) in both themes.
+- Teacher slot: an empty rounded "teacher-slot" box (Stitch draws no people); code fills it with the 2D Ama/Carlos (`Chars.*`), same light and scale as the UI, grounded, no crop/halo.
+- i18n: labels must survive +40 % (de/ru) and RTL (ar): wrap, never truncate or shrink buttons.
+- Prompt block (verbatim): "Mobile phone, portrait, a single 390 px app screen of Lexkite (English learning for IELTS, TOEIC, TOEFL). Feel: friendly, tactile, game-like but calm; Lexkite Kit design system. Top bar: <hub | inner with back arrow | focus with close X and slim progress bar>; back/close buttons at least 44 px. <Five bottom tabs Today, Vocab, Skills, Tests, Me with X highlighted | no bottom tabs>. One primary button. No hearts, lives or gems; no photos or drawn people: show an empty rounded 'teacher-slot' where the teacher goes. All text strongly readable (4.5:1), every tap target at least 44 px, labels wrap for 40 % longer text."
+- Tools: `scripts/stitch/batch.mjs` (3-key queue runner, state + credits per key), `qc-pick.mjs` / `queue-fix.mjs` (machine-QC fix rounds), CI "Stitch quality QC" + `stitch-diff`.
 
 ## 6. Checks before shipping UI
 `npm test` (size budget: shell ≤ 374 KB gz (canonical gzip, scripts/lib/gz-canon.mjs), a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.

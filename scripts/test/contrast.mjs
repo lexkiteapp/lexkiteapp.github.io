@@ -10,7 +10,8 @@ let BASE = process.argv[2];
 if (!BASE) BASE = (await fetch('https://lexkite.com/app/').then(r => r.ok).catch(() => false)) ? 'https://lexkite.com/app/' : 'https://lexkite.com/';
 const ROUTES_ALL = ['home', 'vocab', 'library', 'review', 'practice', 'skills', 'tests', 'grammar', 'phrases', 'models', 'me', 'stats', 'settings', 'contact',
   'verb/take', 'fix', 'courses', 'roleplay', 'reflex', 'paraphrase', 'toeic', 'letters', 'goal', 'placement', 'usage', 'usage/interested', 'usage/stop', 'usage?c=adv', 'usage/affect-effect',
-  'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
+  'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1',
+  'streak', 'criteria', 'deck']; // 3/11: quality-sweep bắt huy hiệu 🧊, nút Band đang chọn, link sổ từ trống
 const ROUTES = process.env.CONTRAST_ROUTES ? process.env.CONTRAST_ROUTES.split(',').map(x => x.trim()).filter(Boolean) : ROUTES_ALL; // mặc định = đủ danh sách; post-deploy-check.yml chỉ chọn tập con màn chính để chạy nhanh
 const found = new Map();
 const add = (scheme, lang, where, n) => {

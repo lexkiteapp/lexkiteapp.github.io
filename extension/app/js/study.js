@@ -113,8 +113,7 @@
     const list = Object.values(state.cards);
     const end = endOfToday() + ahead * DAY;
     const due = list.filter(c => (c.srs.reps > 0 || c.srs.last) && c.srs.due <= end).sort((a, b) => a.srs.due - b.srs.due);
-    const { newCount } = ahead ? { newCount: 0 } : Cards.dueCount(state.cards, state.settings, state.stats);
-    const fresh = list.filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => a.added - b.added).slice(0, newCount);
+    const fresh = ahead ? [] : Cards.newToday(state.cards, state.settings, state.stats);
     const q = [...due];
     fresh.forEach((c, i) => q.splice(Math.min(q.length, i * 3 + 1), 0, c));
     const cap = +state.settings.sessionCap || 0;
@@ -220,7 +219,7 @@
     session.queue.slice(0, 3).forEach(k => { const x = state.cards[k]; if (x && (!x.ipa || !x.def) && App.enrichLater) App.enrichLater(k); });
     if (window.VImg) VImg.prefetch(session.queue.slice(1, 4).map(k => state.cards[k]).filter(Boolean).map(x => [x.word, x.pos])); // 🖼️ ảnh 3 thẻ kế – lúc rảnh
     let flipped = false;
-    const isNew = c.srs.reps === 0 && !c.srs.last;
+    const isNew = c.srs.reps === 0 && !c.srs.last; if (isNew) Cards.markSeen(c.word);
     const rev = session.reverse;
     const pct = session.done / Math.max(1, session.done + session.queue.length) * 100;
 
@@ -281,7 +280,7 @@
       <p class="muted tiny center kbd-hint" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
     </div>`;
     App.bindCommon();
-    const say = () => speak(c.word, accent(), UI.audioFor(c, accent()));
+    const say = on => speak(c.word, accent(), UI.audioFor(c, accent()), false, typeof on === 'function' ? on : undefined);
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
     // Nghe riêng giọng UK/US
     $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
@@ -352,7 +351,7 @@
       else if (e.key.toLowerCase() === 'z' && session.last) undo();
     };
     const ub = $('#undoBtn'); if (ub) ub.onclick = () => undo();
-    if (!rev && state.settings.autoSpeak) say();
+    if (!rev && mode === 'flip' && state.settings.autoSpeak) say(); // Gõ: đọc = lộ đáp án · Nghe: study-modes tự phát
 
     let graded = false;
     async function grade(g, el, swiped) {

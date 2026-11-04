@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Pronunciation Lab: Sound /θ/</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            // Tactile Night Palette
+            "night-bg": "#10191B",
+            "night-sidebar": "#0E1719",
+            "night-card": "#172427",
+            "night-raised": "#1E2F33",
+            "night-diagram-bg": "#132225",
+            "tactile-border": "#283C42",
+            "tactile-border-raised": "#2E464D",
+            "tactile-ledge": "#111D20",
+            "tactile-ledge-raised": "#132023",
+            "ink-primary": "#E8F1F0",
+            "ink-secondary": "#A9BDBB",
+            "teal-glow": "#2EC4B6",
+            "teal-bright": "#44E5D4",
+            "amber-gold": "#FFB054",
+            "coral-glow": "#F2553B",
+            "coral-ledge": "#9E2B16"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.25rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "title": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Tactile button sink logic & tactile dark ledges */
+    .tactile-button {
+      transition: transform 75ms ease, box-shadow 75ms ease;
+    }
+    .tactile-button:active {
+      transform: translateY(3px);
+    }
+    
+    .tactile-card-shadow {
+      box-shadow: 0 4px 0 0 #111D20;
+    }
+    .tactile-card-shadow-sm {
+      box-shadow: 0 3px 0 0 #111D20;
+    }
+    .tactile-raised-shadow {
+      box-shadow: 0 3px 0 0 #132023;
+    }
+
+    .tactile-coral-btn {
+      box-shadow: 0 5px 0 0 #9E2B16;
+    }
+    .tactile-coral-btn:active {
+      box-shadow: 0 2px 0 0 #9E2B16;
+      transform: translateY(3px);
+    }
+
+    .tactile-record-btn {
+      box-shadow: 0 6px 0 0 #B53A22;
+    }
+    .tactile-record-btn:active {
+      box-shadow: 0 2px 0 0 #B53A22;
+      transform: translateY(4px);
+    }
+
+    .tactile-secondary-btn {
+      box-shadow: 0 4px 0 0 #132023;
+    }
+    .tactile-secondary-btn:active {
+      box-shadow: 0 1px 0 0 #132023;
+      transform: translateY(3px);
+    }
+
+    /* Glossy top shine highlight */
+    .top-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .top-shine::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.01) 100%);
+      pointer-events: none;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+
+    .waveform-bar {
+      transition: height 0.2s ease, background-color 0.2s ease;
+    }
+</style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body min-h-screen flex antialiased selection:bg-[#2EC4B6]/30">
+<!-- ========================================================================= -->
+<!-- 1. LEFT DESKTOP SIDEBAR (260px)                                            -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-[260px] bg-[#0E1719] border-r-2 border-[#1E2F33] [box-shadow:4px_0_0_0_#111D20] flex flex-col justify-between p-4 z-40">
+<div>
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-2 pt-2 pb-4 border-b border-[#1E2F33]">
+<!-- Kite Emblem Logo Mark -->
+<div class="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2EC4B6] to-[#107E6F] p-0.5 [box-shadow:0_4px_0_0_#0D3B3A] flex items-center justify-center top-shine">
+<svg class="w-6 h-6 text-white drop-shadow-sm" fill="currentColor" viewbox="0 0 24 24">
+<polygon opacity="0.9" points="12,2 21,9 12,22 3,9"></polygon>
+<line stroke="#E8F1F0" stroke-dasharray="2,2" stroke-width="1.8" x1="12" x2="12" y1="2" y2="22"></line>
+<line stroke="#E8F1F0" stroke-width="1.8" x1="3" x2="21" y1="9" y2="9"></line>
+</svg>
+</div>
+<div>
+<h1 class="text-title font-title font-extrabold text-[#E8F1F0] tracking-tight leading-none">Lexkite</h1>
+<span class="text-[11px] font-label font-bold text-[#A9BDBB] uppercase tracking-wider mt-1 block">Language Mastery</span>
+</div>
+</div>
+<!-- Quick Counters (Streak & XP) -->
+<div class="grid grid-cols-2 gap-2 mt-4">
+<!-- Streak Counter -->
+<div class="flex items-center gap-2 px-2.5 py-2 rounded-xl bg-[#172427] border-2 border-[#283C42] [box-shadow:0_3px_0_0_#111D20]">
+<span class="material-symbols-outlined text-[#F2553B] text-[20px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div>
+<div class="text-[14px] font-extrabold text-[#E8F1F0] leading-tight">14 Days</div>
+<div class="text-[10px] font-bold text-[#A9BDBB] uppercase">Streak</div>
+</div>
+</div>
+<!-- Experience Counter -->
+<div class="flex items-center gap-2 px-2.5 py-2 rounded-xl bg-[#172427] border-2 border-[#283C42] [box-shadow:0_3px_0_0_#111D20]">
+<span class="material-symbols-outlined text-[#FFB054] text-[20px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div>
+<div class="text-[14px] font-extrabold text-[#E8F1F0] leading-tight">820 XP</div>
+<div class="text-[10px] font-bold text-[#A9BDBB] uppercase">Experience</div>
+</div>
+</div>
+</div>
+<!-- 5 Navigation Tabs (Shared Component Schema: Today, Vocab, Skills [ACTIVE], Tests, Me) -->
+<nav aria-label="Main Navigation" class="mt-6 flex flex-col space-y-1.5">
+<!-- Today Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#172427] transition-all font-bold text-body" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span>Today</span>
+</a>
+<!-- Vocab Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#172427] transition-all font-bold text-body" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span>Vocab</span>
+</a>
+<!-- Skills Tab (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#1A383B] text-[#44E5D4] border-2 border-[#2EC4B6] [box-shadow:0_4px_0_0_#0D3B3A] font-extrabold text-body top-shine" href="#skills">
+<span class="material-symbols-outlined text-[24px] text-[#2EC4B6]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="tracking-wide">Skills</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-[#44E5D4] animate-pulse"></span>
+</a>
+<!-- Tests Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#172427] transition-all font-bold text-body" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span>Tests</span>
+</a>
+<!-- Me Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#172427] transition-all font-bold text-body" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span>Me</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Profile Card -->
+<div class="mt-auto pt-4 border-t border-[#1E2F33]">
+<div class="p-3 bg-[#172427] border-2 border-[#283C42] [box-shadow:0_3px_0_0_#111D20] rounded-2xl flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#1E2F33] text-[#44E5D4] border border-[#2EC4B6]/40 flex items-center justify-center font-extrabold text-[16px] [box-shadow:0_3px_0_0_#111D20]">
+          K
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-body font-bold text-[#E8F1F0] truncate leading-tight">Learner Kai</h4>
+<span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-[#FFB054]/20 text-[#FFB054] border border-[#FFB054]/50">Lv 7</span>
+</div>
+<p class="text-[11px] font-semibold text-[#A9BDBB] truncate mt-0.5">IELTS Band 7.5+ Target</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- 2. MAIN WORK AREA (1020px container in ml-[260px] layout)                -->
+<!-- ========================================================================= -->
+<main class="ml-[260px] w-[calc(100%-260px)] min-h-screen flex flex-col justify-between pb-32">
+<!-- Top Sticky Sub-Header with Diagnostic Placement Breadcrumb & Audio Tools -->
+<header class="sticky top-0 z-30 bg-[#0E1719]/95 backdrop-blur-md border-b-2 border-[#1E2F33] [box-shadow:0_3px_0_0_#111D20] px-8 py-3.5 flex justify-between items-center">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-label font-label">
+<span class="text-[#A9BDBB] font-bold">Skills</span>
+<span class="material-symbols-outlined text-[16px] text-[#4C666C]">chevron_right</span>
+<span class="text-[#A9BDBB] font-bold">Pronunciation Lab</span>
+<span class="material-symbols-outlined text-[16px] text-[#4C666C]">chevron_right</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#1A383B] text-[#44E5D4] border border-[#2EC4B6]/60 font-extrabold tracking-wide">
+          Sound /θ/ (Unvoiced TH)
+        </span>
+</nav>
+<!-- Action Chips & Controls -->
+<div class="flex items-center gap-3">
+<button class="tactile-button flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] [box-shadow:0_3px_0_0_#132023] text-[13px] font-bold text-[#E8F1F0] hover:bg-[#25393E]" title="Calibration Mode" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#2EC4B6]">tune</span>
+<span>Mic Calibrated</span>
+</button>
+<button class="tactile-button p-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] [box-shadow:0_3px_0_0_#132023] text-[#A9BDBB] hover:text-[#E8F1F0]" title="Help &amp; Articulation Notes" type="button">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+<button class="tactile-button p-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] [box-shadow:0_3px_0_0_#132023] text-[#A9BDBB] hover:text-[#E8F1F0]" title="Report Sound Discrepancy" type="button">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</button>
+</div>
+</header>
+<!-- Content Workspace Container (Max Width 1020px) -->
+<div class="max-w-[1020px] w-full mx-auto px-8 pt-8 space-y-6">
+<!-- ========================================================================= -->
+<!-- TOP HERO CARD / SOUND OVERVIEW                                            -->
+<!-- ========================================================================= -->
+<section class="bg-[#172427] rounded-3xl border-2 border-[#283C42] tactile-card-shadow p-6 relative overflow-hidden">
+<!-- Accent top border glow -->
+<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2EC4B6] via-[#FFB054] to-[#F2553B]"></div>
+<div class="flex flex-col lg:flex-row gap-6 items-stretch justify-between">
+<!-- Left: Phonetic Definition & Key Rules -->
+<div class="flex-1 space-y-4">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-xl bg-[#102D30] text-[#44E5D4] border-2 border-[#2EC4B6] font-title text-[20px] [box-shadow:0_3px_0_0_#0D3B3A]">
+                /θ/
+              </span>
+<div>
+<h2 class="text-title font-title font-extrabold text-[#E8F1F0] leading-tight">
+                  Voiceless Dental Fricative
+                </h2>
+<p class="text-body text-[14px] text-[#A9BDBB] font-medium">
+                  Found in anchor words: <strong class="text-[#E8F1F0]">"think"</strong>, <strong class="text-[#E8F1F0]">"three"</strong>, <strong class="text-[#E8F1F0]">"method"</strong>.
+                </p>
+</div>
+</div>
+<!-- Phonetic Cue Card -->
+<div class="p-4 rounded-2xl bg-[#1E2F33] border-2 border-[#2E464D] flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-xl bg-[#2EC4B6]/20 flex items-center justify-center flex-shrink-0 text-[#2EC4B6]">
+<span class="material-symbols-outlined text-[22px]">record_voice_over</span>
+</div>
+<div class="space-y-1">
+<div class="text-[13px] font-label uppercase tracking-wider text-[#44E5D4] font-extrabold">Physical Mechanics</div>
+<p class="text-body text-[14px] text-[#E8F1F0] leading-relaxed">
+                  Place tongue tip lightly between top &amp; bottom front incisors. Release steady, continuous air stream without vocal cord vibration (voiceless).
+                </p>
+</div>
+</div>
+<!-- Audio Reference Buttons -->
+<div class="flex flex-wrap items-center gap-2.5 pt-1">
+<!-- UK Audio -->
+<button class="tactile-secondary-btn tactile-button flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] hover:bg-[#25393E] text-[#E8F1F0] text-[13px] font-bold" type="button">
+<span class="material-symbols-outlined text-[#2EC4B6] text-[18px]">volume_up</span>
+<span>Native UK <span class="text-[#A9BDBB] font-normal">(/θɪŋk/)</span></span>
+</button>
+<!-- US Audio -->
+<button class="tactile-secondary-btn tactile-button flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] hover:bg-[#25393E] text-[#E8F1F0] text-[13px] font-bold" type="button">
+<span class="material-symbols-outlined text-[#2EC4B6] text-[18px]">volume_up</span>
+<span>Native US <span class="text-[#A9BDBB] font-normal">(/θɪŋk/)</span></span>
+</button>
+<!-- Slow Rate 0.75x -->
+<button class="tactile-secondary-btn tactile-button flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] hover:bg-[#25393E] text-[#A9BDBB] hover:text-[#E8F1F0] text-[13px] font-bold" type="button">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span>Slow 0.75×</span>
+</button>
+</div>
+</div>
+<!-- Middle: Stylized Vector Mouth / Articulation Diagram -->
+<div class="w-full lg:w-[260px] bg-[#132225] rounded-2xl border-2 border-[#283C42] p-3 flex flex-col items-center justify-between">
+<div class="w-full flex items-center justify-between pb-1 px-1 border-b border-[#283C42]">
+<span class="text-[11px] font-label uppercase font-extrabold text-[#A9BDBB]">Articulation Cutaway</span>
+<span class="text-[10px] font-bold text-[#44E5D4] bg-[#1A383B] px-1.5 py-0.5 rounded border border-[#2EC4B6]/40">Cross-Section</span>
+</div>
+<!-- Tactile Geometric Vector Diagram (Dark theme adapted) -->
+<div class="py-2 flex items-center justify-center">
+<svg class="w-48 h-28" fill="none" viewbox="0 0 200 115">
+<!-- Head / Profile silhouette background -->
+<path d="M 30,10 C 65,8 100,10 120,20 C 135,27 150,45 152,70" fill="none" stroke="#2E464D" stroke-dasharray="3,3" stroke-linecap="round" stroke-width="3"></path>
+<!-- Palate / Upper Gum -->
+<path d="M 45,32 C 75,32 105,38 120,50" fill="none" stroke="#A9BDBB" stroke-linecap="round" stroke-width="4"></path>
+<!-- Upper Teeth (Incisor) -->
+<path d="M 120,50 L 122,64 L 115,64 Z" fill="#E8F1F0" stroke="#2EC4B6" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Lower Teeth (Incisor) -->
+<path d="M 118,80 L 121,94 L 113,94 Z" fill="#E8F1F0" stroke="#2EC4B6" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Tongue Tip Positioned between Teeth -->
+<path d="M 55,88 C 80,88 102,76 128,70 C 134,68 132,74 126,76 C 105,83 90,98 55,98 Z" fill="#FFB054" stroke="#D98A28" stroke-width="2.5"></path>
+<!-- Airflow Arrow Indicators -->
+<path d="M 122,66 C 135,66 148,65 162,64" stroke="#F2553B" stroke-dasharray="4,3" stroke-linecap="round" stroke-width="2.5"></path>
+<polygon fill="#F2553B" points="166,64 158,60 159,68"></polygon>
+<path d="M 124,73 C 138,74 150,75 162,77" stroke="#F2553B" stroke-dasharray="3,3" stroke-linecap="round" stroke-width="2"></path>
+<!-- Text markers -->
+<text fill="#F2553B" font-family="Plus Jakarta Sans" font-size="10" font-weight="800" x="135" y="55">AIRFLOW</text>
+<text fill="#A9BDBB" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" x="65" y="70">TONGUE TIP</text>
+</svg>
+</div>
+<div class="w-full text-center py-1 bg-[#1E2F33] rounded-lg border border-[#2E464D] text-[11px] font-bold text-[#E8F1F0]">
+              Tip protrudes 2–3mm between teeth
+            </div>
+</div>
+<!-- Right: Empty Teacher Slot (.teacher-slot) with Speech Bubble -->
+<div class="w-full lg:w-[220px] flex flex-col items-center justify-between">
+<!-- Speech bubble from Teacher Carlos -->
+<div class="relative bg-[#1E2F33] border-2 border-[#2EC4B6] rounded-xl p-3 text-[12px] text-[#E8F1F0] font-bold leading-snug [box-shadow:0_3px_0_0_#132023] mb-3">
+              "Place your tongue lightly between your teeth without biting!"
+              <!-- Downward Bubble pointer -->
+<div class="absolute -bottom-2.5 left-8 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#2EC4B6]"></div>
+</div>
+<!-- The .teacher-slot (Dashed teal border, dark slate container) -->
+<div class="teacher-slot w-[160px] h-[135px] rounded-2xl border-2 border-dashed border-[#2EC4B6] bg-[#172427] flex flex-col items-center justify-center p-3 text-center group hover:bg-[#1E2F33] transition-colors">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#2EC4B6] flex items-center justify-center text-[#2EC4B6] mb-2 [box-shadow:0_2px_0_0_#111D20]">
+<span class="material-symbols-outlined text-[22px]">videocam_off</span>
+</div>
+<span class="text-[12px] font-extrabold text-[#E8F1F0] leading-tight">teacher-slot</span>
+<span class="text-[10px] font-semibold text-[#A9BDBB] mt-0.5">Carlos • Ready on tap</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. INTERACTIVE PRACTICE & RECORDING STUDIO                                -->
+<!-- ========================================================================= -->
+<section class="bg-[#172427] rounded-3xl border-2 border-[#283C42] tactile-card-shadow p-6 space-y-6">
+<!-- Section Header with Real-time Calibrated Metrics -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b-2 border-[#283C42]">
+<div>
+<span class="text-label font-label text-[#44E5D4] uppercase">Live Acoustic Diagnostic</span>
+<h3 class="text-title font-title font-extrabold text-[#E8F1F0] flex items-center gap-2">
+              Practice Target: <span class="underline decoration-[#FFB054] decoration-4 underline-offset-4">/θɪŋk/ "think"</span>
+</h3>
+</div>
+<!-- Score Card / Attempt Metric Pill -->
+<div class="flex items-center gap-3">
+<div class="px-4 py-2 rounded-2xl bg-[#1A383B] border-2 border-[#2EC4B6] [box-shadow:0_4px_0_0_#0D3B3A] flex items-center gap-3">
+<div class="text-[26px] font-black text-[#44E5D4] leading-none">82%</div>
+<div class="border-l border-[#2EC4B6]/40 pl-2.5 text-left">
+<div class="text-[11px] font-extrabold text-[#44E5D4] uppercase tracking-wider">Good Quality</div>
+<div class="text-[11px] font-bold text-[#E8F1F0]">Pitch &amp; Friction Calibrated</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Audio Waveform Strip with Syllable & Friction Phase Markers -->
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[12px] font-extrabold text-[#A9BDBB]">
+<span class="flex items-center gap-1.5 text-[#E8F1F0]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F2553B] animate-pulse"></span>
+              Acoustic Profile Analysis
+            </span>
+<div class="flex items-center gap-4 text-[11px]">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#2EC4B6]"></span> /θ/ Friction (Turbulence)</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#FFB054]"></span> /ɪ/ Vowel Formant</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#A9BDBB]"></span> /ŋk/ Velar Release</span>
+</div>
+</div>
+<!-- Waveform container -->
+<div class="h-24 w-full bg-[#132225] rounded-2xl border-2 border-[#283C42] p-3 flex flex-col justify-between relative overflow-hidden">
+<!-- Background segmentation grids -->
+<div class="absolute inset-0 grid grid-cols-3 pointer-events-none">
+<div class="border-r border-dashed border-[#2EC4B6]/40 bg-[#2EC4B6]/5 flex items-end p-2">
+<span class="text-[10px] font-extrabold text-[#44E5D4]">/θ/ Phase (0.0s - 0.22s)</span>
+</div>
+<div class="border-r border-dashed border-[#FFB054]/40 bg-[#FFB054]/5 flex items-end p-2">
+<span class="text-[10px] font-extrabold text-[#FFB054]">Vowel Release (0.22s - 0.45s)</span>
+</div>
+<div class="bg-black/20 flex items-end p-2">
+<span class="text-[10px] font-extrabold text-[#A9BDBB]">Nasal / Velar Plosive</span>
+</div>
+</div>
+<!-- Stylized Bar Spectrum (48 dynamic bars) -->
+<div class="relative z-10 h-full flex items-center justify-between gap-1 px-2 pt-1 pb-4">
+<!-- /θ/ Noise friction segment (Fine dense erratic bars) -->
+<div class="waveform-bar w-1.5 h-6 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-10 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-14 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-9 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-16 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-12 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-15 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-11 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-13 rounded-full bg-[#2EC4B6]"></div>
+<div class="waveform-bar w-1.5 h-16 rounded-full bg-[#2EC4B6]"></div>
+<!-- Transition -->
+<div class="waveform-bar w-1.5 h-4 rounded-full bg-[#283C42]"></div>
+<!-- /ɪ/ Vowel Formant Peak (High amplitude harmonious bars) -->
+<div class="waveform-bar w-1.5 h-8 rounded-full bg-[#FFB054]"></div>
+<div class="waveform-bar w-1.5 h-14 rounded-full bg-[#FFB054]"></div>
+<div class="waveform-bar w-1.5 h-18 rounded-full bg-[#FFB054]"></div>
+<div class="waveform-bar w-1.5 h-20 rounded-full bg-[#FFB054]"></div>
+<div class="waveform-bar w-1.5 h-19 rounded-full bg-[#FFB054]"></div>
+<div class="waveform-bar w-1.5 h-14 rounded-full bg-[#FFB054]"></div>
+<div class="waveform-bar w-1.5 h-12 rounded-full bg-[#FFB054]"></div>
+<!-- Transition -->
+<div class="waveform-bar w-1.5 h-5 rounded-full bg-[#283C42]"></div>
+<!-- /ŋk/ Nasal & Plosive burst -->
+<div class="waveform-bar w-1.5 h-9 rounded-full bg-[#44E5D4]"></div>
+<div class="waveform-bar w-1.5 h-11 rounded-full bg-[#44E5D4]"></div>
+<div class="waveform-bar w-1.5 h-13 rounded-full bg-[#44E5D4]"></div>
+<div class="waveform-bar w-1.5 h-3 rounded-full bg-[#A9BDBB]"></div> <!-- Silence closure before plosive -->
+<div class="waveform-bar w-1.5 h-16 rounded-full bg-[#F2553B]"></div> <!-- Burst -->
+<div class="waveform-bar w-1.5 h-7 rounded-full bg-[#A9BDBB]"></div>
+<div class="waveform-bar w-1.5 h-3 rounded-full bg-[#283C42]"></div>
+</div>
+</div>
+</div>
+<!-- Recording Controls & Compare Hub -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-2">
+<!-- Playback & Comparison Tools -->
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="tactile-secondary-btn tactile-button flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-[#1E2F33] border-2 border-[#2E464D] text-[14px] font-bold text-[#E8F1F0] hover:bg-[#25393E]" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">play_circle</span>
+<span>Listen to your recording</span>
+</button>
+<button class="tactile-secondary-btn tactile-button flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-[#1E2F33] border-2 border-[#2E464D] text-[14px] font-bold text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#25393E]" type="button">
+<span class="material-symbols-outlined text-[20px]">hearing</span>
+<span>Examiner model</span>
+</button>
+</div>
+<!-- Big Round 64px Tactile Record Button -->
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<span class="text-[13px] font-extrabold text-[#E8F1F0] block leading-tight">Hold to Speak</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">or Tap to Record</span>
+</div>
+<!-- Big 64px Circular Tactile Coral Record Button -->
+<button class="tactile-record-btn tactile-button relative w-16 h-16 rounded-full bg-gradient-to-b from-[#F2553B] to-[#E04026] text-white flex items-center justify-center top-shine cursor-pointer group" title="Record Target Pronunciation" type="button">
+<!-- Pulsing Ripple Indicator Ring -->
+<span class="absolute -inset-1.5 rounded-full border-2 border-[#F2553B]/50 animate-ping pointer-events-none"></span>
+<span class="material-symbols-outlined text-[32px] text-white group-hover:scale-110 transition-transform">mic</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. MINIMAL PAIRS DRILL SECTION                                            -->
+<!-- ========================================================================= -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-title font-title font-extrabold text-[#E8F1F0]">
+              Minimal Pairs Diagnostic Matrix
+            </h3>
+<p class="text-body text-[14px] text-[#A9BDBB]">
+              High-stakes exam sound contrasts frequently confused by multilingual learners.
+            </p>
+</div>
+<span class="text-[12px] font-extrabold px-3 py-1 rounded-xl bg-[#1A383B] text-[#44E5D4] border border-[#2EC4B6]">
+            4 Pairs Active
+          </span>
+</div>
+<!-- Tactile Cards Grid of Minimal Pairs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Pair 1: think vs sink -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#283C42] tactile-card-shadow p-4 flex flex-col justify-between hover:border-[#2EC4B6] transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[11px] font-label uppercase font-extrabold text-[#44E5D4]">Dental /θ/ vs Alveolar /s/</span>
+<div class="flex items-baseline gap-3 mt-1">
+<span class="text-[20px] font-black text-[#E8F1F0]">think <span class="text-[14px] font-semibold text-[#2EC4B6]">/θɪŋk/</span></span>
+<span class="text-[13px] font-bold text-[#6D8389]">vs</span>
+<span class="text-[18px] font-bold text-[#A9BDBB]">sink <span class="text-[14px] font-normal text-[#6D8389]">/sɪŋk/</span></span>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-[#1A383B] text-[#44E5D4] border border-[#2EC4B6]/60 text-[11px] font-extrabold">
+                88% • Mastered
+              </span>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3 border-t border-[#1E2F33]">
+<div class="text-[12px] font-semibold text-[#A9BDBB]">Focus: Airflow diffusion</div>
+<div class="flex items-center gap-2">
+<button class="tactile-secondary-btn tactile-button p-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#E8F1F0] hover:bg-[#25393E]" title="Play Pair" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<button class="tactile-secondary-btn tactile-button flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#F2553B] font-extrabold text-[12px] hover:bg-[#25393E]" title="Test Pair" type="button">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+<span>Drill</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pair 2: three vs free -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#283C42] tactile-card-shadow p-4 flex flex-col justify-between hover:border-[#2EC4B6] transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[11px] font-label uppercase font-extrabold text-[#FFB054]">Dental /θ/ vs Labiodental /f/</span>
+<div class="flex items-baseline gap-3 mt-1">
+<span class="text-[20px] font-black text-[#E8F1F0]">three <span class="text-[14px] font-semibold text-[#2EC4B6]">/θriː/</span></span>
+<span class="text-[13px] font-bold text-[#6D8389]">vs</span>
+<span class="text-[18px] font-bold text-[#A9BDBB]">free <span class="text-[14px] font-normal text-[#6D8389]">/friː/</span></span>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-[#FFB054]/15 text-[#FFB054] border border-[#FFB054]/50 text-[11px] font-extrabold">
+                78% • Needs Polish
+              </span>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3 border-t border-[#1E2F33]">
+<div class="text-[12px] font-semibold text-[#A9BDBB]">Common lip-tuck error</div>
+<div class="flex items-center gap-2">
+<button class="tactile-secondary-btn tactile-button p-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#E8F1F0] hover:bg-[#25393E]" title="Play Pair" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<button class="tactile-secondary-btn tactile-button flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#F2553B] font-extrabold text-[12px] hover:bg-[#25393E]" title="Test Pair" type="button">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+<span>Drill</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pair 3: thought vs fought -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#283C42] tactile-card-shadow p-4 flex flex-col justify-between hover:border-[#2EC4B6] transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[11px] font-label uppercase font-extrabold text-[#44E5D4]">Dental /θ/ vs Labiodental /f/</span>
+<div class="flex items-baseline gap-3 mt-1">
+<span class="text-[20px] font-black text-[#E8F1F0]">thought <span class="text-[14px] font-semibold text-[#2EC4B6]">/θɔːt/</span></span>
+<span class="text-[13px] font-bold text-[#6D8389]">vs</span>
+<span class="text-[18px] font-bold text-[#A9BDBB]">fought <span class="text-[14px] font-normal text-[#6D8389]">/fɔːt/</span></span>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-[#1A383B] text-[#44E5D4] border border-[#2EC4B6]/60 text-[11px] font-extrabold">
+                84% • Mastered
+              </span>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3 border-t border-[#1E2F33]">
+<div class="text-[12px] font-semibold text-[#A9BDBB]">Open back vowel stability</div>
+<div class="flex items-center gap-2">
+<button class="tactile-secondary-btn tactile-button p-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#E8F1F0] hover:bg-[#25393E]" title="Play Pair" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<button class="tactile-secondary-btn tactile-button flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#F2553B] font-extrabold text-[12px] hover:bg-[#25393E]" title="Test Pair" type="button">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+<span>Drill</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pair 4: theme vs seam -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#283C42] tactile-card-shadow p-4 flex flex-col justify-between hover:border-[#2EC4B6] transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[11px] font-label uppercase font-extrabold text-[#44E5D4]">Dental /θ/ vs Alveolar /s/</span>
+<div class="flex items-baseline gap-3 mt-1">
+<span class="text-[20px] font-black text-[#E8F1F0]">theme <span class="text-[14px] font-semibold text-[#2EC4B6]">/θiːm/</span></span>
+<span class="text-[13px] font-bold text-[#6D8389]">vs</span>
+<span class="text-[18px] font-bold text-[#A9BDBB]">seam <span class="text-[14px] font-normal text-[#6D8389]">/siːm/</span></span>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-[#1A383B] text-[#44E5D4] border border-[#2EC4B6]/60 text-[11px] font-extrabold">
+                82% • Mastered
+              </span>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3 border-t border-[#1E2F33]">
+<div class="text-[12px] font-semibold text-[#A9BDBB]">High front vowel transition</div>
+<div class="flex items-center gap-2">
+<button class="tactile-secondary-btn tactile-button p-2 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#E8F1F0] hover:bg-[#25393E]" title="Play Pair" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<button class="tactile-secondary-btn tactile-button flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#2E464D] text-[#F2553B] font-extrabold text-[12px] hover:bg-[#25393E]" title="Test Pair" type="button">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+<span>Drill</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ========================================================================= -->
+<!-- 5. STICKY BOTTOM ACTION BAR (Maximum Tactile Impact)                      -->
+<!-- ========================================================================= -->
+<div class="fixed bottom-0 right-0 left-[260px] bg-[#0E1719]/95 backdrop-blur-md border-t-2 border-[#1E2F33] [box-shadow:0_-4px_0_0_#111D20] px-8 py-4 z-30">
+<div class="max-w-[1020px] mx-auto flex items-center justify-between gap-4">
+<!-- Progress mini summary -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1A383B] border-2 border-[#2EC4B6] [box-shadow:0_2px_0_0_#0D3B3A] flex items-center justify-center text-[#44E5D4]">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<div class="text-[14px] font-extrabold text-[#E8F1F0] leading-tight">Session Proficiency: 83%</div>
+<div class="text-[12px] font-semibold text-[#A9BDBB]">4 of 4 minimal pair diagnostics verified</div>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-3">
+<!-- Secondary Action Button -->
+<button class="tactile-secondary-btn tactile-button px-6 py-3 rounded-2xl bg-[#1E2F33] border-2 border-[#2E464D] text-[15px] font-extrabold text-[#E8F1F0] hover:bg-[#25393E] transition-colors" type="button">
+            Practice in Sentences
+          </button>
+<!-- Primary CTA Button (Tactile coral-to-amber gradient with 5px ledge) -->
+<button class="tactile-coral-btn tactile-button top-shine flex items-center gap-2.5 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFB054] border-2 border-[#B53A22] text-[#1B0B04] text-[16px] font-black tracking-wide hover:brightness-105" type="button">
+<span>Complete Sound /θ/ Drill (+25 XP)</span>
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

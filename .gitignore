@@ -69,3 +69,4 @@ web/data/lex-index.json
 .media-out/
 dist-dict/
 .sa/
+reports/top1/

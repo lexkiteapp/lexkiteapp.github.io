@@ -2,11 +2,15 @@
 // Gửi URL bài/trang mới lên Internet Archive (Wayback Machine) để lưu bằng chứng thời gian bất biến.
 // Dùng: node scripts/wayback-snapshot.mjs [--dry] [--force] [--delay 12000] [url...]
 // Hoặc kết hợp: node scripts/blog-due.mjs --since 1440 | node scripts/wayback-snapshot.mjs
+// Mọi trang công khai mới/đổi: node scripts/wayback-snapshot.mjs --sitemap [--max 80]  (đọc https://lexkite.com/sitemap.xml, lastmod > lần lưu cuối)
+// Lỗi 3/11/2026: bản cũ gọi saveSnapshot/sleep chưa định nghĩa → bước Wayback luôn ném lỗi (continue-on-error che) – sổ có 0 mục archive.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readRegistry, recordArchive } from './lib/content-registry.mjs';
+import { saveSnapshot, sleep, parseSitemap, pickChanged } from './lib/wayback.mjs';
+import { request } from './lib/http.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REGISTRY_PATH = path.join(ROOT_DIR, 'content', 'protection', 'registry.jsonl'); // sổ băm chuỗi chung (scripts/lib/content-registry.mjs)
@@ -23,20 +27,30 @@ if (delayIdx !== -1 && args[delayIdx + 1]) {
 
 // Thu thập URLs
 let urls = args.filter(a => !a.startsWith('--') && (a.startsWith('http://') || a.startsWith('https://')));
-if (!urls.length && !process.stdin.isTTY) {
+if (!urls.length && !process.stdin.isTTY && !args.includes('--sitemap')) {
   urls = fs.readFileSync(0, 'utf8').split(/\s+/).filter(u => u.startsWith('http://') || u.startsWith('https://'));
 }
 
 urls = [...new Set(urls)];
+const sitemapMode = args.includes('--sitemap'), maxIdx = args.indexOf('--max'), max = maxIdx >= 0 ? Number(args[maxIdx + 1]) || 80 : 80;
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  if (sitemapMode) { // mọi trang công khai trong sitemap: mới hoặc lastmod sau lần lưu cuối
+    const get = async u => { const r = request(u); return r.status === 200 ? r.body : ''; }; // curl (chạy cả sau proxy)
+    let pages = [], top = parseSitemap(await get('https://lexkite.com/sitemap.xml'));
+    for (const x of top) if (x.kind === 'sitemap') pages.push(...parseSitemap(await get(x.loc)).filter(y => y.kind === 'url')); else pages.push(x);
+    const archived = new Map(); for (const e of readRegistry(REGISTRY_PATH)) if (e.type === 'archive' && e.service === 'wayback') archived.set(e.url, e.at);
+    pages = pages.filter(p => /^https:\/\/lexkite\.com\//.test(p.loc));
+    urls = pickChanged(pages, archived, max).map(p => p.loc);
+    console.log(`ℹ sitemap: ${pages.length} trang, ${archived.size} đã có bản lưu → lần này ${urls.length} (tối đa ${max})`);
+  }
   if (!urls.length) {
     console.log('wayback-snapshot: Không có URL nào cần lưu.');
     process.exit(0);
   }
 
   const done = new Set(readRegistry(REGISTRY_PATH).filter(e => e.type === 'archive' && e.service === 'wayback').map(e => e.url));
-  const queue = urls.filter(u => force || !done.has(u));
+  const queue = sitemapMode ? urls : urls.filter(u => force || !done.has(u));
   console.log(`ℹ wayback-snapshot: Nhận ${urls.length} URL, cần xử lý ${queue.length} URL mới.`);
 
   if (dry) {
@@ -63,5 +77,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   }
 
   console.log(`✓ Hoàn thành: Đã lưu ${count}/${queue.length} bản ghi vào sổ đăng ký ${REGISTRY_PATH}`);
+  if (queue.length && !count) console.log('::warning::Wayback: không lưu được trang nào lần này (429/mạng) – lần chạy sau thử lại');
   process.exit(0);
 }
