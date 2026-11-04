@@ -37,33 +37,9 @@
    "home@1440l",
    "home@1440d"
   ],
-  "cls|lesson": [
-   "lesson@1440l",
-   "lesson@1440d"
-  ],
-  "cls|review": [
-   "review@1440l",
-   "review@1440d"
-  ],
-  "cls|review-card": [
-   "review-card@1440l",
-   "review-card@1440d"
-  ],
-  "cls|review-type": [
-   "review-type@1440l",
-   "review-type@1440d"
-  ],
   "cls|ux1-home": [
    "ux1-home@1440l",
    "ux1-home@1440d"
-  ],
-  "cls|ux1-me": [
-   "ux1-me@1440l",
-   "ux1-me@1440d"
-  ],
-  "cls|ux1-train": [
-   "ux1-train@1440l",
-   "ux1-train@1440d"
   ],
   "nolabel|div.set-row>div.set-c>select.input.lang-select": [
    "settings@390l",
