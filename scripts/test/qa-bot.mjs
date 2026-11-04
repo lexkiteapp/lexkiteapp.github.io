@@ -246,7 +246,7 @@ async function ui(w, theme) {
         await sleep(400);
         const bad = await page.evaluate(() => { const out = [], side = document.querySelector('.sidebar');
           if (side.scrollWidth > side.clientWidth + 1) out.push(`tràn ngang ${side.scrollWidth}/${side.clientWidth}`);
-          for (const e of document.querySelectorAll('#nav a, #nav summary, .side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width) continue;
+          for (const e of document.querySelectorAll('#nav a, #nav summary, .side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width || (e.checkVisibility && !e.checkVisibility())) continue; // nhóm đóng: content-visibility:hidden vẫn có kích thước
             e.scrollIntoView({ block: 'nearest', behavior: 'instant' }); const r = e.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2), n = (e.innerText || e.id).trim().split('\n')[0];
             if (r.bottom > innerHeight + 1 || r.top < 0) out.push(`"${n}" bị cắt (${Math.round(r.top)}…${Math.round(r.bottom)} / ${innerHeight})`);
             else if (!hit || !(e === hit || e.contains(hit))) out.push(`"${n}" bị đè`); }
