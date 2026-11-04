@@ -6,8 +6,8 @@
 //   node scripts/lesson/build-card.mjs --report   báo % câu có mẫu / có nghĩa theo nguồn
 import fs from 'fs';
 import path from 'path';
-import { pathToFileURL } from 'url';
-const R = path.resolve(new URL('../..', import.meta.url).pathname);
+import { pathToFileURL, fileURLToPath } from 'url';
+const R = fileURLToPath(new URL('../..', import.meta.url));
 const SRC = path.join(R, 'content/lesson/card'), OUT = path.join(R, 'web/packs/lcard');
 await import(pathToFileURL(path.join(R, 'web/js/lesson/card.js')).href);
 const C = globalThis.LearnCard;
@@ -42,16 +42,16 @@ function validate(frames) {
       if (!/\[.+?\]/.test(a)) at(`câu đổi không đánh dấu [..]: ${a}`);
       const s = C.altText(a);
       if (!/^["“A-Z0-9]/.test(s) || !/[.!?"”]$/.test(s)) at(`câu đổi sai dấu/viết hoa: ${s}`);
-      if (!r.test(s)) at(`câu đổi không khớp chính mẫu: ${s}`);
+      if (!r.test(s) || !C.fits(f, s)) at(`câu đổi không khớp chính mẫu: ${s}`);
     }
-    for (const s of f.test || []) if (!r.test(s)) at(`ví dụ không khớp: ${s}`);
-    for (const s of f.not || []) if (r.test(s)) at(`khớp nhầm: ${s}`);
+    for (const s of f.test || []) if (!r.test(s) || !C.fits(f, s)) at(`ví dụ không khớp: ${s}`);
+    for (const s of f.not || []) if (r.test(s) && C.fits(f, s)) at(`khớp nhầm: ${s}`);
   }
   return err;
 }
 const load = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 const frames = load(path.join(SRC, 'frames.json')).frames;
-const VI = /[ăâđêôơưĂÂĐÊÔƠƯàảãáạằẳẵắặầẩẫấậèẻẽéẹềểễếệìỉĩíịòỏõóọồổỗốộờởỡớợùủũúụừửữứựỳỷỹýỵ]/;
+const VI = /[ăđơưĂĐƠƯ\u1EA0-\u1EF9]/; // chữ chỉ tiếng Việt có (á, é, ê… dùng chung với es/fr/pt)
 
 export function build() {
   const err = validate(frames), S = storySentences(), files = {};
@@ -59,7 +59,7 @@ export function build() {
   for (const L of LANGS) {
     const p = path.join(SRC, 'tr', L + '.json'); if (!fs.existsSync(p)) { err.push(`${L}: thiếu ${path.relative(R, p)}`); continue; }
     const j = load(p), s = {}, i = {};
-    for (const en of S) { const v = j.s && j.s[en]; if (!v) { err.push(`${L}: thiếu bản dịch "${en}"`); continue; } if (C.norm(v) === C.norm(en) && !/^[A-Z][a-z]+[.!?]?$/.test(en)) err.push(`${L}: chưa dịch "${en}"`); if (L !== 'vi' && VI.test(v) && !/[a-z]/.test('')) err.push(`${L}: lẫn tiếng Việt "${v}"`); s[C.norm(en)] = v; }
+    for (const en of S) { const v = j.s && j.s[en]; if (!v) { err.push(`${L}: thiếu bản dịch "${en}"`); continue; } if (C.norm(v) === C.norm(en) && !/^[A-Z][a-z]+[.!?]?$/.test(en)) err.push(`${L}: chưa dịch "${en}"`); if (L !== 'vi' && VI.test(v)) err.push(`${L}: lẫn tiếng Việt "${v}"`); s[C.norm(en)] = v; }
     for (const f of frames) if (f.idiom) { const v = j.i && j.i[f.id]; if (!v) err.push(`${L}: thiếu nghĩa thành ngữ ${f.id}`); else i[f.id] = v; }
     files[L + '.json'] = JSON.stringify({ s, i });
   }

@@ -9,8 +9,17 @@
   /** Mẫu câu của một câu: mẫu đầu tiên khớp trong danh sách (đặt cụ thể trước, chung sau). → frame | null */
   function match(sent, frames) {
     const s = clean(sent); if (!s || !frames) return null;
-    for (const f of frames) { try { if ((f._r || (f._r = new RegExp(f.re, 'i'))).test(s)) return f; } catch (e) { /* mẫu lỗi: build-card.mjs chặn trên CI */ } }
+    for (const f of frames) { try { if ((f._r || (f._r = new RegExp(f.re, 'i'))).test(s) && fits(f, s)) return f; } catch (e) { /* mẫu lỗi: build-card.mjs chặn trên CI */ } }
     return null;
+  }
+  // Chữ cố định của mẫu phải thật sự có trong câu, đúng thứ tự (be/have/do cùng họ; -s bỏ qua): người học nhìn là thấy câu dùng mẫu này. Thành ngữ: regex đã đủ chặt.
+  const FAM = { am: 'be', is: 'be', are: 'be', was: 'be', were: 'be', been: 'be', has: 'have', had: 'have', does: 'do', did: 'do' }, SUF = { "'s": 'is', "'re": 'are', "'ve": 'have', "'m": 'am', "'ll": 'will', "'d": 'would' };
+  const wds = x => String(x).toLowerCase().replace(/\bcan't\b/g, 'can not').replace(/\bwon't\b/g, 'will not').replace(/n't\b/g, ' not').replace(/('s|'re|'ve|'m|'ll|'d)\b/g, m => ' ' + SUF[m]).replace(/_+/g, ' ').match(/[a-z0-9]+/g) || [];
+  const fam = w => FAM[w] || (w.length > 3 ? w.replace(/s$/, '') : w);
+  function fits(f, s) {
+    if (f.idiom) return true;
+    const W = wds(s).map(fam); let i = 0;
+    return wds(f.f).map(fam).every(x => { const j = W.indexOf(x, i); if (j < 0) return false; i = j + 1; return true; });
   }
   /** Tách câu thành từ + phần giữa (giữ nguyên dấu): [{ w, gap }] – vẽ từ chạm được mà câu vẫn đủ dấu */
   function tokens(sent) {
@@ -124,5 +133,5 @@
     wire(el, spec, { t, speak: s.speak || (x => { if (g.UI && g.UI.speak) g.UI.speak(x, ((A && A.state && A.state.settings) || {}).accent); }), gloss: w => (s.gloss && s.gloss(w)) || gloss(w), why: s.why, save: () => f && save(f, en, tr, lg), unsave: () => f && unsave(f), rec: (x, cb) => rec(x, cb, s.hold) });
     return spec;
   }
-  g.LearnCard = { match, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
+  g.LearnCard = { match, fits, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
 })(typeof self !== 'undefined' ? self : globalThis);

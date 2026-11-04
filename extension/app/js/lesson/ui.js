@@ -91,6 +91,9 @@
   const SENTP = {}, SENT = {}, shardOf = w => { const c = String(w || '').trim().toLowerCase()[0] || '_'; return c >= 'a' && c <= 'z' ? c : '_'; };
   const sentLoad = words => { const L = nativeLang(); if (!L) return Promise.resolve(); const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
     return Promise.all([...new Set(words.map(shardOf))].map(k => SENTP[L + k] || (SENTP[L + k] = fetch(`${base}/packs/sent/${L}/${k}.json`).then(r => (r.ok ? r.json() : {})).then(j => { SENT[L + k] = j; }).catch(() => { delete SENTP[L + k]; })))).then(() => {}); };
+  const PBASE = () => (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (/^(localhost|127\.)/.test(location.hostname) && location.port) ? '' : 'https://lexkite.com');
+  let GOLDP = null; // kho gold theo từ: web/packs/lesson/gold.json (dữ liệu, ngoài web/js), chỉ nạp khi cần
+  const goldLoad = () => GOLDP || (GOLDP = fetch(`${PBASE()}/packs/lesson/gold.json`).then(r => (r.ok ? r.json() : {})).then(j => { window.LESSON_GOLD = j; }).catch(() => { GOLDP = null; }));
   const sentGloss = (c, en) => { const L = nativeLang(), w = c && String(c.word || '').toLowerCase().trim(), v = w && (SENT[L + shardOf(w)] || {})[w]; return v && E.norm(v[0]) === E.norm(en) ? v[1] : ''; };
 
   // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
@@ -121,6 +124,7 @@
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
+    if (cardOn()) setTimeout(cardReady, 800); // nạp sẵn lúc rảnh để thẻ kết quả hiện ngay, không chặn câu đầu
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS };
     if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
     if (demo || /[?&]sandbox=1/.test(location.search)) App._lsn = L; // bài thử / sandbox: gác bố cục CI (ux1-guard.mjs, qa-bot.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
@@ -191,7 +195,7 @@
   const TNAME = w => (w === 'carlos' ? 'Carlos' : 'Ama');
   const TITLE = it => ({
     gap: t('Chọn từ còn thiếu'),
-    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Xếp thành câu'), // có bản dịch → xếp câu tiếng Anh theo nghĩa; không có → xếp câu vừa nghe
+    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Nghe rồi xếp thành câu'), // có bản dịch → xếp câu tiếng Anh theo nghĩa; không có → xếp câu vừa nghe
     say: t('Nói câu này'),
     pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
     tr: t('Dịch câu này'),
@@ -224,6 +228,8 @@
     if (!L || L.dead) return;
     if (L.duo && L.sess.cur) frame(L.sess.cur);
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); // thẻ câu của tấm phản hồi chỉ sống tới câu kế
+    if (L.rec && L.rec.stop) { try { L.rec.stop(); } catch (e) { /* bỏ qua */ } } L.rec = null; // mic "Nói theo" của thẻ kết quả không chạy sang câu sau
+    L.cardIt = null;
     bar();
     if (L.teacher && L.teacher.pose) L.teacher.pose(null); // ra khỏi tư thế phản hồi (cheer/concern) → lại nghe/nói sống
     const it = L.sess.cur;
@@ -442,6 +448,8 @@
     if (c) $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();
+    L.cardIt = it;
+    const nx = $('#lsnNext'); nx.insertAdjacentHTML('beforebegin', '<div id="lsnCard" class="lsn-fb"></div>'); mountCard(it, ok);
     if (c) booster(it);
   }
 
@@ -491,30 +499,60 @@
     const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]);
     const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: i1 && i2 && i1 !== i2 ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
       a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
-    const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
-    const extra = pills ? `<div class="lsn-fb flex flex-wrap gap-[0.5rem]">${pills}</div>` : '';
+    const en = sentOf(it), box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : en ? `<div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
+    const extra = (pills ? `<div class="lsn-fb flex flex-wrap gap-[0.5rem]">${pills}</div>` : '') + (en ? '<div id="lsnCard" class="lsn-fb"></div>' : '');
     // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard): câu có chỗ trống điền từ đã chọn (đúng = viên teal, sai = viên đỏ); dạng không có câu → chỉ viên từ
-    const pick = ok ? String(it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
-    const q = { qkind: TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };
+    const pick = ok ? String(it.type === 'build' || it.type === 'tr' ? it.sent : it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
+    const q = { qkind: cardOn() ? t('Đáp án') : TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };
     const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
     const K = ok ? 'feedback-correct' : 'feedback-wrong', o2 = ST2[K](d);
     foot.innerHTML = `<div class="v2s-${K}">${o2.main}</div>`;
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); const og0 = $('#lsnBody');
-    if (o2.qcard && og0 && pick) { og0.insertAdjacentHTML('beforebegin', `<div class="lsn-fq v2s-${K} mb-[1rem]">${o2.qcard}</div>`); const fp = $('#lsnFqPlay'); if (fp) fp.onclick = () => say(B ? it.sent : pick, false, it.who); }
+    if (o2.qcard && og0 && pick && !(en && cardOn() && window.LearnCard)) { og0.insertAdjacentHTML('beforebegin', `<div class="lsn-fq v2s-${K} mb-[1rem]">${o2.qcard}</div>`); const fp = $('#lsnFqPlay'); if (fp) fp.onclick = () => say(B ? it.sent : pick, false, it.who); if (cardOn()) { const hint = view.querySelector('.lsn-fq .border-t'); if (hint) hint.remove(); } } // bỏ dòng "Chạm loa…": loa đã nằm ngay trên thẻ
     const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
-    if (!c) foot.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // ghép cặp (không có 1 từ) → không thẻ từ / Vì sao?
+    if (!c) foot.querySelectorAll(en ? '.lsn-dict' : '.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // không có 1 từ (ghép cặp) → không thẻ từ / Vì sao?; câu truyện vẫn có Vì sao? theo câu
     v2optMark(it, ok);
-    if (c) $('#lsnWhy').onclick = () => explain(it);
+    if (c || en) $('#lsnWhy').onclick = () => explain(it);
+    if (it.type === 'build' || it.type === 'tr') { const bk = $('#lsnBank'), an2 = $('#lsnAns'); if (bk) bk.style.display = 'none'; if (an2 && ok) an2.style.display = 'none'; } // đã chấm: thẻ kết quả thay cho hàng ô chữ (sai → giữ câu người học xếp để so)
+    L.cardIt = it;
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus({ preventScroll: true });
     foot.scrollIntoView({ block: 'end', behavior: 'auto' }); // tấm phản hồi + Tiếp tục luôn trong tầm nhìn
+    if (en) mountCard(it, ok);
     if (c) booster(it);
+  }
+
+  // 🎓 Thẻ kết quả theo câu (js/lesson/card.js, gói lười lcard, docs/specs/learn-card.md): câu đủ dấu · nghĩa · mẫu câu · nói theo · chạm từ · tự lưu mẫu. Tiếp tục không bao giờ chờ thẻ.
+  const sentOf = it => (it.type === 'gap' || it.type === 'build' || it.type === 'tr' ? it.sent || '' : it.type === 'q' ? it.prompt || '' : it.type === 'say' && /\s/.test(it.answer || '') ? it.answer : '');
+  const cardOn = () => { try { return ls.get('lk.lcard') !== '0'; } catch (e) { return true; } };
+  let CARDP = null;
+  const cardReady = () => CARDP || (CARDP = App.need('lcard').then(() => (window.LearnCard ? LearnCard.load(nativeLang()) : null)).catch(() => { CARDP = null; }));
+  const storyPairs = () => ((L && L.story && L.story.checks) || []).filter(x => x.type === 'match').flatMap(x => x.pairs).map(p => ({ w: p.en, m: p.m[meanLang()] || '' }));
+  const cardGloss = w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(x => x && E.norm(x.word) === k); if (c) return meanOf(c); const sp = storyPairs().find(x => E.norm(x.w) === k); return (sp && sp.m) || ''; };
+  // Tối đa 1 từ khó và chỉ khi thật sự mới: từ khóa của truyện chưa có trong thẻ người học. Bài theo từ đã có thẻ từ riêng.
+  function cardHard(it, en) {
+    if (it.card) return null;
+    const T = E.toks(en).map(x => x.toLowerCase()), x = storyPairs().find(p => p.m && !/\s/.test(p.w) && T.includes(p.w.toLowerCase()) && !(state.cards || {})[p.w.toLowerCase()]);
+    return x ? x : null;
+  }
+  async function mountCard(it, ok) {
+    if (!cardOn()) return;
+    await cardReady();
+    const C = window.LearnCard, host = $('#lsnCard'); if (!C || !host || !L || L.cardIt !== it) return;
+    if (L.lcS !== L) { L.lcS = L; C.newLesson(); }
+    const en = sentOf(it), tr = it.type === 'q' ? '' : it.tr || (it.type === 'build' || it.type === 'tr' ? it.prompt : '') || (it.card ? sentGloss(it.card, en) : '');
+    await C.mount(host, { en, tr, ok, demo: L.demo, hard: cardHard(it, en), gloss: cardGloss, speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
+    if (!L || L.cardIt !== it) return;
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
+    const wr = $('#lsnWhy'), acts = host.querySelector('.lkc-a'), row = wr && wr.closest('.lsn-whyrow'); // Vì sao? (#336) nằm chung hàng hành động, không thành hai chỗ
+    if (wr && acts) { wr.className = 'lkc-b'; acts.insertBefore(wr, acts.children[1] || null); if (row) row.remove(); if (!ok && $('#lsnXp') && $('#lsnXp').hidden) explain(it); }
+    const nx = $('#lsnNext'); if (nx && document.activeElement === document.body) nx.focus({ preventScroll: true });
   }
 
   // ⚡ "Tăng điểm": lỗi hay gặp → cách nói tốt hơn (gold bank, 0 AI), chạm cụm để nghe. Từ chưa có cặp sai/đúng → ẩn
   async function booster(it) {
-    try { await App.need('lgold'); } catch (e) { return; }
-    const box = $('#lsnBoost'); if (!box || !L || L.sess.cur !== it) return;
+    await goldLoad();
+    const box = $('#lsnBoost'); if (!box || !L || L.cardIt !== it) return;
     const x = ((window.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(g => g.w && g.r); if (!x) return;
     box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
     box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who);
@@ -525,15 +563,16 @@
     const box = $('#lsnXp'); if (!box) return;
     if (!box.hidden) { box.hidden = true; return; }
     box.hidden = false; box.textContent = '…';
-    try { await App.need('lgold'); } catch (e) { /* ngoại tuyến → phần từ điển bên dưới */ }
-    const c = it.card, G = (window.LESSON_GOLD || {})[E.norm(c.word)] || [];
+    await goldLoad(); // ngoại tuyến → phần từ điển bên dưới
+    const c = it.card || {}, G = (c.word && (window.LESSON_GOLD || {})[E.norm(c.word)]) || [];
     const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
     // Phần CÂU trước (lỗi vừa mắc · cấu trúc · từ nhiễu · ví dụ MỚI) – why.js, dùng chung mọi dạng bài; phần TỪ (trọng âm, IPA, định nghĩa) giữ nguyên bên dưới
+    await Promise.race([cardReady(), new Promise(r => setTimeout(r, 1200))]); // why.js ở gói lcard; mạng chậm → vẫn hiện phần từ điển
     const W = window.LessonWhy, byWord = w => (L.pool || []).find(x => x && E.norm(x.word) === E.norm(w));
     const sents = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : [], (c.sentences || []).map(x => x && x.en), own ? [own] : []);
     const wr = W ? W.explain(it, L.ans, { gloss: w => { const x = byWord(w); return x ? meanOf(x) : ''; }, pos: w => (byWord(w) || {}).pos || '', examples: sents }) : null;
     let h = wr ? W.html(wr, t, esc) : '';
-    if (h) h += `<p class="tiny muted"><b>${esc(t('Từ: {w}', { w: c.word }))}</b></p>`;
+    if (h && c.word) h += `<p class="tiny muted"><b>${esc(t('Từ: {w}', { w: c.word }))}</b></p>`;
     const st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
     if (st) h += `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>`;
     if (uu) h += `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>`;

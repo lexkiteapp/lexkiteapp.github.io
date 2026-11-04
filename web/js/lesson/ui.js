@@ -529,7 +529,7 @@
   const cardReady = () => CARDP || (CARDP = App.need('lcard').then(() => (window.LearnCard ? LearnCard.load(nativeLang()) : null)).catch(() => { CARDP = null; }));
   const storyPairs = () => ((L && L.story && L.story.checks) || []).filter(x => x.type === 'match').flatMap(x => x.pairs).map(p => ({ w: p.en, m: p.m[meanLang()] || '' }));
   const cardGloss = w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(x => x && E.norm(x.word) === k); if (c) return meanOf(c); const sp = storyPairs().find(x => E.norm(x.w) === k); return (sp && sp.m) || ''; };
-  // Tối đa 1 từ khó và chỉ khi thật sự mới: từ khoá của truyện chưa có trong thẻ người học. Bài theo từ đã có thẻ từ riêng.
+  // Tối đa 1 từ khó và chỉ khi thật sự mới: từ khóa của truyện chưa có trong thẻ người học. Bài theo từ đã có thẻ từ riêng.
   function cardHard(it, en) {
     if (it.card) return null;
     const T = E.toks(en).map(x => x.toLowerCase()), x = storyPairs().find(p => p.m && !/\s/.test(p.w) && T.includes(p.w.toLowerCase()) && !(state.cards || {})[p.w.toLowerCase()]);
