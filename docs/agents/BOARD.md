@@ -205,6 +205,31 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `7b41c05ba` → `14f34a7eb` (12 bài viết + 1 commit briefs + 1 commit fix shingle).
+  - **Danh sách 6 bài AR (Tiếng Ả Rập):**
+    1. `dalil-rumuz-al-sawtiyyah-ipa-al-injliziyyah.md` (`7b41c05ba`)
+    2. `kayfa-tatrah-as-ilah-bi-al-injliziyyah-5w1h.md` (`9130e1feb`)
+    3. `kayfa-tastakhdim-qamus-injlizi-injlizi.md` (`3c32a027d`)
+    4. `taqniyyat-al-imla-dictation-tahsin-al-istima.md` (`729c12b9c`)
+    5. `mustalahat-ielts-al-tiknuluja-wa-al-dhaka-al-istinai.md` (`7196c728f`)
+    6. `al-jumal-al-muaqqadah-complex-sentences-ielts-writing.md` (`71e31d06e`)
+  - **Danh sách 6 bài HI (Tiếng Hindi Devanagari chuẩn 100%):**
+    1. `english-ipa-chart-pronunciation-guide-hindi.md` (`17d97dc4a`)
+    2. `english-me-sawal-kaise-puchhe-5w1h-rules.md` (`6eac16cf3`)
+    3. `english-to-english-dictionary-kaise-use-kare.md` (`a6d2384e0`)
+    4. `dictation-listening-practice-technique-hindi.md` (`822305ac9`)
+    5. `ielts-vocabulary-technology-artificial-intelligence-hindi.md` (`b85da8b89`, vá shingle `14f34a7eb`)
+    6. `complex-sentences-for-ielts-writing-task-2-hindi.md` (`51a4d9872`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 550 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 550 bài, 1.355 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 550 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
+    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
+- Cần sửa / Nhận xét:
+
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
 - ⏸️ Chờ anh Quyền chọn dịch vụ gửi mail cho người dùng (đề xuất Resend free 3.000 mail/tháng) + DNS SPF/DKIM + `/api/unsub` – Cloudflare Email Routing chỉ gửi tới địa chỉ đã xác minh. **Claude triển khai worker**, Antigravity không deploy.
