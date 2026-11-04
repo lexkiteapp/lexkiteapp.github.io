@@ -270,6 +270,7 @@
     }
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
+    sayIn(root, d.say, fresh);
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
     prune(root); langBtn(root);
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
@@ -360,6 +361,19 @@
     view.innerHTML = `<div class="page-head"><div><h1>${ic('target')} ${t('Luyện')}</h1><p class="muted">${t('Mọi bài luyện ở một chỗ.')}</p></div></div>`
       + GROUPS().map(([h, big, items]) => `<h2 class="set-h ux1-gh">${esc(h)}</h2><div class="ux1-tiles${big ? ' big' : ''}">${items.map(([href, i, n, d]) => `<a class="ux1-tile" href="${href}"><span class="ux1-ti" aria-hidden="true">${ic(i)}</span><b>${esc(n)}</b>${big && d ? `<small>${esc(d)}</small>` : ''}</a>`).join('')}</div>`).join('');
   };
+
+  // Bong bóng Hôm nay: chữ hiện dần lúc Ama nói, xong về vòng nghỉ; mỗi câu chạy 1 lần mỗi lần tải trang.
+  let saidHome = '';
+  function sayIn(root, say, fresh) {
+    if (!say || say === saidHome || !window.SayText) return;
+    const p = [...root.querySelectorAll('p')].find(x => x.textContent.trim() === say), c = p && SayText.prep(p, { wait: 0 }); if (!c) return;
+    saidHome = say;
+    const slot = root.querySelector('[data-tch] .tslot'), hasClip = slot && slot.dataset.clip && !fresh;
+    if (hasClip) slot.dataset.talk = Chars.clip('ama', 'talk');
+    const ms = Math.max(1200, Math.min(7000, c.est * 45)), t0 = performance.now();
+    const go = () => { if (!p.isConnected) return c.all(); if (hasClip && !slot.classList.contains('live') && performance.now() - t0 < 700) return setTimeout(go, 40); c.clock(ms, () => { if (slot && slot.lkQuiet) slot.lkQuiet(); }); };
+    setTimeout(go, 0);
+  }
 
   // ---------- CSS (chỉ khi cờ bật) ----------
   function css() {
