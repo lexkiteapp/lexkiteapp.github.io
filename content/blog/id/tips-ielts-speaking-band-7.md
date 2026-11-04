@@ -108,7 +108,7 @@ Saat gugup, detak jantung meningkat dan otak sering mengalami kebuntuan sementar
 2. *"Well, it largely depends on how you look at the situation, but generally speaking..."*
 3. *"If my memory serves me correctly, it took place roughly three years ago..."*
 
-Frasa-frasa di atas terdengar jauh lebih natural daripada hening selama lima detik atau mendesah keras di hadapan penguji.
+Frasa-frasa di atas terdengar jauh lebih natural daripada hening selama lima detik atau mendesah keras di hadapan penguji. Untuk strategi khusus bagian pembuka, pelajari panduan mendalam tentang [IELTS Speaking Part 1](content/blog/id/ielts-speaking-part-1-tips-jawaban-alami.md).
 
 ## Autoevaluación
 

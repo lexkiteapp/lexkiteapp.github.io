@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **Mengulang kata-kata penguji secara mentah:** Selalu parafrasekan kata kerja dan kata sifat utama menggunakan sinonim yang sepadan.
 
-Untuk menyempurnakan ritme pengucapan kalimat Anda, pelajari ulasan kami tentang [ritme dan sentence stress bahasa Inggris](/id/blog/ritme-dan-sentence-stress-bahasa-inggris/) serta panduan [teknik shadowing bahasa Inggris](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/). Perkaya juga perbendaharaan kata Anda melalui koleksi [kosakata bahasa Inggris tematik](/id/tu-vung/).
+Sebagai persiapan dasar yang solid sebelum menghadapi sesi diskusi ini, pelajari panduan [IELTS Speaking Part 1](content/blog/id/ielts-speaking-part-1-tips-jawaban-alami.md). Untuk menyempurnakan ritme pengucapan kalimat Anda, pelajari ulasan kami tentang [ritme dan sentence stress bahasa Inggris](/id/blog/ritme-dan-sentence-stress-bahasa-inggris/) serta panduan [teknik shadowing bahasa Inggris](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/). Perkaya juga perbendaharaan kata Anda melalui koleksi [kosakata bahasa Inggris tematik](/id/tu-vung/).
 
 {{youtube: | Panduan memperluas jawaban dan argumen kritis dalam IELTS Speaking Part 3}}
 

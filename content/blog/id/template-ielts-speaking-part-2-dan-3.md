@@ -161,7 +161,7 @@ Untuk merekam ungkapan transisi argumen ini ke dalam memori jangka panjang, manf
 
 {{cta: /speaking/ | Lihat Contoh Jawaban Speaking}}
 
-Perkaya wawasan topik ujian Anda dengan membaca beragam naskah dan [contoh jawaban speaking IELTS](/speaking/) berkualitas tinggi yang mencakup berbagai tema terkini.
+Sebelum menghadapi tantangan monolog ini, pastikan Anda menguasai respons pembuka yang lancar melalui panduan [IELTS Speaking Part 1](content/blog/id/ielts-speaking-part-1-tips-jawaban-alami.md). Perkaya wawasan topik ujian Anda dengan membaca beragam naskah dan [contoh jawaban speaking IELTS](/speaking/) berkualitas tinggi yang mencakup berbagai tema terkini.
 
 {{youtube: | IELTS Speaking Part 2 Template & Strategy}}
 
