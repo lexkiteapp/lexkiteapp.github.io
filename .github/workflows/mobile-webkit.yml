@@ -1,0 +1,35 @@
+# 📱 E2E giả lập iPhone (Playwright WebKit + Chromium, ubuntu – không cần macOS/Simulator): luật tự phát âm thanh của iOS, các luồng chính trên điện thoại.
+# Đo trên web/ của chính commit qua serve-web.mjs. Thoát đỏ khi có lỗi; ảnh + report.json trong artifact.
+name: Mobile WebKit E2E
+on:
+  pull_request:
+    branches: [main]
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/ios-audio*', '.github/workflows/mobile-webkit.yml']
+  push:
+    branches: [main]
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/ios-audio*', '.github/workflows/mobile-webkit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-webkit-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright (Chromium + WebKit)
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium webkit
+      - name: Âm thanh như iPhone (Thi thử Listening tự phát · bị chặn → Bấm để nghe)
+        run: |
+          (node scripts/test/serve-web.mjs web 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/ios-audio.mjs http://localhost:8080 out/mobile-webkit/audio
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with: { name: mobile-webkit, path: out/mobile-webkit, retention-days: 7 }

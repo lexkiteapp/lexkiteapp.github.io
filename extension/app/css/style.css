@@ -731,6 +731,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 
 /* ===== Luyện nghe ===== */
 .lplayer { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; position: sticky; top: 64px; z-index: 5; margin: 1rem 0; }
+.lk-tapplay { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(88px + env(safe-area-inset-bottom, 0px)); z-index: 80; box-shadow: var(--shadow-lg); max-width: calc(100vw - 32px); } /* iOS chặn tự phát → 1 chạm để nghe (listening.js tapToPlay) */
 .lplayer select { border: 1px solid var(--line); border-radius: 10px; padding: .45rem .5rem; background: var(--surface); color: inherit; font: inherit; }
 .lnow { margin-left: auto; }
 .lgrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1rem; align-items: start; }
@@ -1480,8 +1481,8 @@ body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-e
 .qe-flash { outline: 3px solid var(--primary); outline-offset: 2px; transition: outline .3s; }
 /* Danh sách dài & khối dưới trang: chỉ vẽ khi cuộn tới (Baseline content-visibility) – LCP nhanh & cuộn mượt */
 @supports (overflow-anchor: auto) {
-  .word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
-  .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
+.word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
+.w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 }
 .lk-scrolling :is(.flame-icon, svg .blink, svg .flap-l, svg .flap-r, .st-fl .fl-mid, .st-fl .fl-core, .node.current, .node-tip), .lk-scrolling .shimmer-fx::after, .lk-scrolling .pill-shimmer::after { animation-play-state: paused !important; }
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }

@@ -53,12 +53,41 @@
   const aUrl = k => window.audioUrl ? window.audioUrl(k) : 'https://audio.lexkite.com/audio/l/' + k + '.mp3';
   let audioDown = 0;
   const hqOn = () => state.settings.hqVoice !== false && window.KVoice && window.LISTEN_AUDIO && audioDown < 3;
+  // 📱 iOS Safari/WebKit: chỉ phát được phần tử <audio> đã từng phát TRONG một cú chạm, và giọng máy (speechSynthesis) cũng phải nói lần đầu trong cú chạm.
+  // Trước đây mỗi câu tạo new Audio() + Thi thử tự bắt đầu sau 30 s (từ bộ đếm giờ) → iPhone im lặng, chữ vẫn báo "Đang phát" → không làm bài được.
+  // Nay: MỘT phần tử dùng chung cho mọi câu/mọi bài, mở khóa ở cú chạm đầu tiên trên trang (WAV im lặng + câu nói rỗng); vẫn bị chặn → opts.onBlocked(resume).
+  const SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=';
+  const shared = typeof Audio !== 'undefined' ? new Audio() : null;
+  // Mở khóa CHỈ bằng cú chạm thật (isTrusted) và chỉ đánh dấu khi đã thật sự thử trong cú chạm đó. Trước đây cờ chung 'unlocked' bị chốt = true bởi
+  // click giả (script) / lần thử bị từ chối thứ hai (phần tử đã có src → bỏ qua mà vẫn chốt) → cú chạm thật "Bấm để nghe" không mồi được giọng máy,
+  // câu kế tiếp đọc bằng giọng máy bị chặn lại → im lặng (e2e ios-audio đỏ 01/11). Âm thanh và giọng máy mở khóa riêng, thử lại ở cú chạm sau nếu hỏng.
+  let audioOk = false, ttsOk = false;
+  const unlock = e => {
+    if (e && e.isTrusted === false) return;
+    // chỉ mồi khi phần tử chưa từng phát bài nào (src trống/WAV im lặng): mồi giữa 2 câu sẽ bắn 'ended' vào trình phát đang giữ phần tử → nhảy câu
+    if (shared && !audioOk && shared.paused && [null, '', SILENT].includes(shared.getAttribute('src'))) {
+      try { shared.src = SILENT; audioOk = true; const pr = shared.play(); if (pr && pr.catch) pr.catch(() => { audioOk = false; }); } catch (err) { audioOk = false; }
+    }
+    if (!ttsOk && 'speechSynthesis' in window && !speechSynthesis.speaking) { try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); ttsOk = true; } catch (err) { /* thử lại ở cú chạm sau */ } }
+  };
+  ['touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, unlock, { capture: true, passive: true }));
+  const blockedErr = e => !!e && (e.name === 'NotAllowedError' || /not allowed|user gesture|denied permission/i.test(String(e.message || e)));
+  // Nút mặc định khi bị chặn: nổi giữa đáy màn hình, 1 chạm → phát tiếp (cú chạm mở khóa âm thanh). Màn nào muốn đặt nút riêng thì truyền opts.onBlocked.
+  const tapToPlay = resume => {
+    let b = document.getElementById('lkTapPlay'); if (b) b.remove();
+    b = document.createElement('button'); b.type = 'button'; b.id = 'lkTapPlay'; b.className = 'btn primary lg lk-tapplay';
+    b.innerHTML = '<span aria-hidden="true">🔊</span> ' + esc(t('Bấm để nghe'));
+    b.onclick = () => { b.remove(); resume(); };
+    document.body.appendChild(b); try { b.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ }
+    const gone = () => { b.remove(); removeEventListener('hashchange', gone); }; addEventListener('hashchange', gone);
+  };
   function Player(p, opts = {}) {
     const cast = castVoices(p), kv = window.KVoice ? KVoice.voices(p) : null;
     const q = p.script.map((l, i) => ({ ...l, i }));
     let pos = 0, playing = false, seq = 0, timer = null, el = null;
     const rate = () => opts.rate ? opts.rate() : (state.settings.listenRate || 0.95);
-    const stopNow = () => { seq++; clearTimeout(timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (el) { el.onended = el.onerror = null; el.pause(); el = null; } };
+    const own = {}; // phần tử dùng chung: chỉ trình phát đang giữ nó mới được dừng (trình phát khác đã lấy thì để yên)
+    const stopNow = () => { seq++; clearTimeout(timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (el) { if (el.__own === own) { el.onplaying = el.onended = el.onerror = null; el.pause(); } el = null; } };
     const hqKey = l => { if (!kv || !hqOn()) return null; const k = KVoice.lineKey(l.say ? kv._narrator : (kv[l.s] || kv._narrator), l.say || l.t); return LISTEN_AUDIO.has(k) ? k : null; };
     function step(my) {
       if (my !== seq) return;
@@ -70,26 +99,41 @@
       if (l.say && opts.skipNarrator) { next(); return; }
       const key = hqKey(l);
       if (key) {
-        el = new Audio(aUrl(key)); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
+        el = shared || new Audio(); el.__own = own; el.src = aUrl(key); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
         const me = el; let ok = false;
-        el.onplaying = () => { ok = true; audioDown = 0; };
-        el.onended = () => { if (el === me) timer = setTimeout(next, l.say ? 600 : 280); };
-        el.onerror = () => { if (el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
+        // Canh giờ mp3 (iOS mạng chập chờn: play() treo không báo lỗi, hoặc phát xong mà không có 'ended') → không treo im lặng ở 1 câu:
+        // 8 s chưa phát → coi như lỗi tải (giọng máy đọc câu này); đang phát quá độ dài file + 3 s → sang câu kế (mỗi câu vẫn chỉ 1 lần).
+        let wd = setTimeout(() => { if (my !== seq || el !== me || ok) return; me.onplaying = me.onended = me.onerror = null; me.pause(); el = null; audioDown++; ttsLine(); }, 8000);
+        el.onplaying = () => { if (my !== seq) return; ok = true; audioDown = 0; clearTimeout(wd); const d = me.duration; if (isFinite(d) && d > 0) wd = setTimeout(() => { if (my === seq && el === me) { me.onended = null; me.pause(); timer = setTimeout(next, 280); } }, (d / (me.playbackRate || 1) + 3) * 1000); };
+        el.onended = () => { clearTimeout(wd); if (my === seq && el === me) timer = setTimeout(next, l.say ? 600 : 280); };
+        el.onerror = () => { clearTimeout(wd); if (my !== seq || el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
         let pr; try { pr = el.play(); } catch (e) { pr = Promise.reject(e); }
-        if (pr && pr.catch) pr.catch(() => { if (el === me && !ok) { el = null; ttsLine(); } });
+        if (pr && pr.catch) pr.catch(e => { if (my !== seq || el !== me || ok) return; clearTimeout(wd); if (blockedErr(e)) { el = null; blocked(); return; } el = null; ttsLine(); });
         // tải trước câu kế tiếp → không bị khựng giữa các câu
         const nx = q.slice(pos + 1).find(x => x.t || x.say), nk = nx && hqKey(nx); if (nk) { const pre = new Audio(); pre.preload = 'auto'; pre.src = aUrl(nk); }
         return;
       }
       ttsLine();
+      // Trình duyệt chặn phát (không có cú chạm) → dừng ở câu này; resume() gọi TRONG cú chạm phát tiếp đúng câu đó (không phát lại từ đầu → vẫn "nghe 1 lần")
+      function blocked() {
+        stopNow(); playing = false; opts.onState && opts.onState(false); // seq mới → các câu/sự kiện còn lại của lượt bị chặn không tự nhảy câu
+        const resume = () => { unlock(); stopNow(); playing = true; opts.onState && opts.onState(true); step(seq); };
+        (opts.onBlocked || tapToPlay)(resume);
+      }
       function ttsLine() {
       if (!('speechSynthesis' in window)) { timer = setTimeout(next, 300); return; }
       const c = l.say ? cast._narrator : (cast[l.s] || cast._narrator);
       const parts = UI.splitSentences(l.say || l.t);
+      // Bộ canh giờ: bộ đọc giọng máy đôi khi nuốt câu (không bao giờ báo onstart/onend – iOS sau khi khóa màn hình, trình duyệt không có giọng) → trước đây bài nghe
+      // TREO im lặng ở câu đó. Chưa bắt đầu nói sau 4 s, hoặc nói quá lâu so với độ dài câu → coi như xong, sang câu kế (mỗi câu vẫn chỉ phát 1 lần).
+      let said = false, wd = 0; const fin = () => { if (said || my !== seq) return; said = true; clearTimeout(wd); timer = setTimeout(next, l.say ? 600 : 280); };
+      const words = (l.say || l.t || '').split(/\s+/).length, cap = 4000 + words * 900 / (l.say ? 0.95 : rate());
+      wd = setTimeout(() => { if (my !== seq || said) return; if (!speechSynthesis.speaking) { said = true; speechSynthesis.cancel(); timer = setTimeout(next, 280); } else wd = setTimeout(() => { if (my === seq && !said) { said = true; speechSynthesis.cancel(); timer = setTimeout(next, 280); } }, cap); }, 4000);
       parts.forEach((t, k) => {
         const u = new SpeechSynthesisUtterance(t);
         u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = l.say ? 0.95 : rate();
-        if (k === parts.length - 1) u.onend = u.onerror = () => { timer = setTimeout(next, l.say ? 600 : 280); };
+        u.onerror = e => { if (my !== seq || said) return; if (e && e.error === 'not-allowed') { said = true; clearTimeout(wd); speechSynthesis.cancel(); blocked(); return; } if (k === parts.length - 1) fin(); };
+        if (k === parts.length - 1) u.onend = fin;
         speechSynthesis.speak(u);
       });
       }
@@ -197,6 +241,7 @@
     view.innerHTML = `
       <div class="row between"><a href="${/^tl/.test(p.id) ? '#/toeic' : '#/listening'}" class="small">← ${/^tl/.test(p.id) ? 'TOEIC' : t('Luyện nghe')}</a>${exam ? `<a class="btn sm ghost" href="#/listen/${p.id}">${UI.icon('target')} ${t('Chế độ luyện tập')}</a>` : `<a class="btn sm ghost" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Chế độ thi thật')}</a>`}</div>
       <div class="page-head" style="margin-top:.6rem"><div><div class="tiny muted">Test ${p.test} · Part ${p.part} · ${partName(p)} · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</div><h1 style="margin:.2rem 0">${esc(p.title)}</h1><p class="muted" style="margin:0">${esc(p.context || '')}</p><div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div></div></div>
+      ${window.ExamClock ? '<div class="card lplayer" id="lPrep"></div>' : ''}
       <div class="card lplayer" id="lPlayer">
         <button class="btn primary lg" id="lPlay">▶ ${t('Nghe')}</button>
         ${exam ? `<span class="small muted" id="lNote">${t('Chế độ thi thật: chỉ nghe được 1 lần, không tua lại.')}</span>` : `<button class="btn" id="lBack" title="${t('Nghe lại câu trước')}">⏪ ${t('Câu trước')}</button>${rateSel()}<label class="small row nowrap" style="gap:.3rem"><input type="checkbox" id="lLive"> ${t('Hiện lời thoại khi nghe')}</label>`}
@@ -219,13 +264,29 @@
       onState: on => { $('#lPlay').textContent = on ? '⏸ ' + t('Tạm dừng') : (plays ? '▶ ' + t('Nghe tiếp') : '▶ ' + t('Nghe')); },
       onEnd: () => { $('#lPlay').textContent = exam ? '✓ ' + t('Đã nghe xong') : '↺ ' + t('Nghe lại từ đầu'); if (exam) $('#lPlay').disabled = true; else player.stop(); $('#lNow').textContent = exam && !submitted ? t('Hết bài nghe – kiểm tra lại đáp án rồi nộp bài.') : ''; },
     });
-    App.cleanup = () => player.stop();
-    $('#lPlay').onclick = () => {
-      if (player.playing) { if (exam) return; player.pause(); return; }
+    // Vào phần nghe: màn chuẩn bị ngắn rồi TỰ PHÁT như thi thật (IELTS thi thật: 30 giây đọc câu hỏi; TOEIC: đếm 5 giây; luyện tập: 3-2-1).
+    // Trước đây phải tự bấm "Nghe" → người học tưởng audio hỏng. Âm thanh được mở khóa bằng chính cú bấm vào trang (listening.js unlock, pha capture);
+    // trình duyệt vẫn chặn (tải lại trang, iOS) → Player.onBlocked → nút "Bấm để nghe" to rõ, phát tiếp đúng câu đang dở (không lỗi im lặng).
+    let prep = null;
+    App.cleanup = () => { player.stop(); if (prep) prep.cancel(); };
+    const begin = () => {
+      if (prep) { prep.cancel(); prep = null; const h = $('#lPrep'); if (h) h.remove(); }
       if (exam && plays) return;
       plays++; player.play(exam ? 0 : undefined);
       if (exam) { $('#lPlay').disabled = true; $('#lPlay').textContent = '🔊 ' + t('Đang phát…'); }
     };
+    $('#lPlay').onclick = () => {
+      if (player.playing) { if (exam) return; player.pause(); return; }
+      begin();
+    };
+    if (window.ExamClock && $('#lPrep')) {
+      const S = ExamClock.STD, ielts = !isToeicP(p);
+      prep = ExamClock.prep($('#lPrep'), {
+        secs: !exam ? 3 : ielts ? S.ielts.prep : S.toeic.prep,
+        title: exam && ielts ? t('Đọc trước câu hỏi') : t('Chuẩn bị nghe'),
+        note: exam ? t('Chỉ nghe 1 lần') : '', practice: !exam, onGo: begin,
+      });
+    }
     if (!exam) {
       $('#lBack').onclick = () => player.back();
       $('#lRate').onchange = e => { state.settings.listenRate = +e.target.value; App.saveSettings(); };
@@ -240,7 +301,7 @@
     $('#lSubmit').onclick = async () => {
       if (submitted) return;
       if (player.playing && exam && !confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
-      submitted = true; player.stop();
+      submitted = true; player.stop(); if (prep) { prep.cancel(); prep = null; const h = $('#lPrep'); if (h) h.remove(); }
       const res = collect(p, $('#lQs')); lastRes = res;
       const nums = Object.keys(res).map(Number).sort((a, b) => a - b);
       const right = nums.filter(n => res[n].ok).length;
@@ -277,46 +338,90 @@
     };
   };
 
+  // ================= PHẦN THI LISTENING NHIỀU PART (dùng chung: #/listen-test, Thi thử IELTS mock.js, TOEIC test) =================
+  // Như thi thật: đồng hồ cả phần (mốc thời gian, ExamClock) · mỗi Part có thời gian đọc câu hỏi rồi TỰ PHÁT, chỉ nghe 1 lần · hết Part → 10 giây
+  // kiểm tra rồi tự sang Part kế · hết Part cuối → thời gian kiểm tra (IELTS trên máy: 2 phút) rồi tự nộp · hết giờ → tự nộp.
+  // Tải lại trang: tiếp tục đúng Part đang làm, giữ đáp án đã chọn và giờ còn lại (giờ vẫn chạy khi trang đóng – như phòng thi).
+  // o: { key, parts, secs, review, prepSecs, gap, frame(k, p, inner) → html (phải có #xClock), name, qTitle(p), collect(p, box) → {q: r}, onDone(res, timeUp) }
+  const runKey = key => 'lk.lrun.' + key;
+  const runSaved = key => { try { const x = JSON.parse(localStorage.getItem(runKey(key)) || 'null'); return x && Date.now() - x.at < 864e5 ? x : null; } catch (e) { return null; } };
+  const runDrop = key => { try { localStorage.removeItem(runKey(key)); } catch (e) { /* bỏ qua */ } if (window.ExamClock) ExamClock.clear(key); };
+  /** Có bài làm dở còn giờ? → { k, left } để màn bắt đầu hiện "Tiếp tục" */
+  function runResume(key) { const r = runSaved(key), left = window.ExamClock ? ExamClock.saved(key) : null; return r && left != null ? { k: r.k, left } : null; }
+  function runSection(o) {
+    const st = runSaved(o.key) || { k: 0, res: {}, ans: null };
+    let player = null, prep = null, clock = null, over = false, k = st.k;
+    const stopAll = () => { if (player) player.stop(); if (prep) prep.cancel(); prep = null; };
+    const keep = () => { try { localStorage.setItem(runKey(o.key), JSON.stringify({ k, res: st.res, ans: st.ans, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
+    const fields = () => $$('#lQs input, #lQs select');
+    const snap = () => fields().map(i => (i.type === 'radio' || i.type === 'checkbox' ? (i.checked ? 1 : 0) : i.value));
+    const take = () => { const p = o.parts[k], box = $('#lQs'); if (p && box) Object.assign(st.res, o.collect(p, box)); };
+    const end = timeUp => { if (over) return; over = true; take(); stopAll(); if (clock) clock.done(); runDrop(o.key); if (timeUp) toast(t('Hết giờ – bài đã được tự nộp')); o.onDone(st.res, !!timeUp); };
+    const nextPart = () => { if (over) return; stopAll(); take(); if (k < o.parts.length - 1) { k++; st.ans = null; keep(); part(); window.scrollTo({ top: 0 }); } else end(false); };
+    function part() {
+      const p = o.parts[k], last = k === o.parts.length - 1;
+      view.innerHTML = o.frame(k, p, `
+        <div class="card lplayer" id="xPrep"></div>
+        <div class="card lplayer" id="xLive" hidden><b id="xState" role="status"></b><span class="lnow small muted" id="lNow"></span></div>
+        <div class="card" id="lQs">${o.qTitle ? o.qTitle(p) : ''}${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="xNext" disabled>${last ? UI.icon('circle-check') + ' ' + t('Nộp bài') : t('Sang phần tiếp') + ' →'}</button></div></div>`);
+      App.bindCommon && App.bindCommon(); QE.bind($('#lQs')); if (o.after) o.after(k, p);
+      if (st.ans) fields().forEach((i, j) => { const v = st.ans[j]; if (v == null) return; if (i.type === 'radio' || i.type === 'checkbox') i.checked = !!v; else i.value = v; });
+      const save = () => { st.ans = snap(); keep(); };
+      $('#lQs').addEventListener('change', save); $('#lQs').addEventListener('input', save); keep();
+      clock = window.ExamClock && $('#xClock') ? ExamClock.mount($('#xClock'), { key: o.key, secs: o.secs, name: o.name, onEnd: () => end(true) }) : null;
+      if (over) return;
+      const live = s => { const b = $('#xLive'); if (b) b.hidden = false; const x = $('#xState'); if (x) x.textContent = s; };
+      const play = () => {
+        if (over) return; prep = null; const h = $('#xPrep'); if (h) h.hidden = true;
+        live('🔊 ' + t('Đang phát – chỉ nghe 1 lần'));
+        player = Player(p, {
+          onLine: i => { const l = p.script[i], n = $('#lNow'); if (n) n.textContent = !l || l.pause != null ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : '🗣️ ' + ((p.speakers[l.s] || {}).name || ''); },
+          onEnd: () => {
+            if (over || !$('#xNext')) return; $('#xNext').disabled = false;
+            if (last) { if (clock && o.review) clock.cap(o.review); live('✓ ' + t('Hết phần nghe – kiểm tra lại đáp án rồi nộp bài')); return; }
+            live('✓ ' + t('Hết Part {n}', { n: p.part }));
+            const h2 = $('#xPrep'); if (!h2 || !window.ExamClock) return; h2.hidden = false;
+            prep = ExamClock.prep(h2, { secs: o.gap || 10, title: t('Kiểm tra lại đáp án'), note: t('Sang phần tiếp'), goLabel: t('Sang phần tiếp') + ' →', onGo: nextPart });
+          },
+        });
+        player.play(0);
+        setTimeout(() => { const b = $('#xNext'); if (b) b.disabled = false; }, 30000); // giọng đọc lỗi/không phát → vẫn đi tiếp được
+      };
+      if (window.ExamClock) prep = ExamClock.prep($('#xPrep'), { secs: o.prepSecs, title: t('Đọc trước câu hỏi Part {n}', { n: p.part }), note: t('Chỉ nghe 1 lần'), onGo: play });
+      else play();
+      $('#xNext').onclick = () => { if (player && player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return; nextPart(); };
+    }
+    part();
+    return { stop: () => { stopAll(); if (clock) clock.stop(); } };
+  }
+
   // ================= THI THỬ TRỌN 40 CÂU =================
   routes['listen-test'] = function (n) {
     n = +n || 1;
     const parts = partsOf(n);
     if (!parts.length) return routes.listening();
-    let cur = 0, results = {}, player = null;
-    App.cleanup = () => player && player.stop();
+    let results = {}, run = null;
+    const KEY = 'ilt.' + n, S = window.ExamClock ? ExamClock.STD.ielts : { listening: 30, review: 2, prep: 30 };
+    App.cleanup = () => run && run.stop();
+    const go = fresh => {
+      if (fresh) runDrop(KEY);
+      run = runSection({
+        key: KEY, parts, secs: S.listening * 60, review: S.review * 60, prepSecs: S.prep, gap: 10, name: 'IELTS Listening',
+        frame: (k, p, inner) => `<div class="row between xclk-sticky"><span class="chip">Test ${n} · Part ${p.part}/4 · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</span><span id="xClock"></span></div>
+          <div class="progress" style="margin:.6rem 0"><i style="width:${k / parts.length * 100}%"></i></div>${inner}`,
+        collect: (p, box) => Object.fromEntries(Object.entries(collect(p, box)).map(([q, r]) => [q, { ...r, pid: p.id }])),
+        onDone: res => { results = res; finish(); },
+      });
+    };
     const intro = () => {
+      const rs = runResume(KEY);
       view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">${UI.icon('headphones')}</div><h2>IELTS Listening – Test ${n}</h2>
         <p class="muted">${t('4 phần · 40 câu · khoảng 30 phút. Mỗi phần chỉ nghe <b>một lần</b>. Trước mỗi phần có 30 giây đọc câu hỏi. Đeo tai nghe và chọn nơi yên tĩnh nhé.')}</p>
-        <div class="row center"><button class="btn primary lg" id="tGo">${t('Bắt đầu thi')}</button><a class="btn" href="#/listening">${t('Để sau')}</a></div></div></div>`;
-      $('#tGo').onclick = () => part(0);
+        <p class="small muted">${t('Âm thanh tự phát sau thời gian đọc câu hỏi. Đồng hồ góc trên đếm thời gian còn lại – có thể ẩn.')}</p>
+        <div class="row center">${rs ? `<button class="btn primary lg" id="tRes">${t('Tiếp tục Part {n} · còn {t}', { n: parts[Math.min(rs.k, parts.length - 1)].part, t: ExamClock.fmt(rs.left) })}</button><button class="btn" id="tGo">${t('Làm lại từ đầu')}</button>` : `<button class="btn primary lg" id="tGo">${t('Bắt đầu thi')}</button>`}<a class="btn" href="#/listening">${t('Để sau')}</a></div></div></div>`;
+      $('#tGo').onclick = () => go(true); // cú bấm thật → mở khóa âm thanh cho cả bài (unlock ở pha capture)
+      if (rs) $('#tRes').onclick = () => go(false);
     };
-    function part(k) {
-      cur = k; const p = parts[k];
-      view.innerHTML = `
-        <div class="row between"><span class="chip">Test ${n} · Part ${p.part}/4 · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</span><span class="small muted" id="tState"></span></div>
-        <div class="progress" style="margin:.6rem 0"><i style="width:${k / parts.length * 100}%"></i></div>
-        <div class="card lplayer"><b id="tCount">${UI.icon('hourglass')} ${t('{n} giây đọc câu hỏi', { n: 30 })}</b><button class="btn sm ghost" id="tSkip">${t('Bắt đầu nghe ngay')}</button><span class="lnow small muted" id="lNow"></span></div>
-        <div class="card" id="lQs">${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : UI.icon('circle-check') + ' ' + t('Nộp bài')}</button></div></div>`;
-      let left = 30, started = false;
-      const tick = setInterval(() => { if (started || !document.body.contains($('#tCount') || document.createElement('i'))) return clearInterval(tick); left--; $('#tCount').textContent = '⏳ ' + t('{n} giây đọc câu hỏi', { n: left }); if (left <= 0) start(); }, 1000);
-      const start = () => {
-        if (started) return; started = true; clearInterval(tick);
-        $('#tSkip').remove(); $('#tCount').textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần');
-        player = Player(p, {
-          onLine: i => { const l = p.script[i]; $('#lNow') && ($('#lNow').textContent = !l ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : l.pause != null ? '' : '🗣️ ' + ((p.speakers[l.s] || {}).name || '')); },
-          onEnd: () => { if (!$('#tCount')) return; $('#tCount').textContent = '✓ ' + t('Hết phần nghe – kiểm tra lại đáp án'); $('#tNext').disabled = false; },
-        });
-        player.play(0);
-        setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
-      };
-      $('#tSkip').onclick = start;
-      $('#tNext').onclick = () => {
-        if (player && player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
-        if (player) player.stop();
-        Object.assign(results, Object.fromEntries(Object.entries(collect(p, $('#lQs'))).map(([q, r]) => [q, { ...r, pid: p.id }])));
-        if (k < parts.length - 1) { part(k + 1); window.scrollTo({ top: 0 }); } else finish();
-      };
-    }
     async function finish() {
       const nums = Object.keys(results).map(Number).sort((a, b) => a - b);
       const raw = nums.filter(q => results[q].ok).length, band = bandOf(raw);
@@ -429,5 +534,5 @@
     draw();
   };
 
-  App.listening = { bandOf, byId, castVoices, Player, partsOf, qNums };
+  App.listening = { bandOf, byId, castVoices, Player, partsOf, qNums, runSection, runResume, runDrop };
 })();

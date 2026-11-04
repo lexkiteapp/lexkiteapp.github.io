@@ -251,6 +251,7 @@ node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/exam-clock.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/brand-logo-stitch.mjs
