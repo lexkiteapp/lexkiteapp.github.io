@@ -57,7 +57,7 @@
     purge: { b: '🗑 Xóa vĩnh viễn', t: 'Xóa vĩnh viễn {n} người?', d: 'Xóa ngay mọi dữ liệu đồng bộ, bảng xếp hạng, lớp học, lượt đọc thông báo của những người đang ở Thùng rác. Không thể hoàn tác.', danger: true, cls: 'danger', past: 'xóa vĩnh viễn', trash: 1 },
   };
   const NORMAL = ['tagAdd', 'tagRemove', 'aiGrant', 'aiRevoke', 'block', 'unblock', 'delete'], TRASH = ['restore', 'purge'];
-  const COLW = { ck: 2.75, user: 13.5, role: 6.5, status: 7.5, plat: 6.5, cc: 7.75, created: 6.5, seen: 7.25, n: 4, act: 10.5 }; // rem; cột Người dùng lấy phần dư, tối thiểu user
+  const COLW = { ck: 2.75, user: 13.5, role: 6.5, status: 7.5, plat: 6.5, cc: 7.75, created: 6.5, seen: 7.25, n: 4, act: matchMedia('(pointer: coarse)').matches ? 11.5 : 10.5 }; // rem; cột Người dùng lấy phần dư, tối thiểu user
   const COLS = [['role', 'Vai trò'], ['status', 'Trạng thái'], ['plat', 'Nền tảng'], ['cc', 'Quốc gia'], ['created', 'Ngày tạo'], ['seen', 'Hoạt động gần nhất'], ['n', 'Số lần vào']];
   const FKEYS = ['q', 'role', 'status', 'plat', 'cc', 'from', 'to', 'tag', 'perk', 'blocked', 'seen', 'nMin', 'trash'];
   const BLANK = { q: '', role: '', status: '', plat: '', cc: '', from: '', to: '', tag: '', perk: '', blocked: '', seen: '', nMin: '', trash: '', sort: 'seen', dir: '', offset: 0, limit: 50 };

@@ -402,6 +402,7 @@ body.adm { --map-0: #8A9597; --map-1: #CC8600; --map-2: #D25E0D; --map-3: #BC3E1
 .u-sel select { width: auto; min-width: 135px; padding: .5rem .7rem; font-size: .85rem; border-radius: 9px; }
 .u-tbl td { vertical-align: middle; padding: .65rem .6rem; }
 .u-tbl td.u-c-who { min-width: 15rem; } /* tên/email không bị bóp từng chữ khi bảng nhiều cột – bảng tự cuộn ngang trong .tbl-wrap. 3/11: trước đây :first-child = cột ô chọn → ô chọn rộng 15rem, cột Người dùng bị ép (iPhone) */
+.tbl td.msg { min-width: 12rem; } /* .msg word-break:break-word cho min-content 1 ký tự → điện thoại #alerts xếp dọc thông báo lỗi */
 /* Bảng Người dùng (owner 4/11, gốc: td:first-child{min-width:15rem} trúng cột ô chọn; overflow-wrap:anywhere cho min-content ≈ 1 ký tự nên tên xếp dọc; td.u-badges display:flex không còn là ô bảng).
    Bố cục cố định: rộng cột từ <colgroup> (admin-users.js COLW), cột Người dùng lấy phần dư, thiếu chỗ thì cuộn trong khung. Tên/email/nhãn cắt "…" có title. */
 .u-tbl { table-layout: fixed; min-width: var(--u-min, 0); }
@@ -415,6 +416,12 @@ body.adm { --map-0: #8A9597; --map-1: #CC8600; --map-2: #D25E0D; --map-3: #BC3E1
 .u-tbl th.u-ckc, .u-tbl td.u-ckc { padding: 0; text-align: center; }
 .u-c-act { text-align: right; } .u-c-act .btn { padding-inline: .55rem; }
 .u-tbl:not(.tbl-cards) .u-bl { display: none; }
+/* Màn cảm ứng: style.css ép chip-nút, nút, ô chọn cao ≥ --tap. Giữ vùng chạm: nhãn một hàng vuốt ngang (không chồng thành 2 hàng 45 px), ô ngày cùng cao với ô chọn; cột Thao tác rộng hơn qua COLW */
+@media (pointer: coarse) {
+  .u-tbl:not(.tbl-cards) .u-tags { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .u-tbl:not(.tbl-cards) .u-tags .chip { flex: none; max-width: none; }
+  .u-tools .u-sel:has(input[type=date]) input[type=date] { height: var(--tap, 44px); }
+}
 /* Ghim ô chọn + Người dùng (và Thao tác khi đủ rộng) khi cuộn ngang; nền đặc để cột sau không lộ qua */
 @media (min-width: 900px) {
   .u-tbl:not(.tbl-cards) :is(th.u-ckc, td.u-ckc, th:nth-child(2), td.u-c-who) { position: sticky; left: 0; z-index: 1; background: var(--surface); }
