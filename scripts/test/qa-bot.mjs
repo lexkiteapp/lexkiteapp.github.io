@@ -136,7 +136,7 @@ async function journey(w, theme) {
   await step('onboarding', async () => {
     await boot(page, '/welcome/setup');
     if (await has('#noAcct')) await click('#noAcct');
-    await click('button.trk-opt'); await click('#obNext', 300);
+    await click('[data-track]'); await click('#obNext', 300);
     await click('.trk-lv [data-lv]:not([data-lv="test"])');
     for (let i = 0; i < 8 && !(await has('#go')); i++) await click('#obNext', 300);
     await click('#go', 1500);

@@ -57,6 +57,7 @@ node scripts/test/explain.mjs
 node scripts/test/script-bank.mjs
 node scripts/test/wordcard-ui.mjs
 node scripts/test/learn-flow.mjs
+node scripts/test/welcome-flow.mjs
 node scripts/test/mobile-polish.mjs
 node scripts/path/build-mix.mjs --check
 node scripts/test/next-step.mjs

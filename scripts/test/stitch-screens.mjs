@@ -19,13 +19,14 @@ export const SEED_LEAGUE = () => {
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', 'today-new': 'home', 'speak-sit': 'speak/cafe', 'speak-drill': 'speak/cafe/drill' }; // home = Hôm nay v2 (người đang học, lộ trình đầy đủ trong khối Your path) · today-new = người mới (DRIVE đặt về trạng thái chưa học)
+export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', 'today-new': 'home', 'speak-sit': 'speak/cafe', 'speak-drill': 'speak/cafe/drill', 'onb-goal': 'welcome/setup' }; // home = Hôm nay v2 (người đang học, lộ trình đầy đủ trong khối Your path) · today-new = người mới (DRIVE đặt về trạng thái chưa học)
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { home: 'today', 'today-new': 'today-new', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', 'speak-sit': 'pas-sit', 'speak-drill': 'pas-drill' };
+export const V2REF = { home: 'today', 'today-new': 'today-new', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', 'speak-sit': 'pas-sit', 'speak-drill': 'pas-drill', 'onb-goal': 'onb-goal' };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 // màn cần lái tới trạng thái (bài học/phản hồi/kết quả/truyện/cuộc gọi) – stitch-diff và final-qc dùng CHUNG (từng chỉ lái lesson/feedback → chụp nhầm câu đầu)
-export const DRIVEN = /^(lesson|feedback|complete|story|call|today-new)/;
+export const DRIVEN = /^(lesson|feedback|complete|story|call|today-new|onb-goal)/;
 export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!?;:]+$/, '').toLowerCase(), q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
+  if (k === 'onb-goal') { const S = App.state; S.settings.onboarded = false; S.cards = {}; S.game.xp = 0; location.hash = '#/welcome/setup'; for (let i = 0; i < 60 && !q('.v2s-onb-goal'); i++) await w(100); return; } // người có dữ liệu bị chuyển về Hôm nay (docs/specs/welcome.md) → người mới, chỉ trong bộ nhớ
   if (k === 'today-new') { // người mới như mẫu: chưa chọn mục tiêu, 0 XP, chưa học ngày nào (chỉ trong bộ nhớ – lượt tải lại sau đọc lại dữ liệu mẫu) → khung today-new
     localStorage.setItem('lk.lsn.path', '0'); localStorage.removeItem('lk.ux1.pk'); const g = App.state.game || {}; g.xp = 0; g.days = {}; g.frozen = {}; App.state.stats.days = {}; ['examTarget', 'goalPick', 'goal'].forEach(x => delete App.state.settings[x]);
     await App.route(); await w(900); localStorage.setItem('lk.lsn.path', '3'); scrollTo(0, 0); return; }
@@ -75,5 +76,5 @@ export const FINAL = [
   { stitch: 'story-duo', k: 'story', ready: '.lsn-qblk ~ #lsnBody .lsn-opt, .lsn-qblk + #lsnBody .lsn-opt', teacher: ['talk', 'listen'], duo: true, speaks: true },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
-Object.assign(READY, { 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill' }); // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
+Object.assign(READY, { 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal' }); // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
 
