@@ -117,6 +117,7 @@ Band 8 या 9 स्तर के मॉडल उत्तरों का �
 ## अपनी अंग्रेजी सुधारने के लिए उपयोगी गाइड्स
 
 - **धाराप्रवाह अंग्रेजी बोलना**: बुनियादी नियमों के लिए [English Bolna Kaise Sikhe](/hi/blog/english-bolna-kaise-sikhe/) पढ़ें
+- **उच्चारण सुधार कार्ययोजना**: 4 चरणों में सीखें [English Pronunciation कैसे सुधारें गाइड](/hi/blog/english-pronunciation-kaise-sudhare-tips/)
 - **सुनने की क्षमता का विकास**: कानों को प्रशिक्षित करने हेतु [Dictation Listening Practice Technique](/hi/blog/dictation-listening-practice-technique-hindi/) देखें
 - **कनेक्टेड स्पीच के नियम**: शब्दों को जोड़ने के लिए [Connected Speech Rules in English](/hi/blog/connected-speech-rules-in-english-hindi/) समझें
 - **बिना अनुवाद के सोचना**: अंग्रेजी में सोचने के लिए [English me Kaise Soche Without Translation](/hi/blog/english-me-kaise-soche-without-translation/) का अभ्यास करें
