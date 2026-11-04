@@ -18,12 +18,13 @@ const ok = (c, m) => { total++; if (c) console.log('✓', m); else { fails++; co
 const lum = ([r, g, b]) => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
+let cur = null;
 async function run(width, scheme, lang, touch) {
   const tag = `${NAME}-${width}-${scheme}-${lang}`, mobile = width < 768;
   const ctx = await browser.newContext({ viewport: { width, height: mobile ? 844 : 860 }, colorScheme: scheme, locale: lang, serviceWorkers: 'block', hasTouch: mobile && NAME === 'chromium', recordVideo: { dir: path.join(OUT, 'video-raw'), size: { width: Math.min(width, 900), height: 700 } } });
   await serve(ctx, ROOT);
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
-  const cdp = touch ? await ctx.newCDPSession(page) : null;
+  const cdp = touch ? await ctx.newCDPSession(page) : null; cur = { page, tag };
   const T = m => `${tag}: ${m}`;
   const shot = n => page.screenshot({ path: path.join(OUT, `${tag}-${n}.png`) });
   // Con trỏ thật: chuột (Playwright) hoặc cảm ứng thật (CDP Input.dispatchTouchEvent → pointerType touch, đi qua touch-action như máy thật)
@@ -53,7 +54,8 @@ async function run(width, scheme, lang, touch) {
   }, { WORDS, EXTRA });
   await page.waitForSelector('#lsnBank .lsn-tile', { timeout: 25000 });
   await page.waitForTimeout(500);
-  for (let i = 0; i < 6 && await page.$('.modal, #modal:not([hidden])'); i++) { await page.keyboard.press('Escape'); await page.waitForTimeout(150); }
+  for (let i = 0; i < 6 && await page.$('#modal:not([hidden])'); i++) { await page.keyboard.press('Escape'); await page.waitForTimeout(150); } // chỉ đóng lớp đang hiện: Esc khi không có lớp nổi là Thoát bài
+  ok(await page.evaluate(() => !!document.querySelector('#lsnBank') && App._lsn.sess.cur.id === 9001), T('vào đúng đề xếp câu'));
 
   // 1) chạm thêm nhanh mọi từ, trừ "iced" → câu thiếu từ giữa, như ảnh
   const L0 = await layout();
@@ -180,10 +182,10 @@ async function otherScreens(width, scheme) {
   const ids = await page.evaluate(() => [...document.querySelectorAll('a.g-row[href^="#/grammar/"]')].map(a => a.getAttribute('href')).filter(h => !/mix/.test(h)).slice(0, 8));
   for (const h of ids) {
     await page.evaluate(x => { location.hash = x; }, h); await page.waitForTimeout(700);
-    for (let i = 0; i < 8 && !await page.$('[data-build]'); i++) {
-      const stepBtn = await page.evaluateHandle(() => [...document.querySelectorAll('button, [role=tab], a')].find(b => /Sentence|Xếp câu|Put the words|Build/i.test(b.textContent || '') && b.offsetParent));
-      const el = stepBtn.asElement(); if (el) { await el.click().catch(() => {}); await page.waitForTimeout(400); }
-      else break;
+    for (let i = 0; i < 10 && !await page.$('[data-build]'); i++) { // đi tuần tự qua các bước; bước có cổng thì bấm Bỏ qua như người học
+      const nx = await page.$('#sNext'); if (!nx) break;
+      if (await nx.isDisabled()) { const sk = await page.$('#sNext ~ .btn.ghost, .btn.sm.ghost:has(+ #sNext)'); if (!sk) break; await sk.click(); }
+      await nx.click(); await page.waitForTimeout(350);
     }
     if (await page.$('[data-build]')) { found = true; break; }
   }
@@ -195,12 +197,12 @@ async function otherScreens(width, scheme) {
     const got = await box.locator('[data-slot] .wpick').allTextContents();
     ok(n >= 3 && got[1] === nt, T(`ngữ pháp: kéo từ vào giữa (${got.join(' ')})`));
     await page.screenshot({ path: path.join(OUT, `${tag}-grammar.png`) });
-  } else console.log(`… ${T('ngữ pháp: chưa lái tới bước Xếp câu qua giao diện – xem jsdom/lesson-drag')}`);
+  } else ok(false, T('ngữ pháp: không lái được tới bước Xếp câu'));
   ok(!errs.length, T('không lỗi JS: ' + errs.slice(0, 2).join(' | ')));
   await ctx.close();
 }
 
-for (const c of CONFIGS) { try { await run(...c); } catch (e) { ok(false, `${NAME}-${c.slice(0, 3).join('-')}: ${e.message.split('\n')[0]}`); } }
+for (const c of CONFIGS) { try { await run(...c); } catch (e) { ok(false, `${NAME}-${c.slice(0, 3).join('-')}: ${e.message.split('\n')[0]}`); if (cur) await cur.page.screenshot({ path: path.join(OUT, `${cur.tag}-loi.png`) }).catch(() => {}); } }
 for (const [w, s] of NAME === 'webkit' ? [[1366, 'dark']] : [[390, 'light'], [1366, 'dark']]) { try { await otherScreens(w, s); } catch (e) { ok(false, `${NAME}-${w}-${s} màn khác: ${e.message.split('\n')[0]}`); } }
 await browser.close();
 fs.rmSync(path.join(OUT, 'video-raw'), { recursive: true, force: true });
