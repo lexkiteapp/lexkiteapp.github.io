@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/de/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"_1kkzwis":"Alle als gelesen markieren","_1aqpffv":"Keine neuen Benachrichtigungen","_7vdlnl":"Wichtige Mitteilung","_mem4lx":"Gerade eben","_cilyra":"Ungelesen","_1dkub36":"{n} ungelesen"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/de/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.de=Object.assign(D.de||{},{_zwis:"Alle als gelesen markieren",_pffv:"Keine neuen Benachrichtigungen",_dlnl:"Wichtige Mitteilung",_m4lx:"Gerade eben",_lyra:"Ungelesen",_ub36:"{n} ungelesen"});})(typeof self!=='undefined'?self:this);
