@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Travel &amp; Hospitality (Loading State)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#2b373a",
+            "on-primary": "#003733",
+            "on-secondary": "#660800",
+            "outline": "#879391",
+            "on-primary-container": "#00322e",
+            "tertiary": "#f4bf40",
+            "primary-fixed": "#88f5ea",
+            "surface-container-low": "#121d20",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed": "#00201e",
+            "outline-variant": "#3d4947",
+            "surface-container-lowest": "#051013",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-container": "#162125",
+            "on-tertiary-container": "#392900",
+            "on-error": "#690005",
+            "secondary-fixed": "#ffdad3",
+            "on-primary-fixed-variant": "#00504b",
+            "secondary": "#ffb4a6",
+            "surface-tint": "#6bd8ce",
+            "on-tertiary-fixed": "#261a00",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#981201",
+            "on-secondary-container": "#ffa493",
+            "surface-dim": "#091518",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary": "#402e00",
+            "surface-bright": "#2f3b3e",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-surface": "#d8e5e9",
+            "on-background": "#d8e5e9",
+            "inverse-primary": "#006a64",
+            "surface-container-high": "#202c2f",
+            "on-secondary-fixed": "#3f0300",
+            "error-container": "#93000a",
+            "inverse-surface": "#d8e5e9",
+            "primary-container": "#2ba39a",
+            "surface-container-highest": "#2b373a",
+            "primary": "#6bd8ce",
+            "surface": "#091518",
+            "background": "#091518",
+            "tertiary-container": "#ba8b00",
+            "inverse-on-surface": "#263236",
+            "tertiary-fixed": "#ffdf9e",
+            "on-surface-variant": "#bcc9c7"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes tactile-shimmer {
+      0% { opacity: 0.45; }
+      50% { opacity: 0.85; }
+      100% { opacity: 0.45; }
+    }
+    .shimmer-pulse {
+      animation: tactile-shimmer 1.8s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Desktop/Mobile Root Container -->
+<div class="min-h-screen flex flex-col justify-between max-w-md mx-auto relative bg-surface border-x border-outline-variant/40 shadow-2xl">
+<!-- 1. TOP APP BAR (Crisp, Interactive, Fully Rendered Chrome) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 h-16 flex items-center justify-between border-b border-outline-variant/30">
+<!-- Left: Tactile Back Pill Button -->
+<button aria-label="Go back" class="w-11 h-11 min-w-[48px] min-h-[48px] rounded-xl bg-surface-container border-2 border-outline-variant text-on-surface flex items-center justify-center shadow-[0_3px_0_0_#051013] active:translate-y-[2px] active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center: Active Topic Badge -->
+<div class="flex items-center justify-center gap-1.5 px-4 min-h-[48px] h-11 rounded-full bg-surface-container-high border border-outline-variant/60 shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-primary text-[17px] material-symbols-fill" data-icon="flight">flight</span>
+<span class="text-xs font-bold tracking-wider text-on-surface uppercase">B1 TOPIC VOCAB</span>
+</div>
+<!-- Right: Search Pill Button -->
+<button aria-label="Search words" class="w-11 h-11 min-w-[48px] min-h-[48px] rounded-xl bg-surface-container border-2 border-outline-variant text-on-surface flex items-center justify-center shadow-[0_3px_0_0_#051013] active:translate-y-[2px] active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS (Loading Skeletons) -->
+<main class="flex-1 px-4 pt-4 pb-36 space-y-4">
+<!-- 2. MAIN HERO TOPIC CARD (Tactile Skeleton Shimmer) -->
+<section class="rounded-2xl bg-surface-container p-5 border-2 border-outline-variant/70 shadow-[0_5px_0_0_#051013] relative overflow-hidden">
+<!-- Top Chips Row & Audio Button Skeleton -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-16 rounded-full bg-surface-container-highest shimmer-pulse border border-outline-variant/40"></div>
+<div class="h-6 w-28 rounded-full bg-surface-container-highest shimmer-pulse border border-outline-variant/40"></div>
+</div>
+<!-- Audio speaker skeleton pill -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border-2 border-outline-variant/60 shadow-[0_2px_0_0_#051013] flex items-center justify-center shimmer-pulse">
+<div class="w-4 h-4 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+<!-- Title Skeleton (Thick rounded bar for "Travel & Hospitality") -->
+<div class="h-8 w-3/4 rounded-lg bg-surface-variant shimmer-pulse mb-2.5"></div>
+<!-- Subtitle Skeleton (Two thinner rounded description bars) -->
+<div class="space-y-1.5 mb-5">
+<div class="h-4 w-full rounded-md bg-surface-container-highest/90 shimmer-pulse"></div>
+<div class="h-4 w-4/5 rounded-md bg-surface-container-highest/80 shimmer-pulse"></div>
+</div>
+<!-- Metric Counter Row (3 Stat Boxes with authentic tactile depth) -->
+<div class="grid grid-cols-3 gap-2.5 mb-4">
+<!-- Total Box -->
+<div class="p-2.5 rounded-xl bg-surface-container-low border-2 border-outline-variant/50 shadow-[0_3px_0_0_#051013] flex flex-col items-center justify-center text-center">
+<div class="h-6 w-9 rounded-md bg-surface-variant shimmer-pulse mb-1.5"></div>
+<div class="h-2.5 w-12 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<!-- Mastered Box -->
+<div class="p-2.5 rounded-xl bg-surface-container-low border-2 border-outline-variant/50 shadow-[0_3px_0_0_#051013] flex flex-col items-center justify-center text-center">
+<div class="h-6 w-7 rounded-md bg-primary/30 shimmer-pulse mb-1.5"></div>
+<div class="h-2.5 w-14 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<!-- Daily Goal Box -->
+<div class="p-2.5 rounded-xl bg-surface-container-low border-2 border-outline-variant/50 shadow-[0_3px_0_0_#051013] flex flex-col items-center justify-center text-center">
+<div class="h-6 w-10 rounded-md bg-tertiary/30 shimmer-pulse mb-1.5"></div>
+<div class="h-2.5 w-11 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+</div>
+<!-- Curriculum Mastery Progress Bar Skeleton -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center px-0.5">
+<div class="h-2.5 w-20 rounded bg-surface-container-highest shimmer-pulse"></div>
+<div class="h-2.5 w-8 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-low overflow-hidden border border-outline-variant/40 p-0.5">
+<div class="h-full w-2/5 rounded-full bg-primary/40 shimmer-pulse"></div>
+</div>
+</div>
+</section>
+<!-- 3. CANONICAL TEACHER SLOT (Coach Ama Tip Container) -->
+<section class="teacher-slot border-2 border-dashed border-primary-container/70 rounded-2xl p-4 bg-surface-container-low/80 relative overflow-hidden">
+<div class="flex items-start gap-3">
+<!-- Teacher Avatar Slot Placeholder (Dashed silhouette slot, no photo) -->
+<div class="w-12 h-12 rounded-xl bg-surface-container border-2 border-dashed border-primary/50 flex flex-col items-center justify-center flex-shrink-0 shimmer-pulse shadow-[0_2px_0_0_#051013]">
+<span class="text-[9px] font-extrabold tracking-wider text-primary">COACH</span>
+<span class="text-[8px] font-bold text-outline">AMA</span>
+</div>
+<!-- Tip Content Skeletons -->
+<div class="flex-1 space-y-2 pt-0.5">
+<div class="flex items-center gap-2">
+<div class="h-3.5 w-24 rounded bg-primary/30 shimmer-pulse"></div>
+<div class="h-3 w-12 rounded-full bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<div class="space-y-1.5">
+<div class="h-3.5 w-full rounded bg-surface-variant/90 shimmer-pulse"></div>
+<div class="h-3.5 w-3/4 rounded bg-surface-variant/70 shimmer-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. FILTER WORDS STRIP -->
+<section class="space-y-2.5 pt-1">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<div class="h-3 w-20 rounded bg-outline-variant shimmer-pulse"></div>
+</div>
+<div class="h-3 w-14 rounded bg-outline-variant/60 shimmer-pulse"></div>
+</div>
+<!-- Filter Pill Tabs Skeleton -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<!-- Active filter pill shape -->
+<div class="h-9 px-4 rounded-xl bg-surface-container border-2 border-primary/60 shadow-[0_3px_0_0_#00201e] flex items-center justify-center gap-1.5 flex-shrink-0">
+<div class="h-3.5 w-14 rounded bg-primary/50 shimmer-pulse"></div>
+</div>
+<!-- Inactive filter pills -->
+<div class="h-9 px-4 rounded-xl bg-surface-container-low border-2 border-outline-variant/40 shadow-[0_3px_0_0_#051013] flex items-center justify-center flex-shrink-0">
+<div class="h-3.5 w-10 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<div class="h-9 px-4 rounded-xl bg-surface-container-low border-2 border-outline-variant/40 shadow-[0_3px_0_0_#051013] flex items-center justify-center flex-shrink-0">
+<div class="h-3.5 w-16 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<div class="h-9 px-4 rounded-xl bg-surface-container-low border-2 border-outline-variant/40 shadow-[0_3px_0_0_#051013] flex items-center justify-center flex-shrink-0">
+<div class="h-3.5 w-12 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+</div>
+</section>
+<!-- 5. VOCABULARY WORD CARDS LIST (Stacked Skeleton Cards with 2px borders & ledges) -->
+<section class="space-y-3 pt-1">
+<!-- Skeleton Card 1 -->
+<article class="p-4 rounded-2xl bg-surface-container border-2 border-outline-variant/60 shadow-[0_4px_0_0_#051013] space-y-3">
+<!-- Word Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="h-6 w-28 rounded-lg bg-surface-variant shimmer-pulse"></div>
+<div class="h-5 w-10 rounded-md bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<!-- Audio Speaker Button -->
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-outline-variant/50 shadow-[0_2px_0_0_#051013] flex items-center justify-center shimmer-pulse">
+<div class="w-3.5 h-3.5 rounded bg-surface-variant"></div>
+</div>
+</div>
+<!-- Phonetics Row -->
+<div class="flex items-center gap-2">
+<div class="h-3.5 w-20 rounded bg-surface-container-highest shimmer-pulse"></div>
+<div class="h-3 w-8 rounded-full bg-surface-container-highest/60 shimmer-pulse"></div>
+</div>
+<!-- Definition / Context Lines -->
+<div class="space-y-1.5 pt-0.5">
+<div class="h-3.5 w-11/12 rounded bg-surface-container-highest/90 shimmer-pulse"></div>
+<div class="h-3.5 w-4/5 rounded bg-surface-container-highest/70 shimmer-pulse"></div>
+</div>
+<!-- Collocations & Mastery Level Dots -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<div class="h-5 w-24 rounded-md bg-surface-container-low border border-outline-variant/40 shimmer-pulse"></div>
+<div class="h-5 w-16 rounded-md bg-surface-container-low border border-outline-variant/40 shimmer-pulse"></div>
+</div>
+<!-- 3 Mastery Dots -->
+<div class="flex items-center gap-1">
+<div class="w-2.5 h-2.5 rounded-full bg-primary/60 shimmer-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/60 shimmer-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/40 shimmer-pulse"></div>
+</div>
+</div>
+</article>
+<!-- Skeleton Card 2 -->
+<article class="p-4 rounded-2xl bg-surface-container border-2 border-outline-variant/60 shadow-[0_4px_0_0_#051013] space-y-3">
+<!-- Word Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="h-6 w-36 rounded-lg bg-surface-variant shimmer-pulse"></div>
+<div class="h-5 w-9 rounded-md bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-outline-variant/50 shadow-[0_2px_0_0_#051013] flex items-center justify-center shimmer-pulse">
+<div class="w-3.5 h-3.5 rounded bg-surface-variant"></div>
+</div>
+</div>
+<!-- Phonetics Row -->
+<div class="flex items-center gap-2">
+<div class="h-3.5 w-24 rounded bg-surface-container-highest shimmer-pulse"></div>
+<div class="h-3 w-8 rounded-full bg-surface-container-highest/60 shimmer-pulse"></div>
+</div>
+<!-- Definition / Context Lines -->
+<div class="space-y-1.5 pt-0.5">
+<div class="h-3.5 w-full rounded bg-surface-container-highest/90 shimmer-pulse"></div>
+<div class="h-3.5 w-2/3 rounded bg-surface-container-highest/70 shimmer-pulse"></div>
+</div>
+<!-- Collocations & Mastery Level Dots -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<div class="h-5 w-28 rounded-md bg-surface-container-low border border-outline-variant/40 shimmer-pulse"></div>
+</div>
+<!-- 3 Mastery Dots -->
+<div class="flex items-center gap-1">
+<div class="w-2.5 h-2.5 rounded-full bg-primary/60 shimmer-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/40 shimmer-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/40 shimmer-pulse"></div>
+</div>
+</div>
+</article>
+<!-- Skeleton Card 3 -->
+<article class="p-4 rounded-2xl bg-surface-container border-2 border-outline-variant/60 shadow-[0_4px_0_0_#051013] space-y-3">
+<!-- Word Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="h-6 w-24 rounded-lg bg-surface-variant shimmer-pulse"></div>
+<div class="h-5 w-11 rounded-md bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-outline-variant/50 shadow-[0_2px_0_0_#051013] flex items-center justify-center shimmer-pulse">
+<div class="w-3.5 h-3.5 rounded bg-surface-variant"></div>
+</div>
+</div>
+<!-- Phonetics Row -->
+<div class="flex items-center gap-2">
+<div class="h-3.5 w-16 rounded bg-surface-container-highest shimmer-pulse"></div>
+</div>
+<!-- Definition / Context Lines -->
+<div class="space-y-1.5 pt-0.5">
+<div class="h-3.5 w-10/12 rounded bg-surface-container-highest/90 shimmer-pulse"></div>
+<div class="h-3.5 w-1/2 rounded bg-surface-container-highest/70 shimmer-pulse"></div>
+</div>
+<!-- Collocations & Mastery Level Dots -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<div class="h-5 w-20 rounded-md bg-surface-container-low border border-outline-variant/40 shimmer-pulse"></div>
+<div class="h-5 w-14 rounded-md bg-surface-container-low border border-outline-variant/40 shimmer-pulse"></div>
+</div>
+<!-- 3 Mastery Dots (Unmastered) -->
+<div class="flex items-center gap-1">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/40 shimmer-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/40 shimmer-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/40 shimmer-pulse"></div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- 6. BOTTOM STICKY ACTION AREA (Study 20 words tactile CTA) -->
+<div class="fixed bottom-16 left-0 w-full z-40 pointer-events-none">
+<div class="max-w-md mx-auto px-4 pb-2">
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-md pt-2 pb-1">
+<!-- Primary CTA Button (Tactile Coral-Gold gradient aesthetic with bottom ledge) -->
+<button class="w-full h-14 rounded-2xl bg-gradient-to-r from-secondary via-secondary-fixed-dim to-tertiary font-headline font-extrabold text-on-secondary text-base tracking-wide flex items-center justify-center gap-2 border-2 border-secondary-container shadow-[0_5px_0_0_#981201] active:translate-y-[3px] active:shadow-[0_2px_0_0_#981201] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] material-symbols-fill text-on-secondary" data-icon="bolt">bolt</span>
+<span>Study 20 words</span>
+<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-on-secondary/15 text-on-secondary ml-1">10 min</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 7. BOTTOM NAVIGATION BAR (Exact Shared Component: 5 Tabs, Vocab Active) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface-container-lowest border-t-2 border-outline-variant shadow-[0_-2px_0_0_#051013]"><div class="max-w-md mx-auto w-full flex justify-around items-center"><button class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" type="button"><span class="material-symbols-outlined text-[22px]" data-icon="calendar_today">calendar_today</span><span class="text-[11px] font-extrabold tracking-wide mt-0.5">Today</span></button><button class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 bg-primary text-on-primary font-bold border-2 border-primary-fixed rounded-xl shadow-[0_2px_0_0_#00201e] active:translate-y-1 active:shadow-none transition-transform" type="button"><span class="material-symbols-outlined text-[22px] material-symbols-fill" data-icon="style">style</span><span class="text-[11px] font-extrabold tracking-wide mt-0.5">Vocab</span></button><button class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" type="button"><span class="material-symbols-outlined text-[22px]" data-icon="military_tech">military_tech</span><span class="text-[11px] font-extrabold tracking-wide mt-0.5">Skills</span></button><button class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" type="button"><span class="material-symbols-outlined text-[22px]" data-icon="timer">timer</span><span class="text-[11px] font-extrabold tracking-wide mt-0.5">Tests</span></button><button class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" type="button"><span class="material-symbols-outlined text-[22px]" data-icon="person">person</span><span class="text-[11px] font-extrabold tracking-wide mt-0.5">Me</span></button></div></nav>
+</div>
+</body></html>

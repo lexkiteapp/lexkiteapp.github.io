@@ -169,8 +169,8 @@ const softAskShown = h => h.has('#modal:not([hidden]) #raY');
 // ---------- 1. Lần đầu: giới thiệu → app → kiểm tra đầu vào → bài đầu tiên → hỏi nhắc học ĐÚNG 1 lần sau bài → từ chối → không bao giờ hỏi lại ----------
 async function j1(h) {
   const { page, lang } = h;
-  await page.goto(`${O}/${lang === 'vi' ? '' : lang + '/'}`, { waitUntil: 'load' });
-  const cta = page.locator('.ctas a.btn.lg').first();
+  await page.goto(`${O}/${lang}/`, { waitUntil: 'load' });
+  const cta = page.locator('[data-cta=start], .ctas a.btn.lg').first()  /* nút chính hero (khung Stitch: data-cta=start) */;
   const href = await cta.getAttribute('href');
   h.ok(href && href.startsWith(`/app/?hl=${lang}#/welcome/setup`), `trang giới thiệu: nút chính trỏ ${href}`);
   // giữ ?sandbox=1 khi bấm vào app (dữ liệu tách riêng)
@@ -431,6 +431,8 @@ async function j6(h) {
 // ---------- 7. Add-on: tra từ → lưu kèm câu → thẻ tab mới → mở app ----------
 async function j7(lang) {
   const tag = `j7-${lang}`, fails = [], t0 = Date.now(), fail = m => { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); }, ok = (c, m) => (c || fail(m), !!c);
+  // Cờ route fetch từ SW (dòng 27, cần cho J8) làm hỏng SW MV3 của add-on (#416, cùng lý do ext-e2e tắt): lúc xanh 8 s, lúc bảng tra không bao giờ hiện → "shadowRoot của null". Playwright đọc cờ khi tạo SW; J7 chạy tuần tự sau cùng nên tắt riêng ở đây là đủ.
+  const swFlag = process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS; delete process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS;
   const EXTD = path.resolve('extension'), prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lkj7-'));
   const ctx = await chromium.launchPersistentContext(prof, { channel: 'chromium', headless: true, locale: LOCALE[lang], viewport: { width: 1280, height: 860 }, args: [`--disable-extensions-except=${EXTD}`, `--load-extension=${EXTD}`, `--lang=${LOCALE[lang]}`] });
   const errs = [];
@@ -440,7 +442,10 @@ async function j7(lang) {
     await ctx.route(/lexkite\.com|googleapis|dictionaryapi|tatoeba|wiktionary|datamuse|mymemory|wikimedia/, r => r.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
     ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 80) + ': ' + e.message.slice(0, 90) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim()).join(' ').slice(0, 200))));
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
+    for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200); // API add-on gắn sau sự kiện serviceworker
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
+    // SW vừa khởi động có thể chưa gắn chrome.storage (đỏ ngẫu nhiên "reading 'local'" ở 0 s): chờ sẵn sàng rồi mới dùng, hết hạn thì để lỗi thật lộ ra
+    for (let i = 0; i < 50 && !await sw.evaluate(() => !!(globalThis.chrome && chrome.storage && chrome.storage.local)).catch(() => false); i++) await sleep(100);
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
     await sw.evaluate(() => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), selectMode: 'icon', dblclickOn: true } })));
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
@@ -473,6 +478,7 @@ async function j7(lang) {
   results.push({ id: 7, name: 'add-on', lang, dev: 'desktop', ok: !fails.length, fails, notes: [], ms: Date.now() - t0 });
   console.log(`${fails.length ? '✗' : '✓'} J7 add-on [${lang}] ${Math.round((Date.now() - t0) / 1000)} s`);
   await ctx.close();
+  if (swFlag) process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = swFlag;
 }
 
 

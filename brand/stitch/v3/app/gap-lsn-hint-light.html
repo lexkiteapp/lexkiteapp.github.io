@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Grammar Hint Sheet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0e524d',
+              'teal-dark': '#07322e',
+              'teal-soft': '#e1f4f1',
+              coral: '#f97316',
+              'coral-ledge': '#9a3412',
+            },
+            cream: {
+              bg: '#fcf8f5',
+              surface: '#ffffff',
+              card: '#fff7f2',
+              muted: '#f5ebe3',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button raised 3D ledge effect */
+    .tactile-btn-primary {
+      background-color: #ea580c;
+      color: #1a0800;
+      box-shadow: 0 4px 0 0 #9a3412;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #9a3412;
+    }
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      color: #0e524d;
+      box-shadow: 0 4px 0 0 #d9c5b6;
+      border: 2px solid #ecd6c7;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #d9c5b6;
+    }
+  </style>
+</head>
+<body class="bg-stone-900 flex justify-center items-center min-h-screen p-0 m-0 font-sans antialiased text-stone-900 selection:bg-teal-200">
+
+  <!-- Mobile phone viewport container: 390px native width -->
+  <div class="relative w-full max-w-[390px] h-[844px] max-h-[844px] bg-[#fcf8f5] overflow-hidden flex flex-col justify-between shadow-2xl">
+
+    <!-- BACKGROUND: Dimmed & softly blurred lesson drill under sheet -->
+    <div class="absolute inset-0 px-4 pt-3 pb-6 flex flex-col z-0 select-none pointer-events-none opacity-40 filter blur-[1.5px] bg-[#fcf8f5]">
+      
+      <!-- Top header in drill context -->
+      <div class="flex items-center gap-3 w-full mb-3">
+        <div class="w-10 h-10 rounded-full bg-white/80 border border-stone-300 flex items-center justify-center text-stone-700">
+          <span class="material-symbols-rounded text-xl">close</span>
+        </div>
+        <div class="flex-1 flex flex-col gap-1">
+          <div class="flex justify-between items-center text-xs font-semibold text-stone-600">
+            <span>Drill 6 of 10</span>
+            <span>60%</span>
+          </div>
+          <div class="w-full bg-stone-200 h-2 rounded-full overflow-hidden">
+            <div class="bg-teal-700 h-2 w-[60%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge row -->
+      <div class="mb-3">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-900 border border-teal-200">
+          IELTS Band 7.0 Grammar
+        </span>
+      </div>
+
+      <!-- Prompt text -->
+      <div class="text-sm font-bold text-stone-700 mb-3">
+        Fill in the blank:
+      </div>
+
+      <!-- Question sentence card -->
+      <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm mb-4">
+        <div class="text-base font-semibold text-stone-800 flex items-center flex-wrap gap-2">
+          <span>She has lived here</span>
+          <span class="inline-block px-3 py-1 bg-teal-50 border border-dashed border-teal-500 rounded-lg text-teal-800 font-bold">______</span>
+          <span>2019.</span>
+        </div>
+      </div>
+
+      <!-- Inactive choice cards -->
+      <div class="space-y-2.5">
+        <div class="w-full p-3.5 rounded-2xl bg-white border border-stone-200 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-teal-700 text-white font-bold text-xs flex items-center justify-center">A</div>
+          <span class="text-sm font-bold text-stone-800">since</span>
+        </div>
+        <div class="w-full p-3.5 rounded-2xl bg-white border border-stone-200 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-stone-200 text-stone-700 font-bold text-xs flex items-center justify-center">B</div>
+          <span class="text-sm font-bold text-stone-800">for</span>
+        </div>
+        <div class="w-full p-3.5 rounded-2xl bg-white border border-stone-200 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-stone-200 text-stone-700 font-bold text-xs flex items-center justify-center">C</div>
+          <span class="text-sm font-bold text-stone-800">during</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft Scrim Veil Overlay -->
+    <div class="absolute inset-0 bg-stone-900/35 z-10"></div>
+
+    <!-- Top App Bar (Interactive, undimmed above veil to allow clean dismissal) -->
+    <header class="relative z-20 px-4 pt-3 pb-2 flex items-center gap-3 w-full">
+      <!-- Close (X) button with minimum 44x44px accessible touch target -->
+      <button type="button" aria-label="Close Hint" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-white/95 border border-stone-300 shadow-sm flex items-center justify-center text-stone-800 hover:bg-stone-50 active:scale-95 transition-transform cursor-pointer">
+        <span class="material-symbols-rounded text-2xl font-bold">close</span>
+      </button>
+
+      <!-- Slim progress bar & context indicator (nothing crowded, no lives/hearts) -->
+      <div class="flex-1 flex flex-col justify-center">
+        <div class="flex justify-between items-center text-[11px] font-bold text-stone-100 drop-shadow-sm mb-1 px-0.5">
+          <span class="uppercase tracking-wider">Drill 6 of 10</span>
+          <span>60%</span>
+        </div>
+        <div class="w-full bg-black/40 backdrop-blur-sm h-2.5 rounded-full overflow-hidden p-0.5 border border-white/20">
+          <div class="bg-teal-400 h-1.5 w-[60%] rounded-full shadow-sm"></div>
+        </div>
+      </div>
+      <!-- Right corner intentionally left empty: no hearts, no lives, no gems -->
+    </header>
+
+    <!-- HINT BOTTOM SHEET (Rises from the bottom) -->
+    <section class="relative z-30 w-full bg-[#fffcf9] rounded-t-[32px] border-t-2 border-stone-200/90 shadow-[0_-8px_30px_rgba(0,0,0,0.18)] flex flex-col max-h-[750px] overflow-hidden">
+      
+      <!-- Drag handle bar -->
+      <div class="w-full pt-3 pb-1 flex justify-center items-center">
+        <div class="w-12 h-1.5 rounded-full bg-stone-300"></div>
+      </div>
+
+      <!-- Sheet Header row -->
+      <div class="px-5 pt-1 pb-3 flex items-center justify-between border-b border-stone-100">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800">
+            <span class="material-symbols-rounded filled text-lg">lightbulb</span>
+          </div>
+          <h2 class="text-lg font-extrabold text-[#0e524d] tracking-tight">Hint</h2>
+        </div>
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-stone-100 text-stone-700 border border-stone-200">
+          Rule Reference
+        </span>
+      </div>
+
+      <!-- Scrollable content area inside sheet -->
+      <div class="px-5 py-3.5 space-y-3.5 overflow-y-auto flex-1 max-h-[500px]">
+
+        <!-- Teacher slot card with Ama prompt -->
+        <div class="bg-white rounded-2xl p-3 border-2 border-dashed border-teal-600/60 bg-teal-50/40 flex items-start gap-3">
+          <!-- Empty rounded dashed placeholder strictly labelled "teacher-slot" -->
+          <div class="min-w-[56px] w-14 h-14 rounded-xl border-2 border-dashed border-teal-700 bg-teal-100/50 flex flex-col items-center justify-center text-center p-1 flex-shrink-0" title="teacher-slot">
+            <span class="material-symbols-rounded text-teal-800 text-xl leading-none">school</span>
+            <span class="text-[9px] font-extrabold text-teal-900 tracking-tighter leading-tight mt-0.5">teacher-slot</span>
+          </div>
+
+          <!-- Tutor dialog / speech block -->
+          <div class="flex-1">
+            <div class="flex items-center gap-1.5 mb-1">
+              <span class="text-xs font-extrabold text-teal-900">Ama</span>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-100/80 px-1.5 py-0.2 rounded-md">Tutor</span>
+            </div>
+            <p class="text-sm font-bold text-stone-900 leading-snug">
+              “Think: a specific point or a length?”
+            </p>
+          </div>
+        </div>
+
+        <!-- Main Explanation Card: since vs. for -->
+        <div class="bg-white rounded-2xl p-3.5 border-2 border-[#ecd6c7] shadow-[0_3px_0_0_#f0ded3] space-y-3">
+          
+          <!-- Group 1: 'since' breakdown -->
+          <div class="p-2.5 rounded-xl bg-teal-50/70 border border-teal-200">
+            <div class="flex items-start gap-2 mb-2">
+              <span class="px-2 py-0.5 rounded-md bg-[#0e524d] text-white text-xs font-extrabold tracking-wide uppercase">since</span>
+              <span class="text-xs font-bold text-stone-800 flex-1 leading-snug">
+                Refers to a specific starting point in time:
+              </span>
+            </div>
+            <!-- Example chips -->
+            <div class="flex flex-wrap gap-1.5 pl-1">
+              <span class="inline-flex items-center px-2 py-1 rounded-lg bg-white border border-teal-300 text-xs font-bold text-teal-950 shadow-sm">
+                since 2019
+              </span>
+              <span class="inline-flex items-center px-2 py-1 rounded-lg bg-white border border-teal-300 text-xs font-bold text-teal-950 shadow-sm">
+                since Monday
+              </span>
+              <span class="inline-flex items-center px-2 py-1 rounded-lg bg-white border border-teal-300 text-xs font-bold text-teal-950 shadow-sm">
+                since 8:00 AM
+              </span>
+            </div>
+          </div>
+
+          <!-- Group 2: 'for' breakdown -->
+          <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200">
+            <div class="flex items-start gap-2 mb-2">
+              <span class="px-2 py-0.5 rounded-md bg-amber-700 text-white text-xs font-extrabold tracking-wide uppercase">for</span>
+              <span class="text-xs font-bold text-stone-800 flex-1 leading-snug">
+                Refers to a total length or duration of time:
+              </span>
+            </div>
+            <!-- Example chips -->
+            <div class="flex flex-wrap gap-1.5 pl-1">
+              <span class="inline-flex items-center px-2 py-1 rounded-lg bg-white border border-amber-300 text-xs font-bold text-amber-950 shadow-sm">
+                for five years
+              </span>
+              <span class="inline-flex items-center px-2 py-1 rounded-lg bg-white border border-amber-300 text-xs font-bold text-amber-950 shadow-sm">
+                for two hours
+              </span>
+              <span class="inline-flex items-center px-2 py-1 rounded-lg bg-white border border-amber-300 text-xs font-bold text-amber-950 shadow-sm">
+                for a long time
+              </span>
+            </div>
+          </div>
+
+          <!-- Target Application sentence & conclusion note -->
+          <div class="p-2.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2">
+            <span class="material-symbols-rounded filled text-teal-700 text-base flex-shrink-0 mt-0.5">check_circle</span>
+            <div class="text-xs text-stone-800 leading-relaxed">
+              <span class="font-extrabold text-teal-950">Application:</span>
+              <span>Because <strong class="text-stone-950 font-bold underline decoration-teal-600 decoration-2">2019 is a specific year</strong> (a fixed starting point, not a quantity of time), <strong class="text-teal-900 font-extrabold">since</strong> is the correct answer.</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Action Buttons Footer inside Sheet -->
+      <div class="px-5 pt-2 pb-5 bg-white border-t border-stone-100 flex flex-col gap-2.5">
+        <!-- Primary Action: "Got it" with tactile raised 3D ledge -->
+        <button type="button" class="tactile-btn-primary w-full min-h-[48px] py-3 px-4 rounded-2xl font-extrabold text-base flex items-center justify-center gap-2 cursor-pointer">
+          <span class="font-extrabold tracking-wide">Got it</span>
+          <span class="material-symbols-rounded text-lg font-bold">arrow_forward</span>
+        </button>
+
+        <!-- Secondary Action: "Show answer" with tactile 3D border ledge -->
+        <button type="button" class="tactile-btn-secondary w-full min-h-[44px] py-2.5 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-rounded text-lg">visibility</span>
+          <span>Show answer</span>
+        </button>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

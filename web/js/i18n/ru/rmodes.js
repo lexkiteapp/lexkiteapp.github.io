@@ -1,3 +1,3 @@
-/* UI ru – rmodes (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"Gõ từ":"Напечатать","Nghe chọn nghĩa":"Слушай и выбирай","Câu của bạn":"Ваше предложение","Nguồn":"Источник","Chế độ ôn":"Режим повторения","Gợi ý chữ cái":"Подсказка буквы","Nghe từ":"Прослушать слово","Không nhớ":"Не помню","Đáp án đúng":"Правильный ответ"});
+/* SINH từ i18n/ui/ru/rmodes.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"_koen82":"Напечатать","_1607883":"Загрузка аудио…","_1gn40h8":"Не удалось воспроизвести аудио – нажмите 🔊, чтобы повторить","_1sl4tgc":"Показать слово","_at58ig":"Слушай и выбирай","_kmgumz":"Ваше предложение","_wm1xxw":"Источник","_m4hcwb":"Режим повторения","_3u42cy":"Подсказка буквы","_m0yt56":"Прослушать слово","_1wu8tl2":"Не помню","_1w3s9a7":"Правильный ответ"});
 })(typeof self !== 'undefined' ? self : this);
