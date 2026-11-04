@@ -179,3 +179,5 @@ Reading bölümünden 420 üstü almak (genel toplamda 850+ skor) için Part 5't
 
 ### İş İngilizcesi eşdizimleri en kolay nasıl ezberlenir?
 Kelimeleri tek başına değil, kalıp halinde (*meet the deadline*, *conduct an investigation*, *reach a consensus*) öğrenin. Kalıpları aralıklı tekrar sistemiyle çalışmak sınav anında reflekslerinizi olağanüstü hızlandırır.
+
+Dinleme bölümünde benzer ses tuzaklarından korunmak için kapsamlı [toeic listening part 2 stratejileri soru cevap rehberimizi](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) inceleyin.

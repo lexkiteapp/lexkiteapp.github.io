@@ -139,3 +139,5 @@ Sınavda 850 üzeri elit bir puan elde etmek, keskin bir okuma hızını geniş 
 - **Kapsamlı Sınav Stratejisi**: Dinleme ve okuma çalışmalarını dengeli yürütmek için [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) aşamalarını uygulayın.
 
 Hemen [Lexkite web platformunu](/#/) kullanmaya başlayın, toeic part 7 stratejileriyle sınav süresini kusursuz yöneterek hedeflediğiniz başarıyı yakalayın!
+
+Okuma öncesi dinleme reflekslerinizi güçlendirmek için [toeic listening part 2 stratejileri soru cevap rehberimizi](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) okuyun.
