@@ -183,19 +183,24 @@
     $('#addPhr').onclick = () => App.savePhraseDialog({ phrase: e.word + ' ', sentence: e.ex || '' });
   }
 
-  // Từ liên quan (Datamuse): tính từ hay đi kèm, danh từ hay đi kèm, trái nghĩa, gần nghĩa
-  async function loadRelated(e) {
-    const w = encodeURIComponent(e.word);
-    const get = async u => { try { const r = await fetch(u).then(r => r.json()); return Array.isArray(r) ? r : []; } catch (x) { return []; } };
+  // Từ liên quan (Datamuse): tính từ hay đi kèm, danh từ hay đi kèm, trái nghĩa, gần nghĩa. Datamuse hỏng → đồng nghĩa/trái nghĩa của Free Dictionary + nút Thử lại gọn (test: scripts/test/datamuse-resilience.mjs)
+  App.loadRelated = loadRelated;
+  async function loadRelated(e, retry) {
+    const w = encodeURIComponent(e.word), get = q => Dict.dm(`words?${q}`, { retry }).then(r => Array.isArray(r) ? r : null);
     // Danh từ → tính từ hay đi kèm; tính từ → danh từ hay đi sau (tránh cụm vô nghĩa)
     const isNoun = /^n|danh/.test(e.pos || ''), isAdj = /^adj|tính/.test(e.pos || '');
     const STOP = new Set(['more', 'most', 'less', 'least', 'very', 'other', 'such', 'same', 'own', 'many', 'much', 'few', 'several', 'certain', 'various', 'error', 'orthogonal']);
-    const [jjb0, jja, ant, ml] = await Promise.all([
-      isNoun || !isAdj ? get(`https://api.datamuse.com/words?rel_jjb=${w}&max=14`) : [],
-      isAdj ? get(`https://api.datamuse.com/words?rel_jja=${w}&max=10`) : [],
-      get(`https://api.datamuse.com/words?rel_ant=${w}&max=6`),
-      get(`https://api.datamuse.com/words?ml=${w}&max=16&md=f`),
-    ]);
+    // Gọi 1 lệnh trước: nguồn hỏng thì không bắn thêm 3 lệnh hỏng (mỗi lệnh = 1 dòng đỏ console)
+    let ml = await get(`ml=${w}&max=16&md=f`), jjb0 = [], jja = [], ant = [];
+    const down = !ml;
+    if (down) {
+      const d = await fetch(Dict.dapiURL(e.word), { signal: AbortSignal.timeout(3500) }).then(r => r.ok ? r.json() : null).catch(() => null);
+      const ms = (Array.isArray(d) ? d : []).flatMap(x => x.meanings || []), pick = k => [...new Set(ms.flatMap(m => [...(m[k] || []), ...(m.definitions || []).flatMap(x => x[k] || [])]))];
+      ant = pick('antonyms').slice(0, 6).map(word => ({ word }));
+      ml = pick('synonyms').map(word => ({ word, tags: ['f:9'] }));
+    } else {
+      [jjb0, jja, ant] = (await Promise.all([isNoun || !isAdj ? get(`rel_jjb=${w}&max=14`) : [], isAdj ? get(`rel_jja=${w}&max=10`) : [], get(`rel_ant=${w}&max=6`)])).map(r => r || []);
+    }
     const jjb = isAdj ? [] : jjb0.filter(x => !STOP.has(x.word) && x.score > 300).slice(0, 10);
     const el = $('#related'); if (!el || parseHash().arg !== e.word && parseHash().arg.toLowerCase() !== e.word) return;
     const chips = (arr, fmt) => arr.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x.word)}">${esc(fmt(x.word))}</a>`).join(' ');
@@ -206,7 +211,8 @@
     const syn = new Set(e.syn);
     const stemE = e.word.slice(0, Math.max(5, e.word.length - 4));
     const mlf = ml.filter(x => !syn.has(x.word) && !/\s/.test(x.word) && !x.word.startsWith(stemE) && !e.word.startsWith(x.word.slice(0, 6)) && +(((x.tags || []).find(t => t.startsWith('f:')) || 'f:0').slice(2)) >= 1).slice(0, 8);
-    if (mlf.length) html += `<div style="margin-top:.6rem"><b>🔀 ${t('Từ gần nghĩa:')}</b> ${chips(mlf, x => x)}</div>`;
+    if (mlf.length || down) html += `<div style="margin-top:.6rem"><b>🔀 ${t('Từ gần nghĩa:')}</b> ${chips(mlf, x => x)}${down ? ` <button class="btn sm ghost" id="relRetry">↻ ${t('Thử lại')}</button>` : ''}</div>`;
     el.innerHTML = html;
+    if (down) $('#relRetry').onclick = () => loadRelated(e, true);
   }
 })();
