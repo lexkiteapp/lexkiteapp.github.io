@@ -96,6 +96,10 @@
 "Kiểm tra trình độ nhanh": "Quick level check",
 "Bài kiểm tra thích ứng, có khoảng band": "Adaptive test with a band range",
 "Bài học đầu tiên": "Your first lesson",
+"Tham gia ngay": "Join now",
+"Biết trình độ để xếp lộ trình đúng sức": "Know your level and start at the right stage",
+"Bài kiểm tra ngắn giúp bạn bắt đầu đúng chặng. Không bắt buộc, làm sau cũng được.": "A short test puts you on the right stage. It is optional and you can take it later.",
+"Mọi bài luyện theo nhóm, luyện thi trước": "All practice by group, exam prep first",
 "Từ vựng thông dụng theo mục tiêu": "High-frequency words for your goal",
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.": "Hi, I'm Ama! Let's get you ready in 3 small steps.",
 }); })(typeof self !== 'undefined' ? self : this);
