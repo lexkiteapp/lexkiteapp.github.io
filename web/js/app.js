@@ -426,6 +426,7 @@
     $$('#bnav a').forEach(a => { const on = a.dataset.tab === tab; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     $$('#nav a[data-route]').forEach(a => { const on = a.dataset.route === item; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
+    setTimeout(() => { const on = document.querySelector('#nav a.active'); if (on && on.offsetParent) on.scrollIntoView({ block: 'nearest' }); }, 230); // màn thấp: mục đang chọn không khuất trong vùng cuộn menu (chờ nhóm mở xong)
     UI.stopSpeak(); UI.clearRecs();
     document.onkeydown = null;
     if (App.cleanup) { try { App.cleanup(); } catch (e) { /* bỏ qua */ } App.cleanup = null; }

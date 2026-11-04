@@ -242,12 +242,12 @@ async function ui(w, theme) {
       try {
         await page.setViewportSize({ width: w, height: h });
         await page.goto('about:blank'); await boot(page, '/home');
-        await page.evaluate(d => { document.documentElement.dir = d; document.querySelector('#nav .nav-group').open = true; }, dir);
+        await page.evaluate(d => { document.documentElement.dir = d; const g = document.querySelector('#nav .nav-group'); if (g) g.open = true; /* ux1: menu phẳng, không có nhóm */ }, dir);
         await sleep(400);
         const bad = await page.evaluate(() => { const out = [], side = document.querySelector('.sidebar');
           if (side.scrollWidth > side.clientWidth + 1) out.push(`tràn ngang ${side.scrollWidth}/${side.clientWidth}`);
-          for (const e of document.querySelectorAll('.side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width) continue;
-            e.scrollIntoView({ block: 'nearest' }); const r = e.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2), n = (e.innerText || e.id).trim().split('\n')[0];
+          for (const e of document.querySelectorAll('#nav a, #nav summary, .side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width) continue;
+            e.scrollIntoView({ block: 'nearest', behavior: 'instant' }); const r = e.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2), n = (e.innerText || e.id).trim().split('\n')[0];
             if (r.bottom > innerHeight + 1 || r.top < 0) out.push(`"${n}" bị cắt (${Math.round(r.top)}…${Math.round(r.bottom)} / ${innerHeight})`);
             else if (!hit || !(e === hit || e.contains(hit))) out.push(`"${n}" bị đè`); }
           return out; });
