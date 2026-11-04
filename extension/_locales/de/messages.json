@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} Bedeutungen"
+ },
+ "ntQzTag": {
+  "message": "Blitz-Quiz"
+ },
+ "ntQzQ": {
+  "message": "Wähle die richtige Bedeutung"
+ },
+ "ntQzTime": {
+  "message": "{s} Sekunden"
+ },
+ "ntQzRight": {
+  "message": "Richtig!"
+ },
+ "ntQzWrong": {
+  "message": "Knapp daneben – das Wort kommt bald wieder"
+ },
+ "ntQzTimeout": {
+  "message": "Zeit um – kein Problem"
+ },
+ "ntQzSkip": {
+  "message": "Überspringen"
  }
 }
