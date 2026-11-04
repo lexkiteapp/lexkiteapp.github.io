@@ -1395,8 +1395,10 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
 body.focus .sidebar, body.focus .bottom-nav { display: none; }
 body.focus .shell { grid-template-columns: 1fr; }
-/* Thanh trên GIỮ chỗ (không display:none, không đổi padding .view) → vào/thoát màn học không đẩy nội dung (CLS ≈ 0, mqa); chỉ ẩn bằng transform/visibility */
-body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-events: none; }
+/* Màn học: thanh trên ra khỏi luồng để không để lại dải trống ở đầu màn */
+body.focus .topbar { position: absolute; inset-inline: 0; visibility: hidden; transform: translateY(-100%); pointer-events: none; }
+.listen-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; }
+.listen-head { margin: .25rem 0 1rem; }
 
 .contact-form { display: flex; flex-direction: column; gap: 1rem; position: relative; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }
