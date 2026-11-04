@@ -89,7 +89,7 @@ state.game.ret = { ...(state.game.ret || {}), ms: { 3: 1 } };
 win.App.todayPlan = async () => [{ href: '#/review', done: true }, { href: '#/lesson/1', done: false }];
 await R.check(); await tick(1000);
 ok(modalEl && /7 ngày! 🔥/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
-ok(/teach\/(ama|carlos)\/(avatar|still-[a-z]+)\.webp/.test(modalEl.innerHTML) && modalEl.querySelector('.tslot[data-teacher]') && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (2D registry, đứng sau bệ Chars.slot – #314, không ảnh 3D cũ)");
+ok(/teach\/(ama|carlos)\/(avatar|still-[a-z]+)\.webp/.test(modalEl.innerHTML) && modalEl.querySelector('.tslot[data-teacher]') && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (2D registry, qua chỗ giáo viên Chars.slot – #314, không ảnh 3D cũ)");
 ok(/🧊 \+1/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
 ok(modalEl.querySelectorAll('.btn.primary').length === 1 && modalEl.querySelector('#retNext'), 'đúng 1 nút chính: Bài tiếp theo');
 ok(modalEl.querySelector('.ret-say').textContent.split(/\s+/).length <= 7, 'lời giáo viên ngắn (≤ 7 chữ)');

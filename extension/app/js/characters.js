@@ -13,7 +13,7 @@
     still: (w, p) => f(w, 'still-' + ok(w, p) + '.webp'), // ảnh tĩnh từng tư thế (đã 2×, nền trong suốt)
     // vòng nghỉ 1–3 s mắt mở (Home/lộ trình): webm = VP9 alpha (Chrome/Firefox/Android), mp4 = H.264 xếp chồng alpha (Safari, ghép WebGL như clip), poster = khung đầu
     idle: w => ({ webm: f(w, 'idle.webm'), mp4: f(w, 'idle.mp4'), poster: f(w, 'idle-poster.webp') }),
-    clip: (w, p, o = {}) => f(w, ok(w, p) + (o.hd && /^(talk|listen)$/.test(ok(w, p)) ? '-hd' : '') + '.mp4'), // hd: chỗ lớn sống (Call), 2× điểm ảnh
+    clip: (w, p, o = {}) => f(w, ok(w, p) + (o.hd && /^(talk|listen|point|cheer|encourage)$/.test(ok(w, p)) ? '-hd' : '') + '.mp4'), // hd: 2× điểm ảnh – Call + chỗ giáo viên l/xl màn retina (danh sách = characters.json "hd")
     // o.kind: 'avatar' (mặc định, vuông đầu-vai) | 'poster' (đầu→hông) | 'still' (+ o.pose) · luôn kèm bản 2× cho màn retina
     img: (w, o = {}) => {
       const k = o.kind || (o.pose ? 'still' : 'avatar'), sz = o.size || 48, sq = k === 'avatar', src = k === 'still' ? f(w, 'still-' + ok(w, o.pose) + '.webp') : f(w, k + '.webp');

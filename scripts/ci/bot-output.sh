@@ -19,7 +19,7 @@ pick=$(api "https://api.github.com/repos/$REPO/actions/artifacts?name=bot-output
 [ -n "$pick" ] || { echo "✗ không có artifact bot-output-$NAME cho nhánh $BR${RUN:+ / lượt $RUN} (hết hạn hoặc bot không đổi gì)"; exit 1; }
 read -r URL RID SHA AT <<< "$pick"
 git merge-base --is-ancestor "$SHA" HEAD 2>/dev/null || echo "⚠ lượt $RID chạy trên $SHA – không phải tổ tiên của HEAD (nhánh đã đổi/rebase): soát kỹ trước khi commit"
-T=$(mktemp -d); trap 'rm -rf "$T"' EXIT
+T=$(mktemp -d "${TMPDIR:-/tmp}/bo.XXXXXX"); trap 'rm -rf "$T"' EXIT
 api -o "$T/a.zip" "$URL"
 # không cho đường dẫn thoát khỏi repo
 if unzip -Z1 "$T/a.zip" | grep -qE '(^/|(^|/)\.\.(/|$))'; then echo "✗ artifact có đường dẫn lạ – dừng"; exit 1; fi
