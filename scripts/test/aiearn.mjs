@@ -11,4 +11,12 @@ ok(earnable(50, 0, 'sync').grant === 0 && earnable(-5, 0, 'ai').grant === 0 && e
 const src = fs.readFileSync('functions/api/aiearn.js', 'utf8');
 ok(/error: 'auth'/.test(src) && /stats\.days\[day\]/.test(src), 'cần đăng nhập + đọc bằng chứng từ meta máy chủ, không tin số máy khách gửi');
 ok(EARN.maxPerDay * EARN.ai.grant <= 6, 'trần lượt thêm/ngày nhỏ hơn mức gói free (30)');
+// Nửa giao diện (web/js/ads/run.js): chỉ gợi ý khi đã đăng nhập & không ở chế độ Drive, nhận lượt SAU khi rời trang ôn, đủ chuỗi 15 ngôn ngữ
+const run = fs.readFileSync('web/js/ads/run.js', 'utf8');
+ok(/canEarn = \(\) => !!\(g\.Sync && g\.Sync\.user && g\.Sync\.mode !== 'drive'/.test(run), 'gợi ý chỉ khi đăng nhập, không ở chế độ Drive');
+ok(/\^#\\\/review/.test(run) && /'\/api\/aiearn'/.test(run), 'chỉ nhận khi đã rời trang ôn, gọi /api/aiearn');
+for (const k of ['Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.', 'Ôn thẻ ngay', 'Nhờ ôn thẻ, bạn được thêm {n} lượt.', 'Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.']) {
+  const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'))[k];
+  ok(fx && ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'].every(l => fx[l] && (k.match(/\{\w+\}/g) || []).every(ph => fx[l].includes(ph))), 'đủ 13 ngôn ngữ, giữ chỗ trống: ' + k);
+}
 console.log(`aiearn: ${n} kiểm tra PASS`);
