@@ -169,6 +169,8 @@ select { min-width: 0; text-overflow: ellipsis; }
 #view :where(h1, h2, h3, h4, p, li, dd, dt, td, th, blockquote, figcaption, label, .card, .chip) { overflow-wrap: break-word; }
 .input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 textarea.input { resize: vertical; min-height: 72px; }
+/* Cao = padding + dòng chữ nên 43–44 px tùy font tải được: bản live qua, bản build PR đỏ tap < 44 (QA bot) */
+select.input { min-height: 44px; }
 label.field { display: block; }
 label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; font-size: .9rem; }
 .switch { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .55rem 0; cursor: pointer; }
