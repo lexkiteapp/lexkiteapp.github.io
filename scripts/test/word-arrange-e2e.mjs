@@ -138,14 +138,17 @@ async function run(width, scheme, lang, touch) {
   if (touch) {
     await page.setViewportSize({ width, height: 420 }); await page.waitForTimeout(250);
     const pos = () => page.evaluate(() => { let e = document.querySelector('#lsnBank'); while (e && e !== document.body) { const s = getComputedStyle(e); if (/auto|scroll/.test(s.overflowY) && e.scrollHeight > e.clientHeight + 1) return { top: e.scrollTop, max: e.scrollHeight - e.clientHeight }; e = e.parentElement; } const d = document.scrollingElement; return { top: d.scrollTop, max: d.scrollHeight - d.clientHeight }; });
-    const gapPt = await page.evaluate(() => { for (let y = 70; y < innerHeight - 20; y += 5) for (let x = 3; x < innerWidth - 3; x += 5) { const el = document.elementFromPoint(x, y); if (el && el.closest('#lsnAns, #lsnBank') && !el.closest('button')) return [x, y]; } return null; });
-    ok(!!gapPt, T('màn thấp: có khe giữa thẻ để vuốt'));
+    // Điểm vuốt: giữa ô giữ chỗ (không bắt chạm, rộng hơn ngón tay). Khe 8 px giữa hai thẻ không dùng được: chạm sát thẻ là nhấc thẻ đó (video CI 04/11)
+    const pre = await words();
+    const gapPt = await page.evaluate(() => { const hs = [...document.querySelectorAll('#lsnBank .lsn-tile.used')]; for (const h of hs.slice(Math.floor(hs.length / 2)).concat(hs)) { h.scrollIntoView({ block: 'center' }); const r = h.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2, el = document.elementFromPoint(x, y); if (el && el.closest('#lsnBank') && !el.closest('button')) return [x, y]; } return null; });
+    ok(!!gapPt, T('màn thấp: có ô giữ chỗ để vuốt'));
     if (gapPt) {
+      await page.waitForTimeout(150);
       const p0 = await pos(), dy = p0.max - p0.top > 40 ? -120 : 120;
       await P.down(...gapPt); await glide(gapPt[0], gapPt[1], gapPt[0], gapPt[1] + dy, 8); await P.up(); await page.waitForTimeout(500);
-      const p1 = await pos(); ok(p0.max > 0 && p1.top !== p0.top, T(`vuốt từ khe giữa thẻ: trang cuộn (${p0.top} → ${p1.top}/${p0.max})`));
+      const p1 = await pos(); ok(p0.max > 0 && p1.top !== p0.top, T(`vuốt từ ô giữ chỗ: trang cuộn (${p0.top} → ${p1.top}/${p0.max})`));
+      ok((await words()).join() === pre.join(), T('vuốt cuộn không nhấc thẻ nào'));
     }
-    const pre = await words();
     const tp = await page.evaluate(q => { const el = document.querySelector(q); el.scrollIntoView({ block: 'center' }); const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }, sel('seven'));
     await page.waitForTimeout(150); const p2 = await pos();
     await P.down(...tp); await glide(tp[0], tp[1], tp[0], 12, 8); await page.waitForTimeout(500); const p3 = await pos();
