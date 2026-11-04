@@ -107,7 +107,7 @@ Dàn ý mẫu trên nháp có thể ngắn như sau:
 2. **Tự lập dàn ý 5 phút** trên giấy, *trước khi* mở gợi ý ý tưởng. Sau đó mới mở gợi ý để so: bạn có bỏ sót góc nhìn nào không?
 3. **Xem từ vựng gợi ý** cho chủ đề, chọn 4–5 từ hoặc cụm muốn dùng. Dùng đúng và tự nhiên quan trọng hơn dùng từ hiếm, đúng tinh thần [tiêu chí Lexical Resource về từ vựng](/vi/blog/lexical-resource-ielts/).
 4. **Viết bài theo khung** 4 đoạn trong 35 phút, bấm giờ.
-5. **Đọc bài mẫu band 8 có chú thích**, chú ý cách họ phát triển ý trong thân bài. Ghi lại một hai cấu trúc hay vào sổ.
+5. **Đọc bài mẫu band 8 có chú thích**, chú ý cách họ phát triển ý trong thân bài. Ghi lại một hai cấu trúc hay vào sổ. Nếu luyện thêm các chứng chỉ học thuật khác, bạn có thể tham khảo [chiến lược TOEFL iBT Writing Academic Discussion](/vi/blog/toefl-ibt-writing-academic-discussion-meo-5-0/) để rèn thêm phản xạ viết lập luận trong 10 phút.
 
 ![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Viết theo khung rồi đối chiếu cụm từ, cấu trúc với bài mẫu")
 

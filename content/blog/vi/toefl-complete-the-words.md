@@ -113,7 +113,7 @@ Quy trình gợi ý cho một buổi 20 phút:
 
 ![Bài kiểm tra trắc nghiệm của Lexkite với cụm “run out of” và bốn đáp án](media:practice-test "Trắc nghiệm nghĩa: nhận diện trước khi tự sản sinh")
 
-Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc thêm [từ vựng TOEFL iBT](/vi/blog/tu-vung-toefl-ibt/) để biết nên ưu tiên nhóm từ nào trước.
+Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc thêm [từ vựng TOEFL iBT](/vi/blog/tu-vung-toefl-ibt/) để biết nên ưu tiên nhóm từ nào trước, hoặc tham khảo [bí quyết TOEFL iBT Writing Academic Discussion](/vi/blog/toefl-ibt-writing-academic-discussion-meo-5-0/) để biết cách vận dụng từ vựng vào bài viết lập luận ngắn.
 
 {{cta: /#/toefl | Làm thử một bài Complete the Words ngay}}
 

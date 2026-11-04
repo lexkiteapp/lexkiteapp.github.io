@@ -77,7 +77,7 @@ Mẹo chung: ghi chú từ khóa và chú ý các từ nối như *however*, *so
 
 **Write an Email.** Viết email theo tình huống trong khoảng 7 phút, phải đủ mọi ý đề yêu cầu. Người viết hay mất điểm vì bỏ sót một ý, không phải vì từ vựng kém.
 
-**Write for an Academic Discussion.** Viết một bài đóng góp ý kiến vào thảo luận trên diễn đàn lớp học, khoảng 10 phút. Bài cần đưa ra ý **mới** có lý do, không chỉ nhắc lại ý của các bạn khác trong thảo luận.
+**Write for an Academic Discussion.** Viết một bài đóng góp ý kiến vào thảo luận trên diễn đàn lớp học, khoảng 10 phút. Bài cần đưa ra ý **mới** có lý do, không chỉ nhắc lại ý của các bạn khác trong thảo luận. Xem cẩm nang chi tiết tại [hướng dẫn TOEFL iBT Writing Academic Discussion](/vi/blog/toefl-ibt-writing-academic-discussion-meo-5-0/).
 
 ## Speaking: ngắn nhưng đòi hỏi chính xác
 
