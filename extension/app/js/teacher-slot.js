@@ -21,7 +21,8 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tslot-img{filter:brightness(.95) saturate(.96)}}
 @media (prefers-reduced-motion:no-preference){img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip .tslot-img{animation:tslot-in .18s ease-out both}}
 @keyframes tslot-in{from{opacity:0}}
-@keyframes tslot-breathe{50%{transform:translateX(-50%) scaleY(1.012)}}`;
+@keyframes tslot-breathe{50%{transform:translateX(-50%) scaleY(1.012)}}
+:root .tslot-img.tslot-img{filter:none}`; // chủ 4/11: nhân vật không bị hạ sáng/bạc màu ở bất kỳ theme nào (cổng chars-stage); hai dòng filter tối phía trên xóa sau khi #546 gộp – tránh xung đột
   // Phần phát clip (WebGL/video, ~2 KB gz) ở js/teacher-live.js – chỉ tải khi trang có chỗ giáo viên động (khung app giữ ảnh tĩnh)
   const base = ((g.document && document.currentScript) || {}).src || '';
   let lp = null;

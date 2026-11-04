@@ -1,0 +1,21 @@
+{
+ "_": "Mọi màn hiện Ama/Carlos cho cổng chars-stage (scripts/test/chars-stage-shots.mjs). minHead = cỡ đầu tối thiểu px, CHỈ được nâng. Màn mới có nhân vật phải thêm vào đây. Bảng + cách vẽ: docs/CHARACTERS.md §Cảnh hai người.",
+ "surfaces": {
+  "story": { "route": "lesson/go?demo=1", "drive": "story", "role": "duo" },
+  "lesson": { "route": "lesson/go?demo=1", "drive": "lesson", "role": "solo" },
+  "feedback": { "route": "lesson/go?demo=1", "drive": "feedback", "role": "solo" },
+  "feedback-wrong": { "route": "lesson/go?demo=1", "drive": "feedback-wrong", "role": "solo" },
+  "complete": { "route": "lesson/go?demo=1", "drive": "complete", "role": "solo" },
+  "call": { "route": "call/coffee", "drive": "call", "role": "solo" },
+  "call-list": { "route": "call", "role": "thumb" },
+  "home": { "route": "home", "role": "solo" },
+  "today-new": { "route": "home", "drive": "today-new", "role": "solo" },
+  "streak": { "route": "streak", "role": "solo" },
+  "speak-sit": { "route": "speak/cafe", "role": "solo" },
+  "speak-drill": { "route": "speak/cafe/drill", "role": "solo" },
+  "say": { "route": "say", "role": "solo" },
+  "landing": { "page": "/index.html", "role": "solo" },
+  "confidence": { "route": "confidence", "role": "none", "expect0": true },
+  "roleplay": { "route": "roleplay", "role": "none", "expect0": true }
+ }
+}

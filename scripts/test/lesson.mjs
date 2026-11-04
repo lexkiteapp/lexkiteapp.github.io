@@ -319,12 +319,14 @@ for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' 
   const tw = [...D.querySelectorAll('.lsn-tchw')], ch = $('#lsnChat');
   ok(tw.length === 2 && $('#lsnTch').compareDocumentPosition($('#lsnTch2')) & 4 && tw.every(x => x.compareDocumentPosition(ch) & 4) && /z-10/.test(ch.className) && /lt:bg-\[#F0F4F3\]/.test(ch.className) && !/lt:bg-\[#FFF7EA\]/.test(ch.className), `v2 ${kind}: Ama trái + Carlos phải, cả hai đứng SAU khung chat là MẶT Stitch thấy được (khác màu nền trang) z-10`);
   ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]'), `v2 ${kind}: không vòng / hào quang / khung quanh giáo viên`);
+  ok(D.querySelector('.cduo-scene .cduo[data-duo] .cduo-a #lsnTch') && D.querySelector('.cduo .cduo-b #lsnTch2'), `v2 ${kind}: cảnh hai người dùng chung Chars.duo (web/js/teacher-duo.js)`);
   for (const k of ['ama', 'carlos']) { const x = T[k], o = x.say; x.say = (txt, op) => { said.push({ k, op: op || {} }); return o.call(x, txt, op); }; }
   let g2 = 0, prevLines = 0;
   while (st() && st().sess && !st().sess.done && g2++ < 60) {
     const it = st().sess.cur;
     if (it.type === 'line') {
       sawDuo = sawDuo || !!D.querySelector('.v2-story-duo'); await tick(260);
+      ok(D.querySelector(`.cduo-p[data-who=${it.who === 'carlos' ? 'carlos' : 'ama'}] .tch.talk`) && D.querySelectorAll('.cduo .tch.talk').length === 1 && D.querySelector('.cduo-scene').dataset.speaker === (it.who === 'carlos' ? 'carlos' : 'ama'), `v2 ${kind}: đúng một người nói, đúng người của câu`);
       const n = D.querySelectorAll('.lsn-ln').length; sawLine = sawLine || n > 0; bothOk = bothOk || (n >= 2 && !!D.querySelector('.lsn-ln.ama') && !!D.querySelector('.lsn-ln.carlos'));
       if (kind === 'radio') ok(!/[A-Za-z]{3}/.test([...D.querySelectorAll('.lsn-ln p')].map(x => x.textContent).join('')), 'v2 radio: chỉ nghe, bong bóng không hiện chữ');
       else if (n) ok(D.querySelector('.lsn-ln:last-child p').textContent === it.sent, 'v2 story: bong bóng cuối = câu đang đọc');
