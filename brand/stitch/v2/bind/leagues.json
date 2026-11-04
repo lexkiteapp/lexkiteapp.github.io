@@ -1,5 +1,6 @@
 {
  "_doc": "Màn Giải đấu (#/league) – d do League route (web/js/league.js) dựng từ dữ liệu thật Sync.league('me'). Đầu trang + thanh tab = chuẩn chung (shell.js). Banner tuần trước, đổi biệt danh, quy tắc → thẻ cùng khuôn thẻ 'Earn +40 XP' (d.cards).",
+ "compact": true,
  "remove": [
   ":scope > header",
   ":scope > nav",
@@ -94,9 +95,9 @@
     "row": {
      "text": {
       "4": "r.rank",
+      "980": "r.xp",
       "TC": "r.ini",
       "Tariq Chen": "r.nick",
-      "980": "r.xp",
       "XP": "'XP'"
      },
      "addClass": {
@@ -111,11 +112,11 @@
     "me": {
      "text": {
       "5": "r.rank",
+      "820": "r.xp",
       "YO": "r.ini",
       "You": "r.nick",
       "SAFE": "r.chip",
       "160 XP to Promotion": "r.gap",
-      "820": "r.xp",
       "XP": "'XP'"
      },
      "cls": {

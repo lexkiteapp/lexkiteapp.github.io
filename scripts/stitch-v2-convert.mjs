@@ -17,7 +17,7 @@ const errs = [], enMap = {};
 const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
 
 // ---- tailwind.config riêng của file → bảng tra tên → giá trị ----
-function cfgOf(html, f) { const m = html.match(/tailwind\.config\s*=\s*(\{[\s\S]*?\})\s*<\/script>/); if (!m) return {};
+function cfgOf(html, f) { const m = html.match(/tailwind\.config\s*=\s*(\{[\s\S]*?\})\s*;?\s*<\/script>/); if (!m) return {}; // ";?": mẫu kết thúc "};" trước đây lặng lẽ mất cả bảng màu
   try { return vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 200 }).theme?.extend || {}; } catch (e) { errs.push(`${f}: tailwind.config đọc lỗi`); return {}; } }
 const COLOR_P = ['bg', 'text', 'border', 'border-t', 'border-b', 'border-l', 'border-r', 'border-x', 'border-y', 'ring', 'ring-offset', 'from', 'via', 'to', 'fill', 'stroke', 'shadow', 'outline', 'divide', 'placeholder', 'decoration', 'accent', 'caret'];
 const SPACE_P = ['p', 'px', 'py', 'pt', 'pb', 'pl', 'pr', 'm', 'mx', 'my', 'mt', 'mb', 'ml', 'mr', 'gap', 'gap-x', 'gap-y', 'space-x', 'space-y', 'w', 'h', 'min-w', 'min-h', 'max-w', 'max-h', 'top', 'bottom', 'left', 'right', 'inset', 'inset-x', 'inset-y', 'translate-x', 'translate-y'];
@@ -45,7 +45,7 @@ const styleCls = s => (s || '').split(';').map(x => x.trim()).filter(Boolean).ma
 const VAR = { '': '', ':active': 'active:', ':hover': 'hover:', '::before': 'before:', '::after': 'after:', '::-webkit-scrollbar': '[&::-webkit-scrollbar]:' };
 function stylesOf(html, f) { const M = {}, css = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n').replace(/\/\*[\s\S]*?\*\//g, '');
   for (const [, sel, body] of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) for (const one of sel.split(',').map(x => x.trim())) {
-    if (/^(html|body|\*|:root)\b/.test(one) || /^@/.test(one)) continue; const m = one.match(/^\.([\w-]+)((?::{1,2}[\w-]+)?)$/);
+    if (/^(html|body|\*|:root)\b|^\.material-symbols/.test(one) || /^@/.test(one)) continue; /* font icon: giữ class gốc (CSS chung lo), không đổi thành class thuộc tính */ const m = one.match(/^\.([\w-]+)((?::{1,2}[\w-]+)?)$/);
     if (!m || VAR[m[2]] == null) { errs.push(`${f}: <style> bộ chọn chưa hỗ trợ: ${one}`); continue; }
     for (const d of body.split(';').map(x => x.trim()).filter(Boolean)) { const i = d.indexOf(':'), pr = d.slice(0, i).trim().toLowerCase(), v = d.slice(i + 1).trim().replace(/\s*!important/, '');
       (M[m[1]] = M[m[1]] || []).push(pr === 'content' && /^(""|'')$/.test(v) ? VAR[m[2]] + "content-['']" : `${VAR[m[2]]}[${pr}:${arb(v)}]`); } }
@@ -143,6 +143,16 @@ function webCss(hl, hd) {
     if (d) lines.push(`@media (prefers-color-scheme:dark){${pre(k, DK)}{${d}}}${pre(k, x => `:root[data-theme=dark] ${x}`)}{${d}}`); }
   return lines.join('\n') + (lines.length ? '\n' : ''); }
 
+// bind "compact": true – class dùng lại nhiều lần đưa vào bảng _c[] của file: cùng DOM + cùng CSS (Tailwind vẫn đọc tên class trong bảng), khung nhẹ hơn (ngân sách web/js).
+function compact(js) { const use = {}, attrs = /class="([^"]*)"/g, ok = x => x.length >= 9 && !/[$`\\{}]|^material-symbols/.test(x); // tên class icon giữ nguyên: build-stitch-css quét "material-symbols-…>tên<" để gom font
+  js = js.replace(/ data-icon="[a-z_0-9]+"/g, '');
+  const parts = c => c.split(/(\$\{[^}]*\})/), // chỉ tách class chữ thường; biểu thức ${…} giữ nguyên
+    each = (c, fn) => parts(c).map((p, i) => (i % 2 ? p : p.split(' ').map(fn).join(' '))).join('');
+  for (const m of js.matchAll(attrs)) each(m[1], x => { if (ok(x)) use[x] = (use[x] || 0) + 1; return x; });
+  const keys = Object.keys(use).filter(x => use[x] > 1 && x.length * use[x] > x.length + 3 + 9 * use[x]).sort((a, b) => use[b] * b.length - use[a] * a.length), ix = new Map(keys.map((x, i) => [x, i]));
+  const body = js.replace(attrs, (_, c) => 'class="' + each(c, x => (ix.has(x) ? '${_c[' + ix.get(x) + ']}' : x)) + '"'), nl = body.indexOf('\n');
+  return body.slice(0, nl + 1) + '{ const _c = ' + JSON.stringify(keys) + ';\n' + body.slice(nl + 1) + '}\n'; }
+
 // ---- chạy ----
 for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC, 'bind', k + '.json'), 'utf8')), f = s => path.join(SRC, `${bind.src || k}-${s}.html`); // src: màn lấy khung từ cặp HTML của màn khác (vd cột phải today-rail ← today-desk)
   if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
@@ -172,9 +182,10 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
     const ch = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web (đầu trang + chân trang chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).chrome = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n footer: ${o.footer} });\n`;
     const co = path.join(OUT, 'chrome.js'); if (CHECK) { if (!fs.existsSync(co) || fs.readFileSync(co, 'utf8') !== ch) errs.push(`${co} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(co, ch); }
     o.header = '``'; o.footer = '``'; }
-  const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` +
+  let js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` +
     `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
     (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : '');
+  if (bind.compact) js = compact(js);
   const out = path.join(OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }

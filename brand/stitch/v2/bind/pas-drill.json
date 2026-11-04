@@ -1,5 +1,6 @@
 {
  "_doc": "Play & Speak F2 'Nói theo 3 nhịp' (#/speak/<id>/drill, cờ speak_pack) – d do web/js/speak/drill.js dựng từ content/situations/<id>.json + Speak.score. Ẩn phần Stitch tự bịa: chip 'Accent: UK'. Giáo viên (Ama) qua Chars vào ô nét đứt. Từ chưa chấm (r.p) dùng màu chip 'Sentence Model' có sẵn trong mẫu; nhịp chưa tới dùng khuôn 'đã xong' bỏ dấu tích. Không mic: chạm chip theo thứ tự (chip là nút, vùng chạm ≥ 44 px).",
+ "compact": true,
  "i18n": {
   "Close lesson": "Đóng bài nói",
   "Speaking drill": "Luyện nói theo câu",
@@ -10,10 +11,10 @@
   "Continue": "Tiếp tục"
  },
  "text": {
+  "86": "d.score",
   "Café": "d.chip",
   "• Practice 7/12": "d.prog",
   "Coach Ama": "d.coach",
-  "86": "d.score",
   "/ˈmiː.di.əm/": "d.tipIpa"
  },
  "html": {
