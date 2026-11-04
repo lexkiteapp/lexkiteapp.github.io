@@ -12,7 +12,9 @@ const wr = (name, status, conclusion, run_number = 1, extra = {}) => ({ name, st
 const st = (context, state, updated_at = '2026-11-01T00:00:00Z') => ({ context, state, updated_at });
 
 // ---------- 1) đánh giá ----------
-ok(evaluate({}).state === 'success', 'không có check nào → xanh');
+ok(evaluate({}).state === 'pending', 'không có check nào → CHỜ (CI chưa chạy), không xanh');
+ok(evaluate({ workflowRuns: [wr('report-autofix', 'completed', 'skipped')] }).state === 'pending', 'chỉ có lượt skipped → CHỜ, không xanh (sự cố #584 ngày 05/11)');
+ok(evaluate({ checkRuns: [cr('lint', 'completed', 'neutral')] }).state === 'pending', 'chỉ neutral → CHỜ, không xanh');
 {
   const r = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('lint', 'completed', 'skipped'), cr('x', 'completed', 'neutral')], statuses: [st('ext', 'success')], workflowRuns: [wr('npm test', 'completed', 'success')] });
   ok(r.state === 'success' && r.total === 5, 'success/skipped/neutral + status success → xanh ' + JSON.stringify(r));
@@ -32,8 +34,8 @@ ok(evaluate({ checkRuns: [cr('fork', 'completed', 'action_required')] }).state =
   ok(r.state === 'failure', 'có đỏ + có đang chạy → đỏ ngay (không chờ)');
 }
 // bỏ chính mình
-ok(evaluate({ checkRuns: [cr(SELF_JOB, 'in_progress', null)], statuses: [st(CONTEXT, 'pending')], workflowRuns: [{ ...wr('required-gate', 'in_progress', null), path: SELF_PATH }] }).state === 'success', 'bỏ job/status/workflow của chính required-gate');
-ok(evaluate({ statuses: [st(CONTEXT, 'failure')] }).state === 'success', 'status required-gate cũ đỏ không tự kéo đỏ');
+ok(evaluate({ checkRuns: [cr(SELF_JOB, 'in_progress', null), cr('npm test', 'completed', 'success')], statuses: [st(CONTEXT, 'pending')], workflowRuns: [{ ...wr('required-gate', 'in_progress', null), path: SELF_PATH }] }).state === 'success', 'bỏ job/status/workflow của chính required-gate');
+ok(evaluate({ statuses: [st(CONTEXT, 'failure'), st('ci/ext', 'success')] }).state === 'success', 'status required-gate cũ đỏ không tự kéo đỏ');
 // lượt mới nhất thắng
 ok(evaluate({ checkRuns: [cr('npm test', 'completed', 'failure', 1), cr('npm test', 'completed', 'success', 2)] }).state === 'success', 'check-run chạy lại xanh (id lớn hơn) thắng lượt đỏ cũ');
 ok(evaluate({ checkRuns: [cr('npm test', 'completed', 'success', 2), cr('npm test', 'completed', 'failure', 1)] }).state === 'success', 'thứ tự mảng không ảnh hưởng');
@@ -134,13 +136,14 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   await run(['--watch', '6'], {}, A, () => {}, clock);
   ok(posted.join() === 'pending,success', 'bộ canh: pending rồi xanh khi lượt cuối xong, không đăng lặp: ' + posted.join());
   ok(gathers.length <= 3, `bộ canh: ≤ 3 lần đánh giá cho 3 workflow trong 6 phút (cũ: 1 runner mỗi workflow xong + mỗi check_suite) – thực tế ${gathers.length}`);
-  // commit mới chưa kịp có lượt chạy nào → không xanh sớm; workflow xuất hiện sau đó → pending; không có workflow nào → xanh sau 90 s
+  // commit mới chưa kịp có lượt chạy nào → không xanh sớm; workflow xuất hiện sau đó → pending; không có workflow nào → vẫn chờ (05/11)
   {
     let t2 = 0, runs2 = [], p2 = [];
     const B = { openPrs: async () => (t2 >= 30e3 ? [{ number: 5, head: { sha: 'n1' }, updated_at: new Date(t2).toISOString() }] : []), gateState: async () => undefined,
       recentRuns: async () => runs2, gather: async () => ({ workflowRuns: runs2 }), post: async (sha, r) => p2.push(r.state + ':' + Math.round(t2 / 1e3)) };
     await run(['--watch', '4'], {}, B, () => {}, { now: () => t2, sleep: async ms => { t2 += ms; } });
-    ok(p2[0] === 'pending:60' && p2.at(-1).startsWith('success:') && +p2.at(-1).split(':')[1] >= 150, 'commit mới không có check: pending trước, xanh sau ≥ 90 s: ' + p2.join());
+    // 05/11: npm-test chạy trên MỌI PR (all-paths) → head PR không có check nào = CI chưa kích, KHÔNG BAO GIỜ xanh (sự cố #584)
+    ok(p2[0] === 'pending:60' && !p2.some((x) => x.startsWith('success')), 'commit mới không có check: chờ, không bao giờ tự xanh: ' + p2.join());
   }
   // đỏ: lượt hỏng → đỏ ở vòng kế tiếp dù lượt khác còn chạy
   t = 0; posted.length = 0;

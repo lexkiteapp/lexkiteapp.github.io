@@ -8,7 +8,7 @@ translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: phuong-phap
 tags: [dictation, istima, connected-speech, listening]
 cover: listening
-coverAlt: "Phòng luyện listening và dictation chép chính tả trên Lexkite"
+coverAlt: "غرفة استماع IELTS في Lexkite: 10 اختبارات، 4 أقسام لكل اختبار، لهجات بريطانية وأمريكية وأسترالية، سرعة قابلة للتعديل وأزرار التدريب والاستماع الأول والإملاء"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -108,7 +108,7 @@ publishAt: 2026-11-23T08:12:00+03:00
 
 تحقق من المفردات الجديدة التي تكشفها أثناء الاستماع عبر [قاموس Lexkite](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "فحص الكلمات الصعبة والتحقق من رموزها الصوتية واستخداماتها الدقيقة في القاموس الذكي")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "فحص الكلمات الصعبة والتحقق من رموزها الصوتية واستخداماتها الدقيقة في القاموس الذكي")
 
 ### الخطوة الرابعة: تقنية الترديد المتزامن (Shadowing Technique)
 أعد تشغيل الصوت واقرأ النص المكتوب بصوت مرتفع متطابقاً مع صوت المتحدث الأصلي بنبرته وسرعته ووقفاته (*Shadowing*). ما ينطق به لسانك وتستطيع محاكاته بسلاسة، لن تعجز أذنك عن التقاطه في المستقبل أبداً.
@@ -132,7 +132,7 @@ publishAt: 2026-11-23T08:12:00+03:00
 
 اختبر حفظك للمفردات والمصطلحات التي جمعتها من المقاطع الصوتية في [منصة التمارين الذكية في Lexkite](/#/practice).
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "اختبر مفرداتك بأسئلة سريعة من أربعة خيارات")
+![اختبار اختيار من متعدد في Lexkite: اختيار المعنى الصحيح لعبارة run out of من بين أربعة خيارات](media:practice-test "اختبار الاختيار من متعدد لتثبيت العبارات مثل run out of في Lexkite")
 
 ## دراسة حالة واقعية: تفكيك جملة أكاديمية معقدة في الإملاء
 
