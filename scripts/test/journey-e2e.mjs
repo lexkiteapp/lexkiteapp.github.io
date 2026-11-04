@@ -169,7 +169,7 @@ const softAskShown = h => h.has('#modal:not([hidden]) #raY');
 // ---------- 1. Lần đầu: giới thiệu → app → kiểm tra đầu vào → bài đầu tiên → hỏi nhắc học ĐÚNG 1 lần sau bài → từ chối → không bao giờ hỏi lại ----------
 async function j1(h) {
   const { page, lang } = h;
-  await page.goto(`${O}/${lang === 'vi' ? '' : lang + '/'}`, { waitUntil: 'load' });
+  await page.goto(`${O}/${lang}/`, { waitUntil: 'load' });
   const cta = page.locator('[data-cta=start], .ctas a.btn.lg').first()  /* nút chính hero (khung Stitch: data-cta=start) */;
   const href = await cta.getAttribute('href');
   h.ok(href && href.startsWith(`/app/?hl=${lang}#/welcome/setup`), `trang giới thiệu: nút chính trỏ ${href}`);
