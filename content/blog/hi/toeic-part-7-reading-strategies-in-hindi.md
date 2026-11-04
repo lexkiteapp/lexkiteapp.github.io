@@ -92,4 +92,4 @@ qualityScore: 95
 
 **TOEIC Part 7** में इन रणनीतियों का नियमित अभ्यास करके आप न केवल समय की कमी की समस्या को हमेशा के लिए समाप्त कर देंगे, बल्कि आत्मविश्वास के साथ 850 से 900+ का उत्कृष्ट स्कोर हासिल करेंगे।
 
-रीडिंग और लिसनिंग दोनों सेक्शन्स में समय प्रबंधन के लिए हमारा सम्पूर्ण [toeic self study plan 750+ स्कोर गाइड](/hi/blog/toeic-self-study-plan-guide-hindi/) देखें।
+रीडिंग और लिसनिंग दोनों सेक्शन्स में समय प्रबंधन के लिए हमारा सम्पूर्ण [toeic self study plan 750+ स्कोर गाइड](/hi/blog/toeic-self-study-plan-guide-hindi/) और लिसनिंग ट्रिक्स के लिए [toeic listening part 2 tips](/hi/blog/toeic-listening-part-2-tips-strategies-hindi/) देखें।
