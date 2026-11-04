@@ -106,7 +106,7 @@
         return { mouth: p, shape: s.k >= .5 ? s.b : s.a, gain: gn, open: open ? Math.min(1, (p.u + p.d) / .9) : 0, blink: blinkAt(t), look: lookAt(t),
           brow: clamp((E.brow || 0) + acc * T.brow, -.3, 1), knit: E.knit || 0,
           tilt: calm ? 0 : (E.tilt || 0) * .6 + sp * T.tilt * (.9 * Math.sin(t * 1.7 + ph) + .4 * Math.sin(t * 3.1 + ph * 2)),
-          nod: calm ? 0 : acc * T.nod * sp + (E.nodHz ? E.nodPx * Math.max(0, Math.sin(t * Math.PI * 2 * E.nodHz + ph)) : 0), talk: sp };
+          nod: calm ? 0 : acc * T.nod * sp + (E.nodHz ? E.nodPx * Math.max(0, Math.sin(t * Math.PI * 2 * E.nodHz + ph)) : 0), talk: sp, beat: calm ? 0 : acc };
       }
     };
   }

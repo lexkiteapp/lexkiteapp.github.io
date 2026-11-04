@@ -183,8 +183,8 @@ function renderFull(lang) {
   const F = c.features, feat = [['fsrs', 0], ['call', 2], ['exam', 1], ['ext', 3], ['plain', 4], ['plain', 5]].map(([v, i]) => ({ v, h: F[i][1], p: F[i][2] }));
   const d = { ...c, start, login, appQ, heroLinks: [[login, ui(lang, 'Tôi đã có tài khoản')], [`${appQ}#/placement`, c.hero.placement]], store: EXT_STORE, getAppL: ui(lang, 'Tải app'), feat, rescards,
     // giáo viên 2D (Chars.idle – PR 480): ảnh poster mắt mở giữ chỗ (width/height → CLS 0) + vòng nghỉ 1–3 s tắt tiếng, chỉ chạy khi không bật giảm chuyển động
-    ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 -mb-5 w-[220px] sm:w-[260px] h-auto', eager: true }),
-    carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 -mb-5 w-[200px] sm:w-[240px] h-auto' }) };
+    ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 w-[220px] sm:w-[260px] h-auto', eager: true }),
+    carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 w-[200px] sm:w-[240px] h-auto' }) };
   const page = stRender('home', d, { lang, chrome });
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
@@ -213,7 +213,7 @@ ${alt}
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(c.ogTitle || c.title)}"><meta name="twitter:image" content="${SITE}/og-default.png">
 <meta name="theme-color" content="#0F3D3E">
 <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
-<style>${page.css}
+<style>${page.css}[data-idle]{display:block;overflow:clip;aspect-ratio:554/352;border-radius:28px;background:rgb(var(--st-secondary-container)/.16)}[data-idle]+div{display:none}
 ${LCSS}</style>
 ${ld(graph)}
 </head>

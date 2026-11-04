@@ -63,6 +63,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/teacher-bubble.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
@@ -193,6 +194,7 @@ node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
+node scripts/test/teacher-states.mjs
 node scripts/test/samples-ui.mjs
 node scripts/test/content-check.mjs
 node scripts/test/content-qa.mjs
@@ -238,3 +240,5 @@ node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/icon-font-version.mjs
+node scripts/test/teacher-rig.mjs

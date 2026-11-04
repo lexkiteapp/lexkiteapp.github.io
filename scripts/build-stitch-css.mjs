@@ -5,7 +5,7 @@
 //        node scripts/build-stitch-css.mjs --check    → CI: biên dịch lại, ĐỎ nếu khác bản đã commit (trôi) hoặc vượt ngân sách
 //        node scripts/build-stitch-css.mjs --fonts    → tải lại font tự host (Plus Jakarta Sans latin/latin-ext/vietnamese + Material Symbols subset)
 // Cần tailwindcss@3.4.17 (CI: npm i --no-save). TAILWIND_BIN=… để chỉ đường khác. docs/DESIGN-SYSTEM.md §Stitch.
-import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
+import fs from 'node:fs'; import { createHash } from 'node:crypto'; import path from 'node:path'; import os from 'node:os'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 
 const ROOT = process.cwd(), A = new Set(process.argv.slice(2)), BUDGET = 10 * 1024;
@@ -37,14 +37,16 @@ const LIGHT = vars('light') + ';--st-hl:.7', DARK = vars('dark') + ';--st-hl:0';
 const UR = { latin: 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
   'latin-ext': 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
   vietnamese: 'U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB' };
+// ?v=hash nội dung: sw.js cache-first mọi .woff2 theo URL → font thu gọn cũ thiếu icon mới = icon hiện chữ cái đầu (chủ 4/11: "F", "D" ở trang giới thiệu)
+const fontV = n => createHash('md5').update(fs.readFileSync(`web/fonts/${n}.woff2`)).digest('hex').slice(0, 8);
 const PRE = [
   `:root{${LIGHT}}@media (prefers-color-scheme:dark){:root:not([data-theme=light]){${DARK}}}:root[data-theme=dark]{${DARK}}`,
   ...Object.entries(UR).map(([s, r]) => `@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400 800;font-display:swap;src:url(../fonts/pjs-${s}.woff2) format("woff2");unicode-range:${r}}`),
   // Font dự phòng khớp số đo (capsize: size-adjust 104.98 %, ascent 98.88 %, descent 21.15 %) → không CLS khi font web tới
   '@font-face{font-family:"Plus Jakarta Sans Fallback";src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica"),local("Roboto");size-adjust:104.98%;ascent-override:98.88%;descent-override:21.15%;line-gap-override:0%}',
-  '@font-face{font-family:"Material Symbols Outlined";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msym.woff2) format("woff2")}',
+  `@font-face{font-family:"Material Symbols Outlined";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msym.woff2?v=${fontV('msym')}) format("woff2")}`,
   // Stitch v2.1 dùng cả bản Rounded (Luyện/Tôi/Chuỗi…) → tự host bản Rounded cùng danh sách icon (web/fonts/msymr.woff2)
-  '@font-face{font-family:"Material Symbols Rounded";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msymr.woff2) format("woff2")}.material-symbols-rounded{font-family:"Material Symbols Rounded";font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;width:1em;height:1em;overflow:hidden;flex-shrink:0;font-variation-settings:"FILL" 0}.material-symbols-rounded.fill{font-variation-settings:"FILL" 1}',
+  `@font-face{font-family:"Material Symbols Rounded";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msymr.woff2?v=${fontV('msymr')}) format("woff2")}.material-symbols-rounded{font-family:"Material Symbols Rounded";font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;width:1em;height:1em;overflow:hidden;flex-shrink:0;font-variation-settings:"FILL" 0}.material-symbols-rounded.fill{font-variation-settings:"FILL" 1}`,
   '.material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;width:1em;height:1em;overflow:hidden;flex-shrink:0;font-variation-settings:"FILL" 0}',
   '.material-symbols-outlined.fill{font-variation-settings:"FILL" 1}[dir=rtl] .st .ms-flip{transform:scaleX(-1)}',
   // Vùng an toàn + vùng chạm của màn Stitch v2 (mqa 'ux1 train'): pt-safe/pb-safe là lớp của mẫu nhưng Tailwind không sinh → đầu trang dính chui dưới tai thỏ; ::after mở rộng vùng chạm phải CÓ min ≥ 44 px (cổng mobile-qa đo min-width/min-height của ::after)

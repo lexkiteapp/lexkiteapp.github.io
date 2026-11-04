@@ -1,0 +1,19 @@
+{
+ "_note": "Bộ tham chiếu khoá DUY NHẤT (nguồn: lexkite-footage anchor/green/frames/*_o3_ref.png, chủ duyệt 29/10). Mọi tài sản Kling/rig/video sinh từ đây: prompt có câu LOCK + ảnh này, khung đầu qua check_first.py. Cổng: scripts/teach/ref_gate.py.",
+ "people": {
+  "ama": {
+   "file": "ama.png",
+   "source": "anchor/green/frames/ama_o3_ref.png",
+   "sha256": "d4a4ee3a3be3fc46f47aca376ae598d911cd5454e2d0b8198523610cfb0da1c1",
+   "outfit": "outfit3 coral blazer, cream top, grey trousers, yellow headband (owner OK 28/10)",
+   "voice_app": "af_heart"
+  },
+  "carlos": {
+   "file": "carlos.png",
+   "source": "anchor/green/frames/carlos_o3_ref.png",
+   "sha256": "1e98c9eea1fac1c492f75b1f77531bd27e2f0275a935075fb6549d2cb958d21f",
+   "outfit": "outfit3 cornflower-blue blazer, white shirt, khaki trousers (owner OK 28/10)",
+   "voice_app": "am_michael"
+  }
+ }
+}

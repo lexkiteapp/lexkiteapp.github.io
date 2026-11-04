@@ -152,9 +152,9 @@ body.call-on{overflow:hidden}
     if (!V2) { ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với {name}', { name: nm }));
       document.body.appendChild(ov); document.body.classList.add('call-on'); }
     let id = c.start, rec = null, dead = false, t0 = Date.now(), tick = 0, autoMic = false, showTr = pref('tr') !== '0' && I18N.lang() !== 'en', busy = false;
-    let turn = 0, phase = 'talk', tAsk = 0, longBuf = [], longEnd = 0, prepEnd = 0, tch = null, sayRun = 0;
+    let turn = 0, phase = 'talk', tAsk = 0, longBuf = [], longEnd = 0, prepEnd = 0, tch = null, sayRun = 0, bub = null;
     const log = [], lat = [], tr = {};
-    const close = () => { dead = true; clearInterval(tick); sayRun++; if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
+    const close = () => { dead = true; clearInterval(tick); sayRun++; if (bub) { bub.destroy(); bub = null; } if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
     App.cleanups.push(close);
     const onKey = e => { if (e.key === 'Escape') hang(); };
     document.addEventListener('keydown', onKey);
@@ -215,7 +215,7 @@ body.call-on{overflow:hidden}
     // Trạng thái lượt lời: talk (giáo viên nói) · you (đến lượt bạn) · listen (đang nghe) · think (đang hiểu câu)
     function setPhase(p) {
       phase = p;
-      if (tch && tch.listen) { tch.listen(p === 'listen'); if (p === 'think') tch.react('thinking', 1500); } // mặt vẽ: nghe khi người học nói, nghĩ khi app đang hiểu câu (vòng clip: không đổi)
+      if (tch && tch.listen) { tch.listen(p === 'listen'); if (p === 'think') tch.react(Chars.forEvent('think'), 1500); } // mặt vẽ: nghe khi người học nói, nghĩ khi app đang hiểu câu (vòng clip: không đổi)
       const av = $('#cAv', ov), st = $('#cSt', ov), txt = $('#cStT', ov), mic = $('#cMic', ov); if (!st || !mic) return;
       if (av) { av.classList.toggle('talk', p === 'talk'); av.classList.toggle('listen', p === 'listen'); } st.className = (V2 ? 'sr-only call-st ' : 'call-st ') + p; // v2: tư thế do clip giáo viên (talk/listen), không vòng sáng
       txt.textContent = p === 'talk' ? t('{name} đang nói…', { name: nm }) : p === 'listen' ? t('Đang nghe bạn…') : p === 'think' ? t('Đang hiểu câu của bạn…') : p === 'done' ? t('Cuộc gọi kết thúc') : t('Đến lượt bạn – bấm micro để nói');
@@ -223,16 +223,25 @@ body.call-on{overflow:hidden}
       if (V2) { mic.setAttribute('aria-pressed', String(p === 'listen')); const ml = $('#cMicL', ov); if (ml) ml.textContent = p === 'listen' ? t('Đang nghe') : t('Nói'); }
     }
     // Nói lần lượt từng câu (mỗi câu 1 file Kokoro sinh sẵn) – sayRun đổi = bị ngắt lời → bỏ phần còn lại
+    // 💬 thẻ phụ đề = bong bóng lời: đuôi trỏ miệng giáo viên (đo bbox, RTL), hiện nhẹ mỗi lượt nói, karaoke; chạm từ → nghe lại từ đó
+    function capKara() {
+      const l1 = $('#cL1', ov); if (!V2 || !l1 || !window.LessonTeacher || !LessonTeacher.bubble) return null;
+      if (!bub) { const card = l1.closest('.rounded-\\[20px\\]'); bub = card ? LessonTeacher.bubble(card, $('#cTch', ov)) : null; }
+      if (bub) bub.pop();
+      return LessonTeacher.kara(l1, cur.join(' '), { cc: false, onWord: (w, span) => { if (!w || phase === 'listen') return; if (tch) tch.stop(); UI.tts(w, ACCENT, 0.9, { voice }); if (bub) bub.peek(span, w); } });
+    }
     function say(parts, then) {
       cur = parts.filter(Boolean); const my = ++sayRun;
       $('#cL1', ov).textContent = cur.join(' '); paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
+      const kw = capKara(), cnt = cur.map(x => x.trim().split(/\s+/).filter(Boolean).length); // 💬 chữ phụ đề sáng dần theo từng câu đang nói
       setPhase('talk');
       const done = () => { if (my !== sayRun || !alive()) return; setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
       const one = k => {
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
+        const k0 = cnt.slice(0, k).reduce((a, b) => a + b, 0), onWord = kw ? i => kw.word(i, k0) : null;
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, onWord }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);
@@ -268,7 +277,7 @@ body.call-on{overflow:hidden}
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
-      if (tch && tch.react) tch.react(fix || sl.length ? 'encourage' : 'happy', 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
+      if (tch && tch.react) tch.react(Chars.forEvent(fix || sl.length ? 'replyFix' : 'replyOk'), 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
       if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
       else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
       else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;

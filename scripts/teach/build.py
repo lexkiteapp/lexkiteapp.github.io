@@ -8,15 +8,19 @@ bank_gestures.json layout) → đặt cạnh nhau, đổi tư thế, đổi màn
 rồi ghi sha256/bytes vào characters.json "files" (cổng CI scripts/test/characters-gate.mjs so hash).
 Chạy trên CI (.github/workflows/teach-build.yml) – không render trên máy cá nhân. Dùng: build.py <footage/anchor/green> [web/teach]
 """
-import hashlib, json, os, subprocess, sys
+import hashlib, json, os, subprocess, sys, tempfile
+
+import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import motion_smear   # noqa: E402
 from eyes import openness, pick   # noqa: E402  – ảnh tĩnh/poster luôn chọn khung MẮT MỞ (lỗi 3/11: 40 % clip trúng lúc chớp)
 
 G = sys.argv[1]; OUT = sys.argv[2] if len(sys.argv) > 2 else 'web/teach'
 REG = f'{OUT}/characters.json'
 R = json.load(open(REG)); F = R['frame']; W, H = F['w'], F['h']
 errs = []
+TMP = tempfile.mkdtemp(prefix='teach-smear-')
 # mép cắt dưới (hông/vai) mờ dần → không lộ đường cắt ngang/khung khi đặt trên nền trang (chủ: tách nền sạch, hoà vào nền, không khung)
 fade = lambda f: f"geq=lum='if(gte(lum(X,Y),12),lum(X,Y),0)*min(1,(H-Y)/(H*{f}))'"
 FADE = fade(0.10)
@@ -116,13 +120,23 @@ for who, P in R['people'].items():
         if b[1] < CH * 0.03: errs.append(f'{who}/{pose}: đỉnh đầu sát/mất mép trên (y1={b[1]} / {CH})')
         fps = probe(cf, 'r_frame_rate').split(',')[0]
         n = min(int(probe(f, 'nb_read_frames')) for f in (cf, cm)); a, z = c.get('from', 0), min(c.get('to', n - 1), n - 1) + 1; N = z - a
-        g = (f"[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,format=gray,crop={crop},{SC},{FA}[a];"
-             f"[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,crop={crop},{SC},format=rgba[c];"
-             "[c][a]alphamerge,premultiply=inplace=1,format=rgba,split[p1][p2];[p1]format=rgb24[pm];[p2]alphaextract,format=gray,format=rgb24[ar];"
+        # khung vung tay nhanh: nguồn méo (vệt đen, mép răng cưa, đốm phông xanh) → nhoè theo chuyển động trước khi nén, 1× và 2× đều qua đây (motion_smear.py)
+        def src_smear(sc, fa, scale, w, h, out):
+            gs = (f"[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,format=gray,crop={crop},{sc},{fa}[a];"
+                  f"[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,crop={crop},{sc},format=rgba[c];[c][a]alphamerge,format=rgba")
+            raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex', gs, '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
+            fr = [np.frombuffer(raw, np.uint8, w * h * 4, i).reshape(h, w, 4) for i in range(0, len(raw), w * h * 4)]
+            if len(fr) != N: errs.append(f'{who}/{pose}: nguồn nhoè {len(fr)} khung ≠ {N}')
+            res, m = motion_smear.smear([motion_smear.clean_hands(motion_smear.despill(f), scale) for f in fr], scale)
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', f'{w}x{h}', '-r', fps, '-i', '-', '-c:v', 'ffv1', out], input=b''.join(f.tobytes() for f in res), check=True)
+            return m
+        sm1 = f'{TMP}/{who}-{pose}.mkv'; sm_info = src_smear(SC, FA, 1, W, H, sm1)
+        # đệm vòng ping-pong từ nguồn đã nhoè (chung cho 1× và 2×)
+        g = ("[0:v]premultiply=inplace=1,format=rgba,split[p1][p2];[p1]format=rgb24[pm];[p2]alphaextract,format=gray,format=rgb24[ar];"
              f"[pm][ar]vstack=2,split[f][r];[r]reverse,trim=start_frame=1:end_frame={N - 1},setpts=N/({fps})/TB[b];[f][b]concat=n=2:v=1,setpts=N/({fps})/TB,format=yuv420p")
         o = f'{OUT}/{who}/{pose}.mp4'
         def enc(q, cq):
-            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow',
+            run('ffmpeg', '-v', 'error', '-y', '-i', sm1, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow',
                 '-crf', str(q), '-tune', 'animation', '-x264-params', f'chroma-qp-offset={cq}', '-movflags', '+faststart', o)
             return os.path.getsize(o) <= 240 * 1024
         # vượt 240 KB → nén thêm từng nấc (≤ +4); nấc nào lộ viền xanh do nén (lem chroma) → dồn bit cho chroma (offset −2/−4) thay vì hạ ngưỡng
@@ -135,14 +149,15 @@ for who, P in R['people'].items():
         got = probe(o, 'width,height,nb_read_frames')
         if got != f'{W},{H * 2},{2 * N - 2}': errs.append(f'{o}: {got} (cần {W},{H * 2},{2 * N - 2})')
         if os.path.getsize(o) > 240 * 1024: errs.append(f'{o}: {os.path.getsize(o) // 1024} KB > 240 KB')
-        print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB crf {q}')
+        print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB crf {q} · nhoè {sm_info["smeared"]}/{N} khung')
         # ảnh tĩnh từng tư thế @2× (khung tiêu biểu: 'still' trong registry, mặc định 40 % clip) – Chars.still / Chars.img({pose})
         fr = c['still'] if 'still' in c else open_frame(cf, cm, a, z, a + N * 2 // 5, f'{who}/still-{pose}')
         c['still_frame'] = fr   # ghi lại khung đã chọn (soát/tái lập)
-        still(cf, cm, fr, SC2, FA2, f'{OUT}/{who}/still-{pose}.webp')
-        if pose in ('talk', 'listen'):   # clip HD cho chỗ lớn sống (Call): 2× điểm ảnh, ≤ 900 KB
+        still(cf, cm, fr, SC2, FA2, f'{OUT}/{who}/still-{pose}.webp'); motion_smear.clean_webp(f'{OUT}/{who}/still-{pose}.webp', 2)
+        if pose in R['hd']:   # clip HD 2× điểm ảnh, ≤ 900 KB: chỗ lớn sống (Call talk/listen) + tư thế clip của chỗ giáo viên cỡ l/xl trên màn retina (point/cheer/encourage – chỉ để không phóng to; viền đen tay méo là lỗi nguồn, xử lý ở motion_smear.py)
             oh = f'{OUT}/{who}/{pose}-hd.mp4'
-            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g.replace(f',{SC},{FA}[a]', f',{SC2},{FA2}[a]').replace(f',{SC},format=rgba[c]', f',{SC2},format=rgba[c]'),
+            sm2 = f'{TMP}/{who}-{pose}-hd.mkv'; src_smear(SC2, FA2, 2, W * 2, H * 2, sm2)
+            run('ffmpeg', '-v', 'error', '-y', '-i', sm2, '-filter_complex', g,
                 '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)
             if probe(oh, 'width,height,nb_read_frames') != f'{W * 2},{H * 4},{2 * N - 2}': errs.append(f'{oh}: sai cỡ/khung')
             if os.path.getsize(oh) > 900 * 1024: errs.append(f'{oh}: {os.path.getsize(oh) // 1024} KB > 900 KB')

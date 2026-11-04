@@ -65,5 +65,6 @@ D.en = Object.assign(D.en || {}, {
 "Tăng điểm": "Score booster",
 "Nói hay hơn": "Better phrase",
 "Đối thoại": "Dialogue",
+"Phụ đề": "Captions",
 });
 })(typeof self !== 'undefined' ? self : this);

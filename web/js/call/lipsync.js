@@ -192,7 +192,7 @@
     for (let i = 0; i < T; i++) { S1.push(S1[i] + e[i]); S2.push(S2[i] + e[i] * e[i]); }
     const seg = (a, b, l) => S2[b] - S2[a] - 2 * l * (S1[b] - S1[a]) + (b - a) * l * l;
     const st = [{ v: 'X', opt: 1 }]; let pw = null; const opt = () => st[st.length - 1].opt;
-    for (const u of units(text)) { if (u.gap) { if (!opt()) st.push({ v: 'X', opt: 1 }); continue; } if (pw !== null && u.wi !== pw && !opt()) st.push({ v: 'X', opt: 1 }); st.push({ v: u.v, w: u.w }); pw = u.wi; }
+    for (const u of units(text)) { if (u.gap) { if (!opt()) st.push({ v: 'X', opt: 1 }); continue; } if (pw !== null && u.wi !== pw && !opt()) st.push({ v: 'X', opt: 1 }); st.push({ v: u.v, w: u.w, ci: u.ci }); pw = u.wi; }
     if (!opt()) st.push({ v: 'X', opt: 1 });
     const tw = st.reduce((s, x) => s + (x.w || 0), 0), voiced = e.filter(x => x > 0.2).length;
     if (!T || !tw) return fromText(text, dur);
@@ -205,9 +205,22 @@
           const c = p + seg(t - d, t, l) + (s.opt ? (d ? 1.5 : 0) : 0.6 * Math.log(d / ex) ** 2); if (c < best) { best = c; bd = d; } }
         dp[i][t] = best; bk[i][t] = bd; } }
     if (dp[N][T] >= INF) return fromText(text, dur);
-    const cues = []; for (let i = N, t = T; i >= 1; i--) { const d = bk[i][t]; if (d) cues.unshift({ start: (t - d) / 100, end: t / 100, value: st[i - 1].v }); t -= d; }
+    const cues = []; for (let i = N, t = T; i >= 1; i--) { const d = bk[i][t]; if (d) { cues.unshift({ start: (t - d) / 100, end: t / 100, value: st[i - 1].v }); if (o.spans && st[i - 1].ci != null) o.spans.unshift({ ci: st[i - 1].ci, s: (t - d) / 100, e: t / 100 }); } t -= d; }
     cues[0].start = 0; cues[cues.length - 1].end = Math.max(cues[cues.length - 1].end, dur);
     return lead(smooth(align(smooth(cues), env)));
+  }
+  /** Mốc từng từ (tách theo khoảng trắng như chữ trên màn) của câu có tiếng thật: cùng phép căn với miệng nên chữ và môi cùng nhịp. Từ không có âm vị (số, ký hiệu) nối vào khoảng trước nó. */
+  function wordTimes(text, dur, env) {
+    const spans = []; if (!env || !env.length) return null; fromEnv(text, dur, env, { spans }); if (!spans.length) return null;
+    const out = [], re = /\S+/g; let m, prev = 0;
+    while ((m = re.exec(text))) { const a = m.index, b = a + m[0].length, ins = spans.filter(x => x.ci >= a && x.ci < b); const w = ins.length ? { s: ins[0].s, e: ins[ins.length - 1].e } : { s: prev, e: prev }; prev = w.e; out.push(w); }
+    // đầu từ bám chỗ tiếng bật lên sau khoảng lặng (chữ sáng đúng lúc nghe thấy): ghép giữ thứ tự từ ↔ điểm bật, có phạt bỏ từ và bỏ điểm bật (mỗi điểm bật gần như chắc chắn là đầu một từ); từ không ghép được (giữa cụm liền) giữ mốc căn
+    const pk = Math.max(...env, 1e-6), on = i => env[i] > pk * .08, R = []; for (let i = 1; i < env.length; i++) if (on(i) && !on(i - 1)) R.push(i / 100);
+    if (R.length === out.length) { out.forEach((w, i) => { w.s = R[i]; }); return out; } // mỗi từ một cụm tiếng: khớp thẳng, không để sai số căn trượt sang từ sau
+    const n = out.length, nr = R.length, SK = .5, SR = .25, C = Array.from({ length: n + 1 }, () => new Float64Array(nr + 1));
+    for (let i = n - 1; i >= 0; i--) for (let j = nr; j >= 0; j--) { let v = SK + C[i + 1][j]; if (j < nr) v = Math.min(v, SR + C[i][j + 1], Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]); C[i][j] = v; }
+    for (let i = 0, j = 0, lo = 0; i < n; i++) { while (j < nr && C[i][j] === SR + C[i][j + 1]) j++; if (j < nr && C[i][j] === Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]) out[i].s = R[j++]; out[i].s = lo = Math.max(out[i].s, lo); }
+    return out;
   }
   /** Phát hiện có tiếng theo năng lượng RMS, có trễ bật/tắt (hysteresis) để không giật khi âm nhỏ giữa từ. */
   function vad(o = {}) {
@@ -228,6 +241,6 @@
   /** Ngược của unpack cho phần mốc → dạng gọn nhất không mất: "*" (delta bước 5 ms, base36) khi mọi mốc chia hết cho 5; còn lại giữ ms tuyệt đối. Idempotent. */
   const packCues = s => { if (s[0] === '*') return s; const q = unpack([0, s]).cues.map(x => [x.value, Math.round(x.start * 1000)]); if (q.some(([, ms]) => ms % 5)) return s[0] === '+' ? q.map(([v, ms]) => v + ms).join(' ') : s;
     let p = 0; return '*' + q.map(([v, ms]) => { const r = v + ((ms - p) / 5).toString(36); p = ms; return r; }).join(''); };
-  const api = { unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromEnv, envOf, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromEnv, wordTimes, envOf, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

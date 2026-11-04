@@ -1,9 +1,11 @@
-# 🧍 Cổng teacher-native (runtime): giáo viên trên màn thật phải đứng trên bệ Chars.slot – không vệt cắt, không đè chữ, không bị xén. Báo cáo + ảnh ở artifact 7 ngày.
+# 🧍 Cổng teacher-native (runtime): giáo viên trên màn thật đi qua Chars.slot và tiếp đất đúng (fade: mờ vào nền + bóng; card: sau mép thẻ đục) – không bệ lơ lửng, không vệt cắt, không đè chữ, không bị xén. Báo cáo + ảnh cận ở artifact 7 ngày.
 name: teacher-native
 on:
   pull_request:
     paths: ['web/js/**', 'web/app/index.html', 'scripts/test/teacher-native*']
-  workflow_dispatch:
+  workflow_dispatch:   # before=<ref>: chụp thêm ảnh TRƯỚC (web/ của ref đó, cùng script mới, không chặn) để đính PR trước/sau – chỉ khi gọi tay, PR thường không tốn thêm
+    inputs:
+      before: { description: 'ref để chụp ảnh trước (vd. main), trống = bỏ qua', required: false, default: '' }
 permissions:
   contents: read
 concurrency: { group: 'teacher-native-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
@@ -19,6 +21,13 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium >/dev/null
+      - if: inputs.before != ''
+        uses: actions/checkout@v4
+        with: { ref: '${{ inputs.before }}', path: before-src, sparse-checkout: web }
+      - name: Ảnh trước (không chặn)
+        if: inputs.before != ''
+        continue-on-error: true
+        run: node scripts/test/teacher-native-shots.mjs before-src/web out/teacher-native/before
       - name: Chạy cổng
         run: node scripts/test/teacher-native-shots.mjs web out/teacher-native
       - if: always()
