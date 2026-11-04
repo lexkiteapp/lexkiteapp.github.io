@@ -144,6 +144,7 @@ Pour acquérir une rapidité d'exécution sans stress, adoptez un réflexe en tr
 
 - **Vocabulaire thématique de pointe** : Maîtrisez le lexique environnemental avec [vocabulaire IELTS environnement et changement climatique](/fr/blog/vocabulaire-ielts-environnement-changement-climatique/)
 - **Rédaction de synthèses graphiques** : Optimisez votre méthodologie avec [IELTS Writing Task 1 décrire un graphique](/fr/blog/ielts-writing-task-1-decrire-un-graphique/)
+- **Épreuves académiques en 10 minutes** : Appliquez ces variations dans le [guide TOEFL iBT Writing Academic Discussion](/fr/blog/toefl-ibt-writing-academic-discussion-guide-fr/)
 - **Techniques de lecture rapide** : Détectez les paraphrases grâce au [IELTS Reading skimming and scanning](/fr/blog/ielts-reading-skimming-scanning/)
 - **Préparation de l'entretien oral** : Perfectionnez vos réponses avec [IELTS Speaking Part 2 et Part 3](/fr/blog/ielts-speaking-part-2-et-3/)
 - **Écoute et pièges oraux** : Développez votre acuité auditive via les [conseils IELTS Listening](/fr/blog/conseils-ielts-listening/)
