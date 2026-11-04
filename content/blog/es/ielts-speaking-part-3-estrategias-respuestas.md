@@ -140,7 +140,7 @@ Therefore, from my vantage point, technology has not extinguished the appetite f
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **Repetir las palabras exactas de la pregunta:** Reformula con sinónimos precisos o modifica la clase gramatical de los términos principales.
 
-Para consolidar tu ritmo y entonación, revisa nuestras lecciones sobre [acento oracional en inglés](/es/blog/acento-oracional-en-ingles-guia/) y el entrenamiento con [técnica shadowing en inglés](/es/blog/tecnica-shadowing-ingles-paso-a-paso/). Asimismo, fortalece tu repertorio con nuestro catálogo de [vocabulario temático de inglés](/es/tu-vung/).
+Para consolidar tu ritmo y entonación, revisa nuestras lecciones sobre [acento oracional en inglés](/es/blog/acento-oracional-en-ingles-guia/) y el entrenamiento con [técnica shadowing en inglés](/es/blog/tecnica-shadowing-ingles-paso-a-paso/). Para repasar las fases previas del examen, consulta nuestra guía sobre [IELTS Speaking Part 1](/es/blog/ielts-speaking-part-1-guia-respuestas-naturales/). Asimismo, fortalece tu repertorio con nuestro catálogo de [vocabulario temático de inglés](/es/tu-vung/).
 
 {{youtube: | Claves para extender respuestas y demostrar pensamiento crítico en IELTS Speaking Part 3}}
 

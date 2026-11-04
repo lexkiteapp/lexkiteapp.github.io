@@ -132,7 +132,7 @@ Paso 4: Grabación y auditoría de voz (2 minutos)
 Graba tu locución en el teléfono y compárala con el original para detectar finales omitidos.
 ```
 
-Para optimizar tu oído y discriminar estos sonidos con mayor agilidad, revisa nuestros consejos en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/).
+Para optimizar tu oído y discriminar estos sonidos con mayor agilidad, revisa nuestros consejos en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/). Si te preparas para certificar tu nivel, comprueba cómo aplicar esta dicción limpia en las respuestas cortas de [IELTS Speaking Part 1](/es/blog/ielts-speaking-part-1-guia-respuestas-naturales/).
 
 ![Módulo interactivo de práctica oral con micrófono y análisis acústico en Lexkite](media:practice-speak "Práctica de expresión oral y análisis acústico con micrófono en la aplicación Lexkite")
 
