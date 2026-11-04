@@ -78,7 +78,7 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 20, 'thanh bên: 6 nhóm, 20 mục (+ Kênh & phân phối, Quảng cáo, Lưu trữ)');
+ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 21, 'thanh bên: 6 nhóm, 21 mục (+ Kênh & phân phối, Quảng cáo, Lưu trữ, Sổ tài khoản & khóa)');
 ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Overview|Users|Quality|Content & Video|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
 ok($('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas', '"Hạn mức" dịch thành Quotas ở EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');

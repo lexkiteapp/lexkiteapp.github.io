@@ -2,6 +2,10 @@
 # Thêm test: thêm MỘT dòng (cuối file, hoặc cạnh test cùng mảng). .gitattributes merge=union → hai PR cùng thêm ở cùng chỗ tự gộp khi rebase/merge.
 # Dòng trống và dòng bắt đầu bằng # bị bỏ qua. Lệnh chạy qua sh nên được dùng ! | 2>/dev/null. Bộ chạy: scripts/test/run-suite.mjs
 node scripts/ext-syntax.mjs
+node scripts/test/comment-code.mjs --self
+node scripts/test/comment-code.mjs
+node scripts/test/teacher-loop.mjs
+node scripts/test/lipsync-lesson.mjs
 node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
@@ -18,8 +22,10 @@ node scripts/i18n-missing.mjs --strict
 node scripts/i18n-qa.mjs --strict
 node scripts/test/situations.mjs
 node scripts/speak/build.mjs
+node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
+node scripts/test/i18n-pack.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -87,6 +93,10 @@ node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
 node scripts/test/quota.mjs
 node scripts/test/capacity.mjs
+node scripts/test/admin-rollup.mjs
+node scripts/test/d1-cap.mjs
+node scripts/test/sessions-scan-gate.mjs
+node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
@@ -114,6 +124,7 @@ node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
+node scripts/test/accounts.mjs
 node scripts/test/ai-pool.mjs
 node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
@@ -165,6 +176,7 @@ node scripts/test/audio-coverage.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs
+node scripts/test/watch.mjs
 node scripts/test/dictlookup.mjs
 node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
@@ -173,9 +185,12 @@ node scripts/test/layout-guards.mjs
 node scripts/test/mobile-guards.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
+node scripts/test/landing-v3.mjs
+node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
+node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
 node scripts/test/content-check.mjs
 node scripts/test/content-qa.mjs
@@ -188,6 +203,7 @@ node scripts/test/crawl.js web
 node scripts/test/links-js.mjs dist
 node scripts/test/seo-sitemap.mjs dist
 node scripts/test/seo-pages.mjs dist
+node scripts/test/word-depth.mjs
 node scripts/test/tools-pages.mjs
 node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs
@@ -200,6 +216,9 @@ node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/test/explain-let.mjs
+node scripts/content-qa/sense-check.mjs
+node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
@@ -216,3 +235,4 @@ node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/lastmod.mjs
