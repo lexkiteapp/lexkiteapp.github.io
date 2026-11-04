@@ -81,7 +81,7 @@
     const S = { i: Math.max(0, order.findIndex(id => !((p.lines[id] || {}).stars >= 2))), b: 0, res: null, rec: false, unclear: 0, noMic: !canMic || st.nomic === 1, built: [], bank: [], t0: 0, say: '', pose: 'talk' };
     const line = () => byId(s, order[S.i]), words = () => line().en.split(/\s+/);
     const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
-    const enter = () => { S.res = null; S.unclear = 0; S.built = []; S.bank = shuffle(words().map((w, i) => i)); S.t0 = 0; S.pose = S.b === 2 ? 'thinking' : S.b === 1 ? 'encourage' : 'talk';
+    const enter = () => { S.res = null; S.unclear = 0; S.built = []; S.bank = shuffle(words().map((w, i) => i)); S.t0 = 0; S.pose = !window.Chars ? 'talk' : S.b === 2 ? Chars.forEvent('recall') : S.b === 1 ? Chars.forEvent('retry') : 'talk';
       S.say = S.noMic ? t('Chạm các từ theo đúng thứ tự.') : [t('Nghe rồi nói theo nhé.'), t('Nói cùng nhịp với cô nhé.'), t('Giờ nói lại từ trí nhớ nhé.')][S.b]; };
     const tip = () => { const bad = S.res && S.res.words.filter(w => w.bad).map(w => Speak.toks(w.w)[0]); const pf = (line().pitfalls || []).find(x => x.w && (bad ? bad.includes(x.w.toLowerCase()) : S.b === 0)); return pf || null; };
     function data() {
@@ -91,7 +91,7 @@
       else wl = ws.map((w, i) => ({ w: mem ? w[0] + '…' : w, p: !r, bad: r && !r.words[i].ok }));
       const stars = r ? r.stars : 0, hi = pf && pf.hi ? L(pf.note).replace(pf.hi, '\u0001') : '';
       return { back: '#/speak/' + s.id, chip: L(s.title).split(/\s*[&,–-]\s*/)[0], prog: t('Câu {n}/{m}', { n: S.i + 1, m: n }), total: n, done: S.i, pct: Math.round((S.i * 3 + S.b + (r && r.pass ? 1 : 0)) / (n * 3) * 100),
-        coach: t('Cô {n}', { n: Chars.name('ama') }), say: S.say, hint: L(ln.gloss), teacher: teach(r ? (r.pass ? 'cheer' : 'concern') : S.pose, ''),
+        coach: t('Cô {n}', { n: Chars.name('ama') }), say: S.say, hint: L(ln.gloss), teacher: teach(r && window.Chars ? Chars.forEvent(r.pass ? 'correct' : 'wrong') : S.pose, ''),
         beats: BEATS.map(([k, l], i) => ({ k, label: t(l), cur: i === S.b, done: i < S.b })), beatsAria: t('Nhịp {n}/3', { n: S.b + 1 }),
         playAria: t('Nghe câu mẫu'), slowAria: t('Nghe chậm'), wordsAria: mem ? t('Câu đã che – nói từ trí nhớ') : ln.en,
         words: wl, tipIpa: pf ? pf.ipa || '' : '', tipHtml: pf ? (hi ? ST.esc(hi).replace('\u0001', '<strong class="underline decoration-2">' + ST.esc(pf.hi) + '</strong>') : ST.esc(L(pf.note))) : '',

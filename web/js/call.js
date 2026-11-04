@@ -215,7 +215,7 @@ body.call-on{overflow:hidden}
     // Trạng thái lượt lời: talk (giáo viên nói) · you (đến lượt bạn) · listen (đang nghe) · think (đang hiểu câu)
     function setPhase(p) {
       phase = p;
-      if (tch && tch.listen) { tch.listen(p === 'listen'); if (p === 'think') tch.react('thinking', 1500); } // mặt vẽ: nghe khi người học nói, nghĩ khi app đang hiểu câu (vòng clip: không đổi)
+      if (tch && tch.listen) { tch.listen(p === 'listen'); if (p === 'think') tch.react(Chars.forEvent('think'), 1500); } // mặt vẽ: nghe khi người học nói, nghĩ khi app đang hiểu câu (vòng clip: không đổi)
       const av = $('#cAv', ov), st = $('#cSt', ov), txt = $('#cStT', ov), mic = $('#cMic', ov); if (!st || !mic) return;
       if (av) { av.classList.toggle('talk', p === 'talk'); av.classList.toggle('listen', p === 'listen'); } st.className = (V2 ? 'sr-only call-st ' : 'call-st ') + p; // v2: tư thế do clip giáo viên (talk/listen), không vòng sáng
       txt.textContent = p === 'talk' ? t('{name} đang nói…', { name: nm }) : p === 'listen' ? t('Đang nghe bạn…') : p === 'think' ? t('Đang hiểu câu của bạn…') : p === 'done' ? t('Cuộc gọi kết thúc') : t('Đến lượt bạn – bấm micro để nói');
@@ -277,7 +277,7 @@ body.call-on{overflow:hidden}
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
-      if (tch && tch.react) tch.react(fix || sl.length ? 'encourage' : 'happy', 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
+      if (tch && tch.react) tch.react(Chars.forEvent(fix || sl.length ? 'replyFix' : 'replyOk'), 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
       if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
       else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
       else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;

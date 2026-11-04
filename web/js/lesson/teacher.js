@@ -190,7 +190,11 @@
       if (dead) return; el.classList.toggle('speaking', on); want = on && V[1] ? 1 : 0;
       const v = V[want]; if (v && v.paused) v.play().catch(() => {});
     }
-    let hq = null;
+    let hq = null, pz = 0;
+    // Đổi tư thế: chờ giải mã rồi mờ chéo 180 ms; giảm chuyển động → đổi ngay
+    const under = on => rig.querySelectorAll('canvas,img.tch-poster').forEach(x => { x.style.visibility = on ? 'visible' : ''; });
+    const stillOut = () => rig.querySelectorAll('.tch-still').forEach(im => { im.className = 'tch-out'; if (motionLow() || im.style.opacity !== '1') im.remove(); else { im.style.opacity = '0'; setTimeout(() => im.remove(), 220); } });
+    (mo.poses || []).forEach(p => { if (!saveData()) new Image().src = Chars.still(who, p); });
     const api = {
       who,
       lip: () => (fc ? fc.stats : null), // số khung mặt vẽ (test e2e đo fps)
@@ -198,13 +202,17 @@
       // mặt vẽ: tư thế ảnh tĩnh (tài sản có sẵn) + biểu cảm tương ứng trên mặt vẽ; nói trong lúc đang tư thế → bỏ ảnh tĩnh để miệng vẽ khớp tiếng (không nói bằng ảnh tĩnh ngậm miệng)
       listen(on) { if (fc) fc.listen(on); },
       react(emo, ms) { if (fc) fc.react(emo, ms); },
-      pose(p) { let im = rig.querySelector('.tch-still'); if (fc) fc.hold(p ? POSE_EMO[p] || p : null, p); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
-        if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }
-        rig.classList.add('posed'); },
+      pose(p) { if (fc) fc.hold(p ? POSE_EMO[p] || p : null, p); const my = ++pz, calm = motionLow(); stillOut();
+        if (!p) { rig.classList.remove('posed'); under(false); return; }
+        rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 }));
+        const im = rig.lastElementChild, up = mo.visible ? Chars.lift(who, p, mo.visible) : 0; if (up) im.style.transform = `translateY(-${Math.round(up * 1000) / 10}%)`; Object.assign(im.style, { visibility: 'visible', opacity: '0', transition: calm ? 'none' : 'opacity 180ms ease-out' });
+        rig.classList.add('posed'); under(true);
+        (im.decode ? im.decode() : Promise.resolve()).then(() => { if (my !== pz) return; void im.offsetWidth; im.style.opacity = '1'; setTimeout(() => { if (my === pz) under(false); }, calm ? 0 : 180); },
+          () => { if (my === pz) { im.remove(); rig.classList.remove('posed'); under(false); } }); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
         lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
-        if (fc && rig.classList.contains('posed')) { const im = rig.querySelector('.tch-still'); if (im) im.remove(); rig.classList.remove('posed'); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
+        if (fc && rig.classList.contains('posed')) { pz++; stillOut(); rig.classList.remove('posed'); under(false); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
         const my = ++run, rate = o.rate || 0.95;
         const est = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
         // ⏱️ tiến độ lời (karaoke + vòng nút nghe lại): đồng hồ = currentTime của file Kokoro; giọng máy → đồng hồ tường theo thời lượng ước tính. 1 rAF, chỉ gọi khi đổi ≥0.5%
