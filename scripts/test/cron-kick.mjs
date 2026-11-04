@@ -55,6 +55,10 @@ for (const b of ['not json', '{"op":"x"}', JSON.stringify({ op: 'kick', wfs: [] 
   const c = await go(await req(JSON.stringify({ op: 'kick', n: 'last' })), mkEnv(), mkGh({}), limit); assert.equal(c.res.status, 429); assert.ok(c.res.headers.get('Retry-After')); }
 // lượt zombie (queued > 2 giờ, scripts/ci/zombie.mjs) không chặn lượt kích
 assert.deepEqual(K.plan(['free-tier-guard.yml'], { 'free-tier-guard.yml': { status: 'queued', created_at: new Date(Date.now() - 500 * 6e4).toISOString() } }).map(p => p.act), ['dispatch']);
+{ const q = (f, m) => K.plan([f], { [f]: { status: 'queued', created_at: new Date(Date.now() - m * 6e4).toISOString() } })[0].act;
+  assert.deepEqual([q('required-gate.yml', 10), q('required-gate.yml', 20)], ['skip', 'dispatch'], 'required-gate kẹt queued > 15 phút → kích ngay, không chờ ngưỡng 90 phút');
+  assert.equal(q('ci-triage.yml', 20), 'skip', 'workflow khác giữ nguyên ngưỡng 2 giờ');
+  assert.deepEqual(K.plan(['required-gate.yml'], { 'required-gate.yml': { status: 'pending', created_at: new Date(Date.now() - 20 * 6e4).toISOString() } }).map(p => p.act), ['skip'], "'pending' = lượt nối khoẻ chờ concurrency"); }
 // chống trùng: đang chờ/chạy, lượt mới trong ngưỡng → không dispatch; hết hạn → dispatch
 o = await go(await req(), mkEnv(), mkGh({ 'free-tier-guard.yml': { status: 'queued', created_at: ago(100) }, 'required-gate.yml': { status: 'in_progress', created_at: ago(500) }, 'ci-triage.yml': done(30) }));
 assert.deepEqual(dispatched(o.g), [], 'đang chờ/chạy + lượt gần đây → không dispatch'); assert.deepEqual(o.body.results.map(r => r.why.split(' ')[0]), ['in-flight', 'in-flight', 'recent']);

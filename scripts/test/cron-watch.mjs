@@ -97,6 +97,7 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   const rz = await cronWatch(gh2, { now, wfDir: wf, root: wf, settleMs: 0 });
   assert.equal(disp.length, 1, 'lượt zombie không chặn dispatch bù'); assert.ok(rz.bad.some(b => b.kind === 'zombie') && /Lượt kẹt queued/.test(rz.md) && /DELETE \/actions\/runs\/1/.test(rz.md), 'zombie vào bad + md');
   assert.ok(!activeWorkflows([{ ...old }], now).size && activeWorkflows([{ ...old, created_at: '2026-11-03T22:30:00Z' }], now).has('d1-usage-watch.yml'), 'ci-filler không coi zombie là đang chạy'); }
+assert.ok(isZombie({ status: 'queued', path: '.github/workflows/required-gate.yml', created_at: new Date(Date.now() - 20 * 6e4).toISOString() }) && !isZombie({ status: 'pending', path: '.github/workflows/required-gate.yml', created_at: new Date(Date.now() - 20 * 6e4).toISOString() }) && !isZombie({ status: 'queued', path: '.github/workflows/ci-triage.yml', created_at: new Date(Date.now() - 20 * 6e4).toISOString() }), 'required-gate kẹt sau 15 phút, workflow khác giữ 2 giờ');
 // chưa từng có lượt schedule: báo 'never' dù vừa đá/bật lại (đá không reset đồng hồ), đá ≤ 1 lần/24 giờ, vẫn dispatch bù; workflow mới trong ngưỡng thì chưa báo
 { const now = Date.parse('2026-11-03T23:00:00Z'), created = Date.parse('2026-11-01T14:21:56Z'), crons = ['4-59/10 * * * *'];
   assert.equal(verdict({ file: 'ci-filler.yml', state: 'active', crons, since: now - 6e5, created, lastSched: 0 }, now).kind, 'never');

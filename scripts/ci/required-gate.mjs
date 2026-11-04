@@ -154,6 +154,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
+    dispatchRuns: async () => (await call(`/actions/workflows/${path.basename(SELF_PATH)}/runs?event=workflow_dispatch&per_page=5`)).workflow_runs || [],
     lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
     dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
@@ -162,6 +163,10 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
 }
 
 // 3/11: GitHub không chạy cron dày của 2 workflow này (0 lượt schedule từ ngày tạo) → ci-filler không lấp runner (12/40 dù còn việc tồn). Bộ canh chạy liên tục nên làm nhịp: mỗi workflow 1 dispatch/khoảng, cron giữ làm lưới.
+// 3/11: 2 lượt tự nối (07:48Z, 21:25Z) kẹt 'queued' 0 job → bộ canh chết hàng giờ. Lượt nối khoẻ bị concurrency giữ nên chưa thể có job, trạng thái là 'pending'; còn 'queued' sau CHAIN_CHECK_MS = kẹt → dispatch lại.
+export const CHAIN_CHECK_MS = 90e3, CHAIN_RETRIES = 2;
+/** Lượt nối dispatch từ `since` đã sống chưa (thuần). */
+export const chainAlive = (runs, since) => runs.some(r => Date.parse(r.created_at) >= since - 30e3 && r.status !== 'queued');
 export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20 };
 /** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
 export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
@@ -204,14 +209,19 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
     } catch (e) { log('::warning::cron-watch lỗi (bộ canh vẫn chạy): ' + e.message); }
     let first = true, chained = !env.GATE_CHAIN_REF || dry;
     const CHAIN_BEFORE = 6 * 60e3;   // còn ≤ 6 phút: xếp sẵn lượt kế tiếp (concurrency giữ nó chờ tới khi lượt này xong) – không phụ thuộc cron
-    const paceAt = new Map();
+    const paceAt = new Map(); let chainAt = 0, chainTries = 0;
     while (clock.now() < end) {
+      if (chainAt && A.dispatchRuns && clock.now() - chainAt >= CHAIN_CHECK_MS) try {
+        if (chainAlive(await A.dispatchRuns(), chainAt)) { chainAt = 0; log('↻ lượt canh kế tiếp đã sống'); }
+        else if (chainTries++ < CHAIN_RETRIES) { await A.dispatchSelf(env.GATE_CHAIN_REF); chainAt = clock.now(); log(`::warning::lượt nối kẹt queued → dispatch lại (${chainTries}/${CHAIN_RETRIES})`); }
+        else { chainAt = 0; log('::error::lượt nối vẫn kẹt sau khi dispatch lại – chờ lịch 17,47 / cron-kick (15 phút)'); }
+      } catch (e) { log('::warning::kiểm lượt nối: ' + e.message); }
       if (env.GATE_CHAIN_REF && !dry && A.dispatchFile) for (const [file, gap] of Object.entries(PACED)) {
         if (clock.now() < (paceAt.get(file) || 0)) continue;
         paceAt.set(file, clock.now() + 60e3);
         try { if (paceDue(await A.lastRun(file), gap, clock.now())) { await A.dispatchFile(file, env.GATE_CHAIN_REF); log(`⏱ nhịp ${file}: đã dispatch`); paceAt.set(file, clock.now() + gap * 60e3); } } catch (e) { log(`::warning::nhịp ${file}: ${e.message}`); }
       }
-      if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
+      if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF); chainAt = clock.now(); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
       const t = clock.now(), prs = (await A.openPrs()).filter(p => Date.parse(p.updated_at) >= since()), shas = [...new Set(prs.map(p => p.head.sha))];
       if (first) {   // mồi: gate đã xanh/đỏ thì ghi nhận (1 lệnh/PR), pending/thiếu thì đánh giá ngay
         for (const sha of shas) { const g = await A.gateState(sha); if (g && g.state !== 'pending') seen.set(sha, { at: Date.parse(g.updated_at || g.created_at) || t, state: g.state, desc: g.description }); }
@@ -236,6 +246,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
       if (clock.now() + wait >= end) break;
       await clock.sleep(wait);
     }
+    if (chainAt) log('::warning::hết lượt canh mà chưa xác nhận được lượt nối – chờ lịch 17,47 / cron-kick (15 phút)');
     return out;
   }
   throw new Error('thiếu --sha / --pr / --sweep / --watch');

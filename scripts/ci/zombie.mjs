@@ -1,8 +1,10 @@
 // Lượt "zombie" (3/11): lượt workflow_dispatch nằm "queued" mãi, 0 job; huỷ và force-cancel đều 409 "has not been queued yet" (12 lượt, cũ nhất 26/10).
 // Vì sao phải canh: lượt này vẫn tính là "đang chờ" → cron-watch ("đã có lượt queued gần đây – không bù"), cron-kick (in-flight) và ci-filler (đang chạy) không dispatch workflow đó nữa.
-export const ZOMBIE_MIN = 120, MAX_CHECK = 30;
-/** Quá hạn queued (thuần). Chỉ tuổi: đủ để không để nó chặn lượt bù; job thật xếp hàng tới 2 giờ thì dispatch thừa 1 lượt, concurrency của workflow gộp lại. */
-export const isZombie = (r, now = Date.now()) => r.status === 'queued' && now - Date.parse(r.created_at) > ZOMBIE_MIN * 6e4;
+// required-gate: 15 phút – bộ canh chết thì không PR nào có status (3/11: 07:53Z→13:18Z, 21:30Z→00:04Z); lượt nối khoẻ chờ concurrency ở trạng thái 'pending', không phải 'queued'.
+export const ZOMBIE_MIN = 120, GATE_ZOMBIE_MIN = 15, MAX_CHECK = 30;
+const minOf = r => (/required-gate\.yml$/.test(r.path || '') ? GATE_ZOMBIE_MIN : ZOMBIE_MIN);
+/** Quá hạn queued (thuần). Chỉ tuổi: đủ để không để nó chặn lượt bù; job thật xếp hàng lâu thì dispatch thừa 1 lượt, concurrency của workflow gộp lại. */
+export const isZombie = (r, now = Date.now()) => r.status === 'queued' && now - Date.parse(r.created_at) > minOf(r) * 6e4;
 /** → lượt queued quá hạn và không có job nào; thử huỷ khi cancel = true, ghi kết quả vào .cancel ('ok' | lý do). */
 export async function zombieRuns(gh, { now = Date.now(), cancel = true } = {}) {
   const queued = ((await gh('/actions/runs?status=queued&per_page=100')) || {}).workflow_runs || [], out = [];
