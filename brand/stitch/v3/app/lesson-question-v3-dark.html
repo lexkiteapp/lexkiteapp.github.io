@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Lesson — Choose the correct word</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            'night-bg': '#10191B',
+            'night-card': '#172427',
+            'night-card-border': '#23383E',
+            'night-surface': '#1E2F33',
+            'night-border': '#2B4248',
+            'night-text-primary': '#E8F1F0',
+            'night-text-muted': '#A9BDBB',
+            'teal-brand': '#2DD4BF',
+            'teal-primary': '#14B8A6',
+            'teal-light': '#5EEAD4',
+            'teal-selected-bg': '#103A37',
+            'amber-cta': '#F59E0B',
+            'amber-ledge': '#B45309',
+            'ink-dark': '#1C1003',
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #0B1315',
+            'tactile-option': '0 4px 0 #0B1315',
+            'tactile-selected': '0 4px 0 #051A18',
+            'tactile-btn': '0 4px 0 #B45309',
+            'tactile-dock': '0 -4px 0 #0B1315, 0 -12px 24px -4px rgba(0, 0, 0, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #10191B;
+      color: #E8F1F0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .teacher-slot {
+      border: 2px dashed #2DD4BF;
+      background-color: rgba(45, 212, 191, 0.08);
+    }
+    .touch-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #B45309;
+    }
+    .touch-option:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #0B1315;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-night-bg text-night-text-primary flex flex-col justify-between selection:bg-teal-brand selection:text-ink-dark">
+<!-- TOP APP SHELL (Desktop 5-Destination Bar & Active Skills Navigation) -->
+<nav class="w-full bg-[#172427] border-b-2 border-night-card-border px-6 lg:px-12 py-3 shadow-[0_2px_0_#0B1315] shrink-0 sticky top-0 z-40">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-6">
+<!-- Brand & Lesson Indicator -->
+<div class="flex items-center gap-6">
+<a aria-label="Lexkite Home" class="flex items-center gap-2 group" href="#">
+<div class="w-10 h-10 rounded-2xl bg-[#103A37] border border-teal-brand/40 flex items-center justify-center text-teal-brand shadow-[0_3px_0_#051A18] group-hover:bg-[#154b47] transition-all">
+<span class="material-symbols-outlined text-[24px]">kitesurfing</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-night-text-primary">Lexkite</span>
+</a>
+<!-- 5-Destination App Structure (Today, Vocab, Skills, Tests, Me) -->
+<div class="hidden md:flex items-center gap-1 pl-4 border-l-2 border-night-card-border">
+<a class="px-3.5 py-1.5 rounded-xl font-bold text-sm text-night-text-muted hover:text-night-text-primary hover:bg-night-surface transition-colors" href="#">
+            Today
+          </a>
+<a class="px-3.5 py-1.5 rounded-xl font-bold text-sm text-night-text-muted hover:text-night-text-primary hover:bg-night-surface transition-colors" href="#">
+            Vocab
+          </a>
+<a aria-current="page" class="px-3.5 py-1.5 rounded-xl font-extrabold text-sm text-[#002B27] bg-teal-brand border border-teal-light shadow-[0_2px_0_#0F766E] flex items-center gap-1.5" href="#">
+<span class="w-2 h-2 rounded-full bg-[#004D40] animate-pulse"></span>
+            Skills
+          </a>
+<a class="px-3.5 py-1.5 rounded-xl font-bold text-sm text-night-text-muted hover:text-night-text-primary hover:bg-night-surface transition-colors" href="#">
+            Tests
+          </a>
+<a class="px-3.5 py-1.5 rounded-xl font-bold text-sm text-night-text-muted hover:text-night-text-primary hover:bg-night-surface transition-colors" href="#">
+            Me
+          </a>
+</div>
+</div>
+<!-- Center Progress & Session Status -->
+<div class="flex-1 max-w-md hidden sm:flex items-center gap-4">
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs font-black text-night-text-muted px-0.5">
+<span class="tracking-wider uppercase text-[11px] text-night-text-muted">Question 4 of 10</span>
+<span class="text-teal-brand font-black">40%</span>
+</div>
+<div class="h-3 w-full bg-[#10191B] rounded-full overflow-hidden p-0.5 border border-night-card-border">
+<div class="h-full bg-gradient-to-r from-teal-primary to-teal-brand rounded-full w-[40%] transition-all duration-300"></div>
+</div>
+</div>
+</div>
+<!-- Right Controls: Modal Exit & XP Pill -->
+<div class="flex items-center gap-3">
+<!-- XP Chip -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#2E2005] border-2 border-amber-500/50 text-amber-300 font-extrabold text-xs shadow-[0_2px_0_#1F1603]">
+<span class="material-symbols-outlined text-amber-400 text-[18px]">bolt</span>
+<span>+15 XP</span>
+</div>
+<!-- Audio Settings Button (44x44px min hit area) -->
+<button aria-label="Lesson preferences" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-night-surface border-2 border-night-border text-night-text-muted hover:text-night-text-primary hover:bg-[#25393E] shadow-[0_2px_0_#0B1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+<!-- Exit Lesson Modal Trigger (44x44px) -->
+<button aria-label="Exit lesson" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-night-surface border-2 border-night-border text-night-text-primary hover:bg-[#25393E] shadow-[0_2px_0_#0B1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- IMMERSIVE MAIN LESSON CONTAINER (Full desktop linear card-stack) -->
+<main class="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
+<!-- SUB-BAR / METADATA PILLS FOR ACCESSIBLE CONTEXT & 40% I18N -->
+<div class="flex items-center justify-between flex-wrap gap-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#103A37] border border-teal-brand/40 text-xs font-extrabold text-teal-light tracking-wide">
+<span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+          IELTS &amp; TOEIC Core · Level B2
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-night-surface border border-night-border text-xs font-bold text-night-text-muted">
+<span class="material-symbols-outlined text-[15px] text-teal-brand">record_voice_over</span>
+          Collocations &amp; Dependent Prepositions
+        </span>
+</div>
+<div class="text-xs font-bold text-night-text-muted">
+        Module 2 · Unit 5: Formal Decision Making
+      </div>
+</div>
+<!-- HORIZONTAL TEACHER COACH BANNER (Strictly empty dashed rounded placeholder, no drawn person) -->
+<section class="w-full bg-night-card border-2 border-night-card-border rounded-3xl p-4 sm:p-5 shadow-tactile-card flex items-start sm:items-center gap-4.5 transition-all">
+<!-- Empty Teacher Slot strictly adhering to prompt specification -->
+<div aria-label="teacher-slot" class="teacher-slot w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex flex-col items-center justify-center p-1.5 shrink-0 text-center shadow-inner">
+<span class="material-symbols-outlined text-teal-brand text-[28px]">school</span>
+<span class="text-[10px] font-black text-teal-brand uppercase tracking-tight mt-0.5 leading-none">teacher</span>
+<span class="text-[9px] font-bold text-teal-brand/80 uppercase tracking-tighter leading-none mt-0.5">slot</span>
+</div>
+<!-- Coach Ama's Guidance Message -->
+<div class="flex-1 flex flex-col gap-1 min-w-0">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-2">
+<span class="text-xs font-black uppercase tracking-wider text-teal-light bg-[#103A37] px-2.5 py-0.5 rounded-md border border-teal-brand/40">
+              Coach Ama
+            </span>
+<span class="text-xs font-bold text-night-text-muted">Guided Collocation Hint</span>
+</div>
+<span class="text-xs font-medium text-night-text-muted hidden sm:inline-block">Context clue</span>
+</div>
+<p class="text-sm sm:text-[15px] font-semibold text-night-text-primary leading-relaxed break-words">
+          Notice the head noun <strong class="text-teal-brand underline decoration-teal-primary decoration-2 font-extrabold">decision</strong> in the sentence. In academic and professional English, which verb specifically forms a natural verb-noun collocation with it?
+        </p>
+</div>
+</section>
+<!-- LESSON PROMPT & HEADER -->
+<header class="flex flex-col gap-1.5">
+<h1 class="text-2xl sm:text-3xl font-black text-night-text-primary tracking-tight">
+        Choose the correct word
+      </h1>
+<p class="text-sm sm:text-base font-medium text-night-text-muted">
+        Select the option that best completes the sentence grammatically and idiomatically.
+      </p>
+</header>
+<!-- STIMULUS SENTENCE CARD WITH INSERTION GAP -->
+<section class="w-full bg-night-card border-2 border-night-card-border rounded-3xl p-6 sm:p-8 shadow-tactile-card flex flex-col gap-6">
+<!-- Audio & Accent Action Bar -->
+<div class="flex items-center justify-between pb-4 border-b border-night-border flex-wrap gap-3">
+<div class="flex items-center gap-3">
+<!-- Play Full Audio Button (min 44px) -->
+<button aria-label="Listen to full sentence" class="h-11 px-5 rounded-2xl bg-[#103A37] border border-teal-brand/50 text-teal-light flex items-center gap-2.5 shadow-[0_3px_0_#051A18] hover:bg-[#154b47] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-teal-brand">volume_up</span>
+<span class="text-sm font-extrabold tracking-wide">Play full sentence</span>
+</button>
+<!-- Slow Audio Playback Button (min 44px) -->
+<button aria-label="Listen slowly" class="h-11 px-4 rounded-2xl bg-night-surface border-2 border-night-border text-night-text-primary flex items-center gap-2 hover:bg-[#25393E] shadow-[0_2px_0_#0B1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[19px] text-teal-brand">slow_motion_video</span>
+<span class="text-xs sm:text-sm font-bold">Slow 0.75x</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-teal-brand bg-[#103A37] px-3 py-1.5 rounded-xl border border-teal-brand/30 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-brand"></span>
+            Received Pronunciation · UK
+          </span>
+</div>
+</div>
+<!-- Large typeset Stimulus Sentence with Prominent Dashed Insertion Slot -->
+<div class="py-2 sm:py-3">
+<p class="text-2xl sm:text-3xl lg:text-[32px] font-bold text-night-text-primary leading-relaxed sm:leading-[1.55]">
+          “The committee will 
+          <span class="inline-flex items-center justify-center min-w-[130px] sm:min-w-[150px] h-12 sm:h-14 mx-2 px-4 align-middle border-2 border-dashed border-teal-brand bg-[#103A37]/80 rounded-2xl text-teal-brand font-black text-2xl sm:text-[28px] shadow-inner">
+            make
+          </span>
+          a final decision regarding the research grant tomorrow morning.”
+        </p>
+</div>
+<!-- Sentence Context & Translation Helper (Supports German / Vietnamese +40% expansion) -->
+<div class="bg-night-surface rounded-2xl p-4 border-2 border-night-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-start sm:items-center gap-3">
+<span class="material-symbols-outlined text-teal-brand text-[22px] shrink-0 mt-0.5 sm:mt-0">translate</span>
+<span class="text-sm font-semibold text-night-text-muted leading-snug">
+<em>German / Multi-lang translation:</em> „Der Ausschuss wird morgen Vormittag eine endgültige Entscheidung bezüglich des Forschungsstipendiums treffen.“
+          </span>
+</div>
+<button class="text-xs font-extrabold text-teal-brand uppercase tracking-wider hover:underline shrink-0 self-start sm:self-auto" type="button">
+          Hide translation
+        </button>
+</div>
+</section>
+<!-- INTERACTIVE 4 TACTILE OPTIONS (2x2 Grid on Large Screens, 1 Col on Mobile) -->
+<fieldset aria-label="Answer choices" class="w-full">
+<legend class="sr-only">Choose the correct word to complete the sentence</legend>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Option A (SELECTED STATE - Focused Rich Dark Teal Tactile Card) -->
+<label class="relative min-h-[76px] flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-teal-selected-bg text-white border-2 border-teal-brand shadow-tactile-selected cursor-pointer transition-all">
+<input checked="" class="sr-only" name="lesson_answer" type="radio" value="make"/>
+<div class="flex items-center gap-4 min-w-0">
+<!-- Key shortcut badge & Letter -->
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="w-9 h-9 rounded-xl bg-[#17524E] flex items-center justify-center font-black text-base text-teal-brand border border-teal-brand/50">
+                A
+              </span>
+<kbd class="hidden xl:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#072422] text-teal-brand border border-teal-brand/40">
+                1
+              </kbd>
+</div>
+<!-- Choice Text & Detailed collocation note -->
+<div class="flex flex-col min-w-0">
+<span class="text-xl sm:text-2xl font-black text-white tracking-wide">
+                make
+              </span>
+<span class="text-xs font-medium text-teal-light/90 truncate">
+                Correct collocation: make a decision, make an effort
+              </span>
+</div>
+</div>
+<!-- Selected Radio Icon -->
+<div class="w-7 h-7 rounded-full bg-teal-brand text-ink-dark flex items-center justify-center shrink-0 ml-3 shadow-sm">
+<span class="material-symbols-outlined text-[18px] font-black">check</span>
+</div>
+</label>
+<!-- Option B (TACTILE UNSELECTED CARD) -->
+<label class="relative min-h-[76px] flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-night-surface hover:bg-[#25393E] text-night-text-primary border-2 border-night-border shadow-tactile-option cursor-pointer touch-option transition-all group">
+<input class="sr-only" name="lesson_answer" type="radio" value="do"/>
+<div class="flex items-center gap-4 min-w-0">
+<!-- Key shortcut badge & Letter -->
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="w-9 h-9 rounded-xl bg-night-card group-hover:bg-[#203236] flex items-center justify-center font-black text-base text-night-text-muted border border-night-border">
+                B
+              </span>
+<kbd class="hidden xl:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-night-card text-night-text-muted border border-night-border">
+                2
+              </kbd>
+</div>
+<!-- Choice Text -->
+<div class="flex flex-col min-w-0">
+<span class="text-xl sm:text-2xl font-black text-night-text-primary tracking-wide">
+                do
+              </span>
+<span class="text-xs font-medium text-night-text-muted truncate">
+                Common trap: do business, do homework, do research
+              </span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-[#3A555D] group-hover:border-teal-brand shrink-0 ml-3 transition-colors"></div>
+</label>
+<!-- Option C (TACTILE UNSELECTED CARD) -->
+<label class="relative min-h-[76px] flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-night-surface hover:bg-[#25393E] text-night-text-primary border-2 border-night-border shadow-tactile-option cursor-pointer touch-option transition-all group">
+<input class="sr-only" name="lesson_answer" type="radio" value="give"/>
+<div class="flex items-center gap-4 min-w-0">
+<!-- Key shortcut badge & Letter -->
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="w-9 h-9 rounded-xl bg-night-card group-hover:bg-[#203236] flex items-center justify-center font-black text-base text-night-text-muted border border-night-border">
+                C
+              </span>
+<kbd class="hidden xl:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-night-card text-night-text-muted border border-night-border">
+                3
+              </kbd>
+</div>
+<!-- Choice Text -->
+<div class="flex flex-col min-w-0">
+<span class="text-xl sm:text-2xl font-black text-night-text-primary tracking-wide">
+                give
+              </span>
+<span class="text-xs font-medium text-night-text-muted truncate">
+                Pairs with: give a speech, give permission, give advice
+              </span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-[#3A555D] group-hover:border-teal-brand shrink-0 ml-3 transition-colors"></div>
+</label>
+<!-- Option D (TACTILE UNSELECTED CARD) -->
+<label class="relative min-h-[76px] flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-night-surface hover:bg-[#25393E] text-night-text-primary border-2 border-night-border shadow-tactile-option cursor-pointer touch-option transition-all group">
+<input class="sr-only" name="lesson_answer" type="radio" value="take"/>
+<div class="flex items-center gap-4 min-w-0">
+<!-- Key shortcut badge & Letter -->
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="w-9 h-9 rounded-xl bg-night-card group-hover:bg-[#203236] flex items-center justify-center font-black text-base text-night-text-muted border border-night-border">
+                D
+              </span>
+<kbd class="hidden xl:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-night-card text-night-text-muted border border-night-border">
+                4
+              </kbd>
+</div>
+<!-- Choice Text -->
+<div class="flex flex-col min-w-0">
+<span class="text-xl sm:text-2xl font-black text-night-text-primary tracking-wide">
+                take
+              </span>
+<span class="text-xs font-medium text-night-text-muted truncate">
+                Pairs with: take an action, take a chance, take notes
+              </span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-[#3A555D] group-hover:border-teal-brand shrink-0 ml-3 transition-colors"></div>
+</label>
+</div>
+</fieldset>
+<!-- Bottom cushion to prevent overlap with sticky dock -->
+<div class="h-10"></div>
+</main>
+<!-- FLOATING / DOCKED ACTION BAR (Desktop Dock with Instant Eval Toggle, Hint, and Tactile Amber CTA) -->
+<footer class="w-full bg-[#172427] border-t-2 border-night-card-border shadow-tactile-dock py-4 px-6 lg:px-12 sticky bottom-0 z-30">
+<div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- Left Helpers: Instant Evaluation Toggle & Secondary Hint Trigger -->
+<div class="flex items-center justify-between w-full sm:w-auto gap-5">
+<!-- Instant evaluation status / toggle -->
+<label class="inline-flex items-center gap-2.5 cursor-pointer select-none">
+<span class="relative inline-flex items-center h-6 w-11 shrink-0 rounded-full bg-teal-brand transition-colors">
+<span class="inline-block h-4 w-4 transform rounded-full bg-[#10191B] transition translate-x-6"></span>
+</span>
+<span class="flex flex-col">
+<span class="text-xs font-black text-night-text-primary">Instant evaluation</span>
+<span class="text-[11px] font-medium text-night-text-muted">Evaluate immediately</span>
+</span>
+</label>
+<!-- Secondary Ask AI / Hint Button -->
+<button class="h-10 px-3.5 rounded-xl bg-night-surface border-2 border-night-border text-night-text-primary hover:bg-[#25393E] text-xs font-bold flex items-center gap-1.5 shadow-[0_2px_0_#0B1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-teal-brand text-[17px]">lightbulb</span>
+<span>Dictionary hint</span>
+</button>
+</div>
+<!-- Right Area: Keyboard shortcut guide and Primary Amber CTA -->
+<div class="flex items-center justify-end w-full sm:w-auto gap-4">
+<span class="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-night-text-muted">
+<span>Press</span>
+<kbd class="px-2 py-0.5 rounded-md bg-night-surface border border-night-border font-mono text-[11px] text-night-text-primary shadow-[0_1px_0_#0B1315]">Enter ↵</kbd>
+<span>to check</span>
+</span>
+<!-- Decisive Primary Check CTA (Strictly amber #F59E0B with 4px #B45309 tactile ledge & #1C1003 deep brown-black ink) -->
+<button class="w-full sm:w-auto min-w-[220px] h-14 px-8 rounded-2xl bg-amber-cta text-ink-dark font-black text-lg tracking-wide shadow-tactile-btn flex items-center justify-center gap-3 border-2 border-amber-500/40 touch-btn transition-all" type="button">
+<span>Check answer</span>
+<span class="material-symbols-outlined text-[24px] font-black text-ink-dark">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

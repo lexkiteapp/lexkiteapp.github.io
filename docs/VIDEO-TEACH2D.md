@@ -1,6 +1,6 @@
 # Teach2D – English-teaching video templates (29/10/2026)
 
-> TL;DR: one Remotion pipeline, 5 templates, ONE 2D teacher (Ama or Carlos from `web/teach/characters.json`), Lexkite Kit cards (Stitch, dark A / light B), every element on its spoken word, 9:16 social + 16:9 lesson embed from the same data. CI only (`teach-video.yml`), 0 credits. QC before AND after render. Bulk only after the owner OKs the pilots.
+> TL;DR: one Remotion pipeline, 16 templates (5 batch-generated from data, see Batch), ONE 2D teacher (Ama or Carlos from `web/teach/characters.json`), Lexkite Kit cards (Stitch, dark A / light B), every element on its spoken word, 9:16 social + 16:9 lesson embed from the same data. CI only (`teach-video.yml`), 0 credits. QC before AND after render. Bulk only after the owner OKs the pilots.
 > Read when: making or changing teaching videos. Older engines: `VIDEO-MOTION.md` (#191 overlay on render_v9 plates – superseded here), `VIDEO-SERIES.md` (series rules, still valid).
 
 ## Pipeline (`.github/workflows/teach-video.yml`, never on the Mac)
@@ -56,6 +56,13 @@ ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link)
 | 8 | reading / toeic / placement | quiz-only variant of `verbs`/`mistake` (A/B card, 3-2-1) | placement + TOEIC item banks (answer key = data) | after OK |
 | 9 | lesson `#/lesson`, call `#/call`, confidence `#/confidence` | embed 16:9 inside the lesson step; CTA "Call Ama" only where the feature exists | lesson engine items | after OK |
 Excluded (strength filter, `VIDEO-SERIES.md`): accents/intonation, slang, roleplay, long listening.
+
+## Batch (owner 2/11: hundreds of episodes, machine QC instead of a per-image OK; 0 credits)
+- `gen.py --plan N` appends rows to `content/video/teach2d/auto.json` from our data only – `usuk` (curated `usuk-pairs.json`, both IPA in the bank), `verbs` (verb engine + lexicon example sentences), `stress` (stress-shift families word + suffix from the IPA bank, spelling syllables = IPA nuclei), `guess` (img.json picture of the exact `word#n`), `review` (bank card). Facts are frozen in the row; order = least-covered app area first, never the same template twice in a row.
+- Machine gates per row → `reviewed.json` verdict (`machine: true`): **data** (== bank / verb engine / img.json) · **level** (every spoken word NGSL or bank A1–B1, taught words exempt) · **hook** (true for these facts, ≤ 6 words) · **dup** (point hash never reused, one word = one episode, picture pHash ≥ 10 bits apart). Teacher skip lists in `gen.py` (other sense in the bank example, family-safe topics). Tests: `scripts/test/teach2d-gen.py` (preqc).
+- `gen.py --verify` re-checks every row against the live bank before a render (changed fact → not rendered, warned). `gen.py --todo` = verified, not banked, < 2 red tries.
+- `teach-video.yml` input `shards` = render the next N (≤ 120, matrix limit); ci-filler entry `teach-video` (probe `gen.py --todo --count`). Pictures via `scripts/media/origin.py` with `MEDIA_ORIGIN_ONLY=1` (GitHub origins only, never media.lexkite.com or /api).
+- `bank.py`: an episode enters `bank.json` only when short AND wide pass every qc.py gate with score ≥ 90 and the mp4 is not a byte copy; videos = artifact `tv-bank-<run>` (90 days); score table `BANK.md`. Committed to main by the main batch run (deploy key, `commit-regen.sh`).
 
 ## Not done yet (needs the owner)
 - Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.

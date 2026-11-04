@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS CBT - Browser New Tab</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#24373c",
+            "surface-container-high": "#1E2F33",
+            "surface-container": "#172427",
+            "surface-container-low": "#131f22",
+            "surface-container-lowest": "#0c1416",
+            "surface": "#10191B",
+            "background": "#10191B",
+            "surface-bright": "#1a2a2e",
+            "surface-dim": "#0e1618",
+            "outline": "#3d5459",
+            "outline-variant": "#283b40",
+            "primary": "#4dd0c4",
+            "primary-container": "#1a4d49",
+            "on-primary": "#042523",
+            "on-primary-container": "#bdf5ee",
+            "secondary": "#f59e0b",
+            "secondary-container": "#d97706",
+            "on-secondary": "#1a0d00",
+            "tertiary": "#38bdf8",
+            "tertiary-container": "#0c4a6e",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "on-background": "#E8F1F0"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-lg": "3rem",
+            "gutter-md": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile drop ledge styling aligned with brand dark design */
+    .tactile-card {
+      background-color: #172427;
+      border: 2px solid #283b40;
+      box-shadow: 0 4px 0 0 #0d1517;
+    }
+
+    .tactile-card-warm {
+      background-color: #172427;
+      border: 2px solid #2d4248;
+      box-shadow: 0 4px 0 0 #0d1517;
+    }
+
+    .btn-tactile-coral {
+      background-color: #f59e0b;
+      color: #1a0d00; /* Strict WCAG: Deep brown-black ink for maximum contrast */
+      border: 2px solid #b45309;
+      box-shadow: 0 4px 0 0 #78350f;
+    }
+    .btn-tactile-coral:hover {
+      background-color: #fbbf24;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #78350f;
+    }
+
+    .btn-tactile-teal {
+      background-color: #1a4d49;
+      color: #bdf5ee;
+      border: 2px solid #4dd0c4;
+      box-shadow: 0 4px 0 0 #0f2d2b;
+    }
+    .btn-tactile-teal:hover {
+      background-color: #23635e;
+    }
+    .btn-tactile-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #0f2d2b;
+    }
+
+    .btn-tactile-ghost {
+      background-color: #1E2F33;
+      color: #4dd0c4;
+      border: 2px solid #283b40;
+      box-shadow: 0 4px 0 0 #0d1517;
+    }
+    .btn-tactile-ghost:hover {
+      background-color: #24373c;
+      color: #6ee7b7;
+    }
+    .btn-tactile-ghost:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #0d1517;
+    }
+
+    .chip-tactile {
+      border: 2px solid #283b40;
+      box-shadow: 0 2px 0 0 #0d1517;
+    }
+    .chip-tactile:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #0d1517;
+    }
+
+    /* Teacher slot: empty dashed rounded placeholder in dark mode */
+    .teacher-slot {
+      border: 2px dashed #4dd0c4;
+      background-color: #1E2F33;
+    }
+
+    /* Smooth circle progress */
+    .circle-progress-track {
+      stroke: #1E2F33;
+    }
+    .circle-progress-bar {
+      stroke: #4dd0c4;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- Desktop Cockpit App Shell Wrapper -->
+<div class="flex flex-1 w-full max-w-[1440px] mx-auto min-h-screen">
+<!-- Left Desktop Navigation Sidebar -->
+<aside aria-label="Main Navigation" class="w-64 flex-shrink-0 bg-[#121d20] border-r-2 border-outline-variant flex flex-col justify-between p-space-md shadow-[4px_0_0_0_#0d1517] z-20">
+<div class="flex flex-col gap-space-lg">
+<!-- Brand Logo: Kite Mark + Lexkite Wordmark -->
+<a class="flex items-center gap-space-sm px-space-xs py-space-xs text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary min-h-[44px]" href="#today">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-[0_3px_0_0_#042523] flex-shrink-0">
+<!-- Kite Glyph -->
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="change_history">change_history</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-extrabold tracking-tight text-[#E8F1F0] leading-tight">Lexkite</span>
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-wide -mt-0.5">IELTS CBT ACCELERATOR</span>
+</div>
+</a>
+<!-- Canonical 5 Navigation Items -->
+<nav aria-label="App Modules" class="flex flex-col gap-space-xs">
+<!-- Item 1: Today (ACTIVE - highlighted with dark raised container and vivid teal border) -->
+<a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-lg text-label-lg bg-[#1E2F33] text-primary font-bold border-2 border-primary shadow-[0_3px_0_0_#0d1517] min-h-[48px] transition-all" href="#today">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="calendar_today" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-[#E8F1F0]">Today</span>
+</a>
+<!-- Item 2: Vocab -->
+<a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors min-h-[48px] active:translate-y-0.5" href="#vocab">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="menu_book">menu_book</span>
+<span>Vocab</span>
+</a>
+<!-- Item 3: Skills -->
+<a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors min-h-[48px] active:translate-y-0.5" href="#skills">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="psychology">psychology</span>
+<span>Skills</span>
+</a>
+<!-- Item 4: Tests -->
+<a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors min-h-[48px] active:translate-y-0.5" href="#tests">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="timer">timer</span>
+<span>Tests</span>
+</a>
+<!-- Item 5: Me -->
+<a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors min-h-[48px] active:translate-y-0.5" href="#profile">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="person">person</span>
+<span>Me</span>
+</a>
+</nav>
+</div>
+<!-- Secondary Bottom Actions -->
+<div class="flex flex-col gap-space-xs pt-space-md border-t-2 border-outline-variant">
+<!-- Target Band Badge -->
+<div class="p-space-sm bg-surface-container rounded-xl border border-outline-variant mb-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#f59e0b] font-bold">TARGET EXAM</span>
+<span class="font-label-sm text-label-sm bg-[#2c2010] text-[#fcd34d] border border-[#78350f] px-2 py-0.5 rounded-full font-extrabold">Band 7.5</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Official Mock scheduled in 18 days</p>
+</div>
+<button class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+<span>Extension Settings</span>
+</button>
+<button class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="keyboard_double_arrow_left">keyboard_double_arrow_left</span>
+<span>Collapse</span>
+</button>
+</div>
+</aside>
+<!-- Main View Content Area -->
+<main class="flex-1 overflow-y-auto px-gutter-lg py-space-lg flex flex-col gap-space-lg bg-[#10191B]">
+<!-- 1. Top Bar / Header Area -->
+<header class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm border-b-2 border-outline-variant">
+<!-- Atmospheric Greeting -->
+<div class="flex flex-col">
+<h1 class="font-headline-lg text-headline-lg font-extrabold text-[#E8F1F0] tracking-tight">
+            Good afternoon, Linh
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-0.5">
+            Ready to build your IELTS Band 7.5 momentum today?
+          </p>
+</div>
+<!-- Clock, Date & Tactile Gamified Chips -->
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Digital Clock & Date Display -->
+<div class="flex flex-col text-left lg:text-right pr-space-sm lg:border-r-2 lg:border-outline-variant">
+<span class="font-headline-lg text-headline-lg font-extrabold text-primary tracking-tight leading-none" id="digitalClock">14:28</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Thursday, 24 October • London GMT+1</span>
+</div>
+<!-- Streak & XP status pills -->
+<div class="flex items-center gap-space-sm">
+<!-- Streak Chip -->
+<div class="flex items-center gap-1.5 px-space-md py-space-xs rounded-full bg-[#272111] text-[#fcd34d] font-label-md text-label-md border-2 border-[#78350f] shadow-[0_3px_0_0_#0d1517] min-h-[44px]">
+<span class="text-lg">🔥</span>
+<span>14-day streak</span>
+</div>
+<!-- XP Status Pill -->
+<div class="flex items-center gap-1.5 px-space-md py-space-xs rounded-full bg-[#1e2a22] text-[#6ee7b7] font-label-md text-label-md border-2 border-[#065f46] shadow-[0_3px_0_0_#0d1517] min-h-[44px]">
+<span class="material-symbols-outlined text-lg text-[#6ee7b7]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-[#6ee7b7]">820 XP</span>
+</div>
+</div>
+</div>
+</header>
+<!-- 2. Centered Omni-search & Dictionary Bar -->
+<section aria-label="Omni-search &amp; Vocabulary Dictionary" class="w-full max-w-4xl mx-auto flex flex-col items-center gap-space-sm mt-space-xs">
+<form class="w-full relative" onsubmit="event.preventDefault();" role="search">
+<div class="tactile-card rounded-2xl p-1.5 flex items-center bg-[#1E2F33] focus-within:border-primary focus-within:shadow-[0_4px_0_0_#042523] transition-all">
+<!-- Search Icon -->
+<div aria-hidden="true" class="w-12 h-12 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="search">search</span>
+</div>
+<!-- Search Input -->
+<input aria-label="Search IELTS vocabulary, idioms, grammar rules, or web" class="w-full bg-transparent border-0 focus:ring-0 text-[#E8F1F0] placeholder:text-[#6a8286] font-body-lg text-body-lg px-space-xs py-space-sm min-h-[44px]" placeholder="Search IELTS vocabulary, collocations, grammar patterns, or web..." type="text"/>
+<!-- Clear Action -->
+<button aria-label="Clear search input" class="w-11 h-11 min-h-[44px] flex items-center justify-center rounded-xl text-on-surface-variant hover:text-[#E8F1F0] hover:bg-[#24373c] transition-colors mr-1" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="close">close</span>
+</button>
+<!-- Shortcut Badge -->
+<div class="hidden sm:flex items-center px-3 py-1.5 rounded-lg bg-[#172427] text-on-surface-variant font-label-sm text-label-sm border border-outline-variant mr-1">
+<kbd class="font-bold text-[#E8F1F0]">⌘K</kbd>
+</div>
+</div>
+</form>
+<!-- Quick filter chips below search -->
+<div aria-label="Search Filters" class="flex flex-wrap items-center justify-center gap-space-xs w-full pt-1" role="group">
+<button class="px-space-md py-space-xs rounded-full font-label-md text-label-md bg-primary text-on-primary border-2 border-[#2dd4bf] shadow-[0_2px_0_0_#0d1517] min-h-[44px] flex items-center font-bold" type="button">
+            All Lexkite
+          </button>
+<button class="px-space-md py-space-xs rounded-full font-label-md text-label-md bg-[#172427] text-on-surface-variant chip-tactile hover:text-[#E8F1F0] hover:bg-surface-container-high min-h-[44px] flex items-center" type="button">
+            IELTS Academic
+          </button>
+<button class="px-space-md py-space-xs rounded-full font-label-md text-label-md bg-[#172427] text-on-surface-variant chip-tactile hover:text-[#E8F1F0] hover:bg-surface-container-high min-h-[44px] flex items-center" type="button">
+            Collocations
+          </button>
+<button class="px-space-md py-space-xs rounded-full font-label-md text-label-md bg-[#172427] text-on-surface-variant chip-tactile hover:text-[#E8F1F0] hover:bg-surface-container-high min-h-[44px] flex items-center" type="button">
+            Grammar Patterns
+          </button>
+</div>
+</section>
+<!-- 3. Hero Bento Grid Layout (Dashboard / New Tab widgets) -->
+<section aria-label="Study Cockpit Widgets" class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left / Center Hero: 'Word of the Day' Card (7 cols) -->
+<article class="lg:col-span-7 tactile-card rounded-2xl p-space-lg flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-md">
+<!-- Header Tag & Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm bg-[#1E2F33] text-primary px-3 py-1 rounded-full border border-outline-variant font-extrabold">
+                  IELTS Band 7.5+ • Academic Writing
+                </span>
+<span class="font-label-sm text-label-sm bg-[#272111] text-[#fcd34d] border border-[#78350f] px-2.5 py-1 rounded-full font-bold">
+                  Word of the Day
+                </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Day 42 of 60</span>
+</div>
+<!-- Word Title, Phonetics & Audio Target -->
+<div class="flex items-baseline justify-between gap-space-md pt-space-xs">
+<div class="flex flex-wrap items-baseline gap-x-space-md gap-y-1">
+<h2 class="font-headline-lg text-headline-lg font-extrabold text-primary tracking-tight">
+                  ubiquitous
+                </h2>
+<span class="font-body-lg text-body-lg text-on-surface-variant font-mono">
+                  /juːˈbɪk.wɪ.təs/
+                </span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-md bg-[#1E2F33] text-primary font-bold border border-outline-variant">
+                  adjective
+                </span>
+</div>
+<!-- Pronunciation Audio Button (44x44px minimum tap target) -->
+<button aria-label="Play pronunciation audio for ubiquitous" class="w-11 h-11 rounded-xl bg-[#1E2F33] text-primary border-2 border-outline-variant hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center flex-shrink-0 shadow-[0_2px_0_0_#0d1517] active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Formal Definition -->
+<div class="p-space-md bg-[#1E2F33] rounded-xl border border-outline-variant">
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-relaxed">
+                Present, appearing, or found everywhere; constantly encountered in modern urban life.
+              </p>
+</div>
+<!-- IELTS Task 2 Example Context -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-[#f59e0b] font-bold tracking-wider">IELTS TASK 2 CONTEXTUAL APPLICATION</span>
+<blockquote class="italic font-body-md text-body-md text-[#E8F1F0] pl-3 border-l-4 border-[#f59e0b] leading-relaxed bg-[#131f22] py-1">
+                “Smartphones have become ubiquitous across educational institutions, fundamentally reshaping study habits.”
+              </blockquote>
+</div>
+<!-- Teacher Note Slot: empty dashed rounded placeholder (Strict Rule: NO drawn people/faces) -->
+<div class="p-space-md rounded-xl bg-[#1E2F33] border-2 border-outline-variant flex items-start gap-space-md">
+<!-- Empty dashed placeholder box labeled teacher-slot -->
+<div class="teacher-slot w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center text-primary" title="Coach Ama verified recommendation slot">
+<span class="font-label-sm text-[10px] text-primary font-bold text-center leading-tight">teacher<br/>slot</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-extrabold text-[#E8F1F0]">Coach Ama’s Examiner Tip</span>
+<span class="font-label-sm text-label-sm bg-[#1a4d49] text-[#6ee7b7] border border-[#2dd4bf] px-2 py-0.2 rounded font-bold">Lexical Resource 8.0</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+                  “High-scoring replacement for 'common' or 'everywhere' in your Task 2 introduction! Use it to elevate your contextual essay hook.”
+                </p>
+</div>
+</div>
+</div>
+<!-- Bottom Action CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm border-t-2 border-outline-variant">
+<!-- Coral CTA: Dark ink strictly enforced for high contrast on orange -->
+<button class="btn-tactile-coral font-label-lg text-label-lg px-space-lg py-space-sm rounded-xl min-h-[48px] flex items-center justify-center gap-2 flex-grow sm:flex-grow-0 transition-all font-extrabold" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="add_circle">add_circle</span>
+<span>Add to My Deck (+15 XP)</span>
+</button>
+<!-- Ghost Secondary Button -->
+<button class="btn-tactile-ghost font-label-lg text-label-lg px-space-lg py-space-sm rounded-xl min-h-[48px] flex items-center justify-center gap-2 flex-grow sm:flex-grow-0 transition-all font-bold" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="hub">hub</span>
+<span>Explore Collocations</span>
+</button>
+</div>
+</article>
+<!-- Right Column Cards: Spaced Repetition + Daily Goal (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Right Column Top: 'Spaced Repetition & Due Today' Card -->
+<article class="tactile-card rounded-2xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="bolt">bolt</span>
+<h3 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">Review Queue</h3>
+</div>
+<span class="font-label-sm text-label-sm bg-[#272111] text-[#fcd34d] px-3 py-1 rounded-full border border-[#78350f] font-extrabold">
+                28 due today
+              </span>
+</div>
+<!-- Breakdown list -->
+<div class="grid grid-cols-3 gap-space-xs py-space-xs text-center">
+<div class="p-2.5 rounded-xl bg-[#1E2F33] border border-outline-variant flex flex-col">
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary">12</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold leading-tight mt-1">IELTS Academic</span>
+</div>
+<div class="p-2.5 rounded-xl bg-[#1E2F33] border border-outline-variant flex flex-col">
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary">8</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold leading-tight mt-1">Idiomatic Verbs</span>
+</div>
+<div class="p-2.5 rounded-xl bg-[#1E2F33] border border-outline-variant flex flex-col">
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#f59e0b]">8</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold leading-tight mt-1">Common Traps</span>
+</div>
+</div>
+<!-- Optimal retention window indicator -->
+<div class="flex items-center gap-2 px-space-md py-space-xs rounded-xl bg-[#1E2F33] border border-outline-variant text-on-surface-variant">
+<span class="material-symbols-outlined text-[#f59e0b] text-lg" data-icon="hourglass_top">hourglass_top</span>
+<span class="font-body-sm text-body-sm font-semibold">
+                Optimal retention window: <strong class="text-[#E8F1F0]">45 mins left</strong>
+</span>
+</div>
+<!-- CTA: Start Review Drill (vibrant coral button with dark ink text) -->
+<button class="btn-tactile-coral font-label-lg text-label-lg px-space-md py-space-sm rounded-xl min-h-[48px] w-full flex items-center justify-center gap-2 transition-all font-extrabold" type="button">
+<span>Start Review Drill (6 mins)</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+<!-- Right Column Bottom: 'Daily Goal Progress' Card -->
+<article class="tactile-card rounded-2xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]">Daily Goal Progress</h3>
+<span class="font-label-sm text-label-sm text-primary font-bold">Goal: 30 XP</span>
+</div>
+<div class="flex items-center gap-space-lg">
+<!-- Circular SVG Progress Ring (60% complete, 18 / 30 XP) -->
+<div class="relative w-24 h-24 flex-shrink-0 flex items-center justify-center">
+<svg aria-label="Daily progress 60 percent completed" class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Track -->
+<circle class="circle-progress-track" cx="50" cy="50" fill="transparent" r="40" stroke-width="12"></circle>
+<!-- Active Ring -->
+<circle class="circle-progress-bar" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="100.48" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary leading-none">60%</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold">18/30 XP</span>
+</div>
+</div>
+<!-- Status details -->
+<div class="flex flex-col gap-space-xs flex-1">
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-snug">
+                  12 XP needed to protect streak freeze
+                </p>
+<!-- Streak Freeze Protection Chip -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E2F33] border border-outline-variant text-on-surface-variant font-label-sm text-label-sm w-fit">
+<span>❄️</span>
+<span class="font-bold text-primary">1 Streak Freeze Active</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- 4. Quick Links Row at bottom of main content -->
+<section aria-label="High-Yield Practice Modules" class="flex flex-col gap-space-sm pt-space-xs pb-space-lg">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-extrabold text-[#E8F1F0] tracking-wide">
+            RAPID TEST DRILLS &amp; WORKSPACES
+          </h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">One-click jump</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-md">
+<!-- Card 1: IELTS CBT Simulator -->
+<a class="tactile-card rounded-2xl p-space-md flex flex-col justify-between gap-space-sm hover:border-primary transition-all active:translate-y-1 min-h-[96px] group" href="#simulator">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform" data-icon="desktop_windows">desktop_windows</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-lg" data-icon="north_east">north_east</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-[#E8F1F0] group-hover:text-primary transition-colors">IELTS CBT Simulator</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Full official interface</p>
+</div>
+</a>
+<!-- Card 2: Mistake Notebook -->
+<a class="tactile-card rounded-2xl p-space-md flex flex-col justify-between gap-space-sm hover:border-primary transition-all active:translate-y-1 min-h-[96px] group" href="#mistakes">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-[#f59e0b] text-2xl group-hover:scale-110 transition-transform" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-[11px] bg-[#272111] text-[#fcd34d] border border-[#78350f] px-1.5 py-0.5 rounded font-bold">5 pending</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-[#E8F1F0] group-hover:text-primary transition-colors">Mistake Notebook</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant">5 unreviewed errors</p>
+</div>
+</a>
+<!-- Card 3: Cambridge 18 Reading -->
+<a class="tactile-card rounded-2xl p-space-md flex flex-col justify-between gap-space-sm hover:border-primary transition-all active:translate-y-1 min-h-[96px] group" href="#cambridge">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform" data-icon="auto_stories">auto_stories</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-lg" data-icon="north_east">north_east</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-[#E8F1F0] group-hover:text-primary transition-colors">Cambridge 18 Reading</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Test 3 Passage 2 queued</p>
+</div>
+</a>
+<!-- Card 4: Speed Match Drill -->
+<a class="tactile-card rounded-2xl p-space-md flex flex-col justify-between gap-space-sm hover:border-primary transition-all active:translate-y-1 min-h-[96px] group" href="#speed-match">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform" data-icon="flash_on">flash_on</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-lg" data-icon="north_east">north_east</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-[#E8F1F0] group-hover:text-primary transition-colors">Speed Match Drill</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Synonym reaction game</p>
+</div>
+</a>
+<!-- Card 5: Roleplay Speaking -->
+<a class="tactile-card rounded-2xl p-space-md flex flex-col justify-between gap-space-sm hover:border-primary transition-all active:translate-y-1 min-h-[96px] group" href="#speaking">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform" data-icon="mic">mic</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-lg" data-icon="north_east">north_east</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-[#E8F1F0] group-hover:text-primary transition-colors">Roleplay Speaking</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Part 2 Cue Card simulation</p>
+</div>
+</a>
+</div>
+</section>
+</main>
+</div>
+<!-- Interactive Time Clock Sync Script -->
+<script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const clockElement = document.getElementById('digitalClock');
+      if (clockElement) {
+        clockElement.textContent = `${hours}:${minutes}`;
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body></html>

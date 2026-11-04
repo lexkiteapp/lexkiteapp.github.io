@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Extension Word Lookup - Desktop</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#1A5354',
+              'teal-subtle': '#E6F0F0',
+            },
+            coral: {
+              DEFAULT: '#FF6F3C',
+              hover: '#FF5C22',
+              dark: '#D94E1B',
+              surface: '#FFF2EC',
+            },
+            cream: {
+              DEFAULT: '#FDFBF7',
+              darker: '#F5EFEB',
+              card: '#FFFFFF',
+              border: '#EAE2DA',
+            },
+            ink: {
+              primary: '#1A2121',
+              secondary: '#4D5E5E',
+              muted: '#718383',
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 0 #D94E1B',
+            'tactile-btn-pressed': '0 1px 0 0 #D94E1B',
+            'tactile-card': '0 6px 0 0 #E2D7CD, 0 12px 24px -4px rgba(15, 61, 62, 0.08)',
+            'tactile-popup': '0 10px 0 0 #DBCFBF, 0 20px 32px -6px rgba(15, 61, 62, 0.16)',
+            'tactile-toast': '0 5px 0 0 #092526, 0 12px 24px -4px rgba(0, 0, 0, 0.14)',
+            'tactile-fab': '0 5px 0 0 #092526, 0 12px 20px -3px rgba(15, 61, 62, 0.25)',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-rounded.outline {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-sans antialiased min-h-screen flex flex-row overflow-x-hidden selection:bg-amber-400/30 selection:text-white">
+<!-- ========================================================= -->
+<!-- 1. DESKTOP LEFT SIDEBAR (Standard Lexkite 5 items)        -->
+<!-- ========================================================= -->
+<aside class="w-64 bg-[#10191B] border-r border-[#1e2f33] flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none">
+<!-- Top Brand & Header -->
+<div class="p-6"><div class="flex items-center gap-3 mb-8"><div class="w-11 h-11 rounded-2xl bg-[#147a71] flex items-center justify-center text-white shadow-[0_3px_0_0_#0a3c37]"><span class="material-symbols-rounded text-2xl">kitesurfing</span></div><div><span class="text-xl font-extrabold tracking-tight text-[#4ed8c8] block leading-none">Lexkite</span><span class="text-xs font-bold text-[#A9BDBB] uppercase tracking-wider mt-1 block">Browser Assistant</span></div></div><nav class="space-y-2"><a class="flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all min-h-[48px]" href="#today"><span class="material-symbols-rounded text-2xl text-[#718383]">today</span><span class="text-sm">Today</span></a><a class="flex items-center gap-3.5 px-4 py-3 rounded-2xl font-extrabold text-[#4ed8c8] bg-[#172427] border border-[#2dd4bf]/30 shadow-sm min-h-[48px]" href="#vocab"><span class="material-symbols-rounded text-2xl text-[#4ed8c8]">menu_book</span><span class="text-sm">Vocab</span><span class="ml-auto bg-[#147a71] text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full">Extension</span></a><a class="flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all min-h-[48px]" href="#skills"><span class="material-symbols-rounded text-2xl text-[#718383]">psychology</span><span class="text-sm">Skills</span></a><a class="flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all min-h-[48px]" href="#tests"><span class="material-symbols-rounded text-2xl text-[#718383]">assignment</span><span class="text-sm">Tests</span></a><a class="flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-all min-h-[48px]" href="#me"><span class="material-symbols-rounded text-2xl text-[#718383]">person</span><span class="text-sm">Me</span></a></nav></div>
+<!-- Sidebar Bottom: Extension Status Card & Empty Teacher Slot -->
+<div class="p-5 border-t-2 border-cream-border/70 space-y-4"><div class="teacher-slot w-full p-3.5 rounded-2xl border-2 border-dashed border-[#2dd4bf]/40 bg-[#172427] flex items-center gap-3" title="teacher-slot"><div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2dd4bf]/30 flex items-center justify-center shrink-0 text-[#4ed8c8]"><span class="material-symbols-rounded text-xl">school</span></div><div class="min-w-0"><span class="text-[11px] font-extrabold text-[#4ed8c8] uppercase tracking-wider block">TEACHER-SLOT</span><p class="text-xs text-[#A9BDBB] font-medium leading-snug truncate">Carlos • Reading Coach</p></div></div><div class="bg-[#172427] p-3.5 rounded-2xl border border-[#1e2f33] shadow-sm flex items-center justify-between"><div class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-xs font-bold text-[#E8F1F0]">Extension Active</span></div><span class="text-xs font-extrabold text-[#4ed8c8] bg-[#1E2F33] px-2 py-0.5 rounded-lg border border-[#1e2f33]">v2.4</span></div></div>
+</aside>
+<!-- ========================================================= -->
+<!-- 2. MAIN CONTENT AREA (Web Page Article + Floating UI)     -->
+<!-- ========================================================= -->
+<main class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto relative bg-[#10191B]">
+<!-- Top Web Browser Mockup Bar / Page Context -->
+<header class="bg-[#172427] border-b border-[#1e2f33] px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm"><div class="flex items-center gap-3 bg-[#1E2F33] px-4 py-2 rounded-xl border border-[#1e2f33] max-w-xl w-full"><span class="material-symbols-rounded text-emerald-400 text-lg">lock</span><span class="text-xs font-semibold text-[#A9BDBB] font-mono truncate">theeconomist.com/science-technology/deep-sea-archaeology-specimens</span><button aria-label="Refresh page" class="ml-auto text-[#A9BDBB] hover:text-[#4ed8c8] flex items-center justify-center min-w-[46px] min-h-[46px] rounded-lg transition-colors"><span class="material-symbols-rounded text-base">refresh</span></button></div><div class="flex items-center gap-3"><div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#172427] text-[#4ed8c8] text-xs font-bold border border-[#2dd4bf]/20"><span class="w-2 h-2 rounded-full bg-[#2dd4bf]"></span><span>Lexkite Lookups: <strong class="text-[#E8F1F0]">14 today</strong></span></div><div class="w-9 h-9 rounded-xl bg-[#1E2F33] border border-[#1e2f33] flex items-center justify-center text-[#E8F1F0] font-bold text-xs" title="Learner Target">C1</div></div></header>
+<!-- Article Content Wrapper with reading layout -->
+<div class="max-w-4xl mx-auto px-10 py-10 w-full relative">
+<!-- Article Header -->
+<div class="mb-8 border-b border-[#1e2f33] pb-6"><div class="flex items-center gap-2 mb-3"><span class="bg-[#147a71] text-white font-extrabold text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-md">IELTS Academic • Band 7.5 Source</span><span class="text-xs text-[#A9BDBB] font-medium">• 6 min read • Technology &amp; Marine Biology</span></div><h1 class="font-serif text-3xl md:text-4xl font-semibold tracking-tight text-[#E8F1F0] leading-tight">Preserving Marine Artifacts in Hypersaline Basins</h1><p class="text-base text-[#A9BDBB] font-sans mt-3 leading-relaxed">Deep-sea exploration continues to uncover fragile archaeological remains that require delicate conservation techniques before ocean floor retrieval.</p></div>
+<!-- Article Body Paragraphs with target highlighted word -->
+<article class="font-serif text-lg leading-relaxed text-[#D8E5E5] space-y-6">
+<p>
+          Historical wreck surveys conducted in the Mediterranean Sea reveal that ancient wooden hulls survive only under strictly anaerobic sediment blankets. When oxygenated tidal currents infiltrate these strata, microbial degradation accelerates catastrophically within decades.
+        </p>
+<!-- PARAGRAPH WITH THE TARGET HIGHLIGHTED WORD "METICULOUS" -->
+<p class="relative">
+          To prevent irreversible cellular collapse upon atmospheric exposure, senior marine curators insist upon
+          <!-- The highlighted word element -->
+<span class="relative inline-block"><mark class="bg-amber-500/20 text-amber-300 font-bold px-1.5 py-0.5 rounded-md border border-amber-500/40 shadow-sm cursor-pointer select-text">meticulous</mark><span class="inline-flex items-center justify-center w-5 h-5 -mt-1 ml-0.5 text-[#4ed8c8] align-middle bg-[#1E2F33] rounded-full border border-[#2dd4bf]/40"><span class="material-symbols-rounded text-xs">search</span></span><div class="absolute left-0 top-full mt-3 w-[410px] bg-[#172427] rounded-3xl border border-[#1e2f33] shadow-2xl z-40 p-5 font-sans animate-in fade-in zoom-in-95 duration-150"><div class="flex items-start justify-between gap-3 mb-3 border-b border-[#1e2f33] pb-3"><div><div class="flex items-center gap-2"><h2 class="text-2xl font-extrabold text-[#4ed8c8] tracking-tight">meticulous</h2><span class="bg-[#1E2F33] text-[#4ed8c8] text-xs font-extrabold px-2 py-0.5 rounded-md border border-[#2dd4bf]/30">C1 • Band 7.5+</span></div><div class="flex items-center gap-3 mt-1.5 text-xs text-[#A9BDBB]"><span class="font-semibold italic text-[#718383]">adjective</span><span class="font-mono text-[#A9BDBB] font-medium tracking-wide">/məˈtɪk.jə.ləs/</span></div></div><button aria-label="Play British Audio" class="w-11 h-11 rounded-2xl bg-[#147a71] text-white flex items-center justify-center hover:bg-[#1A5354] active:scale-95 transition-all shadow-md shrink-0" title="Listen to pronunciation"><span class="material-symbols-rounded text-2xl">volume_up</span></button></div><div class="space-y-3 mb-4"><div class="bg-[#10191B] p-3 rounded-2xl border border-[#1e2f33]"><div class="flex items-center justify-between text-xs font-bold text-[#A9BDBB] mb-1"><span class="flex items-center gap-1"><span class="material-symbols-rounded text-sm text-[#4ed8c8]">translate</span>TRANSLATION (VI / DE)</span><span class="text-[11px] text-[#4ed8c8] bg-[#1E2F33] px-2 py-0.5 rounded border border-[#1e2f33]">Auto-detect</span></div><div class="text-sm font-bold text-[#E8F1F0]">Tỉ mỉ, cẩn thận từng chi tiết <span class="text-[#A9BDBB] font-normal text-xs">• sorgfältig, akribisch</span></div></div><div class="text-xs leading-relaxed text-[#A9BDBB]"><strong class="text-[#E8F1F0] font-bold">Definition:</strong> Very careful and showing extreme great attention to every detail, avoiding any error.</div><div class="text-xs text-[#A9BDBB] bg-[#1E2F33] p-2.5 rounded-xl border border-[#1e2f33]"><span class="font-bold text-[#4ed8c8]">Frequent Collocations:</span> <span class="font-semibold text-[#E8F1F0]">meticulous research</span> • <span class="font-semibold text-[#E8F1F0]">meticulous attention to detail</span></div></div><div class="flex items-center gap-2.5 pt-1"><button class="flex-1 min-h-[46px] px-4 py-2.5 bg-coral hover:bg-coral-hover text-[#1A0D00] text-sm font-extrabold rounded-2xl shadow-md active:translate-y-1 transition-all flex items-center justify-center gap-2"><span class="material-symbols-rounded text-xl">bookmark_add</span><span>Add to Deck (+10 XP)</span></button><button aria-label="Open Full Dictionary Card" class="min-w-[46px] min-h-[46px] px-3 py-2.5 bg-[#1E2F33] hover:bg-[#10191B] text-[#4ed8c8] border border-[#1e2f33] rounded-2xl flex items-center justify-center font-bold text-xs transition-colors" title="Open in Lexkite App"><span class="material-symbols-rounded text-xl">open_in_new</span></button></div><div class="mt-3 text-[11px] text-center text-[#A9BDBB] font-medium flex items-center justify-center gap-1"><span class="material-symbols-rounded text-xs text-amber-400">bolt</span><span>Interval spaced repetition unlocks automatically in Vocab</span></div></div></span>
+          documentation of salinity gradients prior to sample retrieval. Without such measures, crystalline structural salts degrade rapidly into powder once dry.
+        </p>
+<p>
+          Specialists employ non-destructive radiographic scanners within pressurized hyperbaric chambers to chart iron bolt oxidation before introducing chemical neutralizing baths. These procedures ensure artifacts withstand standard museum display conditions.
+        </p>
+<p>
+          Recent expeditions conducted off the coast of Alexandria recovered limestone amphorae containing remnants of vintage resin. Chemical analysis confirmed that organic lipid compounds remained intact for over twenty-two centuries, preserved by stable bottom temperatures and fine clay sediment cover.
+        </p>
+</article>
+<!-- Bottom Web Reader Help Box with Empty Teacher Slot -->
+<section class="mt-12 bg-[#172427] rounded-3xl p-6 border border-[#1e2f33] shadow-lg flex items-start gap-4"><div class="teacher-slot w-14 h-14 rounded-2xl border-2 border-dashed border-[#2dd4bf]/40 bg-[#1E2F33] flex flex-col items-center justify-center text-center shrink-0" title="teacher-slot"><span class="material-symbols-rounded text-[#4ed8c8] text-xl">school</span><span class="text-[9px] font-extrabold text-[#4ed8c8] tracking-tighter uppercase mt-0.5">SLOT</span></div><div class="space-y-1"><div class="flex items-center gap-2"><h3 class="text-sm font-extrabold text-[#4ed8c8]">Teacher Tip • Reading for IELTS &amp; TOEFL</h3><span class="bg-amber-400/20 text-amber-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-amber-400/30">Strategy</span></div><p class="text-xs text-[#A9BDBB] leading-relaxed">“Notice how <em>meticulous</em> contrasts with haphazard procedures in this passage. IELTS Academic Reading questions frequently test your comprehension through synonyms like <em>rigorous</em>, <em>painstaking</em>, and <em>thorough</em>.”</p></div></section>
+</div>
+<!-- ========================================================= -->
+<!-- 4. FLOATING ACTION BUTTON (Bottom Right - at least 44x44)  -->
+<!-- ========================================================= -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-3 select-none"><div class="flex items-center gap-3 bg-[#172427] text-white px-4 py-3 rounded-2xl border border-[#1e2f33] shadow-2xl transition-all animate-bounce"><div class="w-7 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 flex items-center justify-center shrink-0"><span class="material-symbols-rounded text-lg">check</span></div><div class="pr-2"><div class="text-xs font-extrabold text-[#E8F1F0] leading-tight">Added to deck!</div><div class="text-[11px] text-[#A9BDBB] font-medium">“meticulous” • 1st review scheduled in 4h</div></div><button class="px-3.5 py-2.5 rounded-xl bg-[#1E2F33] hover:bg-[#10191B] text-xs font-bold text-[#E8F1F0] transition-colors border border-[#1e2f33] min-h-[46px] min-w-[46px] flex items-center justify-center">Undo</button></div><button aria-label="Open Lexkite Quick Lookup" class="w-14 h-14 rounded-2xl bg-[#147a71] hover:bg-[#1A5354] text-white flex items-center justify-center shadow-2xl border border-[#2dd4bf]/40 active:translate-y-1 transition-all group" title="Lexkite Extension Active"><span class="material-symbols-rounded text-2xl group-hover:rotate-12 transition-transform">kitesurfing</span></button></div>
+</main>
+</body>
+</html>
