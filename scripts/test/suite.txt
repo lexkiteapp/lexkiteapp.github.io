@@ -193,6 +193,7 @@ node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
+node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
@@ -244,14 +245,17 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/scroll-boot.mjs
 node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
 node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/brand-logo-stitch.mjs
 node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
+node scripts/test/probe-cta.mjs
