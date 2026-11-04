@@ -102,10 +102,10 @@ async function run(TAG, ROOT, vw, scheme, lang) {
       if (meanEl && !shown && Math.abs(endOf(meanEl) - h.width) > 1) out.push(`nghĩa không dùng hết bề ngang khi không có ảnh (${Math.round(endOf(meanEl))}/${Math.round(h.width)})`);
       if (e._none && media) out.push('từ không có ảnh mà vẫn dựng ô ảnh');
       if (media && !media.matches('.vimg, .pic')) out.push('ô ảnh lạ');
-      if (e._broken && media && !/\bgone\b/.test(media.className)) out.push('ảnh lỗi chưa gỡ');
+      if (e._broken && vis(media)) out.push('ảnh lỗi vẫn để hộp hiện'); // ảnh nền sáng ở tối đã display:none → lazy không tải, không có sự kiện lỗi; điều cần giữ là KHÔNG còn hộp nhìn thấy
       if (shown) {
         const m = rb(media);
-        if (m.width < 90 || m.width > 165 || Math.abs(m.width - m.height) > 1) out.push(`ô ảnh ${Math.round(m.width)}×${Math.round(m.height)}`);
+        if (m.width !== 160 || m.height !== 160) out.push(`ô ảnh ${Math.round(m.width)}×${Math.round(m.height)}`);
         for (const c of [head.querySelector('.entry-title')]) { const r = rb(c); if (r.right > m.left + 1 && r.left < m.right - 1 && r.bottom > m.top && r.top < m.bottom) out.push('ô ảnh đè tiêu đề'); }
       }
       if (EXPECT && media && media.matches('.vimg')) { const src = media.querySelector('img').getAttribute('src') || ''; if (!src.includes(EXPECT)) out.push(`ảnh sai từ#loại: ${src}`); if (!(media.querySelector('img').alt || '').startsWith(e.word)) out.push('alt ảnh không theo từ'); }
