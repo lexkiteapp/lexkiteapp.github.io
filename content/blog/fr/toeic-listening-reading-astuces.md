@@ -141,4 +141,4 @@ Non ! Il n'y a aucune pénalité pour les mauvaises réponses. Par conséquent, 
 Non, le règlement officiel d'ETS interdit formellement d'annoter ou de souligner sur le livret papier. Tout marquage doit être fait directement sur la feuille de réponses. Entraînez-vous donc chez vous sans surligner les textes.
 
 ### Combien de temps faut-il pour progresser de 100 points au TOEIC ?
-En moyenne, il faut compter entre 40 et 60 heures de travail sérieux et ciblé (vocabulaire économique, entraînement chronométré, écoute d'accents variés) pour faire progresser son score de 100 points.
+En moyenne, il faut compter entre 40 et 60 heures de travail sérieux et ciblé (vocabulaire économique, entraînement chronométré, écoute d'accents variés) pour faire progresser son score de 100 points. Pour organiser efficacement vos semaines d'entraînement, suivez notre [programme de révision TOEIC](/fr/blog/plan-entrainement-toeic-guide-autonomie/) étape par étape.

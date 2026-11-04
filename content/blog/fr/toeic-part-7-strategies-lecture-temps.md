@@ -136,5 +136,6 @@ Obtenir un score supérieur à 900 points exige rapidité d'analyse et profondeu
 - **Banque de collocations professionnelles** : Assimilez des milliers d'expressions idiomatiques de bureau et de synonymes administratifs sur le dictionnaire Lexkite.
 - **Répétition espacée FSRS** : Ancrez durablement les termes de négociation, de transport et de finance dans votre mémoire active.
 - **Laboratoire d'expression orale interactif** : Si vous visez une certification globale, l'espace [pratique orale de Lexkite](/#/practice/speak) vous permet d'entraîner votre diction avec une évaluation acoustique automatisée.
+- **Organisation méthodologique** : Suivez notre [programme de révision TOEIC](/fr/blog/plan-entrainement-toeic-guide-autonomie/) pour équilibrer listening et reading sur 18 semaines.
 
 Lancez dès aujourd'hui l'[application web Lexkite](/#/) et maîtrisez le TOEIC Part 7 avec une aisance et une gestion du temps sans faille !

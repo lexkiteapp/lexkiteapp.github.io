@@ -159,6 +159,7 @@ Une vitesse de lecture rapide et une intuition grammaticale affûtée se forgent
 - **Répétition espacée FSRS intelligente** : Mémorisez durablement les verbes prépositionnels et les collocations professionnelles indispensables au test.
 - **Dictionnaire interactif intégré** : Explorez instantanément les exemples en contexte et la phonétique de chaque mot complexe.
 - **Entraînement complet à l'oral** : Développez votre aisance globale grâce à l'espace de [pratique orale de Lexkite](/#/practice/speak) avec retour d'analyse immédiat.
+- **Feuille de route d'apprentissage** : Structurez vos mois de préparation avec notre [programme de révision TOEIC](/fr/blog/plan-entrainement-toeic-guide-autonomie/) en trois phases.
 
 Commencez dès aujourd'hui sur l'[application web Lexkite](/#/) pour transformer votre entraînement au TOEIC Part 5 en un réflexe rapide et précis !
 
