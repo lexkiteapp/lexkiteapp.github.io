@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { digestDue, morning, mainRuns, classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
@@ -59,6 +59,14 @@ ok(classify('judge unavailable: HTTP Error 500\nAssertionError: hook length').ki
 const ex = excerpt('2026-10-23T05:34:30.8Z Error: x ghp_' + 'a'.repeat(36) + ' mail me@x.com\nok line\n```bad');
 ok(!/ghp_a/.test(ex) && !/me@x\.com/.test(ex) && !/^2026-/.test(ex), 'trích log: che token/email, bỏ dấu giờ');
 ok(issueBody({ name: 'i18n', file: 'i18n.yml', run: { html_url: 'u', run_attempt: 1, event: 'schedule' }, cls: classify(LOG.i18n), log: LOG.i18n }).includes('<!-- ci-triage:wf=i18n.yml -->'), 'issue có dấu workflow');
+// Hồi quy 4/11: bản tin chỉ chạy đúng giờ 00 UTC mà lịch GitHub hay rớt giờ đó → cờ ci kẹt 8 ngày; lượt đỏ của PR tính vào "workflow đỏ" → cờ không bao giờ xanh.
+{ const at = h => new Date(Date.UTC(2026, 10, 4, h, 30));
+  const fired = [0, 1, 2.5, 4, 5.5, 7, 8.5, 10, 11.5, 13, 14.5, 16, 17.5, 19, 20.5, 22, 23.5].filter(h => digestDue(at(Math.floor(h))));
+  ok(fired.length >= 4, 'lượt quét 1,5 giờ/lần: bản tin chạy ≥ 4 lần/ngày, không phụ thuộc đúng giờ 00');
+  ok(digestDue(at(3), true) && !digestDue(at(3)), 'không tới giờ thì bỏ qua, force vẫn chạy');
+  ok(morning(at(2)) && !morning(at(13)) && morning(at(13), true), 'thư + chạy lại hạn mức chỉ buổi sáng UTC');
+  const got = mainRuns([{ id: 1, head_branch: 'main', event: 'push' }, { id: 2, head_branch: 'main', event: 'schedule' }, { id: 3, head_branch: 'fix/x', event: 'push' }, { id: 4, head_branch: 'main', event: 'pull_request' }, { id: 5, head_branch: 'main', event: 'push', name: 'ci-triage' }]).map(r => r.id);
+  ok(got.join() === '1,2', 'cờ ci chỉ đếm lượt đỏ của main'); }
 const d = digest([{ name: 'a' }, { name: 'a' }, { name: 'b' }], { a: 'failure', b: 'success' }, [{ number: 7, title: 'CI đỏ: a', html_url: 'h' }]);
 ok(d.red === 1 && d.failed === 2 && /#7/.test(d.text) && /Only notify for failed workflows/.test(d.text), 'bản tin ngày');
 

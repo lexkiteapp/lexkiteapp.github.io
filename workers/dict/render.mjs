@@ -10,7 +10,7 @@ export const hubPath = l => `/${l}/${DICT_PATH[l]}/`;
 export const wordPath = (l, slug) => `${hubPath(l)}${slug}/`;
 export const letterPath = (l, c) => `${hubPath(l)}${c.toLowerCase()}/`; // trang A–Z (slug 1 chữ – từ trong tập luôn ≥ 3 chữ, không trùng)
 export const slugOf = w => String(w).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-export const landing = l => (l === 'vi' ? '/' : `/${l}/`);
+export const landing = l => `/${l}/`;
 
 export const T = {
   vi: {

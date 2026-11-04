@@ -114,7 +114,9 @@
       if (!scr && (r.right > IW + 1 || r.left < -1) && getComputedStyle(e).position !== 'fixed') add('offscreen', 'fail', e, `"${txt(e)}" nằm ngoài màn hình (x ${Math.round(r.left)}…${Math.round(r.right)} / ${IW})`);
       // bị đè: điểm tâm (trong vùng nhìn thấy) phải trúng chính nó/con/cha-nhãn
       const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      if (cx > 0 && cx < IW && cy > 0 && cy < IH && !scr) {
+      // đang cuộn khuất trong vùng cuộn dọc riêng (menu thanh bên) = chưa nhìn thấy, không phải bị đè; cuộn tới được do kiểm riêng trong qa-bot.mjs (sidebar-*)
+      const outY = (function () { for (let x = e.parentElement; x && x !== D.body; x = x.parentElement) { if (!/auto|scroll/.test(getComputedStyle(x).overflowY)) continue; const b = x.getBoundingClientRect(); if (cy < b.top || cy > b.bottom) return true; } return false; })();
+      if (cx > 0 && cx < IW && cy > 0 && cy < IH && !scr && !outY) {
         const hit = D.elementFromPoint(cx, cy);
         if (hit && hit !== e && !e.contains(hit) && !hit.contains(e) && !(hit.closest && hit.closest('label') && hit.closest('label').contains(e))) {
           const hs = getComputedStyle(hit);

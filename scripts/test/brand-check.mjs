@@ -58,9 +58,9 @@ for (const l of Object.keys(LANG_NAMES)) {
   const f = siteFooter({ lang: l, text: 'Lexkite – x' });
   if (!f.includes(n) || !f.includes('<p>Lexkite™ – x</p>')) tmErr.push(`siteFooter(${l}) thiếu dòng nhãn hiệu`);
 }
-for (const f of ['web/index.html', ...Object.keys(LANG_NAMES).filter(l => l !== 'vi').map(l => `web/${l}/index.html`)]) {
+for (const f of Object.keys(LANG_NAMES).map(l => `web/${l}/index.html`)) {
   if (!fs.existsSync(f)) continue;
-  const h = fs.readFileSync(f, 'utf8'), l = f === 'web/index.html' ? 'vi' : f.split('/')[1];
+  const h = fs.readFileSync(f, 'utf8'), l = f.split('/')[1];
   if (!h.includes(TM_NOTE[l])) tmErr.push(`${f}: chân trang thiếu "${TM_NOTE[l]}" (chạy node scripts/build-landing.mjs)`);
   if (/<title>[^<]*[™®]/.test(h)) tmErr.push(`${f}: không gắn ™/® trong <title>`);
   if (/lex<b>kite<\/b>[™®]|lex<b>kite[™®]/.test(h)) tmErr.push(`${f}: không gắn ™ vào wordmark/logo`);
