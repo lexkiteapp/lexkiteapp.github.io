@@ -62,7 +62,8 @@
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher",
   ":scope > main > div > section:nth-child(3) > p": "d.k.words",
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": "d.pathHtml"
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": "d.pathHtml",
+  ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'"
  },
  "attr": {
   ":scope > main > header > div:nth-child(2) > button": {
