@@ -146,7 +146,7 @@ Mit diesem Muster füllst du pro Frage mühelos 35 bis 45 Sekunden mit hochklass
 2. **Das verharmlosende 'become' statt 'get':** Sage niemals *"I become a cold"*, sondern *"I caught a cold"*.
 3. **Angst vor Denkpausen:** Verwende statt peinlicher Stille elegante Füllphrasen (*conversational fillers*): *"That's an intriguing question...", "I haven't considered that angle before, but I would venture to say..."*.
 
-Kombiniere deine Speaking-Strategie mit den besten [IELTS Reading Skimming Scanning Tipps](/de/blog/ielts-reading-skimming-scanning/) und verfeinere dein Hörverständnis mit [IELTS Listening Tipps](/de/blog/ielts-listening-tipps/).
+Um von Beginn an souverän aufzutreten, lies unseren Leitfaden zu [IELTS Speaking Part 1](content/blog/de/ielts-speaking-part-1-tipps-natuerliche-antworten.md) mit praxiserprobten Antwortformeln. Kombiniere deine Speaking-Strategie mit den besten [IELTS Reading Skimming Scanning Tipps](/de/blog/ielts-reading-skimming-scanning/) und verfeinere dein Hörverständnis mit [IELTS Listening Tipps](/de/blog/ielts-listening-tipps/).
 
 Für den schriftlichen Teil lies unsere Empfehlungen zu [IELTS Writing Task 2 Tipps](/de/blog/ielts-writing-task-2-tipps/) und feile an deinen Lauten mit den Hinweisen zur [englischen Aussprache](/de/blog/englische-aussprache-tipps/). Entdecke zudem authentische [Gesprächsbeispiele](/speaking/) für weitere Inspirationen.
 

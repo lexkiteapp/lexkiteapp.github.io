@@ -99,7 +99,7 @@ Deutschsprachige Lerner bringen oft eine solide Grammatikbasis mit, stolpern jed
 2. **Überlange Schachtelsätze:** Im Deutschen sind mehrfach verschachtelte Nebensätze ein Zeichen gehobener Schriftsprache. Im Englischen verlangt das Kriterium *Coherence and Cohesion* dagegen klare, prägnante Hauptgedanken mit maximal zwei bis drei logisch verknüpften Teilsätzen.
 3. **Mangelnde Vielfalt bei Bindegliedern:** Beschränken Sie sich nicht auf Standardfloskeln wie *firstly*, *secondly* und *in conclusion*. Nutzen Sie differenzierte Überleitungen wie *on the contrary*, *further evidence suggests that* oder *this trend is exemplified by*.
 
-Ihren persönlichen Fortschritt können Sie jederzeit im [Lernpfad der Lexkite-App](/#/path) nachverfolgen.
+Zur Vorbereitung auf den mündlichen Einstieg nutzen Sie unseren Guide zu [IELTS Speaking Part 1](content/blog/de/ielts-speaking-part-1-tipps-natuerliche-antworten.md). Ihren persönlichen Fortschritt können Sie jederzeit im [Lernpfad der Lexkite-App](/#/path) nachverfolgen.
 
 {{youtube: | IELTS Selbststudium Lernplan von null auf 6.5 Schritt für Schritt}}
 
