@@ -397,7 +397,7 @@
     w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
     return fn.apply(this, a);
   };
-  const V2_ROUTES = new Set(['home', 'lesson', 'train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khoá cùng danh sách trong app/index.html
+  const V2_ROUTES = new Set(['lesson', 'train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khoá cùng danh sách trong app/index.html
   // 🧈 Cuộn (docs/PERF-SCROLL.md): vị trí theo từng mục lịch sử (Back/Forward về đúng chỗ), html.lk-scrolling (dừng hiệu ứng trang trí vô hạn khi đang cuộn), App.calm (việc nền nặng đợi tay rảnh)
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
@@ -464,7 +464,7 @@
       const mo = new MutationObserver(crumb); mo.observe(view, { childList: true });
       try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); } // lượt cũ lỗi vì bị hủy → im lặng
       crumb(); // trang vẽ .page-head sau bước bất đồng bộ
-      document.body.classList.remove('v2pre'); // khung thật đã vẽ (body.v2on) hoặc màn không phải khung v2
+      setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500); // màn khai báo v2 mà không gắn khung (body.v2on) vẫn tự lấy lại thanh trên; #/train gắn khung sau khi route trả về nên không gỡ ngay
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
@@ -1557,7 +1557,7 @@
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); // tải trước vào bộ đệm, chạy khi tay rảnh: chạy audio-index.js (158 KB) đúng lúc đang cuộn = task dài 100 ms @CPU 4× /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);

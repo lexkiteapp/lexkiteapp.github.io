@@ -1436,7 +1436,7 @@ body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-e
   .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 }
 /* 🧈 Đang cuộn: dừng hiệu ứng trang trí vô hạn (mỗi khung một lượt style/layout/paint) – chạy lại ngay khi tay dừng (docs/PERF-SCROLL.md, cổng scroll-perf) */
-.lk-scrolling .flame-icon, .lk-scrolling svg .blink, .lk-scrolling svg .flap-l, .lk-scrolling svg .flap-r, .lk-scrolling .st-fl .fl-mid, .lk-scrolling .st-fl .fl-core, .lk-scrolling .node.current, .lk-scrolling .node-tip, .lk-scrolling .shimmer-fx::after, .lk-scrolling .pill-shimmer::after { animation-play-state: paused; }
+.lk-scrolling .flame-icon, .lk-scrolling svg .blink, .lk-scrolling svg .flap-l, .lk-scrolling svg .flap-r, .lk-scrolling .st-fl .fl-mid, .lk-scrolling .st-fl .fl-core, .lk-scrolling .node.current, .lk-scrolling .node-tip, .lk-scrolling .shimmer-fx::after, .lk-scrolling .pill-shimmer::after { animation-play-state: paused !important; } /* !important: các luật khai báo `animation:` có độ ưu tiên cao hơn và đặt lại play-state */
 /* Khung đặt trước khi JS lười về (app/index.html, route()): cùng quy tắc với body.v2on + ux1.js → không xô bố cục lúc tải */
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
 body.v2pre #view { padding: 0; max-width: none; }
