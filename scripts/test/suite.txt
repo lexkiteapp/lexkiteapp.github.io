@@ -251,3 +251,4 @@ node scripts/test/top1-score.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/brand-logo-stitch.mjs
 node scripts/test/root-lang.mjs
+node scripts/test/cpm-plan.mjs

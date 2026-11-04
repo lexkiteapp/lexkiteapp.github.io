@@ -12,7 +12,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
-import { tierOf } from '../../functions/api/_cpm.js';
+import { tierOf, CPM_W } from '../../functions/api/_cpm.js';
 
 export const SITE = 'sc-domain:lexkite.com';
 export const ORIGIN = 'https://lexkite.com';
@@ -237,13 +237,17 @@ export function analyze(data, content, opts = {}) {
   const tot = rows => ({ clicks: sum(rows, r => r.clicks), impressions: sum(rows, r => r.impressions), ctr: r4(sum(rows, r => r.clicks) / Math.max(1, sum(rows, r => r.impressions))), position: r1(sum(rows, r => r.position * r.impressions) / Math.max(1, sum(rows, r => r.impressions))) });
   const dq = [...dictQueue.values()].sort((a, b) => b.impressions - a.impressions);
 
-  // thứ tự ưu tiên mới cho lượt viết hằng tuần: một thang chung = ước tính thêm lượt bấm / 28 ngày
+  // Tỉ lệ hiển thị từ nhóm CPM cao theo truy vấn (qpc có nước): cùng số lượt bấm ước tính, truy vấn của thị trường CPM cao xếp trên. Trang lạ/truy vấn thiếu → 0, không loại mục nào.
+  const qTier = new Map();
+  for (const r of qpc) { const a = qTier.get(r.keys[0]) || qTier.set(r.keys[0], { h: 0, t: 0 }).get(r.keys[0]); a.t += r.impressions || 0; if (tierOf(r.keys[2]) === 'high') a.h += r.impressions || 0; }
+  const cpmShareOf = q => { const a = qTier.get(q); return a && a.t ? r4(a.h / a.t) : 0; };
+  // thứ tự ưu tiên mới cho lượt viết hằng tuần: gain = ước tính thêm lượt bấm / 28 ngày; score = gain × (1 + CPM_W × cpmShare)
   const priority = [
     ...gaps.map(g => ({ type: g.kind === 'post-weak' ? 'enrich' : g.kind === 'brief-unwritten' ? 'write-brief' : 'new-brief', lang: g.lang, query: g.query, slug: g.brief || (g.post ? g.post.split('/').slice(-2)[0] : null), cluster: g.cluster, gain: g.gain, impressions: g.impressions, position: g.position, reason: g.reason })),
     ...striking.map(s => ({ type: 'refresh-title', lang: s.lang, query: s.queries[0].query, slug: s.slug, page: s.page, gain: s.gain, impressions: s.impressions, position: s.queries[0].position, reason: s.hints[0] })),
     ...cannibal.map(c => ({ type: 'cannibal', lang: pageLang(c.winner) || 'en', query: c.query, page: c.winner, gain: c.gain, impressions: c.impressions, reason: c.action })),
     ...declines.map(d => ({ type: 'decline', lang: d.lang, slug: d.slug, page: d.page, gain: d.gain, impressions: d.impressions, position: d.position, reason: d.hint })),
-  ].filter(x => x.gain > 0).sort((a, b) => b.gain - a.gain).slice(0, 100).map((x, i) => ({ rank: i + 1, ...x }));
+  ].filter(x => x.gain > 0).map(x => { const cpmShare = cpmShareOf(x.query); return { ...x, cpmShare, score: r1(x.gain * (1 + CPM_W * cpmShare)) }; }).sort((a, b) => b.score - a.score || b.gain - a.gain).slice(0, 100).map((x, i) => ({ rank: i + 1, ...x }));
 
   return {
     totals: { current: tot(pageCur.length ? pageCur : qpc), previous: tot(pagePrev) },
@@ -278,7 +282,7 @@ export function markdown(rep) {
     `| | Lượt bấm | Hiển thị | CTR | Hạng TB |`, `|---|---|---|---|---|`,
     `| 28 ngày này | ${t.current.clicks} | ${t.current.impressions} | ${pct(t.current.ctr)} | ${t.current.position} |`,
     `| 28 ngày trước | ${t.previous.clicks} | ${t.previous.impressions} | ${pct(t.previous.ctr)} | ${t.previous.position} |`, '',
-    `Ưu tiên mới cho lượt viết thứ Hai: \`content/blog/plan/gsc-priority.json\` (${rep.priority.length} mục, xếp theo ước tính thêm lượt bấm/28 ngày). Không tự đổi lịch đăng – \`blog-schedule.mjs\` vẫn do người chạy.`, '');
+    `Ưu tiên mới cho lượt viết thứ Hai: \`content/blog/plan/gsc-priority.json\` (${rep.priority.length} mục, xếp theo điểm = ước tính thêm lượt bấm/28 ngày × (1 + tỉ lệ hiển thị từ nhóm CPM cao)). Không tự đổi lịch đăng – \`blog-schedule.mjs\` vẫn do người chạy.`, '');
   if (rep.cpm) {
     const { tiers, week, countries } = rep.cpm, TN = { high: 'Nhóm CPM cao', vn: 'Việt Nam', other: 'Nước khác' };
     const pts = (a, b) => { const d = (a - b) * 100; return `${d >= 0 ? '+' : ''}${d.toFixed(1)} điểm`; };
@@ -355,7 +359,7 @@ export function write(root, date, rep) {
   fs.writeFileSync(jf, JSON.stringify(rep, null, 1) + '\n'); fs.writeFileSync(mf, markdown(rep));
   const plan = path.join(root, 'content/blog/plan'); fs.mkdirSync(plan, { recursive: true });
   fs.writeFileSync(path.join(plan, 'gsc-priority.json'), JSON.stringify({
-    _note: 'Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2026-11-seo-program.json/briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày. Không tự sửa lịch đăng.',
+    _note: 'Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2027-01-cpm-clusters.json, 2026-11-seo-program.json, briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày · cpmShare = tỉ lệ hiển thị từ nhóm CPM cao (functions/api/_cpm.js) · score = gain × (1 + CPM_W × cpmShare), là khoá xếp hạng. Không tự sửa lịch đăng.',
     generated: date, source: `reports/seo/gsc-${date}.json`, range: rep.range, items: rep.priority }, null, 1) + '\n');
   // giữ 26 tuần báo cáo, cắt bản cũ
   const cut = ymd(addDays(new Date(`${date}T00:00:00Z`), -T.keepDays));
