@@ -225,6 +225,7 @@ node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
@@ -237,6 +238,7 @@ node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/video-pron.mjs
+node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/test/mqa-parity-self.mjs
 node scripts/say-native/build.mjs --check
