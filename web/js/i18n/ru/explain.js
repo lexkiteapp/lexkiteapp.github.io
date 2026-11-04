@@ -1,3 +1,3 @@
-/* UI ru – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"Cấu trúc":"Конструкция","Xem giải thích chi tiết":"Подробное объяснение","Vì sao lựa chọn của bạn sai":"Почему ваш ответ неверен","Bằng chứng trong bài":"Подтверждение в тексте","Sắc thái nghĩa":"Оттенок значения","Ví dụ thêm":"Ещё примеры","Cùng nhóm":"Тот же шаблон","Thêm vào ôn tập":"В повторение","Báo lỗi giải thích":"Сообщить об ошибке в объяснении","Nghe ví dụ":"Прослушать пример"});
+/* SINH từ i18n/ui/ru/explain.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"_19q4gg9":"Конструкция","_alp76b":"Подробное объяснение","_kznktn":"Почему ваш ответ неверен","_xp0oh3":"Подтверждение в тексте","_1ob6vgt":"Оттенок значения","_44ncyk":"Ещё примеры","_34zw0g":"Тот же шаблон","_13yzwdi":"В повторение","_11weuv7":"Сообщить об ошибке в объяснении","_1de95jp":"Прослушать пример"});
 })(typeof self !== 'undefined' ? self : this);

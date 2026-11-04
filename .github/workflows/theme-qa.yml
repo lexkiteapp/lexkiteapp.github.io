@@ -5,7 +5,7 @@ name: Giao diện sáng/tối trang tĩnh
 on:
   workflow_dispatch:
   pull_request:
-    paths: ['scripts/lib/site-layout.mjs', 'scripts/build-blog.mjs', 'scripts/build-landing.mjs', 'scripts/build-legal.mjs', 'scripts/build-tools.mjs', 'scripts/build-seo-pages.mjs', 'scripts/build-authority.mjs', 'scripts/build-video-pages.mjs', 'scripts/build-samples*.mjs', 'web/*.html', 'web/*/index.html', 'web/*/privacy.html', 'web/*/terms.html', 'brand/tokens.json', 'web/js/site-ui.js', 'web/js/lkt.js', 'web/js/app.js', 'web/app/index.html', 'scripts/test/theme-*.mjs', '.github/workflows/theme-qa.yml']
+    paths: ['scripts/lib/site-layout.mjs', 'scripts/build-blog.mjs', 'scripts/build-landing.mjs', 'scripts/build-legal.mjs', 'scripts/build-tools.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/blog-words.mjs', 'scripts/build-authority.mjs', 'scripts/build-video-pages.mjs', 'scripts/build-samples*.mjs', 'web/*.html', 'web/*/index.html', 'web/*/privacy.html', 'web/*/terms.html', 'brand/tokens.json', 'web/js/site-ui.js', 'web/js/lkt.js', 'web/js/app.js', 'web/app/index.html', 'scripts/test/theme-*.mjs', '.github/workflows/theme-qa.yml']
 permissions:
   contents: read
 concurrency:
