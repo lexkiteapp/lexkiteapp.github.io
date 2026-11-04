@@ -47,7 +47,7 @@
       + `<a class="card hover hub-hero" href="#/review${App.ux1On && App.ux1On() ? '?hub=1' : ''}"><span class="hub-ic" aria-hidden="true">${UI.icon('layers')}</span><span class="hub-tx"><b>${total ? t('Ôn {n} thẻ hôm nay', { n: total }) : t('Không còn thẻ cần ôn – học từ mới nhé')}</b><small>${t('Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần')}</small></span><span class="btn primary sm">${total ? t('Ôn ngay') : t('Học từ mới')} →</span></a>`
       + sect(t('Học & ôn'), card('#/path', UI.icon('map'), t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ'))
         + card('#/library' + (ex === 'toeic' ? '?g=toeic' : ''), UI.icon('book-open'), t('Thư viện từ'), t('Bộ từ theo chủ đề, kỳ thi và trình độ'))
-        + card('#/deck', UI.icon('notebook'), t('Sổ từ của tôi'), t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }))
+        + card('#/deck', UI.icon('notebook'), t('Sổ từ của tôi'), deck.length ? t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }) : '')
         + card('#/practice', UI.icon('zap'), t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm')))
       + sect(t('Tra cứu'), card('#/dict', UI.icon('search'), t('Từ điển'), t('Phát âm, nghĩa, ví dụ, lưu thành thẻ'))
         + card('#/verb', UI.icon('a-large-small'), t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s'))

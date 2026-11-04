@@ -1233,7 +1233,7 @@
 /* Bài học trộn (#/lesson) trên trang chủ – khi cờ lesson_mix bật */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Bài học trộn": "Mixed lesson", "Nghe · nói · xếp câu từ chính các từ của bạn": "Listen, speak and build sentences with your own words"}); })(typeof self !== 'undefined' ? self : this);
 /* ExitGuard (web/js/exit-guard.js): hỏi khi thoát giữa bài */
-(function (g) { Object.assign(g.I18N_DICT.en, {"Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, {"Mức sẵn sàng thi": "Exam readiness", "Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);
 
 /* Chữ giao diện add-on (content/popup/background) – nguồn tiếng Anh để Actions dịch sang 13 ngôn ngữ khác */
 (function (g) { Object.assign(g.I18N_DICT.en, {

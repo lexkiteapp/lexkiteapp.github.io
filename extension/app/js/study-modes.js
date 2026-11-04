@@ -124,7 +124,7 @@
       inp.addEventListener('keydown', e => {
         if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); finish(false); }
         else if (e.key === '?') { e.preventDefault(); hint(); }
-        else if (e.key === 'Escape') { e.preventDefault(); finish(true); }
+        else if (e.key === 'Escape' && inp.value.trim()) { e.preventDefault(); finish(true); } // ô trống: Esc để ExitGuard thoát màn, không nhốt người học
       });
       $('#rmLet').onclick = e => { e.stopPropagation(); hint(); };
       $('#rmHear').onclick = e => { e.stopPropagation(); heard = true; o.say(); inp.focus(); };

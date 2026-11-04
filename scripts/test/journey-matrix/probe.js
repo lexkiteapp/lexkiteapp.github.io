@@ -14,7 +14,7 @@
   };
   // Nút chính + tab + nút thoát phải ≥ 44 px (checks.js chỉ cảnh báo .btn.primary)
   const TAP = '.btn.primary, button.primary, .lsn-start, .ux1-go, [data-cont], a[data-tab], #nav a[data-route], [data-exit]';
-  const taps = () => [...D.querySelectorAll(TAP)].map(e => [e, vis(e)]).filter(([, r]) => r && inVp(r) && (r.height < 43.5 || r.width < 43.5)).map(([e, r]) => `${name(e)} «${txt(e)}» ${Math.round(r.width)}×${Math.round(r.height)}`);
+  const taps = () => [...D.querySelectorAll(TAP)].map(e => e.matches('a, button') ? e : e.closest('a, button') || e).map(e => [e, vis(e)]).filter(([, r]) => r && inVp(r) && (r.height < 43.5 || r.width < 43.5)).map(([e, r]) => `${name(e)} «${txt(e)}» ${Math.round(r.width)}×${Math.round(r.height)}`);
   const lum = c => { const m = /rgba?\(([\d.]+), ?([\d.]+), ?([\d.]+)(?:, ?([\d.]+))?/.exec(c || ''); if (!m || m[4] === '0') return null; const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(+m[1]) + 0.7152 * f(+m[2]) + 0.0722 * f(+m[3]); };
   const theme = () => ({ body: lum(getComputedStyle(D.body).backgroundColor), html: lum(getComputedStyle(D.documentElement).backgroundColor), attr: D.documentElement.getAttribute('data-theme') || '' });
   // Cuối trang: phần tử bấm được cuối cùng của #view không được nằm dưới thanh tab cố định
@@ -45,7 +45,7 @@
     };
     for (const r of roots) {
       const tw = D.createTreeWalker(r, NodeFilter.SHOW_TEXT);
-      for (let n = tw.nextNode(); n; n = tw.nextNode()) { const p = n.parentElement; if (!p || p.closest('script,style,[translate="no"],[lang="en"]') || !vis(p)) continue; check(n.textContent); }
+      for (let n = tw.nextNode(); n; n = tw.nextNode()) { const p = n.parentElement; if (!p || p.closest('script,style,.material-symbols-outlined,[translate="no"],[lang="en"]') || !vis(p)) continue; check(n.textContent); }
       for (const e of r.querySelectorAll('[aria-label],[title],[placeholder]')) { if (e.closest('[translate="no"],[lang="en"]') || !vis(e)) continue; for (const a of ['aria-label', 'title', 'placeholder']) if (e.hasAttribute(a)) check(e.getAttribute(a)); }
     }
     return out.slice(0, 12);
@@ -60,5 +60,7 @@
   try { setInterval(tick, 60); } catch (e) { /* bỏ qua */ }
   // Màn hiện chữ trên màn: có gì đó ngoài trang trắng
   const painted = () => { const v = D.querySelector('#view'), b = (D.body && D.body.innerText) || ''; return { body: b.trim().length, view: v ? v.children.length : 0, viewText: v ? v.innerText.trim().length : 0, err: !!(v && v.querySelector('.err-state')) }; };
-  W.LKJM = { vis: e => !!vis(e), tabs, taps, theme, reach, leak, painted, state: S };
+  // Phông icon phải nạp được: không thì màn hiện chữ "menu_book" thay vì biểu tượng
+  async function iconFont() { const e = [...D.querySelectorAll('.material-symbols-outlined')].find(vis); if (!e || !D.fonts) return null; await Promise.race([D.fonts.ready, new Promise(r => setTimeout(r, 3000))]); const fam = getComputedStyle(e).fontFamily.split(',')[0]; return D.fonts.check('24px ' + fam, 'home') ? null : fam; }
+  W.LKJM = { iconFont, vis: e => !!vis(e), tabs, taps, theme, reach, leak, painted, state: S };
 })(window);

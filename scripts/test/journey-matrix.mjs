@@ -110,13 +110,15 @@ async function scenario(name, { dev = 'm390', theme = 'light', lang = 'vi', seed
       screens++; SCREENS++; const n0 = fails.length, pre = `[${label} ${(await h.hash())}] `;
       const r = await page.evaluate(async ({ label, lang, reachOn }) => ({
         audit: window.LKJC ? LKJC.audit(label) : [{ t: 'probe', msg: 'không nạp được LKJC' }], visual: window.LKJC ? LKJC.visual(label) : { fail: ['không nạp được LKJC'], warn: [] },
-        taps: LKJM.taps(), tabs: LKJM.tabs(), theme: LKJM.theme(), paint: LKJM.painted(), reach: reachOn ? await LKJM.reach() : null, leak: LKJM.leak(lang), rej: (window.__rej || []).splice(0),
+        taps: LKJM.taps(), font: await LKJM.iconFont(), tabs: LKJM.tabs(), theme: LKJM.theme(), paint: LKJM.painted(), reach: reachOn ? await LKJM.reach() : null, leak: LKJM.leak(lang), rej: (window.__rej || []).splice(0),
       }), { label, lang, reachOn: h.mobile && !o.focus }).catch(e => ({ crash: e.message }));
       if (r.crash) return fail(pre + 'đầu dò lỗi: ' + r.crash.slice(0, 160));
       for (const b of r.audit) fail(pre + b.t + ': ' + b.msg);
       // Thanh tab Stitch (nav.fixed) là khung app như .bottom-nav: nội dung cuộn dưới nó không phải "lớp nổi đè nút" – phần cuối trang kiểm riêng bằng LKJM.reach
       for (const f of r.visual.fail) if (!/^\(a\) .*\bnav\.fixed\b[^«]*«/.test(f)) fail(pre + 'visual ' + f);
-      for (const w of r.visual.warn) { if (/^\(f\)/.test(w)) fail(pre + 'visual ' + w); else warns.add(`${lang}/${dev}/${theme} ${w}`); }
+      // (f) nút chính < 44 px: LKJM.taps bao trùm và đo đúng vùng chạm (span.btn trong thẻ link = cả thẻ); icon: khung ô chữ của phông ligature không phải chữ bị cắt
+      for (const w of r.visual.warn) if (!/^\(f\)/.test(w) && !/material-symbols/.test(w)) warns.add(`${lang}/${dev}/${theme} ${w}`);
+      if (r.font) fail(pre + 'phông icon không nạp được: ' + r.font);
       for (const t of r.taps) fail(pre + 'vùng chạm < 44 px: ' + t);
       if (r.reach) fail(pre + 'cuối trang bị thanh tab che: ' + r.reach);
       if (!o.noLeakCheck) for (const l of r.leak) fail(pre + l);
@@ -224,6 +226,7 @@ async function jTrain(h) {
     await h.click('a.g-row[href^="#/grammar/"]:not([href*="mix"])'); const u = await h.hash(); await h.go(u.split('?')[0].slice(1) + '?view=full');
     h.ok(await h.wait('#gQuiz .q-item', 15000), 'bài ngữ pháp phải có câu hỏi'); const it = h.page.locator('#gQuiz .q-item'), n = await it.count();
     for (let i = 0; i < n; i++) { await it.nth(i).locator('.opts button').first().click({ timeout: 4000 }).catch(() => {}); await sleep(120); }
+    await h.page.waitForFunction(() => !document.querySelector('#toast.show'), null, { timeout: 8000 }).catch(() => {}); // toast thưởng (lên cấp) tự tắt sau vài giây: thông báo tạm, không phải lớp phủ của màn
     await h.screen('làm bài', { tab: 'skills', focus: true });
     const g = await h.page.evaluate(() => (App.state.game || {}).xp || 0); h.ok(n > 0 && g >= XP, 'XP không được giảm sau bài: ' + g);
   });
@@ -234,17 +237,16 @@ async function jMock(h) {
   await h.step('#/mock', async () => { await h.click('#view a[href="#/mock"]'); h.ok(await h.wait('#mkGo', 25000), '#/mock có nút Bắt đầu'); await h.screen('thi thử', { tab: 'tests' }); });
   await h.step('mở đề', async () => { await h.click('#mkGo', { wait: 500 }); h.ok(/^#\/mock\/run/.test(await h.hash()), 'mở đề → #/mock/run'); h.ok(await h.wait('#mkQuit, #mkStart', 20000), 'đề thi phải có nút thoát hoặc bắt đầu'); if (await h.has('#mkStart')) await h.click('#mkStart', { wait: 400 }); h.ok(await h.wait('#mkQuit', 15000), 'đề thi đang làm phải có nút thoát #mkQuit'); await h.screen('đề thi', { tab: 'tests', focus: true }); });
   await h.step('thoát có hỏi', async () => {
-    h.setDialog('dismiss'); const d0 = h.dialogs.length; await h.click('#mkQuit', { wait: 300 });
-    const asked = h.dialogs.length > d0 || await h.has('#modal:not([hidden]) [data-exit-go]');
-    h.ok(asked, 'thoát đề đang làm phải hỏi'); h.ok(/^#\/mock\/run/.test(await h.hash()), 'từ chối thoát → vẫn ở đề');
-    if (await h.has('#modal:not([hidden]) [data-exit-go]')) await h.click('#modal:not([hidden]) [data-exit-go]', { wait: 300 });
-    else { h.setDialog('accept'); await h.click('#mkQuit', { wait: 300 }); }
+    const d0 = h.dialogs.length; await h.click('#mkQuit', { wait: 300 });
+    h.ok(h.dialogs.length === d0, 'thoát đề phải hỏi nhẹ trong app, không dùng hộp hệ thống'); h.ok(await h.has('#modal:not([hidden]) [data-exit-go]'), 'thoát đề đang làm phải hỏi'); await h.screen('hỏi thoát đề', { tab: 'tests', focus: true });
+    await h.click('#modal:not([hidden]) [data-exit-stay]', { wait: 250 }); h.ok(/^#\/mock\/run/.test(await h.hash()) && await h.has('#mkQuit'), 'Tiếp tục → vẫn ở đề');
+    await h.click('#mkQuit', { wait: 250 }); await h.click('#modal:not([hidden]) [data-exit-go]', { wait: 300 });
     h.ok((await h.hash()).startsWith('#/mock') && !/run/.test(await h.hash()), 'đồng ý → về #/mock, đang ở ' + await h.hash());
     h.ok(await h.wait('#mkGo', 15000), 'về lại màn chọn đề'); await h.screen('sau thoát', { tab: 'tests' });
   });
 }
 // Giải đấu: thẻ trên Hôm nay → #/league; khách và đã tham gia (API giả lập, tài khoản Firebase GIẢ)
-const leagueEntry = '#view a[href="#/league"], #ux1Rail a[href="#/league"]';
+const leagueEntry = '#view a[href="#/league"]:visible, #ux1Rail a[href="#/league"]:visible';
 async function jLeagueGuest(h) {
   await h.step('thẻ Hôm nay', async () => { await h.boot('/home'); h.ok(await h.wait(leagueEntry, 12000), 'Hôm nay phải có lối vào Giải đấu cả khi chưa tham gia'); const c = h.page.locator(leagueEntry).first(); await c.click(); await sleep(200); await h.settle(); h.ok((await h.hash()) === '#/league', 'thẻ → #/league'); });
   await h.step('màn khách', async () => { h.ok(await h.wait('#leagueSignInBtn', 15000), 'khách: có nút đăng nhập để tham gia'); await h.screen('giải đấu khách', { tab: 'home' }); });
@@ -288,6 +290,12 @@ async function jExit(h) {
     else if (via === 'esc') await h.page.keyboard.press('Escape');
     else await h.page.goBack();
     await left(r, `${n} ${via}`);
+  });
+  await h.step('gõ: Esc', async () => {
+    await h.go('/home'); await h.go('/review'); await h.wait('#rmSel', 8000); await h.page.selectOption('#rmSel', 'type'); h.ok(await h.wait('#typeIn'), 'phiên ôn kiểu gõ có ô nhập');
+    await h.page.fill('#typeIn', 'abc'); await h.page.press('#typeIn', 'Escape'); await sleep(300); h.ok(/^#\/review/.test(await h.hash()), 'đang gõ: Esc không được rời bài');
+    await h.go('/home'); await h.go('/review'); h.ok(await h.wait('#typeIn'), 'kiểu gõ giữ trong phiên'); await h.page.locator('#typeIn').focus(); await h.page.keyboard.press('Escape'); await left('/review', 'ô trống: Esc');
+    await h.go('/review'); if (await h.wait('#rmSel', 8000)) await h.page.selectOption('#rmSel', 'flip'); await sleep(250);
   });
   await h.step('dở dang: hỏi nhẹ', async () => {
     await h.go('/home'); await h.go('/review'); h.ok(await h.wait('#flipBtn, #typeIn, [data-opt="0"]'), 'phiên ôn có thẻ');
@@ -339,14 +347,16 @@ async function jOffline(h) {
 }
 // Trạng thái rỗng: có lời dẫn + nút đi tiếp, không số giả
 const EMPTY_SCR = [
-  ['/review?hub=1', 'vocab', 'ôn 0 thẻ', /(^|\D)[1-9]\d* (thẻ|đến hạn|sắp quên|quen)|~[1-9]\d* phút/],
-  ['/review', 'vocab', 'phiên 0 thẻ', /Hoàn thành [1-9]|\+[1-9]\d* XP/, { focus: true }],
-  ['/mistakes', 'me', '0 lỗi sai', /(^|\D)[1-9]\d* (cần sửa|lỗi)/],
-  ['/tests', 'tests', 'chưa có kết quả thi', /Band \d/],
-  ['/mock', 'tests', 'chưa có thi thử', /So với lần đầu|Band \d/],
-  ['/deck', 'vocab', 'sổ từ rỗng', /(^|\D)[1-9]\d* từ(\s|$)/],
-  ['/stats', 'me', 'thống kê rỗng', /[1-9]\d* (thẻ|từ) đã/],
-  ['/home', 'home', 'Hôm nay 0 thẻ', /[1-9]\d* từ đang phai dần|[1-9]\d* đến hạn/],
+  ['/review?hub=1', 'vocab', 'ôn 0 thẻ', /(^|\D)[1-9]\d* (thẻ|đến hạn|sắp quên|quen)|~[1-9]\d* phút/i],
+  ['/review', 'vocab', 'phiên 0 thẻ', /Hoàn thành [1-9]|\+[1-9]\d* XP|đã ôn hết/i, { focus: true }],
+  ['/mistakes', 'me', '0 lỗi sai', /(^|\D)[1-9]\d* (cần sửa|lỗi)/i],
+  ['/tests', 'tests', 'chưa có kết quả thi', /Band \d/i],
+  ['/mock', 'tests', 'chưa có thi thử', /So với lần đầu|Band \d/i],
+  ['/deck', 'vocab', 'sổ từ rỗng', /(^|\D)[1-9]\d* từ(\s|$)/i],
+  ['/stats', 'me', 'thống kê rỗng', /[1-9]\d* (thẻ|từ) đã/i],
+  ['/home', 'home', 'Hôm nay 0 thẻ', /[1-9]\d* từ đang phai dần|[1-9]\d* đến hạn/i],
+  ['/vocab', 'vocab', 'tab Từ vựng 0 thẻ', /Ôn [1-9]\d* thẻ|(^|\D)[1-9]\d* từ (·|đã)/i],
+  ['/me', 'me', 'Tôi chưa học', /[1-9]\d* từ đã thuộc/i],
 ];
 async function jEmpty(h) {
   await h.step('boot', async () => { await h.boot('/home'); });
@@ -377,7 +387,7 @@ async function jLang(h) {
 }
 
 // ---------- ma trận → shard ----------
-const J = [['người mới', jNewbie, { seed: NEWBIE }], ['đang học', jLearner, {}], ['ôn tập', jReview, {}], ['luyện', jTrain, {}], ['thi thử', jMock, {}], ['giải đấu khách', jLeagueGuest, { q: '', firebase: { signedIn: false } }], ['giải đấu đã tham gia', jLeagueJoined, { q: '', firebase: { signedIn: true }, joined: true }], ['tôi', jMe, {}], ['5 tab + deep link', jTabs, {}]];
+const J = [['người mới', jNewbie, { seed: NEWBIE }], ['đang học', jLearner, {}], ['ôn tập', jReview, {}], ['luyện', jTrain, {}], ['thi thử', jMock, {}], ['giải đấu khách', jLeagueGuest, { q: '', firebase: { signedIn: false } }], ['giải đấu đã tham gia', jLeagueJoined, { q: '', firebase: { signedIn: true }, joined: true, seed: { ...LEARNER, 'lk.acct': JSON.stringify({ displayName: 'Mai E2E', email: 'e2e@example.test' }) } }], ['tôi', jMe, {}], ['5 tab + deep link', jTabs, {}]];
 const plan = [];
 const add = (shard, name, fn, o) => { if ((SHARD === 'all' || SHARD === shard) && (!ONLY || new RegExp(ONLY).test(name))) plan.push(() => scenario(name, o, fn)); };
 for (const [n, f, o] of J) for (const theme of THEMES) { add('phone', n, f, { ...o, dev: 'm390', theme }); add('desktop', n, f, { ...o, dev: 'd1440', theme }); }
