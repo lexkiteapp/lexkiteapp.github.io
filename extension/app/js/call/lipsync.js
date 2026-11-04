@@ -216,6 +216,7 @@
     while ((m = re.exec(text))) { const a = m.index, b = a + m[0].length, ins = spans.filter(x => x.ci >= a && x.ci < b); const w = ins.length ? { s: ins[0].s, e: ins[ins.length - 1].e } : { s: prev, e: prev }; prev = w.e; out.push(w); }
     // đầu từ bám chỗ tiếng bật lên sau khoảng lặng (chữ sáng đúng lúc nghe thấy): ghép giữ thứ tự từ ↔ điểm bật, có phạt bỏ từ và bỏ điểm bật (mỗi điểm bật gần như chắc chắn là đầu một từ); từ không ghép được (giữa cụm liền) giữ mốc căn
     const pk = Math.max(...env, 1e-6), on = i => env[i] > pk * .08, R = []; for (let i = 1; i < env.length; i++) if (on(i) && !on(i - 1)) R.push(i / 100);
+    if (R.length === out.length) { out.forEach((w, i) => { w.s = R[i]; }); return out; } // mỗi từ một cụm tiếng: khớp thẳng, không để sai số căn trượt sang từ sau
     const n = out.length, nr = R.length, SK = .5, SR = .25, C = Array.from({ length: n + 1 }, () => new Float64Array(nr + 1));
     for (let i = n - 1; i >= 0; i--) for (let j = nr; j >= 0; j--) { let v = SK + C[i + 1][j]; if (j < nr) v = Math.min(v, SR + C[i][j + 1], Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]); C[i][j] = v; }
     for (let i = 0, j = 0, lo = 0; i < n; i++) { while (j < nr && C[i][j] === SR + C[i][j + 1]) j++; if (j < nr && C[i][j] === Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]) out[i].s = R[j++]; out[i].s = lo = Math.max(out[i].s, lo); }
