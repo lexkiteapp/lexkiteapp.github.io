@@ -147,7 +147,7 @@ Faites votre autodiagnostic en fonction de vos points forts naturels :
 Quel que soit votre choix final, les compétences linguistiques fondamentales restent identiques :
 
 * Si vous optez pour l'épreuve britannique, explorez nos astuces orales dans [IELTS Speaking Part 2 et 3](/fr/blog/ielts-speaking-part-2-et-3/) et nos techniques de lecture dans [IELTS Reading Skimming Scanning](/fr/blog/ielts-reading-skimming-scanning/).
-* Si vous choisissez le TOEFL, maîtrisez la nouvelle épreuve de rédaction en ligne grâce à notre [guide TOEFL iBT Writing Academic Discussion](/fr/blog/toefl-ibt-writing-academic-discussion-guide-fr/).
+* Si vous choisissez le TOEFL, découvrez les réformes majeures dans notre guide sur le [nouveau format toefl 2026](/fr/blog/nouveau-format-toefl-ibt-2026/) et maîtrisez l'épreuve de rédaction en ligne grâce à notre [guide TOEFL iBT Writing Academic Discussion](/fr/blog/toefl-ibt-writing-academic-discussion-guide-fr/).
 * Si vous vous intéressez plutôt aux épreuves professionnelles pour les entreprises françaises, lisez notre comparatif dans [TOEIC Listening Reading astuces](/fr/blog/toeic-listening-reading-astuces/).
 * Découvrez également les certifications européennes pérennes dans notre guide [Cambridge English B2 et C1](/fr/blog/cambridge-english-b2-c1/).
 * Familiarisez-vous avec des formulations de haut niveau en consultant nos [Exemples de textes académiques](/samples/).

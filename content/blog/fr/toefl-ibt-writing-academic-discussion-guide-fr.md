@@ -156,6 +156,6 @@ Taper avec précision sous la pression du chronomètre réclame une pratique ré
 
 - **Module d'écriture chronométrée** : Entraînez-vous dans l'[atelier d'écriture Lexkite](/#/write) avec compteur de mots en direct et sujets d'actualité.
 - **Mémorisation FSRS du lexique soutenu** : Ancrez des centaines de connecteurs logiques et de verbes académiques grâce au [module de révision espacée Lexkite](/#/review).
-- **Précision linguistique et phonétique** : Affinez votre syntaxe et votre fluidité globale dans notre [laboratoire de prononciation Lexkite](/#/pron).
+Pour replacer cette tâche dans la structure d'ensemble de l'examen rénové, consultez notre guide sur le [nouveau format toefl 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
 
 Connectez-vous dès aujourd'hui sur l'[application web Lexkite](/#/) pour transformer l'épreuve de l'Academic Discussion du TOEFL en votre plus bel atout de score !
