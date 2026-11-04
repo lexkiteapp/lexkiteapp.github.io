@@ -179,3 +179,5 @@ Untuk mencapai skor Reading di atas 420 (skor total di atas 850), usahakan untuk
 
 ### Bagaimana cara terbaik menghafal kolokasi bisnis agar tidak mudah lupa?
 Hindari menghafal kata secara terpisah. Hafalkan kata dalam kelompok frase (*chunks*), seperti *meet the deadline*, *conduct an investigation*, atau *reach an agreement*. Mempelajari frase utuh dengan metode pengulangan berkala (*spaced repetition*) akan membuat ingatan Anda jauh lebih kuat saat menghadapi soal ujian.
+
+Untuk melatih refleks mendengar dan menghindari jebakan bunyi, pelajari [strategi toeic listening part 2 tanya jawab](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).

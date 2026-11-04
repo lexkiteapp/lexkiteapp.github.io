@@ -139,3 +139,5 @@ Mendapatkan skor di atas 850 atau 900 membutuhkan kecepatan membaca tinggi dan p
 - **Rencana Belajar Komprehensif**: Padukan latihan membaca dan menyimak dengan panduan [rencana belajar mandiri TOEIC](/id/blog/rencana-belajar-mandiri-toeic-panduan/) langkah demi langkah.
 
 Akses [aplikasi web Lexkite](/#/) sekarang juga dan raih skor TOEIC Part 7 impian Anda dengan manajemen waktu yang sempurna!
+
+Untuk memperkuat kemampuan menyimak percakapan pendek, baca panduan [strategi toeic listening part 2 tanya jawab](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
