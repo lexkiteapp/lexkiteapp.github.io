@@ -1,0 +1,3 @@
+/* SINH từ i18n/ui/fr/arrange.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"_19kqcv1":"{w} retiré","_1g4p2yi":"{w} : position {n} sur {m}","_13vgty8":"Touchez une étiquette pour l’ajouter à la fin ou la retirer ; faites-la glisser au milieu pour l’insérer ; les flèches la déplacent, Suppr la retire, Ctrl+Z annule"});
+})(typeof self !== 'undefined' ? self : this);
