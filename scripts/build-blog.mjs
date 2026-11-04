@@ -192,7 +192,7 @@ function inline(s) {
 }
 // Liên kết nội bộ thương hiệu (chống cào bài, tăng liên kết về app): chỉ lần xuất hiện ĐẦU, tối đa 3 link/bài, không trong tiêu đề/link sẵn có
 const AUTOLINK = {
-  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
+  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/vi/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
   en: [['FSRS flashcards', '/app/?hl=en#/review'], ['Chrome extension', '/app/?hl=en#/settings'], ['IELTS preparation', '/en/'], ['look up words', '/app/?hl=en#/dict'], ['pronunciation practice', '/app/?hl=en#/pron']],
 };
 let LINKED = null;
@@ -287,8 +287,8 @@ function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt
 ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}">`).join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(C.blogName[lang] || C.blogName.en)}" href="${SITE}${b}rss.xml">
 <meta name="theme-color" content="#0F3D3E">
-<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Lexkite">
 <meta property="og:locale" content="${{ vi: 'vi_VN', en: 'en_US', id: 'id_ID', es: 'es_ES', ja: 'ja_JP', ko: 'ko_KR', th: 'th_TH', zh: 'zh_CN', ar: 'ar_AR' }[lang] || lang}">
@@ -350,7 +350,7 @@ for (const p of posts) {
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
   const crumbs = [[t.home, landingHref(p.lang)], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=3`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
@@ -439,7 +439,7 @@ for (const { lang, data, body, key, u } of PAGES) {
   const crumbs = [[t.home, landingHref(lang)], [t.blog, base(lang)], [data.title, u]];
   write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, to: l => (PAGES.find(x => x.key === key && x.lang === l) || {}).u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
     script: copyJs(lang),
-    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=2` } }] }));
+    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=3` } }] }));
   sm.push({ loc: u, lastmod: iso(NOW) });
 }
 

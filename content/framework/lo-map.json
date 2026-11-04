@@ -142,7 +142,22 @@
    "shop": "I.A2.03",
    "directions": "I.A2.02",
    "hotel": "I.A2.04",
-   "doctor": "I.A2p.03"
+   "doctor": "I.A2p.03",
+   "phone-booking": "I.A2.09",
+   "vet-visit": "I.A2.06",
+   "internet-down": "I.B1.10",
+   "market-bargain": "I.B1p.03",
+   "flatmate-chat": "I.B1.03",
+   "parent-teacher": "I.B2.04",
+   "insurance-claim": "I.B1p.05",
+   "car-repair": "I.B1.02",
+   "visa-interview": "I.B2.10",
+   "apologise-late": "I.B1.03",
+   "colleague-feedback": "I.B1p.01",
+   "invite-out": "I.A2.01",
+   "reschedule-meeting": "I.B1.09",
+   "course-enquiry": "I.A2.05",
+   "polite-decline": "I.B2.04"
   },
   "reading": {
    "urban-farming": "R.B1.01",

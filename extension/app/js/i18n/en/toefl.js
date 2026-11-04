@@ -61,7 +61,7 @@
 'Lời thoại (transcript)': 'Transcript',
 'Trình phát chưa sẵn sàng – hãy tải lại trang.': 'The audio player isn’t ready – please reload the page.',
 // ---- writing ----
-'Bấm cụm từ để đưa vào câu; bấm lại để bỏ ra.': 'Tap a word group to add it to the sentence; tap it again to remove it.',
+'Bấm cụm từ để đưa vào câu, bấm lại để bỏ ra; kéo để chèn vào giữa hoặc đổi chỗ.': 'Tap a word group to add it to the sentence, tap again to remove it; drag to insert it or change the order.',
 'Làm lại': 'Try again',
 'Đề {n}': 'Prompt {n}',
 'Bắt đầu viết bài của bạn…': 'Start writing your essay…',

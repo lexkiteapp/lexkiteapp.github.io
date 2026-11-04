@@ -2,6 +2,8 @@
 // 1) đơn vị: parseDoc tách vai trò đoạn/câu, cụm từ có nghĩa (vi) / không nghĩa (en), chữ giao diện đủ 2 ngôn ngữ;
 // 2) HTML đã dựng (nếu dist/ mới hơn bộ dựng): trang bài mẫu + mục lục vi/en có đủ khối mới, canonical/hreflang/JSON-LD giữ nguyên.
 import fs from 'node:fs';
+import { loadWriting } from '../lib/seo-data.mjs';
+import { t2Key, bentoSpans, VIS_CSS } from '../lib/samples-visual.mjs';
 import { S, placeTip, parseDoc, docStats, docHtml, sideHtml, phraseCards, pager2, typeFilter, smpTail, SMP_CSS, SMP_JS } from '../lib/samples-ui.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
@@ -38,6 +40,17 @@ ok(!q.below && q.y + 60 <= 900, 'tooltip: cuối màn hình → nằm trên');
 ok(/<div id="glp" hidden>.*class="gx" aria-label="Đóng"/.test(smpTail('vi')) && /aria-label="Close"/.test(smpTail('en')) && /id="gla"[^>]*role="status"/.test(smpTail('vi')), 'hộp nghĩa: nút đóng vi/en + vùng thông báo');
 ok(/max-width:600px/.test(SMP_JS) && /#glp\.sheet/.test(SMP_CSS) && /mark\.ph:focus-visible/.test(SMP_CSS) && !/mark\.ph\{background:rgba/.test(SMP_CSS), 'bottom sheet trên điện thoại, vòng focus chỉ cho bàn phím, cụm từ không tô nền mặc định');
 
+// ---- 1b. lớp lướt bằng mắt: huy hiệu, tiêu đề ngắn, khối không hở ô ----
+const ARTS = fs.readdirSync('web/img/lib').filter(f => f.endsWith('.svg'));
+ok(ARTS.length >= 60, `đủ huy hiệu (${ARTS.length})`);
+for (const f of ARTS) { const x = fs.readFileSync(`web/img/lib/${f}`, 'utf8'); ok(!/<text\b|<script\b|<image\b|\bhref=|https?:\/\/(?!www\.w3\.org)/.test(x), `${f}: không chữ, không script, không tải ngoài`); ok(x.length <= 8192, `${f}: ≤ 8 KB (${x.length})`); }
+for (const a of ['ad', 'di', 'ps', 'av', 'pn', 'tp', 'education', 'crime', 'economy', 'formal', 'semi', 'informal', 't-line', 't-map', 'v-exam', 'g-academic', 'p-stress', 'doc', 'medal', 'phrase', 'clock', 'q']) ok(ARTS.includes(a + '.svg'), `thiếu huy hiệu ${a}`);
+const { PROMPTS: WP, MODELS: WM } = loadWriting(), done = WP.filter(p => WM.some(m => m.id === 't2-' + p.id));
+for (const p of done) { for (const l of ['vi', 'en']) { const k = t2Key(p.id, l, p.text); ok(k.split(/\s+/).length <= (l === 'vi' ? 8 : 6) && !k.endsWith('…'), `${p.id}/${l}: tiêu đề ngắn, soạn tay (${k})`); } }
+for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9]) { const s = bentoSpans(n), d = s.reduce((a, c) => a + (/d2/.test(c) ? 2 : 1), 0), p = s.reduce((a, c) => a + (/p2/.test(c) ? 2 : 1), 0); ok(n === 1 || d % 4 === 0, `bento ${n}: desktop không hở (${d})`); ok(p % 2 === 0, `bento ${n}: điện thoại không hở (${p})`); }
+ok(!/#[0-9a-fA-F]{3,8}\b/.test(VIS_CSS.replace(/url\("data:[^"]*"\)/g, '')), 'VIS_CSS chỉ dùng token màu');
+ok(/\.vh-t\{[^}]*overflow:hidden/.test(VIS_CSS) && /margin-bottom:-13%/.test(VIS_CSS), 'giáo viên: cắt phần mờ chân ảnh ở sàn (cấm thân mờ dần)');
+
 // ---- 2. HTML đã dựng ----
 const src = ['scripts/lib/samples-ui.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs'].map(f => fs.statSync(f).mtimeMs);
 const fresh = f => fs.existsSync(f) && fs.statSync(f).mtimeMs >= Math.max(...src);
@@ -49,16 +62,16 @@ if (Object.values(P).every(fresh)) {
   for (const k of ['vi', 'en', 'lt']) {
     ok(/<article class="page smp smp-doc/.test(h[k]) && /class="ess-side"/.test(h[k]) && /class="side-box outline"/.test(h[k]) && /class="side-box legend"/.test(h[k]), `${k}: cột dàn bài + chú thích màu`);
     ok((h[k].match(/<section class="para r-/g) || []).length >= 4, `${k}: thẻ đoạn có vai trò`);
-    ok(/<ul class="stats">/.test(h[k]) && /class="band"/.test(h[k]) && /class="prompt/.test(h[k]) && /<ol class="phr">/.test(h[k]) && /class="save"/.test(h[k]) && /class="cta2"/.test(h[k]), `${k}: số liệu, đề bài, thẻ cụm từ, lưu cụm, CTA`);
-    ok(/<nav class="pg2"/.test(h[k]) && /id="glp"/.test(h[k]) && h[k].includes(`<style>${SMP_CSS}</style>`), `${k}: bài trước/sau + popover + CSS riêng`);
+    ok(/<ul class="stats vs">/.test(h[k]) && /class="band"/.test(h[k]) && /class="prompt/.test(h[k]) && /<ol class="phr">/.test(h[k]) && /class="save"/.test(h[k]) && /class="cta2"/.test(h[k]), `${k}: số liệu, đề bài, thẻ cụm từ, lưu cụm, CTA`);
+    ok(/<nav class="pg2"/.test(h[k]) && /id="glp"/.test(h[k]) && h[k].includes(SMP_CSS.slice(0, 200)), `${k}: bài trước/sau + popover + CSS riêng`);
     ok(/<link rel="canonical"/.test(h[k]) && /"@type":"LearningResource"[^<]*"learningResourceType"/.test(h[k]) && /"@type":"BreadcrumbList"/.test(h[k]), `${k}: canonical + JSON-LD (LearningResource mở rộng + Breadcrumb)`);
-    ok(/<svg[^>]*aria-hidden="true"/.test(h[k]), `${k}: Kit từ kit.js, trang trí (aria-hidden; màu cũ do brand-check chặn)`);
+    ok(/src="\/teach\/(ama|carlos)\/avatar\.webp"/.test(h[k]) && !/class="kit"><svg/.test(h[k]), `${k}: nhân vật chỉ Ama/Carlos 2D ở CTA, không còn Kit`);
   }
   ok(/data-g="/.test(h.vi) && !/data-g="[^"]/.test(h.en.split('<main')[1]), 'nghĩa tiếng Việt chỉ ở bản vi');
   for (const k of ['vi', 'en']) ok(/hreflang="vi"/.test(h[k]) && /hreflang="en"/.test(h[k]) && /hreflang="x-default"/.test(h[k]), `${k}: hreflang vi/en/x-default`);
   ok(/Kết bài/.test(h.vi) && /Conclusion/.test(h.en) && !/Kết bài|Mở bài|Thân bài/.test(h.en), 'nhãn đoạn đúng ngôn ngữ (en không lộ tiếng Việt)');
   for (const k of ['viIdx', 'enIdx']) {
-    ok(/<nav class="tf"/.test(h[k]) && (h[k].match(/class="card set sc t-/g) || []).length >= 80 && /"@type":"ItemList"/.test(h[k]) && /id="q"/.test(h[k]), `${k}: chip lọc dạng đề, ≥ 80 thẻ có màu, ItemList, ô lọc`);
+    ok(/<nav class="tf"/.test(h[k]) && (h[k].match(/class="card set vc t-/g) || []).length >= 80 && (h[k].match(/<p class="vc-q">[^<]{40,}/g) || []).length >= 80 && (h[k].match(/class="vb-i/g) || []).length === 6 && /class="tfb tfb-r"/.test(h[k]) && /class="vh-t"/.test(h[k]) && /"@type":"ItemList"/.test(h[k]) && /id="q"/.test(h[k]), `${k}: chip lọc dạng đề, ≥ 80 thẻ có màu, ItemList, ô lọc`);
   }
   ok(/id="part-2"/.test(h.sp) && /class="q cue"/.test(h.sp) && /class="qa"/.test(h.sp) && /<ul class="vch">/.test(h.sp) && /<nav class="pg2"/.test(h.sp), 'speaking: phần thi, cue card, Q&A, từ vựng, chủ đề trước/sau');
   ok(/class="ess2 letter"/.test(h.lt), 'thư mẫu: giao diện giấy viết thư');
