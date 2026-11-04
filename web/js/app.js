@@ -152,11 +152,16 @@
   };
 
   // Nút sáng/tối ngay trong màn học (body.focus ẩn thanh trên; màn Stitch điện thoại cũng ẩn): gắn vào hàng header cạnh nút thoát, không phủ lên nội dung.
+  // Màn Stitch (học/phản hồi/gọi/truyện/xong) có sẵn nút #lkTheme trong header mẫu (44 px) → chỉ gắn hành vi + biểu tượng theo giao diện; màn khác (khung cũ) → chèn nút cạnh nút thoát.
+  const isDark = () => { const r = document.documentElement; return r.getAttribute('data-theme') === 'dark' || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches); };
+  const flipTheme = () => { state.settings.theme = isDark() ? 'light' : 'dark'; applyTheme(); saveSettings(); document.querySelectorAll('#lkTheme .material-symbols-outlined').forEach(i => { i.textContent = isDark() ? 'light_mode' : 'dark_mode'; }); };
   const focusTheme = () => {
-    const v = $('#view'); if (!document.body.classList.contains('focus') || v.querySelector('.lk-ftheme')) return;
-    const x = v.querySelector('.lsn-x'), inRow = x && x.getClientRects().length, b = document.createElement('button'), r = document.documentElement;
+    const v = $('#view'); if (!document.body.classList.contains('focus')) return;
+    const own = v.querySelector('#lkTheme'); if (own) { if (!own.dataset.lk) { own.dataset.lk = 1; own.title = own.getAttribute('aria-label'); own.onclick = flipTheme; const i = own.querySelector('.material-symbols-outlined'); if (i) i.textContent = isDark() ? 'light_mode' : 'dark_mode'; } return; }
+    if (v.querySelector('.lk-ftheme')) return;
+    const x = v.querySelector('.lsn-x'), inRow = x && x.getClientRects().length, b = document.createElement('button');
     b.type = 'button'; b.className = 'icon-btn lk-ftheme' + (inRow ? '' : ' fix'); b.title = t('Đổi giao diện sáng/tối'); b.setAttribute('aria-label', b.title); b.innerHTML = UI.icon('sun-moon');
-    b.onclick = () => { const dark = r.getAttribute('data-theme') === 'dark' || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches); state.settings.theme = dark ? 'light' : 'dark'; applyTheme(); saveSettings(); };
+    b.onclick = flipTheme;
     if (inRow) x.parentElement.insertBefore(b, x.parentElement.lastElementChild); else v.appendChild(b);
   };
   if ($('#view')) new MutationObserver(focusTheme).observe($('#view'), { childList: true });

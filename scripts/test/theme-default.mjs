@@ -39,11 +39,11 @@ for (const [name, seed, want] of CASES) for (const url of ['/', '/app/']) {
 for (const [tag, vp] of [['mobile', { width: 390, height: 844 }], ['desktop', { width: 1366, height: 900 }]]) {
   const ctx = await ctxOf({ 'lk.ux1': '1', 'ielts.settings': JSON.stringify({ onboarded: true }) }, vp), page = await ctx.newPage();
   await page.goto(`${BASE}/app/#/lesson/go?demo=1`, { waitUntil: 'load' });
-  const b = page.locator('#view .lk-ftheme');
+  const b = page.locator('#view #lkTheme, #view .lk-ftheme');
   try { await b.waitFor({ state: 'visible', timeout: 15000 }); } catch { ok(false, `${tag}: màn học không có nút sáng/tối (${page.url()})`); if (SHOTS) await page.screenshot({ path: path.join(SHOTS, `lesson-${tag}-missing.png`) }); await ctx.close(); continue; }
   const box = await b.boundingBox(); ok(box.width >= 44 && box.height >= 44, `${tag}: nút ${box.width}×${box.height} < 44 px`);
-  const hit = await page.evaluate(() => { const x = document.querySelector('#view .lk-ftheme'), r = x.getBoundingClientRect(), t = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); return x.contains(t); }); ok(hit, `${tag}: nút bị che`);
-  const over = await page.evaluate(() => { const x = document.querySelector('#view .lk-ftheme'), r = x.getBoundingClientRect(); return [...document.querySelectorAll('#view .lsn-x, #lsnPct, #lsnFill, [data-href="#/me"]')].filter(e => { const q = e.getBoundingClientRect(); return q.width && q.left < r.right && q.right > r.left && q.top < r.bottom && q.bottom > r.top; }).map(e => e.id || e.className).slice(0, 3); });
+  const hit = await page.evaluate(() => { const x = document.querySelector('#view #lkTheme, #view .lk-ftheme'), r = x.getBoundingClientRect(), t = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); return x.contains(t); }); ok(hit, `${tag}: nút bị che`);
+  const over = await page.evaluate(() => { const x = document.querySelector('#view #lkTheme, #view .lk-ftheme'), r = x.getBoundingClientRect(); return [...document.querySelectorAll('#view .lsn-x, #lsnPct, #lsnFill, [data-href="#/me"]')].filter(e => { const q = e.getBoundingClientRect(); return q.width && q.left < r.right && q.right > r.left && q.top < r.bottom && q.bottom > r.top; }).map(e => e.id || e.className).slice(0, 3); });
   ok(!over.length, `${tag}: nút đè lên ${over}`);
   if (SHOTS) await page.screenshot({ path: path.join(SHOTS, `lesson-${tag}-dark.png`) });
   ok(await theme(page) === 'dark', `${tag}: màn học mặc định phải tối`);
