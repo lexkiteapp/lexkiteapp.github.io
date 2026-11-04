@@ -421,7 +421,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     // Câu dùng cho bài "xếp chữ": lấy từ ví dụ trong bài, 5–12 từ
     const sents = [...formulas.flatMap(f => f.rows.map(r => r.ex)), ...uses.flatMap(u => u.items.map(it => it.ex))]
       .filter(Boolean).filter(t => { const n = tokenize(t).length; return n >= 5 && n <= 12; });
-    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3);
+    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3), WPICK = 'border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem';
     const steps = [];
     steps.push({ name: t('Hình dung'), em: '👀', html: () => `${visual.map(b => R[b.type](b)).join('') || ''}<div class="g-tip" style="margin-top:1rem">🧠 <b>${t('Ghi nhớ:')}</b> ${esc(x.summary)}</div>` });
     if (formulas.length && formulas[0].rows[0]) steps.push({ name: t('Ghép công thức'), em: '🧮', html: () => {
@@ -443,20 +443,21 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (mistakes.length) steps.push({ name: t('Bắt lỗi'), em: '🕵️', html: () => `<div class="stack"><div class="small muted">${t('Đọc câu sai, tự tìm lỗi trong đầu rồi bấm để kiểm tra – cách nhớ lâu nhất là tự phát hiện.')}</div>${mistakes.map((m, k) => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <span lang="en">${esc(m.wrong)}</span></div><button class="btn sm" data-reveal="${k}" style="margin-top:.5rem">${UI.icon('search')} ${t('Tôi đã tìm ra lỗi – xem đáp án')}</button><div data-ans="${k}" hidden style="margin-top:.4rem" aria-live="polite"><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div><div class="small muted">${esc(m.why)}</div></div></div>`).join('')}${l1Slot(x)}</div>`,
       bind: () => $$('[data-reveal]').forEach(b => b.onclick = () => { $(`[data-ans="${b.dataset.reveal}"]`).hidden = false; b.remove(); Sfx.flip(); }) });
     if (builds.length) steps.push({ name: t('Xếp câu'), em: '🧩', html: () => `<div class="stack">${builds.map((s, k) => `<div class="g-block" data-build="${k}"><h3>🧩 ${t('Xếp các từ thành câu đúng')}</h3><div class="build-slot" data-slot="${k}"></div>
-        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button class="chip wpick" data-j="${j}" style="border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem">${esc(w)}</button>`).join('')}</div>
+        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button type="button" class="chip wpick" data-i="${j}" style="${WPICK}">${esc(w)}</button>`).join('')}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-undo="${k}">↺ ${t('Làm lại')}</button><span class="small" data-msg="${k}"></span></div></div>`).join('')}</div>`,
       bind: () => builds.forEach((s, k) => {
-        const words = tokenize(s); let built = [];
+        const words = tokenize(s); let built = [], done = false;
         const pool = $(`[data-pool="${k}"]`), slot = $(`[data-slot="${k}"]`), msg = $(`[data-msg="${k}"]`);
         const check = () => {
           if (built.length < words.length) return;
           const ok = built.map(j => words[j]).join(' ') === words.join(' ');
           msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; Sfx.answer(ok, { el: slot, answer: s });
           if (ok) UI.speak(s, state.settings.accent);
-          slot.classList.add(ok ? 'ok' : 'no');
+          slot.classList.add(ok ? 'ok' : 'no'); done = true;
         };
-        $$('.wpick', pool).forEach(b => b.onclick = () => { built.push(+b.dataset.j); slot.insertAdjacentHTML('beforeend', `<span class="chip" style="font-size:.95rem;padding:.35rem .7rem">${esc(b.textContent)}</span>`); b.hidden = true; Sfx.pop(); check(); });
-        $(`[data-undo="${k}"]`).onclick = () => { built = []; slot.innerHTML = ''; slot.className = 'build-slot'; msg.textContent = ''; $$('.wpick', pool).forEach(b => b.hidden = false); };
+        const draw = () => { slot.innerHTML = built.map(j => `<button type="button" class="chip wpick" data-a="${j}" style="${WPICK}">${esc(words[j])}</button>`).join(''); };
+        const arr = WordArrange.bind({ ans: slot, bank: pool, sel: '.wpick', scope: slot.closest('[data-build]'), get: () => built, set: o => { built = o; }, draw, locked: () => done, word: j => words[j], t, onPlace: () => Sfx.pop(), onChange: check });
+        $(`[data-undo="${k}"]`).onclick = () => { built = []; done = false; slot.classList.remove('ok', 'no'); msg.textContent = ''; arr.reset(); };
       }) });
     if (drillsOf(x).length) steps.push({ name: t('Tự luận'), em: '✍️', html: () => drillsHtml(x), bind: () => bindDrills(x) });
     steps.push({ name: t('Luyện tập'), em: '✏️', html: () => quizHtml(x), bind: () => bindQuiz(x, next, () => lessonSteps(id)) });

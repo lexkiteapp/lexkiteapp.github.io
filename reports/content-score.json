@@ -1,5 +1,5 @@
 {
- "total": 53.4,
+ "total": 48.5,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -68,8 +68,8 @@
   },
   "grammar": {
    "name": "Ngữ pháp",
-   "score": 54.5,
-   "coverage": 54.5,
+   "score": 53.7,
+   "coverage": 53.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -124,7 +124,7 @@
     },
     {
      "k": "tự luận",
-     "have": 1125,
+     "have": 980,
      "std": 3000,
      "w": 20,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 15.2,
-   "coverage": 15.2,
+   "score": 18.7,
+   "coverage": 18.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -175,14 +175,14 @@
     },
     {
      "k": "mục gold (giải thích cách dùng)",
-     "have": 284,
+     "have": 228,
      "std": 1000,
      "w": 20,
      "future": false
     },
     {
      "k": "sổ mẫu câu theo chức năng",
-     "have": 0,
+     "have": 23,
      "std": 100,
      "w": 20,
      "future": true
@@ -442,43 +442,6 @@
      "k": "mục tiêu đã có nội dung luyện",
      "have": 119,
      "std": 600,
-     "w": 25,
-     "future": false
-    }
-   ]
-  },
-  "learn": {
-   "name": "Dễ học – dễ nhớ",
-   "score": 90.7,
-   "coverage": 90.7,
-   "pass": 100,
-   "errors": 0,
-   "parts": [
-    {
-     "k": "Ngữ pháp",
-     "have": 96.4,
-     "std": 100,
-     "w": 25,
-     "future": false
-    },
-    {
-     "k": "Bài lộ trình",
-     "have": 100,
-     "std": 100,
-     "w": 25,
-     "future": false
-    },
-    {
-     "k": "Bộ từ",
-     "have": 71,
-     "std": 100,
-     "w": 25,
-     "future": false
-    },
-    {
-     "k": "Kỹ năng",
-     "have": 95.4,
-     "std": 100,
      "w": 25,
      "future": false
     }

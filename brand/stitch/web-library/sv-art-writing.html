@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Kit - Illustration Badge Sheet (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            surface: '#fff8f5',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #fff8f5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .badge-card {
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .badge-card:hover {
+      transform: translateY(-4px);
+    }
+    .badge-card:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#fff8f5] flex items-center justify-center p-6 md:p-12 selection:bg-teal-200">
+  <!-- Clean badge showcase grid, no headers, no footers, no text, no navigation -->
+  <main class="w-full max-w-5xl mx-auto flex items-center justify-center">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 w-full place-items-center">
+
+      <!-- Badge 1: Thumbs Up & Thumbs Down Pair (Warm Emerald / Mint & Coral-Rose) -->
+      <div class="badge-card w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-[32px] md:rounded-[40px] bg-gradient-to-b from-[#25a982] to-[#128a66] p-1.5 shadow-[0_12px_0_0_#0a6147,0_20px_24px_rgba(10,97,71,0.22)] border-2 border-[#5ce3b8]/40 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <!-- Gloss highlight arc -->
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute top-2 left-6 right-6 h-8 bg-gradient-to-b from-white/30 to-transparent rounded-full pointer-events-none"></div>
+
+        <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.18)]" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Thumbs Up Gradient & Shadow -->
+            <linearGradient id="thumbUpGrad" x1="42" y1="36" x2="42" y2="108" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="0.3" stop-color="#F2FBF8"/>
+              <stop offset="1" stop-color="#D1F2E7"/>
+            </linearGradient>
+            <!-- Thumbs Down Gradient & Shadow -->
+            <linearGradient id="thumbDownGrad" x1="116" y1="52" x2="116" y2="124" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFEBEB"/>
+              <stop offset="0.4" stop-color="#FFD4D4"/>
+              <stop offset="1" stop-color="#FCA5A5"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Back soft circle ambient -->
+          <circle cx="80" cy="80" r="64" fill="white" fill-opacity="0.12"/>
+
+          <!-- Thumbs Up (Left, slightly elevated, bright teal-mint ink) -->
+          <g transform="translate(-4, -6)">
+            <!-- Tactile Drop Ledge -->
+            <path d="M46 44 C46 38 52 32 58 32 C62 32 65 35 67 39 L74 54 C76 58 79 61 84 62 L87 63 C91 64 93 67 93 71 C93 75 90 78 86 78 C90 79 92 82 92 86 C92 89 89 92 86 92 C89 93 91 96 91 100 C91 104 87 107 83 107 L54 107 C46 107 40 101 40 93 L40 76 C40 68 46 62 46 54 Z" fill="#0c6b50"/>
+            <!-- Cuff Base Ledge -->
+            <rect x="25" y="65" width="16" height="42" rx="7" fill="#0c6b50"/>
+            <!-- Main Hand Base -->
+            <path d="M46 41 C46 35 52 29 58 29 C62 29 65 32 67 36 L74 51 C76 55 79 58 84 59 L87 60 C91 61 93 64 93 68 C93 72 90 75 86 75 C90 76 92 79 92 83 C92 86 89 89 86 89 C89 90 91 93 91 97 C91 101 87 104 83 104 L54 104 C46 104 40 98 40 90 L40 73 C40 65 46 59 46 51 Z" fill="url(#thumbUpGrad)"/>
+            <rect x="25" y="62" width="16" height="42" rx="7" fill="url(#thumbUpGrad)"/>
+            <!-- Gloss Shine -->
+            <path d="M48 44 C48 38 53 34 57 34 C59 34 60 36 62 39 L68 53 C70 57 74 61 79 62 L82 63" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+            <rect x="28" y="65" width="4" height="34" rx="2" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="86" cy="72" r="2.5" fill="#128A66"/>
+            <circle cx="85" cy="84" r="2.5" fill="#128A66"/>
+            <circle cx="83" cy="96" r="2.5" fill="#128A66"/>
+          </g>
+
+          <!-- Thumbs Down (Right, angled, coral-tinted contrast) -->
+          <g transform="translate(18, 14)">
+            <!-- Tactile Drop Ledge -->
+            <path d="M84 116 C84 122 78 128 72 128 C68 128 65 125 63 121 L56 106 C54 102 51 99 46 98 L43 97 C39 96 37 93 37 89 C37 85 40 82 44 82 C40 81 38 78 38 74 C38 71 41 68 44 68 C41 67 39 64 39 60 C39 56 43 53 47 53 L76 53 C84 53 90 59 90 67 L90 84 C90 92 84 98 84 106 Z" fill="#991B1B"/>
+            <rect x="89" y="53" width="16" height="42" rx="7" fill="#991B1B"/>
+            <!-- Main Hand Base -->
+            <path d="M84 119 C84 125 78 131 72 131 C68 131 65 128 63 124 L56 109 C54 105 51 102 46 101 L43 100 C39 99 37 96 37 92 C37 88 40 85 44 85 C40 84 38 81 38 77 C38 74 41 71 44 71 C41 70 39 67 39 63 C39 59 43 56 47 56 L76 56 C84 56 90 62 90 70 L90 87 C90 95 84 101 84 109 Z" fill="url(#thumbDownGrad)"/>
+            <rect x="89" y="56" width="16" height="42" rx="7" fill="url(#thumbDownGrad)"/>
+            <!-- Shadow detail lines on knuckles -->
+            <path d="M44 89 L52 89" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M44 77 L52 77" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M47 65 L54 65" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M80 114 C80 120 75 123 72 123" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 2: Two Speech Bubbles Facing Each Other (Vibrant Orange / Amber) -->
+      <div class="badge-card w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-[32px] md:rounded-[40px] bg-gradient-to-b from-[#f97316] to-[#ea580c] p-1.5 shadow-[0_12px_0_0_#9a3412,0_20px_24px_rgba(154,52,18,0.25)] border-2 border-[#fdba74]/50 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/25 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute top-2 left-6 right-6 h-8 bg-gradient-to-b from-white/35 to-transparent rounded-full pointer-events-none"></div>
+
+        <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.18)]" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bubbleLeftGrad" x1="28" y1="36" x2="28" y2="100" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="0.6" stop-color="#FFF5EE"/>
+              <stop offset="1" stop-color="#FED7AA"/>
+            </linearGradient>
+            <linearGradient id="bubbleRightGrad" x1="72" y1="62" x2="72" y2="124" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FEF3C7"/>
+              <stop offset="0.6" stop-color="#FDE68A"/>
+              <stop offset="1" stop-color="#F59E0B"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Left Primary Bubble -->
+          <g>
+            <!-- Ledge -->
+            <path d="M32 44 C32 35 40 28 50 28 L94 28 C104 28 112 35 112 44 L112 76 C112 85 104 92 94 92 L64 92 L44 107 L47 92 L50 92 C40 92 32 85 32 76 Z" fill="#7C2D12"/>
+            <!-- Main Bubble -->
+            <path d="M32 40 C32 31 40 24 50 24 L94 24 C104 24 112 31 112 40 L112 72 C112 81 104 88 94 88 L64 88 L44 103 L47 88 L50 88 C40 88 32 81 32 72 Z" fill="url(#bubbleLeftGrad)"/>
+            <!-- High-gloss rim -->
+            <path d="M46 32 L98 32 C103 32 106 35 106 39" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+            <!-- Inner tactile 3-dot cadence (abstract communication soundwaves) -->
+            <circle cx="56" cy="56" r="5" fill="#EA580C"/>
+            <circle cx="72" cy="56" r="5" fill="#EA580C"/>
+            <circle cx="88" cy="56" r="5" fill="#EA580C"/>
+          </g>
+
+          <!-- Right Overlapping Bubble (Facing Left) -->
+          <g>
+            <!-- Ledge -->
+            <path d="M68 76 C68 67 76 60 86 60 L126 60 C136 60 144 67 144 76 L144 102 C144 111 136 118 126 118 L122 118 L124 133 L104 118 L86 118 C76 118 68 111 68 102 Z" fill="#7C2D12"/>
+            <!-- Main Bubble -->
+            <path d="M68 72 C68 63 76 56 86 56 L126 56 C136 56 144 63 144 72 L144 98 C144 107 136 114 126 114 L122 114 L124 129 L104 114 L86 114 C76 114 68 107 68 98 Z" fill="url(#bubbleRightGrad)"/>
+            <!-- High-gloss rim -->
+            <path d="M80 64 L132 64 C136 64 139 67 139 71" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Inner cadence dots -->
+            <circle cx="92" cy="85" r="4" fill="#9A3412"/>
+            <circle cx="106" cy="85" r="4" fill="#9A3412"/>
+            <circle cx="120" cy="85" r="4" fill="#9A3412"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 3: Wrench Fixing a Broken Gear (Deep Ocean Teal / Cyan) -->
+      <div class="badge-card w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-[32px] md:rounded-[40px] bg-gradient-to-b from-[#0d9488] to-[#0f766e] p-1.5 shadow-[0_12px_0_0_#042f2e,0_20px_24px_rgba(4,47,46,0.28)] border-2 border-[#5eead4]/40 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute top-2 left-6 right-6 h-8 bg-gradient-to-b from-white/30 to-transparent rounded-full pointer-events-none"></div>
+
+        <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.18)]" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gearGrad" x1="80" y1="28" x2="80" y2="132" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E6FFFA"/>
+              <stop offset="0.5" stop-color="#CCFBF1"/>
+              <stop offset="1" stop-color="#99F6E4"/>
+            </linearGradient>
+            <linearGradient id="wrenchGrad" x1="40" y1="40" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FEF3C7"/>
+              <stop offset="0.5" stop-color="#FDE047"/>
+              <stop offset="1" stop-color="#EAB308"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Broken Gear (Back) -->
+          <g>
+            <!-- Ledge -->
+            <path d="M80 40 L87 40 L89 48 L97 51 L103 45 L108 50 L106 58 L112 64 L120 62 L122 69 L116 75 L118 84 L126 87 L124 94 L116 96 L112 104 L116 111 L109 116 L103 111 L95 115 L93 123 L86 123 L84 115 L76 112 L70 117 L65 112 L69 104 L65 96 L57 94 L55 87 L63 85 L65 76 L59 70 L61 63 L69 65 L75 59 L73 51 L80 51 Z" fill="#042F2E"/>
+            <!-- Main Gear Surface -->
+            <path d="M80 36 L87 36 L89 44 L97 47 L103 41 L108 46 L106 54 L112 60 L120 58 L122 65 L116 71 L118 80 L126 83 L124 90 L116 92 L112 100 L116 107 L109 112 L103 107 L95 111 L93 119 L86 119 L84 111 L76 108 L70 113 L65 108 L69 100 L65 92 L57 90 L55 83 L63 81 L65 72 L59 66 L61 59 L69 61 L75 55 L73 47 L80 47 Z" fill="url(#gearGrad)"/>
+            <!-- Gear Axle Center -->
+            <circle cx="89" cy="81" r="16" fill="#0F766E"/>
+            <circle cx="89" cy="79" r="16" fill="#042F2E"/>
+            <circle cx="89" cy="78" r="14" fill="#0F766E"/>
+
+            <!-- Crack split in gear (narrative fixing moment) -->
+            <path d="M100 52 L95 62 L99 70 L95 78" stroke="#042F2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+
+          <!-- Golden Glossy Wrench (Crossing dynamically over the gear) -->
+          <g>
+            <!-- Ledge -->
+            <path d="M42 120 L34 112 C30 108 30 101 34 97 L88 43 C91 40 96 39 100 41 L105 36 C109 32 116 32 120 36 L124 40 C128 44 128 51 124 55 L119 60 C121 64 120 69 117 72 L63 126 C59 130 52 130 48 126 Z" fill="#713F12"/>
+            <!-- Main Wrench -->
+            <path d="M42 116 L34 108 C30 104 30 97 34 93 L88 39 C91 36 96 35 100 37 L105 32 C109 28 116 28 120 32 L124 36 C128 40 128 47 124 51 L119 56 C121 60 120 65 117 68 L63 122 C59 126 52 126 48 122 Z" fill="url(#wrenchGrad)"/>
+            <!-- Wrench Head Jaw Cutout -->
+            <circle cx="112" cy="44" r="7.5" fill="#042F2E"/>
+            <!-- Wrench Handle Tactile Groove -->
+            <rect x="56" y="80" width="34" height="6" rx="3" transform="rotate(-45 56 80)" fill="#CA8A04"/>
+            <!-- Gloss highlight ridge -->
+            <path d="M44 102 L92 54" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 4: Balance Scale (Sunny Royal Indigo / Purple-Blue) -->
+      <div class="badge-card w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-[32px] md:rounded-[40px] bg-gradient-to-b from-[#6366f1] to-[#4f46e5] p-1.5 shadow-[0_12px_0_0_#312e81,0_20px_24px_rgba(49,46,129,0.28)] border-2 border-[#a5b4fc]/40 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/22 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute top-2 left-6 right-6 h-8 bg-gradient-to-b from-white/30 to-transparent rounded-full pointer-events-none"></div>
+
+        <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.18)]" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="scaleGoldGrad" x1="80" y1="28" x2="80" y2="134" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFBEB"/>
+              <stop offset="0.3" stop-color="#FEF08A"/>
+              <stop offset="1" stop-color="#EAB308"/>
+            </linearGradient>
+            <linearGradient id="panGrad" x1="42" y1="74" x2="42" y2="108" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="0.6" stop-color="#E0E7FF"/>
+              <stop offset="1" stop-color="#C7D2FE"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Base Pillar Ledge -->
+          <ellipse cx="80" cy="132" rx="34" ry="10" fill="#1E1B4B"/>
+          <!-- Base Pillar Body -->
+          <ellipse cx="80" cy="128" rx="34" ry="10" fill="url(#scaleGoldGrad)"/>
+          <rect x="74" y="44" width="12" height="86" rx="6" fill="#1E1B4B"/>
+          <rect x="74" y="40" width="12" height="86" rx="6" fill="url(#scaleGoldGrad)"/>
+
+          <!-- Top Pivot Knob -->
+          <circle cx="80" cy="40" r="10" fill="#1E1B4B"/>
+          <circle cx="80" cy="37" r="10" fill="url(#scaleGoldGrad)"/>
+          <circle cx="80" cy="36" r="4" fill="#CA8A04"/>
+
+          <!-- Balance Crossbeam (Slightly dynamic lively tilt) -->
+          <g transform="rotate(-6 80 46)">
+            <!-- Beam Ledge -->
+            <rect x="22" y="48" width="116" height="8" rx="4" fill="#1E1B4B"/>
+            <!-- Beam Body -->
+            <rect x="22" y="44" width="116" height="8" rx="4" fill="url(#scaleGoldGrad)"/>
+            <path d="M30 46 L130 46" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+
+            <!-- Left Pan Assembly -->
+            <g transform="translate(0, 0)">
+              <!-- Strings -->
+              <path d="M30 52 L18 84 M30 52 L42 84" stroke="#EEF2FF" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Pan Ledge -->
+              <path d="M12 87 C12 99 20 108 30 108 C40 108 48 99 48 87 Z" fill="#1E1B4B"/>
+              <!-- Pan Body -->
+              <path d="M12 84 C12 96 20 105 30 105 C40 105 48 96 48 84 Z" fill="url(#panGrad)"/>
+              <ellipse cx="30" cy="84" rx="18" ry="4" fill="#FFFFFF"/>
+              <!-- Gloss edge -->
+              <path d="M16 88 C18 97 24 102 30 102" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- Right Pan Assembly -->
+            <g transform="translate(100, 0)">
+              <!-- Strings -->
+              <path d="M30 52 L18 84 M30 52 L42 84" stroke="#EEF2FF" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Pan Ledge -->
+              <path d="M12 87 C12 99 20 108 30 108 C40 108 48 99 48 87 Z" fill="#1E1B4B"/>
+              <!-- Pan Body -->
+              <path d="M12 84 C12 96 20 105 30 105 C40 105 48 96 48 84 Z" fill="url(#panGrad)"/>
+              <ellipse cx="30" cy="84" rx="18" ry="4" fill="#FFFFFF"/>
+              <!-- Gloss edge -->
+              <path d="M16 88 C18 97 24 102 30 102" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 5: Plus and Minus Coin Pair (Ruby Pink / Sunset Coral) -->
+      <div class="badge-card w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-[32px] md:rounded-[40px] bg-gradient-to-b from-[#f43f5e] to-[#e11d48] p-1.5 shadow-[0_12px_0_0_#881337,0_20px_24px_rgba(136,19,55,0.28)] border-2 border-[#fda4af]/50 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/22 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute top-2 left-6 right-6 h-8 bg-gradient-to-b from-white/35 to-transparent rounded-full pointer-events-none"></div>
+
+        <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.18)]" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Plus Coin Gradient -->
+            <linearGradient id="plusCoinGrad" x1="56" y1="28" x2="56" y2="108" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="0.5" stop-color="#FFF1F2"/>
+              <stop offset="1" stop-color="#FECDD3"/>
+            </linearGradient>
+            <!-- Minus Coin Gradient -->
+            <linearGradient id="minusCoinGrad" x1="104" y1="56" x2="104" y2="136" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FEF9C3"/>
+              <stop offset="0.5" stop-color="#FDE047"/>
+              <stop offset="1" stop-color="#EAB308"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Back ambient circle -->
+          <circle cx="80" cy="80" r="64" fill="white" fill-opacity="0.1"/>
+
+          <!-- Primary Coin: Plus (Top Left, elevated white-pearl medal) -->
+          <g>
+            <!-- Ledge 3D depth -->
+            <circle cx="58" cy="72" r="38" fill="#881337"/>
+            <circle cx="58" cy="68" r="38" fill="#BE123C"/>
+            <!-- Coin Face -->
+            <circle cx="58" cy="64" r="38" fill="url(#plusCoinGrad)"/>
+            <!-- Inner Ring -->
+            <circle cx="58" cy="64" r="32" stroke="#FDA4AF" stroke-width="2.5" stroke-dasharray="4 3"/>
+            <!-- Tactile Plus Glyph (No text, pure vector symbol) -->
+            <rect x="52" y="44" width="12" height="40" rx="6" fill="#881337"/>
+            <rect x="38" y="58" width="40" height="12" rx="6" fill="#881337"/>
+            <rect x="52" y="42" width="12" height="40" rx="6" fill="#E11D48"/>
+            <rect x="38" y="56" width="40" height="12" rx="6" fill="#E11D48"/>
+            <!-- Gloss highlight crescent -->
+            <path d="M34 50 C40 38 52 32 66 32 C74 32 80 34 84 38" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          </g>
+
+          <!-- Secondary Coin: Minus (Bottom Right, overlapping golden coin) -->
+          <g>
+            <!-- Ledge 3D depth -->
+            <circle cx="106" cy="100" r="34" fill="#713F12"/>
+            <circle cx="106" cy="96" r="34" fill="#A16207"/>
+            <!-- Coin Face -->
+            <circle cx="106" cy="92" r="34" fill="url(#minusCoinGrad)"/>
+            <!-- Inner Ring -->
+            <circle cx="106" cy="92" r="28" stroke="#CA8A04" stroke-width="2.5" stroke-dasharray="4 3"/>
+            <!-- Tactile Minus Glyph -->
+            <rect x="88" y="88" width="36" height="12" rx="6" fill="#713F12"/>
+            <rect x="88" y="86" width="36" height="12" rx="6" fill="#854D0E"/>
+            <rect x="90" y="87" width="32" height="4" rx="2" fill="#FEF08A"/>
+            <!-- Gloss highlight crescent -->
+            <path d="M86 80 C92 70 102 65 114 65 C120 65 126 68 130 72" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 6: Two-Part Split Question Mark (Electric Teal / Seafoam Green) -->
+      <div class="badge-card w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-[32px] md:rounded-[40px] bg-gradient-to-b from-[#0284c7] to-[#0369a1] p-1.5 shadow-[0_12px_0_0_#075985,0_20px_24px_rgba(7,89,133,0.28)] border-2 border-[#7dd3fc]/50 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/25 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute top-2 left-6 right-6 h-8 bg-gradient-to-b from-white/35 to-transparent rounded-full pointer-events-none"></div>
+
+        <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.18)]" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="splitHookGrad" x1="80" y1="28" x2="80" y2="100" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="0.5" stop-color="#F0F9FF"/>
+              <stop offset="1" stop-color="#BAE6FD"/>
+            </linearGradient>
+            <linearGradient id="splitDotGrad" x1="80" y1="112" x2="80" y2="136" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FEF08A"/>
+              <stop offset="0.6" stop-color="#FACC15"/>
+              <stop offset="1" stop-color="#CA8A04"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Back glow ring -->
+          <circle cx="80" cy="80" r="62" stroke="white" stroke-opacity="0.15" stroke-width="6"/>
+
+          <!-- Two-part split question mark: Part 1 - Upper Hook with segmented cut dynamic -->
+          <g>
+            <!-- Ledge -->
+            <path d="M52 58 C52 40 64 28 82 28 C99 28 111 40 111 56 C111 69 103 76 94 82 C88 86 86 91 86 98 L74 98 C74 88 78 81 87 75 C94 70 99 65 99 56 C99 46 92 39 82 39 C71 39 64 47 64 58 Z" fill="#0C4A6E"/>
+            <!-- Main Hook Surface -->
+            <path d="M52 54 C52 36 64 24 82 24 C99 24 111 36 111 52 C111 65 103 72 94 78 C88 82 86 87 86 94 L74 94 C74 84 78 77 87 71 C94 66 99 61 99 52 C99 42 92 35 82 35 C71 35 64 43 64 54 Z" fill="url(#splitHookGrad)"/>
+            
+            <!-- Diagonal playful slice highlight accentuating the two-part split construction -->
+            <path d="M72 48 L104 36" stroke="#0284C7" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
+            <!-- Gloss Shine -->
+            <path d="M60 48 C64 36 74 30 84 30 C94 30 102 34 105 42" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Part 2 - Separated Tactile Gem Dot (Floating glowing bottom piece) -->
+          <g>
+            <!-- Ledge -->
+            <circle cx="80" cy="125" r="14" fill="#713F12"/>
+            <circle cx="80" cy="123" r="14" fill="#A16207"/>
+            <!-- Dot Sphere Surface -->
+            <circle cx="80" cy="120" r="14" fill="url(#splitDotGrad)"/>
+            <!-- Dot Gloss -->
+            <ellipse cx="76" cy="114" rx="5" ry="3" fill="#FFFFFF" fill-opacity="0.9"/>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
