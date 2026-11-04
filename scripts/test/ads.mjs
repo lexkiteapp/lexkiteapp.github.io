@@ -131,7 +131,9 @@ ok(!P.interstitial(aCtx, fOn, st({ lastPct: 40 }), now) && P.interstitial(aCtx, 
 // Hồi quy ads-demo Android (đỏ 2/11 sau #444): máy mới cài mở #/welcome = vùng cấm onboarding → bài demo AdMob thật phải chạy như người dùng ĐÃ học (trang Hôm nay)
 { const andr = { plat: 'android', route: 'home', path: '/', vid }, demo = fs.readFileSync('scripts/test/ads-demo-android.mjs', 'utf8');
   ok(P.zone({ ...andr, route: 'welcome' }).k === 'onboarding' && !P.rewarded({ ...andr, route: 'welcome' }, fOn, 'ai') && P.rewarded(andr, fOn, 'ai'), 'Android: #/welcome chặn có thưởng (onboarding), #/home cho phép');
-  ok(/settings\.onboarded = true; await App\.saveSettings\(\)/.test(demo) && /cfg0 = await ev\(/.test(demo) && /info\.boot\.cfg === '1'/.test(demo) && /'#\/home'\); location\.reload\(\)/.test(demo), 'ads-demo-android: đánh dấu đã onboarding + mở lại ở #/home + chờ lượt tải config đầu + kiểm lk.cfg còn cờ sau khi tải lại'); }
+  ok(/settings\.onboarded = true; await App\.saveSettings\(\)/.test(demo) && /cfg0 = await ev\(/.test(demo) && /info\.boot\.cfg === '1'/.test(demo) && /'#\/home'\); location\.reload\(\)/.test(demo), 'ads-demo-android: đánh dấu đã onboarding + mở lại ở #/home + chờ lượt tải config đầu + kiểm lk.cfg còn cờ sau khi tải lại');
+  ok(/const diag = async/.test(demo) && /await diag\('connect'\)/.test(demo) && /findSock\(\); if \(s2 && s2 !== sock\)/.test(demo), 'ads-demo-android: mất DevTools → dòng diag (adb/pid/activity/logcat) + nối lại socket khi app khởi động lại');
+  ok(/group: ads-demo-\$\{\{ github\.ref \}\}/.test(fs.readFileSync('.github/workflows/ads-demo.yml', 'utf8')), 'ads-demo.yml: concurrency theo ref – lượt PR không huỷ lượt kiểm main'); }
 { const keys = P.ZONES.map(z => z[0]);
   ok(['exam', 'onboarding', 'pay', 'admin', 'classroom', 'call', 'speak', 'lesson'].every(k => keys.includes(k)) && ['mic', 'call', 'answering'].every(k => P.LIVE.includes(k)), 'vùng cấm đủ: thi/test · onboarding · thanh toán · quản trị · lớp học/giáo viên · Call · nói · bài học + trạng thái mic/gọi/đang trả lời');
   const HARD = ['mock', 'placement', 'toeic-test', 'toeic-r', 'toeic-sw', 'toefl', 'toefl-p', 'listen-test', 'cbt', 'welcome', 'onboard', 'setup', 'pay', 'checkout', 'upgrade', 'pro', 'admin', 'class', 'teacher', 'school'];
@@ -229,7 +231,7 @@ ok(S.places[0].fill === 0.8 && Math.abs(S.plat.web.rev - 0.16) < 1e-9 && S.conse
   ok(!(await verifySsv(`https://lexkite.com/api/ads-reward?${msg.replace('reward_amount=3', 'reward_amount=99')}&signature=${sig}&key_id=42`, keys)), 'SSV: sửa tham số → từ chối');
   const { onRequestGet } = await import('../../functions/api/ads-reward.js');
   ok((await onRequestGet({ request: new Request('https://lexkite.com/api/ads-reward?x=1'), env: {} })).status === 404, 'SSV: mặc định TẮT (ADS_SSV≠1 → 404)'); }
-{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && rd('web/index.html').includes(`google-adsense-account" content="${CFG.web.client}`), 'ads.txt + app-ads.txt + thẻ xác minh trang chủ khớp mã trong config.js'); }
+{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && ['web/index.html', 'web/en/index.html', 'web/vi/index.html'].every(f => rd(f).includes(`google-adsense-account" content="${CFG.web.client}`)), 'ads.txt + app-ads.txt + thẻ xác minh ở / (tĩnh) và đích 302 của / khớp mã trong config.js'); }
 // D1: truy vấn ext_events theo khoảng ngày dùng PK, không SCAN
 try {
   const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync(':memory:');

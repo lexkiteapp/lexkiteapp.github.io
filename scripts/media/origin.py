@@ -31,7 +31,7 @@ def candidates(url):
         path, repos = url[len(own[0]['cdn']):], own
     else:   # shared prefix: newest open repo first (the Worker's order: m4 -> m1), full repos after
         repos = sorted(repos, key=lambda r: (r.get('state') != 'open', -int(r['id'][1:])))
-    return [f'{b}/{path}' for r in repos for b in _bases(r)] + [url]
+    return [f'{b}/{path}' for r in repos for b in _bases(r)] + ([] if os.environ.get('MEDIA_ORIGIN_ONLY') else [url])   # MEDIA_ORIGIN_ONLY=1: never the Worker (batch CI)
 
 
 def fetch(url, dest, run=subprocess.run):

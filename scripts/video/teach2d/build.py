@@ -312,7 +312,7 @@ def beat_row(word, syl, stress, ipa, t_in, t_hit, t_out, y):
 def T_stress():
     D = EP['data']; A, B = D['a'], D['b']; series_chip(); t_q = start('q') - 0.2
     title([["Where's the ", 'ink'], ['stress', 'accent'], ['?', 'ink']], 96, RY0 + 120, None, start('a') - 0.2, hook=True)
-    beat_row(A['word'], A['syl'], A['stress'], A['ipa'], start('a'), at('a', 'first'), at('b', B['word']) - 0.2, RY0)
+    beat_row(A['word'], A['syl'], A['stress'], A['ipa'], start('a'), at('a', A['say']), at('b', B['word']) - 0.2, RY0)
     yb = beat_row(B['word'], B['syl'], B['stress'], B['ipa'], at('b', B['word']), at('m', B['say']), t_q, RY0)
     top('chip', [RX0 + (RW - 380) / 2, yb + 24, RX0 + (RW + 380) / 2, yb + 92], start('r'), out=t_q, text='SAY IT WITH ME', tone='chip', size=40)
     o = D['quiz']['options']

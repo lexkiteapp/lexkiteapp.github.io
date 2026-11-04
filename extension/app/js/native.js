@@ -22,7 +22,7 @@
   // Nhắc học: lập lịch 7+ ngày cục bộ ở js/remind.js (tải lười, docs/REMINDERS.md). opts.ask: chỉ xin quyền khi người dùng chủ động
   const scheduleReminder = (opts = {}) => P.LocalNotifications && g.App && g.App.need ? g.App.need('remind').then(() => g.Remind.native(P.LocalNotifications, opts)).catch(() => {}) : 0;
   // Bấm thông báo → mở thẳng trang ôn tập
-  if (P.LocalNotifications) P.LocalNotifications.addListener('localNotificationActionPerformed', a => { const x = (a && a.notification && a.notification.extra) || {}; if (x.tpl) try { localStorage.setItem('lk.remo', JSON.stringify(x.tpl)); } catch (e) { /* bỏ qua */ } if (x.route) location.hash = x.route; });
+  if (P.LocalNotifications) P.LocalNotifications.addListener('localNotificationActionPerformed', a => { const x = (a && a.notification && a.notification.extra) || {}; if (x.tpl) { try { localStorage.setItem('lk.remo', JSON.stringify(x.tpl)); } catch (e) { /* bỏ qua */ } if (g.App && g.App.need) g.App.need('remind').then(() => g.Remind.opened()).catch(() => {}); } /* đếm 'open' ngay cả khi app chỉ quay lại từ nền */ if (x.route) location.hash = x.route; });
   // Nút Back của Android: đóng hộp thoại/ô tra từ trước, rồi lùi trang; ở trang chủ thì thu nhỏ app (không thoát mất trạng thái)
   if (P.App) P.App.addListener('backButton', ({ canGoBack }) => {
     const m = document.getElementById('modal');

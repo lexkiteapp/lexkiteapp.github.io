@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Mistake Notebook (Offline)</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font for tokens -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#0A1315",
+            "primary-container": "#134E48",
+            "surface-container-highest": "#243B3F",
+            "outline": "#879391",
+            "on-surface-variant": "#A9BDBB",
+            "inverse-surface": "#D8E5E9",
+            "primary-fixed-dim": "#6BD8CE",
+            "on-primary-fixed-variant": "#00504B",
+            "secondary-fixed": "#FFDAD3",
+            "error-container": "#2B1414",
+            "surface-variant": "#1E2F33",
+            "on-primary": "#003733",
+            "on-error-container": "#FFDAD6",
+            "on-surface": "#E8F1F0",
+            "inverse-primary": "#006A64",
+            "on-secondary-fixed-variant": "#900F00",
+            "surface": "#10191B",
+            "on-primary-container": "#2DD4BF",
+            "tertiary-fixed": "#FFDF9E",
+            "on-tertiary": "#402E00",
+            "on-background": "#E8F1F0",
+            "on-tertiary-fixed": "#261A00",
+            "error": "#F87171",
+            "surface-tint": "#2DD4BF",
+            "on-secondary-container": "#FFA493",
+            "primary": "#2DD4BF",
+            "outline-variant": "#2A4045",
+            "on-primary-fixed": "#00201E",
+            "background": "#10191B",
+            "tertiary-fixed-dim": "#F4BF40",
+            "tertiary-container": "#BA8B00",
+            "primary-fixed": "#88F5EA",
+            "surface-bright": "#2F3B3E",
+            "on-secondary-fixed": "#3F0300",
+            "on-secondary": "#660800",
+            "surface-dim": "#0E1A1D",
+            "surface-container-low": "#121D20",
+            "secondary-fixed-dim": "#FFB4A6",
+            "on-tertiary-container": "#392900",
+            "inverse-on-surface": "#263236",
+            "tertiary": "#F4BF40",
+            "surface-container-high": "#202C2F",
+            "surface-container": "#172427",
+            "secondary-container": "#F59E0B",
+            "on-tertiary-fixed-variant": "#5B4300",
+            "secondary": "#FBBF24",
+            "on-error": "#690005"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "margin-lg": "3rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-md": "2rem",
+            "margin": "1rem",
+            "gutter-md": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Material symbol base helper */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased flex justify-center selection:bg-primary-container selection:text-[#2DD4BF]">
+<!-- Mobile screen container (390px fixed edge-to-edge view, no device frame) -->
+<main class="w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-44 overflow-x-hidden">
+<!-- 1. Exact INNER Top App Bar (Docked Top) -->
+<header class="sticky top-0 z-40 bg-[#10191B] shadow-[0_4px_0_0_#0A1315] px-space-md py-space-sm h-16 flex items-center justify-between border-b border-[#1E2F33]">
+<!-- Left: Back Action -->
+<button aria-label="Go back" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-[#2DD4BF] bg-[#172427] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[#2DD4BF]">arrow_back</span>
+</button>
+<!-- Center: Title & Subtitle -->
+<div class="flex flex-col items-center justify-center text-center">
+<h1 class="text-headline-sm font-headline-sm text-[#E8F1F0] tracking-tight leading-tight">Mistake Notebook</h1>
+<p class="text-label-sm font-label-sm text-[#A9BDBB]">#/mistakes • 25 items</p>
+</div>
+<!-- Right: Action Icons (Filter & Bookmark) -->
+<div class="flex items-center gap-1.5"><button aria-label="Filter items" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-[#A9BDBB] bg-[#172427] border border-[#2A4045] shadow-[0_2px_0_0_#0A1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+<button aria-label="Saved bookmarks" class="w-11 h-11 min-h-[44px] rounded-full flex items-center justify-center text-[#A9BDBB] bg-[#172427] border border-[#2A4045] shadow-[0_2px_0_0_#0A1315] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button></div>
+</header>
+<!-- CONTENT CANVAS -->
+<div class="px-space-md pt-3 flex flex-col gap-3.5">
+<!-- 2. Prominent Offline Warning Banner -->
+<section class="bg-[#241B10] border-2 border-[#B45309] rounded-xl p-3.5 shadow-[0_4px_0_0_#0A1315] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-full bg-[#382613] border border-[#B45309] flex items-center justify-center text-[#FBBF24] shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">cloud_off</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-label-lg font-label-lg text-[#FDE68A] leading-snug">You are offline – showing saved content</h2>
+<p class="text-label-sm font-label-sm text-[#FBBF24]/80 mt-0.5 flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-[#2DD4BF]"></span>
+                Showing 25 cached mistakes • Last synced today 09:15 AM
+              </p>
+</div>
+</div>
+</div>
+<!-- Interactive Retry Button -->
+<button class="h-11 min-h-[44px] w-full bg-[#322010] border-2 border-[#B45309] text-[#FDE68A] text-label-md font-label-md rounded-lg flex items-center justify-center gap-2 shadow-[0_3px_0_0_#1A0F06] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#FBBF24]">refresh</span>
+<span class="font-bold">Retry connection</span>
+</button>
+</section>
+<!-- 3. Teacher Slot Coach Box (Offline Guidance) -->
+<section class="bg-[#172427] border-2 border-dashed border-[#284649] rounded-xl p-3 flex items-start gap-3 shadow-[0_3px_0_0_#0A1315]">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-[#134E48] text-[#2DD4BF] flex items-center justify-center border-2 border-[#2DD4BF]/40 shadow-[0_2px_0_0_#0A1315]">
+<span class="material-symbols-outlined material-symbols-fill text-[22px] text-[#2DD4BF]">school</span>
+</div>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 bg-[#F59E0B] border border-[#78350F] text-[9px] font-extrabold flex items-center justify-center rounded-full text-[#1A0D00]">AI</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<span class="text-label-sm font-label-sm text-[#2DD4BF] uppercase tracking-wider font-extrabold">COACH SLOT</span>
+<span class="text-label-sm font-label-sm bg-[#2D2111] text-[#FBBF24] px-2 py-0.5 rounded-full border border-[#B45309]/50">Offline mode</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] leading-relaxed">
+            Offline study mode active. Review your 25 cached mistakes now; new drill sync will resume automatically once connected.
+          </p>
+</div>
+</section>
+<!-- 4. Filter Pills Row -->
+<nav aria-label="Filter mistakes" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"><!-- Active Filter: All (25) -->
+<button class="shrink-0 min-h-[44px] bg-[#134E48] text-[#2DD4BF] border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] rounded-full px-3.5 py-1.5 text-label-md font-label-md flex items-center gap-1.5 active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="font-bold">All (25)</span>
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] shadow-[0_0_6px_#2DD4BF]" title="Cached locally"></span>
+</button>
+<!-- Grammar (12) -->
+<button class="shrink-0 min-h-[44px] bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span>Grammar (12)</span>
+<span class="text-[10px] text-[#879391] font-bold">●</span>
+</button>
+<!-- Vocabulary (8) -->
+<button class="shrink-0 min-h-[44px] bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span>Vocabulary (8)</span>
+<span class="text-[10px] text-[#879391] font-bold">●</span>
+</button>
+<!-- Past 7 days dropdown -->
+<button class="shrink-0 min-h-[44px] bg-[#1E2F33] text-[#A9BDBB] border border-[#2A4045] shadow-[0_3px_0_0_#0A1315] rounded-full px-3 py-1.5 text-label-md font-label-md flex items-center gap-1 hover:bg-[#243B3F] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span>Past 7 days</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button></nav>
+<!-- 5. Mistake Cards List -->
+<section aria-label="Mistake cards" class="flex flex-col gap-3.5 mt-0.5">
+<!-- CARD 1: Grammar (Cached locally, active) -->
+<article class="bg-[#172427] border border-[#243B3F] rounded-xl p-3.5 shadow-[0_4px_0_0_#0A1315] flex flex-col gap-2.5 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#2DD4BF] font-extrabold border border-[#2A4045]">Grammar</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">IELTS Task 2</span>
+</div>
+<!-- Cached locally badge -->
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-[#123832] text-[#2DD4BF] border border-[#2DD4BF]/40 px-2 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]">offline_pin</span>
+              Cached locally
+            </span>
+</div>
+<!-- Stimulus comparison -->
+<div class="bg-[#10191B] rounded-lg p-2.5 border border-[#1E2F33] space-y-1.5">
+<div class="flex items-center gap-2 bg-[#2B1414]/70 px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[#F87171] text-[18px] shrink-0">close</span>
+<p class="text-body-sm font-body-sm text-[#F87171] line-through font-semibold">Despite of the severe storm, they finished...</p>
+</div>
+<div class="flex items-center gap-2 bg-[#102B20]/80 px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[#34D399] text-[18px] shrink-0">check_circle</span>
+<p class="text-body-sm font-body-sm text-[#34D399] font-bold">Despite the severe storm, they finished...</p>
+</div>
+</div>
+<!-- Bottom card actions: Offline audio & 1x Drill -->
+<div class="flex items-center justify-between pt-1"><button class="h-11 min-h-[44px] px-3 bg-[#1E2F33] rounded-lg border border-[#2A4045] text-[#2DD4BF] text-label-sm font-label-sm flex items-center gap-1.5 hover:bg-[#243B3F] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]">volume_up</span>
+<span class="font-medium text-[#E8F1F0]">Offline audio ready</span>
+</button>
+<button class="h-11 min-h-[44px] px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
+<span>Drill 1x</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</button></div>
+</article>
+<!-- CARD 2: Vocabulary (Cached locally, active) -->
+<article class="bg-[#172427] border border-[#243B3F] rounded-xl p-3.5 shadow-[0_4px_0_0_#0A1315] flex flex-col gap-2.5 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#FBBF24] font-extrabold border border-[#2A4045]">Vocabulary</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Band 7.5 Collocation</span>
+</div>
+<!-- Cached badge -->
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-[#123832] text-[#2DD4BF] border border-[#2DD4BF]/40 px-2 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]">offline_pin</span>
+              Cached locally
+            </span>
+</div>
+<!-- Stimulus comparison -->
+<div class="bg-[#10191B] rounded-lg p-2.5 border border-[#1E2F33] space-y-1.5">
+<div class="flex items-center gap-2 px-2 py-1">
+<span class="material-symbols-outlined text-[#879391] text-[18px] shrink-0">arrow_right_alt</span>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Replace standard: <span class="font-bold text-[#E8F1F0]">"make a decision"</span></p>
+</div>
+<div class="flex items-center gap-2 bg-[#102B20]/80 px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[#34D399] text-[18px] shrink-0">stars</span>
+<p class="text-body-sm font-body-sm text-[#2DD4BF] font-bold">"reach a consensus"</p>
+</div>
+</div>
+<!-- Bottom card actions -->
+<div class="flex items-center justify-between pt-1"><span class="text-label-sm font-label-sm text-[#A9BDBB] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#FBBF24]">history_toggle_off</span>
+              Tested yesterday
+            </span>
+<button class="h-11 min-h-[44px] px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
+<span>Drill 1x</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</button></div>
+</article>
+<!-- CARD 3: Pronunciation (DIMMED / Online AI disabled) -->
+<article class="bg-[#172427]/80 border border-[#243B3F]/70 rounded-xl p-3.5 shadow-[0_2px_0_0_#0A1315] flex flex-col gap-2.5 relative opacity-90"><!-- Top row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] font-extrabold border border-[#2A4045]">Pronunciation</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] px-2 py-0.5 rounded bg-[#10191B] font-medium border border-[#243B3F]">Word Stress</span>
+</div>
+<!-- Online AI Tag -->
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-[#2F1818] text-[#FCA5A5] border border-[#F87171]/40 px-2 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px]">cloud_off</span>
+              Requires online speech AI
+            </span>
+</div>
+<!-- Stimulus content -->
+<div class="bg-[#10191B]/80 rounded-lg p-2.5 border border-dashed border-[#2A4045] space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-headline-sm font-headline-sm text-[#E8F1F0] tracking-wide font-bold">pho·TOG·ra·pher</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">/fəˈtɒɡrəfə/</span>
+</div>
+<p class="text-label-sm font-label-sm text-[#FCA5A5] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">info</span>
+              Stressed 1st syllable instead of 2nd
+            </p>
+</div>
+<!-- Actions: Listen available, Record DISABLED -->
+<div class="flex items-center justify-between pt-1">
+<button class="h-11 min-h-[44px] px-3 bg-[#1E2F33] rounded-lg border border-[#2A4045] text-[#2DD4BF] text-label-sm font-label-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+<span class="text-[#E8F1F0]">Listen (Cached)</span>
+</button>
+<!-- Disabled Record button -->
+<button aria-disabled="true" class="h-11 min-h-[44px] px-3.5 bg-[#141E20] text-[#5A6E71] rounded-lg border border-[#1E2F33] cursor-not-allowed flex items-center gap-1.5 opacity-60" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">mic_off</span>
+<span class="text-label-sm font-label-sm line-through">Record drill</span>
+</button>
+</div></article>
+<!-- CARD 4: Grammar Agreement (Cached locally, fully interactive) -->
+<article class="bg-[#172427] border border-[#243B3F] rounded-xl p-3.5 shadow-[0_4px_0_0_#0A1315] flex flex-col gap-2.5 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#2DD4BF] font-extrabold border border-[#2A4045]">Grammar</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Subject-Verb Agreement</span>
+</div>
+<!-- Cached locally badge -->
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-[#123832] text-[#2DD4BF] border border-[#2DD4BF]/40 px-2 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]">offline_pin</span>
+              Cached locally
+            </span>
+</div>
+<!-- Stimulus comparison -->
+<div class="bg-[#10191B] rounded-lg p-2.5 border border-[#1E2F33] space-y-1.5">
+<div class="flex items-center gap-2 bg-[#2B1414]/70 px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[#F87171] text-[18px] shrink-0">close</span>
+<p class="text-body-sm font-body-sm text-[#F87171] line-through font-semibold">The number of applicants are increasing...</p>
+</div>
+<div class="flex items-center gap-2 bg-[#102B20]/80 px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[#34D399] text-[18px] shrink-0">check_circle</span>
+<p class="text-body-sm font-body-sm text-[#34D399] font-bold">The number of applicants is increasing...</p>
+</div>
+</div>
+<!-- Bottom card actions -->
+<div class="flex items-center justify-between pt-1"><span class="text-label-sm font-label-sm text-[#2DD4BF] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+              Drill ready offline
+            </span>
+<button class="h-11 min-h-[44px] px-4 bg-[#134E48] text-[#2DD4BF] rounded-lg border-2 border-[#1E6B63] shadow-[0_3px_0_0_#0A1315] text-label-sm font-label-sm font-bold flex items-center gap-1 active:translate-y-1 active:shadow-none transition-all" type="button">
+<span>Drill 1x</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</button></div>
+</article>
+</section>
+</div>
+<!-- 6. Sticky Bottom Action CTA (Anchored above BottomNavBar) -->
+<div class="fixed bottom-20 left-1/2 -translate-x-1/2 w-[390px] px-space-md pt-2 pb-2 bg-gradient-to-t from-[#10191B] via-[#10191B]/95 to-transparent z-40 flex flex-col gap-1.5 pointer-events-none">
+<div class="pointer-events-auto flex flex-col gap-1">
+<!-- Vibrant Tactile Golden-Amber Button with Deep Dark Ink -->
+<button class="w-full h-13 py-3.5 bg-[#F59E0B] text-[#1A0D00] font-headline-sm text-headline-sm rounded-xl border-2 border-[#FBBF24] shadow-[0_4px_0_0_#D97706] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all font-extrabold" type="button">
+<span>Practise cached mistakes (25)</span>
+<span class="material-symbols-outlined text-[24px] text-[#1A0D00]">bolt</span>
+</button>
+<p class="text-center text-label-sm font-label-sm text-[#A9BDBB] flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]">sync_saved_locally</span>
+          Progress will queue locally and sync when reconnected.
+        </p>
+</div>
+</div>
+<!-- 7. Canonical Lexkite BottomNavBar (Docked full-width bottom-0, fixed 390px layout) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 flex justify-around items-center px-space-xs py-space-xs h-20 bg-[#10191B] shadow-[0_-4px_0_0_#0A1315] border-t border-[#1E2F33]"><!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-[24px]">today</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Today</span>
+</a>
+<!-- Tab 2: Vocab (ACTIVE with red dot and amber pill) -->
+<a aria-current="page" class="relative flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-[#F59E0B] text-[#1A0D00] rounded-full px-space-md py-space-xs border border-[#FBBF24] shadow-[0_2px_0_0_#D97706] active:translate-y-0.5" href="#">
+<!-- Active indicator notification red dot -->
+<span class="absolute top-1 right-2.5 w-2.5 h-2.5 bg-[#EF4444] rounded-full border-2 border-[#10191B]"></span>
+<span class="material-symbols-outlined text-[24px] material-symbols-fill text-[#1A0D00]">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-extrabold text-[#1A0D00]">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-[#A9BDBB] px-space-sm py-space-xs hover:text-[#E8F1F0] transition-transform active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Me</span>
+</a></nav>
+</main>
+<!-- Interactive micro-feedback for Retry button -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('button, a');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          if (btn.innerText.includes('Retry connection')) {
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (icon) {
+              icon.classList.add('animate-spin');
+              setTimeout(() => {
+                icon.classList.remove('animate-spin');
+              }, 1200);
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

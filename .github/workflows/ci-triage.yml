@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       daily: { description: 'Chạy luôn phần hoãn hạn mức + bản tin ngày', type: boolean, default: false }
-permissions: { contents: read, actions: write, issues: write }
+permissions: { contents: read, actions: write, issues: write, pull-requests: read, checks: read }   # pull-requests/checks: check đỏ chung trên PR mở (scripts/ci/pr-common-red.mjs)
 concurrency: { group: ci-triage, cancel-in-progress: false }   # 1 lượt chạy + 1 chờ; lượt chờ bị thay cũng không mất gì (cửa sổ quét chồng lấn)
 jobs:
   triage:

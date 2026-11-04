@@ -10,7 +10,7 @@ on:
     inputs:
       templates: { description: 'comma list', default: 'drill,mistake,tip,ready' }
   pull_request:
-    paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
+    paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', 'scripts/video/tpl/pilot5_voice.py', 'scripts/video/tpl/render_v9.py', 'scripts/video/tpl/qc_v9.py', 'scripts/video/tpl/pron.mjs', 'scripts/cine/news_voice.py', 'scripts/cine/whisper_det.py', 'scripts/cine/test_whisper_det.py', '.github/workflows/video-motion.yml']   # + the voice/render/QC scripts this workflow runs (02/11: a news_voice fix did not trigger it)
 permissions: { contents: read }
 concurrency: { group: 'video-motion-${{ github.ref }}-${{ github.event.inputs.templates }}', cancel-in-progress: true }
 env:
@@ -47,7 +47,7 @@ jobs:
         with: { path: ~/.cache/pip, key: 'pip-video9-voice-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
       - name: Libraries
         timeout-minutes: 8
-        run: pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+        run: pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3 && python3 scripts/cine/test_whisper_det.py   # onset snap unit test (asr_match reference)
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - uses: actions/cache@v4

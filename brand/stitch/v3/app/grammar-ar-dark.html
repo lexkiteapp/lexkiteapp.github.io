@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>خبير القواعد (CEFR A1–C1)</title>
+<!-- Google Fonts: Noto Sans Arabic & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              bg: '#10191B',
+              card: '#172427',
+              surface: '#1E2F33',
+              subtle: '#132225',
+              border: '#23353A',
+              ink: '#E8F1F0',
+              muted: '#A9BDBB',
+              teal: '#2DD4BF',
+              tealLight: '#5EEAD4',
+              coral: '#F97316',
+              coralLedge: '#C2410C',
+              amber: '#F59E0B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif;
+      background-color: #10191B;
+      color: #E8F1F0;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Tactile button ledge */
+    .tactile-cta {
+      background-color: #F97316;
+      color: #1A0D00;
+      box-shadow: 0 4px 0 0 #C2410C;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #C2410C;
+    }
+    .tactile-secondary {
+      background-color: #1E2F33;
+      color: #E8F1F0;
+      border: 1px solid #2DD4BF;
+      box-shadow: 0 4px 0 0 #0d1e22;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #0d1e22;
+    }
+    .tactile-subtle {
+      box-shadow: 0 3px 0 0 #23353A;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-subtle:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #23353A;
+    }
+    /* Teacher slot placeholder */
+    .teacher-slot {
+      border: 2px dashed #2DD4BF;
+      background-color: #132225;
+    }
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] min-h-screen text-[#E8F1F0] antialiased flex flex-col justify-between text-right" dir="rtl">
+<!-- Mobile Viewport Container 390px edge-to-edge -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen flex flex-col bg-[#10191B] relative pb-[84px]">
+<!-- INNER TOP APP BAR (Sticky & Mirrored) -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur border-b border-[#23353A] px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<!-- Mirrored back arrow (points right in RTL) -->
+<button aria-label="الرجوع للخلف" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border border-[#23353A] text-[#2DD4BF] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-2xl rotate-180">arrow_back</span>
+</button>
+<div>
+<h1 class="text-lg font-bold text-[#E8F1F0] leading-tight">خبير القواعد</h1>
+<p class="text-[12px] font-semibold text-[#A9BDBB]">التدرج من A1 إلى C1</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="بحث في القواعد والوحدات" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border border-[#23353A] text-[#2DD4BF] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+<button aria-label="العناصر المحفوظة" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border border-[#23353A] text-[#2DD4BF] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-2xl">bookmark</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLL CONTENT -->
+<main class="flex-1 px-4 pt-3.5 space-y-4">
+<!-- CEFR LEVEL SELECTOR / COMPLETION PILLS (RTL Flow) -->
+<section aria-label="مستويات CEFR" class="overflow-x-auto no-scrollbar -mx-4 px-4 flex items-center gap-2 pb-1"><!-- A1 Completed -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#172427] border border-[#23353A] text-[#E8F1F0] font-bold text-xs shadow-sm active:translate-y-0.5" type="button">
+<span class="w-5 h-5 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center text-[10px] font-black">✓</span>
+<span>A1 مبتدئ</span>
+<span class="text-[11px] font-bold text-[#2DD4BF] bg-[#1E2F33] px-1.5 py-0.5 rounded-md" dir="ltr">100%</span>
+</button>
+<!-- A2 Completed -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#172427] border border-[#23353A] text-[#E8F1F0] font-bold text-xs shadow-sm active:translate-y-0.5" type="button">
+<span class="w-5 h-5 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center text-[10px] font-black">✓</span>
+<span>A2 تأسيسي</span>
+<span class="text-[11px] font-bold text-[#2DD4BF] bg-[#1E2F33] px-1.5 py-0.5 rounded-md" dir="ltr">100%</span>
+</button>
+<!-- B1 Current Active -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#2DD4BF] text-[#0A2623] font-bold text-xs shadow-md active:translate-y-0.5" type="button">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse"></span>
+<span>B1 متوسط</span>
+<span class="text-[11px] font-extrabold text-[#1A0D00] bg-[#F59E0B] px-1.5 py-0.5 rounded-md" dir="ltr">68%</span>
+</button>
+<!-- B2 Next -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#172427] border border-[#23353A] text-[#E8F1F0] font-bold text-xs shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-sm text-[#A9BDBB]">lock</span>
+<span>B2 متقدم</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB] bg-[#1E2F33] px-1.5 py-0.5 rounded-md" dir="ltr">0%</span>
+</button>
+<!-- C1 Advanced -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#172427] border border-[#23353A] text-[#E8F1F0] font-bold text-xs shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-sm text-[#A9BDBB]">lock</span>
+<span>C1 متقن</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB] bg-[#1E2F33] px-1.5 py-0.5 rounded-md" dir="ltr">0%</span>
+</button></section>
+<!-- ACTIVE HERO UNIT CARD: "المضارع التام مقابل الماضي البسيط" -->
+<section class="bg-[#172427] rounded-3xl border-2 border-[#23353A] p-4 shadow-[0_4px_0_0_#0D1618] relative overflow-hidden">
+<!-- Top Status Bar in Card -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#2DD4BF]/30 text-[#2DD4BF] font-black text-[11px] tracking-wide">
+              الوحدة الحالية • B1.4
+            </span>
+<span class="px-2 py-0.5 rounded-md bg-[#2A1E17] border border-[#F97316]/30 text-[#F97316] font-bold text-[11px]">
+              تكرار عالي في الاختبار
+            </span>
+</div>
+<!-- Circular Progress Ring (62% Complete) -->
+<div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+<svg class="w-11 h-11 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#1E2F33]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#2DD4BF]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="62, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[11px] font-black text-[#2DD4BF]" dir="ltr">62%</span>
+</div>
+</div>
+<!-- Unit Title -->
+<h2 class="text-xl font-extrabold text-[#E8F1F0] leading-snug break-words mb-1.5">
+          المضارع التام مقابل الماضي البسيط
+        </h2>
+<p class="text-xs text-[#A9BDBB] leading-relaxed mb-3.5">
+          التمييز بين الفترات الزمنية غير المكتملة وتجارب الحياة، واللحظات المحددة المكتملة في الماضي.
+        </p>
+<!-- Empty Teacher Slot & Tip Bubble -->
+<div class="bg-[#132225] rounded-2xl p-3 border border-[#23353A] flex items-start gap-3 mb-4">
+<!-- Empty rounded placeholder labelled "المعلم" -->
+<div class="teacher-slot w-14 h-14 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center text-center p-1" title="مكان صورة المعلم">
+<span class="text-[11px] font-black text-[#2DD4BF] leading-tight">المعلم</span>
+</div>
+<!-- Coach tip -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF]"></span>
+<span class="text-[11px] font-bold text-[#2DD4BF]">كارلوس • نصيحة المعلم</span>
+</div>
+<p class="text-xs text-[#E8F1F0] font-medium leading-relaxed">«ابحث عن علامات الوقت المحددة في الماضي مثل <span class="font-bold text-[#F59E0B] underline decoration-[#F59E0B] decoration-2" dir="ltr">yesterday</span>، و <span class="font-bold text-[#F59E0B] underline decoration-[#F59E0B] decoration-2" dir="ltr">in 2021</span>، و <span class="font-bold text-[#F59E0B] underline decoration-[#F59E0B] decoration-2" dir="ltr">ago</span>!»</p>
+</div>
+</div>
+<!-- QUICK REFERENCE TABLE PREVIEW -->
+<div class="mb-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xs font-bold text-[#E8F1F0] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-[#2DD4BF]">table_chart</span>
+<span>جدول المقارنة السريعة</span>
+</h3>
+<span class="text-[11px] font-bold text-[#2DD4BF]">بطاقة ملخصة</span>
+</div>
+<div class="rounded-xl border border-[#23353A] overflow-hidden bg-[#132225] text-xs">
+<div class="grid grid-cols-2 bg-[#1E2F33] border-b border-[#23353A] px-2.5 py-1.5 font-bold text-[#E8F1F0]">
+<div>المضارع التام</div>
+<div>الماضي البسيط</div>
+</div>
+<div class="divide-y divide-[#23353A]"><div class="grid grid-cols-2 px-2.5 py-2 gap-2 text-[11px] leading-snug">
+<div>
+<span class="font-bold text-[#2DD4BF] block mb-0.5">متصل بالحاضر</span>
+<span class="text-[#E8F1F0]">فترة زمنية غير مكتملة، أخبار حديثة، أو تجربة حياة.</span>
+</div>
+<div>
+<span class="font-bold text-[#F59E0B] block mb-0.5">فترة مكتملة</span>
+<span class="text-[#E8F1F0]">وقت محدد في الماضي، منتهٍ ومكتمل تماماً.</span>
+</div>
+</div>
+<div class="grid grid-cols-2 px-2.5 py-2 gap-2 text-[11px] leading-snug bg-[#172427]">
+<div class="font-medium text-[#E8F1F0]">
+<span class="text-[#2DD4BF] font-bold block mb-0.5">العلامات الدلالية:</span>
+<span class="inline-block text-right text-[#E8F1F0]" dir="ltr">already, yet, since, ever, never, for 3 years</span>
+</div>
+<div class="font-medium text-[#E8F1F0]">
+<span class="text-[#F59E0B] font-bold block mb-0.5">العلامات الدلالية:</span>
+<span class="inline-block text-right text-[#E8F1F0]" dir="ltr">yesterday, last week, in 1998, 5 minutes ago</span>
+</div>
+</div>
+<div class="grid grid-cols-2 px-2.5 py-2 gap-2 text-[11px] leading-snug">
+<div class="text-[#E8F1F0]" dir="ltr">
+“I <span class="font-bold text-[#2DD4BF]">have visited</span> Tokyo twice.”
+</div>
+<div class="text-[#E8F1F0]" dir="ltr">
+“I <span class="font-bold text-[#F59E0B]">visited</span> Tokyo in May 2019.”
+</div>
+</div></div>
+</div>
+</div>
+<!-- ACTION BUTTONS: Learn & Practise (Never shrink, ≥44px height, tactile ledge) -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<!-- Learn Button -->
+<button class="tactile-secondary w-full min-h-[48px] px-3 py-2.5 rounded-2xl font-extrabold text-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg text-[#2DD4BF]">auto_stories</span>
+<span class="leading-tight">تعلّم الوحدة</span>
+</button>
+<!-- Practise Button with coral CTA tactile ledge -->
+<button class="tactile-cta w-full min-h-[48px] px-3 py-2.5 rounded-2xl font-extrabold text-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg">bolt</span>
+<span class="leading-tight">تدرّب (12)</span>
+</button>
+</div>
+</section>
+<!-- CEFR UNITS LIST GROUPED BY LEVEL -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-extrabold text-[#E8F1F0] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-[#2DD4BF]">list_alt</span>
+<span>جميع وحدات المستوى B1 المتوسط</span>
+</h2>
+<span class="text-xs font-bold text-[#A9BDBB]">تم إتقان 5 من 8</span>
+</div>
+<!-- UNIT ITEM 1 (Completed) -->
+<div class="bg-[#172427] rounded-2xl border border-[#23353A] p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-[#2DD4BF]/40 transition-colors">
+<!-- Completion Check -->
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border-2 border-[#2DD4BF] flex items-center justify-center flex-shrink-0 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-xl">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF]">الوحدة B1.1</span>
+<span class="text-[10px] font-black text-[#2DD4BF] bg-[#1E2F33] border border-[#23353A] px-1.5 py-0.2 rounded" dir="ltr">100%</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">أزمنة السرد والماضي المستمر</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">الأحداث التمهيدية مقابل الأفعال الرئيسية المقاطعة</p>
+</div>
+<button aria-label="مراجعة الوحدة B1.1" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#23353A] text-[#2DD4BF] active:translate-y-0.5 flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-xl">replay</span>
+</button>
+</div>
+<!-- UNIT ITEM 2 (Completed) -->
+<div class="bg-[#172427] rounded-2xl border border-[#23353A] p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-[#2DD4BF]/40 transition-colors">
+<!-- Completion Check -->
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border-2 border-[#2DD4BF] flex items-center justify-center flex-shrink-0 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-xl">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF]">الوحدة B1.2</span>
+<span class="text-[10px] font-black text-[#2DD4BF] bg-[#1E2F33] border border-[#23353A] px-1.5 py-0.2 rounded" dir="ltr">100%</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">الجمل الشرطية: الحقيقية وغير الحقيقية (0, 1, 2)</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">السيناريوهات الافتراضية والاحتمالات المستقبلية</p>
+</div>
+<button aria-label="مراجعة الوحدة B1.2" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#23353A] text-[#2DD4BF] active:translate-y-0.5 flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-xl">replay</span>
+</button>
+</div>
+<!-- UNIT ITEM 3 (Completed) -->
+<div class="bg-[#172427] rounded-2xl border border-[#23353A] p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-[#2DD4BF]/40 transition-colors">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border-2 border-[#2DD4BF] flex items-center justify-center flex-shrink-0 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-xl">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF]">الوحدة B1.3</span>
+<span class="text-[10px] font-black text-[#2DD4BF] bg-[#1E2F33] border border-[#23353A] px-1.5 py-0.2 rounded" dir="ltr">100%</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">المبني للمجهول في الأخبار والتقارير</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">تجهيل الفاعل وصيغ التقرير الإخباري الموضوعي</p>
+</div>
+<button aria-label="مراجعة الوحدة B1.3" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#23353A] text-[#2DD4BF] active:translate-y-0.5 flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-xl">replay</span>
+</button>
+</div>
+<!-- UNIT ITEM 4 (Active in Progress - Highlighted) -->
+<div class="bg-[#241E1C] rounded-2xl border-2 border-[#F97316] p-3.5 flex items-center justify-between gap-3 shadow-sm">
+<!-- Circular Ring 62% -->
+<div class="relative w-10 h-10 flex-shrink-0 flex items-center justify-center">
+<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#382620]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-[#F97316]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="62, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<span class="absolute text-[10px] font-black text-[#F97316]" dir="ltr">62%</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="text-[11px] font-black text-[#F97316]">الوحدة B1.4 • نشط</span>
+</div>
+<h3 class="text-sm font-extrabold text-[#E8F1F0] truncate">المضارع التام مقابل الماضي البسيط</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">12 بطاقة تدريب متبقية</p>
+</div>
+<!-- Mirrored Action Button with left arrow (forward in RTL) -->
+<button aria-label="متابعة الوحدة B1.4" class="tactile-cta min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 flex-shrink-0" type="button">
+<span>متابعة</span>
+<span class="material-symbols-outlined text-base">arrow_back</span>
+</button>
+</div>
+<!-- UNIT ITEM 5 (Locked / Next) -->
+<div class="bg-[#172427]/70 rounded-2xl border border-[#23353A] p-3.5 flex items-center justify-between gap-3 min-h-[44px]">
+<div class="w-11 h-11 rounded-full bg-[#132225] border border-[#23353A] flex items-center justify-center flex-shrink-0 text-[#E8F1F0]">
+<span class="material-symbols-outlined text-lg text-[#A9BDBB]">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF]">الوحدة B1.5</span>
+<span class="text-[10px] font-semibold text-[#E8F1F0] bg-[#1E2F33] px-2 py-0.5 rounded border border-[#23353A]">مقفل</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">أفعال الاستنتاج: Must, Can't, Might</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">الاستنتاج المنطقي في سياقات الحاضر والماضي</p>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB] text-xl flex-shrink-0">chevron_left</span>
+</div>
+<!-- UNIT ITEM 6 (Locked / Next) -->
+<div class="bg-[#172427]/70 rounded-2xl border border-[#23353A] p-3.5 flex items-center justify-between gap-3 min-h-[44px]">
+<div class="w-11 h-11 rounded-full bg-[#132225] border border-[#23353A] flex items-center justify-center flex-shrink-0 text-[#E8F1F0]">
+<span class="material-symbols-outlined text-lg text-[#A9BDBB]">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF]">الوحدة B1.6</span>
+<span class="text-[10px] font-semibold text-[#E8F1F0] bg-[#1E2F33] px-2 py-0.5 rounded border border-[#23353A]">مقفل</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">جمل الوصل: المحددة وغير المحددة</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">علامات الترقيم، الضمائر، والتفاصيل الأساسية</p>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB] text-xl flex-shrink-0">chevron_left</span>
+</div>
+</section>
+<!-- UPCOMING CEFR B2 PREVIEW BANNER -->
+<section class="bg-[#172427] rounded-2xl border border-[#23353A] p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#23353A] flex items-center justify-center text-[#2DD4BF] flex-shrink-0 font-extrabold text-sm" dir="ltr">
+            B2
+          </div>
+<div>
+<h4 class="text-xs font-extrabold text-[#E8F1F0]">المرحلة التالية: CEFR B2 Vantage</h4>
+<p class="text-[11px] text-[#A9BDBB]">القلب النحوي، الجمل الشرطية المركبة وصيغ التمني</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-[#1E2F33] border border-[#23353A] text-[11px] font-bold text-[#2DD4BF] flex-shrink-0">
+          6 وحدات
+        </span>
+</section>
+</main>
+<!-- CANONICAL MOBILE BOTTOM TAB BAR (Mirrored 5 Tabs in RTL: اليوم, المفردات, المهارات, الاختبارات, أنا) -->
+<nav aria-label="شريط التنقل السفلي" class="fixed bottom-0 left-0 right-0 z-50 bg-[#10191B] border-t border-[#23353A] h-[68px] max-w-[390px] mx-auto flex items-center justify-around px-2 shadow-[0_-4px_16px_rgba(0,0,0,0.5)]" dir="rtl">
+<!-- 1. اليوم (Rightmost in RTL) -->
+<a aria-label="اليوم" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-16 h-12 text-[#A9BDBB] hover:text-[#2DD4BF] active:scale-95 transition-transform" href="#/today">
+<span class="material-symbols-outlined text-2xl mb-0.5">calendar_today</span>
+<span class="text-[11px] font-bold leading-none">اليوم</span>
+</a>
+<!-- 2. المفردات -->
+<a aria-label="المفردات" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-16 h-12 text-[#A9BDBB] hover:text-[#2DD4BF] active:scale-95 transition-transform" href="#/vocab">
+<span class="material-symbols-outlined text-2xl mb-0.5">menu_book</span>
+<span class="text-[11px] font-bold leading-none">المفردات</span>
+</a>
+<!-- 3. المهارات (ACTIVE DESTINATION) -->
+<a aria-current="page" aria-label="المهارات" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-16 h-12 active:scale-95 transition-transform" href="#/skills">
+<div class="px-3.5 py-1 rounded-full bg-[#1E2F33] border border-[#2DD4BF]/40 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#2DD4BF] mb-0.5">psychology</span>
+<span class="text-[11px] font-black text-[#2DD4BF] leading-none">المهارات</span>
+</div>
+</a>
+<!-- 4. الاختبارات -->
+<a aria-label="الاختبارات" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-16 h-12 text-[#A9BDBB] hover:text-[#2DD4BF] active:scale-95 transition-transform" href="#/tests">
+<span class="material-symbols-outlined text-2xl mb-0.5">assignment</span>
+<span class="text-[11px] font-bold leading-none">الاختبارات</span>
+</a>
+<!-- 5. أنا (Leftmost in RTL) -->
+<a aria-label="الملف الشخصي" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-16 h-12 text-[#A9BDBB] hover:text-[#2DD4BF] active:scale-95 transition-transform" href="#/me">
+<span class="material-symbols-outlined text-2xl mb-0.5">person</span>
+<span class="text-[11px] font-bold leading-none">أنا</span>
+</a>
+</nav>
+</div>
+</body></html>
