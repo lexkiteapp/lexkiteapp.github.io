@@ -398,7 +398,7 @@
     w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
     return fn.apply(this, a);
   };
-  const V2_ROUTES = new Set(['lesson', 'train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khoá cùng danh sách trong app/index.html
+  const V2_ROUTES = new Set(['train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khoá cùng danh sách trong app/index.html
   // 🧈 Cuộn (docs/PERF-SCROLL.md): vị trí theo từng mục lịch sử (Back/Forward về đúng chỗ), html.lk-scrolling (dừng hiệu ứng trang trí vô hạn khi đang cuộn), App.calm (việc nền nặng đợi tay rảnh)
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
@@ -433,7 +433,7 @@
     // đang ôn/luyện → tập trung 100% vào thẻ. Đổi bố cục (ẩn thanh trên) NGAY lúc chạm – không đợi tải gói: thay đổi trong 500 ms sau thao tác không tính CLS (mobile-qa)
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); // ux1: bản đồ #/lesson giữ thanh điều hướng; màn học (ExitGuard) đặt NGAY lúc chạm, không đợi vẽ xong
-    document.body.classList.toggle('v2pre', ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'call' && !!arg))); // khung Stitch v2 sắp vẽ: giữ đúng bố cục từ lúc chạm (không xô #view 64 px khi gói về)
+    document.body.classList.toggle('v2pre', ux1 && (reviewHub || V2_ROUTES.has(name) || ((name === 'call' || name === 'lesson') && !!arg))); // khung Stitch v2 sắp vẽ: giữ đúng bố cục từ lúc chạm (không xô #view 64 px khi gói về)
     if (!ux1) document.body.classList.remove('ux1'); // bản tải trước (app/index.html) đoán theo cùng cờ – phòng cấu hình đổi
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
