@@ -1,6 +1,6 @@
 // Trang từ /<lang>/words/<slug> – MỘT nguồn chọn trang + dựng nội dung (docs/specs/seo-words-depth.md), dùng chung bởi:
 //   scripts/build-seo-pages.mjs (sinh trang, sitemap, hreflang) và scripts/build-blog.mjs (hộp "từ trong bài" → /<lang>/words/, chạy TRƯỚC build-seo-pages).
-// Chỉ đọc nguồn (kho từ, web/packs, web/js/notes, web/js/usage, WordNet, bài mẫu Writing/Speaking); không ghi file. N: SEO_N_MAIN (1500), SEO_N_OTHER (400).
+// Chỉ đọc nguồn (kho từ, web/packs, web/js/notes, web/js/usage, WordNet, bài mẫu Writing/Speaking); không ghi file. N: SEO_N_MAIN (1500), SEO_N_PRIORITY (650: ngôn ngữ thị trường CPM cao, functions/api/_cpm.js), SEO_N_OTHER (400).
 // indexable(l, e) = đúng điều kiện build-seo-pages dùng cho robots: trong tập idxW (không mỏng, không trùng trang từ điển) VÀ đạt DEPTH_MIN.
 import fs from 'node:fs'; import vm from 'node:vm';
 import { loadBrowserIndex } from '../lexicon/shards.mjs';
@@ -11,8 +11,9 @@ import { LANGS, S, POS, fill } from './seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './tools-links.mjs';
 import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
+import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
 
-const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400);
+const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400), N_PRIORITY = +(process.env.SEO_N_PRIORITY || 650);
 
 export const J = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 export const RTL = new Set(['ar']);
@@ -53,7 +54,7 @@ const slug = new Map(); { const used = new Set(); for (const e of ranked) { let 
 const setOf = {};
 for (const l of LANGS) {
   if (l === 'en' || l === 'vi') setOf[l] = ranked.filter(e => l === 'en' || e.vi);
-  else setOf[l] = ranked.filter(e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); }).slice(0, N_OTHER);
+  else setOf[l] = ranked.filter(e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); }).slice(0, PRIORITY_LANGS.includes(l) ? N_PRIORITY : N_OTHER);
 }
 // Trang mỏng → noindex: nghĩa bản địa là dịch máy thô (cờ 0) hoặc không có collocation/đồng nghĩa/cụm (chỉ 1 ví dụ)
 const byTok = new Map(); for (const e of Object.values(INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = byTok.get(t) || byTok.set(t, []).get(t); if (a.length < 6) a.push(e); }

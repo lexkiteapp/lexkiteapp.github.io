@@ -179,7 +179,7 @@
           <div class="row between"><span class="chip">Part ${p.part} · ${PART()[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
           <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${p.titleVi && I18N.lang() === 'vi' ? esc(p.titleVi) + ' · ' : ''}${esc(p.topic || '')}</div>
           <div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div>
-          <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
+          <div class="card-acts"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
       <div class="card"><h3>${UI.icon('lightbulb')} ${t('Mẹo làm bài Listening')}</h3><ul class="small">
         <li>${t('<b>Đọc trước câu hỏi</b> trong thời gian chờ: gạch chân từ khóa, đoán loại từ cần điền (số, tên, danh từ…).')}</li>
         <li>${t('<b>Cẩn thận bẫy “đổi ý”</b>: người nói hay nói một đáp án rồi sửa lại (“sorry, I mean…”). Đáp án là thông tin cuối cùng.')}</li>

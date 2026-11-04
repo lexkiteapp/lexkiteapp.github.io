@@ -183,6 +183,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Ebbinghaus (1885) · Murre & Dros (2015, tái lập)': 'Ebbinghaus (1885) · Murre & Dros (2015, replication)',
 'Trí nhớ về thông tin mới giảm nhanh nhất trong vài ngày đầu; mỗi lần nhớ lại thành công làm đường cong thoải hơn.': 'Memory of new information drops fastest in the first few days; each successful recall flattens the curve.',
 'Mỗi từ có chỉ số <b>🧠 % còn nhớ</b> tính theo FSRS. Từ tụt dưới mục tiêu vào danh sách <b>Sắp quên</b>.': 'Every word has a <b>🧠 % recall</b> score calculated with FSRS. Words that drop below your target go to the <b>Fading</b> list.',
+'Mỗi từ có chỉ số <b>{ic} % còn nhớ</b> tính theo FSRS. Từ tụt dưới mục tiêu vào danh sách <b>Sắp quên</b>.': 'Every word has a <b>{ic} % recall</b> score calculated with FSRS. Words that drop below your target go to the <b>Fading</b> list.',
 'Chưa có từ nào sắp quên': 'No words fading yet',
 'Xem từ sắp quên': 'See fading words',
 'Lặp lại ngắt quãng (FSRS)': 'Spaced repetition (FSRS)',

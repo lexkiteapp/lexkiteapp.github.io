@@ -309,12 +309,6 @@
    "settings@1440l",
    "settings@1440d"
   ],
-  "tap|div.set-row>div.set-c>select.input.lang-select": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
   "tap|div.set-wrap>nav.set-nav>button": [
    "settings@768l",
    "settings@768d",
@@ -367,12 +361,6 @@
    "home@1440l",
    "home@1440d"
   ],
-  "tap|select#aiModel": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
   "tap|select#rmSel": [
    "review@768l",
    "review-card@768l",
@@ -380,24 +368,6 @@
    "review@768d",
    "review-card@768d",
    "review-type@768d"
-  ],
-  "tap|select#sAccent": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|select#sVoice": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|select#srcSel": [
-   "practice@768l",
-   "practice@768d",
-   "practice@1440l",
-   "practice@1440d"
   ],
   "wrap|div.set-wrap>nav.set-nav>button": [
    "settings@768l",

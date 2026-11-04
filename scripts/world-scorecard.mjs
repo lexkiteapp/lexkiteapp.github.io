@@ -92,7 +92,7 @@ function measure(ax) {
   const ie = /(\d+) lỗi bản dịch/.exec(iq.stdout || ''); m.i18n = /✓ i18n-qa/.test(iq.stdout || '') ? 100 : ie ? clamp(100 - +ie[1]) : null; note.i18n = m.i18n == null ? 'i18n-qa không chạy được' : ie ? `${ie[1]} lỗi` : '0 lỗi, 14 ngôn ngữ ngoài vi';
   // cổng QA trên CI (reports/world/ci.json do scripts/world/ci-status.mjs ghi)
   const ci = json('reports/world/ci.json');
-  if (ci && ci.workflows) { const w = Object.entries(ci.workflows).filter(([, v]) => v && v.conclusion); m.gates = w.length ? r1(w.filter(([, v]) => v.conclusion === 'success').length / w.length * 100) : null; note.gates = w.map(([k, v]) => (v.conclusion === 'success' ? '✓' : '✗') + k).join(' ') + (ci.mobile ? ` · mobile-qa LCP ${ci.mobile.maxLcp} ms, CLS ${ci.mobile.maxCls}, INP ${ci.mobile.maxInp} ms` : ''); }
+  if (ci && ci.workflows) { const w = Object.entries(ci.workflows); m.gates = w.length ? r1(w.filter(([, v]) => v && v.conclusion === 'success').length / w.length * 100) : null; note.gates = w.map(([k, v]) => (v && v.conclusion === 'success' ? '✓' : v ? '✗' : '∅') + k).join(' ') /* ∅ = chưa có lượt trên main: tính là chưa đạt, không bỏ khỏi mẫu số (new-ui-qa + npm-test từng null mà điểm vẫn 100) */ + (ci.mobile ? ` · mobile-qa LCP ${ci.mobile.maxLcp} ms, CLS ${ci.mobile.maxCls}, INP ${ci.mobile.maxInp} ms` : ''); }
   else { m.gates = null; note.gates = 'chưa có reports/world/ci.json'; }
   // luyện thi thật
   const n = (d, re) => ls(d).filter(f => re.test(f)).length;
