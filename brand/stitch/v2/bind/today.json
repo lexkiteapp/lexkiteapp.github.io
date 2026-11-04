@@ -30,7 +30,6 @@
   "Look up a word": "Tra từ"
  },
  "text": {
-  "VI": "d.lang",
   "L": "d.ini",
   "6.5": "d.c.tg",
   "3": "d.c.streak",
@@ -59,7 +58,8 @@
   "#4 of 30": "d.lg.rank",
   "Promotion zone ↑": "d.lg.zone",
   "3/7": "d.wk.n",
-  "Everyday English journey": "d.unitName"
+  "Everyday English journey": "d.unitName",
+  "EN": "d.lang"
  },
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher",

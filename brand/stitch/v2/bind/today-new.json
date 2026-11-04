@@ -27,12 +27,12 @@
   "Look up a word": "Tra từ"
  },
  "text": {
-  "VI": "d.lang",
   "L": "d.ini",
   "–": "d.c.tg",
   "Set target": "d.c.tgL",
   "0/10": "d.c.goal",
-  "“Hi, I'm Ama! Let's get you ready in 3 small steps.”": "d.say"
+  "“Hi, I'm Ama! Let's get you ready in 3 small steps.”": "d.say",
+  "EN": "d.lang"
  },
  "html": {
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(d.c.streak)",
