@@ -134,7 +134,7 @@ ETSの公式ルーブリック（採点基準）によると、Academic Discussi
 - **名詞の単複と冠詞**: 可算名詞が冠詞なしで単数形で放置されていないか（`a student`, `students`）。
 - **時制の一致**: 過去の事例を述べている部分が現在形になっていないか。
 
-リーディング全体の速読力は[IELTS リーディング コツ](/ja/blog/ielts-reading-skimming-scanning-kotsu/)、論理的なアイデアの展開法は[IELTS スピーキング パート2 テンプレート](/ja/blog/ielts-speaking-part-2-template/)の構成法も参考になります。
+リーディング全体の速読力は[IELTS リーディング コツ](/ja/blog/ielts-reading-skimming-scanning-kotsu/)、論理的なアイデアの展開法は[IELTS スピーキング パート2 テンプレート](/ja/blog/ielts-speaking-part-2-template/)の構成法も参考になります。また、2026年導入のテスト改革全体の概要や時間配分は[TOEFL新形式2026対策ガイド](/ja/blog/toefl-shin-keishiki-2026-taisaku-guide/)で詳しく整理しています。
 
 {{cta: /samples/ | ライティング模範解答を見る}}
 
