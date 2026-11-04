@@ -79,7 +79,7 @@
 
     // Vòng lặp hôm nay
     const LOOP = [
-      { ic: 'repeat', t: t('Ôn thẻ đến hạn'), sub: dueNow ? t('{n} thẻ đang ở thời điểm vàng', { n: dueNow }) : t('Không còn thẻ đến hạn'), href: '#/review', done: !dueNow && (state.stats.days[todayKey()] || 0) > 0, why: t('Lặp lại ngắt quãng') },
+      { ic: 'layers', t: t('Ôn thẻ đến hạn'), sub: dueNow ? t('{n} thẻ đang ở thời điểm vàng', { n: dueNow }) : t('Không còn thẻ đến hạn'), href: '#/review', done: !dueNow && (state.stats.days[todayKey()] || 0) > 0, why: t('Lặp lại ngắt quãng') },
       { ic: 'headphones', t: t('Nghe hoặc đọc 1 bài'), sub: t('Đầu vào dễ hiểu, hơi vượt trình độ'), href: (d.readings || 0) > (d.listens || 0) ? hL : hR, done: (d.readings || 0) + (d.listens || 0) > 0, why: t('Ngữ liệu dễ hiểu') },
       { ic: 'pin', t: t('Lưu 5 từ kèm câu gốc'), sub: t('Hôm nay: {n} từ', { n: d.newWords || 0 }), href: hR, done: (d.newWords || 0) >= 5, why: t('Học trong ngữ cảnh') },
       { ic: 'ruler', t: t('1 bài ngữ pháp'), sub: t('Học từng bước + tự luận'), href: hG, done: (d.grammar || 0) > 0, why: t('Học tập trung vào ngôn ngữ') },
