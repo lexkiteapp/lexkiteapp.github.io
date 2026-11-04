@@ -231,6 +231,7 @@
   }
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
+    demo: ['js/app-demo.js'],
     grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'bank-gen', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
@@ -244,7 +245,7 @@
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay/data-lot1.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     say: ['js/i18n/en/v2.js', 'js/i18n/en/say.js', 'js/i18n/en/share.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/say-front.js', 'js/st/v2/say-back.js', 'js/say.js'], // 🗣️ Say it like a native: thẻ phản xạ 2 mặt, khung Stitch v2 say-front/back (docs/SAY-NATIVE.md)
-    call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/say-text.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/engine.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
+    call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/say-text.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/calls-lot1.js', 'js/call/engine.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
     struct: ['js/structures.js'], // VBStruct cho popup dịch (phrases.js) – thiếu khóa này App.need('struct') ném TypeError
     courses: ['js/courses.js'], goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
@@ -396,8 +397,26 @@
     w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
     return fn.apply(this, a);
   };
+  const V2_ROUTES = new Set(['train', 'me', 'say', 'goal']);
+  // 🧈 Cuộn: docs/PERF-SCROLL.md
+  const Scroll = (() => {
+    const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
+    try { history.scrollRestoration = 'manual'; } catch (e) { /* bỏ qua */ }
+    const still = () => { off = 0; de.classList.remove('lk-scrolling'); };
+    addEventListener('scroll', () => { movedAt = performance.now(); if (off) clearTimeout(off); else de.classList.add('lk-scrolling'); off = setTimeout(still, 160); }, { passive: true });
+    const input = () => { inputAt = performance.now(); };
+    for (const k of ['touchstart', 'touchmove', 'wheel']) addEventListener(k, input, { passive: true });
+    return {
+      since: t0 => inputAt > t0,
+      enter() { const st = history.state; let id = st && st.lkS, y = 0; if (cur) pos.set(cur, scrollY); if (id) { if (id !== cur) y = pos.get(id) || 0; } else { id = Date.now().toString(36) + (++seq); try { history.replaceState(Object.assign({}, st, { lkS: id }), ''); } catch (e) { /* bỏ qua */ } } cur = id; return y; },
+      restore(y, live) { const t0 = performance.now(), go = () => { if (!live() || inputAt > t0 || performance.now() - t0 > 600) return; if (Math.abs(scrollY - y) > 1) scrollTo(0, y); requestAnimationFrame(go); }; go(); },
+      calm(fn, maxMs = 20000) { const t0 = performance.now(), go = () => { const n = performance.now(); if (n - t0 > maxMs || (n - Math.max(movedAt, inputAt) > 600)) idle(fn); else setTimeout(go, 400); }; go(); },
+    };
+  })();
+  App.calm = Scroll.calm;
   async function route() {
     const my = ++routeSeq; // token của lượt này
+    const backY = Scroll.enter(), routeAt = performance.now();
     held = false;
     scope.ac.abort(); scope = { id: my, ac: new AbortController() };
     if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
@@ -408,8 +427,12 @@
     curHash = location.hash;
     const b = [].concat(ROUTE_BUNDLE[name] || []), ux1 = App.ux1On();
     if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
-    // đang ôn/luyện → tập trung 100% vào thẻ. Đổi bố cục (ẩn thanh trên) NGAY lúc chạm – không đợi tải gói: thay đổi trong 500 ms sau thao tác không tính CLS (mobile-qa)
-    document.body.classList.toggle('focus', name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg)); // ux1: bản đồ #/lesson giữ thanh điều hướng
+    // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
+    const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
+    document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString()))));
+    document.body.classList.toggle('v2pre', ux1 && (reviewHub || V2_ROUTES.has(name) || ((name === 'call' || name === 'lesson') && !!arg) || (name === 'league' && !!state.user)));
+    try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
+    if (!ux1) document.body.classList.remove('ux1');
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -434,13 +457,14 @@
     while (App.cleanups.length) { try { App.cleanups.pop()(); } catch (e) { /* một hàm lỗi không chặn các hàm khác */ } }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
-      window.scrollTo(0, 0); const preTitle = document.title;
+      if (!backY && !Scroll.since(routeAt)) window.scrollTo(0, 0); const preTitle = document.title;
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm.
-      // Chèn NGAY khi trang vẽ .page-head (MutationObserver chạy trước khi trình duyệt vẽ khung) – chèn sau khi trang tải xong dữ liệu đẩy cả trang xuống ~40 px (CLS từ điển, mobile-qa)
       const crumb = () => { const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head'); if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c); };
       const mo = new MutationObserver(crumb); mo.observe(view, { childList: true });
       try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); } // lượt cũ lỗi vì bị hủy → im lặng
       crumb(); // trang vẽ .page-head sau bước bất đồng bộ
+      setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500);
+      if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
@@ -897,7 +921,7 @@
           <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
-    const syncUrl = () => history.replaceState(null, '', location.pathname + location.search + `#/library?g=${$('#libTabs .on').dataset.g}${lvf ? '&lv=' + lvf : ''}`);
+    const syncUrl = () => history.replaceState(history.state, '', location.pathname + location.search + `#/library?g=${$('#libTabs .on').dataset.g}${lvf ? '&lv=' + lvf : ''}`);
     $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); syncUrl(); draw(); });
     $$('[data-lvf]').forEach(b => b.onclick = () => { lvf = b.dataset.lvf; $$('[data-lvf]').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); }); syncUrl(); draw(); });
     $('#libQ').oninput = draw;
@@ -1437,24 +1461,6 @@
   }
 
   // Dữ liệu mẫu cho ảnh giới thiệu (?demo=1, chỉ áp dụng khi máy chưa có dữ liệu)
-  async function seedDemo() {
-    if (Object.keys(await Cards.all()).length) return;
-    const now = Date.now();
-    const cards = {};
-    ['environment', 'technology', 'education', 'health', 'task2', 'phrasal'].forEach((id, ti) => (topicOf(id) || { words: [] }).words.slice(0, 14).forEach((w, i) => {
-      const c = Cards.make(w); const r = (i * 7 + ti * 3) % 10;
-      c.added = now - (40 - i) * DAY;
-      if (r < 7) { c.srs = { ef: 2.3 + r / 20, interval: [1, 3, 6, 12, 24, 30, 45][r], reps: r + 1, lapses: r % 3 === 0 ? 1 : 0, due: now + ((r % 4) - 1) * DAY, last: now - DAY * (r % 3) }; }
-      if (i === 2 && w.ex) c.contexts = [{ text: w.ex, vi: '', title: 'BBC News', at: now }];
-      cards[w.word.toLowerCase()] = c;
-    }));
-    await Cards.save(cards);
-    const days = {}, gdays = {};
-    for (let i = 0; i < 120; i++) { if (i > 2 && (i * 13) % 7 === 0) continue; const k = todayKey(new Date(now - i * DAY)); days[k] = 10 + (i * 17) % 45; gdays[k] = { xp: 60 + (i * 31) % 160, reviews: days[k] }; }
-    await Store.set('stats', { days, newToday: { day: todayKey(), n: 3 } });
-    await Store.set('game', { xp: 6840, days: gdays, total: { reviews: 3120, newWords: 412, quizzes: 96, perfect: 21, matches: 34, spoken: 188, readings: 7, lookups: 260 }, best: { match: 21.4 }, badges: { first: 1, words50: 1, master10: 1, streak3: 1, streak7: 1, rev500: 1, perfect5: 1, speaker: 1, reader: 1, speed: 1, level5: 1 }, questsDone: {} });
-    await Store.set('settings', { ...DEFAULT_SETTINGS, onboarded: true, autoSpeak: false, sfx: false });
-  }
 
   // ---------- Sự kiện dùng chung ----------
   function bindCommon(after) {
@@ -1522,7 +1528,7 @@
   });
   { let q = 0; const kick = () => { if (q) return; q = 1; requestAnimationFrame(() => { q = 0; edgeFade(); }); }; const v = document.getElementById('view'); if (v && window.MutationObserver) new MutationObserver(kick).observe(v, { childList: true, subtree: true }); addEventListener('resize', kick, { passive: true }); }
   App.ready = (async function init() {
-    if (/[?&]demo=1/.test(location.search)) await seedDemo();
+    if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
     try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
@@ -1533,7 +1539,7 @@
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }, 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
@@ -1549,7 +1555,7 @@
     if (!Store.sandbox) try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // sandbox: dữ liệu thử tách riêng → không ghi gợi ý (lk.onb sai làm trang giới thiệu chuyển vào app, bỏ khung chào → nhảy bố cục CLS 0,7 trên máy tính) // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
     if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
-    // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc trang không giữ phiên (App.routeHeld)
+    // Đang trong phiên học → vẽ lại sẽ mất phiên (App.routeHeld)
     if (!routeSeq || !App.routeHeld()) route();
     App.prefetchAll();
     const nb = $('#notifBtn');
