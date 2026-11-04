@@ -151,3 +151,5 @@ Oui, absolument. Le TOEIC évaluant des contextes professionnels standardisés e
 
 ### À quelle fréquence doit-on effectuer un test blanc complet de 200 questions ?
 Pendant la phase initiale de mise à niveau, un test complet toutes les 3 semaines suffit pour mesurer vos progrès sans vous épuiser. Pendant les 4 dernières semaines avant l'examen, réalisez un test complet chaque samedi matin pour habituer votre esprit à l'effort continu de deux heures.
+
+Pour perfectionner votre réactivité aux questions orales du test, étudiez nos [toeic listening part 2 strategies pour réussir l épreuve](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).

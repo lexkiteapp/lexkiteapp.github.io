@@ -179,3 +179,5 @@ Pour obtenir un score supérieur à 450 points en Reading (et plus de 900 au tot
 
 ### Comment mémoriser efficacement les collocations du monde des affaires ?
 Notez les mots en groupe plutôt qu'isolément (par exemple : *meet the deadline*, *conduct an investigation*, *reach a consensus*). L'application d'un système de répétition espacée comme celui de Lexkite permet de fixer ces automatismes lexicaux dans votre mémoire à long terme.
+
+Pour progresser en compréhension orale et maîtriser les questions courtes, consultez notre guide sur les [toeic listening part 2 strategies pour réussir l épreuve](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).

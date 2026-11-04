@@ -139,3 +139,5 @@ Obtenir un score supérieur à 900 points exige rapidité d'analyse et profondeu
 - **Organisation méthodologique** : Suivez notre [programme de révision TOEIC](/fr/blog/plan-entrainement-toeic-guide-autonomie/) pour équilibrer listening et reading sur 18 semaines.
 
 Lancez dès aujourd'hui l'[application web Lexkite](/#/) et maîtrisez le TOEIC Part 7 avec une aisance et une gestion du temps sans faille !
+
+Pour optimiser votre préparation globale à l écoute, découvrez nos [toeic listening part 2 strategies pour réussir l épreuve](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).
