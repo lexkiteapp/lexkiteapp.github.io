@@ -77,7 +77,7 @@
 'Tuần này': 'This week',
 'Từ của ngày': 'Word of the day',
 'Đã có trong sổ': 'Already saved',
-'Tiếp tục →': 'Continue →',
+
 'Chế độ luyện tập': 'Practice modes',
 'Học tiếp': 'Keep learning',
 'Bài đọc hôm nay': "Today's reading",
