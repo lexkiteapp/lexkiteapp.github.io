@@ -25,7 +25,9 @@
   "View library": "Xem thư viện",
   "7-Day Streak": "Chuỗi 7 ngày",
   "Your path": "Lộ trình học của bạn",
-  "See full path →": "Tới bài hiện tại →"
+  "See full path →": "Tới bài hiện tại →",
+  "Notifications": "Thông báo",
+  "Look up a word": "Tra từ"
  },
  "text": {
   "VI": "d.lang",
@@ -66,13 +68,11 @@
   ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'"
  },
  "attr": {
-  ":scope > main > header > div:nth-child(2) > button": {
-   "data-act": "'lang'",
-   "aria-haspopup": "'dialog'"
-  },
   ":scope > main > header > div:nth-child(2) > div": {
    "href": "'#/me'",
-   "aria-label": "t('Tài khoản')"
+   "aria-label": "t('Tài khoản')",
+   "data-act": "'menu'",
+   "aria-haspopup": "'dialog'"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
    "href": "d.c.tgHref"
@@ -200,6 +200,10 @@
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(1) > button": {
    "data-act": "'path'"
+  },
+  ":scope > main > header > div:nth-child(2) > button:last-of-type": {
+   "data-act": "'lang'",
+   "aria-haspopup": "'dialog'"
   }
  },
  "cls": {
