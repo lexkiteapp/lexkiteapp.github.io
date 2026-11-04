@@ -882,7 +882,7 @@
     "id": "pay-meal",
     "title": {
      "en": "Ask for the bill and pay",
-     "vi": "Xin hoá đơn và trả tiền",
+     "vi": "Xin hóa đơn và trả tiền",
      "es": "Pide la cuenta y paga",
      "pt": "Peça a conta e pague",
      "fr": "Demander l'addition et payer",
@@ -906,7 +906,7 @@
  },
  "culture": {
   "en": "In a sit-down restaurant a server brings the menu, takes your order at the table and brings the bill when you ask for it. It is polite to say you are allergic to something before you order, and to ask what a dish contains if you are not sure. Many servers will ask if everything is all right a few minutes after the food arrives.",
-  "vi": "Ở nhà hàng ngồi bàn, nhân viên mang thực đơn, ghi món tại bàn và chỉ mang hoá đơn khi bạn yêu cầu. Bạn nên nói trước nếu dị ứng món nào và hỏi thành phần món ăn nếu chưa chắc. Nhiều nhân viên sẽ hỏi mọi thứ ổn chưa vài phút sau khi món được mang ra.",
+  "vi": "Ở nhà hàng ngồi bàn, nhân viên mang thực đơn, ghi món tại bàn và chỉ mang hóa đơn khi bạn yêu cầu. Bạn nên nói trước nếu dị ứng món nào và hỏi thành phần món ăn nếu chưa chắc. Nhiều nhân viên sẽ hỏi mọi thứ ổn chưa vài phút sau khi món được mang ra.",
   "es": "En un restaurante con servicio de mesa, el camarero trae la carta, toma el pedido en la mesa y trae la cuenta cuando la pides. Es de buena educación decir antes de pedir si eres alérgico a algo y preguntar qué lleva un plato si no estás seguro. Muchos camareros preguntan si todo va bien unos minutos después de servir.",
   "pt": "Num restaurante com serviço à mesa, o garçom traz o cardápio, anota o pedido e traz a conta quando você pede. É educado avisar de alergias antes de pedir e perguntar o que leva um prato se tiver dúvida. Muitos garçons perguntam se está tudo bem alguns minutos depois de servir.",
   "fr": "Dans un restaurant avec service à table, le serveur apporte la carte, prend la commande et l'addition quand vous la demandez. Il est poli de signaler une allergie avant de commander et de demander la composition d'un plat en cas de doute. Beaucoup de serveurs demandent si tout va bien quelques minutes après l'arrivée des plats.",
