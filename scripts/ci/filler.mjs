@@ -32,15 +32,18 @@ const ACTIVE = new Set(['queued', 'in_progress', 'waiting', 'pending', 'requeste
 export const activeWorkflows = (runs, now = Date.now()) => new Set(runs.filter(r => ACTIVE.has(r.status) && !isZombie(r, now)).map(r => String(r.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '')));
 export const isActive = (entry, active) => active.has(entry.workflow);
 /** Đếm từ danh sách job của các lượt chưa xong (thuần). Phần tử = mảng job, hoặc { event, jobs } để đếm job check PR đang xếp hàng (prQueued). */
+/** Job xếp hàng quá lâu mà máy vẫn rảnh là job kẹt (max-parallel giữ, lượt zombie): không tính vào hàng chờ. 04/11: teach-video của 1 PR giữ 14 job ~6 giờ, filler báo "check PR chờ" dù 38 runner trống. Ngưỡng cao hơn thời gian chờ thật khi còn runner; lúc nghẽn thật busy cao nên capacity vẫn về 0. */
+export const STUCK_MS = 45 * 60e3;
 export function countJobs(jobsByRun, now = Date.now()) {
-  let busy = 0, queued = 0, starved = 0, prQueued = 0;
+  let busy = 0, queued = 0, starved = 0, prQueued = 0, stuck = 0;
   for (const x of jobsByRun) {
     const jobs = Array.isArray(x) ? x : x.jobs || [], pr = !Array.isArray(x) && /^pull_request/.test(x.event || '');
-    const run = jobs.filter(j => j.status === 'in_progress').length, q = jobs.filter(j => j.status === 'queued');
+    const run = jobs.filter(j => j.status === 'in_progress').length, all = jobs.filter(j => j.status === 'queued'), q = all.filter(j => now - new Date(j.created_at || now) <= STUCK_MS);
+    stuck += all.length - q.length;
     busy += run; queued += q.length; if (pr) prQueued += q.length;
     if (!run) starved += q.filter(j => now - new Date(j.created_at || now) > 60e3).length;
   }
-  return { busy, queued, starved, prQueued };
+  return { busy, queued, starved, prQueued, stuck };
 }
 export function plan(entries, { free, active, left }) {
   const out = [];
