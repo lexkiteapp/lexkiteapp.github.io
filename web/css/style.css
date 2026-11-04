@@ -1393,10 +1393,10 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Phản hồi chạm: nút & thẻ nảy nhẹ khi bấm */
 .btn:active, .card.hover:active, .hub-card:active, .plan-item:active, .option:active { transform: scale(.97); transition: transform 80ms; }
 /* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
-body.focus .sidebar, body.focus .bottom-nav { display: none; }
-body.focus .shell { grid-template-columns: 1fr; }
+body.focus .sidebar, body.focus .bottom-nav, .lk-fo .sidebar, .lk-fo .bottom-nav { display: none; }
+body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
 /* Màn học: thanh trên ra khỏi luồng để không để lại dải trống ở đầu màn */
-body.focus .topbar { position: absolute; inset-inline: 0; visibility: hidden; transform: translateY(-100%); pointer-events: none; }
+.lk-fo .topbar, body.focus .topbar { position: absolute; inset-inline: 0; visibility: hidden; transform: translateY(-100%); pointer-events: none; }
 .listen-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; }
 .listen-head { margin: .25rem 0 1rem; }
 
