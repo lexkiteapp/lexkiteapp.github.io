@@ -1462,12 +1462,11 @@ body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-e
 .qe-n { border: 1px solid var(--line); background: var(--bg); color: var(--text); border-radius: 6px; padding: 0 .4rem; font: 700 .8rem/1.6 inherit; cursor: pointer; margin: 0 .15rem .15rem 0; }
 .qe-flash { outline: 3px solid var(--primary); outline-offset: 2px; transition: outline .3s; }
 /* Danh sách dài & khối dưới trang: chỉ vẽ khi cuộn tới (Baseline content-visibility) – LCP nhanh & cuộn mượt */
-/* docs/PERF-SCROLL.md: Safari chưa có scroll anchoring */
 @supports (overflow-anchor: auto) {
   .word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
   .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 }
-.lk-scrolling .flame-icon, .lk-scrolling svg .blink, .lk-scrolling svg .flap-l, .lk-scrolling svg .flap-r, .lk-scrolling .st-fl .fl-mid, .lk-scrolling .st-fl .fl-core, .lk-scrolling .node.current, .lk-scrolling .node-tip, .lk-scrolling .shimmer-fx::after, .lk-scrolling .pill-shimmer::after { animation-play-state: paused !important; }
+.lk-scrolling :is(.flame-icon, svg .blink, svg .flap-l, svg .flap-r, .st-fl .fl-mid, .st-fl .fl-core, .node.current, .node-tip), .lk-scrolling .shimmer-fx::after, .lk-scrolling .pill-shimmer::after { animation-play-state: paused !important; }
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
 body.v2pre #view { padding: 0; max-width: none; }
 @media (min-width: 1024px) {

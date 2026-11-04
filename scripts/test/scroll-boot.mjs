@@ -15,7 +15,7 @@ const v2 = (app.match(/V2_ROUTES = new Set\(\[([^\]]*)\]/) || [, ''])[1].match(/
 ok(v2.length, 'app.js: thiếu V2_ROUTES');
 const bootV2 = (boot.match(/\(H\|\|I\('([^']*)',n\)/) || [, ''])[1].split(' ').sort().join(' ');
 ok(bootV2 === v2.map(x => x.slice(1, -1)).sort().join(' '), `V2_ROUTES (app.js) lệch khung đặt trước: ${bootV2}`);
-for (const k of ['lk.ux1.pv', 'lk.cfg', 'lk.ub', 'ux1_pct']) ok(boot.includes(k) && app.includes(k), `cờ ux1 trong khung đặt trước phải cùng nguồn với App.ux1On: ${k}`);
+for (const k of ['lk.ux1.pv', 'lk.ux1c']) ok(boot.includes(k) && app.includes(k), `cờ ux1 trong khung đặt trước phải cùng nguồn với app.js: ${k}`);
 // 2) content-visibility
 const noSup = css.replace(/@supports \(overflow-anchor: auto\) \{[\s\S]*?\n\}/g, '');
 ok(css.includes('@supports (overflow-anchor: auto)'), 'style.css: content-visibility phải nằm trong @supports (overflow-anchor: auto)');

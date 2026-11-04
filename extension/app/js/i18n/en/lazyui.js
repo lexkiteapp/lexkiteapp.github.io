@@ -684,4 +684,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Học ngay': 'Start',
 "Thân bài 1": "Body paragraph 1",
 'Chế độ tiếp theo': 'Next mode',
+  // ← en/shell.js
+  "Tra từ ngay trên mọi trang web": "Look up words on any website",
 }); })(typeof self !== 'undefined' ? self : this);

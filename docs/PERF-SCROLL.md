@@ -6,6 +6,7 @@
 ## Luật
 - Khung màn (thanh trên, tab dưới, cột bên) phải đúng từ lúc chạm và từ lần vẽ đầu. Màn mới dùng khung v2/focus thì thêm vào `V2_ROUTES` (`web/js/app.js`), `ExitGuard` và script đầu `<body>` của `web/app/index.html`. `scroll-boot.mjs` khoá các danh sách này khớp nhau.
 - `content-visibility` chỉ dùng trong `@supports (overflow-anchor: auto)`. Safari/WKWebView chưa có scroll anchoring nên chiều cao ước lượng làm cả trang nhảy (đo trên WKWebView: `topic/environment` đổi 1.488 px khi cuộn).
+- Đổi bố cục trong 500 ms sau thao tác không tính CLS nên ẩn thanh trên ngay lúc chạm, không đợi tải gói. Đường dẫn trang con (`crumb`) chèn trong MutationObserver, trước khi trình duyệt vẽ khung; chèn sau khi tải dữ liệu sẽ đẩy cả trang xuống khoảng 40 px.
 - Hiệu ứng trang trí vô hạn: thêm selector vào khối `.lk-scrolling` trong `style.css` để tạm dừng khi cuộn; không animate `left/top/width/height` (`scroll-boot.mjs` chặn).
 - Việc nền nặng lúc khởi động dùng `App.calm(fn)`; dữ liệu lớn thì tải trước vào bộ đệm rồi mới chạy (`audio-index.js`).
 - Vị trí cuộn do `route()` giữ theo từng mục lịch sử. `history.replaceState` phải truyền `history.state`, truyền `null` là mất vị trí khi Back.
