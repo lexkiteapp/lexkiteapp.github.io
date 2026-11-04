@@ -60,7 +60,7 @@ const INJECT = () => {
     const Y = () => el ? el.scrollTop : scrollY, H = () => el ? el.scrollHeight : document.documentElement.scrollHeight;
     const bars = [...document.querySelectorAll('body *')].filter(e => { const p = getComputedStyle(e).position; if (p !== 'sticky' && p !== 'fixed') return false; const r = e.getBoundingClientRect(); return r.width > 40 && r.height > 8 && r.bottom > 0 && r.top < innerHeight; }).slice(0, 12);
     let last = performance.now(), n = 0; R.on = 1;
-    const tick = t => { if (!R.on) return; R.dt.push(+(t - last).toFixed(1)); last = t; R.ys.push([S.phase === 'up' ? 1 : 0, Math.round(Y())]); if (!(n++ % 6)) { R.hs.push(H()); for (const b of bars) { const k = label(b), h = Math.round(b.getBoundingClientRect().height); (R.bars[k] = R.bars[k] || []).push(h); } } S.inSampler = 1; raf.call(window, tick); S.inSampler = 0; };
+    const tick = t => { if (!R.on) return; R.dt.push(+(t - last).toFixed(1)); last = t; R.ys.push([S.phase === 'up' ? 1 : 0, Math.round(Y())]); if (n === 18 && document.getAnimations) R.liveAnim = document.getAnimations().filter(a => a.playState === 'running' && a.effect && a.effect.getComputedTiming().iterations === Infinity && !(a.effect.target && a.effect.target.closest && a.effect.target.closest('.skel, .tslot'))).map(a => (a.animationName || '?') + '@' + label(a.effect.target)); if (!(n++ % 6)) { R.hs.push(H()); for (const b of bars) { const k = label(b), h = Math.round(b.getBoundingClientRect().height); (R.bars[k] = R.bars[k] || []).push(h); } } S.inSampler = 1; raf.call(window, tick); S.inSampler = 0; };
     raf.call(window, tick);
   };
 };
@@ -150,13 +150,13 @@ async function measure(ctx, sc, cold) {
     const anim = document.getAnimations ? document.getAnimations().filter(a => a.playState === 'running' && a.effect && a.effect.getComputedTiming().iterations === Infinity).map(a => { const props = [...new Set(a.effect.getKeyframes().flatMap(k => Object.keys(k)))].filter(p => !/^(offset|easing|composite|computedOffset)$/.test(p)); return { on: S.label(a.effect.target), name: a.animationName || a.transitionProperty || '?', nonComp: props.filter(p => !/^(transform|opacity|filter|backdropFilter|scale|rotate|translate)$/.test(p)) }; }) : [];
     let blur = 0, i = 0; for (const e of document.querySelectorAll('body *')) { if (i++ > 4000) break; const c = getComputedStyle(e); if ((c.backdropFilter && c.backdropFilter !== 'none') || (c.webkitBackdropFilter && c.webkitBackdropFilter !== 'none')) blur++; }
     const cs = getComputedStyle(document.documentElement), cv = [...document.querySelectorAll('.word-row,.model-row,.md-item')].length;
-    return { cv, dt, n: dt.length, frames: dt, reversal, barDelta, heightChange, shifts: S.shifts, listeners: S.listeners, prog: S.prog, mutN: S.mutN, muts: Object.entries(S.muts).sort((a, b) => b[1] - a[1]).slice(0, 5), raf: Object.entries(S.raf).sort((a, b) => b[1] - a[1]).slice(0, 5), anim, blur, smooth: cs.scrollBehavior, overscroll: cs.overscrollBehaviorY, noLS: S.noLS };
+    return { cv, liveAnim: R.liveAnim || [], dt, n: dt.length, frames: dt, reversal, barDelta, heightChange, shifts: S.shifts, listeners: S.listeners, prog: S.prog, mutN: S.mutN, muts: Object.entries(S.muts).sort((a, b) => b[1] - a[1]).slice(0, 5), raf: Object.entries(S.raf).sort((a, b) => b[1] - a[1]).slice(0, 5), anim, blur, smooth: cs.scrollBehavior, overscroll: cs.overscrollBehaviorY, noLS: S.noLS };
   });
   if (cdp) { const done = new Promise(r => cdp.once('Tracing.tracingComplete', r)); await cdp.send('Tracing.end'); await done; res.trace = traceWindow(ev, 'lk-sp-a', 'lk-sp-b'); }
   const dropped = m.dt.reduce((s, d) => s + Math.max(0, Math.round(d / 16.67) - 1), 0);
   const inScroll = s => s.phase === 'down' || s.phase === 'up' || s.phase === 'off', sum = a => +a.reduce((x, s) => x + s.v, 0).toFixed(4);
   const nonInput = m.shifts.filter(s => !s.input);
-  Object.assign(res, { cvRows: m.cv, frames: m.n, droppedPct: m.n ? +(dropped / (dropped + m.n) * 100).toFixed(1) : 0, p95: pctl(m.dt, .95), worst: Math.round(Math.max(0, ...m.dt)), jank50: m.dt.filter(d => d > 50).length,
+  Object.assign(res, { liveAnim: m.liveAnim, cvRows: m.cv, frames: m.n, droppedPct: m.n ? +(dropped / (dropped + m.n) * 100).toFixed(1) : 0, p95: pctl(m.dt, .95), worst: Math.round(Math.max(0, ...m.dt)), jank50: m.dt.filter(d => d > 50).length,
     cls: clsOf(nonInput), loadCls: sum(nonInput.filter(s => s.phase === 'load')), scrollCls: sum(m.shifts.filter(inScroll)), shiftTop: [...m.shifts].sort((a, b) => b.v - a.v).slice(0, 4),
     reversal: m.reversal, barDelta: m.barDelta, heightChange: m.heightChange, blocking: m.listeners.filter(l => l.blocking), listeners: m.listeners.length, scrollLis: m.listeners.filter(l => l.type === 'scroll').map(l => l.at), prog: m.prog, mutN: m.mutN, muts: m.muts, raf: m.raf, anim: m.anim, blur: m.blur, smooth: m.smooth, overscroll: m.overscroll, errs });
   await page.close();
@@ -227,6 +227,7 @@ for (const r of good) {
     if (r.dist > 40 && (t.longMax ?? 0) > g('longMaxMs')) fail(`${w}: task dài ${t.longMax} ms > ${g('longMaxMs')} ms khi cuộn`);
     if ((t.layoutMs ?? 0) > g('layoutMs')) fail(`${w}: layout khi cuộn ${t.layoutMs} ms > ${g('layoutMs')} ms ← ${(t.layoutAt || [])[0] || ''}`);
     if ((r.blocking || []).length > g('blocking')) fail(`${w}: ${r.blocking.length} listener chặn cuộn: ${r.blocking.map(b => b.type + ' ' + b.on + ' ' + b.at).join(' | ')}`);
+    if (r.dist > 200 && (r.liveAnim || []).length > g('liveAnim')) fail(`${w}: hiệu ứng vô hạn vẫn chạy khi cuộn: ${[...new Set(r.liveAnim)].join(', ')}`);
     if ((r.offscreen || []).length > g('offscreen')) fail(`${w}: chạy khi ngoài màn: ${r.offscreen.join(', ')}`);
   }
   if (r.reversal > g('reversal')) fail(`${w}: vị trí cuộn tự nhảy ngược ${r.reversal} lần`);

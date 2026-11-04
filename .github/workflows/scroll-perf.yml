@@ -43,7 +43,7 @@ jobs:
         with: { name: 'scroll-perf-${{ matrix.device }}-${{ matrix.theme }}', path: sp-out, retention-days: 14 }
   # A/B chỉ trên nhánh đo: tìm nguyên nhân bằng số (mỗi biến thể 1 runner, song song), không chặn gì
   ab:
-    if: ${{ github.event_name != 'pull_request' }}
+    if: ${{ github.ref == 'refs/heads/scroll-perf-baseline' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:

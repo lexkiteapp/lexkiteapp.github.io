@@ -397,8 +397,28 @@
     w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
     return fn.apply(this, a);
   };
+  const V2_ROUTES = new Set(['home', 'lesson', 'train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khoá cùng danh sách trong app/index.html
+  // 🧈 Cuộn (docs/PERF-SCROLL.md): vị trí theo từng mục lịch sử (Back/Forward về đúng chỗ), html.lk-scrolling (dừng hiệu ứng trang trí vô hạn khi đang cuộn), App.calm (việc nền nặng đợi tay rảnh)
+  const Scroll = (() => {
+    const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
+    try { history.scrollRestoration = 'manual'; } catch (e) { /* bỏ qua */ }
+    const still = () => { off = 0; de.classList.remove('lk-scrolling'); };
+    addEventListener('scroll', () => { movedAt = performance.now(); if (off) clearTimeout(off); else de.classList.add('lk-scrolling'); off = setTimeout(still, 160); }, { passive: true });
+    const input = () => { inputAt = performance.now(); };
+    for (const k of ['touchstart', 'touchmove', 'wheel']) addEventListener(k, input, { passive: true });
+    return {
+      // Đầu mỗi lượt route: lưu chỗ của màn vừa rời; trả về chỗ cần quay lại (0 = màn mới). Mục lịch sử mới state rỗng → gắn mã riêng.
+      enter() { const st = history.state; let id = st && st.lkS, y = 0; if (cur) pos.set(cur, scrollY); if (id) { if (id !== cur) y = pos.get(id) || 0; } else { id = Date.now().toString(36) + (++seq); try { history.replaceState(Object.assign({}, st, { lkS: id }), ''); } catch (e) { /* bỏ qua */ } } cur = id; return y; },
+      touched: t0 => inputAt > t0,
+      // Nội dung vẽ dần/màn tự cuộn tới nút hiện tại → giữ chỗ tới khi ổn định; người học chạm là thôi ngay
+      restore(y, live) { const t0 = performance.now(), go = () => { if (!live() || inputAt > t0 || performance.now() - t0 > 600) return; if (Math.abs(scrollY - y) > 1) scrollTo(0, y); requestAnimationFrame(go); }; go(); },
+      calm(fn, maxMs = 20000) { const t0 = performance.now(), go = () => { const n = performance.now(); if (n - t0 > maxMs || (n - Math.max(movedAt, inputAt) > 600)) idle(fn); else setTimeout(go, 400); }; go(); },
+    };
+  })();
+  App.calm = Scroll.calm;
   async function route() {
     const my = ++routeSeq; // token của lượt này
+    const backY = Scroll.enter(), routeAt = performance.now();
     held = false;
     scope.ac.abort(); scope = { id: my, ac: new AbortController() };
     if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
@@ -410,7 +430,10 @@
     const b = [].concat(ROUTE_BUNDLE[name] || []), ux1 = App.ux1On();
     if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // đang ôn/luyện → tập trung 100% vào thẻ. Đổi bố cục (ẩn thanh trên) NGAY lúc chạm – không đợi tải gói: thay đổi trong 500 ms sau thao tác không tính CLS (mobile-qa)
-    document.body.classList.toggle('focus', name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg)); // ux1: bản đồ #/lesson giữ thanh điều hướng
+    const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
+    document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); // ux1: bản đồ #/lesson giữ thanh điều hướng; màn học (ExitGuard) đặt NGAY lúc chạm, không đợi vẽ xong
+    document.body.classList.toggle('v2pre', ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'call' && !!arg))); // khung Stitch v2 sắp vẽ: giữ đúng bố cục từ lúc chạm (không xô #view 64 px khi gói về)
+    if (!ux1) document.body.classList.remove('ux1'); // bản tải trước (app/index.html) đoán theo cùng cờ – phòng cấu hình đổi
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -434,13 +457,15 @@
     while (App.cleanups.length) { try { App.cleanups.pop()(); } catch (e) { /* một hàm lỗi không chặn các hàm khác */ } }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
-      window.scrollTo(0, 0); const preTitle = document.title;
+      if (!backY && !Scroll.touched(routeAt)) window.scrollTo(0, 0); const preTitle = document.title; // gói về chậm mà người học đã cuộn → không giật về đầu
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm.
       // Chèn NGAY khi trang vẽ .page-head (MutationObserver chạy trước khi trình duyệt vẽ khung) – chèn sau khi trang tải xong dữ liệu đẩy cả trang xuống ~40 px (CLS từ điển, mobile-qa)
       const crumb = () => { const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head'); if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c); };
       const mo = new MutationObserver(crumb); mo.observe(view, { childList: true });
       try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); } // lượt cũ lỗi vì bị hủy → im lặng
       crumb(); // trang vẽ .page-head sau bước bất đồng bộ
+      document.body.classList.remove('v2pre'); // khung thật đã vẽ (body.v2on) hoặc màn không phải khung v2
+      if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
@@ -897,7 +922,7 @@
           <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
-    const syncUrl = () => history.replaceState(null, '', location.pathname + location.search + `#/library?g=${$('#libTabs .on').dataset.g}${lvf ? '&lv=' + lvf : ''}`);
+    const syncUrl = () => history.replaceState(history.state, '', location.pathname + location.search + `#/library?g=${$('#libTabs .on').dataset.g}${lvf ? '&lv=' + lvf : ''}`);
     $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); syncUrl(); draw(); });
     $$('[data-lvf]').forEach(b => b.onclick = () => { lvf = b.dataset.lvf; $$('[data-lvf]').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); }); syncUrl(); draw(); });
     $('#libQ').oninput = draw;
@@ -1532,7 +1557,7 @@
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }, 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    setTimeout(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); }), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
