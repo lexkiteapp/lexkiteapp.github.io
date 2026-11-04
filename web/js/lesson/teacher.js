@@ -266,7 +266,7 @@
   const CSS = '.tchb{position:relative}.tchb-tail{position:absolute;top:0;left:0;width:18px;height:18px;margin-top:-10px;background:inherit;border-style:solid;border-color:inherit;border-width:inherit;border-right:0;border-bottom:0;border-radius:4px 0 0 0;transform:translateX(var(--tx,0px)) rotate(45deg);pointer-events:none;z-index:1}' +
     '.tchb-pop{transform-origin:var(--tx,50%) 0;animation:tchb-in .16s cubic-bezier(.2,.8,.2,1)}@keyframes tchb-in{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}' +
     '.kwp{--kw0:#4E5F62;--kwb:#DCE3E1;--kwc:#0D6964}' + DK('.kwp{--kw0:#A9BFC1;--kwb:#2A434C;--kwc:#5EEAD4}') +
-    '.kwp .kw{display:inline-block;min-width:24px;min-height:24px;text-align:center;transition:color .12s linear;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent}.kwp.kw-run .kw{color:var(--kw0)}.kwp .kw.on{color:inherit}.kwp .kw.cur{color:var(--kwc);box-shadow:inset 0 -2px 0 currentColor}.kwp .kw:focus-visible{outline:2px solid #2BA39A;outline-offset:1px}' +
+    '.kwp .kw{position:relative;transition:color .12s linear;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent}.kwp .kw::after{content:"";position:absolute;inset:-5px -2px}.kwp.kw-run .kw{color:var(--kw0)}.kwp .kw.on{color:inherit}.kwp .kw.cur{color:var(--kwc);box-shadow:inset 0 -2px 0 currentColor}.kwp .kw:focus-visible{outline:2px solid #2BA39A;outline-offset:1px}' +
     '.kwp.kw-off .kw{color:transparent;background:var(--kwb)}.kwp.kw-off .kw.on{color:transparent}' +
     '.tchb-cc{position:absolute;top:1.2rem;right:3.9rem;z-index:20;min-width:2.25rem;height:1.75rem;padding:0 .4rem;border-radius:9999px;font:800 11px/1 system-ui,sans-serif;letter-spacing:.04em;border:1.5px solid currentColor;background:transparent;color:#0D6964}.tchb-cc[aria-pressed=false]{opacity:1;color:#4E5F62;text-decoration:line-through}' + DK('.tchb-cc{color:#2BA39A}') + DK('.tchb-cc[aria-pressed=false]{color:#A9BFC1}') +
     '.tchb-ring{--p:0;background:conic-gradient(currentColor calc(var(--p)*1turn),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));position:absolute;inset:-4px;border-radius:9999px;pointer-events:none;opacity:0;transition:opacity .16s}.tchb-play .tchb-ring{opacity:1}' +
@@ -289,8 +289,8 @@
     let cur = -2;
     const api = {
       words: units,
-      // word(i, k0): i = từ đang đọc trong câu (mốc thật từ file giọng, LipSync.wordTimes), k0 = từ đầu của câu trong khung (cuộc gọi: mỗi câu 1 file). i < 0: chưa tới · null: hết/không có mốc → chữ tĩnh đủ tương phản
-      word(i, k0 = 0) { const run = i != null; el.classList.toggle('kw-run', run); const n = run ? k0 + i : -9; if (n === cur) return; cur = n;
+      // word(i, k0): i = từ đang đọc trong câu (mốc thật từ file giọng, LipSync.wordTimes), k0 = từ đầu của câu trong khung (cuộc gọi: mỗi câu 1 file). i < 0: chưa tới · null: hết/không có mốc → chữ tĩnh
+      word(i, k0 = 0) { const run = i != null && i >= 0; el.classList.toggle('kw-run', run); /* tiếng chưa bật (tải, kẹt mạng): chữ vẫn đủ tương phản */ const n = run ? k0 + i : -9; if (n === cur) return; cur = n;
         units.forEach((u, k) => { if (u.classList) { u.classList.toggle('on', run && k <= n); u.classList.toggle('cur', k === n); } }); },
       cc(on) { el.classList.toggle('kw-off', !on); },
     };
