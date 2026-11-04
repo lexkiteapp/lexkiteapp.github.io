@@ -316,7 +316,7 @@ body.call-on{overflow:hidden}
         start: () => { if (my === turn) setPhase('listen'); },
         result: ({ heard, score }) => { if (my !== turn || !alive()) return; turn++; if (heard) answer(heard, false, false, { secs: (Date.now() - s0) / 1000, asr: score }); else setPhase('you'); },
         error: code => { if (my !== turn) return; autoMic = false; setPhase('you'); if (code !== 'no-speech') toast(UI.recErrorText(code), 3500); else toast(UI.recErrorText('no-speech'), 2500); },
-        end: () => { if (rec && rec._my === my) rec = null; if (my === turn && phase === 'listen') setPhase('you'); },
+        end: () => { if (rec && rec._my === my) rec = null; if (!rec && phase === 'listen') setPhase('you'); }, // result đến trước end (UI.recognize) → Part 2 vẫn mở micro cho đoạn kế
       };
       if (m === 'local') cb.setup = r => { r.processLocally = true; if (n.long) r.continuous = false; if (typeof window.SpeechRecognitionPhrase === 'function' && 'phrases' in r) r.phrases = words.map(w => new window.SpeechRecognitionPhrase(w, 3)); };
       if (m === 'whisper') { cb.whisper = true; cb.maxMs = n.long ? 28000 : Math.min(15000, 3000 + (n.min || 8) * 450); }

@@ -3,7 +3,7 @@
 //   GITHUB_TOKEN=… node scripts/ci/shards.mjs --left N [--per 1500] [--cap 24]   → in JSON mảng [0..shards-1]; lỗi API → coi như bận hết (1 shard)
 export const TOTAL = 40, RESERVE = 8;
 export const shardCount = ({ left, busy, per = 1500, cap = 24 }) => Math.max(1, Math.min(cap, TOTAL - busy - RESERVE, Math.ceil(left / per)));
-async function busyJobs(repo, token) {
+export async function busyJobs(repo, token) {
   const h = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }, get = async u => { const r = await fetch(`https://api.github.com/repos/${repo}/${u}`, { headers: h }); if (!r.ok) throw new Error(`${r.status} ${u}`); return r.json(); };
   let n = 0;
   // chỉ job ĐANG CHẠY mới chiếm runner (1/11: đếm cả job xếp hàng + lượt "queued" ma → 165 → chỉ 1 shard)
