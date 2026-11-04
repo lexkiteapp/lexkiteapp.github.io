@@ -127,6 +127,7 @@ node scripts/push-copy.mjs --check
 node scripts/jobs/gen.mjs
 node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
+node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
@@ -177,6 +178,9 @@ node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
 node scripts/test/klocal.mjs
+node scripts/test/ext-bundles.mjs
+node scripts/test/img-api.mjs
+node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
@@ -187,6 +191,8 @@ node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
+node scripts/test/st2-href.mjs
+node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
@@ -231,6 +237,7 @@ node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/test/mqa-parity-self.mjs
 node scripts/say-native/build.mjs --check
+node scripts/test/lesson-drag.mjs
 node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
@@ -242,3 +249,6 @@ node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/brand-logo-stitch.mjs
+node scripts/test/root-lang.mjs
+node scripts/test/cpm-plan.mjs

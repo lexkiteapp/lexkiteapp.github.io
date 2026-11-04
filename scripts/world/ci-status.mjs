@@ -5,14 +5,16 @@ import { execFileSync } from 'node:child_process';
 
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io', T = process.env.GITHUB_TOKEN;
 if (!T) { console.error('thiếu GITHUB_TOKEN'); process.exit(75); }
-const WF = ['npm-test.yml', 'visual-qa.yml', 'new-ui-qa.yml', 'mobile-qa.yml', 'journey-e2e.yml', 'stitch-quality-qc.yml'];
+// npm-test = ci.yml (không có file npm-test.yml: cổng này từng luôn null). Danh sách dùng chung với bản tin ci-triage.
+import { CORE_TESTS } from '../ci/triage.mjs';
+const WF = Object.entries(CORE_TESTS);
 const H = { Authorization: `Bearer ${T}`, Accept: 'application/vnd.github+json' };
 const api = p => fetch(`https://api.github.com/repos/${REPO}/${p}`, { headers: H }).then(r => r.ok ? r.json() : null).catch(() => null);
 const out = { at: new Date().toISOString(), workflows: {}, mobile: null };
-for (const w of WF) {
+for (const [key, w] of WF) {
   const j = await api(`actions/workflows/${w}/runs?branch=main&status=completed&per_page=5`);
   const run = j && (j.workflow_runs || []).find(r => !['cancelled', 'skipped'].includes(r.conclusion));
-  out.workflows[w.replace('.yml', '')] = run ? { conclusion: run.conclusion, at: run.updated_at, id: run.id } : null;
+  out.workflows[key] = run ? { conclusion: run.conclusion, at: run.updated_at, id: run.id } : null;
 }
 const mq = out.workflows['mobile-qa'];
 if (mq) try {

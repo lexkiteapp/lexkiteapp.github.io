@@ -101,6 +101,11 @@
         if (over > 2) { add('spill', 'fail', c, `"${txt(c)}" lòi ra ngoài ${lab(box)} ${Math.round(over)}px`); break; }
       }
     }
+    // 3b) thẻ cùng hàng, cùng số nút: nút cuối phải thẳng đáy (không thò thụt) – css/style.css § thẻ lưới
+    for (const g of new Set([...D.querySelectorAll('#view .card')].map(c => c.parentElement))) {
+      const rows = {}; for (const c of g.children) { if (!c.matches('.card')) continue; const r = vis(c), bs = [...c.querySelectorAll('.btn')].filter(vis); if (r && bs.length) (rows[Math.round(r.top) + '|' + bs.length] = rows[Math.round(r.top) + '|' + bs.length] || []).push(vis(bs[bs.length - 1]).bottom); }
+      for (const b of Object.values(rows)) if (b.length > 1 && Math.max(...b) - Math.min(...b) > 2) add('card-actions', 'fail', g, `nút các thẻ cùng hàng lệch nhau ${Math.round(Math.max(...b) - Math.min(...b))}px`);
+    }
     // 4–5) phần tử bấm được: ngoài màn hình / bị đè / vùng chạm nhỏ
     const inter = [...D.querySelectorAll(INTER)].map(e => [e, vis(e)]).filter(([, r]) => r);
     for (const [e, r] of inter) {
@@ -109,7 +114,9 @@
       if (!scr && (r.right > IW + 1 || r.left < -1) && getComputedStyle(e).position !== 'fixed') add('offscreen', 'fail', e, `"${txt(e)}" nằm ngoài màn hình (x ${Math.round(r.left)}…${Math.round(r.right)} / ${IW})`);
       // bị đè: điểm tâm (trong vùng nhìn thấy) phải trúng chính nó/con/cha-nhãn
       const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      if (cx > 0 && cx < IW && cy > 0 && cy < IH && !scr) {
+      // đang cuộn khuất trong vùng cuộn dọc riêng (menu thanh bên) = chưa nhìn thấy, không phải bị đè; cuộn tới được do kiểm riêng trong qa-bot.mjs (sidebar-*)
+      const outY = (function () { for (let x = e.parentElement; x && x !== D.body; x = x.parentElement) { if (!/auto|scroll/.test(getComputedStyle(x).overflowY)) continue; const b = x.getBoundingClientRect(); if (cy < b.top || cy > b.bottom) return true; } return false; })();
+      if (cx > 0 && cx < IW && cy > 0 && cy < IH && !scr && !outY) {
         const hit = D.elementFromPoint(cx, cy);
         if (hit && hit !== e && !e.contains(hit) && !hit.contains(e) && !(hit.closest && hit.closest('label') && hit.closest('label').contains(e))) {
           const hs = getComputedStyle(hit);
