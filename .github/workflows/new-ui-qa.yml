@@ -6,7 +6,8 @@ on:
   pull_request:
     paths: ['web/js/lesson/**', 'web/js/retention.js', 'web/js/streak-ui.js', 'web/js/share-card.js', 'web/js/lesson-video.js', 'web/js/i18n/**', 'web/teach/**', 'web/img/teach/**', 'web/css/**', 'web/style.css', 'web/app/**', 'docs/mocks/teacher-*/**', 'scripts/test/new-ui-*.mjs', 'scripts/test/journey-e2e/checks.js', '.github/workflows/new-ui-qa.yml']
   push:
-    branches: ['nuq-*']   # nhánh soát hình: luôn chạy đủ (dispatch chỉ được khi workflow đã ở main)
+    branches: ['nuq-*', main]   # nuq-*: chạy đủ khi chạm các màn này (đủ bộ bất kỳ lúc nào: chạy tay full=1) · main: cổng nhanh như PR, để bản tin ci-triage và World thấy kết luận trên main
+    paths: ['web/js/lesson/**', 'web/js/retention.js', 'web/js/streak-ui.js', 'web/js/share-card.js', 'web/js/lesson-video.js', 'web/js/i18n/**', 'web/teach/**', 'web/img/teach/**', 'web/css/**', 'web/style.css', 'web/app/**', 'docs/mocks/teacher-*/**', 'scripts/test/new-ui-*.mjs', 'scripts/test/journey-e2e/checks.js', '.github/workflows/new-ui-qa.yml', '.github/workflows/new-ui-qa.yml', 'scripts/test/new-ui-qa.mjs']
   workflow_dispatch:
     inputs:
       full: { description: '1 = 15 ngôn ngữ × 4 khung × sáng/tối + contact sheet', required: false, default: '1' }
@@ -24,14 +25,14 @@ jobs:
       fail-fast: false
       max-parallel: 8
       matrix:
-        lang: ${{ fromJSON((github.event_name == 'push' || github.event.inputs.full == '1') && '["en","vi","ar","de","es","fr","hi","id","ja","ko","pt","ru","th","tr","zh"]' || '["en,ar","ru,de","vi,ja,hi"]') }}
+        lang: ${{ fromJSON(((github.event_name == 'push' && github.ref != 'refs/heads/main') || github.event.inputs.full == '1') && '["en","vi","ar","de","es","fr","hi","id","ja","ko","pt","ru","th","tr","zh"]' || '["en,ar","ru,de","vi,ja,hi"]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp + đầu dò
         env:
-          VPS: ${{ (github.event_name == 'push' || github.event.inputs.full == '1') && '360,390,768,1280' || '360,1280' }}
+          VPS: ${{ ((github.event_name == 'push' && github.ref != 'refs/heads/main') || github.event.inputs.full == '1') && '360,390,768,1280' || '360,1280' }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           npx playwright install --with-deps chrome   # Chrome thật (H.264) – Chromium mã nguồn mở không phát được mp4 giáo viên
@@ -41,7 +42,7 @@ jobs:
         with: { name: 'nuq-${{ strategy.job-index }}', path: 'nuq-${{ strategy.job-index }}', retention-days: 14 }
   sheets:
     needs: shots
-    if: always()
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
