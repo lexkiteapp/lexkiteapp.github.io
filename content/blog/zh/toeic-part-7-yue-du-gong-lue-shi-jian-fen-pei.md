@@ -136,3 +136,5 @@ qualityScore: 95
 - **系统备考路径规划**：结合我们的 [托业自学备考规划指南](/zh/blog/toeic-zi-xue-bei-kao-gui-hua/)，科学统筹听力与阅读的周期性复习方案。
 
 立即访问 [Lexkite 在线应用平台](/#/)，全面驾驭 TOEIC Part 7，从容掌控考试时间，斩获心仪的职业英语证书！
+
+要想在听力问答题中同样斩获高分并保持做题节奏，请查阅我们的 [toeic 听力 part 2 技巧：避开陷阱与秒选正解全攻略](/zh/blog/toeic-ting-li-part-2-jie-ti-ji-qiao/)。
