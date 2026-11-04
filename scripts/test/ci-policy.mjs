@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
 
-/** Lệnh kiểm của ci.yml thiếu trong suite.txt (thuần): so theo script node, `node --check`, `tsc -p`. */
+/** Lệnh kiểm của ci.yml thiếu trong suite.txt (thuần): so theo script node; `node --check`, `tsc -p` viết trần trong ci.yml luôn bị báo (suite chỉ nhận `node …`, suite-guard) → bọc thành script. */
 export function ciParity(ciYml, suite) {
   const need = new Set();
   for (const m of String(ciYml).matchAll(/^\s*(?:-\s*)?(?:run:\s*)?(.*)$/gm)) {
