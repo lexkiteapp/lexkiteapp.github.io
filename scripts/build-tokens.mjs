@@ -36,11 +36,11 @@ for (const [f, sel] of [['extension/content.js', '.box.dark'], ['extension/write
   put(f, s.replace(re, `/*@tokens*/${sel}{${ext}}/*@end*/`));
 }
 
-// 3) icon app: nền teal + vệt sáng trên cùng (bgTop → bg), diều sáng hơn chút (tương phản ≥ 3:1 – brand-check)
+// 3) icon app (chủ duyệt, brand-check khóa sha256 – chỉ đổi khi chủ đồng ý): nền teal phẳng, diều cam → san hô (tương phản ≥ 3:1)
 const I = T.icon, [k0, k1] = I.kite;
-const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${I.bgTop}"/><stop offset="${I.highlightEnd}" stop-color="${I.bg}"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${k0}"/><stop offset="1" stop-color="${k1}"/></linearGradient>
+const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${k0}"/><stop offset="1" stop-color="${k1}"/></linearGradient>
     <linearGradient id="pg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${k0}"/><stop offset="1" stop-color="${k1}"/></linearGradient>
-    </defs><rect width="1024" height="1024" rx="230" ry="230" fill="url(#bg)"/><svg x="112" y="112" width="800" height="800" viewBox="0 0 120 120">
+    </defs><rect width="1024" height="1024" rx="230" ry="230" fill="${I.bg}"/><svg x="112" y="112" width="800" height="800" viewBox="0 0 120 120">
       <path d="M58 54 C46 40 26 30 4 30 C6 44 9 58 12 70 C30 68 46 72 58 84 Z" fill="url(#pg)"/><path d="M62 54 C74 40 94 30 116 30 C114 44 111 58 108 70 C90 68 74 72 62 84 Z" fill="url(#pg2)"/>
       <path d="M52 56 C42 47 29 41 14 40 M52 64 C42 56 30 51 16 51 M52 72 C42 66 31 62 18 62 M68 56 C78 47 91 41 106 40 M68 64 C78 56 90 51 104 51 M68 72 C78 66 89 62 102 62" stroke="${T.brand.cream}" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".9"/>
       <path d="M54 80 C52 92 46 102 34 113 C49 109 57 101 60 94 C63 101 71 109 86 113 C74 102 68 92 66 80 Z" fill="${T.brand.sun}"/>
@@ -50,7 +50,7 @@ const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" wi
 put('web/icons/icon.svg', icon);
 
 for (const f of ['brand/lexkite-app-icon.svg', 'store/logo.svg']) put(f, icon); // bản sao icon cho bộ brand + thư mục cửa hàng
-// Logo trên nền tối (end card video, mạng xã hội): diều dùng cùng cặp màu sáng của icon (≥ 3:1 cả trên vệt sáng #17595A)
+// Logo trên nền tối (end card video, mạng xã hội): diều dùng cùng cặp màu của icon
 { const f = 'brand/lexkite-logo-dark.svg';
   put(f, fs.readFileSync(f, 'utf8').replace(/(<linearGradient id="pg2?"[^>]*><stop offset="0" stop-color=")[^"]+("\/><stop offset="1" stop-color=")[^"]+"/g, `$1${k0}$2${k1}"`)); }
 
