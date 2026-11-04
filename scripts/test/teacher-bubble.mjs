@@ -53,6 +53,7 @@ const btn = D.createElement('button'); btn.innerHTML = '<div class="rounded-[999
 ok(btn.classList.contains('tchb-play') && btn.querySelector('.tchb-ring').style.getPropertyValue('--p') === '0.400', 'nút Nghe lại: vòng tiến độ theo giọng'); b.playing(btn, 1); ok(!btn.classList.contains('tchb-play'), 'hết câu → tắt vòng');
 const css = D.getElementById('tchb-css').textContent;
 ok(/prefers-reduced-motion:reduce\)\{\.tchb-pop\{animation:none\}/.test(css) && /\.kwp \.kw\.on\{color:inherit\}/.test(css), 'giảm chuyển động: tắt animation, giữ highlight');
+ok(/\.kwp\.kw-run \.kw\{color:var\(--kw0\)\}/.test(css) && !/\.kwp \.kw\{[^}]*color:var\(--kw0\)/.test(css), 'chữ chỉ mờ lúc đang đọc (kw-run), lúc nghỉ đủ tương phản');
 ok(/scale\(\.92\)/.test(css) && /\.16s/.test(css) && !/translate\([^)]*px\)[^}]*@keyframes/.test(css), 'hiện bong bóng: 0.92→1 + mờ 160 ms (không chữ bay)');
 // tương phản (WCAG): chữ chưa đọc ≥4.5:1, nút CC (icon/chữ nhỏ) ≥4.5:1 sáng/tối
 const L = h => { const c = h.match(/\w\w/g).map(v => parseInt(v, 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
