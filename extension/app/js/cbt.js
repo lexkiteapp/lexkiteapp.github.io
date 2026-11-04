@@ -4,7 +4,7 @@
 (function () {
   // CSS giao diện thi trên máy (chuyển từ style.css 25/10 – giữ khung app ≤377 KB gz); nạp 1 lần khi tải gói
   try { if (!document.getElementById('cbtCss')) { const st = document.createElement('style'); st.id = 'cbtCss'; st.textContent = `
-.cbt { display: flex; flex-direction: column; height: 100vh; background: var(--bg); }
+.cbt { display: flex; flex-direction: column; height: 100vh; height: 100dvh; background: var(--bg); }
 .cbt-top { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .55rem 1rem; background: var(--surface); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
 .cbt-clock { font-weight: 800; font-variant-numeric: tabular-nums; padding: .3rem .7rem; border-radius: 10px; background: var(--surface-2); }
 .cbt-clock.warn { background: var(--again-soft); color: var(--again-text); }

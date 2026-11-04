@@ -14,6 +14,7 @@ export const ROWS = [
    "DRIVE_ENC_KEY",
    "LEXKITE_DRIVE_CLI_KEY",
    "LEXKITE_REPORT_CLI_KEY",
+   "REPORT_SHOT_KEY",
    "CRON_KICK_SECRET",
    "PUSH_CRON_SECRET",
    "STUDIO_CALLBACK_SECRET"
@@ -87,6 +88,19 @@ export const ROWS = [
   "manage": "https://console.cloud.google.com/auth/clients",
   "expires": "",
   "note": ""
+ },
+ {
+  "id": "pages-youtube-search",
+  "service": "YouTube Data API v3 – tìm video #/watch (khóa API, dự án GCP RIÊNG)",
+  "account": "Google · dự án riêng cho tìm kiếm",
+  "store": "pages",
+  "names": [
+   "YOUTUBE_SEARCH_KEY"
+  ],
+  "scope": "functions/api/watch.js op=search (search.list + videos.list); chưa có khóa → RSS + link YouTube search. docs/specs/video-learn.md",
+  "manage": "https://console.cloud.google.com/apis/credentials",
+  "expires": "",
+  "note": "Chờ chủ tạo (owner-pending)"
  },
  {
   "id": "pages-grabcast",
@@ -179,6 +193,19 @@ export const ROWS = [
   "note": ""
  },
  {
+  "id": "gh-zenodo",
+  "service": "Zenodo (CERN) – nộp bằng chứng tác quyền restricted access, DOI",
+  "account": "zenodo.org (owner)",
+  "store": "github",
+  "names": [
+   "ZENODO_TOKEN"
+  ],
+  "scope": "deposit:write + deposit:actions – content-evidence.yml ngày 1 hằng tháng (docs/CONTENT-PROTECTION.md §4c)",
+  "manage": "https://zenodo.org/account/settings/applications/",
+  "expires": "",
+  "note": "Tạo 3/11/2026. Xoay vòng: tạo token mới cùng scope → cập nhật secret → xóa token cũ."
+ },
+ {
   "id": "gh-deploy-keys",
   "service": "Khóa deploy kho media (CI)",
   "account": "GitHub · lexkiteapp",
@@ -203,6 +230,7 @@ export const ROWS = [
   "store": "github",
   "names": [
    "LEXKITE_DRIVE_CLI_KEY",
+   "LEXKITE_REPORT_CLI_KEY",
    "LEXKITE_CI_HEADER",
    "STUDIO_CALLBACK_SECRET"
   ],

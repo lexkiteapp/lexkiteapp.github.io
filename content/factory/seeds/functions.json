@@ -1,0 +1,1208 @@
+{
+ "_doc": "Hạt giống xưởng nội dung – 100 chức năng giao tiếp (scripts/factory/comm.mjs, kind functions; docs/CONTENT-FACTORY.md §4). Viết tay một lần; lo = mục tiêu LKF (kỹ năng I/S, lệch cấp ≤ 1 bậc gốc). Thêm mục = thêm cuối danh sách.",
+ "items": [
+  {
+   "k": "greeting-hello",
+   "name": "Greeting someone",
+   "level": "A1",
+   "lo": [
+    "I.A1.01"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "saying-goodbye",
+   "name": "Saying goodbye",
+   "level": "A1",
+   "lo": [
+    "I.A1.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "introducing-yourself",
+   "name": "Introducing yourself",
+   "level": "A1",
+   "lo": [
+    "I.A1.02"
+   ],
+   "situations": [
+    "social",
+    "school",
+    "work"
+   ]
+  },
+  {
+   "k": "introducing-a-friend",
+   "name": "Introducing a friend to someone",
+   "level": "A1",
+   "lo": [
+    "I.A1.10"
+   ],
+   "situations": [
+    "social",
+    "school"
+   ]
+  },
+  {
+   "k": "asking-to-repeat",
+   "name": "Asking someone to repeat or speak more slowly",
+   "level": "A1",
+   "lo": [
+    "I.A1.05"
+   ],
+   "situations": [
+    "travel",
+    "school"
+   ]
+  },
+  {
+   "k": "saying-not-understand",
+   "name": "Saying you do not understand",
+   "level": "A1",
+   "lo": [
+    "I.A1.06"
+   ],
+   "situations": [
+    "travel",
+    "school"
+   ]
+  },
+  {
+   "k": "ordering-food-drink",
+   "name": "Ordering food and drink",
+   "level": "A1",
+   "lo": [
+    "I.A1.03"
+   ],
+   "situations": [
+    "restaurant",
+    "travel"
+   ]
+  },
+  {
+   "k": "asking-the-price",
+   "name": "Asking the price of something",
+   "level": "A1",
+   "lo": [
+    "I.A1.04"
+   ],
+   "situations": [
+    "shopping",
+    "travel"
+   ]
+  },
+  {
+   "k": "asking-where-place",
+   "name": "Asking where a place is",
+   "level": "A1",
+   "lo": [
+    "I.A1.08"
+   ],
+   "situations": [
+    "travel",
+    "city"
+   ]
+  },
+  {
+   "k": "saying-thank-you",
+   "name": "Saying thank you and replying",
+   "level": "A1",
+   "lo": [
+    "I.A1.01"
+   ],
+   "situations": [
+    "social",
+    "shopping"
+   ]
+  },
+  {
+   "k": "saying-sorry-small",
+   "name": "Saying sorry for a small mistake",
+   "level": "A1",
+   "lo": [
+    "I.A1.01"
+   ],
+   "situations": [
+    "social",
+    "school"
+   ]
+  },
+  {
+   "k": "answering-the-phone",
+   "name": "Answering the phone",
+   "level": "A1",
+   "lo": [
+    "I.A1.16"
+   ],
+   "situations": [
+    "work",
+    "home"
+   ]
+  },
+  {
+   "k": "making-plan-to-meet",
+   "name": "Making a plan to meet",
+   "level": "A2",
+   "lo": [
+    "I.A1.07"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "inviting-someone",
+   "name": "Inviting someone out",
+   "level": "A2",
+   "lo": [
+    "I.A2.01"
+   ],
+   "situations": [
+    "social"
+   ]
+  },
+  {
+   "k": "accepting-invitation",
+   "name": "Accepting an invitation",
+   "level": "A2",
+   "lo": [
+    "I.A2.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "declining-invitation",
+   "name": "Declining an invitation politely",
+   "level": "A2",
+   "lo": [
+    "I.A2.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "making-polite-request",
+   "name": "Making a polite request",
+   "level": "A2",
+   "lo": [
+    "I.A2.03"
+   ],
+   "situations": [
+    "shopping",
+    "work",
+    "travel"
+   ]
+  },
+  {
+   "k": "offering-help",
+   "name": "Offering help",
+   "level": "A2",
+   "lo": [
+    "I.A2p.06"
+   ],
+   "situations": [
+    "work",
+    "social",
+    "shopping"
+   ]
+  },
+  {
+   "k": "asking-permission",
+   "name": "Asking for permission",
+   "level": "A2",
+   "lo": [
+    "I.A2.10"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "home"
+   ]
+  },
+  {
+   "k": "giving-directions",
+   "name": "Giving directions",
+   "level": "A2",
+   "lo": [
+    "I.A2.02"
+   ],
+   "situations": [
+    "city",
+    "travel"
+   ]
+  },
+  {
+   "k": "asking-directions",
+   "name": "Asking for directions",
+   "level": "A2",
+   "lo": [
+    "I.A2.02"
+   ],
+   "situations": [
+    "city",
+    "travel"
+   ]
+  },
+  {
+   "k": "shopping-sizes-returns",
+   "name": "Asking for another size or returning an item",
+   "level": "A2",
+   "lo": [
+    "I.A2.03"
+   ],
+   "situations": [
+    "shopping"
+   ]
+  },
+  {
+   "k": "checking-in-hotel",
+   "name": "Checking in at a hotel",
+   "level": "A2",
+   "lo": [
+    "I.A2.04"
+   ],
+   "situations": [
+    "travel"
+   ]
+  },
+  {
+   "k": "reporting-simple-problem",
+   "name": "Reporting a simple problem",
+   "level": "A2",
+   "lo": [
+    "I.A2.06"
+   ],
+   "situations": [
+    "restaurant",
+    "travel",
+    "shopping"
+   ]
+  },
+  {
+   "k": "apologising",
+   "name": "Apologising",
+   "level": "A2",
+   "lo": [
+    "I.A2p.04"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "accepting-apology",
+   "name": "Accepting an apology",
+   "level": "A2",
+   "lo": [
+    "I.A2p.04"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "agreeing-simply",
+   "name": "Agreeing with someone",
+   "level": "A2",
+   "lo": [
+    "I.A2.07"
+   ],
+   "situations": [
+    "social",
+    "school"
+   ]
+  },
+  {
+   "k": "disagreeing-simply",
+   "name": "Disagreeing in a simple way",
+   "level": "A2",
+   "lo": [
+    "I.A2.07"
+   ],
+   "situations": [
+    "social",
+    "school"
+   ]
+  },
+  {
+   "k": "making-suggestion",
+   "name": "Making a suggestion",
+   "level": "A2",
+   "lo": [
+    "I.A2.01"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "travel"
+   ]
+  },
+  {
+   "k": "booking-by-phone",
+   "name": "Booking an appointment by phone",
+   "level": "A2",
+   "lo": [
+    "I.A2.09"
+   ],
+   "situations": [
+    "work",
+    "health"
+   ]
+  },
+  {
+   "k": "saying-likes-dislikes",
+   "name": "Saying what you like and dislike",
+   "level": "A2",
+   "lo": [
+    "S.A2.06"
+   ],
+   "situations": [
+    "social",
+    "restaurant"
+   ]
+  },
+  {
+   "k": "weekend-small-talk",
+   "name": "Small talk about the weekend",
+   "level": "A2",
+   "lo": [
+    "I.A2.05"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "social"
+   ]
+  },
+  {
+   "k": "giving-opinion",
+   "name": "Giving your opinion",
+   "level": "B1",
+   "lo": [
+    "I.B1.04"
+   ],
+   "situations": [
+    "social",
+    "school",
+    "work"
+   ]
+  },
+  {
+   "k": "asking-opinion",
+   "name": "Asking for someone's opinion",
+   "level": "B1",
+   "lo": [
+    "I.B1.04"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "expressing-surprise",
+   "name": "Expressing surprise and interest",
+   "level": "B1",
+   "lo": [
+    "I.B1.03"
+   ],
+   "situations": [
+    "social"
+   ]
+  },
+  {
+   "k": "showing-sympathy",
+   "name": "Showing sympathy",
+   "level": "B1",
+   "lo": [
+    "I.B1.03"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "congratulating",
+   "name": "Congratulating someone",
+   "level": "B1",
+   "lo": [
+    "I.B1.03"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "giving-compliments",
+   "name": "Giving and receiving compliments",
+   "level": "B1",
+   "lo": [
+    "I.B1.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "making-complaint",
+   "name": "Making a complaint",
+   "level": "B1",
+   "lo": [
+    "I.B1.05"
+   ],
+   "situations": [
+    "shopping",
+    "travel",
+    "restaurant"
+   ]
+  },
+  {
+   "k": "asking-clarification",
+   "name": "Asking for clarification",
+   "level": "B1",
+   "lo": [
+    "I.B1p.05"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "checking-understanding",
+   "name": "Checking that someone has understood",
+   "level": "B1",
+   "lo": [
+    "I.B1p.05"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "giving-advice",
+   "name": "Giving advice",
+   "level": "B1",
+   "lo": [
+    "I.B1p.01"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "health"
+   ]
+  },
+  {
+   "k": "asking-advice",
+   "name": "Asking for advice",
+   "level": "B1",
+   "lo": [
+    "I.B1p.01"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "health"
+   ]
+  },
+  {
+   "k": "warning-someone",
+   "name": "Warning someone",
+   "level": "B1",
+   "lo": [
+    "I.B1.02"
+   ],
+   "situations": [
+    "travel",
+    "work",
+    "home"
+   ]
+  },
+  {
+   "k": "refusing-politely",
+   "name": "Refusing a request politely",
+   "level": "B1",
+   "lo": [
+    "I.B1.04"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "interrupting-politely",
+   "name": "Interrupting politely",
+   "level": "B1",
+   "lo": [
+    "I.B1p.02"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "changing-subject",
+   "name": "Changing the subject",
+   "level": "B1",
+   "lo": [
+    "I.B1.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "starting-small-talk",
+   "name": "Starting small talk with a stranger",
+   "level": "B1",
+   "lo": [
+    "I.B1.01"
+   ],
+   "situations": [
+    "social",
+    "travel",
+    "work"
+   ]
+  },
+  {
+   "k": "ending-conversation",
+   "name": "Ending a conversation politely",
+   "level": "B1",
+   "lo": [
+    "I.B1.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "leaving-phone-message",
+   "name": "Leaving a phone message",
+   "level": "B1",
+   "lo": [
+    "I.B1.10"
+   ],
+   "situations": [
+    "work",
+    "home"
+   ]
+  },
+  {
+   "k": "business-phone-call",
+   "name": "Making a routine business phone call",
+   "level": "B1",
+   "lo": [
+    "I.B1.10"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "special-requests-restaurant",
+   "name": "Making special requests in a restaurant",
+   "level": "B1",
+   "lo": [
+    "I.A2.06"
+   ],
+   "situations": [
+    "restaurant",
+    "travel"
+   ]
+  },
+  {
+   "k": "giving-reasons-excuses",
+   "name": "Giving reasons and excuses",
+   "level": "B1",
+   "lo": [
+    "I.B1.02"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "social"
+   ]
+  },
+  {
+   "k": "handling-travel-problem",
+   "name": "Handling a travel problem",
+   "level": "B1",
+   "lo": [
+    "I.B1.02"
+   ],
+   "situations": [
+    "travel"
+   ]
+  },
+  {
+   "k": "changing-arrangement",
+   "name": "Changing an arrangement",
+   "level": "B1",
+   "lo": [
+    "I.B1p.05"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "asking-favour",
+   "name": "Asking for a favour",
+   "level": "B1",
+   "lo": [
+    "I.B1.05"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "home"
+   ]
+  },
+  {
+   "k": "expressing-preferences",
+   "name": "Expressing preferences",
+   "level": "B1",
+   "lo": [
+    "S.B1.04"
+   ],
+   "situations": [
+    "social",
+    "restaurant",
+    "travel"
+   ]
+  },
+  {
+   "k": "softening-opinion",
+   "name": "Softening an opinion with hedging",
+   "level": "B2",
+   "lo": [
+    "I.B2p.01"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "disagreeing-politely",
+   "name": "Disagreeing politely",
+   "level": "B2",
+   "lo": [
+    "I.B2p.01"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "social"
+   ]
+  },
+  {
+   "k": "agreeing-with-reservations",
+   "name": "Agreeing with reservations",
+   "level": "B2",
+   "lo": [
+    "I.B2p.01"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "persuading",
+   "name": "Persuading someone",
+   "level": "B2",
+   "lo": [
+    "I.B2.02"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "negotiating-price",
+   "name": "Negotiating a price",
+   "level": "B2",
+   "lo": [
+    "I.B2p.05"
+   ],
+   "situations": [
+    "shopping",
+    "work"
+   ]
+  },
+  {
+   "k": "negotiating-deadline",
+   "name": "Negotiating a deadline",
+   "level": "B2",
+   "lo": [
+    "I.B2p.05"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "giving-bad-news",
+   "name": "Giving bad news",
+   "level": "B2",
+   "lo": [
+    "I.C1.04"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "responding-to-complaint",
+   "name": "Responding to a complaint",
+   "level": "B2",
+   "lo": [
+    "I.B2.09"
+   ],
+   "situations": [
+    "work",
+    "shopping"
+   ]
+  },
+  {
+   "k": "taking-the-turn",
+   "name": "Taking and holding the turn",
+   "level": "B2",
+   "lo": [
+    "I.B2.04"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "inviting-contributions",
+   "name": "Inviting others to speak",
+   "level": "B2",
+   "lo": [
+    "I.B2p.03"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "opening-a-meeting",
+   "name": "Opening a meeting",
+   "level": "B2",
+   "lo": [
+    "I.B2p.06"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "making-proposal",
+   "name": "Putting forward a proposal",
+   "level": "B2",
+   "lo": [
+    "I.B2.08"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "summarising-decisions",
+   "name": "Summarising decisions and next steps",
+   "level": "B2",
+   "lo": [
+    "I.B2p.06"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "opening-presentation",
+   "name": "Opening a presentation",
+   "level": "B2",
+   "lo": [
+    "S.B2.06"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "moving-between-sections",
+   "name": "Moving between sections in a presentation",
+   "level": "B2",
+   "lo": [
+    "S.B2.06"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "describing-trends",
+   "name": "Describing trends in data",
+   "level": "B2",
+   "lo": [
+    "S.B2.07"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "handling-audience-questions",
+   "name": "Handling questions after a presentation",
+   "level": "B2",
+   "lo": [
+    "S.B2.09"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "answering-interview-questions",
+   "name": "Answering job interview questions",
+   "level": "B2",
+   "lo": [
+    "I.B2.10"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "speculating-causes",
+   "name": "Speculating about causes",
+   "level": "B2",
+   "lo": [
+    "S.B2p.02"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "formal-email-request",
+   "name": "Making a request in a formal email",
+   "level": "B2",
+   "lo": [
+    "I.B2.08"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "giving-feedback",
+   "name": "Giving constructive feedback",
+   "level": "B2",
+   "lo": [
+    "I.C1.12"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "resolving-misunderstanding",
+   "name": "Resolving a misunderstanding",
+   "level": "B2",
+   "lo": [
+    "I.C1.06"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "diplomatic-disagreement",
+   "name": "Disagreeing diplomatically in a debate",
+   "level": "C1",
+   "lo": [
+    "I.C1.05"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "degrees-of-certainty",
+   "name": "Expressing degrees of certainty",
+   "level": "C1",
+   "lo": [
+    "S.C1.04"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "conceding-a-point",
+   "name": "Conceding a point gracefully",
+   "level": "C1",
+   "lo": [
+    "I.C1.10"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "challenging-a-claim",
+   "name": "Challenging a claim",
+   "level": "C1",
+   "lo": [
+    "I.C1.10"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "buying-time",
+   "name": "Buying time to think",
+   "level": "C1",
+   "lo": [
+    "I.C1.03"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "social"
+   ]
+  },
+  {
+   "k": "declining-senior-request",
+   "name": "Declining a request from a senior colleague",
+   "level": "C1",
+   "lo": [
+    "I.C1.14"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "defusing-conflict",
+   "name": "Defusing a conflict",
+   "level": "C1",
+   "lo": [
+    "I.C1.09"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "raising-performance-issue",
+   "name": "Raising a performance issue",
+   "level": "C1",
+   "lo": [
+    "I.C1.15"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "pitching-an-idea",
+   "name": "Pitching an idea",
+   "level": "C1",
+   "lo": [
+    "S.C1.14"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "light-teasing-humour",
+   "name": "Using light teasing and humour",
+   "level": "C1",
+   "lo": [
+    "I.C1.02"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "adjusting-formality",
+   "name": "Adjusting formality to the audience",
+   "level": "C1",
+   "lo": [
+    "I.C1.07"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "critiquing-a-proposal",
+   "name": "Critiquing a study or proposal",
+   "level": "C1",
+   "lo": [
+    "S.C1.11"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ]
+  },
+  {
+   "k": "announcing-a-change",
+   "name": "Announcing a change to a team",
+   "level": "C1",
+   "lo": [
+    "S.C1.15"
+   ],
+   "situations": [
+    "work"
+   ]
+  },
+  {
+   "k": "conveying-warmth-distance",
+   "name": "Conveying warmth or distance through word choice",
+   "level": "C2",
+   "lo": [
+    "I.C2.02"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "understatement-irony",
+   "name": "Using understatement and irony",
+   "level": "C2",
+   "lo": [
+    "I.C2.03"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "answering-hostile-question",
+   "name": "Answering a hostile question",
+   "level": "C2",
+   "lo": [
+    "I.C2.05"
+   ],
+   "situations": [
+    "work",
+    "media"
+   ]
+  },
+  {
+   "k": "mediating-tension",
+   "name": "Mediating tension in a group",
+   "level": "C2",
+   "lo": [
+    "I.C2.06"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ]
+  },
+  {
+   "k": "graceful-topic-change",
+   "name": "Changing the topic gracefully",
+   "level": "C2",
+   "lo": [
+    "I.C2.08"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "special-occasion-speech",
+   "name": "Speaking on a special occasion",
+   "level": "C2",
+   "lo": [
+    "S.C2.05"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ]
+  },
+  {
+   "k": "sensitive-public-statement",
+   "name": "Making a sensitive public statement",
+   "level": "C2",
+   "lo": [
+    "S.C2.15"
+   ],
+   "situations": [
+    "work",
+    "media"
+   ]
+  },
+  {
+   "k": "closing-high-level-deal",
+   "name": "Closing a high-level negotiation",
+   "level": "C2",
+   "lo": [
+    "I.C2.14"
+   ],
+   "situations": [
+    "work"
+   ]
+  }
+ ]
+}

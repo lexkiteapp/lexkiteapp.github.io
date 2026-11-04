@@ -10,6 +10,7 @@
  * GET /api/drive/callback (functions/api/drive/callback.js) – Google trả về sau khi đồng ý; GET /api/drive/dl (functions/api/drive/dl.js) – tải file qua link ký 5 phút; GET /api/drive/thumb – ảnh thu nhỏ qua proxy.
  * Byte file KHÔNG đi qua Worker khi tải lên: máy/CI PUT thẳng vào phiên resumable của Google. Refresh token mã hoá AES-GCM (DRIVE_ENC_KEY, 32 byte base64)
  * trong D1; access token chỉ ở bộ nhớ (< 50 phút). Không bao giờ trả về/ghi log token hay khoá. */
+import { watchD1 } from './_d1watch.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { exportPage, open as openPage, TABLES as BACKUP_TABLES } from './_backup.js';
 import { d1Usage, guardBackground } from './_d1guard.js';
@@ -176,6 +177,8 @@ export async function d1Alert(env, db) {
   let worst = null;
   for (const w of guardAccounts(env)) { const u = await d1Usage(env, db, Date.now(), fetch, w); if (!worst || u.ratio > worst.ratio) worst = { ...u, which: w }; }
   const u = worst;
+  // D1 chính có số Cloudflare → thang 50/75 % chung (_d1watch.js: 1 thư/bậc/ngày, giờ yên lặng) – không gửi thêm thư 60 % trùng
+  if (u.which !== 'b' && u.source === 'cloudflare') { await watchD1(env, db, Date.now(), { mail: (sub, txt) => sendMail(env, sub, txt) }); return; }
   if (u.alert) {
     const pct = Math.round(u.ratio * 100), acct = u.which === 'b' ? 'D1 nội bộ (tài khoản 2)' : 'D1 chính', msg = `${acct} đã đọc ${(u.reads / 1e6).toFixed(2)} M dòng hôm nay (${pct} % ${u.source === 'cloudflare' ? 'hạn mức tài khoản' : 'ngân sách Kho Drive'}) – việc nền Kho Drive/archive tạm dừng.`, now = Date.now();
     const prev = await db.prepare("SELECT 1 AS x FROM drive_alerts WHERE kind = 'd1'").first();
@@ -363,7 +366,7 @@ export async function runHealth(env, db, { now = Date.now(), wait = 400 } = {}) 
   return { checked: now, drives: res, under_replicated: rs.n.under, single: rs.n.single, lost_only: rs.n.lost_only, alerts: alerts.map(({ kind, level, t, drive_id, p }) => ({ kind, level, t, drive_id, p })), mailed };
 }
 async function alertRows(db) {
-  return (await all(db, 'SELECT * FROM drive_alerts ORDER BY level, kind')).map(a => { let m = {}; try { m = JSON.parse(a.msg); } catch (e) { m = {}; } return { kind: a.kind, level: a.level, t: m.t, drive_id: a.drive_id, p: m.p || {}, since: a.since, mailed: !!a.mailed }; });
+  return (await all(db, 'SELECT * FROM drive_alerts ORDER BY level, kind')).map(a => { let m = {}; try { m = JSON.parse(a.msg); } catch (e) { m = {}; } return { kind: a.kind, level: a.level, t: m.t, drive_id: a.drive_id, p: m.p || {}, since: a.since, seen: a.seen, mailed: !!a.mailed }; });
 }
 const bumpUpFail = async (env, db, id) => { await run(db, 'UPDATE drives SET up_fails = COALESCE(up_fails, 0) + 1 WHERE id = ?', id); const r = await one(db, 'SELECT up_fails FROM drives WHERE id = ?', id); if (r && +r.up_fails === UP_FAIL_CRIT) await refreshAlerts(env, db); };
 
@@ -560,6 +563,7 @@ const POOL_OPS = {
     const done = [], failed = []; let bytes = 0;
     for (const g of s.under) {
       if (done.length >= maxF || bytes + g.size > maxB) break;
+      if (b.max_file && g.size > +b.max_file) continue; // file lớn: Worker không chép nổi, CI chép (scripts/ops/drive-repair.mjs)
       const src = drives.find(d => d.id === g.ok[0].drive_id), holders = (await all(db, "SELECT drive_id FROM drive_files WHERE sha256 = ? AND status IN ('ok', 'pending')", g.sha)).map(r => r.drive_id);
       const dst = pickDrive(drives, g.size, { exclude: holders });
       if (!dst) { failed.push({ sha: g.sha, name: g.name, error: 'no-drive' }); continue; }

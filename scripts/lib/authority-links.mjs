@@ -22,7 +22,7 @@ export const sameAs = () => {
   return [...p.sameAs.map(x => x.url), ...(p.store && id ? [id.startsWith('http') ? id : `https://chromewebstore.google.com/detail/${id}`] : [])];
 };
 // Nút Organization chuẩn (@id cố định → mọi trang tham chiếu cùng 1 thực thể). Không dùng EducationalOrganization: Lexkite là app, không phải trường.
-export const orgNode = () => ({ '@type': 'Organization', '@id': `${SITE}/#org`, name: 'Lexkite', url: `${SITE}/`, logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 }, email: 'support@lexkite.com', sameAs: sameAs(),
+export const orgNode = () => ({ '@type': 'Organization', '@id': `${SITE}/#org`, name: 'Lexkite', url: `${SITE}/`, logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=3`, width: 512, height: 512 }, email: 'support@lexkite.com', sameAs: sameAs(),
   legalName: 'MODIAN LUXURY JEWELRY LLC', publishingPrinciples: `${SITE}${authPath('en', 'policy')}`, correctionsPolicy: `${SITE}${authPath('en', 'corrections')}`, actionableFeedbackPolicy: `${SITE}${authPath('en', 'corrections')}` });
 // Tác giả bài blog: đội biên tập (tổ chức con) – trang hồ sơ theo ngôn ngữ bài
 export const editorialNode = lang => ({ '@type': 'Organization', '@id': `${SITE}/#editorial`, name: 'Lexkite Editorial Team', url: SITE + authPath(has(lang) ? lang : 'en', 'team'), parentOrganization: { '@id': `${SITE}/#org` } });

@@ -79,7 +79,7 @@
 
   const TIMEOUT = 7000; // ms tới khi bắt đầu phát; mạng chậm 3G vẫn đủ cho file 4–40 KB
   let seq = 0, pre = null;
-  /** play(urls, { rate, onStart(url, i), onEnd(), onFail(reason), onBase(i) }) → { el, stop() } · urls: chuỗi hoặc mảng (thứ tự gốc CDN) */
+  /** play(urls, { rate, cross, onEl(el), onStart(url, i), onEnd(), onFail(reason), onBase(i) }) → { el, stop() } · urls: chuỗi hoặc mảng (thứ tự gốc CDN) */
   function play(urls, o = {}) {
     urls = [].concat(urls).filter(Boolean);
     const my = ++seq, h = { el: null, stop() { if (my === seq) seq++; if (h.el) { h.el.onended = h.el.onerror = null; try { h.el.pause(); } catch (e) { /* bỏ qua */ } } } };
@@ -89,7 +89,7 @@
       if (i >= urls.length) return fail('all');
       const el = h.el = new Audio(); let ok = false, timer = 0;
       const next = why => { if (ok || el._lkDone) return; el._lkDone = 1; clearTimeout(timer); el.onerror = el.onended = null; try { el.pause(); el.removeAttribute('src'); el.load(); } catch (e) { /* bỏ qua */ } if (why === 'timeout') note('timeout', urls[i]); if (o.onBase) o.onBase(i, why); if (i + 1 < urls.length) note('cdn', why + ' ' + urls[i]); tryAt(i + 1); };
-      el.preload = 'auto'; el.preservesPitch = true; el.src = urls[i]; el.playbackRate = o.rate || 1;
+      el.preload = 'auto'; el.preservesPitch = true; if (o.cross) el.crossOrigin = 'anonymous'; el.src = urls[i]; if (o.onEl) o.onEl(el); el.playbackRate = o.rate || 1; // cross: Web Audio đo tiếng (mặt vẽ live) · onEl: mặt vẽ bám phần tử đang thử
       el.onerror = () => next('error');
       el.onplaying = () => { el.onplaying = null; if (ok || my !== seq) return; ok = true; clearTimeout(timer); if (o.onStart) o.onStart(urls[i], i); };
       el.onended = () => { el.onended = null; if (my === seq && o.onEnd) o.onEnd(); };

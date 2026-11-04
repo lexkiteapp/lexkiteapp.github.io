@@ -2,6 +2,11 @@
 # Thêm test: thêm MỘT dòng (cuối file, hoặc cạnh test cùng mảng). .gitattributes merge=union → hai PR cùng thêm ở cùng chỗ tự gộp khi rebase/merge.
 # Dòng trống và dòng bắt đầu bằng # bị bỏ qua. Lệnh chạy qua sh nên được dùng ! | 2>/dev/null. Bộ chạy: scripts/test/run-suite.mjs
 node scripts/ext-syntax.mjs
+node scripts/test/comment-code.mjs --self
+node scripts/test/comment-code.mjs
+node scripts/test/teacher-loop.mjs
+node scripts/test/lipsync-lesson.mjs
+node scripts/test/say-text.mjs
 node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
@@ -21,10 +26,14 @@ node scripts/speak/build.mjs
 node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
+node scripts/test/i18n-pack.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
+node scripts/test/tsc-check.mjs
 node scripts/test/unit.mjs
+node scripts/test/syntax-check.mjs
+node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
 node scripts/test/review-modes.mjs
@@ -58,6 +67,8 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/factory/build-grammar-bank.mjs --check
+node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
 node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
@@ -89,6 +100,8 @@ node scripts/test/report-ui.mjs
 node scripts/test/quota.mjs
 node scripts/test/capacity.mjs
 node scripts/test/admin-rollup.mjs
+node scripts/test/d1-cap.mjs
+node scripts/test/sessions-scan-gate.mjs
 node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
@@ -115,6 +128,7 @@ node scripts/push-copy.mjs --check
 node scripts/jobs/gen.mjs
 node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
+node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
@@ -165,15 +179,22 @@ node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
 node scripts/test/klocal.mjs
+node scripts/test/ext-bundles.mjs
+node scripts/test/img-api.mjs
+node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs
+node scripts/test/watch.mjs
 node scripts/test/dictlookup.mjs
 node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
+node scripts/test/inline-box.mjs
+node scripts/test/st2-href.mjs
+node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
@@ -208,6 +229,7 @@ node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
@@ -217,14 +239,23 @@ node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/test/mqa-parity-self.mjs
 node scripts/say-native/build.mjs --check
+node scripts/test/lesson-drag.mjs
 node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/scroll-boot.mjs
+node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
 node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/outcomes.mjs
+node scripts/test/brand-logo-stitch.mjs
+node scripts/test/today-mobile-actions.mjs
+node scripts/test/root-lang.mjs
+node scripts/test/cpm-plan.mjs
+node scripts/test/probe-cta.mjs

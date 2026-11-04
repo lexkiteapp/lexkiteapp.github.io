@@ -162,8 +162,8 @@
       ":scope": "lsn-opt"
      },
      "html": {
-      ":scope > div > span:nth-child(1)": "e(r.k)",
-      ":scope > div > span:nth-child(2)": "e(r.t)"
+      ":scope > div:nth-child(1) > span:nth-child(1)": "e(r.k)",
+      ":scope > div:nth-child(1) > span:nth-child(2)": "e(r.t)"
      }
     },
     "on": {
@@ -174,11 +174,11 @@
      },
      "addClass": {
       ":scope": "lsn-opt",
-      ":scope > div > span:nth-child(1)": "dk:!text-[#091518]"
+      ":scope > div:nth-child(1) > span:nth-child(1)": "dk:!text-[#091518]"
      },
      "html": {
-      ":scope > div > span:nth-child(1)": "e(r.k)",
-      ":scope > div > span:nth-child(2)": "e(r.t)"
+      ":scope > div:nth-child(1) > span:nth-child(1)": "e(r.k)",
+      ":scope > div:nth-child(1) > span:nth-child(2)": "e(r.t)"
      }
     }
    }

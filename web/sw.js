@@ -156,10 +156,25 @@ function pickToday(m) {
   const g = m && (idle >= 13 ? m.miss : m.gen);
   return g ? { ...g, url: idle >= 13 ? '/app/#/home' : '/app/#/review' } : { title: 'Lexkite', body: '⏰', url: '/app/#/review', tpl: 'gen1' };
 }
+// Báo "Lỗi LX-… đã được sửa" (docs/REPORTS.md § Báo đẩy): web/js/report.js ghi '/__rep' = { title, body (đã dịch), rows:[{t,id,st}] }. Push rỗng đến → hỏi trạng thái
+// các phiếu chưa đóng (≤ 4 giây); có phiếu vừa Đã sửa → hiện báo này THAY lời nhắc, đánh dấu chk để app hỏi lại ngay khi mở (report-pill). Lỗi/mạng chậm → lời nhắc như cũ.
+async function repFixed() {
+  const c = await caches.open('lk-meta'), r = await c.match('/__rep'), m = r ? await r.json().catch(() => null) : null;
+  const open = m && Array.isArray(m.rows) ? m.rows.filter(x => !['fixed', 'wontfix', 'dup'].includes(x.st)).slice(0, 20) : [];
+  if (!open.length) return null;
+  const j = await Promise.race([fetch('/api/report', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ op: 'mine', ts: open.map(x => x.t) }) }).then(x => x.json()), new Promise((y, n) => setTimeout(() => n(new Error('slow')), 4000))]);
+  const fx = (j.rows || []).filter(y => y.status === 'fixed' && open.some(x => x.t === y.t));
+  for (const y of j.rows || []) { const x = m.rows.find(z => z.t === y.t); if (x) x.st = y.status; }
+  if (fx.length) m.chk = 1;
+  await c.put('/__rep', new Response(JSON.stringify(m), { headers: { 'Content-Type': 'application/json' } }));
+  return fx.length ? { title: String(m.title || 'Lexkite').replace('{id}', fx[0].id), body: String(m.body || ''), url: '/app/#/report/' + fx[0].t } : null;
+}
 // Web Push (cron Worker workers/push gửi push RỖNG – không mã hóa nội dung, không dữ liệu cá nhân). iOS/Safari bắt buộc hiện thông báo cho MỌI push → luôn hiện.
 self.addEventListener('push', e => {
   if (LEGACY) return;
   e.waitUntil((async () => {
+    const fx = await repFixed().catch(() => null);
+    if (fx) { await self.registration.showNotification(fx.title, { body: fx.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'rep', data: { url: fx.url, tpl: 'rfix' } }); await ev([['shown', 'rfix', 1]]); return; }
     const m = (await META()) || {}, it = pickToday(m), today = new Date().toISOString().slice(0, 10);
     await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url || '/app/#/review', tpl: it.tpl || 'gen1' } });
     if (m.v) { m.notified = today; await putMeta(m); }
