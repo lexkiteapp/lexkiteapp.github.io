@@ -136,4 +136,4 @@ Yes, absolutely. The TOEIC does not penalize incorrect guesses. If you cannot so
 ### How does improving Part 5 performance help with Part 7?
 Every minute saved in Part 5 is directly reinvested in Part 7 reading comprehension. Furthermore, mastering sentence parsing in Part 5 trains your eyes to identify subject-verb cores quickly, allowing you to skim long business emails and articles with much higher reading comprehension speed.
 
-To expand your overall exam readiness, explore our detailed guides on [the TOEIC test format](/en/blog/toeic-test-format/) and [how to write a formal email](/en/blog/how-to-write-a-formal-email/), and practice reading real business correspondence in [Reading samples](/en/samples/).
+To expand your overall exam readiness, explore our detailed guides on [the TOEIC test format](/en/blog/toeic-test-format/), follow a structured [TOEIC self-study roadmap](/en/blog/toeic-self-study-roadmap-guide/), and learn [how to write a formal email](/en/blog/how-to-write-a-formal-email/), and practice reading real business correspondence in [Reading samples](/en/samples/).

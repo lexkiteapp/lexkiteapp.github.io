@@ -145,4 +145,4 @@ Yes. Tag questions (*"You've already booked the flight, haven't you?"*) appear r
 ### How can I practice eliminating sound-alike traps at home?
 When reviewing practice tests, analyze the transcript of every missed question. Circle the distractor words and write down their phonetic similarities to the prompt. Training your eyes on paper makes your ears much sharper during live listening.
 
-To continue expanding your listening performance, read our complete guide on [how to improve English listening](/en/blog/how-to-improve-english-listening/) and master the overall [TOEIC test format](/en/blog/toeic-test-format/).
+To continue expanding your listening performance, read our complete guide on [how to improve English listening](/en/blog/how-to-improve-english-listening/), follow our complete [TOEIC self-study roadmap](/en/blog/toeic-self-study-roadmap-guide/), and master the overall [TOEIC test format](/en/blog/toeic-test-format/).

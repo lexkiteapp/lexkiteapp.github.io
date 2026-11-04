@@ -136,5 +136,6 @@ Achieving an elite 900+ TOEIC score requires combining high-speed skimming tacti
 - **Corporate Collocation Builder**: Master thousands of high-frequency business phrases and synonyms in the Lexkite dictionary.
 - **FSRS Spaced Repetition**: Commit tricky idioms, administrative terms, and prepositions to long-term memory so textual processing becomes instant.
 - **Microphone-Enabled Speaking Drills**: Test-takers preparing for comprehensive international certifications can practice in the [Lexkite speaking laboratory](/#/practice/speak) to sharpen oral and auditory reflexes.
+- **Structured Preparation Roadmap**: Follow our phased [TOEIC self-study roadmap](/en/blog/toeic-self-study-roadmap-guide/) to balance Reading and Listening schedules effectively.
 
 Start practicing today on the [Lexkite web platform](/#/) to conquer TOEIC Part 7 and achieve your target Reading score with confidence!
