@@ -312,7 +312,7 @@ def beat_row(word, syl, stress, ipa, t_in, t_hit, t_out, y):
 def T_stress():
     D = EP['data']; A, B = D['a'], D['b']; series_chip(); t_q = start('q') - 0.2
     title([["Where's the ", 'ink'], ['stress', 'accent'], ['?', 'ink']], 96, RY0 + 120, None, start('a') - 0.2, hook=True)
-    beat_row(A['word'], A['syl'], A['stress'], A['ipa'], start('a'), at('a', 'first'), at('b', B['word']) - 0.2, RY0)
+    beat_row(A['word'], A['syl'], A['stress'], A['ipa'], start('a'), at('a', A['say']), at('b', B['word']) - 0.2, RY0)
     yb = beat_row(B['word'], B['syl'], B['stress'], B['ipa'], at('b', B['word']), at('m', B['say']), t_q, RY0)
     top('chip', [RX0 + (RW - 380) / 2, yb + 24, RX0 + (RW + 380) / 2, yb + 92], start('r'), out=t_q, text='SAY IT WITH ME', tone='chip', size=40)
     o = D['quiz']['options']
@@ -810,6 +810,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
 wav_out(f'{o.public}/voice.wav', mix); os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
 
 # ---------------- assets ----------------
+sys.path.insert(0, f'{ROOT}/scripts/media'); from origin import fetch as fetch_media   # noqa: E402  GitHub origin first, Worker last (2/11: Worker quota 429 broke every render)
 import qrcode   # noqa: E402
 qr = qrcode.QRCode(border=2, box_size=12, error_correction=qrcode.constants.ERROR_CORRECT_M); qr.add_data(EP['cta']['link']); qr.make(fit=True)
 qr.make_image(fill_color=TH['qr_ink'], back_color='white').save(f'{o.public}/qr.png')
@@ -819,7 +820,7 @@ for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/ho
 if 'pose' in LEN: shutil.copy(f'{o.host}/pose.webm', f'{o.public}/host_pose.webm')
 if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
     it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
-    subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', raw_, it['url']], check=True)
+    fetch_media(it['url'], raw_)
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------

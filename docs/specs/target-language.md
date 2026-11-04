@@ -11,7 +11,7 @@
 - Bộ phận chỉ-tiếng-Anh bỏ qua thẻ pt: tra từ điển/IPA/âm thanh tiếng Anh, Whisper on-device (`whisper-tiny.en`), nghĩa bản ngữ theo từ tiếng Anh, ảnh (chỉ trường `img` = khóa tiếng Anh `từ#loại` đúng nghĩa).
 - Cài đặt › Mục tiêu học: hàng "Ngôn ngữ đang học" (English / Português (beta)) + nút "Thêm 30 từ cơ bản" – chỉ khi cờ bật. Không màn mới.
 
-**Giọng (quyết định).** Luật chủ: MỘT giọng miễn phí nhất quán mỗi ngôn ngữ, dựng sẵn trên CI, speechSynthesis chỉ là dự phòng cuối. kokoro-js chỉ tự phiên âm tiếng Anh (giọng 'a'/'b', không kèm giọng pt) → dùng CÙNG mô hình Kokoro-82M (Apache-2.0) với âm vị espeak-ng `pt-br` (gói phonemizer kokoro-js đã dùng) + giọng `pf_dora` (Ama) / `pm_alex` (Carlos): cùng chất giọng/động cơ với tiếng Anh, $0, chạy CPU CI. Dự phòng nếu lượt mẫu trượt: Piper `pt_BR` (MIT). Lượt mẫu 20 từ: `word-audio-pt.yml` (−16 LUFS + Whisper small đa ngôn ngữ nghe lại; không nới) – kết quả ghi ở mục Trạng thái.
+**Giọng (quyết định).** Luật chủ: MỘT giọng miễn phí nhất quán mỗi ngôn ngữ, dựng sẵn trên CI, speechSynthesis chỉ là dự phòng cuối. kokoro-js chỉ tự phiên âm tiếng Anh (giọng 'a'/'b', không kèm giọng pt) → dùng CÙNG mô hình Kokoro-82M (Apache-2.0) với âm vị espeak-ng `pt-br` (gói phonemizer kokoro-js đã dùng) + giọng `pf_dora` (Ama) / `pm_alex` (Carlos): cùng chất giọng/động cơ với tiếng Anh, $0, chạy CPU CI. Dự phòng nếu lượt mẫu trượt: Piper `pt_BR` (MIT). Lượt mẫu 20 từ: `word-audio-tl.yml` (−16 LUFS + Whisper small đa ngôn ngữ nghe lại; không nới) – kết quả ghi ở mục Trạng thái.
 
 **Nội dung.** `content/target/pt/` = `schema.json` + `seed.json` (30 từ soát tay: lemma, loại, giống, IPA pt-BR, nghĩa 15 ngôn ngữ, ví dụ pt+en, `img` chỉ khi đúng nghĩa). Bộ lõi ~300 từ: `scripts/target/gen.mjs` (CI `target-content.yml`) – ai-pool chung, 2 giám khảo khác họ + dịch ngược + cổng `validate()` + mẫu soát ≥ 5 %; đăng ký `content/qa/sources.json` (`target-lang`). Nguồn tần suất: FrequencyWords (OpenSubtitles 2018 pt_br, CC BY-SA 4.0 – chỉ dùng thứ hạng, ghi công ở đây).
 
@@ -20,5 +20,7 @@
 **Cổng.** `npm test` (target-lang: cờ, bảng giọng, khóa, lọc hàng ôn, seed), content-qa, i18n-missing/qa, shell-size, sync-pack; CI word-audio-pt (ASR + LUFS).
 
 **Lát 2 (chưa làm).** (1) Dựng file từ pt cả bộ (`audio/w`, `wordFiles:true`) sau khi lượt mẫu đạt; (2) chạy `target-content` thật → soát mẫu → gộp `core.json` + thêm vào Thư viện/Bộ từ; (3) gán `img` tay cho bộ lõi; (4) giáo viên Ama/Carlos đọc pt (lời bài, `Target.teacherVoice`); (5) bật cờ cho nhóm thử + đo; (6) màn chọn ngôn ngữ lúc bắt đầu (từ Stitch); (7) rà nốt chỗ còn giả định tiếng Anh (gợi ý từ/collocation, mini-game, xuất Anki/CSV có trường tl).
+
+**Tổng quát (03/11/2026, khóa es W0).** Mỗi ngôn ngữ đích = 1 dòng bảng `Target.TABLE` (cờ riêng `flag`/`ls`, `label`, `fallback`); lượt mẫu giọng chung `word-audio-tl.yml` + `scripts/word-audio/tl-voices.json` (biến môi trường `TL_*` thay `PT_*`). Khóa tiếng TBN: `docs/specs/spanish-course.md`.
 
 **Trạng thái.** Lát 1: PR "Học tiếng Bồ Đào Nha (thử) – lát 1". Lượt mẫu giọng: xem PR.
