@@ -139,3 +139,5 @@ Alcançar uma pontuação acima de 850 ou 900 pontos requer velocidade de leitur
 - **Planejamento de autoestudo**: Acompanhe o nosso [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/) para equilibrar leitura e audição ao longo de todo o seu cronograma.
 
 Acesse a [plataforma web do Lexkite](/#/) agora mesmo e alcance o domínio pleno do TOEIC Part 7 com controle absoluto do relógio!
+
+Se deseja aprimorar sua velocidade de raciocínio auditivo, consulte nosso guia de [toeic listening part 2 estratégias para perguntas e respostas](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).

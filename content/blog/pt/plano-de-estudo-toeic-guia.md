@@ -151,3 +151,5 @@ Sim, perfeitamente. Como o exame TOEIC aborda formatos e situações corporativa
 
 ### Com que frequência devo fazer um simulado integral de 200 questões?
 Nas semanas iniciais de nivelamento, um simulado completo a cada 3 semanas é suficiente para monitorar a evolução sem causar esgotamento. No último mês antes da prova real, faça um simulado integral aos sábados para acostumar sua mente ao ritmo contínuo de duas horas de concentração.
+
+Para blindar sua preparação contra pegadinhas no teste de escuta, confira em detalhes as [toeic listening part 2 estratégias para perguntas e respostas](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).

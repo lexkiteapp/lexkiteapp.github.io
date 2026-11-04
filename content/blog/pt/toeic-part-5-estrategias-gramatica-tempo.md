@@ -179,3 +179,5 @@ Para conquistar mais de 420 pontos na prova de Reading (totalizando mais de 850 
 
 ### Qual a maneira ideal de memorizar colocações frequentes do exame?
 Evite estudar palavras isoladas. Registre blocos inteiros de significado (*chunks*), como *strictly confidential*, *reach an agreement* e *conduct an audit*. Revisar esses agrupamentos por meio de repetição espaçada acelera significativamente o reconhecimento na hora da prova.
+
+Para maximizar seu rendimento na seção auditiva e evitar pegadinhas de som, confira nossas [toeic listening part 2 estratégias para perguntas e respostas](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).
