@@ -229,4 +229,6 @@ En correspondencia estrictamente formal (cartas de queja, solicitudes legales o 
 ### ¿Cómo puedo pedir disculpas por un retraso al responder un correo?
 La fórmula más profesional y apreciada en los negocios es agradecer la paciencia del interlocutor en lugar de justificarse con excesivas explicaciones: *"Thank you for your patience"* o *"Thank you for following up"*. Si el retraso fue prolongado, añade: *"Please accept my apologies for the delay in responding to your inquiry."*
 
+Para continuar fortaleciendo tus habilidades de comunicación empresarial, revisa nuestro [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/) paso a paso.
+
 {{youtube: | Idea de vídeo: cómo redactar correos en inglés formal de negocios sin errores}}

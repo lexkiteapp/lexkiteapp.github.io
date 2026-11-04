@@ -136,5 +136,6 @@ Alcanzar un puntaje sobresaliente en el examen exige velocidad de lectura y una 
 - **Base de datos de colocaciones de negocios**: Familiarícese con miles de combinaciones léxicas y expresiones administrativas en el diccionario Lexkite.
 - **Repetición espaciada FSRS**: Memorice términos técnicos y conectores de modo permanente para procesar lecturas densas sin vacilaciones.
 - **Módulo de expresión oral interactiva**: Para quienes buscan certificar su dominio completo del idioma, el [laboratorio de conversación de Lexkite](/#/practice/speak) permite practicar la pronunciación con retroalimentación acústica.
+- **Ruta de preparación integral**: Organice sus semanas de estudio de manera equilibrada siguiendo nuestro [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/).
 
 Acceda hoy mismo a la [aplicación web de Lexkite](/#/) y conquiste la prueba de TOEIC Part 7 con absoluta seguridad y dominio del tiempo.
