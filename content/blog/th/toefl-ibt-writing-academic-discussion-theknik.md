@@ -113,7 +113,7 @@ quiz: [
 
 {{cta: /tu-vung/ | เริ่มฝึกทักษะ TOEFL Writing}}
 
-เตรียมตัวสอบให้พร้อมด้วย [คลังคำศัพท์และข้อสอบจำลอง](/tu-vung/) เพื่อฝึกฝนคำศัพท์ทางวิชาการ และทดสอบความพร้อมในสภาพแวดล้อมที่จำกัดเวลาด้วย [ทำแบบทดสอบ TOEFL จำลอง](/app/#/mock) และฝึกทักษะการพูดควบคู่กันได้ที่ [Template IELTS Speaking Part 2](/th/blog/template-ielts-speaking-part-2/)
+เตรียมตัวสอบให้พร้อมด้วย [คลังคำศัพท์และข้อสอบจำลอง](/tu-vung/) เพื่อฝึกฝนคำศัพท์ทางวิชาการ และทดสอบความพร้อมในสภาพแวดล้อมที่จำกัดเวลาด้วย [ทำแบบทดสอบ TOEFL จำลอง](/app/#/mock) และฝึกทักษะการพูดควบคู่กันได้ที่ [Template IELTS Speaking Part 2](/th/blog/template-ielts-speaking-part-2/) นอกจากนี้ สามารถศึกษาภาพรวมโครงสร้างข้อสอบและเวลาสอบใหม่ได้จาก [คู่มือเตรียมสอบ TOEFL ใหม่ 2026](/th/blog/toefl-mai-2026-khu-mue-triam-tua/)
 
 {{youtube: | TOEFL iBT Writing Academic Discussion Guide}}
 
