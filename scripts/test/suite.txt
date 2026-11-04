@@ -245,6 +245,7 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/scroll-boot.mjs
 node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
 node scripts/test/codemap-budget.mjs

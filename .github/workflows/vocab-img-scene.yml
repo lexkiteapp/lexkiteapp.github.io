@@ -70,7 +70,8 @@ jobs:
           # 02/11: sàn đuôi theo KÍCH THƯỚC việc (cf-direct.mjs pilotFloor) thay số cố định 15 – lượt 18 nghĩa cần ~4k neuron, đuôi 11 tài khoản ≈ 100k vẫn bị chặn
           NA=10; NH=10; NT=5; [ "${{ github.event.inputs.pool }}" = tail ] && { NH=0; NT=$(node -e "import('./scripts/vocab-img/cf-direct.mjs').then(m=>console.log(m.pilotFloor(m.pilotSize(process.argv[1],process.argv[2]),process.argv[3])))" "${{ github.event.inputs.only }}" "${{ github.event.inputs.pick || '60:0:20' }}" "${{ github.event.inputs.variants || '1' }}"); NA=$NT; echo "sàn đuôi pilot: $NT tài khoản"; }
           if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt $NA ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
-          if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || (github.event.inputs.judge_run != '' && '6' || '10') }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
+          # 04/11 gốc hàng chờ lượt 41821221567: 10 việc × ~2 giờ mà max-parallel 3 ban ngày → 4 đợt, lượt kéo dài >6 giờ và giữ nhóm concurrency (lịch 3 giờ bị dồn/huỷ). Việc bị trần bởi KHO/thời gian máy chứ không bởi số việc → mặc định số việc = số máy song song (par): cùng giờ-máy, lượt xong ≤ ~2,2 giờ, không đợt chờ
+          if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || (github.event.inputs.judge_run != '' && '6' || '$par') }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
           echo "per=$(( G / n ))" >> $GITHUB_OUTPUT
