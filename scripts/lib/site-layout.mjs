@@ -33,7 +33,7 @@ export const THEME_KEY = 'lk.theme';
 // Đồng bộ với app (/app/, cùng origin): app lưu localStorage 'ielts.settings' (JSON, .theme = auto|light|dark) + mốc 'ielts.settingsAt';
 // web lưu 'lk.theme' + mốc 'lk.themeAt'. Bên nào đổi SAU thắng (so mốc). lkT() dùng chung cho <head> và nút (TSW_JS).
 export const THEME_AT = 'lk.themeAt', APP_SET = 'ielts.settings', APP_SET_AT = 'ielts.settingsAt';
-export const THEME_HEAD = `<script data-lkt>function lkT(){try{var s=localStorage,t=s.getItem('${THEME_KEY}'),p;try{p=JSON.parse(s.getItem('${APP_SET}')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('${APP_SET_AT}')>(+s.getItem('${THEME_AT}')||0))t=p.theme;return t=='light'||t=='dark'?t:s.getItem('${THEME_KEY}')=='auto'?'':navigator.webdriver?'':'dark'}catch(e){return navigator.webdriver?'':'dark'}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())</script>`;
+export const THEME_HEAD = `<script data-lkt>function lkT(){try{var s=localStorage,t=s.getItem('${THEME_KEY}'),p;try{p=JSON.parse(s.getItem('${APP_SET}')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('${APP_SET_AT}')>(+s.getItem('${THEME_AT}')||0))t=p.theme;return t=='light'||t=='dark'?t:t=='auto'?'':navigator.webdriver?'':'dark'}catch(e){return navigator.webdriver?'':'dark'}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())</script>`;
 // Thanh trình duyệt (meta theme-color) theo nền trang: sáng = B Bright Day, tối = A Tactile Night (brand/tokens.json --bg, nguồn duy nhất).
 // Hai thẻ theo media → đúng ngay khi tải ở chế độ tự động; ép sáng/tối thì TSW_JS (trang tĩnh) / applyTheme (app) ghi đè cả hai thẻ.
 export const THEME_COLOR = { light: TKALL.light['--bg'], dark: TKALL.dark['--bg'] };
