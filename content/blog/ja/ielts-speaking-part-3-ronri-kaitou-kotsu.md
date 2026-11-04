@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **試験官の単語をそのままオウム返しする：** 質問文の動詞や形容詞を同義語に置き換えたり、品詞を変換して返答することで語彙の柔軟性をアピールしてください。
 
-自然な文のリズムを体得するためには、[英語文のストレスとリズムガイド](/ja/blog/eigo-bun-no-stress-rhythm-guide/)や[シャドーイングの正しいやり方](/ja/blog/shadowing-yarikata/)を併せて実践することが極めて効果的です。また、議論の厚みを増すために[IELTS専門英単語集](/ja/tu-vung/)も定期的にチェックしておきましょう。
+導入パートの基礎力を固めるには、[IELTS Speaking Part 1対策ガイド](content/blog/ja/ielts-speaking-part-1-taisaku-kotsu-shizen-na-kaitou.md)もご活用ください。自然な文のリズムを体得するためには、[英語文のストレスとリズムガイド](/ja/blog/eigo-bun-no-stress-rhythm-guide/)や[シャドーイングの正しいやり方](/ja/blog/shadowing-yarikata/)を併せて実践することが極めて効果的です。また、議論の厚みを増すために[IELTS専門英単語集](/ja/tu-vung/)も定期的にチェックしておきましょう。
 
 {{youtube: | IELTSスピーキングPart 3で論理的に回答を広げる思考法と実践テクニック}}
 

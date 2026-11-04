@@ -142,7 +142,7 @@ Part 3で論理的かつ説得力のある回答を構築するための武器�
 
 {{cta: /speaking/ | スピーキング模範解答を見る}}
 
-実戦形式のトピックに数多く触れ、瞬時にアイデアを組み立てる訓練を積むには、公式トピック集や[スピーキング模範解答サンプル](/speaking/)を日頃から読み込んでおくことが自信へとつながります。
+面接冒頭の短い応答力を磨くには、[IELTS Speaking Part 1対策ガイド](content/blog/ja/ielts-speaking-part-1-taisaku-kotsu-shizen-na-kaitou.md)も合わせてご覧ください。実戦形式のトピックに数多く触れ、瞬時にアイデアを組み立てる訓練を積むには、公式トピック集や[スピーキング模範解答サンプル](/speaking/)を日頃から読み込んでおくことが自信へとつながります。
 
 {{youtube: | IELTS Speaking Part 2 Template & Strategy}}
 
