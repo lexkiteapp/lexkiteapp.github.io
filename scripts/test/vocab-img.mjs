@@ -109,7 +109,7 @@ ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img
     vm.runInNewContext(m[0], ctx); ok(need.length === want && (!want || need[0] === 'vimg'), `cờ ${JSON.stringify(store)} → ${want ? 'tải bó vimg' : 'KHÔNG tải gì'}`);
     ok(ctx.App.vimg('apple', 'n') === '', 'App.vimg khi chưa có module → chuỗi rỗng (không hộp)'); } }
 const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vocab-img|lexicon-img/.test(SHELL), 'SW SHELL không chứa vocab-img/chỉ mục');
-{ const dictjs = rd('web/js/dict-page.js'); ok(/await vimgP;/.test(dictjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 'dict', photo: true \}/.test(dictjs), "tra từ: chờ ready() rồi vẽ hộp vai dict 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển, js/dict-page.js)"); }
+{ const dictjs = rd('web/js/dict-page.js'); ok(/await vimgP;/.test(dictjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 'dict', photo: true, capt: false \}/.test(dictjs), "tra từ: chờ ready() rồi vẽ hộp vai dict 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển, js/dict-page.js)"); }
 // 3b. quy tắc tích hợp hình (docs/LEXICON.md § Quy tắc tích hợp hình): vai → cỡ, ảnh cảnh luôn kèm câu ví dụ, nền trong suốt cho chế độ tối, tiết kiệm dữ liệu → tắt
 { const mk = (store, ix, nav) => { store = { 'lk.vb': '3', ...store }; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } }, fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve(ix) }), URL, location: { href: 'https://lexkite.com/app/' }, document: { currentScript: null }, navigator: nav || {} }; ctx.self = ctx; vm.runInNewContext(code, ctx); return ctx.VImg; };
   const ix = { v: 2, base, sv: 's1', on: true, m: { 'apple#n': H, 'consider#v': H2, 'although#conj': H3 }, x: [], w: [], a: ['although#conj', 'consider#v'], s: ['consider#v'] };
@@ -118,12 +118,14 @@ const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vo
   ok(/width:64px/.test(V.slot('apple', 'n', '', 'quiz')) && /width="128"/.test(V.slot('apple', 'n', '', 'back')) && /width="160"/.test(V.slot('apple', 'n', '', { w: 'dict', photo: true })), 'slot nhận vai (cả dạng {w}) → đúng cỡ cố định');
   ok(V.slot('consider', 'v', 'xem xét', 'card') === '', 'ảnh CẢNH không có câu ví dụ → không hộp (không bao giờ cảnh thiếu câu)');
   const sc = V.slot('consider', 'v', 'xem xét', 'card', 'We are considering moving.'); ok(/class="vimg-ex"[^>]*>We are considering moving\.<\/span>$/.test(sc) && / data-a="1"/.test(sc), 'ảnh cảnh → câu ví dụ ngay dưới ảnh; nền trong suốt → data-a');
+  ok(!/vimg-ex/.test(V.slot('consider', 'v', 'xem xét', { w: 'dict', capt: false }, 'We are considering moving.')) && /class="vimg"/.test(V.slot('consider', 'v', 'xem xét', { w: 'dict', capt: false }, 'We are considering moving.')), 'capt:false (trang từ điển) → vẫn có ảnh, câu nằm ở cột nội dung, không lặp dưới ảnh');
+  ok(!V.slot('consider', 'v', 'xem xét', { w: 'dict', capt: false }), 'capt:false không có câu → vẫn không hộp (ảnh cảnh không đứng một mình)');
   ok(!/data-a/.test(V.slot('apple', 'n', '', 'card')) && !/vimg-ex/.test(V.slot('apple', 'n', '', 'card', 'x')), 'ảnh vật nền kem → không data-a (ẩn ở chế độ tối), không câu');
   ok(/border-radius:var\(--radius-sm/.test(sc), 'bo góc theo token thiết kế');
   const L = mk({}, ix, { connection: { saveData: true } }); ok(L.mode() === 0 && await L.ready() === null, 'tiết kiệm dữ liệu → tắt ảnh');
   const S = mk({ 'lk.vimg': '1' }, { ...ix, x: ['apple#n'] }, { deviceMemory: 1 }); await S.ready(); ok(!/@2x/.test(S.slot('apple', 'n', '', 'words')), 'máy yếu (≤ 2 GB) → không @2x');
   ok(/decode\(\)/.test(code) && /opacity \.15s/.test(code) && /prefers-reduced-motion:reduce/.test(code) && /classList\.add\('gone'\)/.test(code) && !/b\.remove\(\)/.test(code) && /requestIdleCallback/.test(code), 'decode() + mờ 150 ms, giảm chuyển động, lỗi CDN → ẩn hộp giữ chỗ (CLS 0), prefetch lúc rảnh');
-  ok(/prefers-color-scheme:dark/.test(code) && /\.vimg:not\(\[data-a\]\)\{display:none!important\}/.test(code), 'chế độ tối: không hiện ảnh nền sáng (!important – hộp có display:block nội tuyến)'); }
+  ok(/prefers-color-scheme:dark/.test(code) && /\.vimg:not\(\[data-a\]\),[^{]*\.vimg:not\(\[data-a\]\)\+\.vimg-ex\{display:none!important\}/.test(code) && /\.vimg\.gone\+\.vimg-ex\{display:none!important\}/.test(code), 'chế độ tối: không hiện ảnh nền sáng (!important – hộp có display:block nội tuyến); ảnh ẩn/lỗi → câu chú thích ẩn theo, không lạc lõng'); }
 { const mk2 = st => { const ctx = { localStorage: { getItem: k => (k in st ? st[k] : null), setItem: (k, v) => { st[k] = String(v); } }, fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ on: true, m: {} }) }), URL, location: { href: 'https://lexkite.com/app/' }, document: { currentScript: null } }; ctx.self = ctx; vm.runInNewContext(code, ctx); return ctx.VImg; };
   const cfg = v => JSON.stringify({ at: Date.now(), v });
   ok(mk2({ 'lk.vb': '50' }).mode() === 0, 'bật dần: nhóm 50 ≥ 10 % mặc định → TẮT');
@@ -158,7 +160,7 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
   await get(U(800)); ok(store.size === 800 && store.has(U(0)) && !store.has(U(1)), 'vượt trần → xoá ảnh ít dùng nhất (không xoá ảnh vừa xem lại)');
   await get(U(0).replace('.webp', '@2x.avif')); ok(store.size === 800 && net === 802, 'tệp @2x.avif cũng được lưu/trần chung'); }
 // trang tĩnh /words/: chỉ khi style.approved === true và nghĩa có ảnh; markup = VImg.pic (cùng module)
-{ const seo = rd('scripts/build-seo-pages.mjs');
+{ const seo = rd('scripts/lib/seo-words.mjs');
   ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length \?/.test(seo) && /ctx\.VImg\.pic/.test(seo), '/words/: chỉ dựng ảnh khi chủ duyệt + có mục, markup từ VImg.pic');
   ok((seo.match(/\$\{vimgOf\(/g) || []).length === 1 && /const vimgOf = \(e, alt, label\) => \(VPIC \? seoPic\(/.test(seo), '/words/: chưa duyệt → vimgOf trả rỗng (trang giữ nguyên từng byte)');
   const { V } = sandbox({}, index), IM = { base, items: { 'apple#n': { h: H, fmt: ['avif', 'webp'], x2: true, photo: { h: H2, fmt: ['webp'], src: { tier: 'photo', lic: 'Pexels', by: 'Jo <B>' } } }, 'kiss#v': { h: H3, fmt: ['avif', 'webp'] } } };
@@ -170,7 +172,7 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
   for (const f of ['web/js/study.js', 'extension/newtab.js']) ok(!/photo/.test(rd(f)), 'thẻ học / tab mới không dùng ảnh Wikimedia/ảnh chụp: ' + f);
   { const ap = rd('web/js/app.js') + rd('web/js/dict-page.js'); ok((ap.match(/photo: true/g) || []).length === 1 && /photo: true/.test(rd('web/js/dict-page.js')) && !/\.photo\b/.test(ap), 'app: ảnh Wikimedia CHỈ ở trang tra từ (1 chỗ photo: true, js/dict-page.js)'); }
   ok(/o\.photo \? idx\.p\[k\] : ''/.test(rd('web/js/vocab-img.js')) && !/\.photo\b(?!\s*\?)/.test(rd('web/js/vocab-img.js').replace(/o\.photo \?/g, '')), 'VImg: p chỉ dùng khi bề mặt xin {photo:true}');
-  ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length/.test(rd('scripts/build-seo-pages.mjs')), 'img.json chưa duyệt HOẶC chưa có mục → /words/ không đổi (đã duyệt s1 24/10)'); }
+  ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length/.test(rd('scripts/lib/seo-words.mjs')), 'img.json chưa duyệt HOẶC chưa có mục → /words/ không đổi (đã duyệt s1 24/10)'); }
 
 // ghi công trên 15 trang Chính sách (#credits): Noto Emoji Apache 2.0 + Pixabay/Pexels + Lexkite, đã dịch (không còn câu tiếng Anh)
 for (const l of ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']) {
@@ -228,7 +230,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
     const { execFileSync } = await import('child_process'), par = h => +execFileSync('bash', ['-c', line.replace('>> $GITHUB_OUTPUT', '') + ' >/dev/null; echo $par'], { env: { ...process.env, VIMG_HOUR: String(h) }, encoding: 'utf8' }).trim();
     const day = [...Array(14).keys()].map(i => par(i + 1)), night = [0, 15, 16, 18, 20, 22, 23].map(par);
     ok(/max-parallel: \$\{\{ fromJSON\(needs\.plan\.outputs\.par \|\| '5'\) \}\}/.test(fillJob) && /par: \$\{\{ steps\.p\.outputs\.par \}\}/.test(wf) && day.every(x => x >= 1 && x <= 3) && night.every(x => x >= 1 && x <= 5), 'fill: ban ngày VN (01–15 UTC) ≤ 3 máy, đêm ≤ 5 (chừa máy cho giao diện/npm test/Prod release)');
-    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| '10' \}\}/.test(wf), 'fill vẫn 10 việc (cùng trần ảnh mỗi việc) – bớt máy song song không bớt ảnh/ngày'); }
+    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| \(github\.event\.inputs\.judge_run != '' && '6' \|\| '\$par'\) \}\}/.test(wf), 'fill: số việc mặc định = số máy song song (par) – không có đợt chờ (04/11: 10 việc/par 3 → lượt >6 giờ, giữ nhóm concurrency); judge_run mặc định 6; tổng ảnh/lượt = trần G chia đều'); }
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
   ok(!/if:.*vars\.[A-Z_]+ *[!=]= *'0'/.test(all), "không workflow nào so vars.X với '0' trong if: (GitHub coi '' == '0')");

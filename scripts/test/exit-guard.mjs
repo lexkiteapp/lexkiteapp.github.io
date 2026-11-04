@@ -21,7 +21,7 @@ ok(keys.length >= 8, 'tìm được khóa t() trong exit-guard.js (' + keys.leng
 const dictOf = file => { const ctx = { I18N_DICT: {} }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(file, 'utf8'), ctx); return Object.values(ctx.I18N_DICT)[0] || {}; };
 const langs = fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 for (const lang of ['en', ...langs.filter(l => l !== 'en' && l !== 'vi')]) {
-  const f = `web/js/i18n/${lang}.js`; if (!fs.existsSync(f)) { ok(false, 'thiếu ' + f); continue; }
+  const f = lang === 'en' ? 'web/js/i18n/en.js' : `i18n/ui/${lang}.js`; // 13 ngôn ngữ: nguồn khóa nguyên câu (web/js/i18n/<lang>.js là gói khóa băm) if (!fs.existsSync(f)) { ok(false, 'thiếu ' + f); continue; }
   const D = dictOf(f), miss = keys.filter(k => !D[k] || D[k] === k || /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(D[k])); // chữ chỉ tiếng Việt có
   ok(!miss.length, `${lang}.js (từ điển khung) thiếu/chưa dịch khóa ExitGuard: ${miss.join(' | ')}`);
 }
@@ -124,6 +124,13 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   gb.getBoundingClientRect = () => ({ top: 0, left: 0, width: 54, height: 35.99, right: 54, bottom: 35.99 });
   E.w.ExitGuard._grow(gb); const gp = parseFloat(gb.style.paddingTop);
   ok(gb.id === 'mkQuit' && gb.querySelector('.lk-face.btn.ghost') && gb.style.paddingLeft === '0px' && 35.99 + 2 * gp >= 44 && gp * 64 === Math.round(gp * 64) && gb.style.marginTop === -gp + 'px', 'nút ghost 54×35.99: cao ≥ 44 (không hụt vì số lẻ), bước 1/64 px, id giữ trên nút (' + gb.style.cssText + ')');
+  { // hồi quy exit-sweep /mock/run @768: phông web nạp SAU khi nới → chữ rộng 51,7 → 54 px; hộp đã nới phải đo lại theo cỡ thật
+    const v = E.d.getElementById('view') || E.d.body, fb = E.d.createElement('button'); fb.className = 'btn sm ghost'; fb.setAttribute('data-exit', ''); fb.textContent = 'Quit'; v.appendChild(fb);
+    let wd = 51.6875; fb.getBoundingClientRect = () => ({ top: 0, left: 0, width: wd, height: 36.39, right: wd, bottom: 36.39 });
+    E.w.ExitGuard._grow(fb); const w0 = fb.querySelector('.lk-face').style.width;
+    wd = 54; E.w.ExitGuard._regrow(); const fc = fb.querySelector(':scope > .lk-face');
+    ok(w0 === '51.6875px' && fc && fc.style.width === '54px' && fb.style.width === '54px' && fb.querySelectorAll('.lk-face').length === 1, 'phông nạp xong → nút đã nới đo lại theo chữ thật (51,69 → 54 px), không lồng lk-face: ' + (fc && fc.style.width));
+    fb.remove(); }
   E.w.ExitGuard._ungrow(b); ok(!b.dataset.lkGrow && !b.classList.contains('lk-grow') && !b.querySelector('.lk-face') && b.querySelector(':scope > svg.i') && S.cssText === 'color: red;', 'gỡ nới → về đúng DOM & style cũ (' + S.cssText + ')');
 }
 { // 7) Enter = nút chính của bước (khung chung docs/specs/learn-flow-nav.md); không bắt khi đang ở nút/ô gõ hoặc hộp hỏi mở; thanh FOCUS bật mặc định

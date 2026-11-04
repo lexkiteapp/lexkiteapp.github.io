@@ -158,6 +158,7 @@ ok(!errors.length, 'nạp mã + bundle lesson không lỗi' + (errors.length ? '
 const { App, UI, Core } = w;
 let spoken = [], updates = [], added = [], rewards = [];
 UI.tts = (text, a, r, o) => { spoken.push(text); if (o && o.onEnd) setTimeout(o.onEnd, 5); };
+const REAL_REC = UI.recognize; // giữ bản thật cho phần F (trình duyệt thiếu API / quyền bị chặn / lỗi mạng)
 UI.recognize = (target, acc, cb) => { setTimeout(() => cb.result({ heard: target, score: 92 }), 5); return { stop() {} }; };
 Core.Cards.update = async c => { updates.push(JSON.parse(JSON.stringify(c))); };
 App.addWord = async e => { added.push(e.word); App.state.cards[Core.keyOf(e.word)] = { word: e.word, vi: e.vi, srs: Core.SRS.newState() }; };
@@ -172,6 +173,25 @@ await App.routes.lesson(); await tick();
 ok(!$('#lsn') && App.view.querySelector('a[href="#/home"]'), 'cờ tắt: #/lesson không chạy bài');
 
 // Trả lời đúng mục hiện tại qua DOM (đáp án đọc từ trạng thái – chỉ test)
+// Báo lỗi LX-1002 (Edge/Windows, bước nói): micro hỏng/hết phiên nghe im lặng → nút KHÔNG được chết im lặng
+let micFailDone = false;
+async function micFail() {
+  micFailDone = true;
+  const old = UI.recognize, mic = () => $('#lsnMic'), heard = () => $('#lsnHeard').textContent;
+  UI.recognize = (t, a, cb) => { setTimeout(() => cb.end(), 3); return { stop() {} }; }; // hết phiên, không result/error
+  mic().click(); await tick();
+  ok(!mic().disabled && heard() && !/Đang nghe/.test(heard()) && mic().textContent.includes(w.t('Thử lại')) && mic().querySelector('.material-symbols-outlined'), 'nói: phiên nghe kết thúc im lặng → micro bấm lại được, có lời nhắn + nút Thử lại');
+  UI.recognize = (t, a, cb) => { setTimeout(() => { cb.error('not-allowed'); cb.end(); }, 3); return { stop() {} }; };
+  mic().click(); await tick();
+  ok(!mic().disabled && heard() === UI.recErrorText('not-allowed'), 'nói: quyền micro bị chặn → báo cách cho phép (không phải "Chưa rõ")');
+  mic().click(); await tick();
+  ok(heard().includes(w.t('Hoặc chọn “Không nói được lúc này” để học tiếp.')) && st().sess.cur && SPEAKS_T(st().sess.cur), 'nói: hỏng micro 2 lần → chỉ lối "Không nói được lúc này", bài nói vẫn còn');
+  UI.recognize = (t, a, cb) => { setTimeout(() => { cb.error('network'); cb.end(); }, 3); return { stop() {} }; };
+  mic().click(); await tick();
+  ok(!mic().disabled && heard().startsWith(UI.recErrorText('network')), 'nói: lỗi mạng dịch vụ nhận dạng → lời nhắn mạng rõ ràng');
+  UI.recognize = old;
+}
+const SPEAKS_T = it => it.type === 'say' || (it.type === 'pic' && !it.choice);
 async function solve(right) {
   const it = st().sess.cur;
   if (it.type === 'line') { $('#lsnGo').click(); await tick(); return; }
@@ -188,6 +208,7 @@ async function solve(right) {
     for (const word of want) { const b = [...w.document.querySelectorAll('#lsnBank .lsn-tile:not(.used)')].find(x => x.textContent === word); if (b) b.click(); }
     $('#lsnCheck').click();
   } else if ($('#lsnMic')) {
+    if (!micFailDone) await micFail();
     if (!right) { const old = UI.recognize; UI.recognize = (t, a, cb) => { setTimeout(() => cb.result({ heard: 'mmm', score: 10 }), 3); return { stop() {} }; }; $('#lsnMic').click(); await tick(); $('#lsnMic').click(); await tick(); UI.recognize = old; }
     else { $('#lsnMic').click(); await tick(); }
   } else {
@@ -289,6 +310,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
 }
 // 🧩 Stitch v2.1 story-duo (cờ ux1): Truyện/Radio trên khung mới – Ama trái + Carlos phải (Chars/LessonTeacher) SAU khung chat đục; mỗi câu thoại đúng giọng người nói; bài kiểm giữa truyện = khung lesson-question
 ok(w.ST2['story-duo'], 'story-duo: khung nạp được');
+{ const h = w.ST2['story-duo']({ log: [], opts: [{ v: 'on', o: 'x', k: 'A', t: 'x' }] }).main, tp = w.document.createElement('template'); tp.innerHTML = h; const ic = tp.content.querySelector('#lsnBody .lsn-opt > div:last-child .material-symbols-outlined'); ok(ic && ic.textContent.trim() === 'check', `story-duo: đáp án đang chọn có dấu ✓ ở góc phải, không phải chữ cái (${ic && ic.textContent})`); }
 for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
   w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);
   w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
@@ -363,6 +385,44 @@ ok(rewards.length === 1 && rewards[0].quizzes === 1, 'thật: ghi XP 1 lần');
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));
 w.localStorage.removeItem('lk.lsn.off');
 
+ok(micFailDone, 'đã chạy kịch bản micro hỏng ở bước nói');
+// ---------- F. UI.recognize thật với trình duyệt giả (docs/LESSON-ENGINE.md – LX-1002) ----------
+{
+  const runs = [];
+  class FakeSR { constructor() { this.mode = FakeSR.mode; FakeSR.made++; } start() { runs.push(this); const m = this.mode; setTimeout(() => {
+    if (m === 'silent') this.onend();
+    else if (m === 'hang') { /* không bao giờ kết thúc – chờ bộ canh */ }
+    else if (m === 'ok') { this.onresult({ results: [[{ transcript: 'hello there' }]] }); this.onend(); }
+    else { this.onerror({ error: m }); this.onend(); } }, 3); }
+    stop() { setTimeout(() => this.onend && this.onend(), 1); } abort() { setTimeout(() => { this.onerror && this.onerror({ error: 'aborted' }); this.onend && this.onend(); }, 1); } }
+  FakeSR.made = 0;
+  const md = w.navigator.mediaDevices, MR = w.MediaRecorder, WSR = w.webkitSpeechRecognition, SR0 = w.SpeechRecognition;
+  const setEnv = ({ sr = true, mr = true } = {}) => {
+    w.SpeechRecognition = undefined; w.webkitSpeechRecognition = sr ? FakeSR : undefined;
+    Object.defineProperty(w.navigator, 'mediaDevices', { configurable: true, value: mr ? { getUserMedia: () => Promise.reject(new Error('denied')) } : undefined });
+    w.MediaRecorder = mr ? class { start() {} stop() {} } : undefined;
+  };
+  const run = (mode, opts = {}) => new Promise(res => { FakeSR.mode = mode; const ev = []; const ctl = REAL_REC('hello there', 'en-US', { maxMs: opts.maxMs, result: r => ev.push(['result', r.score]), error: c => ev.push(['error', c]), end: () => { ev.push(['end']); setTimeout(() => res({ ev, ctl }), 5); } }); if (!ctl && !ev.some(e => e[0] === 'end')) setTimeout(() => res({ ev, ctl }), 20); });
+  const sig = ev => ev.map(e => e.join(':')).join(',');
+  setEnv();
+  let r = await run('ok'); ok(sig(r.ev) === 'result:100,end', 'recognize: nghe được → result rồi end');
+  r = await run('silent'); ok(sig(r.ev) === 'error:no-speech,end', 'recognize: Edge kết thúc phiên im lặng → error no-speech đúng 1 lần rồi end (không treo)');
+  r = await run('hang', { maxMs: 40 }); ok(sig(r.ev) === 'error:no-speech,end', 'recognize: phiên nghe treo → bộ canh dừng, báo no-speech + end');
+  r = await run('not-allowed'); ok(sig(r.ev) === 'error:not-allowed,end' && !/Lỗi nhận dạng/.test(UI.recErrorText('not-allowed')), 'recognize: quyền bị chặn → not-allowed + lời nhắn cho phép micro');
+  setEnv({ mr: false });
+  r = await run('network'); ok(sig(r.ev) === 'error:network,end', 'recognize: lỗi mạng, không có MediaRecorder → báo network');
+  setEnv();
+  w.localStorage.removeItem('vb.whisper'); const made = FakeSR.made;
+  r = await run('network'); ok(sig(r.ev) === 'end' && w.document.getElementById('wOk'), 'recognize: dịch vụ giọng nói hỏng (network) → mời bật Whisper trên máy (MediaRecorder), không báo lỗi suông');
+  UI.closeModal();
+  w.localStorage.setItem('vb.whisper', '1');
+  r = await run('ok'); ok(FakeSR.made === made + 1 && sig(r.ev) === 'error:not-allowed,end', 'recognize: sau khi dịch vụ hỏng cả phiên đi thẳng Whisper (ghi âm), micro bị chặn → not-allowed + end');
+  w.localStorage.removeItem('vb.whisper');
+  setEnv({ sr: false, mr: false });
+  r = await run('ok'); ok(r.ctl === null && sig(r.ev) === 'error:unsupported', 'recognize: trình duyệt thiếu API và MediaRecorder → unsupported (bài học tự đổi bài nói)');
+  for (const c of ['not-allowed', 'service-not-allowed', 'no-speech', 'audio-capture', 'network', 'language-not-supported', 'unsupported', 'busy', 'whisper']) ok(!/Lỗi nhận dạng/.test(UI.recErrorText(c)), `recErrorText(${c}) có lời nhắn riêng`);
+  w.SpeechRecognition = SR0; w.webkitSpeechRecognition = WSR; w.MediaRecorder = MR; Object.defineProperty(w.navigator, 'mediaDevices', { configurable: true, value: md });
+}
 console.log(`\n${total - fails}/${total} lesson`);
 // Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi
 try { execFileSync(process.execPath, ['scripts/test/lesson-content.mjs'], { stdio: 'inherit' }); } catch (e) { fails++; console.error('✗ lesson-content'); }

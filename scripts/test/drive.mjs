@@ -424,7 +424,7 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     const G = await import(new URL('../../functions/api/_d1guard.js', import.meta.url));
     G.resetD1Cache();
     const fakeFetch = async () => ({ json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: 3000000, rowsWritten: 500 } }] }] } } }) });
-    const u = await G.d1Usage({ CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, DB, Date.now(), fakeFetch);
+    const u = await G.d1Usage({ D1_PLAN: 'free', CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, DB, Date.now(), fakeFetch);
     ok(u.source === 'cloudflare' && u.reads === 3e6 && u.writes === 500 && u.block && u.alert, 'GraphQL: 3 M/5 M = 60 % → chặn việc nền + cảnh báo');
     G.resetD1Cache(); const u2 = await G.d1Usage({}, DB); ok(u2.source === 'own' && !u2.block, 'không có token → tự đếm, chưa chặn');
     G.resetD1Cache();

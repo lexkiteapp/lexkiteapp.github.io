@@ -11,6 +11,10 @@
   "week": [
    "Tiến bộ tuần",
    "Xem tiến bộ của bạn trong tuần."
+  ],
+  "fixed": [
+   "Lỗi {id} đã được sửa",
+   "Cảm ơn bạn đã báo – chạm để xem chi tiết."
   ]
  },
  "en": {
@@ -25,6 +29,10 @@
   "week": [
    "Weekly progress",
    "See how far you've come this week."
+  ],
+  "fixed": [
+   "Issue {id} has been fixed",
+   "Thanks for reporting – tap to see the details."
   ]
  },
  "es": {
@@ -39,6 +47,10 @@
   "week": [
    "Progreso semanal",
    "Mira cuánto has avanzado esta semana."
+  ],
+  "fixed": [
+   "El problema {id} se ha solucionado",
+   "Gracias por avisarnos: toca para ver los detalles."
   ]
  },
  "pt": {
@@ -53,6 +65,10 @@
   "week": [
    "Progresso semanal",
    "Veja quanto você avançou esta semana."
+  ],
+  "fixed": [
+   "O problema {id} foi corrigido",
+   "Obrigado por avisar – toque para ver os detalhes."
   ]
  },
  "fr": {
@@ -67,6 +83,10 @@
   "week": [
    "Progrès de la semaine",
    "Regarde tes progrès de la semaine."
+  ],
+  "fixed": [
+   "Le problème {id} a été corrigé",
+   "Merci de l'avoir signalé – touchez pour voir les détails."
   ]
  },
  "de": {
@@ -81,6 +101,10 @@
   "week": [
    "Wochenfortschritt",
    "Sieh dir deinen Fortschritt der Woche an."
+  ],
+  "fixed": [
+   "Problem {id} wurde behoben",
+   "Danke für deine Meldung – tippe für Details."
   ]
  },
  "id": {
@@ -95,6 +119,10 @@
   "week": [
    "Kemajuan mingguan",
    "Lihat kemajuanmu minggu ini."
+  ],
+  "fixed": [
+   "Masalah {id} sudah diperbaiki",
+   "Terima kasih sudah melapor – ketuk untuk melihat detail."
   ]
  },
  "th": {
@@ -109,6 +137,10 @@
   "week": [
    "ความก้าวหน้ารายสัปดาห์",
    "ดูความก้าวหน้าของคุณในสัปดาห์นี้"
+  ],
+  "fixed": [
+   "แก้ไขปัญหา {id} แล้ว",
+   "ขอบคุณที่แจ้งปัญหา – แตะเพื่อดูรายละเอียด"
   ]
  },
  "zh": {
@@ -123,6 +155,10 @@
   "week": [
    "每周进度",
    "看看你这周的进步。"
+  ],
+  "fixed": [
+   "问题 {id} 已修复",
+   "感谢你的反馈——点按查看详情。"
   ]
  },
  "ja": {
@@ -137,6 +173,10 @@
   "week": [
    "週間の進み具合",
    "今週の成長をチェックしよう。"
+  ],
+  "fixed": [
+   "問題 {id} は修正されました",
+   "ご報告ありがとうございます。タップして詳細を確認してください。"
   ]
  },
  "ko": {
@@ -151,6 +191,10 @@
   "week": [
    "주간 진도",
    "이번 주 성장을 확인해 보세요."
+  ],
+  "fixed": [
+   "문제 {id}이(가) 해결되었습니다",
+   "신고해 주셔서 감사합니다. 탭하여 자세히 보세요."
   ]
  },
  "hi": {
@@ -165,6 +209,10 @@
   "week": [
    "साप्ताहिक प्रगति",
    "देखें इस हफ़्ते आपने कितनी प्रगति की।"
+  ],
+  "fixed": [
+   "समस्या {id} ठीक कर दी गई है",
+   "रिपोर्ट करने के लिए धन्यवाद – विवरण देखने के लिए टैप करें।"
   ]
  },
  "ar": {
@@ -179,6 +227,10 @@
   "week": [
    "التقدّم الأسبوعي",
    "شاهد تقدّمك هذا الأسبوع."
+  ],
+  "fixed": [
+   "تم إصلاح المشكلة {id}",
+   "شكرًا لإبلاغك – اضغط لعرض التفاصيل."
   ]
  },
  "ru": {
@@ -193,6 +245,10 @@
   "week": [
    "Прогресс за неделю",
    "Посмотри, как ты продвинулся за неделю."
+  ],
+  "fixed": [
+   "Проблема {id} исправлена",
+   "Спасибо за сообщение – нажмите, чтобы посмотреть подробности."
   ]
  },
  "tr": {
@@ -207,6 +263,10 @@
   "week": [
    "Haftalık ilerleme",
    "Bu haftaki ilerlemene göz at."
+  ],
+  "fixed": [
+   "{id} numaralı sorun düzeltildi",
+   "Bildirdiğin için teşekkürler – ayrıntılar için dokun."
   ]
  }
 }

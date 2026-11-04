@@ -8,8 +8,8 @@
       "purpose": "Web lexkite.com, blog, nội dung học (JSON/JS tải lười), API /api/*",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/pages/view/lexkite",
       "free": "Băng thông không giới hạn · 500 build/tháng · 20.000 file/bản · 100.000 lượt Functions/ngày",
-      "upgrade": "Workers Paid 5 USD/tháng khi Functions > 100k/ngày",
-      "status": "Miễn phí",
+      "upgrade": "Đã Workers Paid từ 03/11/2026: 10 triệu lượt Workers + Functions/THÁNG đã gồm (hết trần 100k/ngày), vượt 0,30 USD/triệu",
+      "status": "Trả phí (Workers Paid)",
       "match": [
         "lexkite.com",
         "lexkite",
@@ -27,9 +27,9 @@
       "kind": "db",
       "purpose": "Đồng bộ học tập, người dùng, thống kê, tin nhắn, cấu hình, nhật ký quản trị · hạn mức chống lạm dụng (bảng quota_count, quota_config, quota_allow, quota_block, quota_flag, quota_audit – docs/QUOTAS.md); biến môi trường Pages: ADMIN_EMAILS, UNLIMITED_EMAILS (danh sách email không giới hạn, không phải khóa bí mật)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/d1",
-      "free": "5 GB · 5 triệu lượt đọc/ngày · 100.000 lượt ghi/ngày",
-      "upgrade": "Workers Paid; hoặc giảm hit_rate thống kê trong Quản trị",
-      "status": "Miễn phí",
+      "free": "Workers Paid từ 03/11/2026 (~13:40Z, tài khoản chính e34e14b7…, 5 USD/tháng): đã gồm 25 tỷ dòng đọc + 50 triệu dòng ghi/THÁNG, 5 GB/DB (tối đa 10 GB); vượt: 0,001 USD/triệu dòng đọc, 1 USD/triệu dòng ghi. (Gói Free cũ: 5 triệu đọc + 100.000 ghi/ngày.)",
+      "upgrade": "Đã Paid. Trần chi tiêu tự canh: dự báo tháng ≥ 50/75 % phần đã gồm → thư; ≥ 85 % → Quản trị/thông báo chỉ đọc đệm; ≥ 100 % → thư 'sắp tốn tiền' mỗi ngày (functions/api/_d1watch.js, docs/CAPACITY.md §6)",
+      "status": "Trả phí (Workers Paid)",
       "match": [
         "lexkite-sync"
       ],
@@ -78,6 +78,19 @@
       "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
       "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
       "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
+    },
+    {
+      "key": "report-shots-r2",
+      "name": "Cloudflare R2 lexkite-report-shots (ảnh chụp báo lỗi, riêng tư)",
+      "purpose": "Ảnh chụp đính kèm báo lỗi (functions/api/report.js, binding Pages REPORT_SHOTS, khóa report/<id>, nhị phân) – không tên miền công khai; quản trị xem qua URL ký 5 phút /api/report-shot. Xóa 60 ngày sau khi đóng phiếu.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-report-shots",
+      "match": [
+        "lexkite-report-shots"
+      ],
+      "kind": "cdn",
+      "free": "R2 Free 10 GB lưu trữ chung tài khoản · ảnh ≤ 300 KB/phiếu – thẻ Chất lượng admin hiện dung lượng + %",
+      "upgrade": "Không cần: xóa 60 ngày sau khi đóng giữ dung lượng nhỏ",
+      "status": "Chưa bật (02/11/2026) – chạy report-shots.yml action=setup rồi bỏ # [[r2_buckets]] trong wrangler.toml"
     },
     {
       "key": "audio-cdn-r2",
@@ -375,10 +388,12 @@
       "status": "Nội bộ",
       "match": [
         "cache.lexkite.internal",
+        "budget.lexkite.internal",
         "rate.lexkite.internal",
         "quota.lexkite.internal",
         "notices.lexkite.internal",
-        "counts.lexkite.internal"
+        "counts.lexkite.internal",
+        "watch.lexkite.internal"
       ]
     },
     {
@@ -615,6 +630,19 @@
         "yt_channel",
         "yt_pack",
         "shorts/_ytpack"
+      ]
+    },
+    {
+      "key": "youtube-search",
+      "name": "YouTube Data API v3 – tìm video cho #/watch (khóa riêng YOUTUBE_SEARCH_KEY)",
+      "kind": "api",
+      "purpose": "functions/api/watch.js op=search: search.list + videos.list = 101 đơn vị/lượt, trần WATCH_SEARCH_UNITS (mặc định 9.000/ngày Pacific, D1 watch_quota), đệm Cache API 24 h + D1 watch_cache 7 ngày; hết → link YouTube search. op=info (oEmbed) + op=feed (RSS kênh công khai) không cần khóa. docs/specs/video-learn.md",
+      "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
+      "free": "10.000 đơn vị/ngày/dự án (~99 lượt tìm)",
+      "upgrade": "Xin tăng quota qua YouTube API audit (miễn phí)",
+      "status": "Chờ khóa (chủ tạo dự án GCP riêng)",
+      "match": [
+        "www.googleapis.com"
       ]
     },
     {
@@ -914,6 +942,48 @@
         "a.pool.opentimestamps.org",
         "b.pool.opentimestamps.org",
         "finney.calendar.eternitywall.com"
+      ]
+    },
+    {
+      "key": "rfc3161-tsa",
+      "name": "Tem thời gian RFC 3161 (DigiCert, Sectigo, FreeTSA)",
+      "kind": "storage",
+      "purpose": "Tem thời gian bên thứ ba cho mục đầu sổ băm (chỉ gửi SHA-256): scripts/tsa.mjs stamp trong content-evidence.yml; tệp content/protection/tsa/<hash>.<tsa>.tsr; kiểm node scripts/tsa.mjs verify <seq>. docs/CONTENT-PROTECTION.md §4c",
+      "console": "https://freetsa.org",
+      "free": "Miễn phí (TSA công khai, không tài khoản)",
+      "upgrade": "—",
+      "status": "Đang chạy (CI)",
+      "match": [
+        "timestamp.digicert.com",
+        "timestamp.sectigo.com",
+        "freetsa.org"
+      ]
+    },
+    {
+      "key": "software-heritage",
+      "name": "Software Heritage (save code now)",
+      "kind": "storage",
+      "purpose": "Lưu bản sao độc lập repo công khai (scripts/swh-save.mjs, content-evidence.yml: thứ Hai + mỗi lần phát hành) → mục swh trong sổ băm. docs/CONTENT-PROTECTION.md §4c",
+      "console": "https://archive.softwareheritage.org",
+      "free": "Miễn phí, ẩn danh",
+      "upgrade": "—",
+      "status": "Đang chạy (CI)",
+      "match": [
+        "archive.softwareheritage.org"
+      ]
+    },
+    {
+      "key": "zenodo",
+      "name": "Zenodo (CERN) – bản ghi restricted access",
+      "kind": "storage",
+      "purpose": "Hằng tháng nộp gói kho nội dung + manifest sha256 dạng restricted (tệp không công khai) → DOI, mục deposit trong sổ băm (scripts/zenodo-deposit.mjs, content-evidence.yml). Secret ZENODO_TOKEN. docs/CONTENT-PROTECTION.md §4c",
+      "console": "https://zenodo.org/account/settings/applications/",
+      "free": "Miễn phí (≤ 50 GB/bản ghi)",
+      "upgrade": "—",
+      "status": "Có token 3/11/2026 – chạy sau khi merge",
+      "match": [
+        "zenodo.org",
+        "sandbox.zenodo.org"
       ]
     },
     {
@@ -1289,7 +1359,10 @@
       "learnenglish.britishcouncil.org",
       "ielts.org",
       "ielts.idp.com",
-      "classroom.google.com", "dash.cloudflare.com", "appstoreconnect.apple.com"
+      "classroom.google.com",
+      "dash.cloudflare.com",
+      "appstoreconnect.apple.com",
+      "policies.google.com"
     ]
   }
 }

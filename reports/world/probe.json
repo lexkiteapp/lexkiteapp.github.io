@@ -1,13 +1,13 @@
 {
- "at": "2026-11-03T05:30:09.103Z",
+ "at": "2026-11-04T14:39:01.794Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
   "ok": true,
-  "seconds": 5.9,
+  "seconds": 6.1,
   "taps": 10,
   "trail": [
-   ".ctas a.btn.lg",
+   "[data-cta=start], .ctas a.btn.lg",
    "button.trk-opt",
    "#obNext",
    ".trk-lv [data-lv]:not([data-lv=\"test\"])",
