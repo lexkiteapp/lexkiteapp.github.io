@@ -32,7 +32,18 @@ const CSCAN = () => { const out = [];
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
 const cratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
 const contrast = {}; // tag → { n, miss:[{t,cr,need}] }
+// Dải sáng quét qua chữ (.pill-shimmer – viên XP top-bar, chu kỳ 3 s): chụp ngẫu nhiên chỉ thỉnh thoảng trúng → cổng đỏ chập chờn, còn chữ thật vẫn mờ mỗi vòng.
+//   Luôn đo ở ĐỈNH sáng: phủ màu đậm nhất của gradient lên cả viên rồi chụp riêng cho phép đo (ảnh so SSIM giữ nguyên) → kết quả ổn định và là ca xấu nhất.
+const SHIMMER = '.pill-shimmer,.shimmer-fx';
+const shimmerPeak = async (page, buf) => {
+  const top = await page.evaluate(s => { const e = [...document.querySelectorAll(s)].find(x => x.getBoundingClientRect().width); if (!e) return null;
+    const cols = [...getComputedStyle(e, '::after').backgroundImage.matchAll(/rgba?\([^)]+\)/g)].map(m => m[0]), al = c => { const v = c.match(/[\d.]+/g); return v.length > 3 ? +v[3] : 1; };
+    return cols.length ? cols.sort((a, b) => al(b) - al(a))[0] : null; }, SHIMMER).catch(() => null);
+  if (!top) return buf;
+  const tag = await page.addStyleTag({ content: SHIMMER.split(',').map(x => x + '::after').join(',') + `{animation:none!important;left:0!important;background:${top}!important}` }), b = await page.screenshot();
+  await tag.evaluate(n => n.remove()); return b; };
 async function auditContrast(page, buf, tag) {
+  buf = await shimmerPeak(page, buf);
   const items = await page.evaluate(CSCAN).catch(() => []), p = PNG.sync.read(buf), miss = []; let n = 0;
   for (const it of items) { const m = (it.c.match(/[\d.]+/g) || []).map(Number); if (m.length < 3) continue; const a = (m[3] ?? 1) * it.op; if (a < 0.05) continue; // trong suốt = cố ý ẩn (vòng ✓ chưa chọn)
     const x0 = Math.max(0, Math.floor(it.x)), y0 = Math.max(0, Math.floor(it.y)), x1 = Math.min(p.width, Math.ceil(it.x + it.w)), y1 = Math.min(p.height, Math.ceil(it.y + it.h)); if (x1 - x0 < 3 || y1 - y0 < 3) continue;
