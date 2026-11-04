@@ -88,7 +88,7 @@
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
     '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Số khách (thiết bị) khác nhau.': 'Unique visitors (devices).',
-    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
+    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', '0 khách': '0 visitors', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
     // Phân tích
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
     '🗺️ Khách theo quốc gia · hôm nay': '🗺️ Visitors by country · today', 'Bản đồ khách theo quốc gia hôm nay': 'Map of visitors by country today', 'Không tải được số liệu trực tiếp.': 'Could not load live data.', 'Chi tiết · {r}': 'Details · {r}',
@@ -239,7 +239,7 @@
   // Giao diện sáng/tối: Tự động (theo máy) → Sáng → Tối, ghi nhớ trên trình duyệt
   const THEME = { auto: ['🌗', 'Tự động (theo máy)'], light: ['☀️', 'Sáng'], dark: ['🌙', 'Tối'] };
   const themeNow = () => { try { return localStorage.getItem('lk.admTheme') || 'auto'; } catch (e) { return 'auto'; } };
-  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); };
+  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); redrawMap(); };
   const cycleTheme = () => { const order = ['auto', 'light', 'dark']; setTheme(order[(order.indexOf(themeNow()) + 1) % 3]); };
   const paintTheme = () => { const b = document.getElementById('thm'); if (!b) return; const m = THEME[themeNow()] ? themeNow() : 'auto'; b.innerHTML = `${THEME[m][0]} <span class="lbl">${esc(L(THEME[m][1]))}</span>`; b.setAttribute('aria-label', L('Giao diện: {m} – bấm để đổi', { m: L(THEME[m][1]) })); };
   try { const m = localStorage.getItem('lk.admTheme'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) { /* bỏ qua */ }
@@ -687,8 +687,8 @@
   const chart = (rows, key, label) => AdminChart.bars(rows, { key, fmt: num, x: r => String(r.day).slice(5), aria: label, empty: L('Chưa có dữ liệu') }); // js/admin-chart.js – chữ cố định px, lưới, nhãn ngày tự giãn
 
   // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------
-  let liveTimer = null, worldMap = null, mapKey = '', mapLib = null, mapRO = null;
-  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; };
+  let liveTimer = null, worldMap = null, mapKey = '', mapData = null, mapLib = null, mapRO = null;
+  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; mapData = null; };
   const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
   const platName = k => PLAT[k] ? L(PLAT[k][1]) : k || '–', platIcon = k => (PLAT[k] || ['❔'])[0];
   const mkRegion = () => { try { return new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { return null; } }; // trình duyệt cũ → null
@@ -753,24 +753,24 @@
     const js = src => new Promise((y, n) => { const s = document.createElement('script'); s.src = src; s.onload = y; s.onerror = n; document.head.appendChild(s); });
     js('js/vendor/jsvectormap/jsvectormap.min.js').then(() => js('js/vendor/jsvectormap/world.js')).then(() => window.jsVectorMap ? ok(window.jsVectorMap) : fail(new Error('jsvectormap'))).catch(e => { mapLib = null; fail(e); });
   }));
-  const BUCKETS = [['1', 1, '#FFE7C2'], ['2–5', 2, '#FFC94A'], ['6–20', 6, '#FFB054'], ['21–100', 21, '#F2553B'], ['100+', 101, '#CC3F1C']]; // dải màu thương hiệu (kem → vàng → cam)
+  const BUCKETS = [['1', 1], ['2–5', 2], ['6–20', 6], ['21–100', 21], ['100+', 101]]; // màu: --map-1…5, nước 0 khách: --map-0 (admin.css, riêng sáng/tối)
   const bucket = n => [...BUCKETS].reverse().find(b => n >= b[1]);
   async function drawMap(countries) {
     const box = $('#worldMap'); if (!box) return;
     const rows = (countries || []).filter(r => realCC(r.k)), vals = Object.fromEntries(rows.map(r => [r.k, r.n])), known = rows.reduce((a, r) => a + r.n, 0), unk = (countries || []).filter(r => !realCC(r.k)).reduce((a, r) => a + r.n, 0);
-    mapKey = JSON.stringify(countries || []);
+    mapKey = JSON.stringify(countries || []); mapData = countries;
     if ($('#mapSum')) $('#mapSum').textContent = L('{c} quốc gia · {n} khách', { c: rows.length, n: num(known) }) + (unk ? L(' · {n} không rõ', { n: num(unk) }) : '');
-    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span>${BUCKETS.map(b => `<span class="ml-i"><i style="background:${b[2]}"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
+    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span><span class="ml-i"><i style="background:var(--map-0)"></i>${L('0 khách')}</span>${BUCKETS.map((b, i) => `<span class="ml-i"><i style="background:var(--map-${i + 1})"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
     try {
       const JVM = await loadMap(); if (!$('#worldMap') || tab !== 'analytics') return;
       if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; }
       box.innerHTML = '';
-      const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+      const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
       const values = Object.fromEntries(Object.entries(vals).map(([k, n]) => [k, bucket(n)[0]]));
       worldMap = new JVM({
         selector: '#worldMap', map: 'world', backgroundColor: 'transparent', zoomButtons: true, zoomOnScroll: false, zoomMax: 8,
-        regionStyle: { initial: { fill: css('--surface-3') || '#e8e9f4', stroke: css('--surface') || '#ffffff', strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
-        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map(b => [b[0], b[2]])), values }] },
+        regionStyle: { initial: { fill: css('--map-0'), stroke: css('--surface'), strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
+        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map((b, i) => [b[0], css(`--map-${i + 1}`)])), values }] },
         onRegionTooltipShow(e, tip, code) { tip.text(L('{c} – {n} khách hôm nay', { c: cname(code), n: num(vals[code] || 0) })); },
       });
       // Bản đồ tự co giãn theo khung (đổi cỡ cửa sổ / xoay máy)
@@ -780,6 +780,10 @@
       box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, r => FLAG(r.k) + ' · ' + cname(r.k))}`;
     }
   }
+  // Màu đọc lúc vẽ nên đổi sáng/tối phải vẽ lại (owner 4/11: vẽ lúc sáng rồi sang tối → nước trống vẫn kem như có khách). Cả nút giao diện lẫn hệ điều hành đổi ở chế độ Tự động.
+  function redrawMap() { if (mapData && tab === 'analytics' && $('#worldMap')) drawMap(mapData); }
+  const darkMQ = matchMedia('(prefers-color-scheme: dark)'), onSysTheme = () => { if (themeNow() === 'auto') redrawMap(); };
+  if (darkMQ.addEventListener) darkMQ.addEventListener('change', onSysTheme); else darkMQ.addListener(onSysTheme);
   // ---------- Người dùng: hộp thoại chi tiết & xóa dữ liệu (gõ lại UID để xác nhận) ----------
   async function userDel(uid, email, done) {
     const ok = await confirmDlg({ title: L('Xóa vĩnh viễn dữ liệu đồng bộ?'), body: L('Xóa toàn bộ dữ liệu đồng bộ của {e}. Tài khoản Google không bị ảnh hưởng. Không thể hoàn tác.', { e: email || uid }), typed: uid, ok: L('Xóa vĩnh viễn'), danger: true });
