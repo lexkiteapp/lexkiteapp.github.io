@@ -30,6 +30,7 @@
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
 | Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` |
 | Học qua video YouTube (#/watch, /api/watch, add-on youtube.com) | `specs/video-learn.md` |
+| Thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO) | `specs/samples-visual.md` |
 | Blog | `BLOG-RUNBOOK.md` |
 | SEO: kỹ thuật · tăng trưởng · trang tĩnh · từ điển · công cụ · uy tín | `SEO-PLAN.md` · `SEO-GROWTH-PLAN.md` · `SEO-ARCH.md` · `SEO-DICT-PAGES.md` · `SEO-TOOLS.md` · `SEO-AUTHORITY.md` |
 | Social / phân phối / GrabCast | `DISTRIBUTION.md` · `GRABCAST-API-REQUESTS.md` |
