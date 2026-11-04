@@ -66,7 +66,7 @@ Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có c
 
 ## Quy tắc tích hợp hình (mọi bề mặt – kiểm trước khi mở rộng)
 - **Một vai + một cỡ mỗi bề mặt** (`VImg.SIZE`): thẻ học `card` 120 · mặt sau ôn `back` 128 · phản hồi câu đố `quiz` 64 · tra từ `dict` 160 · trang /words/ `words` 256 (tab mới add-on giữ 144). Hộp vuông cố định, bo góc `--radius-sm`, cùng vị trí so với từ.
-- **Đúng nghĩa**: khoá `từ#loại` (sense id) – không bao giờ hiện ảnh của nghĩa/loại từ khác. Ảnh cảnh (`s` trong chỉ mục) luôn kèm câu ví dụ dưới ảnh; bề mặt không có câu → không hộp.
+- **Đúng nghĩa**: khoá `từ#loại` (sense id) – không bao giờ hiện ảnh của nghĩa/loại từ khác. Ảnh cảnh (`s` trong chỉ mục) luôn kèm câu ví dụ dưới ảnh (trang từ điển `capt:false`: câu ở khối Ví dụ của cột nội dung; ảnh ẩn/lỗi → câu chú thích ẩn theo); bề mặt không có câu → không hộp.
 - **Không giật**: ảnh hiện sau `img.decode()` + mờ 150 ms (giảm chuyển động → không mờ); tải trước ảnh 3 thẻ kế lúc rảnh (`VImg.prefetch`, `requestIdleCallback`); không chặn tương tác; CLS = 0 (hộp chỉ chèn khi chỉ mục đã về).
 - **Máy yếu/tiết kiệm**: `saveData`/2g → tắt ảnh; `deviceMemory ≤ 2` → không @2x.
 - **Lỗi tiềm ẩn**: tệp CDN thiếu → hộp ẩn (`.gone`, giữ chỗ, không icon vỡ); offline → SW `lk-vimg` (LRU 800) hoặc không gì; RTL căn giữa đối xứng; chế độ tối không hiện ảnh nền sáng (chỉ `data-a` = nền trong suốt).
