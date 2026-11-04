@@ -20,6 +20,7 @@ const A = await import(new URL('../../functions/api/_social_auto.js', import.met
 const MGR = await import(new URL('../../functions/api/_social_mgr.js', import.meta.url));
 const DATA = (await import(new URL('../../functions/api/_shorts_data.js', import.meta.url))).default;
 const [CA, CB, CC] = DATA.index.items.map(x => x.id);
+for (const it of DATA.index.items) it.point = it.point || 'look for: I am looking for a book'; // bản bundle cũ có clip thiếu metadata – trường hợp đó có test riêng (no-metadata)
 const H = 36e5, now = Date.now();
 
 // ---------- 1) Hàm thuần ----------
@@ -217,12 +218,17 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const d = A.cleanAuto({}), h = (channels, approved, planned) => { const st = {}; A.healthAlerts({ channels, approved, planned }, st, now); return (st.alerts || []).map(a => a.k).join(); };
   ok(h(false, true, false) === 'no-channels' && h(true, false, false) === 'no-approved' && h(true, true, false) === 'nothing-planned' && h(true, true, true) === '', 'CI xanh mà chuỗi đứt → cảnh báo đúng khâu');
   { const st = {}; A.healthAlerts({ channels: false, approved: true }, st, now); st.alerts = []; A.healthAlerts({ channels: false, approved: true }, st, now + H); ok(!st.alerts.length, 'cảnh báo không lặp mỗi lượt'); A.healthAlerts({ channels: false, approved: true }, st, now + 73 * H); ok(st.alerts.length === 1, 'hết 3 ngày nhắc lại'); }
+  ok((() => { const st = {}; A.healthAlerts({ channels: true, approved: true, planned: true, newest_days: 11, manifest: 'bundle' }, st, now); return st.alerts.map(a => a.k).join() === 'no-new-clips,manifest-stale'; })(), 'kho ngừng có clip mới / manifest cũ → cảnh báo');
   ok(d.sync_h === 3, 'đồng bộ trạng thái 3 giờ/lần để sớm biết bài lỗi');
 
   // Môi trường sạch cho từng ca
   const reset = cfg => { sql.exec("DELETE FROM soc_board; DELETE FROM dist_social; DELETE FROM soc_lock; DELETE FROM soc_meta"); GC.posts = {}; GC.fail = {}; sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ sync_h: 24, plan_daily: false, ...cfg }), now); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto_state', ?, ?)").run(JSON.stringify({ last_sync: { at: now } }), now); };
   const dueAt = (clip, ch, h) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, ?, ?, 'auto', 0, 'planned', ?)").run(clip, ch, /^gc-([a-z_]+)-/.exec(ch)[1], now + h * H, now);
   const stNow = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
+
+  // Clip không metadata: không đăng tiêu đề là id
+  { const it = DATA.index.items.find(x => x.id === CC), sv = { point: it.point, title: it.title }; it.point = ''; it.title = ''; reset({}); sql.prepare("INSERT OR IGNORE INTO yt_queue (clip, status) VALUES (?, 'manual')").run(CC); dueAt(CC, 'gc-facebook_page-2', 3);
+    const y = await A.runAuto(ENV, { now }); ok(y.created === 0 && y.skipped.some(s => s.why === 'no-metadata') && y.alerts.some(a => /^no-metadata:/.test(a.k)), 'clip thiếu metadata → không tạo bài + cảnh báo'); Object.assign(it, sv); sql.prepare('DELETE FROM yt_queue WHERE clip = ?').run(CC); }
 
   // Bài độc 422: không được chặn cả hàng mãi
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); dueAt(CB, 'gc-facebook_page-2', 8);

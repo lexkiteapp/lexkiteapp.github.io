@@ -2,7 +2,7 @@
 //   node scripts/video/shorts-archive.mjs --repo /tmp/shorts [--dry-run] [--max-retire 50] [--rebalance-calls 10]
 // 1. Copies: approved / published / YouTube-queued masters (+ covers) → want 2 (set_want) → `repair` copies them to ANOTHER Drive chosen by
 //    the pool placement (pickDrive: lowest usage first, ≥ 90 % stops receiving) – never a hard-coded Drive. Everything else stays at 1 copy.
-// 2. Retention: masters of clips neither approved nor published nor queued, older than 30 days → `retire` (Google trash, purged by Google
+// 2. Retention: masters of REJECTED clips neither approved nor published nor queued, older than 30 days → `retire` (Google trash, purged by Google
 //    after 30 more days). Covers + recipe + manifest are kept; item.drive.video.retired = date → admin shows "rebuild from recipe".
 // 3. Rebalance: pool plan (spread > 10 %, e.g. after a new Drive joins) → apply in small batches (≤ 10 files / ≤ 1 GB per call) with a pause
 //    between calls; whatever is left continues on the next run (resume = the plan is recomputed from the ledger every call).
@@ -32,11 +32,21 @@ export function planArchive(items, keep, now = Date.now(), { maxRetire = 50 } = 
     const d = it.drive || {}, v = d.video;
     if (!v || !v.sha256 || v.retired) continue;
     if (isKept(it, keep)) { promote.push(v.sha256); if (d.cover && d.cover.sha256) promote.push(d.cover.sha256); continue; }
-    if (it.rejected && !it.paused) { /* rejected → same retention as unapproved */ }
+    if (!it.rejected || it.paused) continue; // chưa duyệt / tạm dừng: còn chờ quyết định, không tự xóa (kho chỉ đầy ~33 %)
     const born = Date.parse(it.created || v.at || '') || now;
     if (now - born >= RETAIN_DAYS * DAY && retire.length < maxRetire) retire.push({ id: it.id, sha: v.sha256 });
   }
   return { promote: [...new Set(promote)], retire };
+}
+
+/** Cân bằng chuyển file sang Drive khác và cho bản cũ vào thùng rác → ghi fileId/driveId mới vào index, không thì URL ký vẫn trỏ file cũ. */
+export function applyMoves(items, done) {
+  let n = 0;
+  for (const x of done) for (const it of items) for (const k of ['video', 'cover']) {
+    const c = it.drive && it.drive[k];
+    if (c && c.fileId === x.file_id && x.new_file_id) { c.fileId = x.new_file_id; c.driveId = x.to; n++; }
+  }
+  return n;
 }
 
 export async function ytLists({ fetcher = fetch, key = driveCliKey(), base = process.env.LEXKITE_API_BASE || 'https://lexkite.com', op = 'ids', body = {} } = {}) {
@@ -44,8 +54,8 @@ export async function ytLists({ fetcher = fetch, key = driveCliKey(), base = pro
   const text = JSON.stringify({ op, ...body });
   try {
     const r = await fetcher(base.replace(/\/+$/, '') + '/api/youtube', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text });
-    return r.ok ? await r.json() : {};
-  } catch { return {}; }
+    return r.ok ? await r.json() : { _failed: r.status };
+  } catch (e) { return { _failed: e.name || 'fetch' }; } // phân biệt với "danh sách rỗng": không biết clip nào đã duyệt thì không được xóa gì
 }
 
 export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceCalls = 10, pause = 4000, api = driveApi, yt = ytLists, purged = ids => ytLists({ op: 'purged', body: { ids } }), log = console.log, now = Date.now() }) {
@@ -63,6 +73,7 @@ export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceC
   }
   if (gone.length) { idx.items = idx.items.filter(e => !gone.includes(e.id)); fs.writeFileSync(IDX, JSON.stringify(idx, null, 1)); await purged(gone); log(`purge: ${gone.length} clip xoá hẳn (Drive → thùng rác, bỏ công thức)`); }
   const p = planArchive(idx.items, keep, now, { maxRetire });
+  if (ytl._failed || !keep.size) { log(`::warning::giữ nguyên ${p.retire.length} master: ${ytl._failed ? 'không đọc được danh sách đã duyệt (' + ytl._failed + ')' : 'danh sách đã duyệt rỗng'}`); p.retire = []; }
   const sleep = ms => (ms ? new Promise(r => setTimeout(r, ms)) : Promise.resolve());
   const rep = { promote: p.promote.length, retire: p.retire.length, repaired: 0, retired: 0, rebalanced: 0, remaining: 0, dry };
   log(`archive: ${keep.size} approved/published · ${p.promote.length} file → 2 bản · ${p.retire.length} master quá ${RETAIN_DAYS} ngày chưa duyệt`);
@@ -78,13 +89,16 @@ export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceC
     for (const x of part) if (ok.has(x.sha)) { const it = idx.items.find(e => e.id === x.id); it.drive.video = { ...it.drive.video, retired: day }; rep.retired++; }
     await sleep(pause);
   }
+  let moved = 0;
   for (let k = 0; k < rebalanceCalls; k++) {   // background rebalance with resume + rate limit
     const plan = await api('rebalance', {}); rep.remaining = (plan.plan || []).length;
     if (!rep.remaining) break;
     const r = await api('rebalance', { apply: true, max_files: 10 }); rep.rebalanced += (r.done || []).length; rep.remaining = r.remaining || 0;
+    moved += applyMoves(idx.items, r.done || []);
+    if ((r.failed || []).length) { rep.failed = (rep.failed || 0) + r.failed.length; log(`::warning::cân bằng lỗi ${r.failed.length} file: ${[...new Set(r.failed.map(x => x.error))].join(', ')}`); }
     if (!(r.done || []).length) break; await sleep(pause);
   }
-  if (rep.retired) { idx.updated = new Date(now).toISOString().replace(/\.\d+Z$/, 'Z'); fs.writeFileSync(IDX, JSON.stringify(idx, null, 1)); }
+  if (rep.retired || moved) { idx.updated = new Date(now).toISOString().replace(/\.\d+Z$/, 'Z'); fs.writeFileSync(IDX, JSON.stringify(idx, null, 1)); }
   return rep;
 }
 

@@ -130,7 +130,7 @@ export function metaChannelFor(p, chans, map = {}) {
   if (map[p]) return chans.some(c => c.channel_id === map[p]) ? map[p] : null;
   const xs = chans.filter(c => c.platform === p); return xs.length === 1 ? xs[0].channel_id : null;
 }
-const ALERT_EVERY = { failover: 0, 'meta-token': 3 * 864e5, 'meta-down': 864e5, 'dup-published': 0, recovered: 0, 'gc-auth': 864e5, 'no-channels': 3 * 864e5, 'no-approved': 3 * 864e5, 'nothing-planned': 864e5, 'gave-up': 0, 'post-failed': 0 };
+const ALERT_EVERY = { failover: 0, 'meta-token': 3 * 864e5, 'meta-down': 864e5, 'dup-published': 0, recovered: 0, 'gc-auth': 864e5, 'no-channels': 3 * 864e5, 'no-approved': 3 * 864e5, 'nothing-planned': 864e5, 'gave-up': 0, 'post-failed': 0, 'no-metadata': 0, 'no-new-clips': 7 * 864e5, 'manifest-stale': 864e5 };
 /** Đưa 1 cảnh báo vào hàng (CI mở 1 issue/email cho mỗi cảnh báo). failover chỉ 1 lần mỗi đợt (xóa khi hồi phục). */
 export function pushAlert(st, k, text, now) {
   const base = k.split(':')[0], last = (st.alerted || {})[k];
@@ -189,6 +189,8 @@ export async function chainHealth(db, cfg, now) {
 export function healthAlerts(h, st, now) {
   if (!h.channels) pushAlert(st, 'no-channels', 'Lexkite autopilot: workspace GrabCast chưa có kênh nào đang bật nên KHÔNG đăng được bài. Nối kênh Lexkite trên grabcast.click (khóa API không làm được bước này).', now);
   if (!h.approved) pushAlert(st, 'no-approved', 'Lexkite autopilot: hàng đợi không có clip đã duyệt nên KHÔNG có gì để lên lịch. Duyệt clip ở Quản trị › Video.', now);
+  if (h.newest_days != null && h.newest_days > 7) pushAlert(st, 'no-new-clips', `Lexkite autopilot: ${h.newest_days} ngày chưa có clip mới trong kho – xem news-auto, video-auto và cine-render (lịch tự động có thể đang tắt).`, now);
+  if (h.manifest === 'bundle') pushAlert(st, 'manifest-stale', 'Lexkite autopilot: không đọc được manifest trên Kho Drive, đang dùng bản đóng gói cũ – xem drive-shorts và Quản trị › Kho Drive.', now);
   if (h.channels && h.approved && !h.planned) pushAlert(st, 'nothing-planned', 'Lexkite autopilot: có kênh và clip đã duyệt nhưng không có bài nào trong lịch sắp tới – xem luật định tuyến ở Quản trị › Kênh & phân phối.', now);
 }
 
@@ -287,7 +289,12 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     if (rec.stop === 'no-key' || rec.stop === 'breaker' || rec.stop === 'budget') rec.stop = null;
     try { await metaPass(); } catch (e) { if (!e.metaStop) throw e; }
   }
-  if (cfg.on) { rec.health = await chainHealth(db, cfg, now); healthAlerts(rec.health, st, now); }
+  if (cfg.on) {
+    rec.health = await chainHealth(db, cfg, now);
+    const mf = await manifest(env).catch(() => null), newest = Math.max(0, ...((mf && mf.items) || []).map(x => Date.parse(x.created || '') || 0));
+    rec.health.newest_days = newest ? Math.floor((now - newest) / 864e5) : null; rec.health.manifest = (mf && mf.source) || null;
+    healthAlerts(rec.health, st, now);
+  }
   return save();
 
   // ================= Lượt GrabCast (giữ nguyên logic PR #129) =================
@@ -362,6 +369,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       done++;
       const p = platOf(a), P = PLAT[p] || {}, acc = { id: a.id, p, kind: (a.kinds || []).includes(P.kind) ? P.kind : ((a.kinds || [])[0] || P.kind) };
       const meta = r.meta || {};
+      if (meta.no_keyword) { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: 'no-metadata' }); failed(r, 'no-metadata'); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'no-metadata' }); pushAlert(st, 'no-metadata:' + r.clip, `Lexkite autopilot: clip ${r.clip} không có tiêu đề/điểm học nên không đăng (tiêu đề sẽ là id). Xem scripts/video/shorts-meta.mjs.`, now); continue; }
       try {
         const mid = await pushClip(env, c, call, origin);
         const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, mid, [acc]);
@@ -462,6 +470,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       if (!b) {
         if (!c) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'clip-not-approved' }); continue; }
         const due = (await DIST.social_due(db, { from: r.slot_ms, to: r.slot_ms, channel_id: r.channel_id }, env)).rows.find(x => x.clip === r.clip) || {}, meta = due.meta || {};
+        if (meta.no_keyword) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'no-metadata' }); continue; }
         const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, 'meta', [{ id: 0, p: r.platform }]);
         const ok = canAutoApprove(cfg, r.platform, manual), t = Date.now();
         await run(db, `INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, template, hook, cefr, state, mode, want_at, hash, approved_by, approved_at, note, created, updated, by_who) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'sched', ?, NULL, ?, ?, 'meta', ?, ?, ?) ON CONFLICT(id) DO NOTHING`,

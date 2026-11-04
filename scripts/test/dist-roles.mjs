@@ -10,7 +10,7 @@ const R = createRequire(import.meta.url)('../../web/js/lib/dist-rules.js');
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 // ---- embed role: stable, minimal, unlisted, marker ----
-const clip = { id: 'cafe-look-for', title: 'Look for vs look at – stop mixing them up!', point: 'look for', topic: 'food', sub: 'food/cafe', skill: 'vocab', cefr: 'A2', hook: 'mistake' };
+const clip = { id: 'cafe-look-for', slug: 'cafe-look-for', title: 'Look for vs look at – stop mixing them up!', point: 'look for', topic: 'food', sub: 'food/cafe', skill: 'vocab', cefr: 'A2', hook: 'mistake' };
 const e1 = M.embedMeta(clip), e2 = M.embedMeta({ ...clip, hook: 'question', title: 'Other hook title' });
 ok(e1.privacy === 'unlisted' && e1.role === 'embed' && e1.description.endsWith('lk:cafe-look-for'), 'embed: unlisted + lk: marker last');
 ok(e1.title === e2.title && e1.description === e2.description, 'embed: stable (hook/title wording does not change it)');
@@ -68,6 +68,34 @@ let retired = [], reported = [];
 await runArchive({ repo, yt: async () => ({ purge: ['gone-clip', '../evil'] }), purged: async ids => { reported = ids; }, api: async (op, b) => { if (op === 'retire') retired = b.sha256; return { done: [] }; }, rebalanceCalls: 0, pause: 0, log: () => {} });
 const idx = JSON.parse(fs.readFileSync(path.join(repo, 'shorts', 'index.json'), 'utf8'));
 ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x => x.id).join() === 'kept-clip' && !fs.existsSync(path.join(repo, 'shorts', 'gone-clip')), 'purge: master + cover to trash, recipe dropped, reported back; bad ids ignored');
+
+// ---- Lỗi ẩn 04/11: retention xóa nhầm, file đã chuyển Drive, link 404, metadata là id ----
+{
+  const { planArchive, keepSet, applyMoves } = await import('../../scripts/video/shorts-archive.mjs');
+  const old = '2026-01-01T00:00:00Z', it = (id, x = {}) => ({ id, lesson: id, created: old, drive: { video: { sha256: id.padEnd(64, '0'), fileId: 'f-' + id, driveId: 1 } }, ...x });
+  const items = [it('live'), it('paused', { paused: true }), it('rej', { rejected: true }), it('rej-kept', { rejected: true })];
+  const plan = planArchive(items, keepSet(items, { approved: ['rej-kept'] }), Date.parse('2026-11-20T00:00:00Z'));
+  ok(plan.retire.map(x => x.id).join() === 'rej', 'retention: chỉ clip bị loại quá hạn; clip chưa duyệt/tạm dừng/đã duyệt không vào thùng rác');
+  const arc = async ytl => { const r2 = fs.mkdtempSync(path.join(os.tmpdir(), 'arc-')); fs.mkdirSync(path.join(r2, 'shorts')); fs.writeFileSync(path.join(r2, 'shorts', 'index.json'), JSON.stringify({ items: [it('rej', { rejected: true })] })); const seen = []; await runArchive({ repo: r2, yt: async () => ytl, purged: async () => {}, api: async (op, b) => { seen.push(op); return { done: [] }; }, rebalanceCalls: 0, pause: 0, log: () => {} }); return seen; };
+  ok(!(await arc({ _failed: 429 })).includes('retire'), 'không đọc được danh sách đã duyệt → không xóa gì');
+  ok(!(await arc({})).includes('retire'), 'danh sách đã duyệt rỗng → không xóa gì');
+  ok((await arc({ approved: ['khac'] })).includes('retire'), 'có danh sách → clip bị loại quá hạn vẫn vào thùng rác như luật');
+  const mv = [it('a')]; ok(applyMoves(mv, [{ file_id: 'f-a', new_file_id: 'g-a', to: 7 }]) === 1 && mv[0].drive.video.fileId === 'g-a' && mv[0].drive.video.driveId === 7, 'cân bằng Drive: ghi fileId/driveId mới vào index');
+  ok(applyMoves(mv, [{ file_id: 'f-khac', new_file_id: 'x', to: 9 }]) === 0 && mv[0].drive.video.fileId === 'g-a', 'file khác không đụng');
+
+  const noPage = M.socialMeta({ id: 'cine-a', point: 'look for', headline: 'Stop saying "look a book"', cefr: 'A2' }, 'tiktok');
+  ok(!/\/video\/cine-a/.test(noPage.description) && /lexkite\.com\/app\/\?utm_source=tiktok/.test(noPage.description), 'clip chưa có trang → link về app, không phải /video/<id>/ (404)');
+  ok(noPage.title === 'Stop saying "look a book"' && !noPage.no_keyword && noPage.hashtags.length >= 3 && noPage.seo.score >= 80, 'tiêu đề tay được dùng, đủ hashtag, đạt SEO');
+  ok(/\/video\/s-1\/\?utm/.test(M.socialMeta({ id: 'c', point: 'x', slug: 's-1' }, 'tiktok').description), 'có slug → trang video');
+  ok(/app\/\?utm_source=tiktok[^#\s]*#\/grammar/.test(M.socialMeta({ id: 'c', point: 'x', url: 'https://lexkite.com/app/#/grammar' }, 'tiktok').description), 'utm đứng trước #');
+  ok(M.socialMeta({ id: 'cine-news-x', title: 'cine-news-x' }, 'tiktok').no_keyword === true, 'không có metadata → đánh dấu để không đăng');
+  const { fillMeta, hookOf, urlOf } = await import('../../scripts/video/shorts-meta.mjs');
+  const cl = [{ id: 'c1', lesson: 'l1', title: '', point: '', cefr: '' }, { id: 'c2', lesson: 'l2', title: 'Có sẵn', point: 'p', cefr: 'B1', description: 'x https://lexkite.com/app/?utm_source=a#/grammar' }];
+  fillMeta(cl, { lessonOf: id => (id === 'l1' ? { point: 'Stop saying X', cefr: 'A2', area: 'grammar-check', hook_type: 'mistake_callout' } : { point: 'khac', cefr: 'C2' }), pages: new Map([['l1', { slug: 'stop-x' }]]) });
+  ok(cl[0].title && cl[0].point === 'Stop saying X' && cl[0].cefr === 'A2' && cl[0].hook === 'mistake' && cl[0].url === 'https://lexkite.com/video/stop-x/', 'bù metadata + link trang thật từ bài học');
+  ok(cl[1].title === 'Có sẵn' && cl[1].cefr === 'B1' && cl[1].url === 'https://lexkite.com/app/#/grammar', 'không ghi đè; link trong mô tả bỏ query');
+  ok(hookOf('mistake_callout') === 'mistake' && hookOf('khac') === '' && urlOf({}, null) === 'https://lexkite.com/app/', 'hook/url mặc định');
+}
 
 console.log(`dist-roles: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);
