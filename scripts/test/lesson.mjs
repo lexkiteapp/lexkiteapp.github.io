@@ -226,7 +226,8 @@ await App.routes.lesson(); await tick(60);
 ok(w.document.querySelectorAll('.lsn-node').length === 6 && w.document.querySelectorAll('.lsn-node.next').length === 1 && $('.lsn-node.next .lsn-start'), 'bản đồ: 6 nút, đúng MỘT nút "tiếp theo" có nút Bắt đầu');
 ok($('.lsn-start').getAttribute('href') === '#/lesson/go?demo=1' && !w.document.querySelector('.lsn-node.done'), 'bản đồ: Bắt đầu → #/lesson/go, chưa nút nào xong');
 w.location.hash = '#/lesson/go?demo=1';
-await App.routes.lesson('go'); await tick(320);
+await Promise.all([App.routes.lesson('go'), App.routes.lesson('go')]); await tick(320); // route chạy chồng (2 sự kiện gần nhau)
+ok(w.document.querySelectorAll('.lsn-foot').length === 1, 'route chạy chồng → đúng 1 chân bài học (trước đây chân rỗng thứ 2 đè mép dưới nút Kiểm tra)');
 ok($('#lsn') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'demo: dựng màn bài học (thanh tiến độ + lời nhắc)');
 const L0 = st();
 ok(L0.demo && L0.items.length >= 7 && L0.items.length <= 11, `demo: ${L0.items.length} bài (2–3 phút)`);
@@ -383,6 +384,20 @@ ok(up && up.srs.lapses === 1 && up.srs.reps === 0, `thật: từ sai (${target})
 ok(rewards.length === 1 && rewards[0].quizzes === 1, 'thật: ghi XP 1 lần');
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));
 w.localStorage.removeItem('lk.lsn.off');
+
+// ---------- Hồi quy soát hình (cổng CI new-ui-qa): tấm phản hồi không đè giáo viên/nút nghe · ô chữ 44 px · chấm bản đồ đủ tương phản ----------
+{
+  const UI_SRC = fs.readFileSync(path.join(WEB, 'js/lesson/ui.js'), 'utf8');
+  ok(E.sheetCap(740, [260, 300]) === 432 && E.sheetCap(800, [330]) === 462, 'sheetCap: tấm phản hồi chừa chỗ trên cho giáo viên + nút nghe (đáy 300 → tấm ≤ vh − 308)');
+  ok(E.sheetCap(640, [600]) === 224 && E.sheetCap(640, []) === 512 && E.sheetCap(640, [NaN, undefined]) === 512, 'sheetCap: không thấp hơn 224 px (đủ chip + Tiếp tục), tối đa 80 % khung nhìn, bỏ qua số lạ');
+  ok(/function fitSheet\(\)[\s\S]*E\.sheetCap\(innerHeight/.test(UI_SRC) && /#lsnPlay[^\n]*#lsnSlow/.test(UI_SRC), 'ui.js: fitSheet đo giáo viên + #lsnPlay + #lsnSlow');
+  const fb = UI_SRC.slice(UI_SRC.indexOf('function feedback(it, ok, heard)'), UI_SRC.indexOf('function feedbackV2'));
+  ok(/fitSheet\(\);/.test(fb), 'ui.js: feedback() gọi fitSheet sau khi dựng tấm');
+  ok(/booster\(it\) \{[\s\S]*?fitSheet\(\)/.test(UI_SRC) && /async function explain[\s\S]*?fitSheet\(\);\n  \}/.test(UI_SRC), 'ui.js: tấm co lại/mở rộng lại khi "Tăng điểm" / "Vì sao?" đổi chiều cao');
+  ok(UI_SRC.split('.className = ST.FOOT;').length === UI_SRC.split(".className = ST.FOOT; ").length && !/\.className = ST\.FOOT;(?! (?:L\.)?foot\.style\.maxHeight = '')/.test(UI_SRC), 'ui.js: mọi chỗ đặt lại chân bài học đều xoá max-height cũ của tấm');
+  ok(/\.lsn-tile\{min-width:44px\}/.test(UI_SRC), 'css: .lsn-tile min-width 44 px (ô chữ 1 ký tự «I», «a»)');
+  ok(/\.lsn-node\.next \.lsn-dot\{[^}]*color:var\(--primary-ink\)/.test(UI_SRC) && !/\.lsn-node\.next \.lsn-dot\{[^}]*color:#fff/.test(UI_SRC), 'css: chấm "tiếp theo" dùng --primary-ink (chế độ tối ≥ 3:1), không trắng cứng');
+}
 
 ok(micFailDone, 'đã chạy kịch bản micro hỏng ở bước nói');
 // ---------- F. UI.recognize thật với trình duyệt giả (docs/LESSON-ENGINE.md – LX-1002) ----------

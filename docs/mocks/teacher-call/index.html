@@ -9,7 +9,7 @@
      Real build: js/call.js + UI.tts / UI.recognize, i18n via t(), lazy bundle 'call'. -->
 <style>
   :root { --teal: #0F3D3E; --teal2: #17595A; --orange: #E5502F; --amber: #FFB054; --cream: #FFF7EA; --ok: #2FBF71; --text: #13201f; --muted: #5b6b6a; --card: #fff; --bg: #F4EFE6; }
-  @media (prefers-color-scheme: dark) { :root { --text: #EAF2F1; --muted: #9DB3B1; --card: #17292A; --bg: #0B1C1D; } }
+  @media (prefers-color-scheme: dark) { :root { --text: #EAF2F1; --muted: #9DB3B1; --card: #17292A; --bg: #0B1C1D; } :root .tag { color: #FF8466; } }
   * { box-sizing: border-box; }
   body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
   .wrap { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); }
@@ -27,15 +27,16 @@
   .hints { display: flex; gap: 6px; flex-wrap: wrap; } .hints button { border: 1px solid #0F3D3E33; background: transparent; color: var(--text); border-radius: 99px; padding: 4px 10px; font-size: 13px; cursor: pointer; }
   .bar { margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 18px; }
   .round { width: 54px; height: 54px; border-radius: 50%; border: 0; font-size: 22px; cursor: pointer; color: #fff; }
-  .mic { background: var(--teal2); } .mic.on { background: var(--orange); animation: pulse 1s infinite; } .hang { background: #D23B2A; } .go { background: var(--ok); width: auto; padding: 0 18px; border-radius: 99px; font-size: 15px; font-weight: 700; }
+  .mic { background: var(--teal2); } .mic.on { background: var(--orange); animation: pulse 1s infinite; } .hang { background: #D23B2A; } .go { background: #15803d; width: auto; padding: 0 18px; border-radius: 99px; font-size: 15px; font-weight: 700; }
   @keyframes pulse { 50% { box-shadow: 0 0 0 10px #E5502F33; } }
-  .react { position: absolute; right: 10px; top: 52px; z-index: 4; width: 84px; opacity: 0; transform: scale(.7); transition: .25s; }
+  .react { position: absolute; right: 10px; top: 52px; z-index: 4; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font: 800 34px system-ui; color: #fff; background: #15803d; opacity: 0; transform: scale(.7); transition: .25s; }
+  .react.try { background: #B03718; }
   .react.show { opacity: 1; transform: none; }
   .side { display: grid; gap: 12px; align-content: start; }
   .card { background: var(--card); border-radius: 14px; padding: 12px 14px; }
   .card h2 { margin: 0 0 6px; font-size: 16px; } .card p, .card li { margin: 4px 0; color: var(--muted); font-size: 14px; }
   .log { font: 12px/1.5 ui-monospace, Menlo, monospace; max-height: 180px; overflow: auto; color: var(--muted); white-space: pre-wrap; }
-  .tag { display: inline-block; font: 600 11px system-ui; padding: 1px 6px; border-radius: 6px; background: #E5502F22; color: var(--orange); }
+  .tag { display: inline-block; font: 600 11px system-ui; padding: 1px 6px; border-radius: 6px; background: #E5502F22; color: #B03718; }
   @media (prefers-reduced-motion: reduce) { .phone video { transition: none; } .mic.on { animation: none; } }
 </style>
 </head>
@@ -67,7 +68,7 @@
         <li>Switch = 180 ms crossfade between two stacked videos, so there is no black flash.</li>
         <li>Lips follow the <i>tempo</i> of the voice, not each word (honest limit).</li>
         <li>Replies here are scripted branches (0 AI calls). The real build tries on-device AI first, then the shared quota.</li>
-        <li>The Kit badge stands in for the teacher reaction clips that are not in the bank yet.</li>
+        <li>A ✓ / ↺ badge stands in for the teacher reaction clips that are not in the bank yet (no other mascot).</li>
       </ul>
     </div>
     <div class="card"><h2>Device tier (pilot gate, design §5.2)</h2><div class="log" id="tier">measuring…</div></div>
@@ -76,7 +77,6 @@
   </div>
 </div>
 
-<script src="../../../web/js/kit.js"></script>
 <script>
 (() => {
   const CLIPS = { talk: ['clips/ama_talk1.mp4', 'clips/ama_talk2.mp4'], listen: 'clips/ama_listen.mp4' };
@@ -118,7 +118,7 @@
   const VM = [[/th/g, 'TH'], [/ch|sh|j/g, 'CH'], [/[pbm]/g, 'PP'], [/[fv]/g, 'FF'], [/[tdnl]/g, 'DD'], [/[kgcq]/g, 'kk'], [/[sz]/g, 'SS'], [/r/g, 'RR'], [/a/g, 'aa'], [/e/g, 'E'], [/i|y/g, 'I'], [/o/g, 'O'], [/u|w/g, 'U']];
   function visemes(w) { let s = w.toLowerCase(); const out = []; while (s) { const hit = VM.find(([re]) => { re.lastIndex = 0; const m = re.exec(s); return m && m.index === 0; }); if (hit) { hit[0].lastIndex = 0; const m = hit[0].exec(s); out.push(hit[1]); s = s.slice(m[0].length); } else s = s.slice(1); } return out.filter((v, i) => v !== out[i - 1]); }
 
-  // Tier gate: WebGL2 + deviceMemory ≥ 4 + ≥ 24 fps in 2 s → 3D; else sprite; saveData / 2g / reduced motion → still + Kit
+  // Tier gate: WebGL2 + deviceMemory ≥ 4 + ≥ 24 fps in 2 s → 3D; else sprite; saveData / 2g / reduced motion → still poster
   (async function tier() {
     const gl = !!document.createElement('canvas').getContext('webgl2'), mem = navigator.deviceMemory || 0, c = navigator.connection || {};
     const lite = c.saveData || /2g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -126,13 +126,13 @@
     const fps = Math.round(n / 2), SR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
     let nano = 'no'; try { if (window.LanguageModel) nano = await LanguageModel.availability(); } catch (e) { nano = 'error'; }
     let local = 'n/a'; try { const S = window.SpeechRecognition; if (S && S.available) local = await S.available({ langs: ['en-US'], processLocally: true }); } catch (e) { local = 'error'; }
-    const pick = lite ? 'still + Kit' : gl && mem >= 4 && fps >= 24 ? '3D avatar (A)' : 'viseme sprite (B)';
+    const pick = lite ? 'still poster' : gl && mem >= 4 && fps >= 24 ? '3D avatar (A)' : 'viseme sprite (B)';
     $('tier').textContent = `WebGL2 ${gl} · deviceMemory ${mem || '?'} GB · fps ${fps} · lite ${!!lite}\nWeb Speech ${SR} · on-device STT ${local}\nGemini Nano (Prompt API) ${nano}\n→ character tier: ${pick}`;
   })();
 
   function react(kind) {
-    const r = $('react'); if (!window.Kit) return;
-    r.innerHTML = Kit.svg(kind === 'good' ? 'cheer' : 'think', 84); r.classList.add('show');
+    const r = $('react'); // ký hiệu, KHÔNG nhân vật phụ (luật: chỉ Ama/Carlos 3D bank v2)
+    r.textContent = kind === 'good' ? '✓' : '↺'; r.classList.toggle('try', kind !== 'good'); r.classList.add('show');
     setTimeout(() => r.classList.remove('show'), 1400);
   }
 
