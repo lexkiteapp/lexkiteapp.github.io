@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - IELTS Section 2 Practice</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#fff8f5",
+            "primary-container": "#136a63",
+            "tertiary-fixed-dim": "#f5bf31",
+            "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "inverse-primary": "#88d4cb",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary": "#00504b",
+            "on-tertiary": "#ffffff",
+            "background": "#fff8f5",
+            "surface-container-low": "#fff1e8",
+            "on-tertiary-container": "#ffd370",
+            "on-background": "#211a14",
+            "tertiary": "#5b4300",
+            "primary-fixed-dim": "#88d4cb",
+            "surface-variant": "#efe0d6",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "on-secondary-container": "#633700",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "secondary-container": "#fd9500",
+            "inverse-on-surface": "#fdeee3",
+            "secondary-fixed": "#ffdcbf",
+            "secondary-fixed-dim": "#ffb872",
+            "primary-fixed": "#a4f1e7",
+            "on-secondary-fixed": "#2d1600",
+            "inverse-surface": "#372f28",
+            "surface-dim": "#e6d7cd",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "secondary": "#8c5000",
+            "outline": "#6f7977",
+            "on-tertiary-fixed": "#251a00",
+            "surface-tint": "#126a63",
+            "on-surface-variant": "#3f4947",
+            "tertiary-fixed": "#ffdf9b",
+            "outline-variant": "#bec9c6",
+            "on-primary-container": "#9be7de",
+            "on-primary-fixed": "#00201d",
+            "on-primary": "#ffffff",
+            "on-surface": "#211a14",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#fff8f5",
+            "surface-container": "#faebe1",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin-md": "2rem",
+            "gutter-md": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile 3D Extrusion Depress States */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(4px);
+    }
+    .tactile-btn-sm:active {
+      transform: translateY(2px);
+    }
+    
+    /* Glint gloss highlight */
+    .gloss-shine {
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45);
+    }
+    
+    /* Hide native radio / styling helpers */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen">
+<!-- Mobile Frame Container (Strict 390px, Bright Day theme - Variant A: Warm Slate Contrast Polish) -->
+<main class="w-[390px] min-h-screen bg-surface flex flex-col relative pb-[84px] shadow-2xl">
+<!-- TOP BAR (Canonical Shared Component: TopAppBar Inner Variant, 56px) -->
+<header class="sticky top-0 z-40 h-[56px] bg-surface flex items-center justify-between px-space-md border-b-2 border-surface-variant shadow-[0_4px_0_#efe0d6]">
+<div class="flex items-center gap-space-sm">
+<!-- Tactile Round Back Button -->
+<button aria-label="Go back" class="tactile-btn-sm w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] active:translate-y-[3px] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined font-bold" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Screen Identity & Section Route -->
+<div>
+<h1 class="text-headline-sm font-headline-sm text-primary tracking-tight leading-tight">IELTS Section 2</h1>
+<p class="text-[11px] font-label-sm uppercase tracking-wider text-[#2B3A38] font-bold">Campus Tour &amp; Facilities</p>
+</div>
+</div>
+<!-- Right Trailing Subtitles/Transcript Icon Button -->
+<button aria-label="Transcript toggle" class="tactile-btn-sm w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] active:translate-y-[3px] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined font-bold" data-icon="subtitles">subtitles</span>
+</button>
+</header>
+<!-- CONTENT BODY (16px side margins: px-space-md, 8px layout rhythm) -->
+<div class="flex-1 px-space-md pt-3 flex flex-col gap-4">
+<!-- MODE SWITCH & TIMER ROW -->
+<section class="flex items-center justify-between gap-space-sm">
+<!-- Tactile Segmented Pill Switch -->
+<div class="flex p-1 bg-surface-container-highest rounded-full border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8]">
+<button class="px-space-md py-1 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary shadow-[0_2px_0_#0b423e] gloss-shine transition-transform">
+            Practice
+          </button>
+<button class="px-space-md py-1 rounded-full text-label-sm font-label-sm text-[#1F2E2C] font-bold hover:text-on-surface transition-colors">
+            Exam
+          </button>
+</div>
+<!-- Timer Chip with Deep Brown-Black Text & Crisp Dark Outline -->
+<div class="flex items-center gap-1.5 px-space-md py-1.5 rounded-full bg-surface-container-lowest border-2 border-[#d97300] shadow-[0_3px_0_#d8c5b8]">
+<span class="material-symbols-outlined text-[16px] text-secondary font-bold" data-icon="timer">timer</span>
+<span class="text-label-sm font-label-sm text-[#1a0f02] font-extrabold tracking-wide">04:15 left</span>
+</div>
+</section>
+<!-- AUDIO PLAYER CARD -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-3.5 flex flex-col gap-3">
+<!-- Header Info -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-[#1a0f02] font-extrabold uppercase tracking-wide">Audio Track</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#f4e5db] text-[#00504b] font-label-sm text-[12px] font-extrabold border-2 border-[#d8c5b8]">Part 2 of 4</span>
+</div>
+<!-- Scrubber Bar -->
+<div class="flex flex-col gap-1.5">
+<div class="relative w-full h-3 bg-surface-variant rounded-full overflow-visible flex items-center border border-surface-dim">
+<div class="h-full bg-primary-container rounded-full relative" style="width: 38%;">
+<!-- White Horizontal Glint Streak -->
+<div class="absolute inset-x-0 top-0 h-1 bg-white/40 rounded-full"></div>
+</div>
+<!-- Chunky Scrubber Thumb -->
+<div class="absolute w-4 h-4 bg-secondary-container border-2 border-surface-container-lowest rounded-full shadow-[0_2px_0_#d97300] -ml-2 left-[38%] cursor-pointer hover:scale-110 transition-transform"></div>
+</div>
+<!-- High Contrast Timestamps (≥5.5:1 against warm card background) -->
+<div class="flex justify-between items-center text-label-sm font-label-sm font-extrabold text-[#1F2E2C]">
+<span class="tracking-tight font-extrabold text-[#1F2E2C]">01:24</span>
+<span class="tracking-tight font-extrabold text-[#1F2E2C]">03:45</span>
+</div>
+</div>
+<!-- Player Controls Row -->
+<div class="flex items-center justify-between pt-1 border-t border-surface-variant">
+<!-- Replay 5s Button -->
+<button class="tactile-btn-sm flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-primary text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-[18px] font-bold" data-icon="replay_5">replay_5</span>
+<span>Replay 5s</span>
+</button>
+<!-- Large Primary Play/Pause Circle -->
+<button aria-label="Play or Pause audio" class="tactile-btn w-12 h-12 rounded-full bg-primary-container text-on-primary border-2 border-[#0b423e] shadow-[0_4px_0_#0b423e] active:shadow-[0_0_0_#0b423e] flex items-center justify-center gloss-shine">
+<span class="material-symbols-outlined text-[28px]" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<!-- Speed Dropdown Button -->
+<button class="tactile-btn-sm flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-[#1F2E2C] font-label-sm text-label-sm font-bold">
+<span>1.0x</span>
+<span class="material-symbols-outlined text-[16px] text-[#1F2E2C]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Live Transcript Toggle Row -->
+<div class="flex items-center justify-between pt-2 border-t border-surface-variant/80">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="notes">notes</span>
+<span class="text-body-sm font-body-sm text-[#1F2E2C] font-bold">Show live transcript</span>
+</div>
+<!-- Tactile Toggle Switch (Active state) -->
+<button aria-checked="true" class="w-11 h-6 bg-primary-container rounded-full p-0.5 border border-[#0b423e] shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] flex items-center justify-end pr-0.5 cursor-pointer" role="switch">
+<div class="w-5 h-5 bg-white rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.3)]"></div>
+</button>
+</div>
+</section>
+<!-- QUESTION GROUP 1: NOTE COMPLETION -->
+<section class="flex flex-col gap-2.5">
+<!-- Header Badge with deep brown-black ink on warm amber -->
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-[#1a0f02] border-2 border-[#d97300] text-label-sm font-label-sm uppercase tracking-wide gloss-shine font-extrabold">
+            QUESTIONS 1–4 · Note Completion
+          </span>
+</div>
+<!-- Instructions with crisp contrast -->
+<p class="text-body-sm font-body-sm text-[#1F2E2C] font-medium leading-snug">
+          Complete the notes below. Write <strong class="text-[#00504b] font-extrabold underline decoration-secondary">NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.
+        </p>
+<!-- Campus Guide Notes Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-4 flex flex-col gap-3.5">
+<!-- Card Title Header -->
+<div class="flex items-center justify-between pb-2 border-b-2 border-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
+</span>
+<h2 class="text-label-lg font-label-lg text-primary font-extrabold">Campus Guide: Central Facilities</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#faebe1] text-[#00504b] font-label-sm text-[12px] font-extrabold border border-[#d8c5b8]">Audio Part 2</span>
+</div>
+<!-- Q1 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-[#1F2E2C] font-bold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-[#136a63] text-white text-[12px] font-extrabold flex items-center justify-center shadow-[0_1px_0_#0b423e]">1</span>
+<span>Library opening hours on weekends:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-[#1a0f02] font-extrabold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="10:00 AM"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Q2 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-[#1F2E2C] font-bold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-[#136a63] text-white text-[12px] font-extrabold flex items-center justify-center shadow-[0_1px_0_#0b423e]">2</span>
+<span>Maximum books borrowed at one time:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-[#1a0f02] font-extrabold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="8 books"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Q3 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-[#1F2E2C] font-bold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-[#136a63] text-white text-[12px] font-extrabold flex items-center justify-center shadow-[0_1px_0_#0b423e]">3</span>
+<span>Study room reservation requires student:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-[#1a0f02] font-extrabold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="ID card"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Q4 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-[#1F2E2C] font-bold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-[#136a63] text-white text-[12px] font-extrabold flex items-center justify-center shadow-[0_1px_0_#0b423e]">4</span>
+<span>Printing balance reload location:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-[#1a0f02] font-extrabold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="Student Union"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- QUESTION GROUP 2: MULTIPLE CHOICE -->
+<section class="flex flex-col gap-2.5">
+<!-- Header Badge -->
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-[#003834] border-2 border-primary-container text-label-sm font-label-sm uppercase tracking-wide gloss-shine font-extrabold">
+            QUESTIONS 5–6 · Multiple Choice
+          </span>
+</div>
+<!-- Instructions -->
+<p class="text-body-sm font-body-sm text-[#1F2E2C] font-medium leading-snug">
+          Choose the correct letter, <strong class="text-[#00504b] font-bold">A, B, or C</strong>.
+        </p>
+<!-- Q5 Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-4 flex flex-col gap-3">
+<h3 class="text-body-md font-body-md font-extrabold text-[#1a0f02] leading-tight">
+            5. Where can postgraduate students access quiet study pods?
+          </h3>
+<div class="flex flex-col gap-2">
+<!-- Option A (Resting) -->
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-[#1a0f02] flex items-center justify-center font-extrabold">A</span>
+<span class="text-body-sm font-body-sm text-[#1F2E2C] font-bold">Ground floor annex</span>
+</div>
+</button>
+<!-- Option B (Selected with Teal Border & Checkmark) -->
+<button class="w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-low border-2 border-primary-container shadow-[0_4px_0_#136a63] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-white font-label-md flex items-center justify-center font-extrabold">B</span>
+<span class="text-body-sm font-body-sm text-primary font-extrabold">Third floor west wing</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center shadow-[0_2px_0_#0b423e]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</button>
+<!-- Option C (Resting) -->
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-[#1a0f02] flex items-center justify-center font-extrabold">C</span>
+<span class="text-body-sm font-body-sm text-[#1F2E2C] font-bold">Science library basement</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Q6 Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-4 flex flex-col gap-3">
+<h3 class="text-body-md font-body-md font-extrabold text-[#1a0f02] leading-tight">
+            6. What is required before using the 3D printers?
+          </h3>
+<div class="flex flex-col gap-2">
+<!-- Option A (Selected with Teal Border & Checkmark) -->
+<button class="w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-low border-2 border-primary-container shadow-[0_4px_0_#136a63] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-white font-label-md flex items-center justify-center font-extrabold">A</span>
+<span class="text-body-sm font-body-sm text-primary font-extrabold">Safety induction session</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center shadow-[0_2px_0_#0b423e]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</button>
+<!-- Option B (Resting) -->
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-[#1a0f02] flex items-center justify-center font-extrabold">B</span>
+<span class="text-body-sm font-body-sm text-[#1F2E2C] font-bold">Faculty advisor signature</span>
+</div>
+</button>
+<!-- Option C (Resting) -->
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-[#1a0f02] flex items-center justify-center font-extrabold">C</span>
+<span class="text-body-sm font-body-sm text-[#1F2E2C] font-bold">Additional materials fee</span>
+</div>
+</button>
+</div>
+</div>
+</section>
+<!-- PRIMARY ACTION BUTTON -->
+<section class="pt-2 pb-4">
+<!-- Candy-Orange Tactile Button with 6px Dark Ledge (#d97300), Strict Deep Brown-Black Text (#1a0f02) -->
+<button class="tactile-btn w-full py-4 px-space-md rounded-DEFAULT bg-secondary-container text-[#1a0f02] font-black text-label-lg border-2 border-[#d97300] shadow-[0_6px_0_#d97300] active:shadow-[0_0_0_#d97300] active:translate-y-[6px] flex items-center justify-center gap-2 gloss-shine">
+<span class="material-symbols-outlined text-[24px] text-[#1a0f02] font-black" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="tracking-wide">Submit &amp; see answers</span>
+</button>
+</section>
+</div>
+<!-- BOTTOM TAB BAR (Canonical Shared Component: BottomNavBar, 64px docked height) -->
+<!-- Executing Shared Component JSON specification: exactly 5 destinations, 'Skills' tab strictly active, inactive labels in clear readable dark charcoal ink (≥4.5:1) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 w-[390px] h-[64px] z-50 flex justify-around items-center px-space-xs bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_#efe0d6]">
+<!-- Destination 1: Today -->
+<a class="flex flex-col items-center justify-center text-[#2B3A38] px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors" href="#today">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="today">today</span>
+<span class="text-[11px] font-extrabold mt-0.5">Today</span>
+</a>
+<!-- Destination 2: Vocab (with due dot badge) -->
+<a class="flex flex-col items-center justify-center text-[#2B3A38] px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors relative" href="#vocab">
+<div class="relative inline-flex">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="menu_book">menu_book</span>
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-error border border-white"></span>
+</div>
+<span class="text-[11px] font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- Destination 3: Skills (ACTIVE MAPPING per Context & JSON) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-fixed text-[#003834] rounded-full px-space-md py-1 shadow-[0_2px_0_#136a63] font-label-sm text-label-sm border border-[#136a63]" href="#skills">
+<span class="material-symbols-outlined text-[22px] font-extrabold" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[11px] font-black mt-0.5">Skills</span>
+</a>
+<!-- Destination 4: Tests -->
+<a class="flex flex-col items-center justify-center text-[#2B3A38] px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="text-[11px] font-extrabold mt-0.5">Tests</span>
+</a>
+<!-- Destination 5: Me -->
+<a class="flex flex-col items-center justify-center text-[#2B3A38] px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors" href="#me">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="person">person</span>
+<span class="text-[11px] font-extrabold mt-0.5">Me</span>
+</a>
+</nav>
+</main>
+</body></html>

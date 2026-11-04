@@ -22,7 +22,7 @@ const card = () => { if (!XC) { globalThis.self = globalThis.self || globalThis;
 function grammar() {
   if (G) return G;
   globalThis.self = globalThis.self || globalThis;
-  for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check']) require(R(`web/js/grammar/${f}.js`));
+  for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'bank-gen', 'check']) require(R(`web/js/grammar/${f}.js`));
   return (G = self.GRAMMAR);
 }
 export const SETS = {

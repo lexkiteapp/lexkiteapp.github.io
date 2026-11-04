@@ -39,7 +39,7 @@
       const j = await r.json().catch(() => ({}));
       // Chống spam phía máy chủ: gửi quá nhanh → chờ đúng số giây rồi gửi lại (không tạm dừng đồng bộ, không mất dữ liệu)
       if ((j.error === 'too-fast' || j.msg === 'quota.burst') && tries < 2) { await new Promise(res => setTimeout(res, Math.min(30, (+j.wait || 5) + 1) * 1000)); return api(body, tries + 1); }
-      throw Object.assign(new Error('quota'), { code: 'resource-exhausted' });
+      throw Object.assign(new Error('quota'), { code: 'resource-exhausted', retry: +j.retry || 0 });
     }
     if (!r.ok) throw new Error('sync ' + r.status);
     return r.json();
@@ -175,7 +175,7 @@
   // Thẻ thuộc thư viện có sẵn: chỉ lưu phần riêng của người học (lịch ôn, ngữ cảnh, ghi chú…)
   const LIB_FIELDS = ['ipa', 'pos', 'vi', 'def', 'ex', 'col', 'syn', 'level', 'emoji', 'topic'];
   function slim(c) {
-    const lib = IELTS_DATA.INDEX[c.word.toLowerCase()];
+    const lib = !c.tl && IELTS_DATA.INDEX[c.word.toLowerCase()]; // thẻ ngôn ngữ đích khác (tl): không rút gọn theo kho tiếng Anh
     const o = { ...c };
     delete o.sentences; delete o.ipaUS; // tra lại được khi cần
     if (lib) {
@@ -189,7 +189,7 @@
     return o;
   }
   function fat(o) {
-    const lib = o.L ? IELTS_DATA.INDEX[o.word.toLowerCase()] : null;
+    const lib = o.L && !o.tl ? IELTS_DATA.INDEX[o.word.toLowerCase()] : null;
     const c = { ...Cards.make(lib || o), ...o };
     delete c.L;
     c.contexts = c.contexts || [];
@@ -220,6 +220,8 @@
   const pullMerge = (opt = {}) => { const k = JSON.stringify(opt); return pulling[k] || (pulling[k] = pullMerge0(opt).finally(() => { delete pulling[k]; })); };
   // Offline-first: lỗi mạng → thử lại lùi dần 30 s → 10 phút và ngay khi có mạng; dữ liệu luôn ở máy, không báo lỗi khi chỉ là mất mạng
   let netN = 0, netT = null, needPull = false;
+  // D1 hết hạn mức ngày (429 quota): nghỉ tới lúc máy chủ báo đặt lại (retry giây, 00:00 UTC) + rải 1–21 phút cho khỏi dồn cùng lúc; tối đa 6 giờ. Thẻ vẫn lưu trên máy (dirty giữ nguyên) – scripts/test/d1-cap.mjs
+  const pauseMs = (retry, rnd = Math.random()) => (retry > 0 ? Math.min(6 * 3600e3, (retry + 60 + rnd * 1200) * 1000) : 6 * 3600e3);
   const offline = () => typeof navigator !== 'undefined' && navigator.onLine === false;
   const syncOk = () => { netN = 0; clearTimeout(netT); netT = null; };
   function retryLater() {
@@ -268,7 +270,7 @@
       needPull = false;
       if (!opt.quiet) toast(docs.meta ? '☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')) : '☁️ ' + t('Đã sao lưu dữ liệu lên tài khoản'));
     } catch (e) {
-      if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); return; }
+      if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + pauseMs(e.retry)); setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); return; }
       needPull = true; netFail(e);
     }
   }
@@ -433,7 +435,7 @@
       setStatus('ok');
     } catch (e) {
       // Hết hạn mức miễn phí trong ngày → tạm dừng đồng bộ đến hôm sau; dữ liệu vẫn an toàn trên máy
-      if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ vài giờ (máy chủ miễn phí đã đủ lượt hôm nay) – dữ liệu vẫn lưu trên máy và sẽ tự đồng bộ sau.')); return; }
+      if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + pauseMs(e.retry)); setStatus('ok', t('Đồng bộ tạm nghỉ vài giờ (máy chủ miễn phí đã đủ lượt hôm nay) – dữ liệu vẫn lưu trên máy và sẽ tự đồng bộ sau.')); return; }
       netFail(e);
     }
   }

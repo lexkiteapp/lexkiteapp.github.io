@@ -57,7 +57,10 @@ const EN = {
   'Tra từ “%s” với Lexkite': 'Look up “%s” with Lexkite',
   'Dịch đoạn đã chọn': 'Translate selection',
 };
-const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
+const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + (x >>> 0).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+// Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
+const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
+const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
 
 const APP_URL = chrome.runtime.getURL('app/index.html');
 const getSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await Store.get('settings', {})) });
@@ -94,7 +97,9 @@ async function sendReminder(force = false, at = Date.now()) {
     await Store.set('remHist', [...hist, { day: today, tpl: it.tpl }].filter(h => h && h.day >= remKey(new Date(now - 8 * REM_DAY))).slice(-20));
   }
   if (!it) return;
-  chrome.notifications.create('reminder-' + now + '|' + encodeURIComponent(it.url || '#/review'), {
+  const tpl = /^[a-z0-9_]{1,12}$/.test(it.tpl || '') ? it.tpl : '';
+  if (!force && tpl) remEv([['shown', tpl, 1]]);
+  chrome.notifications.create('reminder-' + now + (tpl ? '~' + tpl : '') + '|' + encodeURIComponent(it.url || '#/review'), {
     type: 'basic',
     iconUrl: 'icons/icon-128.png',
     title: it.title,
@@ -198,8 +203,12 @@ chrome.alarms.onAlarm.addListener(a => {
 });
 // Bấm thông báo nhắc → mở đúng trang (liên kết sâu nằm sau dấu | trong id); thông báo khác → Ôn tập
 const routeOf = id => { const m = /\|(.+)$/.exec(String(id)); try { const h = m ? decodeURIComponent(m[1]) : ''; return /^#\/[\w\-/?=&%.]*$/.test(h) ? h : undefined; } catch (e) { return undefined; } };
-chrome.notifications.onClicked.addListener(id => { chrome.notifications.clear(id); openApp(routeOf(id)); });
-chrome.notifications.onButtonClicked.addListener(id => { chrome.notifications.clear(id); openApp(routeOf(id)); });
+// Số liệu nhắc học (docs/REMINDERS.md, functions/api/push.js op ev): chỉ mã mẫu + đếm – CTR add-on trước đây không đo được
+const remEv = e => fetch('https://lexkite.com/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ op: 'ev', e }) }).catch(() => {});
+const tplOf = id => { const m = /^reminder-\d+~([a-z0-9_]{1,12})\|/.exec(String(id)); return m ? m[1] : ''; };
+const remClick = id => { chrome.notifications.clear(id); const tpl = tplOf(id); if (tpl) remEv([['open', tpl, 1]]); openApp(routeOf(id)); };
+chrome.notifications.onClicked.addListener(remClick);
+chrome.notifications.onButtonClicked.addListener(remClick);
 
 chrome.storage.onChanged.addListener(ch => {
   if (ch.settings || ch.remRecent) scheduleReminder();

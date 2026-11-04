@@ -1,11 +1,12 @@
 // Test bảo vệ nội dung: bộ dựng luật WAF (scripts/lib/cf-waf-rules.mjs), sổ băm (scripts/lib/content-registry.mjs),
 // WebSub/copy-watch (hàm thuần) và sổ thật trong repo còn nguyên chuỗi băm. Không gọi mạng.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, CI_HEADER } from '../lib/cf-waf-rules.mjs';
+import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, RL_BUDGET, CI_HEADER, API_RL } from '../lib/cf-waf-rules.mjs';
 import { readRegistry, verifyChain, appendEntry, recordPublish, recordArchive, recordDataset, recordRelease, datasetRoot, sha256, REGISTRY, OTS_DIR, otsPath, otsPending, stampable, otsState, registryLines } from '../lib/content-registry.mjs';
 import { spawnSync } from 'node:child_process';
 import { feedsFor } from '../websub-ping.mjs';
-import { signature, suspects } from '../copy-watch.mjs';
+import { signature, suspects, canaryProbes, ghSuspects } from '../copy-watch.mjs';
+import { IP_META, themeHead } from '../lib/site-layout.mjs';
 
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const throws = (f, m) => { try { f(); ok(false, m); } catch { ok(true, m); } };
@@ -30,11 +31,22 @@ ok(['python-requests', 'scrapy', 'aiohttp', 'go-http-client', 'httrack', 'wget',
 ok(R.custom[1].expression.includes('"headlesschrome"') && !R.custom[1].expression.includes('"/packs/"'), 'headless chỉ thử thách trang HTML (không /packs/ mà app tải trong e2e)');
 const rl = R.ratelimit[0];
 ok(rl.ratelimit.period === 10 && rl.ratelimit.characteristics.includes('ip.src'), 'rate limit 10 s theo IP (gói Free)');
-ok(rl.ratelimit.requests_per_period >= 30 && rl.ratelimit.requests_per_period === RL_DEFAULT.requests, 'ngưỡng ≥ 30 req/10 s');
+ok(rl.ratelimit.requests_per_period >= 30 && rl.ratelimit.requests_per_period <= 200 && rl.ratelimit.requests_per_period === RL_DEFAULT.requests, 'ngưỡng 30–200 req/10 s');
 ok(rl.ratelimit.requests_per_period >= 4 * 10, 'ngưỡng ≥ 4× người đọc nhanh nhất (~10 trang/10 s, 1 request nội dung/trang)');
 ok(!/http\.host|http\.request\.headers|user_agent/.test(rl.expression), 'rate limit chỉ dùng path + cf.client.bot (giới hạn gói Free)');
+// API công khai (audit bảo mật 2/11): /api/ai, /api/contact, /api/report, /api/handoff bị đếm ở rate limit, khớp ĐÚNG đường dẫn
+for (const a of ['/api/ai', '/api/contact', '/api/report', '/api/handoff']) ok(API_RL.includes(a) && rl.expression.includes(`"${a}"`), `rate limit phủ ${a}`);
+ok(/http\.request\.uri\.path in \{"\/api\/ai"/.test(rl.expression) && !rl.expression.includes('starts_with(http.request.uri.path, "/api'), 'API chỉ khớp đúng đường dẫn (không tiền tố /api/ – sync/studio/drive/CLI không bị đếm)');
+ok(API_RL.every(a => !/^\/api\/(sync|studio|drive|lexai|quota|admin)/.test(a)), 'không đếm API nội bộ/CI');
+ok(!R.custom.some(r => r.expression.includes('"/api/')), 'luật chặn/thử thách không bao giờ chạm /api/*');
+// CGNAT/lớp học (3/11): nhiều người thật chung 1 IP – ngưỡng phải đủ cho cả lớp cùng mở 1 link, mà vẫn chặn scraper thật đã gặp
+ok(rl.ratelimit.requests_per_period >= RL_BUDGET.classroomBurst * 2, `ngưỡng ≥ 2× lớp ${RL_BUDGET.classroomBurst} người chung IP cùng mở 1 link (CGNAT/Wi-Fi trường)`);
+ok(rl.ratelimit.requests_per_period * 2 <= RL_BUDGET.scraperSeenPer10s, 'ngưỡng ≤ ½ tốc độ scraper thật 2/11 (257 req/10 s) → vẫn bị chặn');
+ok(!rl.expression.includes('"/packs/"') && R.custom[0].expression.includes('"/packs/"'), '/packs/ (app fetch, chặn = mất bản dịch cả phiên) không bị đếm RL nhưng vẫn chặn UA công cụ');
+const packFiles = fs.existsSync('web/packs') ? fs.readdirSync('web/packs').length : 0;
+ok(packFiles > 0 && packFiles < rl.ratelimit.requests_per_period, `/packs/ chỉ ${packFiles} tệp < ngưỡng → RL vốn không bảo vệ được gói nghĩa`);
 ok(!rl.expression.includes('starts_with(http.request.uri.path, "/blog/")'), 'rate limit không tính /blog/ trơn (trùng đường ảnh media.lexkite.com/blog/…)');
-ok(rl.action === 'block' && rl.ratelimit.mitigation_timeout === 10, 'vượt ngưỡng → chặn 10 s (gói Free không cho challenge)');
+ok(rl.action === 'block' && rl.ratelimit.mitigation_timeout === 10, 'vượt ngưỡng → chặn 10 s (gói Free; luật chung với API fetch nên challenge vô ích)');
 ok(buildRules({ ciSecret: SECRET, rl: { action: 'block' } }).ratelimit[0].ratelimit.mitigation_timeout === 10, 'hành động block → timeout 10 s');
 throws(() => buildRules({ ciSecret: '' }), 'thiếu secret CI → lỗi');
 throws(() => buildRules({ ciSecret: 'short' }), 'secret quá ngắn → lỗi');
@@ -111,7 +123,7 @@ for (const [nm, y] of [['blog-publish', bp], ['content-protect', cp]]) {
 ok(bp.indexOf('- name: Sổ băm nội dung') < bp.indexOf('- name: OpenTimestamps'), 'blog-publish: đóng dấu sau khi ghi sổ bài mới');
 ok(/push:[\s\S]*'extension\/manifest\.json'[\s\S]*'content\/landing\/\*\*'/.test(cp) && /release addon/.test(cp) && /release landing/.test(cp), 'content-protect: push add-on lên bản/landing → ghi mốc phát hành');
 ok(/if: github\.event_name != 'push'/.test(step(cp, 'Dò bản sao chép')) && /if: github\.event_name != 'push'/.test(step(cp, 'WAF chống cào')), 'content-protect: lần chạy do push không dò bản sao/WAF');
-ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
+ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8') + fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
 if (fs.existsSync(OTS_DIR)) {
   const hashes = new Set(readRegistry().map(e => e.hash)), fl = fs.readdirSync(OTS_DIR).filter(f => !f.startsWith('.'));
   ok(fl.every(f => /^[0-9a-f]{64}\.ots$/.test(f) && hashes.has(f.slice(0, 64))), `${OTS_DIR}: mọi bằng chứng ứng với 1 mục sổ (không file lạ)`);
@@ -127,5 +139,51 @@ ok(suspects([{ url: 'https://lexkite.com/vi/blog/a/' }, { url: 'https://media.le
 const bb = fs.readFileSync('scripts/build-blog.mjs', 'utf8');
 ok(bb.includes('rel="hub"') && bb.includes('<meta name="author"') && bb.includes('datePublished') && bb.includes('dateModified') && bb.includes('rel="canonical"') && bb.includes('article:published_time'), 'build-blog: hub RSS, author, datePublished/dateModified, canonical, article:published_time');
 
-console.log(fails ? `✗ protection: ${fails}/${n} lỗi` : `✓ protection: ${n} kiểm tra đạt (WAF, sổ băm, OpenTimestamps, WebSub, copy-watch)`);
+// ---------- robots.txt / ai.txt / TDMRep: chặn bot HUẤN LUYỆN AI, KHÔNG chặn máy tìm kiếm (SEO) ----------
+// Bộ đọc robots.txt tối giản theo RFC 9309: nhóm = các dòng User-agent liền nhau; bot dùng nhóm khớp tên dài nhất, không có thì nhóm *.
+export function robotsAllows(txt, ua, p) {
+  const groups = []; let cur = null, lastUa = false;
+  for (const raw of txt.split('\n')) { const l = raw.replace(/#.*/, '').trim(); if (!l) continue; const m = l.match(/^([A-Za-z-]+)\s*:\s*(.*)$/); if (!m) continue;
+    const k = m[1].toLowerCase(), v = m[2].trim();
+    if (k === 'user-agent') { if (!lastUa) groups.push(cur = { uas: [], rules: [] }); cur.uas.push(v.toLowerCase()); lastUa = true; }
+    else { lastUa = false; if (cur && (k === 'allow' || k === 'disallow')) cur.rules.push([k, v]); } }
+  const u = ua.toLowerCase(), named = groups.filter(g => g.uas.some(x => x !== '*' && u.includes(x))), g = named.length ? named : groups.filter(x => x.uas.includes('*'));
+  const re = v => new RegExp('^' + v.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*').replace(/\\\$$/, '$'));
+  let best = null; for (const gr of g) for (const [k, v] of gr.rules) if (v && re(v).test(p) && (!best || v.length > best[1].length || (v.length === best[1].length && k === 'allow'))) best = [k, v];
+  return !best || best[0] === 'allow';
+}
+const robots = fs.readFileSync('web/robots.txt', 'utf8');
+const SEARCH = ['Googlebot', 'Googlebot-Image', 'Bingbot', 'Applebot', 'DuckDuckBot', 'YandexBot', 'Baiduspider', 'Naver Yeti', 'facebookexternalhit', 'Twitterbot', 'OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Mozilla/5.0 (compatible; Googlebot/2.1)'];
+const TRAIN = ['GPTBot', 'CCBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'Bytespider', 'meta-externalagent', 'cohere-training-data-crawler', 'Diffbot', 'img2dataset', 'AI2Bot'];
+for (const b of SEARCH) for (const pth of ['/', '/vi/blog/x/', '/tu-vung/abc', '/samples/x', '/en/terms', '/sitemap.xml']) ok(robotsAllows(robots, b, pth), `robots: ${b} được vào ${pth} (SEO giữ nguyên)`);
+for (const b of SEARCH) ok(!robotsAllows(robots, b, '/admin') && !robotsAllows(robots, b, '/x?demo=1'), `robots: ${b} vẫn tránh /admin, ?demo=`);
+for (const b of TRAIN) for (const pth of ['/', '/vi/blog/x/', '/js/toeic/reading1.js', '/packs/vi.json']) ok(!robotsAllows(robots, b, pth), `robots: bot huấn luyện ${b} bị chặn ${pth}`);
+ok(/^Sitemap: https:\/\/lexkite\.com\/sitemap\.xml$/m.test(robots), 'robots: còn khai báo sitemap');
+ok(!/^User-agent:\s*(Googlebot|Bingbot|Applebot|PetalBot|YandexBot|DuckDuckBot)\s*$/im.test(robots), 'robots: không có nhóm riêng nào cho máy tìm kiếm');
+ok(/^User-Agent: \*\nDisallow: \/$/m.test(fs.readFileSync('web/ai.txt', 'utf8')), 'ai.txt: cấm dùng mọi nội dung cho AI');
+const tdm = JSON.parse(fs.readFileSync('web/.well-known/tdmrep.json', 'utf8'));
+ok(Array.isArray(tdm) && tdm.some(r => r.location === '/*' && r['tdm-reservation'] === 1), 'TDMRep: bảo lưu quyền khai thác văn bản/dữ liệu toàn site');
+ok(/tdm-reservation" content="1"/.test(IP_META) && !/noindex|nofollow|robots/.test(IP_META), 'meta bảo lưu TDM không đụng chỉ mục');
+{ const h = themeHead('<head><meta charset="utf-8"><title>t</title></head>'); ok(h.split('tdm-reservation').length === 2 && themeHead(h) === h, 'themeHead chèn meta quyền nội dung 1 lần (idempotent)'); }
+for (const f of ['web/app/index.html', 'web/index.html', 'web/en/terms.html']) { const h = fs.readFileSync(f, 'utf8'); ok(h.includes(IP_META) && /©/.test(h + (f.includes('/app/') ? fs.readFileSync('web/js/app.js', 'utf8') : '')), `${f}: có meta tdm-reservation + dòng ©`); }
+
+// ---------- LICENSE / NOTICE: mã + nội dung © Lexkite, all rights reserved ----------
+const lic = fs.readFileSync('LICENSE', 'utf8'), notice = fs.readFileSync('NOTICE', 'utf8');
+ok(/All rights reserved/i.test(lic) && /artificial intelligence|machine learning/i.test(lic) && !/MIT License|Apache License|GNU General/i.test(lic), 'LICENSE: all rights reserved, cấm huấn luyện AI, không phải giấy phép mở');
+ok(/NGSL/.test(notice) && /CC BY-SA/.test(notice) && /Tatoeba/.test(notice), 'NOTICE: ghi công dữ liệu mở theo giấy phép');
+for (const l of ['en', 'vi']) { const t = fs.readFileSync(`content/legal/${l}/terms.html`, 'utf8'); ok(/id="ip"/.test(t) && /id="dmca"/.test(t) && /id="repeat-infringers"/.test(t) && /id="ai-training"/.test(t), `terms ${l}: mục quyền nội dung, cấm AI, DMCA, vi phạm lặp lại`); }
+
+// ---------- Canary kho đề/từ (content/protection/canaries.json) ----------
+const CAN = JSON.parse(fs.readFileSync('content/protection/canaries.json', 'utf8')).canaries;
+ok(new Set(CAN.map(c => c.id)).size === CAN.length, 'canary: id không trùng');
+for (const c of CAN.filter(x => x.q)) {
+  ok(fs.readFileSync(`web/js/${c.module}`, 'utf8').includes(c.q), `canary ${c.id}: cụm "${c.q}" còn trong ${c.module} (sửa đề/từ phải cập nhật canaries.json)`);
+  ok(c.q.length >= 15 && c.q.length <= 80, `canary ${c.id}: cụm tìm 15–80 ký tự`);
+}
+ok(['exam', 'vocab'].every(k => CAN.filter(c => c.q && c.kind === k).length >= 3), 'canary: ≥ 3 trong kho đề và ≥ 3 trong kho từ');
+ok(canaryProbes(CAN).every(p => /^https:\/\/lexkite\.com\/#canary-/.test(p.url) && p.sentence && p.canary), 'canary → probe có url https (Quản trị nhận)');
+ok(ghSuspects([{ html_url: 'https://github.com/lexkiteapp/lexkiteapp.github.io/blob/x', repository: { full_name: 'lexkiteapp/lexkiteapp.github.io' }, path: 'a' }, { html_url: 'https://github.com/bad/copy/blob/y', repository: { full_name: 'bad/copy' }, path: 'b' }]).map(x => x.url).join() === 'https://github.com/bad/copy/blob/y', 'canary GitHub: bỏ repo của Lexkite, báo repo lạ');
+ok(/GITHUB_TOKEN: \$\{\{ github\.token \}\}/.test(step(cp, 'Dò bản sao chép')), 'content-protect: dò canary bằng GITHUB_TOKEN (miễn phí, không cần khóa)');
+
+console.log(fails ? `✗ protection: ${fails}/${n} lỗi` : `✓ protection: ${n} kiểm tra đạt (WAF, sổ băm, OpenTimestamps, WebSub, copy-watch, robots/AI, LICENSE, canary)`);
 process.exit(fails ? 1 : 0);

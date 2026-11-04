@@ -170,7 +170,7 @@ const softAskShown = h => h.has('#modal:not([hidden]) #raY');
 async function j1(h) {
   const { page, lang } = h;
   await page.goto(`${O}/${lang === 'vi' ? '' : lang + '/'}`, { waitUntil: 'load' });
-  const cta = page.locator('.ctas a.btn.lg').first();
+  const cta = page.locator('[data-cta=start], .ctas a.btn.lg').first()  /* nút chính hero (khung Stitch: data-cta=start) */;
   const href = await cta.getAttribute('href');
   h.ok(href && href.startsWith(`/app/?hl=${lang}#/welcome/setup`), `trang giới thiệu: nút chính trỏ ${href}`);
   // giữ ?sandbox=1 khi bấm vào app (dữ liệu tách riêng)
@@ -206,7 +206,7 @@ async function j1(h) {
     const tb = await page.evaluate(() => { const t = document.querySelector('#toast.show'); if (!t) return null; const r = t.getBoundingClientRect(); return [...document.querySelectorAll('#view .btn.primary, .learn-bar, .bottom-nav')].filter(b => { const q = b.getBoundingClientRect(); return q.height && q.top > innerHeight * .45 && q.top < innerHeight && r.bottom > q.top + 2 && r.top < q.bottom && r.left < q.right && r.right > q.left; }).map(b => b.textContent.trim().slice(0, 30)); });
     h.ok(!tb || !tb.length, 'toast không che nút/thanh ở đáy: ' + (tb || []).join(' | '));
     h.ok(await page.evaluate(() => document.activeElement && document.activeElement !== document.body), 'focus được trả về (không rơi về <body>) sau khi đóng hộp');
-    h.ok(+(await h.ls('lk.reask')) > 0, 'đã ghi lk.reask (không hỏi lại)');
+    { const v = await h.ls('lk.reask'), r = typeof v === 'string' ? JSON.parse(v || 'null') : v; h.ok(r && r.n === 1 && r.no === 1 && r.at > 0, 'đã ghi lk.reask {n:1, "để sau"} – chỉ hỏi lại sau ≥ 7 ngày + ≥ 3 ngày học (' + JSON.stringify(r) + ')'); }
     h.ok(!(await page.evaluate(() => window.__perm || 0)), 'từ chối → KHÔNG gọi hộp quyền của trình duyệt');
   }
   // bài thứ 2 (cùng phiên) + sau khi tải lại → không bao giờ hỏi lại

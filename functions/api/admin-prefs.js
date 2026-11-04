@@ -1,16 +1,29 @@
 /* API Cài đặt nâng cao tài khoản quản trị (khối 🛡️ Tài khoản quản trị).
  * POST /api/admin-prefs (Authorization: Bearer <Firebase ID token>)
  * op: get · set · logs
- * Lưu trữ: D1 chính (bảng config), khóa adm_pref:<email>, blob JSON ≤ 4 KB.
+ * Lưu trữ: D1 chính (bảng config). Cá nhân (tab, ngôn ngữ, giao diện, tự đăng xuất) → adm_pref:<email>, blob JSON ≤ 4 KB.
+ * DÙNG CHUNG mọi admin (loại cảnh báo, ngưỡng lỗi JS, ngưỡng hạn mức) → adm_shared:alerts (cùng khóa /api/admin-shared ns 'alerts'; ghi vết ai/lúc nào).
+ *   Chưa có bản chung → dùng giá trị cũ của chính người gọi (di trú êm), lần lưu đầu sẽ thành bản chung.
  * Whitelist schema chặt chẽ, kiểm tra kiểu dữ liệu, bảo mật adminGate.
  */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
+import { maskEmail } from './admin-shared.js';
+
+const SHARED_ALERTS = 'adm_shared:alerts';
+/** Bản chung của cảnh báo quản trị (null = chưa ai lưu). */
+async function sharedAlerts(db) {
+  try {
+    const r = await db.prepare('SELECT v, at, by FROM config WHERE k = ?').bind(SHARED_ALERTS).first();
+    const v = r && r.v ? JSON.parse(r.v) : null, c = v && validatePref({ alertTypes: v.alertTypes, jsErrorThreshold: v.jsErrorThreshold, quotaThresholdPct: v.quotaThresholdPct });
+    return c && c.clean ? { v: { alertTypes: c.clean.alertTypes, jsErrorThreshold: c.clean.jsErrorThreshold, quotaThresholdPct: c.clean.quotaThresholdPct }, at: +r.at || 0, by: r.by } : null;
+  } catch (e) { return null; }
+}
 
 const ALLOWED_TABS = new Set([
   'overview', 'analytics', 'live', 'users', 'inbox', 'alerts',
   'reports', 'quality', 'services', 'growth', 'social', 'dist',
-  'studio', 'video', 'backlinks', 'drive', 'keys', 'quota', 'notices', 'settings'
+  'studio', 'video', 'backlinks', 'drive', 'keys', 'accounts', 'quota', 'notices', 'settings'
 ]);
 const ALLOWED_LANGS = new Set(['vi', 'en']);
 const ALLOWED_THEMES = new Set(['auto', 'light', 'dark']);
@@ -146,7 +159,9 @@ export async function onRequestPost({ request, env }) {
       try { parsed = JSON.parse(row.v); } catch (e) { parsed = null; }
     }
     const val = validatePref(parsed || {});
-    return json(request, 200, { ok: true, pref: val.clean || DEFAULT_PREF });
+    const pref = { ...(val.clean || DEFAULT_PREF) }, sh = await sharedAlerts(env.DB);
+    if (sh) Object.assign(pref, sh.v);
+    return json(request, 200, { ok: true, pref, shared: sh ? { at: sh.at, by: maskEmail(sh.by) } : null });
   }
 
   if (b.op === 'set') {
@@ -155,9 +170,11 @@ export async function onRequestPost({ request, env }) {
     const payload = JSON.stringify(val.clean);
     if (payload.length > 4096) return json(request, 413, { error: 'too-large' });
     try {
-      await env.DB.prepare(
-        'INSERT INTO config (k, v, at, by) VALUES (?, ?, ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v, at = excluded.at, by = excluded.by'
-      ).bind(emailKey, payload, Date.now(), who.email).run();
+      const up = 'INSERT INTO config (k, v, at, by) VALUES (?, ?, ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v, at = excluded.at, by = excluded.by';
+      await env.DB.prepare(up).bind(emailKey, payload, Date.now(), who.email).run();
+      const sv = { alertTypes: val.clean.alertTypes, jsErrorThreshold: val.clean.jsErrorThreshold, quotaThresholdPct: val.clean.quotaThresholdPct };
+      const old = await sharedAlerts(env.DB);
+      if (!old || JSON.stringify(old.v) !== JSON.stringify(sv)) await env.DB.prepare(up).bind(SHARED_ALERTS, JSON.stringify(sv), Date.now(), who.email).run(); // chỉ ghi khi thật sự đổi → "vừa cập nhật bởi" không nhiễu
       await adminAudit(env, request, who.email, 'adminPrefSet', true);
       return json(request, 200, { ok: true, pref: val.clean });
     } catch (e) {

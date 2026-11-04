@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Hands-Free Listening Mode (Bright Day Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            surface: '#fff8f4',
+            'surface-card': '#ffffff',
+            'surface-soft': '#fff2e6',
+            'surface-dim': '#f0d6bc',
+            'border-subtle': '#ebdcd0',
+            'border-card': '#eadbc8',
+            'ledge-card': '#dfcdb9',
+            'primary-teal': '#136b66',
+            'primary-dark': '#0c4844',
+            'teal-soft': '#e6f7f6',
+            'teal-border': '#9cdcd6',
+            'orange-amber': '#f59e0b',
+            'orange-dark': '#d97706',
+            'orange-ledge': '#b45309',
+            'ink-primary': '#1c1003',
+            'ink-body': '#2c221a',
+            'ink-muted': '#6b584b',
+            'ink-light': '#8f7b6d',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fff8f4;
+      color: #1c1003;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-surface text-ink-primary min-h-screen flex flex-col justify-between relative px-4 pt-3 pb-6 selection:bg-teal-soft selection:text-primary-teal w-full max-w-[390px] mx-auto overflow-x-hidden">
+<!-- Top Bar: Close Button, Progress Track, Hearts Counter -->
+<header class="w-full flex items-center justify-between gap-3 mb-4">
+<!-- Close Button with tactile border & ledge -->
+<button aria-label="Close" class="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-2xl bg-white border-2 border-border-card shadow-[0_3px_0_#dfcdb9] active:translate-y-0.5 active:shadow-[0_1px_0_#dfcdb9] transition-all text-ink-muted hover:text-ink-primary" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Progress Bar -->
+<div class="flex-1 h-3.5 bg-[#f3e4d5] rounded-full overflow-hidden p-0.5 border border-[#eadbc8]">
+<div class="h-full bg-primary-teal rounded-full w-[30%] shadow-inner transition-all duration-300"></div>
+</div>
+<!-- Heart Counter with tactile ledge -->
+<div class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-white border-2 border-border-card shadow-[0_3px_0_#dfcdb9]">
+<svg class="w-5 h-5 text-[#ef4444] fill-current" viewbox="0 0 24 24">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+<span class="font-extrabold text-base text-ink-primary leading-none">5</span>
+</div>
+</header>
+<!-- Category & Sentence Counter Strip -->
+<div class="w-full flex items-center justify-between px-1 mb-4">
+<!-- Hands-Free Listening pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-soft border border-teal-border">
+<span class="w-2 h-2 rounded-full bg-primary-teal"></span>
+<span class="text-xs font-black tracking-wide text-primary-teal uppercase">Hands-free listening</span>
+</div>
+<!-- Sentence counter -->
+<span class="text-xs font-black tracking-wider text-[#3b2e24] uppercase">Sentence 12 of 40</span>
+</div>
+<!-- Coach Section: Teacher Slot & Speech Bubble -->
+<div class="w-full flex items-center gap-3.5 mb-4">
+<!-- Requirement 1: Empty Teacher Slot (soft teal-tinted rounded rectangle, dashed border, class teacher-slot) -->
+<div class="teacher-slot w-14 h-16 rounded-2xl bg-teal-soft border-2 border-dashed border-teal-border flex-shrink-0 flex flex-col items-center justify-center p-1" title="Teacher slot"><svg class="w-6 h-6 text-[#0f524d]" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="text-[9px] font-black text-[#0f524d] tracking-tight uppercase mt-0.5">Coach</span></div>
+<!-- Speech Bubble with Left Arrow -->
+<div class="flex-1 bg-white border-2 border-border-card rounded-2xl px-4 py-2.5 shadow-[0_3px_0_#dfcdb9] relative">
+<!-- Triangle pointer -->
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[8px] border-r-white z-10"></div>
+<div class="absolute -left-[10px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-border-card z-0"></div>
+<p class="font-extrabold text-[15px] text-ink-primary leading-snug">
+        “Just listen and repeat.”
+      </p>
+<p class="text-[11px] font-black text-[#0f524d] uppercase tracking-wider mt-0.5">Teacher Carlos</p>
+</div>
+</div>
+<!-- Primary Audio Card -->
+<div class="w-full bg-white border-2 border-border-card rounded-3xl p-5 shadow-[0_4px_0_#dfcdb9] mb-4">
+<!-- Meta tag row: Audio source & Level -->
+<div class="flex items-center justify-between text-xs font-bold mb-3">
+<div class="flex items-center gap-1.5 text-[#0f524d]"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></svg><span class="font-black uppercase tracking-wider">UK / US Audio</span></div>
+<span class="text-[#3b2e24] font-bold">A2 · Daily routine</span>
+</div>
+<!-- English Sentence -->
+<h1 class="text-[25px] font-black leading-tight text-ink-primary tracking-tight mb-1">
+      “The museum is closed on Mondays.”
+    </h1>
+<!-- Vietnamese Translation -->
+<p class="text-[15px] font-bold text-[#3b2e24] mb-4">Bảo tàng đóng cửa vào thứ Hai.</p>
+<!-- Audio Waveform Visualizer & Timestamp -->
+<div class="w-full bg-[#fcf5ed] border border-[#f0dfd0] rounded-2xl px-4 py-3 flex items-center justify-between mb-5">
+<!-- Waveform graphic -->
+<div class="flex items-center gap-1 h-8">
+<span class="w-1.5 h-4 bg-primary-teal rounded-full"></span>
+<span class="w-1.5 h-7 bg-primary-teal rounded-full"></span>
+<span class="w-1.5 h-5 bg-primary-teal rounded-full"></span>
+<span class="w-1.5 h-8 bg-primary-teal rounded-full"></span>
+<span class="w-1.5 h-4 bg-primary-teal rounded-full"></span>
+<span class="w-1.5 h-2.5 bg-[#cbdad9] rounded-full"></span>
+<span class="w-1.5 h-6 bg-[#cbdad9] rounded-full"></span>
+<span class="w-1.5 h-3 bg-[#cbdad9] rounded-full"></span>
+<span class="w-1.5 h-5 bg-[#cbdad9] rounded-full"></span>
+<span class="w-1.5 h-4 bg-[#cbdad9] rounded-full"></span>
+<span class="w-1.5 h-2 bg-[#cbdad9] rounded-full"></span>
+</div>
+<!-- Time text -->
+<span class="font-bold text-xs text-[#3b2e24] font-mono tracking-tight">0:03 / 0:05</span>
+</div>
+<!-- Player Controls Row -->
+<div class="flex items-center justify-center gap-5 mb-5">
+<!-- Prev Button -->
+<button aria-label="Previous sentence" class="w-13 h-13 p-3.5 rounded-2xl bg-[#fdf8f3] border-2 border-border-card shadow-[0_3px_0_#dfcdb9] active:translate-y-0.5 active:shadow-[0_1px_0_#dfcdb9] text-ink-body hover:text-ink-primary transition-all" type="button">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path>
+</svg>
+</button>
+<!-- Big Pause / Play Button -->
+<button aria-label="Pause audio" class="w-16 h-16 rounded-full bg-primary-teal text-white flex items-center justify-center shadow-[0_4px_0_#0c4844] active:translate-y-0.5 active:shadow-[0_2px_0_#0c4844] hover:bg-primary-dark transition-all" type="button">
+<svg class="w-7 h-7 fill-current" viewbox="0 0 24 24">
+<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+</svg>
+</button>
+<!-- Next Button -->
+<button aria-label="Next sentence" class="w-13 h-13 p-3.5 rounded-2xl bg-[#fdf8f3] border-2 border-border-card shadow-[0_3px_0_#dfcdb9] active:translate-y-0.5 active:shadow-[0_1px_0_#dfcdb9] text-ink-body hover:text-ink-primary transition-all" type="button">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path>
+</svg>
+</button>
+</div>
+<!-- Secondary Settings Row: Speed & Loop -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Speed selector -->
+<button class="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white border border-[#eadbc8] shadow-[0_2px_0_#dfcdb9] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<svg class="w-4 h-4 text-primary-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-black text-ink-body">Speed: 0.8×</span>
+</button>
+<!-- Loop toggle -->
+<button class="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-teal-soft border border-teal-border shadow-[0_2px_0_#b7e4e0] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<svg class="w-4 h-4 text-primary-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-black text-primary-teal">Loop: On</span>
+</button>
+</div>
+</div>
+<!-- Pocket Mode Notification Card -->
+<div class="w-full bg-white border border-border-card rounded-2xl p-3.5 shadow-[0_2px_0_#dfcdb9] flex items-center gap-3.5 mb-5">
+<!-- Lock Badge -->
+<div class="w-10 h-10 rounded-xl bg-teal-soft border border-teal-border flex items-center justify-center flex-shrink-0 text-primary-teal">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path>
+</svg>
+</div>
+<!-- Text Explanation -->
+<div class="flex-1"><h2 class="text-xs font-black text-[#1c1003]">Screen can be off</h2><p class="text-[12px] font-semibold text-[#3b2e24] leading-tight mt-0.5">Audio continues playing in pocket mode with headphones.</p></div>
+</div>
+<!-- Primary CTA Button (Pinned towards bottom) -->
+<!-- Strict: deep brown-black ink (#1C1003) on orange button -->
+<div class="w-full mb-1">
+<button class="w-full py-4 px-6 rounded-2xl bg-orange-amber border-2 border-[#d97706] shadow-[0_4px_0_#b45309] active:translate-y-1 active:shadow-[0_1px_0_#b45309] flex items-center justify-center gap-2 text-ink-primary font-black text-[17px] tracking-wide transition-all hover:bg-[#f6a51d]" type="button">
+<span>Continue to next sentence</span>
+<svg class="w-5 h-5 stroke-current" fill="none" stroke-width="3" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</body>
+</html>

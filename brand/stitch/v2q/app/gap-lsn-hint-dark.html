@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark w-full bg-[#091518]" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Lesson — Grammar Hint: Since vs For</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              base: '#091518',
+              surface: '#0d1e23',
+              card: '#12252a',
+              border: '#23464f',
+              borderStrong: '#2f5b66',
+              mint: '#2dd4bf',
+              mintDark: '#0d5e58',
+              amber: '#f59e0b',
+              amberLedge: '#9a3412',
+              inkDark: '#1c1003',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 3px 0 0 #061013',
+            'tactile-btn': '0 4px 0 0 #9a3412',
+            'tactile-close': '0 3px 0 0 #061013',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #091518;
+      color: #f1f5f9;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .teacher-slot {
+      border: 2px dashed #2dd4bf;
+    }
+  </style>
+</head>
+<body class="w-full max-w-[390px] mx-auto min-h-screen bg-night-base text-slate-100 flex flex-col justify-start px-4 pt-2 pb-6 selection:bg-[#2dd4bf] selection:text-[#1c1003]">
+<!-- Top Drag Pill Handle -->
+<div class="w-12 h-1.5 bg-[#23464f] rounded-full mx-auto my-3 shrink-0"></div>
+<!-- Hint Header Row -->
+<div class="flex items-center justify-between mb-4 shrink-0">
+<div class="flex items-center gap-3">
+<!-- Amber Lightbulb Icon in Tactile Square -->
+<div class="w-11 h-11 rounded-2xl bg-[#f59e0b] shadow-[0_3px_0_0_#9a3412] flex items-center justify-center border border-amber-300 shrink-0">
+<span class="material-symbols-outlined text-[#1c1003] text-2xl font-black">lightbulb</span>
+</div>
+<div>
+<h1 class="text-2xl font-black text-white tracking-tight leading-tight">Hint</h1>
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#2dd4bf]">Grammar Concept</p>
+</div>
+</div>
+<!-- Accessible Tactile Close Button (min 44x44px) -->
+<button aria-label="Close Hint" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-night-card border-2 border-night-border hover:border-night-mint active:translate-y-0.5 shadow-tactile-close transition-all flex items-center justify-center text-slate-200" type="button">
+<span class="material-symbols-outlined text-xl font-bold">close</span>
+</button>
+</div>
+<!-- Teacher Slot Row -->
+<div class="w-full bg-night-card rounded-2xl p-3.5 mb-3 border-2 border-night-border shadow-tactile-card flex items-start gap-3 shrink-0">
+<!-- Canonical Empty Teacher Slot (border-2 border-dashed border-[#2DD4BF] w-14 h-14 rounded-2xl) -->
+<div class="teacher-slot w-14 h-14 min-w-[56px] rounded-2xl bg-night-base flex items-center justify-center text-[#2dd4bf] shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] shrink-0">
+<span class="material-symbols-outlined text-2xl text-[#2dd4bf]">school</span>
+</div>
+<!-- Teacher Ama's Quote Card -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full bg-[#2dd4bf] shrink-0"></span>
+<span class="text-xs font-black text-[#2dd4bf] tracking-wider uppercase">Teacher Ama</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/50 text-[10px] font-black text-amber-300 uppercase tracking-wide">IELTS Coach</span>
+</div>
+<p class="text-sm font-extrabold text-white mb-1 leading-snug">
+        “Think: a specific point or a length?”
+      </p>
+<p class="text-xs font-semibold text-slate-300 leading-relaxed">
+        Look at the time expression right after the blank to choose the right preposition.
+      </p>
+</div>
+</div>
+<!-- Rule Card -->
+<div class="w-full bg-night-card rounded-2xl p-3.5 mb-3 border-2 border-night-border shadow-tactile-card shrink-0">
+<div class="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1.5 text-center text-[15px] font-bold text-slate-100">
+<span>Use</span>
+<!-- 'since' in deep teal pill (#0D5E58) with #E6FFFA text -->
+<span class="inline-flex items-center px-3 py-0.5 rounded-xl bg-[#0d5e58] text-[#e6fffa] border border-teal-400/60 font-black text-sm shadow-[0_2px_0_0_#052523]">
+        since
+      </span>
+<span>with a starting point in time,</span>
+<span>and</span>
+<!-- 'for' in amber pill (#F59E0B) with deep brown-black ink (#1C1003) -->
+<span class="inline-flex items-center px-3 py-0.5 rounded-xl bg-[#f59e0b] text-[#1c1003] border border-amber-300 font-black text-sm shadow-[0_2px_0_0_#9a3412]">
+        for
+      </span>
+<span>with a length of time.</span>
+</div>
+</div>
+<!-- 2-Column Comparison Grid -->
+<div class="grid grid-cols-2 gap-2.5 mb-3 shrink-0">
+<!-- Left Column: Since + Point -->
+<div class="bg-night-card rounded-2xl p-3 border-2 border-teal-700/60 shadow-tactile-card flex flex-col">
+<div class="flex items-center gap-1.5 pb-2 mb-2 border-b border-night-border">
+<span class="w-2 h-2 rounded-full bg-[#2dd4bf] shrink-0"></span>
+<span class="text-xs font-black uppercase text-[#2dd4bf] tracking-wider">Since + Point</span>
+</div>
+<ul class="space-y-1.5 text-xs font-bold text-slate-100">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2dd4bf] text-base shrink-0">schedule</span>
+<span>since 2019</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2dd4bf] text-base shrink-0">schedule</span>
+<span>since 8:00 AM</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2dd4bf] text-base shrink-0">schedule</span>
+<span>since Monday</span>
+</li>
+</ul>
+</div>
+<!-- Right Column: For + Length -->
+<div class="bg-night-card rounded-2xl p-3 border-2 border-amber-700/60 shadow-tactile-card flex flex-col">
+<div class="flex items-center gap-1.5 pb-2 mb-2 border-b border-night-border">
+<span class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
+<span class="text-xs font-black uppercase text-amber-300 tracking-wider">For + Length</span>
+</div>
+<ul class="space-y-1.5 text-xs font-bold text-slate-100">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-base shrink-0">timelapse</span>
+<span>for 5 years</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-base shrink-0">timelapse</span>
+<span>for two hours</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-base shrink-0">timelapse</span>
+<span>for a long time</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Example Card -->
+<div class="w-full bg-night-card rounded-2xl p-3.5 mb-3.5 border-2 border-night-border shadow-tactile-card shrink-0">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[11px] font-black uppercase tracking-wider text-slate-400">Example</span>
+<span class="px-2 py-0.5 rounded-full bg-[#0d2a2e] border border-teal-500/40 text-[10px] font-black text-[#2dd4bf] tracking-wider uppercase">Target Question</span>
+</div>
+<p class="text-sm font-bold text-white mb-2 leading-snug">
+      “She has lived here <span class="text-[#2dd4bf] underline decoration-[#2dd4bf] decoration-2 underline-offset-2 font-black">since</span> 2019.”
+    </p>
+<div class="flex items-start gap-2 pt-2 border-t border-night-border/70 text-xs font-semibold text-slate-300 leading-relaxed">
+<span class="material-symbols-outlined text-[#2dd4bf] text-base shrink-0 mt-0.5">check_circle</span>
+<span><strong class="text-white font-extrabold">2019</strong> is a specific calendar year (starting point), not an amount of time elapsed.</span>
+</div>
+</div>
+<!-- Reassurance Notice (Using a hint costs no hearts) -->
+<div class="flex items-center justify-center gap-1.5 mb-4 text-xs font-bold text-[#2dd4bf] shrink-0">
+<span class="material-symbols-outlined text-base font-bold">verified_user</span>
+<span>Using a hint costs no hearts</span>
+</div>
+<!-- Primary CTA: Got it ✓ Button -->
+<button class="w-full h-14 min-h-[52px] rounded-2xl bg-[#f59e0b] hover:bg-amber-400 active:translate-y-0.5 active:shadow-[0_1px_0_0_#9a3412] shadow-tactile-btn border-2 border-amber-300 text-[#1c1003] font-black text-lg flex items-center justify-center gap-2 transition-all mt-auto shrink-0" type="button">
+<span>Got it</span>
+<span class="material-symbols-outlined text-xl font-black">check</span>
+</button>
+</body></html>

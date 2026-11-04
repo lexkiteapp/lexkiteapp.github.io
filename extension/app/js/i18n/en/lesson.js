@@ -18,6 +18,7 @@ D.en = Object.assign(D.en || {}, {
 'Đang nghe bạn nói…': 'Listening to you…',
 'Bạn nói: {s}': 'You said: {s}',
 'Chưa rõ – thử lại nhé': 'Not clear yet – try again',
+'Hoặc chọn “Không nói được lúc này” để học tiếp.': 'Or choose “Can’t speak now” to keep learning.',
 'Thiết bị này chưa nhận được giọng nói.': "This device can't recognize speech yet.",
 'Trọng âm rơi vào âm tiết {n}/{m}': 'Stress falls on syllable {n} of {m}',
 'Anh – Mỹ đọc khác:': 'UK and US pronunciation differ:',
@@ -41,7 +42,6 @@ D.en = Object.assign(D.en || {}, {
 'Kiểm tra đáp án': "Check answer",
 'Từ bạn đã tra': "Your lookup",
 'Ghép cặp': "Match the pairs",
-'Gõ từ bạn nghe': "Type what you hear",
 'Chọn từ đúng': "Pick the right word",
 'Nói tên hình': "Say what you see",
 'Đây là gì?': "What is this?",
@@ -55,6 +55,7 @@ D.en = Object.assign(D.en || {}, {
 'Báo lỗi câu hỏi': 'Report question',
 'Trả lời câu hỏi': 'Answer the question',
 'Bạn đã học:': 'You learned:', // màn kết (cũng ở ux1 – gói lesson không nạp ux1)
+'Xem video bài học': 'Watch the lesson video',
 "Mục tiêu {s}": "Target {s}",
 "Câu {a}/{b}": "Question {a} of {b}",
 "Mẫu âm thanh": "Audio sample",
@@ -64,7 +65,6 @@ D.en = Object.assign(D.en || {}, {
 "Lựa chọn đúng": "Correct choice",
 "Tăng điểm": "Score booster",
 "Nói hay hơn": "Better phrase",
-"Chạm cụm từ để nghe phát âm chuẩn": "Tap a phrase to hear the native pronunciation",
 "Đối thoại": "Dialogue",
 });
 })(typeof self !== 'undefined' ? self : this);

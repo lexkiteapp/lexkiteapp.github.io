@@ -16,19 +16,21 @@
 | Bàn giao việc đang chạy · việc tồn · chọn công nghệ | `HANDOFF.md` · `BACKLOG.md` · `TECH-RADAR.md` |
 | i18n 15 ngôn ngữ | `I18N-PIPELINE.md` |
 | Soát hình màn mới (bài học, chuỗi, giáo viên, video) – CI + contact sheet | `NEW-UI-QA.md` |
-| Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` · chuẩn đích + pha P0–P2 `CONTENT-WORLD-PLAN.md` |
+| Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` · chuẩn đích + pha P0–P2 `CONTENT-WORLD-PLAN.md` · chương trình A1→C2 + Call `CURRICULUM-PLAN.md` |
+| Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` · chuẩn đích + pha P0–P2 `CONTENT-WORLD-PLAN.md` · xưởng lô đêm `CONTENT-FACTORY.md` |
 | Lời giải đáp án · kho từ vựng · ảnh từ vựng · giọng từ | `EXPLAIN.md` · `LEXICON.md` · `VOCAB-IMG-STYLE.md` · `WORD-AUDIO.md` |
 | Say it like a native (thẻ phản xạ #/say + video react) | `SAY-NATIVE.md` |
 | Giao tiếp tự tin · nhắc học · lớp học · giáo viên trong app | `CONFIDENCE.md` · `REMINDERS.md` · `RETENTION.md` · `CLASSROOM.md` · `VIDEO-TEACHERS.md` |
 | Thương hiệu (brand-check đọc – giữ mã màu) · hệ thiết kế · UX · port Stitch v2 | `BRAND-RULES.md` · `DESIGN-SYSTEM.md` · `UX-PUBLIC.md` · `UX-BENCHMARK.md` · `STITCH-V2-PORT.md` · `STITCH-COVERAGE.md` · `WEB-PAGES.md` (trang không phải app) |
 | Game feel: âm thanh, rung, chuyển động phản hồi, nhân vật phản ứng (pilot sau cờ `?feel=1`) | `GAME-FEEL.md` |
-| Báo lỗi người dùng LX-xxxx · hạn mức & chống lạm dụng | `REPORTS.md` · `QUOTAS.md` |
+| Báo lỗi người dùng LX-xxxx · hạn mức & chống lạm dụng | `REPORTS.md` · `QUOTAS.md` · quy mô/cụm/repro: `specs/report-scale.md` |
 | Chi phí/trần DAU · free-tier guard · mở rộng · dung lượng repo | `CAPACITY.md` · `FREE-TIER.md` · `SCALING-PLAN.md` · `STORAGE.md` |
 | Đồng bộ Drive · AI trên máy · OTA | `SYNC-DRIVE.md` · `AI-LOCAL.md` · `OTA.md` |
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
 | Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
 | Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` |
+| Học qua video YouTube (#/watch, /api/watch, add-on youtube.com) | `specs/video-learn.md` |
 | Blog | `BLOG-RUNBOOK.md` |
 | SEO: kỹ thuật · tăng trưởng · trang tĩnh · từ điển · công cụ · uy tín | `SEO-PLAN.md` · `SEO-GROWTH-PLAN.md` · `SEO-ARCH.md` · `SEO-DICT-PAGES.md` · `SEO-TOOLS.md` · `SEO-AUTHORITY.md` |
 | Social / phân phối / GrabCast | `DISTRIBUTION.md` · `GRABCAST-API-REQUESTS.md` |

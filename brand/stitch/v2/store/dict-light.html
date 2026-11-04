@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Store Frame — Look up any word</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF7EA',
+              200: '#F7EDD9',
+              300: '#EADEC8',
+              400: '#D8CFBC',
+            },
+            teal: {
+              main: '#2BA39A',
+              deep: '#1F7A75',
+              dark: '#0F3D3E',
+              darker: '#082526',
+              light: '#E2F7F5',
+              border: '#78C7C1',
+              ledge: '#135854',
+            },
+            coral: {
+              main: '#F2553B',
+              amber: '#FFB054',
+              gold: '#FFC94A',
+              dark: '#B53A22',
+              ink: '#1A0700',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile 3D Button and Card Physics */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 0 #D8CFBC, 0 14px 28px -8px rgba(15, 61, 62, 0.08);
+      border-radius: 28px;
+    }
+
+    .tactile-chip {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      border-radius: 9999px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 0 #D8CFBC;
+    }
+
+    .tactile-chip-teal {
+      background: #E6F8F7;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 4px 0 0 #1B7871;
+    }
+
+    .tactile-chip-amber {
+      background: #FFF4E5;
+      border: 2px solid #FFB054;
+      box-shadow: 0 4px 0 0 #D48833;
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      border: 2px solid #EA482E;
+      box-shadow: 0 6px 0 0 #B53A22, 0 8px 16px -4px rgba(242, 85, 59, 0.4);
+      color: #1A0700;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 0 #B53A22;
+    }
+
+    .tactile-btn-speaker {
+      background: #E6F8F7;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 5px 0 0 #1B7871;
+      color: #0F3D3E;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-speaker:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 0 #1B7871;
+    }
+
+    .tactile-subcard {
+      background: #FAF5EB;
+      border: 2px solid #EAE0CD;
+      border-radius: 18px;
+    }
+
+    /* Subtle background grid pattern */
+    .bg-dot-pattern {
+      background-image: radial-gradient(#D8CFBC 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .gloss-shine {
+      background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF7EA] bg-dot-pattern flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 antialiased select-none">
+
+  <!-- Store Listing Screenshot Poster Canvas (Clean, No Phone Frame) -->
+  <main class="w-full max-w-[440px] flex flex-col items-center relative overflow-hidden py-4 sm:py-6 px-3">
+    
+    <!-- Top Floating Brand Micro-Badges -->
+    <header class="w-full flex items-center justify-between mb-5 px-2">
+      <!-- App Brand Logo Pill -->
+      <div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border-2 border-cream-300 shadow-[0_3px_0_0_#D8CFBC]">
+        <svg class="w-5 h-5 drop-shadow-sm" viewBox="0 0 24 24" fill="none">
+          <polygon points="12,2 21,11 12,20 3,11" fill="#2BA39A"/>
+          <polygon points="12,2 21,11 12,12" fill="#3CC6BC"/>
+          <polygon points="12,12 21,11 12,20" fill="#F2553B"/>
+          <polygon points="3,11 12,12 12,20" fill="#FFB054"/>
+          <circle cx="12" cy="11" r="1.5" fill="#FFFFFF"/>
+        </svg>
+        <span class="text-xs font-black tracking-wider uppercase text-teal-dark">LEXKITE DICT</span>
+      </div>
+
+      <!-- Live Feature Badge -->
+      <div class="flex items-center gap-1.5 bg-teal-light px-3.5 py-1.5 rounded-full border-2 border-teal-main shadow-[0_3px_0_0_#1B7871]">
+        <span class="w-2 h-2 rounded-full bg-teal-main animate-pulse"></span>
+        <span class="text-xs font-extrabold text-teal-dark tracking-wide uppercase">1-TAP SAVE</span>
+      </div>
+    </header>
+
+    <!-- Poster Hero Headline Section -->
+    <section class="text-center px-1 mb-6 relative z-10">
+      <h1 class="text-3xl sm:text-4xl font-black text-teal-dark tracking-tight leading-[1.18] mb-3">
+        Look up any word, <br>
+        <span class="relative inline-block mt-1">
+          <span class="relative z-10 text-teal-dark underline decoration-[#FFB054] decoration-4 underline-offset-4">save it in one tap</span>
+          <span class="absolute -bottom-1 left-0 right-0 h-3 bg-[#FFC94A]/40 rounded-full -z-0"></span>
+        </span>
+      </h1>
+      <p class="text-teal-dark font-bold text-sm sm:text-base tracking-normal max-w-xs mx-auto leading-snug">
+        Cambridge corpus phonetics & IELTS high-band collocations.
+      </p>
+    </section>
+
+    <!-- Floating Glossy Word Chips Cluster -->
+    <section class="w-full relative h-14 mb-2 flex items-center justify-center pointer-events-none" aria-label="Vocabulary tags">
+      <!-- Left Pill (Amber) -->
+      <div class="absolute left-1 sm:left-2 -top-1 tactile-chip tactile-chip-amber px-3.5 py-1 flex items-center gap-1.5 transform -rotate-3 z-10">
+        <span class="text-[11px] font-black text-[#5C3800] tracking-wide uppercase">C1</span>
+        <span class="text-xs font-black text-[#1A0700]">ubiquitous</span>
+      </div>
+
+      <!-- Center Pill (Teal Primary Focus) -->
+      <div class="absolute tactile-chip tactile-chip-teal px-4 py-1.5 flex items-center gap-2 transform rotate-1 z-20 shadow-[0_4px_0_0_#1B7871]">
+        <span class="w-2 h-2 rounded-full bg-teal-deep"></span>
+        <span class="text-xs sm:text-sm font-black text-teal-darker tracking-tight">resilient</span>
+        <span class="text-[10px] font-black text-teal-deep bg-white/80 px-1.5 py-0.5 rounded-full border border-teal-border">IELTS 7.5+</span>
+      </div>
+
+      <!-- Right Pill (Mint) -->
+      <div class="absolute right-1 sm:right-2 -top-1 tactile-chip bg-white border-2 border-cream-300 shadow-[0_4px_0_0_#D8CFBC] px-3.5 py-1 flex items-center gap-1.5 transform rotate-3 z-10">
+        <span class="text-[11px] font-black text-teal-deep tracking-wide uppercase">B2</span>
+        <span class="text-xs font-black text-teal-dark">meticulous</span>
+      </div>
+    </section>
+
+    <!-- Main Hero Screenshot Card: Rounded Chunky Dictionary Card -->
+    <article class="w-full tactile-card p-5 sm:p-6 bg-white relative z-20 border-2 border-cream-300">
+      
+      <!-- Card Sub-Header / Word Type Pill Bar -->
+      <div class="flex items-center justify-between mb-4 pb-3 border-b-2 border-cream-100">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-lg bg-teal-light text-teal-dark border border-teal-border text-xs font-black uppercase tracking-wider">
+            Adjective
+          </span>
+          <span class="px-2.5 py-0.5 rounded-lg bg-[#FFF2E0] text-[#7A3F00] border border-[#FFD099] text-xs font-black uppercase tracking-wider">
+            CEFR C1
+          </span>
+        </div>
+        <div class="flex items-center gap-1 text-teal-dark/90 font-bold text-xs">
+          <span class="material-symbols-rounded text-base text-teal-main">verified</span>
+          <span>Cambridge Verified</span>
+        </div>
+      </div>
+
+      <!-- Headword + UK / US Pronunciation Speaker Row -->
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-black text-teal-dark tracking-tight leading-none mb-1.5">
+            resilient
+          </h2>
+          <!-- IPA & Dialect -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-sm font-bold text-teal-dark/80 font-mono tracking-tight bg-cream-50 px-2 py-0.5 rounded-md border border-cream-300">
+              /rɪˈzɪl.i.ənt/
+            </span>
+            <span class="text-xs font-extrabold text-teal-dark/90 uppercase tracking-wide">UK • US</span>
+          </div>
+        </div>
+
+        <!-- 3D Tactile Speaker Button -->
+        <button type="button" aria-label="Listen to pronunciation" class="tactile-btn-speaker w-13 h-13 p-3.5 rounded-2xl flex items-center justify-center flex-shrink-0 cursor-pointer">
+          <span class="material-symbols-rounded text-2xl text-teal-dark">volume_up</span>
+        </button>
+      </div>
+
+      <!-- Simple Chunky Meaning Box -->
+      <div class="tactile-subcard p-3.5 sm:p-4 mb-4">
+        <p class="text-teal-dark font-extrabold text-sm sm:text-base leading-snug mb-2">
+          Able to quickly recover from shock, illness, or difficult conditions.
+        </p>
+        <p class="text-xs sm:text-sm font-semibold text-teal-dark/80 italic leading-relaxed border-l-3 border-teal-main pl-2.5">
+          “The local economy proved remarkably <span class="font-extrabold text-teal-dark not-italic underline decoration-teal-main underline-offset-2">resilient</span> against trade shocks.”
+        </p>
+      </div>
+
+      <!-- Collocation Micro-Chips (High Yield) -->
+      <div class="mb-5">
+        <div class="text-[11px] font-black uppercase tracking-wider text-teal-dark/70 mb-2 flex items-center gap-1">
+          <span class="material-symbols-rounded text-sm text-[#FFB054]">stars</span>
+          HIGH-SCORING COLLOCATIONS
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="bg-[#F0FAF9] text-teal-dark border border-teal-border/70 text-xs font-extrabold px-2.5 py-1 rounded-xl shadow-[0_2px_0_0_#B0DEDC]">
+            remarkably resilient
+          </span>
+          <span class="bg-[#F0FAF9] text-teal-dark border border-teal-border/70 text-xs font-extrabold px-2.5 py-1 rounded-xl shadow-[0_2px_0_0_#B0DEDC]">
+            resilient workforce
+          </span>
+          <span class="bg-[#F0FAF9] text-teal-dark border border-teal-border/70 text-xs font-extrabold px-2.5 py-1 rounded-xl shadow-[0_2px_0_0_#B0DEDC]">
+            resilient system
+          </span>
+        </div>
+      </div>
+
+      <!-- Big Orange 3D Save CTA Button (Candy Tactile) -->
+      <button type="button" class="w-full tactile-btn-primary py-4 px-6 rounded-2xl flex items-center justify-center gap-3 cursor-pointer group">
+        <span class="material-symbols-rounded text-2xl text-[#1A0700] drop-shadow-sm group-hover:scale-110 transition-transform">bookmark_add</span>
+        <span class="text-base sm:text-lg font-black text-[#1A0700] tracking-wide uppercase drop-shadow-sm">
+          Save to Study Deck
+        </span>
+        <span class="ml-auto bg-[#1A0700]/15 text-[#1A0700] px-2 py-0.5 rounded-lg text-xs font-black tracking-wider uppercase">
+          +5 XP
+        </span>
+      </button>
+
+      <!-- Bottom Mini Reassurance Note -->
+      <div class="mt-3.5 flex items-center justify-center gap-2 text-xs font-extrabold text-teal-dark/75 text-center">
+        <span class="material-symbols-rounded text-sm text-teal-main">sync_saved_locally</span>
+        <span>Auto-syncs to your daily Spaced Repetition deck</span>
+      </div>
+
+    </article>
+
+    <!-- Bottom Reassurance Row (Store Listing Footer Highlights) -->
+    <footer class="w-full flex items-center justify-around mt-5 px-3 py-2 bg-white/70 backdrop-blur-sm rounded-2xl border-2 border-cream-300 shadow-[0_3px_0_0_#D8CFBC]">
+      <div class="flex items-center gap-1.5">
+        <span class="material-symbols-rounded text-teal-main text-base">offline_bolt</span>
+        <span class="text-xs font-black text-teal-dark">Offline Ready</span>
+      </div>
+      <div class="w-1 h-3 bg-cream-400 rounded-full"></div>
+      <div class="flex items-center gap-1.5">
+        <span class="material-symbols-rounded text-[#FFB054] text-base">school</span>
+        <span class="text-xs font-black text-teal-dark">IELTS & TOEIC</span>
+      </div>
+      <div class="w-1 h-3 bg-cream-400 rounded-full"></div>
+      <div class="flex items-center gap-1.5">
+        <span class="material-symbols-rounded text-teal-main text-base">lock_open</span>
+        <span class="text-xs font-black text-teal-dark">100% Free</span>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
+

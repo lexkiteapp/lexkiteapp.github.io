@@ -1,6 +1,6 @@
 # Nghe lại giọng từ đơn bằng faster-whisper (chỉ CI). Dùng chung: scripts/word-audio-asr.py, scripts/word-audio/lab.py.
 # Tiêu chí chấp nhận KHÔNG được nới: chữ nghe được (chuẩn hoá) phải đúng từ hoặc một đồng âm trong HOMO; độ dài trong khoảng hợp lý.
-import json, os, re, subprocess, urllib.request
+import json, os, re, subprocess, sys, urllib.request
 HOMO = {'to': ['two', 'too'], 'for': ['four', 'fore'], 'a': ['ay', 'eh', 'hey a'], 'the': ['thee'], 'be': ['bee', 'b'], 'there': ['their', 'theyre'],
         'you': ['u', 'yew', 'ewe'], 'we': ['wee', 'oui'], 'or': ['oar', 'ore', 'awe', 'aw'], 'nor': ['gnaw', 'naw'], 'so': ['sew', 'sow'],
         'would': ['wood'], 'some': ['sum'], 'do': ['due', 'dew'], 'but': ['butt'], 'into': ['in to'], 'onto': ['on to'], 'he': ['hee'], 'and': ['an'],
@@ -42,8 +42,8 @@ _model = None
 def model(name='small.en'):
     global _model
     if _model is None:
-        from faster_whisper import WhisperModel
-        _model = WhisperModel(name, device='cpu', compute_type='int8')
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'cine')); from whisper_det import load
+        _model = load(name)
     return _model
 # Whisper nghe kẹp < 1 s rất kém: đệm 0,6 s lặng hai đầu (16 kHz mono) + small.en, giải mã tham lam nhiệt độ 0.
 def pad(f):

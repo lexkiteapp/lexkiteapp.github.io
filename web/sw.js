@@ -4,11 +4,11 @@
  * không bao giờ trả app cũ ở "/", chỉ khi MẤT MẠNG mở "/" hoặc "/index.html" (PWA cài cũ có start_url "/index.html#/home",
  * iOS không cập nhật start_url) thì chuyển hướng sang /app/ (đã có trong cache của /app/) → vẫn học offline được.
  * Dữ liệu học (IndexedDB, localStorage) thuộc nguồn lexkite.com, không phụ thuộc phạm vi SW → không mất. Test: scripts/test/landing-routing.mjs */
-const CACHE = 'lexkite-20261102120000';
+const CACHE = 'lexkite-0'; // CỐ ĐỊNH – đừng bump tay: build (scripts/build-web.sh) gắn hash nội dung → lexkite-0-<hash> (scripts/lib/sw-version.mjs)
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
-const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/exit-guard.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
+const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/teacher-slot.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/target.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/exit-guard.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
 const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO || k === VIMG || k === OFFLINE; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
 
 self.addEventListener('install', e => {
@@ -156,10 +156,25 @@ function pickToday(m) {
   const g = m && (idle >= 13 ? m.miss : m.gen);
   return g ? { ...g, url: idle >= 13 ? '/app/#/home' : '/app/#/review' } : { title: 'Lexkite', body: '⏰', url: '/app/#/review', tpl: 'gen1' };
 }
+// Báo "Lỗi LX-… đã được sửa" (docs/REPORTS.md § Báo đẩy): web/js/report.js ghi '/__rep' = { title, body (đã dịch), rows:[{t,id,st}] }. Push rỗng đến → hỏi trạng thái
+// các phiếu chưa đóng (≤ 4 giây); có phiếu vừa Đã sửa → hiện báo này THAY lời nhắc, đánh dấu chk để app hỏi lại ngay khi mở (report-pill). Lỗi/mạng chậm → lời nhắc như cũ.
+async function repFixed() {
+  const c = await caches.open('lk-meta'), r = await c.match('/__rep'), m = r ? await r.json().catch(() => null) : null;
+  const open = m && Array.isArray(m.rows) ? m.rows.filter(x => !['fixed', 'wontfix', 'dup'].includes(x.st)).slice(0, 20) : [];
+  if (!open.length) return null;
+  const j = await Promise.race([fetch('/api/report', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ op: 'mine', ts: open.map(x => x.t) }) }).then(x => x.json()), new Promise((y, n) => setTimeout(() => n(new Error('slow')), 4000))]);
+  const fx = (j.rows || []).filter(y => y.status === 'fixed' && open.some(x => x.t === y.t));
+  for (const y of j.rows || []) { const x = m.rows.find(z => z.t === y.t); if (x) x.st = y.status; }
+  if (fx.length) m.chk = 1;
+  await c.put('/__rep', new Response(JSON.stringify(m), { headers: { 'Content-Type': 'application/json' } }));
+  return fx.length ? { title: String(m.title || 'Lexkite').replace('{id}', fx[0].id), body: String(m.body || ''), url: '/app/#/report/' + fx[0].t } : null;
+}
 // Web Push (cron Worker workers/push gửi push RỖNG – không mã hóa nội dung, không dữ liệu cá nhân). iOS/Safari bắt buộc hiện thông báo cho MỌI push → luôn hiện.
 self.addEventListener('push', e => {
   if (LEGACY) return;
   e.waitUntil((async () => {
+    const fx = await repFixed().catch(() => null);
+    if (fx) { await self.registration.showNotification(fx.title, { body: fx.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'rep', data: { url: fx.url, tpl: 'rfix' } }); await ev([['shown', 'rfix', 1]]); return; }
     const m = (await META()) || {}, it = pickToday(m), today = new Date().toISOString().slice(0, 10);
     await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url || '/app/#/review', tpl: it.tpl || 'gen1' } });
     if (m.v) { m.notified = today; await putMeta(m); }
