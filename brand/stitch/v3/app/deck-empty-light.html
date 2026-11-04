@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - My Decks</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#653e00",
+            "on-tertiary-container": "#ffd4a2",
+            "tertiary-container": "#875500",
+            "background": "#fff8f4",
+            "on-secondary": "#ffffff",
+            "tertiary": "#674000",
+            "inverse-on-surface": "#ffeedf",
+            "tertiary-fixed": "#ffddb8",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface": "#fff8f4",
+            "primary-fixed-dim": "#88d4cd",
+            "on-background": "#261909",
+            "on-primary": "#ffffff",
+            "secondary-container": "#fd651e",
+            "on-primary-fixed": "#00201e",
+            "secondary": "#a73a00",
+            "surface-container": "#ffead7",
+            "on-surface": "#261909",
+            "inverse-primary": "#88d4cd",
+            "on-surface-variant": "#3f4947",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb599",
+            "on-error": "#ffffff",
+            "outline-variant": "#bec9c7",
+            "on-primary-fixed-variant": "#00504c",
+            "surface-container-high": "#fee4c9",
+            "outline": "#6f7978",
+            "surface-dim": "#f0d6bc",
+            "inverse-surface": "#3d2e1c",
+            "surface-container-low": "#fff1e6",
+            "error": "#ba1a1a",
+            "primary": "#00514d",
+            "on-secondary-container": "#571a00",
+            "surface-variant": "#f8dec4",
+            "secondary-fixed": "#ffdbce",
+            "surface-tint": "#106a65",
+            "primary-container": "#136b66",
+            "surface-bright": "#fff8f4",
+            "primary-fixed": "#a4f0e9",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#370e00",
+            "on-tertiary-fixed": "#2a1700",
+            "on-primary-container": "#9ce9e2",
+            "surface-container-highest": "#f8dec4",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#7f2b00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-tablet": "1.5rem",
+            "space-md": "0.75rem",
+            "margin-desktop": "3rem",
+            "gutter-desktop": "2rem",
+            "space-lg": "1rem",
+            "gutter": "1rem",
+            "margin-tablet": "2rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+    /* Physical mechanical press states */
+    .btn-ledge-coral {
+      box-shadow: 0 4px 0 0 #9A3412;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-ledge-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #9A3412;
+    }
+    .btn-ledge-teal {
+      box-shadow: 0 4px 0 0 #00201e;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-ledge-teal:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #00201e;
+    }
+    .card-ledge {
+      box-shadow: 0 4px 0 0 #1C1003;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .card-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #1C1003;
+    }
+    .chip-ledge {
+      box-shadow: 0 2px 0 0 #1C1003;
+    }
+    .chip-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #1C1003;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Wrapper (390px fixed container style) -->
+<div class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-24 shadow-2xl overflow-x-hidden border-x-2 border-on-surface/10">
+<!-- TopAppBar (from Shared Components JSON specifications) -->
+<header class="bg-surface sticky top-0 z-40 border-b-2 border-on-surface shadow-[0_2px_0_0_#1C1003] flex justify-between items-center w-full px-3 h-14">
+<!-- Leading Back Action (>= 48px touch target) -->
+<button aria-label="Go Back" class="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform" type="button">
+<span class="material-symbols-outlined text-primary text-[24px]">arrow_back</span>
+</button>
+<!-- Screen Title with Localization Sub-label -->
+<div class="flex flex-col items-center text-center px-1">
+<h1 class="text-headline-md font-headline-md text-primary font-extrabold tracking-tight leading-tight">
+          Lexkite
+        </h1>
+<span class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase font-extrabold">My decks</span>
+</div>
+<!-- Trailing Action: Streak and Status -->
+<div class="flex items-center gap-1">
+<div class="flex items-center gap-1 bg-surface-container-high border-2 border-on-surface rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#1C1003]"><span class="text-label-md font-label-md text-on-surface font-extrabold flex items-center gap-0.5">0 <span class="text-secondary-container">🔥</span></span><span class="w-[1px] h-3 bg-on-surface/20 mx-0.5"></span><span class="text-label-md font-label-md text-primary font-extrabold flex items-center gap-0.5">0 <span class="material-symbols-outlined text-[16px] text-primary material-symbols-fill">diamond</span></span></div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 px-4 pt-4 pb-6 space-y-4">
+<!-- Breadcrumb / Header Label Resilient to +40% String Length -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold tracking-tight">
+            Bộ thẻ ghi nhớ / Decks
+          </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-semibold mt-0.5">0 Active collections • Spaced repetition</p>
+</div>
+<button aria-label="Search and Filter" class="min-w-[48px] min-h-[48px] flex items-center justify-center bg-surface-container border-2 border-on-surface rounded-xl shadow-[0_2px_0_0_#1C1003] active:translate-y-0.5 active:shadow-none transition-transform" type="button">
+<span class="material-symbols-outlined text-on-surface text-[22px]">search</span>
+</button>
+</div>
+<!-- Spaced Repetition Due Summary Banner -->
+<!-- Actions Bar: "New deck" and Filter Pills -->
+<div class="space-y-3 pt-1">
+<div class="flex items-center gap-2">
+<!-- Tactile Teal Primary Action -->
+<button class="min-h-[48px] px-4 flex items-center justify-center gap-2 bg-primary-container text-on-primary border-2 border-on-surface rounded-xl font-label-md text-label-md btn-ledge-teal shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New deck</span>
+</button>
+<!-- Quick Sort Action button >= 48px -->
+<button aria-label="Sort decks" class="min-w-[48px] min-h-[48px] flex items-center justify-center bg-surface border-2 border-on-surface rounded-xl shadow-[0_2px_0_0_#1C1003] active:translate-y-0.5 active:shadow-none transition-transform" type="button">
+<span class="material-symbols-outlined text-on-surface text-[20px]">sort</span>
+</button>
+</div>
+<!-- Horizontal Filter Chips / Tabs (Accommodating wrapped/long internationalized strings) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"><button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-primary text-on-primary border-2 border-on-surface font-label-sm text-label-sm chip-ledge flex items-center gap-1 whitespace-nowrap" type="button"><span>Tất cả (0)</span></button><button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface border-2 border-on-surface font-label-sm text-label-sm chip-ledge flex items-center gap-1.5 whitespace-nowrap" type="button"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span>Cần ôn tập (0)</span></button><button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface border-2 border-on-surface font-label-sm text-label-sm chip-ledge flex items-center gap-1.5 whitespace-nowrap" type="button"><span class="material-symbols-outlined text-[14px] text-primary material-symbols-fill">verified</span><span>Đã thuộc (0)</span></button><button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface border-2 border-on-surface font-label-sm text-label-sm chip-ledge flex items-center gap-1 whitespace-nowrap" type="button"><span>Đã lưu trữ (0)</span></button></div>
+</div>
+<!-- Personal Deck Cards List -->
+<section class="bg-surface-bright border-2 border-on-surface rounded-[24px] p-6 card-ledge flex flex-col items-center text-center relative overflow-hidden my-1"><div class="relative my-3 flex items-center justify-center"><div class="w-24 h-24 rounded-3xl bg-surface-container-high border-2 border-on-surface flex items-center justify-center shadow-[0_4px_0_0_#1C1003] relative"><div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary-container text-white border-2 border-on-surface flex items-center justify-center shadow-[0_2px_0_0_#1C1003]"><span class="material-symbols-outlined text-[18px] material-symbols-fill">auto_awesome</span></div><div class="flex flex-col items-center justify-center"><span class="material-symbols-outlined text-primary text-[44px] material-symbols-fill">style</span><span class="text-[10px] font-extrabold text-on-surface tracking-wider uppercase mt-0.5">LEXKITE</span></div></div></div><div class="space-y-2 mt-2 max-w-[280px]"><h3 class="text-headline-md font-headline-md text-on-surface font-extrabold leading-tight tracking-tight">Chưa có bộ thẻ nào</h3><p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">Bắt đầu hành trình bằng cách tạo bộ từ vựng đầu tiên hoặc thêm chủ đề có sẵn của Lexkite.</p></div><div class="w-full space-y-3 mt-6"><button class="w-full min-h-[48px] bg-secondary-container text-on-surface border-2 border-on-surface rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 btn-ledge-coral px-4 py-3 tracking-wide font-extrabold" type="button"><span class="material-symbols-outlined text-[20px] text-on-surface">add_circle</span><span>Tạo bộ thẻ đầu tiên</span></button><button class="w-full min-h-[48px] bg-surface-container-low text-primary border-2 border-on-surface rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 chip-ledge hover:bg-surface-container px-4 py-3 transition-colors" type="button"><span class="material-symbols-outlined text-[20px] text-primary material-symbols-fill">explore</span><span>Khám phá bộ thẻ mẫu (IELTS &amp; B2)</span></button></div></section>
+<!-- Import from Anki (.apkg) Card -->
+<section class="bg-surface-container-high border-2 border-on-surface rounded-[20px] p-4 card-ledge">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-2xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#1C1003]">
+<span class="material-symbols-outlined text-primary text-[24px] material-symbols-fill">sync_saved_locally</span>
+</div>
+<div class="flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface font-extrabold tracking-tight">
+              Import Anki Deck
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-snug">
+              Bring your .apkg or .csv flashcards directly into Lexkite with automatic spaced repetition scheduling.
+            </p>
+</div>
+</div>
+<button class="mt-4 w-full min-h-[48px] bg-surface text-on-surface border-2 border-on-surface rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 chip-ledge hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+<span>Choose .apkg file</span>
+</button>
+</section>
+<!-- Empty State Fallback Preview Card (Zero Mascot / Geometric only) -->
+<!-- Teacher Slot Module (Strictly adhering to design guidance: No human illustration) -->
+<section aria-label="Pedagogical Guidance Slot" class="w-full bg-[#F8EFE4] border-2 border-dashed border-[#9E8A78] rounded-[20px] p-4 relative">
+<div class="flex items-center justify-between mb-2"><span class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase font-extrabold flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">school</span>teacher-slot</span><span class="text-[10px] font-extrabold px-2 py-0.5 bg-surface rounded-full border border-on-surface/40 text-on-surface">SPACED ADVICE</span></div>
+<!-- Teacher feedback speech module -->
+<div class="bg-surface rounded-xl border-2 border-on-surface p-3 shadow-[0_2px_0_0_#1C1003]">
+<p class="text-body-sm font-body-sm text-on-surface leading-snug"><strong class="font-extrabold text-primary">Coach tip:</strong> Học 10–15 thẻ mỗi phiên giúp tối ưu hóa khả năng ghi nhớ dài hạn!</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component specification, Vocab is active) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface border-t-2 border-on-surface shadow-[0_-2px_0_0_#1C1003] max-w-[390px] left-1/2 -translate-x-1/2"><a aria-label="Today Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="text-label-sm font-label-sm font-bold mt-0.5">Today</span></a><a aria-current="page" aria-label="Vocab Tab (Active)" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 bg-primary-fixed text-primary border-2 border-primary rounded-xl shadow-[0_2px_0_0_#00201e] active:translate-y-1 active:shadow-none transition-transform" href="#"><span class="material-symbols-outlined text-[22px] material-symbols-fill">style</span><span class="text-label-sm font-label-sm font-extrabold mt-0.5">Vocab</span></a><a aria-label="Skills Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#"><span class="material-symbols-outlined text-[22px]">military_tech</span><span class="text-label-sm font-label-sm font-bold mt-0.5">Skills</span></a><a aria-label="Tests Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#"><span class="material-symbols-outlined text-[22px]">timer</span><span class="text-label-sm font-label-sm font-bold mt-0.5">Tests</span></a><a aria-label="Me Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="text-label-sm font-label-sm font-bold mt-0.5">Me</span></a></nav>
+</div>
+</body></html>

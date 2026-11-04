@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Minimal Pairs Quick Challenge</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#faebe1",
+            "on-tertiary-fixed": "#251a00",
+            "outline-variant": "#bec9c6",
+            "surface-container-high": "#f4e5db",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#fdeee4",
+            "error": "#ba1a1a",
+            "primary-container": "#136a63",
+            "background": "#fff8f5",
+            "shadow-ledge-secondary": "#8c5000",
+            "secondary-container": "#fc9500",
+            "secondary-fixed": "#ffdcbf",
+            "inverse-surface": "#372f28",
+            "surface-tint": "#266863",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary-fixed": "#2d1600",
+            "shadow-ledge-primary": "#136a63",
+            "surface-bright": "#fff8f5",
+            "surface-container-low": "#fff1e8",
+            "outline": "#6f7977",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary": "#3f2e00",
+            "secondary": "#8b5000",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#211a14",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed": "#ffdf9b",
+            "on-primary-container": "#81c1ba",
+            "on-secondary-container": "#623700",
+            "inverse-primary": "#92d2cb",
+            "surface-dim": "#e6d7cd",
+            "primary": "#003734",
+            "primary-fixed": "#a4f1e7",
+            "surface": "#fff8f5",
+            "on-surface-variant": "#3f4947",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-background": "#211a14",
+            "tertiary-container": "#5b4300",
+            "surface-variant": "#eee0d6",
+            "button-text-contrast": "#1a0d00",
+            "primary-fixed-dim": "#92d2cb",
+            "shadow-ledge-neutral": "#bec9c6",
+            "secondary-fixed-dim": "#ffb872",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#e1ad1c"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "margin-md": "2rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "gutter-md": "1.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Subtle pulsing soundwave keyframe */
+    @keyframes sound-wave {
+      0%, 100% { height: 6px; }
+      50% { height: 18px; }
+    }
+    .wave-bar-1 { animation: sound-wave 0.8s ease-in-out infinite; }
+    .wave-bar-2 { animation: sound-wave 0.8s ease-in-out 0.2s infinite; }
+    .wave-bar-3 { animation: sound-wave 0.8s ease-in-out 0.4s infinite; }
+  </style>
+</head>
+<body class="bg-surface-container-high text-on-surface font-body-md antialiased min-h-screen flex items-center justify-center p-3 sm:p-6">
+<!-- Outer 4:5 Canvas Wrapper (Instagram/TikTok Feed & Story Frame) -->
+<main class="w-full max-w-[500px] aspect-[4/5] max-h-[983px] bg-surface rounded-[2.5rem] border-4 border-outline-variant/80 shadow-[0_12px_0_0_#bec9c6,0_20px_35px_rgba(33,26,20,0.12)] flex flex-col justify-between p-5 sm:p-7 relative overflow-hidden select-none">
+<!-- Subtle Background Tactile Grid/Parchment Texture Accent -->
+<div class="absolute -top-24 -right-24 w-60 h-60 bg-surface-container rounded-full blur-3xl pointer-events-none opacity-60"></div>
+<div class="absolute -bottom-24 -left-24 w-60 h-60 bg-surface-container rounded-full blur-3xl pointer-events-none opacity-60"></div>
+<!-- SAFE AREA CONTENT WRAPPER -->
+<div class="relative z-10 flex flex-col h-full justify-between gap-y-3 sm:gap-y-4">
+<!-- 1. TOP PILL BADGES ROW -->
+<header class="flex items-center justify-between gap-2 pt-1">
+<!-- Left Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest rounded-full border-2 border-outline-variant/80 shadow-[0_2px_0_0_#bec9c6]">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-wider">DAILY ENGLISH BOOST</span>
+</div>
+<!-- Right Pill (Level & Tag) -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-high rounded-full border border-outline-variant/60">
+<span class="material-symbols-outlined text-primary text-[15px]" data-icon="record_voice_over">record_voice_over</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Minimal Pairs • CEFR A2–B2</span>
+</div>
+</header>
+<!-- 2. TOP THIRD: BIG HOOK QUESTION -->
+<section class="flex flex-col text-left space-y-1">
+<!-- Eyebrow -->
+<div class="inline-flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-secondary-container font-extrabold tracking-widest">• QUICK CHALLENGE •</span>
+<span class="h-0.5 w-6 bg-secondary-container/40 rounded-full"></span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-lg-mobile sm:font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary tracking-tight font-extrabold leading-tight">
+          Can you hear the difference?
+        </h1>
+<!-- Subtitle -->
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">
+          Listen closely & spot the precise vowel length distinction.
+        </p>
+</section>
+<!-- 3. MIDDLE SECTION: MAIN TACTILE CONTENT CARD -->
+<section class="bg-surface-container-lowest rounded-2xl sm:rounded-3xl border-2 border-outline-variant/80 shadow-[0_5px_0_0_#bec9c6] p-3.5 sm:p-4 flex flex-col gap-3">
+<!-- Category & Audio Prompt Bar -->
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-2.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary border border-outline-variant/60">
+              Vowel Contrast
+            </span>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant border border-outline-variant/50">
+              Sound Discrimination
+            </span>
+</div>
+<div class="flex items-center gap-1 text-primary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px] text-secondary-container" data-icon="volume_up">volume_up</span>
+<span>Say it with me</span>
+</div>
+</div>
+<!-- Core Minimal Pairs Layout: 3 Columns Grid -->
+<div class="grid grid-cols-3 gap-2 sm:gap-2.5 items-stretch">
+<!-- Pair Item A: "ship" -->
+<article class="flex flex-col items-center justify-between bg-surface-container-low rounded-xl border-2 border-outline-variant/70 p-2 sm:p-2.5 shadow-[0_3px_0_0_#bec9c6] transition-transform duration-100 active:translate-y-0.5 active:shadow-none cursor-pointer">
+<div class="w-full flex justify-between items-center mb-1">
+<span class="w-4 h-4 rounded-full bg-surface-container-highest text-primary font-label-sm text-[10px] flex items-center justify-center font-bold">A</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">Short</span>
+</div>
+<!-- Target Word -->
+<span class="font-headline-md text-headline-md text-primary font-extrabold tracking-tight my-0.5">
+              ship
+            </span>
+<!-- Phonetic IPA Badge -->
+<div class="my-1.5 px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-extrabold border border-secondary-fixed-dim">
+              /ʃ<span class="text-secondary underline decoration-2">ɪ</span>p/
+            </div>
+<!-- Tactile Speaker Button -->
+<button aria-label="Play sound for ship" class="w-full mt-1.5 py-1.5 px-2 rounded-lg bg-surface-container-lowest border-2 border-outline-variant/80 text-primary flex items-center justify-center gap-1.5 shadow-[0_2px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="play_circle">play_circle</span>
+<span class="font-label-sm text-[11px] font-bold">/ɪ/</span>
+</button>
+</article>
+<!-- Pair Item B: "sheep" -->
+<article class="flex flex-col items-center justify-between bg-surface-container-low rounded-xl border-2 border-primary-container p-2 sm:p-2.5 shadow-[0_3px_0_0_#136a63] transition-transform duration-100 active:translate-y-0.5 active:shadow-none cursor-pointer relative overflow-hidden">
+<!-- Active/Featured highlight strip -->
+<div class="absolute top-0 inset-x-0 h-1 bg-secondary-container"></div>
+<div class="w-full flex justify-between items-center mb-1">
+<span class="w-4 h-4 rounded-full bg-primary-container text-on-primary font-label-sm text-[10px] flex items-center justify-center font-bold">B</span>
+<span class="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">Long</span>
+</div>
+<!-- Target Word -->
+<span class="font-headline-md text-headline-md text-primary font-extrabold tracking-tight my-0.5">
+              sheep
+            </span>
+<!-- Phonetic IPA Badge -->
+<div class="my-1.5 px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md font-extrabold border border-secondary">
+              /ʃ<span class="text-[#1a0d00] underline decoration-2">iː</span>p/
+            </div>
+<!-- Tactile Speaker Button with Waveform Indicator -->
+<button aria-label="Play sound for sheep" class="w-full mt-1.5 py-1.5 px-2 rounded-lg bg-secondary-fixed text-on-secondary-fixed border-2 border-secondary-fixed-dim flex items-center justify-center gap-1 shadow-[0_2px_0_0_#8c5000] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="graphic_eq">graphic_eq</span>
+<div class="flex items-center gap-0.5 h-3 ml-0.5">
+<span class="w-0.5 bg-secondary wave-bar-1 rounded-full"></span>
+<span class="w-0.5 bg-secondary wave-bar-2 rounded-full"></span>
+<span class="w-0.5 bg-secondary wave-bar-3 rounded-full"></span>
+</div>
+</button>
+</article>
+<!-- Pair Item C: "sleep" -->
+<article class="flex flex-col items-center justify-between bg-surface-container-low rounded-xl border-2 border-outline-variant/70 p-2 sm:p-2.5 shadow-[0_3px_0_0_#bec9c6] transition-transform duration-100 active:translate-y-0.5 active:shadow-none cursor-pointer">
+<div class="w-full flex justify-between items-center mb-1">
+<span class="w-4 h-4 rounded-full bg-surface-container-highest text-primary font-label-sm text-[10px] flex items-center justify-center font-bold">C</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">Cluster</span>
+</div>
+<!-- Target Word -->
+<span class="font-headline-md text-headline-md text-primary font-extrabold tracking-tight my-0.5">
+              sleep
+            </span>
+<!-- Phonetic IPA Badge -->
+<div class="my-1.5 px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-extrabold border border-secondary-fixed-dim">
+              /sl<span class="text-secondary underline decoration-2">iː</span>p/
+            </div>
+<!-- Tactile Speaker Button -->
+<button aria-label="Play sound for sleep" class="w-full mt-1.5 py-1.5 px-2 rounded-lg bg-surface-container-lowest border-2 border-outline-variant/80 text-primary flex items-center justify-center gap-1.5 shadow-[0_2px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="play_circle">play_circle</span>
+<span class="font-label-sm text-[11px] font-bold">/iː/</span>
+</button>
+</article>
+</div>
+<!-- Pronunciation Pro Tip Callout Box -->
+<div class="bg-surface-container-high/80 rounded-xl p-2.5 sm:p-3 border-2 border-outline-variant/60 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-secondary-container text-[#1a0d00] flex-shrink-0 flex items-center justify-center shadow-[0_2px_0_0_#8c5000] mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="flex-1">
+<p class="font-label-sm text-[11px] text-secondary font-extrabold tracking-wider uppercase mb-0.5">
+              PRO TIP: Lip Shape & Tongue Height
+            </p>
+<p class="font-body-sm text-[13px] sm:text-body-sm text-on-surface leading-tight font-medium">
+<strong class="font-extrabold text-primary">/ɪ/</strong> is quick and relaxed (<em class="font-bold">ship</em>). <strong class="font-extrabold text-primary">/iː/</strong> is elongated with smiling, spread lips (<em class="font-bold">sheep, sleep</em>).
+            </p>
+</div>
+</div>
+</section>
+<!-- 4. LOWER SECTION & SAFE AREA -->
+<footer class="pt-1 flex items-center justify-between gap-3">
+<!-- Lower Left: Strict Empty Dashed Teacher Placeholder (NO photos, NO drawings) -->
+<div class="flex items-center gap-2.5">
+<div aria-label="Reserved Teacher Slot" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-dashed border-primary/50 bg-surface-container/60 flex flex-col items-center justify-center text-center p-1 shadow-inner">
+<span class="material-symbols-outlined text-primary/70 text-[20px]" data-icon="person_pin">person_pin</span>
+<span class="font-label-sm text-[9px] sm:text-[10px] text-primary font-extrabold leading-tight mt-0.5">TEACHER SLOT</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md text-primary font-extrabold leading-none">Coach Carlos</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium mt-1">Lexkite Lead Linguist</span>
+</div>
+</div>
+<!-- Lower Right: Lexkite Wordmark & Follow CTA Button -->
+<div class="flex flex-col items-end gap-1.5">
+<!-- Lexkite Brand Mark & Wordmark -->
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-lg bg-primary-container flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#00201e]">
+<span class="material-symbols-outlined text-[15px]" data-icon="kites">drive_file_stream</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold leading-none">
+              Lexkite
+            </span>
+</div>
+<!-- Tactile Primary CTA Pill -->
+<button class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 bg-secondary-container text-button-text-contrast border-2 border-secondary rounded-2xl font-label-sm text-label-sm shadow-[0_3px_0_0_#8c5000] active:translate-y-1 active:shadow-none transition-all duration-100 cursor-pointer" type="button">
+<span>Follow for daily drills</span>
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+</main>
+<script>
+    // Lightweight audio feedback simulation for preview interaction
+    document.querySelectorAll('article, button').forEach(el => {
+      el.addEventListener('click', function(e) {
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate(20);
+        }
+      });
+    });
+  </script>
+</body></html>

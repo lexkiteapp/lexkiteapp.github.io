@@ -1,4 +1,4 @@
-/* 🎬 Học qua video/audio (#/watch) – kiểu TẠM cho M1 (màn Stitch sáng/tối ở M2, chờ chủ duyệt). Chỉ dùng token màu của style.css → đủ tương phản cả 2 theme. */
+/* 🎬 Học qua video/audio (#/media) – kiểu TẠM cho M1 (màn Stitch sáng/tối ở M2, chờ chủ duyệt). Chỉ dùng token màu của style.css → đủ tương phản cả 2 theme. */
 .mp { max-width: 760px; margin: 0 auto; }
 .mp-title { font-size: 1.25rem; margin: .4rem 0 .6rem; display: flex; gap: .5rem; align-items: center; }
 .mp-stage { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: 1rem; min-height: 220px; border-radius: var(--radius); background: var(--surface-2); overflow: hidden; }

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — My Decks</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error-container": "#93000a",
+            "primary": "#6bd8ce",
+            "on-primary-fixed-variant": "#00504b",
+            "secondary-fixed": "#ffdad3",
+            "surface": "#091518",
+            "on-error": "#690005",
+            "surface-variant": "#2b373a",
+            "surface-container-highest": "#2b373a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "on-background": "#d8e5e9",
+            "outline-variant": "#3d4947",
+            "on-primary-container": "#00322e",
+            "on-primary": "#003733",
+            "tertiary-fixed": "#ffdf9e",
+            "on-error-container": "#ffdad6",
+            "tertiary": "#f4bf40",
+            "surface-container-lowest": "#051013",
+            "surface-tint": "#6bd8ce",
+            "surface-bright": "#2f3b3e",
+            "surface-dim": "#091518",
+            "surface-container-high": "#202c2f",
+            "secondary-container": "#981201",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary-container": "#ffa493",
+            "tertiary-container": "#ba8b00",
+            "outline": "#879391",
+            "surface-container-low": "#121d20",
+            "primary-container": "#2ba39a",
+            "inverse-primary": "#006a64",
+            "surface-container": "#162125",
+            "error": "#ffb4ab",
+            "inverse-surface": "#d8e5e9",
+            "on-tertiary-container": "#392900",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary": "#660800",
+            "background": "#091518",
+            "secondary": "#ffb4a6",
+            "on-surface-variant": "#bcc9c7",
+            "inverse-on-surface": "#263236",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary": "#402e00",
+            "primary-fixed": "#88f5ea",
+            "on-secondary-fixed": "#3f0300"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "4px",
+            "gutter": "16px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-sm": "8px",
+            "margin": "16px"
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "display": [
+              "32px",
+              { "lineHeight": "38px", "fontWeight": "800" }
+            ],
+            "title": [
+              "22px",
+              { "lineHeight": "28px", "fontWeight": "700" }
+            ],
+            "label": [
+              "12px",
+              { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }
+            ],
+            "body": [
+              "16px",
+              { "lineHeight": "24px", "fontWeight": "500" }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      user-select: none;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile 3D physical sink styles */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF7B60 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 0 #B53A22;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22;
+    }
+    .tactile-btn-action {
+      background: #162125;
+      border: 2px solid #3d4947;
+      box-shadow: 0 4px 0 0 #051013;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-action:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #051013;
+    }
+    .tactile-btn-teal {
+      background: #2ba39a;
+      box-shadow: 0 4px 0 0 #00504b;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #00504b;
+    }
+    .tactile-card {
+      border: 2px solid #3d4947;
+      box-shadow: 0 5px 0 0 #051013;
+    }
+    .top-shine {
+      box-shadow: inset 0 1.5px 0 0 rgba(255, 255, 255, 0.18);
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary-container">
+<!-- Mobile Viewport Wrapper (390px Max Standard) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-24 shadow-2xl overflow-x-hidden border-x border-outline-variant/30">
+<!-- TOP APP BAR (Shared Component Anchor strictly aligned) -->
+<header class="flex justify-between items-center h-14 px-4 w-full z-50 fixed top-0 left-0 max-w-[390px] mx-auto right-0 bg-surface-container-low dark:bg-surface-container-low border-b-4 border-surface-container-highest dark:border-surface-container-highest">
+<!-- Title & Hub Identity -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined material-symbols-fill text-primary text-[24px]">local_fire_department</span>
+<h1 class="font-title text-title text-on-surface font-bold tracking-tight">My Decks</h1>
+</div>
+<!-- Action and Metric cluster -->
+<div class="flex items-center gap-1.5">
+<!-- Streak/Status Badge -->
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-xl border border-outline-variant text-tertiary">
+<span class="material-symbols-outlined material-symbols-fill text-[18px]">bolt</span>
+<span class="font-label text-label font-bold text-tertiary">14</span>
+</div>
+<!-- Search/Filter Icon Button (Min 44x44 target) -->
+<button aria-label="Filter decks" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright active:translate-y-0.5 border border-outline-variant transition-transform">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</header>
+<!-- MAIN CANVAS CONTENT -->
+<main class="flex-1 px-margin pt-20 space-y-space-md">
+<!-- Teacher Stat Tip Slot (Dynamic injection container: Teacher-Slot) -->
+<section aria-label="Teacher coach guidance" class="w-full">
+<div class="border-2 border-dashed border-primary/50 bg-surface-container-low rounded-2xl p-3.5 relative overflow-hidden">
+<div class="flex items-start gap-3">
+<!-- Dynamic Teacher Tag / Code Slot Indicator -->
+<div class="w-10 h-10 rounded-xl bg-primary-container/30 border border-primary/40 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label text-[10px] tracking-wider uppercase font-extrabold text-primary px-1.5 py-0.5 bg-primary/10 rounded-md border border-primary/30">Coach Ama • Retention</span>
+<span class="font-label text-[11px] text-tertiary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 15m review
+                </span>
+</div>
+<p class="font-body text-[13px] leading-[19px] text-on-surface font-semibold">
+                “Keep your active recall spaced for maximum IELTS exam retention. Tackle high-priority collocations early.”
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- TOP ACTION: PRIMARY Tactile Button "New Deck" -->
+<section class="w-full">
+<button class="tactile-btn-primary top-shine w-full h-14 rounded-2xl flex items-center justify-center gap-2 text-surface-container-lowest font-display font-extrabold text-body tracking-wide cursor-pointer select-none">
+<span class="material-symbols-outlined text-[24px] font-bold">add_circle</span>
+<span>New deck</span>
+</button>
+</section>
+<!-- QUICK ACTION: Import Anki (.apkg) Tactile Card -->
+<section class="w-full">
+<div class="tactile-card bg-surface-container rounded-2xl p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-11 h-11 rounded-xl bg-tertiary-container/30 border border-tertiary/40 flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[24px]">sync_alt</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-title text-[15px] font-bold text-on-surface leading-tight">Import Anki</h2>
+<span class="font-label text-[10px] px-1.5 py-0.2 rounded bg-surface-variant text-on-surface-variant border border-outline-variant font-extrabold">.apkg</span>
+</div>
+<p class="font-body text-[12px] text-on-surface-variant leading-tight mt-0.5">Sync external cards effortlessly</p>
+</div>
+</div>
+<!-- Import Trigger CTA (min 44x44) -->
+<button class="tactile-btn-action top-shine min-w-[44px] h-11 px-3 rounded-xl flex items-center justify-center text-primary font-label text-label cursor-pointer shrink-0">
+<span class="material-symbols-outlined text-[18px] mr-1">file_upload</span>
+            Sync
+          </button>
+</div>
+</section>
+<!-- SECTION: Decks List Header -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<span class="font-title text-[18px] font-extrabold text-on-surface">Active Decks</span>
+<span class="font-label text-[11px] px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-bold">4 Decks</span>
+</div>
+<span class="font-label text-label text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">swap_vert</span> Due First
+        </span>
+</div>
+<!-- DECKS LIST CONTAINER -->
+<div class="space-y-3.5">
+<!-- DECK 1: IELTS Academic Collocations -->
+<article class="tactile-card bg-surface-container-low rounded-2xl p-4 flex flex-col gap-3">
+<!-- Card Header & Badge -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-container border border-secondary/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                  18 Due today
+                </span>
+<span class="font-label text-[11px] text-on-surface-variant font-medium">120 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-on-surface leading-snug">
+                IELTS Academic Collocations
+              </h3>
+</div>
+<!-- 3-Dot Overflow Menu (Min 44x44px touch target) -->
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-on-surface-variant font-semibold">Mastery progress</span>
+<span class="text-primary font-extrabold">35%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-variant rounded-full overflow-hidden p-[1px]">
+<div class="h-full bg-primary rounded-full" style="width: 35%;"></div>
+</div>
+</div>
+<!-- Action Footers -->
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+              Spaced Band 7.5+
+            </span>
+<!-- Practice CTA (Min 44px) -->
+<button class="tactile-btn-teal top-shine h-11 px-5 rounded-xl flex items-center justify-center gap-1.5 text-on-primary-container font-label text-label cursor-pointer shrink-0 font-extrabold">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+              Practice
+            </button>
+</div>
+</article>
+<!-- DECK 2: Task 2 Cohesion & Transition Connectors -->
+<article class="tactile-card bg-surface-container-low rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-tertiary-container/40 text-tertiary border border-tertiary/30">
+                  6 Due today
+                </span>
+<span class="font-label text-[11px] text-on-surface-variant font-medium">44 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-on-surface leading-snug">
+                Task 2 Cohesion &amp; Transition Connectors
+              </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-on-surface-variant font-semibold">Mastery progress</span>
+<span class="text-tertiary font-extrabold">80%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-variant rounded-full overflow-hidden p-[1px]">
+<div class="h-full bg-tertiary rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">school</span>
+              Academic Writing
+            </span>
+<button class="tactile-btn-teal top-shine h-11 px-5 rounded-xl flex items-center justify-center gap-1.5 text-on-primary-container font-label text-label cursor-pointer shrink-0 font-extrabold">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+              Practice
+            </button>
+</div>
+</article>
+<!-- DECK 3: Speaking Part 2 Idioms & High-Band Phrasals -->
+<article class="tactile-card bg-surface-container-low rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-tertiary-container/30 text-tertiary border border-tertiary/20">
+                  4 Due today
+                </span>
+<span class="font-label text-[11px] text-on-surface-variant font-medium">52 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-on-surface leading-snug">
+                Speaking Part 2 Idioms &amp; High-Band Phrasals
+              </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-on-surface-variant font-semibold">Mastery progress</span>
+<span class="text-primary font-extrabold">75%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-variant rounded-full overflow-hidden p-[1px]">
+<div class="h-full bg-primary rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">mic</span>
+              Fluency Polish
+            </span>
+<button class="tactile-btn-teal top-shine h-11 px-5 rounded-xl flex items-center justify-center gap-1.5 text-on-primary-container font-label text-label cursor-pointer shrink-0 font-extrabold">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+              Practice
+            </button>
+</div>
+</article>
+<!-- DECK 4: Confused Pairs & False Friends -->
+<article class="tactile-card bg-surface-container-low rounded-2xl p-4 flex flex-col gap-3 opacity-95">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-primary-container/20 text-primary border border-primary/40 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] font-bold">done_all</span>
+                  0 Due • Caught up
+                </span>
+<span class="font-label text-[11px] text-on-surface-variant font-medium">18 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-on-surface leading-snug">
+                Confused Pairs &amp; False Friends
+              </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-on-surface-variant font-semibold">Mastery progress</span>
+<span class="text-primary font-extrabold">100%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-variant rounded-full overflow-hidden p-[1px]">
+<div class="h-full bg-primary rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-on-surface-variant">Review due in 3 days</span>
+<button class="tactile-btn-action top-shine h-11 px-4 rounded-xl flex items-center justify-center gap-1 text-on-surface-variant font-label text-label cursor-pointer shrink-0 font-bold hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+              Review
+            </button>
+</div>
+</article>
+</div>
+<!-- EMPTY STATE ILLUSTRATION PREVIEW SECTION (Preview for new category or empty filter) -->
+<section class="mt-8 mb-4 border-2 border-dashed border-outline-variant/60 rounded-2xl p-5 bg-surface-container-low/60 text-center flex flex-col items-center">
+<!-- Tactile Geometric Vector Icon Illustration: Vocab Box & Stars (Strictly no human drawn/mascots) -->
+<div class="relative w-20 h-20 mb-3 flex items-center justify-center">
+<!-- Tactile Box Base Shape -->
+<div class="w-16 h-14 bg-surface-container-high rounded-xl border-2 border-primary/40 shadow-[0_4px_0_0_#051013] flex items-center justify-center relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-1.5 bg-primary/20"></div>
+<span class="material-symbols-outlined text-primary text-[32px]">inventory_2</span>
+</div>
+<!-- Sparkling Geometric Badges -->
+<span class="material-symbols-outlined material-symbols-fill text-tertiary absolute -top-1 -right-1 text-[20px] animate-bounce">star</span>
+<span class="material-symbols-outlined text-primary absolute bottom-1 -left-2 text-[16px]">arrow_back_ios_new</span>
+</div>
+<h4 class="font-title text-[16px] font-bold text-on-surface mb-1">
+          Your custom deck is ready
+        </h4>
+<p class="font-body text-[13px] text-on-surface-variant max-w-[260px] mb-4 leading-relaxed">
+          Your custom deck is ready for new high-yield exam words. Add cards manually or paste lexical sets.
+        </p>
+<!-- CTA: Add first word -->
+<button class="tactile-btn-action top-shine min-h-[44px] px-5 rounded-xl flex items-center justify-center gap-1.5 text-primary font-label text-label cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">add</span>
+          Add your first word
+        </button>
+</section>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchor strictly applied) -->
+<!-- JSON: labels ["Today", "Vocab", "Skills", "Tests", "Me"], icons: ["today", "menu_book", "psychology", "quiz", "person"] -->
+<!-- Active State: 'Vocab' is active with style_active_navigation applied exclusively -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-surface-container dark:bg-surface-container pb-safe border-t-4 border-surface-container-highest dark:border-surface-container-highest max-w-[390px] mx-auto right-0">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors active:translate-y-1 transition-transform min-w-[44px] min-h-[44px]" href="#today">
+<span class="material-symbols-outlined text-[20px]">today</span>
+<span class="font-label text-[11px] mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab (ACTIVE ITEM) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1.5 border-b-2 border-outline hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors active:translate-y-1 transition-transform min-w-[44px] min-h-[44px]" href="#vocab">
+<span class="material-symbols-outlined material-symbols-fill text-[20px]">menu_book</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors active:translate-y-1 transition-transform min-w-[44px] min-h-[44px]" href="#skills">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="font-label text-[11px] mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors active:translate-y-1 transition-transform min-w-[44px] min-h-[44px]" href="#tests">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+<span class="font-label text-[11px] mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors active:translate-y-1 transition-transform min-w-[44px] min-h-[44px]" href="#me">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-label text-[11px] mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

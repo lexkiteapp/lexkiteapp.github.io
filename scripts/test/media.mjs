@@ -105,7 +105,7 @@ try { execFileSync('node', ['scripts/media/build-clips.mjs', '--check'], { stdio
 if (strict) { const idx = JSON.parse(fs.readFileSync('web/data/media/index.json', 'utf8')); ok(idx.length === ids.length, `index.json có ${idx.length}/${ids.length} clip`); }
 
 // ---- 5. Transcript + thẻ tra từ (jsdom) ----
-const dom = new jsdom.JSDOM('<!doctype html><body><div id="tr" style="height:200px;overflow:auto"></div><button id="anchor">x</button></body>', { url: 'https://lexkite.com/app/#/watch', runScripts: 'outside-only' });
+const dom = new jsdom.JSDOM('<!doctype html><body><div id="tr" style="height:200px;overflow:auto"></div><button id="anchor">x</button></body>', { url: 'https://lexkite.com/app/#/media', runScripts: 'outside-only' });
 const w = dom.window; w.HTMLElement.prototype.scrollTo = function () {}; w.t = (k, v) => k.replace(/\{(\w+)\}/g, (_, x) => v[x]);
 for (const f of ['cues', 'transcript', 'lookup-card']) w.eval(fs.readFileSync(`web/js/media/${f}.js`, 'utf8'));
 const tc = [{ i: 0, who: 'A', start: 0.3, end: 2, text: 'Can I get a latte to go?', tr: { vi: 'Cho tôi một ly latte mang đi?' }, words: [{ w: 'Can', s: 0.3, e: 0.5 }, { w: 'I', s: 0.5, e: 0.6 }, { w: 'get', s: 0.6, e: 0.8 }, { w: 'a', s: 0.8, e: 0.9 }, { w: 'latte', s: 0.9, e: 1.3 }, { w: 'to', s: 1.3, e: 1.5 }, { w: 'go', s: 1.5, e: 1.9 }] },

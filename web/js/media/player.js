@@ -1,5 +1,5 @@
 /* 🎬 Học qua video/audio – trình phát + transcript tương tác + 4 chế độ (Phụ đề · Shadowing · Chính tả · Điền từ). Spec: docs/MEDIA.md.
- * Route #/watch (danh sách) · #/watch/<id> (1 clip). Dữ liệu web/data/media/{index,<id>}.json (dựng bằng scripts/media/build-clips.mjs,
+ * Route #/media (danh sách) · #/media/<id> (1 clip). Dữ liệu web/data/media/{index,<id>}.json (dựng bằng scripts/media/build-clips.mjs,
  * mốc giờ căn theo audio trên CI media-clips.yml). Clip 'teacher' = audio + giáo viên 2D Ama/Carlos (LessonTeacher) nói đúng lúc có câu;
  * clip 'video' = <video src> (nguồn tự làm / CC có ghi nguồn). Giao diện tạm (chưa có màn Stitch – M2 chờ chủ duyệt). */
 (function (g) {
@@ -12,7 +12,7 @@
   const getJSON = (u, signal) => fetch(u, { signal }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
   const view = () => D.getElementById('view');
 
-  routes.watch = g.App.guard(async function (id) {
+  routes.media = g.App.guard(async function (id) {
     const w = g.App.W; await w(g.I18N && g.I18N.whenReady ? g.I18N.whenReady() : null);
     view().innerHTML = g.UI && g.UI.skelPage ? g.UI.skelPage(t('Đang tải…')) : '';
     if (!id) return list(w);
@@ -23,7 +23,7 @@
   async function list(w) {
     let items = []; try { items = await w(getJSON('data/media/index.json', w.signal)); } catch (e) { items = []; }
     view().innerHTML = `<div class="page-head"><div><h1>🎬 ${t('Học qua video')}</h1><p class="muted">${t('Xem clip ngắn, đọc phụ đề song ngữ, luyện nói theo, chính tả và điền từ.')}</p></div></div>
-      <div class="grid auto mp-list">${items.map(c => `<a class="card hover mp-card" href="#/watch/${esc(c.id)}">${g.Chars ? g.Chars.img(c.teacher, { size: 56, lazy: true, alt: '' }) : ''}<div><b lang="en">${esc(c.title)}</b><p class="muted small">${esc(c.level)} · ${g.MediaTranscript.mmss(c.dur)}</p></div></a>`).join('') || `<p class="muted">${t('Chưa có clip.')}</p>`}</div>`;
+      <div class="grid auto mp-list">${items.map(c => `<a class="card hover mp-card" href="#/media/${esc(c.id)}">${g.Chars ? g.Chars.img(c.teacher, { size: 56, lazy: true, alt: '' }) : ''}<div><b lang="en">${esc(c.title)}</b><p class="muted small">${esc(c.level)} · ${g.MediaTranscript.mmss(c.dur)}</p></div></a>`).join('') || `<p class="muted">${t('Chưa có clip.')}</p>`}</div>`;
   }
 
   function play(clip, w) {
@@ -33,7 +33,7 @@
     const lname = l => (g.I18N && g.I18N.LANGS && g.I18N.LANGS[l] ? g.I18N.LANGS[l][1] : l);
     const who = Object.values(clip.speakers || {});
     view().innerHTML = `<div class="mp" data-view="${P.view === 'live' ? 'live' : 'sub'}">
-      <a class="small" href="#/watch">← ${t('Học qua video')}</a>
+      <a class="small" href="#/media">← ${t('Học qua video')}</a>
       <h1 class="mp-title" lang="en">${esc(clip.title)} <span class="chip">${esc(clip.level)}</span></h1>
       <div class="mp-stage${clip.kind === 'video' ? ' is-video' : ''}">${clip.kind === 'video' ? `<video class="mp-video" playsinline preload="metadata" src="${esc(clip.src)}"${clip.poster ? ` poster="${esc(clip.poster)}"` : ''}></video>` : who.map(x => `<div class="mp-tch" data-who="${esc(x)}"></div>`).join('')}
         ${clip.kind === 'video' ? '' : `<audio class="mp-audio" preload="auto" src="${esc(clip.audio)}"></audio>`}</div>

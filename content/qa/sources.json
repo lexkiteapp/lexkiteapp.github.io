@@ -17,7 +17,8 @@
    ],
    "delegate": [
     "build-lexicon.mjs",
-    "test/lex.mjs"
+    "test/lex.mjs",
+    "content-qa/sense-check.mjs"
    ]
   },
   {
@@ -455,12 +456,37 @@
    ]
   },
   {
+   "id": "content-factory",
+   "paths": [
+    "content/factory"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-factory.mjs"
+   ]
+  },
+  {
    "id": "media-clips",
-   "paths": ["content/media", "web/js/media"],
+   "paths": [
+    "content/media",
+    "web/js/media"
+   ],
    "owner": "claude",
    "gen": false,
-   "checks": ["schema", "translation"],
-   "delegate": ["test/media.mjs"]
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/media.mjs"
+   ]
   }
  ],
  "skip": {
@@ -478,6 +504,7 @@
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
   "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
   "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",
-  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs"
+  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs",
+  "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs"
  }
 }

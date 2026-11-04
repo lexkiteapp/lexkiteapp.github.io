@@ -27,7 +27,7 @@
 | `cues.js` | Logic thuần (UMD, chạy được trên node): `at` (= `Stories.sentenceAt` khi có), `wordAt`, `tokens`, `phraseSpans`/`segments`, `dictation`, `cloze`, `sameWord`, `loopSeek`, `trOf`, `grade`, `wpm`. |
 | `transcript.js` | `MediaTranscript.mount(el, { cues, phrases, lang, showTr, mode, onSeek, onPhrase, onWord, onGap })` → `{ setTime, setLang, showTr, setFont, setMode, score, active, destroy }`. |
 | `lookup-card.js` | `LookupCard.open(anchor, { text, info?, sentence, sentenceTr, title, lang })`: nghĩa + def + ngữ cảnh + lưu SRS; đóng bằng Esc, ✕ hoặc chạm ra ngoài. |
-| `player.js` | Route `#/watch` (danh sách), `#/watch/<id>`: sân khấu + điều khiển + 4 chế độ + thanh công cụ; dùng 1 vòng rAF. |
+| `player.js` | Route `#/media` (danh sách), `#/media/<id>`: sân khấu + điều khiển + 4 chế độ + thanh công cụ; dùng 1 vòng rAF. |
 | `css/media.css` | Kiểu tạm M1, chỉ dùng token màu của style.css (sáng/tối). |
 Cue = `{ i, who, start, end, text, tr, words[{w,s,e}] }`, cùng dạng `Stories.timeline()`. `LessonTeacher` có thêm `talk(on)` để trình phát điều khiển miệng giáo viên theo audio.
 
@@ -44,7 +44,7 @@ PR sửa `content/media/clips/**` sẽ kích hoạt CI. Các bước:
 5. Lượt đầu (01/11): Kokoro 0,9× ra ~200 wpm → cổng chặn; 0,75× + nghỉ 0,7 s → coffee-to-go 20,4 s / 132 wpm, monday-plan 23,6 s / 135 wpm; whisper khớp kịch bản 100 % mọi câu.
 
 ## 6. Kế hoạch
-- **M1** (PR này): lõi + transcript + 4 chế độ + thẻ tra + 2 clip mẫu (coffee-to-go A2 Ama↔Carlos, monday-plan B1 Carlos) + test + CI giọng/mốc giờ. Route `#/watch` chỉ mở được qua URL, chưa có lối vào giao diện.
+- **M1** (PR này): lõi + transcript + 4 chế độ + thẻ tra + 2 clip mẫu (coffee-to-go A2 Ama↔Carlos, monday-plan B1 Carlos) + test + CI giọng/mốc giờ. Route `#/media` chỉ mở được qua URL, chưa có lối vào giao diện.
 - **M2** (Stitch, chờ chủ duyệt ảnh trước khi viết code): 4 màn × sáng/tối gồm (a) trình phát + transcript (Phụ đề, bản dịch bật), (b) Shadowing sau khi chấm, (c) Chính tả sau Kiểm tra, (d) thẻ tra cụm từ + Lưu. Thêm danh sách clip + thanh công cụ thu gọn trên mobile 390 px. Dùng design system Kit hiện hành, tương phản AA, chạm ≥ 44 px, chỉ nhân vật 2D Ama/Carlos, không dùng chữ hay logo của app tham khảo. Gửi anh ảnh 8 màn, chờ OK.
 - **M3** (sau khi duyệt): port màn Stitch vào `player.js`/`media.css` (theo `docs/stitch-html-port`), thêm lối vào (thẻ Luyện tập + deep link `lexkite.com/app/#/watch`), sửa SW precache, e2e mobile (Playwright 390×844, sáng/tối: phát → tô sáng/tự cuộn → tua → bản dịch 3 ngôn ngữ (vi/ja/ar RTL) → tra + lưu SRS → Shadowing (micro giả) → Chính tả → Điền từ). Sau đó cho phiên Truyện/Podcast nối `MediaTranscript` vào reader.
 - Về sau: thêm clip theo lô (gen kịch bản + bản dịch qua pipeline + cổng), video teach2d dựng sẵn (`kind: video`), tiến độ/XP mỗi clip.
