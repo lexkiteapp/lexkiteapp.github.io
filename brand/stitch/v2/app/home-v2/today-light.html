@@ -157,29 +157,20 @@
     <header class="w-full h-14 bg-cream border-b-2 border-cream-border px-4 flex items-center justify-between sticky top-0 z-40">
       <!-- Left: Kite Emblem + Lexkite wordmark -->
       <div class="flex items-center gap-2">
-        <svg width="26" height="28" viewBox="0 0 26 28" fill="none" class="drop-shadow-sm">
-          <!-- Top Orange Wing -->
-          <polygon points="13,2 23,12 13,15 3,12" fill="#F59E0B"/>
-          <!-- Teal Bottom Wings -->
-          <polygon points="13,15 23,12 13,26 3,12" fill="#136B66"/>
-          <!-- Kite String & Ribbon -->
-          <path d="M13,26 Q16,30 14,32" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
-          <circle cx="14" cy="27" r="1.5" fill="#EF4444"/>
-        </svg>
-        <span class="text-xl font-black text-teal-primary tracking-tight">Lexkite</span>
+        <img alt="Lexkite" class="logo" height="36" src="icons/icon.svg?v=3" width="36"/><span class="wordmark">lex<b>kite</b></span>
       </div>
 
       <!-- Right: Compact Language Switcher Pill + Round Avatar -->
       <div class="flex items-center gap-2">
         <!-- Language Switcher Pill -->
-        <button class="flex items-center gap-1.5 px-2.5 py-1 bg-white border-2 border-cream-border rounded-full text-xs font-extrabold text-ink-deep shadow-[0_2px_0_0_#E5D6C5] active:translate-y-0.5" aria-label="Select Language">
+        <button aria-label="Look up a word" class="flex items-center justify-center w-9 h-9 shrink-0 bg-white border-2 border-cream-border text-ink-deep shadow-[0_2px_0_0_#E5D6C5] active:translate-y-0.5 rounded-full" data-act="search" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button><button aria-label="Notifications" class="flex items-center justify-center w-9 h-9 shrink-0 bg-white border-2 border-cream-border text-ink-deep shadow-[0_2px_0_0_#E5D6C5] active:translate-y-0.5 rounded-full" data-act="notif" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24" width="16"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10.3 21a2 2 0 0 0 3.4 0"></path></svg><span class="hidden" data-notif-badge=""></span></button><button class="flex items-center gap-1.5 px-2.5 py-1 bg-white border-2 border-cream-border rounded-full text-xs font-extrabold text-ink-deep shadow-[0_2px_0_0_#E5D6C5] active:translate-y-0.5" aria-label="Select Language">
           <!-- Globe Icon -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#136B66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span>VI</span>
+          <span>EN</span>
           <!-- Small Chevron -->
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#5A4E45" stroke-width="3" stroke-linecap="round">
             <path d="M6 9l6 6 6-6"/>
