@@ -13,7 +13,6 @@
 'Nhận xét': 'Feedback',
 'Kiểm tra': 'Check',
 'Dịch': 'Translate',
-'Nghe': 'Listen',
 'Khác': 'Other',
 
 // ---- phrases.js: annotated model answers ----
@@ -25,7 +24,6 @@
 
 // ---- phrases.js: exercises ----
 'Xem đáp án': 'Show answers',
-'Xóa hết': 'Clear all',
 'Xóa hết': 'Clear all',
 'Danh từ số nhiều': 'Plural noun',
 'Đáp án': 'Answers',
@@ -77,10 +75,6 @@
 'Từ của tôi': 'My words',
 
 // write.js: trend stats (dynamic keys)
-'Giáo dục': 'Education',
-'Sức khỏe': 'Health',
-'Công việc': 'Work',
-'Công nghệ': 'Technology',
 'Bảng (table)': 'Table',
 'Bản đồ (map)': 'Map',
 'Quy trình (process)': 'Process',
