@@ -41,7 +41,12 @@ ok(Object.keys(B.TABLES).every(t => !/^drive|^sessions|^pageviews/.test(t)) && B
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rb-')), file = path.join(tmp, 'x.bak.ndjson'), counts = {}, lines = [JSON.stringify({ 'lexkite-backup': 1, db: 'lexkite-sync' })];
 for (const t of ['users', 'docs', 'config']) { let a = null; counts[t] = 0; for (;;) { const r = await B.exportPage(env, db, t, a, 4); lines.push(JSON.stringify({ t, n: r.n, iv: r.iv, ct: r.ct })); counts[t] += r.n; a = r.last; if (r.done) break; } }
 lines.push(JSON.stringify({ end: true, tables: ['users', 'docs', 'config'], counts, rows: 28 })); fs.writeFileSync(file, lines.join('\n') + '\n');
-const R = path.resolve('scripts/ops/d1-restore.mjs'), run = (a, e = {}) => { try { return { code: 0, out: execFileSync('node', [R, ...a], { encoding: 'utf8', env: { ...process.env, DRIVE_ENC_KEY: KEY, GITHUB_STEP_SUMMARY: '', ...e }, stdio: ['ignore', 'pipe', 'pipe'] }) }; } catch (e2) { return { code: e2.status, out: String(e2.stdout) + String(e2.stderr) }; } };
+// Hồi quy 2/11: test bản cụt ghi cờ đỏ THẬT lên Quản trị (driveCliKey đọc khoá ~/.config). Chỉ lượt CI trên main được ghi cờ; diễn tập chạy tay phải diễn tập lại được.
+{ const { alertAllowed } = await import(new URL('../ops/lib.mjs', import.meta.url));
+  ok(!alertAllowed({}) && !alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/heads/fix/x' }) && !alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/pull/1/merge' }), 'máy cá nhân, nhánh, PR không ghi cờ production');
+  ok(alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/heads/main' }) && alertAllowed({ LK_OPS_ALERT: '1' }), 'CI trên main (hoặc LK_OPS_ALERT=1) ghi cờ');
+  ok(/changed == '1' \|\| github\.event_name == 'workflow_dispatch'/.test(fs.readFileSync('.github/workflows/d1-backup.yml', 'utf8')), 'd1-backup chạy tay vẫn diễn tập'); }
+const R = path.resolve('scripts/ops/d1-restore.mjs'), run = (a, e = {}) => { try { return { code: 0, out: execFileSync('node', [R, ...a], { encoding: 'utf8', env: { ...process.env, DRIVE_ENC_KEY: KEY, GITHUB_STEP_SUMMARY: '', LEXKITE_DRIVE_CLI_KEY: '', LK_OPS_ALERT: '', GITHUB_ACTIONS: '', HOME: os.tmpdir(), ...e }, stdio: ['ignore', 'pipe', 'pipe'] }) }; } catch (e2) { return { code: e2.status, out: String(e2.stdout) + String(e2.stderr) }; } };
 const d = run(['--file', file, '--drill', '--sql', path.join(tmp, 'r.sql')]);
 ok(d.code === 0 && /diễn tập khôi phục[^\n]*21 dòng|diễn tập khôi phục[^\n]*dòng/.test(d.out), 'diễn tập khôi phục: ' + d.out.trim().slice(0, 160));
 const S = fs.readFileSync(path.join(tmp, 'r.sql'), 'utf8');

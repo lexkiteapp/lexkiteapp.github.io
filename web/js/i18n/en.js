@@ -1302,7 +1302,7 @@
 'Phong cách tiếng Anh của bạn (1 phút) →': 'Your English style (1 minute) →',
 }); })(typeof self !== 'undefined' ? self : this);
 /* Lời mời cài add-on (web/js/ext-cta.js) */
-(function (g) { Object.assign(g.I18N_DICT.en, {"Tra từ ngay trên mọi trang web": "Look up words on any website", "Thêm vào Chrome": "Add to Chrome", }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, {"Thêm vào Chrome": "Add to Chrome", }); })(typeof self !== 'undefined' ? self : this);
 /* Khóa của nhóm tải lười (toefl/league/call/handoff) mà khung app vẽ ngay (thẻ trang chủ, nút) – giữ trong en.js */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Dừng": "Stop", "Bài mẫu": "Model answer", "Hoàn thành": "Finish", "Giải đấu tuần": "Weekly League", "Bảng xếp hạng 30 người học, thăng hạng mỗi tuần": "30-learner leaderboard, promote every week", "Bảng xếp hạng": "Leaderboard", "XP tuần": "Weekly XP", "Gọi Ama & Carlos": "Call Ama & Carlos", "Gọi lại": "Call again", "Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng": "Video-call speaking practice with gentle corrections", "Xong": "Done", "Chuyển dữ liệu": "Move data"}); })(typeof self !== 'undefined' ? self : this);
 /* Trang chủ gọn (1 thẻ "Học tiếp" + khối phụ) · chấm tab Từ vựng */

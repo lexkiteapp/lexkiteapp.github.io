@@ -191,6 +191,7 @@
       const v = V[want]; if (v && v.paused) v.play().catch(() => {});
     }
     let hq = null;
+    let capNow = null;
     const api = {
       who,
       lip: () => (fc ? fc.stats : null), // số khung mặt vẽ (test e2e đo fps)
@@ -206,6 +207,7 @@
         lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
         if (fc && rig.classList.contains('posed')) { const im = rig.querySelector('.tch-still'); if (im) im.remove(); rig.classList.remove('posed'); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
         const my = ++run, rate = o.rate || 0.95;
+<<<<<<< HEAD
         const est = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
         // ⏱️ tiến độ lời (karaoke + vòng nút nghe lại): đồng hồ = currentTime của file Kokoro; giọng máy → đồng hồ tường theo thời lượng ước tính. 1 rAF, chỉ gọi khi đổi ≥0.5%
         let ended = false, t0 = 0, pf = -1, praf = 0;
@@ -219,6 +221,15 @@
           if (my !== run) return;
           const dur = est; go();
           if (fc) fc.speak({ text, dur }); // giọng máy: không có tiếng để đo → con trỏ live theo thời lượng ước tính
+=======
+        if (capNow && capNow !== o.caption) capNow.all(); const cap = capNow = o.caption || null; // chữ chạy theo lời (SayText, say-text.js)
+        let ended = false; const end = () => { if (ended) return; ended = true; if (cap) cap.all(); if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
+        talking(true);
+        const tts = () => {
+          if (my !== run) return;
+          const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
+          if (cap) cap.clock(dur * 1000); if (fc) fc.speak({ text, dur }); // giọng máy: không có tiếng để đo → con trỏ live theo thời lượng ước tính
+>>>>>>> real/main
           const kv = g.LKAudio && g.LKAudio.kokoro(o.voice); // giọng máy dự phòng đúng người nói: Ama nữ, Carlos nam, đúng UK/US
           if (g.UI && g.UI.tts) { const t0 = Date.now(); g.UI.tts(text, o.accent || (kv && kv.accent) || 'en-US', rate, { voice: o.voice, onEnd: () => { const used = Date.now() - t0; if (used < 300 && my === run) setTimeout(end, Math.max(0, dur * 1000 - used)); else end(); } }); } else setTimeout(end, dur * 1000); // máy không có giọng → onEnd tức thì: giữ vòng nói đủ thời lượng ước tính (khớp miệng theo ước tính)
         };
@@ -231,12 +242,17 @@
         let h = null; // onEl chạy ĐỒNG BỘ trong play() trước khi gán h (phần tử gốc CDN đầu) → không đọc h ở TDZ
         h = hq = g.LKAudio.play(cue ? g.audioUrls(key + '-ls') : g.audioUrls(key), { rate: rate < 0.9 ? SLOW : 1, // 🐢 nghe chậm 0,75× (giữ cao độ)
           cross: !!(fc && !cue && fc.tap()), // live đo năng lượng tiếng (Web Audio cần CORS – gốc audio trả ACAO *)
+<<<<<<< HEAD
           onEl: a => { if (fc && (h === null || hq === h)) fc.speak({ audio: a, cue, text }); }, // mỗi gốc CDN thử = 1 phần tử mới → mặt vẽ bám đúng phần tử đang phát
           onBase: () => g.audioFail && g.audioFail(), onEnd: end, onStart: go, // onStart → đồng hồ karaoke bám currentTime file đang phát
+=======
+          onEl: a => { if (h !== null && hq !== h) return; if (fc) fc.speak({ audio: a, cue, text }); if (cap) cap.audio(a, cue && g.LipSync ? g.LipSync.unpack(cue) : null); }, // mỗi gốc CDN thử = 1 phần tử mới → mặt vẽ bám đúng phần tử đang phát
+          onBase: () => g.audioFail && g.audioFail(), onEnd: end,
+>>>>>>> real/main
           onFail: why => { if (hq !== h) return; hq = null; if (cue) return api.say(text, Object.assign({}, o, { plain: 1 })); g.LKAudio.note('tts', why + ' ' + o.voice); tts(); } });
       },
-      stop() { run++; talking(false); if (fc) fc.quiet(); if (hq) { hq.stop(); hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
-      destroy() { dead = true; run++; if (fc) fc.destroy(); if (hq) { hq.stop(); hq = null; } cancelAnimationFrame(raf); for (const v of V) { if (v) try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
+      stop() { if (capNow) capNow.all(); run++; talking(false); if (fc) fc.quiet(); if (hq) { hq.stop(); hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
+      destroy() { if (capNow) capNow.all(); dead = true; run++; if (fc) fc.destroy(); if (hq) { hq.stop(); hq = null; } cancelAnimationFrame(raf); for (const v of V) { if (v) try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
     };
     return api;
   }

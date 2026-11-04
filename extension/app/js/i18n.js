@@ -29,7 +29,7 @@
       const c = (tx.match(/\bloc=([A-Z]{2})/) || [])[1] || '';
       try { localStorage.setItem('vb.geo', c || '-'); } catch (e) { return; }
       const l = GEO[c];
-      if (l && l !== lang && SUPPORTED.includes(l) && !read(KEY)) set(l);
+      if (l && l !== lang && SUPPORTED.includes(l) && !read(KEY)) set(l, 1);
     }).catch(() => {});
   }
   /** @type {Record<string, Record<string, string>>} */
@@ -38,7 +38,7 @@
   const HK = {};
   function tr(l, s) {
     const d = D[l], v = d && d[s]; if (v !== undefined || !d || l === 'en' || typeof s !== 'string' || (D.en && D.en[s] == null)) return v;
-    let h = HK[s]; if (!h) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) x = Math.imul(x ^ s.charCodeAt(i), 0x01000193); h = HK[s] = '_' + (x >>> 0).toString(36); }
+    let h = HK[s]; if (!h) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) x = Math.imul(x ^ s.charCodeAt(i), 0x01000193); h = HK[s] = '_' + ((x >>> 0) % 1679616).toString(36); }
     return d[h];
   }
   // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
@@ -57,7 +57,8 @@
     (root || document).querySelectorAll('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label'))); });
   }
   // Lưu rồi tải lại, bỏ ?hl (ưu tiên hơn lựa chọn đã lưu → đổi ngược)
-  function set(l) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); } catch (e) { /* bỏ qua */ } const u = new URL(location.href); if (u.searchParams.has('hl')) { u.searchParams.delete('hl'); location.replace(u.href); } else location.reload(); }
+  // auto = đoán theo nước (không phải người dùng chọn) → không ghi cookie lk_lang mà "/" đọc (functions/api/_rootlang.js)
+  function set(l, auto) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); if (auto !== 1) document.cookie = 'lk_lang=' + l + ';path=/;max-age=31536000;samesite=lax;secure'; } catch (e) { /* bỏ qua */ } const u = new URL(location.href); if (u.searchParams.has('hl')) { u.searchParams.delete('hl'); location.replace(u.href); } else location.reload(); }
   // Ngôn ngữ dùng để hiển thị nghĩa/giải thích (người học có thể chọn khác giao diện)
   const learnLang = () => { const l = read('vb.learnLang'); return l && SUPPORTED.includes(l) ? l : lang; };
   // Ngôn ngữ của NGHĨA TỪ: 'vi' (nghĩa tiếng Việt) hoặc 'en' (định nghĩa tiếng Anh, kiểu từ điển Oxford Learner's).
