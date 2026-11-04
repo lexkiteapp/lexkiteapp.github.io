@@ -471,10 +471,25 @@
    "delegate": [
     "test/content-factory.mjs"
    ]
+  },
+  {
+   "id": "media-clips",
+   "paths": [
+    "content/media",
+    "web/js/media"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/media.mjs"
+   ]
   }
  ],
  "skip": {
-  "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
   "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
@@ -489,6 +504,7 @@
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
   "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
   "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",
-  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs"
+  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs",
+  "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs"
  }
 }

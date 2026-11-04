@@ -28,6 +28,7 @@
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
 | Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
+| Học qua video/audio (trình phát + transcript tương tác, 4 chế độ) | `MEDIA.md` |
 | Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` |
 | Học qua video YouTube (#/watch, /api/watch, add-on youtube.com) | `specs/video-learn.md` |
 | Thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO) | `specs/samples-visual.md` |

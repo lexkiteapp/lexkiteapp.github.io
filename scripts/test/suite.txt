@@ -243,6 +243,7 @@ node scripts/test/lesson-drag.mjs
 node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
+node scripts/test/media.mjs --strict
 node scripts/test/ci-policy.mjs
 node scripts/test/scroll-boot.mjs
 node scripts/test/datamuse-resilience.mjs

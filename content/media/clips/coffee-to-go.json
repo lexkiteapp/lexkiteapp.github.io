@@ -1,0 +1,29 @@
+{
+  "id": "coffee-to-go",
+  "kind": "teacher",
+  "level": "A2",
+  "title": "Coffee to go",
+  "topic": "daily",
+  "speakers": { "A": "ama", "B": "carlos" },
+  "speed": 0.75,
+  "source": { "type": "original", "author": "Lexkite", "note": "Original dialogue written by Lexkite; voices Kokoro TTS (Apache-2.0)." },
+  "license": "CC BY 4.0 Lexkite",
+  "phrases": {
+    "can I get": { "def": "a polite, casual way to order something", "tr": { "vi": "cho tôi…", "es": "¿me pones…?", "pt": "pode me ver…?", "fr": "je pourrais avoir…", "de": "kann ich … haben", "id": "boleh saya pesan…", "th": "ขอ…ได้ไหม", "zh": "我要…", "ja": "…をください", "ko": "…주시겠어요?", "hi": "मुझे … मिल सकता है?", "ar": "هل يمكنني الحصول على…", "ru": "можно мне…", "tr": "… alabilir miyim" } },
+    "to go": { "def": "food or drink you take away, not eat or drink there", "tr": { "vi": "mang đi", "es": "para llevar", "pt": "para viagem", "fr": "à emporter", "de": "zum Mitnehmen", "id": "dibawa pulang", "th": "กลับบ้าน (ใส่กลับ)", "zh": "外带", "ja": "持ち帰り", "ko": "포장", "hi": "पैक करके ले जाना", "ar": "سفري", "ru": "с собой", "tr": "paket" } },
+    "on me": { "def": "paid for by me; I will pay for it", "tr": { "vi": "để tôi trả", "es": "invito yo", "pt": "é por minha conta", "fr": "c'est pour moi", "de": "das geht auf mich", "id": "aku yang traktir", "th": "ฉันเลี้ยงเอง", "zh": "我请客", "ja": "私のおごりです", "ko": "제가 살게요", "hi": "मैं पैसे दूँगा", "ar": "على حسابي", "ru": "я угощаю", "tr": "benden" } },
+    "no worries": { "def": "it is not a problem; you're welcome", "tr": { "vi": "không sao đâu", "es": "no te preocupes", "pt": "sem problemas", "fr": "pas de souci", "de": "kein Problem", "id": "santai saja", "th": "ไม่เป็นไร", "zh": "没关系", "ja": "気にしないで", "ko": "괜찮아요", "hi": "कोई बात नहीं", "ar": "لا مشكلة", "ru": "без проблем", "tr": "sorun değil" } }
+  },
+  "lines": [
+    { "who": "A", "text": "Hi! Can I get a large latte, please?",
+      "tr": { "vi": "Chào bạn! Cho tôi một ly latte cỡ lớn nhé?", "es": "¡Hola! ¿Me pones un café con leche grande, por favor?", "pt": "Oi! Pode me ver um latte grande, por favor?", "fr": "Bonjour ! Je pourrais avoir un grand latte, s'il vous plaît ?", "de": "Hallo! Kann ich bitte einen großen Latte haben?", "id": "Hai! Boleh saya pesan latte ukuran besar?", "th": "สวัสดีค่ะ ขอลาเต้แก้วใหญ่หนึ่งแก้วได้ไหมคะ", "zh": "你好！我要一杯大杯拿铁，谢谢。", "ja": "こんにちは！ラテのLサイズをください。", "ko": "안녕하세요! 라떼 큰 사이즈로 한 잔 주시겠어요?", "hi": "नमस्ते! क्या मुझे एक बड़ा लाटे मिल सकता है?", "ar": "مرحبًا! هل يمكنني الحصول على لاتيه كبير من فضلك؟", "ru": "Здравствуйте! Можно мне большой латте, пожалуйста?", "tr": "Merhaba! Büyük boy bir latte alabilir miyim lütfen?" } },
+    { "who": "B", "text": "Sure. Is that for here or to go?",
+      "tr": { "vi": "Được ạ. Bạn uống ở đây hay mang đi?", "es": "Claro. ¿Es para tomar aquí o para llevar?", "pt": "Claro. É para tomar aqui ou para viagem?", "fr": "Bien sûr. C'est sur place ou à emporter ?", "de": "Gern. Zum Hiertrinken oder zum Mitnehmen?", "id": "Baik. Diminum di sini atau dibawa pulang?", "th": "ได้ครับ ทานที่นี่หรือกลับบ้านครับ", "zh": "好的。堂食还是外带？", "ja": "かしこまりました。店内ですか、お持ち帰りですか？", "ko": "네. 드시고 가세요, 포장하세요?", "hi": "ज़रूर। यहीं पिएँगे या पैक करके ले जाएँगे?", "ar": "بالتأكيد. هل هو هنا أم سفري؟", "ru": "Конечно. Здесь или с собой?", "tr": "Tabii. Burada mı, paket mi?" } },
+    { "who": "A", "text": "To go, please. I'm running late for work.",
+      "tr": { "vi": "Mang đi nhé. Tôi đang trễ giờ làm.", "es": "Para llevar, por favor. Llego tarde al trabajo.", "pt": "Para viagem, por favor. Estou atrasada para o trabalho.", "fr": "À emporter, s'il vous plaît. Je suis en retard pour le travail.", "de": "Zum Mitnehmen, bitte. Ich bin spät dran für die Arbeit.", "id": "Dibawa pulang, ya. Saya hampir terlambat kerja.", "th": "ใส่กลับค่ะ ฉันจะไปทำงานสายแล้ว", "zh": "外带，谢谢。我上班要迟到了。", "ja": "持ち帰りでお願いします。仕事に遅れそうなんです。", "ko": "포장해 주세요. 출근이 늦었어요.", "hi": "पैक कर दीजिए। मुझे काम के लिए देर हो रही है।", "ar": "سفري من فضلك. أنا متأخرة عن العمل.", "ru": "С собой, пожалуйста. Я опаздываю на работу.", "tr": "Paket lütfen. İşe geç kalıyorum." } },
+    { "who": "B", "text": "No worries. Oh wait, it's Ama! This one's on me.",
+      "tr": { "vi": "Không sao đâu. Ơ khoan, Ama đây mà! Ly này để tôi trả.", "es": "No te preocupes. ¡Espera, si es Ama! Este invito yo.", "pt": "Sem problemas. Espera, é a Ama! Esse é por minha conta.", "fr": "Pas de souci. Attends, c'est Ama ! Celui-ci, c'est pour moi.", "de": "Kein Problem. Moment, das ist ja Ama! Der geht auf mich.", "id": "Santai saja. Eh tunggu, ini Ama! Yang ini aku traktir.", "th": "ไม่เป็นไรครับ เดี๋ยวนะ อามานี่! แก้วนี้ผมเลี้ยงเอง", "zh": "没关系。等等，是Ama呀！这杯我请。", "ja": "大丈夫ですよ。あれ、アマじゃない！これは僕のおごり。", "ko": "괜찮아요. 잠깐, 아마잖아! 이건 제가 살게요.", "hi": "कोई बात नहीं। अरे रुको, यह तो अमा है! यह मेरी तरफ़ से।", "ar": "لا مشكلة. لحظة، إنها أما! هذا على حسابي.", "ru": "Без проблем. Подожди, это же Ама! Этот кофе я угощаю.", "tr": "Sorun değil. Dur bir dakika, bu Ama! Bu benden." } },
+    { "who": "A", "text": "Carlos! Thank you so much. You made my morning.",
+      "tr": { "vi": "Carlos! Cảm ơn bạn nhiều lắm. Bạn làm buổi sáng của tôi vui hẳn lên.", "es": "¡Carlos! Muchísimas gracias. Me has alegrado la mañana.", "pt": "Carlos! Muito obrigada. Você fez a minha manhã.", "fr": "Carlos ! Merci beaucoup. Tu as illuminé ma matinée.", "de": "Carlos! Vielen Dank. Du hast meinen Morgen gerettet.", "id": "Carlos! Terima kasih banyak. Pagiku jadi menyenangkan.", "th": "คาร์ลอส! ขอบคุณมากนะ ทำให้เช้านี้ของฉันดีขึ้นเลย", "zh": "Carlos！太谢谢你了。你让我一早上都很开心。", "ja": "カルロス！本当にありがとう。おかげで素敵な朝になったよ。", "ko": "카를로스! 정말 고마워. 덕분에 아침이 즐거워졌어.", "hi": "कार्लोस! बहुत-बहुत धन्यवाद। तुमने मेरी सुबह बना दी।", "ar": "كارلوس! شكرًا جزيلًا. لقد جعلت صباحي جميلًا.", "ru": "Карлос! Огромное спасибо. Ты сделал мне утро.", "tr": "Carlos! Çok teşekkürler. Sabahımı güzelleştirdin." } }
+  ]
+}

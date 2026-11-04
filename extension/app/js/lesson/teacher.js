@@ -230,6 +230,8 @@
           onBase: () => g.audioFail && g.audioFail(), onEnd: end,
           onFail: why => { if (hq !== h) return; hq = null; if (cue) return api.say(text, Object.assign({}, o, { plain: 1 })); g.LKAudio.note('tts', why + ' ' + o.voice); tts(); } });
       },
+      // talk(on): vòng nói/nghe theo audio NGOÀI (trình phát clip media/player.js – audio do trình phát giữ, giáo viên chỉ diễn)
+      talk(on) { if (!!on !== el.classList.contains('speaking')) talking(!!on); },
       stop() { if (capNow) capNow.all(); run++; talking(false); if (fc) fc.quiet(); if (hq) { hq.stop(); hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
       destroy() { if (capNow) capNow.all(); dead = true; run++; if (fc) fc.destroy(); if (hq) { hq.stop(); hq = null; } cancelAnimationFrame(raf); for (const v of V) { if (v) try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
     };
