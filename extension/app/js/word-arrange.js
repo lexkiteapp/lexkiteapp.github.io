@@ -101,7 +101,7 @@
       if (fresh) { void c.offsetWidth; c.style.transition = ''; }
     };
     const update = (x, y) => {
-      d.ghost.style.transform = `translate(${x - d.dx}px,${y - d.dy - LIFT}px) scale(1.06)`;
+      d.ghost.style.transform = `translate(${Math.max(6, Math.min((g.innerWidth || 1e4) - d.w - 6, x - d.dx))}px,${y - d.dy - LIFT}px) scale(1.06)`; // sát mép màn: bóng vẫn đọc được
       const A = o.ans.getBoundingClientRect(), inAns = x >= A.left - PAD && x <= A.right + PAD && y >= A.top - PAD && y <= A.bottom + PAD;
       o.ans.classList.toggle('lsn-dropok', inAns); d.ghost.classList.toggle('lsn-out', !inAns && d.fromAns);
       const R = d.rects, S = d.rtl ? -1 : 1;
@@ -127,7 +127,7 @@
       if (!d || e.pointerId !== d.id) return;
       if (!d.on) {
         if (Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < MOVE) return;
-        d.on = true; const r = d.el.getBoundingClientRect(); d.dx = d.x0 - r.left; d.dy = d.y0 - r.top; snap();
+        d.on = true; const r = d.el.getBoundingClientRect(); d.dx = d.x0 - r.left; d.dy = d.y0 - r.top; d.w = r.width; snap();
         d.ghost = d.el.cloneNode(true); d.ghost.removeAttribute('id'); d.ghost.classList.add('lsn-ghost'); d.ghost.setAttribute('aria-hidden', 'true'); d.ghost.style.width = r.width + 'px'; document.body.appendChild(d.ghost);
         d.el.classList.add('lsn-dragsrc');
         d.caret = document.createElement('span'); d.caret.className = 'lsn-caret'; d.caret.setAttribute('aria-hidden', 'true');
