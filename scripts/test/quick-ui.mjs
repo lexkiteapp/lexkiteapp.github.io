@@ -67,6 +67,7 @@ window.App = {
   saveSettings: async () => true,
   reward: async d => { rewarded += d.xp || 0; },
   cleanups: [],
+  homeHref: () => '#/home',
 };
 
 // 1. Nạp web/js/quick.js
