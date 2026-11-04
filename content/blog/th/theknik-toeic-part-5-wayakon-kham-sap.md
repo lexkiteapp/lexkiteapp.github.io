@@ -159,7 +159,7 @@ quiz: [
 
 บนแพลตฟอร์มการเรียนรู้ของ Lexkite คุณสามารถใช้ [เครื่องมือพจนานุกรมอัจฉริยะ](/#/) เพื่อค้นหาความหมายและการใช้คำศัพท์ธุรกิจ ต่อยอดการสนทนาใน [ห้องฝึกพูดภาษาอังกฤษ](/#/speaking) และตรวจสอบการออกเสียงคำศัพท์ผ่าน [ระบบวิเคราะห์เสียง](/#/practice/speak)
 
-หากต้องการพัฒนาทักษะภาษาอังกฤษธุรกิจอย่างรอบด้าน สามารถอ่านเพิ่มเติมได้ที่ [เทคนิคการบริหารเวลาใน TOEIC Part 7](/th/blog/theknik-toeic-part-7-kan-an-borihan-wela/) รวมทั้งบทความเกี่ยวกับการ [บริหารเวลาในการทำงาน](/th/blog/kan-chat-kan-wela-phasa-angkrit-thamma-ngan/) การใช้ [คำย่อภาษาอังกฤษที่ทำงานและอีเมล](/th/blog/kham-yo-phasa-angkrit-thamma-ngan-email-acronyms/) และการเรียนรู้ [คำศัพท์ภาษาอังกฤษที่ใช้บ่อย](/th/blog/kham-sap-phasa-angkrit-chai-boi/) นอกจากนี้ยังสามารถทบทวนคลังคำศัพท์มาตรฐานได้ที่หมวด [/tu-vung/](/tu-vung/)
+หากต้องการพัฒนาทักษะภาษาอังกฤษธุรกิจอย่างรอบด้าน สามารถอ่านเพิ่มเติมได้ที่ [เทคนิค TOEIC Listening Part 2](/th/blog/theknik-toeic-listening-part-2-kham-tham-kham-top/) ควบคู่กับ [เทคนิคการบริหารเวลาใน TOEIC Part 7](/th/blog/theknik-toeic-part-7-kan-an-borihan-wela/) รวมทั้งบทความเกี่ยวกับการ [บริหารเวลาในการทำงาน](/th/blog/kan-chat-kan-wela-phasa-angkrit-thamma-ngan/) การใช้ [คำย่อภาษาอังกฤษที่ทำงานและอีเมล](/th/blog/kham-yo-phasa-angkrit-thamma-ngan-email-acronyms/) และการเรียนรู้ [คำศัพท์ภาษาอังกฤษที่ใช้บ่อย](/th/blog/kham-sap-phasa-angkrit-chai-boi/) นอกจากนี้ยังสามารถทบทวนคลังคำศัพท์มาตรฐานได้ที่หมวด [/tu-vung/](/tu-vung/)
 
 {{cta: /#/toeic | เข้าสู่ห้องจำลองข้อสอบ TOEIC และฝึกทำ Part 5 บน Lexkite}}
 
