@@ -152,4 +152,4 @@ Evet, kesinlikle mümkündür. TOEIC sınavı oldukça standart ve tekrarlayan i
 ### Ne sıklıkla 200 soruluk tam deneme sınavı çözülmelidir?
 İlk temel atma evresinde her 3 haftada bir tam deneme çözmek ilerlemeyi görmek için yeterlidir. Sınavdan önceki son 4 haftada ise her cumartesi sabahı iki saatlik kesintisiz sınav simülasyonu yaparak zihinsel dayanıklılığınızı zirveye taşıyabilirsiniz.
 
-Soru-cevap bölümünde yüksek doğruluk oranı yakalamak için [toeic listening part 2 stratejileri soru cevap rehberimizi](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) mutlaka uygulayın.
+Soru-cevap bölümünde yüksek doğruluk oranı yakalamak için [toeic listening part 2 stratejileri soru cevap rehberimizi](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) mutlaka uygulayın ve akademik hedefleriniz için [yeni toefl formatı 2026](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) rehberimizden faydalanın.

@@ -100,7 +100,7 @@ Türkçe ve İngilizce arasındaki yapısal farklılıklar, IELTS sınavında be
 3. **Akademik Yazmada Abartılı Karmaşıklık:** Task 2 denemelerinde aşırı uzun ve anlaşılmaz cümleler kurmak puanınızı yükseltmez; aksine *Coherence and Cohesion* puanını düşürür. Fikirlerinizi net, doğrudan ve mantıklı paragraflar halinde sunmaya özen gösterin.
 4. **Speaking Bölümünde Ezber Yanıt Tuzağı:** Adaylar sıklıkla internette buldukları kalıp cümleleri kelimesi kelimesine ezberleyip sınav görevlisine tekrarlamaya çalışırlar. Ancak sınav görevlileri ezberlenmiş kalıpları hemen fark eder ve bu durum akıcılık puanınızı ciddi şekilde düşürür. Bunun yerine kendi fikirlerinizi doğal geçiş ifadeleriyle zenginleştirerek sunmalısınız.
 
-Kişisel gelişim sürecinizi doğrudan [uygulamadaki öğrenme rotasından](/#/path) takip edebilirsiniz.
+Kişisel gelişim sürecinizi doğrudan [uygulamadaki öğrenme rotasından](/#/path) takip edebilirsiniz; ayrıca Amerikan üniversiteleri hedefleriniz arasındaysa sınav gereksinimlerini [yeni toefl formatı 2026](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) rehberimizle karşılaştırabilirsiniz.
 
 {{youtube: | IELTS calisma plani sifirdan 6.5 seviyesine adim adim rehber}}
 
