@@ -33,6 +33,8 @@
     for (const s of cands) { const n = toks(s.text).length, f = findWord(s.text, c.word); if (f && n >= 3 && n <= 14) return Object.assign({}, s, { at: f }); }
     return null;
   }
+  // Thẻ mẫu câu (thẻ kết quả tự lưu, docs/specs/learn-card.md): từ = "Can I have …, please?", câu luyện = ex
+  const isPat = c => /…/.test(String((c && c.word) || ''));
   const fromExt = c => !!(c.src || (c.contexts || []).some(x => x && x.source && /^https?:/.test(x.source)));
   const isDue = (c, now) => !!(c.srs && (c.srs.reps > 0 || c.srs.last) && c.srs.due <= endOfDay(now));
   const isNew = c => !!(c.srs && c.srs.reps === 0 && !c.srs.last);
@@ -74,11 +76,11 @@
   function build(picks, opts = {}) {
     const r = rng(opts.seed || Date.now()), pool = (opts.pool || []).concat(picks.map(p => p.card)), off = opts.off || {}, per = opts.perWord || 2;
     const byWord = picks.map(p => {
-      const c = p.card, s = sentenceOf(c), types = [];
+      const c = p.card, pat = isPat(c) && c.ex, s = pat ? { text: c.ex, own: false, at: { toks: toks(c.ex) } } : sentenceOf(c), types = [];
       // câu song ngữ riêng cho dạng dịch (câu add-on thường không có bản dịch)
       const pair = (c.sentences || []).map(x => x && x.en && x.vi && findWord(x.en, c.word) && toks(x.en).length >= 3 && toks(x.en).length <= 10 ? { text: x.en, tr: x.vi, own: false, at: findWord(x.en, c.word) } : null).find(Boolean);
       if (s && !s.tr && opts.gloss) s.tr = opts.gloss(c, s.text) || ''; // bản dịch câu (gói web/packs/sent) – câu add-on thường không có
-      if (s) types.push('gap');
+      if (s && !pat) types.push('gap');
       if (s && s.at && s.at.toks.length <= 10 && (s.tr || !off.listen)) types.push('build'); // không nghe được + không có bản dịch câu → không có đề → không sinh
       if (opts.hasImg && opts.hasImg(c.word, c.pos)) types.push('pic');
       if (pair) types.push('tr');
@@ -101,12 +103,12 @@
       const { p, c, s } = w, base = { id: ++id, type, word: c.word, card: c, why: p.why, ipa: c.ipaUS || c.ipa || '', retry: 0, hints: HINTS[type] || [], mean: (opts.mean && opts.mean(c)) || '' };
       if (type === 'gap') { const opt = shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r)), r); return Object.assign(base, { sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: opt, tr: s.tr || '' }); }
       if (type === 'build' || type === 'tr') {
-        const s = type === 'tr' ? w.pair : w.s, words = toks(s.text), extra = distract(c.word, c.pos, pool, 2, r).filter(x => !words.some(y => same(y, x)));
+        const s = type === 'tr' ? w.pair : w.s, words = toks(s.text), extra = distract(c.word, c.pos, pool.filter(x => x && !/\s/.test(String(x.word).trim())), 4, r).filter(x => !words.some(y => same(y, x))).slice(0, 2); // ô nhiễu = 1 từ, không trùng từ của câu
         return Object.assign(base, { sent: s.text, own: s.own, prompt: s.tr || '', answer: words.join(' '), tiles: shuffle(words.concat(extra), r) }); // build: prompt = bản dịch câu (có thể '' khi chỉ nghe)
       }
       if (type === 'type') { const wd = c.word.trim(); return Object.assign(base, { answer: wd, def: c.def || '', len: wd.replace(/[\s'-]/g, '').length, first: wd[0], bank: letterBank(wd.toLowerCase(), rng([...wd].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7))) }); } // rng riêng theo từ: không làm lệch dãy xáo của cả bài (thứ tự đáp án/ô giữ ổn định)
       if (type === 'pic') return Object.assign(base, { answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r)), r) });
-      const short = s && toks(s.text).length <= 8, alt = s ? { type: 'gap', sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r)), r) }
+      const short = s && (toks(s.text).length <= 8 || isPat(c)), alt = s && s.at && s.at.form ? { type: 'gap', sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r)), r) }
         : { type: 'mean', answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r)), r) }; // bản thay khi tắt nói
       alt.hints = HINTS[alt.type]; if (alt.type === 'gap') alt.tr = s.tr || '';
       return Object.assign(base, { sent: short ? s.text : c.word, answer: short ? s.text : c.word, alt });
@@ -115,7 +117,7 @@
     // xen kẽ: không 2 bài liền cùng từ
     for (let i = 1; i < items.length; i++) if (same(items[i].word, items[i - 1].word)) { const j = items.findIndex((x, k) => k > i && !same(x.word, items[i - 1].word)); if (j > 0) [items[i], items[j]] = [items[j], items[i]]; }
     // Ghép cặp (từ ↔ nghĩa) giữa bài khi có ≥ 4 từ: 1 bài, không gắn từ riêng (card null → không ghi FSRS theo từ)
-    const mp = picks.filter(p => p.card.vi || p.card.def).slice(0, 5);
+    const mp = picks.filter(p => (p.card.vi || p.card.def) && !isPat(p.card)).slice(0, 5);
     if (opts.match !== false && (!opts.only || opts.only.includes('match')) && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', hints: HINTS.match, pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
     const out = items.map(it => adapt(it, off));
     return opts.calm ? calm(out) : out;
@@ -237,7 +239,7 @@
       out.push({ id: ++id, type: 'line', free: true, word: '#story', card: null, retry: 0, who: l.who, sent: l.en, radio: st.kind === 'radio' });
       (st.checks || []).filter(c => c.at === i).forEach(c => {
         const base = { id: ++id, word: '#story', card: null, retry: 0 };
-        if (c.type === 'tap') { const T = toks(st.lines[c.line].en), extra = shuffle(words.filter(w => !T.some(x => x.toLowerCase() === w)), r).slice(0, 2); out.push(Object.assign(base, { type: 'build', sent: st.lines[c.line].en, who: st.lines[c.line].who, answer: T.join(' '), tiles: shuffle(T.concat(extra), r) })); }
+        if (c.type === 'tap') { const T = toks(st.lines[c.line].en), extra = c.extra || shuffle(words.filter(w => !T.some(x => x.toLowerCase() === w)), r).slice(0, 2); out.push(Object.assign(base, { type: 'build', sent: st.lines[c.line].en, who: st.lines[c.line].who, answer: T.join(' '), tiles: shuffle(T.concat(extra), r) })); }
         else if (c.type === 'q') out.push(Object.assign(base, { type: 'q', prompt: c.q, answer: c.options[c.answer], options: c.keep ? c.options.slice() : shuffle(c.options.slice(), r) }));
         else if (c.type === 'match') out.push(Object.assign(base, { type: 'match', pairs: c.pairs.map(p => ({ word: p.en, mean: p.m[lang] || p.m.en })) }));
       });
@@ -248,5 +250,5 @@
   // Dạng bài theo loại nút
   const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
 
-  g.LessonEngine = { HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  g.LessonEngine = { isPat, HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);
