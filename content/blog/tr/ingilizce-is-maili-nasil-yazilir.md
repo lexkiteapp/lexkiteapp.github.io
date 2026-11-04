@@ -204,3 +204,5 @@ FYI (For Your Information - Bilginize) kurumsal yazışmalarda kabul gören stan
 
 ### Gönderilen e-postanın ideal uzunluğu ne kadar olmalıdır?
 İş dünyasında yoğun yöneticiler uzun e-postaları okumaktan kaçınır. İdeal bir iş e-postası 100 ile 200 kelime arasında olmalı, uzun açıklamalar gerekiyorsa detaylar ek bir rapora taşınarak e-posta metninde yalnızca ana noktalar özetlenmelidir.
+
+Uluslararası iş hayatında İngilizce yeterliliğinizi resmi sertifikayla belgelemek istiyorsanız, [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) ile hazırlık sürecinizi hemen planlayabilirsiniz.

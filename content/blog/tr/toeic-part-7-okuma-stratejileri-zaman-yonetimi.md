@@ -136,5 +136,6 @@ Sınavda 850 üzeri elit bir puan elde etmek, keskin bir okuma hızını geniş 
 - **Kurumsal Eşdizim Veritabanı**: Profesyonel iş hayatında en sık başvurulan resmi kalıpları Lexkite sözlüğünde kolayca inceleyin.
 - **FSRS Akıllı Hafıza Algoritması**: Lojistik, sözleşmeler ve finans terimlerini bilimsel aralıklarla tekrar ederek uzun vadeli hafızanıza kaydedin.
 - **Etkileşimli Konuşma Laboratuvarı**: Sınavın tüm aşamalarına hazırlanan adaylar için [Lexkite konuşma modülü](/#/practice/speak), telaffuzunuzu otomatik ses analiziyle geliştirme imkanı sunar.
+- **Kapsamlı Sınav Stratejisi**: Dinleme ve okuma çalışmalarını dengeli yürütmek için [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) aşamalarını uygulayın.
 
 Hemen [Lexkite web platformunu](/#/) kullanmaya başlayın, toeic part 7 stratejileriyle sınav süresini kusursuz yöneterek hedeflediğiniz başarıyı yakalayın!

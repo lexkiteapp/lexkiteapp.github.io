@@ -159,6 +159,7 @@ Soruları saniyeler içinde çözebilmek, düzenli pratik ve doğru çalışma a
 - **FSRS Akıllı Aralıklı Tekrar**: Sınavda çıkan binlerce iş terimini ve deyimsel fiili unutmadan hafızanızda tutun.
 - **Entegre Bağlamsal Sözlük**: Kelimelerin gerçek cümlelerdeki kullanımlarını ve IPA telaffuzunu anında görüntüleyin.
 - **İnteraktif Konuşma Laboratuvarı**: Dil becerilerinizi geliştirmek için [Lexkite konuşma pratiği](/#/practice/speak) modülünü kullanın.
+- **Sistemli Çalışma Takvimi**: Hazırlık sürecinizi adım adım organize etmek için [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) rehberimizi takip edin.
 
 [Lexkite web uygulamasına](/#/) bugün katılın ve TOEIC Part 5 hazırlığınızı zahmetsiz, hızlı ve yüksek puanlı bir deneyime dönüştürün!
 
