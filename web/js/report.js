@@ -11,10 +11,13 @@
   const CATS = [['bug', '🐞', 'Lỗi ứng dụng'], ['content', '📝', 'Nội dung sai'], ['i18n', '🌐', 'Bản dịch'], ['audio', '🔊', 'Âm thanh'], ['account', '💳', 'Thanh toán / tài khoản'], ['idea', '💡', 'Góp ý']];
   const ST = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
   const CONTENT = /^(dict|topic|read|reading|grammar|model|task1|letters|course|toeic-test|listen-test|mock|toefl-p|roleplay|call|cbt|method|pron|phrases)$/; // trang có mã nội dung (từ, bài, đề…)
-  const MAXB = 300 * 1024, KEY = 'lk.rp';
+  const MAXB = 300 * 1024, MAXPX = 1600, KEY = 'lk.rp';
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ls = { get(k, f) { try { const v = localStorage.getItem(k); return v == null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
   const mine = () => (Array.isArray(ls.get(KEY, [])) ? ls.get(KEY, []) : []);
+  // Báo đẩy "đã sửa": sw.js đọc '/__rep' (cache lk-meta) khi có push rỗng → hỏi trạng thái các phiếu chưa sửa → "Lỗi LX-… đã được sửa" (chữ đã dịch sẵn ở đây)
+  const syncRep = a => { try { if (!('caches' in w)) return; caches.open('lk-meta').then(c => c.put('/__rep', new Response(JSON.stringify({ title: t('Lỗi {id} đã được sửa'), body: t('Cảm ơn bạn đã báo – chạm để xem chi tiết.'), rows: a.map(x => ({ t: x.t, id: x.id, st: x.st })) }), { headers: { 'Content-Type': 'application/json' } }))).catch(() => {}); } catch (e) { /* không có Cache API */ } };
+  const devId = () => { const p = ls.get('lk.push', null) || ls.get('lk.fcm', null) || ls.get('lk.rpush', null); return p && /^[a-f0-9]{32}$/.test(p.id || '') ? p.id : ''; }; // id thiết bị nhắc học (nếu đã bật)
   // Mốc xử lý dự kiến (máy chủ trả { kind, h } – cấu hình trong Quản trị) → chữ
   const etaText = e => !e ? '' : e.kind === 'feature' ? t('Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.') : t('Dự kiến xử lý: {t}', { t: e.h < 48 ? t('trong {n} giờ', { n: e.h }) : e.h === 168 ? t('trong 1 tuần') : e.h % 24 === 0 && e.h <= 120 ? t('trong {a}–{b} ngày', { a: e.h / 24 - 1, b: e.h / 24 }) : t('trong {n} ngày', { n: Math.ceil(e.h / 24) }) });
   const LOCK = 30e3; let lastSent = 0; // chống gửi lặp: khóa nút 30 giây sau mỗi lần gửi
@@ -23,7 +26,7 @@
 
   // Bản tiếng Anh của module này nằm riêng (js/i18n/en/report.js) để khung app không phình – nạp trước khi vẽ
   let dictP;
-  const have = l => w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'];
+  const have = l => (w.I18N && w.I18N.has ? w.I18N.has(l, 'Báo cáo sự cố') : !!(w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'])); // gói khóa băm → I18N.has (dự phòng: i18n.js cũ trong bộ đệm)
   const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (have('en') && (I.lang() === 'en' || have(I.lang())))) ? Promise.resolve() : new Promise(r => {
     const l = I.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
     loadOne('js/i18n/en/report.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/report.js`) : null)).then(r);
@@ -79,22 +82,44 @@
   }
 
   // ---------- Ảnh chụp: người dùng đính kèm/dán ảnh → nén WebP/JPEG ≤ 300 KB ngay trên máy ----------
-  async function shrink(file) {
+  // Trần ảnh (MAXB, MAXPX): đo trên CI bằng OCR (scripts/report-shot-bench.mjs, workflow report-shots.yml) – chỉ hạ khi chữ vẫn đọc rõ như trần cũ
+  async function shrink(file, max0 = MAXPX, maxb = MAXB) {
     if (!file || !/^image\//.test(file.type)) throw new Error('type');
     const src = URL.createObjectURL(file);
     try {
       const img = await new Promise((y, n) => { const i = new Image(); i.onload = () => y(i); i.onerror = n; i.src = src; });
-      let max = 1600, q = 0.82;
+      let max = max0, q = 0.82;
       for (let k = 0; k < 9; k++) {
         const s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight)), c = d.createElement('canvas');
         c.width = Math.max(1, Math.round(img.naturalWidth * s)); c.height = Math.max(1, Math.round(img.naturalHeight * s));
         const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
         let out = c.toDataURL('image/webp', q); if (!/^data:image\/webp/.test(out)) out = c.toDataURL('image/jpeg', q);
-        if (out.length * 0.75 <= MAXB) return out;
+        if (out.length * 0.75 <= maxb) return out;
         if (q > 0.5) q -= 0.12; else { q = 0.72; max = Math.round(max * 0.72); }
       }
       throw new Error('big');
     } finally { URL.revokeObjectURL(src); }
+  }
+
+  // ---------- "Báo cho tôi khi sửa xong" (màn cảm ơn): chỉ khi máy CHƯA có thông báo đẩy; bấm mới xin quyền (không tự bật) ----------
+  // iOS Safari chưa thêm vào Màn hình chính / app gốc / add-on / đã chặn quyền → ẩn nút (dựa vào thư + nhắc trong app). Đăng ký "chỉ báo lỗi" (ro):
+  // máy chủ không gửi lời nhắc học cho thiết bị này (bật nhắc học sau sẽ dùng chung đăng ký). Khóa VAPID + cờ từ /api/push?op=cfg.
+  const isIOS = () => /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = () => !!(navigator.standalone || (w.matchMedia && w.matchMedia('(display-mode: standalone)').matches));
+  async function fixPushKey() {
+    if (devId() || w.Capacitor || /^chrome-extension:/.test(location.protocol) || !('serviceWorker' in navigator) || !('PushManager' in w) || !('Notification' in w) || Notification.permission === 'denied' || (isIOS() && !standalone())) return '';
+    const c = await fetch(BASE + '/api/push?op=cfg').then(x => (x.ok ? x.json() : {})).catch(() => ({}));
+    return c && c.on && /^[A-Za-z0-9_-]{40,200}$/.test(c.key || '') ? c.key : '';
+  }
+  async function fixPushOn(tok, key) {
+    if ((await Notification.requestPermission()) !== 'granted') return false;
+    const reg = await navigator.serviceWorker.ready, pad = '='.repeat((4 - key.length % 4) % 4), k = Uint8Array.from(atob((key + pad).replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+    const sub = (await reg.pushManager.getSubscription()) || await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: k });
+    let tz = 'UTC'; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { /* cũ */ }
+    const r = await (await fetch(BASE + '/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ op: 'sub', k: 'web', ro: 1, ep: sub.toJSON().endpoint, lmin: 1200, tz, lang: I ? I.lang() : 'en' }) })).json();
+    if (!/^[a-f0-9]{32}$/.test(r.id || '')) return false;
+    ls.set('lk.rpush', { id: r.id });
+    await post({ op: 'pid', t: tok, pid: r.id }); return true;
   }
 
   // ---------- Hộp thoại gửi ----------
@@ -137,11 +162,11 @@
       if (msg.length < 10) { err(t('Hãy mô tả ít nhất 10 ký tự.')); $('#lkrMsg').focus(); return; }
       if (notify && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { err(t('Email không hợp lệ.')); $('#lkrEm').focus(); return; }
       const go = $('#lkrGo'); go.disabled = true; go.textContent = t('Đang gửi…');
-      let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
+      let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, pid: devId(), hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
       go.disabled = false; go.textContent = t('Gửi');
       if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
       lastSent = Date.now(); ls.set('lk.rpl', lastSent);
-      if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); }
+      if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); syncRep(a.slice(-20)); }
       done(r, notify);
     };
     function done(r, notify) {
@@ -152,7 +177,12 @@
         ${r.eta ? `<p class="lkr-eta">⏱ ${esc(etaText(r.eta))}</p>` : ''}
         ${notify ? '' : `<p class="lkr-note">${esc(t('Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).'))}</p>`}</div>
         ${link ? `<label class="lkr-lb" for="lkrLink">${esc(t('Lưu đường dẫn riêng này để theo dõi trạng thái:'))}</label><div class="lkr-row"><input type="text" id="lkrLink" readonly value="${esc(link)}" style="flex:1"><button type="button" class="btn ghost sm" id="lkrCp">${esc(t('Sao chép liên kết'))}</button></div>` : ''}
+        <div class="lkr-row" id="lkrPushRow" hidden><button type="button" class="btn ghost sm" id="lkrPush">🔔 ${esc(t('Báo cho tôi khi sửa xong'))}</button><span class="lkr-note" id="lkrPushMsg" aria-live="polite"></span></div>
         <div class="lkr-act">${r.token ? `<a class="btn primary" href="#/report/${esc(r.token)}" data-x>${esc(t('Theo dõi tiến độ'))}</a>` : ''}<button type="button" class="btn ghost" data-x>${esc(t('Đóng'))}</button></div></div>`;
+      if (r.token) fixPushKey().then(key => { const row = dlg && dlg.querySelector('#lkrPushRow'), bt = row && row.querySelector('#lkrPush'); if (!key || !bt) return; row.hidden = false;
+        bt.onclick = async () => { bt.disabled = true; let ok = false; try { ok = await fixPushOn(r.token, key); } catch (e) { ok = false; }
+          if (ok) { bt.remove(); } else bt.disabled = false;
+          dlg.querySelector('#lkrPushMsg').textContent = ok ? t('Đã bật – bạn sẽ nhận thông báo khi lỗi được sửa.') : t('Chưa bật được thông báo – bạn vẫn thấy cập nhật trong app.'); }; }).catch(() => {});
       dlg.querySelectorAll('[data-x]').forEach(b => b.addEventListener('click', close));
       const cp = dlg.querySelector('#lkrCp'); if (cp) cp.onclick = async () => { const i = dlg.querySelector('#lkrLink'); try { await navigator.clipboard.writeText(i.value); } catch (e) { i.select(); try { d.execCommand('copy'); } catch (x) { /* bỏ qua */ } } cp.textContent = t('Đã sao chép'); };
       (dlg.querySelector('.btn.primary') || dlg).focus();
@@ -211,10 +241,11 @@
     const a = mine(); ls.set('lk.rpc', Date.now());
     if (!a.length) return [];
     let r; try { r = await post({ op: 'mine', ts: a.map(x => x.t) }); } catch (e) { return []; }
-    const rows = r.rows || [], changed = [];
-    for (const x of a) { const s = rows.find(y => y.t === x.t); if (!s) continue; if (s.upd > (x.seen || x.upd || 0)) changed.push({ ...x, st: s.status }); x.st = s.status; x.upd = s.upd; }
-    ls.set(KEY, a);
-    if (changed.length && d.body) {
+    const rows = r.rows || [], changed = [], quiet = Date.now() - (+ls.get('lk.rpt', 0) || 0) < 432e5; // ≤ 1 lời nhắc/12 giờ – bị chặn thì giữ thay đổi cho lượt sau
+    for (const x of a) { const s = rows.find(y => y.t === x.t); if (!s) continue; const ch = s.upd > (x.seen || x.upd || 0); if (ch) changed.push({ ...x, st: s.status }); if (!ch || !quiet) { x.st = s.status; x.upd = s.upd; } }
+    ls.set(KEY, a); await dict(); syncRep(a);
+    if (changed.length && d.body && !quiet) {
+      ls.set('lk.rpt', Date.now());
       await dict(); style();
       const c = changed[changed.length - 1], el = d.createElement('div');
       el.className = 'lkr-toast'; el.setAttribute('role', 'status');
@@ -226,5 +257,5 @@
     return changed;
   }
 
-  w.LexReport = { open, page, poll, _t: { shrink, context, etaText, timeline, CATS, ST, mine } };
+  w.LexReport = { open, page, poll, _t: { shrink, context, etaText, timeline, CATS, ST, mine, fixPushKey, fixPushOn } };
 })(window, document);

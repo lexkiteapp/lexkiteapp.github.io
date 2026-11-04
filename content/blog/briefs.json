@@ -20343,6 +20343,397 @@
    ],
    "angle": "针对中国英语学习者梳理最容易搞混的常见英语近义词与易混词（affect vs effect, historic vs historical, accept vs except），配详细例句与记忆技巧。",
    "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "tieng-anh-dam-phan-thuong-luong-hop-dong",
+   "keyword": "tiếng anh đàm phán",
+   "topic": "Tiếng Anh Đàm Phán: Mẫu Câu Thương Lượng Hợp Đồng và Thuyết Phục Đối Tác",
+   "category": "ky-nang",
+   "tags": [
+    "dam-phan",
+    "negotiation",
+    "tieng-anh-cong-so",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Cẩm nang tiếng anh đàm phán thương mại: mở đầu thương lượng, đưa ra đề xuất đối ứng, xử lý bế tắc và chốt điều khoản hợp đồng chuyên nghiệp.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "business-english-negotiation-phrases-guide",
+   "keyword": "business english negotiation phrases",
+   "topic": "Business English Negotiation Phrases: Professional Bargaining and Deal Closing",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "negotiation",
+    "bargaining",
+    "workplace-communication"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Essential business english negotiation phrases: framing counteroffers, navigating concessions, overcoming deal deadlocks, and sealing commercial agreements.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "frases-en-ingles-para-negociaciones-de-negocios",
+   "keyword": "negociación en inglés frases",
+   "topic": "Frases en Inglés para Negociaciones de Negocios: Cómo Regatear y Cerrar Acuerdos",
+   "category": "ky-nang",
+   "tags": [
+    "negociacion",
+    "business-english",
+    "ventas",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Guía práctica de negociación en inglés frases clave para plantear contraofertas, conceder ventajas condicionales, destrabar desacuerdos y firmar contratos comerciales.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "frases-em-ingles-para-negociacao-de-contratos",
+   "keyword": "negociação em inglês frases",
+   "topic": "Frases em Inglês para Negociação: Como Fazer Contrapropostas e Fechar Acordos",
+   "category": "ky-nang",
+   "tags": [
+    "negociacao",
+    "business-english",
+    "carreira",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Manual de negociação em inglês frases essenciais para abrir rodadas de negócios, propor concessões condicionais, superar impasses de preços e selar parcerias duradouras.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "negocier-en-anglais-phrases-cles-affaires",
+   "keyword": "négociation en anglais phrases",
+   "topic": "Négociation en Anglais : Phrases Clés pour Défendre Vos Prix et Conclure des Accords",
+   "category": "ky-nang",
+   "tags": [
+    "negociation",
+    "business-english",
+    "commerce",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Guide complet de la négociation en anglais phrases utiles pour formuler des contre-propositions, gérer les concessions, surmonter les blocages et signer des contrats.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "verhandlungen-auf-englisch-phrasen",
+   "keyword": "verhandlungen auf englisch phrasen",
+   "topic": "Verhandlungen auf Englisch: Wichtige Phrasen, Gegenangebote und Taktiken",
+   "category": "ky-nang",
+   "tags": [
+    "verhandlungen",
+    "business-english",
+    "vertrieb",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Leitfaden für Verhandlungen auf Englisch: Professionelle Formulierungen für Gegenangebote, das Lösen von Preisblockaden und rechtssichere Vertragsabschlüsse.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "frasa-negosiasi-bahasa-inggris-bisnis",
+   "keyword": "negosiasi bahasa inggris",
+   "topic": "Negosiasi Bahasa Inggris: Frasa Tawar-Menawar Kontrak dan Menutup Kesepakatan",
+   "category": "ky-nang",
+   "tags": [
+    "negosiasi",
+    "business-english",
+    "karier",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Panduan lengkap negosiasi bahasa inggris: teknik mengajukan penawaran balik, konsesi bersyarat, mengatasi kebuntuan harga, dan menutup kontrak bisnis.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "business-eigo-koshou-phrases-keiyaku",
+   "keyword": "英語 交渉 フレーズ",
+   "topic": "英語交渉フレーズ集：価格交渉・条件提示・契約締結までの実戦表現",
+   "category": "ky-nang",
+   "tags": [
+    "koshou",
+    "business-eigo",
+    "speaking",
+    "keiyaku"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "ビジネス英語交渉フレーズ集：条件付き譲歩、価格交渉の切り返し、デッドロック打開から契約締結まで、外資系やグローバル取引で役立つ実践表現を網羅。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "shang-wu-ying-yu-tan-pan-ju-xing-he-tong",
+   "keyword": "商务英语 谈判 句型",
+   "topic": "商务英语谈判实用句型：价格博弈、让步条件与合同敲定全流程指南",
+   "category": "ky-nang",
+   "tags": [
+    "tan-pan",
+    "shang-wu-ying-yu",
+    "speaking",
+    "he-tong"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "外企跨国商务英语谈判必备句型：从开场破冰、提出还盘对案、化解价格僵局到正式敲定商业合同，全流程专业表达深度解析。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "business-yeongeo-hyeobsang-pyohyeon-gyeyak",
+   "keyword": "영어 협상 표현",
+   "topic": "비즈니스 영어 협상 표현：가격 협상, 조건 조율 및 계약 체결 핵심 패턴",
+   "category": "ky-nang",
+   "tags": [
+    "hyeobsang",
+    "business-yeongeo",
+    "speaking",
+    "gyeyak"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "실전 비즈니스 영어 협상 표현 가이드: 조건부 양보 제안, 가격 대치 국면 타개, 정중한 거절과 계약서 조항 최종 확정까지 핵심 패턴 완벽 정리.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "frazy-dlya-peregovorov-na-angliyskom",
+   "keyword": "фразы для переговоров на английском",
+   "topic": "Фразы для деловых переговоров на английском: уступки, торг и заключение контракта",
+   "category": "ky-nang",
+   "tags": [
+    "peregovory",
+    "delovoy-angliyskiy",
+    "speaking",
+    "kontrakt"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Практическое руководство по фразам для переговоров на английском: условные уступки, обсуждение цены, выход из тупика и подписание международного контракта.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "ingilizce-muzakere-kaliplari-ve-sozlesme",
+   "keyword": "ingilizce müzakere kalıpları",
+   "topic": "İngilizce Müzakere Kalıpları: Fiyat Pazarlığı, Koşullu Taviz ve Sözleşme Kapatma",
+   "category": "ky-nang",
+   "tags": [
+    "muzakere",
+    "is-ingilizcesi",
+    "speaking",
+    "sozlesme"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "İş dünyasında İngilizce müzakere kalıpları rehberi: karşı teklif sunma, koşullu tavizler, fiyat kilitlenmelerini aşma ve anlaşma bağlama stratejileri.",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "samnuan-tor-rong-phasa-angrit-thurakit",
+   "keyword": "ภาษาอังกฤษ เจรจาต่อรอง",
+   "topic": "ภาษาอังกฤษ เจรจาต่อรองธุรกิจ: การต่อรองราคา การแลกเปลี่ยนเงื่อนไข และปิดดีลสัญญา",
+   "category": "ky-nang",
+   "tags": [
+    "tor-rong",
+    "business-english",
+    "speaking",
+    "sanya"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "รวมประโยคและสำนวนภาษาอังกฤษ เจรจาต่อรองธุรกิจ: การยื่นข้อเสนอโต้แย้ง การประนีประนอมอย่างมีเงื่อนไข การคลี่คลายจุดติดขัด และการลงนามในสัญญาการค้า.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "ibarat-al-mufawadat-bil-injiliziyya-lil-aamal",
+   "keyword": "عبارات التفاوض باللغة الإنجليزية",
+   "topic": "عبارات التفاوض باللغة الإنجليزية في الأعمال: تقديم العروض المضادة وإبرام العقود",
+   "category": "ky-nang",
+   "tags": [
+    "mufawadat",
+    "aamal-injiliziyya",
+    "speaking",
+    "uqud"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "دليل عبارات التفاوض باللغة الإنجليزية للأعمال: تقديم التنازلات المشروطة، معالجة الجمود في الأسعار، والوصول إلى صفقات رابحة وتوقيع العقود التجارية.",
+   "intent": "informational"
+  },
+  {
+   "lang": "hi",
+   "slug": "business-english-me-negotiation-phrases-guide",
+   "keyword": "business english negotiation phrases",
+   "topic": "Business English Negotiation Phrases: मोलभाव, शर्तें और कॉन्ट्रैक्ट क्लोजिंग गाइड",
+   "category": "ky-nang",
+   "tags": [
+    "negotiation",
+    "business-english",
+    "speaking",
+    "contract"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "व्यावसायिक सौदों के लिए business english negotiation phrases: सशर्त छूट की पेशकश, गतिरोध दूर करना, प्रति-प्रस्ताव और सफल अनुबंध हस्ताक्षर के महत्वपूर्ण पैटर्न।",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "thanh-ngu-tieng-anh-cong-so-thong-dung",
+   "keyword": "thành ngữ tiếng anh công sở",
+   "topic": "Thành ngữ tiếng Anh công sở: 50+ idioms thực chiến trong họp và giao tiếp doanh nghiệp",
+   "category": "tu-vung",
+   "tags": [
+    "thanh-ngu",
+    "business-english",
+    "cong-so",
+    "idioms"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Tổng hợp thành ngữ tiếng anh công sở thông dụng: hiểu đúng nghĩa bóng, ngữ cảnh sử dụng trong họp, đàm phán và gửi email chuyên nghiệp.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "business-english-idioms-workplace-guide",
+   "keyword": "business english idioms",
+   "topic": "Essential Business English Idioms: Master Corporate Jargon in Meetings and Emails",
+   "category": "tu-vung",
+   "tags": [
+    "idioms",
+    "business-english",
+    "workplace",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Comprehensive guide to business english idioms: decoding corporate jargon, nuanced meanings in boardrooms, negotiation calls, and executive emails.",
+   "intent": "informational"
   }
  ]
 }

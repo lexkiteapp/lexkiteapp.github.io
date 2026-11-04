@@ -24,7 +24,7 @@ files = files.filter(f => fs.existsSync(path.join(ROOT, f)));
 
 // Bỏ: bản sao dựng (extension/app = web), vendor, bundle i18n sinh, dữ liệu lớn, nhị phân.
 const SKIP = [/^extension\/app\//, /(^|\/)node_modules\//, /^(dist|out|legacy-public)\//, /^mobile\/(ios|android)\//, /(^|\/)vendor\//, /\.min\.js$/,
-  /^web\/js\/i18n\//, /^web\/js\/(notes|vimg|get-app|explain)\//, /^web\/(packs|data|audio|img|icons|screenshots|fonts|sfx)\//, /^content\//, /^brand\/library\//, /^extension\/_locales\//];
+  /^web\/js\/i18n\//, /^i18n\/ui\//, /^web\/js\/(notes|vimg|get-app|explain)\//, /^web\/(packs|data|audio|img|icons|screenshots|fonts|sfx)\//, /^content\//, /^brand\/library\//, /^extension\/_locales\//];
 const isCode = f => /\.(m?js|cjs)$/.test(f) && !SKIP.some(r => r.test(f));
 const size = f => fs.statSync(path.join(ROOT, f)).size;
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');

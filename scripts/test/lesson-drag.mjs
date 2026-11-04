@@ -1,4 +1,4 @@
-// Test kéo-thả ô chữ bài xếp câu (web/js/lesson/drag.js, docs/specs/sentence-builder.md): chèn/đổi chỗ/gỡ bằng con trỏ, bàn phím, chạm vẫn như cũ.
+// Test kéo-thả ô chữ bài xếp câu (web/js/word-arrange.js, docs/specs/learn-flow-nav.md): chèn/đổi chỗ/gỡ bằng con trỏ, bàn phím, chạm vẫn như cũ.
 // Chạy: node scripts/test/lesson-drag.mjs
 import fs from 'node:fs';
 import jsdom from 'jsdom';
@@ -6,8 +6,8 @@ import jsdom from 'jsdom';
 let total = 0, fails = 0;
 const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 const dom = new jsdom.JSDOM('<div id="lsnAns" class="lsn-ans"></div><div id="lsnBank" class="lsn-bank"></div>', { runScripts: 'outside-only', pretendToBeVisual: true });
-const w = dom.window, doc = w.document; w.eval(fs.readFileSync('web/js/lesson/drag.js', 'utf8'));
-const D = w.TileDrag;
+const w = dom.window, doc = w.document; w.eval(fs.readFileSync('web/js/word-arrange.js', 'utf8'));
+const D = w.WordArrange;
 
 // A. Lõi thuần
 ok(JSON.stringify(D.insertAt([0, 1, 2], 2, 0)) === '[2,0,1]', 'insertAt: đưa ô lên đầu');
@@ -28,9 +28,9 @@ ans.getBoundingClientRect = () => ({ left: 0, top: 0, width: 400, height: 40, ri
 bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || order.includes(+b.dataset.i)) return; order.push(+b.dataset.i); draw(); };
 ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b) return; order = order.filter(i => i !== +b.dataset.a); draw(); };
 const t = (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => v[k]);
-D.bind({ ans, bank, get: () => order, set: o => { order = o; draw(); }, locked: () => locked, word: i => WORDS[i], say: s => { said = s; }, t });
+D.bind({ ans, bank, get: () => order, set: o => { order = o; }, draw, locked: () => locked, word: i => WORDS[i], say: s => { said = s; }, t });
 const P = (type, el, x, y) => { const e = new w.MouseEvent(type, { bubbles: true, cancelable: true, clientX: x, clientY: y, button: 0 }); Object.defineProperty(e, 'pointerId', { value: 1 }); el.dispatchEvent(e); };
-const tick = () => new Promise(r => setTimeout(r, 5)); // trình duyệt: click giả sau khi kéo tới ngay; bộ nuốt click tự tắt ở lượt kế
+const tick = () => new Promise(r => setTimeout(r, 80)); // trình duyệt: click giả sau khi kéo tới ngay; bộ nuốt click tự tắt ở lượt kế
 const tile = (c, i) => c.querySelector(`[data-${c === ans ? 'a' : 'i'}="${i}"]`);
 
 tile(bank, 0).click(); tile(bank, 1).click(); tile(bank, 3).click();
@@ -60,8 +60,53 @@ ok(order.join() === '0,1' && /Đã gỡ/.test(said), 'phím Delete: gỡ');
 locked = true; P('pointerdown', tile(ans, 1), 70, 20); P('pointermove', doc, 90, 30); P('pointermove', doc, 0, 20); P('pointerup', doc, 0, 20);
 ok(order.join() === '0,1', 'đã chấm: không kéo được');
 // CSS: giảm chuyển động + không chặn cuộn ngoài ô
-const css = fs.readFileSync('web/css/tactile-x.css', 'utf8');
-ok(/prefers-reduced-motion:reduce\)\{\.lsn-ghost\{transition:none/.test(css) && /\.lsn-ans \.lsn-tile,\.lsn-bank \.lsn-tile\{touch-action:none/.test(css), 'CSS: reduced-motion + touch-action chỉ trên ô');
+const css = fs.readFileSync('web/js/word-arrange.js', 'utf8');
+ok(/prefers-reduced-motion:reduce\)\{[^}]*\.lsn-ghost[^}]*transition:none/.test(css) && /\.wa-ans \[data-a\],\.wa-bank \[data-i\]\{min-height:44px;touch-action:none/.test(css), 'CSS: reduced-motion + touch-action chỉ trên ô + ô ≥44 px');
+locked = false;
+
+// C. Câu nhiều dòng: vị trí theo dòng gần con trỏ, vạch ở đúng dòng, thẻ cùng dòng dạt ra, thẻ dòng khác đứng yên
+const R2 = [{ left: 0, top: 0, width: 50, height: 40 }, { left: 60, top: 0, width: 50, height: 40 }, { left: 0, top: 50, width: 50, height: 40 }, { left: 60, top: 50, width: 50, height: 40 }];
+ok(D.rowsOf(R2).length === 2 && D.rowsOf(R2)[1].ids.join() === '2,3', 'rowsOf: gom thẻ theo dòng');
+ok(D.slotIndex(R2, 500, 20) === 2 && D.slotIndex(R2, 500, 70) === 4 && D.slotIndex(R2, 70, 70) === 3, 'slotIndex nhiều dòng: cuối dòng / cuối câu / giữa dòng 2');
+order = [0, 1, 3, 4]; draw();
+[...ans.children].forEach((el, i) => { el.getBoundingClientRect = () => ({ left: (i % 2) * 60, top: i < 2 ? 0 : 50, width: 50, height: 40, right: (i % 2) * 60 + 50, bottom: (i < 2 ? 0 : 50) + 40 }); });
+ans.getBoundingClientRect = () => ({ left: 0, top: 0, width: 400, height: 90, right: 400, bottom: 90 });
+P('pointerdown', tile(bank, 2), 140, 220); P('pointermove', doc, 150, 210); P('pointermove', doc, 70, 70);
+const caret = ans.querySelector('.lsn-caret');
+ok(/,50px\)/.test(caret.style.transform) && tile(ans, 3).style.transform.includes('-7px') && tile(ans, 4).style.transform.includes('7px') && !tile(ans, 0).style.transform, 'kéo vào dòng 2: vạch đúng dòng, hai bên dạt ra, dòng 1 đứng yên');
+P('pointermove', doc, 420, 20);
+ok(/,0px\)/.test(caret.style.transform) && !tile(ans, 4).style.transform, 'cuối dòng 1: vạch theo tay về dòng 1, dòng 2 hết dạt');
+// Esc hủy kéo: không đổi gì, không để sót bóng/vạch/dạt, click sau đó không tính là chạm
+doc.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
+ok(order.join() === '0,1,3,4' && !doc.querySelector('.lsn-ghost') && !ans.querySelector('.lsn-caret') && !tile(ans, 3).style.transform, 'Esc: hủy kéo, dọn sạch');
+P('pointerup', doc, 420, 20); await tick(); await tick();
+
+// D. Hoàn tác (Ctrl/⌘+Z) và bàn phím đưa thẻ vào giữa ngay sau khi đặt
+const K = (el, key, extra = {}) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key, bubbles: true, cancelable: true, ...extra }));
+order = [0, 1, 3]; draw();
+tile(bank, 2).dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true, detail: 0 }));
+ok(order.join() === '0,1,3,2' && doc.activeElement === tile(ans, 2), 'Enter trên thẻ ngân hàng: đặt rồi focus sang thẻ vừa đặt');
+K(tile(ans, 2), 'ArrowLeft'); ok(order.join() === '0,1,2,3', '← đưa thẻ vừa đặt vào giữa');
+K(tile(ans, 2), 'Home'); ok(order.join() === '2,0,1,3', 'Home: về đầu câu');
+K(tile(ans, 2), 'End'); ok(order.join() === '0,1,3,2', 'End: về cuối câu');
+K(doc, 'z', { ctrlKey: true }); ok(order.join() === '2,0,1,3', 'Ctrl+Z: hoàn tác bước End');
+K(doc, 'z', { metaKey: true }); ok(order.join() === '0,1,2,3', '⌘+Z: hoàn tác bước Home');
+K(doc, 'z', { ctrlKey: true }); K(doc, 'z', { ctrlKey: true }); ok(order.join() === '0,1,3', 'Ctrl+Z: về trước khi đặt thẻ, thẻ về ngân hàng');
+ok(!tile(bank, 2).disabled && tile(bank, 0).disabled && tile(bank, 0).classList.contains('used'), 'ô giữ chỗ: thẻ đã đặt bị khóa + giữ chỗ; thẻ gỡ mở lại');
+
+// E. RTL (bản thẻ không phải tiếng Anh): chia vị trí và phím mũi tên đảo chiều
+const RT = [{ left: 200, top: 0, width: 50, height: 40 }, { left: 140, top: 0, width: 50, height: 40 }];
+ok(D.slotIndex(RT, 240, 20, true) === 0 && D.slotIndex(RT, 195, 20, true) === 1 && D.slotIndex(RT, 100, 20, true) === 2, 'slotIndex RTL: đầu / giữa / cuối');
+order = [0, 1]; draw(); ans.style.direction = 'rtl';
+K(tile(ans, 1), 'ArrowRight'); ok(order.join() === '1,0', 'RTL: → đưa thẻ về phía đầu câu');
+ans.style.direction = '';
+
+// F. Chỉ còn một component xếp câu: mọi màn dùng WordArrange, app nạp đúng gói
+const SRC = f => fs.readFileSync(f, 'utf8');
+ok(['web/js/lesson/ui.js', 'web/js/grammar.js', 'web/js/toefl.js'].every(f => /WordArrange\.bind\(/.test(SRC(f))), 'bài học, ngữ pháp, TOEFL đều dùng WordArrange.bind');
+ok(!/ChoiceKit\.tiles|TileDrag|lesson\/drag\.js/.test(SRC('web/js/app.js') + SRC('web/js/lesson/ui.js')) && !fs.existsSync('web/js/lesson/drag.js'), 'không còn bản kéo-thả riêng');
+const app = SRC('web/js/app.js');
+ok(['lesson', 'grammar', 'toefl'].every(k => new RegExp(`\\b${k}: \\[[^\\]]*'js/word-arrange\\.js'`).test(app)), 'gói lesson/grammar/toefl nạp word-arrange.js');
 
 console.log(`\n${total - fails}/${total} lesson-drag`);
 process.exit(fails ? 1 : 0);

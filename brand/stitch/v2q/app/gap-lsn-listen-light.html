@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — IELTS Sound Lab</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#f6ece4",
+            "on-primary-fixed-variant": "#00504c",
+            "on-background": "#1f1b16",
+            "inverse-on-surface": "#f9efe6",
+            "on-primary-container": "#9ce9e2",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#eae1d8",
+            "on-secondary-fixed-variant": "#683c00",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "on-tertiary-fixed": "#410000",
+            "on-surface": "#1f1b16",
+            "on-primary-fixed": "#00201e",
+            "outline-variant": "#bec9c7",
+            "primary": "#00514d",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#34302a",
+            "on-secondary-fixed": "#2c1600",
+            "surface": "#fff8f3",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#663b00",
+            "tertiary-fixed": "#ffdad4",
+            "outline": "#6f7978",
+            "inverse-primary": "#88d4cd",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#ffdcbc",
+            "secondary-container": "#fe9d19",
+            "tertiary-container": "#b03224",
+            "surface-container-high": "#f0e7de",
+            "on-tertiary-container": "#ffd0c9",
+            "surface-tint": "#106a65",
+            "surface-container-low": "#fcf2e9",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "error": "#ba1a1a",
+            "secondary": "#895100",
+            "background": "#fff8f3",
+            "on-surface-variant": "#3f4947",
+            "surface-container-highest": "#eae1d8",
+            "surface-dim": "#e2d8d0",
+            "surface-bright": "#fff8f3",
+            "primary-fixed-dim": "#88d4cd",
+            "primary-fixed": "#a4f0e9",
+            "primary-container": "#136b66",
+            "tertiary": "#8e190f"
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "2rem",
+            xl: "3rem",
+            full: "9999px"
+          },
+          spacing: {
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin-desktop": "2.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            margin: "1rem",
+            gutter: "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined[data-weight="fill"],
+    .icon-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center p-0 m-0">
+<!-- Mobile Canvas Frame: 390px edge-to-edge without wrapper borders -->
+<main class="w-[390px] min-h-screen bg-background flex flex-col justify-between px-4 pt-3 pb-6 select-none">
+<!-- Top Block: Navigation Header, Status, and Problem Title -->
+<div>
+<!-- Row 1: Header & Top Bar -->
+<div class="flex items-center justify-between gap-3 h-11 mb-3">
+<!-- Close Button (Min 44x44px target) -->
+<button aria-label="Close" class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-lowest text-on-surface border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] active:translate-y-[2px] active:shadow-[0_1px_0_theme(colors.outline-variant)] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Progress Bar Indicator -->
+<div class="flex-1 h-3.5 bg-surface-variant rounded-full overflow-hidden p-0.5 border border-outline-variant shadow-inner">
+<div class="h-full bg-primary-container rounded-full relative w-3/5">
+<!-- Specular 3D Highlight bar -->
+<div class="absolute inset-x-1 top-0 h-[2px] bg-on-primary-container rounded-full opacity-60"></div>
+</div>
+</div>
+<!-- Heart Counter Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] min-h-[44px]">
+<span class="material-symbols-outlined text-tertiary-container icon-fill text-[20px]" data-icon="favorite" data-weight="fill">favorite</span>
+<span class="font-headline-sm text-headline-sm text-[#141819] leading-none pt-0.5">5</span>
+</div>
+</div>
+<!-- Row 2: Sub-Header Row -->
+<div class="flex items-center justify-between mt-1 mb-2">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed border border-primary-container/20">
+<span class="material-symbols-outlined text-primary text-[15px]" data-icon="volume_up">volume_up</span>
+<span class="font-label-sm text-label-sm text-primary tracking-wide">IELTS SOUND LAB</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#1C1003] font-extrabold tracking-wider">PHONEME DRILL</span>
+</div>
+<!-- Row 3: Headline & Subtitle -->
+<div class="mb-3.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#141819] tracking-tight">Tap what you hear</h1>
+<p class="font-body-sm text-body-sm text-[#2D3A3B] font-semibold mt-0.5">Distinguish minimal vowel pairs under exam speed</p>
+</div>
+<!-- Section: Teacher Slot Component & Speech Balloon -->
+<div class="flex items-stretch gap-2.5 mb-3.5">
+<!-- Teacher Slot Component (Strictly no text inside) -->
+<div class="teacher-slot w-[56px] shrink-0 rounded-2xl border-2 border-dashed border-[#0F5E58] bg-primary-fixed/20 flex items-center justify-center py-2">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-[0_3px_0_theme(colors.on-primary-fixed-variant)]">
+<span class="material-symbols-outlined text-[24px]" data-icon="school">school</span>
+</div>
+</div>
+<!-- Teacher Speech Balloon / Card -->
+<div class="flex-1 bg-surface-container-lowest rounded-2xl p-2.5 border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] relative flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-[#141819] font-extrabold">TEACHER AMA</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-[#1C1003] font-bold">IELTS Coach</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#141819] font-medium leading-tight">
+            “Listen for the vowel sound in the middle.”
+          </p>
+</div>
+</div>
+<!-- Section: Audio Waveform & Player Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-3 border-2 border-[#ECDDCF] shadow-[0_4px_0_#E2D7C7] mb-3.5">
+<!-- Audio Visualizer Waveform Graphic -->
+<div class="bg-surface-container-low rounded-xl px-4 py-3 border border-outline-variant/40 mb-3 flex items-center justify-center gap-1.5 h-16">
+<span class="w-1.5 h-4 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-7 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-10 rounded-full bg-[#F59E0B]"></span>
+<span class="w-1.5 h-12 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-6 rounded-full bg-[#F59E0B]"></span>
+<span class="w-1.5 h-9 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-11 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-8 rounded-full bg-[#F59E0B]"></span>
+<span class="w-1.5 h-5 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-10 rounded-full bg-[#0F5E58]"></span>
+<span class="w-1.5 h-4 rounded-full bg-[#F59E0B]"></span>
+<span class="w-1.5 h-7 rounded-full bg-[#0F5E58]"></span>
+</div>
+<!-- Audio Player Action Buttons -->
+<div class="flex items-center gap-2">
+<!-- LISTEN Button -->
+<button class="flex-1 min-h-[52px] bg-[#0F3D3E] text-on-primary rounded-xl px-4 py-2.5 flex items-center justify-center gap-2 shadow-[0_4px_0_#072223] active:translate-y-[3px] active:shadow-[0_1px_0_#072223] transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+<span class="font-label-lg text-label-lg tracking-wide uppercase font-extrabold text-white">LISTEN</span>
+</button>
+<!-- 0.75x Slow Playback Button -->
+<button class="min-h-[52px] min-w-[52px] px-3.5 rounded-xl bg-surface-container-lowest border-2 border-outline-variant text-[#141819] flex items-center justify-center gap-1 shadow-[0_4px_0_#D4C7B3] active:translate-y-[3px] active:shadow-[0_1px_0_#D4C7B3] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#141819]" data-icon="speed">speed</span>
+<span class="font-label-md text-label-md font-extrabold text-[#141819]">0.75x</span>
+</button>
+</div>
+</div>
+<!-- Section: 2x2 Phoneme Choice Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card 1: Default -->
+<button class="relative text-left p-3 rounded-2xl bg-surface-container-lowest border-2 border-outline-variant shadow-[0_4px_0_#E2D7C7] active:translate-y-[3px] active:shadow-[0_1px_0_#E2D7C7] transition-all" type="button">
+<div class="font-headline-sm text-headline-sm text-[#141819] font-extrabold mb-0.5">though</div>
+<div class="font-body-sm text-body-sm text-[#2D3A3B] font-bold tracking-tight">/ðəʊ/</div>
+</button>
+<!-- Card 2: SELECTED State -->
+<button class="relative text-left p-3 rounded-2xl bg-[#EAF3F2] border-2 border-[#0F5E58] shadow-[0_4px_0_#0F5E58] active:translate-y-[3px] active:shadow-[0_1px_0_#0F5E58] transition-all" type="button">
+<div class="flex items-start justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-[#0F3D3E] font-extrabold mb-0.5">thought</div>
+<div class="font-body-sm text-body-sm text-[#0F3D3E] font-bold tracking-tight">/θɔːt/</div>
+</div>
+<!-- Checkmark badge -->
+<div class="w-6 h-6 rounded-full bg-[#0F3D3E] text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-black text-white" data-icon="check">check</span>
+</div>
+</div>
+</button>
+<!-- Card 3: Default -->
+<button class="relative text-left p-3 rounded-2xl bg-surface-container-lowest border-2 border-outline-variant shadow-[0_4px_0_#E2D7C7] active:translate-y-[3px] active:shadow-[0_1px_0_#E2D7C7] transition-all" type="button">
+<div class="font-headline-sm text-headline-sm text-[#141819] font-extrabold mb-0.5">through</div>
+<div class="font-body-sm text-body-sm text-[#2D3A3B] font-bold tracking-tight">/θruː/</div>
+</button>
+<!-- Card 4: Default -->
+<button class="relative text-left p-3 rounded-2xl bg-surface-container-lowest border-2 border-outline-variant shadow-[0_4px_0_#E2D7C7] active:translate-y-[3px] active:shadow-[0_1px_0_#E2D7C7] transition-all" type="button">
+<div class="font-headline-sm text-headline-sm text-[#141819] font-extrabold mb-0.5">tough</div>
+<div class="font-body-sm text-body-sm text-[#2D3A3B] font-bold tracking-tight">/tʌf/</div>
+</button>
+</div>
+</div>
+<!-- Bottom Action Bar / CTA Button (Task-focused journey: BottomNav suppressed) -->
+<div class="pt-4">
+<button class="w-full min-h-[54px] rounded-2xl bg-[#F59E0B] text-[#1C1003] border border-[#F59E0B] shadow-[0_4px_0_#B45309] active:translate-y-[3px] active:shadow-[0_1px_0_#B45309] flex items-center justify-center gap-2 px-6 transition-all" type="button">
+<span class="font-headline-sm text-headline-sm tracking-wide font-extrabold text-[#1C1003]">CHECK</span>
+<span class="material-symbols-outlined text-[24px] font-black text-[#1C1003]" data-icon="check">check</span>
+</button>
+</div>
+</main>
+</body></html>

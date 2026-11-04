@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite - Spaced Repetition Review</title>
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#165B5C',
+              coral: '#FF5C38',
+              'coral-active': '#E04A27',
+              cream: '#FAF8F5',
+              'cream-container': '#F4EFEA',
+              'cream-card': '#FFFFFF',
+              border: '#E3DDD4',
+              'border-subtle': '#EDE8E1',
+              muted: '#526062',
+              'text-dark': '#101D1E',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-card': '0 3px 0 0 #DED6CB',
+            'tactile-btn': '0 4px 0 0 #C93F20',
+            'tactile-pill': '0 2px 0 0 #D4CCC1',
+            'tactile-teal': '0 3px 0 0 #072223',
+            'tactile-rating': '0 3px 0 0 #D8D0C4',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Prevent text selection and optimize touch targets */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #FAF8F5;
+      color: #101D1E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] flex justify-center min-h-screen text-[#101D1E] antialiased selection:bg-[#FF5C38] selection:text-white">
+
+  <!-- Mobile Phone Container (Fixed 390px, min-h-screen) -->
+  <div class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#FAF8F5] relative border-x border-[#EDE8E1] pb-24 shadow-sm">
+
+    <!-- Top Bar: Hub Screen Variant (Title Left + One Icon Action Right, min 44px tap targets) -->
+    <header class="sticky top-0 z-40 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3DDD4] px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-rounded text-[#0F3D3E] text-[24px]">school</span>
+        <h1 class="text-[19px] font-extrabold tracking-tight text-[#0F3D3E]">Daily Reviews</h1>
+      </div>
+      <button type="button" aria-label="Review settings" class="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-[#E3DDD4] shadow-[0_2px_0_0_#DED6CB] active:translate-y-0.5 active:shadow-none transition-all text-[#0F3D3E]">
+        <span class="material-symbols-rounded text-[22px]">tune</span>
+      </button>
+    </header>
+
+    <!-- Main Content Area with 16px Side Gutter (px-4) -->
+    <main class="flex-1 px-4 py-4 space-y-4">
+
+      <!-- Due Today Hero Counter & Spaced Repetition Indicator -->
+      <section class="bg-white rounded-2xl p-4 border border-[#E3DDD4] shadow-tactile-card">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-[#0F3D3E] text-white flex flex-col items-center justify-center shadow-tactile-teal">
+              <span class="text-[19px] font-extrabold leading-none">18</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-90 mt-0.5">DUE</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[15px] font-bold text-[#101D1E]">Spaced Repetition</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#E6F3F2] text-[#0F3D3E] border border-[#BFDFDD]">
+                  SM-2 Algorithm
+                </span>
+              </div>
+              <p class="text-[13px] font-semibold text-[#526062] mt-0.5">
+                Optimal retention window before midnight
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Session Progress Bar -->
+        <div class="mt-3 pt-3 border-t border-[#EDE8E1]">
+          <div class="flex items-center justify-between text-[12px] font-bold mb-1.5">
+            <span class="text-[#0F3D3E] flex items-center gap-1">
+              <span class="material-symbols-rounded text-[16px]">sync</span>
+              Session Progress
+            </span>
+            <span class="text-[#101D1E]">6 of 18 completed (33%)</span>
+          </div>
+          <div class="w-full h-2.5 bg-[#EDE8E1] rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-[#0F3D3E] rounded-full transition-all duration-300" style="width: 33.3%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teacher Slot (No photo/drawing; empty rounded container for 2D code insertion) -->
+      <section class="rounded-2xl border-2 border-dashed border-[#BFDFDD] bg-[#F2F8F8] p-3.5 flex items-start gap-3">
+        <div class="w-12 h-12 rounded-xl bg-white border border-[#BFDFDD] flex flex-col items-center justify-center text-center p-1 flex-shrink-0 shadow-sm">
+          <span class="text-[10px] font-extrabold text-[#0F3D3E] tracking-tight uppercase leading-none">[teacher</span>
+          <span class="text-[10px] font-extrabold text-[#0F3D3E] tracking-tight uppercase leading-none mt-0.5">slot]</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between gap-1 flex-wrap">
+            <span class="text-[12px] font-extrabold text-[#0F3D3E] uppercase tracking-wide">Ama · Spaced Lexis Coach</span>
+            <span class="text-[11px] font-bold text-[#FF5C38] bg-[#FFF0EC] px-2 py-0.5 rounded-md border border-[#FFD5CC]">IELTS Band 7.5+</span>
+          </div>
+          <p class="text-[13px] font-semibold text-[#101D1E] mt-1 leading-snug">
+            “Recall the academic context before flipping: this collocation frequently appears in Writing Task 2 essays!”
+          </p>
+        </div>
+      </section>
+
+      <!-- Card-Stack Preview of a Flashcard (Tactile layered cards) -->
+      <section class="relative pt-2">
+        <div class="text-[12px] font-extrabold text-[#526062] uppercase tracking-wider mb-2 flex items-center justify-between">
+          <span>Active Flashcard (Card 7 of 18)</span>
+          <span class="text-[#0F3D3E] font-bold flex items-center gap-1">
+            <span class="material-symbols-rounded text-[15px]">layers</span>
+            Stack Preview
+          </span>
+        </div>
+
+        <!-- Stacked Card Depth Illusion (Layers behind) -->
+        <div class="relative">
+          <!-- Card layer 3 (furthest back) -->
+          <div class="absolute inset-x-3 -top-1.5 h-16 bg-[#EDE7DD] rounded-2xl border border-[#D9D1C5]"></div>
+          <!-- Card layer 2 (middle back) -->
+          <div class="absolute inset-x-1.5 -top-0.5 h-16 bg-[#F4EFE6] rounded-2xl border border-[#E0D8CB]"></div>
+
+          <!-- Main Interactive Front Card -->
+          <div class="relative bg-white rounded-2xl border-2 border-[#E3DDD4] p-4 shadow-tactile-card z-10">
+            <!-- Card Header Tags -->
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[12px] font-bold bg-[#E6F3F2] text-[#0F3D3E] border border-[#BFDFDD]">
+                <span class="material-symbols-rounded text-[15px]">psychology</span>
+                CEFR C1 · Academic Lexis
+              </span>
+              <span class="text-[12px] font-bold text-[#526062]">Due in 4 hours</span>
+            </div>
+
+            <!-- Headword & Pronunciation -->
+            <div class="my-2">
+              <div class="flex items-center justify-between gap-2">
+                <h2 class="text-[26px] font-extrabold text-[#101D1E] tracking-tight">
+                  ambiguous
+                </h2>
+                <!-- Audio Play Button (min 44x44px target) -->
+                <button type="button" aria-label="Listen to pronunciation of ambiguous" class="w-11 h-11 rounded-xl bg-[#0F3D3E] text-white flex items-center justify-center shadow-tactile-teal active:translate-y-0.5 active:shadow-none transition-all flex-shrink-0">
+                  <span class="material-symbols-rounded text-[22px]">volume_up</span>
+                </button>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+                <span class="text-[14px] font-semibold text-[#0F3D3E] tracking-wide font-mono bg-[#FAF8F5] px-2 py-0.5 rounded border border-[#EDE8E1]">
+                  /æmˈbɪɡ.ju.əs/
+                </span>
+                <span class="text-[13px] font-bold text-[#526062]">adjective</span>
+              </div>
+            </div>
+
+            <!-- Definition & Exam Exemplar Sentence -->
+            <div class="mt-3 pt-3 border-t border-[#EDE8E1] space-y-2">
+              <p class="text-[14px] font-bold text-[#101D1E] leading-snug">
+                Open to more than one interpretation; having a double or unclear meaning.
+              </p>
+              
+              <div class="bg-[#FAF8F5] rounded-xl p-3 border-l-4 border-[#0F3D3E] border-y border-r border-[#EDE8E1]">
+                <div class="text-[11px] font-extrabold uppercase text-[#0F3D3E] tracking-wider mb-0.5">Authentic Exam Sentence</div>
+                <p class="text-[13px] font-semibold italic text-[#243538] leading-relaxed">
+                  “The wording of the international climate agreement remained intentionally <strong class="text-[#0F3D3E] not-italic font-bold">ambiguous</strong> to accommodate differing national interests.”
+                </p>
+              </div>
+
+              <!-- High-yield Collocation Tag -->
+              <div class="flex items-center gap-1.5 flex-wrap pt-1">
+                <span class="text-[12px] font-extrabold text-[#526062]">Collocations:</span>
+                <span class="inline-flex items-center text-[12px] font-bold bg-[#F4EFEA] text-[#101D1E] px-2 py-1 rounded-md border border-[#E3DDD4]">
+                  ambiguous wording
+                </span>
+                <span class="inline-flex items-center text-[12px] font-bold bg-[#F4EFEA] text-[#101D1E] px-2 py-1 rounded-md border border-[#E3DDD4]">
+                  remain ambiguous
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SRS Rating Buttons: Again / Hard / Good / Easy with next intervals (Min 44px height, tactile bottom ledge) -->
+      <section class="bg-white rounded-2xl p-4 border border-[#E3DDD4] shadow-tactile-card">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[13px] font-extrabold text-[#101D1E] uppercase tracking-wide">Rate Your Recall</span>
+          <span class="text-[12px] font-bold text-[#526062]">Next review interval</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2">
+          <!-- Again Button -->
+          <button type="button" class="min-h-[64px] flex flex-col items-center justify-center px-1.5 py-2 rounded-xl bg-[#FFF3F0] border-2 border-[#FFC7BD] text-[#C93F20] shadow-[0_3px_0_0_#F0B3A6] active:translate-y-0.5 active:shadow-none transition-all">
+            <span class="text-[13px] font-extrabold leading-none">Again</span>
+            <span class="text-[11px] font-bold text-[#101D1E] mt-1 bg-white/90 px-1.5 py-0.5 rounded border border-[#FFC7BD] leading-tight">
+              &lt; 10 min
+            </span>
+          </button>
+
+          <!-- Hard Button -->
+          <button type="button" class="min-h-[64px] flex flex-col items-center justify-center px-1.5 py-2 rounded-xl bg-[#FFF9EB] border-2 border-[#F0DC9B] text-[#946A00] shadow-[0_3px_0_0_#E0CE8C] active:translate-y-0.5 active:shadow-none transition-all">
+            <span class="text-[13px] font-extrabold leading-none">Hard</span>
+            <span class="text-[11px] font-bold text-[#101D1E] mt-1 bg-white/90 px-1.5 py-0.5 rounded border border-[#F0DC9B] leading-tight">
+              1 day
+            </span>
+          </button>
+
+          <!-- Good Button (Highlighted Recommended) -->
+          <button type="button" class="min-h-[64px] flex flex-col items-center justify-center px-1.5 py-2 rounded-xl bg-[#E6F3F2] border-2 border-[#8ACEC9] text-[#0F3D3E] shadow-[0_3px_0_0_#7BBDB8] active:translate-y-0.5 active:shadow-none transition-all ring-2 ring-[#0F3D3E]/20">
+            <span class="text-[13px] font-extrabold leading-none">Good</span>
+            <span class="text-[11px] font-bold text-[#101D1E] mt-1 bg-white px-1.5 py-0.5 rounded border border-[#8ACEC9] leading-tight">
+              3 days
+            </span>
+          </button>
+
+          <!-- Easy Button -->
+          <button type="button" class="min-h-[64px] flex flex-col items-center justify-center px-1.5 py-2 rounded-xl bg-[#F0FDF4] border-2 border-[#A3E5B5] text-[#166534] shadow-[0_3px_0_0_#93D5A5] active:translate-y-0.5 active:shadow-none transition-all">
+            <span class="text-[13px] font-extrabold leading-none">Easy</span>
+            <span class="text-[11px] font-bold text-[#101D1E] mt-1 bg-white/90 px-1.5 py-0.5 rounded border border-[#A3E5B5] leading-tight">
+              7 days
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Upcoming Reviews 7-Day Bar Chart -->
+      <section class="bg-white rounded-2xl p-4 border border-[#E3DDD4] shadow-tactile-card">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h3 class="text-[14px] font-extrabold text-[#101D1E]">Upcoming 7-Day Forecast</h3>
+            <p class="text-[12px] font-semibold text-[#526062]">Total spaced reviews scheduled</p>
+          </div>
+          <span class="text-[12px] font-extrabold text-[#0F3D3E] bg-[#E6F3F2] px-2.5 py-1 rounded-lg border border-[#BFDFDD]">
+            86 cards total
+          </span>
+        </div>
+
+        <!-- 7-Day Histogram Bars -->
+        <div class="grid grid-cols-7 gap-2 pt-3 pb-1 border-t border-[#EDE8E1] items-end h-32">
+          <!-- Mon (Today) -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-extrabold text-[#FF5C38]">18</span>
+            <div class="w-full bg-[#FF5C38] rounded-t-lg shadow-sm" style="height: 65%;"></div>
+            <span class="text-[11px] font-extrabold text-[#FF5C38] uppercase">Mon</span>
+          </div>
+
+          <!-- Tue -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-bold text-[#526062]">12</span>
+            <div class="w-full bg-[#0F3D3E] rounded-t-lg opacity-80" style="height: 44%;"></div>
+            <span class="text-[11px] font-bold text-[#526062] uppercase">Tue</span>
+          </div>
+
+          <!-- Wed -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-bold text-[#526062]">22</span>
+            <div class="w-full bg-[#0F3D3E] rounded-t-lg" style="height: 80%;"></div>
+            <span class="text-[11px] font-bold text-[#526062] uppercase">Wed</span>
+          </div>
+
+          <!-- Thu -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-bold text-[#526062]">9</span>
+            <div class="w-full bg-[#0F3D3E] rounded-t-lg opacity-60" style="height: 33%;"></div>
+            <span class="text-[11px] font-bold text-[#526062] uppercase">Thu</span>
+          </div>
+
+          <!-- Fri -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-bold text-[#526062]">15</span>
+            <div class="w-full bg-[#0F3D3E] rounded-t-lg opacity-85" style="height: 55%;"></div>
+            <span class="text-[11px] font-bold text-[#526062] uppercase">Fri</span>
+          </div>
+
+          <!-- Sat -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-bold text-[#526062]">6</span>
+            <div class="w-full bg-[#0F3D3E] rounded-t-lg opacity-50" style="height: 22%;"></div>
+            <span class="text-[11px] font-bold text-[#526062] uppercase">Sat</span>
+          </div>
+
+          <!-- Sun -->
+          <div class="flex flex-col items-center gap-1.5 h-full justify-end">
+            <span class="text-[11px] font-bold text-[#526062]">4</span>
+            <div class="w-full bg-[#0F3D3E] rounded-t-lg opacity-40" style="height: 15%;"></div>
+            <span class="text-[11px] font-bold text-[#526062] uppercase">Sun</span>
+          </div>
+        </div>
+
+        <div class="mt-2 pt-2 border-t border-[#EDE8E1] flex items-center justify-between text-[11px] font-bold text-[#526062]">
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-[#FF5C38]"></span>
+            Active session
+          </span>
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-[#0F3D3E]"></span>
+            Projected load
+          </span>
+        </div>
+      </section>
+
+      <!-- Signature Coral Primary Action Button (Single Primary Button per screen, tactile ledge) -->
+      <section class="pt-1 pb-2">
+        <button type="button" class="w-full min-h-[52px] py-3.5 px-5 rounded-2xl bg-[#FF5C38] text-white font-extrabold text-[16px] tracking-wide flex items-center justify-center gap-2 shadow-tactile-btn active:translate-y-1 active:shadow-none transition-all">
+          <span>Continue Full Review Sprint</span>
+          <span class="material-symbols-rounded text-[20px]">arrow_forward</span>
+        </button>
+        <p class="text-center text-[12px] font-bold text-[#526062] mt-2 flex items-center justify-center gap-1">
+          <span class="material-symbols-rounded text-[14px]">schedule</span>
+          ~6 min remaining · 12 cards left in queue
+        </p>
+      </section>
+
+    </main>
+
+    <!-- App Shell: Mobile Bottom Tab Bar with Exactly 5 Tabs (Today, Vocab, Skills, Tests, Me) -->
+    <nav aria-label="Bottom Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-18 bg-[#FAF8F5]/98 backdrop-blur-md border-t-2 border-[#E3DDD4] px-2 py-1.5 z-50 flex items-center justify-around shadow-[0_-3px_10px_rgba(0,0,0,0.03)]">
+      
+      <!-- Tab 1: Today -->
+      <a href="#today" class="flex flex-col items-center justify-center min-w-[56px] min-h-[46px] px-1 py-1 rounded-xl text-[#526062] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">calendar_today</span>
+        <span class="text-[11px] font-bold mt-0.5">Today</span>
+      </a>
+
+      <!-- Tab 2: Vocab (Active Hub Tab with Tactile Badge) -->
+      <a href="#vocab" class="flex flex-col items-center justify-center min-w-[62px] min-h-[46px] px-2 py-1 rounded-xl bg-[#E6F3F2] text-[#0F3D3E] border border-[#BFDFDD] shadow-[0_2px_0_0_#9BC7C4] transition-all">
+        <span class="material-symbols-rounded text-[22px]">menu_book</span>
+        <span class="text-[11px] font-extrabold mt-0.5">Vocab</span>
+      </a>
+
+      <!-- Tab 3: Skills -->
+      <a href="#skills" class="flex flex-col items-center justify-center min-w-[56px] min-h-[46px] px-1 py-1 rounded-xl text-[#526062] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">psychology</span>
+        <span class="text-[11px] font-bold mt-0.5">Skills</span>
+      </a>
+
+      <!-- Tab 4: Tests -->
+      <a href="#tests" class="flex flex-col items-center justify-center min-w-[56px] min-h-[46px] px-1 py-1 rounded-xl text-[#526062] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">assignment</span>
+        <span class="text-[11px] font-bold mt-0.5">Tests</span>
+      </a>
+
+      <!-- Tab 5: Me -->
+      <a href="#me" class="flex flex-col items-center justify-center min-w-[56px] min-h-[46px] px-1 py-1 rounded-xl text-[#526062] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">person</span>
+        <span class="text-[11px] font-bold mt-0.5">Me</span>
+      </a>
+
+    </nav>
+
+  </div>
+</body>
+</html>

@@ -38,9 +38,18 @@ export function excerpt(log, max = 40) {
 }
 
 export const marker = file => `<!-- ci-triage:wf=${file} -->`;
-export const issueTitle = name => `CI đỏ: ${name}`;
-export function issueBody({ name, file, run, cls, log }) {
+export const STREAK_ALERT = 3;
+export const issueTitle = (name, streak = 0) => `CI đỏ: ${name}` + (streak >= STREAK_ALERT ? ` (đỏ ${streak} lượt liền)` : '');
+/** Số lượt đỏ LIÊN TIẾP mới nhất (thuần, có test) trên cùng nhánh, bỏ PR + huỷ/bỏ qua – 3/11: quality-sweep đỏ 6 đêm liền, issue chỉ ghi "đỏ". */
+export function redStreak(runs) {
+  let n = 0, since = '';
+  for (const r of [...(runs || [])].filter(r => r && r.event !== 'pull_request' && r.status === 'completed' && !['cancelled', 'skipped'].includes(r.conclusion))
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))) { if (r.conclusion !== 'failure') break; n++; since = r.created_at; }
+  return { n, since };
+}
+export function issueBody({ name, file, run, cls, log, streak }) {
   return `${marker(file)}\nWorkflow **${name}** (\`${file}\`) đỏ – ci-triage xếp loại **${cls.kind}** (${cls.why}).\n\n` +
+    (streak && streak.n >= 2 ? `- ${streak.n >= STREAK_ALERT ? '🔥' : '🔁'} Đỏ **${streak.n} lượt liên tiếp** trên ${run.head_branch || 'main'} (từ ${String(streak.since).slice(0, 16)}Z)${streak.n >= STREAK_ALERT ? ' – lỗi lặp lại, không phải nhiễu: cần người sửa gốc' : ''}\n` : '') +
     `- Lượt mới nhất: ${run.html_url} (attempt ${run.run_attempt || 1}, sự kiện ${run.event}, ${run.updated_at || run.created_at})\n` +
     `- Issue tự đóng khi workflow xanh lại (ci-triage quét mỗi giờ). Thân issue được cập nhật tại chỗ, không bình luận → không thêm thư.\n\n` +
     '```\n' + excerpt(log) + '\n```\n';
@@ -100,11 +109,13 @@ async function openIssues() { return ((await gh(`/issues?state=open&labels=${LAB
 async function ensureLabel() { if (!(await gh(`/labels/${LABEL}`))) await gh('/labels', { method: 'POST', body: { name: LABEL, color: 'b60205', description: 'Workflow đỏ thật – ci-triage tự mở/đóng' } }).catch(() => {}); }
 
 async function upsertIssue(run, cls, log) {
-  const file = String(run.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, ''), body = issueBody({ name: run.name, file, run, cls, log });
+  const file = String(run.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '');
+  const br = encodeURIComponent(run.head_branch || 'main'), streak = redStreak((((await gh(`/actions/workflows/${run.workflow_id}/runs?branch=${br}&per_page=20`).catch(() => null)) || {}).workflow_runs) || []);
+  const body = issueBody({ name: run.name, file, run, cls, log, streak });
   const cur = (await openIssues()).find(i => (i.body || '').includes(marker(file)));
-  if (cur) { await gh(`/issues/${cur.number}`, { method: 'PATCH', body: { body } }); return `cập nhật #${cur.number}`; }
+  if (cur) { await gh(`/issues/${cur.number}`, { method: 'PATCH', body: { body, title: issueTitle(run.name, streak.n) } }); return `cập nhật #${cur.number}${streak.n >= STREAK_ALERT ? ` (đỏ ${streak.n} lượt liền)` : ''}`; }
   await ensureLabel();
-  const i = await gh('/issues', { method: 'POST', body: { title: issueTitle(run.name), body, labels: [LABEL] } });
+  const i = await gh('/issues', { method: 'POST', body: { title: issueTitle(run.name, streak.n), body, labels: [LABEL] } });
   return `mở #${i && i.number}`;
 }
 
@@ -206,6 +217,17 @@ async function sweep() {
   // 1b) lịch cron không chạy / workflow bị tắt ngoài ý muốn (scripts/ci/cron-watch.mjs) – mỗi giờ
   try { const cw = await import('./cron-watch.mjs'), r = await cw.cronWatch(gh, { now: +now }); summary(r.md); summary(`- Issue lịch cron: ${await cw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::${r.bad.length} workflow lịch không chạy: ${r.bad.map(b => b.file).join(', ')}`); }
   catch (e) { console.log('::warning::cron-watch: ' + e.message); }
+  // 1c) cùng 1 check đỏ trên ≥ 3 PR mở = gốc chung ở main/workflow (scripts/ci/pr-common-red.mjs) – 3 giờ/lần (~50 lượt API) + bản tin ngày
+  let common = null;
+  if (now.getUTCHours() % 3 === 0 || force) try { const pc = await import('./pr-common-red.mjs'); common = pc.commonRed(await pc.scanPrs(gh)); summary(common.md); summary(`- Issue check đỏ chung: ${await pc.syncIssue(gh, common, LABEL)}`); if (common.groups.length) console.log(`::error::${common.groups.length} check đỏ chung trên PR mở: ${common.groups.map(g => `${g.check} (${g.prs.length})`).join(', ')}`); }
+  catch (e) { console.log('::warning::pr-common-red: ' + e.message); }
+  // 1c) workflow tốn runner bất thường (scripts/ci/ci-hog.mjs) – mỗi 3 giờ: ~12–40 lệnh API (hạn mức GITHUB_TOKEN dùng chung với required-gate)
+  if (now.getUTCHours() % 3 === 0 || force) try {
+    const h = await import('./ci-hog.mjs'), r = h.hogReport(await h.fetchRuns(gh, +now));
+    summary(r.md); summary(`- Issue runner: ${await h.syncIssue(gh, r, LABEL)}`);
+    if (r.bad.length) console.log(`::error::${r.bad.length} workflow tốn runner bất thường: ${r.bad.map(b => b.name).join(', ')}`);
+    if (process.env.LEXKITE_DRIVE_CLI_KEY) { const { driveApi } = await import('../video/library.mjs'); await driveApi('ext_alert', { kind: 'ci_hog', ok: !r.bad.length, n: Math.max(1, r.bad.length), msg: r.bad.map(b => `${b.name}: ${b.why}`).join(' · ').slice(0, 300), repo: REPO }); }
+  } catch (e) { console.log('::warning::ci-hog: ' + e.message); }
   if (now.getUTCHours() !== 0 && !force) return summary('Quét giờ: xong (hoãn hạn mức + bản tin chỉ chạy ở giờ 00 UTC).');
   // 2) lượt hoãn vì hạn mức: sau 00:10 UTC (hạn mức D1 đã đặt lại) chạy lại lượt đỏ MỚI NHẤT của mỗi workflow – 1 lần (attempt 1), bỏ nếu đã có lượt mới hơn
   const since = new Date(now - 26 * 3600e3).toISOString().slice(0, 19) + 'Z';
@@ -226,6 +248,7 @@ async function sweep() {
   const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
   // 4) runner 24 h (ci-filler): TB/đỉnh theo giờ + phút-runner rảnh khi còn tồn đọng (KPI → ~0)
   try { const f = await import('./filler.mjs'), u = f.report(await f.readLog()); d.md += '\n' + u.md; d.text += `\n\nRunner 24 h: ${u.msg}`; } catch (e) { console.log('runner report:', e.message); }
+  if (common) { d.md += '\n' + common.md; d.text += `\n\nPR mở – ${common.text}`; }
   summary(d.md);
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return console.log('Không có LEXKITE_DRIVE_CLI_KEY – chỉ ghi tóm tắt job.');
   try {

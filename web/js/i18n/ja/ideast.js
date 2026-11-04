@@ -1,3 +1,3 @@
-/* UI ja – ideast (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Đô thị":"都市","Xã hội":"社会","Tội phạm":"犯罪","Văn hóa":"文化メモ","Kinh tế":"経済","Gia đình & Trẻ em":"家族と子ども"});
+/* SINH từ i18n/ui/ja/ideast.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"_7wvw1g":"都市","_1h20f9m":"社会","_btdut":"犯罪","_e0bdb4":"文化メモ","_4bk8s4":"経済","_1h6g5hg":"家族と子ども"});
 })(typeof self !== 'undefined' ? self : this);

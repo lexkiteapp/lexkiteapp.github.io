@@ -1,0 +1,3 @@
+/* SINH từ i18n/ui/th/arrange.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {"_19kqcv1":"เอา {w} ออกแล้ว","_1g4p2yi":"{w}: ตำแหน่ง {n} จาก {m}","_13vgty8":"แตะบัตรคำเพื่อเพิ่มต่อท้ายหรือเอาออก ลากไปตรงกลางเพื่อแทรก ปุ่มลูกศรใช้ย้าย Delete ใช้เอาออก และ Ctrl+Z ใช้เลิกทำ"});
+})(typeof self !== 'undefined' ? self : this);

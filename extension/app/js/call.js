@@ -142,6 +142,7 @@ body.call-on{overflow:hidden}
     poFix(view);
     probe().then(() => { const p = $('#callPriv'); if (p) p.textContent = (PRIV[mode()] || PRIV.ask)(); });
     $('#callGo').onclick = () => start(c);
+    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
   }
 
   function start(c) {
@@ -200,8 +201,8 @@ body.call-on{overflow:hidden}
     }, 500);
 
     // Giáo viên động: clip 2D registry (teacher.js, qua Chars) – lỗi/thiếu clip → giữ poster 2D tĩnh, cuộc gọi vẫn chạy
-    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who); // Ama/Carlos đứng sau thẻ phụ đề: clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
-    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }
+    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who, { lip: true }); // Ama/Carlos đứng sau thẻ phụ đề: mặt vẽ khớp miệng (cờ lk.lipsync) hoặc clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
+    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who, { lip: true }); }
 
     // Phụ đề dịch (dòng 2): dịch sẵn mọi câu của giáo viên 1 lần – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(Object.values(c.nodes).flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
@@ -214,6 +215,7 @@ body.call-on{overflow:hidden}
     // Trạng thái lượt lời: talk (giáo viên nói) · you (đến lượt bạn) · listen (đang nghe) · think (đang hiểu câu)
     function setPhase(p) {
       phase = p;
+      if (tch && tch.listen) { tch.listen(p === 'listen'); if (p === 'think') tch.react('thinking', 1500); } // mặt vẽ: nghe khi người học nói, nghĩ khi app đang hiểu câu (vòng clip: không đổi)
       const av = $('#cAv', ov), st = $('#cSt', ov), txt = $('#cStT', ov), mic = $('#cMic', ov); if (!st || !mic) return;
       if (av) { av.classList.toggle('talk', p === 'talk'); av.classList.toggle('listen', p === 'listen'); } st.className = (V2 ? 'sr-only call-st ' : 'call-st ') + p; // v2: tư thế do clip giáo viên (talk/listen), không vòng sáng
       txt.textContent = p === 'talk' ? t('{name} đang nói…', { name: nm }) : p === 'listen' ? t('Đang nghe bạn…') : p === 'think' ? t('Đang hiểu câu của bạn…') : p === 'done' ? t('Cuộc gọi kết thúc') : t('Đến lượt bạn – bấm micro để nói');
@@ -266,6 +268,7 @@ body.call-on{overflow:hidden}
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
+      if (tch && tch.react) tch.react(fix || sl.length ? 'encourage' : 'happy', 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
       if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
       else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
       else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
@@ -304,7 +307,7 @@ body.call-on{overflow:hidden}
         start: () => { if (my === turn) setPhase('listen'); },
         result: ({ heard, score }) => { if (my !== turn || !alive()) return; turn++; if (heard) answer(heard, false, false, { secs: (Date.now() - s0) / 1000, asr: score }); else setPhase('you'); },
         error: code => { if (my !== turn) return; autoMic = false; setPhase('you'); if (code !== 'no-speech') toast(UI.recErrorText(code), 3500); else toast(UI.recErrorText('no-speech'), 2500); },
-        end: () => { if (rec && rec._my === my) rec = null; if (my === turn && phase === 'listen') setPhase('you'); },
+        end: () => { if (rec && rec._my === my) rec = null; if (!rec && phase === 'listen') setPhase('you'); }, // result đến trước end (UI.recognize) → Part 2 vẫn mở micro cho đoạn kế
       };
       if (m === 'local') cb.setup = r => { r.processLocally = true; if (n.long) r.continuous = false; if (typeof window.SpeechRecognitionPhrase === 'function' && 'phrases' in r) r.phrases = words.map(w => new window.SpeechRecognitionPhrase(w, 3)); };
       if (m === 'whisper') { cb.whisper = true; cb.maxMs = n.long ? 28000 : Math.min(15000, 3000 + (n.min || 8) * 450); }
@@ -354,7 +357,7 @@ body.call-on{overflow:hidden}
     const first = c.nodes[c.start];
     say([first.m], () => enter(first));
     $('#cMic', ov).focus({ preventScroll: true });
-    window.__callState = () => ({ id, phase, turn, log: log.slice(), mode: mode() }); // để kiểm thử e2e
+    window.__callState = () => ({ id, phase, turn, log: log.slice(), mode: mode(), lip: tch && tch.lip ? Object.assign({ now: performance.now() }, tch.lip()) : null }); // để kiểm thử e2e
   }
 
   const NOTE = {

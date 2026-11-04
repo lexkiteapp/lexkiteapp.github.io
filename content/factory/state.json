@@ -1,0 +1,65 @@
+{
+ "tries": {
+  "functions:answering-the-phone": 1,
+  "functions:giving-directions": 1,
+  "mcq:comparison-special#0": 1,
+  "mcq:future-continuous-perfect#0": 1,
+  "mcq:determiners#0": 1,
+  "mcq:ed-s-endings#0": 1,
+  "mcq:future-forms#0": 1,
+  "mcq:future-in-past#0": 1,
+  "mcq:gerund-infinitive#0": 1,
+  "mcq:ing-ed-adjectives-prepositions#0": 1,
+  "mcq:mixed-conditionals-wish#0": 1,
+  "mcq:modals-ability-permission#0": 1,
+  "mcq:adjectives-adverbs#0": 1,
+  "mcq:adjectives-special#0": 1,
+  "mcq:adverbial-clauses#0": 1,
+  "mcq:adverbs-position#0": 1,
+  "mcq:articles#0": 1,
+  "mcq:as-if-unreal-past#0": 1,
+  "mcq:comparatives-superlatives#0": 1,
+  "mcq:complex-sentences#0": 1,
+  "mcq:conditionals-0-1#0": 1,
+  "mcq:conditionals-2-3#0": 1,
+  "mcq:conjunctions#0": 1,
+  "mcq:countable-uncountable#0": 1,
+  "mcq:dependent-prepositions#0": 1,
+  "mcq:idioms-style#0": 1,
+  "mcq:imperatives-suggestions#0": 1
+ },
+ "done": {
+  "functions:greeting-hello": 1,
+  "functions:saying-goodbye": 1,
+  "functions:introducing-yourself": 1,
+  "functions:introducing-a-friend": 1,
+  "functions:asking-to-repeat": 1,
+  "functions:saying-not-understand": 1,
+  "functions:ordering-food-drink": 1,
+  "functions:asking-the-price": 1,
+  "functions:asking-where-place": 1,
+  "functions:saying-thank-you": 1,
+  "functions:saying-sorry-small": 1,
+  "functions:making-plan-to-meet": 1,
+  "functions:inviting-someone": 1,
+  "functions:accepting-invitation": 1,
+  "functions:declining-invitation": 1,
+  "functions:making-polite-request": 1,
+  "functions:offering-help": 1,
+  "functions:asking-permission": 1,
+  "functions:asking-directions": 1,
+  "functions:shopping-sizes-returns": 1,
+  "functions:checking-in-hotel": 1,
+  "functions:reporting-simple-problem": 1,
+  "functions:apologising": 1
+ },
+ "nights": [
+  {
+   "at": "2026-11-02",
+   "accepted": {
+    "comm/functions": 23,
+    "grammar/mcq": 15
+   }
+  }
+ ]
+}

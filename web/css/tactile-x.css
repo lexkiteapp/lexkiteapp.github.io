@@ -17,6 +17,3 @@
 .tk-teacher>div{min-width:0;flex:1}
 .tk-teacher small{display:block;color:var(--muted);font-size:.75rem}
 @media (prefers-reduced-motion:reduce){.tk-opt{transition:none}}
-
-/* Kéo-thả ô chữ (drag.js): ô đang kéo mờ tại chỗ, bóng ô theo tay, vạch chèn màu chính; giảm chuyển động → không hiệu ứng */
-.lsn-ans .lsn-tile,.lsn-bank .lsn-tile{touch-action:none;-webkit-user-select:none;user-select:none}.lsn-dragsrc{opacity:.35}.lsn-ghost{position:fixed;left:0;top:0;z-index:60;pointer-events:none;margin:0;box-shadow:0 8px 20px rgb(0 0 0/.25);transition:opacity .12s}.lsn-ghost.lsn-out{opacity:.5}.lsn-caret{display:inline-block;width:3px;min-height:40px;align-self:stretch;border-radius:2px;background:rgb(var(--st-primary))}.lsn-ans.lsn-dropok{outline:2px dashed currentColor;outline-offset:4px;border-radius:12px}@media (prefers-reduced-motion:reduce){.lsn-ghost{transition:none;box-shadow:none}}
