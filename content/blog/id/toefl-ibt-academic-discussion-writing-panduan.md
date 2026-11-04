@@ -137,7 +137,7 @@ Kunci tidak panik saat penghitung waktu (*timer*) berjalan mundur di pojok layar
   - Penggunaan artikel jamak dan tunggal (*a*, *an*, *the*, atau akhiran *-s*).
   - Huruf kapital dan tanda baca.
 
-Gaya penulisan formal dan ringkas ini juga sangat bermanfaat saat Anda menyusun korespondensi profesional, seperti yang dibahas pada panduan [cara menulis email bahasa Inggris bisnis](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/). Simpan kosakata akademik favorit Anda ke dalam [perpustakaan kosakata](/app/#/library) agar dapat diakses kapan saja saat berlatih.
+Gaya penulisan formal dan ringkas ini juga sangat bermanfaat saat Anda menyusun korespondensi profesional, seperti yang dibahas pada panduan [cara menulis email bahasa Inggris bisnis](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/). Untuk memahami konteks tugas ini dalam ujian menyeluruh, pelajari panduan [format baru toefl ibt 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/). Simpan kosakata akademik favorit Anda ke dalam [perpustakaan kosakata](/app/#/library) agar dapat diakses kapan saja saat berlatih.
 
 ![Layar kursus tata bahasa IELTS di Lexkite dengan pembelajaran tenses dan struktur kalimat](media:grammar "Menguasai variasi kalimat majemuk dan penghubung logika untuk esai")
 

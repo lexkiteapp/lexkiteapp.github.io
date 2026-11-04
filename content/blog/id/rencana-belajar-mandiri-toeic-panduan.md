@@ -152,4 +152,4 @@ Ya, sangat mungkin. Karena TOEIC menguji pola dan kosakata kerja yang sangat ter
 ### Seberapa sering sebaiknya mengambil simulasi lengkap 200 soal?
 Pada minggu-minggu awal pembentukan dasar, tes lengkap setiap 3 minggu sekali sudah memadai untuk mengukur progres tanpa memicu kejenuhan. Pada bulan terakhir menjelang hari H ujian, kerjakan simulasi lengkap berdurasi dua jam setiap Sabtu pagi untuk membiasakan daya konsentrasi Anda.
 
-Bagi Anda yang ingin memaksimalkan skor pada sesi tanya jawab, simak ulasan [strategi toeic listening part 2 tanya jawab](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
+Bagi Anda yang ingin memaksimalkan skor pada sesi tanya jawab, simak ulasan [strategi toeic listening part 2 tanya jawab](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/), serta pelajari persiapan studi lanjut ke luar negeri dalam ulasan [format baru toefl ibt 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).

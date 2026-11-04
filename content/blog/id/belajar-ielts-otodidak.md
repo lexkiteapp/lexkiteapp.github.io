@@ -156,4 +156,4 @@ Tidak wajib. Belajar mandiri sangat mungkin jika kamu punya rencana yang jelas, 
 
 ### Berapa menit sehari idealnya belajar IELTS?
 
-Sekitar 60–90 menit adalah durasi yang bisa dipertahankan banyak orang dalam jangka panjang. Jika sedang sibuk, 30 menit setiap hari tetap lebih baik daripada satu sesi panjang di akhir pekan.
+Sekitar 60–90 menit adalah durasi yang bisa dipertahankan banyak orang dalam jangka panjang. Jika sedang sibuk, 30 menit setiap hari tetap lebih baik daripada satu sesi panjang di akhir pekan. Jika Anda juga mempertimbangkan tes ke universitas di Amerika Serikat, simak perbandingannya dalam panduan [format baru toefl ibt 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
