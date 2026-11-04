@@ -259,3 +259,5 @@ node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
+node scripts/test/haptics.mjs
+node scripts/test/aiearn.mjs
