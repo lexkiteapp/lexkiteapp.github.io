@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Store Screenshot Poster (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF8F0',
+            'cream-surface': '#FFF2DC',
+            'teal-deep': '#0F3D3E',
+            'teal-muted': '#285859',
+            'coral-accent': '#F2553B',
+            'amber-accent': '#E27D26',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Fixed poster dimensions matching App Store 9:19.5 (1080 x 2340 scaled / mobile canvas aspect) */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #FFF8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+
+    /* Ambient lighting gradient from top-left */
+    .poster-canvas {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background: radial-gradient(circle at 18% 12%, #FFFFFF 0%, #FFF8F0 52%, #F9ECE0 100%);
+      box-sizing: border-box;
+    }
+
+    /* Decorative tactile background shapes for subtle game-like warmth */
+    .ambient-glow {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 65vw;
+      height: 65vw;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(242, 85, 59, 0.04) 0%, rgba(255, 248, 240, 0) 70%);
+      pointer-events: none;
+    }
+
+    .ambient-teal-glow {
+      position: absolute;
+      top: 20%;
+      right: -15%;
+      width: 70vw;
+      height: 70vw;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(43, 163, 154, 0.05) 0%, rgba(255, 248, 240, 0) 70%);
+      pointer-events: none;
+    }
+
+    /* Modern flagship phone chassis mockup */
+    .phone-mockup-frame {
+      position: relative;
+      width: min(84vw, 360px);
+      height: 120vh; /* Runs gracefully off the bottom edge */
+      background: #14181B; /* Slim dark bezel body */
+      border-radius: 46px 46px 0 0;
+      padding: 10px 10px 0 10px;
+      box-sizing: border-box;
+      /* Soft directional lighting from top-left */
+      box-shadow: 
+        -14px 22px 42px -10px rgba(15, 61, 62, 0.18),
+        0 30px 60px -12px rgba(27, 11, 4, 0.22),
+        0 1px 0 1px rgba(255, 255, 255, 0.6) inset;
+      border: 3.5px solid #283036;
+      border-bottom: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    /* Metallic chamfered outer edge ring */
+    .phone-mockup-frame::before {
+      content: '';
+      position: absolute;
+      inset: -4.5px -4.5px 0 -4.5px;
+      border-radius: 50px 50px 0 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-bottom: none;
+      pointer-events: none;
+    }
+
+    /* Realistic speaker / dynamic pill cutout */
+    .phone-speaker-pill {
+      position: absolute;
+      top: 18px;
+      width: 88px;
+      height: 20px;
+      background-color: #000000;
+      border-radius: 9999px;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 7px;
+    }
+
+    .phone-camera-lens {
+      width: 9px;
+      height: 9px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 35% 35%, #183344, #050B10);
+      box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.15);
+    }
+
+    /* The exact requested inner screen placeholder element */
+    #lk-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #FFFDF9;
+      border-radius: 38px 38px 0 0;
+      border: 1px solid rgba(216, 207, 188, 0.35);
+      border-bottom: none;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body class="bg-cream-bg text-teal-deep select-none">
+
+  <!-- Full-bleed Fixed Portrait Poster Canvas -->
+  <main class="poster-canvas px-6 pt-10 pb-0 overflow-hidden flex flex-col justify-between" role="region" aria-label="Lexkite App Store Poster">
+    
+    <!-- Ambient top-left soft lighting glows -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+    <div class="ambient-teal-glow" aria-hidden="true"></div>
+
+    <!-- Top Quarter: Brand Header + Hero Copy Section -->
+    <header class="w-full max-w-[420px] flex flex-col items-center text-center z-20 space-y-3.5">
+      
+      <!-- Small Brand Row -->
+      <div class="flex items-center justify-center gap-2.5 px-3 py-1 rounded-full bg-cream-surface/60 border border-[#E8DEC8]/60 backdrop-blur-xs shadow-xs">
+        <!-- Exact ID: lk-logo (small square for the logo) -->
+        <span id="lk-logo" class="w-6 h-6 rounded-md bg-teal-deep flex items-center justify-center text-cream-bg shadow-xs" aria-label="Lexkite Logo">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 9.5L12 17L22 9.5L12 2Z" fill="#F2553B"/>
+            <path d="M12 17L6 12.5L12 22L18 12.5L12 17Z" fill="#2BA39A"/>
+          </svg>
+        </span>
+        <span class="text-xs font-extrabold tracking-wider text-teal-deep uppercase">Lexkite</span>
+      </div>
+
+      <!-- Main Copy Container with Generous Breathing Room -->
+      <div class="space-y-2 px-1">
+        <!-- Exact ID: lk-headline (huge bold headline, thumbnail-readable, robust wrapping for 40% longer translations & RTL) -->
+        <h1 id="lk-headline" class="text-3xl sm:text-4xl leading-[1.12] font-black tracking-tight text-teal-deep break-words">
+          Speak English with <span id="lk-em" class="text-coral-accent underline decoration-amber-accent/40 decoration-4 underline-offset-4">confidence</span>
+        </h1>
+
+        <!-- Exact ID: lk-sub (one short supporting line, high contrast ≥ 4.5:1) -->
+        <p id="lk-sub" class="text-sm sm:text-base font-medium text-teal-muted/90 max-w-[340px] mx-auto leading-snug break-words">
+          Bite-sized tactile IELTS &amp; TOEIC drills that actually stick.
+        </p>
+      </div>
+
+    </header>
+
+    <!-- Bottom Section: Hero Modern Phone with Empty Rounded Element id="lk-screen" -->
+    <section class="w-full flex justify-center items-end mt-4 z-10" aria-label="App Preview">
+      
+      <!-- Realistic phone chassis running off bottom edge -->
+      <div class="phone-mockup-frame">
+        <!-- Floating Pill / Speaker & Camera cutout -->
+        <div class="phone-speaker-pill" aria-hidden="true">
+          <div class="phone-camera-lens"></div>
+        </div>
+
+        <!-- Exact ID: lk-screen (empty rounded element that fills the whole screen, lower part running off poster bottom) -->
+        <div id="lk-screen" aria-label="App Screen Area">
+          <!-- The container is intentionally left clean as specified, ready for dynamic screen contents to be injected later -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

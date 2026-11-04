@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Tablet Store Listing Poster (Tactile Night 3:4)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              base: '#091518',
+              card: '#121D20',
+              elevated: '#1A292D',
+              border: '#23393E',
+            },
+            accent: {
+              orange: '#F59E0B',
+              coral: '#FF6B4A',
+              teal: '#2BA39A',
+              mint: '#34D399',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Prevent scrolling, fix 3:4 canvas aspect ratio */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #051013;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile subtle rim light for realistic hardware */
+    .tablet-chassis {
+      background: linear-gradient(145deg, #2A3E43 0%, #152327 40%, #0E1A1D 100%);
+      box-shadow: 
+        0 30px 60px -15px rgba(0, 0, 0, 0.85),
+        0 15px 30px -10px rgba(0, 0, 0, 0.6),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
+        inset 1px 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -2px 4px 0 rgba(0, 0, 0, 0.8);
+    }
+
+    .tablet-bezel {
+      background-color: #0A1315;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    /* Screen display interior */
+    #lk-screen {
+      background: radial-gradient(circle at 30% 20%, #17272C 0%, #0F1C1F 60%, #0A1416 100%);
+      box-shadow: inset 0 2px 8px 0 rgba(0, 0, 0, 0.9);
+    }
+
+    /* Speech bubble with tactile bottom ledge and sleek pointer tail */
+    #lk-bubble {
+      background-color: #16262B;
+      border: 2px solid #28444B;
+      box-shadow: 
+        0 12px 28px -6px rgba(0, 0, 0, 0.7),
+        0 4px 0 0 #0D171A;
+    }
+
+    #lk-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 36px;
+      width: 18px;
+      height: 18px;
+      background-color: #16262B;
+      border-right: 2px solid #28444B;
+      border-bottom: 2px solid #28444B;
+      transform: rotate(45deg);
+      box-shadow: 2px 2px 0 0 #0D171A;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-0 m-0">
+
+  <!-- Fixed 3:4 Poster Canvas Container (900px x 1200px equivalent, responsive within viewport) -->
+  <main class="relative w-full max-w-[900px] aspect-[3/4] max-h-screen bg-[#091518] text-[#F0FAF8] overflow-hidden flex flex-col justify-between select-none">
+    
+    <!-- Atmospheric Ambient Lighting & Glows -->
+    <!-- Top-left gentle directional cool light -->
+    <div class="absolute top-[-10%] left-[-15%] w-[60%] h-[50%] rounded-full bg-[#2BA39A]/15 blur-[120px] pointer-events-none"></div>
+    <!-- Soft warm amber glow directly behind the subject and tablet -->
+    <div class="absolute top-[35%] left-[50%] -translate-x-1/2 w-[75%] h-[60%] rounded-full bg-[#F59E0B]/12 blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-[5%] left-[20%] w-[50%] h-[40%] rounded-full bg-[#FF6B4A]/10 blur-[130px] pointer-events-none"></div>
+
+    <!-- TOP SECTION: Logo Row & Large Thumbnail-Readable Headline (approx. top 25-28%) -->
+    <header class="relative z-10 pt-10 px-10 md:pt-14 md:px-14 flex flex-col gap-5 md:gap-6 flex-shrink-0">
+      
+      <!-- Logo Row: small empty square for logo + "Lexkite" wordmark -->
+      <div class="flex items-center gap-3.5">
+        <div id="lk-logo" class="w-9 h-9 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-[#2BA39A] to-[#12645E] border border-[#44C2B8]/40 shadow-[0_3px_0_0_#0C423E] flex items-center justify-center flex-shrink-0">
+          <!-- Small empty square strictly reserved for external logo replacement -->
+        </div>
+        <span class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#F0FAF8] flex items-center gap-1.5">
+          Lexkite
+        </span>
+      </div>
+
+      <!-- Main Headline + Supporting Line -->
+      <div class="flex flex-col gap-2.5 max-w-[92%]">
+        <h1 id="lk-headline" class="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black tracking-[-0.03em] leading-[1.1] text-[#F0FAF8]">
+          Speak English with <span id="lk-em" class="text-[#F59E0B] drop-shadow-[0_2px_12px_rgba(245,158,11,0.25)]">confidence</span>
+        </h1>
+        <p id="lk-sub" class="text-base sm:text-lg md:text-xl font-medium text-[#A9BDBB] leading-relaxed max-w-[85%]">
+          Interactive daily practice designed for fluent, natural speaking.
+        </p>
+      </div>
+
+    </header>
+
+    <!-- BOTTOM SECTION: Tablet Hardware & Front Character Slot running off bottom edge -->
+    <div class="relative z-10 flex-1 w-full flex flex-col justify-end items-center overflow-visible pointer-events-none">
+
+      <!-- Realistic Modern Tablet Frame (centered, running off bottom edge) -->
+      <div class="relative w-[86%] sm:w-[82%] md:w-[78%] h-[82%] tablet-chassis rounded-t-[36px] sm:rounded-t-[44px] md:rounded-t-[48px] p-2.5 sm:p-3 md:p-3.5 pb-0 flex flex-col items-center">
+        
+        <!-- Dark Slim Bezel Container -->
+        <div class="w-full h-full tablet-bezel rounded-t-[28px] sm:rounded-t-[34px] md:rounded-t-[38px] p-3 sm:p-4 md:p-5 pb-0 flex flex-col">
+          
+          <!-- Tablet Screen Display Area (empty rounded element id="lk-screen" running off bottom) -->
+          <div id="lk-screen" class="w-full h-full rounded-t-[18px] sm:rounded-t-[22px] md:rounded-t-[26px] relative overflow-hidden flex flex-col">
+            <!-- Glass specular reflection across the top of tablet screen -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none"></div>
+            <!-- The screen display is kept empty as required for dynamic mockup replacement -->
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Lower Left Foreground Overlay: Speech Bubble & Teacher Placeholder -->
+      <div class="absolute left-6 sm:left-10 md:left-12 bottom-0 z-30 flex flex-col items-start pointer-events-auto">
+        
+        <!-- Friendly rounded speech bubble with tail pointing down at the teacher -->
+        <div id="lk-bubble" class="relative mb-5 sm:mb-6 px-5 py-3.5 sm:px-6 sm:py-4 rounded-2xl max-w-[280px] sm:max-w-[320px]">
+          <p class="text-sm sm:text-base font-bold text-[#F0FAF8] tracking-wide m-0">
+            Hi! Ready to talk?
+          </p>
+        </div>
+
+        <!-- Empty rounded element id="lk-teacher" where 2D teacher stands later (no border, no background, standing to bottom edge) -->
+        <div id="lk-teacher" class="w-48 sm:w-56 md:w-64 h-64 sm:h-76 md:h-88 rounded-2xl">
+          <!-- Left completely empty with no background or border as requested -->
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Khung ảnh giới thiệu (scripts/store-art/queue.mjs, Stitch Lexkite Kit, 04/11). tag screenId
+phone-hero-light aa0bd83b1a714e0b833ffbd62790fa65
+phone-hero-dark 7117fa7f59f547899820aca5ebc0c6a8
+phone-feature-light 3eda13428d7f4690b168ef5d4cd37b8d
+phone-feature-dark 9172001ca5f84328ba2f359606293a45
+tablet-light 1fb64a4ead204c7289fe4c25e8258494
+tablet-dark 2ccd7027bc0f44c8a02dda67a678f454
+cws-landscape-light c6b29420ec9b4f1cb8bf39dabc77f38b
+cws-landscape-dark ca53d9de4e71495b904bb24f90013f02
+wide-light bad571f344f44ecf859811254d936123
+wide-dark df10a93e142c425282586b5a5ce333de
+tile-light f60a8e86795747f9a0b739248dbf5db8
+tile-dark 02936274752e4479b6168c5a27536351
+square-light c1063c970d54442bb21c40bf9308d71d

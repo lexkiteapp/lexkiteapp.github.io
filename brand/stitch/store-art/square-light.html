@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite - Social Store Square</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FDFBF7',
+              100: '#FBF7F0',
+              200: '#F5EFE4',
+              300: '#EFE7D8',
+            },
+            teal: {
+              900: '#072E2C',
+              950: '#041E1C',
+              800: '#0D5C58',
+              700: '#147671',
+              600: '#2BA39A',
+            },
+            coral: {
+              500: '#F06543',
+              600: '#E05330',
+              400: '#FF7D5C',
+            },
+            warmorange: {
+              400: '#F59E0B',
+              500: '#D97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Prevent any viewport scrolling and enforce tactile surface aesthetics */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #FBF7F0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    
+    .aspect-square-box {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vh;
+      max-height: 100vw;
+    }
+
+    /* Soft directional lighting from top-left with subtle tactile shadow */
+    .tactile-card {
+      box-shadow: 
+        0 1px 2px rgba(7, 46, 44, 0.04),
+        0 8px 24px -4px rgba(7, 46, 44, 0.08),
+        0 20px 48px -12px rgba(7, 46, 44, 0.06);
+    }
+
+    /* Tactile speech bubble tailored with friendly notch */
+    .speech-bubble {
+      box-shadow: 
+        0 2px 4px rgba(7, 46, 44, 0.04),
+        0 12px 32px -6px rgba(7, 46, 44, 0.12),
+        0 0 0 1.5px rgba(224, 214, 198, 0.8);
+    }
+    
+    .bubble-tail::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 10px 10px 0;
+      border-style: solid;
+      border-color: #FFFFFF transparent transparent transparent;
+      display: block;
+      width: 0;
+    }
+    .bubble-tail::before {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 11px 11px 0;
+      border-style: solid;
+      border-color: rgba(224, 214, 198, 0.8) transparent transparent transparent;
+      display: block;
+      width: 0;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-stone-100 select-none antialiased">
+
+  <!-- 1:1 Aspect Ratio Canvas Container -->
+  <main class="aspect-square-box relative flex flex-col justify-between overflow-hidden bg-cream-100 text-teal-950 p-8 sm:p-12 md:p-14 lg:p-16 border border-cream-300/80 shadow-2xl">
+    
+    <!-- Ambient directional light gradients (soft light from top-left, warm glow) -->
+    <div class="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-br from-white/90 via-orange-100/40 to-transparent blur-3xl opacity-80" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute top-1/4 -right-28 w-80 h-80 rounded-full bg-gradient-to-bl from-teal-500/10 via-amber-100/30 to-transparent blur-3xl opacity-70" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-cream-200/90 to-transparent" aria-hidden="true"></div>
+
+    <!-- TOP SECTION: Logo and Huge Thumbnail-Readable Headline -->
+    <header class="relative z-10 flex flex-col gap-5 sm:gap-6 shrink-0">
+      
+      <!-- Logo Row -->
+      <div class="flex items-center gap-3.5">
+        <!-- Logo square placeholder -->
+        <div id="lk-logo" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-teal-800 shadow-sm flex items-center justify-center text-white shrink-0 border border-teal-900/10">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L3 9L12 22L21 9L12 2Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M12 2L4 9.5L12 16L20 9.5L12 2Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M12 16V22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        
+        <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-teal-950 font-sans">
+          Lexkite
+        </span>
+      </div>
+
+      <!-- Headline & Subtitle Area -->
+      <div class="max-w-2xl mt-1">
+        <!-- Extremely legible headline even at small thumbnail size, wrapping gracefully -->
+        <h1 id="lk-headline" class="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight text-teal-950 leading-[1.08] text-balance">
+          Speak English with <span id="lk-em" class="text-coral-500 font-black relative inline-block underline decoration-warmorange-400/40 decoration-wavy decoration-2 underline-offset-8">confidence</span>
+        </h1>
+        
+        <!-- Short subtext line -->
+        <p id="lk-sub" class="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl font-medium text-teal-900/80 leading-relaxed max-w-xl text-balance">
+          Natural conversations that feel like real life.
+        </p>
+      </div>
+    </header>
+
+    <!-- BOTTOM HALF: Two Teacher Placeholders and Middle Speech Bubble -->
+    <section class="relative z-10 w-full flex-1 flex flex-col justify-end min-h-[46%] mt-4" aria-label="Interactive Teacher Visual">
+      
+      <!-- Friendly Speech Bubble Centered Between Teachers -->
+      <div class="w-full flex justify-center mb-3 sm:mb-5 z-20">
+        <div id="lk-bubble" class="speech-bubble bubble-tail relative bg-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl max-w-xs sm:max-w-sm text-center transform transition-transform hover:-translate-y-0.5">
+          <span class="text-base sm:text-lg md:text-xl font-bold tracking-tight text-teal-950">
+            Hi! Ready to talk?
+          </span>
+        </div>
+      </div>
+
+      <!-- Two Teacher Stand Slots Side-by-Side Reaching Bottom Edge -->
+      <div class="w-full flex items-end justify-between px-3 sm:px-8 gap-4 sm:gap-8 h-48 sm:h-56 md:h-64">
+        
+        <!-- Teacher 1 Slot: Empty rounded container with no border or background -->
+        <div id="lk-teacher" class="flex-1 h-full rounded-3xl" aria-label="Teacher 1 Slot"></div>
+
+        <!-- Teacher 2 Slot: Empty rounded container with no border or background -->
+        <div id="lk-teacher2" class="flex-1 h-full rounded-3xl" aria-label="Teacher 2 Slot"></div>
+        
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

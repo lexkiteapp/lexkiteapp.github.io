@@ -1,12 +1,12 @@
 # Ảnh App Store (iPhone 6.9" 1320×2868 + iPad 13" 2064×2752) chụp từ app iOS GỐC trên Simulator, đóng khung + chữ giống ảnh Google Play
-# (scripts/ios-shots.mjs, chữ dùng chung scripts/lib/app-shots-copy.mjs). Kết quả: artifact "lexkite-appstore-shots" + nhánh mồ côi "ios-shots".
+# (kế hoạch scripts/ios-shots.mjs, khung + chữ scripts/store-art/). Kết quả: artifact "lexkite-appstore-shots" + nhánh mồ côi "ios-shots".
 # Tùy chọn đẩy nội dung niêm yết + ảnh lên App Store Connect (scripts/asc-upload.mjs, secret ASC_*): asc = dry-run | upload.
 # KHÔNG bao giờ bấm "Submit for Review", không đổi giá/phân phối/độ tuổi – anh chủ tự bấm (docs/STORE-READINESS.md § B).
 name: iOS → ảnh App Store
 on:
   push:
     branches: [ios-appstore]   # nhánh làm việc của bản 1.0 (push = chỉ chụp ảnh, không đụng App Store Connect)
-    paths: ['.github/workflows/ios-shots.yml', 'scripts/ios-shots.mjs', 'scripts/ios-shots-inject.js', 'scripts/lib/app-shots-copy.mjs']
+    paths: ['.github/workflows/ios-shots.yml', 'scripts/ios-shots.mjs', 'scripts/ios-shots-inject.js', 'scripts/store-art/**']
   workflow_dispatch:
     inputs:
       capture: { description: 'Chụp ảnh mới trên Simulator (false = dùng ảnh ở nhánh ios-shots)', type: boolean, default: true }
@@ -14,7 +14,17 @@ on:
       only: { description: 'Phần đẩy lên App Store Connect', type: choice, options: [all, text, shots, settings, review], default: all }
       build: { description: 'only=review: số build gắn vào bản 1.0 (trống = VALID mới nhất)', required: false, default: '' }
       submit: { description: 'only=review: GỬI DUYỆT thật (chỉ khi App Privacy đã Publish + anh chủ đồng ý)', type: boolean, default: false }
-      langs: { description: 'Ngôn ngữ ảnh (có chữ trong scripts/lib/app-shots-copy.mjs)', default: 'en,vi' }
+      langs: { description: 'Ngôn ngữ ảnh (có chữ trong scripts/store-art/copy.mjs)', default: 'en,vi' }
+      outcome36: { description: 'Ảnh 1 ghi mốc 3–6 tháng', type: boolean, default: false }
+  workflow_call:   # store-art.yml gọi để một lần dispatch chụp đủ mọi store; không đụng App Store Connect
+    inputs:
+      capture: { type: boolean, default: true }
+      langs: { type: string, default: 'en,vi' }
+      outcome36: { type: boolean, default: false }
+      asc: { type: string, default: none }
+      only: { type: string, default: all }
+      build: { type: string, default: '' }
+      submit: { type: boolean, default: false }
 permissions:
   contents: write
 concurrency: { group: ios-shots, cancel-in-progress: false }
@@ -22,7 +32,7 @@ jobs:
   shots:
     if: github.event_name == 'push' || inputs.capture
     runs-on: macos-15
-    timeout-minutes: 75
+    timeout-minutes: 240
     env:
       LANGS: ${{ inputs.langs || 'en,vi' }}
     steps:
@@ -90,26 +100,30 @@ jobs:
               xcrun simctl uninstall "$D" com.lexkite.app || true; xcrun simctl install "$D" "$APP"
               xcrun simctl launch "$D" com.lexkite.app; sleep 15
               cmd "home?hl=$L"; sleep 15
-              while read -u 4 N ROUTE FLIP DARK WAIT; do
+              while read -u 4 N ROUTE STEP DARK WAIT; do
                 xcrun simctl ui "$D" appearance $([ "$DARK" = 1 ] && echo dark || echo light); sleep 2
-                Q=""; [ "$FLIP" = 1 ] && Q="?flip=1"
-                cmd "$ROUTE$Q"; sleep "$WAIT"; [ "$FLIP" = 1 ] && sleep 3
+                Q=""; [ "$STEP" != "-" ] && Q="step=$STEP"
+                case "$ROUTE" in *\?*) cmd "$ROUTE&$Q" ;; *) cmd "$ROUTE?$Q" ;; esac; sleep "$WAIT"
                 xcrun simctl io "$D" screenshot "ios-raw/$DEV/$L/$N.png"
                 echo "· $DEV $L $N #/$ROUTE $(sips -g pixelWidth -g pixelHeight "ios-raw/$DEV/$L/$N.png" | awk '/pixel/{printf "%s ", $2}')"
               done 4< plan.txt
             done
             xcrun simctl shutdown "$D"
           done 3< devs.txt
-      - name: Đóng khung + chữ (Playwright Chromium)
+      - name: Ghép khung Stitch + chữ + QC (scripts/store-art/compose.mjs)
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npm i --no-save --no-audit --no-fund playwright@1.50.1 tailwindcss@3.4.17
           npx playwright install chromium
-          node scripts/ios-shots.mjs frame ios-raw ios-shots
+          LANGS="${LANGS}" node scripts/store-art/compose.mjs --raw ios-raw --out ios-framed --only apple ${{ inputs.outcome36 && '--outcome36' || '' }}
+          mv ios-framed/apple ios-shots
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: lexkite-appstore-raw, path: ios-raw/ }
       - uses: actions/upload-artifact@v4
         with: { name: lexkite-appstore-shots, path: ios-shots/ }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: lexkite-appstore-qc, path: ios-framed/qc.json }
       - name: Lưu vào nhánh ios-shots
         run: |
           cd ios-shots && git init -q && git checkout -q -b ios-shots

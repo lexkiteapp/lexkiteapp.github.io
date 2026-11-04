@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Brand Banner (Tactile Night 2:1)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              night: '#051013',
+              surface: '#091518',
+              card: '#0E1F24',
+              cardHover: '#13282F',
+              teal: '#2DD4BF',
+              tealLight: '#8FE3D8',
+              orange: '#FF7A29',
+              coral: '#FF5252',
+              amber: '#F59E0B',
+              ink: '#051013'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #02080a;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed 2:1 canvas banner container */
+    .banner-canvas {
+      position: relative;
+      width: 1400px;
+      height: 700px;
+      aspect-ratio: 2 / 1;
+      background: radial-gradient(circle at 18% 22%, rgba(20, 184, 166, 0.16) 0%, transparent 48%),
+                  radial-gradient(circle at 82% 65%, rgba(255, 122, 41, 0.22) 0%, rgba(245, 158, 11, 0.08) 36%, transparent 70%),
+                  linear-gradient(145deg, #071518 0%, #051013 55%, #030a0c 100%);
+      overflow: hidden;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
+                  0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    }
+
+    /* Subtle tactile ledge on chips */
+    .tactile-chip {
+      box-shadow: 0 3px 0 0 #040d10, 0 8px 16px -4px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(45, 212, 191, 0.24);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    /* Subtle light catching top-left edge on card surfaces */
+    .specular-edge {
+      border: 1px solid rgba(45, 212, 191, 0.18);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 2:1 Canvas Container (1400 x 700) -->
+  <main class="banner-canvas flex flex-row items-stretch select-none" role="banner" aria-label="Lexkite Brand Banner">
+    
+    <!-- Ambient light glow from top-left -->
+    <div class="pointer-events-none absolute -top-32 -left-32 w-[620px] h-[620px] rounded-full bg-teal-500/10 blur-[130px]"></div>
+
+    <!-- Big soft warm circle of light behind teachers on the right -->
+    <div class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-brand-orange/30 via-amber-500/25 to-brand-coral/15 blur-[100px]"></div>
+    <div class="pointer-events-none absolute right-16 bottom-6 w-[480px] h-[480px] rounded-full bg-brand-orange/20 blur-[80px]"></div>
+
+    <!-- Left 58%: Brand info, Headline, Subtitle, Tags -->
+    <div class="relative z-10 w-[58%] h-full flex flex-col justify-between pl-16 pr-8 py-14">
+      
+      <!-- Top: Logo row -->
+      <div class="flex items-center gap-4">
+        <!-- Logo container: id="lk-logo" (small empty square for the logo, then the word Lexkite next to it) -->
+        <div id="lk-logo" class="w-11 h-11 rounded-xl bg-[#0e2127] specular-edge flex items-center justify-center shadow-[0_3px_0_0_#040d10]" aria-hidden="true">
+          <!-- Empty square reserved for the logo -->
+        </div>
+        <span class="text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
+          Lexkite
+          <span class="inline-block w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+        </span>
+      </div>
+
+      <!-- Middle: Very large bold headline over two lines & sub line -->
+      <div class="space-y-6 my-auto pr-4">
+        <!-- Headline: id="lk-headline" with emphasis span id="lk-em" in accent colour -->
+        <h1 id="lk-headline" class="text-[56px] leading-[1.12] font-black tracking-[-0.03em] text-[#F8FAFC] max-w-[700px] text-balance">
+          Speak English with <span id="lk-em" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-brand-coral drop-shadow-sm">confidence</span>
+        </h1>
+
+        <!-- Subtitle: id="lk-sub" (one short line placeholder, wrapping cleanly for translations) -->
+        <p id="lk-sub" class="text-xl md:text-[22px] leading-relaxed font-semibold text-[#CBD5E1] max-w-[620px]">
+          Tactile daily practice engineered for lasting speaking fluency.
+        </p>
+      </div>
+
+      <!-- Bottom: id="lk-tags", row of three short rounded tactile chips -->
+      <div id="lk-tags" class="flex flex-wrap items-center gap-3.5 pt-2">
+        <div class="tactile-chip px-5 py-2.5 rounded-full bg-[#0c1f25] text-[#F1F5F9] font-bold text-base tracking-wide flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
+          <span>Speak</span>
+        </div>
+        <div class="tactile-chip px-5 py-2.5 rounded-full bg-[#0c1f25] text-[#F1F5F9] font-bold text-base tracking-wide flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+          <span>Write</span>
+        </div>
+        <div class="tactile-chip px-5 py-2.5 rounded-full bg-[#0c1f25] text-[#F1F5F9] font-bold text-base tracking-wide flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-tealLight"></span>
+          <span>Real practice</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right 42%: Teacher stage reaching bottom edge -->
+    <div class="relative z-10 w-[42%] h-full flex items-end justify-center px-6 pb-0 overflow-hidden">
+      
+      <!-- Stage lighting floor reflection -->
+      <div class="absolute bottom-0 w-full h-36 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+
+      <!-- Side-by-side empty teacher slots reaching the bottom edge -->
+      <div class="w-full h-full flex items-end justify-center gap-6 pb-0">
+        
+        <!-- id="lk-teacher" (rounded, no border, no background, reaching the bottom edge) -->
+        <div id="lk-teacher" class="flex-1 h-[88%] rounded-t-3xl transition-all" aria-label="Teacher 1 slot">
+          <!-- Empty element reserved for 2D Teacher 1 -->
+        </div>
+
+        <!-- id="lk-teacher2" (rounded, no border, no background, reaching the bottom edge) -->
+        <div id="lk-teacher2" class="flex-1 h-[88%] rounded-t-3xl transition-all" aria-label="Teacher 2 slot">
+          <!-- Empty element reserved for 2D Teacher 2 -->
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom ambient ground light highlight -->
+    <div class="pointer-events-none absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/30 to-brand-orange/30"></div>
+
+  </main>
+
+</body>
+</html>

@@ -104,6 +104,11 @@ async function run(lang) {
   const s4 = await nt.screenshot();
 
   await ctx.close();
+  if (process.env.RAW) { // Đường ống mới (scripts/store-art/compose.mjs) tự ghép khung Stitch: chỉ cần ảnh thô
+    fs.mkdirSync(`${process.env.RAW}/${lang}`, { recursive: true });
+    [s1, s2, s3, s4, appShot].forEach((b, i) => fs.writeFileSync(`${process.env.RAW}/${lang}/${i + 1}.png`, b));
+    return s1;
+  }
   // Ghép khung ở trình duyệt riêng tỉ lệ 1× → ảnh ra đúng 1280×800 (ảnh chụp 2× nên vẫn nét)
   const br = await chromium.launch(), out = await br.newPage({ deviceScaleFactor: 1 });
   await frame(out, lang, 0, s1); await frame(out, lang, 1, s2); await frame(out, lang, 2, s3, s1);
@@ -145,5 +150,5 @@ async function promos(shot) {
 const LANGS = (process.env.LANGS || 'en,vi,es,pt,ja,ko,zh,id,de,fr,ar,hi,ru,th,tr').split(',');
 const enShot = await run(LANGS[0]);
 for (const l of LANGS.slice(1)) await run(l);
-await promos(enShot);
+if (!process.env.RAW) await promos(enShot);
 console.log('✓', fs.readdirSync(OUT).join(' '));

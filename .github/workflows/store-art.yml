@@ -1,0 +1,70 @@
+# Bộ ảnh giới thiệu mới (docs/STORE-ART.md): chụp màn thật + khung Stitch + 15 ngôn ngữ + QC. KHÔNG tải gì lên store.
+# Chụp lại sau khi giao diện vào main: chạy tay workflow này, langs = all, preview = false, ios = true.
+name: Ảnh giới thiệu (Store Art)
+on:
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'en,vi,… hoặc all', default: 'en' }
+      only: { description: 'Phần cần dựng', default: 'play,apple,chrome,web' }
+      base: { description: 'Địa chỉ app để chụp', default: 'https://lexkite.com/app/' }
+      preview: { description: 'Chưa có ảnh Simulator: ảnh Apple tạm dùng ảnh web, không dùng để nộp', type: boolean, default: true }
+      ios: { description: 'Chụp + dựng ảnh App Store thật trên Simulator (macOS, lâu)', type: boolean, default: false }
+      outcome36: { description: 'Ảnh 1 ghi mốc 3–6 tháng (chỉ bật khi #/outcome đã vào main)', type: boolean, default: false }
+  push:
+    branches: ['claude/store-art-*']   # chỉ nhánh làm việc, dựng mẫu tiếng Anh
+    paths: ['.github/workflows/store-art.yml', 'scripts/store-art/**', 'brand/stitch/store-art/**']
+permissions:
+  contents: write
+concurrency: { group: store-art, cancel-in-progress: false }
+env:
+  ALL_LANGS: en,vi,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr
+jobs:
+  art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      BASE: ${{ inputs.base || 'https://lexkite.com/app/' }}
+      ONLY: ${{ inputs.only || 'play,apple,chrome,web' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài công cụ
+        run: |
+          L='${{ inputs.langs || 'en' }}'; [ "$L" = all ] && L="$ALL_LANGS"; echo "LANGS=$L" >> "$GITHUB_ENV"
+          npm i --no-save --no-audit --no-fund playwright@1.50.1 tailwindcss@3.4.17
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          pip install -q pillow
+      - name: Chụp màn thật của app
+        run: node scripts/store-art/capture.mjs store-art-raw
+      - name: Chụp add-on thật
+        if: contains(env.ONLY, 'chrome')
+        run: |
+          bash scripts/build-extension.sh
+          RAW=store-art-raw/cws node scripts/store-shots.mjs /tmp/cws-unused
+      - name: Ghép khung + QC
+        run: |
+          set +e
+          node scripts/store-art/compose.mjs --raw store-art-raw --out store-art --only "$ONLY" ${{ (github.event_name == 'push' || inputs.preview) && '--preview' || '' }} ${{ inputs.outcome36 && '--outcome36' || '' }} 2>&1 | tee compose.log
+          echo "COMPOSE=${PIPESTATUS[0]}" >> "$GITHUB_ENV"; set -e
+          python3 -I scripts/store-art/review.py store-art
+          tail -1 compose.log >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: store-art-review, path: store-art/review/, retention-days: 14 }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: store-art-raw, path: store-art-raw/, retention-days: 14 }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: store-art-pack, path: 'store-art/**/*.png', retention-days: 30 }
+      - name: Ảnh đỏ QC thì đỏ, không che
+        run: exit "${COMPOSE:-1}"
+  ios:
+    if: github.event_name == 'workflow_dispatch' && inputs.ios
+    uses: ./.github/workflows/ios-shots.yml
+    with:
+      capture: true
+      langs: ${{ inputs.langs == 'all' && 'en,vi,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr' || inputs.langs }}
+      outcome36: ${{ inputs.outcome36 }}

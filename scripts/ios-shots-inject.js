@@ -2,7 +2,7 @@
 // Điều khiển app gốc trên Simulator: workflow ghi lệnh "<số thứ tự> <route>[?hl=xx][&flip=1]" vào máy chủ nhỏ http://127.0.0.1:8765/cmd,
 // script này hỏi mỗi giây (không dùng simctl openurl vì iOS hiện hộp "Open in Lexkite?" chặn deep link).
 //   hl=xx  → nạp lại app với ?sandbox=1&demo=1&hl=xx (dữ liệu mẫu tách riêng, giống ảnh Google Play)
-//   flip=1 → lật thẻ ôn (#flipBtn) để hiện các nút chấm FSRS
+//   step=flip|say|call|write → thao tác tới đúng trạng thái cần chụp
 (function () {
   // Ảnh App Store không được dính hộp "Would Like to Send You Notifications" của iOS (simctl không cấp sẵn quyền thông báo):
   // bản chụp ảnh thay plugin LocalNotifications bằng bản giả "đã từ chối" → app không xin quyền khi xong bước thiết lập.
@@ -33,9 +33,18 @@
     if (hl && !new RegExp('[?&]hl=' + hl + '(&|$)').test(location.search)) {
       location.replace(location.pathname + '?sandbox=1&demo=1&hl=' + hl + '#/' + route); return;
     }
-    location.hash = '#/' + route;
-    setTimeout(function () { scrollTo(0, 0); }, 1500);
-    if (q.get('flip')) setTimeout(function () { var b = document.getElementById('flipBtn'); if (b) b.click(); }, 2500);
+    location.hash = '#/' + route + (q.get('demo') ? '?demo=1' : '');
+    if (q.get('step') !== 'write') setTimeout(function () { scrollTo(0, 0); }, 1500);
+    var step = q.get('step'); // thao tác tới đúng trạng thái đáng chụp, cùng kịch bản với scripts/store-art/capture.mjs
+    if (step === 'flip') setTimeout(function () { var b = document.getElementById('flipBtn'); if (b) b.click(); }, 2500);
+    if (step === 'say') setTimeout(function () { var a = document.querySelector('a[href^="#/say/"]'); if (a) a.click(); }, 2500);
+    if (step === 'call') { location.hash = '#/call/coffee'; setTimeout(function () { var b = document.getElementById('callGo'); if (b) b.click(); }, 3000); }
+    if (step === 'write') setTimeout(function () {
+      var e = document.getElementById('essay'), an = document.getElementById('analyze'); if (!e || !an) return;
+      e.value = 'Many people believe that learning a language online is easier than studying in a classroom. I think this is a good thing because students can practise every day and choose topics they enjoy. However, speaking with other people is still important, and it helps learners feel more confident. In my opinion, the best approach is to combine daily practice with real conversations.';
+      e.dispatchEvent(new Event('input', { bubbles: true })); an.click();
+      setTimeout(function () { var r = document.getElementById('report'); if (r) r.scrollIntoView({ block: 'start' }); }, 1500);
+    }, 2500);
   }
   // Kênh lệnh qua localhost (bản chụp ảnh bật NSAllowsLocalNetworking); số thứ tự giữ qua lần nạp lại bằng sessionStorage
   setInterval(function () {

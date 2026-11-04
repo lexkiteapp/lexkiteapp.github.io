@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Promo Tile — Bright Day</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFF9F3',
+              creambg: '#FAF2E8',
+              surface: '#FFFFFF',
+              ink: '#0C2C30',
+              muted: '#4A686B',
+              coral: '#F05A47',
+              orange: '#E87A38',
+              teal: '#136B66',
+              gold: '#F4AB44',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Fixed poster styling: exactly 440 by 280 ratio container, non-scrollable */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #EFE8DD;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+  <!-- Fixed 440x280 canvas / aspect-ratio container -->
+  <main class="relative w-[440px] h-[280px] rounded-2xl overflow-hidden shadow-2xl bg-[#FFF9F3] border border-[#E9DEC9] flex flex-col justify-between p-7 box-border select-none"
+        style="background: linear-gradient(142deg, #FFFDF8 0%, #FFF8EF 52%, #FBEEDD 100%);">
+    
+    <!-- Soft directional ambient lighting & warmth spots -->
+    <div class="pointer-events-none absolute -top-16 -left-16 w-56 h-56 rounded-full bg-white opacity-90 blur-3xl"></div>
+    <div class="pointer-events-none absolute top-10 right-4 w-44 h-44 rounded-full bg-[#FFE5CC] opacity-60 blur-2xl"></div>
+
+    <!-- Teacher backdrop halo (soft circle of warm light behind id="lk-teacher") -->
+    <div class="pointer-events-none absolute -bottom-10 right-2 w-52 h-52 rounded-full bg-gradient-to-tr from-[#FFDFBE] via-[#FFEEDC] to-white/70 opacity-80 blur-xl"></div>
+    <div class="pointer-events-none absolute bottom-0 right-4 w-40 h-48 rounded-t-full bg-[#FEDDB9]/40 blur-lg"></div>
+
+    <!-- Top Row: Logo block with exact id="lk-logo" -->
+    <header class="relative z-10 flex items-center gap-2.5">
+      <!-- Logo wrapper: id="lk-logo" with empty square + Lexkite text -->
+      <div class="flex items-center gap-2.5">
+        <div id="lk-logo" class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#136B66] to-[#0A4B47] shadow-[0_3px_0_0_#073532] flex items-center justify-center p-1.5" aria-label="Lexkite Logo">
+          <!-- Subtle clean kite motif geometric mark inside the square -->
+          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-white" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 20 9 12 22 4 9 12 2" fill="white" fill-opacity="0.25"/>
+            <line x1="12" y1="2" x2="12" y2="22" stroke="white"/>
+            <line x1="4" y1="9" x2="20" y2="9" stroke="white"/>
+          </svg>
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-[#0C2C30] flex items-center gap-1">
+          Lexkite
+        </span>
+      </div>
+    </header>
+
+    <!-- Main Content Area: Copy on left (headline + sub) -->
+    <section class="relative z-10 flex-1 flex flex-col justify-center pr-36 pt-2 pb-1">
+      <!-- Huge Two-line Headline: id="lk-headline" with id="lk-em" in accent colour -->
+      <h1 id="lk-headline" class="text-[29px] leading-[1.12] font-black tracking-tight text-[#0C2C30] text-balance break-words">
+        Speak English with <span id="lk-em" class="text-[#F05A47] inline-block drop-shadow-sm font-black">confidence</span>
+      </h1>
+
+      <!-- Subtitle: id="lk-sub" (one short line, strongly readable > 4.5:1) -->
+      <p id="lk-sub" class="mt-2 text-[13px] leading-snug font-bold text-[#355255] max-w-[240px] tracking-normal break-words">
+        Bite-sized daily speaking practice designed for fluency.
+      </p>
+    </section>
+
+    <!-- Empty Teacher Slot on the Right: exact id="lk-teacher", no border, reaching the bottom edge -->
+    <div id="lk-teacher" class="absolute bottom-0 right-4 w-36 h-[230px] rounded-t-3xl overflow-hidden z-20 pointer-events-none flex items-end justify-center">
+      <!-- Designated empty container reserved for 2D teacher character asset -->
+    </div>
+
+    <!-- Bottom tactile anchor edge bar for subtle game-like grounded depth -->
+    <div class="pointer-events-none absolute bottom-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#136B66]/15 via-[#F05A47]/20 to-[#E87A38]/20"></div>
+
+  </main>
+
+</body>
+</html>

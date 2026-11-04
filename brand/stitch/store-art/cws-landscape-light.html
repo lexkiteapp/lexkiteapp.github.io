@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, initial-scale=1.0">
+  <title>Lexkite Chrome Extension Store Poster</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Material Symbols Rounded -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#fffbf9',
+              100: '#fff8f5',
+              200: '#fff1e8',
+              300: '#fed7aa',
+            },
+            teal: {
+              850: '#003e3a',
+              900: '#003330',
+              950: '#002624',
+              accent: '#0f766e',
+            },
+            coral: {
+              DEFAULT: '#f97316',
+              dark: '#ea580c',
+              light: '#fdba74',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Fixed poster dimensions matching 16:10 aspect ratio (1280px by 800px) */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1280px;
+      height: 800px;
+      overflow: hidden;
+      background-color: #fff8f5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Ambient lighting & subtle grain/depth */
+    .poster-ambient {
+      background: 
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 245, 0.4) 50%, rgba(254, 237, 226, 0.7) 100%),
+        linear-gradient(135deg, #fffbf9 0%, #fff8f5 45%, #ffede2 100%);
+    }
+
+    /* Tactile realistic browser window with directional light */
+    .browser-chassis {
+      background: #ffffff;
+      border: 1.5px solid #ebdcd3;
+      box-shadow: 
+        -24px 32px 64px -12px rgba(100, 60, 40, 0.12),
+        -8px 12px 24px -6px rgba(90, 50, 30, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    /* Tactile check mark badge */
+    .tactile-check {
+      box-shadow: 0 3px 0 0 #0f766e;
+    }
+  </style>
+</head>
+
+<body class="w-[1280px] h-[800px] flex items-center justify-between relative poster-ambient select-none">
+
+  <!-- Subtle warm ambient lighting flare from top left -->
+  <div class="absolute -top-32 -left-32 w-[540px] h-[540px] bg-gradient-to-br from-white/90 via-orange-100/40 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- MAIN POSTER CONTAINER (1280 x 800) -->
+  <main class="w-full h-full flex flex-row items-stretch relative z-10">
+
+    <!-- ========================================== -->
+    <!-- LEFT 36%: BRAND, HEADLINE, SUBTITLE, POINTS -->
+    <!-- ========================================== -->
+    <section class="w-[36%] min-w-[440px] max-w-[460px] h-full flex flex-col justify-between py-14 pl-16 pr-6 z-20">
+      
+      <!-- Top Brand Row -->
+      <div class="flex items-center gap-3.5">
+        <!-- Logo Element Container -->
+        <div id="lk-logo" class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-800 to-teal-950 flex items-center justify-center border border-teal-700/30 shadow-[0_3px_0_0_#00201d]">
+          <span class="material-symbols-rounded text-white text-[22px]">kitesurfing</span>
+        </div>
+        <span class="text-[26px] font-extrabold tracking-tight text-teal-950">Lexkite</span>
+      </div>
+
+      <!-- Center Hero Messaging -->
+      <div class="flex flex-col gap-6 my-auto pr-2">
+        <!-- Main Huge Headline (Legible at thumbnail size) -->
+        <h1 id="lk-headline" class="text-[52px] leading-[1.08] font-black text-teal-950 tracking-[-0.03em] break-words">
+          Speak English with <span id="lk-em" class="text-coral underline decoration-coral-light/70 decoration-[5px] underline-offset-[7px]">confidence</span>
+        </h1>
+
+        <!-- Supporting Subtitle (Short, high contrast) -->
+        <p id="lk-sub" class="text-[19px] leading-[1.4] font-medium text-[#2d4d48] break-words">
+          Master real conversations with instant AI feedback while you browse.
+        </p>
+
+        <!-- Benefit Points List -->
+        <ul id="lk-points" class="flex flex-col gap-4 mt-2">
+          <!-- Point 1 -->
+          <li class="flex items-center gap-3.5">
+            <div class="w-8 h-8 rounded-full bg-teal-accent text-white flex items-center justify-center flex-shrink-0 tactile-check">
+              <span class="material-symbols-rounded text-[18px]">check</span>
+            </div>
+            <span class="text-[16px] font-semibold text-teal-950 tracking-tight leading-snug">
+              Instant pronunciation & stress checks
+            </span>
+          </li>
+
+          <!-- Point 2 -->
+          <li class="flex items-center gap-3.5">
+            <div class="w-8 h-8 rounded-full bg-teal-accent text-white flex items-center justify-center flex-shrink-0 tactile-check">
+              <span class="material-symbols-rounded text-[18px]">check</span>
+            </div>
+            <span class="text-[16px] font-semibold text-teal-950 tracking-tight leading-snug">
+              Look up any word with native audio
+            </span>
+          </li>
+
+          <!-- Point 3 -->
+          <li class="flex items-center gap-3.5">
+            <div class="w-8 h-8 rounded-full bg-teal-accent text-white flex items-center justify-center flex-shrink-0 tactile-check">
+              <span class="material-symbols-rounded text-[18px]">check</span>
+            </div>
+            <span class="text-[16px] font-semibold text-teal-950 tracking-tight leading-snug">
+              Smart spaced repetition drills
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bottom Spacer / Subtle Brand Trust Footnote -->
+      <div class="flex items-center gap-2 pt-2">
+        <span class="w-2 h-2 rounded-full bg-teal-accent"></span>
+        <span class="text-xs font-bold tracking-wider text-teal-900/60 uppercase">Official Chrome Extension</span>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- RIGHT 64%: REALISTIC BROWSER WINDOW        -->
+    <!-- ========================================== -->
+    <section class="w-[64%] h-full flex items-center justify-end relative pl-4 overflow-visible">
+      
+      <!-- Realistic Desktop Browser Window (slightly overflowing right edge) -->
+      <div class="browser-chassis w-[860px] h-[670px] flex flex-col overflow-hidden relative translate-x-4">
+        
+        <!-- Browser Chrome: Header / Titlebar -->
+        <header class="w-full h-12 bg-[#f9f5f1] border-b border-[#e9dcce] flex items-center px-5 justify-between flex-shrink-0">
+          
+          <!-- Traffic Light Dots -->
+          <div class="flex items-center gap-2">
+            <div class="w-3.5 h-3.5 rounded-full bg-[#ff5f56] border border-[#e0443e]"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] border border-[#dea123]"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-[#27c93f] border border-[#1aab29]"></div>
+          </div>
+
+          <!-- Slim Realistic Address Bar -->
+          <div class="flex-1 max-w-[500px] mx-6 h-7 bg-white rounded-lg border border-[#e2d5c7] flex items-center px-3 gap-2 shadow-[inset_0_1px_2px_rgba(0,0,0,0.03)]">
+            <span class="material-symbols-rounded text-[#94a3b8] text-[16px]">lock</span>
+            <span class="text-xs font-medium text-[#475569] tracking-normal">lexkite.com/companion</span>
+            <div class="ml-auto flex items-center gap-1 text-[#94a3b8]">
+              <span class="material-symbols-rounded text-[15px]">star</span>
+            </div>
+          </div>
+
+          <!-- Browser Controls (Right edge) -->
+          <div class="flex items-center gap-3 text-[#64748b]">
+            <div class="w-7 h-7 rounded-md bg-[#eee5db] flex items-center justify-center text-teal-900 shadow-sm border border-[#e0d3c4]">
+              <span class="material-symbols-rounded text-[16px]">extension</span>
+            </div>
+            <span class="material-symbols-rounded text-[18px]">more_vert</span>
+          </div>
+
+        </header>
+
+        <!-- Browser Page Area: Empty container with id="lk-screen" for real content injection -->
+        <div id="lk-screen" class="w-full flex-1 bg-[#ffffff] relative flex flex-col overflow-hidden">
+          <!-- Tactile watermark grid/texture placeholder inside empty screen area -->
+          <div class="w-full h-full bg-[#fbf9f6] flex flex-col items-center justify-center p-8">
+            <div class="w-full h-full rounded-2xl border-2 border-dashed border-[#e6d8cb] flex flex-col items-center justify-center text-center p-12 bg-white/60">
+              <div class="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center mb-4 text-teal-850 shadow-sm">
+                <span class="material-symbols-rounded text-3xl">desktop_windows</span>
+              </div>
+              <p class="text-lg font-bold text-teal-950 mb-1">Lexkite Interactive Viewport</p>
+              <p class="text-sm font-medium text-[#64748b] max-w-sm">
+                Target injection slot for live extension demonstration screenshot (#lk-screen).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

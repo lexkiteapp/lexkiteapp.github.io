@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Brand Banner</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            'cream-base': '#FBF6EE',
+            'cream-warm': '#F5ECE0',
+            'teal-deep': '#0F3D3E',
+            'teal-muted': '#2E5556',
+            'coral-accent': '#E15B45',
+            'amber-warm': '#E58A2B',
+            'ledge-shadow': '#DBC9B5',
+            'chip-border': '#DFCEBA',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+      background-color: #FBF6EE;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .banner-container {
+      width: 100vw;
+      height: 100vh;
+      max-aspect-ratio: 2/1;
+      aspect-ratio: 2 / 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+    /* Ambient directional lighting from top-left */
+    .top-left-light {
+      background: radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.95) 0%, rgba(253, 248, 240, 0.6) 45%, transparent 75%);
+    }
+    /* Soft tactile drop ledge for chips */
+    .tactile-chip {
+      box-shadow: 0 3px 0 0 #D8C4AD, 0 6px 14px -3px rgba(15, 61, 62, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-[#FBF6EE] flex items-center justify-center select-none">
+
+  <!-- Fixed landscape poster canvas (approx 2:1) -->
+  <main class="w-full h-full max-h-screen aspect-[2/1] relative flex overflow-hidden bg-[#FBF6EE]">
+
+    <!-- Background Atmospheric Lighting & Shapes -->
+    <!-- Top-left directional sunlight fill -->
+    <div class="absolute inset-0 pointer-events-none top-left-light z-0"></div>
+
+    <!-- Soft ambient background grid/dots subtle texture -->
+    <div class="absolute inset-0 pointer-events-none opacity-[0.035] z-0" style="background-image: radial-gradient(#0F3D3E 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+
+    <!-- Right Side: 42% Teacher Backdrop Warm Light Circle -->
+    <div class="absolute right-[4%] bottom-[-10%] w-[58vh] h-[58vh] max-w-[46%] rounded-full pointer-events-none z-0"
+         style="background: radial-gradient(circle at 50% 55%, #FDE4CD 0%, #F8D9BC 38%, rgba(248, 217, 188, 0.35) 68%, transparent 80%); filter: blur(28px);">
+    </div>
+
+    <!-- Secondary Soft Pastel Mint Halo for Rich Contrast -->
+    <div class="absolute right-[22%] top-[12%] w-[32vh] h-[32vh] rounded-full pointer-events-none z-0"
+         style="background: radial-gradient(circle, rgba(175, 222, 218, 0.35) 0%, rgba(251, 246, 238, 0) 70%); filter: blur(36px);">
+    </div>
+
+    <!-- Foreground Layout: Left 58% / Right 42% -->
+    <div class="relative z-10 w-full h-full flex flex-row">
+
+      <!-- LEFT COLUMN: 58% Brand, Headline, Subtitle, Chips -->
+      <section class="w-[58%] h-full flex flex-col justify-between pl-[6vw] pr-[2vw] py-[8vh] z-10">
+
+        <!-- Top Row: Logo & Brand Wordmark -->
+        <header class="flex items-center gap-[1.2vw]">
+          <!-- id="lk-logo" small empty square for logo placeholder with subtle tactile outline -->
+          <div id="lk-logo" class="w-[4.8vh] h-[4.8vh] min-w-[34px] min-h-[34px] max-w-[48px] max-h-[48px] rounded-[24%] bg-white/70 border border-[#DBC9B5] shadow-[0_2px_0_0_#D8C4AD] flex items-center justify-center flex-shrink-0" aria-label="Logo placeholder">
+            <!-- Subtle geometric kite icon placeholder mark -->
+            <svg class="w-[60%] h-[60%] text-[#0F3D3E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 20 10 12 22 4 10" fill="#0F3D3E" fill-opacity="0.12"/>
+            </svg>
+          </div>
+          <!-- Wordmark -->
+          <span class="text-[3.8vh] min-text-[22px] max-text-[36px] font-extrabold tracking-[-0.03em] text-[#0F3D3E] leading-none">
+            Lexkite
+          </span>
+        </header>
+
+        <!-- Center Block: Large Headline & Subtitle -->
+        <div class="my-auto py-[2vh] flex flex-col gap-[2.4vh] max-w-[94%]">
+          <!-- id="lk-headline" Over 2 lines with huge presence, scalable for 40% length -->
+          <h1 id="lk-headline" class="text-[7.6vh] leading-[1.08] font-extrabold tracking-[-0.035em] text-[#0F3D3E] break-words">
+            Speak English with <span id="lk-em" class="text-[#E15B45] inline-block relative">confidence</span>
+          </h1>
+
+          <!-- id="lk-sub" Short calm subline with strong readable contrast -->
+          <p id="lk-sub" class="text-[2.6vh] leading-[1.4] font-medium text-[#2E5556] max-w-[85%] break-words">
+            Bite-sized, natural daily speaking drills designed for real conversations.
+          </p>
+        </div>
+
+        <!-- Bottom Row: id="lk-tags" Tactile Rounded Chips -->
+        <footer id="lk-tags" class="flex flex-wrap items-center gap-[1.2vw] pt-[1vh]">
+          <!-- Chip 1: Speak -->
+          <div class="tactile-chip px-[1.6vw] py-[1.3vh] min-h-[44px] bg-white rounded-full border border-[#DFCEBA] flex items-center justify-center transition-transform">
+            <span class="text-[2.2vh] font-bold text-[#0F3D3E] tracking-tight">
+              Speak
+            </span>
+          </div>
+
+          <!-- Chip 2: Write -->
+          <div class="tactile-chip px-[1.6vw] py-[1.3vh] min-h-[44px] bg-white rounded-full border border-[#DFCEBA] flex items-center justify-center transition-transform">
+            <span class="text-[2.2vh] font-bold text-[#0F3D3E] tracking-tight">
+              Write
+            </span>
+          </div>
+
+          <!-- Chip 3: Real practice -->
+          <div class="tactile-chip px-[1.8vw] py-[1.3vh] min-h-[44px] bg-[#FFF8EE] rounded-full border border-[#E5C9A6] flex items-center justify-center transition-transform">
+            <span class="text-[2.2vh] font-bold text-[#0F3D3E] tracking-tight">
+              Real practice
+            </span>
+          </div>
+        </footer>
+
+      </section>
+
+      <!-- RIGHT COLUMN: 42% Two Empty Teacher Containers Side-by-Side Reaching Bottom -->
+      <section class="w-[42%] h-full flex flex-row items-end justify-center gap-[2.5vw] pr-[5vw] z-10 pointer-events-none">
+        <!-- id="lk-teacher" First 2D teacher slot: reaching bottom edge, no border/background -->
+        <div id="lk-teacher" class="w-1/2 h-[88vh] max-h-full flex items-end justify-center overflow-hidden">
+          <!-- Intentionally left clean & empty for 2D character injection -->
+        </div>
+
+        <!-- id="lk-teacher2" Second 2D teacher slot: side by side, reaching bottom edge, no border/background -->
+        <div id="lk-teacher2" class="w-1/2 h-[88vh] max-h-full flex items-end justify-center overflow-hidden">
+          <!-- Intentionally left clean & empty for 2D character injection -->
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Store Listing Screenshot Poster (Tactile Night)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            'canvas-deep': '#061114',
+            'teal-night': '#091518',
+            'surface-dark': '#0E1F24',
+            'accent-coral': '#F2553B',
+            'accent-orange': '#FF8A3D',
+            'accent-teal': '#2BA39A',
+            'ink-light': '#F6FAFA',
+            'ink-muted': '#B6CED0',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Fixed poster styling: 9:19.5 aspect ratio emulation, no scrolling, pure poster layout */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #061114;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .poster-canvas {
+      width: 100vw;
+      max-width: 440px;
+      height: 100vh;
+      max-height: 953px; /* standard 9:19.5 ratio ~ 440 x 953 */
+      position: relative;
+      background: radial-gradient(circle at 35% 22%, rgba(43, 163, 154, 0.18) 0%, rgba(242, 85, 59, 0.08) 32%, rgba(6, 17, 20, 0) 65%),
+                  linear-gradient(180deg, #091518 0%, #061114 100%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Soft directional lighting from top left */
+    .ambient-glow {
+      position: absolute;
+      top: -10%;
+      left: -15%;
+      width: 80%;
+      height: 55%;
+      background: radial-gradient(circle, rgba(43, 163, 154, 0.22) 0%, rgba(255, 138, 61, 0.1) 40%, transparent 70%);
+      filter: blur(48px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .device-shadow {
+      filter: drop-shadow(0 28px 45px rgba(0, 0, 0, 0.85))
+              drop-shadow(0 8px 18px rgba(3, 10, 12, 0.65));
+    }
+
+    /* Specular highlights on device edges catching light */
+    .device-rim {
+      background: linear-gradient(135deg, #2D4C53 0%, #15272C 28%, #0C1A1E 70%, #1A3238 100%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25),
+                  inset 1px 0 1px rgba(255, 255, 255, 0.15),
+                  0 0 0 1px rgba(255, 255, 255, 0.07);
+    }
+  </style>
+</head>
+<body class="bg-canvas-deep select-none">
+
+  <!-- Poster Frame (9 by 19.5 proportions) -->
+  <div class="poster-canvas p-6 sm:p-7 flex flex-col justify-between">
+    
+    <!-- Ambient Light Spill -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <!-- Top Quarter: Brand Row & Hero Typography -->
+    <header class="relative z-10 pt-2 sm:pt-4 flex flex-col gap-4">
+      
+      <!-- Brand Logo Row -->
+      <div class="flex items-center gap-2.5">
+        <div id="lk-logo" class="w-7 h-7 rounded-lg bg-surface-dark border border-teal-500/30 flex items-center justify-center shadow-sm">
+          <!-- Geometric Kite Mark in SVG -->
+          <svg class="w-4 h-4 text-accent-teal" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="currentColor" fill-opacity="0.9"/>
+            <path d="M12 2L4 10L12 13.5V2Z" fill="#F2553B" fill-opacity="0.85"/>
+          </svg>
+        </div>
+        <span class="text-sm font-bold tracking-tight text-ink-light">Lexkite</span>
+      </div>
+
+      <!-- Main Headline & Subtitle -->
+      <div class="flex flex-col gap-2 mt-1">
+        <h1 id="lk-headline" class="text-3xl sm:text-[34px] font-extrabold text-ink-light leading-[1.18] tracking-tight">
+          Speak English with <span id="lk-em" class="text-accent-coral underline decoration-accent-orange/40 decoration-wavy decoration-2 underline-offset-4">confidence</span>
+        </h1>
+        <p id="lk-sub" class="text-sm sm:text-base font-medium text-ink-muted leading-relaxed max-w-[95%]">
+          Bite-sized, tactile daily exam lessons crafted for natural speaking fluency.
+        </p>
+      </div>
+
+    </header>
+
+    <!-- Bottom Three Quarters: Modern Phone Device with #lk-screen -->
+    <div class="relative z-10 w-full flex justify-center flex-1 items-end mt-4">
+      
+      <!-- Realistic Device Mockup: bottom part running off edge naturally -->
+      <div class="relative w-[340px] sm:w-[360px] h-[580px] sm:h-[620px] rounded-t-[44px] p-[10px] device-rim device-shadow translate-y-3">
+        
+        <!-- Inner bezel -->
+        <div class="w-full h-full rounded-t-[36px] bg-[#0A1619] p-[6px] relative overflow-hidden flex flex-col">
+          
+          <!-- Subtle Phone Speaker / Dynamic Island Pill -->
+          <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#050D0F] rounded-full z-30 flex items-center justify-end pr-3">
+            <div class="w-2 h-2 rounded-full bg-[#122327]"></div>
+          </div>
+
+          <!-- Empty Hero Screen Element (#lk-screen) Filling the Entire Device Screen -->
+          <div id="lk-screen" class="w-full h-full rounded-t-[30px] bg-gradient-to-b from-[#0C1B20] to-[#081417] border border-teal-500/20 relative overflow-hidden flex flex-col justify-start">
+            
+            <!-- Interior Hero Screen Subdued Canvas Surface Grid/Elements -->
+            <div class="pt-10 px-5 flex flex-col gap-4 w-full opacity-90">
+              
+              <!-- Mini app top bar preview inside screen -->
+              <div class="flex items-center justify-between pb-2 border-b border-teal-900/40">
+                <div class="flex items-center gap-2">
+                  <div class="w-5 h-5 rounded bg-accent-teal/20 border border-accent-teal/40"></div>
+                  <span class="text-xs font-bold text-ink-muted">IELTS Band 7.5+</span>
+                </div>
+                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-accent-coral/15 border border-accent-coral/30">
+                  <span class="text-[10px] font-extrabold text-accent-coral">14 DAYS</span>
+                </div>
+              </div>
+
+              <!-- Primary Lesson Card Mock Inside Screen -->
+              <div class="bg-surface-dark border-2 border-teal-500/20 rounded-2xl p-4 shadow-[0_4px_0_0_#050F11] flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold tracking-wider text-accent-teal uppercase">Daily Micro-Drill</span>
+                  <span class="text-[10px] text-ink-muted">2 min</span>
+                </div>
+                <p class="text-sm font-bold text-ink-light leading-snug">
+                  "Although the task seemed daunting, the team remained remarkably..."
+                </p>
+                <div class="grid grid-cols-2 gap-2 mt-1">
+                  <div class="py-2.5 px-3 rounded-xl bg-[#12262C] border border-teal-500/30 text-xs font-bold text-ink-light text-center shadow-[0_2px_0_0_#071316]">
+                    resilient
+                  </div>
+                  <div class="py-2.5 px-3 rounded-xl bg-[#0F2025] border border-white/5 text-xs font-medium text-ink-muted text-center">
+                    complacent
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Prompt Wave Tile -->
+              <div class="bg-[#0E2228] border border-teal-500/25 rounded-2xl p-3.5 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-accent-coral/20 border border-accent-coral/40 flex items-center justify-center text-accent-coral text-xs font-bold">
+                    MIC
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xs font-bold text-ink-light">Pronounce & Match</span>
+                    <span class="text-[10px] text-ink-muted">Instant AI acoustic feedback</span>
+                  </div>
+                </div>
+                <div class="w-6 h-6 rounded-lg bg-[#142D35] flex items-center justify-center text-accent-teal text-xs">
+                  →
+                </div>
+              </div>
+
+              <!-- Bottom CTA inside Hero Screen -->
+              <div class="w-full py-3 rounded-xl bg-gradient-to-r from-accent-coral to-accent-orange text-center text-xs font-extrabold text-[#1B0B04] shadow-[0_4px_0_0_#8E2816] tracking-wide">
+                START 3-MINUTE SESSION
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

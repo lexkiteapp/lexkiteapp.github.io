@@ -21,14 +21,14 @@ const LIMITS = {
   apple: { name: 30, subtitle: 30, keywords: 100, promotionalText: 170, description: 4000 },
 };
 // Xếp hạng / quảng cáo quá đà (mọi trường, mọi ngôn ngữ)
-const RANKING = [
+export const RANKING = [
   /\bbest\b/i, /#1/, /\bnumber one\b/i, /\bofficial\b/i, /\btop[- ]rated\b/i, /\bguaranteed?\b/i, /\bno\.? ?1\b/i,
   /\bmejor(es)?\b/i, /\bmelhor(es)?\b/i, /\bmeilleur/i, /\bbeste[nrs]?\b/i, /\bterbaik\b/i, /tốt nhất/i, /số 1\b/i, /chính thức/i,
   /\boficial\b/i, /\bofficiel/i, /\boffiziell/i, /\bresmi\b/i, /официальн/i, /лучш/i, /\ben iyi\b/i, /\bnumaralı\b/i,
   /最好/, /最佳/, /第一/, /官方/, /公式/, /最強/, /No\.1/, /최고/, /공식/, /ดีที่สุด/, /ทางการ/, /सबसे अच्छ/, /आधिकारिक/, /أفضل/, /رسمي/,
 ];
 // Tên app / hãng khác (Play: "no references to other apps"; Apple 2.3.7)
-const COMPETITORS = /\b(anki|ankidroid|duolingo|quizlet|memrise|busuu|babbel|elsa|mochi|mochivocab|tflat|magoosh|lingoland|cake|rosetta stone|cambly|praktika|ewa)\b/i;
+export const COMPETITORS = /\b(anki|ankidroid|duolingo|quizlet|memrise|busuu|babbel|elsa|mochi|mochivocab|tflat|magoosh|lingoland|cake|rosetta stone|cambly|praktika|ewa)\b/i;
 // Giá / khuyến mãi: cấm trong tên + mô tả ngắn (Play) và tên + phụ đề + từ khoá (Apple). Được phép trong mô tả dài / promo.
 const PRICE = /(\bfree\b|\bfreemium\b|\bsale\b|\bdiscount|miễn phí|\bgratis\b|\bgrátis\b|\bgratuit|\bkostenlos|ฟรี|免费|免費|無料|무료|मुफ़्त|मुफ्त|مجان|бесплатн|ücretsiz|%)/i;
 const EXAMS = /(\bielts\b|\btoeic\b|\btoefl\b|\byds\b|英検|四六级|考研|高考|中考|수능|雅思|托福|托业|托業|토익|토플|아이엘츠|آيلتس|ايلتس|توفل|تويك|айелтс|тоефл)/i;                         // thương hiệu: chỉ mô tả, không đưa vào tên/phụ đề/từ khoá Apple
