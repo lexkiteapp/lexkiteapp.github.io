@@ -288,14 +288,9 @@
     }
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
-<<<<<<< HEAD
-    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
-    prune(root); langBtn(root);
-=======
     sayIn(root, d.say, fresh);
-    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
+    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
     prune(root); langBtn(root); headBtns(root);
->>>>>>> real/main
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
