@@ -99,3 +99,14 @@ Nạp: dòng cuối `notices.js` (đã tải lười 2,5 s sau khi mở app) →
 - **Lưu:** `ext_events` kind `land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>` – không URL, không IP, không vid; nguồn ngoài danh sách → `other`. Bot và bản preview bị bỏ ở máy chủ.
 - **Quota:** +1 lượt Functions và +1 dòng ghi D1 cho mỗi lượt khách ngoài (không tính lượt xem nội bộ); 1.000 lượt/ngày ≈ 1 % trần ghi D1 miễn phí, 1 % Functions. Trần 30 lượt/giờ/IP. Tắt: biến Pages `HIT_LAND=0`.
 - **Admin:** Quản trị › Thống kê có thẻ "Nhóm CPM cao" và "Khách từ ngoài vào trang tĩnh". Số 692 Mỹ là truy vấn thô trên D1 (gồm bot); bảng nước của admin vốn đã lọc, nay có test khoá từng loại `dc, ci-app, ua, admin, bot` (`scripts/test/analytics.mjs`).
+
+## 10. Trang gốc quốc tế (4/11)
+- **Trước:** `/` là tiếng Việt nên mọi lượt tìm thương hiệu và backlink từ mọi nước vào tiếng Việt. **Nay:** tiếng Việt ở `/vi/`; `/` = 302 theo `functions/index.js` + `functions/api/_rootlang.js`, `Vary: Accept-Language`, không đệm. `/tu-vung/`, `/samples/`, `/blog/*` → `/vi/blog/` giữ nguyên.
+- **Luật chọn (chủ quyết 4/11):** (1) cookie `lk_lang` = ngôn ngữ người dùng đã bấm chọn, luôn thắng; (2) nước theo IP (`request.cf.country`) qua bảng GEO; (3) nước không có trong bảng (NL, SE, US…) theo Accept-Language; (4) `/en/`. Không xét User-Agent: Googlebot đi cùng luật, 302 sang URL ngôn ngữ riêng, không đổi nội dung tại cùng URL. Chỉ `/`; URL có ngôn ngữ không bị chuyển. Test `scripts/test/root-lang.mjs`.
+- **Một bảng GEO:** nguồn là `web/js/i18n.js`; `functions/api/_geo.gen.js` sinh từ đó bằng `build-landing.mjs` (Function không nạp được script cổ điển), `--check` và test chặn lệch.
+- **Cookie `lk_lang`:** chỉ ghi khi người dùng bấm chọn (menu ngôn ngữ, dải gợi ý, `I18N.set` trong app), không ghi khi đoán theo nước; 1 năm, `Secure`, `SameSite=Lax`, đọc ở `/`; ghi trong chính sách riêng tư §5.
+- **x-default** của 15 trang giới thiệu trỏ `/`. Trang khác (từ, bài viết) giữ x-default về bản en.
+- **Không vòng lặp:** `/vi/` trước đây 301 về `/` không kèm hạn dùng, Chromium coi là tươi vô hạn. Đích vi là `/vi/?r=1`, `ROUTE_JS` xoá `r` khỏi địa chỉ. Bỏ được dấu này sau khoảng 1 năm.
+- **Vì sao chọn Function, không Redirect Rule:** gói Free không có regex/`q` để chọn đúng theo thứ tự ngôn ngữ, 10 luật không đủ 15 ngôn ngữ, và cấu hình nằm ngoài repo.
+- **Hạn mức:** `/` ≈ 2.000 lượt/ngày (đo 4/11) ≈ 2 % trần 100k Workers + Functions. **Rủi ro:** hết trần trong ngày thì `/` lỗi tới khi hạn mức đặt lại (`/<lang>/` tĩnh vẫn sống); `free-tier` đo mỗi giờ (docs/FREE-TIER.md).
+- **Công tắc tắt:** bỏ `"/"` khỏi `web/_routes.json` → `/` phục vụ `web/index.html` tĩnh (trang chọn ngôn ngữ, sinh bởi `build-landing.mjs`). Quay lại hoàn toàn: revert PR.

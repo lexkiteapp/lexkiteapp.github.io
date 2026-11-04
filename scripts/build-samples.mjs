@@ -26,7 +26,7 @@ const head = (title, desc0, canon, o = {}) => { const desc = clip(desc0); return
 // o: { smp: giao diện bài mẫu (samples-ui.mjs), lr: thuộc tính thêm cho LearningResource, ld: JSON-LD thêm }
 const page = (title, desc, canon, body, name, enId, o = {}) => {
   const p = canon.slice(SITE.length), sec = p.split('/')[0], id = p.split('/')[1];
-  const vis = [['Trang chủ', '/'], [SEC[sec] || sec, `/${sec}/`], ...(id ? [[name || title, `/${p}`]] : [])];
+  const vis = [['Trang chủ', '/vi/'], [SEC[sec] || sec, `/${sec}/`], ...(id ? [[name || title, `/${p}`]] : [])];
   return seoPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, body: o.smp ? body + smpTail() : body, alt: EN[sec] ? `/${EN[sec]}/${enId ?? id ?? ''}` : '', section: `/${sec}/` });
 };
 const hero = (h1, { emoji = '', lead = '', chips = [] } = {}) => `<header class="hero"><h1>${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}${h1}</h1>${lead ? `<p>${lead}</p>` : ''}${chips.length ? `<div class="sub">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</div>` : ''}</header>`;
