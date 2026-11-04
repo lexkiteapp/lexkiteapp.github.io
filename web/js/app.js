@@ -36,7 +36,8 @@
   async function load() {
     state.cards = await Cards.mine(); // thẻ của ngôn ngữ đích đang học (web/js/target.js; 'en' = như cũ)
     state.settings = { ...DEFAULT_SETTINGS, theme: 'auto', sfx: true, ...(await Store.get('settings', {})) };
-    try { if (window.lkT && localStorage.getItem('lk.themeAt')) state.settings.theme = lkT() || 'auto'; } catch (e) { /* bỏ qua */ } // đổi ở landing/blog sau lần lưu cuối của app → theo lựa chọn mới nhất (lkT so mốc)
+    try { if (window.lkT && localStorage.getItem('lk.themeAt')) state.settings.theme = lkT() || 'auto'; } catch (e) { /* bỏ qua */ } // đổi ở landing/blog sau lần lưu cuối
+    try { if (state.settings.theme === 'auto' && localStorage.getItem('lk.theme') !== 'auto' && !navigator.webdriver) state.settings.theme = 'dark'; } catch (e) { /* bỏ qua */ } // chưa từng chọn Tự động → tối xanh chủ đạo (chủ 4/11) của app → theo lựa chọn mới nhất (lkT so mốc)
     SRS.retentionTarget = state.settings.retention || 0.9;
     // Một lần: sửa lỗi chính tả hỏi/ngã từ dữ liệu Google trong các thẻ đã lưu trước đây
     if (!state.settings.viFix1 && window.Dict && Dict.fixDeep) {
@@ -139,9 +140,9 @@
     if (F) r.setAttribute('data-theme', t); else r.removeAttribute('data-theme');
     const bg = F && getComputedStyle(r).getPropertyValue('--bg').trim();
     document.querySelectorAll('meta[name=theme-color]').forEach(m => { if (!m.dataset.c) m.dataset.c = m.content; m.content = bg || m.dataset.c; });
-    if (!(o && o.remote)) try { const ls = localStorage; if ((ls.getItem('lk.theme') || 'auto') !== t || !ls.getItem('lk.themeAt')) { if (F) ls.setItem('lk.theme', t); else ls.removeItem('lk.theme'); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
+    if (!(o && o.remote)) try { const ls = localStorage; if (ls.getItem('lk.theme') !== t || !ls.getItem('lk.themeAt')) { ls.setItem('lk.theme', t); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
   }
-  addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' ? e.newValue : 'auto'; applyTheme({ remote: 1 }); } });
+  addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' || e.newValue === 'auto' ? e.newValue : 'dark'; applyTheme({ remote: 1 }); } });
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
     $('#langBtn').onclick = () => App.need('lsw').then(() => { const b = $('#langBtn'); if (!window.LkLangMenu) return; b.onclick = null; b.parentNode.lsw = 0; LkLangMenu(b.parentNode); b.click(); }); } // giao hẳn cho lang-menu.js (kể cả khi nó đã chạy trước từ trang chào) → không tự bấm lặp mở/đóng
@@ -151,6 +152,16 @@
     applyTheme(); saveSettings();
     toast({ auto: '🌓 ' + t('Giao diện theo hệ thống'), light: '☀️ ' + t('Giao diện sáng'), dark: '🌙 ' + t('Giao diện tối') }[state.settings.theme]);
   };
+
+  // Nút sáng/tối ngay trong màn học (body.focus ẩn thanh trên; màn Stitch điện thoại cũng ẩn): gắn vào hàng header cạnh nút thoát, không phủ lên nội dung.
+  const focusTheme = () => {
+    const v = $('#view'); if (!document.body.classList.contains('focus') || v.querySelector('.lk-ftheme')) return;
+    const x = v.querySelector('.lsn-x'), inRow = x && x.getClientRects().length, b = document.createElement('button'), r = document.documentElement;
+    b.type = 'button'; b.className = 'icon-btn lk-ftheme' + (inRow ? '' : ' fix'); b.title = t('Đổi giao diện sáng/tối'); b.setAttribute('aria-label', b.title); b.innerHTML = UI.icon('sun-moon');
+    b.onclick = () => { const dark = r.getAttribute('data-theme') === 'dark' || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches); state.settings.theme = dark ? 'light' : 'dark'; applyTheme(); saveSettings(); };
+    if (inRow) x.parentElement.insertBefore(b, x.parentElement.lastElementChild); else v.appendChild(b);
+  };
+  if ($('#view')) new MutationObserver(focusTheme).observe($('#view'), { childList: true });
 
   // ---------- Thưởng XP / nhiệm vụ / huy hiệu ----------
   async function reward(delta, el) {
