@@ -56,7 +56,8 @@ globalThis.fetch = async (url, init = {}) => {
   if (/^media\/[^/]+$/.test(p) && init.method === 'GET') return J({ media: { id: p.slice(6), status: GC.mediaStatus || 'ready' } });
   if (/^media\/[^/]+\/complete$/.test(p)) return J({ media: { id: 'm_up' } });
   let m = /^posts\/([^/]+)$/.exec(p); if (m) return GC.posts[m[1]] ? J({ post: GC.posts[m[1]] }) : J({ error: { code: 'not_found' } }, 404);
-  m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { if (GC.scheduleTimeout) { GC.posts[m[1]].status = 'scheduled'; throw new Error('timeout'); } if (!JSON.parse(init.body).consent) return J({ error: 'consent_required' }, 422); if (GC.posts[m[1]].status !== 'draft') return J({ error: 'not_draft' }, 409); Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
+  if (p === 'validate') return J(GC.validate || { ok: true, targets: [] });
+  m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { if (GC.schedule422) return J({ error: 'validation_failed', problems: GC.schedule422 }, 422); if (GC.scheduleTimeout) { GC.posts[m[1]].status = 'scheduled'; throw new Error('timeout'); } if (!JSON.parse(init.body).consent) return J({ error: 'consent_required' }, 422); if (GC.posts[m[1]].status !== 'draft') return J({ error: 'not_draft' }, 409); Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
   return J({});
 };
 if (typeof FixedLengthStream === 'undefined') globalThis.FixedLengthStream = class { constructor() { const t = new TransformStream(); this.readable = t.readable; this.writable = t.writable; } };
@@ -287,6 +288,25 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
   x = await A.runAuto(ENV, { now: now + 60e3 });
   ok(x.scheduled === 1 && Object.values(GC.posts)[0].status === 'scheduled', 'bật tự duyệt → bài Chờ duyệt cũ được lên lịch');
+
+  // Hợp đồng GrabCast: validate trước khi lên lịch, warning không chặn, 422 giữ mã lỗi từng đích
+  ok(A.problemCodes([{ problems: [{ level: 'warning', code: 'w' }, { level: 'error', code: 'privacy_required' }] }, { problems: [{ level: 'error', code: 'privacy_required' }] }]) === 'privacy_required' && A.problemCodes(null) === '', 'problemCodes: bỏ warning, bỏ trùng');
+  ok(await A.createKey(CA, 'c', { title: 't', caption: 'x' }) === await A.createKey(CA, 'c', { title: 't', caption: 'x' }) && await A.createKey(CA, 'c', { title: 't', caption: 'x' }) !== await A.createKey(CA, 'c', { title: 't', caption: 'y' }), 'khóa tạo bài: cùng nội dung cùng khóa, sửa chữ đổi khóa');
+  const armAuto = () => { sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ sync_h: 24, plan_daily: false, auto_approve: true, manual_first: 1 })); sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now); };
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now }); armAuto();
+  GC.validate = { ok: false, targets: [{ problems: [{ level: 'error', code: 'privacy_required' }] }] };
+  x = await A.runAuto(ENV, { now: now + 60e3 });
+  const vp = Object.values(GC.posts)[0], vb = sql.prepare('SELECT state, err FROM soc_board WHERE post_id = ?').get(vp.id);
+  ok(vp.status === 'draft' && vb.state === 'review' && vb.err === 'validate:privacy_required' && !x.stop && x.scheduled === 0, `validate ok:false: không lên lịch, ghi mã lỗi (${vb.state}, ${vb.err}, ${x.stop})`);
+  ok(stNow().fails['r|' + CA + '|gc-facebook_page-2'].n === 1, 'validate lỗi: tính lỗi cho clip, không đốt ngân sách mãi');
+  GC.validate = { ok: true, targets: [{ problems: [{ level: 'warning', code: 'w' }] }] };
+  x = await A.runAuto(ENV, { now: now + 120e3 }); GC.validate = null;
+  ok(x.scheduled === 1 && vp.status === 'scheduled', 'validate chỉ có warning: vẫn lên lịch');
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now }); armAuto();
+  GC.schedule422 = [{ problems: [{ level: 'error', code: 'media_not_ready' }] }];
+  x = await A.runAuto(ENV, { now: now + 60e3 }); GC.schedule422 = null;
+  const qb = sql.prepare('SELECT err FROM soc_board WHERE post_id = ?').get(Object.keys(GC.posts)[0]);
+  ok(x.stop && qb.err === 'validation_failed:media_not_ready', `schedule 422: giữ mã lỗi từng đích (${qb.err})`);
 
   // Hợp đồng GrabCast: 409 not_draft / hết giờ chờ khi schedule = đọc lại bài, không dừng lượt, không tính lỗi nội dung
   for (const [cs, wantBoard, wantErr, label] of [['scheduled', 'scheduled', null, 'đã lên lịch từ trước'], ['needs_check', 'approved', 'not_draft:needs_check', 'needs_check: giữ nguyên, báo người'], ['timeout', 'scheduled', null, 'hết giờ chờ nhưng đã lên lịch xong']]) {

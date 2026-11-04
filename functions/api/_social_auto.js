@@ -57,6 +57,10 @@ const hex = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', 
 export const idemKey = async (clip, ch, step) => 'lkap-' + step + '-' + (await hex(clip + '|' + ch)).slice(0, 40);
 /** Id mục duyệt cố định theo clip + kênh (khóa chính soc_board). */
 export const boardId = async (clip, ch) => 'b_ap' + (await hex(clip + '|' + ch)).slice(0, 24);
+/** Khóa tạo bài theo nội dung: chạy lại/hết giờ chờ không tạo bản 2; clip đã sửa chữ không nhận lại bài cũ (GrabCast trả idempotent_replay). */
+export const createKey = (clip, ch, body) => idemKey(clip, `${ch}|${body.title || ''}|${body.caption || ''}`, 'c');
+/** targets của validate / problems của 422 → mã lỗi (bỏ warning), ví dụ "privacy_required,media_not_ready". */
+export const problemCodes = ts => [...new Set((Array.isArray(ts) ? ts : []).flatMap(t => (t && t.problems) || []).filter(x => x && x.level === 'error' && x.code).map(x => x.code))].join(',').slice(0, 150);
 export const AUTO_WHO = 'autopilot';
 export const MAX_TRIES = 2; // 1 clip × kênh lỗi (không phải lỗi dừng) quá 2 lượt → bỏ qua tới khi owner xem (nút Mở lại xóa đếm)
 
@@ -255,7 +259,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   const call = async (m, p, body, query, idem) => {
     if (left <= 0) throw stopErr(0, 'budget');
     const r = await gc(m, p, body, query, idem);
-    if (breakerMs(r.status) || r.status === 504) throw stopErr(r.status, r.code || r.status);
+    if (breakerMs(r.status) || r.status === 504) throw Object.assign(stopErr(r.status, r.code || r.status), { problems: r.data && r.data.problems });
     return r;
   };
   const gcStop = e => { // lỗi dừng của GrabCast → cầu dao + đếm lượt lỗi liên tiếp (failover 5xx khi lặp)
@@ -401,7 +405,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
         const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, mid, [acc]);
         const v = validateCompose({ caption: body.caption, title: body.title, clip: c.id }, [p]).filter(x => x.lv === 'error');
         if (v.length) { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: 'invalid:' + v.map(x => x.code).join(',') }); failed(r, 'invalid'); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'invalid' }); continue; }
-        const cr = await call('POST', 'posts', body, null, await idemKey(r.clip, r.channel_id, 'c'));
+        const cr = await call('POST', 'posts', body, null, await createKey(r.clip, r.channel_id, body));
         const pid = String((cr.data && (cr.data.post || cr.data).id) || '');
         if (cr.status >= 400 || !/^[A-Za-z0-9_-]{1,100}$/.test(pid)) { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: 'create:' + (cr.code || cr.status) }); failed(r, 'create'); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'create-' + (cr.code || cr.status) }); continue; }
         const t = Date.now();
@@ -414,7 +418,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       } catch (e) {
         if (e.stop && (e.status === 409 || e.status === 422)) { // lỗi NỘI DUNG của clip này: vẫn dừng lượt, nhưng phải tính cho clip – không thì lượt nào cũng kẹt đúng clip đầu hàng và chặn mọi bài sau
           if (/media|validation/.test(e.code)) await run(db, 'DELETE FROM soc_meta WHERE k = ?', 'media:' + r.clip); // media cache hết hạn → lượt sau tải lại
-          await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: String(e.code).slice(0, 120) }); failed(r, String(e.code));
+          const why = String(e.code) + (problemCodes(e.problems) ? ':' + problemCodes(e.problems) : ''); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: why.slice(0, 120) }); failed(r, why);
           if (st.fails[r.clip + '|' + r.channel_id].n >= MAX_TRIES) pushAlert(st, `gave-up:${r.clip}|${r.channel_id}`, `Lexkite autopilot: bài ${r.clip} ở ${r.channel_id} bị từ chối ${MAX_TRIES} lần (${e.code}), đã bỏ qua để bài khác chạy tiếp – xem ở Quản trị › Hàng đợi.`, now);
         }
         if (e.stop) throw e;
@@ -596,10 +600,13 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
 }
 async function approveAndSchedule(db, call, bid, pid, r, rec) {
   const g = await call('GET', 'posts/' + pid); if (g.status >= 400) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'get-' + (g.code || g.status) }); return; }
+  const at = new Date(r.slot_ms).toISOString(), chk = await call('POST', 'validate', { post_id: pid, scheduled_at: at }); // 200 cả khi có lỗi; warning không chặn. Không gọi TikTok: đạt vẫn có thể failed lúc đăng
+  if (chk.status >= 400 || (chk.data && chk.data.ok === false)) { const why = 'validate:' + (chk.status >= 400 ? (chk.code || chk.status) : (problemCodes(chk.data.targets) || 'not-ok')); await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', why.slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why }); return; }
   const hash = await contentHash(g.data), t = Date.now();
   await run(db, "UPDATE soc_board SET state = 'approved', hash = ?, approved_by = ?, approved_at = ?, err = NULL, updated = ? WHERE id = ?", hash, AUTO_WHO, t, t, bid);
-  let s; try { s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: new Date(r.slot_ms).toISOString(), consent: true }); } // schedule không dùng Idempotency-Key: gọi lặp chỉ nhận 409 not_draft, không tạo bản thứ 2
+  let s; try { s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: at, consent: true }); } // schedule không dùng Idempotency-Key: gọi lặp chỉ nhận 409 not_draft, không tạo bản thứ 2
   catch (e) { // 409 (not_draft, publishing_now…) hoặc hết giờ chờ (có thể đã lên lịch xong): không phải lỗi nội dung → đọc lại bài rồi mới kết luận
+    if (e.status === 422) await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', (e.code + (problemCodes(e.problems) ? ':' + problemCodes(e.problems) : '')).slice(0, 200), Date.now(), bid);
     if (e.status !== 409 && e.status !== 504) throw e;
     const c = await call('GET', 'posts/' + pid), cs = String(((c.data && (c.data.post || c.data)) || {}).status || ''), next = c.status < 400 ? boardStateOf(cs, '') : '';
     if (next === 'scheduled' || next === 'published') { await run(db, 'UPDATE soc_board SET state = ?, err = NULL, updated = ? WHERE id = ?', next, Date.now(), bid); rec.scheduled++; return; }
