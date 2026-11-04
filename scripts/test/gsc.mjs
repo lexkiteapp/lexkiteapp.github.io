@@ -140,6 +140,15 @@ const prevCall = calls.filter(c => c.body.includes('"dimensions":["page"]')).pop
 ok(prevCall && prevCall.body.includes('"startDate":"2026-08-29"'), 'kỳ trước đúng ngày');
 ok(calls.filter(c => c.url.includes('oauth2')).length === 1, 'chỉ xin token 1 lần');
 
+// --- điểm ưu tiên theo nhóm CPM: cùng gain, truy vấn nước CPM cao xếp trên; VN không bị loại ---
+{ const q = (k, c) => R([k, U('en', 'nope'), c], 200, 0, 40);
+  const a = G.analyze({ qpc: [q('alpha vietnam query', 'vnm'), q('beta usa query', 'usa')] }, { posts: [], briefs: [] });
+  const [x, y] = a.priority;
+  eq([x.query, y.query], ['beta usa query', 'alpha vietnam query'], 'cùng gain: nhóm CPM cao đứng trước');
+  eq([x.cpmShare, y.cpmShare], [1, 0], 'cpmShare theo nước của truy vấn'); ok(x.score === x.gain * 2 || Math.abs(x.score - x.gain * 2) < 0.11, 'score = gain × (1 + 1 × cpmShare)'); eq(y.score, y.gain, 'VN giữ nguyên gain');
+  const b = G.analyze({ qpc: [R(['big vietnam query', U('en', 'nope'), 'vnm'], 1000, 0, 40), q('small usa query', 'usa')] }, { posts: [], briefs: [] });
+  eq(b.priority[0].query, 'big vietnam query', 'nhu cầu VN lớn hơn hẳn vẫn đứng trên – trọng số không che nội dung tiếng Việt'); }
+
 // --- theo nước & nhóm CPM ---
 ok(pulled.countryCur.length === 2 && pulled.countryWeek.length === 2 && pulled.countryPrevWeek.length === 2, 'kéo country 28 ngày + 7 ngày + tuần trước');
 ok(calls.some(c => c.body.includes('"dimensions":["country"]') && c.body.includes('"startDate":"2026-10-10"') && c.body.includes('"endDate":"2026-10-16"')), '7 ngày trước đúng ngày');
