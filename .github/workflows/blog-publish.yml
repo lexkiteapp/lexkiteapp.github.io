@@ -25,6 +25,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -79,6 +80,6 @@ jobs:
           git add content/protection/registry.jsonl content/protection/ots 2>/dev/null || true
           git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
           git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git commit -qm "Registry: băm bài vừa đăng $(date -u +%FT%H:%MZ) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          git commit -qm "Registry: băm bài vừa đăng $(date -u +%FT%H:%MZ) [CF-Pages-Skip] [skip ci]"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
           exit 1

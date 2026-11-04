@@ -6,16 +6,20 @@ on:
     inputs:
       quick: { description: 'Chỉ 375px es/ar (nhanh)', required: false, default: '0' }
       video_only: { description: '1 = chỉ chạy E2E video bài học', required: false, default: '0' }
+      seo_words: { description: 'Chỉ chụp trước (main)/sau (nhánh) trang từ, vd. en/words/detect,vi/words/detect', required: false, default: '' }
   schedule:
     - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
 permissions:
   contents: read
+concurrency: { group: visual-qa, cancel-in-progress: false }   # ci-filler cần (infra/ci-backlog.json)
 jobs:
   vqa:
+    if: ${{ !github.event.inputs.seo_words }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: 🎬 Video bài học E2E (sandbox + vtest, Chrome có H.264; vi/ar/ja × điện thoại/máy tính)
@@ -38,3 +42,30 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: visual-qa, path: vqa-out, retention-days: 5 }
+  # Ảnh trước/sau trang từ /<lang>/words/<slug> (docs/specs/seo-words-depth.md §6): dựng chỉ bước trang từ (≈ 5 s) cho nhánh và main, chụp 390/1280 sáng/tối
+  seo-words:
+    if: ${{ github.event.inputs.seo_words }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng trang từ – sau (nhánh) và trước (main)
+        run: |
+          SEO_DIST=out/after node scripts/build-seo-pages.mjs | tail -1
+          git worktree add -q "$RUNNER_TEMP/base" origin/main
+          (cd "$RUNNER_TEMP/base" && SEO_DIST="$GITHUB_WORKSPACE/out/before" node scripts/build-seo-pages.mjs | tail -1)
+      - name: Chụp
+        timeout-minutes: 8
+        env: { PAGES: "${{ github.event.inputs.seo_words }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+          node scripts/test/seo-words-shots.mjs out "$PAGES" seo-words-shots
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: seo-words-shots, path: seo-words-shots, retention-days: 14, if-no-files-found: ignore }

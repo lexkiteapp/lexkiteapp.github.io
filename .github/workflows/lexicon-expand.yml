@@ -26,13 +26,16 @@ permissions:
   id-token: write   # JWT OIDC cho /api/lexai
 # pilot nhánh nhóm riêng theo nhánh (không xếp sau lượt main 2 giờ, không đè cron main); mẫu cố định (words) KHÔNG ghi repo → nhóm riêng thêm theo mẫu (31/10: 2 pilot bị thay thế khi chờ)
 concurrency: { group: "lexicon-expand${{ github.ref != 'refs/heads/main' && format('-{0}', github.ref_name) || '' }}${{ github.event.inputs.words && format('-pilot-{0}', github.event.inputs.words) || '' }}", cancel-in-progress: false }
+# 02/11 giữ chỗ kho cho pilot ảnh (scripts/lib/cf-pool.mjs poolHold): khi biến repo CF_POOL_HOLD còn hạn, ai-pool cf2 không dùng n tài khoản cuối
+env:
+  CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
 jobs:
   expand:
     runs-on: ubuntu-latest
     timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
-        with: { ref: '${{ github.ref }}' }   # 31/10: lượt chờ hàng đợi (concurrency) phải lấy main MỚI lúc chạy, không phải SHA lúc xếp hàng (run 41178484346 làm lại retry cũ + xung đột khi lưu)
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', ref: '${{ github.ref }}' }   # 31/10: lượt chờ hàng đợi (concurrency) phải lấy main MỚI lúc chạy, không phải SHA lúc xếp hàng (run 41178484346 làm lại retry cũ + xung đột khi lưu)
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
@@ -50,6 +53,8 @@ jobs:
           # lớp L2 (31/10 snail "We were late going to look for snails." – chủ không bản ngữ): CHỈ câu của người tự khai eng cấp 5 (tatoeba-native.mjs); tải lỗi = không có Tatoeba (không dùng câu chưa lọc)
           curl -sfL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_detailed.tsv.bz2 | bunzip2 > "$RUNNER_TEMP/tatoeba-all.tsv" && curl -sfL https://downloads.tatoeba.org/exports/user_languages.tar.bz2 | tar xj -C "$RUNNER_TEMP" \
             && node scripts/lexicon/expand/tatoeba-native.mjs --sentences "$RUNNER_TEMP/tatoeba-all.tsv" --langs "$RUNNER_TEMP/user_languages.csv" --out "$RUNNER_TEMP/tatoeba.tsv" || rm -f "$RUNNER_TEMP/tatoeba.tsv"
+          # 04/11 (exShort 389/600 → yield 0,022): nguồn câu NGƯỜI VIẾT thứ 3 = Simple English Wikipedia (CC BY-SA 4.0), simplewiki.py lọc hình thức → ghép vào cùng TSV; nghĩa vẫn do 3 giám khảo lxsrc + lxwsd quyết. Tải/đọc lỗi = như cũ (không có nguồn này).
+          { curl -sfL --retry 2 -o "$RUNNER_TEMP/sw.xml.bz2" https://dumps.wikimedia.org/simplewiki/latest/simplewiki-latest-pages-articles.xml.bz2 && python3 scripts/lexicon/expand/simplewiki.py --dump "$RUNNER_TEMP/sw.xml.bz2" --out "$RUNNER_TEMP/simplewiki.tsv" && cat "$RUNNER_TEMP/simplewiki.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo '::warning::Simple Wikipedia không dùng được lượt này'; rm -f "$RUNNER_TEMP/sw.xml.bz2" "$RUNNER_TEMP/simplewiki.tsv"
           # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
           curl -sfL -o "$RUNNER_TEMP/viet74k.txt" https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/Viet74K.txt || true
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
@@ -125,7 +130,7 @@ jobs:
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main && node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
             git diff --cached --quiet && { echo 'đã có trên main'; exit 0; }
-            git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip]" && git push -q origin HEAD:main && exit 0
+            git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip] [skip ci]" && git push -q origin HEAD:main && exit 0
             sleep $((i * 7)); done; exit 1
       - uses: actions/upload-artifact@v4
         if: always()
@@ -138,8 +143,9 @@ jobs:
           [ "$LX_RUN_PILOT" = 1 ] && { echo "pilot → không nối (chờ soát 50 mẫu, rồi đặt LX_PILOT=0)"; exit 0; }
           [ -s reports/lexicon-expand.json ] || { echo "không có báo cáo → dừng chuỗi"; exit 0; }
           # nối khi: lượt có mục đạt, ≤ 50 % bỏ qua hạ tầng (kho CF còn neuron), và còn đủ ứng viên (n ≥ 90 % N)
+          # 03/11: đo trên mục MỚI (yieldFresh) khi ≥ 50 mục mới – mục retry là phần còn lại khó (hạn ngạch ≤ 25 % N, lib.mjs mixPool) không được kéo cầu dao chuỗi.
           # QUALITY-PIPELINE bước 5: sản lượng (đạt / mục không hạ tầng) tụt dưới MỘT NỬA mức pilot đã duyệt (content/lexicon/expand/pilot/yield.json) → dừng chuỗi
-          GO=$(node -p "const fs=require('fs'), r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0, py=fs.existsSync('content/lexicon/expand/pilot/yield.json')?require('./content/lexicon/expand/pilot/yield.json').yield:0, low=py&&(r.n-inf)>=50&&r.yield<py/2; if(low) console.error('⏹ sản lượng '+r.yield+' < '+(py/2)+' (nửa mức pilot '+py+')'); (r.pass>0 && !low && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
+          GO=$(node -p "const fs=require('fs'), r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0, py=fs.existsSync('content/lexicon/expand/pilot/yield.json')?require('./content/lexicon/expand/pilot/yield.json').yield:0, yy=(r.nFresh||0)>=50?r.yieldFresh:r.yield, low=py&&(r.n-inf)>=50&&yy<py/2; if(low) console.error('⏹ sản lượng '+(yy===r.yield?'':'(mục mới) ')+yy+' < '+(py/2)+' (nửa mức pilot '+py+')'); (r.pass>0 && !low && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
           [ "$GO" = 1 ] || { echo "⏹ dừng chuỗi: hết neuron kho CF (4006) / hết ứng viên / 0 mục đạt / sản lượng < nửa pilot – lượt cron tiếp"; echo "::warning::lexicon-expand dừng chuỗi (xem log bước này)"; exit 0; }
           gh workflow run lexicon-expand.yml -R ${{ github.repository }} --ref main
           echo "↻ đã gọi lượt lexicon-expand kế tiếp"

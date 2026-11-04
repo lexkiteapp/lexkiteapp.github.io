@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, user-scalable=no, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Confidence Check (Bright Day Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#ffb4a6",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#202c2f",
+            "background": "#091518",
+            "surface-tint": "#6bd8ce",
+            "surface-variant": "#2b373a",
+            "on-surface-variant": "#bcc9c7",
+            "outline-variant": "#3d4947",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary": "#f4bf40",
+            "on-primary": "#003733",
+            "inverse-on-surface": "#263236",
+            "surface-dim": "#091518",
+            "primary-container": "#2ba39a",
+            "surface-container": "#162125",
+            "on-tertiary": "#402e00",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#ffdad3",
+            "surface-container-highest": "#2b373a",
+            "on-secondary-fixed-variant": "#900f00",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "tertiary-container": "#ba8b00",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary": "#660800",
+            "surface-bright": "#2f3b3e",
+            "on-background": "#d8e5e9",
+            "primary-fixed": "#88f5ea",
+            "primary": "#6bd8ce",
+            "surface-container-lowest": "#051013",
+            "surface": "#091518",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-fixed-variant": "#00504b",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline": "#879391",
+            "on-tertiary-container": "#392900",
+            "on-error": "#690005",
+            "on-primary-container": "#00322e",
+            "on-secondary-fixed": "#3f0300",
+            "inverse-surface": "#d8e5e9",
+            "surface-container-low": "#121d20",
+            "on-secondary-container": "#ffa493",
+            "inverse-primary": "#006a64",
+            "on-tertiary-fixed": "#261a00"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "24px",
+            "space-md": "16px",
+            "space-sm": "8px",
+            "gutter": "16px",
+            "margin": "16px",
+            "space-xl": "32px",
+            "space-xs": "4px"
+          },
+          fontFamily: {
+            label: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            title: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile Ledge Utilities */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B53A22 !important;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-body text-body m-0 p-0 antialiased selection:bg-[#2BA39A]/20" style="width: 390px; min-height: 100vh; margin: 0 auto; overflow-x: hidden;">
+<!-- Fixed Top Header (56px) -->
+<header class="fixed top-0 left-0 right-0 z-50 h-[56px] bg-[#081518]/95 backdrop-blur-md px-4 flex items-center justify-between border-b border-[#21363D] max-w-[390px] mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] shadow-[0_3px_0_0_#1E7B74] flex items-center justify-center transform -rotate-6">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24">
+<polygon points="12,2 22,9 12,22 2,9"></polygon>
+<line stroke="#081518" stroke-dasharray="2,2" stroke-width="1.5" x1="12" x2="12" y1="2" y2="22"></line>
+</svg>
+</div>
+<span class="font-display text-[21px] font-extrabold tracking-tight text-[#EEF6F7]">Lexkite</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 bg-[#172427] border border-[#243B42] shadow-[0_2.5px_0_0_#0F1A1C] rounded-full px-2.5 py-1">
+<span class="text-sm">🔥</span>
+<span class="font-label text-label text-[#FF8A65] font-extrabold tracking-tight">14</span>
+</div>
+<div class="flex items-center gap-1 bg-[#172427] border border-[#243B42] shadow-[0_2.5px_0_0_#0F1A1C] rounded-full px-2.5 py-1">
+<span class="text-sm">⚡</span>
+<span class="font-label text-label text-[#FFD54F] font-extrabold tracking-tight">820</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="pt-[72px] pb-[88px] px-4 flex flex-col gap-4">
+<!-- Teacher Slot & Speech Bubble Row -->
+<div class="flex items-start gap-3 w-full">
+<div class="teacher-slot w-[96px] h-[92px] shrink-0 rounded-[16px] bg-[#0E2327] border-2 border-dashed border-[#2BA39A] flex flex-col items-center justify-center gap-1 text-[#2BA39A]">
+<span class="material-symbols-outlined text-[28px] text-[#6bd8ce]" data-icon="school" data-weight="fill">school</span>
+<span class="font-label text-[10px] tracking-wider font-extrabold uppercase text-[#6bd8ce]">TEACHER</span>
+</div>
+<div class="relative flex-1 bg-[#121E22] rounded-[16px] border border-[#21363D] shadow-[0_4px_0_0_#091316] p-3 flex flex-col justify-center min-h-[92px]">
+<div class="absolute -left-[9px] top-7 w-0 h-0 border-y-[7px] border-y-transparent border-r-[9px] border-r-[#21363D]"></div>
+<div class="absolute -left-[7px] top-7 w-0 h-0 border-y-[7px] border-y-transparent border-r-[8px] border-r-[#121E22]"></div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0E2B2C] border border-[#18474B] w-fit mb-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#35D0C5]"></span>
+<span class="font-label text-[10px] text-[#35D0C5] font-extrabold tracking-wider uppercase">TEACHER CARLOS • IELTS COACH</span>
+</div>
+<p class="font-body text-[14px] leading-snug font-bold text-[#EEF6F7]">
+      “Honest answers help me help you.”
+    </p>
+</div>
+</div>
+<!-- Headline and Subtext Block -->
+<div class="mt-1">
+<h1 class="font-display text-[26px] leading-[30px] font-extrabold text-[#EEF6F7] tracking-tight">
+    How confident do you feel?
+  </h1>
+<p class="font-body text-[14px] leading-[20px] font-semibold text-[#A9BDBB] mt-1">
+    Rate each skill – we adjust your plan.
+  </p>
+</div>
+<!-- Rating Cards Stack -->
+<div class="flex flex-col gap-3.5">
+<!-- 1. Listening -->
+<div class="bg-[#121E22] rounded-[16px] border border-[#21363D] shadow-[0_4px_0_0_#091316] p-3.5 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#0E282B] text-[#35D0C5] flex items-center justify-center border border-[#18474B]">
+<span class="material-symbols-outlined text-[20px]" data-icon="headphones" data-weight="fill">headphones</span>
+</div>
+<span class="font-title text-[17px] font-bold text-[#EEF6F7]">Listening</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#0E2B2C] text-[#35D0C5] border border-[#18474B] font-label text-[11px] font-extrabold tracking-wide">CONFIDENT</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😰</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😟</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">2</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😐</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">3</span>
+</button>
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#2BA39A] bg-[#0F2D30] shadow-[0_2.5px_0_0_#0A1D20] text-[#EEF6F7] cursor-pointer" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#2BA39A] text-[#081518] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<span class="text-base">🙂</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#35D0C5]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😎</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">5</span>
+</button>
+</div>
+</div>
+<!-- 2. Reading -->
+<div class="bg-[#121E22] rounded-[16px] border border-[#21363D] shadow-[0_4px_0_0_#091316] p-3.5 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#261E14] text-[#FFB054] flex items-center justify-center border border-[#3E2F1A]">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book" data-weight="fill">menu_book</span>
+</div>
+<span class="font-title text-[17px] font-bold text-[#EEF6F7]">Reading</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#2B2212] text-[#FFB054] border border-[#48371C] font-label text-[11px] font-extrabold tracking-wide">FAIR</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😰</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😟</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">2</span>
+</button>
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#2BA39A] bg-[#0F2D30] shadow-[0_2.5px_0_0_#0A1D20] text-[#EEF6F7] cursor-pointer" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#2BA39A] text-[#081518] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<span class="text-base">😐</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#35D0C5]">3</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">🙂</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😎</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">5</span>
+</button>
+</div>
+</div>
+<!-- 3. Writing (Weakest Skill with Coral Accent) -->
+<div class="bg-[#121E22] rounded-[16px] border-l-4 border-l-[#F2553B] border-y border-r border-[#21363D] shadow-[0_4px_0_0_#091316] p-3.5 flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#2A1715] text-[#F2553B] flex items-center justify-center border border-[#48201D]">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit" data-weight="fill">edit</span>
+</div>
+<div>
+<span class="font-title text-[17px] font-bold text-[#EEF6F7] block leading-tight">Writing</span>
+<span class="font-body text-[12px] font-semibold text-[#A9BDBB]">Task 1 &amp; Task 2 Essays</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#2D1412] text-[#F2553B] border border-[#52211C] font-label text-[10px] font-extrabold whitespace-nowrap">● NEEDS FOCUS</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#F2553B] bg-[#2A1715] shadow-[0_2.5px_0_0_#170C0B] text-[#EEF6F7] cursor-pointer" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#F2553B] text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<span class="text-base">😰</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#FF8A65]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😟</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">2</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😐</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">3</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">🙂</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😎</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">5</span>
+</button>
+</div>
+</div>
+<!-- 4. Speaking -->
+<div class="bg-[#121E22] rounded-[16px] border border-[#21363D] shadow-[0_4px_0_0_#091316] p-3.5 flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#0E282B] text-[#35D0C5] flex items-center justify-center border border-[#18474B]">
+<span class="material-symbols-outlined text-[20px]" data-icon="mic" data-weight="fill">mic</span>
+</div>
+<div>
+<span class="font-title text-[17px] font-bold text-[#EEF6F7] block leading-tight">Speaking</span>
+<span class="font-body text-[12px] font-semibold text-[#A9BDBB]">Fluency &amp; Pronunciation</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#2B2212] text-[#FFB054] border border-[#48371C] font-label text-[11px] font-extrabold tracking-wide">FAIR</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😰</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😟</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">2</span>
+</button>
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#2BA39A] bg-[#0F2D30] shadow-[0_2.5px_0_0_#0A1D20] text-[#EEF6F7] cursor-pointer" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#2BA39A] text-[#081518] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<span class="text-base">😐</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#35D0C5]">3</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">🙂</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#223840] bg-[#162529] shadow-[0_2.5px_0_0_#0C171A] text-[#A9BDBB] cursor-pointer" type="button">
+<span class="text-base">😎</span>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#A9BDBB]">5</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Weakest Skill Callout Card -->
+<div class="bg-[#0E282B] rounded-[16px] border-2 border-[#18474B] shadow-[0_4px_0_0_#0A1D20] p-3.5 flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#154F52] text-[#35D0C5] flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#0C2B2D]">
+<span class="material-symbols-outlined text-[22px]" data-icon="tune">tune</span>
+</div>
+<div class="flex-1">
+<h4 class="font-title text-[15px] leading-tight font-bold text-[#EEF6F7]">
+      Your weakest: Writing
+    </h4>
+<p class="font-body text-[13px] leading-[18px] font-semibold text-[#A9BDBB] mt-1">
+      We added 2 writing tasks this week to boost cohesion and lexical range.
+    </p>
+</div>
+</div>
+<!-- Primary CTA Section -->
+<div class="flex flex-col items-center gap-2 mt-2">
+<button class="tactile-btn w-full h-[56px] rounded-[16px] bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-[#1B0B04] font-title text-[18px] font-extrabold flex items-center justify-center gap-2 border-t border-white/40 shadow-[0_6px_0_0_#B53A22] transition-transform cursor-pointer" type="button">
+<span>Save</span>
+<span class="text-xl">✓</span>
+</button>
+<span class="font-label text-[12px] font-bold text-[#A9BDBB] text-center tracking-normal">
+  Takes effect immediately on your daily drill queue
+</span>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Docked Fixed Bottom, 5 tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 h-16 bg-[#0E1A1D] border-t border-[#21363D] px-2 flex justify-around items-center max-w-[390px] mx-auto shadow-[0_-4px_12px_rgba(0,0,0,0.4)]">
+<!-- Today -->
+<a class="flex flex-col items-center justify-center text-[#7E9FA3] hover:text-[#EEF6F7] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Today</span>
+</a>
+<!-- Vocab -->
+<a class="flex flex-col items-center justify-center text-[#7E9FA3] hover:text-[#EEF6F7] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- Skills -->
+<a class="flex flex-col items-center justify-center text-[#7E9FA3] hover:text-[#EEF6F7] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Skills</span>
+</a>
+<!-- Tests -->
+<a class="flex flex-col items-center justify-center text-[#7E9FA3] hover:text-[#EEF6F7] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="quiz">quiz</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Tests</span>
+</a>
+<!-- Me (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-[#0E282B] text-[#35D0C5] rounded-xl px-3 py-1 border-2 border-[#2BA39A] shadow-[0_2px_0_0_#0A1D20] min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="person" data-weight="fill">person</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#35D0C5]">Me</span>
+</a>
+</nav>
+</body></html>

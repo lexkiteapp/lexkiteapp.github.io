@@ -9,16 +9,18 @@ const { jobs } = collect(), { have, s2 } = readIndex(), led = readLedger(), clea
 const fails = new Map((fs.existsSync(FAIL) ? fs.readFileSync(FAIL, 'utf8') : '').split('\n').slice(1).filter(Boolean).map(l => [l.split('\t')[0], l]));
 const run = { ok: 0, s2: 0, fail: 0 };
 for (const [k, v] of Object.entries(res)) {
-  if (led.has(k) || !have.has(k) || !jobs.has(k) || String(v).startsWith('pending')) continue;
+  // kết quả cuối ok/s2 không bị ghi đè; "fail" được thử lại (todo.mjs --retry-fail) – đạt thì rời asr-fail.tsv
+  if ((led.has(k) && led.get(k) !== 'fail') || !have.has(k) || !jobs.has(k) || String(v).startsWith('pending')) continue;
   const st = v === 'ok' ? 'ok' : v === 's2' ? 's2' : 'fail'; led.set(k, st); run[st]++;
   if (st === 's2') s2.add(k);
+  if (st !== 'fail') fails.delete(k);
   if (st === 'fail') { const j = jobs.get(k); fails.set(k, [k, j.voice, clean(v), clean(j.text)].join('\t')); }
 }
 fs.mkdirSync(LEDGER.replace(/\/[^/]*$/, ''), { recursive: true });
 fs.writeFileSync(LEDGER, [...led].sort((a, b) => (a[0] < b[0] ? -1 : 1)).map(x => x.join('\t')).join('\n') + '\n');
 fs.writeFileSync(FAIL, 'khóa\tgiọng\tlý do (Whisper nghe được, WER)\tcâu\n' + [...fails.keys()].sort().map(k => fails.get(k)).join('\n') + (fails.size ? '\n' : ''));
 writeIndex(have, s2);
-const all = [...led.values()], c = x => all.filter(v => v === x).length, total = [...jobs.keys()].filter(k => have.has(k)).length;
+const all = [...led.values()], c = x => all.filter(v => v === x).length, total = new Set([...[...jobs.keys()].filter(k => have.has(k)), ...led.keys()]).size; // gồm cả khóa đã kiểm của câu không còn trong bộ hiện tại: sổ giữ nguyên, checked không vượt total (04/11: 49113/49105 làm cổng đỏ mãi, filler đẩy lại vô ích)
 const S = { checked: led.size, total, oldOk: c('ok'), s2: c('s2'), fail: c('fail'), passPct: led.size ? +(100 * (c('ok') + c('s2')) / led.size).toFixed(2) : 0, oldPassPct: led.size ? +(100 * c('ok') / led.size).toFixed(2) : 0 };
 fs.writeFileSync(STATS, JSON.stringify(S) + '\n');
 const n = run.ok + run.s2 + run.fail, pct = x => (n ? (100 * x / n).toFixed(1) : '0') + '%';

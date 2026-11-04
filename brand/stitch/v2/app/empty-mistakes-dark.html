@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite - Mistakes Notebook</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#392900",
+            "surface-container-highest": "#2b373a",
+            "surface-container-high": "#202c2f",
+            "surface-dim": "#091518",
+            "primary-fixed": "#88f5ea",
+            "surface-bright": "#2f3b3e",
+            "on-background": "#d8e5e9",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-container": "#ffa493",
+            "error": "#ffb4ab",
+            "secondary": "#ffb4a6",
+            "outline-variant": "#3d4947",
+            "secondary-container": "#981201",
+            "surface": "#091518",
+            "on-surface": "#d8e5e9",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-tertiary": "#402e00",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary-container": "#00322e",
+            "inverse-on-surface": "#263236",
+            "surface-container-low": "#121d20",
+            "outline": "#879391",
+            "on-primary": "#003733",
+            "on-error": "#690005",
+            "secondary-fixed": "#ffdad3",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-container": "#2ba39a",
+            "on-tertiary-fixed": "#261a00",
+            "on-error-container": "#ffdad6",
+            "tertiary": "#f4bf40",
+            "surface-tint": "#6bd8ce",
+            "on-secondary": "#660800",
+            "background": "#091518",
+            "surface-container-lowest": "#051013",
+            "tertiary-container": "#ba8b00",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary-fixed-dim": "#f4bf40",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#ffdf9e",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary": "#6bd8ce",
+            "on-primary-fixed-variant": "#00504b",
+            "on-primary-fixed": "#00201e",
+            "inverse-primary": "#006a64",
+            "surface-variant": "#2b373a",
+            "inverse-surface": "#d8e5e9",
+            "surface-container": "#162125"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased flex flex-col items-center min-h-screen select-none">
+<!-- Exact 390px Mobile Viewport Container -->
+<div class="w-[390px] max-w-[390px] min-h-screen bg-background flex flex-col relative pb-[76px] overflow-x-hidden">
+<!-- 1. TOP BAR (INNER variant, 56px height) -->
+<header class="h-[56px] w-full px-4 flex items-center justify-between border-b border-outline-variant/60 bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-40">
+<!-- Tactile Circular Back Button -->
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface shadow-[0_3px_0_#051013] active:translate-y-0.5 active:shadow-[0_1px_0_#051013] transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Title -->
+<h1 class="font-headline font-bold text-lg tracking-tight text-on-surface">Mistakes notebook</h1>
+<!-- Tactile Circular Bookmark Button -->
+<button aria-label="Bookmark" class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary shadow-[0_3px_0_#051013] active:translate-y-0.5 active:shadow-[0_1px_0_#051013] transition-all">
+<span class="material-symbols-outlined text-[20px] fill-icon" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</header>
+<!-- Main Content Area: 16px horizontal margins -->
+<main class="flex-1 flex flex-col px-4 pt-3.5 pb-2 gap-3.5">
+<!-- 2. SESSION STATUS PILL -->
+<div class="flex justify-center w-full">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/80 shadow-[0_2px_0_#051013]">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label text-xs font-bold tracking-wide text-primary">
+            Accuracy: 100% Active Session
+          </span>
+</div>
+</div>
+<!-- 3. MAIN EMPTY STATE CARD -->
+<div class="w-full bg-surface-container rounded-[16px] border border-outline-variant/70 p-5 shadow-[0_5px_0_#051013] flex flex-col items-center text-center relative overflow-hidden">
+<!-- Glossy Illustrated Notebook Graphic -->
+<div class="w-40 h-40 relative my-1 flex items-center justify-center">
+<!-- Ambient Glow behind notebook -->
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Stylized Dark-Teal Spiral Notebook -->
+<div class="w-28 h-32 bg-surface-container-high border-2 border-primary/40 rounded-xl relative shadow-lg flex flex-col overflow-hidden rotate-[-4deg]">
+<!-- Top Spiral Rings -->
+<div class="w-full h-4 bg-surface-container-highest/90 border-b border-outline-variant flex items-center justify-around px-2">
+<span class="w-1.5 h-3 bg-on-surface-variant/40 rounded-full border border-surface-container-lowest"></span>
+<span class="w-1.5 h-3 bg-on-surface-variant/40 rounded-full border border-surface-container-lowest"></span>
+<span class="w-1.5 h-3 bg-on-surface-variant/40 rounded-full border border-surface-container-lowest"></span>
+<span class="w-1.5 h-3 bg-on-surface-variant/40 rounded-full border border-surface-container-lowest"></span>
+<span class="w-1.5 h-3 bg-on-surface-variant/40 rounded-full border border-surface-container-lowest"></span>
+</div>
+<!-- Notebook Page Texture / Guidelines -->
+<div class="p-2.5 flex-1 flex flex-col gap-2 opacity-30">
+<div class="h-1 bg-on-surface rounded-full w-3/4"></div>
+<div class="h-1 bg-on-surface rounded-full w-5/6"></div>
+<div class="h-1 bg-on-surface rounded-full w-1/2"></div>
+<div class="h-1 bg-on-surface rounded-full w-2/3"></div>
+</div>
+<!-- Red Bookmark Ribbon sticking out bottom -->
+<div class="absolute -bottom-2 right-4 w-3.5 h-6 bg-secondary-container border border-secondary shadow-sm rounded-b-sm"></div>
+</div>
+<!-- Shiny Gold Star Medal Badge Overlapping Notebook -->
+<div class="absolute bottom-2 right-6 w-14 h-14 rounded-full bg-gradient-to-tr from-tertiary-container via-tertiary to-tertiary-fixed border-2 border-tertiary shadow-[0_4px_0_#392900] flex items-center justify-center z-10 rotate-[8deg]">
+<span class="material-symbols-outlined text-on-tertiary text-2xl fill-icon" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<!-- Decorative sparkle chips -->
+<div class="absolute top-2 left-6 text-tertiary opacity-90 animate-pulse">
+<span class="material-symbols-outlined text-sm fill-icon" data-icon="sparkles" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+<div class="absolute top-8 right-5 text-primary opacity-80">
+<span class="material-symbols-outlined text-base fill-icon" data-icon="sparkles" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+</div>
+<!-- Headline -->
+<h2 class="font-headline font-bold text-2xl tracking-tight text-on-surface mt-1">
+          No mistakes yet!
+        </h2>
+<!-- Description -->
+<p class="font-body text-sm font-medium text-on-surface-variant mt-2 max-w-[270px] leading-relaxed">
+          You have a flawless streak! Unresolved drill questions and traps will be tracked here.
+        </p>
+<!-- Primary Tactile CTA Button (Candy-Orange with 6px ledge & dark ink text) -->
+<button class="w-full h-14 mt-6 rounded-[16px] bg-gradient-to-b from-[#ff8d29] to-[#eb6800] border-t border-[#ffba7a] border-x border-[#d15300] shadow-[0_6px_0_#994800] flex items-center justify-center gap-2 active:translate-y-[3px] active:shadow-[0_3px_0_#994800] transition-all duration-75">
+<span class="material-symbols-outlined text-[#1a0d02] text-xl font-bold fill-icon" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline font-extrabold text-base tracking-wide text-[#1a0d02]">Start a lesson</span>
+</button>
+<!-- Secondary Link -->
+<button class="mt-4 flex items-center justify-center gap-1.5 py-1 text-primary hover:text-primary-fixed transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-lg" data-icon="menu_book">menu_book</span>
+<span class="font-headline font-bold text-sm tracking-wide">Review mastered topics</span>
+</button>
+</div>
+<!-- 4. CLEAN SHEET BONUS CARD -->
+<div class="w-full bg-surface-container rounded-[16px] border border-outline-variant/70 p-4 shadow-[0_5px_0_#051013] flex items-center justify-between">
+<!-- Left: Star/rosette checkmark badge icon + label -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-tertiary shadow-[0_2px_0_#051013]">
+<span class="material-symbols-outlined text-2xl fill-icon" data-icon="workspace_premium" data-weight="fill" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="font-headline font-bold text-sm text-on-surface">Clean Sheet Bonus</span>
+</div>
+<!-- Right: Glowing amber/gold XP Pill -->
+<div class="px-3 py-1.5 rounded-full bg-on-tertiary-container/40 border border-tertiary-container/90 flex items-center gap-1 text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-sm font-bold fill-icon" data-icon="military_tech" data-weight="fill" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label text-xs font-extrabold tracking-wider">+50 XP Ready</span>
+</div>
+</div>
+</main>
+<!-- 5. CANONICAL BOTTOM TAB BAR (64px docked at bottom, exactly 5 tabs) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-16 bg-surface-container-lowest border-t border-outline-variant/60 flex items-center justify-around px-2 z-50">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label text-[10px] font-extrabold mt-0.5 tracking-wider">Today</span>
+</button>
+<!-- Tab 2: Vocab (ACTIVE with red notification dot & soft teal pill) -->
+<button class="flex flex-col items-center justify-center py-1 px-3 rounded-xl bg-surface-container-high border border-primary/40 text-primary shadow-[0_2px_0_#051013] relative">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px] fill-icon" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<!-- Red Due Notification Dot -->
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-secondary-container ring-2 ring-surface-container-lowest"></span>
+</div>
+<span class="font-label text-[10px] font-extrabold mt-0.5 tracking-wider text-primary">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="bolt">bolt</span>
+<span class="font-label text-[10px] font-extrabold mt-0.5 tracking-wider">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment">assignment</span>
+<span class="font-label text-[10px] font-extrabold mt-0.5 tracking-wider">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label text-[10px] font-extrabold mt-0.5 tracking-wider">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

@@ -149,7 +149,8 @@
   const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
   function map(o) {
     const { demo, plan: P, n } = o;
-    if (!demo && !picked() && !/[?&]all=1\b/.test(location.hash)) return pick();
+    const fresh = !demo && n === 0 && !((state.game || {}).xp > 0) && !!(self.ST2 && ST2['today-new'] && ST2.path); // người mới (chưa xong bài nào, 0 XP) → Hôm nay v2 trống: bước 1 = chọn mục tiêu (pick)
+    if (!demo && !picked() && !fresh && !/[?&]all=1\b/.test(location.hash)) return pick();
     if (/[?&]pick=1\b/.test(location.hash)) return pick();
     const at = n % P.length, u = unitAt(n, P.length), Q = demo ? '?demo=1' : '', who = ls.get('lk.lsn.who') === 'ama' ? 'carlos' : 'ama';
     const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0, ST_ = demo ? {} : stars();
@@ -159,7 +160,7 @@
     const nodes = P.map((p, i) => {
       const st = i < at ? 'done' : i === at ? 'next' : 'lock', cp = p.kind === 'exam' ? check(n) : null, k = ST_[n - at + i];
       const label = cp ? cp.name : KNAME(p.kind);
-      return { st, no: i + 1, label, cp: !!cp && st === 'lock', ms: t('Mốc'), stars: st === 'done' ? k || 0 : 0, href: `#/lesson/go${Q}`, start: t('Bắt đầu'), sub: [cp ? t('Kiểm tra nhanh') : '', t('{n} phút', { n: KMIN[p.kind] || 4 })].filter(Boolean).join(' • '), tch: st === 'next' ? Chars.still(who, 'point') : '', icon: cp ? ({ headphones: 'headphones', newspaper: 'menu_book', mic: 'mic', 'pen-line': 'edit', mail: 'edit', ruler: 'menu_book', phone: 'call' }[cp.icon] || 'emoji_events') : ({ lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio', call: 'call', write: 'edit' }[p.kind] || 'star') };
+      return { st, no: i + 1, label, cp: !!cp && st === 'lock', ms: t('Mốc'), stars: st === 'done' ? k || 0 : 0, href: `#/lesson/go${Q}`, start: t('Bắt đầu'), sub: [cp ? t('Kiểm tra nhanh') : '', t('{n} phút', { n: KMIN[p.kind] || 4 })].filter(Boolean).join(' • '), tch: st === 'next' ? Chars.slot(who, { pose: 'point', size: 'l', lazy: false, clip: true, loop: true, cls: 'absolute right-full mr-3 -bottom-2' }) : '', icon: cp ? ({ headphones: 'headphones', newspaper: 'menu_book', mic: 'mic', 'pen-line': 'edit', mail: 'edit', ruler: 'menu_book', phone: 'call' }[cp.icon] || 'emoji_events') : ({ lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio', call: 'call', write: 'edit' }[p.kind] || 'star') };
     });
     const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), pc = pctOf(ex, cur, tg), g = (state.settings || {}).goal, left = g && g.date ? Math.ceil((new Date(g.date) - Date.now()) / 864e5) : 0, C = 2 * Math.PI * 20;
     const examH = ST.exam({ cls: 'ux1-exam-top', p: pc, C, off: pc != null ? C * (1 - pc / 100) : 0, icon: { briefcase: 'work', landmark: 'account_balance', 'message-circle': 'forum' }[Xe.ic] || 'school', title: Xe.short + (tg ? ' · ' + tg : ''), sub: [cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), href: MOCK[ex] || '#/tests', mock: t('Thi thử') });
@@ -167,18 +168,21 @@
     const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
     if (self.ST2 && ST2.path) { // 🎨 Stitch v2 "Learning Path" – khung tự sinh (web/js/st/v2/path.js · css/st-v2-path.css), chỉ gắn dữ liệu thật ở đây
       const SNAKE = ['translate-x-6', '-translate-x-8', 'translate-x-0', 'translate-x-8', '-translate-x-6', 'translate-x-0'], STT = { done: t('Đã xong'), next: t('Đang học'), lock: t('Đã khóa') };
-      const nu = unitAt(n + P.length, P.length), pct = Math.round(at / P.length * 100);
+      const nu = unitAt(n + P.length, P.length), pct = Math.round(at / P.length * 100); let pT;
       const d = { unit: { title: u.name, pct, pctText: t('{p}% hoàn thành', { p: pct }), guideHref: '#/lesson?pick=1' }, stage: t('Chặng học {n}', { n: u.no }), step: `${Math.min(at + 1, P.length)}/${P.length}`,
-        nextUnit: t('Tiếp theo: {u}', { u: nu.name }), teacher: Chars.img('ama', { kind: 'still', pose: 'point', cls: 'absolute right-full bottom-2 mr-2 w-24 h-auto pointer-events-none select-none', alt: '', size: 96 }), // teacher-pose-map: Ama "point" chỉ nút đang học
+        nextUnit: t('Tiếp theo: {u}', { u: nu.name }), teacher: (pT = sz => Chars.slot('ama', { pose: 'point', size: sz, lazy: false, clip: true, loop: true, ...(/^-/.test(SNAKE[Math.max(0, nodes.findIndex(x => x.st === 'next')) % SNAKE.length]) ? { flip: true, cls: 'absolute left-full bottom-0 ml-3' } : { cls: 'absolute right-full bottom-0 mr-3' }) }))('l'), // teacher-pose-map: Ama "point" chỉ nút đang học · chỗ giáo viên chung (teacher-slot.js): đứng sau bệ, phía còn chỗ trên màn 390 px
         nodes: nodes.map((x, i) => ({ st: x.st, kind: P[i].kind, cp: x.cp || (P[i].kind === 'exam'), label: x.label, title: x.label + (x.sub ? ' · ' + x.sub : ''), icon: x.icon, aria: `${x.label} – ${STT[x.st]}`, href: x.st === 'lock' ? '' : x.href, off: SNAKE[i % SNAKE.length] })) };
-      const root = ST2.mount(view, 'path', d, 'learn');
-      if (demo) { const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); }
-      // "Guide" (nút có sẵn trong mẫu Stitch) mở bảng giữ ĐỦ tính năng cũ của màn Học mà mẫu không vẽ: câu "Bạn sẽ…", kiến thức đã có, thẻ kỳ thi + thi thử, kiểm tra trình độ, đổi mục tiêu
-      const g = root.querySelector('[data-act="guide"]'); if (g) g.addEventListener('click', e => { e.preventDefault();
+      // Hướng dẫn chặng (nút "Guide" có sẵn trong mẫu Stitch path) mở bảng giữ ĐỦ tính năng cũ của màn Học mà mẫu không vẽ: câu "Bạn sẽ…", kiến thức đã có, thẻ kỳ thi + thi thử, kiểm tra trình độ, đổi mục tiêu
+      const guide = root => { const g = root.querySelector('[data-act="guide"]'); if (g) g.addEventListener('click', e => { e.preventDefault();
         const ch = chips.map(c => c.href ? `<a class="btn sm" href="${c.href}">${ic(c.icon === 'explore' ? 'compass' : 'library')} ${esc(c.text)}</a>` : `<span class="chip" title="${esc(c.title || '')}">${ic('library')} ${esc(c.text)} · ${esc(c.title || '')}</span>`).join(' ');
         const box = UI.modal(`<div class="ux1-guide"><p class="muted small">${esc(t('Chặng học {n}', { n: u.no }))} · ${esc(X.short)}</p><h2>${esc(u.name)}</h2>${CAN()[u.id] ? `<p class="ux1-unit-tip">${esc(CAN()[u.id])}</p>` : ''}${examCard('')}<p>${ch}</p><p><a class="btn" href="#/lesson?pick=1">${ic('target')} ${t('Đổi mục tiêu')}</a></p></div>`);
-        fillMock(box || document); });
-      const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
+        fillMock(box || document); }); };
+      const demoNote = root => { if (!demo) return; const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); };
+      const toCur = root => { const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ } };
+      // 🏠 Home v2 "Hôm nay" (docs/HOME-V2.md): khối hôm nay + lộ trình ĐẦY ĐỦ (khung path) trong khối "Your path"
+      if (ST2.today) return home2({ demo, fresh, Q, P, at, n, u, nodes, dp: Object.assign({}, d, { teacher: pT('m') }) /* lồng trong thẻ Hôm nay: cột hẹp hơn → m (l lòi mép thẻ 360 px) */, xpTo, nxMin, guide, demoNote, toCur });
+      const root = ST2.mount(view, 'path', d, 'learn');
+      demoNote(root); guide(root); toCur(root);
       return;
     }
     document.body.classList.add('st');
@@ -192,18 +196,123 @@
     const nx = view.querySelector('.ux1-n.next'); if (nx && nx.getBoundingClientRect().bottom > innerHeight - 160) try { nx.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
   }
 
+  // ---------- 🏠 Home v2 "Hôm nay" (docs/HOME-V2.md · khung Stitch tự sinh web/js/st/v2/today*.js) ----------
+  // Chỉ dữ liệu THẬT; khối không có dữ liệu → data-show=0 → gỡ (không hiện số giả). Điện thoại: today / today-new · máy tính ≥ 1024 px: today-desk + cột phải today-rail.
+  const DSK = () => matchMedia('(min-width: 1024px)').matches;
+  const MINS = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 };
+  const PLAN_TTL = 30e3; let planC = null; // kế hoạch hôm nay: nhớ 30 s (cột phải vẽ lại mỗi lần đổi trang)
+  const planOf = async () => { if (planC && Date.now() - planC.at < PLAN_TTL) return planC.v; let v = []; try { v = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { v = []; } planC = { at: Date.now(), v }; return v; };
+  const mockOverall = async () => { const ex = exam(); if ((ex !== 'ielts' && ex !== 'ieltsgt') || !window.Core || !Core.Store) return ''; try { const m = await Core.Store.get('mocks', []), x = (m || [])[0]; return x && x.overall != null ? String(x.overall) : ''; } catch (e) { return ''; } };
+  const lgGet = () => { try { return JSON.parse(ls.get('lk.ux1.lg') || 'null'); } catch (e) { return null; } };
+  // Dữ liệu dùng chung cho Hôm nay + cột phải: số liệu đầu trang, kỳ thi, kế hoạch hôm nay, chuỗi 7 ngày, giải đấu (bộ nhớ đệm lần trước)
+  async function homeBase() {
+    const st = state, se = st.settings || {}, g = st.game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '', rv = ((st.stats || {}).days || {})[k] || 0, goal = se.dailyGoal || 20;
+    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS' }, tg = target(), cur = (await mockOverall()) || current(ex), pc = pctOf(ex, cur, tg), left = se.goal && se.goal.date ? Math.ceil((new Date(se.goal.date) - Date.now()) / 864e5) : 0;
+    const streak = App.streak ? App.streak() : 0, gp = Math.min(100, Math.round(rv / goal * 100)), lang = I18N.lang();
+    const plan = await planOf(), tot = plan.length, dn = plan.filter(x => x.done).length, first = plan.findIndex(x => !x.done);
+    const items = plan.map((x, i) => ({ v: i === first ? 'cur' : /listen/.test(x.href || '') ? 'lis' : 'row', t: x.t, sub: x.done ? '✓ ' + t('Đã xong') : i === first ? t('Đang làm') + ' · ' + t('{n} phút', { n: x.mins || 5 }) : x.sub || '', tag: x.done ? '✓' : i === first ? t('Việc hiện tại') : t('{n} phút', { n: x.mins || 5 }), href: x.href || '#/home' }));
+    const act = App.activeDays ? App.activeDays() : new Set(), now = new Date(), mon = new Date(now); mon.setHours(12, 0, 0, 0); mon.setDate(mon.getDate() - (mon.getDay() + 6) % 7);
+    const fN = new Intl.DateTimeFormat(lang, { weekday: 'narrow' }), fL = new Intl.DateTimeFormat(lang, { weekday: 'long' }); let wn = 0;
+    const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(mon); d.setDate(mon.getDate() + i); const key = Core.todayKey(d), on = act.has(key), today = key === k; if (on) wn++;
+      return { v: today ? 'now' : on && d < now ? 'done' : 'off', mark: on ? '✓' : '⚡', l: fN.format(d), aria: fL.format(d) + (on ? ' ✓' : '') }; });
+    const lg = lgGet() || { tier: '', rank: '', zone: '', left: '' };
+    return { lang: lang.toUpperCase(), ex, Xe, tg, left,
+      c: { tg: tg || '–', tgL: tg ? t('Mục tiêu điểm') : t('Đặt mục tiêu'), tgHref: tg ? '#/goal' : '#/lesson?pick=1', streak: String(streak), xp: (g.xp || 0).toLocaleString(lang), goal: `${Math.min(rv, goal)}/${goal}`, ring: `${gp}, 100`,
+        exName: Xe.name || Xe.short, streakDays: t('{n} ngày', { n: streak }), flame: streak ? t('Chuỗi đang cháy') : t('Học hôm nay để bắt đầu chuỗi'), xpToday: t('+{n} XP hôm nay', { n: ((g.days || {})[k] || {}).xp || 0 }), goalLeft: rv >= goal ? t('Đã đạt mục tiêu ngày') : t('Còn {n} thẻ', { n: goal - rv }) },
+      x: { p: pc, pct: pc != null ? pc + '%' : '', ready: pc != null ? t('Sẵn sàng {p}%', { p: pc }) : '', href: MOCK[ex] || '#/tests',
+        title: [Xe.short + (tg ? ' · ' + t('mục tiêu {s}', { s: tg }) : ''), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), title2: Xe.short + (tg ? ' · ' + tg : ''),
+        sub: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left: [cur ? t('Dự đoán ~{s}', { s: cur }) : '', left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '),
+        mock: t('Thi thử {x} đầy đủ', { x: Xe.short }) + (MINS[ex] ? ' · ' + t('{n} phút', { n: MINS[ex] }) : '') },
+      p: { items, count: t('{n} mục tiêu', { n: tot }), done: `${dn}/${tot}`, ring: `${tot ? (88 * dn / tot).toFixed(1) : 0}, 88`, left: tot - dn },
+      wk: { days, n: `${wn}/7`, n2: t('{a}/7 đã xong', { a: wn }) }, lg };
+  }
+  // 🏆 Giải đấu thật (Sync.league): vá chữ vào thẻ có sẵn ([data-lg]) – không có tài khoản/chưa tham gia → thẻ ẩn (cột phải: thẻ giải đấu cũ thay vào)
+  async function fillLeague(root, legacy) {
+    let v = null;
+    try { await App.need('league'); if (window.Sync && Sync.authed) await Sync.authed(); if (window.Sync && Sync.user && Sync.league && window.League) { const res = await Sync.league('me');
+      if (res && res.member) { const me = (res.board || []).find(x => x.me), tr = League.tier(res.member.tier);
+        v = { tier: tr.name(), rank: t('Hạng #{r}/{n}', { r: me ? me.rank : '–', n: (res.board || []).length || 30 }), zone: me && me.zone === 'up' ? '▲ ' + t('Vùng thăng hạng') : me && me.zone === 'down' ? '▼ ' + t('Vùng xuống hạng') : '● ' + t('Vùng an toàn'), left: League.timeRemaining ? League.timeRemaining(res.week && res.week.end) : '' }; } } } catch (e) { v = lgGet(); }
+    ls.set('lk.ux1.lg', v ? JSON.stringify(v) : '');
+    if (!root.isConnected) return;
+    root.querySelectorAll('[data-lg]').forEach(el => { const f = el.getAttribute('data-lg'); if (f === 'card') { el.classList.toggle('hidden', !v); el.classList.toggle('flex', !!v); } else if (v && v[f] != null) el.textContent = v[f]; });
+    if (!v && legacy && window.League && League.renderHomeCard) League.renderHomeCard(legacy);
+  }
+  const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
+  // Đầu màn Hôm nay trên điện thoại (thanh trên của app ẩn dưới 1024 px): dùng lại đúng ô tìm #gq, bảng #notifBtn, nút sáng/tối và bộ chọn kỳ thi – không viết chức năng thứ hai
+  const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
+    on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
+    on('notif', () => { const n = el('notifBtn'); if (n) n.click(); });
+    on('menu', () => { const X = (App.EXAMS || {})[exam()] || {}, box = UI.modal(`<div class="ux1-menu"><h2>${t('Tài khoản')}</h2><a class="btn" data-m="x" href="#/me">${t('Tài khoản')}</a><button type="button" class="btn ghost" data-m="exam">${t('Kỳ thi')}${X.short ? ': ' + esc(X.short) : ''}</button><button type="button" class="btn ghost" data-m="theme">${t('Đổi giao diện sáng/tối')}</button></div>`), m = document.querySelector('.ux1-menu');
+      if (!m) return; const go = f => { const c = UI.closeModal || window.closeModal; if (c) c(); f(); };
+      m.addEventListener('click', e => { const w = e.target.closest('[data-m]'); if (!w) return; const v = w.dataset.m; go(() => { if (v === 'exam' && App.examPicker) App.examPicker(); if (v === 'theme') { const b = el('themeBtn'); if (b) b.click(); } }); }); box; });
+    const src = el('notifBadge'), dots = root.querySelectorAll('[data-notif-badge]'); if (src && dots.length) { const sync = () => dots.forEach(d => { d.textContent = src.textContent; d.className = src.hidden ? 'hidden' : 'notif-dot'; }); sync(); const o = new MutationObserver(sync); o.observe(src, { attributes: true, childList: true, characterData: true, subtree: true }); if (App.onCleanup) App.onCleanup(() => o.disconnect()); } };
+  const langBtn = root => root.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); }));
+  async function home2(o) {
+    const tok = location.hash, { demo, fresh, Q, P, at, n, u, nodes, dp, xpTo, nxMin } = o;
+    const b = await homeBase(); if (location.hash !== tok) return;
+    const s0 = window.Core && Core.Cards ? Core.Cards.dueCount(state.cards || {}, state.settings, state.stats).total : 0, due = demo ? 0 : s0;
+    let mist = 0; try { mist = demo ? 0 : ((await Core.Store.get('mistakes', [])) || []).filter(x => !x.fixed).length; } catch (e) { mist = 0; }
+    if (location.hash !== tok) return;
+    const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
+    const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
+    const pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`;
+    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
+    const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
+    const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
+    const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
+    const say = b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
+    // teacher-pose-map: Ama sau bệ – người mới vẫy chào (wave), đang học vòng nghỉ (idle, happy)
+    const tch = fresh => Chars.slot('ama', Object.assign(fresh ? { pose: 'wave', clip: true, loop: 6000 } : { pose: 'happy', idle: true }, { size: 'm', lazy: false, style: 'margin-left:auto' })); // sát bong bóng: khung cắt rộng 1,4 khung-cao lòi mép màn 360 px nếu căn giữa ô 120 px
+    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name,
+      k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
+        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
+      r: { due, title: t('{n} từ đang phai dần', { n: due }), sub: t('Ôn ngay ({m} phút)', { m: Math.max(1, Math.ceil(due / 6)) }) },
+      q: { mistN: mist, mist: t('{n} cần sửa', { n: mist }), mistHref: mist ? '#/mistakes?retry=1' : '#/mistakes', dueN: due, due: t('{n} đến hạn', { n: due }), dueHref: due ? '#/review' : '#/quick' },
+      s: stories.slice(0, DSK() ? 3 : 2), mock: MOCK[b.ex] || '#/mock', story: stories[0] ? stories[0].href : '#/lesson/go' });
+    if (fresh) { // người mới: 3 bước, bước đang làm = khuôn nổi bật
+      const S = [{ k: 'goal', done: picked(), t: t('Chọn mục tiêu'), sub: t('IELTS, TOEIC, giao tiếp'), href: '#/lesson?pick=1' }, { k: 'level', done: !!(state.settings || {}).placement, t: t('Kiểm tra trình độ nhanh'), sub: t('Bài kiểm tra thích ứng, có khoảng band'), min: t('{n} phút', { n: 5 }), href: '#/placement' }, { k: 'lesson', done: false, t: t('Bài học đầu tiên'), sub: t('Từ vựng thông dụng theo mục tiêu'), min: t('{n} phút', { n: KMIN.lesson }), href: `#/lesson/go${Q}` }];
+      const on = S.findIndex(x => !x.done); d.go = S[on].href;
+      d.steps = S.flatMap((x, i) => [...(i ? [{ v: 'line' }] : []), Object.assign(x, { v: i === on ? 'on' : 'off', n: x.done ? '✓' : String(i + 1), min: x.min || '' })]);
+      d.c.tgL = picked() ? t('Mục tiêu điểm') : t('Đặt mục tiêu'); d.say = `“${t('Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.')}”`;
+      d.pathSec = picked() ? `<section class="v2-hpath" data-blk="path">${pathHtml}</section>` : ''; // chưa chọn mục tiêu → chưa có lộ trình (bước 1)
+    }
+    const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
+    const root = ST2.mount(view, k, d, null);
+    sayIn(root, d.say, fresh);
+    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
+    prune(root); langBtn(root); headBtns(root);
+    root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
+    root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
+    o.demoNote(root); o.guide(root);
+    if (/[?&]at=path\b/.test(location.hash)) o.toCur(root); // tới thẳng nút hiện tại (liên kết cũ "bản đồ") – mặc định trang mở ở đầu "Hôm nay"
+    if (!demo && root.querySelector('[data-lg]')) fillLeague(root, null);
+    return root;
+  }
+  // Đổi cỡ màn qua mốc 1024 px khi đang ở Hôm nay → vẽ lại đúng khung (điện thoại ↔ máy tính)
+  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) App.route(); }); } catch (e) { /* trình duyệt cũ */ }
+
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
   function rail() {
     const r = document.getElementById('ux1Rail'); if (!r) return;
     if (document.body.classList.contains('focus') || !matchMedia('(min-width: 1024px)').matches) { r.innerHTML = ''; return; }
+    const promo = `<section class="card ux1-promo"><a class="btn sm" data-get-app="rail" hidden href="#/me">${ic('smartphone')} ${t('Tải app')}</a><a class="btn sm" data-ext-cta="rail" hidden href="#/me">${ic('puzzle')} ${t('Thêm vào Chrome')}</a></section>`;
+    const tail = () => { if (App.getApp) App.getApp(r).then(() => { if (window.LKExt) LKExt.scan(r); }).catch(() => {}); };
+    if (self.ST2 && ST2['today-rail']) { // 🎨 Stitch v2 cột phải (mẫu desk Home v2): số liệu · kế hoạch hôm nay · kỳ thi · giải đấu · chuỗi 7 ngày + thẻ giải đấu cũ (khách/chưa tham gia) + tải app/tiện ích
+      const tok = r.dataset.tok = String(Date.now() + Math.random());
+      homeBase().then(b => { if (r.dataset.tok !== tok || !document.body.contains(r)) return;
+        const o = ST2['today-rail'](b);
+        r.innerHTML = `<div class="v2s-today-rail"><div class="${o.root.replace(/\bmin-h-screen\b/, '')}">${o.main}</div></div><div id="ux1League"></div>${promo}`;
+        const v = r.firstElementChild; ST2.css && ST2.css('today-rail', v); prune(v); fillLeague(v, document.getElementById('ux1League')); tail();
+      }).catch(() => {});
+      return;
+    }
     const g = state.game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '', rv = ((state.stats || {}).days || {})[k] || 0, goal = (state.settings || {}).dailyGoal || 20, p = Math.min(100, Math.round(rv / goal * 100));
     r.innerHTML = `<div class="ux1-stat"><span>${ic('flame')} <b>${App.streak ? App.streak() : 0}</b></span><span>${ic('star')} <b>${(g.xp || 0).toLocaleString(I18N.lang())}</b></span></div>${examCard('')}
       <a class="card ux1-today" href="#/review"><b>${ic('goal')} ${t('Tiến độ hôm nay')}</b><span class="progress"><i style="width:${p}%"></i></span><small>${t('Ôn {a}/{b} thẻ', { a: Math.min(rv, goal), b: goal })}</small></a>
-      <div id="ux1League"></div>
-      <section class="card ux1-promo"><a class="btn sm" data-get-app="rail" hidden href="#/me">${ic('smartphone')} ${t('Tải app')}</a><a class="btn sm" data-ext-cta="rail" hidden href="#/me">${ic('puzzle')} ${t('Thêm vào Chrome')}</a></section>`;
+      <div id="ux1League"></div>${promo}`;
     fillMock(r);
     App.need('league').then(() => { const el = document.getElementById('ux1League'); if (el && window.League && League.renderHomeCard) League.renderHomeCard(el); }).catch(() => {});
-    if (App.getApp) App.getApp(r).then(() => { if (window.LKExt) LKExt.scan(r); }).catch(() => {});
+    tail();
   }
 
   // ---------- Luyện: mọi tính năng, nhóm gọn, "Luyện thi" đầu tiên ----------
@@ -244,12 +353,13 @@
     const { SRS, Cards, endOfToday } = Core, end = endOfToday(), all = Object.values(state.cards), dc = Cards.dueCount(state.cards, state.settings, state.stats), due = dc.total;
     const studied = all.filter(c => c.srs.last || c.srs.reps > 0), rets = studied.map(c => SRS.retention(c.srs)).filter(x => x != null), avg = rets.length ? rets.reduce((a, b) => a + b, 0) / rets.length * 100 : 0;
     const done = (state.stats.days || {})[window.Core.todayKey()] || 0, C = 2 * Math.PI * 50, crit = Math.min(App.forgetting().length, dc.due), soon = all.filter(c => c.srs.last && c.srs.due > end && c.srs.due <= end + 2 * 864e5).length;
-    const ahead = !due && soon > 0, groups = {}; all.forEach(c => { const o = App.origin(c); (groups[o] = groups[o] || []).push(c); });
-    const decks = Object.entries(groups).map(([o, l]) => { const dl = l.filter(c => (c.srs.last || c.srs.reps > 0) && c.srs.due <= end).length, rs = l.map(c => SRS.retention(c.srs)).filter(x => x != null), O = App.ORIGINS[o] || {};
+    const ahead = !due && soon > 0, fresh = new Set(Cards.newToday(state.cards, state.settings, state.stats)), nNew = fresh.size, fam = Math.max(0, dc.due - crit), groups = {}; all.forEach(c => { const o = App.origin(c); (groups[o] = groups[o] || []).push(c); });
+    const decks = Object.entries(groups).map(([o, l]) => { const dl = l.filter(c => ((c.srs.last || c.srs.reps > 0) && c.srs.due <= end) || fresh.has(c)).length /* phần của bộ trong phiên hôm nay (đến hạn + mới) → tổng các bộ = số trên vòng */, rs = l.map(c => SRS.retention(c.srs)).filter(x => x != null), O = App.ORIGINS[o] || {};
       return { k: o, name: O.name || o, icon: ORI_IC[o] || 'style', href: '#/deck?from=' + o, ret: rs.length ? Math.round(rs.reduce((a, b) => a + b, 0) / rs.length * 100) + '%' : '–', cards: t('{n} thẻ trong bộ', { n: l.length }), dueText: t('{n} đến hạn', { n: dl }), due: dl, n: l.length }; }).sort((a, b) => b.due - a.due || b.n - a.n);
     const d = { due, off: due || done ? C * (1 - done / (done + due)) : C, mem: t('{p}% trí nhớ', { p: avg.toFixed(1) }), lock: t('Ghi {n} thẻ vào trí nhớ dài hạn', { n: due }),
-      critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: Math.max(0, dc.due - crit) }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
-      cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }),
+      critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: fam }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
+      cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: nNew ? t('Ước tính ~{m} phút · {n} thẻ mới', { m: Math.max(1, Math.ceil(due / 3)), n: nNew }) : t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }) /* sắp quên + quen (chip) + mới (dòng này) = số trên vòng (dc.total) */,
+      famHref: ahead ? '#/review?ahead=2' : '#/review', famAria: t('Thẻ quen: {n}', { n: fam }), readyHref: ahead ? '#/review?ahead=2' : '#/review', trainHref: '#/deck?m=12', permHref: '#/deck?m=3', // ô số liệu + chip "quen" bấm được (ô Đang luyện = mức 1–2, Nhớ lâu = mức 3, như SRS.mastery)
       training: studied.filter(c => SRS.mastery(c.srs) < 3).length, perm: studied.filter(c => SRS.mastery(c.srs) === 3).length, decksTitle: t('Bộ thẻ • {n} đang dùng', { n: decks.length }), decks };
     return ST2.mount(view, 'review', d, 'review');
   }
@@ -260,17 +370,24 @@
       + GROUPS().map(([h, big, items]) => `<h2 class="set-h ux1-gh">${esc(h)}</h2><div class="ux1-tiles${big ? ' big' : ''}">${items.map(([href, i, n, d]) => `<a class="ux1-tile" href="${href}"><span class="ux1-ti" aria-hidden="true">${ic(i)}</span><b>${esc(n)}</b>${big && d ? `<small>${esc(d)}</small>` : ''}</a>`).join('')}</div>`).join('');
   };
 
+  // Bong bóng Hôm nay: chữ hiện dần lúc Ama nói, xong về vòng nghỉ; mỗi câu chạy 1 lần mỗi lần tải trang.
+  let saidHome = '';
+  function sayIn(root, say, fresh) {
+    if (!say || say === saidHome || !window.SayText) return;
+    const p = [...root.querySelectorAll('p')].find(x => x.textContent.trim() === say), c = p && SayText.prep(p, { wait: 0 }); if (!c) return;
+    saidHome = say;
+    const slot = root.querySelector('[data-tch] .tslot'), hasClip = slot && slot.dataset.clip && !fresh;
+    if (hasClip) slot.dataset.talk = Chars.clip('ama', 'talk');
+    const ms = Math.max(1200, Math.min(7000, c.est * 45)), t0 = performance.now();
+    const go = () => { if (!p.isConnected) return c.all(); if (hasClip && !slot.classList.contains('live') && performance.now() - t0 < 700) return setTimeout(go, 40); c.clock(ms, () => { if (slot && slot.lkQuiet) slot.lkQuiet(); }); };
+    setTimeout(go, 0);
+  }
+
   // ---------- CSS (chỉ khi cờ bật) ----------
   function css() {
     if (document.getElementById('ux1Css')) return;
     const s = document.createElement('style'); s.id = 'ux1Css';
     s.textContent = `
-body.ux1 .side-level{display:none}
-body.ux1 .sidebar{--nav-pad:.8rem}
-body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
-body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem var(--nav-pad);border-radius:var(--r-md);font-weight:700;font-size:1rem;color:var(--text);border:2px solid transparent}
-body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
-body.ux1 #nav a .ic{width:26px}body.ux1 #nav a .ic svg{width:26px;height:26px}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}

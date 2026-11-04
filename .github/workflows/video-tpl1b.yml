@@ -23,6 +23,7 @@ jobs:
       n: ${{ steps.m.outputs.n }}
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Batch ids
@@ -37,8 +38,9 @@ jobs:
       - name: Keep verdicts on main (idempotent re-runs)
         run: |
           git diff --quiet -- "$TD" && exit 0
-          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "tpl1b: hook verdicts batch ${{ inputs.batch }} (video-tpl1b #${{ github.run_number }}) [CF-Pages-Skip]" -- "$TD"
-          for k in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "tpl1b: hook verdicts batch ${{ inputs.batch }} (video-tpl1b #${{ github.run_number }}) [CF-Pages-Skip] [skip ci]" -- "$TD"
+          ok=0; for k in 1 2 3 4; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && { ok=1; break; }; sleep 5; done
+          [ "$ok" = 1 ] || { echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1; }
       - name: Matrix (≤ 10 jobs)
         id: m
         run: |
@@ -164,7 +166,7 @@ jobs:
           python3 scripts/video/tpl/store_tpl.py out/batch /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "video-tpl1b #${{ github.run_number }} batch ${{ inputs.batch }} [CF-Pages-Skip]" || exit 0
-          for k in 1 2 3 4 5 6; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 4; done
+          for k in 1 2 3 4 5 6; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && break; sleep 4; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4
         if: always()

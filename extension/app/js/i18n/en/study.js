@@ -75,7 +75,6 @@
 'Gợi ý: <b>{hint}</b>': 'Hint: <b>{hint}</b>',
 'bắt đầu bằng “{letter}”, {n} ký tự': 'starts with “{letter}”, {n} letters',
 'Gõ từ tiếng Anh': 'Type the English word',
-'Xếp câu tiếng Anh': 'Build the sentence in English',
 'Gõ đáp án…': 'Type your answer…',
 'Kiểm tra': 'Check',
 'Không biết – xem đáp án': 'I don’t know – show answer',
@@ -212,8 +211,6 @@
 '{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.': '{done}/{total} units complete · Learn in cycles: introduce → practice → listen → test, then review at the optimal time.',
 'Bài này đang khóa': 'This unit is locked',
 'Hoàn thành bài trước (kiểm tra đạt ≥ 80%) hoặc học ≥ 80% số từ của bài này để mở khóa.': 'Complete the previous unit (score ≥ 80% on its test) or learn ≥ 80% of this unit’s words to unlock it.',
-'Xem trước bộ từ': 'Preview word set',
-'{n} từ · đã học {pct}%': '{n} words · {pct}% learned',
 'điểm kiểm tra {score}%': 'test score {score}%',
 'Đóng': 'Close',
 
@@ -224,7 +221,6 @@
 'Lặp lại ngắt quãng': 'Spaced repetition',
 'Ngữ liệu dễ hiểu': 'Comprehensible input',
 '1 bài ngữ pháp': '1 grammar lesson',
-'Sửa lỗi sai': 'Fix mistakes',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
 'Ghép thẻ tính giờ': 'Timed matching',
@@ -263,9 +259,9 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {
 'Chính xác!': 'Correct!', 'Chưa đúng': 'Not quite',
 }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Từ vừa quên – xem lại 1 lần nữa:': 'Words you just forgot – look again:', 'Số thẻ đến hạn 7 ngày tới': 'Cards due in the next 7 days', 'Mai': 'Tmrw' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Số thẻ đến hạn 7 ngày tới': 'Cards due in the next 7 days', 'Mai': 'Tmrw' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hay đi với': 'Goes with', 'Đồng nghĩa': 'Synonyms', 'Định nghĩa': 'Definition', 'Ví dụ': 'Example', 'Nghe cả câu': 'Play sentence' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Nghe từ, nhớ lại nghĩa rồi chạm để lật': 'Listen, recall the meaning, then tap to flip', 'nghe lại': 'replay' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'nghe lại': 'replay' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.': 'Exam coming up or want more? Review {n} cards due in the next 2 days now.', 'Ôn trước →': 'Review ahead →' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại lỗi sai': 'Retry mistakes', 'Xem danh sách': 'View list', 'Gõ đáp án của bạn': 'Type your answer', 'Hiện đáp án': 'Show answer', 'Mình làm đúng': 'I got it right', 'Vẫn sai': 'Still wrong' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại {n} lỗi sai': 'Retry {n} mistakes', 'Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất': 'Recall the answer yourself – fixing mistakes is the fastest way to score higher' }); })(typeof self !== 'undefined' ? self : this);
@@ -279,7 +275,6 @@
 'Bàn luận vấn đề xã hội và mô tả số liệu, biểu đồ bằng từ chính xác': 'Discuss social issues and describe data and charts with precise words',
 'Viết và nói theo phong cách học thuật: nêu quan điểm, nối ý mạch lạc': 'Write and speak in an academic style: give opinions and link ideas clearly',
 'Diễn đạt tự nhiên và chính xác với collocation, thành ngữ': 'Express yourself naturally and precisely with collocations and idioms',
-'Mục tiêu: nhận ra, hiểu và dùng được {n} từ về “{name}”.': 'Goal: recognise, understand and use {n} words about “{name}”.',
 'Nghe giọng Anh–Anh': 'British pronunciation',
 'Phân bố mức độ nhớ': 'How well you remembered',
 'Cấp độ CEFR': 'CEFR level',

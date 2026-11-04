@@ -1,6 +1,6 @@
 # Nghe lại giọng từ đơn bằng faster-whisper (chỉ CI). Dùng chung: scripts/word-audio-asr.py, scripts/word-audio/lab.py.
 # Tiêu chí chấp nhận KHÔNG được nới: chữ nghe được (chuẩn hoá) phải đúng từ hoặc một đồng âm trong HOMO; độ dài trong khoảng hợp lý.
-import json, os, re, subprocess, urllib.request
+import json, os, re, subprocess, sys, urllib.request
 HOMO = {'to': ['two', 'too'], 'for': ['four', 'fore'], 'a': ['ay', 'eh', 'hey a'], 'the': ['thee'], 'be': ['bee', 'b'], 'there': ['their', 'theyre'],
         'you': ['u', 'yew', 'ewe'], 'we': ['wee', 'oui'], 'or': ['oar', 'ore', 'awe', 'aw'], 'nor': ['gnaw', 'naw'], 'so': ['sew', 'sow'],
         'would': ['wood'], 'some': ['sum'], 'do': ['due', 'dew'], 'but': ['butt'], 'into': ['in to'], 'onto': ['on to'], 'he': ['hee'], 'and': ['an'],
@@ -25,17 +25,25 @@ def fnv(s):
     while True:
         h, r = divmod(h, 36); o = d[r] + o
         if not h: return o
+# CI tải THẲNG từ gốc GitHub Pages của kho media (cùng tệp mà Worker audio.lexkite.com phục vụ, thứ tự ORIGINS trong workers/audio/index.js),
+# KHÔNG qua Worker: gói Free 100k lượt/ngày – 2/11 các lượt nghe hàng chục nghìn tệp làm Worker hết hạn mức (lỗi 1027) cho cả người dùng.
+# url có thể là nhiều gốc nối bằng "|" (thử lần lượt) – xem ORIGINS_L / ORIGINS_W.
+ORIGINS = ['https://lexkiteapp.github.io/lexkite-media-2', 'https://lexkiteapp.github.io']
+ORIGINS_L = '|'.join(o + '/audio/l/' for o in ORIGINS); ORIGINS_W = '|'.join(o + '/audio/w/' for o in ORIGINS)
 def fetch(url, f):
-    try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'lexkite-ci-asr'})
-        with urllib.request.urlopen(req, timeout=20) as r, open(f, 'wb') as w: w.write(r.read()); return True
-    except Exception: return False
+    base, _, tail = url.rpartition('/')
+    for b in base.split('|'):
+        try:
+            req = urllib.request.Request(b.rstrip('/') + '/' + tail, headers={'User-Agent': 'lexkite-ci-asr'})
+            with urllib.request.urlopen(req, timeout=20) as r, open(f, 'wb') as w: w.write(r.read()); return True
+        except Exception: continue
+    return False
 _model = None
 def model(name='small.en'):
     global _model
     if _model is None:
-        from faster_whisper import WhisperModel
-        _model = WhisperModel(name, device='cpu', compute_type='int8')
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'cine')); from whisper_det import load
+        _model = load(name)
     return _model
 # Whisper nghe kẹp < 1 s rất kém: đệm 0,6 s lặng hai đầu (16 kHz mono) + small.en, giải mã tham lam nhiệt độ 0.
 def pad(f):

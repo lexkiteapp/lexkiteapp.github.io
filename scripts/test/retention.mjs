@@ -19,8 +19,18 @@ ok(C.streak(new Set([ago(1), ago(2)])) === 2, 'hôm nay chưa học vẫn giữ 
 ok(C.pending({}, 7) === 7 && C.pending({ ms: { 3: 1, 7: 1 } }, 9) === 0, 'mốc chưa chúc mừng');
 ok(C.pending({}, 40) === 30, 'nhảy nhiều mốc (đồng bộ) → chỉ 1 màn mốc cao nhất');
 ok(C.next(7) === 14 && C.next(365) === 400, 'mốc tiếp theo');
-const w = C.week(days, { [ago(1)]: 1 }, Date.now());
-ok(w.length === 7 && w[0].dow === 0 && w.some(x => x.st === 'frozen'), 'lịch tuần 7 ô, Thứ 2 đầu tuần, có ô đóng băng');
+// Lịch tuần: đo trên MỌI thứ trong tuần với "hôm nay" cố định (không phụ thuộc ngày chạy CI – 02/11 Thứ 2: hôm qua = CN tuần trước → không còn ô đóng băng)
+for (let dow = 0; dow < 7; dow++) {
+  const now = new Date(2026, 10, 2 + dow, 12), at = n => { const d = new Date(now); d.setDate(d.getDate() - n); return key(d); }; // 2/11/2026 = Thứ 2
+  const wk = C.week(new Set([at(1), at(2)]), { [at(0)]: 1 }, now.getTime()), mon = new Date(2026, 10, 2, 12);
+  ok(wk.length === 7 && wk.every((x, i) => x.dow === i) && wk[0].k === key(mon), `lịch tuần 7 ô, Thứ 2 (${key(mon)}) đầu tuần – hôm nay là ô ${dow}`);
+  ok(wk[dow].k === key(now) && wk[dow].st === 'frozen', `ô hôm nay (${dow}) đóng băng`);
+  ok(wk.slice(dow + 1).every(x => x.st === 'future'), `sau hôm nay (${dow}) = future`);
+  ok(wk.slice(0, dow).every((x, i) => x.st === (i >= dow - 2 ? 'done' : 'miss')), `trước hôm nay (${dow}): 2 ngày học = done, còn lại miss`);
+  if (dow === 0) ok(!wk.some(x => x.k === at(1)), 'Thứ 2: hôm qua (CN tuần trước) không nằm trong lịch tuần');
+}
+const w = C.week(days, { [ago(0)]: 1 }, Date.now());
+ok(w.length === 7 && w[0].dow === 0 && w.some(x => x.st === 'frozen'), 'lịch tuần hôm nay: 7 ô, Thứ 2 đầu tuần, có ô đóng băng');
 ok(!w.some(x => x.k > key(new Date()) && x.st !== 'future'), 'ngày tương lai = future');
 ok(C.event('2026-10-27').id === 'autumn26' && C.event('2026-12-01') === null && C.event('2027-01-01').id === 'winter26', 'sự kiện theo ngày');
 ok(C.EVENTS.every(e => e.need === 5 && C.FRAMES[e.frame]), 'sự kiện gom 5 mảnh, có khung riêng');
@@ -55,6 +65,7 @@ win.App = { retOn: () => true, state, routes: {}, activeDays: () => C.activeDays
 let adAsked = 0; win.Ads = { rewarded: async (r, q) => { if (r !== 'cosmetic') throw new Error('sai lý do quảng cáo: ' + r); adAsked++; return q ? true : true; } };
 win.matchMedia = () => ({ matches: true });
 win.eval(fs.readFileSync('web/js/characters.js', 'utf8')); // Chars (khung app nạp trước retention.js – web/app/index.html)
+win.eval(fs.readFileSync('web/js/teacher-slot.js', 'utf8')); // Chars.slot (khung app nạp ngay sau characters.js)
 win.eval(SRC);
 const R = win.Ret, $ = s => win.document.querySelector(s), tick = (ms = 0) => new Promise(r => setTimeout(r, ms));
 
@@ -78,7 +89,7 @@ state.game.ret = { ...(state.game.ret || {}), ms: { 3: 1 } };
 win.App.todayPlan = async () => [{ href: '#/review', done: true }, { href: '#/lesson/1', done: false }];
 await R.check(); await tick(1000);
 ok(modalEl && /7 ngày! 🔥/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
-ok(/teach\/(ama|carlos)\/avatar\.webp/.test(modalEl.innerHTML) && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (avatar 2D registry, không ảnh 3D cũ)");
+ok(/teach\/(ama|carlos)\/(avatar|still-[a-z]+)\.webp/.test(modalEl.innerHTML) && modalEl.querySelector('.tslot[data-teacher]') && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (2D registry, đứng sau bệ Chars.slot – #314, không ảnh 3D cũ)");
 ok(/🧊 \+1/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
 ok(modalEl.querySelectorAll('.btn.primary').length === 1 && modalEl.querySelector('#retNext'), 'đúng 1 nút chính: Bài tiếp theo');
 ok(modalEl.querySelector('.ret-say').textContent.split(/\s+/).length <= 7, 'lời giáo viên ngắn (≤ 7 chữ)');

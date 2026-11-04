@@ -4,6 +4,7 @@
 > Đọc khi: ĐẦU MỖI PHIÊN.
 
 Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `docs/archive/METHODS-HISTORY.md`.
+**Bắt đầu phiên: đọc `docs/CODEMAP.md` (bản đồ mã, ≤ 25 KB) TRƯỚC khi tìm code; tra `docs/codemap.json`; chỉ mở file bản đồ trỏ tới (TOKEN-RULES §1).**
 **Luật tài liệu: một chủ đề = một file sở hữu, link thay vì chép lại (bảng chủ đề → file: `docs/README.md`).**
 **Tiêu credit (Kling/mọi dịch vụ trả phí) → BẮT BUỘC `docs/CREDIT-RULES.md` trước.**
 
@@ -18,36 +19,40 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
 - QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt; âm thanh chuẩn hoá −16 LUFS (cổng CI). Bài học: lời dẫn mỗi bài tập khớp dữ liệu, chú nghĩa bản ngữ đủ 15 ngôn ngữ.
-- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
-- Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định (hub/inner/modal), 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md` §5d, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop.
+- Duyệt (chủ 2/11): giao diện = điều phối + QC CI đạt → gộp; chủ báo lỗi sau; tiêu credit vẫn cần chủ OK. Logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 374 KB gz chuẩn.
+- Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định (hub/inner/modal), 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md` §5d, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop. Thoát mọi nơi (HARD): mọi màn học có Back/X rõ trên top-bar kiểu app (≥ 44 px; Esc, back hệ thống, vuốt iOS đều chạy; hỏi nhẹ nếu sắp mất tiến độ; không bao giờ nhốt người học) – CI kiểm.
 - Phiên: việc nặng (tách nền, render) CHỈ trên CI (script từ chối ngoài `$CI`); mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn (không /compact); đọc CODEMAP trước, tính năng lớn dùng spec-lite.
 <!-- auto:direction:end -->
 
 ## 1. Điều phối
 - Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình (quy tắc vàng: `COORDINATION.md`).
 - Phiên/agent: ≤ 2 phiên làm việc, tự thu gọn phiên dài, xoay agent con, lưu trữ phiên xong – `TOKEN-RULES.md` §9.
-- Duyệt hình (chủ 28/10 tối: tự duyệt ủy quyền đã THU HỒI): mọi thay đổi hình cần chủ OK trên ảnh. Ngoại lệ duy nhất (chủ 29/10): lớp game-feel (`GAME-FEEL.md`) tự QC + gộp khi điểm trung thực ≥ 95/100.
+- Duyệt hình (chủ 2/11, thay luật 28/10): giao diện = điều phối + QC CI đạt (npm test, visual-qa, qa-bot, frame/contrast/exit-guard/overlap, axe, new-ui-qa) → gộp; chủ báo lỗi sau; game-feel vẫn ≥ 95 (`GAME-FEEL.md`). Tiêu credit (Kling…) vẫn cần chủ OK (`CREDIT-RULES.md`).
 - Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
 - Antigravity nhận/trả việc qua `docs/agents/BOARD.md`; phiên chính nghiệm thu (diff, test, chạy thật, soi alt) rồi cherry-pick/gộp TAY (không merge nhánh cũ – xem §8).
 - Báo cáo của agent khác chỉ là báo cáo → tự kiểm (diff, test, live). Dừng thật: `stop_session`. Hết hạn mức giữa chừng: nhắn agent làm tiếp, không chạy lại từ đầu.
 - Grep tính năng cũ trong `web/js` trước khi viết mới (Streak Freeze từng bị viết trùng).
 
 ## 2. Repo, remote, ship
+- **Ruleset main (26316463):** gộp khi `required-gate` xanh; cấm force-push/xoá; bot đẩy qua khoá deploy + `[skip ci]` – `docs/CI-RUNNERS.md` › required-gate.
 - Remote THẬT: `https://github.com/lexkiteapp/lexkiteapp.github.io` (nhánh `main`). `origin` cục bộ là repo cũ – KHÔNG dùng.
-- Push: fetch + rebase lên main của remote thật rồi `git push https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git HEAD:main` (không in token). `gh` CLI lỗi TLS trong sandbox → gọi API bằng `curl` + `gh auth token`.
+- Push: fetch + rebase lên main của remote thật rồi `git push https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git HEAD:main` (không in token).
+- GitHub API (token CHUNG 5.000/giờ): chỉ qua `bash scripts/ci/gh-api.sh [METHOD] /path [--repo] [--poll]` (ETag 304 miễn lượt; còn < 500 tự ngủ). Không curl trần.
+- Poll PR/CI ≥ 5 phút (`--poll`); thoát 75 = hết hạn mức, KHÔNG phải PR đóng/lỗi.
+- `gh` CLI lỗi TLS; Node fetch cần proxy → dùng vỏ `.sh`.
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
-- Mergecheck (nguồn duy nhất, TOKEN-RULES §4 trỏ về đây): `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
-- Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
+- Mergecheck (nguồn duy nhất, TOKEN-RULES §4 trỏ về đây): `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + không bump sw + push lên lexkiteapp).
+- Trước ship: `npm test` (= `scripts/test/suite.txt`, test mới thêm 1 dòng ở đó; hoặc test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
-- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
+- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại required-gate, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 3. Ngân sách dung lượng
-- Khung app (shell) ≤ 377 KB gz (đo Node 22 = CI; không nâng) → tính năng mới phải tải lười. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
+- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (không tính `admin-*.js` và nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
@@ -58,7 +63,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow "success" chưa đủ – đọc số liệu (từng báo xanh khi nhập 0 · lỗi 20). Workflow mới phải tự đỏ khi kết quả = 0.
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
-- **Runner GitHub (1/11, Pro = 40 runner):** việc nền ≤ ~20/40 runner (`max-parallel`, chừa ≥ 16 cho PR/prod-release; repo giữ CÔNG KHAI để phút Actions miễn phí), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
+- Runner: `docs/CI-RUNNERS.md` (Pro 40, chừa ≥ 16, repo CÔNG KHAI).
 - **Kiểm hình (27/10):** mọi màn mới qua `LKJC.visual` (journey-e2e/checks.js) 360/390 px: FAIL lớp nổi đè nút · tràn ngang · số liệu toàn 0; cảnh báo chữ cắt · ảnh đơn sắc · nút chính < 44 px.
 - Màn mới chưa có trong journey-e2e → thêm `h.shot()` (chụp = tự kiểm hình); toast chỉ qua `UI.toast` (tự xếp hàng sau modal).
 
@@ -67,11 +72,11 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Không gọi `t()` lúc nạp module, dữ liệu lưu KHÓA (`I18N-PIPELINE.md` §2.8); chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
 - Chuỗi dữ liệu qua `t(biến)` không bị `i18n-missing` bắt → tự kiểm khóa tiếng Anh. Chữ quản trị soạn: luôn `esc()` + lọc URL.
 - Khoá cụm tiếng Anh mẫu (cấu trúc, câu ví dụ) trước khi dịch máy.
-- Xung đột `web/js/i18n/<lang>.js`: giữ cả 2 phía rồi `node scripts/i18n-dedupe.cjs` → size-budget + i18n-switch.
+- Xung đột dịch: sửa nguồn `i18n/ui/`, chạy `i18n-dedupe.cjs` + `i18n-pack.mjs` (I18N-PIPELINE §1b).
 - Sau commit bot "i18n: cập nhật…" xem `--stat`: hàng trăm dòng bị xoá = mất bản dịch (harvest hết lượt).
 
 ## 6. Nội dung & blog
-- Nội dung học: `docs/CONTENT-PIPELINE.md` + `docs/CONTENT-RULES.md`; `npm run content:queue`, `npm run content:gate`; đáp án đúng 100%, tự soạn, không bản quyền; lời giải có bản en (`explain-check` ≥ 98 %).
+- Nội dung học: `docs/CONTENT-PIPELINE.md` + `docs/CONTENT-RULES.md`; `npm run content:queue`, `npm run content:gate`; đáp án đúng 100%, tự soạn, không bản quyền; lời giải có bản en (`explain-check` ≥ 98 %); khung A1→C2 + Call: `CURRICULUM-PLAN.md`.
 - Blog: `docs/BLOG-RUNBOOK.md`; `node scripts/blog-check.mjs` 0 lỗi 0 cảnh báo, qualityScore ≥ 92; ≤ 1 bài/ngôn ngữ/ngày; slug vĩnh viễn.
 - Alt/chú thích ảnh PHẢI khớp `content/blog/shots.json`, không hứa tính năng không có (B1 8/11 sai, B3 72/72 sai) – cổng `[caption-truth]`, `[alt-truth]`.
 - Gộp blog Antigravity: `git diff <mốc> HEAD -- content/blog | git apply -3`, gộp `briefs.json` theo lang+slug, kiểm `publishAt` bài cũ không đổi; không checkout cả `content/blog`.
@@ -89,18 +94,15 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
-- Mảng zsh 1-based → gửi Kling prompt rỗng (−50 cr): dùng `bash -c`, dry-run in lệnh.
-- Script ghi đè biến prompt bằng đường dẫn ảnh (−43 cr): đọc lại lệnh trước khi gửi.
-- Gửi cả lô 8 plate (225 cr) không thử 1 trước – vi phạm CREDIT-RULES.
-- Cảnh footage làm 3 lượt vì thiếu danh sách clip – cảnh mới làm 1 lượt đủ 15 clip (`docs/archive/CINE-SCENE-STANDARD.md`).
+- Lỗi Kling/footage (script, cả lô, nhiều lượt) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; dry-run, thử 1 trước.
 - CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
-- Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
 - Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file (`wrangler pages secret put`, GitHub API libsodium). Repo công khai.
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
 - Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
 - Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
-- Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
+- Clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad → archive § Lỗi Kling.
+- Video IPA lấy theo từ gốc (waiting /weɪt/) + whisper có prompt kịch bản che lỗi phát âm → IPA chỉ từ kho theo đúng token (`pron.mjs`), ASR không prompt (28/10).
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.
@@ -115,12 +117,12 @@ Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, 
 - CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
 - D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
 - Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
-- CI đỏ: `ci-triage.yml` phân loại; workflow mới phải thêm vào danh sách `workflow_run`; job gọi API bọc `scripts/ci/quota-skip.mjs`.
+- CI đỏ: `ci-triage.yml` quét 10 phút; job gọi API bọc `quota-skip.mjs`; workflow mới qua `ci-policy.mjs`.
 
 ## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
 Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:
 1. **Thiết kế trước 10 dòng** – mục tiêu đo được; tài nguyên dùng (D1 đọc/ghi, AI, Drive, GitHub phút, khung app KB); điểm hỏng có thể xảy ra + cách chặn; ai giữ file nào.
-2. **Checklist "Definition of Done" bắt buộc:** hạn mức (jobs.json + lease + ngân sách), không quét bảng, khung app ≤ 377 KB, i18n 15 ngôn ngữ, quyền riêng tư (không PII/URL đầy đủ), a11y, offline, có công tắc tắt + cách quay lại, test.
+2. **Checklist "Definition of Done" bắt buộc:** hạn mức (jobs.json + lease + ngân sách), không quét bảng, khung app ≤ 374 KB gz chuẩn, i18n 15 ngôn ngữ, quyền riêng tư (không PII/URL đầy đủ), a11y, offline, có công tắc tắt + cách quay lại, test.
 3. **Thử nhỏ → đo → mới nhân rộng** (1 clip / 1 bài / 60 ảnh / 1 lô) – chỉ nhân khi số đo đạt chuẩn.
 4. **Sửa theo LOẠI lỗi, không theo lần:** mỗi lỗi tìm gốc (5 lần "vì sao"), thêm 1 test/cổng chặn cả loại đó (vd. EXPLAIN chặn quét bảng, overflow gate chặn tràn chữ, lease fail-closed).
 5. **Một chủ mỗi mảng + agent ngắn** (TOKEN-RULES §9) – không 2 bên cùng sửa 1 file, không agent chạy dài.

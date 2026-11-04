@@ -1,0 +1,15 @@
+{
+ "_note": "Ng\u01b0\u1ee1ng SSIM b\u00e1m m\u1eabu Stitch landing v3 (CI #513 l\u01b0\u1ee3t 3: desk 0.495/0.519, phone 0.448/0.459 \u2013 trang gi\u1eef \u0111\u1ee7 n\u1ed9i dung n\u00ean cao h\u01a1n m\u1eabu ~1.2\u00d7). CH\u1ec8 \u0111\u01b0\u1ee3c n\u00e2ng.",
+ "home-desk-dark": {
+  "ssim": 0.47
+ },
+ "home-desk-light": {
+  "ssim": 0.49
+ },
+ "home-phone-dark": {
+  "ssim": 0.42
+ },
+ "home-phone-light": {
+  "ssim": 0.43
+ }
+}

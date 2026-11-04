@@ -41,7 +41,12 @@ ok(Object.keys(B.TABLES).every(t => !/^drive|^sessions|^pageviews/.test(t)) && B
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rb-')), file = path.join(tmp, 'x.bak.ndjson'), counts = {}, lines = [JSON.stringify({ 'lexkite-backup': 1, db: 'lexkite-sync' })];
 for (const t of ['users', 'docs', 'config']) { let a = null; counts[t] = 0; for (;;) { const r = await B.exportPage(env, db, t, a, 4); lines.push(JSON.stringify({ t, n: r.n, iv: r.iv, ct: r.ct })); counts[t] += r.n; a = r.last; if (r.done) break; } }
 lines.push(JSON.stringify({ end: true, tables: ['users', 'docs', 'config'], counts, rows: 28 })); fs.writeFileSync(file, lines.join('\n') + '\n');
-const R = path.resolve('scripts/ops/d1-restore.mjs'), run = (a, e = {}) => { try { return { code: 0, out: execFileSync('node', [R, ...a], { encoding: 'utf8', env: { ...process.env, DRIVE_ENC_KEY: KEY, GITHUB_STEP_SUMMARY: '', ...e }, stdio: ['ignore', 'pipe', 'pipe'] }) }; } catch (e2) { return { code: e2.status, out: String(e2.stdout) + String(e2.stderr) }; } };
+// Hồi quy 2/11: test bản cụt ghi cờ đỏ THẬT lên Quản trị (driveCliKey đọc khoá ~/.config). Chỉ lượt CI trên main được ghi cờ; diễn tập chạy tay phải diễn tập lại được.
+{ const { alertAllowed } = await import(new URL('../ops/lib.mjs', import.meta.url));
+  ok(!alertAllowed({}) && !alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/heads/fix/x' }) && !alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/pull/1/merge' }), 'máy cá nhân, nhánh, PR không ghi cờ production');
+  ok(alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/heads/main' }) && alertAllowed({ LK_OPS_ALERT: '1' }), 'CI trên main (hoặc LK_OPS_ALERT=1) ghi cờ');
+  ok(/changed == '1' \|\| github\.event_name == 'workflow_dispatch'/.test(fs.readFileSync('.github/workflows/d1-backup.yml', 'utf8')), 'd1-backup chạy tay vẫn diễn tập'); }
+const R = path.resolve('scripts/ops/d1-restore.mjs'), run = (a, e = {}) => { try { return { code: 0, out: execFileSync('node', [R, ...a], { encoding: 'utf8', env: { ...process.env, DRIVE_ENC_KEY: KEY, GITHUB_STEP_SUMMARY: '', LEXKITE_DRIVE_CLI_KEY: '', LK_OPS_ALERT: '', GITHUB_ACTIONS: '', HOME: os.tmpdir(), ...e }, stdio: ['ignore', 'pipe', 'pipe'] }) }; } catch (e2) { return { code: e2.status, out: String(e2.stdout) + String(e2.stderr) }; } };
 const d = run(['--file', file, '--drill', '--sql', path.join(tmp, 'r.sql')]);
 ok(d.code === 0 && /diễn tập khôi phục[^\n]*21 dòng|diễn tập khôi phục[^\n]*dòng/.test(d.out), 'diễn tập khôi phục: ' + d.out.trim().slice(0, 160));
 const S = fs.readFileSync(path.join(tmp, 'r.sql'), 'utf8');
@@ -89,5 +94,22 @@ ok(fs.statSync('scripts/ops/rollback-pages.sh').mode & 0o111, 'rollback-pages.sh
 try { execFileSync('bash', ['-n', 'scripts/ops/rollback-pages.sh']); ok(true); } catch { ok(false, 'bash -n rollback-pages.sh'); }
 const reg = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')); ok(['d1-backup', 'code-bundle', 'release-archive'].every(id => reg.jobs.some(j => j.id === id && j.lease)), 'jobs.json có d1-backup, code-bundle, release-archive (lease)');
 const back = wf('d1-backup.yml'); ok(/cron: '15 0 \* \* 1,2'/.test(back) && /d1-restore\.mjs --latest --api --drill/.test(back) && /actions\/cache\/save/.test(back), 'd1-backup.yml: 00:15 UTC sau mốc đặt lại, có diễn tập + cache tiếp tục');
+// Hồi quy 1/11: cờ backup_* phải TỰ GỠ. Script ops đặt alert(kind, false) thì cũng phải có alert(kind, true|!…) trên đường xanh,
+// và mỗi workflow sao lưu có bước `if: failure()` đặt cờ (giám sát không mù khi workflow chết ngoài script) + sổ đẩy qua ledger-push.
+{
+  const rd = f => fs.readFileSync(f, 'utf8');
+  const sc = { backup_code: ['scripts/ops/code-bundle.mjs'], backup_d1: ['scripts/ops/d1-backup.mjs', 'scripts/ops/d1-restore.mjs'], backup_rel: ['scripts/ops/release-archive.mjs'] };
+  for (const [k, fl] of Object.entries(sc)) {
+    const src = fl.map(rd).join('\n');
+    ok(new RegExp("alert\\('" + k + "', false").test(src), k + ': có đặt cờ khi lỗi');
+    ok(new RegExp("alert\\('" + k + "', (true|!)").test(src), k + ': có GỠ cờ khi xanh');
+  }
+  for (const [w, k] of [['code-bundle', 'backup_code'], ['d1-backup', 'backup_d1'], ['release-archive', 'backup_rel']]) {
+    const y = wf(w + '.yml');
+    ok(y.includes('scripts/ops/flag.mjs ' + k) && /failure\(\)/.test(y), w + '.yml: bước failure() đặt cờ ' + k);
+    ok(y.includes('scripts/ops/ledger-push.mjs'), w + '.yml: sổ đẩy qua ledger-push (gộp khi xung đột)');
+    ok(!/^\s+run: [^|>\n]*"[^"\n]*: [^"\n]*"\s*$/m.test(y), w + '.yml: run: một dòng không chứa ": " trong chuỗi (YAML hỏng → workflow chết ngay, 3/11)');
+  }
+}
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(fails ? `✗ rollback: ${fails}/${n} lỗi` : `✓ rollback: ${n} kiểm tra đạt`); process.exit(fails ? 1 : 0);

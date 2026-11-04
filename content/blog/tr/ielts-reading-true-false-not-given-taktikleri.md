@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given"
 cover: reading
 coverAlt: "Lexkite uygulamasında A2 seviyesinden C1 seviyesine kadar sıralanmış IELTS okuma parçaları listesi"
-publishAt: ""
+publishAt: 2026-11-28T09:31:00+03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

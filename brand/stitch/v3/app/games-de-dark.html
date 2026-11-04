@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Wortspiele</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "surface-variant": "#2b373a",
+            "on-surface-variant": "#bcc9c7",
+            "surface-container": "#162125",
+            "on-background": "#d8e5e9",
+            "inverse-primary": "#006a64",
+            "surface": "#091518",
+            "on-surface": "#d8e5e9",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary": "#660800",
+            "secondary-fixed": "#ffdad3",
+            "primary-container": "#2ba39a",
+            "surface-dim": "#091518",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary": "#ffb4a6",
+            "primary-fixed": "#88f5ea",
+            "on-primary-fixed-variant": "#00504b",
+            "outline-variant": "#3d4947",
+            "on-tertiary-fixed": "#261a00",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-container-high": "#202c2f",
+            "surface-bright": "#2f3b3e",
+            "on-primary-container": "#00322e",
+            "surface-container-low": "#121d20",
+            "surface-container-highest": "#2b373a",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "background": "#091518",
+            "surface-container-lowest": "#051013",
+            "error-container": "#93000a",
+            "tertiary": "#f4bf40",
+            "tertiary-fixed": "#ffdf9e",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#ba8b00",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary-container": "#392900",
+            "on-primary": "#003733",
+            "surface-tint": "#6bd8ce",
+            "primary-fixed-dim": "#6bd8ce",
+            "inverse-on-surface": "#263236",
+            "on-secondary-fixed": "#3f0300",
+            "error": "#ffb4ab",
+            "on-tertiary": "#402e00",
+            "outline": "#879391",
+            "on-secondary-container": "#ffa493",
+            "primary": "#6bd8ce"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "16px",
+            "space-lg": "24px",
+            "space-sm": "8px",
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "space-md": "16px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "title": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Bright Day Custom Palette Tokens */
+    :root {
+      --bg-bright-day: #FFF7EA;
+      --card-white: #FFFFFF;
+      --border-tactile: #EADEC8;
+      --ledge-tactile: #D8CFBC;
+      --text-deep-teal: #0F3D3E;
+      --text-muted-teal: #4E6668;
+      --cta-coral: #F2553B;
+      --cta-amber: #FFB054;
+      --cta-ledge: #B53A22;
+      --cta-text: #1B0B04;
+      --brand-teal: #2BA39A;
+      --brand-teal-ledge: #1D7A73;
+    }
+    body {
+      background-color: var(--bg-bright-day);
+      color: var(--text-deep-teal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Physical 3D Tactile extrusion classes */
+    .tactile-card {
+      background-color: var(--card-white);
+      border: 2px solid var(--border-tactile);
+      border-bottom: 5px solid var(--ledge-tactile);
+      border-radius: 20px;
+    }
+    .tactile-card-sm {
+      background-color: var(--card-white);
+      border: 2px solid var(--border-tactile);
+      border-bottom: 4px solid var(--ledge-tactile);
+      border-radius: 16px;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(135deg, var(--cta-coral) 0%, var(--cta-amber) 100%);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-bottom: 5px solid var(--cta-ledge);
+      color: var(--cta-text);
+      font-weight: 800;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+    }
+    .tactile-btn-teal {
+      background-color: var(--brand-teal);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-bottom: 4px solid var(--brand-teal-ledge);
+      color: #FFFFFF;
+      font-weight: 800;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      border-bottom-width: 1.5px;
+    }
+    .tactile-btn-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid var(--border-tactile);
+      border-bottom: 4px solid var(--ledge-tactile);
+      color: var(--text-deep-teal);
+      font-weight: 800;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+    .teacher-slot {
+      background-color: #EBF7F6;
+      border: 2px dashed #2BA39A;
+      border-radius: 18px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center selection:bg-teal-200" style="background-color: #10191B; color: #E8F1F0;"><div class="w-full max-w-[390px] min-h-screen flex flex-col relative pb-28 text-[#E8F1F0] bg-[#10191B]">
+<!-- TOP APP BAR -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14 max-w-[390px] mx-auto bg-[#172427]/95 backdrop-blur-md border-b-2 border-[#263D42]">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-[#2EC4B6] border-b-2 border-[#12514D] flex items-center justify-center text-[#10191B] shadow-sm">
+<span class="material-symbols-outlined text-[20px] font-bold" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="font-display text-[22px] tracking-tight font-extrabold text-[#E8F1F0]">Lexkite</span>
+</div>
+<!-- Streak & XP Counter Chips -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#1E2F33] border-2 border-[#263D42] border-b-[3px] border-b-[#0D1719] rounded-full min-h-[34px]" title="Tagessträhne">
+<span class="text-base leading-none">🔥</span>
+<span class="font-label text-xs font-extrabold text-[#E8F1F0]">14</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#1E2F33] border-2 border-[#263D42] border-b-[3px] border-b-[#0D1719] rounded-full min-h-[34px]" title="Arcade XP">
+<span class="text-base leading-none">⚡</span>
+<span class="font-label text-xs font-extrabold text-[#38D9C0]">820</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="flex-1 px-4 pt-16 flex flex-col gap-4">
+<!-- 1. Header & Arcade Breadcrumb / Tag -->
+<section class="mt-2 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#2EC4B6]/15 border border-[#2EC4B6]/40 rounded-full font-label text-[10.5px] font-extrabold text-[#38D9C0] tracking-wider uppercase">
+<span class="w-2 h-2 rounded-full bg-[#2EC4B6] animate-pulse"></span>
+            IELTS &amp; TOEIC SPIELHALLE
+          </span>
+<span class="font-label text-xs font-bold text-[#A9BDBB] bg-[#1E2F33] px-2.5 py-0.5 rounded-md border border-[#263D42]">Sprint v2.4</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<h1 class="font-display text-[28px] leading-tight font-extrabold text-[#E8F1F0] tracking-tight">Wortspiele</h1>
+<span class="font-body text-xs font-semibold text-[#A9BDBB]">4 Spielmodi aktiv</span>
+</div>
+</section>
+<!-- 2. Coach Ama Slot + Live Speech Bubble -->
+<section class="flex items-start gap-3 w-full">
+<!-- Empty Teacher Slot Placeholder -->
+<div class="w-[105px] h-[125px] flex-shrink-0 flex flex-col items-center justify-center p-2 text-center bg-[#172427] border-2 border-dashed border-[#2EC4B6] rounded-[18px] relative overflow-hidden">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#2EC4B6]/50 flex items-center justify-center mb-1 shadow-sm">
+<span class="material-symbols-outlined text-2xl text-[#38D9C0]" data-icon="school">school</span>
+</div>
+<span class="font-label text-[9.5px] leading-tight font-extrabold text-[#E8F1F0] uppercase tracking-wider">LEHRER</span>
+<span class="font-label text-[8.5px] text-[#A9BDBB] font-bold mt-0.5">140 x 170 Slot</span>
+</div>
+<!-- Coach Ama Speech Bubble -->
+<div class="flex-1 bg-[#172427] border-2 border-[#263D42] border-b-[4px] border-b-[#0D1719] rounded-2xl p-3.5 relative flex flex-col justify-between self-stretch">
+<!-- Speech triangle pointer -->
+<div class="absolute -left-2.5 top-6 w-0 h-0 border-y-[8px] border-y-transparent border-r-[10px] border-r-[#172427] z-10"></div>
+<div class="absolute -left-[13px] top-6 w-0 h-0 border-y-[8px] border-y-transparent border-r-[10px] border-r-[#263D42]"></div>
+<div>
+<div class="flex items-center gap-1.5 mb-1.5 flex-wrap">
+<span class="font-label text-[11px] font-extrabold text-[#38D9C0] uppercase tracking-wider">COACH AMA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#FFB054]"></span>
+<span class="font-body text-[11px] text-[#A9BDBB] font-semibold">Prüfungsmentorin</span>
+</div>
+<p class="font-body text-[13px] leading-snug font-bold text-[#E8F1F0]">
+              „Schärfe dein Prüfungswissen unter 60-Sekunden-Zeitdruck!“
+            </p>
+</div>
+<div class="mt-2 pt-2 border-t border-[#263D42] flex items-center justify-between text-[11px] text-[#A9BDBB] font-bold">
+<span>Nächster Tipp in: 2 Std. 14 Min.</span>
+<span class="text-[#38D9C0] font-extrabold">Boost +15%</span>
+</div>
+</div>
+</section>
+<!-- 3. Today's Challenge Banner -->
+<section class="p-4 rounded-[20px] bg-[#172427] border-2 border-[#263D42] border-b-[5px] border-b-[#0D1719] relative overflow-hidden">
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FFB054]/15 border border-[#FFB054]/40 font-label text-[10px] font-extrabold text-[#FFB054] uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]" data-icon="timer">timer</span>
+            TÄGLICHE HERAUSFORDERUNG
+          </span>
+<div class="flex items-center gap-1 bg-[#2EC4B6]/15 border border-[#2EC4B6]/40 px-2 py-0.5 rounded-md font-label text-[11px] font-extrabold text-[#38D9C0]">
+<span>⚡</span> +30 XP
+          </div>
+</div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-tight mb-1">
+          Überbiete 450 Pkt. beim Schnelltippen
+        </h3>
+<p class="font-body text-xs text-[#A9BDBB] font-semibold mb-3 leading-relaxed">
+          Erkenne schnelle Präfixe und anspruchsvolle IELTS-Idiome vor Ablauf der Zeit.
+        </p>
+<!-- Progress bar & CTA row -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between text-xs font-bold text-[#A9BDBB]">
+<span>Versuche genutzt</span>
+<span class="text-[#E8F1F0] font-extrabold">1 von 2 Versuchen</span>
+</div>
+<!-- Tactile Progress track -->
+<div class="w-full h-3 bg-[#1E2F33] rounded-full overflow-hidden p-0.5 border border-[#263D42]">
+<div class="h-full bg-gradient-to-r from-[#2EC4B6] to-[#FFB054] rounded-full w-1/2"></div>
+</div>
+<button aria-label="Herausforderung starten" class="tactile-btn-primary w-full min-h-[48px] py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 mt-1 active:scale-[0.99] cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="font-label text-sm uppercase tracking-wider text-[#1B0B04]">Herausforderung starten →</span>
+</button>
+</div>
+</section>
+<!-- 4. Weekly XP & Stats Row (3 tactile tiles) -->
+<section class="grid grid-cols-3 gap-2.5">
+<!-- Tile 1 -->
+<div class="p-2.5 flex flex-col items-center justify-center text-center bg-[#172427] border-2 border-[#263D42] border-b-[4px] border-b-[#0D1719] rounded-2xl">
+<div class="w-7 h-7 rounded-lg bg-[#2EC4B6]/15 flex items-center justify-center text-[#38D9C0] mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="bolt">bolt</span>
+</div>
+<span class="font-display text-[17px] font-extrabold text-[#E8F1F0] leading-tight">420</span>
+<span class="font-label text-[9.5px] text-[#A9BDBB] font-bold leading-tight mt-0.5 tracking-tight uppercase">WOCHEN-XP</span>
+</div>
+<!-- Tile 2 -->
+<div class="p-2.5 flex flex-col items-center justify-center text-center bg-[#172427] border-2 border-[#263D42] border-b-[4px] border-b-[#0D1719] rounded-2xl">
+<div class="w-7 h-7 rounded-lg bg-[#FFB054]/20 flex items-center justify-center text-[#FFB054] mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="done_all">done_all</span>
+</div>
+<span class="font-display text-[17px] font-extrabold text-[#E8F1F0] leading-tight">94,2%</span>
+<span class="font-label text-[9.5px] text-[#A9BDBB] font-bold leading-tight mt-0.5 tracking-tight uppercase">GENAUIGKEIT</span>
+</div>
+<!-- Tile 3 -->
+<div class="p-2.5 flex flex-col items-center justify-center text-center bg-[#172427] border-2 border-[#263D42] border-b-[4px] border-b-[#0D1719] rounded-2xl">
+<div class="w-7 h-7 rounded-lg bg-[#F2553B]/20 flex items-center justify-center text-[#FF8573] mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="speed">speed</span>
+</div>
+<span class="font-display text-[17px] font-extrabold text-[#E8F1F0] leading-tight">Top 5%</span>
+<span class="font-label text-[9.5px] text-[#A9BDBB] font-bold leading-tight mt-0.5 tracking-tight uppercase">TEMPO-RANG</span>
+</div>
+</section>
+<!-- 5. 2x2 Grid of Game Cards -->
+<section class="flex flex-col gap-2 mt-1">
+<div class="flex items-center justify-between">
+<h2 class="font-title text-[18px] font-extrabold text-[#E8F1F0]">Arcade-Spielmodi</h2>
+<span class="font-label text-[10.5px] text-[#38D9C0] font-extrabold tracking-wider">ALLE FREIGESCHALTET</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- CARD 1: REFLEX -->
+<div class="p-3.5 flex flex-col justify-between min-h-[224px] bg-[#172427] border-2 border-[#263D42] border-b-[5px] border-b-[#0D1719] rounded-[20px]">
+<div>
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-2xl bg-[#2EC4B6] border-b-[3px] border-[#12514D] flex items-center justify-center text-[#10191B] shadow-sm">
+<span class="material-symbols-outlined text-[26px] font-bold" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-label text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1E2F33] text-[#38D9C0] border border-[#2EC4B6]/40">60s</span>
+</div>
+<h3 class="font-title text-base font-extrabold text-[#E8F1F0] leading-snug">Reflex</h3>
+<p class="font-body text-xs text-[#A9BDBB] leading-tight mt-1">
+                Blitzschnelle Synonym- &amp; Antonym-Zuordnung unter Zeitdruck.
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-[#263D42]">
+<div class="flex items-center justify-between text-[11px] font-bold text-[#A9BDBB] mb-2">
+<span>Bestwert:</span>
+<span class="text-[#E8F1F0] font-extrabold">520 Pkt.</span>
+</div>
+<button aria-label="Reflex spielen" class="tactile-btn-teal w-full min-h-[44px] py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_arrow">play_arrow</span>
+                SPIELEN
+              </button>
+</div>
+</div>
+<!-- CARD 2: SPEED TYPE -->
+<div class="p-3.5 flex flex-col justify-between min-h-[224px] bg-[#172427] border-2 border-[#263D42] border-b-[5px] border-b-[#0D1719] rounded-[20px]">
+<div>
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-2xl bg-[#FFB054] border-b-[3px] border-[#9C5A14] flex items-center justify-center text-[#1B0B04] shadow-sm">
+<span class="material-symbols-outlined text-[26px] font-bold" data-icon="keyboard">keyboard</span>
+</div>
+<span class="font-label text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1E2F33] text-[#FFB054] border border-[#FFB054]/40">IELTS</span>
+</div>
+<h3 class="font-title text-base font-extrabold text-[#E8F1F0] leading-snug">Schnelltippen</h3>
+<p class="font-body text-xs text-[#A9BDBB] leading-tight mt-1">
+                Tippe fehlende akademische Kollokationen ein, bevor die Zeit abläuft.
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-[#263D42]">
+<div class="flex items-center justify-between text-[11px] font-bold text-[#A9BDBB] mb-2">
+<span>Bestwert:</span>
+<span class="text-[#E8F1F0] font-extrabold">410 Pkt.</span>
+</div>
+<button aria-label="Schnelltippen spielen" class="tactile-btn-teal w-full min-h-[44px] py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_arrow">play_arrow</span>
+                SPIELEN
+              </button>
+</div>
+</div>
+<!-- CARD 3: MATCH PAIRS -->
+<div class="p-3.5 flex flex-col justify-between min-h-[224px] bg-[#172427] border-2 border-[#263D42] border-b-[5px] border-b-[#0D1719] rounded-[20px]">
+<div>
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-2xl bg-[#F2553B] border-b-[3px] border-[#8E2816] flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[26px]" data-icon="join">join</span>
+</div>
+<span class="font-label text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1E2F33] text-[#FF8573] border border-[#F2553B]/40">45s</span>
+</div>
+<h3 class="font-title text-base font-extrabold text-[#E8F1F0] leading-snug">Wortpaare finden</h3>
+<p class="font-body text-xs text-[#A9BDBB] leading-tight mt-1">
+                Verknüpfe 8 verwechselbare Wortpaare wie affect/effect in Rekordzeit.
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-[#263D42]">
+<div class="flex items-center justify-between text-[11px] font-bold text-[#A9BDBB] mb-2">
+<span>Bestwert:</span>
+<span class="text-[#E8F1F0] font-extrabold">680 Pkt.</span>
+</div>
+<button aria-label="Wortpaare finden spielen" class="tactile-btn-teal w-full min-h-[44px] py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_arrow">play_arrow</span>
+                SPIELEN
+              </button>
+</div>
+</div>
+<!-- CARD 4: WORD BUILDER -->
+<div class="p-3.5 flex flex-col justify-between min-h-[224px] bg-[#172427] border-2 border-[#263D42] border-b-[5px] border-b-[#0D1719] rounded-[20px]">
+<div>
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-2xl bg-[#8A56AC] border-b-[3px] border-[#5E327A] flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[26px]" data-icon="extension">extension</span>
+</div>
+<span class="font-label text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1E2F33] text-[#C492EA] border border-[#8A56AC]/40">Morph</span>
+</div>
+<h3 class="font-title text-base font-extrabold text-[#E8F1F0] leading-snug">Wortbaumeister</h3>
+<p class="font-body text-xs text-[#A9BDBB] leading-tight mt-1">
+                Setze komplexe Präfixe &amp; Suffixe zusammen, um Zielwörter zu bilden.
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-[#263D42]">
+<div class="flex items-center justify-between text-[11px] font-bold text-[#A9BDBB] mb-2">
+<span>Bestwert:</span>
+<span class="text-[#E8F1F0] font-extrabold">390 Pkt.</span>
+</div>
+<button aria-label="Wortbaumeister spielen" class="tactile-btn-teal w-full min-h-[44px] py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_arrow">play_arrow</span>
+                SPIELEN
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Leaderboard Teaser Row -->
+<section class="p-4 rounded-[20px] bg-[#172427] border-2 border-[#263D42] border-b-[5px] border-b-[#0D1719] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#38D9C0] text-[22px]" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<h3 class="font-title text-base font-extrabold text-[#E8F1F0]">Saphir-Liga</h3>
+</div>
+<span class="font-label text-[11px] font-extrabold text-[#FFB054] bg-[#FFB054]/15 px-2.5 py-0.5 rounded border border-[#FFB054]/40">Noch 4 Tage</span>
+</div>
+<!-- Compact Leaderboard Rows -->
+<div class="flex flex-col gap-2">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#1E2F33] border border-[#263D42]">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#FFD700] text-[#1B0B04] font-extrabold text-xs flex items-center justify-center shadow-xs">1</span>
+<span class="font-body text-xs font-bold text-[#E8F1F0]">An Nguyen</span>
+</div>
+<span class="font-label text-xs font-extrabold text-[#38D9C0]">1.420 XP</span>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#1E2F33] border border-[#263D42]">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#C0C0C0] text-[#1B0B04] font-extrabold text-xs flex items-center justify-center shadow-xs">2</span>
+<span class="font-body text-xs font-bold text-[#E8F1F0]">Linh Khanh</span>
+</div>
+<span class="font-label text-xs font-extrabold text-[#38D9C0]">1.280 XP</span>
+</div>
+<!-- Rank 5 (Current User) -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#1E2F33] border-2 border-[#2EC4B6]/60 shadow-[0_0_12px_rgba(46,196,182,0.15)]">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#2EC4B6] text-[#10191B] font-extrabold text-xs flex items-center justify-center">5</span>
+<span class="font-body text-xs font-extrabold text-[#E8F1F0]">Du (Champion)</span>
+</div>
+<span class="font-label text-xs font-extrabold text-[#38D9C0]">820 XP</span>
+</div>
+</div>
+<button aria-label="Vollständige Rangliste anzeigen" class="w-full min-h-[44px] py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider font-extrabold text-[#E8F1F0] bg-[#1E2F33] border-2 border-[#263D42] border-b-[4px] border-b-[#0D1719] active:translate-y-[2px] cursor-pointer transition-all">
+<span>VOLLSTÄNDIGE RANGLISTE ANZEIGEN →</span>
+</button>
+</section>
+</main>
+<!-- BOTTOM TAB BAR (5 tabs, 'Wortschatz' Active) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-1.5 max-w-[390px] mx-auto bg-[#172427]/95 backdrop-blur-md border-t-2 border-[#263D42]">
+<!-- Tab 1: Heute -->
+<a aria-label="Heute" class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#38D9C0] min-w-[56px] min-h-[48px] py-1 cursor-pointer transition-colors" href="#today">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Heute</span>
+</a>
+<!-- Tab 2: Wortschatz (ACTIVE STATE) -->
+<a aria-current="page" aria-label="Wortschatz" class="flex flex-col items-center justify-center text-[#38D9C0] bg-[#2EC4B6]/15 border-b-2 border-[#2EC4B6] rounded-t-lg min-w-[56px] min-h-[48px] py-1 cursor-pointer" href="#vocab">
+<span class="material-symbols-outlined text-[24px]" data-icon="style" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Wortschatz</span>
+</a>
+<!-- Tab 3: Fertigkeiten -->
+<a aria-label="Fertigkeiten" class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#38D9C0] min-w-[56px] min-h-[48px] py-1 cursor-pointer transition-colors" href="#skills">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt">bolt</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Fertigkeiten</span>
+</a>
+<!-- Tab 4: Tests -->
+<a aria-label="Tests" class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#38D9C0] min-w-[56px] min-h-[48px] py-1 cursor-pointer transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[24px]" data-icon="quiz">quiz</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Profil -->
+<a aria-label="Profil" class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#38D9C0] min-w-[56px] min-h-[48px] py-1 cursor-pointer transition-colors" href="#me">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label text-[11px] font-bold mt-0.5">Profil</span>
+</a>
+</nav>
+</div></body></html>

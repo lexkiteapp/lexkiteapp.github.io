@@ -33,6 +33,7 @@ quiz: [
     explain: "En français, le 'h' n'est jamais soufflé. En anglais, le /h/ est une véritable consonne expirée qui change le sens du mot (ear vs. hear)."
   }
 ]
+publishAt: 2026-11-22T21:10:00+01:00
 ---
 De nombreux apprenants francophones partagent le même constat frustrant : ils lisent l'anglais avec aisance, comprennent les documents professionnels, mais dès qu'il s'agit de s'exprimer lors d'une réunion ou d'un voyage, des hésitations surgissent. Pourquoi des mots comme *though, through, tough* et *thought* se prononcent-ils de manières radicalement différentes malgré des orthographes quasi identiques ?
 

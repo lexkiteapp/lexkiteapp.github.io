@@ -17,7 +17,8 @@
    ],
    "delegate": [
     "build-lexicon.mjs",
-    "test/lex.mjs"
+    "test/lex.mjs",
+    "content-qa/sense-check.mjs"
    ]
   },
   {
@@ -191,6 +192,57 @@
    ]
   },
   {
+   "id": "exam-spec",
+   "paths": [
+    "content/exams"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs"
+   ]
+  },
+  {
+   "id": "framework",
+   "paths": [
+    "content/framework"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/lkf-check.mjs",
+    "test/lkf.mjs",
+    "content-qa/grammar-map-check.mjs",
+    "test/grammar-inventory.mjs"
+   ]
+  },
+  {
+   "id": "target-lang",
+   "paths": [
+    "content/target"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot"
+   ],
+   "delegate": [
+    "test/target-lang.mjs"
+   ],
+   "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
+  },
+  {
    "id": "writing",
    "paths": [
     "web/js/write"
@@ -354,6 +406,26 @@
    ]
   },
   {
+   "id": "say-native",
+   "paths": [
+    "content/say-native"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "pair",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "say-native/build.mjs"
+   ]
+  },
+  {
    "id": "situations",
    "paths": [
     "content/situations"
@@ -382,9 +454,27 @@
    "delegate": [
     "test/reminders.mjs"
    ]
+  },
+  {
+   "id": "content-factory",
+   "paths": [
+    "content/factory"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-factory.mjs"
+   ]
   }
  ],
  "skip": {
+  "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
   "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",

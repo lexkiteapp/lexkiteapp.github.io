@@ -12,3 +12,4 @@ Pipeline (GitHub Action `wordlists.yml` + biên soạn tay):
 4. `fill-vocab.mjs` (chạy hằng đêm): điền phiên âm còn thiếu cho các kho khác từ Wiktionary; không lấy câu ví dụ bên ngoài.
 5. `cefr-oxford.json`: cấp độ CEFR theo danh sách công khai Oxford 3000/5000 (chỉ từ + từ loại → cấp, không chép định nghĩa), giới hạn ở các từ của NAWL/BSL; `gen-wordlist.mjs` dùng khi sinh lại (`level` trong `<id>.edit.json` thắng). Từ ngoài Oxford 5000 giữ cấp mặc định của bộ.
 6. `core.gloss.json`: nghĩa viết tay 13 ngôn ngữ cho từ A1–A2 đa nghĩa/dễ dịch sai từ loại – luôn thắng dịch máy, áp bằng `node scripts/gen-word-packs.mjs all --gloss-only`.
+7. `pack-fix.gloss.json`: sửa nghĩa gói sau đối chiếu ngược (pregnant, currently, victim, commute… 13 ngôn ngữ; ja thêm ~120 từ thông dụng). Cùng cơ chế core.gloss.json (tệp sau thắng tệp trước). Kiểm: `node scripts/test/pack-gloss.mjs`.

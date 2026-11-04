@@ -24,12 +24,14 @@ và người trong danh sách cho phép được dùng không giới hạn.
 | `/api/class` | D1 | 30/phút/uid · tham gia lớp 10/10 phút (chống dò mã) | giữ + tính năng `classroom` (đếm ở biên) |
 | `/api/hit` (thống kê) | Functions + D1 ghi | add-on 20/giờ/máy; `hit_rate` lấy mẫu | giữ + tính năng `hit` theo IP (vượt → bỏ qua im lặng, 204) |
 | `/api/img` (ảnh minh họa) | Wikipedia/Openverse khi trượt bộ đệm | bộ đệm biên 7–30 ngày | tính năng `img` – **chỉ lượt trượt bộ đệm** |
+| `/api/dictlookup` (từ điển + dịch máy gtx của web/app) | dictionaryapi.dev, Google gtx khi trượt bộ đệm | đệm biên: từ điển 30 ngày, dịch 1 ngày, lỗi nguồn 60 s; trình duyệt 1 ngày/1 giờ | tính năng `translate` – **chỉ lượt trượt bộ đệm**; vượt/nguồn lỗi → 200 `null` (không 429, máy khách tự dự phòng). Add-on gọi thẳng (host_permissions, không tốn trần Functions) |
 | `/api/admin`, `/api/social`, `/api/studio` | GrabCast, GitHub | chỉ admin (adminGate 120/phút/IP); GrabCast 55/phút, 2.900/ngày | giữ nguyên (đã chỉ admin) |
+| `/api/watch` (#/watch Học qua video) | info/feed: oEmbed + RSS YouTube (không quota) · search: YouTube Data API 101 đơn vị/lượt | – | info/feed 60/10 phút/IP, đệm biên 7 ngày/6 giờ; search 20/10 phút/IP, đệm biên 24 h + D1 7 ngày, trần `WATCH_SEARCH_UNITS` (9.000/ngày Pacific, D1 `watch_quota`) → hết: link YouTube search (`specs/video-learn.md`) |
 | `/api/config`, `/api/i18nfix` | đọc D1, đệm 5 phút | – | không giới hạn (công khai, rẻ) |
 | Worker `lexkite-gemini` | proxy Gemini | không có URL công khai (chỉ service binding) | được che bởi `/api/ai` |
 | Worker `lexkite-mail` | gửi thư, cron | chỉ service binding + cron | được che bởi `/api/contact` |
 | Worker `lexkite-audio`, `lexkite-media` | CDN tĩnh, cache 1 năm | – | **không giới hạn** (tĩnh) |
-| Dịch máy (`translate.googleapis.com`), TTS, Call Mia, Chrome Prompt API | chạy ở máy người dùng | – | không qua máy chủ → không giới hạn. `translate` đã có sẵn ngân sách dự phòng nếu sau này thêm proxy |
+| TTS, Call Mia, Chrome Prompt API; dịch máy/từ điển trong add-on | chạy ở máy người dùng | – | không qua máy chủ → không giới hạn (web/app dịch qua `/api/dictlookup` ở trên) |
 
 Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn tập, chế độ ngoại tuyến.
 
@@ -56,7 +58,7 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 | `classroom` | – (cần đăng nhập) | 30 / 1500 | 20 | biên | – |
 | `img` – lượt trượt đệm | 30 / 300 | 30 / 300 | 3 | biên | – |
 | `hit` – thống kê | 120 / 10.000 | 120 / 10.000 | 1 | biên | – |
-| `translate` (dự phòng) | 60 / 2.000 | 60 / 2.000 | 3 | biên | – |
+| `translate` – `/api/dictlookup`, lượt trượt đệm | 60 / 2.000 | 60 / 2.000 | 3 | biên | – |
 
 - Khóa cũ `ai_user` / `ai_anon` ở tab Cài đặt vẫn được đọc cho `ai` **chỉ khi** chưa có dòng `ai` trong `quota_config`. `ai_global` đã được thay bằng cầu dao.
 - Bài đã chấm (đệm `ai_cache`) không tốn lượt. Burst/phút luôn áp cho mọi yêu cầu.

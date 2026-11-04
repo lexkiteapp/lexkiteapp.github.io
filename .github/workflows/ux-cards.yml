@@ -1,5 +1,6 @@
 # 🃏 Ảnh trước/sau các thẻ học có dữ liệu (scripts/test/ux-cards.mjs): sổ lỗi sai, làm lại, thẻ ôn đã lật, bài ngữ pháp – 360 px/máy tính, sáng/tối, en/vi/ar. Hermetic. Artifact 7 ngày.
 # + ux-guard.mjs: gác bố cục mọi trang chính (FAIL khi chồng lấn/cắt/tràn chữ/lặp IPA-loa).
+# + dict-entry-layout.mjs: gác thẻ kết quả tra từ (cột rỗng, câu lạc lõng, ví dụ lặp, nút lệch, tràn, tương phản) mọi trạng thái; PR có tờ trước/sau.
 # + ux1-guard.mjs (job ux1, 3 phần song song): giao diện ux1 + mọi bước bài học + màn giữ chuỗi; có 'before' → tờ trước/sau các màn từng lỗi.
 # Chạy: tay (before = commit trước khi sửa) hoặc đẩy nhánh ux-cards* (before = main trên remote).
 name: UX cards
@@ -10,9 +11,12 @@ on:
   push:
     branches: ['ux-cards*']
   pull_request:
-    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/ux-guard*.mjs', 'scripts/test/ux1-guard.mjs', '.github/workflows/ux-cards.yml']
+    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/ux-guard*.mjs', 'scripts/test/ux1-guard.mjs', 'scripts/test/dict-entry-layout.mjs', '.github/workflows/ux-cards.yml']
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   shots:
     runs-on: ubuntu-latest
@@ -20,6 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp
@@ -35,6 +40,11 @@ jobs:
       - name: Gác bố cục (chồng lấn · cắt mép · tràn chữ · lặp IPA/loa)
         if: always()
         run: node scripts/test/ux-guard.mjs web out/ux-cards/guard
+      - name: Gác thẻ kết quả tra từ (mọi trạng thái · 390–1440 · sáng/tối · vi/en/ar) + tờ trước/sau
+        if: always()
+        run: |
+          B=""; if git cat-file -e HEAD^2 2>/dev/null; then git worktree add -q /tmp/dict-before HEAD^1 && B=/tmp/dict-before/web; fi
+          node scripts/test/dict-entry-layout.mjs web "$B" out/ux-cards/dict-entry
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: ux-cards, path: out/ux-cards, retention-days: 7 }
@@ -48,6 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài

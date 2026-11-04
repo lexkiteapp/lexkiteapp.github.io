@@ -22,7 +22,7 @@
    "diff": "easy",
    "words": 66,
    "est_s": 33.4,
-   "ipa": "/dɪˈpend/",
+   "ipa": "/dɪˈpendz/",
    "content_hash": "8aa94a110cc20b99"
   },
   {
@@ -111,7 +111,7 @@
   {
    "bank": "sb_0994b0f5",
    "point": "contribute to (phr v): to be one of the causes of something",
-   "reason": "self-check: est pace 134 wpm; note fix line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]; note save line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]"
+   "reason": "self-check: est pace 134 wpm"
   },
   {
    "bank": "sb_14b91513",

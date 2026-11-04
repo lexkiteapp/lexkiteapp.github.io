@@ -1,7 +1,7 @@
 // 🎬 Video bài học trên web (docs/VIDEO-SCALE-PLAN.md §10): schema manifest + xếp hạng + chọn clip + phụ đề + câu đố + gắn thẻ.
 //   node scripts/test/video-web.mjs [--schema-only]
 import fs from 'node:fs'; import { createRequire } from 'node:module';
-import { validateManifest, eligible, webScore, sentences, enCues, vtt, quizFor, tagLesson, titleOf, slugOf, blogMatch, MANIFEST, readJSON } from '../lib/video-web.mjs';
+import { validateManifest, eligible, webScore, sentences, enCues, vtt, quizFor, tagLesson, titleOf, slugOf, blogMatch, MANIFEST, readJSON, assetVerdict, verifyAssets } from '../lib/video-web.mjs';
 const require = createRequire(import.meta.url);
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
@@ -20,6 +20,12 @@ ok(!validateManifest({ version: 1, items: [good] }).length, 'mẫu manifest đú
 for (const [k, v] of [['score', 80], ['template', 'scene'], ['src', 'http://evil.example/x.mp4'], ['test', 'no'], ['quiz', { q: 'x', options: ['a'], answer: 3 }], ['vtt', { vi: 'https://media.lexkite.com/video/x_123456/vi-0123abcd.vtt' }], ['vtt_en', 'https://evil.example/en.vtt']])
   ok(validateManifest({ version: 1, items: [{ ...good, [k]: v }] }).length > 0, `schema phải bắt lỗi ${k}`);
 ok(validateManifest({ version: 1, items: [good, good] }).some(x => /trùng/.test(x)), 'schema bắt id trùng');
+// 2b) video nhúng bài học (embeds): 4:5 + 16:9, mp4/jpg/vtt trên media.lexkite.com, mẫu thử phải test: true
+const emb = (man.embeds || []); ok(emb.length && emb.every(e => e.test === true), 'embeds: có mẫu và CHƯA duyệt → test: true');
+const ge = JSON.parse(JSON.stringify(emb[0] || {}));
+for (const [k, f] of [['w', r => { r.sq45.w = 1080; r.sq45.h = 1920; }], ['src', r => { r.wide.src = 'https://evil.example/a.mp4'; }], ['poster', r => { r.sq45.poster = r.sq45.poster.replace('.jpg', '.png'); }], ['fmt', r => { r.short = r.wide; }]]) {
+  const b = JSON.parse(JSON.stringify(ge)); f(b.renditions); ok(validateManifest({ version: 1, items: [], embeds: [b] }).length > 0, `embeds phải bắt lỗi ${k}`);
+}
 
 // 3) chọn clip: bản tin + QA ≥ 90 + duyệt/mẫu thử; diễn cảnh cũ & bị loại không vào
 const qa = (o = {}) => ({ status: 'pass', result: 'ALL PASS', fail: 0, lipsync_ms: 40, cps_max: 15, ...o });
@@ -92,6 +98,22 @@ ok(/lvideo: \['js\/i18n\/en\/lvideo\.js', 'js\/lib\/video-rank\.js', 'js\/lesson
 ok(/^LAZY="[^"]*\blvideo\b/m.test(sh), 'LAZY có lvideo');
 for (const f of ['web/js/wordcard.js', 'web/js/grammar.js', 'web/js/path-day.js']) ok(/lv-slot/.test(fs.readFileSync(f, 'utf8')) && /App\.(need|lazy)\('lvideo'\)/.test(fs.readFileSync(f, 'utf8')), 'chỗ đặt video: ' + f);
 ok(/blogVideoBox\(p, VIDEOS, esc\)/.test(fs.readFileSync('scripts/build-blog.mjs', 'utf8')), 'mẫu blog có khối video');
+
+// 9) verify sau publish (1/11: trang /video/ tải poster/VTT khác nguồn – tài nguyên phải 200/206 + CORS; CDN 429/5xx = chưa kiểm được, không phải ok)
+ok(assetVerdict(200, '*') === 'ok' && assetVerdict(206, '*') === 'ok' && assetVerdict(200, 'https://lexkite.com') === 'ok', 'assetVerdict ok');
+ok(assetVerdict(404, '*') === 'missing' && assetVerdict(403, null) === 'missing', 'assetVerdict thiếu file');
+ok(assetVerdict(200, null) === 'nocors' && assetVerdict(200, 'https://evil.example') === 'nocors', 'assetVerdict thiếu CORS');
+ok(['down', 'down', 'down', 'down'].join() === [429, 503, 0, 520].map(s => assetVerdict(s, null)).join(), 'assetVerdict 429/5xx/mất kết nối = down');
+{
+  const H = acao => ({ get: k => (k === 'access-control-allow-origin' ? acao : null) });
+  const table = { [good.src]: [200, '*'], [good.poster]: [404, '*'], [good.vtt_en]: [200, null] };
+  const r = await verifyAssets([good], { fetchImpl: async u => ({ status: table[u][0], headers: H(table[u][1]) }), tries: 1, waitMs: 0 });
+  ok(r.bad.map(x => x.verdict).join() === 'missing,nocors' && !r.down.length, 'verifyAssets bắt poster 404 + VTT thiếu CORS: ' + JSON.stringify(r));
+  let n = 0; const flaky = await verifyAssets([good], { fetchImpl: async () => (++n <= 1 ? { status: 429, headers: H(null) } : { status: 200, headers: H('*') }), tries: 2, waitMs: 0 });
+  ok(!flaky.bad.length && !flaky.down.length, 'verifyAssets thử lại khi 429 rồi ok');
+  const dn = await verifyAssets([good], { fetchImpl: async () => ({ status: 429, headers: H(null) }), tries: 2, waitMs: 0 });
+  ok(dn.down.length === 3 && !dn.bad.length, 'verifyAssets CDN hết hạn mức → down (hoãn), không phải ok');
+}
 
 console.log(fail ? `✗ video-web: ${fail} lỗi` : `✓ video-web: schema, chọn clip, xếp hạng, phụ đề, câu đố (${quizzes}/${files.length}), thẻ, blog, nối dây`);
 process.exit(fail ? 1 : 0);
