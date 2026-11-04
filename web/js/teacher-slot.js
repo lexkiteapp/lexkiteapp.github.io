@@ -21,7 +21,10 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tslot-img{filter:brightness(.95) saturate(.96)}}
 @media (prefers-reduced-motion:no-preference){img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip .tslot-img{animation:tslot-in .18s ease-out both}}
 @keyframes tslot-in{from{opacity:0}}
-@keyframes tslot-breathe{50%{transform:translateX(-50%) scaleY(1.012)}}`;
+@keyframes tslot-breathe{50%{transform:translateX(-50%) scaleY(1.012)}}
+.tslot.live img.tslot-img{transition:visibility 0s .18s}
+@media (prefers-reduced-motion:no-preference){canvas.tslot-img{animation:tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip canvas.tslot-img{animation:tslot-breathe-f 4.2s ease-in-out .2s infinite}.tslot-flip img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe-f 4.2s ease-in-out .2s infinite}}
+@keyframes tslot-breathe-f{50%{transform:translateX(-50%) scaleX(-1) scaleY(1.012)}}`; // ảnh tĩnh giữ tới khi canvas mờ vào xong (không hụt hình); clip nghỉ giữa 2 lần lặp vẫn thở
   // Phần phát clip (WebGL/video, ~2 KB gz) ở js/teacher-live.js – chỉ tải khi trang có chỗ giáo viên động (khung app giữ ảnh tĩnh)
   const base = ((g.document && document.currentScript) || {}).src || '';
   let lp = null;

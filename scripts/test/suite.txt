@@ -193,6 +193,7 @@ node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
+node scripts/test/teacher-states.mjs
 node scripts/test/samples-ui.mjs
 node scripts/test/content-check.mjs
 node scripts/test/content-qa.mjs

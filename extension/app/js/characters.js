@@ -4,10 +4,15 @@
   const NAME = { ama: 'Ama', carlos: 'Carlos' }, POSES = ['talk', 'listen', 'explain', 'happy', 'encourage', 'thinking', 'laugh', 'wave', 'cheer', 'concern', 'surprise', 'point', 'empathy'];
   const PENDING = {}; // clip đang tạo → tạm dùng 'talk' cùng người (không bao giờ đổi kiểu/nhân vật)
   const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // = characters.json people.<who>.voice.app (cổng characters-gate kiểm khớp) – giáo viên hiện trên màn nói bằng ĐÚNG giọng này
+  const STILL = {ama:[48,47,50,48,48,48,12,48,48,55,42,55,74],carlos:[48,34,48,48,48,48,81,48,23,38,48,48,38]}; // khung ảnh tĩnh trong clip (characters.json still_frame, 24 fps, thứ tự POSES – cổng teacher-states): clip bắt đầu tại đây, ảnh→clip không nhảy tay
+  // Sự kiện → tư thế: MỘT bảng cho mọi màn (cổng teacher-states). recall = listen vì clip thinking cau mày, nhìn như đang giận.
+  const EVENT = { correct: 'cheer', wrong: 'concern', replyOk: 'happy', replyFix: 'encourage', think: 'thinking', recall: 'listen', retry: 'encourage' };
   const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x, ok = (w, p) => POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk';
   g.Chars = Object.assign(g.Chars || {}, { // nạp lại (gói lười 'pas' có characters.js) KHÔNG xóa phần mở rộng đã gắn (Chars.slot – teacher-slot.js)
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
     voice: w => VOICE[id(w)],
+    stillAt: (w, p) => ((STILL[id(w)] || [])[POSES.indexOf(p)] || 0) / 24,
+    forEvent: (e, acc) => (e === 'done' ? (acc >= 80 ? 'cheer' : 'encourage') : EVENT[e] || 'talk'),
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
     head: (w, x2) => f(w, 'head-bare' + (x2 ? '-2x' : '') + '.webp'), // "đầu trơn" (khung poster, đã xóa mắt/mày/miệng/ria) – nền cho mặt VẼ khớp miệng (web/js/call/face.js)
     still: (w, p) => f(w, 'still-' + ok(w, p) + '.webp'), // ảnh tĩnh từng tư thế (đã 2×, nền trong suốt)

@@ -33,6 +33,9 @@
     v.onloadeddata = () => { cv.width = v.videoWidth; cv.height = v.videoHeight / 2; cv.className = 'tslot-img'; cv.setAttribute('aria-hidden', 'true'); fig.appendChild(cv); go(); };
     v.onended = () => { if (el.dataset.loop) { clearTimeout(t); t = setTimeout(() => { v.currentTime = 0; go(); }, +el.dataset.loop); } }; // cử chỉ lặp có nghỉ (tay xuôi đầu/cuối clip → nối liền)
     v.onerror = () => { fig.querySelector('canvas') && cv.remove(); el.classList.remove('live'); }; // lỗi clip → giữ ảnh tĩnh
+    // Cử chỉ: bắt đầu đúng khung của ảnh tĩnh (Chars.stillAt), không về tay xuôi rồi vung lại; lần lặp sau mới từ 0. Vòng nghỉ (loop 0) có ảnh riêng đúng khung đầu.
+    const from = el.dataset.loop === '0' || !g.Chars || !g.Chars.stillAt ? 0 : g.Chars.stillAt(el.dataset.teacher, el.dataset.pose), first = v.onloadeddata;
+    if (from) { v.onloadedmetadata = () => { v.currentTime = from; }; v.onloadeddata = () => { if (v.seeking) v.addEventListener('seeked', first, { once: true }); else first(); }; }
     // Nhẹ: chỉ tải clip khi khung hiện trên màn (0 byte nếu cuộn qua), ngoài màn thì dừng; SW + cache tĩnh (#302) → lần sau 0 byte
     const load = () => { if (!v.src) v.src = src; };
     watch(go, load);
