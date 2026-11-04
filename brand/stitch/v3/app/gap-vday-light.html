@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Focus Lesson</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#faf9f5",
+            "tertiary-fixed-dim": "#f7be1d",
+            "error-container": "#ffdad6",
+            "on-surface": "#1b1c1a",
+            "inverse-primary": "#9ad1cb",
+            "on-primary": "#ffffff",
+            "surface-dim": "#dbdad6",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#134e4a",
+            "surface-variant": "#e3e2df",
+            "surface-container": "#efeeea",
+            "on-tertiary-fixed-variant": "#5a4300",
+            "on-primary-fixed-variant": "#144f4b",
+            "surface-container-low": "#f4f4f0",
+            "outline-variant": "#bfc8c6",
+            "on-background": "#1b1c1a",
+            "primary-fixed-dim": "#9ad1cb",
+            "secondary": "#ab3425",
+            "tertiary-container": "#594200",
+            "on-tertiary-container": "#e1ab00",
+            "on-error": "#ffffff",
+            "primary": "#003633",
+            "secondary-container": "#fc6f5a",
+            "inverse-on-surface": "#f2f1ed",
+            "surface-tint": "#316763",
+            "on-surface-variant": "#404847",
+            "surface-container-high": "#e9e8e4",
+            "inverse-surface": "#2f312e",
+            "tertiary": "#3d2d00",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#410100",
+            "background": "#faf9f5",
+            "on-error-container": "#93000a",
+            "outline": "#707977",
+            "on-secondary-fixed-variant": "#8a1c10",
+            "on-tertiary-fixed": "#251a00",
+            "on-primary-fixed": "#00201e",
+            "on-secondary-container": "#6d0300",
+            "surface-container-highest": "#e3e2df",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#faf9f5",
+            "primary-fixed": "#b5ede7",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#87beb8",
+            "tertiary-fixed": "#ffdf9a",
+            "secondary-fixed": "#ffdad4",
+            "secondary-fixed-dim": "#ffb4a8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-md": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Physical 3D Extrusion Styles */
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #e3e2df;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #e3e2df;
+    }
+    .tactile-button-primary {
+      box-shadow: 0 4px 0 0 #ab3425;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-button-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #ab3425;
+    }
+    .tactile-speaker {
+      box-shadow: 0 3px 0 0 #00201e;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-speaker:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #00201e;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-primary">
+<!-- Top App Bar (Shared Component Blueprint Mapping) -->
+<header class="sticky top-0 z-30 bg-surface border-b border-surface-variant w-full">
+<div class="flex justify-between items-center w-full px-margin max-w-lg mx-auto h-14">
+<!-- Close Button with 48px hit area -->
+<button aria-label="Close lesson" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 text-on-surface-variant focus:outline-none" type="button">
+<span class="material-symbols-outlined text-primary text-[24px]">close</span>
+</button>
+<!-- Clean lesson progress bar -->
+<div class="flex-1 mx-4 flex items-center gap-2">
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden border border-surface-variant">
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="15" class="bg-primary-container h-full rounded-full w-[15%]" role="progressbar"></div>
+</div>
+</div>
+<!-- Trailing Action: Flag Issue -->
+<button aria-label="Flag issue" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 text-on-surface-variant focus:outline-none" type="button">
+<span class="material-symbols-outlined text-outline text-[22px]">flag</span>
+</button>
+</div>
+</header>
+<!-- Main Content Study Canvas -->
+<main class="w-full max-w-lg mx-auto px-margin pt-4 pb-32 flex-1 flex flex-col gap-5">
+<!-- Lesson Overview Header Banner -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary-container bg-surface-container border border-outline-variant px-2.5 py-0.5 rounded-full">
+          IELTS &amp; TOEIC Core · Unit 1
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+        Day 3 — Work and careers
+      </h1>
+<!-- Meta Information Row: Goal and Status Chips -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<!-- Goal Pill with Timer -->
+<div class="inline-flex items-center gap-1.5 bg-surface-container-lowest border border-surface-variant px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px]">schedule</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">8 words, about 6 minutes</span>
+</div>
+<!-- 5 New Chip -->
+<div class="inline-flex items-center gap-1 bg-surface-container px-2.5 py-1.5 rounded-full border border-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">5 new</span>
+</div>
+<!-- 3 Review Chip -->
+<div class="inline-flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-full border border-surface-variant">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">3 review</span>
+</div>
+</div>
+</section>
+<!-- Teacher Slot: Structured Tactile Container -->
+<section class="teacher-slot bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-4 flex flex-col gap-3 relative">
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">smart_toy</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">[Carlos - 2D avatar container]</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-2 py-0.5 rounded-full font-bold">TUTOR PROMPT</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant shrink-0">
+<span class="material-symbols-outlined text-primary text-[24px]">forum</span>
+</div>
+<div class="flex flex-col">
+<p class="font-label-sm text-label-sm text-primary-container font-bold">Carlos Mentor</p>
+<p class="font-body-md text-body-md text-on-surface italic mt-0.5 leading-snug">
+            “Say each word out loud once to lock in the correct pronunciation.”
+          </p>
+</div>
+</div>
+</section>
+<!-- Vocabulary Checklist Target Cards List -->
+<section aria-label="Vocabulary List" class="flex flex-col gap-3">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Target Vocabulary (6 of 8 previewed)</span>
+<span class="font-label-sm text-label-sm text-outline font-medium">British RP</span>
+</div>
+<!-- Card 1: Colleague -->
+<article class="tactile-card bg-surface-container-lowest rounded-xl p-4 border border-surface-variant flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">colleague</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/'kɒli:ɡ/ · noun</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              A person that you work with in a profession or business.
+            </p>
+</div>
+<!-- Tactile Audio Button with 48px target -->
+<button aria-label="Play pronunciation for colleague" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Deadline -->
+<article class="tactile-card bg-surface-container-lowest rounded-xl p-4 border border-surface-variant flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">deadline</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/'dedlaɪn/ · noun</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface font-semibold px-2 py-0.5 rounded-full border border-surface-variant">REVIEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              The latest time or date by which something must be completed.
+            </p>
+</div>
+<button aria-label="Play pronunciation for deadline" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Negotiate -->
+<article class="tactile-card bg-surface-container-lowest rounded-xl p-4 border border-surface-variant flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">negotiate</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/nɪ'ɡəʊʃieɪt/ · verb</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              To discuss something with someone in order to reach an agreement.
+            </p>
+</div>
+<button aria-label="Play pronunciation for negotiate" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Promotion -->
+<article class="tactile-card bg-surface-container-lowest rounded-xl p-4 border border-surface-variant flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">promotion</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/prə'məʊʃn/ · noun</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              Movement to a higher position or rank within an organization.
+            </p>
+</div>
+<button aria-label="Play pronunciation for promotion" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 5: Candidate -->
+<article class="tactile-card bg-surface-container-lowest rounded-xl p-4 border border-surface-variant flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">candidate</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/'kændɪdət/ · noun</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface font-semibold px-2 py-0.5 rounded-full border border-surface-variant">REVIEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              A person who applies for a job or is being considered for a position.
+            </p>
+</div>
+<button aria-label="Play pronunciation for candidate" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 6: Schedule -->
+<article class="tactile-card bg-surface-container-lowest rounded-xl p-4 border border-surface-variant flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">schedule</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/'skedʒu:l/ · noun / verb</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              A plan of things to be done and the times when they will be done.
+            </p>
+</div>
+<button aria-label="Play pronunciation for schedule" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- Docked Bottom Action Area (Focus Journey - No Nav Shell) -->
+<footer class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md border-t border-surface-variant pb-safe">
+<div class="max-w-lg mx-auto px-margin py-3 flex flex-col items-center gap-2">
+<!-- Tactile Coral Button -->
+<button class="tactile-button-primary w-full h-14 bg-secondary-container text-on-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 font-bold tracking-wide focus:outline-none" type="button">
+<span>Start Lesson (6 min)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Calm Metadata Line -->
+<p class="font-label-sm text-label-sm text-on-surface-variant tracking-normal">
+        Micro-session · Audio enabled
+      </p>
+</div>
+</footer>
+<!-- Micro-interaction JS for speaker tap simulation -->
+<script>
+    document.querySelectorAll('.tactile-speaker').forEach(button => {
+      button.addEventListener('click', () => {
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = 'graphic_eq';
+          setTimeout(() => {
+            icon.textContent = 'volume_up';
+          }, 800);
+        }
+      });
+    });
+  </script>
+</body></html>

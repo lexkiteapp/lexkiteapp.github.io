@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Bright Day - Loading Decks</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#f6ece4",
+            "on-primary-container": "#9ce9e2",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "primary": "#00514d",
+            "inverse-on-surface": "#f9efe6",
+            "surface-dim": "#e2d8d0",
+            "surface-tint": "#106a65",
+            "tertiary-fixed": "#ffdad4",
+            "primary-container": "#136b66",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#88d4cd",
+            "on-tertiary": "#ffffff",
+            "background": "#fff8f3",
+            "on-background": "#1f1b16",
+            "surface-variant": "#eae1d8",
+            "inverse-primary": "#88d4cd",
+            "on-primary-fixed-variant": "#00504c",
+            "on-primary-fixed": "#00201e",
+            "on-surface-variant": "#3f4947",
+            "surface-container-high": "#f0e7de",
+            "secondary-fixed": "#ffdcbc",
+            "on-secondary-fixed-variant": "#683c00",
+            "inverse-surface": "#34302a",
+            "error": "#ba1a1a",
+            "tertiary-container": "#b03224",
+            "on-tertiary-container": "#ffd0c9",
+            "outline": "#6f7978",
+            "on-tertiary-fixed": "#410000",
+            "surface-container-highest": "#eae1d8",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-secondary-fixed": "#2c1600",
+            "on-primary": "#ffffff",
+            "surface-container-low": "#fcf2e9",
+            "primary-fixed": "#a4f0e9",
+            "on-surface": "#1f1b16",
+            "secondary-container": "#fe9d19",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#bec9c7",
+            "surface-bright": "#fff8f3",
+            "surface": "#fff8f3",
+            "secondary": "#895100",
+            "tertiary": "#8e190f",
+            "on-secondary-container": "#663b00",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#8c170e"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "margin-desktop": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+<!-- Shell Container Constrained to 390px Mobile Viewport -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen bg-background flex flex-col relative pb-28">
+<!-- Top App Bar (Interactive & Realistic) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 pt-3 pb-3 border-b-2 border-outline-variant/30 shadow-[0_4px_0_#f0e7de]">
+<div class="flex items-center justify-between gap-2">
+<!-- Back Button -->
+<button class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] flex items-center justify-center text-primary transition-all"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button>
+<!-- Brand / Screen Anchor -->
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary leading-tight font-extrabold tracking-tight">Lexkite</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-secondary font-extrabold -mt-0.5">MY DECKS</span>
+</div>
+<!-- Tactile Gamification Stat Pills -->
+<div class="flex items-center gap-1.5">
+<!-- Streaks -->
+<div class="flex items-center gap-1 px-2.5 py-1 bg-surface-container-lowest border-2 border-surface-dim rounded-full shadow-[0_3px_0_#e2d8d0]">
+<span class="text-[13px]">🔥</span>
+<span class="font-label-sm text-label-sm text-on-surface font-extrabold">14</span>
+</div>
+<!-- Gems -->
+<div class="flex items-center gap-1 px-2.5 py-1 bg-surface-container-lowest border-2 border-surface-dim rounded-full shadow-[0_3px_0_#e2d8d0]">
+<span class="text-[13px]">💎</span>
+<span class="font-label-sm text-label-sm text-primary font-extrabold">420</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- Title Area & Search Icon -->
+<section class="flex items-center justify-between">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tight">
+            Bộ thẻ ghi nhớ <span class="text-primary font-bold">/ Decks</span>
+</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">
+            5 Active collections • Spaced repetition
+          </p>
+</div>
+<button class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] flex items-center justify-center text-on-surface-variant active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] transition-all"><span class="material-symbols-outlined text-[20px]">search</span></button>
+</section>
+<!-- Primary Action Buttons -->
+<section class="flex items-center gap-2.5">
+<!-- New Deck Button (Teal Tactile Ledge) -->
+<button class="flex-1 h-11 bg-primary text-on-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-[0_4px_0_#00201e] active:translate-y-[2px] active:shadow-[0_1px_0_#00201e] transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ New deck</span>
+</button>
+<!-- Filter Action Button -->
+<button class="h-11 px-3.5 bg-surface-container-lowest border-2 border-surface-dim rounded-xl font-label-md text-label-md text-on-surface flex items-center justify-center gap-1 shadow-[0_4px_0_#e2d8d0] active:translate-y-[2px] active:shadow-[0_1px_0_#e2d8d0] transition-transform">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Filter</span>
+</button>
+</section>
+<!-- Filter Chips (Tactile Pills) -->
+<section class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar"><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-primary text-on-primary border-2 border-primary shadow-[0_3px_0_#00201e] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">All (5)</button><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">Due (3)</button><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">Mastered (1)</button><button class="min-h-[44px] px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-surface-dim shadow-[0_3px_0_#e2d8d0] whitespace-nowrap active:translate-y-[1px] inline-flex items-center justify-center">Archived</button></section>
+<!-- SKELETON: Daily Drill Summary Card -->
+<section class="bg-surface-container-lowest border-2 border-surface-dim rounded-2xl p-4 shadow-[0_4px_0_#e2d8d0] relative overflow-hidden">
+<!-- Pulsing Accent Bar Highlight -->
+<div class="flex items-center justify-between mb-3">
+<div class="h-6 w-28 bg-[#eadbce] rounded-full animate-pulse"></div>
+<div class="h-5 w-16 bg-[#efe5da] rounded-full animate-pulse"></div>
+</div>
+<div class="space-y-2 mb-4">
+<div class="h-6 w-3/4 bg-[#eadbce] rounded-lg animate-pulse"></div>
+<div class="h-4 w-1/2 bg-[#efe5da] rounded-md animate-pulse"></div>
+</div>
+<!-- Skeleton CTA Button with Tactile Bottom Border Ledge -->
+<div class="h-12 w-full bg-[#eadbce] rounded-xl border-b-4 border-[#d5c5b4] animate-pulse flex items-center justify-center">
+<div class="h-4 w-40 bg-[#ded0c1] rounded-full"></div>
+</div>
+</section>
+<!-- SKELETON: Deck Cards (4 Units) -->
+<section class="space-y-3.5">
+<!-- Skeleton Card 1 -->
+<div class="bg-surface-container-lowest border-2 border-surface-dim rounded-2xl p-4 shadow-[0_4px_0_#e2d8d0]">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="h-5 w-24 bg-[#eadbce] rounded-full animate-pulse"></div>
+<div class="h-4 w-14 bg-[#efe5da] rounded-md animate-pulse"></div>
+</div>
+<!-- Ghost Three Dots Icon -->
+<div class="w-6 h-6 rounded-full bg-[#efe5da] animate-pulse"></div>
+</div>
+<!-- Deck Title Skeleton -->
+<div class="h-6 w-4/5 bg-[#eadbce] rounded-lg animate-pulse mb-3"></div>
+<!-- Mastery Progress & Due Indicator -->
+<div class="space-y-1.5 mb-3.5">
+<div class="flex justify-between items-center">
+<div class="h-3.5 w-20 bg-[#efe5da] rounded animate-pulse"></div>
+<div class="h-4 w-16 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-2.5 bg-[#f0e7de] rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Action Button Skeleton with Chunky Border Ledge -->
+<div class="h-10 w-full bg-[#f8f2eb] border-2 border-surface-dim rounded-xl border-b-4 border-b-[#d5c5b4] animate-pulse flex items-center justify-center">
+<div class="h-3.5 w-28 bg-[#eadbce] rounded-full"></div>
+</div>
+</div>
+<!-- Skeleton Card 2 -->
+<div class="bg-surface-container-lowest border-2 border-surface-dim rounded-2xl p-4 shadow-[0_4px_0_#e2d8d0]">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="h-5 w-28 bg-[#eadbce] rounded-full animate-pulse"></div>
+<div class="h-4 w-12 bg-[#efe5da] rounded-md animate-pulse"></div>
+</div>
+<div class="w-6 h-6 rounded-full bg-[#efe5da] animate-pulse"></div>
+</div>
+<!-- Deck Title Skeleton -->
+<div class="h-6 w-3/5 bg-[#eadbce] rounded-lg animate-pulse mb-3"></div>
+<!-- Mastery Progress & Due Indicator -->
+<div class="space-y-1.5 mb-3.5">
+<div class="flex justify-between items-center">
+<div class="h-3.5 w-16 bg-[#efe5da] rounded animate-pulse"></div>
+<div class="h-4 w-20 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-2.5 bg-[#f0e7de] rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Action Button Skeleton -->
+<div class="h-10 w-full bg-[#f8f2eb] border-2 border-surface-dim rounded-xl border-b-4 border-b-[#d5c5b4] animate-pulse flex items-center justify-center">
+<div class="h-3.5 w-28 bg-[#eadbce] rounded-full"></div>
+</div>
+</div>
+<!-- Skeleton Card 3 -->
+<div class="bg-surface-container-lowest border-2 border-surface-dim rounded-2xl p-4 shadow-[0_4px_0_#e2d8d0]">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="h-5 w-20 bg-[#eadbce] rounded-full animate-pulse"></div>
+<div class="h-4 w-16 bg-[#efe5da] rounded-md animate-pulse"></div>
+</div>
+<div class="w-6 h-6 rounded-full bg-[#efe5da] animate-pulse"></div>
+</div>
+<!-- Deck Title Skeleton -->
+<div class="h-6 w-2/3 bg-[#eadbce] rounded-lg animate-pulse mb-3"></div>
+<!-- Mastery Progress & Due Indicator -->
+<div class="space-y-1.5 mb-3.5">
+<div class="flex justify-between items-center">
+<div class="h-3.5 w-24 bg-[#efe5da] rounded animate-pulse"></div>
+<div class="h-4 w-12 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-2.5 bg-[#f0e7de] rounded-full overflow-hidden">
+<div class="h-full w-4/5 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Action Button Skeleton -->
+<div class="h-10 w-full bg-[#f8f2eb] border-2 border-surface-dim rounded-xl border-b-4 border-b-[#d5c5b4] animate-pulse flex items-center justify-center">
+<div class="h-3.5 w-28 bg-[#eadbce] rounded-full"></div>
+</div>
+</div>
+<!-- Skeleton Card 4 -->
+<div class="bg-surface-container-lowest border-2 border-surface-dim rounded-2xl p-4 shadow-[0_4px_0_#e2d8d0]">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="h-5 w-24 bg-[#eadbce] rounded-full animate-pulse"></div>
+<div class="h-4 w-10 bg-[#efe5da] rounded-md animate-pulse"></div>
+</div>
+<div class="w-6 h-6 rounded-full bg-[#efe5da] animate-pulse"></div>
+</div>
+<!-- Deck Title Skeleton -->
+<div class="h-6 w-1/2 bg-[#eadbce] rounded-lg animate-pulse mb-3"></div>
+<!-- Mastery Progress & Due Indicator -->
+<div class="space-y-1.5 mb-3.5">
+<div class="flex justify-between items-center">
+<div class="h-3.5 w-20 bg-[#efe5da] rounded animate-pulse"></div>
+<div class="h-4 w-14 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-2.5 bg-[#f0e7de] rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Action Button Skeleton -->
+<div class="h-10 w-full bg-[#f8f2eb] border-2 border-surface-dim rounded-xl border-b-4 border-b-[#d5c5b4] animate-pulse flex items-center justify-center">
+<div class="h-3.5 w-28 bg-[#eadbce] rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Import Anki Deck Card (Skeleton) -->
+<section class="bg-surface-container-lowest border-2 border-dashed border-outline-variant/60 rounded-2xl p-4 shadow-[0_3px_0_#e2d8d0] flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<!-- Skeleton Icon Box -->
+<div class="w-12 h-12 rounded-xl bg-[#eadbce] animate-pulse shrink-0"></div>
+<div class="flex-1 space-y-2">
+<div class="h-5 w-40 bg-[#eadbce] rounded-md animate-pulse"></div>
+<div class="h-3.5 w-full bg-[#efe5da] rounded animate-pulse"></div>
+</div>
+</div>
+<!-- Skeleton Anki CTA Button -->
+<div class="h-10 w-full bg-[#f8f2eb] border-2 border-surface-dim rounded-xl border-b-4 border-b-[#d5c5b4] animate-pulse flex items-center justify-center">
+<div class="h-3.5 w-36 bg-[#eadbce] rounded-full"></div>
+</div>
+</section>
+<!-- Teacher Slot Container (.teacher-slot) -->
+<section class="teacher-slot border-2 border-dashed border-primary/40 bg-surface-container-low rounded-2xl p-4 shadow-[0_3px_0_#e2d8d0]">
+<div class="flex items-center gap-2 mb-2.5">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px]">school</span>
+</span>
+<div class="h-4 w-32 bg-[#eadbce] rounded-full animate-pulse"></div>
+</div>
+<div class="space-y-1.5 pl-9">
+<div class="h-3.5 w-11/12 bg-[#efe5da] rounded animate-pulse"></div>
+<div class="h-3.5 w-3/4 bg-[#efe5da] rounded animate-pulse"></div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Semantic Shell: JSON Aligned & Interactive) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest border-t-2 border-outline-variant/40 shadow-[0_-4px_0_#f0e7de]"><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-sm text-label-sm mt-0.5">Today</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1.5 shadow-[0_3px_0_#00201e] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-[22px] fill-1">menu_book</span><span class="font-label-sm text-label-sm mt-0.5 font-extrabold text-on-primary">Vocab</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">psychology</span><span class="font-label-sm text-label-sm mt-0.5">Skills</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">quiz</span><span class="font-label-sm text-label-sm mt-0.5">Tests</span></button><button class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm mt-0.5">Me</span></button></nav>
+</div>
+</body></html>

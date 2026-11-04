@@ -33,7 +33,8 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
     'thanh tab Stitch: tab đang chọn MỘT khối nền (viên nền icon/nhãn của thanh cũ không lọt vào .st-nav; .st-tabi không nền riêng) – từng thành 2–3 khối chồng nhau ở tab Luyện');
   ok(/^html \{ scroll-padding-top: calc\(72px \+ env\(safe-area-inset-top, 0px\)\); \}/m.test(css), 'focus/anchor/scrollIntoView dừng dưới thanh trên dính (tiêu đề thẻ không bị che)'); }
 // Màn Stitch v2 (ux1 train): đầu trang dính có vùng an toàn (pt-safe/pb-safe phải được định nghĩa) + ::after mở vùng chạm có min ≥ 44 px (cổng mobile-qa đo min-width/min-height)
-{ const sv = rd('web/css/st-v2-practice.css'), sh = rd('web/js/st/v2/shell.js');
+{ const sv = rd('web/css/st-v2-ux1-pre.css'), sh = rd('web/js/st/v2/shell.js'); // tiền tố chung gói ux1 (build-stitch-css SHARED) – practice.css trỏ về nó
+  ok(/tiền tố chung: css\/st-v2-ux1-pre\.css/.test(rd('web/css/st-v2-practice.css')) && /'css\/st-v2-ux1-pre\.css', 'css\/st-v2-path\.css'/.test(rd('web/js/app.js')), 'gói ux1 nạp tiền tố chung st-v2-ux1-pre.css trước các màn v2');
   ok(!/pt-safe/.test(sh) || /\.st \.pt-safe\{padding-top:env\(safe-area-inset-top/.test(sv), 'lớp pt-safe của đầu trang Stitch có luật env(safe-area-inset-top)');
   ok(/\.st \.pb-safe\{padding-bottom:env\(safe-area-inset-bottom/.test(sv), 'lớp pb-safe có luật env(safe-area-inset-bottom)');
   ok(/:is\(a,button\)\[class\*="after:absolute"\]::after\{min-width:44px;min-height:44px\}/.test(sv), 'liên kết/nút mở vùng chạm bằng ::after có min 44 × 44 px'); }

@@ -1,0 +1,24 @@
+{
+ "points": 300,
+ "byLevel": {
+  "A1": 40,
+  "A2": 55,
+  "B1": 64,
+  "B2": 50,
+  "C1": 48,
+  "C2": 43
+ },
+ "taughtAtLevel": {
+  "A1": 7,
+  "A2": 28,
+  "B1": 53,
+  "B2": 46,
+  "C1": 23,
+  "C2": 0
+ },
+ "taught": 157,
+ "lessons": 80,
+ "lessonsMapped": 80,
+ "queued": 143,
+ "errors": 0
+}

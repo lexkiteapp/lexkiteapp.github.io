@@ -55,6 +55,12 @@ code = code.replace(
   'export const judgeNightly = async () => ({ wrong: 2, langs: ["ja", "ko"] });'
 );
 
+// Sổ tài khoản & khóa (nhắc gia hạn): thay bằng danh sách giả đổi được qua globalThis.__ACCT
+code = code.replace(
+  /import\s*\{\s*ROWS\s+as\s+ACCT_ROWS\s*\}\s*from\s*['"][^'"]*_accounts_reg\.js['"];?/,
+  'const ACCT_ROWS = { [Symbol.iterator]() { return (globalThis.__ACCT || [])[Symbol.iterator](); } };'
+);
+
 const mailModule = await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'));
 const { adminList, resolvePref, loadConfigAndKeys, digest, default: workerDefault } = mailModule;
 
@@ -196,6 +202,21 @@ const env = {
   assert.equal(sentEmails[1].to, 'admin3@lexkite.com');
 
   console.log('✓ 4. digest gửi email cá nhân hóa đúng bộ lọc & ngưỡng của từng admin');
+}
+
+// --- Test 4b: nhắc gia hạn khóa/token (Sổ tài khoản & khóa) gửi cho MỌI admin, không phụ thuộc loại cảnh báo ---
+{
+  const day = n => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
+  globalThis.__ACCT = [{ id: 'a', service: 'Dịch vụ A', names: ['KEY_A'], manage: 'https://example.test/a', expires: day(2) }, { id: 'b', service: 'Dịch vụ B', names: ['KEY_B'], manage: 'https://example.test/b', expires: day(40) }, { id: 'c', service: 'Dịch vụ C', names: ['KEY_C'], manage: 'https://example.test/c', expires: day(-2) }];
+  sentEmails.length = 0;
+  const r = await digest({ DB, SEB: env.SEB, ADMIN_EMAILS: 'admin1@lexkite.com' });
+  const items = r.all[0].items;
+  assert.ok(items.some(it => it.includes('Sắp hết hạn') && it.includes('KEY_A')), 'hạn ≤ 3 ngày → nhắc');
+  assert.ok(items.some(it => it.includes('ĐÃ HẾT HẠN') && it.includes('KEY_C')), 'đã quá hạn → nhắc');
+  assert.ok(!items.some(it => it.includes('KEY_B')), 'hạn 40 ngày → chưa nhắc');
+  assert.ok(!items.join('').match(/[A-Za-z0-9_-]{30,}/), 'thư nhắc chỉ có tên biến, không giá trị');
+  globalThis.__ACCT = [];
+  console.log('✓ 4b. digest nhắc gia hạn khóa/token ≤ 14 ngày cho mọi admin');
 }
 
 // --- Test 5: worker fetch tôn trọng adm_pref khi có alertType ---
