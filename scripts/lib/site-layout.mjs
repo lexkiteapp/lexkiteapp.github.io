@@ -256,7 +256,7 @@ ${TAP_CSS}
 
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
 // lang + langHref(l): thêm nút đổi ngôn ngữ (langSwitch) cuối thanh điều hướng
-export const siteHeader = ({ nav, open, home = '/', extra = '', lang, langHref, label }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
+export const siteHeader = ({ nav, open, home = '/', extra = '', lang, langHref, label }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=3" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
 <nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}${lang ? themeSwitch(lang) + langSwitch({ lang, langHref, label }) : ''}</nav></div></header>`;
 export const GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/></svg>';
 // Nút 🌐 + mã ngôn ngữ → menu 15 ngôn ngữ (tên bản địa, lang/hreflang từng mục). langHref(l) = trang TƯƠNG ĐƯƠNG bằng ngôn ngữ l
@@ -334,7 +334,7 @@ export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().
   const { cur, f, product, learn, tools, co } = footGroups(lang, extra, coExtra), app = appHref(lang), fe = i => f[i] || FOOT.en[i];
   const col = (h, items) => items.length ? `<details class="fg" open><summary><h2>${h}</h2></summary><ul>${items.map(([u, n, a = '']) => `<li><a href="${u}"${a}>${n}</a></li>`).join('')}</ul></details>` : '';
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(cur)}"><img src="/icons/icon.svg?v=2" width="36" height="36" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p><div class="fbtns"><a class="fbtn pri" href="${app}">${fe(20)}</a>${EXT_STORE ? `<a class="fbtn" href="${EXT_STORE}" target="_blank" rel="noopener">${fe(21)}</a>` : ''}${getApp}</div></div><div class="fgrid">${col(f[0], product)}${col(fe(18), learn)}${col(fe(19), tools)}${col(f[2], co)}</div></div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(cur)}"><img src="/icons/icon.svg?v=3" width="36" height="36" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p><div class="fbtns"><a class="fbtn pri" href="${app}">${fe(20)}</a>${EXT_STORE ? `<a class="fbtn" href="${EXT_STORE}" target="_blank" rel="noopener">${fe(21)}</a>` : ''}${getApp}</div></div><div class="fgrid">${col(f[0], product)}${col(fe(18), learn)}${col(fe(19), tools)}${col(f[2], co)}</div></div>
 <div class="fbot"><div><p><b>© ${year} Lexkite</b> · ${TM_NOTE[lang] || TM_NOTE.en}</p>${tm ? `<p>${tm}</p>` : ''}</div><div class="fctl"><details class="flang"><summary aria-label="${esc(`${f[16]}: ${LANG_NAMES[cur]}`)}">${GLOBE}<span>${LANG_NAMES[cur]}</span></summary><nav class="flangs" aria-label="${esc(f[16])}" translate="no">${langs}</nav></details>${themePill(cur)}</div></div></div></footer>
 ${SITE_UI}`;
 };
