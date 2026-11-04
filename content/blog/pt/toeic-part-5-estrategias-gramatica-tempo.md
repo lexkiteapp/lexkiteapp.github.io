@@ -159,6 +159,7 @@ A capacidade de resolver perguntas objetivas rapidamente decorre do contato diá
 - **Algoritmo FSRS de repetição espaçada**: Memorize termos corporativos e colocações essenciais com retenção duradoura.
 - **Dicionário inteligente integrado**: Consulte definições, sinônimos formais e pronúncia padrão em um único clique.
 - **Laboratório acústico de conversação**: Pratique clareza e ritmo vocal utilizando nosso espaço de [prática oral de Lexkite](/#/practice/speak) com devolutiva analítica.
+- **Roteiro estruturado de autoestudo**: Organize seus meses de treino de ponta a ponta com o nosso [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/) em três fases.
 
 Acesse a [plataforma web Lexkite](/#/) agora mesmo e transforme sua preparação para o TOEIC Part 5 em uma rotina ágil e produtiva!
 

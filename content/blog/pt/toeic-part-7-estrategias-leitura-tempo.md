@@ -136,5 +136,6 @@ Alcançar uma pontuação acima de 850 ou 900 pontos requer velocidade de leitur
 - **Dicionário de colocações corporativas**: Aprenda expressões essenciais de negócios e sinônimos formais de forma integrada no Lexkite.
 - **Repetição espaçada com algoritmo FSRS**: Fixe vocabulário de contratos, logística e finanças de maneira definitiva na memória ativa.
 - **Prática integrada de conversação**: Para quem busca um domínio global do idioma, o [módulo de prática de fala do Lexkite](/#/practice/speak) permite treinar a dicção com retorno acústico objetivo.
+- **Planejamento de autoestudo**: Acompanhe o nosso [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/) para equilibrar leitura e audição ao longo de todo o seu cronograma.
 
 Acesse a [plataforma web do Lexkite](/#/) agora mesmo e alcance o domínio pleno do TOEIC Part 7 com controle absoluto do relógio!
