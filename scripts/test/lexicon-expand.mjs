@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -23,6 +23,12 @@ const good = () => ({ w: 'forsake', pos: 'v', ipa: '/fəˈseɪk/', ipaUS: '/fər
   ok(gateEntry(ai('kỷ niệm', ['souvenir; fond memory', 'memento', 'keepsake'], { w: 'recollection', def: 'the ability to remember past events', syn: [] })).why.some(x => /dịch ngược không khớp/.test(x)), 'vi AI: recollection "kỷ niệm" → trượt');
   ok(viBtOk({ w: 'foul', def: 'very offensive and causing disgust', syn: [], qa: { viBtw: ['disgusting', 'revolting', 'disgusting; repulsive'] } }), 'vi AI: khớp gốc từ của def (disgusting ~ disgust)');
   ok(viBtOk({ w: 'foul', def: 'x', syn: [], qa: { viBtw: ['disgusting', 'disgusting'], viLem: ['disgusting', 'foul'] } }), 'vi AI: khớp lemma WordNet');
+  // descend#v 31/10: "xuống" → "to go down" khớp lemma WordNet "go down" – dạng LƯU phải giữ qa.viLem (job.mjs từng xoá → mục đã xuất trượt cổng, main đỏ)
+  { const d = { w: 'descend', def: 'to move from a higher to a lower position', syn: ['fall'], qa: { viBtw: ['to go down', 'to go down; to descend', 'go down'], viLem: ['fall', 'go down', 'come down'] } };
+    ok(viBtOk(d), 'vi Wiktionary: descend "xuống" khớp lemma WordNet "go down"');
+    const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), P = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/promote.mjs'), 'utf8');
+    ok(!/delete ent\.qa\.viLem/.test(J), 'job.mjs không được xoá qa.viLem khỏi dạng lưu (bằng chứng viBtOk)');
+    ok(/gateEntry\(e\)/.test(J) && /gateEntry\(P\.items\[k\]\)/.test(P), 'job.mjs (lưới cuối) + promote.mjs cổng lại dạng lưu trước khi ghi/xuất'); }
   ok(!viBtOk({ w: 'caucus', def: 'to meet in order to choose a candidate or support a policy', syn: [], qa: { viBtw: ['to vote', 'to elect; to vote', 'to vote'] } }), 'vi AI: caucus "bầu chọn" → không khớp');
   ok(hasGap(gateEntry(ai('bỏ rơi', ['to abandon']))), 'vi AI: thiếu dịch ngược = lỗ → sinh lại, không vào hàng duyệt');
   ok(gateEntry({ ...good(), src: { tr: { vi: 'wiktionary' } } }).ok, 'vi Wiktionary: không cần dịch ngược'); }
@@ -133,6 +139,20 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   ok(gateEntry(base()).ok, 'ra là ok: mục đủ trắc nghiệm nghĩa + 2 nguồn vi phải đạt: ' + JSON.stringify(gateEntry(base()).why));
   // L1 vi sai nghĩa khoá (idol "thần tượng", bequest "di chúc"): vi chỉ 1 nguồn → trượt; vi không qua trắc nghiệm nghĩa → trượt
   ok(gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['a'] } }).why.some(x => /2 nguồn/.test(x)) && gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['b', 'c'] } }).why.some(x => /cần Wiktionary/.test(x)), 'L1: vi 1 nguồn / chỉ AI đồng thuận (expel "trục xuất") → trượt');
+  // 31/10 phễu 600 (rớt vi 178): Wiktionary tiếng Việt = nguồn người viết thứ hai (wv) – vẫn cần ≥ 2 nguồn + trắc nghiệm 3/3 + không bị AI phản bác
+  ok(gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['wv', 'a'] } }).ok && gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['wv'] } }).why.some(x => /2 nguồn/.test(x)), 'L1: vi Wiktionary tiếng Việt + 1 AI = đạt; 1 nguồn = trượt');
+  { const r = viAgreeSources({ wk: [], wv: ['bóc vỏ', 'gọt vỏ', 'lột'], a: 'bóc vỏ', b: 'lột vỏ', c: '' }); ok(r.length === 1 && r[0].v === 'bóc vỏ' && r[0].src.join() === 'wv,a', 'viAgreeSources: wv + AI trùng → phương án (peel#v "bóc vỏ")');
+    ok(!viContested({ v: 'bóc vỏ', src: ['wv', 'a', 'b'] }, { a: 'bóc vỏ', b: 'bóc vỏ', c: 'lột' }) && viContested({ v: 'gọt', src: ['wv', 'a'] }, { a: 'gọt', b: 'bóc vỏ', c: 'lột vỏ' }), 'viContested: wv là người viết – không tính phiếu ủng hộ AI; AI họ khác phản bác vẫn chặn'); }
+  { const f = (wv, a, c) => viAgreeSources({ wk: [], wv, a, b: '', c });
+    ok(f(['mụ phù thuỷ'], 'phù thủy', '').length === 0 && f(['phù thuỷ'], 'phù thủy', '')[0].src.join() === 'wv,a', 'viKey: dấu thanh kiểu cũ/mới (thuỷ = thủy)');
+    ok(f(['giấc ngủ ngắn lơ mơ'], 'giấc ngủ ngắn', '')[0].src.join() === 'a,wv' && f(['ném lên'], 'ném', '')[0].v === 'ném', 'viAgreeSources: khớp đầu ngữ (người viết = phương án + ≤ 2 âm tiết sau)');
+    ok(f(['lòng bàn tay'], 'bàn tay', '').length === 0 && f(['dãy núi lởm chởm cao vút'], 'dãy núi', '').length === 0, 'viAgreeSources: KHÔNG khớp đuôi (lòng bàn tay ≠ bàn tay), không quá 2 âm tiết');
+    ok(f(['thói nghiện'], 'nghiện', '')[0].src.join() === 'wv,a', 'viKey: bỏ "thói" chỉ loại đầu'); }
+  { const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok(/pass = items\.filter\(x => pend\.items\[x\.k\] && OUT\[x\.k\] && OUT\[x\.k\]\.pass\)\.length/.test(J) && /yield: \+\(pass \//.test(J), 'báo cáo: pass/yield theo LƯỢT (không cộng dồn lô ngày – cầu dao sản lượng phải ngắt được)'); }
+  { const py = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/viwikt.py'), 'utf8'), J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+    ok(/wv: WV\[x\.k\]/.test(J) && /--viwk/.test(Y) && /viwiktionary\/raw-wiktextract-data\.jsonl\.gz/.test(Y) && /CC BY-SA 4\.0/.test(py) && /Wiktionary en \+ vi CC BY-SA 4\.0/.test(J), 'viwikt: nối vào job + workflow, ghi giấy phép'); }
+  { const R = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+    ok(/FUNNEL_RE = x => \(x\.why \|\| \[\]\)\.length > 0 && \(x\.why \|\| \[\]\)\.every\(y => \/\^\(dịch vi\|ví dụ\):\//.test(R) && !/requeue\.mjs[^\n]*--funnel/.test(Y), 'requeue --funnel: chỉ mục rớt vi/ví dụ, KHÔNG chạy mỗi lượt (lặp vô hạn)'); }
   ok(gateEntry({ ...base(), qa: { ...base().qa, wsd: { ...base().qa.wsd, vi: false } } }).why.some(x => /dịch vi: chưa qua trắc nghiệm/.test(x)), 'L1: vi không qua trắc nghiệm nghĩa → trượt');
   ok(viAgreeSources({ wk: ['thần tượng'], a: 'tượng thần', b: 'tượng thờ' }).length === 0 && viAgreeSources({ wk: ['thần tượng; tượng thần'], a: 'tượng thần' }).map(o => o.v).join() === 'tượng thần', 'L1: vi chỉ nhận phương án ≥ 2 nguồn trùng');
   // L1 (31/10 peel#v "gọt"): Wiktionary + lxtr trùng, trắc nghiệm 3/3 vẫn sai – AI họ khác trả "bóc vỏ" → phản bác; ủng hộ phải NHIỀU HƠN phản bác
@@ -325,7 +345,17 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(m.ipa === '/məˈleərɪə/' && IC.strictEq('/məˈleərɪə/', '/məˈlɛəɹiə/') && !IC.strictEq('/mæˈleəriə/', '/məˈlɛəɹɪə/'), 'IPA Anh espeak ↔ Britfone khớp chặt (malaria)'); }
 // hạ tầng (30/10): retry tính TRONG N – 2.701 mục requeue + N mới trong 1 lượt vượt timeout → mất cả lượt
 { const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), m = /timeout-minutes: (\d+)/.exec(Y), n = /N="\$\{N:-(\d+)\}"/.exec(Y);
-  ok(/stat\.retry = pool\.length - Math\.min\(N, pool\.length\); pool = pool\.slice\(0, N\)/.test(J), 'job: retry + mới cắt về N');
+  ok(/pool = mixPool\(rt, pool, N,/.test(J) && !/pool = \[\.\.\.C\.items\.filter\(e => want\.has/.test(J), 'job: retry + mới trộn bằng mixPool, cắt về N (không còn retry đứng trước chiếm trọn)');
+  // 03/11 sản lượng 336 → 35 → 15 mục/ngày: 3.641 mục retry (rớt vi/ví dụ) chiếm trọn N, ứng viên mới không bao giờ tới → hạn ngạch retry ≤ 25 % N
+  { const R = n => Array.from({ length: n }, (_, i) => 'r' + i), F = n => Array.from({ length: n }, (_, i) => 'f' + i), P = (r, f, N, s) => mixPool(r, f, N, s);
+    let m = P(R(3641), F(9000), 600); ok(m.length === 600 && m.filter(x => x[0] === 'r').length === 150 && m.filter(x => x[0] === 'f').length === 450, 'mixPool: retry 3641 + mới 9000, N 600 → 150 retry + 450 mới (trước: 600 retry)');
+    m = P(R(3641), F(100), 600); ok(m.length === 600 && m.filter(x => x[0] === 'f').length === 100, 'mixPool: ứng viên mới thiếu → retry lấp chỗ trống, không bỏ phí lượt');
+    m = P(R(20), F(9000), 600); ok(m.length === 600 && m.filter(x => x[0] === 'r').length === 20 && m[0] === 'r0', 'mixPool: retry ít (lỗ IPA) → làm hết, đứng đầu');
+    m = P(R(500), F(9000), 600, 0); ok(m.length === 600 && m.every(x => x[0] === 'f'), 'mixPool: share 0 → toàn ứng viên mới');
+    ok(P(R(5), [], 600).length === 5 && P([], F(3), 600).length === 3, 'mixPool: một danh sách rỗng vẫn đúng');
+    const y = yieldSplit([...Array.from({ length: 450 }, (_, i) => ({ retry: false, pass: i < 90, judged: true })), ...Array.from({ length: 150 }, (_, i) => ({ retry: true, pass: i < 3, judged: i < 140 })), { retry: false, pass: false, judged: false }]);
+    ok(y.fresh.yield === 0.2 && y.fresh.judged === 450 && y.retry.pass === 3 && y.retry.judged === 140, 'yieldSplit: sản lượng tách mục mới vs retry, bỏ mục hạ tầng/lỗ nguồn khỏi mẫu số'); } 
+  { const Y2 = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'); ok(/yy=\(r\.nFresh\|\|0\)>=50\?r\.yieldFresh:r\.yield/.test(Y2) && /low=py&&\(r\.n-inf\)>=50&&yy<py\/2/.test(Y2), 'workflow: cầu dao chuỗi đo yieldFresh (mục mới) khi ≥ 50 mục mới, ngưỡng nửa pilot giữ nguyên'); }
   ok(m && n && +n[1] * 14 / 60 <= +m[1] * 0.8, `N mặc định ${n && n[1]} × 14 s/từ vừa 80 % timeout ${m && m[1]} phút`); }
 // hạ tầng (30/10 lượt 41065198770): kho Gemini cạn → dừng ngay (không đốt 166 phút ra 2.175 mục hạ tầng); dispatch không đè LX_N
 { const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), P = fs.readFileSync('scripts/lib/ai-pool.mjs', 'utf8');
@@ -357,6 +387,9 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   const d = doneWords(), keys = [...d]; ok(keys.length && keys.every(k => /#/.test(k)), 'doneWords: khoá từ#loại (không theo từ – duck#n không chặn duck#v)');
   const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand' && OTHER_POS.test((x.why || [])[0] || ''));
   ok(Q.every(x => !d.has(x.id)), 'doneWords: mục "keep: … từ loại khác" không bị loại (requeue --pos đưa về retry)');
+  { const dq = doneWords({ queue: false }), all = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand'), fun = all.filter(x => (x.why || []).length && x.why.every(y => /^(dịch vi|ví dụ):/.test(y)));
+    ok(!fun.length || fun.some(x => !dq.has(String(x.id))), 'doneWords({queue:false}): mục hàng duyệt chưa xuất không bị chặn (requeue --funnel từng ra 0 mục mà xoá 8.937 mục)');
+    ok(/doneWords\(\{ queue: false \}\)/.test(fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8')), 'requeue.mjs dùng doneWords({ queue: false })'); }
   // từ điển: nghĩa biên soạn của từ loại phụ vào ĐÚNG khối, sau từ loại chính; không đè khối có sẵn
   const vm = await import('node:vm'), src = fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), g = { I18N: { meanLang: () => 'vi', learnLang: () => 'en' }, fetch: async () => ({ ok: false }), AbortController, setTimeout, clearTimeout, console };
   g.self = g; vm.createContext(g); vm.runInContext(src, g);
@@ -375,6 +408,11 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
   ok(/!done\.has\(kk\(e\)\)/.test(job) && !/done\.has\(e\.w\)/.test(job), 'job.mjs: chọn theo từ#loại'); }
+// 31/10 phễu 600 (thiếu 2 câu người viết 230/600): câu Wiktionary của ĐÚNG nghĩa khoá luôn là ứng viên; không cắt 8 câu đầu (thuộc nghĩa khác) – gate trắc nghiệm nghĩa 3/3 giữ nguyên
+{ const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), wk = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/wikt.mjs'), 'utf8');
+  ok(/e\.g === WK/.test(job) && /\(q\.g === WK\) - \(p\.g === WK\)/.test(job), 'ví dụ: câu Wiktionary của nghĩa khoá (e._wk) được nhận và đứng đầu');
+  ok(/exs: exs\.slice\(0, 40\)/.test(wk) && /x\.ref \|\|/.test(wk), 'wikt: giữ 40 câu ví dụ (lọc nghĩa ở job), vẫn bỏ trích dẫn có ref');
+  ok(/pickEx\(X1, X1\.exAll\.slice\(0, 8\)\.map\(\(c, i\) => \(\{ \.\.\.c, ok: ok\('ex' \+ i\) \}\)\)\)/.test(job), 'ví dụ: mọi câu vẫn qua trắc nghiệm nghĩa 3 giám khảo (wsdOk)'); }
 // 31/10 run 41178484346: lượt chờ hàng đợi checkout SHA cũ → rebase xung đột → mất 161 mục đạt. save-merge gộp 3 chiều, không mất phía nào.
 { const { merge3, fmt } = await import('../lexicon/expand/save-merge.mjs');
   const base = { items: ['a#n', 'b#n', 'c#n'] }, ours = { items: ['c#n', 'g#v'] }, theirs = { items: ['a#n', 'b#n', 'c#n', 'x#n'] };
@@ -385,4 +423,13 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(Object.keys(NONE_P.items).join() === 'b#n,a#n' && NONE_P.n === 1, 'save-merge: lô chờ cùng ngày do 2 lượt tạo → hợp mục');
   ok(merge3({ v: 1 }, { v: 2 }, { v: 3 }).v === 2 && merge3({ v: 1 }, { v: 1 }, { v: 3 }).v === 3, 'save-merge: cùng sửa → lượt thắng; lượt không sửa → bản mới');
   ok(fmt({ a: 1 }, '{\n "a": 0\n}\n') === '{\n "a": 1\n}\n', 'save-merge: giữ thụt lề'); }
+// 04/11 Simple English Wikipedia (simplewiki.py): lọc hình thức, id sw…, bỏ đổi hướng/số/đại từ không tham chiếu
+{ const { execFileSync } = await import('node:child_process'), os = await import('node:os'), zlib = await import('node:zlib');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sw-')), xml = `<mediawiki><page><title>Cat</title><ns>0</ns><id>12</id><revision><id>9</id><text>{{Infobox|a=1}}\n\'\'\'Cats\'\'\' are small [[mammal]]s that people keep as [[pet|pets]].&lt;ref&gt;x&lt;/ref&gt; Cats were born in 1990. He likes the cat very much.\n* list item\n== Heading ==\nMost farmers value a barn cat very much.</text></revision></page><page><title>R</title><ns>0</ns><id>13</id><redirect title="Cat"/><revision><id>1</id><text>#REDIRECT [[Cat]]</text></revision></page><page><title>T</title><ns>1</ns><id>14</id><revision><id>2</id><text>Talk pages are not used here at all.</text></revision></page></mediawiki>`;
+  let bz = null; try { bz = execFileSync('python3', ['-c', 'import bz2,sys;sys.stdout.buffer.write(bz2.compress(sys.stdin.buffer.read()))'], { input: xml, maxBuffer: 1 << 24 }); } catch {}
+  if (bz) { fs.writeFileSync(dir + '/s.bz2', bz); execFileSync('python3', [path.join(ROOT, 'scripts/lexicon/expand/simplewiki.py'), '--dump', dir + '/s.bz2', '--out', dir + '/o.tsv'], { stdio: 'pipe' });
+    const rows = fs.readFileSync(dir + '/o.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
+    ok(rows.length === 2 && rows.every(r => /^sw12\.\d+$/.test(r[0]) && r[1] === 'eng'), 'simplewiki: chỉ trang chính, id sw<trang>.<n>');
+    ok(rows[0][2] === 'Cats are small mammals that people keep as pets.' && rows[1][2].startsWith('Most farmers'), 'simplewiki: gỡ markup, bỏ số/đại từ/danh sách/tiêu đề');
+    fs.rmSync(dir, { recursive: true, force: true }); } }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }

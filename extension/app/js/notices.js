@@ -246,8 +246,9 @@
   async function fetchNotices() {
     try {
       const lang = window.I18N && I18N.lang ? I18N.lang() : 'vi';
-      const res = await fetch(`${API}?lang=${encodeURIComponent(lang)}`, { headers: await authHeader() });
-      if (!res.ok) return;
+      // Tối đa 8 s; phản hồi lỗi → hủy thân chưa đọc (thân trả chậm/treo từng giữ request > 30 s, font audit 1/11)
+      const res = await fetch(`${API}?lang=${encodeURIComponent(lang)}`, { headers: await authHeader(), signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined });
+      if (!res.ok) { if (res.body) res.body.cancel().catch(() => {}); return; }
       const data = await res.json();
       if (data && data.ok && Array.isArray(data.notices)) {
         notices = data.notices; loaded = true;

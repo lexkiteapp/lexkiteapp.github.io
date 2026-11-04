@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Sentence Patterns</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#f4bf40",
+            "on-primary-fixed": "#00201e",
+            "on-primary-container": "#00322e",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#ffdad6",
+            "surface-container-high": "#202c2f",
+            "outline": "#879391",
+            "surface-container-highest": "#2b373a",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#392900",
+            "tertiary-container": "#ba8b00",
+            "secondary": "#ff6b4a",
+            "primary": "#6bd8ce",
+            "on-surface-variant": "#98a8a8",
+            "on-secondary-container": "#ffffff",
+            "secondary-fixed": "#ffdad3",
+            "on-primary-fixed-variant": "#00504b",
+            "on-secondary-fixed-variant": "#900f00",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#f0f6f6",
+            "inverse-on-surface": "#263236",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline-variant": "#243538",
+            "surface-container-low": "#121d20",
+            "primary-container": "#2ba39a",
+            "surface-tint": "#6bd8ce",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-lowest": "#051013",
+            "error": "#ffb4ab",
+            "inverse-surface": "#d8e5e9",
+            "surface-container": "#162125",
+            "on-primary": "#003733",
+            "on-tertiary": "#402e00",
+            "on-background": "#f0f6f6",
+            "surface": "#091518",
+            "background": "#091518",
+            "secondary-container": "#ff6b4a",
+            "surface-dim": "#091518",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary-fixed": "#88f5ea",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-error": "#690005",
+            "surface-variant": "#2b373a",
+            "inverse-primary": "#006a64"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-tablet": "2rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "3rem",
+            "space-xs": "0.25rem",
+            "margin": "1rem",
+            "space-2xl": "3rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "phonetic-display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "phonetic-display": ["20px", {"lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "800"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Physical block tactility utilities */
+    .tactile-pressable {
+      transition: transform 75ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 75ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-pressable:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 0 transparent !important;
+    }
+    .safe-bottom-pad {
+      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 16px));
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen font-body-md text-body-md selection:bg-primary-container selection:text-on-surface">
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 h-14 bg-surface border-b-2 border-outline-variant shadow-[0_2px_0_0_#051013]">
+<div class="flex items-center space-x-2">
+<button aria-label="Audio controls" class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 ease-out border-2 border-outline-variant shadow-[0_2px_0_0_#051013]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<div class="flex items-baseline space-x-1 pl-1">
+<span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary">Lexkite</span>
+</div>
+</div>
+<!-- Breadcrumb Context & Audio Speed Mode -->
+<div class="flex items-center space-x-2">
+<div class="hidden xs:flex items-center bg-surface-container px-2.5 py-1 rounded-lg border-2 border-outline-variant text-on-surface-variant font-label-sm text-label-sm">
+<span>Skills</span>
+<span class="material-symbols-outlined text-[14px] mx-0.5 text-outline">chevron_right</span>
+<span class="text-primary font-bold">Phrases</span>
+</div>
+<button aria-label="Settings" class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 ease-out border-2 border-outline-variant shadow-[0_2px_0_0_#051013]" type="button">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE VIEWPORT -->
+<main class="w-full max-w-md mx-auto pt-16 px-4 safe-bottom-pad">
+<!-- SUB-NAVIGATION / BREADCRUMB STRIP (Always visible for mobile clarity) -->
+<section class="mt-3 mb-4">
+<div class="flex items-center justify-between py-1.5 px-3 rounded-xl bg-surface-container-low border-2 border-outline-variant shadow-[0_2px_0_0_#051013]">
+<div class="flex items-center space-x-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+<span>Skills</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-primary font-bold">Phrases</span>
+</div>
+<div class="flex items-center space-x-1 text-primary bg-surface-container px-2 py-0.5 rounded-md font-label-sm text-label-sm border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+<span class="font-bold">1.0× Natural</span>
+</div>
+</div>
+</section>
+<!-- TEACHER SLOT TIP HEADER (Explicit strict empty slot compliant with negative constraints) -->
+<section class="mb-5">
+<div class="bg-surface-container-low rounded-2xl p-4 border-2 border-outline-variant shadow-[0_4px_0_0_#051013]">
+<div class="flex items-start space-x-3.5">
+<!-- Strict Negative Constraint: Rounded dashed teacher slot placeholder, NO human drawing/photo -->
+<div aria-label="Teacher avatar placeholder" class="flex-shrink-0 w-16 h-16 rounded-xl border-2 border-dashed border-primary/50 bg-surface-container flex flex-col items-center justify-center text-center p-1">
+<span class="material-symbols-outlined text-primary text-[20px]">school</span>
+<span class="font-label-sm text-[10px] leading-tight font-bold text-primary mt-0.5 break-words">[Carlos - teacher-slot]</span>
+</div>
+<!-- Speech bubble callout text -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center space-x-1.5 mb-1">
+<span class="inline-block px-2 py-0.5 rounded font-label-sm text-label-sm bg-primary/20 text-primary border border-primary/30 font-bold tracking-wide">
+                Academic Lexis Tip
+              </span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold text-balance leading-snug">
+              “Steal these for Speaking Part 3.”
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+              High-band functional structures that convey rigorous argumentation and natural transitions under exam conditions.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- TITLE & INTRODUCTORY COPY -->
+<section class="mb-4">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tight">
+        Sentence patterns
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+        Useful patterns for Speaking and Writing
+      </p>
+</section>
+<!-- SEARCH & FILTER ROW -->
+<section class="mb-5 space-y-3">
+<!-- Search Input Box -->
+<div class="relative">
+<label class="sr-only" for="pattern-search">Search sentence patterns or keywords</label>
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container-low border-2 border-outline-variant rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-0 shadow-[0_2px_0_0_#051013] transition-all" id="pattern-search" placeholder="Search sentence patterns or keywords..." type="search"/>
+</div>
+<!-- Filter Chips Row -->
+<div aria-label="Pattern category filters" class="flex items-center space-x-2 overflow-x-auto pb-1.5 pt-0.5 no-scrollbar" role="tablist">
+<!-- Active Pill: Opinions -->
+<button aria-selected="true" class="tactile-pressable flex-shrink-0 px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md border-2 border-primary-fixed shadow-[0_3px_0_0_#003733]" role="tab" type="button">
+          Opinions
+        </button>
+<!-- Inactive Pill: Agreeing -->
+<button aria-selected="false" class="tactile-pressable flex-shrink-0 px-4 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container" role="tab" type="button">
+          Agreeing
+        </button>
+<!-- Inactive Pill: Describing trends -->
+<button aria-selected="false" class="tactile-pressable flex-shrink-0 px-4 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md border-2 border-outline-variant shadow-[0_3px_0_0_#051013] hover:bg-surface-container" role="tab" type="button">
+          Describing trends
+        </button>
+</div>
+</section>
+<!-- FORMULA CARDS SECTION -->
+<section aria-label="Sentence pattern list" class="space-y-4 mb-6">
+<!-- FORMULA CARD 1 -->
+<article class="bg-surface-container-low rounded-2xl p-4 sm:p-5 border-2 border-outline-variant shadow-[0_4px_0_0_#051013] tactile-pressable">
+<!-- Header row with badge and audio button -->
+<div class="flex items-center justify-between mb-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant tracking-wider uppercase font-bold">
+            STATING VIEWPOINT
+          </span>
+<button aria-label="Play pronunciation for I'd argue that clause" class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-xl bg-surface-container border-2 border-outline-variant shadow-[0_3px_0_0_#051013] active:translate-y-0.5 active:shadow-none flex items-center justify-center text-primary hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+</button>
+</div>
+<!-- Pattern Formula Display -->
+<div class="p-3 rounded-xl bg-surface-container border-2 border-outline-variant mb-3.5">
+<p class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
+            I'd argue that + clause
+          </p>
+</div>
+<!-- Authentic Sentence Example -->
+<div class="mb-4">
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-bold">
+            Authentic Exemplar
+          </span>
+<blockquote class="font-body-md text-body-md text-on-surface font-medium leading-relaxed pl-3 border-l-4 border-primary">
+            “I’d argue that public transport subsidies yield far greater long-term environmental benefits than individual carbon taxes.”
+          </blockquote>
+</div>
+<!-- Context & Register Tags -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold border border-outline-variant">
+<span class="material-symbols-outlined text-[15px] mr-1 text-primary">record_voice_over</span>
+            Speaking Part 3
+          </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold border border-outline-variant">
+<span class="material-symbols-outlined text-[15px] mr-1 text-primary">forum</span>
+            Formal debate
+          </span>
+</div>
+</article>
+<!-- FORMULA CARD 2 -->
+<article class="bg-surface-container-low rounded-2xl p-4 sm:p-5 border-2 border-outline-variant shadow-[0_4px_0_0_#051013] tactile-pressable">
+<!-- Header row with badge and audio button -->
+<div class="flex items-center justify-between mb-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant tracking-wider uppercase font-bold">
+            NUANCED STANCE
+          </span>
+<button aria-label="Play pronunciation for It is widely held that yet I believe" class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-xl bg-surface-container border-2 border-outline-variant shadow-[0_3px_0_0_#051013] active:translate-y-0.5 active:shadow-none flex items-center justify-center text-primary hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+</button>
+</div>
+<!-- Pattern Formula Display -->
+<div class="p-3 rounded-xl bg-surface-container border-2 border-outline-variant mb-3.5">
+<p class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
+            It is widely held that..., yet I believe...
+          </p>
+</div>
+<!-- Authentic Sentence Example -->
+<div class="mb-4">
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-bold">
+            Authentic Exemplar
+          </span>
+<blockquote class="font-body-md text-body-md text-on-surface font-medium leading-relaxed pl-3 border-l-4 border-primary">
+            “It is widely held that automation diminishes job security, yet I believe it shifts human labor toward creative and analytical tasks.”
+          </blockquote>
+</div>
+<!-- Context & Register Tags -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold border border-outline-variant">
+<span class="material-symbols-outlined text-[15px] mr-1 text-primary">edit_note</span>
+            Writing Task 2
+          </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold border border-outline-variant">
+<span class="material-symbols-outlined text-[15px] mr-1 text-primary">balance</span>
+            Balanced counter-argument
+          </span>
+</div>
+</article>
+</section>
+<!-- PRIMARY ACTION (Tactile Warm Coral Primary Button) -->
+<section class="mt-2 mb-8">
+<button class="w-full min-h-[54px] rounded-2xl bg-[#ff6b4a] text-white font-label-lg text-label-lg border-2 border-[#ff856a] shadow-[0_4px_0_0_#b53b20] flex items-center justify-center space-x-2 py-3.5 px-6 tactile-pressable hover:bg-[#ff5733] active:translate-y-1 active:shadow-none" type="button">
+<span class="font-bold tracking-wide">Practise these 5</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchor) -->
+<!-- Contextual Lock: Skills is the active section as explicitly defined by "Skills › Phrases" -->
+<nav aria-label="Primary Mobile Navigation" class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-2 py-1.5 h-18 bg-surface pb-safe border-t-2 border-outline-variant shadow-[0_-2px_0_0_#051013]">
+<!-- Tab 1: Today (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#today">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="mt-1">Today</span>
+</a>
+<!-- Tab 2: Vocab (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="mt-1">Vocab</span>
+</a>
+<!-- Tab 3: Skills (Active - Exact Semantic Match for current page context) -->
+<a aria-current="page" class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 bg-primary text-on-primary rounded-xl border-2 border-primary-fixed shadow-[0_3px_0_0_#003733] -translate-y-0.5 font-label-sm text-label-sm active:translate-y-1 active:shadow-none transition-all duration-75" href="#skills">
+<span class="material-symbols-outlined text-[22px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="mt-1 font-bold">Skills</span>
+</a>
+<!-- Tab 4: Tests (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment_turned_in</span>
+<span class="mt-1">Tests</span>
+</a>
+<!-- Tab 5: Me (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1.5 px-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container-low rounded-xl active:translate-y-1 active:shadow-none transition-all duration-75" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="mt-1">Me</span>
+</a>
+</nav>
+<!-- Inline Micro-interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Audio button feedback interaction
+      const audioButtons = document.querySelectorAll('button[aria-label^="Play pronunciation"]');
+      audioButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const icon = btn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.textContent = 'graphic_eq';
+            btn.classList.add('bg-primary-container', 'text-on-primary');
+            setTimeout(() => {
+              icon.textContent = 'volume_up';
+              btn.classList.remove('bg-primary-container', 'text-on-primary');
+            }, 1200);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

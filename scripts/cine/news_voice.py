@@ -3,7 +3,7 @@
   python3 scripts/cine/news_voice.py <NEWS_DIR> <lesson-id,...>
 NEWS_DIR/ci/lines.json (from content/video/cine/news/lines.json) -> for every line used by the given lessons and missing vis3/<id>.wav:
 Kokoro (tts.mjs) -> Rhubarb 1.13 (vis3/<id>.json) -> faster-whisper word timings aligned to the EXACT caption tokens (vis3/<id>.words.json:
-whisper order + times, tokens whisper missed are interpolated between neighbours). Env: KOKORO_NODE_PATH, RHUBARB."""
+whisper order + times, tokens whisper missed are interpolated between neighbours) + an unprompted ASR pass (asr, asr_words) for the pronunciation back-check. Env: KOKORO_NODE_PATH, RHUBARB."""
 import json, os, re, sys, shutil, subprocess, difflib
 ND, IDS = sys.argv[1], sys.argv[2].split(','); ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 V = f'{ND}/vis3'; os.makedirs(V, exist_ok=True)
@@ -41,12 +41,17 @@ if todo:
     if redo:
         print('re-synthesising slower:', [(l['id'], l['speed']) for l in redo]); synth(redo, 'b')
         for l in redo: print(f"  {l['id']} span {span(l['id']):.2f} s for {len(l['text'])} chars")
-from faster_whisper import WhisperModel
-M = WhisperModel('base.en', device='cpu', compute_type='int8'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE, load_audio, snap_onsets   # same words + times on every runner (asr_match)
+M = load('base.en'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
 for l in base['lines']:
     if l['id'] not in need or os.path.exists(f'{V}/{l["id"]}.words.json'): continue
-    toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'])
+    toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'], **DECODE)
     hw = [w for s in segs for w in s.words]; a, b = [norm(x) for x in toks], [norm(w.word) for w in hw]
+    if sum(x in b for x in a) < 0.9 * len(a):   # base.en prompted with the exact script can return NOTHING for a short clip ("I'll look into it.", heard 0.0 x3) -> one unprompted retry, keep the better match
+        s2, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, condition_on_previous_text=False, **DECODE); hw2 = [w for s in s2 for w in s.words]; b2 = [norm(w.word) for w in hw2]
+        if sum(x in b2 for x in a) > sum(x in b for x in a): hw, b = hw2, b2
+    asr, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False, **DECODE)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
+    aw = [dict(w=w.word.strip(), s=round(w.start, 3), e=round(w.end, 3), p=round(w.probability, 3)) for s_ in asr for w in s_.words]
     T = [None] * len(toks)
     for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
         for k in range(blk.size): T[blk.a + k] = (hw[blk.b + k].start, hw[blk.b + k].end)
@@ -58,8 +63,10 @@ for l in base['lines']:
         t0 = T[lo][1] if lo is not None else 0.05; t1 = T[hi][0] if hi is not None else dur - 0.05
         run = [k for k in range((lo + 1) if lo is not None else 0, hi if hi is not None else len(toks))]; tot = sum(len(toks[k]) for k in run); acc = sum(len(toks[k]) for k in run if k < i)
         T[i] = (t0 + (t1 - t0) * acc / tot, t0 + (t1 - t0) * (acc + len(toks[i])) / tot)
+    au = load_audio(f'{V}/{l["id"]}.wav'); snap_onsets(au, aw, s='s', e='e')   # whisper starts a word after a pause in the silence -> first voiced frame (ASR back-check + captions)
+    T = [(w['s'], w['e']) for w in snap_onsets(au, [dict(s=t[0], e=t[1]) for t in T], s='s', e='e')]
     for i in range(1, len(T)):   # strictly increasing starts
         if T[i][0] <= T[i - 1][0]: T[i] = (T[i - 1][0] + 0.05, max(T[i][1], T[i - 1][0] + 0.1))
-    json.dump(dict(words=[dict(w=w, s=round(t[0], 3), e=round(t[1], 3)) for w, t in zip(toks, T)], whisper=' '.join(w.word.strip() for w in hw), interpolated=miss),
+    json.dump(dict(words=[dict(w=w, s=round(t[0], 3), e=round(t[1], 3)) for w, t in zip(toks, T)], whisper=' '.join(w.word.strip() for w in hw), interpolated=miss, asr=' '.join(x['w'] for x in aw), asr_words=aw),
               open(f'{V}/{l["id"]}.words.json', 'w'))
     print(f'{l["id"]:28s} words {len(toks)} interp {miss}' + ('  WARN' if miss > 1 else ''))

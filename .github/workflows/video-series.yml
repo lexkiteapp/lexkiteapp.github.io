@@ -16,6 +16,7 @@ concurrency: { group: 'video-series-${{ github.event.inputs.series }}-${{ github
 jobs:
   setup:
     runs-on: ubuntu-latest
+    timeout-minutes: 20   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { list: '${{ steps.m.outputs.list }}' }
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
-      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
+      max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix: { id: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env:
@@ -102,6 +103,7 @@ jobs:
           mkdir -p $O/phone $O/frames
           python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
           NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          node scripts/video/tpl/pron.mjs audit-json "$SPEC" vo/vis3/pron.json   # Kokoro phonemes vs CMUdict + on-screen IPA vs bank -> qc_v9 pron_kokoro / ipa_token
           python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.id }}.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
           grep -v '^frame ' $O/render.log | tail -8
           V=$O/${{ matrix.id }}.mp4
@@ -129,6 +131,7 @@ jobs:
     needs: render
     if: always() && needs.render.result != 'skipped'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

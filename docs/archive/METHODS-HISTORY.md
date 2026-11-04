@@ -175,3 +175,14 @@ Lịch sử đầy đủ (bài học 17–22/10, Kling, chroma key, kho, video):
 
 ## Chuyển từ METHODS 27/10 (nguyên văn, ngân sách docs-budget)
 - **Dung lượng repo (24/10, docs/STORAGE.md):** media nặng (mp3, ảnh theo từ, video) KHÔNG vào repo chính – sinh vào `.media-out/` rồi `scripts/media/push.mjs` đẩy kho media (`infra/media-repos.json`, round-robin hash trên kho open, tệp không bao giờ dời; đẩy xong mới commit chỉ mục). Cổng `size-guard` (cây ≤ 600 MB, ≤ 20 MB nhị phân/commit, ngoại lệ `Size-Guard: allow`). KHÔNG viết lại lịch sử git main. Kho ≥ 70 % → full + mở kho kế (STORAGE §2). Agent: clone tạm đặt tên RIÊNG (vd. `$TMPDIR/<việc>-<id>`) – thư mục `$TMPDIR/lk` từng bị phiên khác xoá giữa chừng.
+
+## Lỗi Kling & vận hành (chuyển từ METHODS §8, 01–02/11)
+- Mảng zsh 1-based → gửi Kling prompt rỗng (−50 cr): dùng `bash -c`, dry-run in lệnh.
+- Script ghi đè biến prompt bằng đường dẫn ảnh (−43 cr): đọc lại lệnh trước khi gửi.
+- Gửi cả lô 8 plate (225 cr) không thử 1 trước – vi phạm CREDIT-RULES.
+- Cảnh footage làm 3 lượt vì thiếu danh sách clip – cảnh mới làm 1 lượt đủ 15 clip (`docs/archive/CINE-SCENE-STANDARD.md`).
+- Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
+- Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
+
+## Chuyển từ METHODS.md §4 (2/11, nguyên văn – nguồn chính nay là docs/CI-RUNNERS.md)
+- **Runner GitHub (1/11, Pro = 40 runner):** chừa 8 cho PR/prod-release, phần rảnh `ci-filler` tự lấp từ `infra/ci-backlog.json` (`max-parallel` bắt buộc; repo giữ CÔNG KHAI để phút Actions miễn phí), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.

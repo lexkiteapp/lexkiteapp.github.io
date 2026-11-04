@@ -16,16 +16,42 @@
     const t = setTimeout(() => ctrl.abort(), ms);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
-      if (!r.ok) return null;
+      if (!r.ok) { ctrl.abort(); return null; } // hủy thân chưa đọc (thân treo giữ request)
       return await r.json();
     } catch (e) { return null; } finally { clearTimeout(t); }
+  };
+  // Datamuse phản chiếu Origin vào Access-Control-Allow-Origin nhưng CDN đệm 24 h mà không Vary: Origin → origin khác (vd. máy dev localhost:8080) gọi trước thì MỌI trang khác cùng điểm CDN bị CORS.
+  // `o=<origin>` tách khóa đệm theo origin (tham số lạ Datamuse bỏ qua). Hỏng 1 lần → nghỉ 5 phút, không bắn thêm lỗi console. → JSON | null. Test: scripts/test/datamuse-resilience.mjs
+  let dmOff = 0;
+  const dm = async (q, { ms = 4000, retry = false } = {}) => {
+    if (g.navigator && g.navigator.onLine === false || !retry && Date.now() < dmOff) return null;
+    const r = await fetchJSON(`https://api.datamuse.com/${q}&o=${encodeURIComponent((g.location || {}).origin || '')}`, ms);
+    dmOff = r === null ? Date.now() + 3e5 : 0;
+    return r;
+  };
+  // Cụm nhiều chữ: không gọi dictionaryapi.dev (chỉ mục một từ); Wiktionary chỉ khi trang của cụm tồn tại (query 200 + missing)
+  const isPhrase = w => /\s/.test(String(w || '').trim());
+  const wikiPages = new Map();
+  const wikiHas = word => {
+    if (!isPhrase(word)) return Promise.resolve(true);
+    if (!wikiPages.has(word)) wikiPages.set(word, fetchJSON(`https://en.wiktionary.org/w/api.php?action=query&titles=${encodeURIComponent(word)}&format=json&formatversion=2&origin=*`, 4000).then(d => {
+      const p = d && d.query && Array.isArray(d.query.pages) ? d.query.pages[0] : null;
+      if (!p) { wikiPages.delete(word); return false; }
+      return !p.missing && !p.invalid;
+    }));
+    return wikiPages.get(word);
   };
 
   // Ngôn ngữ NGHĨA: chuỗi dự phòng giao diện → en, KHÔNG BAO GIỜ vi cho người dùng không-vi (trừ khi họ tự chọn nghĩa tiếng Việt trong Cài đặt).
   // Ngữ cảnh không có I18N (service worker, content script) giữ hành vi cũ (vi).
   const wantVi = () => !(g.I18N && g.I18N.meanLang && g.I18N.meanLang() !== 'vi');
-  const GTX = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&hl=vi&dj=1'; // dịch câu ví dụ sang vi (translateVi)
-  const GTX_DICT = () => (wantVi() ? GTX : 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=en&hl=en&dj=1'); // từ điển Oxford: tên từ loại/ví dụ theo hl
+  // Web/app: proxy /api/dictlookup (lý do: functions/api/dictlookup.js); add-on: gọi thẳng (host_permissions)
+  const EXT = !!(g.location && /^(chrome|moz)-extension:$/.test(location.protocol));
+  const DL = ((g.location && /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname)) ? '' : 'https://lexkite.com') + '/api/dictlookup';
+  const gtxURL = (sl, tl, extra = '') => (EXT ? 'https://translate.googleapis.com/translate_a/single?client=gtx' : `${DL}?src=gtx`) + `&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}${extra}`;
+  const dapiURL = word => (EXT ? `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}` : `${DL}?src=dapi&w=${encodeURIComponent(word)}`);
+  const GTX = gtxURL('en', 'vi', '&hl=vi&dj=1'); // dịch câu ví dụ sang vi (translateVi)
+  const GTX_DICT = () => (wantVi() ? GTX : gtxURL('en', 'en', '&hl=en&dj=1')); // từ điển Oxford: tên từ loại/ví dụ theo hl
   const VI_DIA = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
   const VI_POS = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase', 'tiền tố': 'prefix', 'hậu tố': 'suffix' };
   const posEn = p => (typeof p === 'string' ? VI_POS[p.normalize('NFC').toLowerCase().trim()] || p : p);
@@ -85,14 +111,14 @@
   const POS_EN = { Noun: 'noun', Verb: 'verb', Adjective: 'adjective', Adverb: 'adverb', 'Proper noun': 'noun', Preposition: 'preposition', Conjunction: 'conjunction', Pronoun: 'pronoun', Interjection: 'interjection', n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' };
   async function rareDefs(word) {
     const strip = h => String(h || '').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
-    const wk = await fetchJSON(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`, 3500);
+    const wk = (await wikiHas(word)) ? await fetchJSON(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`, 3500) : null;
     const en = wk && (wk.en || wk[Object.keys(wk).find(k => k === 'en')]);
     if (Array.isArray(en) && en.length) {
       const meanings = en.slice(0, 4).map(m => ({ pos: POS_EN[m.partOfSpeech] || String(m.partOfSpeech || '').toLowerCase(), defs: (m.definitions || []).map(d => ({ def: strip(d.definition), ex: strip((d.examples || [])[0] || '') })).filter(d => d.def).slice(0, 3) })).filter(m => m.defs.length);
       if (meanings.length) return { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings, syn: [], src: 'Wiktionary' };
     }
-    const dm = await fetchJSON(`https://api.datamuse.com/words?sp=${encodeURIComponent(word)}&md=dp&max=1`, 3000);
-    const row = Array.isArray(dm) && dm[0] && dm[0].word === word.toLowerCase() ? dm[0] : null;
+    const wn = await dm(`words?sp=${encodeURIComponent(word)}&md=dp&max=1`, { ms: 3000 });
+    const row = Array.isArray(wn) && wn[0] && wn[0].word === word.toLowerCase() ? wn[0] : null;
     if (row && row.defs && row.defs.length) {
       const by = {}; row.defs.forEach(x => { const [p2, d] = x.split('\t'); (by[POS_EN[p2] || p2] = by[POS_EN[p2] || p2] || []).push({ def: d, ex: '' }); });
       return { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings: Object.entries(by).map(([pos, defs]) => ({ pos, defs: defs.slice(0, 3) })), syn: [], src: 'WordNet' };
@@ -101,7 +127,8 @@
   }
 
   async function fromFreeDict(word) {
-    const data = await fetchJSON(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, 3000);
+    if (isPhrase(word)) return null;
+    const data = await fetchJSON(dapiURL(word), 3500);
     if (!Array.isArray(data) || !data.length) return null;
     const out = { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings: [], syn: [] };
     for (const entry of data) {
@@ -173,6 +200,7 @@
   };
   const commonsURL = f => { const n = f.trim().replace(/ /g, '_'), name = n[0].toUpperCase() + n.slice(1), h = md5(name); return `https://upload.wikimedia.org/wikipedia/commons/${h[0]}/${h.slice(0, 2)}/${encodeURIComponent(name)}`; };
   async function wiktIPA(word) {
+    if (!(await wikiHas(word))) return null;
     const d = await fetchJSON(`https://en.wiktionary.org/w/api.php?action=parse&page=${encodeURIComponent(word)}&prop=wikitext&format=json&formatversion=2&origin=*`, 6000);
     const text = d && d.parse && d.parse.wikitext;
     if (!text) return null;
@@ -279,7 +307,7 @@
     if (tl === 'vi' && sl === 'en') return translateVi(text);
     const k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
     const dv = await deviceTranslate(text, tl, sl); if (dv) { trCache.set(k, dv); return dv; }
-    const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
+    const d = await fetchJSON(`${gtxURL(sl, tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
     let r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
     if (!r) r = await myMemory(text, tl, sl);
     if (r) trCache.set(k, r);
@@ -290,7 +318,7 @@
   async function translateAuto(text, tl = 'vi', hint = '') {
     text = String(text || '').trim();
     if (!text) return { text: '', src: baseLang(hint), tl };
-    const gtx = async (sl, to) => { const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(to)}&dj=1&dt=t&q=${encodeURIComponent(text)}`); return d ? { t: (d.sentences || []).map(x => x.trans || '').join('').trim(), src: baseLang(d.src) } : null; };
+    const gtx = async (sl, to) => { const d = await fetchJSON(`${gtxURL(sl, to)}&dj=1&dt=t&q=${encodeURIComponent(text)}`); return d ? { t: (d.sentences || []).map(x => x.trans || '').join('').trim(), src: baseLang(d.src) } : null; };
     const fallback = async (to, sl) => (sl && sl !== 'auto' ? (await deviceTranslate(text, to, sl)) || (await myMemory(text, to, sl)) : '');
     const r = await gtx('auto', tl), src = (r && r.src) || baseLang(hint);
     if (src && src === baseLang(tl)) {
@@ -544,5 +572,5 @@
     return null;
   }
   const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
-  g.Dict = { buildEntry: build, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { dm, dapiURL, buildEntry: build, gtxURL, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

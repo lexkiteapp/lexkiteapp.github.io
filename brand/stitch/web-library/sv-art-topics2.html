@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Kit — Illustrated Badges (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F0;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full bg-[#FFF8F0] flex items-center justify-center p-6 md:p-12 selection:bg-[#2BA39A]/20">
+
+  <main class="w-full max-w-5xl mx-auto flex items-center justify-center">
+    <!-- 6 Glossy Illustrated Badges Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 w-full place-items-center">
+
+      <!-- Badge 1: Folded Newspaper (Deep Cobalt & Teal Crisp Gloss) -->
+      <div class="w-full max-w-[240px] aspect-square rounded-[36px] bg-[#FFFFFF] border-2 border-[#E1D9CD] shadow-[0_12px_0_0_#D5CBB9,0_20px_25px_-5px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-[0_14px_0_0_#D5CBB9] active:translate-y-2 active:shadow-[0_4px_0_0_#D5CBB9]">
+        <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="newsBg" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#3B82F6"/>
+              <stop offset="1" stop-color="#1D4ED8"/>
+            </linearGradient>
+            <linearGradient id="paperGrad" x1="40" y1="36" x2="120" y2="124" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#F1F5F9"/>
+            </linearGradient>
+            <linearGradient id="foldGrad" x1="88" y1="36" x2="124" y2="72" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E2E8F0"/>
+              <stop offset="1" stop-color="#CBD5E1"/>
+            </linearGradient>
+          </defs>
+          <!-- Badge Base Backing Tile -->
+          <rect x="8" y="8" width="144" height="144" rx="30" fill="url(#newsBg)"/>
+          <!-- Top Gloss Arc -->
+          <path d="M12 36C12 22.7452 22.7452 12 36 12H124C137.255 12 148 22.7452 148 36V50C148 50 108 38 80 38C52 38 12 50 12 50V36Z" fill="white" fill-opacity="0.22"/>
+          
+          <!-- Newspaper Body Shadow -->
+          <rect x="28" y="38" width="94" height="92" rx="14" fill="#0F172A" fill-opacity="0.25"/>
+          <!-- Newspaper Main Sheet -->
+          <rect x="28" y="32" width="94" height="92" rx="14" fill="url(#paperGrad)" stroke="#1E293B" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Fold Corner Flap -->
+          <path d="M90 32H110C116.627 32 122 37.3726 122 44V64L90 32Z" fill="url(#foldGrad)"/>
+          <path d="M90 32V56C90 60.4183 93.5817 64 98 64H122" stroke="#1E293B" stroke-width="4" stroke-linejoin="round"/>
+          
+          <!-- Header Banner Block -->
+          <rect x="40" y="44" width="42" height="14" rx="4" fill="#0D9488"/>
+          <!-- Newspaper Photo Box -->
+          <rect x="40" y="66" width="34" height="28" rx="6" fill="#38BDF8" stroke="#1E293B" stroke-width="3"/>
+          <circle cx="50" cy="76" r="4" fill="#FEF08A"/>
+          <path d="M43 91L52 82L62 91H43Z" fill="#0284C7"/>
+          
+          <!-- Text Columns / Bars -->
+          <rect x="80" y="68" width="30" height="5" rx="2.5" fill="#334155"/>
+          <rect x="80" y="78" width="28" height="5" rx="2.5" fill="#64748B"/>
+          <rect x="80" y="88" width="22" height="5" rx="2.5" fill="#64748B"/>
+          
+          <!-- Bottom Article Bars -->
+          <rect x="40" y="102" width="70" height="5" rx="2.5" fill="#334155"/>
+          <rect x="40" y="111" width="54" height="5" rx="2.5" fill="#94A3B8"/>
+        </svg>
+      </div>
+
+      <!-- Badge 2: City Skyline with Three Towers (Sunny Amber & Tangerine Gloss) -->
+      <div class="w-full max-w-[240px] aspect-square rounded-[36px] bg-[#FFFFFF] border-2 border-[#E1D9CD] shadow-[0_12px_0_0_#D5CBB9,0_20px_25px_-5px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-[0_14px_0_0_#D5CBB9] active:translate-y-2 active:shadow-[0_4px_0_0_#D5CBB9]">
+        <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skyBg" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F97316"/>
+              <stop offset="1" stop-color="#EA580C"/>
+            </linearGradient>
+            <linearGradient id="centerTower" x1="64" y1="28" x2="96" y2="128" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#E2E8F0"/>
+            </linearGradient>
+            <linearGradient id="leftTower" x1="30" y1="52" x2="60" y2="128" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F1F5F9"/>
+              <stop offset="1" stop-color="#CBD5E1"/>
+            </linearGradient>
+            <linearGradient id="rightTower" x1="100" y1="46" x2="130" y2="128" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F1F5F9"/>
+              <stop offset="1" stop-color="#CBD5E1"/>
+            </linearGradient>
+          </defs>
+          <!-- Badge Base Backing Tile -->
+          <rect x="8" y="8" width="144" height="144" rx="30" fill="url(#skyBg)"/>
+          <!-- Top Gloss Arc -->
+          <path d="M12 36C12 22.7452 22.7452 12 36 12H124C137.255 12 148 22.7452 148 36V50C148 50 108 38 80 38C52 38 12 50 12 50V36Z" fill="white" fill-opacity="0.25"/>
+          
+          <!-- Sun Disc in Background -->
+          <circle cx="112" cy="44" r="14" fill="#FEF08A" stroke="#EA580C" stroke-width="3"/>
+
+          <!-- Base Horizon Platform Shadow -->
+          <rect x="22" y="124" width="116" height="8" rx="4" fill="#9A3412"/>
+
+          <!-- Left Tower -->
+          <rect x="30" y="54" width="30" height="70" rx="6" fill="url(#leftTower)" stroke="#1E293B" stroke-width="4"/>
+          <!-- Left Tower Spire / Peak -->
+          <path d="M37 54L45 42L53 54H37Z" fill="#38BDF8" stroke="#1E293B" stroke-width="3" stroke-linejoin="round"/>
+          <!-- Left Windows -->
+          <rect x="37" y="64" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="47" y="64" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="37" y="78" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="47" y="78" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="37" y="92" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="47" y="92" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="37" y="106" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="47" y="106" width="6" height="8" rx="2" fill="#0284C7"/>
+
+          <!-- Right Tower -->
+          <rect x="100" y="48" width="30" height="76" rx="6" fill="url(#rightTower)" stroke="#1E293B" stroke-width="4"/>
+          <!-- Right Tower Slant Roof -->
+          <path d="M100 48L120 36L130 48H100Z" fill="#38BDF8" stroke="#1E293B" stroke-width="3" stroke-linejoin="round"/>
+          <!-- Right Windows -->
+          <rect x="107" y="58" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="117" y="58" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="107" y="72" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="117" y="72" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="107" y="86" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="117" y="86" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="107" y="100" width="6" height="8" rx="2" fill="#0284C7"/>
+          <rect x="117" y="100" width="6" height="8" rx="2" fill="#0284C7"/>
+
+          <!-- Center Tower (Hero Tallest) -->
+          <rect x="62" y="32" width="36" height="92" rx="7" fill="url(#centerTower)" stroke="#1E293B" stroke-width="4"/>
+          <!-- Needle Antenna -->
+          <line x1="80" y1="18" x2="80" y2="32" stroke="#1E293B" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="80" cy="18" r="4" fill="#EF4444" stroke="#1E293B" stroke-width="2"/>
+          <!-- Center Crown Band -->
+          <rect x="65" y="38" width="30" height="8" rx="2" fill="#0D9488"/>
+          <!-- Center Windows -->
+          <rect x="70" y="52" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="83" y="52" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="70" y="67" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="83" y="67" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="70" y="82" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="83" y="82" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="70" y="97" width="7" height="9" rx="2" fill="#0D9488"/>
+          <rect x="83" y="97" width="7" height="9" rx="2" fill="#0D9488"/>
+        </svg>
+      </div>
+
+      <!-- Badge 3: Classical Temple with Columns (Rich Violet & Plum Gloss) -->
+      <div class="w-full max-w-[240px] aspect-square rounded-[36px] bg-[#FFFFFF] border-2 border-[#E1D9CD] shadow-[0_12px_0_0_#D5CBB9,0_20px_25px_-5px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-[0_14px_0_0_#D5CBB9] active:translate-y-2 active:shadow-[0_4px_0_0_#D5CBB9]">
+        <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="templeBg" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8B5CF6"/>
+              <stop offset="1" stop-color="#6D28D9"/>
+            </linearGradient>
+            <linearGradient id="marble" x1="30" y1="30" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#EDE9FE"/>
+            </linearGradient>
+          </defs>
+          <!-- Badge Base Backing Tile -->
+          <rect x="8" y="8" width="144" height="144" rx="30" fill="url(#templeBg)"/>
+          <!-- Top Gloss Arc -->
+          <path d="M12 36C12 22.7452 22.7452 12 36 12H124C137.255 12 148 22.7452 148 36V50C148 50 108 38 80 38C52 38 12 50 12 50V36Z" fill="white" fill-opacity="0.22"/>
+          
+          <!-- Triangular Pediment Roof -->
+          <path d="M80 26L26 58H134L80 26Z" fill="url(#marble)" stroke="#1E293B" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Inner Pediment Medallion -->
+          <circle cx="80" cy="46" r="6" fill="#FBBF24" stroke="#1E293B" stroke-width="2.5"/>
+
+          <!-- Architrave Beam Under Roof -->
+          <rect x="28" y="58" width="104" height="10" rx="3" fill="#DDD6FE" stroke="#1E293B" stroke-width="3.5"/>
+
+          <!-- 4 Classical Pillars -->
+          <!-- Pillar 1 -->
+          <rect x="36" y="68" width="14" height="46" rx="3" fill="url(#marble)" stroke="#1E293B" stroke-width="3.5"/>
+          <line x1="43" y1="72" x2="43" y2="110" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/>
+          <!-- Pillar 2 -->
+          <rect x="58" y="68" width="14" height="46" rx="3" fill="url(#marble)" stroke="#1E293B" stroke-width="3.5"/>
+          <line x1="65" y1="72" x2="65" y2="110" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/>
+          <!-- Pillar 3 -->
+          <rect x="88" y="68" width="14" height="46" rx="3" fill="url(#marble)" stroke="#1E293B" stroke-width="3.5"/>
+          <line x1="95" y1="72" x2="95" y2="110" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/>
+          <!-- Pillar 4 -->
+          <rect x="110" y="68" width="14" height="46" rx="3" fill="url(#marble)" stroke="#1E293B" stroke-width="3.5"/>
+          <line x1="117" y1="72" x2="117" y2="110" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Stepped Pedestal Base (3 Tiers) -->
+          <rect x="30" y="114" width="100" height="7" rx="2" fill="#DDD6FE" stroke="#1E293B" stroke-width="3"/>
+          <rect x="25" y="121" width="110" height="7" rx="2" fill="url(#marble)" stroke="#1E293B" stroke-width="3"/>
+          <rect x="20" y="128" width="120" height="7" rx="2.5" fill="#4C1D95" stroke="#1E293B" stroke-width="3"/>
+        </svg>
+      </div>
+
+      <!-- Badge 4: Three Linked Circles / Community (Vibrant Mint & Teal Gloss) -->
+      <div class="w-full max-w-[240px] aspect-square rounded-[36px] bg-[#FFFFFF] border-2 border-[#E1D9CD] shadow-[0_12px_0_0_#D5CBB9,0_20px_25px_-5px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-[0_14px_0_0_#D5CBB9] active:translate-y-2 active:shadow-[0_4px_0_0_#D5CBB9]">
+        <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="commBg" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#14B8A6"/>
+              <stop offset="1" stop-color="#0F766E"/>
+            </linearGradient>
+            <linearGradient id="nodeTop" x1="60" y1="24" x2="100" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#CCFBF1"/>
+            </linearGradient>
+            <linearGradient id="nodeLeft" x1="30" y1="84" x2="70" y2="124" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#CCFBF1"/>
+            </linearGradient>
+            <linearGradient id="nodeRight" x1="90" y1="84" x2="130" y2="124" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#CCFBF1"/>
+            </linearGradient>
+          </defs>
+          <!-- Badge Base Backing Tile -->
+          <rect x="8" y="8" width="144" height="144" rx="30" fill="url(#commBg)"/>
+          <!-- Top Gloss Arc -->
+          <path d="M12 36C12 22.7452 22.7452 12 36 12H124C137.255 12 148 22.7452 148 36V50C148 50 108 38 80 38C52 38 12 50 12 50V36Z" fill="white" fill-opacity="0.25"/>
+
+          <!-- Triad Linking Bridge Channels -->
+          <path d="M80 44L50 104H110L80 44Z" stroke="#042F2E" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M80 44L50 104H110L80 44Z" stroke="#FDE047" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+
+          <!-- Top Node -->
+          <g>
+            <circle cx="80" cy="44" r="22" fill="url(#nodeTop)" stroke="#1E293B" stroke-width="4"/>
+            <circle cx="80" cy="44" r="11" fill="#0D9488" stroke="#1E293B" stroke-width="2.5"/>
+            <circle cx="80" cy="44" r="4" fill="#FFFFFF"/>
+          </g>
+
+          <!-- Bottom Left Node -->
+          <g>
+            <circle cx="50" cy="104" r="22" fill="url(#nodeLeft)" stroke="#1E293B" stroke-width="4"/>
+            <circle cx="50" cy="104" r="11" fill="#F97316" stroke="#1E293B" stroke-width="2.5"/>
+            <circle cx="50" cy="104" r="4" fill="#FFFFFF"/>
+          </g>
+
+          <!-- Bottom Right Node -->
+          <g>
+            <circle cx="110" cy="104" r="22" fill="url(#nodeRight)" stroke="#1E293B" stroke-width="4"/>
+            <circle cx="110" cy="104" r="11" fill="#3B82F6" stroke="#1E293B" stroke-width="2.5"/>
+            <circle cx="110" cy="104" r="4" fill="#FFFFFF"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 5: Pair of Theatre Masks (Coral Rose & Ruby Gloss) -->
+      <div class="w-full max-w-[240px] aspect-square rounded-[36px] bg-[#FFFFFF] border-2 border-[#E1D9CD] shadow-[0_12px_0_0_#D5CBB9,0_20px_25px_-5px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-[0_14px_0_0_#D5CBB9] active:translate-y-2 active:shadow-[0_4px_0_0_#D5CBB9]">
+        <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="theatreBg" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F43F5E"/>
+              <stop offset="1" stop-color="#BE123C"/>
+            </linearGradient>
+            <linearGradient id="comedyMask" x1="34" y1="36" x2="88" y2="114" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF"/>
+              <stop offset="1" stop-color="#FFF1F2"/>
+            </linearGradient>
+            <linearGradient id="tragedyMask" x1="74" y1="52" x2="128" y2="130" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFE4E6"/>
+              <stop offset="1" stop-color="#FECDD3"/>
+            </linearGradient>
+          </defs>
+          <!-- Badge Base Backing Tile -->
+          <rect x="8" y="8" width="144" height="144" rx="30" fill="url(#theatreBg)"/>
+          <!-- Top Gloss Arc -->
+          <path d="M12 36C12 22.7452 22.7452 12 36 12H124C137.255 12 148 22.7452 148 36V50C148 50 108 38 80 38C52 38 12 50 12 50V36Z" fill="white" fill-opacity="0.22"/>
+
+          <!-- Back Mask: Tragedy (Sad) -->
+          <g>
+            <path d="M80 56C80 44 92 40 104 40C116 40 128 44 128 56C128 78 126 112 104 116C82 112 80 78 80 56Z" fill="url(#tragedyMask)" stroke="#1E293B" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Sad Crown Brow Ribbon -->
+            <path d="M86 48C98 44 110 44 122 48" stroke="#0D9488" stroke-width="3" stroke-linecap="round"/>
+            <!-- Slanted Sad Eyes -->
+            <ellipse cx="94" cy="62" rx="4" ry="5.5" transform="rotate(-15 94 62)" fill="#1E293B"/>
+            <ellipse cx="114" cy="62" rx="4" ry="5.5" transform="rotate(15 114 62)" fill="#1E293B"/>
+            <!-- Nose -->
+            <path d="M104 68V76" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Sad Down-turned Mouth -->
+            <path d="M96 92C99 85 109 85 112 92" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Front Mask: Comedy (Happy Smiling) -->
+          <g>
+            <path d="M34 44C34 32 46 28 58 28C70 28 82 32 82 44C82 66 80 100 58 104C36 100 34 66 34 44Z" fill="url(#comedyMask)" stroke="#1E293B" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Happy Crown Brow Ribbon -->
+            <path d="M40 36C52 32 64 32 76 36" stroke="#E11D48" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Happy Curved Eyes (Crescents) -->
+            <path d="M44 50C46 45 52 45 54 50" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M62 50C64 45 70 45 72 50" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Nose -->
+            <path d="M58 56V64" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Big Joyful Open Smile -->
+            <path d="M46 72C46 84 70 84 70 72Z" fill="#1E293B"/>
+            <path d="M46 72H70" stroke="#1E293B" stroke-width="3" stroke-linecap="round"/>
+            <path d="M52 79C55 83 61 83 64 79" fill="#FB7185"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 6: Golden Trophy (Warm Gold & Honey Amber Gloss) -->
+      <div class="w-full max-w-[240px] aspect-square rounded-[36px] bg-[#FFFFFF] border-2 border-[#E1D9CD] shadow-[0_12px_0_0_#D5CBB9,0_20px_25px_-5px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-[0_14px_0_0_#D5CBB9] active:translate-y-2 active:shadow-[0_4px_0_0_#D5CBB9]">
+        <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="goldBg" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#EAB308"/>
+              <stop offset="1" stop-color="#CA8A04"/>
+            </linearGradient>
+            <linearGradient id="trophyGold" x1="48" y1="24" x2="112" y2="88" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FEF08A"/>
+              <stop offset="0.5" stop-color="#FBBF24"/>
+              <stop offset="1" stop-color="#F59E0B"/>
+            </linearGradient>
+            <linearGradient id="cupRim" x1="48" y1="24" x2="112" y2="34" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFBEB"/>
+              <stop offset="1" stop-color="#FDE68A"/>
+            </linearGradient>
+          </defs>
+          <!-- Badge Base Backing Tile -->
+          <rect x="8" y="8" width="144" height="144" rx="30" fill="url(#goldBg)"/>
+          <!-- Top Gloss Arc -->
+          <path d="M12 36C12 22.7452 22.7452 12 36 12H124C137.255 12 148 22.7452 148 36V50C148 50 108 38 80 38C52 38 12 50 12 50V36Z" fill="white" fill-opacity="0.25"/>
+
+          <!-- Radiating Twinkle Star Sparkles -->
+          <path d="M30 32L32 24L34 32L42 34L34 36L32 44L30 36L22 34L30 32Z" fill="#FEF9C3"/>
+          <path d="M130 36L131.5 30L133 36L139 37.5L133 39L131.5 45L130 39L124 37.5L130 36Z" fill="#FEF9C3"/>
+
+          <!-- Trophy Handles (Ears) -->
+          <path d="M48 38H34C28.4772 38 24 42.4772 24 48V52C24 63.0457 32.9543 72 44 72H52" stroke="#1E293B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M48 44H36C33.7909 44 32 45.7909 32 48V50C32 56.6274 37.3726 62 44 62H50" stroke="#FDE68A" stroke-width="3" stroke-linecap="round"/>
+
+          <path d="M112 38H126C131.523 38 136 42.4772 136 48V52C136 63.0457 127.046 72 116 72H108" stroke="#1E293B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M112 44H124C126.209 44 128 45.7909 128 48V50C128 56.6274 122.627 62 116 62H110" stroke="#FDE68A" stroke-width="3" stroke-linecap="round"/>
+
+          <!-- Cup Body (Chalice) -->
+          <path d="M46 28H114V56C114 74.7777 98.7777 90 80 90C61.2223 90 46 74.7777 46 56V28Z" fill="url(#trophyGold)" stroke="#1E293B" stroke-width="4.5" stroke-linejoin="round"/>
+          <!-- Top Lip of Cup -->
+          <ellipse cx="80" cy="28" rx="34" ry="7" fill="url(#cupRim)" stroke="#1E293B" stroke-width="4"/>
+          <!-- Shiny Highlight Streak on Cup -->
+          <path d="M54 36C54 48 58 68 66 76" stroke="white" stroke-width="4" stroke-linecap="round" stroke-opacity="0.8"/>
+
+          <!-- Center Star Emblem on Cup -->
+          <path d="M80 44L83 52H91L84.5 57L87 65L80 60.5L73 65L75.5 57L69 52H77L80 44Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" stroke-linejoin="round"/>
+
+          <!-- Stem -->
+          <rect x="73" y="90" width="14" height="16" rx="2" fill="#D97706" stroke="#1E293B" stroke-width="4"/>
+          <!-- Stem Ring -->
+          <ellipse cx="80" cy="98" rx="10" ry="3.5" fill="#FEF08A" stroke="#1E293B" stroke-width="2.5"/>
+
+          <!-- Base Tier 1 (Neck) -->
+          <path d="M64 106L68 116H92L96 106H64Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round"/>
+
+          <!-- Base Tier 2 (Plinth Marble Block) -->
+          <rect x="52" y="116" width="56" height="18" rx="4" fill="#334155" stroke="#1E293B" stroke-width="4"/>
+          <!-- Plinth Golden Plaque -->
+          <rect x="60" y="121" width="40" height="8" rx="2" fill="#FDE047" stroke="#1E293B" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

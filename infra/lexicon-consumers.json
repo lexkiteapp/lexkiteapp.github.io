@@ -1,6 +1,16 @@
 {
  "_doc": "Việc hạ nguồn của kho từ (docs/JOBS.md §Đồ thị kho từ). Mọi script đọc kho (loadAll/loadBrowserIndex/dist/lexicon.json/IELTS_DATA.INDEX) PHẢI có ở đây: via = đường nạp có mục mở rộng (expand-aware), hoặc skip + lý do. scripts/test/lexicon-expand.mjs đỏ khi script mới đọc kho mà chưa đăng ký, khi via không còn trong mã, hoặc khi mục từ có TRƯỜNG mới chưa khai trong fields.",
  "consumers": {
+  "scripts/content-score.mjs": {
+   "what": "content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh)",
+   "via": "loadAllPlus",
+   "job": "content-qa.yml (score)"
+  },
+  "scripts/content-qa/lkf-check.mjs": {
+   "what": "reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do",
+   "via": "loadAllPlus",
+   "job": "npm test + content-qa.yml (score)"
+  },
   "scripts/lexicon/shards.mjs": {
    "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ",
    "via": "loadExpand",
@@ -16,8 +26,8 @@
    "via": "loadExpand",
    "job": "build / npm test"
   },
-  "scripts/build-seo-pages.mjs": {
-   "what": "/<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt)",
+  "scripts/lib/seo-words.mjs": {
+   "what": "/<lang>/words/ (build-seo-pages: trang + sitemap-words + IndexNow .seo-urls.txt) + hộp từ blog 13 ngôn ngữ (build-blog qua lib/blog-words.mjs)",
    "via": "loadBrowserIndex",
    "job": "build-web → indexnow"
   },
@@ -169,6 +179,22 @@
    "what": "trích Open English WordNet → content/dict/wordnet.json, chỉ giữ từ đơn có trong kho (docs/SEO-DICT-PAGES.md)",
    "via": "loadBrowserIndex",
    "job": "tay (chạy lại khi kho từ lớn thêm) → build.mjs đọc file đã commit"
+  },
+  "scripts/sentence-audio/render.mjs": {
+   "what": "phiên âm từ điển (Anh/Mỹ) cho phương án render lại cụm ≤ 3 chữ trượt cổng ASR câu",
+   "via": "loadAllPlus",
+   "job": "sentence-audio-asr mỗi 4 giờ"
+  },
+  "scripts/tts-ab/coverage.mjs": {
+   "what": "docs/TTS-AB.md §Độ phủ – % chuỗi app phát có giọng Kokoro dựng sẵn (từ đơn audio/w + câu ví dụ audio/l của mọi từ trong chỉ mục tra từ)",
+   "via": "loadBrowserIndex",
+   "job": "tts-ab (độ phủ)"
+  },
+  "scripts/lexicon/core.mjs": {
+   "skip": "danh sách từ lõi cho lô nghĩa gold P0.2 chỉ chọn từ kho viết tay (loadAll) – mục mở rộng 20k chưa vào lô gold"
+  },
+  "scripts/content-qa/sense-check.mjs": {
+   "skip": "cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus"
   }
  },
  "todo": {

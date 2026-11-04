@@ -1,3 +1,3 @@
-/* UI hi – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"Cấu trúc":"संरचना","Xem giải thích chi tiết":"पूरी व्याख्या देखें","Vì sao lựa chọn của bạn sai":"आपका विकल्प गलत क्यों है","Bằng chứng trong bài":"पाठ में प्रमाण","Sắc thái nghĩa":"अर्थ की बारीकी","Ví dụ thêm":"और उदाहरण","Cùng nhóm":"समान पैटर्न","Thêm vào ôn tập":"दोहराव में जोड़ें","Báo lỗi giải thích":"इस व्याख्या में गलती बताएँ","Nghe ví dụ":"उदाहरण सुनें"});
+/* SINH từ i18n/ui/hi/explain.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"_19q4gg9":"संरचना","_alp76b":"पूरी व्याख्या देखें","_kznktn":"आपका विकल्प गलत क्यों है","_xp0oh3":"पाठ में प्रमाण","_1ob6vgt":"अर्थ की बारीकी","_44ncyk":"और उदाहरण","_34zw0g":"समान पैटर्न","_13yzwdi":"दोहराव में जोड़ें","_11weuv7":"इस व्याख्या में गलती बताएँ","_1de95jp":"उदाहरण सुनें"});
 })(typeof self !== 'undefined' ? self : this);

@@ -8055,3 +8055,690 @@ dawn	ok	ok
 weed	ok	ok
 rip	cut_wordis:"Drip" 0.48s · cut_wordis:"Drip" 0.41s · dot100:"Ripped" 0.72s · cut_wordis100:"Drip" 0.46s · cut_wordis100:"Drip" 0.41s · cut_next: câu mang: "Next word, rippy." · plain095:"Ripped" 0.58s · dot090:"The Rip" 0.86s	ok
 financially	ok	ok
+cherry	ok	ok
+pearl	ok	ok
+eagle	ok	ok
+deer	cut_wordis:"Dear." 0.70s · cut_wordis:"Dear." 0.65s · dot100:"Dear." 0.65s · cut_wordis100: câu mang: "The word is dear." · cut_next: câu mang: "Next word, dear." · plain095:"Dear" 0.62s · dot090:"Dear." 0.70s	cut_wordis: câu mang: "The word is dear." · dot100:"Dear" 0.58s · cut_wordis100: câu mang: "The word is dear." · cut_next: câu mang: "Next word, dear." · plain095:"Dear" 0.62s · dot090:"Dear" 0.65s
+humble	ok	ok
+pine	ok	ok
+invisible	ok	ok
+console	ok	ok
+pastor	ok	ok
+rainbow	ok	ok
+medieval	ok	ok
+ignorance	ok	ok
+mansion	ok	ok
+width	ok	cut_wordis: câu mang: "The word is with." · dot100:"With." 0.65s · cut_wordis100: câu mang: "The word is with." · cut_next:"With" 0.41s · cut_next:"With" 0.38s · plain095:"Wet thee." 0.65s · dot090:"Wet." 0.72s
+jaw	ok	ok
+berry	ok	ok
+oath	cut_wordis: câu mang: "The word is oathy." · dot100:"Ooh." 0.79s · cut_wordis100:"It's oathy." 0.72s · cut_wordis100:"I will see." 0.65s · cut_next: câu mang: "Next word, Othea." · plain095:"Loose" 0.60s · dot090:"Hello youth!" 0.70s	ok
+ballet	ok	ok
+battlefield	ok	ok
+hay	cut_wordis: câu mang: "The word is hey." · dot100:"Hey." 0.84s · cut_wordis100: câu mang: "The word is hey." · cut_next: câu mang: "Next word hey" · plain095:"Hey." 0.55s · dot090:"Hey." 0.67s	cut_wordis: câu mang: "The word is hey" · dot100:"Hey." 0.58s · cut_wordis100: câu mang: "The word is hey." · cut_next: câu mang: "Next word, hey." · plain095:"Hey." 0.58s · dot090:"Hey." 0.65s
+massacre	ok	ok
+burial	cut_wordis:"Sperials" 0.86s · cut_wordis:"Burials" 0.77s · dot100:"Burials" 1.06s · cut_wordis100:"Sperials" 0.82s · cut_wordis100:"Burials" 0.72s · cut_next: câu mang: "Next word, burials." · plain095:"Dverial" 0.67s · dot090:"The Burials" 0.82s	ok
+tomb	ok	ok
+owl	cut_wordis:"Owls" 0.84s · cut_wordis:"Owls" 0.77s · dot100:"Owls." 0.65s · cut_wordis100:"Owls" 0.72s · cut_wordis100:"Owls" 0.67s · cut_next:"Owls." 0.67s · cut_next:"Oi." 0.41s · plain095:"loud" 0.60s · dot090:"at Owls." 0.72s	ok
+swan	ok	ok
+obey	ok	ok
+lid	ok	ok
+melody	ok	ok
+penguin	ok	ok
+lick	ok	ok
+scar	ok	ok
+prestige	ok	ok
+coma	cut_wordis:"Comer." 0.79s · cut_wordis:"Cometh." 0.77s · dot100:"KOMA" 0.77s · cut_wordis100:"This coma." 0.82s · cut_wordis100:"KOMA" 0.70s · cut_next:"Redcomer" 0.89s · cut_next:"KOMA" 0.82s · plain095:"KOMA" 0.65s · dot090:"KOMA" 0.79s	ok
+thigh	ok	ok
+prose	cut_wordis: câu mang: "The word is prosely." · dot100:"pros" 1.01s · cut_wordis100:"Prose it" 0.74s · cut_next: câu mang: "Next word, Prosy" · plain095:"pros" 0.70s · dot090:"pros" 1.20s	cut_wordis:"Pros." 0.89s · cut_wordis:"pros" 0.72s · dot100:"pros" 0.72s · cut_wordis100:"Pros." 0.82s · cut_wordis100:"pros" 0.67s · cut_next: câu mang: "Next word, pros." · plain095:"pros" 0.72s · dot090:"pros" 0.79s
+forestry	ok	ok
+fibre	cut_wordis: câu mang: "The word is fiber." · dot100:"fiber" 0.72s · cut_wordis100: câu mang: "The word is fiber." · cut_next: câu mang: "Next word fiber" · plain095:"fiber" 0.67s · dot090:"fiber" 0.74s	cut_wordis: câu mang: "The word is fiber." · dot100:"Fiber." 0.67s · cut_wordis100: câu mang: "The word is fiber." · cut_next: câu mang: "Next word, fiber." · plain095:"Fiber." 0.70s · dot090:"Fiber." 0.74s
+cardboard	ok	ok
+artery	ok	ok
+duel	ok	cut_wordis: câu mang: "The word is dual." · dot100:"Do you all?" 0.62s · cut_wordis100: câu mang: "The word is dual." · cut_next: câu mang: "Next word, dual." · plain095:"DUAL" 0.65s · dot090:"The duel." 0.67s
+malaria	ok	ok
+rite	cut_wordis: câu mang: "The word is right." · dot100:"Right." 0.72s · cut_wordis100: câu mang: "The word is right." · cut_next: câu mang: "Next word, write." · plain095:"Right." 0.65s · dot090:"Right." 0.77s	cut_wordis: câu mang: "The word is, right." · dot100:"Right." 0.65s · cut_wordis100: câu mang: "The word is write." · cut_next: câu mang: "Next word, write." · plain095:"Right." 0.67s · dot090:"Right." 0.70s
+donkey	ok	ok
+moonlight	ok	ok
+overthrow	ok	ok
+soak	ok	ok
+bravery	ok	ok
+patriotism	ok	ok
+wartime	ok	ok
+blush	ok	ok
+desperation	ok	ok
+fragrance	ok	ok
+tyranny	ok	ok
+descend	ok	ok
+kangaroo	ok	ok
+crocodile	ok	ok
+paralysis	ok	ok
+sparrow	ok	ok
+biotechnology	ok	ok
+retina	ok	ok
+zebra	ok	ok
+botany	ok	ok
+birthplace	ok	ok
+eyebrow	ok	ok
+itch	cut_wordis: câu mang: "The word is itchy." · dot100:"Litch." 0.79s · cut_wordis100: câu mang: "The word is itchy." · cut_next: câu mang: "Next word, itchy." · plain095:"Literally." 0.60s · dot090:"An itch." 0.65s	cut_wordis:"It's it." 0.55s · cut_wordis:"It." 0.34s · dot100:"Itchy." 0.60s · cut_wordis100:"It's it." 0.46s · cut_wordis100:"It." 0.31s · cut_next:"It." 0.36s · plain095:"Itchy." 0.60s · dot090:"Yes!" 0.70s
+pancake	ok	ok
+crease	ok	ok
+moustache	ok	ok
+bloodstream	ok	ok
+synonym	ok	ok
+yawn	ok	ok
+ointment	ok	ok
+subculture	ok	ok
+hospitable	ok	ok
+gulp	ok	ok
+tiredness	ok	ok
+dandelion	ok	ok
+rhinoceros	ok	ok
+eyelash	ok	ok
+nostril	ok	ok
+snore	ok	ok
+fingernail	ok	ok
+hyphen	ok	ok
+toenail	ok	ok
+dehumanize	ok	ok
+genocide	ok	ok
+peninsula	ok	ok
+prophet	cut_wordis:"Profit" 0.58s · dot100:"Profit" 0.74s · cut_wordis100:"Profit" 0.60s · cut_wordis100:"Profit" 0.55s · cut_next: câu mang: "Next word, profit." · plain095:"Profit" 0.74s · dot090:"Profit" 0.82s	cut_wordis:"to profit." 0.82s · cut_wordis:"Profit." 0.65s · dot100:"Profit" 0.74s · cut_wordis100:"to profit." 0.74s · cut_wordis100:"Profit." 0.62s · cut_next: câu mang: "Next word, profit." · plain095:"Profit" 0.77s · dot090:"Profit" 0.84s
+goose	ok	ok
+dictatorship	ok	ok
+kidnap	ok	ok
+imbalance	ok	ok
+genome	ok	ok
+snail	ok	ok
+mythology	ok	ok
+sarcasm	ok	ok
+pigeon	ok	ok
+sap	cut_wordis: câu mang: "The word is sappi." · dot100:"Zap!" 0.74s · cut_wordis100: câu mang: "The word is sappu." · cut_next: câu mang: "Next word is sappu." · plain095:"Except..." 0.60s · dot090:"Is up." 0.67s	ok
+intuition	ok	ok
+remorse	ok	ok
+synopsis	ok	ok
+daydream	ok	ok
+crumb	ok	ok
+honk	cut_wordis: câu mang: "The word is honky." · dot100:"Hunky." 0.67s · cut_wordis100: câu mang: "The word is honky." · cut_next: câu mang: "Next word, honky." · plain095:"Hunk." 0.65s · dot090:"The hunky." 0.72s	ok
+haggle	ok	ok
+ore	cut_wordis: câu mang: "The word is or." · dot100:"Lord." 0.60s · cut_wordis100: câu mang: "The word is awe." · cut_next: câu mang: "Next word or" · plain095:"No." 0.53s · dot090:"No." 0.70s	cut_wordis: câu mang: "The word is OR." · dot100:"Or..." 0.60s · cut_wordis100: câu mang: "The word is, or." · cut_next: câu mang: "Next word, or." · plain095:"Or..." 0.60s · dot090:"Zor" 0.67s
+corpse	ok	ok
+insurgency	ok	ok
+nostalgia	ok	ok
+interrogate	ok	ok
+maggot	ok	ok
+resuscitate	ok	ok
+fourth	ok	ok
+cape	ok	ok
+goodbye	ok	ok
+eighth	cut_wordis: câu mang: "The word is ate thee." · dot100:"Lateth" 0.67s · cut_wordis100:"The eighth." 0.77s · cut_wordis100:"Eight." 0.70s · cut_next: câu mang: "Next word, ate thee." · plain095:"Lateth" 0.70s · dot090:"Later." 0.74s	cut_wordis:"Eight." 0.70s · cut_wordis:"Eight." 0.55s · dot100:"Eight." 0.67s · cut_wordis100:"8th" 0.60s · cut_wordis100:"Eight." 0.38s · cut_next:"8th" 0.41s · plain095:"8." 0.65s · dot090:"An Eita." 0.72s
+rifle	ok	ok
+propaganda	ok	ok
+throne	ok	ok
+shark	ok	ok
+inn	cut_wordis: câu mang: "The word is in." · dot100:"End." 0.79s · cut_wordis100: câu mang: "The word is in." · cut_next: câu mang: "Next word, in." · plain095:"Then..." 0.55s · dot090:"It'll end." 0.65s	cut_wordis: câu mang: "The word is in." · dot100:"End." 0.55s · cut_wordis100: câu mang: "The word is in." · cut_next: câu mang: "Next word, in." · plain095:"End." 0.58s · dot090:"The End" 0.62s
+ninth	cut_wordis: câu mang: "The word is ninthy." · dot100:"9th" 0.96s · cut_wordis100:"9th" 0.74s · cut_wordis100:"9th" 0.72s · cut_next: câu mang: "Next word, ninthy." · plain095:"The Ninth." 0.70s · dot090:"9th" 0.82s	cut_wordis:"9th" 0.89s · cut_wordis:"9th" 0.70s · dot100:"9th" 0.70s · cut_wordis100:"9th" 0.84s · cut_wordis100:"9th" 0.67s · cut_next:"9th" 0.74s · plain095:"9th" 0.70s · dot090:"9th" 0.77s
+vampire	cut_wordis:"It's vampire." 0.98s · cut_wordis:"Vampires." 0.94s · dot100:"Vampires" 0.94s · cut_wordis100:"It's vampire." 0.89s · cut_wordis100:"Vampyre" 0.82s · cut_next:"and a vampire" 1.03s · cut_next:"Vampyre" 0.89s · plain095:"Vampyre" 0.84s · dot090:"Vampires" 1.08s	ok
+cannon	cut_wordis: câu mang: "The word is canon." · dot100:"Canons." 1.06s · cut_wordis100: câu mang: "The word is canon." · cut_next:"Canon." 0.77s · cut_next:"And." 0.53s · plain095:"Canon." 0.70s · dot090:"Canons" 0.82s	cut_wordis:"Scanon." 0.96s · cut_wordis:"Canon." 0.84s · dot100:"Canon." 0.65s · cut_wordis100: câu mang: "The word is canon." · cut_next:"Canon." 0.67s · cut_next:"Men." 0.41s · plain095:"Canon." 0.70s · dot090:"Canon." 0.72s
+platinum	ok	ok
+admiral	ok	ok
+telegraph	ok	ok
+perfection	ok	ok
+regiment	ok	ok
+theology	ok	ok
+plaza	ok	ok
+yang	cut_wordis:"Jiang." 0.77s · cut_wordis:"Diang" 0.72s · dot100:"Yangd" 0.67s · cut_wordis100:"Jiang." 0.65s · cut_wordis100:"Jiang" 0.62s · cut_next:"Youngs" 0.70s · cut_next:"Thanks." 0.41s · plain095:"Jiang" 0.67s · dot090:"Yang'd" 0.72s	ok
+geometry	ok	ok
+karma	ok	ok
+swamp	ok	ok
+battalion	ok	ok
+cuisine	ok	ok
+cavalry	ok	ok
+fascist	ok	ok
+python	ok	ok
+sociology	ok	ok
+mentality	ok	ok
+glucose	ok	ok
+ethnicity	ok	ok
+gravel	ok	ok
+millennium	ok	ok
+prairie	ok	ok
+wrath	cut_wordis:"Drath." 0.79s · cut_wordis:"Drath." 0.77s · dot100:"Rest." 0.84s · cut_wordis100:"Dress." 0.67s · cut_wordis100:"Drath" 0.65s · cut_next: câu mang: "Next word, Rathi." · plain095:"Rest." 0.65s · dot090:"Rest." 0.72s	ok
+prostate	ok	ok
+chord	cut_wordis: câu mang: "The word is cord." · dot100:"Code." 0.72s · cut_wordis100: câu mang: "The word is cord." · cut_next: câu mang: "Next word, accorda." · plain095:"recorded." 0.62s · dot090:"Code." 0.74s	ok
+womb	cut_wordis:"To womb." 0.74s · cut_wordis:"Woom." 0.70s · dot100:"Williams." 0.98s · cut_wordis100:"Twoom." 0.74s · cut_wordis100:"Woom." 0.70s · cut_next:"The womb." 0.84s · cut_next:"Woom." 0.72s · plain095:"Zwim" 0.72s · dot090:"Williams" 1.10s	ok
+abdomen	ok	ok
+reboot	ok	ok
+fingerprint	ok	ok
+horsepower	ok	ok
+nautical	ok	ok
+scalp	ok	ok
+octopus	ok	ok
+stalk	cut_wordis: câu mang: "The word is storky." · dot100:"Stork" 0.70s · cut_wordis100:"Stork." 0.65s · cut_wordis100:"stork" 0.55s · cut_next: câu mang: "Next word stalker" · plain095:"Stuck." 0.67s · dot090:"Let's talk." 0.74s	cut_wordis: câu mang: "The word is stock." · dot100:"stock" 0.72s · cut_wordis100: câu mang: "The word is stock." · cut_next: câu mang: "Next word, stock." · plain095:"stock" 0.72s · dot090:"is stock" 0.77s
+hound	ok	ok
+livelihood	ok	ok
+torso	ok	ok
+proletariat	cut_wordis: câu mang: "The word is pralteriat." · dot100:"Pralteriata" 1.18s · cut_wordis100:"Sproletariat" 0.96s · cut_wordis100:"Proteriat" 0.89s · cut_next: câu mang: "Next word, proteriat." · plain095:"Proteriat" 1.18s · dot090:"Pralteriata" 1.30s	ok
+ember	ok	ok
+teleport	ok	ok
+comedian	ok	ok
+bald	cut_wordis:"Bold." 0.84s · cut_wordis:"Bold." 0.74s · dot100:"Bold." 0.98s · cut_wordis100:"Bold." 0.74s · cut_wordis100:"Bold." 0.67s · cut_next: câu mang: "The next word, baldy." · plain095:"Bold." 0.70s · dot090:"Bold." 1.10s	ok
+niece	cut_wordis:"sneeze" 0.82s · cut_wordis:"Nice." 0.79s · dot100:"Nisa" 1.10s · cut_wordis100:"Nice." 0.70s · cut_wordis100:"Nice." 0.67s · cut_next: câu mang: "Next word, nieces." · plain095:"A niece." 0.65s · dot090:"Nisa" 1.22s	ok
+sticky	ok	ok
+newborn	ok	ok
+unlucky	ok	ok
+novelist	ok	ok
+cheerful	ok	ok
+chemist	ok	ok
+trustworthy	ok	ok
+tasteless	ok	ok
+therapist	ok	ok
+pirate	ok	ok
+corridor	ok	ok
+terrace	ok	ok
+backyard	ok	ok
+sincere	ok	ok
+worthless	ok	ok
+axe	cut_wordis: câu mang: "The word is Axie." · dot100:"Thanks." 0.65s · cut_wordis100: câu mang: "The word is Axie." · cut_next: câu mang: "Next word, axi." · plain095:"Lex." 0.58s · dot090:"Relax." 0.67s	ok
+harmless	ok	ok
+patriotic	ok	ok
+immortal	ok	ok
+literal	ok	ok
+arrogant	ok	ok
+millionaire	ok	ok
+patriot	ok	ok
+unsuccessful	ok	ok
+traitor	ok	ok
+irresponsible	ok	ok
+brewery	ok	ok
+monastery	ok	ok
+nightclub	ok	ok
+amazingly	ok	ok
+pedal	ok	ok
+cellar	cut_wordis: câu mang: "The word is sella." · dot100:"The Cellar" 0.67s · cut_wordis100: câu mang: "The word is seller." · cut_next: câu mang: "Next word, seller." · plain095:"The Cellar" 0.65s · dot090:"The Cellar" 0.72s	ok
+rib	cut_wordis: câu mang: "The word is ribby." · dot100:"ribber" 0.65s · cut_wordis100: câu mang: "The word is ribby." · cut_next: câu mang: "Next word, Ribby." · plain095:"Ribbit." 0.62s · dot090:"Riber" 0.72s	ok
+willingly	ok	ok
+heartbreaking	ok	ok
+chimney	ok	ok
+waterproof	ok	ok
+fireplace	ok	ok
+yummy	ok	ok
+stool	ok	ok
+scientifically	ok	ok
+windshield	ok	ok
+playwright	ok	ok
+relic	ok	ok
+modernization	ok	ok
+stepfather	ok	ok
+thermometer	ok	ok
+legislator	ok	ok
+obedient	ok	ok
+barometer	ok	ok
+stepmother	ok	ok
+warship	ok	cut_wordis: câu mang: "The word is Worship." · dot100:"Worship" 0.77s · cut_wordis100:"Worship" 0.89s · cut_wordis100:"Worship" 0.72s · cut_next: câu mang: "Next word, worship." · plain095:"Worship" 0.77s · dot090:"Worship" 0.84s
+cursor	ok	ok
+bookmark	ok	ok
+stingy	ok	ok
+optimist	ok	ok
+countryman	cut_wordis:"countrymen" 0.94s · cut_wordis:"countrymen" 0.89s · dot100:"countrymen." 0.91s · cut_wordis100:"The countryman" 0.86s · cut_wordis100:"countrymen" 0.84s · cut_next:"countrymen" 0.91s · cut_next:"Trim in." 0.72s · plain095:"countrymen" 0.86s · dot090:"A countryman here." 1.01s	cut_wordis:"It's countrymen." 1.01s · cut_wordis:"Kuntraman" 0.91s · dot100:"Kuntraman" 0.77s · cut_wordis100:"countrymen." 0.94s · cut_wordis100:"Kuntraman" 0.72s · cut_next:"Kuntraman" 0.82s · cut_next:"Hunterman." 0.74s · plain095:"Contriman" 0.79s · dot090:"Kuntraman" 0.84s
+villager	ok	ok
+overcoat	ok	ok
+paratrooper	ok	ok
+handrail	ok	ok
+salvation	ok	ok
+gem	ok	ok
+forensic	ok	ok
+naive	ok	ok
+meaningless	ok	ok
+protagonist	ok	ok
+ruthless	ok	ok
+quarry	ok	ok
+aquarium	ok	ok
+bouquet	ok	ok
+hypocrite	ok	ok
+panorama	ok	ok
+otter	ok	ok
+midwife	ok	ok
+collaborator	ok	ok
+locomotive	ok	ok
+electrode	ok	ok
+mercenary	ok	ok
+meteorology	ok	ok
+zoology	ok	ok
+armor	cut_wordis: câu mang: "The word is armouche." · dot100:"Darmouth." 0.91s · cut_wordis100: câu mang: "The word is armour." · cut_next: câu mang: "Next word, armour." · plain095:"Zarmatt" 0.65s · dot090:"Zama." 1.03s	ok
+rebellion	ok	ok
+pistol	ok	ok
+siege	ok	ok
+aerial	cut_wordis: câu mang: "The word is aerials." · dot100:"aerials" 0.77s · cut_wordis100: câu mang: "The word is Arial." · cut_next: câu mang: "Next word, aerials." · plain095:"Arial" 0.70s · dot090:"It's aerials" 0.86s	ok
+ammunition	ok	ok
+shepherd	cut_wordis:"The shepherdy." 0.86s · cut_wordis:"Jeopardy" 0.84s · dot100:"Shepard" 0.74s · cut_wordis100:"The Shepherd." 0.82s · cut_wordis100:"The Shepherd" 0.77s · cut_next: câu mang: "Next word is shepherdy." · plain095:"Shepard." 0.70s · dot090:"You shepherd." 0.77s	ok
+nonprofit	ok	ok
+archbishop	ok	ok
+fortress	ok	ok
+memoir	ok	ok
+infamous	ok	ok
+sniper	ok	ok
+prank	cut_wordis: câu mang: "The word is prankey." · dot100:"PRANKET" 0.94s · cut_wordis100: câu mang: "The word is pranky." · cut_next: câu mang: "Next word, prankey." · plain095:"The prank." 0.67s · dot090:"a prankie." 1.08s	ok
+monarch	cut_wordis:"Semonic" 0.62s · cut_wordis:"demonic" 0.58s · dot100:"Monik" 0.77s · cut_wordis100:"Symmonic" 0.60s · cut_wordis100:"demonic" 0.50s · cut_next: câu mang: "Next word monarchy" · plain095:"Monik" 0.65s · dot090:"Monik." 0.84s	ok
+unanimous	ok	ok
+vengeance	ok	ok
+monarchy	ok	ok
+neutrality	ok	ok
+assassin	ok	ok
+mute	ok	ok
+southeastern	ok	ok
+courtyard	ok	ok
+grenade	ok	ok
+maze	ok	ok
+zinc	ok	ok
+nun	cut_wordis: câu mang: "The word is none." · dot100:"NONE'S" 0.70s · cut_wordis100: câu mang: "The word is none." · cut_next: câu mang: "Next word, none." · plain095:"Denunned" 0.62s · dot090:"The nuns." 0.77s	cut_wordis: câu mang: "The word is none." · dot100:"None." 0.60s · cut_wordis100: câu mang: "The word is none." · cut_next: câu mang: "Next word, none." · plain095:"None." 0.62s · dot090:"None." 0.65s
+autobiography	ok	ok
+disrespect	ok	ok
+gigantic	ok	ok
+statewide	ok	ok
+mascot	ok	ok
+sabotage	ok	ok
+hymn	cut_wordis: câu mang: "The word is him." · dot100:"Him." 0.84s · cut_wordis100: câu mang: "The word is him." · cut_next: câu mang: "Next word him" · plain095:"Timmed" 0.62s · dot090:"Hymned" 0.94s	cut_wordis: câu mang: "The word is him" · dot100:"Him." 0.58s · cut_wordis100: câu mang: "The word is, him." · cut_next:"Him." 0.62s · plain095:"Him." 0.60s · dot090:"Him." 0.62s
+jasmine	ok	ok
+emerald	ok	ok
+electromagnetic	ok	ok
+autopsy	ok	ok
+venom	ok	ok
+multimedia	ok	ok
+porcelain	ok	ok
+vapor	ok	ok
+nausea	ok	ok
+sect	cut_wordis: câu mang: "The word is SECTY." · dot100:"Zekt" 0.70s · cut_wordis100: câu mang: "The word is sector." · cut_next: câu mang: "Next word is SECTY" · plain095:"The sect" 0.65s · dot090:"The sect" 0.72s	cut_wordis:"SAC" 0.60s · cut_wordis:"SAC" 0.46s · dot100:"is act" 0.67s · cut_wordis100: câu mang: "The word is sacked." · cut_next:"SAC" 0.48s · cut_next:"SAC" 0.43s · plain095:"As actor." 0.65s · dot090:"is act" 0.72s
+anarchy	ok	ok
+mast	cut_wordis: câu mang: "The word is nasty." · dot100:"must." 0.72s · cut_wordis100: câu mang: "The word is Masty." · cut_next: câu mang: "Next word, master." · plain095:"must." 0.72s · dot090:"You must." 0.84s	ok
+criterion	ok	ok
+epilepsy	ok	ok
+leukemia	ok	ok
+opium	ok	ok
+synagogue	ok	ok
+godfather	ok	ok
+reflex	ok	ok
+blender	ok	ok
+insomnia	ok	ok
+conservatism	ok	ok
+fertilizer	ok	ok
+witchcraft	ok	ok
+semantics	ok	ok
+imperialism	ok	ok
+manslaughter	ok	ok
+archaic	ok	ok
+weaponry	ok	ok
+wreath	ok	ok
+yin	ok	ok
+colonialism	ok	ok
+werewolf	ok	ok
+celery	ok	ok
+embargo	ok	ok
+labyrinth	ok	ok
+pious	ok	ok
+fermentation	ok	ok
+toxin	ok	ok
+adamant	ok	ok
+mutiny	ok	ok
+pretext	ok	ok
+artisan	ok	ok
+smallpox	ok	ok
+ultimatum	ok	ok
+catheter	cut_wordis: câu mang: "The word is cassetta." · dot100:"Cassetto" 0.89s · cut_wordis100: câu mang: "The word is casseter." · cut_next: câu mang: "Next word is Cassetta." · plain095:"Cassetta" 0.79s · dot090:"Cassetto" 0.96s	ok
+unfounded	ok	ok
+virtuous	ok	ok
+accomplice	ok	ok
+reactionary	ok	ok
+shaman	ok	ok
+superpower	ok	ok
+antigen	ok	ok
+glossary	ok	ok
+repentance	ok	ok
+infertility	ok	ok
+commandment	ok	ok
+eyeliner	ok	ok
+menopause	ok	ok
+preposterous	ok	ok
+metaphysics	ok	ok
+alchemist	ok	ok
+fifth	ok	ok
+torture	ok	ok
+hatch	cut_wordis: câu mang: "The word is hatchy." · dot100:"Urge." 0.79s · cut_wordis100: câu mang: "The word is hatchy." · cut_next: câu mang: "Next word, a hatchet." · plain095:"hurt you" 0.67s · dot090:"A hutch." 0.72s	ok
+butterfly	ok	ok
+envy	ok	ok
+scratch	ok	ok
+ache	ok	ok
+alcoholic	ok	ok
+bark	cut_wordis: câu mang: "The word is barky." · dot100:"Buck." 0.65s · cut_wordis100:"Spark" 0.50s · cut_wordis100:"Fuck." 0.46s · cut_next: câu mang: "Next word, barky." · plain095:"Buck." 0.62s · dot090:"Fuck." 0.86s	ok
+hug	ok	ok
+peel	ok	ok
+riddle	ok	ok
+quarrel	ok	ok
+faint	ok	ok
+splatter	ok	ok
+endeavor	ok	ok
+criminology	ok	ok
+regrettable	ok	ok
+botanist	ok	ok
+conspire	ok	ok
+entomology	ok	ok
+rude	ok	ok
+shy	ok	ok
+grandma	ok	ok
+cartoon	ok	ok
+fairy	ok	ok
+banana	ok	ok
+frank	ok	ok
+angel	ok	ok
+sandy	ok	ok
+breeze	ok	ok
+dinosaur	ok	ok
+granny	ok	ok
+dizzy	ok	ok
+midday	ok	ok
+racket	ok	ok
+shame	ok	ok
+prayer	ok	ok
+buddy	ok	ok
+insane	ok	ok
+gorgeous	ok	ok
+courage	ok	ok
+useless	ok	ok
+sheriff	ok	ok
+warrior	ok	ok
+guilt	ok	ok
+eternal	ok	ok
+faithful	ok	ok
+tragic	ok	ok
+adorable	ok	ok
+honesty	ok	ok
+straw	ok	ok
+curiosity	ok	ok
+countless	ok	ok
+liberation	ok	ok
+toss	ok	ok
+illegally	ok	ok
+rubbish	ok	ok
+maple	ok	ok
+elbow	ok	ok
+sickness	cut_wordis: câu mang: "The word is sicknessy." · dot100:"Sicknesser" 0.84s · cut_wordis100: câu mang: "The word is sicknessy." · cut_next: câu mang: "Next word Sicknessy" · plain095:"A sickness." 0.77s · dot090:"A sicknesser." 0.91s	ok
+despair	ok	ok
+coffin	ok	ok
+skeleton	ok	ok
+hopeful	ok	ok
+daisy	ok	ok
+lifelong	ok	ok
+respectable	ok	ok
+jewel	ok	ok
+visually	ok	ok
+ripe	ok	ok
+viewpoint	ok	ok
+trumpet	ok	ok
+telegram	ok	ok
+kettle	ok	ok
+parachute	ok	ok
+swimmer	ok	ok
+inconvenient	ok	ok
+quake	ok	ok
+limp	cut_wordis: câu mang: "The word is limpy." · dot100:"limper" 0.98s · cut_wordis100: câu mang: "The word is limpy." · cut_next: câu mang: "Next word, limpy." · plain095:"A limp." 0.62s · dot090:"limpa" 1.13s	ok
+smoker	ok	ok
+burglar	ok	ok
+bravely	ok	ok
+vividly	ok	ok
+curiously	ok	ok
+unwell	ok	ok
+anxiously	ok	ok
+housework	ok	ok
+wither	ok	ok
+motionless	ok	ok
+procrastination	ok	ok
+fluently	ok	ok
+oppress	ok	ok
+scold	cut_wordis:"It's gold." 1.01s · cut_wordis:"Skuld" 0.94s · dot100:"It's gold." 0.77s · cut_wordis100:"Skuld" 0.84s · cut_wordis100:"Skuld" 0.82s · cut_next:"It is gold." 0.98s · cut_next:"Gold." 0.77s · plain095:"It's gold." 0.72s · dot090:"It's gold." 0.84s	ok
+hurriedly	ok	ok
+overwork	ok	ok
+earnings	ok	ok
+explicitly	ok	ok
+spokesman	ok	ok
+nightmare	ok	ok
+rocky	ok	ok
+tattoo	ok	ok
+arch	cut_wordis: câu mang: "The word is Archie." · dot100:"notch" 0.67s · cut_wordis100: câu mang: "The word is Archie." · cut_next: câu mang: "Next word, Archie." · plain095:"Not you." 0.65s · dot090:"Notch" 0.72s	ok
+slam	ok	ok
+utterly	ok	ok
+hail	ok	ok
+unlock	ok	ok
+fictional	ok	ok
+porch	cut_wordis: câu mang: "The word is porche." · dot100:"pooch" 0.70s · cut_wordis100: câu mang: "The word is Porche." · cut_next: câu mang: "Next word, porche." · plain095:"Poetry" 0.70s · dot090:"A porch." 0.79s	ok
+nod	ok	ok
+understandable	ok	ok
+proudly	ok	ok
+navigate	ok	ok
+mist	cut_wordis: câu mang: "The word is missed." · dot100:"Mr." 0.72s · cut_wordis100: câu mang: "The word is mister." · cut_next: câu mang: "Next word, Misty." · plain095:"I missed." 0.67s · dot090:"The Mr." 0.79s	cut_wordis: câu mang: "The word is missed." · dot100:"Missed" 0.65s · cut_wordis100: câu mang: "The word is missed." · cut_next: câu mang: "Next word, missed." · plain095:"Missed" 0.65s · dot090:"Messed." 0.72s
+replica	ok	ok
+blossom	ok	ok
+generosity	ok	ok
+humane	ok	ok
+rectangular	ok	ok
+heap	ok	ok
+cyclist	ok	ok
+priceless	ok	ok
+reflective	ok	cut_wordis:"reflect" 0.70s · cut_wordis:"Reflect." 0.60s · dot100:"Reflectives" 0.89s · cut_wordis100:"Reflect." 0.60s · cut_wordis100:"Reflect." 0.53s · cut_next:"Reflect." 0.55s · cut_next:"Flect-" 0.43s · plain095:"Reflectives" 0.94s · dot090:"Reflectives" 0.98s
+abruptly	ok	ok
+calmly	ok	ok
+tame	ok	ok
+luxurious	ok	ok
+slang	ok	ok
+timeless	ok	ok
+coastline	ok	ok
+clumsy	ok	ok
+densely	ok	ok
+elegance	ok	ok
+confidently	ok	ok
+helper	ok	ok
+posh	ok	ok
+vigorously	ok	ok
+adversity	ok	ok
+ambiguity	ok	ok
+glare	ok	ok
+interruption	ok	ok
+pebble	ok	ok
+perseverance	ok	ok
+sincerity	ok	ok
+persuasion	ok	ok
+dissatisfaction	ok	ok
+ornament	ok	ok
+aspiration	ok	ok
+hastily	ok	ok
+generously	ok	ok
+impractical	ok	ok
+reverence	ok	ok
+achievable	ok	ok
+absentee	ok	ok
+doubly	ok	ok
+inseparable	ok	ok
+skillful	ok	ok
+schoolgirl	ok	ok
+purposeful	ok	ok
+flax	cut_wordis: câu mang: "The word is flaxie." · dot100:"Flexy." 0.72s · cut_wordis100: câu mang: "The word is flaxie." · cut_next: câu mang: "Next word, flaxie." · plain095:"Afflex" 0.70s · dot090:"Relax." 0.82s	ok
+modernize	ok	ok
+trusty	ok	ok
+adorn	ok	ok
+cheerfully	ok	ok
+nourish	ok	ok
+astonishment	ok	ok
+eloquence	ok	ok
+lengthen	ok	ok
+punctuality	ok	ok
+outlive	ok	ok
+breakable	ok	ok
+mutable	ok	ok
+uneasily	ok	ok
+acoustic	ok	ok
+terrain	ok	ok
+suburban	ok	ok
+geological	ok	ok
+extremist	ok	ok
+voluntarily	ok	ok
+preach	ok	ok
+hypocrisy	ok	ok
+posture	ok	ok
+bloom	ok	ok
+cloak	ok	ok
+immensely	ok	ok
+screenplay	ok	ok
+numb	ok	cut_wordis:"Tt-num" 0.89s · cut_wordis:"num" 0.77s · dot100:"num" 0.60s · cut_wordis100: câu mang: "The word is num." · cut_next: câu mang: "Next word, num." · plain095:"num" 0.60s · dot090:"num" 0.65s
+pinnacle	ok	ok
+peacock	ok	ok
+insightful	ok	ok
+rarity	ok	ok
+advantageous	ok	cut_wordis:"Advantages" 1.37s · cut_wordis:"Advantages" 1.08s · dot100:"Advantages" 1.03s · cut_wordis100:"Advantages" 1.22s · cut_wordis100:"Advantages" 1.01s · cut_next:"Advantages" 1.13s · cut_next:"Vantages." 0.98s · plain095:"Advantages" 1.03s · dot090:"Advantages" 1.13s
+hypocritical	ok	ok
+adversary	ok	ok
+prop	ok	ok
+evoke	ok	ok
+ordinarily	ok	ok
+instinctively	ok	ok
+fanatic	ok	ok
+eccentric	ok	ok
+screenwriter	ok	ok
+effortless	ok	ok
+cynicism	ok	ok
+inexplicable	ok	ok
+intuitively	ok	ok
+stuffy	ok	ok
+suitor	ok	ok
+detest	ok	ok
+reminisce	ok	ok
+monotony	ok	ok
+seedling	ok	ok
+inexhaustible	ok	ok
+refurbish	ok	ok
+conditionally	ok	ok
+glum	ok	ok
+utensil	ok	ok
+fiendish	ok	ok
+vicinity	ok	cut_wordis:"The scenery." 1.03s · cut_wordis:"Vicenary" 0.84s · dot100:"Visenary" 0.79s · cut_wordis100:"Viscenary" 0.94s · cut_wordis100:"Visenity" 0.77s · cut_next:"Vicenary" 0.86s · cut_next:"Vicenary" 0.84s · plain095:"Visenity" 0.82s · dot090:"Visenary" 0.89s
+reformer	ok	ok
+antidote	ok	ok
+impeccable	ok	ok
+calamity	ok	ok
+aptitude	ok	ok
+tenacity	ok	ok
+infallible	ok	ok
+facsimile	ok	ok
+allusion	ok	ok
+indignant	ok	ok
+malleable	ok	ok
+surreptitiously	ok	ok
+glint	cut_wordis: câu mang: "The word is glinty." · dot100:"Glinter" 0.74s · cut_wordis100:"It's Glint." 0.74s · cut_wordis100:"Glinty." 0.70s · cut_next: câu mang: "The next word, a glinty." · plain095:"A glint." 0.65s · dot090:"The Glinter" 0.84s	ok
+remorseful	ok	ok
+disparage	ok	ok
+axiomatic	ok	ok
+menacingly	ok	ok
+besiege	ok	ok
+rumination	ok	ok
+resound	ok	ok
+hundred	ok	cut_wordis:"100." 0.84s · cut_wordis:"100." 0.72s · dot100:"100." 0.72s · cut_wordis100:"100." 0.82s · cut_wordis100:"100." 0.70s · cut_next:"100." 0.72s · plain095:"100." 0.72s · dot090:"100." 0.77s
+reign	cut_wordis: câu mang: "The word is rain." · dot100:"Reigns" 1.01s · cut_wordis100: câu mang: "The word is rain." · cut_next: câu mang: "Next word rain" · plain095:"RAINED" 0.65s · dot090:"Reigns" 0.77s	cut_wordis: câu mang: "The word is rain." · dot100:"Rain." 0.65s · cut_wordis100: câu mang: "The word is rain." · cut_next: câu mang: "Next word, rain." · plain095:"Rain." 0.62s · dot090:"Rain." 0.72s
+demon	ok	ok
+skinny	ok	ok
+renowned	ok	ok
+forgiveness	ok	ok
+heather	ok	ok
+filthy	ok	ok
+remake	ok	ok
+veterinary	cut_wordis:"It's veterinary." 1.06s · cut_wordis:"Veteranary" 1.01s · dot100:"Veteranary" 1.01s · cut_wordis100:"It's veterinary." 0.89s · cut_wordis100:"Veteranary" 0.84s · cut_next:"Vetterinary" 1.03s · cut_next:"Turinery" 0.82s · plain095:"Veteranary" 1.08s · dot090:"Veteranary" 1.13s	ok
+shrine	ok	ok
+detector	ok	ok
+observatory	ok	ok
+flora	ok	ok
+highland	ok	ok
+lipstick	ok	ok
+moist	ok	ok
+willow	ok	ok
+betrayal	ok	ok
+cardiovascular	ok	ok
+acne	ok	ok
+provisional	ok	ok
+tilt	ok	ok
+standpoint	ok	ok
+theoretically	ok	ok
+affiliation	ok	ok
+soy	cut_wordis:"Sorry." 0.86s · cut_wordis:"Sorry." 0.79s · dot100:"Sorry." 0.65s · cut_wordis100:"Sorry." 0.79s · cut_wordis100:"Sorry." 0.77s · cut_next:"I'm sorry." 0.86s · cut_next:"Doi." 0.65s · plain095:"Sorry." 0.62s · dot090:"Sorry." 0.70s	cut_wordis: câu mang: "The word is psi." · dot100:"PSY" 0.60s · cut_wordis100: câu mang: "The word is PSI." · cut_next: câu mang: "Next word, PSI." · plain095:"Sigh" 0.62s · dot090:"Sorry." 0.67s
+courthouse	ok	ok
+freshly	ok	ok
+resentment	ok	ok
+humility	ok	ok
+influx	ok	ok
+cigar	ok	ok
+dungeon	ok	ok
+metropolis	ok	ok
+glitter	ok	ok
+ambush	ok	ok
+arrogance	ok	ok
+ware	cut_wordis: câu mang: "The word is where?" · dot100:"Where's..." 0.96s · cut_wordis100: câu mang: "The word is where?" · cut_next: câu mang: "Next word, wear." · plain095:"Weird." 0.62s · dot090:"Where?" 1.06s	cut_wordis: câu mang: "The word is where." · dot100:"Where?" 0.58s · cut_wordis100: câu mang: "The word is where." · cut_next: câu mang: "Next word, where?" · plain095:"Where?" 0.60s · dot090:"Where?" 0.62s
+asbestos	ok	ok
+lax	cut_wordis: câu mang: "The word is laxy." · dot100:"Laxie" 0.74s · cut_wordis100: câu mang: "The word is Laxey." · cut_next: câu mang: "Next word, laxy." · plain095:"Relax." 0.70s · dot090:"Relax." 0.82s	ok
+skipper	ok	ok
+vineyard	ok	ok
+comparatively	ok	ok
+liberalism	ok	ok
+shuffle	ok	ok
+thug	ok	ok
+espionage	ok	ok
+moderation	ok	ok
+alias	ok	ok
+manpower	ok	ok
+rejoice	ok	ok
+coronation	ok	ok
+imaginative	ok	ok
+tanker	ok	ok
+legalization	ok	ok
+exemplary	ok	ok
+satirical	ok	ok
+unavoidable	ok	ok
+populace	cut_wordis: câu mang: "The word is populist." · dot100:"Populosa" 0.84s · cut_wordis100: câu mang: "The word is populous." · cut_next: câu mang: "Next word, Populacy." · plain095:"Populous" 0.84s · dot090:"Populosa" 0.96s	cut_wordis: câu mang: "The word is populous." · dot100:"Populous" 0.86s · cut_wordis100: câu mang: "The word is populous." · cut_next: câu mang: "Next word, Populous." · plain095:"Populous" 0.84s · dot090:"Populous" 0.94s
+proprietor	ok	ok
+valiant	ok	ok
+congenital	ok	ok
+mockery	ok	ok
+proficient	ok	ok
+irreversible	ok	ok
+fictitious	ok	ok
+enigma	ok	ok
+forte	ok	cut_wordis: câu mang: "The word is for day." · dot100:"4-Day" 0.72s · cut_wordis100: câu mang: "The word is for day." · cut_next:"4-day" 0.77s · cut_next:"per day." 0.48s · plain095:"4-Day" 0.72s · dot090:"4-day" 0.82s
+logistical	ok	ok
+traverse	ok	ok
+biologically	ok	ok
+suitability	ok	ok
+vertex	ok	ok
+recapture	ok	ok
+craven	ok	ok
+remission	ok	ok
+composure	ok	ok
+geothermal	ok	ok
+impunity	ok	ok
+perilous	ok	ok
+cumbersome	ok	ok
+renegotiate	ok	ok
+behead	ok	ok
+entomologist	ok	ok
+omniscient	ok	ok
+whimper	ok	ok
+seniority	ok	ok
+undeniably	ok	ok
+vigilance	ok	ok
+allure	cut_wordis:"It's a lure" 0.89s · cut_wordis:"Aloha." 0.79s · dot100:"Aloha." 0.70s · cut_wordis100:"Aloha." 0.77s · cut_wordis100:"Aloha." 0.72s · cut_next:"Aloe." 0.77s · cut_next:"Lua." 0.62s · plain095:"Alleluia" 0.65s · dot090:"Alleluia" 0.77s	ok
+juniper	ok	ok
+nameless	ok	ok
+intelligentsia	ok	ok
+jurist	ok	ok
+administratively	ok	ok
+pandemonium	ok	ok
+laudable	ok	ok
+upshot	ok	ok
+resplendent	ok	ok
+swindle	ok	ok
+sorcerer	ok	ok
+resolute	ok	ok
+inordinate	ok	ok

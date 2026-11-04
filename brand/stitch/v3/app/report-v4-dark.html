@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Report a Problem - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#2a1700",
+            "on-primary-fixed-variant": "#653e00",
+            "inverse-primary": "#855300",
+            "on-error": "#690005",
+            "surface-container-lowest": "#051013",
+            "primary": "#ffc174",
+            "surface-bright": "#2f3b3e",
+            "surface-variant": "#2b373a",
+            "inverse-on-surface": "#263236",
+            "secondary": "#6bd8ce",
+            "surface-container-low": "#121d20",
+            "on-tertiary-fixed": "#001e2d",
+            "surface-container-highest": "#2b373a",
+            "on-tertiary-fixed-variant": "#004c6a",
+            "secondary-fixed": "#88f5ea",
+            "primary-fixed-dim": "#ffb95f",
+            "background": "#091518",
+            "surface-tint": "#ffb95f",
+            "primary-fixed": "#ffddb8",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#6bd8ce",
+            "primary-container": "#f59e0b",
+            "surface": "#091518",
+            "on-tertiary": "#00344a",
+            "on-secondary-fixed-variant": "#00504b",
+            "on-background": "#d8e5e9",
+            "outline-variant": "#534434",
+            "on-primary": "#472a00",
+            "tertiary": "#8fd5ff",
+            "on-secondary": "#003733",
+            "surface-dim": "#091518",
+            "on-surface-variant": "#d8c3ad",
+            "on-surface": "#d8e5e9",
+            "on-tertiary-container": "#004966",
+            "on-secondary-fixed": "#00201e",
+            "on-primary-container": "#613b00",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#c5e7ff",
+            "tertiary-container": "#1abdff",
+            "outline": "#a08e7a",
+            "tertiary-fixed-dim": "#7fd0ff",
+            "on-secondary-container": "#00302c",
+            "inverse-surface": "#d8e5e9",
+            "secondary-container": "#28a198",
+            "surface-container-high": "#202c2f",
+            "error": "#ffb4ab",
+            "surface-container": "#162125"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin": "2rem"
+          },
+          fontFamily: {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.025em", fontWeight: "700" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "800" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "700" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-ledge-orange {
+      box-shadow: 0 4px 0 0 #994700;
+    }
+    .tactile-ledge-orange:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #994700;
+    }
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #0a1215;
+    }
+    .tactile-interactive {
+      box-shadow: 0 3px 0 0 #0d1719;
+    }
+    .tactile-interactive:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0d1719;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body-md text-body-md antialiased min-h-screen selection:bg-[#25C4B4]/30 selection:text-[#5EEAD4]">
+<!-- Mobile 390px Viewport Centered Container -->
+<div class="w-full max-w-[420px] mx-auto min-h-screen bg-[#10191B] flex flex-col relative pb-28">
+<!-- Top Bar -->
+<header class="sticky top-0 z-40 w-full px-4 py-3 bg-[#10191B]/95 backdrop-blur-md flex items-center justify-between border-b border-[#1E2F33]">
+<div class="flex items-center gap-3">
+<!-- Min 44x44px Hit Target Back Button -->
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#1E2F33] border-2 border-[#2E454B] flex items-center justify-center text-[#E8F1F0] tactile-interactive hover:border-[#25C4B4] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold tracking-tight">Report a Problem</h1>
+</div>
+<!-- SLA Status Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[#103B38] border border-[#25C4B4]/40 text-[#5EEAD4] font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#25C4B4] animate-pulse"></span>
+<span>SUPPORT SLA: &lt;15M</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- 2. Teacher/Coach Prompt Card -->
+<section class="bg-[#172427] border-2 border-[#2E454B] rounded-2xl p-4 tactile-card">
+<div class="flex items-start gap-3">
+<!-- Dashed Empty Teacher Slot (STRICTLY EMPTY: NO FACES/PHOTOS) -->
+<div class="w-14 h-14 rounded-xl border-2 border-dashed border-[#25C4B4]/70 bg-[#10191B]/60 flex flex-col items-center justify-center text-center p-1 shrink-0">
+<span class="font-label-sm text-[9px] leading-[11px] font-extrabold text-[#5EEAD4] tracking-tight">TEACHER<br/>SLOT</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="font-label-md text-label-md text-[#E8F1F0] font-bold tracking-wider">COACH CARLOS • CBT PROCTOR LEAD</span>
+<span class="px-2 py-0.5 rounded-full bg-[#103B38] border border-[#25C4B4]/30 text-[#5EEAD4] font-label-sm text-label-sm">Session Monitor Active</span>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] leading-snug">
+              Encountered an irregular question prompt, render bug, or timing desync? File it directly below. Your drill state and test telemetry are preserved automatically.
+            </p>
+</div>
+</div>
+</section>
+<!-- 3. Detected Activity Row -->
+<section class="bg-[#172427] border-2 border-[#2E454B] rounded-2xl p-3.5 tactile-card flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2E454B] flex items-center justify-center text-[#5EEAD4] shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="bug_report">bug_report</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm text-[#A9BDBB] uppercase tracking-wider">Detected Activity</div>
+<div class="font-headline-sm text-body-md font-bold text-[#E8F1F0] truncate font-mono">#/drill/cbt-reading-14</div>
+</div>
+</div>
+<!-- 44x44px Hit Target Change Button -->
+<button class="min-w-[64px] min-h-[44px] px-3.5 h-11 rounded-xl bg-[#1E2F33] border-2 border-[#2E454B] text-[#E8F1F0] font-label-md text-label-md font-bold tactile-interactive hover:border-[#25C4B4] transition-colors flex items-center justify-center" type="button">
+          Change
+        </button>
+</section>
+<!-- 4. Problem / Issue Category -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">Issue Category *</label>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Select closest fit</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- a. Software Bug (Selected) -->
+<button class="min-h-[48px] p-3 rounded-xl bg-[#103B38] border-2 border-[#25C4B4] text-[#E8F1F0] tactile-card flex items-center gap-2.5 text-left group transition-all" type="button">
+<div class="w-7 h-7 rounded-lg bg-[#25C4B4]/20 flex items-center justify-center text-[#5EEAD4] shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="bug_report">bug_report</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0] block leading-tight">Software Bug</span>
+<span class="font-label-sm text-[10px] text-[#5EEAD4] block">Selected</span>
+</div>
+</button>
+<!-- b. Wrong Answer -->
+<button class="min-h-[48px] p-3 rounded-xl bg-[#1E2F33] border-2 border-[#2E454B] text-[#E8F1F0] tactile-interactive flex items-center gap-2.5 text-left hover:border-[#25C4B4] transition-all" type="button">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB] shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0] leading-tight">Wrong Answer</span>
+</button>
+<!-- c. Translation -->
+<button class="min-h-[48px] p-3 rounded-xl bg-[#1E2F33] border-2 border-[#2E454B] text-[#E8F1F0] tactile-interactive flex items-center gap-2.5 text-left hover:border-[#25C4B4] transition-all" type="button">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB] shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="g_translate">g_translate</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0] leading-tight">Translation</span>
+</button>
+<!-- d. Idea / Suggestion -->
+<button class="min-h-[48px] p-3 rounded-xl bg-[#1E2F33] border-2 border-[#2E454B] text-[#E8F1F0] tactile-interactive flex items-center gap-2.5 text-left hover:border-[#25C4B4] transition-all" type="button">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB] shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0] leading-tight">Idea / Suggestion</span>
+</button>
+</div>
+</section>
+<!-- 5. Detailed Description -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-[#E8F1F0] font-bold" for="problem-description">Detailed Description *</label>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] font-mono">158 / 1000</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#2E454B] rounded-2xl p-3 tactile-card space-y-2">
+<textarea class="w-full bg-[#1E2F33] border-2 border-[#2E454B] rounded-xl p-3.5 text-[#E8F1F0] font-body-md text-body-md focus:outline-none focus:border-[#25C4B4] focus:ring-1 focus:ring-[#25C4B4] transition-all resize-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]" id="problem-description" rows="4">Split view highlights disappeared after clicking "Flag for Review" on passage paragraph 4. The audio player also experienced a 1.2s delay during section transition.</textarea>
+<!-- Telemetry Status Chip -->
+<div class="flex items-center gap-2 px-2.5 py-1.5 bg-[#103B38] border border-[#25C4B4]/40 rounded-lg text-[#5EEAD4]">
+<span class="material-symbols-outlined text-[16px] shrink-0" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm font-mono leading-tight truncate">Context dump recorded (DOM Tree + IndexedDB drill snapshot)</span>
+</div>
+</div>
+</section>
+<!-- 6. Attachments -->
+<section class="space-y-2.5">
+<!-- Toggle Row -->
+<div class="bg-[#172427] border-2 border-[#2E454B] rounded-2xl p-3.5 tactile-card flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2E454B] flex items-center justify-center text-[#5EEAD4] shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="photo_camera">photo_camera</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-[#E8F1F0] font-bold">Attach Recent Screenshot</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Auto-capture current drill display (recommended)</div>
+</div>
+</div>
+<!-- Tactile Switch Toggle (Green / Active) -->
+<button aria-checked="true" class="w-12 h-7 rounded-full bg-[#25C4B4] p-1 flex items-center justify-end border-2 border-[#103B38] shadow-[inset_0_2px_0_rgba(0,0,0,0.3)] transition-colors" role="switch" type="button">
+<div class="w-4 h-4 rounded-full bg-[#0a1215] shadow-md"></div>
+</button>
+</div>
+<!-- Attached File Card -->
+<div class="bg-[#172427] border-2 border-[#2E454B] rounded-xl p-3 tactile-card flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[#5EEAD4] text-[20px] shrink-0" data-icon="image">image</span>
+<div class="min-w-0">
+<div class="font-label-md text-label-md text-[#E8F1F0] font-bold truncate">drill_reading_cbt_autosave.png</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB] truncate">390 x 844 px • 248 KB • Auto-attached</div>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<!-- Preview Action (min 44x44px) -->
+<button aria-label="Preview image" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg flex items-center justify-center text-[#A9BDBB] hover:text-[#5EEAD4] hover:bg-[#1E2F33] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<!-- Delete Action (min 44x44px) -->
+<button aria-label="Remove image" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg flex items-center justify-center text-[#A9BDBB] hover:text-[#ffb4ab] hover:bg-[#1E2F33] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 7. Learner Contact & Verification -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">Learner Contact &amp; Verification</label>
+<span class="px-2 py-0.5 rounded-full bg-[#1E2F33] border border-[#2E454B] text-[#5EEAD4] font-label-sm text-label-sm">Auto-filled</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#2E454B] rounded-2xl p-3 tactile-card">
+<div class="flex items-center gap-3 bg-[#1E2F33] border-2 border-[#2E454B] rounded-xl px-3.5 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+<span class="material-symbols-outlined text-[#A9BDBB] text-[20px]" data-icon="mail">mail</span>
+<input class="bg-transparent border-0 p-0 text-[#E8F1F0] font-body-md text-body-md focus:ring-0 w-full cursor-default select-all" readonly="" type="email" value="linh.prep@lexkite.learner.io"/>
+<span class="material-symbols-outlined text-[#5EEAD4] text-[18px]" data-icon="verified">verified</span>
+</div>
+</div>
+</section>
+<!-- 8. CTA Button & Privacy Disclaimer -->
+<section class="pt-2 space-y-3">
+<!-- Big Tactile Primary CTA Button -->
+<button class="w-full min-h-[52px] h-[52px] rounded-xl bg-gradient-to-b from-[#FC9500] to-[#FF8800] border-2 border-[#B45309] text-[#1A0D00] font-label-lg text-label-lg font-extrabold tactile-ledge-orange flex items-center justify-center gap-2 tracking-wide uppercase transition-all" type="button">
+<span>Send Feedback &amp; Report</span>
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="send">send</span>
+</button>
+<!-- Privacy Disclaimer (WCAG AAA text) -->
+<div class="flex items-start gap-2 px-1">
+<span class="material-symbols-outlined text-[16px] text-[#5EEAD4] shrink-0 mt-0.5" data-icon="lock">lock</span>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-snug">
+            Privacy note: Diagnostic logs and device model info are transmitted securely. No personal chat history or microphone recordings are included.
+          </p>
+</div>
+</section>
+</main>
+<!-- 9. Bottom Navigation Bar (Docked 5 Tabs) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#172427] border-t-2 border-[#2E454B] py-1.5 px-2 max-w-[420px] mx-auto shadow-[0_-4px_12px_rgba(0,0,0,0.5)]">
+<div class="grid grid-cols-5 items-center">
+<!-- Tab 1: Today -->
+<button class="min-w-[44px] min-h-[48px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors py-1" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="min-w-[44px] min-h-[48px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors py-1" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="min-w-[44px] min-h-[48px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors py-1" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests (Active Destination for Mock CBT Drills) -->
+<button class="min-w-[44px] min-h-[48px] flex flex-col items-center justify-center py-1" type="button">
+<div class="px-3 py-1 rounded-xl bg-[#103B38] border border-[#25C4B4]/60 text-[#5EEAD4] flex flex-col items-center shadow-[0_2px_0_0_#0a1215]">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm font-bold text-[#5EEAD4] mt-0.5">Tests</span>
+</div>
+</button>
+<!-- Tab 5: Me -->
+<button class="min-w-[44px] min-h-[48px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors py-1" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>

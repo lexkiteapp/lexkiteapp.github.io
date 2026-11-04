@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     strategy:
-      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
+      max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7] }
     steps:
@@ -67,6 +67,7 @@ jobs:
     needs: gate
     if: github.event.inputs.mode == 'batch'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

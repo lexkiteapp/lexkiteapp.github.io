@@ -394,7 +394,7 @@
     ['prepayment', '/ˌpriːˈpeɪmənt/', 'n', 'trả trước', 'payment made in advance', 'A prepayment of twenty percent is required before we can confirm your order.', '', '', 'B1', '', '/prɪˈpeɪmənt/'],
     ['externality', '/ekstəˈnælɪti/', 'n', 'ngoại ứng', 'a cost or benefit that affects people outside an activity', 'Pollution is a negative externality of production that affects people living nearby.', '', '', 'B1', ''],
     ['helicopter', '/ˈheliˌkɒptə/', 'n', 'trực thăng', 'an aircraft with turning blades on top that can fly straight up', 'The energy company uses a helicopter to inspect its power lines every year.', '', '', 'B1', '', '/ˈhelɪkɑːptər/'],
-    ['perpetual', '/pəˈpetʃʊəl/', 'adj', 'vĩnh viễn', 'lasting for ever or for a very long time', 'The office seems to be in a state of perpetual change.', '', '', 'B1', '', '/pərˈpetʃuəl/'],
+    ['perpetual', '/pəˈpetʃʊəl/', 'adj', 'vĩnh viễn', 'never ending, or going on again and again for a very long time', 'The office seems to be in a state of perpetual change.', '', '', 'B1', '', '/pərˈpetʃuəl/'],
     ['ration', '/ˈreɪʃən/', 'n', 'khẩu phần', 'a fixed amount of something that a person is allowed to have', 'During the fuel shortage, petrol was rationed to twenty litres per customer.', '', '', 'B1', '', '/ˈræʃn/'],
     ['inability', '/ˌɪnəˈbɪlɪti/', 'n', 'sự bất lực', 'the lack of power or skill to do something', 'His inability to manage time caused many delays.', '', '', 'C1', ''],
     ['analytic', '/ˌænəˈlɪtɪk/', 'adj', 'phân tích', 'using logical analysis', 'The job requires strong analytic skills and experience with large data sets.', '', '', 'B1', ''],

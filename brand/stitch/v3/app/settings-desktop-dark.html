@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Settings</title>
+<!-- Plus Jakarta Sans Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#78918e",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "surface-container-lowest": "#0b1315",
+            "surface-container-highest": "#283b3f",
+            "surface-tint": "#38b2a6",
+            "secondary-container": "#fd9500",
+            "on-tertiary-fixed": "#251a00",
+            "surface-variant": "#223539",
+            "on-primary-fixed": "#00201d",
+            "secondary-fixed-dim": "#ffb872",
+            "error": "#ff6b6b",
+            "secondary-fixed": "#ffdcbf",
+            "primary-fixed": "#1d4442",
+            "primary-container": "#208076",
+            "on-primary": "#ffffff",
+            "outline-variant": "#26393E",
+            "on-primary-container": "#e0fbf7",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary-container": "#785a00",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#10191B",
+            "surface-bright": "#223539",
+            "background": "#10191B",
+            "on-surface-variant": "#A9BDBB",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#126a63",
+            "secondary": "#fd9500",
+            "on-secondary-container": "#1a0d00",
+            "on-secondary-fixed": "#2d1600",
+            "on-tertiary-container": "#ffd370",
+            "tertiary-fixed": "#332a15",
+            "primary": "#38b2a6",
+            "tertiary-fixed-dim": "#f5bf31",
+            "surface-container-high": "#1E2F33",
+            "tertiary": "#f5bf31",
+            "surface-dim": "#0c1517",
+            "on-background": "#E8F1F0",
+            "on-primary-fixed-variant": "#82ded4",
+            "on-surface": "#E8F1F0",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#132023",
+            "primary-fixed-dim": "#2ba39a",
+            "error-container": "#3d1418",
+            "surface-container": "#172427",
+            "inverse-surface": "#E8F1F0",
+            "on-error-container": "#ffb4ab",
+            "surface": "#10191B"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "margin-lg": "3rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-md": "2rem",
+            "gutter-md": "1.5rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile drop ledges - Tactile Night */
+    .tactile-coral {
+      background-color: #fd9500;
+      color: #1a0d00 !important;
+      border: 2px solid #e08300;
+      box-shadow: 0 4px 0 #944e00;
+      transition: all 0.1s ease;
+    }
+    .tactile-coral:hover {
+      background-color: #ffa424;
+    }
+    .tactile-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #944e00;
+    }
+
+    .tactile-teal {
+      background-color: #2ba39a;
+      color: #0b1c1b;
+      border: 2px solid #38b2a6;
+      box-shadow: 0 4px 0 #155550;
+      transition: all 0.1s ease;
+    }
+    .tactile-teal:hover {
+      background-color: #38b2a6;
+    }
+    .tactile-teal:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #155550;
+    }
+
+    .tactile-card {
+      background-color: #172427;
+      border: 2px solid #24363A;
+      box-shadow: 0 4px 0 #0b1315;
+    }
+
+    .tactile-card-soft {
+      background-color: #1E2F33;
+      border: 2px solid #283e42;
+      box-shadow: 0 4px 0 #0b1315;
+    }
+
+    .tactile-neutral-btn {
+      background-color: #1E2F33;
+      color: #E8F1F0;
+      border: 2px solid #26393E;
+      box-shadow: 0 3px 0 #0b1315;
+      transition: all 0.1s ease;
+    }
+    .tactile-neutral-btn:hover {
+      background-color: #24373b;
+      border-color: #354e53;
+    }
+    .tactile-neutral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 #0b1315;
+    }
+
+    /* Custom Switch Style - Dark Theme */
+    .tactile-switch {
+      position: relative;
+      width: 52px;
+      height: 32px;
+      background-color: #24363A;
+      border-radius: 9999px;
+      border: 2px solid #3a5054;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+    .tactile-switch.active {
+      background-color: #2ba39a;
+      border-color: #4ed8ca;
+    }
+    .tactile-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 24px;
+      height: 24px;
+      border-radius: 9999px;
+      background-color: #E8F1F0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+    .tactile-switch.active::after {
+      transform: translateX(20px);
+      background-color: #0b1c1b;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- ================= PERSISTENT DESKTOP SIDEBAR ================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col justify-between p-space-md border-r-2 border-[#24363A] shadow-[4px_0_0_0_#0b1315] bg-[#10191B] z-50">
+<div class="flex flex-col gap-space-sm">
+<!-- App Brand & Target Switcher -->
+<div class="p-space-sm rounded-xl bg-[#172427] border-2 border-[#24363A] flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[#38b2a6] text-[28px]" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-headline-md text-headline-md font-black text-[#E8F1F0] tracking-tight">Lexkite</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#332a15] text-[#f5bf31] border border-[#785a00]">PRO</span>
+</div>
+<div class="mt-1 pt-1.5 border-t border-[#24363A] flex items-center justify-between">
+<div>
+<div class="font-label-sm text-label-sm text-[#A9BDBB]">Active Target</div>
+<div class="font-label-md text-label-md text-[#38b2a6] font-extrabold">Target: IELTS 7.5</div>
+</div>
+<button aria-label="Switch Target" class="tactile-neutral-btn min-h-[44px] min-w-[44px] px-2 py-1 rounded flex items-center justify-center font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#A9BDBB]">swap_horiz</span>
+</button>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5 mt-2">
+<!-- Today Tab -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors duration-150 min-h-[44px]" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span>Today</span>
+</a>
+<!-- Vocab Tab -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors duration-150 min-h-[44px]" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">style</span>
+<span>Vocab</span>
+</a>
+<!-- Skills Tab -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors duration-150 min-h-[44px]" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span>Skills</span>
+</a>
+<!-- Tests Tab -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors duration-150 min-h-[44px]" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span>Tests</span>
+</a>
+<!-- Me / Settings Tab (Active Tab) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded bg-[#2ba39a] text-[#0b1c1b] font-label-md text-label-md border-b-2 border-[#155550] shadow-sm min-h-[44px]" href="#me">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="flex-1 font-bold">Me</span>
+<span class="w-2 h-2 rounded-full bg-[#fd9500] animate-pulse"></span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom: Stats & Quick Controls -->
+<div class="flex flex-col gap-space-xs pt-space-sm border-t-2 border-[#24363A]">
+<!-- Streak & XP Row -->
+<div class="grid grid-cols-2 gap-2 mb-1">
+<div class="bg-[#172427] p-2 rounded-lg border border-[#24363A] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#fd9500] text-[20px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div>
+<div class="font-label-sm text-label-sm text-[#A9BDBB] leading-tight">Streak</div>
+<div class="font-label-md text-label-md font-extrabold text-[#E8F1F0]">14 Days</div>
+</div>
+</div>
+<div class="bg-[#172427] p-2 rounded-lg border border-[#24363A] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#f5bf31] text-[20px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div>
+<div class="font-label-sm text-label-sm text-[#A9BDBB] leading-tight">Total XP</div>
+<div class="font-label-md text-label-md font-extrabold text-[#E8F1F0]">820 XP</div>
+</div>
+</div>
+</div>
+<!-- Settings Link (Sub-navigation highlight) -->
+<a class="flex items-center justify-between px-space-md py-2.5 rounded bg-[#1E2F33] font-label-md text-label-md text-[#38b2a6] font-bold border-l-4 border-[#38b2a6] min-h-[44px]" href="#settings">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Settings</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+<!-- Quick Language Indicator -->
+<div class="flex items-center justify-between px-3 py-1.5 text-label-sm font-label-sm text-[#A9BDBB]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">translate</span>
+          UI: English
+        </span>
+<span class="text-[#38b2a6] font-bold">15 langs</span>
+</div>
+</div>
+</aside>
+<!-- ================= TOP APP BAR ================= -->
+<header class="sticky top-0 right-0 z-40 h-20 pl-64 w-full flex items-center bg-[#10191B] border-b-2 border-[#24363A] shadow-[0_4px_0_0_#0b1315]">
+<div class="w-full flex items-center justify-between gap-gutter-md max-w-7xl mx-auto px-gutter-lg">
+<!-- Left: Breadcrumb & Band Pill -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<a class="font-label-md text-label-md text-[#A9BDBB] hover:text-[#38b2a6] transition-colors flex items-center gap-1" href="#me">
+<span class="material-symbols-outlined text-[18px]">person</span>
+            Me
+          </a>
+<span class="text-[#24363A] font-bold">/</span>
+<span class="font-headline-sm text-headline-sm text-[#E8F1F0] font-black">Settings</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#173330] text-[#4ed8ca] font-label-sm text-label-sm border border-[#2ba39a] font-extrabold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+          IELTS Academic 2025
+        </span>
+</div>
+<!-- Right: Search Settings, Sync Indicator, Actions -->
+<div class="flex items-center gap-space-md">
+<!-- Search Input -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#A9BDBB] text-[20px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-[#1E2F33] rounded border-2 border-[#26393E] text-[#E8F1F0] text-body-sm font-body-sm focus:border-[#38b2a6] focus:ring-0 focus:outline-none placeholder:text-[#78918e] min-h-[44px]" placeholder="Search settings..." type="search"/>
+</div>
+<!-- Cloud Sync Pill -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-lg bg-[#172427] border border-[#24363A] text-label-sm font-label-sm text-[#A9BDBB]" title="FSRS Spaced Repetition Engine Cloud Synced">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38b2a6] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38b2a6]"></span>
+</span>
+<span class="text-[#E8F1F0]">All preferences synced</span>
+</div>
+<!-- Notifications -->
+<button aria-label="Notifications" class="tactile-neutral-btn w-11 h-11 rounded-lg flex items-center justify-center relative" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#A9BDBB]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#fd9500]"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="pl-64 flex-1 w-full max-w-7xl mx-auto px-gutter-lg py-8 flex flex-col gap-8 bg-[#10191B]">
+<!-- Top Greeting Banner & Sync Overview -->
+<div class="tactile-card rounded-2xl p-6 bg-gradient-to-r from-[#172427] to-[#1E2F33] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-[#352514] text-[#ffb872] font-bold border border-[#6a3b00]">
+            Configuration Console
+          </span>
+<span class="text-[#A9BDBB] text-label-sm">Build v2.4.2 Desktop</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-[#E8F1F0] font-black tracking-tight">
+          System Preferences &amp; Study Cockpit
+        </h1>
+<p class="font-body-md text-body-md text-[#A9BDBB] max-w-2xl">
+          Customize your daily drill intensity, tutor voice models, spacing algorithm sync, and visual comfort parameters.
+        </p>
+</div>
+<!-- Primary Save Anchor Button -->
+<div class="flex items-center gap-3">
+<button class="tactile-neutral-btn min-h-[48px] px-5 rounded font-label-md text-label-md flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+          Reset Defaults
+        </button>
+<button class="tactile-coral min-h-[48px] px-7 rounded font-label-md text-label-md flex items-center gap-2 font-black !text-[#1a0d00]" type="button">
+<span class="material-symbols-outlined text-[22px] !text-[#1a0d00]">save</span>
+          Save Changes
+        </button>
+</div>
+</div>
+<!-- BENTO GRID SYSTEM: 6 Core Setting Clusters -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- ================= 1. LEARNING GROUP (Col span 7) ================= -->
+<section aria-labelledby="learning-heading" class="lg:col-span-7 tactile-card rounded-2xl p-6 flex flex-col gap-6">
+<div class="flex items-center justify-between border-b-2 border-[#24363A] pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#173330] flex items-center justify-center text-[#4ed8ca] border-2 border-[#2ba39a]">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]" id="learning-heading">Learning &amp; Drill Goals</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Target band criteria and schedule pacing</p>
+</div>
+</div>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded bg-[#1E2F33] text-[#4ed8ca] font-extrabold border border-[#283e42]">
+            Exam in 18 Days
+          </span>
+</div>
+<!-- Daily Goal Selector -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg font-bold text-[#E8F1F0]">Daily Commitment Pacing</label>
+<span class="font-label-md text-label-md text-[#38b2a6] font-black">Current: 15 mins / 30 XP</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<!-- 5m Casual -->
+<button class="tactile-neutral-btn min-h-[56px] p-2 rounded-xl flex flex-col items-center justify-center text-center" type="button">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">5 mins</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">10 XP Casual</span>
+</button>
+<!-- 10m Regular -->
+<button class="tactile-neutral-btn min-h-[56px] p-2 rounded-xl flex flex-col items-center justify-center text-center" type="button">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">10 mins</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">20 XP Regular</span>
+</button>
+<!-- 15m Serious (Selected) -->
+<button class="tactile-teal min-h-[56px] p-2 rounded-xl flex flex-col items-center justify-center text-center font-bold" type="button">
+<span class="font-label-md text-label-md font-black text-[#0b1c1b]">15 mins</span>
+<span class="font-label-sm text-label-sm text-[#072421]">30 XP Serious</span>
+</button>
+<!-- 30m Intensive -->
+<button class="tactile-neutral-btn min-h-[56px] p-2 rounded-xl flex flex-col items-center justify-center text-center" type="button">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">30 mins</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">60 XP Intensive</span>
+</button>
+</div>
+</div>
+<!-- Target Exam Specification Card -->
+<div class="tactile-card-soft rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">ACTIVE TARGET PROFILE</div>
+<div class="font-headline-sm text-headline-sm font-black text-[#E8F1F0]">IELTS Academic (Band 7.5)</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Scheduled for British Council Computer-Delivered Module</div>
+</div>
+<button class="tactile-neutral-btn min-h-[44px] px-4 rounded font-label-md text-label-md whitespace-nowrap flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+            Change Target
+          </button>
+</div>
+<!-- Reminders & Habits -->
+<div class="space-y-4 pt-2">
+<!-- Toggle 1: Daily Reminders -->
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-[#E8F1F0]">Daily Drill Reminders</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Push notifications dispatched to desktop lockscreen</span>
+</div>
+<!-- Tactile 44px Switch Component -->
+<button aria-label="Toggle Daily Drill Reminders" aria-pressed="true" class="tactile-switch active min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+<!-- Time Picker Row -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-[#1E2F33] border-2 border-[#26393E]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#38b2a6] text-[20px]">alarm</span>
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Reminder Trigger Time</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-[#172427] font-label-md text-label-md font-black text-[#4ed8ca] border border-[#24363A]">
+                20:30 (Evening Sprint)
+              </span>
+<button aria-label="Edit reminder trigger time" class="tactile-neutral-btn min-h-[44px] min-w-[44px] p-2 rounded flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Toggle 2: Match My Habit -->
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-[#E8F1F0]">Smart Habit Window Sync</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Adjust drill prompts based on your historical peak focus intervals</span>
+</div>
+<button aria-label="Toggle Smart Habit Window Sync" aria-pressed="true" class="tactile-switch active min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+</div>
+</section>
+<!-- ================= 2. APPEARANCE GROUP (Col span 5) ================= -->
+<section aria-labelledby="appearance-heading" class="lg:col-span-5 tactile-card rounded-2xl p-6 flex flex-col justify-between gap-6">
+<div class="space-y-6">
+<div class="flex items-center gap-3 border-b-2 border-[#24363A] pb-4">
+<div class="w-10 h-10 rounded-xl bg-[#352514] flex items-center justify-center text-[#ffb872] border-2 border-[#6a3b00]">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]" id="appearance-heading">Appearance &amp; Display</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Visual skin and typography legibility</p>
+</div>
+</div>
+<!-- Color Theme Segmented Control -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-[#E8F1F0]">Color Palette Theme</label>
+<div class="grid grid-cols-3 gap-2 p-1.5 rounded-xl bg-[#132023] border-2 border-[#24363A]">
+<!-- Light -->
+<button class="tactile-neutral-btn min-h-[44px] py-2 rounded-lg flex items-center justify-center gap-1.5 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">light_mode</span>
+<span>Light</span>
+</button>
+<!-- Dark (Selected) -->
+<button class="tactile-teal min-h-[44px] py-2 rounded-lg flex items-center justify-center gap-1.5 font-label-md text-label-md font-bold" type="button">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+<span>Dark</span>
+</button>
+<!-- System -->
+<button class="tactile-neutral-btn min-h-[44px] py-2 rounded-lg flex items-center justify-center gap-1.5 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">desktop_windows</span>
+<span>Auto</span>
+</button>
+</div>
+</div>
+<!-- Text Size / Display Scale -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md font-bold text-[#E8F1F0]">Display Font Scale</label>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">For fast reading speed</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="tactile-teal min-h-[46px] p-2 rounded-xl flex flex-col items-center justify-center font-bold text-center" type="button">
+<span class="text-label-md font-label-md text-[#0b1c1b]">100%</span>
+<span class="text-label-sm font-label-sm text-[#072421]">Standard</span>
+</button>
+<button class="tactile-neutral-btn min-h-[46px] p-2 rounded-xl flex flex-col items-center justify-center text-center" type="button">
+<span class="text-label-md font-label-md font-bold text-[#E8F1F0]">115%</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Large (+15%)</span>
+</button>
+<button class="tactile-neutral-btn min-h-[46px] p-2 rounded-xl flex flex-col items-center justify-center text-center" type="button">
+<span class="text-label-md font-label-md font-bold text-[#E8F1F0]">130%</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Extra Large</span>
+</button>
+</div>
+</div>
+<!-- Reduced Motion Toggle -->
+<div class="flex items-center justify-between gap-4 pt-2 border-t border-[#24363A]">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Reduced Motion &amp; Micro-interactions</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Eliminate bounce &amp; card rotation animations</span>
+</div>
+<button aria-label="Toggle Reduced Motion" aria-pressed="false" class="tactile-switch min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+</div>
+<div class="p-3 bg-[#132023] rounded-xl text-label-sm font-label-sm text-[#A9BDBB] flex items-center gap-2 border border-[#24363A]">
+<span class="material-symbols-outlined text-[18px] text-[#38b2a6]">verified_user</span>
+<span>Theme adheres strictly to WCAG AAA contrast guidelines.</span>
+</div>
+</section>
+<!-- ================= 3. LANGUAGE GROUP (Col span 6) ================= -->
+<section aria-labelledby="lang-heading" class="lg:col-span-6 tactile-card rounded-2xl p-6 flex flex-col gap-5">
+<div class="flex items-center gap-3 border-b-2 border-[#24363A] pb-4">
+<div class="w-10 h-10 rounded-xl bg-[#332a15] flex items-center justify-center text-[#f5bf31] border-2 border-[#785a00]">
+<span class="material-symbols-outlined text-[24px]">language</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]" id="lang-heading">Language &amp; Localization</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Multilingual interface with +40% expansion headroom</p>
+</div>
+</div>
+<!-- UI Language Select -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-[#E8F1F0]">App Interface Language</label>
+<div class="relative">
+<div class="tactile-neutral-btn min-h-[48px] px-4 rounded-xl flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#38b2a6] text-[20px]">flag</span>
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">English (United Kingdom / Academic EN)</span>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB]">expand_more</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-[#1E2F33] border border-[#26393E] text-label-sm font-label-sm text-[#A9BDBB] flex items-center gap-2">
+<span class="material-symbols-outlined text-[#38b2a6] text-[18px]">translate</span>
+<span>15 UI languages active: DE, RU, VI, AR, ES, FR, JA, KO, ZH, PT, IT, TR, ID, PL, TH.</span>
+</div>
+</div>
+<!-- Native Language Explanations -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-[#E8F1F0]">Native Language for Grammar Notes &amp; Hints</label>
+<div class="tactile-neutral-btn min-h-[48px] px-4 rounded-xl flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#fd9500] text-[20px]">translate</span>
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Tiếng Việt (Vietnamese)</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm bg-[#173330] text-[#4ed8ca] font-black border border-[#2ba39a]">Active Bilingual</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">
+            Provides dual-language breakdown for complex collocations and Band 8 vocabulary hints.
+          </p>
+</div>
+<!-- RTL Note -->
+<div class="p-3 bg-[#132023] rounded-xl flex items-start gap-2 border border-[#24363A]">
+<span class="material-symbols-outlined text-[#38b2a6] text-[20px] mt-0.5">format_textdirection_r_to_l</span>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">
+<strong class="text-[#E8F1F0]">Right-to-Left (RTL) mode:</strong> Auto-activates layout flipping when Arabic, Hebrew, or Persian is selected.
+          </div>
+</div>
+</section>
+<!-- ================= 4. AUDIO & PRONUNCIATION GROUP (Col span 6) ================= -->
+<section aria-labelledby="audio-heading" class="lg:col-span-6 tactile-card rounded-2xl p-6 flex flex-col gap-5">
+<div class="flex items-center gap-3 border-b-2 border-[#24363A] pb-4">
+<div class="w-10 h-10 rounded-xl bg-[#173330] flex items-center justify-center text-[#4ed8ca] border-2 border-[#2ba39a]">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]" id="audio-heading">Audio &amp; Pronunciation</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Acoustic playback speed and speech models</p>
+</div>
+</div>
+<!-- Tutor Voice Model -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-[#E8F1F0]">Speech Accent Model</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Ama RP Voice (Selected) -->
+<button class="tactile-teal min-h-[52px] p-3 rounded-xl flex items-center gap-3 text-left" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#0b1c1b]">record_voice_over</span>
+<div>
+<div class="font-label-md text-label-md font-black text-[#0b1c1b]">Ama (Female)</div>
+<div class="text-label-sm font-label-sm text-[#072421]">British RP Accent</div>
+</div>
+</button>
+<!-- Carlos Voice -->
+<button class="tactile-neutral-btn min-h-[52px] p-3 rounded-xl flex items-center gap-3 text-left" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#A9BDBB]">record_voice_over</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#E8F1F0]">Carlos (Male)</div>
+<div class="text-label-sm font-label-sm text-[#A9BDBB]">Standard Academic</div>
+</div>
+</button>
+</div>
+</div>
+<!-- Default Audio Speed -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-[#E8F1F0]">Default Audio Speed Rate</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="tactile-neutral-btn min-h-[44px] py-2 rounded-xl font-label-md text-label-md" type="button">0.75x</button>
+<button class="tactile-neutral-btn min-h-[44px] py-2 rounded-xl font-label-md text-label-md" type="button">0.85x</button>
+<button class="tactile-teal min-h-[44px] py-2 rounded-xl font-label-md text-label-md font-black" type="button">1.0x Normal</button>
+<button class="tactile-neutral-btn min-h-[44px] py-2 rounded-xl font-label-md text-label-md" type="button">1.2x</button>
+</div>
+</div>
+<!-- Audio Toggles -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Auto-play Word Pronunciation</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Speak headword automatically upon card flip</span>
+</div>
+<button aria-label="Toggle Auto-play Word Pronunciation" aria-pressed="true" class="tactile-switch active min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Sound Effects &amp; Combo Chimes</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Haptic sound triggers on streak milestones</span>
+</div>
+<button aria-label="Toggle Sound Effects" aria-pressed="true" class="tactile-switch active min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+</div>
+</section>
+<!-- ================= 5. PRIVACY & DATA GROUP (Col span 7) ================= -->
+<section aria-labelledby="privacy-heading" class="lg:col-span-7 tactile-card rounded-2xl p-6 flex flex-col gap-6">
+<div class="flex items-center gap-3 border-b-2 border-[#24363A] pb-4">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38b2a6] border-2 border-[#283e42]">
+<span class="material-symbols-outlined text-[24px]">cloud_sync</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]" id="privacy-heading">Spaced Repetition &amp; Cloud Data</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">FSRS algorithm sync, diagnostic telemetry, and backups</p>
+</div>
+</div>
+<!-- Sync Engine Status Box -->
+<div class="p-4 rounded-xl bg-[#1E2F33] border-2 border-[#283e42] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#2ba39a] flex items-center justify-center text-[#0b1c1b]">
+<span class="material-symbols-outlined text-[22px]">sync</span>
+</div>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#E8F1F0]">FSRS v5 Engine State</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Last synchronized 2 minutes ago (Lexkite Vault)</div>
+</div>
+</div>
+<button class="tactile-neutral-btn min-h-[44px] px-3 rounded font-label-sm text-label-sm font-bold flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+            Force Sync
+          </button>
+</div>
+<!-- Export & Third-party Sync -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="p-4 rounded-xl bg-[#172427] border-2 border-[#24363A] flex flex-col justify-between gap-3">
+<div>
+<div class="font-label-md text-label-md font-bold text-[#E8F1F0]">Anki Deck Compatibility</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Export your IELTS vocabulary cards to .apkg format</div>
+</div>
+<button class="tactile-neutral-btn min-h-[44px] px-4 rounded font-label-md text-label-md flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+              Export .apkg
+            </button>
+</div>
+<div class="p-4 rounded-xl bg-[#172427] border-2 border-[#24363A] flex flex-col justify-between gap-3">
+<div>
+<div class="font-label-md text-label-md font-bold text-[#E8F1F0]">Import Custom Wordlists</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Load CSV / TSV spreadsheets with definitions</div>
+</div>
+<button class="tactile-neutral-btn min-h-[44px] px-4 rounded font-label-md text-label-md flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+              Import CSV
+            </button>
+</div>
+</div>
+<!-- Privacy & Analytics Toggles -->
+<div class="space-y-4 pt-2">
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Anonymized Practice Analytics</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Helps refine AI question difficulty calibration</span>
+</div>
+<button aria-label="Toggle Anonymized Practice Analytics" aria-pressed="true" class="tactile-switch active min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#E8F1F0]">Crash Reports &amp; Diagnostics</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Send automated trace logs on unexpected audio stops</span>
+</div>
+<button aria-label="Toggle Crash Reports" aria-pressed="false" class="tactile-switch min-w-[52px] min-h-[44px] flex items-center focus:outline-none" type="button"></button>
+</div>
+</div>
+</section>
+<!-- ================= 6. ABOUT & SUPPORT GROUP (Col span 5) ================= -->
+<section aria-labelledby="about-heading" class="lg:col-span-5 tactile-card rounded-2xl p-6 flex flex-col justify-between gap-6">
+<div class="space-y-5">
+<div class="flex items-center gap-3 border-b-2 border-[#24363A] pb-4">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38b2a6] border-2 border-[#283e42]">
+<span class="material-symbols-outlined text-[24px]">info</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#E8F1F0]" id="about-heading">About &amp; Guidance</h2>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Platform architecture and coach channel</p>
+</div>
+</div>
+<!-- TEACHER SLOT (Dark dashed container with mortarboard icon) -->
+<div class="teacher-slot border-2 border-dashed border-[#38b2a6]/50 bg-[#1E2F33]/60 rounded-2xl p-5 flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-[#173330] text-[#4ed8ca] border border-[#2ba39a] flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#172427] text-[#E8F1F0] font-extrabold border border-[#24363A]">
+                  teacher-slot
+                </span>
+<div class="font-label-md text-label-md font-black text-[#38b2a6] mt-0.5">Coach Carlos • Habit Advisory</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] italic">
+              "Locking your evening drill session at 20:30 aligns with your short-term memory consolidation before sleep. Keep your daily goal at 15 minutes to guarantee a consistent streak!"
+            </p>
+<div class="text-label-sm font-label-sm text-[#A9BDBB] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#38b2a6]">verified</span>
+              IELTS Certified Methodology Lead
+            </div>
+</div>
+<!-- Version Info -->
+<div class="p-3.5 rounded-xl bg-[#1E2F33] border-2 border-[#283e42] flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md font-bold text-[#E8F1F0]">Lexkite Desktop Engine</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Version 2.4.2 (Chromium CBT Runtime)</div>
+</div>
+<button class="tactile-neutral-btn min-h-[44px] px-3 rounded font-label-sm text-label-sm" type="button">
+              Check Updates
+            </button>
+</div>
+</div>
+<!-- Danger Zone / Destructive Controls -->
+<div class="pt-4 border-t-2 border-[#24363A] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md font-bold text-[#ff6b6b]">Danger Zone</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Permanently delete progress and vocabulary cache</div>
+</div>
+<button class="min-h-[44px] px-4 rounded border-2 border-[#ff6b6b] text-[#ff6b6b] bg-[#172427] hover:bg-[#3d1418] hover:text-[#ffb4ab] font-label-md text-label-md font-bold transition-colors shadow-[0_3px_0_0_#0b1315]" type="button">
+              Delete Account
+            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- ================= STICKY CONFIRMATION FOOTER ================= -->
+<div class="tactile-card rounded-2xl p-4 bg-[#172427] flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#38b2a6] text-[24px]">verified</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#E8F1F0]">Unsaved preferences detected in "Learning" and "Language"</div>
+<div class="font-body-sm text-body-sm text-[#A9BDBB]">Your active study session will dynamically update with zero reload.</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="tactile-neutral-btn min-h-[48px] px-6 rounded font-label-md text-label-md flex-1 sm:flex-initial" type="button">
+          Discard
+        </button>
+<!-- SIGNATURE CORAL BUTTON: Deep ink text #1a0d00, NEVER white -->
+<button class="tactile-coral min-h-[48px] px-8 rounded font-label-md text-label-md flex items-center justify-center gap-2 font-black flex-1 sm:flex-initial !text-[#1a0d00]" type="button">
+<span class="material-symbols-outlined text-[20px] !text-[#1a0d00]">check_circle</span>
+          Save Preferences
+        </button>
+</div>
+</div>
+</main>
+<!-- Lightweight Inline Interaction Script for Switches and Segmented Controls -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle switches click logic
+      const switches = document.querySelectorAll('.tactile-switch');
+      switches.forEach(sw => {
+        sw.addEventListener('click', () => {
+          const isActive = sw.classList.toggle('active');
+          sw.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      });
+    });
+  </script>
+</body></html>

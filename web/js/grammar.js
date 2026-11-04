@@ -32,7 +32,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   ];
   const CHAPTERS = [
     { n: 1, name: 'Các thì', emoji: '⏳', color: '#6d5dfc', desc: '12 thì từ cơ bản đến nâng cao và cách diễn đạt tương lai',
-      ids: ['present-simple', 'present-continuous', 'present-perfect', 'present-perfect-continuous', 'past-simple', 'past-continuous', 'past-perfect', 'past-perfect-continuous', 'future-forms', 'future-continuous-perfect', 'used-to-would', 'stative-dynamic', 'ed-s-endings'] },
+      ids: ['be-am-is-are', 'present-simple', 'present-continuous', 'present-perfect', 'present-perfect-continuous', 'past-simple', 'past-continuous', 'past-perfect', 'past-perfect-continuous', 'future-forms', 'future-continuous-perfect', 'used-to-would', 'stative-dynamic', 'ed-s-endings'] },
     { n: 2, name: 'Sự phối hợp các thì', emoji: '🔗', color: '#7c3aed', desc: 'Phối hợp thì trong câu phức, mệnh đề thời gian, chọn thì cho IELTS',
       ids: ['sequence-of-tenses', 'future-in-past', 'tenses-ielts'] },
     { n: 3, name: 'Mệnh đề & cụm từ', emoji: '🧩', color: '#0ea5a4', desc: 'Câu điều kiện, wish, mệnh đề quan hệ, danh từ, trạng ngữ, phân từ, mục đích – kết quả',
@@ -44,7 +44,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     { n: 6, name: 'Dạng nhấn mạnh', emoji: '📣', color: '#e5484d', desc: 'Đảo ngữ, câu chẻ, nhấn mạnh với do/does/did (nhấn mạnh khi nói: xem Thư viện phát âm)',
       ids: ['emphasis-variety', 'inversion-cleft'] },
     { n: 7, name: 'Từ loại', emoji: '🧱', color: '#0369a1', desc: 'Danh từ, động từ, động từ khuyết thiếu, tính từ, trạng từ, đại từ, mạo từ, giới từ, liên từ',
-      ids: ['parts-of-speech-patterns', 'word-formation', 'nouns', 'noun-plurals', 'possessive-case', 'articles', 'pronouns', 'verb-types', 'modals-ability-permission', 'modals-obligation-advice', 'modals-deduction', 'preference-advice', 'subjunctive', 'adjectives-adverbs', 'adjectives-special', 'ing-ed-adjectives-prepositions', 'comparatives-superlatives', 'comparison-special', 'adverbs-position', 'prepositions', 'dependent-prepositions', 'phrasal-verbs-grammar', 'conjunctions', 'there-is-empty-it'] },
+      ids: ['a-an-plurals', 'parts-of-speech-patterns', 'word-formation', 'nouns', 'noun-plurals', 'possessive-case', 'articles', 'pronouns', 'verb-types', 'modals-ability-permission', 'modals-obligation-advice', 'modals-deduction', 'preference-advice', 'subjunctive', 'adjectives-adverbs', 'adjectives-special', 'ing-ed-adjectives-prepositions', 'comparatives-superlatives', 'comparison-special', 'adverbs-position', 'prepositions-time-place-basic', 'prepositions', 'dependent-prepositions', 'phrasal-verbs-grammar', 'conjunctions', 'there-is-empty-it'] },
     { n: 8, name: 'Lời nói gián tiếp', emoji: '💬', color: '#c026d3', desc: 'Lùi thì, câu hỏi, mệnh lệnh và các động từ tường thuật',
       ids: ['reported-speech', 'reported-advanced'] },
     { n: 9, name: 'Câu chủ động – bị động', emoji: '🔄', color: '#1d4ed8', desc: 'Bị động mọi thì, bị động tường thuật, thể sai khiến',
@@ -400,7 +400,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     // Câu dùng cho bài "xếp chữ": lấy từ ví dụ trong bài, 5–12 từ
     const sents = [...formulas.flatMap(f => f.rows.map(r => r.ex)), ...uses.flatMap(u => u.items.map(it => it.ex))]
       .filter(Boolean).filter(t => { const n = tokenize(t).length; return n >= 5 && n <= 12; });
-    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3);
+    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3), WPICK = 'border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem';
     const steps = [];
     steps.push({ name: t('Hình dung'), em: '👀', html: () => `${visual.map(b => R[b.type](b)).join('') || ''}<div class="g-tip" style="margin-top:1rem">🧠 <b>${t('Ghi nhớ:')}</b> ${esc(x.summary)}</div>` });
     if (formulas.length && formulas[0].rows[0]) steps.push({ name: t('Ghép công thức'), em: '🧮', html: () => {
@@ -422,20 +422,21 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (mistakes.length) steps.push({ name: t('Bắt lỗi'), em: '🕵️', html: () => `<div class="stack"><div class="small muted">${t('Đọc câu sai, tự tìm lỗi trong đầu rồi bấm để kiểm tra – cách nhớ lâu nhất là tự phát hiện.')}</div>${mistakes.map((m, k) => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <span lang="en">${esc(m.wrong)}</span></div><button class="btn sm" data-reveal="${k}" style="margin-top:.5rem">${UI.icon('search')} ${t('Tôi đã tìm ra lỗi – xem đáp án')}</button><div data-ans="${k}" hidden style="margin-top:.4rem" aria-live="polite"><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div><div class="small muted">${esc(m.why)}</div></div></div>`).join('')}${l1Slot(x)}</div>`,
       bind: () => $$('[data-reveal]').forEach(b => b.onclick = () => { $(`[data-ans="${b.dataset.reveal}"]`).hidden = false; b.remove(); Sfx.flip(); }) });
     if (builds.length) steps.push({ name: t('Xếp câu'), em: '🧩', html: () => `<div class="stack">${builds.map((s, k) => `<div class="g-block" data-build="${k}"><h3>🧩 ${t('Xếp các từ thành câu đúng')}</h3><div class="build-slot" data-slot="${k}"></div>
-        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button class="chip wpick" data-j="${j}" style="border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem">${esc(w)}</button>`).join('')}</div>
+        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button type="button" class="chip wpick" data-i="${j}" style="${WPICK}">${esc(w)}</button>`).join('')}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-undo="${k}">↺ ${t('Làm lại')}</button><span class="small" data-msg="${k}"></span></div></div>`).join('')}</div>`,
       bind: () => builds.forEach((s, k) => {
-        const words = tokenize(s); let built = [];
+        const words = tokenize(s); let built = [], done = false;
         const pool = $(`[data-pool="${k}"]`), slot = $(`[data-slot="${k}"]`), msg = $(`[data-msg="${k}"]`);
         const check = () => {
           if (built.length < words.length) return;
           const ok = built.map(j => words[j]).join(' ') === words.join(' ');
           msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; Sfx.answer(ok, { el: slot, answer: s });
           if (ok) UI.speak(s, state.settings.accent);
-          slot.classList.add(ok ? 'ok' : 'no');
+          slot.classList.add(ok ? 'ok' : 'no'); done = true;
         };
-        $$('.wpick', pool).forEach(b => b.onclick = () => { built.push(+b.dataset.j); slot.insertAdjacentHTML('beforeend', `<span class="chip" style="font-size:.95rem;padding:.35rem .7rem">${esc(b.textContent)}</span>`); b.hidden = true; Sfx.pop(); check(); });
-        $(`[data-undo="${k}"]`).onclick = () => { built = []; slot.innerHTML = ''; slot.className = 'build-slot'; msg.textContent = ''; $$('.wpick', pool).forEach(b => b.hidden = false); };
+        const draw = () => { slot.innerHTML = built.map(j => `<button type="button" class="chip wpick" data-a="${j}" style="${WPICK}">${esc(words[j])}</button>`).join(''); };
+        const arr = WordArrange.bind({ ans: slot, bank: pool, sel: '.wpick', scope: slot.closest('[data-build]'), get: () => built, set: o => { built = o; }, draw, locked: () => done, word: j => words[j], t, onPlace: () => Sfx.pop(), onChange: check });
+        $(`[data-undo="${k}"]`).onclick = () => { built = []; done = false; slot.classList.remove('ok', 'no'); msg.textContent = ''; arr.reset(); };
       }) });
     if (drillsOf(x).length) steps.push({ name: t('Tự luận'), em: '✍️', html: () => drillsHtml(x), bind: () => bindDrills(x) });
     steps.push({ name: t('Luyện tập'), em: '✏️', html: () => quizHtml(x), bind: () => bindQuiz(x, next, () => lessonSteps(id)) });

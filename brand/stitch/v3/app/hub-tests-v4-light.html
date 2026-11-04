@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Tests Tab Hub</title>
+<!-- Material Symbols Outlined Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3c0700",
+            "primary-fixed": "#beebeb",
+            "outline-variant": "#c0c8c8",
+            "on-tertiary-fixed": "#00201f",
+            "on-secondary-container": "#661200",
+            "inverse-on-surface": "#e3f4f5",
+            "on-surface-variant": "#404848",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#8cd3cf",
+            "tertiary": "#002625",
+            "background": "#ecfdfd",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-dim": "#ccddde",
+            "surface-container": "#e0f1f2",
+            "outline": "#717978",
+            "secondary-fixed": "#ffdad2",
+            "secondary": "#ac3416",
+            "tertiary-container": "#003e3c",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#d5e6e7",
+            "primary-container": "#0f3d3e",
+            "on-primary-fixed-variant": "#224d4e",
+            "on-tertiary-container": "#65aca8",
+            "on-primary": "#ffffff",
+            "secondary-container": "#fd6f4c",
+            "on-background": "#0f1e1f",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "surface-container-low": "#e6f7f8",
+            "surface-container-highest": "#d5e6e7",
+            "tertiary-fixed": "#a8efeb",
+            "on-primary-fixed": "#002020",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#3b6566",
+            "on-primary-container": "#7da8a8",
+            "primary": "#002627",
+            "primary-fixed-dim": "#a3cfcf",
+            "on-surface": "#0f1e1f",
+            "inverse-primary": "#a3cfcf",
+            "surface": "#ecfdfd",
+            "surface-bright": "#ecfdfd",
+            "surface-container-high": "#dbebec",
+            "inverse-surface": "#243334",
+            "on-tertiary-fixed-variant": "#00504d",
+            "secondary-fixed-dim": "#ffb4a2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-xl": "2.5rem",
+            "margin": "1.5rem",
+            "margin-lg": "3rem",
+            "gutter-lg": "2rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Warm Tactile Prep custom physical mechanical styles */
+    .tactile-coral-btn {
+      box-shadow: 0 4px 0 0 #B83A1B;
+      transition: transform 75ms ease-out, box-shadow 75ms ease-out;
+    }
+    .tactile-coral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B83A1B;
+    }
+
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #c0c8c8;
+      border: 1.5px solid #c0c8c8;
+    }
+
+    .tactile-chip-active {
+      box-shadow: 0 3px 0 0 #002625;
+    }
+
+    .tactile-secondary-btn {
+      box-shadow: 0 3px 0 0 #002625;
+      transition: transform 75ms ease-out, box-shadow 75ms ease-out;
+    }
+    .tactile-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #002625;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md flex justify-center min-h-screen">
+<!-- Mobile Viewport Container (Max 390px width emulation) -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-surface relative pb-24 shadow-sm border-x border-outline-variant">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="flex justify-between items-center w-full px-margin-sm h-14 bg-surface dark:bg-surface text-primary dark:text-primary-fixed border-b border-outline-variant dark:border-outline-variant sticky top-0 z-40">
+<div class="flex items-center space-x-2">
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile font-bold text-primary dark:text-primary-fixed tracking-tight">Tests</h1>
+</div>
+<!-- Exactly one 44x44 icon button with trailing_icon: history -->
+<button aria-label="Test History" class="w-[44px] h-[44px] flex items-center justify-center rounded-xl text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform duration-75">
+<span class="material-symbols-outlined text-2xl" data-icon="history">history</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-sm pt-4 space-y-5">
+<!-- Exam Selector Chips -->
+<section aria-label="Exam Selection">
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+<!-- IELTS (Active) -->
+<button class="tactile-chip-active min-h-[44px] px-5 py-2.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center shrink-0 active:translate-y-[2px] transition-transform">
+<span>IELTS</span>
+</button>
+<!-- TOEIC (Inactive) -->
+<button class="min-h-[44px] px-5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface border-2 border-outline-variant font-label-md text-label-md flex items-center justify-center shrink-0 hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span>TOEIC</span>
+</button>
+<!-- TOEFL (Inactive) -->
+<button class="min-h-[44px] px-5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface border-2 border-outline-variant font-label-md text-label-md flex items-center justify-center shrink-0 hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span>TOEFL</span>
+</button>
+<!-- CEFR (Inactive) -->
+<button class="min-h-[44px] px-5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface border-2 border-outline-variant font-label-md text-label-md flex items-center justify-center shrink-0 hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span>CEFR</span>
+</button>
+</div>
+</section>
+<!-- Readiness Score Card (Tactile Bevel Card) -->
+<section class="tactile-card bg-surface-container-lowest rounded-2xl p-space-md">
+<!-- Target Band Comparison Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">IELTS Academic Target</span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="text-headline-lg font-headline-lg text-primary">Band 6.5</span>
+<span class="text-label-md font-label-md text-on-surface-variant">/ Target 7.0</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex flex-col items-center justify-center border border-outline-variant">
+<span class="text-label-sm font-label-sm text-primary">+0.5</span>
+<span class="text-[10px] text-on-surface-variant font-medium">To Goal</span>
+</div>
+</div>
+<!-- Visual Skill Breakdown -->
+<div class="grid grid-cols-2 gap-3 pt-3 pb-4">
+<!-- Listening -->
+<div class="bg-surface p-2.5 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-label-sm text-on-surface">Listening</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">7.0</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[78%]"></div>
+</div>
+</div>
+<!-- Reading -->
+<div class="bg-surface p-2.5 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-label-sm text-on-surface">Reading</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">6.5</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[72%]"></div>
+</div>
+</div>
+<!-- Writing -->
+<div class="bg-surface p-2.5 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-label-sm text-on-surface">Writing</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold">6.0</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full w-[66%]"></div>
+</div>
+</div>
+<!-- Speaking -->
+<div class="bg-surface p-2.5 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-label-sm text-on-surface">Speaking</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">6.5</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[72%]"></div>
+</div>
+</div>
+</div>
+<!-- Teacher Slot Placeholder -->
+<div class="teacher-slot border-2 border-dashed border-outline-variant rounded-xl p-3 bg-surface-container-low flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="school">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm text-primary">Ama (Academic Tutor)</span>
+<span class="text-[10px] bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded font-bold">Priority Tip</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Focus on Academic Writing Task 2 to close the 0.5 gap to reach Band 7.0.</p>
+</div>
+</div>
+</section>
+<!-- Full Mock Test Card (Contains the ONLY Primary Coral CTA) -->
+<section class="tactile-card bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-label-sm font-label-sm text-secondary font-bold tracking-wide uppercase">Full Examination</span>
+<h2 class="text-headline-md font-headline-md text-primary mt-0.5">IELTS Academic Full Mock</h2>
+</div>
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="assignment">assignment</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Complete 4 sections under timed strict test conditions. Real audio passages and examiners criteria.</p>
+<div class="flex items-center gap-4 text-label-sm font-label-sm text-on-surface mb-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="schedule">schedule</span>
+<span>2h 45m</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="layers">layers</span>
+<span>4 sections</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="verified">verified</span>
+<span>Band 9 Scale</span>
+</div>
+</div>
+<!-- The ONLY Primary CTA on the screen: Coral Momentum Button -->
+<button class="tactile-coral-btn w-full min-h-[52px] bg-secondary-container text-on-secondary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 border-2 border-secondary cursor-pointer">
+<span class="material-symbols-outlined text-xl" data-icon="play_arrow">play_arrow</span>
+<span>Start Full Mock (2h 45m)</span>
+</button>
+</section>
+<!-- Quick Test & Diagnostics Card -->
+<section class="tactile-card bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold tracking-wide uppercase">Targeted Practice</span>
+<h2 class="text-headline-md font-headline-md text-primary mt-0.5">Speed Drill &amp; Diagnostic</h2>
+</div>
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="bolt">bolt</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">High-impact 15-minute diagnostic focusing on your weakest IELTS skill: Academic Task 2 thesis structure.</p>
+<div class="flex items-center gap-4 text-label-sm font-label-sm text-on-surface mb-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="timer">timer</span>
+<span>15 min</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="quiz">quiz</span>
+<span>12 questions</span>
+</div>
+</div>
+<!-- Secondary Tactile Button -->
+<button class="tactile-secondary-btn w-full min-h-[48px] bg-primary-container text-on-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 border-2 border-primary cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="replay">replay</span>
+<span>Take Quick Test (15 min)</span>
+</button>
+</section>
+<!-- CBT Simulator Mode Row -->
+<section class="tactile-card bg-surface-container-low rounded-2xl p-4 border border-outline-variant flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="desktop_windows">desktop_windows</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-label-lg font-label-lg text-primary">CBT Simulator Mode</h3>
+<span class="text-[10px] bg-tertiary-fixed text-on-tertiary-fixed px-1.5 py-0.5 rounded font-bold">Official Simulation</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Authentic exam interface, keyboard navigation &amp; split-screen timer layout.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-xl shrink-0" data-icon="chevron_right">chevron_right</span>
+</section>
+<!-- Past Results List -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-md font-headline-md text-primary">Recent Results</h2>
+<button class="min-h-[44px] px-2 flex items-center text-label-sm font-label-sm text-primary hover:underline">
+            View All
+          </button>
+</div>
+<!-- Result Item 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center shrink-0 font-bold border border-outline-variant">
+              6.5
+            </div>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Full Mock Test #3</h4>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Yesterday</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-label-sm font-label-sm text-primary font-semibold">L: 7.0 R: 6.5 W: 6.0 S: 6.5</span>
+</div>
+</div>
+</div>
+<button aria-label="Review Full Mock Test 3" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:translate-y-[2px]">
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Result Item 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center shrink-0 font-bold border border-outline-variant">
+              11/12
+            </div>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Reading Speed Drill</h4>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant">3 days ago</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">91% Accuracy</span>
+</div>
+</div>
+</div>
+<button aria-label="Review Reading Speed Drill" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:translate-y-[2px]">
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (from Shared Components JSON) -->
+<!-- Destination count: 5. Labels: ["Today", "Vocab", "Skills", "Tests", "Me"]. Active: "Tests" -->
+<nav aria-label="Primary Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-sm py-2 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline-variant">
+<!-- Tab 1: Today (Inactive) -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-low active:translate-y-[2px] transition-transform duration-75" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab (Inactive) -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-low active:translate-y-[2px] transition-transform duration-75" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (Inactive) -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-low active:translate-y-[2px] transition-transform duration-75" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests (ACTIVE - style_active_navigation) -->
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-primary-container dark:bg-primary-container text-on-primary dark:text-on-primary rounded-xl px-3 py-1 active:translate-y-[2px] transition-transform duration-75" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="assignment">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me (Inactive) -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-low active:translate-y-[2px] transition-transform duration-75" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

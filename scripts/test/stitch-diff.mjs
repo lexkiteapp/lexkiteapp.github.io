@@ -32,7 +32,18 @@ const CSCAN = () => { const out = [];
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
 const cratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
 const contrast = {}; // tag → { n, miss:[{t,cr,need}] }
+// Dải sáng quét qua chữ (.pill-shimmer – viên XP top-bar, chu kỳ 3 s): chụp ngẫu nhiên chỉ thỉnh thoảng trúng → cổng đỏ chập chờn, còn chữ thật vẫn mờ mỗi vòng.
+//   Luôn đo ở ĐỈNH sáng: phủ màu đậm nhất của gradient lên cả viên rồi chụp riêng cho phép đo (ảnh so SSIM giữ nguyên) → kết quả ổn định và là ca xấu nhất.
+const SHIMMER = '.pill-shimmer,.shimmer-fx';
+const shimmerPeak = async (page, buf) => {
+  const top = await page.evaluate(s => { const e = [...document.querySelectorAll(s)].find(x => x.getBoundingClientRect().width); if (!e) return null;
+    const cols = [...getComputedStyle(e, '::after').backgroundImage.matchAll(/rgba?\([^)]+\)/g)].map(m => m[0]), al = c => { const v = c.match(/[\d.]+/g); return v.length > 3 ? +v[3] : 1; };
+    return cols.length ? cols.sort((a, b) => al(b) - al(a))[0] : null; }, SHIMMER).catch(() => null);
+  if (!top) return buf;
+  const tag = await page.addStyleTag({ content: SHIMMER.split(',').map(x => x + '::after').join(',') + `{animation:none!important;left:0!important;background:${top}!important}` }), b = await page.screenshot();
+  await tag.evaluate(n => n.remove()); return b; };
 async function auditContrast(page, buf, tag) {
+  buf = await shimmerPeak(page, buf);
   const items = await page.evaluate(CSCAN).catch(() => []), p = PNG.sync.read(buf), miss = []; let n = 0;
   for (const it of items) { const m = (it.c.match(/[\d.]+/g) || []).map(Number); if (m.length < 3) continue; const a = (m[3] ?? 1) * it.op; if (a < 0.05) continue; // trong suốt = cố ý ẩn (vòng ✓ chưa chọn)
     const x0 = Math.max(0, Math.floor(it.x)), y0 = Math.max(0, Math.floor(it.y)), x1 = Math.min(p.width, Math.ceil(it.x + it.w)), y1 = Math.min(p.height, Math.ceil(it.y + it.h)); if (x1 - x0 < 3 || y1 - y0 < 3) continue;
@@ -82,14 +93,14 @@ for (const scheme of ['dark', 'light']) {
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2500);
   await page.evaluate(async () => { // dữ liệu mẫu giống bối cảnh Stitch: IELTS mục tiêu 7.5, 1 lần thi thử có điểm 4 kỹ năng
-    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     for (const [w, ctxs] of [['collocation', 'a strong collocation'], ['coherence', 'clear coherence'], ['mitigate', 'mitigate risk'], ['phrasal verb', 'a phrasal verb']]) await Core.Cards.add({ word: w, vi: w, ipa: '', def: w }, { text: ctxs, source: 'https://example.com/a' }).catch(() => {}); App.state.cards = await Core.Cards.all(); // thẻ mẫu cho màn Ôn (có thẻ đến hạn)
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 }));
   }).catch(e => errs.push(`${scheme}: seed ${e.message}`));
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
+    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     // ảnh trọn màn như mẫu: khung cao bằng nội dung → thanh dưới/chân cố định nằm đúng đáy, không lọt giữa ảnh; cuộn về đầu, bỏ focus
     const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
@@ -112,11 +123,11 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}@${QW}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
-  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
+    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     qc[`${k}-${scheme}-${QW}`] = await page.evaluate(() => { const W = innerWidth, over = [], clip = [], tap = [];
       for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
@@ -156,12 +167,12 @@ for (const scheme of ['dark', 'light']) {
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`desk ${scheme}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
-  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
+    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }).catch(() => {}); await page.waitForTimeout(200);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `desk-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-1366`); }
