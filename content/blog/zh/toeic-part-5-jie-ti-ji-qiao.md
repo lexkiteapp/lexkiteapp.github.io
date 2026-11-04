@@ -167,7 +167,7 @@ quiz: [
 
 在日常学习中，善用现代智能化工具能大幅倍增记忆效率。您可以在 [Lexkite 备考互动平台](/#/) 中利用智能词典随时查询商业词汇用法，在 [日常会话演练专区](/#/speaking) 模拟真实的商务汇报场景，并在 [录音工坊](/#/practice/speak) 中借助即时语音分析校准高频商务词汇的发音。
 
-想要系统化提升托业应试战力，推荐深入研读我们的 [托业Part 7阅读55分钟高分攻略](/zh/blog/toeic-part-7-yue-du-gong-lue-shi-jian-fen-pei/)、[商务英语邮件写作指南](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)、[艾宾浩斯与FSRS科学背单词法](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/) 以及 [如何摆脱中译英思维](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)。若需掌握系统性商务核心高频词表，可随时参考本站权威词库 [/tu-vung/](/tu-vung/)。
+想要系统化提升托业应试战力，推荐深入研读我们的 [托业自学备考规划指南](/zh/blog/toeic-zi-xue-bei-kao-gui-hua/)、[托业Part 7阅读55分钟高分攻略](/zh/blog/toeic-part-7-yue-du-gong-lue-shi-jian-fen-pei/)、[商务英语邮件写作指南](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)、[艾宾浩斯与FSRS科学背单词法](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/) 以及 [如何摆脱中译英思维](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)。若需掌握系统性商务核心高频词表，可随时参考本站权威词库 [/tu-vung/](/tu-vung/)。
 
 {{cta: /#/toeic | 立即进入Lexkite托业专区体验Part 5实战限时演练}}
 
