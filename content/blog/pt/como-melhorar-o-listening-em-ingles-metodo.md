@@ -70,7 +70,7 @@ Abra a transcrição original do áudio e compare-a linha por linha com o que vo
 ### Etapa 5: Audição final de consolidação com técnica de Shadowing
 Ouça o áudio mais uma vez enquanto lê a transcrição silenciosamente, ou melhor ainda, pratique a técnica de *shadowing*: repita as frases em voz alta imitando a entonação, o ritmo e as pausas do falante nativo com uma fração de segundo de atraso.
 
-Você pode praticar esses exercícios interativos diretamente na seção [/#/practice](/#/practice) do Lexkite, ou acessar a central de exames em [/#/listening](/#/listening) para treinar com testes completos de compreensão auditiva.
+Você pode praticar esses exercícios interativos diretamente na seção [/#/practice](/#/practice) do Lexkite, ou acessar a central de exames em [/#/listening](/#/listening) para treinar com testes completos de compreensão auditiva. Se o seu objetivo for exames de proficiência, confira também como aplicar respostas naturais na entrevista do [IELTS Speaking Part 1](/pt/blog/ielts-speaking-part-1-guia-respostas-naturais/).
 
 ## Dicas práticas para acelerar o progresso auditivo no dia a dia
 

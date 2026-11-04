@@ -140,7 +140,7 @@ Therefore, in my assessment, digital innovation has not snuffed out intellectual
    - *"Well, if we scrutinize this trend from an economic vantage point, one could deduce that..."*
 3. **Repetição mecânica dos termos do examinador:** Parafraseie os verbos e adjetivos principais da pergunta para evidenciar flexibilidade de vocabulário.
 
-Para aperfeiçoar seu ritmo e expressividade melódica, explore nossas lições sobre [ritmo e stress oracional em inglês](/pt/blog/ritmo-e-stress-oracional-em-ingles-guia/) e o treinamento de [técnica de shadowing em inglês](/pt/blog/tecnica-shadowing-ingles-falar-fluente/). Expanda também suas colocações formais em nosso repertório de [vocabulário temático em inglês](/pt/tu-vung/).
+Para aperfeiçoar seu ritmo e expressividade melódica, explore nossas lições sobre [ritmo e stress oracional em inglês](/pt/blog/ritmo-e-stress-oracional-em-ingles-guia/) e o treinamento de [técnica de shadowing em inglês](/pt/blog/tecnica-shadowing-ingles-falar-fluente/). Para revisar a fase inicial de aquecimento do teste oral, veja também o guia do [IELTS Speaking Part 1](/pt/blog/ielts-speaking-part-1-guia-respostas-naturais/). Expanda também suas colocações formais em nosso repertório de [vocabulário temático em inglês](/pt/tu-vung/).
 
 {{youtube: | Métodos para expandir respostas e articular argumentos no IELTS Speaking Part 3}}
 
