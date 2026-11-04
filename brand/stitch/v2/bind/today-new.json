@@ -22,32 +22,33 @@
   "Mock tests": "Bài thi thử",
   "Stories": "Truyện ngắn",
   "Call a teacher": "Gọi cho giáo viên",
-  "Just 5 minutes a day keeps your streak alive.": "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày."
+  "Just 5 minutes a day keeps your streak alive.": "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.",
+  "Notifications": "Thông báo",
+  "Look up a word": "Tra từ"
  },
  "text": {
-  "VI": "d.lang",
   "L": "d.ini",
   "–": "d.c.tg",
   "Set target": "d.c.tgL",
   "0/10": "d.c.goal",
-  "“Hi, I'm Ama! Let's get you ready in 3 small steps.”": "d.say"
+  "“Hi, I'm Ama! Let's get you ready in 3 small steps.”": "d.say",
+  "EN": "d.lang"
  },
  "html": {
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(d.c.streak)",
   ":scope > main > div > section:nth-child(1) > div:nth-child(3) > span:nth-child(2)": "e(d.c.xp)",
-  ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher"
+  ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher",
+  ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'"
  },
  "after": {
   ":scope > main > div > section:nth-child(5)": "d.pathSec"
  },
  "attr": {
-  ":scope > main > header > div:nth-child(2) > button": {
-   "data-act": "'lang'",
-   "aria-haspopup": "'dialog'"
-  },
   ":scope > main > header > div:nth-child(2) > div": {
    "href": "'#/me'",
-   "aria-label": "t('Tài khoản')"
+   "aria-label": "t('Tài khoản')",
+   "data-act": "'menu'",
+   "aria-haspopup": "'dialog'"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
    "href": "'#/lesson?pick=1'"
@@ -96,6 +97,10 @@
   },
   ":scope > main > div > section:nth-child(5) > div:nth-child(1)": {
    "aria-hidden": "'true'"
+  },
+  ":scope > main > header > div:nth-child(2) > button:last-of-type": {
+   "data-act": "'lang'",
+   "aria-haspopup": "'dialog'"
   }
  },
  "cls": {
