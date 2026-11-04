@@ -15,7 +15,7 @@ import { isQuota } from './quota-skip.mjs';
 
 export const LABEL = 'ci-failure';
 const REAL_RE = /AssertionError|SyntaxError|TypeError|ReferenceError|ModuleNotFoundError|ImportError|Cannot find module|ERR_MODULE_NOT_FOUND|Permission denied \(publickey\)|cannot pull with rebase|unstaged changes|npm ERR!|not ok \d|✗ [^\n]*(horizontal overflow|vi-lint)|thiếu secret|Invalid workflow file|No such file or directory|command not found|Unexpected token|is not defined|is not a function/;
-const TRANSIENT_RE = /→ 5\d\d\b|HTTP (Error )?5\d\d|\b50[234]\b[^\n]{0,30}(Gateway|Unavailable)|Internal Server Error|ETIMEDOUT|ECONNRESET|ECONNREFUSED|EAI_AGAIN|ENOTFOUND|socket hang up|fetch failed|Name or service not known|Could not resolve host|TLS handshake|Connection reset|timed out|Timeout|rate limit|secondary rate|too-fast|\b429\b|google-network|unavailable|lost communication with the server|The runner has received a shutdown signal|Unable to download artifact|Failed to download action|RPC failed|early EOF/i;
+const TRANSIENT_RE = /Error on ZipFile|→ 5\d\d\b|HTTP (Error )?5\d\d|\b50[234]\b[^\n]{0,30}(Gateway|Unavailable)|Internal Server Error|ETIMEDOUT|ECONNRESET|ECONNREFUSED|EAI_AGAIN|ENOTFOUND|socket hang up|fetch failed|Name or service not known|Could not resolve host|TLS handshake|Connection reset|timed out|Timeout|rate limit|secondary rate|too-fast|\b429\b|google-network|unavailable|lost communication with the server|The runner has received a shutdown signal|Unable to download artifact|Failed to download action|RPC failed|early EOF/i;
 const strip = l => l.replace(/^\d{4}-\d\d-\d\dT[\d:.]+Z ?/, '');
 export const scrubLog = s => String(s).replace(/\b(gh[pousr]_\w{20,}|github_pat_\w{20,}|x-access-token:[^@\s]+|eyJ[\w-]{10,}\.[\w-]+\.[\w-]+|sk-[\w-]{16,}|AIza[\w-]{20,})/g, '[secret]').replace(/[^\s@<>"'(),;]+@[^\s@<>"'(),;]+\.[a-z]{2,}/gi, '[email]');
 
@@ -47,6 +47,21 @@ export function redStreak(runs) {
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))) { if (r.conclusion !== 'failure') break; n++; since = r.created_at; }
   return { n, since };
 }
+/** Cổng kiểm thử lõi trên main (tên báo cáo → file). Dùng chung: bản tin dưới đây + scripts/world/ci-status.mjs. */
+export const CORE_TESTS = { 'npm-test': 'ci.yml', 'visual-qa': 'visual-qa.yml', 'new-ui-qa': 'new-ui-qa.yml', 'mobile-qa': 'mobile-qa.yml', 'journey-e2e': 'journey-e2e.yml', 'stitch-quality-qc': 'stitch-quality-qc.yml', 'ext-e2e': 'ext-e2e.yml', 'native-auth-e2e': 'native-auth-e2e.yml', 'qa-bot': 'qa-bot.yml' };
+/** Sức khỏe cổng lõi (thuần): 4/11 ext-e2e đỏ 8 lượt từ 30/10 mà bản tin không nói, vì bản tin chỉ kể lượt đỏ TRONG 24 h – workflow chạy theo paths, hôm đó không có lượt là biến mất;
+ *  còn new-ui-qa chỉ nằm trên nhánh PR nên chưa từng có lượt main. runsByKey: { key → lượt trên main }. Đỏ xếp trước, đỏ lâu nhất trước. */
+export function coreHealth(runsByKey, now = Date.now()) {
+  const rows = Object.entries(runsByKey || {}).map(([key, runs]) => {
+    const st = redStreak(runs), done = (runs || []).filter(r => r && r.event !== 'pull_request' && r.status === 'completed' && !['cancelled', 'skipped'].includes(r.conclusion));
+    const days = st.n ? Math.floor((now - new Date(st.since)) / 864e5) : 0;
+    return { key, n: st.n, since: st.since, days, state: !done.length ? 'none' : st.n ? 'red' : 'green' };
+  });
+  const bad = rows.filter(r => r.state !== 'green').sort((a, b) => (a.state === 'red' ? 0 : 1) - (b.state === 'red' ? 0 : 1) || b.days - a.days || b.n - a.n);
+  return { rows, bad, lines: bad.map(r => (r.state === 'red' ? `- 🔴 ${r.key}: đỏ ${r.n} lượt liền, ${r.days} ngày (từ ${String(r.since).slice(0, 10)})` : `- ⚪ ${r.key}: chưa có lượt nào trên main – cổng đang không canh main`)) };
+}
+/** Issue ci-failure của workflow đã xóa khỏi repo: không bao giờ xanh lại nên không bao giờ tự đóng → rác che tín hiệu thật. Trả file nếu issue thuộc loại đó (thuần). */
+export function orphanIssueFile(body, wfExists) { const m = String(body || '').match(/ci-triage:wf=([\w.-]+)/); return m && !wfExists(m[1]) ? m[1] : null; }
 export function issueBody({ name, file, run, cls, log, streak }) {
   return `${marker(file)}\nWorkflow **${name}** (\`${file}\`) đỏ – ci-triage xếp loại **${cls.kind}** (${cls.why}).\n\n` +
     (streak && streak.n >= 2 ? `- ${streak.n >= STREAK_ALERT ? '🔥' : '🔁'} Đỏ **${streak.n} lượt liên tiếp** trên ${run.head_branch || 'main'} (từ ${String(streak.since).slice(0, 16)}Z)${streak.n >= STREAK_ALERT ? ' – lỗi lặp lại, không phải nhiễu: cần người sửa gốc' : ''}\n` : '') +
@@ -61,17 +76,21 @@ export function videoLine(v) { // owner 23/10: video pipeline in the daily diges
   const g = Object.entries(v.failed_by_gate || {}).map(([k, n]) => `${k} ${n}`).join(', ');
   return `- Video 24 h: dựng ${v.rendered || 0} · đạt ${v.passed || 0} · trượt ${v.failed || 0} · bỏ trước dựng ${v.dropped || 0}${g ? ` (cổng: ${g})` : ''} · chờ duyệt ${v.pending_approval || 0} · đã duyệt ${v.approved || 0}`;
 }
-export function digest(runs, latest, issues, video) {
+export function digest(runs, latest, issues, video, core) {
   const by = {}; for (const r of runs) (by[r.name] = by[r.name] || []).push(r);
   const names = Object.keys(by).sort((a, b) => by[b].length - by[a].length);
   const red = names.filter(n => latest[n] === 'failure');
   const lines = names.map(n => `- ${n}: ${by[n].length} lượt đỏ · hiện ${latest[n] === 'failure' ? '🔴 vẫn đỏ' : latest[n] === 'success' ? '🟢 đã xanh' : (latest[n] || '?')}`);
   const iss = issues.map(i => `- #${i.number} ${i.title} – ${i.html_url}`);
-  const msg = names.length ? `${runs.length} lượt đỏ ở ${names.length} workflow, ${red.length} còn đỏ` : 'không có workflow đỏ';
-  const text = `Bản tin CI 24 h (${new Date().toISOString().slice(0, 16)}Z): ${msg}.\n\n${lines.join('\n') || '- (trống)'}\n\nIssue ci-failure đang mở:\n${iss.join('\n') || '- (không có)'}\n\n` +
+  const msg0 = names.length ? `${runs.length} lượt đỏ ở ${names.length} workflow, ${red.length} còn đỏ` : 'không có workflow đỏ';
+  // Cổng lõi đỏ/chưa chạy luôn đứng đầu bản tin và luôn gửi thư, kể cả khi 24 h qua không có lượt nào của nó
+  const coreBad = (core && core.bad) || [], coreRed = coreBad.filter(b => b.state === 'red' && !red.includes(b.key)).length;
+  const msg = coreBad.length ? `${coreBad.length} cổng kiểm thử lõi chưa xanh (nặng nhất ${coreBad[0].key}${coreBad[0].state === 'red' ? ` ${coreBad[0].days} ngày` : ''}) · ${msg0}` : msg0;
+  const coreT = coreBad.length ? `Cổng kiểm thử lõi chưa xanh (đỏ lâu nhất trước):\n${core.lines.join('\n')}\n\n` : '', coreM = coreBad.length ? `### 🚨 Cổng kiểm thử lõi chưa xanh\n${core.lines.join('\n')}\n\n` : '';
+  const text = `Bản tin CI 24 h (${new Date().toISOString().slice(0, 16)}Z): ${msg}.\n\n${coreT}${lines.join('\n') || '- (trống)'}\n\nIssue ci-failure đang mở:\n${iss.join('\n') || '- (không có)'}\n\n` +
     'Lỗi hạn mức D1 (quota-guard) giờ là bỏ qua trung tính; lỗi tạm thời được chạy lại 1 lần; lỗi thật → issue. Tắt thư từng lượt: GitHub → Settings → Notifications → Actions → "Only notify for failed workflows" hoặc bỏ chọn Email.';
   const vl = video === undefined ? '' : videoLine(video);
-  return { msg, text: vl ? `${text}\n\nPipeline video:\n${vl}` : text, red: red.length, failed: names.length, md: `## 🧾 Bản tin CI 24 h\n${msg}\n\n${lines.join('\n')}\n\n### Issue ci-failure\n${iss.join('\n') || '- (không có)'}\n${vl ? `\n### Pipeline video\n${vl}\n` : ''}` };
+  return { msg, text: vl ? `${text}\n\nPipeline video:\n${vl}` : text, red: red.length + coreRed, failed: names.length + coreBad.length, md: `## 🧾 Bản tin CI 24 h\n${msg}\n\n${coreM}${lines.join('\n')}\n\n### Issue ci-failure\n${iss.join('\n') || '- (không có)'}\n${vl ? `\n### Pipeline video\n${vl}\n` : ''}` };
 }
 
 async function videoSummary(now) { // latest news-auto run (24 h) -> artifact video-summary-<run> (news_auto.py summary json)
@@ -214,6 +233,12 @@ async function sweep() {
       summary(`- Đóng #${i.number} (${m[1]} xanh lại)`);
     }
   }
+  // 1a) issue của workflow đã xóa: đóng (không bao giờ xanh lại được). Chỉ khi thấy được thư mục workflow (checkout thưa của ci-triage có .github/workflows)
+  if (fs.existsSync('.github/workflows')) for (const i of issues) {
+    const f = orphanIssueFile(i.body, x => fs.existsSync(`.github/workflows/${x}`)); if (!f) continue;
+    await gh(`/issues/${i.number}`, { method: 'PATCH', body: { state: 'closed', state_reason: 'not_planned', body: (i.body || '') + `\n\n🗑 Workflow ${f} không còn trong repo (ci-triage tự đóng ${now.toISOString().slice(0, 16)}Z)` } }).catch(e => console.log(e.message));
+    summary(`- Đóng #${i.number} (${f} đã xóa)`);
+  }
   // 1b) lịch cron không chạy / workflow bị tắt ngoài ý muốn (scripts/ci/cron-watch.mjs) – mỗi giờ
   try { const cw = await import('./cron-watch.mjs'), r = await cw.cronWatch(gh, { now: +now }); summary(r.md); summary(`- Issue lịch cron: ${await cw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::${r.bad.length} workflow lịch không chạy: ${r.bad.map(b => b.file).join(', ')}`); }
   catch (e) { console.log('::warning::cron-watch: ' + e.message); }
@@ -245,7 +270,8 @@ async function sweep() {
   }
   // 3) bản tin ngày → tóm tắt job + cảnh báo Quản trị + 1 thư/ngày (chỉ khi có đỏ)
   const day = failed.filter(r => r.created_at >= new Date(now - 24 * 3600e3).toISOString() && r.name !== 'ci-triage');
-  const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
+  const coreRuns = {}; for (const [k, f] of Object.entries(CORE_TESTS)) coreRuns[k] = ((await gh(`/actions/workflows/${f}/runs?branch=main&status=completed&per_page=30`).catch(() => null)) || {}).workflow_runs || [];
+  const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }), coreHealth(coreRuns, +now));
   // 4) runner 24 h (ci-filler): TB/đỉnh theo giờ + phút-runner rảnh khi còn tồn đọng (KPI → ~0)
   try { const f = await import('./filler.mjs'), u = f.report(await f.readLog()); d.md += '\n' + u.md; d.text += `\n\nRunner 24 h: ${u.msg}`; } catch (e) { console.log('runner report:', e.message); }
   if (common) { d.md += '\n' + common.md; d.text += `\n\nPR mở – ${common.text}`; }
