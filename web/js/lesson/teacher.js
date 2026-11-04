@@ -282,7 +282,7 @@
     const units = []; // units[i] = span ứng với từ nói thứ i
     const walk = n => { for (const c of [...n.childNodes]) {
       if (c.nodeType === 3) { const parts = c.textContent.split(/(\s+)/), f = D.createDocumentFragment();
-        for (const p of parts) { if (!p) continue; if (/^\s+$/.test(p)) { f.appendChild(D.createTextNode(p)); continue; } const s = D.createElement('span'); s.className = 'kw'; s.textContent = p; s.tabIndex = 0; s.setAttribute('role', 'button'); units.push(s); f.appendChild(s); }
+        for (const p of parts) { if (!p) continue; if (/^\s+$/.test(p)) { f.appendChild(D.createTextNode(p)); continue; } const s = D.createElement('span'); s.className = 'kw'; s.textContent = p; s.tabIndex = 0; /* chữ thường trong câu (không role=button: cả câu thành chục nút khó nghe, nút cỡ chữ không đạt target-size); chạm + Enter vẫn chạy */ units.push(s); f.appendChild(s); }
         c.replaceWith(f); }
       else if (c.nodeType === 1) { const kn = +c.dataset.kn || (c.classList.contains('lsn-gap') ? 1 : 0); if (kn) { for (let k = 0; k < kn; k++) units.push(c); } else walk(c); } } };
     walk(el); el.classList.add('kwp');
