@@ -40,7 +40,7 @@
           explain: 'Bổ nghĩa cho động từ "worked" cần trạng từ "quickly". "quick/quicker" là tính từ, "quickness" là danh từ.' },
         { n: 117, q: 'Applicants for the position should have at least three years of ------- in project management.', options: ['experience', 'experiment', 'expertly', 'expectation'], a: 0, cue: 'three years of',
           explain: '"years of experience" = số năm kinh nghiệm. "experiment" = thí nghiệm, "expectation" = sự mong đợi (sai nghĩa); "expertly" là trạng từ.' },
-        { n: 118, q: 'The annual employee awards dinner ------- at the Riverside Hotel last Saturday.', options: ['holds', 'is holding', 'will be held', 'was held'], a: 3, cue: 'last Saturday',
+        { n: 118, q: 'The annual employee awards dinner ------- at the Quillmere Riverside Hotel last Saturday.', options: ['holds', 'is holding', 'will be held', 'was held'], a: 3, cue: 'last Saturday',
           explain: 'Bữa tiệc "được tổ chức" (bị động) và "last Saturday" là quá khứ → "was held". "will be held" sai thì; "holds/is holding" là chủ động.' },
         { n: 119, q: 'Ms. Dubois and her colleagues designed the trade show booth by -------.', options: ['them', 'themselves', 'their', 'theirs'], a: 1, cue: 'designed the trade show booth by',
           explain: '"by + đại từ phản thân" = tự mình (không ai giúp): "by themselves". Các dạng khác không dùng trong cụm này.' },

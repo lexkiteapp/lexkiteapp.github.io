@@ -14,7 +14,7 @@ const [SRC = 'brand/stitch/v2q', OUT = 'out/stitch-quality-qc'] = process.argv.s
 const STRICT = process.argv.includes('--strict-layout'), TAP = 44;
 // --all: chấm cả màn chưa PASS (verdict QC/PICK, kho v3) để biết cần sửa gì – chỉ màn PASS/PICK làm CI đỏ.
 const ALL = process.argv.includes('--all'), GATED = v => v === 'PASS' || v === 'PICK';
-const SURF = ['app', 'email', 'share', 'og', 'ext'], MAX_BRIGHT_DARK = 0.12, MIN_BRIGHT_LIGHT = 0.35, WORD_DRIFT = 0.2;
+const SURF = ['app', 'email', 'share', 'og', 'ext', 'admin'], MAX_BRIGHT_DARK = 0.12, MIN_BRIGHT_LIGHT = 0.35, WORD_DRIFT = 0.2;
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
 fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
 const rows = [];

@@ -10,6 +10,7 @@ import { createHash } from 'node:crypto';
 import { toolFoot } from './tools-links.mjs';
 import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
 import { S as SP } from './seo-pages-i18n.mjs';
+import { art, scrollBtns, VIS_CSS, VIS_JS } from './samples-visual.mjs'; // lớp lướt bằng mắt của họ trang thư viện (docs/specs/samples-visual.md)
 // ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
 // Màu tối trang tĩnh lấy thẳng từ nguồn duy nhất brand/tokens.json (scripts/build-tokens.mjs, docs/BRAND-RULES.md)
 const TKALL = JSON.parse(fs.readFileSync(new URL('../../brand/tokens.json', import.meta.url), 'utf8')), TK = TKALL.dark;
@@ -37,7 +38,12 @@ export const THEME_HEAD = `<script data-lkt>function lkT(){try{var s=localStorag
 export const THEME_COLOR = { light: TKALL.light['--bg'], dark: TKALL.dark['--bg'] };
 export const THEME_META = `<meta name="theme-color" media="(prefers-color-scheme:light)" content="${THEME_COLOR.light}"><meta name="theme-color" media="(prefers-color-scheme:dark)" content="${THEME_COLOR.dark}">`;
 // Chỉ phần <head> (chống nháy + theme-color), không đụng CSS – dùng cho trang tĩnh (qua themePage) và app web/app/index.html (build-landing.mjs)
-export const themeHead = html => {
+// Quyền nội dung (docs/CONTENT-PROTECTION.md §8): từ chối khai thác văn bản/dữ liệu (TDMRep W3C, EU DSM Điều 4).
+// Không có "noindex"/"nofollow" → Googlebot/Bingbot lập chỉ mục như cũ. Chèn 1 lần (idempotent) ngay sau chống nháy.
+export const IP_META = '<meta name="tdm-reservation" content="1">'; // © hiển thị ở chân mọi trang (siteFooter, app) – không thêm meta copyright (trang giới thiệu sát ngân sách gzip)
+const ipMeta = html => html.includes('name="tdm-reservation"') ? html : html.replace(/(<meta name="theme-color"[^>]*>(?:\s*<meta name="theme-color"[^>]*>)*)/i, x => x + IP_META);
+export const themeHead = html => ipMeta(themeHead0(html));
+const themeHead0 = html => {
   const meta = /<meta name="theme-color"/i.test(html); // trang chưa có theme-color → thêm ngay sau chống nháy
   html = html.replace(/<meta name="theme-color"[^>]*>(?:\s*<meta name="theme-color"[^>]*>)*/i, () => THEME_META);
   const H = meta ? THEME_HEAD : THEME_HEAD + THEME_META;
@@ -51,7 +57,7 @@ const TSW_KEYS = ['Giao diện theo hệ thống', 'Giao diện sáng', 'Giao di
 export const themeLabels = lang => {
   if (TSW_L[lang]) return TSW_L[lang];
   let D = {};
-  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(rdWeb(`js/i18n/${lang}.js`), { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
+  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(lang === 'en' ? rdWeb('js/i18n/en.js') : fs.readFileSync(new URL(`../../i18n/ui/${lang}.js`, import.meta.url), 'utf8'), /* nguồn khóa nguyên câu – web/js/i18n/<lang>.js là gói khóa băm */ { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
   const out = TSW_KEYS.map(k => lang === 'vi' ? k : D[k]);
   if (out.some(x => !x)) return (TSW_L[lang] = lang in LANG_NAMES && lang !== 'en' ? themeLabels('en') : out.map((x, i) => x || TSW_KEYS[i]));
   return (TSW_L[lang] = out);
@@ -73,10 +79,12 @@ export const TSW_JS = `(function(d,r,K){var O=['auto','light','dark'],c=function
 // (app /app/?hl=, trang chủ /<l>/, blog /<l>/blog/) trỏ về ngôn ngữ đã lưu – kể cả logo, "Mở app", nav, chân trang. Không chuyển trang; bot (không
 // localStorage) thấy nguyên link + hreflang/x-default. Mục trong menu/danh sách ngôn ngữ giữ nguyên (đó là lựa chọn). Trang gốc: gợi ý ở landing (hintJs).
 export const LANG_KEYS = ['lk.lang', 'vb.uiLang'];
+// Cookie chức năng: ngôn ngữ người dùng ĐÃ BẤM CHỌN → "/" đưa về đúng ngôn ngữ đó (functions/api/_rootlang.js). Không đặt khi đoán tự động.
+export const LANG_COOKIE = 'lk_lang';
 export const LANG_JS = `(function(d){var S='vi en es pt fr de id th zh ja ko hi ar ru tr'.split(' '),s,L,M='[data-lsw],.flang,.flangs';try{s=localStorage;L=s.getItem('vb.uiLang')||s.getItem('lk.lang')}catch(e){return}
-d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[hreflang]');if(a&&a.closest(M)&&S.indexOf(a.hreflang)>=0)try{s.setItem('lk.lang',a.hreflang);s.setItem('vb.uiLang',a.hreflang)}catch(x){}},true);
+d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[hreflang]');if(a&&a.closest(M)&&S.indexOf(a.hreflang)>=0)try{s.setItem('lk.lang',a.hreflang);s.setItem('vb.uiLang',a.hreflang);d.cookie='${LANG_COOKIE}='+a.hreflang+';path=/;max-age=31536000;samesite=lax;secure'}catch(x){}},true);
 if(S.indexOf(L)<0)return;[].forEach.call(d.querySelectorAll('a[href^="/"]'),function(a){if(a.closest(M)||a.hasAttribute('hreflang'))return;var h=a.getAttribute('href'),m,n;
-if(m=h.match(/^\\/app\\/(\\?hl=[a-z]{2})?(#.*)?$/))n='/app/'+(L=='vi'?'':'?hl='+L)+(m[2]||'');else if(h=='/'||(m=h.match(/^\\/([a-z]{2})\\/$/))&&S.indexOf(m[1])>=0)n=L=='vi'?'/':'/'+L+'/';else if((m=h.match(/^\\/([a-z]{2})\\/blog\\/$/))&&S.indexOf(m[1])>=0)n='/'+L+'/blog/';
+if(m=h.match(/^\\/app\\/(\\?hl=[a-z]{2})?(#.*)?$/))n='/app/'+(L=='vi'?'':'?hl='+L)+(m[2]||'');else if(h=='/'||(m=h.match(/^\\/([a-z]{2})\\/$/))&&S.indexOf(m[1])>=0)n='/'+L+'/';else if((m=h.match(/^\\/([a-z]{2})\\/blog\\/$/))&&S.indexOf(m[1])>=0)n='/'+L+'/blog/';
 if(n&&n!=h)a.setAttribute('href',n)})})(document);`;
 // Chân trang: nhóm gập mở trên điện thoại (≤720 px: chỉ mở nhóm đầu "Sản phẩm"), máy tính luôn mở; menu ngôn ngữ đóng khi bấm ra ngoài / Esc.
 export const FOOT_JS = `(function(d){var q=window.matchMedia?matchMedia('(max-width:720px)'):{matches:!1},G=d.querySelectorAll('.fg'),F=function(){[].forEach.call(G,function(x,i){x.open=!q.matches||!i})};F();q.addEventListener&&q.addEventListener('change',F);
@@ -122,7 +130,7 @@ export const CSS = `:root{${LT};--primary:#CC3F1C;--primary-ink:#fff;--primary-s
 @media (prefers-color-scheme:dark){:root{${DK};--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:8px;top:-60px;background:var(--surface);padding:8px 12px;z-index:9}.skip:focus{top:8px}
+.skip{position:absolute;left:8px;top:-60px;background:var(--surface);padding:8px 12px;z-index:9;min-height:44px;display:inline-flex;align-items:center}.skip:focus{top:8px}
 header.top{background:var(--surface);border-bottom:1px solid var(--line)}.bar{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;min-height:44px;gap:8px;font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-.02em}.logo b{color:var(--primary)}.logo img{border-radius:8px}
 nav.main{display:flex;gap:4px 14px;flex-wrap:wrap;font-weight:600;font-size:15px;margin-left:auto;align-items:center}nav.main a{color:var(--text);text-decoration:none}nav.main a:hover{color:var(--primary)}
@@ -251,7 +259,7 @@ ${TAP_CSS}
 
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
 // lang + langHref(l): thêm nút đổi ngôn ngữ (langSwitch) cuối thanh điều hướng
-export const siteHeader = ({ nav, open, home = '/', extra = '', lang, langHref, label }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
+export const siteHeader = ({ nav, open, home = '/', extra = '', lang, langHref, label }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=3" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
 <nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}${lang ? themeSwitch(lang) + langSwitch({ lang, langHref, label }) : ''}</nav></div></header>`;
 export const GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/></svg>';
 // Nút 🌐 + mã ngôn ngữ → menu 15 ngôn ngữ (tên bản địa, lang/hreflang từng mục). langHref(l) = trang TƯƠNG ĐƯƠNG bằng ngôn ngữ l
@@ -286,9 +294,9 @@ export const FOOT = {
   tr: ['Ürün', 'Kaynaklar', 'Şirket', 'Web uygulaması', 'Chrome eklentisi', 'Blog', 'Kelime', 'Örnek yazılar', 'IELTS Speaking', 'Dil bilgisi', 'Hakkında', 'İletişim', 'Gizlilik', 'Koşullar', 'Çerezler ve depolama', 'Verilerimi sil', 'Dil', 'Görsel kaynakları', 'Öğren', 'Ücretsiz araçlar', 'Web uygulamasını aç', 'Chrome’a ekle', 'Mobil uygulamayı indir'],
 };
 const ABOUT = { vi: 'gioi-thieu', en: 'about', es: 'acerca-de', pt: 'sobre', fr: 'a-propos', de: 'ueber-uns', id: 'tentang', tr: 'hakkinda' };
-// App học nằm ở /app/ (SPA, hash route); / và /<lang>/ là trang giới thiệu tĩnh (scripts/build-landing.mjs)
+// App học nằm ở /app/ (SPA, hash route); /<lang>/ là trang giới thiệu tĩnh (scripts/build-landing.mjs); / chuyển theo ngôn ngữ (functions/index.js)
 export const appHref = lang => lang === 'vi' ? '/app/' : `/app/?hl=${lang}`;
-export const landingHref = lang => lang === 'vi' ? '/' : `/${lang}/`;
+export const landingHref = lang => `/${lang}/`;
 // getApp: HTML nút "Tải app" dưới đoạn giới thiệu (chỉ landing truyền)
 // lang: ngôn ngữ trang; text/tm: câu giới thiệu + ghi chú nhãn hiệu (theo ngôn ngữ); langHref(l): link bản ngôn ngữ l (mặc định trang chủ blog l)
 // Ghi chú nhãn hiệu (docs/BRAND-RULES.md § Nhãn hiệu): "Lexkite™" chỉ ở lần nhắc nổi bật đầu tiên + chân trang/pháp lý – không đổi logo/wordmark
@@ -312,19 +320,24 @@ export const TM_NOTE = {
 };
 // Lần nhắc đầu trong đoạn giới thiệu chân trang: "Lexkite – …" → "Lexkite™ – …" (không thêm nếu đã có)
 export const tmFirst = s => String(s || '').replace(/Lexkite(?!™)/, 'Lexkite™');
+// Nhóm liên kết chân trang (Sản phẩm · Học · Công cụ miễn phí · Thông tin) – NGUỒN DUY NHẤT cho siteFooter (trang tĩnh) và siteChrome (khung Stitch landing)
+export const footGroups = (lang, extra = [], coExtra = []) => {
+  const cur = lang in LANG_NAMES ? lang : 'en', f = FOOT[cur], fe = i => f[i] || FOOT.en[i], app = appHref(lang), vi = lang === 'vi', lg = `/${cur}`;
+  const product = [[app, f[3]], [`${app}#/settings`, f[4]], ...(PLAY_STORE ? [[PLAY_STORE, fe(22), ' rel="noopener"']] : [])];
+  const learn = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...extra]; // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
+  const tools = toolFoot(lang); // công cụ miễn phí (scripts/lib/tools-links.mjs)
+  const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, fe(17)], ...coExtra];
+  return { cur, f, product, learn, tools, co };
+};
 // Chân trang theo thiết kế Stitch (docs: PR #303): cột thương hiệu (logo diều + câu giới thiệu + "Mở app" + "Add to Chrome") · 4 nhóm
 // Sản phẩm / Học / Công cụ miễn phí / Thông tin (gập mở trên điện thoại) · thanh đáy © + nhãn hiệu + menu ngôn ngữ (<details>, link <a> cho bot) + nút giao diện.
 // Đủ mọi link cũ; "Tải app điện thoại" = link Google Play thật (web/js/ext-config.js LK_APPS.play; iOS chưa phát hành → chưa thêm).
 export const PLAY_STORE = (rdWeb('js/ext-config.js').match(/play: '([^']+)'/) || [])[1];
 export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '', coExtra = [] }) => {
-  const cur = lang in LANG_NAMES ? lang : 'en', f = FOOT[cur], fe = i => f[i] || FOOT.en[i], app = appHref(lang), vi = lang === 'vi', lg = `/${cur}`;
+  const { cur, f, product, learn, tools, co } = footGroups(lang, extra, coExtra), app = appHref(lang), fe = i => f[i] || FOOT.en[i];
   const col = (h, items) => items.length ? `<details class="fg" open><summary><h2>${h}</h2></summary><ul>${items.map(([u, n, a = '']) => `<li><a href="${u}"${a}>${n}</a></li>`).join('')}</ul></details>` : '';
-  const product = [[app, f[3]], [`${app}#/settings`, f[4]], ...(PLAY_STORE ? [[PLAY_STORE, fe(22), ' rel="noopener"']] : [])];
-  const learn = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...extra]; // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
-  const tools = toolFoot(lang); // công cụ miễn phí (scripts/lib/tools-links.mjs)
-  const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, fe(17)], ...coExtra];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(cur)}"><img src="/icons/icon.svg?v=2" width="36" height="36" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p><div class="fbtns"><a class="fbtn pri" href="${app}">${fe(20)}</a>${EXT_STORE ? `<a class="fbtn" href="${EXT_STORE}" target="_blank" rel="noopener">${fe(21)}</a>` : ''}${getApp}</div></div><div class="fgrid">${col(f[0], product)}${col(fe(18), learn)}${col(fe(19), tools)}${col(f[2], co)}</div></div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(cur)}"><img src="/icons/icon.svg?v=3" width="36" height="36" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p><div class="fbtns"><a class="fbtn pri" href="${app}">${fe(20)}</a>${EXT_STORE ? `<a class="fbtn" href="${EXT_STORE}" target="_blank" rel="noopener">${fe(21)}</a>` : ''}${getApp}</div></div><div class="fgrid">${col(f[0], product)}${col(fe(18), learn)}${col(fe(19), tools)}${col(f[2], co)}</div></div>
 <div class="fbot"><div><p><b>© ${year} Lexkite</b> · ${TM_NOTE[lang] || TM_NOTE.en}</p>${tm ? `<p>${tm}</p>` : ''}</div><div class="fctl"><details class="flang"><summary aria-label="${esc(`${f[16]}: ${LANG_NAMES[cur]}`)}">${GLOBE}<span>${LANG_NAMES[cur]}</span></summary><nav class="flangs" aria-label="${esc(f[16])}" translate="no">${langs}</nav></details>${themePill(cur)}</div></div></div></footer>
 ${SITE_UI}`;
 };
@@ -337,13 +350,39 @@ export const HINT_JS = `(function(d){var b=d.body,P=d.documentElement.lang,ls;if
 var n=ls.getItem('vb.uiLang')||ls.getItem('lk.lang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(n===P||${JSON.stringify(Object.keys(LANG_NAMES).join(' '))}.split(' ').indexOf(n)<0)return;
 fetch('${HINT_FILE}').then(function(r){return r.json()}).then(function(A){var S=A[n];if(!S)return;
 var e=d.createElement('div');e.className='lhint';e.lang=n;if(n==='ar')e.dir='rtl';e.setAttribute('role','region');e.setAttribute('aria-label',S[0]);
-e.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';e.firstChild.textContent=S[0];var a=e.querySelector('a'),c=e.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];c.setAttribute('aria-label',S[2]);
-var x=function(){try{ls.setItem('lk.lhint','1')}catch(z){}};a.onclick=x;c.onclick=function(){x();e.remove()};b.appendChild(e)})['catch'](function(){})}catch(z){}})(document);`;
-export const SITE_UI_JS = () => `/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */\n${LSW_JS}\n${TSW_JS}\n${LANG_JS}\n${FOOT_JS}\n${HINT_JS}\nwindow.LkUi=1;\n`;
+e.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';e.firstChild.textContent=S[0];var a=e.querySelector('a'),c=e.querySelector('button');a.href='/'+n+'/';a.textContent=S[1];c.setAttribute('aria-label',S[2]);
+var x=function(){try{ls.setItem('lk.lhint','1')}catch(z){}};a.onclick=function(){x();d.cookie='${LANG_COOKIE}='+n+';path=/;max-age=31536000;samesite=lax;secure'};c.onclick=function(){x();e.remove()};b.appendChild(e)})['catch'](function(){})}catch(z){}})(document);`;
+// Nguồn thật (docs/SEO-ARCH.md §9): khách từ ngoài vào trang tĩnh → chỉ tên miền nguồn + loại trang: giữ 30 phút cho app (lk.src, web/js/app.js) và đếm 1 lần/nguồn/30 phút (/api/hit t:'l'). Không cookie, không gửi URL đầy đủ.
+export const SRC_JS = `(function(d,l){try{var r=d.referrer,s=window.localStorage,h,o,a;if(!r||l.protocol!=='https:'||navigator.webdriver||s.getItem('lk.noTrack')==='1')return;h=new URL(r).hostname.replace(/^www\\./,'');if(h===l.hostname)return;
+o=JSON.parse(s.getItem('lk.src')||'0');if(o&&o.h===h&&Date.now()-o.t<18e5)return;s.setItem('lk.src',JSON.stringify({h:h,t:Date.now()}));a=l.pathname.split('/').filter(Boolean);
+navigator.sendBeacon&&navigator.sendBeacon('/api/hit',JSON.stringify({t:'l',ref:h,p:(/^[a-z]{2}$/.test(a[0])?a[1]:a[0])||'',lang:d.documentElement.lang}))}catch(z){}})(document,location);`;
+export const SITE_UI_JS = () => `/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS + SRC_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */\n${LSW_JS}\n${TSW_JS}\n${LANG_JS}\n${FOOT_JS}\n${HINT_JS}\n${SRC_JS}\nwindow.LkUi=1;\n`;
 export const SITE_UI_V = createHash('sha256').update(SITE_UI_JS()).digest('hex').slice(0, 8);
 export const SITE_UI = `<script src="/js/site-ui.js?v=${SITE_UI_V}" defer></script>`;
 // Landing (giữ LCP: không <script src> trong HTML – landing-routing kiểm): nạp cùng file SAU sự kiện load, như js/get-app.js nạp khi cần
 export const SITE_UI_LAZY = `<script>addEventListener('load',function(){var s=document.createElement('script');s.src='/js/site-ui.js?v=${SITE_UI_V}';document.head.appendChild(s)})</script>`;
+// ---------- Vỏ chung theo Stitch v2.1 (brand/stitch/web/gen/chrome.js – TỰ SINH từ brand/stitch/web/home-*.html + bind/home.json) ----------
+// Trả dữ liệu THẬT cho ST2.chrome(d) (scripts/lib/st-web.mjs render(…, {chrome})): cùng liên kết với siteHeader/siteFooter (footCols, langSwitch, TM_NOTE).
+//   CHỮ THÔ (chưa escape – khung tự escape); các trường *html (menu, extra, getApp) là HTML dựng sẵn. Trang nào cũng truyền được (blog, bài mẫu…):
+//   nav [[href, chữ, hreflang]] · open/signin [href, chữ] · extra: HTML chèn cạnh nút (vd "Tải app") · langHref(l) = trang tương đương bằng ngôn ngữ l.
+//   Menu ngôn ngữ = khối lsw cũ (LSW_JS + LSW_CSS: aria-haspopup, 1 menu ẩn 15 mục lang/hreflang) gắn lên thanh đầu trang Stitch: nút 🌐 máy tính là nút chính,
+//   nút 🌐 điện thoại (data-lsw-alt) bấm hộ nút chính + soi aria-expanded. Nút ☰ (aria-controls/expanded) bật lớp `hidden` của khung menu Stitch.
+//   Cả hai trong MNAV_JS (nối sau LSW_JS, không handler nội tuyến → hợp CSP).
+export const MNAV_JS = `(function(d){var g=d.querySelector('[data-lsw-alt]'),r=g&&g.closest('[data-lsw]'),q=r&&r.querySelector('[aria-haspopup]');if(q&&q!==g){g.onclick=function(){q.click()};new MutationObserver(function(){g.setAttribute('aria-expanded',q.getAttribute('aria-expanded'))}).observe(q,{attributes:true,attributeFilter:['aria-expanded']})}
+var b=d.querySelector('[data-mnav]'),m=b&&d.getElementById(b.getAttribute('aria-controls'));if(!m)return;b.onclick=function(){var o=m.classList.toggle('hidden');b.setAttribute('aria-expanded',o?'false':'true')};d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.classList.contains('hidden')){m.classList.add('hidden');b.setAttribute('aria-expanded','false');b.focus()}})})(document);`;
+export const lswMenu = ({ lang, langHref = landingHref, label, id = 'lsw-m' }) => { const L = esc(label || (FOOT[lang] || FOOT.en)[16]), cur = lang in LANG_NAMES ? lang : 'en';
+  return `<ul class="lsw-m" id="${id}" role="menu" aria-label="${L}" translate="no" hidden>${Object.entries(LANG_NAMES).map(([l, n]) => `<li role="none"><a href="${langHref(l)}" lang="${l}" hreflang="${l}" role="menuitem"${l === 'ar' ? ' dir="rtl"' : ''}${l === cur ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul>`; };
+// Biến màu chung của khối cũ (lsw, lhint, quiz.js, ô quảng cáo…) trên trang khung Stitch (body.stw) = token Stitch --st-* (tự đổi sáng/tối) – landing + blog
+export const STW_VARS = 'body.stw{--surface:rgb(var(--st-surface-container-lowest));--line:rgb(var(--st-outline-variant));--text:rgb(var(--st-on-surface));--muted:rgb(var(--st-on-surface-variant));--primary:rgb(var(--st-secondary));--accent-soft:rgb(var(--st-secondary-container)/.25);--tap:44px;color:var(--text)}';
+export const siteChrome = ({ lang = 'en', nav = [], open, signin, home, extra = '', langHref = landingHref, label, text = '', tm = '', year = new Date().getFullYear(), extraRes = [], getApp = '', js = '' }) => {
+  const { f, product, learn, tools, co } = footGroups(lang, extraRes), cur = lang in LANG_NAMES ? lang : 'en', L = label || f[16];
+  const cols = [[f[0], product], [f[1], [...learn, ...tools]], [f[2], co]]; // 3 cột của mẫu Stitch: công cụ miễn phí nối sau nhóm Học (đủ mọi link chân trang tĩnh)
+  return { lang: cur, code: cur.toUpperCase(), home: home || landingHref(cur), nav, start: open, signin: signin || open,
+    lswLabel: `${cur.toUpperCase()} – ${L}: ${LANG_NAMES[cur]}`, langLabel: L,
+    menu: lswMenu({ lang: cur, langHref, label: L }), globe: GLOBE.replace('<svg ', '<svg width="16" height="16" '), extra: Array.isArray(extra) ? extra : [extra, extra],
+    cols: cols.map(([h, items]) => ({ h, items })), foot: tmFirst(text), getApp, tm, copy: `© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}`,
+    langs: Object.entries(LANG_NAMES).map(([l, name]) => ({ l, name, href: langHref(l), cur: l === cur })), js: MNAV_JS + (js ? '\n' + js : '') }; // LSW_JS/TSW_JS/FOOT_JS ở /js/site-ui.js (SITE_UI_LAZY)
+};
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
 export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site + u })) });
 
@@ -455,7 +494,7 @@ export const audioBtn = (key, word, lang) => `<button type="button" class="au" d
 // Thanh tìm (dính đầu màn hình khi cuộn): ô lọc (giữ chỗ sẵn → không xô lệch bố cục khi JS bật) + chip nhóm (chips, tùy chọn)
 export const filterBox = (lang, chips = '') => { const t = SEO_L[lang] || SEO_L.en, f = FIND_I18N[lang] || FIND_I18N.en; return `<div class="find"><div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><span class="fi"><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off" enterkeyhint="search"><kbd aria-hidden="true">/</kbd><button type="button" class="qc" aria-label="${esc(f[0])}" hidden>×</button></span><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>${chips}</div>`; };
 // Thẻ trong lưới danh sách: tên, mô tả ngắn, chip (số từ / trình độ / kỳ thi), emoji nếu có
-export const setCard = ({ href, title, desc = '', emoji = '', chips = [], key = '', h = 'h3' }) => `<article class="card set${emoji ? ' has-em' : ''}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd">${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}<${h}>${esc(title)}</${h}>${desc ? `<p>${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
+export const setCard = ({ href, title, desc = '', art: a = 'v-topics', chips = [], key = '', h = 'h3' }) => `<article class="card set vc" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd"><span class="vc-top">${art(a, 56)}</span><${h} class="vc-t">${esc(title)}</${h}>${desc ? `<p class="vc-q">${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
 // Khối CTA chính (mở đúng bộ/bài trong app, gắn data-hit nếu là topic có thật)
 export const ctaBox = (href, title, btn, note = '', page = 'vocab') => {
   const m = String(href).match(/#\/topic\/([a-zA-Z0-9_-]+)/);
@@ -482,14 +521,14 @@ export function seoPage({ lang, head, crumbs, body, alt, section }) {
   const nav = t.nav.map(([h, n]) => [h, n, h === section ? ' aria-current="page"' : '']);
   // Đổi ngôn ngữ: chính trang này (mục cuối breadcrumb) · bản vi↔en (alt, cũng là hreflang) · ngôn ngữ khác (chưa có bản dịch) → blog ngôn ngữ đó
   const self = crumbs[crumbs.length - 1][1], langHref = twinOr({ [lang]: self, ...(alt ? { [t.switchTo[1]]: alt } : {}) });
-  return themePage(`<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
+  return themePage(`<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}\n${VIS_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
 ${siteHeader({ nav, open: [t.app, t.open], home: landingHref(lang), lang, langHref })}
 <main id="nd">
 ${crumbsHtml(crumbs)}
 ${body}
 </main>
 ${siteFooter({ lang, text: t.foot, tm: t.tm, langHref })}
-<script>${copyJs(lang)}${UI_JS}</script></body></html>`);
+<script>${copyJs(lang)}${UI_JS}${VIS_JS}</script></body></html>`);
 }
 // Thanh chuyển mục (Từ vựng · Ngữ pháp · Bài mẫu…) trên trang danh sách
-export const sectionNav = (lang, cur) => `<nav class="cats" aria-label="${SEO_L[lang].sectionsL}">${SEO_L[lang].sections.map(([h, n]) => `<a href="${h}"${h === cur ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>`;
+export const sectionNav = (lang, cur) => `<div class="tfw"><nav class="cats" aria-label="${SEO_L[lang].sectionsL}">${SEO_L[lang].sections.map(([h, n]) => `<a href="${h}"${h === cur ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>${scrollBtns(lang)}</div>`;

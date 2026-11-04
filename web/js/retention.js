@@ -72,7 +72,7 @@
   const today = () => keyOf(new Date());
   const reduce = () => g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const teacherFor = n => (MILESTONES.indexOf(n) % 2 ? 'carlos' : 'ama');
-  const teachImg = (who, size) => Chars.img(who, { cls: 'ret-teach', size, lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js)
+  const teachImg = (who, size, pose) => Chars.slot(who, { pose: pose || 'encourage', size: size >= 128 ? 'm' : 's', cls: 'ret-teach', lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js)
   const DOW = () => [t('T2'), t('T3'), t('T4'), t('T5'), t('T6'), t('T7'), t('CN')];
   const prizeName = p => {
     const [k, id] = p.split(':');
@@ -86,7 +86,7 @@
 .ret-d i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-style:normal;font-size:1rem;background:var(--surface-2);border:2px solid transparent}
 .ret-d.done i{background:rgba(249,115,22,.16)}.ret-d.frozen i{background:rgba(56,189,248,.18)}.ret-d.today i{border-color:var(--primary)}.ret-d.miss i{opacity:.55}
 .ret-big{font-size:2.6rem;font-weight:800;line-height:1}.ret-bar{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden}.ret-bar i{display:block;height:100%;background:linear-gradient(90deg,#f59e0b,#f97316)}
-.ret-teach{object-fit:contain;object-position:50% 100%;flex:none;filter:drop-shadow(0 3px 3px rgb(0 0 0 / .22))}
+.ret-teach{flex:none}
 .ret-cel{text-align:center;padding:.4rem 0}.ret-cel .ret-teach{animation:retPop .5s ease-out}
 .ret-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:.6rem}
 .ret-item{display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.6rem .3rem;border:1px solid var(--line);border-radius:14px;background:none;color:var(--text);font:inherit;font-size:.78rem;min-height:44px;cursor:pointer}
@@ -164,7 +164,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       buzz([30, 40, 70]); if (!reduce() && typeof g.confetti === 'function') g.confetti(120);
       bindChest(box); bindNext(box); bindGoals(box); return;
     }
-    const box = UI.modal(`<div class="ret-cel">${teachImg(who, 128)}
+    const box = UI.modal(`<div class="ret-cel">${teachImg(who, 128, 'cheer')}
       <h2 class="ret-h">${t('{n} ngày! 🔥', { n: m })}</h2>
       <p class="ret-say">${esc(who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'))}</p>
       <div class="ret-row">${fz}${chestTile()}</div>${nextBtn()}<div id="retAd"></div></div>`);
@@ -200,7 +200,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const box = UI.modal(`<div class="ret-cel"><p class="ret-say" data-noicon>${t('Đã giữ chuỗi cho bạn 🧊')}</p>
       <button type="button" class="ret-ice" id="retIce" data-noicon aria-label="${esc(t('Chạm 3 lần để rã băng'))}">🧊</button>
       <h2 class="ret-h" id="retThawH">${t('Chạm 3 lần!')}</h2>
-      <div id="retThawDone" hidden><div class="ret-row">${teachImg(who, 64)}<p class="ret-say" style="margin:0">${esc(t('Chuỗi {n} ngày vẫn cháy!', { n }))}</p></div>${nextBtn()}</div></div>`);
+      <div id="retThawDone" hidden><div class="ret-row">${teachImg(who, 64, 'happy')}<p class="ret-say" style="margin:0">${esc(t('Chuỗi {n} ngày vẫn cháy!', { n }))}</p></div>${nextBtn()}</div></div>`);
     let taps = 0; const ice = box.querySelector('#retIce');
     ice.onclick = () => {
       taps = Math.min(3, taps + 1); ice.className = 'ret-ice c' + taps;
@@ -252,7 +252,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     off: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#ffffff] lt:[border:1.5px_solid_rgb(226,_232,_231)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
     on: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#E6F3F2] lt:shadow-sm lt:[border:2px_solid_rgb(13,_105,_100)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#2BA39A] dk:[box-shadow:0_5px_0_#093c37]',
   };
-  const teach2 = who => Chars.img(who, { kind: 'still', pose: 'encourage', cls: 'w-32 h-auto select-none shrink-0', alt: '', size: 128, lazy: true }); // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
+  const teach2 = who => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, style: 'margin-bottom:1.75rem' }); // đứng trên dải huy hiệu băng (-mt-7) bên dưới, bệ không bị che // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)

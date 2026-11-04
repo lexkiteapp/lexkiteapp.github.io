@@ -21,7 +21,9 @@ export async function kick(request, env, deps = {}) {
     const wait = await limit('cronkick-hour', HOURLY_MAX, 3600); if (wait) return json(429, { error: 'rate', retry: wait }, { 'Retry-After': String(wait) });
   }
   let wfs; try { wfs = parseWfs(text); } catch (e) { return json(e.code === 'not-allowed' ? 403 : 400, { error: e.code || 'bad-body' }); }
-  const tok = env.GH_DISPATCH_TOKEN; if (!tok) return json(503, { error: 'not-configured' });
+  // Canh D1 trong ngày (sự cố 03/11): thang báo 50/75 % – chạy cả khi thiếu token GitHub; lỗi không làm hỏng lượt kích
+  let d1 = null; if (deps.watch) { try { d1 = await deps.watch(); } catch (e) { d1 = { error: String((e && e.message) || e).slice(0, 80) }; } }
+  const tok = env.GH_DISPATCH_TOKEN; if (!tok) return json(503, { error: 'not-configured', d1 });
   const last = {};
   await Promise.all(wfs.map(async f => {
     try { const r = await ghf(tok, `${f}/runs?per_page=1`); last[f] = r.ok ? (((await r.json()).workflow_runs) || [])[0] || null : { error: r.status }; } catch (e) { last[f] = { error: 1 }; }
@@ -31,9 +33,10 @@ export async function kick(request, env, deps = {}) {
     if (p.act === 'dispatch') { try { const r = await ghf(tok, `${p.file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: 'main' }) }); p.status = r.status; if (r.status !== 204) { p.act = 'skip'; p.why = 'dispatch-' + r.status; } } catch (e) { p.act = 'skip'; p.why = 'dispatch-error'; } }
     results.push(p);
   }
-  return json(200, { ok: true, results });
+  return json(200, { ok: true, results, d1 });
 }
 export async function onRequest({ request, env }) {
   const { limit } = await import('./sync.js');
-  return kick(request, env, { limit });
+  const watch = async () => { const [{ watchD1 }, { sendMail }] = await Promise.all([import('./_d1watch.js'), import('./capacity.js')]); return env.DB ? watchD1(env, env.DB, Date.now(), { mail: (s, t) => sendMail(env, s, t) }) : { skip: 'no-db' }; };
+  return kick(request, env, { limit, watch });
 }

@@ -1,3 +1,3 @@
-/* UI tr – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Đã đọc tất cả":"Tümünü okundu olarak işaretle","Chưa có thông báo mới":"Yeni bildirim yok","Thông báo quan trọng":"Önemli duyuru","Vừa xong":"Az önce","Chưa đọc":"Okunmamış","{n} chưa đọc":"{n} okunmamış"});
+/* SINH từ i18n/ui/tr/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"_1kkzwis":"Tümünü okundu olarak işaretle","_1aqpffv":"Yeni bildirim yok","_7vdlnl":"Önemli duyuru","_mem4lx":"Az önce","_cilyra":"Okunmamış","_1dkub36":"{n} okunmamış"});
 })(typeof self !== 'undefined' ? self : this);

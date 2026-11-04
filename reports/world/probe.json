@@ -1,33 +1,15 @@
 {
- "at": "2026-11-03T05:30:09.103Z",
+ "at": "2026-11-04T07:56:01.731Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
-  "ok": true,
-  "seconds": 5.9,
-  "taps": 10,
-  "trail": [
-   ".ctas a.btn.lg",
-   "button.trk-opt",
-   "#obNext",
-   ".trk-lv [data-lv]:not([data-lv=\"test\"])",
-   "#obNext",
-   "#obNext",
-   "#obNext",
-   "#go",
-   "ol.day-steps a[data-step=\"learn\"]:not(.ok)",
-   "#known"
-  ]
+  "ok": false,
+  "err": "không thấy nút chính trang giới thiệu",
+  "url": "/en/"
  },
  "today": {
-  "ok": true,
-  "taps": 2,
-  "trail": [
-   "#view a.btn.primary",
-   "ol.day-steps a[data-step=\"learn\"]:not(.ok)"
-  ],
-  "at": "#known",
-  "route": "/app/?sandbox=1&hl=en#/practice/learn?src=topic%3Angsl1.1~1"
+  "ok": false,
+  "err": "đã thiết lập nhưng /app/ quay về màn chào"
  },
  "errors": []
 }
