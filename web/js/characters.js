@@ -15,7 +15,7 @@
     voice: w => VOICE[id(w)],
     // v = phần khung nhìn thấy từ đỉnh → nâng bao nhiêu để không cắt tay
     lift: (w, p, v) => { const b = HAND[id(w)][p] || []; let l = 0, y = v * 100; for (let i = 0; i < b.length; i += 2) if (y > b[i] && y < b[i + 1]) { l = b[i + 1] + 1 - v * 100; y += l; } return l <= HEAD[id(w)] - 1 ? l / 100 : 0; },
-    stillAt: (w, p) => ((STILL[id(w)] || [])[POSES.indexOf(p)] || 0) / 24,
+    stillAt: (w, p) => { const f = (STILL[id(w)] || [])[POSES.indexOf(p)]; return f ? (f + .5) / 24 : 0; }, // giữa khung: tua đúng ranh giới thì WebKit lấy khung trước, tay nhanh lệch hẳn ảnh tĩnh
     forEvent: (e, acc) => (e === 'done' ? (acc >= 80 ? 'cheer' : 'encourage') : EVENT[e] || 'talk'),
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
     head: (w, x2) => f(w, 'head-bare' + (x2 ? '-2x' : '') + '.webp'), // "đầu trơn" (khung poster, đã xóa mắt/mày/miệng/ria) – nền cho mặt VẼ khớp miệng (web/js/call/face.js)
