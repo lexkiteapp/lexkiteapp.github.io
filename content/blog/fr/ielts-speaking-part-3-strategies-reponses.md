@@ -140,7 +140,7 @@ Therefore, from my perspective, digital innovation has not extinguished intellec
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **Répéter machinalement les mots de l'examinateur :** Reformulez les verbes et adjectifs de la question à l'aide de synonymes ou d'une dérivation grammaticale.
 
-Pour perfectionner votre expressivité et le placement de vos accents toniques, lisez nos conseils sur l'[accent de phrase en anglais](/fr/blog/accent-de-phrase-en-anglais-guide/) et le perfectionnement par la [technique du shadowing en anglais](/fr/blog/technique-du-shadowing-anglais-oral/). Enfin, enrichissez vos expressions académiques grâce à notre [collection de vocabulaire anglais](/fr/tu-vung/).
+Pour consolider les bases de votre aisance avant d'aborder ces débats complexes, consultez notre guide sur [IELTS Speaking Part 1](content/blog/fr/ielts-speaking-part-1-reponses-naturelles-guide.md). Pour perfectionner votre expressivité et le placement de vos accents toniques, lisez nos conseils sur l'[accent de phrase en anglais](/fr/blog/accent-de-phrase-en-anglais-guide/) et le perfectionnement par la [technique du shadowing en anglais](/fr/blog/technique-du-shadowing-anglais-oral/). Enfin, enrichissez vos expressions académiques grâce à notre [collection de vocabulaire anglais](/fr/tu-vung/).
 
 {{youtube: | Clés pour structurer ses réponses et argumenter avec aisance dans l IELTS Speaking Part 3}}
 

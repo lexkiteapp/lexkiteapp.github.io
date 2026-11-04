@@ -144,6 +144,7 @@ Pour enrichir votre discours, bannissez la répétition monotone de *and*, *but*
 
 Une préparation harmonieuse à l'IELTS ne cloisonne jamais l'oral et l'écrit :
 
+* Pour poser des bases solides dès le début de l'épreuve, découvrez notre guide complet sur [IELTS Speaking Part 1](content/blog/fr/ielts-speaking-part-1-reponses-naturelles-guide.md) avec nos formules de réponses naturelles.
 * Les arguments abstraits travaillés pour l'oral renforcent directement votre dissertation écrite : consultez notre guide méthodologique dans [IELTS Writing Task 2 Plan](/fr/blog/ielts-writing-task-2-plan/).
 * L'acuité auditive développée grâce à nos [Conseils IELTS Listening](/fr/blog/conseils-ielts-listening/) vous aidera à saisir instantanément les questions complexes de l'examinateur.
 * Pour affiner votre vitesse de lecture et de compréhension, découvrez les techniques de [IELTS Reading Skimming Scanning](/fr/blog/ielts-reading-skimming-scanning/).

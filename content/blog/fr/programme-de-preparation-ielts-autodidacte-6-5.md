@@ -92,7 +92,7 @@ Pour progresser sans épuisement, une routine hebdomadaire d'environ 10 à 12 he
 - **Samedi (180 min) :** examen blanc complet chronométré des 3 épreuves écrites + tenue du carnet d'erreurs.
 - **Dimanche (30 min) :** relecture détendue du carnet d'erreurs et écoute d'un podcast en anglais.
 
-Vous pouvez suivre votre progression pas à pas directement dans [le parcours d'apprentissage de l'application](/#/path), et si vous visez également des universités américaines, comparez vos exigences avec le [nouveau format toefl 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
+Pour perfectionner vos réponses spontanées lors de l'entretien individuel, suivez notre guide sur [IELTS Speaking Part 1](content/blog/fr/ielts-speaking-part-1-reponses-naturelles-guide.md). Vous pouvez suivre votre progression pas à pas directement dans [le parcours d'apprentissage de l'application](/#/path), et si vous visez également des universités américaines, comparez vos exigences avec le [nouveau format toefl 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
 
 {{youtube: | Programme de preparation IELTS autodidacte de zero a 6.5}}
 
