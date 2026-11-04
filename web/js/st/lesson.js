@@ -21,7 +21,7 @@ ${d.chip ? `<span class="lsn-ex sr-only">${esc(d.chip)}</span>` : ''}<div class=
 <div class="lsn-bub relative font-headline-sm text-headline-sm text-on-surface leading-snug" id="lsnBub" aria-live="polite"></div><div class="lsn-sndslot empty:hidden mt-space-md" id="lsnSndSlot"></div></div></div>`}
 <div id="lsnBody" class="flex flex-col gap-space-sm"></div></div>`;
   // Truyện / Radio: 2 giáo viên 2D + bong bóng lời + nhật ký thoại (kiểu thẻ Stitch)
-  S.lsnStory = air => `<div class="lsn-duo mb-space-sm">${air ? `<span class="lsn-air">${esc(air)}</span>` : ''}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-tw"><div id="lsnTch2"></div></div></div>
+  S.lsnStory = air => `<div class="lsn-duo cduo-scene mb-space-sm">${air ? `<span class="lsn-air">${esc(air)}</span>` : ''}${Chars.duo({ floor: true, extra: ['<span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span>'] })}</div>
 <div class="lsn-bub bg-surface-container lt:border lt:border-outline-variant/80 rounded-xl p-space-md mb-space-sm font-title-pill text-title-pill text-on-surface shadow-md lt:shadow-card-soft" id="lsnBub" aria-live="polite"></div><ol class="lsn-chat mb-space-sm" id="lsnChat"></ol>`;
   // Tiến độ chia đoạn (mẫu: 5 viên thuốc) – n đoạn, k đã xong
   S.lsnSegs = (n, k) => `<div class="h-full bg-gradient-to-r from-secondary-container to-secondary-fixed-dim lt:to-[#42C4BB] rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.4)] transition-[width] duration-200" style="width:${Math.max(4, Math.round(k / Math.max(1, n) * 100))}%"></div>`; // mẫu v2: 1 dải liền, khắc lõm

@@ -54,7 +54,7 @@
     let cv = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
     const ac = audioCtx();
     const fit = () => { // canvas = đúng khung poster 1108×960 (CSS bài học/Call đặt canvas y như ảnh poster: contain căn đáy, hay phóng 172 % kiểu bán thân) – chỉ khi đổi cỡ
-      const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0), W = Math.round(Math.min(1108, w * dpr));
+      const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0, (rig.clientHeight || 0) * 1108 / 960), W /* hộp hẹp + object-fit:cover (Chars.duo): độ nét theo chiều cao khung, không theo bề ngang hộp */ = Math.round(Math.min(1108, w * dpr));
       cv.width = W; cv.height = Math.round(W * 960 / 1108); box = [W / 1108, 0, 0]; last = '';
     };
     const playing = a => !!(a && !a.paused && !a.ended && a.readyState >= 2);

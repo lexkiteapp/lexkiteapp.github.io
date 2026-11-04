@@ -30,10 +30,14 @@
 @media (prefers-reduced-motion:no-preference){img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip .tslot-img{animation:tslot-in .18s ease-out both}}
 @keyframes tslot-in{from{opacity:0}}
 @keyframes tslot-breathe{50%{transform:translateX(-50%) scaleY(1.012)}}
+<<<<<<< HEAD
 .tslot.live img.tslot-img{transition:visibility 0s .18s}
 @media (prefers-reduced-motion:no-preference){canvas.tslot-img{animation:tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip canvas.tslot-img{animation:tslot-breathe-f 4.2s ease-in-out .2s infinite}.tslot-flip img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe-f 4.2s ease-in-out .2s infinite}}
 [style*="--lift"] .tslot-img{bottom:calc(var(--h)*(var(--lift) - .18))}
 @keyframes tslot-breathe-f{50%{transform:translateX(-50%) scaleX(-1) scaleY(1.012)}}`;
+=======
+:root .tslot-img.tslot-img{filter:none}`; // chủ 4/11: nhân vật không bị hạ sáng/bạc màu ở bất kỳ theme nào (cổng chars-stage); hai dòng filter tối phía trên xóa sau khi #546 gộp – tránh xung đột
+>>>>>>> real/fix/chars-duo-stage
   // Phần phát clip (WebGL/video, ~2 KB gz) ở js/teacher-live.js – chỉ tải khi trang có chỗ giáo viên động (khung app giữ ảnh tĩnh)
   const base = ((g.document && document.currentScript) || {}).src || '';
   let lp = null;
