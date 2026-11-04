@@ -137,7 +137,7 @@ async function journey(w, theme) {
     await boot(page, '/welcome/setup');
     if (await has('#noAcct')) await click('#noAcct');
     await click('[data-track]'); await click('#obNext', 300);
-    await click('.trk-lv [data-lv]:not([data-lv="test"])');
+    await click('[data-lv]:not([data-lv="test"])');
     for (let i = 0; i < 8 && !(await has('#go')); i++) await click('#obNext', 300);
     await click('#go', 1500);
     ok(!/welcome/.test(page.url()), 'thiết lập xong → rời màn chào (' + page.url().replace(O, '') + ')');

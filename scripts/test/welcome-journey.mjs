@@ -33,11 +33,15 @@ const answerPlacement = async page => { await page.click('#go'); for (let i = 0;
   ok(await see(P.page, '#obNext'), 'Bắt đầu → thiết lập');
   ok(/s=goal/.test(await P.hash()), 'bước 1 có hash riêng');
   await P.page.click('[data-track]'); await sleep(300);
-  await P.page.click('#obNext'); await see(P.page, '.trk-lv');
-  await P.page.click('.trk-lv [data-lv]:not([data-lv="test"])');
+  await P.page.click('#obNext'); await see(P.page, '[data-lv]');
+  await P.page.click('[data-lv]:not([data-lv="test"])');
   await steps(P.page); await P.page.click('#go');
   ok(await hashIs(P.page, /^#\/day/, 15000), 'xong thiết lập → Ngày 1');
   ok(await P.page.evaluate(() => sessionStorage.getItem('lk.onbPick') === null), 'xóa lk.onbPick');
+  // Back hệ thống ngay sau thiết lập: một lần là ra khỏi luồng, không đi qua hash các bước, không kẹt Welcome (docs/specs/welcome.md)
+  await P.page.goBack({ waitUntil: 'load' }).catch(() => {}); await sleep(700);
+  ok(!/welcome/.test(await P.page.evaluate(() => location.href)), 'Back từ Ngày 1: không về thiết lập/Welcome');
+  await P.page.goForward({ waitUntil: 'load' }).catch(() => {}); await sleep(800);
   await P.page.evaluate(() => { location.hash = '#/home'; }); await sleep(800);
   ok(await P.page.locator('#view h1, #view .card, #view [data-blk]').count() > 0 && !/welcome/.test(await P.hash()), 'Hôm nay vẽ được');
   ok(!P.errs.length, 'không lỗi JS: ' + P.errs.join(' | '));
@@ -75,8 +79,8 @@ for (const h of ['#/tests', '#/dict/hello']) {
   const P = await open('#/welcome/setup');
   await see(P.page, '#obNext');
   await P.page.click('[data-track=toeic]'); await sleep(300);
-  await P.page.click('#obNext'); await see(P.page, '.trk-lv');
-  await P.page.click('.trk-lv [data-lv]:not([data-lv="test"])'); await sleep(150);
+  await P.page.click('#obNext'); await see(P.page, '[data-lv]');
+  await P.page.click('[data-lv]:not([data-lv="test"])'); await sleep(150);
   await P.page.click('#obNext'); await see(P.page, '#bandT');
   await P.page.click('#bandT button:last-child'); await sleep(150);
   const before = await P.page.evaluate(() => JSON.parse(sessionStorage.getItem('lk.onbPick')));
@@ -86,7 +90,7 @@ for (const h of ['#/tests', '#/dict/hello']) {
   ok(/s=target/.test(await P.hash()) && await P.page.evaluate(() => I18N.lang()) === 'en', 'đổi ngôn ngữ: về đúng bước, đúng tiếng');
   ok(after.track === 'toeic' && after.target === before.target && after.lv === before.lv, 'giữ đủ lựa chọn sau tải lại');
   // Back hệ thống / Esc / nút lùi: mỗi lần đúng 1 bước. Tải lại làm history.state còn nguyên nên Back vẫn về bước trước
-  await P.page.goBack(); ok(await hashIs(P.page, /s=level/) && await see(P.page, '.trk-lv'), 'Back hệ thống lùi 1 bước');
+  await P.page.goBack(); ok(await hashIs(P.page, /s=level/) && await see(P.page, '[data-lv]'), 'Back hệ thống lùi 1 bước');
   await P.page.keyboard.press('Escape'); ok(await hashIs(P.page, /s=goal/) && await see(P.page, '[data-track=toeic]'), 'Esc lùi 1 bước');
   await P.page.click('#onbBack'); ok(await hashIs(P.page, /^#\/welcome\/?(\?|$)/) && await see(P.page, '#wCard'), 'Back ở bước đầu → Welcome');
   await P.ctx.close();
@@ -105,7 +109,7 @@ for (const h of ['#/tests', '#/dict/hello']) {
   await P.page.click('.pl-result a[href="#/welcome/setup"]');
   ok(await see(P.page, '#obNext') && /welcome\/setup/.test(await P.hash()), 'vào thiết lập, không bị đẩy về Home');
   await P.page.click('[data-track=ielts]').catch(() => {}); await sleep(250);
-  await P.page.click('#obNext'); await see(P.page, '.trk-lv');
+  await P.page.click('#obNext'); await see(P.page, '[data-lv]');
   const stage = await P.page.evaluate(() => App.state.settings.placement.stage);
   ok(await P.page.locator(`[data-lv=${stage}][aria-pressed=true]`).count() === 1, 'trình độ ghi sẵn từ kết quả: ' + stage);
   await P.page.click('#obNext'); ok(await see(P.page, '#bandT'), 'không hỏi lại: Tiếp tục đi thẳng bước sau');

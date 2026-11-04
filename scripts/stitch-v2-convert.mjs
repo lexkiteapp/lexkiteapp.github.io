@@ -102,7 +102,7 @@ function emit(root, bind, k) {
       for (const x of new Set([...samples, ...V.map(v => v[1])])) x.remove(); }
     for (const [sel, expr] of Object.entries(b.html || {})) for (const el of QA(scope, sel)) { el.innerHTML = ''; el.append(mark(expr)); }
     for (const [sel, expr] of Object.entries(b.after || {})) for (const el of QA(scope, sel)) el.after(el.ownerDocument.createTextNode(mark(expr))); // chèn thêm (vd giáo viên Chars cạnh nút hiện tại)
-    for (const [sel, o] of Object.entries(b.attr || {})) for (const el of QA(scope, sel)) for (const [a, expr] of Object.entries(o)) el.setAttribute(a, mark(`e(${expr})`));
+    for (const [sel, o] of Object.entries(b.attr || {})) for (const el of QA(scope, sel)) for (const [a, expr] of Object.entries(o)) { if (expr === 'null') el.removeAttribute(a); else el.setAttribute(a, mark(`e(${expr})`)); }
     for (const [sel, o] of Object.entries(b.cls || {})) for (const el of QA(scope, sel)) { const c = (el.getAttribute('class') || '').split(' ');
       for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = mark(expr); } el.setAttribute('class', c.join(' ')); }
     for (const [sel, c] of Object.entries(b.setClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', c); // đặt lại cả class: chỉ ô giữ chỗ giáo viên (bỏ nền/viền ô, không hộp sau lưng giáo viên)
@@ -152,10 +152,11 @@ function webCss(hl, hd) {
 const plain = s => s.replace(/[\u0005\u0006]/g, '');
 function shrink(body) { const cnt = new Map(), WHOLE = /(?<= class=")((?:\u0005[^\u0005\u0006]*\u0006 ?)+)(?=")/g;
   for (const [m] of body.matchAll(WHOLE)) cnt.set(m, (cnt.get(m) || 0) + 1);
-  const K = [...cnt].filter(([m, n]) => n > 1 && (plain(m).length - 8) * n > plain(m).length + 3).sort((a, b) => b[1] - a[1]).map(x => x[0]), ki = new Map(K.map((m, i) => [m, i]));
+  const ICON = /material-symbols/; // giữ nguyên chữ: build-stitch-css icons() đọc tên icon ngay sau class này để dựng phông
+  const K = [...cnt].filter(([m, n]) => !ICON.test(m) && n > 1 && (plain(m).length - 8) * n > plain(m).length + 3).sort((a, b) => b[1] - a[1]).map(x => x[0]), ki = new Map(K.map((m, i) => [m, i]));
   let out = body.replace(WHOLE, m => (ki.has(m) ? '${K[' + ki.get(m) + ']}' : m)); const tab = K.join('\n'), tc = new Map();
   for (const [, x] of (out + '\n' + tab).matchAll(/\u0005([^\u0005\u0006]*)\u0006/g)) tc.set(x, (tc.get(x) || 0) + 1);
-  const T = [...tc].filter(([x, n]) => (x.length - 8) * n > x.length + 3).sort((a, b) => b[1] - a[1]).map(x => x[0]), ti = new Map(T.map((x, i) => [x, i]));
+  const T = [...tc].filter(([x, n]) => !ICON.test(x) && (x.length - 8) * n > x.length + 3).sort((a, b) => b[1] - a[1]).map(x => x[0]), ti = new Map(T.map((x, i) => [x, i]));
   const tok = s => s.replace(/\u0005([^\u0005\u0006]*)\u0006/g, (_, x) => (ti.has(x) ? '${_[' + ti.get(x) + ']}' : x));
   const lit = a => '[' + a.map(x => '`' + x + '`').join(', ') + ']'; // có dấu cách: bộ tách class của Tailwind không dính 2 mục kề nhau
   return { body: tok(out), head: (T.length ? `const _ = ${lit(T)}; ` : '') + (K.length ? `const K = ${lit(K.map(tok))}; ` : '') }; }

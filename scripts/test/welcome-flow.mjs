@@ -12,15 +12,15 @@ let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log
 const rd = f => fs.readFileSync(f, 'utf8');
 
 // ---- 1. tĩnh: tách khung, canh khởi động, lưu không dấu + ----
-const app = rd('web/js/app.js'), onb = rd('web/js/onboard.js'), wl = rd('web/js/welcome.js'), pl = rd('web/js/placement.js');
-ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \['js\/welcome\.js'\]/.test(app) && /ROUTE_BUNDLE = \{ welcome: 'welcome'/.test(app), 'welcome.js là gói lười, route nạp đúng gói');
-ok(!/id="wCard"|id="wFeats"|data-wg=/.test(app) && /id="wCard"/.test(wl) && /id="wFeats"/.test(wl) && /#loginH/.test(wl) && /data-wjump/.test(wl), 'markup trang giới thiệu chỉ còn ở welcome.js');
+const app = rd('web/js/app.js'), onb = rd('web/js/onboard.js'), wl = rd('web/js/welcome.js') + rd('web/js/st/v2/welcome.js') + rd('web/js/st/v2/welcome-desk.js'), pl = rd('web/js/placement.js'), frames = ['goal', 'level', 'target', 'pace', 'ready'].map(k => rd(`web/js/st/v2/onb-${k}.js`));
+ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \[[^\]]*'js\/welcome\.js'\]/.test(app) && /ROUTE_BUNDLE = \{ welcome: 'welcome'/.test(app), 'welcome.js là gói lười, route nạp đúng gói');
+ok(!/id="wCard"|id="wFeats"|data-wg=/.test(app) && /wCard/.test(wl) && /wFeats/.test(wl) && /#loginH/.test(wl) && /data-wjump/.test(wl), 'markup trang giới thiệu chỉ còn ở welcome.js');
 ok(/!document\.getElementById\('lkHero'\)\) skel = setTimeout/.test(app), 'khung chờ không thay khung chào #lkHero');
 ok(/const bootDog = setTimeout\([\s\S]{0,200}errState\(true, true\); \}, 8000\)/.test(app) && /clearTimeout\(bootDog\)/.test(app) && /reload === true \? location\.reload\(\)/.test(app), 'canh khởi động 8 s: thẻ lỗi, Thử lại = tải lại, boot chạy thì hủy');
 ok(/const fresh = !hasData\(\);/.test(app) && /App\.replaceHash\('#\/welcome'\)/.test(app), 'boot dùng chung phép "có dữ liệu", chuyển bằng replace');
 ok(/location\.replace\(location\.pathname \+ location\.search \+ h\)/.test(app), 'replace giữ /app/ (app có <base href="/">)');
 ok(/const bare = v => String\(v \|\| ''\)\.replace\(\/\\\+\$\/, ''\)/.test(onb) && /examTarget: tg/.test(onb) && /targetBand = tg/.test(onb) && /IELTS 0–9, TOEIC 10–990, TOEFL 1–6, General A1–C2/.test(onb), 'examTarget/targetBand lưu không dấu +, có ghi chú thang');
-ok(!/mình là Kit|Kit\.svg/.test(onb) && /aria-live="polite"/.test(onb) && /id="onbSay"/.test(onb), 'onboard.js: Ama thay Kit, giữ aria-live #onbSay');
+ok(!/mình là Kit|Kit\.svg/.test(onb) && frames.every(f => /aria-live="\$\{e\('polite'\)\}"/.test(f) && /onbSay/.test(f) && /onbBack/.test(f)), 'onboard: Ama thay Kit; mọi bước có aria-live #onbSay + #onbBack');
 ok(/state\.settings\.onboarded \? `<a class="btn primary lg block" href="#\/home">[\s\S]{0,120}href="#\/welcome\/setup"/.test(pl), 'kết quả bài đầu vào: chưa thiết lập → nút cuối đi #/welcome/setup');
 ok(/href="\$\{App\.homeHref\(\)\}" id="plX"/.test(pl) && /plXpDue = 1/.test(pl) && /plXpDue/.test(app), 'thoát bài đầu vào về Welcome cho người mới; XP hoãn tới khi xong thiết lập');
 
@@ -50,8 +50,18 @@ const asNew = () => { S.settings.onboarded = false; S.cards = {}; S.game.xp = 0;
 ok(await until(() => $('#wCard')), 'người mới mở #/home → Welcome');
 ok(hash() === '#/welcome' && w.location.pathname === '/app/' && w.location.search.includes('sandbox=1'), 'chuyển về #/welcome, vẫn ở /app/?sandbox=1: ' + w.location.href);
 ok(w.document.body.classList.contains('bare'), 'Welcome: giao diện trần');
-for (const id of ['#wFront', '#wBack', '#wDone', '#wSay', '#wKit', '#loginW', '#loginH', '.w-nav', '#wFeats', '[data-wjump]', '[data-wg]', 'a[href="#/placement"]', 'a[href="#/style"]', 'footer.w-foot']) ok($(id), 'Welcome giữ ' + id);
+for (const id of ['#wFront', '#wBack', '#wDone', '#wSay', '#wKit', '#loginW', '#loginH', '#wFeats', '[data-wg]', 'a[href="#/placement"]', 'a[href="#/style"]', 'footer.w-foot']) ok($(id), 'Welcome giữ ' + id);
+ok(!$('.v2s-welcome [data-wjump]') && $('.v2s-welcome select[data-lang-select]') && $('#loginH'), 'điện thoại: khung welcome, chọn ngôn ngữ + Đăng nhập là nút thật');
 click($('#wCard')); ok(!$('#wBack').hidden && $('#wFront').hidden, 'thẻ thử nhanh: chạm lật');
+// qua mốc 1024 px: đổi khung, thẻ giữ nguyên mặt đang lật
+{ const L = []; w.matchMedia = () => ({ get matches() { return desk; }, addEventListener: (_, f) => L.push(f), removeEventListener() {} }); var desk = false; await go('#/tests', 150); await go('#/welcome', 400); await until(() => $('#wCard')); click($('#wCard'));
+  desk = true; const m = L[L.length - 1]; m(); await until(() => $('.v2s-welcome-desk'), 2500);
+  ok($('.v2s-welcome-desk') && !$('#wBack').hidden && $('#wFront').hidden, 'qua 1024 px: sang khung máy tính, giữ trạng thái thẻ');
+  for (const id of ['.w-nav', '[data-wjump]', '.w-nav a[href="#/tests"]', '.w-nav a[href="#/settings"]', '.w-nav a[data-blog][hidden]', 'select[data-lang-select]', '#loginH', '#wFeats']) ok($(id), 'máy tính giữ ' + id);
+  ok(!/Bright Day|Lexkite Kit/.test($('#view').textContent), 'máy tính: bỏ dòng thừa của mẫu');
+  desk = false; m(); await until(() => $('.v2s-welcome'), 2500); ok($('.v2s-welcome') && !$('#wBack').hidden, 'về điện thoại: giữ trạng thái thẻ'); }
+ok(/80 |2\.000/.test($('#wFeats').textContent) && !/77 |1\.700/.test($('#wFeats').textContent), 'số bài/câu ngữ pháp đúng dữ liệu');
+{ const K = w.Chars; ok(K && $('#wKit img[src*="teach/ama/still-"]') && !$('#wKit').className.match(/bg-|border/), 'ô giáo viên: ảnh Chars, trong suốt'); }
 click($('[data-wg=good]')); ok($('#wBack').hidden && !$('#wDone').hidden && $('#wDone a[href="#/welcome/setup"]'), 'chấm → #wDone mời thiết lập');
 
 // ---- từng bước ----
@@ -78,6 +88,7 @@ click($('#obNext')); await tick();
 ok($('#go'), 'tới màn cuối');
 click($('#go')); await until(() => S.settings.onboarded && /^#\/day/.test(hash()), 15000); await tick(400);
 ok(S.settings.onboarded && /^#\/day/.test(hash()), 'xong thiết lập → Ngày 1: ' + hash());
+{ const at = hash(); w.history.back(); await tick(500); ok(!/welcome\/setup/.test(hash()), 'Back sau thiết lập: không đi qua các bước: ' + hash()); await go(at, 200); }
 ok(S.settings.examTarget === '900' && S.settings.exam === 'toeic', 'lưu examTarget không dấu +: ' + S.settings.examTarget);
 ok(S.settings.dailyGoal === 40 && S.settings.dailyNew === 20 && S.settings.pace === 40, 'lưu cường độ đúng ô Hôm nay + Tutor đọc');
 ok(w.sessionStorage.getItem('lk.onbPick') === null, 'xong thiết lập: xóa lk.onbPick');
@@ -110,10 +121,10 @@ asNew(); S.settings.exam = 'toeic'; S.settings.examTarget = '900'; await go('#/w
 ok($('#bandT [data-v="900+"][aria-pressed=true]'), 'exam/examTarget hợp thang → chọn sẵn (nhãn 900+ ứng với 900 đã lưu)');
 asNew(); S.settings.exam = 'ielts'; S.settings.placement = { v: 2, band: 6, stage: 's2', vCefr: 'B1', gCefr: 'B1', at: Date.now() };
 await go('#/tests', 300); // rời màn thiết lập như người làm bài đầu vào rồi quay lại
-await go('#/welcome/setup?s=level', 900); await until(() => $('.trk-lv'));
-ok($('[data-lv=s2][aria-pressed=true]') && !$('[data-lv=s0][aria-pressed=true]'), 'có settings.placement: bước trình độ ghi sẵn kết quả');
+await go('#/welcome/setup?s=level', 900); await until(() => $('[data-lv]'));
+ok($('[data-lv=s2][aria-checked=true]') && !$('[data-lv=s0][aria-checked=true]'), 'có settings.placement: bước trình độ ghi sẵn kết quả');
 ok(/bài kiểm tra/.test($('#onbSay').textContent), 'Ama nói rõ lấy từ bài kiểm tra');
-click($('[data-lv=s0]')); await tick(); ok($('[data-lv=s0][aria-pressed=true]') && pickOf().lv === 's0', 'vẫn đổi được');
+click($('[data-lv=s0]')); await tick(); ok($('[data-lv=s0][aria-checked=true]') && pickOf().lv === 's0', 'vẫn đổi được');
 S.settings.onboarded = true; delete S.settings.placement; w.sessionStorage.removeItem('lk.onbPick');
 
 await tick(200);

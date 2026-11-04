@@ -20,7 +20,7 @@
 'Nộp bài Reading?': 'Submit Reading?',
 'Đang cập nhật': 'Coming soon',
 'Đang cập nhật.': 'Coming soon.',
-'Luyện tập': 'Practice',
+
 'Nghe 1 lần': 'Listen once',
 'Chép chính tả': 'Dictation',
 'Hỏi – đáp': 'Question–Response',
@@ -123,7 +123,7 @@
 'Hiện lời thoại khi nghe': 'Show transcript while listening',
 'Nộp bài & xem đáp án': 'Submit & see answers',
 'Bấm dòng để nghe từ đó · chạm từ để tra': 'Tap a line to play from there · tap a word to look it up',
-'Tạm dừng': 'Pause',
+
 'Nghe tiếp': 'Keep listening',
 'Đã nghe xong': 'Finished',
 'Nghe lại từ đầu': 'Replay from start',

@@ -1183,8 +1183,6 @@
 'Ghép thẻ tính giờ, điền từ, nghe chép, test ước tính band': 'Timed matching, fill-in-the-blank, dictation, band estimate tests',
 'Add-on Chrome': 'Chrome add-on',
 'Bấm đúp tra từ, bôi đen dịch câu, tra từ trong phụ đề YouTube': 'Double-click to look up, highlight to translate, look up words in YouTube subtitles',
-'77 bài ngữ pháp trực quan': '77 visual grammar lessons',
-'Học từng bước, 1.700 câu luyện: trắc nghiệm, viết lại câu, tìm lỗi sai': 'Step by step, with 1,700 exercises: multiple choice, sentence rewriting, error spotting',
 'Thư viện phát âm 44 âm IPA': 'Pronunciation library: all 44 IPA sounds',
 'Khẩu hình, cặp từ dễ nhầm, trọng âm & ngữ điệu': 'Mouth shapes, minimal pairs, stress & intonation',
 'Thi thử IELTS 4 kỹ năng & TOEIC': 'Full IELTS & TOEIC mock tests',

@@ -1,5 +1,6 @@
 /* English UI – v2 (màn Stitch v2: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  "80 bài ngữ pháp trực quan": "80 visual grammar lessons",
   "Bài luyện nhanh": "Quick drills",
   "Bài luyện phát âm": "Pronounce drill",
   "Bài thi thử": "Mock tests",
@@ -28,6 +29,7 @@
   "Gọi cho giáo viên": "Call a teacher",
   "Hôm nay hãy nói các từ này trong một câu": "Say them in a sentence today",
   "Hướng dẫn chặng": "Guide",
+  "Học từng bước, 2.000 câu luyện: trắc nghiệm, viết lại câu, tìm lỗi sai": "Step by step, with 2,000 exercises: multiple choice, sentence rewriting, error spotting",
   "Hồ sơ người học": "User Profile",
   "Khám phá tất cả": "Explore all",
   "Kết thúc": "Leave",
@@ -44,6 +46,7 @@
   "Mẹo hay": "Pro tip",
   "Mẹo nhấn âm": "Stress tip",
   "Mọi bài luyện": "All drills",
+  "Mọi thứ bên trong": "Everything inside",
   "Mục tiêu ngày": "Daily goal",
   "Mục tiêu nói": "Target",
   "Mục tiêu nước rút": "Target Goal",
@@ -69,6 +72,7 @@
   "Số ngày chuỗi": "Streak",
   "Thẻ sẵn sàng": "Cards ready",
   "Thẻ tiếp": "Next card",
+  "Thử ngay": "Try it now",
   "Truyện & âm thanh": "Stories & audio",
   "Truyện ngắn": "Stories",
   "Trọng tâm hôm nay": "Today's Focus",

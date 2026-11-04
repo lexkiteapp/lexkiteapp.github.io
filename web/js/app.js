@@ -261,7 +261,7 @@
     nxs: ['js/i18n/en/nextstep.js', 'js/next-step.js'], league: ['js/league.js'], classroom: ['js/i18n/en/classroom.js', 'js/classroom.js'], // 🏫 Lớp học (giáo viên/học sinh)
     criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
     resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
-    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], onb: ['js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/onb-goal.js', 'js/characters.js', 'js/onboard.js'], welcome: ['js/welcome.js'], // 🚀 thiết lập lần đầu từng bước (chuỗi ở en/pathx.js) // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
+    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], onb: ['js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/onb-goal.js', 'js/st/v2/onb-level.js', 'js/st/v2/onb-target.js', 'js/st/v2/onb-pace.js', 'js/st/v2/onb-ready.js', 'js/characters.js', 'js/onboard.js'], welcome: ['js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/welcome.js', 'js/st/v2/welcome-desk.js', 'js/characters.js', 'js/welcome.js'], // 🚀 thiết lập lần đầu từng bước (chuỗi ở en/pathx.js) // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
     ota: ['js/i18n/en/ota.js', 'js/ota-key.js', 'js/ota.js'], // 🔄 cập nhật OTA + nhắc cập nhật app (chỉ app gốc, docs/OTA.md)
     remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
@@ -314,7 +314,7 @@
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
-  const BCSS = { onb: 'css/st-v2-onb-goal.css', watch: 'css/watch.css', say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */ }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
+  const BCSS = { welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css', onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'], watch: 'css/watch.css', say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */ }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
   const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
   App.loadCss = loadCss; App.lean = () => lean(); // ST2.mount: CSS màn v2 tải theo màn (st/v2/runtime.js LZ)
   // gói ux1: Hôm nay mở đầu → chỉ CSS Lộ trình + Hôm nay (size-budget routeGz.ux1); trang đầu là tab khác / máy tính / người mới → nạp luôn CSS màn đó
@@ -408,7 +408,7 @@
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
     else if (!STUDY.test(location.hash)) backHash = '';
     App.prevHash = curHash; curHash = location.hash;
-    const b = [].concat(name === 'welcome' && arg === 'setup' ? [] : ROUTE_BUNDLE[name] || []), ux1 = App.ux1On(); // thiết lập không cần gói trang giới thiệu
+    const b = [].concat(ROUTE_BUNDLE[name] || []), ux1 = App.ux1On(); if (name === 'welcome' && arg === 'setup') b.length = 0; // thiết lập không cần gói trang giới thiệu
     if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // đang ôn/luyện → tập trung 100% vào thẻ. Đổi bố cục (ẩn thanh trên) NGAY lúc chạm – không đợi tải gói: thay đổi trong 500 ms sau thao tác không tính CLS (mobile-qa)
     document.body.classList.toggle('focus', name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg)); // ux1: bản đồ #/lesson giữ thanh điều hướng
@@ -1326,8 +1326,10 @@
   // location.pathname + search: app có <base href="/">, đường dẫn tương đối "#/x" sẽ ra khỏi /app/
   App.replaceHash = h => location.replace(location.pathname + location.search + h);
   // Người có dữ liệu không thấy lại màn chào; replace để Back không kẹt vòng lặp. #/welcome/login: đã đăng nhập → #/me (lk.acct = gợi ý lúc Firebase chưa trả lời), chưa thì ở lại trang giới thiệu để đăng nhập gộp dữ liệu
+  let setupTo = ''; // finishOnboarding đang lùi về đầu thiết lập → trang đích
   function welcomeGate(step) {
     if (!hasData()) return false;
+    if (setupTo) { const x = setupTo; setupTo = ''; App.replaceHash(x); return true; }
     let acct = state.user; if (!acct) try { acct = !Store.sandbox && localStorage.getItem('lk.acct'); } catch (e) { /* bỏ qua */ }
     if (step === 'login' && !acct) return false;
     App.replaceHash(step === 'login' ? '#/me' : '#/home');
@@ -1351,12 +1353,15 @@
   App.loginOnboard = loginOnboard;
   async function finishOnboarding(celebrate, to = '#/home') {
     state.settings.onboarded = true;
-    try { sessionStorage.removeItem('lk.onbPick'); } catch (e) { /* bỏ qua */ }
+    let back = 0;
+    try { if (/^#\/welcome\/setup/.test(location.hash)) back = ((history.state && history.state.n) || 0) + ((JSON.parse(sessionStorage.getItem('lk.onbPick')) || {}).w ? 1 : 0); sessionStorage.removeItem('lk.onbPick'); } catch (e) { /* bỏ qua */ }
     if (state.settings.plXpDue) { delete state.settings.plXpDue; App.reward({ quizzes: 1, xp: 20 }); } // XP bài đầu vào làm trước khi thiết lập (placement.js)
     await saveSettings();
     if (!Store.sandbox) try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // lk.onb = gợi ý về dữ liệu THẬT (khung chào, trang giới thiệu tự vào app) – phiên ?sandbox=1 không được ghi
     document.body.classList.remove('bare');
-    location.hash = to;
+    // Bỏ các mục lịch sử của từng bước (+ Welcome ngay trước đó): lùi tới mục đầu rồi THAY bằng trang đích, Back từ Hôm nay không đi qua thiết lập. welcomeGate thay; quá 500 ms mà không tới (đếm lệch, trình duyệt chặn) thì thay tại chỗ
+    if (back) { setupTo = to; history.go(-back); setTimeout(() => { if (setupTo) { const x = setupTo; setupTo = ''; App.replaceHash(x); } }, 500); }
+    else if (/^#\/welcome/.test(location.hash)) App.replaceHash(to); else location.hash = to;
     if (celebrate === true) { Sfx.win(); confetti(140); toast('🎉 ' + t('Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!'), 3500); }
   }
 

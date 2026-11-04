@@ -24,8 +24,8 @@
 'Kết thúc cuộc gọi': 'End call',
 'Tổng kết cuộc gọi': 'Call summary',
 '{m} phút {s} giây': '{m} min {s} sec',
-'Bạn đã trả lời {n}/{k} lượt, trong đó {s} lượt bằng giọng nói.': 'You answered {n}/{k} turns, {s} of them by voice.',
-'Cách nói tự nhiên hơn': 'More natural ways to say it',
+
+
 'Cụm từ nên nhớ': 'Phrases to remember',
 'Thêm vào thẻ ôn': 'Add to review cards',
 'Đã thêm {n} thẻ': 'Added {n} cards',

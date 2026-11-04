@@ -328,14 +328,14 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   click($('[data-track=work]')); await tick(600);
   ok($('#onbSay, .onb-say').textContent !== say0 && $('[data-track=work]:is([aria-pressed=true],[aria-checked=true])'), 'Kit phản hồi khi chọn gói');
   click($('#obNext')); await tick(100);
-  ok($('.onb .progress[aria-valuenow="2"]') && $('.onb-test[data-lv=test]') && $('[data-lv=work2]'), 'màn 2: kiểm tra đầu vào 5 phút + trình độ của gói Công sở');
+  ok($('[role=progressbar][aria-valuenow="2"]') && $('[data-lv=test]') && $('[data-lv=work2]'), 'màn 2: kiểm tra đầu vào 5 phút + trình độ của gói Công sở');
   click($('#onbBack')); await tick(100);
   ok($('[data-track=work]:is([aria-pressed=true],[aria-checked=true])') && $('[role=progressbar][aria-valuenow="1"]'), 'quay lại màn 1 giữ lựa chọn');
   click($('#obNext')); await tick(100);
   click($('[data-lv=work2]')); await tick(100);
-  ok($('[data-lv=work2][aria-pressed=true]'), 'chọn trình độ chặng 2');
+  ok($('[data-lv=work2][aria-checked=true]'), 'chọn trình độ chặng 2');
   for (let i = 0; i < 5 && !$('#go'); i++) { click($('#obNext')); await tick(100); }
-  ok($('#go') && /Day 1|Ngày 1/.test($('#go').textContent) && $('.onb-sum'), 'chọn gói Công sở + trình độ → màn tóm tắt + nút Bắt đầu Ngày 1');
+  ok($('#go') && /Day 1|Ngày 1/.test($('#go').textContent) && $('.v2s-onb-ready') && /Công sở|Work/i.test($('.v2s-onb-ready').textContent), 'chọn gói Công sở + trình độ → màn tóm tắt + nút Bắt đầu Ngày 1');
   S.cards = realData.cards; S.game.xp = realData.xp;
   click($('#go')); await tick(1500);
   ok(S.settings.tracks.cur === 'work' && S.settings.tracks.lv.work.s === 'work2' && S.settings.exam === 'general' && /^#\/day/.test(w.location.hash), 'thiết lập xong → gói Công sở, chặng 2, vào Ngày 1 của gói: ' + w.location.hash);

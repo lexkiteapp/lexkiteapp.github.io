@@ -152,7 +152,7 @@ async function setup(h, { test = false } = {}) {
   await h.boot('/welcome/setup', h.q);
   if (await h.has('#noAcct')) await h.click('#noAcct');
   await h.click('[data-track]'); await h.click('#obNext', { wait: 250 });
-  await h.click(test ? '[data-lv="test"]' : '.trk-lv [data-lv]:not([data-lv="test"])');
+  await h.click(test ? '[data-lv="test"]' : '[data-lv]:not([data-lv="test"])');
   await toLast(h);
   await h.click('#go', { wait: 1500 });
 }

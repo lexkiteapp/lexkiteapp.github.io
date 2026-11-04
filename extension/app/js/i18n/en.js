@@ -95,7 +95,7 @@
 'Hồ sơ': 'Profile',
 'Đăng xuất khỏi Lexkite?': 'Sign out of Lexkite?',
 'Dữ liệu học vẫn ở lại trên máy này và đã được sao lưu trong tài khoản. Đăng nhập lại bất cứ lúc nào để đồng bộ tiếp.': 'Your study data stays on this device and is already backed up to your account. Sign in again anytime to keep syncing.',
-'Đăng nhập để khôi phục dữ liệu học của bạn.': 'Sign in to restore your study data.',
+
 
 // ui.js
 'Cần cho phép dùng micro – bấm biểu tượng 🎙️/🔒 trên thanh địa chỉ và chọn “Cho phép”.': 'Microphone access needed – click the 🎙️/🔒 icon in the address bar and choose “Allow”.',
@@ -529,7 +529,7 @@
 'Học thông minh': 'Smart study',
 'Nguồn:': 'Source:',
 '{title} – câu {n}: {q}': '{title} – Q{n}: {q}',
-'{a}/{b} đã trả lời': '{a}/{b} answered',
+
 'Bấm để bỏ tô sáng': 'Tap to remove highlight',
 'Ghi chú': 'Note',
 'Đáp án:': 'Answer:',
@@ -836,7 +836,7 @@
 '{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.': '{done}/{total} units complete · Learn in cycles: introduce → practice → listen → test, then review at the optimal time.',
 'Bài này đang khóa': 'This unit is locked',
 'Hoàn thành bài trước (kiểm tra đạt ≥ 80%) hoặc học ≥ 80% số từ của bài này để mở khóa.': 'Complete the previous unit (score ≥ 80% on its test) or learn ≥ 80% of this unit’s words to unlock it.',
-'điểm kiểm tra {score}%': 'test score {score}%',
+
 'Đóng': 'Close',
 
 /* ---------- method.js ---------- */
@@ -997,7 +997,7 @@
 'Tuần này': 'This week',
 'Từ của ngày': 'Word of the day',
 'Đã có trong sổ': 'Already saved',
-'Tiếp tục →': 'Continue →',
+
 'Chế độ luyện tập': 'Practice modes',
 'Học tiếp': 'Keep learning',
 'Bài đọc hôm nay': "Today's reading",
@@ -1183,8 +1183,6 @@
 'Ghép thẻ tính giờ, điền từ, nghe chép, test ước tính band': 'Timed matching, fill-in-the-blank, dictation, band estimate tests',
 'Add-on Chrome': 'Chrome add-on',
 'Bấm đúp tra từ, bôi đen dịch câu, tra từ trong phụ đề YouTube': 'Double-click to look up, highlight to translate, look up words in YouTube subtitles',
-'77 bài ngữ pháp trực quan': '77 visual grammar lessons',
-'Học từng bước, 1.700 câu luyện: trắc nghiệm, viết lại câu, tìm lỗi sai': 'Step by step, with 1,700 exercises: multiple choice, sentence rewriting, error spotting',
 'Thư viện phát âm 44 âm IPA': 'Pronunciation library: all 44 IPA sounds',
 'Khẩu hình, cặp từ dễ nhầm, trọng âm & ngữ điệu': 'Mouth shapes, minimal pairs, stress & intonation',
 'Thi thử IELTS 4 kỹ năng & TOEIC': 'Full IELTS & TOEIC mock tests',
@@ -1664,7 +1662,7 @@
 /* Roleplay for Work (#/roleplay) – tiếng Anh giao diện */
 (function (g) { Object.assign(g.I18N_DICT.en, {
 'Roleplay công sở': 'Workplace roleplay',
-'Đóng vai hội thoại công sở với AI: nói bằng micro hoặc gõ phím, nhận điểm và câu viết lại hay hơn.': 'Act out workplace conversations with AI: speak into the mic or type, then get scores and sharper rewrites.',
+
 'Đóng vai họp, phỏng vấn, đàm phán với AI': 'Role-play meetings, interviews and negotiations with AI',
 '{n} lượt': '{n} turns',
 'Từ vựng chủ đề': 'Topic vocabulary',
