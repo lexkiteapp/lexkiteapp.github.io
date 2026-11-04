@@ -146,7 +146,7 @@ quiz: [
 
 在这段回答中，考生巧妙运用了高级话题词汇（*octogenarian, utterly bewildered, network credentials, bridge the generational divide*）与从句交织的复合句，逻辑如丝般顺滑。
 
-如需系统复习口语中地道连词与高频核心句式，可以移步阅读我们的专题[雅思口语技巧](/zh/blog/ya-si-kou-yu-ji-qiao/)，同时可参考[英语发音练习](/zh/blog/ying-yu-fa-yin-lian-xi/)打磨元音辅音，并结合[雅思阅读定位技巧](/zh/blog/ya-si-yue-du-skimming-scanning/)和[雅思写作Task 2模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)实现四项均衡提分。如果你想深入探究更专业的口语表达库，也可以浏览我们的[雅思口语专项训练](/speaking/)专栏。
+在冲刺长篇陈述之前，建议先巩固第一阶段的日常应答技巧，详情请参阅我们的[雅思口语Part 1备考深度攻略](content/blog/zh/ielts-speaking-part-1-da-ti-ji-qiao-fan-li.md)。如需系统复习口语中地道连词与高频核心句式，可以移步阅读我们的专题[雅思口语技巧](/zh/blog/ya-si-kou-yu-ji-qiao/)，同时可参考[英语发音练习](/zh/blog/ying-yu-fa-yin-lian-xi/)打磨元音辅音，并结合[雅思阅读定位技巧](/zh/blog/ya-si-yue-du-skimming-scanning/)和[雅思写作Task 2模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)实现四项均衡提分。如果你想深入探究更专业的口语表达库，也可以浏览我们的[雅思口语专项训练](/speaking/)专栏。
 
 {{cta: /app/#/speaking | 在 Lexkite 开启雅思口语模考练习}}
 

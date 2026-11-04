@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **机械复读考官原题词汇：** 善用同义词替换或词性转换重构核心概念，凸显词汇库的深度。
 
-为进一步打磨英语说话时的自然韵律与节奏，建议同步研读 [英语句子重音与节奏规律](/zh/blog/ying-yu-ju-zi-zhong-yin-yu-jie-zou/) 以及 [英语影子跟读法实践](/zh/blog/ying-yu-shadowing-ying-zi-gen-du-fa/)。同时，在我们的 [雅思核心学术词汇库](/zh/tu-vung/) 中持续积累辩论常用表达。
+在深入高阶辩论之前，打好日常问答的基础至关重要，欢迎阅读我们的[雅思口语Part 1备考深度攻略](content/blog/zh/ielts-speaking-part-1-da-ti-ji-qiao-fan-li.md)。为进一步打磨英语说话时的自然韵律与节奏，建议同步研读 [英语句子重音与节奏规律](/zh/blog/ying-yu-ju-zi-zhong-yin-yu-jie-zou/) 以及 [英语影子跟读法实践](/zh/blog/ying-yu-shadowing-ying-zi-gen-du-fa/)。同时，在我们的 [雅思核心学术词汇库](/zh/tu-vung/) 中持续积累辩论常用表达。
 
 {{youtube: | 雅思口语Part 3高分拓展思路与批判性辩证思维实战解析}}
 
