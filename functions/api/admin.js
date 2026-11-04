@@ -6,6 +6,7 @@ import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData, growthRoll } from './growth.js';
+import { tierShare, landStats } from './_cpm.js';
 import { loadDays, merge, top, distinctBy, sumOf, freqOf, perDay, unkey, vidsHash } from './_rollup.js';
 import { purgeNotices } from './notices.js';
 import { purgeConfig, ADS_PUBLIC } from './config.js';
@@ -83,6 +84,7 @@ async function setup(db) {
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).first()) || {};
 const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).all()).results || [];
 const dayStr = t => new Date(t).toISOString().slice(0, 10); // ngày UTC – hạn mức nhà cung cấp (D1, AI) reset 0h UTC
+const LAND_SQL = "SELECT kind, SUM(n) AS n FROM ext_events WHERE day >= ? AND kind >= 'land:' AND kind < 'land;' GROUP BY kind"; // khách ngoài vào trang tĩnh (hit.js t:'l')
 // Thống kê truy cập: "ngày" theo giờ Việt Nam (vday, hit.js) · chỉ người thật: bỏ máy tự động (cột bot) và khách là tài khoản quản trị
 // (vid đã gắn uid có email trong ADMIN_EMAILS – chỉ dùng trong SQL, không trả về máy khách)
 // Danh sách vid quản trị đệm 10 phút (bộ nhớ isolate + Cache API theo băm danh sách email): 03/11 câu này chạy 507 lượt/ngày × ~217 dòng
@@ -251,7 +253,8 @@ export const LEGACY = {
       all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
     ]);
     const excluded = await one(db, `SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day >= ? AND NOT (${H})`, from);
-    return { days, tz: TZ, from, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate, hours, wdays, durs, nr, signups, excluded };
+    const [allC, land] = await Promise.all([all(db, `SELECT country AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day >= ? GROUP BY k`, from), all(db, LAND_SQL, from).catch(() => [])]);
+    return { days, tz: TZ, from, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate, hours, wdays, durs, nr, signups, cpm: tierShare(allC), land: landStats(land), excluded };
   },
   // Lưu lượng trực tiếp (tự cập nhật 30 giây/lần): phần nhanh đệm 20 giây, phần nặng (tổng, 14 ngày, 30 ngày) đệm 10 phút
   async live(db, b, who, env) {
@@ -566,7 +569,7 @@ const OPS = {
         one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null),
         all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
       ]);
-      const m = merge(D, from);
+      const m = merge(D, from), land = await all(db, LAND_SQL, from).catch(() => []);
       return {
         days, tz: TZ, from,
         daily: perDay(D, from, '9999', (day, x) => ({ day, s: x.s, v: x.vids.size, dur: avgOf(x.dS, x.dN), pages: avgOf(x.pS, x.pN), ret: x.rN ? x.rS : null })),
@@ -575,6 +578,7 @@ const OPS = {
         hours: m.hr.map((n, k) => ({ k, n })).filter(x => x.n), wdays: m.wd.map((n, k) => ({ k, n })).filter(x => x.n),
         durs: [...m.du].map(([k, [n, o]]) => ({ k, n, o })).sort((x, y) => (x.o == null ? -1 : y.o == null ? 1 : x.o - y.o)),
         nr: perDay(D, from, '9999', (day, x) => ({ day, fresh: x.rN ? x.fr : null, back: x.rN ? x.bk : null })),
+        cpm: tierShare(distinctBy(m, 'country', 250)), land: landStats(land), // người thật theo nhóm CPM + khách ngoài vào trang tĩnh (_cpm.js)
         signups, excluded: { s: [...m.ex.values()].reduce((a, t) => a + t.s, 0), v: m.exV.size },
       };
     });

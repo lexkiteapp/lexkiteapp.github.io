@@ -286,7 +286,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   const BLOG = 'https://lexkite.com/' + I18N.lang() + '/blog/';
   App.blogUrl = () => (sameSite ? '/' + I18N.lang() + '/blog/' : BLOG);
   App.blogHref = on => (sameSite ? '' : 'https://lexkite.com') + '/' + (on ? I18N.lang() : 'en') + '/blog/'; // blog của ngôn ngữ giao diện, chưa có thì tiếng Anh
-  App.aboutUrl = () => (sameSite ? '' : 'https://lexkite.com') + (I18N.lang() === 'vi' ? '/' : '/' + I18N.lang() + '/') + '?home=1'; // trang giới thiệu (vi ở "/"); ?home=1 = không tự chuyển vào app
+  App.aboutUrl = () => (sameSite ? '' : 'https://lexkite.com') + '/' + I18N.lang() + '/?home=1'; // trang giới thiệu theo ngôn ngữ; ?home=1 = không tự chuyển vào app
   // File tĩnh (JSON) – lỗi 5xx tạm thời ở CDN: thử lại 1 lần sau 1,5 s (fail open, không coi là "không có dữ liệu")
   App.getStatic = (u, o) => fetch(u, o).then(r => (r.status >= 500 ? new Promise(res => setTimeout(res, 1500)).then(() => fetch(u, o)).catch(() => r) : r));
   App.blogLive = async () => {
