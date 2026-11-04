@@ -285,12 +285,8 @@
     const root = ST2.mount(view, k, d, null);
     sayIn(root, d.say, fresh);
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
-<<<<<<< HEAD
     if (k === 'today-desk') { const lb = document.getElementById('langBtn'); if (lb && lb.offsetParent) root.querySelectorAll('[data-act="lang"]').forEach(x => x.remove()); }
-    prune(root); langBtn(root);
-=======
     prune(root); langBtn(root); headBtns(root);
->>>>>>> real/main
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
@@ -421,11 +417,7 @@
 .ux1-tiles.big .ux1-tile b{font-size:var(--fs-md)}
 .ux1-rail{display:none}
 @media (min-width:1024px){
-<<<<<<< HEAD
-  body.ux1 .shell{grid-template-columns:232px minmax(0,1fr) 340px}
   body.ux1 .v2s-today-desk main{margin-inline:auto}
-=======
->>>>>>> real/main
   body.ux1:not(.focus):not(.bare) .ux1-rail{display:flex;flex-direction:column;gap:.8rem;position:sticky;top:0;height:100vh;overflow-y:auto;padding:1.2rem 1.2rem 1.2rem .4rem}
   body.ux1 .ux1-exam-top{display:none}
 }
