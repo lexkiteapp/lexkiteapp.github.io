@@ -685,6 +685,20 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Học ngay': 'Start',
 "Thân bài 1": "Body paragraph 1",
 'Chế độ tiếp theo': 'Next mode',
+// ⏱️ Thử thách 60 giây (play-blitz.js, docs/specs/play-learn.md)
+"Link thách đấu không còn dùng được – chơi bộ từ của bạn": "This challenge link no longer works – playing your own words instead",
+"Thách đấu: vượt {n} điểm": "Challenge: beat {n} points",
+"Nghe và chọn từ đúng": "Listen and choose the right word",
+"Bạn đã thắng thách đấu! 🎉": "You won the challenge! 🎉",
+"Hòa! Thử lại để vượt lên": "It's a tie! Play again to pull ahead",
+"Còn thiếu {n} điểm – thử lại nhé": "{n} points short – try again",
+"Kỷ lục của bạn: {best}": "Your best: {best}",
+"{a}/{b} đúng": "{a}/{b} correct",
+"Combo cao nhất {n}": "Best combo: {n}",
+"Từ cần ôn lại": "Words to review",
+"Thách đấu bạn bè": "Challenge friends",
+"Mình được {n} điểm trong Thử thách 60 giây trên Lexkite – bạn vượt được không?": "I scored {n} points in the 60-second challenge on Lexkite – can you beat me?",
+"Đã chép link thách đấu": "Challenge link copied",
 // ← en/shell.js
 "Tra từ ngay trên mọi trang web": "Look up words on any website",
 }); })(typeof self !== 'undefined' ? self : this);

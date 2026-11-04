@@ -164,4 +164,7 @@
 'Trình duyệt này chưa có nhận dạng giọng nói. Lexkite có thể dùng <b>Whisper</b> (mã nguồn mở) chạy ngay trên máy của bạn: miễn phí, riêng tư – âm thanh không gửi đi đâu.': 'This browser has no built-in speech recognition. Lexkite can use <b>Whisper</b> (open source) running right on your device: free and private – your audio never leaves it.',
 'Cần tải mô hình khoảng 40 MB một lần (nên dùng Wi-Fi).': 'It needs a one-time ~40 MB model download (Wi-Fi recommended).',
 'Tải & bật': 'Download & turn on', 'Đang chuẩn bị… bấm micro lần nữa để nói': 'Getting ready… tap the mic again to speak',
+// ⏱️ Thử thách 60 giây – ô chế độ (app.js modeTiles, khung app)
+"Thử thách 60 giây": "60-second challenge",
+"Ôn từ đến hạn, combo, thách đấu bạn bè": "Review due words, build combos, challenge friends",
 }); })(typeof self !== 'undefined' ? self : this);

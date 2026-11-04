@@ -400,7 +400,7 @@
   // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
   let games = null;
   const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
-  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak');
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -409,6 +409,7 @@
     cloze: { em: '✍️', get name() { return t('Điền từ vào câu'); }, run: src => runQuiz(src, 'cloze') },
     listen: { em: '🎧', get name() { return t('Nghe & chép'); }, run: src => runQuiz(src, 'listen') },
     test: { em: '📝', get name() { return t('Bài kiểm tra'); }, run: src => runQuiz(src, 'test') },
+    blitz: { em: '⏱️', get name() { return t('Thử thách 60 giây'); }, run: runBlitz },
     match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
     speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
   };
