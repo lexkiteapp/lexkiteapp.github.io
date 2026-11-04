@@ -28,6 +28,7 @@ const be = backend === 'miniflare' ? await miniflareD1() : sqliteD1(), M = meter
 const H = await import(new URL('../../functions/api/hit.js', import.meta.url));
 const A = await import(new URL('../../functions/api/admin.js', import.meta.url));
 const R = await import(new URL('../../functions/api/_rollup.js', import.meta.url));
+const RB = await import(new URL('../../functions/api/_readbudget.js', import.meta.url));
 await H.setup(DB);
 for (const q of ['CREATE TABLE IF NOT EXISTS docs (uid TEXT, k TEXT, h TEXT, body TEXT, updated INTEGER, PRIMARY KEY (uid, k)) WITHOUT ROWID',
   'CREATE TABLE IF NOT EXISTS ai_quota (id TEXT, day TEXT, n INTEGER, PRIMARY KEY (id, day)) WITHOUT ROWID']) await DB.prepare(q).run();
@@ -59,8 +60,10 @@ const total = rows.length;
 const envNew = { DB, ADMIN_EMAILS: 'boss@lexkite.com' }, envOld = { ...envNew, ADMIN_ROLLUP: '0' };
 const TOUR = [['overview', {}], ['analytics', { days: 30 }], ['live', { days: 30 }], ['growth', { days: 30 }], ['usage', {}]];
 let ip = 0;
+// Sim ĐO dòng đọc thật của từng op: ngân sách ngày (_readbudget, 03/11) cộng dồn qua các lượt đo sẽ trả 429 giữa chừng, nên đặt lại trước mỗi lần gọi; ngân sách có test riêng (d1-cap).
+const noBudget = () => { RB._resetBudget(); for (const k of store.keys()) if (k.includes('budget.lexkite.internal')) store.delete(k); };
 const call = async (env, op, x, label) => {
-  M.begin(label || op);
+  noBudget(); M.begin(label || op);
   const r = await A.onRequestPost({ request: new Request('https://lexkite.com/api/admin', { method: 'POST', headers: { Origin: 'https://lexkite.com', 'CF-Connecting-IP': '10.0.' + (ip >> 8 & 255) + '.' + (ip++ & 255), Authorization: 'Bearer ' + await tok(), 'Content-Type': 'application/json' }, body: JSON.stringify({ op, ...x }) }), env });
   const c = M.end(); if (r.status !== 200) throw new Error(`${op} ${r.status} ${(await r.text()).slice(0, 200)}`);
   return c.reads;

@@ -6,7 +6,7 @@
   const FS = 'precision mediump float;varying vec2 v;uniform sampler2D u;void main(){float a=texture2D(u,v+vec2(0.,.5)).r;gl_FragColor=vec4(min(texture2D(u,v).rgb,vec3(a)),a);}';
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))) || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; } };
   const live = g.TeacherLive = el => {
-    const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip, wm = el.dataset.webm; el.removeAttribute('data-clip'); el.removeAttribute('data-webm'); if (!fig || !src || lite()) return;
+    const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip, wm = el.dataset.webm, talk = el.dataset.talk; el.removeAttribute('data-clip'); el.removeAttribute('data-webm'); el.removeAttribute('data-talk'); if (!fig || !src || lite()) return;
     const v = document.createElement('video'); Object.assign(v, { muted: true, playsInline: true, preload: 'metadata', crossOrigin: 'anonymous' }); v.setAttribute('playsinline', '');
     if (el.dataset.loop === '0') v.loop = true; // vòng nghỉ: lặp liền (docs/CHARACTERS.md)
     let seen = true;
@@ -34,7 +34,9 @@
     v.onended = () => { if (el.dataset.loop) { clearTimeout(t); t = setTimeout(() => { v.currentTime = 0; go(); }, +el.dataset.loop); } }; // cử chỉ lặp có nghỉ (tay xuôi đầu/cuối clip → nối liền)
     v.onerror = () => { fig.querySelector('canvas') && cv.remove(); el.classList.remove('live'); }; // lỗi clip → giữ ảnh tĩnh
     // Nhẹ: chỉ tải clip khi khung hiện trên màn (0 byte nếu cuộn qua), ngoài màn thì dừng; SW + cache tĩnh (#302) → lần sau 0 byte
-    const load = () => { if (!v.src) v.src = src; };
+    let first = talk || src; const load = () => { if (!v.src) v.src = first; };
+    // data-talk: clip nói chạy trước, el.lkQuiet() về vòng nghỉ
+    if (talk) el.lkQuiet = () => { el.lkQuiet = null; first = src; if (v.src) v.src = src; };
     watch(go, load);
   };
 })(self);

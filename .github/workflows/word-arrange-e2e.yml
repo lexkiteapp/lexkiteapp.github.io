@@ -1,0 +1,31 @@
+# 🧩 Xếp câu (web/js/word-arrange.js): chèn từ vào giữa câu trên Chromium + WebKit thật – scripts/test/word-arrange-e2e.mjs
+# Ảnh + video thao tác ở artifact word-arrange-<trình duyệt>. Hermetic: 0 lượt chạm prod, 0 tài khoản.
+name: Word arrange E2E
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/js/word-arrange.js', 'web/js/lesson/**', 'web/js/st/lesson.js', 'web/js/grammar.js', 'web/js/toefl.js', 'web/js/i18n/en/arrange.js', 'scripts/test/word-arrange-e2e.mjs', '.github/workflows/word-arrange-e2e.yml']
+concurrency: { group: 'word-arrange-${{ github.ref }}', cancel-in-progress: true }
+permissions: { contents: read }
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix: { browser: [chromium, webkit] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps ${{ matrix.browser }} >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+      - name: E2E (390 px + máy tính · sáng/tối · vi/en/ar · chạm/kéo/bàn phím · chấm)
+        env: { PW_BROWSER: '${{ matrix.browser }}' }
+        run: node scripts/test/word-arrange-e2e.mjs web out/word-arrange
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'word-arrange-${{ matrix.browser }}', path: out/word-arrange, retention-days: 14 }

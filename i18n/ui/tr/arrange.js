@@ -1,0 +1,3 @@
+/* UI tr – arrange (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Đã gỡ {w}":"{w} kaldırıldı","{w}: vị trí {n}/{m}":"{w}: {m} içinde {n}. sıra","Chạm thẻ để thêm vào cuối câu hoặc gỡ; kéo thẻ vào giữa để chèn; phím mũi tên đổi chỗ, Delete gỡ, Ctrl+Z hoàn tác":"Sona eklemek veya kaldırmak için karta dokunun; araya eklemek için ortaya sürükleyin; ok tuşları taşır, Delete kaldırır, Ctrl+Z geri alır"});
+})(typeof self !== 'undefined' ? self : this);

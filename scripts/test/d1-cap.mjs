@@ -110,7 +110,8 @@ ok(G.usagePeek(e2, null, at(10), slow) === null && calls === 1, 'usagePeek: chư
 await new Promise(res => setTimeout(res, 10));
 const u = G.usagePeek(e2, null, at(10), slow);
 ok(u && G.isShed(u) && calls === 1, 'usagePeek: lần sau có số 88 % → chế độ tiết kiệm');
-const sr = G.shedRead(e2, (st, d) => new Response(JSON.stringify(d), { status: st }), at(10)); // truyền giờ: bộ đếm theo ngày, không phụ thuộc đồng hồ thật (4/11 test đỏ vì ngày cố định 3/11)
+// truyền giờ của test: dùng giờ thật thì sau 00:00Z ngày 4/11 cache lệch ngày, test đỏ trên mọi PR
+const sr = G.shedRead(e2, (st, d) => new Response(JSON.stringify(d), { status: st }), at(10));
 ok(sr && sr.status === 429 && +sr.headers.get('Retry-After') > 0 && (await sr.json()).error === 'quota-shed', 'shedRead ≥ 85 %: 429 nhẹ + Retry-After');
 G.resetD1Cache(); await G.d1Usage(e2, null, at(10), gql(4.0e6));
 ok(G.shedRead(e2, () => new Response('', { status: 429 }), at(10)) === null, 'shedRead 80 %: cho qua');

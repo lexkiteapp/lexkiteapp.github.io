@@ -8,7 +8,7 @@
   var f = d.querySelector('.side-foot');
   if (f && !f.querySelector('.sf-more')) {
     var dt = d.createElement('details'), L = w.t ? t('Xem thêm') : 'More'; dt.className = 'sf-more';
-    dt.innerHTML = '<summary aria-haspopup="true"><span aria-hidden="true">⋯</span> <span data-i18n="Xem thêm">' + L + '</span></summary><div class="sf-m"></div>';
+    dt.innerHTML = '<summary aria-haspopup="true"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-ellipsis"/></svg></span><span data-i18n="Xem thêm">' + L + '</span></summary><div class="sf-m"></div>';
     var m = dt.lastChild;
     [].slice.call(f.querySelectorAll(':scope>a')).forEach(function (a) { if (!a.hasAttribute('data-blog') && a.getAttribute('data-l') !== 'about') m.appendChild(a); });
     f.insertBefore(dt, b.parentNode === f ? b : null); f.classList.add('sf-ok');
