@@ -14,6 +14,32 @@ def despill(f):
     o = f.copy(); o[..., 1] = np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2])); return o
 
 
+def _hand_lines(f, scale):
+    """→ (mask nét đen mảnh trên da tay, ảnh đã lấp). Mép người (alpha chưa đặc) không tham gia: màu ở đó nhiễu, lấy vào sẽ làm đỏ đầu ngón."""
+    H, W = f.shape[:2]; solid = f[..., 3] > 225; rgb = f[..., :3] * solid[..., None]
+    k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(9 * scale) | 1, int(9 * scale) | 1))
+    closed = cv2.morphologyEx(rgb, cv2.MORPH_CLOSE, k)
+    r, g, b = [closed[..., i].astype(np.int16) for i in range(3)]
+    dark_skin = (r >= 55) & (r <= 190) & (r > g * 1.25) & (g > b)      # Ama; áo coral sáng (R > 190) không vào
+    tan_skin = (r > 190) & (g > r * .5) & (r > g * 1.25) & (g > b * 1.2)   # Carlos; áo trắng (R ≈ G) không vào
+    head = np.zeros((H, W), bool); head[:int(H * .49), int(W * .33):int(W * .69)] = True   # mặt: mắt, miệng, lông mày giữ nguyên
+    return (closed.astype(np.int16).max(axis=2) - rgb.max(axis=2) > 18) & (dark_skin | tan_skin) & solid & ~head, closed
+
+
+def clean_hands(f, scale=1.0):
+    """Nét đen mảnh trên da tay (vân tay, kẽ ngón do Kling vẽ): cỡ chỗ giáo viên 134 px thành chấm/viền đen răng cưa, cả lúc tay giữ yên (ảnh chủ 4/11) → lấp bằng màu da liền kề."""
+    lines, closed = _hand_lines(f, scale)
+    if not lines.any(): return f
+    m = cv2.GaussianBlur(cv2.dilate(lines.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(np.float32), (0, 0), .8 * scale)[..., None] * (f[..., 3:] > 225)
+    o = f.copy(); o[..., :3] = (f[..., :3] * (1 - m) + closed * m).round().astype(np.uint8); return o
+
+
+def clean_webp(path, scale):
+    """Ảnh tĩnh cùng tư thế: làm sạch y như clip, không thì đổi ảnh tĩnh → clip thấy tay thay đổi."""
+    from PIL import Image
+    f = np.array(Image.open(path).convert('RGBA')); Image.fromarray(clean_hands(despill(f), scale), 'RGBA').save(path, 'WEBP', quality=90, alpha_quality=95, method=6)
+
+
 def _gray(f): return ((f[..., :3].astype(np.float32).mean(axis=2) * .5 + f[..., 3] * .5) * (f[..., 3] > 8)).astype(np.uint8)
 
 
@@ -75,6 +101,7 @@ def read_clip(src):
 
 
 MAX_WARP = float(os.environ.get('MAX_WARP', 30))   # px mỗi khung, xem docs/CHARACTERS.md
+MAX_LINES = float(os.environ.get('MAX_LINES', 40))  # nét đen trên da tay, khung xấu nhất (cả lúc tay giữ yên)
 
 
 if __name__ == '__main__':   # Dùng: motion_smear.py <web/teach> [--report]  – đỏ khi còn clip có khung vung tay méo
@@ -84,6 +111,8 @@ if __name__ == '__main__':   # Dùng: motion_smear.py <web/teach> [--report]  �
             if os.path.basename(f).startswith('idle'): continue
             fr, sc = read_clip(f); s = warp_score(fr, sc); top = sorted(s)[-3:]; v = sum(top) / max(1, len(top))
             print(f'{who}/{os.path.basename(f):20s} vệt đen trong khung vung tay: {v:6.1f} px (đỉnh {max(s or [0])}, {sum(1 for x in s if x)} khung vung)')
-            if v > MAX_WARP: bad.append(f'{who}/{os.path.basename(f)}: {v:.0f} px > {MAX_WARP:.0f}')
+            hl = max(int(_hand_lines(x, sc)[0].sum() / sc ** 2) for x in fr[::4]); print(f'{"":27s} nét đen trên da tay, khung xấu nhất: {hl} px')
+            if v > MAX_WARP: bad.append(f'{who}/{os.path.basename(f)}: vung {v:.0f} px > {MAX_WARP:.0f}')
+            if hl > MAX_LINES: bad.append(f'{who}/{os.path.basename(f)}: nét đen da tay {hl} px > {MAX_LINES:.0f}')
     print('\n'.join(['✗ khung vung tay méo:'] + bad) if bad else '✓ khung vung tay sạch')
     if bad and not REPORT: sys.exit(1)

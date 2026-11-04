@@ -127,7 +127,7 @@ for who, P in R['people'].items():
             raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex', gs, '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
             fr = [np.frombuffer(raw, np.uint8, w * h * 4, i).reshape(h, w, 4) for i in range(0, len(raw), w * h * 4)]
             if len(fr) != N: errs.append(f'{who}/{pose}: nguồn nhoè {len(fr)} khung ≠ {N}')
-            res, m = motion_smear.smear([motion_smear.despill(f) for f in fr], scale)
+            res, m = motion_smear.smear([motion_smear.clean_hands(motion_smear.despill(f), scale) for f in fr], scale)
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', f'{w}x{h}', '-r', fps, '-i', '-', '-c:v', 'ffv1', out], input=b''.join(f.tobytes() for f in res), check=True)
             return m
         sm1 = f'{TMP}/{who}-{pose}.mkv'; sm_info = src_smear(SC, FA, 1, W, H, sm1)
@@ -153,7 +153,7 @@ for who, P in R['people'].items():
         # ảnh tĩnh từng tư thế @2× (khung tiêu biểu: 'still' trong registry, mặc định 40 % clip) – Chars.still / Chars.img({pose})
         fr = c['still'] if 'still' in c else open_frame(cf, cm, a, z, a + N * 2 // 5, f'{who}/still-{pose}')
         c['still_frame'] = fr   # ghi lại khung đã chọn (soát/tái lập)
-        still(cf, cm, fr, SC2, FA2, f'{OUT}/{who}/still-{pose}.webp')
+        still(cf, cm, fr, SC2, FA2, f'{OUT}/{who}/still-{pose}.webp'); motion_smear.clean_webp(f'{OUT}/{who}/still-{pose}.webp', 2)
         if pose in R['hd']:   # clip HD 2× điểm ảnh, ≤ 900 KB: chỗ lớn sống (Call talk/listen) + tư thế clip của chỗ giáo viên cỡ l/xl trên màn retina (point/cheer/encourage – chỉ để không phóng to; viền đen tay méo là lỗi nguồn, xử lý ở motion_smear.py)
             oh = f'{OUT}/{who}/{pose}-hd.mp4'
             sm2 = f'{TMP}/{who}-{pose}-hd.mkv'; src_smear(SC2, FA2, 2, W * 2, H * 2, sm2)

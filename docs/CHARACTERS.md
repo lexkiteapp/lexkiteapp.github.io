@@ -17,7 +17,7 @@
 - Prompt: tư thế ngậm miệng không dùng từ smile/warm/friendly, ghi "lips pressed together…"; tay "point" tả theo phía khung hình.
 - Kiểm ở bước ẢNH trước khi tạo clip; mỗi clip QC (5 ngón, miệng, khung ±5 % cỡ đầu, nền sạch); hỏng 2 lần thì bỏ mục.
 - **Mắt mở + vòng nghỉ (3/11):** ảnh tĩnh/poster chọn khung mắt mở (`scripts/teach/eyes.py`, không còn cứng 40 % clip); vòng nghỉ 1–3 s `idle.webm` (VP9α) + `idle.mp4` (xếp chồng, Safari) + `idle-poster.webp` qua `Chars.idle`, ≤ 150 KB/tệp, dựng bởi `scripts/teach/idle.py`, cổng `idle.py --check` (characters-shots.yml). Spec: [specs/home-upgrade.md](specs/home-upgrade.md).
-- **Khung vung tay nhanh (4/11, chủ báo tay méo viền đen trên iPhone):** lỗi nằm ở nguồn Kling (2× vẫn méo), không phải độ phân giải. `scripts/teach/motion_smear.py` trong `build.py`: khử đốm xanh + nhoè theo dòng chảy quang học chỉ ở vùng > 4 px/khung; mặt/miệng và chỗ chậm giữ nguyên. Cổng: job `clips` trong `teacher-motion.yml` đo vệt đen mảnh ở khung vung (`MAX_WARP`, không nâng).
+- **Khung vung tay nhanh (4/11, chủ báo tay méo viền đen trên iPhone):** lỗi nằm ở nguồn Kling (2× vẫn méo), không phải độ phân giải. `scripts/teach/motion_smear.py` trong `build.py`: khử đốm xanh + lấp nét đen mảnh trên da tay (cả lúc giữ yên, cả ảnh tĩnh; vùng mặt không đụng) + nhoè theo dòng chảy quang học chỉ ở vùng > 4 px/khung. Cổng: job `clips` trong `teacher-motion.yml` (`MAX_WARP`, `MAX_LINES`, không nâng).
 - Chuẩn bị/tách nền/dựng CHỈ trên CI (`green-prep.yml` → `matte-pro.yml` → `teach-build.yml`); không chạy nặng trên máy.
 - Đổi bất kỳ mục nào ở đây = hỏi chủ trước, kèm chi phí.
 

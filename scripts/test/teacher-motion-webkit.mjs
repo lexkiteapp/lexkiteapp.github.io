@@ -27,10 +27,10 @@ else {
   // đo một chỗ giáo viên: pose = data-pose của slot (Home có wave đầu trang + point ở lộ trình)
   const measure = pose => page.evaluate(async pose => {
     const slot = document.querySelector(`.tslot[data-pose="${pose}"].live`), cv = slot.querySelector('canvas.tslot-img'), v = window.__vids.find(x => (x.currentSrc || x.src).includes(`/${pose}`)) || null;
-    const r = cv.getBoundingClientRect(), t0 = window.__tex, f0 = v && v.getVideoPlaybackQuality ? v.getVideoPlaybackQuality().totalVideoFrames : 0, vt0 = v ? v.currentTime : 0;
+    const r = cv.getBoundingClientRect(), t0 = window.__tex, vt0 = v ? v.currentTime : 0;
     const gaps = []; let last = performance.now(); const end = last + 3000;
     await new Promise(res => { const tick = now => { gaps.push(now - last); last = now; now < end ? requestAnimationFrame(tick) : res(); }; requestAnimationFrame(tick); });
-    const vt = v ? v.currentTime - vt0 : 0, fps = 24, frames = v && v.getVideoPlaybackQuality ? v.getVideoPlaybackQuality().totalVideoFrames - f0 : Math.round(Math.max(0, vt) * fps);
+    const vt = v ? v.currentTime - vt0 : 0, fps = 24, frames = Math.round(Math.max(0, vt) * fps); // clip 24 fps: totalVideoFrames của WebKit đếm thiếu (ra 0–50 cho 3 s video không gắn DOM) nên không dùng
     gaps.sort((a, b) => a - b);
     return { big: /tslot-(l|xl)\b/.test(slot.className), src: v ? v.currentSrc : '', cvH: cv.height, cvW: cv.width, shownH: r.height, dpr: devicePixelRatio, tex: window.__tex - t0, frames, vt, p95: gaps[Math.floor(gaps.length * 0.95)] || 0, long: gaps.filter(g => g > 50).length / Math.max(1, gaps.length), n: gaps.length };
   }, pose);
