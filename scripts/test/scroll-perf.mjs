@@ -11,7 +11,7 @@ import { serve } from '../quality/serve.mjs';
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'sp-out')), DEVICE = arg('device', 'phone');
 const THEMES = arg('themes', DEVICE === 'webkit' ? 'light' : 'light,dark').split(','), ONLY = arg('only', '') ? arg('only', '').split(',') : null, CHECK = process.argv.includes('--check');
-const VARIANT = arg('variant', ''); // noblur: A/B đo cái giá của backdrop-filter, không dùng cho cổng
+const VARIANT = arg('variant', ''); // noblur|noshadow|nocv|noanim|nofilter
 const BUDGET = JSON.parse(fs.readFileSync(new URL('./scroll-perf.budget.json', import.meta.url), 'utf8'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
@@ -27,7 +27,7 @@ export const SCREENS = [
   { id: 'map', hash: '#/lesson' }, { id: 'review-hub', hash: '#/review?hub=1' }, { id: 'lesson-s', hash: '#/lesson/go', small: 1 }, { id: 'review-s', hash: '#/review', small: 1 }, { id: 'say-s', hash: '#/say', enter: '#sayList a', small: 1 },
   { id: 'learn', hash: '#/day/1', enter: 'ol.day-steps a[data-step="learn"]', small: 1 }, { id: 'read-item', hash: '#/reading', enter: '#view a[href^="#/read/"]' }, { id: 'listen-item', hash: '#/listening', enter: '#view a[href^="#/listen/"]' },
   { id: 'grammar-item', hash: '#/grammar', enter: '#view a[href^="#/grammar/"]' }, { id: 'role-item', hash: '#/roleplay', enter: '#view a[href^="#/roleplay/"]', small: 1 }, { id: 'call-item', hash: '#/call', enter: '#view a[href^="#/call/"]', small: 1 },
-  { id: 'mock-run', hash: '#/mock', enter: '#view a[href*="mock/"], #view a[href^="#/toeic-test"], #view [data-start]', small: 1 }, { id: 'library', hash: '#/library' }, { id: 'topic', hash: '#/topic/environment' }, { id: 'mistakes', hash: '#/mistakes' },
+  { id: 'mock-run', hash: '#/mock', enter: '#view a[href^="#/mock"]:not([href="#/mock"]), #view a[href^="#/toeic-test"], #view a[href^="#/cbt"], #view button.primary', small: 1 }, { id: 'library', hash: '#/library' }, { id: 'topic', hash: '#/topic/environment' }, { id: 'mistakes', hash: '#/mistakes' },
 ];
 const DEV = {
   phone: { launcher: chromium, cpu: 4, net: { latency: 150, down: 1.6e6 / 8 * 0.9, up: 750e3 / 8 * 0.9 }, touch: true, ctx: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36' } },
@@ -97,7 +97,8 @@ const browser = await DEV.launcher.launch(DEVICE === 'webkit' ? {} : { args: ['-
 async function newCtx(theme) {
   const ctx = await browser.newContext({ ...DEV.ctx, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block', reducedMotion: 'no-preference' });
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) { /* trang lỗi */ } }); // cờ ux1 (vỏ Stitch 5 tab – bản người dùng thấy) đến từ /api/config, hermetic = rỗng → phải bật tay, không thì đo nhầm giao diện cũ
-  if (VARIANT === 'noblur') await ctx.addInitScript(() => { const st = document.createElement('style'); st.textContent = '*,*::before,*::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}'; document.documentElement.appendChild(st); });
+  const AB = { noblur: 'backdrop-filter:none!important;-webkit-backdrop-filter:none!important', noshadow: 'box-shadow:none!important;text-shadow:none!important', nocv: 'content-visibility:visible!important', noanim: 'animation:none!important;transition:none!important', nofilter: 'filter:none!important' }[VARIANT];
+  if (AB) await ctx.addInitScript(css => addEventListener('DOMContentLoaded', () => { const st = document.createElement('style'); st.textContent = `*,*::before,*::after{${css}}`; document.head.appendChild(st); }), AB); // A/B: đo cái giá của từng hiệu ứng, không dùng cho cổng
   await ctx.addInitScript(INJECT);
   await ctx.route('**/*', async r => { const q = r.request(), u = new URL(q.url()); if (u.origin === O) return r.continue(); if (q.resourceType() === 'image') { await sleep(500); return r.fulfill({ status: 200, contentType: 'image/svg+xml', body: ONEIMG }).catch(() => {}); } return r.fulfill({ status: 200, contentType: 'text/plain', body: '' }).catch(() => {}); });
   return ctx;

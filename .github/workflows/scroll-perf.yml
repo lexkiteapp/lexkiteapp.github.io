@@ -21,6 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         device: [phone, desktop, webkit]
+        theme: [light, dark]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,11 +37,34 @@ jobs:
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Đo cuộn ${{ matrix.device }}
-        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --out sp-out
-      - name: A/B không blur (chỉ số đo, không chặn)
-        if: ${{ matrix.device != 'desktop' && !cancelled() }}
-        continue-on-error: true
-        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes light --only today,practice,me,stats,library,reading,review-hub --variant noblur --out sp-out
+        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes ${{ matrix.theme }} --out sp-out
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
-        with: { name: 'scroll-perf-${{ matrix.device }}', path: sp-out, retention-days: 14 }
+        with: { name: 'scroll-perf-${{ matrix.device }}-${{ matrix.theme }}', path: sp-out, retention-days: 14 }
+  # A/B chỉ trên nhánh đo: tìm nguyên nhân bằng số (mỗi biến thể 1 runner, song song), không chặn gì
+  ab:
+    if: ${{ github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [webkit, phone]
+        variant: [noblur, noshadow, nocv, noanim, nofilter]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Dựng dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+      - name: Cài Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps ${{ matrix.device == 'webkit' && 'webkit' || 'chromium' }} >/dev/null
+      - name: A/B ${{ matrix.variant }}
+        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes light --only today,path,practice,me,stats,library,reading,grammar,read-item,listen-item --variant ${{ matrix.variant }} --out sp-out
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: 'scroll-ab-${{ matrix.device }}-${{ matrix.variant }}', path: sp-out, retention-days: 14 }
