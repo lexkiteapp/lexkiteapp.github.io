@@ -8,6 +8,7 @@
  *   align     các hàng cùng cột (o.align) lệch mép trái nội dung > 4 px
  *   indicator vạch/chấm "đang chọn" (::before/::after hoặc .indicator) tách rời khỏi viên thuốc của mục đang chọn > 2 px
  *   tap       vùng chạm < o.tap px (mặc định 44) – trừ link nằm trong đoạn văn
+ *   inlinebox thẻ inline có viền/nền/padding bọc khối con: viền vẽ thành 2 mảnh thừa, nội dung mất padding (Chuỗi 7 ngày 4/11)
  *   wrap      nút/biểu tượng rớt xuống đứng một mình ở dòng cuối · lone  nhãn ≤ 3 ký tự đứng trơ cả hàng · nolabel  ô chọn/nhập không có nhãn nhìn thấy
  * window.QAB.perf.*  CLS / long task / INP (Event Timing) / FPS – đo từ lúc nạp trang (gắn bằng addInitScript). */
 (function (W) {
@@ -167,6 +168,14 @@
       const ref = rows[0][1], bad = rows.filter(([, x]) => Math.abs(x - ref) > 4);
       const seen = new Set();
       for (const [e, x] of bad) { const k = lab(e).replace(/\[[^\]]*\]/g, ''); if (seen.has(k)) continue; seen.add(k); add('align', 'fail', `${g.name}:${k}`, `"${txt(e)}" lệch ${Math.round(x - ref)}px so với ${lab(rows[0][0])} (mép trái nội dung)`); }
+    }
+    // 6b) hộp inline bọc khối: các mảnh rỗng mang viền/nền đè lên mép nội dung
+    for (const e of all) {
+      const cs = getComputedStyle(e); if (cs.display !== 'inline' || !e.children.length || !vis(e)) continue;
+      const num = v => parseFloat(v) || 0, drawn = (num(cs.borderLeftWidth) > 0 && cs.borderLeftStyle !== 'none') || num(cs.paddingLeft) > 0 || num(cs.paddingTop) > 0 || (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && cs.backgroundColor !== 'transparent');
+      if (!drawn) continue;
+      const kid = [...e.children].find(c => { const k = getComputedStyle(c); return /^(block|flex|grid|table|list-item|flow-root)$/.test(k.display) && k.position === 'static' && k.float === 'none'; });
+      if (kid) add('inlinebox', 'fail', e, `<${e.tagName.toLowerCase()}> inline có viền/nền/padding bọc khối <${kid.tagName.toLowerCase()}>: thêm display block/flex`);
     }
     // 7) vạch "đang chọn" tách khỏi mục đang chọn
     for (const e of D.querySelectorAll('nav .active, nav [aria-current="page"], [role=tablist] [aria-selected="true"], .bottom-nav .active, #nav .active')) {
