@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { isZombie } from './zombie.mjs';
 
 export const SAMPLE_MIN = 10, LOG_BRANCH = 'ci-stats', LOG_FILE = 'util.tsv', KEEP_LINES = 288;
 export const loadRegistry = (f = 'infra/ci-backlog.json') => JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -28,7 +29,7 @@ export function shardsFor(entry, free) {
 export const eligible = e => e.eligible !== false && e.cpu_bound === true && e.quota_bound !== true;
 const ACTIVE = new Set(['queued', 'in_progress', 'waiting', 'pending', 'requested']);
 /** Chặn trùng (thuần): tập file workflow đang có lượt chưa xong. */
-export const activeWorkflows = runs => new Set(runs.filter(r => ACTIVE.has(r.status)).map(r => String(r.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '')));
+export const activeWorkflows = (runs, now = Date.now()) => new Set(runs.filter(r => ACTIVE.has(r.status) && !isZombie(r, now)).map(r => String(r.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '')));
 export const isActive = (entry, active) => active.has(entry.workflow);
 /** Đếm từ danh sách job của các lượt chưa xong (thuần). Phần tử = mảng job, hoặc { event, jobs } để đếm job check PR đang xếp hàng (prQueued). */
 export function countJobs(jobsByRun, now = Date.now()) {

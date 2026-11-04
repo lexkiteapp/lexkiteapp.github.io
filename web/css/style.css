@@ -169,6 +169,8 @@ select { min-width: 0; text-overflow: ellipsis; }
 #view :where(h1, h2, h3, h4, p, li, dd, dt, td, th, blockquote, figcaption, label, .card, .chip) { overflow-wrap: break-word; }
 .input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 textarea.input { resize: vertical; min-height: 72px; }
+/* Cao = padding + dòng chữ nên 43–44 px tùy font tải được: bản live qua, bản build PR đỏ tap < 44 (QA bot) */
+select.input { min-height: 44px; }
 label.field { display: block; }
 label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; font-size: .9rem; }
 .switch { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .55rem 0; cursor: pointer; }
@@ -417,6 +419,15 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
 .bars i.zero { background: var(--line); }
 .bars small { font-size: max(12px, .75rem); color: var(--muted); white-space: nowrap; line-height: 1.2; }
 .bars em { font-style: normal; font-size: max(12px, .75rem); font-weight: 700; color: var(--muted); line-height: 1.2; }
+/* Nhãn chữ (Mon, Hôm nay, Сегодня) rộng hơn ô cột: ô cuối tràn thì bị cắt, các ô giữa đè nhau. Nhãn đầu canh trái, cột hẹp thì nhãn thưa (cột chẵn giữ dòng trống để đáy cột thẳng hàng). */
+.bars.dense { container-type: inline-size; }
+.bars.dense > div:first-child > small { align-self: flex-start; }
+.bars.dense > div:nth-child(2) > small { display: none; }
+.bars.dense > div:nth-child(2)::after { content: '\00a0'; font-size: max(12px, .75rem); line-height: 1.2; }
+@container (max-width: 460px) {
+  .bars.dense > div:nth-child(even) > small, .bars.dense > div:nth-child(3) > small { display: none; }
+  .bars.dense > div:nth-child(even)::after, .bars.dense > div:nth-child(3)::after { content: '\00a0'; font-size: max(12px, .75rem); line-height: 1.2; }
+}
 .badge-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .8rem; }
 .badge-card { text-align: center; padding: 1rem .6rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
 .badge-card .em { font-size: 2.2rem; }
