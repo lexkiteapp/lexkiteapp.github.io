@@ -53,7 +53,7 @@ for (const [mode, scheme, stored] of MODES) {
       await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => bad.push('landing-en: /js/site-ui.js không nạp sau load')); // vòng bấm trên trang thật: tự động → sáng → tối → tự động, có lưu + nhãn đổi
       const seq = [];
       for (let i = 0; i < 3; i++) { await page.click('[data-tsw] >> visible=true'); seq.push(await page.evaluate(() => [document.documentElement.getAttribute('data-theme'), localStorage.getItem('lk.theme'), document.querySelector('[data-tsw]').getAttribute('aria-label')].join('|'))); }
-      if (!/^light\|light\|.+: Light theme$/.test(seq[0]) || !/^dark\|dark\|.+: Dark theme$/.test(seq[1]) || !/^\|\|.+: Theme: match system$/.test(seq[2])) bad.push(`landing-en: vòng nút sai ${seq.join(' → ')}`);
+      if (!/^light\|light\|.+: Light theme$/.test(seq[0]) || !/^dark\|dark\|.+: Dark theme$/.test(seq[1]) || !/^\|auto\|.+: Theme: match system$/.test(seq[2])) bad.push(`landing-en: vòng nút sai ${seq.join(' → ')}`);
       await page.click('[data-tsw] >> visible=true'); await page.reload({ waitUntil: 'load' });
       if (await page.evaluate(() => document.documentElement.getAttribute('data-theme')) !== 'light') bad.push('landing-en: tải lại không giữ lựa chọn sáng');
       const box = await page.locator('[data-tsw] >> visible=true').first().boundingBox(); if (!box || box.width < 44 || box.height < 44) bad.push(`landing-en: nút giao diện ${box && Math.round(box.width)}×${box && Math.round(box.height)} < 44 px trên điện thoại`);
