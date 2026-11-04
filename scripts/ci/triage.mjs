@@ -61,6 +61,11 @@ export function videoLine(v) { // owner 23/10: video pipeline in the daily diges
   const g = Object.entries(v.failed_by_gate || {}).map(([k, n]) => `${k} ${n}`).join(', ');
   return `- Video 24 h: dựng ${v.rendered || 0} · đạt ${v.passed || 0} · trượt ${v.failed || 0} · bỏ trước dựng ${v.dropped || 0}${g ? ` (cổng: ${g})` : ''} · chờ duyệt ${v.pending_approval || 0} · đã duyệt ${v.approved || 0}`;
 }
+// Bản tin chạy theo lượt quét có thật (lịch GitHub rớt giờ 00 UTC: cờ ci kẹt từ 27/10 tới 4/11). Thư vẫn chỉ buổi sáng, server chặn ≤ 1 thư/20 h.
+export const digestDue = (now, force) => !!force || now.getUTCHours() % 4 === 0;
+export const morning = (now, force) => !!force || now.getUTCHours() < 8;
+// Cờ "workflow đỏ" đo sức khoẻ main: lượt đỏ của PR/nhánh thuộc về PR đó, không tính.
+export const mainRuns = runs => runs.filter(r => r.head_branch === 'main' && !/^pull_request/.test(r.event || '') && r.name !== 'ci-triage');
 export function digest(runs, latest, issues, video) {
   const by = {}; for (const r of runs) (by[r.name] = by[r.name] || []).push(r);
   const names = Object.keys(by).sort((a, b) => by[b].length - by[a].length);
@@ -228,13 +233,13 @@ async function sweep() {
     if (r.bad.length) console.log(`::error::${r.bad.length} workflow tốn runner bất thường: ${r.bad.map(b => b.name).join(', ')}`);
     if (process.env.LEXKITE_DRIVE_CLI_KEY) { const { driveApi } = await import('../video/library.mjs'); await driveApi('ext_alert', { kind: 'ci_hog', ok: !r.bad.length, n: Math.max(1, r.bad.length), msg: r.bad.map(b => `${b.name}: ${b.why}`).join(' · ').slice(0, 300), repo: REPO }); }
   } catch (e) { console.log('::warning::ci-hog: ' + e.message); }
-  if (now.getUTCHours() !== 0 && !force) return summary('Quét giờ: xong (hoãn hạn mức + bản tin chỉ chạy ở giờ 00 UTC).');
+  if (!digestDue(now, force)) return summary('Quét giờ: xong (bản tin chạy mỗi 4 giờ).');
   // 2) lượt hoãn vì hạn mức: sau 00:10 UTC (hạn mức D1 đã đặt lại) chạy lại lượt đỏ MỚI NHẤT của mỗi workflow – 1 lần (attempt 1), bỏ nếu đã có lượt mới hơn
   const since = new Date(now - 26 * 3600e3).toISOString().slice(0, 19) + 'Z';
   const failed = ((await gh(`/actions/runs?status=failure&created=%3E%3D${since}&per_page=100`)) || {}).workflow_runs || [];
   const newest = {}; for (const r of failed) if (!newest[r.workflow_id] || r.created_at > newest[r.workflow_id].created_at) newest[r.workflow_id] = r;
   const latest = {};
-  for (const r of Object.values(newest)) {
+  if (morning(now, force)) for (const r of Object.values(newest)) {
     const last = (((await gh(`/actions/workflows/${r.workflow_id}/runs?per_page=1`)) || {}).workflow_runs || [])[0];
     latest[r.name] = last ? (last.conclusion || last.status) : 'failure';
     if (!last || last.id !== r.id || (r.run_attempt || 1) > 1 || r.name === 'ci-triage') continue;
@@ -244,8 +249,9 @@ async function sweep() {
     if (cls.kind === 'quota') { await gh(`/actions/runs/${r.id}/rerun-failed-jobs`, { method: 'POST' }).catch(e => console.log(e.message)); summary(`- Chạy lại (hạn mức đã đặt lại): ${r.name} ${r.html_url}`); }
   }
   // 3) bản tin ngày → tóm tắt job + cảnh báo Quản trị + 1 thư/ngày (chỉ khi có đỏ)
-  const day = failed.filter(r => r.created_at >= new Date(now - 24 * 3600e3).toISOString() && r.name !== 'ci-triage');
-  const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
+  const dayStart = new Date(now - 24 * 3600e3).toISOString(), day = mainRuns(((await gh(`/actions/runs?status=failure&branch=main&created=%3E%3D${dayStart.slice(0, 19)}Z&per_page=100`)) || {}).workflow_runs || []);
+  const latestMain = {}; for (const id of new Set(day.map(r => r.workflow_id))) { const r0 = day.find(r => r.workflow_id === id), last = (((await gh(`/actions/workflows/${id}/runs?branch=main&per_page=1`)) || {}).workflow_runs || [])[0]; latestMain[r0.name] = last ? (last.conclusion || last.status) : 'failure'; }
+  const d = digest(day, latestMain, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
   // 4) runner 24 h (ci-filler): TB/đỉnh theo giờ + phút-runner rảnh khi còn tồn đọng (KPI → ~0)
   try { const f = await import('./filler.mjs'), u = f.report(await f.readLog()); d.md += '\n' + u.md; d.text += `\n\nRunner 24 h: ${u.msg}`; } catch (e) { console.log('runner report:', e.message); }
   if (common) { d.md += '\n' + common.md; d.text += `\n\nPR mở – ${common.text}`; }
@@ -253,7 +259,7 @@ async function sweep() {
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return console.log('Không có LEXKITE_DRIVE_CLI_KEY – chỉ ghi tóm tắt job.');
   try {
     const { driveApi } = await import('../video/library.mjs');
-    const r = await driveApi('ext_alert', { kind: 'ci', ok: d.red === 0, n: Math.max(1, d.red), level: d.red ? (d.red > 2 ? 'crit' : 'warn') : undefined, msg: d.msg, text: d.text, mail: d.failed > 0, repo: REPO });
+    const r = await driveApi('ext_alert', { kind: 'ci', ok: d.red === 0, n: Math.max(1, d.red), level: d.red ? (d.red > 2 ? 'crit' : 'warn') : undefined, msg: d.msg, text: d.text, mail: d.failed > 0 && morning(now, force), repo: REPO });
     console.log('Quản trị → cảnh báo ci:', JSON.stringify(r));
   } catch (e) { console.log(`::warning::không ghi được bản tin vào Quản trị (${e.message}) – xem tóm tắt job`); }
 }

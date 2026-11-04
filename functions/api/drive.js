@@ -366,7 +366,7 @@ export async function runHealth(env, db, { now = Date.now(), wait = 400 } = {}) 
   return { checked: now, drives: res, under_replicated: rs.n.under, single: rs.n.single, lost_only: rs.n.lost_only, alerts: alerts.map(({ kind, level, t, drive_id, p }) => ({ kind, level, t, drive_id, p })), mailed };
 }
 async function alertRows(db) {
-  return (await all(db, 'SELECT * FROM drive_alerts ORDER BY level, kind')).map(a => { let m = {}; try { m = JSON.parse(a.msg); } catch (e) { m = {}; } return { kind: a.kind, level: a.level, t: m.t, drive_id: a.drive_id, p: m.p || {}, since: a.since, mailed: !!a.mailed }; });
+  return (await all(db, 'SELECT * FROM drive_alerts ORDER BY level, kind')).map(a => { let m = {}; try { m = JSON.parse(a.msg); } catch (e) { m = {}; } return { kind: a.kind, level: a.level, t: m.t, drive_id: a.drive_id, p: m.p || {}, since: a.since, seen: a.seen, mailed: !!a.mailed }; });
 }
 const bumpUpFail = async (env, db, id) => { await run(db, 'UPDATE drives SET up_fails = COALESCE(up_fails, 0) + 1 WHERE id = ?', id); const r = await one(db, 'SELECT up_fails FROM drives WHERE id = ?', id); if (r && +r.up_fails === UP_FAIL_CRIT) await refreshAlerts(env, db); };
 
