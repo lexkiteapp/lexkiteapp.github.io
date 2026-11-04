@@ -30,7 +30,7 @@ const bad = [], lum = c => { const m = (c.match(/[\d.]+/g) || []).map(Number); c
 if (SHOTS) fs.mkdirSync(SHOTS, { recursive: true });
 let checks = 0;
 for (const [mode, scheme, stored] of MODES) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce' });
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce', bypassCSP: true });
   await serve(ctx);
   await ctx.addInitScript(([s]) => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); if (s) localStorage.setItem('lk.theme', s); else localStorage.removeItem('lk.theme'); } } catch (e) { /* */ } // chỉ gieo lần đầu mỗi tab → tải lại giữ lựa chọn người dùng
     new MutationObserver((_, o) => { if (document.body) { window.__bg0 = getComputedStyle(document.body).backgroundColor; window.__th0 = document.documentElement.getAttribute('data-theme'); o.disconnect(); } }).observe(document, { childList: true, subtree: true }); }, [stored]);
