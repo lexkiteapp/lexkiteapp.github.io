@@ -29,7 +29,10 @@ node scripts/test/i18n-pack.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
+node scripts/test/tsc-check.mjs
 node scripts/test/unit.mjs
+node scripts/test/syntax-check.mjs
+node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
 node scripts/test/review-modes.mjs
@@ -232,6 +235,7 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
 node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
