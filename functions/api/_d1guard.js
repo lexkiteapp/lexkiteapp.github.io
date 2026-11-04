@@ -81,10 +81,10 @@ export function usagePeek(env, db, now = Date.now(), fetcher = fetch) {
 export const isShed = u => !!(u && u.source === 'cloudflare' && u.ratio >= SHED_PCT);
 export const SHED_BODY = { error: 'quota-shed', reason: 'd1-85' };
 /** Endpoint đọc không thiết yếu (thông báo, quản trị phụ…): ≥ 85 % → Response 429 nhẹ (Retry-After tới 00:00 UTC), ngược lại null. Không chờ mạng. */
-export function shedRead(env, mk) {
+export function shedRead(env, mk, now = Date.now()) {
   try {
-    const u = usagePeek(env, env && env.DB); if (!isShed(u)) return null;
-    const s = secsToReset(), r = mk(429, { ...SHED_BODY, pct: Math.round(u.ratio * 100), retry: s });
+    const u = usagePeek(env, env && env.DB, now); if (!isShed(u)) return null;
+    const s = secsToReset(now), r = mk(429, { ...SHED_BODY, pct: Math.round(u.ratio * 100), retry: s });
     try { r.headers.set('Retry-After', String(s)); } catch (e) { /* header bất biến */ }
     return r;
   } catch (e) { /* cho qua */ }
