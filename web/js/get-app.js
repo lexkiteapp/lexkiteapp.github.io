@@ -1,7 +1,7 @@
 /* Nút "Tải app" một chạm – dùng chung: landing (nội tuyến lúc build, scripts/build-landing.mjs) + web app (nạp lười: menu bên, trang Tôi, nút 📲 Android).
    [data-get-app="<nơi>"] mặc định hidden; đích theo nền tảng:
      Chrome/Edge máy tính → Chrome Web Store (LK_EXT.store; ẩn khi add-on đã cài – LKExt của js/ext-cta.js) · Android → Google Play (LK_APPS.play)
-     iPhone/iPad → App Store nếu có LK_APPS.ios, chưa có → hướng dẫn Thêm vào MH chính · Safari Mac ≥ 17 → hướng dẫn Thêm vào Dock
+     iPhone/iPad → App Store (LK_APPS.ios; hướng dẫn Thêm vào MH chính chỉ dự phòng khi nguồn để rỗng, hiện không xảy ra) · Safari Mac ≥ 17 → hướng dẫn Thêm vào Dock
      Firefox/Edge máy tính → listing riêng nếu đã điền LK_APPS.firefox/edge (chưa có: Edge → Chrome Web Store, Firefox → web app)
      còn lại (Firefox…) → web app, chỉ phần tử có data-web="<url>" (landing). Ẩn khi đang chạy như app (PWA, app gốc, add-on).
    [data-ch="<ios|play|cws|edge|firefox>"] data-from="<nơi>" = liệt kê đủ kênh (khu Cài của landing, chân trang, trang Tôi), để máy tính cũng lấy được link điện thoại:
@@ -82,5 +82,7 @@
     if (D.readyState === 'complete') later(); else W.addEventListener('load', later);
     W.addEventListener('message', function (e) { if (ready && e.source === W && e.data && e.data.lkBridge) setTimeout(scan, 50); });
   }
+  // /get trên máy tính → landing?to=install: cuộn sau khi nạp xong CSS trễ (dùng #install thì đang đứng giữa trang lúc CSS áp vào, CLS ≈ 1)
+  if (/[?&]to=install\b/.test(location.search)) { var toI = function () { var x = D.getElementById('install'); if (x) x.scrollIntoView(); }; if (D.readyState === 'complete') toI(); else W.addEventListener('load', toI); }
   W.LKGetApp = { kind: kind, scan: scan, open: open };
 })(window, document);

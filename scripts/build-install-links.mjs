@@ -2,6 +2,7 @@
 // Dùng: node scripts/build-install-links.mjs [--check]   (--check: không ghi, báo lỗi nếu file sinh đã cũ; chạy trong scripts/test/install-links.mjs)
 import fs from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { PHONE_ICON } from './lib/site-layout.mjs'; // icon Lexkite Kit, cùng nút khu Cài + chân trang
 
 const R = new URL('..', import.meta.url);
 export const readLinks = () => JSON.parse(fs.readFileSync(new URL('infra/install-links.json', R), 'utf8'));
@@ -17,6 +18,7 @@ export const INSTALL = ${JSON.stringify({ site: D.site, short: D.short, channels
 `;
 
 // Trang cài ngắn /get: Android → Play, iPhone/iPad → App Store (kèm nguồn), còn lại → khu Cài của landing đúng ngôn ngữ (đủ kênh). Không JS: vẫn thấy link thật.
+// Điện thoại chỉ tự chuyển LẦN ĐẦU trong tab: bấm Quay lại (hoặc cửa hàng mở ở app riêng) thì thấy đủ hai cửa hàng, cửa hàng đúng máy đứng đầu → luôn có đường tới cửa hàng kia.
 // Chữ trên trang chỉ gồm tên riêng (Lexkite, tên cửa hàng) nên dùng chung cho 15 ngôn ngữ; màu = token Lexkite Kit (sáng/tối).
 const T = JSON.parse(fs.readFileSync(new URL('brand/tokens.json', R), 'utf8')); // màu: nguồn token duy nhất
 export const getPage = D => { const live = ['ios', 'play', 'cws', 'edge', 'firefox'].filter(k => D.channels[k].url).map(k => [k, D.channels[k]]);
@@ -27,18 +29,21 @@ export const getPage = D => { const live = ['ios', 'play', 'cws', 'edge', 'firef
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Get Lexkite</title>
+<meta name="description" content="Get Lexkite free: App Store for iPhone and iPad, Google Play for Android, Chrome Web Store for computers, or the web app.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="${D.site}/">
 <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
 <meta name="theme-color" content="#0F3D3E">
-<script>(function(){try{var A=${go},Q=new URLSearchParams(location.search),C=function(s,n){return String(s||'').toLowerCase().replace(/[^a-z0-9_.-]+/g,'-').slice(0,n)},s=C(Q.get('src'),40)||'short',c=C(Q.get('c'),60)||'general',N=navigator,u=N.userAgent,L=['vi','en','es','pt','fr','de','id','th','zh','ja','ko','hi','ar','ru','tr'],k=/Android/.test(u)?'play':/iPhone|iPad|iPod/.test(u)||/Mac/.test(u)&&N.maxTouchPoints>1?'ios':'',m='utm_source='+s+'&utm_medium=short_link&utm_campaign='+c,t;if(k==='play'&&A.play)t=A.play+'&referrer='+encodeURIComponent(m);else if(k==='ios'&&A.ios)t=A.ios+(A.ios.indexOf('?')<0?'?':'&')+'ct='+(s+'_'+c).slice(0,40);else{var l=((N.languages&&N.languages[0])||N.language||'en').slice(0,2).toLowerCase();l=L.indexOf(l)<0?'en':l;t=(l==='vi'?'/':'/'+l+'/')+'?src=get_'+s+'#install';k='web'}try{N.sendBeacon('/api/hit',JSON.stringify({t:'q',ev:'app_get_'+k}))}catch(e){}location.replace(t)}catch(e){}})();</script>
-<style>:root{--bg:${T.light['--bg']};--fg:${T.light['--heading']};--line:${T.light['--line']}}@media (prefers-color-scheme: dark) {:root{--bg:${T.dark['--bg']};--fg:${T.dark['--heading']};--line:${T.dark['--line']}}}body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 16px;box-sizing:border-box;background:var(--bg);color:var(--fg);font:600 16px/1.4 system-ui,sans-serif}h1{margin:0 0 8px;font-size:24px}a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;width:min(100%,320px);box-sizing:border-box;padding:8px 16px;border:2px solid var(--line);border-radius:14px;color:inherit;text-decoration:none}a:focus-visible{outline:3px solid currentColor;outline-offset:2px}</style>
+<script>(function(){try{var A=${go},Q=new URLSearchParams(location.search),C=function(s,n){return String(s||'').toLowerCase().replace(/[^a-z0-9_.-]+/g,'-').slice(0,n)},s=C(Q.get('src'),40)||'short',c=C(Q.get('c'),60)||'general',N=navigator,u=N.userAgent,L=['vi','en','es','pt','fr','de','id','th','zh','ja','ko','hi','ar','ru','tr'],k=/Android/.test(u)?'play':/iPhone|iPad|iPod/.test(u)||/Mac/.test(u)&&N.maxTouchPoints>1?'ios':'',m='utm_source='+s+'&utm_medium=short_link&utm_campaign='+c,t,X;if(k){document.documentElement.setAttribute('data-first',k);try{X=sessionStorage;if(X.getItem('lk_get'))return;X.setItem('lk_get','1')}catch(e){}}if(k==='play'&&A.play)t=A.play+'&referrer='+encodeURIComponent(m);else if(k==='ios'&&A.ios)t=A.ios+(A.ios.indexOf('?')<0?'?':'&')+'ct='+(s+'_'+c).slice(0,40);else{var l=((N.languages&&N.languages[0])||N.language||'en').slice(0,2).toLowerCase();l=L.indexOf(l)<0?'en':l;t=(l==='vi'?'/':'/'+l+'/')+'?src=get_'+s+'&to=install';k='web'}try{N.sendBeacon('/api/hit',JSON.stringify({t:'q',ev:'app_get_'+k}))}catch(e){}k==='web'?location.replace(t):location.assign(t)}catch(e){}})();</script>
+<style>:root{--bg:${T.light['--bg']};--fg:${T.light['--heading']};--line:${T.light['--line']}}@media (prefers-color-scheme: dark) {:root{--bg:${T.dark['--bg']};--fg:${T.dark['--heading']};--line:${T.dark['--line']}}}body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 16px;box-sizing:border-box;background:var(--bg);color:var(--fg);font:600 16px/1.4 system-ui,sans-serif}h1{margin:0 0 8px;font-size:24px}a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;width:min(100%,320px);box-sizing:border-box;padding:8px 16px;border:2px solid var(--line);border-radius:14px;color:inherit;text-decoration:none}a:focus-visible{outline:3px solid currentColor;outline-offset:2px}.l{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}a{gap:10px}svg{flex:none}a span{display:flex;flex-direction:column;text-align:start;line-height:1.25}small{font-size:13px;font-weight:500}[data-first=ios] [data-ch=ios],[data-first=play] [data-ch=play]{order:-1}</style>
 </head>
 <body>
 <img src="/icons/icon.svg?v=2" width="56" height="56" alt="">
 <h1>Lexkite</h1>
-${live.map(([, c]) => `<a href="${c.url}" rel="noopener">${c.name}</a>`).join('\n')}
+<div class="l">
+${live.map(([k, c]) => `<a href="${c.url}" rel="noopener" data-ch="${k}">${/^(ios|play)$/.test(k) ? PHONE_ICON : ''}<span>${c.name}<small>${c.devices}</small></span></a>`).join('\n')}
 <a href="/app/">Web app</a>
+</div>
 </body>
 </html>
 `; };

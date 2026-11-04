@@ -45,7 +45,7 @@ const store = (cfg.match(/store: '([^']+)'/) || [])[1];
   ok(r.beacons.some(b => b.t === 'q' && b.ev === 'app_head_play'), 'Android: bấm → /api/hit app_head_play'); }
 // 2) Android chưa có bản Play → không mời
 { const r = run(UA.android, { apps: { play: '', ios: '' } }); ok(r.head.hidden && r.foot.hidden, 'Android không có link Play: ẩn'); }
-// 3) iPhone (chưa có App Store) → hướng dẫn Thêm vào MH chính, không rời trang
+// 3) Dự phòng khi nguồn để rỗng link App Store (hiện đã có, xem mục 5) → hướng dẫn Thêm vào MH chính, không rời trang
 { const r = run(UA.iphone, { apps: { play, ios: '' } });
   ok(!r.head.hidden && r.head.dataset.kind === 'a2hs' && r.head.getAttribute('role') === 'button', 'iPhone: nút mở hướng dẫn cài (role=button)');
   const ev = new r.w.MouseEvent('click', { bubbles: true, cancelable: true }); r.head.dispatchEvent(ev);
