@@ -1,13 +1,9 @@
 /* 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md, docs/UX-BENCHMARK.md §7).
  * Bật: lk.cfg.v.ux1 · thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1.
-<<<<<<< HEAD
- * 5 tab, trang chủ = bản đồ chặng, chọn mục tiêu 1 chạm, #/train gom mọi tính năng: docs/HOME-V2.md, docs/LEARNING-PATH.md.
-=======
  * - 5 tab §5d (Hôm nay · Từ vựng · Kỹ năng · Thi · Tôi; Giải đấu ở Hôm nay) ở thanh dưới (điện thoại) và menu gọn bên trái (máy tính ≥ 1024 px: 3 cột + cột phải).
  * - Trang chủ = bản đồ chặng (lesson/ui.js gọi Ux1.map): chặng theo mục tiêu + trình độ, băng tiêu đề "Bạn sẽ…", nút kiểm tra kỹ năng thi.
  * - Lần đầu: chọn mục tiêu 1 chạm (IELTS / TOEIC / TOEFL / Giao tiếp + điểm) → settings.exam / examTarget / goalPick.
  * - #/train = Luyện: mọi tính năng cũ gom thành ô biểu tượng theo nhóm, "Luyện thi" đầu tiên. Không bỏ tính năng nào.
->>>>>>> real/main
  * Cờ tắt: module nạp (test) nhưng không đổi gì. */
 (function () {
   const App = window.App; if (!App || window.Ux1) return;
@@ -301,12 +297,8 @@
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
     sayIn(root, d.say, fresh);
-<<<<<<< HEAD
-    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
-    if (k === 'today-desk') { const lb = document.getElementById('langBtn'); if (lb && lb.offsetParent) root.querySelectorAll('[data-act="lang"]').forEach(x => x.remove()); }
-=======
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
->>>>>>> real/main
+    if (k === 'today-desk') { const lb = document.getElementById('langBtn'); if (lb && lb.offsetParent) root.querySelectorAll('[data-act="lang"]').forEach(x => x.remove()); }
     prune(root); langBtn(root); headBtns(root);
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
