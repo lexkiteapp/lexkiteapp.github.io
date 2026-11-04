@@ -120,9 +120,7 @@
     $$('[data-due]').forEach(b => { b.hidden = !total; b.textContent = total > 99 ? '99+' : total; b.title = t('{n} thẻ cần ôn', { n: total }); }); // tab Từ vựng: chấm nhỏ (CSS), số vẫn đọc được bằng trình đọc màn hình
     const L = Game.levelOf(state.game.xp);
     const name = state.user ? (state.user.displayName || state.user.email || t('Bạn')) : t('Bạn');
-    $('#sideLevel').innerHTML = `<div class="lv-row">${avatarHtml()}<div class="grow"><b>${esc(name)}</b><div class="tiny muted">${t('Cấp {n}', { n: L.level })} · ${esc(L.title)}</div></div></div>
-      <div class="progress xp thin" style="margin-top:.6rem"><i style="width:${L.into / L.need * 100}%"></i></div>
-      <div class="tiny muted" style="margin-top:.3rem">${t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 })}</div>`;
+    $('#sideLevel').innerHTML = `<div class="lv-row">${avatarHtml()}<div class="grow lv-tx"><div class="lv-top"><b>${esc(name)}</b><span class="tiny muted"><bdi>${L.into}/${L.need} XP</bdi></span></div><div class="tiny muted lv-sub">${t('Cấp {n}', { n: L.level })} · ${esc(L.title)}</div><div class="progress xp thin" title="${esc(t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 }))}"><i style="width:${L.into / L.need * 100}%"></i></div></div></div>`;
     if (window.Sync && Sync.chrome) Sync.chrome(); else $('#avatarBtn').innerHTML = avatarInner(); // nút tài khoản đầu trang + thẻ thanh bên (sync.js)
     if (window.VBNative && VBNative.widget) VBNative.widget(state, st); // widget màn hình chính/khóa (chỉ app gốc)
     if (App.retTrack) App.retTrack(st); // đo D7 nhóm bật/đối chứng của cờ ret (1–2 lượt ghi/máy, cả đời)

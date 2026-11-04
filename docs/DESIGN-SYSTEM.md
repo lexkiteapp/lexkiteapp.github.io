@@ -27,6 +27,7 @@ Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css
   To add an icon: put its Lucide name in `ICONS` in `scripts/build-icons.mjs` → `node scripts/build-icons.mjs <lucide-static>/package` (icons for lazy pages go in `LAZY`) → `bash scripts/build-extension.sh`.
 - Markup: in JS, `UI.icon('volume-2')`. In HTML, `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-volume-2"/></svg>`.
   Icons are always `aria-hidden`. The control carries the name (`aria-label`, `title` or visible text).
+- Sidebar (desktop, Stitch screen 03e155f8a96144c0aa416a835915bc55): nav scrolls inside; utility rows + account row pinned to the bottom; all rows ≥ 44 px; nested rows carry a guide line, no icons.
 - Active state (bottom nav, sidebar): the same glyph gets a duotone fill (`fill: currentColor; fill-opacity: .16–.2`) and a slightly heavier stroke. Never switch to a different icon.
 - Directional icons (`arrow-left`, `chevron-*`) carry the class `i-dir` and mirror in RTL (`[dir=rtl] .i-dir`).
 - Auto-upgrade: `UI.paintIcons` (MutationObserver in `ui.js`) turns leftover chrome emoji at the START of a button or link into the icon:
