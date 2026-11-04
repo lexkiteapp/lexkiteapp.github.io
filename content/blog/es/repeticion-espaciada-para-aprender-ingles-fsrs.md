@@ -13,7 +13,7 @@ publishAt: 2027-01-06T08:14:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 96
+qualityScore: 87
 quiz: [
   {
     q: "¿Qué postula la 'Curva del Olvido' descubierta empíricamente por Hermann Ebbinghaus?",
@@ -46,7 +46,7 @@ quiz: [
       "Exige el uso de servidores cuánticos dedicados para ejecutarse."
     ],
     answer: 0,
-    explain: "El algoritmo FSRS (Free Spaced Repetition Scheduler) calcula con precisión matemática la probabilidad de olvido de cada término, logrando reducir hasta un 30% la carga innecesaria de repasos repetitivos sin mermar la tasa de retención deseada."
+    explain: "El algoritmo FSRS (Free Spaced Repetition Scheduler) estima la probabilidad de recuerdo de cada tarjeta a partir de tu propio historial de repasos; según sus desarrolladores, suele requerir menos repasos que SM-2 para la misma retención objetivo."
   }
 ]
 ---
@@ -65,7 +65,7 @@ En 1885, el psicólogo alemán Hermann Ebbinghaus llevó a cabo experimentos pio
 
 El descubrimiento fundamental de Ebbinghaus es que el olvido no se produce de forma lineal ni homogénea, sino de manera exponencialmente pronunciada durante las primeras horas posteriores al aprendizaje inicial:
 - A los **20 minutos** de haber estudiado, se disipa cerca del 42% del contenido nuevo.
-- A las **24 horas**, si no se ha producido ninguna reactivación sináptica, se ha perdido entre el 50% y el 65% de la información.
+- A las **24 horas**, sin ningún repaso, se había perdido cerca de dos tercios de lo estudiado (Ebbinghaus midió el "ahorro" al reaprender, no un examen directo, así que tómalo como orden de magnitud).
 - Al cabo de **7 días**, apenas permanece accesible entre un 20% y un 30% del material estudiado.
 
 Sin embargo, Ebbinghaus descubrió un fenómeno aún más determinante: cada vez que el cerebro realiza un esfuerzo deliberado por recordar una información antes de que desaparezca por completo, la curva de retención se aplana notablemente. Esto significa que con cada repaso distribuido en el tiempo, la tasa de descomposición del recuerdo se ralentiza de forma drástica, espaciando cada vez más la necesidad del siguiente repaso.
@@ -80,17 +80,17 @@ Por el contrario, la práctica distribuida (*distributed practice* o *spaced rep
 |---|---|---|
 | **Distribución temporal** | Sesiones prolongadas e infrecuentes (3-5 horas seguidas) | Sesiones breves y diarias (10-15 minutos) |
 | **Mecanismo cognitivo** | Lectura pasiva y sobreaprendizaje superficial | Evocación activa (*active recall*) bajo esfuerzo deliberado |
-| **Efecto neurobiológico** | Saturación sináptica rápida con extinción precoz | Consolidación proteica y mielinización axonal profunda |
-| **Retención a 30 días** | Menos del 20% del contenido estudiado | Superior al 85% - 90% con ajuste algorítmico |
+| **Efecto en la memoria** | Buen rendimiento inmediato, olvido rápido después | Recuerdo más duradero gracias al efecto de espaciado |
+| **Retención al cabo de semanas** | Baja: se olvida la mayor parte | Alta y controlable: el algoritmo apunta a la retención objetivo que elijas (p. ej., 90%) |
 | **Fatiga mental** | Agotamiento extremo y abandono frecuente | Hábito sostenible integrado en la rutina diaria |
 
 El principio rector de la repetición espaciada es lo que los psicólogos cognitivos denominan **dificultad deseable** (*desirable difficulty*). Cuanto mayor es el esfuerzo mental que debe desplegar el cerebro para recuperar un dato almacenado en la memoria en el umbral exacto del olvido, más potente es la señal electroquímica que consolida ese recuerdo para el futuro.
 
-![Pantalla de repaso con tarjetas flashcard de Lexkite mostrando la palabra pollution](media:review "Repasa vocabulario en el momento óptimo calculado por el algoritmo FSRS para consolidar la memoria")
+![Pantalla de repaso con tarjetas flashcard de Lexkite mostrando la palabra pollution](media:review "Repasa vocabulario con tarjetas flashcard como pollution y avanza con la barra de progreso en Lexkite")
 
 ## repetición espaciada para aprender inglés: la evolución de SM-2 a FSRS
 
-Durante más de tres décadas, el estándar indiscutible del software de repetición espaciada fue el algoritmo **SM-2**, desarrollado por Piotr Wozniak en 1987 (y popularizado por plataformas clásicas como Anki y SuperMemo). No obstante, los avances recientes en ciencia de datos y aprendizaje automático han permitido el nacimiento de un motor infinitamente superior: **FSRS (Free Spaced Repetition Scheduler)**.
+Durante más de tres décadas, el estándar indiscutible del software de repetición espaciada fue el algoritmo **SM-2**, desarrollado por Piotr Wozniak en 1987 (y popularizado por plataformas clásicas como Anki y SuperMemo). No obstante, los avances recientes en ciencia de datos y aprendizaje automático han permitido el nacimiento de un motor más preciso: **FSRS (Free Spaced Repetition Scheduler)**, un programador de repasos de código abierto desarrollado por Jarrett Ye y la comunidad open-spaced-repetition, que Anki integra de forma nativa desde la versión 23.10.
 
 ### Las limitaciones históricas del algoritmo SM-2
 
@@ -102,13 +102,13 @@ Aunque el SM-2 supuso una auténtica revolución en la era de los ordenadores pe
 
 ### Cómo funciona el modelo cognitivo DSR del algoritmo FSRS
 
-El algoritmo **FSRS** sustituye los multiplicadores empíricos de los años ochenta por un riguroso modelo biofísico de la memoria humana basado en tres variables de estado (*DSR Model*):
+El algoritmo **FSRS** sustituye los multiplicadores fijos de los años ochenta por un modelo matemático de la memoria, entrenado con millones de registros de repaso reales y basado en tres variables de estado (*modelo DSR*):
 
 - **D (Difficulty - Dificultad intrínseca)**: Mide la complejidad inherente que tiene una palabra concreta para un usuario específico, en una escala continua de 1 a 10. Una palabra técnica o un *false friend* engañoso mantendrá un nivel de dificultad superior a un término intuitivo.
-- **S (Stability - Estabilidad temporal)**: Representa el tiempo que tardará la probabilidad de recuerdo en descender de un 100% a un valor de retención predeterminado (por ejemplo, el 90%). A medida que el usuario responde con éxito a lo largo del tiempo, la estabilidad crece de manera no lineal.
+- **S (Stability - Estabilidad temporal)**: Es el número de días que tarda la probabilidad de recuerdo en bajar del 100% al 90%. A medida que el usuario responde con éxito a lo largo del tiempo, la estabilidad crece de manera no lineal.
 - **R (Retrievability - Probabilidad de recuperación)**: Es la probabilidad matemática estimada de que el usuario recuerde con éxito la palabra en un día determinado desde el último repaso. Sigue una función de decaimiento temporal negativa.
 
-Al modelar estas tres variables de forma simultánea e individualizada, el motor FSRS es capaz de programar el repaso exactamente el día en que la probabilidad de recuperación cae al 90%. El resultado es asombroso: se logra **reducir entre un 20% y un 30% el número total de repasos diarios** en comparación con los algoritmos tradicionales, manteniendo exactamente la misma tasa de retención a largo plazo.
+Al modelar estas tres variables de forma simultánea e individualizada, el motor FSRS es capaz de programar el repaso exactamente el día en que la probabilidad de recuperación cae al 90%. Según las pruebas comparativas publicadas por el propio proyecto FSRS, esto permite **hacer menos repasos que con SM-2 para el mismo nivel de retención**; la diferencia exacta depende de cada persona y de cada mazo. Además, puedes elegir tu retención deseada (por ejemplo, 85% o 90%) y el algoritmo ajusta los intervalos en consecuencia.
 
 ## Diseño óptimo de tarjetas flashcard para maximizar la retención
 
@@ -130,6 +130,8 @@ Evita memorizar palabras aisladas como *"resilient = resiliente"*. El cerebro hu
 > **resilient** (/rɪˈzɪl.jənt/ - adjetivo)  
 > *Significado: capaz de superar rápidamente situaciones adversas.*  
 > *Colocación frecuente: highly resilient, remain resilient.*
+
+Para hispanohablantes, las mejores candidatas a tarjeta son los **falsos amigos**, porque el error se repite durante años si no se corrige: *actually* (en realidad, no "actualmente" = *currently*), *embarrassed* (avergonzado, no "embarazada" = *pregnant*), *library* (biblioteca, no "librería" = *bookshop*) o *assist* (ayudar, no "asistir" a clase = *attend*). Pon en el anverso una frase con hueco y en el reverso el contraste con la palabra española.
 
 ### 3. Incorporación de audio y transcripción fonética IPA
 

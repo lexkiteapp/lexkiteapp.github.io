@@ -9,7 +9,7 @@ category: ielts
 tags: [ielts, speaking, part-1, preparacion]
 cover: speaking
 coverAlt: "Sala de Speaking de Lexkite con preguntas de Part 1 clasificadas por temas y respuestas modelo"
-qualityScore: 95
+qualityScore: 89
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T12:11:00-06:00
@@ -46,7 +46,7 @@ quiz: [
       "Implica que debes repetir la respuesta desde el principio"
     ],
     answer: 0,
-    explain: "Las interrupciones son rutinarias en el formato oficial de Cambridge para gestionar los 4 a 5 minutos asignados a la Parte 1."
+    explain: "Las interrupciones son rutinarias en el formato oficial del IELTS para gestionar los 4 a 5 minutos asignados a la Parte 1."
   },
   {
     q: "¿Cuál es uno de los errores fonéticos más comunes de los hispanohablantes en la entrevista oral?",

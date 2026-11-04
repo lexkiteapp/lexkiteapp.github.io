@@ -13,10 +13,10 @@ publishAt: 2027-01-14T08:14:00-03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 ---
 
-Na busca por pontuações de destaque no teste de proficiência voltado aos negócios, a seção de leitura do exame não tolera hesitações nem desperdício de minutos. Com 30 itens objetivos de múltipla escolha, a seção **toeic part 5** representa a porta de entrada da prova de Reading e define o ritmo de toda a sua avaliação. Um candidato que gaste mais de 12 minutos nessa etapa inicial fatalmente deixará dezenas de questões em branco ao encarar os longos textos ao final da prova.
+Na busca por pontuações de destaque no teste de proficiência voltado aos negócios, a seção de leitura do exame não tolera hesitações nem desperdício de minutos. Com 30 itens objetivos de múltipla escolha, a seção **toeic part 5** representa a porta de entrada da prova de Reading e define o ritmo de toda a sua avaliação. Um candidato que gaste mais de 12 minutos nessa etapa inicial corre sério risco de chutar várias questões ao encarar os longos textos do final da prova.
 
 Ao aliar um método de análise estrutural direto com as orientações apresentadas em nosso guia do [TOEIC Part 7 estratégias de leitura e tempo](/pt/blog/toeic-part-7-estrategias-leitura-tempo/) e as práticas de [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/), você aprenderá a diagnosticar o perfil de cada questão em menos de 20 segundos, assegurando uma margem segura de acertos.
 
@@ -28,8 +28,8 @@ A Parte 5 é composta por exatamente 30 orações incompletas, cada uma acompanh
 
 Essas questões dividem-se em duas naturezas essenciais:
 
-1. **Questões de gramática e classe de palavras (cerca de 55% da seção)**: As quatro alternativas derivam da mesmíssima raiz lexical (como *expand*, *expansion*, *expansive*, *expansively*). O objetivo é identificar a função sintática exigida pela oração (substantivo, adjetivo, advérbio ou forma verbal).
-2. **Questões de vocabulário e combinações fixas (cerca de 45% da seção)**: As alternativas trazem vocábulos totalmente diferentes, normalmente pertencentes à mesma classe gramatical (como *deliver*, *postpone*, *negotiate*, *exceed*). O acerto depende da interpretação contextual do mundo corporativo ou de colocações lexicais consagradas.
+1. **Questões de gramática e classe de palavras (em geral um pouco mais da metade da seção; a proporção varia de prova para prova)**: As quatro alternativas derivam da mesmíssima raiz lexical (como *expand*, *expansion*, *expansive*, *expansively*). O objetivo é identificar a função sintática exigida pela oração (substantivo, adjetivo, advérbio ou forma verbal).
+2. **Questões de vocabulário e combinações fixas (o restante)**: As alternativas trazem vocábulos totalmente diferentes, normalmente pertencentes à mesma classe gramatical (como *deliver*, *postpone*, *negotiate*, *exceed*). O acerto depende da interpretação contextual do mundo corporativo ou de colocações lexicais consagradas.
 
 | Categoria da pergunta | Padrão das alternativas | Tempo alvo por item | Foco da verificação |
 | :--- | :--- | :--- | :--- |
@@ -49,11 +49,11 @@ Nas questões de derivação gramatical, você raramente precisa ler a frase com
 Veja os padrões mais frequentes na prova:
 
 - **Substantivo (Núcleo do sujeito ou objeto)**: Surge após artigos (*a, an, the*), pronomes possessivos (*our, their, his*) ou preposições (*in, for, about*). Se o espaço estiver antes de um verbo principal, você procura um substantivo:
-  - *Exemplo : The recent _____ in operating costs concerned the directors. (Opções : increase, increasingly, increased)* $\rightarrow$ Resposta : *increase* (substantivo).
+  - *Exemplo: The recent _____ in operating costs concerned the directors. (Opções: increase, increasingly, increased)* $\rightarrow$ Resposta: *increase* (substantivo).
 - **Adjetivo qualificador**: Posicionado logo antes de um substantivo ou após verbos de ligação (*be, remain, become, seem*). Ele adiciona uma propriedade descritiva:
-  - *Exemplo : Ms. Alvarez drafted a _____ report for the steering committee. (Opções : comprehensive, comprehensively, comprehend)* $\rightarrow$ Resposta : *comprehensive* (adjetivo qualificando *report*).
+  - *Exemplo: Ms. Alvarez drafted a _____ report for the steering committee. (Opções: comprehensive, comprehensively, comprehend)* $\rightarrow$ Resposta: *comprehensive* (adjetivo qualificando *report*).
 - **Advérbio terminado em -ly**: Modifica verbos de ação, adjetivos ou uma oração inteira já estruturada. Se a frase já possui sujeito, verbo transitivo e objeto direto completos, a lacuna quase sempre pede um advérbio:
-  - *Exemplo : The technician resolved the software glitch _____. (Opções : prompt, promptly, promptness)* $\rightarrow$ Resposta : *promptly* (advérbio modificando *resolved*).
+  - *Exemplo: The technician resolved the software glitch _____. (Opções: prompt, promptly, promptness)* $\rightarrow$ Resposta: *promptly* (advérbio modificando *resolved*).
 
 Para enriquecer sua base de termos formais de trabalho, confira também nosso acervo de [modelos de correspondência corporativa](/samples/).
 
@@ -91,9 +91,16 @@ Mantenha seu vocabulário profissional alinhado com as demandas do mercado confe
 
 ---
 
+### Armadilhas típicas para brasileiros
+
+- **Falsos cognatos**: *pretend* é "fingir", não "pretender" (*intend*); *actually* é "na verdade", não "atualmente" (*currently*); *push* é "empurrar", não "puxar". Em questões de vocabulário, esses pares aparecem como distratores.
+- **"Faz" + tempo**: "Trabalho aqui faz três anos" leva a *I work here since three years*. O correto é *I have worked here for three years*; use *since* com um ponto no tempo (*since 2023*).
+- **Sujeito oculto**: em português "É importante revisar" dispensa sujeito, mas em inglês ele é obrigatório: *It is important to review*. Se a lacuna está no início da oração, desconfie da falta de *it* ou *there*.
+- **Adjetivo no lugar do advérbio**: "resolveu rápido" é natural no português falado, mas a prova exige *resolved promptly*, nunca *resolved prompt*.
+
 ## Exercícios práticos do TOEIC Part 5 com gabarito comentado
 
-Pratique suas técnicas de leitura e descarte com estas quatro questões representativas do teste oficial:
+Pratique suas técnicas de leitura e descarte com estas quatro questões no estilo da prova:
 
 ### Questão 1 (Classe de palavras)
 *The human resources department managed the transition _____ without interrupting daily operations.*
@@ -172,10 +179,10 @@ Acesse a [plataforma web Lexkite](/#/) agora mesmo e transforme sua preparação
 ## Perguntas frequentes sobre o TOEIC Part 5
 
 ### Preciso ler toda a oração para responder a cada questão?
-Nas questões de classes de palavras (derivação de sufixos e pronomes), examinar os termos imediatos à esquerda e à direita da lacuna é suficiente para acertar em mais de 80% das ocasiões. Para itens de vocabulário e conjunções subordinativas, a leitura da frase inteira é recomendada para captar a lógica textual.
+Nas questões de classes de palavras (derivação de sufixos e pronomes), examinar os termos imediatos à esquerda e à direita da lacuna costuma ser suficiente para acertar. Para itens de vocabulário e conjunções subordinativas, a leitura da frase inteira é recomendada para captar a lógica textual.
 
 ### Quantos erros posso cometer na Parte 5 para alcançar 850 pontos?
-Para conquistar mais de 420 pontos na prova de Reading (totalizando mais de 850 pontos no exame geral), o ideal é limitar os erros a no máximo 3 ou 4 itens ao longo das 30 perguntas da Parte 5.
+Não existe uma conta fixa: a ETS converte os acertos brutos para a escala de 5 a 495 por seção de acordo com cada versão da prova e não publica uma tabela oficial de erros permitidos por parte. A regra prática para metas altas é chegar a uma Parte 5 quase sem erros nos simulados, porque ali estão os pontos mais rápidos da seção de Reading. Anote cada erro com a causa (classe de palavra, tempo verbal, colocação) e volte à regra correspondente.
 
 ### Qual a maneira ideal de memorizar colocações frequentes do exame?
 Evite estudar palavras isoladas. Registre blocos inteiros de significado (*chunks*), como *strictly confidential*, *reach an agreement* e *conduct an audit*. Revisar esses agrupamentos por meio de repetição espaçada acelera significativamente o reconhecimento na hora da prova.

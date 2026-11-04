@@ -12,11 +12,11 @@ coverAlt: "Guide stratégique de gestion du temps pour les trois textes de l'ép
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 publishAt: 2026-12-31T19:01:00+01:00
 ---
 
-Pour l'écrasante majorité des candidats francophones qui se présentent au test académique ou général, la **gestion du temps en ielts reading** constitue l'obstacle décisif entre un score de 6.0 et l'obtention d'un band 7.5 ou supérieur. Contrairement à la section d'écoute (*Listening*), où le tempo des dialogues dicte le rythme de notation, l'épreuve de lecture vous place seul face à une contrainte chronologique absolue : vous disposez de 60 minutes montre en main pour lire trois textes longs totalisant environ 2 750 mots et répondre à 40 questions variées.
+Pour l'écrasante majorité des candidats francophones qui se présentent au test académique ou général, la **gestion du temps en ielts reading** constitue l'obstacle décisif entre un score de 6.0 et l'obtention d'un band 7.5 ou supérieur. Contrairement à la section d'écoute (*Listening*), où le tempo des dialogues dicte le rythme de notation, l'épreuve de lecture vous place seul face à une contrainte chronologique absolue : en version Academic, vous disposez de 60 minutes montre en main pour lire trois textes longs totalisant jusqu'à environ 2 750 mots et répondre à 40 questions variées.
 
 La plupart des apprenants commettent l'erreur classique d'accorder 20 minutes exactement à chaque texte. Cette approche purement arithmétique mène droit au blocage : le Passage 1 traite généralement d'un sujet descriptif accessible avec un lexique factuel, tandis que le Passage 3 analyse des concepts abstraits, des controverses académiques et des arguments croisés. En consacrant 20 minutes au premier extrait, vous vous privez des minutes précieuses indispensables pour décortiquer les pièges du dernier texte.
 
@@ -26,7 +26,7 @@ Dans ce dossier exhaustif, nous allons détailler la règle éprouvée 15-20-25 
 
 L'épreuve d'IELTS Reading est intentionnellement étalonnée selon une difficulté ascendante. Une analyse lucide des ressources attentionnelles nécessaires illustre les limites de la répartition classique :
 
-1. **Passage 1 (Niveau intermédiaire B2) :** Thématiques de vulgarisation scientifique, de géographie ou d'histoire sociale. Les réponses sont explicites et suivent le fil du document. L'objectif impératif est de boucler les 13 questions en **15 minutes au maximum**.
+1. **Passage 1 (Niveau intermédiaire B2) :** Thématiques de vulgarisation scientifique, de géographie ou d'histoire sociale. Les réponses sont explicites et suivent le fil du document. L'objectif impératif est de boucler ses questions (généralement 13) en **15 minutes au maximum**.
 2. **Passage 2 (Niveau avancé B2/C1) :** Rapports de recherche, débats environnementaux ou innovations industrielles confrontant les avis d'experts. Ce bloc requiert **20 minutes** d'attention soutenue.
 3. **Passage 3 (Niveau supérieur C1) :** Textes denses riches en nuances rhétoriques, opinions implicites et doubles négations. Ce segment exige un minimum de **25 minutes** pour être résolu avec rigueur.
 
@@ -65,6 +65,8 @@ Si vous restez bloqué sur un point précis plus de 60 secondes, appliquez la di
 ## L'impact du vocabulaire sur la vélocité de lecture
 
 La rapidité de lecture ne découle pas d'un simple mouvement oculaire accéléré, mais de l'automatisation de la reconnaissance lexicale. Lorsqu'un terme méconnu ou ambigu apparaît dans un paragraphe, le cerveau opère un micro-arrêt de plusieurs secondes pour déduire le sens. Répété vingt fois par page, ce phénomène engendre un retard colossal.
+
+Pour un lecteur francophone, le piège le plus coûteux n'est pas le mot inconnu, mais le faux ami que l'on croit reconnaître : *actually* (en fait, et non « actuellement »), *eventually* (finalement, et non « éventuellement »), *sensible* (raisonnable), *library* (bibliothèque). En T/F/NG, lire *eventually* comme « peut-être » transforme une affirmation certaine en simple hypothèse, et la réponse bascule. Autre réflexe à perdre : traduire mentalement chaque phrase en français avant de la comprendre, ce qui double le temps de lecture ; entraînez-vous plutôt à repérer directement les paraphrases anglaises.
 
 Vous pouvez développer votre agilité mentale et votre sens de la spontanéité en vous entraînant dans le [salon de pratique orale d'anglais Lexkite](/#/speaking) et en affinant votre élocution sur le [module d'entraînement oral Lexkite](/#/practice/speak).
 

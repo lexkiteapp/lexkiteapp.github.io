@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, jigjang]
 cover: letters
 coverAlt: "외국계 기업 직장인을 위한 비즈니스 영어 줄임말과 영문 이메일 약어 정리 가이드"
-qualityScore: 95
+qualityScore: 86
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
@@ -93,8 +93,9 @@ quiz: [
 - **FYG (For Your Guidance) / FYR (For Your Reference)**
   - *뜻*: 업무 지침용 참고 / 참조 자료.
   - *사용 맥락*: 정책 가이드라인이나 매뉴얼 문서를 첨부하여 전달할 때 자주 사용됩니다.
-- **Action Required (ACT / AR)**
-  - *뜻*: 수신자의 즉각적인 실행이나 승인이 필요함.
+  - *알아둘 점*: FYR은 한국·아시아계 기업 메일에서 흔하지만, FYG는 드물고 표준 약어로 보기 어렵습니다. 영미권 동료는 보통 *"for your reference"*처럼 풀어 씁니다. 상대가 모를 수 있다면 풀어서 쓰는 편이 안전합니다.
+- **[Action Required]**
+  - *뜻*: 수신자의 즉각적인 실행이나 승인이 필요함. 제목에 대괄호로 풀어 쓰는 것이 일반적이며, 널리 통용되는 표준 약어는 없습니다.
   - *사용 팁*: 제목에 `[Action Required]`를 명시하면 수신자가 수많은 메일 중 우선순위를 빠르게 판별할 수 있습니다.
 - **TL;DR (Too Long; Didn't Read)**
   - *뜻*: 요약본 (내용이 너무 길어 핵심만 요약함).
@@ -103,7 +104,7 @@ quiz: [
 
 직장 내 소통 능력을 한층 끌어올리고 싶다면 [직장 영어 스몰토크 노하우](/ko/blog/jigjang-yeongeo-small-talk-jabdam/) 콘텐츠도 확인해 보시기 바랍니다.
 
-![Lexkite 간격 반복 학습 시스템에서 단어 pollution 복습 카드를 조작하는 화면](media:review "비즈니스 이메일 약어 및 pollution 등 실무 어휘를 Lexkite 간격 반복 플래시카드로 복습")
+![Lexkite 복습 화면에서 단어 pollution 플래시카드를 뒤집어 복습하는 화면](media:review "pollution 등 단어를 Lexkite 플래시카드로 복습하고 남은 카드 진행 막대를 확인")
 
 ## 부재 및 근무 상태를 나타내는 사내 상태 약어
 
@@ -200,6 +201,13 @@ Senior Software Engineer
 | **SLA** | Service Level Agreement | 서비스 수준 협약 | 시스템 가동률이나 장애 복구 시간(MTTR)을 보증하는 계약 조건. |
 
 신규 글로벌 사업 제안이나 수주 프로젝트를 준비 중이시라면 [영어 사업 제안서 작성법](/ko/blog/business-proposal-yeongeo-jakseongbeop/)을 참고하시면 큰 도움을 얻으실 수 있습니다.
+
+## 한국 직장인이 영문 메일에서 자주 하는 실수
+
+- **"확인 부탁드립니다"를 "Please check."로만 쓰기**: 한국어로는 정중하지만 영어로는 짧은 명령처럼 읽힙니다. *"Could you take a look and let me know if anything needs changing?"*처럼 무엇을 확인할지 함께 적으세요.
+- **"수고하셨습니다"를 직역하기**: *"Thank you for your hard work"*는 상사가 부하에게 하는 말처럼 들릴 수 있습니다. 동료에게는 *"Thanks for pulling this together"*가 자연스럽습니다.
+- **ASAP에 Please만 붙이면 괜찮다고 생각하기**: *"Please reply ASAP"*도 여전히 재촉입니다. *"Could you reply by 3 p.m. KST?"*처럼 구체적인 시간을 주세요.
+- **EOD를 한국 퇴근 시간 기준으로 계산하기**: 서울 오후 6시는 뉴욕 새벽입니다. 본사가 해외라면 반드시 타임존(KST, EST 등)을 붙이세요.
 
 ## Lexkite로 비즈니스 약어를 완벽하게 마스터하는 법
 

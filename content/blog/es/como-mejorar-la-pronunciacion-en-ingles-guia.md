@@ -13,7 +13,7 @@ publishAt: 2027-01-02T19:01:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 87
 ---
 
 Lee esta frase en voz alta ahora mismo: *"I liked the three big books."* Si el español es tu lengua materna y no has recibido entrenamiento fonético, es muy probable que hayas omitido los grupos consonánticos finales, igualado la duración de las vocales o sustituido el sonido interdental por una simple /d/ o /t/. Los hablantes nativos pueden deducir tu mensaje por el contexto, pero su cerebro debe realizar un esfuerzo adicional constante para descifrar tus palabras. En una entrevista de trabajo o en una reunión internacional, esa fricción comunicativa reduce notablemente tu impacto profesional.
@@ -57,7 +57,7 @@ Muchos estudiantes hispanohablantes tienden a relajar la boca antes de tiempo y 
 Divide el grupo consonántico en microbloques de articulación. Para el sufijo *-ed* tras consonantes sordas como en *helped* (/hɛlpt/):
 1. Articula la /p/ cerrando los labios con firmeza.
 2. Sin añadir una vocal intermedia, abre los labios y suelta de inmediato el golpe seco de la /t/: *help-t*.
-3. Enlaza con la palabra siguiente si empieza por vocal: *"He helped us"* $\rightarrow$ *"He help-t-us"*.
+3. Enlaza con la palabra siguiente si empieza por vocal: *"He helped us"* → *"He help-t-us"*.
 
 Perfecciona tus patrones de expresión formal consultando nuestros [modelos de texto y ensayos](/samples/).
 
@@ -65,7 +65,7 @@ Perfecciona tus patrones de expresión formal consultando nuestros [modelos de t
 
 ## Error 2: Confundir las vocales tensas y relajadas
 
-Al disponer el español de solo cinco vocales abiertas y tensas, el oído hispanohablante tiende a fusionar pares ingleses que para un nativo suenan completamente opuestos.
+Al disponer el español de solo cinco vocales estables, el oído hispanohablante tiende a fusionar pares ingleses que para un nativo suenan completamente opuestos.
 
 Presta especial atención a estos pares mínimos críticos:
 - **/iː/ frente a /ɪ/**: *sheep* /ʃiːp/ (labios estirados, vocal larga y tensa) frente a *ship* /ʃɪp/ (mandíbula relajada, sonido breve y centrado).
@@ -83,16 +83,16 @@ Practica frente a un espejo exagerando la postura muscular:
 
 ## Error 3: Colocar el acento de palabra en la sílaba incorrecta
 
-En inglés, equivocarse en la sílaba tónica (*word stress*) desorienta al oyente nativo mucho más que cometer un fallo gramatical. La posición del acento define con frecuencia la categoría de la palabra:
+En inglés, equivocarse en la sílaba tónica (*word stress*) suele desorientar al oyente nativo más que un pequeño fallo gramatical. La posición del acento define con frecuencia la categoría de la palabra:
 
 - *PRE-sent* (sustantivo: regalo) frente a *pre-SENT* (verbo: presentar).
-- *DE-sert* (sustantivo: desierto) frente a *de-SSERT* (sustantivo: postre).
-- *ECO-no-my* (acento en la 2.ª sílaba) frente a *e-co-NO-mic* (acento en la 3.ª sílaba).
+- *DES-ert* (*desert*, sustantivo: desierto) frente a *des-SERT* (*dessert*, sustantivo: postre).
+- *e-CO-no-my* (acento en la 2.ª sílaba) frente a *e-co-NO-mic* (acento en la 3.ª sílaba).
 
 ### Cómo corregirlo
 Cuando aprendas una palabra polisilábica, memoriza siempre su dibujo acentual. En inglés, una sílaba tónica se distingue físicamente por tres factores:
 1. **Tono más agudo**: La voz sube ligeramente de escala musical.
-2. **Mayor duración**: La vocal se mantiene en el aire casi el doble de tiempo que las vecinas.
+2. **Mayor duración**: La vocal se mantiene claramente más tiempo que las vecinas.
 3. **Mayor volumen**: La salida de aire desde los pulmones es más enérgica.
 
 Fortalece tu repertorio léxico con nuestra guía sobre [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/) y explora el [directorio de vocabulario por temas](/es/vocabulary/).
@@ -111,6 +111,23 @@ El español no admite palabras que comiencen por la combinación *s + consonante
 Inicia la palabra emitiendo exclusivamente el silbido continuo de la /s/, similar al sonido que imita a una serpiente o al pedir silencio (*sssssh*).
 1. Junta los dientes y exhala aire continuamente: *ssssss...*
 2. Sin detener el flujo de aire ni abrir la boca, salta directamente a la consonante siguiente: *sss-peak*, *sss-tudy*, *sss-top*.
+
+---
+
+## Error 5: Cambiar los sonidos «th» y confundir /b/ con /v/
+
+Los dos sonidos de la grafía *th* son el gran clásico del acento hispano: /θ/ sorda (*think, three, month*) y /ð/ sonora (*this, mother, breathe*). Lo curioso es que **ya los produces en español**, solo que no los asocias a esa grafía:
+
+- Si hablas español peninsular, la /θ/ es exactamente la *z* de *zapato* o la *c* de *cena*. En Latinoamérica, donde se sesea, suele salir /t/ o /s/: *tree* o *sree* en lugar de *three*.
+- La /ð/ es la *d* suave que haces entre vocales en *dedo*, *cada* o *nada*. El problema es que al principio de palabra la conviertes en /d/ fuerte: *dey* en lugar de *they*, *de* en lugar de *the*.
+
+El segundo cambio típico es la fusión de *b* y *v*: en español suenan igual, pero en inglés *very* /ˈveri/ y *berry* /ˈberi/, o *vest* y *best*, son palabras distintas. La /v/ inglesa se articula apoyando los dientes superiores sobre el labio inferior, como una /f/ con vibración de las cuerdas vocales.
+
+### Cómo corregirlo
+1. Di *cena* (o *zapato*) despacio y aísla el sonido de la *z*: ese es el arranque de *think*. Si seseas, apoya la punta de la lengua entre los dientes y sopla sin cortar el aire.
+2. Di *nada* y quédate en la *d* intermedia; ahora ponla al principio: *the, this, they*.
+3. Para /v/, muérdete suavemente el labio inferior con los dientes de arriba y haz vibrar la voz: *vvvery*. Contrasta *best / vest*, *ban / van*, *boat / vote*.
+4. Frase de control: *"I think they have very good vegetables this month."*
 
 ---
 

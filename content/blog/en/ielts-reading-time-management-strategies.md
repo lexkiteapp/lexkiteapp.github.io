@@ -13,12 +13,12 @@ publishAt: 2027-01-26T19:51:00+05:30
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 85
 ---
 
 In both IELTS Academic and General Training modules, the Reading paper presents a notorious clock-management dilemma. Many test takers who demonstrate strong grammatical grasp and solid passive comprehension in untimed self-study struggle to finish Passage 3 under real examination pressure. Achieving consistent scores above Band 7.5 depends heavily on mastering disciplined **ielts reading time management** rather than simply reading faster.
 
-With exactly 60 minutes allocated for three extensive passages (spanning roughly 2,150 to 2,750 words) and 40 analytical questions, you have an average of just 90 seconds per question. This strict window includes scanning the passage, verifying textual evidence, confirming nuanced paraphrases, and transferring responses directly onto the official Answer Sheet. Candidates who lack a structured pacing formula often burn excessive minutes on tricky classification questions in Passage 1 or 2, leaving easy marks uncollected at the end. To build the academic lexicon required for high-speed comprehension, explore the curated [Lexkite IELTS vocabulary directory](/vocabulary/).
+In the Academic module you get exactly 60 minutes for three extensive passages (spanning roughly 2,150 to 2,750 words) and 40 analytical questions, you have an average of just 90 seconds per question. This strict window includes scanning the passage, verifying textual evidence, confirming nuanced paraphrases, and transferring responses directly onto the official Answer Sheet. Candidates who lack a structured pacing formula often burn excessive minutes on tricky classification questions in Passage 1 or 2, leaving easy marks uncollected at the end. To build the academic lexicon required for high-speed comprehension, explore the curated [Lexkite IELTS vocabulary directory](/vocabulary/).
 
 This comprehensive guide presents an optimal time allocation blueprint, the proven 15–20–25 minute rule, question triage hierarchies, and tactical psychological drills to remain calm when the countdown enters its final stretch.
 
@@ -126,7 +126,7 @@ Pacing discipline must be ingrained into muscle memory long before test day thro
   - Administer full mock examinations at home with a timer set to **55 minutes** instead of 60.
   - Conditioning your central nervous system to heightened urgency builds emotional composure, ensuring the official 60-minute window feels spacious and manageable.
 - **Week 4: Authentic Exam Simulation**
-  - Sit for complete simulations at 9:00 AM, mirroring real morning testing conditions.
+  - Sit for complete simulations in the morning, mirroring the typical test-day schedule.
   - Write directly onto printed paper Answer Sheets using HB pencils to gauge physical transcription latency accurately.
 
 Systematic mastery of **ielts reading time management** transforms the 60-minute test from an intimidating struggle into a predictable, tactical deployment where every minute yields maximum band score returns.

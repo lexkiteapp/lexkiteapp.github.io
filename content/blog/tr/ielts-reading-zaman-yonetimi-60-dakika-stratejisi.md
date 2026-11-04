@@ -12,7 +12,7 @@ coverAlt: "IELTS Reading sınavı için zaman yönetimi stratejileri ve 60 dakik
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 publishAt: 2026-12-29T19:01:00+03:00
 ---
 
@@ -32,7 +32,7 @@ IELTS Reading sınavı, zorluk düzeyi metinden metne kademeli olarak artacak ş
 
 ![Lexkite dijital sözlük ve akademik kelime arama modülü telaffuz](media:dict "Lexkite dijital sözlük ekranında fonetik transkripsiyon ve okuma metinleri için örnek cümleler")
 
-Sınav salonunda sıklıkla gözden kaçan kritik bir kural da şudur: IELTS Reading sınavında **cevapları optik forma aktarmak için ekstra süre verilmez**. Listening bölümünde tanınan 10 dakikalık aktarma süresi burada yoktur. Yanıtlarınızı soru kitapçığına yazıp son dakikalarda forma geçirmeyi planlarsanız, sınav görevlileri formu elinizden alırken soruların yarısı boş kalabilir. Her cevabı çözer çözmez doğrudan resmi cevap kağıdına (*Answer Sheet*) kurşun kalemle işlemelisiniz.
+Sınav salonunda sıklıkla gözden kaçan kritik bir kural da şudur: IELTS Reading sınavında **cevapları optik forma aktarmak için ekstra süre verilmez**. Kağıt tabanlı Listening bölümünde tanınan 10 dakikalık aktarma süresi burada yoktur. Yanıtlarınızı soru kitapçığına yazıp son dakikalarda forma geçirmeyi planlarsanız, sınav görevlileri formu elinizden alırken soruların yarısı boş kalabilir. Her cevabı çözer çözmez doğrudan resmi cevap kağıdına (*Answer Sheet*) kurşun kalemle işlemelisiniz.
 
 ## Kusursuz Bir IELTS Reading Zaman Yönetimi İçin 15-20-25 Kuralı
 
@@ -45,7 +45,7 @@ Asla birinci paragraftan kelime kelime okumaya başlamayın. İlk 60 saniyeyi an
 Metne dönmeden önce ilk soru grubunu dikkatle okuyun. Eş anlamlılarıyla kolay değiştirilemeyen değişmez işaretleyicilerin altını çizin: büyük harfle başlayan özel isimler, tarihler, yüzdelik oranlar ve italik terimler. Bu görsel işaretler metni tararken gözünüze hemen çarpar. Soruların sizden tam olarak ne talep ettiğini (örneğin bir neden mi, sonuç mu yoksa bir tarih mi) netleştirmeden metne atlamak, aynı satırları üç kez okumanıza ve dakikalar kaybetmenize yol açar.
 
 ### Aşama 3: Hedefe Yönelik Tarama ve Doğrulama (12 - 16 Dakika)
-Doğru paragrafı hızla bulmak için tarama (*scanning*) yöntemini uygulayın. İlgili bölüme ulaştığınızda okuma hızınızı yavaşlatın ve etraftaki iki cümleyi büyük bir titizlikle inceleyin. Sınayıcı mutlak ifadelere (*solely, invariably, unprecedented, dispute*) dikkat edin; True/False/Not Given tuzakları genellikle bu küçük kelimelerde saklıdır. Metindeki doğrudan kanıtı görmeden kendi genel kültür bilginize dayanarak asla işaretleme yapmayın; IELTS Reading yalnızca metinde yazılı olan gerçeği ölçer.
+Doğru paragrafı hızla bulmak için tarama (*scanning*) yöntemini uygulayın. İlgili bölüme ulaştığınızda okuma hızınızı yavaşlatın ve etraftaki iki cümleyi büyük bir titizlikle inceleyin. Sınayıcı mutlak ifadelere (*solely, invariably, unprecedented, never*) dikkat edin; True/False/Not Given tuzakları genellikle bu küçük kelimelerde saklıdır. Metindeki doğrudan kanıtı görmeden kendi genel kültür bilginize dayanarak asla işaretleme yapmayın; IELTS Reading yalnızca metinde yazılı olan gerçeği ölçer.
 
 ![Lexkite aralıklı tekrar çalışma kartları ve hafıza arayüzü](media:review "Lexkite sınav kelimeleri aralıklı tekrar modülünde hafıza kartları ve planlı gözden geçirme ekranı")
 
@@ -60,7 +60,7 @@ Bazı soru kalıpları, stratejik bir yaklaşımla ele alınmadığında dakikal
 | **True / False / Not Given (T/F/NG)** | Yüksek (False ile Not Given arasındaki kararsızlık zaman kaybettirir). | Açık bir bilgi çelişkisi varsa False deyin. 90 saniye aradıktan sonra hiçbir açık ifade bulamadıysanız Not Given işaretleyip ilerleyin. |
 | **Sentence / Summary Completion** | Orta (yönergedeki kelime sınırına harfiyen uyulmalıdır). | Paragrafta aramaya başlamadan önce eksik kelimenin dilbilgisel türünü (tekil isim, sıfat, fiil) belirleyin. |
 
-Sınavda başarılı adayların en belirgin ortak özelliği, soru tiplerine göre esnek davranabilmeleridir. Örneğin, özet tamamlama (*Summary Completion*) veya tablo doldurma soruları genellikle tek bir paragrafa veya birbirini izleyen iki paragrafa odaklanır. Bu soruları ilk önce çözmek, metnin büyük bir kısmını zahmetsizce taramanızı sağlar. Diğer yandan, araştırmacı isimleriyle iddiaların eşleştirildiği sorularda, önce metindeki tüm araştırmacı isimlerini renkli kalemle kutu içine alıp ardından soruları çözmek arama sürenizi yarı yarıya kısaltacaktır.
+Sınavda başarılı adayların önemli ortak özelliklerinden biri, soru tiplerine göre esnek davranabilmeleridir. Örneğin, özet tamamlama (*Summary Completion*) veya tablo doldurma soruları genellikle tek bir paragrafa veya birbirini izleyen iki paragrafa odaklanır. Bu soruları ilk önce çözmek, metnin büyük bir kısmını zahmetsizce taramanızı sağlar. Diğer yandan, araştırmacı isimleriyle iddiaların eşleştirildiği sorularda, önce metindeki tüm araştırmacı isimlerini renkli kalemle kutu içine alıp ardından soruları çözmek arama sürenizi belirgin şekilde kısaltır.
 
 Bir soruda 60 saniyeden uzun süre kararsız kalırsanız 90 saniye acil çıkış kuralını devreye sokun: en mantıklı seçeneği işaretleyin, soru kitapçığının kenarına bir yıldız koyun ve duraksamadan sonraki soruya geçin. Sınavda her sorunun değeri tam olarak 1 puandır; zor bir soruyu çözmek için inat edip sonda yer alan 4 kolay soruyu kaçırmak en büyük hatadır.
 
@@ -96,4 +96,4 @@ Kesinlikle hayır. Hangi bilgileri arayacağınızı bilmeden 900 kelimelik yoğ
 IELTS sınavında yanlış cevaplar için puan kesintisi uygulanmadığından asla boş cevap bırakmayın. Çoktan seçmeli veya True/False/Not Given sorularında mantığınıza en yakın gelen seçeneği vakit kaybetmeden işaretleyin. Boşluk doldurma sorularında ise göze çarpan anahtar kelimelerin yer aldığı paragrafa göz atıp dilbilgisine uygun bir kelime yazın.
 
 ### En zor olduğu için Passage 3'ten başlamak mantıklı mı?
-Adayların büyük bölümü için bu yaklaşım ters teper. Passage 1'i ilk 15 dakikada çözmek, cebinize 11-13 kesin doğru puan koymanızı sağlar ve sınavın geri kalanı için zihinsel rahatlık yaratır. Sıralamayı değiştirmek yalnızca 8.5 veya 9.0 hedefleyen üst düzey okuyucular için uygundur.
+Adayların büyük bölümü için bu yaklaşım ters teper. Passage 1'i ilk 15 dakikada çözmek, çoğu zaman 11-13 doğru cevabı hızla cebinize koymanızı sağlar ve sınavın geri kalanı için zihinsel rahatlık yaratır. Sıralamayı değiştirmek yalnızca 8.5 veya 9.0 hedefleyen üst düzey okuyucular için uygundur.

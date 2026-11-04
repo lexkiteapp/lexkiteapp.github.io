@@ -13,7 +13,7 @@ publishAt: 2027-01-25T19:01:00+05:30
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 ---
 
 Read this sentence aloud right now: *"I liked the three big books."* If English is not your native language, chances are you swallowed the final consonant clusters, flattened the vowel lengths, or substituted the difficult interdental sounds with /d/ or /t/. Listeners might still guess what you mean from context, but their brains have to expend extra cognitive effort to decode your speech. Over a ten-minute interview or business presentation, that friction quickly leads to miscommunication.
@@ -38,7 +38,7 @@ English presents three fundamental phonetic challenges:
 | :--- | :--- | :--- | :--- |
 | **Final Consonants** | Dropping endings (*book* instead of *books*) | Severe (alters tense and plurals) | Full closure and aspiration |
 | **Interdental Fricatives** | Replacing /θ, ð/ with /t, d/ or /s, z/ | Moderate (sounds like *tree* for *three*) | Tongue tip between teeth edges |
-| **Vowel Pair Pairs** | Merging /iː/ and /ɪ/, or /uː/ and /ʊ/ | High (alters core word meaning) | Muscular laxness and central position |
+| **Vowel Pairs** | Merging /iː/ and /ɪ/, or /uː/ and /ʊ/ | High (alters core word meaning) | Muscular laxness and central position |
 | **Word Stress Placement** | Equal emphasis on every syllable | High (disrupts listener recognition) | Lengthening stressed syllable vowels |
 
 ![Lexkite digital dictionary displaying the term resilient with phonetic transcription](media:dict "Looking up formal business terms and phonetic IPA symbols in the Lexkite dictionary")
@@ -54,10 +54,10 @@ When non-native speakers speak quickly, they frequently truncate final consonant
 - *Example*: Saying *"He finish yesterday"* instead of *"He finished yesterday"* (/ˈfɪn.ɪʃt/).
 
 ### How to Fix It
-Break complex endings into progressive micro-drills. For a past tense cluster like */kt/ in *walked*:
+Break complex endings into progressive micro-drills. For a past tense cluster like /kt/ in *walked*:
 1. Hold the /k/ sound for a split second by pressing your tongue against the soft palate without releasing air.
 2. Snap your tongue down sharply to create the /t/ burst: *wal-k-t*.
-3. Connect it smoothly to the next word starting with a vowel: *"He walked away"* $\rightarrow$ *"He walk-t-away"*.
+3. Connect it smoothly to the next word starting with a vowel: *"He walked away"* → *"He walk-t-away"*.
 
 To verify how native speakers link consonant endings across sentence boundaries, explore our curated [sample essays and speaking texts](/samples/).
 
@@ -65,7 +65,7 @@ To verify how native speakers link consonant endings across sentence boundaries,
 
 ## Mistake 2: Flattening Vowel Duration Differences
 
-English contains approximately 12 pure vowel sounds (monophthongs) and 8 diphthongs, far more than the 5 basic vowels found in most languages. Confusing lax and tense vowel pairs is the single most common cause of comedic or embarrassing spoken slips.
+English contains approximately 12 pure vowel sounds (monophthongs) and 8 diphthongs, far more than the 5 vowels of languages such as Spanish, Japanese or Indonesian. Confusing lax and tense vowel pairs is one of the most common causes of misunderstandings and embarrassing slips.
 
 Compare these crucial minimal pairs:
 - **/iː/ vs. /ɪ/**: *sleep* /sliːp/ (tense, elongated, spread lips) vs. *slip* /slɪp/ (relaxed, centralized, open jaw).
@@ -77,7 +77,7 @@ Exaggerate the physical posture of your mouth in front of a mirror:
 - For tense vowels (/iː/, /uː/), engage your facial muscles actively. Feel the tension in your cheeks and throat.
 - For lax vowels (/ɪ/, /ʊ/, /ə/), let your jaw hang loose and soften your lips. Practice minimal pairs in rapid contrast: *"Leave the live fish on the ship."*
 
-![Lexkite vocabulary flashcard review screen featuring word cards and memory retention tracking](media:review "Reviewing vocabulary flashcards with audio pronunciation and memory tracking on Lexkite")
+![Lexkite vocabulary flashcard review screen featuring word cards and memory retention tracking](media:review "Reviewing vocabulary flashcards with a flip button and a progress bar on Lexkite")
 
 ---
 
@@ -86,13 +86,13 @@ Exaggerate the physical posture of your mouth in front of a mirror:
 If you pronounce all the individual sounds of a word correctly but place the primary stress on the wrong syllable, native English listeners will often fail to recognize the word entirely. Word stress in English determines lexical identity:
 
 - *PRES-ent* (noun: a gift) vs. *pre-SENT* (verb: to display).
-- *ECO-no-my* (stress on 2nd syllable) vs. *e-co-NOM-ic* (stress on 3rd syllable).
+- *e-CON-o-my* (stress on 2nd syllable) vs. *e-co-NOM-ic* (stress on 3rd syllable).
 - *PHO-to-graph* (stress on 1st syllable) vs. *pho-TO-gra-pher* (stress on 2nd syllable).
 
 ### How to Fix It
 Whenever you learn a new multisyllabic word, memorize its stress pattern immediately. Stressed syllables in English are characterized by three physical acoustic cues:
 1. **Higher Pitch**: The pitch of your voice steps upward.
-2. **Longer Duration**: The vowel in the stressed syllable is held almost twice as long as surrounding vowels.
+2. **Longer Duration**: The vowel in the stressed syllable is held noticeably longer than the vowels around it.
 3. **Louder Volume**: More breath force is expelled from the diaphragm.
 
 To build an expansive library of workplace vocabulary with accurate syllabic markings, browse our comprehensive [vocabulary learning guide](/en/vocabulary/).
@@ -110,6 +110,26 @@ Speaking in unbroken streams without pauses exhausts your listener. Natural Engl
 Each thought group contains one focal word that receives the strongest nuclear sentence stress. If you do not pause at phrase boundaries, listeners cannot process where one idea ends and the next begins.
 
 Complement your delivery technique by reading our insights on [how to extend answers in IELTS speaking](/en/blog/the-domino-effect-in-ielts-speaking/) and master workplace conversation in our [English small talk phrases workplace guide](/en/blog/english-small-talk-phrases-workplace-guide/).
+
+---
+
+## Mistake 5: Replacing the "th" Sounds with /t, d/ or /s, z/
+
+The two "th" sounds, voiceless /θ/ (*think, three, health*) and voiced /ð/ (*this, mother, breathe*), do not exist in most languages. Learners usually swap in the nearest familiar sound, and the swap depends on the first language:
+
+| First language | Typical substitution | What listeners hear |
+| :--- | :--- | :--- |
+| French, German, Japanese, Korean, Indonesian | /θ/ → /s/, /ð/ → /z/ | *sink* for *think*, *zis* for *this* |
+| Hindi, Vietnamese, many Latin American Spanish speakers | /θ/ → /t/ or aspirated /tʰ/ (Spanish speakers also /s/), /ð/ → /d/ | *tree* for *three*, *dey* for *they* |
+| Turkish, Russian | /θ/ → /t/ or /f/, /ð/ → /d/ or /z/ | *fink* or *tink* for *think* |
+
+### How to Fix It
+1. Rest the tip of your tongue lightly between your upper and lower front teeth (or just behind the upper teeth). It should stick out only a millimetre or two.
+2. Blow air gently over the tongue without stopping it: that continuous hiss is /θ/. If the air stops and "pops", you have made a /t/.
+3. Keep the same position and switch on your voice (feel your throat buzz with your fingers) to get /ð/.
+4. Drill contrasts: *sink / think*, *tree / three*, *day / they*, *breeze / breathe*, then a sentence: *"I think these three things are worth it."*
+
+Because /ð/ appears in the most frequent words of English (*the, this, that, they, there*), fixing it improves almost every sentence you say.
 
 ---
 
@@ -139,7 +159,7 @@ Record your voice on your smartphone. Compare your pitch contours against the na
 
 Clear pronunciation transforms how you are perceived in meetings, interviews, and international exams:
 
-- **Intelligent Spaced Repetition (FSRS)**: Store complex terminology, idiomatic phrases, and phonetic transcriptions permanently in active memory.
+- **Intelligent Spaced Repetition (FSRS)**: Review tricky words, phrases, and their phonetic transcriptions at the moment you are about to forget them.
 - **Contextual English Dictionary**: Inspect genuine audio samples, IPA transcriptions, and collocations for any word instantly.
 - **Interactive Speech Laboratory**: Test your articulation in the [Lexkite speaking module](/#/practice/speak) to receive acoustic feedback on tricky consonant clusters.
 
@@ -154,7 +174,7 @@ Explore the [Lexkite web app](/#/) today and turn your spoken English into an ar
 ## Frequently Asked Questions
 
 ### Can adults achieve clear English pronunciation without an accent?
-Yes. Complete accent elimination is unnecessary and unrealistic; what matters is intelligibility. Adults who systematically train their ear to hear phonemic distinctions and practice mouth motor mechanics achieve near-native clarity within 3 to 6 months of daily practice.
+Adults can absolutely become clear and easy to understand, but losing an accent completely is neither necessary nor a realistic goal for most learners; what matters is intelligibility. With short daily practice on minimal pairs, word stress and recording yourself, most learners hear a clear difference within a few months, though progress varies from person to person.
 
 ### Should I learn American or British pronunciation?
 Choose whichever dialect aligns with your academic, career, or immigration goals. The fundamental rules of vowel length, consonant articulation, and sentence stress are virtually identical across both major varieties. Maintain consistency rather than mixing regional vowel shifts.

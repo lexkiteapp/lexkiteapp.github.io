@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Interfaz de preparación para el examen TOEIC en Lexkite con simulacros completos y práctica por secciones"
-qualityScore: 95
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-08T08:24:00-06:00
@@ -64,28 +64,28 @@ quiz: [
 
 La sección de **TOEIC Listening Part 2** (Pregunta y Respuesta) consta de 25 preguntas consecutivas (de la 7 a la 31) y representa uno de los mayores desafíos psicológicos del examen. A diferencia de otras partes, nada está impreso en el folleto de examen ni en la pantalla: tanto la pregunta inicial como las tres opciones de respuesta (A, B y C) se escuchan únicamente una vez a través del audio.
 
-Muchos candidatos pierden valiosos puntos no por falta de nivel de inglés, sino por caer en trampas acústicas premeditadas o desconcertarse ante respuestas no literales. Aplicar rigurosamente las **toeic listening part 2 estrategias** adecuadas te permitirá anticipar la estructura lógica de cada diálogo, esquivar distractores y alcanzar un puntaje superior a 400 puntos en el área de comprensión auditiva.
+Muchos candidatos pierden valiosos puntos no por falta de nivel de inglés, sino por caer en trampas acústicas premeditadas o desconcertarse ante respuestas no literales. Aplicar rigurosamente las **toeic listening part 2 estrategias** adecuadas te permitirá anticipar la estructura lógica de cada diálogo, esquivar distractores y acercarte con método a la meta de más de 400 puntos en el área de comprensión auditiva.
 
-![Interfaz de preparación para el examen TOEIC en Lexkite con simulacros completos y práctica por secciones](media:toeic "Entrenamiento especializado para la sección de comprensión auditiva y simulacros completos de TOEIC en Lexkite")
+![Interfaz de preparación para el examen TOEIC en Lexkite con simulacros completos y práctica por secciones](media:toeic "Simulacros completos de TOEIC Listening y Reading y práctica por Part en Lexkite")
 
 ## La anatomía de TOEIC Part 2: toeic listening part 2 estrategias fundamentales
 
 En esta prueba corta pero implacable, dispones de apenas 5 segundos de silencio entre el final de la opción C y el comienzo de la siguiente pregunta. Esto implica que cualquier vacilación o intento de sobreanalizar una respuesta anterior arruinará la comprensión de la siguiente.
 
 Para dominar esta sección, es fundamental clasificar las preguntas en sus tres categorías predominantes:
-1. **Preguntas con partículas interrogativas (Wh- Questions):** Constituyen aproximadamente el 50% de la prueba (*Who, Where, When, Why, What, Which, How*).
+1. **Preguntas con partículas interrogativas (Wh- Questions):** Son el tipo más frecuente de Part 2 (*Who, Where, When, Why, What, Which, How*).
 2. **Preguntas de confirmación y Yes/No:** Preguntas que inician con auxiliares (*Do, Does, Did, Have, Has, Is, Are, Can, Could, Would, Should*).
 3. **Declaraciones y oraciones afirmativas (Statements):** Frases declarativas donde el interlocutor expresa una opinión, un problema o una novedad profesional (*"The printer on the second floor has run out of paper again"*).
 
 ## Estrategia 1: Capturar las tres primeras palabras de la pregunta
 
-El 80% de la información clave de una pregunta de Part 2 se concentra en sus primeras tres palabras. Ellas definen:
+Buena parte de la información clave de una pregunta de Part 2 se concentra en sus primeras tres palabras. Ellas definen:
 - **El tipo de información requerida:** Lugar (*Where*), persona o departamento (*Who*), momento temporal (*When*) o motivo (*Why*).
 - **El tiempo verbal y sujeto:** ¿Se refiere al pasado (*Did you...?*), al presente habitual (*Do they...?*) o al futuro profesional (*Will the management...?*).
 
 > **Consejo práctico:** Si te distraes a la mitad de una frase larga como *"Where did Ms. Jenkins say she put the confidential quarterly financial reports?"*, con haber retenido con nitidez *"Where did she put..."* tienes suficiente para seleccionar la opción de lugar correcta (*"In the top filing cabinet"*).
 
-![Módulo de práctica de vocabulario y preguntas tipo test en Lexkite](media:practice-test "Módulo interactivo de ejercicios de opción múltiple y preguntas auditivas tipo test en Lexkite")
+![Módulo de práctica de vocabulario y preguntas tipo test en Lexkite](media:practice-test "Ejercicios interactivos de opción múltiple en Lexkite, como elegir el significado correcto de run out of entre cuatro opciones")
 
 Para consolidar tu agilidad auditiva y rapidez mental, explora el [catálogo de vocabulario profesional de Lexkite](/vocabulary/) y consulta nuestros [ejemplos prácticos de comunicación empresarial](/samples/) para habituarte al léxico corporativo.
 
@@ -101,14 +101,14 @@ Si la pregunta contiene una palabra poco común, una de las opciones incorrectas
 - *Opción correcta (C):* "Not yet, I'll read through it after lunch."
 
 ### 2. Respuestas 'Yes/No' en preguntas informativas
-Cualquier opción que responda *"Yes, I did"* o *"No, thank you"* a una pregunta que empieza por *Where, When, Who, Why* o *How* debe ser eliminada de forma instantánea.
+Cualquier opción que responda *"Yes, I did"* o *"No, I haven't"* a una pregunta que empieza por *Where, When, Who, Why* o *How* debe ser eliminada de forma instantánea.
 
 ### 3. Confusión de pronombres y sujetos
 Si la pregunta inquiere sobre un tercero masculino (*"Mr. Tanaka"*), una opción que use *"She told me..."* o *"They are coming..."* sin justificación contextual previa suele ser un señuelo diseñado para descartar a quienes no identificaron al sujeto.
 
 ## Estrategia 3: Reconocer las respuestas indirectas modernas
 
-En los exámenes actuales de TOEIC, cerca del 30% al 40% de las respuestas correctas ya no son directas ni predecibles. En lugar de contestar literalmente, los hablantes nativos utilizan respuestas indirectas, evasivas corteses o contrapreguntas:
+En los exámenes actuales de TOEIC, una parte considerable de las respuestas correctas ya no son directas ni predecibles. En lugar de contestar literalmente, los hablantes nativos utilizan respuestas indirectas, evasivas corteses o contrapreguntas:
 
 ![Módulo de análisis léxico y pronunciación en Lexkite](media:dict "Herramienta de análisis léxico con definiciones fonéticas británicas y americanas para términos corporativos como resilient")
 

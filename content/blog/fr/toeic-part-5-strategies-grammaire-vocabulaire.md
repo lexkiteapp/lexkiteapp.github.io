@@ -13,7 +13,7 @@ publishAt: 2027-01-05T08:45:00+01:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 ---
 
 Pour franchir la barre des 850 ou 900 points à l'examen d'anglais des affaires, l'épreuve de compréhension écrite ne laisse aucune place à l'improvisation. Avec 30 questions à choix multiples courtes, la section **toeic part 5** constitue le point de départ de la section Reading et conditionne l'ensemble de votre gestion du temps. Un candidat qui s'attarde plus de 12 minutes sur ces phrases risque inévitablement de manquer de temps sur les textes longs en fin d'épreuve.
@@ -28,8 +28,8 @@ La Partie 5 comporte exactement 30 phrases incomplètes comportant chacune quatr
 
 Les questions se scindent en deux grandes catégories distinctes :
 
-1. **Les questions de grammaire pure (environ 50 à 60 % de la section)** : Les quatre options dérivent de la même racine lexicale (par exemple : *manage*, *manager*, *managerial*, *management*). Votre mission consiste à identifier la classe grammaticale requise par la structure syntaxique (nom, verbe conjugué, participe présent, adjectif ou adverbe).
-2. **Les questions de vocabulaire et de collocations (environ 40 à 50 % de la section)** : Les quatre options sont des termes totalement différents appartenant souvent à la même catégorie grammaticale (par exemple : *postpone*, *deliver*, *announce*, *exceed*). La réponse dépend alors du contexte sémantique de l'entreprise ou d'associations figées courantes en anglais des affaires.
+1. **Les questions de grammaire pure (en général un peu plus de la moitié de la section ; la répartition varie d'un test à l'autre)** : Les quatre options dérivent de la même racine lexicale (par exemple : *manage*, *manager*, *managerial*, *management*). Votre mission consiste à identifier la classe grammaticale requise par la structure syntaxique (nom, verbe conjugué, participe présent, adjectif ou adverbe).
+2. **Les questions de vocabulaire et de collocations (le reste)** : Les quatre options sont des termes totalement différents appartenant souvent à la même catégorie grammaticale (par exemple : *postpone*, *deliver*, *announce*, *exceed*). La réponse dépend alors du contexte sémantique de l'entreprise ou d'associations figées courantes en anglais des affaires.
 
 | Type d'exercice | Caractéristiques des options | Temps cible par question | Compétence évaluée |
 | :--- | :--- | :--- | :--- |
@@ -49,11 +49,11 @@ Dans les questions de dérivation grammaticale, vous n'avez généralement pas b
 Voici les configurations les plus récurrentes au test :
 
 - **Le groupe nominal (Nom sujet ou complément)** : Situé après un article (*a, an, the*), un adjectif possessif (*their, our, his*) ou une préposition (*in, with, about*). Si l'espace est suivi d'un verbe, vous cherchez un nom noyau :
-  - *Example : The recent _____ in production costs surprised the board. (Options : increase, increasingly, increased)* $\rightarrow$ Réponse : *increase* (nom).
+  - *Exemple : The recent _____ in production costs surprised the board. (Options : increase, increasingly, increased)* $\rightarrow$ Réponse : *increase* (nom).
 - **L'adjectif qualificatif** : Placé directement avant un nom ou après un verbe d'état (*be, seem, remain, become*). Il apporte une précision descriptive :
-  - *Example : Ms. Higgins presented a _____ proposal during the meeting. (Options : comprehensive, comprehensively, comprehend)* $\rightarrow$ Réponse : *comprehensive* (adjectif qualifiant *proposal*).
+  - *Exemple : Ms. Higgins presented a _____ proposal during the meeting. (Options : comprehensive, comprehensively, comprehend)* $\rightarrow$ Réponse : *comprehensive* (adjectif qualifiant *proposal*).
 - **L'adverbe en -ly** : Modifie un verbe d'action, un adjectif ou une proposition complète. Lorsqu'une phrase est déjà grammaticalement complète, le mot manquant est presque toujours un adverbe :
-  - *Example : The logistics department responded _____ to customer inquiries. (Options : prompt, promptly, promptness)* $\rightarrow$ Réponse : *promptly* (adverbe modifiant le verbe *responded*).
+  - *Exemple : The logistics department responded _____ to customer inquiries. (Options : prompt, promptly, promptness)* $\rightarrow$ Réponse : *promptly* (adverbe modifiant le verbe *responded*).
 
 Pour consolider vos réflexes sur les nuances de vocabulaire formel, consultez également nos recommandations pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et découvrez nos modèles de rédaction sur les [exemples de textes académiques et professionnels](/samples/).
 
@@ -65,7 +65,7 @@ Les concepteurs de l'examen piègent régulièrement les candidats sur la distin
 
 La règle d'or à retenir :
 - **Une préposition** (*due to, despite, in spite of, during*) est obligatoirement suivie d'un groupe nominal ou d'un gérondif en *-ing*. Elle ne peut jamais introduire une proposition avec sujet et verbe conjugué.
-- **Une conjonction** (*because, although, while, since*) introduit impérativement une proposition indépendante dotée d'un sujet et d'un verbe conjugué.
+- **Une conjonction** (*because, although, while, since*) introduit impérativement une proposition subordonnée dotée de son propre sujet et d'un verbe conjugué.
 
 | Sens sémantique | Préposition (+ Nom / V-ing) | Conjonction (+ Sujet + Verbe) |
 | :--- | :--- | :--- |
@@ -91,9 +91,16 @@ Complétez votre maîtrise de la communication formelle en explorant nos conseil
 
 ---
 
+### Les pièges typiques des francophones
+
+- **Present perfect calqué sur le passé composé** : « Le rapport a été envoyé hier » pousse à écrire *has been sent yesterday*. Avec un repère passé daté (*yesterday*, *last week*), l'anglais exige le prétérit : *was sent yesterday*.
+- **since / for** : « depuis trois ans » se dit *for three years*, « depuis 2023 » se dit *since 2023*, avec le present perfect (*has worked*) et non le présent (*works since*) calqué sur « travaille depuis ».
+- **Faux amis** : *actually* signifie « en fait », pas « actuellement » (*currently*) ; *eventually* signifie « finalement », pas « éventuellement » (*possibly*) ; *library* est une bibliothèque, pas une librairie (*bookshop*).
+- **Le -s de la troisième personne** : il disparaît facilement sous la pression du temps (*The manager approve*). Vérifiez-le à chaque question d'accord.
+
 ## Exercices d'application TOEIC Part 5 avec corrigés détaillés
 
-Entraînez vos compétences d'analyse rapide sur ces quatre questions représentatives du standard officiel :
+Entraînez vos compétences d'analyse rapide sur ces quatre questions dans le style de l'épreuve :
 
 ### Question 1 (Nature de mot)
 *The marketing team completed the project _____ before the scheduled deadline.*
@@ -172,10 +179,10 @@ Commencez dès aujourd'hui sur l'[application web Lexkite](/#/) pour transformer
 ## Foire aux questions sur le TOEIC Part 5
 
 ### Faut-il lire toute la phrase avant de répondre ?
-Dans les questions de grammaire pure (variations de suffixes ou pronoms), la lecture des quelques mots entourant le blanc suffit dans 80 % des cas. En revanche, pour les questions de vocabulaire et de connecteurs logiques, la lecture intégrale de la phrase est indispensable pour comprendre la logique sémantique globale.
+Dans les questions de grammaire pure (variations de suffixes ou pronoms), la lecture des quelques mots entourant le blanc suffit le plus souvent. En revanche, pour les questions de vocabulaire et de connecteurs logiques, la lecture intégrale de la phrase est indispensable pour comprendre la logique sémantique globale.
 
 ### Combien de fautes peut-on tolérer en Partie 5 pour viser 900 points ?
-Pour obtenir un score supérieur à 450 points en Reading (et plus de 900 au total), vous ne devriez pas faire plus de 3 ou 4 erreurs sur l'ensemble des 30 questions de la Partie 5.
+Il n'existe pas de barème fixe : ETS convertit les bonnes réponses brutes sur l'échelle 5–495 de chaque section selon la version du test, et ne publie aucune table officielle d'erreurs autorisées par partie. La règle pratique pour un objectif élevé : viser une Partie 5 quasi sans faute dans vos tests blancs, car ce sont les points les plus rapides du Reading. Notez chaque erreur avec sa cause (nature de mot, temps, collocation) pour retravailler la règle concernée.
 
 ### Comment mémoriser efficacement les collocations du monde des affaires ?
 Notez les mots en groupe plutôt qu'isolément (par exemple : *meet the deadline*, *conduct an investigation*, *reach a consensus*). L'application d'un système de répétition espacée comme celui de Lexkite permet de fixer ces automatismes lexicaux dans votre mémoire à long terme.

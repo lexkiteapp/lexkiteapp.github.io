@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, sinav-formati, hazirlik]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT hazırlık modülü: 2026 yeni sınav yapısı ve soru türleri tablosu"
-qualityScore: 95
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-03T08:45:00+03:00
@@ -68,14 +68,14 @@ Yeni TOEFL iBT artık çok daha kısa (toplam yaklaşık 1,5 saat), çok aşamal
 
 Bu kapsamlı rehberde, sınavın geçirdiği tüm yapısal evrimi inceliyor, 12 yeni soru tipini mercek altına alıyor ve 4 haftalık adım adım çalışma planı sunuyoruz.
 
-![Lexkite TOEFL iBT hazırlık modülü: 2026 yeni sınav yapısı ve soru türleri tablosu](media:toefl "Lexkite TOEFL iBT hazırlık modülü ile 2026 formatına uygun adaptif test yapısı ve yeni soru formatları")
+![Lexkite TOEFL iBT hazırlık modülü: 2026 yeni sınav yapısı ve soru türleri tablosu](media:toefl "Lexkite TOEFL iBT hazırlık modülü ile 2026 formatındaki sınav yapısı ve yeni soru formatları")
 
 ## Yeni Sınav Formatının 3 Temel Direği: yeni toefl formatı 2026
 
 Yeni döneme adapte olurken göz önünde bulundurmanız gereken 3 ana değişiklik şunlardır:
 
 ### 1. 1,5 Saate İndirilen Sınav Süresi
-Eski sistemdeki 3 saati aşan yorucu sınav maratonu yerine, yeni TOEFL yaklaşık 90 dakikada tamamlanmaktadır. Bu kısalma zihinsel odaklanmanızı korumak adına büyük bir avantaj sunarken, her bir sorunun toplam puan içerisindeki ağırlığını artırmaktadır. Yapılacak dikkatsiz hataların telafisi artık daha zordur.
+Yaklaşık 2 saat süren (Temmuz 2023 öncesinde ise 3 saate yaklaşan) eski sınav yerine, yeni TOEFL yaklaşık 90 dakikada tamamlanmaktadır. Bu kısalma zihinsel odaklanmanızı korumak adına büyük bir avantaj sunarken, her bir sorunun toplam puan içerisindeki ağırlığını artırmaktadır. Yapılacak dikkatsiz hataların telafisi artık daha zordur.
 
 ### 2. Aşamalı Adaptif Değerlendirme
 Reading ve Listening bölümlerinde sorular iki aşamalı adaptif bir mimariyle sunulur. İlk modüldeki performansınız ne kadar yüksek olursa, ikinci modülde o kadar nitelikli ve yüksek bant değerine sahip sorularla karşılaşırsınız. Dolayısıyla sınavın ilk dakikalarını asla bir "ısınma turu" olarak görmemeli, her soruya en üst düzeyde odaklanmalısınız.
@@ -100,7 +100,7 @@ Uluslararası modern standartlara uyum sağlayan ETS, her bölüm için ve genel
 
 ## 4 Bölüm ve 12 Yeni Soru Tipinin Detaylı Analizi
 
-Lexkite platformunda yer alan resmi referans yapısına göre sınavda karşılaşacağınız 12 görev türü:
+Lexkite çalışma modülünde de kullanılan yapıya göre sınavda karşılaşacağınız 12 görev türü:
 
 ### 1. Reading (Okuma) – 3 Soru Tipi (~30 Dakika)
 - **Complete the Words:** Bazı kelimelerinin son yarısı silinmiş kısa bir akademik metin okursunuz ve eksik harfleri doğrudan klavyeden yazarak tamamlarsınız.  
@@ -110,7 +110,7 @@ Lexkite platformunda yer alan resmi referans yapısına göre sınavda karşıla
 
 Akademik sözcük bilginizi güçlendirmek için [kelime kütüphanesi bölümümüzü](/tu-vung/) ziyaret edebilir ve sınavlarda en çok çıkan sözcük listelerini inceleyebilirsiniz.
 
-![Lexkite A1 ile B2 seviyeleri arası kelime kütüphanesi ve çalışma kartları arayüzü](media:library "A1'den B2'ye CEFR seviyelerine göre ayrılmış sözcük listeleri ile günlük ve akademik kelime pratiği")
+![Lexkite A1 ile B2 seviyeleri arası kelime kütüphanesi arayüzü](media:library "A1'den B2'ye CEFR seviyelerine göre ayrılmış sözcük listeleri ile günlük ve akademik kelime pratiği")
 
 ---
 
@@ -127,7 +127,7 @@ Akademik sözcük bilginizi güçlendirmek için [kelime kütüphanesi bölümü
 ### 3. Writing (Yazma) – 3 Soru Tipi (~23 Dakika)
 - **Build a Sentence:** Karışık olarak verilen sözcük gruplarını mantıklı ve dilbilgisel açıdan doğru bir cümle haline getirmek.
 - **Write an Email:** Yaklaşık 7 dakika içinde belirli bir duruma yönelik resmi veya yarı resmi bir e-posta kaleme almak.
-- **Write for an Academic Discussion:** Yaklaşık 10 dakika içinde profesör ve diğer öğrencilerin yer aldığı çevrimiçi tartışma panosuna özgün bir argümanla katkı sunmak.
+- **Write for an Academic Discussion:** Yaklaşık 10 dakika içinde profesör ve diğer öğrencilerin yer aldığı çevrimiçi tartışma panosuna özgün bir argümanla katkı sunmak (yaklaşık 100 kelime veya daha fazlası önerilir).
 
 Bu 10 dakikalık çevrimiçi tartışma yazısı için detaylı ipuçlarına [TOEFL iBT Academic Discussion Writing Rehberi](/tr/blog/toefl-ibt-academic-discussion-writing-rehberi/) içeriğimizden ve resmi yazışmalar için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) makalemizden ulaşabilirsiniz.
 
@@ -141,7 +141,7 @@ Writing bölümünde puanınızı yükseltmenin en etkili yolu, karmaşık ve ya
 
 Konuşma akıcılığınızı artırmak için [Lexkite konuşma odasında](/#/speaking) pratik yapabilir ve [telaffuz değerlendirme aracını](/#/practice/speak) kullanabilirsiniz.
 
-![Lexkite hedef puan ve sınav tarihi belirleme ekranı ile çalışma planı oluşturma](media:goal "Sınav tarihi ve haftalık çalışma süresini girerek kişiselleştirilmiş 4 haftalık TOEFL çalışma planı oluşturma")
+![Lexkite hedef puan ve sınav tarihi belirleme ekranı ile çalışma planı oluşturma](media:goal "Hedef puan ve sınav tarihini girerek haftalık hedeflere dayalı kişiselleştirilmiş TOEFL çalışma planı oluşturma")
 
 ---
 
@@ -153,6 +153,7 @@ Eski hazırlık kalıplarını terk edemeyen adaylar şu tuzaklara düşebilmekt
 2. **Yazma Bölümünde Çok Uzun Paragraflar Yazmaya Çalışmak:** 10 dakikalık sürede 300 kelimelik deneme yazmaya çalışmak zamanın yetmemesiyle sonuçlanır. İstenen görev maddelerini net ve hatasız tamamlamak her zaman daha yüksek puan getirir.
 3. **Listen and Repeat Görevinde Eşanlamlı Kelime Kullanmak:** Konuşma sınavlarında genelde *paraphrase* teşvik edilir; ancak bu özel görevde birebir aynı kelimeleri eksiksiz tekrarlamak zorunludur. *Is going to* yerine *will* demek hata sayılır.
 4. **Günlük Yaşam Kelimelerini Atlamak:** Yeni *Read in Daily Life* sorularında kampüs kayıtları, ücret iadeleri ve kütüphane saatleri gibi pratik sözcükler belirleyici olmaktadır.
+5. **Türkçe konuşanlara özgü ses ve yazım tuzakları:** *th* sesi çoğu zaman /t/ veya /d/ olarak söylenir (*three* "tri" gibi duyulur), /w/ ile /v/ karışır (*wine* ve *vine*), "yazıldığı gibi okunur" alışkanlığı da *Wednesday* veya *receive* gibi kelimelerde hem telaffuzu hem yazımı bozar. Bu kelimeleri *Listen and Repeat* için sesli, *Complete the Words* için yazılı olarak ayrı ayrı çalışın.
 
 ---
 
@@ -171,7 +172,7 @@ Eğer henüz hangi sınava gireceğiniz konusunda tereddütleriniz varsa, [IELTS
 
 Bilinmeyen kelimelerin anlamlarını [akıllı sözlük aracımızda](/#/) sorgulayarak kelime haznenizi genişletebilirsiniz.
 
-![Lexkite hata defteri ekranı: dilbilgisi ve kelime hatalarını kategorilere ayırarak listeleme](media:mistakes "Eksik Complete the Words ve cümle tamamlama sorularını hata defterinde analiz ederek hedefe yönelik çalışma")
+![Lexkite hata defteri ekranı: dilbilgisi ve kelime hatalarını kategorilere ayırarak listeleme](media:mistakes "Kelime, dilbilgisi, okuma ve dinleme hatalarını hata defterinde kategorilere ayırarak hedefe yönelik çalışma")
 
 {{cta: /#/toefl | Yeni TOEFL iBT 2026 formatını Lexkite üzerinde hemen deneyin}}
 
@@ -185,7 +186,7 @@ Bilinmeyen kelimelerin anlamlarını [akıllı sözlük aracımızda](/#/) sorgu
 Yeni format, **21 Ocak 2026** tarihinden itibaren tüm dünyadaki yetkili sınav merkezlerinde ve *TOEFL iBT Home Edition* ev sınavlarında zorunlu olarak uygulanmaktadır.
 
 ### Eski 0–120 ölçeğindeki puanlar geçerliliğini koruyor mu?
-Evet, 21 Ocak 2026 öncesinde alınmış puanlar 2 yıllık yasal süreleri boyunca geçerlidir. Ayrıca yeni sınav sonuç belgelerinde geçiş süresi boyunca hem 1–6 bant puanı hem de 0–120 eşdeğerliği birlikte verilmektedir.
+Evet, 21 Ocak 2026 öncesinde alınmış puanlar 2 yıllık geçerlilik süreleri boyunca geçerlidir. Ayrıca yeni sınav sonuç belgelerinde geçiş süresi boyunca hem 1–6 bant puanı hem de 0–120 eşdeğerliği birlikte verilmektedir.
 
 ### Yeni format eskisinden daha mı kolay?
 Sınavın kısalması zihinsel yorgunluğu azaltsa da, adaptif yapı ve doğrudan üretim gerektiren *Complete the Words* ile *Listen and Repeat* gibi görevler şansa yer bırakmadığından daha yoğun bir dikkat gerektirmektedir.

@@ -13,7 +13,7 @@ publishAt: 2027-01-09T08:57:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 96
+qualityScore: 87
 quiz: [
   {
     q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",
@@ -81,11 +81,11 @@ Una vez confirmada la categoría, reduce tu campo visual a las palabras que rode
 
 ### Paso 3: Marcar y avanzar sin relecturas innecesarias (13–20 segundos)
 
-En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas y pasa de inmediato a la siguiente pregunta. Releer una frase dos o tres veces "para ver si suena bien" es la causa oculta de que miles de candidatos dejen diez preguntas sin contestar al final del examen.
+En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas y pasa de inmediato a la siguiente pregunta. Releer una frase dos o tres veces "para ver si suena bien" es una causa frecuente de que muchos candidatos tengan que adivinar las últimas preguntas del examen.
 
 ## Fórmulas de descarte para las 4 categorías gramaticales clave
 
-Entre 12 y 15 de las 30 preguntas de la Parte 5 miden exclusivamente la posición de sustantivos, adjetivos, adverbios y pronombres. Estas posiciones son invariables en la sintaxis formal en inglés:
+Una parte importante de las 30 preguntas de la Parte 5 (la proporción exacta varía en cada versión del examen) mide la posición de sustantivos, adjetivos, adverbios y pronombres. Estas posiciones son invariables en la sintaxis formal en inglés:
 
 | Categoría gramatical | Entorno sintáctico habitual | Sufijos distintivos frecuentes | Ejemplo realista de examen |
 |---|---|---|---|
@@ -96,7 +96,7 @@ Entre 12 y 15 de las 30 preguntas de la Parte 5 miden exclusivamente la posició
 
 Atención especial a las excepciones morfológicas: aunque la gran mayoría de palabras terminadas en *-ly* son adverbios, en el inglés empresarial existen adjetivos muy recurrentes terminados en *-ly*, tales como *timely* (oportuno), *costly* (costoso) o *friendly* (amigable).
 
-![Sesión de repaso con tarjetas en Lexkite con la palabra pollution y opciones de memoria](media:review "Repasa vocabulario y frases clave del examen TOEIC con el algoritmo de repetición espaciada FSRS")
+![Sesión de repaso con tarjetas en Lexkite con la palabra pollution y opciones de memoria](media:review "Repasa vocabulario del examen TOEIC con tarjetas flashcard en Lexkite")
 
 ## Protocolo en 3 pasos para acertar las preguntas verbales
 
@@ -120,6 +120,13 @@ El TOEIC no deja las referencias temporales a la ambigüedad; busca siempre la p
 - *Since + fecha pasada* o *for the past three quarters* señalan **Present Perfect** (*has/have + participio*).
 - *Last week, yesterday, three months ago, formerly* exigen **Past Simple** (*verbo en pasado*).
 - *By next month, in the forthcoming fiscal year* demandan **Future** (*will + infinitivo* o *is scheduled to*).
+
+### Errores típicos de los hispanohablantes en preguntas verbales
+
+- **Present Perfect con marcador pasado**: "Hemos enviado el informe ayer" es habitual en España, pero en inglés *yesterday* exige Past Simple: *We sent the report yesterday*, nunca *have sent ... yesterday*.
+- **"Desde hace"**: "Trabajo aquí desde hace tres años" lleva a *I work here since three years*. Lo correcto es *I have worked here for three years*; *since* va con un punto en el tiempo (*since 2023*).
+- **La -s de tercera persona**: con prisa se escribe *The manager approve*. Revisa siempre el sujeto singular.
+- **Falsos amigos**: *actually* es "en realidad", no "actualmente" (*currently*); *assist* es "ayudar", no "asistir" (*attend*); *eventually* es "finalmente", no "eventualmente".
 
 ## Trampas clásicas entre preposiciones y conjunciones
 
@@ -160,7 +167,7 @@ Al preparar el examen, practica series completas de 30 preguntas con un cronóme
 
 En el ecosistema formativo de Lexkite dispones de un [diccionario contextual](/#/) para analizar colocaciones profesionales, una sala de [conversación guiada](/#/speaking) para ganar soltura en expresiones laborales y un módulo de [entrenamiento de pronunciación](/#/practice/speak) para asegurar la claridad de tu comunicación en inglés.
 
-Para potenciar tu rendimiento global en la prueba, te invitamos a consultar el completo [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/) para estructurar tu preparación, nuestra guía estratégica sobre [TOEIC Part 7: lectura y gestión del tiempo](/es/blog/toeic-part-7-estrategias-lectura-tiempo/), las pautas sobre [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/), las claves para redactar [informes corporativos en inglés](/es/blog/como-redactar-informes-en-ingles-negocios/) y el artículo sobre el [método de repetición espaciada FSRS](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/). Si deseas consolidar listas temáticas de términos de negocio, accede a nuestra sección [/tu-vung/](/tu-vung/).
+Para potenciar tu rendimiento global en la prueba, te invitamos a consultar el completo [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/) para estructurar tu preparación, nuestra guía estratégica sobre [TOEIC Part 7: lectura y gestión del tiempo](/es/blog/toeic-part-7-estrategias-lectura-tiempo/), las pautas sobre [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/), las claves para redactar [informes corporativos en inglés](/es/blog/como-redactar-informes-en-ingles-negocios/) y el artículo sobre el [método de repetición espaciada FSRS](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/). Si deseas consolidar listas temáticas de términos de negocio, accede a nuestro [directorio de vocabulario en inglés](/es/vocabulary/).
 
 {{cta: /#/toeic | Practica preguntas de TOEIC Part 5 en la plataforma de Lexkite}}
 

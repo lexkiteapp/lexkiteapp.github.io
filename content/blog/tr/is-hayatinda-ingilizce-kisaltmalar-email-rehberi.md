@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, is-hayati]
 cover: letters
 coverAlt: "Kurumsal e-posta ve mesajlaşmada kullanılan iş hayatında İngilizce kısaltmalar rehberi"
-qualityScore: 95
+qualityScore: 86
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
@@ -93,8 +93,9 @@ Bir e-postanın aciliyet derecesini ve alıcının yapması gereken eylemi ilk b
 - **FYG (For Your Guidance) / FYR (For Your Reference)**
   - *Anlamı*: Yol göstermek adına / Başvuru kaynağınız olması için.
   - *Kullanım bağlamı*: Şirket içi politika belgeleri, uyumluluk kılavuzları veya teknik rehberler paylaşılırken tercih edilir.
-- **Action Required (ACT / AR)**
-  - *Anlamı*: Eylem gerektirir / Onayınız beklenmektedir.
+  - *Bilmeniz gereken*: FYR daha çok Asya merkezli şirketlerde görülür; FYG ise oldukça nadirdir ve standart bir kısaltma sayılmaz. Ana dili İngilizce olanlar genellikle açıkça *"for your reference"* yazar. Karşı tarafın bileceğinden emin değilseniz kısaltmayı kullanmayın.
+- **[Action Required]**
+  - *Anlamı*: Eylem gerektirir / Onayınız beklenmektedir. Genellikle konu satırında köşeli parantez içinde açık yazılır; yaygın kabul görmüş standart bir kısaltması yoktur.
   - *Konu satırı örneği*: *"[Action Required] Q4 Cloud infrastructure budget approval"*.
 - **TL;DR (Too Long; Didn't Read)**
   - *Anlamı*: Çok uzundu, okumayanlar için özet.
@@ -103,7 +104,7 @@ Bir e-postanın aciliyet derecesini ve alıcının yapması gereken eylemi ilk b
 
 İş yerinde meslektaşlarla kurulan gayriresmi diyaloglarda rahat etmek için [iş yerinde İngilizce small talk kalıpları](/tr/blog/is-yerinde-ingilizce-small-talk/) içeriğimizden ilham alabilirsiniz.
 
-![Lexkite kelime kartları tekrar ekranında pollution sözcüğü ve kart çevirme butonu](media:review "İş İngilizcesi e-posta kısaltmaları ve pollution gibi terimleri Lexkite flashcard sistemiyle pekiştirin")
+![Lexkite kelime kartları tekrar ekranında pollution sözcüğü ve kart çevirme butonu](media:review "pollution gibi sözcükleri Lexkite flashcard sistemiyle pekiştirin")
 
 ## Çalışma Durumu ve Ofis Dışında Olma Kısaltmaları (Presence & Availability)
 
@@ -207,6 +208,13 @@ Müşterinin ödeme altyapısında arıza yaşandığında *«Working on fix ASA
 
 ### Senaryo 3: Üst Yönetim ile Bütçe ve Strateji Görüşmeleri
 C-level yöneticilerle yazışırken stratejik metrikler (*ROI*, *KPI*, *Capex*, *Opex*) yerinde kullanılırken, gündelik sohbet kısaltmalarından (*BRB*, *IMO*) uzak durulmalıdır.
+
+## Türk Çalışanların Kısaltmalı E-postalarda Sık Yaptığı Hatalar
+
+- **Kısaltmaları Türkçe alfabeyle okumak**: Toplantıda ETA'yı "e-te-a", EOD'yi "e-o-de" diye okumak karşı tarafı bir an duraksatır. İngilizce harf adlarıyla (*i-ti-ey*, *i-ou-di*) söylemeyi alışkanlık hâline getirin.
+- **"Cevabınızı bekliyorum"u kelimesi kelimesine çevirmek**: *"I am waiting your answer"* hem dilbilgisi açısından eksik (*waiting for*) hem de sabırsız durur. Yerine *"I look forward to hearing from you"* yazın.
+- **"Bilgi verir misiniz?" kalıbını "Please inform me" yapmak**: Kulağa resmî bir dilekçe gibi gelir. *"Could you let me know…?"* çok daha doğaldır.
+- **ASAP'ı "rica ederim" nezaketiyle yumuşattığını sanmak**: *"Please send ASAP"* yine de bir emirdir. Somut bir saat verin: *"Could you send it by 3 p.m. today (TRT)?"*
 
 ## Lexkite ile İş İngilizcesi Kısaltmalarını Kalıcı Olarak Öğrenin
 

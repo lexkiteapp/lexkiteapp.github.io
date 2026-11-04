@@ -12,7 +12,7 @@ coverAlt: "Panduan strategi manajemen waktu 60 menit dan pembagian tiga bacaan p
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 85
 publishAt: 2027-01-05T12:11:00+07:00
 ---
 
@@ -32,7 +32,7 @@ Tes membaca IELTS dirancang secara sistematis dengan tingkat kesulitan yang meni
 
 ![Kamus digital dan pencarian kosakata di Lexkite dengan pengucapan](media:dict "Tampilan kamus digital pada aplikasi Lexkite dengan transkripsi fonetik dan contoh kalimat akademik untuk membaca")
 
-Hal penting lainnya yang kerap terlupakan: pada IELTS Reading **tidak ada waktu tambahan untuk memindahkan jawaban**. Waktu ekstra 10 menit yang diberikan pada sesi Listening tidak berlaku dalam sesi Reading. Jika Anda terbiasa menulis jawaban sementara di lembar soal dan berniat memindahkannya di akhir, lembar jawaban Anda berisiko ditarik pengawas sebelum sempat terisi penuh. Seluruh jawaban harus langsung ditulis dengan pensil ke lembar jawaban resmi (*Answer Sheet*) saat Anda mengerjakan soal.
+Hal penting lainnya yang kerap terlupakan: pada IELTS Reading **tidak ada waktu tambahan untuk memindahkan jawaban**. Waktu ekstra 10 menit untuk memindahkan jawaban pada sesi Listening berbasis kertas tidak berlaku dalam sesi Reading. Jika Anda terbiasa menulis jawaban sementara di lembar soal dan berniat memindahkannya di akhir, lembar jawaban Anda berisiko ditarik pengawas sebelum sempat terisi penuh. Seluruh jawaban harus langsung ditulis dengan pensil ke lembar jawaban resmi (*Answer Sheet*) saat Anda mengerjakan soal.
 
 ## Aturan Emas 15-20-25 untuk Manajemen Waktu IELTS Reading
 
@@ -45,7 +45,7 @@ Jangan langsung membaca teks kata demi kata dari paragraf pertama. Gunakan 60 de
 Pelajari kelompok pertanyaan pertama sebelum membaca badan teks. Garis bawahi kata jangkar yang tidak dapat diubah maknanya: nama orang dengan huruf kapital, tahun, persentase data, dan istilah ilmiah bertulisan miring. Tanda-tanda visual ini sangat mudah tertangkap mata saat Anda menyusuri baris bacaan.
 
 ### Fase 3: Pemindaian Cepat dan Konfirmasi Makna (12 hingga 16 Menit)
-Terapkan teknik pemindaian cepat untuk menemukan paragraf yang relevan. Ketika tiba di paragraf tujuan, kurangi kecepatan baca dan periksa dua kalimat kunci dengan ketelitian tinggi. Waspadai kata pembatas mutlak (*always, never, solely, dispute*), karena di sinilah letak perbedaan halus antara pernyataan True, False, atau Not Given.
+Terapkan teknik pemindaian cepat untuk menemukan paragraf yang relevan. Ketika tiba di paragraf tujuan, kurangi kecepatan baca dan periksa dua kalimat kunci dengan ketelitian tinggi. Waspadai kata pembatas mutlak (*always, never, solely, only*), karena di sinilah letak perbedaan halus antara pernyataan True, False, atau Not Given.
 
 ![Sesi ulasan kartu belajar dengan metode pengulangan berjarak di Lexkite](media:review "Menu ulasan kartu memori pada aplikasi Lexkite yang menampilkan pengulangan terjadwal untuk kosakata ujian")
 
@@ -68,7 +68,7 @@ Kecepatan membaca akademis bukan sekadar menggerakkan bola mata dengan cepat, me
 
 Anda juga bisa melatih keluwesan bertutur dan kecepatan berpikir verbal melalui [ruang latihan bicara interaktif Lexkite](/#/speaking) serta menyempurnakan ketepatan artikulasi pada [modul latihan berbicara](/#/practice/speak).
 
-![Latihan pengucapan pronunciation dan berbicara interaktif di Lexkite](media:practice-speak "Tampilan antarmuka latihan berbicara di Lexkite với mikrofon perekam dan penilaian pengucapan otomatis")
+![Latihan pengucapan dan berbicara interaktif di Lexkite](media:practice-speak "Tampilan antarmuka latihan berbicara di Lexkite dengan mikrofon perekam dan penilaian pengucapan otomatis")
 
 Untuk menghilangkan hambatan membaca tersebut, algoritma pengulangan berjarak membantu mengunci kosakata akademis ke dalam ingatan jangka panjang. Anda dapat memperluas perbendaharaan kata melalui ulasan kami tentang [collocation bahasa Inggris untuk IELTS](/id/blog/collocation-bahasa-inggris-untuk-ielts/) serta mengasah trik mengubah kalimat pada panduan [cara paraphrase IELTS](/id/blog/cara-paraphrase-ielts-writing-reading/).
 

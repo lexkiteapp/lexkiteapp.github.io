@@ -13,7 +13,7 @@ publishAt: 2026-12-28T19:51:00+03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 ---
 
 في بيئات العمل العالمية والشركات متعددة الجنسيات التي تتسم بإيقاع تشغيلي متسارع، لا تقتصر مهارة **إدارة الوقت بالإنجليزية في العمل** (Workplace Time Management in English) على تنظيم قائمة المهام اليومية فحسب، بل تُعد أداة محورية للتفاوض الدبلوماسي على مواعيد التسليم، وإدارة توقعات الإدارة وأصحاب المصلحة، وتحديد الأولويات المهنية دون المساس بالعلاقات الوظيفية.
@@ -63,7 +63,7 @@ qualityScore: 95
 - **المربع الثالث (عاجل وغير مهم):** يمثل المهام التي تبدو ملحة ولكنها لا تضيف قيمة استراتيجية مباشرة (كالاجتماعات الروتينية غير المنتجة). الهدف هنا هو التفويض الدبلوماسي أو أتمتة العمليات المتكررة.
 - **المربع الرابع (غير عاجل وغير مهم):** يشمل المشتتات والمهام الهامشية التي تستنزف الوقت دون أي عائد ملموس. يجب استبعادها بنهج حاسم ومنتظم لحماية التركيز الذهني.
 
-![البحث عن مصطلحات إدارة الوقت في قاموس Lexkite الرقمي](media:dict "البحث في قاموس Lexkite الرقمي عن مصطلحات إدارة الأولويات وضبط النطق الصوتي الدقيق")
+![قاموس إنجليزي–فيتنامي في Lexkite يعرض كلمة resilient مع النطق والمعنى والأمثلة](media:dict "البحث في قاموس Lexkite عن كلمة resilient ومراجعة النطق البريطاني والأمريكي والأمثلة والمتلازمات اللفظية")
 
 ## أهم العبارات التكتيكية لإدارة الوقت في بيئة العمل
 
@@ -74,7 +74,7 @@ qualityScore: 95
 - *"Our primary engineering priority for this sprint is optimizing database queries to reduce customer latency."* (أولويتنا الهندسية الرئيسية في هذه المرحلة هي تحسين استعلامات قواعد البيانات لتقليل زمن الاستجابة).
 - *"I am currently prioritizing the SOC2 security audit documentation over secondary feature updates."* (أعطي الأولوية حالياً لتوثيق تدقيق الأمان على حساب التحديثات الثانوية).
 - *"Given the tight regulatory deadline, finalizing the compliance ledger takes precedence over discretionary tooling improvements."* (نظراً للموعد التنظيمي الصارم، فإن اعتماد سجل الامتثال له الأسبقية على تحسينات الأدوات الاختيارية).
-- *"Let us align on top deliverables so our engineering bandwidth is channeled toward high-impact business outcomes."* (دعونا نتفق على المخرجات الأساسية لتوجيه طاقتنا نحو النتائج الأكثر أثراً). لمزيد من العبارات المؤسسية، راجع مقال [مصطلحات إنجليزية في مكان العمل](/ar/blog/mustalahat-injiliziyya-fi-makan-al-amal/).
+- *"Let's align on top deliverables so our engineering bandwidth is channeled toward high-impact business outcomes."* (دعونا نتفق على المخرجات الأساسية لتوجيه طاقتنا نحو النتائج الأكثر أثراً). لمزيد من العبارات المؤسسية، راجع مقال [مصطلحات إنجليزية في مكان العمل](/ar/blog/mustalahat-injiliziyya-fi-makan-al-amal/).
 
 ### 2. التفاوض على المواعيد النهائية بمهنية (Renegotiating Deadlines)
 عندما تطرأ عوائق غير متوقعة، تواصل مبكراً لتعديل الجدول الزمني بدلاً من الانتظار للحظات الأخيرة:
@@ -83,7 +83,7 @@ qualityScore: 95
 - *"If we maintain the Friday deployment cutoff, we will need to descope the automated billing export to preserve platform stability."* (إذا التزمنا بموعد الإطلاق يوم الجمعة، فسنحتاج إلى استبعاد ميزة تصدير الفواتير لحماية استقرار المنصة).
 - *"Could we revisit the milestone schedule? An additional forty-eight hours will significantly mitigate production regression risks."* (هل يمكننا مراجعة جدول المراحل؟ مهلة 48 ساعة إضافية ستقلل بشكل كبير من مخاطر حدوث أخطاء برمجية في بيئة الإنتاج).
 
-![مراجعة بطاقات مصطلحات العمل عبر نظام التكرار المتباعد في Lexkite](media:review "شاشة المراجعة في تطبيق Lexkite تثبت مفردات إدارة الوقت وجدولة المشاريع عبر التكرار المتباعد")
+![مراجعة بطاقة فلاش كارد لكلمة pollution في تطبيق Lexkite مع شريط التقدم](media:review "شاشة المراجعة في تطبيق Lexkite تعرض بطاقة pollution مع زر قلب البطاقة وشريط تقدم البطاقات المتبقية")
 
 ### 3. وضع الحدود والاعتذار الدبلوماسي (Setting Boundaries Professionally)
 احمِ طاقتك الإنتاجية دون التسبب في حساسية مع زملائك أو الإدارات الأخرى:
@@ -101,11 +101,25 @@ qualityScore: 95
 >  
 > *If I pivot to the dashboard immediately, the database migration will slip by at least five business days, creating compliance risks. Would you prefer that we deprioritize the database migration, or could we deliver an initial lightweight summary for Friday and build the full real-time dashboard next sprint?"*  
 >  
-> **Engineering Manager:** *"That is a very fair point. Keeping the database failover on schedule is critical for our uptime SLA. Let us go with the lightweight summary for now. Thanks for clarifying the trade-offs so quickly."*  
+> **Engineering Manager:** *"That is a very fair point. Keeping the database failover on schedule is critical for our uptime SLA. Let's go with the lightweight summary for now. Thanks for clarifying the trade-offs so quickly."*  
 
 يوضح هذا الحوار قوة أسلوب "توضيح المقايضات" (Highlighting Trade-offs)؛ فالمهندس لم يرفض بفظاظة، بل وضع القرار أمام المدير بناءً على المخاطر التشغيلية. وإذا رغبت في صقل أسلوبك في صياغة الرسائل الرسمية، اطلع على [اختصارات إنجليزية في العمل](/ar/blog/ikhtisarat-injliziyyah-fi-al-amal-email-guide/) ودليل [حل النزاعات بالإنجليزية في العمل](/ar/blog/hal-al-nizaat-bi-al-injliziyyah-fi-al-amal/).
 
 ![شاشة التدرب على النطق في تطبيق Lexkite مع عبارة cut down on](media:practice-speak "التدرب على نطق عبارة cut down on عبر الميكروفون في Lexkite والحصول على تقييم فوري للصوت")
+
+## أخطاء شائعة لدى المتحدثين بالعربية عند الحديث عن الوقت والمواعيد
+
+هذه أخطاء نسمعها كثيراً من المهنيين العرب في الاجتماعات والرسائل، وسببها الترجمة الحرفية من العربية أو اختلاف الأصوات بين اللغتين:
+
+| الخطأ الشائع | الصيغة الصحيحة | سبب الخطأ |
+|---|---|---|
+| *"We will discuss about the deadline."* | *"We will discuss the deadline."* | الفعل *discuss* متعدٍّ بنفسه، بينما نقول بالعربية "نناقش حول" |
+| *"I am agree with this plan."* | *"I agree with this plan."* | *agree* فعل وليس صفة، فلا يحتاج إلى *am* |
+| *"Since two weeks I work on this project."* | *"I have been working on this project for two weeks."* | العربية تستخدم المضارع مع "منذ"، والإنجليزية تتطلب Present Perfect Continuous |
+| *"Give me more time."* | *"Would it be possible to have two more days?"* | الأمر المباشر مقبول بالعربية بين الزملاء لكنه يبدو حاداً بالإنجليزية في سياق العمل |
+| *"Inshallah I will send it tomorrow."* | *"I'll send it by tomorrow at 5 pm."* | العبارة قد يفهمها الزميل الأجنبي على أنها عدم التزام؛ الأفضل تحديد موعد واضح |
+
+وعلى مستوى النطق، يخلط كثير من المتحدثين بالعربية بين /p/ و/b/ لأن العربية لا تحتوي على صوت /p/، فتتحول *priority* إلى "briority" و*project* إلى "broject" و*push the deadline* إلى "bush the deadline". تدرّب على إطلاق نفخة هواء خفيفة مع /p/: ضع ورقة أمام فمك، يجب أن تتحرك مع *p* ولا تتحرك مع *b*.
 
 ## استراتيجيات التدريب والتطبيق العملي
 
@@ -117,3 +131,14 @@ qualityScore: 95
 4. **تدوين سجل المهام والمقايضات الأسبوعي**: قبل الدخول في أي اجتماع لتخطيط المرحلة، اكتب قائمة بمشاريعك الجارية والمقايضات المقترحة باللغة الإنجليزية، مثل: *"If feature A is added, feature B must be deferred to next sprint"*. هذا الإعداد الكتابي يمنحك ثقة مضاعفة أثناء النقاشات السريعة.
 
 إن إتقان **إدارة الوقت بالإنجليزية في العمل** لا يحمي طاقتك وصحتك النفسية من الإرهاق الوظيفي فحسب، بل يرسخ مكانتك كمهني موثوق وقائد تقني قادر على إدارة الموارد والمشاريع المعقدة وتحقيق نتائج استثنائية في كبرى الشركات العالمية.
+
+## الأسئلة الشائعة
+
+### كيف أطلب تمديد الموعد النهائي بالإنجليزية دون أن أبدو غير كفء؟
+اذكر السبب بإيجاز، واقترح موعداً بديلاً محدداً، وبيّن ما ستسلّمه في الموعد الأصلي، مثل: *"Due to the API delay, could we move the release to Tuesday? I can share a working draft on Friday."* الطلب المبكر مع خطة واضحة يُفهم على أنه احترافية لا ضعف.
+
+### ما الفرق بين urgent وimportant في سياق العمل؟
+*Urgent* تعني أن المهمة تحتاج إلى استجابة سريعة بسبب ضيق الوقت، أما *important* فتعني أن لها أثراً كبيراً على أهداف الفريق. المهمة قد تكون عاجلة وغير مهمة (مثل رسالة روتينية تنتظر الرد)، أو مهمة وغير عاجلة (مثل التخطيط للربع القادم).
+
+### كيف أرفض مهمة إضافية بأدب؟
+ابدأ بإبداء التقدير، ثم اشرح التزامك الحالي، ثم اقترح بديلاً: *"I'd be happy to help, but I'm fully booked with the migration this week. Could we look at it next sprint, or could someone from the platform team take it?"*

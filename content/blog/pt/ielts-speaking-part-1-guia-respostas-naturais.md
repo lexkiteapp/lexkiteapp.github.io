@@ -9,7 +9,7 @@ category: ielts
 tags: [ielts, speaking, part-1, preparacao]
 cover: speaking
 coverAlt: "Sala de Speaking do Lexkite com perguntas de Part 1 organizadas por tópicos e respostas modelo"
-qualityScore: 95
+qualityScore: 88
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-11T19:51:00-03:00
@@ -62,7 +62,7 @@ quiz: [
 ]
 ---
 
-*"Do you work or are you a student?"* Parece uma pergunta tão elementar que muitos candidatos não dedicam nenhum tempo para praticá-la com seriedade. No entanto, no dia do exame oficial, inúmeros estudantes respondem simplesmente *"I'm a student"* e silenciam de forma constrangedora. O examinador anota a pontuação, formula a pergunta seguinte e recebe outra contestação monossilábica de três palavras. Ao fim de quatro minutos, a fase inicial se encerra sem que o avaliador tenha ouvido amostras linguísticas suficientes para justificar uma boa nota.
+*"Do you work or are you a student?"* Parece uma pergunta tão elementar que muitos candidatos não dedicam nenhum tempo para praticá-la com seriedade. No entanto, no dia do exame oficial, inúmeros estudantes respondem simplesmente *"I'm a student"* e silenciam de forma constrangedora. O examinador segue para a pergunta seguinte e recebe outra resposta seca, de três palavras. Ao fim de quatro minutos, a fase inicial se encerra sem que o avaliador tenha ouvido amostras linguísticas suficientes para justificar uma boa nota.
 
 O módulo **ielts speaking part 1** é a etapa de aquecimento da entrevista oral. Nele, você responderá a perguntas sobre aspectos familiares do seu cotidiano: estudos, profissão, cidade de origem, hábitos e interesses pessoais. O conteúdo não exige conhecimento acadêmico aprofundado, mas é exatamente nessa etapa que o examinador estabelece a primeira impressão perceptiva sobre a sua desenvoltura. Descobrir [como pensar em inglês sem traduzir mentalmente](/pt/blog/como-pensar-em-ingles-sem-traduzir-mentalmente/) é um passo essencial para conseguir responder de pronto, sem pausas longas e inseguras.
 
@@ -80,7 +80,7 @@ A prova completa de Speaking dura entre 11 e 14 minutos e é dividida em três p
 
 O primeiro tópico é quase invariavelmente sobre a sua rotina: trabalho ou estudos, sua cidade natal (*hometown*) ou a sua acomodação atual. Os temas subsequentes são variados e acessíveis: clima, música, compras, aniversários, caminhadas ao ar livre, transporte público ou refeições caseiras.
 
-O examinador opera sob um roteiro estritamente padronizado; por essa razão, ele não baterá papo informal nem expressará reações emotivas às suas histórias. Essa neutralidade profissional faz parte do protocolo de Cambridge e não reflete o nível do seu desempenho. A avaliação baseia-se em quatro critérios uniformes: fluência e coerência (*Fluency and Coherence*), recurso lexical (*Lexical Resource*), alcance e precisão gramatical (*Grammatical Range and Accuracy*), e pronúncia (*Pronunciation*). A Parte 1 não possui uma nota isolada, mas cada frase dita é computada como evidência para o examinador.
+O examinador opera sob um roteiro estritamente padronizado; por essa razão, ele não baterá papo informal nem expressará reações emotivas às suas histórias. Essa neutralidade profissional faz parte do protocolo padronizado do IELTS e não reflete o nível do seu desempenho. A avaliação baseia-se em quatro critérios uniformes: fluência e coerência (*Fluency and Coherence*), recurso lexical (*Lexical Resource*), alcance e precisão gramatical (*Grammatical Range and Accuracy*), e pronúncia (*Pronunciation*). A Parte 1 não possui uma nota isolada, mas cada frase dita é computada como evidência para o examinador.
 
 ## A fórmula prática: Resposta Direta + Motivo + Detalhe
 

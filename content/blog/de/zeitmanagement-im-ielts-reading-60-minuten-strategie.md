@@ -12,7 +12,7 @@ coverAlt: "Strategien für Zeitmanagement und die 60-Minuten-Aufteilung im IELTS
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 85
 publishAt: 2027-01-06T08:14:00+01:00
 ---
 
@@ -32,7 +32,7 @@ Der IELTS-Lesetest ist didaktisch so konzipiert, dass der kognitive Schwierigkei
 
 ![Wörterbuch und Vokabelsuche in Lexkite mit Beispielsätzen und Aussprache](media:dict "Wörterbuchmodul in Lexkite mit Lautschrift und Beispielsätzen für akademisches Lesevokabular")
 
-Ein organisatorischer Aspekt wird dabei besonders oft unterschätzt: Im IELTS Reading gibt es **keine zusätzliche Übertragungszeit am Ende der Prüfung**. Die 10 Minuten, die im Listening zum Übertragen der Notizen gewährt werden, existieren im Lesemodul nicht. Wenn Sie Ihre Antworten vorläufig in das Aufgabenheft schreiben, um sie später zu übertragen, riskieren Sie, dass der Prüfer die Bögen einsammelt, bevor Sie fertig sind. Jede Lösung muss direkt mit Bleistift auf den offiziellen Antwortbogen (*Answer Sheet*) eingetragen werden.
+Ein organisatorischer Aspekt wird dabei besonders oft unterschätzt: Im IELTS Reading gibt es **keine zusätzliche Übertragungszeit am Ende der Prüfung**. Die 10 Minuten, die im papierbasierten Listening zum Übertragen der Notizen gewährt werden, existieren im Lesemodul nicht. Wenn Sie Ihre Antworten vorläufig in das Aufgabenheft schreiben, um sie später zu übertragen, riskieren Sie, dass der Prüfer die Bögen einsammelt, bevor Sie fertig sind. Jede Lösung muss direkt mit Bleistift auf den offiziellen Antwortbogen (*Answer Sheet*) eingetragen werden.
 
 ## Die 15-20-25-Regel für ein perfektes zeitmanagement im ielts reading
 
@@ -45,7 +45,7 @@ Beginnen Sie niemals mit dem detaillierten Lesen des ersten Absatzes. Investiere
 Lesen Sie die Fragen des ersten Aufgabenblocks gründlich durch, bevor Sie in den Fließtext eintauchen. Markieren Sie unveränderliche Orientierungspunkte: Eigennamen, Jahreszahlen, statistische Prozentsätze und kursiv gesetzte Fachbegriffe. Solche Signale lassen sich kaum umschreiben und stechen beim schnellen Überfliegen der Zeilen sofort ins Auge.
 
 ### Phase 3: Zielgerichtete Textsuche und Verifikation (12 bis 16 Minuten)
-Wenden Sie Scanning-Methoden an, um den relevanten Textabschnitt zügig zu lokalisieren. Sobald Sie an der Zielstelle angelangt sind, drosseln Sie das Tempo und lesen die umgebenden zwei Sätze mit höchster Präzision. Achten Sie besonders auf einschränkende Signalwörter (*solely, invariably, unprecedented, dispute*), da sich hier oft die Fallstricke bei True/False/Not Given-Aufgaben verbergen.
+Wenden Sie Scanning-Methoden an, um den relevanten Textabschnitt zügig zu lokalisieren. Sobald Sie an der Zielstelle angelangt sind, drosseln Sie das Tempo und lesen die umgebenden zwei Sätze mit höchster Präzision. Achten Sie besonders auf einschränkende Signalwörter (*solely, invariably, unprecedented, never*), da sich hier oft die Fallstricke bei True/False/Not Given-Aufgaben verbergen.
 
 ![Lernkarten Wiederholung in Lexkite mit Abfrageintervallen](media:review "Spaced-Repetition-Modus in Lexkite mit Karteikarten zur Wiederholung von Prüfungsvokabular")
 
@@ -60,7 +60,7 @@ Einige Aufgabenformate kosten überproportional viel Zeit, wenn Sie nicht von vo
 | **True / False / Not Given (T/F/NG)** | Hoch (Zweifel zwischen False und Not Given kosten wertvolle Minuten). | Wenn eine klare sachliche Antithese vorliegt, wählen Sie False. Finden Sie nach 90 Sekunden keinen Beleg, notieren Sie Not Given und gehen weiter. |
 | **Sentence / Summary Completion** | Moderat (strenge Wortbegrenzung der Aufgabenstellung beachten). | Bestimmen Sie im Vorfeld die grammatikalische Wortart (z. B. Substantiv im Singular, Adjektiv), bevor Sie den Text scannen. |
 
-Sollten Sie bei einer einzelnen Frage länger als 60 Sekunden unschlüssig sein, greifen Sie zur 90-Sekunden-Notbremse: Tragen Sie Ihre beste Vermutung ein, markieren Sie die Aufgabennummer mit einem Sternchen am Rand und fahren Sie sofort fort. Jede Frage bringt exakt einen Rohpunkt; wertvolle Zeit an einer unklaren Frage zu verschwenden und dadurch drei einfache Punkte am Ende zu verpassen, ist der häufigste Grund für ein Unterbieten des Wunsch-Scores.
+Sollten Sie bei einer einzelnen Frage länger als 60 Sekunden unschlüssig sein, greifen Sie zur 90-Sekunden-Notbremse: Tragen Sie Ihre beste Vermutung ein, markieren Sie die Aufgabennummer mit einem Sternchen am Rand und fahren Sie sofort fort. Jede Frage bringt exakt einen Rohpunkt; wertvolle Zeit an einer unklaren Frage zu verschwenden und dadurch drei einfache Punkte am Ende zu verpassen, ist ein typischer Grund dafür, den Wunsch-Score zu verfehlen.
 
 ## Vokabelkompetenz als Schlüssel zur Lesegeschwindigkeit
 

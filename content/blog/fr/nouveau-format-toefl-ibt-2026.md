@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, examens, preparation]
 cover: toefl
 coverAlt: "Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves"
-qualityScore: 95
+qualityScore: 87
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-01T19:51:00+01:00
@@ -68,14 +68,14 @@ Le TOEFL iBT est désormais plus condensé (environ 1 heure et 30 minutes au tot
 
 Dans ce guide exhaustif, nous décryptons l'ensemble des évolutions du test, détaillons les 12 types d'exercices et vous proposons un plan d'entraînement méthodique en 4 semaines pour aborder cette nouvelle mouture avec sérénité et maximiser votre score.
 
-![Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves](media:toefl "Module d entraînement au TOEFL iBT sur Lexkite avec la structure actualisée du format adaptatif 2026")
+![Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves](media:toefl "Module d'entraînement au TOEFL iBT sur Lexkite avec la structure actualisée du nouveau format 2026")
 
 ## Les trois piliers de la réforme : nouveau format toefl 2026 décrypté
 
 Pour comprendre l'impact de ce remaniement sur votre préparation, trois changements structurels majeurs méritent une attention particulière :
 
 ### 1. Un examen considérablement raccourci (1h30)
-Alors que le TOEFL historique s'étendait sur plus de 3 heures éprouvantes, l'examen s'articule aujourd'hui autour d'un format dynamique d'environ 90 minutes. Ce gain de temps est une excellente nouvelle pour préserver votre endurance intellectuelle, mais il implique une vigilance accrue : avec un nombre restreint de questions par section, chaque erreur pèse proportionnellement plus lourd dans le calcul de votre note finale.
+Alors que l'ancien TOEFL durait environ 2 heures (près de 3 heures avant juillet 2023), l'examen s'articule aujourd'hui autour d'un format dynamique d'environ 90 minutes. Ce gain de temps est une excellente nouvelle pour préserver votre endurance intellectuelle, mais il implique une vigilance accrue : avec un nombre restreint de questions par section, chaque erreur pèse proportionnellement plus lourd dans le calcul de votre note finale.
 
 ### 2. Une conception adaptative à plusieurs niveaux
 Le test ajuste dynamiquement la difficulté des items en fonction de vos performances au fil de l'épreuve. Des réponses solides et rigoureuses lors des premières tâches vous orientent vers des questions plus exigeantes, ouvrant l'accès aux bandes de score supérieures (band 5 à 6). À l'inverse, des erreurs d'inattention au démarrage limitent le plafond de score atteignable.
@@ -127,9 +127,9 @@ Pour consolider votre maîtrise des termes académiques et du vocabulaire du quo
 ### Section Writing (Expression écrite) : 3 types d'épreuves (~23 minutes)
 1. **Build a Sentence :** Vous devez remettre dans le bon ordre syntaxique des groupes de mots désorganisés pour constituer une phrase parfaitement grammaticale.
 2. **Write an Email :** En environ 7 minutes, rédiger un courriel formel ou semi-formel en réponse à une situation concrète (demande d'information, réclamation, organisation de projet).
-3. **Write for an Academic Discussion :** En 10 minutes, contribuer à un débat universitaire en ligne initié par un professeur en apportant une perspective originale appuyée par un argument étayé.
+3. **Write for an Academic Discussion :** En 10 minutes environ, contribuer à un débat universitaire en ligne initié par un professeur en apportant une perspective originale appuyée par un argument étayé (une centaine de mots ou plus est recommandée).
 
-Pour maîtriser cette épreuve spécifique de rédaction courte, consultez notre tutoriel approfondi sur le [TOEFL iBT Writing Academic Discussion Guide](/fr/blog/toefl-ibt-writing-academic-discussion-guide-fr/) ainsi que nos modèles pour [rédiger un email professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/).
+Pour maîtriser cette épreuve spécifique de rédaction courte, consultez notre tutoriel approfondi sur le [guide de l'épreuve Academic Discussion du TOEFL iBT](/fr/blog/toefl-ibt-writing-academic-discussion-guide-fr/) ainsi que nos modèles pour [rédiger un email professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/).
 
 ---
 
@@ -151,6 +151,7 @@ De nombreux candidats formés sur l'ancien modèle commettent des erreurs strat�
 - **Rédiger des essais fleuves :** Les épreuves d'écriture sont courtes et minutées. Un email concis et rigoureux couvrant 100% des consignes obtiendra une meilleure note qu'un long texte inachevé.
 - **Paraphraser lors du Listen and Repeat :** Dans la plupart des examens oraux, la reformulation est valorisée. Ici, l'exercice exige une répétition mot à mot stricte ; remplacer *is going to* par *will* est sanctionné comme une erreur.
 - **Focaliser uniquement sur les textes scientifiques :** Le nouveau volet *Read in Daily Life* accorde une place prépondérante aux situations du quotidien universitaire (horaires de bibliothèque, remboursements, bourses, inscriptions).
+- **Les pièges typiques des francophones :** le *th* prononcé /s/ ou /z/ (*think* devient « sink »), le *h* qui disparaît (*hair* devient *air*), l'accent tonique déplacé en fin de mot, et à l'écrit les faux amis (*actually* ne veut pas dire « actuellement »). En *Listen and Repeat*, un *h* omis peut changer le mot : enregistrez-vous et réécoutez ces sons en priorité.
 
 ---
 
@@ -169,7 +170,7 @@ Si vous hésitez encore entre les différents tests internationaux, prenez le te
 
 Pour travailler votre diction et votre prononciation en direct, vous pouvez utiliser l'[outil de pratique orale au microphone](/#/practice/speak) et vérifier le sens des expressions complexes dans notre [dictionnaire interactif](/#/).
 
-![Carnet d erreurs Lexkite regroupant les questions manquees par competence](media:mistakes "Regroupement des erreurs par categorie dans le carnet Lexkite pour cibler les lacunes en orthographe et grammaire")
+![Carnet d erreurs Lexkite regroupant les questions manquees par competence](media:mistakes "Regroupement des erreurs par catégorie (vocabulaire, grammaire, compréhension écrite, écoute) dans le carnet Lexkite pour cibler les lacunes")
 
 {{cta: /#/toefl | Découvrir et tester les nouvelles épreuves du TOEFL iBT sur Lexkite}}
 

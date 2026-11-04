@@ -12,11 +12,11 @@ coverAlt: "Estrategias de control de tiempo y distribución de 60 minutos para l
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 publishAt: 2027-01-03T19:51:00-06:00
 ---
 
-Para la inmensa mayoría de los candidatos al examen académico o general, la **gestión del tiempo en ielts reading** representa la mayor barrera para alcanzar una banda 7.0 o superior. A diferencia de la sección de comprensión auditiva (*Listening*), donde el audio marca el compás de cada respuesta, en la prueba de lectura eres el único responsable de administrar 60 minutos exactos para procesar tres textos extensos que suman cerca de 2.750 palabras y responder a 40 preguntas sumamente variadas.
+Para la inmensa mayoría de los candidatos al examen académico o general, la **gestión del tiempo en ielts reading** representa la mayor barrera para alcanzar una banda 7.0 o superior. A diferencia de la sección de comprensión auditiva (*Listening*), donde el audio marca el compás de cada respuesta, en la prueba de lectura eres el único responsable de administrar 60 minutos exactos para procesar (en la versión Academic) tres textos extensos que suman hasta unas 2.750 palabras y responder a 40 preguntas sumamente variadas.
 
 Muchos aspirantes cometen el grave error de dividir los 60 minutos en tres bloques iguales de 20 minutos por pasaje. Esta distribución aritmética rara vez funciona porque la dificultad intrínseca de los textos no es uniforme: el Pasaje 1 presenta un lenguaje descriptivo directo y hechos concretos, mientras que el Pasaje 3 plantea debates abstractos, contraargumentos sutiles y giros discursivos complejos. Si consumes 20 minutos en el primer pasaje, inevitablemente te quedarás sin aire para analizar las preguntas críticas del último tercio.
 
@@ -26,7 +26,7 @@ En esta guía práctica y detallada, desglosaremos la regla dorada 15-20-25, apr
 
 El examen de lectura de IELTS está deliberadamente diseñado para poner a prueba tu capacidad de filtrar información bajo una intensa presión cronológica. Un desglose realista del esfuerzo cognitivo revela por qué la regla clásica es una trampa:
 
-1. **Pasaje 1 (Nivel básico a intermedio):** Generalmente aborda temas de divulgación científica sencilla, historia social o procesos biológicos con vocabulario transparente. El objetivo aquí es resolver las 13 preguntas en **15 minutos como máximo**.
+1. **Pasaje 1 (Nivel básico a intermedio):** Generalmente aborda temas de divulgación científica sencilla, historia social o procesos biológicos con vocabulario transparente. El objetivo aquí es resolver sus preguntas (normalmente 13) en **15 minutos como máximo**.
 2. **Pasaje 2 (Dificultad intermedia a alta):** Suele tratar estudios de caso, dilemas medioambientales o innovaciones tecnológicas que requieren comparar posturas de distintos investigadores. Debe resolverse en **20 minutos**.
 3. **Pasaje 3 (Nivel avanzado/C1):** Contiene argumentos densos, suposiciones implícitas del autor y preguntas de emparejamiento de encabezados o ideas complejas. Requiere un mínimo de **25 minutos** para releer párrafos críticos y verificar matices.
 
@@ -65,6 +65,8 @@ Si te encuentras bloqueado en una pregunta durante más de 60 segundos, aplica l
 ## El papel del léxico y la velocidad lectora
 
 La velocidad de lectura no depende únicamente de mover los ojos con mayor rapidez por la página, sino del reconocimiento léxico automatizado. Cuando te topas con una palabra desconocida como *detrimental, pervasive* o *counterintuitive*, tu cerebro sufre una microparada cognitiva de varios segundos intentando deducir el significado. Si este tropiezo se repite quince veces por página, habrás perdido varios minutos acumulados.
+
+Para un hispanohablante, la trampa más cara no es la palabra desconocida, sino el falso amigo que parece familiar: *actually* (en realidad, no "actualmente"), *eventually* (finalmente, no "eventualmente"), *embarrassed* (avergonzado, no "embarazada"), *assist* (ayudar, no "asistir"). En una pregunta True/False/Not Given, leer *eventually* como "a veces" cambia el sentido de la frase y, con él, la respuesta. Otro hábito que roba minutos es traducir mentalmente cada oración al español antes de entenderla; entrena reconocer las paráfrasis directamente en inglés.
 
 Puedes acelerar tu destreza oral y capacidad de procesamiento discursivo entrenando en la [sala de conversación interactiva Lexkite](/#/speaking) y practicando articulación fonética precisa en la [sección de práctica de habla Lexkite](/#/practice/speak).
 

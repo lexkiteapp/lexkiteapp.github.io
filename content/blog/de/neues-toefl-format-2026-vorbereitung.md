@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, pruefungsformat, vorbereitung]
 cover: toefl
 coverAlt: "TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026"
-qualityScore: 95
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T19:01:00+01:00
@@ -62,26 +62,26 @@ quiz: [
 ]
 ---
 
-Seit dem 21. Januar 2026 gilt weltweit das **neues toefl format 2026**, das den renommierten US-Sprachtest grundlegend modernisiert hat. Wer sich heute noch ausschließlich mit älteren Lehrbüchern oder Vorbereitungsunterlagen von vor 2026 vorbereitet, profitiert zwar weiterhin von seinem allgemeinen Wortschatz, muss seine Prüfungsstrategie, sein Zeitmanagement und seine Vertrautheit mit den Aufgabenformaten jedoch zwingend aktualisieren.
+Seit dem 21. Januar 2026 gilt weltweit ein **neues TOEFL Format 2026**, das den renommierten US-Sprachtest grundlegend modernisiert hat. Wer sich heute noch ausschließlich mit älteren Lehrbüchern oder Vorbereitungsunterlagen von vor 2026 vorbereitet, profitiert zwar weiterhin von seinem allgemeinen Wortschatz, muss seine Prüfungsstrategie, sein Zeitmanagement und seine Vertrautheit mit den Aufgabenformaten jedoch zwingend aktualisieren.
 
 Der TOEFL iBT präsentiert sich im neuen Gewand wesentlich kompakter (Gesamtdauer rund 1,5 Stunden), mehrstufig adaptiv (der Schwierigkeitsgrad passt sich der Genauigkeit Ihrer Antworten an), bewertet auf einer Band-Skala von 1 bis 6 und erweitert um völlig neue Fragetypen wie *Complete the Words*, *Read in Daily Life* und *Build a Sentence*.
 
 In diesem fundierten Leitfaden analysieren wir alle strukturellen Neuerungen, stellen die 12 Aufgabentypen im Detail vor und liefern Ihnen einen praxiserprobten 4-Wochen-Vorbereitungsplan für Ihren Prüfungserfolg.
 
-![TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026](media:toefl "Das TOEFL iBT Vorbereitungsmodul im Lexkite mit der aktualisierten Aufgabenstruktur für das adaptive Testformat 2026")
+![TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026](media:toefl "Das TOEFL iBT Vorbereitungsmodul im Lexkite mit der Aufgabenstruktur des neuen Testformats 2026")
 
 ## Die drei Kernpfeiler der Reform: neues toefl format 2026 im Detail
 
 Drei fundamentale Veränderungen prägen das neue Prüfungserlebnis und verlangen ein Umdenken in der Prüfungsvorbereitung:
 
 ### 1. Kompakte Gesamtlänge von nur 1,5 Stunden
-Verglichen mit den früheren, mehr als dreistündigen Marathonsitzungen dauert die gesamte Prüfung nun etwa 90 Minuten. Dieser Zeitgewinn schont Ihre Konzentrationsfähigkeit enorm, erhöht aber gleichzeitig den Druck auf jede einzelne Frage: Bei weniger Aufgaben hat jede Unaufmerksamkeit spürbar größere Auswirkungen auf die Endnote.
+Verglichen mit dem bisherigen Format (rund 2 Stunden, vor Juli 2023 sogar knapp 3 Stunden) dauert die gesamte Prüfung nun etwa 90 Minuten. Dieser Zeitgewinn schont Ihre Konzentrationsfähigkeit enorm, erhöht aber gleichzeitig den Druck auf jede einzelne Frage: Bei weniger Aufgaben hat jede Unaufmerksamkeit spürbar größere Auswirkungen auf die Endnote.
 
 ### 2. Mehrstufig adaptives Testdesign
 Der Test passt sich in mehreren Abschnitten an Ihre Leistung an. Zeigen Sie in den ersten Aufgabenblöcken eine hohe Treffsicherheit, schaltet das System anspruchsvollere Aufgaben frei, die für die Bänder 5 und 6 erforderlich sind. Betrachten Sie die ersten Aufgaben daher keinesfalls als Aufwärmphase.
 
 ### 3. Die neue 1–6 Band-Skala
-Analog zu internationalen Standards vergibt die ETS nun Noten von 1,0 bis 6,0 in Halbbandschritten. Der Gesamtscore entspricht dem Durchschnitt der vier Teilbereiche (*Reading, Listening, Writing, Speaking*). Für Universitäten, deren Zulassungskriterien noch auf der alten 0–120 Skala basieren, enthält der offizielle Ergebnisbericht eine verlässliche Äquivalenztabelle.
+Analog zu internationalen Standards vergibt die ETS nun Noten von 1,0 bis 6,0 in Halbbandschritten. Der Gesamtscore entspricht dem Durchschnitt der vier Teilbereiche (*Reading, Listening, Writing, Speaking*). Für Universitäten, deren Zulassungskriterien noch auf der alten 0–120 Skala basieren, weist der offizielle Ergebnisbericht während der Übergangsphase zusätzlich einen vergleichbaren Wert auf der 0–120 Skala aus.
 
 ```
 +-------------------------------------------------------------------------+
@@ -127,11 +127,11 @@ Um Ihren aktiven Fachwortschatz gezielt auszubauen, empfiehlt sich ein Blick in 
 ### 3. Writing (Schreiben) – 3 Aufgabentypen (~23 Minuten)
 - **Build a Sentence:** Satzbausteine müssen per Mausklick in die korrekte grammatikalische Reihenfolge gebracht werden.
 - **Write an Email:** In rund 7 Minuten verfassen Sie eine zielgerichtete E-Mail zu einem vorgegebenen Anlass und decken dabei alle geforderten Punkte ab.
-- **Write for an Academic Discussion:** In 10 Minuten beteiligen Sie sich an einer Online-Diskussion mit Professor und Kommilitonen und bringen einen eigenen, neuen Aspekt ein.
+- **Write for an Academic Discussion:** In etwa 10 Minuten beteiligen Sie sich an einer Online-Diskussion mit Professor und Kommilitonen und bringen einen eigenen, neuen Aspekt ein (empfohlen sind rund 100 Wörter oder mehr).
 
 Für eine detaillierte Anleitung zu diesem kompakten Aufsatzformat lesen Sie unseren Leitfaden [TOEFL iBT Academic Discussion Writing](/de/blog/toefl-ibt-writing-academic-discussion/) und vertiefen Sie formelle Wendungen mit unserem Guide zum Thema [geschäftliche E-Mails auf Englisch schreiben](/de/blog/business-english-email-schreiben/).
 
-Im Writing-Bereich sollten Sie sich klarmachen, dass die automatische und menschliche Bewertung der ETS vor allem syntaktische Vielfalt honoriert. Statt sich in langen Schachtelsätzen zu verheddern, empfiehlt sich eine gezielte Mischung aus klaren Hauptsätzen, konditionalen Gefügen (*if-clauses*) und konzessiven Satzverbindungen (*although, despite*). Achten Sie darauf, in der E-Mail-Aufgabe alle geforderten Aspekte mit mindestens einem eigenständigen Satz präzise abzuarbeiten.
+Im Writing-Bereich sollten Sie sich klarmachen, dass die Bewertung neben inhaltlicher Klarheit auch syntaktische Vielfalt berücksichtigt. Statt sich in langen Schachtelsätzen zu verheddern, empfiehlt sich eine gezielte Mischung aus klaren Hauptsätzen, konditionalen Gefügen (*if-clauses*) und konzessiven Satzverbindungen (*although, despite*). Achten Sie darauf, in der E-Mail-Aufgabe alle geforderten Aspekte mit mindestens einem eigenständigen Satz präzise abzuarbeiten.
 
 ---
 
@@ -153,6 +153,7 @@ Viele Kandidaten scheitern nicht an ihren Sprachkenntnissen, sondern an falschen
 2. **Zu lange Texte im Writing verfassen:** Wer versucht, in 10 Minuten einen 300-Wörter-Aufsatz zu schreiben, verliert den roten Faden. Präzision und vollständige Erfüllung aller Aufgabenpunkte schlagen bloße Textlänge.
 3. **Paraphrasieren bei Listen and Repeat:** Bei den meisten Sprechtests ist Umschreiben erwünscht. Bei dieser Aufgabe gilt jedoch: Exakte Worttreue ist Pflicht. Ein Ersetzen von *is going to* durch *will* wird als Fehler gewertet.
 4. **Vernachlässigung des Alltagsvokabulars:** Die neuen Aufgaben *Read in Daily Life* verlangen Wörter aus den Bereichen Öffnungszeiten, Fristen, Gebühren und studentische Dienstleistungen.
+5. **Typisch deutsche Aussprachefallen:** Das englische /w/ wird oft wie das deutsche „w“ gesprochen (*west* klingt wie *vest*), *th* wird zu /s/ oder /z/ (*think* klingt wie *sink*), und die Auslautverhärtung macht aus *bad* ein „bat“. Bei *Listen and Repeat* kann so ein anderes Wort entstehen – nehmen Sie sich auf und hören Sie gezielt auf diese Laute.
 
 ---
 

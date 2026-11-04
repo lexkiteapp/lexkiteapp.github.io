@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, format-tes, persiapan]
 cover: toefl
 coverAlt: "Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru"
-qualityScore: 95
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T19:51:00+07:00
@@ -68,14 +68,14 @@ TOEFL iBT generasi baru ini dirancang jauh lebih ringkas (total durasi sekitar 1
 
 Dalam panduan lengkap ini, kami mengupas tuntas seluruh perubahan struktur ujian, membedah 12 tipe soal terbaru, serta menyajikan rencana belajar mandiri 4 minggu agar Anda siap meraih skor impian.
 
-![Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru](media:toefl "Modul latihan TOEFL iBT di Lexkite dengan rincian struktur adaptif dan tipe soal format baru 2026")
+![Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru](media:toefl "Modul latihan TOEFL iBT di Lexkite dengan rincian struktur tes dan tipe soal format baru 2026")
 
 ## Tiga Perubahan Fundamental: format baru toefl ibt 2026
 
 Bagi calon mahasiswa dan pemburu beasiswa luar negeri, ada tiga pilar utama yang mendasari format baru ini:
 
 ### 1. Durasi Ujian Lebih Singkat (Sekitar 90 Menit)
-Dari yang semula memakan waktu lebih dari 3 jam yang melelahkan fisik dan mental, kini ujian dapat diselesaikan dalam waktu sekitar 1,5 jam. Durasi yang lebih singkat ini sangat menguntungkan stamina fokus Anda, tetapi memiliki konsekuensi taktis: jumlah soal yang lebih sedikit berarti bobot penalti untuk setiap kesalahan ceroboh (*careless mistake*) menjadi jauh lebih signifikan terhadap skor akhir.
+Dari yang semula memakan waktu sekitar 2 jam (sebelum Juli 2023 bahkan hampir 3 jam), kini ujian dapat diselesaikan dalam waktu sekitar 1,5 jam. Durasi yang lebih singkat ini sangat menguntungkan stamina fokus Anda, tetapi memiliki konsekuensi taktis: jumlah soal yang lebih sedikit berarti bobot penalti untuk setiap kesalahan ceroboh (*careless mistake*) menjadi jauh lebih signifikan terhadap skor akhir.
 
 ### 2. Desain Tes Adaptif Multi-Tahap
 Bagian tes membaca (*Reading*) dan menyimak (*Listening*) kini bekerja secara adaptif dalam dua tahap. Kinerja Anda pada modul pertama menentukan apakah modul kedua akan menyajikan soal dengan tingkat kesulitan standar atau tingkat lanjutan. Performa solid pada tahap pertama adalah syarat mutlak untuk membuka peluang meraih band skor tertinggi (band 5.0–6.0).
@@ -102,7 +102,7 @@ Mengikuti tren standar internasional modern, nilai setiap bagian dan skor keselu
 
 Berikut adalah peta lengkap 12 tipe soal yang akan Anda hadapi di ruang ujian:
 
-### 1. Reading (30 Menit – 3 Tipe Soal)
+### 1. Reading (sekitar 30 Menit – 3 Tipe Soal)
 - **Complete the Words:** Membaca paragraf akademik pendek di mana paruh kedua dari beberapa kata dihilangkan. Anda harus mengetik huruf yang hilang langsung pada papan ketik.  
   *Contoh:* *Scientists discov___ that certain marine org___ adapt to extreme pressure.* (Jawaban: *discovered*, *organisms*). Tugas ini menguji ejaan presisi dan kesesuaian tata bahasa secara simultan.
 - **Read in Daily Life:** Teks pendek bernuansa keseharian kampus (pengumuman asrama, jadwal kuliah, surel fasilitas universitas, brosur) yang diikuti soal pilihan ganda. Ini bukti bahwa TOEFL kini tak melulu menguji sains murni.
@@ -114,7 +114,7 @@ Untuk memperkuat kosakata akademik dan istilah universitas, manfaatkan koleksi [
 
 ---
 
-### 2. Listening (29 Menit – 4 Tipe Soal)
+### 2. Listening (sekitar 29 Menit – 4 Tipe Soal)
 - **Listen and Choose a Response:** Mendengarkan satu kalimat pendek dan memilih tanggapan percakapan yang paling logis.
 - **Listen to a Conversation:** Dialog realistis antara dua mahasiswa atau antara mahasiswa dan staf akademik.
 - **Listen to an Announcement:** Pengumuman resmi melalui pengeras suara kampus mengenai perubahan jadwal atau kebijakan fasilitas.
@@ -124,18 +124,18 @@ Untuk memperkuat kosakata akademik dan istilah universitas, manfaatkan koleksi [
 
 ---
 
-### 3. Writing (23 Menit – 3 Tipe Soal)
+### 3. Writing (sekitar 23 Menit – 3 Tipe Soal)
 - **Build a Sentence:** Menyusun acakan frasa menjadi sebuah kalimat utuh yang benar secara tata bahasa (*word order*).
-- **Write an Email:** Menulis surel formal atau semi-formal dalam waktu 7 menit untuk merespons situasi tertentu dengan mencakup seluruh instruksi yang diminta.
-- **Write for an Academic Discussion:** Menulis tanggapan diskusi kelas online dalam waktu 10 menit dengan menyajikan argumen baru yang berbobot.
+- **Write an Email:** Menulis surel formal atau semi-formal dalam waktu sekitar 7 menit untuk merespons situasi tertentu dengan mencakup seluruh instruksi yang diminta.
+- **Write for an Academic Discussion:** Menulis tanggapan diskusi kelas online dalam waktu sekitar 10 menit dengan menyajikan argumen baru yang berbobot (disarankan sekitar 100 kata atau lebih).
 
 Pelajari strategi menulis forum online dalam 10 menit melalui artikel panduan kami tentang [TOEFL iBT Academic Discussion Writing](/id/blog/toefl-ibt-academic-discussion-writing-panduan/) serta panduan menyusun [surel profesional dalam bahasa Inggris](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/).
 
 ---
 
-### 4. Speaking (8 Menit – 2 Tipe Soal)
+### 4. Speaking (sekitar 8 Menit – 2 Tipe Soal)
 - **Listen and Repeat:** Mendengarkan sebuah kalimat dari penutur asli dan mengulanginya secara persis ke mikrofon. Kuncinya adalah akurasi total: jangan menelan akhiran /-s/ atau /-ed/ dan jangan mengganti kata (*paraphrasing* dilarang di sini).
-- **Take an Interview:** Menjawab serangkaian pertanyaan bergaya wawancara dalam durasi 45 detik per tanggapan, dengan struktur: jawaban langsung, alasan pendukung, dan contoh nyata.
+- **Take an Interview:** Menjawab serangkaian pertanyaan bergaya wawancara dalam durasi sekitar 45 detik per tanggapan, dengan struktur: jawaban langsung, alasan pendukung, dan contoh nyata.
 
 Untuk membiasakan lidah dan refleks bicara Anda, manfaatkan fitur [ruang latihan berbicara interaktif di Lexkite](/#/speaking) serta latihan pelafalan di [laboratorium pengucapan](/#/practice/speak).
 
@@ -151,6 +151,7 @@ Banyak peserta gagal mencapai band impian karena terjebak kebiasaan lama:
 2. **Menulis Esai Bertele-tele:** Menulis pengantar panjang pada tugas surel atau diskusi online hanya membuang waktu. ETS menilai efektivitas argumen dan ketercakupan poin tugas, bukan kuantitas kata yang berbusa-busa.
 3. **Membuat Parafrase pada Listen and Repeat:** Jika pada tes lain Anda disarankan menggunakan sinonim, pada tugas ini Anda wajib mengulang kata per kata secara identik. Mengubah *is going to* menjadi *will* dicatat sebagai kesalahan.
 4. **Terlalu Fokus pada Teks Rumit:** Melupakan kosakata praktis seputar registrasi mata kuliah, perpustakaan, atau biaya sewa akan membuat Anda kesulitan di tugas *Read in Daily Life*.
+5. **Kebiasaan khas penutur bahasa Indonesia:** bahasa Indonesia tidak mengenal akhiran jamak dan kala lampau, sehingga *-s* dan *-ed* sering hilang (*two book*, *yesterday I walk*); bunyi *th* juga kerap diucapkan /t/ atau /d/. Dalam *Listen and Repeat* maupun *Complete the Words*, akhiran yang hilang langsung dihitung salah, jadi biasakan memeriksa akhiran setiap kata benda dan kata kerja.
 
 ---
 

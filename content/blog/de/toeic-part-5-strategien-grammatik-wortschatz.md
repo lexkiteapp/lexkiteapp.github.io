@@ -1,6 +1,6 @@
 ---
 title: "TOEIC Part 5: Grammatik- und Wortschatzstrategien meistern"
-description: "Meistern Sie TOEIC Part 5 in 10 Minuten: Methoden zur Analyse der 30 Saetze, Wortartenbestimmung, Kollokationen und praezises Zeitmanagement."
+description: "Meistern Sie TOEIC Part 5 in 10 Minuten: Methoden zur Analyse der 30 Sätze, Wortartenbestimmung, Kollokationen und präzises Zeitmanagement."
 slug: toeic-part-5-strategien-grammatik-wortschatz
 lang: de
 translationKey: toeic-part-5-meo-lam-bai
@@ -13,25 +13,25 @@ publishAt: 2027-01-04T12:11:00+01:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 ---
 
-Fuer Berufstaetige und Studierende, die internationale Karriereschritte anstreben, verlangt der TOEIC Reading-Test absolute Praezision unter hohem Zeitdruck. Mit exakt 30 Lueckensaetzen eroeffnet der Abschnitt **toeic part 5** den Leseteil und praegt massgeblich den weiteren Rhythmus der gesamten Pruefung. Wer mehr als 12 Minuten in diese Saetze investiert, geraet bei den anspruchsvollen Mehrfachtexten am Ende der Pruefung unausweichlich in Zeitnot.
+Für Berufstätige und Studierende, die internationale Karriereschritte anstreben, verlangt der TOEIC Reading-Test absolute Präzision unter hohem Zeitdruck. Mit exakt 30 Lückensätzen eröffnet der Abschnitt **toeic part 5** den Leseteil und prägt maßgeblich den weiteren Rhythmus der gesamten Prüfung. Wer mehr als 12 Minuten in diese Sätze investiert, gerät bei den anspruchsvollen Mehrfachtexten am Ende der Prüfung unausweichlich in Zeitnot.
 
-Durch eine strukturierte Analysemethode und die Prinzipien aus unserem Leitfaden zu [TOEIC Part 7 Leseverstaendnis und Zeitmanagement](/de/blog/toeic-part-7-leseverstaendnis-zeitmanagement/) sowie unserem Guide zum [Business English E-Mail schreiben](/de/blog/business-english-email-schreiben/) lernen Sie, jede Aufgabenstellung in unter 20 Sekunden treffsicher zu loesen.
+Durch eine strukturierte Analysemethode und die Prinzipien aus unserem Leitfaden zu [TOEIC Part 7 Leseverständnis und Zeitmanagement](/de/blog/toeic-part-7-leseverstaendnis-zeitmanagement/) sowie unserem Guide zum [Business English E-Mail schreiben](/de/blog/business-english-email-schreiben/) lernen Sie, jede Aufgabenstellung in unter 20 Sekunden treffsicher zu lösen.
 
 ---
 
 ## Aufbau von TOEIC Part 5: Die zwei Hauptkategorien der 30 Aufgaben
 
-Part 5 besteht aus 30 unvollstaendigen Saetzen, fuer die jeweils vier Antwortoptionen (A, B, C, D) zur Auswahl stehen. Die goldene Regel fuer maximale Geschwindigkeit lautet: Betrachten Sie zuerst die Antwortoptionen, noch bevor Sie den gesamten Satz lesen.
+Part 5 besteht aus 30 unvollständigen Sätzen, für die jeweils vier Antwortoptionen (A, B, C, D) zur Auswahl stehen. Die goldene Regel für maximale Geschwindigkeit lautet: Betrachten Sie zuerst die Antwortoptionen, noch bevor Sie den gesamten Satz lesen.
 
 Die Fragen lassen sich in zwei grundlegende Aufgabentypen unterteilen:
 
-1. **Reine Grammatik- und Wortartenfragen (ca. 55 % des Abschnitts)**: Die vier Optionen teilen denselben Wortstamm, unterscheiden sich jedoch durch ihre Suffixe (z. B. *manage*, *manager*, *managerial*, *management*). Hier muessen Sie ermitteln, welche Wortart die syntaktische Struktur verlangt (Substantiv, Adjektiv, Adverb oder konjugiertes Verb).
-2. **Wortschatz- und Kollokationsfragen (ca. 45 % des Abschnitts)**: Die Optionen praesentieren voellig unterschiedliche Woerter derselben Wortart (z. B. *postpone*, *deliver*, *announce*, *exceed*). Die richtige Loesung erfordert Verstaendnis fuer Geschaeftskontexte und feste Wortverbindungen.
+1. **Reine Grammatik- und Wortartenfragen (meist gut die Hälfte des Abschnitts, die genaue Verteilung schwankt von Test zu Test)**: Die vier Optionen teilen denselben Wortstamm, unterscheiden sich jedoch durch ihre Suffixe (z. B. *manage*, *manager*, *managerial*, *management*). Hier müssen Sie ermitteln, welche Wortart die syntaktische Struktur verlangt (Substantiv, Adjektiv, Adverb oder konjugiertes Verb).
+2. **Wortschatz- und Kollokationsfragen (der übrige Teil)**: Die Optionen präsentieren völlig unterschiedliche Wörter derselben Wortart (z. B. *postpone*, *deliver*, *announce*, *exceed*). Die richtige Lösung erfordert Verständnis für Geschäftskontexte und feste Wortverbindungen.
 
-| Aufgabentyp | Merkmal der Optionen | Zielzeit pro Aufgabe | Pruefungsfokus |
+| Aufgabentyp | Merkmal der Optionen | Zielzeit pro Aufgabe | Prüfungsfokus |
 | :--- | :--- | :--- | :--- |
 | **Wortarten (Parts of Speech)** | Gleicher Wortstamm, wechselnde Suffixe (*-tion, -ly, -ive*) | 15 Sekunden | Syntaktische Positionsanalyse |
 | **Zeitformen und Passiv** | Konjugierte Verbformen (*has completed, was completed*) | 20 Sekunden | Subjekt-Verb-Kongruenz und Aspekt |
@@ -44,56 +44,63 @@ Die Fragen lassen sich in zwei grundlegende Aufgabentypen unterteilen:
 
 ## Strategie 1: Wortart anhand des unmittelbaren Satzkontexts bestimmen
 
-Bei Aufgaben zur Wortableitung muessen Sie selten den gesamten Satz Zeile fuer Zeile uebersetzen. Konzentrieren Sie sich primaer auf die Woerter unmittelbar vor und nach der Luecke.
+Bei Aufgaben zur Wortableitung müssen Sie selten den gesamten Satz Zeile für Zeile übersetzen. Konzentrieren Sie sich primär auf die Wörter unmittelbar vor und nach der Lücke.
 
-Typische syntaktische Muster im Pruefungsalltag:
+Typische syntaktische Muster im Prüfungsalltag:
 
-- **Substantiv (Subjekt- oder Objektposition)**: Folgt haeufig auf Artikel (*a, an, the*), Possessivpronomen (*our, their, his*) oder Praepositionen (*in, for, about*). Steht die Luecke vor einem Praedikat, suchen Sie in der Regel ein Nomen:
-  - *Beispiel: The recent _____ in production costs surprised the board. (Optionen: increase, increasingly, increased)* $\rightarrow$ Loesung: *increase* (Substantiv).
+- **Substantiv (Subjekt- oder Objektposition)**: Folgt häufig auf Artikel (*a, an, the*), Possessivpronomen (*our, their, his*) oder Präpositionen (*in, for, about*). Steht die Lücke vor einem Prädikat, suchen Sie in der Regel ein Nomen:
+  - *Beispiel: The recent _____ in production costs surprised the board. (Optionen: increase, increasingly, increased)* $\rightarrow$ Lösung: *increase* (Substantiv).
 - **Adjektiv (Attribut)**: Steht direkt vor einem Substantiv oder nach Kopulaverben (*be, seem, remain, become*). Es beschreibt eine Eigenschaft:
-  - *Beispiel: Ms. Higgins presented a _____ proposal during the meeting. (Optionen: comprehensive, comprehensively, comprehend)* $\rightarrow$ Loesung: *comprehensive* (Adjektiv zu *proposal*).
-- **Adverb mit Endung -ly**: Modifiziert Verben, Adjektive oder vollstaendige Saetze. Ist ein Satz syntaktisch bereits komplett mit Subjekt, Prädikat und Objekt ausgestattet, fordert die Luecke fast immer ein Adverb:
-  - *Beispiel: The customer support team responded _____ to the ticket. (Optionen: prompt, promptly, promptness)* $\rightarrow$ Loesung: *promptly* (Adverb modifiziert *responded*).
+  - *Beispiel: Ms. Higgins presented a _____ proposal during the meeting. (Optionen: comprehensive, comprehensively, comprehend)* $\rightarrow$ Lösung: *comprehensive* (Adjektiv zu *proposal*).
+- **Adverb mit Endung -ly**: Modifiziert Verben, Adjektive oder vollständige Sätze. Ist ein Satz syntaktisch bereits komplett mit Subjekt, Prädikat und Objekt ausgestattet, fordert die Lücke fast immer ein Adverb:
+  - *Beispiel: The customer support team responded _____ to the ticket. (Optionen: prompt, promptly, promptness)* $\rightarrow$ Lösung: *promptly* (Adverb modifiziert *responded*).
 
-Vertiefen Sie Ihr Vokabularwissen auch mit unseren Ratschlaegen zu [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/) und nutzen Sie unsere [Mustertexte und Textbeispiele](/samples/) fuer formelle Texte.
+Vertiefen Sie Ihr Vokabularwissen auch mit unseren Ratschlägen zu [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/) und nutzen Sie unsere [Mustertexte und Textbeispiele](/samples/) für formelle Texte.
 
 ---
 
-## Strategie 2: Praepositionen und Konjunktionen praezise trennen
+## Strategie 2: Präpositionen und Konjunktionen präzise trennen
 
-Ein haeufiger Stolperstein im Test besteht in der Verwechslung von Praepositionen und subordinierenden Konjunktionen mit aehnlicher Bedeutung.
+Ein häufiger Stolperstein im Test besteht in der Verwechslung von Präpositionen und subordinierenden Konjunktionen mit ähnlicher Bedeutung.
 
 Die syntaktische Faustregel lautet:
-- **Eine Praeposition** (*due to, despite, in spite of, during*) verlangt ausschliesslich eine Nominalphrase, ein Pronomen oder ein Gerundium (*-ing*). Sie kann niemals einen eigenstaendigen Nebensatz mit Subjekt und Prädikat anbinden.
-- **Eine Konjunktion** (*because, although, while, since*) leitet stets einen vollstaendigen Teilsatz mit Subjekt und finite Verbform ein.
+- **Eine Präposition** (*due to, despite, in spite of, during*) verlangt ausschließlich eine Nominalphrase, ein Pronomen oder ein Gerundium (*-ing*). Sie kann niemals einen eigenständigen Nebensatz mit Subjekt und Prädikat anbinden.
+- **Eine Konjunktion** (*because, although, while, since*) leitet stets einen vollständigen Teilsatz mit Subjekt und finiter Verbform ein.
 
-| Logische Relation | Praeposition (+ Nomen / Gerundium) | Konjunktion (+ Subjekt + Verb) |
+| Logische Relation | Präposition (+ Nomen / Gerundium) | Konjunktion (+ Subjekt + Verb) |
 | :--- | :--- | :--- |
 | **Ursache / Grund** | *Due to, Because of, Owing to* | *Because, Since, As* |
-| **Einraeumung / Gegensatz** | *Despite, In spite of* | *Although, Even though, While* |
+| **Einräumung / Gegensatz** | *Despite, In spite of* | *Although, Even though, While* |
 | **Zeitraum / Gleichzeitigkeit** | *During* | *While, When, As* |
 
-Sobald Sie solche Optionen sehen, pruefen Sie die Worte nach der Luecke: Befindet sich dort ein konjugiertes Verb, scheiden saemtliche Praepositionen automatisch aus.
+Sobald Sie solche Optionen sehen, prüfen Sie die Worte nach der Lücke: Befindet sich dort ein konjugiertes Verb, scheiden sämtliche Präpositionen automatisch aus.
 
 ![Lernkartei-Oberfläche in Lexkite mit Vokabelabfrage und Lautschrift](media:review "Taegliches Wortschatztraining mit Karteikarten und Spaced Repetition in der Lexkite App")
 
 ---
 
-## Strategie 3: Passivstrukturen und Subjekt-Verb-Kongruenz pruefen
+## Strategie 3: Passivstrukturen und Subjekt-Verb-Kongruenz prüfen
 
-In der angelsaechsischen Geschaeftskorrespondenz werden Vorgaenge oft im Passiv formuliert, um die Massnahme oder das Resultat in den Vordergrund zu stellen.
+In der angelsächsischen Geschäftskorrespondenz werden Vorgänge oft im Passiv formuliert, um die Maßnahme oder das Resultat in den Vordergrund zu stellen.
 
 Gehen Sie bei Verben in zwei Schritten vor:
-1. **Kongruenzpruefung (Singular oder Plural)**: Achten Sie genau auf das Kernsubstantiv, wenn lange praepositionale Attribute dazwischengeschoben sind (*The implementation of new software tools [was/were] approved...* $\rightarrow$ das Kernsubstantiv ist *implementation*, Singular: *was*).
-2. **Aktiv- oder Passivstatus**: Folgt dem Verb direkt ein Akkusativobjekt, liegt ein Aktivsatz vor (*The company expanded its logistics network*). Fehlt ein Objekt oder wird die Handlung mit *by* ergaenzt, steht das Passiv (*The proposal was rejected by the steering committee*).
+1. **Kongruenzprüfung (Singular oder Plural)**: Achten Sie genau auf das Kernsubstantiv, wenn lange präpositionale Attribute dazwischengeschoben sind (*The implementation of new software tools [was/were] approved...* $\rightarrow$ das Kernsubstantiv ist *implementation*, Singular: *was*).
+2. **Aktiv- oder Passivstatus**: Folgt dem Verb direkt ein Akkusativobjekt, liegt ein Aktivsatz vor (*The company expanded its logistics network*). Fehlt ein Objekt oder wird die Handlung mit *by* ergänzt, steht das Passiv (*The proposal was rejected by the steering committee*).
 
-Ergaenzen Sie Ihre Kompetenzen fuer den Berufsalltag durch unseren Leitfaden zu [Englische Abkuerzungen im Beruf](/de/blog/englische-abkuerzungen-im-beruf-email-guide/) sowie Formulierungen fuer [Feedback auf Englisch geben](/de/blog/feedback-auf-englisch-geben-im-beruf/).
+Ergänzen Sie Ihre Kompetenzen für den Berufsalltag durch unseren Leitfaden zu [Englische Abkürzungen im Beruf](/de/blog/englische-abkuerzungen-im-beruf-email-guide/) sowie Formulierungen für [Feedback auf Englisch geben](/de/blog/feedback-auf-englisch-geben-im-beruf/).
 
 ---
 
-## Praktische Uebungsaufgaben zu TOEIC Part 5 mit Erklaerungen
+### Typische Fallen für deutschsprachige Lernende
 
-Testen Sie Ihre Analysefaehigkeit anhand von vier authentischen Pruefungsbeispielen:
+- **Perfekt statt Simple Past**: Im Deutschen sagt man „Die Zusammenfassung ist gestern weitergeleitet worden“. Im Englischen schließt *yesterday* das Present Perfect aus: *was forwarded yesterday*, nicht *has been forwarded yesterday*.
+- **since oder for**: „seit drei Jahren“ heißt *for three years*, „seit 2023“ heißt *since 2023*, beide meist mit Present Perfect (*has worked*), nicht mit Präsens (*works since*).
+- **Falsche Freunde**: *become* heißt „werden“, nicht „bekommen“; *actual* heißt „tatsächlich“, nicht „aktuell“ (*current*); *eventually* heißt „schließlich“, nicht „eventuell“ (*possibly*).
+- **Adjektiv statt Adverb**: Im Deutschen bleibt „schnell“ in „Er antwortete schnell“ unverändert. Im Englischen braucht das Verb das Adverb: *responded promptly*, nicht *responded prompt*.
+
+## Praktische Übungsaufgaben zu TOEIC Part 5 mit Erklärungen
+
+Testen Sie Ihre Analysefähigkeit anhand von vier prüfungsnahen Beispielen:
 
 ### Aufgabe 1 (Wortartenbestimmung)
 *The marketing department completed the market analysis _____ before the board meeting.*
@@ -102,16 +109,16 @@ Testen Sie Ihre Analysefaehigkeit anhand von vier authentischen Pruefungsbeispie
 - C) *successfully*
 - D) *succession*
 
-**Erklaerung:** Der Satz verfuegt bereits ueber Subjekt (*The marketing department*), Praedikat (*completed*) und Objekt (*the market analysis*). Das Lueckenwort modifiziert die Art und Weise der Fertigstellung. Erforderlich ist das Adverb: Die richtige Loesung ist **C) *successfully***.
+**Erklärung:** Der Satz verfügt bereits über Subjekt (*The marketing department*), Prädikat (*completed*) und Objekt (*the market analysis*). Das Lückenwort modifiziert die Art und Weise der Fertigstellung. Erforderlich ist das Adverb: Die richtige Lösung ist **C) *successfully***.
 
-### Aufgabe 2 (Praeposition vs. Konjunktion)
+### Aufgabe 2 (Präposition vs. Konjunktion)
 *_____ unexpected delays at customs, the delivery arrived before the scheduled deadline.*
 - A) *Although*
 - B) *Despite*
 - C) *Even though*
 - D) *Whereas*
 
-**Erklaerung:** Nach der Luecke steht lediglich die Nominalphrase *unexpected delays at customs* ohne finites Verb. *Although* und *Even though* verlangen einen vollstaendigen Nebensatz. Die korrekte einraeumende Praeposition ist **B) *Despite***.
+**Erklärung:** Nach der Lücke steht lediglich die Nominalphrase *unexpected delays at customs* ohne finites Verb. *Although* und *Even though* verlangen einen vollständigen Nebensatz. Die korrekte einräumende Präposition ist **B) *Despite***.
 
 ### Aufgabe 3 (Kontextbezogener Wortschatz)
 *All travel reimbursement receipts must be _____ to the finance office by Friday afternoon.*
@@ -120,7 +127,7 @@ Testen Sie Ihre Analysefaehigkeit anhand von vier authentischen Pruefungsbeispie
 - C) *postponed*
 - D) *divided*
 
-**Erklaerung:** Im betrieblichen Abrechnungskontext werden Belege eingereicht (*to submit*). Die einzig schluessige Geschaeftskollokation ist **A) *submitted***.
+**Erklärung:** Im betrieblichen Abrechnungskontext werden Belege eingereicht (*to submit*). Die einzig schlüssige Geschäftskollokation ist **A) *submitted***.
 
 ### Aufgabe 4 (Kongruenz und Tempus)
 *A detailed summary of audit results _____ forwarded to the executive directors yesterday.*
@@ -129,24 +136,24 @@ Testen Sie Ihre Analysefaehigkeit anhand von vier authentischen Pruefungsbeispie
 - C) *was*
 - D) *were*
 
-**Erklaerung:** Das Subjekt ist das singulaere Nomen *A detailed summary* (nicht das Attribut *of audit results*). Die Zeitangabe *yesterday* fordert das Simple Past im Singular. Die richtige Loesung ist **C) *was***.
+**Erklärung:** Das Subjekt ist das singuläre Nomen *A detailed summary* (nicht das Attribut *of audit results*). Die Zeitangabe *yesterday* fordert das Simple Past im Singular. Die richtige Lösung ist **C) *was***.
 
 ---
 
-## Zeitmanagement-Protokoll: Part 5 in 10 Minuten abschliessen
+## Zeitmanagement-Protokoll: Part 5 in 10 Minuten abschließen
 
-Um fuer die ausfuehrlichen Texte in Part 7 mindestens 55 Minuten zu sichern, gilt ein fester Zeittakt:
+Um für die ausführlichen Texte in Part 7 mindestens 55 Minuten zu sichern, gilt ein fester Zeittakt:
 
 ```
-Gesamtbudget fuer Part 5 = 10 Minuten (600 Sekunden)
+Gesamtbudget für Part 5 = 10 Minuten (600 Sekunden)
 30 Aufgaben / 600 Sekunden = ca. 20 Sekunden pro Aufgabe
 ```
 
-Wenden Sie folgendes Ablaufmuster am Pruefungstag an:
+Wenden Sie folgendes Ablaufmuster am Prüfungstag an:
 - **0–5 Sekunden**: Schnellcheck der vier Optionen zur Einordnung (Grammatik oder Wortschatz).
-- **5–15 Sekunden**: Blick auf die flankierenden Woerter zur Bestimmung der noetigen Wortart oder Bedeutung.
-- **15–20 Sekunden**: Markieren auf dem Antwortbogen und sofortiger Wechsel zur naechsten Aufgabe.
-- **Stopp-Regel bei Unsicherheit**: Schwanken Sie nach 25 Sekunden zwischen zwei Varianten, waehlen Sie Ihre beste Vermutung und gehen Sie weiter. Bleiben Sie keinesfalls minutenlang an einem Einzelsatz haengen.
+- **5–15 Sekunden**: Blick auf die flankierenden Wörter zur Bestimmung der nötigen Wortart oder Bedeutung.
+- **15–20 Sekunden**: Markieren auf dem Antwortbogen und sofortiger Wechsel zur nächsten Aufgabe.
+- **Stopp-Regel bei Unsicherheit**: Schwanken Sie nach 25 Sekunden zwischen zwei Varianten, wählen Sie Ihre beste Vermutung und gehen Sie weiter. Bleiben Sie keinesfalls minutenlang an einem Einzelsatz hängen.
 
 ![Lexkite Aussprachetrainer mit Mikrofonaufnahme und akustischer Bewertung](media:practice-speak "Ueben der englischen Aussprache und Sprachpraezision mit Audio-Feedback auf Lexkite")
 
@@ -154,9 +161,9 @@ Wenden Sie folgendes Ablaufmuster am Pruefungstag an:
 
 ## Gezielt zum Testerfolg mit Lexkite
 
-Souveraenitaet und Schnelligkeit bei Multiple-Choice-Pruefungen entstehen durch taegliche Praxis und fundierte Wortschatzarbeit:
+Souveränität und Schnelligkeit bei Multiple-Choice-Prüfungen entstehen durch tägliche Praxis und fundierte Wortschatzarbeit:
 
-- **FSRS-Algorithmus fuer Spaced Repetition**: Speichern Sie Geschaeftsausdruecke und Phrasal Verbs dauerhaft im Langzeitgedaechtnis ab.
+- **FSRS-Algorithmus für Spaced Repetition**: Speichern Sie Geschäftsausdrücke und Phrasal Verbs dauerhaft im Langzeitgedächtnis ab.
 - **Integriertes Kontextwörterbuch**: Rufen Sie Definitionen, Kollokationen und die korrekte IPA-Aussprache mit einem Tippen auf.
 - **Interaktiver Sprechtrainer**: Verbessern Sie Ihre Sprachbeherrschung in der [Sprechpraxis von Lexkite](/#/practice/speak) mit sofortigem Feedback.
 - **Strukturierter Vorbereitungsplan**: Nutzen Sie unseren kompletten [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/) zur Aufteilung Ihrer Lernwochen.
@@ -165,19 +172,19 @@ Starten Sie noch heute mit der [Lexkite Web-App](/#/) und trainieren Sie TOEIC P
 
 {{cta: /#/ | Jetzt Business English in der Lexkite App trainieren}}
 
-{{youtube: | TOEIC Part 5 Grammatik- und Wortschatzstrategien fuer Bestnoten}}
+{{youtube: | TOEIC Part 5 Grammatik- und Wortschatzstrategien für Bestnoten}}
 
 ---
 
-## Haeufig gestellte Fragen zu TOEIC Part 5
+## Häufig gestellte Fragen zu TOEIC Part 5
 
-### Muss man den ganzen Satz lesen, um die Loesung zu finden?
-Bei Grammatik- und Wortartenfragen reicht in ueber 80 % der Faelle der Blick auf die zwei bis drei Woerter vor und nach der Luecke. Bei Vokabel- und Konjunktionsfragen ist das Ueberfliegen des Gesamtsatzes unerlaesslich, um die inhaltliche Stimmigkeit zu gewaehrleisten.
+### Muss man den ganzen Satz lesen, um die Lösung zu finden?
+Bei Grammatik- und Wortartenfragen reicht meistens schon der Blick auf die zwei bis drei Wörter vor und nach der Lücke. Bei Vokabel- und Konjunktionsfragen ist das Überfliegen des Gesamtsatzes unerlässlich, um die inhaltliche Stimmigkeit zu gewährleisten.
 
-### Wie viele Fehler darf man sich in Part 5 fuer ein 850+-Ergebnis leisten?
-Fuer ein Gesamtergebnis von ueber 850 Punkten (mindestens 420 Punkte im Reading-Teil) sollten Sie in Part 5 nicht mehr als 3 bis 4 Fehler machen.
+### Wie viele Fehler darf man sich in Part 5 für ein 850+-Ergebnis leisten?
+Eine feste Umrechnung gibt es nicht: ETS rechnet die Rohpunkte je Testversion in die Skala 5–495 pro Teil um, eine offizielle Fehlertabelle pro Part existiert nicht. Als Faustregel für ambitionierte Ziele gilt: In Ihren Probetests sollte Part 5 nahezu fehlerfrei sein, denn diese Aufgaben sind die schnellsten Punkte des Leseteils. Notieren Sie jeden Fehler mit Ursache (Wortart, Zeitform, Kollokation), um gezielt nachzuarbeiten.
 
-### Wie praegt man sich geschaeftliche Kollokationen am besten ein?
-Lernen Sie Vokabeln niemals isoliert, sondern stets in festen Verbindungen (*meet the deadline*, *conduct an investigation*, *reach a consensus*). Das Lernen ganzer Phrasen mit einem intelligenten Karteikartensystem beschleunigt die Wiedererkennung im Test massgeblich.
+### Wie prägt man sich geschäftliche Kollokationen am besten ein?
+Lernen Sie Vokabeln niemals isoliert, sondern stets in festen Verbindungen (*meet the deadline*, *conduct an investigation*, *reach a consensus*). Das Lernen ganzer Phrasen mit einem intelligenten Karteikartensystem beschleunigt die Wiedererkennung im Test maßgeblich.
 
 Um Ihr Hörverstehen im Test zu perfektionieren und Klangfallen zu meiden, lesen Sie unsere [toeic listening part 2 strategien für fragen und antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).

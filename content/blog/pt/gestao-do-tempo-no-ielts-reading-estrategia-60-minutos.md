@@ -12,11 +12,11 @@ coverAlt: "Estratégias de distribuição de 60 minutos e gerenciamento de tempo
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 publishAt: 2027-01-10T19:01:00-03:00
 ---
 
-Para a ampla maioria dos estudantes que prestam o exame acadêmico ou geral, a **gestão do tempo no ielts reading** representa o maior divisor de águas entre estagnar na faixa 6.0 ou conquistar uma nota 7.5 ou superior. Diferente da prova de compreensão auditiva (*Listening*), na qual o ritmo dos áudios guia o andamento de cada bloco, na seção de leitura você é o único gestor de 60 minutos exatos para processar três textos densos que somam aproximadamente 2.750 palavras e responder a 40 questões minuciosas.
+Para a ampla maioria dos estudantes que prestam o exame acadêmico ou geral, a **gestão do tempo no ielts reading** representa o maior divisor de águas entre estagnar na faixa 6.0 ou conquistar uma nota 7.5 ou superior. Diferente da prova de compreensão auditiva (*Listening*), na qual o ritmo dos áudios guia o andamento de cada bloco, na seção de leitura (módulo Academic) você é o único gestor de 60 minutos exatos para processar três textos densos que somam até cerca de 2.750 palavras e responder a 40 questões minuciosas.
 
 Um dos erros mais comuns e prejudiciais é dividir essa hora em três blocos idênticos de 20 minutos por passagem. Essa partilha aritmética ignora a arquitetura do exame: o Texto 1 aborda temas factuais e descritivos com vocabulário direto, enquanto o Texto 3 traz debates teóricos abstratos, contra-argumentos complexos e posicionamentos indiretos de especialistas. Ao gastar 20 minutos no primeiro texto, você desperdiça o fôlego cognitivo necessário para resolver os desafios finais.
 
@@ -26,7 +26,7 @@ Neste guia prático e aprofundado, você vai dominar a metodologia consagrada de
 
 A prova de leitura do IELTS foi deliberadamente desenhada com uma curva de dificuldade progressiva. Uma análise lúcida do esforço mental exigido demonstra por que a divisão equilibrada é uma armadilha:
 
-1. **Texto 1 (Nível intermediário B2):** Textos sobre história social, biografias de cientistas ou fenômenos naturais simples. As respostas costumam seguir a ordem sequencial do artigo. A meta obrigatória é concluir as 13 questões em **no máximo 15 minutos**.
+1. **Texto 1 (Nível intermediário B2):** Textos sobre história social, biografias de cientistas ou fenômenos naturais simples. As respostas costumam seguir a ordem sequencial do artigo. A meta obrigatória é concluir as questões do bloco (geralmente 13) em **no máximo 15 minutos**.
 2. **Texto 2 (Nível intermediário-avançado B2/C1):** Estudos de caso, relatórios ecológicos ou inovações industriais comparando opiniões de pesquisadores. Este bloco requer **20 minutos** de foco analítico.
 3. **Texto 3 (Nível avançado C1):** Ensaios densos com linguagem sofisticada, inferências sutis e paráfrases complexas. Exige no mínimo **25 minutos** para releituras estratégicas de verificação.
 
@@ -65,6 +65,8 @@ Se você empacar em qualquer item por mais de 60 segundos, adote a regra dos 90 
 ## Velocidade de leitura impulsionada pelo vocabulário
 
 A rapidez para compreender textos acadêmicos não é apenas uma questão de movimentar os olhos velozmente, mas da prontidão do reconhecimento lexical. Ao se deparar com uma palavra desconhecida como *detrimental, pervasive* ou *counterintuitive*, o cérebro realiza uma micropausa cognitiva involuntária de vários segundos. Se esse obstáculo ocorrer quinze vezes por página, a perda acumulada compromete todo o seu cronograma.
+
+Para quem fala português, a armadilha mais cara nem é a palavra desconhecida, e sim o falso cognato que parece familiar: *pretend* (fingir, não "pretender"), *actually* (na verdade, não "atualmente"), *eventually* (por fim, não "eventualmente"), *push* (empurrar, não "puxar"). Numa questão True/False/Not Given, ler *eventually* como "de vez em quando" muda o sentido da frase e a resposta. Outro hábito que rouba minutos é traduzir mentalmente cada frase para o português antes de entender; treine reconhecer as paráfrases diretamente em inglês.
 
 Você pode aprimorar sua desenvoltura de fala e agilidade de raciocínio praticando na [sala de conversação em inglês Lexkite](/#/speaking) e aperfeiçoando sua dicção fonética na [seção de treino de fala](/#/practice/speak).
 

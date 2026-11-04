@@ -13,12 +13,12 @@ publishAt: 2027-02-10T19:01:00+07:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 86
 ---
 
 Trong bài thi IELTS Academic hay General Training, phần thi Đọc luôn là thử thách căng thẳng bậc nhất về mặt áp lực đồng hồ. Rất nhiều thí sinh dù sở hữu vốn ngữ pháp vững vàng và điểm thi thử từng phần khá tốt, nhưng khi bước vào phòng thi thật lại rơi vào cảnh thiếu 5 đến 10 phút ở bài đọc cuối cùng (Passage 3). Việc nắm vững **cách phân bổ thời gian ielts reading** chính là chìa khóa phân định giữa mức điểm Band 6.0 và Band 7.5+.
 
-Với 60 phút cố định cho 3 đoạn văn dài từ 2.150 đến 2.750 từ cùng 40 câu hỏi chi tiết, bạn chỉ có trung bình đúng 90 giây cho mỗi câu hỏi. Quỹ thời gian này bao gồm cả việc đọc đề, quét tìm vị trí văn bản, đối chiếu ý nghĩa và ghi đáp án vào phiếu trả lời (Answer Sheet).
+Với đề Academic, bạn có 60 phút cố định cho 3 đoạn văn dài từ 2.150 đến 2.750 từ cùng 40 câu hỏi chi tiết, bạn chỉ có trung bình đúng 90 giây cho mỗi câu hỏi. Quỹ thời gian này bao gồm cả việc đọc đề, quét tìm vị trí văn bản, đối chiếu ý nghĩa và ghi đáp án vào phiếu trả lời (Answer Sheet). Khác với Listening bản giấy (có thêm 10 phút chép đáp án), Reading **không có thời gian chép đáp án riêng** – hết 60 phút là thu bài, nên hãy chép đáp án sau mỗi Passage thay vì dồn đến cuối giờ.
 
 Nếu không có một chiến lược đo lường thời gian kỷ luật, bạn rất dễ sa đà vào những câu hỏi phân loại hóc búa ở Passage 1 hoặc Passage 2 và đánh mất toàn bộ điểm số ở những câu hỏi dễ cuối đề. Bạn có thể tra cứu và củng cố thêm các thuật ngữ học thuật quan trọng tại [kho từ vựng IELTS của Lexkite](/tu-vung/).
 
@@ -77,7 +77,7 @@ Nếu bạn tiêu tốn trọn vẹn 20 phút cho Passage 1, bạn sẽ chỉ c�
 - **Chiến lược**:
   - 3 phút đầu: Đọc lướt (skimming) câu đầu và câu cuối mỗi đoạn để nắm được mạch lập luận của tác giả.
   - Phân tích cẩn thận các câu hỏi Yes/No/Not Given để tránh bẫy quan điểm. Bạn có thể tham khảo thêm [cách phân biệt False và Not Given](/vi/blog/ielts-reading-true-false-not-given/) để tránh mất điểm đáng tiếc.
-  - Dành trọn vẹn 3 phút cuối cùng (phút 57–60) để kiểm tra lại toàn bộ phiếu trả lời, đảm bảo không bỏ trống bất kỳ ô nào và không nhầm lẫn giữa chữ hoa - chữ thường theo yêu cầu đề bài.
+  - Dành trọn vẹn 3 phút cuối cùng (phút 57–60) để kiểm tra lại toàn bộ phiếu trả lời, đảm bảo không bỏ trống bất kỳ ô nào và không sai chính tả, số ít – số nhiều hay vượt giới hạn số từ theo yêu cầu đề bài.
 
 ![Màn hình ôn tập flashcard với thẻ từ vựng và thanh tiến độ trong Lexkite](media:review "Màn hình ôn tập flashcard thẻ từ với nút lật thẻ và thanh tiến độ ghi nhớ trong Lexkite")
 
@@ -122,7 +122,7 @@ Kỹ năng quản lý thời gian không thể tự nhiên xuất hiện trong n
   - Khi luyện đề Full Test tại nhà, hãy đặt đồng hồ ở mức **55 phút** thay vì 60 phút.
   - Việc tạo áp lực thời gian khắt khe hơn thực tế sẽ giúp hệ thần kinh của bạn thích nghi với trạng thái căng thẳng, nhờ đó khi vào phòng thi thật bạn sẽ cảm thấy 60 phút trôi qua rất chủ động và bình tĩnh.
 - **Tuần 4: Mô phỏng phòng thi chuẩn mực (Exam Simulation)**
-  - Làm bài vào đúng khung giờ thi thật (thường là 9h00–10h00 sáng).
-  - Sử dụng tờ Answer Sheet giấy để tô chì trực tiếp, đo đạc chính xác thời gian chuyển đáp án sang phiếu.
+  - Làm bài vào buổi sáng, gần với khung giờ thi thật.
+  - In tờ Answer Sheet giấy và viết đáp án trực tiếp bằng bút chì, đo đạc chính xác thời gian chuyển đáp án sang phiếu.
 
 Làm chủ **cách phân bổ thời gian ielts reading** chính là việc chuyển hóa bài thi từ một cuộc chạy đua sinh tồn hoảng loạn thành một quy trình tác chiến khoa học, nơi mỗi phút trôi qua đều đem lại số điểm tối đa cho nỗ lực của bạn.

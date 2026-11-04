@@ -13,7 +13,7 @@ publishAt: 2027-01-02T08:14:00+03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 95
+qualityScore: 85
 ---
 
 Uluslararası şirketlerde kariyer hedefleyen profesyoneller ve öğrenciler için TOEIC Reading oturumu yüksek hız ve dilbilgisi keskinliği gerektirir. Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan **toeic part 5**, tüm okuma oturumunun temposunu ve adayların moralini belirler. Bu 30 cümlede 12 dakikadan fazla zaman harcayan bir adayın, sınavın sonundaki uzun çoklu metinleri yetiştirmesi neredeyse imkansızdır.
@@ -28,14 +28,14 @@ Part 5'teki 30 soru, dört seçenekli (A, B, C, D) cümle tamamlama kalıpların
 
 Sorular iki temel gruba ayrılır:
 
-1. **Dilbilgisi ve Sözcük Türü Soruları (Bölümün yaklaşık %55'i)**: Dört seçenek aynı sözcük kökünden türemiştir ancak ekleri farklıdır (örnek: *manage*, *manager*, *managerial*, *management*). Göreviniz cümlenin sentaktik yapısının hangi sözcük türünü (isim, sıfat, zarf veya çekimli fiil) gerektirdiğini belirlemektir.
-2. **Kelime ve Bağlamsal Eşdizim Soruları (Bölümün yaklaşık %45'i)**: Seçenekler aynı sözcük türünden ancak tamamen farklı anlamlara sahip kelimelerden oluşur (örnek: *postpone*, *deliver*, *announce*, *exceed*). Doğru yanıt uluslararası iş dünyasının terminolojisine ve kalıplaşmış ifadelere dayanır.
+1. **Dilbilgisi ve Sözcük Türü Soruları (genellikle bölümün yarısından biraz fazlası; dağılım sınavdan sınava değişir)**: Dört seçenek aynı sözcük kökünden türemiştir ancak ekleri farklıdır (örnek: *manage*, *manager*, *managerial*, *management*). Göreviniz cümlenin sentaktik yapısının hangi sözcük türünü (isim, sıfat, zarf veya çekimli fiil) gerektirdiğini belirlemektir.
+2. **Kelime ve Bağlamsal Eşdizim Soruları (kalan kısım)**: Seçenekler aynı sözcük türünden ancak tamamen farklı anlamlara sahip kelimelerden oluşur (örnek: *postpone*, *deliver*, *announce*, *exceed*). Doğru yanıt uluslararası iş dünyasının terminolojisine ve kalıplaşmış ifadelere dayanır.
 
 | Soru Kategorisi | Seçeneklerin Özelliği | Soru Başına Hedef Süre | Ölçülen Beceri |
 | :--- | :--- | :--- | :--- |
 | **Sözcük Türleri (Parts of Speech)** | Aynı kök, farklı son ekler (*-tion, -ly, -ive*) | 15 saniye | Sentaktik konum analizi |
 | **Zamanlar ve Edilgen Çatı** | Fiil çekimleri (*has decided, was decided*) | 20 saniye | Özne-fiil uyumu ve etken/edilgen ayrımı |
-| **Zamirler ve Belirteçler** | Kişi, iyelik veya dönüşlülük zamirleri | 10 saniye | Cümledeki işlev ve gönderme yapılan özne |
+| **Zamirler ve Belirleyiciler** | Kişi, iyelik veya dönüşlülük zamirleri | 10 saniye | Cümledeki işlev ve gönderme yapılan özne |
 | **İş İngilizcesi Eşdizimleri** | Aynı alana ait 4 farklı sözcük | 25 saniye | Kurumsal bağlam ve kelime bilgisi |
 
 ![Lexkite akıllı sözlüğünde resilient kelimesi araması ve IPA fonetik sembolleri](media:dict "Lexkite sözlüğünde kurumsal terimlerin bağlam içi tanımlarını ve eşdizimlerini inceleme")
@@ -48,7 +48,7 @@ Sözcük türetme sorularında cümlenin her kelimesini Türkçeye çevirmenize 
 
 Sınavda en sık karşılaşılan sentaktik dizilimler şunlardır:
 
-- **İsim (Noun)**: Belirteçlerden (*a, an, the*), iyelik sıfatlarından (*our, their, his*) veya edatlardan (*in, at, for, about*) sonra gelir. Boşluk bir ana fiilden önce yer alıyorsa özne konumunda bir isme ihtiyacınız vardır:
+- **İsim (Noun)**: Tanımlıklardan (*a, an, the*), iyelik sıfatlarından (*our, their, his*) veya edatlardan (*in, at, for, about*) sonra gelir. Boşluk bir ana fiilden önce yer alıyorsa özne konumunda bir isme ihtiyacınız vardır:
   - *Örnek: The recent _____ in production costs surprised the board. (Seçenekler: increase, increasingly, increased)* $\rightarrow$ Yanıt: *increase* (isim).
 - **Sıfat (Adjective)**: Bir ismi nitelemek üzere doğrudan ismin önünde veya durum bildiren bağlama fiillerinden (*be, seem, remain, become*) sonra yer alır:
   - *Örnek: Ms. Higgins presented a _____ proposal during the meeting. (Seçenekler: comprehensive, comprehensively, comprehend)* $\rightarrow$ Yanıt: *comprehensive* (*proposal* ismini niteleyen sıfat).
@@ -90,6 +90,13 @@ Fiil sorularında şu iki adımlı filtreyi saniyeler içinde uygulayın:
 Kelimeleri kalıcı hafızaya almak için [aralıklı tekrar kelime ezberleme FSRS](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) metodundan yararlanın ve genel kelime hazinenizi geliştirmek için [İngilizce kelime ezberleme teknikleri](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyin.
 
 ---
+
+### Türk Adayların En Sık Düştüğü Tuzaklar
+
+- **Tanımlık unutmak**: Türkçede *a/an/the* karşılığı yoktur, bu yüzden *presented comprehensive proposal* gibi eksik yapılar gözden kaçar. Tekil sayılabilir bir isim gördüğünüzde önünde bir belirleyici arayın.
+- **his/her/its karışıklığı**: Türkçedeki "o" ve "-(s)I" eki cinsiyet ayırmaz. *The company announced ___ results* sorusunda doğru yanıt *its*'tir; şirket için *his* veya *their* seçmeyin.
+- **since ve for**: "Üç yıldır" *for three years*, "2023'ten beri" *since 2023* olur ve genellikle Present Perfect ister (*has worked*), "çalışıyor" çevirisinden gelen *is working since* yapısı yanlıştır.
+- **Türkçe kelime sırasıyla okumak**: Türkçede fiil sondadır; İngilizcede ise yüklem özneden hemen sonra gelir. Soruyu sondan başa çevirmeye çalışmak yerine boşluğun solundaki ve sağındaki kelimeye bakın.
 
 ## Örnek TOEIC Part 5 Soruları ve Çözüm Analizleri
 
@@ -152,7 +159,7 @@ Sınav günü bu üç adımı uygulayın:
 
 ---
 
-## Lexkite ile Sınav Başarınızı Güvenceye Alın
+## Lexkite ile Part 5 Hazırlığınızı Güçlendirin
 
 Soruları saniyeler içinde çözebilmek, düzenli pratik ve doğru çalışma araçlarıyla mümkündür:
 
@@ -172,10 +179,10 @@ Soruları saniyeler içinde çözebilmek, düzenli pratik ve doğru çalışma a
 ## TOEIC Part 5 Hakkında Sıkça Sorulan Sorular
 
 ### Cümlenin tamamını okumak zorunda mıyım?
-Sözcük türü ve zamir sorularında boşluğun 2–3 kelime öncesi ve sonrasına bakmak vakaların %80'inde yeterlidir. Kelime ve bağlaç sorularında ise cümlenin anlam bütünlüğünü yakalamak için hızlıca tüm cümleyi gözden geçirmek gerekir.
+Sözcük türü ve zamir sorularında boşluğun 2–3 kelime öncesi ve sonrasına bakmak çoğu zaman yeterlidir. Kelime ve bağlaç sorularında ise cümlenin anlam bütünlüğünü yakalamak için hızlıca tüm cümleyi gözden geçirmek gerekir.
 
 ### 850+ hedefleyen biri Part 5'te en fazla kaç yanlış yapabilir?
-Reading bölümünden 420 üstü almak (genel toplamda 850+ skor) için Part 5'teki 30 soruda en fazla 3 veya 4 yanlış yapma hakkınız vardır.
+Sabit bir hesap yoktur: ETS ham puanları her sınav formu için ayrı ayrı 5–495 ölçeğine çevirir ve Part bazında resmî bir "kaç yanlış" tablosu yayımlamaz. Yüksek hedefler için pratik kural şudur: deneme sınavlarınızda Part 5 neredeyse hatasız olmalı, çünkü okuma bölümünün en hızlı puanları buradadır. Her yanlışı nedeniyle (sözcük türü, zaman, eşdizim) not edin ve o konuya geri dönün.
 
 ### İş İngilizcesi eşdizimleri en kolay nasıl ezberlenir?
 Kelimeleri tek başına değil, kalıp halinde (*meet the deadline*, *conduct an investigation*, *reach a consensus*) öğrenin. Kalıpları aralıklı tekrar sistemiyle çalışmak sınav anında reflekslerinizi olağanüstü hızlandırır.
