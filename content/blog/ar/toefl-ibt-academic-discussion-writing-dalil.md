@@ -162,8 +162,8 @@ quiz: [
 2. **استخدم روابط متقدمة**: استخدم كلمات تعزز التماسك مثل *«consequently, notwithstanding, particularly, fundamentally»*.
 3. **تجنب اللهجة العامية المفرطة**: حافظ على نبرة أكاديمية موضوعية، وتجنب الاختصارات المبتذلة أو الرموز التعبيرية.
 
-لمعرفة المزيد حول الفروق الجوهرية بين الاختبارات، راجع [دليل أقسام اختبار التوفل toefl ibt](/ar/blog/toefl-ibt-dalil-ar/) وقارنه مع [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/)، وقم بمطالعة استراتيجيات القراءة في [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/) وتدريبات المحادثة في [قوالب إجابة آيلتس التحدث الجزء 2](/ar/blog/ielts-speaking-part-2-namudhaj-template/).
-
+لمعرفة المزيد حول الفروق الجوهرية بين الاختبارات، راجع [دليل أقسام اختبار التوفل toefl ibt](/ar/blog/toefl-ibt-dalil-ar/) وقارنه مع [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/)، وقم بمطالعة استراتيجيات القراءة في [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/) وتدريبات المحادثة في [قوالب إجابة آيلتس التحدث الجزء 2](/ar/blog/ielts-speaking-part-2-namudhaj-template/). كما يمكنك مراجعة الهيكل المعدل بالكامل في [شكل اختبار توفل الجديد 2026](/ar/blog/al-namat-al-jadid-toefl-2026-dalil-al-tahdir/).
+ 
 وللاطلاع على نماذج مقالات إضافية، تفضل بزيارة صفحة [نماذج ومقالات الكتابة الأكاديمية](/samples/).
 
 {{cta: /samples/ | التدرب على نماذج كتابة التوفل الأكاديمية}}
