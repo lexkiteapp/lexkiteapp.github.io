@@ -87,6 +87,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 12:00 | `code-bundle` | `0 12 * * 0` | archive | drive_pool, gh_minutes | 60 | drive_calls≈20 | ✓ |
 | 13:05 | `video-tpl1b` | `5 13 * * *` | render (tạm dừng) | gh_minutes, grabcast_ai, drive_pool | 45 | clips≈12, grabcast_calls≈6, drive_calls≈40 | ✓ |
 | 13:10 | `vocab-img` | `10 13 * * *` | bulk | grabcast_ai, gh_minutes | 85 | grabcast_images≈400, grabcast_text≈220, senses≈220, images≈130 | ✓ |
+| 17:50 | `content-factory` | `50 17 * * *` | render | gemini, grabcast_ai, gh_minutes | 90 | gemini_calls≈600, grabcast_text≈300 | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
