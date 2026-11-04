@@ -206,11 +206,18 @@
         lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
         if (fc && rig.classList.contains('posed')) { const im = rig.querySelector('.tch-still'); if (im) im.remove(); rig.classList.remove('posed'); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
         const my = ++run, rate = o.rate || 0.95;
-        let ended = false; const end = () => { if (ended) return; ended = true; if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
+        const est = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
+        // ⏱️ tiến độ lời (karaoke + vòng nút nghe lại): đồng hồ = currentTime của file Kokoro; giọng máy → đồng hồ tường theo thời lượng ước tính. 1 rAF, chỉ gọi khi đổi ≥0.5%
+        let ended = false, t0 = 0, pf = -1, praf = 0;
+        const prog = () => { if (ended || my !== run) return; const a = hq && hq.el, d = a && a.duration;
+          const f = Math.min(1, d && isFinite(d) && d > 0 ? Math.max(0, a.currentTime - LEAD) / Math.max(0.2, d - 2 * LEAD) : t0 ? (performance.now() - t0) / (est * 1000) : 0);
+          if (Math.abs(f - pf) >= 0.005) { pf = f; try { o.onTick(f); } catch (e) { /* bỏ qua */ } } praf = requestAnimationFrame(prog); };
+        const go = () => { if (!t0 && o.onTick) { t0 = performance.now(); prog(); } };
+        const end = () => { if (ended) return; ended = true; cancelAnimationFrame(praf); if (o.onTick) try { o.onTick(1); } catch (e) { /* bỏ qua */ } if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
         talking(true);
         const tts = () => {
           if (my !== run) return;
-          const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
+          const dur = est; go();
           if (fc) fc.speak({ text, dur }); // giọng máy: không có tiếng để đo → con trỏ live theo thời lượng ước tính
           const kv = g.LKAudio && g.LKAudio.kokoro(o.voice); // giọng máy dự phòng đúng người nói: Ama nữ, Carlos nam, đúng UK/US
           if (g.UI && g.UI.tts) { const t0 = Date.now(); g.UI.tts(text, o.accent || (kv && kv.accent) || 'en-US', rate, { voice: o.voice, onEnd: () => { const used = Date.now() - t0; if (used < 300 && my === run) setTimeout(end, Math.max(0, dur * 1000 - used)); else end(); } }); } else setTimeout(end, dur * 1000); // máy không có giọng → onEnd tức thì: giữ vòng nói đủ thời lượng ước tính (khớp miệng theo ước tính)
@@ -222,10 +229,10 @@
         if (!key || !g.audioUrls || !g.LKAudio || (!cue && g.LISTEN_AUDIO && !g.LISTEN_AUDIO.has(key))) return tts();
         // LKAudio: thử lần lượt các gốc CDN (lỗi/404/quá giờ → gốc kế tiếp), hết gốc → giọng máy (ghi nhật ký dự phòng)
         let h = null; // onEl chạy ĐỒNG BỘ trong play() trước khi gán h (phần tử gốc CDN đầu) → không đọc h ở TDZ
-        h = hq = g.LKAudio.play(cue ? g.audioUrls(key + '-ls') : g.audioUrls(key), { rate: rate < 0.9 ? 0.75 : 1, // 🐢 nghe chậm
+        h = hq = g.LKAudio.play(cue ? g.audioUrls(key + '-ls') : g.audioUrls(key), { rate: rate < 0.9 ? SLOW : 1, // 🐢 nghe chậm 0,75× (giữ cao độ)
           cross: !!(fc && !cue && fc.tap()), // live đo năng lượng tiếng (Web Audio cần CORS – gốc audio trả ACAO *)
           onEl: a => { if (fc && (h === null || hq === h)) fc.speak({ audio: a, cue, text }); }, // mỗi gốc CDN thử = 1 phần tử mới → mặt vẽ bám đúng phần tử đang phát
-          onBase: () => g.audioFail && g.audioFail(), onEnd: end,
+          onBase: () => g.audioFail && g.audioFail(), onEnd: end, onStart: go, // onStart → đồng hồ karaoke bám currentTime file đang phát
           onFail: why => { if (hq !== h) return; hq = null; if (cue) return api.say(text, Object.assign({}, o, { plain: 1 })); g.LKAudio.note('tts', why + ' ' + o.voice); tts(); } });
       },
       stop() { run++; talking(false); if (fc) fc.quiet(); if (hq) { hq.stop(); hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
@@ -233,8 +240,100 @@
     };
     return api;
   }
+  // 💬 Bong bóng lời giáo viên (khung Stitch lesson-question, docs/DESIGN-SYSTEM.md §5d) – chuẩn Duolingo/Speak/ELSA, không chữ bay từ miệng:
+  // đuôi neo vào miệng người đang nói (đo bbox thật mỗi lần đổi cỡ – đúng mọi cỡ, sáng/tối, RTL), hiện nhẹ 0.92→1 + mờ 160 ms (giảm chuyển động → tắt),
+  // chữ sáng dần theo giọng (karaoke; chỉ đổi màu/opacity – không layout), chạm từ → nghe lại đúng từ + nghĩa (Dict), phụ đề bật/tắt để luyện nghe thuần (lk.cc).
+  const LEAD = 0.12, SLOW = 0.75, CC = 'lk.cc'; // giây im đầu/cuối file Kokoro · tốc độ 🐢 · khóa phụ đề
+  const MOUTH = 0.5; // khung clip/poster căn giữa người (characters.json frame) → miệng ở giữa bề ngang hình đang vẽ
+  const DK = s => `@media (prefers-color-scheme: dark){:root:not([data-theme=light]) ${s}}:root[data-theme=dark] ${s}`;
+  const CSS = '.tchb{position:relative}.tchb-tail{position:absolute;top:0;left:0;width:18px;height:18px;margin-top:-10px;background:inherit;border-style:solid;border-color:inherit;border-width:inherit;border-right:0;border-bottom:0;border-radius:4px 0 0 0;transform:translateX(var(--tx,0px)) rotate(45deg);pointer-events:none;z-index:1}' +
+    '.tchb-pop{transform-origin:var(--tx,50%) 0;animation:tchb-in .16s cubic-bezier(.2,.8,.2,1)}@keyframes tchb-in{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}' +
+    '.kwp{--kw0:#4E5F62;--kwb:#DCE3E1}' + DK('.kwp{--kw0:#A9BFC1;--kwb:#2A434C}') +
+    '.kwp .kw{display:inline-block;min-width:24px;min-height:24px;text-align:center;transition:color .12s linear;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent}.kwp.kw-run .kw{color:var(--kw0)}.kwp .kw.on{color:inherit}.kwp .kw:focus-visible{outline:2px solid #2BA39A;outline-offset:1px}' +
+    '.kwp.kw-off .kw{color:transparent;background:var(--kwb)}.kwp.kw-off .kw.on{color:transparent}' +
+    '.tchb-cc{position:absolute;top:1.2rem;right:3.9rem;z-index:20;min-width:2.25rem;height:1.75rem;padding:0 .4rem;border-radius:9999px;font:800 11px/1 system-ui,sans-serif;letter-spacing:.04em;border:1.5px solid currentColor;background:transparent;color:#0D6964}.tchb-cc[aria-pressed=false]{opacity:1;color:#4E5F62;text-decoration:line-through}' + DK('.tchb-cc{color:#2BA39A}') + DK('.tchb-cc[aria-pressed=false]{color:#A9BFC1}') +
+    '.tchb-ring{--p:0;background:conic-gradient(currentColor calc(var(--p)*1turn),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));position:absolute;inset:-4px;border-radius:9999px;pointer-events:none;opacity:0;transition:opacity .16s}.tchb-play .tchb-ring{opacity:1}' +
+    '.tchb-peek{position:absolute;z-index:30;max-width:min(18rem,calc(100% - 1rem));padding:.55rem .75rem;border-radius:14px;font-size:14px;line-height:1.35;text-align:start;background:#10191B;color:#EEF6F7;box-shadow:0 6px 18px rgba(0,0,0,.25)}' + DK('.tchb-peek{background:#EEF6F7;color:#10191B}') +
+    '@media (prefers-reduced-motion:reduce){.tchb-pop{animation:none}.kwp .kw,.tchb-ring{transition:none}}';
+  const css = () => { if (D.getElementById('tchb-css')) return; const st = D.createElement('style'); st.id = 'tchb-css'; st.textContent = CSS; D.head.appendChild(st); };
+  const ccOn = () => { try { return g.localStorage.getItem(CC) !== '0'; } catch (e) { return true; } };
+
+  // Trọng số thời gian từng từ ≈ số âm tiết + nghỉ ở dấu câu (Kokoro chưa xuất mốc thời gian từng từ → ước lượng, co giãn theo độ dài file thật)
+  const SYL = w => { const s = String(w).toLowerCase().replace(/[^a-z]/g, ''); if (!s) return /\d/.test(w) ? 2 : 1; return Math.max(1, (s.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '').match(/[aeiouy]{1,2}/g) || []).length); };
+  // ≈ giây: chữ cái (âm vị) + âm tiết + nhịp nối từ + nghỉ dấu câu – hệ số đo trên giọng Kokoro af_heart/am_michael ~150 wpm
+  const weights = words => words.map(w => 0.048 * String(w).replace(/[^A-Za-z0-9]/g, '').length + 0.04 * SYL(w) + 0.07 + (/[,;:—–]$/.test(w) ? 0.22 : /[.!?…]["”’)]*$/.test(w) ? 0.3 : 0));
+  /** wordAt(weights, f) → chỉ số từ đang đọc ở tiến độ f (0..1); -1 = chưa bắt đầu */
+  function wordAt(ws, f) { if (!(f > 0)) return -1; const tot = ws.reduce((a, b) => a + b, 0); let acc = 0; for (let i = 0; i < ws.length; i++) { acc += ws[i]; if (f * tot < acc) return i; } return ws.length - 1; }
+
+  /** kara(el, spoken, { onWord(word, span) }) → { at(f), cc(on) } · bọc từ của el (text, giữ thẻ con như chỗ trống .lsn-gap = n từ qua data-kn) */
+  function kara(el, spoken, o = {}) {
+    css(); if (!el) return null;
+    const said = String(spoken || '').trim().split(/\s+/).filter(Boolean), ws = weights(said), units = []; // units[i] = span ứng với từ nói thứ i
+    const walk = n => { for (const c of [...n.childNodes]) {
+      if (c.nodeType === 3) { const parts = c.textContent.split(/(\s+)/), f = D.createDocumentFragment();
+        for (const p of parts) { if (!p) continue; if (/^\s+$/.test(p)) { f.appendChild(D.createTextNode(p)); continue; } const s = D.createElement('span'); s.className = 'kw'; s.textContent = p; s.tabIndex = 0; s.setAttribute('role', 'button'); units.push(s); f.appendChild(s); }
+        c.replaceWith(f); }
+      else if (c.nodeType === 1) { const kn = +c.dataset.kn || (c.classList.contains('lsn-gap') ? 1 : 0); if (kn) { for (let k = 0; k < kn; k++) units.push(c); } else walk(c); } } };
+    walk(el); el.classList.add('kwp');
+    let cur = -2;
+    const api = {
+      words: units, at(f) { el.classList.toggle('kw-run', f < 1); /* chỉ mờ lúc đang đọc: chưa có tiếng/đọc xong thì chữ đủ tương phản */ const i = f >= 1 ? units.length : wordAt(ws.length === units.length ? ws : units.map(() => 1), f); if (i === cur) return; cur = i;
+        units.forEach((s, k) => s.classList && s.classList.toggle('on', k <= i)); },
+      // part(k0, n, f): lời nói theo từng câu (cuộc gọi: mỗi câu 1 file) → tiến độ f của câu gồm từ k0..k0+n-1
+      part(k0, n, f) { const i = f >= 1 ? k0 + n - 1 : f > 0 ? k0 + Math.max(0, wordAt(ws.slice(k0, k0 + n), f)) : k0 - 1; el.classList.toggle('kw-run', i < units.length - 1); if (i === cur) return; cur = i; units.forEach((s, k) => s.classList && s.classList.toggle('on', k <= i)); },
+      cc(on) { el.classList.toggle('kw-off', !on); },
+    };
+    api.cc(o.cc === false ? true : ccOn()); // màn không có nút CC (truyện, cuộc gọi) → luôn hiện chữ
+    const tap = e => { const s = e.target.closest && e.target.closest('.kw'); if (!s || !el.contains(s)) return; if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return; e.preventDefault(); e.stopPropagation(); if (o.onWord) o.onWord(s.textContent.replace(/^[^\w']+|[^\w']+$/g, ''), s); };
+    el.addEventListener('click', tap); el.addEventListener('keydown', tap);
+    return api;
+  }
+
+  /** bubble(card, tch, { speaker() }) → { point(el), pop(), playing(btn, f), peek(span, word), destroy() } · card = thẻ đục chứa lời, tch = khung giáo viên đứng sau thẻ */
+  function bubble(card, tch, o = {}) {
+    css(); if (!card) return null;
+    card.classList.add('tchb');
+    const tail = D.createElement('span'); tail.className = 'tchb-tail'; tail.setAttribute('aria-hidden', 'true'); card.prepend(tail);
+    let who = tch, pk = null;
+    const fig = () => who && (who.querySelector('.tch-rig.live canvas') || who.querySelector('.tch-poster') || who);
+    // đuôi trỏ đúng miệng: x = giữa hình người đang vẽ, kẹp trong bo góc thẻ; ẩn khi không có giáo viên (thiếu tài sản)
+    const place = () => { const f = fig(); if (!f || !card.isConnected) return; const r = f.getBoundingClientRect(), c = card.getBoundingClientRect();
+      const ok = r.width > 0 && who.style.display !== 'none'; tail.hidden = !ok; if (!ok) return;
+      const x = Math.round(Math.max(18, Math.min(c.width - 36, r.left + r.width * MOUTH - c.left - 9))); card.style.setProperty('--tx', x + 'px'); tail.dataset.x = x; };
+    const ro = g.ResizeObserver ? new ResizeObserver(() => place()) : null;
+    const watch = () => { if (!ro) return; ro.disconnect(); ro.observe(card); if (who) ro.observe(who); };
+    // clip WebGL nạp xong → canvas thay poster (cỡ khác) → đo lại 1 lần
+    const mo = g.MutationObserver && tch ? new MutationObserver(() => place()) : null; if (mo) mo.observe(tch, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+    g.addEventListener('resize', place); watch(); place();
+    const api = {
+      tail, place,
+      point(el) { if (el && el !== who) { who = el; watch(); } place(); }, // đổi người nói (Ama ↔ Carlos) → đuôi chuyển theo
+      pop() { place(); card.classList.remove('tchb-pop'); void card.offsetWidth; card.classList.add('tchb-pop'); }, // 1 lần khi lời mới hiện (đọc 1 lần offsetWidth để chạy lại animation)
+      playing(btn, f) { if (!btn) return; let r = btn.querySelector('.tchb-ring'); const host = btn.querySelector('.rounded-\\[9999px\\]') || btn;
+        if (!r) { r = D.createElement('span'); r.className = 'tchb-ring'; r.setAttribute('aria-hidden', 'true'); host.style.position = 'relative'; host.appendChild(r); }
+        const on = f != null && f < 1; btn.classList.toggle('tchb-play', on); r.style.setProperty('--p', on ? f.toFixed(3) : 0); },
+      // nghĩa nhanh dưới từ vừa chạm: Dict.quick → Dict.lookup (engine tra từ sẵn có), không tìm thấy → báo ngắn; chạm chỗ khác / Esc → đóng
+      peek(span, word) { api.unpeek(); if (!span || !word || !g.Dict) return; const p = pk = D.createElement('div'); p.className = 'tchb-peek'; p.setAttribute('role', 'status'); p.lang = 'en';
+        const c = card.getBoundingClientRect(), s = span.getBoundingClientRect(); p.style.top = Math.round(s.bottom - c.top + 6) + 'px';
+        p.style.left = Math.round(Math.max(8, Math.min(s.left - c.left, c.width - 8 - 288))) + 'px';
+        p.textContent = (g.t ? g.t('Đang tra “{w}”…', { w: word }) : word); card.appendChild(p);
+        const q = g.Dict.quick ? Promise.resolve(g.Dict.quick(word)).catch(() => null) : Promise.resolve(null);
+        q.then(d => d || (g.Dict.lookup ? g.Dict.lookup(word, { examples: false, image: false }) : null)).catch(() => null).then(d => { if (pk !== p) return;
+          const m = d && d.found ? (g.App && g.App.meanOf ? g.App.meanOf(d) : d.vi) : '';
+          p.textContent = ''; const b = D.createElement('b'); b.textContent = (d && d.word) || word; p.appendChild(b);
+          if (m) { const sp = D.createElement('span'); sp.lang = ''; sp.textContent = ' · ' + m; p.appendChild(sp); } else if (!d || !d.found) p.append(' · ' + (g.t ? g.t('Không tìm thấy “{w}”.', { w: word }) : '')); });
+        setTimeout(() => D.addEventListener('pointerdown', api.unpeek, { once: true }), 0); },
+      unpeek() { if (pk) { pk.remove(); pk = null; } },
+      // nút phụ đề "CC" (bật/tắt chữ, giữ nhịp karaoke) – nhớ lựa chọn trên máy
+      ccBtn(label, onChange) { let b = card.querySelector('.tchb-cc'); if (!b) { b = D.createElement('button'); b.type = 'button'; b.className = 'tchb-cc'; b.textContent = 'CC'; b.setAttribute('aria-label', label); b.title = label; card.appendChild(b);
+          b.onclick = () => { const on = b.getAttribute('aria-pressed') !== 'true'; try { g.localStorage.setItem(CC, on ? '1' : '0'); } catch (e) { /* bỏ qua */ } b.setAttribute('aria-pressed', String(on)); if (onChange) onChange(on); }; }
+        b.setAttribute('aria-pressed', String(ccOn())); return b; },
+      destroy() { if (ro) ro.disconnect(); if (mo) mo.disconnect(); g.removeEventListener('resize', place); api.unpeek(); },
+    };
+    return api;
+  }
   const VOICE = { ama: g.Chars.voice('ama'), carlos: g.Chars.voice('carlos') }; // giọng app của giáo viên – chỉ qua Chars (registry), cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
   /** prep(): nạp trước mặt vẽ + mốc ở màn ngay TRƯỚC khi giáo viên nói (đổ chuông Call, vào bài học) – Home/Today không gọi */
   const prep = () => { try { if (lipOn() && !saveData()) lipLoad().catch(() => {}); } catch (e) { /* bỏ qua */ } };
-  g.LessonTeacher = { mount, lite, VOICE, prep };
+  g.LessonTeacher = { mount, lite, VOICE, prep, SLOW, bubble, kara, weights, wordAt };
 })(self);
