@@ -13,6 +13,9 @@ import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
+// sdkmanager tải hỏng ảnh máy ảo (native-auth android, run 41762808983): hạ tầng → chạy lại 1 lần, không mở issue; chạy lại vẫn đỏ mới là lỗi thật
+ok(classify('Warning: An error occurred while preparing SDK package Google APIs: Error on ZipFile unknown archive.').kind === 'transient', 'sdkmanager tải hỏng = tạm thời');
+ok(classify('Error on ZipFile unknown archive.', { attempt: 2 }).kind === 'real', 'chạy lại vẫn hỏng = thật');
 // --- cổng lõi (4/11: ext-e2e đỏ 8 lượt từ 30/10, new-ui-qa chưa từng có lượt main, bản tin không nói vì chỉ kể lượt đỏ trong 24 h)
 { const Rn = (c, d) => ({ conclusion: c, status: 'completed', event: 'push', created_at: `2026-11-0${d}T00:00:00Z` }), now = +new Date('2026-11-04T00:00:00Z');
   const h = coreHealth({ a: [Rn('success', 3)], ext: [Rn('failure', 1), Rn('failure', 2)], ui: [], old: [Rn('failure', 3)], c: [Rn('cancelled', 3)] }, now);
