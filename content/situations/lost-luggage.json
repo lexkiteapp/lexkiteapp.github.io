@@ -537,7 +537,7 @@
    },
    "gloss": {
     "en": "Asking whether you can claim money back for basic items while you wait.",
-    "vi": "Trong lúc chờ, tôi cần vài thứ thiết yếu. Tôi có thể yêu cầu bồi hoàn không?",
+    "vi": "Trong lúc chờ, tôi cần vài thứ thiết yếu. Tôi có thể yêu cầu bồi hòan không?",
     "es": "Mientras tanto necesito algunas cosas básicas. ¿Puedo reclamar el gasto?",
     "pt": "Enquanto isso, preciso de algumas coisas básicas. Posso pedir reembolso?",
     "fr": "En attendant, il me faut quelques affaires de première nécessité. Puis-je les faire rembourser ?",
@@ -904,7 +904,7 @@
  },
  "culture": {
   "en": "Report a missing bag at the airline's baggage desk before you leave the arrivals hall, and keep your baggage tag and boarding pass. You will usually get a reference number to track the bag online. Airlines differ on what they pay for, so ask what is covered and keep your receipts for essentials.",
-  "vi": "Hãy báo mất hành lý tại quầy hành lý của hãng bay trước khi rời khu vực nhận hành lý, và giữ lại thẻ hành lý cùng thẻ lên máy bay. Thường bạn sẽ nhận được một mã tham chiếu để theo dõi hành lý trực tuyến. Mỗi hãng bồi hoàn khác nhau, nên hãy hỏi rõ khoản nào được chi trả và giữ hóa đơn các đồ thiết yếu.",
+  "vi": "Hãy báo mất hành lý tại quầy hành lý của hãng bay trước khi rời khu vực nhận hành lý, và giữ lại thẻ hành lý cùng thẻ lên máy bay. Thường bạn sẽ nhận được một mã tham chiếu để theo dõi hành lý trực tuyến. Mỗi hãng bồi hòan khác nhau, nên hãy hỏi rõ khoản nào được chi trả và giữ hóa đơn các đồ thiết yếu.",
   "es": "Informa de la pérdida en el mostrador de equipajes de la aerolínea antes de salir de la zona de llegadas, y guarda la etiqueta de equipaje y la tarjeta de embarque. Normalmente te darán un número de referencia para seguir la maleta en línea. Cada aerolínea cubre cosas distintas, así que pregunta qué incluye y guarda los recibos de lo esencial.",
   "pt": "Comunique a perda no balcão de bagagens da companhia aérea antes de sair da área de desembarque e guarde a etiqueta da bagagem e o cartão de embarque. Normalmente você recebe um número de referência para acompanhar a mala on-line. Cada companhia cobre coisas diferentes; pergunte o que está incluído e guarde os recibos dos itens essenciais.",
   "fr": "Signalez la perte au comptoir bagages de la compagnie avant de quitter la zone d'arrivée, et gardez l'étiquette bagage et la carte d'embarquement. On vous donne généralement un numéro de dossier pour suivre le bagage en ligne. Les compagnies ne remboursent pas toutes les mêmes frais : demandez ce qui est couvert et gardez les reçus des achats de première nécessité.",

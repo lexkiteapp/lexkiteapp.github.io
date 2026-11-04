@@ -4,7 +4,7 @@
  "cefr": "B1",
  "title": {
   "en": "Returns & refunds",
-  "vi": "Trả hàng & hoàn tiền",
+  "vi": "Trả hàng & hòan tiền",
   "es": "Devoluciones y reembolsos",
   "pt": "Trocas e reembolsos",
   "fr": "Retours et remboursements",
@@ -97,7 +97,7 @@
    "id": "refund",
    "title": {
     "en": "Refund",
-    "vi": "Hoàn tiền",
+    "vi": "Hòan tiền",
     "es": "Reembolso",
     "pt": "Reembolso",
     "fr": "Remboursement",
@@ -131,7 +131,7 @@
    },
    "gloss": {
     "en": "Saying politely that you want to bring a jacket back.",
-    "vi": "Nói lịch sự rằng bạn muốn trả lại chiếc áo khoác này.",
+    "vi": "Nói lịch sự rằng bạn muốn trả lại chiếc áo khóac này.",
     "es": "Hola, quisiera devolver esta chaqueta, por favor.",
     "pt": "Olá, gostaria de devolver esta jaqueta, por favor.",
     "fr": "Bonjour, je voudrais rapporter cette veste, s'il vous plaît.",
@@ -499,7 +499,7 @@
    },
    "gloss": {
     "en": "Choosing the refund and asking how long it takes.",
-    "vi": "Chọn hoàn tiền và hỏi mất bao lâu.",
+    "vi": "Chọn hòan tiền và hỏi mất bao lâu.",
     "es": "En ese caso, prefiero el reembolso. ¿Cuánto tarda?",
     "pt": "Nesse caso, prefiro o reembolso. Quanto tempo leva?",
     "fr": "Dans ce cas, je préfère un remboursement. Ça prend combien de temps ?",
@@ -554,7 +554,7 @@
    },
    "gloss": {
     "en": "The assistant says how long the refund takes.",
-    "vi": "Nhân viên cho biết hoàn tiền mất bao lâu.",
+    "vi": "Nhân viên cho biết hòan tiền mất bao lâu.",
     "es": "Se le devuelve a la tarjeta en un plazo de cinco a siete días laborables.",
     "pt": "O valor volta ao seu cartão em cinco a sete dias úteis.",
     "fr": "Le montant revient sur votre carte sous cinq à sept jours ouvrés.",
@@ -729,7 +729,7 @@
    },
    "gloss": {
     "en": "The assistant asks if you want your money back or a replacement.",
-    "vi": "Nhân viên hỏi bạn muốn hoàn tiền hay đổi hàng.",
+    "vi": "Nhân viên hỏi bạn muốn hòan tiền hay đổi hàng.",
     "es": "¿Prefiere un reembolso o un cambio?",
     "pt": "Você prefere reembolso ou troca?",
     "fr": "Vous préférez un remboursement ou un échange ?",
@@ -913,7 +913,7 @@
     "id": "money",
     "title": {
      "en": "Ask how long the refund takes",
-     "vi": "Hỏi hoàn tiền mất bao lâu",
+     "vi": "Hỏi hòan tiền mất bao lâu",
      "es": "Pregunta cuánto tarda el reembolso",
      "pt": "Pergunte quanto tempo leva o reembolso",
      "fr": "Demander le délai de remboursement",

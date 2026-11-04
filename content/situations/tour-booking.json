@@ -279,7 +279,7 @@
    },
    "gloss": {
     "en": "Asking what happens if you have to cancel.",
-    "vi": "Hỏi chính sách huỷ nếu phải đổi kế hoạch.",
+    "vi": "Hỏi chính sách hủy nếu phải đổi kế hoạch.",
     "es": "¿Cuál es la política de cancelación si tengo que cambiar de planes?",
     "pt": "Qual é a política de cancelamento se eu precisar mudar meus planos?",
     "fr": "Quelle est la politique d'annulation si je dois changer mes plans ?",
@@ -334,7 +334,7 @@
    },
    "gloss": {
     "en": "The agent explains when you can cancel for free.",
-    "vi": "Nhân viên cho biết đến khi nào được huỷ miễn phí.",
+    "vi": "Nhân viên cho biết đến khi nào được hủy miễn phí.",
     "es": "Se le reembolsa todo hasta cuarenta y ocho horas antes de la salida.",
     "pt": "Você recebe reembolso total até quarenta e oito horas antes da saída.",
     "fr": "Vous êtes intégralement remboursé jusqu'à quarante-huit heures avant le départ.",
@@ -846,7 +846,7 @@
     "id": "cancel",
     "title": {
      "en": "Ask about cancelling",
-     "vi": "Hỏi về việc huỷ",
+     "vi": "Hỏi về việc hủy",
      "es": "Pregunta por la cancelación",
      "pt": "Pergunte sobre o cancelamento",
      "fr": "Se renseigner sur l'annulation",
@@ -892,7 +892,7 @@
  },
  "culture": {
   "en": "Tour prices usually cover the guide and transport, but entrance fees, meals and insurance can cost extra, so always ask exactly what is included. Read the cancellation and refund terms before you pay a deposit, and keep your confirmation. Popular tours can sell out in high season, so book early and arrive at the meeting point a few minutes ahead.",
-  "vi": "Giá tour thường đã gồm hướng dẫn viên và phương tiện, nhưng vé vào cổng, bữa ăn và bảo hiểm có thể tính thêm, nên hãy luôn hỏi rõ gói đã bao gồm những gì. Hãy đọc điều khoản huỷ và hoàn tiền trước khi đặt cọc, và giữ lại xác nhận đặt chỗ. Tour hot có thể hết chỗ vào mùa cao điểm, nên hãy đặt sớm và đến điểm hẹn trước vài phút.",
+  "vi": "Giá tour thường đã gồm hướng dẫn viên và phương tiện, nhưng vé vào cổng, bữa ăn và bảo hiểm có thể tính thêm, nên hãy luôn hỏi rõ gói đã bao gồm những gì. Hãy đọc điều khoản hủy và hòan tiền trước khi đặt cọc, và giữ lại xác nhận đặt chỗ. Tour hot có thể hết chỗ vào mùa cao điểm, nên hãy đặt sớm và đến điểm hẹn trước vài phút.",
   "es": "El precio de una excursión suele cubrir guía y transporte, pero las entradas, las comidas y el seguro pueden costar aparte, así que pregunta siempre qué incluye exactamente. Lee las condiciones de cancelación y reembolso antes de pagar un depósito y guarda tu confirmación. Las excursiones populares se agotan en temporada alta: reserva con tiempo y llega unos minutos antes al punto de encuentro.",
   "pt": "O preço de um passeio geralmente cobre guia e transporte, mas ingressos, refeições e seguro podem custar à parte, então pergunte sempre o que está incluído. Leia as regras de cancelamento e reembolso antes de pagar um sinal e guarde sua confirmação. Passeios populares esgotam na alta temporada: reserve cedo e chegue ao ponto de encontro com alguns minutos de antecedência.",
   "fr": "Le prix d'une excursion couvre généralement le guide et le transport, mais les entrées, les repas et l'assurance peuvent être en supplément ; demandez toujours ce qui est inclus. Lisez les conditions d'annulation et de remboursement avant de verser un acompte, et gardez votre confirmation. Les excursions populaires affichent complet en haute saison : réservez tôt et arrivez quelques minutes avant l'heure au point de rendez-vous.",
