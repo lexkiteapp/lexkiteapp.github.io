@@ -96,7 +96,10 @@
         },
         "point": {
           "src": "ga11_point",
-          "still_frame": 55
+          "note": "chỉ dùng khung 0–53: từ khung 55 Kling vẽ thêm tay thứ hai đè tay áo, lỗ xanh 64–79, tay áo rách 80–92 (đứng yên, nhoè không cứu được)",
+          "to": 53,
+          "still": 53,
+          "still_frame": 53
         },
         "empathy": {
           "src": "ga11_empathy",

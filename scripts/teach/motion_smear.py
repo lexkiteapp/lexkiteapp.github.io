@@ -89,6 +89,12 @@ def warp_score(frames, scale=1.0, hi=9.0):
     return out
 
 
+def olive_px(f):
+    """Lỗ phông xanh sót (sau despill thành ô-liu, chỗ Kling vẽ hai tay chồng nhau): bảng màu Ama/Carlos không có sắc vàng lục → lục."""
+    hsv = cv2.cvtColor(f[..., :3], cv2.COLOR_RGB2HSV_FULL); h = hsv[..., 0].astype(np.float32) * 360 / 255
+    return (h > 48) & (h < 170) & (hsv[..., 1] > 70) & (hsv[..., 2] > 50) & (f[..., 3] > 200)
+
+
 def read_clip(src):
     """Nửa đầu (đi xuôi) của clip xếp chồng → khung RGBA thẳng."""
     w, h = (int(x) for x in subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', src], capture_output=True, text=True, check=True).stdout.strip().split(',')[:2])
@@ -102,6 +108,7 @@ def read_clip(src):
 
 MAX_WARP = float(os.environ.get('MAX_WARP', 30))   # px mỗi khung, xem docs/CHARACTERS.md
 MAX_LINES = float(os.environ.get('MAX_LINES', 40))  # nét đen trên da tay, khung xấu nhất (cả lúc tay giữ yên)
+MAX_OLIVE = float(os.environ.get('MAX_OLIVE', 40))  # lỗ phông xanh sót, khung xấu nhất: clip sạch ≤ 28, ama/point cũ 57
 
 
 if __name__ == '__main__':   # Dùng: motion_smear.py <web/teach> [--report]  – đỏ khi còn clip có khung vung tay méo
@@ -112,6 +119,8 @@ if __name__ == '__main__':   # Dùng: motion_smear.py <web/teach> [--report]  �
             fr, sc = read_clip(f); s = warp_score(fr, sc); top = sorted(s)[-3:]; v = sum(top) / max(1, len(top))
             print(f'{who}/{os.path.basename(f):20s} vệt đen trong khung vung tay: {v:6.1f} px (đỉnh {max(s or [0])}, {sum(1 for x in s if x)} khung vung)')
             hl = max(int(_hand_lines(x, sc, 45)[0].sum() / sc ** 2) for x in fr[::4]); print(f'{"":27s} nét đen trên da tay, khung xấu nhất: {hl} px')
+            ol = max(int(olive_px(x).sum() / sc ** 2) for x in fr); print(f'{"":27s} lỗ phông xanh sót, khung xấu nhất: {ol} px')
+            if ol > MAX_OLIVE: bad.append(f'{who}/{os.path.basename(f)}: lỗ phông xanh {ol} px > {MAX_OLIVE:.0f}')
             if v > MAX_WARP: bad.append(f'{who}/{os.path.basename(f)}: vung {v:.0f} px > {MAX_WARP:.0f}')
             if hl > MAX_LINES: bad.append(f'{who}/{os.path.basename(f)}: nét đen da tay {hl} px > {MAX_LINES:.0f}')
     print('\n'.join(['✗ khung vung tay méo:'] + bad) if bad else '✓ khung vung tay sạch')
