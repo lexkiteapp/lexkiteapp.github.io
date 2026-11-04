@@ -38,7 +38,7 @@
   const HK = {};
   function tr(l, s) {
     const d = D[l], v = d && d[s]; if (v !== undefined || !d || l === 'en' || typeof s !== 'string' || (D.en && D.en[s] == null)) return v;
-    let h = HK[s]; if (!h) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) x = Math.imul(x ^ s.charCodeAt(i), 0x01000193); h = HK[s] = '_' + (x >>> 0).toString(36); }
+    let h = HK[s]; if (!h) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) x = Math.imul(x ^ s.charCodeAt(i), 0x01000193); h = HK[s] = '_' + ((x >>> 0) % 1679616).toString(36); }
     return d[h];
   }
   // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
