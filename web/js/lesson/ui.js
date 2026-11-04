@@ -188,11 +188,11 @@
   }
   const VOICE = w => (window.Chars && Chars.voice ? Chars.voice(w || (L && L.who) || 'ama') : null); // giọng đúng của giáo viên đang nói (registry Chars) – thiếu file mp3 → giọng máy
 
-  const say = (text, slow, who, onEnd) => {
-    if (!L) return;
+  const say = (text, slow, who, onEnd, cap) => {
+    if (!L) { if (cap) cap.all(); return; }
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
@@ -323,7 +323,7 @@
       const pickIt = () => { if (L.checked) return; L.pick = o; chk.disabled = false; paint(); const nb = og.children[i]; if (nb) nb.focus({ preventScroll: true }); };
       n.onclick = pickIt; n.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickIt(); } }; og.appendChild(n); }); };
     paint(); chk.onclick = () => submit(L.pick);
-    const c = $('#lsnChat'); c.scrollIntoView({ block: 'nearest' }); setTimeout(() => say(it.prompt, false, it.who), 200);
+    const c = $('#lsnChat'); c.scrollIntoView({ block: 'nearest' }); const cap = window.SayText && SayText.prep($('#lsnBub')); setTimeout(() => say(it.prompt, false, it.who, undefined, cap), 200);
   }
   function lineDuo(it) {
     const chat = $('#lsnChat'), s = it.who === 'carlos' ? 'carlos' : 'ama', name = TNAME(it.who);
@@ -334,7 +334,8 @@
     chat.appendChild(n);
     const go = $('#lsnGo'); go.onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     n.scrollIntoView({ block: 'nearest' }); go.scrollIntoView({ block: 'nearest' }); go.focus({ preventScroll: true });
-    setTimeout(() => say(it.sent, false, it.who), 200);
+    const cap = !it.radio && window.SayText ? SayText.prep(p) : null;
+    setTimeout(() => say(it.sent, false, it.who, undefined, cap), 200);
   }
   // Một câu thoại của truyện/radio: người nói sáng lên + đọc (giọng Kokoro), truyện hiện chữ (radio chỉ nghe), chạm Tiếp tục
   function line(it) {
@@ -346,7 +347,8 @@
     foot.innerHTML = ST.lsnGo(t('Nghe lại'), t('Tiếp tục'));
     $('#lsnPlay').onclick = () => say(it.sent, false, it.who);
     $('#lsnGo').onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
-    setTimeout(() => say(it.sent, false, it.who), 200);
+    const cap = !it.radio && window.SayText ? SayText.prep([$('#lsnBub'), log.lastElementChild], { skip: 'b' }) : null;
+    setTimeout(() => say(it.sent, false, it.who, undefined, cap), 200);
   }
 
   // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở; video hết (end card "Next step →") → bấm chính nút Tiếp tục của bài
@@ -390,9 +392,10 @@
     } else if (!L.v2) document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
-      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
-      bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); L.popLast = true; if (window.Sfx) Sfx.pop(); draw(); L.popLast = false; };
-      ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked) return; L.tiles = L.tiles.filter(i => i !== +b.dataset.a); draw(); };
+      // Xếp câu: component chung (word-arrange.js) – chạm thêm nhanh, kéo chèn vào giữa / đổi chỗ / kéo ra để gỡ, bàn phím, aria-live
+      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); if (chk) chk.disabled = !L.tiles.length; };
+      if (L.arrange) L.arrange.destroy();
+      L.arrange = WordArrange.bind({ ans, bank, get: () => L.tiles, set: o => { L.tiles = o; }, draw, locked: () => L.checked, word: i => it.tiles[i], t, onPlace: () => { if (window.Sfx) Sfx.pop(); } });
     }
     on('lsnMic', () => {
       const out = $('#lsnHeard'), mic = $('#lsnMic'); if (L.checked) return;
