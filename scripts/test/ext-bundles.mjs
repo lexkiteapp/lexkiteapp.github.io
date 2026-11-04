@@ -3,19 +3,13 @@
 import fs from 'node:fs';
 import assert from 'node:assert';
 
-/** Khối `const G = …, BUNDLES = { … };` của app.js → object thật (đánh giá với Store giả), không phải regex chuỗi: bắt được cả tên ghép bằng ...map(). */
+/** Khối `const G = …, BUNDLES = { … };` của app.js → object thật, không phải regex chuỗi: bắt được cả tên ghép bằng ...map(). Bản add-on: áp thêm EXT_NO như app.js lúc chạy. */
 export function bundlesOf(src, isExtension) {
-  const a = src.indexOf("const G = 'js/grammar/', BUNDLES = {"); assert.ok(a >= 0, 'không thấy khối BUNDLES trong app.js');
-  let i = src.indexOf('{', a), d = 0, q = '', j = i;
-  for (; j < src.length; j++) {
-    const c = src[j];
-    if (q) { if (c === '\\') j++; else if (c === q) q = ''; continue; }
-    if (c === "'" || c === '"' || c === '`') q = c;
-    else if (c === '/' && src[j + 1] === '/') j = src.indexOf('\n', j);
-    else if (c === '{') d++;
-    else if (c === '}' && --d === 0) break;
-  }
-  return new Function('Store', `${src.slice(a, j + 1)}; return BUNDLES;`)({ isExtension });
+  const a = src.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = src.indexOf('\n  };', a); assert.ok(a >= 0 && b >= 0, 'không thấy khối BUNDLES trong app.js');
+  const B = new Function(`${src.slice(a, b + 4)}; return BUNDLES;`)();
+  const no = src.match(/const EXT_NO = (\[[^\]]*\]); if \(Store\.isExtension\)/); assert.ok(no, 'không thấy EXT_NO trong app.js');
+  if (isExtension) for (const n of new Function(`return ${no[1]};`)()) { assert.ok(B[n], `EXT_NO: gói '${n}' không có trong BUNDLES`); B[n] = []; }
+  return B;
 }
 
 const B = bundlesOf(fs.readFileSync('extension/app/js/app.js', 'utf8'), true);
