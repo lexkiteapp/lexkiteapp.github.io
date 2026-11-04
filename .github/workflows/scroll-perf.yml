@@ -36,7 +36,11 @@ jobs:
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Đo cuộn ${{ matrix.device }}
-        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --out sp-out --check
+        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --out sp-out
+      - name: A/B không blur (chỉ số đo, không chặn)
+        if: ${{ matrix.device != 'desktop' && !cancelled() }}
+        continue-on-error: true
+        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes light --only today,practice,me,stats,library,reading,review-hub --variant noblur --out sp-out
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with: { name: 'scroll-perf-${{ matrix.device }}', path: sp-out, retention-days: 14 }

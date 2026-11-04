@@ -11,6 +11,7 @@ import { serve } from '../quality/serve.mjs';
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'sp-out')), DEVICE = arg('device', 'phone');
 const THEMES = arg('themes', DEVICE === 'webkit' ? 'light' : 'light,dark').split(','), ONLY = arg('only', '') ? arg('only', '').split(',') : null, CHECK = process.argv.includes('--check');
+const VARIANT = arg('variant', ''); // noblur: A/B đo cái giá của backdrop-filter, không dùng cho cổng
 const BUDGET = JSON.parse(fs.readFileSync(new URL('./scroll-perf.budget.json', import.meta.url), 'utf8'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
@@ -23,10 +24,10 @@ export const SCREENS = [
   { id: 'roleplay', hash: '#/roleplay' }, { id: 'call', hash: '#/call' }, { id: 'tests', hash: '#/tests' }, { id: 'mock', hash: '#/mock' },
   { id: 'vocab', hash: '#/vocab' }, { id: 'dict', hash: '#/dict/hello' }, { id: 'me', hash: '#/me' }, { id: 'stats', hash: '#/stats' },
   // Đang trong phiên học (điện thoại nhỏ 360×640: màn focus mới cuộn được, đúng máy dễ giật nhất)
-  { id: 'map', hash: '#/lesson' }, { id: 'lesson-s', hash: '#/lesson/go', small: 1 }, { id: 'review-s', hash: '#/review', small: 1 }, { id: 'say-s', hash: '#/say', enter: '#sayList a', small: 1 },
-  { id: 'learn', hash: '#/day/1', enter: 'ol.day-steps a[data-step="learn"]', small: 1 }, { id: 'read-item', hash: '#/reading', enter: '#view a[href^="#/reading/"]' }, { id: 'listen-item', hash: '#/listening', enter: '#view a[href^="#/listening/"]' },
+  { id: 'map', hash: '#/lesson' }, { id: 'review-hub', hash: '#/review?hub=1' }, { id: 'lesson-s', hash: '#/lesson/go', small: 1 }, { id: 'review-s', hash: '#/review', small: 1 }, { id: 'say-s', hash: '#/say', enter: '#sayList a', small: 1 },
+  { id: 'learn', hash: '#/day/1', enter: 'ol.day-steps a[data-step="learn"]', small: 1 }, { id: 'read-item', hash: '#/reading', enter: '#view a[href^="#/read/"]' }, { id: 'listen-item', hash: '#/listening', enter: '#view a[href^="#/listen/"]' },
   { id: 'grammar-item', hash: '#/grammar', enter: '#view a[href^="#/grammar/"]' }, { id: 'role-item', hash: '#/roleplay', enter: '#view a[href^="#/roleplay/"]', small: 1 }, { id: 'call-item', hash: '#/call', enter: '#view a[href^="#/call/"]', small: 1 },
-  { id: 'mock-run', hash: '#/mock', enter: '#view a[href^="#/mock/"], #view [data-start]', small: 1 }, { id: 'library', hash: '#/library' }, { id: 'topic', hash: '#/topic/environment' }, { id: 'mistakes', hash: '#/mistakes' },
+  { id: 'mock-run', hash: '#/mock', enter: '#view a[href*="mock/"], #view a[href^="#/toeic-test"], #view [data-start]', small: 1 }, { id: 'library', hash: '#/library' }, { id: 'topic', hash: '#/topic/environment' }, { id: 'mistakes', hash: '#/mistakes' },
 ];
 const DEV = {
   phone: { launcher: chromium, cpu: 4, net: { latency: 150, down: 1.6e6 / 8 * 0.9, up: 750e3 / 8 * 0.9 }, touch: true, ctx: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36' } },
@@ -78,14 +79,15 @@ function traceWindow(ev, a, b) {
     if (e.pid !== pid || e.tid !== tid || e.ph !== 'X' || !e.dur) continue;
     const ms = e.dur / 1000, nm = /RunTask$/.test(e.name) ? 'RunTask' : e.name;
     (S[nm] = S[nm] || { n: 0, ms: 0 }).n++; S[nm].ms += ms;
-    if (nm === 'RunTask' && ms >= 50) longs.push({ ts: e.ts, ms: Math.round(ms) });
+    if (nm === 'RunTask' && ms >= 50) longs.push({ ts: e.ts, end: e.ts + e.dur, ms: Math.round(ms), parts: {} });
     if (nm === 'Layout') { const st = e.args && e.args.beginData && e.args.beginData.stackTrace; if (st && st[0]) { const k = `${st[0].functionName || '(anon)'} ${String(st[0].url).replace(/https?:\/\/[^/]+\//, '')}:${st[0].lineNumber}`; layoutAt[k] = (layoutAt[k] || 0) + ms; } }
     if (nm === 'FunctionCall' && e.args && e.args.data) { const k = `${e.args.data.functionName || '(anon)'} ${String(e.args.data.url).replace(/https?:\/\/[^/]+\//, '')}:${e.args.data.lineNumber}`; scripts[k] = (scripts[k] || 0) + ms; }
     if (nm === 'EventDispatch' && e.args && e.args.data && /^(scroll|touchmove|touchstart|wheel)$/.test(e.args.data.type)) { const k = 'evt:' + e.args.data.type; (S[k] = S[k] || { n: 0, ms: 0 }).n++; S[k].ms += ms; }
   }
+  for (const e of ev) { if (e.pid !== pid || e.tid !== tid || e.ph !== 'X' || !e.dur || /RunTask$/.test(e.name)) continue; const k = longs.find(x => e.ts >= x.ts && e.ts + e.dur <= x.end); if (!k) continue; const d = e.args && e.args.data, nm = e.name === 'FunctionCall' && d ? `fn:${d.functionName || 'anon'}@${String(d.url).split('/').pop()}:${d.lineNumber}` : e.name === 'EvaluateScript' && d ? `eval:${String(d.url).split('/').pop()}` : e.name; k.parts[nm] = (k.parts[nm] || 0) + e.dur / 1000; }
   const top = (o, n = 4) => Object.entries(o).sort((x, y) => y[1] - x[1]).slice(0, n).map(([k, v]) => `${v.toFixed(1)}ms ${k}`);
   const g = k => S[k] || { n: 0, ms: 0 };
-  return { longN: longs.length, longMax: longs.reduce((m, x) => Math.max(m, x.ms), 0), tbt: longs.reduce((s, x) => s + x.ms - 50, 0), layoutN: g('Layout').n, layoutMs: +g('Layout').ms.toFixed(1), styleMs: +g('UpdateLayoutTree').ms.toFixed(1), prePaintMs: +g('PrePaint').ms.toFixed(1), paintN: g('Paint').n, paintMs: +g('Paint').ms.toFixed(1), layerizeMs: +g('Layerize').ms.toFixed(1), commitMs: +g('Commit').ms.toFixed(1), scriptMs: +g('FunctionCall').ms.toFixed(1), scrollEvtMs: +g('evt:scroll').ms.toFixed(1), touchEvtMs: +((g('evt:touchmove').ms + g('evt:touchstart').ms).toFixed(1)), drawN: g('DrawFrame').n, droppedN: g('DroppedFrame').n, layoutAt: top(layoutAt), scripts: top(scripts) };
+  return { longN: longs.length, longMax: longs.reduce((m, x) => Math.max(m, x.ms), 0), tbt: longs.reduce((s, x) => s + x.ms - 50, 0), layoutN: g('Layout').n, layoutMs: +g('Layout').ms.toFixed(1), styleMs: +g('UpdateLayoutTree').ms.toFixed(1), prePaintMs: +g('PrePaint').ms.toFixed(1), paintN: g('Paint').n, paintMs: +g('Paint').ms.toFixed(1), layerizeMs: +g('Layerize').ms.toFixed(1), commitMs: +g('Commit').ms.toFixed(1), scriptMs: +g('FunctionCall').ms.toFixed(1), scrollEvtMs: +g('evt:scroll').ms.toFixed(1), touchEvtMs: +((g('evt:touchmove').ms + g('evt:touchstart').ms).toFixed(1)), longs: longs.sort((x, y) => y.ms - x.ms).slice(0, 3).map(k => ({ ms: k.ms, parts: top(k.parts, 5) })), drawN: g('DrawFrame').n, droppedN: g('DroppedFrame').n, layoutAt: top(layoutAt), scripts: top(scripts) };
 }
 
 const srv = await serve(ROOT, 0), O = srv.origin;
@@ -94,6 +96,8 @@ const browser = await DEV.launcher.launch(DEVICE === 'webkit' ? {} : { args: ['-
 
 async function newCtx(theme) {
   const ctx = await browser.newContext({ ...DEV.ctx, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block', reducedMotion: 'no-preference' });
+  await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) { /* trang lỗi */ } }); // cờ ux1 (vỏ Stitch 5 tab – bản người dùng thấy) đến từ /api/config, hermetic = rỗng → phải bật tay, không thì đo nhầm giao diện cũ
+  if (VARIANT === 'noblur') await ctx.addInitScript(() => { const st = document.createElement('style'); st.textContent = '*,*::before,*::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}'; document.documentElement.appendChild(st); });
   await ctx.addInitScript(INJECT);
   await ctx.route('**/*', async r => { const q = r.request(), u = new URL(q.url()); if (u.origin === O) return r.continue(); if (q.resourceType() === 'image') { await sleep(500); return r.fulfill({ status: 200, contentType: 'image/svg+xml', body: ONEIMG }).catch(() => {}); } return r.fulfill({ status: 200, contentType: 'text/plain', body: '' }).catch(() => {}); });
   return ctx;
@@ -120,7 +124,7 @@ async function measure(ctx, sc, cold) {
   const res = { id: sc.id };
   const vp = sc.small && DEVICE === 'phone' ? { width: 360, height: 640 } : DEV.ctx.viewport; if (vp !== DEV.ctx.viewport) await page.setViewportSize(vp);
   await page.goto(`${O}/app/?demo=1&hl=en${sc.hash}`, { waitUntil: 'load', timeout: 90000 });
-  await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0 && !document.querySelector('#view > .skel-page'), null, { timeout: 45000 }).catch(() => { res.noRender = 1; });
+  await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0 && !document.querySelector('#view .skel-page, #view .skel-study, #view [aria-busy="true"]'), null, { timeout: 45000 }).catch(() => { res.noRender = 1; });
   if (sc.enter) { await page.locator(sc.enter).first().click({ timeout: 15000 }).catch(() => { res.noEnter = 1; }); await sleep(1500); if (cdp) await page.evaluate(() => { window.__sp.shifts.length = 0; }); } // CLS của màn trong phiên: tính từ sau khi bấm vào
   await sleep(1200); // người học bắt đầu cuộn ngay sau khi trang hiện, không đợi mọi thứ tải xong – cố ý để phần tải lười rơi vào lúc cuộn
   res.hash = await page.evaluate(() => location.hash); res.text = await page.evaluate(() => (document.getElementById('view') || {}).innerText?.trim().length || 0);
@@ -144,14 +148,14 @@ async function measure(ctx, sc, cold) {
     const hs = R.hs, heightChange = hs.length ? Math.max(...hs) - Math.min(...hs) : 0;
     const anim = document.getAnimations ? document.getAnimations().filter(a => a.playState === 'running' && a.effect && a.effect.getComputedTiming().iterations === Infinity).map(a => { const props = [...new Set(a.effect.getKeyframes().flatMap(k => Object.keys(k)))].filter(p => !/^(offset|easing|composite|computedOffset)$/.test(p)); return { on: S.label(a.effect.target), name: a.animationName || a.transitionProperty || '?', nonComp: props.filter(p => !/^(transform|opacity|filter|backdropFilter|scale|rotate|translate)$/.test(p)) }; }) : [];
     let blur = 0, i = 0; for (const e of document.querySelectorAll('body *')) { if (i++ > 4000) break; const c = getComputedStyle(e); if ((c.backdropFilter && c.backdropFilter !== 'none') || (c.webkitBackdropFilter && c.webkitBackdropFilter !== 'none')) blur++; }
-    const cs = getComputedStyle(document.documentElement);
-    return { dt, n: dt.length, frames: dt, reversal, barDelta, heightChange, shifts: S.shifts, listeners: S.listeners, prog: S.prog, mutN: S.mutN, muts: Object.entries(S.muts).sort((a, b) => b[1] - a[1]).slice(0, 5), raf: Object.entries(S.raf).sort((a, b) => b[1] - a[1]).slice(0, 5), anim, blur, smooth: cs.scrollBehavior, overscroll: cs.overscrollBehaviorY, noLS: S.noLS };
+    const cs = getComputedStyle(document.documentElement), cv = [...document.querySelectorAll('.word-row,.model-row,.md-item')].length;
+    return { cv, dt, n: dt.length, frames: dt, reversal, barDelta, heightChange, shifts: S.shifts, listeners: S.listeners, prog: S.prog, mutN: S.mutN, muts: Object.entries(S.muts).sort((a, b) => b[1] - a[1]).slice(0, 5), raf: Object.entries(S.raf).sort((a, b) => b[1] - a[1]).slice(0, 5), anim, blur, smooth: cs.scrollBehavior, overscroll: cs.overscrollBehaviorY, noLS: S.noLS };
   });
   if (cdp) { const done = new Promise(r => cdp.once('Tracing.tracingComplete', r)); await cdp.send('Tracing.end'); await done; res.trace = traceWindow(ev, 'lk-sp-a', 'lk-sp-b'); }
   const dropped = m.dt.reduce((s, d) => s + Math.max(0, Math.round(d / 16.67) - 1), 0);
   const inScroll = s => s.phase === 'down' || s.phase === 'up' || s.phase === 'off', sum = a => +a.reduce((x, s) => x + s.v, 0).toFixed(4);
   const nonInput = m.shifts.filter(s => !s.input);
-  Object.assign(res, { frames: m.n, droppedPct: m.n ? +(dropped / (dropped + m.n) * 100).toFixed(1) : 0, p95: pctl(m.dt, .95), worst: Math.round(Math.max(0, ...m.dt)), jank50: m.dt.filter(d => d > 50).length,
+  Object.assign(res, { cvRows: m.cv, frames: m.n, droppedPct: m.n ? +(dropped / (dropped + m.n) * 100).toFixed(1) : 0, p95: pctl(m.dt, .95), worst: Math.round(Math.max(0, ...m.dt)), jank50: m.dt.filter(d => d > 50).length,
     cls: clsOf(nonInput), loadCls: sum(nonInput.filter(s => s.phase === 'load')), scrollCls: sum(m.shifts.filter(inScroll)), shiftTop: [...m.shifts].sort((a, b) => b.v - a.v).slice(0, 4),
     reversal: m.reversal, barDelta: m.barDelta, heightChange: m.heightChange, blocking: m.listeners.filter(l => l.blocking), listeners: m.listeners.length, scrollLis: m.listeners.filter(l => l.type === 'scroll').map(l => l.at), prog: m.prog, mutN: m.mutN, muts: m.muts, raf: m.raf, anim: m.anim, blur: m.blur, smooth: m.smooth, overscroll: m.overscroll, errs });
   await page.close();
@@ -186,6 +190,7 @@ for (const theme of THEMES) {
     console.log(`${DEVICE}/${theme} ${sc.id.padEnd(10)} ${r.crash ? 'CRASH ' + r.crash : `h=${r.dist}${r.nested ? ' lồng' : ''} rớt ${r.droppedPct}% p95 ${r.p95} worst ${r.worst} | CLS ${r.cls} (cuộn ${r.scrollCls}) | long ${t.longN ?? '–'}/${t.longMax ?? '–'}ms | layout ${t.layoutN ?? '–'}×${t.layoutMs ?? '–'}ms paint ${t.paintN ?? '–'}×${t.paintMs ?? '–'}ms | nhảy ${r.reversal} Δcao ${r.heightChange} bar ${JSON.stringify(r.barDelta)} | chặn ${r.blocking.length} blur ${r.blur} mut ${r.mutN} ${r.hash}${r.noEnter ? ' KHÔNG-VÀO-ĐƯỢC' : ''}`}`);
     for (const s of (r.shiftTop || []).filter(s => s.v >= 0.005)) console.log(`    ↕ ${s.v} [${s.phase}${s.input ? ' input' : ''}] ${s.src.map(x => `${x.n} ${JSON.stringify(x.from)}→${JSON.stringify(x.to)}`).join(' ; ')}`);
     for (const k of (t.layoutAt || []).slice(0, 2)) console.log(`    ▦ layout ${k}`);
+    for (const k of (t.longs || []).slice(0, 1)) console.log(`    ⏱ ${k.ms}ms: ${k.parts.join(' · ')}`);
     for (const k of (r.offscreen || [])) console.log(`    👻 ${k}`);
     for (const b of (r.blocking || [])) console.log(`    ⛔ ${b.type} on ${b.on} passive=${b.passive} ${b.at}`);
     for (const p of (r.prog || []).slice(0, 2)) console.log(`    ⤵ ${p.name} khi cuộn ${p.at}`);
@@ -196,13 +201,13 @@ for (const theme of THEMES) {
 }
 await browser.close(); srv.close();
 
-const file = path.join(OUT, `${DEVICE}.json`); fs.writeFileSync(file, JSON.stringify(all, null, 1));
+const file = path.join(OUT, `${DEVICE}${VARIANT ? '-' + VARIANT : ''}.json`); fs.writeFileSync(file, JSON.stringify(all, null, 1));
 const rows = all.filter(r => r.id !== '__back');
 const md = [`### Cuộn – ${DEVICE}${DEV.cpu > 1 ? ` (CPU ${DEV.cpu}×)` : ''}`, '', '| màn | nền | cuộn px | rớt % | p95 ms | worst | long (n/max) | CLS | CLS cuộn | layout (n/ms) | paint (n/ms) | Δcao | nhảy | mut |', '|---|---|---|---|---|---|---|---|---|---|---|---|---|---|'];
 for (const r of rows) { const t = r.trace || {}; md.push(r.crash ? `| ${r.id} | ${r.theme} | CRASH | | | | | | | | | | | |` : `| ${r.id} | ${r.theme} | ${r.dist}${r.nested ? ' lồng' : ''} | ${r.droppedPct} | ${r.p95} | ${r.worst} | ${t.longN ?? '–'}/${t.longMax ?? '–'} | ${r.cls} | ${r.scrollCls} | ${t.layoutN ?? '–'}/${t.layoutMs ?? '–'} | ${t.paintN ?? '–'}/${t.paintMs ?? '–'} | ${r.heightChange} | ${r.reversal} | ${r.mutN} |`); }
 for (const r of all.filter(r => r.id === '__back')) md.push('', `Back (${r.theme}): ${JSON.stringify(r.back)}`);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md.join('\n') + '\n\n');
-fs.writeFileSync(path.join(OUT, `${DEVICE}.md`), md.join('\n') + '\n');
+fs.writeFileSync(path.join(OUT, `${DEVICE}${VARIANT ? '-' + VARIANT : ''}.md`), md.join('\n') + '\n');
 
 // ---------- cổng: ngưỡng trong scroll-perf.budget.json chỉ được siết (docs/PERF-SCROLL.md) ----------
 const B = BUDGET[DEVICE] || {};
