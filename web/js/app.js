@@ -1487,7 +1487,7 @@
     const fresh = !hasData();
     if (!Store.sandbox) try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // sandbox: dữ liệu thử tách riêng → không ghi gợi ý (lk.onb sai làm trang giới thiệu chuyển vào app, bỏ khung chào → nhảy bố cục CLS 0,7 trên máy tính) // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
-    if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
+    if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { App.replaceHash('#/welcome'); addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
     // Đang trong phiên học → vẽ lại sẽ mất phiên (App.routeHeld)
     if (!routeSeq || !App.routeHeld()) route();
     App.prefetchAll();
