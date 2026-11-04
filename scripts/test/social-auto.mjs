@@ -53,6 +53,7 @@ globalThis.fetch = async (url, init = {}) => {
   if (p === 'posts' && init.method === 'GET') return J({ posts: Object.values(GC.posts) });
   if (p === 'posts' && init.method === 'POST') { const k = (init.headers || {})['Idempotency-Key'], ex = Object.values(GC.posts).find(x => x._k === k); if (ex) return J({ post: ex }); const id = 'p_' + (++GC.n), b = JSON.parse(init.body); GC.posts[id] = { id, status: 'draft', _k: k, ...b, targets: b.targets.map(t => ({ ...t, platform: t.account_id === 3 ? 'instagram' : 'facebook_page' })) }; return J({ post: GC.posts[id] }); }
   if (p === 'media/upload-url') return J({ upload: { url: 'https://upload.example/x', method: 'PUT' }, media: { id: 'm_up' } });
+  if (/^media\/[^/]+$/.test(p) && init.method === 'GET') return J({ media: { id: p.slice(6), status: GC.mediaStatus || 'ready' } });
   if (/^media\/[^/]+\/complete$/.test(p)) return J({ media: { id: 'm_up' } });
   let m = /^posts\/([^/]+)$/.exec(p); if (m) return GC.posts[m[1]] ? J({ post: GC.posts[m[1]] }) : J({ error: { code: 'not_found' } }, 404);
   m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
@@ -80,7 +81,7 @@ const gcCalls = calls.filter(c => c.p !== 'PUT');
 ok(r.due === 4 && r.created === 3 && r.review === 3 && r.scheduled === 0 && !r.stop, `lượt 1 (tự duyệt TẮT): 3 bài NHÁP chờ duyệt (đến hạn ${r.due}, tạo ${r.created}, lên lịch ${r.scheduled}, dừng ${r.stop})`);
 ok(r.skipped.some(s => s.clip === CC && s.why === 'clip-not-approved'), 'clip chưa duyệt trong kho → bỏ qua');
 ok(!gcCalls.some(c => /schedule|publish-now/.test(c.p)) && Object.values(GC.posts).every(p => p.status === 'draft' && !p.scheduled_at), 'không bài nào lên lịch/công khai khi chưa duyệt');
-ok(r.calls === gcCalls.length && r.calls === 7, `đếm lượt GrabCast đúng (đồng bộ 2 + tải 2 + tạo 3 = 7; nhận ${r.calls}/${gcCalls.length})`);
+ok(r.calls === gcCalls.length && r.calls === 9, `đếm lượt GrabCast đúng (đồng bộ 2 + kiểm media cache 2 + tải 2 + tạo 3 = 9; nhận ${r.calls}/${gcCalls.length})`);
 ok(gcCalls.filter(c => c.p === 'posts' && c.m === 'POST').every(c => /^lkap-c-[0-9a-f]{40}$/.test(c.h['Idempotency-Key'])), 'tạo bài kèm Idempotency-Key cố định');
 ok(calls.filter(c => c.p === 'media/upload-url').length === 1 && calls.some(c => c.p === 'PUT'), 'chỉ clip chưa có media mới tải lên (cache media dùng lại cho FB + IG)');
 const p1 = Object.values(GC.posts).find(p => p.media_ids[0] === 'm_cached' && p.targets[0].account_id === 2);
@@ -90,7 +91,7 @@ ok(b1 && b1.state === 'review' && b1.by_who === 'autopilot' && b1.want_at === ds
 ok(ds(CA, 'gc-facebook_page-2').state === 'pushed' && ds(CA, 'gc-facebook_page-2').post_id === p1.id && ds(CA, 'gc-tiktok-4').state === 'planned' && ds(CB, 'gc-facebook_page-5').state === 'planned', 'social_ack pushed + post_id; TikTok (tắt) và slot ngoài cửa sổ không đụng');
 calls = []; r = await A.runAuto(ENV, { now: now + 60e3 });
 ok(r.created === 0 && calls.length === 0, 'lượt 2 ngay sau: không tạo trùng, 0 lượt GrabCast (đồng bộ chưa tới hạn)');
-ok(st().calls.n === 7 && st().last_sync && st().last_sync.at === now, 'ngân sách ngày + lần đồng bộ lưu ở D1');
+ok(st().calls.n === 9 && st().last_sync && st().last_sync.at === now, 'ngân sách ngày + lần đồng bộ lưu ở D1');
 
 // duyệt tay trong Quản trị (board/approve) → lên lịch đúng slot
 {
@@ -112,7 +113,7 @@ ok((await A.manualCounts(DB)).facebook_page === 1 && !(await A.manualCounts(DB))
 GC.posts[p1.id].status = 'published'; GC.posts[p1.id].targets[0].state = 'published';
 calls = []; r = await A.runAuto(ENV, { now: now + 7 * H });
 ok(r.synced && sql.prepare('SELECT state FROM soc_board WHERE post_id = ?').get(p1.id).state === 'published' && ds(CA, 'gc-facebook_page-2').state === 'published', 'đồng bộ nền: bài đã đăng → soc_board published + dist_social published');
-ok(calls.filter(c => c.m === 'GET' && !/^posts\//.test(c.p)).length === 2 && calls.filter(c => c.m === 'GET' && /^posts\//.test(c.p)).length <= r.scheduled, 'đồng bộ = đúng 2 lượt GET (accounts + posts), không poll; GET bài chỉ khi lên lịch bài đó');
+ok(calls.filter(c => c.m === 'GET' && !/^(posts|media)\//.test(c.p)).length === 2 && calls.filter(c => c.m === 'GET' && /^posts\//.test(c.p)).length <= r.scheduled, 'đồng bộ = đúng 2 lượt GET (accounts + posts), không poll; GET bài chỉ khi lên lịch bài đó');
 
 // dừng cả lượt + cầu dao
 GC.fail['POST posts'] = 503; due(CB, 'gc-facebook_page-2', 9.5); sql.prepare("UPDATE dist_social SET state = 'planned' WHERE clip = ? AND channel_id = 'gc-facebook_page-2'").run(CB);
@@ -248,6 +249,24 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
     [a, b, c].forEach((x, i) => Object.assign(x, sv[i])); for (const x of DATA.index.items.slice(3)) { x.qa = x._qa; delete x._qa; }
     sql.exec('DELETE FROM clip_review');
   }
+
+  // Trạng thái GrabCast thật (backend/app/social, 04/11)
+  ok(MGR.boardStateOf('partial', 'scheduled') === 'published' && MGR.boardStateOf('canceled', 'scheduled') === 'draft' && MGR.boardStateOf('missed', 'scheduled') === 'failed' && MGR.boardStateOf('cancel_failed', 'scheduled') === 'failed', 'partial không phải lỗi; canceled, missed, cancel_failed đúng cột');
+  ok(MGR.boardStateOf('needs_check', 'scheduled') === 'scheduled' && MGR.boardStateOf('awaiting_approval', 'review') === 'review' && MGR.noteOfStatus('needs_check') === 'needs-check', 'needs_check giữ cột + ghi chú, không đoán');
+  ok(A.MAYBE_LIVE.includes('needs_check') && A.MAYBE_LIVE.includes('partial'), 'bài có thể đã lên không được làm lại');
+
+  // Media cache hết hạn: GrabCast xóa file sau khi bài xong → tải lại, không dùng id cũ
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_old' }), now);
+  GC.mediaStatus = 'expired'; calls = []; let mx = await A.runAuto(ENV, { now }); GC.mediaStatus = '';
+  ok(mx.created === 1 && calls.some(c => c.p === 'media/upload-url') && Object.values(GC.posts)[0].media_ids[0] === 'm_up', 'media expired → tải lại, bài dùng id mới');
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_ok' }), now);
+  calls = []; mx = await A.runAuto(ENV, { now });
+  ok(mx.created === 1 && !calls.some(c => c.p === 'media/upload-url') && Object.values(GC.posts)[0].media_ids[0] === 'm_ok', 'media còn ready → dùng lại');
+
+  // needs_check: báo người, không đăng lại
+  reset({ sync_h: 3 }); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now });
+  { const pid = Object.keys(GC.posts)[0]; GC.posts[pid].status = 'needs_check'; const before = Object.keys(GC.posts).length; const y = await A.runAuto(ENV, { now: now + 4 * H });
+    ok(y.alerts.some(a => /needs-check/.test(a.k)) && Object.keys(GC.posts).length === before && ds(CA, 'gc-facebook_page-2').state === 'pushed', 'needs_check → cảnh báo, không tạo bài thứ 2'); }
 
   // Bài độc 422: không được chặn cả hàng mãi
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); dueAt(CB, 'gc-facebook_page-2', 8);

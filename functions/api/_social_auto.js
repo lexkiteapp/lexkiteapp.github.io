@@ -94,6 +94,7 @@ async function clipsFor(env, ids) {
 
 // ---------------- Provider (§6b): grabcast mặc định · meta dự phòng cho FB/IG ----------------
 export const META_PLATS = ['facebook_page', 'instagram'];
+export const MAYBE_LIVE = ['partial', 'needs_check', 'cancel_failed']; // GrabCast: bài có thể đã lên kênh – không làm lại, không đăng thay (tránh trùng)
 export const LATE_MS = 30 * 60e3;      // GrabCast chưa đăng sau giờ hẹn + 30 phút → coi như trễ
 export const MAX_LATE_MS = 12 * 36e5;  // quá 12 giờ sau slot → không cứu nữa (bài cũ)
 export const IG_PREP_MS = 3 * 36e5;    // tạo container IG ≤ 3 giờ trước slot (container sống 24 giờ)
@@ -174,7 +175,12 @@ async function mirrorFailed(db, st, since, now) {
     if (a.length !== 1 || !r.clip) continue;
     const ch = `gc-${platOf({ platform: p[0] || '' })}-${a[0]}`, code = String((ls.find(x => x && x.e) || {}).e || 'failed').slice(0, 60);
     const res = await run(db, "UPDATE dist_social SET state = 'failed', err = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'pushed'", code, Date.now(), r.clip, ch);
-    if (res && res.meta && res.meta.changes) { n++; pushAlert(st, `post-failed:${r.clip}|${ch}`, `Lexkite autopilot: bài ${r.clip} đăng lỗi ở ${ch} (${code}). Không tự thử lại – xem ở Quản trị › Hàng đợi rồi bấm Thử lại.`, now); }
+    const hint = code === 'validation_failed' && /tiktok/.test(ch) ? ' Thường do tài khoản TikTok đang Riêng tư: chuyển sang Công khai trong app TikTok.' : '';
+    if (res && res.meta && res.meta.changes) { n++; pushAlert(st, `post-failed:${r.clip}|${ch}`, `Lexkite autopilot: bài ${r.clip} đăng lỗi ở ${ch} (${code}).${hint} Không tự thử lại – xem ở Quản trị › Hàng đợi rồi bấm Thử lại.`, now); }
+  }
+  for (const r of await all(db, "SELECT clip, accounts, plats FROM soc_board WHERE note = 'needs-check' AND by_who = ? AND updated > ? LIMIT 20", AUTO_WHO, since)) { // có thể đã lên kênh: báo người, tuyệt đối không đăng lại
+    let a = [], p = []; try { a = JSON.parse(r.accounts || '[]'); p = JSON.parse(r.plats || '[]'); } catch (e) { continue; }
+    pushAlert(st, `post-failed:${r.clip}|needs-check`, `Lexkite autopilot: bài ${r.clip} (${p[0] || ''} ${a[0] || ''}) không rõ đã lên kênh chưa. Mở kênh kiểm tra tay; hệ thống không đăng lại.`, now);
   }
   return n;
 }
@@ -272,6 +278,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
         const b = await one(db, 'SELECT id, state FROM soc_board WHERE id = ?', await boardId(r.clip, r.channel_id)); if (!b || b.state !== 'scheduled') continue; // nháp chờ duyệt không phải "trễ"
         const g = await call('GET', 'posts/' + r.post_id); const s = String(((g.data && (g.data.post || g.data)) || {}).status || '');
         if (s === 'published') { await boardSync(db, [(g.data.post || g.data)]); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'published', post_id: r.post_id }); continue; }
+        if (MAYBE_LIVE.includes(s)) continue; // có thể đã lên kênh → không chuyển Meta, tránh đăng trùng
         late++;
       }
     } catch (e) { if (!e.stop) throw e; gcStop(e); }
@@ -327,7 +334,8 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     // Hồi phục: hủy bài GrabCast còn treo của các bài Meta đã đăng thay (≤ 3 bài/lượt, theo chỉ mục soc_lock_cancel)
     for (const l of await all(db, "SELECT clip, channel_id, gc_post FROM soc_lock WHERE gc_cancel = 'pending' LIMIT 3")) {
       const g = await call('GET', 'posts/' + l.gc_post), s = String(((g.data && (g.data.post || g.data)) || {}).status || '');
-      if (g.status === 404 || /cancel|deleted|draft|fail/.test(s)) { await setLock(db, l.clip, l.channel_id, { gc_cancel: 'done' }); continue; }
+      if (MAYBE_LIVE.includes(s)) { await setLock(db, l.clip, l.channel_id, { gc_cancel: 'dup' }); pushAlert(st, 'dup-published:' + l.clip + '|' + l.channel_id, `Lexkite autopilot: bài GrabCast ${l.clip} (${l.channel_id}) báo ${s} dù Meta đã đăng thay – có thể trùng, kiểm tra tay.`, now); continue; }
+      if (g.status === 404 || ['canceled', 'deleted', 'draft', 'failed', 'missed'].includes(s)) { await setLock(db, l.clip, l.channel_id, { gc_cancel: 'done' }); continue; }
       if (s === 'published') { await setLock(db, l.clip, l.channel_id, { gc_cancel: 'dup' }); pushAlert(st, 'dup-published:' + l.clip + '|' + l.channel_id, `Lexkite autopilot: GrabCast đã đăng bài ${l.clip} (${l.channel_id}) dù Meta đã đăng thay – kiểm và xóa 1 bản.`, now); continue; }
       if (/schedul/.test(s)) await call('POST', `posts/${l.gc_post}/unschedule`, {});
       const c = await call('POST', `posts/${l.gc_post}/cancel`, {});
@@ -405,7 +413,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
         if (auto) await approveAndSchedule(db, call, bid, pid, r, rec); else rec.review++;
       } catch (e) {
         if (e.stop && (e.status === 409 || e.status === 422)) { // lỗi NỘI DUNG của clip này: vẫn dừng lượt, nhưng phải tính cho clip – không thì lượt nào cũng kẹt đúng clip đầu hàng và chặn mọi bài sau
-          if (/media/.test(e.code)) await run(db, 'DELETE FROM soc_meta WHERE k = ?', 'media:' + r.clip); // media cache hết hạn → lượt sau tải lại
+          if (/media|validation/.test(e.code)) await run(db, 'DELETE FROM soc_meta WHERE k = ?', 'media:' + r.clip); // media cache hết hạn → lượt sau tải lại
           await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: String(e.code).slice(0, 120) }); failed(r, String(e.code));
           if (st.fails[r.clip + '|' + r.channel_id].n >= MAX_TRIES) pushAlert(st, `gave-up:${r.clip}|${r.channel_id}`, `Lexkite autopilot: bài ${r.clip} ở ${r.channel_id} bị từ chối ${MAX_TRIES} lần (${e.code}), đã bỏ qua để bài khác chạy tiếp – xem ở Quản trị › Hàng đợi.`, now);
         }
@@ -517,7 +525,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
           try {
             const g = await gc('GET', 'posts/' + gcPid); const s = String(((g.data && (g.data.post || g.data)) || {}).status || '');
             if (g.status < 400) {
-              if (s === 'published') { await boardSync(db, [(g.data.post || g.data)]); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'published', post_id: gcPid }); await setLock(db, r.clip, r.channel_id, { provider: 'grabcast', state: 'posted', gc_cancel: 'n/a' }); continue; }
+              if (s === 'published' || MAYBE_LIVE.includes(s)) { await boardSync(db, [(g.data.post || g.data)]); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: s === 'published' ? 'published' : 'pushed', post_id: gcPid }); await setLock(db, r.clip, r.channel_id, { provider: 'grabcast', state: 'posted', gc_cancel: 'n/a' }); continue; }
               if (/schedul|publishing|processing/.test(s)) { const u = await gc('POST', `posts/${gcPid}/unschedule`, {}); if (u.status >= 400) throw Object.assign(new Error('x'), { unsched: true }); }
               await gc('POST', `posts/${gcPid}/cancel`, {});
               await setLock(db, r.clip, r.channel_id, { gc_cancel: 'done' }); handled = true;
