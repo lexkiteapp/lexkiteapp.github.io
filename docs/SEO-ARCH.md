@@ -43,7 +43,8 @@ Lỗ hổng lớn nhất: 13 ngôn ngữ ngoài vi/en chỉ có landing + blog �
 | Ngôn ngữ | N | Lý do |
 |---|---|---|
 | en, vi | 1.500 | dữ liệu soạn tay đầy đủ; vi có ghi chú lỗi người Việt |
-| 13 ngôn ngữ khác | 400 | chỉ từ có nghĩa cờ ≥ 1; nhân dần theo số liệu GSC (§5) – tránh nghìn trang chưa được index làm loãng crawl budget domain mới |
+| de, fr, ja, ko, ar | 650 | 4/11: thị trường CPM cao (`PRIORITY_LANGS`, `functions/api/_cpm.js`), `SEO_N_PRIORITY`. Dữ liệu đủ tới ≈ 1.300 từ có nghĩa thật mỗi ngôn ngữ; giới hạn ở 650 vì ngân sách file (xem dưới) |
+| 8 ngôn ngữ còn lại | 400 | chỉ từ có nghĩa cờ ≥ 1; nhân dần theo số liệu GSC (§5) – tránh nghìn trang chưa được index làm loãng crawl budget domain mới |
 | Bài giao tiếp | 24 × 15 | toàn bộ (ít, giá trị cao: "how to order coffee in English") |
 Tập 13 ngôn ngữ ⊂ tập en → x-default luôn tồn tại.
 
@@ -55,7 +56,7 @@ Tập 13 ngôn ngữ ⊂ tập en → x-default luôn tồn tại.
 | Giao tiếp: 24 × 15 + 15 mục lục | 375 |
 | Sitemap mới (words × 15 + conversations) | 16 |
 | **Sau (ước)** | **≈ 11.530** (cổng 18.000 → còn ≈ 6.400 cho blog/đợt sau) |
-Không cần host ngoài Pages lúc này. Khi vượt 15.000: chuyển trang từ 13 ngôn ngữ sang repo GitHub Pages `lexkite-media` (đã dùng cho ảnh blog) qua Worker `lexkite-media` phục vụ cùng tên miền con, hoặc shard theo chữ cái – generator đã tách `--out`, chỉ cần đổi thư mục đích.
+Đo 4/11: `dist` 13.696 file (Web sweep trên main), 5 ngôn ngữ × +250 trang → ≈ 14.950, dưới mốc 15.000. Dist tăng ≈ 100 file trong 9 giờ đo được 4/11 (blog đăng hằng ngày), nên nâng tiếp lên 1.000 phải làm cùng đường chuyển trang từ dưới đây. Không cần host ngoài Pages lúc này. Khi vượt 15.000: chuyển trang từ 13 ngôn ngữ sang repo GitHub Pages `lexkite-media` (đã dùng cho ảnh blog) qua Worker `lexkite-media` phục vụ cùng tên miền con, hoặc shard theo chữ cái – generator đã tách `--out`, chỉ cần đổi thư mục đích.
 
 ### (b) App → bản tĩnh
 `web/js/seo-twin.js` (≈ 2 KB, ngoài SHELL, chỉ chạy trên web lexkite.com/pages.dev – không chạy trong Capacitor/add-on): khi đổi route `#/dict/<từ>`, `#/confidence/<id>`, `#/topic/<id>`, `#/grammar/<id>` mà bản tĩnh tồn tại (danh mục `/data/seo-twins.json`, sinh cùng lúc, no-cache) → đặt `<link rel=canonical>` tới bản tĩnh + một liên kết nhỏ "🌐 Trang web" cuối trang (chia sẻ link index được thay vì link #/). Không đổi luồng học, không chặn vẽ trang.
@@ -99,6 +100,7 @@ Nạp: dòng cuối `notices.js` (đã tải lười 2,5 s sau khi mở app) →
 - **Lưu:** `ext_events` kind `land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>` – không URL, không IP, không vid; nguồn ngoài danh sách → `other`. Bot và bản preview bị bỏ ở máy chủ.
 - **Quota:** +1 lượt Functions và +1 dòng ghi D1 cho mỗi lượt khách ngoài (không tính lượt xem nội bộ); 1.000 lượt/ngày ≈ 1 % trần ghi D1 miễn phí, 1 % Functions. Trần 30 lượt/giờ/IP. Tắt: biến Pages `HIT_LAND=0`.
 - **Admin:** Quản trị › Thống kê có thẻ "Nhóm CPM cao" và "Khách từ ngoài vào trang tĩnh". Số 692 Mỹ là truy vấn thô trên D1 (gồm bot); bảng nước của admin vốn đã lọc, nay có test khoá từng loại `dc, ci-app, ua, admin, bot` (`scripts/test/analytics.mjs`).
+- **Nội dung theo thị trường:** `gsc-priority.json` có `cpmShare` + `score = gain × (1 + CPM_W × cpmShare)`, xếp theo `score` (nhu cầu tiếng Việt lớn hơn hẳn vẫn đứng trên, không mục nào bị loại). Cụm US/UK/CA/AU/NZ: `content/blog/plan/2027-01-cpm-clusters.json` (IELTS định cư, người mới nhập cư, nghĩa từ, PTE/CELPIP so sánh trung thực vì app không có đề thi của hai kỳ này; cổng `scripts/test/cpm-plan.mjs`). NL, SE, NO, DK, FI… dùng trang en, không mở ngôn ngữ mới.
 
 ## 10. Trang gốc quốc tế (4/11)
 - **Trước:** `/` là tiếng Việt nên mọi lượt tìm thương hiệu và backlink từ mọi nước vào tiếng Việt. **Nay:** tiếng Việt ở `/vi/`; `/` = 302 theo `functions/index.js` + `functions/api/_rootlang.js`, `Vary: Accept-Language`, không đệm. `/tu-vung/`, `/samples/`, `/blog/*` → `/vi/blog/` giữ nguyên.

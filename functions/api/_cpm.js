@@ -5,6 +5,10 @@ export const HIGH_CPM = {
   US: 'usa', GB: 'gbr', CA: 'can', AU: 'aus', NZ: 'nzl', IE: 'irl', DE: 'deu', AT: 'aut', CH: 'che', NL: 'nld', BE: 'bel', LU: 'lux', FR: 'fra',
   SE: 'swe', NO: 'nor', DK: 'dnk', FI: 'fin', IS: 'isl', JP: 'jpn', KR: 'kor', SG: 'sgp', HK: 'hkg', TW: 'twn', AE: 'are', SA: 'sau', QA: 'qat', KW: 'kwt', IL: 'isr', ES: 'esp', IT: 'ita',
 };
+/** Ngôn ngữ của app gắn thị trường CPM cao mà chưa đủ trang: de (DE/AT/CH), fr (FR/BE/CA/CH), ja, ko, ar (vùng Vịnh). Nước CPM cao không có ngôn ngữ riêng (NL, SE, NO, DK, FI…) dùng trang en, không mở ngôn ngữ mới. */
+export const PRIORITY_LANGS = ['de', 'fr', 'ja', 'ko', 'ar'];
+/** Trọng số điểm ưu tiên viết: lượt bấm ước tính × (1 + CPM_W × tỉ lệ hiển thị từ nhóm CPM cao). Giả định, chỉnh theo RPM thật. */
+export const CPM_W = 1;
 const ISO3 = new Set(Object.values(HIGH_CPM));
 /** 'US' | 'usa' → 'vn' | 'high' | 'other' */
 export function tierOf(c) {
