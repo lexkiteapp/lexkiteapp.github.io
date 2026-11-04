@@ -98,7 +98,7 @@
   };
   // Nghĩa chính: nếu nghĩa tóm tắt quá ngắn/trùng từ gốc thì lấy nghĩa đầu tiên của mục từ
   const viMain = (e, shown) => { const v = String(e.vi || '').trim(); if (v.length >= 3 && v.toLowerCase() !== String(e.word || '').toLowerCase()) return v; const f = (shown || []).find(x => x.vi && x.vi.length); return f ? f.vi.slice(0, 3).join(', ') : v; };
-  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + (x >>> 0).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
   // Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
   const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };

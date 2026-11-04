@@ -211,6 +211,7 @@
 
   g.ExitGuard = {
     isLearn, ALWAYS, WITH_ARG, NOT_LEARN,
+    focusFor: (n, a, q) => flagOn() && isLearn(n, a, q), // route() đặt khung FOCUS ngay lúc chạm (after() chỉ còn là chốt)
     learn: name => extra.add(name),
     onSave: fn => saves.push(fn), // màn lưu được tiến độ → hộp hỏi báo "đã lưu"
     progress: () => syncBar(),
