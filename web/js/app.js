@@ -1494,7 +1494,8 @@
     };
     $('.top-stats').prepend(b);
   }
-  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; showInstallBtn(); setTimeout(() => App.installNudge && App.installNudge(), 25000); });
+  // Chrome bắn sự kiện này bất kỳ lúc nào: chèn nút ngay sẽ đẩy cả cụm thanh trên sang trái 50 px khi đang đọc (CLS, J8 đỏ ngẫu nhiên) → chèn ở lần chuyển trang kế tiếp
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; window.addEventListener('hashchange', showInstallBtn, { once: true }); setTimeout(() => App.installNudge && App.installNudge(), 25000); });
   window.addEventListener('appinstalled', () => { const b = $('#installBtn'); if (b) b.remove(); });
   // Gợi ý cài app đúng lúc (như các app lớn): trên điện thoại, sau khi đã học ≥ 3 ngày, tối đa 1 lần/14 ngày – không làm phiền người mới
   App.installNudge = () => {
@@ -1507,7 +1508,7 @@
       n.innerHTML = `<div class="row nowrap" style="gap:.7rem"><img src="icons/icon-192.png" alt="" width="44" height="44" style="border-radius:12px"><div style="flex:1;min-width:0"><b>${t('Cài Lexkite như một app')}</b><div class="tiny muted">${t('Mở nhanh từ màn hình chính, toàn màn hình, học được cả khi offline')}</div></div><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div><button class="btn primary block" data-go style="margin-top:.6rem">📲 ${t('Cài ngay – miễn phí')}</button>`;
       document.body.appendChild(n);
       n.querySelector('[data-x]').onclick = () => n.remove();
-      n.querySelector('[data-go]').onclick = () => { n.remove(); const b = $('#installBtn'); if (b) b.click(); };
+      n.querySelector('[data-go]').onclick = () => { n.remove(); showInstallBtn(); const b = $('#installBtn'); if (b) b.click(); };
     } catch (e) { /* bỏ qua */ }
   };
   const netState = () => { document.body.classList.toggle('offline', !navigator.onLine); };

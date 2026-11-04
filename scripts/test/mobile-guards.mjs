@@ -10,6 +10,9 @@ ok(/inflight \|\| document\.readyState !== 'complete'/.test(pf), 'tải sẵn ch
 ok(/l\.onload = l\.onerror = next/.test(pf) && /for \(let i = 0; i < 3; i\+\+\) next\(\)/.test(pf) && !/\.forEach\(f => \{ const l = document\.createElement\('link'\)/.test(pf), 'tải sẵn xếp hàng 3 file một lúc (không đổ 200+ <link prefetch> cùng lúc)');
 const css = rd('web/css/style.css');
 ok(/\.top-stats #installBtn \{[^}]*min-width: 44px[^}]*min-height: 44px/.test(css), 'nút cài app ở thanh trên ≥ 44×44 (360 px từng là 38×35)');
+const appSrc = fs.readFileSync('web/js/app.js', 'utf8'), bip = appSrc.slice(appSrc.indexOf("addEventListener('beforeinstallprompt'")).split('\n')[0];
+ok(/addEventListener\('hashchange', showInstallBtn, \{ once: true \}\)/.test(bip) && !/\bshowInstallBtn\(\)/.test(bip), 'beforeinstallprompt không chèn nút ngay: thanh trên không xê dịch khi đang đọc (CLS, J8)');
+ok(/\[data-go\]'\)\.onclick = \(\) => \{ n\.remove\(\); showInstallBtn\(\);/.test(appSrc), 'gợi ý cài app vẫn mở được khi nút chưa được chèn');
 const rt = app.slice(app.indexOf('const b = [].concat(ROUTE_BUNDLE[name]'), app.indexOf('await App.need(...b)'));
 ok(/document\.body\.classList\.toggle\('focus'/.test(rt) && (app.match(/classList\.toggle\('focus'/g) || []).length === 1, 'chế độ tập trung (ẩn thanh trên) bật NGAY đầu route, trước khi đợi tải gói (CLS 0,07–0,09 khi vào ôn/luyện)');
 ok(/const mo = new MutationObserver\(crumb\); mo\.observe\(view, \{ childList: true \}\)/.test(app) && /finally \{ mo\.disconnect\(\); \}/.test(app), 'breadcrumb chèn ngay khi trang vẽ .page-head (không đợi dữ liệu → CLS từ điển 0,04–0,05)');
