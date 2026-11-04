@@ -176,3 +176,5 @@ Sí, en la Parte 5 es sumamente aconsejable responder en orden secuencial (de la
 
 ### ¿Cómo puedo acelerar mi velocidad de respuesta en las preguntas de categorías gramaticales?
 La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y resolverás cada reactivo en menos de 15 segundos.
+
+Para dominar la sección auditiva y evitar trampas de palabras parecidas, consulta nuestra guía de [toeic listening part 2 estrategias para preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).

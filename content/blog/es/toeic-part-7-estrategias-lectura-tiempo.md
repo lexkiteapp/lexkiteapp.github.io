@@ -139,3 +139,5 @@ Alcanzar un puntaje sobresaliente en el examen exige velocidad de lectura y una 
 - **Ruta de preparación integral**: Organice sus semanas de estudio de manera equilibrada siguiendo nuestro [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/).
 
 Acceda hoy mismo a la [aplicación web de Lexkite](/#/) y conquiste la prueba de TOEIC Part 7 con absoluta seguridad y dominio del tiempo.
+
+Si deseas fortalecer tu destreza auditiva antes de abordar la lectura, lee nuestras [toeic listening part 2 estrategias para preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).

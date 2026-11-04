@@ -151,3 +151,5 @@ Sí, totalmente. Dado que el examen TOEIC evalúa estructuras y situaciones come
 
 ### ¿Con qué frecuencia se debe hacer un simulacro completo de 200 preguntas?
 En las primeras semanas de nivelación, un examen completo cada 3 semanas es suficiente para medir el progreso sin agotarse mentalmente. Durante el último mes previo a la prueba oficial, se aconseja realizar un examen completo cronometrado cada sábado para acostumbrar la mente a la exigencia física y mental de dos horas consecutivas.
+
+Para maximizar tu puntuación en la parte auditiva del examen, revisa en detalle las [toeic listening part 2 estrategias para preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).
