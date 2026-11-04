@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Cổng dung lượng repo chính (docs/STORAGE.md) – chặn cả LOẠI lỗi "nhét media nặng vào repo chính":
 //   1) cây đầu nhánh (tổng blob HEAD, git ls-tree -l) > 600 MB → đỏ
+//   3) LÕI tải ngay trên mọi trang có trần riêng (CORE, byte thô – phần nặng tải lười): web/js/report-pill.js < 3 KB (docs/REPORTS.md)
 //   2) mỗi commit trong dải --range A..B thêm/sửa > 20 MB tệp nhị phân (mp3/mp4/ảnh/wav/zip/onnx…, tức không phải văn bản) → đỏ
 // Ngoại lệ có chủ đích: dòng "Size-Guard: allow" trong thông điệp commit (ghi lý do). Ngưỡng: --tree-mb, --commit-mb.
 //   node scripts/test/size-guard.mjs [--range A..B] [--tree-mb 600] [--commit-mb 20]
@@ -17,6 +18,9 @@ try { git(['diff-tree', '-r', '--numstat', '4b825dc642cb6eb9a060e54bf8d69288fbee
 for (const ln of git(['ls-tree', '-r', '-l', 'HEAD']).split('\n')) { const m = ln.match(/^\d+ blob \w+\s+(\d+)\t/); if (m) { tree += +m[1]; files++; } }
 console.log(`size-guard: cây HEAD ${(tree / 1e6).toFixed(1)} MB / ${files} tệp (trần ${TREE / 1e6} MB)`);
 if (tree > TREE) { console.error(`✗ size-guard: cây đầu nhánh ${(tree / 1e6).toFixed(1)} MB > ${TREE / 1e6} MB – chuyển media sang kho ngoài (infra/media-repos.json, scripts/media/push.mjs)`); fail = 1; }
+// 3) Lõi tải ngay: đọc cỡ blob ở HEAD (chạy được trên clone thưa/blobless – chỉ tải đúng blob này)
+const CORE = { 'web/js/report-pill.js': 3072, 'extension/app/js/report-pill.js': 3072 };
+for (const [f, max] of Object.entries(CORE)) { let n = -1; try { n = +git(['cat-file', '-s', 'HEAD:' + f]).trim(); } catch { /* chưa có tệp */ } if (n > max) { console.error(`✗ size-guard: lõi ${f} ${n} B > ${max} B – chuyển phần không cần ngay sang tệp tải lười (js/report-pill-ui.js)`); fail = 1; } else if (n >= 0) console.log(`size-guard: lõi ${f} ${n} B ≤ ${max} B`); }
 if (RANGE) {
   let commits = [];
   try { commits = git(['rev-list', '--no-merges', RANGE]).split('\n').filter(Boolean); } catch { commits = [git(['rev-parse', 'HEAD']).trim()]; }

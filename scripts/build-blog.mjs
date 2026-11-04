@@ -13,6 +13,7 @@ import { loadAds, adsOn } from './lib/ads-static.mjs';
 import { adEnd, adHold, withMid, AD_JS as AD_STATIC_JS } from '../workers/lib/ad-slot.mjs';
 import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs';
 import { blogDictBox } from './dict/links.mjs'; // blog → trang từ điển (docs/SEO-DICT-PAGES.md §3b)
+import { blogWordsBox, loadBlogWords } from './lib/blog-words.mjs'; // blog → trang từ /<lang>/words/ cho 13 ngôn ngữ còn lại (docs/specs/seo-words-depth.md §3)
 import { editorialNode, blogByline } from './lib/authority-links.mjs'; // tác giả = Lexkite Editorial Team + trang hồ sơ đội (docs/SEO-AUTHORITY.md) // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
 // 💰 Ô quảng cáo (docs/ADS.md §1) – CHỈ khi web/js/ads/config.js bật + có mã ô; mặc định tắt → 0 byte thêm vào trang.
 // 'blog' = cuối bài · 'blog_mid' = 1 ô giữa bài (bài ≥ 1200 từ, sau đoạn văn ở 40–50 %) → tối đa 2 ô / bài
@@ -49,6 +50,8 @@ const OUT = process.env.BLOG_OUT || 'dist';
 const MEDIA = loadMedia(ROOT).items; // media.json (ảnh chung) + media/<lang>.json (ảnh riêng từng bài – CI blog-images)
 let MBASE = C.mediaBase;
 if (process.env.BLOG_MEDIA_LOCAL === '1' && fs.existsSync('.media/out/blog')) { fs.cpSync('.media/out/blog', `${OUT}/blog/media`, { recursive: true }); MBASE = '/blog/media/'; }
+
+await loadBlogWords(); // tập trang /<lang>/words/ index được – cùng hàm chọn với build-seo-pages (chạy sau), hộp từ 13 ngôn ngữ
 
 // ---------- Kiểm tra chất lượng: bài lỗi → build dừng (bài nháp bỏ qua) ----------
 const all = loadPosts();
@@ -361,7 +364,7 @@ for (const p of posts) {
 <figure class="cover">${picture(cv.id, cv.alt, { eager: true })}</figure>
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}
-${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${blogDictBox(p)}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
+${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${blogDictBox(p)}${blogWordsBox(p)}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><div class="cta-actions"><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a>${topicAction}</div></section>
 ${extBox(p.lang)}

@@ -1,0 +1,76 @@
+{
+ "id": "t2a_review_coupon",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: coupon.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a ticket that gives a discount on a purchase.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Use this coupon to get ten percent off.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "coupon",
+  "ipa": "/ˈkuːpɔːn/",
+  "mean": "a ticket that gives a discount on a purchase",
+  "ex": "Use this coupon to get ten percent off.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=coupon",
+  "link": "https://lexkite.com/app/#/review?w=coupon",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ }
+}

@@ -9,7 +9,7 @@ const src = new Set();
 JSON.stringify([g.LISTENING, g.READ_EXPLAIN, g.TOEIC, g.TOEFL], (k, v) => { if ((k === 'why' || k === 'explain') && typeof v === 'string' && v.trim()) src.add(v); return v; });
 export const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // trích dẫn tiếng Việt → dịch; tiếng Anh → giữ nguyên
-const LET = /(→\s*|\(|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
+const LET = /(→\s*|\((?=[A-D]\))|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
 const protect = s => { const keep = []; const t = s.replace(LET, (m, pre, L) => pre + `{${L}}`).replace(/\{[A-D]\}|“[^”]{1,120}”|"[^"]{1,120}"|‘[^’]{1,80}’/g, m => (VI.test(m) ? m : `[[${keep.push(m) - 1}]]`)); return { t, keep }; };
 const restore = (t, keep) => t.replace(/\[\[\s*(\d+)\s*\]\]/g, (m, i) => keep[+i] ?? m);
 const tokensOk = (a, b) => (a.match(/\[\[\d+\]\]/g) || []).length === (b.match(/\[\[\s*\d+\s*\]\]/g) || []).length;

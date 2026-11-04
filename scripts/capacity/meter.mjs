@@ -109,7 +109,7 @@ export function explainAll(m, shadowSql) {
     if (isDDL(e.q) || !/^(SELECT|WITH|UPDATE|DELETE|INSERT|REPLACE)/i.test(e.q)) continue;
     let plan = [];
     try { plan = sql.prepare('EXPLAIN QUERY PLAN ' + e.q).all(...e.args).map(p => String(p.detail)); } catch (err) { plan = ['? ' + String(err.message).slice(0, 80)]; }
-    const scans = plan.map(d => (d.match(/^SCAN (\w+)/) || [])[1]).filter(t => t && t !== 'CONSTANT');
+    const scans = plan.filter(d => !/VIRTUAL TABLE/.test(d)).map(d => (d.match(/^SCAN (\w+)/) || [])[1]).filter(t => t && t !== 'CONSTANT'); // json_each(?) = tham số, không phải bảng
     out.push({ q: e.q, labels: [...e.labels], n: e.n, reads: e.reads, writes: e.writes, plan, scans, small: scans.length > 0 && scans.every(t => SMALL_TABLES.has(t)) });
   }
   return out;
