@@ -1,102 +1,124 @@
 <!DOCTYPE html>
 
-<html class="" lang="vi"><head>
+<html class="light" lang="vi"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Admin - Quản lý người dùng</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Người dùng – Lexkite Console</title>
 <!-- Material Symbols Outlined -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Plus Jakarta Sans Font -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS CDN -->
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
-          colors: {
-            "surface-tint": "#6bd8ce",
-            "on-secondary-container": "#ffa493",
-            "surface-variant": "#2b373a",
-            "tertiary-container": "#ba8b00",
-            "outline-variant": "#3d4947",
-            "surface": "#091518",
-            "surface-container-low": "#121d20",
-            "inverse-surface": "#d8e5e9",
-            "surface-bright": "#2f3b3e",
-            "secondary-container": "#981201",
-            "primary": "#6bd8ce",
-            "on-primary-fixed-variant": "#00504b",
-            "primary-fixed-dim": "#6bd8ce",
-            "primary-container": "#2ba39a",
-            "surface-dim": "#091518",
-            "primary-fixed": "#88f5ea",
-            "on-tertiary-container": "#392900",
-            "background": "#091518",
-            "on-primary-container": "#00322e",
-            "secondary": "#ffb4a6",
-            "on-surface-variant": "#bcc9c7",
-            "secondary-fixed": "#ffdad3",
-            "secondary-fixed-dim": "#ffb4a6",
-            "on-background": "#d8e5e9",
-            "surface-container": "#162125",
-            "on-surface": "#d8e5e9",
-            "inverse-primary": "#006a64",
-            "error-container": "#93000a",
-            "tertiary-fixed-dim": "#f4bf40",
-            "surface-container-lowest": "#051013",
-            "error": "#ffb4ab",
-            "on-primary": "#003733",
-            "surface-container-highest": "#2b373a",
-            "inverse-on-surface": "#263236",
-            "tertiary": "#f4bf40",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "on-tertiary-fixed": "#261a00",
-            "on-tertiary": "#402e00",
-            "on-error-container": "#ffdad6",
-            "tertiary-fixed": "#ffdf9e",
-            "on-secondary-fixed-variant": "#900f00",
-            "on-error": "#690005",
+          "colors": {
+            "on-background": "#141d1c",
+            "primary": "#004340",
+            "surface-container-low": "#ecf6f4",
+            "surface": "#f2fbf9",
+            "secondary": "#ac3416",
+            "surface-container": "#e6f0ee",
+            "on-tertiary-fixed-variant": "#00504c",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "surface-variant": "#dbe5e2",
+            "on-tertiary-container": "#82d3cd",
+            "on-primary-container": "#8ed2cc",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#e9f3f1",
+            "tertiary": "#00433f",
+            "surface-tint": "#216964",
+            "surface-container-highest": "#dbe5e2",
+            "background": "#f2fbf9",
+            "primary-container": "#0d5c58",
+            "on-tertiary-fixed": "#00201e",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#8fd3cd",
+            "on-surface-variant": "#3f4947",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#e0eae8",
+            "secondary-fixed-dim": "#ffb4a2",
             "on-primary-fixed": "#00201e",
-            "outline": "#879391",
-            "on-secondary": "#660800",
-            "surface-container-high": "#202c2f",
-            "on-secondary-fixed": "#3f0300"
+            "tertiary-fixed": "#9ff1eb",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#293231",
+            "surface-dim": "#d2dcda",
+            "tertiary-container": "#005c58",
+            "surface-bright": "#f2fbf9",
+            "on-error": "#ffffff",
+            "inverse-primary": "#8fd3cd",
+            "error": "#ba1a1a",
+            "primary-fixed": "#abefe9",
+            "on-surface": "#141d1c",
+            "on-secondary-fixed": "#3c0700",
+            "tertiary-fixed-dim": "#83d5ce",
+            "on-primary-fixed-variant": "#00504c",
+            "on-secondary-container": "#661200",
+            "outline-variant": "#bec9c7",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#ffdad2",
+            "outline": "#6f7978",
+            "secondary-container": "#fd6f4c"
           },
-          borderRadius: {
-            DEFAULT: "0.25rem",
-            lg: "0.5rem",
-            xl: "0.75rem",
-            full: "9999px"
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
           },
-          spacing: {
-            "space-xs": "4px",
-            "space-lg": "24px",
-            margin: "16px",
-            gutter: "16px",
-            "space-xl": "32px",
-            "space-md": "16px",
-            "space-sm": "8px"
+          "spacing": {
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem"
           },
-          fontFamily: {
-            display: ["Plus Jakarta Sans"],
-            title: ["Plus Jakarta Sans"],
-            label: ["Plus Jakarta Sans"],
-            body: ["Plus Jakarta Sans"]
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "code-sm": ["JetBrains Mono"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
           },
-          fontSize: {
-            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
-            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
-            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
-            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "code-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
           }
         }
       }
-    };
+    }
   </script>
 <style>
     .material-symbols-outlined {
@@ -105,12 +127,21 @@
       vertical-align: middle;
       line-height: 1;
     }
-    .custom-scroll-hidden::-webkit-scrollbar {
-      display: none;
+    .tactile-ledge {
+      box-shadow: 0 1px 0 0 #d2dcda, 0 2px 4px -1px rgba(20, 29, 28, 0.04);
     }
-    .custom-scroll-hidden {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .tactile-ledge-hover:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    .coral-cta {
+      background-color: #f06543;
+      border: 1px solid #d94e2c;
+      box-shadow: 0 2px 0 0 #c43d1d, 0 3px 6px rgba(240, 101, 67, 0.2);
+    }
+    .coral-cta:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
     }
   </style>
 <style>
@@ -118,30 +149,363 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-</head>
-<body class="bg-surface text-on-surface antialiased flex justify-center min-h-screen" style="background-color: #FFF8F1; color: #0F3D3E;">
-<!-- Mobile Portrait Container (390px fixed canvas width) -->
-<div class="w-[390px] min-h-screen bg-surface-container-lowest text-on-surface flex flex-col relative pb-32" style="background-color: #FFF8F1; color: #0F3D3E;">
-<!-- Top App Bar (56px) -->
-<header class="sticky top-0 z-40 h-14 bg-surface-container-lowest flex items-center justify-between px-margin border-b-2 border-outline-variant shadow-[0_4px_0_#091518]" style="background-color: #FFF8F1; border-color: #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><div class="flex items-center gap-space-sm"><button aria-label="Menu" class="w-10 h-10 rounded-lg flex items-center justify-center transition-all active:translate-y-0.5" style="color: #365354; background-color: #FFFFFF; border: 1.5px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC;"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="flex items-center gap-1.5"><span class="font-title text-title font-extrabold tracking-tight" style="color: #0F3D3E;">Người dùng</span><span class="px-2 py-0.5 font-label text-label rounded-full" style="background-color: #E0F4F2; color: #0A4D49; border: 1px solid #B2DFDB;">1.284</span></div></div><div class="flex items-center gap-2"><div class="flex items-center gap-1 px-2 py-1 rounded-full" style="background-color: #E0F4F2; border: 1px solid #B2DFDB;" title="Hệ thống đồng bộ trực tiếp"><span class="w-2 h-2 rounded-full animate-pulse" style="background-color: #0E9F6E;"></span><span class="font-label text-[10px] font-bold" style="color: #065F46;">LIVE</span></div><div class="relative"><div class="w-9 h-9 rounded-full font-label text-xs font-black flex items-center justify-center" style="background-color: #D1FAE5; color: #065F46; border: 2px solid #065F46; box-shadow: 0 2px 0 #A7F3D0;">KL</div><span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full font-label text-[8px] font-black flex items-center justify-center" style="background-color: #FEF3C7; color: #92400E; border: 1.5px solid #F59E0B;">AD</span></div></div></header>
-<!-- Main Content Area -->
-<main class="flex-1 flex flex-col px-margin pt-space-md gap-space-md">
-<!-- Breadcrumbs & Quick Title Header -->
-<section class="flex flex-col gap-1"><div class="flex items-center gap-1 font-label text-[11px]" style="color: #4E6668;"><span>Admin</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="font-bold" style="color: #0F3D3E;">Người dùng</span></div><p class="font-body text-xs leading-relaxed" style="color: #365354;">Quản lý 1.284 tài khoản học viên IELTS &amp; TOEIC, theo dõi streak và phân bổ tài nguyên AI.</p></section>
-<!-- Top Primary & Secondary Action CTAs -->
-<section class="grid grid-cols-2 gap-space-sm"><button class="h-11 rounded-xl flex items-center justify-center gap-1.5 font-label text-label font-bold active:translate-y-0.5 transition-all" style="background-color: #FFFFFF; border: 2px solid #D8CFBC; box-shadow: 0 4px 0 #C8BEAA; color: #0F3D3E;"><span class="material-symbols-outlined text-[18px]">download</span><span>Xuất danh sách</span></button><button class="h-11 rounded-xl flex items-center justify-center gap-1.5 font-label text-label font-black text-white active:translate-y-0.5 transition-all" style="background: linear-gradient(135deg, #F2553B 0%, #FF8A48 100%); border: 2px solid #B53A22; box-shadow: 0 4px 0 #B53A22;"><span class="material-symbols-outlined text-[18px]">add_circle</span><span>+ Thêm học viên</span></button></section>
-<!-- 5 Tactile KPI Summary Cards (Bento 2-Col Grid) -->
-<section class="grid grid-cols-2 gap-space-sm"><div class="col-span-2 rounded-xl p-3 flex items-center justify-between" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><div class="flex flex-col gap-0.5"><span class="font-label text-[11px] flex items-center gap-1" style="color: #4E6668;"><span class="material-symbols-outlined text-[14px]" style="color: #0A4D49;">group</span>Tổng người dùng</span><div class="flex items-baseline gap-2"><span class="font-display text-[26px] font-extrabold" style="color: #0F3D3E;">1.284</span><span class="font-label text-[10px] font-bold px-1.5 py-0.5 rounded" style="background-color: #E0F4F2; color: #0A4D49; border: 1px solid #B2DFDB;">+12.4% tháng</span></div></div><div class="w-24 h-8"><svg class="w-full h-full overflow-visible" fill="none" viewbox="0 0 96 32"><path d="M2 28L18 24L34 26L50 16L66 18L82 6L94 4" stroke="#0E9F6E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path><circle cx="94" cy="4" fill="#0E9F6E" r="3"></circle></svg></div></div><div class="rounded-xl p-3 flex flex-col justify-between" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><span class="font-label text-[10px] flex items-center gap-1" style="color: #4E6668;"><span class="material-symbols-outlined text-[14px]" style="color: #E02424;">trending_up</span>Active 7 ngày</span><div class="my-1"><span class="font-title text-[20px] font-extrabold" style="color: #0F3D3E;">892</span><p class="font-label text-[9px]" style="color: #4E6668;">69.4% DAU/WAU</p></div><svg class="w-full h-5 mt-1" fill="none" viewbox="0 0 70 20"><path d="M2 18L16 14L32 16L48 8L68 4" stroke="#F05252" stroke-linecap="round" stroke-width="2"></path></svg></div><div class="rounded-xl p-3 flex flex-col justify-between" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><span class="font-label text-[10px] flex items-center gap-1" style="color: #4E6668;"><span class="material-symbols-outlined text-[14px]" style="color: #D97706;">person_add</span>Mới tuần này</span><div class="my-1"><span class="font-title text-[20px] font-extrabold" style="color: #0F3D3E;">128</span><p class="font-label text-[9px] font-bold" style="color: #B45309;">+18.5% so trước</p></div><svg class="w-full h-5 mt-1" fill="none" viewbox="0 0 70 20"><path d="M2 16L18 12L36 14L52 6L68 2" stroke="#D97706" stroke-linecap="round" stroke-width="2"></path></svg></div><div class="rounded-xl p-3 flex flex-col justify-between" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><span class="font-label text-[10px] flex items-center gap-1" style="color: #4E6668;"><span class="material-symbols-outlined text-[14px]" style="color: #EA580C;">local_fire_department</span>Streak TB</span><div class="my-1"><span class="font-title text-[20px] font-extrabold" style="color: #0F3D3E;">8,4 <span class="text-xs font-normal" style="color: #4E6668;">ngày</span></span><p class="font-label text-[9px]" style="color: #4E6668;">Kỷ lục: 45 ngày</p></div><svg class="w-full h-5 mt-1" fill="none" viewbox="0 0 70 20"><path d="M2 14L20 16L38 10L54 8L68 5" stroke="#F59E0B" stroke-linecap="round" stroke-width="2"></path></svg></div><div class="rounded-xl p-3 flex flex-col justify-between" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><span class="font-label text-[10px] flex items-center gap-1" style="color: #4E6668;"><span class="material-symbols-outlined text-[14px]" style="color: #0E9F6E;">verified</span>Trả phí (PRO)</span><div class="my-1"><span class="font-title text-[20px] font-extrabold" style="color: #0F3D3E;">312</span><p class="font-label text-[9px] font-bold" style="color: #0E9F6E;">24.3% chuyển đổi</p></div><svg class="w-full h-5 mt-1" fill="none" viewbox="0 0 70 20"><path d="M2 17L18 13L36 15L52 9L68 3" stroke="#0E9F6E" stroke-linecap="round" stroke-width="2"></path></svg></div></section>
-<!-- Search Box & Filter Controls -->
-<section class="flex flex-col gap-2"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-[20px] pointer-events-none" style="color: #4E6668;">search</span><input class="w-full h-11 pl-10 pr-10 rounded-xl font-body text-xs focus:outline-none" placeholder="Tìm tên, email, ID học viên..." style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC; color: #0F3D3E;" type="text"/><button aria-label="Bộ lọc" class="absolute right-2.5 w-7 h-7 flex items-center justify-center" style="color: #4E6668;"><span class="material-symbols-outlined text-[18px]">tune</span></button></div><div class="flex items-center gap-1.5 overflow-x-auto custom-scroll-hidden py-0.5"><button class="px-2.5 py-1.5 rounded-lg font-label text-[11px] font-bold flex items-center gap-1 whitespace-nowrap active:translate-y-0.5" style="background-color: #FFFFFF; border: 1.5px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC; color: #0F3D3E;"><span class="material-symbols-outlined text-[14px]">bookmark</span><span>Chế độ xem</span><span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button><button class="px-2.5 py-1.5 rounded-lg font-label text-[11px] font-bold flex items-center gap-1 whitespace-nowrap active:translate-y-0.5" style="background-color: #FFFFFF; border: 1.5px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC; color: #0F3D3E;"><span class="material-symbols-outlined text-[14px]">view_column</span><span>Cột hiển thị</span></button><button class="px-2.5 py-1.5 rounded-lg font-label text-[11px] flex items-center gap-1 whitespace-nowrap active:translate-y-0.5" style="background-color: #FFFFFF; border: 1.5px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC; color: #4E6668;"><span class="material-symbols-outlined text-[14px]">restart_alt</span><span>Đặt lại</span></button></div><div class="flex flex-wrap gap-1.5 pt-1"><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #FFFFFF; border: 1px solid #EADEC8; color: #4E6668;">Quốc gia: <strong style="color: #0F3D3E;">Tất cả</strong></span><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #FFFFFF; border: 1px solid #EADEC8; color: #4E6668;">Nền tảng: <strong style="color: #0F3D3E;">Web, iOS</strong></span><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #FFFFFF; border: 1px solid #EADEC8; color: #4E6668;">Ngày: <strong style="color: #0F3D3E;">30 ngày qua</strong></span><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #E0F4F2; border: 1.5px solid #B2DFDB; color: #0A4D49;">Hoạt động: <strong>&lt; 24h</strong></span><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #FFFFFF; border: 1px solid #EADEC8; color: #4E6668;">Cấp độ: <strong style="color: #0F3D3E;">IELTS 6.5-8.0</strong></span><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #FEF3C7; border: 1.5px solid #FDE68A; color: #92400E;">Streak: <strong>≥ 7 ngày</strong></span><span class="px-2 py-1 rounded font-label text-[10px] flex items-center gap-1" style="background-color: #FFFFFF; border: 1px solid #EADEC8; color: #4E6668;">Nhãn: <strong style="color: #0F3D3E;">Intensive</strong></span><button class="px-2 py-1 rounded font-label text-[10px] font-bold flex items-center gap-0.5" style="background-color: #E0F4F2; border: 1.5px solid #B2DFDB; color: #0A4D49;"><span class="material-symbols-outlined text-[12px]">add</span>Điều kiện</button></div></section>
-<!-- Selection Table Header Strip -->
-<section class="flex items-center justify-between px-1 py-1 border-b border-outline-variant text-on-surface-variant font-label text-xs" style="border-color: #EADEC8;"><label class="flex items-center gap-2 cursor-pointer select-none"><input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 focus:ring-offset-0" style="accent-color: #0A4D49; border: 2px solid #0A4D49;" type="checkbox"/><span class="font-bold" style="color: #0F3D3E;">Chọn tất cả (3 / 1.284)</span></label><span class="text-[11px]" style="color: #4E6668;">Sắp xếp: Mới nhất</span></section>
-<!-- Student Card Table / List (Adapts cleanly to 390px) -->
-<section class="flex flex-col gap-2.5"><!-- ROW 1 (SELECTED) --><article class="rounded-xl p-3 relative transition-all" style="background-color: #FFFFFF; border: 2px solid #0A4D49; box-shadow: 0 4px 0 #0A4D49;"><div class="flex items-start justify-between gap-2"><div class="flex items-start gap-2.5 min-w-0"><input checked="" class="w-4 h-4 mt-1 rounded" style="accent-color: #0A4D49;" type="checkbox"/><div class="w-9 h-9 shrink-0 rounded-lg font-label text-xs font-black flex items-center justify-center" style="background-color: #E0F4F2; border: 1.5px solid #B2DFDB; color: #0A4D49;">AN</div><div class="min-w-0"><div class="flex items-center gap-1 flex-wrap"><h3 class="font-title text-sm font-bold truncate" style="color: #0F3D3E;">An Nguyễn</h3><span class="px-1.5 py-0.2 rounded text-[9px] font-black" style="background-color: #FEF3C7; color: #92400E; border: 1px solid #FCD34D;">VIP PRO</span></div><p class="font-body text-[11px] truncate" style="color: #4E6668;">an.nguyen99@gmail.com</p></div></div><span class="shrink-0 px-2 py-0.5 rounded-full font-label text-[10px] font-bold flex items-center gap-1" style="background-color: #D1FAE5; border: 1px solid #A7F3D0; color: #065F46;"><span class="w-1.5 h-1.5 rounded-full" style="background-color: #0E9F6E;"></span>Hoạt động</span></div><div class="mt-2.5 pt-2 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px] font-body" style="border-top: 1px solid #EADEC8;"><div class="flex items-center gap-1" style="color: #4E6668;"><span>🇻🇳 VN</span><span style="color: #C8BEAA;">·</span><span class="truncate">Web, iOS</span></div><div class="flex items-center justify-end gap-1 font-bold" style="color: #D97706;"><span>🔥 14 ngày streak</span></div><div class="col-span-2 flex items-center justify-between text-[11px]"><span class="truncate" style="color: #0F3D3E;">Mục tiêu: <strong>IELTS 7.5</strong> (C1 · 420 từ)</span><span class="text-[10px] shrink-0" style="color: #4E6668;">5 phút trước</span></div></div></article><!-- ROW 2 (SELECTED) --><article class="rounded-xl p-3 relative transition-all" style="background-color: #FFFFFF; border: 2px solid #0A4D49; box-shadow: 0 4px 0 #0A4D49;"><div class="flex items-start justify-between gap-2"><div class="flex items-start gap-2.5 min-w-0"><input checked="" class="w-4 h-4 mt-1 rounded" style="accent-color: #0A4D49;" type="checkbox"/><div class="w-9 h-9 shrink-0 rounded-lg font-label text-xs font-black flex items-center justify-center" style="background-color: #E0F4F2; border: 1.5px solid #B2DFDB; color: #0A4D49;">LK</div><div class="min-w-0"><div class="flex items-center gap-1 flex-wrap"><h3 class="font-title text-sm font-bold truncate" style="color: #0F3D3E;">Linh Khánh</h3><span class="px-1.5 py-0.2 rounded text-[9px] font-black" style="background-color: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7;">Target 8.0</span></div><p class="font-body text-[11px] truncate" style="color: #4E6668;">linhkhanh.tran@vnu.edu.vn</p></div></div><span class="shrink-0 px-2 py-0.5 rounded-full font-label text-[10px] font-bold flex items-center gap-1" style="background-color: #D1FAE5; border: 1px solid #A7F3D0; color: #065F46;"><span class="w-1.5 h-1.5 rounded-full" style="background-color: #0E9F6E;"></span>Hoạt động</span></div><div class="mt-2.5 pt-2 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px] font-body" style="border-top: 1px solid #EADEC8;"><div class="flex items-center gap-1" style="color: #4E6668;"><span>🇻🇳 VN</span><span style="color: #C8BEAA;">·</span><span class="truncate">Android, Add-on</span></div><div class="flex items-center justify-end gap-1 font-bold" style="color: #D97706;"><span>🔥 32 ngày streak</span></div><div class="col-span-2 flex items-center justify-between text-[11px]"><span class="truncate" style="color: #0F3D3E;">Mục tiêu: <strong>IELTS 8.0</strong> (Upper C1 · 820 từ)</span><span class="text-[10px] shrink-0" style="color: #4E6668;">18 phút trước</span></div></div></article><!-- ROW 3 (SELECTED) --><article class="rounded-xl p-3 relative transition-all" style="background-color: #FFFFFF; border: 2px solid #0A4D49; box-shadow: 0 4px 0 #0A4D49;"><div class="flex items-start justify-between gap-2"><div class="flex items-start gap-2.5 min-w-0"><input checked="" class="w-4 h-4 mt-1 rounded" style="accent-color: #0A4D49;" type="checkbox"/><div class="w-9 h-9 shrink-0 rounded-lg font-label text-xs font-black flex items-center justify-center" style="background-color: #F3F4F6; border: 1.5px solid #E5E7EB; color: #374151;">LH</div><div class="min-w-0"><div class="flex items-center gap-1"><h3 class="font-title text-sm font-bold truncate" style="color: #0F3D3E;">Lê Hoàng Huy</h3></div><p class="font-body text-[11px] truncate" style="color: #4E6668;">huy.lehoang@yahoo.com</p></div></div><span class="shrink-0 px-2 py-0.5 rounded-full font-label text-[10px] font-bold" style="background-color: #FEF3C7; border: 1px solid #FDE68A; color: #92400E;">Mới tạo</span></div><div class="mt-2.5 pt-2 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px] font-body" style="border-top: 1px solid #EADEC8;"><div class="flex items-center gap-1" style="color: #4E6668;"><span>🇺🇸 US</span><span style="color: #C8BEAA;">·</span><span>Web</span></div><div class="flex items-center justify-end gap-1" style="color: #4E6668;"><span>1 ngày streak</span></div><div class="col-span-2 flex items-center justify-between text-[11px]"><span class="truncate" style="color: #0F3D3E;">Mục tiêu: <strong>B1 ➔ 6.0</strong></span><span class="text-[10px] shrink-0" style="color: #4E6668;">Hôm nay</span></div></div></article><!-- ROW 4 (UNSELECTED) --><article class="rounded-xl p-3 relative transition-all" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><div class="flex items-start justify-between gap-2"><div class="flex items-start gap-2.5 min-w-0"><input class="w-4 h-4 mt-1 rounded" style="accent-color: #0A4D49;" type="checkbox"/><div class="w-9 h-9 shrink-0 rounded-lg font-label text-xs font-black flex items-center justify-center" style="background-color: #F3F4F6; border: 1.5px solid #E5E7EB; color: #374151;">TC</div><div class="min-w-0"><h3 class="font-title text-sm font-bold truncate" style="color: #0F3D3E;">Tariq Chen</h3><p class="font-body text-[11px] truncate" style="color: #4E6668;">tariq.chen@singnet.com.sg</p></div></div><span class="shrink-0 px-2 py-0.5 rounded-full font-label text-[10px] font-bold" style="background-color: #D1FAE5; border: 1px solid #A7F3D0; color: #065F46;">Hoạt động</span></div><div class="mt-2.5 pt-2 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px] font-body" style="border-top: 1px solid #EADEC8;"><div class="flex items-center gap-1" style="color: #4E6668;"><span>🇸🇬 SG</span><span style="color: #C8BEAA;">·</span><span>iOS</span></div><div class="flex items-center justify-end" style="color: #4E6668;"><span>1 ngày streak</span></div><div class="col-span-2 flex items-center justify-between text-[11px]"><span class="truncate" style="color: #0F3D3E;">Mục tiêu: <strong>IELTS General 7.0</strong></span><span class="text-[10px] shrink-0" style="color: #4E6668;">2 giờ trước</span></div></div></article><!-- ROW 5 (UNSELECTED - SLEEPING) --><article class="rounded-xl p-3 relative opacity-90 transition-all" style="background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC;"><div class="flex items-start justify-between gap-2"><div class="flex items-start gap-2.5 min-w-0"><input class="w-4 h-4 mt-1 rounded" style="accent-color: #0A4D49;" type="checkbox"/><div class="w-9 h-9 shrink-0 rounded-lg font-label text-xs font-black flex items-center justify-center" style="background-color: #F3F4F6; border: 1.5px solid #E5E7EB; color: #6B7280;">SH</div><div class="min-w-0"><h3 class="font-title text-sm font-bold truncate" style="color: #0F3D3E;">Sara Hansen</h3><p class="font-body text-[11px] truncate" style="color: #4E6668;">sara.hansen@nordic-edu.de</p></div></div><span class="shrink-0 px-2 py-0.5 rounded-full font-label text-[10px]" style="background-color: #F3F4F6; border: 1px solid #D1D5DB; color: #4B5563;">Ngủ đông</span></div><div class="mt-2.5 pt-2 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px] font-body" style="border-top: 1px solid #EADEC8;"><div class="flex items-center gap-1" style="color: #4E6668;"><span>🇩🇪 DE</span><span style="color: #C8BEAA;">·</span><span>Web, Add-on</span></div><div class="flex items-center justify-end" style="color: #4E6668;"><span>❄️ Đã đứt (0)</span></div><div class="col-span-2 flex items-center justify-between text-[11px]"><span class="truncate" style="color: #0F3D3E;">Mục tiêu: <strong>IELTS 6.5</strong></span><span class="text-[10px] shrink-0" style="color: #4E6668;">12 ngày trước</span></div></div></article><!-- ROW 6 (UNSELECTED - LOCKED) --><article class="rounded-xl p-3 relative transition-all" style="background-color: #FFFFFF; border: 2px solid #FCA5A5; box-shadow: 0 4px 0 #F87171;"><div class="flex items-start justify-between gap-2"><div class="flex items-start gap-2.5 min-w-0"><input class="w-4 h-4 mt-1 rounded" style="accent-color: #0A4D49;" type="checkbox"/><div class="w-9 h-9 shrink-0 rounded-lg font-label text-xs font-black flex items-center justify-center" style="background-color: #FEE2E2; border: 1.5px solid #FCA5A5; color: #991B1B;">DK</div><div class="min-w-0"><div class="flex items-center gap-1 flex-wrap"><h3 class="font-title text-sm font-bold truncate" style="color: #0F3D3E;">Daiki Kato</h3><span class="px-1.5 py-0.2 rounded text-[9px] font-black" style="background-color: #FEE2E2; color: #991B1B; border: 1px solid #F87171;">Lỗi API</span></div><p class="font-body text-[11px] truncate" style="color: #4E6668;">daiki.kato@tokyo-it.jp</p></div></div><span class="shrink-0 px-2 py-0.5 rounded-full font-label text-[10px] font-bold flex items-center gap-1" style="background-color: #FEE2E2; border: 1px solid #FCA5A5; color: #991B1B;"><span class="material-symbols-outlined text-[12px]">lock</span>Bị khoá</span></div><div class="mt-2.5 pt-2 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px] font-body" style="border-top: 1px solid #FEE2E2;"><div class="flex items-center gap-1" style="color: #4E6668;"><span>🇯🇵 JP</span><span style="color: #C8BEAA;">·</span><span>Add-on</span></div><div class="flex items-center justify-end font-bold" style="color: #DC2626;"><span>Đình chỉ AI</span></div><div class="col-span-2 flex items-center justify-between text-[11px]"><span class="truncate" style="color: #0F3D3E;">Mục tiêu: <strong>IELTS 7.0</strong></span><span class="text-[10px] shrink-0" style="color: #4E6668;">Hôm qua</span></div></div></article></section>
-<!-- Pagination Mini Control -->
-<section class="flex items-center justify-between py-2 text-on-surface-variant font-label text-xs"><span style="color: #4E6668;">Hiển thị 1–6 trong 1.284</span><div class="flex items-center gap-1"><button class="w-8 h-8 rounded-lg flex items-center justify-center disabled:opacity-40" disabled="" style="background-color: #FFFFFF; border: 1.5px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC; color: #4E6668;"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><span class="px-2 font-bold" style="color: #0F3D3E;">Trang 1</span><button class="w-8 h-8 rounded-lg flex items-center justify-center active:translate-y-0.5" style="background-color: #FFFFFF; border: 1.5px solid #EADEC8; box-shadow: 0 2px 0 #D8CFBC; color: #0F3D3E;"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div></section>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Screen Frame: 390px native container -->
+<div class="w-full max-w-[390px] min-h-screen bg-background flex flex-col relative pb-20 overflow-x-hidden border-x border-surface-dim/40 shadow-xl">
+<!-- 1. Shared Component: TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter-mobile h-14 bg-surface border-b border-outline-variant shadow-sm max-w-[390px] mx-auto right-0">
+<!-- Menu Button (min 44x44px touch target) -->
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container-high active:translate-y-px duration-150 transition-transform" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+</button>
+<!-- Center Title -->
+<h1 class="text-title-md font-title-md font-bold text-on-surface tracking-tight truncate max-w-[200px] text-center" style="color: #092625;">
+        Admin › Người dùng
+      </h1>
+<!-- Admin Avatar LM (44x44px touch area) -->
+<button aria-label="Tài khoản quản trị viên LM" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" type="button">
+<div class="w-9 h-9 rounded-full bg-primary-container text-surface-container-lowest font-bold text-label-md font-label-md flex items-center justify-center border border-primary/20 shadow-sm">
+          LM
+        </div>
+</button>
+</header>
+<!-- Canvas Spacer for Fixed Header -->
+<div class="h-14 w-full shrink-0"></div>
+<!-- MAIN SCROLLABLE BODY CANVAS -->
+<main class="flex-1 px-3 py-4 flex flex-col gap-4">
+<!-- 2. Header & Quick Actions Section -->
+<section class="flex flex-col gap-3">
+<!-- Title & Subtitle Stack -->
+<div class="flex flex-col">
+<h2 class="text-headline-sm font-headline-sm font-bold tracking-tight" style="color: #092625;">
+            Người dùng &amp; Học viên
+          </h2>
+<p class="text-body-sm font-body-sm font-semibold mt-0.5" style="color: #1b4946;">
+            Quản lý 318 học viên và cấp độ học
+          </p>
+</div>
+<!-- Action Buttons (Min height 44px) -->
+<div class="grid grid-cols-2 gap-2 mt-1">
+<button class="coral-cta min-h-[44px] h-11 px-3 rounded-lg text-surface-container-lowest font-label-md font-label-md font-bold flex items-center justify-center gap-1.5 transition-all text-center" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="person_add">person_add</span>
+<span>Tạo học viên</span>
+</button>
+<button class="min-h-[44px] h-11 px-3 rounded-lg bg-surface-container-lowest text-primary border-[1.5px] border-primary tactile-ledge tactile-ledge-hover font-label-md font-label-md font-bold flex items-center justify-center gap-1.5 transition-all text-center hover:bg-surface-container-low" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+<span>Xuất file CSV</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+</div>
+<input class="w-full min-h-[44px] h-11 pl-10 pr-4 bg-surface-container-lowest border border-[#d2dcda] rounded-xl text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-2 focus:ring-primary/20 tactile-ledge transition-all" placeholder="Tìm theo tên, email, trình độ..." style="color: #092625;" type="search"/>
+</div>
+<!-- Filter Chips Row (Scrollable horizontally) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 -mx-3 px-3 no-scrollbar" style="scrollbar-width: none;">
+<!-- Chip: Tất cả (Active) -->
+<button class="min-h-[44px] h-11 px-4 rounded-full bg-primary-container text-surface-container-lowest font-label-sm font-label-sm flex items-center justify-center whitespace-nowrap shadow-sm border border-primary tactile-ledge-hover" type="button">
+<span>Tất cả (318)</span>
+</button>
+<!-- Chip: Đang học -->
+<button class="min-h-[44px] h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface font-label-sm font-label-sm flex items-center justify-center whitespace-nowrap border border-[#d2dcda] tactile-ledge tactile-ledge-hover hover:bg-surface-container" style="color: #092625;" type="button">
+<span>Đang học (42)</span>
+</button>
+<!-- Chip: C1 Pro -->
+<button class="min-h-[44px] h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface font-label-sm font-label-sm flex items-center justify-center whitespace-nowrap border border-[#d2dcda] tactile-ledge tactile-ledge-hover hover:bg-surface-container" style="color: #092625;" type="button">
+<span>C1 Pro (86)</span>
+</button>
+<!-- Chip: B2 -->
+<button class="min-h-[44px] h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface font-label-sm font-label-sm flex items-center justify-center whitespace-nowrap border border-[#d2dcda] tactile-ledge tactile-ledge-hover hover:bg-surface-container" style="color: #092625;" type="button">
+<span>B2 (124)</span>
+</button>
+<!-- Chip: A2/B1 -->
+<button class="min-h-[44px] h-11 px-4 rounded-full bg-surface-container-lowest text-on-surface font-label-sm font-label-sm flex items-center justify-center whitespace-nowrap border border-[#d2dcda] tactile-ledge tactile-ledge-hover hover:bg-surface-container" style="color: #092625;" type="button">
+<span>A2/B1 (108)</span>
+</button>
+</div>
+</section>
+<!-- 3. Khối Thẻ Chỉ Số Nhanh (Metric Tiles Grid 2x2) -->
+<section class="grid grid-cols-2 gap-2.5">
+<!-- Tile 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-[#d2dcda] tactile-ledge relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-bold uppercase tracking-wider" style="color: #1b4946;">Tổng học viên</span>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="group">group</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold mt-0.5 tracking-tight" style="color: #092625;">318</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="inline-flex items-center text-[11px] font-bold text-primary bg-[#e6f5f3] px-1.5 py-0.5 rounded border border-[#b6e0db]">
+              +12 tuần này
+            </span>
+</div>
+</div>
+<!-- Tile 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-[#d2dcda] tactile-ledge relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-[#fd6f4c]"></div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-bold uppercase tracking-wider" style="color: #1b4946;">Đang hoạt động</span>
+<span class="material-symbols-outlined text-[#ac3416] text-[20px]" data-icon="bolt">bolt</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold mt-0.5 tracking-tight" style="color: #092625;">42</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="inline-flex items-center text-[11px] font-bold text-[#ac3416] bg-[#fff0ec] px-1.5 py-0.5 rounded border border-[#fcd2c7]">
+              Trực tuyến
+            </span>
+</div>
+</div>
+<!-- Tile 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-[#d2dcda] tactile-ledge relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-bold uppercase tracking-wider" style="color: #1b4946;">Streak TB</span>
+<span class="material-symbols-outlined text-secondary-container text-[20px]" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold mt-0.5 tracking-tight" style="color: #092625;">14,2 <span class="text-title-sm font-normal text-on-surface-variant font-body-sm">ngày</span></div>
+<div class="mt-1 flex items-center gap-1">
+<span class="text-[11px] font-semibold" style="color: #1b4946;">Liên tục học tập</span>
+</div>
+</div>
+<!-- Tile 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-[#d2dcda] tactile-ledge relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-bold uppercase tracking-wider" style="color: #1b4946;">Gói PRO</span>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold mt-0.5 tracking-tight" style="color: #092625;">86 <span class="text-label-sm font-normal text-on-surface-variant font-body-sm">(27%)</span></div>
+<div class="mt-1 flex items-center gap-1">
+<span class="inline-flex items-center text-[11px] font-bold text-primary bg-[#e6f5f3] px-1.5 py-0.5 rounded border border-[#b6e0db]">
+              Đang trả phí
+            </span>
+</div>
+</div>
+</section>
+<!-- 4. Danh Sách Học Viên (Adapted Mobile Card List) -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-title-sm font-title-sm font-bold tracking-tight" style="color: #092625;">
+            Danh sách chi tiết (5/318)
+          </h3>
+<span class="text-label-sm font-label-sm text-outline font-semibold">Cập nhật 2m trước</span>
+</div>
+<!-- Student Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-[#d2dcda] tactile-ledge flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="font-bold text-title-sm leading-snug break-words" style="color: #092625;">
+                Nguyễn Minh Anh
+              </div>
+<div class="text-body-sm font-body-sm font-medium truncate" style="color: #1b4946;">
+                minhanh@lexkite.edu.vn
+              </div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#e6f5f3] text-primary border border-[#b6e0db]">
+                Hoạt động
+              </span>
+<button aria-label="Tùy chọn cho Nguyễn Minh Anh" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high active:translate-y-px" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#f2ece4] bg-surface-container-low/40 rounded-lg p-2">
+<div>
+<span class="block text-[11px] font-semibold text-outline uppercase">Trình độ</span>
+<span class="text-label-md font-label-md font-bold text-primary">C1 Adv</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Từ vựng</span>
+<span class="text-label-md font-label-md font-bold font-code-sm" style="color: #092625;">1.420</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Điểm bài</span>
+<span class="text-label-md font-label-md font-bold text-primary">94%</span>
+</div>
+</div>
+</div>
+<!-- Student Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-[#d2dcda] tactile-ledge flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="font-bold text-title-sm leading-snug break-words" style="color: #092625;">
+                Trần Bảo Long
+              </div>
+<div class="text-body-sm font-body-sm font-medium truncate" style="color: #1b4946;">
+                baolong.t@gmail.com
+              </div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#fff0ec] text-[#d94e2c] border border-[#fcd2c7]">
+                Đang học
+              </span>
+<button aria-label="Tùy chọn cho Trần Bảo Long" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high active:translate-y-px" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#f2ece4] bg-surface-container-low/40 rounded-lg p-2">
+<div>
+<span class="block text-[11px] font-semibold text-outline uppercase">Trình độ</span>
+<span class="text-label-md font-label-md font-bold text-primary">B2 Upper</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Từ vựng</span>
+<span class="text-label-md font-label-md font-bold font-code-sm" style="color: #092625;">980</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Điểm bài</span>
+<span class="text-label-md font-label-md font-bold text-primary">88%</span>
+</div>
+</div>
+</div>
+<!-- Student Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-[#d2dcda] tactile-ledge flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="font-bold text-title-sm leading-snug break-words" style="color: #092625;">
+                Lê Hoàng Yến Vy
+              </div>
+<div class="text-body-sm font-body-sm font-medium truncate" style="color: #1b4946;">
+                yenvy.le@domain.com
+              </div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#e6f5f3] text-primary border border-[#b6e0db]">
+                Hoạt động
+              </span>
+<button aria-label="Tùy chọn cho Lê Hoàng Yến Vy" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high active:translate-y-px" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#f2ece4] bg-surface-container-low/40 rounded-lg p-2">
+<div>
+<span class="block text-[11px] font-semibold text-outline uppercase">Trình độ</span>
+<span class="text-label-md font-label-md font-bold text-primary">C1 Pro</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Từ vựng</span>
+<span class="text-label-md font-label-md font-bold font-code-sm" style="color: #092625;">1.650</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Điểm bài</span>
+<span class="text-label-md font-label-md font-bold text-primary">97%</span>
+</div>
+</div>
+</div>
+<!-- Student Item 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-[#d2dcda] tactile-ledge flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="font-bold text-title-sm leading-snug break-words" style="color: #092625;">
+                Phạm Quốc Tuấn
+              </div>
+<div class="text-body-sm font-body-sm font-medium truncate" style="color: #1b4946;">
+                tuankid@yahoo.com
+              </div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#f2ebe1] text-[#51605e] border border-[#dfd5c6]">
+                Tạm dừng
+              </span>
+<button aria-label="Tùy chọn cho Phạm Quốc Tuấn" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high active:translate-y-px" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#f2ece4] bg-surface-container-low/40 rounded-lg p-2">
+<div>
+<span class="block text-[11px] font-semibold text-outline uppercase">Trình độ</span>
+<span class="text-label-md font-label-md font-bold text-primary">B1 Inter</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Từ vựng</span>
+<span class="text-label-md font-label-md font-bold font-code-sm" style="color: #092625;">620</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Điểm bài</span>
+<span class="text-label-md font-label-md font-bold text-primary">79%</span>
+</div>
+</div>
+</div>
+<!-- Student Item 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-[#d2dcda] tactile-ledge flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="font-bold text-title-sm leading-snug break-words" style="color: #092625;">
+                Đỗ Thùy Trang
+              </div>
+<div class="text-body-sm font-body-sm font-medium truncate" style="color: #1b4946;">
+                thuytrang.do@gmail.com
+              </div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#e6f5f3] text-primary border border-[#b6e0db]">
+                Hoạt động
+              </span>
+<button aria-label="Tùy chọn cho Đỗ Thùy Trang" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high active:translate-y-px" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#f2ece4] bg-surface-container-low/40 rounded-lg p-2">
+<div>
+<span class="block text-[11px] font-semibold text-outline uppercase">Trình độ</span>
+<span class="text-label-md font-label-md font-bold text-primary">C2 Master</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Từ vựng</span>
+<span class="text-label-md font-label-md font-bold font-code-sm" style="color: #092625;">2.110</span>
+</div>
+<div class="text-right">
+<span class="block text-[11px] font-semibold text-outline uppercase">Điểm bài</span>
+<span class="text-label-md font-label-md font-bold text-primary">99%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Phân Trang (Mobile Pagination Control) -->
+<section class="mt-2 mb-2 flex items-center justify-between bg-surface-container-lowest p-2 rounded-xl border border-[#d2dcda] tactile-ledge">
+<button aria-label="Trang trước" class="min-w-[44px] min-h-[44px] h-11 px-3 rounded-lg border border-[#d2dcda] bg-surface-container-lowest text-primary font-bold text-label-md flex items-center justify-center gap-1 active:translate-y-px disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+<span>Trước</span>
+</button>
+<span class="text-label-md font-label-md font-bold" style="color: #092625;">
+          Trang 1 / 16
+        </span>
+<button aria-label="Trang kế tiếp" class="min-w-[44px] min-h-[44px] h-11 px-3 rounded-lg border border-primary bg-primary text-surface-container-lowest font-bold text-label-md flex items-center justify-center gap-1 active:translate-y-px shadow-sm" type="button">
+<span>Sau</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</section>
 </main>
-<!-- Pinned Floating Tactile Bottom Action Bar (Fixed to 390px mobile canvas) -->
-<div class="fixed bottom-0 z-50 w-[390px] bg-surface-container-high/95 backdrop-blur-md border-t-2 border-primary/40 p-3 shadow-[0_-6px_20px_rgba(0,0,0,0.5)]" style="background-color: #0F3D3E; border-top: 3px solid #065F46; box-shadow: 0 -8px 24px rgba(15, 61, 62, 0.35);"><!-- Top Context Indicator Banner --><div class="flex items-center justify-between pb-2 mb-2" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15);"><div class="flex items-center gap-1.5"><span class="w-5 h-5 rounded-full font-label text-[11px] font-black flex items-center justify-center" style="background-color: #D1FAE5; color: #065F46;">3</span><span class="font-label text-xs font-extrabold text-white">Đã chọn 3 học viên</span></div><button class="font-label text-[11px] font-bold flex items-center gap-0.5 hover:underline" style="color: #6EE7B7;"><span>Chọn cả 1.284</span><span class="material-symbols-outlined text-[14px]">done_all</span></button></div><!-- Action Buttons Grid (Tactile Touch Buttons) --><div class="grid grid-cols-4 gap-1.5"><button class="h-10 rounded-lg flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5" style="background-color: #174E4F; border: 1.5px solid #206A6B; box-shadow: 0 2px 0 #0A2E2F; color: #E0F4F2;" title="Gắn nhãn"><span class="material-symbols-outlined text-[16px]" style="color: #6EE7B7;">label</span><span class="font-label text-[9px]">Gắn nhãn</span></button><button class="h-10 rounded-lg flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5" style="background-color: #174E4F; border: 1.5px solid #206A6B; box-shadow: 0 2px 0 #0A2E2F; color: #E0F4F2;" title="Cấp quyền AI"><span class="material-symbols-outlined text-[16px]" style="color: #FCD34D;">bolt</span><span class="font-label text-[9px]">Quyền AI</span></button><button class="h-10 rounded-lg flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5" style="background-color: #174E4F; border: 1.5px solid #206A6B; box-shadow: 0 2px 0 #0A2E2F; color: #E0F4F2;" title="Gửi thông báo"><span class="material-symbols-outlined text-[16px]" style="color: #D1D5DB;">send</span><span class="font-label text-[9px]">Thông báo</span></button><button class="h-10 rounded-lg flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5" style="background-color: #FEE2E2; border: 1.5px solid #FCA5A5; box-shadow: 0 2px 0 #DC2626; color: #991B1B;" title="Khóa / Xoá"><span class="material-symbols-outlined text-[16px]">lock_person</span><span class="font-label text-[9px] font-bold">Khoá</span></button></div><!-- Quick Dismiss Action --><div class="flex items-center justify-between pt-2 mt-1"><button class="font-label text-[11px] flex items-center gap-1 hover:underline" style="color: #A7F3D0;"><span class="material-symbols-outlined text-[14px]">file_download</span><span>Xuất CSV (3 dòng)</span></button><button class="font-label text-[11px] font-bold hover:underline flex items-center gap-0.5" style="color: #FCA5A5;"><span class="material-symbols-outlined text-[14px]">close</span><span>Bỏ chọn</span></button></div></div>
+<!-- 6. Shared Component: BottomNavBar (Fixed docked bottom, 4 items) -->
+<!-- Destination 1: Tổng quan, Destination 2: Người dùng (Active), Destination 3: Hạn mức, Destination 4: Cài đặt -->
+<nav aria-label="Điều hướng chính đáy" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface-container-lowest border-t border-outline-variant shadow-[0_-1px_3px_rgba(0,0,0,0.05)] max-w-[390px] mx-auto right-0">
+<!-- Tab 1: Tổng quan (Inactive) -->
+<a class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] px-space-sm py-space-xs text-on-surface-variant hover:bg-surface-container active:translate-y-px duration-100 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
+</a>
+<!-- Tab 2: Người dùng (ACTIVE - Contextual Intent exact match) -->
+<a aria-current="page" class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] px-space-sm py-space-xs text-primary font-bold hover:bg-surface-container active:translate-y-px duration-100 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-label-sm font-label-sm mt-0.5">Người dùng</span>
+</a>
+<!-- Tab 3: Hạn mức (Inactive) -->
+<a class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] px-space-sm py-space-xs text-on-surface-variant hover:bg-surface-container active:translate-y-px duration-100 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="speed">speed</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hạn mức</span>
+</a>
+<!-- Tab 4: Cài đặt (Inactive) -->
+<a class="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] px-space-sm py-space-xs text-on-surface-variant hover:bg-surface-container active:translate-y-px duration-100 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
+</a>
+</nav>
 </div>
 </body></html>

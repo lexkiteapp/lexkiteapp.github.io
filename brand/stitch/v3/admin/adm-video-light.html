@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 
-<html class="h-full bg-background" lang="vi"><head>
+<html class="light" lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Admin › Trung tâm video | Lexkite</title>
+<title>Lexkite Quản trị — Trung tâm video</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -15,53 +18,53 @@
       theme: {
         extend: {
           "colors": {
-            "inverse-surface": "#342f2b",
-            "on-primary-fixed-variant": "#00504b",
-            "surface-container-high": "#f0e6e0",
-            "primary-fixed": "#abefe8",
-            "on-tertiary-container": "#a5d1d2",
-            "tertiary": "#174344",
-            "inverse-primary": "#8fd3cc",
-            "on-secondary-fixed-variant": "#8b1900",
-            "surface-container-low": "#fcf2eb",
-            "on-error-container": "#93000a",
-            "on-primary-fixed": "#00201e",
-            "on-tertiary-fixed": "#002020",
-            "error": "#b91c1c",
-            "outline-variant": "#bec9c7",
-            "surface-container-highest": "#eae1da",
-            "primary": "#004541",
-            "background": "#fff8f5",
-            "on-primary": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "secondary-fixed-dim": "#ffb4a3",
-            "on-surface-variant": "#334155",
-            "on-secondary": "#ffffff",
-            "on-error": "#ffffff",
-            "tertiary-fixed": "#beebeb",
-            "inverse-on-surface": "#f9efe8",
-            "secondary": "#c83c1c",
-            "primary-fixed-dim": "#8fd3cc",
-            "on-surface": "#0f172a",
-            "secondary-container": "#c83c1c",
-            "outline": "#475569",
+            "outline-variant": "#bfc8c6",
+            "surface-dim": "#d3dcda",
+            "primary-container": "#114b47",
+            "on-tertiary-fixed": "#00201e",
+            "tertiary-fixed-dim": "#8ad4cc",
+            "surface-container-highest": "#dce4e2",
+            "primary-fixed-dim": "#9bd1cb",
             "on-secondary-fixed": "#3d0600",
-            "surface-container": "#f6ece6",
-            "surface-container-lowest": "#ffffff",
-            "tertiary-container": "#315b5c",
-            "on-tertiary-fixed-variant": "#224d4e",
-            "surface-variant": "#eae1da",
-            "on-secondary-container": "#ffffff",
-            "primary-container": "#004541",
-            "surface": "#fff8f5",
+            "primary-fixed": "#b6ede7",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#5b0d00",
             "secondary-fixed": "#ffdad2",
-            "surface-tint": "#216963",
-            "error-container": "#fee2e2",
-            "surface-dim": "#e2d8d2",
-            "surface-bright": "#fff8f5",
-            "tertiary-fixed-dim": "#a3cfcf",
-            "on-background": "#0f172a",
-            "on-primary-container": "#ffffff"
+            "on-surface": "#151d1c",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#a6f0e8",
+            "inverse-surface": "#2a3231",
+            "tertiary-container": "#004c47",
+            "surface-container": "#e7f0ee",
+            "surface-tint": "#326762",
+            "secondary-fixed-dim": "#ffb4a3",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f3fbf9",
+            "tertiary": "#003330",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#00504b",
+            "inverse-primary": "#9bd1cb",
+            "outline": "#707977",
+            "on-secondary": "#ffffff",
+            "secondary": "#b52705",
+            "on-surface-variant": "#404847",
+            "on-error": "#ffffff",
+            "on-background": "#151d1c",
+            "surface": "#f3fbf9",
+            "primary": "#003330",
+            "surface-container-high": "#e1eae8",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#8b1900",
+            "surface-variant": "#dce4e2",
+            "secondary-container": "#ff5c38",
+            "on-primary-fixed": "#00201e",
+            "background": "#f3fbf9",
+            "surface-container-low": "#edf5f3",
+            "inverse-on-surface": "#eaf2f0",
+            "on-primary-fixed-variant": "#164f4b",
+            "on-primary-container": "#85bab4",
+            "on-tertiary-container": "#73bdb6",
+            "on-primary": "#ffffff"
           },
           "borderRadius": {
             "DEFAULT": "0.25rem",
@@ -70,783 +73,581 @@
             "full": "9999px"
           },
           "spacing": {
+            "space-md": "0.75rem",
+            "space-lg": "1rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
             "space-xs": "0.25rem",
-            "gutter-sm": "1rem",
-            "margin-mobile": "1rem",
-            "gutter": "1.5rem",
-            "gutter-lg": "2rem",
-            "margin": "2rem",
-            "space-xl": "2.5rem",
-            "space-lg": "1.5rem",
-            "space-md": "1rem",
-            "space-sm": "0.5rem"
+            "space-2xl": "2rem",
+            "gutter": "1rem",
+            "space-xl": "1.5rem",
+            "gutter-sm": "0.5rem",
+            "margin-lg": "1.5rem"
           },
           "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
             "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
             "title-md": ["Plus Jakarta Sans"],
             "label-sm": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "body-sm": ["Plus Jakarta Sans"],
-            "headline-md": ["Space Grotesk"],
-            "headline-sm": ["Space Grotesk"],
-            "display": ["Space Grotesk"],
-            "headline-lg-mobile": ["Space Grotesk"],
-            "title-lg": ["Plus Jakarta Sans"],
-            "headline-lg": ["Space Grotesk"]
+            "data-mono": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
           },
           "fontSize": {
-            "label-md": ["13px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
-            "title-md": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
-            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
-            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
-            "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-            "headline-sm": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
-            "display": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
-            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-            "title-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-            "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600"}]
+            "headline-lg": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "data-mono": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
           }
-        },
-      },
+        }
+      }
     }
   </script>
 <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f3fbf9;
+      color: #151d1c;
+    }
     .material-symbols-outlined {
       font-family: 'Material Symbols Outlined';
       font-weight: normal;
       font-style: normal;
       font-size: 20px;
       line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
       display: inline-block;
-      white-space: nowrap;
+      text-transform: none;
+      letter-spacing: normal;
       word-wrap: normal;
+      white-space: nowrap;
       direction: ltr;
-      -webkit-font-feature-settings: 'liga';
       -webkit-font-smoothing: antialiased;
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 5px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #94a3b8;
-      border-radius: 4px;
-    }
+    /* Tactile Ledges & Shadow Guidance Tokens */
     .tactile-card {
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background-color: #ffffff;
+      border: 1px solid #dce4e2;
+      box-shadow: 0 1px 0 0 #c4d1ce, 0 3px 6px -1px rgba(17, 75, 71, 0.06);
     }
-    .tactile-card:hover {
-      box-shadow: 0 4px 10px -2px rgba(15, 23, 42, 0.09), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-      transform: translateY(-1px);
+    .tactile-btn-primary {
+      background-color: #003330;
+      color: #ffffff;
+      box-shadow: 0 3px 0 0 #00201e;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #00201e;
+    }
+    .tactile-btn-coral {
+      background-color: #ff5c38;
+      color: #ffffff;
+      box-shadow: 0 3px 0 0 #cc4323;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #cc4323;
+    }
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      color: #003330;
+      border: 1px solid #bfc8c6;
+      box-shadow: 0 2px 0 0 #c4d1ce;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #c4d1ce;
+    }
+    .tactile-inset {
+      box-shadow: inset 0 1px 2px 0 rgba(17, 75, 71, 0.08);
+      border: 1px solid #bfc8c6;
     }
   </style>
 </head>
-<body class="min-h-full font-body-md text-on-surface antialiased bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- ================= SIDEBAR (Shared Component: SideNavBar) ================= -->
-<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-lowest border-r border-slate-300 shadow-sm">
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden min-h-screen">
+<!-- Desktop App Frame Container: Strictly 1280px Maximum Layout -->
+<div class="w-full max-w-[1280px] mx-auto min-h-screen relative flex bg-surface">
+<!-- SIDEBAR NAVIGATION (Shared Components Spec: SideNavBar) -->
+<aside class="fixed top-0 left-auto w-64 h-screen flex flex-col z-30 bg-surface-container-lowest border-r border-outline-variant shadow-sm shrink-0">
 <div class="h-full w-64 p-space-md flex flex-col justify-between shrink-0">
-<!-- Top Branding & Nav Groups -->
-<div class="flex flex-col flex-1 overflow-y-auto custom-scrollbar pr-1">
-<!-- Logo Header -->
-<div class="flex items-center justify-between pb-space-md mb-space-sm border-b border-surface-container">
-<div class="flex items-center gap-space-sm">
-<!-- Geometric Kite Emblem -->
-<div class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-xs shrink-0">
-<span class="material-symbols-outlined text-[24px]" data-icon="change_history">change_history</span>
+<!-- Sidebar Header & Logo -->
+<div>
+<div class="flex items-center space-x-3 px-space-sm py-space-sm mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-xs">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="videocam">videocam</span>
 </div>
 <div>
-<div class="text-title-lg font-title-lg text-primary tracking-tight flex items-center gap-1.5 font-bold">
-                Lexkite
-                <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-900 border border-teal-200">v2.4.1</span>
-</div>
-<p class="text-[12px] text-slate-700 font-semibold">Language Intelligence</p>
+<h1 class="text-title-lg font-title-lg text-primary tracking-tight font-extrabold">Lexkite</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Language Intelligence</p>
 </div>
 </div>
-</div>
-<!-- Navigation Clusters -->
-<nav class="space-y-space-md text-body-sm font-body-sm">
-<!-- GROUP 1: TỔNG QUAN -->
-<div>
-<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">TỔNG QUAN</div>
-<div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
+<!-- Main Navigation Links -->
+<nav class="space-y-1 mt-space-sm">
+<!-- Tab 1: Tổng quan -->
+<a class="h-11 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface" data-icon="dashboard">dashboard</span>
 <span>Tổng quan</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
-<span>Phân tích</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="campaign">campaign</span>
-<span>Quảng cáo</span>
-</a>
-</div>
-</div>
-<!-- GROUP 2: NGƯỜI DÙNG -->
-<div>
-<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">NGƯỜI DÙNG</div>
-<div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+<!-- Tab 2: Người dùng -->
+<a class="h-11 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface" data-icon="group">group</span>
 <span>Người dùng</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
-<span>Hộp thư</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
-<span>Thông báo</span>
-</a>
-</div>
-</div>
-<!-- GROUP 3: CHẤT LƯỢNG -->
-<div>
-<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">CHẤT LƯỢNG</div>
-<div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="warning">warning</span>
-<span>Cảnh báo</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="bug_report">bug_report</span>
-<span>Báo lỗi</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<!-- Tab 3: Chất lượng -->
+<a class="h-11 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface" data-icon="verified">verified</span>
 <span>Chất lượng</span>
 </a>
-</div>
-</div>
-<!-- GROUP 4: NỘI DUNG & VIDEO (ACTIVE CONTEXT) -->
-<div>
-<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">NỘI DUNG &amp; VIDEO</div>
-<div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="share">share</span>
-<span>Kênh &amp; phân phối</span>
+<!-- Tab 4: Nội dung & Video (ACTIVE: Semantic Match) -->
+<a class="h-11 flex items-center px-space-md bg-primary text-on-primary rounded-lg font-label-md shadow-xs active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined mr-3 text-primary-fixed" data-icon="video_library">video_library</span>
+<span class="font-bold">Nội dung &amp; Video</span>
+<span class="ml-auto bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-label-sm font-bold">16</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="smart_display">smart_display</span>
-<span>Video &amp; Social</span>
+<!-- Tab 5: Hệ thống -->
+<a class="h-11 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface" data-icon="dns">dns</span>
+<span>Hệ thống</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="movie_edit">movie_edit</span>
-<span>Video Studio</span>
+<!-- Tab 6: Cài đặt -->
+<a class="h-11 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface" data-icon="settings">settings</span>
+<span>Cài đặt</span>
 </a>
-<!-- ACTIVE TAB: Trung tâm video -->
-<a class="bg-primary text-on-primary rounded-lg font-label-md shadow-xs flex items-center justify-between px-3 py-2.5 min-h-[44px] transition-all duration-150 active:scale-[0.98]" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-teal-200" data-icon="video_library">video_library</span><span class="font-bold text-body-md font-body-md text-white">Trung tâm video</span></div><span class="bg-[#00302d] text-white font-extrabold text-[12px] px-2.5 py-0.5 rounded-full border border-teal-300/40">16</span></a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="link">link</span>
-<span>Backlink &amp; PR</span>
-</a>
-</div>
-</div>
-<!-- GROUP 5: HỆ THỐNG -->
-<div>
-<div class="text-[12px] text-teal-950 font-extrabold px-3 py-1 tracking-wider uppercase">HỆ THỐNG</div>
-<div class="space-y-1 mt-1">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
-<span>Hạn mức</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span>
-<span>Kho Drive</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="key">key</span>
-<span>Khóa API</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="dns">dns</span>
-<span>Dịch vụ &amp; API</span>
-</a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="storage">storage</span>
-<span>Lưu trữ</span>
-</a>
-</div>
-</div>
 </nav>
 </div>
-<!-- Footer Actions & Server Status -->
-<div class="pt-space-md border-t border-slate-300 space-y-2">
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
-<span class="text-body-sm font-body-sm">Cài đặt</span>
+<!-- Sidebar Bottom Actions & CTA -->
+<div class="space-y-space-md pt-space-md border-t border-outline-variant">
+<!-- CTA Button from JSON -->
+<button class="w-full h-11 tactile-btn-coral rounded-lg flex items-center justify-center font-label-md font-bold text-on-secondary space-x-2">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span>Tạo video mới</span>
+</button>
+<!-- Footer Tabs -->
+<div class="space-y-1">
+<a class="h-10 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help">help</span>
+<span>Hỗ trợ kỹ thuật</span>
 </a>
-<a class="flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] text-slate-800 font-semibold hover:text-primary hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
-<span class="material-symbols-outlined text-primary" data-icon="help">help</span>
-<span class="text-body-sm font-body-sm">Hỗ trợ kỹ thuật</span>
+<a class="h-10 flex items-center px-space-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg font-body-md transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span>Đăng xuất</span>
 </a>
-<!-- Server Status Badge -->
-<div class="px-3 py-2.5 min-h-[44px] rounded-lg bg-surface-container text-label-sm font-label-sm flex items-center justify-between text-slate-900 border border-slate-300">
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
-<span class="text-slate-900 font-bold">Máy chủ ổn định</span>
-</div>
-<span class="text-primary font-mono font-bold">v2.4.1</span>
 </div>
 </div>
 </div>
 </aside>
-<!-- ================= TOP NAV BAR (Shared Component: TopNavBar) ================= -->
-<header class="fixed top-0 right-0 left-64 h-16 z-20 bg-surface-container-lowest border-b border-slate-300 shadow-xs">
-<div class="flex items-center justify-between px-gutter h-16 w-full">
-<!-- Breadcrumb & Global Search -->
-<div class="flex items-center gap-space-lg flex-1 max-w-2xl">
-<!-- Breadcrumbs with ≥44px touch friendly items and ≥4.5:1 text -->
-<nav aria-label="Breadcrumb" class="hidden xl:flex items-center text-body-sm font-body-sm shrink-0">
-<a class="min-h-[44px] flex items-center text-slate-700 hover:text-primary font-bold px-1 transition-colors" href="#">Admin</a>
-<span class="material-symbols-outlined text-slate-500 text-[18px] px-0.5" data-icon="chevron_right">chevron_right</span>
-<a class="min-h-[44px] flex items-center text-slate-700 hover:text-primary font-bold px-1 transition-colors" href="#">Nội dung &amp; Video</a>
-<span class="material-symbols-outlined text-slate-500 text-[18px] px-0.5" data-icon="chevron_right">chevron_right</span>
-<span class="min-h-[44px] flex items-center text-primary font-extrabold px-1">Trung tâm video</span>
+<!-- MAIN CONTENT CANVAS (Offset by 256px for sidebar) -->
+<div class="ml-64 w-[1024px] min-h-screen flex flex-col bg-surface">
+<!-- TOP APP BAR (Shared Components Spec: TopNavBar) -->
+<header class="h-14 w-full bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-space-xl sticky top-0 z-20 shadow-xs">
+<!-- Search bar & Breadcrumbs -->
+<div class="flex items-center space-x-space-lg w-1/2">
+<!-- Breadcrumb -->
+<nav class="flex items-center text-body-sm font-body-sm text-on-surface font-semibold shrink-0">
+<span class="hover:text-primary cursor-pointer text-on-surface">Admin</span>
+<span class="mx-2 text-outline">/</span>
+<span class="text-primary font-bold text-title-sm font-title-sm">Trung tâm video</span>
 </nav>
-<!-- Command Search Bar min-height 44px -->
-<div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-[20px]" data-icon="search">search</span>
-<input class="w-full pl-10 pr-12 min-h-[44px] py-2 text-body-sm font-body-sm bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 placeholder:text-slate-600 font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-150" placeholder="Tìm kiếm kịch bản, từ vựng, ID video... [Ctrl K]" type="text"/>
-<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[11px] font-mono bg-surface-container px-2 py-1 rounded border border-slate-400 text-slate-800 font-bold">⌘K</kbd>
+<!-- Search Input Bar -->
+<div class="relative w-full max-w-xs">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-lg tactile-inset bg-surface-container-lowest text-on-surface font-body-sm placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Tìm video, ID, giáo viên..." type="text"/>
 </div>
 </div>
-<!-- Right Trailing Controls -->
-<div class="flex items-center gap-space-md">
-<!-- Pipeline Status Chip -->
-<div class="hidden lg:flex items-center min-h-[44px] gap-2 px-3 py-2 rounded-full bg-teal-50 border border-teal-300 text-label-sm font-label-sm text-teal-950 font-bold">
-<span class="w-2.5 h-2.5 rounded-full bg-teal-700"></span>
-<span>Pipeline tự động (Kokoro TTS) hoạt động</span>
+<!-- Trailing actions: Switcher, Notifications, Admin Profile -->
+<div class="flex items-center space-x-space-md">
+<!-- Language Selector -->
+<div class="h-9 px-3 rounded-lg bg-surface-container border border-outline-variant flex items-center space-x-1.5 cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-base" data-icon="translate">translate</span>
+<span class="text-label-md font-label-md text-primary font-bold">VI | EN</span>
 </div>
-<!-- Language Switcher (≥44x44px) -->
-<button aria-label="Chuyển đổi ngôn ngữ" class="min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-lg text-body-sm font-bold text-slate-900 hover:bg-surface-container hover:text-primary transition-all duration-150 flex items-center justify-center border border-slate-300 active:scale-95">
-          VI | EN
-        </button>
-<!-- Notification Bell (≥44x44px) -->
-<button aria-label="Thông báo" class="relative min-h-[44px] min-w-[44px] p-2 text-slate-800 hover:text-primary hover:bg-surface-container rounded-lg transition-all duration-150 flex items-center justify-center border border-slate-300 active:scale-95">
-<span class="material-symbols-outlined text-[22px] text-slate-800" data-icon="notifications">notifications</span>
-<span class="absolute top-2.5 right-2.5 w-2.5 h-2.5 rounded-full bg-[#c83c1c] ring-2 ring-white"></span>
+<!-- Notification Bell -->
+<button aria-label="Thông báo" class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container border border-outline-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary"></span>
 </button>
-<!-- Admin Profile Anchor (≥44px min-h) -->
-<div class="flex items-center gap-2.5 pl-3 min-h-[44px] border-l border-slate-300 cursor-pointer">
-<div class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-primary text-white flex items-center justify-center font-bold text-label-md font-label-md tracking-tight ring-2 ring-teal-200 shrink-0">
-            HM
-          </div>
-<div class="hidden sm:block text-left">
-<div class="text-body-sm font-body-sm font-bold leading-tight text-slate-900">Hoàng Minh</div>
-<div class="text-[12px] leading-tight text-slate-700 font-bold">Content Lead</div>
-</div>
+<!-- Admin Avatar (LK 44x44px ergonomic touch anchor) -->
+<div class="flex items-center space-x-2 pl-space-sm border-l border-outline-variant">
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-label-md shadow-xs ring-2 ring-surface-container-high cursor-pointer" title="Admin profile initials LK">
+              LK
+            </div>
+<div class="flex flex-col text-left">
+<span class="text-label-md font-label-md font-bold text-primary leading-tight">Lexkite Admin</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Quản trị viên</span>
 </div>
 </div>
 </div>
 </header>
-<!-- ================= MAIN CONTENT CANVAS ================= -->
-<main class="ml-64 pt-16 min-h-screen bg-background text-on-surface overflow-x-hidden">
-<div class="p-gutter-lg max-w-[1520px] w-full mx-auto space-y-gutter-lg">
-<!-- SECTION 1: HEADER SUMMARY & PRIMARY ACTION -->
-<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm border-b border-surface-container">
+<!-- MAIN ADMINISTRATIVE WORKSPACE -->
+<main class="p-space-xl space-y-space-xl flex-1">
+<!-- HEADER & EXECUTIVE ACTION ROW -->
+<div class="flex items-center justify-between">
 <div>
-<div class="flex items-center gap-2 flex-wrap">
-<h1 class="text-headline-md font-headline-md text-primary tracking-tight font-bold">Trung tâm video</h1>
-<span class="px-3 py-1.5 rounded-full bg-primary text-white text-label-sm font-label-sm font-bold border border-primary/30">Shorts 9:16 Studio</span>
+<div class="flex items-center space-x-3">
+<!-- Strict WCAG requirement #1: Deep Teal #003330 text with >7:1 contrast on #f3fbf9 -->
+<h2 class="text-headline-xl font-headline-xl text-primary font-extrabold tracking-tight">Trung tâm video</h2>
+<!-- Strict WCAG requirement #2: Badge number 16 with deep contrast -->
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-primary text-on-primary text-label-md font-label-md font-bold tracking-wide shadow-xs">
+                16 video sẵn sàng
+              </span>
 </div>
-<p class="text-body-md font-body-md text-slate-800 font-semibold mt-1">
-            Điều phối sản xuất short video 9:16, kịch bản IELTS/TOEIC, kiểm định chất lượng (QC) và phân phối đa kênh.
-          </p>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+              Hệ thống dựng tự động Remotion Serverless kết hợp giọng đọc AI Kokoro TTS v0.19 đa ngôn ngữ.
+            </p>
 </div>
-<div class="flex items-center gap-space-sm shrink-0 flex-wrap">
-<!-- Secondary Tactile Button (≥44px) -->
-<button class="min-h-[44px] px-4 rounded-lg bg-surface-container-lowest border border-slate-400 text-slate-900 hover:bg-surface-container hover:border-slate-600 text-label-md font-label-md font-bold flex items-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-xs">
-<span class="material-symbols-outlined text-[20px] text-primary" data-icon="sync">sync</span>
-<span>Đồng bộ GrabCast</span>
+<!-- Quick Command Action Buttons (Min 44px height) -->
+<div class="flex items-center space-x-space-md">
+<button class="h-11 px-4 tactile-btn-secondary rounded-lg font-label-md font-bold flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary" data-icon="refresh">refresh</span>
+<span>Đồng bộ hàng đợi</span>
 </button>
-<!-- Primary Radiant Coral Action Button (≥44px, Deep high-contrast coral #c83c1c with bold #ffffff) -->
-<button class="min-h-[44px] px-5 rounded-lg bg-[#c83c1c] hover:bg-[#a62f14] text-white font-extrabold text-label-md font-label-md shadow-sm border border-[#a62f14] flex items-center gap-2 transition-all duration-150 active:scale-[0.98]">
-<span class="material-symbols-outlined text-[20px] text-white font-bold" data-icon="add">add</span>
-<span class="text-white">Tạo kịch bản mới</span>
+<button class="h-11 px-5 tactile-btn-primary rounded-lg font-label-md font-bold flex items-center space-x-2 shadow-sm">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="auto_awesome">auto_awesome</span>
+<span>Tạo batch video</span>
 </button>
+</div>
+</div>
+<!-- STATUS SUMMARY CARDS (Tactile Bento Metrics) -->
+<section aria-label="Thống kê trạng thái video" class="grid grid-cols-4 gap-gutter">
+<!-- Metric Card 1: Đã xuất bản -->
+<div class="tactile-card rounded-xl p-space-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-title-sm font-title-sm text-on-surface-variant font-bold">Đã xuất bản</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex items-baseline space-x-1.5">
+<span class="text-headline-xl font-headline-xl font-extrabold text-primary">12</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">video</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary-container bg-surface-container-highest px-2 py-0.5 rounded font-bold">+2 hôm nay</span>
+</div>
+</div>
+<!-- Metric Card 2: Chờ duyệt -->
+<div class="tactile-card rounded-xl p-space-lg flex flex-col justify-between border-l-4 border-l-secondary-container">
+<div class="flex items-center justify-between">
+<span class="text-title-sm font-title-sm text-primary font-bold">Chờ duyệt</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="schedule">schedule</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex items-baseline space-x-1.5">
+<span class="text-headline-xl font-headline-xl font-extrabold text-secondary">3</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">cần xem</span>
+</div>
+<span class="text-label-sm font-label-sm bg-secondary text-on-secondary px-2 py-0.5 rounded font-bold">Ưu tiên cao</span>
+</div>
+</div>
+<!-- Metric Card 3: Đang xử lý -->
+<div class="tactile-card rounded-xl p-space-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-title-sm font-title-sm text-on-surface-variant font-bold">Đang xử lý</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary animate-spin">
+<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex items-baseline space-x-1.5">
+<span class="text-headline-xl font-headline-xl font-extrabold text-primary">1</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Remotion rendering</span>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container-high text-primary px-2 py-0.5 rounded font-bold">68% xong</span>
+</div>
+</div>
+<!-- Metric Card 4: Giọng đọc TTS Kokoro -->
+<div class="tactile-card rounded-xl p-space-lg flex flex-col justify-between bg-primary-container text-on-primary">
+<div class="flex items-center justify-between">
+<span class="text-title-sm font-title-sm text-primary-fixed font-bold">Động cơ giọng đọc</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-lg" data-icon="graphic_eq">graphic_eq</span>
+</div>
+</div>
+<div class="mt-3">
+<p class="text-title-md font-title-md font-extrabold text-on-primary leading-tight">Kokoro TTS v0.19</p>
+<div class="mt-2 flex items-center space-x-2">
+<span class="bg-primary text-primary-fixed border border-primary-fixed/30 text-label-sm font-label-sm font-bold px-2 py-0.5 rounded">100% miễn phí</span>
+<span class="text-label-sm font-label-sm text-primary-fixed-dim">Latency: 120ms</span>
+</div>
+</div>
 </div>
 </section>
-<!-- SECTION 2: TO-DO STRIP (Tactile Count Cards) -->
-<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
-<!-- Card 1: Cần duyệt -->
-<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-slate-300 hover:border-slate-500 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-slate-700 font-extrabold">Kiểm duyệt nội dung</span>
-<span class="w-3 h-3 rounded-full bg-amber-600 animate-pulse"></span>
+<!-- CONTROLS & FILTER BAR -->
+<div class="tactile-card rounded-xl p-space-md flex items-center justify-between">
+<!-- Filter Tabs (Min 44px tap target height) -->
+<div class="flex items-center space-x-2">
+<!-- Filter: Tất cả (16) -->
+<button class="h-11 px-4 rounded-lg bg-primary text-on-primary font-label-md font-bold flex items-center space-x-2 shadow-xs">
+<span>Tất cả</span>
+<span class="bg-surface-container-lowest text-primary px-2 py-0.5 rounded-full text-label-sm font-extrabold">16</span>
+</button>
+<!-- Filter: Chờ duyệt (3) -->
+<button class="h-11 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md font-bold flex items-center space-x-2 transition-colors">
+<span>Chờ duyệt</span>
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded-full text-label-sm font-extrabold">3</span>
+</button>
+<!-- Filter: Đã xuất bản (12) -->
+<button class="h-11 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md font-bold flex items-center space-x-2 transition-colors">
+<span>Đã xuất bản</span>
+<span class="bg-surface-container-highest text-primary px-2 py-0.5 rounded-full text-label-sm font-extrabold">12</span>
+</button>
+<!-- Filter: Lỗi (1) -->
+<button class="h-11 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md font-bold flex items-center space-x-2 transition-colors">
+<span>Lỗi</span>
+<span class="bg-error text-on-error px-2 py-0.5 rounded-full text-label-sm font-extrabold">1</span>
+</button>
 </div>
-<div class="text-headline-md font-headline-md text-primary font-bold mt-1">Cần duyệt (3)</div>
-</div>
-<p class="text-body-sm font-body-sm text-slate-800 font-semibold mt-3 pt-2 border-t border-surface-container">
-            2 bài chờ Carlos, 1 bài chờ Ama review nội dung kịch bản.
-          </p>
-</div>
-<!-- Card 2: Đang dựng -->
-<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-slate-300 hover:border-slate-500 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-slate-700 font-extrabold">Tiến trình Render</span>
-<span class="material-symbols-outlined text-[20px] text-teal-800 animate-spin" data-icon="progress_activity">progress_activity</span>
-</div>
-<div class="text-headline-md font-headline-md text-primary font-bold mt-1">Đang dựng (2)</div>
-</div>
-<p class="text-body-sm font-body-sm text-slate-800 font-semibold mt-3 pt-2 border-t border-surface-container">
-            Remotion engine đang render 1080×1920 (hàng đợi 42%).
-          </p>
-</div>
-<!-- Card 3: Lỗi QC -->
-<div class="tactile-card p-space-md rounded-xl bg-surface-container-lowest border border-slate-300 hover:border-slate-500 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-red-800 font-extrabold">Cảnh báo chất lượng</span>
-<span class="w-3 h-3 rounded-full bg-red-600"></span>
-</div>
-<div class="text-headline-md font-headline-md text-[#c83c1c] font-bold mt-1">Lỗi QC (1)</div>
-</div>
-<p class="text-body-sm font-body-sm text-slate-800 font-semibold mt-3 pt-2 border-t border-surface-container">
-            Tương phản phụ đề 4.2 &lt; 4.5:1 cần tinh chỉnh màu bóng.
-          </p>
-</div>
-<!-- Card 4: Bonus KPI Weekly Goal -->
-<div class="tactile-card p-space-md rounded-xl bg-primary text-white border border-teal-900 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="text-label-sm font-label-sm uppercase tracking-wider text-teal-200 font-extrabold">Chỉ số tuần</span>
-<span class="material-symbols-outlined text-teal-200 text-[20px]" data-icon="trending_up">trending_up</span>
-</div>
-<div class="text-headline-md font-headline-md text-white font-bold mt-1">14 video</div>
-</div>
-<div class="mt-3 pt-2 border-t border-teal-700/60 text-body-sm font-body-sm text-white font-semibold flex items-center justify-between">
-<span>Đạt 100% mục tiêu tuần</span>
-<span class="text-label-sm font-label-sm px-2.5 py-1 rounded bg-[#00302d] text-white font-extrabold border border-teal-300/40">14/14</span>
+<!-- Secondary Filters & Sorter -->
+<div class="flex items-center space-x-3">
+<span class="text-body-sm font-body-sm text-on-surface font-bold">Giáo viên:</span>
+<select class="h-11 rounded-lg border border-outline-variant bg-surface-container-lowest px-3 text-body-sm font-body-sm text-on-surface font-semibold focus:ring-2 focus:ring-primary-container">
+<option>Tất cả giáo viên (Carlos, Ama)</option>
+<option>Carlos (Bản ngữ Anh-Anh)</option>
+<option>Ama (Bản ngữ Anh-Mỹ)</option>
+</select>
+<div class="h-7 w-[1px] bg-outline-variant"></div>
+<button class="h-11 w-11 flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container transition-colors" title="Bộ lọc nâng cao">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
 </div>
 </div>
-</section>
-<!-- SECTION 3: REVIEW QUEUE (Hàng duyệt video 9:16) -->
-<section class="space-y-space-md">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<div>
-<h2 class="text-headline-sm font-headline-sm text-primary font-bold">Hàng chờ kiểm duyệt 9:16 (Review Queue)</h2>
-<p class="text-body-sm font-body-sm text-slate-800 font-semibold">Kiểm tra hiển thị khung hình dọc, chất lượng âm thanh Kokoro TTS và độ tương phản chuẩn WCAG</p>
+<!-- VIDEO MANAGEMENT GRID & REMOTION PREVIEW CARDS (9:16 Reel Cards) -->
+<section aria-label="Danh sách video reels" class="space-y-space-md">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-headline-sm font-headline-sm text-primary font-bold">Danh sách Video Reels (9:16)</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Hiển thị 3 trên tổng số 16 video</span>
 </div>
-<span class="min-h-[44px] inline-flex items-center text-label-md font-label-md px-4 py-2 rounded-full bg-primary text-white border border-primary font-bold">
-            3 video sẵn sàng
-          </span>
-</div>
-<!-- 3 Simulated 9:16 Tall Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Card 1: Carlos / Present Perfect -->
-<div class="tactile-card bg-surface-container-lowest rounded-2xl border border-slate-300 overflow-hidden flex flex-col">
-<!-- Simulated 9:16 Reel Display (Tall Aspect Ratio Header) -->
-<div class="relative w-full aspect-[9/16] bg-[#003734] flex flex-col justify-between p-4 overflow-hidden text-white select-none">
-<!-- Top Overlay Indicators -->
-<div class="flex items-center justify-between z-10">
-<span class="px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-[#1e293b] text-white shadow-xs">0:28 · 9:16 HD</span>
-<span class="px-2.5 py-1 rounded text-[11px] font-bold bg-teal-100 text-teal-950 border border-teal-300">Kokoro TTS (Carlos)</span>
-</div>
-<!-- Center Chalkboard / 2D Flat Vector Simulation -->
-<div class="my-auto text-center space-y-3 z-10">
-<!-- 2D Geometric Teacher Emblem (Carlos) -->
-<div class="w-16 h-16 mx-auto rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-md border-2 border-teal-300">
-<span class="material-symbols-outlined text-[36px]" data-icon="face">face</span>
-</div>
-<div class="inline-block px-3 py-1 rounded bg-[#0f172a] text-teal-200 text-label-sm font-label-sm uppercase tracking-wider font-extrabold">
-                  Ngữ pháp phản xạ
-                </div>
-<h3 class="text-headline-sm font-headline-sm text-white leading-tight px-2 font-bold">
-                  Present Perfect<br/><span class="text-teal-300">vs</span> Past Simple
-                </h3>
-<!-- Subtitle Preview Pill -->
-<div class="bg-[#0f172a] rounded-lg p-3 mx-2 text-left border border-slate-700 shadow-inner">
-<p class="text-label-sm font-label-sm text-teal-300 font-extrabold">Preview Phụ Đề:</p>
-<p class="text-body-sm font-body-sm text-white italic font-semibold leading-snug">"Have you ever eaten sushi?" vs "Did you eat sushi yesterday?"</p>
-</div>
-</div>
-<!-- Bottom Reel Controls & Audio Wave Simulation -->
-<div class="z-10 pt-2 border-t border-teal-500/40 flex items-center justify-between text-label-sm font-label-sm">
-<div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-teal-300 text-[18px]" data-icon="graphic_eq">graphic_eq</span>
-<span class="text-white font-bold">24kHz Pitch Normal</span>
-</div>
-<span class="text-white font-mono font-bold">1080×1920</span>
-</div>
-<!-- Ambient Chalkboard Texture Gradient Overlay -->
-<div class="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-[#0a1212]/90 pointer-events-none"></div>
-</div>
-<!-- Card Bottom Metadata & Review Action -->
-<div class="p-space-md space-y-3 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-<div class="space-y-2">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-sm font-label-sm font-extrabold bg-teal-900 text-white">
-<span class="material-symbols-outlined text-[16px] text-teal-200" data-icon="verified">verified</span>
-                    Đạt QA 9.4/10 · WCAG AAA
+<div class="grid grid-cols-3 gap-gutter">
+<!-- VIDEO CARD 1: LXK-REEL-101 (Chờ duyệt - Featured Actionable) -->
+<div class="tactile-card rounded-xl overflow-hidden flex flex-col justify-between border-2 border-primary-fixed-dim/50 shadow-md">
+<div class="p-space-lg pb-0">
+<!-- Status & ID Header -->
+<div class="flex items-center justify-between mb-3">
+<span class="text-data-mono font-data-mono text-primary font-bold bg-surface-container px-2 py-1 rounded">LXK-REEL-101</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1.5"></span>
+                    Chờ duyệt
                   </span>
-<div class="flex items-center gap-2 text-slate-800">
-<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="YouTube Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Instagram Reels">play_circle</span>
+</div>
+<!-- 9:16 Reel Video Aspect Ratio Container with Mock Preview -->
+<div class="relative w-full aspect-[9/16] max-h-[340px] mx-auto rounded-lg overflow-hidden bg-primary-container shadow-inner group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vertical video frame mockup showing an engaging English teacher Carlos explaining idioms on a classroom soundstage with dynamic captions reading Break a leg vs Good luck in high contrast colors, editorial modern lighting, light teal hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrZCj6doydksyOY8yKLhi8NRCYP071DmiBjVrhm_37n_xhUKQGLaUaLWt5be5ek2TEo2pGZRBj8SkYqLVKjkPYcXk8IuVs4Duozf4MCfqpfRcr7UmHKMBw4i8DDWQgHU9yaU_DaeStasmV96jrNcmbxMvBio8ndzJqGSYObHyMGfp4ItngP4xOMhcupq17eT2SevsXG_2nEPKyDVzKq0S9ZcpAVMLcrddHntzUcuutWcEJbNaovA0y2S7C7ZstNZ5ktm0R7tHTApU"/>
+<!-- Overlay Play Icon & Duration Badge -->
+<div class="absolute inset-0 bg-primary/30 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest/90 text-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="play_arrow">play_arrow</span>
 </div>
 </div>
-<div class="text-body-sm font-body-sm text-slate-900 font-semibold">
-                  Kịch bản: Carlos giới thiệu quy tắc Timeline tương phản với ví dụ sinh hoạt thường nhật.
-                </div>
+<div class="absolute bottom-3 left-3 bg-inverse-surface/80 text-inverse-on-surface px-2 py-0.5 rounded text-data-mono font-data-mono font-bold">
+                    00:45
+                  </div>
+<div class="absolute top-3 left-3 bg-primary-container text-primary-fixed px-2 py-0.5 rounded text-label-sm font-label-sm font-bold">
+                    Remotion 4.0
+                  </div>
 </div>
-<div class="pt-2">
-<button class="w-full min-h-[44px] rounded-lg bg-primary hover:bg-[#003431] text-white font-extrabold text-label-md font-label-md flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-xs">
-<span class="material-symbols-outlined text-[20px] text-teal-200" data-icon="check_circle">check_circle</span>
-<span>Duyệt xuất bản</span>
+<!-- Video Title & Details -->
+<div class="mt-4">
+<h4 class="text-title-md font-title-md text-primary font-bold line-clamp-1" title="Collocations: Break a leg vs Good luck">
+                    Collocations: Break a leg vs Good luck
+                  </h4>
+<div class="mt-2 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-base text-primary" data-icon="group">group</span>
+<span class="font-bold text-on-surface">Giáo viên: Carlos</span>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded font-bold text-primary">Kokoro EN-GB</span>
+</div>
+</div>
+</div>
+<!-- Action Bar (Min 44px ergonomics) -->
+<div class="p-space-lg pt-4 mt-4 border-t border-outline-variant bg-surface-container-low flex items-center space-x-2">
+<button class="h-11 flex-1 tactile-btn-primary rounded-lg font-label-md font-bold flex items-center justify-center space-x-1.5 shadow-sm">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="check_circle">check_circle</span>
+<span>Duyệt ngay</span>
+</button>
+<button class="h-11 px-4 tactile-btn-secondary rounded-lg font-label-md font-bold flex items-center justify-center space-x-1">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span>Chỉnh sửa</span>
+</button>
+</div>
+</div>
+<!-- VIDEO CARD 2: LXK-REEL-102 (Đã xuất bản) -->
+<div class="tactile-card rounded-xl overflow-hidden flex flex-col justify-between shadow-sm">
+<div class="p-space-lg pb-0">
+<!-- Status & ID Header -->
+<div class="flex items-center justify-between mb-3">
+<span class="text-data-mono font-data-mono text-primary font-bold bg-surface-container px-2 py-1 rounded">LXK-REEL-102</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-surface-container-highest text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mr-1.5"></span>
+                    Đã xuất bản
+                  </span>
+</div>
+<!-- 9:16 Reel Video Aspect Ratio Container with Mock Preview -->
+<div class="relative w-full aspect-[9/16] max-h-[340px] mx-auto rounded-lg overflow-hidden bg-primary-container shadow-inner group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vertical mobile video screenshot showing American female teacher Ama demonstrating phonetic pronunciation of Think versus Sink with mouth closeups and phonetics waveform badges, bright modern educational style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPSG9OkQFTqw6f5tFOuakSTtLL8kWlJcMHf62LNVY0fuLxempQOX0CZ5ZLAqzpOyf167msIwXJdoXeuz1_LzY9F_pS6iw5Mxk5HfFOZU8vyD52TikR8rnU10d2foI1FJsPpI1OigxlU0dCgBxPAlSZjxkBohzPKwcnfa4vxSY9H2YoCt_i44Zvb2XlCs-WbGj7biypNmolvHYc-iYJKjhtA0Ckex7A3Q2uQDISTipdFUIoRJt0J606Hqb0OCnbfMyRIogBa08zgWw"/>
+<!-- Overlay Play Icon & Duration Badge -->
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest/90 text-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="play_arrow">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 bg-inverse-surface/80 text-inverse-on-surface px-2 py-0.5 rounded text-data-mono font-data-mono font-bold">
+                    00:38
+                  </div>
+<div class="absolute top-3 left-3 bg-primary-container text-primary-fixed px-2 py-0.5 rounded text-label-sm font-label-sm font-bold">
+                    Đã render CDN
+                  </div>
+</div>
+<!-- Video Title & Details -->
+<div class="mt-4">
+<h4 class="text-title-md font-title-md text-primary font-bold line-clamp-1" title="Phát âm /θ/ vs /s/: Think vs Sink">
+                    Phát âm /θ/ vs /s/: Think vs Sink
+                  </h4>
+<div class="mt-2 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-base text-primary" data-icon="group">group</span>
+<span class="font-bold text-on-surface">Giáo viên: Ama</span>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded font-bold text-primary">Kokoro EN-US</span>
+</div>
+</div>
+</div>
+<!-- Action Bar (Min 44px ergonomics) -->
+<div class="p-space-lg pt-4 mt-4 border-t border-outline-variant bg-surface-container-low flex items-center space-x-2">
+<button class="h-11 flex-1 tactile-btn-secondary rounded-lg font-label-md font-bold flex items-center justify-center space-x-1.5">
+<span class="material-symbols-outlined text-primary" data-icon="play_arrow">play_arrow</span>
+<span>Xem bản Remotion</span>
+</button>
+<button class="h-11 w-11 flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container transition-colors" title="Thống kê lượt xem">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</button>
+</div>
+</div>
+<!-- VIDEO CARD 3: LXK-REEL-103 (Đã xuất bản) -->
+<div class="tactile-card rounded-xl overflow-hidden flex flex-col justify-between shadow-sm">
+<div class="p-space-lg pb-0">
+<!-- Status & ID Header -->
+<div class="flex items-center justify-between mb-3">
+<span class="text-data-mono font-data-mono text-primary font-bold bg-surface-container px-2 py-1 rounded">LXK-REEL-103</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-surface-container-highest text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mr-1.5"></span>
+                    Đã xuất bản
+                  </span>
+</div>
+<!-- 9:16 Reel Video Aspect Ratio Container with Mock Preview -->
+<div class="relative w-full aspect-[9/16] max-h-[340px] mx-auto rounded-lg overflow-hidden bg-primary-container shadow-inner group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vertical format video graphic showing Carlos teaching IELTS Speaking Part 1 questions on Work and Study with clean editorial typographic lower-thirds, muted teal palette, sleek mobile video framing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAThExqRL8nlfG5zpQt6avFeJ_TPdriLYiCMCEclavinmV-6hcQTFzTmtQK6r3vTCK_NMpuSRUfpe3vRALEHD1roDQsQJSizBfNeCtB5Fs-Ktp-MvzPQ_a9h0ORzvDmGrs6VbXDo3AV4iGGsEOHz0ijs0WMyx2oloX9pcS7mUXu8SdSDdc7Tu7Tc-oXhuIqLrcYRZCa-ec2MKeuWCP6Mz9cQC5nBBVnrcUVim7TFEro1d_m87gp_KR1TZc0MRZ8_GPQNFjd6m6Sr3Q"/>
+<!-- Overlay Play Icon & Duration Badge -->
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest/90 text-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="play_arrow">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 bg-inverse-surface/80 text-inverse-on-surface px-2 py-0.5 rounded text-data-mono font-data-mono font-bold">
+                    00:52
+                  </div>
+<div class="absolute top-3 left-3 bg-primary-container text-primary-fixed px-2 py-0.5 rounded text-label-sm font-label-sm font-bold">
+                    Đã render CDN
+                  </div>
+</div>
+<!-- Video Title & Details -->
+<div class="mt-4">
+<h4 class="text-title-md font-title-md text-primary font-bold line-clamp-1" title="IELTS Speaking Part 1: Work &amp; Study">
+                    IELTS Speaking Part 1: Work &amp; Study
+                  </h4>
+<div class="mt-2 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-base text-primary" data-icon="group">group</span>
+<span class="font-bold text-on-surface">Giáo viên: Carlos</span>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded font-bold text-primary">Kokoro EN-GB</span>
+</div>
+</div>
+</div>
+<!-- Action Bar (Min 44px ergonomics) -->
+<div class="p-space-lg pt-4 mt-4 border-t border-outline-variant bg-surface-container-low flex items-center space-x-2">
+<button class="h-11 flex-1 tactile-btn-secondary rounded-lg font-label-md font-bold flex items-center justify-center space-x-1.5">
+<span class="material-symbols-outlined text-primary" data-icon="play_arrow">play_arrow</span>
+<span>Xem bản Remotion</span>
+</button>
+<button class="h-11 w-11 flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container transition-colors" title="Thống kê lượt xem">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 </button>
 </div>
 </div>
 </div>
-</div>
 </section>
-<!-- SECTION 4: VIDEO LIBRARY TABLE (Bảng thư viện video) -->
-<section class="space-y-space-md">
-<!-- Filter Controls Bar with min-h-[44px] on all inputs, selects and filter buttons -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl border border-slate-300 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
-<!-- Left Search & Dropdowns -->
-<div class="flex flex-wrap items-center gap-space-sm flex-1">
-<!-- Inline Search: min-h-[44px] -->
-<div class="relative min-w-[240px] flex-1 sm:flex-none">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-700 text-[20px]" data-icon="search">search</span>
-<input class="w-full pl-10 pr-3 min-h-[44px] py-2 text-body-sm font-body-sm bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 placeholder:text-slate-600 font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Lọc tên kịch bản..." type="text"/>
+<!-- SYSTEM PIPELINE & KOKORO TTS AUDIO HEALTH MONITOR -->
+<section aria-label="Trạng thái hệ thống Remotion và TTS" class="tactile-card rounded-xl p-space-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary" data-icon="dns">dns</span>
+<h4 class="text-title-md font-title-md text-primary font-bold">Hàng đợi dựng Remotion &amp; Đồng bộ Serverless</h4>
 </div>
-<!-- Template Filter Dropdown: min-h-[44px] -->
-<select class="min-h-[44px] py-2 pl-3 pr-8 text-body-sm font-body-sm font-semibold bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-<option>Tất cả mẫu</option>
-<option>Ngữ pháp phản xạ</option>
-<option>Phát âm / Âm câm</option>
-<option>Collocations IELTS</option>
-</select>
-<!-- CEFR Level Dropdown: min-h-[44px] -->
-<select class="min-h-[44px] py-2 pl-3 pr-8 text-body-sm font-body-sm font-semibold bg-surface-container-lowest border border-slate-400 rounded-lg text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-<option>Tất cả trình độ</option>
-<option>A1-A2</option>
-<option>B1-B2</option>
-<option>C1</option>
-</select>
-</div>
-<!-- Right Status Chips / Segmented Control: min-h-[44px] per tab button -->
-<div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg shrink-0 flex-wrap">
-<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-extrabold bg-surface-container-lowest text-primary shadow-xs border border-slate-300">
-              Tất cả (16)
-            </button>
-<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-bold text-slate-800 hover:text-primary hover:bg-surface-container-lowest transition-colors">
-              Đã lên lịch (6)
-            </button>
-<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-bold text-slate-800 hover:text-primary hover:bg-surface-container-lowest transition-colors">
-              Đã đăng (8)
-            </button>
-<button class="min-h-[44px] px-3.5 py-2 rounded-md text-label-sm font-label-sm font-bold text-slate-800 hover:text-primary hover:bg-surface-container-lowest transition-colors">
-              Bản nháp (2)
-            </button>
-</div>
-</div>
-<!-- Master Data Table -->
-<div class="bg-surface-container-lowest rounded-xl border border-slate-300 overflow-hidden shadow-xs">
-<div class="overflow-x-auto w-full">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="border-b border-slate-300 bg-slate-100 text-label-sm font-label-sm text-slate-800 uppercase tracking-wider">
-<th class="py-3.5 px-space-md font-bold">Mã ID</th>
-<th class="py-3.5 px-space-md font-bold">Tiêu đề kịch bản</th>
-<th class="py-3.5 px-space-md font-bold">Mẫu &amp; Trình độ</th>
-<th class="py-3.5 px-space-md font-bold">Giáo viên</th>
-<th class="py-3.5 px-space-md font-bold">Kênh phân phối</th>
-<th class="py-3.5 px-space-md font-bold text-right">Điểm QC &amp; Âm thanh</th>
-<th class="py-3.5 px-space-md font-bold text-right">Lịch / Ngày đăng</th>
-<th class="py-3.5 px-space-md font-bold text-center">Trạng thái</th>
-<th class="py-3.5 px-space-md font-bold text-center">Thao tác</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-200 text-body-sm font-body-sm">
-<!-- ROW 1 -->
-<tr class="hover:bg-teal-50/40 transition-colors duration-100">
-<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-101</td>
-<td class="py-3 px-space-md font-bold text-slate-900">Present perfect vs Past simple</td>
-<td class="py-3 px-space-md">
-<span class="inline-flex items-center gap-1.5">
-<span class="text-slate-800 font-semibold">Ngữ pháp phản xạ</span>
-<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">B1</span>
-</span>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center text-[12px] font-extrabold">C</span>
-<span class="text-slate-800 font-semibold">Carlos (2D)</span>
-</div>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2 text-slate-700">
-<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
-</div>
-</td>
-<td class="py-3 px-space-md text-right font-medium">
-<span class="text-teal-900 font-extrabold">9.4 (AAA)</span>
-<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
-</td>
-<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
-<div>18/03/2025</div>
-<div class="text-xs text-slate-900 font-bold">19:30</div>
-</td>
-<td class="py-3 px-space-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-teal-100 text-teal-950 border border-teal-400">
-                      Đã lên lịch
-                    </span>
-</td>
-<td class="py-3 px-space-md text-center">
-<!-- Table action 'Xem': min-height and min-width 44px -->
-<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
-                      Xem
-                    </button>
-</td>
-</tr>
-<!-- ROW 2 -->
-<tr class="hover:bg-teal-50/40 transition-colors duration-100">
-<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-102</td>
-<td class="py-3 px-space-md font-bold text-slate-900">Âm câm trong "Doubt", "Debt"</td>
-<td class="py-3 px-space-md">
-<span class="inline-flex items-center gap-1.5">
-<span class="text-slate-800 font-semibold">Phát âm IPA</span>
-<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">A2</span>
-</span>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center text-[12px] font-extrabold">C</span>
-<span class="text-slate-800 font-semibold">Carlos (2D)</span>
-</div>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2 text-slate-700">
-<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
-</div>
-</td>
-<td class="py-3 px-space-md text-right font-medium">
-<span class="text-teal-900 font-extrabold">9.2 (AAA)</span>
-<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
-</td>
-<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
-<div>19/03/2025</div>
-<div class="text-xs text-slate-900 font-bold">12:00</div>
-</td>
-<td class="py-3 px-space-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-teal-100 text-teal-950 border border-teal-400">
-                      Đã lên lịch
-                    </span>
-</td>
-<td class="py-3 px-space-md text-center">
-<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
-                      Xem
-                    </button>
-</td>
-</tr>
-<!-- ROW 3 -->
-<tr class="hover:bg-teal-50/40 transition-colors duration-100">
-<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-103</td>
-<td class="py-3 px-space-md font-bold text-slate-900">"Once in a blue moon" dùng khi nào?</td>
-<td class="py-3 px-space-md">
-<span class="inline-flex items-center gap-1.5">
-<span class="text-slate-800 font-semibold">Collocations</span>
-<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">B2</span>
-</span>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-full bg-[#c83c1c] text-white flex items-center justify-center text-[12px] font-extrabold">A</span>
-<span class="text-slate-800 font-semibold">Ama (2D)</span>
-</div>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2 text-slate-700">
-<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
-</div>
-</td>
-<td class="py-3 px-space-md text-right font-medium">
-<span class="text-amber-900 font-extrabold">8.9 (AA)</span>
-<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
-</td>
-<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
-<div>21/03/2025</div>
-<div class="text-xs text-slate-900 font-bold">20:00</div>
-</td>
-<td class="py-3 px-space-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-amber-100 text-amber-950 border border-amber-400">
-                      Chờ duyệt
-                    </span>
-</td>
-<td class="py-3 px-space-md text-center">
-<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
-                      Xem
-                    </button>
-</td>
-</tr>
-<!-- ROW 4 -->
-<tr class="hover:bg-teal-50/40 transition-colors duration-100">
-<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-104</td>
-<td class="py-3 px-space-md font-bold text-slate-900">Ship vs Sheep - Phân biệt nguyên âm</td>
-<td class="py-3 px-space-md">
-<span class="inline-flex items-center gap-1.5">
-<span class="text-slate-800 font-semibold">Cặp âm ngắn/dài</span>
-<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">A1</span>
-</span>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center text-[12px] font-extrabold">C</span>
-<span class="text-slate-800 font-semibold">Carlos (2D)</span>
-</div>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2 text-slate-700">
-<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
-</div>
-</td>
-<td class="py-3 px-space-md text-right font-medium">
-<span class="text-teal-900 font-extrabold">9.5 (AAA)</span>
-<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
-</td>
-<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
-<div>22/03/2025</div>
-<div class="text-xs text-slate-900 font-bold">10:00</div>
-</td>
-<td class="py-3 px-space-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-blue-100 text-blue-950 border border-blue-400">
-                      Đang dựng
-                    </span>
-</td>
-<td class="py-3 px-space-md text-center">
-<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
-                      Xem
-                    </button>
-</td>
-</tr>
-<!-- ROW 5 -->
-<tr class="hover:bg-teal-50/40 transition-colors duration-100">
-<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-105</td>
-<td class="py-3 px-space-md font-bold text-slate-900">"Pay attention" vs "Draw attention"</td>
-<td class="py-3 px-space-md">
-<span class="inline-flex items-center gap-1.5">
-<span class="text-slate-800 font-semibold">IELTS Writing Task 2</span>
-<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">B2</span>
-</span>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-full bg-[#c83c1c] text-white flex items-center justify-center text-[12px] font-extrabold">A</span>
-<span class="text-slate-800 font-semibold">Ama (2D)</span>
-</div>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2 text-slate-700">
-<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="music_note" title="TikTok">music_note</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
-</div>
-</td>
-<td class="py-3 px-space-md text-right font-medium">
-<span class="text-teal-900 font-extrabold">9.0 (AAA)</span>
-<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
-</td>
-<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
-<div>17/03/2025</div>
-<div class="text-xs text-slate-900 font-bold">Hoàn tất</div>
-</td>
-<td class="py-3 px-space-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-slate-200 text-slate-900 border border-slate-400">
-                      Đã xuất bản (82 lượt xem)
-                    </span>
-</td>
-<td class="py-3 px-space-md text-center">
-<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
-                      Xem
-                    </button>
-</td>
-</tr>
-<!-- ROW 6 -->
-<tr class="hover:bg-teal-50/40 transition-colors duration-100">
-<td class="py-3 px-space-md font-mono text-primary font-bold">LXK-REEL-106</td>
-<td class="py-3 px-space-md font-bold text-slate-900">5 cấu trúc ăn điểm mở bài Writing</td>
-<td class="py-3 px-space-md">
-<span class="inline-flex items-center gap-1.5">
-<span class="text-slate-800 font-semibold">Mẫu câu Academic</span>
-<span class="px-2 py-0.5 rounded bg-slate-200 text-slate-900 text-[11px] font-extrabold border border-slate-300">C1</span>
-</span>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-full bg-[#c83c1c] text-white flex items-center justify-center text-[12px] font-extrabold">A</span>
-<span class="text-slate-800 font-semibold">Ama (2D)</span>
-</div>
-</td>
-<td class="py-3 px-space-md">
-<div class="flex items-center gap-2 text-slate-700">
-<span class="material-symbols-outlined text-[20px]" data-icon="smart_display" title="Shorts">smart_display</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="play_circle" title="Reels">play_circle</span>
-</div>
-</td>
-<td class="py-3 px-space-md text-right font-medium">
-<span class="text-teal-900 font-extrabold">9.3 (AAA)</span>
-<span class="text-slate-700 text-xs font-semibold block">Kokoro TTS</span>
-</td>
-<td class="py-3 px-space-md text-right font-mono text-slate-800 font-semibold">
-<div>16/03/2025</div>
-<div class="text-xs text-slate-900 font-bold">Hoàn tất</div>
-</td>
-<td class="py-3 px-space-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold bg-slate-200 text-slate-900 border border-slate-400">
-                      Đã xuất bản (145 lượt xem)
-                    </span>
-</td>
-<td class="py-3 px-space-md text-center">
-<button class="min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-lg hover:bg-slate-200 text-teal-900 hover:text-teal-950 text-label-sm font-label-sm font-extrabold transition-all inline-flex items-center justify-center">
-                      Xem
-                    </button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Pagination Bar with all buttons min 44x44px and deep text colors -->
-<div class="p-space-md border-t border-slate-300 flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-lowest text-body-sm font-body-sm">
-<span class="text-slate-800 font-medium">
-              Hiển thị <span class="font-extrabold text-slate-950">6</span> trên tổng số <span class="font-extrabold text-slate-950">16</span> video
+<span class="text-label-sm font-label-sm bg-surface-container-lowest text-primary border border-outline-variant px-2.5 py-1 rounded font-bold">
+              Cluster: ap-southeast-1 (AWS Lambda)
             </span>
-<div class="flex items-center gap-1.5">
-<button aria-label="Trang trước" class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-700 hover:text-slate-950 hover:bg-surface-container border border-slate-300 disabled:opacity-40 transition-colors" disabled="">
-<span class="material-symbols-outlined text-[20px]" data-icon="chevron_left">chevron_left</span>
-</button>
-<button aria-current="page" class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center bg-primary text-white font-extrabold text-body-sm shadow-xs border border-primary">
-                1
-              </button>
-<button class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-900 hover:bg-surface-container font-extrabold text-body-sm border border-slate-300 transition-colors">
-                2
-              </button>
-<button class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-900 hover:bg-surface-container font-extrabold text-body-sm border border-slate-300 transition-colors">
-                3
-              </button>
-<button aria-label="Trang sau" class="min-h-[44px] min-w-[44px] rounded-lg flex items-center justify-center text-slate-700 hover:text-slate-950 hover:bg-surface-container border border-slate-300 transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
-</button>
+</div>
+<div class="grid grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-lg p-space-md border border-outline-variant flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="graphic_eq">graphic_eq</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant font-bold">Kokoro TTS Engine</p>
+<p class="text-body-md font-body-md text-primary font-bold">Hoạt động bình thường (v0.19)</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-space-md border border-outline-variant flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant font-bold">Tốc độ render trung bình</p>
+<p class="text-body-md font-body-md text-primary font-bold">4.2 giây / video reel (45s)</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-space-md border border-outline-variant flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant font-bold">Tỷ lệ chính xác phụ đề</p>
+<p class="text-body-md font-body-md text-primary font-bold">99.4% (Whisper aligner)</p>
 </div>
 </div>
 </div>
 </section>
-</div>
 </main>
+<!-- LIGHT EDITORIAL FOOTER -->
+<footer class="h-12 border-t border-outline-variant px-space-xl flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest">
+<span>© 2025 Lexkite Intelligence • Nền tảng học ngữ liệu AI</span>
+<div class="flex items-center space-x-space-md">
+<span class="flex items-center space-x-1">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-primary font-semibold">Tất cả dịch vụ trực tuyến</span>
+</span>
+<span>Phiên bản v2.4.1</span>
+</div>
+</footer>
+</div>
+</div>
 </body></html>
