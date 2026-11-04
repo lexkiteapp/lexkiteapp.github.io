@@ -216,9 +216,9 @@
     while ((m = re.exec(text))) { const a = m.index, b = a + m[0].length, ins = spans.filter(x => x.ci >= a && x.ci < b); const w = ins.length ? { s: ins[0].s, e: ins[ins.length - 1].e } : { s: prev, e: prev }; prev = w.e; out.push(w); }
     // đầu từ bám chỗ tiếng bật lên sau khoảng lặng (chữ sáng đúng lúc nghe thấy): ghép giữ thứ tự từ ↔ điểm bật gần nhất; từ không ghép được (giữa cụm liền) giữ mốc căn
     const pk = Math.max(...env, 1e-6), on = i => env[i] > pk * .08, R = []; for (let i = 1; i < env.length; i++) if (on(i) && !on(i - 1)) R.push(i / 100);
-    const n = out.length, m = R.length, SK = .3, C = Array.from({ length: n + 1 }, () => new Float64Array(m + 1));
-    for (let i = n - 1; i >= 0; i--) for (let j = m; j >= 0; j--) { let v = SK + C[i + 1][j]; if (j < m) v = Math.min(v, C[i][j + 1], Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]); C[i][j] = v; }
-    for (let i = 0, j = 0, lo = 0; i < n; i++) { while (j < m && C[i][j] === C[i][j + 1]) j++; if (j < m && C[i][j] === Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]) out[i].s = R[j++]; out[i].s = lo = Math.max(out[i].s, lo); }
+    const n = out.length, nr = R.length, SK = .3, C = Array.from({ length: n + 1 }, () => new Float64Array(nr + 1));
+    for (let i = n - 1; i >= 0; i--) for (let j = nr; j >= 0; j--) { let v = SK + C[i + 1][j]; if (j < nr) v = Math.min(v, C[i][j + 1], Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]); C[i][j] = v; }
+    for (let i = 0, j = 0, lo = 0; i < n; i++) { while (j < nr && C[i][j] === C[i][j + 1]) j++; if (j < nr && C[i][j] === Math.abs(out[i].s - R[j]) + C[i + 1][j + 1]) out[i].s = R[j++]; out[i].s = lo = Math.max(out[i].s, lo); }
     return out;
   }
   /** Phát hiện có tiếng theo năng lượng RMS, có trễ bật/tắt (hysteresis) để không giật khi âm nhỏ giữa từ. */
