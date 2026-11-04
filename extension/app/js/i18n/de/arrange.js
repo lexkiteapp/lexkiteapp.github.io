@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/de/arrange.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.de=Object.assign(D.de||{},{_qcv1:"{w} entfernt",_p2yi:"{w}: Position {n} von {m}",_gty8:"Tippe auf eine Kachel, um sie ans Ende zu setzen oder zu entfernen; zieh sie in die Mitte, um sie einzufügen; Pfeiltasten verschieben, Entf entfernt, Strg+Z macht rückgängig"});})(typeof self!=='undefined'?self:this);
