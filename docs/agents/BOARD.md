@@ -150,7 +150,8 @@ Mẫu thẻ:
   - ✅ **Hợp nhất đồng bộ 15/15 ngôn ngữ Cụm Small Talk tiếng Anh nơi làm việc** (`small-talk-tieng-anh`): Hoàn tất chuẩn hóa khóa `translationKey` ngôn ngữ PT (`6b95149e8`), đạt trọn vẹn 15/15 ngôn ngữ.
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Lặp lại ngắt quãng & Thuật toán FSRS** (`lap-lai-ngat-quang`): Đồng nhất khóa `translationKey` trên 14 ngôn ngữ (`9d6038754`), viết mới bài tiếng Tây Ban Nha ES (`b7d54be29`). Hoàn thành 15/15 ngôn ngữ chuẩn mực (57 cụm).
   - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Chiến lược làm bài TOEIC Part 5** (`toeic-part-5-meo-lam-bai`): Viết mới hoàn chỉnh bài tiếng Trung ZH (`a2a01b606`), tiếng Thái TH (`6be244adc`), tiếng Tây Ban Nha ES (`3f5cb321f`), tiếng Pháp FR (`6af7dd0c8`), tiếng Bồ Đào Nha PT (`eb56ef54e`), tiếng Đức DE (`fbb2798c9`), tiếng Indonesia ID (`83fb1eaa9`), tiếng Nga RU (`b9361a410`), tiếng Thổ Nhĩ Kỳ TR (`1166df18a`), tiếng Ả Rập AR (`d09b9ab79`), tiếng Hindi HI (`86602aeb5`). Hoàn thành trọn vẹn chuẩn mực 15/15 ngôn ngữ (cụm thứ 58 đạt 15/15).
-  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.040 bài viết** (1.040 files `.md` trong `content/blog/`).
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm Luyện phát âm tiếng Anh chuẩn** (`luyen-phat-am-tieng-anh`): Đồng nhất chuẩn hóa 6 ngôn ngữ DE, FR, PT, RU, TH, TR (`78389267e`), viết mới chuẩn mực bài tiếng Anh EN (`bd63caae6`), tiếng Tây Ban Nha ES (`4514cf86c`), tiếng Indonesia ID (`d5cb0b5ec`), tiếng Nhật JA (`07680c3ce`), tiếng Hindi HI (`6e356b491`). Hoàn thành trọn vẹn 15/15 ngôn ngữ (cụm thứ 59 đạt 15/15).
+  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.045 bài viết** (1.045 files `.md` trong `content/blog/`).
   - 100% bài viết đạt chuẩn Quality Gates: `blog-check` 0 lỗi, `blog-captions` 0 lỗi, `vi-lint` PASS 100%, shingle nội bộ phân tách độc lập, size-budget khung 377 KB vững vàng.
   - Sẵn sàng chuyển tiếp phủ kín các cụm tiếp theo theo kế hoạch.
 
