@@ -45,13 +45,13 @@ function fill(d) {
   const tags = $('lk-tags');
   if (tags && d.tags) { const proto = tags.firstElementChild, nodes = d.tags.map(t => { const c = proto.cloneNode(true), leaf = [...c.querySelectorAll('*'), c].reverse().find(e => e.textContent.trim() && !e.children.length) || c; leaf.textContent = t; return c; }); tags.replaceChildren(...nodes); }
   const pts = $('lk-points');
-  if (pts && d.points) { const proto = pts.firstElementChild, nodes = d.points.map(t => { const c = proto.cloneNode(true), leaf = [...c.querySelectorAll('span')].filter(s => !/symbols/.test(s.className)).pop() || c; leaf.textContent = t; return c; }); pts.replaceChildren(...nodes); }
+  if (pts && d.points) { const proto = pts.firstElementChild, nodes = d.points.map(t => { const c = proto.cloneNode(true), leaf = [...c.querySelectorAll('span')].filter(s => !/symbols/.test(s.className)).pop() || c; leaf.textContent = t; if (d.pointPx) leaf.style.fontSize = d.pointPx + 'px'; return c; }); pts.replaceChildren(...nodes); }
   const scr = $('lk-screen');
   if (scr) {
     scr.innerHTML = ''; scr.style.padding = '0'; scr.style.overflow = 'hidden'; scr.style.position = scr.style.position || 'relative'; scr.style.background = d.statusColor || '#fff';
     if (d.screen) {
       const inset = d.inset ? scr.getBoundingClientRect().width * d.inset : 0;
-      scr.insertAdjacentHTML('beforeend', `<img src="${d.screen}" alt="" style="position:absolute;left:0;top:${inset}px;width:100%;height:auto;display:block;max-width:none">`);
+      scr.insertAdjacentHTML('beforeend', `<img src="${d.screen}" alt="" style="position:absolute;left:0;top:${inset}px;width:100%;height:auto;min-height:calc(100% - ${inset}px);object-fit:cover;object-position:top;display:block;max-width:none">`);
       if (d.popup) scr.insertAdjacentHTML('beforeend', `<img src="${d.popup}" alt="" style="position:absolute;right:6%;top:4%;width:40%;height:auto;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.35)">`);
     }
   }
@@ -80,16 +80,21 @@ function fill(d) {
   }
   // Tiêu đề: to nhất có thể rồi thu dần cho tới khi không đè vào thiết bị/giáo viên và màn app còn đủ lớn
   const device = scr ? (scr.closest('[class*="rounded"]:not(#lk-screen)') || scr) : null;
+  const shrinkT = e => { const r = e.getBoundingClientRect(), m = r.width * 0.2; return { left: r.left + m, right: r.right - m, top: r.top, bottom: r.bottom, height: r.height }; }; // ảnh giáo viên có lề trong suốt
   const blocks = () => [hd, sub && sub.isConnected ? sub : null].filter(Boolean).map(e => e.getBoundingClientRect());
   const clash = () => {
-    const shrink = e => { const r = e.getBoundingClientRect(); if (!e.dataset.lkTeacher) return r; const m = r.width * 0.2; return { left: r.left + m, right: r.right - m, top: r.top, bottom: r.bottom, height: r.height }; }; // ảnh giáo viên có lề trong suốt
+    const shrink = e => e.dataset.lkTeacher ? shrinkT(e) : e.getBoundingClientRect();
     const bs = blocks(), obs = [device, ...document.querySelectorAll('[data-lk-teacher]'), bub && bub.isConnected ? bub : null].filter(Boolean).map(shrink);
     const hit = bs.some(a => obs.some(o => a.right > o.left + 12 && a.left < o.right - 12 && a.bottom > o.top + 2 && a.top < o.bottom - (o.height * 0.15)));
     const out = hd && (hd.scrollWidth > hd.clientWidth + 1 || hd.getBoundingClientRect().right > W + 0.5 || hd.getBoundingClientRect().bottom > H);
     const shown = scr ? Math.min(H, scr.getBoundingClientRect().bottom) - scr.getBoundingClientRect().top : H;
     return hit || out || (scr && shown < H * d.minScreen);
   };
-  let fs = d.target; if (hd) { hd.style.fontSize = fs + 'px'; hd.style.lineHeight = '1.1'; while (fs > d.floor && clash()) { fs -= 1; hd.style.fontSize = fs + 'px'; } }
+  const people = [...document.querySelectorAll('[data-lk-teacher]')].map(shrinkT);
+  if (hd && !scr && people.length) { const room = Math.min(...people.map(p => p.left)) - hd.getBoundingClientRect().left - 20; if (room > 0) hd.style.maxWidth = room + 'px'; }
+  let fs = d.target; if (hd) { hd.style.fontSize = fs + 'px'; hd.style.lineHeight = '1.1';
+    if (d.pushDevice && device) { const gap = Math.max(...blocks().map(b => b.bottom)) + H * 0.025 - device.getBoundingClientRect().top; if (gap > 0) device.style.transform = `translateY(${Math.round(gap)}px)`; }
+    while (fs > d.floor && clash()) { fs -= 1; hd.style.fontSize = fs + 'px'; } }
   const after = clash(); if (hd && after) issues.push({ hard: true, m: `tiêu đề vẫn đè nội dung ở cỡ nhỏ nhất ${fs}px` });
   if (hd && fs < d.target * 0.72) issues.push({ m: `tiêu đề phải thu nhiều (${fs}/${d.target}px)` });
   // Giáo viên phải chạm đáy canvas, nếu không sẽ lộ đường cắt của ảnh
@@ -182,7 +187,7 @@ for (const [dev, d] of Object.entries(PORTRAIT)) {
     const frame = d.kind === 'tablet' ? 'tablet' : s.frame, tc = s.teacher || null;
     const need = ['lk-logo', 'lk-headline', 'lk-sub', 'lk-screen'];
     await shot({ file, frame, theme: s.theme, w: d.w, h: d.h, dsf: d.dsf, store: d.store, nofree: d.nofree, text: `${c.h} ${s1}`, data: { need, logo: LOGO, h: c.h, s: s1, rtl: lang === 'ar', screen: b64(raw, 'image/png'), inset: sim && !PREVIEW ? 0 : STATUS[d.kind], statusColor: s.theme === 'dark' ? '#0f1b1e' : '#fff7ea',
-      teacher: tc ? { who: tc[0], src: person(tc[0], tc[1]) } : null, bubble: tc && tc[2], teacherFrac: d.kind === 'tablet' ? 0.38 : (s.tf || 0.44), teacherX: d.kind === 'tablet' ? null : s.tx, emColor: s.theme === 'light' ? EM_LIGHT : '', subPx: Math.round(d.w * (d.kind === 'tablet' ? 0.026 : 0.041)), target: Math.round(d.w * (d.kind === 'tablet' ? 0.07 : 0.108)), floor: Math.round(d.w * (d.kind === 'tablet' ? 0.04 : 0.062)), minScreen: d.kind === 'tablet' ? 0.4 : 0.4 } });
+      teacher: tc ? { who: tc[0], src: person(tc[0], tc[1]) } : null, bubble: tc && tc[2], teacherFrac: d.kind === 'tablet' ? 0.38 : (s.tf || 0.44), teacherX: d.kind === 'tablet' ? null : s.tx, emColor: s.theme === 'light' ? EM_LIGHT : '', subPx: Math.round(d.w * (d.kind === 'tablet' ? 0.026 : 0.041)), pushDevice: d.kind === 'tablet', target: Math.round(d.w * (d.kind === 'tablet' ? 0.07 : 0.108)), floor: Math.round(d.w * (d.kind === 'tablet' ? 0.04 : 0.062)), minScreen: d.kind === 'tablet' ? 0.4 : 0.4 } });
   }
 }
 
@@ -204,7 +209,7 @@ if (ONLY.includes('chrome')) for (const lang of LANGS) {
     const raw = `${RAW}/cws/${lang}/${i + 1}.png`, file = `chrome/${lang}/${i + 1}.png`; if (!fs.existsSync(raw)) { qc.push({ file, store: 'chrome', score: 0, issues: ['✗ thiếu ảnh add-on ' + path.relative(RAW, raw)] }); console.error('✗ thiếu', raw); continue; }
     const [, title, sub, pts, url] = caps[i], back = i === 2 && fs.existsSync(`${RAW}/cws/${lang}/1.png`);
     const h = title.replace('<br>', ' '), points = pts.map(x => x.replace('|', ' '));
-    await shot({ file, frame: 'cws-landscape', theme: i % 2 ? 'light' : 'dark', w: 1280, h: 800, store: 'chrome', text: `${h} ${sub} ${points.join(' ')}`, data: { need: ['lk-logo', 'lk-headline', 'lk-sub', 'lk-points', 'lk-screen'], logo: LOGO, h, s: sub, rtl: lang === 'ar', points, url, emColor: i % 2 ? EM_LIGHT : '',
+    await shot({ file, frame: 'cws-landscape', theme: i % 2 ? 'light' : 'dark', w: 1280, h: 800, store: 'chrome', text: `${h} ${sub} ${points.join(' ')}`, data: { need: ['lk-logo', 'lk-headline', 'lk-sub', 'lk-points', 'lk-screen'], logo: LOGO, h, s: sub, rtl: lang === 'ar', points, url, emColor: i % 2 ? EM_LIGHT : '', subPx: 21, pointPx: 18,
       screen: b64(back ? `${RAW}/cws/${lang}/1.png` : raw, 'image/png'), popup: back ? b64(raw, 'image/png') : null, inset: 0, statusColor: '#fff', target: 52, floor: 30, minScreen: 0 } });
   }
 }

@@ -11,7 +11,7 @@ on:
       ios: { description: 'Chụp + dựng ảnh App Store thật trên Simulator (macOS, lâu)', type: boolean, default: false }
       outcome36: { description: 'Ảnh 1 ghi mốc 3–6 tháng (chỉ bật khi #/outcome đã vào main)', type: boolean, default: false }
   push:
-    branches: ['claude/store-art-*']   # chỉ nhánh làm việc, dựng mẫu tiếng Anh
+    branches: ['claude/store-art-*']   # chỉ nhánh làm việc, dựng mẫu 5 ngôn ngữ thử chữ dài, RTL, CJK, Devanagari
     paths: ['.github/workflows/store-art.yml', 'scripts/store-art/**', 'brand/stitch/store-art/**']
 permissions:
   contents: write
@@ -21,7 +21,7 @@ env:
 jobs:
   art:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 180
     env:
       BASE: ${{ inputs.base || 'https://lexkite.com/app/' }}
       ONLY: ${{ inputs.only || 'play,apple,chrome,web' }}
@@ -31,7 +31,7 @@ jobs:
         with: { node-version: 22 }
       - name: Cài công cụ
         run: |
-          L='${{ inputs.langs || 'en' }}'; [ "$L" = all ] && L="$ALL_LANGS"; echo "LANGS=$L" >> "$GITHUB_ENV"
+          L='${{ inputs.langs || 'en,de,ar,hi,zh' }}'; [ "$L" = all ] && L="$ALL_LANGS"; echo "LANGS=$L" >> "$GITHUB_ENV"
           npm i --no-save --no-audit --no-fund playwright@1.50.1 tailwindcss@3.4.17
           npx playwright install --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null

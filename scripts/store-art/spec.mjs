@@ -3,7 +3,7 @@ export const LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja'
 
 // Thứ tự theo sức thuyết phục. theme = sáng/tối của cả khung lẫn màn app chụp, để ánh sáng đồng nhất. teacher = [người, dáng, lời trong bong bóng].
 export const SLIDES = [
-  { id: 'hero', route: 'home', theme: 'dark', frame: 'phone-hero', teacher: ['ama', 'cheer', 'Hi! Ready to talk?'], tf: 0.44, tx: 0.2 },
+  { id: 'hero', route: 'home', theme: 'dark', frame: 'phone-hero', teacher: ['ama', 'cheer', 'Hi! Ready to talk?'], tf: 0.44, tx: 0.24 },
   { id: 'call', route: 'call', theme: 'light', frame: 'phone-feature', steps: 'call' },
   { id: 'write', route: 'write', theme: 'dark', frame: 'phone-feature', steps: 'write' },
   { id: 'lesson', route: 'lesson/go?demo=1', theme: 'light', frame: 'phone-feature', wait: 6000 },
