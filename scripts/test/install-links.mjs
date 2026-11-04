@@ -1,5 +1,5 @@
 // Nguồn duy nhất link cài (infra/install-links.json): file sinh khớp nguồn · không link cửa hàng nào của Lexkite viết cứng lệch nguồn · kênh chưa có listing không tạo nút chết
-// · landing 15 ngôn ngữ đủ kênh + chữ đã dịch · khu Cài ẩn đúng lúc · caption/CTA video gắn link đo được theo nền tảng · trang /get chuyển đúng. Dùng: node scripts/test/install-links.mjs
+// · landing 15 ngôn ngữ đủ kênh + chữ đã dịch · khu Cài ẩn đúng lúc · caption/CTA video gắn link đo được theo nền tảng · trang /get chuyển đúng · App Store + Google Play luôn đi đôi, ghi rõ tên, có icon ở mọi nơi. Dùng: node scripts/test/install-links.mjs
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { JSDOM } from 'jsdom';
@@ -10,6 +10,7 @@ import { bodyFor } from '../../functions/api/_social_mgr.js';
 import { packTexts } from '../video/yt-pack.mjs';
 import { buildAss } from '../video/lib.mjs';
 import { installSection, storeHref } from '../build-landing.mjs';
+import { siteFooter, footGroups, FOOT, themePage } from '../lib/site-layout.mjs';
 
 let fail = 0, n = 0;
 const ok = (c, m) => { n++; if (!c) { fail++; console.error('  ✗ ' + m); } };
@@ -134,17 +135,47 @@ ok(ctaLabel().length <= 20, 'nhãn CTA ngắn');
 ok(installLines('tiktok').length === 1 && installLines('youtube').length === 1 + liveChannels().length, 'số dòng theo nền tảng');
 
 // 9) Trang /get: chuyển đúng theo thiết bị, giữ nguồn đo
-function getRun(ua, url = 'https://lexkite.com/get?src=TikTok&c=clip-a1', touch = 0, lang = 'en-US') {
-  let dest = ''; const html = fs.readFileSync('web/get/index.html', 'utf8'), code = html.match(/<script>([\s\S]*?)<\/script>/)[1];
-  const fake = { navigator: { userAgent: ua, maxTouchPoints: touch, language: lang, languages: [lang], sendBeacon() { return true; } }, location: { search: new URL(url).search, replace: u => { dest = u; } }, URLSearchParams, JSON, encodeURIComponent, String };
+let first = '';
+function getRun(ua, url = 'https://lexkite.com/get?src=TikTok&c=clip-a1', touch = 0, lang = 'en-US', seen = { getItem: () => null, setItem() {} }) {
+  let dest = ''; first = ''; const html = fs.readFileSync('web/get/index.html', 'utf8'), code = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+  const fake = { navigator: { userAgent: ua, maxTouchPoints: touch, language: lang, languages: [lang], sendBeacon() { return true; } }, location: { search: new URL(url).search, replace: u => { dest = u; }, assign: u => { dest = u; } }, sessionStorage: seen, document: { documentElement: { setAttribute: (k, v) => { first = v; } } }, URLSearchParams, JSON, encodeURIComponent, String };
   new Function(...Object.keys(fake), code)(...Object.values(fake)); return dest;
 }
 ok(getRun(UA.android).startsWith(D.channels.play.url + '&referrer=') && getRun(UA.android).includes('utm_source%3Dtiktok') && getRun(UA.android).includes('utm_campaign%3Dclip-a1'), '/get Android → Play + nguồn');
 ok(getRun('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) Safari/604.1') === D.channels.ios.url + '?ct=tiktok_clip-a1', '/get iPhone → App Store + ct');
 ok(getRun('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Version/18.0 Safari/605.1.15', undefined, 5).startsWith(D.channels.ios.url), '/get iPad → App Store');
-ok(getRun(UA.chrome, undefined, 0, 'ja-JP') === '/ja/?src=get_tiktok#install', '/get máy tính → khu Cài đúng ngôn ngữ');
-ok(getRun(UA.chrome, undefined, 0, 'vi-VN') === '/?src=get_tiktok#install' && getRun(UA.chrome, undefined, 0, 'xx') === '/en/?src=get_tiktok#install', '/get: tiếng Việt về /, ngôn ngữ lạ về /en/');
+ok(getRun(UA.chrome, undefined, 0, 'ja-JP') === '/ja/?src=get_tiktok&to=install', '/get máy tính → khu Cài đúng ngôn ngữ');
+ok(getRun(UA.chrome, undefined, 0, 'vi-VN') === '/?src=get_tiktok&to=install' && getRun(UA.chrome, undefined, 0, 'xx') === '/en/?src=get_tiktok&to=install', '/get: tiếng Việt về /, ngôn ngữ lạ về /en/');
 ok(/noindex/.test(fs.readFileSync('web/get/index.html', 'utf8')), '/get không vào chỉ mục');
 
+// 10) App Store và Google Play LUÔN đi đôi, hai đích riêng ghi rõ tên (chủ 04/11: "mới link app android… chưa chia ra 2 cái")
+const IOS = D.channels.ios.url, PLAY = D.channels.play.url;
+ok(IOS === 'https://apps.apple.com/app/id6824714708' && PLAY === 'https://play.google.com/store/apps/details?id=com.lexkite.app', 'link hai cửa hàng giữ nguyên văn');
+const twoStores = (root, where) => { const as = [...root.querySelectorAll('a')], of = (u, name) => as.filter(a => (a.getAttribute('href') || '').startsWith(u));
+  for (const [u, name] of [[IOS, 'App Store'], [PLAY, 'Google Play']]) { const hit = of(u); ok(hit.length > 0, `${where}: thiếu ${name}`); ok(hit.every(a => a.textContent.trim().includes(name)), `${where}: link ${name} không ghi rõ tên`); ok(hit.every(a => a.querySelector('svg')), `${where}: link ${name} thiếu icon`); } };
+// Chân trang chung (trang tĩnh, từ điển, blog, pháp lý): dựng thật cả 15 ngôn ngữ, không còn mục chung
+const FOOT_DOM = l => new JSDOM(siteFooter({ lang: l, text: 'x' }).replace(/<script[\s\S]*?<\/script>/g, '')).window.document.querySelector('footer');
+for (const l of LANGS) { const f = FOOT_DOM(l); twoStores(f, `chân trang ${l}`);
+  ok(!footGroups(l).product.some(([u]) => /play\.google|apps\.apple/.test(u)), `${l}: nhóm Sản phẩm còn mục chung trỏ một cửa hàng`);
+  ok(![...f.querySelectorAll('a')].some(a => a.textContent.trim() === FOOT[l][22]), `${l}: còn mục "${FOOT[l][22]}"`); }
+// Landing: khu Cài + chân trang đều có đủ hai đích
+for (const l of LANGS) { const doc = new JSDOM(fs.readFileSync(fileOf(l), 'utf8').replace(/<script[\s\S]*?<\/script>/g, '')).window.document; twoStores(doc.querySelector('#install'), `khu Cài ${l}`); twoStores(doc.querySelector('footer'), `chân trang landing ${l}`);
+  ok(![...doc.querySelectorAll('footer a')].some(a => a.textContent.trim() === FOOT[l][22]), `landing ${l}: còn mục chung`); }
+// /get: đủ hai đích trong HTML (không JS vẫn dùng được); về lại trang trên điện thoại không bị chuyển lần nữa, cửa hàng đúng máy đứng đầu
+{ const html = getPage(D), doc = new JSDOM(html.replace(/<script[\s\S]*?<\/script>/g, '')).window.document; twoStores(doc.body, '/get');
+  ok(doc.querySelector('meta[name="description"]')?.content.includes('App Store'), '/get: thiếu mô tả');
+  ok(themePage(html) === fs.readFileSync('web/get/index.html', 'utf8'), 'web/get/index.html cũ → node scripts/build-landing.mjs');
+  const seen = { getItem: () => '1', setItem() {} };
+  ok(getRun(UA.android, undefined, 0, 'en-US', seen) === '' && first === 'play', '/get Android lần sau: ở lại, Google Play đầu, App Store vẫn có');
+  ok(getRun('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) Safari/604.1', undefined, 0, 'en-US', seen) === '' && first === 'ios', '/get iPhone lần sau: ở lại, App Store đầu, Google Play vẫn có'); }
+// Trong app: trang Tôi có hai dòng riêng; iPhone/iPad dùng App Store, không dùng hướng dẫn Thêm vào MH chính thay thế
+{ const me = fs.readFileSync('web/js/ux1-me.js', 'utf8'); ok(me.includes('data-ch="ios"') && me.includes('data-ch="play"') && me.includes("'App Store'") && me.includes("'Google Play'"), 'Tôi: thiếu dòng App Store/Google Play');
+  ok(run('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) Safari/604.1').LKGetApp.kind() === 'ios', 'iPhone: App Store, không phải hướng dẫn thêm vào MH chính'); }
+// Quét: file phát hành (web/, add-on, Functions) có link cửa hàng nào của Lexkite thì phải có cả cửa hàng kia; không còn ghi iOS chưa phát hành
+{ let pair = 0; for (const f of files) { if (!/^(web|extension|functions|workers)\//.test(f) || /\/i18n\//.test(f) || !fs.existsSync(f) || !fs.statSync(f).isFile() || fs.statSync(f).size > 3e6) continue;
+    const s = fs.readFileSync(f, 'utf8'), a = s.includes(IOS), p = s.includes(PLAY); if (a || p) pair++; ok(a === p, `${f}: chỉ có một cửa hàng (${a ? 'App Store' : 'Google Play'})`); }
+  ok(pair > 15, `quét đôi cửa hàng quá ít file (${pair})`);
+  for (const f of ['scripts/lib/site-layout.mjs', 'scripts/build-landing.mjs', 'web/js/get-app.js', 'web/js/ext-config.js']) ok(!/iOS chưa phát hành|chưa có App Store|ios: ''/.test(fs.readFileSync(f, 'utf8')), `${f}: còn ghi iOS chưa phát hành`); }
+
 if (fail) { console.error(`✗ install-links: ${fail}/${n} kiểm tra lỗi`); process.exit(1); }
-console.log(`✓ install-links: ${n} kiểm tra, quét ${scanned} file – một nguồn infra/install-links.json, landing 15 ngôn ngữ, /get, caption + CTA video`);
+console.log(`✓ install-links: ${n} kiểm tra, quét ${scanned} file – một nguồn infra/install-links.json, landing 15 ngôn ngữ, /get, caption + CTA video, App Store + Google Play đi đôi`);

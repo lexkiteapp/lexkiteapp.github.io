@@ -17,7 +17,7 @@ import { JSDOM } from 'jsdom';
 import { getPage } from './build-install-links.mjs';
 import { INSTALL, liveChannels } from '../functions/api/_install_links.js'; // link cài: infra/install-links.json (nguồn duy nhất)
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { CSS, HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS, PHONE_ICON } from './lib/site-layout.mjs';
 import { render as stRender, tr as stTr, teacherIdle, IDLE_JS, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → brand/stitch/web/gen/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -50,7 +50,7 @@ export const DC_JS = `try{var u=navigator.userAgent;/Chrome\\/\\d/.test(u)&&!/Mo
 // ----- Script 1c: điện thoại/máy tính bảng (Android, iPhone, iPad) → giữ sẵn chỗ nút "Tải app" (js/get-app.js bỏ hidden ngay khi chạy) → CLS 0 -----
 export const GA_JS = `try{var v=navigator.userAgent;(/Android|iPhone|iPad|iPod/.test(v)||/Macintosh/.test(v)&&navigator.maxTouchPoints>1)&&document.documentElement.classList.add('ga')}catch(e){}`;
 // Nút "Tải app" (header + chân trang) – đích theo nền tảng do js/get-app.js chọn; chữ lấy từ bản dịch app (cùng chữ với menu trong app)
-const PHONE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 6.5v7m-3-3 3 3 3-3M10.5 18h3"/></svg>';
+const PHONE = PHONE_ICON; // Lexkite Kit, một nguồn: scripts/lib/site-layout.mjs
 const gaText = l => ({ iph: ['Cài Lexkite lên iPhone', 'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari', 'Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)', 'Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app'].map(k => ui(l, k)),
   crios: ['Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh địa chỉ của Chrome'].map(k => ui(l, k)),
   ipad: ['Cài Lexkite lên iPad', 'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari'].map(k => ui(l, k)),
@@ -73,7 +73,7 @@ export const storeHref = (ch, place, D = INSTALL) => { const S = `utm_source=lex
   return ch.id === 'play' ? q + 'referrer=' + encodeURIComponent(S) : ch.id === 'ios' ? q + 'ct=get_app_' + place : q + S; };
 export const installSection = (c, D = INSTALL) => { const phone = esc(c.install.phone).replace('{url}', `<bdi dir="ltr"><a href="${D.short.path}">${esc(D.short.label)}</a></bdi>`);
   return `<section id="install" data-install class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(c.install.h)}</h2><p class="${RES_P}">${esc(c.install.p)}</p></div><div class="inst">${liveChannels(D).map(ch => `<a class="${GA_V3}" href="${esc(storeHref(ch, 'inst', D))}" target="_blank" rel="noopener" data-ch="${ch.id}" data-from="inst">${/^(ios|play)$/.test(ch.id) ? PHONE : DESK}<span class="inst-t"><small>${esc(ch.devices)}</small><b>${esc(ch.name)}</b></span></a>`).join('')}</div><p class="inst-n ${RES_P}">${phone}</p><p class="inst-m" lang="en">${esc(D.trademarks)}</p></section>`; };
-const footStores = (D = INSTALL) => `<ul class="inst-f" data-install>${liveChannels(D).map(ch => `<li><a href="${esc(storeHref(ch, 'foot', D))}" target="_blank" rel="noopener" data-ch="${ch.id}" data-from="foot">${esc(ch.name)}</a></li>`).join('')}</ul>`;
+const footStores = (l, D = INSTALL) => `<ul class="inst-f" data-install>${liveChannels(D).map(ch => `<li><a href="${esc(storeHref(ch, 'foot', D))}" target="_blank" rel="noopener" data-ch="${ch.id}" data-from="foot"${/^(ios|play)$/.test(ch.id) ? ` aria-label="${esc(FOOT[l]?.[22] || FOOT.en[22])}: ${esc(ch.name)}"` : ''}>${/^(ios|play)$/.test(ch.id) ? PHONE : DESK}${esc(ch.name)}</a></li>`).join('')}</ul>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
@@ -89,7 +89,7 @@ ${STW_VARS}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-surface));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
 ${LSW_CSS}.lsw-m{z-index:60}
 ${TSW_ICON}${TSP_CSS}summary::-webkit-details-marker{display:none}
-#install{scroll-margin-top:16px}.inst{display:flex;flex-wrap:wrap;gap:12px}.inst a{flex:1 1 200px;max-width:340px;min-height:60px;justify-content:flex-start}.inst-t{display:flex;flex-direction:column;text-align:start;margin-inline-start:4px;line-height:1.25}.inst-t small{font-size:13px;font-weight:600}.inst-n{margin-top:16px}.inst-n a{display:inline-flex;align-items:center;min-height:44px;font-weight:800;text-decoration:underline}.inst-m{margin-top:4px;font-size:12px;color:var(--muted)}.inst-f{display:flex;flex-direction:column;margin-top:8px}.inst-f a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;text-decoration:underline}@media(max-width:767px){nav a[href="#install"]{display:none}}`;
+#install{scroll-margin-top:16px}.inst{display:flex;flex-wrap:wrap;gap:12px}.inst a{flex:1 1 200px;max-width:340px;min-height:60px;justify-content:flex-start}.inst-t{display:flex;flex-direction:column;text-align:start;margin-inline-start:4px;line-height:1.25}.inst-t small{font-size:13px;font-weight:600}.inst-n{margin-top:16px}.inst-n a{display:inline-flex;align-items:center;min-height:44px;font-weight:800;text-decoration:underline}.inst-m{margin-top:4px;font-size:12px;color:var(--muted)}.inst-f{display:flex;flex-direction:column;margin-top:8px}.inst-f a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:14px;font-weight:600;text-decoration:underline}@media(max-width:767px){nav a[href="#install"]{display:none!important}}`; // !important: lớp Stitch biên dịch (.st .f…) đặt display nặng hơn, thiếu thì tràn ngang @360 (theme-static)
 
 // ----- Bỏ CSS không dùng: khung chung (site-layout CSS) phục vụ cả trang SEO/blog; landing chỉ giữ luật có lớp/id/thẻ xuất hiện trong trang
 // (kể cả trong script nội tuyến – lớp do JS thêm như .lhint, .dc, .ga, lsw vẫn được giữ) → landing ≤ 16 KB gzip (scripts/test/landing-routing.mjs)
@@ -178,7 +178,7 @@ function renderFull(lang) {
   const hlEn = vi ? 'vi' : 'en'; // trang Từ vựng/Bài mẫu chỉ có bản vi + en → hreflang đúng ngôn ngữ đích
   const chrome0 = siteChrome({ lang, nav: [[app, c.nav.app, lang], [blog, c.nav.blog, lang], [vocab, c.nav.vocab, hlEn], [samples, c.nav.samples, hlEn]],
     open: [start, c.nav.start], signin: [login, c.nav.login], home: landingHref(lang),
-    langHref: landingHref, label: c.langL, text: c.foot, tm: c.tm, getApp: gaBtn(lang, 'foot', appQ, true) + footStores() });
+    langHref: landingHref, label: c.langL, text: c.foot, tm: c.tm, getApp: gaBtn(lang, 'foot', appQ, true) + footStores(lang) });
   // đầu trang v3: nút 🌐 hiện tên ngôn ngữ; chân trang v3: nút "Interface" mở menu ngôn ngữ thứ hai (cùng 15 liên kết hreflang, id riêng)
   // nút giao diện (PR 303, một nguồn với app 'lk.theme'): nút Stitch đầu trang mang data-tsw + nhãn 15 ngôn ngữ; chân trang: viên Tự động/Sáng/Tối themePill
   const TL = themeLabels(chrome0.lang), tsw = themeSwitch(chrome0.lang);
@@ -201,7 +201,7 @@ function renderFull(lang) {
     ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 -mb-5 w-[220px] sm:w-[260px] h-auto', eager: true }),
     carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 -mb-5 w-[200px] sm:w-[240px] h-auto' }) };
   const page = stRender('home', d, { lang, chrome });
-  { const a = page.body.indexOf('</section>', page.body.indexOf('</section>') + 1) + 10; if (a < 10) throw new Error('build-landing: không thấy chỗ chèn khu Cài'); page.body = page.body.slice(0, a) + installSection(c) + page.body.slice(a); } // ngay dưới hero + dải tin cậy
+  { let a = 0; for (let i = 0; i < 3; i++) { a = page.body.indexOf('</section>', a); if (a < 0) throw new Error('build-landing: không thấy chỗ chèn khu Cài'); a += 10; } page.body = page.body.slice(0, a) + installSection(c) + page.body.slice(a); } // dưới hero + dải tin cậy + 6 tính năng: phần trên giữ đúng nhịp mẫu Stitch (stitch-web-diff); hero + đầu trang có lối tới #install
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
     orgNode(),
