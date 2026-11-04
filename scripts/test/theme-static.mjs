@@ -178,6 +178,12 @@ if (has('app/index.html')) {
   if (errs.length) bad.push(`app→web: lỗi JS app ${errs[0]}`);
   checks += 3; await ctx.close();
 }
+// Chân trang: tên ngôn ngữ không đè nhau, menu không tràn màn, chân trang máy tính gọn (chủ 04/11)
+for (const W of [375, 800, 1000, 1440]) { const ctx = await browser.newContext({ viewport: { width: W, height: 800 }, colorScheme: 'dark' }); await serve(ctx);
+  const page = await ctx.newPage(); await page.goto(BASE + '/vi/blog/', { waitUntil: 'load' }).catch(() => {});
+  const r = await page.evaluate(() => { const d = document.querySelector('.flang'); if (!d) return null; d.open = true; const n = d.querySelector('.flangs'), b = n.getBoundingClientRect(), as = [...n.querySelectorAll('a')], R = a => { const x = document.createRange(); x.selectNodeContents(a); return x.getBoundingClientRect(); }; let ov = 0; as.forEach((a, i) => as.slice(i + 1).forEach(c => { const q = R(a), w = R(c); if (q.left < w.right - 1 && w.left < q.right - 1 && q.top < w.bottom - 1 && w.top < q.bottom - 1) ov++; })); d.open = false; return { ov, l: b.left, r: b.right, foot: document.querySelector('footer.site-foot').getBoundingClientRect().height }; });
+  if (!r) bad.push(`chân trang ${W}px: thiếu menu ngôn ngữ`); else { if (r.ov) bad.push(`chân trang ${W}px: ${r.ov} cặp tên ngôn ngữ đè nhau`); if (r.l < 0 || r.r > W) bad.push(`chân trang ${W}px: menu ngôn ngữ tràn màn (${Math.round(r.l)}–${Math.round(r.r)})`); if (W === 1440 && r.foot > 420) bad.push(`chân trang 1440px cao ${Math.round(r.foot)}px (> 420)`); }
+  checks += 3; await ctx.close(); }
 await browser.close();
 if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
 console.log(`✓ theme-static: ${PAGES.length} trang × ${MODES.length} chế độ (${checks} lượt) – đúng data-theme, không nháy, tương phản AA 0 lỗi, nút vòng/lưu/44 px, không tràn @360${SHOTS ? ` · ảnh: ${SHOTS}/` : ''}`);
