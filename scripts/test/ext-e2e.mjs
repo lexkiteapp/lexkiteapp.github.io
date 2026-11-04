@@ -44,7 +44,13 @@ const ctx = await chromium.launchPersistentContext(prof, {
   channel: 'chromium', headless: true, locale: LOCALE, viewport: { width: 1280, height: 860 },
   args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${LOCALE}`],
 });
-await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
+// Ảnh minh họa cố định: "có ảnh" không được phụ thuộc Wikipedia/Openverse/hàng đợi prod (lượt đầu của /api/img từng > 40 s → "action" đỏ ngẫu nhiên từ 30/10).
+// Không route được fetch từ SW add-on (cờ route SW làm hỏng SW MV3, #416) → vá self.fetch trong SW, cùng dữ liệu với route của trang. Hàm thật: test img-api.mjs.
+const IMG_SRC = 'https://img.example.com/e2e/photo.png', IMG_BYTES = fs.readFileSync('web/icons/icon-128.png');
+const IMG_REPLY = { src: IMG_SRC, link: IMG_SRC, license: 'CC0', title: 'e2e', creator: 'e2e', via: 'e2e' };
+// Chỉ mock đường dẫn trang gọi khi chạy bình thường; /api khác vẫn 503 và vẫn làm đỏ test: lỗi console thật không bị che
+await noProd(ctx, { api: url => (url.pathname === '/api/notices' ? { notices: [] } : url.pathname === '/api/img' ? IMG_REPLY : null) }); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
+await ctx.route(IMG_SRC, r => r.fulfill({ contentType: 'image/png', body: IMG_BYTES }));
 await ctx.route('https://t1.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
 await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'; style-src 'self'" } })); // chặn cả ảnh ngoài, data: và <style>/style="" chèn vào
 await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text/html', body: FRAME }));
@@ -53,12 +59,25 @@ const NOTICE = fs.readFileSync(new URL('./fixtures/notice-card.html', import.met
 await ctx.route('https://t6.example.com/**', r => r.fulfill({ contentType: 'text/html', body: NOTICE }));
 await ctx.route('https://t7.example.com/**', r => r.fulfill({ contentType: 'text/html', body: REACTISH }));
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
+const OURS = /^(chrome-extension:|about:|https:\/\/t\d\.example\.com\/|https:\/\/(www\.)?lexkite\.com\/)/;
 ctx.on('page', p => {
-  p.on('pageerror', e => errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`));
+  // Trang thật của mục 6 (Guardian…) tự ném lỗi của nó (video autoplay) → chỉ tính khi vết lỗi trỏ về add-on; trang test + trang add-on luôn tính
+  p.on('pageerror', e => { if (OURS.test(p.url()) || /chrome-extension:/.test(e.stack || '')) errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`); else console.log(`(bỏ qua lỗi riêng của ${p.url().slice(0, 60)}: ${e.message.slice(0, 100)})`); });
   p.on('console', m => { if (m.type() === 'error' && /chrome-extension|lexkite|Lexkite/.test(m.text() + (m.location().url || '')) && !(/Failed to load resource/.test(m.text()) && /audio\.lexkite\.com\/audio\/w\/[a-z0-9]+\.mp3/.test(m.location().url || ''))) errors.push(`console ${p.url().slice(0, 50)}: ${m.text().slice(0, 160)} @ ${(m.location().url || '').slice(0, 120)}`); });
 });
 let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
 sw.on('console', m => { if (m.type() === 'error') errors.push('sw: ' + m.text().slice(0, 200)); });
+// Sự kiện serviceworker có thể đến trước khi Chrome gắn API add-on → "chrome.storage undefined" ngẫu nhiên (run 41480677498)
+for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200);
+await sw.evaluate(({ src, reply, b64 }) => {
+  const real = self.fetch, bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  self.fetch = (u, o) => {
+    const s = String((u && u.url) || u);
+    if (s === src) return Promise.resolve(new Response(bytes, { headers: { 'Content-Type': 'image/png' } }));
+    if (/^https:\/\/lexkite\.com\/api\/img\?/.test(s)) return Promise.resolve(new Response(JSON.stringify(reply), { headers: { 'Content-Type': 'application/json' } }));
+    return real(u, o);
+  };
+}, { src: IMG_SRC, reply: IMG_REPLY, b64: IMG_BYTES.toString('base64') });
 const base = `chrome-extension://${new URL(sw.url()).host}/`;
 const store = (k) => sw.evaluate(k => chrome.storage.local.get(k).then(o => o[k]), k);
 const setSettings = s => sw.evaluate(s => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), ...s } })), s);
@@ -95,6 +114,8 @@ const contrast = (page, frame) => (frame || page).evaluate(() => {
   return { n, bad, dark: box.classList.contains('dark') };
 });
 const hide = page => page.keyboard.press('Escape').catch(() => {});
+// Chờ ĐIỀU KIỆN (ảnh đã vẽ), không ngủ cố định: bản tra đầy đủ về nhanh chậm tùy mạng tới Google/dictionaryapi của runner. Hết hạn vẫn đỏ như cũ.
+const cardImg = async (page, ms = 30000) => { const t0 = Date.now(); let c; do { await sleep(500); c = await card(page); if (c && c.visible && c.imgOk) return c; } while (Date.now() - t0 < ms); return c; };
 const dbl = async (page, sel, frame) => { const loc = (frame || page).locator(sel); await loc.scrollIntoViewIfNeeded(); await loc.dblclick(); };
 
 // ---------- 0. Service worker & dữ liệu mẫu ----------
@@ -151,11 +172,11 @@ if (nested) { await pg.mouse.dblclick(nested.x, nested.y); await sleep(7000); c 
 else rec('tra lồng trong bảng tra (bấm đúp từ trong định nghĩa)', false, 'không tìm thấy từ để bấm trong định nghĩa');
 await hide(pg);
 // danh từ có ảnh, trạng từ không ảnh
-await dbl(pg, '#n'); await sleep(9000); c = await card(pg);
+await dbl(pg, '#n'); c = await cardImg(pg);
 rec('danh từ "forest": có ảnh minh họa (đã tải xong)', c && c.img && c.imgOk && !c.letter, c && (c.img || 'letter') + (c && !c.imgOk ? ' (chưa tải/ lỗi)' : ''));
 await hide(pg);
 // action: Google có nghĩa Việt cho động từ nhưng không có định nghĩa Anh → trước đây hiện tiêu đề "verb" trống
-await dbl(pg, '#act'); await sleep(9000); c = await card(pg); await shot(pg, 'lookup-action');
+await dbl(pg, '#act'); c = await cardImg(pg); await shot(pg, 'lookup-action');
 rec('"action": không có tiêu đề từ loại trống', c && c.visible && c.emptyPos === 0, c && `${c.emptyPos} nhóm trống`);
 rec('"action": có ảnh minh họa (đã tải xong)', c && c.imgOk, c && (c.img || 'none'));
 await hide(pg);
@@ -200,7 +221,7 @@ await hide(pg);
 
 // ---------- 3. Trang CSP chặn ảnh ngoài, iframe, RTL, giao diện tối ----------
 const p2 = await ctx.newPage(); await p2.goto('https://t2.example.com/csp'); await sleep(2000);
-await dbl(p2, '#n'); await sleep(10000); c = await card(p2); await shot(p2, 'csp-forest');
+await dbl(p2, '#n'); c = await cardImg(p2); await shot(p2, 'csp-forest');
 rec('trang CSP chặn ảnh: vẫn có ảnh (canvas)', c && c.imgOk, c && (c.img || 'none'));
 rec('trang CSP chặn <style>: bảng tra vẫn đúng kiểu (adoptedStyleSheets)', c && c.styled);
 await p2.close();

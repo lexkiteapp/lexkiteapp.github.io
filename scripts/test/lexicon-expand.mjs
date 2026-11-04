@@ -423,4 +423,13 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(Object.keys(NONE_P.items).join() === 'b#n,a#n' && NONE_P.n === 1, 'save-merge: lô chờ cùng ngày do 2 lượt tạo → hợp mục');
   ok(merge3({ v: 1 }, { v: 2 }, { v: 3 }).v === 2 && merge3({ v: 1 }, { v: 1 }, { v: 3 }).v === 3, 'save-merge: cùng sửa → lượt thắng; lượt không sửa → bản mới');
   ok(fmt({ a: 1 }, '{\n "a": 0\n}\n') === '{\n "a": 1\n}\n', 'save-merge: giữ thụt lề'); }
+// 04/11 Simple English Wikipedia (simplewiki.py): lọc hình thức, id sw…, bỏ đổi hướng/số/đại từ không tham chiếu
+{ const { execFileSync } = await import('node:child_process'), os = await import('node:os'), zlib = await import('node:zlib');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sw-')), xml = `<mediawiki><page><title>Cat</title><ns>0</ns><id>12</id><revision><id>9</id><text>{{Infobox|a=1}}\n\'\'\'Cats\'\'\' are small [[mammal]]s that people keep as [[pet|pets]].&lt;ref&gt;x&lt;/ref&gt; Cats were born in 1990. He likes the cat very much.\n* list item\n== Heading ==\nMost farmers value a barn cat very much.</text></revision></page><page><title>R</title><ns>0</ns><id>13</id><redirect title="Cat"/><revision><id>1</id><text>#REDIRECT [[Cat]]</text></revision></page><page><title>T</title><ns>1</ns><id>14</id><revision><id>2</id><text>Talk pages are not used here at all.</text></revision></page></mediawiki>`;
+  let bz = null; try { bz = execFileSync('python3', ['-c', 'import bz2,sys;sys.stdout.buffer.write(bz2.compress(sys.stdin.buffer.read()))'], { input: xml, maxBuffer: 1 << 24 }); } catch {}
+  if (bz) { fs.writeFileSync(dir + '/s.bz2', bz); execFileSync('python3', [path.join(ROOT, 'scripts/lexicon/expand/simplewiki.py'), '--dump', dir + '/s.bz2', '--out', dir + '/o.tsv'], { stdio: 'pipe' });
+    const rows = fs.readFileSync(dir + '/o.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
+    ok(rows.length === 2 && rows.every(r => /^sw12\.\d+$/.test(r[0]) && r[1] === 'eng'), 'simplewiki: chỉ trang chính, id sw<trang>.<n>');
+    ok(rows[0][2] === 'Cats are small mammals that people keep as pets.' && rows[1][2].startsWith('Most farmers'), 'simplewiki: gỡ markup, bỏ số/đại từ/danh sách/tiêu đề');
+    fs.rmSync(dir, { recursive: true, force: true }); } }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
