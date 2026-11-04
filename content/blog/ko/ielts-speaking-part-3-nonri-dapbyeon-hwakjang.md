@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **시험관의 질문 어휘를 그대로 앵무새처럼 반복하는 것:** 질문에 등장한 주요 동사와 형용사를 유의어로 바꾸거나 품사를 전환하여 유연한 어휘력을 뽐내십시오.
 
-자연스러운 발화 억양을 형성하려면 [영어 문장 강세 규칙과 리듬 가이드](/ko/blog/yeongeo-munjang-gangse-sentence-stress-guide/)와 [영어 쉐도잉 훈련법](/ko/blog/yeongeo-shadowing-bangbeop/)을 함께 병행하는 것이 매우 효과적입니다. 또한 논리 전개에 필요한 표현은 [아이엘츠 필수 어휘 도서관](/ko/tu-vung/)에서 꾸준히 확장하십시오.
+고난도 토론에 앞서 기초 일상 회화 순발력을 기르려면 [IELTS Speaking Part 1 완벽 공략](content/blog/ko/ielts-speaking-part-1-dapbyeon-kotsu-go-deukjeom.md)을 먼저 학습해 보세요. 자연스러운 발화 억양을 형성하려면 [영어 문장 강세 규칙과 리듬 가이드](/ko/blog/yeongeo-munjang-gangse-sentence-stress-guide/)와 [영어 쉐도잉 훈련법](/ko/blog/yeongeo-shadowing-bangbeop/)을 함께 병행하는 것이 매우 효과적입니다. 또한 논리 전개에 필요한 표현은 [아이엘츠 필수 어휘 도서관](/ko/tu-vung/)에서 꾸준히 확장하십시오.
 
 {{youtube: | 아이엘츠 스피킹 Part 3 논리적 답변 확장법과 비판적 사고 테크닉}}
 

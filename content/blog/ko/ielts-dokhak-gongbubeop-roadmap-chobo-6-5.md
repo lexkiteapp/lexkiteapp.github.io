@@ -106,7 +106,7 @@ Band 6.5 이상을 안정적으로 확보하기 위해서는 학습 과정을 4�
 
 또한 나만의 단어 오답 노트를 만들어 자주 틀리는 다의어와 동의어를 주기적으로 복습하는 습관이 점수 상승의 든든한 밑거름이 됩니다.
 
-매일의 학습 진행 상황은 앱 내 [IELTS 학습 경로](/#/path)에서 실시간으로 확인할 수 있습니다. 아울러 아이엘츠 외에 미국 및 글로벌 대학 진학을 위해 타 시험과 비교 중이라면 [2026 토플 개정 신유형 완벽 분석](/ko/blog/toefl-2026-gaejeong-sin-hyeongsik-gaideu/) 가이드를 함께 검토해 보시기 바랍니다.
+스피킹 시험의 기초가 고민이라면 [IELTS Speaking Part 1 완벽 공략](content/blog/ko/ielts-speaking-part-1-dapbyeon-kotsu-go-deukjeom.md)을 통해 실전 문답 요령을 익혀두세요. 매일의 학습 진행 상황은 앱 내 [IELTS 학습 경로](/#/path)에서 실시간으로 확인할 수 있습니다. 아울러 아이엘츠 외에 미국 및 글로벌 대학 진학을 위해 타 시험과 비교 중이라면 [2026 토플 개정 신유형 완벽 분석](/ko/blog/toefl-2026-gaejeong-sin-hyeongsik-gaideu/) 가이드를 함께 검토해 보시기 바랍니다.
 
 {{youtube: | IELTS dokhak gongbubeop roadmap chobo 6.5}}
 

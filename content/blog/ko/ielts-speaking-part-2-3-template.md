@@ -143,7 +143,7 @@ quiz: [
 
 주장(Claim) ➔ 이유(Reason) ➔ 구체적 사회 현상(Example) ➔ 결론(Consequence)의 4단계 논리 고리를 단단하게 구축해야 합니다.
 
-실전 스피킹 억양과 강세를 정교하게 가다듬고 싶다면 [영어 섀도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)과 [영어 발음 교정 가이드](/ko/blog/yeongeo-balum-gyojeong/)를 함께 정독해 보세요. 아울러 문법적 기초를 탄탄히 다지기 위해 [영어 기초 문법 총정리](/ko/blog/yeongeo-gicho-munbeop-chongjeongri/)를 참고하시고, 리딩 영역 시간 관리가 고민이라면 [아이엘츠 리딩 시간 단축 비법](/ko/blog/ielts-reading-skimming-scanning-gongbubeop/)을 병행하여 네 영역의 점수 균형을 달성하시기 바랍니다. 추가적인 회화 예문이 필요하다면 [회화 자료실](/speaking/)을 유용하게 확인하실 수 있습니다.
+본격적인 발표에 앞서 시험 초반의 일상 문답 순발력을 기르려면 [IELTS Speaking Part 1 완벽 공략](content/blog/ko/ielts-speaking-part-1-dapbyeon-kotsu-go-deukjeom.md)을 먼저 확인해 보세요. 실전 스피킹 억양과 강세를 정교하게 가다듬고 싶다면 [영어 섀도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)과 [영어 발음 교정 가이드](/ko/blog/yeongeo-balum-gyojeong/)를 함께 정독해 보세요. 아울러 문법적 기초를 탄탄히 다지기 위해 [영어 기초 문법 총정리](/ko/blog/yeongeo-gicho-munbeop-chongjeongri/)를 참고하시고, 리딩 영역 시간 관리가 고민이라면 [아이엘츠 리딩 시간 단축 비법](/ko/blog/ielts-reading-skimming-scanning-gongbubeop/)을 병행하여 네 영역의 점수 균형을 달성하시기 바랍니다. 추가적인 회화 예문이 필요하다면 [회화 자료실](/speaking/)을 유용하게 확인하실 수 있습니다.
 
 {{cta: /app/#/speaking | Lexkite에서 아이엘츠 스피킹 모의 연습 시작하기}}
 
