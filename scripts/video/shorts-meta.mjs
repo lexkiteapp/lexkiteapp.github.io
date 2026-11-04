@@ -21,7 +21,11 @@ export function fillMeta(items, { lessonOf, pages = new Map() }) {
   let n = 0;
   for (const it of items) {
     const L = lessonOf(it.lesson) || {}, before = JSON.stringify(it), page = pages.get(it.lesson);
-    if (!it.title && L.point) it.title = titleOf(L);
+    const P = L.publish || {};
+    if (P.title) it.title = P.title; else if (!it.title && L.point) it.title = titleOf(L); // khối publish (viết lúc sản xuất) thắng tiêu đề ghép
+    if (P.keyword) it.keyword = P.keyword;
+    if (P.value) it.value = P.value;
+    if (Array.isArray(P.hashtags) && P.hashtags.length) it.hashtags = P.hashtags;
     for (const [k, v] of [['point', L.point], ['cefr', L.cefr], ['area', L.area]]) if (!it[k] && v) it[k] = v;
     const hook = hookOf(L.hook_type); if (!it.hook && hook) it.hook = hook;
     if (page && page.slug) it.slug = page.slug;

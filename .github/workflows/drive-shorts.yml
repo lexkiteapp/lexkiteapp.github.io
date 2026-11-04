@@ -68,7 +68,7 @@ jobs:
           for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }
             # đua với cine-render: lấy bản mới rồi gộp trường drive theo id
             git fetch -q origin main && git reset -q --hard origin/main
-            python3 -c "import json;F=('drive','title','point','cefr','area','hook','slug','url');n={e['id']:{k:e[k] for k in F if k in e} for e in json.load(open('/tmp/index.new.json'))['items']};p='shorts/index.json';d=json.load(open(p));[e.update(n[e['id']]) for e in d['items'] if e['id'] in n];json.dump(d,open(p,'w'),indent=1,ensure_ascii=False)"
+            python3 -c "import json;F=('drive','title','point','cefr','area','hook','slug','url','keyword','value','hashtags');n={e['id']:{k:e[k] for k in F if k in e} for e in json.load(open('/tmp/index.new.json'))['items']};p='shorts/index.json';d=json.load(open(p));[e.update(n[e['id']]) for e in d['items'] if e['id'] in n];json.dump(d,open(p,'w'),indent=1,ensure_ascii=False)"
             git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive [CF-Pages-Skip]" || { pushed=1; break; }
           done
           rm -f ~/.ssh/shorts

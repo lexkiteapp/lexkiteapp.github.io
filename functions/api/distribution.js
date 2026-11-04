@@ -36,7 +36,7 @@ export async function setupDist(db) {
 }
 const isExt = id => /^gc-[a-z_]+-[A-Za-z0-9_-]{1,80}$/.test(String(id || ''));
 const knownIds = async db => new Set([...(await all(db, 'SELECT channel_id FROM yt_channel')), ...(await all(db, 'SELECT channel_id FROM dist_ext'))].map(r => r.channel_id));
-const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, url: it.url, headline: it.title || '', region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
+const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, url: it.url, headline: it.title || '', value: it.value || '', hashtags: it.hashtags || [], region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
 async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
 /** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
 async function embedCounts(db) {
@@ -78,7 +78,7 @@ const OPS = {
   async plan_run(db, b, who, env) {
     const now = Date.now(), m = await manifest(env), by = new Map(m.items.map(x => [x.id, x]));
     if (b.replan) await run(db, "DELETE FROM yt_plan WHERE source = 'auto' AND clip IN (SELECT clip FROM yt_queue WHERE status IN ('manual', 'queued'))");
-    const q = await all(db, "SELECT q.clip, q.title, q.video_id, q.status FROM yt_queue q WHERE q.status IN ('manual', 'queued', 'uploading', 'done', 'failed') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
+    const q = await all(db, "SELECT q.clip, q.title, q.video_id, q.status FROM yt_queue q WHERE q.status IN ('manual', 'queued', 'uploading', 'done', 'failed', 'social') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
     const cfgs = await cfgMap(db), embedCfgs = Object.fromEntries(Object.entries(cfgs).filter(([id, c]) => c.role === 'embed' && !isExt(id))), counts = await embedCounts(db), allRules = await rules(db), rl = allRules.filter(r => r.active), fb = await dflt(db), routed = {}, skipped = [], rows = [];
     const ytRules = rl.filter(r => platformOf(r.channel_id) === 'youtube'), soRules = [...rl.filter(r => platformOf(r.channel_id) !== 'youtube'), ...implicitSocialRules(allRules, cfgs)], social = {}, sRows = new Map(), sDone = new Set((await all(db, 'SELECT clip, channel_id FROM dist_social')).map(r => r.clip + '|' + r.channel_id));
     for (const r of q) {

@@ -63,7 +63,7 @@ const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_
 await MGR.setupMgr(DB);
 // Kịch bản gốc cố định cài đặt (TikTok tắt, không tự xếp lịch, đồng bộ 6 giờ) để không phụ thuộc mặc định – mặc định mới được kiểm ở mục 1 và mục 3.
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now);
-sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, status TEXT, title TEXT, approved_at INTEGER); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
+sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c); // CC chưa duyệt
 await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng (setupDist) – không có khóa → không gọi gì
 ok(calls.length === 0 && JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v).last_run.stop === 'no-key', 'thiếu GRABCAST_API_KEY → dừng "no-key", 0 lượt gọi');
@@ -230,6 +230,25 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   { const it = DATA.index.items.find(x => x.id === CC), sv = { point: it.point, title: it.title }; it.point = ''; it.title = ''; reset({}); sql.prepare("INSERT OR IGNORE INTO yt_queue (clip, status) VALUES (?, 'manual')").run(CC); dueAt(CC, 'gc-facebook_page-2', 3);
     const y = await A.runAuto(ENV, { now }); ok(y.created === 0 && y.skipped.some(s => s.why === 'no-metadata') && y.alerts.some(a => /^no-metadata:/.test(a.k)), 'clip thiếu metadata → không tạo bài + cảnh báo'); Object.assign(it, sv); sql.prepare('DELETE FROM yt_queue WHERE clip = ?').run(CC); }
 
+  // Clip đạt QC tự vào hàng: chỉ khi bật và đã có kênh; tôn trọng clip bị loại/tạm dừng/xóa
+  {
+    const cfgOn = A.cleanAuto({ auto_queue: true, auto_approve: true }), [a, b, c] = DATA.index.items, sv = [a, b, c].map(x => ({ qa: x.qa, drive: x.drive, rejected: x.rejected, paused: x.paused }));
+    for (const x of [a, b, c]) { x.qa = { status: 'pass' }; x.drive = { video: { sha256: 'a' } }; x.rejected = null; x.paused = null; }
+    for (const x of DATA.index.items.slice(3)) { x._qa = x.qa; x.qa = { status: 'fail' }; }
+    await sql.exec("DELETE FROM yt_queue; DELETE FROM clip_review");
+    sql.prepare("INSERT INTO clip_review (clip, state) VALUES (?, 'rejected')").run(c.id);
+    ok(await A.autoQueue(ENV, DB, A.cleanAuto({ auto_approve: true }), now) === 0 && await A.autoQueue(ENV, DB, A.cleanAuto({ auto_queue: true }), now) === 0, 'tắt auto_queue hoặc auto_approve → không duyệt clip nào');
+    const ch = sql.prepare('SELECT * FROM dist_ext').all(); sql.exec('DELETE FROM dist_ext');
+    ok(await A.autoQueue(ENV, DB, cfgOn, now) === 0, 'chưa có kênh → chưa duyệt clip nào');
+    for (const e of ch) sql.prepare('INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, ?, ?, ?, ?, ?)').run(e.channel_id, e.platform, e.account_id, e.title, 'ok', now);
+    ok(await A.autoQueue(ENV, DB, cfgOn, now) === 2, 'có kênh → clip đạt QC vào hàng, clip bị loại/QC trượt thì không');
+    const rows = sql.prepare('SELECT clip, status, approved_by FROM yt_queue').all();
+    ok(rows.every(r => r.status === 'social' && r.approved_by === 'autopilot-qc') && !rows.some(r => r.clip === c.id), 'status social, ghi rõ ai duyệt');
+    ok(await A.autoQueue(ENV, DB, cfgOn, now) === 0, 'chạy lại không thêm trùng');
+    [a, b, c].forEach((x, i) => Object.assign(x, sv[i])); for (const x of DATA.index.items.slice(3)) { x.qa = x._qa; delete x._qa; }
+    sql.exec('DELETE FROM clip_review');
+  }
+
   // Bài độc 422: không được chặn cả hàng mãi
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); dueAt(CB, 'gc-facebook_page-2', 8);
   sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_old' }), now);
@@ -263,7 +282,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
 
   // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
   reset({ plan_daily: true });
-  sql.exec("ALTER TABLE yt_queue ADD COLUMN video_id TEXT; ALTER TABLE yt_queue ADD COLUMN privacy TEXT; ALTER TABLE yt_queue ADD COLUMN publish_at TEXT; ALTER TABLE yt_queue ADD COLUMN updated INTEGER; DELETE FROM yt_queue; DELETE FROM dist_ext; INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES ('gc-tiktok-4', 'tiktok', '4', 'TT', 'ok', 1)"); sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'done')").run(CA);
+  sql.exec("DELETE FROM yt_queue; DELETE FROM dist_ext; INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES ('gc-tiktok-4', 'tiktok', '4', 'TT', 'ok', 1)"); sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'done')").run(CA);
   dueAt(CA, 'gc-tiktok-4', -20);
   sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify({ last_sync: { at: now } }));
   x = await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now });

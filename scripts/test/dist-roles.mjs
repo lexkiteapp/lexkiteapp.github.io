@@ -89,11 +89,15 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   ok(/\/video\/s-1\/\?utm/.test(M.socialMeta({ id: 'c', point: 'x', slug: 's-1' }, 'tiktok').description), 'có slug → trang video');
   ok(/app\/\?utm_source=tiktok[^#\s]*#\/grammar/.test(M.socialMeta({ id: 'c', point: 'x', url: 'https://lexkite.com/app/#/grammar' }, 'tiktok').description), 'utm đứng trước #');
   ok(M.socialMeta({ id: 'cine-news-x', title: 'cine-news-x' }, 'tiktok').no_keyword === true, 'không có metadata → đánh dấu để không đăng');
+  const own = M.socialMeta({ id: 'c', point: 'x', headline: 'Do yoga or make yoga?', value: "You do yoga. You don't make it.", hashtags: ['#learnenglish', '#englishtips', '#a2english'] }, 'facebook_page');
+  ok(own.title === 'Do yoga or make yoga?' && own.description.split('\n')[1] === "You do yoga. You don't make it." && own.hashtags.join() === '#learnenglish,#englishtips,#a2english' && own.description.includes('#a2english'), 'khối publish được dùng nguyên cho tiêu đề, dòng giá trị, hashtag');
   const { fillMeta, hookOf, urlOf } = await import('../../scripts/video/shorts-meta.mjs');
   const cl = [{ id: 'c1', lesson: 'l1', title: '', point: '', cefr: '' }, { id: 'c2', lesson: 'l2', title: 'Có sẵn', point: 'p', cefr: 'B1', description: 'x https://lexkite.com/app/?utm_source=a#/grammar' }];
   fillMeta(cl, { lessonOf: id => (id === 'l1' ? { point: 'Stop saying X', cefr: 'A2', area: 'grammar-check', hook_type: 'mistake_callout' } : { point: 'khac', cefr: 'C2' }), pages: new Map([['l1', { slug: 'stop-x' }]]) });
   ok(cl[0].title && cl[0].point === 'Stop saying X' && cl[0].cefr === 'A2' && cl[0].hook === 'mistake' && cl[0].url === 'https://lexkite.com/video/stop-x/', 'bù metadata + link trang thật từ bài học');
   ok(cl[1].title === 'Có sẵn' && cl[1].cefr === 'B1' && cl[1].url === 'https://lexkite.com/app/#/grammar', 'không ghi đè; link trong mô tả bỏ query');
+  const pb = [{ id: 'p1', lesson: 'lp', title: 'Tiêu đề ghép cũ' }]; fillMeta(pb, { lessonOf: () => ({ point: 'p', publish: { title: 'Do yoga or make yoga?', keyword: 'make vs do', value: 'You do yoga.', hashtags: ['#a', '#b', '#c'] } }) });
+  ok(pb[0].title === 'Do yoga or make yoga?' && pb[0].keyword === 'make vs do' && pb[0].value === 'You do yoga.' && pb[0].hashtags.length === 3, 'khối publish thắng tiêu đề cũ trong index');
   ok(hookOf('mistake_callout') === 'mistake' && hookOf('khac') === '' && urlOf({}, null) === 'https://lexkite.com/app/', 'hook/url mặc định');
 }
 

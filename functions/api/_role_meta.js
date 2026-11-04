@@ -63,8 +63,8 @@ export function socialMeta(c, platform = 'youtube') {
   const P = PLATFORMS[platform] || PLATFORMS.tiktok, k = cap(keywordOf(c)), first = HOOKS[c.hook] ? c.hook : c.hook == null && c.headline ? ORDER[[...String(c.id)].reduce((n, x) => n + x.charCodeAt(0), 0) % ORDER.length] : 'question'; // clip chưa có hook: xoay theo id để kênh không lặp một câu
   const variants = [...new Set([...(c.headline ? [fit(c.headline, 60)] : []), ...[first, ...ORDER.filter(x => x !== first)].slice(0, 3).map(h => fit(HOOKS[h](k), 60))])].slice(0, 3);
   const hook = /\?$/.test(variants[0]) ? variants[0] : `${k}? ${variants[0].slice(k.length + 2)}`;
-  const value = `Learn ${keywordOf(c)} in 20 seconds – natural American English${c.cefr ? ` (${String(c.cefr).toUpperCase()})` : ''}.`;
-  const hashtags = hashtagsOf(c, platform);
+  const value = c.value ? clean(c.value, 200) : `Learn ${keywordOf(c)} in 20 seconds – natural American English${c.cefr ? ` (${String(c.cefr).toUpperCase()})` : ''}.`;
+  const own = (Array.isArray(c.hashtags) ? c.hashtags : []).map(h => '#' + String(h).replace(/^#/, '').toLowerCase()).filter(h => /^#[a-z0-9]+$/.test(h)), hashtags = own.length >= 3 ? [...new Set(own)].slice(0, 5) : hashtagsOf(c, platform);
   const tags = [...new Set([keywordOf(c).toLowerCase(), 'learn english', 'english lesson', c.topic, c.skill && c.skill + ' english', c.cefr && String(c.cefr).toLowerCase() + ' english', c.exam && c.exam + ' english', 'american english'].filter(Boolean))].slice(0, 12);
   const body = [hook, value, `Full lesson + quiz: ${lessonUrl(c, platform)}`, '', 'Save this and send it to a friend who needs it.', hashtags.join(' ')];
   if (P.marker) body.push('', markerLine(c.id));

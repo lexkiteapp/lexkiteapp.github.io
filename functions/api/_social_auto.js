@@ -22,12 +22,12 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube TẮT tới khi Google duyệt app. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, manual_first: 5, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {} };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 5, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {} };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
   a = a && typeof a === 'object' ? a : {}; const d = AUTO_DEFAULT, pl = a.plats && typeof a.plats === 'object' ? a.plats : {};
-  return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, manual_first: clamp(a.manual_first, 1, 50, d.manual_first),
+  return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 1, 50, d.manual_first),
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
     max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
@@ -178,12 +178,29 @@ async function mirrorFailed(db, st, since, now) {
   }
   return n;
 }
+/** Chủ duyệt 04/11/2026: clip đạt QC tự vào hàng đăng (status 'social': chỉ social, không tạo gói YouTube), nhưng chỉ khi đã có kênh. Cùng các cổng với nút Duyệt ở youtube.js. → số clip vừa thêm. */
+export async function autoQueue(env, db, cfg, now, max = 30) {
+  if (!cfg.auto_queue || !cfg.auto_approve) return 0;
+  const plats = AUTO_PLATS.filter(p => cfg.plats[p]); if (!plats.length) return 0;
+  if (!await one(db, `SELECT 1 AS x FROM dist_ext WHERE platform IN (${plats.map(() => '?').join(',')}) AND status = 'ok' LIMIT 1`, ...plats)) return 0;
+  const cand = (await manifest(env)).items.filter(it => it && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && it.drive && it.drive.video && !it.drive.video.retired && CLIP.test(String(it.id)) && (it.title || it.point));
+  if (!cand.length) return 0;
+  const seen = new Set((await all(db, 'SELECT clip FROM yt_queue LIMIT 5000')).map(r => r.clip)), review = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review LIMIT 5000')).map(r => [r.clip, r]));
+  let n = 0;
+  for (const it of cand) {
+    if (n >= max) break;
+    const rv = review.get(it.id); if (seen.has(it.id) || (rv && (rv.deleted || ['rejected', 'paused'].includes(rv.state)))) continue;
+    const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'unlisted', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
+    n += (r && r.meta && r.meta.changes) || 0;
+  }
+  return n;
+}
 /** Sức khỏe cả chuỗi (CI xanh mà không đăng được gì là mù): kênh đã nối? có clip đã duyệt? có lịch sắp tới? → cảnh báo + rec.health. Chỉ đọc theo khóa/chỉ mục, LIMIT 1. */
 export async function chainHealth(db, cfg, now) {
   const has = async (sql, ...a) => !!(await one(db, sql, ...a).catch(() => null));
   const plats = AUTO_PLATS.filter(p => cfg.plats[p]), qs = plats.map(() => '?').join(',');
   return { channels: plats.length ? await has(`SELECT 1 AS x FROM dist_ext WHERE platform IN (${qs}) AND status = 'ok' LIMIT 1`, ...plats) : false,
-    approved: await has("SELECT 1 AS x FROM yt_queue WHERE status IN ('manual', 'queued', 'uploading', 'done', 'failed') LIMIT 1"),
+    approved: await has("SELECT 1 AS x FROM yt_queue WHERE status IN ('manual', 'queued', 'uploading', 'done', 'failed', 'social') LIMIT 1"),
     planned: await has('SELECT 1 AS x FROM dist_social WHERE slot_ms > ? LIMIT 1', now) };
 }
 export function healthAlerts(h, st, now) {
@@ -223,7 +240,8 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   };
   if (!cfg.on) { rec.stop = 'off'; return save(); }
   const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); const p = await DIST.plan_run(db, {}, env); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
-  if (cfg.plan_daily && now - (+st.last_plan || 0) > 20 * 36e5) await planNow();
+  const queuedNew = await ytSetup(db).then(() => autoQueue(env, db, cfg, now)).catch(() => { rec.skipped.push({ why: 'auto-queue-error' }); return 0; }); rec.auto_queued = queuedNew;
+  if (cfg.plan_daily && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
 
   // ---- GrabCast client (ngân sách + cầu dao) ----
   let left = budgetLeft(st, cfg, now);
@@ -324,7 +342,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const pub = await mirrorPublished(db, (+(st.last_sync && st.last_sync.at) || 0) - 36e5);
       const syncSince = (+(st.last_sync && st.last_sync.at) || 0) - 36e5; await mirrorFailed(db, st, syncSince, now);
       st.last_sync = { at: now, posts: ((pr.data && pr.data.posts) || []).length, published: pub, channels: accs.length }; rec.synced = st.last_sync;
-      if (cfg.plan_daily && accs.length > hadCh) await planNow(); // vừa nối kênh mới → xếp lịch ngay, không đợi hôm sau
+      if (accs.length > hadCh) { const q = await autoQueue(env, db, cfg, now).catch(() => 0); rec.auto_queued = (rec.auto_queued || 0) + q; if (cfg.plan_daily) await planNow(); } // vừa nối kênh mới → duyệt clip đạt QC + xếp lịch ngay, không đợi hôm sau
     }
     // 2) Bài đến hạn
     const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
