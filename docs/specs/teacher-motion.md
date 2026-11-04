@@ -1,6 +1,6 @@
 # Chuyển động & biểu cảm giáo viên: kiểm kê + hướng đi (spec-lite, 4/11)
 
-> TL;DR: **chưa từng có Rive trong sản phẩm**, không nhánh nào có `.riv`. Giữ **clip Kling + mặt vẽ canvas**, sửa chuyển trạng thái. Không dựng Rive lúc này. Khoảng trống thật là 4 clip của Carlos và biểu cảm `thinking` (cần credit).
+> TL;DR: **chưa từng có Rive trong sản phẩm**. Hiện giữ clip Kling + mặt vẽ canvas, đã sửa chuyển trạng thái và tay bị che. Hướng dài hạn chủ chốt 4/11: footage + lớp miệng Rive, chờ mẫu đo.
 > Đọc khi: thêm cử chỉ, đổi `Chars.*`, `teacher-slot/live`, `lesson/teacher.js`. Số đo mới nhất: artifact workflow `teacher-states`.
 
 ## Kiểm kê
@@ -50,6 +50,28 @@ Mặt vẽ (canvas, `call/face.js` + `mouths.js`): Call, câu hỏi bài học, 
 ## Bảng sự kiện (một nguồn: `Chars.forEvent`)
 `correct` cheer · `wrong` concern · `done` ≥ 80 % cheer, thấp hơn encourage · `replyOk` happy · `replyFix` encourage · `think` thinking · `recall` listen · `retry` encourage.
 
-## Việc còn lại (cần duyệt)
-1. Clip Carlos: `point`, `encourage`, `concern`, và `thinking` cả hai người không cau mày: 5 clip Kling, cần duyệt credit. Lộ trình lúc đến lượt Carlos đang "chỉ" bằng 2 bàn tay.
-2. Chọn lại khung `laugh` cả hai (0 credit, `teach-build`), sau khi #546 gộp vì #546 giữ `build.py`.
+## Tay không bị che (chủ 4/11, ảnh tay Carlos sau thẻ)
+Đo: `scripts/teach/hands.py` → `scripts/teach/hands.json`; bảng đầy đủ: artifact `teacher-states-clips`. Dải tay ở khung ảnh tĩnh (% từ đỉnh):
+Carlos cheer 53–82, explain/point 52–87, concern/empathy 74–92. Ama cheer 48–61, explain 56–68, point 49–60 + 76–83, encourage 48–65 + 88–94, empathy 48–66. Tư thế khác: không có tay trong vùng nhìn thấy.
+Khe (phần khung nhìn thấy từ đỉnh): câu hỏi bài học 67 %, kết bài 70 %, chỗ giáo viên 72 %. **Quy tắc gốc:** đường che cắt ngang dải tay → nâng người bằng `Chars.lift` (trong khoảng trống trên đầu); không đủ chỗ thì cổng `teacher-states` đỏ. Đổi bố cục khe mà không cập nhật = đỏ. Tay xuôi khuất hẳn không tính là cắt.
+**Giới hạn:** dò tay bằng màu da (đo trên hình, không nhận dạng bàn tay). Chỉ kiểm khung ảnh tĩnh ở khe; trong clip, tay đi qua đường che lúc vung là bình thường, số % nằm trong bảng. **Chưa kiểm:** khe trong video Remotion, thẻ chia sẻ, Truyện/Radio (`Chars.duo`, #581).
+
+## Bộ tham chiếu khoá
+`brand/characters/ref/{ama,carlos}.png` + `refs.json` (sha256, nguồn). Cổng `scripts/teach/ref_gate.py`. **Đo được:** ΔE da/áo, đổi nhân vật giữa clip, đầu trôi. **Chưa đo tốt:** từng nét mặt, "đúng phong cách 2D": không báo đạt, phải soi mắt.
+
+## Kling (chưa tiêu credit)
+Kho `lexkite-footage` đã soát bản Carlos còn lại: `gc11_point` tay ra ngoài khung, `gc11_encourage_2` tay giơ kiểu "dừng lại", `gc11_concern_2` nhắm một mắt, `gc11_concern` mặt không đổi; `gc11_encourage` (tay đặt ngực) xem lại được. Bí danh hiện tại do chủ duyệt 29/10.
+Ưu tiên theo số màn dùng; giá theo `credits-kling`: ảnh ≈ 4 cr/lượt, clip 10 s 1080p ≈ 50 cr.
+| # | Mục | Vì sao, dùng ở đâu | Credit | 0-credit thay thế |
+|---|---|---|---:|---|
+| 1 | Carlos `point`, tay trong khung | Lộ trình, mỗi lần vào Home | 54 (thử trước) | đang: explain 2 bàn tay |
+| 2 | Carlos `encourage` có cử chỉ | Nhắc học, chuỗi, kết bài < 80 %, Speak | 54 | thử `gc11_encourage` có sẵn trước |
+| 3 | Carlos `concern` mặt lo thật | Mỗi câu sai | 54 | đang: empathy, chấp nhận được |
+| 4–5 | `thinking` không cau mày, cả hai | 5 thẻ Say, Call | 108 | Speak đã dùng listen |
+Tổng dự kiến 270 cr + tối đa 2 lần làm lại mỗi mục, trong trần 200 thử/1.500 tổng do coordinator chuyển lời chủ.
+**Tiêu chí thêm để tái dùng với lớp miệng (footage + Rive/canvas):** đầu đứng yên (trôi ≤ 1 % khung), nhìn thẳng, môi khép suốt clip, tay trong dải 45–65 % khung, hai bên chừa ≥ 15 %, phông xanh đồng màu không trùng áo Carlos. Câu LOCK: "keeps the exact same face, hair, outfit, body proportions and flat 2D vector style; head stays perfectly still facing camera, lips closed; both hands stay fully inside the frame between chest and chin; flat chroma-key green; no shadows". Thứ tự: `check_first.py` khung đầu → 1 clip → tách nền → `ref_gate` + `hands.py` → dựng thử vào màn thật → mới làm tiếp; 2 lần lỗi thì dừng.
+
+## Việc còn lại
+1. **Mẫu thử footage + Rive (chưa làm, chưa kết luận):** cần đo thật khớp miệng ±33 ms, WebKit. Runtime 468 KB gz tải lười, không chạm trần khung. `.riv` tự động: CLI chạy được trên CI nhưng bản sạch cần tài khoản + workspace Cadet ($9/chỗ/tháng): **bước chủ phải quyết**. Nếu dùng bản Free thì có splash. Ghép ánh sáng: lớp miệng trên đầu footage đứng yên, cùng cách `face.js` đang làm. Mục "không dùng Rive lúc này" ở trên được thay bằng hướng chủ chốt 4/11: làm mẫu đo trước, không đạt thì báo số.
+2. Chọn lại khung `laugh` cả hai (0 credit, `teach-build`), sau khi #546 gộp.
+3. Ngưỡng `ref_gate`, `motion_jump` đang chạy `--report`, chuyển sang chặn sau khi đặt ngưỡng theo số đo CI đầu tiên.

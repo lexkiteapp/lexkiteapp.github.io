@@ -10,6 +10,16 @@ for (const w of C.ids) for (const p of C.poses) {
   const f = reg.people[w].clips[p].still_frame, at = C.stillAt(w, p);
   if (Math.abs(at * 24 - f) > 0.01) errs.push(`Chars.stillAt(${w},${p}) = khung ${at * 24}, registry still_frame ${f}`);
 }
+// 1b) Tay không bị che ở mọi khe: dải tay × đường che của từng khe (lấy từ chính mã bố cục, đổi bố cục mà quên là đỏ)
+const ui = read('web/js/lesson/ui.js'), hrx = (re, what) => { const m = ui.match(re); if (!m) errs.push(`không tìm thấy khe ${what}`); return m ? m.slice(1).map(Number) : [0, 1]; };
+const [mbQ, hQ] = hrx(/lsn-tchw relative z-0 -mb-(\d+) h-\[(\d+)px\]/, 'câu hỏi'), [mbE, hE] = hrx(/lsn-endt relative z-0 -mb-(\d+) -mt-3 h-\[(\d+)px\]/, 'kết bài');
+const SLOTS = { 'câu hỏi': 1 - mbQ * 4 / hQ, 'kết bài': 1 - mbE * 4 / hE, 'chỗ giáo viên': 0.72 }, USED = { 'câu hỏi': [C.forEvent('correct'), C.forEvent('wrong')], 'kết bài': [C.forEvent('done', 90), C.forEvent('done', 40)], 'chỗ giáo viên': C.poses };
+if (!ui.includes('const VIS_Q = 116 / 172') || Math.abs(SLOTS['câu hỏi'] - 116 / 172) > 1e-6) errs.push(`khe câu hỏi đổi (${SLOTS['câu hỏi']}): cập nhật VIS_Q`);
+if (!ui.includes('visible: 92 / 132') || Math.abs(SLOTS['kết bài'] - 92 / 132) > 1e-6) errs.push(`khe kết bài đổi (${SLOTS['kết bài']}): cập nhật visible`);
+const hands = JSON.parse(read('scripts/teach/hands.json'));
+for (const w of C.ids) for (const [slot, v] of Object.entries(SLOTS)) for (const p of USED[slot]) {
+  const y = (v + C.lift(w, p, v)) * 100; for (const [a, b] of hands[w][p].bands.filter(([a]) => a > (w === 'ama' ? 46 : 46))) { if (b - a < 4 || a === hands[w][p].bands[0][0] && b <= (w === 'ama' ? 53 : 64)) continue; if (y > a + 1 && y < b - 1) errs.push(`${w}/${p} ở khe ${slot}: đường che ${y.toFixed(0)} % cắt ngang tay ${a}–${b} %`); }
+}
 // 2) Sự kiện → tư thế: khen khi đúng, động viên khi sai, không ăn mừng khi điểm thấp, không cau mày lúc nhờ nhớ lại
 const GOOD = ['cheer', 'happy', 'laugh'], KIND = ['concern', 'encourage', 'empathy'];
 const want = [['correct', GOOD], ['replyOk', GOOD], ['wrong', KIND], ['replyFix', KIND], ['retry', KIND], ['think', ['thinking']], ['recall', ['listen', 'talk', 'encourage']]];

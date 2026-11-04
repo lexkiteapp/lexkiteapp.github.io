@@ -24,7 +24,8 @@
 @keyframes tslot-breathe{50%{transform:translateX(-50%) scaleY(1.012)}}
 .tslot.live img.tslot-img{transition:visibility 0s .18s}
 @media (prefers-reduced-motion:no-preference){canvas.tslot-img{animation:tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip canvas.tslot-img{animation:tslot-breathe-f 4.2s ease-in-out .2s infinite}.tslot-flip img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe-f 4.2s ease-in-out .2s infinite}}
-@keyframes tslot-breathe-f{50%{transform:translateX(-50%) scaleX(-1) scaleY(1.012)}}`; // ảnh tĩnh giữ tới khi canvas mờ vào xong (không hụt hình); clip nghỉ giữa 2 lần lặp vẫn thở
+[style*="--lift"] .tslot-img{bottom:calc(var(--h)*(var(--lift) - .18))}
+@keyframes tslot-breathe-f{50%{transform:translateX(-50%) scaleX(-1) scaleY(1.012)}}`;
   // Phần phát clip (WebGL/video, ~2 KB gz) ở js/teacher-live.js – chỉ tải khi trang có chỗ giáo viên động (khung app giữ ảnh tĩnh)
   const base = ((g.document && document.currentScript) || {}).src || '';
   let lp = null;
@@ -44,4 +45,6 @@
     if (clip && !pend && g.document) pend = setTimeout(hydrate, 0); // HTML chèn xong mới gắn clip
     return `<span class="tslot tslot-${sz}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}"${o.ground === false ? ' data-ground="0"' : ''}${clip ? ` data-clip="${clip}"` : ''}${I ? ` data-webm="${I.webm}" data-loop="0"` : o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}><span class="tslot-fig">${im}</span><i class="tslot-ledge"></i></span>`;
   };
+  // Đáy khuất → thấy 72 % ảnh; đường che cắt tay thì nâng người (Chars.lift)
+  const base0 = C.slot; C.slot = (w, o = {}) => { const up = C.lift && o.pose ? C.lift(w, o.pose, 0.72) * 1.2 : 0; return base0(w, up ? { ...o, style: `--lift:${up.toFixed(3)};${o.style || ''}` } : o); };
 })(self);

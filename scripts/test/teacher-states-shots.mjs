@@ -20,7 +20,7 @@ if (argv[0] === '--sheet') {
 const [WEB = 'web', OUT = 'out/teacher-states'] = argv.filter(a => !a.startsWith('--'));
 fs.mkdirSync(OUT, { recursive: true });
 const CSS = (fs.readFileSync(path.join(WEB, 'js/lesson/ui.js'), 'utf8').match(/\.lsn-v2 \.tch-rig\.posed img\.tch-still\{[^`\n]*/) || [''])[0]; // đúng CSS bài học thật
-const HTML = `<!doctype html><meta name=viewport content="width=device-width"><style>body{margin:0;background:#0f1b1e}#s{position:absolute;left:60px;top:40px}#l{position:absolute;left:60px;top:40px;width:270px;height:234px}${CSS}</style><div id=s></div><div class=lsn-v2><div id=l></div></div><script src=js/characters.js></script><script src=js/teacher-slot.js></script><script src=js/lesson/teacher.js></script>`;
+const HTML = `<!doctype html><meta name=viewport content="width=device-width"><style>body{margin:0;background:#0f1b1e}#s{position:absolute;left:60px;top:40px}#l{position:absolute;left:95px;top:40px;width:200px;height:172px}#c{position:absolute;left:40px;right:40px;top:156px;height:90px;background:#1b2a2f;border-radius:16px;z-index:5}${CSS}</style><div id=s></div><div class=lsn-v2><div id=l></div></div><div id=c></div><script src=js/characters.js></script><script src=js/teacher-slot.js></script><script src=js/lesson/teacher.js></script>`;
 const errs = [], rows = [], browser = await launch();
 const open = async o => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 500 }, deviceScaleFactor: 3, colorScheme: 'dark', serviceWorkers: 'block', ...o });
@@ -44,7 +44,7 @@ const PAD = (v, n = 1) => v.toFixed(n);
 const CLIP_MAX = 9, MID_MAX = 9; // /255 trên vùng người (xem docs/specs/teacher-motion.md)
 
 // ---------- 1) ảnh tĩnh → clip ----------
-{ const { ctx, page } = await open({}); await page.addStyleTag({ content: noAnim });
+{ const { ctx, page } = await open({}); await page.addStyleTag({ content: noAnim + '#c{display:none}' });
   for (const [who, pose, flip] of [['ama', 'point'], ['ama', 'wave'], ['ama', 'cheer'], ['ama', 'encourage'], ['carlos', 'wave'], ['carlos', 'cheer'], ['carlos', 'explain', true]]) {
     const key = `${who}-${pose}${flip ? '-flip' : ''}`;
     await page.evaluate(([w, p, f]) => { document.getElementById('s').innerHTML = Chars.slot(w, { pose: p, size: 'xl', flip: f, lazy: false }); }, [who, pose, flip]);
@@ -67,7 +67,7 @@ const CLIP_MAX = 9, MID_MAX = 9; // /255 trên vùng người (xem docs/specs/te
 // ---------- 2) đổi tư thế trong bài học ----------
 for (const who of ['ama', 'carlos']) {
   const { ctx, page, slow } = await open({}); slow['still-concern'] = 900;
-  await page.evaluate(w => { window.__t = LessonTeacher.mount(document.getElementById('l'), w, { lip: true }); }, who);
+  await page.evaluate(w => { window.__t = LessonTeacher.mount(document.getElementById('l'), w, { lip: true, visible: 116 / 172 }); }, who);
   const ready = await page.waitForFunction(() => document.querySelector('.tch-rig[data-face] canvas'), null, { timeout: 15000 }).then(() => 1, () => 0);
   if (!ready) errs.push(`${who}: mặt vẽ không lên`);
   await page.waitForTimeout(300); const before = await page.screenshot({ clip: crop });

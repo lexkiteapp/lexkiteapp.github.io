@@ -135,7 +135,7 @@
     else view.innerHTML = ST.lsnShell(Object.assign(sh, { story: story ? ST.lsnStory(story.kind === 'radio' ? '● ON AIR' : '') : '' })); // 🎨 mẫu Stitch "Speaking Micro-Drill" (web/js/st/lesson.js) – dự phòng khi chưa bật cờ ux1
     const foot = document.createElement('div'); foot.className = ST.FOOT; foot.id = 'lsnFoot'; foot.hidden = V2 || DUO; document.body.appendChild(foot); L.foot = foot;
     if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
-    if (!DUO) try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who, { poses: [Chars.forEvent('correct'), Chars.forEvent('wrong')] }) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
+    if (!DUO) try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who, { visible: VIS_Q, poses: [Chars.forEvent('correct'), Chars.forEvent('wrong')] }) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
   };
 
@@ -178,6 +178,7 @@
     const chk = $('#lsnCheck'); chk.hidden = SPEAKS(it); chk.disabled = true;
     $('#lsnRep').onclick = () => { const cid = 'lesson:' + it.type + ':' + String(it.word || (it.card && it.card.word) || '').slice(0, 40); if (window.LexReportLoad) LexReportLoad().then(R => R.open({ cat: 'content', cid })).catch(() => {}); else window.open('#/report/new', '_blank'); };
   }
+  const VIS_Q = 116 / 172; // thẻ che 56/172 px đáy
   const VOICE = w => (window.Chars && Chars.voice ? Chars.voice(w || (L && L.who) || 'ama') : null); // giọng đúng của giáo viên đang nói (registry Chars) – thiếu file mp3 → giọng máy
 
   const say = (text, slow, who, onEnd) => {
@@ -283,7 +284,7 @@
     if (L.foot) { L.foot.hidden = true; L.foot.innerHTML = ''; L.foot.className = ST.FOOT; document.body.appendChild(L.foot); } // tấm phản hồi nằm trong khung cũ → đưa về body trước khi dựng khung mới
     if (want === 'duo') return duoMount();
     L.v2 = true; L.who = it.who || 'ama'; v2shell(L.sh);
-    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who, { poses: [Chars.forEvent('correct'), Chars.forEvent('wrong')] }) : null; } catch (e) { L.teacher = null; }
+    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who, { visible: VIS_Q, poses: [Chars.forEvent('correct'), Chars.forEvent('wrong')] }) : null; } catch (e) { L.teacher = null; }
   }
   function duoMount() {
     L.v2 = false; L.log = L.log || [];
@@ -559,7 +560,7 @@
     if (L.teachers && L.teachers.carlos) { try { L.teachers.carlos.destroy(); } catch (e) { /* bỏ qua */ } } L.teachers = null;
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
-    try { const T = L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (T) { if (T.pose) T.pose(Chars.forEvent('done', s.accuracy)); setTimeout(() => { if (L && L.teacher === T) T.say(cheer, { rate: 1, voice: VOICE(L.who) }); }, 900); } } catch (e) { L.teacher = null; } // đúng giáo viên của bài; cử chỉ hiện trước rồi mới nói (nói = mặt vẽ thay ảnh tĩnh)
+    try { const T = L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who, { visible: 92 / 132 }) : null; if (T) { if (T.pose) T.pose(Chars.forEvent('done', s.accuracy)); setTimeout(() => { if (L && L.teacher === T) T.say(cheer, { rate: 1, voice: VOICE(L.who) }); }, 900); } } catch (e) { L.teacher = null; }
     if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-stats > div:nth-child(1) > span:nth-child(2)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
     const sh = $('#lsnShare'); if (sh) sh.onclick = async () => { const text = t('Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP', { a: s.accuracy, x: xp }); try { if (navigator.share) await navigator.share({ title: 'Lexkite', text, url: location.origin + '/' }); else if (navigator.clipboard) { await navigator.clipboard.writeText(text); UI.toast(t('Đã sao chép')); } } catch (e) { /* người dùng hủy */ } };
     $('#lsnAgain').onclick = () => routes.lesson('go');
