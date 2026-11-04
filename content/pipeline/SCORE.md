@@ -2,16 +2,16 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 49.4 / 100**
+**Tổng: 50.5 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **47.8** | 45.2 | 47.8% | 100% | 0 |
+| Kho từ | **48.5** | 45.2 | 48.5% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
-| Giao tiếp | **23.7** | 14.1 | 23.7% | 100% | 0 |
+| Giao tiếp | **30.2** | 14.1 | 30.2% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
 | Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
-| Khung Can-do | **79.5** | 79.3 | 79.5% | 100% | 0 |
+| Khung Can-do | **79.8** | 79.3 | 79.8% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -23,7 +23,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4671 / 20000 | 23% | 12 |
 | đồng nghĩa | 2744 / 20000 | 14% | 8 |
 | IPA Mỹ | 6046 / 20000 | 30% | 5 |
-| ảnh theo nghĩa | 4453 / 20000 | 22% | 15 |
+| ảnh theo nghĩa | 5330 / 20000 | 27% | 15 |
 | C2 | 327 / 1000 | 33% | 10 |
 | A1 | 858 / 1000 | 86% | 5 |
 
@@ -48,7 +48,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | cuộc gọi Ama/Carlos | 11 / 60 | 18% | 20 |
 | roleplay | 31 / 60 | 52% | 20 |
-| tình huống Play & Speak | 1 / 40 | 3% | 20 |
+| tình huống Play & Speak | 14 / 40 | 35% | 20 |
 | mục gold (giải thích cách dùng) | 228 / 1000 | 23% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
 
@@ -97,8 +97,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 10008 / 10008 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 122 / 600 | 20% | 25 |
+| nội dung có lo hợp lệ | 10021 / 10021 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 129 / 600 | 22% | 25 |
 
 ## i18n
 
