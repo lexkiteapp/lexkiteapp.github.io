@@ -29,7 +29,7 @@
       const c = (tx.match(/\bloc=([A-Z]{2})/) || [])[1] || '';
       try { localStorage.setItem('vb.geo', c || '-'); } catch (e) { return; }
       const l = GEO[c];
-      if (l && l !== lang && SUPPORTED.includes(l) && !read(KEY)) set(l);
+      if (l && l !== lang && SUPPORTED.includes(l) && !read(KEY)) set(l, 1);
     }).catch(() => {});
   }
   /** @type {Record<string, Record<string, string>>} */
@@ -57,7 +57,8 @@
     (root || document).querySelectorAll('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label'))); });
   }
   // Lưu rồi tải lại, bỏ ?hl (ưu tiên hơn lựa chọn đã lưu → đổi ngược)
-  function set(l) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); } catch (e) { /* bỏ qua */ } const u = new URL(location.href); if (u.searchParams.has('hl')) { u.searchParams.delete('hl'); location.replace(u.href); } else location.reload(); }
+  // auto = đoán theo nước (không phải người dùng chọn) → không ghi cookie lk_lang mà "/" đọc (functions/api/_rootlang.js)
+  function set(l, auto) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); if (auto !== 1) document.cookie = 'lk_lang=' + l + ';path=/;max-age=31536000;samesite=lax;secure'; } catch (e) { /* bỏ qua */ } const u = new URL(location.href); if (u.searchParams.has('hl')) { u.searchParams.delete('hl'); location.replace(u.href); } else location.reload(); }
   // Ngôn ngữ dùng để hiển thị nghĩa/giải thích (người học có thể chọn khác giao diện)
   const learnLang = () => { const l = read('vb.learnLang'); return l && SUPPORTED.includes(l) ? l : lang; };
   // Ngôn ngữ của NGHĨA TỪ: 'vi' (nghĩa tiếng Việt) hoặc 'en' (định nghĩa tiếng Anh, kiểu từ điển Oxford Learner's).

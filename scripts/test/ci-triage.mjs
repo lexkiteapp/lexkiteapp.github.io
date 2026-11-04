@@ -6,12 +6,28 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, issueTitle, redStreak, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { digestDue, morning, mainRuns, classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
+
+// sdkmanager tải hỏng ảnh máy ảo (native-auth android, run 41762808983): hạ tầng → chạy lại 1 lần, không mở issue; chạy lại vẫn đỏ mới là lỗi thật
+ok(classify('Warning: An error occurred while preparing SDK package Google APIs: Error on ZipFile unknown archive.').kind === 'transient', 'sdkmanager tải hỏng = tạm thời');
+ok(classify('Error on ZipFile unknown archive.', { attempt: 2 }).kind === 'real', 'chạy lại vẫn hỏng = thật');
+// --- cổng lõi (4/11: ext-e2e đỏ 8 lượt từ 30/10, new-ui-qa chưa từng có lượt main, bản tin không nói vì chỉ kể lượt đỏ trong 24 h)
+{ const Rn = (c, d) => ({ conclusion: c, status: 'completed', event: 'push', created_at: `2026-11-0${d}T00:00:00Z` }), now = +new Date('2026-11-04T00:00:00Z');
+  const h = coreHealth({ a: [Rn('success', 3)], ext: [Rn('failure', 1), Rn('failure', 2)], ui: [], old: [Rn('failure', 3)], c: [Rn('cancelled', 3)] }, now);
+  ok(h.bad.map(b => b.key).join() === 'ext,old,ui,c', 'cổng lõi: đỏ lâu nhất trước, chưa có lượt sau, xanh không liệt kê: ' + h.bad.map(b => b.key).join());
+  ok(h.bad[0].days === 3 && h.bad[0].n === 2, 'cổng lõi: số ngày + số lượt đỏ');
+  // không có lượt đỏ nào trong 24 h vẫn phải báo, và vẫn gửi thư (failed > 0)
+  const d0 = digest([], {}, [], undefined, h);
+  ok(d0.failed === 4 && d0.red === 2 && /ext 3 ngày/.test(d0.msg) && /ext: đỏ 2 lượt liền, 3 ngày/.test(d0.text) && /ui: chưa có lượt/.test(d0.md), 'bản tin nêu cổng lõi đỏ dù 24 h không có lượt');
+  ok(digest([], {}, []).failed === 0, 'không truyền core → như cũ');
+  ok(/ci\.yml/.test(CORE_TESTS['npm-test']) && fs.existsSync(path.join(ROOT, '.github/workflows', CORE_TESTS['ext-e2e'])), 'CORE_TESTS trỏ file thật (npm-test = ci.yml)');
+  for (const [k, f] of Object.entries(CORE_TESTS)) if (k !== 'new-ui-qa') ok(fs.existsSync(path.join(ROOT, '.github/workflows', f)), `CORE_TESTS: ${k} → ${f} tồn tại`);
+  ok(orphanIssueFile('<!-- ci-triage:wf=gone.yml -->', () => false) === 'gone.yml' && orphanIssueFile('<!-- ci-triage:wf=a.yml -->', () => true) === null && orphanIssueFile('x', () => false) === null, 'issue của workflow đã xóa'); }
 
 // --- đỏ liên tiếp (3/11: quality-sweep đỏ 6 đêm 27/10–1/11, issue không nói "lặp lại")
 const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });
@@ -43,6 +59,14 @@ ok(classify('judge unavailable: HTTP Error 500\nAssertionError: hook length').ki
 const ex = excerpt('2026-10-23T05:34:30.8Z Error: x ghp_' + 'a'.repeat(36) + ' mail me@x.com\nok line\n```bad');
 ok(!/ghp_a/.test(ex) && !/me@x\.com/.test(ex) && !/^2026-/.test(ex), 'trích log: che token/email, bỏ dấu giờ');
 ok(issueBody({ name: 'i18n', file: 'i18n.yml', run: { html_url: 'u', run_attempt: 1, event: 'schedule' }, cls: classify(LOG.i18n), log: LOG.i18n }).includes('<!-- ci-triage:wf=i18n.yml -->'), 'issue có dấu workflow');
+// Hồi quy 4/11: bản tin chỉ chạy đúng giờ 00 UTC mà lịch GitHub hay rớt giờ đó → cờ ci kẹt 8 ngày; lượt đỏ của PR tính vào "workflow đỏ" → cờ không bao giờ xanh.
+{ const at = h => new Date(Date.UTC(2026, 10, 4, h, 30));
+  const fired = [0, 1, 2.5, 4, 5.5, 7, 8.5, 10, 11.5, 13, 14.5, 16, 17.5, 19, 20.5, 22, 23.5].filter(h => digestDue(at(Math.floor(h))));
+  ok(fired.length >= 4, 'lượt quét 1,5 giờ/lần: bản tin chạy ≥ 4 lần/ngày, không phụ thuộc đúng giờ 00');
+  ok(digestDue(at(3), true) && !digestDue(at(3)), 'không tới giờ thì bỏ qua, force vẫn chạy');
+  ok(morning(at(2)) && !morning(at(13)) && morning(at(13), true), 'thư + chạy lại hạn mức chỉ buổi sáng UTC');
+  const got = mainRuns([{ id: 1, head_branch: 'main', event: 'push' }, { id: 2, head_branch: 'main', event: 'schedule' }, { id: 3, head_branch: 'fix/x', event: 'push' }, { id: 4, head_branch: 'main', event: 'pull_request' }, { id: 5, head_branch: 'main', event: 'push', name: 'ci-triage' }]).map(r => r.id);
+  ok(got.join() === '1,2', 'cờ ci chỉ đếm lượt đỏ của main'); }
 const d = digest([{ name: 'a' }, { name: 'a' }, { name: 'b' }], { a: 'failure', b: 'success' }, [{ number: 7, title: 'CI đỏ: a', html_url: 'h' }]);
 ok(d.red === 1 && d.failed === 2 && /#7/.test(d.text) && /Only notify for failed workflows/.test(d.text), 'bản tin ngày');
 
