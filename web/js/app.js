@@ -669,8 +669,8 @@
       mine.then(local => { if (my !== seq) return; items = [...local, ...items.filter(i => !i.local && !local.some(l => l.word === i.word) && i.word.startsWith(q))].slice(0, 8); render(); }); // kết quả cũ về sau không đè
       timer = setTimeout(async () => {
         try {
-          const r = await fetch(`https://api.datamuse.com/sug?s=${encodeURIComponent(q)}&max=8`).then(r => r.json());
-          if (my !== seq) return;
+          const r = await Dict.dm(`sug?s=${encodeURIComponent(q)}&max=8`);
+          if (!r || my !== seq) return;
           await mine; if (my !== seq) return;
           const extra = r.map(x => x.word).filter(w => /^[a-z][a-z' -]*$/.test(w) && !items.some(i => i.word === w)).slice(0, 8 - items.length).map(w => ({ word: w, vi: INDEX[w] ? App.meanOf(INDEX[w]) : '' }));
           items = [...items, ...extra]; render();
@@ -1242,7 +1242,7 @@
         <div class="card"><h3>${t('Lượt ôn 14 ngày qua')}</h3>
           <div class="bars" tabindex="0">${past.map(x => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / pmax * 100) : 3}px"></i><small>${x.d.getDate()}</small></div>`).join('')}</div></div>
         <div class="card"><h3>${t('Dự báo thẻ đến hạn')}</h3>
-          <div class="bars" tabindex="0">${fc.map((x, i) => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / fmax * 100) : 3}px;background:linear-gradient(180deg,#2dd4bf,var(--accent))"></i><small>${i === 0 ? t('Nay') : dn[x.d.getDay()]}</small></div>`).join('')}</div></div>
+          <div class="bars dense" tabindex="0">${fc.map((x, i) => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / fmax * 100) : 3}px;background:linear-gradient(180deg,#2dd4bf,var(--accent))"></i><small>${i === 0 ? t('Nay') : dn[x.d.getDay()]}</small></div>`).join('')}</div></div>
       </div>
 
       <div class="card" style="margin-top:1rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap">
