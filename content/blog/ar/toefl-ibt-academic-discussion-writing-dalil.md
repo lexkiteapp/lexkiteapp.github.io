@@ -4,7 +4,7 @@ title: "TOEFL iBT Academic Discussion Writing Dalil: درجة 5/5"
 description: "Toefl ibt academic discussion writing dalil: دليل كتابة المناقشة الأكاديمية الجديدة في التوفل، استراتيجية 10 دقائق، نماذج 5/5 ومعايير التقييم."
 keyword: "toefl ibt academic discussion writing dalil"
 lang: ar
-translationKey: toefl-ibt-academic-discussion-writing-guide
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, academic-discussion]
 cover: toefl

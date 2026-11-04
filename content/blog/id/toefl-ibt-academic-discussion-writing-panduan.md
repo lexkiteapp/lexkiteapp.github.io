@@ -4,7 +4,7 @@ title: "Panduan TOEFL iBT Academic Discussion Writing: Trik Skor 5.0"
 description: "Panduan TOEFL iBT academic discussion writing format baru. Kuasai trik 10 menit, formula 4 kalimat, kriteria skor 5.0, dan contoh jawaban bernilai penuh."
 keyword: "toefl ibt academic discussion writing"
 lang: id
-translationKey: toefl-academic-discussion-writing
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, luyen-thi]
 cover: toefl

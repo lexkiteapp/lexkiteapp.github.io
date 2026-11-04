@@ -3,7 +3,7 @@ title: "新版托福写作学术讨论高分策略：10分钟破题立意与满�
 description: "新版托福写作学术讨论满分应试指南：深度解析Writing for an Academic Discussion评分核心准则，传授10分钟高效审题、快速提炼独特论点与展开严密学术论证的黄金模板，告别字数不足与中式句式，助你冲刺托福写作高分。"
 slug: tuo-fu-xie-zuo-academic-discussion
 lang: zh
-translationKey: tuo-fu-xie-zuo-academic-discussion
+translationKey: toefl-ibt-academic-discussion-writing
 category: ielts
 tags: [toefl, xie-zuo, academic-discussion]
 keyword: "托福写作学术讨论"

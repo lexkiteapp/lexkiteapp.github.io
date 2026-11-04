@@ -4,7 +4,7 @@ title: "TOEFL iBT Academic Discussion Writing Rukovodstvo"
 description: "TOEFL iBT academic discussion writing rukovodstvo: стратегии ответа за 10 минут, шаблоны аргументации, структура эссе на 100+ слов и пример на 5/5."
 keyword: "toefl ibt academic discussion writing rukovodstvo"
 lang: ru
-translationKey: luyen-thi-toefl-ibt-writing-academic-discussion-theknik
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, rukovodstvo]
 cover: toefl

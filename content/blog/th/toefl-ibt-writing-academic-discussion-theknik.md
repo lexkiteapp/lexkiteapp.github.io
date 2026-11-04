@@ -4,7 +4,7 @@ title: "TOEFL iBT Writing Academic Discussion: เทคนิค 10 นาท�
 description: "คู่มือ toefl ibt writing academic discussion รูปแบบใหม่ 10 นาที พร้อมเทมเพลต 4 ขั้นตอน วิธีตอบโต้ความคิดเห็นเพื่อนในคลาส และตัวอย่างข้อสอบคะแนนเต็ม 5.0"
 keyword: "toefl ibt writing academic discussion"
 lang: th
-translationKey: toefl-academic-discussion-writing
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, academic]
 cover: toefl

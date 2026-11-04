@@ -3,7 +3,7 @@ title: "TOEFL iBT Academic Discussion Writing: Strategie & Muster"
 description: "Meistere die toefl ibt academic discussion writing Task in 10 Minuten: Vorlagen, Satzstrukturen und Tipps für die Höchstpunktzahl von 5.0."
 slug: toefl-ibt-writing-academic-discussion
 lang: de
-translationKey: toefl-ibt-writing-academic-discussion
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, academic-discussion]
 keyword: "toefl ibt academic discussion writing"

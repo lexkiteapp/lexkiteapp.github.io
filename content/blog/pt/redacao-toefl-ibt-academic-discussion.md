@@ -3,7 +3,7 @@ title: "Redação TOEFL iBT Academic Discussion: Estrutura e Modelos"
 description: "Domine a redação toefl ibt academic discussion com templates práticos, conectivos avançados e estratégias para escrever em 10 minutos."
 slug: redacao-toefl-ibt-academic-discussion
 lang: pt
-translationKey: redacao-toefl-ibt-academic-discussion
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, academic-discussion, redacao]
 keyword: "redação toefl ibt academic discussion"

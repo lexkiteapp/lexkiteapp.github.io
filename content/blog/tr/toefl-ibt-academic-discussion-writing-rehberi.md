@@ -4,7 +4,7 @@ title: "TOEFL iBT Academic Discussion Writing Rehberi"
 description: "TOEFL iBT academic discussion writing rehberi ile 10 dakikada 100+ kelimelik yüksek puanlı kompozisyon yazma stratejileri, şablonlar ve örnek modeller."
 keyword: "toefl ibt academic discussion writing rehberi"
 lang: tr
-translationKey: luyen-thi-toefl-ibt-writing-academic-discussion-theknik
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, rehber]
 cover: toefl

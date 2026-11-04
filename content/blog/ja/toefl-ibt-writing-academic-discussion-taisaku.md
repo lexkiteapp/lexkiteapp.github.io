@@ -4,7 +4,7 @@ title: "TOEFL ライティング Academic Discussion：10分で満点を狙う�
 description: "TOEFL ライティング Academic Discussionの新形式を徹底解説。10分間の時間配分、100語以上で論理的な意見を展開する4文構成テンプレート、教授や他学生の意見への言及法、Band 5満点模範解答を紹介します。"
 keyword: "toefl ライティング academic discussion"
 lang: ja
-translationKey: toefl-academic-discussion-writing
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, luyen-thi]
 cover: toefl

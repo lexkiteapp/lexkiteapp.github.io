@@ -4,7 +4,7 @@ title: "TOEFL Writing Academic Discussion Guide in Hindi: 5/5"
 description: "Toefl writing academic discussion guide in hindi: नए प्रारूप में 10 मिनट में 100+ शब्द लिखने की तकनीक, 5/5 स्कोरिंग रूब्रिक और मॉडल उत्तर।"
 keyword: "toefl writing academic discussion guide in hindi"
 lang: hi
-translationKey: toefl-writing-academic-discussion-guide
+translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, academic-discussion]
 cover: toefl
