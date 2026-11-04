@@ -31,7 +31,8 @@ for (const who of IDS) {
     const c = R.people[who].clips[p]; if (!c) { errs.push(`${who}: thiếu tư thế ${p}`); continue; }
     const pend = C.clip(who, p) !== `teach/${who}/${p}.mp4`;
     if (!!c.pending !== pend) errs.push(`${who}/${p}: pending trong JSON (${!!c.pending}) ≠ Chars (${pend})`);
-    if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
+    if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if ((R.hd || []).includes(p)) want.add(`${who}/${p}-hd.mp4`); }
+    if (C.clip(who, p, { hd: true }).endsWith('-hd.mp4') !== (R.hd || []).includes(p)) errs.push(`${who}/${p}: Chars.clip hd (characters.js) ≠ characters.json "hd" – sửa cả hai cùng lúc`);
   }
 }
 // vòng nghỉ 1–3 s (scripts/teach/idle.py): VP9 alpha + H.264 xếp chồng + poster mắt mở – định dạng/cỡ/mắt kiểm ở idle.py --check (characters-shots.yml)

@@ -25,11 +25,15 @@
     const lp = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(lp); gl.vertexAttribPointer(lp, 2, gl.FLOAT, false, 0, 0);
     gl.bindTexture(gl.TEXTURE_2D, gl.createTexture()); for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.LINEAR);
     for (const k of [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T]) gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE);
-    let raf = 0, t = 0;
+    let raf = 0, t = 0, ft = -1;
+    // chỉ tải texture khi video SANG KHUNG MỚI (WebKit chép video chậm → tải thừa mỗi rAF làm tay Ama giật, live 3/11). currentTime chạy liên tục giữa 2 khung nên KHÔNG dùng so sánh được (WebKit đo: 179 lần tải / 56 khung):
+    // requestVideoFrameCallback (Safari 15.4+, Chrome) báo đúng khung đã hiện; máy cũ → rAF + làm tròn về chỉ số khung 24 fps.
+    const rv = !!v.requestVideoFrameCallback, next = f => rv ? v.requestVideoFrameCallback(f) : requestAnimationFrame(f);
     const draw = () => { raf = 0; if (!el.isConnected) { v.pause(); v.removeAttribute('src'); return; }
-      if (v.readyState >= 2) { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); el.classList.add('live'); }
-      if (!v.paused) raf = requestAnimationFrame(draw); };
-    const go = () => { if (seen && v.paused && el.isConnected) v.play().then(() => { if (!raf) raf = requestAnimationFrame(draw); }).catch(() => {}); };
+      const k = rv ? 0 : Math.floor(v.currentTime * 24);
+      if (v.readyState >= 2 && (rv || k !== ft)) { ft = k; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); el.classList.add('live'); }
+      if (!v.paused) raf = next(draw); };
+    const go = () => { if (seen && v.paused && el.isConnected) ft = -1, v.play().then(() => { if (!raf) raf = next(draw); }).catch(() => {}); };
     v.onloadeddata = () => { cv.width = v.videoWidth; cv.height = v.videoHeight / 2; cv.className = 'tslot-img'; cv.setAttribute('aria-hidden', 'true'); fig.appendChild(cv); go(); };
     v.onended = () => { if (el.dataset.loop) { clearTimeout(t); t = setTimeout(() => { v.currentTime = 0; go(); }, +el.dataset.loop); } }; // cử chỉ lặp có nghỉ (tay xuôi đầu/cuối clip → nối liền)
     v.onerror = () => { fig.querySelector('canvas') && cv.remove(); el.classList.remove('live'); }; // lỗi clip → giữ ảnh tĩnh

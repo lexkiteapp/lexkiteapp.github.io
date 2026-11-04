@@ -1,5 +1,6 @@
-// 🧍 Cổng teacher-native (runtime): mở app thật (Playwright, máy chủ tĩnh cho web/) ở 5 màn × 2 theme, 390x844, kiểm mọi ảnh/video giáo viên (teach/…):
-//  · trong .tslot: có bệ .tslot-ledge che đáy khung · .tslot không đè chữ/nút khác · không bị tổ tiên overflow xén đỉnh, không tràn ngang 0..390 · cao ∈ {72,112,152,208}±1
+// 🧍 Cổng teacher-native (runtime): mở app thật (Playwright, máy chủ tĩnh cho web/) ở 6 màn (lộ trình #/home, learn, streak, lesson, call, goal) × 2 theme × 390 + 360 px (cao 844), kiểm mọi ảnh/video giáo viên (teach/…):
+//  · trong .tslot: tiếp đất đúng chế độ – 'fade': khung .tslot-fig có mặt nạ mờ trong suốt hẳn ở đáy + bóng tiếp đất elip ngay dưới; 'card': dải đáy 0,16 khung
+//    bị một THẺ ĐỤC (khác màu nền trang) đè lên trên; bệ rời .tslot-ledge / bệ lơ lửng không thẻ phía sau = đỏ (chủ 3/11) · .tslot không đè chữ/nút khác · không bị tổ tiên overflow xén đỉnh, không tràn ngang 0..390 · cao ∈ {72,112,152,208}±1
 //  · đặt trần (ngoài .tslot): cảnh báo, đỏ nếu lộ "vệt cắt" ở đáy (>25 % cột đáy khác màu nền ngay dưới) – danh sách chỗ cũ: teacher-native.known.json (tĩnh, kiểm ở teacher-native.mjs)
 //  · 0 phần tử giáo viên trên toàn bộ màn = đỏ (cổng không im lặng). Màn không mở được = skip + lý do (không đỏ).
 // Dùng: node scripts/test/teacher-native-shots.mjs [web=web] [out=out/teacher-native]   (CI: .github/workflows/teacher-native.yml)
@@ -7,8 +8,8 @@ import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
 const [WEB = 'web', OUT = 'out/teacher-native'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp4': 'video/mp4', '.webm': 'video/webm', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const ROUTES = [['learn', '?ux1=1#/learn'], ['streak', '?ux1=1#/streak'], ['lesson', '?ux1=1#/lesson/go?demo=1'], ['call', '?ux1=1#/call'], ['goal', '?ux1=1#/goal']];
-const THEMES = ['light', 'dark'], SIZES = [72, 112, 152, 208];
+const ROUTES = [['home', '?ux1=1#/home'], ['learn', '?ux1=1#/learn'], ['streak', '?ux1=1#/streak'], ['lesson', '?ux1=1#/lesson/go?demo=1'], ['call', '?ux1=1#/call'], ['goal', '?ux1=1#/goal']];
+const THEMES = ['light', 'dark'], WIDTHS = [390, 360], SIZES = [72, 112, 152, 208];
 let RT_OK = []; try { RT_OK = JSON.parse(fs.readFileSync('scripts/test/teacher-native.known.json', 'utf8')).runtime || []; } catch (e) { /* trống */ }
 let KNOWN = {}; try { KNOWN = JSON.parse(fs.readFileSync('scripts/test/teacher-native.known.json', 'utf8')).raw || {}; } catch (e) { /* không có → mọi chỗ trần chỉ cảnh báo */ }
 const browser = await chromium.launch();
@@ -27,11 +28,25 @@ function measure(SZ) {
     if (!shown(m)) continue;
     const slot = m.closest('.tslot'), it = { src: (m.getAttribute('src') || '').split('/').slice(-3).join('/'), errs: [], slot: !!slot };
     if (slot) {
-      const sr = R(slot), led = slot.querySelector('.tslot-ledge'), mr = R(m);
-      if (!led) it.errs.push('thiếu .tslot-ledge');
-      else { const lr = R(led), fg = slot.querySelector('.tslot-fig'), vb = Math.min(mr.b, fg ? R(fg).b : mr.b); // đáy NHÌN THẤY (khung .tslot-fig cắt phần mờ dưới bệ)
-        if (!(lr.w > 0 && lr.h > 0) || lr.b < vb - 1.5 || lr.t > vb - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(vb)})`); }
-      const fr = { l: sr.l + sr.w * 0.15, r: sr.r - sr.w * 0.15, t: sr.t + sr.h * 0.07, b: sr.b }; fr.w = fr.r - fr.l; fr.h = fr.b - fr.t; // vùng người + bệ (bỏ khoảng trong suốt trên đầu/hai bên)
+      slot.scrollIntoView({ block: 'center' }); // mọi số đo cùng 1 vị trí cuộn, slot trong màn (elementFromPoint của 'card' chỉ thấy phần trong màn)
+      const sr = R(slot), gr = slot.dataset.ground, fg = slot.querySelector('.tslot-fig'), H = sr.h; it.ground = gr;
+      if (slot.querySelector('.tslot-ledge')) it.errs.push('còn bệ rời .tslot-ledge (khối lơ lửng)');
+      if (gr === 'fade') {
+        const cs = fg && getComputedStyle(fg), mk = cs ? (cs.webkitMaskImage && cs.webkitMaskImage !== 'none' ? cs.webkitMaskImage : cs.maskImage) : 'none';
+        if (!mk || mk === 'none' || !/linear-gradient/.test(mk)) it.errs.push("'fade' nhưng khung không có mặt nạ mờ (đường cắt cứng ở hông)");
+        else if (!/^linear-gradient\(to top, (transparent|rgba\(0, 0, 0, 0\))/.test(mk)) it.errs.push(`mặt nạ không trong suốt ở đáy: ${mk.slice(0, 60)}`);
+        const sh = slot.querySelector('.tslot-shadow'), shr = sh && R(sh);
+        if (!sh || !/radial-gradient/.test(getComputedStyle(sh).backgroundImage) || shr.w < H * 0.4 || shr.h > H * 0.2 || Math.abs(shr.t + shr.h / 2 - sr.b) > H * 0.06 || shr.l > sr.l + sr.w / 2 || shr.r < sr.l + sr.w / 2) it.errs.push('thiếu bóng tiếp đất elip ngay dưới chân (lơ lửng)');
+      } else if (gr === 'card') { // thẻ đục phải nằm TRÊN dải đáy (đo theo hình: bật pointer-events để elementFromPoint thấy slot nếu nó trên cùng)
+        const pe = document.createElement('style'); pe.textContent = '.tslot,.tslot *{pointer-events:auto!important}'; document.head.appendChild(pe);
+        let miss = 0, who = '';
+        for (const fy of [0.03, 0.08, 0.13]) for (const fx of [0.3, 0.5, 0.7]) { const x = sr.l + sr.w * fx, y = sr.b - H * fy; if (y < 0 || y >= innerHeight) { miss++; continue; }
+          const h = document.elementFromPoint(x, y); let ok = false; for (let q = h, i = 0; q && i < 5 && !slot.contains(q); q = q.parentElement, i++) { const c = (getComputedStyle(q).backgroundColor.match(/[\d.]+/g) || []).map(Number); if (c.length >= 3 && (c[3] == null ? 1 : c[3]) >= 0.95) { ok = true; break; } }
+          if (!ok) { miss++; who = h ? (slot.contains(h) ? 'chính giáo viên' : lab(h)) : 'ngoài màn'; } }
+        pe.remove();
+        if (miss) it.errs.push(`'card' nhưng dải đáy ${miss}/9 điểm không bị thẻ đục che (trên cùng: ${who}) → hông/bệ lơ lửng – cho thẻ đè 0,16 khung (z cao hơn) hoặc dùng 'fade'`);
+      } else it.errs.push(`data-ground '${gr}' lạ (chỉ fade/card)`);
+      const fr = { l: sr.l + sr.w * 0.15, r: sr.r - sr.w * 0.15, t: sr.t + sr.h * 0.07, b: gr === 'card' ? sr.b - H * 0.16 : sr.b }; /* 'card': dải đáy cố ý nằm sau thẻ */ fr.w = fr.r - fr.l; fr.h = fr.b - fr.t; // vùng người + bệ (bỏ khoảng trong suốt trên đầu/hai bên)
       for (const e of all) { // đè chữ / nút khác
         if (e.contains(slot) || slot.contains(e) || e === document.body) continue;
         const leafText = e.children.length === 0 && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
@@ -58,8 +73,8 @@ async function bareCut(page, idx) {
   const png = await page.screenshot({ clip: { x: info.x, y: info.y, width: info.w, height: 4 }, type: 'png' });
   return page.evaluate(async ([b64, w]) => { const im = new Image(); im.src = 'data:image/png;base64,' + b64; await im.decode(); const c = document.createElement('canvas'); c.width = im.width; c.height = im.height; const x = c.getContext('2d'); x.drawImage(im, 0, 0); const sc = im.width / w, d = x.getImageData(0, 0, im.width, im.height).data, W = im.width; let bad = 0, n = 0; for (let col = 0; col < W; col++) { const below = (3 * sc | 0) * W + col; if (3 * sc >= im.height) continue; const bi = ((im.height - 1) * W + col) * 4; for (let r = 0; r < im.height - 1 - Math.floor(sc) + 1 && r < 3 * sc; r++) { const p = (r * W + col) * 4; n++; if (Math.abs(d[p] - d[bi]) + Math.abs(d[p + 1] - d[bi + 1]) + Math.abs(d[p + 2] - d[bi + 2]) > 36) bad++; } } return n ? bad / n : 0; }, [png.toString('base64'), info.w]);
 }
-async function run(theme) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, colorScheme: theme, serviceWorkers: 'block' });
+async function run(theme, vw) {
+  const ctx = await browser.newContext({ viewport: { width: vw, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, colorScheme: theme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(WEB, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
   const page = await ctx.newPage(); let cur = '';
   page.on('pageerror', e => jsErrs.push(`${cur}-${theme}: ${e.message}`));
@@ -71,7 +86,7 @@ async function run(theme) {
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
   } catch (e) { warns.push(`setup ${theme}: ${e.message.split('\n')[0]}`); }
   for (const [name, q] of ROUTES) {
-    cur = name; const row = { name, theme, n: 0, errs: [], note: '' };
+    cur = name; const row = { name, theme: vw === 390 ? theme : `${theme} ${vw}`, n: 0, errs: [], note: '' }, tag = `${name}-${theme}${vw === 390 ? '' : '-' + vw}`;
     try {
       await page.goto(url(q), { waitUntil: 'load', timeout: 20000 });
       if (name === 'lesson') await page.waitForTimeout(500);
@@ -83,17 +98,21 @@ async function run(theme) {
         if (it.slot) for (const e of it.errs) row.errs.push(`${it.src}: ${e}`);
         else { const frac = await bareCut(page, bi++).catch(() => null); const msg = `${it.src}: đặt trần` + (frac == null ? '' : ` (đáy khác nền ${Math.round(frac * 100)}%)`); warns.push(`${name}/${theme} ${msg}`); if (frac != null && frac > 0.25) (RT_OK.includes(name) ? warns : row.errs).push(`${msg} → vệt cắt${RT_OK.includes(name) ? ' (màn chờ chuyển – known.json runtime)' : ''}`); }
       }
-      await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: path.join(OUT, `${name}-${theme}.jpg`), type: 'jpeg', quality: 70, scale: 'css' }).catch(() => {});
+      // ảnh cận từng chỗ giáo viên (trước/sau cho PR: hông + tiếp đất nhìn rõ) rồi ảnh cả màn
+      const nSlot = await page.evaluate(() => document.querySelectorAll('.tslot').length);
+      for (let i = 0; i < Math.min(nSlot, 4); i++) { const b = await page.evaluate(k => { const e = document.querySelectorAll('.tslot')[k]; e.scrollIntoView({ block: 'center' }); const r = e.getBoundingClientRect(); return r.width > 2 ? { x: Math.max(0, r.left - 70), y: Math.max(0, r.top - 30), r: Math.min(innerWidth, r.right + 70), b: Math.min(innerHeight, r.bottom + 40) } : null; }, i);
+        if (b) await page.screenshot({ path: path.join(OUT, `${tag}-slot${i}.png`), clip: { x: b.x, y: b.y, width: b.r - b.x, height: b.b - b.y }, scale: 'css' }).catch(() => {}); }
+      await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: path.join(OUT, `${tag}.jpg`), type: 'jpeg', quality: 70, scale: 'css' }).catch(() => {});
       if (!row.n) row.note = 'không có giáo viên trên màn';
     } catch (e) { row.skip = e.message.split('\n')[0].slice(0, 120); }
     total += row.n; rows.push(row);
   }
   await ctx.close();
 }
-for (const t of THEMES) await run(t);
+for (const vw of WIDTHS) for (const t of THEMES) await run(t, vw);
 await browser.close();
 const red = rows.flatMap(r => r.errs.map(e => `${r.name}/${r.theme}: ${e}`));
-if (!total) red.push('0 phần tử giáo viên (img/video teach/) trên toàn bộ 5 màn – cổng không được im lặng');
+if (!total) red.push('0 phần tử giáo viên (img/video teach/) trên toàn bộ các màn – cổng không được im lặng');
 const md = ['# teacher-native (runtime)', '', '| Màn | Theme | GV | Lỗi |', '|---|---|---|---|'];
 for (const r of rows) md.push(`| ${r.name} | ${r.theme} | ${r.skip ? 'skip' : r.n} | ${r.skip ? 'skip: ' + r.skip : r.errs.length ? r.errs.join('<br>') : (r.note ? 'ok (' + r.note + ')' : 'ok')} |`);
 md.push('', `Tổng phần tử giáo viên: ${total} · đỏ: ${red.length} · cảnh báo đặt trần: ${warns.length}`, '', '## Cảnh báo (đặt trần – danh sách cho phép theo nguồn ở teacher-native.known.json)', ...(warns.length ? [...new Set(warns)].map(w => '- ' + w) : ['- (không)']), `- known.json: ${Object.keys(KNOWN).length} file nguồn`, '', '## Lỗi JS (thông tin)', ...(jsErrs.length ? jsErrs.slice(0, 20).map(e => '- ' + e) : ['- (không)']));

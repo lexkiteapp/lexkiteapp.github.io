@@ -1,4 +1,12 @@
 {
+  "hd": [
+    "talk",
+    "listen",
+    "point",
+    "cheer",
+    "encourage"
+  ],
+  "_hd": "Tư thế có thêm <pose>-hd.mp4 (2×): Call + chỗ giáo viên Chars.slot cỡ l/xl khi devicePixelRatio ≥ 2. Đổi danh sách = sửa regex Chars.clip (cổng characters-gate so khớp) rồi chạy teach-build.",
   "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
   "version": 2,
   "frame": {
@@ -88,7 +96,10 @@
         },
         "point": {
           "src": "ga11_point",
-          "still_frame": 55
+          "note": "chỉ dùng khung 0–53: từ khung 55 Kling vẽ thêm tay thứ hai đè tay áo, lỗ xanh 64–79, tay áo rách 80–92 (đứng yên, nhoè không cứu được)",
+          "to": 53,
+          "still": 53,
+          "still_frame": 53
         },
         "empathy": {
           "src": "ga11_empathy",
@@ -183,6 +194,10 @@
       "sha256": "c19499dcc88fc705901f87b67c116c4e2350dbd79cf8bccd28d9ded5a4fe7c16",
       "bytes": 6928
     },
+    "ama/cheer-hd.mp4": {
+      "sha256": "3d4d4223aa97ca4765a1611e25528143178b4a99d2fa8410261b1411d802f625",
+      "bytes": 479191
+    },
     "ama/cheer.mp4": {
       "sha256": "bf15b71e9c813bbaf34a46ad147ad28ec0ae799bb0eb3f888882f97094fea7ab",
       "bytes": 210311
@@ -194,6 +209,10 @@
     "ama/empathy.mp4": {
       "sha256": "ed0b8fbbe53c547c2104ff6bc0d650d804244287510b5896a5ecb12b58953c42",
       "bytes": 100653
+    },
+    "ama/encourage-hd.mp4": {
+      "sha256": "07b14fdba9bb992915791770c38475de17eb39862dc2365e576a149285a5d5d2",
+      "bytes": 358216
     },
     "ama/encourage.mp4": {
       "sha256": "f5629b49198e0565960ca33ec715eb253244e79c852481ab6bd13baa55db64da",
@@ -215,6 +234,22 @@
       "sha256": "2bf1d4a0b2658642c9131016eae288aecd1293ff1e0d95a845625eb5d3faa616",
       "bytes": 13892
     },
+    "ama/idle-poster.webp": {
+      "sha256": "f9be201160a88559771db128d57eac5ecfd0f8343467ac2fd12a679c8406b385",
+      "bytes": 15562
+    },
+    "ama/idle.mp4": {
+      "sha256": "e36987d389726a327f31339e01450decf5bd62ea0463973d39daef517b1ee9a7",
+      "bytes": 40082
+    },
+    "ama/idle.webm": {
+      "sha256": "b1f8cc0c97c14e35d62dbf74c01578e8ab260c23d1beaaebf9e8df04f81cf5a2",
+      "bytes": 95072
+    },
+    "ama/idle.webp": {
+      "sha256": "7e18dce9c2c90ae469e7c88c5b0de8cc6b3950a23a65f8d8b12c0afa96e9fe20",
+      "bytes": 465990
+    },
     "ama/laugh.mp4": {
       "sha256": "ca24680ac5e18c55da62b7b02adb53bf2328bc36a1a82ceee60bc956bde903bf",
       "bytes": 127583
@@ -226,6 +261,10 @@
     "ama/listen.mp4": {
       "sha256": "3364fb5bc8aca87dd1f27b11383c15a7d6df159c903ff6be3fab7845fed421d5",
       "bytes": 107766
+    },
+    "ama/point-hd.mp4": {
+      "sha256": "5f9fc01945c8c8c8104caeca1fb92d092d1ea7dab4a5a33cd7cf176960cd62af",
+      "bytes": 455061
     },
     "ama/point.mp4": {
       "sha256": "518c6eefee30967df7631861112ede73411400e05005c4215a4c7d59f6127cdc",
@@ -319,6 +358,10 @@
       "sha256": "406497abae397c473f0304c8ec8be19e41315c4b31bd53ed6bfbb6cc26dd204b",
       "bytes": 6200
     },
+    "carlos/cheer-hd.mp4": {
+      "sha256": "716f1e3e937def7fa8ebdfbf647d19dfe16a8d8e4474694a8685fbff28259ca0",
+      "bytes": 638443
+    },
     "carlos/cheer.mp4": {
       "sha256": "b09ba189f73535d4d262d07b0063502478b026fd8608a64e955c7c5fbfa34c8c",
       "bytes": 240912
@@ -330,6 +373,10 @@
     "carlos/empathy.mp4": {
       "sha256": "53498d8abd67fe4a7979947c267d5744b7c3c25c31064732831a187237108f73",
       "bytes": 123790
+    },
+    "carlos/encourage-hd.mp4": {
+      "sha256": "55b0be8ed1ba781d3659f5a9769c5f3609bd788313de6c9e70e3b93bfb685525",
+      "bytes": 344175
     },
     "carlos/encourage.mp4": {
       "sha256": "70b408a5c91527d59ce94a837eb49945708b55a859679e4759f28c33a849b4b1",
@@ -351,6 +398,22 @@
       "sha256": "99237c27562afe2546926075f73eb8c067dc6ad01f541721a4441f8f716da6a4",
       "bytes": 18036
     },
+    "carlos/idle-poster.webp": {
+      "sha256": "8b7c7cc4de240b12c9c6221d30b80549a326f0635b29c531f7e7d0b83e565a8b",
+      "bytes": 20172
+    },
+    "carlos/idle.mp4": {
+      "sha256": "02ee9db4af963f322d4d539b2052a460bbf792dc3f94b6ede3a1a714486ce143",
+      "bytes": 31627
+    },
+    "carlos/idle.webm": {
+      "sha256": "1691bd19f57f22f4078661957cd385c95bb337f13a4c0deed951fe4ff74bdb7a",
+      "bytes": 115306
+    },
+    "carlos/idle.webp": {
+      "sha256": "126a141f212798528cece12a060692caeb91253d77f6d0e9e9b8f7d53f3f86cd",
+      "bytes": 528392
+    },
     "carlos/laugh.mp4": {
       "sha256": "aee800b0f0fd2edb5289d61ed3642a96632ec64ec7e323b60f08c7ad2884358e",
       "bytes": 119649
@@ -362,6 +425,10 @@
     "carlos/listen.mp4": {
       "sha256": "df977f7634696a3c7d9e2d450066cba147a6b546e2b724855a8758d91fcf475d",
       "bytes": 49253
+    },
+    "carlos/point-hd.mp4": {
+      "sha256": "a669d61c9f3fa7f4ffa2c632eefeecfb5681b2e6ff8f0dcba5396bdd898aedb1",
+      "bytes": 418769
     },
     "carlos/point.mp4": {
       "sha256": "85950cbd2795aff750d391394a6252465a659156e34d6d55b9ead2af244d5f00",
@@ -446,43 +513,16 @@
     "carlos/wave.mp4": {
       "sha256": "9f806ac765f7234218a097fbbd86bf246205f31c93d6abefe89e9dd9b75c27e0",
       "bytes": 226045
-    },
-    "ama/idle.webm": {
-      "sha256": "b1f8cc0c97c14e35d62dbf74c01578e8ab260c23d1beaaebf9e8df04f81cf5a2",
-      "bytes": 95072
-    },
-    "ama/idle.webp": {
-      "sha256": "7e18dce9c2c90ae469e7c88c5b0de8cc6b3950a23a65f8d8b12c0afa96e9fe20",
-      "bytes": 465990
-    },
-    "ama/idle-poster.webp": {
-      "sha256": "f9be201160a88559771db128d57eac5ecfd0f8343467ac2fd12a679c8406b385",
-      "bytes": 15562
-    },
-    "carlos/idle.webm": {
-      "sha256": "1691bd19f57f22f4078661957cd385c95bb337f13a4c0deed951fe4ff74bdb7a",
-      "bytes": 115306
-    },
-    "carlos/idle.webp": {
-      "sha256": "126a141f212798528cece12a060692caeb91253d77f6d0e9e9b8f7d53f3f86cd",
-      "bytes": 528392
-    },
-    "carlos/idle-poster.webp": {
-      "sha256": "8b7c7cc4de240b12c9c6221d30b80549a326f0635b29c531f7e7d0b83e565a8b",
-      "bytes": 20172
-    },
-    "ama/idle.mp4": {
-      "sha256": "e36987d389726a327f31339e01450decf5bd62ea0463973d39daef517b1ee9a7",
-      "bytes": 40082
-    },
-    "carlos/idle.mp4": {
-      "sha256": "02ee9db4af963f322d4d539b2052a460bbf792dc3f94b6ede3a1a714486ce143",
-      "bytes": 31627
     }
   },
   "idle": {
     "_note": "Vòng nghỉ 1–3 s (Home/lộ trình, chủ 3/11) dựng bởi scripts/teach/idle.py từ clip tư thế đã có – 0 credit. out = meta do script ghi (đừng sửa tay). closed_ok = ảnh tĩnh được phép nhắm mắt có chủ đích: head-bare(-2x) = lớp NỀN mặt vẽ đã xóa mắt/mày/miệng (mắt do web/js/call/face.js vẽ lên, #293), không bao giờ hiện một mình.",
-    "closed_ok": ["ama/head-bare.webp","ama/head-bare-2x.webp","carlos/head-bare.webp","carlos/head-bare-2x.webp"],
+    "closed_ok": [
+      "ama/head-bare.webp",
+      "ama/head-bare-2x.webp",
+      "carlos/head-bare.webp",
+      "carlos/head-bare-2x.webp"
+    ],
     "people": {
       "ama": {
         "pose": "happy",
