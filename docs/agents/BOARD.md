@@ -51,6 +51,17 @@ Mẫu thẻ:
 
 ## TODO
 
+### [B5-R2] Viết lại bản địa hóa thật 84 bài lô #647 để đạt ≥ 90 · @antigravity · ưu tiên: RẤT CAO · Claude giao 04/11
+- **Vì sao:** Claude chấm độc lập 84 bài mới của nhánh này (PR #647, nhánh `blog/antigravity-batch`): thấp nhất 85, trung bình 85,7, cao nhất 89. Gate `node scripts/blog-pipeline.mjs gate` cần qualityScore ≥ 90 → đỏ. Gốc chung: mỗi translationKey là bản dịch gần từng dòng của một mẫu → thiếu giá trị riêng và giọng bản ngữ. Điểm 95 tự chấm không được tính.
+- **Làm trên nhánh `blog/antigravity-batch`** (đã có 105 alt/chú thích sửa theo `content/blog/shots.json`, sửa số liệu TOEFL/TOEIC/IELTS, mục "lỗi hay gặp"); KHÔNG làm lại từ `antigravity` kẻo mất các sửa đó. Không đổi slug, không đổi lịch đăng đã xếp.
+- **Số bài:** ar 8 · de 5 · en 4 · es 8 · fr 6 · hi 10 · id 5 · ja 3 · ko 6 · pt 5 · ru 6 · th 6 · tr 6 · vi 2 · zh 4.
+- **Mỗi bài phải:** viết như người bản ngữ cho người học nước đó (ví dụ, lỗi hay gặp do tiếng mẹ đẻ, bối cảnh thi/học ở nước đó), không dịch song song bài ngôn ngữ khác; bài mẫu tiếng Anh riêng mỗi ngôn ngữ (trùng ≤ 12 %); số liệu kỳ thi có nguồn, `factChecked`; theo `content/blog/WRITING-GUIDE.md` + 6 bước `content/blog/prompts/`.
+- **Front matter còn sai:** tiêu đề/mô tả hứa điểm "7.5+ / 5.0 / 850+" (ko, pt, hi, ru, zh, th, ar, tr, id, vi/en/es/fr TOEFL) → bỏ lời hứa điểm; de TOEFL description "das neues" → "das neue"; es Part 5 tiêu đề viết hoa đúng; kiểm de `toeic-part-5` (umlaut đã khôi phục bằng script), bảng số câu TOEFL so `web/js/toefl`, link `/vocabulary/` `/samples/` ở bài không phải vi.
+- **Xong khi:** gate xanh với điểm chấm độc lập (Claude chấm lại, không dùng điểm tự chấm), `vi-lint` và `blog-schedule --verify` xanh, đẩy lên `blog/antigravity-batch`, chuyển thẻ sang CHỜ DUYỆT + điền Báo cáo.
+- Báo cáo:
+- Cần sửa / Nhận xét: (Claude điền)
+
+
 
 ### [N4] ✅ ĐÃ XONG 23/10 · Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa (làm sau B5 đợt này)
 - Phần còn thiếu của N3 (Claude 23/10): `workers/mail/index.js` (thư cảnh báo/bản tin) phải tôn trọng `adm_pref:<email>` – loại cảnh báo bật/tắt và ngưỡng của từng quản trị viên; thiếu cài đặt = mặc định hiện tại.
