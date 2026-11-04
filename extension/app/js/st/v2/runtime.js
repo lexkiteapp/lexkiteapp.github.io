@@ -1,12 +1,7 @@
 /* 🎨 Stitch v2 – lớp chạy: gắn khung TỰ SINH (web/js/st/v2/<màn>.js, scripts/stitch-v2-convert.mjs) vào #view với dữ liệu thật.
  * 1 DOM cho cả sáng/tối (class lt:/dk:), CSS biên dịch sẵn css/st-v2-<màn>.css. Điện thoại: đầu trang + thanh tab Stitch (shell.js) thay topbar/#bnav;
-<<<<<<< HEAD
- * máy tính: giữ menu trái của app. Nút trong khung Stitch là <button data-href> → điều hướng ở đây (ủy quyền 1 lần cho #view).
- * @icons home menu_book target flag person */
-=======
  * máy tính: giữ menu trái của app. Nút trong khung Stitch là <button data-href> → điều hướng ở đây (ủy quyền 1 lần trên document: cột phải nằm ngoài #view).
- * @icons route style bolt emoji_events person */
->>>>>>> real/main
+ * @icons home menu_book target flag person */
 (function () {
   const S = self.ST2 || (self.ST2 = {});
   // 5 tab chính (khóa = Ux1 tabOf) – icon theo mẫu Stitch v2
