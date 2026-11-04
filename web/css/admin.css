@@ -681,8 +681,10 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .adm .adm-content label:has(> input:is([type=checkbox], [type=radio])), .ck-hit { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; min-width: 44px; cursor: pointer; }
   .adm .adm-content input[type=range] { min-height: 44px; }
   /* thẻ không rộng hơn khung: chữ dài (URL, mã) tự xuống dòng, liên kết dài cắt … */
-  .tbl.tbl-cards td, .tbl.tbl-cards td.nowrap, .tbl.tbl-cards .nowrap { white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
-  .tbl.tbl-cards td > * { min-width: 0; max-width: 100%; }
+  .tbl.tbl-cards td, .tbl.tbl-cards td.nowrap, .tbl.tbl-cards .nowrap { white-space: normal; overflow-wrap: break-word; max-width: 100%; }
+  .tbl.tbl-cards td { flex-wrap: wrap; } /* giá trị ngắn xuống dòng dưới nhãn thay vì bị bóp từng chữ */
+  .tbl.tbl-cards td > * { min-width: 0; max-width: 100%; overflow-wrap: break-word; }
+  .tbl.tbl-cards td > .chip, .tbl.tbl-cards td > .pill { flex: none; white-space: nowrap; }
   .tbl.tbl-cards td a:not(.btn) { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 44px; }
   .u-tbl.tbl-cards .u-badges { min-width: 0; }
   .u-pg select { min-height: 44px; }
