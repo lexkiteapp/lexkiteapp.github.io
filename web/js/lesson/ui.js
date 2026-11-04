@@ -44,7 +44,7 @@
 .tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 /* bán thân: đầu + vai + áo tươi (áo gánh độ nổi trên nền tối như Duolingo, tóc giữ đen); eo mờ dần (không khung, không ô) – docs/CHARACTERS.md */
 .lsn-ask .tch,.lsn-duo .tch{-webkit-mask-image:linear-gradient(#000 80%,transparent 100%);mask-image:linear-gradient(#000 80%,transparent 100%)}.lsn-ask .tch .tch-rig,.lsn-duo .tch .tch-rig{overflow:hidden}.lsn-ask .tch-rig img,.lsn-ask .tch-rig canvas,.lsn-duo .tch-rig img,.lsn-duo .tch-rig canvas{inset:auto;left:50%;top:-2%;width:172%;height:auto;object-fit:fill;transform:translateX(-50%)}
-.lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
+.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
 .lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:80vh;overflow-y:auto;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}
 .lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.sheet>*{width:100%}
 .lsn.st-end .lsn-ask,.lsn.st-end .lsn-meta{display:none}.lsn.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);animation:st-fade .18s ease both;pointer-events:none} /* tấm phản hồi: phần câu hỏi lùi sau lớp phủ (mẫu Stitch) */
@@ -382,9 +382,10 @@
     } else if (!L.v2) document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
-      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
-      bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); L.popLast = true; if (window.Sfx) Sfx.pop(); draw(); L.popLast = false; };
-      ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked) return; L.tiles = L.tiles.filter(i => i !== +b.dataset.a); draw(); };
+      // Xếp câu: component chung (word-arrange.js) – chạm thêm nhanh, kéo chèn vào giữa / đổi chỗ / kéo ra để gỡ, bàn phím, aria-live
+      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); if (chk) chk.disabled = !L.tiles.length; };
+      if (L.arrange) L.arrange.destroy();
+      L.arrange = WordArrange.bind({ ans, bank, get: () => L.tiles, set: o => { L.tiles = o; }, draw, locked: () => L.checked, word: i => it.tiles[i], t, onPlace: () => { if (window.Sfx) Sfx.pop(); } });
     }
     on('lsnMic', () => {
       const out = $('#lsnHeard'), mic = $('#lsnMic'); if (L.checked) return;

@@ -444,6 +444,8 @@ async function j7(lang) {
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
     for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200); // API add-on gắn sau sự kiện serviceworker
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
+    // SW vừa khởi động có thể chưa gắn chrome.storage (đỏ ngẫu nhiên "reading 'local'" ở 0 s): chờ sẵn sàng rồi mới dùng, hết hạn thì để lỗi thật lộ ra
+    for (let i = 0; i < 50 && !await sw.evaluate(() => !!(globalThis.chrome && chrome.storage && chrome.storage.local)).catch(() => false); i++) await sleep(100);
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
     await sw.evaluate(() => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), selectMode: 'icon', dblclickOn: true } })));
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
