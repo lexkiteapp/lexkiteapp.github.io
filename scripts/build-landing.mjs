@@ -15,7 +15,7 @@ import { minify } from 'terser';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { CSS, HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 import { render as stRender, tr as stTr, teacherIdle, IDLE_JS, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → brand/stitch/web/gen/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -236,11 +236,12 @@ export const fileOf = l => `web/${l}/index.html`;
 // Bảng nước → ngôn ngữ: GEO trong web/js/i18n.js là nguồn duy nhất; functions/api/_geo.gen.js sinh từ đó (Pages Function không nạp được script cổ điển), --check báo cũ.
 export const geoGen = () => { const m = /const GEO = (\{[^}]+\});/.exec(rd('web/js/i18n.js')); if (!m) throw new Error('build-landing: không thấy GEO trong web/js/i18n.js'); return `/* SINH TỰ ĐỘNG từ GEO trong web/js/i18n.js – sửa ở đó rồi chạy node scripts/build-landing.mjs */\nexport const GEO = ${m[1]};\n`; };
 export const renderRoot = () => themePage(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lexkite – choose your language</title><meta name="description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start.">
-<link rel="canonical" href="${SITE}/">
+<link rel="canonical" href="${SITE}/"><meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${SITE}/"><meta property="og:title" content="Lexkite – choose your language"><meta property="og:description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start."><meta property="og:image" content="${SITE}/og-default.png">
 ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n')}
 <link rel="alternate" hreflang="x-default" href="${SITE}/">
 <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><script id="lk-route">${ROUTE_JS}</script>
-<style>body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--text)}main{max-width:40rem;margin:0 auto;padding:2.5rem 1rem}h1{font-size:1.6rem;margin:0 0 1rem}ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.5rem}a{display:flex;align-items:center;min-height:44px;padding:0 .8rem;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none}</style></head>
+<style>${CSS}
+body{margin:0}main{max-width:40rem;margin:0 auto;padding:2.5rem 1rem}h1{font-size:1.6rem;margin:0 0 1rem}ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.5rem}a{display:flex;align-items:center;min-height:44px;padding:0 .8rem;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none}.tsw{font:inherit}</style></head>
 <body><main><h1>Lexkite – choose your language</h1><ul>${LANGS.map(l => `<li><a href="${landingHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}>${LANG_NAMES[l]}</a></li>`).join('')}</ul><p>© Lexkite</p></main>${themeSwitch('en')}${SITE_UI}</body></html>
 `);
 // Trang 404 (web/404.html, viết tay, song ngữ vi/en): chèn nút đổi ngôn ngữ góc trên (→ trang chủ từng ngôn ngữ) vào giữa <!--lsw--><!--/lsw-->.

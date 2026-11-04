@@ -31,11 +31,13 @@ export function fingerprint(html) {
   const hrefs = [...new Set([...body.matchAll(/<a\b[^>]*href="([^"#][^"]*)"/g)].map(m => m[1]).filter(h => h.startsWith('/')))].sort();
   return { title: (head.match(/<title>([\s\S]*?)<\/title>/) || ['', ''])[1], metas, links, ld, hrefs, words: words(visible(body)) };
 }
+// URL đã chuyển có chủ đích: link cũ chỉ được coi là còn khi trang có link tới đúng URL mới (4/11: trang chủ tiếng Việt / → /vi/, docs/SEO-ARCH.md §10)
+const MOVED = { '/': '/vi/' };
 export function diffPage(a, b) {
   const miss = (x, y) => x.filter(v => !y.includes(v)), out = [];
   if (a.title !== b.title) out.push(`title đổi: ${a.title} → ${b.title}`);
   for (const k of ['metas', 'links', 'ld']) { const m = miss(a[k], b[k]); if (m.length) out.push(`${k} đổi: ${m[0].slice(0, 160)}`); }
-  const h = miss(a.hrefs, b.hrefs); if (h.length) out.push(`mất ${h.length} link nội bộ: ${h.slice(0, 3).join(' ')}`);
+  const h = miss(a.hrefs, b.hrefs).filter(x => !(MOVED[x] && b.hrefs.includes(MOVED[x]))); if (h.length) out.push(`mất ${h.length} link nội bộ: ${h.slice(0, 3).join(' ')}`);
   const w = miss(a.words, b.words); if (w.length) out.push(`mất ${w.length} từ khỏi phần hiển thị: ${w.slice(0, 8).join(' ')}`);
   return out;
 }
