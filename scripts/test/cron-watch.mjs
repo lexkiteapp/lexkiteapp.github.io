@@ -45,7 +45,7 @@ assert.equal(await syncIssue(g.gh, r), 'opened'); assert.ok(g.calls.includes('PO
 g = mk('2026-11-02T04:44:00Z', [{ number: 9, body: MARK + '\nx' }]); r = await cronWatch(g.gh, { now: T, wfDir: wfd, root: dir, settleMs: 0 });
 assert.equal(r.bad.length, 0); assert.equal(await syncIssue(g.gh, r), 'closed'); assert.ok(g.calls.includes('PATCH /issues/9'));
 // sweep gọi cron-watch mỗi giờ (trước nhánh chỉ-giờ-00) + checkout đủ tệp cần đọc
-const tri = fs.readFileSync('scripts/ci/triage.mjs', 'utf8'); assert.ok(tri.indexOf("import('./cron-watch.mjs')") < tri.indexOf('getUTCHours() !== 0'));
+const tri = fs.readFileSync('scripts/ci/triage.mjs', 'utf8'); assert.ok(tri.indexOf("import('./cron-watch.mjs')") < tri.indexOf('!digestDue(now, force)'));
 assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.github\/workflows\\nweb\/free-tier-state\.json/);
 // hồi quy 02/11 (kịch bản thật): free-tier-guard '17 * * * *' lượt schedule cuối 11:22Z, ci-triage '*/10' cuối 13:12Z (đổi sang cron) → 20:46Z.
 { const at = h => Date.parse('2026-11-02T' + h + 'Z');

@@ -243,6 +243,14 @@
     if (!v && legacy && window.League && League.renderHomeCard) League.renderHomeCard(legacy);
   }
   const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
+  // Đầu màn Hôm nay trên điện thoại (thanh trên của app ẩn dưới 1024 px): dùng lại đúng ô tìm #gq, bảng #notifBtn, nút sáng/tối và bộ chọn kỳ thi – không viết chức năng thứ hai
+  const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
+    on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
+    on('notif', () => { const n = el('notifBtn'); if (n) n.click(); });
+    on('menu', () => { const X = (App.EXAMS || {})[exam()] || {}, box = UI.modal(`<div class="ux1-menu"><h2>${t('Tài khoản')}</h2><a class="btn" data-m="x" href="#/me">${t('Tài khoản')}</a><button type="button" class="btn ghost" data-m="exam">${t('Kỳ thi')}${X.short ? ': ' + esc(X.short) : ''}</button><button type="button" class="btn ghost" data-m="theme">${t('Đổi giao diện sáng/tối')}</button></div>`), m = document.querySelector('.ux1-menu');
+      if (!m) return; const go = f => { const c = UI.closeModal || window.closeModal; if (c) c(); f(); };
+      m.addEventListener('click', e => { const w = e.target.closest('[data-m]'); if (!w) return; const v = w.dataset.m; go(() => { if (v === 'exam' && App.examPicker) App.examPicker(); if (v === 'theme') { const b = el('themeBtn'); if (b) b.click(); } }); }); box; });
+    const src = el('notifBadge'), dots = root.querySelectorAll('[data-notif-badge]'); if (src && dots.length) { const sync = () => dots.forEach(d => { d.textContent = src.textContent; d.className = src.hidden ? 'hidden' : 'notif-dot'; }); sync(); const o = new MutationObserver(sync); o.observe(src, { attributes: true, childList: true, characterData: true, subtree: true }); if (App.onCleanup) App.onCleanup(() => o.disconnect()); } };
   const langBtn = root => root.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); }));
   async function home2(o) {
     const tok = location.hash, { demo, fresh, Q, P, at, n, u, nodes, dp, xpTo, nxMin } = o;
@@ -275,9 +283,14 @@
     }
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
+    sayIn(root, d.say, fresh);
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
+<<<<<<< HEAD
     if (k === 'today-desk') { const lb = document.getElementById('langBtn'); if (lb && lb.offsetParent) root.querySelectorAll('[data-act="lang"]').forEach(x => x.remove()); }
     prune(root); langBtn(root);
+=======
+    prune(root); langBtn(root); headBtns(root);
+>>>>>>> real/main
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
@@ -367,17 +380,24 @@
       + GROUPS().map(([h, big, items]) => `<h2 class="set-h ux1-gh">${esc(h)}</h2><div class="ux1-tiles${big ? ' big' : ''}">${items.map(([href, i, n, d]) => `<a class="ux1-tile" href="${href}"><span class="ux1-ti" aria-hidden="true">${ic(i)}</span><b>${esc(n)}</b>${big && d ? `<small>${esc(d)}</small>` : ''}</a>`).join('')}</div>`).join('');
   };
 
+  // Bong bóng Hôm nay: chữ hiện dần lúc Ama nói, xong về vòng nghỉ; mỗi câu chạy 1 lần mỗi lần tải trang.
+  let saidHome = '';
+  function sayIn(root, say, fresh) {
+    if (!say || say === saidHome || !window.SayText) return;
+    const p = [...root.querySelectorAll('p')].find(x => x.textContent.trim() === say), c = p && SayText.prep(p, { wait: 0 }); if (!c) return;
+    saidHome = say;
+    const slot = root.querySelector('[data-tch] .tslot'), hasClip = slot && slot.dataset.clip && !fresh;
+    if (hasClip) slot.dataset.talk = Chars.clip('ama', 'talk');
+    const ms = Math.max(1200, Math.min(7000, c.est * 45)), t0 = performance.now();
+    const go = () => { if (!p.isConnected) return c.all(); if (hasClip && !slot.classList.contains('live') && performance.now() - t0 < 700) return setTimeout(go, 40); c.clock(ms, () => { if (slot && slot.lkQuiet) slot.lkQuiet(); }); };
+    setTimeout(go, 0);
+  }
+
   // ---------- CSS (chỉ khi cờ bật) ----------
   function css() {
     if (document.getElementById('ux1Css')) return;
     const s = document.createElement('style'); s.id = 'ux1Css';
     s.textContent = `
-body.ux1 .side-level{display:none}
-body.ux1 .sidebar{--nav-pad:.8rem}
-body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
-body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem var(--nav-pad);border-radius:var(--r-md);font-weight:700;font-size:1rem;color:var(--text);border:2px solid transparent}
-body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
-body.ux1 #nav a .ic{width:26px}body.ux1 #nav a .ic svg{width:26px;height:26px}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
