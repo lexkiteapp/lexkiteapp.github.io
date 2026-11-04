@@ -136,5 +136,6 @@ Ein Pruefungsergebnis von ueber 850 Punkten verlangt rasche visuelle Auffassungs
 - **Geschaeftsbezogene Kollokationsdatenbank**: Lernen Sie tausende relevante Wendungen und Buerofloskeln direkt im Lexkite Woerterbuch.
 - **FSRS-Algorithmus fuer Langzeitbehalten**: Verankern Sie Fachwoerter aus Logistik, Vertragsrecht und Finanzen fest im aktiven Gedaechtnis.
 - **Interaktives Sprech- und Hoertraining**: Fuer ganzheitliche Sprachzertifikate bietet der [Aussprachebereich von Lexkite](/#/practice/speak) praezises Vokaltraining mit akustischer Rueckmeldung.
+- **Strategische Vorbereitung**: Folgen Sie unserem [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/) fuer ein ausgewogenes Verhaeltnis von Hoer- und Leseuebungen.
 
 Nutzen Sie die [Lexkite Webanwendung](/#/) noch heute und meistern Sie TOEIC Part 7 mit ueberlegener Zeitkontrolle und maximaler Punktzahl!

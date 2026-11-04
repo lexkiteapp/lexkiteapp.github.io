@@ -159,6 +159,7 @@ Souveraenitaet und Schnelligkeit bei Multiple-Choice-Pruefungen entstehen durch 
 - **FSRS-Algorithmus fuer Spaced Repetition**: Speichern Sie Geschaeftsausdruecke und Phrasal Verbs dauerhaft im Langzeitgedaechtnis ab.
 - **Integriertes Kontextwörterbuch**: Rufen Sie Definitionen, Kollokationen und die korrekte IPA-Aussprache mit einem Tippen auf.
 - **Interaktiver Sprechtrainer**: Verbessern Sie Ihre Sprachbeherrschung in der [Sprechpraxis von Lexkite](/#/practice/speak) mit sofortigem Feedback.
+- **Strukturierter Vorbereitungsplan**: Nutzen Sie unseren kompletten [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/) zur Aufteilung Ihrer Lernwochen.
 
 Starten Sie noch heute mit der [Lexkite Web-App](/#/) und trainieren Sie TOEIC Part 5 mit maximaler Effizienz und Sicherheit!
 
