@@ -1,0 +1,62 @@
+# 🎭 Chuyển trạng thái giáo viên (docs/specs/teacher-motion.md): số đo trên clip + trình duyệt thật (Chrome H.264, WebKit macOS), ảnh trước/sau theo khung.
+# Viền/nhòe khung tay nhanh + fps WebKit: workflow teacher-motion (#546), không làm trùng.
+name: teacher-states
+on:
+  pull_request:
+    paths: ['web/js/characters.js', 'web/js/teacher-slot.js', 'web/js/teacher-live.js', 'web/js/lesson/teacher.js', 'web/js/lesson/ui.js', 'web/js/speak/app.js', 'web/js/call.js', 'web/js/call/face.js', 'web/teach/**', 'scripts/teach/motion_jump.py', 'scripts/teach/ref_gate.py', 'scripts/teach/hands.py', 'scripts/teach/hands.json', 'brand/characters/ref/**', 'scripts/test/teacher-states*', '.github/workflows/teacher-states.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: 'teacher-states-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
+jobs:
+  clips:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p out/teacher-states
+      - run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q numpy opencv-python-headless
+      - name: Tay từng clip (bảng so sánh, đối chiếu dải tay đã khoá)
+        run: python3 scripts/teach/hands.py web/teach --step 2 --json out/teacher-states/hands.json | tee out/teacher-states/hands.txt
+      - name: So với bộ tham chiếu khoá
+        run: python3 scripts/teach/ref_gate.py web/teach --out out/teacher-states/ref.md --report
+      - name: Số đo clip (bảng kiểm kê)
+        run: python3 scripts/teach/motion_jump.py web/teach --out out/teacher-states/clips.md --report
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: teacher-states-clips, path: out/teacher-states, retention-days: 14 }
+  browsers:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, browser: chrome }
+          - { os: macos-latest, browser: webkit }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          if [ "${{ matrix.browser }}" = webkit ]; then npx playwright install webkit >/dev/null; fi
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v4
+        with: { ref: "${{ github.base_ref }}", path: before-src, sparse-checkout: web }
+      - name: Ảnh trước (không chặn)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: node scripts/test/teacher-states-shots.mjs before-src/web out/teacher-states/before --browser=${{ matrix.browser }} --report
+      - name: Chạy cổng
+        run: node scripts/test/teacher-states-shots.mjs web out/teacher-states/after --browser=${{ matrix.browser }}
+      - name: Ghép trước/sau
+        if: always() && github.event_name == 'pull_request'
+        continue-on-error: true
+        run: node scripts/test/teacher-states-shots.mjs --sheet out/teacher-states/before out/teacher-states/after out/teacher-states/before-after.png --browser=${{ matrix.browser }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: 'teacher-states-${{ matrix.browser }}', path: out/teacher-states, retention-days: 14 }
