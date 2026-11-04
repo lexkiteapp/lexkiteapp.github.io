@@ -99,10 +99,10 @@ for (const h of ['#/tests', '#/dict/hello']) {
 {
   const P = await open('#/welcome');
   await see(P.page, 'a[href="#/placement"]');
-  await P.page.click('a[href="#/placement"]'); await see(P.page, '#go');
+  await P.page.click('a[href="#/placement"]:visible'); await see(P.page, '#go');
   await P.page.click('#go'); await see(P.page, '.pl-wrap .option');
   await P.page.click('#plX'); ok(await hashIs(P.page, /^#\/welcome/), 'thoát bài đầu vào (chưa trả lời) → về Welcome');
-  await P.page.click('a[href="#/placement"]'); await see(P.page, '#go');
+  await P.page.click('a[href="#/placement"]:visible'); await see(P.page, '#go');
   await answerPlacement(P.page);
   ok(await see(P.page, '.pl-result a[href="#/welcome/setup"]', 30000), 'kết quả: nút cuối đi #/welcome/setup');
   ok(await P.page.evaluate(() => !App.state.game.xp && App.state.settings.plXpDue === 1), 'chưa thiết lập: XP hoãn (chưa thành "có dữ liệu")');
@@ -123,7 +123,7 @@ for (const h of ['#/tests', '#/dict/hello']) {
 {
   const P = await open('#/welcome');
   await see(P.page, 'a[href="#/style"]');
-  await P.page.click('a[href="#/style"]'); ok(await hashIs(P.page, /^#\/style/), 'mở #/style');
+  await P.page.click('a[href="#/style"]:visible'); ok(await hashIs(P.page, /^#\/style/), 'mở #/style');
   await P.page.goBack(); ok(await hashIs(P.page, /^#\/welcome/) && await see(P.page, '#wCard'), '#/style: Back về Welcome');
   await P.ctx.close();
 }
@@ -131,9 +131,9 @@ for (const h of ['#/tests', '#/dict/hello']) {
 {
   const P = await open('#/welcome');
   await see(P.page, '#wFront');
-  await P.page.click('#wFront'); ok(await see(P.page, '#wBack'), 'lật thẻ');
-  await P.page.click('[data-wg=good]'); ok(await see(P.page, '#wDone'), 'chấm → #wDone');
-  await P.page.click('#wDone a[href="#/welcome/setup"]'); ok(await see(P.page, '#obNext'), '#wDone → thiết lập');
+  await P.page.click('#wFront:visible'); ok(await see(P.page, '#wBack'), 'lật thẻ');
+  await P.page.click('[data-wg=good]:visible'); ok(await see(P.page, '#wDone'), 'chấm → #wDone');
+  await P.page.click('#wDone a[href="#/welcome/setup"]:visible'); ok(await see(P.page, '#obNext'), '#wDone → thiết lập');
   await P.ctx.close();
 }
 // ---- 9. Canh khởi động: indexedDB.open không bao giờ trả lời (không sandbox: dữ liệu thật đi qua IndexedDB) ----

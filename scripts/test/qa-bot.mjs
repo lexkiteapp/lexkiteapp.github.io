@@ -118,7 +118,7 @@ const PLAY = async ({ wrongEvery = 2, maxSteps = 60 } = {}) => {
 // ---------- 1) Hành trình học ----------
 async function journey(w, theme) {
   const tag = `journey@${w}${theme[0]}`, fails = [], steps = [];
-  const { ctx, page, take } = await context(w, theme, { ux1: 1, seed: { 'sbx.settings': JSON.stringify({ theme }) } }); // chưa onboarded → đi qua thiết lập; ux1 = như bản live (cờ ux1=1) – #/lesson/go cần ux1
+  const { ctx, page, take } = await context(w, theme, { ux1: 1, seed: { 'sbx.settings': JSON.stringify({ theme }), 'sbx.cards': '{}' } }); // người mới thật (chưa onboarded, chưa có thẻ – có dữ liệu thì Welcome/setup chuyển về Home, docs/specs/welcome.md); sau thiết lập nạp lại bộ thẻ mẫu cho các bước sau → đi qua thiết lập; ux1 = như bản live (cờ ux1=1) – #/lesson/go cần ux1
   const ok = (c, m) => { if (!c) { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); } return !!c; };
   const step = async (name, fn) => {
     const t0 = Date.now();
@@ -141,6 +141,7 @@ async function journey(w, theme) {
     for (let i = 0; i < 8 && !(await has('#go')); i++) await click('#obNext', 300);
     await click('#go', 1500);
     ok(!/welcome/.test(page.url()), 'thiết lập xong → rời màn chào (' + page.url().replace(O, '') + ')');
+    await page.evaluate(c => localStorage.setItem('sbx.cards', c), JSON.stringify(CARDS)); await boot(page, '/home'); // bộ thẻ mẫu như trước khi welcome đổi (các bước sau cần thẻ)
     ok(JSON.parse(await page.evaluate(() => localStorage.getItem('sbx.settings')) || '{}').onboarded, 'đã lưu onboarded trong sandbox');
   });
   let g0 = null;
