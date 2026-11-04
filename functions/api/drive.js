@@ -563,6 +563,7 @@ const POOL_OPS = {
     const done = [], failed = []; let bytes = 0;
     for (const g of s.under) {
       if (done.length >= maxF || bytes + g.size > maxB) break;
+      if (b.max_file && g.size > +b.max_file) continue; // file lớn: Worker không chép nổi, CI chép (scripts/ops/drive-repair.mjs)
       const src = drives.find(d => d.id === g.ok[0].drive_id), holders = (await all(db, "SELECT drive_id FROM drive_files WHERE sha256 = ? AND status IN ('ok', 'pending')", g.sha)).map(r => r.drive_id);
       const dst = pickDrive(drives, g.size, { exclude: holders });
       if (!dst) { failed.push({ sha: g.sha, name: g.name, error: 'no-drive' }); continue; }
