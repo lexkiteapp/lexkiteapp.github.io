@@ -24,7 +24,6 @@
 "Đến giờ học với Kit rồi!": "Time to study with Kit!",
 "Mở Lexkite để ôn vài từ nhé.": "Open Lexkite and review a few words.",
 "Nhận lời nhắc học nhẹ nhàng?": "Want gentle study reminders?",
-"Kit nhắc bạn đúng giờ bạn hay học – tối đa 1 lần mỗi ngày, không làm phiền ban đêm. Tắt bất cứ lúc nào trong Cài đặt.": "Kit will nudge you around the time you usually study – at most once a day, never at night. Turn it off anytime in Settings.",
 "Có, nhắc mình": "Yes, remind me",
 "Đã bật nhắc học": "Reminders on",
 "Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).": "Reminds you 30 minutes before the time you study most (after a few days of learning).",

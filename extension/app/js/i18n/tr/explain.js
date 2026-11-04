@@ -1,3 +1,3 @@
-/* UI tr – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Cấu trúc":"Yapı","Xem giải thích chi tiết":"Ayrıntılı açıklamayı gör","Vì sao lựa chọn của bạn sai":"Seçimin neden yanlış","Bằng chứng trong bài":"Metindeki kanıt","Sắc thái nghĩa":"Anlam nüansı","Ví dụ thêm":"Daha fazla örnek","Cùng nhóm":"Aynı kalıp","Thêm vào ôn tập":"Tekrara ekle","Báo lỗi giải thích":"Bu açıklamadaki hatayı bildir","Nghe ví dụ":"Örneği dinle"});
+/* SINH từ i18n/ui/tr/explain.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"_19q4gg9":"Yapı","_alp76b":"Ayrıntılı açıklamayı gör","_kznktn":"Seçimin neden yanlış","_xp0oh3":"Metindeki kanıt","_1ob6vgt":"Anlam nüansı","_44ncyk":"Daha fazla örnek","_34zw0g":"Aynı kalıp","_13yzwdi":"Tekrara ekle","_11weuv7":"Bu açıklamadaki hatayı bildir","_1de95jp":"Örneği dinle"});
 })(typeof self !== 'undefined' ? self : this);

@@ -27,6 +27,11 @@ if (!/\.tslot-fig\{[^}]*bottom:0;overflow:hidden;overflow:clip\}/.test(sl) || /c
 { const fg = (sl.match(/\.tslot-fig\{[^}]*\}/) || [''])[0], lr = ['left', 'right'].map(k => +((fg.match(new RegExp(k + ':calc\\(var\\(--h\\)\\*-([.\\d]+)\\)')) || [])[1]));
   if (!lr.every(x => x >= 0.243 && x <= 0.3)) err.push(`teacher-slot.js: .tslot-fig lố ngang phải vừa ảnh (0,243–0,3 khung-cao mỗi bên: ảnh 1,385, khung 0,9) – đang ${lr.join('/')}; rộng hơn → tràn ngang màn 360 px, hẹp hơn → cắt tay`); }
 if (!/prefers-reduced-motion:no-preference/.test(sl)) err.push('teacher-slot.js: chuyển động phải nằm trong prefers-reduced-motion:no-preference');
+// Phát clip (WebGL/video) tải lười ở teacher-live.js – khung app chỉ giữ ảnh tĩnh + CSS (size-budget, 3/11); vẫn đủ: H.264 xếp chồng WebGL + VP9α, lite → ảnh tĩnh
+{ const lv = fs.existsSync(path.join(ROOT, 'web/js/teacher-live.js')) ? fs.readFileSync(path.join(ROOT, 'web/js/teacher-live.js'), 'utf8') : '';
+  if (!/g\.TeacherLive = el =>/.test(lv) || !/getContext\('webgl'/.test(lv) || !/video\/webm; codecs="vp9"/.test(lv) || !/saveData/.test(lv) || !/IntersectionObserver/.test(lv)) err.push('teacher-live.js: thiếu bộ phát clip (TeacherLive: WebGL + VP9α + lite + chỉ tải khi hiện trên màn)');
+  if (/getContext\(|createElement\('video'\)/.test(sl) || !/teacher-live\.js/.test(sl) || !/\.tslot\[data-clip\]/.test(sl)) err.push('teacher-slot.js: bộ phát clip phải ở teacher-live.js (tải lười khi có .tslot[data-clip]), không nằm trong khung app');
+  if (/teacher-live\.js/.test(fs.readFileSync(path.join(ROOT, 'web/sw.js'), 'utf8').match(/const SHELL = \[([\s\S]*?)\];/)[1])) err.push('web/sw.js: teacher-live.js không được vào SHELL (tải lười)'); }
 const idx = fs.readFileSync(path.join(ROOT, 'web/app/index.html'), 'utf8');
 if (!(idx.indexOf('js/characters.js') > 0 && idx.indexOf('js/teacher-slot.js') > idx.indexOf('js/characters.js'))) err.push('web/app/index.html: teacher-slot.js phải nạp ngay sau characters.js');
 if (err.length) { console.error('✗ teacher-native:\n  ' + err.join('\n  ')); process.exit(1); }

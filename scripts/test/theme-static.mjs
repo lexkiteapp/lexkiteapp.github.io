@@ -93,6 +93,19 @@ for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', '
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|blog-en|404)$/.test(n))) {
     const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+    if (name === 'landing-en') { // landing v3: chân trang Stitch (chrome.js) – viên giao diện themePill + menu ngôn ngữ thứ hai (nút "Interface", lsw), không có nhóm .fg/.flang
+      const tag = `footer ${name} @${W} ${scheme}`; checks++;
+      const lf = await page.evaluate(async () => { const F = document.querySelector('footer'), g = F && F.querySelector('.tsp'); if (!g) return { none: 1 };
+        const small = [...F.querySelectorAll('a,button')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.height && (r.width < 44 || r.height < 44) && !e.closest('[role=menu]'); }).map(e => (e.textContent || e.getAttribute('aria-label') || '').trim().slice(0, 20));
+        g.querySelector('[data-tsv=dark]').click(); await new Promise(r => setTimeout(r, 50));
+        return { small, th: document.documentElement.getAttribute('data-theme'), pr: [...g.querySelectorAll('[data-tsv]')].map(b => b.getAttribute('aria-pressed')).join() }; });
+      if (lf.none) bad.push(`${tag}: thiếu viên 3 nút giao diện ở chân trang`);
+      else { if (lf.th !== 'dark' || lf.pr !== 'false,false,true') bad.push(`${tag}: viên giao diện bấm Tối → ${lf.th} / aria-pressed ${lf.pr}`); if (lf.small.length) bad.push(`${tag}: ô chạm nhỏ ${JSON.stringify(lf.small.slice(0, 3))}`); }
+      const fb = 'footer [data-lsw] [aria-haspopup]'; await page.focus(fb); await page.keyboard.press('Enter');
+      const o = await page.evaluate(q => { const b = document.querySelector(q), m = document.getElementById(b.getAttribute('aria-controls')); return !m.hidden && m.querySelectorAll('[role=menuitem]').length; }, fb); await page.keyboard.press('Escape');
+      if (o !== 15 || await page.evaluate(q => !document.getElementById(document.querySelector(q).getAttribute('aria-controls')).hidden, fb)) bad.push(`${tag}: menu ngôn ngữ chân trang bàn phím (Enter mở 15 mục, Esc đóng) sai`);
+      if (SHOTS) await page.locator('footer').screenshot({ path: path.join(SHOTS, `footer-${scheme}-${W}.png`) });
+      await page.close(); continue; }
     const f = await page.evaluate(W => { const g = [...document.querySelectorAll('.site-foot .fg')], small = [...document.querySelectorAll(`${W < 720 ? '.site-foot summary' : '.flang summary'}, .site-foot .fbtn, .site-foot .tsb, .site-foot .fg[open] a`)].filter(e => e.getBoundingClientRect().width).map(e => [e.className || e.tagName, Math.round(e.getBoundingClientRect().height)]).filter(([, h]) => h < (W < 720 ? 48 : 44)); return { n: g.length, open: g.filter(x => x.open).length, small, ul: [...document.querySelectorAll('.site-foot .fg a')].some(a => getComputedStyle(a).textDecorationLine.includes('underline')) }; }, W);
     const tag = `footer ${name} @${W} ${scheme}`; checks++;
     if (f.n !== 4) bad.push(`${tag}: ${f.n} nhóm (cần 4)`);

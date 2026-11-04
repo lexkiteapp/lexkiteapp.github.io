@@ -1,3 +1,3 @@
-/* UI ar – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"نفدت محاولاتك المجانية اليوم؟ شاهد فيديو قصيرًا لتحصل على {n} إضافية.","Xem video":"شاهد الفيديو","Đã cộng thêm lượt – thử lại sau vài giây.":"تمت إضافة محاولات إضافية – حاول مجددًا بعد بضع ثوانٍ."});
+/* SINH từ i18n/ui/ar/ads.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"_11dape0":"نفدت محاولاتك المجانية اليوم؟ شاهد فيديو قصيرًا لتحصل على {n} إضافية.","_l4dcji":"شاهد الفيديو","_khiq0k":"تمت إضافة محاولات إضافية – حاول مجددًا بعد بضع ثوانٍ."});
 })(typeof self !== 'undefined' ? self : this);

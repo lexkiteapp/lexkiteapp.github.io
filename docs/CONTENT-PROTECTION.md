@@ -1,8 +1,8 @@
 # Bảo vệ nội dung Lexkite – chống cào, chứng minh đăng trước, xử lý DMCA
 
-> TL;DR: Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, giám sát bản sao, xử lý DMCA. Phần build/giao diện do Antigravity (thẻ P1 trên BOARD).
-> Đọc khi: xử lý sao chép/DMCA hoặc sửa WAF.
-Cập nhật 17/10/2026. Phía máy chủ/Cloudflare (phiên chính). Phía build & giao diện (Wayback, gắn nguồn khi chép, canary) do Antigravity làm – thẻ P1 trong `docs/agents/BOARD.md`. Hồ sơ pháp lý: `docs/legal/DMCA-KIT.md`. Không chứa khóa/mật khẩu.
+> TL;DR: Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, giám sát bản sao + canary, LICENSE/điều khoản/robots chặn AI, kiểm tra ngược nguồn & giấy phép, xử lý DMCA.
+> Đọc khi: xử lý sao chép/DMCA, sửa WAF/robots, thêm tài sản bên thứ ba (ảnh, font, âm thanh, dữ liệu).
+Cập nhật 03/11/2026 (§8–§10). Phía máy chủ/Cloudflare (phiên chính). Thẻ P1 Antigravity (thủy ấn tàng hình `content/protection/watermark.mjs` + `scripts/decode-watermark.mjs` ở blog/bài mẫu, `canaries.json`) đã xong, lưu ở `docs/agents/BOARD-ARCHIVE.md`. Hồ sơ pháp lý: `docs/legal/DMCA-KIT.md`. Không chứa khóa/mật khẩu.
 
 ## 1. Mục tiêu & nguyên tắc
 - Kẻ cào chép bài blog (15 ngôn ngữ) và ~2.784 câu hỏi luyện thi, đăng lại sớm hơn, thậm chí gửi DMCA giả nhắm vào Lexkite.
@@ -76,7 +76,7 @@ node scripts/ots.mjs verify <seq>                                               
 Kèm theo: `node scripts/content-registry.mjs evidence <url>` (mục sổ + lịch sử git) – bên thứ ba tính lại `sha256` HTML/nguồn, khớp dòng JSON đã đóng dấu, khớp khối Bitcoin → thời điểm tồn tại không thể làm giả.
 
 ## 5. Giám sát bản sao (`content-protect.yml`, Chủ nhật 02:17 UTC)
-Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WAF chưa hoạt động) → `copy-watch.mjs`: 1 câu đặc trưng/bài × 6 bài mới nhất, tìm nguyên văn qua **Brave Search API** (gói Free ~2.000 lượt/tháng – chỉ chạy khi có secret `BRAVE_SEARCH_KEY`) → có trang lạ thì mở issue `content-copy`. Google/Bing không còn API tìm kiếm miễn phí cho dự án mới.
+Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WAF chưa hoạt động) → `copy-watch.mjs`: 1 câu đặc trưng/bài × 6 bài mới nhất, tìm nguyên văn qua **Brave Search API** (gói Free ~2.000 lượt/tháng – chỉ chạy khi có secret `BRAVE_SEARCH_KEY`) **+ mọi canary kho đề/từ (§9)** qua Brave và **GitHub code search** (`GITHUB_TOKEN` của Actions, miễn phí, không cần khóa) → kết quả lên Quản trị (Cảnh báo "Nghi bị chép nội dung" + tab Backlink, PR & Thương hiệu) và có trang lạ thì mở issue `content-copy`. Google/Bing không còn API tìm kiếm miễn phí cho dự án mới.
 **Tra tay (không có khóa):** `node scripts/copy-watch.mjs` in sẵn các câu → dán từng câu **trong ngoặc kép** vào Google và Bing; thêm `-site:lexkite.com`. Mỗi tháng 1 lần là đủ. Có thể đặt Google Alerts (google.com/alerts) với 2–3 câu đặc trưng trong ngoặc kép.
 
 ## 6. Việc của chủ site (token hiện tại `lexkite-claude` chỉ có D1/Workers/Pages/AI – **không** đọc/ghi được WAF, Bot, Hotlink; đã kiểm `perms` 17/10)
@@ -88,7 +88,7 @@ Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WA
    → Zone Resources: `Include` · `Specific zone` · `lexkite.com` → **Continue to summary** → **Create Token** → bấm Copy. Trong Terminal: `pbpaste > ~/.config/lexkite/cf-waf-token && chmod 600 ~/.config/lexkite/cf-waf-token` rồi nhắn Claude "đã lưu token WAF" (Claude chạy `apply` + `verify --live`). Không dán token vào chat.
 2. **Bot Fight Mode phải TẮT:** dash → lexkite.com → **Security** → **Settings** → mục *Bot traffic* → **Bot fight mode** = Off (giao diện cũ: Security → Bots → Bot Fight Mode → Off). Sau khi có token, `perms` sẽ báo trạng thái.
 3. **Hotlink Protection để TẮT:** Scrape Shield (Security → Settings → *Hotlink protection*) – giữ Off (lý do §2).
-4. *(Tùy chọn, quyết định kinh doanh)* **Block AI bots** (Security → Settings → *Block AI bots*): chặn GPTBot, CCBot… – không ảnh hưởng Googlebot/Bingbot nhưng làm Lexkite biến mất khỏi câu trả lời của trợ lý AI. Mặc định để như hiện tại.
+4. *(Tùy chọn)* **Block AI bots** của Cloudflare: từ 3/11 `robots.txt` đã chặn bot **huấn luyện** AI (§8) nhưng vẫn cho bot tìm kiếm/trả lời có dẫn link (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot) → Lexkite vẫn xuất hiện trong câu trả lời AI. Nút Cloudflare chặn cứng ở biên (cả bot không tôn trọng robots) nhưng có thể chặn luôn bot trả lời → mặc định để Off.
 5. *(Tùy chọn)* **Brave Search API:** api-dashboard.search.brave.com → Sign up → chọn gói **Free** → API Keys → Add → copy → GitHub repo → Settings → Secrets and variables → Actions → **New repository secret** `BRAVE_SEARCH_KEY` (hoặc lưu `~/.config/lexkite/brave-key` và nhờ Claude đặt secret).
 6. Nếu `apply` báo gói Free không cho *managed challenge* ở rate limit: chạy lại với `--rl-action block` (chặn 10 s).
 
@@ -96,3 +96,40 @@ Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WA
 - Đổi header CI: tạo giá trị mới → cập nhật `~/.config/lexkite/ci-header` + secret GitHub `LEXKITE_CI_HEADER` → `cf-waf apply`.
 - Tắt khẩn cấp: dash → Security → Security rules → tắt các luật tên `[lexkite] …` (hoặc xóa; `apply` tạo lại).
 - Người dùng thật kêu bị chặn: `node scripts/cf-waf.mjs events 7` (hoặc Security → Events, lọc `ref lexkite_*`); nếu là CGNAT/trường học → sửa `RL_BUDGET` (hoặc `--rl-requests`, 20–200) rồi `apply`.
+
+## 8. Thông báo quyền & chặn huấn luyện AI (3/11/2026)
+- **`LICENSE`** (gốc repo): mã + nội dung © MODIAN LUXURY JEWELRY LLC (Lexkite), *All rights reserved*, không giấy phép mở; repo công khai chỉ để chạy CI; cấm sao chép/đăng lại/đưa vào app–sách–bộ dữ liệu khác; **cấm dùng huấn luyện/đánh giá AI**; bảo lưu TDM theo EU 2019/790 Điều 4(3). **`NOTICE`**: tài sản bên thứ ba + giấy phép (khớp §10). Chuyển nội dung sang repo private: chờ owner quyết.
+- **Điều khoản** (`content/legal/{en,vi}/terms.html` §9, neo `#content-rights`, `#ai-training`, `#dmca`, `#repeat-infringers`): quyền nội dung, cấm cào/AI, quy trình thông báo DMCA §512(c)(3) + phản thông báo §512(g)(3) + §512(f), chính sách người vi phạm nhiều lần (theo mẫu Quizlet/Duolingo). en/vi viết tay; 13 ngôn ngữ còn lại `i18n.yml` dịch tự động khi merge (`build-legal.mjs --translate`). Ghi công công khai: `privacy.html#credits`.
+- **Máy đọc được:** `web/robots.txt` chặn bot **huấn luyện** (GPTBot, CCBot, ClaudeBot, anthropic-ai, Google-Extended, Applebot-Extended, Bytespider, meta-externalagent, Amazonbot, cohere, Diffbot, img2dataset, AI2Bot, DeepSeekBot…); **không** có nhóm riêng cho Googlebot/Bingbot/Applebot/DuckDuckBot/Yandex/PetalBot → SEO giữ nguyên. `web/ai.txt` (cấm mọi loại tệp cho AI), `web/.well-known/tdmrep.json` + `<meta name="tdm-reservation" content="1">` trên mọi trang tĩnh và app (`IP_META` trong `themeHead`, `scripts/lib/site-layout.mjs`). Dòng © hiển thị: chân mọi trang tĩnh (`siteFooter`) và app (`app.js`). Không thêm meta copyright (trang giới thiệu sát ngân sách gzip).
+- **Test** (`scripts/test/protection.mjs`, trong `npm test`): bộ đọc robots theo RFC 9309 kiểm 16 bot tìm kiếm/trả lời được vào `/`, blog, `/tu-vung/`, `/samples/`, sitemap và vẫn tránh `/admin`; 12 bot huấn luyện bị chặn; ai.txt/TDMRep/LICENSE/NOTICE/mục điều khoản tồn tại; meta TDM không chứa noindex.
+- Robots chỉ là lời yêu cầu: bot không tuân thủ → WAF §2 (UA/headless/rate limit) + bằng chứng §4 + canary §9.
+
+## 9. Canary kho đề/từ (`content/protection/canaries.json`)
+- Canary = câu **đúng và tự nhiên**, chỉ có tên riêng hư cấu độc nhất (Quillmere Riverside Hotel, Hollin Crest Hotel, Quellsby, Marrowick Point, Velden Hollow, Brannoch Quay…) → không đổi đáp án/lời giải, không hại người học. 8 mục đề TOEIC Speaking/Reading (5 có cụm tìm) + 4 câu ví dụ từ vựng. Trường `q` = cụm tìm nguyên văn.
+- **Không** dùng ký tự tàng hình trong dữ liệu đề (hỏng khóa băm bản dịch, TTS, chấm điểm – lý do ở BOARD-ARCHIVE P1); thủy ấn tàng hình chỉ ở HTML blog/bài mẫu lúc dựng.
+- Thêm canary: sửa câu trong `web/js/...` (và bản chép `extension/app/js/...`), thêm mục `{id, kind: exam|vocab, module, task, token, q, context}`. Test chặn: `q` phải còn nguyên văn trong `module` (sửa đề mà quên canary → đỏ), ≥ 3 canary mỗi loại. Không công khai danh sách ngoài repo.
+- Thấy canary ở nơi khác = bằng chứng chép kho (xác suất trùng ngẫu nhiên ≈ 0) → DMCA-KIT §1–§2.
+
+## 10. Kiểm tra ngược: nguồn & giấy phép (rà 3/11/2026)
+| Tài sản | Nguồn / giấy phép | Ghi công |
+|---|---|---|
+| NGSL, NAWL, BSL, TSL | Browne, Culligan & Phillips – CC BY-SA 4.0 (bản dịch Lexkite cùng giấy phép) | privacy#credits, NOTICE, `toeic.js` |
+| AWL | © Averil Coxhead | privacy#credits |
+| Open English WordNet | CC BY 4.0 | privacy#credits + từng trang /words/ |
+| Wiktionary (Free Dictionary API), Tatoeba | CC BY-SA; CC BY 2.0 FR | privacy#credits |
+| CMU Pronouncing Dictionary | BSD 2-Clause | privacy#credits, NOTICE |
+| Kokoro-82M (giọng) | Apache 2.0 | privacy#credits |
+| Datamuse, MyMemory | điều khoản dịch vụ (Datamuse xin ghi công) | privacy#credits |
+| Noto Emoji, Material Symbols / OpenMoji / Lucide | Apache 2.0 / CC BY-SA 4.0 / ISC | privacy#credits, `/credits` |
+| Plus Jakarta Sans, Be Vietnam Pro, Bricolage Grotesque | SIL OFL 1.1 | `web/fonts/OFL.txt`, NOTICE |
+| Ảnh Wikimedia/Openverse/Pixabay/Pexels; ảnh TOEIC | từng ảnh; CC0/PD | `/credits` (sinh từ `img.json`), `web/img/toeic/CREDITS.md` |
+| fzstd, jsVectorMap (Natural Earth) | MIT; PD | NOTICE |
+
+**Kết quả rà đề/từ:** không có dấu nguồn (Cambridge/Oxford/ETS/"Reproduced"…) trong kho đề; không trùng ~70 tiêu đề bài đọc Cambridge IELTS/TOEFL quen thuộc. 5 định nghĩa sát lời từ điển học thuật (fluctuate, pedestrian, curriculum, perpetual, town) đã viết lại 3/11. Chưa có cổng n-gram so với nguồn có bản quyền (`docs/CONTENT-QA.md` – thiếu kho tham chiếu).
+**Còn mở (không tự xóa tính năng – cần phiên riêng):**
+1. `web/js/dictionary.js` `fromGoogle()` gọi endpoint không chính thức `translate.googleapis.com … client=gtx` lấy cả định nghĩa/ví dụ/đồng nghĩa (dữ liệu Oxford Languages) – rủi ro điều khoản Google + bản quyền. Hướng: thay phần định nghĩa/ví dụ bằng kho Lexkite + OEWN + Wiktionary, giữ chất lượng tra.
+2. `content/wordlists/cefr-oxford.json`: cấp CEFR lấy từ Oxford 3000/5000 (danh sách có bản quyền của OUP) → thay bằng CEFR-J/English Profile tự suy, hoặc tự gán.
+3. `content/video/scripts/bank/mixups.jsonl`: ghi chú nói lấy từ Cambridge Dictionary/Swan → rà 9 dòng, viết lại bằng lời của mình.
+4. Cổng chồng lấp n-gram (`scripts/content-qa/overlap.mjs`): 6–8-gram đề/lời giải so với nhau + kho tham chiếu cục bộ (không đưa lên repo) + mẫu tra web định kỳ.
+5. Phông Google Fonts nạp từ CDN ở `web/app/index.html`, `schools.html` → tự host (đồng nhất, quyền riêng tư).
+
