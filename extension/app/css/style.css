@@ -133,6 +133,18 @@ p { margin: .4rem 0; }
 .card.hover { transition: transform var(--dur-2) var(--ease-std), box-shadow var(--dur-2) var(--ease-std), border-color var(--dur-2) var(--ease-std); cursor: pointer; }
 .card.hover:hover { transform: translateY(-3px); box-shadow: var(--elev-2); border-color: color-mix(in srgb, var(--primary) 40%, var(--line)); }
 .grid { display: grid; gap: 1rem; }
+/* Thẻ cùng hàng cao bằng nhau: hàng nút ghim đáy thẻ để nút các thẻ thẳng hàng (gate: scripts/test/card-actions.mjs) */
+.grid > .card:has(> :is(.row, .card-acts):last-child .btn, > .btn:last-child) { display: flex; flex-direction: column; }
+.grid > .card > :is(.row, .card-acts):last-child:has(.btn), .grid > .card > .btn:last-child { margin-top: auto !important; } /* !important: nhiều màn đặt margin-top nội tuyến */
+.grid > .card > .row:last-child:has(.btn), .card-acts { padding-top: .75rem; }
+.grid > .card > .btn:last-child { align-self: flex-start; }
+/* Từ 3 nút trở lên: cùng bề rộng, không so le khi xuống dòng */
+.card-acts, .grid > .card > .row:last-child:has(> .btn:nth-of-type(3)) { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: .5rem; }
+:is(.card-acts, .grid > .card > .row:last-child) > .btn { min-width: 0; }
+/* 2 nút trong thẻ lưới: chia đều dòng, xuống dòng thì cùng rộng */
+.grid > .card > .row:has(> .btn ~ .btn) > .btn { flex: 1 1 auto; }
+.card-acts > .btn, .grid > .card > .row:last-child:has(> .btn:nth-of-type(3)) > .btn { width: 100%; min-height: 44px; }
+.card-acts > .primary, .grid > .card > .row:last-child:has(> .btn:nth-of-type(3)) > .primary { grid-column: 1 / -1; }
 .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }

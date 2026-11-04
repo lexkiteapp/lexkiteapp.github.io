@@ -101,6 +101,11 @@
         if (over > 2) { add('spill', 'fail', c, `"${txt(c)}" lòi ra ngoài ${lab(box)} ${Math.round(over)}px`); break; }
       }
     }
+    // 3b) thẻ cùng hàng, cùng số nút: nút cuối phải thẳng đáy (không thò thụt) – css/style.css § thẻ lưới
+    for (const g of new Set([...D.querySelectorAll('#view .card')].map(c => c.parentElement))) {
+      const rows = {}; for (const c of g.children) { if (!c.matches('.card')) continue; const r = vis(c), bs = [...c.querySelectorAll('.btn')].filter(vis); if (r && bs.length) (rows[Math.round(r.top) + '|' + bs.length] = rows[Math.round(r.top) + '|' + bs.length] || []).push(vis(bs[bs.length - 1]).bottom); }
+      for (const b of Object.values(rows)) if (b.length > 1 && Math.max(...b) - Math.min(...b) > 2) add('card-actions', 'fail', g, `nút các thẻ cùng hàng lệch nhau ${Math.round(Math.max(...b) - Math.min(...b))}px`);
+    }
     // 4–5) phần tử bấm được: ngoài màn hình / bị đè / vùng chạm nhỏ
     const inter = [...D.querySelectorAll(INTER)].map(e => [e, vis(e)]).filter(([, r]) => r);
     for (const [e, r] of inter) {
