@@ -30,5 +30,6 @@
 
 ## Cảnh hai người (`Chars.duo`, 4/11 – chủ: "2 nhân vật nhỏ, đặt thô", "thầy như có lớp phủ mờ")
 - Một nguồn: `web/js/teacher-duo.js` (tải lười trong gói lesson). `Chars.duo({ids, floor, extra})` + `Chars.duoSpeak(root, who)`: cùng cỡ/đường mắt, đứng sát, sau mặt đỡ thấy được (khuất ≥ 20 % khung), nhãn tên đúng tâm từng người, câu mới ngay dưới hai người (xếp mới → cũ, DOM vẫn theo thời gian), đuôi trỏ đúng người.
+- **Bố cục (chủ 4/11):** hai nhân vật cố định trên cùng, không bao giờ bị cuộn đi; lời thoại trong khung `.cduo-log` tự cuộn, câu mới ở cuối đẩy câu cũ lên; nút Tiếp tục cố định dưới cùng. Trang không được cuộn (cổng `chars-stage` đo ở hội thoại 10 câu).
 - Người nói rõ bằng đuôi bong bóng, viền nhãn, miệng, nhấn tỉ lệ 1,03. **Cấm opacity/filter/lớp phủ làm nhạt nhân vật.** Art nhìn thẳng, không vẽ lại: hướng về nhau chỉ bằng nghiêng nhẹ 6°; quay đầu thật cần art mới (hỏi chủ + credit).
 - Cổng: `.github/workflows/chars-stage.yml` + `scripts/test/chars-stage-shots.mjs`, danh sách màn + cỡ đầu tối thiểu ở `scripts/test/chars-stage.json` (chỉ được nâng): 390 px + desktop × sáng + tối, DPR 2. Ảnh trước/sau: artifact `chars-stage`, `sheet-390.png`, `sheet-desk.png`.

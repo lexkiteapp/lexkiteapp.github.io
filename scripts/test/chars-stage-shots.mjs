@@ -13,7 +13,7 @@ const argv = process.argv.slice(2), REPORT = argv.includes('--report'), [ROOT = 
 fs.mkdirSync(OUT, { recursive: true });
 const CFG = JSON.parse(fs.readFileSync(new URL('./chars-stage.json', import.meta.url), 'utf8')), SURF = CFG.surfaces;
 const VIEWS = [['390', { width: 390, height: 844, isMobile: true, hasTouch: true }], ['desk', { width: 1280, height: 900, isMobile: false, hasTouch: false }]], THEMES = ['dark', 'light'];
-const STORY = { id: 's-qc', kind: 'story', cefr: 'A2', em: '🛂', title: 'Passport control', lines: [{ who: 'ama', en: 'Good morning. Can I see your passport, please?' }, { who: 'carlos', en: 'Of course. Here you are.' }, { who: 'ama', en: 'Thank you. How long are you staying?' }], checks: [] };
+const STORY = { id: 's-qc', kind: 'story', cefr: 'A2', em: '🛂', title: 'Passport control', lines: [{ who: 'ama', en: 'Good morning. Can I see your passport, please?' }, { who: 'carlos', en: 'Of course. Here you are.' }, { who: 'ama', en: 'Thank you. How long are you staying?' }, { who: 'carlos', en: 'Two weeks. I am visiting my sister in the city.' }, { who: 'ama', en: 'Where does your sister live?' }, { who: 'carlos', en: 'She lives near the central station.' }, { who: 'ama', en: 'Do you have anything to declare?' }, { who: 'carlos', en: 'No, only my clothes and a few books.' }, { who: 'ama', en: 'Thank you. Enjoy your stay.' }, { who: 'carlos', en: 'Thanks. Have a nice day.' }], checks: [] };
 
 // Đo trong trang: mọi hình giáo viên đang thấy. Khung ảnh registry: đầu ≈ 35 % chiều cao khung (Ama 8 %→43 %, Carlos 12 %→46 %).
 function measure() {
@@ -36,7 +36,7 @@ function measure() {
     out.items.push(it);
   }
   pe.remove();
-  out.icons = [...document.querySelectorAll('.material-symbols-outlined')].filter(shown).filter(x => { const b = x.getBoundingClientRect(); return b.width > 0; }).flatMap(x => { const b = x.getBoundingClientRect(), fs = parseFloat(getComputedStyle(x).fontSize), n = x.textContent.trim(); return !n ? ['icon rỗng'] : !document.fonts.check(`${fs}px "Material Symbols Outlined"`) ? [`font icon chưa tải (${n})`] : b.width > fs * 1.35 ? [`icon '${n}' không có trong bộ thu gọn`] : []; });
+  out.icons = [...document.querySelectorAll('.material-symbols-outlined')].filter(shown).filter(x => { const b = x.getBoundingClientRect(); return b.width > 0; }).flatMap(x => { const b = x.getBoundingClientRect(), fs = parseFloat(getComputedStyle(x).fontSize), n = x.textContent.trim(); return !n ? ['icon rỗng'] : !/^[a-z0-9_]+$/.test(n) ? [`icon hiện chữ '${n}' thay vì ký hiệu`] : !document.fonts.check(`${fs}px "Material Symbols Outlined"`) ? [`font icon chưa tải (${n})`] : b.width > fs * 1.35 ? [`icon '${n}' không có trong bộ thu gọn`] : []; });
   return out;
 }
 // Cảnh hai người: đo hình học + đúng người nói. who = người của câu đang hiện.
@@ -47,16 +47,19 @@ function duoState(who) {
   if (Math.abs(ra.bottom - rb.bottom) > 1) errs.push('hai người không cùng mặt đất'); if (Math.abs(ra.top - rb.top) > 1) errs.push('hai người lệch đường mắt');
   const fa = { l: ra.left + ra.width / 2 - H * 1.154 * .203, r: ra.left + ra.width / 2 + H * 1.154 * .203 }, fb = { l: rb.left + rb.width / 2 - H * 1.154 * .394, r: rb.left + rb.width / 2 + H * 1.154 * .394 }, rtl = fa.l > fb.l;
   d.gap = Math.round(rtl ? fa.l - fb.r : fb.l - fa.r); d.H = Math.round(H); if (d.gap > 40) errs.push(`hai người cách xa ${d.gap}px (> 40)`);
-  const ch = document.querySelector('#lsnChat'), cr = ch.getBoundingClientRect(), bg = getComputedStyle(document.querySelector('main')).backgroundColor, edge = getComputedStyle(ch).borderTopColor;
+  const ch = document.querySelector('#lsnChat'), lg = document.querySelector('.cduo-log'); if (!lg) return { errs: errs.concat('không có khung thoại cố định .cduo-log'), d }; const cr = lg.getBoundingClientRect(), bg = getComputedStyle(document.querySelector('main')).backgroundColor, edge = getComputedStyle(lg).borderTopColor;
   d.edge = +ratio(edge, bg).toFixed(2); if (d.edge < 1.2) errs.push(`mặt đỡ gần trùng màu nền (mép ${d.edge}:1 < 1.2) – đường hông như bị cắt`);
   const sunk = ra.bottom - cr.top; d.sunk = Math.round(sunk / H * 100); if (sunk < H * .2) errs.push(`đường hông lộ trên mặt đỡ (khuất ${d.sunk}% < 20%)`);
   const cur = ch.querySelector('.lsn-ln:last-child'), bub = cur && cur.children[1];
   if (!cur) return { errs: errs.concat('không có câu thoại'), d };
   if (cur.dataset.who !== who) errs.push(`bong bóng mới của ${cur.dataset.who}, đang nói ${who}`);
-  const br = bub.getBoundingClientRect(); d.bubGap = Math.round(br.top - cr.top); if (br.top - cr.top > 40) errs.push(`câu mới cách hai người ${d.bubGap}px (> 40)`);
-  const fig = who === 'carlos' ? fb : fa, tail = bub.querySelector('.tchb-tail'), pb = getComputedStyle(bub, '::before');
-  let tx = null; if (tail) tx = tail.getBoundingClientRect().left + tail.getBoundingClientRect().width / 2; else if (pb.content !== 'none' && pb.content !== 'normal') tx = br.left + parseFloat(pb.left) + parseFloat(pb.marginLeft || 0) + 9;
-  d.tail = tx == null ? null : Math.round(tx); d.fig = [Math.round(fig.l), Math.round(fig.r)]; if (tx == null) errs.push('bong bóng không có đuôi'); else if (tx < fig.l || tx > fig.r) errs.push(`đuôi x=${d.tail} không trỏ vào ${who} (${d.fig})`);
+  const br = bub.getBoundingClientRect(); d.stageTop = Math.round(ra.top); d.logH = Math.round(cr.height);
+  if (document.scrollingElement.scrollTop > 0 || document.scrollingElement.scrollHeight > innerHeight + 1) errs.push(`cả trang cuộn được (${document.scrollingElement.scrollHeight} > ${innerHeight}) – nhân vật sẽ bị đẩy đi`);
+  if (ra.top < 0 || sunk > H * .4) errs.push(`nhân vật bị che: đỉnh ${Math.round(ra.top)}, khuất ${d.sunk}% (> 40%) – không xem được khớp miệng`);
+  if (cr.height < 120) errs.push(`khung thoại quá thấp (${d.logH}px < 120)`);
+  if (br.top < cr.top - 1 || br.bottom > cr.bottom + 1) errs.push(`câu mới không nằm trọn trong khung thoại (${Math.round(br.top)}–${Math.round(br.bottom)} / ${Math.round(cr.top)}–${Math.round(cr.bottom)})`);
+  const pb = getComputedStyle(bub, '::before'), tail = bub.querySelector('.tchb-tail'), mid0 = (rtl ? -1 : 1) * ((br.left + br.width / 2) - (lg.getBoundingClientRect().left + cr.width / 2)); d.tail = !!tail || (pb.content !== 'none' && pb.content !== 'normal');
+  if (!d.tail) errs.push('bong bóng không có đuôi'); if (who === 'carlos' ? mid0 < 0 : mid0 > 0) errs.push(`bong bóng của ${who} không nằm phía người nói`);
   const box = w => s.querySelector(`.cduo-p[data-who=${w}] .tch`), other = who === 'carlos' ? 'ama' : 'carlos', sp = box(who), li = box(other);
   if (!sp || !li) errs.push('thiếu khung giáo viên'); else { if (!sp.classList.contains('talk') || li.classList.contains('talk')) errs.push(`người nói (.talk) sai, phải là ${who}`);
     d.opListen = +getComputedStyle(li).opacity; if (d.opListen < 1) errs.push('người nghe bị làm mờ'); if (sp.getBoundingClientRect().height <= li.getBoundingClientRect().height) errs.push('người nói không nổi hơn người nghe');
@@ -64,7 +67,7 @@ function duoState(who) {
   { const row = document.querySelector('main>div>div:first-child'), ps = [row.firstElementChild, row.lastElementChild], figC = [(fa.l + fa.r) / 2, (fb.l + fb.r) / 2], mid = document.querySelector('.lsn-mid').getBoundingClientRect(), headTop = ra.top + H * .08;
     ps.forEach((p, i) => { const b = p.getBoundingClientRect(), dx = Math.abs(b.left + b.width / 2 - figC[i]); d['nameDx' + i] = Math.round(dx); if (dx > 3) errs.push(`nhãn ${p.textContent.trim()} lệch tâm người ${Math.round(dx)}px`); if (b.bottom > headTop - 2) errs.push(`nhãn ${p.textContent.trim()} đè đầu`); if (b.left < mid.right && b.right > mid.left && b.top < mid.bottom && b.bottom > mid.top) errs.push('nhãn tên đè nhãn giữa'); });
     if (ps[who === 'carlos' ? 1 : 0].getBoundingClientRect().width && getComputedStyle(ps[who === 'carlos' ? 1 : 0]).boxShadow === 'none') errs.push('nhãn người đang nói không nổi'); }
-  const old = ch.querySelector('.lsn-ln:not(:last-child)'); if (old && old.getBoundingClientRect().top < br.bottom) errs.push('câu cũ không nằm dưới câu mới');
+  const old = ch.querySelector('.lsn-ln:not(:last-child)'); if (old && old.getBoundingClientRect().top >= br.top) errs.push('câu cũ phải nằm trên câu mới');
   const foot = document.querySelector('#lsnGo'); if (foot && foot.getBoundingClientRect().bottom > innerHeight + 1) errs.push('nút Tiếp tục ngoài màn');
   return { errs, d };
 }
@@ -95,7 +98,7 @@ for (const [vn, vp] of VIEWS) for (const th of THEMES) {
   { const rec = { k: 'duo-turns', vn, th, role: 'duo', errs: [], items: [], turns: [] };
     try { await page.goto(url('lesson/go?demo=1'), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1200);
       await page.evaluate(async st => { localStorage.setItem('lk.lsn.path.demo', '3'); localStorage.removeItem('lk.lsn.s.story.demo'); await App.need('lesson'); window.LESSON_STORIES = [st]; await App.routes.lesson('go'); }, STORY); await page.waitForTimeout(900);
-      for (let i = 0; i < STORY.lines.length; i++) { const who = STORY.lines[i].who; await page.waitForSelector('#lsnGo', { timeout: 5000 }); await page.waitForTimeout(450); const r = await page.evaluate(duoState, who); rec.turns.push({ who, ...r.d }); rec.errs.push(...r.errs.map(x => `lượt ${i + 1}: ${x}`)); await shot(page, `duo-${i + 1}-${vn}-${th}`);
+      for (let i = 0; i < STORY.lines.length; i++) { const who = STORY.lines[i].who; await page.waitForSelector('#lsnGo', { timeout: 5000 }); await page.waitForTimeout(450); const r = await page.evaluate(duoState, who); rec.turns.push({ who, ...r.d }); rec.errs.push(...r.errs.map(x => `lượt ${i + 1}: ${x}`)); if (i && Math.abs(r.d.stageTop - rec.turns[0].stageTop) > 1) rec.errs.push(`lượt ${i + 1}: nhân vật xê dịch ${r.d.stageTop - rec.turns[0].stageTop}px so với câu đầu`); await shot(page, `duo-${i + 1}-${vn}-${th}`);
         if (!i) { const lap = async () => { const c = await page.evaluate(() => { const b = document.querySelector('.cduo').getBoundingClientRect(); return { x: b.left, y: Math.max(0, b.top), width: b.width, height: b.height * .6 }; }); const png = (await page.screenshot({ clip: c })).toString('base64'); return page.evaluate(async b => { const im = new Image(); im.src = 'data:image/png;base64,' + b; await im.decode(); const k = document.createElement('canvas'); k.width = im.width; k.height = im.height; const x = k.getContext('2d'); x.drawImage(im, 0, 0); const D = x.getImageData(0, 0, k.width, k.height).data, W = k.width, L = i => .3 * D[i * 4] + .59 * D[i * 4 + 1] + .11 * D[i * 4 + 2]; let v = 0, n = 0; for (let y = 1; y < k.height - 1; y += 2) for (let q = 1; q < W - 1; q += 2) { const c = y * W + q, l = 4 * L(c) - L(c - 1) - L(c + 1) - L(c - W) - L(c + W); v += l * l; n++; } return v / n; }, png); };
           const a1 = await lap(), st = await page.addStyleTag({ content: '.cduo .tch{transform:none!important;transition:none!important}' }); await page.waitForTimeout(80); const a0 = await lap(); await st.evaluate(n => n.remove()); rec.sharp = +(a1 / a0).toFixed(3); if (rec.sharp < 0.85) rec.errs.push(`biến đổi làm nhoè hình: độ nét ${rec.sharp} so với không biến đổi`); }
         await page.click('#lsnGo'); await page.waitForTimeout(300); }

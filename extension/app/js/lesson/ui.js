@@ -293,10 +293,13 @@
     const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story', 'cduo-scene');
     const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
     const og = $('#lsnBody'); L.tplq = { on: og.children[0], off: og.children[1] }; og.textContent = ''; L.qblk = view.querySelector('.lsn-qblk'); L.qfootEl = view.querySelector('.lsn-qfoot'); L.qblk.style.display = og.style.display = 'none'; // khuôn thẻ đáp án (đã chọn / chưa) lấy từ mẫu; khối câu hỏi chỉ hiện ở bước kiểm
+    const log = document.createElement('div'); log.className = 'cduo-log'; log.tabIndex = 0; log.setAttribute('role', 'region'); log.setAttribute('aria-label', t('Đối thoại')); chat.before(log); log.append(chat, L.qblk, og); L.duoLog = log; // khung thoại cố định tự cuộn: hai nhân vật ở trên không bao giờ bị đẩy khỏi màn (xem được khớp miệng)
     chat.querySelectorAll('.lsn-ln button').forEach((b, i) => { b.onclick = () => say(L.log[i].sent, false, L.log[i].who); });
+    duoScroll(log.scrollHeight, false);
     try { const ama = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; L.teacher = ama; L.teachers = ama ? { ama, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') } : null; } catch (e) { L.teacher = null; L.teachers = null; }
   }
   // Khung story-duo có 2 chế độ trên MỘT màn: thoại (khối câu hỏi ẩn, nút = Tiếp tục #lsnGo) / kiểm (khối câu hỏi + thẻ A/B/C hiện, nút = Kiểm tra #lsnCheck)
+  function duoScroll(top, smooth = true) { const l = L.duoLog; if (!l) return; if (l.scrollTo) l.scrollTo({ top, behavior: smooth && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'smooth' : 'auto' }); else l.scrollTop = top; }
   function duoMode(q) {
     const foot = $('#lsnFoot'); if (foot) { foot.hidden = true; foot.innerHTML = ''; foot.className = ST.FOOT; document.body.appendChild(foot); } // tấm phản hồi của câu trước → về body
     const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
@@ -313,7 +316,7 @@
       const pickIt = () => { if (L.checked) return; L.pick = o; chk.disabled = false; paint(); const nb = og.children[i]; if (nb) nb.focus({ preventScroll: true }); };
       n.onclick = pickIt; n.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickIt(); } }; og.appendChild(n); }); };
     paint(); chk.onclick = () => submit(L.pick);
-    const c = $('#lsnChat'); c.scrollIntoView({ block: 'nearest' }); setTimeout(() => say(it.prompt, false, it.who), 200);
+    duoScroll(L.qblk.offsetTop - 12); setTimeout(() => say(it.prompt, false, it.who), 200);
   }
   function lineDuo(it) {
     const chat = $('#lsnChat'), s = it.who === 'carlos' ? 'carlos' : 'ama', name = TNAME(it.who);
@@ -324,7 +327,7 @@
     chat.querySelectorAll('#lsnPlay').forEach(x => x.removeAttribute('id')); b.id = 'lsnPlay'; b.onclick = () => say(it.sent, false, it.who);
     chat.appendChild(n);
     const go = $('#lsnGo'); go.onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
-    scrollTo(0, 0); go.focus({ preventScroll: true }); // câu mới luôn ngay dưới hai nhân vật (xếp chồng mới → cũ), nút Tiếp tục dính đáy (§5d) – không cần cuộn
+    duoScroll(L.duoLog.scrollHeight); go.focus({ preventScroll: true }); // câu mới vào cuối khung thoại và đẩy câu cũ lên; hai nhân vật + nút Tiếp tục đứng yên (§5d)
     setTimeout(() => say(it.sent, false, it.who), 200);
   }
   // Một câu thoại của truyện/radio: người nói sáng lên + đọc (giọng Kokoro), truyện hiện chữ (radio chỉ nghe), chạm Tiếp tục

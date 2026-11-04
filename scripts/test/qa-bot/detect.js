@@ -79,6 +79,8 @@
     const modal = D.querySelector('#modal:not([hidden]) #modalBox, dialog[open]');
     // 1) trang cuộn ngang
     const sw = D.documentElement.scrollWidth; if (sw > IW + 1) add('hscroll', 'fail', 'html', `trang rộng ${sw}px > ${IW}px (cuộn ngang)`);
+    // icon hiện chữ: ligature bị mã đè thành chữ thường/hoa (vd. đáp án đang chọn hiện "A" thay cho ✓, PR #586)
+    for (const e of D.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded')) { const n = e.textContent.trim(); if (n && !/^[a-z0-9_]+$/.test(n) && e.getClientRects().length) add('icon-text', 'fail', e, `icon hiện chữ '${n.slice(0, 20)}' thay vì ký hiệu`); }
     const all = [...D.querySelectorAll('body *')].filter(e => !/^(script|style|template|noscript|br|option|path|use|defs|symbol|g)$/i.test(e.tagName));
     for (const e of all) {
       const cs = getComputedStyle(e);
