@@ -1,0 +1,5 @@
+{
+  "phone": { "minScrollable": 6, "cls": 0.1 },
+  "desktop": { "minScrollable": 6, "cls": 0.1 },
+  "webkit": { "minScrollable": 6 }
+}
