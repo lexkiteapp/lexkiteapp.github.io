@@ -110,6 +110,7 @@
   }
  },
  "addClass": {
+  ":scope > main": "pt-14",
   "span.fill": "[font-variation-settings:'FILL'_1]",
   ":scope > main > div > section:nth-child(3) > article > div:nth-child(1) > div:nth-child(2) > div > span": "empty:hidden"
  }

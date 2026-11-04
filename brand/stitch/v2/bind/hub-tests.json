@@ -227,6 +227,7 @@
   }
  },
  "addClass": {
+  ":scope > main": "pt-14",
   ":scope > main > div > section:nth-child(4) > div:nth-child(1) > span": "empty:hidden",
   ":scope > main > div > section:nth-child(5) > div:nth-child(1) > span": "empty:hidden",
   ":scope > main > div > section:nth-child(7) > div:nth-child(1) > span": "empty:hidden"

@@ -49,6 +49,6 @@
       other: `<details class="rounded-[1rem] border-2 p-3 lt:bg-[#ffffff] lt:border-[#efe0d6] dk:border-[#25393E] dk:[background-color:#172427]"><summary class="min-h-[44px] flex items-center font-extrabold cursor-pointer">${ST.esc(t('Kỳ thi khác'))}</summary><div class="flex flex-col gap-3 pt-2">${Object.keys(T).filter(e => e !== ex && e !== 'ieltsgt' && !(ex === 'ieltsgt' && e === 'ielts')).map(e => T[e].map(row).join('')).join('')}</div></details>` }, 'tests');
   };
 
-  document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-exam-set]'); if (b) App.setExam(b.dataset.examSet); });
+  document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-exam-set]'); if (b && b.getAttribute('aria-pressed') !== 'true') App.setExam(b.dataset.examSet); });
   window.HubV2 = { vocab, skills, tests };
 })();

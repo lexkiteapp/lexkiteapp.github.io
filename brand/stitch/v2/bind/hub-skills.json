@@ -102,9 +102,9 @@
   }
  ],
  "html": {
-  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div > span:nth-child(2)": "e(t('Khóa học theo lộ trình'))",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div > span:nth-child(2)": "e(t('Kỹ năng'))",
   ":scope > main > section:nth-child(1) > div > div:nth-child(1) > span": "e(d.exam)",
-  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > h1": "e(t('Kỹ năng'))",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > h1": "e(t('Khóa học theo lộ trình'))",
   ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > p": "e(t('Học theo chương, tự đánh dấu hoàn thành, luôn biết bài tiếp theo'))",
   ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)": "d.teacher",
   ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": "'Ama'",
@@ -119,8 +119,7 @@
  "attr": {
   ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)": {
    "aria-label": "''",
-   "aria-hidden": "'true'",
-   "id": "'skillsTeacher'"
+   "aria-hidden": "'true'"
   },
   ":scope > main > section:nth-child(1) > div > button": {
    "href": "'#/courses'"
