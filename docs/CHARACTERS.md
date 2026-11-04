@@ -27,3 +27,18 @@
 - Tư thế theo ngữ cảnh: bảng tư thế ở side-notes `teacher-pose-map.md` (point = nút đang học, cheer = đúng, concern = sai, thinking = trống…). Thở nhẹ + hiện mờ 180 ms chỉ khi `prefers-reduced-motion: no-preference`. Tối: hạ sáng 5 % cho cùng ánh sáng UI.
 - **Vòng nghỉ trong chỗ giáo viên (3/11, Home "Hôm nay"):** `Chars.slot(who, {idle:true})` = `Chars.idle` (tư thế mặc định `happy` – tư thế gốc của vòng trong characters.json). Khung cuối ≈ khung đầu (`idle.py`) nên lặp liền (`data-loop="0"` → `video.loop`). Máy có H.264 (mọi Safari/iOS, Chrome/Android thường) → `idle.mp4` xếp chồng ghép alpha bằng WebGL; không có H.264 mà có VP9 (Chromium nguồn mở, một số Linux) → `idle.webm` VP9α phát thẳng (Safari bỏ alpha VP9 nên không vào nhánh này). Tải khi khung hiện trên màn, dừng khi khuất; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh. Khung cắt `.tslot-fig` dùng `overflow:clip` (hidden là khung cuộn: scrollIntoView đẩy ảnh lên lộ thân mờ – #314).
 - Cổng: `scripts/test/teacher-native.mjs` (npm test) – chỗ đặt trần mới = đỏ; `teacher-native.known.json` chỉ được giảm khi chuyển từng màn.
+
+## Chữ chạy theo lời nói
+
+`SayText` (`web/js/say-text.js`) hiện chữ theo từng từ khi giáo viên nói: có file tiếng thì bám mốc khớp miệng `LK_CUES`, không có thì theo đồng hồ. Chữ chờ chỉ mờ, không xô bố cục; tiếng lỗi hoặc bị chặn thì hiện đủ câu. Giảm chuyển động và tiết kiệm dữ liệu thì tắt. Máy kiểm thử mặc định tắt; đặt `lk.saytext=1` để bật. Gọi qua `teacher.say(text, { caption })`. Cổng: `scripts/test/say-text.mjs`.
+
+## Hình học chỗ giáo viên
+
+Ghi chú cho `web/js/teacher-slot.js` (`.tslot-fig`, `.tslot-img`, `.tslot-ledge`):
+
+- Hình học (ảnh 1108×960, người chiếm y 8 %→100 %): ảnh cao 1,2 khung, đáy ảnh lùi 0,18 khung dưới đáy khung (phần mờ + quần bị khung cắt),
+- bệ cao 0,16 khung che dải 72 %→86 % ảnh (vạt áo) → mép nhìn thấy duy nhất là mặt bệ bo tròn; đầu cách đỉnh khung ~7 %.
+- Khung cắt .tslot-fig chỉ rộng vừa ảnh (ảnh rộng 1,2×1108/960 = 1,385 khung-cao, khung rộng 0,9 → mỗi bên lố 0,243 → lề 0,25) và cao hơn đỉnh 0,1.
+- overflow:clip (không phải hidden): khung hidden là KHUNG CUỘN – scrollIntoView/focus/tìm trong trang cuộn ảnh lên 0,18 khung → thân mờ lộ trên bệ
+- (final-qc streak: ảnh đáy = đáy khung dù bottom -20 px); clip không cuộn được. hidden đứng trước làm dự phòng cho trình duyệt cũ:
+- khung thừa (±60 % cũ) làm tràn ngang màn 360 px khi chỗ giáo viên sát mép thẻ (stitch-diff/final-qc 'tràn ngang tslot-fig').
