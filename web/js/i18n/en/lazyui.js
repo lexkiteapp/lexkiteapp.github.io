@@ -699,4 +699,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 "Thách đấu bạn bè": "Challenge friends",
 "Mình được {n} điểm trong Thử thách 60 giây trên Lexkite – bạn vượt được không?": "I scored {n} points in the 60-second challenge on Lexkite – can you beat me?",
 "Đã chép link thách đấu": "Challenge link copied",
+// ← en/shell.js
+"Tra từ ngay trên mọi trang web": "Look up words on any website",
 }); })(typeof self !== 'undefined' ? self : this);
