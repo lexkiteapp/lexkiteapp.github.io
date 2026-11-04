@@ -237,8 +237,48 @@ async function ui(w, theme) {
       const nf = rec.issues.filter(i => i.sev === 'fail').length;
       console.log(`${nf || rec.errors.length ? '•' : '✓'} ${ctxKey}: ${nf} lỗi giao diện, ${rec.errors.length} lỗi JS/request`);
     }
+    // Thanh bên ở màn thấp + RTL, nhóm đang mở: mọi hàng cuộn tới được, không bị cắt/đè, không tràn ngang (có ảnh để xem)
+    if (w >= 901) for (const [h, dir] of [[760, 'ltr'], [560, 'ltr'], [760, 'rtl']]) {
+      const key = `sidebar-${h}-${dir}@${w}${theme[0]}`, rec = { state: 'sidebar', w, theme, key, issues: [], cls: 0, errors: [] };
+      try {
+        await page.setViewportSize({ width: w, height: h });
+        await page.goto('about:blank'); await boot(page, '/home');
+        await page.evaluate(d => { document.documentElement.dir = d; const g = document.querySelector('#nav .nav-group'); if (g) g.open = true; /* ux1: menu phẳng, không có nhóm */ }, dir);
+        await sleep(400);
+        const bad = await page.evaluate(() => { const out = [], side = document.querySelector('.sidebar');
+          if (side.scrollWidth > side.clientWidth + 1) out.push(`tràn ngang ${side.scrollWidth}/${side.clientWidth}`);
+          for (const e of document.querySelectorAll('#nav a, #nav summary, .side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width || (e.checkVisibility && !e.checkVisibility())) continue; // nhóm đóng: content-visibility:hidden vẫn có kích thước
+            e.scrollIntoView({ block: 'nearest', behavior: 'instant' }); const r = e.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2), n = (e.innerText || e.id).trim().split('\n')[0];
+            if (r.bottom > innerHeight + 1 || r.top < 0) out.push(`"${n}" bị cắt (${Math.round(r.top)}…${Math.round(r.bottom)} / ${innerHeight})`);
+            else if (!hit || !(e === hit || e.contains(hit))) out.push(`"${n}" bị đè`); }
+          return out; });
+        for (const m of bad) rec.issues.push({ k: 'sidebar', sev: 'fail', sig: `sidebar|${h}|${dir}|${m}`, msg: m });
+        await page.screenshot({ path: `${OUT}/shots/${key}.png` });
+      } catch (e) { rec.errors.push('quét dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
+      R.ui.push(rec);
+      console.log(`${rec.issues.length ? '•' : '✓'} ${key}: ${rec.issues.length} lỗi thanh bên`);
+    }
     await ctx.close();
   }
+}
+
+
+// Khung hẹp chưa nằm trong WIDTHS: 360 (điện thoại nhỏ) và 1024 (cột phải hẹp nhất) × sáng/tối, màn ux1. Chỉ soi phần tử thừa/đè lên nội dung:
+// inlinebox = đỏ (lỗi cấu trúc, không có baseline), covered = cảnh báo (đầu dò đầy đủ đã chạy ở 390/768/1440).
+const NARROW = [360, 1024];
+async function narrow(w, theme) {
+  const list = STATES.filter(s => s[2] && s[2].ux1), { ctx, page, take } = await context(w, theme, { ux1: 1 });
+  for (const [name, hash] of list) {
+    const key = `${name}@${w}${theme[0]}`, rec = { state: name, w, theme, key, issues: [], cls: 0, errors: [], narrow: true };
+    try {
+      await page.goto('about:blank'); await boot(page, hash); await sleep(500);
+      rec.issues = (await page.evaluate(() => QAB.scan({ tap: 0, align: [] }))).filter(i => i.k === 'inlinebox' || i.k === 'covered').map(i => (i.k === 'covered' ? { ...i, sev: 'warn' } : i));
+      if (rec.issues.some(i => i.sev === 'fail')) await page.screenshot({ path: `${OUT}/shots/${key}.png` });
+    } catch (e) { rec.errors.push('quét dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
+    rec.errors.push(...await take());
+    R.ui.push(rec);
+  }
+  await ctx.close();
 }
 
 // ---------- 3) Hiệu năng: chuyển tab → FPS, long task, INP ----------
@@ -296,6 +336,7 @@ async function storage() {
 try {
   if (ONLY.includes('journeys')) { await journey(390, 'light'); await journey(1440, 'dark'); }
   if (ONLY.includes('ui')) for (const w of WIDTHS) for (const t of THEMES) await ui(w, t);
+  if (ONLY.includes('ui') && WIDTHS.length === 3) for (const w of NARROW) for (const t of THEMES) await narrow(w, t);
   if (ONLY.includes('perf')) for (const w of [390, 1440]) await perf(w);
   if (ONLY.includes('storage')) await storage();
 } catch (e) { R.errors.push('bot dừng: ' + e.message); }

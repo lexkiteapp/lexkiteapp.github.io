@@ -14,6 +14,8 @@ Nguồn kiểu cũ: `site` = `scripts/lib/site-layout.mjs` (có tối tự độ
 
 ## 1. Trang công khai
 
+Lớp giao diện thư viện (#2, 3, 6–8 và `/phat-am/`, `/viet-thu/`): huy hiệu, khối đầu trang, thẻ, hàng lọc, cổng `samples-visual.yml` – [specs/samples-visual.md](specs/samples-visual.md).
+
 | # | Route | Nguồn sinh | ~Trang | Kiểu cũ | Trạng thái | Screen Kit (sáng / tối) | PR chủ |
 |---|---|---|---|---|---|---|---|
 | 1 | `/`, `/<lang>/` landing | build-landing.mjs | 15 | site | PR | home `7bfa0941…` / `fa2d1b99…` | #244 (HOLD) |

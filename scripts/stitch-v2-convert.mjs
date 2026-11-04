@@ -111,7 +111,11 @@ function emit(root, bind, k) {
     for (const n of texts) { const s = n.textContent, key = s.trim(); if (!key || /\u0001/.test(s)) continue; if (n.parentElement && isIcon(n.parentElement)) continue;
       if (b.text && b.text[key] != null) n.textContent = s.replace(key, mark(`e(${b.text[key]})`)); }
   };
-  const textify = el => { // chữ tĩnh còn lại + aria-label/title/alt → t(); trả HTML có dấu mốc
+  // Thẻ inline (bind `tag` div → a, hoặc <a> của Stitch) bọc khối con mà không có lớp display: viền/nền/padding chỉ vẽ lên 2 mảnh rỗng trước/sau khối (chủ 4/11: thẻ Chuỗi 7 ngày).
+  //   Gắn `block` ngay tại khung sinh, nên mọi màn đều đúng; trong cha flex/grid `block` không đổi gì. Cổng: scripts/test/inline-box.mjs + qa-bot `inlinebox`.
+  const blockify = el => { for (const e of [el, ...el.querySelectorAll('a,span,label,b,i,em,strong')]) { if (!/^(a|span|label|b|i|em|strong)$/i.test(e.tagName)) continue; if (!e.querySelector(':scope > div,:scope > p,:scope > h1,:scope > h2,:scope > h3,:scope > h4,:scope > ul,:scope > ol,:scope > section,:scope > article')) continue;
+      const c = e.getAttribute('class') || ''; if (/\u0001/.test(c)) continue; /* class động (dấu mốc): tự đặt display */ if (!/(?:^|\s)(?:[\w-]+:)*(?:block|flex|grid|inline-flex|inline-block|inline-grid|hidden|contents|table)(?:\s|$)/.test(c)) e.setAttribute('class', ('block ' + c).trim()); } };
+  const textify = el => { blockify(el); // chữ tĩnh còn lại + aria-label/title/alt → t(); trả HTML có dấu mốc
     const tw = el.ownerDocument.createTreeWalker(el, 4); const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
     for (const n of texts) { const s = n.textContent; if (/\u0001/.test(s) || !needT(s) || (n.parentElement && isIcon(n.parentElement))) continue; n.textContent = s.replace(s.trim(), tr(s, 'chữ')); }
     for (const e of [el, ...el.querySelectorAll('*')]) for (const a of ['aria-label', 'title', 'alt', 'placeholder']) { const v = e.getAttribute(a); if (v && !/\u0001/.test(v) && needT(v)) e.setAttribute(a, tr(v, a)); }

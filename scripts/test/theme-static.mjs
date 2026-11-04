@@ -76,7 +76,7 @@ for (const [mode, scheme, stored] of MODES) {
     const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await waitFn(page, () => window.LkUi, null, { timeout: 5000 }).catch(() => {});
     const r = await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), logo: (document.querySelector('.flogo,header .logo,.logo') || {}).getAttribute?.('href'), app: [...document.querySelectorAll('a[href^="/app/"]')].map(a => a.getAttribute('href')).filter(h => /hl=/.test(h)), blog: [...document.querySelectorAll('a[href$="/blog/"]:not([hreflang])')].filter(a => !a.closest('[data-lsw],.flang')).map(a => a.getAttribute('href')).filter(h => h !== '/vi/blog/') }));
     if (r.th !== 'dark') bad.push(`sync ${name}: app đặt tối nhưng data-theme=${r.th}`);
-    if (r.logo && r.logo !== '/') bad.push(`sync ${name}: app chọn vi nhưng logo → ${r.logo}`);
+    if (r.logo && r.logo !== '/vi/') bad.push(`sync ${name}: app chọn vi nhưng logo → ${r.logo}`);
     if (r.app.length) bad.push(`sync ${name}: link app còn ?hl= (${r.app[0]}) – sẽ ghi đè ngôn ngữ đã chọn`);
     if (r.blog.length) bad.push(`sync ${name}: link blog chưa về bản vi (${r.blog[0]})`);
     checks++; await page.close();
