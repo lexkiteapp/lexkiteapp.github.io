@@ -19,6 +19,7 @@
 - [samples-visual](specs/samples-visual.md) — thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO); đọc khi sửa /samples/ và các tab cùng họ
 - [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
+- [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
 - [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch (oEmbed, RSS, Data API có trần), add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
