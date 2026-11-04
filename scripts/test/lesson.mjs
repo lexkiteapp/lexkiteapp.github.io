@@ -152,6 +152,7 @@ const errors = [];
 w.Audio = class { constructor(u) { this.src = u; setTimeout(() => this.onerror && this.onerror(), 2); } play() { return Promise.resolve(); } pause() {} }; // mp3 giọng giáo viên chưa có cho câu động (404) → onerror → giọng máy dự phòng
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
+w.eval(fs.readFileSync(path.join(WEB, 'js/lesson/why.js'), 'utf8')); { const n0 = w.App.need; w.App.need = n => (n === 'lcard' ? Promise.resolve() : n0(n)); } // gói lười lcard: LessonWhy dùng ngay, LearnCard nạp ở phần G
 const tick = (ms = 30) => new Promise(r => setTimeout(r, ms));
 await tick(200);
 ok(!errors.length, 'nạp mã + bundle lesson không lỗi' + (errors.length ? ': ' + errors.join(' | ') : ''));
@@ -425,6 +426,48 @@ ok(micFailDone, 'đã chạy kịch bản micro hỏng ở bước nói');
   r = await run('ok'); ok(r.ctl === null && sig(r.ev) === 'error:unsupported', 'recognize: trình duyệt thiếu API và MediaRecorder → unsupported (bài học tự đổi bài nói)');
   for (const c of ['not-allowed', 'service-not-allowed', 'no-speech', 'audio-capture', 'network', 'language-not-supported', 'unsupported', 'busy', 'whisper']) ok(!/Lỗi nhận dạng/.test(UI.recErrorText(c)), `recErrorText(${c}) có lời nhắn riêng`);
   w.SpeechRecognition = SR0; w.webkitSpeechRecognition = WSR; w.MediaRecorder = MR; Object.defineProperty(w.navigator, 'mediaDevices', { configurable: true, value: md });
+}
+// ---------- G. Thẻ kết quả theo câu (docs/specs/learn-card.md): câu đủ dấu, nghĩa, mẫu câu, Tiếp tục không chờ ----------
+{
+  const PK = u => { const m = /packs\/(lcard\/[\w-]+|lesson\/gold)\.json/.exec(String(u)); const f = m && path.join(WEB, 'packs', m[1] + '.json'); return f && fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null; };
+  const f0 = w.fetch; w.fetch = async u => { const j = PK(u); return j ? { ok: true, json: async () => j } : f0(u); };
+  w.eval(fs.readFileSync(path.join(WEB, 'js/lesson/card.js'), 'utf8')); const C = w.LearnCard;
+  w.localStorage.setItem('lk.lsn.path.demo', '0');
+  w.location.hash = '#/lesson/go?demo=1&story=s-cafe'; await App.routes.lesson('go'); await tick(120);
+  let seenCard = 0;
+  for (let i = 0; i < 40 && st() && st().sess.cur; i++) {
+    const it = st().sess.cur;
+    if (it.type === 'line') { const go = $('#lsnGo'); if (go) go.click(); await tick(10); continue; }
+    if (it.type === 'build') {
+      it.tiles.forEach(() => {}); for (const wd of E.toks(it.sent)) { const b = [...w.document.querySelectorAll('#lsnBank .lsn-tile:not(.used)')].find(x => x.textContent.trim() === wd); if (b) b.click(); }
+      $('#lsnCheck').click(); await tick(5);
+      ok($('#lsnNext') && !$('#lsnNext').disabled, 'thẻ: Tiếp tục có ngay, không chờ dữ liệu thẻ');
+      await tick(150);
+      const k = $('#lkc'); ok(k, 'thẻ: có thẻ kết quả sau xếp câu');
+      if (it.sent === 'Hi! Can I have a large coffee, please?') {
+        seenCard++;
+        const sx = k.querySelector('.lkc-s').textContent; ok(sx === it.sent, 'thẻ: câu đủ dấu + viết hoa đúng nguồn: ' + sx);
+        ok(!/Hi Can I have a large coffee please/.test($('#lsnFoot').textContent) && !w.document.querySelector('.lsn-fq'), 'thẻ: không còn câu mất dấu, không lặp thẻ câu');
+        ok(/Can I have ___, please\?/.test(k.textContent), 'thẻ: mẫu câu Can I have ___, please?');
+        ok(k.querySelector('.lkc-b#lkcSay') && k.querySelector('#lkcSwap'), 'thẻ: có Thử nói + Thử đổi từ');
+        $('#lkcSwap').click(); ok(!$('#lkcSwapB').hidden && $('#lkcSwapB').querySelectorAll('.lkc-alt b').length >= 2, 'thẻ: mở Thử đổi từ thấy câu khác, phần đổi tô đậm');
+        k.querySelectorAll('.lkc-w')[1].click(); ok(k.querySelectorAll('.lkc-w[aria-expanded=true]').length === 1, 'thẻ: chạm từ mở nghĩa/đọc từ');
+        ok(!k.querySelector(':empty.lkc-t') && !/undefined|null/.test(k.textContent), 'thẻ: không ô trống, không undefined');
+      }
+      $('#lsnNext').click(); await tick(20); continue;
+    }
+    break;
+  }
+  ok(seenCard === 1, 'thẻ: đã gặp câu mẫu trong truyện s-cafe');
+  // sai: hiện câu đúng và lý do, không phạt; dữ liệu thiếu → ẩn gọn
+  const en = 'Hi! Can I have a large coffee, please?', host = w.document.createElement('div'); w.document.body.appendChild(host);
+  const fr = C.frames(); await C.mount(host, { en, ok: false, demo: true, why: () => '<p>LYDO</p>' });
+  ok(host.querySelector('.lkc-s').textContent === en && !host.querySelector('#lkcWhyB').hidden && /LYDO/.test(host.querySelector('#lkcWhyB').textContent), 'thẻ: sai → câu đúng + lý do mở sẵn');
+  ok(!host.querySelector('#lkcSave') || !host.querySelector('#lkcSave').getAttribute('aria-pressed').includes('true'), 'thẻ: demo không lưu vào ôn tập');
+  await C.mount(host, { en: 'Zxcvb qwert.', ok: true }); ok(!host.querySelector('.lkc-p') && !host.querySelector('.lkc-t') && !host.querySelector('#lkcSwap') && !host.querySelector('#lkcSave'), 'thẻ: thiếu mẫu + nghĩa → ẩn gọn, không chỗ trống');
+  host.remove();
+  // tự lưu mẫu vào ôn tập: có trần
+  ok(C.saveAllowed({ day: 'd', n: 4 }, 0, 'd') && !C.saveAllowed({ day: 'd', n: 5 }, 0, 'd') && C.saveAllowed({ day: 'x', n: 99 }, 1, 'd') && !C.saveAllowed(null, 2, 'd'), 'thẻ: trần lưu 2 mẫu/bài, 5 mẫu/ngày');
 }
 console.log(`\n${total - fails}/${total} lesson`);
 // Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi

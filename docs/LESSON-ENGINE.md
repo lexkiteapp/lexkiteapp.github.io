@@ -15,7 +15,7 @@
 | Ảnh theo nghĩa `từ#loại` | `VImg.has/get` (`vocab-img.js`, cờ `vocab_img`) | dạng nhìn ảnh nói từ – chỉ khi có đúng `từ#loại` |
 | Đọc + nhận giọng | `UI.tts` (Kokoro nếu có, rồi máy), `UI.recognize` (Web Speech → Whisper trên máy) | nghe/nói |
 | Giải thích đáp án | `explain-card.js` (lược đồ `{why, wrong, ex, hook}`) | khung HTML giải thích |
-| Gold bank | `content/video/scripts/bank/*.jsonl` (`why`, `wrong`, `right`, `ex`) | dựng `web/js/lesson/gold.js` (theo từ) |
+| Gold bank | `content/video/scripts/bank/*.jsonl` (`why`, `wrong`, `right`, `ex`) | dựng `web/packs/lesson/gold.json` (theo từ) |
 | Nhịp buổi học (combo, tạm tắt nghe/nói) | `confidence.js` | cùng tinh thần; bài học có máy trạng thái riêng nhỏ hơn |
 | Tiến trình ngày | `path-day.js` (dùng `dueList`) | sau duyệt: thêm bước "Bài học trộn" |
 
@@ -24,7 +24,7 @@
 2. **Dựng 10–14 bài** (`build`): mỗi từ 2 dạng khác nhau theo dữ liệu có thật (không có câu → không có dạng câu; không có ảnh đúng `từ#loại` → không có dạng ảnh); xen kẽ, không 2 bài liền cùng từ.
 3. **Hàng đợi**: sai → bản sao vào cuối hàng, gắn nhãn **"Lỗi cũ"** (tối đa 2 lần/bài); thanh tiến độ chỉ tăng khi đúng.
 4. **COMBO**: đúng liên tiếp ≥ 3 → hiện "🔥 COMBO ×n", sai → về 0. **Màn kết**: +XP · tỉ lệ đúng · COMBO cao nhất · thời gian · từ cần ôn.
-5. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích**: phần CÂU trước – `lesson/why.js` (lỗi vừa mắc so với đáp án, trật tự từ, từ nhiễu, ví dụ MỚI không lặp câu bài; docs/specs/sentence-builder.md), rồi phần TỪ (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
+5. **Thẻ kết quả theo câu** (`docs/specs/learn-card.md`, `lesson/card.js`): câu đủ dấu · nghĩa · mẫu câu · thử nói · Vì sao · thử đổi từ, mẫu tự vào ôn tập. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích**: phần CÂU trước – `lesson/why.js` (lỗi vừa mắc so với đáp án, trật tự từ, từ nhiễu, ví dụ MỚI không lặp câu bài; docs/specs/sentence-builder.md), rồi phần TỪ (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
 6. **"Không nghe được lúc này" / "Không nói được lúc này"**: tắt dạng đó 60 phút (`lk.lsn.off`), các bài còn lại tự đổi sang bản đọc/bản chọn; không trừ điểm.
    Micro không bao giờ "chết" im lặng (LX-1002): mỗi lần chạm kết thúc bằng câu nghe được hoặc lời nhắn theo mã lỗi (`UI.recErrorText`) + nhãn **Thử lại**; hỏng micro/quyền/mạng 2 lần → chỉ lối "Không nói được lúc này". `UI.recognize` luôn phát đúng 1 result/error trước end (phiên kết thúc im lặng/treo → `no-speech`); dịch vụ của trình duyệt hỏng (`network`/`service-not-allowed`/`language-not-supported`) → cả phiên chuyển sang ghi âm + Whisper trên máy. Test: `scripts/test/lesson.mjs` phần F.
 7. **Cuối bài → FSRS**: từ sai ≥ 1 lần → `grade 0` (Quên) – chưa có thẻ thì `App.addWord` để vào hàng ôn; từ đến hạn đúng ngay lần đầu → `grade 2`; từ chưa đến hạn đúng → không đổi lịch. XP qua `App.reward`. Demo (`?demo=1`) không ghi gì.
@@ -65,7 +65,8 @@
 |---|---:|---|
 | Khung app | +~0,4 KB (2 dòng BUNDLES/ROUTE_BUNDLE + thẻ trang chủ khi cờ bật) | luôn |
 | `lesson` (engine + ui + en strings) | ~9 KB gz | mở `#/lesson` |
-| `lgold` gold bank theo từ | ~12 KB gz | lần đầu bấm Giải thích |
+| gold bank theo từ (`web/packs/lesson/gold.json`) | ~12 KB gz | lần đầu bấm Giải thích |
+| `lcard` thẻ kết quả + Vì sao? (`docs/specs/learn-card.md`) | ~7 KB gz + `web/packs/lcard` | lúc rảnh sau khi vào bài |
 | Giáo viên | ≤ 180 KB | mở bài, `!saveData`; lần sau 0 |
 | Ảnh | ≤ 6 KB/ảnh (`VImg`) | chỉ bài `pic` |
 

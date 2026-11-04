@@ -1,0 +1,15 @@
+{
+ "_doc": "Câu cố ý không theo luật dấu câu: khoá = câu nguyên văn, giá trị = lý do. scripts/test/sentence-punct.mjs",
+ "sentences": {
+  "I look forward to your reply. Yours faithfully, Anna Lee": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "Thank you for your help. Yours sincerely, David Clark": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "See you at the meeting on Friday. Kind regards, Sam": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "Thanks again for the lovely dinner. Best wishes, Clara": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "Good luck with the new job! All the best, Tom": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "Can't wait to see you all at Christmas. Lots of love, Mia": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "Hope you feel better soon. Take care, Leo": "Ví dụ dạy cách kết thư: chữ ký không có dấu chấm là đúng chuẩn.",
+  "a [[significant]] increase": "Bài cụm danh từ: đáp án là cụm, không phải câu.",
+  "an [[extremely expensive]] project": "Bài cụm danh từ: đáp án là cụm, không phải câu.",
+  "a [[beautiful old wooden]] house": "Bài cụm danh từ: đáp án là cụm, không phải câu."
+ }
+}

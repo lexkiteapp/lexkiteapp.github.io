@@ -382,7 +382,7 @@
           <select class="input" id="dMode" style="width:auto;padding:.3rem .5rem;font-size:.85rem"><option value="mid" ${mode === 'mid' ? 'selected' : ''}>${t('Điền từ (trung bình)')}</option><option value="hard" ${mode === 'hard' ? 'selected' : ''}>${t('Điền từ (khó)')}</option><option value="full" ${mode === 'full' ? 'selected' : ''}>${t('Chép cả câu')}</option></select></div>
           <div class="row center" style="margin:1rem 0"><button class="btn" id="dPrev" title="${t('Câu trước')} (Shift+←)">‹ ${t('Câu trước')}</button><button class="btn primary lg" id="dPlay" title="${t('Nghe lại')} (\\)">🔊 ${t('Nghe')}</button><button class="btn" id="dSlow">🐢</button><button class="btn" id="dNext" title="${t('Câu sau')} (Shift+→)">${t('Câu sau')} ›</button></div>
           ${body}
-          <div id="dFb" style="margin-top:.6rem"></div>
+          <div id="dFb" style="margin-top:.6rem"></div><div id="dLc" style="margin-top:.6rem"></div>
           <details class="dict-tr" id="dTr"><summary>📜 ${t('Transcript & bản dịch')}</summary><div id="dTrBody" class="small"></div></details>
           <div class="row between" style="margin-top:.6rem"><div class="row"><button class="btn primary" id="dChk">${t('Kiểm tra')}</button><button class="btn ghost" id="dAns">${t('Đáp án')}</button><button class="btn ghost" id="dClr">${t('Xóa hết')}</button></div>
             <label class="md-sw"><input type="checkbox" id="dAuto" ${auto ? 'checked' : ''}><span></span>${t('Tự động phát lại câu')}</label></div>
@@ -401,7 +401,7 @@
       $('#dNext').onclick = () => { k++; draw(); };
       $('#dMode').onchange = e => { mode = e.target.value; state.settings.dictMode = mode; App.saveSettings(); draw(); };
       $('#dAuto').onchange = e => { auto = e.target.checked; state.settings.dictAuto = auto; App.saveSettings(); if (auto) say(l); };
-      $('#dClr').onclick = () => { hs.forEach(h => { h.value = ''; h.className = 'dict-h'; }); const t = $('#dIn'); if (t) t.value = ''; $('#dFb').innerHTML = ''; checked = false; (hs[0] || t).focus(); };
+      $('#dClr').onclick = () => { hs.forEach(h => { h.value = ''; h.className = 'dict-h'; }); const t = $('#dIn'); if (t) t.value = ''; $('#dFb').innerHTML = ''; $('#dLc').innerHTML = ''; checked = false; (hs[0] || t).focus(); };
       setTimeout(() => say(l), 300); (hs[0] || $('#dIn')).focus();
       const check = () => {
         if (checked) { k++; draw(); return; }
@@ -410,6 +410,7 @@
         if (mode === 'full') { const d = diff(l.t, $('#dIn').value); pct = d.pct; $('#dFb').innerHTML = `<div class="feedback ${pct >= 0.9 ? 'ok' : 'no'}" style="position:static"><b>${t('{p}% chính xác', { p: Math.round(pct * 100) })}</b><div style="margin-top:.4rem;line-height:1.9">${d.html}</div><div class="tiny muted" style="margin-top:.3rem"><span class="dk ok">${t('đúng')}</span> <span class="dk miss">${t('bỏ sót')}</span> <span class="dk extra">${t('thừa/sai')}</span></div></div>`; }
         else { let r = 0; hs.forEach(h => { const a = clean(words[+h.dataset.i]), ok = clean(h.value) === a; h.classList.add(ok ? 'ok' : 'no'); if (!ok) h.title = words[+h.dataset.i]; if (ok) r++; }); pct = hs.length ? r / hs.length : 1; $('#dFb').innerHTML = `<div class="feedback ${pct >= 0.9 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} ô đúng', { a: r, b: hs.length })}</b><div class="small" style="margin-top:.3rem">${esc(l.t)}</div></div>`; }
         score += pct; Sfx.answer(pct >= 0.9, { el: $('#dFb') });
+        App.need('lcard').then(() => window.LearnCard && LearnCard.mount($('#dLc'), { en: l.t, ok: pct >= 0.9 })).catch(() => {}); // thẻ kết quả dùng chung
         $('#dChk').textContent = t('Câu tiếp') + ' ↵';
       };
       $('#dChk').onclick = check;

@@ -1,0 +1,33 @@
+# Ảnh trước/sau + cổng thẻ kết quả theo câu (390 px, sáng/tối, đúng/sai) – docs/specs/learn-card.md
+name: Thẻ kết quả (ảnh + cổng)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/js/lesson/**', 'web/packs/lcard/**', 'scripts/test/lcard-shots.mjs', '.github/workflows/lcard-shots.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          git worktree add -q ../before "$(git merge-base HEAD origin/main)"
+          (cd ../before/web && python3 -m http.server 8081 >/dev/null 2>&1 &)
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &)
+          sleep 2
+          node scripts/test/lcard-shots.mjs http://localhost:8081 out/lcard before || true
+          node scripts/test/lcard-shots.mjs http://localhost:8080 out/lcard after
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: lcard-shots, path: out/lcard, retention-days: 14 }
