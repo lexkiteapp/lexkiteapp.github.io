@@ -230,7 +230,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
     const { execFileSync } = await import('child_process'), par = h => +execFileSync('bash', ['-c', line.replace('>> $GITHUB_OUTPUT', '') + ' >/dev/null; echo $par'], { env: { ...process.env, VIMG_HOUR: String(h) }, encoding: 'utf8' }).trim();
     const day = [...Array(14).keys()].map(i => par(i + 1)), night = [0, 15, 16, 18, 20, 22, 23].map(par);
     ok(/max-parallel: \$\{\{ fromJSON\(needs\.plan\.outputs\.par \|\| '5'\) \}\}/.test(fillJob) && /par: \$\{\{ steps\.p\.outputs\.par \}\}/.test(wf) && day.every(x => x >= 1 && x <= 3) && night.every(x => x >= 1 && x <= 5), 'fill: ban ngày VN (01–15 UTC) ≤ 3 máy, đêm ≤ 5 (chừa máy cho giao diện/npm test/Prod release)');
-    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| \(github\.event\.inputs\.judge_run != '' && '6' \|\| '10'\) \}\}/.test(wf), 'fill vẫn 10 việc (judge_run mặc định 6) (cùng trần ảnh mỗi việc) – bớt máy song song không bớt ảnh/ngày'); }
+    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| \(github\.event\.inputs\.judge_run != '' && '6' \|\| '\$par'\) \}\}/.test(wf), 'fill: số việc mặc định = số máy song song (par) – không có đợt chờ (04/11: 10 việc/par 3 → lượt >6 giờ, giữ nhóm concurrency); judge_run mặc định 6; tổng ảnh/lượt = trần G chia đều'); }
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
   ok(!/if:.*vars\.[A-Z_]+ *[!=]= *'0'/.test(all), "không workflow nào so vars.X với '0' trong if: (GitHub coi '' == '0')");
