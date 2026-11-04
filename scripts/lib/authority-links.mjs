@@ -2,6 +2,7 @@
 // (scripts/build-authority.mjs), chân trang chung (site-layout.mjs siteFooter), tác giả bài blog (build-blog.mjs) và trang chủ (build-landing.mjs).
 // Không import site-layout (tránh vòng). Trung thực tuyệt đối: không bịa người, chức danh, bằng cấp, đánh giá; sameAs chỉ kênh THẬT (profiles.json).
 import fs from 'node:fs';
+import { INSTALL } from '../../functions/api/_install_links.js'; // link cửa hàng: infra/install-links.json
 export const AUTH_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 export const SITE = 'https://lexkite.com';
 // Slug vĩnh viễn (đổi = mất thứ hạng/backlink). Tiếng Anh ở mọi ngôn ngữ: trang uy tín ít truy vấn bản địa, link ngoài dễ chia sẻ.
@@ -15,11 +16,10 @@ export const authStrings = lang => {
   return (cache[lang] = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null);
 };
 const has = lang => AUTH_LANGS.includes(lang) && !!authStrings(lang);
-// Kênh thật: repo, hồ sơ đã live (placements.json) + trang add-on Chrome (ext-config.js) – test authority-pages kiểm từng URL
+// Kênh thật: repo, hồ sơ đã live (placements.json) + trang add-on Chrome (infra/install-links.json) – test authority-pages kiểm từng URL
 export const sameAs = () => {
   const p = JSON.parse(fs.readFileSync('content/authority/profiles.json', 'utf8'));
-  const id = ((fs.existsSync('web/js/ext-config.js') ? fs.readFileSync('web/js/ext-config.js', 'utf8') : '').match(/store: '([^']+)'/) || [])[1];
-  return [...p.sameAs.map(x => x.url), ...(p.store && id ? [id.startsWith('http') ? id : `https://chromewebstore.google.com/detail/${id}`] : [])];
+  return [...p.sameAs.map(x => x.url), ...(p.store ? [INSTALL.channels.cws.url] : [])];
 };
 // Nút Organization chuẩn (@id cố định → mọi trang tham chiếu cùng 1 thực thể). Không dùng EducationalOrganization: Lexkite là app, không phải trường.
 export const orgNode = () => ({ '@type': 'Organization', '@id': `${SITE}/#org`, name: 'Lexkite', url: `${SITE}/`, logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 }, email: 'support@lexkite.com', sameAs: sameAs(),

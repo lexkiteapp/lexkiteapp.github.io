@@ -3,6 +3,7 @@
  *   socialMeta(clip, platform) → public, viral-optimised: hook-first title ≤ 60 with the keyword first, description whose first 2 lines are hook + value
  *                                then the lesson deep link, 3–5 hashtags, tags, A/B title variants and an SEO score (seoScore).
  * clip: {id, title, point, keyword?, topic, sub, skill, cefr, exam, hook, slug?, url?}. Used by distribution.js (op meta / social_due) and scripts/video/yt-pack.mjs. */
+import { installLines } from './_install_links.js'; // link cài: infra/install-links.json (luật: docs/VIDEO.md)
 export const SITE = 'https://lexkite.com';
 export const PLATFORMS = {
   youtube: { title: 100, caption: 5000, marker: true },
@@ -66,7 +67,7 @@ export function socialMeta(c, platform = 'youtube') {
   const value = `Learn ${keywordOf(c)} in 20 seconds – natural American English${c.cefr ? ` (${String(c.cefr).toUpperCase()})` : ''}.`;
   const hashtags = hashtagsOf(c, platform);
   const tags = [...new Set([keywordOf(c).toLowerCase(), 'learn english', 'english lesson', c.topic, c.skill && c.skill + ' english', c.cefr && String(c.cefr).toLowerCase() + ' english', c.exam && c.exam + ' english', 'american english'].filter(Boolean))].slice(0, 12);
-  const body = [hook, value, `Full lesson + quiz: ${lessonUrl(c, platform)}`, '', 'Save this and send it to a friend who needs it.', hashtags.join(' ')];
+  const body = [hook, value, `Full lesson + quiz: ${lessonUrl(c, platform)}`, ...installLines(platform, c.id), '', 'Save this and send it to a friend who needs it.', hashtags.join(' ')];
   if (P.marker) body.push('', markerLine(c.id));
   const m = { role: 'social', platform, privacy: 'public', title: variants[0], variants, description: body.join('\n').slice(0, P.caption), hashtags, tags, made_for_kids: false, synthetic: true };
   m.seo = seoScore(m, k); return m;

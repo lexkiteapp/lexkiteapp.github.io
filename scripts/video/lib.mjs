@@ -1,6 +1,7 @@
 // Hàm thuần cho dây chuyền dựng video (scripts/video/render.mjs) – không đụng file/mạng/ffmpeg để test được trên CI (scripts/test/video.mjs).
 // Gồm: chia mốc từ (khớp whisper ↔ kịch bản, dự phòng chia đều) · phụ đề karaoke ASS · kế hoạch cắt cảnh · đo QA (LUFS, lệch khẩu hình, nhịp, vùng an toàn, tương phản)
 // · CỔNG NHẤT QUÁN bối cảnh – nhân vật – lời thoại (content/video/casting.json + brand/library/manifest.json, docs/VIDEO-PIPELINE.md §8).
+import { ctaLabel } from '../../functions/api/_install_links.js'; // chữ CTA trong hình: trang cài ngắn (infra/install-links.json, docs/VIDEO.md)
 
 // ---------- Từ & mốc thời gian ----------
 export const tokens = t => String(t || '').trim().split(/\s+/).filter(Boolean);
@@ -99,7 +100,7 @@ export function buildAss({ w, h, format = 'short', lines, words, keywords = [], 
       ev.push(`Dialogue: 0,${assTime(t0)},${assTime(t1)},K,L${i},0,0,0,,${txt}`);
     });
   });
-  if (cta && ctaText) ev.push(`Dialogue: 2,${assTime(cta.start)},${assTime(cta.end)},CTA,CTA,0,0,0,,{\\fad(200,0)}Practice free\\N{\\fs${Math.round(h * 0.06)}\\1c${C('yellow')}}lexkite.com`);
+  if (cta && ctaText) ev.push(`Dialogue: 2,${assTime(cta.start)},${assTime(cta.end)},CTA,CTA,0,0,0,,{\\fad(200,0)}Practice free\\N{\\fs${Math.round(Math.min(h * 0.06, w * 0.92 / (0.62 * ctaLabel().length)))}\\1c${C('yellow')}}${ctaLabel()}`);
   return head + ev.join('\n') + '\n';
 }
 

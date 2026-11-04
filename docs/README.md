@@ -26,6 +26,7 @@
 | Chi phí/trần DAU · free-tier guard · mở rộng · dung lượng repo | `CAPACITY.md` · `FREE-TIER.md` · `SCALING-PLAN.md` · `STORAGE.md` |
 | Đồng bộ Drive · AI trên máy · OTA | `SYNC-DRIVE.md` · `AI-LOCAL.md` · `OTA.md` |
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
+| **Link cài mọi kênh (nguồn duy nhất)** | `infra/install-links.json`: sửa ở đây, `url` rỗng = chưa có listing, điền 1 dòng là hiện; rồi `node scripts/build-install-links.mjs && node scripts/build-landing.mjs`, `bash scripts/build-extension.sh`. Web đọc qua `web/js/ext-config.js` (tự sinh), Node/Functions/video qua `functions/api/_install_links.js`. Test CI `scripts/test/install-links.mjs` đỏ khi có link cửa hàng viết cứng lệch nguồn. Luật video: `VIDEO.md`. |
 | Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
 | Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` |

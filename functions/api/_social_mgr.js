@@ -6,6 +6,7 @@
  * KHÔNG cho (api_key_not_allowed, đo 22/10): connect/*, insights, comments, inbox, approvals, best-times, queue/slots, hashtag-groups,
  * caption-templates, accounts/{id}/check → kết nối kênh mở GrabCast (popup), số liệu lấy từ nguồn khác (web, nhập tay, YouTube khi có). */
 import { manifest, signed } from './admin-shorts.js';
+import { withInstall } from './_install_links.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
 import { normCfg, allowed, schedule } from './_distribution.js';
@@ -182,9 +183,11 @@ async function approvedClips(env) {
   return m.items.filter(it => it && CLIP.test(String(it.id)) && q.has(it.id) && !(rv.get(it.id) || {}).deleted && !['rejected', 'paused'].includes((rv.get(it.id) || {}).state) && !it.rejected)
     .map(it => ({ id: it.id, title: it.title || it.lesson || it.id, description: it.description || '', hashtags: Array.isArray(it.hashtags) ? it.hashtags.slice(0, 10) : [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, created: it.created || '', video: it.video, cover: it.cover, _it: it }));
 }
+// Caption kèm link cài đo theo nền tảng (infra/install-links.json, luật docs/VIDEO.md); trần threads 500, còn lại 2200
+const capOf = (clip, p) => withInstall(str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), p, clip.id, p === 'threads' ? 500 : 2200);
 export const bodyFor = (clip, mediaId, accs, per = {}) => ({
-  title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: 'America/New_York',
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'SELF_ONLY', allow_comment: true, allow_duet: false, allow_stitch: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+  title: str(clip.title, 100), caption: capOf(clip, 'social'), media_ids: [mediaId], timezone: 'America/New_York',
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'SELF_ONLY', allow_comment: true, allow_duet: false, allow_stitch: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, caption_override: capOf(clip, a.p), ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
   const cached = await getMeta(env.DB, 'media:' + clip.id, null); if (cached && cached.id) return cached.id;
