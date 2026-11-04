@@ -151,3 +151,5 @@ Ja, ohne Weiteres. Da der TOEIC standardisierte und wiederkehrende Geschäftssit
 
 ### Wie oft sollte man einen kompletten Probetest mit 200 Fragen absolvieren?
 In den ersten Wochen genügt ein vollständiger Test alle 3 Wochen, um den Leistungsstand zu kontrollieren. Im letzten Monat vor dem Prüfungstermin empfiehlt sich jeden Samstagmorgen eine komplette zweistündige Prüfungssimulation, um Konzentration und Ausdauer für den Testtag zu festigen.
+
+Für maximale Punktgewinne im Bereich Listening beachten Sie die [toeic listening part 2 strategien für fragen und antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).

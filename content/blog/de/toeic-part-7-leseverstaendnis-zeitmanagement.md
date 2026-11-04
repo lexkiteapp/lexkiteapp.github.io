@@ -139,3 +139,5 @@ Ein Pruefungsergebnis von ueber 850 Punkten verlangt rasche visuelle Auffassungs
 - **Strategische Vorbereitung**: Folgen Sie unserem [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/) fuer ein ausgewogenes Verhaeltnis von Hoer- und Leseuebungen.
 
 Nutzen Sie die [Lexkite Webanwendung](/#/) noch heute und meistern Sie TOEIC Part 7 mit ueberlegener Zeitkontrolle und maximaler Punktzahl!
+
+Zur gezielten Vorbereitung auf den mündlichen Teil empfehlen wir unsere [toeic listening part 2 strategien für fragen und antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).

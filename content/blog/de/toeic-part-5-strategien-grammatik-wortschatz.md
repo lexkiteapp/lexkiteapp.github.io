@@ -179,3 +179,5 @@ Fuer ein Gesamtergebnis von ueber 850 Punkten (mindestens 420 Punkte im Reading-
 
 ### Wie praegt man sich geschaeftliche Kollokationen am besten ein?
 Lernen Sie Vokabeln niemals isoliert, sondern stets in festen Verbindungen (*meet the deadline*, *conduct an investigation*, *reach a consensus*). Das Lernen ganzer Phrasen mit einem intelligenten Karteikartensystem beschleunigt die Wiedererkennung im Test massgeblich.
+
+Um Ihr Hörverstehen im Test zu perfektionieren und Klangfallen zu meiden, lesen Sie unsere [toeic listening part 2 strategien für fragen und antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).
