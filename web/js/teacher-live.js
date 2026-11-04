@@ -39,7 +39,7 @@
     v.onerror = () => { fig.querySelector('canvas') && cv.remove(); el.classList.remove('live'); }; // lỗi clip → giữ ảnh tĩnh
     // Bắt đầu đúng khung ảnh tĩnh, lần lặp sau mới từ 0
     const from = el.dataset.loop === '0' || !g.Chars || !g.Chars.stillAt ? 0 : g.Chars.stillAt(el.dataset.teacher, el.dataset.pose), first = v.onloadeddata;
-    if (from) { v.onloadedmetadata = () => { v.currentTime = from; }; v.onloadeddata = () => { if (v.seeking) v.addEventListener('seeked', first, { once: true }); else first(); }; }
+    if (from) { v.onloadedmetadata = () => { v.currentTime = from + .5 / 24; }; /* giữa khung: tua đúng ranh giới thì WebKit lấy khung trước, tay nhanh lệch hẳn ảnh tĩnh */ v.onloadeddata = () => { if (v.seeking) v.addEventListener('seeked', first, { once: true }); else first(); }; }
     // Nhẹ: chỉ tải clip khi khung hiện trên màn (0 byte nếu cuộn qua), ngoài màn thì dừng; SW + cache tĩnh (#302) → lần sau 0 byte
     const load = () => { if (!v.src) v.src = src; };
     watch(go, load);
