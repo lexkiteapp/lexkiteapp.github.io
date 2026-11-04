@@ -9,7 +9,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'functions/api/_report-i18n.js');
 export const MAIL_KEYS = ['Báo lỗi {id}: {s}', 'Đã nhận', 'Mới', 'Đã tiếp nhận', 'Đang xử lý', 'Đã sửa', 'Không sửa', 'Trùng lặp', 'Cảm ơn bạn đã giúp Lexkite tốt hơn!',
   'Phản hồi từ Lexkite', 'Trùng với {id}', 'Đã sửa trong phiên bản {v}', 'Xem trạng thái', 'Dự kiến xử lý: {t}', 'trong {n} giờ', 'trong {a}–{b} ngày', 'trong 1 tuần', 'trong {n} ngày',
-  'Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.', 'Lưu đường dẫn riêng này để theo dõi trạng thái:', 'Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.'];
+  'Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.', 'Lưu đường dẫn riêng này để theo dõi trạng thái:', 'Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.',
+  'Cảm ơn bạn đã báo! Đội ngũ đã nhận được và sẽ xem sớm.', 'Đội ngũ đang xử lý vấn đề này và sẽ báo bạn ngay khi xong.', 'Vấn đề này đã được sửa. Cảm ơn bạn đã báo! Hãy tải lại app để dùng bản mới.', 'Đội ngũ cần thêm chút thông tin: bạn đang làm gì khi lỗi xảy ra, và lỗi có lặp lại không? Hãy gửi một báo lỗi mới kèm ảnh chụp nếu được.'];
 export const LANGS = ['vi', 'en', ...fs.readFileSync(path.join(ROOT, 'scripts/i18n-langs.txt'), 'utf8').split('\n').map(x => x.replace(/#.*/, '').trim()).filter(x => x && x !== 'en' && x !== 'vi')];
 const load = lang => { const ctx = {}; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(path.join(ROOT, lang === 'en' ? 'web/js/i18n' : 'i18n/ui', lang, 'report.js'), 'utf8'), ctx); return (ctx.I18N_DICT || {})[lang] || {}; };
 
