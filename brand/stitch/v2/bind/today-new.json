@@ -1,5 +1,6 @@
 {
  "_doc": "Bản đồ gắn dữ liệu màn Hôm nay – người mới (Home v2 empty state, docs/HOME-V2.md): d do ux1.js home2() dựng. 3 bước = mục tiêu (#/lesson?pick=1) → kiểm tra trình độ (#/placement) → bài đầu (#/lesson/go); bước đang làm dùng khuôn nổi bật. Lộ trình đầy đủ (khung path) chèn sau khối mẹo. Thanh tab riêng của mẫu → thanh tab chung.",
+ "compact": true,
  "styles": true,
  "i18n": {
   "Lexkite": "Lexkite",
