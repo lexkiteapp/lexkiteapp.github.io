@@ -192,9 +192,10 @@
     // karaoke: chỉ khi đang đọc đúng câu đang hiện; vòng tiến độ quanh loa của nút "Nghe lại"
     // giữ tham chiếu lúc bắt đầu nói: tick/onEnd có thể tới SAU khi thoát bài (cleanup → L = null) – không đọc L trong callback
     const kw = L.kw && text === L.kwText ? L.kw : null, bub = L.bub, play = bub ? $('#lsnPlay') : null;
-    const onTick = (kw || play) ? f => { if (kw) kw.at(f); if (play && play.isConnected) bub.playing(play, f); } : null;
-    const done = () => { if (onTick) onTick(1); if (onEnd) onEnd(); };
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd: done, onTick }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd: done }); }
+    const onTick = play ? f => { if (play.isConnected) bub.playing(play, f); } : null, onWord = kw ? i => kw.word(i) : null;
+    const other = L.teachers && L.teachers[who === 'carlos' ? 'ama' : 'carlos']; if (other && other !== T) other.listen(true); // người nghe gật nhẹ, nhìn người nói
+    const done = () => { if (other && other !== T) other.listen(false); if (onTick) onTick(1); if (onEnd) onEnd(); };
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd: done, onTick, onWord }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd: done }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };

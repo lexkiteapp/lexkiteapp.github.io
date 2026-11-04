@@ -2,7 +2,7 @@
 name: chars-lively
 on:
   pull_request:
-    paths: ['web/js/teacher-*.js', 'web/js/call/**', 'web/js/lesson/**', 'web/index.html', 'scripts/test/chars-lively*', '.github/workflows/chars-lively.yml']
+    paths: ['web/js/teacher-*.js', 'web/js/call/**', 'web/js/lesson/**', 'web/js/st/v2/today*', 'web/index.html', 'scripts/build-landing.mjs', 'scripts/test/chars-lively*', '.github/workflows/chars-lively.yml']
   workflow_dispatch:
 permissions:
   contents: read

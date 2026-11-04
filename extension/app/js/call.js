@@ -240,8 +240,8 @@ body.call-on{overflow:hidden}
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-        const k0 = cnt.slice(0, k).reduce((a, b) => a + b, 0), onTick = kw ? f => kw.part(k0, cnt[k], f) : null;
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, onTick }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
+        const k0 = cnt.slice(0, k).reduce((a, b) => a + b, 0), onWord = kw ? i => kw.word(i, k0) : null;
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, onWord }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);

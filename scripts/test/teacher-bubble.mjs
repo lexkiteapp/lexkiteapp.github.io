@@ -1,6 +1,8 @@
 // 💬 Bong bóng lời giáo viên (js/lesson/teacher.js: bubble/kara/weights/wordAt): đuôi trỏ đúng miệng người nói, karaoke khớp giọng ≤120 ms,
 // chạm từ, 🐢 0,75×, CC, giảm chuyển động, tương phản (chữ ≥4.5:1, icon ≥3:1), RTL, không che nút X; truyện 2 giáo viên + cuộc gọi + Play & Speak (pas-drill).
 // Chạy: node scripts/test/teacher-bubble.mjs [chromium,webkit]  (không đối số = phần Node + jsdom; có tên trình duyệt = thêm Playwright, chạy trên CI audio-play.yml)
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import os from 'node:os';
 import jsdom from 'jsdom';
 const SRC = fs.readFileSync('web/js/lesson/teacher.js', 'utf8');
@@ -13,21 +15,19 @@ w.matchMedia = () => ({ matches: true }); w.eval(SRC);
 const T = w.LessonTeacher;
 ok(T && T.SLOW === 0.75, 'nút 🐢 = 0,75× (đúng chuẩn, file Kokoro giữ cao độ)');
 const SENT = ["We're considering moving to a new city.", 'She is afraid of the dark.', 'Her salary is paid every month, and she saves a little.', 'Could you tell me where the station is?', 'I like listening to music before I go to bed.', 'The meeting has been moved to Thursday afternoon.', 'Excuse me, is this seat taken?'];
-const PH = x => x.toLowerCase().replace(/[^a-z]/g, '').replace(/(.)\1/g, '$1').replace(/e$/, '').length; // ≈ số âm vị
-let worst = 0;
+// Tiếng giả: mỗi từ = một cụm tiếng, cách nhau khoảng lặng ngắn (độ lớn 100 Hz như LipSync.envOf) → mốc wordTimes phải khớp thời điểm thật của tiếng
+const LS = require('../../web/js/call/lipsync.js'); let worst = 0;
 for (const s of SENT) {
-  const ws = s.split(/\s+/), dur = ws.map(x => 0.062 * PH(x) + 0.075 + (/[,;:]$/.test(x) ? 0.22 : /[.!?]$/.test(x) ? 0.3 : 0));
-  const LEAD = 0.12, speech = dur.reduce((a, b) => a + b, 0), D = speech + 2 * LEAD; // file = im + lời + im
-  let acc = 0; const start = dur.map(d => { const v = acc; acc += d; return v; });
-  const est = T.weights(ws);
-  for (let i = 0; i < ws.length; i++) {
-    // thời điểm (s, theo file) mà kara bật từ i: quét đồng hồ 5 ms giống rAF, f = (t - LEAD)/(D - 2·LEAD)
-    let t = 0; while (t < D && T.wordAt(est, Math.max(0, t - LEAD) / (D - 2 * LEAD)) < i) t += 0.005;
-    worst = Math.max(worst, Math.abs((t - LEAD) - start[i]) * 1000);
-  }
+  const ws = s.split(/\s+/), env = [], start = []; for (let i = 0; i < 12; i++) env.push(0);
+  for (const x of ws) { start.push(env.length / 100); const n = Math.max(4, Math.round(LS.units(x).reduce((a, u) => a + (u.gap ? 0 : u.w), 0) * 7.5)); for (let i = 0; i < n; i++) env.push(.25 + .2 * Math.abs(Math.sin(i / 4))); const g = /[,;:.!?]$/.test(x) ? 26 : 6; for (let i = 0; i < g; i++) env.push(0); }
+  for (let i = 0; i < 12; i++) env.push(0);
+  const W = LS.wordTimes(s, env.length / 100, env);
+  ok(W && W.length === ws.length, `wordTimes: đủ ${ws.length} từ theo khoảng trắng`);
+  W.forEach((x, i) => { worst = Math.max(worst, Math.abs(x.s - start[i]) * 1000); if (i) ok(x.s >= W[i - 1].s, 'wordTimes: thứ tự tăng dần'); });
 }
-ok(worst <= 120, `karaoke: lệch tối đa ${worst.toFixed(0)} ms so với mốc giả (≤120 ms)`);
-ok(T.wordAt([1, 1], 0) === -1 && T.wordAt([1, 1], 0.4) === 0 && T.wordAt([1, 1], 0.6) === 1 && T.wordAt([1, 1], 1) === 1, 'wordAt: chưa phát = không sáng, cuối = từ cuối');
+ok(worst <= 120, `chữ theo lời: lệch tối đa ${worst.toFixed(0)} ms so với tiếng thật (≤120 ms)`);
+ok(LS.wordTimes('Hello there', 1, null) === null, 'không có đường tiếng → không có mốc (chữ tĩnh, không đoán)');
+ok(!('weights' in T) && !('wordAt' in T), 'không còn ước lượng thời gian từ độ dài chữ');
 
 // ---------- B. jsdom: bọc từ, sáng dần, chạm từ, CC, đuôi đo bbox, RTL ----------
 const D = w.document;
@@ -39,9 +39,10 @@ const se = D.querySelector('.lsn-sent'); se.querySelector('.lsn-gap').dataset.kn
 let tapped = '';
 const k = T.kara(se, 'I can see the station.', { onWord: x => { tapped = x; } });
 ok(k.words.length === 5 && se.querySelectorAll('.kw').length === 3, 'kara: 3 từ hiện + chỗ trống 2 từ = 5 từ nói');
-k.at(0.5); const on = [...se.querySelectorAll('.kw')].map(x => x.classList.contains('on'));
-ok(on[0] && !on[2], 'kara: giữa câu → từ đầu sáng, từ cuối chưa');
-k.at(1); ok([...se.querySelectorAll('.kw')].every(x => x.classList.contains('on')), 'kara: hết câu → sáng hết');
+ok(!se.classList.contains('kw-run'), 'kara: chưa có mốc → chữ tĩnh, không mờ');
+k.word(0); const on = [...se.querySelectorAll('.kw')].map(x => x.classList.contains('on'));
+ok(on[0] && !on[2] && se.querySelector('.kw.cur') === se.querySelectorAll('.kw')[0] && se.classList.contains('kw-run'), 'kara: từ đang đọc sáng + đánh dấu, từ sau chưa');
+k.word(null); ok(!se.classList.contains('kw-run') && !se.querySelector('.kw.cur'), 'kara: hết câu / không có mốc → chữ tĩnh đủ tương phản');
 se.querySelectorAll('.kw')[2].dispatchEvent(new w.MouseEvent('click', { bubbles: true })); ok(tapped === 'station', 'chạm từ "station." → gọi đúng từ (bỏ dấu câu)');
 k.cc(false); ok(se.classList.contains('kw-off'), 'CC tắt → ẩn chữ (thanh giữ chỗ, karaoke vẫn chạy)'); k.cc(true);
 const b = T.bubble(D.getElementById('card'), D.getElementById('tch'));
@@ -76,13 +77,13 @@ b.destroy();
   try { w.localStorage.setItem('lk.cc', '0'); } catch (e) { /* jsdom */ }
   const kc = T.kara(D.querySelector('#lc p'), 'Hello! Nice to meet you.', { cc: false });
   ok(!D.querySelector('#lc p').classList.contains('kw-off'), 'màn không có nút CC → chữ luôn hiện dù đã tắt CC ở bài học');
-  kc.part(1, 4, 0.01); const on2 = [...D.querySelectorAll('#lc .kw')].map(x => x.classList.contains('on'));
+  kc.word(0, 1); const on2 = [...D.querySelectorAll('#lc .kw')].map(x => x.classList.contains('on'));
   ok(on2[0] && on2[1] && !on2[4], 'cuộc gọi: câu 2 bắt đầu → câu 1 đã sáng hết, từ đầu câu 2 sáng');
-  kc.part(1, 4, 1); ok([...D.querySelectorAll('#lc .kw')].every(x => x.classList.contains('on')), 'cuộc gọi: hết câu 2 → sáng hết');
+  kc.word(3, 1); ok([...D.querySelectorAll('#lc .kw')].every(x => x.classList.contains('on')), 'cuộc gọi: từ cuối câu 2 → sáng hết');
   w.localStorage.removeItem('lk.cc');
   const UI = fs.readFileSync('web/js/lesson/ui.js', 'utf8'), CALL = fs.readFileSync('web/js/call.js', 'utf8');
   ok(/duoBub\(n, it, p\)/.test(UI) && /#lsnTch2' : '#lsnTch'/.test(UI), 'ui.js: câu thoại mới gắn bong bóng vào đúng giáo viên đang nói');
-  ok(/LessonTeacher\.bubble\(card, \$\('#cTch', ov\)\)/.test(CALL) && /kw\.part\(k0, cnt\[k\], f\)/.test(CALL) && /bub\.destroy\(\)/.test(CALL), 'call.js: thẻ phụ đề = bong bóng trỏ giáo viên, karaoke từng câu, dọn khi đóng');
+  ok(/LessonTeacher\.bubble\(card, \$\('#cTch', ov\)\)/.test(CALL) && /kw\.word\(i, k0\)/.test(CALL) && /bub\.destroy\(\)/.test(CALL), 'call.js: thẻ phụ đề = bong bóng trỏ giáo viên, karaoke từng câu, dọn khi đóng');
 }
 
 // ---------- B3. Play & Speak (pas-drill): đuôi "Cô Ama" trỏ mặt giáo viên, RTL lật đuôi, chấm đủ tương phản ----------
@@ -122,7 +123,7 @@ if (browsers.length) {
     const r = await p.evaluate(() => { const b = LessonTeacher.bubble(document.getElementById('card'), document.getElementById('tch'));
       const k = LessonTeacher.kara(document.querySelector('.lsn-sent'), 'Could you tell me where the station is?'); b.pop(); b.place();
       const t = document.querySelector('.tchb-tail').getBoundingClientRect(), f = document.querySelector('.tch-poster').getBoundingClientRect(), x = document.getElementById('x').getBoundingClientRect();
-      k.at(0.5); const cs = getComputedStyle(document.querySelector('.kw')), an = getComputedStyle(document.getElementById('card')).animationName;
+      k.word(1); const cs = getComputedStyle(document.querySelector('.kw')), an = getComputedStyle(document.getElementById('card')).animationName;
       return { tc: t.left + t.width / 2, tt: t.top, mouth: f.left + f.width / 2, fb: f.bottom, ft: f.top, cover: !(t.right < x.left || t.left > x.right || t.bottom < x.top || t.top > x.bottom), an, on: document.querySelectorAll('.kw.on').length };
     });
     const tag = `${name} ${vp.width}px ${dirn}`;
