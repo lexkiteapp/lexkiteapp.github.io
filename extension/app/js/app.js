@@ -288,6 +288,7 @@
     ux1: ['js/i18n/en/ux1.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/st/v2/today.js', 'js/st/v2/today-new.js', 'js/st/v2/today-desk.js', 'js/st/v2/today-rail.js', 'js/ux1.js', 'js/ux1-me.js'], lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
+  const EXT_NO = ['klocal']; if (Store.isExtension) EXT_NO.forEach(n => { BUNDLES[n] = []; }); // gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
   const ROUTE_BUNDLE = { speak: 'pas', train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], watch: 'watch', roleplay: 'roleplay', call: 'call', say: 'say', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx', 'dictp'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
@@ -1493,7 +1494,8 @@
     };
     $('.top-stats').prepend(b);
   }
-  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; showInstallBtn(); setTimeout(() => App.installNudge && App.installNudge(), 25000); });
+  // Chrome bắn sự kiện này bất kỳ lúc nào: chèn nút ngay sẽ đẩy cả cụm thanh trên sang trái 50 px khi đang đọc (CLS, J8 đỏ ngẫu nhiên) → chèn ở lần chuyển trang kế tiếp
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; window.addEventListener('hashchange', showInstallBtn, { once: true }); setTimeout(() => App.installNudge && App.installNudge(), 25000); });
   window.addEventListener('appinstalled', () => { const b = $('#installBtn'); if (b) b.remove(); });
   // Gợi ý cài app đúng lúc (như các app lớn): trên điện thoại, sau khi đã học ≥ 3 ngày, tối đa 1 lần/14 ngày – không làm phiền người mới
   App.installNudge = () => {
@@ -1506,7 +1508,7 @@
       n.innerHTML = `<div class="row nowrap" style="gap:.7rem"><img src="icons/icon-192.png" alt="" width="44" height="44" style="border-radius:12px"><div style="flex:1;min-width:0"><b>${t('Cài Lexkite như một app')}</b><div class="tiny muted">${t('Mở nhanh từ màn hình chính, toàn màn hình, học được cả khi offline')}</div></div><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div><button class="btn primary block" data-go style="margin-top:.6rem">📲 ${t('Cài ngay – miễn phí')}</button>`;
       document.body.appendChild(n);
       n.querySelector('[data-x]').onclick = () => n.remove();
-      n.querySelector('[data-go]').onclick = () => { n.remove(); const b = $('#installBtn'); if (b) b.click(); };
+      n.querySelector('[data-go]').onclick = () => { n.remove(); showInstallBtn(); const b = $('#installBtn'); if (b) b.click(); };
     } catch (e) { /* bỏ qua */ }
   };
   const netState = () => { document.body.classList.toggle('offline', !navigator.onLine); };

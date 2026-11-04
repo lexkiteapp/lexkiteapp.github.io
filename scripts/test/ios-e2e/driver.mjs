@@ -111,7 +111,8 @@ async function handle(ev) {
   } else if (ev.type === 'done') { done = true; }
   else if (ev.type === 'fatal') log('FATAL harness', ev.msg);
 }
-launch();
+// launch() chặn tới khi simctl trả về (runner bận: nhiều phút). Không đặt lại đồng hồ thì vòng dưới báo "45 s không có sự kiện" ngay lập tức, mở lại app và giết nó giữa bước đang chạy (run 41758412221: authui stall)
+launch(); lastEv = Date.now();
 const deadline = Date.now() + MIN * 60000;
 while (!done && Date.now() < deadline) {
   await sleep(300);
