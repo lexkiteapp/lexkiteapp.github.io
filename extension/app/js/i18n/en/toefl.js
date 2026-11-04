@@ -65,6 +65,10 @@
 
 
 
+'Bấm cụm từ để đưa vào câu, bấm lại để bỏ ra; kéo để chèn vào giữa hoặc đổi chỗ.': 'Tap a word group to add it to the sentence, tap again to remove it; drag to insert it or change the order.',
+'Làm lại': 'Try again',
+'Đề {n}': 'Prompt {n}',
+'Bắt đầu viết bài của bạn…': 'Start writing your essay…',
 'Đồng hồ ({m} phút) chạy khi bạn bắt đầu gõ. Bài nháp được lưu trên trình duyệt này.': 'The timer ({m} min) starts when you begin typing. Your draft is saved in this browser.',
 'Xem bài mẫu & checklist': 'Model answer & checklist',
 'Nhận xét bằng AI': 'AI feedback',
