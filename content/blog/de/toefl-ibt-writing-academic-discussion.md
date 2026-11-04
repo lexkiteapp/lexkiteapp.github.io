@@ -128,7 +128,7 @@ Schließe mit einem prägnanten Resümee:
 3. **Umgangssprache und Abkürzungen:** Schreibe niemals *gonna*, *wanna*, *u* oder *don't* (besser: *do not*). Es handelt sich um ein akademisches Uni-Forum.
 4. **Vergessen der Revision:** Fast jeder Kandidat tippt unter Zeitdruck Buchstabendreher ein (*teh* statt *the*). Die letzten zwei Minuten Revisionszeit retten dir einen ganzen Skalenpunkt.
 
-Um deine Vorbereitung optimal abzustimmen, lies unseren umfassenden Vergleich [TOEFL oder IELTS im Vergleich](/de/blog/toefl-oder-ielts-vergleich/) und vergleiche die Kriterien mit [IELTS Writing Task 2 Tipps](/de/blog/ielts-writing-task-2-tipps/).
+Um deine Vorbereitung optimal abzustimmen, lies unseren Leitfaden über das [neues toefl format 2026](/de/blog/neues-toefl-format-2026-vorbereitung/), unseren umfassenden Vergleich [TOEFL oder IELTS im Vergleich](/de/blog/toefl-oder-ielts-vergleich/) und vergleiche die Kriterien mit [IELTS Writing Task 2 Tipps](/de/blog/ielts-writing-task-2-tipps/).
 
 Für formelle Korrespondenzregeln schau in [Business English E-Mails schreiben](/de/blog/business-english-email-schreiben/) und erweitere dein Wortschatzarsenal mit [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/). Wirf auch einen Blick auf geprüfte [Schreibmuster](/samples/) zur Vertiefung.
 
