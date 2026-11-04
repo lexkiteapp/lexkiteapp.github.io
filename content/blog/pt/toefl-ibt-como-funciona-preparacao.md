@@ -3,7 +3,7 @@ title: "Como se preparar para o TOEFL iBT: guia completo e estratégias"
 description: "Como se preparar para o TOEFL iBT no novo formato de 2026: as 4 seções, a escala de 1 a 6, estratégias por tarefa e um plano de 8 semanas."
 slug: toefl-ibt-como-funciona-preparacao
 lang: pt
-translationKey: toefl-ibt-como-funciona-preparacao
+translationKey: toefl-ibt-dinh-dang-moi-2026
 category: toefl
 tags: [toefl, toefl-ibt, preparacao, estudos]
 keyword: "como se preparar para o toefl ibt"
