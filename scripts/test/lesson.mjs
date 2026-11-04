@@ -318,6 +318,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
 }
 // 🧩 Stitch v2.1 story-duo (cờ ux1): Truyện/Radio trên khung mới – Ama trái + Carlos phải (Chars/LessonTeacher) SAU khung chat đục; mỗi câu thoại đúng giọng người nói; bài kiểm giữa truyện = khung lesson-question
 ok(w.ST2['story-duo'], 'story-duo: khung nạp được');
+{ const h = w.ST2['story-duo']({ log: [], opts: [{ v: 'on', o: 'x', k: 'A', t: 'x' }] }).main, tp = w.document.createElement('template'); tp.innerHTML = h; const ic = tp.content.querySelector('#lsnBody .lsn-opt > div:last-child .material-symbols-outlined'); ok(ic && ic.textContent.trim() === 'check', `story-duo: đáp án đang chọn có dấu ✓ ở góc phải, không phải chữ cái (${ic && ic.textContent})`); }
 for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
   w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);
   w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);

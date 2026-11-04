@@ -17,7 +17,7 @@ const SAMPLES = ['', 'Ôn tập', 'Xóa tài khoản Lexkite?', 'Máy nghe đư�
 // 1. hk một định nghĩa, mọi nơi giống nhau
 // web/js/i18n.js viết gọn (khung app sát trần) – cùng thuật toán được kiểm ở mục 4: mọi khóa của 13 ngôn ngữ tra qua i18n.js thật
 for (const f of ['extension/background.js', 'extension/content.js', 'extension/popup.js', 'extension/writecheck.js']) {
-  const src = rd(f), m = src.match(/(?:function hk\(s\)|const hk = s =>) \{ (let x = 0x811c9dc5;[^\n]*?return '_' \+ \(x >>> 0\)\.toString\(36\);) \}/);
+  const src = rd(f), m = src.match(/(?:function hk\(s\)|const hk = s =>) \{ (let x = 0x811c9dc5;[^\n]*?return '_' \+ \(\(x >>> 0\) % 1679616\)\.toString\(36\);) \}/);
   ok(m, `${f}: có hàm hk chuẩn`);
   if (m) { const fn = new Function('s', m[1]); ok(SAMPLES.every(s => fn(s) === hk(s)), `${f}: hk cho kết quả khác thư viện dựng`); }
 }

@@ -38,7 +38,7 @@
     send({ type: 'uiDict', lang: 'en' }).then(r => { XEN = (r && r.dict) || {}; });
     if (l !== 'en') send({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; });
   };
-  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + (x >>> 0).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
   // Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
   const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || XEN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
