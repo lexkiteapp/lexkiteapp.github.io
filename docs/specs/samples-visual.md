@@ -17,6 +17,7 @@
 **Quy tắc:**
 - Đề đầy đủ là chữ hiển thị trên thẻ, kẹp 2–3 dòng bằng CSS; không `hidden`, không `display:none`.
 - Đơn vị số liệu ẩn thị giác (`.vu`) trừ thẻ đầu nhóm; từ đó phải còn hiển thị ở đâu đó trên trang, cổng SEO kiểm.
+- Không cắt chữ ngoài đề bài kẹp dòng: breadcrumb xuống dòng, dàn bài trên điện thoại xếp nhiều hàng.
 - Nhân vật chỉ Ama/Carlos 2D: ảnh `still-*` có chân mờ nên luôn cắt dưới sàn (`.vh-t`), không để lộ thân mờ dần. CTA dùng avatar, bỏ Kit.
 
 **Cổng:** `samples-ui.mjs` (npm test: huy hiệu, tiêu đề ngắn, bento không hở ô) · `samples-visual.yml` = `samples-seo-parity.mjs` (so từng trang với base) + `samples-visual.mjs` (390/1280 × sáng/tối: tràn ngang, chữ cắt, gãy giữa từ, dấu hiệu cuộn, tương phản, icon ≥ 3:1, giáo viên).

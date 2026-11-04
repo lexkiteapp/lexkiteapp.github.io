@@ -95,6 +95,9 @@ export const VIS_CSS = `.vart{display:block;flex:none;object-fit:contain}
 .tfb::before{content:"";display:block;width:20px;height:20px;margin:auto;background:currentColor;${mask(I_C)}}
 .tfb-l{left:0}.tfb-l::before{transform:scaleX(-1)}.tfb-r{right:0}.tfw.has-l .tfb-l,.tfw.has-r .tfb-r{display:block}
 [dir=rtl] .tfb-l{left:auto;right:0}[dir=rtl] .tfb-r{right:auto;left:0}[dir=rtl] .tfb-l::before{transform:none}[dir=rtl] .tfb-r::before{transform:scaleX(-1)}
+/* Không cắt chữ, không giấu mục ngoài màn: breadcrumb xuống dòng thay vì "…"; dàn bài trên điện thoại xếp nhiều hàng thay vì cuộn ngang không dấu hiệu */
+.crumbs [aria-current]{white-space:normal;overflow:visible;text-overflow:clip;min-width:0;overflow-wrap:anywhere}
+@media (max-width:999px){.outline ol{flex-wrap:wrap;overflow:visible}}
 @media (prefers-reduced-motion:reduce){.card.vc,.vb-i,.tfw::before,.tfw::after{transition:none}.card.vc:hover,.card.vc:focus-within,.vb-i:hover,.vb-i:focus-visible{transform:none}}
 @media print{.vb,.vh-t,.tfb{display:none!important}}`;
 
