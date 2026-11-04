@@ -112,7 +112,7 @@ Si dudas sobre la definición precisa de una palabra o sus colocaciones típicas
 
 ![Diccionario de inglés de Lexkite buscando resilient con pronunciación UK y US, ejemplos y botón de guardar](media:dict "Consultar colocaciones y familias léxicas refuerza la precisión en las tareas de completar palabras")
 
-También puedes explorar ejemplos de respuestas y criterios de evaluación en nuestra sección de [muestras y modelos de examen](/samples/) para calibrar el tono esperado en tus escritos.
+También puedes explorar ejemplos de respuestas y criterios de evaluación en nuestra sección de [muestras y modelos de examen](/samples/) para calibrar el tono esperado en tus escritos. Además, domina el nuevo ejercicio de debate en foros universitarios con nuestra guía sobre [TOEFL iBT Writing Academic Discussion](/es/blog/toefl-ibt-writing-academic-discussion-estrategias/).
 
 {{cta: /#/toefl | Practica el nuevo formato TOEFL iBT en Lexkite}}
 

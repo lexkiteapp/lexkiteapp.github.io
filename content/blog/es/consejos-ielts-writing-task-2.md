@@ -132,7 +132,7 @@ Distribución recomendada de los 40 minutos:
 └── Minutos 37–40: Revisión minuciosa de ortografía, acuerdos sujeto-verbo y puntuación
 ```
 
-Para quienes también deben redactar correos en el trabajo o para la variante General Training, recomendamos leer nuestra guía sobre [cómo escribir un email formal en inglés](/es/blog/como-escribir-un-email-formal-en-ingles/).
+Para quienes también deben redactar correos en el trabajo o para la variante General Training, recomendamos leer nuestra guía sobre [cómo escribir un email formal en inglés](/es/blog/como-escribir-un-email-formal-en-ingles/). Si además preparas exámenes informáticos como el nuevo TOEFL, revisa nuestra guía práctica de [TOEFL iBT Writing Academic Discussion](/es/blog/toefl-ibt-writing-academic-discussion-estrategias/).
 
 ## Autoevaluación
 
