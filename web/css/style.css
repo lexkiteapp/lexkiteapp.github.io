@@ -242,7 +242,7 @@ mark { background: color-mix(in srgb, var(--gold) 32%, transparent); color: inhe
 /* ---------- Home ---------- */
 .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1rem; }
 .hero-main { position: relative; overflow: hidden; background: linear-gradient(135deg, #0F3D3E 0%, #17595A 60%, #1F7A72 125%); color: #fff; border: 0; box-shadow: 0 18px 40px rgba(15,61,62,.32); }
-.hero-main::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.12); pointer-events: none; } /* không chặn bấm nút */
+.hero-main::after { content: ""; z-index: 0; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.12); pointer-events: none; } /* không chặn bấm nút */
 .hero-main .muted { color: rgba(255,255,255,.82); }
 .hero-main .btn.primary { background: #fff; color: #0F3D3E; border-color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.15); }
 .hero-main .progress { background: rgba(255,255,255,.25); }
@@ -283,8 +283,15 @@ mark { background: color-mix(in srgb, var(--gold) 32%, transparent); color: inhe
 /* ---------- Dictionary ---------- */
 .search { display: flex; gap: .6rem; }
 .search .input { font-size: 1.05rem; padding: .85rem 1.1rem; }
-.entry-head { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 1.25rem; }
-.entry-word { font-size: 2.3rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+.entry-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto 1fr auto auto; grid-template-areas: "title media" "pron media" "mean media" "ex ex" "act act"; } /* cột ảnh auto: không ảnh/ảnh ẩn → co về 0, chữ dùng hết bề ngang (mẫu Stitch: ô ảnh cạnh từ, nội dung bên dưới) */
+.entry-title { grid-area: title; min-width: 0; } .entry-head > .pron { grid-area: pron; } .entry-mean { grid-area: mean; min-width: 0; }
+.entry-ex { grid-area: ex; margin-top: 1rem; min-width: 0; } .entry-ex-h { display: flex; align-items: center; justify-content: space-between; gap: .5rem; } .entry-ex .set-h { display: inline-flex; align-items: center; gap: .35rem; margin: 0; }
+.entry-actions { grid-area: act; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; } .entry-actions > .btn { min-height: 48px; white-space: normal; } .entry-ex .btn.ghost { padding-inline: 0; }
+.entry-saved { background: var(--good-soft); color: var(--good-text); border-color: transparent; cursor: default; pointer-events: none; }
+.entry-head > .vimg, .entry-head > .pic { grid-area: media; align-self: start; width: 160px !important; margin: 0 0 .75rem 1rem !important; } [dir="rtl"] .entry-head > .vimg, [dir="rtl"] .entry-head > .pic { margin: 0 1rem .75rem 0 !important; }
+.entry-head > .vimg.gone { display: none !important; }
+@media (max-width: 600px) { .entry-head { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "title" "pron" "mean" "ex" "act" "media"; } .entry-head > .vimg, .entry-head > .pic, [dir="rtl"] .entry-head > .vimg, [dir="rtl"] .entry-head > .pic { margin: 1rem auto 0 !important; } .entry-actions > .btn { flex: 1 1 auto; } } /* điện thoại: ảnh giữ đúng 160×160 (vai dict, CLS 0) → xếp dưới nút hành động (CTA không bị đẩy; ảnh lỗi gỡ hộp không xê dịch phần trên), chữ đủ bề ngang */
+.entry-word { font-size: 2.3rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; overflow-wrap: anywhere; hyphens: auto; }
 .pron { display: flex; gap: 1rem; flex-wrap: wrap; margin: .5rem 0 .7rem; }
 .pron > span { display: inline-flex; align-items: center; gap: .45rem; padding: .25rem .4rem .25rem .7rem; border-radius: 999px; background: var(--surface-2); }
 .vi { font-size: 1.2rem; font-weight: 700; color: var(--accent-text); }
@@ -503,8 +510,6 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .g2, .g3, .g4, .grid { grid-template-columns: minmax(0, 1fr) !important; }
   .g4.stats, .g3.keep { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)) !important; }
-  .entry-head { grid-template-columns: minmax(0, 1fr) 84px; }
-  .entry-head.has-vimg { grid-template-columns: minmax(0, 1fr); } /* ảnh từ vựng giữ đúng 160×160 (vai dict) → xuống dưới chữ thay vì bị bóp còn 84 px */
   .stat { gap: .55rem; } .stat .em { width: 38px; height: 38px; font-size: 1.1rem; } .stat b { font-size: 1.1rem; }
   .card { padding: 1rem; }
   .hero-main .row .btn.lg { padding: .75rem 1rem; font-size: .98rem; }
@@ -753,27 +758,34 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .tl .spk, .tl .evn, .an-gl, .an-role, .qn { user-select: none; -webkit-user-select: none; }
 
 /* ===== Phương pháp ===== */
-.mloop { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; margin-top: .9rem; }
-.mstep { position: relative; display: flex; flex-direction: column; gap: .15rem; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); border-radius: 14px; padding: .75rem .8rem; color: #fff; text-decoration: none; transition: transform .15s, background .15s; }
+.mloop { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; margin-top: .9rem; }
+.mstep { position: relative; z-index: 1; min-height: 44px; display: flex; flex-direction: column; gap: .15rem; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); border-radius: 14px; padding: .75rem .8rem; color: #fff; text-decoration: none; transition: transform .15s, background .15s; }
 .mstep:hover { transform: translateY(-2px); background: rgba(255,255,255,.22); color: #fff; }
 .mstep.done { background: rgba(22,163,74,.35); border-color: rgba(134,239,172,.6); }
 .mstep .mnum { position: absolute; top: .55rem; right: .6rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.25); font-size: .75rem; font-weight: 800; }
-.mstep .mem { font-size: 1.5rem; }
-.mstep small { opacity: .85; font-size: .78rem; }
-.mstep i { opacity: .7; font-size: .7rem; font-style: normal; margin-top: auto; padding-top: .3rem; }
+.mstep .mem { font-size: 1.5rem; line-height: 1; }
+.mstep .mem .i, .mstrand .mse .i { width: 1em; height: 1em; vertical-align: top; }
+.mstep b { padding-right: 1.9rem; overflow-wrap: anywhere; }
+.mstep small { opacity: .92; font-size: .78rem; }
+.mstep i { opacity: .88; font-size: .7rem; font-style: normal; margin-top: auto; padding-top: .3rem; }
 .mstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; margin-top: .7rem; }
 .mstats > div { background: var(--primary-soft); border-radius: 12px; padding: .5rem; text-align: center; }
 .mstats b { display: block; font-size: 1.3rem; }
 .mstats span { font-size: .7rem; color: var(--muted); }
 @media (max-width: 520px) { .mstats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .mstrand { display: flex; gap: .6rem; align-items: center; margin: .55rem 0; }
-.mstrand .mse { font-size: 1.4rem; }
+.mstrand .mse { font-size: 1.4rem; color: var(--primary); display: grid; place-items: center; min-width: 1.6rem; }
 .mstrand .progress { margin: .25rem 0; }
 .mplan { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .5rem; margin-top: .7rem; }
-.mpi { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line); border-radius: 12px; padding: .6rem .7rem; color: var(--text); text-decoration: none; }
+.mpi { min-height: 44px; display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line); border-radius: 12px; padding: .6rem .7rem; color: var(--text); text-decoration: none; }
 .mpi:hover { border-color: var(--primary); }
 .mpi b { font-size: 1.15rem; color: var(--primary); min-width: 2.4rem; }
-.mprin { display: flex; flex-direction: column; }
+.mprin { display: flex; flex-direction: column; min-width: 0; }
+.mprin .mpic { font-size: 1.9rem; line-height: 1; color: var(--primary); display: grid; place-items: center; flex: none; }
+.mprin .mpic .i { width: 1em; height: 1em; vertical-align: top; }
+.mprin > .row:last-child { flex-wrap: wrap; min-width: 0; }
+.mprin .btn.sm { min-height: 44px; white-space: normal; text-align: center; }
+.mprin .chip { max-width: 100%; white-space: normal; }
 
 /* ===== Thi thử 4 kỹ năng ===== */
 .mk-skills { display: grid; gap: .5rem; }
@@ -1469,8 +1481,17 @@ body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-e
 .qe-n { border: 1px solid var(--line); background: var(--bg); color: var(--text); border-radius: 6px; padding: 0 .4rem; font: 700 .8rem/1.6 inherit; cursor: pointer; margin: 0 .15rem .15rem 0; }
 .qe-flash { outline: 3px solid var(--primary); outline-offset: 2px; transition: outline .3s; }
 /* Danh sách dài & khối dưới trang: chỉ vẽ khi cuộn tới (Baseline content-visibility) – LCP nhanh & cuộn mượt */
-.word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
-.w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
+@supports (overflow-anchor: auto) {
+  .word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
+  .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
+}
+.lk-scrolling :is(.flame-icon, svg .blink, svg .flap-l, svg .flap-r, .st-fl .fl-mid, .st-fl .fl-core, .node.current, .node-tip), .lk-scrolling .shimmer-fx::after, .lk-scrolling .pill-shimmer::after { animation-play-state: paused !important; }
+@media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
+body.v2pre #view { padding: 0; max-width: none; }
+@media (min-width: 1024px) {
+  body.ux1 .shell { grid-template-columns: 232px minmax(0, 1fr) 340px; }
+  body.ux1.focus .shell, body.ux1.bare .shell { grid-template-columns: minmax(0, 1fr); }
+}
 /* Vòng mục tiêu ngày */
 .rings-card { display: flex; align-items: center; gap: 1.2rem; padding: 1rem 1.2rem; margin-bottom: 1rem; }
 .rings { width: 108px; height: 108px; flex: none; transform: rotate(-90deg); }
