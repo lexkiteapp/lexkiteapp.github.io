@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { createHash } from 'node:crypto';
 import { toolFoot } from './tools-links.mjs';
-import { INSTALL, liveChannels, trackUrl } from '../../functions/api/_install_links.js'; // link cài: infra/install-links.json
+import { INSTALL, liveChannels } from '../../functions/api/_install_links.js'; // link cài: infra/install-links.json
 import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
 import { S as SP } from './seo-pages-i18n.mjs';
 import { art, scrollBtns, VIS_CSS, VIS_JS } from './samples-visual.mjs'; // lớp lướt bằng mắt của họ trang thư viện (docs/specs/samples-visual.md)
@@ -334,7 +334,8 @@ export const footGroups = (lang, extra = [], coExtra = []) => {
 // Sản phẩm / Học / Công cụ miễn phí / Thông tin (gập mở trên điện thoại) · thanh đáy © + nhãn hiệu + menu ngôn ngữ (<details>, link <a> cho bot) + nút giao diện.
 // Đủ mọi link cũ + đủ kênh cài đang có (infra/install-links.json; kênh chưa có listing không hiện).
 export const PLAY_STORE = INSTALL.channels.play.url;
-const footStores = () => liveChannels().filter(c => c.id !== 'cws').map(c => `<a class="fbtn" href="${esc(trackUrl(c.id, { medium: 'get_app', campaign: 'site_foot' }))}" target="_blank" rel="noopener">${c.name}</a>`).join('');
+// link gốc, không tham số (như nút Chrome cạnh đó): chân trang này có ở 85.000 trang từ điển, trang lớn nhất sát trần 16 KB gzip (dict-pages)
+const footStores = () => liveChannels().filter(c => c.id !== 'cws').map(c => `<a class="fbtn" href="${esc(c.url)}" target="_blank" rel="noopener">${c.name}</a>`).join('');
 export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '', coExtra = [] }) => {
   const { cur, f, product, learn, tools, co } = footGroups(lang, extra, coExtra), app = appHref(lang), fe = i => f[i] || FOOT.en[i];
   const col = (h, items) => items.length ? `<details class="fg" open><summary><h2>${h}</h2></summary><ul>${items.map(([u, n, a = '']) => `<li><a href="${u}"${a}>${n}</a></li>`).join('')}</ul></details>` : '';
