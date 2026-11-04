@@ -89,3 +89,13 @@ Nạp: dòng cuối `notices.js` (đã tải lười 2,5 s sau khi mở app) →
 - Ngữ pháp/phát âm 13 ngôn ngữ: cần bản viết riêng (dịch máy = trang mỏng). Task 1 Academic bản vi (`/samples/task-1/`) – nội dung chú thích vi đã có.
 - Chia động từ `#/verb/<v>` (SEO-GROWTH-PLAN §4: 300 động từ × 15) – dùng cùng khung generator.
 - Speaking/bài mẫu cho 13 ngôn ngữ.
+
+## 9. Đo theo nước & nhóm CPM (4/11)
+- **Một nguồn:** `functions/api/_cpm.js` – 30 nước `HIGH_CPM` (GIẢ ĐỊNH; có RPM thật từ `scripts/ads/report.mjs` thì thay ở đây), `tierOf` nhận mã Cloudflare (`US`) lẫn GSC (`usa`), chuẩn hoá nguồn `srcOf`/`normRef`.
+- **Mốc 4/11** (D1 `sessions` từ 15/10, người thật = `bot IS NULL` và `dur ≥ 10`, 309 khách): VN 40 %, CPM cao 34 %, khác 26 %. Đo lại: `SELECT country, COUNT(DISTINCT vid) FROM sessions WHERE day >= '<ngày>' AND bot IS NULL AND dur >= 10 GROUP BY country`.
+- **GSC hằng tuần:** `scripts/seo/gsc.mjs` kéo thêm dimension `country` (28 ngày, 7 ngày, 7 ngày trước – không mất lượt ẩn danh như query×page×country) → bảng "Theo nhóm CPM" + "Theo nước" trong báo cáo/issue `seo-weekly`.
+- **Vì sao `ref` luôn trống (gốc):** `sessions` chỉ ghi app, mà người từ Google vào trang tĩnh trước rồi mới bấm sang `/app/` → `document.referrer` là chính lexkite.com → bị lọc thành trực tiếp.
+- **Sửa:** `SRC_JS` (`site-layout.mjs`, nằm trong `/js/site-ui.js`) khi khách từ ngoài vào trang tĩnh: lưu tên miền nguồn 30 phút (`lk.src`, không cookie) và gửi `/api/hit t:'l'` tối đa 1 lần/nguồn/30 phút/máy. App đọc `lk.src`, nếu không có thì ghi `site:<loại trang>`.
+- **Lưu:** `ext_events` kind `land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>` – không URL, không IP, không vid; nguồn ngoài danh sách → `other`. Bot và bản preview bị bỏ ở máy chủ.
+- **Quota:** +1 lượt Functions và +1 dòng ghi D1 cho mỗi lượt khách ngoài (không tính lượt xem nội bộ); 1.000 lượt/ngày ≈ 1 % trần ghi D1 miễn phí, 1 % Functions. Trần 30 lượt/giờ/IP. Tắt: biến Pages `HIT_LAND=0`.
+- **Admin:** Quản trị › Thống kê có thẻ "Nhóm CPM cao" và "Khách từ ngoài vào trang tĩnh". Số 692 Mỹ là truy vấn thô trên D1 (gồm bot); bảng nước của admin vốn đã lọc, nay có test khoá từng loại `dc, ci-app, ua, admin, bot` (`scripts/test/analytics.mjs`).

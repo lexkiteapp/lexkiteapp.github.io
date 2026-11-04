@@ -350,7 +350,11 @@ fetch('${HINT_FILE}').then(function(r){return r.json()}).then(function(A){var S=
 var e=d.createElement('div');e.className='lhint';e.lang=n;if(n==='ar')e.dir='rtl';e.setAttribute('role','region');e.setAttribute('aria-label',S[0]);
 e.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';e.firstChild.textContent=S[0];var a=e.querySelector('a'),c=e.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];c.setAttribute('aria-label',S[2]);
 var x=function(){try{ls.setItem('lk.lhint','1')}catch(z){}};a.onclick=x;c.onclick=function(){x();e.remove()};b.appendChild(e)})['catch'](function(){})}catch(z){}})(document);`;
-export const SITE_UI_JS = () => `/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */\n${LSW_JS}\n${TSW_JS}\n${LANG_JS}\n${FOOT_JS}\n${HINT_JS}\nwindow.LkUi=1;\n`;
+// Nguồn thật (docs/SEO-ARCH.md §9): khách từ ngoài vào trang tĩnh → chỉ tên miền nguồn + loại trang: giữ 30 phút cho app (lk.src, web/js/app.js) và đếm 1 lần/nguồn/30 phút (/api/hit t:'l'). Không cookie, không gửi URL đầy đủ.
+export const SRC_JS = `(function(d,l){try{var r=d.referrer,s=window.localStorage,h,o,a;if(!r||l.protocol!=='https:'||navigator.webdriver||s.getItem('lk.noTrack')==='1')return;h=new URL(r).hostname.replace(/^www\\./,'');if(h===l.hostname)return;
+o=JSON.parse(s.getItem('lk.src')||'0');if(o&&o.h===h&&Date.now()-o.t<18e5)return;s.setItem('lk.src',JSON.stringify({h:h,t:Date.now()}));a=l.pathname.split('/').filter(Boolean);
+navigator.sendBeacon&&navigator.sendBeacon('/api/hit',JSON.stringify({t:'l',ref:h,p:(/^[a-z]{2}$/.test(a[0])?a[1]:a[0])||'',lang:d.documentElement.lang}))}catch(z){}})(document,location);`;
+export const SITE_UI_JS = () => `/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS + SRC_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */\n${LSW_JS}\n${TSW_JS}\n${LANG_JS}\n${FOOT_JS}\n${HINT_JS}\n${SRC_JS}\nwindow.LkUi=1;\n`;
 export const SITE_UI_V = createHash('sha256').update(SITE_UI_JS()).digest('hex').slice(0, 8);
 export const SITE_UI = `<script src="/js/site-ui.js?v=${SITE_UI_V}" defer></script>`;
 // Landing (giữ LCP: không <script src> trong HTML – landing-routing kiểm): nạp cùng file SAU sự kiện load, như js/get-app.js nạp khi cần
