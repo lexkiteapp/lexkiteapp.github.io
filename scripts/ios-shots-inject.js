@@ -41,7 +41,7 @@
     if (step === 'call') { location.hash = '#/call/coffee'; setTimeout(function () { var b = document.getElementById('callGo'); if (b) b.click(); }, 3000); }
     if (step === 'write') setTimeout(function () {
       var e = document.getElementById('essay'), an = document.getElementById('analyze'); if (!e || !an) return;
-      e.value = 'Many people believe that learning a language online is easier than studying in a classroom. I think this is a good thing because students can practise every day and choose topics they enjoy. However, speaking with other people is still important, and it helps learners feel more confident. In my opinion, the best approach is to combine daily practice with real conversations.';
+      e.value = '__ESSAY__'; // workflow thay bằng ESSAY của scripts/store-art/spec.mjs
       e.dispatchEvent(new Event('input', { bubbles: true })); an.click();
       setTimeout(function () { var r = document.getElementById('report'); if (r) r.scrollIntoView({ block: 'start' }); }, 1500);
     }, 2500);

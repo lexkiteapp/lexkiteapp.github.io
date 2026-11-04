@@ -47,7 +47,7 @@ jobs:
         run: |
           npm ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
-          cp scripts/ios-shots-inject.js mobile/www/shots-inject.js
+          node --input-type=module -e "import fs from 'node:fs'; import { ESSAY } from './scripts/store-art/spec.mjs'; fs.writeFileSync('mobile/www/shots-inject.js', fs.readFileSync('scripts/ios-shots-inject.js', 'utf8').replace('__ESSAY__', ESSAY));"
           perl -0pi -e 's#<head>#<head><script src="shots-inject.js"></script>#' mobile/www/index.html
           grep -q shots-inject mobile/www/index.html
           # chỉ bản chụp ảnh: cho WebView gọi máy chủ lệnh http://127.0.0.1 (không commit, không có trong bản phát hành)

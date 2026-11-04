@@ -4,14 +4,13 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
-import { SLIDES, CAPTURE, LANGS as ALL } from './spec.mjs';
+import { SLIDES, CAPTURE, ESSAY, LANGS as ALL } from './spec.mjs';
 
 const RAW = path.resolve(process.argv[2] || 'store-art-raw');
 const BASE = process.env.BASE || 'https://lexkite.com/app/';
 const LANGS = (process.env.LANGS || 'en').split(',').filter(l => ALL.includes(l));
 if (!LANGS.length) throw new Error('LANGS không có ngôn ngữ hợp lệ');
 const HIDE = '#toast,.install-nudge,#installBtn,.lk-rep,#lkRep{display:none!important}';
-const ESSAY = 'Many people believe that learning a language online is easier than studying in a classroom. I think this is a good thing because students can practise every day and choose topics they enjoy. However, speaking with other people is still important, and it helps learners feel more confident. In my opinion, the best approach is to combine daily practice with real conversations.';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // Thao tác để tới đúng trạng thái đáng xem của màn

@@ -18,6 +18,7 @@ const FRAMES = path.join(ROOT, 'brand/stitch/store-art');
 const b64 = (f, t) => `data:${t};base64,` + fs.readFileSync(f).toString('base64');
 const LOGO = b64(path.join(ROOT, 'web/icons/icon.svg'), 'image/svg+xml');
 const person = (w, pose) => b64(path.join(ROOT, `web/teach/${w}/still-${pose}.webp`), 'image/webp');
+const EM_LIGHT = '#C43820'; // token on-primary-fixed-variant: coral đậm đạt 4,5:1 trên nền kem Bright Day
 const strip = h => h.replace(/<[^>]+>/g, '');
 
 // Khung → HTML đã biên dịch Tailwind (cache theo khung)
@@ -37,9 +38,10 @@ function fill(d) {
   for (const id of d.need) if (!$(id)) miss.push(id);
   const logo = $('lk-logo');
   if (logo) { logo.innerHTML = `<img src="${d.logo}" alt="" style="width:100%;height:100%;display:block;border-radius:22%">`; logo.style.background = 'none'; logo.style.border = '0'; logo.style.boxShadow = 'none'; }
-  const hd = $('lk-headline'), emCls = $('lk-em')?.className || '';
-  if (hd) { hd.innerHTML = d.h.replace('<em>', `<span id="lk-em" class="${emCls}">`).replace('</em>', '</span>'); hd.dir = d.rtl ? 'rtl' : 'ltr'; hd.style.overflowWrap = 'break-word'; }
-  const sub = $('lk-sub'); if (sub) { if (d.s) { sub.textContent = d.s; sub.dir = d.rtl ? 'rtl' : 'ltr'; } else sub.remove(); }
+  const hd = $('lk-headline'), emCls = ($('lk-em')?.className || '').split(/\s+/).filter(c => !/^(underline|decoration-|underline-offset)/.test(c)).join(' ');
+  if (hd) { hd.innerHTML = d.h.replace('<em>', `<span id="lk-em" class="${emCls}">`).replace('</em>', '</span>'); hd.dir = d.rtl ? 'rtl' : 'ltr'; hd.style.overflowWrap = 'break-word'; if (d.emColor) { const e = $('lk-em'); e.style.cssText += `;color:${d.emColor};-webkit-text-fill-color:${d.emColor};background:none`; } }
+  const sub = $('lk-sub'); if (sub) { if (d.s) { sub.textContent = d.s; sub.dir = d.rtl ? 'rtl' : 'ltr'; if (d.subPx) sub.style.fontSize = d.subPx + 'px'; } else sub.remove(); }
+  if ($('lk-url')) { if (d.url) $('lk-url').textContent = d.url; else $('lk-url').textContent = 'lexkite.com'; }
   const tags = $('lk-tags');
   if (tags && d.tags) { const proto = tags.firstElementChild, nodes = d.tags.map(t => { const c = proto.cloneNode(true), leaf = [...c.querySelectorAll('*'), c].reverse().find(e => e.textContent.trim() && !e.children.length) || c; leaf.textContent = t; return c; }); tags.replaceChildren(...nodes); }
   const pts = $('lk-points');
@@ -54,16 +56,17 @@ function fill(d) {
     }
   }
   const main = document.querySelector('body>main') || document.body;
+  const FADE = 0.102; // ảnh still mờ dần từ dòng 866/960: chìm phần đó xuống dưới mép canvas để không lộ thân mờ
   const place = (slot, t, hFrac, side) => {
     if (!slot) return null;
     const r = slot.getBoundingClientRect(); slot.innerHTML = ''; slot.style.background = 'none'; slot.style.border = '0'; slot.style.boxShadow = 'none';
     if (!t) { slot.remove(); return null; }
-    const ih = Math.round(H * hFrac), iw = ih * 1108 / 960, cx = side != null ? side : r.left + r.width / 2;
+    const ih = Math.round(H * hFrac), iw = ih * 1108 / 960, cx = side != null ? side : r.left + r.width / 2, sink = Math.ceil(ih * FADE);
     const img = new Image(); img.src = t.src; img.alt = ''; img.dataset.lkTeacher = t.who;
-    img.style.cssText = `position:fixed;left:${Math.round(cx - iw / 2)}px;bottom:0;height:${ih}px;width:${Math.round(iw)}px;z-index:40;filter:drop-shadow(0 10px 22px rgba(4,20,22,.28));max-width:none`;
-    document.body.appendChild(img); return { cx, ih, iw, top: H - ih };
+    img.style.cssText = `position:fixed;left:${Math.round(cx - iw / 2)}px;bottom:-${sink}px;height:${ih}px;width:${Math.round(iw)}px;z-index:40;filter:drop-shadow(0 10px 22px rgba(4,20,22,.28));max-width:none`;
+    document.body.appendChild(img); return { cx, ih, iw, top: H - ih + sink };
   };
-  const t1 = place($('lk-teacher'), d.teacher, d.teacherFrac);
+  const t1 = place($('lk-teacher'), d.teacher, d.teacherFrac, d.teacherX != null ? d.teacherX * W : null);
   const t2 = place($('lk-teacher2'), d.teacher2, d.teacherFrac);
   const bub = $('lk-bubble');
   if (bub) {
@@ -72,14 +75,15 @@ function fill(d) {
       const leaf = [...bub.querySelectorAll('*'), bub].reverse().find(e => e.textContent.trim() && !e.children.length) || bub; leaf.textContent = d.bubble;
       bub.dir = 'ltr'; bub.style.position = 'fixed'; bub.style.zIndex = 41; bub.style.margin = 0; bub.style.transform = 'none'; bub.style.right = 'auto'; bub.style.bottom = 'auto';
       const b = bub.getBoundingClientRect(); // đặt ngay trên đầu giáo viên (nhân vật chiếm khoảng 86 % chiều cao ảnh)
-      bub.style.left = Math.max(10, Math.min(W - b.width - 10, t1.cx - b.width * 0.35)) + 'px'; bub.style.top = Math.max(8, t1.top + t1.ih * 0.1 - b.height - 8) + 'px';
+      bub.style.left = Math.max(10, Math.min(W - b.width - 10, t1.cx - b.width * 0.35)) + 'px'; bub.style.top = Math.max(8, t1.top + t1.ih * 0.06 - b.height - 6) + 'px';
     }
   }
   // Tiêu đề: to nhất có thể rồi thu dần cho tới khi không đè vào thiết bị/giáo viên và màn app còn đủ lớn
   const device = scr ? (scr.closest('[class*="rounded"]:not(#lk-screen)') || scr) : null;
   const blocks = () => [hd, sub && sub.isConnected ? sub : null].filter(Boolean).map(e => e.getBoundingClientRect());
   const clash = () => {
-    const bs = blocks(), obs = [device, ...document.querySelectorAll('[data-lk-teacher]'), bub && bub.isConnected ? bub : null].filter(Boolean).map(e => e.getBoundingClientRect());
+    const shrink = e => { const r = e.getBoundingClientRect(); if (!e.dataset.lkTeacher) return r; const m = r.width * 0.2; return { left: r.left + m, right: r.right - m, top: r.top, bottom: r.bottom, height: r.height }; }; // ảnh giáo viên có lề trong suốt
+    const bs = blocks(), obs = [device, ...document.querySelectorAll('[data-lk-teacher]'), bub && bub.isConnected ? bub : null].filter(Boolean).map(shrink);
     const hit = bs.some(a => obs.some(o => a.right > o.left + 12 && a.left < o.right - 12 && a.bottom > o.top + 2 && a.top < o.bottom - (o.height * 0.15)));
     const out = hd && (hd.scrollWidth > hd.clientWidth + 1 || hd.getBoundingClientRect().right > W + 0.5 || hd.getBoundingClientRect().bottom > H);
     const shown = scr ? Math.min(H, scr.getBoundingClientRect().bottom) - scr.getBoundingClientRect().top : H;
@@ -89,13 +93,16 @@ function fill(d) {
   const after = clash(); if (hd && after) issues.push({ hard: true, m: `tiêu đề vẫn đè nội dung ở cỡ nhỏ nhất ${fs}px` });
   if (hd && fs < d.target * 0.72) issues.push({ m: `tiêu đề phải thu nhiều (${fs}/${d.target}px)` });
   // Giáo viên phải chạm đáy canvas, nếu không sẽ lộ đường cắt của ảnh
-  for (const im of document.querySelectorAll('[data-lk-teacher]')) { const b = im.getBoundingClientRect(); if (Math.abs(b.bottom - H) > 1) issues.push({ hard: true, m: 'giáo viên không chạm đáy ảnh' }); }
+  for (const im of document.querySelectorAll('[data-lk-teacher]')) { const b = im.getBoundingClientRect(); if (b.bottom - H < b.height * FADE - 1) issues.push({ hard: true, m: 'giáo viên lộ phần thân mờ ở đáy ảnh' }); }
   if (miss.length) issues.push({ hard: true, m: `khung thiếu ô: ${miss.join(', ')}` });
   // Chữ tràn ô / ra ngoài canvas
   for (const el of [hd, sub, ...(tags ? tags.children : []), ...(pts ? pts.children : []), bub].filter(e => e && e.isConnected)) {
     const b = el.getBoundingClientRect(); if (b.left < -0.5 || b.right > W + 0.5 || b.top < -0.5 || b.bottom > H + 0.5) issues.push({ hard: true, m: `chữ ra ngoài ảnh: ${el.id || el.tagName}` });
     if (el.scrollWidth > el.clientWidth + 1 && getComputedStyle(el).display !== 'inline') issues.push({ hard: true, m: `chữ tràn ô: ${el.id || el.tagName}` });
   }
+  // Chữ ngoài các ô: Stitch hay tự thêm nhãn/số giả, không cho lọt
+  const keep = [hd, sub, tags, pts, scr, bub, $('lk-url')].filter(Boolean), tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let n; (n = tw.nextNode());) { const t = n.textContent.trim(), el = n.parentElement; if (!t || /^(STYLE|SCRIPT|TITLE)$/.test(el.tagName) || /^lexkite$/i.test(t) || keep.some(k => k.isConnected && k.contains(el))) continue; const r = el.getBoundingClientRect(); if (r.width && r.height && getComputedStyle(el).visibility !== 'hidden') issues.push({ hard: true, m: `chữ lạ trong khung: "${t.slice(0, 30)}"` }); }
   return { issues, font: fs, h: hd ? hd.getBoundingClientRect().bottom / H : 0 };
 }
 
@@ -105,10 +112,11 @@ async function contrast(page, W, H) {
     for (let n; (n = w.nextNode());) { if (!n.textContent.trim()) continue; const el = n.parentElement, cs = getComputedStyle(el); if (cs.display === 'none' || cs.visibility === 'hidden' || /^(STYLE|SCRIPT)$/.test(el.tagName) || /symbols/i.test(cs.fontFamily)) continue;
       const r = document.createRange(); r.selectNodeContents(n); const b = r.getBoundingClientRect(); if (b.width < 1 || b.height < 1) continue;
       let op = 1; for (let a = el; a; a = a.parentElement) op *= +getComputedStyle(a).opacity;
-      const px = parseFloat(cs.fontSize), bold = +cs.fontWeight >= 700, c = (cs.webkitTextFillColor && !/rgba?\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor) ? cs.webkitTextFillColor : cs.color).match(/[\d.]+/g).map(Number);
-      L.push({ t: n.textContent.trim().slice(0, 24), rect: [b.left, b.top, b.right, b.bottom], c, a: (c[3] ?? 1) * op, need: px >= 24 || (px >= 18.66 && bold) ? 3 : 4.5 }); }
+      const px = parseFloat(cs.fontSize), bold = +cs.fontWeight >= 700, need = px >= 24 || (px >= 18.66 && bold) ? 3 : 4.5, base = { t: n.textContent.trim().slice(0, 24), rect: [b.left, b.top, b.right, b.bottom], need };
+      if (cs.webkitBackgroundClip === 'text' && cs.backgroundImage !== 'none') { el.dataset.lkClip = 1; for (const m of cs.backgroundImage.matchAll(/rgba?\([^)]*\)/g)) { const c = m[0].match(/[\d.]+/g).map(Number); L.push({ ...base, c, a: (c[3] ?? 1) * op }); } continue; }
+      const c = cs.color.match(/[\d.]+/g).map(Number); L.push({ ...base, c, a: (c[3] ?? 1) * op }); }
     return L; });
-  const st = await page.addStyleTag({ content: '*{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;text-decoration-color:transparent!important}' });
+  const st = await page.addStyleTag({ content: '*{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;text-decoration-color:transparent!important}[data-lk-clip]{background:none!important}' });
   const bg = (await page.screenshot({ clip: { x: 0, y: 0, width: W, height: H }, scale: 'css' })).toString('base64');
   const res = await page.evaluate(async ({ items, bg, W, H }) => { const img = new Image(); img.src = 'data:image/png;base64,' + bg; await img.decode();
     const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d', { willReadFrequently: true }); g.drawImage(img, 0, 0, W, H);
@@ -171,10 +179,10 @@ for (const [dev, d] of Object.entries(PORTRAIT)) {
     const file = d.store === 'apple' ? `apple/${dev}/${lang}/${i + 1}.png` : `play/${lang}/${dev.replace('play-', '').replace('tablet-', 'tablet')}-${i + 1}.png`;
     if (!fs.existsSync(raw)) { qc.push({ file, store: d.store, score: 0, issues: ['✗ thiếu ảnh chụp ' + path.relative(RAW, raw)] }); console.error('✗ thiếu', raw); continue; }
     const s1 = OUTCOME36 && s.id === 'hero' ? c.s36 : (d.nofree && c.sPlay) || c.s;
-    const frame = d.kind === 'tablet' ? 'tablet' : s.frame, tc = s.teacher || (d.kind === 'tablet' && s.id === 'hero' ? ['ama', 'cheer', 'Hi! Ready to talk?'] : null);
+    const frame = d.kind === 'tablet' ? 'tablet' : s.frame, tc = s.teacher || null;
     const need = ['lk-logo', 'lk-headline', 'lk-sub', 'lk-screen'];
     await shot({ file, frame, theme: s.theme, w: d.w, h: d.h, dsf: d.dsf, store: d.store, nofree: d.nofree, text: `${c.h} ${s1}`, data: { need, logo: LOGO, h: c.h, s: s1, rtl: lang === 'ar', screen: b64(raw, 'image/png'), inset: sim && !PREVIEW ? 0 : STATUS[d.kind], statusColor: s.theme === 'dark' ? '#0f1b1e' : '#fff7ea',
-      teacher: tc ? { who: tc[0], src: person(tc[0], tc[1]) } : null, bubble: tc && tc[2], teacherFrac: d.kind === 'tablet' ? 0.46 : 0.5, target: Math.round(d.w * (d.kind === 'tablet' ? 0.07 : 0.108)), floor: Math.round(d.w * (d.kind === 'tablet' ? 0.04 : 0.062)), minScreen: d.kind === 'tablet' ? 0.5 : 0.42 } });
+      teacher: tc ? { who: tc[0], src: person(tc[0], tc[1]) } : null, bubble: tc && tc[2], teacherFrac: d.kind === 'tablet' ? 0.38 : (s.tf || 0.44), teacherX: d.kind === 'tablet' ? null : s.tx, emColor: s.theme === 'light' ? EM_LIGHT : '', subPx: Math.round(d.w * (d.kind === 'tablet' ? 0.026 : 0.041)), target: Math.round(d.w * (d.kind === 'tablet' ? 0.07 : 0.108)), floor: Math.round(d.w * (d.kind === 'tablet' ? 0.04 : 0.062)), minScreen: d.kind === 'tablet' ? 0.4 : 0.4 } });
   }
 }
 
@@ -182,9 +190,9 @@ for (const [dev, d] of Object.entries(PORTRAIT)) {
 for (const b of BRAND) {
   if (!ONLY.includes(b.store)) continue;
   for (const lang of b.perLang ? LANGS : ['en']) {
-    const c = COPY[lang], tags = b.nofree ? c.tagsPlay : c.tags, dir = b.store === 'play' ? `play/${lang}/feature-1024x500` : b.perLang ? `${b.store}/${lang}/${b.id}` : `${b.store}/${b.id}`;
+    const c = COPY[lang], tags = b.cws ? ['100% free', '15 languages', 'IELTS · TOEIC'] : b.nofree ? c.tagsPlay : c.tags, head = b.cws ? CAP.en[0][1].replace('<br>', ' ') : c.hero.h, dir = b.store === 'play' ? `play/${lang}/feature-1024x500` : b.perLang ? `${b.store}/${lang}/${b.id}` : `${b.store}/${b.id}`;
     const need = b.frame === 'wide' ? ['lk-logo', 'lk-headline', 'lk-tags', 'lk-teacher', 'lk-teacher2'] : ['lk-logo', 'lk-headline', 'lk-teacher'];
-    await shot({ file: dir + '.png', frame: b.frame, theme: b.theme, w: b.w, h: b.h, store: b.store, nofree: b.nofree, text: `${c.hero.h} ${tags.join(' ')}`, data: { need, logo: LOGO, h: c.hero.h, s: '', rtl: lang === 'ar', tags,
+    await shot({ file: dir + '.png', frame: b.frame, theme: b.theme, w: b.w, h: b.h, store: b.store, nofree: b.nofree, text: `${head} ${tags.join(' ')}`, data: { need, logo: LOGO, h: head, s: '', emColor: b.theme === 'light' ? EM_LIGHT : '', rtl: lang === 'ar', tags,
       teacher: { who: 'ama', src: person('ama', 'cheer') }, teacher2: { who: 'carlos', src: person('carlos', 'happy') }, bubble: b.frame === 'square' ? 'Hi! Ready to talk?' : '', teacherFrac: b.frame === 'tile' ? 0.82 : b.frame === 'square' ? 0.56 : 0.86, target: Math.round(Math.min(b.w * 0.08, b.h * (b.frame === 'tile' ? 0.11 : 0.13))), floor: Math.round(b.h * 0.05), minScreen: 0 } });
   }
 }
@@ -194,9 +202,9 @@ if (ONLY.includes('chrome')) for (const lang of LANGS) {
   const caps = CAP[lang] || []; if (!caps.length) { qc.push({ file: `chrome/${lang}`, store: 'chrome', score: 0, issues: ['✗ thiếu chữ CAP'] }); continue; }
   for (let i = 0; i < 5; i++) {
     const raw = `${RAW}/cws/${lang}/${i + 1}.png`, file = `chrome/${lang}/${i + 1}.png`; if (!fs.existsSync(raw)) { qc.push({ file, store: 'chrome', score: 0, issues: ['✗ thiếu ảnh add-on ' + path.relative(RAW, raw)] }); console.error('✗ thiếu', raw); continue; }
-    const [, title, sub, pts] = caps[i], back = i === 2 && fs.existsSync(`${RAW}/cws/${lang}/1.png`);
+    const [, title, sub, pts, url] = caps[i], back = i === 2 && fs.existsSync(`${RAW}/cws/${lang}/1.png`);
     const h = title.replace('<br>', ' '), points = pts.map(x => x.replace('|', ' '));
-    await shot({ file, frame: 'cws-landscape', theme: i % 2 ? 'light' : 'dark', w: 1280, h: 800, store: 'chrome', text: `${h} ${sub} ${points.join(' ')}`, data: { need: ['lk-logo', 'lk-headline', 'lk-sub', 'lk-points', 'lk-screen'], logo: LOGO, h, s: sub, rtl: lang === 'ar', points,
+    await shot({ file, frame: 'cws-landscape', theme: i % 2 ? 'light' : 'dark', w: 1280, h: 800, store: 'chrome', text: `${h} ${sub} ${points.join(' ')}`, data: { need: ['lk-logo', 'lk-headline', 'lk-sub', 'lk-points', 'lk-screen'], logo: LOGO, h, s: sub, rtl: lang === 'ar', points, url, emColor: i % 2 ? EM_LIGHT : '',
       screen: b64(back ? `${RAW}/cws/${lang}/1.png` : raw, 'image/png'), popup: back ? b64(raw, 'image/png') : null, inset: 0, statusColor: '#fff', target: 52, floor: 30, minScreen: 0 } });
   }
 }

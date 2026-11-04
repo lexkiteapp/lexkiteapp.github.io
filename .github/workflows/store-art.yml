@@ -48,7 +48,7 @@ jobs:
           set +e
           node scripts/store-art/compose.mjs --raw store-art-raw --out store-art --only "$ONLY" ${{ (github.event_name == 'push' || inputs.preview) && '--preview' || '' }} ${{ inputs.outcome36 && '--outcome36' || '' }} 2>&1 | tee compose.log
           echo "COMPOSE=${PIPESTATUS[0]}" >> "$GITHUB_ENV"; set -e
-          python3 -I scripts/store-art/review.py store-art
+          python3 scripts/store-art/review.py store-art
           tail -1 compose.log >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
