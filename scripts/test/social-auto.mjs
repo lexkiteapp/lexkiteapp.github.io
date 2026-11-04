@@ -56,7 +56,7 @@ globalThis.fetch = async (url, init = {}) => {
   if (/^media\/[^/]+$/.test(p) && init.method === 'GET') return J({ media: { id: p.slice(6), status: GC.mediaStatus || 'ready' } });
   if (/^media\/[^/]+\/complete$/.test(p)) return J({ media: { id: 'm_up' } });
   let m = /^posts\/([^/]+)$/.exec(p); if (m) return GC.posts[m[1]] ? J({ post: GC.posts[m[1]] }) : J({ error: { code: 'not_found' } }, 404);
-  m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
+  m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { if (GC.scheduleTimeout) { GC.posts[m[1]].status = 'scheduled'; throw new Error('timeout'); } if (!JSON.parse(init.body).consent) return J({ error: 'consent_required' }, 422); if (GC.posts[m[1]].status !== 'draft') return J({ error: 'not_draft' }, 409); Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
   return J({});
 };
 if (typeof FixedLengthStream === 'undefined') globalThis.FixedLengthStream = class { constructor() { const t = new TransformStream(); this.readable = t.readable; this.writable = t.writable; } };
@@ -105,7 +105,7 @@ due(CB, 'gc-instagram-3', 10); sql.prepare('UPDATE dist_social SET slot_ms = ? W
 calls = []; r = await A.runAuto(ENV, { now: now + 2 * 60e3 });
 const p5 = Object.values(GC.posts).find(p => p.targets[0].account_id === 5), b5 = p5 && sql.prepare('SELECT * FROM soc_board WHERE post_id = ?').get(p5.id);
 ok(r.scheduled === 2 && r.review === 1 && p5 && p5.status === 'scheduled' && Date.parse(p5.scheduled_at) === ds(CB, 'gc-facebook_page-5').slot_ms, `tự duyệt: FB (đủ 1 bài duyệt tay) tự lên lịch đúng slot, IG (0) chờ duyệt (lên lịch ${r.scheduled}, chờ ${r.review})`);
-ok(b5 && b5.state === 'scheduled' && b5.approved_by === 'autopilot' && b5.hash && calls.some(c => /^lkap-s-/.test((c.h || {})['Idempotency-Key'] || '')), 'bài tự duyệt có dấu băm + approved_by autopilot + Idempotency-Key lên lịch');
+ok(b5 && b5.state === 'scheduled' && b5.approved_by === 'autopilot' && b5.hash, 'bài tự duyệt có dấu băm + approved_by autopilot');
 ok((await MGR.approvalFor(ENV, p5.id, (await import(new URL('../../functions/api/_grabcast.js', import.meta.url))).gcClient(ENV))).ok, 'cổng duyệt của proxy chấp nhận bài tự duyệt (dấu băm khớp nội dung GrabCast)');
 ok((await A.manualCounts(DB)).facebook_page === 1 && !(await A.manualCounts(DB)).instagram, 'đếm bài duyệt TAY theo nền tảng (không tính autopilot)');
 
@@ -287,6 +287,18 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
   x = await A.runAuto(ENV, { now: now + 60e3 });
   ok(x.scheduled === 1 && Object.values(GC.posts)[0].status === 'scheduled', 'bật tự duyệt → bài Chờ duyệt cũ được lên lịch');
+
+  // Hợp đồng GrabCast: 409 not_draft / hết giờ chờ khi schedule = đọc lại bài, không dừng lượt, không tính lỗi nội dung
+  for (const [cs, wantBoard, wantErr, label] of [['scheduled', 'scheduled', null, 'đã lên lịch từ trước'], ['needs_check', 'approved', 'not_draft:needs_check', 'needs_check: giữ nguyên, báo người'], ['timeout', 'scheduled', null, 'hết giờ chờ nhưng đã lên lịch xong']]) {
+    reset({}); dueAt(CA, 'gc-facebook_page-2', 3);
+    await A.runAuto(ENV, { now });
+    const nd = Object.values(GC.posts)[0]; if (cs === 'timeout') GC.scheduleTimeout = true; else nd.status = cs;
+    sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ sync_h: 24, plan_daily: false, auto_approve: true, manual_first: 1 }));
+    sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
+    x = await A.runAuto(ENV, { now: now + 60e3 }); GC.scheduleTimeout = false;
+    const bd = sql.prepare("SELECT state, err FROM soc_board WHERE post_id = ?").get(nd.id);
+    ok(!x.stop && !stNow().breaker && bd.state === wantBoard && (bd.err || null) === wantErr, `schedule xung đột (${label}): không dừng lượt, bảng ${bd.state}, lỗi ${bd.err}, stop ${x.stop}`);
+  }
 
   // Bài GrabCast đăng lỗi: dist_social 'failed' + cảnh báo, không tự đăng lại (TikTok spam_risk)
   reset({ sync_h: 3 }); dueAt(CA, 'gc-tiktok-4', 3);

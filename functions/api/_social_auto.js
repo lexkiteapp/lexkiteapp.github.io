@@ -7,7 +7,7 @@
  *      GrabCast tự đăng lúc tới giờ. Không đủ → bài nằm ở cột Chờ duyệt, owner duyệt tay (board/approve lên lịch đúng slot).
  * An toàn tải (memory grabcast-budget): ≤ daily_calls lượt GrabCast/ngày (đếm ở D1), không thử lại vòng; 401/403/409/422/429/503/5xx = dừng CẢ lượt + cầu dao ghi D1.
  * D1: chỉ truy vấn theo khóa/chỉ mục (dist_social_slot, soc_board PK/clip/state) – không quét cả bảng. */
-import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose } from './_social_mgr.js';
+import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST } from './distribution.js';
 import { setup as ytSetup } from './youtube.js';
 import { field } from './_clip_logic.js';
@@ -368,7 +368,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const lk = await lockOf(db, b.clip, ch); if (lk && lk.provider === 'meta') continue;
       done++; const before = rec.scheduled;
       const giveUp = () => { const f = (st.fails = st.fails || {})[fk] || { n: 0 }; st.fails[fk] = { n: f.n + 1, at: now, why: 'schedule' }; if (f.n + 1 >= MAX_TRIES) pushAlert(st, `gave-up:${b.clip}|${ch}`, `Lexkite autopilot: bài ${b.clip} ở ${ch} lên lịch lỗi ${f.n + 1} lần, đã dừng thử – xem ở Quản trị › Hàng đợi.`, now); };
-      try { await approveAndSchedule(db, call, b.id, b.post_id, { clip: b.clip, channel_id: ch, slot_ms: Math.max(+b.want_at || 0, now + cfg.lead_min * 60e3) }, rec, 'r' + Math.floor(now / 36e5)); }
+      try { await approveAndSchedule(db, call, b.id, b.post_id, { clip: b.clip, channel_id: ch, slot_ms: Math.max(+b.want_at || 0, now + cfg.lead_min * 60e3) }, rec); }
       catch (e) { if (e.stop && (e.status === 409 || e.status === 422)) giveUp(); throw e; }
       if (rec.scheduled === before) giveUp();
     }
@@ -594,11 +594,18 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       JSON.stringify([{ a: r.channel_id.split('-').pop(), p: r.platform, s: published ? 'published' : 'scheduled', u: /^https:\/\//.test(permalink || '') ? permalink : '', e: '', v: 'meta' }]), Date.now(), bid);
   }
 }
-async function approveAndSchedule(db, call, bid, pid, r, rec, step = 's') {
+async function approveAndSchedule(db, call, bid, pid, r, rec) {
   const g = await call('GET', 'posts/' + pid); if (g.status >= 400) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'get-' + (g.code || g.status) }); return; }
   const hash = await contentHash(g.data), t = Date.now();
   await run(db, "UPDATE soc_board SET state = 'approved', hash = ?, approved_by = ?, approved_at = ?, err = NULL, updated = ? WHERE id = ?", hash, AUTO_WHO, t, t, bid);
-  const s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: new Date(r.slot_ms).toISOString(), consent: true }, null, await idemKey(r.clip, r.channel_id, step)); // thử lại: khóa mới, không phát lại phản hồi lỗi cũ
+  let s; try { s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: new Date(r.slot_ms).toISOString(), consent: true }); } // schedule không dùng Idempotency-Key: gọi lặp chỉ nhận 409 not_draft, không tạo bản thứ 2
+  catch (e) { // 409 (not_draft, publishing_now…) hoặc hết giờ chờ (có thể đã lên lịch xong): không phải lỗi nội dung → đọc lại bài rồi mới kết luận
+    if (e.status !== 409 && e.status !== 504) throw e;
+    const c = await call('GET', 'posts/' + pid), cs = String(((c.data && (c.data.post || c.data)) || {}).status || ''), next = c.status < 400 ? boardStateOf(cs, '') : '';
+    if (next === 'scheduled' || next === 'published') { await run(db, 'UPDATE soc_board SET state = ?, err = NULL, updated = ? WHERE id = ?', next, Date.now(), bid); rec.scheduled++; return; }
+    if (e.status === 504) throw e; // hết giờ chờ và bài chưa rời nháp: GrabCast chậm thật, giữ cầu dao như cũ
+    await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', (e.code + ':' + cs).slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'conflict-' + (cs || c.status) }); return;
+  }
   if (s.status >= 400) { await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', String(s.code || s.status).slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'schedule-' + (s.code || s.status) }); return; }
   await run(db, "UPDATE soc_board SET state = 'scheduled', want_at = ?, updated = ? WHERE id = ?", r.slot_ms, Date.now(), bid);
   rec.scheduled++;
