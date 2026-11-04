@@ -1,3 +1,3 @@
 /* SINH từ i18n/ui/hi/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"_1kkzwis":"सभी को पढ़ा हुआ चिह्नित करें","_1aqpffv":"कोई नई सूचना नहीं है","_7vdlnl":"महत्वपूर्ण सूचना","_mem4lx":"अभी-अभी","_cilyra":"अपठित","_1dkub36":"{n} अपठित"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"_1kkzwis":"सभी को पढ़ा हुआ चिह्नित करें","_1aqpffv":"कोई नई सूचना नहीं है","_7vdlnl":"महत्वपूर्ण सूचना","_mem4lx":"अभी-अभी","_cilyra":"अपठित","_1dkub36":"{n} अपठित","_1bqz2ii":"रिपोर्ट {id} मिल गई है","_jutb6i":"धन्यवाद – Lexkite यहीं प्रगति बताएगा।","_fp2tyo":"रिपोर्ट {id} ठीक हो गई","_1ojuu8l":"रिपोर्ट के लिए धन्यवाद। नया संस्करण पाने के लिए ऐप फिर से लोड करें।","_y262kr":"रिपोर्ट {id} पर नया अपडेट","_1spwyuq":"ताज़ा स्थिति देखने के लिए टैप करें।","_1c7erjf":"रिपोर्ट देखें"});
 })(typeof self !== 'undefined' ? self : this);

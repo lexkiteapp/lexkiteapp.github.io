@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite Admin — Hộp thư báo lỗi & góp ý (Tactile Night Mobile 390px)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              base: '#081518',
+              surface: '#0d1f23',
+              card: '#112529',
+              elevated: '#172f34',
+              highlight: '#1f3c42',
+              border: '#23444a',
+              borderStrong: '#2d545b'
+            },
+            teal: {
+              glow: '#2ba39a',
+              vivid: '#36d7c7',
+              dim: '#185a55',
+              soft: '#8ae8de'
+            },
+            coral: {
+              DEFAULT: '#f2553b',
+              glow: '#ff6950',
+              ledge: '#8e2816',
+              soft: '#ffc1b6'
+            },
+            amber: {
+              DEFAULT: '#e69d20',
+              glow: '#f3b43f',
+              dark: '#593a08',
+              soft: '#fedf9e'
+            },
+            ink: '#100604',
+            light: {
+              primary: '#f0fbfc',
+              secondary: '#b8d6d8',
+              muted: '#7a9ea1',
+              disabled: '#48686b'
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 #8e2816',
+            'tactile-card': '0 3px 0 #050e10',
+            'tactile-teal': '0 3px 0 #0d3835',
+            'tactile-dark': '0 3px 0 #081518'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #081518;
+      color: #f0fbfc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      width: 390px;
+      margin: 0 auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+      border-left: 1px solid #172f34;
+      border-right: 1px solid #172f34;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .tactile-active:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#f0fbfc] pb-24 selection:bg-teal-dim selection:text-teal-soft">
+
+  <!-- Top App Bar (Mobile Sticky) -->
+  <header class="sticky top-0 z-50 bg-[#081518]/95 backdrop-blur-md border-b-2 border-night-border px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <button type="button" aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-night-card border-2 border-night-border text-teal-vivid hover:border-teal-glow tactile-active transition-colors">
+        <span class="material-symbols-rounded text-xl">menu</span>
+      </button>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-teal-vivid shadow-[0_0_8px_#36d7c7] animate-pulse"></span>
+          <span class="text-[11px] font-bold tracking-wider uppercase text-teal-soft">Lexkite Admin</span>
+        </div>
+        <h1 class="text-base font-extrabold tracking-tight text-white flex items-center gap-1.5">
+          Hộp thư góp ý
+          <span class="px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-coral/20 text-coral-glow border border-coral/40">12 mới</span>
+        </h1>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-2">
+      <button type="button" aria-label="Làm mới dữ liệu" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-night-card border-2 border-night-border text-light-secondary hover:text-white tactile-active transition-colors">
+        <span class="material-symbols-rounded text-xl">refresh</span>
+      </button>
+      <button type="button" aria-label="Tài khoản Admin" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-teal-dim border-2 border-teal-glow text-teal-soft font-bold text-xs tactile-active">
+        AD
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="px-4 pt-4 space-y-4">
+
+    <!-- KPI Summary Cards (2x2 Grid) -->
+    <section aria-label="Thống kê nhanh" class="grid grid-cols-2 gap-2.5">
+      <!-- KPI 1 -->
+      <div class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 shadow-tactile-card">
+        <div class="flex items-center justify-between text-light-muted mb-1">
+          <span class="text-xs font-semibold">Chờ xử lý</span>
+          <span class="material-symbols-rounded text-base text-coral-glow">mark_email_unread</span>
+        </div>
+        <div class="text-2xl font-black text-white font-display">12</div>
+        <div class="text-[11px] font-medium text-coral-soft flex items-center gap-1 mt-0.5">
+          <span class="material-symbols-rounded text-xs">trending_up</span>
+          +4 so với hôm qua
+        </div>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 shadow-tactile-card">
+        <div class="flex items-center justify-between text-light-muted mb-1">
+          <span class="text-xs font-semibold">Đã khắc phục</span>
+          <span class="material-symbols-rounded text-base text-teal-vivid">task_alt</span>
+        </div>
+        <div class="text-2xl font-black text-white font-display">148</div>
+        <div class="text-[11px] font-medium text-teal-soft flex items-center gap-1 mt-0.5">
+          <span class="material-symbols-rounded text-xs">check_circle</span>
+          Tỷ lệ giải quyết 92%
+        </div>
+      </div>
+
+      <!-- KPI 3 -->
+      <div class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 shadow-tactile-card">
+        <div class="flex items-center justify-between text-light-muted mb-1">
+          <span class="text-xs font-semibold">Lỗi Audio/STT</span>
+          <span class="material-symbols-rounded text-base text-amber-glow">graphic_eq</span>
+        </div>
+        <div class="text-2xl font-black text-white font-display">8</div>
+        <div class="text-[11px] font-medium text-amber-soft flex items-center gap-1 mt-0.5">
+          <span class="material-symbols-rounded text-xs">speed</span>
+          Whisper & Mic trễ
+        </div>
+      </div>
+
+      <!-- KPI 4 -->
+      <div class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 shadow-tactile-card">
+        <div class="flex items-center justify-between text-light-muted mb-1">
+          <span class="text-xs font-semibold">Góp ý từ vựng</span>
+          <span class="material-symbols-rounded text-base text-teal-vivid">menu_book</span>
+        </div>
+        <div class="text-2xl font-black text-white font-display">26</div>
+        <div class="text-[11px] font-medium text-light-secondary flex items-center gap-1 mt-0.5">
+          <span class="material-symbols-rounded text-xs">thumb_up</span>
+          IELTS Band 7+ đề xuất
+        </div>
+      </div>
+    </section>
+
+    <!-- Search and Filter Bar -->
+    <section aria-label="Tìm kiếm và bộ lọc" class="space-y-2.5">
+      <!-- Search Input -->
+      <div class="relative">
+        <span class="material-symbols-rounded absolute left-3.5 top-1/2 -translate-y-1/2 text-light-muted text-xl pointer-events-none">search</span>
+        <input 
+          type="text" 
+          placeholder="Tìm theo mã vé, email, nội dung lỗi..." 
+          value="audio phát âm Carlos"
+          class="w-full min-h-[44px] bg-night-surface border-2 border-night-border focus:border-teal-vivid rounded-xl pl-11 pr-10 py-2.5 text-xs text-white placeholder-light-muted focus:outline-none transition-colors"
+        >
+        <button type="button" aria-label="Xóa tìm kiếm" class="absolute right-2 top-1/2 -translate-y-1/2 min-w-[36px] min-h-[36px] flex items-center justify-center text-light-muted hover:text-white rounded-lg">
+          <span class="material-symbols-rounded text-base">close</span>
+        </button>
+      </div>
+
+      <!-- Horizontal Filter Pills (Scrollable) -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+        <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-teal-glow text-ink font-bold text-xs flex items-center gap-1.5 shrink-0 shadow-tactile-teal tactile-active">
+          <span>Tất cả</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-ink/20 text-[10px]">186</span>
+        </button>
+
+        <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-night-card border-2 border-night-border text-light-secondary hover:text-white hover:border-night-borderStrong font-semibold text-xs flex items-center gap-1.5 shrink-0 tactile-active transition-colors">
+          <span class="w-2 h-2 rounded-full bg-coral"></span>
+          <span>Báo lỗi App</span>
+          <span class="text-[10px] text-light-muted">9</span>
+        </button>
+
+        <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-night-card border-2 border-night-border text-light-secondary hover:text-white hover:border-night-borderStrong font-semibold text-xs flex items-center gap-1.5 shrink-0 tactile-active transition-colors">
+          <span class="w-2 h-2 rounded-full bg-amber"></span>
+          <span>Sai sót Từ vựng</span>
+          <span class="text-[10px] text-light-muted">3</span>
+        </button>
+
+        <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-night-card border-2 border-night-border text-light-secondary hover:text-white hover:border-night-borderStrong font-semibold text-xs flex items-center gap-1.5 shrink-0 tactile-active transition-colors">
+          <span class="w-2 h-2 rounded-full bg-teal-vivid"></span>
+          <span>Đề xuất tính năng</span>
+          <span class="text-[10px] text-light-muted">14</span>
+        </button>
+
+        <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-night-card border-2 border-night-border text-light-secondary hover:text-white hover:border-night-borderStrong font-semibold text-xs flex items-center gap-1.5 shrink-0 tactile-active transition-colors">
+          <span class="material-symbols-rounded text-sm text-teal-vivid">tune</span>
+          <span>Thêm bộ lọc</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Urgent Alert Banner -->
+    <section aria-label="Thông báo khẩn" class="bg-night-card border-2 border-coral/50 rounded-2xl p-3.5 relative overflow-hidden shadow-tactile-card">
+      <div class="absolute -right-6 -bottom-6 w-20 h-20 bg-coral/10 rounded-full blur-xl pointer-events-none"></div>
+      <div class="flex items-start gap-3">
+        <div class="w-9 h-9 rounded-xl bg-coral/20 border border-coral/40 flex items-center justify-center text-coral-glow shrink-0 mt-0.5">
+          <span class="material-symbols-rounded text-lg">priority_high</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-xs font-bold text-white flex items-center gap-1.5">
+              Sự cố STT Whisper v3
+              <span class="px-1.5 py-0.2 rounded bg-coral text-ink font-extrabold text-[9px]">GẤP</span>
+            </h2>
+            <span class="text-[10px] font-semibold text-light-muted">5 phút trước</span>
+          </div>
+          <p class="text-[11px] text-light-secondary mt-1 leading-relaxed">
+            3 người dùng trên bản iOS 18.2 báo lỗi không nhận diện micro ở phòng thi IELTS Speaking Part 2.
+          </p>
+          <div class="flex items-center gap-2 mt-2.5">
+            <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-coral text-ink font-extrabold text-xs flex items-center gap-1 shadow-tactile-btn tactile-active">
+              <span class="material-symbols-rounded text-sm">build</span>
+              <span>Xử lý ngay (Bug #REP-1088)</span>
+            </button>
+            <button type="button" class="min-h-[44px] px-3 rounded-xl bg-night-surface border-2 border-night-border text-light-secondary text-xs hover:text-white tactile-active">
+              Giao việc
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket List Feed -->
+    <section aria-label="Danh sách phản hồi" class="space-y-3">
+      <div class="flex items-center justify-between px-1">
+        <h2 class="text-xs font-extrabold uppercase tracking-wider text-light-muted flex items-center gap-1.5">
+          <span>Phiếu báo cáo gần đây</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-vivid"></span>
+        </h2>
+        <span class="text-[11px] text-teal-soft font-semibold">Sắp xếp: Mới nhất</span>
+      </div>
+
+      <!-- Ticket Item 1 (Selected / Active Detail State) -->
+      <article class="bg-night-card border-2 border-teal-glow rounded-2xl p-4 shadow-[0_4px_0_#050e10] relative">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-md bg-coral/20 text-coral-glow border border-coral/40 text-[10px] font-extrabold font-mono">#REP-1084</span>
+            <span class="px-2 py-0.5 rounded-md bg-night-surface border border-night-border text-teal-soft text-[10px] font-semibold">Audio & AI Voice</span>
+          </div>
+          <span class="text-[11px] text-light-muted font-medium">14 phút trước</span>
+        </div>
+
+        <h3 class="text-sm font-bold text-white mt-2 leading-snug">
+          Âm thanh phát âm của Carlos bị ngắt quãng ở câu ví dụ số 4 (Từ vựng "resilient")
+        </h3>
+
+        <p class="text-xs text-light-secondary mt-1.5 leading-relaxed bg-night-surface/60 border border-night-border rounded-xl p-2.5">
+          "Khi bấm nghe lại lần thứ 2 thì tiếng bị rè và chỉ phát được nửa từ 're-sil...'. Em dùng mạng 5G Viettel trên iPhone 14 Pro Max."
+        </p>
+
+        <!-- Reporter Metadata -->
+        <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-night-border/80 text-[11px] text-light-muted">
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-night-highlight text-teal-soft text-[10px] font-bold flex items-center justify-center">TM</span>
+            <span class="text-white font-medium">Trần Minh (Target 7.5)</span>
+          </div>
+          <div class="flex items-center gap-1 text-light-secondary font-mono text-[10px]">
+            <span class="material-symbols-rounded text-xs text-teal-vivid">smartphone</span>
+            iOS v2.4.2
+          </div>
+        </div>
+
+        <!-- Action Row -->
+        <div class="flex items-center gap-2 mt-3 pt-2">
+          <button type="button" class="flex-1 min-h-[44px] rounded-xl bg-coral text-ink font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-tactile-btn tactile-active">
+            <span class="material-symbols-rounded text-sm">reply</span>
+            <span>Phản hồi học viên</span>
+          </button>
+          <button type="button" aria-label="Đánh dấu đã sửa" class="min-w-[44px] min-h-[44px] rounded-xl bg-night-surface border-2 border-night-border text-teal-vivid hover:border-teal-glow flex items-center justify-center tactile-active">
+            <span class="material-symbols-rounded text-lg">check_circle</span>
+          </button>
+          <button type="button" aria-label="Chuyển kỹ thuật" class="min-w-[44px] min-h-[44px] rounded-xl bg-night-surface border-2 border-night-border text-light-secondary hover:text-white flex items-center justify-center tactile-active">
+            <span class="material-symbols-rounded text-lg">forward_to_inbox</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Ticket Item 2 -->
+      <article class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 shadow-tactile-card">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-md bg-amber/20 text-amber-glow border border-amber/40 text-[10px] font-extrabold font-mono">#REP-1083</span>
+            <span class="px-2 py-0.5 rounded-md bg-night-surface border border-night-border text-light-secondary text-[10px] font-semibold">Từ vựng TOEIC</span>
+          </div>
+          <span class="text-[11px] text-light-muted font-medium">42 phút trước</span>
+        </div>
+
+        <h3 class="text-xs font-bold text-white mt-2 leading-snug">
+          Đề xuất bổ sung collocation: "conduct a survey" trong Deck Kinh doanh Part 5
+        </h3>
+
+        <div class="flex items-center justify-between pt-2 mt-2 border-t border-night-border/60 text-[11px] text-light-muted">
+          <div class="flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-teal-dim text-teal-soft text-[10px] font-bold flex items-center justify-center">HL</span>
+            <span class="text-light-secondary font-medium">Hoàng Linh</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-1.5 py-0.5 rounded bg-night-surface text-[10px] text-teal-soft border border-night-border">Chờ duyệt</span>
+            <button type="button" class="min-w-[44px] min-h-[44px] text-teal-vivid font-bold text-xs flex items-center justify-center">Chi tiết →</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ticket Item 3 -->
+      <article class="bg-night-card border-2 border-night-border rounded-2xl p-3.5 shadow-tactile-card">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-md bg-teal-dim text-teal-soft border border-teal-glow/30 text-[10px] font-extrabold font-mono">#REP-1080</span>
+            <span class="px-2 py-0.5 rounded-md bg-night-surface border border-night-border text-light-secondary text-[10px] font-semibold">Đồng bộ Web</span>
+          </div>
+          <span class="text-[11px] text-light-muted font-medium">2 giờ trước</span>
+        </div>
+
+        <h3 class="text-xs font-bold text-white mt-2 leading-snug">
+          Chrome Extension không tự nhảy streak 14 ngày khi học trên laptop
+        </h3>
+
+        <div class="flex items-center justify-between pt-2 mt-2 border-t border-night-border/60 text-[11px] text-light-muted">
+          <div class="flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-night-highlight text-light-secondary text-[10px] font-bold flex items-center justify-center">QD</span>
+            <span class="text-light-secondary font-medium">Quốc Dũng</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-1.5 py-0.5 rounded bg-teal-dim text-[10px] text-teal-vivid font-bold border border-teal-glow/40">Đang tra cứu</span>
+            <button type="button" class="min-w-[44px] min-h-[44px] text-teal-vivid font-bold text-xs flex items-center justify-center">Chi tiết →</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Quick Batch Action Bar -->
+    <section aria-label="Thao tác nhanh" class="bg-night-surface border-2 border-night-border rounded-2xl p-3 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-xs text-light-secondary">
+        <span class="material-symbols-rounded text-teal-vivid text-base">check_box</span>
+        <span>Đã chọn <strong>3</strong> phiếu</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button type="button" class="min-h-[44px] px-3 rounded-xl bg-night-card border-2 border-night-border text-light-secondary text-xs hover:text-white tactile-active">
+          Đóng tất cả
+        </button>
+        <button type="button" class="min-h-[44px] px-3.5 rounded-xl bg-coral text-ink font-extrabold text-xs shadow-tactile-btn tactile-active">
+          Duyệt nhanh
+        </button>
+      </div>
+    </section>
+
+    <!-- Pagination & Footer Note -->
+    <div class="pt-2 text-center text-[11px] text-light-muted space-y-1">
+      <div class="flex items-center justify-center gap-2">
+        <button type="button" class="min-w-[44px] min-h-[44px] rounded-lg bg-night-card border border-night-border text-light-secondary flex items-center justify-center tactile-active">‹</button>
+        <span class="px-3 py-1 bg-night-card border border-teal-glow text-teal-soft font-bold rounded-lg text-xs">Trang 1 / 16</span>
+        <button type="button" class="min-w-[44px] min-h-[44px] rounded-lg bg-night-card border border-night-border text-light-secondary flex items-center justify-center tactile-active">›</button>
+      </div>
+      <p class="text-[10px] text-light-muted pt-1">
+        Lexkite Admin Ops v2.4.2 • Tactile Night Mode
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Bottom Navigation Bar (Fixed Native 5-Tab Bar) -->
+  <nav aria-label="Điều hướng chính" class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#081518]/95 backdrop-blur-lg border-t-2 border-night-border px-2 py-1.5 flex justify-around items-center">
+    <!-- Tab 1: Tổng quan -->
+    <a href="#" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-light-muted hover:text-white group tactile-active">
+      <span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">dashboard</span>
+      <span class="text-[10px] font-semibold mt-0.5">Tổng quan</span>
+    </a>
+
+    <!-- Tab 2: Người dùng -->
+    <a href="#" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-light-muted hover:text-white group tactile-active">
+      <span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">group</span>
+      <span class="text-[10px] font-semibold mt-0.5">Học viên</span>
+    </a>
+
+    <!-- Tab 3: Hộp thư báo lỗi (ACTIVE) -->
+    <a href="#" class="min-h-[44px] min-w-[64px] flex flex-col items-center justify-center px-2 py-1 rounded-xl bg-night-card border-2 border-teal-glow text-teal-soft shadow-[0_2px_0_#050e10] tactile-active">
+      <span class="material-symbols-rounded text-xl text-teal-vivid filled">inbox</span>
+      <span class="text-[10px] font-extrabold mt-0.5 text-white">Hộp thư</span>
+    </a>
+
+    <!-- Tab 4: Dịch vụ & API -->
+    <a href="#" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-light-muted hover:text-white group tactile-active">
+      <span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">dns</span>
+      <span class="text-[10px] font-semibold mt-0.5">Dịch vụ</span>
+    </a>
+
+    <!-- Tab 5: Cài đặt -->
+    <a href="#" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-light-muted hover:text-white group tactile-active">
+      <span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">settings</span>
+      <span class="text-[10px] font-semibold mt-0.5">Cài đặt</span>
+    </a>
+  </nav>
+
+</body>
+</html>

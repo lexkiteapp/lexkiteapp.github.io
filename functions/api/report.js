@@ -4,8 +4,9 @@
  *     create { cat, msg, email?, notify?, ctx, errs[], shot?, hp, ms, ts? } → { ok, id: 'LX-1234', token }
  *     status { t }            → trạng thái 1 báo lỗi theo mã riêng (không email/uid/ngữ cảnh/IP)
  *     mine   { ts: [≤20] }    → trạng thái nhiều báo lỗi của chính máy này (để nhắc khi đổi trạng thái)
+ *     seen   { t }            → máy người báo đã hiện cập nhật mới nhất (quản trị thấy "đã xem"; tối đa 1 lần ghi/lần cập nhật)
  *   Quản trị (Authorization: Bearer <Firebase ID token>, cổng adminGate – ADMIN_EMAILS), mọi lệnh đều ghi admin_log ('report:<op>'):
- *     list · get · shot · set · merge · spam · export · stats · cfg
+ *     list · get · shot · set · act (thao tác nhanh/hàng loạt + mẫu trả lời theo ngôn ngữ người báo) · merge · spam · export · stats · cfg
  * Chống lạm dụng: _quota.js gate('report') (thiết bị/IP/uid, phút + ngày) + ≤ 5 báo/giờ/IP (D1) + ô bẫy + gửi quá nhanh + điểm spam.
  * Ảnh chụp (đã nén ở máy): NHỊ PHÂN trong R2 riêng (binding REPORT_SHOTS, khóa report/<id>, cột shot_b = số byte) – không bao giờ công khai; quản trị xem qua URL ký 5 phút
  *   (/api/report-shot). Chưa gắn binding → data URL trong D1 report_shots như cũ (op shots-migrate chuyển dần sang R2). Xóa 60 ngày sau khi đóng (fixed/wontfix/dup).
@@ -59,7 +60,7 @@ export async function setup(db) {
     // Cổng QA nội dung (docs/CONTENT-QA.md §7): 1 phiếu "nội dung sai"/thiết bị/mục; đủ HIDE_N thiết bị → mục vào config 'content_hidden' (1 dòng, client đọc 1 lần/phiên)
     db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
-  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT', 'shot_b INTEGER']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
+  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT', 'shot_b INTEGER', 'seen_at INTEGER']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
 }
@@ -226,6 +227,14 @@ export function mailT(lang) {
 }
 // Cùng cách nói mốc với màn cảm ơn trong app (web/js/report.js etaText)
 export const etaText = (e, t) => !e ? '' : e.kind === 'feature' ? t('Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.') : t('Dự kiến xử lý: {t}', { t: e.h < 48 ? t('trong {n} giờ', { n: e.h }) : e.h === 168 ? t('trong 1 tuần') : e.h % 24 === 0 && e.h <= 120 ? t('trong {a}–{b} ngày', { a: e.h / 24 - 1, b: e.h / 24 }) : t('trong {n} ngày', { n: Math.ceil(e.h / 24) }) });
+// Mẫu trả lời bấm một phát (Quản trị › Báo lỗi): chữ theo ngôn ngữ của NGƯỜI BÁO (nhóm dịch 'report', 15 ngôn ngữ), kèm trạng thái đi cùng khi gửi từ ô trả lời
+export const REPLY_TPL = {
+  thanks: { vi: 'Cảm ơn bạn đã báo! Đội ngũ đã nhận được và sẽ xem sớm.', status: 'ack' },
+  prog: { vi: 'Đội ngũ đang xử lý vấn đề này và sẽ báo bạn ngay khi xong.', status: 'prog' },
+  fixed: { vi: 'Vấn đề này đã được sửa. Cảm ơn bạn đã báo! Hãy tải lại app để dùng bản mới.', status: 'fixed' },
+  more: { vi: 'Đội ngũ cần thêm chút thông tin: bạn đang làm gì khi lỗi xảy ra, và lỗi có lặp lại không? Hãy gửi một báo lỗi mới kèm ảnh chụp nếu được.', status: 'ack' },
+};
+export const tplText = (lang, k) => mailT(lang)(REPLY_TPL[k].vi);
 const ST_KEY = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
 // Thư cho người báo khi đổi trạng thái / có phản hồi (chỉ khi họ đã đồng ý nhận thư)
 export function userMail(row) {
@@ -351,7 +360,7 @@ async function create(request, env, b, bg) {
 }
 
 // ---------- Quản trị ----------
-const LIST_COLS = 'id, at, upd, status, cat, area, substr(msg, 1, 240) AS msg, email, notify, lang, plat, ver, route, has_shot, spam, sandbox, asg, dup_of, (uid != \'\') AS signed, sev, feat, issue, ' + PEOPLE + ' AS people, json_extract(ai, \'$.summary_vi\') AS ai_sum';
+const LIST_COLS = 'id, at, upd, status, cat, area, substr(msg, 1, 240) AS msg, email, notify, lang, plat, ver, route, has_shot, spam, sandbox, asg, dup_of, (uid != \'\') AS signed, sev, feat, issue, seen_at, ' + PEOPLE + ' AS people, json_extract(ai, \'$.summary_vi\') AS ai_sum';
 function where(b) {
   const w = [], a = [];
   // 'open' = lỗi đang mở (không gồm đề xuất) · 'ideas' = mục Đề xuất (chờ duyệt/để sau)
@@ -370,8 +379,8 @@ function where(b) {
 const csvCell = v => { const s = String(v == null ? '' : v); const x = /^[=+\-@\t\r]/.test(s) ? "'" + s : s; return /[",\n\r]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; }; // chống CSV injection
 
 async function notifyReporter(env, db, id) {
-  const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang FROM reports WHERE id = ?').bind(id).first();
-  if (!r || !r.notify || !EMAIL.test(r.email || '')) return false;
+  const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false; // báo lỗi thử/spam không bao giờ gửi thư thật
   const ok = await mail(env, 'user', userMail(r));
   await ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', ok ? '' : String(MAIL_ST)).run();
   return ok;
@@ -408,7 +417,7 @@ const OPS = {
     const events = (await db.prepare('SELECT at, by, act, note FROM report_events WHERE rid = ? ORDER BY id DESC LIMIT 50').bind(id).all()).results || [];
     const dups = ((await db.prepare('SELECT id FROM reports WHERE dup_of = ?').bind(id).all()).results || []).map(x => tid(x.id));
     let ctx = {}, errs = [], ai = null; try { ctx = JSON.parse(r.ctx || '{}'); errs = JSON.parse(r.errs || '[]'); ai = r.ai ? JSON.parse(r.ai) : null; } catch (e) { /* bỏ qua */ }
-    return { ...rest, tid: tid(id), signed: !!uid, ctx, errs, ai, events, dups, people: 1 + dups.length, dup: r.dup_of ? tid(r.dup_of) : '', gh: !!env.GH_ISSUES_TOKEN };
+    return { ...rest, tid: tid(id), signed: !!uid, ctx, errs, ai, events, dups, people: 1 + dups.length, dup: r.dup_of ? tid(r.dup_of) : '', gh: !!env.GH_ISSUES_TOKEN, tpl: Object.fromEntries(Object.keys(REPLY_TPL).map(k => [k, tplText(r.lang, k)])), tpl_vi: Object.fromEntries(Object.entries(REPLY_TPL).map(([k, v]) => [k, v.vi])) };
   },
   // Ảnh trong R2 → URL ký 5 phút (không qua JSON); chưa có khóa ký hoặc ảnh còn ở D1 → data URL
   async shot(env, db, b) { const id = rid(b.id), r = await db.prepare('SELECT has_shot, shot_b FROM reports WHERE id = ?').bind(id).first(); if (!r || !r.has_shot) return { data: '' };
@@ -436,7 +445,31 @@ async function apply(env, db, id0, b, by) {
     return { ok: true, changed: true, mailed, pushed };
   }
 }
+// Đã sửa cho cả nhóm: phiếu gốc + các phiếu trùng còn mở, mỗi người báo nhận đúng ngôn ngữ của mình (replyOf(lang))
+async function fixGroup(env, db, id, replyOf, by) {
+  const rs = ((await db.prepare("SELECT id, lang, status FROM reports WHERE id = ? OR dup_of = ?").bind(id, id).all()).results || []).filter(x => x.id === id || x.status !== 'fixed');
+  let mailed = 0, pushed = 0, changed = false;
+  for (const x of rs) { const o = await apply(env, db, x.id, { status: 'fixed', reply: replyOf(x.lang) }, by); if (o.mailed) mailed++; if (o.pushed) pushed++; if (x.id === id) changed = !!o.changed; }
+  return { changed, mailed, pushed, dups: rs.filter(x => x.id !== id).length };
+}
+// Trần mỗi lệnh act: mỗi phiếu tốn vài lệnh D1 + thư, Pages giới hạn số subrequest → máy khách chia lô
+export const ACT_MAX = 10;
 Object.assign(OPS, {
+  // Thao tác nhanh trên dòng/hàng loạt: { ids, status?, tpl?, reply? } – tpl → chữ mẫu theo ngôn ngữ từng người báo; reply → đúng chữ quản trị đã sửa
+  async act(env, db, b, who) {
+    const ids = [...new Set((Array.isArray(b.ids) ? b.ids : []).map(rid))].filter(x => x > 0);
+    if (!ids.length || ids.length > ACT_MAX) throw new Error('ids');
+    if (b.status != null && (!STATUSES.includes(b.status) || b.status === 'dup')) throw new Error('status'); // Trùng lặp cần phiếu gốc → op merge
+    if (b.tpl != null && !Object.hasOwn(REPLY_TPL, b.tpl)) throw new Error('tpl');
+    const replyOf = lang => (b.reply != null ? str(b.reply, 2000) : b.tpl != null ? tplText(lang, b.tpl) : undefined), rows = [];
+    for (const id of ids) {
+      const r = await db.prepare('SELECT id, lang FROM reports WHERE id = ?').bind(id).first();
+      if (!r) { rows.push({ id: tid(id), skip: 'not-found' }); continue; }
+      const o = b.status === 'fixed' ? await fixGroup(env, db, id, replyOf, who.email) : await apply(env, db, id, { status: b.status, reply: replyOf(r.lang) }, who.email);
+      rows.push({ id: tid(id), changed: !!o.changed, mailed: +o.mailed || 0, pushed: +o.pushed || 0, dups: o.dups || 0 });
+    }
+    return { ok: true, rows };
+  },
   async merge(env, db, b, who) {
     const into = rid(b.into), ids = [...new Set((Array.isArray(b.ids) ? b.ids : []).map(rid))].filter(x => x > 0 && x !== into).slice(0, 50);
     if (!into || !ids.length) throw new Error('ids');
@@ -552,14 +585,12 @@ Object.assign(OPS, {
     const id = rid(b.id), commit = /^[0-9a-f]{7,40}$/i.test(b.commit || '') ? String(b.commit).slice(0, 12) : '', note = str(b.note, 1500);
     const r = await db.prepare('SELECT id, cat, status FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
     if (r.status === 'fixed') return { ok: true, id: tid(id), skipped: 'already-fixed', dups: 0, mailed: 0 };
-    const reply = (note || 'Fixed – thank you for reporting!') + (commit ? ` (commit ${commit})` : '');
+    const replyOf = lang => (note ? note + (commit ? ` (commit ${commit})` : '') : tplText(lang, 'fixed')); // không ghi chú → mẫu đúng ngôn ngữ từng người báo (commit vẫn ở fix_ver + lịch sử)
     const fv = str(b.ver, 40) || commit;
     if (fv) await db.prepare('UPDATE reports SET fix_ver = ? WHERE id = ? OR dup_of = ?').bind(fv, id, id).run(); // trước khi gửi thư → thư ghi đúng phiên bản
-    const out = await apply(env, db, id, { status: 'fixed', reply }, who.email);
-    const dups = ((await db.prepare("SELECT id FROM reports WHERE dup_of = ? AND status != 'fixed'").bind(id).all()).results || []).map(x => x.id);
-    let mailed = out.mailed ? 1 : 0; for (const d of dups) { const o = await apply(env, db, d, { status: 'fixed', reply }, who.email); if (o.mailed) mailed++; }
+    const out = await fixGroup(env, db, id, replyOf, who.email);
     await ev(db, id, who.email, 'resolve', commit).run();
-    return { ok: true, id: tid(id), dups: dups.length, mailed };
+    return { ok: true, id: tid(id), dups: out.dups, mailed: out.mailed };
   },
 });
 export const ADMIN_OPS = Object.keys(OPS);
@@ -590,6 +621,13 @@ export async function onRequestPost({ request, env, waitUntil }) {
       await setup(env.DB);
       const r0 = await env.DB.prepare("UPDATE reports SET pid = ? WHERE tok = ? AND COALESCE(pid, '') = '' AND status NOT IN ('fixed', 'wontfix')").bind(pid, t0).run();
       return json(request, 200, { ok: true, set: !!(r0.meta && r0.meta.changes) });
+    }
+    // Máy người báo đã hiện cập nhật mới nhất → quản trị thấy "đã xem". Chỉ người giữ mã riêng; không có gì mới thì không ghi
+    if (b.op === 'seen') {
+      const t0 = String(b.t || ''); if (!TOK.test(t0)) return json(request, 400, { error: 't' });
+      await setup(env.DB);
+      await env.DB.prepare('UPDATE reports SET seen_at = ? WHERE tok = ? AND COALESCE(seen_at, 0) < upd').bind(Date.now(), t0).run();
+      return json(request, 200, { ok: true });
     }
     if (b.op === 'status' || b.op === 'mine') {
       const ts = (b.op === 'status' ? [b.t] : Array.isArray(b.ts) ? b.ts.slice(0, 20) : []).filter(x => TOK.test(String(x || '')));

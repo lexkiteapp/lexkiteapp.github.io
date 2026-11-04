@@ -39,6 +39,23 @@ Ghi `LX-1234` trong tiêu đề/nội dung/nhánh PR. PR gộp → `scripts/repo
 ## Báo đẩy "Lỗi LX-xxxx đã được sửa"
 Màn cảm ơn: máy **chưa** có thông báo đẩy → nút "🔔 Báo cho tôi khi sửa xong" (15 ngôn ngữ); chỉ khi bấm mới xin quyền (không tự bật) → `/api/push` op `sub` `ro: 1` (thiết bị "chỉ báo lỗi": `done = 1`, không nhận lời nhắc học; thiết bị đã bật nhắc học giữ nguyên lịch) → op `pid` gắn id thiết bị vào phiếu bằng mã riêng (1 lần). Ẩn nút trên iOS Safari chưa thêm vào Màn hình chính, app gốc, add-on, khi đã chặn quyền hoặc cờ push tắt – dựa vào thư + nhắc trong app. Máy đã bật nhắc học gửi kèm `pid` (id thiết bị `push_subs`) khi tạo phiếu (không lộ ra admin/trang công khai). Phiếu chuyển **Đã sửa** (admin, `resolve`, phiếu trùng) → `pushFixed` ghi `push_now (sid, rid)` ở D1 nội bộ → cron `workers/push` (10 phút) lấy qua op `due` (`pickFixed`: tôn trọng giờ yên lặng, 1 push/thiết bị, bỏ thiết bị đã hủy/chờ > 3 ngày). Web: push rỗng → `sw.js` đọc `/__rep` (cache `lk-meta`, `report.js` ghi chữ đã dịch + mã phiếu), hỏi `mine` (≤ 4 giây) → phiếu vừa sửa → "Lỗi LX-… đã được sửa" (mở `#/report/<mã>`) thay lời nhắc; lỗi mạng → lời nhắc như cũ. FCM: kind `fixed` + `rid` (`workers/push/copy.json` lấy từ nhóm i18n `report`, `scripts/push-copy.mjs`). Mở app sau báo đẩy → nút Báo lỗi hỏi trạng thái ngay; nhắc trong app vẫn ≤ 1 lần/12 giờ (bị chặn thì giữ thay đổi cho lượt sau). Thiếu `D1B_*`/`PUSH_PCT`/`FCM_ON` → bỏ qua, thư vẫn chạy.
 
+## Quản trị › Báo lỗi (#reports) – hộp xử lý nhanh
+Port Stitch `adm-reports2` (`brand/stitch/v3/admin/`). Một hàng công cụ: tab trạng thái chính + "Thêm" (Đã tiếp nhận, Không sửa, Trùng lặp, Spam), tìm kiếm, nút **Bộ lọc** (khu vực, loại, nền tảng, mức, sắp xếp, sandbox), **?** bảng phím, **⋯** (Xuất CSV, tải lại, thư quản trị, mốc xử lý). Danh sách lên đầu màn; ≥ 1180 px bảng chi tiết mở bên cạnh, hẹp hơn thì ngăn trượt.
+- **Phím:** `j/k` di chuyển · `J/K` chọn liên tiếp · `x`/`X` chọn · `Enter` mở · `f` đã sửa · `t` cảm ơn · `m` cần thêm thông tin · `r` soạn · `1–5` trạng thái · `u` hoàn tác · `/` tìm · `Esc` · `?`.
+- **Hoàn tác:** mọi thao tác nhanh giữ ở máy 6 giây rồi mới gửi `op act`, nên hoàn tác thì người báo không hề nhận gì. Đóng/ẩn tab → gửi ngay bằng `fetch keepalive`, không mất thao tác. Lỗi mạng → dòng quay lại, có "Thử lại".
+- **`op act`** `{ ids (≤ 10), status?, tpl?, reply? }`: máy khách chia lô. `tpl` = `thanks|prog|fixed|more` (`REPLY_TPL`, chữ theo ngôn ngữ **từng người báo**, nhóm dịch `report` → `MAIL_KEYS`); `reply` = chữ anh đã sửa, gửi nguyên văn. `status: fixed` kéo theo phiếu trùng (`fixGroup`, dùng chung với `resolve`). Không nhận `dup` (dùng `merge`).
+- `op get` trả `tpl` (ngôn ngữ người báo) + `tpl_vi` (nghĩa cho người soạn). Thẻ Chất lượng giữ nguyên.
+
+## Thông báo trong app (không tốn thư)
+Lõi ở `web/js/report.js`, hiện ở chuông 🔔 (`web/js/notices.js`). Mục `lk.rpn` (≤ 20) lưu **khóa loại** + mã phiếu, dịch lúc vẽ.
+- **Xác nhận:** gửi xong → mục `ack` (đã đọc, không badge; người báo đang nhìn màn cảm ơn).
+- **Báo tiếp:** `poll` thấy đổi → mục `fixed`/`upd` vào chuông + một toast (`UI.toast`, nút Xem).
+- **Giới hạn:** "đã sửa" ≤ 1 toast/giờ, cập nhật khác ≤ 1/12 giờ, nhiều thay đổi gộp một toast (ưu tiên đã sửa). Đang làm bài (nút ⚑ ẩn) → không chen, giữ cho lượt sau. Chuông thì luôn có.
+- **Chống trùng:** khóa mục = phiếu + loại + `upd`; đã nhắc → `seen` = `upd`.
+- **Tần suất hỏi máy chủ:** còn phiếu mở ≤ 1 lần/4 giờ, đóng hết ≤ 1 lần/ngày (`report-pill-ui.js`).
+- **"Đã xem":** máy người báo gọi `op seen` khi hiện toast/mở trang trạng thái → cột `seen_at`, quản trị thấy trên dòng + bảng chi tiết; tối đa 1 lần ghi/lần cập nhật.
+- Báo lỗi thử/spam không bao giờ gửi thư thật (`notifyReporter`).
+
 ## Người dùng thấy
 Màn cảm ơn (Kit, mã, mốc theo loại: tài khoản 24 h, lỗi 2–3 ngày, nội dung/dịch 1 tuần, đề xuất "sẽ xem xét"; nút Theo dõi tiến độ, Sao chép liên kết; không để email → nhắc xem trong app). Trang trạng thái: Đã nhận → Đang xử lý → Đã sửa (phiên bản), mốc chính xác sau khi AI phân loại, phản hồi của đội, lời cảm ơn; không chứa dữ liệu cá nhân. Mốc chỉnh trong admin (mốc gốc theo mức). **Mốc thông minh** (`smartH` trong `report.js`): mốc gốc theo P0–P3/loại, không thấp hơn trung vị thời gian sửa thật của cùng mức (90 ngày, ≥ 3 phiếu), +10 % cho mỗi phiếu đang mở cùng mức hoặc gấp hơn xếp trước (≤ 30), ≥ 48 giờ làm tròn theo ngày, trần 90 ngày. Lúc gửi: theo loại + hàng đợi; sau AI lưu `eta_x` = {m: trung vị giờ, a: số phiếu trước} → trang trạng thái và thư cảm ơn dùng mốc này, đổi mốc gốc vẫn áp cho phiếu cũ.
 

@@ -1,3 +1,3 @@
 /* SINH từ i18n/ui/ar/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"_1kkzwis":"تحديد الكل كمقروء","_1aqpffv":"لا توجد إشعارات جديدة","_7vdlnl":"إشعار مهم","_mem4lx":"الآن","_cilyra":"غير مقروءة","_1dkub36":"{n} غير مقروءة"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"_1kkzwis":"تحديد الكل كمقروء","_1aqpffv":"لا توجد إشعارات جديدة","_7vdlnl":"إشعار مهم","_mem4lx":"الآن","_cilyra":"غير مقروءة","_1dkub36":"{n} غير مقروءة","_1bqz2ii":"تم استلام البلاغ {id}","_jutb6i":"شكرًا لك – سيعرض Lexkite التحديثات هنا.","_fp2tyo":"تم إصلاح البلاغ {id}","_1ojuu8l":"شكرًا على الإبلاغ. أعد تحميل التطبيق لاستخدام الإصدار الجديد.","_y262kr":"تحديث جديد للبلاغ {id}","_1spwyuq":"اضغط لعرض أحدث حالة.","_1c7erjf":"عرض البلاغ"});
 })(typeof self !== 'undefined' ? self : this);
