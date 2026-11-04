@@ -1,6 +1,6 @@
 // 🧈 scroll-perf: cuộn THẬT (cử chỉ chạm qua CDP) qua các màn học chính → đo khung rớt, task dài, CLS khi tải + khi cuộn, phần tử gây xê dịch,
 // listener chặn cuộn, layout/paint/composite, thanh dính đổi cỡ, cuộn tự nhảy, canvas/video chạy khi đã ngoài màn, vị trí sau Back. docs/PERF-SCROLL.md
-// Hermetic: dist cục bộ, ?sandbox=1&demo=1 (dữ liệu mẫu tách riêng), /api/* = {}, host ngoài = rỗng (ảnh ngoài = ảnh 640×480 về CHẬM để lộ chỗ thiếu giữ chỗ) → 0 tài khoản thật.
+// Hermetic: dist cục bộ, context riêng + ?demo=1 (dữ liệu mẫu; KHÔNG dùng ?sandbox=1 vì sandbox không ghi lk.onb → shell ẩn lúc tải, CLS giả, và luôn có toast thử nghiệm), /api/* = {}, host ngoài = rỗng (ảnh ngoài = ảnh 640×480 về CHẬM để lộ chỗ thiếu giữ chỗ) → 0 tài khoản thật.
 // CHỈ chạy trên CI (scroll-perf.yml) – không chạy trên Mac.
 // Dùng: node scripts/test/scroll-perf.mjs --root dist --device phone|desktop|webkit [--themes light,dark] [--only today,vocab] [--out sp-out] [--check]
 import { chromium, webkit } from 'playwright';
@@ -22,11 +22,16 @@ export const SCREENS = [
   { id: 'reading', hash: '#/reading' }, { id: 'listening', hash: '#/listening' }, { id: 'say', hash: '#/say' }, { id: 'say-card', hash: '#/say', enter: '#sayList a' },
   { id: 'roleplay', hash: '#/roleplay' }, { id: 'call', hash: '#/call' }, { id: 'tests', hash: '#/tests' }, { id: 'mock', hash: '#/mock' },
   { id: 'vocab', hash: '#/vocab' }, { id: 'dict', hash: '#/dict/hello' }, { id: 'me', hash: '#/me' }, { id: 'stats', hash: '#/stats' },
+  // Đang trong phiên học (điện thoại nhỏ 360×640: màn focus mới cuộn được, đúng máy dễ giật nhất)
+  { id: 'map', hash: '#/lesson' }, { id: 'lesson-s', hash: '#/lesson/go', small: 1 }, { id: 'review-s', hash: '#/review', small: 1 }, { id: 'say-s', hash: '#/say', enter: '#sayList a', small: 1 },
+  { id: 'learn', hash: '#/day/1', enter: 'ol.day-steps a[data-step="learn"]', small: 1 }, { id: 'read-item', hash: '#/reading', enter: '#view a[href^="#/reading/"]' }, { id: 'listen-item', hash: '#/listening', enter: '#view a[href^="#/listening/"]' },
+  { id: 'grammar-item', hash: '#/grammar', enter: '#view a[href^="#/grammar/"]' }, { id: 'role-item', hash: '#/roleplay', enter: '#view a[href^="#/roleplay/"]', small: 1 }, { id: 'call-item', hash: '#/call', enter: '#view a[href^="#/call/"]', small: 1 },
+  { id: 'mock-run', hash: '#/mock', enter: '#view a[href^="#/mock/"], #view [data-start]', small: 1 }, { id: 'library', hash: '#/library' }, { id: 'topic', hash: '#/topic/environment' }, { id: 'mistakes', hash: '#/mistakes' },
 ];
 const DEV = {
   phone: { launcher: chromium, cpu: 4, net: { latency: 150, down: 1.6e6 / 8 * 0.9, up: 750e3 / 8 * 0.9 }, touch: true, ctx: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36' } },
   desktop: { launcher: chromium, cpu: 1, touch: false, ctx: { viewport: { width: 1280, height: 800 } } },
-  webkit: { launcher: webkit, touch: false, ctx: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } }, // WebKit Linux ≠ iOS thật: chỉ bắt nhảy cuộn/đổi chiều cao, không có CLS/CDP
+  webkit: { launcher: webkit, touch: false, ctx: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 } }, // WebKit Linux ≠ iOS thật: chỉ bắt nhảy cuộn/đổi chiều cao, không có CLS/CDP; bản mobile của Playwright không hỗ trợ wheel nên dùng cột 390 px
 }[DEVICE];
 
 // Chạy trước mọi script của trang: ghi xê dịch, listener, lệnh cuộn, mutation, rAF, lượt vẽ canvas.
@@ -38,7 +43,7 @@ const INJECT = () => {
   try { new PerformanceObserver(l => { for (const e of l.getEntries()) S.shifts.push({ phase: S.phase, t: Math.round(e.startTime), v: +e.value.toFixed(4), input: e.hadRecentInput, src: (e.sources || []).slice(0, 4).map(s => ({ n: label(s.node), from: s.previousRect && [Math.round(s.previousRect.x), Math.round(s.previousRect.y), Math.round(s.previousRect.width), Math.round(s.previousRect.height)], to: s.currentRect && [Math.round(s.currentRect.x), Math.round(s.currentRect.y), Math.round(s.currentRect.width), Math.round(s.currentRect.height)] })) }); }).observe({ type: 'layout-shift', buffered: true }); } catch (e) { S.noLS = 1; }
   const SCROLLISH = new Set(['scroll', 'touchstart', 'touchmove', 'wheel', 'mousewheel']), add = EventTarget.prototype.addEventListener;
   EventTarget.prototype.addEventListener = function (type, fn, o) {
-    if (SCROLLISH.has(type)) { const passive = o && typeof o === 'object' ? o.passive : undefined, root = this === window || this === document || this === document.documentElement || this === document.body; // Chrome/Safari: touch/wheel trên gốc mặc định passive
+    if (SCROLLISH.has(type) && !/HitTarget|InjectedScript/.test(String(new Error().stack))) { const passive = o && typeof o === 'object' ? o.passive : undefined, root = this === window || this === document || this === document.documentElement || this === document.body; // Chrome/Safari: touch/wheel trên gốc mặc định passive
       S.listeners.push({ type, on: label(this), passive: passive === undefined ? (root && type !== 'scroll' ? 'default' : false) : passive, blocking: type !== 'scroll' && !(passive === true || (passive === undefined && root)), at: caller() }); }
     return add.call(this, type, fn, o);
   };
@@ -113,14 +118,15 @@ async function measure(ctx, sc, cold) {
     await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,disabled-by-default-devtools.timeline.frame,toplevel,blink.user_timing', transferMode: 'ReportEvents' });
   }
   const res = { id: sc.id };
-  await page.goto(`${O}/app/?sandbox=1&demo=1&hl=en${sc.hash}`, { waitUntil: 'load', timeout: 90000 });
+  const vp = sc.small && DEVICE === 'phone' ? { width: 360, height: 640 } : DEV.ctx.viewport; if (vp !== DEV.ctx.viewport) await page.setViewportSize(vp);
+  await page.goto(`${O}/app/?demo=1&hl=en${sc.hash}`, { waitUntil: 'load', timeout: 90000 });
   await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0 && !document.querySelector('#view > .skel-page'), null, { timeout: 45000 }).catch(() => { res.noRender = 1; });
-  if (sc.enter) { await page.locator(sc.enter).first().click({ timeout: 15000 }).catch(() => { res.noEnter = 1; }); await sleep(1500); }
+  if (sc.enter) { await page.locator(sc.enter).first().click({ timeout: 15000 }).catch(() => { res.noEnter = 1; }); await sleep(1500); if (cdp) await page.evaluate(() => { window.__sp.shifts.length = 0; }); } // CLS của màn trong phiên: tính từ sau khi bấm vào
   await sleep(1200); // người học bắt đầu cuộn ngay sau khi trang hiện, không đợi mọi thứ tải xong – cố ý để phần tải lười rơi vào lúc cuộn
   res.hash = await page.evaluate(() => location.hash); res.text = await page.evaluate(() => (document.getElementById('view') || {}).innerText?.trim().length || 0);
   const sc2 = await page.evaluate(findScroller); Object.assign(res, { dist: sc2.dist, nested: sc2.nested });
   await page.evaluate(sel => { const S = window.__sp; S.loadEnd = performance.now(); S.h0 = (sel === 'doc' ? document.documentElement : document.querySelector(sel)).scrollHeight; S.phase = 'down'; performance.mark('lk-sp-a'); S.start(sel); }, sc2.sel);
-  const dist = Math.min(sc2.dist, 5000), vp = DEV.ctx.viewport, cx = sc2.x || Math.round(vp.width / 2), cy = sc2.y || Math.round(vp.height / 2);
+  const dist = Math.min(sc2.dist, 5000), cx = sc2.x || Math.round(vp.width / 2), cy = sc2.y || Math.round(vp.height / 2);
   const gest = async dy => { if (Math.abs(dy) < 40) return sleep(400); if (cdp) return Promise.race([cdp.send('Input.synthesizeScrollGesture', { x: cx, y: cy, yDistance: dy, speed: DEVICE === 'phone' ? 1400 : 2000, gestureSourceType: DEV.touch ? 'touch' : 'mouse', preventFling: true }), sleep(25000)]); await page.mouse.move(cx, cy); const steps = Math.ceil(Math.abs(dy) / 60); for (let i = 0; i < steps; i++) { await page.mouse.wheel(0, dy < 0 ? 60 : -60); await sleep(16); } };
   await gest(-dist);
   await sleep(300);
@@ -155,7 +161,7 @@ async function measure(ctx, sc, cold) {
 // Back: cuộn xuống → sang màn khác → Back → phải về đúng chỗ (app hàng đầu giữ vị trí).
 async function backTest(ctx) {
   const page = await ctx.newPage();
-  await page.goto(`${O}/app/?sandbox=1&demo=1&hl=en#/vocab`, { waitUntil: 'load', timeout: 90000 });
+  await page.goto(`${O}/app/?demo=1&hl=en#/vocab`, { waitUntil: 'load', timeout: 90000 });
   await page.waitForFunction(() => window.App && document.querySelector('#view')?.children.length > 0 && !document.querySelector('#view > .skel-page'), null, { timeout: 45000 }).catch(() => {});
   await sleep(2500);
   const target = await page.evaluate(() => { const d = document.documentElement.scrollHeight - innerHeight, y = Math.min(600, Math.floor(d * .6)); scrollTo(0, y); return scrollY; });
@@ -171,13 +177,13 @@ async function backTest(ctx) {
 const all = [], fails = [];
 for (const theme of THEMES) {
   const ctx = await newCtx(theme);
-  { const p = await ctx.newPage(); await p.goto(`${O}/app/?sandbox=1&demo=1&hl=en#/home`, { waitUntil: 'load', timeout: 120000 }).catch(() => {}); await sleep(3000); await p.close(); } // nạp demo + bộ nhớ đệm HTTP (lần sau = người dùng quay lại)
+  { const p = await ctx.newPage(); await p.goto(`${O}/app/?demo=1&hl=en#/home`, { waitUntil: 'load', timeout: 120000 }).catch(() => {}); await sleep(3000); await p.close(); } // nạp demo + bộ nhớ đệm HTTP (lần sau = người dùng quay lại)
   for (const sc of SCREENS) {
     if (ONLY && !ONLY.includes(sc.id)) continue;
     let r; try { r = await measure(ctx, sc); } catch (e) { r = { id: sc.id, crash: String(e.message).split('\n')[0].slice(0, 200) }; }
     r.theme = theme; r.device = DEVICE; all.push(r);
     const t = r.trace || {};
-    console.log(`${DEVICE}/${theme} ${sc.id.padEnd(10)} ${r.crash ? 'CRASH ' + r.crash : `h=${r.dist}${r.nested ? ' lồng' : ''} rớt ${r.droppedPct}% p95 ${r.p95} worst ${r.worst} | CLS ${r.cls} (cuộn ${r.scrollCls}) | long ${t.longN ?? '–'}/${t.longMax ?? '–'}ms | layout ${t.layoutN ?? '–'}×${t.layoutMs ?? '–'}ms paint ${t.paintN ?? '–'}×${t.paintMs ?? '–'}ms | nhảy ${r.reversal} Δcao ${r.heightChange} bar ${JSON.stringify(r.barDelta)} | chặn ${r.blocking.length} blur ${r.blur} mut ${r.mutN} ${r.hash}`}`);
+    console.log(`${DEVICE}/${theme} ${sc.id.padEnd(10)} ${r.crash ? 'CRASH ' + r.crash : `h=${r.dist}${r.nested ? ' lồng' : ''} rớt ${r.droppedPct}% p95 ${r.p95} worst ${r.worst} | CLS ${r.cls} (cuộn ${r.scrollCls}) | long ${t.longN ?? '–'}/${t.longMax ?? '–'}ms | layout ${t.layoutN ?? '–'}×${t.layoutMs ?? '–'}ms paint ${t.paintN ?? '–'}×${t.paintMs ?? '–'}ms | nhảy ${r.reversal} Δcao ${r.heightChange} bar ${JSON.stringify(r.barDelta)} | chặn ${r.blocking.length} blur ${r.blur} mut ${r.mutN} ${r.hash}${r.noEnter ? ' KHÔNG-VÀO-ĐƯỢC' : ''}`}`);
     for (const s of (r.shiftTop || []).filter(s => s.v >= 0.005)) console.log(`    ↕ ${s.v} [${s.phase}${s.input ? ' input' : ''}] ${s.src.map(x => `${x.n} ${JSON.stringify(x.from)}→${JSON.stringify(x.to)}`).join(' ; ')}`);
     for (const k of (t.layoutAt || []).slice(0, 2)) console.log(`    ▦ layout ${k}`);
     for (const k of (r.offscreen || [])) console.log(`    👻 ${k}`);
