@@ -149,3 +149,5 @@ qualityScore: 94
 ## संबंधित अध्ययन सामग्री
 
 - [निबंध लेखन के लिए लिंकिंग वर्ड्स](/hi/blog/linking-words-in-english-essay-writing-hindi/)
+
+यदि आप अंतरराष्ट्रीय कॉर्पोरेट टेस्ट की तैयारी कर रहे हैं, तो हमारा [toeic self study plan 750+ स्कोर गाइड](/hi/blog/toeic-self-study-plan-guide-hindi/) आपके लिए अत्यंत उपयोगी सिद्ध होगा।
