@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { evaluate, prCapable, checkWorkflow, dirtyShas, run, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { evaluate, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -152,6 +152,22 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     const disp = []; t = 0;
     await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async ref => disp.push([ref, t]) }, () => {}, clock);
     ok(disp.length === 1 && disp[0][0] === 'main' && disp[0][1] >= 14 * 60e3 && disp[0][1] < 20 * 60e3, 'tự nối: 1 dispatch khi còn ≤ 6 phút: ' + JSON.stringify(disp));
+    // nhịp ci-filler/d1-usage-watch: đúng khoảng lịch, không chồng lượt đang chạy, lượt zombie không chặn, --dry và lỗi API không làm hỏng bộ canh
+    const N = Date.parse('2026-11-03T23:00:00Z'), ago = m => new Date(N - m * 6e4).toISOString();
+    ok(paceDue(null, 10, N) && paceDue({ status: 'completed', created_at: ago(11) }, 10, N) && !paceDue({ status: 'completed', created_at: ago(5) }, 10, N), 'nhịp: quá khoảng mới dispatch');
+    ok(!paceDue({ status: 'in_progress', created_at: ago(30) }, 10, N) && !paceDue({ status: 'queued', created_at: ago(30) }, 10, N) && paceDue({ status: 'queued', created_at: ago(500) }, 10, N), 'nhịp: đang chạy thì chờ, zombie thì không');
+    { const sent = [], lastAt = {}; t = 0;
+      const P = { ...A, dispatchSelf: async () => {}, lastRun: async f => (lastAt[f] === undefined ? null : { status: 'completed', created_at: new Date(lastAt[f]).toISOString() }), dispatchFile: async (f, ref) => { sent.push(f); lastAt[f] = t; ok(ref === 'main', 'nhịp dispatch đúng nhánh'); } };
+      await run(['--watch', '25'], { GATE_CHAIN_REF: 'main' }, P, () => {}, clock);
+      ok(sent.filter(f => f === 'ci-filler.yml').length === 3 && sent.filter(f => f === 'd1-usage-watch.yml').length === 2, 'nhịp 25 phút: ci-filler 3 lần, d1-usage-watch 2 lần: ' + sent.join());
+      ok(PACED['ci-filler.yml'] === 10, 'ci-filler 10 phút');
+      t = 0; const dry = []; await run(['--watch', '25', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...P, dispatchFile: async f => dry.push(f) }, () => {}, clock); ok(!dry.length, '--dry không làm nhịp');
+      t = 0; const lg = []; await run(['--watch', '5'], { GATE_CHAIN_REF: 'main' }, { ...P, lastRun: async () => { throw new Error('502'); } }, m => lg.push(m), clock); ok(lg.some(m => /nhịp .*502/.test(m)), 'lỗi API nhịp: cảnh báo, bộ canh vẫn chạy'); }
+    // lượt tự nối kẹt queued (3/11 07:48Z, 21:25Z): dispatch lại; 'pending' (chờ concurrency) là khoẻ
+    ok(chainAlive([{ status: 'pending', created_at: new Date(1e6).toISOString() }], 1e6) && !chainAlive([{ status: 'queued', created_at: new Date(1e6).toISOString() }], 1e6) && !chainAlive([{ status: 'completed', created_at: new Date(1).toISOString() }], 1e6), 'chainAlive: pending sống, queued kẹt, lượt cũ không tính');
+    { const go = async st => { const d = []; t = 0; const lg = []; await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d.push(t), dispatchRuns: async () => d.map(x => ({ status: st, created_at: new Date(x).toISOString() })) }, m => lg.push(m), clock); return { d, lg }; };
+      const a = await go('pending'); ok(a.d.length === 1 && a.lg.some(m => /đã sống/.test(m)), 'lượt nối pending: không dispatch lại: ' + a.d.length);
+      const b = await go('queued'); ok(b.d.length === 1 + CHAIN_RETRIES && b.d[1] - b.d[0] >= CHAIN_CHECK_MS && b.lg.some(m => /vẫn kẹt|chưa xác nhận/.test(m)), 'lượt nối kẹt: dispatch lại đúng trần rồi báo: ' + b.d.length); }
     const d2 = []; t = 0;
     await run(['--watch', '20', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d2.push(1) }, () => {}, clock);
     ok(!d2.length, '--dry không tự nối');
