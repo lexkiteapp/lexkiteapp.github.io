@@ -119,7 +119,7 @@ Adjust the order to your diagnostic: if Week 1 shows Listening is your weakest s
 
 ![Lexkite goal and study plan screen with exam choice, target score, test date and weekly hours](media:goal "Enter your TOEFL test date and weekly hours so the four-week plan fits the time you actually have")
 
-Still deciding between exams? Our explanation of the [TOEIC test format](/en/blog/toeic-test-format/) shows how a workplace-focused test is organized by comparison.
+Still deciding between exams? Our explanation of the [TOEIC test format](/en/blog/toeic-test-format/) shows how a workplace-focused test is organized by comparison. For an in-depth breakdown of the 10-minute online writing forum, read our comprehensive [TOEFL iBT Writing Academic Discussion Guide](/en/blog/toefl-ibt-writing-academic-discussion-guide/).
 
 ## Practice the new format in Lexkite
 

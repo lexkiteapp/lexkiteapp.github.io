@@ -120,7 +120,7 @@ If you missed two or more, review the grammar column of the table above before y
 
 {{youtube: | Video idea: rewriting an over-linked Task 2 paragraph into a natural one, sentence by sentence}}
 
-For word choice inside your sentences, the guide to [IELTS collocations](/en/blog/ielts-collocations/) is the natural next step. If you also want smoother spoken answers, the techniques in [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/) use similar signposting.
+For word choice inside your sentences, the guide to [IELTS collocations](/en/blog/ielts-collocations/) is the natural next step. If you also want smoother spoken answers, the techniques in [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/) use similar signposting. For rapid academic debate writing under strict 10-minute time limits, consult our [TOEFL iBT Writing Academic Discussion Guide](/en/blog/toefl-ibt-writing-academic-discussion-guide/).
 
 ## Frequently asked questions
 
