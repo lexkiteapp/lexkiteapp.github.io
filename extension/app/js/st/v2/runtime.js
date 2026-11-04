@@ -1,11 +1,11 @@
 /* 🎨 Stitch v2 – lớp chạy: gắn khung TỰ SINH (web/js/st/v2/<màn>.js, scripts/stitch-v2-convert.mjs) vào #view với dữ liệu thật.
  * 1 DOM cho cả sáng/tối (class lt:/dk:), CSS biên dịch sẵn css/st-v2-<màn>.css. Điện thoại: đầu trang + thanh tab Stitch (shell.js) thay topbar/#bnav;
  * máy tính: giữ menu trái của app. Nút trong khung Stitch là <button data-href> → điều hướng ở đây (ủy quyền 1 lần cho #view).
- * @icons route style bolt emoji_events person */
+ * @icons home menu_book target flag person */
 (function () {
   const S = self.ST2 || (self.ST2 = {});
   // 5 tab chính (khóa = Ux1 tabOf) – icon theo mẫu Stitch v2
-  const TABS = [['learn', '#/home', 'route', 'Học'], ['review', '#/review?hub=1', 'style', 'Ôn'], ['train', '#/train', 'bolt', 'Luyện'], ['league', '#/league', 'emoji_events', 'Giải đấu'], ['me', '#/me', 'person', 'Tôi']];
+  const TABS = [['home', '#/home', 'home', 'Hôm nay'], ['vocab', '#/vocab', 'menu_book', 'Từ vựng'], ['skills', '#/skills', 'target', 'Kỹ năng'], ['tests', '#/tests', 'flag', 'Thi'], ['me', '#/me', 'person', 'Tôi']];
   S.tabs = on => TABS.map(([k, href, icon, l]) => ({ k, href, icon, label: t(l), on: k === on }));
   // Viên số đầu trang: kỳ thi · chuỗi ngày · XP · mục tiêu thẻ hôm nay (cùng nguồn với cột phải ux1.rail)
   S.hdr = () => { const st = App.state || {}, g = st.game || {}, se = st.settings || {}, X = (App.EXAMS || {})[se.exam || 'ielts'] || { short: 'IELTS' };
