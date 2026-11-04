@@ -176,6 +176,7 @@ node scripts/test/word-audio-s2.mjs
 node scripts/test/klocal.mjs
 node scripts/test/ext-bundles.mjs
 node scripts/test/img-api.mjs
+node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
