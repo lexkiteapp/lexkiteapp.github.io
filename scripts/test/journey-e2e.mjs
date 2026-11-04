@@ -441,6 +441,8 @@ async function j7(lang) {
     ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 80) + ': ' + e.message.slice(0, 90) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim()).join(' ').slice(0, 200))));
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
+    // SW vừa khởi động có thể chưa gắn chrome.storage (đỏ ngẫu nhiên "reading 'local'" ở 0 s): chờ sẵn sàng rồi mới dùng, hết hạn thì để lỗi thật lộ ra
+    for (let i = 0; i < 50 && !await sw.evaluate(() => !!(globalThis.chrome && chrome.storage && chrome.storage.local)).catch(() => false); i++) await sleep(100);
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
     await sw.evaluate(() => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), selectMode: 'icon', dblclickOn: true } })));
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
