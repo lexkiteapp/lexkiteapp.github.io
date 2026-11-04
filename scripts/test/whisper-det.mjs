@@ -1,4 +1,4 @@
-// Cổng ASR (qc_v9 asr_match, pt_gate, word-audio, qc_gate) phải ra CÙNG kết quả cho cùng một wav trên mọi runner.
+// Cổng ASR (qc_v9 asr_match, tl_gate, word-audio, qc_gate) phải ra CÙNG kết quả cho cùng một wav trên mọi runner.
 // 02/11: wav y hệt byte, whisper nghe "growing, is" ở runner này và "growing is" ở runner khác → render (ready, short) đỏ/xanh ngẫu nhiên (#293, #430).
 // Luật: mọi file Python dùng faster-whisper nạp mô hình qua scripts/cine/whisper_det.py (ghim backend CPU + luồng + seed) và giải mã ở nhiệt độ 0.
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';

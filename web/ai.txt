@@ -1,0 +1,25 @@
+# ai.txt – Lexkite (lexkite.com). © Lexkite. All rights reserved.
+# Lessons, practice tests, model answers, vocabulary data, images, audio, video and the characters Ama and Carlos
+# are original works of Lexkite. Use of any of them to train, fine-tune or evaluate AI/ML models is NOT permitted.
+# Terms: https://lexkite.com/en/terms#ai-training · TDM reservation: https://lexkite.com/.well-known/tdmrep.json
+User-Agent: *
+Disallow: /
+Disallow: *.txt
+Disallow: *.html
+Disallow: *.json
+Disallow: *.js
+Disallow: *.md
+Disallow: *.jpg
+Disallow: *.jpeg
+Disallow: *.png
+Disallow: *.webp
+Disallow: *.avif
+Disallow: *.svg
+Disallow: *.gif
+Disallow: *.mp3
+Disallow: *.m4a
+Disallow: *.ogg
+Disallow: *.opus
+Disallow: *.wav
+Disallow: *.mp4
+Disallow: *.webm

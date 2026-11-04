@@ -7,7 +7,7 @@
  "teacher": "carlos",
  "voice": "am_fenrir",
  "speed": 0.8,
- "area": "review",
+ "area": "vocab-review",
  "lines": [
   {
    "id": "h",
@@ -59,7 +59,7 @@
   ]
  },
  "cta": {
-  "area": "review",
+  "area": "vocab-review",
   "route": "#/review?w=deadline",
   "link": "https://lexkite.com/app/#/review?w=deadline",
   "say": "Review your words"
