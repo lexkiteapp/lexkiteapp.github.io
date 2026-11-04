@@ -38,5 +38,9 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
   ok(!/pt-safe/.test(sh) || /\.st \.pt-safe\{padding-top:env\(safe-area-inset-top/.test(sv), 'lớp pt-safe của đầu trang Stitch có luật env(safe-area-inset-top)');
   ok(/\.st \.pb-safe\{padding-bottom:env\(safe-area-inset-bottom/.test(sv), 'lớp pb-safe có luật env(safe-area-inset-bottom)');
   ok(/:is\(a,button\)\[class\*="after:absolute"\]::after\{min-width:44px;min-height:44px\}/.test(sv), 'liên kết/nút mở vùng chạm bằng ::after có min 44 × 44 px'); }
+// Một nút đổi ngôn ngữ (đo render thật: topbar-lang.mjs): khung máy tính không tự vẽ viên thứ hai cạnh #langBtn; viên thanh trên cùng một token cao, viên chuỗi không nền/viền riêng
+{ const sv = rd('web/css/st-v2-ux1-pre.css');
+  ok(!/data-act="\$\{e\('lang'\)\}"/.test(rd('web/js/st/v2/today-desk.js')), 'today-desk không có nút ngôn ngữ riêng (thanh trên đã có #langBtn)');
+  ok(/body\.ux1 \.topbar \.icon-btn,body\.ux1 \.topbar \.avatar\{width:var\(--tap,44px\);height:var\(--tap,44px\)/.test(sv) && !/\.topbar \.pill\.fire\{border-color/.test(sv), 'viên thanh trên cùng token --tap; viên chuỗi không viền riêng'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');
