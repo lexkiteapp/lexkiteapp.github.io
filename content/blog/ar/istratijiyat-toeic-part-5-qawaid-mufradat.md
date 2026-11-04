@@ -179,4 +179,4 @@ qualityScore: 95
 ### ما هي أفضل طريقة لحفظ متلازمات الأعمال الشائعة؟
 تجنب حفظ الكلمات الفردية بمعزل عن سياقها. احفظ المصطلحات في مجموعات وعبارات مركبة (*chunks*)، مثل *meet the deadline* و*conduct an audit* و*reach a consensus*. يضمن التدرب على هذه التراكيب عبر أنظمة التكرار المتباعد استحضارها الفوري أثناء الاختبار دون أي تردد.
 
-للبدء في التحضير الشامل وتنظيم جدولك اليومي خطوة بخطوة، طالع دليلنا المفصل حول [خطة دراسة ذاتية toeic لتحقيق 750+ درجة](/ar/blog/khitat-dirasa-thatiya-toeic-dalil/).
+للبدء في التحضير الشامل وتنظيم جدولك اليومي خطوة بخطوة، طالع دليلنا المفصل حول [خطة دراسة ذاتية toeic لتحقيق 750+ درجة](/ar/blog/khitat-dirasa-thatiya-toeic-dalil/) إلى جانب [toeic listening part 2 استراتيجيات](/ar/blog/toeic-listening-part-2-istratijiyat-asila-ajwiba/).
