@@ -44,7 +44,7 @@ async function run(width, scheme, lang, touch) {
     const r = c.getBoundingClientRect(), mid = (r.top + r.bottom) / 2, row = [...document.querySelectorAll('#lsnAns .lsn-tile:not(.lsn-dragsrc)')].map(el => ({ el, b: el.getBoundingClientRect() })).filter(x => x.b.top <= mid && x.b.bottom >= mid), cx = (r.left + r.right) / 2;
     const left = row.filter(x => (x.b.left + x.b.right) / 2 < cx).pop(), right = row.find(x => (x.b.left + x.b.right) / 2 >= cx), parse = s => s.match(/[\d.]+/g).slice(0, 3).map(Number);
     let e = document.querySelector('#lsnAns'), bg = 'rgba(0, 0, 0, 0)'; while (e && /rgba\(0, 0, 0, 0\)|transparent/.test(bg)) { bg = getComputedStyle(e).backgroundColor; e = e.parentElement; }
-    return { prev: left ? left.el.textContent : null, next: right ? right.el.textContent : null, between: (!left || r.left >= left.b.right - 1) && (!right || r.right <= right.b.left + 1), gap: left && right ? Math.round(right.b.left - left.b.right) : null, nudged: !!(right && /translateX|matrix/.test(right.el.style.transform + getComputedStyle(right.el).transform)), col: parse(getComputedStyle(c).backgroundColor), bg: parse(bg) };
+    return { prev: left ? left.el.textContent : null, next: right ? right.el.textContent : null, between: (!left || r.left >= left.b.right - 1) && (!right || r.right <= right.b.left + 1), gap: left && right ? Math.round(right.b.left - left.b.right) : null, nudged: !!(right && /translateX|matrix/.test(right.el.style.transform + getComputedStyle(right.el).transform)), col: parse(getComputedStyle(c).backgroundColor), bg: parse(bg), covered: (() => { const q = g.getBoundingClientRect(), o = Math.max(0, Math.min(r.right, q.right) - Math.max(r.left, q.left)) * Math.max(0, Math.min(r.bottom, q.bottom) - Math.max(r.top, q.top)); return +(o / (r.width * r.height)).toFixed(2); })() };
   });
   const words = () => page.evaluate(() => [...document.querySelectorAll('#lsnAns .lsn-tile')].map(b => b.textContent));
   const bankOf = w => page.evaluateHandle(x => [...document.querySelectorAll('#lsnBank .lsn-tile')].find(b => b.textContent === x), w);
@@ -88,6 +88,7 @@ async function run(width, scheme, lang, touch) {
     // 390 px: large | coffee nằm hai dòng → vạch ở đầu dòng dưới, trước coffee; máy tính: giữa hai thẻ cùng dòng
     ok(m && m.next === 'coffee' && (m.prev === 'large' || m.prev === null), T(`vạch chèn đúng chỗ, ngay trước coffee ${JSON.stringify(m)}`));
     ok(m && m.between, T('vạch nằm giữa hai thẻ, đúng dòng'));
+    ok(m && m.covered <= 0.4, T(`bóng thẻ không che vạch (che ${m && m.covered})`));
     ok(m && (m.prev ? m.gap >= 14 : m.nudged), T(`hai bên dạt ra (khe ${m && m.gap}, dạt ${m && m.nudged})`));
     ok(m && ratio(m.col, m.bg) >= 3, T(`vạch chèn tương phản ≥3 (${m && ratio(m.col, m.bg).toFixed(2)})`));
     await shot('2-dang-keo');

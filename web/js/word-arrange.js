@@ -1,11 +1,11 @@
 /* Xếp câu / xếp từ: một component cho mọi màn (bài học build/tr, ngữ pháp, TOEFL Build a Sentence) – docs/specs/learn-flow-nav.md § Bộ tương tác.
  * • Chạm thẻ ngân hàng → nối cuối câu; chạm thẻ đã đặt → về ĐÚNG ô cũ (ô giữ chỗ).
- * • Kéo (pointer events: chuột + cảm ứng): thả vào GIỮA câu, đổi chỗ, kéo ra để gỡ; Esc hủy. Lúc kéo: vạch chèn + các thẻ hai bên dạt ra bằng transform, không đổi bố cục nên 60 fps và không giật dòng.
+ * • Kéo (pointer events: chuột + cảm ứng): thả vào GIỮA câu, đổi chỗ, kéo ra để gỡ; Esc hủy. Lúc kéo: bóng thẻ nổi trên điểm thả, vạch chèn + các thẻ hai bên dạt ra bằng transform, không đổi bố cục nên 60 fps và không giật dòng.
  * • Hàng đáp án giữ sẵn chiều cao đủ cho mọi thẻ → thả/gỡ không làm ngân hàng nhảy. Thả xong FLIP mọi thẻ về chỗ mới.
  * • Bàn phím: Enter/Space đặt thẻ rồi focus sang thẻ đó · ←/→ đổi chỗ (theo RTL) · Home/End đầu/cuối · Delete gỡ · Backspace gỡ thẻ cuối · số 1–9 đặt thẻ thứ n · Ctrl/⌘+Z hoàn tác; aria-live đọc vị trí.
  * Hình thẻ do màn vẽ: o.draw() vẽ thẻ đã đặt theo o.get(); thẻ ngân hàng mang data-i, thẻ đã đặt mang data-a. Không đụng logic chấm: màn chỉ đọc o.get(). */
 (function (g) {
-  const MOVE = 6, NUDGE = 7, EDGE = 56, PAD = 32, HIST = 30; // px: ngưỡng kéo · thẻ dạt · vùng tự cuộn · vùng bắt thả rộng ra quanh hàng đáp án · số bước hoàn tác
+  const MOVE = 6, NUDGE = 7, EDGE = 56, PAD = 32, HIST = 30, LIFT = 36, OVER = 6; // px: ngưỡng kéo · thẻ dạt · vùng tự cuộn · vùng bắt thả rộng ra quanh hàng đáp án · số bước hoàn tác · bóng nổi trên điểm thả (không che vạch, không bị ngón tay che) · vạch dài quá dòng
   /** Đặt thẻ `tile` vào vị trí `idx` của thứ tự (bỏ chỗ cũ nếu đã có) */
   function insertAt(order, tile, idx) { const a = order.filter(x => x !== tile), i = Math.max(0, Math.min(a.length, idx)); a.splice(i, 0, tile); return a; }
   /** Vị trí chèn theo tọa độ con trỏ: rects = hộp các thẻ đã đặt (theo thứ tự, đã bỏ thẻ đang kéo) */
@@ -95,13 +95,13 @@
     };
     // Vạch chèn nằm giữa hai thẻ, đúng dòng con trỏ (cuối dòng trên và đầu dòng dưới là cùng một vị trí, vạch đi theo tay)
     const showCaret = (x, top, height) => {
-      const c = d.caret, fresh = !c.isConnected, tr = `translate(${x - 2 - o.ans.clientLeft}px,${top - o.ans.clientTop}px)`;
+      const c = d.caret, fresh = !c.isConnected, tr = `translate(${x - 2 - o.ans.clientLeft}px,${top - OVER - o.ans.clientTop}px)`;
       if (fresh) { c.style.transition = 'none'; o.ans.appendChild(c); }
-      c.style.height = height + 'px'; c.style.transform = tr;
+      c.style.height = height + OVER * 2 + 'px'; c.style.transform = tr;
       if (fresh) { void c.offsetWidth; c.style.transition = ''; }
     };
     const update = (x, y) => {
-      d.ghost.style.transform = `translate(${x - d.dx}px,${y - d.dy}px) scale(1.06)`;
+      d.ghost.style.transform = `translate(${x - d.dx}px,${y - d.dy - LIFT}px) scale(1.06)`;
       const A = o.ans.getBoundingClientRect(), inAns = x >= A.left - PAD && x <= A.right + PAD && y >= A.top - PAD && y <= A.bottom + PAD;
       o.ans.classList.toggle('lsn-dropok', inAns); d.ghost.classList.toggle('lsn-out', !inAns && d.fromAns);
       const R = d.rects, S = d.rtl ? -1 : 1;

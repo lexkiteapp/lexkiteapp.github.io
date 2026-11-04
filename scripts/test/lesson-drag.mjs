@@ -74,9 +74,9 @@ order = [0, 1, 3, 4]; draw();
 ans.getBoundingClientRect = () => ({ left: 0, top: 0, width: 400, height: 90, right: 400, bottom: 90 });
 P('pointerdown', tile(bank, 2), 140, 220); P('pointermove', doc, 150, 210); P('pointermove', doc, 70, 70);
 const caret = ans.querySelector('.lsn-caret');
-ok(/,50px\)/.test(caret.style.transform) && tile(ans, 3).style.transform.includes('-7px') && tile(ans, 4).style.transform.includes('7px') && !tile(ans, 0).style.transform, 'kéo vào dòng 2: vạch đúng dòng, hai bên dạt ra, dòng 1 đứng yên');
+ok(/,44px\)/.test(caret.style.transform) && tile(ans, 3).style.transform.includes('-7px') && tile(ans, 4).style.transform.includes('7px') && !tile(ans, 0).style.transform, 'kéo vào dòng 2: vạch đúng dòng, hai bên dạt ra, dòng 1 đứng yên');
 P('pointermove', doc, 420, 20);
-ok(/,0px\)/.test(caret.style.transform) && !tile(ans, 4).style.transform, 'cuối dòng 1: vạch theo tay về dòng 1, dòng 2 hết dạt');
+ok(/,-6px\)/.test(caret.style.transform) && !tile(ans, 4).style.transform, 'cuối dòng 1: vạch theo tay về dòng 1, dòng 2 hết dạt');
 // Esc hủy kéo: không đổi gì, không để sót bóng/vạch/dạt, click sau đó không tính là chạm
 doc.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
 ok(order.join() === '0,1,3,4' && !doc.querySelector('.lsn-ghost') && !ans.querySelector('.lsn-caret') && !tile(ans, 3).style.transform, 'Esc: hủy kéo, dọn sạch');
