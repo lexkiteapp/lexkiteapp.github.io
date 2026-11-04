@@ -6,20 +6,20 @@
 Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['web/js/app.js'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.
 
 ## Khu vực
-- `web/` (1976 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
-- `extension/` (1285 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
+- `web/` (1977 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
+- `extension/` (1286 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (85 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (964 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
-- `.github/workflows/` (169 file): CI/CD + việc nền theo lịch (xem mục Workflows)
+- `scripts/` (973 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `.github/workflows/` (170 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1479 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (2867 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (2870 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (195 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
+- `docs/` (197 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (40): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,backlinks,capacity,class,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit,i18nfix,img,jobs,keys,league,lexai,notices,ota,push,quota,report,report-shot,social,social-auto,studio,sync,watch,youtube
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:697 s/test:367 s/video:103 js/vimg:64 s/cine:50 s/lib:47 s/lexicon:31 s/vocab-img:31 js/grammar:27 js/notes:27 js/st:27 s/stitch:22 js/speak:22 js/readtest:21 js/lib:20 s/pron:19 s/ci:17 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12 js/listen:12 s/tts-ab:9 js/call:9 js/write:9 s/capacity:8 s/footage:8 s/teach:8 s/factory:7 js/usage:7 s/content-qa:6 s/dict:6 s/sentence-audio:6 js/pron:6 s/cdn:5 s/quality:5 js/lesson:5 s/audio:4 s/teacher:4 js/ads:4 js/roleplay:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/media:3 s/ota:3 s/scriptbank:3 s/target:3 s/world:3 js/tools:3
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:697 s/test:373 s/video:103 js/vimg:64 s/cine:50 s/lib:47 s/vocab-img:33 s/lexicon:32 js/grammar:27 js/notes:27 js/st:27 s/stitch:22 js/speak:22 js/readtest:21 js/lib:20 s/pron:19 s/ci:17 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12 js/listen:12 s/tts-ab:9 js/call:9 js/write:9 s/capacity:8 s/footage:8 s/teach:8 s/factory:7 js/usage:7 s/content-qa:6 s/dict:6 s/sentence-audio:6 js/pron:6 s/cdn:5 s/quality:5 js/lesson:5 s/audio:4 s/teacher:4 js/ads:4 js/roleplay:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/media:3 s/ota:3 s/scriptbank:3 s/target:3 s/world:3 js/tools:3
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md. Test: scripts/test/i18n-*.mjs
@@ -36,7 +36,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - **CI / việc nền**: infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = scripts/test/suite.txt (npm test → run-suite.mjs); scripts/prepush.sh; docs/CI-RUNNERS.md
 
 ## God nodes (15 module được import/nạp nhiều nhất; không tính test)
-1. `web/js/app.js` ←87 · App,LK_GETAPP_T,retArm,retOn,retTrack,parseHash…
+1. `web/js/app.js` ←88 · App,LK_GETAPP_T,retArm,retOn,retTrack,parseHash…
 2. `web/js/st/common.js` ←37 · ST
 3. `functions/api/sync.js` ←30 · claims,verify,limit,PACK_MAX,viewOf,userDocs…
 4. `scripts/lexicon/lib.mjs` ←22 · ROOT,rd,wr,PRIORITY,SOURCES,parseRow…
@@ -104,7 +104,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `watch.js`: watch
 - `write.js`: write
 
-## Workflows (169) theo trigger: tên: việc kiểm/làm
+## Workflows (170) theo trigger: tên: việc kiểm/làm
 - [cron,manual] ads-revenue-hourly: Doanh thu THẬT · ads-revenue: Doanh thu THẬT từ Google (docs/ADS.md… · blog-daily: Việc blog tự động mỗi sáng (06:30 giờ… · blog-publish: Tự đăng blog: mỗi 3 giờ (phút 7, trùng… · capacity-watch: Hạn mức Cloudflare hằng ngày… · cdn-mirror: media.lexkite.com + audio.lexkite.com… · cf-pool-probe: Dò kho CF_POOL ngay sau giờ nạp neuron… · ci-filler: 02/11: chạm file để GitHub đăng ký lại… · ci-triage: Tự phân loại workflow đỏ… · code-bundle: Sao lưu mã nguồn hằng tuần: git bundle… · contrast: Kiểm độ tương phản chữ/nền (WCAG AA)… · d1-backup: Sao lưu D1 chính (bảng người dùng) ra… · d1-usage-watch: D1 trong ngày (sự cố 03/11 · d1b-migrate: Sao các bảng nội bộ (drive*) từ D1… · dict-stage: Tự mở index trang từ điển theo giai… · drive-repair: Chép bù file thiếu bản sao / chỉ 1 bản… · explain: Lời giải đáp án (mẫu · vì sao · vì sao… · footage-archive: Lưu kho footage (repo riêng… · footage-verify: Kiểm kho footage trên Kho Drive HẰNG… · free-tier-guard: 02/11: chạm file để GitHub đăng ký cron… · health: Rà soát lỗi tiềm ẩn HẰNG NGÀY trên toàn… · lexicon-expand: Mở rộng kho từ tới 20k (docs/LEXICON.md… · lexicon-i18n: Nghĩa 13 ngôn ngữ theo NGHĨA + TỪ LOẠI… · nav-render: Chuyển trang & Quay lại trên… · news-auto: A->Z driver for the news shorts… · pr-check · preview-site: Site PREVIEW cho chủ duyệt redesign… · quality-sweep: Quét lỗi tiềm ẩn hằng đêm, 0 token LLM… · required-gate: MỘT commit status tổng hợp cho mỗi PR · script-bank: Kho kịch bản video ngắn · sentence-audio-asr: Cổng ASR cho audio câu Kokoro (audio/l… · seo-gsc: Vòng dữ liệu Google Search Console · social-auto: Autopilot social (docs/DISTRIBUTION.md… · storage-watch: Giám sát dung lượng git hằng tuần: repo… · upgrade-audit: Kiểm toán nâng cấp hằng tuần: làm mới… · video-auto: Video tự động hằng ngày… · visual-qa: Soát giao diện tự động (tràn chữ, nút… · vocab-img-free: Ảnh từ vựng · vocab-img-scene: Ảnh cho MỌI nghĩa (~20k từ) + ảnh bài… · vocab-img: Ảnh minh hoạ từ vựng (dual coding) · word-audio: Giọng đọc từ đơn Anh + Mỹ (Kokoro-82M… · youtube-manual: Manual YouTube path… · youtube-upload: Upload owner-approved shorts to YouTube…
 - [manual] bg-gates: Cổng tự động cho ảnh nền bản tin (BG… · bg-v4: sharper wide backgrounds + one shared… · chroma-batch: Tách nền PHÔNG XANH cả lô clip Kling… · chroma-test: Thử tách nền PHÔNG XANH cho 1 clip… · confidence-shots: Ảnh trước/sau Giao tiếp tự tin (điện… · cws-media: Media Chrome Web Store (video 1080p + 5… · cws-publish: Đăng bản mới của add-on lên Chrome Web… · explain-shots: Ảnh trước/sau của thẻ giải thích đáp án… · footage-reel: owner review of the footage banks… · green-prep: Chuẩn bị clip phông xanh mới trên CI… · ios-testflight: Ký + tải bản iOS lên TestFlight (App… · library-build: Kho dựng video · library-ingest: Nhập clip mới vào kho dựng video · matte-pro · news-voice · ota-rollback: Quay bản web OTA về bản trước (hoặc bản… · pron-distill · pron-train · review-shots: Ảnh trước/sau ôn tập đa chế độ + thẻ… · shorts-migrate: One-time (re-runnable) migration of… · shorts-rebuild: Re-render shorts from their RECIPES… · stitch-fonts: Dựng lại phông icon Material Symbols… · tts-ab: Phép thử A/B giọng Kokoro ↔ ElevenLabs… · ux-public: UX audit of the public entry pages… · video-pilot5: ONE lesson (tpl1b_airport_gate_cc6fbe)… · video-pilot6: ONE presenter-show pilot… · video-pilot7: ONE "news + scene" pilot… · video-pilot8: ONE "continuous talking head" pilot… · video-sample: Dựng video MẪU từ kịch bản… · video-series: render numbered series episodes… · video-stress: Dựng thử ĐA DẠNG trên CI (không chạy… · video-templates · video-templates9: ONE sample per v9 template… · video-tpl1b-samples: render a FEW hand-picked tpl1b lessons… · video-tpl1b: gold scripts → template-1b shorts in… · video: Dựng 1 video cho Video Studio (Quản trị… · vocab-img-publish: Đăng lại ảnh minh hoạ đã QC từ artifact… · word-audio-lab: Thí nghiệm giọng từ đơn (chỉ chạy tay)…
 - [push:main,manual] admin-video-ui: Quản trị → Video (#video): ảnh giao… · android: Tự build app Android (APK) trên máy chủ… · blog-images: Ảnh RIÊNG từng bài blog… · ci: Kiểm thử tự động mỗi lần đẩy code (miễn… · clips-perf: Ngân sách hiệu năng lưới clip quản trị… · codemap: Bản đồ mã nguồn: sinh lại… · dict-perf: Hiệu năng + nhất quán từ điển trên di… · dist-ui: Kênh & phân phối: ảnh kiểm tra giao… · ext-e2e: Kiểm thử đầu-cuối add-on thật · ios-e2e: Kiểm thử app iOS từng tính năng trên… · ios: Tự build app iOS cho Simulator trên máy… · kokoro-model: Chép mô hình Kokoro-82M q8 + giọng app… · native-auth-e2e: Kiểm đăng nhập gốc (Firebase Auth · play-shots: Ảnh Google Play (app Android… · prod-release: Mỗi lần đẩy main = Cloudflare Pages tự… · seo-indexnow: Báo IndexNow (Bing, Yandex, Naver…) các… · store-shots: Ảnh Chrome Web Store chụp từ add-on… · store-video-viral: Video quảng cáo bản quốc tế… · store-video: Video giới thiệu add-on…
@@ -113,8 +113,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [push:main,pr,manual] admin-guard: Gác bố cục mọi trang quản trị: khung… · audio-play: Phát audio ổn định mọi máy… · authority-pages: Uy tín / E-E-A-T… · dict-pages: Trang từ điển (docs/SEO-DICT-PAGES.md)… · figure-layout: Cổng bố cục hình đề (Writing Task 1… · frame-consistency: Một khung app: mọi route của app thật… · size-guard: Cổng dung lượng repo chính… · tools-pages: Công cụ miễn phí (docs/SEO-TOOLS.md)…
 - [push,manual] app-lcp: Đo LCP/perf màn đầu app (/app/) · ios-shots: Ảnh App Store (iPhone 6.9" 1320×2868 +… · perf-profile: Hồ sơ CPU lần tải lạnh (CPU 4×) cho 1… · say-native: Say it like a native · teach-build: Dựng bộ nhân vật DUY NHẤT (web/teach/… · ux-shots: Ảnh trước/sau các luồng chính của app… · video-shard-equiv: Equivalence proof of the sharded…
 - [pr,cron,manual] ads-demo: Quảng cáo DEMO/THỬ chính thức của… · content-factory: Xưởng nội dung… · font-audit: Rà font chữ web/app/add-on từng phần… · report-shots: Ảnh chụp báo lỗi trên R2…
+- [push,pr,manual] characters-shots: Kiểm hình "1 bộ nhân vật"… · scroll-perf: Cuộn mượt: cử chỉ cuộn thật qua các màn… · stitch-quality-qc: QC mẫu Stitch "nâng chất lượng" (báo… · ux-cards: Ảnh trước/sau các thẻ học có dữ liệu…
 - [cron,manual,after-wf] drive-shorts: Sao lưu shorts ĐẠT… · release-archive: Giữ 3 bản phát hành đã ký gần nhất của… · video-web: Bản WEB của short bản tin
-- [push,pr,manual] characters-shots: Kiểm hình "1 bộ nhân vật"… · stitch-quality-qc: QC mẫu Stitch "nâng chất lượng" (báo… · ux-cards: Ảnh trước/sau các thẻ học có dữ liệu…
 - [manual,call] cine-render: Dựng video điện ảnh (cine) trên CI · pron-eval
 - [push] brand-build: Dựng tài sản thương hiệu từ… · hair-try: Thử đổi màu tóc trên 1 clip/người (0…
 - [push:main,pr,cron,manual] content-qa: Cổng QA nội dung hằng đêm… · mobile-qa: Soát web mobile (360/390/412 px): tràn…
@@ -127,8 +127,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [pr,manual,after-wf,call] qa-bot: QA bot (scripts/test/qa-bot.mjs ·…
 - [push,pr,manual,call] journey-e2e: Hành trình người dùng đầu-cuối…
 
-## Test (309) → vùng phủ (file đích chi tiết: json `tests`)
-- `web/js`: account-delete account-flow account-ui admin-gate admin-share admin-ui ads-admin ads-cls ads anki audio-play audio-voice call-e2e call-engine choice-kit client-security clips-perf comment-code confidence criteria datamuse-resilience dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app inline-box ipa-accent js-budget landing-routing league learn-flow lesson-drag lex lipsync-lesson lipsync mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui reminders report-ui retention say-text sel-translate shell-size social-ui speak-ipa speak-split speak st2-href streak-flame streak-ui sync-drive target-lang teacher-loop teacher-native theme-switch today-mobile-actions tutor unit usage verbs video-web watch word-arrange-e2e
+## Test (314) → vùng phủ (file đích chi tiết: json `tests`)
+- `web/js`: account-delete account-flow account-ui admin-gate admin-share admin-ui ads-admin ads-cls ads anki audio-play audio-voice call-e2e call-engine choice-kit client-security clips-perf comment-code confidence criteria datamuse-resilience dict-entry-layout dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app inline-box ipa-accent js-budget landing-routing league learn-flow lesson-drag lex lipsync-lesson lipsync mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui reminders report-ui retention say-text scroll-boot sel-translate shell-size social-ui speak-ipa speak-split speak st2-href streak-flame streak-ui sync-drive target-lang teacher-loop teacher-native theme-switch today-mobile-actions tutor unit usage verbs video-web watch word-arrange-e2e
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe ci-policy clutter confidence-shots content-check contrast crawl d1-scan docs-budget e2e explain-shots figure-layout final-qc i18n-switch ios-driver-watchdog lazyfix lip-shots listing-check native-facade nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps route-race run-suite samples-seo-parity samples-visual screens seo-pages seo-sitemap seo-words-shots serve-web smoke teacher-native-shots toeic-read-e2e tools-ui topbar-lang tsc-check ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep
 - `functions/api`: accounts admin-ads-shots admin-dist-shots admin-guard admin-prefs admin-rollup ads-revenue ai-pool analytics api-security capacity classroom clip-bulk d1-cap dist-roles distribution drive-repair drive hit-retry img-api jobs keys live-check notices post-deploy-check pr-check quota report root-lang schema-lock sessions-scan-gate social-auto social-meta-oauth social-meta social-mgr social-proxy static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout yt-manual
 - `scripts`: authority-pages axe blog-images bot-push-key brand-check ci-triage codemap-budget explain-check explain-let frame-consistency i18n-english i18n-single journey-e2e lesson-content links-js mobile-polish mqa-parity-self mqa-parity pack-gloss pages-skip protection samples-ui sentence-asr sw-cache-fixed tools-pages ux1 word-ipa world-scorecard
@@ -137,8 +137,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/ci`: audio-coverage ci-hog commit-regen cron-watch gh-api no-pr-branch-push qa-fill
 - `scripts/lib`: ci-header-scope font-audit lastmod qa-classify syntax-check theme-static word-depth
 - `scripts/video`: capsplit motion-core motion overlay-gates put-session shorts-scale tpl1b-pipeline
+- `scripts/quality`: exit-sweep landing-cls nav-sweep qa-bot qs-fix-queue scroll-perf
 - `extension`: ext-orphan ext-popup i18n-pack infra-check word-audio-s2
-- `scripts/quality`: exit-sweep landing-cls nav-sweep qa-bot qs-fix-queue
 - `extension/app`: ext-bundles ext-dict-i18n ext-sync i18n-leak
 - `web`: brand-logo-stitch headers seo-twin size-budget
 - `content/blog`: blog-captions cpm-plan gsc
@@ -150,6 +150,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/lexicon`: dict-perf lexicon-expand
 - `scripts/ops`: ledger-merge rollback
 - `scripts/top1`: logic-invariants top1-score
+- `scripts/vocab-img`: vocab-img-judge-budget vocab-img
 - `web/app`: bundle-names shell-lazy
 - `web/css`: card-actions wordcard-ui
 - `.github/workflows`: required-gate
@@ -170,7 +171,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/scriptbank`: script-bank
 - `scripts/teach`: characters-shots
 - `scripts/test`: suite-guard
-- `scripts/vocab-img`: vocab-img
+- `scripts/world`: probe-cta
 - `web/blog`: quiz
 - `web/data`: lesson-embed-e2e
 - `web/icons`: ext-e2e
@@ -178,7 +179,5 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/dict`: dict-pages
 - `workers/mail`: mail-prefs
 
-## Mô-đun JS chính (3/1135, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
-- `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs)
+## Mô-đun JS chính (1/1143, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←12 (lib.mjs,job.mjs,lib.mjs)
-- `web/js/ads/` run.js →ai.js ←1 (static.js)
