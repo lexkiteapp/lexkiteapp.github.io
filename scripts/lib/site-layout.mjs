@@ -10,6 +10,7 @@ import { createHash } from 'node:crypto';
 import { toolFoot } from './tools-links.mjs';
 import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
 import { S as SP } from './seo-pages-i18n.mjs';
+import { art, scrollBtns, VIS_CSS, VIS_JS } from './samples-visual.mjs'; // lớp lướt bằng mắt của họ trang thư viện (docs/specs/samples-visual.md)
 // ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
 // Màu tối trang tĩnh lấy thẳng từ nguồn duy nhất brand/tokens.json (scripts/build-tokens.mjs, docs/BRAND-RULES.md)
 const TKALL = JSON.parse(fs.readFileSync(new URL('../../brand/tokens.json', import.meta.url), 'utf8')), TK = TKALL.dark;
@@ -487,7 +488,7 @@ export const audioBtn = (key, word, lang) => `<button type="button" class="au" d
 // Thanh tìm (dính đầu màn hình khi cuộn): ô lọc (giữ chỗ sẵn → không xô lệch bố cục khi JS bật) + chip nhóm (chips, tùy chọn)
 export const filterBox = (lang, chips = '') => { const t = SEO_L[lang] || SEO_L.en, f = FIND_I18N[lang] || FIND_I18N.en; return `<div class="find"><div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><span class="fi"><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off" enterkeyhint="search"><kbd aria-hidden="true">/</kbd><button type="button" class="qc" aria-label="${esc(f[0])}" hidden>×</button></span><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>${chips}</div>`; };
 // Thẻ trong lưới danh sách: tên, mô tả ngắn, chip (số từ / trình độ / kỳ thi), emoji nếu có
-export const setCard = ({ href, title, desc = '', emoji = '', chips = [], key = '', h = 'h3' }) => `<article class="card set${emoji ? ' has-em' : ''}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd">${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}<${h}>${esc(title)}</${h}>${desc ? `<p>${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
+export const setCard = ({ href, title, desc = '', art: a = 'v-topics', chips = [], key = '', h = 'h3' }) => `<article class="card set vc" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd"><span class="vc-top">${art(a, 56)}</span><${h} class="vc-t">${esc(title)}</${h}>${desc ? `<p class="vc-q">${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
 // Khối CTA chính (mở đúng bộ/bài trong app, gắn data-hit nếu là topic có thật)
 export const ctaBox = (href, title, btn, note = '', page = 'vocab') => {
   const m = String(href).match(/#\/topic\/([a-zA-Z0-9_-]+)/);
@@ -514,14 +515,14 @@ export function seoPage({ lang, head, crumbs, body, alt, section }) {
   const nav = t.nav.map(([h, n]) => [h, n, h === section ? ' aria-current="page"' : '']);
   // Đổi ngôn ngữ: chính trang này (mục cuối breadcrumb) · bản vi↔en (alt, cũng là hreflang) · ngôn ngữ khác (chưa có bản dịch) → blog ngôn ngữ đó
   const self = crumbs[crumbs.length - 1][1], langHref = twinOr({ [lang]: self, ...(alt ? { [t.switchTo[1]]: alt } : {}) });
-  return themePage(`<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
+  return themePage(`<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}\n${VIS_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
 ${siteHeader({ nav, open: [t.app, t.open], home: landingHref(lang), lang, langHref })}
 <main id="nd">
 ${crumbsHtml(crumbs)}
 ${body}
 </main>
 ${siteFooter({ lang, text: t.foot, tm: t.tm, langHref })}
-<script>${copyJs(lang)}${UI_JS}</script></body></html>`);
+<script>${copyJs(lang)}${UI_JS}${VIS_JS}</script></body></html>`);
 }
 // Thanh chuyển mục (Từ vựng · Ngữ pháp · Bài mẫu…) trên trang danh sách
-export const sectionNav = (lang, cur) => `<nav class="cats" aria-label="${SEO_L[lang].sectionsL}">${SEO_L[lang].sections.map(([h, n]) => `<a href="${h}"${h === cur ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>`;
+export const sectionNav = (lang, cur) => `<div class="tfw"><nav class="cats" aria-label="${SEO_L[lang].sectionsL}">${SEO_L[lang].sections.map(([h, n]) => `<a href="${h}"${h === cur ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>${scrollBtns(lang)}</div>`;
