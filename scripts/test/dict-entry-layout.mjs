@@ -5,6 +5,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 import { githubCandidates } from '../media/origin.mjs';
+import { noProd } from './lib/no-prod.mjs';
 if (!process.env.CI) { console.error('dict-entry-layout: chỉ chạy trên CI (Chromium) – workflow UX cards'); process.exit(2); }
 const [AFTER = 'web', BEFORE, OUT = 'out/dict-entry'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.webmanifest': 'application/json' };
@@ -48,6 +49,7 @@ const browser = await chromium.launch();
 const bad = []; let checks = 0;
 async function run(TAG, ROOT, vw, scheme, lang) {
   const ctx = await browser.newContext({ viewport: { width: vw, height: 900 }, colorScheme: scheme, serviceWorkers: 'block', isMobile: vw < 600, hasTouch: vw < 600, deviceScaleFactor: vw < 600 ? 2 : 1 });
+  await noProd(ctx);
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.vimg', '1'); } catch (e) { /* bỏ qua */ } });
   let broken = '';
   await ctx.route('**/*', async r => {
