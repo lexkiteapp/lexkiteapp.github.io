@@ -60,12 +60,18 @@ for (const l of Object.keys(LANG_NAMES)) {
 }
 
 // Hành vi (jsdom)
-const run = (stored, mq = false) => {
+const run = (stored, mq = false, real = false) => {
   const dom = new JSDOM(`<!doctype html><html><head><meta charset="utf-8">${THEME_HEAD}${THEME_META}</head><body>${themeSwitch('ja')}${themeSwitch('ja')}${themePill('ja')}</body></html>`, { url: 'https://lexkite.com/ja/', runScripts: 'outside-only' });
-  const w = dom.window; if (stored) w.localStorage.setItem('lk.theme', stored);
+  const w = dom.window; if (!real) Object.defineProperty(w.navigator, 'webdriver', { value: true }); if (stored) w.localStorage.setItem('lk.theme', stored);
   w.matchMedia = () => ({ matches: mq });
   w.eval((THEME_HEAD.match(/<script data-lkt>([\s\S]*)<\/script>/) || [])[1]); w.eval(TSW_JS); return w;
 };
+// Mặc định thật (chủ 4/11): chưa chọn = tối xanh, kể cả máy đang sáng; đã chọn thì giữ
+{ const th = x => x.document.documentElement.getAttribute('data-theme');
+  ok(th(run(null, false, true)) === 'dark', 'khách mới, máy sáng → tối xanh mặc định');
+  ok(th(run('light', false, true)) === 'light', 'đã chọn Sáng → giữ Sáng');
+  ok(th(run('auto', false, true)) === null, 'đã chọn Tự động → theo máy');
+}
 const L = themeLabels('ja'), lab = (w, i = 0) => w.document.querySelectorAll('[data-tsw]')[i].getAttribute('aria-label');
 let w = run(null);
 ok(!w.document.documentElement.hasAttribute('data-theme') && lab(w) === `${L[3]}: ${L[0]}`, 'chưa chọn → tự động (không data-theme), nhãn "theo hệ thống"');
@@ -76,7 +82,7 @@ ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && w.localSt
 const tcs = w => [...w.document.querySelectorAll('meta[name=theme-color]')].map(m => m.content).join(',');
 ok(tcs(w) === `${THEME_COLOR.dark},${THEME_COLOR.dark}`, `ép tối → cả 2 thẻ theme-color = nền tối (${tcs(w)})`);
 w.document.querySelector('[data-tsw]').click();
-ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === null, 'bấm 3 → tự động (xoá lk.theme)');
+ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === 'auto', 'bấm 3 → tự động (lưu lk.theme=auto: lựa chọn có chủ đích)');
 ok(tcs(w) === `${THEME_COLOR.light},${THEME_COLOR.dark}`, `tự động → theme-color trả về theo media sáng/tối (${tcs(w)})`);
 // Viên 3 nút chân trang (bản vẽ Stitch): bấm thẳng một trạng thái; aria-pressed đúng nút đang chọn, đồng bộ với nút vòng
 const pr = w => [...w.document.querySelectorAll('[data-tsv]')].map(b => b.getAttribute('aria-pressed')).join(',');
@@ -86,7 +92,7 @@ ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && w.localSt
 w.document.querySelector('[data-tsv=dark] svg').dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
 ok(w.document.documentElement.getAttribute('data-theme') === 'dark', 'viên: bấm lại nút đang chọn (cả vào biểu tượng) → giữ nguyên, không xoay vòng');
 w.document.querySelector('[data-tsv=light]').click(); ok(w.document.documentElement.getAttribute('data-theme') === 'light' && pr(w) === 'false,true,false', 'viên: bấm Sáng → sáng');
-w.document.querySelector('[data-tsv=auto]').click(); ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === null && pr(w) === 'true,false,false', 'viên: bấm Tự động → xoá lk.theme');
+w.document.querySelector('[data-tsv=auto]').click(); ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === 'auto' && pr(w) === 'true,false,false', 'viên: bấm Tự động → lưu lk.theme=auto');
 w.dispatchEvent(Object.assign(new w.Event('storage'), { key: 'lk.theme', newValue: 'dark' }));
 ok(w.document.documentElement.getAttribute('data-theme') === 'dark', 'tab khác đổi giao diện → tab này đổi theo (sự kiện storage)');
 w = run('dark'); ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && lab(w) === `${L[3]}: ${L[2]}`, 'đã lưu tối → <head> đặt data-theme=dark trước khi vẽ');
