@@ -1,3 +1,4 @@
+# 02/11: chạm file để GitHub đăng ký lại lịch sau khi bật lại (cron không chạy) – canh bởi scripts/ci/cron-watch.mjs
 # Lấp runner rảnh (GitHub Pro = 40 runner): mỗi 10 phút đo busy/queued; busy < 32 và không job đói → dispatch việc tồn đọng
 # trong infra/ci-backlog.json (shard = min(trần mục, 40 − busy − 8), luôn chừa 8 runner cho PR). Không bao giờ dispatch workflow đang có
 # lượt queued/in_progress. Ghi 1 dòng/lượt vào nhánh ci-stats/util.tsv; bản tin 24 h nằm trong ci-triage (giờ 00 UTC). scripts/ci/filler.mjs

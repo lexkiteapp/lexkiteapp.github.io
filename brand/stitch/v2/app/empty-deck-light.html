@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite My Deck Empty State</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#a4f1e7",
+            "on-surface-variant": "#3f4947",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "on-error": "#ffffff",
+            "surface-container-low": "#fff1e8",
+            "primary": "#00504b",
+            "on-primary-fixed": "#00201d",
+            "tertiary-fixed-dim": "#f5bf31",
+            "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "on-tertiary-container": "#ffd370",
+            "tertiary-fixed": "#ffdf9b",
+            "on-tertiary-fixed": "#251a00",
+            "inverse-on-surface": "#fdeee3",
+            "error-container": "#ffdad6",
+            "secondary": "#8c5000",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-dim": "#e6d7cd",
+            "on-secondary-fixed": "#2d1600",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#88d4cb",
+            "primary-container": "#136a63",
+            "on-error-container": "#93000a",
+            "outline-variant": "#bec9c6",
+            "secondary-fixed": "#ffdcbf",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary-container": "#633700",
+            "tertiary": "#5b4300",
+            "outline": "#6f7977",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-primary-container": "#9be7de",
+            "surface-variant": "#efe0d6",
+            "inverse-primary": "#88d4cb",
+            "on-surface": "#211a14",
+            "on-secondary": "#ffffff",
+            "on-background": "#211a14",
+            "surface-bright": "#fff8f5",
+            "error": "#ba1a1a",
+            "surface-container": "#faebe1",
+            "surface-tint": "#126a63",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#ffb872",
+            "inverse-surface": "#372f28",
+            "secondary-container": "#fd9500",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter-md": "1.5rem",
+            "margin-lg": "3rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Viewport Container (390px edge-to-edge) -->
+<main class="w-[390px] min-h-screen bg-surface flex flex-col relative pb-[84px] shadow-2xl overflow-x-hidden selection:bg-primary-fixed selection:text-primary">
+<!-- Top Bar: Exactly 56px, Inner Variant -->
+<header class="h-[56px] px-margin bg-surface border-b border-surface-variant flex items-center justify-between sticky top-0 z-40">
+<div class="flex items-center gap-space-md">
+<!-- Tactile Back Button -->
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Page Title -->
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">My deck</h1>
+</div>
+<!-- Action Button -->
+<button aria-label="Search and filter deck" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+</header>
+<!-- Content Canvas -->
+<section class="px-margin pt-space-md flex flex-col gap-space-md flex-1">
+<!-- Teacher Slot & Speech Bubble Section -->
+<div class="flex items-center gap-space-sm w-full">
+<!-- Empty Teacher Slot -->
+<div class="w-[120px] h-[140px] shrink-0 rounded-2xl border-2 border-dashed border-[#d8c7bc] bg-surface-container-low flex flex-col items-center justify-center select-none relative group">
+<span class="font-label-sm text-label-sm text-[#136a63] tracking-widest font-extrabold uppercase">TEACHER</span>
+</div>
+<!-- Speech Bubble -->
+<div class="flex-1 bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] relative">
+<!-- Bubble Left Pointer Arrow -->
+<div class="absolute -left-[9px] top-8 w-4 h-4 bg-surface-container-lowest border-l-2 border-b-2 border-surface-variant rotate-45"></div>
+<h2 class="font-label-lg text-label-lg text-[#00201d] font-extrabold tracking-tight flex items-center gap-1.5 mb-1">
+            Start your deck!
+            <span class="text-[#8c5000]">✦</span>
+</h2>
+<p class="font-body-sm text-body-sm text-[#2d3748] leading-snug font-medium">
+            Every new word you bookmark while practicing will live right here.
+          </p>
+</div>
+</div>
+<!-- Empty State Hero Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant shadow-[0_5px_0_0_#efe0d6] p-space-lg flex flex-col items-center text-center mt-space-xs">
+<!-- Playful Illustrated Graphic: Treasure Box with Star -->
+<div class="w-24 h-24 mb-space-sm flex items-center justify-center relative">
+<svg class="drop-shadow-sm" fill="none" height="96" viewBox="0 0 96 96" width="96" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="boxGrad" x1="16" x2="80" y1="40" y2="86">
+<stop stop-color="#198279"></stop>
+<stop offset="1" stop-color="#0f524c"></stop>
+</linearGradient>
+<linearGradient gradientUnits="userSpaceOnUse" id="cardGrad" x1="32" x2="64" y1="20" y2="54">
+<stop stop-color="#FFFDF9"></stop>
+<stop offset="1" stop-color="#F2E6DC"></stop>
+</linearGradient>
+<linearGradient gradientUnits="userSpaceOnUse" id="starGrad" x1="40" x2="60" y1="6" y2="28">
+<stop stop-color="#FFD659"></stop>
+<stop offset="1" stop-color="#FFA800"></stop>
+</linearGradient>
+<filter filterUnits="userSpaceOnUse" height="92" id="shadowFilter" width="96" x="0" y="4">
+<fedropshadow dx="0" dy="3" flood-color="#0B423E" stdDeviation="0"></fedropshadow>
+</filter>
+</defs>
+<!-- Back Card poking out -->
+<rect fill="#E2D4C7" height="28" rx="6" stroke="#C4B3A3" stroke-width="2" transform="rotate(-10 28 24)" width="34" x="28" y="24"></rect>
+<!-- Front Card poking out -->
+<g transform="rotate(8 52 28)">
+<rect fill="url(#cardGrad)" height="30" rx="6" stroke="#136A63" stroke-width="2" width="36" x="36" y="22"></rect>
+<line stroke="#136A63" stroke-linecap="round" stroke-width="2.5" x1="42" x2="64" y1="30" y2="30"></line>
+<line stroke="#BEC9C6" stroke-linecap="round" stroke-width="2" x1="42" x2="56" y1="36" y2="36"></line>
+</g>
+<!-- Box Base Body -->
+<path d="M16 46C16 41.5817 19.5817 38 24 38H72C76.4183 38 80 41.5817 80 46V72C80 77.5228 75.5228 82 70 82H26C20.4772 82 16 77.5228 16 72V46Z" fill="url(#boxGrad)" stroke="#0B423E" stroke-width="3"></path>
+<!-- Box Front Rim / Latch Rim -->
+<path d="M14 44C14 41.7909 15.7909 40 18 40H78C80.2091 40 82 41.7909 82 44V51C82 53.2091 80.2091 55 78 55H18C15.7909 55 14 53.2091 14 51V44Z" fill="#20988E" stroke="#0B423E" stroke-width="3"></path>
+<rect fill="#FFC83B" height="14" rx="3" stroke="#8C5000" stroke-width="2" width="12" x="42" y="47"></rect>
+<circle cx="48" cy="54" fill="#5B4300" r="2"></circle>
+<!-- Sparkling Star hovering -->
+<path d="M48 6L51.2 14.8L60 18L51.2 21.2L48 30L44.8 21.2L36 18L44.8 14.8L48 6Z" fill="url(#starGrad)" stroke="#8C5000" stroke-width="1.5"></path>
+<circle cx="68" cy="22" fill="#FFC83B" r="3"></circle>
+<circle cx="26" cy="32" fill="#20988E" r="2.5"></circle>
+</svg>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-[#0f1d1c] font-extrabold tracking-tight mb-space-xs">
+          Your deck is empty
+        </h3>
+<p class="font-body-sm text-body-sm text-[#2d3748] mb-space-lg leading-relaxed max-w-[280px] font-medium">
+          Save unfamiliar words from drills or dictionary to build your personal flashcard deck.
+        </p>
+<!-- CTA Buttons Stack -->
+<div class="w-full flex flex-col gap-space-sm">
+<!-- Primary CTA: Candy Orange Tactile Button with deep brown-black ink & 4px ledge -->
+<button class="w-full h-12 py-3 px-space-md rounded-DEFAULT bg-[#ff8800] border-2 border-[#b45309] shadow-[0_4px_0_0_#b45309] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-space-sm group">
+<span class="material-symbols-outlined text-[20px] text-[#1a0d00] font-bold" data-icon="search">search</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#1a0d00] tracking-wide">Look up a word</span>
+</button>
+<!-- Secondary CTA: Crisp white container, dark teal border, deep teal ink -->
+<button class="w-full h-12 py-2.5 px-space-md rounded-DEFAULT bg-surface-container-lowest border-2 border-[#136a63] shadow-[0_4px_0_0_#136a63] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-[#004d40] font-bold" data-icon="folder_open">folder_open</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#004d40] tracking-wide">Browse word sets</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bottom Tab Navigation Bar: Exactly 64px Canonical Lexkite -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-surface-container-lowest border-t-2 border-surface-variant flex items-center justify-around px-space-xs z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.02)]">
+<!-- Destination 1: Today -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="home">home</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Today</span>
+</button>
+<!-- Destination 2: Vocab (Active) -->
+<button class="flex flex-col items-center justify-center flex-1 py-0.5 relative">
+<div class="flex items-center justify-center bg-[#cbfbf1] text-[#044e47] px-3.5 py-1 rounded-full shadow-[0_2px_0_0_#136a63] active:translate-y-[2px] active:shadow-none transition-all border border-[#136a63]/20">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-[20px] text-[#044e47]" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<!-- Due Badge Dot -->
+<span class="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-error border border-surface-container-lowest"></span>
+</div>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold ml-1.5 text-[#044e47]">Vocab</span>
+</div>
+</button>
+<!-- Destination 3: Skills -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="track_changes">track_changes</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Skills</span>
+</button>
+<!-- Destination 4: Tests -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="flag">flag</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Tests</span>
+</button>
+<!-- Destination 5: Me -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Me</span>
+</button>
+</nav>
+</main>
+</body></html>

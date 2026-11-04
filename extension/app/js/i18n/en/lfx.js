@@ -24,4 +24,8 @@
 "Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.": "Listening paused for 15 min – audio items switch to typing.",
 "Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.": "Speaking paused for 15 min – a meaning quiz takes its place.",
 "Bật lại": "Turn back on",
+"Cần gợi ý?": "Need a hint?",
+"Thêm gợi ý": "Another hint",
+"Hiện bản dịch": "Show translation",
+"Ẩn bản dịch": "Hide translation",
 }); })(typeof self !== 'undefined' ? self : this);

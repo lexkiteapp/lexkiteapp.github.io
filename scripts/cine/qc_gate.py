@@ -30,8 +30,8 @@ for s in tl['shots']:
     for ln in s['lines']: spoken.append((s['t0'] + ln['at'], ln['id'], L.get(ln['id'], {}).get('text', '')))
 spoken.sort(); script = ' '.join(t for _, _, t in spoken); norm = lambda t: re.findall(r"[a-z0-9']+", t.lower().replace('’', "'"))
 try:
-    from faster_whisper import WhisperModel
-    M = WhisperModel('base.en', device='cpu', compute_type='int8'); segs, _ = M.transcribe(mp4, language='en', word_timestamps=False, initial_prompt=None)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE
+    M = load('base.en'); segs, _ = M.transcribe(mp4, language='en', word_timestamps=False, initial_prompt=None, **DECODE)
     asr = ' '.join(s.text for s in segs); a, b = norm(script), norm(asr); sm = difflib.SequenceMatcher(None, a, b, autojunk=False); ratio = sm.ratio()
     got = set(b); key = [w for w in norm(sp.get('key_line', '')) if len(w) > 2]; miss = [w for w in key if w not in got]
     gate('asr_vs_script', ratio >= 0.85 and not miss, dict(similarity=round(ratio, 3), key_missed=miss), 8)

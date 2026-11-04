@@ -11,7 +11,7 @@
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
     'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Quảng cáo': 'Ads', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.': 'Per-platform flags, kill switch, estimated revenue, frequency caps, retention guard and consent by region.', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
-    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
+    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Sổ tài khoản & khóa': 'Accounts & keys', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.': 'Which email/account owns each service and key, where it is stored (names only), expiry and renewal reminders.', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
     'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.': 'Synced accounts: search, filter, inspect, export CSV, delete data on request.',
@@ -46,9 +46,9 @@
     'Bỏ thay đổi chưa lưu?': 'Discard unsaved changes?', 'Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.': 'You have unsaved changes. Leaving this page will lose them.', 'Bỏ thay đổi': 'Discard changes', 'Ở lại': 'Stay',
     // Drive (banner toàn cục)
     'Xem Cảnh báo': 'Open alerts', 'Xem Lưu trữ': 'Open storage',
-    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
+    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trên main trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed on main in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)': 'CI: {n} workflow(s) using runners abnormally – see issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
-    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
+    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)': 'D1: read source {r} = {p}% of the Free limit on {d} (budget 10%)', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
     // Đơn vị & thời gian
     '{s} giây': '{s}s', '{m} phút {s} giây': '{m}m {s}s', '{m}p {s}s': '{m}m {s}s', 'vừa xong': 'just now', '{n} phút trước': '{n} min ago', '{n} giờ trước': '{n}h ago', '{n} ngày trước': ['{n} day ago', '{n} days ago'],
     'CN': 'Sun', 'T2': 'Mon', 'T3': 'Tue', 'T4': 'Wed', 'T5': 'Thu', 'T6': 'Fri', 'T7': 'Sat',
@@ -79,6 +79,9 @@
     'Tác vụ cần chú ý': 'Jobs needing attention', 'Tác vụ tự động (GitHub Actions)': 'Automated jobs (GitHub Actions)', 'Toàn bộ cảnh báo & nhật ký →': 'All alerts & logs →',
     'Đang chạy…': 'Running…', 'Bỏ qua': 'Skipped', 'Đang chờ': 'Queued', 'Thành công': 'Success', 'Cảnh báo@@status': 'Warning', 'Cần chú ý': 'Needs attention', 'Chưa có tác vụ': 'No jobs yet',
     // Trực tiếp
+    '⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục': '⏸ Auto-refresh paused (no activity for 10 min) – move the mouse to resume',
+    'Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).': "Today's read quota is nearly used – this section pauses until 00:00 UTC.",
+    'Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).': 'Showing cached numbers to keep D1 read quota for learners – back to normal after 00:00 UTC.',
     '📈 Lưu lượng trực tiếp': '📈 Live traffic', 'Live · tự cập nhật 30s · {t}': 'Live · auto-refresh 30s · {t}', 'Lấy mẫu {p}% – số thực ≈ × {x}': 'Sampling {p}% – actual ≈ × {x}',
     'Đang online <small>(5 phút)</small>': 'Online now <small>(5 min)</small>', 'khách có tín hiệu gần đây': 'visitors with recent activity', 'Lượt xem hôm nay': 'Views today', '{n} phiên': ['{n} session', '{n} sessions'],
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
@@ -91,11 +94,13 @@
     '🗺️ Khách theo quốc gia · hôm nay': '🗺️ Visitors by country · today', 'Bản đồ khách theo quốc gia hôm nay': 'Map of visitors by country today', 'Không tải được số liệu trực tiếp.': 'Could not load live data.', 'Chi tiết · {r}': 'Details · {r}',
     'Phiên truy cập': 'Sessions', 'Khách (thiết bị)': 'Visitors (devices)', '{n} phiên/khách': '{n} sessions/visitor', 'Thời gian TB/phiên': 'Avg. time/session', 'Trang/phiên': 'Pages/session', 'Khách quay lại': 'Returning visitors',
     'Thoát ngay (&lt;15 giây, 1 trang)': 'Bounce (&lt;15s, 1 page)', 'LCP thật (tốc độ hiện nội dung)': 'Real-user LCP (content load speed)', 'p75 · {p} phiên đạt “Tốt” (≤ 2,5 s)': 'p75 · {p} of sessions “Good” (≤ 2.5 s)',
+    'Nhóm CPM cao': 'High-CPM group', 'Việt Nam': 'Vietnam', 'Nhóm CPM cao (giả định)': 'High-CPM group (assumed)', 'Nước khác': 'Other countries', 'Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.': 'Real visitors in the selected range, excluding bots and admin accounts. Country list: functions/api/_cpm.js.', 'Khách từ ngoài vào trang tĩnh': 'Outside visitors to static pages', 'Nước của khách từ ngoài': 'Their countries', 'Loại trang họ vào': 'Page type they landed on', 'Chưa có lượt nào.': 'No visits yet.',
     'Phiên theo ngày': 'Sessions per day', 'Nguồn truy cập': 'Traffic sources', 'Quốc gia': 'Countries', 'Trang vào đầu tiên': 'Landing pages', 'Tần suất (số phiên mỗi khách)': 'Frequency (sessions per visitor)', '{k} lần': '{k}×',
     'Thiết bị': 'Devices', 'Ngôn ngữ giao diện': 'UI language', 'Thói quen sử dụng': 'Usage habits', 'Giờ cao điểm (giờ Việt Nam)': 'Peak hours (Vietnam time)', 'Ngày trong tuần': 'Day of week', 'Thời lượng phiên': 'Session length',
     'Tăng trưởng': 'Growth', 'Khách mới & khách quay lại theo ngày': 'New vs. returning visitors per day', 'Tài khoản đăng ký mới': 'New sign-ups', 'Chưa có đăng ký mới trong khoảng này': 'No new sign-ups in this range',
     'Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật: loại bot, máy chủ đám mây (CI GitHub, máy ảo Android/iOS), header CI, chế độ sandbox và tài khoản quản trị. "Hôm nay" theo giờ Việt Nam (UTC+7).': 'Self-hosted anonymous analytics: no cookies, no stored IPs; country comes from Cloudflare. Humans only: bots, cloud servers (GitHub CI, Android/iOS emulators), the CI header, sandbox mode and admin accounts are excluded. "Today" is Vietnam time (UTC+7).',
     'Đã loại trong khoảng này: {n} phiên.': 'Excluded in this period: {n} sessions.', 'Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)': 'Automation/bots & admin today: {n} sessions (excluded)', 'Ngày theo giờ Việt Nam (UTC+7)': 'Days in Vietnam time (UTC+7)',
+    '{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)': ['{n} late session: held by the browser while /api was down, then re-sent (counted on its original day)', '{n} late sessions: held by browsers while /api was down, then re-sent (counted on their original day)'],
     'CI của mình': 'Our CI', 'App trên máy ảo CI': 'App on CI emulator', 'Bot/công cụ (UA)': 'Bot/tool (UA)', 'Bot đã xác minh': 'Verified bot', 'Máy chủ đám mây': 'Cloud server', 'Không rõ': 'Unknown',
     // Người dùng
     'Xóa vĩnh viễn dữ liệu đồng bộ?': 'Permanently delete synced data?', 'Xóa toàn bộ dữ liệu đồng bộ của {e}. Tài khoản Google không bị ảnh hưởng. Không thể hoàn tác.': 'This deletes all synced data of {e}. The Google account is not affected. This cannot be undone.',
@@ -127,6 +132,9 @@
     'Đã khôi phục thành công {n} tài liệu': 'Successfully restored {n} documents', 'Lỗi khôi phục: {e}': 'Restore error: {e}',
     '🔎 Tìm email, tên hoặc UID': '🔎 Search email, name or UID', 'Tìm người dùng': 'Search users', 'Vai trò': 'Role', 'Trạng thái': 'Status', 'Hoạt động 7 ngày': 'Active (7 days)', 'Ngủ đông >30 ngày': 'Dormant >30 days', 'Mới 7 ngày': 'New (7 days)',
     'Sắp xếp': 'Sort', 'Mới nhất': 'Newest', 'Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)': 'Download CSV for the current filter (max 5,000 rows)',
+    'Quốc gia': 'Country', 'Chưa rõ': 'Unknown', 'Chưa rõ quốc gia': 'Unknown country', 'Tham gia từ': 'Joined from', 'đến ngày': 'to', 'Tham gia sớm nhất': 'Earliest joined', 'Vào nhiều nhất': 'Most visits', 'Bỏ lọc': 'Clear filters',
+    '🌍 Người dùng theo quốc gia': '🌍 Users by country', 'Lần đồng bộ gần nhất · bấm để lọc': 'Latest sync · click to filter', '{n} quốc gia': ['{n} country', '{n} countries'], 'xem tất cả trong ô lọc Quốc gia': 'see all in the Country filter',
+    '"Chưa rõ" = tài khoản chưa đồng bộ lại từ khi có thống kê quốc gia': '"Unknown" = accounts that have not synced since country stats were added',
     'Tổng người dùng': 'Total users', 'tài khoản đã đồng bộ': 'synced accounts', 'Hoạt động hôm nay': 'Active today', '24 giờ qua': 'last 24 hours', 'Hoạt động 7 / 30 ngày': 'Active 7 / 30 days', '{p}% còn hoạt động trong tháng': '{p}% active this month',
     'tài khoản đăng ký mới': 'new sign-ups', 'Theo nền tảng': 'By platform', 'Lần vào': 'Visits', 'Chi tiết': 'Details', 'Xóa dữ liệu': 'Delete data', 'Không có người dùng khớp bộ lọc': 'No users match the filter', 'Thử bỏ bớt bộ lọc hoặc từ khóa.': 'Try removing some filters or search terms.',
     ' (lọc từ {n})': ' (filtered from {n})', '← Trước': '← Prev', 'Sau →': 'Next →', '⏳ Đang xuất…': '⏳ Exporting…', 'Đã xuất {n} dòng': ['Exported {n} row', 'Exported {n} rows'], 'Lỗi xuất CSV': 'CSV export failed',
@@ -182,6 +190,10 @@
     'Đã lưu {n} thay đổi': ['Saved {n} change', 'Saved {n} changes'], 'Sửa lỗi trước khi lưu': 'Fix the errors before saving', 'Đã lưu': 'Saved',
     '{a} khóa xoay vòng · {b} sẵn sàng': '{a} rotating keys · {b} ready', 'Chưa có khóa – AI đang dùng Cloudflare Workers AI': 'No keys yet – AI is running on Cloudflare Workers AI', 'Dùng cho chấm bài viết/nói & duyệt bản dịch.': 'Used for writing/speaking grading & translation review.',
     'Đã tự động đăng xuất do không thao tác trong {n} phút.': 'Automatically logged out due to inactivity for {n} minutes.',
+    'Đăng ký tài khoản': 'Signed up', 'Đồng bộ gần nhất': 'Last sync', 'Ngày học gần nhất': 'Last study day', 'Sao lưu tiến độ': 'Progress backup', 'Gửi báo lỗi': 'Sent a report', 'Đọc thông báo': 'Read a notice', 'Chuyển vào Thùng rác': 'Moved to Trash',
+    'Đang ở Thùng rác từ {t} – sẽ bị xóa vĩnh viễn sau 30 ngày. Khôi phục ở tab Người dùng › Thùng rác.': 'In Trash since {t} – will be erased after 30 days. Restore it under Users › Trash.',
+    '✨ Quyền & gói': '✨ Access & plan', 'Quyền AI không giới hạn': 'Unlimited AI', 'cấp {t} bởi {b}': 'granted {t} by {b}', 'Không – hạn mức miễn phí thường': 'No – normal free limits', 'Thanh toán': 'Payments',
+    'Chưa có giao dịch – Lexkite chưa bán gói trả phí': 'No transactions – Lexkite has no paid plan yet', 'Báo lỗi đã gửi': 'Reports sent', 'Chưa gửi báo lỗi nào.': 'No reports sent.', '🕒 Dòng thời gian': '🕒 Timeline', 'đã bấm': 'clicked', '{n} người': ['{n} user', '{n} users'],
   };
   const L = (vi, vars) => {
     let s = LANG === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi.split('@@')[0];
@@ -208,7 +220,7 @@
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
     ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
-    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
+    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['accounts', '🗂️', 'Sổ tài khoản & khóa', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
   const ITEM = {}; NAV.forEach(([g, items]) => items.forEach(([k, icon, label, desc, badge]) => { ITEM[k] = { k, icon, label, desc, badge, group: g }; }));
@@ -354,9 +366,14 @@
     const j = await r.json().catch(() => ({}));
     if (r.status === 403) throw new Error('forbidden');
     if (r.status === 401 && j.error === 'reauth') { if (j.message) { if (await ask(j.message)) { await auth.signOut(); await signIn(); } throw new Error('reauth'); } return reauth(); }
+    // Ngân sách đọc D1 (sự cố 03/11, functions/api/_readbudget.js): số liệu đệm / 429 quota-shed → báo nhẹ 1 lần mỗi phiên, không lặp
+    if (r.status === 429 && j.error === 'quota-shed') { budgetNote(); throw Object.assign(new Error(L('Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).')), { code: 'quota-shed' }); }
     if (!r.ok) throw new Error(j.error || r.status);
+    if (j && (j._budget || j._stale)) budgetNote();
     return j;
   }
+  let budgetShown = false;
+  function budgetNote() { if (budgetShown) return; budgetShown = true; toast(L('Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).'), 'ok', 8000); }
   // GrabCast qua proxy /api/social (khóa chỉ ở máy chủ) – tab Video & Social. Lỗi → err.code = mã lỗi máy chủ
   async function sapi(method, path, body, opt = {}) {
     const r = await fetch('/api/social', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ method, path, query: opt.query, body: body || undefined, idem: opt.idem }) });
@@ -426,6 +443,7 @@
     return j;
   }
   let idleTimer = null, idleMin = 0, lastAct = Date.now();
+  const LIVE_IDLE = 10 * 60e3;
   function setupIdleTimer(minutes) {
     idleMin = Number(minutes) || 0;
     if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
@@ -535,6 +553,26 @@
     const a = e.target.closest('a[data-tab]'); if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault(); go(a.dataset.tab === tab ? a.dataset.tab : a.getAttribute('href'));
   });
+  // ---------- Bảng không bao giờ tràn thẻ (owner 3/11: bảng Nền tảng lòi khỏi thẻ ở ~300 px) ----------
+  // Mọi tab (kể cả js/admin-*.js) vẽ vào #main: bảng nào chưa nằm trong khung cuộn thì tự bọc .tbl-x (cuộn ngang TRONG thẻ);
+  // mọi khung cuộn ngang được gắn gợi ý mờ mép (.sx-l/.sx-r) khi còn nội dung bên trái/phải. Quét gộp 1 lần/khung hình.
+  const SCROLLX = '.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]';
+  const sxHint = el => { const m = el.scrollWidth - el.clientWidth; el.classList.toggle('sx-l', m > 1 && el.scrollLeft > 1); el.classList.toggle('sx-r', m > 1 && el.scrollLeft < m - 1); };
+  const sxRO = window.ResizeObserver ? new ResizeObserver(es => es.forEach(x => sxHint(x.target))) : null;
+  const fitTables = () => {
+    for (const t of main.querySelectorAll('table')) {
+      if (t.closest(SCROLLX)) continue;
+      let p = t.parentElement; while (p && p !== main && !/auto|scroll/.test(getComputedStyle(p).overflowX)) p = p.parentElement;
+      if (p && p !== main) { p.dataset.sx = ''; continue; } // khung cuộn tự viết (style="overflow-x:auto") → chỉ gắn gợi ý
+      const w = document.createElement('div'); w.className = 'tbl-x'; t.replaceWith(w); w.appendChild(t);
+    }
+    for (const el of main.querySelectorAll(SCROLLX)) {
+      if (el.dataset.sxOn) { sxHint(el); continue; }
+      el.dataset.sxOn = 1; el.addEventListener('scroll', () => sxHint(el), { passive: true }); if (sxRO) sxRO.observe(el); sxHint(el);
+      if (!el.hasAttribute('tabindex') && el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0; // cuộn được bằng bàn phím
+    }
+  };
+  let fitQ = 0; new MutationObserver(() => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fitTables(); }); }).observe(main, { childList: true, subtree: true });
   main.addEventListener('click', e => {
     const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); return; }
     if (e.target.closest('[data-retry]')) show(tab, { force: true });
@@ -564,11 +602,11 @@
     } catch (e) { /* huy hiệu không bắt buộc */ }
   }
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
-  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md' }; // giữ khớp alertTxt trong admin-drive.js
+  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', 'capacity-src': 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trên main trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md', ci_hog: 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)' }; // giữ khớp alertTxt trong admin-drive.js
   let drvAl = null;
   // Cảnh báo chung một nguồn (drive_alerts) nhưng không phải loại nào cũng thuộc Kho Drive → nhãn + trang đích theo loại; huy hiệu Kho Drive chỉ đếm cảnh báo Drive
   // (27/10: cảnh báo CI hiện dưới nhãn "Kho Drive" + ⛔ ở mục Kho Drive → tưởng Drive hỏng).
-  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
+  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], 'capacity-src': ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
     ci: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], deploy: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_d1: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_code: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_rel: ['Hệ thống', 'alerts', 'Xem Cảnh báo'] };
   const DRV_DST = ['Kho Drive', 'drive', 'Xem Kho Drive'], dstOf = a => ALERT_DST[a.t] || DRV_DST;
   const paintDrv = () => {
@@ -679,7 +717,7 @@
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
-    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>`;
+    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
   };
   const liveCard = l => {
     const t = l.today || {}, tot = l.total || {};
@@ -708,7 +746,7 @@
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card"><h3>${L('📱 Nền tảng')}</h3><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      <div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3><div class="tbl-x"><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td><span class="pl-n"><span aria-hidden="true">${platIcon(k)}</span><span>${esc(platName(k))}</span></span></td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table></div><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
@@ -750,8 +788,21 @@
     try { await api('userDelete', { uid, confirm: uid }); toast(L('Đã xóa dữ liệu của {e}', { e: email || uid })); done && done(); } catch (e) { if (e.message !== 'reauth') toast(L('Không xóa được: {e}', { e: e.message }), 'bad'); }
   }
   const rolePill = adm => adm ? `<span class="chip warn">${L('👑 Quản trị')}</span>` : `<span class="chip">${L('Người học')}</span>`;
+  // Ngăn chi tiết người dùng: quyền AI, thanh toán, báo lỗi, dòng thời gian (dữ liệu từ op 'user')
+  function uExtra(r, u) {
+    const TL = { signup: ['🌱', 'Đăng ký tài khoản'], seen: ['🔄', 'Đồng bộ gần nhất'], study: ['📚', 'Ngày học gần nhất'], backup: ['📦', 'Sao lưu tiến độ'], report: ['🐞', 'Gửi báo lỗi'], notice: ['📣', 'Đọc thông báo'], deleted: ['🗑', 'Chuyển vào Thùng rác'] };
+    const rep = r.reports || [], tl = r.timeline || [];
+    return `${u.deleted ? `<div class="u-blocked-banner"><span>🗑</span><span>${esc(L('Đang ở Thùng rác từ {t} – sẽ bị xóa vĩnh viễn sau 30 ngày. Khôi phục ở tab Người dùng › Thùng rác.', { t: when(u.deleted) }))}</span></div>` : ''}
+      <div class="u-section"><h4 class="u-h" style="margin-top:0">${L('✨ Quyền & gói')}</h4>
+        <dl class="u-facts"><div><dt>${L('Quyền AI không giới hạn')}</dt><dd>${u.ai ? `<span class="chip info">AI ∞</span> <span class="small muted">${esc(L('cấp {t} bởi {b}', { t: when(u.ai.at), b: u.ai.by || '–' }))}</span>` : `<span class="muted">${L('Không – hạn mức miễn phí thường')}</span>`}</dd></div>
+        <div><dt>${L('Thanh toán')}</dt><dd><span class="muted">${L('Chưa có giao dịch – Lexkite chưa bán gói trả phí')}</span></dd></div></dl></div>
+      <div class="u-section"><h4 class="u-h" style="margin-top:0"><span>🐞 ${L('Báo lỗi đã gửi')}</span> <span class="tiny muted">${num(rep.length)}</span></h4>
+        ${rep.length ? `<ul class="u-list">${rep.map(x => `<li><a href="#reports" data-close><b>${esc(x.tok)}</b></a> <span class="chip sm">${esc(x.status)}</span> <span class="small">${esc(x.msg || '')}</span> <span class="tiny muted">${rel(x.at)}</span></li>`).join('')}</ul>` : `<p class="small muted">${L('Chưa gửi báo lỗi nào.')}</p>`}</div>
+      <div class="u-section"><h4 class="u-h" style="margin-top:0">${L('🕒 Dòng thời gian')}</h4>
+        <ol class="u-tl">${tl.map(x => { const [ic, lb] = TL[x.k] || ['•', x.k]; const sub = x.k === 'seen' ? `${platIcon(x.plat)} ${esc(platName(x.plat))}${x.cc ? ' · ' + esc(FLAG(x.cc)) : ''}` : x.k === 'report' ? esc(x.id + ' · ' + x.status) : x.k === 'notice' ? esc(x.title) + (x.clicked ? ' · ' + esc(L('đã bấm')) : '') : x.k === 'backup' ? esc((x.by || '') + ' · ' + (x.why || '')) : ''; return `<li><span class="u-tl-i" aria-hidden="true">${ic}</span><span><b>${esc(L(lb))}</b>${sub ? ` <span class="small muted">${sub}</span>` : ''}<br><span class="tiny muted">${rel(x.at)}</span></span></li>`; }).join('') || `<li class="muted">–</li>`}</ol></div>`;
+  }
   async function userDialog(uid, done) {
-    const d = modal(`<div class="key-box"><p class="muted">${L('Đang tải…')}</p></div>`, 'u-dlg', L('Chi tiết người dùng'));
+    const d = modal(`<div class="key-box"><p class="muted">${L('Đang tải…')}</p></div>`, 'u-dlg u-drawer', L('Chi tiết người dùng'));
     let r; try { r = await api('user', { uid }); } catch (e) { d.querySelector('.key-box').innerHTML = `<p class="bad-t">✗ ${esc(e.message)}</p><div class="dlg-act"><button type="button" class="btn" data-close>${L('Đóng')}</button></div>`; return; }
     const u = r.user || {}, docs = r.docs || [], backups = r.backups || [];
     let LR = r.learn, tags = Array.isArray(u.tags) ? [...u.tags] : [];
@@ -777,6 +828,7 @@
         <dl class="u-facts">
           ${fact('UID', copyBtn(u.uid || uid))}
           ${fact(L('Nền tảng'), `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}
+          ${fact(L('Quốc gia'), u.cc ? `${esc(FLAG(u.cc))} · ${esc(cname(u.cc))}` : `<span class="muted">${L('Chưa rõ')}</span>`)}
           ${fact(L('Ngày tạo'), rel(u.created))}
           ${fact(L('Hoạt động gần nhất'), rel(u.seen))}
           ${fact(L('Số lần vào (đồng bộ)'), num(u.n))}
@@ -810,6 +862,8 @@
           <h4 class="u-h" style="margin-top:0"><span>📦 ${L('Bản sao lưu tiến độ (30 ngày)')}</span> <span class="tiny muted">${L('{n} bản lưu', { n: backups.length })}</span></h4>
           ${backups.length ? `<div class="tbl-wrap u-backups"><table class="tbl sticky"><thead><tr><th scope="col">${L('Thời gian')}</th><th scope="col">${L('Người sao lưu')}</th><th scope="col" class="num">${L('Dung lượng')}</th><th scope="col"><span class="sr-only">${L('Khôi phục')}</span></th></tr></thead><tbody>${backups.map(bk => `<tr><td class="small">${rel(bk.at)}<br><span class="tiny muted">${when(bk.at)}</span></td><td class="small">${esc(bk.by || 'admin')}</td><td class="num small">${bytes(bk.bytes || 0)}</td><td class="nowrap"><button type="button" class="btn ghost sm" data-restore="${bk.id}" data-at="${bk.at}">${L('↩️ Khôi phục')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="tiny muted">${L('Chưa có bản sao lưu nào. Hệ thống tự động sao lưu dữ liệu trước khi Đặt lại tiến độ.')}</p>`}
         </div>
+
+        ${uExtra(r, u)}
 
         <div class="u-act-bar">
           <div class="u-act-group">
@@ -1076,7 +1130,9 @@
         <div class="card mt"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's', L('Phiên theo ngày: {r}', { r: span }))}</div>
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
-          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k), r => r.n, () => '', s.s)}</div>
+          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', s.s)}</div>
+          ${a.cpm ? `<div class="card"><h3>${L('Nhóm CPM cao')}${a.cpm.highPct == null ? '' : ` · ${a.cpm.highPct} %`}</h3>${bars([{ k: 'high', n: a.cpm.high }, { k: 'vn', n: a.cpm.vn }, { k: 'other', n: a.cpm.other }], r => L({ high: 'Nhóm CPM cao (giả định)', vn: 'Việt Nam', other: 'Nước khác' }[r.k]), r => r.n, () => '', a.cpm.total)}<p class="small muted">${L('Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.')}</p></div>` : ''}
+          ${a.land ? `<div class="card"><h3>${L('Khách từ ngoài vào trang tĩnh')} · ${num(a.land.total)}</h3>${a.land.total ? `${bars(a.land.src)}<h3 class="mt">${L('Nước của khách từ ngoài')}</h3>${bars(a.land.countries.slice(0, 10), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', a.land.total)}<h3 class="mt">${L('Loại trang họ vào')}</h3>${bars(a.land.kinds)}` : `<p class="small muted">${L('Chưa có lượt nào.')}</p>`}</div>` : ''}
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>${L('Tần suất (số phiên mỗi khách)')}</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => (a.freq || []).find(f => f.k === k) || { k, n: 0 }), r => L('{k} lần', { k: r.k }))}</div>
           <div class="card"><h3>${L('Thiết bị')}</h3>${bars(a.devs)}<h3 class="mt">${L('Nền tảng@@h')}</h3>${bars(a.plats, r => platName(r.k))}</div>
@@ -1101,77 +1157,19 @@
       liveTimer = setInterval(async () => {
         if (tab !== 'analytics') { stopLive(); return; }
         if (document.hidden) return;
+        // Tab bỏ quên (không thao tác ≥ 10 phút) → không tự gọi nữa; di chuột/bấm phím là chạy lại (03/11: 1 tab Trực tiếp mở cả ngày ≈ 120 lượt/giờ)
+        if (Date.now() - lastAct >= LIVE_IDLE) { const c = $('#liveCard'); if (c && !c.dataset.idle) { c.dataset.idle = '1'; c.insertAdjacentHTML('afterbegin', `<p class="tiny muted" data-live-idle>${L('⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục')}</p>`); } return; }
         try {
           const n = await api('live', { days }); if (tab !== 'analytics' || !$('#liveCard')) return;
-          $('#liveCard').innerHTML = liveCard(n); $('#liveGrid').innerHTML = liveGrid(n);
+          $('#liveCard').innerHTML = liveCard(n); delete $('#liveCard').dataset.idle; $('#liveGrid').innerHTML = liveGrid(n);
           if (JSON.stringify(n.countries) !== mapKey) drawMap(n.countries);
         } catch (e) { /* lỗi mạng tạm thời – thử lại lượt sau */ }
       }, 30000);
     },
+    // Người dùng: bảng chuyên sâu (chọn hàng loạt, thanh thao tác nổi, bộ lọc, chế độ xem, biểu đồ, phím tắt) – js/admin-users.js (tải lười)
     async users() {
-      let f; try { f = JSON.parse(sessionStorage.getItem('adm.uf') || '{}'); } catch (e) { f = {}; }
-      f = { q: '', role: '', status: '', plat: '', sort: 'seen', offset: 0, ...f };
-      const sel = (id, label, opts) => `<label class="u-sel"><span>${L(label)}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${v}" ${f[id.slice(1)] === v ? 'selected' : ''}>${L(t)}</option>`).join('')}</select></label>`;
-      setActions(`<button type="button" class="btn sm" id="ucsv" title="${esc(L('Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)'))}">⬇ CSV</button>`);
-      main.innerHTML = `
-        <div class="tiles" id="uKpi">${'<span class="sk sk-tile"></span>'.repeat(5)}</div>
-        <div class="card mt">
-          <div class="u-tools">
-            <input type="search" id="uq" placeholder="${L('🔎 Tìm email, tên hoặc UID')}" value="${esc(f.q)}" aria-label="${L('Tìm người dùng')}">
-            ${sel('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']])}
-            ${sel('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']])}
-            ${sel('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']])}
-            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất']])}
-          </div>
-          <div class="tbl-wrap scroll" id="uTable"><span class="sk sk-block" style="margin:0"></span></div>
-          <div class="u-pager" id="uPager"></div>
-        </div>`;
-      const save = () => sessionStorage.setItem('adm.uf', JSON.stringify(f));
-      let my = 0;
-      const load = async () => {
-        save(); const me = ++my; let r;
-        try { r = await api('users', f); } catch (e) { if (me === my && tab === 'users') $('#uTable').innerHTML = errBox(e); return; }
-        if (me !== my || tab !== 'users') return;
-        const k = r.kpi || {}, tot = r.total || 0;
-        $('#uKpi').innerHTML = `
-          ${tile({ l: L('Tổng người dùng'), v: num(tot), s: L('tài khoản đã đồng bộ') })}
-          ${tile({ l: L('Hoạt động hôm nay'), v: num(k.act1), s: L('24 giờ qua') })}
-          ${tile({ l: L('Hoạt động 7 / 30 ngày'), v: `${num(k.act7)} <small>/ ${num(k.act30)}</small>`, s: L('{p}% còn hoạt động trong tháng', { p: tot ? Math.round((k.act30 || 0) / tot * 100) : 0 }) })}
-          ${tile({ l: L('Mới 7 ngày'), v: num(k.new7), s: L('tài khoản đăng ký mới') })}
-          <div class="kstat"><span class="tile-l">${L('Theo nền tảng')}</span><div class="u-plats">${(r.plats || []).map(p => `<span class="chip">${platIcon(p.k)} ${esc(platName(p.k))} · <b>${num(p.n)}</b></span>`).join('') || '<span class="small muted">–</span>'}</div></div>`;
-        $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
-          ${(r.rows || []).map(u => {
-            const utags = (Array.isArray(u.tags) ? u.tags : (() => { try { return JSON.parse(u.tags || '[]'); } catch (e) { return []; } })());
-            return `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || L('(không tên)'))}</b> ${u.blocked ? `<span class="chip bad sm">⛔ ${L('Bị khóa')}</span>` : ''}<br><span class="small muted">${esc(u.email || u.uid)}</span>${utags.length ? `<div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.2rem">${utags.map(t => `<span class="chip sm">${esc(t)}</span>`).join('')}</div>` : ''}</span></div></td>
-            <td>${rolePill(u.isAdmin)}</td>
-            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="small nowrap">${rel(u.created)}</td>
-            <td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td><td class="num">${num(u.n)}</td>
-            <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${L('Chi tiết')}</button> <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${L('Gửi thông báo')}">📣 ${L('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${L('Xóa dữ liệu')}</button></td></tr>`;
-          }).join('') || `<tr><td colspan="7">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
-        const from = r.filtered ? f.offset + 1 : 0, to = Math.min(f.offset + 50, r.filtered);
-        $('#uPager').innerHTML = `<span>${num(from)}–${num(to)} / ${num(r.filtered)}${r.filtered !== tot ? L(' (lọc từ {n})', { n: num(tot) }) : ''}</span><span><button type="button" class="btn sm" id="uprev" ${f.offset ? '' : 'disabled'}>${L('← Trước')}</button> <button type="button" class="btn sm" id="unext" ${to < r.filtered ? '' : 'disabled'}>${L('Sau →')}</button></span>`;
-        $('#uprev').onclick = () => { f.offset = Math.max(0, f.offset - 50); load(); };
-        $('#unext').onclick = () => { f.offset += 50; load(); };
-        main.querySelectorAll('[data-uid]').forEach(b => { b.onclick = () => userDialog(b.dataset.uid, load); });
-        main.querySelectorAll('[data-del]').forEach(b => { b.onclick = () => userDel(b.dataset.del, b.dataset.em, load); });
-        main.querySelectorAll('[data-notif]').forEach(b => { b.onclick = () => { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: b.dataset.notif, email: b.dataset.em })); } catch (e) { /* bỏ qua */ } show('notices'); }; });
-      };
-      let deb; $('#uq').oninput = () => { clearTimeout(deb); deb = setTimeout(() => { f.q = $('#uq').value.trim(); f.offset = 0; load(); }, 350); };
-      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
-      $('#ucsv').onclick = async () => {
-        const b = $('#ucsv'); b.disabled = true; b.textContent = L('⏳ Đang xuất…');
-        try {
-          const r = await api('usersExport', { ...f, offset: 0 });
-          const cell = v => { let x = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(x)) x = "'" + x; return /[",\n\r;]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
-          const iso = t => t ? new Date(t).toISOString() : '';
-          const lines = [['email', 'name', 'role', 'plat', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
-          const url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
-          const a = document.createElement('a'); a.href = url; a.download = `lexkite-users-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-          toast(L('Đã xuất {n} dòng', { n: num(r.rows.length) }));
-        } catch (e) { toast(L('Lỗi xuất CSV'), 'bad'); }
-        b.disabled = false; b.textContent = '⬇ CSV';
-      };
-      await load();
+      await lazy('AdminUsers', 'js/admin-users.js');
+      await AdminUsers.render(main, { api, L, esc, num, rel, when, tile, spark, confirmDlg, modal, closeDlg, toast, emptyState, errBox, setActions, userDialog, userDel, show, platIcon, platName, rolePill, cname, realCC, LOC, NODATA, $, lang: () => LANG, tab: () => tab });
     },
     async inbox() {
       const f = sessionStorage.getItem('adm.inbox') || 'open', r = await api('inbox', { filter: f });
@@ -1343,6 +1341,10 @@
       };
       await lazy('AdminKeys', 'js/admin-keys.js'); main.innerHTML = '';
       AdminKeys.render(main, kapi, L, { esc, num, when, lang: () => LANG });
+    },
+    async accounts() { // 🗂️ Sổ tài khoản & khóa – js/admin-accounts.js (tải lười) → /api/admin-accounts (docs/ACCOUNTS-LEDGER.md)
+      await lazy('AdminAccounts', 'js/admin-accounts.js'); main.innerHTML = '';
+      AdminAccounts.render(main, L, { esc, when, lang: () => LANG });
     },
     async ads() { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
       await lazy('AdminAds', 'js/admin-ads.js'); main.innerHTML = '';

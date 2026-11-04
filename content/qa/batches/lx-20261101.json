@@ -1,0 +1,214 @@
+{
+ "id": "20261101",
+ "source": "lexicon-expand",
+ "n": 336,
+ "checked": [
+  {
+   "id": "willow#n",
+   "ok": true
+  },
+  {
+   "id": "point#v",
+   "ok": true
+  },
+  {
+   "id": "banana#n",
+   "ok": true
+  },
+  {
+   "id": "daisy#n",
+   "ok": true
+  },
+  {
+   "id": "punctuality#n",
+   "ok": true
+  },
+  {
+   "id": "kettle#n",
+   "ok": true
+  },
+  {
+   "id": "addiction#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: unnatural phrase; standard Vietnamese for ‘addiction’ is ‘sự nghiện’ or ‘cơn nghiện’"
+  },
+  {
+   "id": "hurriedly#adv",
+   "ok": true
+  },
+  {
+   "id": "procrastination#n",
+   "ok": true
+  },
+  {
+   "id": "breeze#n",
+   "ok": true
+  },
+  {
+   "id": "prayer#n",
+   "ok": true
+  },
+  {
+   "id": "demand#v",
+   "ok": true
+  },
+  {
+   "id": "intern#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: definition does not match sense intern.v.01 (describes intern.v.02) · ex: examples illustrate intern.v.02 not intern.v.01 · vi: Vietnamese translation ‘giam giữ’ matches intern.v.02 not intern.v.01"
+  },
+  {
+   "id": "hypocrisy#n",
+   "ok": true
+  },
+  {
+   "id": "preach#v",
+   "ok": true
+  },
+  {
+   "id": "escape#n",
+   "ok": true
+  },
+  {
+   "id": "wither#v",
+   "ok": true
+  },
+  {
+   "id": "eternal#adj",
+   "ok": true
+  },
+  {
+   "id": "fairy#n",
+   "ok": true
+  },
+  {
+   "id": "inexhaustible#adj",
+   "ok": true
+  },
+  {
+   "id": "clumsy#adj",
+   "ok": true
+  },
+  {
+   "id": "freshly#adv",
+   "ok": true
+  },
+  {
+   "id": "detector#n",
+   "ok": true
+  },
+  {
+   "id": "little#adv",
+   "ok": true
+  },
+  {
+   "id": "skeleton#n",
+   "ok": true
+  },
+  {
+   "id": "understandable#adj",
+   "ok": true
+  },
+  {
+   "id": "scum#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: incorrect translation (means worm, not scum)"
+  },
+  {
+   "id": "scold#v",
+   "ok": true
+  },
+  {
+   "id": "implement#n",
+   "ok": true
+  },
+  {
+   "id": "shy#adj",
+   "ok": true
+  },
+  {
+   "id": "bang#n",
+   "ok": true
+  },
+  {
+   "id": "overtime#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): pos: should be 'n' or another part of speech that matches the sense"
+  },
+  {
+   "id": "cyclist#n",
+   "ok": true
+  },
+  {
+   "id": "inseparable#adj",
+   "ok": true
+  },
+  {
+   "id": "explicitly#adv",
+   "ok": true
+  },
+  {
+   "id": "doubly#adv",
+   "ok": true
+  },
+  {
+   "id": "before#adv",
+   "ok": true
+  },
+  {
+   "id": "tame#adj",
+   "ok": true
+  },
+  {
+   "id": "timeless#adj",
+   "ok": true
+  },
+  {
+   "id": "ripe#adj",
+   "ok": true
+  },
+  {
+   "id": "generously#adv",
+   "ok": true
+  },
+  {
+   "id": "adversely#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: not an adverb, wrong part of speech"
+  },
+  {
+   "id": "telegram#n",
+   "ok": true
+  },
+  {
+   "id": "inconvenient#adj",
+   "ok": true
+  },
+  {
+   "id": "warrior#n",
+   "ok": true
+  },
+  {
+   "id": "calmly#adv",
+   "ok": true
+  },
+  {
+   "id": "generosity#n",
+   "ok": true
+  },
+  {
+   "id": "confidently#adv",
+   "ok": true
+  },
+  {
+   "id": "seedling#n",
+   "ok": true
+  },
+  {
+   "id": "tattoo#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-02",
+ "status": "published"
+}

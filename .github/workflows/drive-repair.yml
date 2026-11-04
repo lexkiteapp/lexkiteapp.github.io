@@ -1,0 +1,20 @@
+# Chép bù file thiếu bản sao / chỉ 1 bản trên Kho Drive (scripts/ops/drive-repair.mjs, chép phía máy chủ) rồi health để cờ tự tắt. Hằng ngày + bấm tay.
+# Tài liệu: docs/ASSET-LIBRARY.md §8.6, docs/ROLLBACK.md.
+name: drive-repair
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 3 * * *'
+concurrency: { group: drive-repair, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chép bù + health
+        run: node scripts/ci/quota-skip.mjs node scripts/ops/drive-repair.mjs

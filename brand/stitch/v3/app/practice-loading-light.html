@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Practice Hub (Loading Skeleton - Bright Day)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#136a63',
+              darkTeal: '#0c4e49',
+              lightTeal: '#e1f8f3',
+              accentTeal: '#2ba39a',
+              amber: '#f59e0b',
+              warmCream: '#fff8f5',
+              surface: '#ffffff',
+              bone: '#f5ebe6',
+              boneDark: '#ebdcd5',
+              border: '#f0dfd5',
+              textDark: '#192524',
+              textMuted: '#526966',
+              darkInk: '#1a0d00',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #fff8f5;
+      color: #192524;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Skeleton shimmer animation */
+    @keyframes skeleton-shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .skeleton-box {
+      background: linear-gradient(90deg, #f3e8e2 25%, #faeee7 50%, #f3e8e2 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.8s infinite ease-in-out;
+    }
+
+    .skeleton-darker {
+      background: linear-gradient(90deg, #ebdcd5 25%, #f6e8e1 50%, #ebdcd5 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.8s infinite ease-in-out;
+    }
+
+    .skeleton-teal-box {
+      background: linear-gradient(90deg, #17544f 25%, #1e6962 50%, #17544f 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.8s infinite ease-in-out;
+    }
+
+    .skeleton-btn-box {
+      background: linear-gradient(90deg, #e58711 25%, #fca438 50%, #e58711 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.8s infinite ease-in-out;
+    }
+
+    .tactile-card {
+      background-color: #ffffff;
+      border: 2px solid #ebdcd5;
+      border-radius: 20px;
+      box-shadow: 0 4px 0 0 #f0dfd5;
+    }
+
+    .tactile-btn {
+      transition: all 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 rgba(0,0,0,0.15) !important;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-brand-warmCream selection:bg-brand-lightTeal max-w-[390px] mx-auto relative pb-28 border-x border-[#ebdcd5]">
+<!-- Top App Bar (Interactive & Preserved) -->
+<header class="sticky top-0 z-40 bg-brand-warmCream/95 backdrop-blur-md px-4 py-3 border-b-2 border-brand-border flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-brand-teal flex items-center justify-center text-white shadow-[0_2px_0_0_#0c4e49]">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div>
+<h1 class="font-extrabold text-[17px] leading-tight text-brand-textDark tracking-tight">Practice Hub</h1>
+<p class="text-[11px] font-semibold text-brand-teal leading-none mt-0.5">Adaptive Diagnostic Drill</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Badge -->
+<div class="flex items-center gap-1 bg-[#fff0e6] px-2.5 py-1 rounded-full border border-[#fed7aa] text-brand-darkInk text-[12px] font-extrabold shadow-[0_1px_0_0_#fdba74]">
+<span class="material-symbols-outlined fill-1 text-brand-amber text-[15px]">local_fire_department</span>
+<span>14d</span>
+</div>
+<!-- XP Badge -->
+<div class="flex items-center gap-1 bg-[#fef9c3] px-2.5 py-1 rounded-full border border-[#fde047] text-brand-darkInk text-[12px] font-extrabold shadow-[0_1px_0_0_#facc15]">
+<span class="material-symbols-outlined fill-1 text-[#ca8a04] text-[15px]">stars</span>
+<span>820</span>
+</div>
+</div>
+</header>
+<!-- Main Content Skeleton Flow -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- 1. Coach Carlos / Teacher Slot Skeleton -->
+<section class="rounded-2xl border-2 border-dashed border-brand-teal/40 bg-[#f4fcfb] p-3.5 relative">
+<div class="flex items-start gap-3">
+<!-- Avatar Skeleton -->
+<div class="w-10 h-10 rounded-full skeleton-box flex-shrink-0 border-2 border-brand-teal/20 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-teal/40 text-[20px]">school</span>
+</div>
+<!-- Teacher Message Bars -->
+<div class="flex-1 space-y-2 pt-0.5">
+<div class="flex items-center gap-2">
+<div class="h-3 w-24 rounded-full skeleton-darker"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-brand-teal/30"></div>
+<div class="h-3 w-16 rounded-full skeleton-box"></div>
+</div>
+<div class="h-3 w-full rounded-full skeleton-box"></div>
+<div class="h-3 w-4/5 rounded-full skeleton-box"></div>
+</div>
+</div>
+</section>
+<!-- 2. Hero Diagnostic Workout Banner Skeleton (Dark Teal Card) -->
+<section class="rounded-2xl bg-[#0f3d39] p-4 text-white shadow-[0_4px_0_0_#072623] relative overflow-hidden">
+<!-- Subtle watermark / icon backdrop -->
+<div class="absolute -right-3 -bottom-3 text-white/5 pointer-events-none">
+<span class="material-symbols-outlined text-[100px]">bolt</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/15">
+<span class="material-symbols-outlined text-[#34d399] text-[14px]">bolt</span>
+<div class="h-2.5 w-28 rounded-full skeleton-teal-box"></div>
+</div>
+<div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/60 text-[16px]">schedule</span>
+</div>
+</div>
+<!-- Title Skeleton -->
+<div class="space-y-2 mb-3">
+<div class="h-5 w-48 rounded-lg skeleton-teal-box"></div>
+<div class="h-3 w-full rounded-md skeleton-teal-box opacity-75"></div>
+</div>
+<!-- Action Button Skeleton -->
+<div class="w-full h-12 rounded-xl skeleton-btn-box shadow-[0_4px_0_0_#b45309] flex items-center justify-center gap-2">
+<div class="h-3.5 w-36 rounded-md bg-brand-darkInk/30"></div>
+<span class="material-symbols-outlined text-brand-darkInk/40 text-[18px]">arrow_forward</span>
+</div>
+</section>
+<!-- 3. Section Header Skeleton: Weak Areas Detected -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#ea580c] text-[18px]">warning</span>
+<div class="h-4 w-36 rounded-md skeleton-darker"></div>
+</div>
+<div class="h-5 w-24 rounded-full skeleton-box border border-brand-border"></div>
+</div>
+<!-- 4. Weak Areas Module Cards Skeleton (3 Stacked Modules) -->
+<div class="space-y-3">
+<!-- Weak Module 1: Listening -->
+<div class="tactile-card p-3.5 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#e0f2fe] flex items-center justify-center text-[#0284c7]">
+<span class="material-symbols-outlined text-[20px]">headphones</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<div class="h-2.5 w-16 rounded-full bg-[#fed7aa]"></div>
+<div class="h-2.5 w-20 rounded-full skeleton-box"></div>
+</div>
+<div class="h-3.5 w-44 rounded-md skeleton-darker"></div>
+</div>
+</div>
+<!-- Accuracy Tag Skeleton -->
+<div class="h-6 w-12 rounded-lg bg-[#fee2e2] flex items-center justify-center">
+<div class="h-2.5 w-8 rounded-full bg-[#ef4444]/40"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-brand-border">
+<div class="h-3 w-32 rounded-full skeleton-box"></div>
+<!-- Practise Button Skeleton -->
+<div class="h-8 w-24 rounded-xl border-2 border-brand-border skeleton-box shadow-[0_2px_0_0_#ebdcd5] flex items-center justify-center">
+<div class="h-2.5 w-14 rounded-full bg-brand-textMuted/30"></div>
+</div>
+</div>
+</div>
+<!-- Weak Module 2: Grammar -->
+<div class="tactile-card p-3.5 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#dcfce7] flex items-center justify-center text-[#16a34a]">
+<span class="material-symbols-outlined text-[20px]">spellcheck</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<div class="h-2.5 w-16 rounded-full bg-[#fed7aa]"></div>
+<div class="h-2.5 w-24 rounded-full skeleton-box"></div>
+</div>
+<div class="h-3.5 w-48 rounded-md skeleton-darker"></div>
+</div>
+</div>
+<!-- Accuracy Tag Skeleton -->
+<div class="h-6 w-12 rounded-lg bg-[#fef3c7] flex items-center justify-center">
+<div class="h-2.5 w-8 rounded-full bg-[#f59e0b]/40"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-brand-border">
+<div class="h-3 w-36 rounded-full skeleton-box"></div>
+<!-- Practise Button Skeleton -->
+<div class="h-8 w-24 rounded-xl border-2 border-brand-border skeleton-box shadow-[0_2px_0_0_#ebdcd5] flex items-center justify-center">
+<div class="h-2.5 w-14 rounded-full bg-brand-textMuted/30"></div>
+</div>
+</div>
+</div>
+<!-- Weak Module 3: Reading -->
+<div class="tactile-card p-3.5 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#fef3c7] flex items-center justify-center text-[#d97706]">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<div class="h-2.5 w-16 rounded-full bg-[#fed7aa]"></div>
+<div class="h-2.5 w-28 rounded-full skeleton-box"></div>
+</div>
+<div class="h-3.5 w-44 rounded-md skeleton-darker"></div>
+</div>
+</div>
+<!-- Accuracy Tag Skeleton -->
+<div class="h-6 w-12 rounded-lg bg-[#fee2e2] flex items-center justify-center">
+<div class="h-2.5 w-8 rounded-full bg-[#ef4444]/40"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-brand-border">
+<div class="h-3 w-32 rounded-full skeleton-box"></div>
+<!-- Practise Button Skeleton -->
+<div class="h-8 w-24 rounded-xl border-2 border-brand-border skeleton-box shadow-[0_2px_0_0_#ebdcd5] flex items-center justify-center">
+<div class="h-2.5 w-14 rounded-full bg-brand-textMuted/30"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Mistakes to Fix Mini-Card Skeleton -->
+<div class="tactile-card p-3.5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#ffe4e6] flex items-center justify-center text-[#e11d48]">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<div class="h-3.5 w-28 rounded-md skeleton-darker"></div>
+<div class="h-4 w-16 rounded-full bg-[#f43f5e]/20"></div>
+</div>
+<div class="h-2.5 w-40 rounded-full skeleton-box"></div>
+</div>
+</div>
+<div class="h-8 w-20 rounded-xl border-2 border-brand-border skeleton-box shadow-[0_2px_0_0_#ebdcd5] flex items-center justify-center">
+<div class="h-2.5 w-12 rounded-full bg-brand-textMuted/30"></div>
+</div>
+</div>
+<!-- 6. Quick Drills Grid Header Skeleton -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-teal text-[18px]">grid_view</span>
+<div class="h-4 w-28 rounded-md skeleton-darker"></div>
+</div>
+<div class="h-3 w-20 rounded-full skeleton-box"></div>
+</div>
+<!-- 7. Quick Drills 2x2 Grid Skeleton -->
+<div class="grid grid-cols-2 gap-3 pb-6">
+<!-- Drill 1 -->
+<div class="tactile-card p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[#e0f2fe] flex items-center justify-center text-[#0284c7]">
+<span class="material-symbols-outlined text-[18px]">hearing</span>
+</div>
+<div class="h-4 w-10 rounded-full skeleton-box"></div>
+</div>
+<div class="space-y-1">
+<div class="h-3.5 w-24 rounded-md skeleton-darker"></div>
+<div class="h-2.5 w-28 rounded-md skeleton-box"></div>
+</div>
+</div>
+<!-- Drill 2 -->
+<div class="tactile-card p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[#fef3c7] flex items-center justify-center text-[#d97706]">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</div>
+<div class="h-4 w-10 rounded-full skeleton-box"></div>
+</div>
+<div class="space-y-1">
+<div class="h-3.5 w-24 rounded-md skeleton-darker"></div>
+<div class="h-2.5 w-28 rounded-md skeleton-box"></div>
+</div>
+</div>
+<!-- Drill 3 -->
+<div class="tactile-card p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[#dcfce7] flex items-center justify-center text-[#16a34a]">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<div class="h-4 w-10 rounded-full skeleton-box"></div>
+</div>
+<div class="space-y-1">
+<div class="h-3.5 w-24 rounded-md skeleton-darker"></div>
+<div class="h-2.5 w-28 rounded-md skeleton-box"></div>
+</div>
+</div>
+<!-- Drill 4 -->
+<div class="tactile-card p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[#ede9fe] flex items-center justify-center text-[#7c3aed]">
+<span class="material-symbols-outlined text-[18px]">style</span>
+</div>
+<div class="h-4 w-10 rounded-full skeleton-box"></div>
+</div>
+<div class="space-y-1">
+<div class="h-3.5 w-24 rounded-md skeleton-darker"></div>
+<div class="h-2.5 w-28 rounded-md skeleton-box"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Canonical 5-Tab Bottom Navigation Bar (Fully Interactive & Preserved) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-white border-t-2 border-brand-border px-3 py-2 flex items-center justify-around z-50 shadow-[0_-4px_0_0_#f0dfd5]"><!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] py-1 px-2.5 text-[#526966] hover:text-brand-teal transition-colors" href="#" style="min-width: 48px; min-height: 48px;">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] py-1 px-2.5 text-[#526966] hover:text-brand-teal transition-colors relative" href="#" style="min-width: 48px; min-height: 48px;">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-[#e11d48]"></span>
+</div>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (Active Tab) -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] py-1 px-3 bg-[#e1f8f3] text-brand-teal rounded-full shadow-[0_2px_0_0_#136a63]/20" href="#" style="min-width: 48px; min-height: 48px;">
+<span class="material-symbols-outlined fill-1 text-[22px]">fitness_center</span>
+<span class="text-[11px] font-black mt-0.5 text-brand-darkTeal">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] py-1 px-2.5 text-[#526966] hover:text-brand-teal transition-colors" href="#" style="min-width: 48px; min-height: 48px;">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] py-1 px-2.5 text-[#526966] hover:text-brand-teal transition-colors" href="#" style="min-width: 48px; min-height: 48px;">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</a></nav>
+</body>
+</html>

@@ -183,6 +183,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Ebbinghaus (1885) · Murre & Dros (2015, tái lập)': 'Ebbinghaus (1885) · Murre & Dros (2015, replication)',
 'Trí nhớ về thông tin mới giảm nhanh nhất trong vài ngày đầu; mỗi lần nhớ lại thành công làm đường cong thoải hơn.': 'Memory of new information drops fastest in the first few days; each successful recall flattens the curve.',
 'Mỗi từ có chỉ số <b>🧠 % còn nhớ</b> tính theo FSRS. Từ tụt dưới mục tiêu vào danh sách <b>Sắp quên</b>.': 'Every word has a <b>🧠 % recall</b> score calculated with FSRS. Words that drop below your target go to the <b>Fading</b> list.',
+'Mỗi từ có chỉ số <b>{ic} % còn nhớ</b> tính theo FSRS. Từ tụt dưới mục tiêu vào danh sách <b>Sắp quên</b>.': 'Every word has a <b>{ic} % recall</b> score calculated with FSRS. Words that drop below your target go to the <b>Fading</b> list.',
 'Chưa có từ nào sắp quên': 'No words fading yet',
 'Xem từ sắp quên': 'See fading words',
 'Lặp lại ngắt quãng (FSRS)': 'Spaced repetition (FSRS)',
@@ -379,6 +380,11 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Đang chuẩn bị bộ thẻ…': 'Preparing your deck…',
 'Chế độ màu': 'Colour mode',
 'Nghĩa từ hiển thị bằng': 'Show word meanings in',
+'Ngôn ngữ đang học': 'Learning language',
+'Thêm 30 từ cơ bản': 'Add 30 core words',
+'Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ': 'Added {n} Portuguese words to your word list',
+'Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ': 'Added {n} Spanish words to your word list',
+'Không tải được bộ từ, thử lại sau': 'Could not load the word set. Please try again later.',
 'Định nghĩa tiếng Anh': 'English definitions',
 'Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)': 'Natural voices for listening & examiner (streams audio)',
 'Nghe offline: tải sẵn khoảng {n} từ thông dụng và bài đang học': 'Offline listening: download about {n} common words and your current lesson',
@@ -679,4 +685,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Học ngay': 'Start',
 "Thân bài 1": "Body paragraph 1",
 'Chế độ tiếp theo': 'Next mode',
+// ← en/shell.js
+"Tra từ ngay trên mọi trang web": "Look up words on any website",
 }); })(typeof self !== 'undefined' ? self : this);

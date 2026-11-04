@@ -21,14 +21,14 @@
   }));
 
   const FLAME_CSS = `
-.streak-freeze-badge{display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;padding:.15rem .45rem;border-radius:999px;background:rgba(56,189,248,.15);color:#0284c7;border:1px solid rgba(56,189,248,.35);cursor:pointer;transition:transform .15s ease,background .15s;margin-left:.25rem}
-.streak-freeze-badge:hover{transform:scale(1.06);background:rgba(56,189,248,.25)}
+.streak-freeze-badge{display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;padding:.15rem .45rem;border-radius:999px;background:var(--accent-soft,#DDF1EE);color:var(--accent-text,#0D6964);border:1px solid color-mix(in srgb,var(--accent-text,#0D6964) 40%,transparent);cursor:pointer;transition:transform .15s ease,background .15s;margin-left:.25rem}
+.streak-freeze-badge:hover{transform:scale(1.06);background:color-mix(in srgb,var(--accent-soft,#DDF1EE) 80%,var(--accent-text,#0D6964) 20%)}
 .pill.fire.flaming,.streak-flame.on{display:inline-flex;align-items:center;gap:.25rem;position:relative}
 .pill.fire.flaming i.flame-icon,.streak-flame i.flame-icon{display:inline-block;font-style:normal;will-change:transform,filter;animation:streakFlameBurn 1.6s ease-in-out infinite alternate}
 @keyframes streakFlameBurn{0%{transform:scale(1) rotate(-1deg);filter:drop-shadow(0 0 2px rgba(249,115,22,.4))}50%{transform:scale(1.12) rotate(2deg);filter:drop-shadow(0 0 7px rgba(234,88,12,.7))}100%{transform:scale(.96) rotate(-2deg);filter:drop-shadow(0 0 3px rgba(245,158,11,.5))}}
 .shimmer-fx,.pill-shimmer{position:relative;overflow:hidden}
-.shimmer-fx::after,.pill-shimmer::after{content:'';position:absolute;top:0;left:-150%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.32) 50%,transparent 100%);animation:shimmerSweep 3s infinite ease-in-out;pointer-events:none}
-@keyframes shimmerSweep{0%{left:-150%}35%,100%{left:150%}}
+.shimmer-fx::after,.pill-shimmer::after{content:'';position:absolute;top:0;left:0;transform:translateX(-150%);width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.16) 50%,transparent 100%);animation:shimmerSweep 3s infinite ease-in-out;pointer-events:none}
+@keyframes shimmerSweep{0%{transform:translateX(-150%)}35%,100%{transform:translateX(150%)}}
 @media (prefers-reduced-motion: reduce){.pill.fire.flaming i.flame-icon,.streak-flame i.flame-icon{animation:none!important;transform:none!important;filter:none!important}.shimmer-fx::after,.pill-shimmer::after{animation:none!important;display:none!important}}`;
 
   const StreakUI = {
