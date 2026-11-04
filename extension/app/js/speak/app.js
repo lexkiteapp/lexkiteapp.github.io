@@ -11,6 +11,32 @@
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } };
   const save = s => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* đầy bộ nhớ: bỏ qua */ } };
   const wk = () => { const d = new Date(), j = new Date(d.getFullYear(), 0, 1); return d.getFullYear() + '-W' + Math.ceil(((d - j) / 864e5 + j.getDay() + 1) / 7); };
+  // 💬 Bong bóng "Cô Ama" (khung Stitch pas-drill): đuôi trỏ vào MẶT giáo viên trong khung trái (đo bbox ảnh thật – không cố định top-6),
+  // RTL → đuôi lật sang phía giáo viên; chấm trạng thái + chấm trước "Câu 1/6" đủ tương phản ≥3:1 (cam #F59E0B trên trắng chỉ 2.15:1)
+  const FACE = 0.2; // ảnh tư thế cắt đầu→hông: miệng ≈ 20% chiều cao hình đang vẽ
+  const DOTCSS = '.spk-dot{background:#B45309}.spk-pdot{display:inline-block;width:6px;height:6px;border-radius:9999px;margin-inline-end:6px;vertical-align:middle;background:#136B66}' +
+    ['@media (prefers-color-scheme: dark){:root:not([data-theme=light]) %}', ':root[data-theme=dark] %'].map(w => w.replace('%', '.spk-dot{background:#f59e0b}.spk-pdot{background:#2dd4bf}')).join('');
+  function aimTail(view) {
+    const say = view.querySelector('#spkSay'), img = view.querySelector('#spkSay') && say.parentElement.querySelector(':scope > div:first-child img'); if (!say || !img) return;
+    const tails = [...say.children].filter(x => x.matches('.absolute') && !x.children.length).slice(0, 2); if (!tails.length) return;
+    const r = img.getBoundingClientRect(), c = say.getBoundingClientRect(); if (!r.height || !c.height) return;
+    const nw = img.naturalWidth || r.width, nh = img.naturalHeight || r.height, k = Math.min(r.width / nw, r.height / nh), dh = nh * k; // object-contain + object-bottom
+    const y = Math.round(Math.max(12, Math.min(c.height - 28, r.bottom - dh + dh * FACE - c.top - 8)));
+    const flip = r.left + r.width / 2 > c.left + c.width / 2; // giáo viên nằm bên phải bong bóng (RTL)
+    tails.forEach((x, i) => { x.style.top = (y - i) + 'px'; x.style.left = flip ? 'auto' : ''; x.style.right = flip ? (i ? '-12px' : '-9px') : ''; x.style.transform = flip ? 'scaleX(-1)' : ''; x.dataset.y = y; });
+  }
+  let rsz = null;
+  function bubbleFix(view) {
+    if (!document.getElementById('spk-dot-css')) { const st = document.createElement('style'); st.id = 'spk-dot-css'; st.textContent = DOTCSS; document.head.appendChild(st); }
+    const say = view.querySelector('#spkSay'); if (!say) return;
+    const dot = say.querySelector('span.rounded-full.w-2'); if (dot) { dot.classList.remove('lt:bg-[#F59E0B]', 'dk:bg-[#f59e0b]'); dot.classList.add('spk-dot'); }
+    const pr = view.querySelector('[role=progressbar]'), lab = pr && [...view.querySelectorAll('span')].find(x => x.textContent.trim() === pr.getAttribute('aria-label'));
+    if (lab && !lab.querySelector('.spk-pdot')) lab.insertAdjacentHTML('afterbegin', '<span class="spk-pdot" aria-hidden="true"></span>');
+    const img = say.parentElement.querySelector(':scope > div:first-child img'); if (img && !img.complete) img.addEventListener('load', () => aimTail(view), { once: true });
+    aimTail(view);
+    if (!rsz) { rsz = () => { if (view.querySelector('#spkSay')) aimTail(view); }; window.addEventListener('resize', rsz); }
+  }
+  App.speakBubble = { aimTail, bubbleFix, FACE }; // test (scripts/test/teacher-bubble.mjs)
   const lines = s => s.lines.filter(x => !x.open), byId = (s, id) => s.lines.find(x => x.id === id);
   const prog = (st, id) => (st[id] = st[id] || { lines: {}, tasks: {} });
   const teach = (pose, alt) => window.Chars ? Chars.img('ama', { kind: 'still', pose, size: 120, alt: alt || '', cls: 'w-full h-full object-contain object-bottom' }) : '';
@@ -64,7 +90,7 @@
       if (S.noMic && !r) wl = S.built.map(i => ({ w: ws[i], p: false })).concat(S.bank.map(i => ({ w: mem ? ws[i][0] + '…' : ws[i], p: true, tap: true, i })));
       else wl = ws.map((w, i) => ({ w: mem ? w[0] + '…' : w, p: !r, bad: r && !r.words[i].ok }));
       const stars = r ? r.stars : 0, hi = pf && pf.hi ? L(pf.note).replace(pf.hi, '\u0001') : '';
-      return { back: '#/speak/' + s.id, chip: L(s.title).split(/\s*[&,–-]\s*/)[0], prog: '• ' + t('Câu {n}/{m}', { n: S.i + 1, m: n }), total: n, done: S.i, pct: Math.round((S.i * 3 + S.b + (r && r.pass ? 1 : 0)) / (n * 3) * 100),
+      return { back: '#/speak/' + s.id, chip: L(s.title).split(/\s*[&,–-]\s*/)[0], prog: t('Câu {n}/{m}', { n: S.i + 1, m: n }), total: n, done: S.i, pct: Math.round((S.i * 3 + S.b + (r && r.pass ? 1 : 0)) / (n * 3) * 100),
         coach: t('Cô {n}', { n: Chars.name('ama') }), say: S.say, hint: L(ln.gloss), teacher: teach(r ? (r.pass ? 'cheer' : 'concern') : S.pose, ''),
         beats: BEATS.map(([k, l], i) => ({ k, label: t(l), cur: i === S.b, done: i < S.b })), beatsAria: t('Nhịp {n}/3', { n: S.b + 1 }),
         playAria: t('Nghe câu mẫu'), slowAria: t('Nghe chậm'), wordsAria: mem ? t('Câu đã che – nói từ trí nhớ') : ln.en,
@@ -73,7 +99,7 @@
         res: !!r, score: r ? String(r.score) : '0', off: r ? (113.1 * (1 - r.score / 100)).toFixed(1) : '113.1', verdict: r ? r.verdict : '', sub: r ? r.sub : '',
         stars: [1, 2, 3].map(k => ({ on: stars >= k })), starsAria: t('{n}/3 sao', { n: stars }), canNext: !!(r && (r.pass || r.free)), alt: r ? t('Thử lại') : S.noMic ? t('Dùng mic') : t('Chưa nói được lúc này') };
     }
-    const draw = () => { ST2.mount(view, 'pas-drill', data(), null); };
+    const draw = () => { ST2.mount(view, 'pas-drill', data(), null); bubbleFix(view); };
     const record = (sc, extra) => { const id = order[S.i], cur = p.lines[id] || {}; p.lines[id] = { best: Math.max(cur.best || 0, sc.text || 0), stars: Math.max(cur.stars || 0, sc.stars || 0) };
       for (const k of s.mission.tasks) if (k.intents.includes(id) && sc.pass) p.tasks[k.id] = true;
       const w = wk(); st.week = { [w]: ((st.week || {})[w] || 0) + 1 }; save(st);

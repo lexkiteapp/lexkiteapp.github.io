@@ -9,6 +9,8 @@ const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.mi
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const W = 390, G = 6;
+// vòng animate-ping quanh mic (teacher-call): mẫu vẽ với hoạt ảnh TẮT (stitch-render.mjs STILL), ảnh app phải dừng y vậy, không thì điểm cta phụ thuộc lúc chụp rơi vào nhịp nào (lệch 0,02)
+const CAPTURE_CSS = '#toast{display:none!important}.animate-ping{animation:none!important}';
 const V2PNG = process.env.STITCH_V2_PNG || 'out/stitch-v2/png';
 const refOf = (k, sc) => { const v = path.join(V2PNG, `${V2REF[k] || k}-${sc}.png`); return fs.existsSync(v) ? v : `brand/stitch/${k}-${sc}.jpg`; };
 
@@ -101,7 +103,7 @@ for (const scheme of ['dark', 'light']) {
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
-    await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    await page.addStyleTag({ content: CAPTURE_CSS }).catch(() => {});
     // ảnh trọn màn như mẫu: khung cao bằng nội dung → thanh dưới/chân cố định nằm đúng đáy, không lọt giữa ảnh; cuộn về đầu, bỏ focus
     const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: W, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(300);
@@ -128,7 +130,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
-    await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    await page.addStyleTag({ content: CAPTURE_CSS }).catch(() => {});
     qc[`${k}-${scheme}-${QW}`] = await page.evaluate(() => { const W = innerWidth, over = [], clip = [], tap = [];
       for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
         if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
@@ -173,7 +175,7 @@ for (const scheme of ['dark', 'light']) {
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
-    await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    await page.addStyleTag({ content: CAPTURE_CSS }).catch(() => {});
     await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }).catch(() => {}); await page.waitForTimeout(200);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `desk-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-1366`); }
   }
