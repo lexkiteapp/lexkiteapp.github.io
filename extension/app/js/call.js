@@ -223,7 +223,6 @@ body.call-on{overflow:hidden}
       if (V2) { mic.setAttribute('aria-pressed', String(p === 'listen')); const ml = $('#cMicL', ov); if (ml) ml.textContent = p === 'listen' ? t('Đang nghe') : t('Nói'); }
     }
     // Nói lần lượt từng câu (mỗi câu 1 file Kokoro sinh sẵn) – sayRun đổi = bị ngắt lời → bỏ phần còn lại
-<<<<<<< HEAD
     // 💬 thẻ phụ đề = bong bóng lời: đuôi trỏ miệng giáo viên (đo bbox, RTL), hiện nhẹ mỗi lượt nói, karaoke; chạm từ → nghe lại từ đó
     function capKara() {
       const l1 = $('#cL1', ov); if (!V2 || !l1 || !window.LessonTeacher || !LessonTeacher.bubble) return null;
@@ -231,31 +230,22 @@ body.call-on{overflow:hidden}
       if (bub) bub.pop();
       return LessonTeacher.kara(l1, cur.join(' '), { cc: false, onWord: (w, span) => { if (!w || phase === 'listen') return; if (tch) tch.stop(); UI.tts(w, ACCENT, 0.9, { voice }); if (bub) bub.peek(span, w); } });
     }
-    function say(parts, then) {
-      cur = parts.filter(Boolean); const my = ++sayRun;
-      $('#cL1', ov).textContent = cur.join(' '); paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
-      const kw = capKara(), cnt = cur.map(x => x.trim().split(/\s+/).filter(Boolean).length); // 💬 chữ phụ đề sáng dần theo từng câu đang nói
-=======
     let caps = null;
     function say(parts, then) {
       cur = parts.filter(Boolean); const my = ++sayRun;
-      const l1 = $('#cL1', ov); if (caps) caps.forEach(c => c && c.all()); caps = null; l1.textContent = '';
-      cur.forEach((x, i) => { if (i) l1.append(' '); const sp = document.createElement('span'); sp.textContent = x; l1.append(sp); });
-      if (tch && window.SayText) caps = [...l1.children].map(sp => SayText.prep(sp, { wait: 0 }));
+      const l1 = $('#cL1', ov); if (caps) caps.forEach(c => c && c.all()); caps = null;
+      l1.textContent = cur.join(' ');
+      const kw = capKara(), cnt = cur.map(x => x.trim().split(/\s+/).filter(Boolean).length); // 💬 bong bóng + karaoke theo phân số lời (V2); không có bong bóng → SayText từng câu
+      if (!kw) { l1.textContent = ''; cur.forEach((x, i) => { if (i) l1.append(' '); const sp = document.createElement('span'); sp.textContent = x; l1.append(sp); }); if (tch && window.SayText) caps = [...l1.children].map(sp => SayText.prep(sp, { wait: 0 })); }
       paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
->>>>>>> real/main
       setPhase('talk');
       const done = () => { if (my !== sayRun || !alive()) return; if (caps) caps.forEach(c => c && c.all()); setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
       const one = k => {
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-<<<<<<< HEAD
         const k0 = cnt.slice(0, k).reduce((a, b) => a + b, 0), onTick = kw ? f => kw.part(k0, cnt[k], f) : null;
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, onTick }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
-=======
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, caption: caps && caps[k] }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
->>>>>>> real/main
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, onTick, caption: caps && caps[k] }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);

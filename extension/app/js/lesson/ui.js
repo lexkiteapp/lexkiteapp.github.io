@@ -185,24 +185,17 @@
   }
   const VOICE = w => (window.Chars && Chars.voice ? Chars.voice(w || (L && L.who) || 'ama') : null); // giọng đúng của giáo viên đang nói (registry Chars) – thiếu file mp3 → giọng máy
 
-<<<<<<< HEAD
-  const say = (text, slow, who, onEnd) => {
-    if (!L) return;
+  const say = (text, slow, who, onEnd, cap) => {
+    if (!L) { if (cap) cap.all(); return; }
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? ((window.LessonTeacher && LessonTeacher.SLOW) || 0.75) : 0.95; // 🐢 0,75× (file Kokoro giữ cao độ, không méo giọng)
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
     // karaoke: chỉ khi đang đọc đúng câu đang hiện; vòng tiến độ quanh loa của nút "Nghe lại"
     // giữ tham chiếu lúc bắt đầu nói: tick/onEnd có thể tới SAU khi thoát bài (cleanup → L = null) – không đọc L trong callback
     const kw = L.kw && text === L.kwText ? L.kw : null, bub = L.bub, play = bub ? $('#lsnPlay') : null;
+    if (kw && cap) { cap.all(); cap = null; } // karaoke của bong bóng đang lái đúng dòng này → SayText không lái chồng
     const onTick = (kw || play) ? f => { if (kw) kw.at(f); if (play && play.isConnected) bub.playing(play, f); } : null;
     const done = () => { if (onTick) onTick(1); if (onEnd) onEnd(); };
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd: done, onTick }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd: done }); }
-=======
-  const say = (text, slow, who, onEnd, cap) => {
-    if (!L) { if (cap) cap.all(); return; }
-    const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
-    if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
->>>>>>> real/main
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd: done, onTick, caption: cap }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd: done }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
