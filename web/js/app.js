@@ -157,7 +157,7 @@
   const flipTheme = () => { state.settings.theme = isDark() ? 'light' : 'dark'; applyTheme(); saveSettings(); document.querySelectorAll('#lkTheme .material-symbols-outlined').forEach(i => { i.textContent = isDark() ? 'light_mode' : 'dark_mode'; }); };
   const focusTheme = () => {
     const v = $('#view'); if (!document.body.classList.contains('focus')) return;
-    const own = v.querySelector('#lkTheme'); if (own) { if (!own.dataset.lk) { own.dataset.lk = 1; own.title = own.getAttribute('aria-label'); own.onclick = flipTheme; const i = own.querySelector('.material-symbols-outlined'); if (i) i.textContent = isDark() ? 'light_mode' : 'dark_mode'; } return; }
+    const own = v.querySelector('#lkTheme'); if (own && own.getClientRects().length) { if (!own.dataset.lk) { own.dataset.lk = 1; own.title = own.getAttribute('aria-label'); own.onclick = flipTheme; const i = own.querySelector('.material-symbols-outlined'); if (i) i.textContent = isDark() ? 'light_mode' : 'dark_mode'; } return; }
     if (v.querySelector('.lk-ftheme')) return;
     const x = v.querySelector('.lsn-x'), inRow = x && x.getClientRects().length, b = document.createElement('button');
     b.type = 'button'; b.className = 'icon-btn lk-ftheme' + (inRow ? '' : ' fix'); b.title = t('Đổi giao diện sáng/tối'); b.setAttribute('aria-label', b.title); b.innerHTML = UI.icon('sun-moon');
