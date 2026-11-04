@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { createHash } from 'node:crypto';
 import { toolFoot } from './tools-links.mjs';
+import { INSTALL, liveChannels, trackUrl } from '../../functions/api/_install_links.js'; // link cài: infra/install-links.json
 import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
 import { S as SP } from './seo-pages-i18n.mjs';
 import { art, scrollBtns, VIS_CSS, VIS_JS } from './samples-visual.mjs'; // lớp lướt bằng mắt của họ trang thư viện (docs/specs/samples-visual.md)
@@ -19,7 +20,7 @@ const LT = ['--bg', '--surface', '--text', '--muted', '--line'].map(k => `${k}:$
 const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), 'utf8');
 // ---------- Nút "Thêm vào Chrome" (add-on) – nguồn DUY NHẤT: web/js/ext-config.js (URL cửa hàng) + web/js/ext-cta.js (hiện/ẩn, đếm bấm) ----------
 const jsLite = s => s.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
-export const EXT_STORE = (rdWeb('js/ext-config.js').match(/store: '([^']+)'/) || [])[1];
+export const EXT_STORE = INSTALL.channels.cws.url; // nguồn duy nhất: infra/install-links.json
 export const EXT_JS = jsLite(rdWeb('js/ext-config.js')) + '\n' + jsLite(rdWeb('js/ext-cta.js').replace(/\/\/ <nudge>[\s\S]*?\/\/ <\/nudge>\n/, ''));
 // Nút "Tải app" một chạm (CWS / Google Play / hướng dẫn cài PWA) – web/js/get-app.js; nội tuyến SAU EXT_JS (cần LK_EXT, LK_APPS, LKExt)
 export const GETAPP_JS = jsLite(rdWeb('js/get-app.js'));
@@ -331,13 +332,14 @@ export const footGroups = (lang, extra = [], coExtra = []) => {
 };
 // Chân trang theo thiết kế Stitch (docs: PR #303): cột thương hiệu (logo diều + câu giới thiệu + "Mở app" + "Add to Chrome") · 4 nhóm
 // Sản phẩm / Học / Công cụ miễn phí / Thông tin (gập mở trên điện thoại) · thanh đáy © + nhãn hiệu + menu ngôn ngữ (<details>, link <a> cho bot) + nút giao diện.
-// Đủ mọi link cũ; "Tải app điện thoại" = link Google Play thật (web/js/ext-config.js LK_APPS.play; iOS chưa phát hành → chưa thêm).
-export const PLAY_STORE = (rdWeb('js/ext-config.js').match(/play: '([^']+)'/) || [])[1];
+// Đủ mọi link cũ + đủ kênh cài đang có (infra/install-links.json; kênh chưa có listing không hiện).
+export const PLAY_STORE = INSTALL.channels.play.url;
+const footStores = () => liveChannels().filter(c => c.id !== 'cws').map(c => `<a class="fbtn" href="${esc(trackUrl(c.id, { medium: 'get_app', campaign: 'site_foot' }))}" target="_blank" rel="noopener">${c.name}</a>`).join('');
 export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '', coExtra = [] }) => {
   const { cur, f, product, learn, tools, co } = footGroups(lang, extra, coExtra), app = appHref(lang), fe = i => f[i] || FOOT.en[i];
   const col = (h, items) => items.length ? `<details class="fg" open><summary><h2>${h}</h2></summary><ul>${items.map(([u, n, a = '']) => `<li><a href="${u}"${a}>${n}</a></li>`).join('')}</ul></details>` : '';
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(cur)}"><img src="/icons/icon.svg?v=3" width="36" height="36" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p><div class="fbtns"><a class="fbtn pri" href="${app}">${fe(20)}</a>${EXT_STORE ? `<a class="fbtn" href="${EXT_STORE}" target="_blank" rel="noopener">${fe(21)}</a>` : ''}${getApp}</div></div><div class="fgrid">${col(f[0], product)}${col(fe(18), learn)}${col(fe(19), tools)}${col(f[2], co)}</div></div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(cur)}"><img src="/icons/icon.svg?v=3" width="36" height="36" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p><div class="fbtns"><a class="fbtn pri" href="${app}">${fe(20)}</a>${EXT_STORE ? `<a class="fbtn" href="${EXT_STORE}" target="_blank" rel="noopener">${fe(21)}</a>` : ''}${footStores()}${getApp}</div></div><div class="fgrid">${col(f[0], product)}${col(fe(18), learn)}${col(fe(19), tools)}${col(f[2], co)}</div></div>
 <div class="fbot"><div><p><b>© ${year} Lexkite</b> · ${TM_NOTE[lang] || TM_NOTE.en}</p>${tm ? `<p>${tm}</p>` : ''}</div><div class="fctl"><details class="flang"><summary aria-label="${esc(`${f[16]}: ${LANG_NAMES[cur]}`)}">${GLOBE}<span>${LANG_NAMES[cur]}</span></summary><nav class="flangs" aria-label="${esc(f[16])}" translate="no">${langs}</nav></details>${themePill(cur)}</div></div></div></footer>
 ${SITE_UI}`;
 };

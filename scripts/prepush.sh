@@ -10,6 +10,7 @@ node scripts/confidence/build.mjs        # sửa content/confidence → web/js/c
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js + s/ (Play & Speak, tải lười theo tình huống × ngôn ngữ)
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/js/lesson/gold.js (Giải thích của #/lesson)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/js/lesson/stories.js (Truyện + Radio)
+node scripts/build-install-links.mjs      # infra/install-links.json → web/js/ext-config.js, functions/api/_install_data.js
 bash scripts/build-extension.sh >/dev/null && git checkout -q -- extension/academic.json 2>/dev/null || true   # web/ → extension/app (bỏ thay đổi phụ academic.json)
 node scripts/test/ext-sync.mjs
 node scripts/vi-lint.mjs
