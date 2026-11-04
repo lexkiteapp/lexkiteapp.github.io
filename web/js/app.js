@@ -398,7 +398,7 @@
     w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
     return fn.apply(this, a);
   };
-  const V2_ROUTES = new Set(['train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khoá cùng danh sách trong app/index.html
+  const V2_ROUTES = new Set(['train', 'me', 'say', 'goal', 'league']); // scripts/test/scroll-boot.mjs khóa cùng danh sách trong app/index.html
   // 🧈 Cuộn (docs/PERF-SCROLL.md): vị trí theo từng mục lịch sử (Back/Forward về đúng chỗ), html.lk-scrolling (dừng hiệu ứng trang trí vô hạn khi đang cuộn), App.calm (việc nền nặng đợi tay rảnh)
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
