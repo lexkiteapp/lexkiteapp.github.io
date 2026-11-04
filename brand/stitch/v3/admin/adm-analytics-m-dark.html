@@ -3,321 +3,345 @@
 <html lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Báo cáo lưu lượng - Lexkite Kit</title>
-<!-- Tailwind CSS v3 CDN with forms and container queries -->
+<title>Lexkite Analytics - Tactile Night</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            tactile: {
-              bg: '#081518',
-              card: '#0E1E22',
-              cardSecondary: '#122428',
-              cardHover: '#162B30',
-              border: '#1C353A',
-              ledge: '#050D0F',
+            night: {
+              canvas: '#081518',
+              surface: '#0E1E22',
+              card: '#13272C',
+              border: '#1A363D',
+              borderLight: '#244952',
+              ledge: '#050D10',
               accent: '#2DD4BF',
-              accentDark: '#14B8A6',
-              textPrimary: '#F0F9F8',
-              textSecondary: '#93B5B3',
-              textMuted: '#7EA4A1',
+              accentHover: '#2BA39A',
               coral: '#F2553B',
-              coralLedge: '#8E2816',
+              coralLedge: '#A8321D',
               coralInk: '#1B0B04'
+            },
+            mint: {
+              heading: '#F0F9F8',
+              body: '#A5C4C2',
+              muted: '#93B5B3',
+              highlight: '#62D7CE'
             }
+          },
+          boxShadow: {
+            tactile: '0 4px 0 0 #050D10',
+            tactileCoral: '0 4px 0 0 #A8321D',
+            tactileInner: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)'
           }
         }
       }
     };
   </script>
-<style data-purpose="custom-shadows-and-scrollbar">
-    /* 3D Tactile physical button and card shadow effects */
+<style data-purpose="custom-tactile-styles">
+    /* Custom tactile and chart utilities */
+    body {
+      background-color: #081518;
+      color: #A5C4C2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
     .tactile-card {
-      background-color: #0E1E22;
-      border: 2px solid #1C353A;
-      box-shadow: 0 4px 0 #050D0F;
+      background-color: #13272C;
+      border: 2px solid #1A363D;
+      box-shadow: 0 4px 0 0 #050D10;
+    }
+    .tactile-button-coral {
+      background-color: #F2553B;
+      color: #1B0B04;
+      border: 2px solid #FFA392;
+      box-shadow: 0 4px 0 0 #A8321D;
     }
     .tactile-chip {
-      background-color: #122428;
-      border: 1.5px solid #1C353A;
-      box-shadow: 0 2px 0 #050D0F;
-    }
-    .tactile-chip-active {
-      background-color: #162B30;
-      border: 1.5px solid #2DD4BF;
-      box-shadow: 0 2px 0 #050D0F;
-    }
-    .tactile-btn-coral {
-      background-color: #F2553B;
-      box-shadow: 0 4px 0 #8E2816;
-      color: #1B0B04;
-    }
-    .tactile-btn-coral:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #8E2816;
-    }
-    /* Hide scrollbars for crisp UI */
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    * {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      -webkit-tap-highlight-color: transparent;
+      background-color: #0E1E22;
+      border: 2px solid #244952;
+      box-shadow: 0 2px 0 0 #050D10;
     }
   </style>
 </head>
-<body class="bg-[#081518] text-[#93B5B3] font-sans antialiased flex justify-center min-h-screen">
-<!-- BEGIN: Mobile Device Viewport -->
-<div class="w-full max-w-[390px] min-h-screen bg-[#081518] flex flex-col relative pb-24 shadow-2xl border-x border-[#1C353A]/40" data-purpose="mobile-viewport">
-<!-- BEGIN: iOS Status Bar -->
-<header class="w-full px-6 pt-3 pb-2 flex justify-between items-center text-xs font-semibold text-[#F0F9F8] select-none" data-purpose="status-bar">
-<span>09:41</span>
-<div class="flex items-center space-x-2 text-[#F0F9F8]">
-<!-- Signal strength icon -->
-<svg class="w-4 h-3.5 fill-current" viewbox="0 0 16 12">
-<rect height="3" rx="0.5" width="2.5" x="0" y="9"></rect>
-<rect height="5.5" rx="0.5" width="2.5" x="4" y="6.5"></rect>
-<rect height="8.5" rx="0.5" width="2.5" x="8" y="3.5"></rect>
-<rect height="11.5" rx="0.5" width="2.5" x="12" y="0.5"></rect>
+<body class="flex justify-center min-h-screen bg-[#081518] antialiased selection:bg-[#2DD4BF] selection:text-[#081518]">
+<!-- Mobile Screen Container (390px portrait viewport specification) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#081518] flex flex-col pb-24 overflow-x-hidden border-x border-[#1A363D]/40 shadow-2xl relative">
+<!-- BEGIN: TopBar -->
+<header class="px-4 pt-11 pb-3 flex items-center justify-between sticky top-0 z-30 bg-[#081518]/95 backdrop-blur border-b border-[#1A363D]">
+<div class="flex items-center space-x-3">
+<!-- Back action or profile icon -->
+<button aria-label="Menu" class="w-10 h-10 rounded-xl bg-[#0E1E22] border-2 border-[#1A363D] shadow-tactile flex items-center justify-center text-[#62D7CE] active:translate-y-0.5 transition-transform" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
 </svg>
-<!-- Wifi icon -->
-<svg class="w-4 h-3.5 fill-current" viewbox="0 0 16 12">
-<path clip-rule="evenodd" d="M8 2.5C4.9 2.5 2.1 3.8 0.2 5.9L8 14.5L15.8 5.9C13.9 3.8 11.1 2.5 8 2.5ZM8 0C11.8 0 15.3 1.5 17.8 4L8 14.8L-1.8 4C0.7 1.5 4.2 0 8 0Z" fill-rule="evenodd"></path>
-</svg>
-<!-- Battery icon -->
-<div class="w-5 h-2.5 border border-[#F0F9F8] rounded-sm p-0.5 flex items-center">
-<div class="w-full h-full bg-[#F0F9F8] rounded-2xs"></div>
+</button>
+<div>
+<h1 class="text-xl font-extrabold text-[#F0F9F8] tracking-tight leading-none">Phân tích</h1>
+<p class="text-xs font-semibold text-[#93B5B3] mt-0.5">Dữ liệu thời gian thực</p>
 </div>
+</div>
+<!-- Live Traffic Chip Indicator -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0E1E22] border-2 border-[#244952] shadow-tactile">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF] animate-pulse"></span>
+<span class="text-xs font-bold text-[#F0F9F8] uppercase tracking-wider">Live</span>
 </div>
 </header>
-<!-- END: iOS Status Bar -->
-<!-- BEGIN: Header Navigation Bar -->
-<section class="px-4 py-3 flex items-center justify-between border-b border-[#1C353A] bg-[#0B171A]" data-purpose="top-app-bar">
-<button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#0E1E22] border border-[#1C353A] text-[#2DD4BF]" type="button">
-<svg class="w-5 h-5 stroke-current fill-none stroke-2" viewbox="0 0 24 24">
-<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</button>
-<div class="text-center">
-<h1 class="text-base font-bold text-[#F0F9F8] tracking-tight">Báo cáo lưu lượng</h1>
-<p class="text-[11px] text-[#7EA4A1]">Cập nhật 5 phút trước</p>
+<!-- END: TopBar -->
+<!-- BEGIN: QuickActions & Primary CTA -->
+<section aria-label="Hành động chính" class="p-4 space-y-3">
+<div class="flex items-center justify-between bg-[#0E1E22] p-3 rounded-2xl border-2 border-[#1A363D] shadow-tactile">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-[#93B5B3] uppercase tracking-wider">Khoảng thời gian</span>
+<span class="text-sm font-bold text-[#F0F9F8]">Hôm nay, 24 Th10</span>
 </div>
-<button aria-label="Tùy chọn" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#0E1E22] border border-[#1C353A] text-[#93B5B3]" type="button">
-<svg class="w-5 h-5 stroke-current fill-none stroke-2" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="1"></circle>
-<circle cx="19" cy="12" r="1"></circle>
-<circle cx="5" cy="12" r="1"></circle>
+<!-- Primary Coral Button with 3D tactile ledge -->
+<button class="tactile-button-coral px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 active:translate-y-1 transition-all" type="button">
+<svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
-</button>
+          Xuất báo cáo
+        </button>
+</div>
 </section>
-<!-- END: Header Navigation Bar -->
-<!-- BEGIN: Main Scrollable Content -->
-<main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto" data-purpose="report-content">
-<!-- BEGIN: Timeframe Filter Chips -->
-<section class="flex space-x-2 overflow-x-auto pb-1" data-purpose="time-filter-chips">
-<button class="tactile-chip h-11 px-4 rounded-xl text-xs font-semibold text-[#93B5B3] shrink-0">Hôm nay</button>
-<button class="tactile-chip-active h-11 px-4 rounded-xl text-xs font-bold text-[#2DD4BF] shrink-0">7 ngày qua</button>
-<button class="tactile-chip h-11 px-4 rounded-xl text-xs font-semibold text-[#93B5B3] shrink-0">30 ngày qua</button>
-<button class="tactile-chip h-11 px-4 rounded-xl text-xs font-semibold text-[#93B5B3] shrink-0">Năm 2024</button>
+<!-- END: QuickActions & Primary CTA -->
+<!-- BEGIN: KeyMetricsSection -->
+<section aria-label="Số liệu quan trọng" class="px-4 py-1">
+<div class="grid grid-cols-2 gap-3">
+<!-- Metric Card 1: Tổng lượt xem -->
+<article class="tactile-card rounded-2xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-[#93B5B3]">Lượt xem</span>
+<span class="text-[11px] font-bold text-[#2DD4BF] bg-[#0E1E22] px-2 py-0.5 rounded-lg border border-[#244952]">+18.4%</span>
+</div>
+<div class="text-2xl font-black text-[#F0F9F8] tracking-tight">128.450</div>
+<p class="text-[11px] text-[#A5C4C2] mt-1 font-medium">So với hôm qua (108k)</p>
+</article>
+<!-- Metric Card 2: Người dùng hoạt động -->
+<article class="tactile-card rounded-2xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-[#93B5B3]">Người dùng</span>
+<span class="text-[11px] font-bold text-[#2DD4BF] bg-[#0E1E22] px-2 py-0.5 rounded-lg border border-[#244952]">+9.2%</span>
+</div>
+<div class="text-2xl font-black text-[#F0F9F8] tracking-tight">42.890</div>
+<p class="text-[11px] text-[#A5C4C2] mt-1 font-medium">Đang online: <span class="text-[#62D7CE] font-bold">1.412</span></p>
+</article>
+</div>
 </section>
-<!-- END: Timeframe Filter Chips -->
-<!-- BEGIN: Primary Metric Card -->
-<section class="tactile-card rounded-2xl p-4 flex flex-col space-y-3" data-purpose="metric-highlight">
-<div class="flex justify-between items-start">
+<!-- END: KeyMetricsSection -->
+<!-- BEGIN: LiveTrafficChartSection -->
+<section aria-label="Biểu đồ lưu lượng truy cập" class="px-4 pt-4">
+<div class="tactile-card rounded-2xl p-4">
+<div class="flex items-center justify-between mb-3">
 <div>
-<span class="text-xs uppercase tracking-wider text-[#7EA4A1] font-semibold">Tổng lượt truy cập</span>
-<div class="text-2xl font-extrabold text-[#F0F9F8] mt-1 tracking-tight">1,842,930</div>
+<h2 class="text-base font-extrabold text-[#F0F9F8]">Live Traffic</h2>
+<p class="text-xs text-[#93B5B3]">Lưu lượng truy cập theo giờ</p>
 </div>
-<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#162B30] text-[#2DD4BF] border border-[#2DD4BF]/30">
-<svg class="w-3.5 h-3.5 mr-1 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
-<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-            +18.4%
-          </span>
+<div class="flex items-center space-x-1">
+<span class="px-2 py-1 text-[11px] font-bold rounded-lg bg-[#0E1E22] text-[#62D7CE] border border-[#244952]">24 Giờ</span>
+<span class="px-2 py-1 text-[11px] font-bold rounded-lg text-[#93B5B3] hover:text-[#F0F9F8]">7 Ngày</span>
 </div>
-<!-- Trend Line SVG Chart -->
-<div class="h-28 w-full pt-2" data-purpose="traffic-trend-chart">
-<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 320 80">
+</div>
+<!-- SVG Line Chart with Tactile Night Theme Colors -->
+<div class="relative w-full h-44 mt-3 pt-2">
+<svg class="w-full h-full overflow-visible" fill="none" viewbox="0 0 320 140">
+<!-- Grid Lines -->
+<line stroke="#1A363D" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="320" y1="20" y2="20"></line>
+<line stroke="#1A363D" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="320" y1="60" y2="60"></line>
+<line stroke="#1A363D" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="320" y1="100" y2="100"></line>
+<line stroke="#244952" stroke-width="2" x1="0" x2="320" y1="135" y2="135"></line>
+<!-- Chart Gradient Area Fill -->
 <defs>
-<lineargradient id="cyanFill" x1="0" x2="0" y1="0" y2="1">
+<lineargradient id="trafficGradient" x1="0" x2="0" y1="0" y2="1">
 <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.35"></stop>
 <stop offset="100%" stop-color="#2DD4BF" stop-opacity="0.0"></stop>
 </lineargradient>
 </defs>
-<!-- Chart Area Fill -->
-<path d="M0,65 Q30,55 60,50 T120,42 T180,30 T240,35 T300,10 L300,80 L0,80 Z" fill="url(#cyanFill)"></path>
-<!-- Chart Line -->
-<path d="M0,65 Q30,55 60,50 T120,42 T180,30 T240,35 T300,10" fill="none" stroke="#2DD4BF" stroke-linecap="round" stroke-width="3"></path>
-<!-- Peak Point Dot -->
-<circle cx="300" cy="10" fill="#2DD4BF" r="4.5" stroke="#081518" stroke-width="2"></circle>
+<path d="M 0 110 Q 40 100 70 65 T 140 70 T 210 30 T 270 50 T 320 20 L 320 135 L 0 135 Z" fill="url(#trafficGradient)"></path>
+<!-- Main Trend Line -->
+<path d="M 0 110 Q 40 100 70 65 T 140 70 T 210 30 T 270 50 T 320 20" stroke="#2DD4BF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+<!-- Interactive Active Node -->
+<circle cx="210" cy="30" fill="#081518" r="6" stroke="#2DD4BF" stroke-width="3"></circle>
+<circle cx="210" cy="30" fill="#F0F9F8" r="2.5"></circle>
+<!-- Highlight Tooltip Callout -->
+<g transform="translate(175, 2)">
+<rect fill="#0E1E22" height="24" rx="6" stroke="#244952" stroke-width="1.5" width="70"></rect>
+<text fill="#F0F9F8" font-size="11" font-weight="bold" text-anchor="middle" x="35" y="16">5.820 usr</text>
+</g>
 </svg>
-<div class="flex justify-between text-[11px] text-[#7EA4A1] font-medium mt-1">
-<span>T2</span>
-<span>T3</span>
-<span>T4</span>
-<span>T5</span>
-<span>T6</span>
-<span>T7</span>
-<span>CN</span>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#1C353A]/80 text-xs">
-<div class="bg-[#122428] p-2.5 rounded-xl border border-[#1C353A]">
-<span class="text-[#7EA4A1] block text-[11px]">Người dùng mới</span>
-<span class="text-sm font-bold text-[#F0F9F8]">429,120</span>
-</div>
-<div class="bg-[#122428] p-2.5 rounded-xl border border-[#1C353A]">
-<span class="text-[#7EA4A1] block text-[11px]">Thời gian TB</span>
-<span class="text-sm font-bold text-[#F0F9F8]">4m 32s</span>
-</div>
-</div>
-</section>
-<!-- END: Primary Metric Card -->
-<!-- BEGIN: Traffic Intensity Heatmap Section -->
-<section class="tactile-card rounded-2xl p-4 space-y-3" data-purpose="heatmap-section">
-<div class="flex items-center justify-between">
-<h2 class="text-sm font-bold text-[#F0F9F8]">Mật độ lưu lượng theo giờ</h2>
-<span class="text-xs text-[#7EA4A1]">Múi giờ GMT+7</span>
-</div>
-<!-- Heatmap Grid -->
-<div class="space-y-1.5" data-purpose="heatmap-grid">
-<!-- Row 1: Sáng -->
-<div class="flex items-center space-x-2 text-[11px]">
-<span class="w-12 text-[#93B5B3] shrink-0">Sáng</span>
-<div class="grid grid-cols-6 gap-1.5 flex-1">
-<div class="h-6 rounded bg-[#0E2024] border border-[#1C353A]" title="00:00 - Thấp"></div>
-<div class="h-6 rounded bg-[#0E2024] border border-[#1C353A]" title="02:00 - Thấp"></div>
-<div class="h-6 rounded bg-[#0D3A3B] border border-[#1C353A]" title="04:00 - Trung bình"></div>
-<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="06:00 - Cao"></div>
-<div class="h-6 rounded bg-[#2DD4BF] border border-[#1C353A]" title="08:00 - Rất cao"></div>
-<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="10:00 - Cao"></div>
-</div>
-</div>
-<!-- Row 2: Chiều -->
-<div class="flex items-center space-x-2 text-[11px]">
-<span class="w-12 text-[#93B5B3] shrink-0">Chiều</span>
-<div class="grid grid-cols-6 gap-1.5 flex-1">
-<div class="h-6 rounded bg-[#0D3A3B] border border-[#1C353A]" title="12:00 - Trung bình"></div>
-<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="14:00 - Cao"></div>
-<div class="h-6 rounded bg-[#2DD4BF] border border-[#1C353A]" title="16:00 - Rất cao"></div>
-<div class="h-6 rounded bg-[#2DD4BF] border border-[#1C353A]" title="18:00 - Rất cao"></div>
-<div class="h-6 rounded bg-[#14B8A6] border border-[#1C353A]" title="20:00 - Cao"></div>
-<div class="h-6 rounded bg-[#0D3A3B] border border-[#1C353A]" title="22:00 - Trung bình"></div>
-</div>
-</div>
-</div>
-<!-- Heatmap Legend -->
-<div class="flex items-center justify-between text-[11px] text-[#7EA4A1] pt-1">
-<span>Thấp</span>
-<div class="flex space-x-1 items-center">
-<span class="w-3.5 h-3.5 rounded bg-[#0E2024] border border-[#1C353A]"></span>
-<span class="w-3.5 h-3.5 rounded bg-[#0D3A3B] border border-[#1C353A]"></span>
-<span class="w-3.5 h-3.5 rounded bg-[#14B8A6] border border-[#1C353A]"></span>
-<span class="w-3.5 h-3.5 rounded bg-[#2DD4BF] border border-[#1C353A]"></span>
-</div>
-<span>Cao nhất</span>
-</div>
-</section>
-<!-- END: Traffic Intensity Heatmap Section -->
-<!-- BEGIN: Country Origin Traffic Breakdown -->
-<section class="tactile-card rounded-2xl p-4 space-y-3" data-purpose="country-breakdown">
-<div class="flex items-center justify-between">
-<h2 class="text-sm font-bold text-[#F0F9F8]">Quốc gia dẫn đầu</h2>
-<span class="text-xs text-[#2DD4BF] font-semibold">Xem tất cả</span>
-</div>
-<div class="space-y-2.5">
-<!-- Item 1: Vietnam -->
-<div class="bg-[#102226] p-3 rounded-xl border border-[#1C353A] flex flex-col space-y-1.5">
-<div class="flex justify-between items-center text-xs">
-<span class="font-bold text-[#F0F9F8] flex items-center">
-<span class="mr-2">🇻🇳</span> Việt Nam
-              </span>
-<span class="font-bold text-[#2DD4BF]">1,180,450 (64%)</span>
-</div>
-<!-- Progress bar -->
-<div class="w-full bg-[#152A2F] h-2 rounded-full overflow-hidden">
-<div class="bg-[#2DD4BF] h-full rounded-full" style="width: 64%"></div>
-</div>
-</div>
-<!-- Item 2: United States -->
-<div class="bg-[#102226] p-3 rounded-xl border border-[#1C353A] flex flex-col space-y-1.5">
-<div class="flex justify-between items-center text-xs">
-<span class="font-bold text-[#F0F9F8] flex items-center">
-<span class="mr-2">🇺🇸</span> Hoa Kỳ
-              </span>
-<span class="font-bold text-[#2DD4BF]">331,727 (18%)</span>
-</div>
-<!-- Progress bar -->
-<div class="w-full bg-[#152A2F] h-2 rounded-full overflow-hidden">
-<div class="bg-[#20B2AA] h-full rounded-full" style="width: 18%"></div>
-</div>
-</div>
-<!-- Item 3: Japan -->
-<div class="bg-[#102226] p-3 rounded-xl border border-[#1C353A] flex flex-col space-y-1.5">
-<div class="flex justify-between items-center text-xs">
-<span class="font-bold text-[#F0F9F8] flex items-center">
-<span class="mr-2">🇯🇵</span> Nhật Bản
-              </span>
-<span class="font-bold text-[#2DD4BF]">165,863 (9%)</span>
-</div>
-<!-- Progress bar -->
-<div class="w-full bg-[#152A2F] h-2 rounded-full overflow-hidden">
-<div class="bg-[#14B8A6] h-full rounded-full" style="width: 9%"></div>
+<!-- Chart X Axis Labels -->
+<div class="flex justify-between text-[11px] font-semibold text-[#93B5B3] mt-2 px-1">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span>Hiện tại</span>
 </div>
 </div>
 </div>
 </section>
-<!-- END: Country Origin Traffic Breakdown -->
-<!-- BEGIN: Primary CTA Section -->
-<section class="pt-2" data-purpose="export-report-cta">
-<button class="tactile-btn-coral w-full h-12 rounded-xl flex items-center justify-center space-x-2 text-sm font-bold shadow transition-all duration-150" type="button">
-<svg class="w-4 h-4 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
-<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-<span>Xuất báo cáo PDF</span>
-</button>
+<!-- END: LiveTrafficChartSection -->
+<!-- BEGIN: HeatmapSection -->
+<section aria-label="Mật độ hoạt động" class="px-4 pt-4">
+<div class="tactile-card rounded-2xl p-4">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h2 class="text-base font-extrabold text-[#F0F9F8]">Mật độ truy cập</h2>
+<p class="text-xs text-[#93B5B3]">Theo các khung giờ trong tuần</p>
+</div>
+<span class="text-xs font-bold text-[#62D7CE] bg-[#0E1E22] px-2.5 py-1 rounded-lg border border-[#244952]">Cao điểm: 20h</span>
+</div>
+<!-- 7x6 Heatmap Grid in Tactile Night Surfaces -->
+<div class="grid grid-cols-7 gap-1.5 pt-1">
+<!-- Day labels -->
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">T2</div>
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">T3</div>
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">T4</div>
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">T5</div>
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">T6</div>
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">T7</div>
+<div class="text-center text-[10px] font-bold text-[#93B5B3]">CN</div>
+<!-- Row 1 -->
+<div class="h-6 rounded-md bg-[#0E1E22] border border-[#1A363D]"></div>
+<div class="h-6 rounded-md bg-[#13272C] border border-[#244952]"></div>
+<div class="h-6 rounded-md bg-[#174349] border border-[#2BA39A]"></div>
+<div class="h-6 rounded-md bg-[#2BA39A] border border-[#2DD4BF]"></div>
+<div class="h-6 rounded-md bg-[#13272C] border border-[#244952]"></div>
+<div class="h-6 rounded-md bg-[#0E1E22] border border-[#1A363D]"></div>
+<div class="h-6 rounded-md bg-[#0E1E22] border border-[#1A363D]"></div>
+<!-- Row 2 -->
+<div class="h-6 rounded-md bg-[#13272C] border border-[#244952]"></div>
+<div class="h-6 rounded-md bg-[#174349] border border-[#2BA39A]"></div>
+<div class="h-6 rounded-md bg-[#2BA39A] border border-[#2DD4BF]"></div>
+<div class="h-6 rounded-md bg-[#2DD4BF] border border-[#62D7CE]"></div>
+<div class="h-6 rounded-md bg-[#2BA39A] border border-[#2DD4BF]"></div>
+<div class="h-6 rounded-md bg-[#13272C] border border-[#244952]"></div>
+<div class="h-6 rounded-md bg-[#0E1E22] border border-[#1A363D]"></div>
+<!-- Row 3 -->
+<div class="h-6 rounded-md bg-[#0E1E22] border border-[#1A363D]"></div>
+<div class="h-6 rounded-md bg-[#13272C] border border-[#244952]"></div>
+<div class="h-6 rounded-md bg-[#2BA39A] border border-[#2DD4BF]"></div>
+<div class="h-6 rounded-md bg-[#2DD4BF] border border-[#62D7CE]"></div>
+<div class="h-6 rounded-md bg-[#2DD4BF] border border-[#62D7CE]"></div>
+<div class="h-6 rounded-md bg-[#174349] border border-[#2BA39A]"></div>
+<div class="h-6 rounded-md bg-[#13272C] border border-[#244952]"></div>
+</div>
+<!-- Legend scale -->
+<div class="flex items-center justify-between pt-3 mt-1 border-t border-[#1A363D]">
+<span class="text-[11px] font-semibold text-[#93B5B3]">Thấp</span>
+<div class="flex items-center gap-1">
+<span class="w-3.5 h-3.5 rounded bg-[#0E1E22] border border-[#1A363D]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#13272C] border border-[#244952]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#174349] border border-[#2BA39A]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#2BA39A] border border-[#2DD4BF]"></span>
+<span class="w-3.5 h-3.5 rounded bg-[#2DD4BF] border border-[#62D7CE]"></span>
+</div>
+<span class="text-[11px] font-semibold text-[#62D7CE]">Cao</span>
+</div>
+</div>
 </section>
-<!-- END: Primary CTA Section -->
-</main>
-<!-- END: Main Scrollable Content -->
-<!-- BEGIN: Bottom Navigation Bar -->
-<nav class="fixed bottom-0 max-w-[390px] w-full bg-[#0B171A] border-t-2 border-[#1C353A] px-2 py-2 flex justify-around items-center z-50 shadow-2xl" data-purpose="bottom-nav">
-<!-- Nav Item 1: Trang chủ -->
-<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#93B5B3] hover:text-[#2DD4BF]" type="button">
-<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
-<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-<span class="text-[10px] mt-1 font-medium">Trang chủ</span>
-</button>
-<!-- Nav Item 2: Phân tích (Active) -->
-<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#2DD4BF]" type="button">
-<div class="p-1 rounded-lg bg-[#162B30] border border-[#2DD4BF]/40">
-<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
-<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"></path>
+<!-- END: HeatmapSection -->
+<!-- BEGIN: CountriesTableSection -->
+<section aria-label="Quốc gia hàng đầu" class="px-4 pt-4">
+<div class="tactile-card rounded-2xl p-4">
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-base font-extrabold text-[#F0F9F8]">Quốc gia hàng đầu</h2>
+<span class="text-xs font-bold text-[#93B5B3] hover:text-[#62D7CE]">Xem tất cả</span>
+</div>
+<div class="space-y-3">
+<!-- Country 1: Việt Nam -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#0E1E22] border-2 border-[#1A363D] shadow-tactile">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#13272C] border border-[#244952] flex items-center justify-center text-xs font-bold text-[#F0F9F8]">🇻🇳</span>
+<div>
+<div class="text-xs font-bold text-[#F0F9F8]">Việt Nam</div>
+<div class="text-[11px] text-[#93B5B3]">72.430 phiên</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold text-[#2DD4BF]">64.2%</div>
+<div class="w-16 h-1.5 bg-[#13272C] rounded-full overflow-hidden mt-1 border border-[#244952]">
+<div class="bg-[#2DD4BF] h-full w-[64%]"></div>
+</div>
+</div>
+</div>
+<!-- Country 2: Hoa Kỳ -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#0E1E22] border-2 border-[#1A363D] shadow-tactile">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#13272C] border border-[#244952] flex items-center justify-center text-xs font-bold text-[#F0F9F8]">🇺🇸</span>
+<div>
+<div class="text-xs font-bold text-[#F0F9F8]">Hoa Kỳ</div>
+<div class="text-[11px] text-[#93B5B3]">18.120 phiên</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold text-[#62D7CE]">18.5%</div>
+<div class="w-16 h-1.5 bg-[#13272C] rounded-full overflow-hidden mt-1 border border-[#244952]">
+<div class="bg-[#62D7CE] h-full w-[18%]"></div>
+</div>
+</div>
+</div>
+<!-- Country 3: Nhật Bản -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#0E1E22] border-2 border-[#1A363D] shadow-tactile">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#13272C] border border-[#244952] flex items-center justify-center text-xs font-bold text-[#F0F9F8]">🇯🇵</span>
+<div>
+<div class="text-xs font-bold text-[#F0F9F8]">Nhật Bản</div>
+<div class="text-[11px] text-[#93B5B3]">9.450 phiên</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold text-[#93B5B3]">8.7%</div>
+<div class="w-16 h-1.5 bg-[#13272C] rounded-full overflow-hidden mt-1 border border-[#244952]">
+<div class="bg-[#93B5B3] h-full w-[9%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CountriesTableSection -->
+<!-- BEGIN: BottomNavigation -->
+<nav aria-label="Điều hướng chính" class="fixed bottom-0 max-w-[390px] w-full bg-[#0E1E22] border-t-2 border-[#1A363D] px-6 py-2.5 z-40 flex items-center justify-between shadow-[0_-4px_16px_rgba(0,0,0,0.5)]">
+<!-- Item 1: Phân tích (Active) -->
+<button class="flex flex-col items-center group focus:outline-none" type="button">
+<div class="p-1 rounded-xl bg-[#13272C] text-[#2DD4BF] border border-[#244952]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
 </svg>
 </div>
-<span class="text-[10px] mt-0.5 font-bold text-[#2DD4BF]">Phân tích</span>
+<span class="text-[10px] font-bold text-[#F0F9F8] mt-1">Phân tích</span>
 </button>
-<!-- Nav Item 3: Chiến dịch -->
-<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#93B5B3] hover:text-[#2DD4BF]" type="button">
-<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
-<path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-linecap="round" stroke-linejoin="round"></path>
+<!-- Item 2: Live Traffic -->
+<button class="flex flex-col items-center group focus:outline-none" type="button">
+<div class="p-1 rounded-xl text-[#93B5B3] hover:text-[#62D7CE] transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span class="text-[10px] mt-1 font-medium">Chiến dịch</span>
+</div>
+<span class="text-[10px] font-semibold text-[#93B5B3] mt-1">Lưu lượng</span>
 </button>
-<!-- Nav Item 4: Cài đặt -->
-<button class="flex flex-col items-center justify-center min-w-[54px] min-h-[44px] text-[#93B5B3] hover:text-[#2DD4BF]" type="button">
-<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
-<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
-<circle cx="12" cy="12" r="3"></circle>
+<!-- Item 3: Báo cáo -->
+<button class="flex flex-col items-center group focus:outline-none" type="button">
+<div class="p-1 rounded-xl text-[#93B5B3] hover:text-[#62D7CE] transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span class="text-[10px] mt-1 font-medium">Cài đặt</span>
+</div>
+<span class="text-[10px] font-semibold text-[#93B5B3] mt-1">Báo cáo</span>
+</button>
+<!-- Item 4: Cài đặt -->
+<button class="flex flex-col items-center group focus:outline-none" type="button">
+<div class="p-1 rounded-xl text-[#93B5B3] hover:text-[#62D7CE] transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-[#93B5B3] mt-1">Cài đặt</span>
 </button>
 </nav>
-<!-- END: Bottom Navigation Bar -->
-</div>
-<!-- END: Mobile Device Viewport -->
+<!-- END: BottomNavigation -->
+</main>
 </body></html>
