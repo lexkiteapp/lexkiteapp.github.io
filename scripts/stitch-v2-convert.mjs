@@ -51,7 +51,9 @@ function stylesOf(html, f) { const M = {}, css = [...html.matchAll(/<style[^>]*>
       (M[m[1]] = M[m[1]] || []).push(pr === 'content' && /^(""|'')$/.test(v) ? VAR[m[2]] + "content-['']" : `${VAR[m[2]]}[${pr}:${arb(v)}]`); } }
   return M; }
 function classesOf(el, R) { const raw = (el.getAttribute('class') || '').split(/\s+/).filter(Boolean), has = re => raw.some(c => re.test(split(c).base)), out = [];
-  for (const c of raw) { if (R.sty && R.sty[c]) { out.push(...R.sty[c]); continue; } out.push(...R(c, has)); } out.push(...styleCls(el.getAttribute('style'))); return out; }
+  for (const c of raw) { if (R.sty && R.sty[c]) { out.push(...R.sty[c]); continue; } out.push(...R(c, has)); } out.push(...styleCls(el.getAttribute('style')));
+  // DESIGN-SYSTEM §0: không nhấp nháy. App: mẫu Stitch có animate-pulse → chấm đứng yên (kèm motion-reduce:animate-none của chính nó)
+  return !WEB && out.some(c => c.endsWith('animate-pulse')) ? out.filter(c => !c.endsWith('animate-pulse') && c !== 'motion-reduce:animate-none') : out; }
 
 // ---- ghép 2 cây ----
 const sig = n => n.nodeType === 1 ? n.tagName : n.nodeType === 3 ? (n.textContent.trim() ? '#t' : '') : '';

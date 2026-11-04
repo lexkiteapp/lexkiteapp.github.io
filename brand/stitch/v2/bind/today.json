@@ -28,11 +28,11 @@
   "See full path →": "Tới bài hiện tại →"
  },
  "text": {
+  "3": "d.c.streak",
+  "220": "d.c.xp",
   "VI": "d.lang",
   "L": "d.ini",
   "6.5": "d.c.tg",
-  "3": "d.c.streak",
-  "220": "d.c.xp",
   "12/20": "d.c.goal",
   "“Good morning! 2 lessons and 8 words to review today.”": "d.say",
   "⚡ +25 XP ready": "'⚡ ' + d.xpReady",
@@ -224,6 +224,9 @@
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
    "max-w-[240px]": "''"
+  },
+  ":scope > main > div": {
+   "py-3": "'py-4'"
   }
  },
  "tag": {

@@ -238,6 +238,8 @@
     if (!v && legacy && window.League && League.renderHomeCard) League.renderHomeCard(legacy);
   }
   const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
+  // Một lối nhắc ôn: kế hoạch còn việc ôn → gỡ khối "phai dần" + số trên ô Từ cần ôn (ô vẫn dẫn tới #/review)
+  const oneReview = d => { if (d.p.items.some(x => x.href === '#/review' && x.tag !== '✓')) { d.r.due = 0; d.q.dueN = 0; } };
   const langBtn = root => root.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); }));
   async function home2(o) {
     const tok = location.hash, { demo, fresh, Q, P, at, n, u, nodes, dp, xpTo, nxMin } = o;
@@ -268,6 +270,7 @@
       d.c.tgL = picked() ? t('Mục tiêu điểm') : t('Đặt mục tiêu'); d.say = `“${t('Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.')}”`;
       d.pathSec = picked() ? `<section class="v2-hpath" data-blk="path">${pathHtml}</section>` : ''; // chưa chọn mục tiêu → chưa có lộ trình (bước 1)
     }
+    if (!fresh) oneReview(d);
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu

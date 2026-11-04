@@ -123,6 +123,17 @@
   },
   "[class~=\"lt:text-[#8C7A6B]\"]": {
    "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
+  },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1)": {
+   "border-2": "''",
+   "border-dashed": "''",
+   "justify-center": "'justify-end'",
+   "p-3": "''",
+   "lt:border-[#136B66]": "''",
+   "lt:bg-[#E6F5F3]/40": "''",
+   "dk:border-[#2DD4BF]": "''",
+   "dk:bg-[#102429]": "''",
+   "dk:shadow-[0_4px_0_0_#071316]": "''"
   }
  },
  "tag": {
