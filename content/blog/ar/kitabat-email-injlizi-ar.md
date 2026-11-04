@@ -169,3 +169,5 @@ Operations Director
 
 ### كيف أكتب إيميل متابعة (Follow-up) دون أن أبدو لحوحاً أو مزعجاً؟
 ابدأ رسالتك بلباقة وتفهم لمشاغل الطرف الآخر: *I understand you are very busy, but I just wanted to follow up on our previous email regarding...* هذا الأسلوب يذكر الطرف الآخر بلطف دون توجيه أي لوم على تأخر الرد.
+
+إذا كنت تستعد لاختبار التويك المهني لتطوير مسارك الوظيفي، ننصحك بالاطلاع على [خطة دراسة ذاتية toeic لتحقيق 750+ درجة](/ar/blog/khitat-dirasa-thatiya-toeic-dalil/).
