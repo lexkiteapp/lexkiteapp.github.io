@@ -1,3 +1,5 @@
+> Lưu trữ 04/11: chuyển từ gốc repo, nội dung giữ nguyên. Lộ trình thương mại hóa 14/10, hiện trạng đã cũ; trạng thái store xem STORE-READINESS.md.
+
 # Lexkite: lộ trình để thương mại hóa và cạnh tranh top đầu
 
 ## Hiện trạng (14/10/2026)

@@ -125,8 +125,8 @@ const runL = (seed, page = 'en') => {
 };
 w = runL({ 'vb.uiLang': 'vi' });
 { const d = w.document, hr = s => d.querySelector(s).getAttribute('href');
-  ok(hr('.logo') === '/' && hr('header a[href^="/app/"]') === '/app/#/topic/a' && hr('header a[href$="/blog/"]') === '/vi/blog/' && hr('header a[href*=vocabulary]') === '/en/vocabulary/', 'app chọn vi → logo /, Mở app /app/ (giữ #), blog /vi/blog/; link không chắc có bản dịch giữ nguyên');
-  ok(hr('.flogo') === '/' && hr('.fbtn.pri') === '/app/' && d.querySelector('.flangs [lang=ja]').getAttribute('href') === '/ja/blog/', 'chân trang: logo + Mở app theo vi, danh sách ngôn ngữ không bị đổi');
+  ok(hr('.logo') === '/vi/' && hr('header a[href^="/app/"]') === '/app/#/topic/a' && hr('header a[href$="/blog/"]') === '/vi/blog/' && hr('header a[href*=vocabulary]') === '/en/vocabulary/', 'app chọn vi → logo /vi/, Mở app /app/ (giữ #), blog /vi/blog/; link không chắc có bản dịch giữ nguyên');
+  ok(hr('.flogo') === '/vi/' && hr('.fbtn.pri') === '/app/' && d.querySelector('.flangs [lang=ja]').getAttribute('href') === '/ja/blog/', 'chân trang: logo + Mở app theo vi, danh sách ngôn ngữ không bị đổi');
   d.addEventListener('click', e => e.preventDefault()); // jsdom không chuyển trang
   d.querySelector('.flangs [lang=ja]').dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
   ok(w.localStorage.getItem('lk.lang') === 'ja' && w.localStorage.getItem('vb.uiLang') === 'ja', 'chọn ngôn ngữ trên web → ghi cả lk.lang và vb.uiLang (app mở ra cùng ngôn ngữ)'); }
