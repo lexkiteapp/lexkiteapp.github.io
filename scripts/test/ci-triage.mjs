@@ -6,12 +6,25 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, issueTitle, redStreak, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
+
+// --- cổng lõi (4/11: ext-e2e đỏ 8 lượt từ 30/10, new-ui-qa chưa từng có lượt main, bản tin không nói vì chỉ kể lượt đỏ trong 24 h)
+{ const Rn = (c, d) => ({ conclusion: c, status: 'completed', event: 'push', created_at: `2026-11-0${d}T00:00:00Z` }), now = +new Date('2026-11-04T00:00:00Z');
+  const h = coreHealth({ a: [Rn('success', 3)], ext: [Rn('failure', 1), Rn('failure', 2)], ui: [], old: [Rn('failure', 3)], c: [Rn('cancelled', 3)] }, now);
+  ok(h.bad.map(b => b.key).join() === 'ext,old,ui,c', 'cổng lõi: đỏ lâu nhất trước, chưa có lượt sau, xanh không liệt kê: ' + h.bad.map(b => b.key).join());
+  ok(h.bad[0].days === 3 && h.bad[0].n === 2, 'cổng lõi: số ngày + số lượt đỏ');
+  // không có lượt đỏ nào trong 24 h vẫn phải báo, và vẫn gửi thư (failed > 0)
+  const d0 = digest([], {}, [], undefined, h);
+  ok(d0.failed === 4 && d0.red === 2 && /ext 3 ngày/.test(d0.msg) && /ext: đỏ 2 lượt liền, 3 ngày/.test(d0.text) && /ui: chưa có lượt/.test(d0.md), 'bản tin nêu cổng lõi đỏ dù 24 h không có lượt');
+  ok(digest([], {}, []).failed === 0, 'không truyền core → như cũ');
+  ok(/ci\.yml/.test(CORE_TESTS['npm-test']) && fs.existsSync(path.join(ROOT, '.github/workflows', CORE_TESTS['ext-e2e'])), 'CORE_TESTS trỏ file thật (npm-test = ci.yml)');
+  for (const [k, f] of Object.entries(CORE_TESTS)) if (k !== 'new-ui-qa') ok(fs.existsSync(path.join(ROOT, '.github/workflows', f)), `CORE_TESTS: ${k} → ${f} tồn tại`);
+  ok(orphanIssueFile('<!-- ci-triage:wf=gone.yml -->', () => false) === 'gone.yml' && orphanIssueFile('<!-- ci-triage:wf=a.yml -->', () => true) === null && orphanIssueFile('x', () => false) === null, 'issue của workflow đã xóa'); }
 
 // --- đỏ liên tiếp (3/11: quality-sweep đỏ 6 đêm 27/10–1/11, issue không nói "lặp lại")
 const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });
