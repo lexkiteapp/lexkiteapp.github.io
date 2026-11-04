@@ -159,6 +159,7 @@ Kecepatan membaca dan ketajaman insting tata bahasa terbentuk melalui paparan ru
 - **Algoritma Cerdas FSRS Spaced Repetition**: Simpan ratusan kolokasi dan kata kerja preposisional dalam memori jangka panjang tanpa mudah lupa.
 - **Kamus Kontekstual Lengkap**: Temukan definisi akurat, kolokasi formal, dan panduan fonetik IPA dalam sekali sentuh.
 - **Laboratorium Percakapan Interaktif**: Asah artikulasi dan rasa percaya diri Anda melalui fitur [latihan berbicara di Lexkite](/#/practice/speak).
+- **Rencana Persiapan Bertahap**: Susun target mingguan Anda menggunakan [rencana belajar mandiri TOEIC](/id/blog/rencana-belajar-mandiri-toeic-panduan/) dari skor 450 ke 750+.
 
 Kunjungi [aplikasi web Lexkite](/#/) hari ini untuk mengubah persiapan TOEIC Part 5 Anda menjadi lebih terukur, cepat, dan percaya diri!
 

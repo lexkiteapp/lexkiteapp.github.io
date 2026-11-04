@@ -136,5 +136,6 @@ Mendapatkan skor di atas 850 atau 900 membutuhkan kecepatan membaca tinggi dan p
 - **Kamus Kolokasi Bisnis**: Pelajari ribuan frasa kerja, idiom formal, dan sinonim penting langsung di kamus cerdas Lexkite.
 - **Sistem Pengulangan Berkala FSRS**: Hafalkan istilah kontrak, pengapalan, dan keuangan secara permanen tanpa mudah lupa.
 - **Latihan Berbicara Interaktif Berbasis Mikrofon**: Bagi yang menyiapkan ujian kemampuan lengkap, modul [latihan berbicara Lexkite](/#/practice/speak) membantu mengasah artikulasi dengan evaluasi audio langsung.
+- **Rencana Belajar Komprehensif**: Padukan latihan membaca dan menyimak dengan panduan [rencana belajar mandiri TOEIC](/id/blog/rencana-belajar-mandiri-toeic-panduan/) langkah demi langkah.
 
 Akses [aplikasi web Lexkite](/#/) sekarang juga dan raih skor TOEIC Part 7 impian Anda dengan manajemen waktu yang sempurna!
