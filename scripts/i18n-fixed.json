@@ -35774,5 +35774,20 @@
     "ar": "كل ما يتضمنه",
     "ru": "Всё, что внутри",
     "tr": "İçinde neler var"
+  },
+  "Rung khi trả lời và hoàn thành bài": {
+    "es": "Vibrar al responder y al terminar la lección",
+    "pt": "Vibrar ao responder e ao concluir a lição",
+    "fr": "Vibrer à chaque réponse et en fin de leçon",
+    "de": "Bei Antworten und Lektionsende vibrieren",
+    "id": "Getar saat menjawab dan menyelesaikan pelajaran",
+    "th": "สั่นเมื่อตอบและเมื่อจบบทเรียน",
+    "zh": "答题和完成课程时震动",
+    "ja": "回答時とレッスン完了時に振動",
+    "ko": "답변 및 레슨 완료 시 진동",
+    "hi": "उत्तर देने और पाठ पूरा होने पर कंपन",
+    "ar": "الاهتزاز عند الإجابة وإكمال الدرس",
+    "ru": "Вибрация при ответах и завершении урока",
+    "tr": "Cevaplarda ve ders bitişinde titreşim"
   }
 }

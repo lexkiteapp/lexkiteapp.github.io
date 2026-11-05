@@ -356,6 +356,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Từ đơn ưu tiên bản ghi giọng người thật': 'Single words use real human recordings when available',
 'Tự phát âm khi hiện thẻ': 'Auto-play pronunciation on cards',
 'Hiệu ứng âm thanh': 'Sound effects',
+'Rung khi trả lời và hoàn thành bài': 'Vibrate on answers and lesson complete',
 'Âm thanh & hiệu ứng kiểu trò chơi': 'Game-style sounds & animations',
 'Add-on từ điển cho Chrome': 'Dictionary add-on for Chrome',
 'Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.': 'Double-click any English word on the web to see its pronunciation, meaning and picture, and <b>save it as a flashcard with the original sentence as context</b>. Highlight a sentence or paragraph to <b>translate it</b>.',

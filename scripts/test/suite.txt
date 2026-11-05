@@ -22,6 +22,8 @@ node scripts/asc-upload.mjs --check
 node scripts/i18n-missing.mjs --strict
 node scripts/i18n-qa.mjs --strict
 node scripts/test/situations.mjs
+node scripts/content-qa/mediation-check.mjs
+node scripts/test/mediation.mjs
 node scripts/speak/build.mjs
 node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
@@ -138,6 +140,7 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-map-colors.mjs
 node scripts/test/ads.mjs
 node scripts/test/ads-admin.mjs
 node scripts/test/ads-revenue.mjs
@@ -203,6 +206,7 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
+node scripts/social/build-channel-kit.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
@@ -261,3 +265,7 @@ node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
+node scripts/test/haptics.mjs
+node scripts/test/ext-newtab-quiz.mjs
+node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/test/legal-i18n.mjs

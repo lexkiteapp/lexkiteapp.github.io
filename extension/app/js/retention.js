@@ -137,7 +137,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     try { const ts = App.todayPlan ? await App.todayPlan() : []; const n = (ts || []).find(x => !x.done); if (n && n.href) return n.href; } catch (e) { /* bỏ qua */ }
     return '#/review';
   };
-  const buzz = p => { try { if (navigator.vibrate && !reduce()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
+  const buzz = p => { try { if (g.Sfx && g.Sfx.haptic) g.Sfx.haptic(Array.isArray(p) && p.length > 3 ? 'done' : Array.isArray(p) ? 'streak' : 'tap'); } catch (e) { /* bỏ qua */ } };
   const nextBtn = () => `<button class="btn primary lg block ret-next" id="retNext">${t('Bài tiếp theo')} →</button>`;
   const bindNext = box => { const b = box && box.querySelector && box.querySelector('#retNext'); if (b) b.onclick = async () => { const h = await nextHref(); if (UI.closeModal && box !== view()) UI.closeModal(); location.hash = h; }; };
   // Ô rương to, chạm để mở ngay trong màn (không màn phụ); khung mới tự đeo (đổi lại ở Bộ sưu tập)
