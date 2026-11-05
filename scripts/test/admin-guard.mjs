@@ -11,6 +11,7 @@ import { tableScan, checkMapColors } from '../lib/admin-table-scan.mjs';
 import { FX, BFX, VFX, VIT, NOW } from './fixtures/admin-fx.mjs';
 import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
 import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
+import { waitFn } from '../lib/pw-wait.mjs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
 const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); // PW_CHANNEL=chrome: chạy thử nhanh bằng Chrome có sẵn
 const SHOTS = [['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light']];
@@ -100,7 +101,7 @@ for (const [width, scheme, lang] of CONFIGS) {
   for (const r of routes) {
     cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
-    await page.waitForFunction(() => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
+    await waitFn(page, () => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
     const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav', boxes: '.card, .ds-card, .lt, .kpi' }).catch(e => ({ err: [e.message] }));
     res.table = await page.evaluate(tableScan).catch(e => [e.message]);
     if (r === 'analytics') res.map = await mapCheck(page, width === 1280);

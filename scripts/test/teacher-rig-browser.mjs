@@ -2,6 +2,7 @@
 // fps/jank (CPU 1× và 4×) · so khung liên tiếp lúc chuyển trạng thái (không nhảy hình) · alpha nền sạch (không quầng xanh, không bẩn nền, không cắt đỉnh)
 // · giảm chuyển động · 0 lỗi JS · 0 thay đổi DOM mỗi khung. Ảnh mỗi trạng thái → qa/teacher-rig/*.png (artifact).
 import { chromium } from 'playwright'; import fs from 'node:fs'; import path from 'node:path';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve('web'), OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'qa/teacher-rig';
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { js: 'text/javascript', json: 'application/json', webp: 'image/webp', png: 'image/png', html: 'text/html', css: 'text/css' };
@@ -18,7 +19,7 @@ async function open(who, o = {}) {
     r.fulfill({ body: fs.readFileSync(f), contentType: TYPES[path.extname(f).slice(1)] || 'application/octet-stream' });
   });
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(String(e))); page.on('console', m => m.type() === 'error' && errs.push(m.text()));
-  await page.goto('http://lk.test/rig.html'); await page.waitForFunction(() => window.rig && window.rig.stats.ready, null, { timeout: 15000 });
+  await page.goto('http://lk.test/rig.html'); await waitFn(page, () => window.rig && window.rig.stats.ready, null, { timeout: 15000 });
   return { ctx, page, errs };
 }
 // mỗi khung: thu nhỏ canvas còn 96 px rộng, ghép lên nền trang, trả trung bình |Δ| so với khung trước (0..255); alpha thô riêng cho cổng độ đục. f0 đặt lại mỗi lần đo – đo trong trang, không chụp màn
@@ -58,7 +59,7 @@ for (const who of ['ama', 'carlos']) {
   for (const [label, act] of [['wave', () => rig.gesture('wave')], ['sad→happy', () => rig.setEmotion('happy')]]) {
     if (label !== 'wave') await page.evaluate(() => rig.setEmotion('sad')), await page.waitForTimeout(900);
     // câu nói của bài đo CPU (3,75 s) còn đuôi: cử chỉ lúc đang nói xếp hàng (đúng thiết kế) và miệng nhảy viseme (cố ý không làm mượt) → đo chuyển SAU khi im
-    await page.waitForFunction(() => !rig.stats.speaking, null, { timeout: 8000 }); await page.waitForTimeout(150);
+    await waitFn(page, () => !rig.stats.speaking, null, { timeout: 8000 }); await page.waitForTimeout(150);
     await page.evaluate(DIFF); await page.evaluate(`(${act})()`); await page.waitForTimeout(label === 'wave' ? 700 : 1200);
     if (label === 'wave') await page.screenshot({ path: `${OUT}/${who}-wave.png` });
     // chớp mắt là sự kiện riêng của máy nghỉ (không phải bước chuyển): khung có mi đang khép (cả khung trước) không tính vào "nhảy" – vẫn cộng vào tổng

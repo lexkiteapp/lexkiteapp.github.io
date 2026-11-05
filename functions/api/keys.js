@@ -8,6 +8,7 @@
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import * as K from './_keys.js';
+import { readText, bodyFail } from './_body.js';
 
 const MAX_BODY = 65536, MAX_LINES = 50, MAX_IDS = 200;
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
@@ -107,8 +108,7 @@ async function keyAudit(env, email, op, ok, detail) {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env, waitUntil }) {
-  const raw = await request.text().catch(() => '');
-  if (raw.length > MAX_BODY) return json(request, 413, { error: 'too-large' });
+  let raw; try { raw = await readText(request, MAX_BODY); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(raw || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'json' });
   const g = await adminGate(request, env, 'keys'); if (!g.who) return json(request, g.status, { error: g.error });

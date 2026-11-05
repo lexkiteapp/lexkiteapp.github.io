@@ -21,8 +21,10 @@ jobs:
     steps:
       - name: Bỏ qua nếu không nằm trong danh sách
         id: pick
+        env:
+          LX_ONLY: ${{ github.event.inputs.only }}
         run: |
-          ONLY="${{ github.event.inputs.only }}"
+          ONLY="$LX_ONLY"
           if [ -z "$ONLY" ] || echo ",$ONLY," | grep -q ",${{ matrix.i }},"; then echo "run=1" >> "$GITHUB_OUTPUT"; else echo "run=0" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/checkout@v4
         if: steps.pick.outputs.run == '1'

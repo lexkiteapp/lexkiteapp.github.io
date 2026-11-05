@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { serve } from '../quality/serve.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 import { HUBS, FIXED } from './lib/learn-samples.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -32,7 +33,7 @@ const ctxOf = async (theme, flag = true) => {
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th.th })); localStorage.setItem('lk.exitbar', th.flag ? '1' : '0'); } catch { /* */ } }, { th: theme, flag });
   return ctx;
 };
-const ready = page => page.waitForFunction(() => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
+const ready = page => waitFn(page, () => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
 const boot = async (page, hash) => { await page.goto(appUrl(hash), { waitUntil: 'load', timeout: 45000 }); await ready(page); };
 const go = async (page, hash) => { await page.evaluate(x => { location.hash = x; }, hash); await sleep(1300); };
 const state = page => page.evaluate(() => ({ hash: location.hash, learn: document.body.classList.contains('lk-learn'), modal: !!document.querySelector('#modal:not([hidden])'), filled: !!document.querySelector('#view > :not(.skel-page):not(.skel-study)') }));

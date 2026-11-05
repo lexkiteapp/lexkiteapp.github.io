@@ -19,6 +19,8 @@ import { adminGate, adminAudit } from './admin.js';
 import { gate, DEFAULTS } from './_quota.js';
 import { triage, errSig, createIssue, scrub, SEVS } from './_triage.js';
 import { moderate, mask, defang } from './_abuse.js';
+import { readText, bodyFail } from './_body.js';
+import { humanGate } from './_human.js';
 import { MAIL_KEYS, MAIL_I18N } from './_report-i18n.js';
 
 // Ngân sách mặc định cho tính năng 'report' (đăng ký tại đây để không phải sửa _quota.js; quản trị vẫn đè được qua quota_config)
@@ -36,7 +38,7 @@ export const tid = id => 'LX-' + (1000 + (+id || 0));
 // 'LX-1234' → id 234 · số trần → id nội bộ (máy khách Quản trị luôn gửi 'LX-…')
 const rid = s => { const m = String(s == null ? '' : s).trim().match(/^(LX-)?(\d{1,9})$/i); return m ? (m[1] ? +m[2] - 1000 : +m[2]) : 0; };
 
-const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-Lexkite-Device', 'Access-Control-Allow-Methods': 'POST, OPTIONS', Vary: 'Origin' } : {}; };
+const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-Lexkite-Device, X-Lexkite-Human', 'Access-Control-Allow-Methods': 'POST, OPTIONS', Vary: 'Origin' } : {}; };
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
 const token = () => btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(18)))).replace(/\+/g, '-').replace(/\//g, '_'); // 144 bit, 24 ký tự
@@ -306,11 +308,10 @@ async function create(request, env, b, bg) {
   if (!cat) return json(request, 400, { error: 'cat' });
   if (msg.length < 10) return json(request, 400, { error: 'short' });
   let email = str(b.email, 200).toLowerCase(), notify = !!b.notify;
-  if (env.TURNSTILE_SECRET_KEY && b.ts) { // Turnstile (tùy chọn – cùng khóa với form liên hệ; máy khách gửi kèm khi có)
-    try { const p = new URLSearchParams({ secret: env.TURNSTILE_SECRET_KEY, response: String(b.ts).slice(0, 2048) }); const vr = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: p }); if (!(await vr.json()).success) return json(request, 403, { error: 'turnstile' }); } catch (e) { /* lỗi mạng tạm thời → bỏ qua */ }
-  }
   const tk = (request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '');
   const who0 = tk ? await claims(tk).catch(() => null) : null;
+  // Người thật (02/11, fail closed): có TURNSTILE_SECRET_KEY → khách BẮT BUỘC token Turnstile (b.ts) hoặc vé X-Lexkite-Human; đăng nhập thì khỏi; siteverify lỗi → 503
+  { const hg = await humanGate(request, env, { who: who0, token: b.ts }); if (!hg.ok) return json(request, hg.status, { error: hg.error }); }
   if (notify && !email && who0 && who0.email_verified && who0.email) email = String(who0.email).toLowerCase();
   if (notify && !EMAIL.test(email)) return json(request, 400, { error: 'email' });
   if (!notify) email = '';
@@ -577,8 +578,7 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env, waitUntil }) {
   if (!env || !env.DB) return json(request, 500, { error: 'no-db' });
-  const raw = await request.text().catch(() => '');
-  if (raw.length > LIM.body) return json(request, 413, { error: 'too-big' });
+  let raw; try { raw = await readText(request, LIM.body); } catch (e) { const f = bodyFail(e, 'too-big'); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(raw); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   try {

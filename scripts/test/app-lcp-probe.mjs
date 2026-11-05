@@ -1,6 +1,7 @@
 // Dò phần tử LCP màn đầu /app/ (Playwright, mạng 4G chậm + CPU ×4 như Lighthouse mobile): in mọi ứng viên LCP (thời điểm, thẻ, cỡ),
 // thời điểm font tải xong và FCP – để biết LCP bị đẩy muộn vì cái gì. Dùng: node scripts/test/app-lcp-probe.mjs <base> [path…]
 import { chromium } from 'playwright';
+import { waitFn } from '../lib/pw-wait.mjs';
 const FUNC = process.argv.includes('--func'); const argv = process.argv.filter(a => a !== '--func');
 const base = argv[2] || 'http://localhost:8080', paths = FUNC ? [] : argv.slice(3).length ? argv.slice(3) : ['app/?hl=en', 'app/?hl=vi'];
 const b = await chromium.launch();
@@ -25,16 +26,16 @@ let bad = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (
 {
   const ctx = await b.newContext(), pg = await ctx.newPage(); const errs = []; pg.on('pageerror', e => errs.push(String(e).slice(0, 200)));
   await pg.goto(base + '/app/?hl=en', { waitUntil: 'load' });
-  await pg.waitForFunction(() => window.App && App.route && location.hash === '#/welcome' && document.querySelector('#wCard'), null, { timeout: 20000 }).then(() => ok(1, 'khách mới: app khởi động, #/welcome + thẻ demo')).catch(() => ok(0, 'khách mới: app không khởi động (hash=' + '?)'));
+  await waitFn(pg, () => window.App && App.route && location.hash === '#/welcome' && document.querySelector('#wCard'), null, { timeout: 20000 }).then(() => ok(1, 'khách mới: app khởi động, #/welcome + thẻ demo')).catch(() => ok(0, 'khách mới: app không khởi động (hash=' + '?)'));
   ok(await pg.evaluate(() => document.title !== '' && document.documentElement.lang === 'en' && !!document.querySelector('.lk-rep')), 'i18n en + report-pill (DOMContentLoaded giả) chạy');
-  await pg.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(rs => rs.some(r => new URL(r.scope).pathname === '/app/' && r.active)), null, { timeout: 30000 }).then(() => ok(1, 'SW /app/ đã kích hoạt')).catch(() => ok(0, 'SW /app/ không kích hoạt'));
+  await waitFn(pg, () => navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(rs => rs.some(r => new URL(r.scope).pathname === '/app/' && r.active)), null, { timeout: 30000 }).then(() => ok(1, 'SW /app/ đã kích hoạt')).catch(() => ok(0, 'SW /app/ không kích hoạt'));
   await pg.evaluate(() => localStorage.setItem('lk.onb', '1'));
   await pg.goto(base + '/app/#/vocab', { waitUntil: 'load' });
-  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length && !document.body.classList.contains('bare'), null, { timeout: 20000 }).then(() => ok(1, 'khách cũ: #/vocab vẽ xong (SW điều khiển: ' + '…)')).catch(() => ok(0, 'khách cũ: #/vocab không vẽ'));
+  await waitFn(pg, () => window.App && App.route && document.querySelector('#view').children.length && !document.body.classList.contains('bare'), null, { timeout: 20000 }).then(() => ok(1, 'khách cũ: #/vocab vẽ xong (SW điều khiển: ' + '…)')).catch(() => ok(0, 'khách cũ: #/vocab không vẽ'));
   console.log('  ctrl trước offline: ' + await pg.evaluate(() => !!navigator.serviceWorker.controller));
   await ctx.setOffline(true);
   await pg.reload({ waitUntil: 'load' }).catch(() => {});
-  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(async () => ok(0, 'offline: app không mở – ' + await pg.evaluate(() => location.href + ' ctrl=' + !!(navigator.serviceWorker && navigator.serviceWorker.controller) + ' App=' + !!window.App + ' | ' + document.body.innerText.slice(0, 160)).catch(e => String(e))));
+  await waitFn(pg, () => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(async () => ok(0, 'offline: app không mở – ' + await pg.evaluate(() => location.href + ' ctrl=' + !!(navigator.serviceWorker && navigator.serviceWorker.controller) + ' App=' + !!window.App + ' | ' + document.body.innerText.slice(0, 160)).catch(e => String(e))));
   ok(!errs.length, 'không lỗi JS' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await ctx.close();
 }

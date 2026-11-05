@@ -6,6 +6,7 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const OUT = path.resolve(arg('--out') || 'qa/lip'), ROOT = path.resolve(arg('--root') || 'web');
@@ -80,7 +81,7 @@ const SCREENS = [
 async function call(page, id) { // màn Call v2 không còn .call-ov: chờ giáo viên #cTch rồi lúc đang nói
   await go(page, '#/call/' + id); await page.waitForSelector('#callGo', { timeout: 15000 }); await page.click('#callGo');
   await page.waitForSelector('#cTch .tch-rig, .tch .tch-rig', { timeout: 12000 });
-  await page.waitForFunction(() => window.__callState && window.__callState().phase === 'talk', null, { timeout: 12000 }).catch(() => {});
+  await waitFn(page, () => window.__callState && window.__callState().phase === 'talk', null, { timeout: 12000 }).catch(() => {});
 }
 async function lesson(page) {
   await go(page, '#/lesson/go?demo=1');

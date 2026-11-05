@@ -20,10 +20,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Kiểm
+        env:
+          LX_BASE: ${{ github.event.inputs.base }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           npx playwright install --with-deps chromium
-          node scripts/test/contrast.mjs ${{ github.event.inputs.base }}
+          node scripts/test/contrast.mjs "$LX_BASE"
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: contrast-report, path: contrast-report.json, if-no-files-found: ignore }

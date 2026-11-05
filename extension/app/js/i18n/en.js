@@ -585,6 +585,7 @@
 'Trình duyệt này chưa có nhận dạng giọng nói. Lexkite có thể dùng <b>Whisper</b> (mã nguồn mở) chạy ngay trên máy của bạn: miễn phí, riêng tư – âm thanh không gửi đi đâu.': 'This browser has no built-in speech recognition. Lexkite can use <b>Whisper</b> (open source) running right on your device: free and private – your audio never leaves it.',
 'Cần tải mô hình khoảng 40 MB một lần (nên dùng Wi-Fi).': 'It needs a one-time ~40 MB model download (Wi-Fi recommended).',
 'Tải & bật': 'Download & turn on', 'Đang chuẩn bị… bấm micro lần nữa để nói': 'Getting ready… tap the mic again to speak',
+'Xác minh nhanh để tiếp tục': 'Quick check to continue',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – study.js, plan.js, path.js, method.js, goal.js */
@@ -1319,6 +1320,7 @@
 'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it',
 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.': 'Daily free AI limit reached – try again tomorrow.',
 'AI đang bận – thử lại sau ít phút.': 'AI is busy right now – try again in a few minutes.',
+'Mở Lexkite một lần để xác minh, rồi thử lại.': 'Open Lexkite once to verify, then try again.',
 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.': 'AI is unavailable offline – connect to the internet and try again.',
 }); })(typeof self !== 'undefined' ? self : this);
 
@@ -1614,7 +1616,7 @@
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
 (function (g) { Object.assign(g.I18N_DICT.en, {
-'Kiểm tra': 'Check', 'Tiếp tục': 'Continue', 'Bỏ qua': 'Skip', 'Điền từ': 'Fill in the blank', 'Chọn nghĩa đúng': 'Choose the correct meaning',
-'Học thông minh': 'Smart Learn', 'Phòng viết': 'Writing room', 'Đọc hiểu': 'Reading', 'Đáp án': 'Answer', 'Tra từ': 'Look up a word', 'Dịch câu': 'Translate',
-'Máy nghe được: “{heard}”': 'We heard: “{heard}”', 'Chế độ luyện tập': 'Practice modes',
+  'Kiểm tra': 'Check', 'Tiếp tục': 'Continue', 'Bỏ qua': 'Skip', 'Điền từ': 'Fill in the blank', 'Chọn nghĩa đúng': 'Choose the correct meaning',
+  'Học thông minh': 'Smart Learn', 'Phòng viết': 'Writing room', 'Đọc hiểu': 'Reading', 'Đáp án': 'Answer', 'Tra từ': 'Look up a word', 'Dịch câu': 'Translate',
+  'Máy nghe được: “{heard}”': 'We heard: “{heard}”', 'Chế độ luyện tập': 'Practice modes',
 }); })(typeof self !== 'undefined' ? self : this);

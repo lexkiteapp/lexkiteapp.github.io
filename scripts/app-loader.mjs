@@ -18,7 +18,7 @@ if (srcs.length < 10) { console.error('✗ app-loader: chỉ thấy ' + srcs.len
 // Thứ tự chạy cũ: script đồng bộ (i18n.js) chạy lúc phân tích HTML, trước mọi script defer
 const sync = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const order = [...sync, ...srcs.filter(s => !sync.includes(s))];
-const FONT = /[ \t]*<link rel="stylesheet" href="(https:\/\/fonts\.googleapis\.com\/[^"]+)" media="print" onload="this\.media='all'">\n/;
+const FONT = /[ \t]*<link rel="stylesheet" href="(https:\/\/fonts\.googleapis\.com\/[^"]+)" media="print" data-lk-font>\n/;
 const font = (html.match(FONT) || [])[1] || '';
 html = html.replace(TAG, '').replace(FONT, '');
 // Nạp sau khung hình đầu (rAF → setTimeout); tab nền không chạy rAF → dự phòng 300 ms

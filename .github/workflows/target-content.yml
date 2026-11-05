@@ -22,7 +22,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Kiểm seed + bản sao app
-        run: node scripts/target/build.mjs ${{ github.event.inputs.tl || 'pt' }} --check
+        env:
+          TL: ${{ github.event.inputs.tl || 'pt' }}
+        run: node scripts/target/build.mjs "$TL" --check
       - name: Ứng viên (khô) hoặc sinh + 2 giám khảo + dịch ngược + cổng
         env:
           CF_POOL: ${{ secrets.CF_POOL }}
@@ -30,7 +32,10 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
-        run: node scripts/target/gen.mjs --tl ${{ github.event.inputs.tl || 'pt' }} --n ${{ github.event.inputs.n || 300 }} ${{ (github.event_name == 'pull_request' || github.event.inputs.dry == '1') && '--dry' || '' }}
+          TL: ${{ github.event.inputs.tl || 'pt' }}
+          N: ${{ github.event.inputs.n || 300 }}
+          DRY: ${{ (github.event_name == 'pull_request' || github.event.inputs.dry == '1') && '--dry' || '' }}
+        run: node scripts/target/gen.mjs --tl "$TL" --n "$N" $DRY
       - if: ${{ always() && github.event_name == 'workflow_dispatch' && github.event.inputs.dry != '1' }}
         uses: actions/upload-artifact@v4
         with:

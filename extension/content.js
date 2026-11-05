@@ -86,6 +86,7 @@
     'Giải thích nghĩa trong ngữ cảnh, cấu trúc, collocation, ví dụ': 'Explain meaning in context, structure, collocations, examples', '🤖 Giải thích sâu': '🤖 Deep explanation',
     '⏳ AI đang phân tích…': '⏳ AI is analyzing…',
     'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.': 'Daily free AI limit reached – try again tomorrow.', 'AI đang bận – thử lại sau ít phút.': 'AI is busy right now – try again in a few minutes.',
+    'Mở Lexkite một lần để xác minh, rồi thử lại.': 'Open Lexkite once to verify, then try again.',
     'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.': 'AI is unavailable offline – connect to the internet and try again.', 'Không phân tích được lúc này.': 'Could not analyze right now.',
     '⚡ Bật AI trên máy (miễn phí, riêng tư)': '⚡ Enable on-device AI (free, private)', 'Chrome tải AI trên máy một lần (~2 GB) – sau đó dùng được cả khi ngoại tuyến.': 'Chrome downloads the on-device AI once (~2 GB) – after that it works even offline.',
     '⬇️ Đang tải AI trên máy… {pct}%': '⬇️ Downloading on-device AI… {pct}%', '✓ AI trên máy đã sẵn sàng': '✓ On-device AI is ready', 'Không bật được AI trên máy – thử lại sau.': 'Could not enable on-device AI – try again later.',
@@ -780,7 +781,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     } catch (e) { btn.disabled = false; btn.textContent = tx('Không bật được AI trên máy – thử lại sau.'); }
   }
   // Mã lỗi AI (background.js aiExplain) → lời nhắn thân thiện. Không bao giờ nhắc nhập khóa: AI miễn phí không cần khóa.
-  const AI_ERR = { QUOTA_DAY: 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.', BUSY: 'AI đang bận – thử lại sau ít phút.', QUOTA: 'AI đang bận – thử lại sau ít phút.', OFFLINE: 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.' };
+  const AI_ERR = { QUOTA_DAY: 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.', BUSY: 'AI đang bận – thử lại sau ít phút.', QUOTA: 'AI đang bận – thử lại sau ít phút.', OFFLINE: 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.', HUMAN: 'Mở Lexkite một lần để xác minh, rồi thử lại.' };
 
   let trSeq = 0;
   const TR_MS = () => globalThis.__lkTrMs || 15000; // test đặt nhỏ để thử đường hết giờ

@@ -25,7 +25,9 @@ const thumbOf = r => {
   const u = r.url || '';
   if (/upload\.wikimedia\.org/.test(u)) { const f = decodeURIComponent(u.split('/').pop()); return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(f)}?width=480`; }
   if (/staticflickr\.com/.test(u)) return u.replace(/(_[a-z])?\.jpg$/, '_n.jpg');
-  return u || r.thumbnail;
+  // Chỉ trả URL gốc khi host nằm trong danh sách mà add-on cho phép tải hộ (extension/background.js IMG_HOSTS); host lạ → ảnh thu nhỏ qua proxy Openverse
+  if (u && /^https:\/\/([a-z0-9-]+\.)*(wikimedia\.org|openverse\.(org|engineering)|staticflickr\.com)\//i.test(u)) return u;
+  return r.thumbnail || u;
 };
 
 // Dự phòng: ảnh đại diện bài Wikipedia tiếng Anh đúng tên từ (vd. library → kệ sách, pollution → khói bụi) – liên quan hơn hẳn tìm theo tên file.
