@@ -22,6 +22,8 @@ node scripts/asc-upload.mjs --check
 node scripts/i18n-missing.mjs --strict
 node scripts/i18n-qa.mjs --strict
 node scripts/test/situations.mjs
+node scripts/content-qa/mediation-check.mjs
+node scripts/test/mediation.mjs
 node scripts/speak/build.mjs
 node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
@@ -265,4 +267,7 @@ node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
+node scripts/test/haptics.mjs
 node scripts/test/ext-newtab-quiz.mjs
+node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/test/legal-i18n.mjs

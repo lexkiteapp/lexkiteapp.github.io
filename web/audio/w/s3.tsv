@@ -8742,3 +8742,32 @@ swindle	ok	ok
 sorcerer	ok	ok
 resolute	ok	ok
 inordinate	ok	ok
+actuality	ok	ok
+astute	ok	ok
+objectivity	ok	ok
+wile	cut_wordis: câu mang: "The word is wild." · dot100:"Wild." 0.94s · cut_wordis100: câu mang: "The word is wild." · cut_next: câu mang: "Next word, wild." · plain095:"wild" 0.62s · dot090:"WILD" 0.77s	cut_wordis: câu mang: "The word is while." · dot100:"while." 0.65s · cut_wordis100: câu mang: "The word is while." · cut_next: câu mang: "Next word, while." · plain095:"while." 0.65s · dot090:"While." 0.70s
+hallucinogenic	ok	ok
+extricate	ok	ok
+interrogator	ok	ok
+psychoanalysis	ok	ok
+wearer	ok	cut_wordis:"Where?" 0.65s · cut_wordis:"Where?" 0.60s · dot100:"Wereth." 0.65s · cut_wordis100:"Where?" 0.60s · cut_wordis100:"Where?" 0.55s · cut_next:"Wear it." 0.65s · plain095:"Wear it." 0.70s · dot090:"Wear it." 0.72s
+commendable	ok	ok
+dexterity	ok	ok
+inconceivable	ok	ok
+primordial	cut_wordis:"is primordial." 1.03s · cut_wordis:"Promordial" 0.89s · dot100:"Promodules" 0.96s · cut_wordis100:"is primordial" 0.98s · cut_wordis100:"Promordial" 0.84s · cut_next:"Promordial" 0.91s · cut_next:"Promodule" 0.86s · plain095:"A primordial." 0.91s · dot090:"A primordial." 1.10s	ok
+detonation	ok	ok
+aquaculture	ok	ok
+cannibal	ok	ok
+importation	ok	ok
+sociologist	ok	ok
+toothed	ok	ok
+assent	cut_wordis:"It's a sentie." 0.89s · cut_wordis:"Ascenti." 0.84s · dot100:"Ascent." 0.77s · cut_wordis100:"It's a scent." 0.82s · cut_next: câu mang: "Next word, assentee." · plain095:"Ascent" 0.72s · dot090:"Ascent." 0.86s	cut_wordis:"Ascent." 0.94s · cut_wordis:"Ascent" 0.67s · dot100:"Ascent." 0.70s · cut_wordis100:"Ascent." 0.84s · cut_wordis100:"Ascent." 0.65s · cut_next:"Ascent" 0.70s · plain095:"Ascent" 0.72s · dot090:"I sent" 0.79s
+innumerable	ok	ok
+loyalist	ok	ok
+regularity	ok	ok
+fanatical	ok	ok
+inappropriately	ok	ok
+nanotechnology	ok	ok
+overlord	ok	ok
+irreplaceable	ok	ok
+unforgivable	ok	ok
