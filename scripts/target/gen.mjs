@@ -48,7 +48,8 @@ const SYS = {
   lxaudit: `You review a ${G.lang} learner deck. For each item k return {"ok": true|false, "score": 1-5, "why": short reason}. ok=false if ANY of: lemma or part of speech wrong; noun gender wrong; ${G.audit}; any gloss mistranslates the sense or is in the wrong language; example unnatural, not ${G.variant}, not using the word, or English translation unfaithful.`,
   lxjudge: `Back-translation check. For each item k you get a ${G.short} word with its English gloss and glosses in other languages. Translate EACH non-English gloss back to English literally, then decide if it means the same as the English gloss for that sense. Return {"bt": {lang: english}, "same": {lang: true|false}}.`,
 };
-const AI = createPool({ prompt: req => ({ sys: SYS[req.mode], user: JSON.stringify(req.items), temp: 0.1 }) });
+// lexai: 0 – /api/lexai có chế độ CÙNG TÊN (lxgen/lxjudge/lxaudit) với lời nhắc kho tiếng Anh ở máy chủ → không bao giờ đi tuyến đó (như scripts/factory/lib.mjs)
+const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: SYS[req.mode] + '\nReply with ONE valid JSON object only, no markdown.', user: JSON.stringify(req.items), temp: 0.1 }) });
 const accepted = [...prev], rejected = [], seen = new Set(have);
 for (let i = 0; i < cand.length && accepted.length - prev.length < N; i += BATCH) {
   const items = cand.slice(i, i + BATCH).map(x => ({ k: x.form, form: x.form, rank: x.rank }));

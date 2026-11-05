@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // 15 ngôn ngữ NGHĨA (vi + en + scripts/i18n-langs.txt) – thứ tự cố định
 export const MEAN_LANGS = ['vi', 'en', ...fs.readFileSync(path.join(ROOT, 'scripts/i18n-langs.txt'), 'utf8').split('\n').map(s => s.trim()).filter(s => /^[a-z]{2}$/.test(s))];
+const SCRIPT = { th: /\p{Script=Thai}/u, zh: /\p{Script=Han}/u, ja: /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u, ko: /\p{Script=Hangul}/u, hi: /\p{Script=Devanagari}/u, ar: /\p{Script=Arabic}/u, ru: /\p{Script=Cyrillic}/u };
 export const POS = ['n', 'v', 'adj', 'adv', 'pron', 'prep', 'conj', 'num', 'interj', 'det'];
 const VI_ONLY = /[ăơưđạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chữ chỉ tiếng Việt có (â/ê/ô có trong pt/fr → không tính)
 const IPA_OK = /^[a-zɐɑɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧħɥʜɨɪʝɭɬɫɮʟɱɯɰŋɳɲɴøɵɸθœɶʘɹɺɾɻʀʁɽʂʃʈʧʉʊʋⱱʌɣɤʍχʎʏʑʐʒʔʡʕʢǀǁǂǃˈˌːˑ̃̊̍̚ʰʲʷ̥̩̯͡.\- ]+$/u;
@@ -55,6 +56,9 @@ export function validate(deck, o = {}) {
     for (const L of MEAN_LANGS) if (typeof gl[L] !== 'string' || !gl[L].trim()) bad('thiếu nghĩa ' + L);
     for (const L of Object.keys(gl)) { if (!MEAN_LANGS.includes(L)) bad('ngôn ngữ nghĩa lạ ' + L); else if (L !== 'vi' && (VI_ONLY.test(gl[L]) || (gl[L] === gl.vi && /[^\x20-\x7e]/.test(gl.vi)))) bad('lẫn tiếng Việt ở ' + L); }
     if (gl.en && /[^\x20-\x7e’]/.test(gl.en)) bad('nghĩa en có ký tự lạ');
+    // chữ viết đúng ngôn ngữ (lượt thử W1: nghĩa vi/ja… bị trả nguyên từ gốc) + nghĩa vi không được là chính từ đích
+    for (const [L, re] of Object.entries(SCRIPT)) if (gl[L] && !re.test(gl[L])) bad(`nghĩa ${L} sai chữ viết: ${gl[L]}`);
+    if (gl.vi && deck && deck.tl && deck.tl !== 'vi' && gl.vi.trim().toLowerCase() === String(w.word).toLowerCase()) bad('nghĩa vi = nguyên từ ' + deck.tl);
     const ex = w.ex || {};
     const tl = (deck && deck.tl) || 'pt';
     if (!ex[tl] || !ex.en) bad(`thiếu câu ví dụ ${tl}/en`);
