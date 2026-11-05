@@ -1,5 +1,7 @@
 # Lexkite – Social media kit
 
+> **Ảnh đại diện + ảnh bìa kênh: dùng bộ MỚI tiếng Anh ở [`channel-kit/`](channel-kit/README.md)** (05/11). Avatar/bìa trong thư mục này là bản CŨ, giữ lại vì còn nơi tham chiếu; `facebook/facebook-cover-vi-1640x624.jpg` và `zalo/zalo-cover-1280x1400.jpg` (chữ tiếng Việt) **không dùng cho kênh quốc tế**. Mẫu bài đăng, watermark, logo ở đây vẫn dùng được.
+
 Ảnh đại diện, ảnh bìa, mẫu bài đăng và watermark cho mọi kênh, dựng từ đúng logo, màu và phông của Lexkite (`brand/`, `web/css/style.css`).
 Xem trước toàn bộ (bật/tắt vùng an toàn): mở `brand/social/index.html`.
 

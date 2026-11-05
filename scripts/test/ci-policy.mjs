@@ -18,6 +18,9 @@
 //     hoặc cất phần còn sót trước đó trong cùng job (`git stash push` / `git reset --hard`).
 //  7) (3/11 – #553 gộp xanh mà main đỏ vì tsc chỉ có trong ci.yml, ci.yml không chạy trên PR): mọi lệnh kiểm trong ci.yml phải có trong scripts/test/suite.txt
 //     (npm test = cổng PR), nếu không PR xanh vẫn làm main đỏ.
+//  8) (05/11 – Font audit 7 job/commit, 6 job < 90 s = 20 % số job PR khởi động, hàng chờ 102 job / 40 runner): workflow chạy trên PR có matrix
+//     tĩnh > MATRIX_MAX nhánh (tích các mảng; trong biểu thức ${{ }} lấy mảng lớn nhất) phải gộp phần nhỏ chạy nối tiếp trong 1 job, hoặc ghi lý do
+//     `# ci-policy: matrix – <lý do>` (vd. đo hiệu năng từng máy phải tách runner). Mỗi nhánh = 1 lượt xin runner + setup ~40 s trong hàng chờ.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -54,6 +57,17 @@ export function jobs(src) {
 const AUTO = ['push', 'pull_request', 'pull_request_target', 'schedule', 'workflow_run', 'check_suite', 'check_run'];
 const CHAIN = ['workflow_run', 'check_suite', 'check_run'];
 const reason = (src, k) => new RegExp(`^#\\s*ci-policy:\\s*${k}\\s*[–-]\\s*\\S.{8,}`, 'm').test(src);
+export const MATRIX_MAX = 4;
+/** Số nhánh matrix TĨNH của 1 job (thuần): tích độ dài các mảng ngoài ${{ }}; mỗi biểu thức ${{ }} lấy mảng literal lớn nhất (nhánh || thay thế nhau). Matrix động (output job khác) = 0. */
+export function matrixLegs(jobText) {
+  const m = String(jobText).match(/^\s*(?:strategy:.*?\bmatrix:|matrix:)([\s\S]*?)(?=^    \S|^      steps:|$(?![\s\S]))/m);
+  if (!m) return 0;
+  let blk = m[1].replace(/\s+#.*$/gm, ''), legs = 1, any = false;
+  const count = a => { try { const v = JSON.parse(a); if (Array.isArray(v)) return v.length; } catch (e) { /* không phải JSON */ } return a.slice(1, -1).trim() ? a.slice(1, -1).split(',').length : 0; };
+  blk = blk.replace(/\$\{\{(.*)\}\}/g, (_, e) => { const arrs = [...e.matchAll(/'(\[[\s\S]*?\])'/g)].map(x => count(x[1])); if (arrs.length) { legs *= Math.max(...arrs); any = true; } return ''; });
+  for (const a of blk.matchAll(/:\s*(\[[^\[\]]*\])/g)) { legs *= count(a[1]); any = true; }
+  return any ? legs : 0;
+}
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 export function violations(file, src) {
   const out = [], t = triggers(src);
@@ -79,6 +93,8 @@ export function violations(file, src) {
     if (list.length > 5) for (const j of js) if (!needsOf(j).length && !/^    if:.*github\.event\.(workflow_run|check_suite|check_run)/m.test(j.text)) out.push(`${file}: workflow_run nghe ${list.length} workflow (> 5) mà job "${j.id}" không có cổng skip theo github.event.workflow_run`);
     if (!/cancel-in-progress:\s*true/.test(src) && !reason(src, 'queue')) out.push(`${file}: nghe ${chain.join('/')} cần concurrency cancel-in-progress: true (hoặc dòng "# ci-policy: queue – <lý do>")`);
   }
+  if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
+    for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
   return out;
 }
 /** Tên các workflow trong workflow_run.workflows (dạng [a, b] hoặc danh sách - 'a'). */
@@ -140,6 +156,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const six = ['A', 'B', 'C', 'D', 'E', 'F'];
   ok(violations('w.yml', wr(six, '    if: always()\n')).some(v => /> 5/.test(v)), 'danh sách workflow_run > 5 mà if không lọc theo sự kiện → lỗi (kiểu required-gate cũ)');
   ok(violations('w.yml', wr(six)).length === 0, 'danh sách > 5 có cổng skip theo github.event.workflow_run → đạt');
+  { const pr = m => `name: m\non:\n  pull_request:\n    paths: ['a/**']\nconcurrency: { group: m, cancel-in-progress: true }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    timeout-minutes: 5\n    strategy:\n      fail-fast: false\n      matrix:\n${m}\n    steps: []\n`;
+    ok(matrixLegs(pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]')) === 6, 'matrix tích 3×2 = 6');
+    ok(matrixLegs(pr(`        part: \${{ fromJSON(inputs.p && format('["{0}"]', inputs.p) || '["static","landing","legal","app","admin","blog","ext"]') }}`)) === 7, 'fromJSON literal: lấy nhánh lớn nhất (7)');
+    ok(matrixLegs(pr(`        group: \${{ fromJSON(inputs.p && format('[{{"name":"{0}","parts":"{0}"}}]', inputs.p) || '[{"name":"site","parts":"a b"},{"name":"app","parts":"app"}]') }}`)) === 2, 'mảng object JSON đếm theo phần tử (2)');
+    ok(matrixLegs("  a:\n    strategy: { fail-fast: false, matrix: { ep: '${{ fromJSON(needs.p.outputs.list) }}' } }\n    steps: []\n") === 0, 'matrix động (output job) không tính');
+    ok(violations('m.yml', pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]')).some(v => /matrix 6 nhánh/.test(v)), 'PR + matrix 6 nhánh, không lý do → lỗi');
+    ok(violations('m.yml', '# ci-policy: matrix – đo hiệu năng từng máy phải tách runner\n' + pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]')).length === 0, 'có lý do → đạt');
+    ok(violations('m.yml', pr('        lang: [vi, en, ar]')).length === 0, 'matrix 3 nhánh → đạt');
+    ok(violations('m.yml', pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]').replace("  pull_request:\n    paths: ['a/**']", '  workflow_dispatch:')).length === 0, 'chỉ dispatch → không áp luật matrix'); }
   ok(violations('c.yml', "name: c\non:\n  check_suite:\n    types: [completed]\nconcurrency: { group: c, cancel-in-progress: true }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    steps: []\n").some(v => /thiếu if/.test(v)), 'check_suite job thiếu if → lỗi');
   ok(workflowRunList("on:\n  workflow_run:\n    workflows:\n      - 'Một'\n      - Hai # x\n    types: [completed]\n").join() === 'Một,Hai', 'đọc danh sách workflow_run dạng khối');
   ok(chainCycles([['a.yml', wr(['B']).replace('name: w', 'name: A')], ['b.yml', wr(['A']).replace('name: w', 'name: B')]]).length === 1, 'vòng A → B → A → lỗi');

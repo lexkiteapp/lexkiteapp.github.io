@@ -6,7 +6,7 @@
 // Kết quả: 1 issue nhãn ci-failure "Lịch CI không chạy" (marker ci-triage:cron) – cập nhật khi còn, tự đóng khi hết. Test: scripts/test/cron-watch.mjs.
 import fs from 'node:fs';
 import { starts } from '../test/jobs-check.mjs';
-import { isZombie, zombieRuns } from './zombie.mjs';
+import { isZombie, zombieRuns, stuckJobs, STUCK_JOB_MIN } from './zombie.mjs';
 
 const W = 7 * 1440;
 // Tắt có chủ ý (memory/METHODS: 7 workflow GrabCast giữ TẮT tới khi all-clear + số egress) – thêm mục mới phải kèm lý do
@@ -101,9 +101,11 @@ export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflo
     }
   }
   const cron = bad.length, zombies = await zombieRuns(gh, { now, cancel: kick }).catch(e => { console.log('::warning::zombie: ' + e.message); return []; });
-  for (const z of zombies) bad.push({ file: z.file, kind: 'zombie', why: `lượt ${z.id} queued ${z.min} phút, 0 job${z.cancel ? (z.cancel === 'ok' ? ' → đã huỷ' : ` · huỷ không được (${z.cancel}): chỉ còn DELETE /actions/runs/${z.id}`) : ''}` });
+  for (const z of zombies) bad.push({ file: z.file, kind: 'zombie', why: `lượt ${z.id} queued ${z.min} phút, 0 job${z.cancel ? (z.cancel === 'ok' ? ' → đã huỷ' : z.deleted === true ? ` · huỷ không được (${z.cancel}) → đã DELETE` : ` · huỷ không được (${z.cancel}): chỉ còn DELETE /actions/runs/${z.id}${z.deleted ? ` (DELETE lỗi: ${z.deleted})` : ' (tự xoá khi quá 24 giờ)'}`) : ''}` });
+  const zc = bad.length, stuck = await stuckJobs(gh, { now }).catch(e => { console.log('::warning::stuck-jobs: ' + e.message); return []; });
+  for (const s of stuck) bad.push({ file: s.file, kind: 'stuck', why: `lượt ${s.id}: ${s.jobs} job queued tới ${s.min} phút (> ${STUCK_JOB_MIN}) – max-parallel giữ, nhãn runner sai, hoặc hàng chờ quá tải (đo busy/40 trước khi kết luận)` });
   const line = b => `- \`${b.file}\`: ${b.why}\n`;
-  const md = (cron ? `#### ⛔ Lịch CI không chạy (${cron})\n` + bad.slice(0, cron).map(line).join('') : '- Lịch cron: mọi workflow có lượt schedule đúng hạn.\n') + (zombies.length ? `#### 🧟 Lượt kẹt queued không job (${zombies.length})\n` + bad.slice(cron).map(line).join('') : '');
+  const md = (cron ? `#### ⛔ Lịch CI không chạy (${cron})\n` + bad.slice(0, cron).map(line).join('') : '- Lịch cron: mọi workflow có lượt schedule đúng hạn.\n') + (zombies.length ? `#### 🧟 Lượt kẹt queued không job (${zombies.length})\n` + bad.slice(cron, zc).map(line).join('') : '') + (stuck.length ? `#### ⏳ Job xếp hàng > ${STUCK_JOB_MIN / 60} giờ (${stuck.length})\n` + bad.slice(zc).map(line).join('') : '');
   return { bad, md };
 }
 /** Issue: còn lỗi → mở/cập nhật; hết → đóng. */

@@ -11,6 +11,7 @@
 | Logo ngang / đơn sắc | `brand/lexkite-logo-{light,dark}.svg`, `brand/lexkite-mark*.svg` | cùng tông icon.svg |
 | Wordmark | "lex" màu chữ + "kite" gradient #E5502F → #FFB054 (`.wordmark b`, `.grad-text` trong `web/css/style.css`) | |
 | Mạng xã hội | `brand/social/` (dựng bằng `scripts/build-social-kit.mjs`) | đọc Kit từ kit.js |
+| Avatar + bìa kênh (FB/IG/TikTok/YouTube, chỉ tiếng Anh) | `brand/social/channel-kit/` (dựng trên CI: `scripts/social/build-channel-kit.mjs`, workflow social-channel-kit) | nguyên logo, Ama/Carlos, QC tự động |
 | Trang trình bày brand | `brand/brand-kit.html` | nạp `../web/js/kit.js` |
 
 ## Nhãn hiệu "Lexkite™"

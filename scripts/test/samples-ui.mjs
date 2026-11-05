@@ -3,7 +3,7 @@
 // 2) HTML đã dựng (nếu dist/ mới hơn bộ dựng): trang bài mẫu + mục lục vi/en có đủ khối mới, canonical/hreflang/JSON-LD giữ nguyên.
 import fs from 'node:fs';
 import { loadWriting } from '../lib/seo-data.mjs';
-import { t2Key, bentoSpans, VIS_CSS } from '../lib/samples-visual.mjs';
+import { t2Key, catNav, VIS_CSS } from '../lib/samples-visual.mjs';
 import { S, placeTip, parseDoc, docStats, docHtml, sideHtml, phraseCards, pager2, typeFilter, smpTail, SMP_CSS, SMP_JS } from '../lib/samples-ui.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
@@ -47,7 +47,9 @@ for (const f of ARTS) { const x = fs.readFileSync(`web/img/lib/${f}`, 'utf8'); o
 for (const a of ['ad', 'di', 'ps', 'av', 'pn', 'tp', 'education', 'crime', 'economy', 'formal', 'semi', 'informal', 't-line', 't-map', 'v-exam', 'g-academic', 'p-stress', 'doc', 'medal', 'phrase', 'clock', 'q']) ok(ARTS.includes(a + '.svg'), `thiếu huy hiệu ${a}`);
 const { PROMPTS: WP, MODELS: WM } = loadWriting(), done = WP.filter(p => WM.some(m => m.id === 't2-' + p.id));
 for (const p of done) { for (const l of ['vi', 'en']) { const k = t2Key(p.id, l, p.text); ok(k.split(/\s+/).length <= (l === 'vi' ? 8 : 6) && !k.endsWith('…'), `${p.id}/${l}: tiêu đề ngắn, soạn tay (${k})`); } }
-for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9]) { const s = bentoSpans(n), d = s.reduce((a, c) => a + (/d2/.test(c) ? 2 : 1), 0), p = s.reduce((a, c) => a + (/p2/.test(c) ? 2 : 1), 0); ok(n === 1 || d % 4 === 0, `bento ${n}: desktop không hở (${d})`); ok(p % 2 === 0, `bento ${n}: điện thoại không hở (${p})`); }
+// Bộ chọn danh mục (thay bento + hàng chip trùng): MỘT nav, ô nào cũng cùng lớp (không ô rộng/hẹp), cùng cỡ huy hiệu, có ô "Tất cả", số đếm cùng chỗ
+for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9]) { const h = catNav(Array.from({ length: n }, (_, i) => [`g${i}`, `Nhóm ${i}/x`, i + 1, i % 2 ? 't-ad' : '', 'doc']), 99, 'vi', 'Lọc', x => x), tiles = h.match(/<a class="vcn-i[^"]*"/g) || [];
+  ok((h.match(/<nav /g) || []).length === 1 && tiles.length === n + 1 && !/\b(d2|p2)\b/.test(h) && (h.match(/width="36" height="36"/g) || []).length === n + 1 && (h.match(/<span class="n">\d+<\/span><\/a>/g) || []).length === n + 1 && /data-g="" /.test(h.replace('data-g=""', 'data-g="" ')) && /aria-labelledby="vcn-l"/.test(h) && /<wbr>/.test(h), `catNav ${n}: 1 nav, ${n + 1} ô đồng nhất, huy hiệu 36, số đếm cuối ô, ô Tất cả, nhãn nhìn thấy`); }
 ok(!/#[0-9a-fA-F]{3,8}\b/.test(VIS_CSS.replace(/url\("data:[^"]*"\)/g, '')), 'VIS_CSS chỉ dùng token màu');
 ok(/\.vh-t\{[^}]*overflow:hidden/.test(VIS_CSS) && /margin-bottom:-13%/.test(VIS_CSS), 'giáo viên: cắt phần mờ chân ảnh ở sàn (cấm thân mờ dần)');
 
@@ -71,7 +73,7 @@ if (Object.values(P).every(fresh)) {
   for (const k of ['vi', 'en']) ok(/hreflang="vi"/.test(h[k]) && /hreflang="en"/.test(h[k]) && /hreflang="x-default"/.test(h[k]), `${k}: hreflang vi/en/x-default`);
   ok(/Kết bài/.test(h.vi) && /Conclusion/.test(h.en) && !/Kết bài|Mở bài|Thân bài/.test(h.en), 'nhãn đoạn đúng ngôn ngữ (en không lộ tiếng Việt)');
   for (const k of ['viIdx', 'enIdx']) {
-    ok(/<nav class="tf"/.test(h[k]) && (h[k].match(/class="card set vc t-/g) || []).length >= 80 && (h[k].match(/<p class="vc-q">[^<]{40,}/g) || []).length >= 80 && (h[k].match(/class="vb-i/g) || []).length === 6 && /class="tfb tfb-r"/.test(h[k]) && /class="vh-t"/.test(h[k]) && /"@type":"ItemList"/.test(h[k]) && /id="q"/.test(h[k]), `${k}: chip lọc dạng đề, ≥ 80 thẻ có màu, ItemList, ô lọc`);
+    ok(/<nav class="tf vcn"/.test(h[k]) && (h[k].match(/<nav class="tf/g) || []).length === 1 && (h[k].match(/class="card set vc t-/g) || []).length >= 80 && (h[k].match(/<p class="vc-q">[^<]{40,}/g) || []).length >= 80 && (h[k].match(/class="vcn-i/g) || []).length === 7 && !/class="vb-i/.test(h[k]) && /class="tfb tfb-r"/.test(h[k]) && /class="vh-t"/.test(h[k]) && /"@type":"ItemList"/.test(h[k]) && /id="q"/.test(h[k]), `${k}: chip lọc dạng đề, ≥ 80 thẻ có màu, ItemList, ô lọc`);
   }
   ok(/id="part-2"/.test(h.sp) && /class="q cue"/.test(h.sp) && /class="qa"/.test(h.sp) && /<ul class="vch">/.test(h.sp) && /<nav class="pg2"/.test(h.sp), 'speaking: phần thi, cue card, Q&A, từ vựng, chủ đề trước/sau');
   ok(/class="ess2 letter"/.test(h.lt), 'thư mẫu: giao diện giấy viết thư');

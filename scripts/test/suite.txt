@@ -13,6 +13,7 @@ node scripts/test/bundle-names.mjs web
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ext-sync.mjs
 node scripts/test/sync-drive.mjs
+node scripts/test/sync-ext-drive.mjs
 node scripts/test/account-flow.mjs
 node scripts/vi-lint.mjs
 node scripts/cws-check.mjs
@@ -22,6 +23,8 @@ node scripts/asc-upload.mjs --check
 node scripts/i18n-missing.mjs --strict
 node scripts/i18n-qa.mjs --strict
 node scripts/test/situations.mjs
+node scripts/content-qa/mediation-check.mjs
+node scripts/test/mediation.mjs
 node scripts/speak/build.mjs
 node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
@@ -92,8 +95,11 @@ node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
+node scripts/test/social-preview.mjs
+node scripts/test/social-admin.mjs
 node scripts/test/social-meta.mjs
 node scripts/test/social-meta-oauth.mjs
+node scripts/test/social-first-comment.mjs
 node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
@@ -120,6 +126,7 @@ node scripts/test/ci-filler.mjs
 node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
+node scripts/test/queue-report.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/focus-targets.mjs
@@ -137,6 +144,10 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-tabs.mjs
+node scripts/test/admin-gh.mjs
+node scripts/test/admin-metrics.mjs
+node scripts/test/admin-map-colors.mjs
 node scripts/test/ads.mjs
 node scripts/test/ads-admin.mjs
 node scripts/test/ads-revenue.mjs
@@ -202,6 +213,7 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
+node scripts/social/build-channel-kit.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
@@ -210,6 +222,8 @@ node scripts/test/content-qa.mjs
 node scripts/content-qa/gate.mjs
 node scripts/test/blog-images.mjs
 node scripts/test/blog-captions.mjs
+node scripts/test/blog-youtube.mjs
+node scripts/test/blog-lang-gates.mjs
 node scripts/blog-schedule.mjs --verify
 node scripts/test/axe.js web
 node scripts/test/crawl.js web
@@ -260,7 +274,16 @@ node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
+node scripts/test/haptics.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
 node scripts/test/workflow-yaml.mjs
+node scripts/test/workflow-yaml.mjs
+node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/test/legal-i18n.mjs
+node scripts/test/token-drift.mjs --self
+node scripts/test/token-drift.mjs
+node scripts/test/st-web-i18n.mjs
+node scripts/test/origin-fetch.mjs
+node scripts/test/v2pre-ring.mjs
