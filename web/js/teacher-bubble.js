@@ -113,7 +113,7 @@
     if (cell) cell.classList.add('tb-on'); if (bubble) bubble.classList.add('tb-b');
 
     // --- mũi nhọn bong bóng thẳng hàng miệng Ama (đo hộp ảnh 1 lần/khi đổi cỡ, ngoài vòng gõ) ---
-    const pointers = bubble ? [...(o.pointerEl ? [].concat(o.pointerEl) : bubble.querySelectorAll(':scope > div.absolute')).filter(p => /(^|\s)-left-/.test(p.className))] : [];
+    const pointers = bubble ? [...(o.pointerEl ? [].concat(o.pointerEl) : bubble.querySelectorAll(':scope > div.absolute'))].filter(p => /(^|\s)-left-/.test(p.className)) : [];
     let placeRaf = 0;
     const place = () => { placeRaf = 0; if (dead || !slot || !bubble) return; const im = slot.querySelector('.tslot-img'); if (!im) return; const r = im.getBoundingClientRect(), b = bubble.getBoundingClientRect(); if (!r.height || !b.height) return;
       const py = Math.round(clamp(r.top + r.height * MOUTH_Y - b.top, 14, b.height - 14)); bubble.style.setProperty('--tb-py', py + 'px');
