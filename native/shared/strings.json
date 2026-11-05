@@ -1,0 +1,18 @@
+{
+  "_doc": "Native string IDs → Vietnamese source key (the same key web code passes to t()). Translations are NEVER written here: scripts/native/gen.mjs resolves every key from the web i18n sources (web/js/i18n/en/*.js + i18n/ui/<lang>) for all 15 languages and fails if one is missing. Add a key here only after it exists in the web pipeline (docs/I18N-PIPELINE.md).",
+  "tab.today": "Hôm nay",
+  "tab.vocab": "Từ vựng",
+  "tab.skills": "Kỹ năng",
+  "tab.tests": "Thi",
+  "tab.me": "Tôi",
+  "action.close": "Đóng",
+  "action.back": "Quay lại",
+  "action.continue": "Tiếp tục",
+  "action.check": "Kiểm tra",
+  "today.goal": "Mục tiêu hôm nay",
+  "today.streak": "Chuỗi ngày học",
+  "today.readiness": "Mức sẵn sàng thi",
+  "me.account": "Tài khoản",
+  "me.totalXp": "Tổng XP",
+  "me.progress": "Tiến độ"
+}

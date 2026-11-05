@@ -1,0 +1,17 @@
+{
+  "tab.today": "Aujourd'hui",
+  "tab.vocab": "Vocabulaire",
+  "tab.skills": "Compétences",
+  "tab.tests": "Examens",
+  "tab.me": "Profil",
+  "action.close": "Fermer",
+  "action.back": "Retour",
+  "action.continue": "Continuer",
+  "action.check": "Vérifier",
+  "today.goal": "Objectif du jour",
+  "today.streak": "Série d'étude",
+  "today.readiness": "Préparation à l’examen",
+  "me.account": "Compte",
+  "me.totalXp": "XP total",
+  "me.progress": "Progrès"
+}

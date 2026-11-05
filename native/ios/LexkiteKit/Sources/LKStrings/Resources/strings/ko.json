@@ -1,0 +1,17 @@
+{
+  "tab.today": "오늘",
+  "tab.vocab": "어휘",
+  "tab.skills": "영역별 연습",
+  "tab.tests": "시험",
+  "tab.me": "내 정보",
+  "action.close": "닫기",
+  "action.back": "뒤로",
+  "action.continue": "계속",
+  "action.check": "확인",
+  "today.goal": "오늘의 목표",
+  "today.streak": "연속 학습",
+  "today.readiness": "시험 준비도",
+  "me.account": "계정",
+  "me.totalXp": "총 XP",
+  "me.progress": "진도"
+}

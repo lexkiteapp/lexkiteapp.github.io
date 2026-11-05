@@ -264,3 +264,7 @@ node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/native/gen.mjs --check
+node scripts/test/native-one-source.mjs --self-test
+node scripts/test/native-one-source.mjs
+node scripts/test/native-parity.mjs

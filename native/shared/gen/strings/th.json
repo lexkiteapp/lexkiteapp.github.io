@@ -1,0 +1,17 @@
+{
+  "tab.today": "วันนี้",
+  "tab.vocab": "คำศัพท์",
+  "tab.skills": "ทักษะ",
+  "tab.tests": "สอบ",
+  "tab.me": "โปรไฟล์",
+  "action.close": "ปิด",
+  "action.back": "ย้อนกลับ",
+  "action.continue": "ต่อไป",
+  "action.check": "ตรวจคำตอบ",
+  "today.goal": "เป้าหมายวันนี้",
+  "today.streak": "วันเรียนต่อเนื่อง",
+  "today.readiness": "ความพร้อมสอบ",
+  "me.account": "บัญชี",
+  "me.totalXp": "XP รวม",
+  "me.progress": "ความคืบหน้า"
+}

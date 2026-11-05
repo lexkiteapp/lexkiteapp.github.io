@@ -1,0 +1,17 @@
+{
+  "tab.today": "Сегодня",
+  "tab.vocab": "Слова",
+  "tab.skills": "Навыки",
+  "tab.tests": "Тесты",
+  "tab.me": "Профиль",
+  "action.close": "Закрыть",
+  "action.back": "Назад",
+  "action.continue": "Продолжить",
+  "action.check": "Проверить",
+  "today.goal": "Цель на сегодня",
+  "today.streak": "Серия занятий",
+  "today.readiness": "Готовность к экзамену",
+  "me.account": "Аккаунт",
+  "me.totalXp": "Всего XP",
+  "me.progress": "Прогресс"
+}

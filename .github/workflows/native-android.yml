@@ -1,0 +1,53 @@
+# App Android NATIVE (Kotlin + Jetpack Compose, native/android) – build + test trên Ubuntu (không cần máy ảo: Robolectric + Roborazzi).
+# Kiểm: vector chuẩn chấm điểm/FSRS khớp web, đủ 15 ngôn ngữ, khung 5 tab, snapshot 390 dp sáng/tối × en/vi/ar/de, build APK debug.
+# Spec: docs/specs/native-apps.md. Bản Capacitor đang live vẫn ở mobile/ (android.yml) cho tới khi native đạt parity.
+name: Native Android (Compose)
+on:
+  pull_request:
+    paths: ['native/android/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-android.yml']
+  push:
+    branches: [main]
+    paths: ['native/android/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-android.yml']
+  workflow_dispatch:
+    inputs:
+      record: { description: 'Ghi lại ảnh snapshot chuẩn (khi đổi giao diện có chủ đích)', type: boolean, default: false }
+permissions:
+  contents: read
+concurrency:
+  group: native-android-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Một nguồn – file sinh khớp nguồn web
+        run: node scripts/native/gen.mjs --check
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: '8.14.3' }
+      - name: Test (chuẩn + snapshot)
+        working-directory: native/android
+        run: |
+          if [ "${{ inputs.record }}" = "true" ] || ! ls app/src/test/snapshots/*.png >/dev/null 2>&1; then
+            echo "::warning::Chưa có ảnh snapshot chuẩn → ghi lần đầu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
+            gradle --no-daemon -q :app:recordRoborazziDebug
+          fi
+          gradle --no-daemon :app:verifyRoborazziDebug
+          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 5 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
+      - name: Build APK debug
+        working-directory: native/android
+        run: gradle --no-daemon :app:assembleDebug && ls -la app/build/outputs/apk/debug/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-android-snapshots
+          path: |
+            native/android/app/src/test/snapshots
+            native/android/app/build/reports/tests
+            native/android/app/build/outputs/roborazzi
+          retention-days: 14

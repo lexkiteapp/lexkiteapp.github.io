@@ -1,0 +1,68 @@
+# App iOS NATIVE (SwiftUI, native/ios) – build + test trên máy macOS của GitHub (repo công khai, miễn phí). Không build trên Mac của chủ.
+# Kiểm: vector chuẩn chấm điểm/FSRS khớp web, đủ 15 ngôn ngữ, khung 5 tab, snapshot 390 pt sáng/tối × en/vi/ar/de, build app (XcodeGen, không ký).
+# Spec: docs/specs/native-apps.md. Bản Capacitor đang live vẫn ở mobile/ (ios.yml, ios-testflight.yml) cho tới khi native đạt parity.
+name: Native iOS (SwiftUI)
+on:
+  pull_request:
+    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml']
+  push:
+    branches: [main]
+    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml']
+  workflow_dispatch:
+    inputs:
+      record: { description: 'Ghi lại ảnh snapshot chuẩn (khi đổi giao diện có chủ đích)', type: boolean, default: false }
+permissions:
+  contents: read
+concurrency:
+  group: native-ios-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  ios:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Một nguồn – file sinh khớp nguồn web (tokens, chuỗi 15 ngôn ngữ, khung, vector chấm điểm)
+        run: node scripts/native/gen.mjs --check
+      - name: Chọn Xcode 26 (App Store chỉ nhận SDK iOS 26+)
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          if [ -n "$X" ]; then sudo xcode-select -s "$X/Contents/Developer"; else echo "::warning::Chưa có Xcode 26 trên máy chủ"; fi
+          xcodebuild -version
+      - name: Chọn iPhone giả lập
+        id: sim
+        run: |
+          DEV=$(xcrun simctl list devices available | grep -m1 -oE 'iPhone 1[5-9][^(]*\(([A-F0-9-]+)\)' | grep -oE '[A-F0-9-]{36}')
+          test -n "$DEV" && echo "dest=platform=iOS Simulator,id=$DEV" >> "$GITHUB_OUTPUT"
+      - name: Test LexkiteKit (chuẩn + snapshot)
+        working-directory: native/ios/LexkiteKit
+        env: { DEST: '${{ steps.sim.outputs.dest }}' }
+        run: |
+          SCHEME=$(xcodebuild -list -json | python3 -c 'import json,sys;s=json.load(sys.stdin)["workspace"]["schemes"];print(next((x for x in s if x.endswith("-Package")),s[0]))')
+          echo "scheme=$SCHEME"
+          T="xcodebuild test -scheme $SCHEME -destination $DEST -skipPackagePluginValidation"
+          if [ "${{ inputs.record }}" = "true" ] || ! ls Tests/LKSnapshotTests/__Snapshots__/*/*.png >/dev/null 2>&1; then
+            echo "::warning::Chưa có ảnh snapshot chuẩn → ghi lần đầu, rồi chạy lại để kiểm ổn định; tải artifact native-ios-snapshots và commit vào Tests/LKSnapshotTests/__Snapshots__"
+            SNAPSHOT_RECORD=1 $T -only-testing:LKSnapshotTests > "$RUNNER_TEMP/record.log" 2>&1 || true
+            tail -5 "$RUNNER_TEMP/record.log"
+          fi
+          set -o pipefail
+          $T 2>&1 | tail -60
+          ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 10 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
+      - name: Build app (XcodeGen → simulator, không ký)
+        working-directory: native/ios
+        run: |
+          command -v xcodegen >/dev/null || brew install xcodegen
+          xcodegen generate
+          set -o pipefail
+          xcodebuild -project Lexkite.xcodeproj -scheme Lexkite -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tail -30
+          test -d build/Build/Products/Debug-iphonesimulator/Lexkite.app
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-ios-snapshots
+          path: native/ios/LexkiteKit/Tests/LKSnapshotTests/__Snapshots__
+          retention-days: 14

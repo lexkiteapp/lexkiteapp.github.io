@@ -1,0 +1,17 @@
+{
+  "tab.today": "आज",
+  "tab.vocab": "शब्दावली",
+  "tab.skills": "कौशल",
+  "tab.tests": "परीक्षा",
+  "tab.me": "प्रोफ़ाइल",
+  "action.close": "बंद करें",
+  "action.back": "वापस",
+  "action.continue": "जारी रखें",
+  "action.check": "जाँचें",
+  "today.goal": "आज का लक्ष्य",
+  "today.streak": "लगातार पढ़ाई",
+  "today.readiness": "परीक्षा तैयारी",
+  "me.account": "खाता",
+  "me.totalXp": "कुल XP",
+  "me.progress": "प्रगति"
+}

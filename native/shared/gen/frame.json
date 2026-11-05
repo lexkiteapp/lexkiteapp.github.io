@@ -1,0 +1,47 @@
+{
+  "width": 390,
+  "gutter": 16,
+  "minTap": 44,
+  "tabs": [
+    {
+      "k": "home",
+      "route": "home",
+      "icon": "home",
+      "sf": "house.fill",
+      "compose": "Home",
+      "label": "tab.today"
+    },
+    {
+      "k": "vocab",
+      "route": "vocab",
+      "icon": "menu_book",
+      "sf": "book.fill",
+      "compose": "MenuBook",
+      "label": "tab.vocab"
+    },
+    {
+      "k": "skills",
+      "route": "skills",
+      "icon": "target",
+      "sf": "target",
+      "compose": "TrackChanges",
+      "label": "tab.skills"
+    },
+    {
+      "k": "tests",
+      "route": "tests",
+      "icon": "flag",
+      "sf": "flag.fill",
+      "compose": "Flag",
+      "label": "tab.tests"
+    },
+    {
+      "k": "me",
+      "route": "me",
+      "icon": "person",
+      "sf": "person.fill",
+      "compose": "Person",
+      "label": "tab.me"
+    }
+  ]
+}

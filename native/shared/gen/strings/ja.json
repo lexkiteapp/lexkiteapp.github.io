@@ -1,0 +1,17 @@
+{
+  "tab.today": "今日",
+  "tab.vocab": "単語",
+  "tab.skills": "スキル",
+  "tab.tests": "試験",
+  "tab.me": "マイページ",
+  "action.close": "閉じる",
+  "action.back": "戻る",
+  "action.continue": "続ける",
+  "action.check": "答え合わせ",
+  "today.goal": "今日の目標",
+  "today.streak": "連続学習日数",
+  "today.readiness": "試験準備度",
+  "me.account": "アカウント",
+  "me.totalXp": "合計 XP",
+  "me.progress": "進捗"
+}
