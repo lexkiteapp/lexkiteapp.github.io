@@ -114,6 +114,14 @@ s = z(1.12, ox, hx1, cap0, 12); print(json.dumps(dict(s=s, edge=ox + (hx1 - ox) 
   ok(/full: \{ tilt: s\.tilt, nod: s\.nod, sway: s\.sway, breath: s\.breath/.test(h) && /matches_main/.test(h) && /max_delta/.test(h), 'diagnosis compares idle transforms, pixel deltas and a fresh-process frame 0');
   ok(/\$\{\{ env\.O \}\}\/rig\.diag\//.test(wf), 'teach-video.yml uploads rig.diag with the render artifact (always)');
 }
+// ---- first frame of a pose never waits for a redraw at the same instant (run 42047456815: react 'point' on a frame sample -> 15 s deadlock) ----
+{
+  const h = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/rig_host.mjs'), 'utf8'), rg = fs.readFileSync(path.join(ROOT, 'web/js/teacher-rig.js'), 'utf8');
+  ok(/gesture\(name\) \{[^\n]*ready\.then\(\(\) => \(G && G\.kind === 'pose' \? loadPose\([^\n]*\.then\(\(\) => !dead && M\.gesture\(/.test(rg), 'teacher-rig gesture() applies a pose only after loadPose resolved (rig_host relies on it)');
+  ok(/else await page\.evaluate\(n => rig\.gesture\(n\), e\.name\)/.test(h), 'rig_host awaits rig.gesture (the still is loaded before the next frame)');
+  ok(/await page\.clock\.pauseAt\(2 \* BASE - base\)/.test(h) && /Math\.abs\(base - BASE\) > 1e-6\) die/.test(h), 'rig_host: every page starts at performance.now() == BASE (timeOrigin cancelled; idle breath is a function of absolute time)');
+  ok(!/while \(o\.draws === d0\)/.test(h) && /was never served/.test(h), 'rig_host: no same-instant redraw wait; a pose still that was never served fails loudly');
+}
 const bsrc = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8');
 ok(!/\['1st', 'accent'\]|\['2nd', 'accent'\]|f"…-\{o\[1\]\}-…"/.test(bsrc), 'build.py T_stress has no hard-coded 1st/2nd or option positions');
 

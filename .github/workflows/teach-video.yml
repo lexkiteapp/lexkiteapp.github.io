@@ -144,7 +144,7 @@ jobs:
         run: |
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --out $O/qc_pre.json
           for A in dark dusk light; do [ $A = $TH ] || python3 scripts/video/teach2d/qc.py --timeline $O/props_$A.json.timeline.json --out $O/qc_pre_$A.json; done
-          for L in side bubble; do [ -f $O/props_lay_$L.json ] && python3 scripts/video/teach2d/qc.py --timeline $O/props_lay_$L.json.timeline.json --out $O/qc_pre_lay_$L.json; done; true
+          for L in corner side bubble; do [ -f $O/props_lay_$L.json ] && python3 scripts/video/teach2d/qc.py --timeline $O/props_lay_$L.json.timeline.json --out $O/qc_pre_lay_$L.json; done; true
       - uses: actions/cache@v4
         with: { path: scripts/video/remotion/node_modules, key: 'remotion-${{ hashFiles(''scripts/video/remotion/package-lock.json'') }}-v1' }
       - name: Remotion (Chrome Headless Shell)
@@ -160,8 +160,9 @@ jobs:
               npx remotion still src/index.jsx teach-short "$R/alt_${A}_$t.png" --props="$R/props_$A.json" --public-dir="$R/pub_$A" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           if [ ${{ matrix.fmt }} = short ]; then
             TS=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (3,len(L)-3)))")
-            for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_corner_$t.png"
-              for L in side bubble; do npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
+            LAY=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));print(T.get('layout') or 'corner')")   # the mix layout of the real render (mix.py) – stills for the OTHER two
+            for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_${LAY}_$t.png"
+              for L in corner side bubble; do [ $L = $LAY ] && continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           fi
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
         shell: bash

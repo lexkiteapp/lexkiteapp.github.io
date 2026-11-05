@@ -40,4 +40,7 @@ console.log(JSON.stringify({ ev, g, bogus: geomPoses(null, { g_line:'nope' }).le
 o = json.loads(r.stdout or '{}') if r.returncode == 0 else {}
 check('thumbs_up' in o.get('ev', []) and 'point' in o.get('ev', []), f"rig schedule plays the mix gestures {o.get('ev')} {r.stderr[-200:]}")
 check({'hold_card', 'clap'} <= set(o.get('g', [])) and o.get('bogus'), 'static geom covers mix poses; an unknown name changes nothing')
+WF = open(f'{ROOT}/.github/workflows/teach-video.yml').read()   # run 42047456815: side main layout -> stills step asked for props_lay_side.json that was never built
+check('for L in side bubble' not in WF and WF.count('for L in corner side bubble') >= 3 and WF.count('[ $L = $LAY ] && continue') >= 2 and 'lay_${LAY}_$t.png' in WF,
+      'layout stills follow the mix layout (real frame for it, Remotion stills for the other two)')
 print('teach2d-mix: ' + ('đạt' if ok else 'TRƯỢT')); sys.exit(0 if ok else 1)

@@ -36,11 +36,11 @@ const LAUNCH = { args: ['--disable-gpu', '--force-color-profile=srgb', '--disabl
 let browser = await chromium.launch(LAUNCH);
 const sleep = t => new Promise(r => setTimeout(r, t));
 async function open(who) {
-  const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1, reducedMotion: 'no-preference' }), miss = [];
+  const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1, reducedMotion: 'no-preference' }), miss = [], served = new Set();
   await ctx.route('**/*', r => {
     const u = new URL(r.request().url()); if (u.pathname === '/rig.html') return r.fulfill({ body: PAGE(who), contentType: 'text/html' });
     const f = path.join(ROOTW, decodeURIComponent(u.pathname)); if (!f.startsWith(ROOTW) || !fs.existsSync(f)) { miss.push(u.pathname); return r.fulfill({ status: 404, body: '' }); }
-    r.fulfill({ body: fs.readFileSync(f), contentType: TYPES[path.extname(f).slice(1)] || 'application/octet-stream' });
+    served.add(u.pathname); r.fulfill({ body: fs.readFileSync(f), contentType: TYPES[path.extname(f).slice(1)] || 'application/octet-stream' });
   });
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(String(e))); page.on('console', m => m.type() === 'error' && errs.push(m.text()));
   await page.clock.install({ time: 0 });   // BEFORE the page loads: Date / performance.now / setTimeout are fake from the first script on
@@ -49,9 +49,14 @@ async function open(who) {
     let st = 0; for (let i = 0; i < 600 && !st; i++) { st = await page.evaluate(() => (window.rig.stats.ready ? 1 : window.rig.stats.failed ? -1 : 0)); if (!st) await sleep(50); }
     if (st !== 1) die(`TeacherRig did not mount (${st}) – missing: ${miss.join(' ')} ${errs.join(' | ')}`);
   }
+  // performance.now() = fake Date - timeOrigin, and timeOrigin = the fake time the page LOADED at (real load time after install, varies per run):
+  // pauseAt(BASE) alone left base = BASE - load ms -> idle breath (sin of absolute now) shifted between main and re-run (run 42047456815:
+  // "59/60 differ", diag state-drift, breath 3 frames apart). Second pauseAt cancels the origin so every page starts at exactly BASE.
   await page.clock.pauseAt(BASE);
-  const base = await page.evaluate(() => performance.now());
-  return { ctx, page, errs, miss, base };
+  let base = await page.evaluate(() => performance.now());
+  if (base !== BASE) { await page.clock.pauseAt(2 * BASE - base); base = await page.evaluate(() => performance.now()); }
+  if (Math.abs(base - BASE) > 1e-6) die(`page clock base ${base} != ${BASE} after cancelling timeOrigin`);
+  return { ctx, page, errs, miss, served, base };
 }
 
 /** Static geometry (same schema as host.py geom.json): alpha union of the bare head + every pose still the render may show, under every
@@ -131,9 +136,11 @@ async function run(upto, capture, sink) {
     await to(ts);
     const cap = capture(f); let o = await PUMP(cap ? { draws: prevCap ? lastDraws : -1 } : null);
     if (Math.abs(o.now - ts) > 0.01) die(`frame ${f}: page clock ${o.now} != ${ts} (performance.now is not the faked clock)`);
-    if (o.st.pose && !loaded.has(o.st.pose)) {   // first frame of a pose: wait (real time) until the rig's lazy still has loaded, redraw at the same instant
-      const d0 = o.draws; let t0 = Date.now();
-      while (o.draws === d0) { if (Date.now() - t0 > 15000) die(`pose still ${o.st.pose} did not load`); await sleep(25); o = await PUMP(cap ? { draws: -1 } : null); }
+    if (o.st.pose && !loaded.has(o.st.pose)) {
+      // first frame of a pose: rig.gesture() applies a pose only AFTER its still has loaded + scaled (teacher-rig loadPose, awaited by the
+      // evaluate above), so nothing is pending here. Waiting for one more draw at the SAME instant deadlocked when the gesture landed exactly
+      // on a frame sample (poseW 0 -> the frame key is unchanged -> no redraw ever; run 42047456815 react 'point'). Prove the still was served.
+      if (![...R.served].some(u => u.endsWith(`/still-${o.st.pose}.webp`))) die(`pose still ${o.st.pose} was never served (missing: ${R.miss.join(' ')})`);
       loaded.add(o.st.pose);
     }
     if (cap) { if (o.png) last = { png: Buffer.from(o.png.split(',')[1], 'base64'), bbox: o.bbox, size: o.size }; await sink(f, last); }
