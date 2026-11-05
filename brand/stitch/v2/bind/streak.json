@@ -179,7 +179,13 @@
       ":scope > span": "e(r.l)"
      },
      "addClass": {
-      ":scope > div > span": "fill"
+      ":scope > div > span": "fill ![font-variation-settings:'FILL'_1,'wght'_600]"
+     },
+     "cls": {
+      ":scope > div": {
+       "from-[#FF9248]": "'lt:from-[#F2553B] dk:from-[#FF9248]'",
+       "to-[#F2553B]": "'lt:to-[#D94228] dk:to-[#F2553B]'"
+      }
      }
     },
     "frozen": {
@@ -197,7 +203,7 @@
       ":scope > span": "e(r.l)"
      },
      "addClass": {
-      ":scope > div > span": "fill"
+      ":scope > div > span": "fill ![font-variation-settings:'FILL'_1,'wght'_600]"
      }
     },
     "today": {
@@ -316,7 +322,7 @@
       ":scope": "'ac_unit'"
      },
      "addClass": {
-      ":scope": "fill"
+      ":scope": "fill ![font-variation-settings:'FILL'_1,'wght'_600]"
      }
     },
     "off": {
@@ -386,7 +392,7 @@
       ":scope": "e(r.icon)"
      },
      "addClass": {
-      ":scope": "fill"
+      ":scope": "fill ![font-variation-settings:'FILL'_1,'wght'_600]"
      }
     },
     "off": {
@@ -397,13 +403,18 @@
       ":scope": {
        "lt:text-[#B5A895]": "'lt:text-[#365355]'"
       }
+     },
+     "addClass": {
+      ":scope": "![font-variation-settings:'FILL'_0,'wght'_600]"
      }
     }
    }
   }
  ],
  "addClass": {
-  ":scope .material-symbols-rounded:not(.outlined-icon)": "fill",
-  ":scope :is(h1,h2,h3,h4,p)": "m-0"
+  ":scope .material-symbols-rounded:not(.outlined-icon)": "fill ![font-variation-settings:'FILL'_1,'wght'_600]",
+  ":scope :is(h1,h2,h3,h4,p)": "m-0",
+  ":scope": "min-[1024px]:pb-0 min-[1024px]:overflow-x-clip",
+  ":scope > div:nth-child(3)": "min-[1024px]:sticky min-[1024px]:max-w-none"
  }
 }
