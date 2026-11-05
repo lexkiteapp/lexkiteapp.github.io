@@ -45,8 +45,8 @@ const L15 = MEAN_LANGS.join(', ');
 // Lời nhắc theo bảng TL_GEN (pt cho ra đúng chuỗi cũ của lát 1)
 const SYS = {
   lxgen: `You are a ${G.lang} lexicographer building an ${G.level} core deck for learners. For each item (a frequent word FORM), return the dictionary headword (lemma) and its single most frequent sense. JSON object keyed by item k: {"word": lemma, "pos": one of n|v|adj|adv|pron|prep|conj|num|interj|det, "gender": "m"|"f"|"mf" ONLY for nouns${G.extra}, "ipa": ${G.ipa}, "gl": {${L15}} short glosses of THAT sense written natively in each language ("${TL}" = the headword itself), "ex": {"${TL}": natural short ${G.exLevel} sentence using the word, "en": faithful English translation}, "exForm": inflected form used in ex.${TL} ONLY if different from the lemma}. If the form is a proper name, interjection noise or not standard ${G.variant}, return {"skip": "reason"}.${G.rules ? ' ' + G.rules : ''}`,
-  lxaudit: `You review a ${G.lang} learner deck. For each item k return {"ok": true|false, "score": 1-5, "why": short reason}. ok=false if ANY of: lemma or part of speech wrong; noun gender wrong; ${G.audit}; any gloss mistranslates the sense or is in the wrong language; example unnatural, not ${G.variant}, not using the word, or English translation unfaithful.`,
-  lxjudge: `Back-translation check. For each item k you get a ${G.short} word with its English gloss and glosses in other languages. Translate EACH non-English gloss back to English literally, then decide if it means the same as the English gloss for that sense. Return {"bt": {lang: english}, "same": {lang: true|false}}.`,
+  lxaudit: `You review a ${G.lang} learner deck. Return ONE JSON object keyed by each item's k: {"<k>": {"ok": true|false, "score": 1-5, "why": short reason}, …}. ok=false if ANY of: lemma or part of speech wrong; noun gender wrong; ${G.audit}; any gloss mistranslates the sense or is in the wrong language; example unnatural, not ${G.variant}, not using the word, or English translation unfaithful.`,
+  lxjudge: `Back-translation check. For each item k you get a ${G.short} word with its English gloss and glosses in other languages. Translate EACH non-English gloss back to English literally, then decide if it means the same as the English gloss for that sense. Return ONE JSON object keyed by each item's k: {"<k>": {"bt": {lang: english}, "same": {lang: true|false}}, …}.`,
 };
 // lexai: 0 – /api/lexai có chế độ CÙNG TÊN (lxgen/lxjudge/lxaudit) với lời nhắc kho tiếng Anh ở máy chủ → không bao giờ đi tuyến đó (như scripts/factory/lib.mjs)
 const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: SYS[req.mode] + '\nReply with ONE valid JSON object only, no markdown.', user: JSON.stringify(req.items), temp: 0.1 }) });
@@ -75,7 +75,7 @@ for (let i = 0; i < cand.length && accepted.length - prev.length < N; i += BATCH
     if (notSame.length) why.push('dịch ngược lệch: ' + notSame.join(','));
     const gate = validate({ v: 1, tl: TL, words: [d.e] }); if (gate.length) why.push('cổng: ' + gate.join('; '));
     if (seen.has(key)) why.push('trùng lemma');
-    if (why.length) { rejected.push({ form: d.k, word: d.e.word, why }); continue; }
+    if (why.length) { rejected.push({ form: d.k, word: d.e.word, why }); if (why.some(x => /không trả/.test(x))) tried.delete(d.k.toLowerCase()); continue; } // giám khảo không trả = chưa chấm → lượt sau thử lại
     seen.add(key);
     accepted.push({ ...d.e, qa: { gen: g.model, judges: [a.model, b.model], bt: bt.model, scores: [ja.score, jb.score] } });
   }
