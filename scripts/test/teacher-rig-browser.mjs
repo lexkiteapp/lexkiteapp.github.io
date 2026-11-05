@@ -21,10 +21,12 @@ async function open(who, o = {}) {
   await page.goto('http://lk.test/rig.html'); await page.waitForFunction(() => window.rig && window.rig.stats.ready, null, { timeout: 15000 });
   return { ctx, page, errs };
 }
-// mỗi khung: thu nhỏ canvas còn 96 px rộng, trả trung bình |Δ| so với khung trước (0..255) – đo trong trang, không chụp màn
+// mỗi khung: thu nhỏ canvas còn 96 px rộng, ghép lên nền trang, trả trung bình |Δ| so với khung trước (0..255); alpha thô riêng cho cổng độ đục. f0 đặt lại mỗi lần đo – đo trong trang, không chụp màn
 const DIFF = `(() => { const c = document.querySelector('.trig-cv'), w = 96, h = Math.round(96 * c.height / c.width), o = new OffscreenCanvas(w, h), x = o.getContext('2d', { willReadFrequently: true });
-  let prev = null; window.diffs = []; window.blinks = []; window.alphas = []; window.tele = []; window.t0 = performance.now(); window.firstLast = null; const step = () => { x.clearRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const d = x.getImageData(0, 0, w, h).data;
-  let al = 0; for (let i = 3; i < d.length; i += 4) al += d[i]; window.alphas.push(al);
+  let prev = null; window.diffs = []; window.blinks = []; window.alphas = []; window.tele = []; window.t0 = performance.now(); window.firstLast = null; window.f0 = null; const bg = getComputedStyle(document.body).backgroundColor;
+  const step = () => { x.clearRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const a = x.getImageData(0, 0, w, h).data;
+  let al = 0; for (let i = 3; i < a.length; i += 4) al += a[i]; window.alphas.push(al);
+  x.fillStyle = bg; x.fillRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const d = x.getImageData(0, 0, w, h).data; // so ẢNH NGƯỜI XEM THẤY (ghép lên nền trang): RGBA chưa nhân alpha thì điểm alpha 0,09 (gần vô hình) nhảy RGB 0 → đủ màu
   if (prev) { let s = 0; for (let i = 0; i < d.length; i++) s += Math.abs(d[i] - prev[i]); window.diffs.push(s / d.length); window.blinks.push(window.rig.stats.blink || 0); const S = window.rig.stats; window.tele.push(Math.round(performance.now() - window.t0) + 'ms w' + (S.poseW || 0).toFixed(2) + ' d' + S.draws + ' f' + S.prof.full + ' p' + S.prof.part + ' ' + S.shape + (S.speaking ? ' nói' : '')); } if (!window.f0) window.f0 = d.slice(); window.fN = d; prev = d.slice(); if (window.diffOn) requestAnimationFrame(step); };
   window.diffOn = true; requestAnimationFrame(step); })()`;
 const total = page => page.evaluate(() => { let s = 0; for (let i = 0; i < window.f0.length; i++) s += Math.abs(window.f0[i] - window.fN[i]); window.diffOn = false; return s / window.f0.length; });
