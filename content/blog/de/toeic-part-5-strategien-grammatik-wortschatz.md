@@ -13,6 +13,41 @@ publishAt: 2027-01-04T12:11:00+01:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Wie viel Zeit sollte maximal für eine einzelne Frage in TOEIC Part 5 aufgewendet werden?",
+    options: [
+      "Über 60 Sekunden für genaue Textanalyse",
+      "15 bis 20 Sekunden pro Frage, um Zeit für Part 7 zu sparen",
+      "Genau 45 Sekunden pro Aufgabe",
+      "Beliebig viel Zeit, da Part 5 am wichtigsten ist"
+    ],
+    answer: 1,
+    explain: "Part 5 umfasst 30 Fragen. Wer im Schnitt 15-20 Sekunden pro Aufgabe benötigt, spart mindestens 35-40 Minuten für die langen Lesetexte in Part 7."
+  },
+  {
+    q: "Was ist der erste Schritt bei der Analyse einer Part-5-Aufgabe?",
+    options: [
+      "Zuerst den gesamten Satz von Anfang bis Ende übersetzen",
+      "Zuerst die vier Antwortoptionen scannen, um den Fragetyp (Grammatik oder Vokabular) zu bestimmen",
+      "Sofort die längste Antwortmöglichkeit auswählen",
+      "Nur nach Signalwörtern für Zeitformen suchen"
+    ],
+    answer: 1,
+    explain: "Ein schneller Blick auf die Optionen verrät sofort, ob es sich um eine Wortartenfrage (gleicher Wortstamm) oder eine semantische Vokabelfrage handelt."
+  },
+  {
+    q: "Wie löst man Wortarten-Fragen (Parts of Speech) am schnellsten?",
+    options: [
+      "Durch lautes Aussprechen aller Optionen",
+      "Durch Analyse der syntaktischen Lücke (z. B. zwischen Artikel und Substantiv steht ein Adjektiv)",
+      "Durch Auszählen der Silben",
+      "Durch Raten des vertrautesten Wortes"
+    ],
+    answer: 1,
+    explain: "Die syntaktische Umgebung der Lücke bestimmt eindeutig die erforderliche Wortart, ohne dass der gesamte Satzinhalt verstanden werden muss."
+  }
+]
 qualityScore: 86
 ---
 

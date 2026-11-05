@@ -13,6 +13,41 @@ publishAt: 2027-01-05T08:45:00+01:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Quel est le temps cible par question dans la Partie 5 du TOEIC ?",
+    options: [
+      "Plus de 50 secondes par item",
+      "15 à 20 secondes par question afin de préserver du temps pour la Partie 7",
+      "Exactement 40 secondes par question",
+      "Tout le temps nécessaire jusqu'à certitude"
+    ],
+    answer: 1,
+    explain: "Allouer 15 à 20 secondes par question permet de boucler les 30 items en 8 à 10 minutes, libérant un temps précieux pour la lecture approfondie de la Partie 7."
+  },
+  {
+    q: "Quel réflexe adopter en premier face à une question de Partie 5 ?",
+    options: [
+      "Lire et traduire l'intégralité de la phrase",
+      "Observer les 4 choix pour identifier la typologie de la question (grammaire ou lexique)",
+      "Chercher immédiatement les adverbes de fréquence",
+      "Cocher systématiquement la réponse la plus courte"
+    ],
+    answer: 1,
+    explain: "L'inspection des choix de réponses révèle instantanément s'il s'agit d'un test de dérivation grammaticale ou d'un choix lexical contextuel."
+  },
+  {
+    q: "Comment résoudre efficacement les questions de nature grammaticale ?",
+    options: [
+      "En analysant l'environnement syntaxique immédiat autour du blanc",
+      "En répétant la phrase mentalement",
+      "En traduisant mot à mot",
+      "En éliminant les verbes conjugués"
+    ],
+    answer: 1,
+    explain: "La position syntaxique du vide (par exemple entre un adverbe et un nom) indique directement la classe grammaticale requise sans nécessiter la traduction globale."
+  }
+]
 qualityScore: 86
 ---
 

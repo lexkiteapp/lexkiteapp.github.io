@@ -225,3 +225,21 @@ Kısaltmaları sadece gözle okuyup ezberlemek yetersizdir; duyduğunuz an zihni
 3. **Aralıklı Tekrar Yöntemini Kullanın**: Lexkite'ın FSRS algoritması, kısaltmaları unutulmaya yüz tuttuğu an karşınıza çıkararak uzun süreli belleğinize aktarır.
 
 Doğru yerde ve ölçülü kullanılan iş İngilizcesi kısaltmaları, uluslararası kariyerinizde sizi etkin ve güvenilir bir profesyonel konumuna taşıyacaktır.
+
+{{youtube: | İş Hayatında İngilizce Kısaltmalar ve E-posta Rehberi: ASAP'ten EOD'ye}}
+
+{{cta: /#/ | İş İngilizcesi ve profesyonel e-posta kalıplarını Lexkite ile geliştirin}}
+
+---
+
+## İş İngilizcesinde E-posta Kısaltmaları Hakkında Sıkça Sorulan Sorular
+
+### Müşterilere yazarken bu kısaltmaları kullanmak uygun mudur?
+Müşteriler veya üst düzey yöneticilerle yazışırken kısaltma yerine açık ifadeler kullanmak daha profesyoneldir. Kısaltmalar şirket içi yazışmalara daha uygundur.
+
+### COB ve EOD arasındaki zaman farkı nedir?
+COB (Close of Business) genellikle mesai bitimini (17:00), EOD (End of Day) ise gün sonunu (gece yarısından önce) ifade eder.
+
+### Kısaltmalar büyük harfle mi yazılmalıdır?
+E-postalarda büyük harf kullanımı (ASAP, FYI) standarttır ve okunabilirliği artırır.
+

@@ -149,3 +149,7 @@ No existe penalización por respuestas incorrectas en ninguna sección del exame
 El examen TOEIC combina hablantes de Estados Unidos, Reino Unido, Canadá y Australia. Dedica tiempo a escuchar grabaciones donde se reduzcan sonidos como la "r" postvocálica británica o variaciones vocálicas en palabras cotidianas como *schedule, mobile* y *garage*.
 
 Dominar **toeic listening part 2 estrategias** no requiere un oído perfecto, sino disciplina táctica y la capacidad de anticipar la intención comunicativa de cada intercambio profesional.
+
+{{youtube: | Estrategias de TOEIC Listening Part 2: cómo dominar preguntas y respuestas indirectas}}
+
+{{cta: /#/ | Entrena ejercicios de audio de TOEIC Listening Part 2 con evaluación inmediata en Lexkite}}

@@ -149,3 +149,21 @@ Tidak ada sistem minus atau pengurangan skor untuk jawaban yang salah pada ujian
 Ujian TOEIC menampilkan penutur dengan aksen Amerika Serikat, Inggris, Kanada, dan Australia (termasuk Selandia Baru). Latihlah pendengaran Anda terhadap ciri fonetis seperti hilangnya bunyi konsonan /r/ di akhir kata (*non-rhotic*) pada aksen Britania serta perbedaan vokal pada kata-kata umum seperti *schedule, advertisement*, dan *garage*.
 
 Dengan konsistensi mempraktikkan **strategi toeic listening part 2** ini, Anda akan menghadapi sesi tanya-jawab dengan kepala dingin dan mengamankan skor maksimal pada seksi listening ujian TOEIC Anda.
+
+{{youtube: | Strategi TOEIC Listening Part 2: taktik menjawab pertanyaan jebakan dan respon tidak langsung}}
+
+{{cta: /#/ | Latih kemampuan audio TOEIC Listening Part 2 dengan umpan balik langsung di Lexkite}}
+
+---
+
+## Pertanyaan Umum Seputar TOEIC Listening Part 2
+
+### Apa jebakan paling umum dalam TOEIC Part 2?
+Jebakan kemiripan bunyi atau kata yang sama persis (Sound-alike trap). Pilihan yang mengulang kata kunci pertanyaan hampir selalu salah.
+
+### Bagaimana cara mengenali jawaban tidak langsung?
+Jawaban tidak langsung biasanya memberikan informasi alternatif atau mengarahkan ke orang lain (misalnya: "Coba tanya manajer" atau "Jadwalnya baru saja direvisi").
+
+### Apa yang harus dilakukan jika melewatkan kata tanya awal?
+Segera pilih opsi paling logis secara cepat dan alihkan fokus penuh ke nomor berikutnya agar tidak kehilangan konsentrasi beruntun.
+

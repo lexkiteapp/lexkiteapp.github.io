@@ -149,3 +149,7 @@ Não há nenhum desconto de pontuação por erros no exame TOEIC. Portanto, nunc
 O TOEIC inclui gravações com sotaques dos EUA, Reino Unido, Canadá e Austrália (incluindo Nova Zelândia). Treine seus ouvidos para características fonéticas como a queda do som /r/ no fim das sílabas no sotaque britânico e variações de pronúncia em palavras comuns como *schedule, advertisement* e *leisure*.
 
 Aplicando com constância estas **toeic listening part 2 estratégias**, você enfrentará a bateria de perguntas com foco tranquilo e conquistará uma pontuação de excelência no exame de listening.
+
+{{youtube: | Estratégias para o TOEIC Listening Part 2: dominando respostas indiretas e pegadinhas}}
+
+{{cta: /#/ | Pratique exercícios de áudio do TOEIC Listening Part 2 com feedback imediato no Lexkite}}

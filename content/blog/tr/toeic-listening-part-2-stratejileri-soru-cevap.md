@@ -156,3 +156,7 @@ Hayır, TOEIC sınavında yanlış cevaplar puanınızı düşürmez. Bu nedenle
 TOEIC sınavı ABD, İngiltere, Kanada ve Avustralya (Yeni Zelanda dahil) aksanlarını içerir. İngiliz aksanındaki hece sonu /r/ sesinin düşmesi ve *schedule, advertisement* gibi yaygın sözcüklerdeki sesli harf değişimlerine kulak dolgunluğu kazanmak için uluslararası haber yayınlarını düzenli takip edin.
 
 Bu **toeic listening part 2 stratejileri** ile soru-cevap bölümünde sınav stresini kontrol altına alabilir, dinleme skorunuzu en üst seviyeye taşıyabilirsiniz.
+
+{{youtube: | TOEIC Listening Part 2 Stratejileri: Dolaylı yanıtlar ve ses benzerliği tuzaklarını aşma}}
+
+{{cta: /#/ | Lexkite ile TOEIC Listening Part 2 sesli alıştırmalarını anında geri bildirimle çözün}}

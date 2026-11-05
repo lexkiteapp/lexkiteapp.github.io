@@ -13,6 +13,41 @@ publishAt: 2027-01-02T08:14:00+03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "TOEIC Part 5'te her bir soru için hedeflenen ortalama süre nedir?",
+    options: [
+      "Her soru için 60 saniyeden fazla",
+      "Part 7'ye zaman bırakmak için soru başına 15-20 saniye",
+      "Soru başına tam 45 saniye",
+      "Süre sınırı olmaksızın çözülmelidir"
+    ],
+    answer: 1,
+    explain: "30 soruluk Part 5 bölümünü 8-10 dakikada (soru başına 15-20 saniye) bitirmek, Part 7'deki uzun okuma metinleri için hayati zaman kazandırır."
+  },
+  {
+    q: "Part 5 sorusunu çözerken ilk olarak neye bakılmalıdır?",
+    options: [
+      "Cümlenin tamamını Türkçeye çevirmeye",
+      "Sorunun dilbilgisi mi yoksa kelime sorusu mu olduğunu anlamak için 4 şıkka",
+      "Yalnızca bağlaçlara",
+      "En uzun seçeneğe"
+    ],
+    answer: 1,
+    explain: "Seçeneklere hızlıca göz atmak, sorunun sözcük türü (aynı kök, farklı ekler) mi yoksa anlam sorusu mu olduğunu anında gösterir."
+  },
+  {
+    q: "Sözcük türü (Parts of Speech) soruları en hızlı nasıl çözülür?",
+    options: [
+      "Boşluğun hemen öncesi ve sonrasındaki dilbilgisel yapıyı analiz ederek",
+      "Cümleyi sesli okuyarak",
+      "Kelimelerin hecelerini sayarak",
+      "Tüm seçenekleri tek tek deneyerek"
+    ],
+    answer: 1,
+    explain: "Boşluğun bulunduğu konum (örneğin sıfat ile isim arası) gerekli kelime türünü net biçimde belirler; cümlenin tamamını anlamak gerekmez."
+  }
+]
 qualityScore: 85
 ---
 

@@ -149,3 +149,7 @@ Non, aucune pénalité n'est appliquée pour les erreurs dans le test TOEIC. Si 
 Le test TOEIC intègre des voix américaines, canadiennes, britanniques et australiennes (Nouvelle-Zélande comprise). Familiarisez-vous avec les particularités phonologiques telles que la disparition du son "r" final en anglais non rhotique ou les variations de diphtongues sur des termes fréquents comme *schedule, privacy* ou *advertisement*.
 
 En appliquant avec discipline ces **toeic listening part 2 strategies**, vous aborderez chaque question avec sérénité et optimiserez significativement votre score global de compréhension orale.
+
+{{youtube: | Stratégies TOEIC Listening Part 2 : déjouer les pièges et maîtriser les réponses indirectes}}
+
+{{cta: /#/ | Entraînez-vous aux questions de TOEIC Listening Part 2 avec corrections audio sur Lexkite}}

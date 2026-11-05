@@ -13,6 +13,41 @@ publishAt: 2027-01-14T08:14:00-03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Qual é o tempo médio recomendado por questão no TOEIC Part 5?",
+    options: [
+      "Mais de 60 segundos por item",
+      "Entre 15 e 20 segundos por questão para garantir tempo na Parte 7",
+      "Exatamente 40 segundos por pergunta",
+      "Não há necessidade de cronometrar"
+    ],
+    answer: 1,
+    explain: "Resolver os 30 itens da Parte 5 em menos de 10 minutos (15 a 20 segundos cada) é crucial para sobrar tempo para os textos densos da Parte 7."
+  },
+  {
+    q: "O que você deve analisar primeiro ao abrir uma questão da Parte 5?",
+    options: [
+      "Traduzir a frase completa para o português",
+      "Examinar as 4 alternativas para classificar a questão (gramática ou vocabulário)",
+      "Procurar apenas por preposições",
+      "Marcar a alternativa mais formal"
+    ],
+    answer: 1,
+    explain: "Olhar as alternativas primeiro revela imediatamente se é uma questão de classe gramatical (mesmo radical com sufixos diferentes) ou de sentido de vocabulário."
+  },
+  {
+    q: "Qual é a técnica para resolver questões de classes gramaticais em segundos?",
+    options: [
+      "Identificar a função sintática analisando as palavras imediatamente antes e depois da lacuna",
+      "Tentar traduzir a frase de trás para frente",
+      "Escolher a palavra mais curta",
+      "Procurar verbos no infinitivo"
+    ],
+    answer: 1,
+    explain: "A posição estrutural da lacuna (por exemplo, entre um artigo e um substantivo) define a classe de palavra necessária sem exigir a leitura da frase inteira."
+  }
+]
 qualityScore: 86
 ---
 
