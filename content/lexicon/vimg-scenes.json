@@ -36084,6 +36084,19 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "holder#n": {
+   "ex": "Ticket holders can enter from six o'clock.",
+   "ps": "a woman holds a big wrapped box tightly with both hands",
+   "sc": "a woman holds a big wrapped box tightly with both hands",
+   "check": "Is the person gripping an object they have received?",
+   "cap": "a woman clutching a large wrapped box",
+   "key": "a big wrapped box; the woman's hands gripping the box",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3
+  },
   "holiday#n": {
    "ex": "We spent our summer holiday in Da Lat.",
    "ps": "a woman lies on a beach towel under a palm tree, sunglasses on, a beach ball nearby, no briefcase",
@@ -81028,6 +81041,10 @@
   },
   "viral#adj": {
    "skip": "depicting rapid online spread without screens or symbols is too abstract",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "virtual machine#n": {
+   "skip": "cannot depict software version without using prohibited screen symbols",
    "by": "@cf/openai/gpt-oss-120b"
   },
   "virtual#adj": {
