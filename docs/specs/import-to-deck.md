@@ -22,7 +22,7 @@
 ## 4. AI miễn phí có trần
 - Dùng pool miễn phí sẵn có qua `api/ai.js` (Gemini free → Workers AI hạ cấp), tính năng mới `import` trong `_quota.js`: ví dụ khách 0 (cần đăng nhập), free 120 từ/ngày, 20 lời gọi/phút. Số cụ thể ghi vào `infra/resources.json` (test `quota.mjs` buộc khớp).
 - Gom 20 từ/lời gọi, chỉ gửi **từ + câu gốc** (không gửi cả tài liệu). Gần trần → hạ cấp Workers AI, hết → thông báo `quota.daily` + đường "ôn thẻ mở thêm lượt" (#10) nếu đã có. Kết quả nhớ theo từ để không hỏi lại.
-- Nếu máy có mô hình trên máy ([on-device-ai](../../README.md)) thì dùng trước, 0 lời gọi.
+- Nếu máy có mô hình trên máy thì dùng trước, 0 lời gọi.
 
 ## 5. Dữ liệu và riêng tư
 - Chỉ lưu thẻ + câu gốc (≤25 từ) + tên nguồn; **không lưu tệp/văn bản gốc**. Bộ thẻ đồng bộ như thẻ khác (D1/Drive). Xoá bộ = xoá thẻ.
