@@ -16,6 +16,8 @@ export const APIS = [ // [đường, phương thức, kiểm]
   ['/api/notices', 'GET', async r => r.status < 500], ['/api/league', 'GET', async r => r.status < 500], ['/api/quota', 'GET', async r => r.status < 500],
   ['/api/class', 'GET', async r => r.status < 500], ['/api/lexai', 'POST', async r => r.status < 500], ['/api/drive', 'POST', async r => r.status < 500],
   ['/packs/ja.json', 'GET', async r => r.ok && Object.keys(await r.json()).length > 7000],
+  // Universal Links / App Links (scripts/test/deep-links.mjs): Apple/Google cần 200 + application/json, KHÔNG chuyển hướng
+  ...['/.well-known/apple-app-site-association', '/.well-known/assetlinks.json'].map(p => [p, 'GET', async r => r.status === 200 && !r.redirected && /^application\/json/i.test((r.headers && r.headers.get('content-type')) || '') && typeof (await r.json()) === 'object']),
 ];
 const CI = process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE_CI_HEADER.trim() } : {};
 async function get(url, o = {}) { for (let k = 0; k < 3; k++) { try { const r = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(20000), ...o, headers: { 'User-Agent': 'lexkite-smoke', ...CI, ...(o.headers || {}) } }); if (r.status < 500 || k === 2) return r; } catch (e) { if (k === 2) return { ok: false, status: 0, text: async () => '', json: async () => ({}) }; } await sleep(3000 * (k + 1)); } }

@@ -30,8 +30,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài ffmpeg (libass) + phông DejaVu
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core unzip >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
       # Lớp motion (docs/VIDEO-PIPELINE.md §10): Remotion – React → MP4, Chrome Headless Shell chạy CPU trên ubuntu (miễn phí theo giấy phép Remotion cho công ty nhỏ)
       - name: Đệm Remotion (node_modules)
         uses: actions/cache@v4

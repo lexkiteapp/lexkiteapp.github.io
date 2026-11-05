@@ -50,6 +50,8 @@ jobs:
           APP="$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/App.app"
           codesign -d --entitlements :- "$APP" > "$RUNNER_TEMP/ent.plist" 2>/dev/null; cat "$RUNNER_TEMP/ent.plist"
           grep -q 'com.apple.developer.applesignin' "$RUNNER_TEMP/ent.plist" || { echo "::error::Bản ký thiếu Sign in with Apple – bật capability cho App ID com.lexkite.app"; exit 1; }
+          # Universal Links (lexkite.com/app/… mở thẳng app; web/.well-known/apple-app-site-association). Thiếu → bật Associated Domains cho App ID (docs/STORE-READINESS.md › Deep link)
+          grep -q 'applinks:lexkite.com' "$RUNNER_TEMP/ent.plist" || { echo "::error::Bản ký thiếu Associated Domains applinks:lexkite.com – bật capability Associated Domains cho App ID com.lexkite.app"; exit 1; }
           security cms -D -i "$APP/embedded.mobileprovision" 2>/dev/null | grep -A3 -E 'applesignin|application-groups' || true
           # Widget (ôn tập + "Từ mỗi giờ") đọc dữ liệu qua App Group: thiếu → widget trống. Bước tay trên portal: docs/STORE-READINESS.md mục B.x
           grep -q 'group.com.lexkite.app' "$RUNNER_TEMP/ent.plist" || { echo "::error::App thiếu App Group group.com.lexkite.app – xem docs/STORE-READINESS.md (Widget Từ mỗi giờ)"; exit 1; }

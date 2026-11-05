@@ -190,6 +190,7 @@ node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
 node scripts/test/klocal.mjs
+node scripts/test/ios-audio-unlock.mjs
 node scripts/test/ext-bundles.mjs
 node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
@@ -239,6 +240,7 @@ node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/test/crashlytics.mjs
+node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
 node scripts/content-qa/lkf-check.mjs
@@ -261,6 +263,7 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/ffmpeg-setup-policy.mjs
 node scripts/test/scroll-boot.mjs
 node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
@@ -289,5 +292,6 @@ node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
-node scripts/test/voice-source.mjs
 node scripts/test/v2pre-ring.mjs
+node scripts/test/zombie-pages.mjs
+node scripts/test/voice-source.mjs
