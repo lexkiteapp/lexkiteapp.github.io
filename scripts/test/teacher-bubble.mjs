@@ -6,7 +6,8 @@
 //   bong bóng không đè giáo viên, tương phản ≥ 4,5:1 sáng/tối, nút 🔊 ≥ 44 px, không tự đọc. Ảnh 360 px trước/sau → out/teacher-bubble/ (artifact).
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..'), W = p => path.join(ROOT, 'web', p);
+import { fileURLToPath } from 'node:url';
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), W = p => path.join(ROOT, 'web', p);
 const STATIC = process.argv.includes('--static'), OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'out/teacher-bubble';
 const res = []; let bad = 0;
 const ok = (c, m) => { res.push((c ? '✓ ' : '✗ ') + m); if (!c) { bad++; process.exitCode = 1; } };
