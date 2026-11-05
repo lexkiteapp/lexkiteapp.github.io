@@ -1,7 +1,7 @@
 ---
 slug: toeic-bireysel-calisma-plani-rehber
 title: "TOEIC Bireysel Çalışma Planı: 450 Puandan 750+ Seviyesine Rehber"
-description: "Bu toeic bireysel çalışma planı ile 450 puandan 750+ seviyesine çıkın: aşamalı takvim, iş İngilizcesi kelimeleri, listening taktikleri ve günlük rutinler."
+description: "Bu TOEIC bireysel çalışma planı ile 450 puandan 750+ seviyesine çıkın: aşamalı takvim, iş İngilizcesi kelimeleri, listening taktikleri ve günlük rutinler."
 keyword: "toeic bireysel çalışma planı"
 lang: tr
 translationKey: lo-trinh-tu-hoc-toeic
@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, calisma-plani, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC sayfası: Part'a göre çalışma, tahmini puanlı deneme sınavları ve TOEIC kelimeleri"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2026-12-31T12:11:00+03:00
@@ -51,7 +51,7 @@ quiz: [
 ]
 ---
 
-Birçok aday TOEIC Listening & Reading sınavında 450 ile 550 puan arasında takılıp kalır. Basit konuşmaları anlarsınız, ama Part 3 diyalogları çok hızlı akar, Part 7'deki e-posta ve duyurular da sorulara gelmeden çalışan belleğinizi doldurur. 450'den 750'ye çıkmak için önce kelime ve dilbilgisi boşluklarını kapatan, sonra dinlemeyi çalıştıran ve en son hıza geçen bir **toeic bireysel çalışma planı** gerekir.
+Birçok aday TOEIC Listening & Reading sınavında 450 ile 550 puan arasında takılıp kalır. Basit konuşmaları anlarsınız, ama Part 3 diyalogları çok hızlı akar, Part 7'deki e-posta ve duyurular da sorulara gelmeden çalışan belleğinizi doldurur. 450'den 750'ye çıkmak için önce kelime ve dilbilgisi boşluklarını kapatan, sonra dinlemeyi çalıştıran ve en son hıza geçen bir **TOEIC bireysel çalışma planı** gerekir.
 
 Bu rehber planı üç aşamada sunuyor; ayrıca işten önce ya da sonra sığdırabileceğiniz bir haftalık program ve her deneme sınavından bir şey öğrenmenizi sağlayan bir hata günlüğü içeriyor. Süreler planlama örneğidir, söz değildir: ilerleme hızınız başlangıç seviyenize ve çalışma saatlerinize bağlıdır.
 
@@ -67,9 +67,9 @@ Tablo üç aşamayı özetliyor. Süreler günde yaklaşık bir saat çalışan 
 
 | Aşama | Hedef puan | Örnek süre | Ana odak |
 |---|---|---|---|
-| Aşama 1: Temel | 450 → 550 | 6–8 hafta | İş kelimeleri, Part 5 dilbilgisi, Part 1 ve 2 |
-| Aşama 2: Genişletme | 550 → 650 | 6–8 hafta | Part 3 ve 4, Part 6, Part 7 tekli metinler |
-| Aşama 3: Hız ve dayanıklılık | 650 → 750+ | 6–8 hafta | Süreli bölümler, çift ve üçlü metinler, hata analizi |
+| Aşama 1: Temel | 450 → 550 | 9–11 hafta | İş kelimeleri, Part 5 dilbilgisi, Part 1 ve 2 |
+| Aşama 2: Genişletme | 550 → 650 | 9–11 hafta | Part 3 ve 4, Part 6, Part 7 tekli metinler |
+| Aşama 3: Hız ve dayanıklılık | 650 → 750+ | 9–11 hafta | Süreli bölümler, çift ve üçlü metinler, hata analizi |
 
 Sınav 200 sorudan oluşur: Listening bölümünde 100 soru (45 dakika), Reading bölümünde 100 soru (75 dakika), toplam iki saat. Her bölüm 5 ile 495 arasında puanlanır; toplam 10 ile 990 aralığını verir. Her bölümün ayrıntısı için [Part 5](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/), [Part 2](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) ve [Part 7](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) rehberlerine bakın.
 
@@ -78,7 +78,7 @@ Sınav 200 sorudan oluşur: Listening bölümünde 100 soru (45 dakika), Reading
 Bu aşamada sözcük türü karışıklıklarını giderir ve sınavın sürekli tekrarladığı iş kelimelerini oluşturursunuz. Bu temel olmadan tam deneme sınavları çoğunlukla hayal kırıklığı getirir.
 
 ### 1. Sık geçen iş kelimelerini öğrenme
-TOEIC metinleri ofis ve seyahatten gelir: satın alma, pazarlama, rezervasyon, finans, personel ve bina bakımı. Rastgele listeler yerine TOEIC Service List'i (TSL) çalışın; yaklaşık 1.250 sık kelime olan bu liste Lexkite'ta on sette sunuluyor (ayrıca [kelime sayfasına](/en/vocabulary/) bakın).
+TOEIC metinleri ofis ve seyahatten gelir: satın alma, pazarlama, rezervasyon, finans, personel ve bina bakımı. Rastgele listeler yerine TOEIC Service List'i (TSL) çalışın; yaklaşık 1.250 sık kelime olan bu liste Lexkite'ta on sette sunuluyor (ayrıca İngilizce olan [kelime sayfasına](/en/vocabulary/) ve “TOEIC (TSL)” sekmesinin bulunduğu [kelime kütüphanesine](/#/library) bakın).
 
 ![Lexkite kelime kütüphanesi: TOEIC (TSL) dahil sekmeler ve A1'den B2'ye çekirdek kelime setleri](media:library "Kütüphane: TOEIC (TSL) sekmesinde sınav kelime setleri yer alır")
 
@@ -99,7 +99,7 @@ Engel çoğu zaman kelime değil, sestir. Anadili konuşanlar sözcükleri birbi
 Dilbilgisi oturduktan ve kısa konuşmalar netleştikten sonra daha uzun iş metinlerine ve yoğun kayıtlara geçin.
 
 ### 1. Part 3 ve Part 4'te aktif dinleme
-Part 3'te konuşmalara dair 39, Part 4'te kısa konuşmalara dair 30 soru vardır. Çoğu aday ortada ipucunu kaçırır. Kayıt başlamadan önce, yönergeler okunurken soruları okumak yardımcı olur. Böylece neyi yakalayacağınızı bilirsiniz: konuşmacı kim, sorun ne, sonra ne olacak.
+Part 3'te konuşmalara dair 39, Part 4'te kısa anons ve sunumlara dair 30 soru vardır. Çoğu aday ortada ipin ucunu kaçırır. Kayıt başlamadan önce, yönergeler okunurken soruları okumak yardımcı olur. Bu yalnızca her Part'ın ilk seti için işe yarar: sonraki setlerde, mevcut setin ardından gelen aralıkta bir sonraki setin üç sorusuna göz atın (mevcut soruları hızlıca yanıtlayın, kalan saniyeleri yeni soruları okumaya ayırın). Böylece neyi yakalayacağınızı bilirsiniz: konuşmacı kim, sorun ne, sonra ne olacak.
 
 Sorular kayıttaki sırayı izler; bu yüzden eski sorulara dönmek yerine cevaplanmamış bir sonraki soruya bakın. Daha geniş çalışma için [İngilizce listening geliştirme yolları](/tr/blog/ingilizce-listening-gelistirme-yollari-5-adimli-yontem/) yazısına göz atın.
 
@@ -136,11 +136,11 @@ Süreli bir testten sonra hataları incelemeye en az testi çözerken harcadığ
 * *Yapı karışıklığı:* özneyi, fiili ya da yan cümle sınırını yanlış belirlediniz.
 * *Dikkatsizlik:* *not* ya da *except* gibi bir sözcüğü atladınız.
 
-Lexkite, Part'a göre Reading çalışmasında yanlış yaptığınız soruları kelime, dilbilgisi, okuma ve dinleme olarak gruplanan bir deftere kaydeder; günlük kendiliğinden oluşur.
+Lexkite, yanlış yaptığınız soruları hem Part çalışmasından hem de tam deneme sınavlarından (Listening dahil) açıklamalarıyla birlikte bir deftere toplar. Defter bunları beceriye göre (okuma ya da dinleme) ayırır, yukarıdaki üç gruba göre değil; grubu soruları yeniden çözerken kendiniz işaretlersiniz. Defterdeki kelime ve dilbilgisi grupları başka alıştırmalardaki hataları tutar.
 
 ![Lexkite hata defteri: yanlış cevapları kelime, dilbilgisi, okuma ve dinleme olarak gruplar](media:mistakes "Hata defteri: yanlış yapılan sorular türüne göre toplanır")
 
-Haftada bir [hata defterinizi](/#/mistakes) açın ve soruları yeniden çözün. Bir ay sonra hangi grubun baskın olduğunu görürsünüz; bu da sıradaki çalışma konusunu gösterir.
+Haftada bir [hata defterinizi](/#/mistakes) açın, soruları yeniden çözün ve her sorunun grubunu not edin. Bir ay sonra kendi işaretleriniz hangi grubun baskın olduğunu gösterir; sıradaki çalışma konusunu da buradan çıkarırsınız.
 
 ## Sürdürülebilir haftalık program
 
@@ -151,19 +151,19 @@ Düzenli kısa seanslar, seyrek uzun seanslardan daha verimlidir. Önce [hedef s
 * **Çarşamba, kelime (30 dk):** [tekrar sayfasında](/#/review) kartlarınızı gözden geçirin: edatlar, kolokasyonlar, eş anlamlılar.
 * **Perşembe, uzun kayıtlar (45 dk):** 3 Part 3 seti ve 2 Part 4 seti, her kayıttan önce soruları okuyarak.
 * **Cuma, okuma (60 dk):** 4 tekli ve 2 çift metin, süreye karşı.
-* **Cumartesi, bölüm simülasyonu (90 dk):** 75 dakikalık bir Reading bölümü, ardından hata günlüğü için 15 dakika. 45 dakikalık Listening bölümüyle dönüşümlü yapın.
-* **Pazar:** dinlenme ya da hafif maruz kalma; iş podcast'leri ya da uluslararası haberler gibi.
+* **Cumartesi, bölüm simülasyonu (90 dk; Listening haftalarında 60 dk):** 75 dakikalık bir Reading bölümü, ardından hata günlüğü için 15 dakika. 45 dakikalık Listening bölümüyle ve ardından 15 dakikalık günlükle dönüşümlü yapın.
+* **Pazar:** dinlenme ya da rahat dinleme; iş podcast'leri ya da uluslararası haberler gibi.
 
-Tüm Part'lar ve tam sınavlar [TOEIC çalışma sayfasında](/#/toeic) yer alır. Kulağı metinle çalıştırmak için [dikte yöntemine](/tr/blog/ingilizce-dictation-dikte-listening-gelistirme/) da bakın.
+Tüm Part'lar ve tam sınavlar [TOEIC çalışma sayfasında](/#/toeic) yer alır. Kulağı metinle çalıştırmak için [dikte yöntemine](/tr/blog/ingilizce-dictation-dikte-listening-gelistirme/) da bakın. Altı günlük şablon haftada yaklaşık beş saat eder; bu tempoda tablodaki her aşamayı yaklaşık 12–15 haftaya uzatın. Tablodaki 9–11 hafta, günde yaklaşık bir saati varsayar.
 
 {{youtube: | 450'den 750 puana TOEIC bireysel çalışma planı adım adım}}
 
-{{cta: /#/toeic | TOEIC deneme sınavı çöz ve 10–990 arası tahmini puanını gör}}
+{{cta: /#/toeic | TOEIC deneme sınavı çözün ve 10–990 arası tahmini puanınızı görün}}
 
 ## TOEIC için bireysel çalışma hakkında sık sorulan sorular
 
 ### 500'den 750'ye çıkmak kaç ay sürer?
-Resmî bir rakam yoktur ve ilerleme kişiden kişiye çok değişir. Yalnızca planlama için, 200–250 puanlık artış adına yaklaşık 150–200 saat odaklı çalışma ayırın. Günde yaklaşık 90 dakikayla bu üç dört ay eder. Bu ETS'nin değil, bizim kaba hesabımızdır. Birkaç haftada bir deneme sınavı çözün ve planı sonuca göre ayarlayın.
+Resmî bir rakam yoktur ve ilerleme kişiden kişiye çok değişir. Yalnızca planlama için, her 100 puan için yaklaşık 60–80 saat odaklı çalışma ayırın (Lexkite hedef planlayıcısı yaklaşık 60 saat varsayar). 200–250 puanlık artış için bu 120–200 saat eder; günde yaklaşık 90 dakikayla (yukarıdaki haftalık şablondan yoğun bir tempo) iki buçuk ila dört buçuk ay. Bu ETS'nin değil, bizim kaba hesabımızdır. Birkaç haftada bir deneme sınavı çözün ve planı sonuca göre ayarlayın.
 
 ### Pahalı kurslar olmadan 750+ alınır mı?
 Evet, disiplinliyseniz. Sınavın biçimi sabit ve iş kelimeleri tekrarlıdır; bu yüzden hata analizi ve aralıklı tekrarla yapılan bireysel çalışma, genel bir sınıf dersinden daha isabetli biçimde zayıf yönlerinizi hedefleyebilir. Öğretmen en çok konuşma ve yazma geri bildiriminde işe yarar; bu sınav ikisini ölçmez.
@@ -172,4 +172,4 @@ Evet, disiplinliyseniz. Sınavın biçimi sabit ve iş kelimeleri tekrarlıdır;
 Temel aşamada üç haftada bir yeterlidir; ilerlemeyi ölçer, sizi yormaz. Son dört haftada iki saati taşıyabilmek için her hafta sonu süreli tam bir sınav çözün.
 
 ### Türkçe konuşanlar TOEIC'te hangi tuzaklara düşer?
-Birincisi yanıltıcı benzerlikler: *actual* “gerçek” demektir, “aktüel” değil (o *current*); *sympathetic* “anlayışlı” demektir, “sempatik” değil (o *likeable*); *fabric* “kumaş” demektir, “fabrika” değil (o *factory*); *eventually* “sonunda” demektir, “eventüel” yani “olası” değil (o *possibly*). Bu karışıklıklar Part 5 ve Part 7'de puan götürür. İkincisi okuma: Türkçede sıfat-fiil yapıları uzun öncüller kurar, İngilizcede ise bilgi ilgi cümlesiyle isimden sonra gelir; Part 7'de “the manager who approved the budget that was submitted last week” gibi yapılarda önce ana özne ve fiili bulun. Üçüncüsü ses: Türkçede /w/ ve /θ/ yoktur, bu yüzden *vest* ile *west* ya da *thin* ile *tin* kulağa aynı gelebilir; Part 2 bu benzer sesli tuzakları sever, dikteyle çalışın.
+Birincisi yanıltıcı benzerlikler: *actual* “gerçek” demektir, “aktüel” değil (o *current*); *sympathetic* “anlayışlı” demektir, “sempatik” değil (o *likeable*); *fabric* “kumaş” demektir, “fabrika” değil (o *factory*); *sensible* “mantıklı” demektir, “hassas” değil (o *sensitive*). Bu karışıklıklar Part 5 ve Part 7'de puan götürür. İkincisi okuma: Türkçede sıfat-fiil yapıları uzun öncüller kurar, İngilizcede ise bilgi ilgi cümlesiyle isimden sonra gelir; Part 7'de “the manager who approved the budget that was submitted last week” gibi yapılarda önce ana özne ve fiili bulun. Üçüncüsü ses: Türkçede /w/ ve /θ/ yoktur, bu yüzden *vest* ile *west* ya da *thin* ile *tin* kulağa aynı gelebilir; Part 2 bu benzer sesli tuzakları sever, dikteyle çalışın.

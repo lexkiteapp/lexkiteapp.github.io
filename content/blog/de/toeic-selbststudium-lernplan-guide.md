@@ -1,15 +1,15 @@
 ---
 slug: toeic-selbststudium-lernplan-guide
-title: "TOEIC Lernplan für das Selbststudium: Weg zu 750+ Punkten"
-description: "Nutzen Sie diesen toeic lernplan für das selbststudium von 450 auf 750+: Phasenplan, Business-Vokabeln, Listening-Tipps und strukturierte Tagesroutinen."
-keyword: "toeic lernplan für das selbststudium"
+title: "TOEIC-Lernplan für das Selbststudium: Weg zu 750+ Punkten"
+description: "Nutzen Sie diesen TOEIC-Lernplan für das Selbststudium von 450 auf 750+: Phasenplan, Business-Vokabeln, Listening-Tipps und strukturierte Tagesroutinen."
+keyword: "toeic-lernplan für das selbststudium"
 lang: de
 translationKey: lo-trinh-tu-hoc-toeic
 category: toeic
 tags: [toeic, lernplan, test-prep]
 cover: toeic
 coverAlt: "Lexkite-Seite zum TOEIC: Übungen nach Parts, Probetests mit geschätzter Punktzahl und TOEIC-Wortschatz"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-05T07:36:00+01:00
@@ -27,18 +27,18 @@ quiz: [
     explain: "Der Reading-Teil besteht aus 100 Fragen (Part 5: 30, Part 6: 16, Part 7: 54) und dauert 75 Minuten. Die 45 Minuten gehören zum Listening-Teil."
   },
   {
-    q: "Sie haben in Part 5 eine Aufgabe falsch, weil Sie nicht wussten, dass auf 'comply' die Präposition 'with' folgt. In welche Kategorie gehört der Fehler im Fehlerprotokoll?",
+    q: "Sie haben in Part 5 eine Aufgabe falsch, weil Sie nicht wussten, dass auf „comply“ die Präposition „with“ folgt. In welche Kategorie gehört der Fehler im Fehlerprotokoll?",
     options: [
       "Vokabellücke: eine fehlende Kollokation",
       "Flüchtigkeit: zu hastig gelesen",
       "Strukturelle Verwirrung: Satzgrenze falsch erkannt",
-      "In keine: ein einzelner Fehler ist nicht protokollierenswert"
+      "In keiner Kategorie: ein einzelner Fehler ist nicht protokollierenswert"
     ],
     answer: 0,
     explain: "Es fehlt eine feste Wortverbindung (comply with), also eine Vokabel- und Kollokationslücke. Mit der richtigen Kategorie wissen Sie, dass Sie Kollokationen üben müssen und nicht langsamer lesen oder Satzbau wiederholen sollten."
   },
   {
-    q: "In Part 2 hören Sie 'When will the shipment arrive?'. Welche Antwort passt am ehesten?",
+    q: "In Part 2 hören Sie „When will the shipment arrive?“. Welche Antwort passt am ehesten?",
     options: [
       "Sometime early next week.",
       "At the main warehouse.",
@@ -46,16 +46,16 @@ quiz: [
       "Yes, it arrived yesterday."
     ],
     answer: 0,
-    explain: "'When' fragt nach der Zeit, daher passt nur eine Zeitangabe. 'Warehouse' beantwortet 'Where', 'department' eher 'Who', und 'Yes' passt nicht zu einer W-Frage."
+    explain: "„When“ fragt nach der Zeit, daher passt nur eine Zeitangabe. „Warehouse“ beantwortet „Where“, „department“ eher „Who“, und „Yes“ passt nicht zu einer W-Frage."
   }
 ]
 ---
 
-Beim TOEIC Listening & Reading Test bleiben viele Lernende zwischen 450 und 550 Punkten hängen. Einfache Gespräche verstehen Sie, doch die Dialoge in Part 3 laufen zu schnell, und die E-Mails und Aushänge in Part 7 füllen das Arbeitsgedächtnis, bevor Sie bei den Fragen ankommen. Um von 450 auf 750 zu kommen, brauchen Sie einen **toeic lernplan für das selbststudium**, der zuerst Wortschatz und Grammatik schließt, dann das Hören trainiert und erst danach das Tempo.
+Beim TOEIC Listening & Reading Test bleiben viele Lernende zwischen 450 und 550 Punkten hängen. Einfache Gespräche verstehen Sie, doch die Dialoge in Part 3 laufen zu schnell, und die E-Mails und Aushänge in Part 7 füllen das Arbeitsgedächtnis, bevor Sie bei den Fragen ankommen. Um von 450 auf 750 zu kommen, brauchen Sie einen **TOEIC-Lernplan für das Selbststudium**, der zuerst Wortschatz und Grammatik schließt, dann das Hören trainiert und erst danach das Tempo.
 
 Dieser Leitfaden stellt den Plan in drei Phasen vor, mit einem Wochenplan für vor oder nach der Arbeit und einem Fehlerprotokoll, damit jeder Übungstest etwas lehrt. Die Zeitangaben sind Planungsbeispiele, keine Versprechen: Wie schnell Sie vorankommen, hängt von Ihrem Ausgangsniveau und Ihren Lernstunden ab.
 
-## Aufbau und Phasen im TOEIC Lernplan für das Selbststudium
+## Aufbau und Phasen im TOEIC-Lernplan für das Selbststudium
 
 Viele glauben, endlose Probetests seien der schnellste Weg zu mehr Punkten. Ein Test misst aber nur, was Sie heute können. Die Wortschatz- und Grammatiklücken, die zu den Fehlern führten, schließt er nicht.
 
@@ -67,9 +67,9 @@ Die Tabelle zeigt die drei Phasen. Die Dauer ist ein Beispiel für etwa eine Stu
 
 | Phase | Punkteziel | Beispieldauer | Schwerpunkt |
 |---|---|---|---|
-| Phase 1: Fundament | 450 → 550 | 6–8 Wochen | Business-Wortschatz, Grammatik Part 5, Part 1 und 2 |
-| Phase 2: Ausbau | 550 → 650 | 6–8 Wochen | Part 3 und 4, Part 6, Einzeltexte in Part 7 |
-| Phase 3: Tempo und Ausdauer | 650 → 750+ | 6–8 Wochen | Abschnitte unter Zeitdruck, Mehrfachtexte, Fehleranalyse |
+| Phase 1: Fundament | 450 → 550 | 9–11 Wochen | Business-Wortschatz, Grammatik Part 5, Part 1 und 2 |
+| Phase 2: Ausbau | 550 → 650 | 9–11 Wochen | Part 3 und 4, Part 6, Einzeltexte in Part 7 |
+| Phase 3: Tempo und Ausdauer | 650 → 750+ | 9–11 Wochen | Abschnitte unter Zeitdruck, Mehrfachtexte, Fehleranalyse |
 
 Der Test hat 200 Fragen: 100 im Listening-Teil (45 Minuten) und 100 im Reading-Teil (75 Minuten), insgesamt zwei Stunden. Jeder Teil wird mit 5 bis 495 Punkten bewertet, zusammen ergibt das die Skala von 10 bis 990. Wie die Parts aufgebaut sind, lesen Sie auch in den Beiträgen zu [Part 5](/de/blog/toeic-part-5-strategien-grammatik-wortschatz/), [Part 2](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/) und [Part 7](/de/blog/toeic-part-7-leseverstaendnis-zeitmanagement/).
 
@@ -78,7 +78,7 @@ Der Test hat 200 Fragen: 100 im Listening-Teil (45 Minuten) und 100 im Reading-T
 Hier räumen Sie Unsicherheiten bei den Wortarten auf und bauen den Geschäftswortschatz auf, der im Test ständig wiederkehrt. Ohne diese Basis erzeugen vollständige Probetests vor allem Frust.
 
 ### 1. Hochfrequenten Business-Wortschatz lernen
-TOEIC-Texte stammen aus dem Büro- und Reisealltag: Einkauf, Marketing, Buchungen, Finanzen, Personal und Gebäudeverwaltung. Statt zufälliger Wortlisten arbeiten Sie mit der TOEIC Service List (TSL), etwa 1.250 häufigen Wörtern, die Lexkite in zehn Wortsets anbietet (mehr dazu auf der [Wortschatz-Seite](/en/vocabulary/)).
+TOEIC-Texte stammen aus dem Büro- und Reisealltag: Einkauf, Marketing, Buchungen, Finanzen, Personal und Gebäudeverwaltung. Statt zufälliger Wortlisten arbeiten Sie mit der TOEIC Service List (TSL), etwa 1.250 häufigen Wörtern, die Lexkite in zehn Wortsets anbietet (mehr dazu auf der [Wortschatz-Seite](/en/vocabulary/) – diese Seite ist auf Englisch – und in der [Wortschatz-Bibliothek](/#/library) im Tab „TOEIC (TSL)“).
 
 ![Wortschatz-Bibliothek in Lexkite mit Reitern, darunter TOEIC (TSL), und Kernwortsets der Stufen A1 bis B2](media:library "Die Bibliothek: Im Reiter TOEIC (TSL) liegen die Wortsets für die Prüfung")
 
@@ -92,14 +92,14 @@ Die ganze Methode steht im Beitrag [TOEIC Part 5: Strategien für Grammatik und 
 ### 3. Hörreflexe in Part 1 und 2 aufbauen
 Part 1 (6 Fotofragen) und Part 2 (25 Frage-Antwort-Paare) sind kurz und bringen die schnellsten Anfangsgewinne. In Part 2 achten Sie auf das erste Wort (*Who, Where, When, Why, How*) und misstrauen einer Antwort, die nur ein Wort der Frage wiederholt. Taktiken finden Sie unter [TOEIC Listening Part 2](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).
 
-Oft liegt die Hürde nicht im Wortschatz, sondern im Klang. Muttersprachler verbinden und schwächen Wörter, sodass *What did you* wie „wotdschu" klingt. Kennen Sie im Skript jedes Wort und überhören es trotzdem, spielen Sie den Clip noch einmal mit Skript ab und sprechen Sie die Zeile laut nach. Die Technik erklärt der Beitrag zur [Shadowing-Methode](/de/blog/shadowing-methode-englisch-lernen/).
+Oft liegt die Hürde nicht im Wortschatz, sondern im Klang. Muttersprachler verbinden und schwächen Wörter, sodass *What did you* wie „wotdschu“ klingt. Kennen Sie im Skript jedes Wort und überhören es trotzdem, spielen Sie den Clip noch einmal mit Skript ab und sprechen Sie die Zeile laut nach. Die Technik erklärt der Beitrag zur [Shadowing-Methode](/de/blog/shadowing-methode-englisch-lernen/).
 
 ## Phase 2: Ausdauer und Textverständnis aufbauen (550 bis 650)
 
 Sind Grammatik und kurze Dialoge sicher, wechseln Sie zu längeren Geschäftstexten und Hörbeiträgen.
 
 ### 1. Aktives Hören in Part 3 und 4
-Part 3 hat 39 Fragen zu Gesprächen, Part 4 hat 30 Fragen zu Kurzvorträgen. Viele verlieren nach wenigen Sätzen den Faden. Hilfreich ist, die Fragen zu lesen, bevor die Aufnahme beginnt, während die gesprochenen Anweisungen laufen. Dann wissen Sie, worauf Sie hören: Beruf des Sprechers, Problem, nächster Schritt.
+Part 3 hat 39 Fragen zu Gesprächen, Part 4 hat 30 Fragen zu Kurzvorträgen. Viele verlieren nach wenigen Sätzen den Faden. Hilfreich ist, die Fragen zu lesen, bevor die Aufnahme beginnt, während die gesprochenen Anweisungen laufen. Das klappt allerdings nur beim ersten Set jedes Parts. Bei den folgenden Sets lesen Sie in der Pause nach dem aktuellen Set schon die drei Fragen des nächsten: Beantworten Sie die aktuellen Fragen zügig und nutzen Sie die restlichen Sekunden für die nächsten Fragen. Dann wissen Sie, worauf Sie hören: Beruf des Sprechers, Problem, nächster Schritt.
 
 Die Fragen folgen der Reihenfolge der Aufnahme. Behalten Sie deshalb die nächste unbeantwortete Frage im Blick, statt zu früheren zurückzuspringen.
 
@@ -136,11 +136,11 @@ Nach einem Test nehmen Sie sich für die Auswertung mindestens so viel Zeit wie 
 * *Strukturelle Verwirrung:* Subjekt, Verb oder Satzgrenze falsch erkannt.
 * *Flüchtigkeit:* ein Wort wie *not* oder *except* übersehen.
 
-Die Fehler aus den Reading-Übungen nach Parts sammelt Lexkite in einem Fehlerheft, sortiert nach Wortschatz, Grammatik, Leseverstehen und Hörverstehen. Das Protokoll entsteht also von selbst.
+Lexkite sammelt die falsch beantworteten Fragen aus den Part-Übungen und aus kompletten Probetests (auch Listening) samt Erklärungen in einem Fehlerheft. Es ordnet sie nach Fertigkeit (Reading oder Listening) und nicht nach den drei Gruppen oben; die Gruppe tragen Sie beim Wiederholen selbst ein. Die Gruppen Wortschatz und Grammatik im Fehlerheft enthalten Fehler aus anderen Übungen.
 
 ![Lexkite-Fehlerheft, das falsche Antworten nach Wortschatz, Grammatik, Leseverstehen und Hörverstehen ordnet](media:mistakes "Das Fehlerheft: falsch beantwortete Fragen, nach Art gesammelt")
 
-Öffnen Sie einmal pro Woche Ihr [Fehlerheft](/#/mistakes) und wiederholen Sie die Aufgaben. Nach einem Monat sehen Sie, welche der drei Gruppen überwiegt, und wissen, was als Nächstes dran ist.
+Öffnen Sie einmal pro Woche Ihr [Fehlerheft](/#/mistakes), wiederholen Sie die Aufgaben und notieren Sie zu jeder die Gruppe. Nach einem Monat zeigen Ihre eigenen Markierungen, welche der drei Gruppen überwiegt, und Sie wissen, was als Nächstes dran ist.
 
 ## Wochenplan für Berufstätige
 
@@ -151,10 +151,10 @@ Regelmäßige kurze Einheiten schlagen seltene lange. Legen Sie zuerst auf der [
 * **Mittwoch, Wortschatz (30 Min.):** Karten im [Wiederholungsbereich](/#/review) durchgehen: Präpositionen, Kollokationen, Synonyme.
 * **Donnerstag, längere Audios (45 Min.):** 3 Dialoge aus Part 3 und 2 Vorträge aus Part 4, Fragen vorab lesen.
 * **Freitag, Lesen (60 Min.):** 4 Einzeltexte und 2 Doppeltexte mit Stoppuhr.
-* **Samstag, Abschnittssimulation (90 Min.):** ein Reading-Abschnitt von 75 Minuten, danach 15 Minuten Fehlerprotokoll. Wechseln Sie sich mit einem 45-minütigen Listening-Abschnitt ab.
+* **Samstag, Abschnittssimulation (90 Min.; 60 Min. in Listening-Wochen):** ein Reading-Abschnitt von 75 Minuten, danach 15 Minuten Fehlerprotokoll. Wechseln Sie wochenweise mit einem 45-minütigen Listening-Abschnitt ab (dann 60 Min. mit 15 Minuten Protokoll).
 * **Sonntag:** Pause oder leichter Input, etwa englische Wirtschaftspodcasts oder internationale Nachrichten.
 
-Alle Parts und kompletten Tests finden Sie auf der [TOEIC-Übungsseite](/#/toeic).
+Alle Parts und kompletten Tests finden Sie auf der [TOEIC-Übungsseite](/#/toeic). Der Sechs-Tage-Plan ergibt etwa fünf Stunden pro Woche; bei diesem Tempo dehnen Sie jede Phase der Tabelle auf etwa 12 bis 15 Wochen. Die 9–11 Wochen in der Tabelle setzen rund eine Stunde täglich voraus.
 
 {{youtube: | TOEIC Lernplan von 450 auf 750 Punkte Schritt für Schritt erklärt}}
 
@@ -163,7 +163,7 @@ Alle Parts und kompletten Tests finden Sie auf der [TOEIC-Übungsseite](/#/toeic
 ## Häufig gestellte Fragen zum Selbststudium für den TOEIC
 
 ### Wie viele Monate dauert es von 500 auf 750 Punkte?
-Eine offizielle Zahl gibt es nicht, und das Tempo ist sehr individuell. Als grobe Planungsgröße können Sie für ein Plus von 200 bis 250 Punkten etwa 150 bis 200 Stunden konzentriertes Lernen ansetzen. Bei rund 90 Minuten täglich sind das ungefähr drei bis vier Monate. Das ist eine eigene grobe Faustregel, keine Angabe von ETS. Machen Sie alle paar Wochen einen Probetest und passen Sie den Plan an.
+Eine offizielle Zahl gibt es nicht, und das Tempo ist sehr individuell. Als grobe Planungsgröße können Sie etwa 60 bis 80 Stunden konzentriertes Lernen pro 100 Punkte ansetzen (der Zielplaner von Lexkite rechnet mit rund 60). Für ein Plus von 200 bis 250 Punkten sind das etwa 120 bis 200 Stunden, bei rund 90 Minuten täglich (mehr als im Wochenplan oben) ungefähr zweieinhalb bis viereinhalb Monate. Das ist eine eigene grobe Faustregel, keine Angabe von ETS. Machen Sie alle paar Wochen einen Probetest und passen Sie den Plan an.
 
 ### Geht 750+ ohne teuren Vorbereitungskurs?
 Ja, mit Disziplin. Der Test hat ein festes Format und wiederkehrenden Geschäftswortschatz, daher kann ein Selbststudium mit Fehleranalyse und Spaced Repetition Ihre Schwächen genauer treffen als ein allgemeiner Kurs. Ein Lehrer hilft vor allem bei Sprech- und Schreibrückmeldung, die dieser Test nicht misst.
@@ -172,4 +172,4 @@ Ja, mit Disziplin. Der Test hat ein festes Format und wiederkehrenden Geschäfts
 In der Fundamentphase genügt alle drei Wochen einer, um den Stand zu prüfen, ohne auszubrennen. In den letzten vier Wochen machen Sie jedes Wochenende einen vollständigen, gestoppten Test, um die zwei Stunden durchzuhalten.
 
 ### Welche Stolperfallen haben deutsche Muttersprachler beim TOEIC?
-Zwei sind typisch. Erstens die falschen Freunde im Büroenglisch: *actual* heißt „tatsächlich", nicht „aktuell" (das ist *current*), *eventually* heißt „schließlich", nicht „eventuell" (*possibly*), *sensible* heißt „vernünftig", nicht „sensibel". Solche Verwechslungen kosten in Part 5 und Part 7 direkt Punkte. Zweitens die Auslautverhärtung: Im Deutschen klingt ein End-*d* oder -*g* wie *t* oder *k*, deshalb überhören Deutsche in Part 2 leicht den Unterschied bei klangähnlichen Distraktoren wie *code* und *coat* oder *bad* und *bat*. Üben Sie solche Paare gezielt mit Diktat.
+Zwei sind typisch. Erstens die falschen Freunde im Büroenglisch: *actual* heißt „tatsächlich“, nicht „aktuell“ (das ist *current*), *eventually* heißt „schließlich“, nicht „eventuell“ (*possibly*), *sensible* heißt „vernünftig“, nicht „sensibel“. Solche Verwechslungen kosten in Part 5 und Part 7 direkt Punkte. Zweitens die Auslautverhärtung: Im Deutschen klingt ein End-*d* oder -*g* wie *t* oder *k*. Beim Sprechen ist das ein Akzent, beim Hören ist es ein Problem: Sie gewöhnen sich daran, den Auslaut selbst nicht zu unterscheiden, und achten zu wenig auf die Länge des Vokals davor (in *bad* ist er länger als in *bat*). So überhören Sie in Part 2 leicht den Unterschied bei klangähnlichen Distraktoren wie *code* und *coat*. Üben Sie solche Paare gezielt mit Diktat.

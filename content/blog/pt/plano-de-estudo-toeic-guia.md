@@ -1,7 +1,7 @@
 ---
 slug: plano-de-estudo-toeic-guia
 title: "Plano de estudo TOEIC: guia completo para alcançar 750+"
-description: "Siga este plano de estudo toeic para subir de 450 a 750+: cronograma por fases, vocabulário de negócios, técnicas de listening e rotina diária."
+description: "Siga este plano de estudo TOEIC para subir de 450 a 750+: cronograma por fases, vocabulário de negócios, técnicas de listening e rotina diária."
 keyword: "plano de estudo toeic"
 lang: pt
 translationKey: lo-trinh-tu-hoc-toeic
@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, estudo, preparacao]
 cover: toeic
 coverAlt: "Página TOEIC do Lexkite: prática por Part, simulados com pontuação estimada e vocabulário TOEIC"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-12T12:11:00-03:00
@@ -51,11 +51,11 @@ quiz: [
 ]
 ---
 
-Muita gente fica parada entre 450 e 550 pontos no TOEIC Listening & Reading. Você entende conversas simples, mas os diálogos da Part 3 passam rápido demais, e os e-mails e avisos da Part 7 enchem sua memória de trabalho antes de você chegar às perguntas. Para ir de 450 a 750 é preciso um **plano de estudo toeic** que primeiro feche as lacunas de vocabulário e gramática, depois treine o ouvido e só então trabalhe a velocidade.
+Muita gente fica parada entre 450 e 550 pontos no TOEIC Listening & Reading. Você entende conversas simples, mas os diálogos da Part 3 passam rápido demais, e os e-mails e avisos da Part 7 enchem sua memória de trabalho antes de você chegar às perguntas. Para ir de 450 a 750 é preciso um **plano de estudo TOEIC** que primeiro feche as lacunas de vocabulário e gramática, depois treine o ouvido e só então trabalhe a velocidade.
 
 Este guia apresenta esse plano em três fases, uma agenda semanal para encaixar antes ou depois do trabalho e um registro de erros para que cada simulado ensine algo. Os prazos são exemplos de planejamento, não promessas: o seu ritmo depende do nível de partida e das horas que você estuda.
 
-## Estrutura e fases do plano de estudo toeic
+## Estrutura e fases do plano de estudo TOEIC
 
 É comum achar que fazer simulados sem parar é o caminho mais rápido. Só que um simulado mede apenas o que você sabe hoje; ele não preenche as lacunas de vocabulário e gramática que causaram os erros.
 
@@ -67,9 +67,9 @@ A tabela resume as três fases. As durações valem como exemplo para quem estud
 
 | Fase | Meta de pontos | Duração de exemplo | Foco principal |
 |---|---|---|---|
-| Fase 1: Base | 450 → 550 | 6–8 semanas | Vocabulário de trabalho, gramática da Part 5, Parts 1 e 2 |
-| Fase 2: Ampliação | 550 → 650 | 6–8 semanas | Parts 3 e 4, Part 6, textos simples da Part 7 |
-| Fase 3: Velocidade e resistência | 650 → 750+ | 6–8 semanas | Seções cronometradas, textos duplos e triplos, análise de erros |
+| Fase 1: Base | 450 → 550 | 9–11 semanas | Vocabulário de trabalho, gramática da Part 5, Parts 1 e 2 |
+| Fase 2: Ampliação | 550 → 650 | 9–11 semanas | Parts 3 e 4, Part 6, textos simples da Part 7 |
+| Fase 3: Velocidade e resistência | 650 → 750+ | 9–11 semanas | Seções cronometradas, textos duplos e triplos, análise de erros |
 
 A prova tem 200 questões: 100 de Listening (45 minutos) e 100 de Reading (75 minutos), duas horas no total. Cada seção vale de 5 a 495 pontos, o que forma a escala de 10 a 990. Para o detalhe de cada parte, leia os guias da [Part 5](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/), da [Part 2](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/) e da [Part 7](/pt/blog/toeic-part-7-estrategias-leitura-tempo/).
 
@@ -78,7 +78,7 @@ A prova tem 200 questões: 100 de Listening (45 minutos) e 100 de Reading (75 mi
 Nesta fase você desfaz a confusão entre classes de palavras e constrói o vocabulário de negócios que a prova repete o tempo todo. Sem essa base, simulados completos só geram frustração.
 
 ### 1. Dominar o vocabulário profissional de alta frequência
-Os textos do TOEIC vêm do escritório e das viagens: compras, marketing, reservas, finanças, pessoal e manutenção predial. Em vez de listas aleatórias, trabalhe com a TOEIC Service List (TSL), cerca de 1.250 palavras frequentes que o Lexkite oferece em dez conjuntos (veja também a [página de vocabulário](/en/vocabulary/)).
+Os textos do TOEIC vêm do escritório e das viagens: compras, marketing, reservas, finanças, pessoal e manutenção predial. Em vez de listas aleatórias, trabalhe com a TOEIC Service List (TSL), cerca de 1.250 palavras frequentes que o Lexkite oferece em dez conjuntos (veja também a [página de vocabulário](/en/vocabulary/), que está em inglês, e a [biblioteca de vocabulário](/#/library), aba “TOEIC (TSL)”).
 
 ![Biblioteca de vocabulário do Lexkite com abas, entre elas TOEIC (TSL), e conjuntos de palavras essenciais dos níveis A1 a B2](media:library "A biblioteca: na aba TOEIC (TSL) ficam os conjuntos de palavras da prova")
 
@@ -99,7 +99,7 @@ Muitas vezes o obstáculo não é vocabulário, é som. Nativos ligam e enfraque
 Quando a gramática está firme e os diálogos curtos ficam claros, passe a textos de negócios mais longos e a áudios com mais conteúdo.
 
 ### 1. Escuta ativa nas Parts 3 e 4
-A Part 3 tem 39 questões sobre conversas e a Part 4 tem 30 sobre falas curtas. É comum perder o fio no meio. O que ajuda é ler as perguntas antes de o áudio começar, usando o tempo das instruções gravadas. Assim você sabe o que captar: quem fala, qual é o problema, o que acontece depois.
+A Part 3 tem 39 questões sobre conversas e a Part 4 tem 30 sobre falas curtas. É comum perder o fio no meio. O que ajuda é ler as perguntas antes de o áudio começar, usando o tempo das instruções gravadas. Isso vale só para o primeiro conjunto de cada Part: nos seguintes, dê uma olhada nas três perguntas do próximo conjunto na pausa depois do conjunto atual (responda rápido às atuais e use os segundos que sobrarem para ler as novas). Assim você sabe o que captar: quem fala, qual é o problema, o que acontece depois.
 
 As perguntas seguem a ordem do áudio, então mantenha os olhos na próxima pergunta sem resposta em vez de voltar às anteriores. Para treinar além disso, veja [como melhorar o listening em inglês](/pt/blog/como-melhorar-o-listening-em-ingles-metodo/).
 
@@ -136,11 +136,11 @@ Depois de um simulado cronometrado, dedique à revisão dos erros pelo menos o m
 * *Confusão estrutural:* você identificou mal o sujeito, o verbo ou o limite da oração.
 * *Descuido:* você deixou passar uma palavra como *not* ou *except*.
 
-O Lexkite guarda as questões que você erra na prática de Reading por Part em um caderno organizado por vocabulário, gramática, leitura e escuta, então o registro se monta sozinho.
+O Lexkite reúne as questões que você erra, tanto na prática por Part quanto nos simulados completos (inclusive Listening), em um caderno com as explicações. Ele as organiza por habilidade (leitura ou escuta), não pelos três grupos acima: o grupo você anota ao refazer cada exercício. Os grupos de vocabulário e gramática do caderno guardam erros de outros exercícios.
 
 ![Caderno de erros do Lexkite que agrupa respostas erradas por vocabulário, gramática, leitura e escuta](media:mistakes "O caderno de erros: questões erradas reunidas por tipo")
 
-Abra o seu [caderno de erros](/#/mistakes) uma vez por semana e refaça os exercícios. Depois de um mês você vê qual grupo domina, e isso indica o que estudar em seguida.
+Abra o seu [caderno de erros](/#/mistakes) uma vez por semana, refaça os exercícios e anote o grupo de cada um. Depois de um mês as suas próprias marcações mostram qual grupo domina, e isso indica o que estudar em seguida.
 
 ## Agenda semanal sustentável
 
@@ -151,10 +151,10 @@ Sessões curtas e regulares rendem mais que sessões longas e raras. Defina ante
 * **Quarta, vocabulário (30 min):** revise seus cartões na [página de revisão](/#/review): preposições, colocações e sinônimos.
 * **Quinta, áudios longos (45 min):** 3 conjuntos da Part 3 e 2 da Part 4, lendo as perguntas antes de cada áudio.
 * **Sexta, leitura (60 min):** 4 textos simples e 2 duplos contra o relógio.
-* **Sábado, simulado de seção (90 min):** uma seção Reading de 75 minutos e 15 minutos para o registro de erros. Alterne com uma seção Listening de 45 minutos.
+* **Sábado, simulado de seção (90 min; 60 min nas semanas de Listening):** uma seção Reading de 75 minutos e 15 minutos para o registro de erros. Alterne com uma seção Listening de 45 minutos, mais 15 de registro.
 * **Domingo:** descanso ou exposição leve, como podcasts de negócios ou notícias internacionais.
 
-Todas as partes e as provas completas estão na [página de prática TOEIC](/#/toeic). Para treinar o ouvido com texto na mão, veja também a técnica de [ditado em inglês](/pt/blog/ditado-em-ingles-dictation-listening/).
+Todas as partes e as provas completas estão na [página de prática TOEIC](/#/toeic). Para treinar o ouvido com texto na mão, veja também a técnica de [ditado em inglês](/pt/blog/ditado-em-ingles-dictation-listening/). O modelo de seis dias soma cerca de cinco horas por semana; nesse ritmo, estique cada fase da tabela para 12 a 15 semanas. As 9 a 11 semanas da tabela supõem mais ou menos uma hora por dia.
 
 {{youtube: | Plano de estudo TOEIC de 450 a 750 pontos passo a passo}}
 
@@ -163,7 +163,7 @@ Todas as partes e as provas completas estão na [página de prática TOEIC](/#/t
 ## Perguntas frequentes sobre estudar sozinho para o TOEIC
 
 ### Quantos meses leva para ir de 500 a 750?
-Não existe número oficial e o avanço varia muito. Apenas como referência, conte com cerca de 150 a 200 horas de estudo focado para subir 200 a 250 pontos. Com uns 90 minutos por dia, são mais ou menos três a quatro meses. É uma regra prática aproximada nossa, não um número da ETS. Faça um simulado a cada poucas semanas e ajuste o plano ao resultado.
+Não existe número oficial e o avanço varia muito. Apenas como referência, conte com cerca de 60 a 80 horas de estudo focado a cada 100 pontos (o planejador de metas do Lexkite usa cerca de 60). Para subir 200 a 250 pontos, são 120 a 200 horas, ou seja, mais ou menos dois meses e meio a quatro e meio com uns 90 minutos por dia (mais do que o modelo semanal acima). É uma regra prática aproximada nossa, não um número da ETS. Faça um simulado a cada poucas semanas e ajuste o plano ao resultado.
 
 ### Dá para chegar a 750+ sem cursinho?
 Dá, se houver disciplina. A prova segue um formato estável e um vocabulário de negócios recorrente, então um plano sozinho, com análise de erros e repetição espaçada, pode atingir seus pontos fracos melhor que uma aula genérica. Um professor ajuda principalmente com correção de fala e escrita, que este exame não mede.
@@ -172,4 +172,6 @@ Dá, se houver disciplina. A prova segue um formato estável e um vocabulário d
 Na fase de base, um a cada três semanas basta para medir o progresso sem se esgotar. Nas últimas quatro semanas, faça um simulado completo e cronometrado todo fim de semana para aguentar as duas horas.
 
 ### Quais armadilhas atingem brasileiros no TOEIC?
-Os falsos cognatos do inglês de escritório custam pontos diretos na Part 5 e na Part 7: *actually* é “na verdade”, não “atualmente” (*currently*); *eventually* é “por fim”, não “eventualmente” (*occasionally*); *assist* é “ajudar”, não “assistir” (*attend*); *library* é “biblioteca”, não “livraria”; *push* é “empurrar”, não “puxar”. Na escuta, o português tende a acrescentar uma vogal depois de consoante final, e por isso brasileiros ouvem *-ed* e *-s* finais como sílabas à parte ou simplesmente não os ouvem, o que atrapalha na Part 5, onde *worked* e *works* mudam a resposta. Treine com ditado em frases curtas, escrevendo as terminações.
+Os falsos cognatos do inglês de escritório custam pontos diretos na Part 5 e na Part 7: *actually* é “na verdade”, não “atualmente” (*currently*); *eventually* é “por fim”, não “eventualmente” (*occasionally*); *assist* é “ajudar”, não “assistir” (*attend*); *library* é “biblioteca”, não “livraria”; *pretend* é “fingir”, não “pretender” (*intend*).
+
+Na escuta, o português tende a acrescentar uma vogal depois de consoante final, e por isso brasileiros ouvem *-ed* e *-s* finais como sílabas à parte ou simplesmente não os ouvem. Isso atrapalha nas Parts 2 a 4, onde *worked* e *works* podem mudar a resposta; na Part 5, o mesmo ponto cego faz você ler por cima das terminações escritas. Treine com ditado em frases curtas, escrevendo as terminações.

@@ -1,7 +1,7 @@
 ---
 slug: toeic-self-study-roadmap-guide
 title: "TOEIC Self-Study Roadmap: Complete Plan to Score 750+"
-description: "A toeic self-study roadmap from 450 to 750+: three phases, a weekly schedule, vocabulary and listening drills, pacing for the 75-minute Reading section."
+description: "A TOEIC self-study roadmap from 450 to 750+: three phases, a weekly schedule, vocabulary and listening drills, pacing for the 75-minute Reading section."
 keyword: "toeic self-study roadmap"
 lang: en
 translationKey: lo-trinh-tu-hoc-toeic
@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, study-plan, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC exam practice interface showing mock exams and section-by-section practice"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-28T07:36:00+05:30
@@ -51,25 +51,25 @@ quiz: [
 ]
 ---
 
-Many learners stall between 450 and 550 on the TOEIC Listening & Reading test. You follow simple conversations, but Part 3 dialogues go by too fast and the emails and notices in Part 7 use up your working memory before you reach the questions. Closing the gap from 450 to 750 takes a **toeic self-study roadmap** that fixes vocabulary and grammar first, then listening, and only then speed.
+Many learners stall between 450 and 550 on the TOEIC Listening & Reading test. You follow simple conversations, but Part 3 dialogues go by too fast and the emails and notices in Part 7 use up your working memory before you reach the questions. Closing the gap from 450 to 750 takes a **TOEIC self-study roadmap** that fixes vocabulary and grammar first, then listening, and only then speed.
 
 This guide gives you that roadmap in three phases, a weekly schedule you can run before or after work, and a way to log your mistakes so each practice test teaches you something. The timelines are planning examples, not promises: how fast you move depends on your starting level and how many hours you study.
 
-## Understanding the core phases of the toeic self-study roadmap
+## Understanding the core phases of the TOEIC self-study roadmap
 
 Many people assume that endless practice tests are the fastest route to a higher score. A test only measures what you know today. It does not fill the vocabulary and grammar gaps that caused the wrong answers.
 
 So the plan below puts language first and test speed second. Each phase ends with a mock test, which is where your score estimate comes from.
 
-![Lexkite TOEIC page with Listening and Reading practice by Part, mock tests with an estimated 10-990 score and TOEIC (TSL) vocabulary](media:toeic "The TOEIC page: practice by Part, full mock tests with an estimated score, and the TOEIC vocabulary list")
+![Lexkite goal page where you choose the exam, target score, exam date and weekly study hours](media:goal "The goal page: set your exam, target score and weekly hours, then scale the phases below to them")
 
 The table shows the three phases. The durations are an example for someone studying about an hour a day; shorten or stretch them to fit your own schedule.
 
 | Study phase | Score target | Example duration | Core focus |
 |---|---|---|---|
-| Phase 1: Foundation | 450 to 550 | 6-8 weeks | Workplace vocabulary, Part 5 grammar, Parts 1 and 2 |
-| Phase 2: Extension | 550 to 650 | 6-8 weeks | Parts 3 and 4, Part 6, Part 7 single passages |
-| Phase 3: Speed and stamina | 650 to 750+ | 6-8 weeks | Timed sections, double and triple passages, error analysis |
+| Phase 1: Foundation | 450 to 550 | 9-11 weeks | Workplace vocabulary, Part 5 grammar, Parts 1 and 2 |
+| Phase 2: Extension | 550 to 650 | 9-11 weeks | Parts 3 and 4, Part 6, Part 7 single passages |
+| Phase 3: Speed and stamina | 650 to 750+ | 9-11 weeks | Timed sections, double and triple passages, error analysis |
 
 Before you start, read [the complete TOEIC test format](/en/blog/toeic-test-format/). The Listening & Reading test has 200 questions: 100 listening questions in 45 minutes and 100 reading questions in 75 minutes, two hours in total. Each section is scored from 5 to 495, which gives the 10-990 total.
 
@@ -99,7 +99,7 @@ A common block for learners is not vocabulary but sound. Native speakers link an
 When the grammar base holds and short exchanges are clear, move to longer business texts and spoken passages.
 
 ### 1. Active listening in Parts 3 and 4
-Part 3 has 39 questions on conversations and Part 4 has 30 questions on short talks. Learners often lose the thread halfway through. The remedy is to read the question stems before the audio starts, using the time the recorded directions take. Then you know what to catch: who the speaker is, what the problem is, what happens next.
+Part 3 has 39 questions on conversations and Part 4 has 30 questions on short talks. Learners often lose the thread halfway through. The remedy is to read the question stems before the audio starts, using the time the recorded directions take. That works for the first set of each Part only. For later sets, preview the next set's three questions in the pause after the current one: answer the current questions quickly, then spend the remaining seconds on the next stems. Then you know what to catch: who the speaker is, what the problem is, what happens next.
 
 The questions follow the order of the audio, so keep your eye on the stem you have not yet answered rather than rereading earlier ones.
 
@@ -136,11 +136,11 @@ After a timed test, spend at least as long reviewing mistakes as you spent takin
 * *Structural confusion:* you misread the subject and verb or the clause boundary.
 * *Careless rush:* you missed a word such as *not* or *except*.
 
-Lexkite writes the questions you miss in TOEIC Reading Part practice into a notebook sorted by vocabulary, grammar, reading and listening, so the log builds itself.
+Lexkite collects the questions you miss, from Part practice and from full mock tests (Listening too), in a notebook together with their explanations. The notebook files them by skill (Reading or Listening), not by the three groups above, so you tag each item yourself when you redo it. The Vocabulary and Grammar groups in the notebook hold errors from other exercises.
 
 ![Lexkite mistake notebook grouping wrong answers by Vocabulary, Grammar, Reading and Listening](media:mistakes "The mistake notebook, where missed questions are collected by type for review")
 
-Open [your mistake notebook](/#/mistakes) once a week and redo the items. After a month you will see which of the three groups dominates, and that tells you what to study next.
+Open [your mistake notebook](/#/mistakes) once a week, redo the items and write the group next to each one. After a month your own tags will show which of the three groups dominates, and that tells you what to study next.
 
 ## Designing a sustainable weekly study schedule
 
@@ -151,10 +151,10 @@ Regular short sessions beat occasional long ones. Here is a six-day template for
 * **Wednesday, vocabulary (30 min):** review your cards on the [flashcard review page](/#/review): prepositions, collocations and synonyms.
 * **Thursday, extended audio (45 min):** 3 Part 3 sets and 2 Part 4 sets, reading the stems before each recording.
 * **Friday, reading (60 min):** 4 single passages and 2 double passages against the clock.
-* **Saturday, section simulation (90 min):** one 75-minute Reading section, then 15 minutes to log errors. Alternate with a 45-minute Listening section.
+* **Saturday, section simulation (90 min; 60 min on Listening weeks):** one 75-minute Reading section, then 15 minutes to log errors. On alternate weeks take the 45-minute Listening section instead, plus 15 minutes for the log.
 * **Sunday:** rest, or light exposure such as business podcasts or international news.
 
-Practise each Part, and sit full tests, from the [TOEIC practice page](/#/toeic), which lists every Listening and Reading Part for each test.
+Practise each Part, and sit full tests, from the [TOEIC practice page](/#/toeic), which lists every Listening and Reading Part for each test. A full mock test ends with a per-Part breakdown that points to your weakest Part, which is exactly what you need to choose the next week's focus in Phase 3. The six-day template adds up to about five hours a week, so at that pace stretch each phase in the table to roughly 12 to 15 weeks; the table's 9 to 11 weeks assume about an hour every day.
 
 {{youtube: | Complete TOEIC self-study roadmap from 450 to 750 score step by step}}
 
@@ -163,7 +163,7 @@ Practise each Part, and sit full tests, from the [TOEIC practice page](/#/toeic)
 ## Frequently asked questions about self-studying for TOEIC
 
 ### How many months does it take to jump from 500 to 750?
-There is no official figure and progress differs a lot between people. For planning only, allow roughly 150 to 200 hours of focused study for a rise of 200 to 250 points. At about 1.5 hours a day that is around three to four months. This is our own rough rule of thumb, not an ETS figure. Take a mock test every few weeks and adjust the plan to what it shows.
+There is no official figure and progress differs a lot between people. For planning only, allow roughly 60 to 80 hours of focused study per 100 points (the Lexkite goal planner uses about 60). A rise of 200 to 250 points is then about 120 to 200 hours, which at 1.5 hours a day (a heavier pace than the weekly template above) is around two and a half to four and a half months. This is our own rough rule of thumb, not an ETS figure. Take a mock test every few weeks and adjust the plan to what it shows.
 
 ### Can I reach 750+ without a test-prep centre?
 Yes, if you stay disciplined. The test uses a predictable format and a recurring business vocabulary, so a self-study plan built on error analysis and spaced repetition can fit your weak points better than a general class. A teacher helps most with speaking and writing feedback, which the Listening & Reading test does not measure.
@@ -172,4 +172,6 @@ Yes, if you stay disciplined. The test uses a predictable format and a recurring
 In the foundation phase, one every three weeks is enough to track progress without burning out. In the last four weeks, take a full timed test each weekend to build stamina for the two hours.
 
 ### Why do I miss answers in Part 2 even when I know every word?
-Usually the cause is the sound, not the vocabulary. Learners whose languages pronounce every syllable clearly, such as Spanish, Vietnamese or Japanese speakers, often miss weak and linked forms like *wanna*, *gonna* or *did you* said as one sound. Learners from these backgrounds also tend to drop final consonants when speaking, so *worked* and *work* sound the same to them, which hurts in Part 5 where *-ed* and *-s* endings decide the answer. Train by replaying a clip with its script and then repeating it aloud.
+Usually the cause is the sound, not the vocabulary. Weak and linked forms such as *wanna*, *gonna* or *did you* said as one sound trip up almost everyone at first. Each first language adds its own blind spot: Spanish speakers tend to reduce final consonant clusters, so *asked* and *ask* blur together; Japanese speakers tend to insert vowels (*desk* becomes "desu-ku"), so they wait for syllables that are not there; Vietnamese speakers often leave final consonants unreleased, so endings are hard to hear in their own speech and in the audio.
+
+All of this matters in Parts 2 to 4, where an *-ed* or *-s* ending can be the whole difference between two answers. In Part 5 the same blind spot makes you skim past written endings, so check them on purpose. Train by replaying a clip with its script and then repeating it aloud.
