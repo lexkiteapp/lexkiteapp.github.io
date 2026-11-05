@@ -70,6 +70,40 @@ for (const l of LANGS) {
     ran++; shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
   }
 }
+// Bàn phím THẬT (Gboard trên emulator): chạm thật vào ô → chờ IME hiện → ô đang focus phải nằm TRỌN trên mép bàn phím (đo bằng toạ độ màn hình:
+// khung WebView từ uiautomator + khung cửa sổ InputMethod từ dumpsys). Cùng luật với scripts/test/mobile-qa-keyboard.mjs (giả lập), đây là bản đo thật.
+const imeShown = () => /mInputShown=true/.test(adb('shell', 'dumpsys', 'input_method'));
+const imeTop = () => { const d = adb('shell', 'dumpsys', 'window', 'InputMethod'); const m = /(?:mFrame|frame)=\[(\d+),(\d+)\]\[(\d+),(\d+)\]/.exec(d) || /Frames:[^\n]*?\[(\d+),(\d+)\]\[(\d+),(\d+)\]/.exec(d); return m && +m[2] > 0 ? +m[2] : 0; };
+const webBox = () => { adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); const m = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(adb('shell', 'cat', '/sdcard/kb.xml')); return m ? m.slice(1).map(Number) : null; };
+let kbRan = 0;
+for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']]) {
+  await clearAnr();
+  const pos = await ev(`location.hash = '#/${route}'; for (let i = 0; i < 20 && !document.querySelector(${JSON.stringify(css)}); i++) await new Promise(r => setTimeout(r, 400));
+    const el = document.querySelector(${JSON.stringify(css)}); if (!el || el.getBoundingClientRect().width < 2) return null; el.scrollIntoView({ block: 'nearest' }); await new Promise(r => setTimeout(r, 300));
+    const b = el.getBoundingClientRect(); return { x: b.left + Math.min(b.width / 2, 40), y: b.top + Math.min(b.height / 2, 20), dpr: devicePixelRatio, ih: innerHeight }`);
+  if (!pos || pos.__err) { bad.push(`[bàn phím] #/${route}: không thấy ô ${css}`); continue; }
+  const wb = webBox(); if (!wb) { bad.push('[bàn phím] không đọc được khung WebView (uiautomator)'); break; }
+  const sx = wb[0] + pos.x * pos.dpr, sy = wb[1] + pos.y * pos.dpr;
+  adb('shell', 'input', 'tap', String(Math.round(sx)), String(Math.round(sy)));
+  let shown = false; for (let k = 0; k < 16 && !(shown = imeShown()); k++) await sleep(500);
+  await sleep(1200); // WebView/app phản ứng (resize, cuộn)
+  const kTop = imeTop();
+  const st = await ev(`const el = document.activeElement, vv = visualViewport, b = el && el.getBoundingClientRect();
+    return el && el.matches(${JSON.stringify(css)}) ? { top: b.top, h: b.height, vt: vv.offsetTop, vh: vv.height, sc: vv.scale, ih: innerHeight } : { lost: el ? el.tagName + (el.id ? '#' + el.id : '') : 'null' }`);
+  shot(`kbd-${route}`);
+  if (!shown) bad.push(`[bàn phím] #/${route}: chạm ${css} không mở bàn phím (mInputShown=false)`);
+  else if (!st || st.__err || st.lost) bad.push(`[bàn phím] #/${route}: ${css} mất focus sau khi mở bàn phím (${st && (st.lost || st.__err)})`);
+  else {
+    const head = Math.min(st.h, 48), yTop = wb[1] + (st.top - st.vt) * st.sc * pos.dpr, yHead = wb[1] + (st.top + head - st.vt) * st.sc * pos.dpr;
+    const edge = kTop || wb[1] + (st.vt + st.vh) * st.sc * pos.dpr; // không đọc được khung IME → dùng mép dưới visualViewport
+    if (yTop < wb[1] - 2 || yHead > edge + 2) bad.push(`[bàn phím] #/${route}: ${css} bị bàn phím che – ô ${Math.round(yTop)}–${Math.round(yHead)} px màn hình, mép bàn phím ${Math.round(edge)} px (WebView ${wb[1]}–${wb[3]}, visualViewport ${Math.round(st.vh)}/${st.ih} css px)`);
+    console.log(`bàn phím #/${route}: ô ${Math.round(yTop)}–${Math.round(yHead)} · mép IME ${kTop || '?'} · vv ${Math.round(st.vh)}/${st.ih}`);
+    kbRan++;
+  }
+  if (imeShown()) adb('shell', 'input', 'keyevent', 'KEYCODE_BACK'); await sleep(600);
+  await ev('document.activeElement && document.activeElement.blur(); return 1');
+}
+if (kbRan < 3) bad.push(`[bàn phím] chỉ đo được ${kbRan}/3 ô trên bàn phím thật`);
 if (ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
 const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));
