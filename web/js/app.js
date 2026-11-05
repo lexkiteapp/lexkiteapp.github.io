@@ -132,7 +132,6 @@
   // ---------- Theme ----------
   // Một lựa chọn chung app ↔ trang ngoài (landing, blog, pháp lý…): localStorage 'lk.theme' (+ mốc 'lk.themeAt'), cùng mã chống nháy
   // trong <head> (scripts/lib/site-layout.mjs THEME_HEAD → lkT()); đổi ở tab khác → sự kiện storage. Thanh trình duyệt (meta theme-color) theo --bg.
-  // Đổi theme mượt: lần đầu (khi mở) áp ngay, không hiệu ứng; đổi tay/tab khác/hệ thống → mờ màu 180 ms (html.lk-theming, style.css), tắt khi giảm chuyển động
   const fadeTheme = () => { const r = document.documentElement; if (!fadeTheme.on || matchMedia('(prefers-reduced-motion: reduce)').matches) return; r.classList.add('lk-theming'); clearTimeout(fadeTheme.tm); fadeTheme.tm = setTimeout(() => r.classList.remove('lk-theming'), 240); };
   function applyTheme(o) {
     const t = state.settings.theme, r = document.documentElement, F = t === 'light' || t === 'dark';
@@ -142,7 +141,7 @@
     document.querySelectorAll('meta[name=theme-color]').forEach(m => { if (!m.dataset.c) m.dataset.c = m.content; m.content = bg || m.dataset.c; });
     if (!(o && o.remote)) try { const ls = localStorage; if ((ls.getItem('lk.theme') || 'auto') !== t || !ls.getItem('lk.themeAt')) { if (F) ls.setItem('lk.theme', t); else ls.removeItem('lk.theme'); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
   }
-  { const mq = matchMedia('(prefers-color-scheme: dark)'), f = () => { if (state.settings.theme === 'auto') fadeTheme(); }; // Safari < 14: chỉ có addListener – không để app.js chết
+  { const mq = matchMedia('(prefers-color-scheme: dark)'), f = () => { if (state.settings.theme === 'auto') fadeTheme(); };
     if (mq && mq.addEventListener) mq.addEventListener('change', f); else if (mq && mq.addListener) mq.addListener(f); }
   addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' ? e.newValue : 'auto'; applyTheme({ remote: 1 }); } });
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
@@ -859,7 +858,7 @@
       <div class="tiny muted center" style="margin-top:.4rem">${t('{n} từ chưa học · bấm vào cột để ôn theo cấp', { n: n[0] })}</div>`;
   }
 
-  function modeTiles() { // nền ô biểu tượng = token *-soft (brand/tokens.json) – tự đổi theo sáng/tối, không mã màu rời
+  function modeTiles() {
     return [
       ['learn', '🧠', t('Học thông minh'), t('Trắc nghiệm → gõ từ, thích ứng theo bạn'), 'var(--accent-soft)'],
       ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), 'var(--gold-soft)'],
