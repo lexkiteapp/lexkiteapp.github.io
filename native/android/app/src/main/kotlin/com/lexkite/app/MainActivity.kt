@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -24,6 +25,7 @@ import com.lexkite.app.core.generated.FlagKey
 import com.lexkite.app.core.link.DeepLink
 import com.lexkite.app.core.migration.Migration
 import com.lexkite.app.core.settings.DevicePrefs
+import com.lexkite.app.core.sync.StarterDeck
 import com.lexkite.app.core.sync.SyncScheduler
 import com.lexkite.app.design.LKAnim
 import com.lexkite.app.design.LKFrame
@@ -31,6 +33,14 @@ import com.lexkite.app.design.LKTheme
 import com.lexkite.app.design.rememberHaptics
 import com.lexkite.app.feature.me.MeActions
 import com.lexkite.app.feature.me.MeScreen
+import com.lexkite.app.feature.onboarding.BrandSplash
+import com.lexkite.app.feature.onboarding.OnbChoice
+import com.lexkite.app.feature.onboarding.OnbExit
+import com.lexkite.app.feature.onboarding.OnbGate
+import com.lexkite.app.feature.onboarding.OnbSettings
+import com.lexkite.app.feature.onboarding.OnbStarter
+import com.lexkite.app.feature.onboarding.OnboardingFlow
+import com.lexkite.app.feature.onboarding.StartRoute
 import com.lexkite.app.feature.me.MeState
 import com.lexkite.app.feature.today.DEFAULT_BLOCKS
 import com.lexkite.app.feature.today.TodayScreen
@@ -49,16 +59,29 @@ import kotlinx.serialization.json.JsonPrimitive
 class MainActivity : ComponentActivity() {
     private val app get() = application as LexkiteApp
     private val link = MutableStateFlow<DeepLink?>(null)
+    /** C17: null while the brand screen shows (decided locally in well under a second, never waits for the network). */
+    private val start = MutableStateFlow<StartRoute?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen() // system splash = Kit background; it is dismissed on the first frame and the Compose brand screen continues
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         link.value = DeepLink.parse(intent?.dataString)
         val frame = LKFrame.load(this)
         val reduce = LKAnim.durationScale(this) == 0f
         lifecycleScope.launch {
+            // C17 gate: returning users go straight to Today without waiting for anything
+            val t0 = System.currentTimeMillis()
+            val done = app.prefs.onboardingDone()
+            if (done) start.value = StartRoute.TODAY
             // C03 once, then the first sync of the session (pull before anything is pushed)
-            if (app.flags.bool(FlagKey.MIGRATION_CAPACITOR_ENABLED)) Migration(this@MainActivity, app.store, app.prefs, app.crash).runOnce()
+            val outcome = if (app.flags.bool(FlagKey.MIGRATION_CAPACITOR_ENABLED)) Migration(this@MainActivity, app.store, app.prefs, app.crash).runOnce() else null
+            if (!done) {
+                // first launch: migrated users (Capacitor data, or a failed import that may still hold data) and anyone with data skip it
+                val route = OnbGate.route(false, outcome, app.store.doc())
+                if (route == StartRoute.ONBOARDING) kotlinx.coroutines.delay((BRAND_MS - (System.currentTimeMillis() - t0)).coerceAtLeast(0))
+                start.value = route
+            }
             SyncScheduler.now(this@MainActivity); SyncScheduler.periodic(this@MainActivity)
         }
         setContent {
@@ -68,10 +91,35 @@ class MainActivity : ComponentActivity() {
             val dark = when (dev.theme) { "dark" -> true; "light" -> false; else -> isSystemInDarkTheme() }
             val pending by link.collectAsState()
             var langOpen by rememberSaveable { mutableStateOf(false) }
+            val route by start.collectAsState()
             LKTheme(t, dark, reduce, rememberHaptics(dev.haptics)) {
-                AppShell(t, frame, slots(lang) { langOpen = true }, link = pending, onLinkHandled = { link.value = null })
-                if (langOpen) LanguageDialog(t, onPick = { l -> langOpen = false; lifecycleScope.launch { app.prefs.setLang(l) } }, onDismiss = { langOpen = false })
+                when (route) {
+                    null -> BrandSplash(t)
+                    StartRoute.ONBOARDING -> OnboardingFlow(
+                        t, lang, onLang = { l -> lifecycleScope.launch { app.prefs.setLang(l) } }, onFinish = ::finishOnboarding,
+                        teacher = { pose -> TeacherStill(pose = pose) }, columnWidth = frame.width.dp,
+                    )
+                    StartRoute.TODAY -> {
+                        AppShell(t, frame, slots(lang) { langOpen = true }, link = pending, onLinkHandled = { link.value = null })
+                        if (langOpen) LanguageDialog(t, onPick = { l -> langOpen = false; lifecycleScope.launch { app.prefs.setLang(l) } }, onDismiss = { langOpen = false })
+                    }
+                }
             }
+        }
+    }
+
+    /** Saves the choices with the web keys (so sync carries them), marks onboarding done, then opens Today (or Me for "I already have an account"). */
+    private fun finishOnboarding(choice: OnbChoice?, exit: OnbExit) {
+        lifecycleScope.launch {
+            val pack = runCatching { StarterDeck.parse(assets.open("content-pack/starter.json").bufferedReader().use { it.readText() }) }.getOrNull() // bundled, generated from web data
+            app.store.mutate { d ->
+                val now = System.currentTimeMillis()
+                val saved = d.copy(settings = OnbSettings.apply(d.settings, if (exit == OnbExit.HAVE_ACCOUNT) null else choice, now), settingsAt = kotlinx.serialization.json.JsonPrimitive(now))
+                OnbStarter.apply(saved, choice, exit, pack, now) // web adds the starter deck of the chosen exam at the end of setup
+            }
+            app.prefs.markOnboardingDone()
+            if (exit == OnbExit.HAVE_ACCOUNT) DeepLink.parse("lexkite://me")?.let { link.value = it }
+            start.value = StartRoute.TODAY
         }
     }
 
@@ -79,6 +127,8 @@ class MainActivity : ComponentActivity() {
         super.onNewIntent(intent)
         DeepLink.parse(intent.dataString)?.let { link.value = it }
     }
+
+    private companion object { const val BRAND_MS = 700L } // brand screen minimum on first launch, well under the 1 s budget
 
     private fun slots(lang: String, onLanguage: () -> Unit) = ShellSlots(
         today = { open -> TodayRoute(lang, open, onLanguage) },

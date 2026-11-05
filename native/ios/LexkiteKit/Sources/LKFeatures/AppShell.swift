@@ -18,7 +18,7 @@ public struct RootView: View {
     public var body: some View {
         @Bindable var s = services
         let l10n = services.l10n, theme = services.colorScheme
-        AppShell()
+        OnboardingGateView()   // C17: splash → first-run onboarding → AppShell (later launches go straight to Today)
             .environment(services)
             .environment(\.l10n, l10n)
             .environment(\.locale, Locale(identifier: l10n.lang))

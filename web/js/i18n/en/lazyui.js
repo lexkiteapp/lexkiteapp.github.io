@@ -688,4 +688,10 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Chế độ tiếp theo': 'Next mode',
 // ← en/shell.js
 "Tra từ ngay trên mọi trang web": "Look up words on any website",
+// ← native onboarding (C17): ids onb.* in native/shared/strings.json
+"Ngôn ngữ mẹ đẻ của bạn?": "What is your native language?",
+"Chúng tôi sẽ giải nghĩa và hướng dẫn bằng ngôn ngữ này.": "We will explain meanings and guide you in this language.",
+"Tìm ngôn ngữ": "Search language",
+"Vào bài học đầu tiên": "Start your first lesson",
+"Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.": "Hi, I’m Ama! A few quick questions and I’ll build a plan just for you.",
 }); })(typeof self !== 'undefined' ? self : this);

@@ -52,7 +52,7 @@ jobs:
           fi
           set -o pipefail
           "${T[@]}" 2>&1 | tail -60
-          ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 20 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
+          ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 62 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
       - name: Build app (XcodeGen → simulator, không ký)
         working-directory: native/ios
         run: |

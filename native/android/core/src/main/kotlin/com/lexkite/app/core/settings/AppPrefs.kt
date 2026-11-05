@@ -31,10 +31,15 @@ class AppPrefs(private val ds: DataStore<Preferences>) {
     suspend fun migrationAttempts(): Int = ds.data.first()[MIG_TRIES] ?: 0
     suspend fun markMigration(done: Boolean) { ds.edit { it[MIG_DONE] = done; it[MIG_TRIES] = (it[MIG_TRIES] ?: 0) + 1 } }
 
+    /** C17: the first-run onboarding was finished or skipped on this device (relaunch goes straight to Today). Device-only; the synced twin is `settings.onboarded`. */
+    suspend fun onboardingDone(): Boolean = ds.data.first()[ONB_DONE] ?: false
+    suspend fun markOnboardingDone() { ds.edit { it[ONB_DONE] = true } }
+
     companion object {
         private val LANG = stringPreferencesKey("lang")
         private val THEME = stringPreferencesKey("theme")
         private val HAPTICS = booleanPreferencesKey("haptics")
+        private val ONB_DONE = booleanPreferencesKey("onboarding.done")
         private val MIG_DONE = booleanPreferencesKey("migration.done")
         private val MIG_TRIES = intPreferencesKey("migration.tries")
     }

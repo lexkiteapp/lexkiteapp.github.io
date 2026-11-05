@@ -92,3 +92,55 @@ written by hand. The Swift code in `native/ios/LexkiteKit/Sources/LKFeatures` al
 ```
 
 Note for gen.mjs: `auth.switchAccount` contains real newlines (`\n` in JSON) – the web key is the same string with newlines.
+
+---
+
+# iOS C17 (first-run onboarding) – string IDs to add to `native/shared/strings.json`
+
+Same procedure as above (coordinator appends, runs `node scripts/native/gen.mjs`; `LKFeatures/Onboarding/*` does not compile before that).
+Reused existing ids (do NOT add again): `action.continue` (Tiếp tục), `action.back` (Quay lại), `me.progress` (Tiến độ), `today.goalShort` (Mục tiêu), `app.name`.
+
+NEW copy (vi source from `brand/stitch/v3/app/onboarding-README.md`; needs the i18n pipeline for the 14 other languages):
+```json
+  "onb.lang.title": "Ngôn ngữ mẹ đẻ của bạn?",
+  "onb.lang.sub": "Chúng tôi sẽ giải nghĩa và hướng dẫn bằng ngôn ngữ này.",
+  "onb.lang.search": "Tìm ngôn ngữ",
+  "onb.welcome.start": "Bắt đầu",
+  "onb.ready.cta": "Vào bài học đầu tiên"
+```
+Web keys that already exist in all 15 languages (web #608 / tracks.js / lazyui.js; the Vietnamese key IS the web key):
+```json
+  "onb.common.skip": "Bỏ qua",
+  "onb.welcome.haveAccount": "Tôi đã có tài khoản",
+  "onb.welcome.kicker": "Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến",
+  "onb.welcome.h1a": "Từ vựng vững,",
+  "onb.welcome.h1b": "band điểm bứt phá.",
+  "onb.welcome.hello": "Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.",
+  "onb.free": "Miễn phí · Dữ liệu học thuộc về bạn",
+  "onb.goal.q": "Mục tiêu của bạn là gì?",
+  "onb.goal.sub": "Chọn 1 gói – có thể học thêm gói khác sau.",
+  "onb.track.comm": "Giao tiếp hằng ngày",
+  "onb.track.commSub": "Nói tự tin ở quán cà phê, sân bay, khách sạn, cửa hàng, phòng khám…",
+  "onb.track.ieltsSub": "Từ học thuật, dạng câu Reading & Listening, Writing Task 1–2, Speaking Part 1–3",
+  "onb.track.toeicSub": "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp",
+  "onb.track.work": "Tiếng Anh công sở",
+  "onb.track.workSub": "Email, họp, gọi điện, phỏng vấn và cách đề nghị lịch sự",
+  "onb.level.q": "Trình độ hiện tại của bạn?",
+  "onb.level.say": "Chưa chắc trình độ? Làm bài kiểm tra 5 phút để mình xếp đúng chặng.",
+  "onb.level.test": "Làm bài kiểm tra đầu vào",
+  "onb.level.word": "Trình độ",
+  "onb.pace.q": "Bạn muốn học với cường độ nào?",
+  "onb.pace.say": "Đều đặn mỗi ngày là bí quyết nhớ lâu!",
+  "onb.pace.easy": "Nhẹ nhàng",
+  "onb.pace.easySub": "5 phút/ngày · 5 từ mới",
+  "onb.pace.steady": "Đều đặn",
+  "onb.pace.steadySub": "10–15 phút/ngày · 10 từ mới",
+  "onb.pace.fast": "Tăng tốc",
+  "onb.pace.fastSub": "25 phút/ngày · 20 từ mới",
+  "onb.ready.q": "Lộ trình của bạn",
+  "onb.ready.say": "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.",
+  "onb.ready.sayTest": "Lộ trình đã sẵn sàng! Làm bài kiểm tra 5 phút rồi học Ngày 1 – không cần tài khoản."
+```
+Notes: the native Ready step drops the web reminder-time row (notification permission is asked after the first lesson – hook `OnboardingFlow.askNotificationsAfterFirstLessonKey`);
+the web "target score" step is not a native step (default `examTarget` per exam is written, changeable later in Goal). Brand names (IELTS/TOEIC/TOEFL 2026), language endonyms and CEFR/Band labels are data, not strings.
+Art (no SF-symbol fallbacks any more): `LexkiteMark` = the exact brand mark, generated into `LKDesign/Resources/Assets.xcassets` from `brand/lexkite-mark.svg`; the teacher is the web Ama still (`TeacherStill`, bundled poses generated from `web/teach/ama`, other poses from the CDN + disk cache). Both come from `node scripts/native/gen.mjs`.

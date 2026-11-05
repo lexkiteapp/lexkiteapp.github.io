@@ -215,6 +215,147 @@ final class ParityTests: XCTestCase {
     }
 
     /// Reduce Motion: the press animation is disabled (no movement) – checked on the style used by every CTA.
+    // MARK: C17 – first-run onboarding (splash → Welcome → language → goal → level → pace → Ready → Today; never blog/web)
+    func testParityC17() async throws {
+        let suite = "lk.test.c17." + UUID().uuidString
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let repo = try LKRepository.inMemory()
+
+        // first launch: empty store → onboarding from Welcome; the only screens are the 6 native steps (no blog / web page exists in the flow)
+        let flow = OnboardingFlow(defaults: defaults)
+        XCTAssertEqual(flow.phase, .undecided, "splash while the local store is read")
+        await flow.decide(repo: repo)
+        XCTAssertEqual(flow.phase, .onboarding); XCTAssertEqual(flow.step, .welcome)
+        XCTAssertEqual(OnboardingStep.allCases, [.welcome, .language, .goal, .level, .pace, .ready])
+
+        // Back + Skip on every step except Ready (Back only); Welcome is the entry
+        for st in [OnboardingStep.language, .goal, .level, .pace] { XCTAssertTrue(st.canBack, "\(st)"); XCTAssertTrue(st.canSkip, "\(st)") }
+        XCTAssertTrue(OnboardingStep.ready.canBack); XCTAssertFalse(OnboardingStep.ready.canSkip)
+        XCTAssertFalse(OnboardingStep.welcome.canBack)
+        XCTAssertEqual(OnboardingStep.allCases.compactMap(\.barIndex), [0, 1, 2, 3, 4], "progress bar covers language … ready")
+        flow.back(); XCTAssertEqual(flow.step, .welcome, "no Back before Welcome")
+        flow.next(); XCTAssertEqual(flow.step, .language)
+        for expect in [OnboardingStep.goal, .level, .pace, .ready] { flow.skip(); XCTAssertEqual(flow.step, expect) }
+        flow.skip(); XCTAssertEqual(flow.step, .ready, "Ready has no Skip")
+        for expect in [OnboardingStep.pace, .level, .goal, .language, .welcome] { flow.back(); XCTAssertEqual(flow.step, expect) }
+        XCTAssertTrue(flow.pick == OnboardingPick(), "Skip writes nothing")
+        XCTAssertEqual(OnboardingSettings.apply(nil, pick: OnboardingPick(), now: 1), ["onboarded": true])
+
+        // choices use the SAME settings keys as web/js/onboard.js + tracks.js startSetup
+        var pick = OnboardingPick(); pick.track = "toeic"; pick.level = "toeic2"; pick.pace = 40
+        let s = OnboardingSettings.apply(["theme": "dark"], pick: pick, now: 1_000)
+        XCTAssertEqual(s["theme"]?.string, "dark", "other settings are kept")
+        XCTAssertEqual(s["exam"]?.string, "toeic"); XCTAssertEqual(s["examTarget"]?.string, "650"); XCTAssertNil(s["targetBand"])
+        XCTAssertEqual(s["pace"]?.double, 40); XCTAssertEqual(s["dailyGoal"]?.double, 40); XCTAssertEqual(s["dailyNew"]?.double, 20)
+        XCTAssertEqual(s["onboarded"], true)
+        XCTAssertEqual(s["tracks"]?["cur"]?.string, "toeic"); XCTAssertEqual(s["tracks"]?["legacy"]?.string, "toeic")
+        XCTAssertEqual(s["tracks"]?["lv"]?["toeic"]?["s"]?.string, "toeic2"); XCTAssertEqual(s["tracks"]?["v"]?["toeic"]?.string, "lr")
+        var ie = OnboardingPick(); ie.track = "ielts"; ie.level = "test"
+        let si = OnboardingSettings.apply(nil, pick: ie, now: 1)
+        XCTAssertEqual(si["exam"]?.string, "ielts"); XCTAssertEqual(si["targetBand"]?.string, "7.0")
+        XCTAssertEqual(si["tracks"]?["lv"]?.object?.count, 0, "placement test: level decided later by the test")
+
+        // finish → saved with those keys, phase done, notification ask is only RAISED (shown after the first lesson), placement test opens its route
+        let services = AppServices(auth: AuthModel(auth: GuestAuth(), engine: nil), today: TodayModel(repo: repo), repo: repo, engine: nil, crash: nil)
+        let live = OnboardingFlow(defaults: defaults)
+        await live.decide(repo: repo)
+        live.pick = ie
+        await live.finish(services: services)
+        XCTAssertEqual(live.phase, .done)
+        XCTAssertTrue(live.notificationAskPending, "hook for the post-first-lesson notification ask")
+        XCTAssertEqual(services.router.focus?.name, "placement")
+        let saved = try await repo.snapshot().settings
+        XCTAssertEqual(saved?["onboarded"], true); XCTAssertEqual(saved?["exam"]?.string, "ielts")
+
+        // relaunch → straight to Today, with the flag AND (flag lost) from the stored settings
+        let again = OnboardingFlow(defaults: defaults)
+        await again.decide(repo: repo)
+        XCTAssertEqual(again.phase, .done)
+        let other = UserDefaults(suiteName: suite + ".b")!
+        defer { other.removePersistentDomain(forName: suite + ".b") }
+        let noFlag = OnboardingFlow(defaults: other)
+        await noFlag.decide(repo: repo)
+        XCTAssertEqual(noFlag.phase, .done)
+
+        // users migrated from the Capacitor app with data never see onboarding
+        let migrated = try LKRepository.inMemory()
+        _ = try await migrated.mutate { doc in doc.cards["hello"] = ["word": "hello", "vi": "xin chào"] }
+        let m = UserDefaults(suiteName: suite + ".m")!
+        defer { m.removePersistentDomain(forName: suite + ".m") }
+        let mf = OnboardingFlow(defaults: m)
+        await mf.decide(repo: migrated)
+        XCTAssertEqual(mf.phase, .done)
+        XCTAssertFalse(OnboardingGate.isFresh(SyncDoc(game: ["xp": 120])))
+        XCTAssertFalse(OnboardingGate.isFresh(SyncDoc(settings: ["exam": "toeic"])))
+        XCTAssertTrue(OnboardingGate.isFresh(SyncDoc()))
+
+        // signing in during onboarding with an account that brings data leaves onboarding; an empty account stays
+        let signIn = try LKRepository.inMemory()
+        let sf = OnboardingFlow(defaults: UserDefaults(suiteName: suite + ".s")!)
+        defer { UserDefaults(suiteName: suite + ".s")?.removePersistentDomain(forName: suite + ".s") }
+        await sf.decide(repo: signIn)
+        await sf.reevaluate(repo: signIn); XCTAssertEqual(sf.phase, .onboarding)
+        _ = try await signIn.mutate { doc in doc.cards["a"] = ["word": "a"] }
+        await sf.reevaluate(repo: signIn); XCTAssertEqual(sf.phase, .done)
+
+        // language list: 15 UI languages, searchable by own name or code
+        XCTAssertEqual(OnbLanguage.list(matching: "").count, 15)
+        XCTAssertEqual(OnbLanguage.list(matching: "tiếng"), ["vi"]); XCTAssertEqual(OnbLanguage.list(matching: "AR"), ["ar"])
+        // reduce motion: no animation for the step/progress changes
+        XCTAssertNil(LKMotionPolicy.progressAnimation(reduce: true))
+    }
+
+    // MARK: C17 – starter deck parity: finishing onboarding creates exactly the deck web builds (vectors/starter-deck.json = real web Core.Cards.make)
+    func testParityC17StarterDeck() async throws {
+        let url = URL(fileURLWithPath: #filePath).deletingLastPathComponent().appendingPathComponent("../../../../shared/gen/vectors/starter-deck.json").standardized
+        let vec = try JSON.parse(try Data(contentsOf: url))
+        let nowMs = try XCTUnwrap(vec["now"]?.double)
+        let decks = try XCTUnwrap(vec["decks"]?.object)
+        let packs = try XCTUnwrap(vec["packs"]?.array)
+        XCTAssertGreaterThanOrEqual(packs.count, 6)
+        let pack = try XCTUnwrap(StarterDeck.bundled(), "starter.json must be bundled with LKStore")
+
+        func assertDeck(_ cards: [String: JSON], exam: String, _ label: String) throws {
+            let want = try XCTUnwrap(decks[exam], label)
+            let keys = (want["keys"]?.array ?? []).compactMap(\.string)
+            XCTAssertEqual(Set(cards.keys), Set(keys), "\(label): same words as web")
+            XCTAssertEqual(cards.count, Int(want["count"]?.double ?? -1), label)
+            for (k, c) in want["cards"]?.object ?? [:] { XCTAssertEqual(cards[k], c, "\(label): card \(k) equals web Cards.make + mod") }
+        }
+        // pure builder: every exam, web order
+        for p in packs {
+            let track = p["track"]?.string, variant = p["variant"]?.string ?? "", exam = try XCTUnwrap(p["exam"]?.string)
+            XCTAssertEqual(StarterDeck.exam(track: track, variant: variant), exam, "pack \(track ?? "-")/\(variant) → exam")
+            let built = StarterDeck.cards(exam: exam, pack: pack, now: nowMs)
+            XCTAssertEqual(built.map(\.key), (decks[exam]?["keys"]?.array ?? []).compactMap(\.string), "insertion order = web")
+            try assertDeck(Dictionary(uniqueKeysWithValues: built.map { ($0.key, $0.card) }), exam: exam, "\(exam) builder")
+        }
+        // the real thing: choose a track, press the Ready button → the repository holds exactly that deck (+ the settings web writes)
+        for tid in ["comm", "ielts", "toeic", "toefl", "work"] {
+            let exam = OnbTrack.find(tid).exam
+            let suite = "lk.test.c17deck." + UUID().uuidString
+            let defaults = UserDefaults(suiteName: suite)!
+            defer { defaults.removePersistentDomain(forName: suite) }
+            let repo = try LKRepository.inMemory()
+            let services = AppServices(auth: AuthModel(auth: GuestAuth(), engine: nil), today: TodayModel(repo: repo), repo: repo, engine: nil, crash: nil)
+            let flow = OnboardingFlow(defaults: defaults)
+            await flow.decide(repo: repo)
+            flow.pick.track = tid; flow.pick.pace = 20
+            await flow.finish(services: services, date: Date(timeIntervalSince1970: nowMs / 1000))
+            let doc = try await repo.snapshot()
+            try assertDeck(doc.cards, exam: exam, "finish(\(tid))")
+            XCTAssertEqual(doc.settings?["onboarded"], true); XCTAssertEqual(doc.settings?["exam"]?.string, exam)
+        }
+        // Skipping every step still ends on Ready with web's default pack (IELTS) → its deck; words already in the deck are never touched
+        let repo = try LKRepository.inMemory()
+        _ = try await repo.mutate { doc in doc.cards["curriculum"] = ["word": "curriculum", "vi": "mine", "note": "keep"] }
+        var doc = try await repo.snapshot()
+        StarterDeck.add(to: &doc, exam: "ielts", pack: pack, now: nowMs)
+        XCTAssertEqual(doc.cards["curriculum"]?["note"]?.string, "keep", "an existing card is not replaced")
+        XCTAssertEqual(doc.cards.count, Int(decks["ielts"]?["count"]?.double ?? -1))
+    }
+
     func testReduceMotionStyles() {
         // \.accessibilityReduceMotion is a read-only SwiftUI environment key (cannot be overridden): the style is laid out under the system setting
         let v = Button("") {}.buttonStyle(PrimaryButtonStyle())

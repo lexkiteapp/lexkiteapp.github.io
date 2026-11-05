@@ -142,6 +142,8 @@ public final class AppServices {
     public var tabOrder: [String] = LKFrame.shared.tabs.map(\.k)
     public var hiddenTabs: Set<String> = []
     public var signInSheet = false
+    /// C17 first-run onboarding state (splash → onboarding → app); decided after the Capacitor migration, from local data only.
+    public let onboarding = OnboardingFlow()
     public var deleteSheet = false
     /// UI language (15 languages, C10): the 1.x choice (`vb.uiLang`) migrated, else the device language.
     public private(set) var uiLang: String
@@ -163,6 +165,10 @@ public final class AppServices {
 
     /// Load language + theme + crash opt-out from local data (after the C03 migration has run).
     public func loadPreferences() async {
+        await loadStoredPreferences()
+        await onboarding.decide(repo: repo)
+    }
+    private func loadStoredPreferences() async {
         guard let repo else { return }
         let settings = try? await repo.snapshot().settings
         let th = settings?["theme"]?.string ?? "auto"

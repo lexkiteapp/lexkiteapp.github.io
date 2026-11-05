@@ -38,7 +38,7 @@ jobs:
             gradle --no-daemon -q :app:recordRoborazziDebug
           fi
           gradle --no-daemon :app:verifyRoborazziDebug
-          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 13 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
+          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 55 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
       - name: Build APK debug + release (R8 + shrink, không ký, không tải mapping)
         working-directory: native/android
         env: { LEXKITE_CRASHLYTICS_UPLOAD: '0' }
