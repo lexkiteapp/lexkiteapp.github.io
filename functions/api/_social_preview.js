@@ -7,6 +7,14 @@ import { routeAll, implicitSocialRules, platformOf } from './_distribution.js';
 
 export const PREVIEW_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 export const MEDIA_PLACEHOLDER = '<media_id: tải lên lúc chạy thật>';
+export const PREVIEW_CLIP_RE = /^[A-Za-z0-9_.-]{3,120}$/;
+
+/** Clip để xem trước: id chỉ định, hoặc clip đạt QC mới nhất trong kho (cùng điều kiện autoQueue). Dùng chung /api/social-auto, op Quản trị lk/auto/preview, dryrun.mjs. */
+export function pickPreviewClip(items, id) {
+  const ok = (items || []).filter(it => it && it.id && !it.rejected);
+  if (id) return ok.find(it => it.id === id) || null;
+  return ok.filter(it => (it.qa || {}).status === 'pass').sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')))[0] || null;
+}
 
 /** clip: kết quả clipOf (distribution.js). cfgs {channel_id: cfg} + accounts {channel_id: account_id} = kênh đã nối (rỗng khi chưa nối).
  *  → { clip, lang, routes: [...], posts: [{platform, channel_id|null, why, title, caption, caption_len, caption_max, hashtags, cover, issues[], body}] } */

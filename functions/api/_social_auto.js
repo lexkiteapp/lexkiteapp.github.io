@@ -8,7 +8,8 @@
  * An toàn tải (memory grabcast-budget): ≤ daily_calls lượt GrabCast/ngày (đếm ở D1), không thử lại vòng; 401/403/409/422/429/503/5xx = dừng CẢ lượt + cầu dao ghi D1.
  * D1: chỉ truy vấn theo khóa/chỉ mục (dist_social_slot, soc_board PK/clip/state) – không quét cả bảng. */
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
-import { setupDist, DIST } from './distribution.js';
+import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
+import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
 import { setup as ytSetup } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
@@ -172,7 +173,9 @@ export async function autoStatus(env, now = Date.now()) {
   const ls = new Map(); for (const r of up) { const l = await lockOf(db, r.clip, r.channel_id); if (l) ls.set(r.clip + '|' + r.channel_id, l); } // ≤ 40 lượt đọc theo PK
   const { list: mlist, chans } = await metaChannels(env, db, cfg), ms = st.meta || {}; await setupOAuth(db, env);
   const ytc = await all(db, "SELECT channel_id, title FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []);
-  return { cfg, yt_via_gc: ytViaGc(cfg, ytc), yt_gc_channels: ytc, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
+  // Bảng Kênh (Quản trị #social): kênh GrabCast + ngôn ngữ nhận từ tên trang (0 lượt GrabCast) · kênh YouTube API trực tiếp (dự phòng, yt_channel)
+  const channels = await socialChannels(db).catch(() => []), yt_direct = await all(db, 'SELECT channel_id, title, status FROM yt_channel ORDER BY id LIMIT 10').catch(() => []);
+  return { cfg, yt_via_gc: ytViaGc(cfg, ytc), yt_gc_channels: ytc, channels, yt_direct, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
     provider: { ...(st.provider || { cur: 'grabcast', why: '' }), mode: cfg.provider, gc_down: gcDownWhy(env, st, now) || null },
     meta: { configured: mlist.length > 0, enc: encReady(env), apps: await appStatus(env, db), budget_left: metaLeft(st, cfg, now), channels: chans,
       tokens: mlist.map(m => ({ ...m, health: (ms.th || {})[m.channel_id] || null, breaker: (ms.br || {})[m.channel_id] && ms.br[m.channel_id].until > now ? ms.br[m.channel_id] : null })) },
@@ -666,6 +669,22 @@ const AUTO_OPS = {
       out.errors.push({ post_id: r.post_id, status: x.status, code: x.code }); if ([401, 403, 409, 422, 429].includes(x.status)) break;
     }
     return out;
+  },
+  /** Xem trước (dry-run) 1 clip ở Quản trị: payload từng nền tảng + trang đích theo ngôn ngữ. 0 lượt GrabCast/Meta, 0 ghi (_social_preview.js). */
+  'POST auto/preview': async ({ env, db, b }) => {
+    const id = String(b.clip || ''); if (!PREVIEW_CLIP_RE.test(id)) throw Object.assign(new Error('bad-clip'), { status: 400, code: 'bad-clip' });
+    const it = pickPreviewClip((await manifest(env)).items, id); if (!it) throw Object.assign(new Error('clip-not-found'), { status: 404, code: 'clip-not-found' });
+    await setupDist(db); const c = clipOf(it);
+    return { preview: previewClip({ ...c, cover: c.cover || it.cover || '' }, await socialSetup(db).catch(() => ({}))), posted: 0, grabcast_calls: 0 };
+  },
+  /** Làm mới bảng Kênh sau khi nối kênh trên grabcast.click: 1 lượt GET accounts (API GrabCast có sẵn) → dist_ext (DIST.ext_sync, như bước đồng bộ của runAuto). Không tạo/đăng bài. */
+  'POST auto/channels/sync': async ({ env, db, gc }) => {
+    if (!gcConfigured(env)) throw Object.assign(new Error('no-key'), { status: 412, code: 'no-key' });
+    await setupDist(db); const ar = await (gc || gcClient(env))('GET', 'accounts');
+    if (ar.status >= 400) throw Object.assign(new Error('grabcast'), { status: ar.status === 401 || ar.status === 403 ? 502 : ar.status, code: ar.code || 'grabcast-' + ar.status }); // lỗi → KHÔNG ext_sync (danh sách rỗng sẽ đánh dấu mọi kênh 'gone')
+    const accs = (ar.data && ar.data.accounts) || [];
+    await DIST.ext_sync(db, { accounts: accs.map(a => ({ platform: platOf(a), id: String(a.id), name: a.display_name || a.username || String(a.id), avatar: a.avatar_url || a.avatar || '', status: a.needs_reconnect ? 'error' : 'ok' })) });
+    return { n: accs.length, channels: await socialChannels(db) };
   },
   'POST auto/run': async ({ env, request, b }) => ({ run: await runAuto(env, { src: 'admin', origin: request.url, force_sync: !!b.sync }) }),
   /** Nút chuyển tay provider: auto (failover tự động) | grabcast | meta. */
