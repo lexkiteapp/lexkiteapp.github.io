@@ -13,6 +13,7 @@ node scripts/test/bundle-names.mjs web
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ext-sync.mjs
 node scripts/test/sync-drive.mjs
+node scripts/test/sync-ext-drive.mjs
 node scripts/test/account-flow.mjs
 node scripts/vi-lint.mjs
 node scripts/cws-check.mjs
