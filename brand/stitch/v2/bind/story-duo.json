@@ -76,7 +76,7 @@
  "addClass": {
   ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "lsn-mid",
-  ":scope > main > div > div:nth-child(2)": "relative z-10 lsn-chatp mt-[-3.5rem] rounded-t-[20px] lt:bg-[#FBF7F1] dk:bg-[#091416] px-[0.5rem] pb-[0.75rem]",
+  ":scope > main > div > div:nth-child(2)": "relative z-10 lsn-chatp mt-[-3.5rem] rounded-t-[20px] lt:bg-[#ECE4D7] dk:bg-[#091416] px-[0.5rem] pb-[0.75rem]",
   ":scope > main > div > div:nth-child(5) > button": "lsn-gonext",
   ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
   ":scope > header > div > button": "lsn-x",
