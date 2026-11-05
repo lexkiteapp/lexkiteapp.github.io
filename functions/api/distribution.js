@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { langOfChannel, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
+import { langOfChannel, foreignAccount, pausedAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -135,10 +135,10 @@ const OPS = {
     const now = Date.now(), keep = [];
     for (const a of list) {
       const p = String((a && a.platform) || '').toLowerCase().replace(/^facebook$/, 'facebook_page'), aid = String((a && a.id) || '');
-      if (!PLATFORMS[p] || !/^[A-Za-z0-9_-]{1,80}$/.test(aid)) continue;
+      if (!PLATFORMS[p] || !/^[A-Za-z0-9_-]{1,80}$/.test(aid) || foreignAccount(a)) continue; // không phản chiếu Page/IG GrabCast.click → bị gỡ khỏi dist_ext như tài khoản đã mất
       const id = `gc-${p}-${aid}`; keep.push(id);
       await run(db, 'INSERT INTO dist_ext (channel_id, platform, account_id, title, thumb, status, updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, status = excluded.status, updated = excluded.updated',
-        id, p, aid, String(a.name || a.title || aid).slice(0, 80), /^https:\/\//.test(String(a.thumb || a.avatar || '')) ? String(a.thumb || a.avatar).slice(0, 300) : null, a.status === 'error' || a.status === 'disconnected' ? 'error' : 'ok', now);
+        id, p, aid, String(a.name || a.title || aid).slice(0, 80), /^https:\/\//.test(String(a.thumb || a.avatar || '')) ? String(a.thumb || a.avatar).slice(0, 300) : null, a.status === 'error' || a.status === 'disconnected' ? 'error' : pausedAccount(a) ? 'paused' : 'ok', now);
     }
     const gone = (await all(db, 'SELECT channel_id FROM dist_ext')).map(r => r.channel_id).filter(x => !keep.includes(x));
     for (const id of gone) await run(db, "UPDATE dist_ext SET status = 'gone', updated = ? WHERE channel_id = ?", now, id);

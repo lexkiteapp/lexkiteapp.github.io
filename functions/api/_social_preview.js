@@ -16,7 +16,7 @@ export function previewClip(c, { cfgs = {}, rules = [], accounts = {}, plats = P
   const hasPlat = p => Object.keys(cfgs).some(id => platformOf(id) === p);
   const posts = plats.filter(p => PLATFORMS[p]).map(p => {
     const meta = socialMeta(c, p), rt = byPlat.get(p) || null;
-    const why = rt ? '' : !hasPlat(p) ? 'chưa nối kênh' : 'không có kênh cùng ngôn ngữ (' + (c.lang || 'en') + ')';
+    const why = rt ? '' : !hasPlat(p) ? 'chưa nối kênh' : 'không có page cùng ngôn ngữ (' + (c.lang || 'en') + ') và chưa có page EN chung';
     const acc = { id: rt ? (accounts[rt.channel_id] || rt.channel_id) : '<chưa nối kênh ' + p + '>', p, kind: (PLAT[p] || {}).kind || 'video' };
     const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, MEDIA_PLACEHOLDER, [acc]);
     const issues = validateCompose({ caption: body.caption, title: body.title, clip: c.id }, [p]).map(x => (x.lv || 'warn') + ':' + x.code);

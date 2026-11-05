@@ -115,7 +115,7 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   ok(!en.find(x => x.platform === 'instagram'), 'clip EN không vào IG tiếng Nhật (không có IG EN → bỏ, không đăng sai ngôn ngữ)');
   ok(D.routeAll(imp, cfgs, { id: 'c0' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-b2', 'clip không có lang = en');
   const vi = D.routeAll(imp, cfgs, { id: 'c2', lang: 'vi' }, null);
-  ok(vi.length === 1 && vi[0].channel_id === 'gc-facebook_page-c3', 'clip VI → chỉ page Tiếng Việt');
+  ok(vi.length === 2 && vi.find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-c3' && vi.find(x => x.platform === 'tiktok').channel_id === 'gc-tiktok-t1' && !vi.find(x => x.platform === 'instagram'), 'clip VI → FB page Tiếng Việt; TikTok chỉ có kênh EN → fallback EN; không vào IG tiếng Nhật');
   ok(D.blockOf(cfgs['gc-facebook_page-a1'], { lang: 'en' }) === 'lang' && D.blockOf(cfgs['gc-facebook_page-a1'], { lang: 'es' }) === '', 'blockOf chặn sai ngôn ngữ cả với luật tay của chủ');
   ok(D.blockOf(D.normCfg({}), {}) === '', 'kênh YouTube mặc định (en) vẫn nhận clip không có lang');
   const exp = D.explain([{ cond: {}, channel_id: 'gc-facebook_page-a1', active: 1 }], cfgs, { id: 'c3', lang: 'en' }, null);
@@ -127,6 +127,21 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   const a = [{ id: 'x1', lesson: 'l' }, { id: 'x2', lesson: 'm' }, { id: 'x3', lesson: 'n' }];
   fillMeta(a, { lessonOf: id => ({ l: { publish: { title: 't', lang: 'VI' } }, m: { lang: 'es' }, n: { publish: { lang: 'vietnamese' } } })[id] });
   ok(a[0].lang === 'vi' && a[1].lang === 'es' && !a[2].lang, 'fillMeta: chép lang (publish > bài), bỏ giá trị không phải mã 2 chữ');
+}
+
+// ---- 05/11: mới có 1 page "Lexkite.com" (EN) + TikTok → mọi ngôn ngữ fallback page EN; Page/IG "Grabcast.click" kéo kèm vào ws4 không bao giờ là đích ----
+{
+  const n = c => D.normCfg(c), one = { 'gc-facebook_page-111': n({ lang: D.langOfChannel('Lexkite.com') || 'en' }), 'gc-tiktok-222': n({ lang: D.langOfChannel('lexkitecom') || 'en' }) };
+  const imp = D.implicitSocialRules([], one);
+  for (const lang of ['en', 'vi', 'ja', undefined]) {
+    const r = D.routeAll(imp, one, { id: 'c', lang }, null);
+    ok(r.length === 2 && r.find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', `clip ${lang || '(trống)'} → page EN chung khi chưa có page riêng`);
+  }
+  const both = { ...one, 'gc-facebook_page-333': n({ lang: 'vi' }) }, imp2 = D.implicitSocialRules([], both);
+  ok(D.routeAll(imp2, both, { id: 'c', lang: 'vi' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-333', 'có page tiếng Việt → clip vi vào page riêng (đứng trước page chung)');
+  ok(D.routeAll(imp2, both, { id: 'c', lang: 'en' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', 'clip en vẫn vào page chung');
+  ok(D.foreignAccount({ name: 'Grabcast.click' }) && D.foreignAccount({ username: 'grabcast_click' }) && D.foreignAccount({ title: 'Grab Cast' }) && !D.foreignAccount({ name: 'Lexkite.com' }) && !D.foreignAccount({ username: 'lexkitecom' }), 'foreignAccount: chặn mọi biến thể tên GrabCast, giữ Lexkite');
+  ok(D.pausedAccount({ status: 'paused' }) && D.pausedAccount({ publishing_paused: true }) && !D.pausedAccount({ status: 'active' }) && !D.pausedAccount({}), 'pausedAccount: kênh Pause publishing trên GrabCast');
 }
 
 console.log(`dist-roles: ${n - fails}/${n} ok`);

@@ -107,6 +107,11 @@ const clip = { id: 'news_taxi_ab_123', lang: 'en', title: 'Get in or get on a ta
   ok(sql.prepare("SELECT state, note FROM soc_board WHERE id = 'b0'").get().state === 'review' && sql.prepare("SELECT state FROM soc_board WHERE id = 'b1'").get().state === 'scheduled', 'trạng thái cục bộ khớp kết quả GrabCast');
   const off = await A.autoOpFor('POST', 'lk/auto/pause_all')({ env: { DB }, db: DB, b: {} });
   ok(off.on === false && off.unscheduled === 0 && off.left === 2, 'chưa có khóa GrabCast: vẫn tắt, báo số bài còn lịch');
+  const { DIST, setupDist } = await import('../../functions/api/distribution.js'); await setupDist(DB);
+  sql.prepare("INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES ('gc-instagram-9', 'instagram', '9', 'grabcast.click', 'ok', 1)").run();
+  const xs = await DIST.ext_sync(DB, { accounts: [{ id: '111', platform: 'facebook', name: 'Lexkite.com' }, { id: '222', platform: 'tiktok', username: 'lexkitecom', name: 'Lexkite' }, { id: '8', platform: 'facebook', name: 'Grabcast.click' }, { id: '9', platform: 'instagram', username: 'grabcast.click' }, { id: '7', platform: 'tiktok', name: 'Lexkite test', status: 'paused' }] });
+  const ext = sql.prepare('SELECT channel_id, status FROM dist_ext ORDER BY channel_id').all().map(r => r.channel_id + ':' + r.status).join(',');
+  ok(ext === 'gc-facebook_page-111:ok,gc-instagram-9:gone,gc-tiktok-222:ok,gc-tiktok-7:paused' && xs.channels.length === 3, 'ext_sync: bỏ Page/IG GrabCast.click (gỡ bản cũ), kênh Pause → paused – ' + ext);
   const st = {}; A.pushAlert(st, 'post-failed:x', 'lỗi 1', t); A.pushAlert(st, 'gave-up:y', 'lỗi 2', t + 1);
   ok(st.log && st.log.length === 2 && st.alerts.length === 2, 'pushAlert ghi nhật ký bền state.log');
   for (let i = 0; i < 60; i++) A.pushAlert(st, 'k' + i, 'e', t + i + 5);
