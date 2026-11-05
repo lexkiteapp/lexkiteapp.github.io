@@ -39,7 +39,7 @@ async function browser() {
   let pw; try { pw = createRequire(import.meta.url)('playwright'); } catch (e) { lines.push('playwright không có → bỏ phần trình duyệt'); return; }
   const { serve } = await import('./ux-guard-lib.mjs'); fs.mkdirSync(OUT, { recursive: true });
   const base = 'https://lk.test/app/?sandbox=1&ux1=1&ret=1&hl=en';
-  const boot = async (br, scheme, vp, extra = {}) => { const ctx = await br.newContext(Object.assign({ viewport: vp, colorScheme: scheme, serviceWorkers: 'block', deviceScaleFactor: 2 }, extra)); await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); localStorage.setItem('lk.lesson_mix', '1'); window.__plays = 0; const P = HTMLMediaElement.prototype.play; HTMLMediaElement.prototype.play = function () { if (!this.muted && this.volume > 0) window.__plays++; /* bước mở khóa iOS của LKAudio phát câu rỗng volume 0 = không có tiếng */ return P.apply(this, arguments); }; } catch (e) { /* */ } }); await serve(ctx, 'web'); return ctx; };
+  const boot = async (br, scheme, vp, extra = {}) => { const ctx = await br.newContext(Object.assign({ viewport: vp, colorScheme: scheme, serviceWorkers: 'block', deviceScaleFactor: 2 }, extra)); await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); localStorage.setItem('lk.lesson_mix', '1'); window.__plays = 0; const P = HTMLMediaElement.prototype.play; HTMLMediaElement.prototype.play = function () { if (!this.muted && this.volume > 0) { window.__plays++; (window.__playSrc = window.__playSrc || []).push(String(this.currentSrc || this.src).slice(-60) + ' ' + (new Error().stack || '').split('\n').slice(2, 4).join('|').slice(0, 160)); } /* bước mở khóa iOS của LKAudio phát câu rỗng volume 0 = không có tiếng */ return P.apply(this, arguments); }; } catch (e) { /* */ } }); await serve(ctx, 'web'); return ctx; };
   const overlap = (a, b) => !(a.right <= b.left + 1 || b.right <= a.left + 1 || a.bottom <= b.top + 1 || b.bottom <= a.top + 1);
   for (const eng of ['chromium', 'webkit']) {
     let br; try { br = await pw[eng].launch(); } catch (e) { lines.push(`${eng}: không chạy được (${e.message.split('\n')[0]})`); continue; }
@@ -51,7 +51,7 @@ async function browser() {
       await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 15000 }).catch(() => {});
       await page.waitForTimeout(1500);
       ok(await page.evaluate(() => !!document.querySelector('.ss-stage .ss-floor')), `${tag}: không có sàn chung`);
-      ok((await page.evaluate(() => window.__plays)) === 0, `${tag}: âm thanh phát trước khi chạm`);
+      ok((await page.evaluate(() => window.__plays)) === 0, `${tag}: âm thanh phát trước khi chạm ${JSON.stringify(await page.evaluate(() => window.__playSrc || []))}`);
       await page.screenshot({ path: `${OUT}/story-${tag}.png` });
       const geo = await page.evaluate(() => { const r = s => { const e = document.querySelector(s); return e && e.getBoundingClientRect().toJSON(); }; const chips = [...document.querySelectorAll('main > div > div:first-child span')].map(e => e.getBoundingClientRect().toJSON()); return { hdr: r('header'), chips, stage: r('.ss-stage'), floor: r('.ss-floor'), imgs: [...document.querySelectorAll('.ss-fig img')].map(i => i.getBoundingClientRect().toJSON()) }; });
       ok(geo.chips.every(c => c.top >= geo.hdr.bottom - 1), `${tag}: chip AMA/ĐỐI THOẠI/CARLOS bị đầu trang che`);
@@ -102,13 +102,13 @@ async function browser() {
     // hiệu năng: Chromium CPU 4× – tác vụ dài > 50 ms ≤ 2 khi dòng hiện, fps ≥ 50, CLS 0
     if (eng === 'chromium') {
       const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
-      await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: true }); });
+      await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
       await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
       await page.evaluate(() => { window.__f = 0; const t0 = performance.now(); (function f() { window.__f++; if (performance.now() - t0 < 3000) requestAnimationFrame(f); })(); window.__lt = 0; });
       await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(1500);
       await page.waitForTimeout(500); const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / 3 }));
       lines.push(`chromium 4×: longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)}`);
-      ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`); await ctx.close();
+      ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`); await ctx.close();
     }
     await br.close();
   }
