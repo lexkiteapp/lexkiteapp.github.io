@@ -172,9 +172,10 @@ async function openCombo(browser, c) {
   await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1800); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   return { ctx, page };
 }
+// visit(): nhấn Shift trước khi đổi route = thao tác như người bấm menu → xê dịch ≤ 500 ms sau đổi màn không tính CLS (chuẩn hadRecentInput); xê dịch muộn vẫn tính
 async function visit(page, c, route) {
   if (route === 'landing') await page.goto(`${BASE}/${c.l === 'vi' ? '' : c.l + '/'}`, { waitUntil: 'networkidle' }).catch(() => {});
-  else { if (!page.url().includes('/app/')) await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/home`, { waitUntil: 'networkidle' }).catch(() => {}); await page.keyboard.press('Shift').catch(() => {}); await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route); // Shift = thao tác như người bấm menu → xê dịch ≤ 500 ms sau đổi màn không tính CLS (chuẩn hadRecentInput); xê dịch muộn vẫn tính await page.waitForTimeout(900); }
+  else { if (!page.url().includes('/app/')) await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/home`, { waitUntil: 'networkidle' }).catch(() => {}); await page.keyboard.press('Shift').catch(() => {}); await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route); await page.waitForTimeout(900); }
   await page.addStyleTag({ content: STILL }).catch(() => {});
   await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
 }
