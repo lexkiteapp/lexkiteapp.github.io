@@ -45,6 +45,7 @@ Ngưỡng chỉ được siết, không nới.
 **Không dùng được:** clip trong `brand/library` như `ama_wave_thumbs`, `carlos_listen_thumbs`, `ama_q_talk_nod`. Các clip này là trang phục "casual"/"travel" cũ, trộn vào sẽ sai bộ nhân vật đã khoá. Gật/lắc đầu làm bằng thủ tục, không cần clip.
 
 **Cần tạo (11 clip), trang phục 3, phông #00B140, máy khoá, tay xuôi ở đầu và cuối, môi khép:**
+- Chủ OK 05/11: clip được phép kết thúc ở tư thế (khung cuối = ảnh chuẩn qua `--tailImage`). Đoạn hạ tay = phát ngược clip lúc dựng trên CI (0 credit), không tạo clip thứ hai.
 - Ama: thumbs_up, clap, count (1-2-3 ngón), hold_card.
 - Carlos: 4 cử chỉ trên, cộng thêm point, encourage, concern. Ba tư thế này hiện đang mượn tư thế khác.
 
