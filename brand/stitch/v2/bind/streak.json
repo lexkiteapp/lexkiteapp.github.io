@@ -142,6 +142,9 @@
   },
   ":scope": {
    "w-[390px]": "'w-full'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)": {
+   "p-3": "'px-3 py-1.5'"
   }
  },
  "parts": {
