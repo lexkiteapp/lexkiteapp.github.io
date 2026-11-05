@@ -124,6 +124,7 @@ node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
+node scripts/test/fcm-push.mjs
 node scripts/test/focus-targets.mjs
 node --check scripts/test/journey-e2e.mjs
 node scripts/push-copy.mjs --check
