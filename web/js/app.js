@@ -859,19 +859,19 @@
       <div class="tiny muted center" style="margin-top:.4rem">${t('{n} từ chưa học · bấm vào cột để ôn theo cấp', { n: n[0] })}</div>`;
   }
 
-  function modeTiles() {
+  function modeTiles() { // nền ô biểu tượng = token *-soft (brand/tokens.json) – tự đổi theo sáng/tối, không mã màu rời
     return [
-      ['learn', '🧠', t('Học thông minh'), t('Trắc nghiệm → gõ từ, thích ứng theo bạn'), '#ecebff'],
-      ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), '#fff4dc'],
-      ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), '#fde8f3'],
-      ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), '#e3f7ea'],
-      ['cloze', '✍️', t('Điền từ'), t('Hoàn thành câu IELTS'), '#dff6f5'],
-      ['listen', '🎧', t('Nghe & chép'), t('Nghe phát âm, gõ lại'), '#e6f0ff'],
-      ['handsfree', '🎧', t('Học rảnh tay'), t('Nghe liên tục, khóa màn hình vẫn học'), '#fdf2e9'],
-      ['reflex', '⚡', t('Phản xạ 60 giây'), t('Nghe câu ngắn, nhại lại, chấm từng từ'), '#eef6ff'],
-      ['test', '📝', t('Bài kiểm tra'), t('20 câu tổng hợp, chấm điểm'), '#f3e8ff'],
-      ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), '#fff1e6'],
-      ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), '#e0f2fe'],
+      ['learn', '🧠', t('Học thông minh'), t('Trắc nghiệm → gõ từ, thích ứng theo bạn'), 'var(--accent-soft)'],
+      ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), 'var(--gold-soft)'],
+      ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'],
+      ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), 'var(--good-soft)'],
+      ['cloze', '✍️', t('Điền từ'), t('Hoàn thành câu IELTS'), 'var(--accent-soft)'],
+      ['listen', '🎧', t('Nghe & chép'), t('Nghe phát âm, gõ lại'), 'var(--good-soft)'],
+      ['handsfree', '🎧', t('Học rảnh tay'), t('Nghe liên tục, khóa màn hình vẫn học'), 'var(--gold-soft)'],
+      ['reflex', '⚡', t('Phản xạ 60 giây'), t('Nghe câu ngắn, nhại lại, chấm từng từ'), 'var(--primary-soft)'],
+      ['test', '📝', t('Bài kiểm tra'), t('20 câu tổng hợp, chấm điểm'), 'var(--accent-soft)'],
+      ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), 'var(--gold-soft)'],
+      ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), 'var(--good-soft)'],
     ].map(([id, em, name, desc, bg]) => `<a class="mode" href="${id === 'write' || id === 'speaking' || id === 'handsfree' || id === 'reflex' ? '#/' + id : '#/practice/' + id}"><span class="em" style="background:${bg}">${UI.glyph(em)}</span><b>${name}</b><span class="muted small">${desc}</span></a>`);
   }
   App.modeTiles = modeTiles;
