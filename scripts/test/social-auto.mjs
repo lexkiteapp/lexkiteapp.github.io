@@ -101,7 +101,7 @@ ok(st().calls.n === 9 && st().last_sync && st().last_sync.at === now, 'ngân sá
   ok(out.state === 'scheduled' && GC.posts[p1.id].status === 'scheduled' && Date.parse(GC.posts[p1.id].scheduled_at) === ds(CA, 'gc-facebook_page-2').slot_ms, 'owner duyệt tay bài autopilot → GrabCast lên lịch đúng slot');
 }
 // tự duyệt: FB đã có 1 bài duyệt tay (manual_first = 1) → bài FB mới tự lên lịch; IG chưa có bài duyệt tay → chờ duyệt
-sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ auto_approve: true, manual_first: 1 }), now);
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ auto_approve: true, manual_first: 1, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // giữ cài đặt gốc của kịch bản (TikTok tắt): ghi đè cũ làm rơi plats → TikTok (mặc định bật từ 03/11) chiếm hết max_per_run
 due(CB, 'gc-instagram-3', 10); sql.prepare('UPDATE dist_social SET slot_ms = ? WHERE clip = ? AND channel_id = ?').run(Math.round(now + 9 * H), CB, 'gc-facebook_page-5');
 calls = []; r = await A.runAuto(ENV, { now: now + 2 * 60e3 });
 const p5 = Object.values(GC.posts).find(p => p.targets[0].account_id === 5), b5 = p5 && sql.prepare('SELECT * FROM soc_board WHERE post_id = ?').get(p5.id);

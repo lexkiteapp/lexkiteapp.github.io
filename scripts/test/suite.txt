@@ -96,6 +96,7 @@ node scripts/test/social-preview.mjs
 node scripts/test/social-admin.mjs
 node scripts/test/social-meta.mjs
 node scripts/test/social-meta-oauth.mjs
+node scripts/test/social-first-comment.mjs
 node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
