@@ -7,8 +7,8 @@ lang: tr
 translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, email, acronyms, is-hayati]
-cover: letters
-coverAlt: "Lexkite'ta IELTS General Task 1 mektup ekranı: resmî, yarı resmî ve samimi mektup örnekleriyle yazı dilinin üç düzeyi"
+cover: phrases
+coverAlt: "Lexkite kalıp defteri ekranı: yararlı kalıp ve cümleleri ekleyip saklama, örneğin e-postalarda kullanılan kısaltmalı cümleler"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
@@ -62,21 +62,22 @@ quiz: [
   }
 ]
 ---
+İş hayatında İngilizce kısaltmalar zaman kazandırır, ama doğru anlaşılmaları ve doğru kişiye kullanılmaları gerekir. Bu rehber anlamları, nezaket kurallarını ve örnek e-postaları anlatıyor.
 
 ## Çok Uluslu Şirketlerde İş Hayatında İngilizce Kısaltmalar Neden Önemlidir?
 
 ASAP, FYI, ETA, EOD, OOO: **iş hayatında ingilizce kısaltmalar** (Business English Abbreviations) e-posta konularında, Slack mesajlarında, Teams toplantılarında ve Jira biletlerinde her gün karşınıza çıkar. Başlamadan önce iki şeyi aklınızda tutun: EOD saat dilimine göre değişir, bu yüzden yanına saat ve saat dilimi yazın; ASAP ise yeni bir müşteriye yazılan ilk e-postada emir gibi duyulur. Aşağıda anlamlar gruplar halinde, nezaket kuralları, iki örnek e-posta, Türkçe konuşanların sık hataları ve akılda tutma yöntemi var.
 
-Kısaltmalar zaman kazandırır, ama yanlış yerde kullanılırsa müşteride kötü izlenim bırakır; teslim saatini yanlış okumak da işi aksatır. Kelime dağarcığınızı genişletmek için Lexkite'ın [tematik İngilizce kelime listelerinden](/tr/vocabulary/) de faydalanabilirsiniz.
+Kısaltmalar zaman kazandırır, ama yanlış yerde kullanılırsa müşteride kötü izlenim bırakır; teslim saatini yanlış okumak da işi aksatır. Kelime dağarcığınızı genişletmek için Lexkite'in [İngilizce kelime listesinden](/en/vocabulary/) de faydalanabilirsiniz (sayfa İngilizcedir).
 
 ## Teslim Tarihi ve Zaman Yönetimi Kısaltmaları (Deadlines & Scheduling)
 
-Uluslararası ekiplerle proje yürütürken zaman sınırlarını şeffaf ve net biçimde tanımlamak güven tesisinin temelidir. Zamanla ilgili en kritik kısaltmalar şunlardır:
+Zamanla ilgili en kritik kısaltmalar şunlardır:
 
 - **ETA (Estimated Time of Arrival)**
   - *Sözlük anlamı*: Tahmini varış süresi (lojistik kökenli).
   - *İş hayatındaki karşılığı*: Bir yazılım modülünün, analiz raporunun veya görevin tamamlanma zamanı.
-  - *Örnek cümle*: *"What is the updated ETA for the cloud database failover test?"* (Bulut veritabanı yedekleme testinin güncellenmiş tahmini tamamlanma süresi nedir?)
+  - *Örnek cümle*: *"What is the updated ETA for the cloud database failover test?"* (Bulut veritabanı yük devretme (failover) testinin güncellenmiş tahmini tamamlanma süresi nedir?)
 - **EOD (End of Day)**
   - *Anlamı*: Mesai bitimi (genellikle saat 17:00 veya 18:00).
   - *Kullanım ipucu*: Farklı saat dilimlerinde (time zone) çalışan ekiplerle iletişim kurarken saat ve saat dilimini yazın: *5 p.m. CET* ya da *5 p.m. ET* (ET, ABD'nin hem kış hem yaz saatini kapsar). Türkiye için *5 p.m. Istanbul time* anlaşılır.
@@ -131,7 +132,7 @@ Hibrit ve uzaktan çalışma modelinde çalışanların anlık durumunu göstere
 - **BRB (Be Right Back)**
   - *Anlamı*: Hemen döneceğim. Yalnızca anlık mesajlaşma araçlarında (Slack, Teams) kısa süreli molalarda kullanılır.
 
-Günlük iş temposunu ve görev önceliklendirmeyi kusursuz yönetmek için [iş hayatında İngilizce zaman yönetimi](/tr/blog/is-hayatinda-ingilizce-zaman-yonetimi-ve-onceliklendirme/) yöntemlerini uygulayabilirsiniz.
+Günlük işlerinizi ve önceliklerinizi İngilizce anlatmak için [iş hayatında İngilizce zaman yönetimi](/tr/blog/is-hayatinda-ingilizce-zaman-yonetimi-ve-onceliklendirme/) yazısına bakabilirsiniz.
 
 ## Toplantı ve Proje Koordinasyonunda Sık Geçen Akronimler
 
@@ -157,8 +158,8 @@ Fikir ayrılıklarını profesyonelce çözüme kavuşturmak adına [iş hayatı
 Kısaltmalar pratiklik sağlasa da, yanlış ton kurumsal imajınızı zedeleyebilir.
 
 1. **ASAP (As Soon As Possible) Uyarısı**
-   - *"Please send this ASAP"* cümlesi, ana dili İngilizce olanlar tarafından çoğu zaman kaba ve buyurgan bir emir kipi olarak algılanır.
-   - *Kibar alternatifler*: *"at your earliest convenience"* (en erken uygunluğunuzda) veya *"by tomorrow noon if your schedule allows"* (programınız elverirse yarın öğlene kadar).
+   - *"Please send this ASAP"* cümlesi emir gibi algılanabilir.
+   - *Kibar alternatif*: *"by tomorrow noon if your schedule allows"* (programınız elverirse yarın öğlene kadar). *"at your earliest convenience"* (size uygun olan ilk fırsatta) daha yumuşaktır ama bir süre belirtmez; gerçek bir son tarih yoksa kullanın.
 2. **Kime Yazdığınızı Unutmayın**
    - Dahili geliştirici ekibiyle Slack'te yazışırken kabul gören kısaltmalar, kurumsal bir teklif mektubunda amatörce duracaktır.
 3. **Büyük Harf Kirliliğinden Kaçının**
@@ -172,15 +173,22 @@ Kısaltmalar pratiklik sağlasa da, yanlış ton kurumsal imajınızı zedeleyeb
 | **IMO** | In My Opinion (bana göre) | *"IMO, we should test it first."* |
 | **AFAIK** | As Far As I Know (bildiğim kadarıyla) | *"AFAIK, the invoice is paid."* |
 | **ICYMI** | In Case You Missed It (kaçırdıysanız) | *"ICYMI, the schedule changed."* |
-| **EOW** | End Of Week (hafta sonu, yani haftanın bitişi) | *"Draft due by EOW."* |
+| **e.g.** | for example (örneğin) | *"Use a clear subject, e.g. Request: Q3 Budget Review."* |
+| **i.e.** | that is (yani) | *"Send it by EOD, i.e. 5 p.m. Istanbul time."* |
+| **Re: / Fwd:** | yanıt / iletilen e-posta | konu satırında: *"Re: Contract Addendum"* |
+| **cc / bcc** | bilgi / gizli bilgi | *"I've cc'd Mark for reference."* |
+| **pls / thx** | please / thanks (yalnızca sohbette) | *"pls check, thx"* |
+| **EOW** | End Of Week (hafta bitimi, yani haftanın son iş günü; "hafta sonu" değildir) | *"Draft due by EOW."* |
 | **N/A** | Not Applicable (geçerli değil) | *"Budget: N/A for this phase."* |
 | **LGTM** | Looks Good To Me (bana uygun görünüyor; kod incelemesinde yaygın) | *"LGTM, merging now."* |
 
 İşinizde sık kullandığınız cümleleri [Lexkite kalıp defterine](/#/phrases) kaydederseniz e-posta yazmadan önce hızla göz atabilirsiniz.
 
-![Lexkite kalıp defteri ekranı: yararlı kalıp ve cümleleri ekleme](media:phrases "Kısaltma içeren örnek cümleleri kalıp defterinde saklayıp daha sonra tekrar açabilirsiniz")
+![Lexkite sözlük ekranı: kelimenin telaffuzu, anlamı, örnek cümleleri ve kartı kaydetme düğmesi](media:dict "Sözlükte bir kelimeye bakın, anlamını ve örneklerini görün, sonra kart olarak kaydedip tekrar edin")
 
-## Gerçekçi Bir İş E-postası Örneği
+## İki Gerçekçi İş E-postası Örneği
+
+### Örnek 1: Yöneticiye yanıt
 
 Kısaltmaların doğal ve profesyonelce harmanlandığı bir mühendislik e-postası:
 
@@ -193,14 +201,33 @@ Thanks for the follow-up.
 
 TL;DR: Staging verification completed successfully, and target rollout remains on track.
 
-Please find the detailed architecture review attached for your reference (FYR). 
-Our DevOps team expects the final production cutover by 5 p.m. CET this Thursday.
+I've attached the architecture review for reference. 
+Our DevOps team expects the final production cutover by 5 p.m. Istanbul time (TRT) this Thursday.
 
 I will be OOO tomorrow morning for a customer audit, but Mark will cover urgent escalations.
 
 Best regards,
 Caner Yilmaz
 Senior Platform Engineer
+```
+
+### Örnek 2: Müşteriden planı onaylamasını isteyen e-posta
+
+Müşteriyle yazışırken kısaltma azdır; son tarih gün, saat ve saat dilimiyle verilir:
+
+```email
+Subject: Request: Confirmation of the Revised Delivery Plan by Wednesday
+
+Dear Mr. Weber,
+
+Thank you for your time on the call today.
+
+I've attached the revised delivery plan. Could you confirm it by Wednesday, 5 p.m. Istanbul time (TRT), so that we can book the deployment window? The final test report will follow tomorrow.
+
+I will be away from Friday, so my colleague Anna will be your contact during that time.
+
+Kind regards,
+Caner Yilmaz
 ```
 
 ## Teknoloji ve B2B Sözleşmelerinde En Çok Karşılaşılan Kısaltmalar
@@ -221,11 +248,11 @@ Küresel ortaklara resmi teklif sunarken [İngilizce iş teklifi nasıl yazılı
 İletişim bağlamına göre kısaltma kullanımı farklılık gösterir:
 
 ### Senaryo 1: Dış Müşteriyle Yaşanan Bir Kriz Anında
-Müşterinin ödeme altyapısında arıza yaşandığında *“Working on fix ASAP, ETA TBD”* şeklinde kestirip atmak duyarsız bir intiba bırakır.
-- *Doğru yaklaşım*: *"Our engineering specialists are actively investigating the payment gateway latency. We will provide an updated milestone status within 45 minutes."* Detaylı ve saygılı ifadeler müşteriye güven aşılar.
+Müşterinin ödeme altyapısında arıza yaşandığında *"Working on fix ASAP, ETA TBD"* şeklinde kısa kesmek soğuk durur.
+- *Doğru yaklaşım*: *"Our engineers are investigating the payment delays now. We'll send you an update within 45 minutes."* Tam cümleler ve net bir süre müşteriyi rahatlatır.
 
 ### Senaryo 2: Dahili Ekip İçi Slack Koordinasyonu
-İç yazışmalarda hız ve sadelik esastır. *"FYI: staging cluster restarted, MoM will be shared before EOD"* mesajı fazladan okuma yükü yaratmadan amacı mükemmel karşılar.
+İç yazışmalarda hız ve sadelik esastır. *"FYI: staging is restarting; I'll share the meeting notes before EOD."* gibi bir mesaj fazladan okuma yükü yaratmadan işi görür.
 
 ### Senaryo 3: Üst Yönetim ile Bütçe ve Strateji Görüşmeleri
 C-level yöneticilerle yazışırken stratejik metrikler (*ROI*, *KPI*, *Capex*, *Opex*) yerinde kullanılırken, gündelik sohbet kısaltmalarından (*BRB*, *IMO*) uzak durulmalıdır.
@@ -242,8 +269,8 @@ C-level yöneticilerle yazışırken stratejik metrikler (*ROI*, *KPI*, *Capex*,
 ## Türkçe Konuşanlar İçin Telaffuz Noktaları
 
 - **W ve V**: Türkçede /w/ yok; *WIP* ve *WFH* içindeki W dudakları yuvarlayarak söylenir, dişler alt dudağa değmez. *V* ise alt dudak ve üst dişle çıkar. İkisini aynı söylemek *work* sözcüğünü *vork* gibi duyurur.
-- **Kelime başındaki ünsüz kümesi**: Türkçede *s + ünsüz* ile başlayan kelime yoktur, bu yüzden *sprint*, *scope*, *stakeholder* sözcükleri "isprint", "iskop", "isteykholdır" olur. Önce /s/ sesini uzatın, ardından ünsüze geçin: *sss-print*.
-- **Sondaki ünsüz**: *COB* gibi sözcük olarak okunan kısaltmalarda sondaki /b/ ve /d/ yumuşamaz; Türkçedeki gibi /p/ ve /t/ olarak sertleşmesin. *Approved* ve *scheduled* sözcüklerinde -d sesini de açıkça söyleyin.
+- **Kelime başındaki ünsüz kümesi**: Türkçe kökenli kelimeler *s + ünsüz* ile başlamaz; bu yüzden *spor*, *stres* gibi alıntılar bile halk ağzında "ispor", "istres" olur. Aynı alışkanlık *sprint*, *scope*, *stakeholder* sözcüklerini "isprint", "iskop", "isteykholdır" yapar. Önce /s/ sesini uzatın, ardından ünsüze geçin: *sss-print*.
+- **Sondaki ünsüz**: *Approved*, *scheduled*, *determined* gibi sözcüklerde sondaki /d/ sesi Türkçedeki gibi /t/ olarak sertleşmesin; sesli ve açık söyleyin.
 - **Vurgu**: *FYI* ve *ETA* gibi harf harf okunan kısaltmalarda vurgu son harftedir (ef-wai-**AI**).
 
 Sesli prova için [Lexkite telaffuz alıştırmasını](/#/practice/speak) kullanın: bir ifadeyi mikrofona okursunuz ve telaffuzunuz için puan alırsınız. Daha geniş bir plan için [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) yazısına da bakın.
@@ -254,8 +281,8 @@ Sesli prova için [Lexkite telaffuz alıştırmasını](/#/practice/speak) kulla
 
 Kısaltmaları sadece gözle okuyup ezberlemek yetmez; duyduğunuz anda çözebilmeniz gerekir.
 
-1. **Bağlamıyla Birlikte Öğrenin**: Kısaltmayı tek başına değil, yanındaki kalıplaşmış kelimelerle (*“before EOD today”*, *“for your guidance”*) birlikte çalışın. Deyimsel zenginlik için [iş hayatında İngilizce deyimler](/tr/blog/is-hayatinda-ingilizce-deyimler/) yazımızı inceleyin.
-2. **Harf harf sesli söyleyin**: *e-t-a*, *o-o-o* gibi İngilizce harf adlarıyla yüksek sesle alıştırma yapın.
+1. **Bağlamıyla Birlikte Öğrenin**: Kısaltmayı tek başına değil, yanındaki kalıplaşmış kelimelerle (*"before EOD today"*, *"for your reference"*) birlikte çalışın. Deyimsel zenginlik için [iş hayatında İngilizce deyimler](/tr/blog/is-hayatinda-ingilizce-deyimler/) yazımızı inceleyin.
+2. **Harf harf sesli söyleyin**: *e-t-a*, *f-y-i* gibi İngilizce harf adlarıyla yüksek sesle alıştırma yapın.
 3. **Aralıklı tekrar yapın**: Yalnızca işinizde gerçekten karşılaştığınız beş altı kısaltma için kart oluşturun ve [Lexkite tekrar ekranında](/#/review) aralıklarla tekrar edin. Yöntem [aralıklı tekrar (FSRS) rehberinde](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) anlatılıyor.
 
    ![Lexkite tekrar ekranı: pollution kartı, kartı çevirme düğmesi ve ilerleme çubuğu](media:review "Kartı çevirip cevabı kontrol edin; ilerleme çubuğu kalan kartları gösterir")

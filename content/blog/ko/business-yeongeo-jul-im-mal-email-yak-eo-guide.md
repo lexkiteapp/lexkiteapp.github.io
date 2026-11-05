@@ -1,14 +1,14 @@
 ---
 slug: business-yeongeo-jul-im-mal-email-yak-eo-guide
-title: "글로벌 직장인 필수: 자주 쓰는 비즈니스 영어 줄임말, 이메일 약어 완벽 정리"
-description: "외국계 기업과 글로벌 비즈니스 실무에서 빈번히 사용되는 비즈니스 영어 줄임말 핵심 가이드. ASAP, FYI, ETA, EOD, OOO, TBD 등 영문 이메일과 사내 메신저 필수 약어와 실전 예문 및 정중한 커뮤니케이션 에티켓을 상세히 알아봅니다."
+title: "비즈니스 영어 줄임말: 이메일 약어 뜻과 예문, 쓰는 법"
+description: "비즈니스 영어 줄임말 ASAP·FYI·EOD·OOO·TBD의 뜻과 예문, 쓰면 안 되는 상황과 시각과 타임존 적는 법, 메신저와 메일의 격식 차이, 한국 직장인이 자주 틀리는 표현을 한 번에 정리했습니다."
 keyword: "비즈니스 영어 줄임말"
 lang: ko
 translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, email, acronyms, jigjang]
-cover: letters
-coverAlt: "Lexkite의 IELTS General Task 1 편지 쓰기 화면: 격식체, 준격식체, 비격식체 편지로 글의 격식 수준을 비교할 수 있습니다"
+cover: phrases
+coverAlt: "Lexkite 표현 노트 화면: 유용한 표현과 문장을 추가해 저장하는 화면으로, 이메일 약어가 들어간 예문을 모아 둘 수 있습니다"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
@@ -19,10 +19,10 @@ quiz: [
   {
     q: "서울 본사 직원이 뉴욕 동료에게 \"Please send it by EOD Friday.\"라고 썼습니다. 오해를 가장 확실히 줄이는 방법은 무엇인가요?",
     options: [
-      "EOD 대신 ASAP를 덧붙인다",
-      "시각과 타임존을 함께 적는다 (예: 6 p.m. KST)",
-      "EOD를 소문자로 쓴다",
-      "금요일을 빼고 EOD만 쓴다"
+      "EOD 뒤에 ASAP를 한 번 더 덧붙여 강조한다",
+      "시각과 타임존을 함께 적는다",
+      "EOD를 소문자로 바꿔 쓰고 보낸다",
+      "금요일을 빼고 EOD만 간단히 쓴다"
     ],
     answer: 1,
     explain: "EOD는 보내는 사람의 업무 종료 시점을 가리키기 쉬워서 시차가 있으면 해석이 갈립니다. 시각과 타임존을 적으면 해석이 하나로 정해집니다."
@@ -41,8 +41,8 @@ quiz: [
   {
     q: "처음 거래하는 외부 고객에게 보내는 메일에서 \"Please reply ASAP.\"가 문제가 될 수 있는 이유는 무엇인가요?",
     options: [
-      "상대에게 재촉하는 명령조로 들릴 수 있고, 기한도 불분명하다",
-      "ASAP는 영어 문법상 틀린 표현이다",
+      "재촉하는 명령조로 들리고 기한도 불분명하다",
+      "ASAP는 영어 문법상 완전히 틀린 표현이다",
       "ASAP는 사내 문서에서만 쓸 수 있도록 규정되어 있다",
       "ASAP를 쓰면 메일이 자동으로 스팸 처리된다"
     ],
@@ -52,26 +52,27 @@ quiz: [
   {
     q: "\"FYI, the maintenance window has moved to Sunday night.\" 이 메시지를 받은 사람에게 기대되는 행동은 무엇인가요?",
     options: [
-      "즉시 답장하고 승인한다",
-      "내용을 알아두면 되고 별도 조치는 필요 없다",
+      "즉시 답장하고 내용을 승인한다",
+      "알아두면 되고 조치는 필요 없다",
       "일요일 회의를 취소한다",
-      "메일을 모든 팀원에게 전달한다"
+      "메일을 모든 팀원에게 그대로 전달한다"
     ],
     answer: 1,
     explain: "FYI(For Your Information)는 참고용 공유입니다. 조치가 필요하면 'Action required'처럼 따로 표시합니다."
   }
 ]
 ---
+비즈니스 영어 줄임말은 시간을 아끼게 해 주지만, 뜻과 쓰는 상황을 정확히 알아야 합니다. 이 글은 뜻, 예문, 에티켓, 한국인이 자주 틀리는 부분을 정리했습니다.
 
 ## 비즈니스 영어 줄임말 이해가 글로벌 실무에서 중요한 이유
 
 ASAP, FYI, EOD, ETA, OOO 같은 **비즈니스 영어 줄임말** (Acronyms & Abbreviations)은 외국계 기업의 이메일, 슬랙(Slack), 팀즈(Teams)에서 매일 오갑니다. 이 글은 가장 자주 만나는 약어의 뜻, 쓰면 안 되는 상황, 한국인이 자주 틀리는 부분을 정리했습니다. 먼저 기억할 것 두 가지는 EOD처럼 타임존에 따라 시각이 달라지는 약어에는 시각과 타임존을 함께 적는다는 것, 처음 연락하는 고객에게는 약어 대신 풀어 쓴다는 것입니다.
 
-약어의 뜻과 격식 수준을 모르면 동료의 마감 요청을 잘못 읽거나, 고객에게 무례한 인상을 줄 수 있습니다. 관련 비즈니스 어휘는 Lexkite의 [어휘 라이브러리](/vocabulary/)에서도 찾아볼 수 있습니다.
+약어의 뜻과 격식 수준을 모르면 동료의 마감 요청을 잘못 읽거나, 고객에게 무례한 인상을 줄 수 있습니다. 관련 영어 단어는 Lexkite의 [영어 단어 목록](/en/vocabulary/)에서도 찾아볼 수 있습니다(이 페이지는 영어로 제공됩니다).
 
 ## 업무 일정과 마감 시간(Deadline) 관련 핵심 약어
 
-글로벌 프로젝트 협업에서 마감 시한을 명확히 설정하고 준수하는 것은 신뢰의 기본입니다. 시간과 관련된 대표적인 약어들은 다음과 같습니다:
+시간과 관련된 대표적인 약어들은 다음과 같습니다:
 
 - **ETA (Estimated Time of Arrival)**
   - *본래 뜻*: 예상 도착 시간 (물류, 이동)
@@ -161,7 +162,7 @@ ASAP, FYI, EOD, ETA, OOO 같은 **비즈니스 영어 줄임말** (Acronyms & Ab
 
 1. **ASAP (As Soon As Possible) 남발 주의**
    - *문제점*: "최대한 빨리"라는 뜻이지만 수신자에게는 고압적인 재촉이나 명령조로 들릴 수 있습니다.
-   - *대안 표현*: *"at your earliest convenience"* (편하신 시간에 가급적 일찍), *"by tomorrow noon if possible"* (가능하시다면 내일 정오까지)처럼 명확한 기한을 제시하는 것이 훨씬 정중합니다.
+   - *대안 표현*: *"by tomorrow noon if possible"* (가능하시다면 내일 정오까지)처럼 구체적인 기한을 제시하는 것이 훨씬 정중합니다. *"at your earliest convenience"* (편하신 시간에 가급적 일찍)는 말투는 부드럽지만 기한이 없는 표현이니, 실제 마감이 있을 때는 날짜와 시각을 적으세요.
 2. **외부 고객 및 신규 파트너 앞에서의 자제**
    - 사내에서 통용되는 내부 은어나 약어는 외부 고객에게 전달되었을 때 혼란을 초래합니다. 외부 공식 서신에서는 가급적 풀어서 표기하는 것이 원칙입니다.
 3. **대문자 전체 표기(ALL CAPS) 유의**
@@ -169,7 +170,7 @@ ASAP, FYI, EOD, ETA, OOO 같은 **비즈니스 영어 줄임말** (Acronyms & Ab
 
 자주 쓰는 약어와 예문은 [Lexkite 표현 노트](/#/phrases)에 저장해 두면 메일을 쓸 때 바로 꺼내 쓸 수 있습니다.
 
-![Lexkite 표현 노트 화면: 유용한 표현과 문장을 추가해 저장하는 화면](media:phrases "표현 노트에 이메일 약어가 들어간 예문을 저장해 두고 필요할 때 다시 열어봅니다")
+![Lexkite 사전 화면: 단어의 발음, 뜻, 예문과 플래시카드 저장 버튼](media:dict "사전에서 약어가 들어간 단어를 찾아 뜻과 예문을 확인하고 카드로 저장합니다")
 
 ## 실전 비즈니스 이메일 답장 예문
 
@@ -184,7 +185,7 @@ Thanks for the update.
 
 TL;DR: The staging environment verification is complete, and we are on track for the target deployment date.
 
-Please find the detailed architecture review attached for your reference (FYR). 
+I've attached the architecture review for reference. 
 Our DevOps team expects the full production rollout to finish by 5 p.m. ET this Friday.
 
 I will be OOO tomorrow afternoon for a client visit, but Sarah will be available if any urgent blocker arises.
@@ -204,8 +205,20 @@ Senior Software Engineer
 | **MVP** | Minimum Viable Product | 최소 기능 제품 | 핵심 가치만 빠르게 검증하기 위해 초기 출시하는 버전. |
 | **SOW** | Statement of Work | 작업 명세서 | 프로젝트 범위와 납품 산출물을 정의한 공식 계약 부속 문서. |
 | **NDA** | Non-Disclosure Agreement | 비밀 유지 계약서 | 비즈니스 논의 전 상호 기밀을 보호하기 위해 체결하는 협약. |
-| **ROI** | Return on Investment | 투자 회수율 | 투자 대비 거두게 되는 재무적 및 운영적 이익 비율. |
+| **ROI** | Return on Investment | 투자 수익률 | 투자 대비 거두게 되는 재무적 및 운영적 이익 비율. |
 | **SLA** | Service Level Agreement | 서비스 수준 협약 | 시스템 가동률이나 장애 복구 시간(MTTR)을 보증하는 계약 조건. |
+
+### 이메일 제목줄과 한국어 표현 대응
+
+카카오톡이나 슬랙에서 한국어로 쓰던 표현이 영어 메일에서는 어떤 약어와 짝이 되는지 정리했습니다.
+
+| 한국어 표현 | 영어 표기 | 설명 |
+| :--- | :--- | :--- |
+| 회신 / 전달 | **Re: / Fwd:** | 제목줄 앞에 자동으로 붙습니다. 회신 시 Re:를 직접 지우지 마세요. |
+| 참조 / 숨은 참조 | **cc / bcc** | cc는 참고로 알릴 사람, bcc는 다른 수신자에게 보이지 않는 수신자입니다. "참조 부탁드립니다"는 *"I've copied (cc'd) Jane for reference."* |
+| 회신 부탁드립니다 | *"Could you reply by Thursday?"* | 약어보다 기한을 적은 문장이 정중합니다. |
+| 예를 들어 / 즉 | **e.g. / i.e.** | e.g.는 예시(for example), i.e.는 바꿔 말하기(that is)입니다. |
+| 부탁드려요 / 감사해요 (메신저) | **pls / thx** | 사내 메신저에서만 쓰고 고객 메일에는 풀어 씁니다. |
 
 신규 글로벌 사업 제안이나 수주 프로젝트를 준비 중이시라면 [영어 사업 제안서 작성법](/ko/blog/business-proposal-yeongeo-jakseongbeop/)을 참고하시면 큰 도움을 얻으실 수 있습니다.
 
@@ -220,9 +233,9 @@ Senior Software Engineer
 
 약어는 알파벳 이름을 하나씩 읽기 때문에, 한국어에 없는 소리가 그대로 드러납니다.
 
-- **F와 P**: 한국어에는 /f/가 없어서 *FYI*가 "파이"처럼 들립니다. 윗니를 아랫입술에 살짝 대고 바람을 내보내세요 ("에프"가 아니라 /ef/).
+- **F와 P**: 한국어에는 /f/가 없어서 *FYI*의 첫 글자 F(/ef/)를 "에프"의 ㅍ 소리로 읽기 쉽고, 그러면 /ep/처럼 들립니다. 윗니를 아랫입술에 살짝 대고 바람을 내보내며 /ef/로 읽으세요.
 - **R과 L**: *TL;DR*, *ROI*, *SLA*, *OKR*에서 갈립니다. L은 혀끝을 윗잇몸에 붙이고, R은 혀를 말아 입천장에 닿지 않게 합니다.
-- **끝소리 뒤에 모음 붙이기**: 한국어는 받침 없이 모음으로 끝나는 경향이 있어 *ASAP*의 마지막 P를 "에이사프"처럼 "프"로 늘리기 쉽습니다. *ASAP*는 "에이샙"처럼 한 단어로 읽거나 A-S-A-P로 끊어 읽는데, 어느 쪽이든 마지막 P 뒤에 모음을 붙이지 말고 입술만 닫으세요.
+- **끝소리 뒤에 모음 붙이기**: 한국어는 받침 없이 모음으로 끝나는 경향이 있어 *ASAP*의 마지막 P를 "에이사프"처럼 "프"로 늘리기 쉽습니다. *ASAP*는 "에이샙"처럼 한 단어로 읽거나 A-S-A-P로 끊어 읽습니다. 어느 쪽이든 마지막 P 뒤에 모음을 붙이지 말고 입술만 닫으세요.
 - **강세**: *FYI*, *ETA*처럼 알파벳을 하나씩 읽는 약어는 마지막 글자에 강세가 옵니다 (ef-why-**EYE**).
 
 전화 회의 전에 위 약어들을 소리 내어 읽어 보고 싶다면 [Lexkite 발음 연습](/#/practice/speak)에서 구문을 마이크로 읽고 점수를 확인해 보세요.
@@ -242,7 +255,7 @@ Senior Software Engineer
 
 약어는 정확한 뜻과 적절한 상황만 알면 어렵지 않습니다. 이번 주 메일에서 두세 개를 골라 써 보세요.
 
-{{youtube: | 비즈니스 영어 줄임말 및 이메일 약어 완벽 정리: ASAP부터 EOD까지}}
+{{youtube: | 비즈니스 영어 줄임말: ASAP부터 EOD까지}}
 
 {{cta: /#/phrases | 이메일 약어 예문을 표현 노트에 저장해 보세요}}
 
