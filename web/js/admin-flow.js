@@ -2,7 +2,7 @@
  *   1 Studio (#studio) → 2 Thư viện video (#video) → 3 Kênh & phân phối (#dist) → 4 Đăng & hiệu quả (#social) + viên Kho Drive (#drive).
  * Mỗi số = dữ liệu thật từ POST /api/admin-clips op 'flow' (functions/api/admin-clips.js flowStats). null = "chưa có dữ liệu" (—), không bịa 0.
  * Đệm 60 s phía khách: chuyển qua lại giữa 4 mục không gọi lại máy chủ. Đang tải / lỗi (+ Thử lại) / rỗng đều có trạng thái rõ.
- * AdminFlow.paint(el, tab, { capi, go, L, esc }) – el nằm NGOÀI #main nên các mô-đun mục vẽ lại #main không xoá dải. */
+ * AdminFlow.paint(el, tab, { capi, go, L, esc }) – el nằm NGOÀI #main nên các mô-đun mục vẽ lại #main không xóa dải. */
 (function () {
   'use strict';
   const EN = {
