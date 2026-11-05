@@ -61,7 +61,6 @@
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (m) { return '&#' + m.charCodeAt(0) + ';'; });
   }
 
-  // utm trước # (sau # là route app)
   function ctaUrl(u, def) {
     u = /^\/(?!\/)/.test(u || '') ? u : (def || '/app/');
     if (/utm_source=/.test(u)) return u;
@@ -69,12 +68,10 @@
     return base + (base.indexOf('?') < 0 ? '?' : '&') + 'utm_source=blog&utm_medium=quiz' + frag;
   }
 
-  // Trộn thứ tự phương án mỗi lần tải: bài viết tay hay để đáp án ở cùng một vị trí (B5-R2: 166/269 ở A, 0 ở D)
-  // → người học đoán theo vị trí. Giữ đúng đáp án bằng cách trộn chỉ số rồi tìm lại vị trí của answer.
   function shuffle(q) {
-    const ord = q.options.map(function (_, i) { return i; });
-    for (let i = ord.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)), x = ord[i]; ord[i] = ord[j]; ord[j] = x; }
-    return Object.assign({}, q, { options: ord.map(function (i) { return q.options[i]; }), answer: ord.indexOf(q.answer) });
+    const o = q.options.map((_, i) => i);
+    for (let i = o.length - 1, j; i > 0; i--) { j = Math.random() * (i + 1) | 0; [o[i], o[j]] = [o[j], o[i]]; }
+    return Object.assign({}, q, { options: o.map(i => q.options[i]), answer: o.indexOf(q.answer) });
   }
 
   function init(c) {
