@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1対策：自然な英語でハイスコアを狙う完全攻略法"
 slug: "ielts-speaking-part-1-taisaku-kotsu-shizen-na-kaitou"
 description: "ielts speaking part 1を完全制覇！効果的な3ステップの回答公式、頻出トピック別の実践模範解答、日本人特有の減点ミスを防ぎ本番でバンドスコア7.0以上を獲得するための必須ストラテジーを詳しく徹底解説します。"

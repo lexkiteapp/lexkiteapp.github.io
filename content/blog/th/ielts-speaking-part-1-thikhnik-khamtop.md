@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1 เทคนิคตอบอย่างเป็นธรรมชาติและข้อควรระวัง"
 slug: "ielts-speaking-part-1-thikhnik-khamtop"
 description: "คู่มือ IELTS Speaking Part 1: สูตรตอบ 3 ขั้นตอน ตัวอย่างคำตอบหัวข้อยอดฮิต ข้อผิดพลาดที่คนไทยพบบ่อย และเทคนิคเพิ่มความมั่นใจเพื่อคะแนนระดับสูง"

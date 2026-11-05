@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1: استراتيجيات الإجابة والنصائح ونماذج عملية"
 slug: "ielts-speaking-part-1-istratijiyyat-ijabat"
 description: "دليل شامل لاختبار IELTS Speaking Part 1: صيغة الإجابة الثلاثية، أشهر الموضوعات، الأخطاء الشائعة لدى الطلاب العرب وطرق التحدث بطلاقة وثقة."

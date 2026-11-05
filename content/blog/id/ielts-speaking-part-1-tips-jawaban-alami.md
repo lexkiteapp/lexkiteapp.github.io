@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1: Jawaban Alami untuk Skor Band Tinggi"
 slug: "ielts-speaking-part-1-tips-jawaban-alami"
 description: "Kuasai ielts speaking part 1: rumus 3 langkah, topik umum, contoh jawaban autentik, dan solusi kesalahan khas peserta untuk meraih skor tinggi di ujian resmi."

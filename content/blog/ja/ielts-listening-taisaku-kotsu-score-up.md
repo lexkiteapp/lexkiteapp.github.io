@@ -1,4 +1,5 @@
 ---
+translationKey: meo-lam-bai-ielts-listening
 title: "IELTS Listening 対策のコツ: スコアを伸ばす実践的勉強法"
 slug: "ielts-listening-taisaku-kotsu-score-up"
 description: "IELTS Listening 対策でスコアを伸ばす実践的勉強法。先読みの技術、言い換えトラップの見抜き方、スペルや数字の失点防止策、パート別解法と効果的なトレーニング法を網羅し、目標バンドスコア突破を強力にサポートします。"

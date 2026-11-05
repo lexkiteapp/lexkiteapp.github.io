@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "雅思口语Part 1备考深度攻略：自然流利答题技巧与高分范例解析"
 slug: "ielts-speaking-part-1-da-ti-ji-qiao-fan-li"
 description: "深度解析ielts speaking part 1核心评分要点，提供实用三步回答公式、真实高频话题范例以及常见丢分误区剖析，助你彻底告别机械背诵与单字简答，在雅思口语考官面前自信展现地道英语表达，稳步斩获7分以上的优异成绩。"

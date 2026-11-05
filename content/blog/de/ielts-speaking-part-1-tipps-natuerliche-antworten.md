@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1: Natürliche Antworten für hohe Band Scores"
 slug: "ielts-speaking-part-1-tipps-natuerliche-antworten"
 description: "Meistern Sie den ielts speaking part 1: 3-Schritte-Formel, häufige Themen, authentische Musterantworten und typische Fehler deutschsprachiger Kandidaten."

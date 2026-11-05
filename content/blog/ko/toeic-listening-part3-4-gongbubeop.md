@@ -3,7 +3,7 @@ title: "토익 LC 공부법: 파트3·4 스키밍 타이밍과 450점 돌파 전
 description: "토익 LC 공부법 완벽 가이드: 파트3·4 문제 미리 읽기(스키밍) 골든 타임 공식, 호주·영국 발음 연음 대처법, 패러프레이징 청취 훈련과 과학적 섀도잉 루틴으로 리스닝 450점 만점을 빠르게 달성하세요."
 slug: toeic-listening-part3-4-gongbubeop
 lang: ko
-translationKey: meo-lam-bai-ielts-listening
+translationKey: toeic-listening-part3-4-gongbubeop
 category: toeic
 tags: [toeic, lc, part-3, part-4, listening]
 keyword: "토익 lc 공부법"

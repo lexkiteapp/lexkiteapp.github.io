@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1 : réponses naturelles et score élevé"
 slug: "ielts-speaking-part-1-reponses-naturelles-guide"
 description: "Maîtrisez l'ielts speaking part 1 : formule en 3 temps, questions fréquentes, exemples concrets et pièges des francophones pour obtenir une excellente note."

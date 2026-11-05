@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1: стратегии ответов, шаблоны и частые ошибки"
 slug: "ielts-speaking-part-1-otvety-i-sovety"
 description: "Гид по IELTS Speaking Part 1: трехшаговая формула естественных ответов, разбор типичных тем, ошибки русскоговорящих студентов и приемы для высокого балла."

@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1 Taktikleri: Doğal Cevaplar ve İpuçları"
 slug: "ielts-speaking-part-1-taktikleri-ornek-cevaplar"
 description: "IELTS Speaking Part 1 rehberi: 3 adımlı cevap formülü, sık çıkan konular, Türk öğrencilerin yaptığı telaffuz hataları ve yüksek puan ipuçları."

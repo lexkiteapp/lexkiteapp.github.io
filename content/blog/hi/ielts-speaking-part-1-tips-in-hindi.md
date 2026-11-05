@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1 Tips in Hindi: सही उत्तर व रणनीतियां"
 slug: "ielts-speaking-part-1-tips-in-hindi"
 description: "IELTS Speaking Part 1 की पूरी तैयारी: 3-चरणीय उत्तर फॉर्मूला, सामान्य विषय, भारतीय छात्रों की गलतियां और उच्च बैंड स्कोर प्राप्त करने के व्यावहारिक टिप्स।"

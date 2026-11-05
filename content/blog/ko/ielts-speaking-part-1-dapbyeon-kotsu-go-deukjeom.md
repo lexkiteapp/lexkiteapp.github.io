@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-speaking-part-1
 title: "IELTS Speaking Part 1 완벽 공략: 자연스러운 답변과 고득점 팁"
 slug: "ielts-speaking-part-1-dapbyeon-kotsu-go-deukjeom"
 description: "ielts speaking part 1 고득점 달성 비법! 실전 3단계 답변 공식, 빈출 기출 토픽별 원어민 모범 답안, 한국인 수험생의 흔한 감점 실수와 자연스러운 표현 전략을 상세히 총정리하여 시험장에서 7.0 이상을 달성하도록 돕습니다."
