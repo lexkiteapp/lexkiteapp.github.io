@@ -17,7 +17,7 @@
     const tch = () => ctx.teachers() || {};
     // dừng/chạy video vòng nghe của người đó (bắt lúc mount, ui.js duoMount): khung không đổi nên canvas ngừng vẽ; người nói thì say() tự bật vòng nói
     const park = (who, on) => { const v = (ctx.vids() || {})[who] || []; try { if (on) v.forEach(x => { if (!x.paused) x.pause(); }); else if (v[0] && v[0].paused && v[0].readyState > 1) v[0].play().catch(() => {}); } catch (e) { /* bỏ qua */ } };
-    const sync = () => { ['ama', 'carlos'].forEach(k => { const on = cur ? cur === k : (!owner || owner === k); // đang nói: chỉ người nói chạy; im: chỉ chủ dòng hiện hành chạy vòng nghe, người kia đứng yên (nửa chi phí vẽ) seats[k].classList.toggle('on', cur === k); park(k, !seen || D.hidden || !on); }); };
+    const sync = () => { ['ama', 'carlos'].forEach(k => { const on = cur ? cur === k : (!owner || owner === k); /* đang nói: chỉ người nói chạy; im: chỉ chủ dòng chạy vòng nghe */ seats[k].classList.toggle('on', cur === k); park(k, !seen || D.hidden || !on); }); };
     // ngoài màn / tab ẩn → dừng hẳn vòng vẽ (không tốn CPU); IntersectionObserver không có → coi như đang thấy
     let io = null; if (g.IntersectionObserver) { io = new IntersectionObserver(es => { seen = es[es.length - 1].isIntersecting; sync(); }, { threshold: 0.01 }); io.observe(stage); }
     const vis = () => sync(); D.addEventListener('visibilitychange', vis);
