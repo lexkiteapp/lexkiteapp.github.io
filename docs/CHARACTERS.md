@@ -14,6 +14,7 @@
 ## Bản thiết kế sản xuất (KHOÁ – chủ duyệt 29/10)
 - Trang phục 3: Ama blazer coral + áo kem + băng đô vàng; Carlos blazer xanh + sơ mi trắng. **Tóc ĐEN** (caramel/nâu đã thử, chủ loại). Khung đầu: `cine/teachers/green_{ama,carlos}_o3_ref.png` (Carlos ngậm miệng: ảnh môi khép trong bank).
 - **Clip 1080p** (Kling 2.5, 5 s, phông #00B140), máy khoá, không zoom, tay xuôi đầu/cuối. 13 tư thế + bản 2 cho talk/listen/explain. Id `ga11_*` / `gc11_*`.
+- **Tư thế chỉ-ảnh** (05/11, rig `TeacherRig`): `people.<who>.stills` = ảnh chuẩn phông xanh trong lexkite-media (`cine/teachers/green/*_still.png`, đã qua `qc_green.py still` + soát mắt) → `scripts/teach/still_img.py` (CI teach-build, sau build.py) cắt đúng khung build.py → `still-<pose>.webp`. `Chars.has/stills`; cử chỉ thiếu ảnh của người đó dùng `alt`. Hiện có: Ama thumbs_up, clap · Carlos thumbs_up, hold_card.
 - Prompt: tư thế ngậm miệng không dùng từ smile/warm/friendly, ghi "lips pressed together…"; tay "point" tả theo phía khung hình.
 - Kiểm ở bước ẢNH trước khi tạo clip; mỗi clip QC (5 ngón, miệng, khung ±5 % cỡ đầu, nền sạch); hỏng 2 lần thì bỏ mục.
 - **Mắt mở + vòng nghỉ (3/11):** ảnh tĩnh/poster chọn khung mắt mở (`scripts/teach/eyes.py`, không còn cứng 40 % clip); vòng nghỉ 1–3 s `idle.webm` (VP9α) + `idle.mp4` (xếp chồng, Safari) + `idle-poster.webp` qua `Chars.idle`, ≤ 150 KB/tệp, dựng bởi `scripts/teach/idle.py`, cổng `idle.py --check` (characters-shots.yml). Spec: [specs/home-upgrade.md](specs/home-upgrade.md).
