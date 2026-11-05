@@ -66,7 +66,10 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   let state, description;
   if (failed.length) { state = 'failure'; description = say(`Đỏ ${failed.length}/${total}`, failed); }
   else if (pending.length) { state = 'pending'; description = say(`Chờ ${pending.length}/${total}`, pending); }
-  else { state = 'success'; description = total ? `Xanh: ${total} check đều đạt` : 'Không có check nào chạy trên commit này'; }
+  // 05/11: không có check THẬT nào đạt (0 check, hoặc chỉ skipped/neutral) = CI chưa chạy (vd. commit đẩy bằng token không kích workflow) → CHỜ, không xanh.
+  // Trước đây trường hợp này báo xanh → #584 gộp vào main khi chưa có CI nào chạy trên head.
+  else if (!items.some((i) => i.status === 'completed' && i.conclusion === 'success')) { state = 'pending'; description = total ? `Chưa có check thật nào đạt (${total} bỏ qua) – đẩy commit thường để chạy CI` : 'Chưa có check nào chạy trên commit này – đẩy commit thường để chạy CI'; }
+  else { state = 'success'; description = `Xanh: ${total} check đều đạt`; }
   return { state, description, failed, pending, total };
 }
 
