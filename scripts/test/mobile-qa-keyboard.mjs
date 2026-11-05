@@ -110,6 +110,7 @@ for (const vp of VPS) for (const mode of ['visual', 'content']) {
       const want = MUST.find(([r]) => r === route); // trang bắt buộc phủ: chờ ô chính dựng xong (gói lười, vd. 'writing' của Phòng viết)
       if (want) await page.waitForSelector(want[1].source.includes('essay') ? '#essay' : '#view #q, #view input', { state: 'visible', timeout: 10000 }).catch(() => {});
       const list = await page.evaluate(LIST);
+      if (want && !list.some(k => want[1].test(k))) errs.push(`${vp.w} ${mode} #/${route}: chưa thấy ô chính – ` + await page.evaluate(() => `hash ${location.hash} · body.${[...document.body.classList].join('.')} · ` + (document.querySelector('#view') || document.body).innerText.replace(/\s+/g, ' ').slice(0, 220)).catch(e => e.message));
       for (let i = 0; i < Math.min(list.length, MAX_PER_ROUTE); i++) {
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h - kbPx });
         const r = await page.evaluate(probe, [i, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
