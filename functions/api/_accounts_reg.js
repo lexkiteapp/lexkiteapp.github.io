@@ -253,6 +253,7 @@ export const ROWS = [
    "ANDROID_KEYSTORE_PASSWORD",
    "ANDROID_KEY_ALIAS",
    "ANDROID_KEY_PASSWORD",
+   "PLAY_SERVICE_ACCOUNT_JSON",
    "CWS_CLIENT_ID",
    "CWS_CLIENT_SECRET",
    "CWS_REFRESH_TOKEN",
@@ -260,7 +261,7 @@ export const ROWS = [
    "CWS_EXTENSION_ID",
    "OTA_SIGNING_KEY"
   ],
-  "scope": "Phát hành TestFlight, Play, CWS; ký OTA",
+  "scope": "Phát hành TestFlight, Play, CWS; ký OTA; nộp store tự động (store-submit.yml – PLAY_SERVICE_ACCOUNT_JSON chưa có)",
   "manage": "https://appstoreconnect.apple.com/",
   "expires": "",
   "note": ""
