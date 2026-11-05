@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
-/** The English library index (web IELTS_DATA.INDEX, lexicon packs js/lib/*): lower-case word → library entry. */
+/** The English library index (web IELTS_DATA.INDEX, lexicon packs js/lib/…): lower-case word → library entry. */
 fun interface Lexicon {
     fun entry(lowerWord: String): JsonObject?
     companion object { val NONE = Lexicon { null } }

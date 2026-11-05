@@ -183,9 +183,13 @@ final class ParityTests: XCTestCase {
     // MARK: C11 – theme from tokens: light/dark/system + contrast ≥ 4.5:1 on every text pair the screens use
     func testParityC11() {
         func lum(_ c: UInt32) -> Double {
-            let ch = [Double((c >> 24) & 0xFF), Double((c >> 16) & 0xFF), Double((c >> 8) & 0xFF)].map { $0 / 255 }
-                .map { $0 <= 0.03928 ? $0 / 12.92 : pow(($0 + 0.055) / 1.055, 2.4) }
-            return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2]
+            func lin(_ shift: UInt32) -> Double {
+                let v: Double = Double((c >> shift) & 0xFF) / 255.0
+                if v <= 0.03928 { return v / 12.92 }
+                return pow((v + 0.055) / 1.055, 2.4)
+            }
+            let r: Double = lin(24), g: Double = lin(16), b: Double = lin(8)
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b
         }
         func cr(_ a: UInt32, _ b: UInt32) -> Double { let x = lum(a), y = lum(b); return (max(x, y) + 0.05) / (min(x, y) + 0.05) }
         let pairs: [(String, LKDynamicColor, LKDynamicColor)] = [
