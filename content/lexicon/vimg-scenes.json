@@ -343,14 +343,17 @@
   },
   "academic writing#n": {
    "ex": "Academic writing requires clear arguments supported by evidence.",
-   "ps": "a woman sits at a desk typing on a laptop seen from behind, her face focused",
-   "sc": "a woman sits at a desk typing on a laptop seen from behind, her face focused",
-   "check": "Is the person creating a formal research document?",
-   "cap": "a focused person typing on a laptop at a desk",
+   "ps": "a woman in a graduation cap sits at a desk, holding a large pen over a stack of blank sheets",
+   "sc": "a woman in a graduation cap sits at a desk, holding a large pen over a stack of blank sheets",
+   "check": "Is there a person showing formal university-style writing?",
+   "cap": "a graduate in cap holding a pen over blank sheets",
+   "key": "a graduation cap; a stack of blank sheets",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "academic year#n": {
    "ex": "The academic year at most Vietnamese universities begins in early September.",
@@ -14058,15 +14061,17 @@
   },
   "compulsory subject#n": {
    "ex": "Mathematics is a compulsory subject until grade twelve.",
-   "ps": "two students sit at desks, each holding a calculator and looking at it",
-   "sc": "two students sit at desks, each holding a calculator and looking at it",
-   "check": "Are all the students holding the same tool used for a school subject?",
-   "cap": "two students each holding a calculator at their desks",
+   "ps": "a teacher and a student each hold a large beaker, standing beside a blank sheet with a big green tick",
+   "sc": "a teacher and a student each hold a large beaker, standing beside a blank sheet with a big green tick",
+   "check": "Is the same learning tool being held by both people, showing it must be studied?",
+   "cap": "a teacher and a student each holding identical science beakers",
+   "key": "a big green tick on a blank sheet; a large beaker held by each person",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 3
+   "tries": 3,
+   "refix": 1
   },
   "compulsory#adj": {
    "ex": "In my country, education is compulsory until the age of fifteen.",
@@ -16845,6 +16850,19 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "correspondence#n": {
+   "ex": "She handles all of the director's business correspondence and phone calls.",
+   "ps": "a woman hands a blank sheet to a man, both smiling",
+   "sc": "a woman hands a blank sheet to a man, both smiling",
+   "check": "Is a piece of paper being passed between the two people?",
+   "cap": "a woman giving a sheet to a man",
+   "key": "a blank sheet being passed; the two people smiling",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
+  },
   "corridor#n": {
    "ex": "He's running quite fast through the corridor.",
    "ps": "a man sprinting down a narrow hallway with doors on both sides",
@@ -18538,6 +18556,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "customer relationship management#n": {
+   "ex": "Sales staff log every call in the customer relationship management system.",
+   "ps": "a man in a headset smiles while handing a boxed product to a happy customer",
+   "sc": "a man in a headset smiles while handing a boxed product to a happy customer",
+   "check": "Is a person with a headset giving a product to a satisfied customer?",
+   "cap": "salesperson with headset hands product to pleased customer",
+   "key": "salesperson wearing headset; customer smiling while receiving product",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "customer retention#n": {
    "ex": "The new loyalty program improved customer retention by fifteen percent.",
@@ -21608,7 +21639,7 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 2
+   "e4bad": 3
   },
   "didactic#adj": {
    "ex": "The novel is too didactic for many young readers.",
@@ -33409,6 +33440,10 @@
    "skip": "sentence describes abstract economic forecast; cannot depict without text or sym",
    "by": "openai/gpt-oss-120b"
   },
+  "glossary#n": {
+   "skip": "hard to illustrate without writing or symbols",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "glucose#n": {
    "ex": "My glucose levels went down.",
    "ps": "a person eats a banana and then runs with strong strides across a park",
@@ -35142,7 +35177,7 @@
    "cap": "people taking photos of a product for a prize",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 1
+   "e4bad": 2
   },
   "hastily#adv": {
    "ex": "William hastily got out of bed.",
@@ -70343,7 +70378,8 @@
    "who": 1,
    "draw": 4,
    "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "e4bad": 1
   },
   "somewhat#adv": {
    "ex": "The results were somewhat disappointing.",

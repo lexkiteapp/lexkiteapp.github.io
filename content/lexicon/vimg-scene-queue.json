@@ -13,6 +13,12 @@
    "why": "meaning check: no (Is a student receiving a paper marked with a green)",
    "b": "41775450761"
   },
+  "academic writing#n": {
+   "at": "2026-11-05",
+   "tries": 6,
+   "why": "meaning check: no (Is there a person showing formal university-style )",
+   "b": "42112058283"
+  },
   "accessory#n": {
    "at": "2026-11-05",
    "tries": 6,
@@ -294,6 +300,12 @@
    "tries": 6,
    "why": "vision: text",
    "b": "42082474448"
+  },
+  "cast#n": {
+   "at": "2026-11-05",
+   "tries": 6,
+   "why": "meaning check: no (Is there a group of people performing as actors on)",
+   "b": "42112058283"
   },
   "causation#n": {
    "at": "2026-11-04",
