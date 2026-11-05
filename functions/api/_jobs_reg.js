@@ -543,6 +543,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "store-reviews",
+   "workflow": "store-reviews.yml",
+   "cron": [
+    "20 1 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ads-demo",
    "workflow": "ads-demo.yml",
    "cron": [
