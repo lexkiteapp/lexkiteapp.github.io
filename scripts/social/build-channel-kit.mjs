@@ -181,7 +181,7 @@ function pageFbCover(a) {
     ${paperKite(1262, 46, 84, -16)}
     ${fig(POSES['fb-cover'], { x: 1110, h: 560 })}
     <div style="position:absolute;left:0;top:96px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
-      ${chip('Lexkite · 100% free · No paywalls', 26, 12, 26, dot(12, 'sun'))}
+      ${chip('Lexkite · 100% free · No paywalls', 28, 12, 28, dot(12, 'sun'))}
       <div class="h" data-t style="font-size:84px;margin-top:26px">Learn English words</div>
       <div class="h" data-t style="font-size:84px">that <span class="stick" data-t>stick</span>.</div>
       <div class="sub" data-t style="font-size:32px;margin-top:20px">${COPY.sub}</div>
@@ -196,11 +196,11 @@ function pageYtBanner(a) {
     ${spark(700, 420, 44, 'apricot')}${spark(1880, 380, 36)}${spark(1280, 300, 28, 'tealBright2', .8)}${spark(640, 1080, 30, 'sun', .7)}${spark(1960, 1110, 26, 'apricot', .7)}
     ${fig(POSES['yt-banner-l'], { x: -250, h: 900 })}
     ${fig(POSES['yt-banner-r'], { x: 1960, h: 760 })}
-    <div style="position:absolute;left:0;top:538px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
-      <div style="display:flex;align-items:center;gap:22px">${wordmark('yt', 66)}${chip('100% free channel', 30, 14, 28, dot(14, 'tealBright2'))}</div>
+    <div style="position:absolute;left:0;top:532px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div style="display:flex;align-items:center;gap:22px">${wordmark('yt', 66)}${chip('100% free channel', 44, 12, 34, dot(18, 'tealBright2'))}</div>
       <div class="h" data-t style="font-size:96px;margin-top:22px">Learn English words that <span class="stick" data-t>stick</span>.</div>
       <div class="sub" data-t style="font-size:44px;margin-top:12px">${COPY.sub}</div>
-      <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(COPY.weekly, 38, 14, 40, play(36))}${chip(COPY.url, 32, 14, 30)}</div>
+      <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(COPY.weekly, 44, 13, 44, play(42))}${chip(COPY.url, 44, 13, 36)}</div>
     </div></div>` };
 }
 function pageYtThumb(a) {
@@ -208,7 +208,7 @@ function pageYtThumb(a) {
   return { W, H, html: `<div class="stage" style="width:${W}px;height:${H}px">${bg(W, H, '28% 40%', 32)}
     ${spark(700, 140, 30, 'apricot')}${spark(560, 600, 22, 'sun', .7)}
     ${fig(POSES['yt-thumb'], { x: 600, h: 660 })}
-    <div style="position:absolute;left:56px;top:48px;display:flex;gap:14px;align-items:center">${pill(t.tag, 36, 8, 26, dot(12, 'cream'))}${chip('IELTS', 30, 10, 22)}</div>
+    <div style="position:absolute;left:56px;top:48px;display:flex;gap:14px;align-items:center">${pill(t.tag, 40, 8, 28, dot(14, 'cream'))}${chip('IELTS', 40, 8, 26)}</div>
     <div style="position:absolute;right:48px;top:44px">${wordmark('th', 60)}</div>
     <div style="position:absolute;left:56px;top:140px;display:flex;flex-direction:column;align-items:flex-start">
       <div class="h" data-t style="font-size:250px;line-height:.82;letter-spacing:-0.05em;color:${col('sun')};text-shadow:0 14px 0 ${col('apricot')}55,0 22px 30px #0008">${t.big}</div>
@@ -286,9 +286,11 @@ async function build() {
         if (t.contrast < 4.5) issues.push(`"${t.text}" tương phản ${t.contrast}:1 < 4.5:1`);
       }
       if (a.kind === 'avatar') for (const l of els.logo) {
-        // logo phải có ≥ 1 vùng thở trong crop tròn: kiểm phần hình diều (≈ 13.5–87 % ô icon) nằm trọn trong vòng tròn thu 6 %
-        const k = { x: l.x + l.w * 0.135, y: l.y + l.h * 0.135 + l.h * 0.15, w: l.w * 0.73, h: l.h * 0.6 };
-        if (!inCircle(k, W, H, a.zones[0].inset)) issues.push('logo chạm mép crop tròn');
+        // hình diều thật (điểm ngoài cùng của path trong viewBox 120 của icon.svg: đầu cánh, chân cánh, đuôi) phải nằm trong crop tròn thu 6 %
+        const PTS = [[4, 30], [116, 30], [12, 70], [108, 70], [34, 113], [86, 113], [60, 31]];
+        const map = ([x, y]) => [l.x + l.w * (112 + x * 800 / 120) / 1024, l.y + l.h * (112 + y * 800 / 120) / 1024];
+        const r = Math.min(W, H) / 2 * (1 - a.zones[0].inset);
+        if (PTS.map(map).some(([x, y]) => (x - W / 2) ** 2 + (y - H / 2) ** 2 > r * r)) issues.push('logo chạm mép crop tròn');
       }
       if (issues.length) fails.push(...issues.map(s => `${a.id}: ${s}`));
       report.push({ id: a.id, platform: a.platform, file: a.file, w: W, h: H, kb, maxKB: a.maxKB, use: a.use, zones: a.zones,
