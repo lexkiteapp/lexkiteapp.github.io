@@ -53,6 +53,12 @@ export function routeAll(rules, cfgs, clip, fallback) {
   if (!out.youtube && fallback && allowed(cfgs[fallback], clip)) out.youtube = { channel_id: fallback, rule: -1, platform: 'youtube' };
   return Object.values(out);
 }
+/** Kênh social (gc-*) đang ok mà NỀN TẢNG chưa có luật nào (kể cả luật đã tắt – tắt là chủ ý dừng) → luật "mọi clip" ngầm cho kênh đầu tiên: nối kênh xong là có lịch, không phải tạo luật tay. */
+export function implicitSocialRules(allRules, cfgs) {
+  const have = new Set((allRules || []).map(r => platformOf(r.channel_id))), out = [];
+  for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) { const p = platformOf(id); if (!have.has(p)) { have.add(p); out.push({ cond: {}, channel_id: id, active: 1 }); } }
+  return out;
+}
 /** Rules editor "test a clip": why each rule wins / misses (off · no-match:<cond> · blocked:<cfg field> · shadowed = platform already taken) + final routes. */
 export function explain(rules, cfgs, clip, fallback) {
   const won = new Set(), trace = rules.map((r, i) => {
