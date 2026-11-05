@@ -688,4 +688,21 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Chế độ tiếp theo': 'Next mode',
 // ← en/shell.js
 "Tra từ ngay trên mọi trang web": "Look up words on any website",
+// ← klocal.js (Cài đặt › Âm thanh: giọng Kokoro trên máy)
+'Giọng đọc chất lượng cao trên máy': 'High-quality on-device voice',
+'Mọi câu đọc cùng một giọng tự nhiên, chạy ngay trên máy và dùng được khi mất mạng. Tải nền một lần (khoảng {mb} MB), chỉ khi có Wi-Fi và máy còn đủ chỗ trống. Văn bản không gửi đi đâu.': 'Every sentence is read in the same natural voice, generated right on your device and available offline. It downloads once in the background (about {mb} MB), only on Wi-Fi and when there is enough free space. Your text is never sent anywhere.',
+'Cho phép tải bằng dữ liệu di động': 'Allow download over mobile data',
+'Tắt: chỉ tải khi có Wi-Fi.': 'Off: download only on Wi-Fi.',
+'Dung lượng đang dùng': 'Storage used',
+'Xóa khỏi máy': 'Delete from device',
+'Đang tắt – câu chưa có sẵn sẽ đọc bằng giọng của máy.': 'Off – sentences without a recording use your device\'s built-in voice.',
+'Máy này dùng giọng của hệ thống cho câu chưa có sẵn.': 'This device uses its built-in voice for sentences without a recording.',
+'Đã sẵn sàng trên máy này.': 'Ready on this device.',
+'Đang tải nền… {pct}%': 'Downloading in the background… {pct}%',
+'Sẽ tải khi có Wi-Fi.': 'Will download when you are on Wi-Fi.',
+'Máy còn ít chỗ trống nên chưa tải.': 'Not downloaded yet: your device is low on free space.',
+'Mạng đang chậm hoặc bật tiết kiệm dữ liệu nên chưa tải.': 'Not downloaded yet: the connection is slow or Data Saver is on.',
+'Sẽ tải nền khi bạn đang dùng ứng dụng.': 'Will download in the background while you use the app.',
+'{n} MB': '{n} MB',
+'Đã xóa giọng đọc khỏi máy.': 'Voice removed from this device.',
 }); })(typeof self !== 'undefined' ? self : this);
