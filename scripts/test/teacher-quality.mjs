@@ -86,6 +86,8 @@ for (const name of ['chromium', 'webkit']) {
   } else if (name === 'chromium') errs.push('chromium: clip có lời không phát được (WebGL/H.264) – không đo được khung đen');
   else res.note = 'không phát H.264 trong WebKit Linux → giữ ảnh tĩnh (đúng hạ cấp)';
   // (c) mặt vẽ khớp miệng trong bài học + CPU chậm 4× (chỉ Chromium có CDP)
+  res.slow1x = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].filter(s => s.lkSlow).length);
+  if (played && res.slow1x) errs.push(`${name}: máy thường (1×) đã hạ cấp ${res.slow1x} clip về ảnh tĩnh – tải texture quá chậm`);
   const u0 = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]));
   const cdp = name === 'chromium' ? await page.context().newCDPSession(page) : null; if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
   await page.evaluate(() => { window.__lt = LessonTeacher.mount(document.getElementById('lt'), 'ama', { lip: true }); });
@@ -94,7 +96,7 @@ for (const name of ['chromium', 'webkit']) {
     window.__lt.say('Hello there, let us practise this sentence together right now, nice and slow.', { dur: 4 });
     const s0 = window.__lt.lip() ? window.__lt.lip().frames : 0; let n = 0; const t0 = performance.now(); const f = () => { n++; if (performance.now() - t0 < 4000) requestAnimationFrame(f); else r({ fps: Math.round(n / ((performance.now() - t0) / 1000)), long: lt, face: window.__lt.lip() ? window.__lt.lip().frames - s0 : -1 }); }; requestAnimationFrame(f); }));
   if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
-  res.perf = perf; res.upload4x = (await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]))).map(([a, n], i) => (n - u0[i][1] ? +((a - u0[i][0]) / (n - u0[i][1])).toFixed(1) + 'ms×' + (n - u0[i][1]) : 0));
+  res.perf = perf; res.slow4x = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].filter(s => s.lkSlow).length); res.upload4x = (await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]))).map(([a, n], i) => (n - u0[i][1] ? +((a - u0[i][0]) / (n - u0[i][1])).toFixed(1) + 'ms×' + (n - u0[i][1]) : 0));
   if (perf.face < 0) errs.push(`${name}: mặt vẽ khớp miệng không chạy`);
   if (name === 'chromium' && (perf.fps < 50 || perf.long > 2)) errs.push(`chromium CPU 4×: ${perf.fps} fps, ${perf.long} tác vụ dài – cần ≥ 50 fps, ≤ 2`);
   if (perr.length) errs.push(`${name}: lỗi JS: ${perr.slice(0, 3).join(' | ')}`);

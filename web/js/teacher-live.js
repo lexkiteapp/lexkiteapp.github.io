@@ -17,7 +17,7 @@
     'void main(){vec2 c=vec2(v.x,clamp(v.y*.5,e.y,.5-e.y));vec2 k=e*3.;' +
     'float a0=texture2D(u,vec2(k.x,.5+k.y)).r,c0=texture2D(u,k).g;float s=a0>.03?255./219.:1.;' + // góc đệm ≈ 16/255 → trình duyệt đọc sai dải → giãn 16–235 về 0–1
     'float a=clamp((texture2D(u,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 m=clamp((texture2D(u,c).rgb-c0)*s,0.,1.);' +
-    'float b=clamp((a-.06)/.94,0.,1.);gl_FragColor=vec4(clamp(m/max(a,.004),0.,1.)*b,b);}'; // cắt nhiễu nén ≤ 6 % (CI 05/11: 414 điểm mờ xa người với mức 3 %), màu thẳng × alpha mới (không mép tối)
+    'float b=clamp((a-.06)/.94,0.,1.);b*=step(.036,b);gl_FragColor=vec4(clamp(m/max(a,.004),0.,1.)*b,b);}'; // cắt nhiễu nén ≤ 6 % (CI 05/11: 414 điểm mờ xa người với mức 3 %) + cắt cứng alpha < 9/255 (dốc 0–3,5 % để lại 600–880 điểm mờ: không thấy được nhưng phủ xám nền), màu thẳng × alpha mới (không mép tối)
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))) || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; } };
   const live = g.TeacherLive = el => {
     const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip, wm = el.dataset.webm, talk = el.dataset.talk; el.removeAttribute('data-clip'); el.removeAttribute('data-webm'); el.removeAttribute('data-talk'); if (!fig || !src || lite()) return;
@@ -46,18 +46,20 @@
     gl.bindTexture(gl.TEXTURE_2D, gl.createTexture()); for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.LINEAR);
     for (const k of [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T]) gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE);
     const ue = gl.getUniformLocation(pr, 'e');
-    let alloc = '', t = 0, pend = 0, blank = 0;
+    let alloc = '', t = 0, pend = 0, blank = 0, ema = 0, nf = 0;
     const draw = () => { // 1 lần cho MỖI khung video mới (không phải mỗi rAF)
       pend = 0; if (!el.isConnected) return stop();
       if (v.readyState < 2) return;
       const sz = v.videoWidth + 'x' + v.videoHeight;
       const tu = performance.now();
-      if (sz !== alloc) { alloc = sz; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, v);
+      const fresh = sz !== alloc; if (fresh) { alloc = sz; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, v);
       gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       // khung ĐẦU: chỉ giấu ảnh tĩnh khi texture thật có hình (WebKit/GStreamer, driver lỗi: video→texture rỗng → ô trống "mất hình"). Đọc 1 hàng giữa, 1 lần.
       if (!el.classList.contains('live')) { const W = cv.width, row = new Uint8Array(W * 4); gl.readPixels(0, cv.height >> 1, W, 1, gl.RGBA, gl.UNSIGNED_BYTE, row); let op = 0; for (let i = 3; i < row.length; i += 4) if (row[i] > 128) op++;
         if (op < 3) { if (++blank >= 3) stop(); return; } el.classList.add('live'); }
-      el.lkFrames = (el.lkFrames || 0) + 1; const du = performance.now() - tu; el.lkMs = Math.max(el.lkMs || 0, du); el.lkSum = (el.lkSum || 0) + du; // cổng teacher-quality: số khung tải lên ≈ khung video, không phải số rAF
+      el.lkFrames = (el.lkFrames || 0) + 1; const du = performance.now() - tu; el.lkMs = Math.max(el.lkMs || 0, du); el.lkSum = (el.lkSum || 0) + du;
+      // máy chậm (không GPU, CPU yếu): tải 1 khung > 12 ms (trung bình trượt, ≥ 6 khung) → ăn > 30 % luồng chính, giật cả trang → về ảnh tĩnh (thở CSS), không giữ clip giật
+      if (!fresh) { ema = nf++ ? ema * .75 + du * .25 : du; if (nf >= 6 && ema > 12) { el.lkSlow = 1; return stop(); } } // cổng teacher-quality: số khung tải lên ≈ khung video, không phải số rAF
     };
     const rvfc = !!v.requestVideoFrameCallback;
     const next = () => { if (pend || v.paused) return; if (rvfc) pend = v.requestVideoFrameCallback(() => { draw(); next(); }); else { let lt = -1; const f = () => { pend = 0; if (v.paused) return; if (v.currentTime !== lt) { lt = v.currentTime; draw(); } pend = requestAnimationFrame(f); }; pend = requestAnimationFrame(f); } };

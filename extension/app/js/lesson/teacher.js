@@ -13,7 +13,7 @@
   // dải màu → có máy đọc 16/255 = khung xám-đen), cắt nhiễu nén ≤ 3 %, nhân lại từ màu thẳng – cùng công thức web/js/teacher-live.js (cổng teacher-quality.mjs)
   const FS = 'precision highp float;varying vec2 v;uniform sampler2D u0,u1;uniform float m;uniform vec2 e;' +
     'vec4 px(sampler2D t){vec2 c=vec2(v.x,clamp(v.y*.5,e.y,.5-e.y)),k=e*3.;float a0=texture2D(t,vec2(k.x,.5+k.y)).r,c0=texture2D(t,k).g,s=a0>.03?255./219.:1.;' +
-    'float a=clamp((texture2D(t,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 q=clamp((texture2D(t,c).rgb-c0)*s,0.,1.);float b=clamp((a-.06)/.94,0.,1.);return vec4(clamp(q/max(a,.004),0.,1.)*b,b);}' +
+    'float a=clamp((texture2D(t,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 q=clamp((texture2D(t,c).rgb-c0)*s,0.,1.);float b=clamp((a-.06)/.94,0.,1.);b*=step(.036,b);return vec4(clamp(q/max(a,.004),0.,1.)*b,b);}' +
     'void main(){gl_FragColor=mix(px(u0),px(u1),m);}';
 
   // Canvas WebGL ghép alpha; trả null nếu máy không hỗ trợ (→ poster)
