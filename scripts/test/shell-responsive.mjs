@@ -38,8 +38,11 @@ const measure = () => {
   const streakRe = /Chuỗi ngày|Streak|Serie/i, streakIn = route === 'home' ? q('#view *').some(e => { const t = (e.getAttribute('aria-label') || '') + ' ' + (e.children.length ? '' : e.textContent || ''); return t.length < 120 && streakRe.test(t); }) : false;
   const kids = topVis ? q('.topbar .top-stats > *, .topbar .gsearch').map(e => ({ k: e.id || String(e.className).split(' ')[0] || e.tagName, ...rect(e) })) : [], ov = [];
   for (let i = 0; i < kids.length; i++) for (let j = i + 1; j < kids.length; j++) if (hit(kids[i], kids[j])) ov.push(`${kids[i].k}×${kids[j].k}`);
+  // Thanh tab dưới (Stitch hoặc #bnav): đúng 5 ô, mỗi ô 1 icon SVG <use href="#i-*"> có thật trong sprite, rộng ≥ 16 px; không ô nào lộ chữ thay icon (font chữ ghép)
+  const tabBars = [...v2nav, ...bnav].map(n => fixedOf(n) || n), tabIcons = tabBars.map(b => [...b.querySelectorAll('a')].filter(vis).map(a => { const u = a.querySelector('svg use'), id = u && (u.getAttribute('href') || '').slice(1), sv = u && u.closest('svg'), lig = [...a.querySelectorAll('[class*="material-symbols"]')].map(x => x.textContent.trim()).filter(Boolean);
+    return { href: a.getAttribute('href'), ok: !!(id && /^i-/.test(id) && document.getElementById(id) && sv.getBoundingClientRect().width >= 16) && !lig.length, why: !u ? (lig.length ? 'chữ ghép "' + lig[0] + '"' : 'không có icon') : !document.getElementById(id) ? 'thiếu #' + id : 'icon < 16 px' }; }));
   return {
-    W, route, sw: document.documentElement.scrollWidth, navs, logos: logos.size, sideHit, topOv: ov, hasOpener: openers.length > 0,
+    tabIcons, W, route, sw: document.documentElement.scrollWidth, navs, logos: logos.size, sideHit, topOv: ov, hasOpener: openers.length > 0,
     themeBtn: any('#themeBtn'), lang: any('#langBtn, [data-act="lang"]'), notif: any('#notifBtn, [data-act="notif"]'),
     account: any('#avatarBtn, [data-act="menu"], .topbar a[href="#/me"], .v2 header a[href="#/me"]'), search: any('#gq, [data-act="search"]'), streak: any('#streakPill') || streakIn,
     opener: openers.length ? (openers[0].id ? '#' + openers[0].id : openers[0].matches('[data-act="menu"]') ? '[data-act="menu"]' : '.v2 header a[href="#/me"]') : '',
@@ -59,6 +62,7 @@ const check = (c, r, m, errs, themeVia) => {
   if (m.logos !== 1) bad(`${m.logos} logo nhìn thấy (cần đúng 1)`);
   if (m.sw > m.W + 1) bad(`tràn ngang ${m.sw} > ${m.W}`);
   for (const o of m.topOv) bad(`viên thanh trên chồng nhau: ${o}`);
+  for (const t of m.tabIcons) { if (t.length !== 5) bad(`thanh tab dưới có ${t.length} ô (cần 5)`); for (const x of t) if (!x.ok) bad(`tab ${x.href}: ${x.why}`); }
   if (errs.length) bad(`lỗi JS: ${errs[0]}`);
 };
 const run = async c => {

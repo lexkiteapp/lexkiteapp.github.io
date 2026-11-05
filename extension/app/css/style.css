@@ -1766,3 +1766,12 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
   :root:not([data-theme="light"])[data-daypart="evening"] { --dp: #FF7A4D; }
 }
 .kit-say { border-inline-start: 3px solid var(--dp); padding-inline-start: var(--sp-2); }
+
+/* Thanh tab Stitch (điện thoại < 1024 px): icon SVG cùng nét với menu trái – thường = viền, đang chọn = tô đầy nhạt + màu thương hiệu (viên mềm có sẵn); vùng chạm ≥ 44 px, viền focus rõ, nhún nhẹ khi bấm (tắt khi giảm chuyển động) */
+.st-ti { width: 24px; height: 24px; vertical-align: middle; stroke-width: 2; transition: transform .12s cubic-bezier(.2,.9,.3,1.25); }
+.st-ti-on { fill: currentColor; fill-opacity: .22; stroke-width: 2.25; }
+.v2 nav a[data-tab] { min-height: 48px; -webkit-tap-highlight-color: transparent; border-radius: 14px; }
+.v2 nav a[data-tab] > span:last-child { max-width: 100%; overflow-wrap: anywhere; text-align: center; hyphens: auto; }
+.v2 nav a[data-tab]:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
+@media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }

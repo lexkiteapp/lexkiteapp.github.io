@@ -3,7 +3,7 @@
 name: Shell responsive guard
 on:
   pull_request:
-    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/tactile*.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/hubs.js', 'scripts/build-stitch-css.mjs', 'scripts/test/shell-responsive.mjs', '.github/workflows/shell-responsive.yml']
+    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/tactile*.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/hubs.js', 'scripts/build-stitch-css.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/test/shell-responsive.mjs', '.github/workflows/shell-responsive.yml']
   workflow_dispatch:
 permissions:
   contents: read
