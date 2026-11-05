@@ -265,3 +265,4 @@ node scripts/test/probe-cta.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
+node scripts/test/samples-seo-parity.mjs --self-test
