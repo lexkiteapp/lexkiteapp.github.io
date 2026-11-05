@@ -1,4 +1,5 @@
 # 🧈 Cuộn mượt: cử chỉ cuộn thật qua các màn học chính (điện thoại 390 px CPU 4× · máy tính · WebKit), tối + sáng; đo khung rớt, task dài, CLS, xê dịch – docs/PERF-SCROLL.md
+# ci-policy: matrix – đo FPS/jank từng máy × theme phải tách runner (chạy chung 1 máy làm số đo nhiễu); mỗi nhánh 6–10 phút đo thật, setup chỉ ~45 s
 # Hermetic: dist cục bộ, ?sandbox=1&demo=1, /api/* = {}, host ngoài = rỗng → 0 tài khoản thật. Đỏ khi vượt scroll-perf.budget.json (ngưỡng chỉ siết).
 name: Scroll perf
 on:
