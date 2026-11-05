@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Sức khỏe hệ thống</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            night: {
+              base: '#091518',
+              header: '#0e1e22',
+              card: '#10252b',
+              surface2: '#142a30',
+              track: '#071316',
+              border: '#1b383f',
+              edge: '#153037',
+            },
+            teal: {
+              brand: '#2dd4bf',
+              active: '#0d5e58',
+              deep: '#0a3f3b',
+              tint: 'rgba(45, 212, 191, 0.1)',
+            },
+            coral: {
+              DEFAULT: '#e11d48',
+              hover: '#be123c',
+              dark: '#881337',
+            }
+          },
+          boxShadow: {
+            'tactile-dark': '0 3px 0 0 #071518',
+            'tactile-coral': '0 3px 0 0 #881337',
+            'tactile-teal': '0 3px 0 0 #073834',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#f0f9f8] antialiased min-h-screen flex justify-center selection:bg-teal-active selection:text-teal-brand">
+<!-- Mobile phone wrapper: strictly narrow viewport (max-w-[420px] on center) -->
+<div class="w-full max-w-[420px] min-h-screen bg-[#091518] flex flex-col border-x border-[#1b383f] pb-12">
+<!-- 1. Slim Top App Bar -->
+<header class="sticky top-0 z-30 bg-[#0e1e22]/95 backdrop-blur-md border-b border-[#1b383f] px-4 py-2.5 flex items-center justify-between shadow-tactile-dark">
+<div class="flex items-center gap-2">
+<button aria-label="Mở trình đơn" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#10252b] border border-[#1b383f] text-[#cbd5e1] hover:text-[#2dd4bf] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-rounded text-[22px]">menu</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-bold tracking-wider text-[#2dd4bf] uppercase">Lexkite Admin</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+</div>
+<h1 class="text-[17px] font-extrabold text-[#f0f9f8] leading-tight">Sức khỏe hệ thống</h1>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Làm mới" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#10252b] border border-[#1b383f] text-[#a5c6cb] hover:text-[#2dd4bf] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-rounded text-[20px]">sync</span>
+</button>
+<!-- Initials Avatar -->
+<div class="w-9 h-9 rounded-xl bg-[#0d5e58] text-[#2dd4bf] flex items-center justify-center font-bold text-xs tracking-wider border border-[#2dd4bf]/40 select-none shadow-sm" title="Admin Ops: Nguyễn Hoàng">
+          NH
+        </div>
+</div>
+</header>
+<!-- 2. Sub-tab wrapping buttons -->
+<nav aria-label="Phân hệ quản trị" class="px-4 pt-3 pb-2">
+<div class="flex flex-wrap gap-2">
+<!-- Selected Tab -->
+<a class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#0d5e58] text-[#2dd4bf] border border-[#2dd4bf]/30 font-bold text-xs flex items-center gap-1.5 shadow-tactile-teal active:translate-y-0.5 transition-all" href="#system-health">
+<span class="material-symbols-rounded text-[18px]">monitor_heart</span>
+<span>Sức khỏe hệ thống</span>
+</a>
+<!-- Inactive Sub-tabs with strict min-h-[44px] touch target -->
+<a class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#10252b] text-[#cbd5e1] hover:text-[#2dd4bf] font-semibold text-xs flex items-center gap-1.5 border border-[#1b383f] shadow-tactile-dark active:translate-y-0.5 transition-all" href="#quotas">
+<span class="material-symbols-rounded text-[18px]">speed</span>
+<span>Hạn mức</span>
+</a>
+<a class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#10252b] text-[#cbd5e1] hover:text-[#2dd4bf] font-semibold text-xs flex items-center gap-1.5 border border-[#1b383f] shadow-tactile-dark active:translate-y-0.5 transition-all" href="#storage">
+<span class="material-symbols-rounded text-[18px]">database</span>
+<span>Lưu trữ</span>
+</a>
+<a class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#10252b] text-[#cbd5e1] hover:text-[#2dd4bf] font-semibold text-xs flex items-center gap-1.5 border border-[#1b383f] shadow-tactile-dark active:translate-y-0.5 transition-all" href="#quality">
+<span class="material-symbols-rounded text-[18px]">verified</span>
+<span>Chất lượng</span>
+</a>
+<a class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#10252b] text-[#cbd5e1] hover:text-[#2dd4bf] font-semibold text-xs flex items-center gap-1.5 border border-[#1b383f] shadow-tactile-dark active:translate-y-0.5 transition-all" href="#drive">
+<span class="material-symbols-rounded text-[18px]">cloud</span>
+<span>Kho Drive</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Stream -->
+<main class="px-4 space-y-4 pt-1">
+<!-- Status Banner (Live summary) -->
+<section class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3.5 flex items-start gap-3 shadow-tactile-dark">
+<div class="w-8 h-8 rounded-xl bg-[#0d5e58]/50 text-[#2dd4bf] flex items-center justify-center shrink-0 border border-[#2dd4bf]/30 mt-0.5">
+<span class="material-symbols-rounded text-[20px]">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h2 class="text-xs font-bold text-[#2dd4bf] uppercase tracking-wider">Hệ thống đang ổn định</h2>
+<span class="text-[11px] font-mono font-medium text-[#a5c6cb]">14:28:10</span>
+</div>
+<p class="text-xs font-medium text-[#cbd5e1] mt-0.5 leading-snug">
+            342 lượt học viên tự học hoạt động trong ngày. Không có sự cố chặn dịch vụ âm thanh hay đồng bộ flashcard.
+          </p>
+</div>
+</section>
+<!-- 3. Six Metric Tiles Grid (2 columns on mobile) -->
+<section aria-label="Chỉ số vận hành hệ thống" class="grid grid-cols-2 gap-3">
+<!-- Tile 1: Tác vụ CI hỏng -->
+<article class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3 flex flex-col justify-between shadow-tactile-dark hover:bg-[#142a30] transition-colors">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#a5c6cb] leading-tight">Tác vụ CI hỏng</span>
+<span class="material-symbols-rounded text-amber-400 text-[18px]">build_circle</span>
+</div>
+<div class="my-2 flex items-baseline justify-between">
+<span class="text-2xl font-extrabold text-[#f0f9f8] tracking-tight font-mono">1</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-950/70 text-amber-300 border border-amber-800/80">
+              1/18 workflow
+            </span>
+</div>
+<p class="text-[10px] text-[#a5c6cb] leading-tight">test_audio_cadence timeout</p>
+</article>
+<!-- Tile 2: Lỗi JS (24 giờ) -->
+<article class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3 flex flex-col justify-between shadow-tactile-dark hover:bg-[#142a30] transition-colors">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#a5c6cb] leading-tight">Lỗi JS (24 giờ)</span>
+<span class="material-symbols-rounded text-[#2dd4bf] text-[18px]">bug_report</span>
+</div>
+<div class="my-2 flex items-baseline justify-between">
+<span class="text-2xl font-extrabold text-[#f0f9f8] tracking-tight font-mono">12</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+              Dưới ngưỡng
+            </span>
+</div>
+<p class="text-[10px] text-[#a5c6cb] leading-tight">Tỷ lệ phiên lỗi: 0.08%</p>
+</article>
+<!-- Tile 3: Hạn mức cao nhất -->
+<article class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3 flex flex-col justify-between shadow-tactile-dark hover:bg-[#142a30] transition-colors">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#a5c6cb] leading-tight">Hạn mức cao nhất</span>
+<span class="material-symbols-rounded text-amber-400 text-[18px]">trending_up</span>
+</div>
+<div class="my-2 flex items-baseline justify-between">
+<span class="text-2xl font-extrabold text-[#f0f9f8] tracking-tight font-mono">78%</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-950/70 text-amber-300 border border-amber-800/80">
+              D1 đọc
+            </span>
+</div>
+<p class="text-[10px] text-[#a5c6cb] leading-tight">Cloudflare D1 3.9M/5M read</p>
+</article>
+<!-- Tile 4: Rà soát hằng ngày -->
+<article class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3 flex flex-col justify-between shadow-tactile-dark hover:bg-[#142a30] transition-colors">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#a5c6cb] leading-tight">Rà soát hằng ngày</span>
+<span class="material-symbols-rounded text-[#2dd4bf] text-[18px]">fact_check</span>
+</div>
+<div class="my-2 flex items-baseline justify-between">
+<span class="text-2xl font-extrabold text-[#f0f9f8] tracking-tight font-mono">100%</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+              chuẩn 100%
+            </span>
+</div>
+<p class="text-[10px] text-[#a5c6cb] leading-tight">35/35 mục kiểm tra đạt</p>
+</article>
+<!-- Tile 5: Kho Drive -->
+<article class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3 flex flex-col justify-between shadow-tactile-dark hover:bg-[#142a30] transition-colors">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#a5c6cb] leading-tight">Kho Drive</span>
+<span class="material-symbols-rounded text-[#2dd4bf] text-[18px]">hard_drive</span>
+</div>
+<div class="my-2 flex items-baseline justify-between">
+<span class="text-2xl font-extrabold text-[#f0f9f8] tracking-tight font-mono">0</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+              Ổn
+            </span>
+</div>
+<p class="text-[10px] text-[#a5c6cb] leading-tight">3.57 GB / 5 GB gói free</p>
+</article>
+<!-- Tile 6: Khóa AI sẵn sàng -->
+<article class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-3 flex flex-col justify-between shadow-tactile-dark hover:bg-[#142a30] transition-colors">
+<div class="flex items-center justify-between gap-1">
+<span class="text-[11px] font-bold text-[#a5c6cb] leading-tight">Khóa AI sẵn sàng</span>
+<span class="material-symbols-rounded text-[#2dd4bf] text-[18px]">key</span>
+</div>
+<div class="my-2 flex items-baseline justify-between">
+<span class="text-2xl font-extrabold text-[#f0f9f8] tracking-tight font-mono">3/4</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+              Hoạt động
+            </span>
+</div>
+<p class="text-[10px] text-[#a5c6cb] leading-tight">1 khóa phụ đang xoay vòng</p>
+</article>
+</section>
+<!-- 4. Card: "Dung lượng & hạn mức miễn phí" -->
+<section class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-4 shadow-tactile-dark">
+<div class="flex items-center justify-between pb-3 border-b border-[#1b383f]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#0d5e58]/50 text-[#2dd4bf] flex items-center justify-center border border-[#2dd4bf]/20">
+<span class="material-symbols-rounded text-[18px]">pie_chart</span>
+</div>
+<div>
+<h2 class="text-sm font-extrabold text-[#f0f9f8]">Dung lượng &amp; hạn mức miễn phí</h2>
+<p class="text-[11px] text-[#a5c6cb] leading-none">Mức tiêu thụ tài nguyên cloud trong tháng</p>
+</div>
+</div>
+</div>
+<!-- Quota Rows Grid -->
+<div class="mt-3 space-y-3">
+<!-- Row 1: Cloudflare D1 Read (78% - Amber) -->
+<div class="bg-[#142a30]/80 rounded-xl p-2.5 border border-[#1b383f]">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-[#f0f9f8]">Cloudflare D1 (Lượt đọc)</span>
+<span class="text-[10px] font-mono text-[#a5c6cb]">3.9M / 5.0M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold font-mono bg-amber-950/70 text-amber-300 border border-amber-800/80">
+                78%
+              </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-[#071316] h-2 rounded-full overflow-hidden">
+<div class="bg-[#f59e0b] h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<!-- Row 2: R2 Storage Object (71% - Amber) -->
+<div class="bg-[#142a30]/80 rounded-xl p-2.5 border border-[#1b383f]">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-[#f0f9f8]">Cloudflare R2 (Lưu trữ audio)</span>
+<span class="text-[10px] font-mono text-[#a5c6cb]">7.1 GB / 10 GB</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold font-mono bg-amber-950/70 text-amber-300 border border-amber-800/80">
+                71%
+              </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-[#071316] h-2 rounded-full overflow-hidden">
+<div class="bg-[#f59e0b] h-full rounded-full" style="width: 71%"></div>
+</div>
+</div>
+<!-- Row 3: OpenAI API Monthly Cap (64% - Emerald) -->
+<div class="bg-[#142a30]/80 rounded-xl p-2.5 border border-[#1b383f]">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-[#f0f9f8]">OpenAI API (Ngân sách sửa bài)</span>
+<span class="text-[10px] font-mono text-[#a5c6cb]">$12.80 / $20.00</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold font-mono bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+                64%
+              </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-[#071316] h-2 rounded-full overflow-hidden">
+<div class="bg-[#10b981] h-full rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<!-- Row 4: Azure TTS Quota (42% - Emerald) -->
+<div class="bg-[#142a30]/80 rounded-xl p-2.5 border border-[#1b383f]">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-[#f0f9f8]">Azure Speech TTS (Ký tự giọng đọc)</span>
+<span class="text-[10px] font-mono text-[#a5c6cb]">2.1M / 5.0M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold font-mono bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+                42%
+              </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-[#071316] h-2 rounded-full overflow-hidden">
+<div class="bg-[#10b981] h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<!-- Row 5: Resend Transactional Email (28% - Teal) -->
+<div class="bg-[#142a30]/80 rounded-xl p-2.5 border border-[#1b383f]">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-[#f0f9f8]">Resend Email (Báo cáo tuần)</span>
+<span class="text-[10px] font-mono text-[#a5c6cb]">840 / 3,000 thư</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold font-mono bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+                28%
+              </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-[#071316] h-2 rounded-full overflow-hidden">
+<div class="bg-[#2dd4bf] h-full rounded-full" style="width: 28%"></div>
+</div>
+</div>
+</div>
+<!-- Footer link with comfortable 44px tap target -->
+<div class="mt-4 pt-2.5 border-t border-[#1b383f] flex justify-end">
+<a class="min-h-[44px] px-3 inline-flex items-center gap-1 text-xs font-bold text-[#2dd4bf] hover:text-white active:translate-x-0.5 transition-all" href="#quotas">
+<span>Chi tiết hạn mức</span>
+<span class="material-symbols-rounded text-[18px]">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- 5. Card: "Tín hiệu hệ thống" (System Signals / Telemetry Table) -->
+<section class="bg-[#10252b] border border-[#1b383f] rounded-2xl p-4 shadow-tactile-dark">
+<div class="flex items-center justify-between pb-3 border-b border-[#1b383f]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#0d5e58]/50 text-[#2dd4bf] flex items-center justify-center border border-[#2dd4bf]/20">
+<span class="material-symbols-rounded text-[18px]">sensors</span>
+</div>
+<div>
+<h2 class="text-sm font-extrabold text-[#f0f9f8]">Tín hiệu hệ thống</h2>
+<p class="text-[11px] text-[#a5c6cb]">Cảnh báo và sự kiện kỹ thuật gần nhất</p>
+</div>
+</div>
+<span class="text-[11px] font-bold text-[#2dd4bf] bg-[#0d5e58]/40 px-2.5 py-1 rounded-full border border-[#2dd4bf]/30">
+            6 tín hiệu
+          </span>
+</div>
+<!-- Severity Filter Chips with min-h-[44px] touch target -->
+<div class="flex items-center gap-2 py-3 overflow-x-auto no-scrollbar">
+<button class="min-h-[44px] px-3.5 rounded-xl bg-[#0e1e22] text-[#2dd4bf] border border-[#2dd4bf]/40 font-bold text-xs flex items-center gap-1 shrink-0 shadow-tactile-dark" type="button">
+<span>Tất cả</span>
+<span class="bg-[#2dd4bf]/20 text-[#2dd4bf] text-[10px] px-1.5 py-0.5 rounded-full">6</span>
+</button>
+<button class="min-h-[44px] px-3 rounded-xl bg-[#0e1e22] border border-[#1b383f] text-amber-300 font-bold text-xs flex items-center gap-1 shrink-0 hover:bg-[#142a30] active:translate-y-0.5 transition-all" type="button">
+<span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+<span>Cảnh báo</span>
+<span class="bg-amber-950/70 text-amber-300 text-[10px] px-1.5 rounded-full border border-amber-800/80">2</span>
+</button>
+<button class="min-h-[44px] px-3 rounded-xl bg-[#0e1e22] border border-[#1b383f] text-emerald-300 font-bold text-xs flex items-center gap-1 shrink-0 hover:bg-[#142a30] active:translate-y-0.5 transition-all" type="button">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>Bình thường</span>
+<span class="bg-emerald-950/70 text-emerald-300 text-[10px] px-1.5 rounded-full border border-emerald-800/80">4</span>
+</button>
+<button class="min-h-[44px] px-3 rounded-xl bg-[#0e1e22] border border-[#1b383f] text-rose-300 font-bold text-xs flex items-center gap-1 shrink-0 hover:bg-[#142a30] active:translate-y-0.5 transition-all" type="button">
+<span class="inline-block w-2 h-2 rounded-full bg-rose-400"></span>
+<span>Nghiêm trọng</span>
+<span class="bg-rose-950/70 text-rose-300 text-[10px] px-1.5 rounded-full border border-rose-800/80">0</span>
+</button>
+</div>
+<!-- System Signals Table (strictly fits inside phone without horizontal scroll) -->
+<div class="border border-[#1b383f] rounded-xl overflow-hidden bg-[#10252b]">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="bg-[#0e1e22] border-b border-[#1b383f] text-[10px] font-bold text-[#a5c6cb] uppercase tracking-wider">
+<th class="py-2.5 px-3 w-[68px]" scope="col">Nguồn</th>
+<th class="py-2.5 px-2" scope="col">Sự kiện &amp; chi tiết</th>
+<th class="py-2.5 px-3 text-right w-[64px]" scope="col">Thời gian</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1b383f]">
+<!-- Signal 1: CI Workflow (Warning) -->
+<tr class="hover:bg-[#142a30] transition-colors">
+<td class="py-2.5 px-3 align-top">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-950/70 text-amber-300 border border-amber-800/80">
+                    GitHub
+                  </span>
+</td>
+<td class="py-2.5 px-2 align-top">
+<div class="font-bold text-[#f0f9f8] leading-snug">Workflow CI thất bại ở bước 4</div>
+<div class="text-[11px] font-mono text-[#a5c6cb] mt-0.5 leading-tight">test_audio_cadence timeout (120s)</div>
+</td>
+<td class="py-2.5 px-3 text-right align-top font-mono text-[11px] text-[#a5c6cb]">
+                  12m trước
+                </td>
+</tr>
+<!-- Signal 2: Cloudflare D1 (Warning) -->
+<tr class="hover:bg-[#142a30] transition-colors">
+<td class="py-2.5 px-3 align-top">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-950/70 text-amber-300 border border-amber-800/80">
+                    CF D1
+                  </span>
+</td>
+<td class="py-2.5 px-2 align-top">
+<div class="font-bold text-[#f0f9f8] leading-snug">Lượt đọc chạm 78% quota</div>
+<div class="text-[11px] text-[#cbd5e1] mt-0.5 leading-tight">3.9M/5.0M lượt đọc. Dự báo an toàn 6 ngày.</div>
+</td>
+<td class="py-2.5 px-3 text-right align-top font-mono text-[11px] text-[#a5c6cb]">
+                  45m trước
+                </td>
+</tr>
+<!-- Signal 3: Sync SM-2 (Success) -->
+<tr class="hover:bg-[#142a30] transition-colors">
+<td class="py-2.5 px-3 align-top">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+                    Cron
+                  </span>
+</td>
+<td class="py-2.5 px-2 align-top">
+<div class="font-bold text-[#f0f9f8] leading-snug">Tính lại khoảng giãn cách SM-2</div>
+<div class="text-[11px] text-[#cbd5e1] mt-0.5 leading-tight">Đã cập nhật 1,240 thẻ flashcard học viên</div>
+</td>
+<td class="py-2.5 px-3 text-right align-top font-mono text-[11px] text-[#a5c6cb]">
+                  1h trước
+                </td>
+</tr>
+<!-- Signal 4: Backup DB (Success) -->
+<tr class="hover:bg-[#142a30] transition-colors">
+<td class="py-2.5 px-3 align-top">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+                    Backup
+                  </span>
+</td>
+<td class="py-2.5 px-2 align-top">
+<div class="font-bold text-[#f0f9f8] leading-snug">Sao lưu từ điển CEFR v2.4</div>
+<div class="text-[11px] font-mono text-[#a5c6cb] mt-0.5 leading-tight">Snapshot 4.82 GB lưu trên Cloudflare R2</div>
+</td>
+<td class="py-2.5 px-3 text-right align-top font-mono text-[11px] text-[#a5c6cb]">
+                  3h trước
+                </td>
+</tr>
+<!-- Signal 5: Azure Speech API (Success) -->
+<tr class="hover:bg-[#142a30] transition-colors">
+<td class="py-2.5 px-3 align-top">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-800/80">
+                    TTS AI
+                  </span>
+</td>
+<td class="py-2.5 px-2 align-top">
+<div class="font-bold text-[#f0f9f8] leading-snug">Phản hồi độ trễ âm thanh bình thường</div>
+<div class="text-[11px] text-[#cbd5e1] mt-0.5 leading-tight">Ping cụm máy chủ Tokyo: 42ms</div>
+</td>
+<td class="py-2.5 px-3 text-right align-top font-mono text-[11px] text-[#a5c6cb]">
+                  4h trước
+                </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Quick Action Trigger inside Card -->
+<div class="mt-3 flex items-center justify-between text-xs pt-1">
+<span class="text-[11px] text-[#a5c6cb] flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Bộ lọc nguồn: Hệ thống &amp; API
+          </span>
+<button class="min-h-[44px] px-2.5 text-xs font-bold text-[#2dd4bf] hover:underline inline-flex items-center gap-1" type="button">
+<span>Xuất nhật ký</span>
+<span class="material-symbols-rounded text-[16px]">file_download</span>
+</button>
+</div>
+</section>
+<!-- 6. One Warm Coral Primary Action Per View -->
+<section class="pt-2">
+<button class="w-full min-h-[50px] px-4 py-3 rounded-2xl bg-[#e11d48] hover:bg-[#be123c] text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-tactile-coral active:translate-y-0.5 transition-all border border-[#be123c]" type="button">
+<span class="material-symbols-rounded text-[20px]">troubleshoot</span>
+<span>Chạy chẩn đoán toàn diện hệ thống</span>
+</button>
+<p class="text-[10px] text-center text-[#a5c6cb] mt-2 leading-tight">
+          Kiểm tra 18 đầu mối API, đồng bộ SQLite cache và đo độ trễ âm thanh TTS.
+        </p>
+</section>
+</main>
+<!-- Native Mobile Footer -->
+<footer class="mt-8 px-4 pt-4 border-t border-[#1b383f] bg-[#0e1e22] text-center space-y-1">
+<div class="flex items-center justify-center gap-1 text-[11px] font-bold text-[#2dd4bf]">
+<span class="material-symbols-rounded text-[14px]">shield</span>
+<span>Lexkite Control Plane v2.4.2</span>
+</div>
+<p class="text-[10px] text-[#8fa9ad]">
+        Bản quyền nội bộ © 2025 Lexkite Team. Bảo mật phân quyền RBAC Super Admin.
+      </p>
+</footer>
+</div>
+</body></html>

@@ -30,3 +30,11 @@ adm-users2-confirm 22ef3a4957034e2fa7bb38bf96734ca1 175f1fb8798842f191941b3ceedd
 adm-users2-drawer aaf2b56606bb4c0cbd68fe0fbd3e5f64 907f9108ff774a86b5e4381e30e7c10f DESKTOP QC | key1 project 7268539912208977707
 adm-users2-table 916da91d9633428fbc8ae7f49e3272b0 48244c4461bc45b4a0f1b3e078c0c06c DESKTOP QC | key1 project 7268539912208977707
 adm-video b58f665ad0194d9d8ef2994711a58822 8b07853bb2fa46f2981e6dca93927b01 DESKTOP QC | key5 project 7022870386131391655
+adm-alert-center b5ff94fd79b2466da83aa270db32ce63 277fd722feed4168adccb507ee4eacfb DESKTOP chờ-QC | key2 project 10804635390057604965 · IA 05/11 (adm-ia-1105)
+adm-alert-center-m 206c50af324a454b895b81c72d699aca ed01c536a6124592ba22e61f6718e879 MOBILE chờ-QC | key2 project 10804635390057604965 · IA 05/11 (adm-ia-1105)
+adm-health 47cf9591832e477db53a63ba5e4a3ae3 1f59a3595bf8405d9ff8a4069066f811 DESKTOP chờ-QC | key3 project 18075333702575270507 · IA 05/11 (adm-ia-1105)
+adm-health-m b421b404800644c7ad08fca64f7eacf7 e8fc67fc3cb441b694b73755ffa1edb3 MOBILE chờ-QC | key3 project 18075333702575270507 · IA 05/11 (adm-ia-1105)
+adm-today 13b74eb4616244b7980a52b0daac429e - DESKTOP chờ-QC | key1 project 7268539912208977707 · IA 05/11 (adm-ia-1105) · THIẾU bản tối (2 lần fetch failed – vẽ lại khoá khác)
+adm-today-m c75d2b9651944bafb99ad2ad5c0a5f7f aa94400e25764643ba8ffef07cb8f399 MOBILE chờ-QC | key1 project 7268539912208977707 · IA 05/11 (adm-ia-1105)
+adm-vault 80c3d49379314a619c84d3dc0419b4ff 7504d6569ca947c3ad4bbd36cdfaca30 DESKTOP chờ-QC | key4 project 16660982915050208874 · IA 05/11 (adm-ia-1105)
+adm-vault-m 9e5bf1a6ced8437fa8fb1cec08c2ccf0 fb33e581e43847cb927ea169d0f4e6ef MOBILE chờ-QC | key4 project 16660982915050208874 · IA 05/11 (adm-ia-1105)

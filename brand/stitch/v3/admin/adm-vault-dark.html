@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Hệ thống quản trị | Sổ tài khoản &amp; khóa</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-deep": "#051013",
+            "background": "#091518",
+            "surface": "#091518",
+            "surface-card": "#121d20",
+            "surface-card-elevated": "#162428",
+            "surface-container": "#162125",
+            "surface-container-high": "#1a2a2f",
+            "surface-container-highest": "#202e33",
+            "border-tactile": "#25383d",
+            "border-tactile-highlight": "#2d444a",
+            "text-primary": "#ffffff",
+            "text-secondary": "#f1f5f9",
+            "text-subtle": "#94a3b8",
+            "text-muted": "#cbd5e1",
+            "teal-accent": "#2dd4bf",
+            "teal-glow": "#14b8a6",
+            "teal-muted": "#0d3b37",
+            "coral-primary": "#f06543",
+            "coral-hover": "#ea580c",
+            "cta-text": "#051013",
+            "amber-alert": "#f59e0b",
+            "red-alert": "#f87171"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #091518;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #25383d;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #2d444a;
+    }
+  </style>
+</head>
+<body class="bg-background text-text-muted font-sans antialiased min-h-screen flex flex-col selection:bg-teal-accent selection:text-surface-deep">
+<!-- ==================== SIDE NAVIGATION BAR ==================== -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 bg-surface border-r border-border-tactile">
+<div class="h-full flex flex-col justify-between p-4">
+<!-- Top Branding and Nav Elements -->
+<div class="flex flex-col space-y-5 overflow-y-auto custom-scroll pr-1">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-2 py-1 min-h-[44px]">
+<div aria-label="Lexkite Admin Logo" class="w-10 h-10 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shadow-sm">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<div>
+<div class="text-base text-text-primary font-bold tracking-tight">Lexkite</div>
+<div class="text-xs text-text-subtle">Hệ thống quản trị</div>
+</div>
+</div>
+<!-- Section Navigation Groups -->
+<div class="space-y-4">
+<!-- HÔM NAY -->
+<div>
+<div class="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-text-subtle">Hôm nay</div>
+<a class="min-h-[44px] flex items-center justify-between px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-subtle" data-icon="today">today</span>
+<span class="text-sm font-medium">Hôm nay</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-[#451a03] text-[#f97316] border border-[#7c2d12]">3</span>
+</a>
+</div>
+<!-- NGƯỜI HỌC -->
+<div>
+<div class="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-text-subtle">Người học</div>
+<div class="space-y-1">
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<span class="material-symbols-outlined text-text-subtle" data-icon="group">group</span>
+<span class="text-sm font-medium">Người học</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<span class="material-symbols-outlined text-text-subtle" data-icon="mail">mail</span>
+<span class="text-sm font-medium">Hộp thư &amp; Báo lỗi</span>
+</a>
+</div>
+</div>
+<!-- VẬN HÀNH (ACTIVE SECTION) -->
+<div>
+<div class="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-text-subtle">Vận hành</div>
+<div class="space-y-1">
+<!-- Active Navigation Parent -->
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-card-elevated border border-border-tactile text-teal-accent font-medium hover:bg-surface-container-high transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined text-teal-accent" data-icon="terminal">terminal</span>
+<span class="text-sm font-semibold">Vận hành</span>
+</a>
+<div class="pl-5 space-y-1 pt-1 border-l border-border-tactile ml-3">
+<a class="min-h-[44px] flex items-center px-3 py-1.5 rounded-lg text-xs text-text-subtle hover:text-text-primary hover:bg-surface-card transition-colors" href="#">
+<span>Trung tâm cảnh báo</span>
+</a>
+<a class="min-h-[44px] flex items-center px-3 py-1.5 rounded-lg text-xs text-text-subtle hover:text-text-primary hover:bg-surface-card transition-colors" href="#">
+<span>Sức khỏe hệ thống</span>
+</a>
+<a class="min-h-[44px] flex items-center justify-between px-3 py-1.5 rounded-lg text-xs text-teal-accent font-semibold bg-surface-card border-l-2 border-teal-accent border border-border-tactile" href="#">
+<span>Tài khoản &amp; khóa</span>
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent animate-pulse"></span>
+</a>
+</div>
+</div>
+</div>
+<!-- NỘI DUNG & VIDEO -->
+<div>
+<div class="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-text-subtle">Nội dung &amp; Video</div>
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<span class="material-symbols-outlined text-text-subtle" data-icon="smart_display">smart_display</span>
+<span class="text-sm font-medium">Nội dung &amp; Video</span>
+</a>
+</div>
+<!-- DOANH THU -->
+<div>
+<div class="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-text-subtle">Doanh thu</div>
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<span class="material-symbols-outlined text-text-subtle" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Doanh thu</span>
+</a>
+</div>
+<!-- CÀI ĐẶT -->
+<div>
+<div class="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-text-subtle">Cài đặt</div>
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<span class="material-symbols-outlined text-text-subtle" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Cài đặt</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer Nav Elements -->
+<div class="pt-4 border-t border-border-tactile space-y-2">
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-surface-card hover:text-text-primary transition-colors duration-150 cursor-pointer border border-transparent hover:border-border-tactile" href="#">
+<span class="material-symbols-outlined text-text-subtle" data-icon="help">help</span>
+<span class="text-sm font-medium">Trợ giúp</span>
+</a>
+<div class="min-h-[44px] px-3 py-2 bg-surface-card rounded-lg border border-border-tactile flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-teal-accent shadow-[0_0_8px_#2dd4bf]"></span>
+<span class="text-xs text-text-muted font-medium">Cloudflare Edge</span>
+</div>
+<span class="text-xs text-teal-accent font-semibold">Bình thường</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ==================== TOP NAVIGATION BAR ==================== -->
+<header class="sticky top-0 right-0 z-30 bg-surface border-b border-border-tactile ml-64">
+<div class="flex justify-between items-center h-16 px-6">
+<!-- Left: Breadcrumb & Search Bar -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-xs font-medium text-text-subtle">
+<span>Vận hành</span>
+<span class="text-border-tactile-highlight">›</span>
+<span class="text-text-primary font-semibold">Tài khoản &amp; khóa</span>
+</div>
+<!-- Search Bar -->
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-subtle text-base" data-icon="search">search</span>
+<input class="w-full pl-9 pr-14 py-2 bg-surface-card border border-border-tactile rounded-lg text-xs text-text-primary placeholder:text-text-subtle focus:outline-none focus:border-teal-accent focus:ring-1 focus:ring-teal-accent transition-all" placeholder="Tìm kiếm tài khoản, biến môi trường, khóa..." type="text"/>
+<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[10px] font-mono bg-surface-container-high text-text-subtle rounded border border-border-tactile">Ctrl K</kbd>
+</div>
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-3">
+<!-- Language Switch -->
+<button class="min-h-[44px] px-3 py-2 text-xs font-medium bg-surface-card hover:bg-surface-card-elevated text-text-muted hover:text-text-primary border border-border-tactile rounded-lg transition-colors cursor-pointer flex items-center">
+          VI | EN
+        </button>
+<!-- Notification Bell -->
+<button class="min-h-[44px] min-w-[44px] relative flex items-center justify-center text-text-subtle hover:text-text-primary hover:bg-surface-card border border-transparent hover:border-border-tactile rounded-lg transition-colors cursor-pointer" title="Thông báo">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-coral-primary shadow-[0_0_6px_#f06543]"></span>
+</button>
+<div class="h-4 w-px bg-border-tactile mx-1"></div>
+<!-- Admin Profile -->
+<div class="flex items-center gap-2.5 pl-1 cursor-pointer min-h-[44px]">
+<div aria-label="Admin initials LM" class="w-9 h-9 rounded-full bg-surface-card-elevated border border-teal-accent/40 flex items-center justify-center text-xs font-bold text-teal-accent">
+            LM
+          </div>
+<div class="hidden xl:block text-left">
+<div class="text-xs font-semibold text-text-primary leading-none">Linh Mai</div>
+<div class="text-[11px] text-text-subtle leading-tight mt-1">Lead Ops</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT CANVAS ==================== -->
+<main class="ml-64 flex-1 p-6 lg:p-8 space-y-6 max-w-[1400px]">
+<!-- Top Action & View Header -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="text-2xl lg:text-3xl font-bold text-text-primary tracking-tight">Tài khoản &amp; khóa</h1>
+<p class="text-sm text-text-subtle mt-1 max-w-2xl">
+          Sổ danh mục tài khoản định danh, nơi lưu trữ biến môi trường và liên kết dịch vụ hạ tầng Lexkite.
+        </p>
+</div>
+<div>
+<!-- Trailing Primary Action: + Thêm mục -->
+<button class="min-h-[44px] px-5 py-2.5 rounded-lg bg-coral-primary hover:bg-coral-hover text-cta-text font-bold text-sm flex items-center gap-2 shadow-[0_0_16px_-2px_rgba(240,101,67,0.4)] transition-all active:scale-98 cursor-pointer">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="add">add</span>
+<span>+ Thêm mục</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs Cluster -->
+<div class="flex items-center gap-6 border-b border-border-tactile pt-1">
+<!-- Active Tab -->
+<a class="min-h-[44px] text-teal-accent border-b-2 border-teal-accent pb-2 font-semibold text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base" data-icon="database">database</span>
+<span>Sổ tài khoản &amp; khóa</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="min-h-[44px] text-text-subtle hover:text-text-primary pb-2 font-medium text-sm transition-colors duration-150 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base" data-icon="key">key</span>
+<span>Khóa API</span>
+</a>
+<a class="min-h-[44px] text-text-subtle hover:text-text-primary pb-2 font-medium text-sm transition-colors duration-150 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base" data-icon="hub">hub</span>
+<span>Dịch vụ &amp; API</span>
+</a>
+</div>
+<!-- KPI Metric Cards Grid (Tactile Night) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Card 1 -->
+<div class="bg-surface-card border border-border-tactile rounded-lg p-5 flex flex-col justify-between hover:border-border-tactile-highlight transition-colors shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#042f2e] text-teal-accent border border-[#115e59]">
+            Tất cả hoạt động
+          </span>
+</div>
+<div>
+<div class="text-xs uppercase font-semibold tracking-wider text-text-subtle">Tổng số mục quản lý</div>
+<div class="text-2xl font-bold text-text-primary mt-1">9 tài khoản</div>
+<p class="text-xs text-text-subtle mt-1.5">
+            Toàn bộ hạ tầng cốt lõi hoạt động ổn định (0đ Free Tier)
+          </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-card border border-border-tactile rounded-lg p-5 flex flex-col justify-between hover:border-border-tactile-highlight transition-colors shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-amber-alert">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#451a03] text-amber-alert border border-[#78350f]">
+            Cần rà soát
+          </span>
+</div>
+<div>
+<div class="text-xs uppercase font-semibold tracking-wider text-text-subtle">Sắp đến hạn / Kiểm tra</div>
+<div class="text-2xl font-bold text-text-primary mt-1">2 tài khoản</div>
+<p class="text-xs text-text-subtle mt-1.5">
+            ElevenLabs TTS quota &amp; Resend Domain DNS verification
+          </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-card border border-border-tactile rounded-lg p-5 flex flex-col justify-between hover:border-border-tactile-highlight transition-colors shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#042f2e] text-teal-accent border border-[#115e59]">
+            Tiêu chuẩn bảo mật
+          </span>
+</div>
+<div>
+<div class="text-xs uppercase font-semibold tracking-wider text-text-subtle">Mức bảo mật lưu trữ</div>
+<div class="text-2xl font-bold text-text-primary mt-1">100% Mã hóa</div>
+<p class="text-xs text-text-subtle mt-1.5">
+            Lưu trữ bí mật qua GitHub Secrets &amp; Cloudflare Vault
+          </p>
+</div>
+</div>
+</section>
+<!-- Security Notification Banner -->
+<div class="bg-surface-card border border-border-tactile rounded-lg p-4 flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-surface-card-elevated border border-border-tactile text-teal-accent flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<div class="text-sm text-text-muted leading-relaxed">
+<strong class="text-text-primary font-semibold">Lưu ý bảo mật:</strong> Bảng này chỉ hiển thị tên định danh, email liên kết và tên biến môi trường. Giá trị bí mật (secret token/keys) không bao giờ được lưu trữ trực tiếp hay hiển thị văn bản thuần tại giao diện quản trị.
+</div>
+</div>
+<!-- Filter and Search Toolbar -->
+<div class="bg-surface-card border border-border-tactile rounded-lg p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Search Input -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-subtle text-base" data-icon="search">search</span>
+<input class="w-full pl-9 pr-4 py-2 min-h-[44px] bg-surface-card-elevated border border-border-tactile rounded-lg text-xs text-text-primary placeholder:text-text-subtle focus:outline-none focus:border-teal-accent transition-colors" placeholder="Lọc nhanh dịch vụ, email hoặc biến môi trường..." type="text"/>
+</div>
+<!-- Status Filter Chips -->
+<div class="flex items-center flex-wrap gap-2">
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full text-xs font-semibold bg-surface-card-elevated text-teal-accent border border-teal-accent/40 transition-colors">
+          Tất cả (9)
+        </button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full text-xs font-medium bg-surface-card-elevated text-text-muted hover:text-text-primary border border-border-tactile hover:border-border-tactile-highlight transition-colors">
+          Sắp hết hạn (2)
+        </button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full text-xs font-medium bg-surface-card-elevated text-text-muted hover:text-text-primary border border-border-tactile hover:border-border-tactile-highlight transition-colors">
+          Thiếu (1)
+        </button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full text-xs font-medium bg-surface-card-elevated text-text-muted hover:text-text-primary border border-border-tactile hover:border-border-tactile-highlight transition-colors">
+          Đã xác thực (6)
+        </button>
+</div>
+</div>
+<!-- Account Ledger Table -->
+<div class="bg-surface-card border border-border-tactile rounded-lg overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-card-elevated border-b border-border-tactile text-xs font-semibold text-text-subtle uppercase tracking-wider">
+<th class="py-3.5 px-4 font-semibold" scope="col">Dịch vụ</th>
+<th class="py-3.5 px-4 font-semibold" scope="col">Email / Tài khoản</th>
+<th class="py-3.5 px-4 font-semibold" scope="col">Giữ ở đâu (Biến môi trường)</th>
+<th class="py-3.5 px-4 font-semibold" scope="col">Trạng thái</th>
+<th class="py-3.5 px-4 font-semibold text-right" scope="col">Hạn sử dụng</th>
+<th class="py-3.5 px-4 font-semibold text-center" scope="col">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-tactile text-sm text-text-primary">
+<!-- Row 1: Cloudflare Pages -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="cloud">cloud</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">Cloudflare Pages</div>
+<div class="text-xs text-text-subtle">Edge CDN &amp; Hosting</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                ops@lexkite.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  CF_API_TOKEN
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                Không giới hạn
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: GitHub Org -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="code">code</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">GitHub Organization</div>
+<div class="text-xs text-text-subtle">CI/CD &amp; Source Repo</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                dev@lexkite.internal
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  GH_DISPATCH_TOKEN
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                24/11/2025
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: ElevenLabs TTS -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-amber-alert shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="record_voice_over">record_voice_over</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">ElevenLabs Audio</div>
+<div class="text-xs text-amber-alert font-medium">Text-To-Speech Vocals</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                ops@lexkite.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-amber-alert">
+                  ELEVENLABS_API_KEY
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#451a03] text-amber-alert border border-[#78350f]">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-alert"></span> Cần rà soát
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-amber-alert font-semibold">
+                15/04/2025 (42 ngày)
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Resend Email -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="forward_to_inbox">forward_to_inbox</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">Resend Email</div>
+<div class="text-xs text-text-subtle">Transactional Mail</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                hello@lexkite.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  RESEND_API_KEY
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-amber-alert font-semibold">
+                30/04/2025 (57 ngày)
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Google Cloud Platform -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="cloud_circle">cloud_circle</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">Google Cloud Platform</div>
+<div class="text-xs text-text-subtle">OAuth &amp; Auth Bridge</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                sa-lexkite@iam.gserviceaccount.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  GCP_SERVICE_ACCOUNT_KEY
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                10/01/2026
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Supabase / Cloudflare D1 -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="storage">storage</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">Cloudflare D1 &amp; Supabase</div>
+<div class="text-xs text-text-subtle">Relational SQL DB</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                db-admin@lexkite.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  D1_DATABASE_ID
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                Không giới hạn
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 7: Upstash Redis -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">Upstash Serverless Redis</div>
+<div class="text-xs text-text-subtle">Rate Limit &amp; Cache</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                cache@lexkite.internal
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  UPSTASH_REDIS_REST_TOKEN
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                Không giới hạn
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+<!-- Row 8: DeepL Translation API -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-red-alert shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="translate">translate</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">DeepL API Free</div>
+<div class="text-xs text-text-subtle">Auto Vocab Parser</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                translate@lexkite.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-red-alert">
+                  DEEPL_AUTH_KEY
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#450a0a] text-red-alert border border-[#7f1d1d]">
+<span class="w-1.5 h-1.5 rounded-full bg-red-alert"></span> Thiếu
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                Chưa kích hoạt
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-coral-primary hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="add_circle">add_circle</span>
+<span>Bổ sung</span>
+</button>
+</td>
+</tr>
+<!-- Row 9: Figma Team Workspace -->
+<tr class="hover:bg-surface-card-elevated/70 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="palette">palette</span>
+</div>
+<div>
+<div class="font-semibold text-text-primary">Figma Team Design</div>
+<div class="text-xs text-text-subtle">Lexkite Design Kit</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-muted font-mono text-xs">
+                design@lexkite.com
+              </td>
+<td class="py-3.5 px-4">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-surface-deep border border-border-tactile text-teal-accent">
+                  FIGMA_ACCESS_TOKEN
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#042f2e] text-teal-accent border border-[#115e59]">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Có
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono text-xs text-text-subtle">
+                12/12/2025
+              </td>
+<td class="py-3.5 px-4 text-center">
+<button class="min-h-[44px] px-3.5 py-1.5 text-teal-accent hover:text-white hover:bg-surface-card-elevated border border-transparent hover:border-border-tactile rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span>Sửa</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Telemetry Status Info -->
+<div class="p-4 bg-surface-card-elevated border-t border-border-tactile flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-text-subtle">
+<div class="flex items-center gap-2">
+<span>Hiển thị <strong class="text-text-primary">1–9</strong> trên <strong class="text-text-primary">9 mục</strong> quản lý</span>
+<span class="text-border-tactile-highlight">•</span>
+<span>Đang áp dụng bộ nhớ đệm Edge KV</span>
+</div>
+<div class="flex items-center gap-2 text-text-muted">
+<span class="w-2 h-2 rounded-full bg-teal-accent animate-pulse"></span>
+<span>Đồng bộ tự động từ GitHub Actions &amp; Cloudflare: 5 phút trước</span>
+</div>
+</div>
+</div>
+<!-- Modest Honesty Growth Metric Banner -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+<div class="p-4 rounded-lg bg-surface-card border border-border-tactile flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-full bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="school">school</span>
+</div>
+<div>
+<div class="text-xl font-bold leading-none text-text-primary">318</div>
+<div class="text-xs text-text-subtle mt-1.5">Học viên đang học tích cực</div>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-card border border-border-tactile flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-full bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="dns">dns</span>
+</div>
+<div>
+<div class="text-xl font-bold leading-none text-text-primary">9 / 9</div>
+<div class="text-xs text-text-subtle mt-1.5">Tài khoản dịch vụ kết nối</div>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-card border border-border-tactile flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-full bg-surface-card-elevated border border-border-tactile flex items-center justify-center text-teal-accent shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="savings">savings</span>
+</div>
+<div>
+<div class="text-xl font-bold leading-none text-teal-accent">0 đ</div>
+<div class="text-xs text-text-subtle mt-1.5">Chi phí máy chủ (Free Tier)</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Lightweight keyboard shortcut handler for Ctrl+K search toggle
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        const searchInput = document.querySelector('header input');
+        if (searchInput) searchInput.focus();
+      }
+    });
+  </script>
+</body></html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Admin — Hôm nay (Mobile Native 390px Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'light-bg': '#FFF7EA',
+            'light-card': '#FFFFFF',
+            'light-border': '#EADEC8',
+            'light-ledge': '#D8CFBC',
+            'light-text': '#0F3D3E',
+            'light-text-muted': '#325355',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#0F3D3E',
+            'teal-ledge': '#12514D',
+            'coral-accent': '#F2553B',
+            'amber-accent': '#FFB054',
+            'cta-ledge': '#B53A22',
+            'red-danger': '#D32F2F',
+            'red-surface': '#FDE8E8',
+            'amber-surface': '#FEF3D6',
+            'amber-border': '#F59E0B',
+            'green-surface': '#E8F5E9',
+            'green-text': '#1B5E20'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 0 #D8CFBC',
+            'tactile-btn': '0 4px 0 0 #B53A22',
+            'tactile-subtle': '0 3px 0 0 #E2D5BE',
+            'tactile-pressed': '0 1px 0 0 #B53A22'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tap-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col justify-between antialiased bg-[#081518] text-[#EEF6F7] selection:bg-[#2EC4B6] selection:text-[#081518]" style="background-color: #081518; color: #EEF6F7; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-tap-highlight-color: transparent;">
+<!-- Mobile Viewport Container: 390px locked frame behavior -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen flex flex-col bg-[#081518] pb-8 relative shadow-2xl border-x border-[#182e32]">
+<!-- Top App Bar (Slim, 56px, menu + title + initials badge in Tactile Night) -->
+<header class="sticky top-0 z-30 bg-[#081518]/95 backdrop-blur-md border-b-2 border-[#182e32] px-4 h-14 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<button aria-label="Mở menu điều hướng" class="tap-target w-11 h-11 flex items-center justify-center rounded-xl bg-[#101e20] border-2 border-[#233f43] text-[#62D7CE] hover:bg-[#182e32] active:translate-y-0.5 shadow-sm transition-all" type="button">
+<span class="material-symbols-rounded text-xl">menu</span>
+</button>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-[#2EC4B6] animate-pulse"></span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#62D7CE]">Admin Console</span>
+</div>
+<h1 class="text-base font-extrabold text-[#EEF6F7] leading-tight">Hôm nay</h1>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="px-2.5 py-1 rounded-full bg-[#101e20] border border-[#233f43] text-[11px] font-bold text-[#EEF6F7] flex items-center gap-1 shadow-sm">
+<span class="material-symbols-rounded text-xs text-[#FFB054]">wb_sunny</span>
+<span>SGN</span>
+</div>
+<button aria-label="Hồ sơ quản trị viên" class="tap-target w-11 h-11 flex items-center justify-center rounded-xl bg-[#142427] text-[#62D7CE] font-bold text-xs tracking-wider border-2 border-[#2EC4B6]/50 active:translate-y-0.5 shadow-sm" type="button">
+          KL
+        </button>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- Greeting & Sync status summary -->
+<section class="flex items-center justify-between px-1">
+<div>
+<p class="text-[13px] font-bold text-[#EEF6F7]">Chào buổi sáng, anh Khôi</p>
+<p class="text-xs text-[#A9BFC1]">Hệ thống đồng bộ lúc 07:15 GMT+7</p>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0d2822] border border-[#1b5044] text-[#62D7CE] text-[11px] font-bold">
+<span class="material-symbols-rounded text-xs">verified</span>
+          Toàn bộ mạng OK
+        </span>
+</section>
+<!-- TOP PRIORITY CARD: Cần anh xử lý hôm nay -->
+<section class="bg-[#101e20] rounded-2xl border-2 border-[#233f43] p-4 shadow-[0_4px_0_0_#050d0e]">
+<div class="flex items-center justify-between pb-3 border-b border-[#182e32]">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F2553B] ring-4 ring-[#F2553B]/20"></span>
+<h2 class="text-sm font-extrabold text-[#EEF6F7] tracking-tight">Cần anh xử lý hôm nay</h2>
+</div>
+<a class="tap-target inline-flex items-center text-xs font-bold text-[#62D7CE] hover:text-[#EEF6F7] active:underline py-1" href="#alerts">
+            Trung tâm cảnh báo →
+          </a>
+</div>
+<!-- 4 Prioritised Queue Rows -->
+<div class="divide-y divide-[#182e32]">
+<!-- Row 1: Nghiêm trọng (Red) -->
+<div class="py-3 flex items-start justify-between gap-2.5">
+<div class="space-y-1 flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#331114] border border-[#6b2126] text-[#FF8585] text-[11px] font-bold">
+                  Nghiêm trọng
+                </span>
+<span class="text-xs font-bold text-[#EEF6F7] leading-snug">Pages deploy – CI &amp; tác vụ</span>
+</div>
+<p class="text-[11px] text-[#A9BFC1] leading-relaxed">
+                Timeout 24h ở test suite e2e WebKit Safari • Cần rerun hoặc bypass
+              </p>
+</div>
+<a class="tap-target inline-flex items-center justify-center shrink-0 px-2.5 py-2 text-xs font-extrabold text-[#F2553B] hover:text-[#ff7862] active:translate-y-0.5" href="#handle-1">
+              Xử lý →
+            </a>
+</div>
+<!-- Row 2: Cần xử lý (Amber) -->
+<div class="py-3 flex items-start justify-between gap-2.5">
+<div class="space-y-1 flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#2d2208] border border-[#5d4411] text-[#FFCE73] text-[11px] font-bold">
+                  Cần xử lý
+                </span>
+<span class="text-xs font-bold text-[#EEF6F7] leading-snug">2 tin, cũ nhất 51 giờ – Hộp thư</span>
+</div>
+<p class="text-[11px] text-[#A9BFC1] leading-relaxed">
+                Học viên báo lỗi âm /θ/ câu 4 và từ điển "ubiquitous"
+              </p>
+</div>
+<a class="tap-target inline-flex items-center justify-center shrink-0 px-2.5 py-2 text-xs font-extrabold text-[#F2553B] hover:text-[#ff7862] active:translate-y-0.5" href="#handle-2">
+              Xử lý →
+            </a>
+</div>
+<!-- Row 3: Cần xử lý (Amber) -->
+<div class="py-3 flex items-start justify-between gap-2.5">
+<div class="space-y-1 flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#2d2208] border border-[#5d4411] text-[#FFCE73] text-[11px] font-bold">
+                  Cần xử lý
+                </span>
+<span class="text-xs font-bold text-[#EEF6F7] leading-snug">Hạn mức D1 đọc 78% – Hạn mức</span>
+</div>
+<p class="text-[11px] text-[#A9BFC1] leading-relaxed">
+                Đạt 3.9M / 5.0M row read • Cần chuyển cache FSRS sang IndexedDB
+              </p>
+</div>
+<a class="tap-target inline-flex items-center justify-center shrink-0 px-2.5 py-2 text-xs font-extrabold text-[#F2553B] hover:text-[#ff7862] active:translate-y-0.5" href="#handle-3">
+              Xử lý →
+            </a>
+</div>
+<!-- Row 4: Cần xử lý (Amber) -->
+<div class="py-3 flex items-start justify-between gap-2.5">
+<div class="space-y-1 flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#2d2208] border border-[#5d4411] text-[#FFCE73] text-[11px] font-bold">
+                  Cần xử lý
+                </span>
+<span class="text-xs font-bold text-[#EEF6F7] leading-snug">Drive Warm #2 kết nối lại – Kho</span>
+</div>
+<p class="text-[11px] text-[#A9BFC1] leading-relaxed">
+                Token OAuth vừa làm mới xong sau 45s • Cần chạy kiểm thử SHA-256
+              </p>
+</div>
+<a class="tap-target inline-flex items-center justify-center shrink-0 px-2.5 py-2 text-xs font-extrabold text-[#F2553B] hover:text-[#ff7862] active:translate-y-0.5" href="#handle-4">
+              Xử lý →
+            </a>
+</div>
+</div>
+</section>
+<!-- PRIMARY ACTION BUTTON (one warm coral button with 5px bottom ledge #B53A22) -->
+<div class="pt-1">
+<button class="w-full h-14 bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-white font-extrabold text-sm uppercase tracking-wider rounded-2xl shadow-[0_4px_0_0_#B53A22] active:translate-y-1 border-b-[5px] border-[#B53A22] flex items-center justify-center gap-2 transition-transform" type="button">
+<span class="material-symbols-rounded text-lg">check_circle</span>
+<span>Bắt đầu xử lý theo thứ tự</span>
+</button>
+</div>
+<!-- METRIC GROUP 1: Người thật -->
+<section class="space-y-2 pt-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#62D7CE] text-base">visibility</span>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-[#EEF6F7]">Người thật (Lưu lượng sạch)</h3>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BFC1]">Đã lọc bot Turnstile</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Tile 1: Hôm nay -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1]">Hôm nay</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">+12%</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">46</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">khách</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              Đỉnh: 11 khách/giờ
+            </div>
+</div>
+<!-- Tile 2: 7 ngày -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1]">7 ngày qua</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">Ổn định</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">214</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">người</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              TB: 30,5 người/ngày
+            </div>
+</div>
+<!-- Tile 3: 30 ngày -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1]">30 ngày qua</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">+18% tháng</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">892</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">người</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              Đỉnh: 58 người/ngày
+            </div>
+</div>
+<!-- Tile 4: Đang online -->
+<div class="bg-gradient-to-br from-[#101e20] to-[#14292d] rounded-xl border-2 border-[#2EC4B6]/50 p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#EEF6F7] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#2EC4B6] animate-ping"></span>
+                Đang online
+              </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#2EC4B6]/40">Live</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#62D7CE] tracking-tight">3</span>
+<span class="text-xs text-[#EEF6F7] font-bold ml-0.5">học viên</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              2 Web • 1 iOS
+            </div>
+</div>
+</div>
+</section>
+<!-- METRIC GROUP 2: Học viên -->
+<section class="space-y-2 pt-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#62D7CE] text-base">school</span>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-[#EEF6F7]">Học viên &amp; Tương tác</h3>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BFC1]">Tổng: 1.284 tài khoản</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Tile 1: Đăng nhập hôm nay -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1]">Đăng nhập hôm nay</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2036] text-[#78B4FF] border border-[#1b3d63]">100% OK</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">12</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">lượt</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              8 IELTS • 4 TOEIC
+            </div>
+</div>
+<!-- Tile 2: Đăng ký tuần này -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1]">Đăng ký mới tuần</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">+18 bạn</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">128</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">học viên</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              Hôm nay: +5 bạn mới
+            </div>
+</div>
+<!-- Tile 3: Gắn kết DAU/MAU (Full width spanning 2 columns) -->
+<div class="col-span-2 bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3.5 shadow-[0_3px_0_0_#050d0e] flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-[#EEF6F7]">Gắn kết DAU / MAU</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">
+                  Chuẩn EdTech ≥ 25%
+                </span>
+</div>
+<p class="text-[11px] text-[#A9BFC1]">Đo lường nhịp học tập lặp lại chu kỳ FSRS</p>
+</div>
+<div class="text-right">
+<div class="text-2xl font-extrabold text-[#62D7CE]">28.4%</div>
+<span class="text-[10px] font-bold text-[#62D7CE]">Đạt mục tiêu</span>
+</div>
+</div>
+</div>
+</section>
+<!-- METRIC GROUP 3: Vận hành -->
+<section class="space-y-2 pt-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#62D7CE] text-base">dns</span>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-[#EEF6F7]">Vận hành &amp; Kỹ thuật</h3>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BFC1]">9/9 Cụm dịch vụ hoạt động</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Tile 1: Lỗi JS 24 giờ -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1] truncate">Lỗi JS 24 giờ</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#2d2208] text-[#FFCE73] border border-[#5d4411]">Cần xem</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#FFB054] tracking-tight">2</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">loại</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              Safari audio, FSRS sync
+            </div>
+</div>
+<!-- Tile 2: Tin nhắn chưa xử lý -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1] truncate">Tin nhắn chờ</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#331114] text-[#FF8585] border border-[#6b2126]">2 tin</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#F2553B] tracking-tight">2</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">phiếu</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              Cũ nhất: 51 giờ
+            </div>
+</div>
+<!-- Tile 3: Điểm chất lượng -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1] truncate">Điểm chất lượng</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">Rất tốt</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">98.4%</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              SLA bài drill &amp; audio
+            </div>
+</div>
+<!-- Tile 4: Khóa Gemini API -->
+<div class="bg-[#101e20] rounded-xl border-2 border-[#233f43] p-3 shadow-[0_3px_0_0_#050d0e] flex flex-col justify-between min-h-[96px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1] truncate">Gemini API</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">Khỏe mạnh</span>
+</div>
+<div class="my-1">
+<span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">15</span>
+<span class="text-xs text-[#A9BFC1] ml-0.5">RPM</span>
+</div>
+<div class="text-[11px] text-[#A9BFC1] truncate">
+              Đã dùng 4.2k tokens/ngày
+            </div>
+</div>
+</div>
+</section>
+<!-- Mini Table: Nhật ký tác vụ tự động gần nhất -->
+<section class="bg-[#101e20] rounded-2xl border-2 border-[#233f43] p-4 shadow-[0_4px_0_0_#050d0e] space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#62D7CE] text-base">schedule</span>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-[#EEF6F7]">Tác vụ định kỳ (Cron Jobs)</h3>
+</div>
+<span class="text-[11px] font-bold text-[#62D7CE]">4/4 chạy đủ</span>
+</div>
+<div class="w-full">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="border-b border-[#182e32] text-[#A9BFC1] font-bold text-[11px]">
+<th class="py-2 pr-2">Tác vụ</th>
+<th class="py-2 px-1 text-center">Trạng thái</th>
+<th class="py-2 pl-2 text-right">Lúc</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#182e32]">
+<tr>
+<td class="py-2.5 pr-2 font-bold text-[#EEF6F7] leading-tight">
+                  Đồng bộ FSRS Memory
+                  <span class="block text-[10px] font-normal text-[#A9BFC1]">142 thẻ cập nhật</span>
+</td>
+<td class="py-2.5 px-1 text-center">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">Xong</span>
+</td>
+<td class="py-2.5 pl-2 text-right font-medium text-[#A9BFC1] whitespace-nowrap">06:00</td>
+</tr>
+<tr>
+<td class="py-2.5 pr-2 font-bold text-[#EEF6F7] leading-tight">
+                  Sao lưu CSDL SQLite D1
+                  <span class="block text-[10px] font-normal text-[#A9BFC1]">Bản lưu an toàn Cloud</span>
+</td>
+<td class="py-2.5 px-1 text-center">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">Xong</span>
+</td>
+<td class="py-2.5 pl-2 text-right font-medium text-[#A9BFC1] whitespace-nowrap">04:00</td>
+</tr>
+<tr>
+<td class="py-2.5 pr-2 font-bold text-[#EEF6F7] leading-tight">
+                  Rà soát Backlink &amp; PR
+                  <span class="block text-[10px] font-normal text-[#A9BFC1]">48 nguồn tin</span>
+</td>
+<td class="py-2.5 px-1 text-center">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0d2822] text-[#62D7CE] border border-[#1b5044]">Xong</span>
+</td>
+<td class="py-2.5 pl-2 text-right font-medium text-[#A9BFC1] whitespace-nowrap">05:30</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Clean footer info -->
+<footer class="pt-2 pb-4 text-center space-y-1">
+<p class="text-[11px] font-semibold text-[#A9BFC1]">
+          Lexkite Ops Engine v2.4.8 • Cloudflare D1 &amp; Pages
+        </p>
+<p class="text-[10px] text-[#A9BFC1]/70">
+          Chỉ số thực tế học viên nội bộ • Zero tracking bên thứ 3
+        </p>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (5 tabs, compact tactile, Today active in pure Tactile Night) -->
+<nav class="sticky bottom-0 z-30 bg-[#081518]/95 backdrop-blur-md border-t-2 border-[#182e32] px-2 py-1.5 flex items-center justify-around shadow-xl">
+<a class="tap-target flex flex-col items-center justify-center px-3 py-1 rounded-xl bg-[#142427] border-2 border-[#2EC4B6] text-[#EEF6F7] shadow-sm" href="#today">
+<span class="material-symbols-rounded text-lg text-[#62D7CE]">dashboard</span>
+<span class="text-[10px] font-extrabold mt-0.5 text-[#EEF6F7]">Hôm nay</span>
+</a>
+<a class="tap-target flex flex-col items-center justify-center px-2 py-1 text-[#A9BFC1] hover:text-[#EEF6F7] transition-colors" href="#users">
+<span class="material-symbols-rounded text-lg">group</span>
+<span class="text-[10px] font-bold mt-0.5">Học viên</span>
+</a>
+<a class="tap-target flex flex-col items-center justify-center px-2 py-1 text-[#A9BFC1] hover:text-[#EEF6F7] transition-colors" href="#analytics">
+<span class="material-symbols-rounded text-lg">insights</span>
+<span class="text-[10px] font-bold mt-0.5">Phân tích</span>
+</a>
+<a class="tap-target flex flex-col items-center justify-center px-2 py-1 text-[#A9BFC1] hover:text-[#EEF6F7] transition-colors relative" href="#inbox">
+<span class="material-symbols-rounded text-lg">inbox</span>
+<span class="text-[10px] font-bold mt-0.5">Hộp thư</span>
+<span class="absolute top-1 right-2.5 w-2 h-2 rounded-full bg-[#F2553B] ring-2 ring-[#081518]"></span>
+</a>
+<a class="tap-target flex flex-col items-center justify-center px-2 py-1 text-[#A9BFC1] hover:text-[#EEF6F7] transition-colors" href="#system">
+<span class="material-symbols-rounded text-lg">settings</span>
+<span class="text-[10px] font-bold mt-0.5">Hệ thống</span>
+</a>
+</nav>
+</div>
+</body>
+</html>

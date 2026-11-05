@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin - Trung tâm cảnh báo (Tactile Night)</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            lk: {
+              page: '#091518',
+              'page-lowest': '#051013',
+              surface: '#0e1c20',
+              'surface-card': '#122125',
+              'surface-high': '#16282d',
+              'surface-highest': '#1c3137',
+              border: '#1e353b',
+              'border-subtle': '#182b30',
+              'border-highlight': '#26434a',
+              teal: '#2dd4bf',
+              'teal-dim': '#14b8a6',
+              'teal-deep': '#0d383b',
+              'teal-glow': '#6bd8ce',
+              coral: '#f97316',
+              'coral-hover': '#ea580c',
+              'coral-dark': '#7c2d12',
+              ink: '#f1f7f6',
+              'ink-muted': '#9eb5b3',
+              'ink-dim': '#66807e',
+              danger: '#f87171',
+              'danger-bg': 'rgba(239, 68, 68, 0.12)',
+              'danger-border': '#7f1d1d',
+              warning: '#fbbf24',
+              'warning-bg': 'rgba(245, 158, 11, 0.12)',
+              'warning-border': '#78350f',
+              success: '#4ade80',
+              'success-bg': 'rgba(34, 197, 94, 0.12)',
+              'success-border': '#14532d',
+              info: '#38bdf8',
+              'info-bg': 'rgba(56, 189, 248, 0.12)',
+              'info-border': '#0c4a6e',
+            }
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 #1e353b',
+            'tactile': '0 3px 0 0 #182b30',
+            'tactile-md': '0 4px 0 0 #1e353b',
+            'tactile-teal': '0 3px 0 0 #0d383b',
+            'tactile-coral': '0 3px 0 0 #9a3412',
+            'tactile-active': '0 3px 0 0 #0f4d45',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Custom dark tactile scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #091518;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e353b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #26434a;
+    }
+  </style>
+</head>
+<body class="bg-lk-page text-lk-ink font-sans antialiased min-h-screen flex flex-row selection:bg-lk-teal selection:text-lk-page-lowest">
+<!-- ============================================================ -->
+<!-- LEFT SIDEBAR (Tactile Night Lexkite Admin Navigation) -->
+<!-- ============================================================ -->
+<aside class="w-72 bg-lk-surface border-r-2 border-lk-border flex flex-col justify-between shrink-0 h-screen sticky top-0 overflow-y-auto">
+<div class="p-5 flex flex-col gap-6">
+<!-- Brand Header with Kite Emblem -->
+<div class="flex items-center gap-3 px-1 py-1">
+<div class="w-10 h-10 rounded-xl bg-lk-teal/20 border border-lk-teal/40 flex items-center justify-center text-lk-teal shadow-tactile-sm">
+<!-- Stylized Kite SVG -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M12 2L19 12L12 22L5 12Z" fill="rgba(45,212,191,0.18)"></path>
+<path d="M12 2L12 22"></path>
+<path d="M5 12L19 12"></path>
+<path d="M12 22C14 23 15 24 16 23"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-xl tracking-tight text-lk-ink">lexkite</span>
+<span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-lk-teal/15 text-lk-teal border border-lk-teal/30">ADMIN</span>
+</div>
+<p class="text-xs text-lk-ink-muted font-medium">Bảng vận hành nội bộ</p>
+</div>
+</div>
+<!-- Nav Groups -->
+<nav class="flex flex-col gap-5 text-[13px]">
+<!-- Group: Hôm nay -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded text-lk-teal">today</span>
+<span>Hôm nay</span>
+</div>
+<span class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold text-white bg-red-600 rounded-full shadow-sm">
+              3
+            </span>
+</a>
+</div>
+<!-- Group: Người học -->
+<div class="flex flex-col gap-1">
+<div class="px-3 text-[11px] font-extrabold uppercase tracking-wider text-lk-ink-dim">Người học</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">insights</span>
+<span>Phân tích</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">group</span>
+<span>Người dùng</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">mail</span>
+<span>Hộp thư</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">report_problem</span>
+<span>Báo lỗi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">send</span>
+<span>Gửi tới người học</span>
+</a>
+</div>
+<!-- Group: Vận hành (Active Group) -->
+<div class="flex flex-col gap-1">
+<div class="px-3 text-[11px] font-extrabold uppercase tracking-wider text-lk-teal">Vận hành</div>
+<!-- Selected Nav Item: Trung tâm cảnh báo -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-xl font-bold bg-[#134e48] border border-lk-teal/40 text-lk-teal-glow shadow-tactile-active min-h-[44px]" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded text-lk-teal filled">notifications_active</span>
+<span class="text-white">Trung tâm cảnh báo</span>
+</div>
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-lk-teal/25 text-[11px] font-bold text-lk-teal">
+              6
+            </span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">monitor_heart</span>
+<span>Sức khỏe hệ thống</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">vpn_key</span>
+<span>Tài khoản &amp; khóa</span>
+</a>
+</div>
+<!-- Group: Nội dung & Video -->
+<div class="flex flex-col gap-1">
+<div class="px-3 text-[11px] font-extrabold uppercase tracking-wider text-lk-ink-dim">Nội dung &amp; Video</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">alt_route</span>
+<span>Kênh &amp; phân phối</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">share</span>
+<span>Video &amp; Social</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">movie_edit</span>
+<span>Video Studio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">video_library</span>
+<span>Trung tâm video</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">link</span>
+<span>Backlink &amp; PR</span>
+</a>
+</div>
+<!-- Group: Doanh thu -->
+<div class="flex flex-col gap-1">
+<div class="px-3 text-[11px] font-extrabold uppercase tracking-wider text-lk-ink-dim">Doanh thu</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl font-medium text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">campaign</span>
+<span>Quảng cáo</span>
+</a>
+</div>
+<!-- Group: Cài đặt -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-lk-ink-muted hover:text-lk-ink hover:bg-lk-surface-high transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-lk-ink-muted">settings</span>
+<span>Cài đặt hệ thống</span>
+</a>
+</div>
+</nav>
+</div>
+<!-- Sidebar Bottom: System Status pill & Quick Help -->
+<div class="p-4 border-t-2 border-lk-border bg-lk-page-lowest/60 flex flex-col gap-3">
+<div class="flex items-center justify-between text-xs px-2.5 py-2 rounded-lg bg-lk-surface border border-lk-border">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-lk-success shadow-[0_0_8px_rgba(74,222,128,0.6)] animate-pulse"></span>
+<span class="font-bold text-lk-ink">Hệ thống: Trực tuyến</span>
+</div>
+<span class="font-mono text-[11px] text-lk-teal">v2.4.6</span>
+</div>
+<div class="flex items-center justify-between px-2 text-xs text-lk-ink-muted">
+<span>Đội ngũ Lexkite Core</span>
+<a class="text-lk-teal hover:underline font-semibold min-h-[44px] inline-flex items-center" href="#">Tài liệu</a>
+</div>
+</div>
+</aside>
+<!-- ============================================================ -->
+<!-- MAIN WORKSPACE -->
+<!-- ============================================================ -->
+<main class="flex-1 flex flex-col min-w-0 bg-lk-page">
+<!-- Top Bar -->
+<header class="h-16 border-b-2 border-lk-border px-8 flex items-center justify-between sticky top-0 z-30 bg-lk-surface/90 backdrop-blur-md">
+<!-- Breadcrumb & Title -->
+<div class="flex items-center gap-3 text-sm">
+<span class="text-lk-ink-muted font-medium">Admin</span>
+<span class="text-lk-border-highlight font-bold">/</span>
+<span class="text-lk-ink-muted font-medium">Vận hành</span>
+<span class="text-lk-border-highlight font-bold">/</span>
+<h1 class="font-extrabold text-lk-ink text-base">Trung tâm cảnh báo</h1>
+<span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-lk-warning-bg text-lk-warning border border-lk-warning-border">
+          6 tín hiệu cần xử lý
+        </span>
+</div>
+<!-- Right Top Actions: Command Search, Language Switch, Avatar -->
+<div class="flex items-center gap-4">
+<!-- Command Search Bar -->
+<div class="relative w-80">
+<span class="material-symbols-rounded absolute left-3.5 top-1/2 -translate-y-1/2 text-lk-ink-muted text-xl pointer-events-none">search</span>
+<input class="w-full h-11 pl-10 pr-16 bg-lk-surface-card border-2 border-lk-border rounded-xl text-xs font-medium text-lk-ink placeholder:text-lk-ink-dim focus:outline-none focus:border-lk-teal transition-all shadow-tactile-sm" placeholder="Tìm tín hiệu, worker, mã lỗi..." type="text"/>
+<div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-lk-surface border border-lk-border text-[11px] font-mono text-lk-ink-muted font-semibold shadow-xs">
+<span>Ctrl</span><span>K</span>
+</div>
+</div>
+<!-- VI / EN Switch -->
+<div class="flex items-center p-1 bg-lk-surface-card border-2 border-lk-border rounded-xl text-xs font-bold min-h-[44px]">
+<button class="px-2.5 py-1 rounded-lg bg-lk-teal text-lk-page-lowest font-extrabold min-h-[34px] transition-all">VI</button>
+<button class="px-2.5 py-1 rounded-lg text-lk-ink-muted hover:text-lk-ink min-h-[34px] transition-all">EN</button>
+</div>
+<!-- Notification Bell Quick Indicator -->
+<button class="w-11 h-11 rounded-xl bg-lk-surface-card border-2 border-lk-border flex items-center justify-center text-lk-ink-muted hover:text-lk-teal hover:border-lk-teal transition-all relative">
+<span class="material-symbols-rounded">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-lk-danger shadow-[0_0_6px_rgba(248,113,113,0.8)]"></span>
+</button>
+<!-- Admin Initials Avatar -->
+<div class="flex items-center gap-3 pl-2 border-l border-lk-border">
+<div class="w-10 h-10 rounded-xl bg-[#0f4d45] border border-lk-teal/40 text-lk-teal font-extrabold text-sm flex items-center justify-center shadow-tactile-sm">
+            TM
+          </div>
+<div class="text-left hidden lg:block">
+<div class="text-xs font-extrabold text-lk-ink leading-tight">Trần Minh (Lead)</div>
+<div class="text-[11px] text-lk-ink-muted font-medium">Ops &amp; Core Engine</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content Container -->
+<div class="p-8 max-w-7xl w-full mx-auto flex flex-col gap-8 pb-16">
+<!-- ============================================================ -->
+<!-- TOP CARD: Mọi tín hiệu hệ thống -->
+<!-- ============================================================ -->
+<section class="bg-lk-surface border-2 border-lk-border rounded-2xl p-6 shadow-tactile flex flex-col gap-6">
+<!-- Header row of Card -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-lk-border/80 pb-5">
+<div>
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-rounded text-lk-teal text-2xl font-bold">crisis_alert</span>
+<h2 class="text-xl font-extrabold text-lk-ink tracking-tight">Mọi tín hiệu hệ thống</h2>
+</div>
+<p class="text-xs text-lk-ink-muted mt-1 font-medium">
+              Giám sát tích hợp toàn diện từ các luồng Cloudflare Workers, Supabase DB, OpenAI Audio TTS và Cron Spaced Repetition.
+            </p>
+</div>
+<!-- Filter & Action Controls -->
+<div class="flex items-center gap-3 self-start md:self-auto">
+<!-- Source Selector -->
+<div class="flex items-center gap-2 bg-lk-surface-card border-2 border-lk-border rounded-xl px-3 py-2 text-xs font-semibold min-h-[44px]">
+<span class="text-lk-ink-muted">Nguồn:</span>
+<select class="bg-transparent text-lk-ink font-bold focus:outline-none cursor-pointer">
+<option class="bg-lk-surface text-lk-ink" selected="">Mọi nguồn (Toàn cục)</option>
+<option class="bg-lk-surface text-lk-ink">Cloudflare Edge Worker</option>
+<option class="bg-lk-surface text-lk-ink">Supabase Postgres</option>
+<option class="bg-lk-surface text-lk-ink">OpenAI Whisper / TTS</option>
+<option class="bg-lk-surface text-lk-ink">FSRS Cron Scheduler</option>
+<option class="bg-lk-surface text-lk-ink">Client Web App (SPA)</option>
+</select>
+</div>
+<!-- Warm Coral Primary Action with High-contrast dark ink text -->
+<button class="px-4 py-2.5 rounded-xl bg-lk-coral hover:bg-lk-coral-hover text-[#1a0d00] text-xs font-extrabold flex items-center gap-2 shadow-tactile-coral active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base font-bold">refresh</span>
+<span>Quét lại tín hiệu</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips Row -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Chip: Cần xem 6 (Selected) -->
+<button class="px-3.5 py-2 rounded-xl bg-[#134e48] border border-lk-teal/50 text-lk-teal-glow font-extrabold text-xs flex items-center gap-2 shadow-tactile-sm min-h-[44px]">
+<span>Cần xem</span>
+<span class="px-1.5 py-0.5 rounded-md bg-lk-teal/20 text-lk-teal text-[11px] font-extrabold font-mono">6</span>
+</button>
+<!-- Chip: Nghiêm trọng 1 -->
+<button class="px-3.5 py-2 rounded-xl bg-lk-danger-bg text-lk-danger border border-lk-danger-border font-bold text-xs flex items-center gap-2 hover:bg-red-500/20 transition-colors min-h-[44px]">
+<span class="w-2 h-2 rounded-full bg-lk-danger shadow-[0_0_6px_rgba(248,113,113,0.8)]"></span>
+<span>Nghiêm trọng</span>
+<span class="px-1.5 py-0.5 rounded-md bg-red-950/60 text-lk-danger text-[11px] font-extrabold font-mono">1</span>
+</button>
+<!-- Chip: Cần xử lý 3 -->
+<button class="px-3.5 py-2 rounded-xl bg-lk-warning-bg text-lk-warning border border-lk-warning-border font-bold text-xs flex items-center gap-2 hover:bg-amber-500/20 transition-colors min-h-[44px]">
+<span class="w-2 h-2 rounded-full bg-lk-warning shadow-[0_0_6px_rgba(251,191,36,0.8)]"></span>
+<span>Cần xử lý</span>
+<span class="px-1.5 py-0.5 rounded-md bg-amber-950/60 text-lk-warning text-[11px] font-extrabold font-mono">3</span>
+</button>
+<!-- Chip: Theo dõi 2 -->
+<button class="px-3.5 py-2 rounded-xl bg-lk-info-bg text-lk-info border border-lk-info-border font-bold text-xs flex items-center gap-2 hover:bg-sky-500/20 transition-colors min-h-[44px]">
+<span class="w-2 h-2 rounded-full bg-lk-info shadow-[0_0_6px_rgba(56,189,248,0.8)]"></span>
+<span>Theo dõi</span>
+<span class="px-1.5 py-0.5 rounded-md bg-sky-950/60 text-lk-info text-[11px] font-extrabold font-mono">2</span>
+</button>
+<!-- Chip: Ổn 14 -->
+<button class="px-3.5 py-2 rounded-xl bg-lk-surface-card text-lk-ink-muted border-2 border-lk-border font-bold text-xs flex items-center gap-2 hover:bg-lk-surface-high transition-colors min-h-[44px]">
+<span class="w-2 h-2 rounded-full bg-lk-success shadow-[0_0_6px_rgba(74,222,128,0.8)]"></span>
+<span>Ổn</span>
+<span class="px-1.5 py-0.5 rounded-md bg-lk-surface text-lk-ink text-[11px] font-extrabold font-mono">14</span>
+</button>
+</div>
+<!-- Signals Table (Data-dense tactile dark table) -->
+<div class="overflow-x-auto rounded-xl border-2 border-lk-border">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-lk-surface-card border-b-2 border-lk-border text-lk-ink-muted font-bold text-[11px] uppercase tracking-wider">
+<th class="py-3 px-4 w-32">Mức</th>
+<th class="py-3 px-4 w-44">Nguồn</th>
+<th class="py-3 px-4">Nội dung</th>
+<th class="py-3 px-4 w-36">Lúc</th>
+<th class="py-3 px-4 w-32 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-lk-border bg-lk-surface">
+<!-- Row 1: Nghiêm trọng (API rate spike) -->
+<tr class="hover:bg-lk-surface-card transition-colors group">
+<td class="py-4 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-lk-danger-bg text-lk-danger border border-lk-danger-border">
+<span class="w-1.5 h-1.5 rounded-full bg-lk-danger"></span>
+                    Nghiêm trọng
+                  </span>
+</td>
+<td class="py-4 px-4 align-top font-semibold text-lk-teal">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lk-ink-dim">cloud_sync</span>
+<span>Edge Worker</span>
+</div>
+<span class="text-[11px] text-lk-ink-dim font-mono">/api/tts-stream</span>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-extrabold text-lk-ink text-[13px] leading-snug">
+                    Tỷ lệ lỗi 504 Gateway Timeout tăng vọt lên 4.2% trong 15 phút
+                  </div>
+<div class="text-lk-ink-muted mt-1 leading-relaxed">
+                    OpenAI Audio Endpoint phản hồi chậm vượt ngưỡng 2.5s; 8 người học luyện nghe IELTS Section 2 gặp gián đoạn tạm thời.
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-lk-ink-muted font-medium whitespace-nowrap">
+<span>3 phút trước</span>
+<div class="text-[11px] text-lk-ink-dim font-mono">14:28:10</div>
+</td>
+<td class="py-4 px-4 align-top text-right whitespace-nowrap">
+<a class="inline-flex items-center justify-end font-bold text-lk-danger hover:underline min-h-[44px] px-2 py-1" href="#">
+<span>Xử lý</span>
+<span class="material-symbols-rounded text-sm ml-1">arrow_forward</span>
+</a>
+</td>
+</tr>
+<!-- Row 2: Cần xử lý (Database lock queue) -->
+<tr class="hover:bg-lk-surface-card transition-colors group">
+<td class="py-4 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-lk-warning-bg text-lk-warning border border-lk-warning-border">
+<span class="w-1.5 h-1.5 rounded-full bg-lk-warning"></span>
+                    Cần xử lý
+                  </span>
+</td>
+<td class="py-4 px-4 align-top font-semibold text-lk-teal">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lk-ink-dim">database</span>
+<span>Supabase DB</span>
+</div>
+<span class="text-[11px] text-lk-ink-dim font-mono">fsrs_cards_pool</span>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-extrabold text-lk-ink text-[13px] leading-snug">
+                    Hàng đợi Spaced Repetition vượt ngưỡng 120 bản ghi chưa đồng bộ
+                  </div>
+<div class="text-lk-ink-muted mt-1 leading-relaxed">
+                    Cron tính toán lại đường cong ghi nhớ FSRS v5 đang chạy chậm hơn dự kiến 18 giây do khóa bảng tạm thời.
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-lk-ink-muted font-medium whitespace-nowrap">
+<span>14 phút trước</span>
+<div class="text-[11px] text-lk-ink-dim font-mono">14:17:02</div>
+</td>
+<td class="py-4 px-4 align-top text-right whitespace-nowrap">
+<a class="inline-flex items-center justify-end font-bold text-lk-teal hover:underline min-h-[44px] px-2 py-1" href="#">
+<span>Mở lượt chạy</span>
+<span class="material-symbols-rounded text-sm ml-1">north_east</span>
+</a>
+</td>
+</tr>
+<!-- Row 3: Cần xử lý (Uncaught client JS error) -->
+<tr class="hover:bg-lk-surface-card transition-colors group">
+<td class="py-4 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-lk-warning-bg text-lk-warning border border-lk-warning-border">
+<span class="w-1.5 h-1.5 rounded-full bg-lk-warning"></span>
+                    Cần xử lý
+                  </span>
+</td>
+<td class="py-4 px-4 align-top font-semibold text-lk-teal">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lk-ink-dim">terminal</span>
+<span>Client SPA</span>
+</div>
+<span class="text-[11px] text-lk-ink-dim font-mono">Safari 17.4 (iOS)</span>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-extrabold text-lk-ink text-[13px] leading-snug">
+                    Uncaught TypeError: window.AudioContext.resume() trên WebKit
+                  </div>
+<div class="text-lk-ink-muted mt-1 leading-relaxed">
+                    Xảy ra khi người học ấn nút nghe phát âm từ thẻ từ vựng khi chưa có tương tác chạm trước đó (3 trường hợp được báo cáo).
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-lk-ink-muted font-medium whitespace-nowrap">
+<span>42 phút trước</span>
+<div class="text-[11px] text-lk-ink-dim font-mono">13:49:15</div>
+</td>
+<td class="py-4 px-4 align-top text-right whitespace-nowrap">
+<a class="inline-flex items-center justify-end font-bold text-lk-teal hover:underline min-h-[44px] px-2 py-1" href="#">
+<span>Xử lý</span>
+<span class="material-symbols-rounded text-sm ml-1">arrow_forward</span>
+</a>
+</td>
+</tr>
+<!-- Row 4: Cần xử lý (Drive Sync quota notice) -->
+<tr class="hover:bg-lk-surface-card transition-colors group">
+<td class="py-4 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-lk-warning-bg text-lk-warning border border-lk-warning-border">
+<span class="w-1.5 h-1.5 rounded-full bg-lk-warning"></span>
+                    Cần xử lý
+                  </span>
+</td>
+<td class="py-4 px-4 align-top font-semibold text-lk-teal">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lk-ink-dim">cloud_upload</span>
+<span>Google Drive</span>
+</div>
+<span class="text-[11px] text-lk-ink-dim font-mono">pool_drive_01</span>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-extrabold text-lk-ink text-[13px] leading-snug">
+                    Dung lượng tài khoản Drive 01 đã đạt 88.2% (13.2 / 15.0 GB)
+                  </div>
+<div class="text-lk-ink-muted mt-1 leading-relaxed">
+                    Cần kích hoạt tự động điều hướng file bài giảng MP4 mới sang tài khoản Drive 03 để tránh gián đoạn ghi chép.
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-lk-ink-muted font-medium whitespace-nowrap">
+<span>1 giờ trước</span>
+<div class="text-[11px] text-lk-ink-dim font-mono">13:12:00</div>
+</td>
+<td class="py-4 px-4 align-top text-right whitespace-nowrap">
+<a class="inline-flex items-center justify-end font-bold text-lk-teal hover:underline min-h-[44px] px-2 py-1" href="#">
+<span>Cân bằng</span>
+<span class="material-symbols-rounded text-sm ml-1">arrow_forward</span>
+</a>
+</td>
+</tr>
+<!-- Row 5: Theo dõi (Backlink monitor check) -->
+<tr class="hover:bg-lk-surface-card transition-colors group">
+<td class="py-4 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-lk-info-bg text-lk-info border border-lk-info-border">
+<span class="w-1.5 h-1.5 rounded-full bg-lk-info"></span>
+                    Theo dõi
+                  </span>
+</td>
+<td class="py-4 px-4 align-top font-semibold text-lk-teal">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lk-ink-dim">travel_explore</span>
+<span>SEO Tracker</span>
+</div>
+<span class="text-[11px] text-lk-ink-dim font-mono">Spiderum link</span>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-extrabold text-lk-ink text-[13px] leading-snug">
+                    Liên kết giới thiệu từ Spiderum chuyển trạng thái 301 Redirect
+                  </div>
+<div class="text-lk-ink-muted mt-1 leading-relaxed">
+                    URL bài viết tổng hợp phương pháp ôn IELTS CBT đã đổi slug; anchor text vẫn trỏ an toàn về trang chủ Lexkite.
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-lk-ink-muted font-medium whitespace-nowrap">
+<span>2 giờ trước</span>
+<div class="text-[11px] text-lk-ink-dim font-mono">12:30:44</div>
+</td>
+<td class="py-4 px-4 align-top text-right whitespace-nowrap">
+<a class="inline-flex items-center justify-end font-bold text-lk-teal hover:underline min-h-[44px] px-2 py-1" href="#">
+<span>Chi tiết</span>
+<span class="material-symbols-rounded text-sm ml-1">north_east</span>
+</a>
+</td>
+</tr>
+<!-- Row 6: Theo dõi (Daily Digest email dispatch) -->
+<tr class="hover:bg-lk-surface-card transition-colors group">
+<td class="py-4 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-lk-info-bg text-lk-info border border-lk-info-border">
+<span class="w-1.5 h-1.5 rounded-full bg-lk-info"></span>
+                    Theo dõi
+                  </span>
+</td>
+<td class="py-4 px-4 align-top font-semibold text-lk-teal">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lk-ink-dim">forward_to_inbox</span>
+<span>Resend Mailer</span>
+</div>
+<span class="text-[11px] text-lk-ink-dim font-mono">digest_queue</span>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-extrabold text-lk-ink text-[13px] leading-snug">
+                    Lô email báo cáo tuần gửi hoàn tất 284/284 người học tích cực
+                  </div>
+<div class="text-lk-ink-muted mt-1 leading-relaxed">
+                    Tỷ lệ mở email đạt 64.8% trong 3 giờ đầu; 0 trường hợp bị đưa vào hòm thư rác (spam complaint = 0).
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-lk-ink-muted font-medium whitespace-nowrap">
+<span>3 giờ trước</span>
+<div class="text-[11px] text-lk-ink-dim font-mono">11:00:21</div>
+</td>
+<td class="py-4 px-4 align-top text-right whitespace-nowrap">
+<a class="inline-flex items-center justify-end font-bold text-lk-teal hover:underline min-h-[44px] px-2 py-1" href="#">
+<span>Xem báo cáo</span>
+<span class="material-symbols-rounded text-sm ml-1">north_east</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer pagination & quick count -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-lk-ink-muted pt-2">
+<div>
+            Hiển thị <span class="font-bold text-lk-ink">6</span> trên tổng số <span class="font-bold text-lk-ink">26</span> sự kiện trong 24 giờ qua
+          </div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border-2 border-lk-border font-semibold text-lk-ink-dim hover:bg-lk-surface-card transition-colors min-h-[44px] flex items-center gap-1 opacity-50 cursor-not-allowed" disabled="">
+<span class="material-symbols-rounded text-sm">arrow_back</span>
+<span>Trước</span>
+</button>
+<div class="flex items-center gap-1 font-semibold">
+<span class="w-8 h-8 rounded-lg bg-lk-teal text-lk-page-lowest flex items-center justify-center font-extrabold shadow-tactile-sm">1</span>
+<button class="w-8 h-8 rounded-lg hover:bg-lk-surface-card text-lk-ink flex items-center justify-center min-h-[44px]">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-lk-surface-card text-lk-ink flex items-center justify-center min-h-[44px]">3</button>
+</div>
+<button class="px-3 py-1.5 rounded-lg border-2 border-lk-border font-semibold text-lk-ink hover:bg-lk-surface-card transition-colors min-h-[44px] flex items-center gap-1">
+<span>Sau</span>
+<span class="material-symbols-rounded text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ============================================================ -->
+<!-- SECTION: Chi tiết theo nguồn -->
+<!-- ============================================================ -->
+<section class="flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-lg font-extrabold text-lk-ink tracking-tight">Chi tiết theo nguồn</h3>
+<p class="text-xs text-lk-ink-muted font-medium">Báo cáo trực tiếp từ các đường ống dữ liệu cốt lõi của Lexkite</p>
+</div>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-lk-surface-card border border-lk-border text-lk-teal">
+            Cập nhật tự động mỗi 60s
+          </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- CARD 1: Trạng thái tự động (Workflows) -->
+<div class="bg-lk-surface border-2 border-lk-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between gap-5">
+<div>
+<div class="flex items-center justify-between border-b border-lk-border pb-3 mb-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-lk-teal/15 border border-lk-teal/30 text-lk-teal flex items-center justify-center">
+<span class="material-symbols-rounded text-lg">autorenew</span>
+</div>
+<div>
+<h4 class="font-extrabold text-sm text-lk-ink">Trạng thái tự động</h4>
+<span class="text-[11px] text-lk-ink-muted">Cronjobs &amp; Edge Workflows</span>
+</div>
+</div>
+<span class="text-xs font-bold text-lk-success bg-lk-success-bg border border-lk-success-border px-2 py-0.5 rounded-md">
+                  4/4 Sẵn sàng
+                </span>
+</div>
+<!-- Workflow List -->
+<div class="flex flex-col divide-y divide-lk-border text-xs">
+<!-- Workflow item 1 -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div>
+<div class="font-bold text-lk-ink">FSRS Retention Decay</div>
+<div class="text-[11px] text-lk-ink-muted">Mỗi 15 phút • Chu kỳ ôn tập</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-lk-success-bg text-lk-success border border-lk-success-border">
+                      Thành công
+                    </span>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">14:15 • 1.2s</div>
+</div>
+<a class="text-lk-teal hover:underline font-bold text-xs pl-2 min-h-[44px] inline-flex items-center" href="#">Xem</a>
+</div>
+<!-- Workflow item 2 -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div>
+<div class="font-bold text-lk-ink">Backup Snapshot Supabase</div>
+<div class="text-[11px] text-lk-ink-muted">Hàng ngày lúc 03:00 UTC</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-lk-success-bg text-lk-success border border-lk-success-border">
+                      Thành công
+                    </span>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">03:00 • 42s</div>
+</div>
+<a class="text-lk-teal hover:underline font-bold text-xs pl-2 min-h-[44px] inline-flex items-center" href="#">Xem</a>
+</div>
+<!-- Workflow item 3 -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div>
+<div class="font-bold text-lk-ink">Sync Audio Pronunciations</div>
+<div class="text-[11px] text-lk-ink-muted">Mỗi giờ • IPA Cache</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-lk-warning-bg text-lk-warning border border-lk-warning-border">
+                      Chậm (2.8s)
+                    </span>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">14:00 • 2.8s</div>
+</div>
+<a class="text-lk-teal hover:underline font-bold text-xs pl-2 min-h-[44px] inline-flex items-center" href="#">Xem</a>
+</div>
+<!-- Workflow item 4 -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div>
+<div class="font-bold text-lk-ink">Weekly Digest Generator</div>
+<div class="text-[11px] text-lk-ink-muted">Chủ nhật hàng tuần</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-lk-success-bg text-lk-success border border-lk-success-border">
+                      Hoàn tất
+                    </span>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">CN vừa rồi</div>
+</div>
+<a class="text-lk-teal hover:underline font-bold text-xs pl-2 min-h-[44px] inline-flex items-center" href="#">Xem</a>
+</div>
+</div>
+</div>
+<!-- Footer summary -->
+<div class="pt-3 border-t border-lk-border flex items-center justify-between text-xs text-lk-ink-muted">
+<span>Đạt độ tin cậy <strong class="text-lk-teal font-mono font-bold">99.94%</strong></span>
+<a class="font-bold text-lk-teal hover:underline min-h-[44px] inline-flex items-center" href="#">Lịch sử workflow →</a>
+</div>
+</div>
+<!-- CARD 2: Lỗi JavaScript từ người dùng -->
+<div class="bg-lk-surface border-2 border-lk-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between gap-5">
+<div>
+<div class="flex items-center justify-between border-b border-lk-border pb-3 mb-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-lk-danger-bg text-lk-danger border border-lk-danger-border flex items-center justify-center">
+<span class="material-symbols-rounded text-lg">bug_report</span>
+</div>
+<div>
+<h4 class="font-extrabold text-sm text-lk-ink">Lỗi JavaScript người dùng</h4>
+<span class="text-[11px] text-lk-ink-muted">Telemetry Sentry / Logflare</span>
+</div>
+</div>
+<!-- Ghost Danger Button: Xóa tất cả -->
+<button class="px-2.5 py-1.5 rounded-lg border border-red-500/50 bg-red-950/20 text-lk-danger hover:bg-red-900/40 text-xs font-bold transition-all min-h-[44px] flex items-center gap-1 active:translate-y-0.5">
+<span class="material-symbols-rounded text-sm">delete_sweep</span>
+<span>Xóa tất cả</span>
+</button>
+</div>
+<!-- Error entries list -->
+<div class="flex flex-col gap-3 text-xs">
+<!-- Error item 1 -->
+<div class="p-3 rounded-xl bg-lk-surface-card border border-lk-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] font-bold text-lk-danger bg-lk-danger-bg px-1.5 py-0.5 rounded border border-lk-danger-border">
+                      TypeError • Audio.play()
+                    </span>
+<span class="text-[11px] text-lk-ink-muted font-medium">3 lượt gặp</span>
+</div>
+<p class="font-medium text-lk-ink text-[12px] leading-snug">
+                    User gesture required before audio playback on mobile browsers.
+                  </p>
+<div class="flex items-center justify-between text-[11px] text-lk-ink-dim pt-1 border-t border-lk-border">
+<span>iOS Safari 17.4 • iPhone 13</span>
+<span class="font-mono">14:12</span>
+</div>
+</div>
+<!-- Error item 2 -->
+<div class="p-3 rounded-xl bg-lk-surface-card border border-lk-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] font-bold text-lk-warning bg-lk-warning-bg px-1.5 py-0.5 rounded border border-lk-warning-border">
+                      ResizeObserver Loop
+                    </span>
+<span class="text-[11px] text-lk-ink-muted font-medium">7 lượt gặp</span>
+</div>
+<p class="font-medium text-lk-ink text-[12px] leading-snug">
+                    ResizeObserver loop completed with undelivered notifications.
+                  </p>
+<div class="flex items-center justify-between text-[11px] text-lk-ink-dim pt-1 border-t border-lk-border">
+<span>Chrome 124 • macOS Desktop</span>
+<span class="font-mono">13:50</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer summary -->
+<div class="pt-3 border-t border-lk-border flex items-center justify-between text-xs text-lk-ink-muted">
+<span>Được cách ly trong Client Sandbox</span>
+<a class="font-bold text-lk-teal hover:underline min-h-[44px] inline-flex items-center" href="#">Xem Stack Trace →</a>
+</div>
+</div>
+<!-- CARD 3: Nhật ký quản trị (100 thao tác gần nhất) -->
+<div class="bg-lk-surface border-2 border-lk-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between gap-5">
+<div>
+<div class="flex items-center justify-between border-b border-lk-border pb-3 mb-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-lk-info-bg text-lk-info border border-lk-info-border flex items-center justify-center">
+<span class="material-symbols-rounded text-lg">manage_history</span>
+</div>
+<div>
+<h4 class="font-extrabold text-sm text-lk-ink">Nhật ký quản trị</h4>
+<span class="text-[11px] text-lk-ink-muted">Audit log 100 thao tác gần nhất</span>
+</div>
+</div>
+<span class="text-[11px] font-mono font-bold text-lk-teal bg-lk-surface-card px-2 py-0.5 rounded border border-lk-border">
+                  Ghi tự động
+                </span>
+</div>
+<!-- Log timeline items -->
+<div class="flex flex-col gap-3 text-xs">
+<!-- Log 1 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-lk-teal/20 text-lk-teal border border-lk-teal/40 flex items-center justify-center shrink-0 mt-0.5">
+<span class="text-[10px] font-bold font-mono">TM</span>
+</div>
+<div class="flex-1">
+<div class="font-bold text-lk-ink">Trần Minh (Lead)</div>
+<div class="text-[12px] text-lk-ink-muted">Cập nhật cấu hình FSRS v5 weights cho bộ từ C1 Academic.</div>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">14:02:18 • IP 14.162.x.x</div>
+</div>
+</div>
+<!-- Log 2 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-lk-coral/20 text-lk-coral border border-lk-coral/40 flex items-center justify-center shrink-0 mt-0.5">
+<span class="text-[10px] font-bold font-mono">LN</span>
+</div>
+<div class="flex-1">
+<div class="font-bold text-lk-ink">Lê Nam (Ops)</div>
+<div class="text-[12px] text-lk-ink-muted">Tải lên 24 tệp âm thanh Cambridge 18 Test 2 vào Drive Pool 02.</div>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">12:45:09 • IP 27.72.x.x</div>
+</div>
+</div>
+<!-- Log 3 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-lk-info/20 text-lk-info border border-lk-info-border flex items-center justify-center shrink-0 mt-0.5">
+<span class="text-[10px] font-bold font-mono">BOT</span>
+</div>
+<div class="flex-1">
+<div class="font-bold text-lk-ink">Hệ thống tự động</div>
+<div class="text-[12px] text-lk-ink-muted">Khóa mềm 1 tài khoản đăng nhập sai mật khẩu 10 lần liên tiếp.</div>
+<div class="text-[11px] text-lk-ink-dim font-mono mt-0.5">10:18:30 • Engine Guard</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer summary -->
+<div class="pt-3 border-t border-lk-border flex items-center justify-between text-xs text-lk-ink-muted">
+<span>Lưu trữ 90 ngày bảo mật</span>
+<a class="font-bold text-lk-teal hover:underline min-h-[44px] inline-flex items-center" href="#">Xuất toàn bộ CSV →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================================ -->
+<!-- BOTTOM SUMMARY BAR: Cam kết minh bạch & Tải lượng thực tế -->
+<!-- ============================================================ -->
+<div class="p-4 rounded-xl bg-lk-surface border-2 border-lk-border flex flex-col md:flex-row items-center justify-between gap-4 text-xs shadow-tactile">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-lk-teal/20 border border-lk-teal/40 text-lk-teal flex items-center justify-center font-bold">
+<span class="material-symbols-rounded text-lg">verified_user</span>
+</div>
+<div>
+<span class="font-extrabold text-lk-ink">Dữ liệu thực tế cho ứng dụng phi lợi nhuận Lexkite</span>
+<p class="text-lk-ink-muted mt-0.5">Không phóng đại số liệu, không sinh thêm số người theo dõi hay doanh thu ảo. Mọi tín hiệu đều đo lường trực tiếp từ server.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 text-right shrink-0">
+<div>
+<div class="text-lk-ink-dim text-[11px]">Người học hôm nay</div>
+<div class="font-mono font-extrabold text-lk-teal text-sm">342 hoạt động</div>
+</div>
+<div class="border-l border-lk-border pl-6">
+<div class="text-lk-ink-dim text-[11px]">Bản ghi Spaced Deck</div>
+<div class="font-mono font-extrabold text-lk-ink text-sm">8,400 thẻ FSRS</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
