@@ -10439,17 +10439,17 @@
   },
   "cast#n": {
    "ex": "The cast of the film includes several famous actors.",
-   "ps": "two actors, one in a pirate costume, one in a superhero costume, stand on a stage with curtains",
-   "sc": "two actors, one in a pirate costume, one in a superhero costume, stand on a stage with curtains",
+   "ps": "two adults in costume stand on a small stage with a red curtain, a bright spotlight shines on them",
+   "sc": "two adults in costume stand on a small stage with a red curtain, a bright spotlight shines on them",
    "check": "Is there a group of people performing as actors on a stage?",
-   "cap": "two performers in different costumes on a theater stage",
-   "key": "two people in distinct costumes on a stage; red curtains behind them",
+   "cap": "two costumed performers stand under a spotlight on a stage",
+   "key": "two adults in costume on a stage; red curtain behind them",
    "who": 2,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "casting#n": {
    "ex": "Engine blocks for the motorbikes are produced by aluminum casting.",
@@ -14473,6 +14473,18 @@
    "cap": "a ticket being checked on a moving train",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "cone#n": {
+   "ex": "Ice cream is often served in a cone.",
+   "ps": "a brown ice cream cone with a swirl of vanilla ice cream on top",
+   "sc": "a brown ice cream cone with a swirl of vanilla ice cream on top",
+   "check": "Is there a solid shape with a circular base that narrows to a point?",
+   "cap": "a crunchy sweet treat held upright",
+   "key": "pointed top narrowing from a round base; the cone's brown waffle texture",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "confer#v": {
    "ex": "A university degree confers certain advantages in the job market.",
@@ -34256,17 +34268,17 @@
   },
   "grip#v": {
    "ex": "The new manager quickly got a firm grip on the company's finances.",
-   "ps": "a man grasps a thick wooden lever tightly while a large pile of coins rises",
-   "sc": "a man grasps a thick wooden lever tightly while a large pile of coins rises",
-   "check": "Is the person holding the lever firmly as the money pile lifts?",
-   "cap": "a man pulls a lever that lifts a heap of coins",
-   "key": "a thick wooden lever being tightly held; a large pile of coins rising",
+   "ps": "a woman grips a large steering wheel of a car with both hands",
+   "sc": "a woman grips a large steering wheel of a car with both hands",
+   "check": "Is a person holding a steering wheel tightly with both hands?",
+   "cap": "a woman holding a car steering wheel firmly",
+   "key": "both hands tightly wrapped around a large steering wheel; the woman's clenched forearms",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "gripping#adj": {
    "ex": "It was such a gripping novel that I finished it in one night.",
@@ -64618,6 +64630,10 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "responsive design#n": {
+   "skip": "cannot illustrate without showing prohibited screen devices",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "rest break#n": {
    "ex": "Workers are entitled to a 20-minute rest break if they work more than six hours.",
    "ps": "a woman sits on a bench outside, sipping coffee during a short pause",
@@ -65168,6 +65184,19 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "revolutionary#adj": {
+   "ex": "The smartphone was a revolutionary invention that changed how people communicate.",
+   "ps": "a sleek modern car drives past an old horse-drawn carriage while onlookers gasp",
+   "sc": "a sleek modern car drives past an old horse-drawn carriage while onlookers gasp",
+   "check": "Is the new vehicle clearly different and causing excitement compared to the old one?",
+   "cap": "a modern car speeds by an old horse carriage, people amazed",
+   "key": "a modern car beside an old horse carriage; onlookers' amazed faces",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3
   },
   "revolutionize#v": {
    "ex": "Smartphones have revolutionized the way we do business with customers.",
@@ -73403,15 +73432,17 @@
   },
   "summarize#v": {
    "ex": "Summarize the article in about fifty words.",
-   "ps": "a woman reads a thick article, then writes a short paragraph on a notepad",
-   "sc": "a woman reads a thick article, then writes a short paragraph on a notepad",
-   "check": "Is the woman turning a long article into a brief note?",
-   "cap": "woman condensing a long article into a brief note",
+   "ps": "a woman holds a long rolled scroll in one hand and a short scroll in the other, pointing between them",
+   "sc": "a woman holds a long rolled scroll in one hand and a short scroll in the other, pointing between them",
+   "check": "Is the person showing a short version of a longer text?",
+   "cap": "a woman comparing a long scroll with a short one",
+   "key": "a long rolled scroll; a short rolled scroll",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "up": "e4"
+   "tries": 3,
+   "refix": 1
   },
   "summary#n": {
    "ex": "Write a short summary of the article.",
@@ -75431,6 +75462,10 @@
    "who": 2,
    "draw": 4,
    "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "tender#n": {
+   "skip": "hard to show a formal offer without prohibited writing or symbols",
    "by": "@cf/openai/gpt-oss-120b"
   },
   "tense#adj": {
