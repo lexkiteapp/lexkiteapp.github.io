@@ -142,7 +142,8 @@
     document.querySelectorAll('meta[name=theme-color]').forEach(m => { if (!m.dataset.c) m.dataset.c = m.content; m.content = bg || m.dataset.c; });
     if (!(o && o.remote)) try { const ls = localStorage; if ((ls.getItem('lk.theme') || 'auto') !== t || !ls.getItem('lk.themeAt')) { if (F) ls.setItem('lk.theme', t); else ls.removeItem('lk.theme'); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
   }
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (state.settings.theme === 'auto') fadeTheme(); });
+  { const mq = matchMedia('(prefers-color-scheme: dark)'), f = () => { if (state.settings.theme === 'auto') fadeTheme(); }; // Safari < 14: chỉ có addListener – không để app.js chết
+    if (mq && mq.addEventListener) mq.addEventListener('change', f); else if (mq && mq.addListener) mq.addListener(f); }
   addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' ? e.newValue : 'auto'; applyTheme({ remote: 1 }); } });
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
