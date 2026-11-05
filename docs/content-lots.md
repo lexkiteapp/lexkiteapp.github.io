@@ -11,15 +11,15 @@
 - Ngân sách: ≤ 150k context/phiên; viết theo khúc ~20 mục, chạy cổng sau mỗi khúc; gần trần → ghi bàn giao vào PR rồi dừng.
 - Opus soát ≥ 10 % mẫu mỗi lô (ghi `content/qa/batches/<id>.json` `checked`), sai > 2 % → trả lô.
 
-## Việc Opus làm trước (mở khoá lô)
-| Id | Việc | Mở khoá | TT |
+## Việc Opus làm trước (mở khóa lô)
+| Id | Việc | Mở khóa | TT |
 |---|---|---|---|
 | O1 | P0.2: `sense-check` + spec `specs/sense-v2.md` + lô gold 100 từ | S-SENSE | ⏳ (phiên content-audit 3/11) |
-| O2 | Cambridge: định dạng `web/js/cambridge/<cấp>/t<N>.js`, nạp vào `exam-format-check` theo spec `cam-*`, đề gold A2 t1 | S-CAM | ☐ |
+| O2 | Cambridge: định dạng `web/js/cambridge/<cấp>/t<N>.js`, nạp vào `exam-format-check` theo spec `cam-*`, đề gold A2 t1 | S-CAM | ✅ 05/11 (`specs/cambridge.md`) |
 | O3 | Trung gian: spec + `mediation-check` + 2 bài gold `content/mediation/*.json` + đăng ký `sources.json` | S-MED | ☐ |
 | O4 | Viết band 6/7: trường `band`, `whyUp` + loader + cổng; 2 bài gold | S-W67 | ☐ |
 | O5 | P0.6: `scripts/i18n-native-score.mjs` (dịch ngược + giám khảo 1–5) + 3 bài ngữ pháp gốc en mẫu | S-EN | ☐ |
-| O6 | CQ5 tách chữ vi-only ra khoá dịch (TOEIC S&W, TOEFL CW `explain[]`, readings, quiz ngữ pháp, gloss mẫu nói, pron `tip`) | S-EN, dịch | ☐ |
+| O6 | CQ5 tách chữ vi-only ra khóa dịch (TOEIC S&W, TOEFL CW `explain[]`, readings, quiz ngữ pháp, gloss mẫu nói, pron `tip`) | S-EN, dịch | ☐ |
 
 ## Lô Sonnet (xếp theo điểm tổng ÷ công; điểm = phần tổng SCORE /100 khi lô xong)
 | # | Id | Thành phần SCORE | File riêng của lô | Mẫu chuẩn | Cổng phải xanh | Số mục | Token ~ | +điểm | Chặn bởi |
@@ -38,3 +38,13 @@
 | 12 | S-SKILL | Đọc ngắn A1/C2, bài đọc, nghe, chủ đề nói + mẫu (có CEFR, band) | `web/js/read/lot-<n>.js`, `web/js/listen/lot-<n>.js`, `web/js/speak/lot-<n>.js` | bài hiện có | content-check, exam-format | ~500 | 80k/lô | +4,5 | – |
 
 Không phải lô Sonnet (tầng 0/CI, chạy đêm): từ#loại 20k (`lexicon-expand.yml`, +1,94), ảnh theo nghĩa (+1,81, CF_POOL ≤ 0,6), gói nghĩa 13 ngôn ngữ (`lexicon-i18n.yml`, +1,69), collocation/đồng nghĩa/IPA Mỹ tầng 0 (≈ +0,5 cho 9.148 mục có sẵn), C2 (+1,03). Sổ mẫu câu chức năng (+2,86) + trắc nghiệm/tự luận ngữ pháp (+3,37) = xưởng #429; mục gold (+2,21) = #427/#430 – sau khi gộp mới giao Sonnet phần còn lại.
+
+## Brief lô S-CAM-A2-1 (Sonnet, dán nguyên khối)
+- Việc: viết 3 đề A2 Key mới `web/js/cambridge/a2/t2.js`, `t3.js`, `t4.js` theo đúng mẫu gold `web/js/cambridge/a2/t1.js` + `docs/specs/cambridge.md` §1. Nhánh `lot/s-cam-a2-1` trên main mới nhất của lexkiteapp (`git fetch real main`), 1 PR.
+- Chỉ ghi: 3 file đề + thêm 3 đường dẫn vào gói `cambridge` trong `web/js/app.js` (đúng 1 dòng đó). Không sửa cổng, spec, rubric, content-score.
+- Mỗi đề đủ 3 bài: R&W 30 câu + Part 6 email (≥ 25 từ, 3 ý + checks) + Part 7 picture story (≥ 35 từ, 3 tranh); Listening 25 câu (5 phần, script đủ người nói, giọng `en-GB`); Speaking 2 phần có câu mẫu.
+- Chủ đề khác t1 và khác nhau (gợi ý: du lịch & giao thông · mua sắm & quần áo · sức khoẻ & thể thao · nhà & gia đình · công việc & nghề · công nghệ hằng ngày). Từ vựng/ngữ pháp đúng A2 (English Vocabulary Profile A1–A2), câu ngắn, giọng tự nhiên như giáo viên bản xứ; KHÔNG chép đề/sách.
+- Đáp án phân bố đều A/B/C; phương án nhiễu phải được nhắc trong bài/lời thoại nhưng sai rõ ràng (một đáp án duy nhất). `cue` = cụm nguyên văn; `explain` tiếng Anh A2, nói vì sao đúng và vì sao phương án nhiễu sai.
+- Cổng phải xanh trước PR: `node scripts/content-qa/exam-format-check.mjs`, `node scripts/test/cambridge.mjs`, `node scripts/content-qa/gate.mjs`, `node scripts/content-score.mjs` (ghi điểm Đề thi trước → sau vào PR). Không thêm dòng vào `deviations.json`.
+- Viết theo khúc: 1 đề → chạy cổng → đề kế. Gần trần context: ghi bàn giao vào PR rồi dừng. Audio: CI `audio.yml` sau khi gộp.
+

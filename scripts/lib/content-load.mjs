@@ -12,6 +12,10 @@ export function loadContent() {
   // grammar: đúng thứ tự app nạp (web/js/app.js) – drills-*.js gắn bài tập vào chương đã có
   const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'bank-gen', 'check'];
   for (const d of DATA_DIRS) for (const f of fs.readdirSync(path.join(W, d)).sort((a, b) => d === 'grammar' ? (GORDER.indexOf(a.slice(0, -3)) + 1 || 99) - (GORDER.indexOf(b.slice(0, -3)) + 1 || 99) : a < b ? -1 : 1)) if (f.endsWith('.js')) files.push(d + '/' + f);
+  // Cambridge A2–C2 (docs/specs/cambridge.md): web/js/cambridge/<cấp>/t<N>.js → self.CAMBRIDGE
+  const CAM = path.join(W, 'cambridge');
+  if (fs.existsSync(path.join(CAM, 'rubric.js'))) files.push('cambridge/rubric.js');
+  if (fs.existsSync(CAM)) for (const l of fs.readdirSync(CAM).filter(x => /^(a2|b1|b2|c1|c2)$/.test(x)).sort()) for (const f of fs.readdirSync(path.join(CAM, l)).filter(x => /^t\d+\.js$/.test(x)).sort((a, b) => parseInt(a.slice(1)) - parseInt(b.slice(1)))) files.push(`cambridge/${l}/${f}`);
   for (const f of files) { try { vm.runInContext(fs.readFileSync(path.join(W, f), 'utf8'), ctx, { filename: f }); } catch (e) { ctx.__errors = [...(ctx.__errors || []), f + ': ' + e.message]; } }
   return ctx;
 }

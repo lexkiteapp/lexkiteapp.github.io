@@ -5,6 +5,10 @@
    "pct": 100,
    "missing": 0
   },
+  "cambridge-listening": {
+   "pct": 0,
+   "missing": 66
+  },
   "lesson-stories": {
    "pct": 100,
    "missing": 0
@@ -12,6 +16,10 @@
   "calls": {
    "pct": 100,
    "missing": 0
+  },
+  "cambridge-speaking": {
+   "pct": 0,
+   "missing": 20
   },
   "toefl-speaking": {
    "pct": 100,
