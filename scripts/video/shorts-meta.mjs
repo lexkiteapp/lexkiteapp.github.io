@@ -26,6 +26,8 @@ export function fillMeta(items, { lessonOf, pages = new Map() }) {
     if (P.keyword) it.keyword = P.keyword;
     if (P.value) it.value = P.value;
     if (Array.isArray(P.hashtags) && P.hashtags.length) it.hashtags = P.hashtags;
+    if (typeof P.first_comment === 'string' && P.first_comment.includes('{link}')) it.first_comment = P.first_comment; // bình luận đầu viết lúc sản xuất (functions/api/_first_comment.js)
+    const lang = String(P.lang || L.lang || '').toLowerCase(); if (/^[a-z]{2}$/.test(lang)) it.lang = lang; // ngôn ngữ người học của clip → đúng fanpage (_distribution.js langOfChannel); trống = 'en' (page chung)
     for (const [k, v] of [['point', L.point], ['cefr', L.cefr], ['area', L.area]]) if (!it[k] && v) it[k] = v;
     const hook = hookOf(L.hook_type); if (!it.hook && hook) it.hook = hook;
     if (page && page.slug) it.slug = page.slug;

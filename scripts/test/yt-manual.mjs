@@ -189,7 +189,7 @@ ok(bad.status === 403, 'unsigned sync refused');
   for (let i = 0; i < 30 && !box.querySelector('.vid-ytc'); i++) await new Promise(res => setTimeout(res, 10));
   const card = id => box.querySelector(`.vid-ytc[data-id="${id}"]`), R = card('cafe-r');
   ok(R && R.querySelector('a[data-dl]').getAttribute('href').endsWith('&dl=1'), 'card: Tải gói link');
-  ok(R && R.querySelectorAll('[data-cp]').length === 3 && R.querySelectorAll('.vid-ck input').length === 6, 'card: 3 copy buttons + 6-step checklist');
+  ok(R && R.querySelectorAll('[data-cp]').length === 4 && R.querySelector('[data-cp=hashtags]') && !R.querySelector('[data-cp=at]') && R.querySelectorAll('.vid-ck input').length === 6, 'card: 4 copy buttons (title/desc/tags/hashtags; no schedule copy without a plan) + 6-step checklist');
   ok(R && [...R.querySelectorAll('a')].some(a => a.textContent.includes('Mở YouTube Studio') && a.href.startsWith('https://studio.youtube.com/') && a.rel === 'noopener'), 'card: Open YouTube Studio');
   ok(R && !R.innerHTML.includes('<b>coffee</b>'), 'card: titles escaped');
   ok(/Sẵn sàng đăng/.test(R.textContent) && /Đã đăng \(dò thấy\)/.test(card('cafe-p').textContent) && /Trên web/.test(card('cafe-l').textContent), 'states: ready / uploaded / live (from videos.json)');
