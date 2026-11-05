@@ -263,3 +263,4 @@ node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
 node scripts/test/ext-newtab-quiz.mjs
+node scripts/test/samples-seo-parity.mjs --self-test
