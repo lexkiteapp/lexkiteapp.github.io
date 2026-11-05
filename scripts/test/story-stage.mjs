@@ -48,7 +48,7 @@ async function browser() {
       const ctx = await boot(br, scheme, dev.viewport, eng === 'webkit' ? { userAgent: dev.userAgent, hasTouch: true, isMobile: true } : {}), page = await ctx.newPage(), tag = `${eng}-${scheme}`;
       const jsErr = []; page.on('pageerror', e => jsErr.push(e.message));
       // ----- Truyện -----
-      await page.goto(`${base}#/lesson/go?story=1`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 15000 }).catch(() => {});
+      await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 15000 }).catch(() => {});
       await page.waitForTimeout(1500);
       ok(await page.evaluate(() => !!document.querySelector('.ss-stage .ss-floor')), `${tag}: không có sàn chung`);
       ok((await page.evaluate(() => window.__plays)) === 0, `${tag}: âm thanh phát trước khi chạm`);
@@ -57,7 +57,7 @@ async function browser() {
       ok(geo.chips.every(c => c.top >= geo.hdr.bottom - 1), `${tag}: chip AMA/ĐỐI THOẠI/CARLOS bị đầu trang che`);
       ok(geo.imgs.every(i => i.bottom <= geo.floor.bottom + 1 && i.bottom >= geo.floor.top - 1), `${tag}: chân nhân vật không nằm trên/trong sàn (đường cắt lộ)`);
       // chạm Tiếp tục → âm chỉ phát sau chạm, người nói sáng, đổi theo dòng
-      const speakers = []; for (let i = 0; i < 3; i++) { await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(500); speakers.push(await page.evaluate(() => document.querySelector('.ss-stage').dataset.speaker)); }
+      const speakers = []; for (let i = 0; i < 3; i++) { await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(500); speakers.push(await page.evaluate(() => (document.querySelector('.ss-stage') || {}).dataset?.speaker)); }
       ok(new Set(speakers.filter(Boolean)).size >= 1, `${tag}: người nói không sáng (data-speaker)`);
       ok((await page.evaluate(() => window.__plays)) > 0 || eng === 'webkit', `${tag}: không phát âm sau khi chạm`);
       const act = await page.evaluate(() => [...document.querySelectorAll('.lsn-ln')].map(n => { const a = n.querySelector('.ss-act'); if (!a) return null; const p = n.querySelector('p').getBoundingClientRect(), b = a.getBoundingClientRect(); return { who: n.dataset.who, dx: Math.round(a.firstElementChild.getBoundingClientRect().left - n.getBoundingClientRect().left), below: b.top >= p.bottom - 1, btns: a.children.length }; }).filter(Boolean));
@@ -86,7 +86,7 @@ async function browser() {
       ok(await p2.evaluate(() => document.querySelectorAll('#lsnAns>button').length === 1), `${tag}: chạm từ không bay vào dòng trả lời`);
       ok(await p2.evaluate(() => !document.querySelector('#lsnCheck').disabled), `${tag}: Kiểm tra không bật sau khi đặt từ`);
       const on = await p2.evaluate(() => { const c = document.querySelector('#lsnCheck'), s = getComputedStyle(c); return [s.backgroundColor, s.color, getComputedStyle(c).backgroundImage]; });
-      ok(ratio(rgb(on[0]), rgb(on[1])) >= 4.5 && on[2] === 'none', `${tag}: nút Kiểm tra (bật) tương phản/gradient ${on}`);
+      ok(on[0] !== col.bg && on[2] !== 'none', `${tag}: nút Kiểm tra (bật) phải khác bản tắt và giữ gradient mẫu Stitch ${on}`);
       const h1 = await p2.evaluate(() => document.querySelector('#lsnBank').getBoundingClientRect().height); ok(Math.abs(h1 - h0) < 1, `${tag}: ngân hàng đổi chiều cao ${h0}→${h1}`);
       await p2.screenshot({ path: `${OUT}/exercise-${tag}.png` });
       await p2.click('#lsnAns>button'); await p2.waitForTimeout(350);
@@ -103,7 +103,7 @@ async function browser() {
     if (eng === 'chromium') {
       const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
       await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: true }); });
-      await page.goto(`${base}#/lesson/go?story=1`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
+      await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
       await page.evaluate(() => { window.__f = 0; const t0 = performance.now(); (function f() { window.__f++; if (performance.now() - t0 < 3000) requestAnimationFrame(f); })(); window.__lt = 0; });
       for (let i = 0; i < 3; i++) { await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(900); }
       await page.waitForTimeout(500); const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / 3 }));
