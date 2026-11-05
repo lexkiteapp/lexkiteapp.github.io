@@ -258,9 +258,10 @@ export const ROWS = [
    "CWS_REFRESH_TOKEN",
    "CWS_PUBLISHER_ID",
    "CWS_EXTENSION_ID",
-   "OTA_SIGNING_KEY"
+   "OTA_SIGNING_KEY",
+   "PLAY_SERVICE_ACCOUNT_JSON"
   ],
-  "scope": "Phát hành TestFlight, Play, CWS; ký OTA",
+  "scope": "Phát hành TestFlight, Play, CWS; ký OTA; đọc đánh giá App Store/Play (store-reviews.yml – PLAY_SERVICE_ACCOUNT_JSON chưa tạo)",
   "manage": "https://appstoreconnect.apple.com/",
   "expires": "",
   "note": ""
