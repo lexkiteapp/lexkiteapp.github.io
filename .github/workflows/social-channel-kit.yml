@@ -1,4 +1,4 @@
-# 📣 Bộ ảnh KÊNH social tiếng Anh (avatar + bìa FB/IG/TikTok/YouTube, watermark, mẫu thumbnail) – brand/social/channel-kit/README.md
+# Social channel kit. Bộ ảnh KÊNH social tiếng Anh (avatar + bìa FB/IG/TikTok/YouTube, watermark, mẫu thumbnail) – brand/social/channel-kit/README.md
 # Dựng bằng Chromium (scripts/social/build-channel-kit.mjs) + cổng QC (kích thước, vùng an toàn crop tròn/điện thoại/TV, tương phản ≥ 4.5:1,
 # cỡ chữ, chữ đè giáo viên, không tiếng Việt, dung lượng, logo nguyên bản). PNG → artifact bot-output-channel-kit (không đẩy vào nhánh PR):
 #   bash scripts/ci/bot-output.sh channel-kit   rồi tự commit.
