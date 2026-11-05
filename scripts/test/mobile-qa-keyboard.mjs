@@ -111,7 +111,10 @@ for (const vp of VPS) for (const mode of ['visual', 'content']) {
       if (want) await page.waitForSelector(want[1].source.includes('essay') ? '#essay' : '#view #q, #view input', { state: 'visible', timeout: 10000 }).catch(() => {});
       const list = await page.evaluate(LIST);
       if (want && !list.some(k => want[1].test(k))) errs.push(`${vp.w} ${mode} #/${route}: chưa thấy ô chính – ` + await page.evaluate(() => `hash ${location.hash} · body.${[...document.body.classList].join('.')} · ` + (document.querySelector('#view') || document.body).innerText.replace(/\s+/g, ' ').slice(0, 220)).catch(e => e.message));
-      for (let i = 0; i < Math.min(list.length, MAX_PER_ROUTE); i++) {
+      // ô chính của trang (Phòng viết #essay, tra từ #q, #gq) luôn được kiểm, rồi tới các ô khác – tối đa MAX_PER_ROUTE
+      const must = MUST.filter(([r]) => r === route || r === '*').map(m => m[1]);
+      const order = [...list.keys()].sort((a, b) => must.some(re => re.test(list[b])) - must.some(re => re.test(list[a])) || a - b).slice(0, Math.max(MAX_PER_ROUTE, list.filter(k => must.some(re => re.test(k))).length));
+      for (const i of order) {
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h - kbPx });
         const r = await page.evaluate(probe, [i, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h });
