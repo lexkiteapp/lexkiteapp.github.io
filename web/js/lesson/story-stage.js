@@ -11,13 +11,13 @@
 
   function attach(root, ctx) {
     const stage = root.querySelector('.ss-stage'), chat = root.querySelector('#lsnChat'); if (!stage || !chat) return null;
-    root.classList.add('ss'); let cur = '', dead = false, pop = null, seen = true;
+    root.classList.add('ss'); let cur = '', owner = '', dead = false, pop = null, seen = true; // owner = người của dòng hiện hành
     const seats = { ama: stage.querySelector('[data-who="ama"]'), carlos: stage.querySelector('[data-who="carlos"]') };
     if (FLIP.ama) seats.ama.style.transform += ' scaleX(-1)'; if (FLIP.carlos) seats.carlos.style.transform += ' scaleX(-1)';
     const tch = () => ctx.teachers() || {};
     // dừng/chạy video vòng nghe của người đó (bắt lúc mount, ui.js duoMount): khung không đổi nên canvas ngừng vẽ; người nói thì say() tự bật vòng nói
     const park = (who, on) => { const v = (ctx.vids() || {})[who] || []; try { if (on) v.forEach(x => { if (!x.paused) x.pause(); }); else if (v[0] && v[0].paused && v[0].readyState > 1) v[0].play().catch(() => {}); } catch (e) { /* bỏ qua */ } };
-    const sync = () => { ['ama', 'carlos'].forEach(k => { const on = !cur || cur === k; seats[k].classList.toggle('on', cur === k); park(k, !seen || D.hidden || !on); }); };
+    const sync = () => { ['ama', 'carlos'].forEach(k => { const on = cur ? cur === k : (!owner || owner === k); // đang nói: chỉ người nói chạy; im: chỉ chủ dòng hiện hành chạy vòng nghe, người kia đứng yên (nửa chi phí vẽ) seats[k].classList.toggle('on', cur === k); park(k, !seen || D.hidden || !on); }); };
     // ngoài màn / tab ẩn → dừng hẳn vòng vẽ (không tốn CPU); IntersectionObserver không có → coi như đang thấy
     let io = null; if (g.IntersectionObserver) { io = new IntersectionObserver(es => { seen = es[es.length - 1].isIntersecting; sync(); }, { threshold: 0.01 }); io.observe(stage); }
     const vis = () => sync(); D.addEventListener('visibilitychange', vis);
@@ -28,7 +28,7 @@
     function speaker(who) { cur = who || ''; stage.dataset.speaker = cur; talking = !!cur; root.querySelectorAll('.lsn-ln').forEach(n => n.classList.toggle('ss-cur', !!cur && n === chat.lastElementChild && n.dataset.who === cur)); sync(); }
     // mỗi dòng mới: 🔊 và 🐢 cùng hàng (đầu dòng, dưới chữ) cho cả hai người; hiện nhẹ
     function line(n, it) {
-      const play = n.querySelector('button'); if (!play || n.querySelector('.ss-act')) return;
+      const play = n.querySelector('button'); if (!play || n.querySelector('.ss-act')) return; owner = it.who === 'carlos' ? 'carlos' : 'ama'; sync();
       const act = D.createElement('div'); act.className = 'ss-act'; const slow = D.createElement('button'); slow.type = 'button'; slow.className = 'ss-slow';
       slow.setAttribute('aria-label', T('Nghe chậm') + ' · ' + (it.who === 'carlos' ? 'Carlos' : 'Ama')); slow.innerHTML = '<span aria-hidden="true">🐢</span>'; slow.onclick = ev => { ev.stopPropagation(); ctx.say(it.sent, true, it.who); };
       const bub = play.parentNode, p = bub.querySelector('p'), col = D.createElement('div'); col.className = 'ss-col'; if (p) { bub.insertBefore(col, p); col.appendChild(p); } else bub.appendChild(col); col.appendChild(act); act.appendChild(play); act.appendChild(slow); play.classList.remove('order-last', 'order-first'); // chữ ở trên, hàng 🔊 + 🐢 ngay dưới (cùng chỗ cho cả hai người)

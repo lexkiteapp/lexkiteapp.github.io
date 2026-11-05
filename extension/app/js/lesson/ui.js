@@ -301,7 +301,7 @@
     // sân khấu: CSS + JS tải lười (không vào khung app); khung ẩn tới khi CSS về (≤1,5 s) → không nhảy bố cục
     root.style.visibility = 'hidden'; const shown = () => { root.style.visibility = ''; }; root.addEventListener('pointerdown', () => { if (L) L.tapped = true; }, { capture: true, once: true }); // truyện chỉ cất tiếng sau lần chạm đầu (🔊, 🐢, Tiếp tục, sân khấu)
     Promise.all([App.loadCss ? App.loadCss('css/story-stage.css') : 0, App.loadScript ? App.loadScript('js/lesson/story-stage.js') : 0]).catch(() => 0).then(() => { if (!L || L.dead || !window.StoryStage || !L.teachers) { shown(); return; } L.ss = StoryStage.attach(root, { say: (x, slow, who) => say(x, slow, who), teachers: () => L && L.teachers, vids: () => (L && L.vids) || {} }); const last = $('#lsnChat').lastElementChild; if (L.ss && last && last.dataset.who) L.ss.line(last, L.log[L.log.length - 1] || { who: last.dataset.who, sent: '' }); shown(); }); // khung hiện sau khi dòng đầu đã dựng 🔊/🐢 → không dịch bố cục (CLS 0)
-    setTimeout(shown, 1600);
+    setTimeout(shown, 4000); // dự phòng mạng chậm (CSS/JS lười chưa về): quá 4 s thì hiện luôn
     const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
     const og = $('#lsnBody'); L.tplq = { on: og.children[0], off: og.children[1] }; og.textContent = ''; L.qblk = view.querySelector('.lsn-qblk'); L.qfootEl = view.querySelector('.lsn-qfoot'); L.qblk.style.display = og.style.display = 'none'; // khuôn thẻ đáp án (đã chọn / chưa) lấy từ mẫu; khối câu hỏi chỉ hiện ở bước kiểm
     chat.querySelectorAll('.lsn-ln button').forEach((b, i) => { b.onclick = () => say(L.log[i].sent, false, L.log[i].who); });
