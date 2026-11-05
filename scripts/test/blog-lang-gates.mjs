@@ -15,4 +15,10 @@ assert.equal(run({ factChecked: '2026-10-20', body: 'Klicken Sie auf „Nghe 1 l
 assert.equal(run({ factChecked: '2026-10-20', body: 'Klicken Sie auf „Nghe 1 lần“.\n' }).e('lang-mix').length, 0, 'bài cũ: không lỗi');
 assert.equal(run().e('lang-mix').length + run().e('lang-link').length, 0, 'bài de sạch không bị bắt');
 assert.ok(run({ cover: 'path', coverAlt: 'Ein TOEIC-Kandidat mit Stoppuhr übt Part 5' }).e('cover-truth').length >= 1, 'coverAlt tả sai ảnh bìa (path = lộ trình IELTS) phải lỗi');
-console.log('✓ blog-lang-gates: lang-link, lang-mix (lỗi/cảnh báo theo factChecked), cover-truth');
+assert.equal(run({ body: 'Siehe [Wortschatz](/vocabulary/).\n' }).e('dead-link').length, 1, '/vocabulary/ không được build → lỗi');
+assert.equal(run({ body: 'Siehe [Wortschatz](/de/vocabulary/).\n' }).e('dead-link').length, 1, '/de/vocabulary/ không tồn tại → lỗi');
+assert.equal(run({ body: 'Siehe [Speaking](/speaking/).\n' }).e('lang-link').length, 1, '/speaking/ là trang tiếng Việt → lỗi trong bài de');
+assert.equal(run({ body: 'Siehe [Speaking](/en/speaking/) und [Muster](/en/samples/).\n' }).e('dead-link').length + run({ body: 'Siehe [Speaking](/en/speaking/).\n' }).e('lang-link').length, 0, '/en/speaking/, /en/samples/ hợp lệ');
+assert.equal(run({ lang: 'vi', body: 'Xem [mẫu](/samples/) và [ngữ pháp](/ngu-phap/).\n' }).e('lang-link').length + run({ lang: 'vi', body: 'Xem [mẫu](/samples/).\n' }).e('dead-link').length, 0, 'bài vi được trỏ trang tĩnh tiếng Việt');
+assert.equal(run({ factChecked: '2026-10-20', body: 'Siehe [Wortschatz](/de/vocabulary/).\n' }).w('dead-link').length, 1, 'bài cũ: link chết chỉ cảnh báo');
+console.log('✓ blog-lang-gates: dead-link, lang-link, lang-mix (lỗi/cảnh báo theo factChecked), cover-truth');

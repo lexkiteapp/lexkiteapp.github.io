@@ -134,6 +134,13 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
     // Lô B5-R2 (5/11/2026): bài ngôn ngữ khác mang nhãn/alt tiếng Việt, trỏ /tu-vung/ (trang tiếng Việt), coverAlt tả sai ảnh bìa.
     // Bài duyệt từ 5/11/2026 (factChecked ≥ LANG_GATE_FROM) → lỗi; bài cũ (112 bài hàng chờ + 51 bài live) → cảnh báo để sửa dần.
     { const EF = String(p.factChecked || '') >= LANG_GATE_FROM ? E : W;
+      // Trang tĩnh thật: /en/{vocabulary,samples,speaking,grammar}/ và bản vi /tu-vung/, /samples/, /speaking/, /ngu-phap/ (build-landing.mjs).
+      // /vocabulary/, /<xx≠en>/vocabulary/ … không được build → 404; bài ngôn ngữ khác không trỏ trang tĩnh tiếng Việt.
+      for (const m of body.matchAll(/\]\(\/(?:([a-z]{2})\/)?(vocabulary|samples|speaking|grammar|tu-vung|ngu-phap)\//g)) {
+        const [, pre, sec] = m, viSec = ['tu-vung', 'samples', 'speaking', 'ngu-phap'].includes(sec), enSec = ['vocabulary', 'samples', 'speaking', 'grammar'].includes(sec);
+        if (pre ? pre !== 'en' || !enSec : !viSec) EF('dead-link', `liên kết ${m[0].slice(2)} không tồn tại – dùng /en/${enSec ? sec : 'vocabulary'}/${p.lang === 'vi' ? ' hoặc trang tiếng Việt' : ''}`);
+        else if (!pre && p.lang !== 'vi' && sec !== 'tu-vung') EF('lang-link', `liên kết ${m[0].slice(2)} là trang tiếng Việt – bài ${p.lang} dùng /en/${{ 'ngu-phap': 'grammar' }[sec] || sec}/`);
+      }
       if (p.lang !== 'vi') {
         if (/\]\(\/tu-vung\//.test(body)) E('lang-link', 'liên kết /tu-vung/ là trang tiếng Việt – bài ngôn ngữ khác dùng /en/vocabulary/');
         const VI = /[ươạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđĐ]/;
