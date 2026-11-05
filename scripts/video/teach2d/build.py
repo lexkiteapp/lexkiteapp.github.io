@@ -15,7 +15,7 @@ from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
 sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
-sys.path.insert(0, HERE); from labels import ordinal, stress_quiz   # noqa: E402  (stress ordinals / syllable-position labels from the data)
+sys.path.insert(0, HERE); from labels import ordinal, stress_quiz, frames_of, side_zoom_cap   # noqa: E402  (stress ordinals / syllable-position labels from the data)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -686,7 +686,7 @@ if not FMT['cap']: CAPS = []
 # ---------------- host: speech-gated talk / listen segments (frames), one fixed transform ----------------
 # TeacherRig host (rig_host.mjs, docs/specs/video-production-v2.md §1): ONE continuous clip for the whole video – mouth = the episode's own
 # Rhubarb visemes, no cuts, one host style per video; the registry talk/listen path below stays for geom.json from host.py.
-FPS = o.fps; NF = int(round(TOTAL * FPS)); RIG = 'rig' in HG['clips']
+FPS = o.fps; NF = frames_of(TOTAL, FPS); RIG = 'rig' in HG['clips']
 LEN = dict(rig=NF) if RIG else {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in ('talk', 'listen')}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
 if 'pose' in HG['clips']: LEN['pose'] = int(HG['clips']['pose']['frames'] * FPS / HG['clips']['pose']['fps'] - 0.25 * FPS)   # react: the reaction pose clip (host.py)
 spk = np.zeros(NF, bool)
@@ -736,10 +736,13 @@ HOST = dict(who=EP['teacher'], **(dict(rig='host_rig.webm') if RIG else dict(tal
 if 'pose' in LEN: HOST['pose'] = 'host_pose.webm'   # react reaction pose (TeachShort.jsx plays host[seg.clip])
 # ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.
 # Scale is anchored at the top of the teacher's head, so the head never rises into the captions; source pixels never exceed 1.0x.
-SHOTS = []
+SHOTS = []; CAP_GAP = 12   # px between the zoomed head box and the caption band (qc.py layout 'caption band on the head')
 if SOCIAL and not BB:
     ox, oy = box[0] + (hb[0] + hb[2]) / 2 * k, box[1] + hb[1] * k; side = LAYOUT == 'side'
     FR = [(0, 1.0, 0), (1, 1.07, 60), (2, 1.07, -60)]; cap_s = min(1.12, 1.0 / k)
+    if side and FMT['cap']:   # side: captions sit right of the teacher at head height -> zoom only while the head's right edge stays >= CAP_GAP px
+        hx1 = box[0] + hb[2] * k   # left of the caption band (pilot #679 short/dusk: s 1.12 pushed the head to x 519 > band 510 -> layout FAIL)
+        cap_s = side_zoom_cap(cap_s, ox, hx1, FMT['cap'][0], CAP_GAP)
     ids = [l['id'] for l in EP['lines']]
     for i, lid in enumerate(ids):
         f0 = 0 if i == 0 else int(round(LINES[lid]['t0'] * o.fps)) - 2; f1 = int(round((LINES[ids[i + 1]]['t0'] if i + 1 < len(ids) else TOTAL) * o.fps)) - 2
@@ -835,7 +838,7 @@ if EP['template'] == 'guess':   # picture from content/lexicon/img.json (license
 # ---------------- props + QC timeline ----------------
 props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
-json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
+json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, nf=NF, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
                               quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
                host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'),

@@ -14,6 +14,10 @@ export const POST = 0.15;   // s – and ends POST after its last voiced cue
 export const FIN = 0.08;    // s – the DOM layer calls quiet() dur + 80 ms after speak() (teacher-rig.js setTimeout(fin, dur * 1000 + 80))
 export const BASE = 600000; // ms – page clock (performance.now) at video t = 0 (page.clock.pauseAt(BASE) after install({ time: 0 }))
 const ms = x => Math.floor(x * 1000 + 0.5);   // same rounding in lipsync_gate.py (no banker's rounding)
+/** Frame count – same formula as labels.py frames_of (integer ms half-up, then half-up frames). Math.round(total*fps) vs Python round()
+ *  disagreed on x.5 (pilot #679: 833 vs 832). */
+export const framesOf = (total, fps = FPS) => Math.floor((ms(total) * fps + 500) / 1000);
+export const nfOf = T => (T.nf != null ? T.nf | 0 : framesOf(T.total, T.fps || FPS));
 export const r3 = x => ms(x) / 1000;
 
 /** Ordered timeline lines -> [{ id, t0, t1, text, words, pause, quiz, repeat }] */
@@ -96,7 +100,7 @@ export function schedule(T, lines, B) {
 
 /** Full plan for a timeline + vo dir (Rhubarb vo/<id>.json). */
 export function plan(T, vo) {
-  const lines = linesOf(T), fps = T.fps || FPS, nf = Math.round(T.total * fps);
+  const lines = linesOf(T), fps = T.fps || FPS, nf = nfOf(T);
   const track = cueTrack(lines, id => JSON.parse(fs.readFileSync(path.join(vo, id + '.json'), 'utf8')).mouthCues, T.total);
   const B = blocks(track, T.total), all = schedule(T, lines, B), events = all.filter(e => e.kind !== 'error'), errors = all.filter(e => e.kind === 'error').map(e => e.why);
   const used = posesOf(events.filter(e => e.kind === 'gesture').map(e => e.name));

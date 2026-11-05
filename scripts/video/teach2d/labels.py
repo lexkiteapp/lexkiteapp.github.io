@@ -1,5 +1,7 @@
 """Teach2D on-screen labels derived from the episode data (never hard-coded): stress ordinals + syllable-position quiz options.
 Used by build.py T_stress; regression cases in scripts/test/teach2d-rig.mjs (attend -> 2nd, attendee -> 3rd, referee option REE -> '…-REE')."""
+import math
+
 
 
 def ordinal(i0):
@@ -27,3 +29,23 @@ def stress_quiz(word, quiz):
         labels.append(syl_label(syl, i))
     assert syl[word['stress']].upper() == quiz['options'][quiz['answer']].upper(), ('quiz answer is not the stressed syllable', quiz, syl, word['stress'])
     return labels, quiz['answer']
+
+
+def frames_of(total, fps):
+    """Frame count of a video of `total` seconds – THE one formula (build.py, qc.py, lipsync_gate.py, rig_plan.mjs framesOf).
+    Integer ms (half-up), then half-up frames: no float drift, no banker's rounding (Python round(832.5) = 832, JS Math.round = 833 –
+    pilot #679 phrasal_hangout short failed lipsync_rig 833 vs 832)."""
+    ms = int(math.floor(float(total) * 1000 + 0.5))
+    return (ms * int(fps) + 500) // 1000
+
+
+def nf_of(T):
+    """Frame count of a timeline: the value build.py wrote, else the same formula."""
+    return int(T['nf']) if T.get('nf') is not None else frames_of(T['total'], T['fps'])
+
+
+def side_zoom_cap(cap_s, ox, hx1, cap_x0, gap=12):
+    """Largest camera scale (anchored at x = ox, dx 0) that keeps the head's right edge hx1 at least `gap` px left of the caption band
+    (x0 = cap_x0). Never below 1.0: if the unzoomed head already touches the band, qc.py layout fails it (no hiding by a smaller box)."""
+    if hx1 <= ox: return cap_s
+    return min(cap_s, max(1.0, (cap_x0 - gap - ox) / (hx1 - ox)))

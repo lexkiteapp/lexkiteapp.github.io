@@ -3,7 +3,7 @@
 // regression (build.py T_stress: ordinals and syllable-position quiz labels from the data, not '1st'/'2nd'). Spec: docs/specs/video-production-v2.md §1.
 //   node scripts/test/teach2d-rig.mjs
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import { spawnSync } from 'node:child_process';
-import { ROOT, plan, simulate, cueTrack, linesOf, LONG, PRE } from '../video/teach2d/rig_plan.mjs';
+import { ROOT, plan, simulate, cueTrack, linesOf, LONG, PRE, framesOf, nfOf } from '../video/teach2d/rig_plan.mjs';
 const out = [], ok = (c, m) => { out.push((c ? '✓ ' : '✗ ') + m); if (!c) process.exitCode = 1; };
 const TMP = fs.mkdtempSync(path.join(process.env.TMPDIR || os.tmpdir(), 'teach2d-rig-')), VO = path.join(TMP, 'vo'); fs.mkdirSync(VO);
 const py = (code, input) => { const r = spawnSync('python3', ['-c', code], { cwd: ROOT, input, encoding: 'utf8' }); if (r.status && !r.stdout) console.error(r.stderr); return r; };
@@ -80,6 +80,40 @@ ok(R && R.ord.join() === '1st,2nd,3rd,4th,11th,21st' && R.attend === '2nd' && R.
 ok(R && R.q_attendee[0].join() === 'AT-…,…-DEE' && R.q_photographer[0].join() === 'PHO-…,…-TO-…' && R.q_referee[0].join() === 'RE-…,…-REE' && R.bad_answer === 'rejected',
   `quiz labels by syllable position: attendee ${R && R.q_attendee[0].join(' | ')} · photographer ${R && R.q_photographer[0].join(' | ')} · referee ${R && R.q_referee[0].join(' | ')}; answer ≠ stressed syllable rejected`);
 ok(R && R.eps.length >= 5 && R.eps.every(e => e[2]), `every stress episode labels its answer at the stressed syllable (${R && R.eps.length} eps)`);
+
+// ---- one frame-count formula (pilot #679 run 41953177844: phrasal_hangout short lipsync_rig 833 vs need 832 – JS Math.round vs Python banker's round) ----
+{
+  const TOT = [27.75, 27.749, 27.751, 0.0167, 12.25, 30.05, 7.35, 19.65, 41.15, 3.85];
+  for (let i = 0; i < 300; i++) TOT.push(+(5 + i * 0.0517).toFixed(3));
+  const P = py(`import json,sys; sys.path.insert(0,'scripts/video/teach2d'); from labels import frames_of, nf_of
+T = json.loads(sys.stdin.read()); print(json.dumps(dict(f=[frames_of(t, 30) for t in T], nf=nf_of(dict(total=27.75, fps=30, nf=900)), dflt=nf_of(dict(total=27.75, fps=30)))))`, JSON.stringify(TOT));
+  let Q = null; try { Q = JSON.parse(P.stdout); } catch (e) { console.error(P.stderr); }
+  const js = TOT.map(t => framesOf(t, 30)), diff = Q ? TOT.filter((t, i) => Q.f[i] !== js[i]) : TOT;
+  ok(Q && !diff.length && js[0] === 833 && js[1] === 832, `frames_of (Python) == framesOf (JS) on ${TOT.length} totals incl. x.5 frames (27.75 s → ${js[0]}; differ: ${diff.slice(0, 3).join(',') || 0})`);
+  ok(Q && Q.nf === 900 && Q.dflt === 833 && nfOf({ total: 27.75, fps: 30, nf: 900 }) === 900 && nfOf({ total: 27.75, fps: 30 }) === 833, 'timeline nf (written by build.py) wins on both sides, else the same formula');
+  const src = ['build.py', 'qc.py', 'lipsync_gate.py'].map(f => fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d', f), 'utf8')).join('\n') + fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/rig_plan.mjs'), 'utf8');
+  ok(!/round\(\s*T\['total'\]\s*\*|round\(\s*TOTAL\s*\*|Math\.round\(\s*T\.total\s*\*/.test(src), 'no second frame-count formula left (round(total * fps)) in build/qc/lipsync_gate/rig_plan');
+}
+
+// ---- side layout: camera zoom never pushes the head into the caption band (pilot #679 short/dusk: head x1 519 > band x0 510) ----
+{
+  const Z = py(`import json,sys; sys.path.insert(0,'scripts/video/teach2d'); from labels import side_zoom_cap as z
+ox, hx1, cap0 = 253.1, 490.0, 510
+s = z(1.12, ox, hx1, cap0, 12); print(json.dumps(dict(s=s, edge=ox + (hx1 - ox) * s, old=ox + (hx1 - ox) * 1.12, floor=z(1.12, 253, 505, 510, 12), left=z(1.12, 300, 250, 510, 12))))`);
+  let Zr = null; try { Zr = JSON.parse(Z.stdout); } catch (e) { console.error(Z.stderr); }
+  ok(Zr && Zr.old > 510 && Zr.edge <= 510 - 12 + 1e-6 && Zr.s >= 1 && Zr.floor === 1 && Zr.left === 1.12,
+    `side_zoom_cap: zoom ${Zr && Zr.s.toFixed(3)} keeps head edge ${Zr && Zr.edge.toFixed(1)} ≤ 498 (uncapped 1.12 → ${Zr && Zr.old.toFixed(1)}); never < 1.0; no cap when head is left of the anchor`);
+  const b = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8');
+  ok(/if side and FMT\['cap'\]:[^\n]*\n[^\n]*\n\s*cap_s = side_zoom_cap\(cap_s, ox, hx1, FMT\['cap'\]\[0\], CAP_GAP\)/.test(b), 'build.py side layout clamps the camera with side_zoom_cap before the shots are built');
+}
+
+// ---- determinism failure leaves evidence, threshold stays byte-identical (pilot #679: 7 jobs "60/60 differ, first 0") ----
+{
+  const h = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/rig_host.mjs'), 'utf8'), wf = fs.readFileSync(path.join(ROOT, '.github/workflows/teach-video.yml'), 'utf8');
+  ok(/sha\(fr\.png\) !== shaOf\.get\(f\)/.test(h) && /await diagnose\(diff, again, re\); die\(`not deterministic/.test(h), 'rig_host: re-run must be byte-identical; a miss writes the diagnosis before failing');
+  ok(/full: \{ tilt: s\.tilt, nod: s\.nod, sway: s\.sway, breath: s\.breath/.test(h) && /matches_main/.test(h) && /max_delta/.test(h), 'diagnosis compares idle transforms, pixel deltas and a fresh-process frame 0');
+  ok(/\$\{\{ env\.O \}\}\/rig\.diag\//.test(wf), 'teach-video.yml uploads rig.diag with the render artifact (always)');
+}
 const bsrc = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8');
 ok(!/\['1st', 'accent'\]|\['2nd', 'accent'\]|f"…-\{o\[1\]\}-…"/.test(bsrc), 'build.py T_stress has no hard-coded 1st/2nd or option positions');
 

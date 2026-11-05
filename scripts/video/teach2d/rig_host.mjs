@@ -32,7 +32,8 @@ const PAGE = who => `<!doctype html><meta charset=utf-8><body style="margin:0;ba
 <script>window.__raf=[];window.requestAnimationFrame=cb=>(window.__raf.push(cb),window.__raf.length);window.cancelAnimationFrame=()=>{};</script>
 <script src="js/characters.js"></script><script src="js/teacher-rig.js"></script>
 <script>window.rig=${who ? `TeacherRig.mount(document.getElementById('t'),'${who}')` : 'null'};</script>`;
-const browser = await chromium.launch({ args: ['--disable-gpu', '--force-color-profile=srgb', '--disable-lcd-text'] });
+const LAUNCH = { args: ['--disable-gpu', '--force-color-profile=srgb', '--disable-lcd-text'] };
+let browser = await chromium.launch(LAUNCH);
 const sleep = t => new Promise(r => setTimeout(r, t));
 async function open(who) {
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1, reducedMotion: 'no-preference' }), miss = [];
@@ -104,12 +105,13 @@ const lost = P.poses.filter(p => !G.rig.poses.includes(p)); if (lost.length) die
 /** Drive one page through frames [0, upto): events at their exact ms (page.clock.runFor), pump the rig's frame() at each sample time;
  *  for frames where capture(f): sink(f, { png, bbox, size }) (PNG streamed, never all kept in memory). Returns per-frame state. */
 async function run(upto, capture, sink) {
-  const R = await open(who), { page } = R; let cur = R.base, k = 0, lastDraws = -1, last = null, prevCap = false; const loaded = new Set(), st = [];
+  const R = await open(who), { page } = R; let cur = R.base, k = 0, lastDraws = -1, last = null, prevCap = false; const loaded = new Set(), st = [], full = [];
   const ev = P.events.map(e => ({ ...e, at: R.base + Math.floor(e.t * 1000 + 0.5) }));
   const to = async t => { if (t > cur) { await page.clock.runFor(t - cur); cur = t; } };
   const PUMP = cap => page.evaluate(cap => {
     const cbs = window.__raf.splice(0), now = performance.now(); for (const cb of cbs) cb(now);
-    const s = rig.state(), o = { now, draws: rig.stats.draws, st: { shape: s.shape, pose: s.pose, poseW: s.poseW, emo: s.emo, talking: s.talking } };
+    const s = rig.state(), o = { now, draws: rig.stats.draws, st: { shape: s.shape, pose: s.pose, poseW: s.poseW, emo: s.emo, talking: s.talking },
+      full: { tilt: s.tilt, nod: s.nod, sway: s.sway, breath: s.breath, faceW: s.faceW } };   // idle transforms: not in stateOf, compared only by the determinism diagnosis
     if (cap && cap.draws !== o.draws) {
       const cv = document.querySelector('.trig-cv'), d = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height).data, w = cv.width; let x0 = w, y0 = cv.height, x1 = 0, y1 = 0;
       for (let i = 3, p = 0; i < d.length; i += 4, p++) if (d[i] > 128) { const x = p % w, y = (p - x) / w; if (x < x0) x0 = x; if (x >= x1) x1 = x + 1; if (y < y0) y0 = y; if (y >= y1) y1 = y + 1; }
@@ -134,10 +136,49 @@ async function run(upto, capture, sink) {
       loaded.add(o.st.pose);
     }
     if (cap) { if (o.png) last = { png: Buffer.from(o.png.split(',')[1], 'base64'), bbox: o.bbox, size: o.size }; await sink(f, last); }
-    prevCap = !!cap; lastDraws = o.draws; st.push(stateOf(o.st));
+    prevCap = !!cap; lastDraws = o.draws; st.push(stateOf(o.st)); full.push(o.full);
   }
   if (R.errs.length || R.miss.length) die(`page errors: ${R.errs.slice(0, 3).join(' | ')} missing: ${R.miss.join(' ')}`);
-  const base = R.base; await R.ctx.close(); return { st, base };
+  const base = R.base; await R.ctx.close(); return { st, full, base };
+}
+
+/** Determinism failure → evidence, never a looser gate (pilot #679: 7 jobs "60/60 differ, first 0", same episode green elsewhere).
+ *  Writes $DIAG/diag.json + PNG pairs: (1) idle transforms main vs re-run per frame (state drift = the rig's clock / init, not pixels);
+ *  (2) per differing frame: pixels changed, max channel delta, bbox of the change (raster drift); (3) frame 0 again in a FRESH browser
+ *  process – matches main ⇒ the re-run was poisoned by state shared inside one Chrome (decoded-image cache); matches neither ⇒ raster
+ *  itself is not repeatable. Upload: teach-video.yml render artifact ($O/rig.diag). */
+const DIAG = process.env.RIG_DIAG || path.join(process.env.O || '.', 'rig.diag');
+async function diagnose(diff, again, re) {
+  try {
+    fs.mkdirSync(DIAG, { recursive: true });
+    const keys = ['tilt', 'nod', 'sway', 'breath', 'faceW'], drift = [];
+    re.full.forEach((b, f) => { const a = mainFull[f]; if (!a || !b) return; const d = keys.filter(k => Math.abs((a[k] || 0) - (b[k] || 0)) > 1e-9); if (d.length && drift.length < 8) drift.push({ f, keys: d, main: a, rerun: b }); });
+    const ctx = await browser.newContext({ viewport: { width: 64, height: 64 } }), pg = await ctx.newPage(), px = [];
+    for (const [f, b] of again) {
+      const a = pngOf.get(f); if (!a) continue;
+      fs.writeFileSync(path.join(DIAG, `f${f}-main.png`), a); fs.writeFileSync(path.join(DIAG, `f${f}-rerun.png`), b);
+      px.push({ f, ...(await pg.evaluate(async ([A, B]) => {
+        const dec = async u => { const i = await createImageBitmap(await (await fetch(u)).blob()), c = new OffscreenCanvas(i.width, i.height), x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(i, 0, 0); return x.getImageData(0, 0, i.width, i.height); };
+        const a = await dec(A), b = await dec(B); if (a.width !== b.width || a.height !== b.height) return { size: [a.width, a.height, b.width, b.height] };
+        let n = 0, mx = 0, x0 = a.width, y0 = a.height, x1 = 0, y1 = 0; const ch = [0, 0, 0, 0];
+        for (let i = 0; i < a.data.length; i += 4) { let any = 0; for (let c = 0; c < 4; c++) { const d = Math.abs(a.data[i + c] - b.data[i + c]); if (d) { any = 1; ch[c]++; if (d > mx) mx = d; } }
+          if (any) { n++; const p = i / 4, x = p % a.width, y = (p - x) / a.width; x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x + 1); y1 = Math.max(y1, y + 1); } }
+        return { pixels: n, of: a.width * a.height, max_delta: mx, per_channel: ch, bbox: n ? [x0, y0, x1, y1] : null };
+      }, ['data:image/png;base64,' + a.toString('base64'), 'data:image/png;base64,' + b.toString('base64')])) });
+    }
+    await ctx.close();
+    let fresh = null;   // frame 0 in a new Chrome process (the CI re-run model)
+    try {
+      const old = browser; browser = await chromium.launch(LAUNCH); let got = null;
+      await run(1, f => f === 0, async (f, fr) => { got = fr && fr.png; }); await browser.close(); browser = old;
+      const h = got && sha(got); fresh = { sha: h, matches_main: h === shaOf.get(0), matches_rerun: again.has(0) ? h === sha(again.get(0)) : null };
+      if (got) fs.writeFileSync(path.join(DIAG, 'f0-fresh-process.png'), got);
+    } catch (e) { fresh = { err: String(e).slice(0, 300) }; }
+    const verdict = drift.length ? 'state-drift (idle transforms differ: rig clock/init before pauseAt)' : fresh && fresh.matches_main ? 'shared-process (fresh Chrome == main: cache inside one browser)'
+      : px.length && px.every(p => p.max_delta <= 2) ? 'raster-noise (<= 2/255, no state drift)' : 'raster (pixels differ, state equal)';
+    fs.writeFileSync(path.join(DIAG, 'diag.json'), JSON.stringify({ diff: diff.slice(0, 60), n: diff.length, drift, pixels: px, fresh, verdict, chrome: browser.version() }, null, 1));
+    console.error(`rig_host determinism diagnosis: ${verdict}`);
+  } catch (e) { console.error('rig_host diagnosis failed:', e); }
 }
 
 // main render: every frame → ffmpeg (PNG pipe → VP9 alpha)
@@ -146,14 +187,18 @@ const ff = spawn('ffmpeg', ['-nostdin', '-v', 'error', '-y', '-f', 'image2pipe',
   '-crf', '12', '-b:v', '0', '-auto-alt-ref', '0', '-row-mt', '1', '-an', webm], { stdio: ['pipe', 'inherit', 'inherit'] });
 const ffDone = new Promise((ok, no) => ff.on('close', c => (c ? no(new Error('ffmpeg ' + c)) : ok())));
 const hash = crypto.createHash('sha256'), bb = [W, H, 0, 0]; const shaOf = new Map();
+// frames the determinism check re-renders (decided from the plan before the main run, so their PNGs can be kept for the diagnosis)
+const fpPlan = simulate(P, { base: BASE }).findIndex(x => x.poseW > 0), w2 = Math.max(30, Math.min(P.nf - 30, fpPlan > 0 ? fpPlan : P.nf >> 1)), keep = f => f < 30 || (f >= w2 && f < w2 + 30);
+const pngOf = new Map();
 const main = await run(P.nf, () => true, async (f, fr) => {
   if (!fr) die(`frame ${f} not captured`);
   if (fr.size[0] !== W || fr.size[1] !== H) die(`canvas ${fr.size} != ${W}×${H}`);
-  hash.update(fr.png); shaOf.set(f, sha(fr.png));
+  hash.update(fr.png); shaOf.set(f, sha(fr.png)); if (keep(f)) pngOf.set(f, fr.png);
   if (fr.bbox[2] > fr.bbox[0]) { bb[0] = Math.min(bb[0], fr.bbox[0]); bb[1] = Math.min(bb[1], fr.bbox[1]); bb[2] = Math.max(bb[2], fr.bbox[2]); bb[3] = Math.max(bb[3], fr.bbox[3]); }
   if (!ff.stdin.write(fr.png)) await new Promise(r => ff.stdin.once('drain', r));
 });
 if (shaOf.size !== P.nf) die(`${shaOf.size} frames captured, timeline needs ${P.nf}`);
+const mainFull = main.full;
 ff.stdin.end(); await ffDone;
 const nb = +execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v', '-count_frames', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', webm]).toString().trim();
 if (nb !== P.nf) die(`rig.webm has ${nb} frames, timeline needs ${P.nf}`);
@@ -163,10 +208,9 @@ const sim = simulate(P, { base: main.base }), bad = [];
 main.st.forEach((s, f) => { const c = sim[f]; if (s.shape !== c.shape || s.pose !== c.pose || Math.abs(s.poseW - c.poseW) > 0.002 || s.emo !== c.emo || s.talking !== c.talking) bad.push({ f, page: s, core: c }); });
 if (bad.length) die(`page state != core simulation on ${bad.length} frames, first ${JSON.stringify(bad[0])}`);
 // determinism: a fresh page re-renders frames 0..29 and the 30 frames from the first pose (or the middle) – byte-identical PNGs
-const fp = main.st.findIndex(s => s.poseW > 0), w2 = Math.max(30, Math.min(P.nf - 30, fp > 0 ? fp : P.nf >> 1)), want = f => f < 30 || (f >= w2 && f < w2 + 30);
-const diff = []; let nAgain = 0;
-await run(Math.min(P.nf, w2 + 30), want, async (f, fr) => { nAgain++; if (!fr || sha(fr.png) !== shaOf.get(f)) diff.push(f); });
-if (diff.length || nAgain < Math.min(60, P.nf)) die(`not deterministic: ${diff.length}/${nAgain} re-rendered frames differ (first ${diff[0]})`);
+const want = keep, diff = [], again = new Map(); let nAgain = 0;
+const re = await run(Math.min(P.nf, w2 + 30), want, async (f, fr) => { nAgain++; if (!fr || sha(fr.png) !== shaOf.get(f)) { diff.push(f); if (fr && again.size < 4) again.set(f, fr.png); } });
+if (diff.length || nAgain < Math.min(60, P.nf)) { await diagnose(diff, again, re); die(`not deterministic: ${diff.length}/${nAgain} re-rendered frames differ (first ${diff[0]}) – diagnosis in ${DIAG}`); }
 await browser.close();
 // rendered alpha must stay inside the static geom build.py laid out with
 if (bb[0] < G.bbox[0] - 1 || bb[1] < G.bbox[1] - 1 || bb[2] > G.bbox[2] + 1 || bb[3] > G.bbox[3] + 1) die(`rendered bbox ${bb} leaves the static geom ${G.bbox}`);

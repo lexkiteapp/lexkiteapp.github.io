@@ -184,6 +184,7 @@ jobs:
             ${{ env.O }}/*.log
             ${{ env.O }}/props*.json*
             ${{ env.O }}/rig.frames.json
+            ${{ env.O }}/rig.diag/
           retention-days: 14
   embed:   # in-app embed preview screenshots (light + dark, phone + desktop) of every 16:9 lesson video
     needs: render

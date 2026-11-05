@@ -7,8 +7,9 @@ Reads rig.frames.json (rig_host.mjs: one logged state per video frame) and the e
   cue start – same rule and tolerance as scripts/test/teacher-rig.mjs; Rhubarb letters == rig shapes);
 - silences > 0.35 s: mouth X on every frame fully inside the silence (one frame of margin at the start);
 - no pose weight > 0.5 on a frame where the voice is on (a pose still covers the drawn mouth);
-- frame count == round(total * fps)."""
+- frame count == labels.nf_of(timeline) (the count build.py rendered; half-up, never banker's rounding)."""
 import json, math, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from labels import nf_of   # noqa: E402  one frame-count formula
 
 SHAPES = set('XABCDEFGH')
 TOL, MIN_CUE, SIL = 0.033, 0.05, 0.35
@@ -41,7 +42,7 @@ def cue_track(lines, read, total):
 
 def check(T, F, vo):
     """T timeline, F rig.frames.json, vo Rhubarb dir -> dict(ok, ...)."""
-    fps = T['fps']; nf = int(round(T['total'] * fps)); fr = F.get('frames') or []
+    fps = T['fps']; nf = nf_of(T); fr = F.get('frames') or []
     lines = [(k, v['t0']) for k, v in T['lines'].items()]
     track = cue_track(lines, lambda i: json.load(open(os.path.join(vo, f'{i}.json')))['mouthCues'], T['total'])
     used = F.get('track') or []

@@ -7,6 +7,7 @@ Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == 
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second, no blank frame) – the last two need --video."""
 import argparse, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from labels import nf_of   # noqa: E402  one frame-count formula
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
@@ -44,7 +45,7 @@ if T['format'] == 'short':
     if capw != allw: bad.append(dict(captions='caption tokens != spoken tokens'))
 gate('caption_sync', not bad, 3, bad=bad[:6])
 # mouth: talk frames cover every spoken word, no talk in silences > 0.35 s
-fps = T['fps']; nf = int(round(T['total'] * fps)); talk = [False] * nf
+fps = T['fps']; nf = nf_of(T); talk = [False] * nf
 for s in T['segs']:
     for f in range(s['from'], min(nf, s['from'] + s['dur'])): talk[f] = s['clip'] == 'talk'
 miss = [w['w'] for v in L.values() for w in v['words'] if not all(talk[f] for f in range(int(w['s'] * fps) + 1, max(int(w['s'] * fps) + 2, int(w['e'] * fps))) if f < nf)]
