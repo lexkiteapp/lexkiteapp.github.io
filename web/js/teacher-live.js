@@ -51,12 +51,13 @@
       pend = 0; if (!el.isConnected) return stop();
       if (v.readyState < 2) return;
       const sz = v.videoWidth + 'x' + v.videoHeight;
+      const tu = performance.now();
       if (sz !== alloc) { alloc = sz; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGB, gl.UNSIGNED_BYTE, v);
       gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       // khung ĐẦU: chỉ giấu ảnh tĩnh khi texture thật có hình (WebKit/GStreamer, driver lỗi: video→texture rỗng → ô trống "mất hình"). Đọc 1 hàng giữa, 1 lần.
       if (!el.classList.contains('live')) { const W = cv.width, row = new Uint8Array(W * 4); gl.readPixels(0, cv.height >> 1, W, 1, gl.RGBA, gl.UNSIGNED_BYTE, row); let op = 0; for (let i = 3; i < row.length; i += 4) if (row[i] > 128) op++;
         if (op < 3) { if (++blank >= 3) stop(); return; } el.classList.add('live'); }
-      el.lkFrames = (el.lkFrames || 0) + 1; // cổng teacher-quality: số khung tải lên ≈ khung video, không phải số rAF
+      el.lkFrames = (el.lkFrames || 0) + 1; el.lkMs = Math.max(el.lkMs || 0, performance.now() - tu); // cổng teacher-quality: số khung tải lên ≈ khung video, không phải số rAF
     };
     const rvfc = !!v.requestVideoFrameCallback;
     const next = () => { if (pend || v.paused) return; if (rvfc) pend = v.requestVideoFrameCallback(() => { draw(); next(); }); else { let lt = -1; const f = () => { pend = 0; if (v.paused) return; if (v.currentTime !== lt) { lt = v.currentTime; draw(); } pend = requestAnimationFrame(f); }; pend = requestAnimationFrame(f); } };

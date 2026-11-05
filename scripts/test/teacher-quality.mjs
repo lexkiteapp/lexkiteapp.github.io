@@ -53,7 +53,10 @@ const PROBE = `(() => { const o = document.createElement('canvas'), x = o.getCon
 const results = {};
 for (const name of ['chromium', 'webkit']) {
   const br = await (name === 'chromium' ? pw.chromium.launch({ channel: 'chrome' }).catch(() => pw.chromium.launch()) : pw[name].launch()).catch(e => { console.log(`teacher-quality: không mở được ${name} – ${String(e).split('\n')[0]}`); return null; }); if (!br) { if (name === 'chromium') process.exit(1); continue; }
-  const page = await br.newPage({ viewport: { width: 390, height: 844 } }), perr = [], bytes = { teach: 0 };
+  const page = await br.newPage({ viewport: { width: 390, height: 844 } });
+  // đọc lại canvas WebGL ở task khác (PROBE) cần giữ buffer: không có thì trình duyệt trả buffer đã xoá → "0 điểm đục" giả. Chỉ trong harness.
+  await page.addInitScript(() => { const gc = HTMLCanvasElement.prototype.getContext; HTMLCanvasElement.prototype.getContext = function (t, o) { return gc.call(this, t, /webgl/.test(t) ? { ...(o || {}), preserveDrawingBuffer: true } : o); }; });
+  const perr = [], bytes = { teach: 0 };
   page.on('pageerror', e => perr.push(String(e))); page.on('response', async r => { if (/\/teach\//.test(r.url())) { const b = await r.body().catch(() => null); if (b) bytes.teach += b.length; } });
   await page.goto(BASE + '/__tq.html'); await page.waitForFunction(() => window.Chars && Chars.slot && window.LessonTeacher);
   // (a) 2 chỗ giáo viên IM LẶNG như Home/lộ trình (vòng nghỉ + cử chỉ point) → phải là ảnh tĩnh, 0 video, dung lượng nhỏ
@@ -76,7 +79,7 @@ for (const name of ['chromium', 'webkit']) {
     let worst = { haze: 0, darkPct: 0 };
     for (let k = 0; k < 6; k++) { await page.waitForTimeout(400); for (const m of await page.evaluate(PROBE)) { worst.haze = Math.max(worst.haze, m.haze); worst.darkPct = Math.max(worst.darkPct, m.band ? Math.round(m.dark / m.band * 1000) / 10 : 0); if (m.op < 1000) errs.push(`${name}: canvas giáo viên gần như trống (${m.op} điểm đục) – mất hình`); } }
     const secs = (Date.now() - t0) / 1000, up = (await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => s.lkFrames || 0))).map((n, i) => (n - f0[i]) / secs);
-    Object.assign(res, { haze: worst.haze, darkPct: worst.darkPct, uploadsPerSec: up.map(x => Math.round(x)) });
+    Object.assign(res, { uploadMaxMs: await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => Math.round(s.lkMs || 0))), haze: worst.haze, darkPct: worst.darkPct, uploadsPerSec: up.map(x => Math.round(x)) });
     if (worst.haze > 20) errs.push(`${name}: ${worst.haze} điểm mờ ngoài người (khung xám-đen trên nền sáng) > 20`);
     if (worst.darkPct > 10) errs.push(`${name}: viền tối ${worst.darkPct} % mép > 10 %`);
     if (up.some(x => x > 24 * 1.15 + 2)) errs.push(`${name}: tải texture ${up.map(Math.round)} lần/s > khung video (24/s) – vẽ theo rAF thay vì theo khung mới`);
