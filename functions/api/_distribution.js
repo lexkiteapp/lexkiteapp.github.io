@@ -21,12 +21,13 @@ export function blockOf(cfg, clip) {
   if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return 'topic';
   if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return 'skill';
   if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return 'cefr';
+  if (cfg.lang && String(clip.lang || 'en').toLowerCase() !== String(cfg.lang).toLowerCase()) return 'lang'; // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
   return '';
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
 const condOk = (cond, clip) => Object.entries(cond || {}).every(([k, want]) => {
   const w = list(want).map(x => x.toLowerCase()); if (!w.length) return true;
-  const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : [clip[k]];
+  const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : k === 'lang' ? [clip.lang || 'en'] : [clip[k]];
   return have.some(h => h && w.includes(String(h).toLowerCase()));
 });
 /** rules: [{cond, channel_id, active}] in order; cfgs: {channel_id: cfg}. → {channel_id, rule: index|-1(fallback)} or {channel_id:null, why}. */
@@ -53,10 +54,28 @@ export function routeAll(rules, cfgs, clip, fallback) {
   if (!out.youtube && fallback && allowed(cfgs[fallback], clip)) out.youtube = { channel_id: fallback, rule: -1, platform: 'youtube' };
   return Object.values(out);
 }
-/** Kênh social (gc-*) đang ok mà NỀN TẢNG chưa có luật nào (kể cả luật đã tắt – tắt là chủ ý dừng) → luật "mọi clip" ngầm cho kênh đầu tiên: nối kênh xong là có lịch, không phải tạo luật tay. */
+/** Bộ 16 fanpage Lexkite: 1 page EN chung + 15 page theo ngôn ngữ người học. Tên kênh (GrabCast) → mã ngôn ngữ; không nhận ra = '' (page chung = 'en').
+ *  Khớp tên riêng ngôn ngữ (endonym), tên tiếng Anh, tên tiếng Việt, hoặc mã trong ngoặc/sau gạch: "Lexkite Español", "Lexkite (VI)", "Lexkite – Japanese". */
+const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha'],
+  fr: ['français', 'francais', 'french', 'tiếng pháp'], de: ['deutsch', 'german', 'tiếng đức'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan'], zh: ['中文', '汉语', '漢語', 'chinese', 'trung quốc', 'tiếng trung'],
+  ja: ['日本語', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
+  tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ'], en: ['english', 'global', 'tiếng anh'] };
+export const SOCIAL_LANGS = Object.keys(LANG_NAMES);
+export function langOfChannel(title) {
+  const t = String(title || '').toLowerCase().normalize('NFC'), code = /(?:\(|\[|[-–—|·]\s*)([a-z]{2})(?:\)|\]|\s*$)/.exec(t);
+  if (code && LANG_NAMES[code[1]]) return code[1];
+  for (const [k, names] of Object.entries(LANG_NAMES)) if (names.some(n => t.includes(n))) return k;
+  return '';
+}
+/** Kênh social (gc-*) đang ok mà NỀN TẢNG chưa có luật nào (kể cả luật đã tắt – tắt là chủ ý dừng) → luật ngầm cho TỪNG ngôn ngữ của nền tảng đó:
+ *  mỗi kênh nhận clip cùng ngôn ngữ (cond.lang = cfg.lang, mặc định 'en'); nhiều kênh cùng ngôn ngữ → kênh đầu theo id. Nối kênh xong là có lịch, không phải tạo luật tay,
+ *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
-  const have = new Set((allRules || []).map(r => platformOf(r.channel_id))), out = [];
-  for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) { const p = platformOf(id); if (!have.has(p)) { have.add(p); out.push({ cond: {}, channel_id: id, active: 1 }); } }
+  const have = new Set((allRules || []).map(r => platformOf(r.channel_id))), seen = new Set(), out = [];
+  for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
+    const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
+    if (have.has(p) || seen.has(k)) continue; seen.add(k); out.push({ cond: { lang }, channel_id: id, active: 1 });
+  }
   return out;
 }
 /** Rules editor "test a clip": why each rule wins / misses (off · no-match:<cond> · blocked:<cfg field> · shadowed = platform already taken) + final routes. */

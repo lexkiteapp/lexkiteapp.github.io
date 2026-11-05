@@ -101,5 +101,33 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   ok(hookOf('mistake_callout') === 'mistake' && hookOf('khac') === '' && urlOf({}, null) === 'https://lexkite.com/app/', 'hook/url mặc định');
 }
 
+// ---- 16 fanpage: định tuyến theo ngôn ngữ (lỗi cũ: mọi clip vào kênh gc- đầu bảng chữ cái của nền tảng, bất kể ngôn ngữ) ----
+{
+  const L = D.langOfChannel;
+  ok(L('Lexkite Español') === 'es' && L('Lexkite Tiếng Việt') === 'vi' && L('Lexkite (JA)') === 'ja' && L('Lexkite – ko') === 'ko' && L('Lexkite 日本語') === 'ja', 'langOfChannel: endonym, mã trong ngoặc, sau gạch');
+  ok(L('Lexkite') === '' && L('Lexkite English') === 'en' && L('Lexkite Global') === 'en' && L('Lexkite Français') === 'fr' && L('Lexkite Português') === 'pt', 'langOfChannel: page chung / tên Âu');
+  ok(D.SOCIAL_LANGS.length === 15, '15 ngôn ngữ + en chung = 16 page (vi,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr + en) – có ' + D.SOCIAL_LANGS.length);
+  const n = c => D.normCfg(c), cfgs = { 'gc-facebook_page-a1': n({ lang: 'es' }), 'gc-facebook_page-b2': n({ lang: 'en' }), 'gc-facebook_page-c3': n({ lang: 'vi' }), 'gc-tiktok-t1': n({ lang: 'en' }), 'gc-instagram-i1': n({ lang: 'ja' }) };
+  const imp = D.implicitSocialRules([], cfgs);
+  ok(imp.filter(r => /facebook/.test(r.channel_id)).length === 3, 'luật ngầm: mỗi ngôn ngữ của nền tảng có 1 luật (không còn 1 kênh/nền tảng)');
+  const en = D.routeAll(imp, cfgs, { id: 'c1', lang: 'en' }, null), fbEn = en.find(x => x.platform === 'facebook_page');
+  ok(fbEn && fbEn.channel_id === 'gc-facebook_page-b2', 'clip EN → page EN chung, không vào page Español đứng đầu bảng chữ cái');
+  ok(!en.find(x => x.platform === 'instagram'), 'clip EN không vào IG tiếng Nhật (không có IG EN → bỏ, không đăng sai ngôn ngữ)');
+  ok(D.routeAll(imp, cfgs, { id: 'c0' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-b2', 'clip không có lang = en');
+  const vi = D.routeAll(imp, cfgs, { id: 'c2', lang: 'vi' }, null);
+  ok(vi.length === 1 && vi[0].channel_id === 'gc-facebook_page-c3', 'clip VI → chỉ page Tiếng Việt');
+  ok(D.blockOf(cfgs['gc-facebook_page-a1'], { lang: 'en' }) === 'lang' && D.blockOf(cfgs['gc-facebook_page-a1'], { lang: 'es' }) === '', 'blockOf chặn sai ngôn ngữ cả với luật tay của chủ');
+  ok(D.blockOf(D.normCfg({}), {}) === '', 'kênh YouTube mặc định (en) vẫn nhận clip không có lang');
+  const exp = D.explain([{ cond: {}, channel_id: 'gc-facebook_page-a1', active: 1 }], cfgs, { id: 'c3', lang: 'en' }, null);
+  ok(exp.trace[0].result === 'blocked' && exp.trace[0].why === 'lang', 'thử clip: giải thích "blocked: lang"');
+}
+
+{
+  const { fillMeta } = await import('../../scripts/video/shorts-meta.mjs');
+  const a = [{ id: 'x1', lesson: 'l' }, { id: 'x2', lesson: 'm' }, { id: 'x3', lesson: 'n' }];
+  fillMeta(a, { lessonOf: id => ({ l: { publish: { title: 't', lang: 'VI' } }, m: { lang: 'es' }, n: { publish: { lang: 'vietnamese' } } })[id] });
+  ok(a[0].lang === 'vi' && a[1].lang === 'es' && !a[2].lang, 'fillMeta: chép lang (publish > bài), bỏ giá trị không phải mã 2 chữ');
+}
+
 console.log(`dist-roles: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);

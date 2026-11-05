@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
+import { langOfChannel, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -23,7 +23,7 @@ const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) 
 const rules = async db => (await all(db, 'SELECT * FROM yt_rules ORDER BY pos, id')).map(r => { let cond = {}; try { cond = JSON.parse(r.cond || '{}'); } catch (e) { /* empty */ } return { id: r.id, name: r.name, cond, channel_id: r.channel_id, active: r.active }; });
 async function channels(db) {
   const out = []; for (const c of await all(db, 'SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id')) { const x = await chanCfg(db, c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
-  for (const c of await all(db, 'SELECT channel_id, platform, title, thumb, status FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id); out.push({ ...c, cfg: { ...x.cfg, role: 'social' }, paused_reason: x.paused_reason, ext: 1 }); }
+  for (const c of await all(db, 'SELECT channel_id, platform, title, thumb, status FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id); out.push({ ...c, cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
 }
 let DS = false;
@@ -36,7 +36,7 @@ export async function setupDist(db) {
 }
 const isExt = id => /^gc-[a-z_]+-[A-Za-z0-9_-]{1,80}$/.test(String(id || ''));
 const knownIds = async db => new Set([...(await all(db, 'SELECT channel_id FROM yt_channel')), ...(await all(db, 'SELECT channel_id FROM dist_ext'))].map(r => r.channel_id));
-const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, url: it.url, headline: it.title || '', value: it.value || '', hashtags: it.hashtags || [], region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
+const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, lang: String(it.lang || 'en').toLowerCase(), exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, url: it.url, headline: it.title || '', value: it.value || '', hashtags: it.hashtags || [], region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
 async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
 /** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
 async function embedCounts(db) {
