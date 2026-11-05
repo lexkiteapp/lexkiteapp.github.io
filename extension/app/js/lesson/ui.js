@@ -300,7 +300,7 @@
     const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story');
     // sân khấu: CSS + JS tải lười (không vào khung app); khung ẩn tới khi CSS về (≤1,5 s) → không nhảy bố cục
     root.style.visibility = 'hidden'; const shown = () => { root.style.visibility = ''; };
-    Promise.all([App.loadCss ? App.loadCss('css/story-stage.css') : 0, App.loadScript ? App.loadScript('js/lesson/story-stage.js') : 0]).catch(() => 0).then(() => { shown(); if (!L || L.dead || !window.StoryStage || !L.teachers) return; L.ss = StoryStage.attach(root, { say: (x, slow, who) => say(x, slow, who), teachers: () => L && L.teachers, vids: () => (L && L.vids) || {} }); const last = $('#lsnChat').lastElementChild; if (L.ss && last && last.dataset.who) L.ss.line(last, L.log[L.log.length - 1] || { who: last.dataset.who, sent: '' }); });
+    Promise.all([App.loadCss ? App.loadCss('css/story-stage.css') : 0, App.loadScript ? App.loadScript('js/lesson/story-stage.js') : 0]).catch(() => 0).then(() => { if (!L || L.dead || !window.StoryStage || !L.teachers) { shown(); return; } L.ss = StoryStage.attach(root, { say: (x, slow, who) => say(x, slow, who), teachers: () => L && L.teachers, vids: () => (L && L.vids) || {} }); const last = $('#lsnChat').lastElementChild; if (L.ss && last && last.dataset.who) L.ss.line(last, L.log[L.log.length - 1] || { who: last.dataset.who, sent: '' }); shown(); }); // khung hiện sau khi dòng đầu đã dựng 🔊/🐢 → không dịch bố cục (CLS 0)
     setTimeout(shown, 1600);
     const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
     const og = $('#lsnBody'); L.tplq = { on: og.children[0], off: og.children[1] }; og.textContent = ''; L.qblk = view.querySelector('.lsn-qblk'); L.qfootEl = view.querySelector('.lsn-qfoot'); L.qblk.style.display = og.style.display = 'none'; // khuôn thẻ đáp án (đã chọn / chưa) lấy từ mẫu; khối câu hỏi chỉ hiện ở bước kiểm
@@ -335,10 +335,10 @@
     n.querySelector(':scope > div:nth-child(1) > span').textContent = name; p.textContent = it.radio ? RADIO : it.sent; p.dir = 'auto'; b.setAttribute('aria-label', t('Nghe lại') + ' · ' + name);
     chat.querySelectorAll('#lsnPlay').forEach(x => x.removeAttribute('id')); b.id = 'lsnPlay'; b.onclick = () => say(it.sent, false, it.who);
     chat.appendChild(n);
-    const go = $('#lsnGo'); go.onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
+    const go = $('#lsnGo'); go.onclick = () => { L.tapped = true; if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     if (L.ss) { L.ss.line(n, it); L.ss.scrollTo(n, go); } else { n.scrollIntoView({ block: 'nearest' }); go.scrollIntoView({ block: 'nearest' }); } go.focus({ preventScroll: true });
     const cap = !it.radio && window.SayText ? SayText.prep(p) : null;
-    setTimeout(() => say(it.sent, false, it.who, undefined, cap), 200);
+    setTimeout(() => { if (!(navigator.userActivation ? navigator.userActivation.hasBeenActive : L && L.tapped)) return; say(it.sent, false, it.who, undefined, cap); }, 200); // chưa chạm lần nào → trình duyệt chặn tiếng: không gọi play(), người học chạm 🔊
   }
   // Một câu thoại của truyện/radio: người nói sáng lên + đọc (giọng Kokoro), truyện hiện chữ (radio chỉ nghe), chạm Tiếp tục
   function line(it) {

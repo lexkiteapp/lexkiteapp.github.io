@@ -57,7 +57,7 @@ async function browser() {
       ok(geo.chips.every(c => c.top >= geo.hdr.bottom - 1), `${tag}: chip AMA/ĐỐI THOẠI/CARLOS bị đầu trang che`);
       ok(geo.imgs.every(i => i.bottom <= geo.floor.bottom + 1 && i.bottom >= geo.floor.top - 1), `${tag}: chân nhân vật không nằm trên/trong sàn (đường cắt lộ)`);
       // chạm Tiếp tục → âm chỉ phát sau chạm, người nói sáng, đổi theo dòng
-      const speakers = []; for (let i = 0; i < 3; i++) { await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(500); speakers.push(await page.evaluate(() => (document.querySelector('.ss-stage') || {}).dataset?.speaker)); }
+      const speakers = []; { await page.click('#lsnGo').catch(() => {}); await page.waitForFunction(() => { const s = document.querySelector('.ss-stage'); return s && s.dataset.speaker; }, null, { timeout: 3000 }).catch(() => {}); speakers.push(await page.evaluate(() => (document.querySelector('.ss-stage') || {}).dataset?.speaker)); } // 1 lần chạm: dòng 2 (Carlos); chạm tiếp là vào bài Xếp câu của truyện
       ok(new Set(speakers.filter(Boolean)).size >= 1, `${tag}: người nói không sáng (data-speaker)`);
       ok((await page.evaluate(() => window.__plays)) > 0 || eng === 'webkit', `${tag}: không phát âm sau khi chạm`);
       const act = await page.evaluate(() => [...document.querySelectorAll('.lsn-ln')].map(n => { const a = n.querySelector('.ss-act'); if (!a) return null; const p = n.querySelector('p').getBoundingClientRect(), b = a.getBoundingClientRect(); return { who: n.dataset.who, dx: Math.round(a.firstElementChild.getBoundingClientRect().left - n.getBoundingClientRect().left), below: b.top >= p.bottom - 1, btns: a.children.length }; }).filter(Boolean));
@@ -80,7 +80,7 @@ async function browser() {
       ok(col.skip && /rgba\(0, 0, 0, 0\)|transparent/.test(col.skip.bg) && col.skip.size <= 13, `${tag}: Bỏ qua/Báo lỗi chưa lặng (${JSON.stringify(col.skip)})`);
       const rules = await p2.evaluate(() => { const a = document.querySelector('#lsnAns'); const s = getComputedStyle(a); return { img: s.backgroundImage.includes('gradient'), h: a.getBoundingClientRect().height }; });
       ok(rules.img && rules.h >= 100, `${tag}: không thấy dòng kẻ trả lời`);
-      const slots = async () => p2.evaluate(() => [...document.querySelectorAll('#lsnBank>*')].map(e => e.getBoundingClientRect().toJSON()).map(r => [Math.round(r.left), Math.round(r.top)]));
+      const slots = async () => p2.evaluate(() => [...document.querySelectorAll('#lsnBank>*')].map(e => e.getBoundingClientRect().toJSON()).map(r => [Math.round(r.left + scrollX), Math.round(r.top + scrollY)])); // theo toạ độ trang (click có thể cuộn khung nhìn)
       const bankBefore = await slots(), h0 = await p2.evaluate(() => document.querySelector('#lsnBank').getBoundingClientRect().height);
       await p2.click('#lsnBank>button'); await p2.waitForTimeout(350);
       ok(await p2.evaluate(() => document.querySelectorAll('#lsnAns>button').length === 1), `${tag}: chạm từ không bay vào dòng trả lời`);
@@ -90,7 +90,7 @@ async function browser() {
       const h1 = await p2.evaluate(() => document.querySelector('#lsnBank').getBoundingClientRect().height); ok(Math.abs(h1 - h0) < 1, `${tag}: ngân hàng đổi chiều cao ${h0}→${h1}`);
       await p2.screenshot({ path: `${OUT}/exercise-${tag}.png` });
       await p2.click('#lsnAns>button'); await p2.waitForTimeout(350);
-      const bankAfter = await slots(); ok(JSON.stringify(bankAfter) === JSON.stringify(bankBefore), `${tag}: từ không về ĐÚNG ô cũ / ngân hàng xô bố cục`);
+      const bankAfter = await slots(); ok(JSON.stringify(bankAfter) === JSON.stringify(bankBefore), `${tag}: từ không về ĐÚNG ô cũ / ngân hàng xô bố cục ${JSON.stringify(bankBefore.map((p, i) => [p, bankAfter[i]]).filter(([p, q]) => !q || p[0] !== q[0] || p[1] !== q[1]).slice(0, 4))}`);
       // đặt đủ từ theo đáp án rồi Enter → tấm phản hồi (sai/đúng đều có câu đúng khi sai)
       await p2.click('#lsnBank>button'); await p2.keyboard.press('Backspace'); await p2.waitForTimeout(200); ok(await p2.evaluate(() => document.querySelectorAll('#lsnAns>button').length === 0), `${tag}: Backspace không gỡ từ cuối`);
       const n = await p2.evaluate(() => document.querySelectorAll('#lsnBank>button').length); for (let i = 0; i < n; i++) await p2.click(`#lsnBank>button:not([aria-hidden="true"]):not([disabled]) >> nth=0`).catch(() => {});
@@ -105,7 +105,7 @@ async function browser() {
       await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: true }); });
       await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
       await page.evaluate(() => { window.__f = 0; const t0 = performance.now(); (function f() { window.__f++; if (performance.now() - t0 < 3000) requestAnimationFrame(f); })(); window.__lt = 0; });
-      for (let i = 0; i < 3; i++) { await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(900); }
+      await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(1500);
       await page.waitForTimeout(500); const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / 3 }));
       lines.push(`chromium 4×: longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)}`);
       ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`); await ctx.close();
