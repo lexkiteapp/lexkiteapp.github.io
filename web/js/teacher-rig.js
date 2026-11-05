@@ -145,7 +145,7 @@
     const stats = { frames: 0, long: 0, draws: 0, low: 0, ready: false, shape: 'X', pose: null, emo: 'neutral', calm: reduced() };
     let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
     const poses = {}, scaled = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
-    let headC = null, lastT = '', lastP = [], boxes = null;
+    let headC = null, faceC = null, lastT = '', lastP = [], boxes = null;
     el.classList.add('trig');
     if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">.trig{position:relative}.trig>canvas{display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
     const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
@@ -163,9 +163,12 @@
     const paint = (T, f, P, pi) => {
       ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
       if (f.faceW > 0) {
-        ctx.globalAlpha = pi ? f.faceW : 1; const sc = cv.width / 1108;
-        ctx.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); ctx.drawImage(headC, 0, 0); ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
-        for (const p of P) if (p) g.LipPaint.draw(ctx, p);
+        // mặt = ảnh đầu + mắt/mày/miệng vector. Đang mờ chéo: vẽ cả mặt vào LỚP riêng rồi mờ cả lớp (LipPaint tự đặt alpha từng nét → vẽ thẳng thì nét vẫn đậm rồi biến mất 1 khung)
+        const fade = pi && f.faceW < 1, X = fade ? (faceC || (faceC = D.createElement('canvas'))) : null, c = fade ? X.getContext('2d') : ctx, sc = cv.width / 1108;
+        if (fade) { if (X.width !== cv.width || X.height !== cv.height) { X.width = cv.width; X.height = cv.height; } c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, X.width, X.height); }
+        c.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); c.drawImage(headC, 0, 0); c.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
+        for (const p of P) if (p) g.LipPaint.draw(c, p);
+        if (fade) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = f.faceW; ctx.drawImage(X, 0, 0); ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]); }
       }
       if (pi && f.poseW > 0) { const sc = cv.width / 1108; ctx.globalAlpha = f.poseW; ctx.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); ctx.drawImage(scaled[f.pose] || pi, 0, 0, cv.width, cv.height); }
       ctx.globalAlpha = 1;

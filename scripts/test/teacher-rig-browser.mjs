@@ -23,8 +23,8 @@ async function open(who, o = {}) {
 }
 // mỗi khung: thu nhỏ canvas còn 96 px rộng, trả trung bình |Δ| so với khung trước (0..255) – đo trong trang, không chụp màn
 const DIFF = `(() => { const c = document.querySelector('.trig-cv'), w = 96, h = Math.round(96 * c.height / c.width), o = new OffscreenCanvas(w, h), x = o.getContext('2d', { willReadFrequently: true });
-  let prev = null; window.diffs = []; window.firstLast = null; const step = () => { x.clearRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const d = x.getImageData(0, 0, w, h).data;
-  if (prev) { let s = 0; for (let i = 0; i < d.length; i++) s += Math.abs(d[i] - prev[i]); window.diffs.push(s / d.length); } if (!window.f0) window.f0 = d.slice(); window.fN = d; prev = d.slice(); if (window.diffOn) requestAnimationFrame(step); };
+  let prev = null; window.diffs = []; window.blinks = []; window.firstLast = null; const step = () => { x.clearRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const d = x.getImageData(0, 0, w, h).data;
+  if (prev) { let s = 0; for (let i = 0; i < d.length; i++) s += Math.abs(d[i] - prev[i]); window.diffs.push(s / d.length); window.blinks.push(window.rig.stats.blink || 0); } if (!window.f0) window.f0 = d.slice(); window.fN = d; prev = d.slice(); if (window.diffOn) requestAnimationFrame(step); };
   window.diffOn = true; requestAnimationFrame(step); })()`;
 const total = page => page.evaluate(() => { let s = 0; for (let i = 0; i < window.f0.length; i++) s += Math.abs(window.f0[i] - window.fN[i]); window.diffOn = false; return s / window.f0.length; });
 for (const who of ['ama', 'carlos']) {
@@ -56,8 +56,10 @@ for (const who of ['ama', 'carlos']) {
     if (label !== 'wave') await page.evaluate(() => rig.setEmotion('sad')), await page.waitForTimeout(900);
     await page.evaluate(DIFF); await page.evaluate(`(${act})()`); await page.waitForTimeout(label === 'wave' ? 700 : 1200);
     if (label === 'wave') await page.screenshot({ path: `${OUT}/${who}-wave.png` });
-    const tot = await total(page), mx = await page.evaluate(() => Math.max(0, ...window.diffs));
-    ok(tot > 0.2 && mx <= Math.max(0.35 * tot, 0.6), `${who}: chuyển ${label} liền mạch – khung đổi nhiều nhất ${mx.toFixed(2)} / tổng ${tot.toFixed(2)} (≤ 35 %)`);
+    // chớp mắt là sự kiện riêng của máy nghỉ (không phải bước chuyển): khung có mi đang khép (cả khung trước) không tính vào "nhảy" – vẫn cộng vào tổng
+    const tot = await total(page), D = await page.evaluate(() => ({ d: window.diffs, b: window.blinks })), at = D.d.map((v, i) => (D.b[i] > 0.05 || D.b[i - 1] > 0.05 ? 0 : v)), mx = Math.max(0, ...at), mi = at.indexOf(mx);
+    const top = D.d.map((v, i) => [v, i]).sort((x, y) => y[0] - x[0]).slice(0, 3).map(([v, i]) => `${v.toFixed(2)}@${i}${D.b[i] > 0.05 ? 'chớp' : ''}`).join(' ');
+    ok(tot > 0.2 && mx <= Math.max(0.35 * tot, 0.6), `${who}: chuyển ${label} liền mạch – khung đổi nhiều nhất ${mx.toFixed(2)}@${mi} / tổng ${tot.toFixed(2)} (≤ 35 %) · lớn nhất ${top} / ${D.d.length} khung`);
     await page.waitForTimeout(1800);
   }
   const mut = await page.evaluate(() => window.mut);
