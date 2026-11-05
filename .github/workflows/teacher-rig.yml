@@ -27,7 +27,8 @@ jobs:
         run: node scripts/test/teacher-rig-browser.mjs --out qa/teacher-rig
       - name: Tóm tắt
         if: always()
-        run: { echo "### teacher-rig"; echo '```'; cat qa/teacher-rig/result.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          { echo "### teacher-rig"; echo '```'; cat qa/teacher-rig/result.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: teacher-rig, path: qa/teacher-rig, retention-days: 14 }
