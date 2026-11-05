@@ -15,6 +15,7 @@ from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
 sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
+sys.path.insert(0, HERE); from labels import ordinal, stress_quiz   # noqa: E402  (stress ordinals / syllable-position labels from the data)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -315,9 +316,9 @@ def T_stress():
     beat_row(A['word'], A['syl'], A['stress'], A['ipa'], start('a'), at('a', A['say']), at('b', B['word']) - 0.2, RY0)
     yb = beat_row(B['word'], B['syl'], B['stress'], B['ipa'], at('b', B['word']), at('m', B['say']), t_q, RY0)
     top('chip', [RX0 + (RW - 380) / 2, yb + 24, RX0 + (RW + 380) / 2, yb + 92], start('r'), out=t_q, text='SAY IT WITH ME', tone='chip', size=40)
-    o = D['quiz']['options']
-    quiz_card([[B['word'], 'ink']], [f"{o[0]}-…", f"…-{o[1]}-…"], 1, start('q'), at('ans', B['say']), start('sh') - 0.2)
-    save_card([[[A['word'] + ' → ', 'muted'], ['1st', 'accent']], [[B['word'] + ' → ', 'muted'], ['2nd', 'accent']]], start('sh'), start('c') - 0.2)
+    opts, right = stress_quiz(B, D['quiz'])   # labels show where each option sits in the word (first / middle / last), answer from the data
+    quiz_card([[B['word'], 'ink']], opts, right, start('q'), at('ans', B['say']), start('sh') - 0.2)
+    save_card([[[A['word'] + ' → ', 'muted'], [ordinal(A['stress']), 'accent']], [[B['word'] + ' → ', 'muted'], [ordinal(B['stress']), 'accent']]], start('sh'), start('c') - 0.2)
     end_card()
 
 
@@ -683,7 +684,10 @@ for l in EP['lines']:
 if not FMT['cap']: CAPS = []
 
 # ---------------- host: speech-gated talk / listen segments (frames), one fixed transform ----------------
-FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in ('talk', 'listen')}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
+# TeacherRig host (rig_host.mjs, docs/specs/video-production-v2.md §1): ONE continuous clip for the whole video – mouth = the episode's own
+# Rhubarb visemes, no cuts, one host style per video; the registry talk/listen path below stays for geom.json from host.py.
+FPS = o.fps; NF = int(round(TOTAL * FPS)); RIG = 'rig' in HG['clips']
+LEN = dict(rig=NF) if RIG else {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in ('talk', 'listen')}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
 if 'pose' in HG['clips']: LEN['pose'] = int(HG['clips']['pose']['frames'] * FPS / HG['clips']['pose']['fps'] - 0.25 * FPS)   # react: the reaction pose clip (host.py)
 spk = np.zeros(NF, bool)
 for a, b in SPEECH: spk[max(0, int((a - 0.05) * FPS)):min(NF, int(math.ceil((b + 0.05) * FPS)))] = True
@@ -696,7 +700,8 @@ while i < NF:
         if 0 < i and j < NF and (j - i) / FPS < 0.3: spk[i:j] = True
         i = j
     else: i += 1
-SEG = []; pos = dict(talk=0, listen=0); f = 0
+SEG = []; pos = dict(talk=0, listen=0); f = NF if RIG else 0
+if RIG: SEG.append(dict(clip='rig', from_=0, dur=NF, start=0))
 while f < NF:
     k = 'talk' if spk[f] else 'listen'; g = f
     while g < NF and spk[g] == spk[f]: g += 1
@@ -704,7 +709,7 @@ while f < NF:
     while n > 0:
         take = min(n, LEN[k] - pos[k]); SEG.append(dict(clip=k, from_=f, dur=take, start=pos[k])); pos[k] = (pos[k] + take) % LEN[k]; f += take; n -= take
 for s_ in SEG: s_['from'] = s_.pop('from_')
-PZ = EP.get('pose')
+PZ = EP.get('pose')   # rig host: the reaction pose is a rig gesture in the same silence (rig_host.mjs schedule, timeline 'pose')
 if PZ and 'pose' in LEN:   # react: the reaction pose plays ONCE from its first frame in the silence after line PZ['after'] – never over speech, so talk/listen gating is unchanged
     fa = int(math.ceil((end(PZ['after']) + 0.05) * FPS))
     while fa < NF and spk[fa]: fa += 1
@@ -727,7 +732,7 @@ if BB:   # round call window: head + shoulders centred, head ~55 % of the window
     D = BB[2] - BB[0]; k = min(1.0, 0.55 * D / (hb[3] - hb[1])); hw = HG['w'] * k; cx, cy = (hb[0] + hb[2]) / 2 * k, (hb[1] + hb[3]) / 2 * k
     x0, y0 = (BB[0] + BB[2]) / 2 - cx, BB[1] + 0.44 * D - cy; box = [round(x0, 1), round(y0, 1), round(x0 + hw, 1), round(y0 + HG['h'] * k, 1)]
 else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
-HOST = dict(who=EP['teacher'], talk='host_talk.webm', listen='host_listen.webm', box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+HOST = dict(who=EP['teacher'], **(dict(rig='host_rig.webm') if RIG else dict(talk='host_talk.webm', listen='host_listen.webm')), box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
 if 'pose' in LEN: HOST['pose'] = 'host_pose.webm'   # react reaction pose (TeachShort.jsx plays host[seg.clip])
 # ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.
 # Scale is anchored at the top of the teacher's head, so the head never rises into the captions; source pixels never exceed 1.0x.
@@ -816,7 +821,11 @@ qr = qrcode.QRCode(border=2, box_size=12, error_correction=qrcode.constants.ERRO
 qr.make_image(fill_color=TH['qr_ink'], back_color='white').save(f'{o.public}/qr.png')
 shutil.copy(f'{ROOT}/brand/social/logo/lexkite-app-icon.png', f'{o.public}/icon.png')
 os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fonts/jakarta.ttf'); shutil.copy(FN, f'{o.public}/fonts/noto.ttf')
-for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
+if RIG:   # two-pass: build.py runs on the static geom (rig_host.mjs --geom-only), the render copies rig.webm into every pub dir afterwards
+    if os.path.exists(f'{o.host}/rig.webm'): shutil.copy(f'{o.host}/rig.webm', f'{o.public}/host_rig.webm')
+    else: print('build.py: rig.webm not rendered yet – copy it to pub/host_rig.webm after rig_host.mjs')
+else:
+    for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
 if 'pose' in LEN: shutil.copy(f'{o.host}/pose.webm', f'{o.public}/host_pose.webm')
 if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
     it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
@@ -827,7 +836,9 @@ if EP['template'] == 'guess':   # picture from content/lexicon/img.json (license
 props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
-               lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause']) for k, v in LINES.items()},
+               lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
+                              quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
+               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'),
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
                voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
           open(o.out + '.timeline.json', 'w'), indent=0)

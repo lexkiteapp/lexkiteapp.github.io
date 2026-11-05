@@ -6,7 +6,7 @@
 ## Pipeline (`.github/workflows/teach-video.yml`, never on the Mac)
 1. **preqc** – `gen.py` regenerates `content/video/teach2d/eps/*.json` from `pilots.json` (must be identical) + every script == `reviewed.json` (hook true) + motion parity test.
 2. **voice** – Kokoro with the registry voice of the teacher shown (Ama `af_bella`, Carlos `am_fenrir`) → Rhubarb → faster-whisper clock on the exact caption tokens (`pilot5_voice.py`).
-3. **render** (per pilot × short/wide) – `host.py` (registry stacked-alpha talk/listen → VP9 alpha) → `build.py` (layout, cues, captions, voice −16 LUFS + soft ticks, QR deep link) →
+3. **render** (per pilot × short/wide) – `rig_host.mjs --geom-only` (static TeacherRig geometry) → `build.py` (every look/layout) → `rig_host.mjs` on the timeline (TeacherRig drawn frame by frame on a fake page clock, mouth = this voice's Rhubarb visemes → `rig.webm` VP9 alpha + `rig.frames.json`, page == core simulation, re-render byte-identical; spec `docs/specs/video-production-v2.md` §1; `host.py` registry talk/listen stays for the old path) → `build.py` (layout, cues, captions, voice −16 LUFS + soft ticks, QR deep link) →
    **QC before render** (`qc.py` on the timeline, both themes) → Remotion `teach-short` 30 fps → **QC after render** (`qc.py --video`) → contact sheet, phone copy, poster, VTT.
 4. **embed** – Playwright screenshots of `docs/mocks/teach-video/embed.html` (lesson step, light/dark, phone/desktop). Real wiring = `web/js/lesson-video.js` (#195) after the owner's OK.
 5. **sheet** – `sheet.py`: one owner review sheet + score table; red if any pilot < 90 or a gate fails.
@@ -39,7 +39,7 @@
 - Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
-voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
+voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · lipsync_rig (rig host: every Rhubarb cue ≥ 50 ms on screen within ±33 ms, X in silences > 0.35 s, no pose over the mouth while the voice is on, frame count; `lipsync_gate.py`) · mouth (registry host: talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
 layout (text in SAFE, no overlap, nothing on the head, caption off the face, nothing under the ring) · contrast (≥ 4.5:1, ≥ 56 px ≥ 3:1, real fill) · min_text (40 / 34 px) ·
 ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link) · duration 18–42 s · file (30 fps, AAC, −16 LUFS ±1.5) · frames (teacher visible every second, no blank frame).
 
