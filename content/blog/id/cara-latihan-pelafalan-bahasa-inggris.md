@@ -166,3 +166,13 @@ Mendengarkan telinga sendiri terkadang bias karena otak manusia cenderung mengan
 - **Kamus Cerdas Terintegrasi**: Akses transkripsi fonetik lengkap dan contoh kalimat kontekstual di [kamus interaktif Lexkite](/#/dict).
 
 Mulai latihan harian Anda di [aplikasi web Lexkite](/#/) hari ini, dan nikmati peningkatan rasa percaya diri saat berbicara bahasa Inggris di lingkungan profesional maupun pergaulan internasional.
+
+{{cta: /#/ | Coba Lexkite Gratis | Kuasai pelafalan bahasa Inggris dan intonasi alami secara interaktif}}
+
+## Pertanyaan yang Sering Diajukan (FAQ)
+
+### Apakah saya harus menghilangkan aksen daerah saya sepenuhnya?
+Tidak. Tujuan utama pelafalan adalah kejelasan (intelligibility) dan ritme yang benar. Selama lawan bicara memahami Anda tanpa salah paham, sedikit aksen alami tidak menjadi penghalang profesional.
+
+### Mengapa suara 'th' (/θ/ dan /ð/) begitu sulit bagi penutur bahasa Indonesia?
+Bahasa Indonesia tidak memiliki konsonan interdental fricative. Penutur sering menggantinya dengan /t/, /d/, atau /s/. Latihannya adalah meletakkan ujung lidah sedikit di antara gigi atas dan bawah saat mengalirkan udara.

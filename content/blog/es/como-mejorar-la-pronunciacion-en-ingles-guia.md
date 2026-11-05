@@ -14,6 +14,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 87
+quiz: [
+  {
+    q: "¿Qué técnica de pronunciación consiste en imitar a un hablante nativo casi simultáneamente con una fracción de segundo de retraso?",
+    options: [
+      "Lectura silenciosa",
+      "Shadowing (sombreado)",
+      "Traducción palabra por palabra",
+      "Copia ortográfica"
+    ],
+    answer: 1,
+    explain: "El shadowing entrena el ritmo, la entonación y la colocación muscular de la boca en tiempo real."
+  },
+  {
+    q: "¿Cuál es el error más frecuente de los hispanohablantes al pronunciar palabras como 'school' o 'speak'?",
+    options: [
+      "Omitir la letra 's'",
+      "Añadir una vocal 'e' epentética inicial (/es-kul/ en lugar de /skuːl/)",
+      "Pronunciar la 'k' como una 'j'",
+      "Acentuar la última sílaba"
+    ],
+    answer: 1,
+    explain: "En español no existen palabras que comiencen por 's' líquida seguida de consonante, por lo que el cerebro tiende a insertar una 'e'."
+  },
+  {
+    q: "¿Cómo optimiza el algoritmo FSRS el dominio de pares mínimos fonéticos?",
+    options: [
+      "Obliga a memorizar reglas gramaticales",
+      "Programa repeticiones auditivas y de producción justo antes de que el cerebro olvide el contraste acústico",
+      "Elimina la necesidad de escuchar grabaciones nativas",
+      "Solo funciona con palabras escritas"
+    ],
+    answer: 1,
+    explain: "El sistema FSRS fija contrastes sutiles (como /ɪ/ vs /iː/) mediante intervalos de repetición adaptativos."
+  }
+]
 ---
 
 Lee esta frase en voz alta ahora mismo: *"I liked the three big books."* Si el español es tu lengua materna y no has recibido entrenamiento fonético, es muy probable que hayas omitido los grupos consonánticos finales, igualado la duración de las vocales o sustituido el sonido interdental por una simple /d/ o /t/. Los hablantes nativos pueden deducir tu mensaje por el contexto, pero su cerebro debe realizar un esfuerzo adicional constante para descifrar tus palabras. En una entrevista de trabajo o en una reunión internacional, esa fricción comunicativa reduce notablemente tu impacto profesional.

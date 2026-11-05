@@ -168,3 +168,13 @@ Escribir bajo la presión de un reloj de 10 minutos requiere entrenamiento metó
 - **Entrenamiento fonético y de dicción**: Mejora tu precisión lingüística global en el [laboratorio de pronunciación de Lexkite](/#/pron).
 
 Entra hoy en la [aplicación web de Lexkite](/#/) y convierte la tarea Academic Discussion de TOEFL en una de tus tareas más sólidas.
+
+{{cta: /#/ | Practica gratis en Lexkite | Domina conectores académicos y vocabulario para TOEFL iBT Writing}}
+
+## Preguntas frecuentes (FAQ)
+
+### ¿Cuántas palabras son ideales para la tarea de Discusión Académica del TOEFL?
+ETS sugiere un mínimo de 100 palabras, pero las respuestas con puntuaciones máximas (4.5 a 5.0) suelen tener entre 120 y 150 palabras bien estructuradas con ejemplos específicos.
+
+### ¿Se penaliza usar ejemplos personales?
+No. Los evaluadores de ETS y el motor e-rater valoran ejemplos concretos y bien explicados, ya provengan de tu experiencia personal o de observaciones generales.

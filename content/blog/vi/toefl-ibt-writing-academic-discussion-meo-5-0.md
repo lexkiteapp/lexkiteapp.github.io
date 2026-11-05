@@ -136,3 +136,11 @@ Khi thời gian có hạn, việc ghi nhớ sẵn các cấu trúc câu học th
 {{cta: /#/toefl | Bắt đầu luyện bài thi TOEFL iBT ngay hôm nay}}
 
 Chỉ cần nắm vững công thức triển khai, kiểm soát thời gian chặt chẽ và không ngừng tích lũy vốn từ học thuật, bạn sẽ tự tin hơn rất nhiều khi bước vào bài Academic Discussion và có nền tảng vững để tiến gần mức điểm mình đặt ra.
+
+## Hỏi đáp thường gặp (FAQ)
+
+### Có nên sao chép lại nguyên văn câu nói của sinh viên trong đề không?
+Tuyệt đối không. Hãy paraphrase (diễn đạt lại bằng từ ngữ của bạn) hoặc tóm lược ngắn gọn ý kiến của bạn học trước khi đưa ra luận điểm và ví dụ mở rộng của riêng mình.
+
+### Nếu viết quá 150 từ có bị trừ điểm không?
+Không bị trừ điểm về độ dài, nhưng viết quá dài trong 10 phút dễ khiến bạn không kịp soát lỗi chính tả, dấu câu và ngữ pháp, vốn là những tiêu chí chấm điểm khắt khe của hệ thống e-rater.

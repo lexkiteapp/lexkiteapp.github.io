@@ -14,6 +14,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 86
+quiz: [
+  {
+    q: "Which technique involves listening to a native audio clip and repeating it with an immediate split-second delay?",
+    options: [
+      "Speed reading",
+      "Shadowing",
+      "Silent translation",
+      "Rote memorization"
+    ],
+    answer: 1,
+    explain: "Shadowing trains your vocal tract, rhythm, and intonation by mimicking native speakers in real time."
+  },
+  {
+    q: "What is the key physiological difference between the voiced /ð/ and voiceless /θ/ sounds (as in 'this' vs 'think')?",
+    options: [
+      "Vocal cord vibration (voicing)",
+      "Tongue position against the lips",
+      "Nasal air release",
+      "Jaw drop angle"
+    ],
+    answer: 0,
+    explain: "Both are dental fricatives with identical tongue placement, but /ð/ engages the vocal cords while /θ/ is unvoiced."
+  },
+  {
+    q: "How does spaced repetition (FSRS) improve pronunciation retention?",
+    options: [
+      "It only tracks written spellings",
+      "It schedules phonetic recall and audio pairing right before memory decay occurs",
+      "It replaces the need to practice speaking aloud",
+      "It eliminates English stress patterns"
+    ],
+    answer: 1,
+    explain: "FSRS reinforces auditory-articulatory memory traces by scheduling reviews at optimal retention intervals."
+  }
+]
 ---
 
 Read this sentence aloud right now: *"I liked the three big books."* If English is not your native language, chances are you swallowed the final consonant clusters, flattened the vowel lengths, or substituted the difficult interdental sounds with /d/ or /t/. Listeners might still guess what you mean from context, but their brains have to expend extra cognitive effort to decode your speech. Over a ten-minute interview or business presentation, that friction quickly leads to miscommunication.

@@ -169,3 +169,13 @@ Taper avec précision sous la pression du chronomètre réclame une pratique ré
 Pour replacer cette tâche dans la structure d'ensemble de l'examen rénové, consultez notre guide sur le [nouveau format toefl 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
 
 Connectez-vous dès aujourd'hui sur l'[application web Lexkite](/#/) pour transformer l'épreuve de l'Academic Discussion du TOEFL en votre plus bel atout de score !
+
+{{cta: /#/ | Essayer Lexkite gratuitement | Enrichissez votre vocabulaire académique pour réussir le TOEFL iBT Writing}}
+
+## Foire aux questions (FAQ)
+
+### Combien de mots faut-il rédiger en 10 minutes ?
+ETS recommande au moins 100 mots. En pratique, une contribution bien argumentée de 120 à 140 mots permet d'obtenir la note maximale (4,5 - 5,0) sans faire d'erreurs de précipitation.
+
+### Doit-on obligatoirement citer les prénoms des étudiants de l'énoncé ?
+Il est très apprécié de faire référence à leurs contributions (ex. "While Claire makes a valid point regarding..."), car cela démontre votre capacité à interagir dans une vraie discussion de séminaire universitaire.

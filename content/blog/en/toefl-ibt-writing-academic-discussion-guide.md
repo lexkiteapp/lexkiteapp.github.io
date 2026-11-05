@@ -163,3 +163,13 @@ Speed and accuracy under pressure require systematic keyboard practice and objec
 - **Interactive Grammar & Speech Tools**: Sharpen your syntax and oral fluency in the [Lexkite Speaking Lab](/#/practice/speak).
 
 Open the [Lexkite Web App](/#/) today to turn the 10-minute TOEFL Academic Discussion into your strongest competitive advantage!
+
+{{cta: /#/ | Practice Free on Lexkite | Build advanced academic vocabulary and transition phrases for TOEFL iBT Writing}}
+
+## Frequently Asked Questions
+
+### What word count is recommended for the TOEFL Academic Discussion task?
+While ETS sets a minimum recommendation of 100 words, high-scoring responses (4.5–5.0) typically range between 120 and 150 words. Aim for depth of development rather than empty fluff.
+
+### Should I agree with one of the student perspectives or introduce an entirely new view?
+You can do either. Building on a classmate's point with a novel supporting example or contrasting perspective is often the fastest strategy under the 10-minute time constraint.
