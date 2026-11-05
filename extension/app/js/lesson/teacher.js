@@ -5,6 +5,7 @@
  * 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
  * audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster. */
 (function (g) {
+  const IOS_WA = typeof navigator !== 'undefined' && (/iP(hone|ad|od)/.test(navigator.userAgent || '') || (/Macintosh/.test(navigator.userAgent || '') && navigator.maxTouchPoints > 1));
   const D = g.document;
   const saveData = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))); } catch (e) { return false; } };
   const lite = () => { try { return saveData() || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
@@ -104,7 +105,9 @@
     const self = {
       stats,
       cue: key => { const c = g.LK_CUES && g.LK_CUES.k[key]; return c || null; },
-      tap: () => !!(ac && ac.state === 'running'),
+      // iOS/iPadOS: KHÔNG nối <audio> vào Web Audio (createMediaElementSource) – Web Audio bị công tắc im lặng tắt tiếng còn <audio> thì không,
+      // và nối rồi không gỡ được → phần tử dùng chung (LKAudio.el) im lặng mãi (gốc lỗi 5/11 "Truyện › Xếp thành câu" không tiếng). Khẩu hình theo lúc đang phát.
+      tap: () => !IOS_WA && !!(ac && ac.state === 'running'),
       /** src: { audio?, cue?, text, dur? } – audio + cue → pre; còn lại → live (năng lượng tiếng qua AnalyserNode nếu nối được, không thì theo lúc đang phát) */
       speak(src) {
         if (dead) return; self.quiet();
@@ -112,7 +115,7 @@
         const a = src.audio, t0 = performance.now(), clk = a ? () => a.currentTime : () => (performance.now() - t0) / 1000;
         let an = null, buf = null, node = null; const vd = LS.vad();
         const live = () => {
-          if (!node && a && a.crossOrigin && self.tap()) { try { node = ac.createMediaElementSource(a); an = ac.createAnalyser(); an.fftSize = 1024; node.connect(an); an.connect(ac.destination); buf = new Float32Array(an.fftSize); } catch (e) { an = null; } }
+          if (!node && a && a.crossOrigin && self.tap()) { try { node = ac.createMediaElementSource(a); a._lkWA = 1; an = ac.createAnalyser(); an.fftSize = 1024; node.connect(an); an.connect(ac.destination); buf = new Float32Array(an.fftSize); } catch (e) { an = null; } }
           const est = src.dur || Math.max(0.6, String(src.text || '').length * 0.065), L = LS.live(src.text || '', { dur: a && isFinite(a.duration) ? a.duration : est });
           S = { clk, L, node, a, t0, dur: est, M: LF.machine(who, { cues: L.cues, dur: Math.max(30, est), seed: seed(src.text), text: src.text, emo: talkEmo(), calm }),
             voiced: () => { if (a && !playing(a)) return false; if (!an) return true; an.getFloatTimeDomainData(buf); let e = 0; for (const x of buf) e += x * x; return vd(Math.sqrt(e / buf.length)); } };

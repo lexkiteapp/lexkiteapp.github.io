@@ -19,4 +19,11 @@ for (const f of ['web/js/mock.js', 'web/js/listening.js', 'web/js/toeic.js']) {
   assert.ok(/onBlocked: /.test(s) && /Chạm ▶ để nghe[\s\S]{0,300}\.play\(\)/.test(s), f + ': chặn → nút ▶ phát tiếp');
   assert.ok(!/textContent = '🔊 ' \+ t\('Đang phát – chỉ nghe 1 lần'\);\n/.test(s.replace(/onSound: \(\) => \{[^\n]*/g, '')), f + ': không còn ghi "Đang phát" ngay khi bấm');
 }
+// Bài học (Truyện › Xếp thành câu, "Nghe lại · Ama"): giáo viên đo tiếng bằng Web Audio. iOS: Web Audio bị công tắc im lặng tắt tiếng và
+// createMediaElementSource không gỡ được → cấm trên iOS; phần tử đã nối bị loại khỏi pool dùng chung
+const tc = rd('web/js/lesson/teacher.js');
+assert.ok(/tap: \(\) => !IOS_WA && /.test(tc) && /const IOS_WA = [^\n]*iP\(hone\|ad\|od\)[^\n]*maxTouchPoints/.test(tc), 'teacher.js: không nối <audio> vào Web Audio trên iOS/iPadOS');
+assert.ok(/createMediaElementSource\(a\); a\._lkWA = 1;/.test(tc) && /pool\[i\]\._lkWA\) pool\.splice/.test(au), 'phần tử đã nối Web Audio bị bỏ khỏi pool LKAudio.el');
+const wa = fs.readdirSync('web/js', { recursive: true }).filter(f => /\.js$/.test(f) && !/^i18n|vendor/.test(f)).filter(f => /createMediaElementSource\(/.test(rd('web/js/' + f)));
+assert.deepEqual(wa, ['lesson/teacher.js'], 'createMediaElementSource chỉ ở teacher.js (có gác iOS): ' + wa);
 console.log('✓ ios-audio-unlock: phần tử đã mồi cho mọi trình phát giọng, chặn → ▶ Chạm để nghe (không "Đang phát" khi im lặng)');

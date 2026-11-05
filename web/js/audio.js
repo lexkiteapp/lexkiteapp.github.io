@@ -51,6 +51,7 @@
   let ctx = null, unlocked = false, rr = 0; const POOL_N = 4, pool = [];
   // Mượn phần tử âm thanh: phần tử đã mồi (đang rảnh trước) để play() sau này không cần cú chạm; chưa mở khóa → phần tử mới như cũ
   function borrow() {
+    for (let i = pool.length - 1; i >= 0; i--) if (pool[i]._lkWA) pool.splice(i, 1); // đã nối Web Audio (không gỡ được) → bỏ khỏi pool
     if (!pool.length) return new Audio();
     let a = pool.find(x => x.paused && x !== cur) || pool[rr++ % pool.length];
     try { a._lkPrime = 0; a.onplaying = a.onended = a.onerror = a.onpause = a.ontimeupdate = null; a.pause(); a._lkDone = 0; a.volume = 1; a.muted = false; a.playbackRate = 1; a.removeAttribute('crossorigin'); delete a.dataset.lkMix; } catch (e) { a = new Audio(); }
