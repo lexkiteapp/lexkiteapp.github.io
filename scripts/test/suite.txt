@@ -137,6 +137,7 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-tabs.mjs
 node scripts/test/admin-map-colors.mjs
 node scripts/test/ads.mjs
 node scripts/test/ads-admin.mjs

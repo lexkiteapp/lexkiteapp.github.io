@@ -19,6 +19,15 @@ import { meter, spent, addSpent, overBudget, isShedError } from './_readbudget.j
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
+// GitHub API cho Quản trị (R2, docs/specs/admin-audit.md): có token thì 5.000 lượt/giờ thay vì 60/giờ/IP dùng chung của Cloudflare;
+// trả lỗi rõ (HTTP 403/5xx) thay vì JSON rỗng → giao diện báo "không đọc được", KHÔNG hiện "0 tác vụ" giả. Test: scripts/test/admin-gh.mjs
+export const ghApi = async (env, u, f = fetch) => {
+  const tok = env && (env.GH_DISPATCH_TOKEN || env.GH_ISSUES_TOKEN), h = { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' };
+  if (tok) h.Authorization = 'Bearer ' + tok;
+  const r = await f(`https://api.github.com/repos/${REPO}/${u}`, { headers: h });
+  if (!r.ok) throw new Error('GitHub HTTP ' + r.status);
+  return r.json();
+};
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu)
 const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min'];
 const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_KEYS];
@@ -639,9 +648,9 @@ const OPS = {
     return { ok: true, n: batch.length };
   },
   // Chất lượng: kết quả workflow "Rà soát hằng ngày" (health.yml) – điểm = số hạng mục đạt / tổng; dưới 100% = dưới chuẩn
-  async quality() {
+  async quality(db, b, who, env) {
     const c = caches.default, key = new Request('https://cache.lexkite.internal/quality'), hit = await c.match(key); if (hit) return hit.json();
-    const gh = u => fetch(`https://api.github.com/repos/${REPO}/${u}`, { headers: { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' } }).then(r => r.json());
+    const gh = u => ghApi(env, u); // lỗi → ném ra (không đệm kết quả rỗng 10 phút)
     const runs = ((await gh('actions/workflows/health.yml/runs?per_page=14')).workflow_runs || []).filter(r => r.status === 'completed');
     const CHECK = /^(Kiểm thử|Lẫn tiếng|Kiểm tra kiểu|Cú pháp|Bản live)/;
     const steps = async r => (((await gh(`actions/runs/${r.id}/jobs`)).jobs || [])[0] || { steps: [] }).steps.filter(x => CHECK.test(x.name)).map(x => ({ name: x.name, ok: x.conclusion === 'success' }));
@@ -735,13 +744,12 @@ const OPS = {
     const wrongs = L.flagged.filter(f => done[f.h] && !done[f.h].ok).map(f => ({ ...f, ...parse(done[f.h].note) }));
     return { lang, reviewed: L.flagged.filter(f => done[f.h]).length, total: L.flagged.length, pending: L.flagged.filter(f => !done[f.h]).length, models: [...used], wrong: wrongs };
   },
-  async alerts(db, b) {
+  async alerts(db, b, who, env) {
     const now = Date.now(), out = [];
     try {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs?per_page=40`, { headers: { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' } });
-      const runs = (await r.json()).workflow_runs || [], seen = new Set();
+      const runs = (await ghApi(env, 'actions/runs?per_page=40')).workflow_runs || [], seen = new Set();
       for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); out.push({ kind: 'workflow', name: w.name, status: w.status, ok: w.conclusion === 'success' || w.conclusion === 'skipped' || w.status !== 'completed', conclusion: w.conclusion, at: Date.parse(w.updated_at), url: w.html_url }); }
-    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, conclusion: tx(b, 'không đọc được', 'unreadable') }); }
+    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, conclusion: tx(b, 'không đọc được', 'unreadable') + ' · ' + String(e.message || e).slice(0, 40) }); }
     const e = await one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY);
     const lim = +((await one(db, "SELECT v FROM config WHERE k = 'alert_errors'")).v || 50);
     out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
