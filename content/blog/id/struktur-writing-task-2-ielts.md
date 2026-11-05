@@ -26,6 +26,8 @@ Format esai 4 paragraf terdiri dari: satu paragraf pendahuluan (Introduction), d
 
 Kriteria penilaian resmi IELTS Writing Task 2 dinilai berdasarkan empat komponen yang memiliki bobot sama (masing-masing 25%):
 
+Kalau ingin melanjutkan, lihat juga [panduan format baru TOEFL iBT 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
+
 1. **Task Response (TR):** Seberapa tepat Anda menjawab seluruh instruksi soal dan mempertahankan posisi yang konsisten dari awal hingga akhir.
 2. **Coherence and Cohesion (CC):** Bagaimana Anda mengelompokkan ide dalam paragraf logis serta menggunakan kata penghubung secara wajar.
 3. **Lexical Resource (LR):** Variasi dan ketepatan penggunaan kosakata serta kolokasi akademis.
