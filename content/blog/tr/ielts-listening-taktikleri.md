@@ -67,7 +67,7 @@ Eğer yönerge "ONE WORD ONLY" diyorsa ve doğru cevap "red car" ise, sadece "ca
 
 ![IELTS deneme sınavı arayüzü](media:mock "Deneme sınavında dört beceriden birini ve denemeyi seçme, geçmiş sınavları görme")
 
-Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölümünde süre kısıtı altında çalışarak gerçek sınav stresini önceden yönetebilirsiniz. Ayrıca sınav öncesinde temel kelime haznenizi genişletmek adına [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyebilir ve [kelime listeleri](/tu-vung/) sayfamızdaki akademik sözcükleri çalışabilirsiniz.
+Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölümünde süre kısıtı altında çalışarak gerçek sınav stresini önceden yönetebilirsiniz. Ayrıca sınav öncesinde temel kelime haznenizi genişletmek adına [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyebilir ve [kelime listeleri](/en/vocabulary/) sayfamızdaki akademik sözcükleri çalışabilirsiniz.
 
 ## Bölümlere Göre Özel Çözüm Stratejileri
 

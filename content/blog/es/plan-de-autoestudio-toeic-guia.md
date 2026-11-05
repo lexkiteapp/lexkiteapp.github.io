@@ -10,7 +10,7 @@ tags: [toeic, estudio, preparacion]
 cover: toeic
 coverAlt: "Interfaz de preparación para el examen TOEIC en Lexkite con simulacros completos y ejercicios por sección"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-05T07:36:00-06:00
 status: ready

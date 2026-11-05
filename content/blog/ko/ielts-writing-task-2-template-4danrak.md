@@ -10,7 +10,7 @@ keyword: "ielts writing task 2 템플릿"
 cover: write
 coverAlt: "IELTS Task 2 라이팅 연습실: 주제 선택, 아이디어 생성, 학술 어휘 제안, 글 구조 가이드와 주석 달린 Band 8 모범 답안"
 publishAt: 2027-01-03T12:11:00+09:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 91

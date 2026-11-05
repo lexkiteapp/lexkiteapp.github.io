@@ -10,7 +10,7 @@ tags: [business-english, email, acronyms, thamma-ngan]
 cover: letters
 coverAlt: "คู่มือคำย่อภาษาอังกฤษที่ทำงานและตัวย่อสำหรับอีเมลและการสื่อสารองค์กรข้ามชาติ"
 qualityScore: 90
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}

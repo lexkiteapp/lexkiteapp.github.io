@@ -10,7 +10,7 @@ tags: [toeic, study-plan, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC परीक्षा अभ्यास इंटरफेस जिसमें मॉक टेस्ट और सेक्शन-वार अभ्यास दिखाया गया है"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-05T19:38:00+05:30
 status: ready

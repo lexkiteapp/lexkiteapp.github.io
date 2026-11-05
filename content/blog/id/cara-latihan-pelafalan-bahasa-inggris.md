@@ -10,7 +10,7 @@ tags: [pelafalan, speaking, pengucapan, ipa, latihan-mandiri]
 cover: pron
 coverAlt: "Perpustakaan pelafalan IPA di Lexkite dengan vokal tunggal, diftong, konsonan, contoh kata, dan latihan per bunyi yang dinilai"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-03T19:01:00+07:00
 status: ready

@@ -10,7 +10,7 @@ keyword: "toeic part 5"
 cover: path
 coverAlt: "उम्मीदवार स्टॉपवॉच के साथ TOEIC Part 5 ग्रामर प्रश्नों का अभ्यास करते हुए"
 publishAt: 2027-01-03T08:24:00+05:30
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [
@@ -96,7 +96,7 @@ qualityScore: 92
 - **क्रियाविशेषण (-ly वाले Adverbs)**: क्रिया, विशेषण या पूरे वाक्य की विशेषता बताते हैं। यदि वाक्य व्याकरणिक रूप से पहले से पूर्ण है (Subject + Verb + Object), तो खाली स्थान में लगभग हमेशा Adverb आता है:
   - *उदाहरण: The logistics team responded _____ to customer inquiries. (विकल्प: prompt, promptly, promptness)* $\rightarrow$ उत्तर: *promptly* (*responded* क्रिया की विशेषता)।
 
-अपनी व्यावसायिक शब्दावली को मजबूत करने के लिए [कार्यस्थल अंग्रेजी संक्षिप्त रूप और ईमेल गाइड](/hi/blog/workplace-english-abbreviations-email-hindi-guide/) पढ़ें और [शब्दावली सूचियां](/tu-vung/) देखें। इन पैटर्न को असली प्रश्नों पर आज़माने के लिए [Lexkite का TOEIC पेज](/#/toeic) खोलें: हर मॉक टेस्ट के लिए Part 5 का अभ्यास है, और उत्तर जमा करने के बाद हर प्रश्न की व्याख्या दिखती है।
+अपनी व्यावसायिक शब्दावली को मजबूत करने के लिए [कार्यस्थल अंग्रेजी संक्षिप्त रूप और ईमेल गाइड](/hi/blog/workplace-english-abbreviations-email-hindi-guide/) पढ़ें और [शब्दावली सूचियां](/en/vocabulary/) देखें। इन पैटर्न को असली प्रश्नों पर आज़माने के लिए [Lexkite का TOEIC पेज](/#/toeic) खोलें: हर मॉक टेस्ट के लिए Part 5 का अभ्यास है, और उत्तर जमा करने के बाद हर प्रश्न की व्याख्या दिखती है।
 
 ---
 

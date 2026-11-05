@@ -10,7 +10,7 @@ tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC Prüfungsvorbereitungsoberfläche mit kompletten Übungstests und partweisem Training"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-03T19:51:00+01:00
 status: ready

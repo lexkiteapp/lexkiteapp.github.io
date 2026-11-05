@@ -10,7 +10,7 @@ tags: [business-english, email, acronyms, is-hayati]
 cover: letters
 coverAlt: "Kurumsal e-posta ve mesajlaşmada kullanılan iş hayatında İngilizce kısaltmalar rehberi"
 qualityScore: 91
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}

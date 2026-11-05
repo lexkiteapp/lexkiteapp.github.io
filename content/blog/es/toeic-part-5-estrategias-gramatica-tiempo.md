@@ -10,7 +10,7 @@ keyword: "toeic part 5 estrategias"
 cover: toeic
 coverAlt: "Área de preparación de TOEIC con exámenes simulados y módulos de práctica cronometrada para Part 5"
 publishAt: 2027-01-09T08:57:00-06:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92

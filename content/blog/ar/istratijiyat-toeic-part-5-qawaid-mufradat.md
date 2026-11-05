@@ -10,7 +10,7 @@ keyword: "toeic part 5"
 cover: path
 coverAlt: "طالب يتدرب على قسم القواعد TOEIC Part 5 مع ساعة إيقاف لتنظيم الوقت"
 publishAt: 2026-12-31T08:14:00+03:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [
@@ -96,7 +96,7 @@ qualityScore: 92
 - **الظرف المنتهي بـ ly (Adverb)**: يصف الأفعال الحركية، أو الصفات، أو جملة كاملة. إذا كانت الجملة مكتملة الأركان النحوية بالفعل (فاعل + فعل متعدٍ + مفعول به)، فالكلمة الناقصة هي ظرف غالباً:
   - *مثال: The logistics department responded _____ to customer inquiries. (الخيارات: prompt, promptly, promptness)* $\rightarrow$ الإجابة: *promptly* (ظرف يصف الفعل *responded*).
 
-طوّر رصيدك من المصطلحات المهنية عبر الاطلاع على [دليل اختصارات الإنجليزية في العمل](/ar/blog/ikhtisarat-injliziyyah-fi-al-amal-email-guide/) وراجع [قوائم المفردات](/tu-vung/). وللتطبيق على أسئلة حقيقية افتح [صفحة TOEIC في Lexkite](/#/toeic): لكل اختبار تجريبي تدريب على الجزء الخامس، وبعد إرسال إجاباتك يظهر شرح كل سؤال.
+طوّر رصيدك من المصطلحات المهنية عبر الاطلاع على [دليل اختصارات الإنجليزية في العمل](/ar/blog/ikhtisarat-injliziyyah-fi-al-amal-email-guide/) وراجع [قوائم المفردات](/en/vocabulary/). وللتطبيق على أسئلة حقيقية افتح [صفحة TOEIC في Lexkite](/#/toeic): لكل اختبار تجريبي تدريب على الجزء الخامس، وبعد إرسال إجاباتك يظهر شرح كل سؤال.
 
 ---
 

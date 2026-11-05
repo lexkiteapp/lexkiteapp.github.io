@@ -98,7 +98,7 @@ Divide tu aprendizaje en tres fases claras de 30 días con objetivos tangibles:
 - **Plan diario**:
   - Practica la [técnica de shadowing en inglés](/es/blog/tecnica-shadowing-ingles-paso-a-paso/) para ganar agilidad en los músculos de la boca.
   - Aprende a estructurar condiciones básicas con [oraciones condicionales en inglés](/es/blog/oraciones-condicionales-en-ingles-reglas-y-ejemplos/).
-  - Familiarízate con la lectura estratégica mediante las [técnicas de skimming y scanning](/es/blog/tecnicas-skimming-scanning-ielts-reading/) o consulta términos en la [biblioteca de vocabulario](/tu-vung/).
+  - Familiarízate con la lectura estratégica mediante las [técnicas de skimming y scanning](/es/blog/tecnicas-skimming-scanning-ielts-reading/) o consulta términos en la [biblioteca de vocabulario](/en/vocabulary/).
   - Aprende a formular dudas con solvencia siguiendo la guía de [cómo hacer preguntas en inglés](/es/blog/como-hacer-preguntas-en-ingles-estructura/).
 
 ## Rutina diaria recomendada de 45 minutos

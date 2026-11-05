@@ -10,7 +10,7 @@ keyword: "영어로 생각하기"
 cover: path
 coverAlt: "Lexkite를 활용한 영어 사고력 훈련과 스피킹 유창성 향상 학습 로드맵"
 publishAt: 2027-01-06T08:45:00+09:00
-factChecked: 2026-11-01
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92

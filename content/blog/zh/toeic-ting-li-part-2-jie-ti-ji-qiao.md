@@ -10,7 +10,7 @@ tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite托业练习页：自动评分的模拟考试、分Part练习与托业词汇"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-02T19:51:00+08:00
 status: ready

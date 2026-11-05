@@ -10,7 +10,7 @@ tags: [toefl, toefl-ibt, test-format, gongbubeop]
 cover: toefl
 coverAlt: "Lexkite 토플 대비 화면: 2026년 개정 신유형 시험 구조와 영역별 태스크 목록"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-04T07:36:00+09:00
 status: ready

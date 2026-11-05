@@ -10,7 +10,7 @@ tags: [toefl, toefl-ibt, test-format, taisaku]
 cover: toefl
 coverAlt: "LexkiteのTOEFL iBT対策画面：2026年新形式テスト構造と新問題形式一覧"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-14T12:11:00+09:00
 status: ready

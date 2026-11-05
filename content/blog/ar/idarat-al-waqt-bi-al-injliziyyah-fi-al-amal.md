@@ -10,7 +10,7 @@ keyword: "إدارة الوقت بالإنجليزية في العمل"
 cover: path
 coverAlt: "مهندس برمجيات ومدير مشاريع يناقشان مصفوفة إدارة الوقت بالإنجليزية وتحديد أولويات العمل"
 publishAt: 2026-12-28T19:51:00+03:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 91

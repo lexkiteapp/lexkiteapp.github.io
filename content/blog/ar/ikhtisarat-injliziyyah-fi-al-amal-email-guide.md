@@ -10,7 +10,7 @@ keyword: "اختصارات إنجليزية في العمل"
 cover: path
 coverAlt: "موظف في شركة دولية يقرأ بريداً إلكترونياً يحتوي على اختصارات مهنية بالإنجليزية على شاشة الحاسوب"
 publishAt: 2026-12-30T07:36:00+03:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [

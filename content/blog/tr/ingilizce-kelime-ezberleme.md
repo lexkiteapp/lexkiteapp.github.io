@@ -25,7 +25,7 @@ Günde 50 kelime ezberlemeye çalışıp hafta sonunda hevesi kırılanların ya
 
 Kelime öğrenirken Türkçe ile İngilizce arasındaki söz dizimi farklarını ve edat (preposition) kullanımlarını da birlikte kaydetmek şarttır. Temel seviyeden başlayarak dengeli bir çalışma düzeni kurmak istiyorsanız, sitemizdeki [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi inceleyerek 90 günlük genel çalışma planınızı netleştirebilirsiniz.
 
-Ayrıca sınav ve iş hayatına yönelik hedefleriniz için [tematik kelime listelerimizi](/tu-vung/) inceleyerek zaman kaybettirmeyen en gerekli sözcük gruplarını belirleyebilirsiniz.
+Ayrıca sınav ve iş hayatına yönelik hedefleriniz için [tematik kelime listelerimizi](/en/vocabulary/) inceleyerek zaman kaybettirmeyen en gerekli sözcük gruplarını belirleyebilirsiniz.
 
 ## Adım 1 ve 2: Seviyeye uygun seçim ve kelime aileleri
 

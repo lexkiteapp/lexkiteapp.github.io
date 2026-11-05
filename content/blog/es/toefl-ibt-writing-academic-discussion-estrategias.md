@@ -10,7 +10,7 @@ tags: [toefl, writing, academic-discussion, examenes]
 cover: toefl
 coverAlt: "Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-07T08:45:00-06:00
 status: ready

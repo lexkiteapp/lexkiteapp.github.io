@@ -10,7 +10,7 @@ tags: [toefl, writing, academic-discussion, examens]
 cover: toefl
 coverAlt: "Page TOEFL de Lexkite avec le tableau de structure du nouveau format et les types d'épreuves"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-03T07:36:00+01:00
 status: ready

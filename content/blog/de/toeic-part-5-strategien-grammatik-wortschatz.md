@@ -10,7 +10,7 @@ keyword: "toeic part 5"
 cover: path
 coverAlt: "Kandidat bereitet sich auf TOEIC Part 5 mit Grammatikanalyse und Stoppuhr vor"
 publishAt: 2027-01-04T12:11:00+01:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [
@@ -116,7 +116,7 @@ Die syntaktische Faustregel lautet:
 
 Sobald Sie solche Optionen sehen, prüfen Sie die Worte nach der Lücke: Befindet sich dort ein konjugiertes Verb, scheiden sämtliche Präpositionen automatisch aus.
 
-Business-Wörter und ihre festen Verbindungen finden Sie auch in der [Wortschatz-Übersicht](/tu-vung/); in der Bibliothek der App gibt es dazu den Reiter TOEIC (TSL).
+Business-Wörter und ihre festen Verbindungen finden Sie auch in der [Wortschatz-Übersicht](/en/vocabulary/); in der Bibliothek der App gibt es dazu den Reiter TOEIC (TSL).
 
 ![Lexkite-Bibliothek mit den Reitern Alle, NGSL, IELTS, Writing, Speaking und TOEIC (TSL)](media:library "Die Bibliothek mit dem Reiter TOEIC (TSL): Business-Wortschatz für Part 5")
 

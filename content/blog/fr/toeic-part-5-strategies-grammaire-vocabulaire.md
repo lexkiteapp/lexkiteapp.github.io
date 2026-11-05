@@ -10,7 +10,7 @@ keyword: "toeic part 5"
 cover: path
 coverAlt: "Candidat préparant le TOEIC Part 5 avec analyse grammaticale et chronomètre"
 publishAt: 2027-01-05T08:45:00+01:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [
@@ -96,7 +96,7 @@ Voici les configurations les plus récurrentes au test :
 - **L'adverbe en -ly** : Modifie un verbe d'action, un adjectif ou une proposition complète. Lorsqu'une phrase est déjà grammaticalement complète, le mot manquant est presque toujours un adverbe :
   - *Exemple : The logistics department responded _____ to customer inquiries. (Options : prompt, promptly, promptness)* $\rightarrow$ Réponse : *promptly* (adverbe modifiant le verbe *responded*).
 
-Pour consolider vos réflexes sur les nuances de vocabulaire formel, consultez également nos recommandations pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et consultez les [listes de vocabulaire](/tu-vung/). Pour vous entraîner sur de vraies questions, la [page TOEIC de Lexkite](/#/toeic) propose pour chaque test blanc un entraînement à la Partie 5 avec explication de chaque réponse après validation.
+Pour consolider vos réflexes sur les nuances de vocabulaire formel, consultez également nos recommandations pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et consultez les [listes de vocabulaire](/en/vocabulary/). Pour vous entraîner sur de vraies questions, la [page TOEIC de Lexkite](/#/toeic) propose pour chaque test blanc un entraînement à la Partie 5 avec explication de chaque réponse après validation.
 
 ---
 

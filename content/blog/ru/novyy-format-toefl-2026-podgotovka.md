@@ -10,7 +10,7 @@ tags: [toefl, toefl-ibt, format-ekzamena, podgotovka]
 cover: toefl
 coverAlt: "Интерфейс модуля подготовки к TOEFL iBT на платформе Lexkite с новой структурой экзамена 2026 года"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2026-12-29T19:51:00+03:00
 status: ready

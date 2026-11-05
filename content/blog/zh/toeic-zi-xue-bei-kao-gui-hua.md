@@ -10,7 +10,7 @@ tags: [toeic, study-plan, test-prep]
 cover: toeic
 coverAlt: "Lexkite托业备考界面展示完整模拟测试模块与分题型专项强化训练工具"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-03T12:11:00+08:00
 status: ready

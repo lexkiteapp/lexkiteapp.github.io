@@ -10,7 +10,7 @@ tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Interfaz de preparación para el examen TOEIC en Lexkite con simulacros completos y práctica por secciones"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-08T08:24:00-06:00
 status: ready

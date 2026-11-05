@@ -10,7 +10,7 @@ keyword: "ऑफिस में टाइम मैनेजमेंट इं
 cover: path
 coverAlt: "सॉफ्टवेयर इंजीनियर और प्रोजेक्ट लीडर ऑफिस में टाइम मैनेजमेंट और प्रोजेक्ट प्राथमिकताओं पर चर्चा करते हुए"
 publishAt: 2027-01-01T08:14:00+05:30
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 91

@@ -10,7 +10,7 @@ tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "شاشة اختبارات TOEIC التفاعلية في تطبيق Lexkite مع خيارات التدريب والأقسام المتنوعة"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-03T08:57:00+03:00
 status: ready

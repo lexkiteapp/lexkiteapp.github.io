@@ -101,7 +101,7 @@ publishAt: 2026-10-25T08:14:00+09:00
 
 토플 시험에 대비하여 빠른 지문 스캔 능력을 기르고 싶다면 [토익 파트 7 독해 비법](/ko/blog/toeic-part7-dokhae-bibeop/)의 키워드 스키밍 기법을 접목해 보세요. 또한 스피킹과 라이팅의 동시 발전을 원한다면 [영어 쉐도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)과 종합 수험 전략인 [토익 공부법](/ko/blog/toeic-gongbubeop/)을 병행하는 것이 효과적입니다.
 
-학술적 글쓰기에 필요한 고급 어휘 목록은 [Lexkite 핵심 어휘 가이드](/tu-vung/)에서 주제별로 확인하실 수 있습니다.
+학술적 글쓰기에 필요한 고급 어휘 목록은 [Lexkite 핵심 어휘 가이드](/en/vocabulary/)에서 주제별로 확인하실 수 있습니다.
 
 {{youtube: | 토플 iBT 라이팅 만점을 위한 실전 템플릿 활용법}}
 

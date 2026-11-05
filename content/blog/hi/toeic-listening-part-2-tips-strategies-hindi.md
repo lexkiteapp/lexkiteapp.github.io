@@ -10,7 +10,7 @@ tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite ऐप में TOEIC परीक्षा तैयारी इंटरफ़ेस, प्रैक्टिस सेट और विस्तृत प्रश्न बैंक"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-02T08:45:00+05:30
 status: ready

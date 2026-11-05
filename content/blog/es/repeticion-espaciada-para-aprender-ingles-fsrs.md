@@ -10,7 +10,7 @@ keyword: "repetición espaciada para aprender inglés"
 cover: method
 coverAlt: "Método Lexkite con ciclo de retención y calendario de repaso espaciado para aprender inglés"
 publishAt: 2027-01-06T08:14:00-06:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92
@@ -162,7 +162,7 @@ Lexkite incluye repaso de flashcards con repetición espaciada. Una rutina senci
 - Cuando encuentres una palabra nueva, búscala en el [diccionario](/#/dict/resilient), donde verás la pronunciación IPA británica y americana, ejemplos y colocaciones, y puedes guardarla como flashcard.
 - Para usar las palabras en voz alta, di la frase en la [práctica de pronunciación](/#/practice/speak) con el micrófono y mira la puntuación.
 
-Para seguir leyendo: [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/), [cómo pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/), [collocations en inglés para IELTS](/es/blog/collocations-en-ingles-para-ielts/), [falsos amigos inglés-español](/es/blog/falsos-amigos-ingles-espanol/) y [cómo organizar tu tiempo de estudio](/es/blog/gestion-del-tiempo-en-ingles-en-el-trabajo/). Las listas de vocabulario por nivel están en la [biblioteca](/#/library) y, en la web, en [vocabulario](/tu-vung/).
+Para seguir leyendo: [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/), [cómo pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/), [collocations en inglés para IELTS](/es/blog/collocations-en-ingles-para-ielts/), [falsos amigos inglés-español](/es/blog/falsos-amigos-ingles-espanol/) y [cómo organizar tu tiempo de estudio](/es/blog/gestion-del-tiempo-en-ingles-en-el-trabajo/). Las listas de vocabulario por nivel están en la [biblioteca](/#/library) y, en la web, en [vocabulario](/en/vocabulary/).
 
 {{cta: /#/review | Abre tu sesión de repaso de flashcards}}
 

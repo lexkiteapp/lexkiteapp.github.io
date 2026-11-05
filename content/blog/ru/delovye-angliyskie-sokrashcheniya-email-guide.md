@@ -10,7 +10,7 @@ tags: [business-english, email, acronyms, workplace]
 cover: letters
 coverAlt: "Справочник деловых сокращений на английском языке для корпоративной переписки и рабочих чатов"
 qualityScore: 91
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}

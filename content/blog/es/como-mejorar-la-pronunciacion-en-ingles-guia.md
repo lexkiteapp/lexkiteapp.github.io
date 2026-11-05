@@ -10,7 +10,7 @@ keyword: "cómo mejorar la pronunciación en inglés"
 cover: path
 coverAlt: "Estudiante practicando pronunciación en inglés con evaluación acústica por micrófono"
 publishAt: 2027-01-02T19:01:00-06:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92

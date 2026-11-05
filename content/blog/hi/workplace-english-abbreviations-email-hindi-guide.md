@@ -10,7 +10,7 @@ keyword: "ऑफिस में इंग्लिश शॉर्ट फॉर
 cover: path
 coverAlt: "अंतरराष्ट्रीय कंपनी का कर्मचारी लैपटॉप पर बिजनेस ईमेल और वर्कप्लेस एब्रिविएशन पढ़ते हुए"
 publishAt: 2027-01-06T09:46:00+05:30
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [

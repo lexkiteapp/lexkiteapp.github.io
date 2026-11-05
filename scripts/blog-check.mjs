@@ -10,7 +10,7 @@ import { loadYoutube } from './blog-youtube.mjs';
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
 const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about', 'topik', 'halaman', 'tentang', 'tema', 'etiqueta', 'pagina', 'acerca-de', 'category', 'categoria', 'sobre', 'categorie', 'a-propos', 'kategorie', 'schlagwort', 'seite', 'ueber-uns', 'kategori', 'etiket', 'sayfa', 'hakkinda']); // /blog/<…>/ không phải bài
-const FAQ = FAQ_RE;
+const FAQ = FAQ_RE, LANG_GATE_FROM = '2026-11-05';
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
 const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/i\u0307/g, 'i').replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
@@ -131,6 +131,19 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
     else if (wc >= 1800 && bodyImgs.size < 3) W('image', `bài dài ${wc} từ nên có ≥ 3 ảnh thân bài (đang ${bodyImgs.size})`);
     if (!p.cover) E('cover', 'thiếu cover'); else if (!media.ids.has(p.cover)) E('cover', `cover "${p.cover}" không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
     if (len(String(p.coverAlt ?? '').trim()) < 10) E('cover', 'coverAlt cần ≥ 10 ký tự');
+    // Lô B5-R2 (5/11/2026): bài ngôn ngữ khác mang nhãn/alt tiếng Việt, trỏ /tu-vung/ (trang tiếng Việt), coverAlt tả sai ảnh bìa.
+    // Bài duyệt từ 5/11/2026 (factChecked ≥ LANG_GATE_FROM) → lỗi; bài cũ (112 bài hàng chờ + 51 bài live) → cảnh báo để sửa dần.
+    { const EF = String(p.factChecked || '') >= LANG_GATE_FROM ? E : W;
+      if (p.lang !== 'vi') {
+        if (/\]\(\/tu-vung\//.test(body)) E('lang-link', 'liên kết /tu-vung/ là trang tiếng Việt – bài ngôn ngữ khác dùng /en/vocabulary/');
+        const VI = /[ươạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđĐ]/;
+        const mixed = [p.coverAlt, ...[...body.matchAll(/!\[([^\]]*)\]\([^)\s]+(?:\s+"([^"]*)")?\)/g)].flatMap(m => [m[1], m[2]])].filter(x => x && VI.test(x));
+        if (mixed.length) EF('lang-mix', `alt/chú thích có chữ tiếng Việt trong bài ${p.lang}: "${mixed[0].slice(0, 60)}" – viết bằng ngôn ngữ của bài; nhãn app trích nguyên văn theo giao diện ${p.lang} (không có bản dịch → nhãn tiếng Anh)`);
+        const vline = body.split('\n').find(l => VI.test(l) && !/^\s*!\[/.test(l));
+        if (vline) EF('lang-mix', `thân bài có chữ tiếng Việt: "${vline.trim().slice(0, 60)}" – app ${p.lang} không hiện nhãn tiếng Việt`);
+      }
+      if (FACTS && p.cover && p.coverAlt) for (const x of captionIssues(FACTS, { id: p.cover, lang: p.lang, alt: String(p.coverAlt), caption: '', postExams: postExams(FACTS, p), keyword: '' })) (x.level === 'error' ? EF : W)('cover-truth', `coverAlt: ${x.msg}`);
+    }
     // Shortcode
     let yt = 0; const ctas = [];
     for (const m of body.matchAll(/\{\{([\s\S]*?)\}\}/g)) {

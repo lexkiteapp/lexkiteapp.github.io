@@ -10,7 +10,7 @@ tags: [pronunciation, ucharan, speaking, ipa, shadowing]
 cover: pron
 coverAlt: "Lexkite की IPA उच्चारण लाइब्रेरी: स्वर, व्यंजन और व्यक्तिगत ध्वनियों का अभ्यास"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2026-12-29T19:51:00+05:30
 status: ready

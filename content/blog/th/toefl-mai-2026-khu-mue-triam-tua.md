@@ -10,7 +10,7 @@ tags: [toefl, toefl-ibt, test-format, triam-tua]
 cover: toefl
 coverAlt: "หน้าจอเตรียมสอบ TOEFL iBT บน Lexkite แสดงโครงสร้างข้อสอบใหม่ปี 2026 และพาร์ตต่างๆ"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-05T08:45:00+07:00
 status: ready

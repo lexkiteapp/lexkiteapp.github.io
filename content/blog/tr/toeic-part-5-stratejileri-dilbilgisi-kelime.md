@@ -10,7 +10,7 @@ keyword: "toeic part 5"
 cover: path
 coverAlt: "Öğrenci kronometre ile TOEIC Part 5 dilbilgisi sorularını analiz ediyor"
 publishAt: 2027-01-02T08:14:00+03:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [
@@ -96,7 +96,7 @@ Sınavda en sık karşılaşılan sentaktik dizilimler şunlardır:
 - **Zarf (-ly ile biten Adverb)**: Bir eylem fiilini, bir sıfatı veya cümlenin tamamını niteler. Cümle temel yapıtaşları bakımından (Özne + Yüklem + Nesne) zaten eksiksiz ise, boşluğa neredeyse her zaman bir zarf gelmelidir:
   - *Örnek: The logistics team responded _____ to customer inquiries. (Seçenekler: prompt, promptly, promptness)* $\rightarrow$ Yanıt: *promptly* (*responded* fiilini niteleyen zarf).
 
-İş dünyası dilinizi zenginleştirmek için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberimize ve [kelime listelerine](/tu-vung/) bakabilirsiniz. Kalıpları gerçek sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
+İş dünyası dilinizi zenginleştirmek için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberimize ve [kelime listelerine](/en/vocabulary/) bakabilirsiniz. Kalıpları gerçek sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
 
 ---
 

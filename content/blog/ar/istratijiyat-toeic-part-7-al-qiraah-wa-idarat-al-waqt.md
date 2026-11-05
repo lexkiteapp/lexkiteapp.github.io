@@ -10,7 +10,7 @@ keyword: "toeic part 7"
 cover: path
 coverAlt: "طالب يتدرب على اختبار قراءة TOEIC Part 7 مع مؤقت رقمي لتنظيم الوقت"
 publishAt: 2027-01-01T08:45:00+03:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92

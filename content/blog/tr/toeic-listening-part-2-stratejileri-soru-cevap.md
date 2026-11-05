@@ -10,7 +10,7 @@ tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC deneme sınavları ve soru bazlı pratik arayüzü"
 qualityScore: 91
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-01T07:36:00+03:00
 status: ready

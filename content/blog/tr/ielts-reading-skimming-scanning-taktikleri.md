@@ -134,7 +134,7 @@ Ayrıca okuyun: [IELTS Writing Task 1 Grafik: Rapor Yazma ve Analiz Taktikleri](
 
 {{cta: /tu-vung/ | IELTS Reading Çalışmalarına Başla}}
 
-Geniş kelime haznesine ve örnek soru tiplerine [kelime ve sınav hazırlık kaynakları](/tu-vung/) sayfamızdan ulaşabilir, genel dil edinimi sürecinizi hızlandırmak için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.
+Geniş kelime haznesine ve örnek soru tiplerine [kelime ve sınav hazırlık kaynakları](/en/vocabulary/) sayfamızdan ulaşabilir, genel dil edinimi sürecinizi hızlandırmak için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.
 
 ## 5 Adımda IELTS Reading Sınav Anı Uygulama Rehberi (Walkthrough)
 

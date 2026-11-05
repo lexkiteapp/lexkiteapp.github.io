@@ -10,7 +10,7 @@ tags: [toeic, revision, test-prep]
 cover: toeic
 coverAlt: "Interface d entraînement au test TOEIC sur Lexkite avec examens blancs complets et révisions ciblées par section"
 qualityScore: 92
-factChecked: 2026-10-15
+factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-02T12:11:00+01:00
 status: ready

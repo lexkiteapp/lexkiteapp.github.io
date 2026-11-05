@@ -10,7 +10,7 @@ keyword: "toeic part 5"
 cover: path
 coverAlt: "Candidato resolvendo questões do TOEIC Part 5 com cronômetro e análise de opções"
 publishAt: 2027-01-14T08:14:00-03:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 quiz: [
@@ -96,7 +96,7 @@ Veja os padrões mais frequentes na prova:
 - **Advérbio terminado em -ly**: Modifica verbos de ação, adjetivos ou uma oração inteira já estruturada. Se a frase já possui sujeito, verbo transitivo e objeto direto completos, a lacuna quase sempre pede um advérbio:
   - *Exemplo: The technician resolved the software glitch _____. (Opções: prompt, promptly, promptness)* $\rightarrow$ Resposta: *promptly* (advérbio modificando *resolved*).
 
-Para enriquecer sua base de termos formais de trabalho, veja as [listas de vocabulário](/tu-vung/). Para treinar com questões de verdade, a [página TOEIC do Lexkite](/#/toeic) traz, para cada simulado, um treino de Part 5 que explica cada resposta depois do envio.
+Para enriquecer sua base de termos formais de trabalho, veja as [listas de vocabulário](/en/vocabulary/). Para treinar com questões de verdade, a [página TOEIC do Lexkite](/#/toeic) traz, para cada simulado, um treino de Part 5 que explica cada resposta depois do envio.
 
 ---
 

@@ -10,7 +10,7 @@ keyword: "คิดเป็นภาษาอังกฤษ"
 cover: path
 coverAlt: "แผนที่การเรียนรู้การคิดเป็นภาษาอังกฤษและฝึกพูดอย่างมั่นใจบน Lexkite"
 publishAt: 2027-01-04T08:14:00+07:00
-factChecked: 2026-11-01
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92

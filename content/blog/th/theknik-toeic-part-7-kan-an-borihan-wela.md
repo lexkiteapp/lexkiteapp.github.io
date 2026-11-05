@@ -10,7 +10,7 @@ keyword: "toeic part 7"
 cover: path
 coverAlt: "ผู้สอบกำลังฝึกทำข้อสอบการอ่านเพื่อความเข้าใจ TOEIC Part 7 พร้อมจับเวลาแบบดิจิทัล"
 publishAt: 2027-01-03T07:36:00+07:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
 qualityScore: 92
