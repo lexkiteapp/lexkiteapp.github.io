@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, examens, preparation]
 cover: toefl
 coverAlt: "Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves"
-qualityScore: 91
+qualityScore: 92
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-01T19:51:00+01:00
@@ -18,57 +18,57 @@ quiz: [
   {
     q: "Quel est le temps de base des quatre sections du TOEFL iBT dans le nouveau format, d'après le tableau d'ETS ?",
     options: [
-      "Environ 90 minutes, mais ETS conseille de prévoir deux heures",
-      "Plus de 3 h 30 avec une pause obligatoire entre les sections",
-      "Exactement 2 h 30, mais sans la section d'expression orale",
-      "Quatre heures au total, réparties sur deux jours consécutifs"
+      "Plus de 3 h 30, avec une pause obligatoire entre chaque section",
+      "Exactement 2 h 30, sans compter la section d'expression orale",
+      "Quatre heures au total, réparties sur deux jours consécutifs",
+      "Environ 90 minutes hors consignes, soit près de 2 h en tout"
     ],
-    answer: 0,
+    answer: 3,
     explain: "Le tableau officiel indique 30 minutes pour Reading, 29 pour Listening, 23 pour Writing et 8 pour Speaking, soit environ 90 minutes. Le temps des consignes n'est pas compté, et comme le test est adaptatif, le nombre d'items et la durée peuvent varier légèrement."
   },
   {
     q: "Comment les résultats sont-ils exprimés depuis le 21 janvier 2026 ?",
     options: [
-      "Quatre scores de section et un score global de 1 à 6",
       "Une note unique sur 100 sans aucun détail par compétence",
       "Uniquement la mention admis ou non admis, sans score",
-      "Une lettre de A à F attribuée à chaque section du test"
+      "Une lettre de A à F attribuée à chaque section du test",
+      "Quatre scores de section et un global, de 1 à 6"
     ],
-    answer: 0,
+    answer: 3,
     explain: "ETS donne les scores de section et le score global de 1 à 6 par demi-points. Pendant une transition de deux ans, un score comparable sur l'échelle 0 à 120 figure aussi sur le relevé."
   },
   {
     q: "En quoi consiste l'épreuve Complete the Words ?",
     options: [
-      "Taper les lettres manquantes dans un court texte",
       "Choisir un synonyme adapté dans un menu déroulant",
+      "Taper les lettres manquantes dans un texte",
       "Retaper mot à mot un texte entendu dans un audio",
       "Traduire toutes les phrases du texte vers le français"
     ],
-    answer: 0,
+    answer: 1,
     explain: "Comme vous tapez vous-même les lettres, l'orthographe, la nature du mot, le temps verbal et le pluriel comptent. Reconnaître le mot ne suffit pas."
   },
   {
     q: "Quelles sections ETS présente-t-elle comme adaptatives dans le nouveau format ?",
     options: [
-      "Reading et Listening, avec une difficulté variable",
       "Seulement Speaking, les autres sections restent fixes",
       "Seulement Writing, les autres sections sont fixes",
-      "Aucune ; les questions sont identiques pour tous"
+      "Aucune section : les questions sont les mêmes pour tous",
+      "Reading et Listening, dont la difficulté varie"
     ],
-    answer: 0,
+    answer: 3,
     explain: "Le test est adaptatif, avec une structure à plusieurs étapes pour Reading et Listening. ETS ne publie pas la logique exacte, donc mieux vaut rester concentré dès la première question."
   },
   {
     q: "Quel réflexe aide le plus un francophone en Listen and Repeat ?",
     options: [
-      "S'enregistrer et contrôler th, h et les finales -s/-ed",
       "Remplacer les mots difficiles par des synonymes plus simples",
+      "S'enregistrer et comparer, surtout th, h et -s/-ed",
       "Apprendre par cœur toutes les phrases d'exemple possibles",
       "Parler le plus vite possible afin de finir à temps"
     ],
-    answer: 0,
-    explain: "L'épreuve mesure la fidélité de la répétition. Les pièges typiques sont th prononcé s ou z, le h qui disparaît (hair devient air) et les terminaisons avalées ; remplacer un mot est une inexactitude."
+    answer: 1,
+    explain: "L'épreuve mesure la fidélité de la répétition : on repère ses écarts en comparant l'enregistrement à l'original. Remplacer un mot ou réciter de mémoire ne fait pas travailler la répétition fidèle."
   }
 ]
 ---
@@ -84,7 +84,7 @@ Vous trouverez ici la structure sous forme de tableau, les 12 épreuves avec des
 Trois changements orientent votre préparation :
 
 ### 1. Un examen plus court
-Les quatre sections totalisent environ 90 minutes de temps de base (le test durait près de trois heures avant juillet 2023). ETS conseille de prévoir environ deux heures, car les consignes ne sont pas comptées. Pour vous y habituer, faites au moins une fois une séance de lecture de 30 minutes sans pause.
+Les quatre sections totalisent environ 90 minutes de temps de base . ETS conseille de prévoir environ deux heures, car les consignes ne sont pas comptées. Pour vous y habituer, faites au moins une fois une séance de lecture de 30 minutes sans pause.
 
 ### 2. Une conception adaptative à plusieurs niveaux
 ETS décrit le test comme adaptatif : Reading et Listening ajustent la difficulté à vos performances. La logique exacte et les seuils ne sont pas publiés ; les chiffres qui circulent sur le web sont des suppositions. En pratique, ne prenez pas les premières questions pour un échauffement et ne vous acharnez pas sur une question difficile.
@@ -131,7 +131,7 @@ Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#
 ### Section Writing (Expression écrite) : 12 items, environ 23 minutes
 1. **Build a Sentence :** Vous devez remettre dans le bon ordre des groupes de mots pour constituer une phrase grammaticale. Entraînez-vous sur la [page Build a Sentence](/#/toefl-p/sentence).
 2. **Write an Email :** Rédiger un courriel en réponse à une situation concrète (demande d'information, réclamation, organisation de projet). ETS prévoit environ 7 minutes pour lire et répondre ; le minuteur d'entraînement de Lexkite utilise la même durée.
-3. **Write for an Academic Discussion :** Contribuer à un débat de classe en ligne lancé par un professeur, après avoir lu deux messages d'étudiants, en apportant une idée nouvelle. La durée prévue est d'environ 10 minutes ; ETS recommande une centaine de mots ou plus.
+3. **Write for an Academic Discussion :** Contribuer à un débat de classe en ligne lancé par un professeur, après avoir lu deux messages d'étudiants, en apportant une idée nouvelle. La durée prévue est d'environ 10 minutes ; la page d'entraînement de Lexkite vise une centaine de mots (c'est un objectif de cette page, pas une consigne d'ETS).
 
 Entraînez-vous avec minuteur et compteur de mots : [Write for an Academic Discussion](/#/toefl-p/discussion) et [Write an Email](/#/toefl-p/email) proposent chacune un modèle de réponse et une liste d'autocontrôle. Pour la structure du message, lisez le [guide de l'épreuve Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/) ; pour le registre des courriels, l'article sur la façon de [rédiger un email professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/).
 
@@ -154,7 +154,7 @@ De nombreux candidats formés sur l'ancien modèle commettent des erreurs strat�
 - **Rédiger des essais fleuves :** Les épreuves d'écriture sont courtes et minutées. Un courriel concis qui traite tous les points demandés vaut mieux qu'un long texte inachevé.
 - **Paraphraser lors du Listen and Repeat :** Il s'agit ici de répéter fidèlement, pas de reformuler : remplacer *is going to* par *will* revient à ne pas répéter la phrase.
 - **Focaliser uniquement sur les textes scientifiques :** Avec *Read in Daily Life*, il faut aussi savoir lire des annonces, des e-mails et des SMS de tous les jours, pas seulement des textes scientifiques.
-- **Les pièges typiques des francophones en *Listen and Repeat* :** le *th* prononcé /s/ ou /z/ (*think* devient « sink »), le *h* qui disparaît (*hair* devient *air*) et les finales avalées (*-ed*, *-s*). Un *h* omis peut changer le mot, donc la répétition est inexacte. Enregistrez-vous, comparez avec l'original et travaillez des paires comme *hair/air* et *think/sink*.
+- **Les pièges typiques des francophones en *Listen and Repeat* :** le *th* prononcé /s/ ou /z/ (*think* devient *sink*), le *h* qui disparaît (*hair* devient *air*, donc un autre mot) et les finales avalées (*-ed*, *-s*). Enregistrez-vous, comparez avec l'original et travaillez des paires comme *hair/air* et *think/sink*.
 
 ---
 
@@ -192,10 +192,10 @@ Le format mis à jour s'applique depuis le **21 janvier 2026** ; ETS exprime dé
 Les résultats sont en général valables deux ans après la date du test, mais l'acceptation dépend de chaque établissement : renseignez-vous auprès de lui. Les nouveaux relevés indiquent aussi, pendant la transition, un score comparable sur 120.
 
 ### Le test adaptatif est-il plus difficile que l'ancien examen ?
-Pas nécessairement. Il est plus court mais adaptatif, et pour *Complete the Words* ou *Build a Sentence* vous produisez la réponse au lieu de la choisir : deviner aide peu.
+Pas nécessairement. Le temps de base est plus court (environ 90 min, environ 2 h avec les consignes), le test est adaptatif, et pour *Complete the Words* ou *Build a Sentence* vous produisez la réponse au lieu de la choisir : deviner aide peu.
 
 ### Peut-on encore utiliser les anciens livres de préparation ?
 En partie. Ils restent utiles pour le vocabulaire et la grammaire. Pour les nouvelles épreuves et la gestion du temps, il faut du matériel conçu pour le format de 2026.
 
 ### Quelles erreurs les francophones font-ils le plus souvent dans ces épreuves ?
-À l'oral, le *th* prononcé s ou z, le *h* qui disparaît (*hair* devient *air*) et les finales *-ed*/*-s* avalées ; à l'écrit, les consonnes doubles (*occurred*, *recommend*), qui comptent en *Complete the Words*. Enregistrez une vingtaine de phrases, comparez-les à l'original et notez vos erreurs.
+À l'oral, th, h et finales : voir la liste des pièges plus haut ; à l'écrit, les consonnes doubles (*occurred*, *recommend*), qui comptent en *Complete the Words*. Enregistrez une vingtaine de phrases, comparez-les à l'original et notez vos erreurs.

@@ -18,11 +18,11 @@ quiz: [
     q: "TOEIC Part 5'te soru başına makul bir süre hedefi hangisidir?",
     options: [
       "Her soruya 60 saniyeden fazla ayırmak",
-      "Soru başına yaklaşık 20 saniye ayırmak",
       "Her soruya tam 45 saniye ayırmak",
-      "Süreyi hiç tutmadan çözmek"
+      "Soru başına yaklaşık 20 saniye",
+      "Süreyi hiç tutmadan, rahatça çözmek"
     ],
-    answer: 1,
+    answer: 2,
     explain: "Reading bölümünde 75 dakikada 100 soru vardır. Soru başına yaklaşık 20 saniye, 30 soruyu 10 dakikada bitirip uzun metinlere zaman bırakır. Bu bir çalışma hedefidir; ETS Part başına süre belirlemez."
   },
   {
@@ -39,12 +39,12 @@ quiz: [
   {
     q: "Sözcük türü (Parts of Speech) soruları en hızlı nasıl çözülür?",
     options: [
-      "Boşluğun hemen öncesine ve sonrasına bakarak",
-      "Cümleyi art arda birkaç kez fısıldayarak okuyarak",
-      "Her kelimenin hecelerini tek tek sayarak",
-      "Tüm seçenekleri tek tek boşluğa deneyerek"
+      "Cümleyi Türkçeye çevirip anlamına göre seçerek",
+      "Cümlenin sonundaki fiili bulup ona göre seçerek",
+      "Boşluğun hemen çevresindeki sözcüklere bakarak",
+      "Tüm seçenekleri tek tek boşluğa koyup okuyarak"
     ],
-    answer: 0,
+    answer: 2,
     explain: "Boşluğun bulunduğu konum (örneğin sıfat ile isim arası) gerekli kelime türünü net biçimde belirler; cümlenin tamamını anlamak gerekmez."
   },
   {
@@ -54,7 +54,7 @@ quiz: [
     explain: "Boşluktan sonra yalnızca bir isim öbeği (a delay in the shipment) gelir, çekimli fiil yoktur. Bir edat gerekir ve Because of tek edattır; diğer üçü özne ve fiil içeren tam bir yan cümle ister."
   }
 ]
-qualityScore: 90
+qualityScore: 91
 ---
 
 30 kısa boşluk tamamlama sorusundan oluşan TOEIC Part 5, Reading oturumunun temposunu belirler. Reading bölümü 75 dakikada 100 sorudur (Part 5: 30, Part 6: 16, Part 7: 54) ve ETS her Part için ayrı süre belirlemez. Part 5'te kazandığınız her dakika, Part 7'deki uzun metinlere kalır.
@@ -79,7 +79,7 @@ Sorular iki temel gruba ayrılır:
 | **Zamirler ve Belirleyiciler** | Kişi, iyelik veya dönüşlülük zamirleri | 15 saniye | Cümledeki işlev ve gönderme yapılan özne |
 | **İş İngilizcesi Eşdizimleri** | Aynı alana ait 4 farklı sözcük | 30 saniye | Kurumsal bağlam ve kelime bilgisi |
 
-Dört kategorinin hedefleri ortalama 20 saniyeye denk gelir (15, 20, 15 ve 30 saniye). Bunlar resmî değil, çalışma için önerdiğimiz rakamlardır.
+Tablodaki saniyeler yalnızca çalışma için önerdiğimiz, örnekleyici rakamlardır; resmî değildir. Sınavdaki gerçek soru dağılımı formdan forma değişir, bu yüzden bunlardan bir ortalama çıkarmak gerekmez.
 
 ![Lexkite TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TSL kelimeleri](media:toeic "Lexkite TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TSL kelimeleri")
 
@@ -94,11 +94,14 @@ Sınavda en sık karşılaşılan sözdizimsel kalıplar şunlardır:
 - **İsim (Noun)**: Tanımlıklardan (*a, an, the*), iyelik sıfatlarından (*our, their, his*) veya edatlardan (*in, at, for, about*) sonra gelir. Boşluk bir ana fiilden önce yer alıyorsa özne konumunda bir isme ihtiyacınız vardır:
   - *Örnek (bize ait): The recent _____ in production costs surprised the board. (Seçenekler: increase, increasingly, increased, increasing)* → Yanıt: *increase* (isim).
 - **Sıfat (Adjective)**: Bir ismi nitelemek üzere doğrudan ismin önünde veya bağlama fiillerinden (*be, seem, remain, become*) sonra yer alır:
-  - *Örnek (bize ait): Ms. Higgins presented a _____ proposal during the meeting. (Seçenekler: comprehensive, comprehensively, comprehend, comprehension)* → Yanıt: *comprehensive* (*proposal* ismini niteleyen sıfat).
+  - *Örnek (bize ait): Ms. Higgins presented a _____ proposal during the meeting. (Seçenekler: comprehensive, comprehensively, comprehended, comprehensiveness)* → Yanıt: *comprehensive* (*proposal* ismini niteleyen sıfat).
 - **Zarf (-ly ile biten Adverb)**: Bir eylem fiilini, bir sıfatı veya cümlenin tamamını niteler. Cümle temel öğeleri (Özne + Yüklem + Nesne) bakımından zaten eksiksiz ise, boşluğa neredeyse her zaman bir zarf gelmelidir:
   - *Örnek (bize ait): The logistics team responded _____ to customer inquiries. (Seçenekler: prompt, promptly, promptness, prompted)* → Yanıt: *promptly* (*responded* fiilini niteleyen zarf).
 
-İş kelimeleri için [İngilizce kelime listelerine](/en/vocabulary/) (sayfa İngilizce) bakabilirsiniz. Kalıpları TOEIC biçiminde hazırlanmış sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
+İş kelimeleri için [İngilizce kelime listelerine](/en/vocabulary/) (sayfa İngilizce) bakabilirsiniz.
+
+![Lexkite kütüphanesi: Tümü, NGSL, IELTS, Writing, Speaking ve TOEIC (TSL) sekmeleri](media:library "Kütüphanedeki TOEIC (TSL) sekmesi Part 5 için iş kelimeleri sunar")
+ Kalıpları TOEIC biçiminde hazırlanmış sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
 
 ---
 
@@ -117,8 +120,6 @@ Unutulmaması gereken temel dilbilgisi kuralı şudur:
 | **Zaman / Süreç** | *During* | *While, When, As* |
 
 Bu seçenekleri gördüğünüzde boşluğun hemen sonrasını tarayın: Eğer çekimli bir fiil görüyorsanız tüm edat seçeneklerini anında eleyin.
-
-![Lexkite kütüphanesi: Tümü, NGSL, IELTS, Writing, Speaking ve TOEIC (TSL) sekmeleri](media:library "Kütüphanedeki TOEIC (TSL) sekmesi Part 5 için iş kelimeleri sunar")
 
 ---
 
@@ -150,7 +151,7 @@ Her cümlede, Part 5'in yanlış şıklarının taklit etmeyi sevdiği bir hata 
 2. *The company announced his results.* → *its results*: Türkçedeki "o" cinsiyet ayırmaz, İngilizcede şirket için *its* kullanılır.
 3. *I am working here since 2020.* → *I have worked here since 2020*: "2020'den beri çalışıyorum" Present Perfect ister.
 4. *Despite of the delay, we finished.* → *Despite the delay*: *despite*'ten sonra *of* gelmez; *in spite of* ayrı bir kalıptır.
-5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçede "Pazartesi günü" denir ve gün, ay, saat için çoğunlukla aynı yer eki (-de/-da) kullanılır; İngilizcede günlerle *on*, aylarla *in*, saatlerle *at* gerekir.
+5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçede "Pazartesi'de", "Ocak'ta", "3'te" gibi hep aynı yer eki (-de/-da) gelir, İngilizcede ise günlerle *on*, aylarla *in*, saatlerle *at* gerekir. Bu kalıp Part 5'te edat seçeneği olarak da çıkabilir.
 
 Tereddüt ettiğiniz cümleyi not alın: zaman, belirleyici ve edat sorularında en çok puan kaybettiren kalıplar bunlardır.
 
@@ -241,7 +242,7 @@ Deneyin: [TOEIC sayfasını](/#/toeic) açın, bir deneme sınavı seçin, Part 
 ## TOEIC Part 5 hakkında sık sorulan sorular
 
 ### Cümlenin tamamını okumak zorunda mıyım?
-Sözcük türü ve zamir sorularında boşluğun hemen çevresine bakmak çoğu zaman yeterlidir. Kelime ve bağlaç sorularında ise cümlenin anlam bütünlüğünü yakalamak için hızlıca tüm cümleyi gözden geçirmek gerekir.
+Sözcük türü, zamir, bağlaç ve edat sorularında boşluğun hemen çevresine, özellikle sağına bakmak çoğu zaman yeterlidir: bağlaç mı edat mı olduğunu boşluktan sonra çekimli fiil gelip gelmediği belirler. Yalnızca anlam (kelime ve eşdizim) sorularında cümlenin tamamını okumanız gerekir.
 
 ### 850+ hedefleyen biri Part 5'te en fazla kaç yanlış yapabilir?
 Sabit bir hesap yoktur: ETS ham puanları her sınav formu için ayrı ayrı 5–495 ölçeğine çevirir ve Part bazında resmî bir "kaç yanlış" tablosu yayımlamaz. Bu yüzden sayı vermek yerine hataları türüne göre (sözcük türü, zaman, kalıp) not edin ve en çok yanlış yaptığınız konuya geri dönün.

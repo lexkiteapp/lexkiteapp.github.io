@@ -13,17 +13,17 @@ publishAt: 2027-01-09T08:57:00-06:00
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 90
+qualityScore: 91
 quiz: [
   {
     q: "Según el método de esta guía, ¿cómo conviene empezar una pregunta de TOEIC Part 5?",
     options: [
-      "Mirar primero las cuatro opciones para ver si cambian los sufijos, el tiempo verbal o la palabra entera",
       "Leer la frase completa dos veces y traducirla mentalmente al español antes de ver las opciones",
       "Buscar la palabra más difícil del enunciado y deducir su significado por el contexto",
+      "Mirar primero las cuatro opciones y ver qué cambia entre ellas",
       "Elegir la opción que mejor suene en español y comprobar después si encaja en la frase"
     ],
-    answer: 0,
+    answer: 2,
     explain: "Las opciones indican qué se está evaluando. Si comparten raíz y cambian los sufijos, es una pregunta de categoría gramatical y basta con analizar las palabras que rodean el hueco, sin leer ni traducir toda la frase."
   },
   {
@@ -87,7 +87,7 @@ En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas
 
 Muchas de las 30 preguntas de la Parte 5 miden qué clase de palabra (sustantivo, adjetivo, adverbio o pronombre) va en cada posición; ETS no publica cuántas hay de cada tipo. Estas posiciones son muy estables en la sintaxis formal en inglés:
 
-| Categoría gramatical | Entorno sintáctico habitual | Formas típicas | Ejemplo realista de examen |
+| Categoría gramatical | Entorno sintáctico habitual | Formas típicas | Ejemplo propio (no es un ítem real) |
 |---|---|---|---|
 | **Sustantivo (Noun)** | Tras determinantes (*the, our*), adjetivos o preposiciones; como sujeto u objeto | *-tion, -ment, -ity, -ance, -ence, -er, -or* | *The recent [expansion] into European markets proved profitable.* |
 | **Adjetivo (Adjective)** | Delante de un sustantivo; tras verbos copulativos (*be, remain, become, seem*) | *-ive, -able, -ible, -al, -ic, -ous, -ful* | *The committee suggested a [practical] approach to reduce waste.* |
@@ -133,16 +133,19 @@ Para repasar estas reglas, lee [la voz pasiva en inglés](/es/blog/voz-pasiva-en
 
 ## Corrige estas frases (errores típicos de hispanohablantes)
 
-Las frases 1 a 3 reproducen el tipo de error que las opciones incorrectas de la Parte 5 imitan (tiempo verbal y verbo). Las frases 4 a 6 no son típicas de las opciones de la Parte 5: son errores habituales de los hispanohablantes al escribir y que verás en las Partes 6 y 7. Corrígelas antes de leer la solución.
+Las frases 1 a 3 reproducen el tipo de error que las opciones incorrectas de la Parte 5 imitan (tiempo verbal y verbo). Las frases 4 a 6 son otra cosa: errores habituales de los hispanohablantes al escribir y leer en inglés, que no aparecen como opciones de la Parte 5; van aparte, como repaso general. Corrígelas antes de leer la solución.
 
 1. *We have sent the invoice yesterday.* → *sent*: con *yesterday* se usa Past Simple.
 2. *I am working here since 2022.* → *I have worked here since 2022*: "trabajo aquí desde 2022" se traduce con Present Perfect.
 3. *She is agree with the budget.* → *She agrees with the budget*: "estar de acuerdo" es el verbo *agree*, sin *be*.
+
+Aparte, fuera de la Parte 5:
+
 4. *The report has many informations.* → *a lot of information*: *information* no tiene plural.
 5. *The manager explained me the policy.* → *explained the policy to me*: *explain* no lleva la persona como complemento directo.
 6. *He assisted the conference.* → *attended*: *assist* significa "ayudar", no "asistir".
 
-Si dudaste en alguna, anótala: son errores muy frecuentes en tiempos verbales, determinantes y vocabulario.
+Si dudaste en alguna, anótala: son errores muy frecuentes en tiempos verbales, determinantes y vocabulario. Las tres últimas no las verás como opciones de la Parte 5, pero sí te ayudan a escribir y leer mejor.
 
 ## Trampas clásicas entre preposiciones y conjunciones
 
@@ -179,11 +182,11 @@ Para que estas colocaciones se queden, repásalas como tarjetas con repetición 
 El módulo de lectura del TOEIC dura 75 minutos (ETS no fija un tiempo por parte). Esta es una distribución razonable, sugerencia propia que puedes ajustar:
 - **Parte 5 (30 preguntas)**: Resolver en **8 a 10 minutos** (unos 20 segundos por ítem).
 - **Parte 6 (16 preguntas)**: Resolver en **6 a 8 minutos**.
-- **Parte 7 (54 preguntas)**: Quedan entre **57 y 61 minutos** para los textos simples y los textos múltiples.
+- **Parte 7 (54 preguntas)**: Quedan entre **57 y 61 minutos** para los textos simples y los textos múltiples (61 si usas 8 minutos en la Parte 5 y 6 en la Parte 6; 57 si usas 10 y 8; en ambos casos el total es de 75).
 
 Al preparar el examen, practica series completas de 30 preguntas con un cronómetro estricto en la mano. Oblígate a mirar primero las alternativas para internalizar el proceso de descarte automático.
 
-En la [página TOEIC de Lexkite](/#/toeic) hay siete exámenes con una práctica de Part 5 por cada uno: al enviar tus respuestas ves la explicación de cada una. Para el vocabulario, los 1.250 términos de la lista TSL están en la [biblioteca](/#/library?g=toeic), y las preguntas que falles se guardan en el [Registro de errores](/#/mistakes) (pestaña Comprensión lectora) con su explicación.
+En la [página TOEIC de Lexkite](/#/toeic) hay siete exámenes con una práctica de Part 5 por cada uno: al enviar tus respuestas ves la explicación de cada una. Para el vocabulario, los 1.250 términos de la lista TSL están en la [biblioteca](/#/library?g=toeic). Las preguntas que falles se guardan en el [Registro de errores](/#/mistakes), en la pestaña Comprensión lectora, con su explicación.
 
 ![Registro de errores de Lexkite con las pestañas Vocabulario, Gramática, Comprensión lectora y Escuchar](media:mistakes "El Registro de errores tiene pestañas de vocabulario, gramática, comprensión lectora y escuchar; las preguntas falladas del TOEIC de lectura van a Comprensión lectora")
 
