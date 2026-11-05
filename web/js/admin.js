@@ -73,7 +73,7 @@
     'so với {v}: {n}': 'vs {v}: {n}', 'Đang online': 'Active now', 'tín hiệu trong 5 phút qua': 'signal in the last 5 minutes', 'Đăng nhập hôm nay': 'Signed-in today', '7 ngày: {a} · 30 ngày: {b}': '7 days: {a} · 30 days: {b}',
     'Học viên đăng ký': 'Registered learners', '+{n} / 7 ngày': '+{n} / 7 days', 'Gắn kết (DAU / MAU)': 'Stickiness (DAU / MAU)', 'Chuẩn EdTech ≥ 25%': 'EdTech benchmark ≥ 25%',
     'Thẻ đã ôn': 'Cards reviewed', 'Chưa đo – cần sự kiện ôn thẻ trong thống kê': 'Not tracked yet – needs a review event in analytics',
-    'Lỗi JS (24 giờ)': 'JS errors (24h)', '{n} loại': ['{n} type', '{n} types'], 'Không có lỗi': 'No errors', 'Phiên tự động đã loại': 'Bot sessions excluded', 'bot, CI, quản trị – hôm nay': 'bots, CI, admins – today',
+    'Giọng đọc 7 ngày: {s} % giọng máy ({n} lượt) – file Kokoro {f} · Kokoro trên máy {k} · giọng máy {sys}': 'Voice 7 days: {s}% device voice ({n} plays) – Kokoro files {f} · on-device Kokoro {k} · device voice {sys}', 'lý do giọng máy': 'device-voice reasons', 'Lỗi JS (24 giờ)': 'JS errors (24h)', '{n} loại': ['{n} type', '{n} types'], 'Không có lỗi': 'No errors', 'Phiên tự động đã loại': 'Bot sessions excluded', 'bot, CI, quản trị – hôm nay': 'bots, CI, admins – today',
     'Tin nhắn chưa xử lý': 'Open messages', 'Sạch hòm thư': 'Inbox zero', 'Chờ trả lời': 'Awaiting reply', 'Điểm chất lượng': 'Quality score', 'Đạt chuẩn': 'Meets standard', 'Dưới chuẩn': 'Below standard', 'chưa chạy': 'not run yet',
     'Khóa Gemini API': 'Gemini API keys', '{n} sẵn sàng': '{n} ready', 'Chưa thiết lập': 'Not set up', 'D1: {p}% dung lượng': 'D1: {p}% storage used',
     'Tác vụ cần chú ý': 'Jobs needing attention', 'Tác vụ tự động (GitHub Actions)': 'Automated jobs (GitHub Actions)', 'Toàn bộ cảnh báo & nhật ký →': 'All alerts & logs →',
@@ -815,7 +815,9 @@
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
-    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
+    const v = l.voice || {}, vn = (v.f || 0) + (v.k || 0) + (v.s || 0), why = Object.entries(v).filter(([k]) => /^s_/.test(k)).map(([k, n]) => `${esc(k.slice(2))} ${num(n)}`).join(' · ');
+    const voice = vn ? `<p class="excl">🔊 ${L('Giọng đọc 7 ngày: {s} % giọng máy ({n} lượt) – file Kokoro {f} · Kokoro trên máy {k} · giọng máy {sys}', { s: (100 * (v.s || 0) / vn).toFixed(1), n: num(vn), f: num(v.f || 0), k: num(v.k || 0), sys: num(v.s || 0) })}${why ? ` (${L('lý do giọng máy')}: ${why})` : ''}</p>` : '';
+    return voice + `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
   };
   const liveCard = l => {
     const t = l.today || {}, tot = l.total || {};
