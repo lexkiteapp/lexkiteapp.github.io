@@ -21,7 +21,7 @@ const KB = 0.42; // bàn phím ≈ 42 % chiều cao (iPhone 390×844: 336 + than
 const ROUTES = ['home', 'dict', 'dict/hello', 'write', 'paraphrase', 'toefl-p/cw', 'practice/test?src=topic:education', 'me', 'settings', 'class'];
 const MUST = [['write', /#essay|textarea/], ['dict', /#q\b|input/], ['*', /#gq/]]; // độ phủ bắt buộc: Phòng viết, tra từ, ô tra từ trên thanh trên
 const MAX_PER_ROUTE = 6;
-const issues = [], checked = [], errs = [];
+const issues = [], checked = [], errs = [], unreachable = [];
 
 // Shim visualViewport: cùng API (EventTarget, width/height/offsetTop/pageTop/scale, onresize/onscroll); __lkKb(px) mở/đóng bàn phím giả.
 function shim() {
@@ -53,6 +53,10 @@ async function probe([i, mode, kbPx]) {
   const sel = e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + [...e.classList].slice(0, 2).map(c => '.' + c).join('');
   const wait = ms => new Promise(r => setTimeout(r, ms));
   el.scrollIntoView({ block: 'nearest' }); await wait(80); // người dùng chạm được ô → ô đang nằm trong màn hình đầy đủ
+  { // ô người dùng KHÔNG chạm tới được kể cả khi chưa có bàn phím (thanh trên ẩn ở màn học, ô sau lớp phủ…) → không phải lỗi bàn phím; đếm riêng
+    const b0 = el.getBoundingClientRect(), cy = b0.top + Math.min(b0.height / 2, 22), h0 = cy >= 0 && cy < innerHeight && document.elementFromPoint(b0.left + Math.min(b0.width / 2, 24), cy);
+    if (!h0 || !(h0 === el || el.contains(h0) || h0.contains(el) || (el.labels && [...el.labels].includes(h0)))) return { unreachable: sel(el) };
+  }
   el.focus({ preventScroll: true }); await wait(60);
   const padded = [];
   if (mode === 'visual') {
@@ -103,12 +107,15 @@ for (const vp of VPS) for (const mode of ['visual', 'content']) {
       await page.setViewportSize({ width: vp.w, height: vp.h });
       await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route);
       await page.waitForTimeout(1300);
+      const want = MUST.find(([r]) => r === route); // trang bắt buộc phủ: chờ ô chính dựng xong (gói lười, vd. 'writing' của Phòng viết)
+      if (want) await page.waitForSelector(want[1].source.includes('essay') ? '#essay' : '#view #q, #view input', { state: 'visible', timeout: 10000 }).catch(() => {});
       const list = await page.evaluate(LIST);
       for (let i = 0; i < Math.min(list.length, MAX_PER_ROUTE); i++) {
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h - kbPx });
         const r = await page.evaluate(probe, [i, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h });
         if (r.gone) continue;
+        if (r.unreachable) { unreachable.push(`${vp.w} ${mode} #/${route} ${r.unreachable}`); continue; }
         if (r.err) { errs.push(`${vp.w} ${mode} #/${route} ô ${list[i]}: ${r.err}`); continue; }
         checked.push({ vp: vp.w, mode, route, k: r.k });
         for (const x of r.bad) issues.push({ t: 'kbd-visual', vp: vp.w, mode, route, k: r.k, x, rect: r.rect, vv: r.vv });
@@ -127,12 +134,13 @@ for (const vp of VPS) for (const mode of ['visual', 'content']) for (const [rout
 }
 if (checked.length < VPS.length * 2 * 8) fails.push(`chỉ kiểm được ${checked.length} ô (cần ≥ ${VPS.length * 2 * 8}) – không cho xanh khi chạy rỗng`);
 if (errs.some(e => /shim/.test(e))) fails.push('shim visualViewport lỗi');
-const rep = { at: new Date().toISOString(), checked: checked.length, issues, errs, fails, routes: ROUTES, kb: KB };
+const rep = { at: new Date().toISOString(), checked: checked.length, issues, errs, fails, unreachable, routes: ROUTES, kb: KB };
 fs.writeFileSync(`${OUT}/keyboard.json`, JSON.stringify(rep, null, 1));
 const md = [`# ⌨️ Bàn phím ảo – ${checked.length} lượt ô nhập × ${VPS.map(v => v.w).join('/')} px × visual/content`, '',
   `**Kết quả:** ${fails.length ? '❌ ' + fails.join(' · ') : '✅ không ô nào bị bàn phím che'}`, '',
   `| vp | mô hình | route | ô | lỗi | ô (x,y,w,h) | nhìn thấy (top,h) |`, '|---|---|---|---|---|---|---|',
   ...issues.slice(0, 80).map(i => `| ${i.vp} | ${i.mode} | ${i.route} | \`${i.k}\` | ${i.x.replace(/\|/g, '/')} | ${i.rect} | ${i.vv} |`), '',
+  `Ô không chạm tới được ngay cả khi chưa mở bàn phím (bỏ qua, ví dụ thanh trên ẩn ở màn học): ${unreachable.length}`, '',
   ...(errs.length ? ['## Lỗi chạy', ...errs.slice(0, 30).map(e => '- ' + e)] : [])].join('\n');
 fs.writeFileSync(`${OUT}/KEYBOARD.md`, md);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
