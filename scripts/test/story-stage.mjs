@@ -108,7 +108,14 @@ async function browser() {
       await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(1500);
       await page.waitForTimeout(500); const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / 3 }));
       lines.push(`chromium 4×: longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)}`);
-      ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`); await ctx.close();
+      ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`);
+      // chẩn đoán (không phải cổng): fps khi tắt dần từng nguồn vẽ → biết chi phí nằm ở đâu
+      const fpsNow = async () => page.evaluate(() => new Promise(r => { let n = 0; const t0 = performance.now(); (function f() { n++; if (performance.now() - t0 < 2000) requestAnimationFrame(f); else r(n / 2); })(); }));
+      lines.push(`  chẩn đoán fps: nguyên trạng ${(await fpsNow()).toFixed(0)}`);
+      await page.evaluate(() => document.querySelectorAll('video').forEach(v => v.pause())); lines.push(`  dừng mọi video: ${(await fpsNow()).toFixed(0)}`);
+      await page.addStyleTag({ content: '.ss-fig canvas{display:none!important}' }); lines.push(`  ẩn canvas: ${(await fpsNow()).toFixed(0)}`);
+      await page.addStyleTag({ content: '.ss-stage{display:none!important}' }); lines.push(`  ẩn cả sân khấu: ${(await fpsNow()).toFixed(0)}`);
+      await ctx.close();
     }
     await br.close();
   }
