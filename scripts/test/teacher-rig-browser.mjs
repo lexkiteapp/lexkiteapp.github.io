@@ -42,11 +42,12 @@ for (const who of ['ama', 'carlos']) {
   const cdp = await ctx.newCDPSession(page);
   for (const rate of [1, 4]) {
     await cdp.send('Emulation.setCPUThrottlingRate', { rate });
-    const r = await page.evaluate(async () => { const k = Object.keys(LK_CUES.k).find(x => LK_CUES.k[x]); const s0 = { ...rig.stats }, t0 = performance.now(); let n = 0, long = 0, last = t0;
+    const r = await page.evaluate(async () => { const k = Object.keys(LK_CUES.k).find(x => LK_CUES.k[x]); const s0 = { ...rig.stats }, p0 = { ...rig.stats.prof }, t0 = performance.now(); let n = 0, long = 0, last = t0;
       const run = () => new Promise(done => { const f = now => { n++; if (now - last > 34) long++; last = now; if (now - t0 < 3000) requestAnimationFrame(f); else done(); }; requestAnimationFrame(f); });
       rig.speak(null, LK_CUES.k[k], { text: k }); setTimeout(() => rig.setEmotion('praise'), 900); setTimeout(() => rig.gesture('nod'), 1300);
-      await run(); const dt = performance.now() - t0; return { fps: Math.round(1000 * n / dt), long, n, draws: rig.stats.draws - s0.draws }; });
-    ok(r.fps >= (rate === 1 ? 55 : 50) && r.long <= r.n * 0.05, `${who}: CPU ${rate}× – ${r.fps} fps (≥ ${rate === 1 ? 55 : 50}), khung > 34 ms: ${r.long}/${r.n} (≤ 5 %), vẽ ${r.draws}`);
+      await run(); const dt = performance.now() - t0, P = rig.stats.prof, d = k => P[k] - p0[k], fr = Math.max(1, d('n'));
+      return { fps: Math.round(1000 * n / dt), long, n, draws: rig.stats.draws - s0.draws, prof: `JS ${(d('js') / fr).toFixed(2)} ms/khung (vẽ ${(d('paint') / fr).toFixed(2)}) · toàn ${d('full')} · vùng ${d('part')} · bỏ ${d('skip')}` }; });
+    ok(r.fps >= (rate === 1 ? 55 : 50) && r.long <= r.n * 0.05, `${who}: CPU ${rate}× – ${r.fps} fps (≥ ${rate === 1 ? 55 : 50}), khung > 34 ms: ${r.long}/${r.n} (≤ 5 %), vẽ ${r.draws} · ${r.prof}`);
   }
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
   await page.screenshot({ path: `${OUT}/${who}-praise.png` });

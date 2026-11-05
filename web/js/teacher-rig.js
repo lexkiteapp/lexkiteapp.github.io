@@ -141,38 +141,71 @@
     who = g.Chars ? g.Chars.id(who) : who;
     const stats = { frames: 0, long: 0, draws: 0, low: 0, ready: false, shape: 'X', pose: null, emo: 'neutral', calm: reduced() };
     let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
-    const poses = {};
+    const poses = {}, scaled = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
+    let headC = null, lastT = '', lastP = [], boxes = null;
     el.classList.add('trig');
     if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">.trig{position:relative}.trig>canvas{display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
-    const fit = () => { const w = el.clientWidth || 240, W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); lastK = ''; } };
+    const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
+    const fit = () => { const w = el.clientWidth || 240, W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
+    const loadPose = name => {
+      if (typeof poses[name] === 'object' || poses[name] === 2) return Promise.resolve(poses[name]);
+      poses[name] = 1; return img(g.Chars.still(who, name)).then(i => { poses[name] = i || 2; if (i && cv) scaled[name] = shrink(i); lastK = lastT = ''; return i; });
+    };
+    // vùng vẽ lại khi CHỈ mặt đổi (khung xương đứng yên): mắt+mày · miệng+ria (tọa độ poster 1108×960, có lề cho chớp/nhướng/há)
+    const regions = R => {
+      const ex = R.eyes.flatMap(e => [e.c[0] - e.rx - 24, e.c[0] + e.rx + 24]), by = R.brows.flatMap(b => [b.i[1], b.p[1], b.o[1]]);
+      return [[Math.min(...ex), Math.min(...by) - 48, Math.max(...ex), Math.max(...R.eyes.map(e => e.c[1] + e.ry + 16))], [R.mouth[0] - 100, R.mouth[1] - 60, R.mouth[0] + 100, R.mouth[1] + 80]];
+    };
+    const prof = stats.prof = { n: 0, js: 0, paint: 0, full: 0, part: 0, skip: 0 };
+    const paint = (T, f, P, pi) => {
+      ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
+      if (f.faceW > 0) {
+        ctx.globalAlpha = pi ? f.faceW : 1; const sc = cv.width / 1108;
+        ctx.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); ctx.drawImage(headC, 0, 0); ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
+        for (const p of P) if (p) g.LipPaint.draw(ctx, p);
+      }
+      if (pi && f.poseW > 0) { const sc = cv.width / 1108; ctx.globalAlpha = f.poseW; ctx.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); ctx.drawImage(scaled[f.pose] || pi, 0, 0, cv.width, cv.height); }
+      ctx.globalAlpha = 1;
+    };
     const frame = now => {
       if (dead) return;
+      const t0 = performance.now();
       const dt = prev ? now - prev : 16.7; prev = now; stats.frames++; if (dt > 50) stats.long++;
       if (!stats.low && dpr > 1 && stats.frames >= 90 && stats.long > stats.frames * 0.15) { stats.low = 1; dpr = 1; fit(); } // máy yếu → độ phân giải CSS
       const f = M.step(now / 1000), s = f.s, m = s.mouth;
-      if (f.pose && !poses[f.pose]) { poses[f.pose] = 1; img(g.Chars.still(who, f.pose)).then(i => { poses[f.pose] = i || 2; lastK = ''; }); }
+      if (f.pose && !poses[f.pose]) loadPose(f.pose);
       const pi = f.pose && typeof poses[f.pose] === 'object' ? poses[f.pose] : null;
-      const key = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, f.tilt / 10, f.nod / 10, f.sway / 10, f.breath * 1e3, f.poseW, f.pose].map(v => (typeof v === 'number' ? Math.round(v * 100) : v || 0)).join();
+      // khóa khung xương (toàn canvas) tách khỏi khóa mặt (chỉ vùng mắt/miệng) → nói/chớp không vẽ lại cả người
+      const kT = [f.tilt / 10, f.nod / 10, f.sway / 10, f.breath * 1e3, f.poseW, f.pose, pi ? 1 : 0, cv.width].map(v => (typeof v === 'number' ? Math.round(v * 100) : v || 0)).join();
+      const P = f.faceW > 0 ? g.LipFace.parts(who, s, 'tr' + who) : [];
+      const key = kT + '|' + P.join('');
       if (key !== lastK) {
-        lastK = key; stats.draws++;
-        const sc = cv.width / 1108, X = matrix(f);
-        ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
-        ctx.setTransform(sc * X[0], sc * X[1], sc * X[2], sc * X[3], sc * X[4], sc * X[5]);
-        if (f.faceW > 0) {
-          ctx.globalAlpha = pi ? f.faceW : 1; ctx.drawImage(head, 0, 0, 1108, 960);
-          for (const p of g.LipFace.parts(who, s, 'tr' + who)) if (p) g.LipPaint.draw(ctx, p);
+        lastK = key; stats.draws++; const tp = performance.now();
+        const sc = cv.width / 1108, X = matrix(f), T = [sc * X[0], sc * X[1], sc * X[2], sc * X[3], sc * X[4], sc * X[5]];
+        if (kT !== lastT || !boxes) {
+          lastT = kT; prof.full++; boxes = boxes || regions(g.LipFace.RIG[who]);
+          ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); paint(T, f, P, pi);
+        } else {
+          prof.part++;
+          [[0, 1, 2], [3, 4]].forEach((idx, r) => {
+            if (!idx.some(i => P[i] !== lastP[i])) return;
+            const [x0, y0, x1, y1] = boxes[r], xs = [], ys = [];
+            for (const [x, y] of [[x0, y0], [x1, y0], [x0, y1], [x1, y1]]) { xs.push(T[0] * x + T[2] * y + T[4]); ys.push(T[1] * x + T[3] * y + T[5]); }
+            const L = Math.floor(Math.min(...xs)) - 2, Tp = Math.floor(Math.min(...ys)) - 2, W = Math.ceil(Math.max(...xs)) + 2 - L, H = Math.ceil(Math.max(...ys)) + 2 - Tp;
+            ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.beginPath(); ctx.rect(L, Tp, W, H); ctx.clip(); ctx.clearRect(L, Tp, W, H); paint(T, f, P, pi); ctx.restore();
+          });
         }
-        if (pi && f.poseW > 0) { ctx.globalAlpha = f.poseW; ctx.drawImage(pi, 0, 0, 1108, 960); }
-        ctx.globalAlpha = 1;
-      }
-      stats.shape = f.shape; stats.pose = f.poseW > 0.5 ? f.pose : null; stats.emo = f.emo; stats.tilt = f.tilt; stats.nod = f.nod; stats.poseW = f.poseW;
+        lastP = P; prof.paint += performance.now() - tp;
+      } else prof.skip++;
+      stats.shape = f.shape; stats.pose = f.poseW > 0.5 ? f.pose : null; stats.emo = f.emo; stats.tilt = f.tilt; stats.nod = f.nod; stats.poseW = f.poseW; stats.blink = s.blink || 0;
+      prof.n++; prof.js += performance.now() - t0;
       raf = requestAnimationFrame(frame);
     };
     const ready = load().then(() => img(g.Chars.head(who, true))).then(h => {
       if (dead) return; if (!h) throw new Error('head');
       head = h; M = machine(who, { calm: stats.calm, seed: [...who].reduce((a, c) => a * 31 + c.charCodeAt(0), 7) });
       cv = D.createElement('canvas'); cv.className = 'trig-cv'; cv.setAttribute('aria-hidden', 'true'); ctx = cv.getContext('2d');
-      el.appendChild(cv); fit(); if (g.ResizeObserver) { ro = new ResizeObserver(() => !dead && fit()); ro.observe(el); }
+      fit(); el.appendChild(cv); if (g.ResizeObserver) { ro = new ResizeObserver(() => !dead && fit()); ro.observe(el); } // cỡ đặt TRƯỚC khi gắn → 1 thay đổi DOM duy nhất
       stats.ready = true; raf = requestAnimationFrame(frame);
     });
     const api = {
@@ -192,7 +225,7 @@
       },
       quiet() { if (M) M.quiet(); },
       setEmotion(name) { return ready.then(() => M.setEmotion(name)); },
-      gesture(name) { return ready.then(() => M.gesture(name, performance.now() / 1000)); },
+      gesture(name) { const G = GESTURES[name]; return ready.then(() => (G && G.kind === 'pose' ? loadPose(G.pose) : null)).then(() => !dead && M.gesture(name, performance.now() / 1000)); }, // ảnh tư thế tải XONG mới mờ chéo (không bật hình)
       listen(on) { return ready.then(() => { M.setEmotion(on ? 'listen' : 'neutral'); }); },
       state: () => (M ? M.last() : null),
       destroy() { dead = true; cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); el.classList.remove('trig'); },
