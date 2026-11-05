@@ -15,7 +15,8 @@
 
 ## 2. Khoảng cách so với Speak / ELSA / Duolingo Max / Praktika
 1. **Khó thấy:** 3–4 chạm, không có thẻ trên Hôm nay của người đã học. Speak/Praktika mở app là vào nói.
-2. **Phản hồi mỗi lượt mỏng:** Call chỉ bắt 11 mẫu lỗi; không có "câu tự nhiên hơn"; Roleplay chỉ chấm cuối buổi. Speak/Praktika sửa ngay sau mỗi câu.
+2. **Trên máy trước, không giới hạn (chủ 05/11: "AI chạy trên máy người dùng hoặc gói miễn phí, tối ưu 100% free, chất lượng, KHÔNG lỗi, KHÔNG giới hạn"):** đường chính luôn chạy trên máy – sửa câu = bộ luật + model nhỏ trên máy (khi máy đủ), chấm phát âm trên máy (ASR/GOP trong Worker), giọng Kokoro (dựng sẵn → `KLocal`) – nên người học không bao giờ gặp trần lượt/ngày. Gói AI miễn phí trên mạng (`/api/ai`, Nano…) chỉ là phần NÂNG THÊM (câu tự nhiên hơn, hội thoại tự do): hết quota, 429/5xx, timeout hay offline → tự chuyển im lặng sang trên máy trong cùng lượt, cùng thẻ phản hồi, cùng chất lượng hiển thị; KHÔNG chữ "hết lượt", không màn lỗi, không đếm lượt hiện ra. Máy yếu theo cấp của [AI-LOCAL.md](../AI-LOCAL.md) (A LLM trên máy · B Nano · C luật + file dựng sẵn) vẫn đủ trải nghiệm: mọi lượt có sửa câu theo luật, giọng mẫu, chấm phát âm ước lượng.
+**Phản hồi mỗi lượt mỏng:** Call chỉ bắt 11 mẫu lỗi; không có "câu tự nhiên hơn"; Roleplay chỉ chấm cuối buổi. Speak/Praktika sửa ngay sau mỗi câu.
 3. **Phát âm theo chữ, không theo âm:** ASR tự "sửa" giọng ⇒ báo đúng giả; không có trọng âm/âm vị tô màu, không so bản ghi của mình với giọng mẫu (ELSA có).
 4. **Nói tự do bị trần & phụ thuộc máy chủ:** LLM trên máy chỉ có Nano (Chrome máy tính); tầng A (LLM 1–1,5B + Whisper/Moonshine) chưa có; `/api/ai` không stream, timeout 60 s.
 5. **Ngôn ngữ phản hồi:** viết tiếng Việt rồi dịch ⇒ chậm thêm 1 vòng, sai sắc thái cho 14 ngôn ngữ.
@@ -39,6 +40,7 @@
 - Chấm đúng trên **tập có nhãn** trong repo: sửa câu: `scripts/feedback/gec-set.jsonl` (420 câu kiểu ASR, 14 L1 × 30, ⅓ câu đúng gồm câu bẫy; soạn theo lỗi chuyển di đã ghi nhận, không chép corpus) – `scripts/feedback/eval.mjs` trong npm test: precision ≥ 0,95 (không báo nhầm câu đúng) và editP (từng chỗ sửa đúng) ≥ 0,95, engine viết lại cả câu thêm fixP ≥ 0,95; tập mở rộng dần sang cấu trúc câu (thì, mệnh đề, điều kiện, bị động, trật tự từ…), recall tăng theo từng PR, recall/fixR/editP không lùi so với `baseline.json`. Mốc 05/11 luật Call: báo nhầm 0/140, precision 1, recall 0,20, editP 1, fixP 0,875 (trước khi sửa 3 lỗi gốc: fixP 0,717, recall 0,19); v2 thêm câu thật ẩn danh có opt-in; phát âm PCC âm vị speechocean762 ≥ 0,50 (cổng `pron-eval`), báo sai âm ≤ 10 %.
 - Không giật trên máy tầm trung (Moto G/ Android 4 GB, iPhone 11): INP ≤ 200 ms, model chỉ trong Worker, shell ≤ ngân sách.
 - Giáo viên (chủ 05/11: "khớp môi, tay chân, cử chỉ, miệng biểu cảm chuẩn như các ông lớn"): mọi lời Ama/Carlos – cả câu AI sinh động – khớp môi ±33 ms (cùng cổng [teacher-rive-rig.md](teacher-rive-rig.md)); cử chỉ/biểu cảm theo trạng thái lượt (nói · nghe · nghĩ · khen · sửa nhẹ), nhấn tay rơi vào từ nhấn; không giật, không đứng hình, không vệt viền; CI chụp + đo từng trạng thái.
+- Không giới hạn, không lỗi (chủ 05/11): test giả lập `/api/ai` trả 429 (hết quota), 5xx, timeout, offline và máy cấp C → mỗi lượt vẫn ra thẻ phản hồi trên máy ≤ 300 ms, không lượt nào trống, DOM luồng Nói với AI không có chuỗi hết lượt/lỗi; chạy trong npm test.
 - Tương phản sáng/tối, 15 ngôn ngữ (i18n-qa), giọng đúng giới tính (characters-gate), nút Thoát, không popup ép.
 
 ## 5. Việc theo PR (mỗi việc 1 nhánh, 1 PR)
@@ -55,3 +57,4 @@
 | T9 | Tầng A LLM trên máy (opt-in, một host) | đo trên CI trước |
 | T10 | Khớp môi + cử chỉ cho câu AI sinh động: mốc viseme lấy từ âm vị Kokoro trên máy (không đoán theo chữ), biểu cảm theo trạng thái lượt, cổng ±33 ms | dùng rig/cue của chủ sở hữu teacher-rive-rig, không sửa file rig |
 | T11 | Màn giải thích trước khi xin micro + xử lý bị từ chối (Cài đặt + gõ/chọn) ở mọi chỗ nói; chuỗi quyền iOS/Android 15 ngôn ngữ; cập nhật privacy 15 ngôn ngữ + nhãn store | làm trước/cùng T4; ref Stitch |
+| T12 | Lớp chọn tầng `Feedback.engine()` (trên máy trước, mạng chỉ nâng thêm) + test giả lập hết quota/offline/máy yếu theo cổng §4 | cùng/ngay sau T2; không sửa `functions/api/ai.js` (#742) |
