@@ -17,7 +17,7 @@ const cap = s => (s ? s[0].toUpperCase() + s.slice(1) : s);
 export function fit(s, n) { s = clean(s, 400); if (s.length <= n) return s; const c = s.slice(0, n + 1).replace(/\s+\S*$/, '').replace(/[\s,:;–-]+$/, ''); return c || s.slice(0, n); }
 /** Search keyword = what the lesson teaches ("look for"), not the hook. */
 export const keywordOf = c => clean(c.keyword || c.point || String(c.title || '').split(/[:|–—?!.]/)[0] || c.id, 60).replace(/^["“']|["”']$/g, '');
-export const lessonUrl = (c, platform) => { const base = /^https:\/\/lexkite\.com\//.test(String(c.url || '')) ? c.url : `${SITE}/video/${encodeURIComponent(c.slug || c.id)}/`; return platform ? `${base}${base.includes('?') ? '&' : '?'}utm_source=${platform}&utm_medium=social&utm_campaign=${encodeURIComponent(c.id)}` : base; };
+export const lessonUrl = (c, platform) => { const full = /^https:\/\/lexkite\.com\//.test(String(c.url || '')) ? c.url : c.slug ? `${SITE}/video/${encodeURIComponent(c.slug)}/` : `${SITE}/app/`, i = full.indexOf('#'), base = i < 0 ? full : full.slice(0, i), frag = i < 0 ? '' : full.slice(i); /* clip chưa có trang: /video/<id>/ là 404 → về app */ return platform ? `${base}${base.includes('?') ? '&' : '?'}utm_source=${platform}&utm_medium=social&utm_campaign=${encodeURIComponent(c.id)}${frag}` : base; };
 export const markerLine = id => 'lk:' + id;
 
 export function embedMeta(c) {
@@ -60,15 +60,15 @@ export function seoScore(m, keyword) {
   return { score: Object.keys(W).reduce((n, x) => n + (checks[x] ? W[x] : 0), 0), failed: Object.keys(checks).filter(x => !checks[x]) };
 }
 export function socialMeta(c, platform = 'youtube') {
-  const P = PLATFORMS[platform] || PLATFORMS.tiktok, k = cap(keywordOf(c)), first = HOOKS[c.hook] ? c.hook : 'question';
-  const variants = [first, ...ORDER.filter(x => x !== first)].slice(0, 3).map(h => fit(HOOKS[h](k), 60));
+  const P = PLATFORMS[platform] || PLATFORMS.tiktok, k = cap(keywordOf(c)), first = HOOKS[c.hook] ? c.hook : c.hook == null && c.headline ? ORDER[[...String(c.id)].reduce((n, x) => n + x.charCodeAt(0), 0) % ORDER.length] : 'question'; // clip chưa có hook: xoay theo id để kênh không lặp một câu
+  const variants = [...new Set([...(c.headline ? [fit(c.headline, 60)] : []), ...[first, ...ORDER.filter(x => x !== first)].slice(0, 3).map(h => fit(HOOKS[h](k), 60))])].slice(0, 3);
   const hook = /\?$/.test(variants[0]) ? variants[0] : `${k}? ${variants[0].slice(k.length + 2)}`;
-  const value = `Learn ${keywordOf(c)} in 20 seconds – natural American English${c.cefr ? ` (${String(c.cefr).toUpperCase()})` : ''}.`;
-  const hashtags = hashtagsOf(c, platform);
+  const value = c.value ? clean(c.value, 200) : `Learn ${keywordOf(c)} in 20 seconds – natural American English${c.cefr ? ` (${String(c.cefr).toUpperCase()})` : ''}.`;
+  const own = (Array.isArray(c.hashtags) ? c.hashtags : []).map(h => '#' + String(h).replace(/^#/, '').toLowerCase()).filter(h => /^#[a-z0-9]+$/.test(h)), hashtags = own.length >= 3 ? [...new Set(own)].slice(0, 5) : hashtagsOf(c, platform);
   const tags = [...new Set([keywordOf(c).toLowerCase(), 'learn english', 'english lesson', c.topic, c.skill && c.skill + ' english', c.cefr && String(c.cefr).toLowerCase() + ' english', c.exam && c.exam + ' english', 'american english'].filter(Boolean))].slice(0, 12);
   const body = [hook, value, `Full lesson + quiz: ${lessonUrl(c, platform)}`, '', 'Save this and send it to a friend who needs it.', hashtags.join(' ')];
   if (P.marker) body.push('', markerLine(c.id));
-  const m = { role: 'social', platform, privacy: 'public', title: variants[0], variants, description: body.join('\n').slice(0, P.caption), hashtags, tags, made_for_kids: false, synthetic: true };
+  const m = { role: 'social', platform, privacy: 'public', no_keyword: k.toLowerCase() === String(c.id || '').toLowerCase(), title: variants[0], variants, description: body.join('\n').slice(0, P.caption), hashtags, tags, made_for_kids: false, synthetic: true };
   m.seo = seoScore(m, k); return m;
 }
 /** Everything one approved clip can produce: the embed pack + one social post per platform asked for. */
