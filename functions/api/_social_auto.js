@@ -22,7 +22,7 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube TẮT tới khi Google duyệt app. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 5, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {} };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {} };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
@@ -140,7 +140,8 @@ const ALERT_EVERY = { failover: 0, 'meta-token': 3 * 864e5, 'meta-down': 864e5, 
 export function pushAlert(st, k, text, now) {
   const base = k.split(':')[0], last = (st.alerted || {})[k];
   if (last && (ALERT_EVERY[base] === 0 || now - last < (ALERT_EVERY[base] || 864e5))) return false;
-  st.alerted = { ...(st.alerted || {}), [k]: now }; st.alerts = [...(st.alerts || []), { k, text: String(text).slice(0, 400), at: now }].slice(-10); return true;
+  st.alerted = { ...(st.alerted || {}), [k]: now }; const e = { k, text: String(text).slice(0, 400), at: now }; st.alerts = [...(st.alerts || []), e].slice(-10);
+  st.log = [...(st.log || []), e].slice(-50); return true; // log: nhật ký lỗi BỀN cho Quản trị (alerts bị xóa sau khi CI mở issue → trước đây admin không thấy lịch sử)
 }
 
 // ---------------- D1 ----------------
@@ -548,6 +549,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       acts++;
       const url = await signed(env, c._it, 'video', 6 * 3600); if (!url) { await mfail('clip', 'not-on-drive'); continue; }
       const file_url = new URL(url, 'https://lexkite.com').toString();
+      const cu = c.cover && r.platform === 'instagram' ? await signed(env, c._it, 'cover', 6 * 3600).catch(() => '') : '', cover_url = cu ? new URL(cu, 'https://lexkite.com').toString() : ''; // bìa Reels = ảnh bìa của clip (không có → Meta lấy khung đầu)
       try {
         if (step === 'fb-check') {
           const s = await fbStatus(mc, lock.meta_id);
@@ -566,7 +568,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
           continue;
         }
         if (step === 'ig-container') {
-          const cid = await igContainer(mc, tgt, { video_url: file_url, caption: b.caption }).catch(async e => { throw await mErr(e); });
+          const cid = await igContainer(mc, tgt, { video_url: file_url, caption: b.caption, cover_url }).catch(async e => { throw await mErr(e); });
           await setLock(db, r.clip, r.channel_id, { container: cid, err: null }); M.containers++;
           if (now < r.slot_ms - IG_EARLY_MS) continue;
           lock = await lockOf(db, r.clip, r.channel_id);
@@ -629,8 +631,10 @@ export async function verifyWebhook(secret, ts, sig, body, now = Date.now()) {
 export async function onWebhook(env, ev) {
   const post = ev && (ev.post || (ev.data && ev.data.post)); if (!post || !/^[A-Za-z0-9_-]{1,100}$/.test(String(post.id || ''))) return { status: 400, error: 'bad-event' };
   const db = env.DB; await setupMgr(db); await setupDist(db);
-  await boardSync(db, [post]); const n = await mirrorPublished(db, Date.now() - 36e5);
-  return { ok: true, published: n };
+  await boardSync(db, [post]); const now = Date.now(), n = await mirrorPublished(db, now - 36e5);
+  // post.failed: trước đây chỉ đồng bộ bài đã đăng → bài lỗi chỉ hiện sau lượt poll (≤ sync_h giờ). Giờ phản chiếu + báo lỗi ngay (không tự đăng lại).
+  const st = await getMeta(db, 'auto_state', {}), f = await mirrorFailed(db, st, now - 36e5, now); if (f) await setMeta(db, 'auto_state', st);
+  return { ok: true, published: n, failed: f };
 }
 
 
@@ -640,6 +644,21 @@ const AUTO_OPS = {
   'GET auto': async ({ env }) => autoStatus(env),
   'POST auto/save': async ({ db, b }) => { const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), ...(b.cfg && typeof b.cfg === 'object' ? b.cfg : {}) }); await setMeta(db, 'auto', c); return { cfg: c }; },
   'POST auto/reset': async ({ db }) => { const st = await getMeta(db, 'auto_state', {}); delete st.breaker; delete st.fails; delete st.gc_err_runs; if (st.meta) { delete st.meta.br; delete st.meta.th; /* Mở lại sau khi thay token → kiểm token ngay lượt sau */ } await setMeta(db, 'auto_state', st); return { ok: true }; },
+  /** Tạm dừng TOÀN BỘ: tắt autopilot (cfg.on) + gỡ lịch các bài autopilot đã xếp trên GrabCast (về nháp, KHÔNG xóa) ≤ 20 bài/lần bấm.
+   *  Trước đây công tắc chỉ bỏ qua lượt sau: bài đã lên lịch trên GrabCast vẫn tự đăng. Lỗi dừng (401/403/409/422/429) → ngừng ngay, báo rõ. */
+  'POST auto/pause_all': async ({ env, db }) => {
+    const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), on: false }); await setMeta(db, 'auto', c); await setupMgr(db);
+    const rows = await all(db, "SELECT id, post_id FROM soc_board WHERE by_who = ? AND state = 'scheduled' AND post_id IS NOT NULL ORDER BY want_at LIMIT 21", AUTO_WHO);
+    const out = { ok: true, on: false, unscheduled: 0, left: Math.max(0, rows.length - 20), errors: [] };
+    if (!rows.length || !gcConfigured(env)) return { ...out, left: gcConfigured(env) ? 0 : rows.length };
+    const gc = gcClient(env);
+    for (const r of rows.slice(0, 20)) {
+      const x = await gc('POST', `posts/${r.post_id}/unschedule`, {});
+      if (x.status < 400) { out.unscheduled++; await run(db, "UPDATE soc_board SET state = 'review', note = 'paused', updated = ? WHERE id = ?", Date.now(), r.id); continue; }
+      out.errors.push({ post_id: r.post_id, status: x.status, code: x.code }); if ([401, 403, 409, 422, 429].includes(x.status)) break;
+    }
+    return out;
+  },
   'POST auto/run': async ({ env, request, b }) => ({ run: await runAuto(env, { src: 'admin', origin: request.url, force_sync: !!b.sync }) }),
   /** Nút chuyển tay provider: auto (failover tự động) | grabcast | meta. */
   'POST auto/provider': async ({ db, b }) => { if (!PROVIDERS.includes(b.mode)) throw Object.assign(new Error('bad-input'), { status: 400, code: 'bad-input' }); const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), provider: b.mode }); await setMeta(db, 'auto', c); return { cfg: c }; },

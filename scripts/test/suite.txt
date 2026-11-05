@@ -92,6 +92,7 @@ node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
+node scripts/test/social-preview.mjs
 node scripts/test/social-meta.mjs
 node scripts/test/social-meta-oauth.mjs
 node scripts/test/studio.mjs
