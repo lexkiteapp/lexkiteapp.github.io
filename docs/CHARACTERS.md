@@ -42,3 +42,12 @@ Ghi chú cho `web/js/teacher-slot.js` (`.tslot-fig`, `.tslot-img`, `.tslot-ledge
 - overflow:clip (không phải hidden): khung hidden là KHUNG CUỘN – scrollIntoView/focus/tìm trong trang cuộn ảnh lên 0,18 khung → thân mờ lộ trên bệ
 - (final-qc streak: ảnh đáy = đáy khung dù bottom -20 px); clip không cuộn được. hidden đứng trước làm dự phòng cho trình duyệt cũ:
 - khung thừa (±60 % cũ) làm tràn ngang màn 360 px khi chỗ giáo viên sát mép thẻ (stitch-diff/final-qc 'tràn ngang tslot-fig').
+
+## Phát clip – lag, vệt đen, lệch miệng (05/11)
+
+| Lỗi | Gốc | Sửa | Cổng |
+|---|---|---|---|
+| Lệch miệng (chỗ giáo viên) | Clip Kling quay lúc NÓI, phát lặp không tiếng → miệng nhép không lời | Chỉ clip miệng ngậm (`QUIET` trong `teacher-live.js`) được phát im; clip nói chỉ khi có lời (`data-talk`) rồi về ảnh tĩnh | `scripts/teach/mouth_motion.py --check`, `teacher-quality.mjs` |
+| Lệch miệng (mặt vẽ có tiếng) | Đọc thẳng `audio.currentTime`: trễ loa, bậc thô, trễ 1 khung | `LipSync.clock` | `lip-clock.mjs` (p95 ≤ 33 ms) |
+| Vệt/khung đen | H.264 không gắn dải màu; nhiễu alpha 1–3/255; `mediump` lấy mẫu qua đường nối | Shader tự đo mức đen, cắt nhiễu, highp; `build.py`/`idle.py` gắn BT.709 tv | `teacher-quality.mjs` (Chromium + WebKit) |
+| Lag | Tải texture mỗi rAF (60/s) cả 2 video; đầu 1108 px thu nhỏ mỗi khung; video giải mã ở tab ẩn | rVFC + `texSubImage2D`, chỉ video đang hiện; thu nhỏ đầu 1 lần; dừng khi tab ẩn | `teacher-quality.mjs` (CPU 4×) |
