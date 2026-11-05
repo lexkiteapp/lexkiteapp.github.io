@@ -6,15 +6,15 @@
 //   - Sửa đúng: fixP = câu sửa khớp cor/alt (bỏ hoa thường, dấu câu) / số câu bị báo; fixR = câu sửa khớp / số câu sai.
 //   - Từng chỗ sửa: editP = chỗ sửa (từng từ thêm/bớt, căn LCS) có trong đáp án / tổng chỗ sửa – "không sửa SAI", kể cả khi chưa sửa HẾT.
 // Cổng (chặn gộp, chạy trong npm test – thuần JS, < 1 s):
-//   - Mọi engine: precision ≥ 0,90 và editP ≥ 0,90 (sai ít còn hơn sửa nhầm – học viên mất tin).
-//   - Engine kind 'rewrite' (hiện CẢ câu đã sửa như câu chuẩn – LLM, T3) thêm fixP ≥ 0,90. Engine 'edit' (luật) chỉ được hiện từng chỗ sửa,
+//   - Mọi engine: precision ≥ 0,95 và editP ≥ 0,95 (sai ít còn hơn sửa nhầm – học viên mất tin).
+//   - Engine kind 'rewrite' (hiện CẢ câu đã sửa như câu chuẩn – LLM, T3) thêm fixP ≥ 0,95. Engine 'edit' (luật) chỉ được hiện từng chỗ sửa,
 //     không hiện câu "đã sửa" như câu chuẩn khi có thể còn lỗi khác (T2: Feedback.turn tô diff).
 //   - Không lùi: recall/fixR ≥ mốc trong scripts/feedback/baseline.json (tăng thì cập nhật mốc bằng --write-baseline, không bao giờ hạ mốc để qua cổng).
 // Dùng: node scripts/feedback/eval.mjs [--json] [--engine=rules] [--write-baseline] [--show=fp|fn|bad]
 import fs from 'node:fs'; import vm from 'node:vm'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SET = path.join(ROOT, 'scripts/feedback/gec-set.jsonl'), BASE = path.join(ROOT, 'scripts/feedback/baseline.json');
-export const MIN_PRECISION = 0.9, MIN_FIX_PRECISION = 0.9;
+export const MIN_PRECISION = 0.95, MIN_FIX_PRECISION = 0.95; // chủ 05/11: không báo nhầm câu đúng
 
 export const norm = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
 export const loadSet = (file = SET) => fs.readFileSync(file, 'utf8').split('\n').filter(l => l.trim()).map((l, i) => {
