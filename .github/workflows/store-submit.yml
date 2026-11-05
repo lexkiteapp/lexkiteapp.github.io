@@ -19,18 +19,21 @@ permissions:
   contents: write   # đẩy tag store-*
 concurrency: { group: store-submit, cancel-in-progress: false }   # 1 lượt nộp một lúc, lượt sau chờ (không huỷ bản đang nộp)
 env:
-  APP: ${{ inputs.app }}
-  BUMP: ${{ inputs.bump }}
+  APP: ${{ inputs.app || 'capacitor' }}
+  BUMP: ${{ inputs.bump || 'patch' }}
+  PLATFORM: ${{ inputs.platform || 'both' }}
+  DRY: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run }}   # mọi sự kiện khác dispatch = chạy thử (an toàn)
 jobs:
   plan:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
-      ios: ${{ inputs.platform != 'android' && steps.ios.outputs.blocked == 'no' && 'yes' || 'no' }}
+      dry: ${{ env.DRY }}
+      ios: ${{ (inputs.platform || 'both') != 'android' && steps.ios.outputs.blocked == 'no' && 'yes' || 'no' }}
       ios_version: ${{ steps.ios.outputs.version }}
       ios_build: ${{ steps.ios.outputs.build }}
       ios_blocked: ${{ steps.ios.outputs.blocked }}
-      android: ${{ inputs.platform != 'ios' && steps.android.outputs.skipped == 'no' && 'yes' || 'no' }}
+      android: ${{ (inputs.platform || 'both') != 'ios' && steps.android.outputs.skipped == 'no' && 'yes' || 'no' }}
       android_skipped: ${{ steps.android.outputs.skipped }}
       android_version: ${{ steps.android.outputs.version }}
       android_code: ${{ steps.android.outputs.code }}
@@ -43,34 +46,34 @@ jobs:
         run: echo "TAGS=$(git tag -l 'store-*' | tr '\n' ' ')" >> "$GITHUB_ENV"
       - name: iOS – version/build kế tiếp (App Store Connect, chỉ đọc)
         id: ios
-        if: inputs.platform != 'android'
+        if: env.PLATFORM != 'android'
         env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
         run: node scripts/store/asc-submit.mjs plan --app "$APP" --bump "$BUMP" --tags "$TAGS" --out ios-plan.json
       - name: Android – versionCode/versionName kế tiếp (Play, chỉ đọc)
         id: android
-        if: inputs.platform != 'ios'
+        if: env.PLATFORM != 'ios'
         env: { PLAY_SERVICE_ACCOUNT_JSON: '${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}' }
         run: |
           MIN=""; [ "$APP" = capacitor ] && MIN="--min-used $(node -p "require('./mobile/package.json').version")"
           node scripts/store/play-api.mjs plan --app "$APP" --bump "$BUMP" --tags "$TAGS" $MIN
       - name: Ghi chú phát hành 15 ngôn ngữ (commit từ tag store-* gần nhất)
         run: |
-          [ "${{ inputs.platform }}" != android ] && node scripts/store/release-notes.mjs --platform ios --app "$APP" --out notes-ios.json --summary
-          [ "${{ inputs.platform }}" != ios ] && node scripts/store/release-notes.mjs --platform android --app "$APP" --out notes-android.json
+          [ "$PLATFORM" != android ] && node scripts/store/release-notes.mjs --platform ios --app "$APP" --out notes-ios.json --summary
+          [ "$PLATFORM" != ios ] && node scripts/store/release-notes.mjs --platform android --app "$APP" --out notes-android.json
           node scripts/store/release-notes.mjs --check
       - name: Dry-run – đọc thử đường nộp iOS (không ghi gì)
-        if: inputs.dry_run && steps.ios.outputs.blocked == 'no'
+        if: env.DRY == 'true' && steps.ios.outputs.blocked == 'no'
         env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
         run: node scripts/store/asc-submit.mjs submit --dry-run --version "${{ steps.ios.outputs.version }}" --build "${{ steps.ios.outputs.build }}" --notes notes-ios.json
       - name: Dry-run – đọc thử đường nộp Android (không ghi gì)
-        if: inputs.dry_run && steps.android.outputs.skipped == 'no'
+        if: env.DRY == 'true' && steps.android.outputs.skipped == 'no'
         env: { PLAY_SERVICE_ACCOUNT_JSON: '${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}' }
         run: node scripts/store/play-api.mjs submit --dry-run --code "${{ steps.android.outputs.code }}" --name "${{ steps.android.outputs.version }}" --notes notes-android.json
       - name: Tóm tắt kế hoạch
         if: ${{ !cancelled() }}
         run: |
           {
-            echo "## Store submit – ${APP} · ${{ inputs.platform }} · bump ${BUMP} · dry_run=${{ inputs.dry_run }}"
+            echo "## Store submit – ${APP} · ${PLATFORM} · bump ${BUMP} · dry_run=${DRY}"
             echo "| Nền tảng | Version | Build | Ghi chú |"; echo "|---|---|---|---|"
             echo "| iOS | ${{ steps.ios.outputs.version || '–' }} | ${{ steps.ios.outputs.build || '–' }} | ${{ steps.ios.outputs.blocked == 'yes' && 'đang có bản chờ duyệt – chờ' || '' }} |"
             echo "| Android | ${{ steps.android.outputs.version || '–' }} | ${{ steps.android.outputs.code || '–' }} | ${{ steps.android.outputs.skipped == 'yes' && 'bỏ qua: chưa có PLAY_SERVICE_ACCOUNT_JSON' || '' }} |"
@@ -83,10 +86,10 @@ jobs:
 
   ios-build:
     needs: plan
-    if: ${{ !inputs.dry_run && needs.plan.outputs.ios == 'yes' }}
+    if: ${{ needs.plan.outputs.dry == 'false' && needs.plan.outputs.ios == 'yes' }}
     uses: ./.github/workflows/store-build-ios.yml
     with:
-      app: ${{ inputs.app }}
+      app: ${{ inputs.app || 'capacitor' }}
       version: ${{ needs.plan.outputs.ios_version }}
       build: ${{ needs.plan.outputs.ios_build }}
       upload: true
@@ -116,10 +119,10 @@ jobs:
 
   android-build:
     needs: plan
-    if: ${{ !inputs.dry_run && needs.plan.outputs.android == 'yes' }}
+    if: ${{ needs.plan.outputs.dry == 'false' && needs.plan.outputs.android == 'yes' }}
     uses: ./.github/workflows/store-build-android.yml
     with:
-      app: ${{ inputs.app }}
+      app: ${{ inputs.app || 'capacitor' }}
       version_name: ${{ needs.plan.outputs.android_version }}
       version_code: ${{ needs.plan.outputs.android_code }}
       require_key: true
@@ -138,7 +141,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with: { name: store-notes }
       - uses: actions/download-artifact@v4
-        with: { name: "${{ inputs.app == 'native' && 'lexkite-native-aab' || 'lexkite-play-aab' }}", path: aab }
+        with: { name: "${{ (inputs.app || 'capacitor') == 'native' && 'lexkite-native-aab' || 'lexkite-play-aab' }}", path: aab }
       - name: Google Play – production 1 % + ghi chú mọi ngôn ngữ
         env: { PLAY_SERVICE_ACCOUNT_JSON: '${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}' }
         run: node scripts/store/play-api.mjs submit --aab "$(ls aab/*.aab | head -1)" --code "$CODE" --name "$VER" --notes notes-android.json
@@ -157,13 +160,13 @@ jobs:
     steps:
       - name: Một dòng trạng thái cho điều phối
         env:
-          DRY: ${{ inputs.dry_run }}
+          DRY: ${{ needs.plan.outputs.dry }}
           PLAN: ${{ needs.plan.result }}
-          IOS: ${{ inputs.platform == 'android' && 'off' || (needs.plan.outputs.ios_blocked == 'yes' && 'blocked-in-review' || (inputs.dry_run && format('plan-{0}({1})', needs.plan.outputs.ios_version, needs.plan.outputs.ios_build)) || (needs.ios-submit.result == 'success' && format('submitted-{0}({1})', needs.plan.outputs.ios_version, needs.plan.outputs.ios_build)) || format('fail:{0}/{1}', needs.ios-build.result, needs.ios-submit.result)) }}
-          AND: ${{ inputs.platform == 'ios' && 'off' || (needs.plan.outputs.android_skipped == 'yes' && 'skipped-no-PLAY_SERVICE_ACCOUNT_JSON' || (inputs.dry_run && format('plan-{0}({1})', needs.plan.outputs.android_version, needs.plan.outputs.android_code)) || (needs.android-submit.result == 'success' && format('rollout1%-{0}({1})', needs.plan.outputs.android_version, needs.plan.outputs.android_code)) || format('fail:{0}/{1}', needs.android-build.result, needs.android-submit.result)) }}
+          IOS: ${{ (inputs.platform || 'both') == 'android' && 'off' || (needs.plan.outputs.ios_blocked == 'yes' && 'blocked-in-review' || (needs.plan.outputs.dry == 'true' && format('plan-{0}({1})', needs.plan.outputs.ios_version, needs.plan.outputs.ios_build)) || (needs.ios-submit.result == 'success' && format('submitted-{0}({1})', needs.plan.outputs.ios_version, needs.plan.outputs.ios_build)) || format('fail:{0}/{1}', needs.ios-build.result, needs.ios-submit.result)) }}
+          AND: ${{ (inputs.platform || 'both') == 'ios' && 'off' || (needs.plan.outputs.android_skipped == 'yes' && 'skipped-no-PLAY_SERVICE_ACCOUNT_JSON' || (needs.plan.outputs.dry == 'true' && format('plan-{0}({1})', needs.plan.outputs.android_version, needs.plan.outputs.android_code)) || (needs.android-submit.result == 'success' && format('rollout1%-{0}({1})', needs.plan.outputs.android_version, needs.plan.outputs.android_code)) || format('fail:{0}/{1}', needs.android-build.result, needs.android-submit.result)) }}
         run: |
           [ "$PLAN" = success ] || { IOS="plan-$PLAN"; AND="plan-$PLAN"; }
-          LINE="STORE-SUBMIT app=${{ inputs.app }} dry_run=$DRY ios=$IOS android=$AND run=$GITHUB_RUN_ID"
+          LINE="STORE-SUBMIT app=$APP dry_run=$DRY ios=$IOS android=$AND run=$GITHUB_RUN_ID"
           echo "::notice title=store-submit::$LINE"
           echo "$LINE" >> "$GITHUB_STEP_SUMMARY"
           case "$IOS$AND" in *fail*|*plan-failure*) exit 1 ;; esac
