@@ -255,7 +255,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
       + (isAdmin ? row(App.adminUrl(), UI.icon('shield'), t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
       + row('#/settings', UI.icon('settings'), t('Cài đặt'), t('Tài khoản, nhắc học, âm thanh, giao diện'))
-      + row('#/me', UI.icon('smartphone'), t('Tải app')).replace('<a ', '<a data-get-app="me" hidden ') // js/get-app.js: Google Play / Chrome Web Store / hướng dẫn cài
+      + row('#/me', UI.icon('smartphone'), t('Tải app')).replace('<a ', '<a data-get-app="me" hidden ') // js/get-app.js: App Store / Google Play / Chrome Web Store
       + `<button type="button" class="set-row me-row" data-exam-pick>
           <div class="me-row-left">
             <span class="me-icon-box" aria-hidden="true">${UI.icon(examObj.ic)}</span>

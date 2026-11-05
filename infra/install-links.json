@@ -1,0 +1,13 @@
+{
+  "_doc": "NGUỒN DUY NHẤT link cài Lexkite. Sửa ở đây rồi chạy: node scripts/build-install-links.mjs (sinh web/js/ext-config.js, functions/api/_install_data.js) rồi node scripts/build-landing.mjs (landing, chân trang, web/get/index.html), bash scripts/build-extension.sh (bản trong add-on). url rỗng = chưa có listing: không nút nào hiện. Có listing thì điền đúng 1 dòng url. Cách dùng: docs/README.md, luật video: docs/VIDEO.md. Test: scripts/test/install-links.mjs.",
+  "site": "https://lexkite.com",
+  "short": { "path": "/get", "label": "lexkite.com/get" },
+  "channels": {
+    "ios": { "name": "App Store", "devices": "iPhone, iPad", "url": "https://apps.apple.com/app/id6824714708" },
+    "play": { "name": "Google Play", "devices": "Android", "url": "https://play.google.com/store/apps/details?id=com.lexkite.app" },
+    "cws": { "name": "Chrome Web Store", "devices": "Chrome, Edge", "id": "idalfipabpfcajpkfkifbdlpejcdmfcd", "url": "https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd" },
+    "edge": { "name": "Edge Add-ons", "devices": "Edge", "url": "" },
+    "firefox": { "name": "Firefox Add-ons", "devices": "Firefox", "url": "" }
+  },
+  "trademarks": "App Store is a service mark of Apple Inc. Google Play is a trademark of Google LLC. Chrome is a trademark of Google LLC."
+}

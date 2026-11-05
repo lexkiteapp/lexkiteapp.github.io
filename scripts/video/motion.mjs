@@ -2,6 +2,7 @@
 // render.mjs bước compose: state.json → buildTimeline() → props.json → Remotion (scripts/video/remotion, 1 composition / khuôn) → video câm → ffmpeg trộn tiếng.
 // Gồm: trang phụ đề động (từng từ bật, từ khóa hộp vàng) · 12 chuyển cảnh chọn theo ngữ cảnh · ngắt nhịp 2–3 s · hook 1,5 s · thẻ ❌/✅ · sticker SVG Lexkite
 //   · grade màu theo bối cảnh/giờ · tự đặt SFX · thước đo "visual hook" 2 s đầu + QA màu (cháy/bết, bão hòa, ΔE da↔phòng).
+import { ctaLabel } from '../../functions/api/_install_links.js'; // chữ CTA: infra/install-links.json (docs/VIDEO.md)
 import { norm, tokens, BRAND, contrast } from './lib.mjs';
 import { rng, hash32 } from './variants.mjs';
 
@@ -587,7 +588,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     theme: { ...theme, colors, layout }, grain, hook, pages, cuts, shots: S, cards, interrupts, sfx, kits,
     progress: { start: 0, end: endStart },
     watermark,
-    endCard: { start: endStart, url: 'lexkite.com', cta: 'Practice free', kit: assets.kit ? assets.kit.cheer || assets.kit.happy : null },
+    endCard: { start: endStart, url: ctaLabel(), cta: 'Practice free', kit: assets.kit ? assets.kit.cheer || assets.kit.happy : null },
     safe: SAFE,
   };
 }
