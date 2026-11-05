@@ -1,7 +1,4 @@
-/* 🔊 LKAudio – phát giọng đọc ổn định mọi máy (docs/specs/audio-quality.md việc 4; nạp trước ui.js). Mở khóa ở lần chạm đầu (iOS),
- * MỘT kênh giọng đọc (file …/audio/l|w/… hoặc giọng máy – cái mới dừng cái cũ; sfx/video không tính; data-lk-mix = phát chồng có chủ đích),
- * play(urls): từng gốc CDN có hạn chờ → hết gốc mới onFail (giọng máy đúng người nói: Ama nữ, Carlos nam, UK/US), gói offline (web/sw.js 'lk-offline').
- * Test: scripts/test/audio-voice.mjs (Node) · scripts/test/audio-play.mjs (Chromium + WebKit). */
+/* 🔊 LKAudio – mô tả + test: docs/specs/audio-quality.md §LKAudio */
 (function (g) {
   'use strict';
   const FEM = /\b(Female|Samantha|Ava|Allison|Susan|Zoe|Serena|Kate|Martha|Libby|Sonia|Jenny|Aria|Ana|Karen|Moira|Tessa|Fiona|Victoria|Joanna|Salli|Kimberly|Ivy|Kendra|Emma|Amy|Hazel|Zira|Catherine|Nicky|Stephanie|Michelle|Emily|Olivia|Sara|Nancy|Heather|Jane|Ashley|Cora|Elizabeth|Maisie|Bella|Abbi|Hollie|Shelley|Sandy|Flo|Grandma|Kathy|Vicki)\b/i;
@@ -63,7 +60,6 @@
       const AC = g.AudioContext || g.webkitAudioContext;
       if (AC) { ctx = ctx || new AC(); if (ctx.state === 'suspended' && ctx.resume) ctx.resume().catch(() => {}); const b = ctx.createBuffer(1, 1, 22050), s = ctx.createBufferSource(); s.buffer = b; s.connect(ctx.destination); (s.start || s.noteOn).call(s, 0); }
     } catch (e) { /* bỏ qua */ }
-    // iOS mở khóa theo phần tử → mồi POOL trong cú chạm đầu, trình phát mượn qua el() (vì sao: scripts/test/ios-audio-unlock.mjs)
     for (let i = 0; i < POOL_N; i++) { try { const a = new Audio(); a.preload = 'auto'; a.src = SILENT; a.volume = 0; const p = a.play(); a._lkPrime = 1; if (p && p.then) p.then(() => { if (a._lkPrime) { a.pause(); a.volume = 1; } }, () => { if (a._lkPrime) a.volume = 1; }); pool.push(a); } catch (e) { /* bỏ qua */ } }
     try { if ('speechSynthesis' in g && /iP(hone|ad|od)|Macintosh.*Mobile|Safari/.test(navigator.userAgent) && !/Chrome|Android/.test(navigator.userAgent)) { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } } catch (e) { /* Safari: giọng máy cũng cần 1 lần nói trong cử chỉ người dùng */ }
     unlocked = true; stats.unlocked = Date.now();
