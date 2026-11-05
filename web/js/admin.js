@@ -658,6 +658,27 @@
   const LV = { crit: [0, 'bad', 'Nghiêm trọng'], warn: [1, 'warn', 'Cần xử lý'], info: [2, 'info', 'Theo dõi'], ok: [3, 'ok', 'Ổn'] };
   const SIG_SRC = { workflow: ['CI & tác vụ', 'alerts'], errors: ['Lỗi JavaScript', 'alerts'], inbox: ['Hộp thư', 'inbox'], mail: ['Hộp thư', 'inbox'], backlink: ['Backlink & PR', 'backlinks'], brand: ['Thương hiệu', 'backlinks'], copy: ['Bản sao chép', 'backlinks'], capacity: ['Hạn mức', 'quota'], drive: ['Kho Drive', 'drive'], quality: ['Chất lượng', 'quality'], reports: ['Báo lỗi', 'reports'], notices: ['Gửi tới người học', 'notices'] };
   const CRIT_WF = /deploy|pages|prod|release|backup|sao lưu|health|rà soát/i;
+  // METRICS:start – R3: MỘT bảng số liệu. Mỗi số có đúng MỘT hàm trả mức (crit/warn/info/ok, null = chưa có/không đọc được);
+  // màu chip = LV[mức][1] qua lvc(). Mọi tab (Hôm nay, Tổng quan, Trung tâm cảnh báo, Sức khỏe, Dịch vụ, Lưu trữ, huy hiệu) gọi ở đây.
+  // Cổng scripts/test/admin-metrics.mjs: cấm tự so ngưỡng ngoài khối này. Ngưỡng hạn mức khớp alerts máy chủ (functions/api/admin.js QUOTA_*).
+  const QUOTA_WARN = 70, QUOTA_CRIT = 90, STICK_STD = 25, REPORTS_WARN = 10;
+  const METRICS = {
+    quota: pct => pct == null || pct === '' || isNaN(+pct) ? null : +pct >= QUOTA_CRIT ? 'crit' : +pct >= QUOTA_WARN ? 'warn' : 'ok',
+    errors: row => !row ? null : !row.ok ? 'crit' : +row.n ? 'info' : 'ok', // ngưỡng lỗi/24 h = config alert_errors (máy chủ đặt row.ok)
+    quality: q => !q || q._err || q.score == null ? null : +q.score >= (+q.standard || 100) ? 'ok' : 'warn',
+    inbox: (row, open) => row && !row.ok ? 'warn' : +open ? 'info' : 'ok', // máy chủ: cần xử lý khi tin cũ nhất > 2 ngày
+    workflow: r => r.ok ? (r.warn ? 'warn' : 'ok') : !r.unreadable && CRIT_WF.test(r.name || '') ? 'crit' : 'warn',
+    ci: rows => { const wf = rows.filter(r => r.kind === 'workflow'), unread = wf.some(r => r.unreadable), bad = wf.filter(r => !r.ok && !r.unreadable);
+      return { total: wf.length, bad: unread ? null : bad.length, lv: unread ? null : bad.reduce((w, r) => METRICS.workflow(r) === 'crit' ? 'crit' : w, bad.length ? 'warn' : 'ok') }; },
+    row: r => r.kind === 'workflow' ? METRICS.workflow(r) : r.kind === 'errors' ? METRICS.errors(r) || 'info' : r.kind === 'capacity' ? METRICS.quota(r.pct) || (r.ok ? (r.warn ? 'warn' : 'ok') : 'crit')
+      : r.kind === 'copy' ? (r.ok ? 'ok' : 'info') : /^(inbox|mail|brand|backlink)$/.test(r.kind) ? (r.ok && !r.warn ? 'ok' : 'warn') : r.ok ? (r.warn ? 'warn' : 'ok') : 'crit',
+    reports: n => +n >= REPORTS_WARN ? 'warn' : +n ? 'info' : null,
+    stick: p => +p >= STICK_STD ? 'ok' : 'warn',
+    keys: gk => !gk || !gk.set ? 'warn' : (gk.keys || []).some(k => !k.cooling) ? 'ok' : 'crit',
+    drive: list => list.some(d => d.level === 'crit') ? 'crit' : list.length ? 'warn' : 'ok',
+  };
+  const lvc = lv => lv ? LV[lv][1] : ''; // mức → class chip/meter
+  // METRICS:end
   let repC = null;
   async function repCounts() {
     if (repC && Date.now() - repC.at < 30e3) return repC.p;
@@ -668,17 +689,13 @@
     const [a, o, q, rc] = await Promise.all([api('alerts'), api('overview').catch(() => ({})), api('quality').catch(e => ({ _err: String(e && e.message || e) })), repCounts().catch(() => null)]);
     const out = [], add = (lv, kind, title, detail, go, at) => out.push({ lv, kind, src: L((SIG_SRC[kind] || [kind])[0]), title, detail: detail || '', go: go || (SIG_SRC[kind] || [])[1] || 'alerts', at: at || 0 });
     for (const r of a.rows || []) {
-      let lv = r.ok ? (r.warn ? 'warn' : 'ok') : (r.warn ? 'warn' : 'crit');
-      if (!r.ok && r.kind === 'workflow' && !CRIT_WF.test(r.name || '')) lv = 'warn';
-      if (!r.ok && (r.kind === 'inbox' || r.kind === 'mail' || r.kind === 'brand' || r.kind === 'backlink')) lv = 'warn';
-      if (!r.ok && r.kind === 'copy') lv = 'info';
-      add(lv, r.kind || 'workflow', r.name, r.conclusion || r.status || '', r.kind === 'workflow' && r.url ? '' : null, r.at); if (r.url && r.kind === 'workflow') out[out.length - 1].url = r.url;
+      add(METRICS.row(r), r.kind || 'workflow', r.name, r.conclusion || r.status || '', r.kind === 'workflow' && r.url ? '' : null, r.at); if (r.url && r.kind === 'workflow') out[out.length - 1].url = r.url;
     }
     const open = +((o.inbox || {}).open) || 0; if (open && !(a.rows || []).some(r => r.kind === 'inbox' && !r.ok)) add('info', 'inbox', L('Tin nhắn chờ trả lời'), L('{n} tin', { n: num(open) }));
-    if (rc && +rc.new) add(+rc.new >= 10 ? 'warn' : 'info', 'reports', L('Báo lỗi mới chưa phân loại'), L('{n} báo lỗi', { n: num(rc.new) }));
+    if (rc && METRICS.reports(rc.new)) add(METRICS.reports(rc.new), 'reports', L('Báo lỗi mới chưa phân loại'), L('{n} báo lỗi', { n: num(rc.new) }));
     if (q._err) add('info', 'quality', L('Rà soát hằng ngày'), L('không đọc được') + ' · ' + q._err.slice(0, 60));
     else if (q.score == null) add('info', 'quality', L('Rà soát hằng ngày'), L('chưa chạy'));
-    else add(q.score >= (q.standard || 100) ? 'ok' : 'warn', 'quality', L('Rà soát hằng ngày'), L('{s}% · chuẩn {t}%', { s: q.score, t: q.standard || 100 }), 'quality', q.at);
+    else add(METRICS.quality(q), 'quality', L('Rà soát hằng ngày'), L('{s}% · chuẩn {t}%', { s: q.score, t: q.standard || 100 }), 'quality', q.at);
     for (const d of drvAl || []) { const dst = dstOf(d); add(d.level === 'crit' ? 'crit' : 'warn', dst === DRV_DST ? 'drive' : 'capacity', L(dst[0]), drvText(d), dst[1]); }
     return out.sort((x, y) => LV[x.lv][0] - LV[y.lv][0] || (y.at || 0) - (x.at || 0));
   }
@@ -1149,7 +1166,7 @@
       const [o, a, q, gk, u, sg] = await Promise.all([api('overview'), api('alerts'), api('quality').catch(() => ({})), api('geminiStatus').catch(() => ({})), api('usage').catch(() => ({})), signals().catch(e => ({ _err: e }))]);
       const H = o.humans || {}, U = o.users || {}, E = o.errors24 || {}, I = o.inbox || {}, rows = a.rows || [], bad = rows.filter(r => !r.ok);
       const mau = +U.act30 || 0, dau = +U.act1 || 0, stick = mau > 0 ? Math.round(dau / mau * 100) : (dau > 0 ? 100 : 0);
-      const qScore = q.score != null ? q.score : null, qStd = +q.standard || 100, errRow = rows.find(r => r.kind === 'errors'), liveKeys = (gk.keys || []).filter(k => !k.cooling).length;
+      const qScore = q.score != null ? q.score : null, errRow = rows.find(r => r.kind === 'errors'), inRow = rows.find(r => r.kind === 'inbox'), liveKeys = (gk.keys || []).filter(k => !k.cooling).length;
       const d1 = (u.meters || []).find(m => /d1/i.test(m.name));
       const statusMeta = r => {
         const st = String(r.status || '').toLowerCase(), cn = String(r.conclusion || '').toLowerCase();
@@ -1179,16 +1196,16 @@
         <div class="tiles">
           ${tile({ l: L('Đăng nhập hôm nay'), v: v(U.act1), s: esc(L('7 ngày: {a} · 30 ngày: {b}', { a: num(U.act7), b: num(U.act30) })), go: 'users' })}
           ${tile({ l: L('Học viên đăng ký'), v: v(U.total), d: +U.new7 ? `<span class="delta up">${esc(L('+{n} / 7 ngày', { n: num(U.new7) }))}</span>` : '', go: 'users' })}
-          ${tile({ l: L('Gắn kết (DAU / MAU)'), v: stick + '%', d: `<span class="chip ${stick >= 25 ? 'ok' : 'warn'}">${L('Chuẩn EdTech ≥ 25%')}</span>` })}
+          ${tile({ l: L('Gắn kết (DAU / MAU)'), v: stick + '%', d: `<span class="chip ${lvc(METRICS.stick(stick))}">${L('Chuẩn EdTech ≥ 25%')}</span>` })}
           ${tile({ l: L('Thẻ đã ôn'), v: '–', s: L('Chưa đo – cần sự kiện ôn thẻ trong thống kê') })}
         </div>
         <h2 class="sec-t">${L('Vận hành')}</h2>
         <div class="tiles">
-          ${tile({ l: L('Lỗi JS (24 giờ)'), v: v(E.hits), d: `<span class="chip ${errRow && !errRow.ok ? 'bad' : +E.hits ? 'warn' : 'ok'}">${+E.hits ? esc(L('{n} loại', { n: num(E.kinds) })) : L('Không có lỗi')}</span>`, go: 'alerts' })}
+          ${tile({ l: L('Lỗi JS (24 giờ)'), v: v(E.hits), d: `<span class="chip ${lvc(METRICS.errors(errRow ? { ...errRow, n: errRow.n ?? E.hits } : null) || METRICS.errors({ ok: true, n: E.hits }))}">${+E.hits ? esc(L('{n} loại', { n: num(E.kinds) })) : L('Không có lỗi')}</span>`, go: 'alerts' })}
           ${tile({ l: L('Phiên tự động đã loại'), v: v(o.excluded), s: L('bot, CI, quản trị – hôm nay'), go: 'analytics' })}
-          ${tile({ l: L('Tin nhắn chưa xử lý'), v: v(I.open), d: `<span class="chip ${+I.open ? 'warn' : 'ok'}">${+I.open ? L('Chờ trả lời') : L('Sạch hòm thư')}</span>`, go: 'inbox' })}
-          ${tile({ l: L('Điểm chất lượng'), v: qScore == null ? '–' : qScore + '%', d: qScore == null ? `<span class="chip">${L('chưa chạy')}</span>` : `<span class="chip ${qScore >= qStd ? 'ok' : 'bad'}">${qScore >= qStd ? L('Đạt chuẩn') : L('Dưới chuẩn')}</span>`, go: 'quality' })}
-          ${tile({ l: L('Khóa Gemini API'), v: gk.set ? `${liveKeys}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: `<span class="chip ${gk.set ? 'ok' : 'warn'}">${gk.set ? esc(L('{n} sẵn sàng', { n: liveKeys })) : L('Chưa thiết lập')}</span>`, s: d1 ? esc(L('D1: {p}% dung lượng', { p: d1.pct })) : '', go: 'services' })}
+          ${tile({ l: L('Tin nhắn chưa xử lý'), v: v(I.open), d: `<span class="chip ${lvc(METRICS.inbox(inRow, I.open))}">${+I.open ? L('Chờ trả lời') : L('Sạch hòm thư')}</span>`, go: 'inbox' })}
+          ${tile({ l: L('Điểm chất lượng'), v: qScore == null ? '–' : qScore + '%', d: qScore == null ? `<span class="chip">${L('chưa chạy')}</span>` : `<span class="chip ${lvc(METRICS.quality(q))}">${METRICS.quality(q) === 'ok' ? L('Đạt chuẩn') : L('Dưới chuẩn')}</span>`, go: 'quality' })}
+          ${tile({ l: L('Khóa Gemini API'), v: gk.set ? `${liveKeys}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: `<span class="chip ${lvc(METRICS.keys(gk))}">${gk.set ? esc(L('{n} sẵn sàng', { n: liveKeys })) : L('Chưa thiết lập')}</span>`, s: d1 ? esc(L('D1: {p}% dung lượng', { p: d1.pct })) : '', go: 'services' })}
         </div>
         <section class="card mt"><div class="card-h"><h2 class="h3">${bad.length ? L('Tác vụ cần chú ý') : L('Tác vụ tự động (GitHub Actions)')}</h2><a href="#alerts" data-go="alerts" class="small">${L('Toàn bộ cảnh báo & nhật ký →')}</a></div>
           ${pipe ? `<div class="pipe-grid">${pipe}</div>` : emptyState(L('Chưa có tác vụ'))}</section>`;
@@ -1354,16 +1371,16 @@
       const state = r => (/gemini/i.test(r.name) ? (gk.set ? 'on' : 'todo') : /chưa đăng ký|chưa tạo/i.test(r.status + r.account) ? 'todo' : /chưa dùng/i.test(r.status) ? 'idle' : 'on'); // dịch vụ có khóa: trạng thái theo khóa thực tế
       const PILL = { on: ['ok', 'Đang dùng'], idle: ['muted', 'Chưa dùng'], todo: ['warn', 'Chưa thiết lập'] };
       const keyed = r => /gemini/i.test(r.name), rows = s.rows || [], meters = u.meters || [];
-      const warnMeters = meters.filter(m => m.pct >= 70).length, cnt = k => rows.filter(r => state(r) === k).length;
+      const warnMeters = meters.filter(m => /warn|crit/.test(METRICS.quota(m.pct) || '')).length, cnt = k => rows.filter(r => state(r) === k).length;
       setActions(`<button type="button" class="btn primary sm" id="sadd">${L('+ Thêm dịch vụ')}</button>`);
       main.innerHTML = `
         <div class="tiles">
           ${tile({ l: L('Dịch vụ'), v: num(rows.length), s: L('trong hệ thống') })}
           ${tile({ l: L('Đang dùng'), v: num(cnt('on')), s: L('hoạt động bình thường') })}
           ${tile({ l: L('Chưa thiết lập'), v: num(cnt('todo') + cnt('idle')), s: L('cần đăng ký / thêm khóa'), d: cnt('todo') + cnt('idle') ? '<span class="chip warn">!</span>' : '' })}
-          ${tile({ l: L('Hạn mức sắp đầy'), v: num(warnMeters), s: L('≥ 70% gói miễn phí'), d: warnMeters ? '<span class="chip bad">!</span>' : '' })}
+          ${tile({ l: L('Hạn mức sắp đầy'), v: num(warnMeters), s: L('≥ 70% gói miễn phí'), d: warnMeters ? `<span class="chip ${lvc(meters.some(m => METRICS.quota(m.pct) === 'crit') ? 'crit' : 'warn')}">!</span>` : '' })}
         </div>
-        <details class="card svc-usage mt" ${warnMeters ? 'open' : ''}><summary><b>${L('📊 Dung lượng & hạn mức miễn phí')}</b> <span class="small muted">${L('· vàng ≥ 70%, đỏ ≥ 90%')}</span></summary>${meters.map(m => `<div class="meter ${m.pct >= 90 ? 'crit' : m.pct >= 70 ? 'warn' : ''}"><div class="row between small"><b>${esc(m.name)}</b><span>${m.unit === 'bytes' ? (m.used / 1048576).toFixed(1) + ' / ' + (m.cap / 1048576).toFixed(0) + ' MB' : num(m.used) + ' / ' + num(m.cap)} · <b>${esc(m.pct)}%</b></span></div><div class="bar"><i style="width:${Math.min(100, +m.pct || 0)}%"></i></div>${m.hint ? `<div class="tiny muted">${esc(m.hint)}</div>` : ''}</div>`).join('')}</details>
+        <details class="card svc-usage mt" ${warnMeters ? 'open' : ''}><summary><b>${L('📊 Dung lượng & hạn mức miễn phí')}</b> <span class="small muted">${L('· vàng ≥ 70%, đỏ ≥ 90%')}</span></summary>${meters.map(m => `<div class="meter ${/warn|crit/.test(METRICS.quota(m.pct) || '') ? METRICS.quota(m.pct) : ''}"><div class="row between small"><b>${esc(m.name)}</b><span>${m.unit === 'bytes' ? (m.used / 1048576).toFixed(1) + ' / ' + (m.cap / 1048576).toFixed(0) + ' MB' : num(m.used) + ' / ' + num(m.cap)} · <b>${esc(m.pct)}%</b></span></div><div class="bar"><i style="width:${Math.min(100, +m.pct || 0)}%"></i></div>${m.hint ? `<div class="tiny muted">${esc(m.hint)}</div>` : ''}</div>`).join('')}</details>
         <div class="svc-tools"><input type="search" id="sq" placeholder="${L('🔎 Tìm dịch vụ, tài khoản…')}" aria-label="${L('Tìm dịch vụ')}"><div class="svc-chips" role="group" aria-label="${L('Lọc dịch vụ')}">${[['all', 'Tất cả'], ['on', 'Đang dùng'], ['todo', 'Chưa thiết lập']].map(([k, l], i) => `<button type="button" class="chip-f" aria-pressed="${!i}" data-f="${k}">${L(l)}</button>`).join('')}</div></div>
         <div id="svcList"></div><div id="svcNone" hidden class="card">${emptyState(L('Không có dịch vụ khớp bộ lọc'))}</div>`;
       const card = r => { const st = state(r), [pc, pl] = PILL[st]; return `<article class="svc-card" data-st="${st}" data-q="${esc((r.name + ' ' + r.account + ' ' + r.purpose).toLowerCase())}">
@@ -1444,7 +1461,7 @@
     },
     async storage(main) { // 💾 Lưu trữ – js/admin-storage.js (tải lười) đọc /data/storage-forecast.json (docs/STORAGE.md)
       await lazy('AdminStorage', 'js/admin-storage.js'); main.innerHTML = '';
-      AdminStorage.render(main, L, { esc, num, lang: () => LANG });
+      AdminStorage.render(main, L, { esc, num, lang: () => LANG, quotaLv: METRICS.quota });
     },
     async quota(main) { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       await lazy('AdminQuota', 'js/admin-quota.js'); main.innerHTML = '';
@@ -1456,20 +1473,20 @@
       AdminNotices.render(main, api, L, { esc, num, when, lang: () => LANG, user });
       lazy('AdminPush', 'js/admin-push.js').then(() => AdminPush.render(main, L, { esc, num, lang: () => LANG })).catch(() => {}); // ⏰ thẻ Nhắc học (docs/REMINDERS.md)
     },
-    async health(main) { // 🩺 Sức khỏe hệ thống – hub: tóm tắt + tab con Hạn mức / Lưu trữ / Chất lượng / Kho Drive (view cũ giữ nguyên). Ngưỡng: vàng ≥ 70 %, đỏ ≥ 90 % (như alerts máy chủ)
+    async health(main) { // 🩺 Sức khỏe hệ thống – hub: tóm tắt + tab con Hạn mức / Lưu trữ / Chất lượng / Kho Drive (view cũ giữ nguyên). Ngưỡng: METRICS (một nguồn)
       const [a, q, gk, u, sg] = await Promise.all([api('alerts'), api('quality').catch(e => ({ _err: e })), api('geminiStatus').catch(() => ({})), api('usage').catch(e => ({ _err: e })), signals().catch(e => ({ _err: e }))]);
       setActions(`<button type="button" class="btn sm" id="hlReload">↻ ${esc(L('Làm mới'))}</button>`); $('#hlReload').onclick = () => { fresh(); show('health', { force: true }); };
-      const rows = a.rows || [], wf = rows.filter(r => r.kind === 'workflow'), wfBad = wf.filter(r => !r.ok), er = rows.find(r => r.kind === 'errors');
+      const rows = a.rows || [], ci = METRICS.ci(rows), er = rows.find(r => r.kind === 'errors');
       const meters = u.meters || [], top = meters.slice().sort((x, y) => (+y.pct || 0) - (+x.pct || 0))[0];
-      const pc = p => p >= 90 ? 'bad' : p >= 70 ? 'warn' : 'ok', live = (gk.keys || []).filter(k => !k.cooling).length, dl = (drvAl || []).filter(d => dstOf(d) === DRV_DST);
+      const pc = p => lvc(METRICS.quota(p)), live = (gk.keys || []).filter(k => !k.cooling).length, dl = (drvAl || []).filter(d => dstOf(d) === DRV_DST);
       const chip = (c, t) => `<span class="chip ${c}">${esc(t)}</span>`;
       main.innerHTML = `<div class="tiles">
-        ${tile({ l: L('Tác vụ CI hỏng'), v: num(wfBad.length), d: chip(wfBad.length ? (wfBad.some(r => CRIT_WF.test(r.name || '')) ? 'bad' : 'warn') : 'ok', wfBad.length ? L('{n}/{t} workflow', { n: wfBad.length, t: wf.length }) : L('Tất cả xanh')), go: 'alerts' })}
-        ${tile({ l: L('Lỗi JS (24 giờ)'), v: er ? esc(String(er.conclusion || '').split(' ')[0] || '0') : '–', d: chip(!er ? '' : er.ok ? 'ok' : 'bad', !er ? L('chưa có số liệu') : er.ok ? L('Dưới ngưỡng') : L('Vượt ngưỡng')), go: 'alerts' })}
+        ${tile({ l: L('Tác vụ CI hỏng'), v: ci.bad == null ? '–' : num(ci.bad), d: ci.bad == null ? chip('', L('không đọc được')) : chip(lvc(ci.lv), ci.bad ? L('{n}/{t} workflow', { n: ci.bad, t: ci.total }) : L('Tất cả xanh')), go: 'alerts' })}
+        ${tile({ l: L('Lỗi JS (24 giờ)'), v: er ? num(+er.n || 0) : '–', d: chip(lvc(METRICS.errors(er)), !er ? L('chưa có số liệu') : er.ok ? L('Dưới ngưỡng') : L('Vượt ngưỡng')), go: 'alerts' })}
         ${tile({ l: L('Hạn mức cao nhất'), v: top ? (+top.pct || 0) + '%' : '–', d: u._err ? chip('', L('không đọc được')) : top ? chip(pc(+top.pct || 0), top.name) : chip('', L('chưa có số liệu')), go: 'quota' })}
-        ${tile({ l: L('Rà soát hằng ngày'), v: q._err || q.score == null ? '–' : q.score + '%', d: q._err ? chip('', L('không đọc được')) : q.score == null ? chip('', L('chưa chạy')) : chip(q.score >= (+q.standard || 100) ? 'ok' : 'bad', L('chuẩn {t}%', { t: +q.standard || 100 })), go: 'quality' })}
-        ${tile({ l: L('Kho Drive'), v: num(dl.length), d: chip(dl.some(d => d.level === 'crit') ? 'bad' : dl.length ? 'warn' : 'ok', dl.length ? L('cảnh báo') : L('Ổn')), go: 'drive' })}
-        ${tile({ l: L('Khóa AI sẵn sàng'), v: gk.set ? `${live}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: chip(gk.set ? (live ? 'ok' : 'bad') : 'warn', gk.set ? L('{n} sẵn sàng', { n: live }) : L('Chưa thiết lập')), go: 'keys' })}
+        ${tile({ l: L('Rà soát hằng ngày'), v: q._err || q.score == null ? '–' : q.score + '%', d: q._err ? chip('', L('không đọc được')) : q.score == null ? chip('', L('chưa chạy')) : chip(lvc(METRICS.quality(q)), L('chuẩn {t}%', { t: +q.standard || 100 })), go: 'quality' })}
+        ${tile({ l: L('Kho Drive'), v: num(dl.length), d: chip(lvc(METRICS.drive(dl)), dl.length ? L('cảnh báo') : L('Ổn')), go: 'drive' })}
+        ${tile({ l: L('Khóa AI sẵn sàng'), v: gk.set ? `${live}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: chip(lvc(METRICS.keys(gk)), gk.set ? L('{n} sẵn sàng', { n: live }) : L('Chưa thiết lập')), go: 'keys' })}
       </div>
       <section class="card mt"><div class="card-h"><h2 class="h3">${L('Dung lượng & hạn mức miễn phí')}</h2><a href="#quota" data-go="quota" class="small">${esc(L('Chi tiết hạn mức →'))}</a></div>${u._err ? errBox(u._err) : meters.length ? `<div class="pipe-grid">${meters.map(m => `<div class="pipe-i"><span class="pipe-n">${esc(m.name)}</span><span class="chip ${pc(+m.pct || 0)}">${num(+m.pct || 0)}%</span></div>`).join('')}</div>` : emptyState(L('Chưa có số liệu hạn mức'))}</section>
       <section class="card mt"><div class="card-h"><h2 class="h3">${L('Tín hiệu hệ thống')}</h2><a href="#alerts" data-go="alerts" class="small">${esc(L('Trung tâm cảnh báo →'))}</a></div><div id="hlSig"></div></section>`;

@@ -38,6 +38,8 @@ const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 
 // Hạn mức gói miễn phí (cập nhật khi nhà cung cấp đổi) – dùng cho thẻ dung lượng & cảnh báo
+// Ngưỡng hạn mức (vàng/đỏ) – PHẢI khớp METRICS.quota ở web/js/admin.js (cổng scripts/test/admin-metrics.mjs)
+const QUOTA_WARN = 70, QUOTA_CRIT = 90;
 const FREE = { dbBytes: 500 * 1024 * 1024, writesDay: 100000, readsDay: 5000000, authMau: 50000, aiDay: 400 };
 let ready = false;
 
@@ -756,10 +758,10 @@ export const OPS = {
     } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, unreadable: true, conclusion: tx(b, 'không đọc được', 'unreadable') + ' · ' + String(e.message || e).slice(0, 40) }); }
     const e = await one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY);
     const lim = +((await one(db, "SELECT v FROM config WHERE k = 'alert_errors'")).v || 50);
-    out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
+    out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, n: +e.hits || 0, kinds: +e.kinds || 0, lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
     const c = await one(db, 'SELECT COUNT(*) AS n, MIN(at) AS oldest FROM contact_msgs WHERE COALESCE(handled, 0) = 0');
     const oldH = Math.round((now - c.oldest) / 36e5);
-    out.push({ kind: 'inbox', name: tx(b, 'Tin nhắn chưa xử lý', 'Open messages'), ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? tx(b, `${c.n} tin, cũ nhất ${oldH} giờ`, `${c.n} message(s), oldest ${oldH}h`) : tx(b, 'không có', 'none') });
+    out.push({ kind: 'inbox', name: tx(b, 'Tin nhắn chưa xử lý', 'Open messages'), n: +c.n || 0, ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? tx(b, `${c.n} tin, cũ nhất ${oldH} giờ`, `${c.n} message(s), oldest ${oldH}h`) : tx(b, 'không có', 'none') });
     const f = await one(db, 'SELECT COUNT(*) AS n FROM contact_msgs WHERE sent = 0 AND at > ?', now - 7 * DAY);
     out.push({ kind: 'mail', name: tx(b, 'Thư chuyển tiếp lỗi (7 ngày)', 'Failed email forwards (7 days)'), ok: !f.n, conclusion: f.n ? tx(b, `${f.n} tin chưa chuyển được vào Gmail – xem Hộp thư`, `${f.n} message(s) not forwarded to Gmail – see Inbox`) : tx(b, 'ổn', 'OK') });
     // Backlink, PR & Thương hiệu (functions/api/backlinks.js, workflow pr-check.yml): đỏ khi có sự cố, vàng khi có thay đổi cần cập nhật / lâu chưa kiểm
@@ -779,7 +781,7 @@ export const OPS = {
         out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: sus ? tx(b, `${sus} trang ngoài chứa nguyên văn/canary`, `${sus} external page(s) with verbatim text/canary`) : copy.configured === false ? tx(b, 'chỉ dò canary trên GitHub – bật Brave (BRAVE_SEARCH_KEY) để dò cả web', 'canary GitHub search only – add BRAVE_SEARCH_KEY for web search') : tx(b, 'không thấy', 'none found') }); }
     } catch (e) { /* chưa có bảng bw_* (chưa chạy lần nào) */ }
     const u = await OPS.usage(db, b);
-    for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
+    for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, pct: m.pct, ok: m.pct < QUOTA_WARN, warn: m.pct >= QUOTA_WARN && m.pct < QUOTA_CRIT, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
     return { rows: out };
   },
   async noticeCreate(db, b, who) {
