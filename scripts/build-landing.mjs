@@ -118,20 +118,26 @@ const PSEUDO_EL = /::?(?:before|after|first-line|first-letter)\b|::[\w-]+(?:\([^
 const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any-link|checked|disabled|enabled|placeholder-shown|target|open|popover-open|invalid|valid|required|optional|autofill|-webkit-autofill|indeterminate|default|read-only|read-write|user-invalid|user-valid)(?![\w-])/g;
 // Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
 const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
+const LAYOUT = /^(display|grid(-[\w-]+)?|gap|row-gap|column-gap|flex(-[\w-]+)?|order|(min-|max-)?(width|height)|aspect-ratio|margin(-[\w-]+)?|padding(-[\w-]+)?|(align|justify|place)-[\w-]+|font-size|line-height|letter-spacing|white-space|box-sizing|border(-(top|right|bottom|left))?-width)$/;
 export function criticalCss(css, html) {
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
   // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
   const S = doc.querySelectorAll('section'), first = S[Math.min(1, S.length - 1)], crit = new Set();
   for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
+  // + section thứ 3 chỉ lấy THUỘC TÍNH BỐ CỤC (lưới/khoảng cách/cỡ chữ): ở 1440×900 bản chữ ngắn (es) lưới tính năng lọt màn đầu → lưới tới muộn = CLS 0,395 (visual-qa 05/11);
+  //   phần trang trí (màu/bóng/bo góc) vẫn tới muộn – không xê dịch, giữ CSS nội tuyến dưới trần 16 KB gz của trang giới thiệu
+  const third = S[2], lay = new Set(third ? [third, ...third.querySelectorAll('*')].filter(e => !crit.has(e)) : []);
   const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
     let q = sel.replace(/:root(?::not\(\[data-theme=\w+\]\)|\[data-theme=\w+\])/g, ':root').replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '') /* nhánh nút giao diện (PR 303): trang lúc build không có data-theme → so như :root, kẻo vẽ đầu sai nền khi ép tối/sáng */.replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
-    let r; try { r = [...doc.querySelectorAll(q)].some(e => crit.has(e)); } catch { r = true; }
+    let r; try { const all = [...doc.querySelectorAll(q)]; r = all.some(e => crit.has(e)) ? true : all.some(e => lay.has(e)) ? 'lay' : false; } catch { r = true; }
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
-    const k = splitSel(sel).filter(x => !INTERACT.test(x) && hit(x)); return k.length ? k.join(',') + b.slice(j) : ''; }).join('');
+    const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
+    const lb = l.length ? b.slice(j + 1, -1).split(';').filter(d => LAYOUT.test(d.split(':')[0].trim())).join(';') : '';
+    return (k.length ? k.join(',') + b.slice(j) : '') + (lb ? l.join(',') + '{' + lb + '}' : ''); }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
   return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
