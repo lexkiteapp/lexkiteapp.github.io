@@ -136,7 +136,7 @@ Langkah-langkah shadowing efektif:
 - Putar audio dan tirukan suaranya secara bersamaan dengan suara lantang.
 - Rekam suara Anda sendiri, lalu dengarkan setelah audio asli untuk membandingkan.
 
-Langkah lengkapnya ada di [teknik shadowing bahasa Inggris otodidak](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/). Untuk menguji ucapan sendiri, coba [latihan pengucapan](/#/practice/speak) di Lexkite: ucapkan frasa lewat mikrofon dan lihat skornya.
+Langkah lengkapnya ada di [teknik shadowing bahasa Inggris otodidak](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/). Untuk menguji ucapan sendiri, coba [latihan pengucapan](/#/practice/speak) di Lexkite: ucapkan frasa dari dek Anda lewat mikrofon dan lihat skornya.
 
 ![Layar latihan pengucapan Lexkite dengan frasa cut down on dan tombol mikrofon untuk berbicara](media:practice-speak "Ucapkan frasa lewat mikrofon dan aplikasi memberi skor berdasarkan suara Anda")
 
@@ -184,7 +184,7 @@ Gunakan daftar periksa berikut saat mendengarkan rekaman suara latihan harian An
 Mendengar suara sendiri sering bias, karena kita cenderung menganggap ucapan kita sudah benar. Alat berikut membantu:
 
 - **Pasangan minimal:** buka [pustaka pelafalan](/#/pron), pilih bunyi, dengarkan, lalu ucapkan.
-- **Cek ucapan:** ucapkan frasa lewat mikrofon di [latihan pengucapan](/#/practice/speak) dan bandingkan skor antarpercobaan.
+- **Cek ucapan:** ucapkan frasa dari dek Anda lewat mikrofon di [latihan pengucapan](/#/practice/speak) dan bandingkan skor antarpercobaan.
 - **Kata baru:** cari di [kamus](/#/dict) untuk melihat IPA, mendengar audio, dan menyimpannya sebagai flashcard.
 - **Latihan ujian:** halaman [latihan speaking](/en/speaking/) (dalam bahasa Inggris) berisi pertanyaan IELTS Speaking.
 

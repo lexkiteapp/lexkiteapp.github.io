@@ -138,9 +138,9 @@ Depois de um simulado cronometrado, dedique à revisão dos erros pelo menos o m
 
 O Lexkite reúne as questões que você erra, tanto na prática por Part quanto nos simulados completos (inclusive Listening), em um caderno com as explicações. Ele as organiza por habilidade (leitura ou escuta), não pelos três grupos acima: o grupo você anota ao refazer cada exercício. Os grupos de vocabulário e gramática do caderno guardam erros de outros exercícios.
 
-![Caderno de erros do Lexkite que agrupa respostas erradas por vocabulário, gramática, leitura e escuta](media:mistakes "O caderno de erros: questões erradas reunidas por tipo")
+![Registro de erros do Lexkite que agrupa respostas erradas por vocabulário, gramática, leitura e escuta](media:mistakes "O Registro de erros: questões erradas reunidas por tipo")
 
-Abra o seu [caderno de erros](/#/mistakes) uma vez por semana, refaça os exercícios e anote o grupo de cada um. Depois de um mês as suas próprias marcações mostram qual grupo domina, e isso indica o que estudar em seguida.
+Abra o seu [Registro de erros](/#/mistakes) uma vez por semana, refaça os exercícios e anote o grupo de cada um. Depois de um mês as suas próprias marcações mostram qual grupo domina, e isso indica o que estudar em seguida.
 
 ## Agenda semanal sustentável
 

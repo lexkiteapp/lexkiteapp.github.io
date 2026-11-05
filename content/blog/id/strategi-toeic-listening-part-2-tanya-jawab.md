@@ -134,9 +134,9 @@ Agar taktik-taktik ini spontan saat hari ujian, coba rutinitas berikut (durasi h
 
 1. **Simulasi menyimak tanpa henti (sekitar 15 menit):** Buka [halaman TOEIC Lexkite](/#/toeic), pilih satu Test lalu kartu “Part 2 · Tanya–jawab”. Mode “Dengar sekali” memutar audio sekali saja, seperti di ujian. Bila ragu pada suatu nomor, segera pilih opsi yang paling masuk akal dan alihkan seluruh perhatian pada pertanyaan berikutnya.
 2. **Analisis transkrip (sekitar 15 menit):** Buka naskah audio dari soal-soal yang salah. Cari tahu penyebab kekeliruan: apakah Anda melewatkan kata tanya awal, tergoda oleh bunyi kata yang mirip, atau salah mengartikan jawaban tidak langsung?
-3. **Dikte satu bagian (sekitar 15 menit):** Pada kartu yang sama, mode “Dikte” meminta Anda menulis apa yang terdengar dari seluruh Part 2; beri perhatian ekstra pada kalimat yang tadi terlewat (caranya ada di artikel [metode dictation](/id/blog/metode-dictation-meningkatkan-listening-bahasa-inggris/)). Kesalahan Anda otomatis tersimpan di [buku catatan kesalahan](/#/mistakes); tinjau ulang di sana.
+3. **Dikte satu bagian (sekitar 15 menit):** Pada kartu yang sama, mode “Dikte” meminta Anda menulis apa yang terdengar dari seluruh Part 2; beri perhatian ekstra pada kalimat yang tadi terlewat (caranya ada di artikel [metode dictation](/id/blog/metode-dictation-meningkatkan-listening-bahasa-inggris/)). Kesalahan Anda otomatis tersimpan di [Catatan kesalahan](/#/mistakes); tinjau ulang di sana.
 
-![Buku catatan kesalahan Lexkite: kesalahan dikelompokkan menurut kosakata, tata bahasa, membaca, dan menyimak](media:mistakes "Kesalahan menyimak dikumpulkan tersendiri agar terlihat jebakan apa yang berulang")
+![Catatan kesalahan Lexkite: kesalahan dikelompokkan menurut kosakata, tata bahasa, membaca, dan menyimak](media:mistakes "Kesalahan menyimak dikumpulkan tersendiri agar terlihat jebakan apa yang berulang")
 
 Untuk bagian tes lainnya, lihat [strategi TOEIC Part 5](/id/blog/tips-toeic-part-5/); untuk membagi waktu belajar mingguan, ikuti [rencana belajar mandiri TOEIC](/id/blog/rencana-belajar-mandiri-toeic-panduan/).
 

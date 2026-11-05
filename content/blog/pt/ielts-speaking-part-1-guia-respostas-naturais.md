@@ -9,7 +9,7 @@ category: ielts
 tags: [ielts, speaking, part-1, preparacao]
 cover: speaking
 coverAlt: "Sala de Speaking do Lexkite com perguntas de Part 1 organizadas por tópicos e respostas modelo"
-qualityScore: 91
+qualityScore: 90
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-11T19:51:00-03:00
@@ -29,10 +29,10 @@ quiz: [
   {
     q: "Perguntaram \"Do you enjoy cooking?\". Qual é a melhor estrutura de resposta?",
     options: [
-      "Responder, explicar por quê e dar um exemplo",
-      "Repetir a pergunta com outras palavras e depois ficar em silêncio",
-      "Dar três opiniões seguidas sem explicar nenhuma delas",
-      "Mudar de assunto para falar do que você domina melhor"
+      "Responder, explicar por quê e dar um exemplo pessoal",
+      "Repetir a pergunta com outras palavras e ficar em silêncio",
+      "Dar três opiniões seguidas sem explicar nenhuma",
+      "Mudar de assunto para falar do que domina melhor"
     ],
     answer: 0,
     explain: "Resposta + motivo + detalhe mostra bastante inglês sem prolongar demais. Repetir a pergunta ou mudar de assunto não dá ao examinador nada para avaliar."
@@ -51,10 +51,10 @@ quiz: [
   {
     q: "Qual é um erro típico de falantes de português ao falar inglês?",
     options: [
-      "Acrescentar um /i/ depois de consoante final (like-y)",
+      "Pôr um /i/ depois de consoante final, ex.: like-y",
       "Falar baixo demais o tempo todo durante a prova",
       "Usar um sotaque britânico exagerado na entrevista",
-      "Usar orações subordinadas demais"
+      "Usar orações subordinadas demais nas respostas"
     ],
     answer: 0,
     explain: "No português quase toda palavra termina em vogal, então muitos brasileiros acrescentam um /i/ ao final de palavras como like ou job. Em inglês a consoante final termina sozinha, sem vogal extra."
@@ -96,7 +96,7 @@ Veja um exemplo prático original:
 >
 > **Resposta fraca:** *Yes, I do. I like cooking food.*
 >
-> **Resposta de alto nível:** *Yes, quite a lot, actually. Preparing food really helps me unwind after a demanding day at the office. On weekends I usually experiment with traditional pasta recipes, and just last Sunday I made a homemade lasagna for my family.*
+> **Resposta melhor:** *Yes, quite a lot, actually. Preparing food really helps me unwind after a tiring day at work. On weekends I usually experiment with new pasta recipes, and just last Sunday I made a homemade lasagna for my family.*
 
 A melhor resposta não usa palavras raras. Ela funciona pela estrutura: uma resposta clara (*Yes, quite a lot, actually*), um motivo (*helps me unwind*), um hábito (*On weekends I usually experiment*) e um fato no passado simples (*last Sunday I made*). Misturar presente e passado assim soa natural e mostra variedade gramatical. Para soar mais natural, veja as [collocations em inglês para IELTS](/pt/blog/collocations-em-ingles-para-ielts/).
 
@@ -104,11 +104,11 @@ A melhor resposta não usa palavras raras. Ela funciona pela estrutura: uma resp
 
 | Estratégia de expansão | Exemplo original ilustrativo |
 |---|---|
-| **Contraste Passado vs. Presente** | *I used to detest vegetables when I was a kid, but nowadays I try to include a fresh salad with every lunch.* |
+| **Contraste Passado vs. Presente** | *I hated vegetables when I was a kid, but nowadays I try to include a fresh salad with every lunch.* |
 | **Mencionar uma exceção** | *I generally take the subway to college, unless it's raining heavily and I need to grab an Uber.* |
 | **Comparar com um terceiro** | *My younger brother is the complete opposite – he can't cook at all.* |
 | **Planos para o futuro** | *I haven't had much spare time for running lately, but I'm really keen on signing up for a half-marathon next year.* |
-| **Expressar uma sensação pessoal** | *Going for a walk is honestly one of the rare moments during the day when I completely disconnect from my mobile screen.* |
+| **Expressar uma sensação pessoal** | *Going for a walk is honestly one of the rare moments during the day when I get away from my phone.* |
 
 ---
 
@@ -144,7 +144,7 @@ Estes são quatro temas que aparecem com frequência na Parte 1, com respostas m
 - **Pergunta:** *Do you think people spend too much time on their phones?*  
   *Resposta modelo:* *In some cases, yes. I see people checking their phones even at dinner, and I think it makes conversations shorter. But for me it's useful, so it really depends on how you use it.*
 
-Para ampliar o vocabulário desses temas, leia [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/) e use a biblioteca do Lexkite, que tem listas de vocabulário com uma aba de Speaking.
+Para ampliar o vocabulário desses temas, leia [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/) e use a [biblioteca do Lexkite](/#/library), que tem listas de vocabulário com uma aba de Speaking.
 
 ![Biblioteca de vocabulário do Lexkite com abas, entre elas Speaking, e conjuntos de palavras por nível](media:library "A biblioteca do Lexkite organiza o vocabulário em listas, com uma aba para Speaking")
 
@@ -172,30 +172,26 @@ Para outros calques de vocabulário, como *library* ou *pretend*, veja os [falso
 Para ganhar fluência sem decorar textos:
 
 1. **Liste 3 dados reais sobre sua vida para cada tema:** local, rotina e motivação. O que é verdade sai mais rápido, e você não precisa inventar nada.
-2. **Reúna 5 expressões úteis para cada tópico:** como *a scenic commute*, *wind down after work*, *a habit of mine* ou *cut down on screen time*. Guarde-as no [caderno de frases](/#/phrases) do Lexkite, onde se adicionam frases e estruturas úteis.
+2. **Reúna 5 expressões úteis para cada tópico:** como *a long commute*, *wind down after work*, *a habit of mine* ou *cut down on screen time*. Guarde-as em [Frases e estruturas](/#/phrases) no Lexkite, onde se adicionam frases e estruturas úteis.
 
-![Caderno de frases do Lexkite para guardar expressões e estruturas úteis](media:phrases "O caderno de frases serve para guardar as expressões que você quer usar nas respostas")
+![Tela Frases e estruturas do Lexkite para guardar expressões e estruturas úteis](media:phrases "A tela Frases e estruturas serve para guardar as expressões que você quer usar nas respostas")
 
 3. **Grave sua voz respondendo em voz alta sem anotações:** pratique responder no formato Resposta + Motivo + Detalhe.
 4. **Ouça a gravação e corrija um detalhe por vez:** preste atenção à pronúncia da consoante final ou à presença do pronome sujeito.
 
-Para ensaiar, entre na [sala de speaking do Lexkite](/#/speaking), com perguntas das partes 1, 2 e 3 por tema e respostas modelo. A [página de prática de speaking](/en/speaking/) também traz perguntas, mas está em inglês.
+Para ensaiar, entre no [Estúdio de Speaking do Lexkite](/#/speaking), com perguntas das partes 1, 2 e 3 por tema e respostas modelo. A [página de prática de speaking](/en/speaking/) também traz perguntas, mas está em inglês.
 
-Na [prática de pronúncia](/#/practice/speak) você diz uma frase no microfone e vê a pontuação, útil para conferir se o *-ed* e o *-s* finais aparecem.
+Na [Pronúncia](/#/practice/speak) você diz uma frase do seu baralho no microfone e vê a pontuação, útil para conferir se o *-ed* e o *-s* finais aparecem.
 
 ![Prática de pronúncia do Lexkite com a frase cut down on e um botão de microfone para falar](media:practice-speak "Você diz a frase no microfone e o aplicativo dá uma pontuação pela sua voz")
 
-Depois de dominar as respostas curtas, avance para o [IELTS Speaking Part 2](/pt/blog/ielts-speaking-part-2-template-cue-card-dicas/), com o monólogo de 2 minutos, e depois para o [IELTS Speaking Part 3](/pt/blog/ielts-speaking-part-3-dicas/).
-
-Para organizar a sua rotina de estudos, siga o nosso [cronograma de estudos para IELTS](/pt/blog/cronograma-de-estudos-ielts-autodidata-do-zero-ao-6-5/).
-
-Antes da prova, abra os [simulados de IELTS](/#/mock) para ver a estrutura do Speaking.
+**Próximos passos:** depois de dominar as respostas curtas, avance para o [IELTS Speaking Part 2](/pt/blog/ielts-speaking-part-2-template-cue-card-dicas/), com o monólogo de 2 minutos, e depois para o [IELTS Speaking Part 3](/pt/blog/ielts-speaking-part-3-dicas/). Para organizar a rotina, use o [cronograma de estudos para IELTS](/pt/blog/cronograma-de-estudos-ielts-autodidata-do-zero-ao-6-5/) e, antes da prova, abra os [simulados de IELTS](/#/mock) para ver a estrutura do Speaking.
 
 ![Simulados de IELTS do Lexkite: escolha Listening, Reading, Writing ou Speaking e veja a estrutura da prova](media:mock "Nos simulados você escolhe Speaking e vê a estrutura da prova antes de começar")
 
 {{cta: /#/speaking | Pratique perguntas de Part 1 por tema com respostas modelo}}
 
-{{youtube: | Segredos do IELTS Speaking Part 1: respostas curtas e naturais para a Parte 1}}
+{{youtube: | IELTS Speaking Part 1: respostas curtas e naturais}}
 
 ---
 

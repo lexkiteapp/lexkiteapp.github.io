@@ -171,16 +171,16 @@ Para otros calcos de vocabulario, como *actually* o *library*, revisa los [falso
 Para ganar fluidez sin memorizar textos, sigue este plan:
 
 1. **Anota 3 hechos verídicos sobre ti para cada tema:** dónde, cada cuánto y por qué. Lo que es verdad se dice más rápido: no tienes que inventarlo.
-2. **Reúne 5 expresiones para esos hechos:** por ejemplo *a demanding schedule*, *a scenic commute*, *cut down on screen time* o *a habit of mine*. Puedes guardarlas en el [cuaderno de frases](/#/phrases) de Lexkite, donde se añaden frases y estructuras útiles.
+2. **Reúne 5 expresiones para esos hechos:** por ejemplo *a demanding schedule*, *a scenic commute*, *cut down on screen time* o *a habit of mine*. Puedes guardarlas en el [Frases y estructuras](/#/phrases) de Lexkite, donde se añaden frases y estructuras útiles.
 
-![Cuaderno de frases de Lexkite para guardar expresiones y estructuras útiles](media:phrases "El cuaderno de frases sirve para guardar las expresiones que quieres usar en tus respuestas")
+![Frases y estructuras de Lexkite para guardar expresiones y estructuras útiles](media:phrases "La pantalla Frases y estructuras sirve para guardar las expresiones que quieres usar en tus respuestas")
 
 3. **Habla en voz alta y grábate sin notas escritas:** simula la pregunta real y responde usando el esquema de 3 pasos.
 4. **Escucha tu grabación y corrige un único aspecto:** ¿faltó el sujeto? ¿hubo un error de plural o tercera persona singular? Vuelve a responder la pregunta puliendo ese detalle concreto.
 
 Para ensayar, entra en la [sala de speaking de Lexkite](/#/speaking), donde hay preguntas de las partes 1, 2 y 3 por tema con respuestas modelo. La [página de práctica de speaking](/en/speaking/) también tiene preguntas, pero está en inglés.
 
-Con la [práctica de pronunciación](/#/practice/speak) puedes decir una frase al micrófono y ver su puntuación, útil para comprobar que se oyen tus terminaciones *-ed* y *-s*.
+Con la [práctica de pronunciación](/#/practice/speak) puedes decir una frase de tu mazo al micrófono y ver su puntuación, útil para comprobar que se oyen tus terminaciones *-ed* y *-s*.
 
 ![Práctica de pronunciación de Lexkite con la frase cut down on y un botón de micrófono para decirla](media:practice-speak "Dices la frase al micrófono y la aplicación la puntúa según tu voz")
 

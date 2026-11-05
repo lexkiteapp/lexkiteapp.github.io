@@ -210,7 +210,7 @@ No dia da prova, siga esta ordem:
 - **15–20 segundos**: Marque a alternativa correta na folha de respostas e passe para o próximo item.
 - **Regra de ouro contra o travamento**: Se estiver em dúvida entre duas alternativas após 25 segundos, opte pela hipótese mais provável e siga em frente. Jamais deixe uma questão sem resposta nem sacrifique o tempo das seções seguintes.
 
-![Caderno de erros do Lexkite com as abas Vocabulário, Gramática, Leitura e Escuta](media:mistakes "O caderno de erros tem abas de vocabulário, gramática, leitura e escuta; as questões erradas do TOEIC ficam em Leitura")
+![Registro de erros do Lexkite com as abas Vocabulário, Gramática, Leitura e Ouvir](media:mistakes "O Registro de erros tem abas de vocabulário, gramática, leitura e ouvir; as questões erradas do TOEIC ficam em Leitura")
 
 ---
 
@@ -220,7 +220,7 @@ A velocidade vem da repetição. O que ajuda na Part 5:
 
 - **Repetição espaçada (FSRS)**: termos de trabalho e colocações voltam pouco antes de você esquecê-los.
 - **Dicionário**: exemplos em contexto e pronúncia de cada palavra.
-- **Caderno de erros**: as questões erradas vão para o [caderno de erros](/#/mistakes) (aba Leitura), com a explicação. Anote você mesmo se foi uma questão de classe de palavra ou de colocação.
+- **Registro de erros**: as questões erradas vão para o [Registro de erros](/#/mistakes) (aba Leitura), com a explicação. Anote você mesmo se foi uma questão de classe de palavra ou de colocação.
 - **Roteiro estruturado de autoestudo**: Organize seus meses de treino de ponta a ponta com o nosso [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/).
 
 Experimente: abra a [página TOEIC](/#/toeic), escolha um simulado, entre na Part 5 e cronometre você mesmo.

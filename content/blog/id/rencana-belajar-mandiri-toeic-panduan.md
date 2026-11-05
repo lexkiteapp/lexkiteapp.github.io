@@ -138,9 +138,9 @@ Setelah simulasi bertimer, luangkan waktu untuk membahas kesalahan setidaknya sa
 
 Lexkite mengumpulkan soal yang Anda jawab salah, baik dari latihan per Part maupun dari simulasi lengkap (termasuk Listening), ke dalam buku catatan beserta pembahasannya. Soal dikelompokkan menurut keterampilan (membaca atau mendengar), bukan menurut tiga kelompok di atas: kelompoknya Anda tandai sendiri saat mengerjakan ulang. Kelompok kosakata dan tata bahasa di buku catatan berisi kesalahan dari latihan lain.
 
-![Buku catatan kesalahan Lexkite yang mengelompokkan jawaban salah menurut kosakata, tata bahasa, membaca, dan mendengar](media:mistakes "Buku catatan kesalahan: soal yang salah dikumpulkan per jenis")
+![Catatan kesalahan Lexkite yang mengelompokkan jawaban salah menurut kosakata, tata bahasa, membaca, dan mendengar](media:mistakes "Catatan kesalahan: soal yang salah dikumpulkan per jenis")
 
-Buka [buku catatan kesalahan](/#/mistakes) sekali seminggu, kerjakan ulang soalnya, dan catat kelompok tiap soal. Setelah sebulan tanda-tanda Anda sendiri akan menunjukkan kelompok mana yang dominan, dan itu memberi tahu apa yang perlu dipelajari berikutnya.
+Buka [Catatan kesalahan](/#/mistakes) sekali seminggu, kerjakan ulang soalnya, dan catat kelompok tiap soal. Setelah sebulan tanda-tanda Anda sendiri akan menunjukkan kelompok mana yang dominan, dan itu memberi tahu apa yang perlu dipelajari berikutnya.
 
 ## Jadwal mingguan yang berkelanjutan
 

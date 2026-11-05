@@ -8,7 +8,7 @@ translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, email, acronyms, jigjang]
 cover: phrases
-coverAlt: "Lexkite 표현 노트 화면: 유용한 표현과 문장을 추가해 저장하는 화면으로, 이메일 약어가 들어간 예문을 모아 둘 수 있습니다"
+coverAlt: "Lexkite 구문 노트 화면: 유용한 표현과 문장을 추가해 저장하는 화면으로, 이메일 약어가 들어간 예문을 모아 둘 수 있습니다"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
@@ -168,13 +168,13 @@ ASAP, FYI, EOD, ETA, OOO 같은 **비즈니스 영어 줄임말** (Acronyms & Ab
 3. **대문자 전체 표기(ALL CAPS) 유의**
    - 이메일 본문 전체를 대문자 약어로 채우면 영미권 문화에서는 소리를 지르는(shouting) 느낌을 줄 수 있습니다.
 
-자주 쓰는 약어와 예문은 [Lexkite 표현 노트](/#/phrases)에 저장해 두면 메일을 쓸 때 바로 꺼내 쓸 수 있습니다.
+자주 쓰는 약어와 예문은 [Lexkite 구문 노트](/#/phrases)에 저장해 두면 메일을 쓸 때 바로 꺼내 쓸 수 있습니다.
 
 ![Lexkite 사전 화면: 단어의 발음, 뜻, 예문과 플래시카드 저장 버튼](media:dict "사전에서 약어가 들어간 단어를 찾아 뜻과 예문을 확인하고 카드로 저장합니다")
 
 ## 실전 비즈니스 이메일 답장 예문
 
-실제 외국계 프로젝트에서 약어가 오고 갈 때 자연스럽게 작성하는 답장 템플릿입니다:
+외국계 프로젝트에서 약어가 오고 갈 때 자연스럽게 쓸 수 있도록 직접 만든 답장 예시입니다:
 
 ```email
 Subject: Re: [Action Required] Q4 Cloud Infrastructure Migration ETA
@@ -238,7 +238,7 @@ Senior Software Engineer
 - **끝소리 뒤에 모음 붙이기**: 한국어는 받침 없이 모음으로 끝나는 경향이 있어 *ASAP*의 마지막 P를 "에이사프"처럼 "프"로 늘리기 쉽습니다. *ASAP*는 "에이샙"처럼 한 단어로 읽거나 A-S-A-P로 끊어 읽습니다. 어느 쪽이든 마지막 P 뒤에 모음을 붙이지 말고 입술만 닫으세요.
 - **강세**: *FYI*, *ETA*처럼 알파벳을 하나씩 읽는 약어는 마지막 글자에 강세가 옵니다 (ef-why-**EYE**).
 
-전화 회의 전에 위 약어들을 소리 내어 읽어 보고 싶다면 [Lexkite 발음 연습](/#/practice/speak)에서 구문을 마이크로 읽고 점수를 확인해 보세요.
+전화 회의 전에 위 약어들을 소리 내어 읽어 보세요. 연습할 구문을 먼저 [구문 노트](/#/phrases)에 저장해 두면, [Lexkite 발음 연습](/#/practice/speak)에서 내 카드의 구문을 마이크로 읽고 점수를 확인할 수 있습니다.
 
 ![cut down on 구문과 녹음 마이크 버튼이 표시된 Lexkite 발음 연습 화면](media:practice-speak "구문을 소리 내어 읽고 마이크 버튼을 눌러 발음 점수를 확인합니다")
 
@@ -247,7 +247,7 @@ Senior Software Engineer
 눈으로만 외운 약어는 회의에서 귀로 들었을 때 바로 떠오르지 않습니다.
 
 1. **소리와 축약형 동시 학습**: "이-티-에이", "에프-와이-아이"처럼 알파벳을 부르는 소리와 실제 발음을 매칭합니다. 영어 발음 개선 전반에 관한 훈련법은 [영어 발음 교정 가이드](/ko/blog/yeongeo-balum-gyojeong/)를 추천합니다.
-2. **예문 맥락 속 반복**: 알파벳만 외우지 말고 예문 한 문장과 함께 외웁니다. 위 예문을 표현 노트에 넣어 두세요.
+2. **예문 맥락 속 반복**: 알파벳만 외우지 말고 예문 한 문장과 함께 외웁니다. 위 예문을 구문 노트에 넣어 두세요.
 3. **간격을 두고 복습**: 내 업무에 실제로 나오는 약어 대여섯 개만 카드로 만들어 [Lexkite 복습](/#/review)에서 간격을 두고 복습합니다. 원리는 [간격 반복 단어 암기 FSRS](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/)에 정리되어 있습니다.
 
 ![Lexkite 복습 화면: pollution 플래시카드와 카드를 뒤집는 버튼, 남은 카드 진행 막대](media:review "카드를 뒤집어 답을 확인하고, 진행 막대로 남은 카드를 봅니다")
@@ -257,7 +257,7 @@ Senior Software Engineer
 
 {{youtube: | 비즈니스 영어 줄임말: ASAP부터 EOD까지}}
 
-{{cta: /#/phrases | 이메일 약어 예문을 표현 노트에 저장해 보세요}}
+{{cta: /#/phrases | 이메일 약어 예문을 구문 노트에 저장해 보세요}}
 
 ---
 

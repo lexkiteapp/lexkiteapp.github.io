@@ -129,7 +129,7 @@ ETS รายงานคะแนนรายพาร์ต 4 คะแนน�
 - **Listen to an Announcement (ประกาศทางการ):** เสียงประกาศกิจกรรมหรือการเปลี่ยนแปลงห้องเรียน
 - **Listen to an Academic Talk (การบรรยายทางวิชาการ):** เลกเชอร์สั้นๆ จากอาจารย์ วัดความเข้าใจโครงสร้างตรรกะและตัวอย่างสนับสนุน
 
-**เทคนิค:** สังเกตคำเชื่อมอย่าง *however*, *in fact*, *on the other hand* เพราะข้อมูลหลังคำเหล่านี้มักเป็นสิ่งที่โจทย์ถาม ฝึกฟังได้ที่ [หน้า Listening ของ Lexkite](/#/listening) ซึ่งปรับความเร็วและฝึกเขียนตามเสียง (dictation) ได้
+**เทคนิค:** สังเกตคำเชื่อมอย่าง *however*, *in fact*, *on the other hand* เพราะข้อมูลหลังคำเหล่านี้มักเป็นสิ่งที่โจทย์ถาม ฝึกฟังตามรูปแบบของ TOEFL ได้ที่หน้าฝึกใน Lexkite: [Listen and Choose a Response](/#/toefl-p/response), [Listen to a Conversation](/#/toefl-p/conversation) และ [Listen to an Academic Talk](/#/toefl-p/talk)
 
 ---
 

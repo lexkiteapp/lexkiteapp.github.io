@@ -1,5 +1,5 @@
 ---
-title: "TOEIC Part 5: Dilbilgisi ve Kelime Taktikleri Rehberi"
+title: "TOEIC Part 5: dilbilgisi ve kelime taktikleri rehberi"
 description: "TOEIC Part 5 bölümünü 10 dakikada tamamlayın: 30 boşluklu cümle analizi, sözcük türleri, edat ve bağlaç ayrımı, iş İngilizcesi ve zaman yönetimi."
 slug: toeic-part-5-stratejileri-dilbilgisi-kelime
 lang: tr
@@ -18,8 +18,8 @@ quiz: [
     q: "TOEIC Part 5'te soru başına makul bir süre hedefi hangisidir?",
     options: [
       "Her soru için 60 saniyeden fazla, ayrıntılı analiz için",
-      "Soru başına yaklaşık 20 saniye, sonrası için zaman kalsın diye",
-      "Soru başına tam 45 saniye, hiç sapmadan",
+      "Soru başına yaklaşık 20 saniye, kalan süre uzun metinlere",
+      "Soru başına tam olarak 45 saniye, hiç sapmadan ve atlamadan",
       "Süre sınırı olmaksızın, emin olana kadar çözülmelidir"
     ],
     answer: 1,
@@ -57,7 +57,7 @@ quiz: [
 qualityScore: 90
 ---
 
-Uluslararası şirketlerde kariyer hedefleyen profesyoneller ve öğrenciler için TOEIC Reading oturumu hız ve dilbilgisi hâkimiyeti gerektirir. Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan TOEIC Part 5, Reading oturumunun temposunu belirler. Reading bölümü 75 dakikada 100 sorudur (Part 5: 30, Part 6: 16, Part 7: 54) ve ETS her Part için ayrı süre belirlemez. Part 5'te kazandığınız her dakika, Part 7'deki uzun metinlere kalır.
+Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan TOEIC Part 5, Reading oturumunun temposunu belirler. Reading bölümü 75 dakikada 100 sorudur (Part 5: 30, Part 6: 16, Part 7: 54) ve ETS her Part için ayrı süre belirlemez. Part 5'te kazandığınız her dakika, Part 7'deki uzun metinlere kalır.
 
 Bu kılavuz, soruları soru başına yaklaşık 20 saniyede çözmeniz için taktikler sunar. Bu süre bir çalışma hedefidir, resmî bir kural değildir.
 
@@ -96,7 +96,7 @@ Sınavda en sık karşılaşılan sentaktik dizilimler şunlardır:
 - **Zarf (-ly ile biten Adverb)**: Bir eylem fiilini, bir sıfatı veya cümlenin tamamını niteler. Cümle temel yapıtaşları bakımından (Özne + Yüklem + Nesne) zaten eksiksiz ise, boşluğa neredeyse her zaman bir zarf gelmelidir:
   - *Örnek: The logistics team responded _____ to customer inquiries. (Seçenekler: prompt, promptly, promptness, prompted)* → Yanıt: *promptly* (*responded* fiilini niteleyen zarf).
 
-İş kelimeleri için [İngilizce kelime listelerine](/en/vocabulary/) (sayfa İngilizce) bakabilirsiniz. Kalıpları gerçek sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
+İş kelimeleri için [İngilizce kelime listelerine](/en/vocabulary/) (sayfa İngilizce) bakabilirsiniz. Kalıpları TOEIC biçiminde hazırlanmış sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
 
 ---
 
@@ -132,10 +132,10 @@ Edilgen çatının kuruluşunu hatırlamak için [İngilizce edilgen çatı kura
 
 ---
 
-## Türk Adayların En Sık Düştüğü Tuzaklar
+## Türk adayların en sık düştüğü tuzaklar
 
 - **Tanımlık unutmak**: Türkçede *a/an/the* karşılığı yoktur, bu yüzden *presented comprehensive proposal* gibi eksik yapılar gözden kaçar. Tekil sayılabilir bir isim gördüğünüzde önünde bir belirleyici arayın.
-- **his/her/its karışıklığı**: Türkçedeki "o" ve "-(s)I" eki cinsiyet ayırmaz. *The company announced ___ results* sorusunda doğru yanıt *its*'tir; Resmî TOEIC cevaplarında şirket genellikle tekil *its* ile eşleşir; günlük İngilizcede *their* de yaygındır, ama *his* yanlıştır.
+- **his/her/its karışıklığı**: Türkçedeki "o" ve "-(s)I" eki cinsiyet ayırmaz. *The company announced ___ results* sorusunda doğru yanıt *its*'tir; TOEIC'te şirket için genellikle tekil *its* beklenir, günlük İngilizcede *their* de yaygındır ama *his* yanlıştır.
 - **since ve for**: "Üç yıldır" *for three years*, "2023'ten beri" *since 2023* olur ve genellikle Present Perfect ister (*has worked*), "çalışıyor" çevirisinden gelen *is working since* yapısı yanlıştır.
 - **despite of**: "-e rağmen" karşılığına *of* eklemek yaygın hatadır. Doğrusu *despite* + isim ya da *in spite of* + isimdir.
 - **Türkçe kelime sırasıyla okumak**: Türkçede fiil sondadır; İngilizcede ise yüklem özneden hemen sonra gelir. Soruyu sondan başa çevirmeye çalışmak yerine boşluğun solundaki ve sağındaki kelimeye bakın.
@@ -148,11 +148,11 @@ Her cümlede, Part 5'in yanlış şıklarının taklit etmeyi sevdiği bir hata 
 2. *The company announced his results.* → *its results*: Türkçedeki "o" cinsiyet ayırmaz, İngilizcede şirket için *its* kullanılır.
 3. *I am working here since 2020.* → *I have worked here since 2020*: "2020'den beri çalışıyorum" Present Perfect ister.
 4. *Despite of the delay, we finished.* → *Despite the delay*: *despite*'ten sonra *of* gelmez; *in spite of* ayrı bir kalıptır.
-5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçedeki -de eki in/on/at ayrımı yapmaz; İngilizcede günlerle *on* kullanılır.
+5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçede "Pazartesi günü" denir ve in/on/at ayrımı yoktur; İngilizcede günlerle *on*, aylarla *in* kullanılır.
 
 Tereddüt ettiğiniz cümleyi not alın: zaman, belirleyici ve edat sorularında en çok puan kaybettiren kalıplar bunlardır.
 
-## Örnek TOEIC Part 5 Soruları ve Çözüm Analizleri
+## Örnek TOEIC Part 5 soruları ve çözüm analizleri
 
 Tekniklerinizi dört tipik sınav sorusu üzerinde test edin:
 
@@ -194,14 +194,20 @@ Tekniklerinizi dört tipik sınav sorusu üzerinde test edin:
 
 ---
 
+## Part 5'te sık çıkan eşdizimler
+
+Kelime sorularında sınav çoğunlukla sabit kalıpları yoklar. Bunları tek tek değil, birlikte öğrenin:
+
+- *meet the deadline* (son tarihe yetişmek), *conduct an investigation* (soruşturma yürütmek)
+- *comply with* the regulations (kurallara uymak), *adhere to* the policy (politikaya bağlı kalmak)
+- *be responsible for* (-den sorumlu olmak), *be eligible for* (-e hak kazanmak)
+- *in accordance with* (-e uygun olarak), *take into account* (hesaba katmak)
+
 ## Zaman yönetimi: Part 5'i 10 dakikada bitirme planı
 
 75 dakikalık Reading bölümünde Part 5'e 10 dakika ayırırsanız Part 6 ve 7 için 65 dakika kalır. Olası bir zaman bütçesi (önerimiz, ETS kuralı değil):
 
-```
-Part 5 Süre Bütçesi = 10 Dakika (600 Saniye)
-600 saniye / 30 soru = soru başına ortalama 20 saniye
-```
+Part 5 için 10 dakika, yani 600 saniye ayırırsanız 30 soru için soru başına ortalama 20 saniye düşer.
 
 Sınav günü şu adımları uygulayın:
 - **0–5 saniye**: Seçeneklere göz atarak sorunun türünü (dilbilgisi mi kelime mi) teşhis edin.
@@ -209,34 +215,36 @@ Sınav günü şu adımları uygulayın:
 - **15–20 saniye**: Cevap kağıdını kodlayın ve hemen bir sonraki soruya geçin.
 - **Tereddüt Kuralı**: 25 saniye geçmesine rağmen iki seçenek arasında kaldıysanız, ilk mantıklı tahmininizi işaretleyin ve devam edin. Yanlış cevap puan düşürmez, o yüzden hiçbir soruyu boş bırakmayın.
 
-![Lexkite hata defteri: Kelime, Dilbilgisi, Okuma ve Dinleme sekmeleri](media:mistakes "Hata defterinde kelime, dilbilgisi, okuma ve dinleme sekmeleri var; yanlış TOEIC soruları Okuma sekmesine düşer")
+![Lexkite hata defteri: Kelimeler, Dilbilgisi, Okuma ve Dinle sekmeleri](media:mistakes "Hata defterinde Kelimeler, Dilbilgisi, Okuma ve Dinle sekmeleri var; yanlış TOEIC okuma soruları Okuma sekmesine düşer")
 
 ---
 
-## Lexkite ile Çalışma
+## Lexkite ile çalışma
 
 Hız tekrarla gelir. Part 5 için işe yarayanlar:
 
-- **FSRS ile aralıklı tekrar**: İş terimleri ve phrasal verb'ler unutmadan hemen önce tekrar karşınıza çıkar.
-- **Sözlük**: Her kelime için örnek cümleler, IPA telaffuzu ve sık kullanılan kalıplar.
+- **FSRS ile aralıklı tekrar**: Yukarıdaki eşdizimleri (*comply with*, *conduct an investigation* gibi) kartlara ekleyin; unutmadan hemen önce tekrar karşınıza çıkar.
+- **Sözlük**: Bilmediğiniz bir seçeneğin sözcük türünü ve örnek cümlelerini [sözlükte](/#/dict) görün.
 - **Hata defteri**: Yanlış yaptığınız sorular açıklamalarıyla [hata defterine](/#/mistakes) (Okuma sekmesi) düşer. Hatanın sözcük türünden mi, eşdizimden mi geldiğini kendiniz not edin.
 - **Sistemli Çalışma Takvimi**: Hazırlık sürecinizi adım adım organize etmek için [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) rehberimizi takip edin.
+
+![Lexkite sözlüğü: 'resilient' kelimesi için okunuş, anlam, örnek cümle ve eşdizimler](media:dict "Sözlükte bir kelimenin okunuşu, anlamı, örnek cümleleri ve eşdizimleri")
 
 Deneyin: [TOEIC sayfasını](/#/toeic) açın, bir deneme sınavı seçin, Part 5'i başlatın ve süreyi kendiniz tutun.
 
 {{cta: /#/toeic | Part 5'i açıklamalı çözün}}
 
-{{youtube: | TOEIC Part 5 dilbilgisi ve kelime taktikleri ile stratejileri}}
+{{youtube: | TOEIC Part 5: dilbilgisi ve kelime taktikleri}}
 
 ---
 
-## TOEIC Part 5 Hakkında Sıkça Sorulan Sorular
+## TOEIC Part 5 hakkında sık sorulan sorular
 
 ### Cümlenin tamamını okumak zorunda mıyım?
 Sözcük türü ve zamir sorularında boşluğun 2–3 kelime öncesi ve sonrasına bakmak çoğu zaman yeterlidir. Kelime ve bağlaç sorularında ise cümlenin anlam bütünlüğünü yakalamak için hızlıca tüm cümleyi gözden geçirmek gerekir.
 
 ### 850+ hedefleyen biri Part 5'te en fazla kaç yanlış yapabilir?
-Sabit bir hesap yoktur: ETS ham puanları her sınav formu için ayrı ayrı 5–495 ölçeğine çevirir ve Part bazında resmî bir "kaç yanlış" tablosu yayımlamaz. Yüksek hedefler için pratik kural şudur: deneme sınavlarınızda Part 5 neredeyse hatasız olmalı, çünkü okuma bölümünün en hızlı puanları buradadır. Her yanlışı nedeniyle (sözcük türü, zaman, eşdizim) not edin ve o konuya geri dönün.
+Sabit bir hesap yoktur: ETS ham puanları her sınav formu için ayrı ayrı 5–495 ölçeğine çevirir ve Part bazında resmî bir "kaç yanlış" tablosu yayımlamaz. Yüksek hedefler için pratik kural şudur: deneme sınavlarınızda Part 5 neredeyse hatasız olmalı, çünkü Part 5 sorular kısa olduğu için çoğu aday buradan hızlı puan toplamaya çalışır. Her yanlışı nedeniyle (sözcük türü, zaman, eşdizim) not edin ve o konuya geri dönün.
 
 ### Yanlış cevap puan düşürür mü?
 Hayır. Yalnızca doğru cevaplar sayılır, yanlış cevap puan kaybettirmez. Bu yüzden boş soru bırakmayın; imkânsız şıkları eleyin ve en olası olanı işaretleyin.

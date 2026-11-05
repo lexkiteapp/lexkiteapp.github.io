@@ -127,7 +127,7 @@ ETSは4つのセクションスコアと総合スコアを1〜6のスケール�
 - **Listen to an Announcement:** 学内アナウンスや講義室変更などの公式連絡音声。
 - **Listen to an Academic Talk:** 大学のミニ講義を聞き、論理展開や具体例に関する設問に答えます。
 
-**ポイント:** *however*、*actually*、*in contrast*などの談話標識の直後に、設問で問われる情報が来ることがよくあります。練習には、速度を変えられてディクテーションもできる[Lexkiteのリスニング](/#/listening)が使えます。
+**ポイント:** *however*、*actually*、*in contrast*などの談話標識の直後に、設問で問われる情報が来ることがよくあります。練習には、Lexkiteの各タスクのページ（[Listen and Choose a Response](/#/toefl-p/response)、[Listen to a Conversation](/#/toefl-p/conversation)、[Listen to an Academic Talk](/#/toefl-p/talk)）が使えます。
 
 ---
 

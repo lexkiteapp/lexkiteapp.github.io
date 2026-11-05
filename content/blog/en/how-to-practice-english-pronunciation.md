@@ -190,7 +190,7 @@ Record yourself on your phone, then listen to the model and to your recording on
 
 - **Step 1 (minimal pairs):** open the [pronunciation library](/#/pron), choose a vowel or consonant pair and listen before you speak.
 - **Step 2 (thought groups):** mark thought groups on a text from the [reading section](/#/reading).
-- **Step 4 (check yourself):** say a phrase in [pronunciation practice](/#/practice/speak) and compare the score from one attempt to the next.
+- **Step 4 (check yourself):** say a phrase from your own deck in [pronunciation practice](/#/practice/speak) and compare the score from one attempt to the next.
 - **New words:** look the word up in the [dictionary](/#/dict) to see the IPA, hear the audio and save it as a flashcard.
 
 ![Lexkite practice hub listing games and exercises, including pronunciation practice](media:practice "The practice hub lists pronunciation practice alongside other exercises")

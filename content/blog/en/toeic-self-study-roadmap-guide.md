@@ -138,9 +138,9 @@ After a timed test, spend at least as long reviewing mistakes as you spent takin
 
 Lexkite collects the questions you miss, from Part practice and from full mock tests (Listening too), in a notebook together with their explanations. The notebook files them by skill (Reading or Listening), not by the three groups above, so you tag each item yourself when you redo it. The Vocabulary and Grammar groups in the notebook hold errors from other exercises.
 
-![Lexkite mistake notebook grouping wrong answers by Vocabulary, Grammar, Reading and Listening](media:mistakes "The mistake notebook, where missed questions are collected by type for review")
+![Lexkite Mistake log grouping wrong answers by Vocabulary, Grammar, Reading and Listening](media:mistakes "The Mistake log, where missed questions are collected by type for review")
 
-Open [your mistake notebook](/#/mistakes) once a week, redo the items and write the group next to each one. After a month your own tags will show which of the three groups dominates, and that tells you what to study next.
+Open the [Mistake log](/#/mistakes) once a week, redo the items and write the group next to each one. After a month your own tags will show which of the three groups dominates, and that tells you what to study next.
 
 ## Designing a sustainable weekly study schedule
 

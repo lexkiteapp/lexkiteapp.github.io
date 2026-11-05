@@ -138,9 +138,9 @@ Después de un simulacro, dedica a revisar los errores al menos el mismo tiempo 
 
 Lexkite reúne las preguntas que fallas, tanto en la práctica por Part como en los simulacros completos (también en Listening), en un cuaderno junto con sus explicaciones. Las ordena por destreza (lectura o comprensión auditiva), no por los tres grupos de arriba: el grupo lo anotas tú al repetir cada ejercicio. Los grupos de vocabulario y gramática del cuaderno recogen errores de otros ejercicios.
 
-![Cuaderno de errores de Lexkite que agrupa las respuestas incorrectas por vocabulario, gramática, lectura y comprensión auditiva](media:mistakes "El cuaderno de errores: las preguntas falladas, reunidas por tipo")
+![Registro de errores de Lexkite que agrupa las respuestas incorrectas por vocabulario, gramática, lectura y comprensión auditiva](media:mistakes "El Registro de errores: las preguntas falladas, reunidas por tipo")
 
-Abre tu [cuaderno de errores](/#/mistakes) una vez por semana, repite los ejercicios y anota el grupo de cada uno. Después de un mes tus propias etiquetas mostrarán qué grupo domina, y eso te dice qué estudiar a continuación.
+Abre tu [Registro de errores](/#/mistakes) una vez por semana, repite los ejercicios y anota el grupo de cada uno. Después de un mes tus propias etiquetas mostrarán qué grupo domina, y eso te dice qué estudiar a continuación.
 
 ## Horario semanal sostenible
 

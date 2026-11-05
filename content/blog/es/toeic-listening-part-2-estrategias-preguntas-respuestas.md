@@ -134,9 +134,9 @@ Para que estas tácticas salgan solas el día del examen, prueba esta rutina (lo
 
 1. **Escucha activa sin pausas (unos 15 minutos):** Abre la [página TOEIC de Lexkite](/#/toeic), elige un Test y la tarjeta «Part 2 · Pregunta–respuesta». El modo «Escuchar una vez» reproduce el audio una sola vez, como en el examen. Si dudas en una pregunta, elige la más razonable y olvídala de inmediato para no perder la siguiente.
 2. **Análisis de la transcripción (unos 15 minutos):** Revisa el texto escrito de tus fallos. Clasifica cada error: ¿caíste en un sonido similar, no identificaste la primera palabra, o se trataba de una respuesta indirecta?
-3. **Dictado de la parte (unos 15 minutos):** En la misma tarjeta, el modo «Dictado» te hace escribir lo que oyes de toda la Part 2; insiste en las frases que antes no entendiste y notarás los sonidos que se te escapan (el método, en la [técnica de dictado en inglés](/es/blog/tecnica-dictado-en-ingles-listening/)). Tus fallos se guardan solos en el [cuaderno de errores](/#/mistakes); revísalos allí y anota tú mismo qué tipo de trampa fue.
+3. **Dictado de la parte (unos 15 minutos):** En la misma tarjeta, el modo «Dictado» te hace escribir lo que oyes de toda la Part 2; insiste en las frases que antes no entendiste y notarás los sonidos que se te escapan (el método, en la [técnica de dictado en inglés](/es/blog/tecnica-dictado-en-ingles-listening/)). Tus fallos se guardan solos en el [Registro de errores](/#/mistakes); revísalos allí y anota tú mismo qué tipo de trampa fue.
 
-![Cuaderno de errores de Lexkite: fallos agrupados por vocabulario, gramática, lectura y listening](media:mistakes "Los errores de listening se guardan aparte para ver qué tipo de trampa se repite")
+![Registro de errores de Lexkite: fallos agrupados por vocabulario, gramática, lectura y listening](media:mistakes "Los errores de listening se guardan aparte para ver qué tipo de trampa se repite")
 
 Para las demás partes del examen tienes las [estrategias de TOEIC Part 5](/es/blog/toeic-part-5-estrategias-gramatica-tiempo/) y, para repartir tus semanas, el [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/).
 

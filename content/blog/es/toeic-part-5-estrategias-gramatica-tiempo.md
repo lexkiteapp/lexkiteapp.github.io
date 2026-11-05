@@ -18,7 +18,7 @@ quiz: [
   {
     q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",
     options: [
-      "Examinar las cuatro opciones para saber si la pregunta es de gramática o de vocabulario",
+      "Examinar las cuatro opciones para ver si es de gramática o de vocabulario",
       "Leer toda la frase de izquierda a derecha y traducirla mentalmente al español",
       "Saltar inmediatamente a las lecturas de Part 7 para ahorrar tiempo",
       "Contar el número total de palabras del enunciado para calcular la dificultad"
@@ -85,9 +85,9 @@ En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas
 
 ## Fórmulas de descarte para las 4 categorías gramaticales clave
 
-Una parte importante de las 30 preguntas de la Parte 5 (la proporción exacta varía en cada versión del examen) mide la posición de sustantivos, adjetivos, adverbios y pronombres. Estas posiciones son invariables en la sintaxis formal en inglés:
+Una parte importante de las 30 preguntas de la Parte 5 (la proporción exacta varía en cada versión del examen) mide la posición de sustantivos, adjetivos, adverbios y pronombres. Estas posiciones son muy estables en la sintaxis formal en inglés:
 
-| Categoría gramatical | Entorno sintáctico habitual | Sufijos distintivos frecuentes | Ejemplo realista de examen |
+| Categoría gramatical | Entorno sintáctico habitual | Formas típicas | Ejemplo realista de examen |
 |---|---|---|---|
 | **Sustantivo (Noun)** | Tras determinantes (*the, our*), adjetivos o preposiciones; como sujeto u objeto | *-tion, -ment, -ity, -ance, -ence, -er, -or* | *The recent [expansion] into European markets proved profitable.* |
 | **Adjetivo (Adjective)** | Delante de un sustantivo; tras verbos copulativos (*be, remain, become, seem*) | *-ive, -able, -ible, -al, -ic, -ous, -ful* | *The committee suggested a [practical] approach to reduce waste.* |
@@ -128,7 +128,7 @@ Para repasar estas reglas, lee [la voz pasiva en inglés](/es/blog/voz-pasiva-en
 - **Present Perfect con marcador pasado**: en español el pretérito perfecto se usa con periodos que llegan al presente ("Hemos enviado el informe esta semana"), y eso lleva a trasladarlo a *yesterday*. En inglés un marcador cerrado como *yesterday* exige Past Simple: *We sent the report yesterday*, nunca *have sent ... yesterday*.
 - **"Desde hace"**: "Trabajo aquí desde hace tres años" lleva a *I work here since three years*. Lo correcto es *I have worked here for three years*; *since* va con un punto en el tiempo (*since 2023*).
 - **La -s de tercera persona**: con prisa se escribe *The manager approve* en vez de *approves*. Revisa siempre el sujeto singular.
-- **Sustantivo antes que adjetivo**: en español el adjetivo suele ir detrás ("un informe detallado"); en inglés va delante (*a detailed report*), y en Part 5 el adjetivo suele ir justo antes del sustantivo o después de *be*, *seem* o *remain*.
+- **Orden del adjetivo**: en español el adjetivo suele ir detrás ("un informe detallado"); en inglés va delante (*a detailed report*). En Part 5 se nota cuando las opciones son *detail, details, detailed, detailing* delante de un sustantivo: la forma adjetiva (*detailed*) es la que encaja.
 - **Falsos amigos**: *actually* es "en realidad", no "actualmente" (*currently*); *assist* es "ayudar", no "asistir" (*attend*); *eventually* es "finalmente", no "eventualmente".
 
 ## Corrige estas frases (errores típicos de hispanohablantes)
@@ -142,7 +142,7 @@ Cada frase tiene un error que las opciones incorrectas de la Parte 5 suelen imit
 5. *The manager explained me the policy.* → *explained the policy to me*: *explain* no lleva la persona como complemento directo.
 6. *He assisted the conference.* → *attended*: *assist* significa "ayudar", no "asistir".
 
-Si dudaste en alguna, anótala: son los reflejos que más puntos cuestan en las preguntas de tiempos, determinantes y vocabulario.
+Si dudaste en alguna, anótala: son errores muy frecuentes en las preguntas de tiempos, determinantes y vocabulario.
 
 ## Trampas clásicas entre preposiciones y conjunciones
 
@@ -170,6 +170,8 @@ En las preguntas de vocabulario puro, el examen suele evaluar si conoces las com
 - **heavily dependent on** imported raw materials (altamente dependiente de materias primas importadas)
 - grant **authorization to** inspect equipment (conceder autorización para inspeccionar los equipos)
 
+Lexkite también tiene tests de vocabulario de opción múltiple, como este de *run out of*, para practicar expresiones fuera de la Part 5.
+
 ![Prueba de opción múltiple de Lexkite: elegir el significado correcto de run out of entre cuatro opciones](media:practice-test "Un test de vocabulario de Lexkite (no es de la Parte 5): comprueba el significado de expresiones como run out of")
 
 ## Distribución del tiempo de examen y entrenamiento recomendado
@@ -181,15 +183,15 @@ El módulo de lectura del TOEIC dura 75 minutos (ETS no fija un tiempo por parte
 
 Al preparar el examen, practica series completas de 30 preguntas con un cronómetro estricto en la mano. Oblígate a mirar primero las alternativas para internalizar el proceso de descarte automático.
 
-En la [página TOEIC de Lexkite](/#/toeic) hay siete exámenes con una práctica de Part 5 por cada uno: al enviar tus respuestas ves la explicación de cada una. Para el vocabulario, los 1.250 términos de la lista TSL están en la [biblioteca](/#/library?g=toeic), y las preguntas que falles se guardan en el [cuaderno de errores](/#/mistakes) (pestaña Lectura) con su explicación.
+En la [página TOEIC de Lexkite](/#/toeic) hay siete exámenes con una práctica de Part 5 por cada uno: al enviar tus respuestas ves la explicación de cada una. Para el vocabulario, los 1.250 términos de la lista TSL están en la [biblioteca](/#/library?g=toeic), y las preguntas que falles se guardan en el [Registro de errores](/#/mistakes) (pestaña Comprensión lectora) con su explicación.
 
-![Cuaderno de errores de Lexkite con las pestañas Vocabulario, Gramática, Lectura y Listening](media:mistakes "El cuaderno de errores tiene pestañas de vocabulario, gramática, lectura y listening; las preguntas falladas del TOEIC van a Lectura")
+![Registro de errores de Lexkite con las pestañas Vocabulario, Gramática, Comprensión lectora y Escuchar](media:mistakes "El Registro de errores tiene pestañas de vocabulario, gramática, comprensión lectora y escuchar; las preguntas falladas del TOEIC de lectura van a Comprensión lectora")
 
-Para organizar tus semanas, consulta el [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/) y la guía de [TOEIC Part 7: lectura y gestión del tiempo](/es/blog/toeic-part-7-estrategias-lectura-tiempo/). Para ampliar vocabulario, hay [listas de vocabulario (en inglés)](/en/vocabulary/).
+Para organizar tus semanas, consulta el [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/) y la guía de [TOEIC Part 7: lectura y gestión del tiempo](/es/blog/toeic-part-7-estrategias-lectura-tiempo/). Para ampliar vocabulario, hay [listas de vocabulario (en inglés)](/en/vocabulary/). Para la parte de audio, lee también la guía de [TOEIC Listening Part 2: preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).
 
 {{cta: /#/toeic | Practica Part 5 con explicaciones}}
 
-{{youtube: | Estrategias y trucos de TOEIC Part 5 para responder en 20 segundos}}
+{{youtube: | Estrategias de TOEIC Part 5 para responder en 20 segundos}}
 
 ## Preguntas frecuentes
 
@@ -204,5 +206,3 @@ Los más frecuentes son usar Present Perfect con *yesterday* o *last week*, olvi
 
 ### ¿Cómo puedo acelerar mi velocidad de respuesta en las preguntas de categorías gramaticales?
 La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y podrás resolver muchas preguntas en 10 a 15 segundos.
-
-Para la parte de audio, lee también la guía de [TOEIC Listening Part 2: preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).

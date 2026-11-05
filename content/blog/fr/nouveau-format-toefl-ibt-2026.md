@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, examens, preparation]
 cover: toefl
 coverAlt: "Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves"
-qualityScore: 91
+qualityScore: 90
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-01T19:51:00+01:00
@@ -18,7 +18,7 @@ quiz: [
   {
     q: "Quel est le temps de base des quatre sections du TOEFL iBT dans le nouveau format, d'après le tableau d'ETS ?",
     options: [
-      "Environ 90 minutes ; ETS conseille de prévoir deux heures",
+      "Environ 90 minutes, mais ETS conseille de prévoir deux heures",
       "Plus de 3 h 30 avec une pause obligatoire entre les sections",
       "Exactement 2 h 30, mais sans la section d'expression orale",
       "Quatre heures au total, réparties sur deux jours consécutifs"
@@ -51,8 +51,8 @@ quiz: [
   {
     q: "Quelles sections ETS présente-t-elle comme adaptatives dans le nouveau format ?",
     options: [
-      "Reading et Listening : la difficulté suit vos réponses",
-      "Seulement Speaking, les autres sections sont fixes",
+      "Reading et Listening, avec une difficulté variable",
+      "Seulement Speaking, les autres sections restent fixes",
       "Seulement Writing, les autres sections sont fixes",
       "Aucune ; les questions sont identiques pour tous"
     ],
@@ -62,7 +62,7 @@ quiz: [
   {
     q: "Quel réflexe aide le plus un francophone en Listen and Repeat ?",
     options: [
-      "S'enregistrer et contrôler le th, le h et les finales -s/-ed",
+      "S'enregistrer et contrôler th, h et les finales -s/-ed",
       "Remplacer les mots difficiles par des synonymes plus simples",
       "Apprendre par cœur toutes les phrases d'exemple possibles",
       "Parler le plus vite possible afin de finir à temps"
@@ -73,7 +73,7 @@ quiz: [
 ]
 ---
 
-Depuis le 21 janvier 2026, le nouveau format TOEFL 2026 du TOEFL iBT s'applique : vos acquis restent utiles, mais la gestion du temps et les types d'épreuves sont nouveaux. Si vous vous préparez avec d'anciens manuels ou des annales d'avant 2026, gardez le vocabulaire et la grammaire, et reprenez le reste avec du matériel à jour.
+Le nouveau format TOEFL 2026 est en vigueur depuis le 21 janvier : vos acquis restent utiles, mais la gestion du temps et les types d'épreuves sont nouveaux. Si vous vous préparez avec d'anciens manuels ou des annales d'avant 2026, gardez le vocabulaire et la grammaire, et reprenez le reste avec du matériel à jour.
 
 Le TOEFL iBT est plus court (environ 90 minutes de temps de base, consignes non comprises), adaptatif, noté sur une échelle de 1 à 6, et comprend de nouvelles épreuves comme *Complete the Words*, *Read in Daily Life* ou *Build a Sentence*. Les chiffres ci-dessous proviennent de la page officielle d'ETS sur le contenu et la structure du test.
 
@@ -86,7 +86,7 @@ Vous trouverez ici la structure sous forme de tableau, les 12 épreuves avec des
 Trois changements orientent votre préparation :
 
 ### 1. Un examen plus court
-Les quatre sections totalisent environ 90 minutes de temps de base (le test durait près de trois heures avant juillet 2023). ETS conseille de prévoir environ deux heures pour la séance, car les consignes ne sont pas comptées. Avec moins d'items, chaque erreur pèse davantage : entraînez-vous surtout à rester concentré du début à la fin.
+Les quatre sections totalisent environ 90 minutes de temps de base (le test durait près de trois heures avant juillet 2023). ETS conseille de prévoir environ deux heures pour la séance, car les consignes ne sont pas comptées. En général, mieux vaut s'entraîner à rester concentré du début à la fin que de chercher seulement la vitesse.
 
 ### 2. Une conception adaptative à plusieurs niveaux
 ETS décrit le test comme adaptatif : Reading et Listening ajustent la difficulté à vos performances. La logique exacte et les seuils ne sont pas publiés ; les chiffres qui circulent sur le web sont des suppositions. En pratique, ne prenez pas les premières questions pour un échauffement et ne vous acharnez pas sur une question difficile.
@@ -111,9 +111,9 @@ Certaines épreuves existaient déjà (Academic Discussion, Academic Talk, conve
 
 ### Section Reading (Lecture) : 50 items, environ 30 minutes
 1. **Complete the Words :** Vous lisez un court paragraphe académique dans lequel la seconde moitié de certains mots a été supprimée, et vous devez taper au clavier les lettres manquantes.  
-   *Exemple :* *Researchers obser___ that migratory birds trav___ great distances.* (Réponses : *observed*, *travel*). Cet exercice évalue simultanément la syntaxe, l'orthographe exacte et la morphologie lexicale.
+   *Exemple inventé :* *Researchers obser___ that migratory birds trav___ great distances.* (Réponses : *observed*, *travel*). Cet exercice évalue simultanément la syntaxe, l'orthographe exacte et la morphologie lexicale.
 2. **Read in Daily Life :** Des textes courts de la vie courante et étudiante (notes de service, courriels administratifs, affiches de campus, règlements) suivis de questions à choix multiples. Le TOEFL ne se limite plus aux textes académiques.
-3. **Read an Academic Passage :** Un court texte universitaire suivi de questions sur les idées principales, les informations qui ne figurent pas dans le texte (NOT/EXCEPT), les inférences logiques et le vocabulaire en contexte.
+3. **Read an Academic Passage :** Un court texte universitaire suivi de questions sur les détails, les informations qui ne figurent pas dans le texte (NOT/EXCEPT), les inférences, le vocabulaire en contexte et l'intention de l'auteur.
 
 Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) et [Read an Academic Passage](/#/toefl-p/academic). Pour le vocabulaire qui les sous-tend, consultez les [listes de vocabulaire (page en anglais)](/en/vocabulary/). Complete the Words est détaillée dans notre article en anglais [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
 
@@ -122,12 +122,12 @@ Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#
 ---
 
 ### Section Listening (Écoute) : 47 items, environ 29 minutes
-1. **Listen and Choose a Response :** Vous entendez une réplique brève et devez choisir la réponse la plus cohérente parmi plusieurs options. Cela mesure votre compréhension pragmatique immédiate.
+1. **Listen and Choose a Response :** Vous entendez une réplique brève et devez choisir la réponse la plus cohérente parmi plusieurs options. Cela mesure votre capacité à repérer la réponse la plus naturelle.
 2. **Listen to a Conversation :** Des échanges réalistes entre étudiants ou entre un étudiant et un membre du personnel universitaire.
 3. **Listen to an Announcement :** Des annonces publiques et consignes transmises sur un campus universitaire.
 4. **Listen to an Academic Talk :** De courts extraits de cours magistraux accompagnés de questions sur l'intention du professeur et la structure des arguments.
 
-**Conseil :** repérez les connecteurs comme *however*, *actually* ou *on the other hand* ; l'information qui suit est souvent celle sur laquelle porte la question. Pour vous entraîner, la [page d'écoute de Lexkite](/#/listening) propose une vitesse réglable et un mode dictée.
+**Conseil :** repérez les connecteurs comme *however*, *actually* ou *on the other hand* ; l'information qui suit est souvent celle sur laquelle porte la question. Pour vous entraîner, essayez les pages [Listen and Choose a Response](/#/toefl-p/response), [Listen to a Conversation](/#/toefl-p/conversation) et [Listen to an Academic Talk](/#/toefl-p/talk).
 
 ---
 
@@ -163,7 +163,7 @@ De nombreux candidats formés sur l'ancien modèle commettent des erreurs strat�
 
 ## Plan d'entraînement en 4 semaines pour le format 2026
 
-Le plan suppose environ 45 minutes par jour (une proposition, pas une consigne officielle) :
+Le plan suppose environ 1 h à 1 h 30 par jour (une proposition, pas une consigne officielle) :
 
 | Semaine | Objectif principal | Programme quotidien recommandé |
 |---|---|---|
@@ -182,7 +182,7 @@ Le carnet d'erreurs est surtout utile aux semaines 1 et 4, car il rassemble les 
 
 {{cta: /#/toefl | S'entraîner aux 12 épreuves du TOEFL | Tableau de structure du nouveau test et une page d'entraînement par épreuve}}
 
-{{youtube: | Tour complet des 12 nouvelles épreuves du TOEFL iBT 2026 avec exemples commentés}}
+{{youtube: | Les 12 épreuves du TOEFL iBT 2026 en détail}}
 
 ---
 

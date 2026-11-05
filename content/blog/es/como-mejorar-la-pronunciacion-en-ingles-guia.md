@@ -207,7 +207,7 @@ Si te preparas para un examen, aplica esta dicción en las respuestas cortas de 
 
 - **Paso 1 (pares mínimos):** abre la [biblioteca de pronunciación](/#/pron), elige un par de vocales o consonantes y escúchalo antes de decirlo.
 - **Paso 2 (texto):** elige un texto de la [sección de lectura](/#/reading) y subraya las sílabas tónicas.
-- **Paso 4 (comprueba tu voz):** di una frase en la [práctica de pronunciación](/#/practice/speak) y compara la puntuación entre intento e intento.
+- **Paso 4 (comprueba tu voz):** di una frase de tu propio mazo en la [práctica de pronunciación](/#/practice/speak) y compara la puntuación entre intento e intento.
 - **Palabras nuevas:** búscalas en el [diccionario](/#/dict) para ver el IPA, oír el audio y guardarlas como flashcard.
 
 ![Centro de práctica de Lexkite con juegos y ejercicios, entre ellos práctica de pronunciación](media:practice "El centro de práctica reúne la pronunciación con otros ejercicios")

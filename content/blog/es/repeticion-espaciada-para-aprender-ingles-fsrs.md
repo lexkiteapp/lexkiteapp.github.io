@@ -158,7 +158,7 @@ Lexkite incluye repaso de flashcards con repetición espaciada. Una rutina senci
 
 - Empieza por la [sesión de repaso](/#/review): ves las tarjetas que toca repasar hoy, intentas recordar y volteas la tarjeta.
 - Cuando encuentres una palabra nueva, búscala en el [diccionario](/#/dict), donde verás la pronunciación IPA británica y americana, ejemplos y colocaciones, y puedes guardarla como flashcard.
-- Para usar las palabras en voz alta, di la frase en la [práctica de pronunciación](/#/practice/speak) con el micrófono y mira la puntuación.
+- Para usar las palabras en voz alta, di la frase de tu mazo en la [práctica de pronunciación](/#/practice/speak) con el micrófono y mira la puntuación.
 
 Para seguir leyendo: [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/), [cómo pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/), [collocations en inglés para IELTS](/es/blog/collocations-en-ingles-para-ielts/), [falsos amigos inglés-español](/es/blog/falsos-amigos-ingles-espanol/) y [inglés para gestionar el tiempo en el trabajo](/es/blog/gestion-del-tiempo-en-ingles-en-el-trabajo/). Las listas de vocabulario por nivel están en la [biblioteca](/#/library) y, en la web, en [vocabulario](/en/vocabulary/) (lista de palabras en inglés).
 

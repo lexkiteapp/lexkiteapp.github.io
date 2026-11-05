@@ -127,7 +127,7 @@ Bazı görevler eski sınavdan devam ediyor (Academic Discussion, Academic Talk,
 - **Listen to an Announcement:** Üniversite kampüsündeki genel anonslar ve bilgilendirmeler.
 - **Listen to an Academic Talk:** Bir profesörün kısa ders anlatımı ve konuyla ilgili kavrama soruları.
 
-**İpucu:** *however*, *actually*, *on the other hand* gibi bağlaçlardan sonra gelen bilgi çoğu zaman sorulan bilgidir. Pratik için hızı ayarlanabilen ve dikte modu olan [Lexkite Listening sayfasını](/#/listening) kullanabilirsiniz.
+**İpucu:** *however*, *actually*, *on the other hand* gibi bağlaçlardan sonra gelen bilgi çoğu zaman sorulan bilgidir. Pratik için Lexkite'teki TOEFL görev sayfalarını kullanabilirsiniz: [Listen and Choose a Response](/#/toefl-p/response), [Listen to a Conversation](/#/toefl-p/conversation) ve [Listen to an Academic Talk](/#/toefl-p/talk).
 
 ---
 

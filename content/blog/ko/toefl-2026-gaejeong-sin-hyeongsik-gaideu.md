@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, gongbubeop]
 cover: toefl
 coverAlt: "Lexkite 토플 대비 화면: 2026년 개정 신유형 시험 구조와 영역별 태스크 목록"
-qualityScore: 91
+qualityScore: 90
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-04T07:36:00+09:00
@@ -18,7 +18,7 @@ quiz: [
   {
     q: "ETS 표에 따르면 개정된 TOEFL iBT 4개 영역의 기본 시간(Base Time) 합계는 약 얼마입니까?",
     options: [
-      "약 90분이며 전체 응시에는 2시간이 권장된다",
+      "약 90분이며 전체 응시에는 2시간 정도를 잡으라고 안내한다",
       "필수 휴식 시간을 포함해 3시간 30분 이상이 걸리는 시험이다",
       "스피킹 영역을 뺀 나머지 세 영역만 정확히 2시간 30분이 걸린다",
       "이틀에 나눠 응시하며 이틀 합계 4시간 가까이 걸린다"
@@ -73,7 +73,7 @@ quiz: [
 ]
 ---
 
-2026년 1월 21일부터 2026 토플 개정으로 바뀐 TOEFL iBT가 시행되었습니다. 미국 교육평가원(ETS)은 전 세계 시험 센터와 홈 에디션(Home Edition)에서 새 TOEFL iBT를 운영합니다. 4개 영역의 기본 시간은 합계 약 90분으로(2023년 7월 이전에는 3시간 가까이 걸렸습니다), 안내 시간은 포함되지 않아 ETS는 전체 응시에 약 2시간을 예상하라고 안내합니다. 리딩과 리스닝은 적응형입니다.
+2026 토플 개정에 따라 2026년 1월 21일부터 새 형식의 TOEFL iBT가 시행되었습니다. 미국 교육평가원(ETS)은 전 세계 시험 센터와 홈 에디션(Home Edition)에서 새 TOEFL iBT를 운영합니다. 4개 영역의 기본 시간은 합계 약 90분으로(2023년 7월 이전에는 3시간 가까이 걸렸습니다), 안내 시간은 포함되지 않아 ETS는 전체 응시에 약 2시간을 예상하라고 안내합니다. 리딩과 리스닝은 적응형입니다.
 
 영어 기본기와 학술 어휘는 여전히 중요하지만 문제 유형이 바뀌었습니다. 시험은 12개 태스크로 구성되며 *Complete the Words*, *Read in Daily Life*, *Build a Sentence*, *Listen and Repeat* 등이 새로 들어왔고, 점수는 1~6 척도로 표시됩니다.
 
@@ -86,7 +86,7 @@ quiz: [
 학습 방식을 바꾸는 변화는 세 가지입니다.
 
 ### 1. 4개 영역 기본 시간 약 90분
-4개 영역의 기본 시간이 합계 약 90분입니다. 안내 시간이 빠져 있어 ETS는 전체 응시에 약 2시간을 예상하라고 합니다. 문항 수가 줄어 한 문제의 상대적 비중이 커졌으므로, 속도뿐 아니라 끝까지 집중력을 유지하는 연습이 필요합니다.
+4개 영역의 기본 시간이 합계 약 90분입니다. 안내 시간이 빠져 있어 ETS는 전체 응시에 약 2시간을 예상하라고 합니다. 속도뿐 아니라 끝까지 집중력을 유지하는 연습도 필요합니다.
 
 ### 2. 다단계 적응형(Multi-Stage Adaptive) 시스템
 ETS는 시험을 적응형이라고 설명하며, 리딩과 리스닝에서 응답에 따라 난이도가 조정됩니다. 단계를 나누는 정확한 기준과 기준점은 공개되지 않았고, 온라인에 도는 구체적 수치는 추측입니다. 실전 조언은 앞 문제를 워밍업으로 여기지 말고, 어려운 문제 하나에 오래 매달리지 않는 것입니다.
@@ -111,9 +111,9 @@ ETS는 영역별 점수 4개와 총점을 1~6 척도의 0.5점 단위로 제공�
 
 ### 1. Reading 영역 (50문항, 약 30분)
 - **Complete the Words (단어 완성 타이핑):** 학술적 짧은 단락에서 단어 뒷부분의 철자가 빈칸으로 주어지며, 키보드로 철자를 직접 타이핑해 넣어야 합니다.  
-  *예시:* *Photosynthesis enab___ plants to conv___ light into energy.* (정답: *enables*, *convert*). 문맥 속 품사, 시제, 수 일치, 어형 변화를 정확히 파악해야 정답 처리가 됩니다.
+  *직접 만든 예시:* *Photosynthesis enab___ plants to conv___ light into energy.* (정답: *enables*, *convert*). 문맥 속 품사, 시제, 수 일치, 어형 변화를 정확히 파악해야 정답 처리가 됩니다.
 - **Read in Daily Life (캠퍼스 실용 독해):** 수강 신청 공지, 기숙사 규칙, 교수 이메일, 시설 이용 안내 등 대학 일상 영어 텍스트를 읽고 빠른 정보 파악 능력을 측정합니다.
-- **Read an Academic Passage (학술 지문 독해):** 짧은 학술 지문을 읽고 주제, 세부 내용, 불일치(NOT/EXCEPT), 추론, 문맥 속 어휘 문제에 답합니다.
+- **Read an Academic Passage (학술 지문 독해):** 짧은 학술 지문을 읽고 세부 내용, 불일치(NOT/EXCEPT), 추론, 문맥 속 어휘, 수사적 목적 문제에 답합니다.
 
 세 태스크 모두 Lexkite에 전용 연습 페이지가 있습니다: [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily), [Read an Academic Passage](/#/toefl-p/academic). 바탕이 되는 어휘는 [단어 목록(영어 페이지)](/en/vocabulary/)에서 다질 수 있고, Complete the Words는 [Complete the Words 공략](/ko/blog/toefl-complete-the-words-gongryak/)에 더 자세히 정리했습니다.
 
@@ -123,16 +123,16 @@ ETS는 영역별 점수 4개와 총점을 1~6 척도의 0.5점 단위로 제공�
 
 ### 2. Listening 영역 (47문항, 약 29분)
 - **Listen and Choose a Response (즉각 응답 고르기):** 짧은 1문장의 질문이나 말을 듣고 가장 자연스러운 대답을 보기 중에서 고릅니다.
-- **Listen to a Conversation (캠퍼스 대화):** 학생 간 대화나 조교/교수와의 학사 상담 대화를 듣고 핵심 의도를 파악합니다.
+- **Listen to a Conversation (캠퍼스 대화):** 학생 간 대화나 조교/교수와의 학사 상담 대화를 듣고 대화의 목적을 파악합니다.
 - **Listen to an Announcement (안내 방송):** 캠퍼스 공식 공지 음성 청취.
 - **Listen to an Academic Talk (학술 강의):** 대학 미니 강의를 듣고 논리 전개와 구체적 근거를 묻는 문항에 답합니다.
 
-**팁:** *however*, *in fact*, *so* 같은 담화 표지어 뒤에 문제로 나오는 정보가 오는 경우가 많습니다. 연습에는 속도 조절과 받아쓰기가 가능한 [Lexkite 듣기 연습](/#/listening)을 쓸 수 있습니다.
+**팁:** *however*, *in fact*, *so* 같은 담화 표지어 뒤에 문제로 나오는 정보가 오는 경우가 많습니다. 연습은 [Listen and Choose a Response](/#/toefl-p/response), [Listen to a Conversation](/#/toefl-p/conversation), [Listen to an Academic Talk](/#/toefl-p/talk) 페이지에서 할 수 있습니다.
 
 ---
 
 ### 3. Writing 영역 (12문항, 약 23분)
-- **Build a Sentence (문장 배열 재구성):** 무작위로 흩어진 단어 블록을 드래그하거나 클릭하여 문법적으로 완벽한 문장으로 조립합니다. 연습은 [Build a Sentence 페이지](/#/toefl-p/sentence)에서 할 수 있습니다.
+- **Build a Sentence (문장 배열 재구성):** 무작위로 흩어진 단어 블록을 드래그하거나 클릭하여 문법에 맞는 문장으로 조립합니다. 연습은 [Build a Sentence 페이지](/#/toefl-p/sentence)에서 할 수 있습니다.
 - **Write an Email (상황별 이메일 작성):** 주어진 상황(과제 기한 연장 요청 등)에 맞춰 이메일을 쓰고, 요구된 항목을 모두 다룹니다. ETS는 읽고 답하는 시간을 약 7분으로 안내하며, Lexkite 연습 타이머도 같은 시간입니다.
 - **Write for an Academic Discussion (학술 토론형 글쓰기):** 교수의 질문과 두 학생의 의견을 읽고, 새로운 논거나 사례를 더한 글을 씁니다. 소요 시간은 약 10분으로 보며, ETS는 100단어 이상을 권장합니다.
 
@@ -184,7 +184,7 @@ ETS는 영역별 점수 4개와 총점을 1~6 척도의 0.5점 단위로 제공�
 
 {{cta: /#/toefl | 토플 12개 태스크 연습하기 | 개정 시험의 구조표와 태스크별 연습 페이지}}
 
-{{youtube: | 2026 토플 개정 완벽 분석: 90분 시험 시간 단축과 신유형 공략법}}
+{{youtube: | 2026 토플 개정: 12개 태스크 살펴보기}}
 
 ---
 

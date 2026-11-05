@@ -127,7 +127,7 @@ Setiap tugas punya halaman latihan sendiri di Lexkite: [Complete the Words](/#/t
 - **Listen to an Announcement:** Pengumuman resmi melalui pengeras suara kampus mengenai perubahan jadwal atau kebijakan fasilitas.
 - **Listen to an Academic Talk:** Kuliah singkat dosen di kelas dengan pertanyaan pemahaman konsep dan tujuan komunikatif.
 
-**Tips:** perhatikan kata penghubung seperti *however*, *actually*, atau *on the other hand*; informasi yang menyusul sering menjadi bahan pertanyaan. Untuk berlatih, halaman [Listening Lexkite](/#/listening) menyediakan kecepatan yang bisa diatur dan mode dikte.
+**Tips:** perhatikan kata penghubung seperti *however*, *actually*, atau *on the other hand*; informasi yang menyusul sering menjadi bahan pertanyaan. Untuk berlatih, gunakan halaman tugas TOEFL di Lexkite: [Listen and Choose a Response](/#/toefl-p/response), [Listen to a Conversation](/#/toefl-p/conversation) dan [Listen to an Academic Talk](/#/toefl-p/talk).
 
 ---
 

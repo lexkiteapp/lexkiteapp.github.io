@@ -8,7 +8,7 @@ translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, email, acronyms, is-hayati]
 cover: phrases
-coverAlt: "Lexkite kalıp defteri ekranı: yararlı kalıp ve cümleleri ekleyip saklama, örneğin e-postalarda kullanılan kısaltmalı cümleler"
+coverAlt: "Lexkite Kalıplar ve yapılar ekranı: yararlı kalıp ve cümleleri ekleyip saklama, örneğin e-postalarda kullanılan kısaltmalı cümleler"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
@@ -182,11 +182,11 @@ Kısaltmalar pratiklik sağlasa da, yanlış ton kurumsal imajınızı zedeleyeb
 | **N/A** | Not Applicable (geçerli değil) | *"Budget: N/A for this phase."* |
 | **LGTM** | Looks Good To Me (bana uygun görünüyor; kod incelemesinde yaygın) | *"LGTM, merging now."* |
 
-İşinizde sık kullandığınız cümleleri [Lexkite kalıp defterine](/#/phrases) kaydederseniz e-posta yazmadan önce hızla göz atabilirsiniz.
+İşinizde sık kullandığınız cümleleri [Lexkite'in Kalıplar ve yapılar bölümüne](/#/phrases) kaydederseniz e-posta yazmadan önce hızla göz atabilirsiniz.
 
 ![Lexkite sözlük ekranı: kelimenin telaffuzu, anlamı, örnek cümleleri ve kartı kaydetme düğmesi](media:dict "Sözlükte bir kelimeye bakın, anlamını ve örneklerini görün, sonra kart olarak kaydedip tekrar edin")
 
-## İki Gerçekçi İş E-postası Örneği
+## İki örnek iş e-postası
 
 ### Örnek 1: Yöneticiye yanıt
 
@@ -273,7 +273,7 @@ C-level yöneticilerle yazışırken stratejik metrikler (*ROI*, *KPI*, *Capex*,
 - **Sondaki ünsüz**: *Approved*, *scheduled*, *determined* gibi sözcüklerde sondaki /d/ sesi Türkçedeki gibi /t/ olarak sertleşmesin; sesli ve açık söyleyin.
 - **Vurgu**: *FYI* ve *ETA* gibi harf harf okunan kısaltmalarda vurgu son harftedir (ef-wai-**AI**).
 
-Sesli prova için [Lexkite telaffuz alıştırmasını](/#/practice/speak) kullanın: bir ifadeyi mikrofona okursunuz ve telaffuzunuz için puan alırsınız. Daha geniş bir plan için [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) yazısına da bakın.
+Sesli prova için [Lexkite telaffuz alıştırmasını](/#/practice/speak) kullanın: kendi kartlarınızdaki bir ifadeyi mikrofona okursunuz ve telaffuzunuz için puan alırsınız. Daha geniş bir plan için [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) yazısına da bakın.
 
 ![Lexkite telaffuz alıştırması: cut down on ifadesi ve mikrofon düğmesi](media:practice-speak "İfadeyi mikrofona okuyun ve telaffuz puanınızı görün")
 

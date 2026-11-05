@@ -134,9 +134,9 @@ Para que as táticas saiam sozinhas no dia da prova, experimente esta rotina (os
 
 1. **Simulado auditivo sem pausas (cerca de 15 minutos):** Abra a [página TOEIC do Lexkite](/#/toeic), escolha um Test e o cartão “Part 2 · Pergunta–resposta”. O modo “Ouvir uma vez” toca o áudio uma única vez, como na prova. Se tiver dúvida, marque imediatamente a opção mais plausível e libere sua mente para a questão que virá a seguir.
 2. **Análise do script (cerca de 15 minutos):** Examine a transcrição textual dos seus erros. Identifique o motivo da falha: foi atração por som parecido, perda do pronome inicial ou interpretação equivocada de uma resposta indireta?
-3. **Ditado da parte (cerca de 15 minutos):** No mesmo cartão, o modo “Ditado” pede que você escreva o que ouve em toda a Parte 2; dê atenção especial às frases que antes escaparam (veja o método no artigo sobre [ditado em inglês](/pt/blog/ditado-em-ingles-dictation-listening/)). Seus erros entram sozinhos no [caderno de erros](/#/mistakes); revise-os lá e anote você mesmo o tipo de armadilha.
+3. **Ditado da parte (cerca de 15 minutos):** No mesmo cartão, o modo “Ditado” pede que você escreva o que ouve em toda a Parte 2; dê atenção especial às frases que antes escaparam (veja o método no artigo sobre [ditado em inglês](/pt/blog/ditado-em-ingles-dictation-listening/)). Seus erros entram sozinhos no [Registro de erros](/#/mistakes); revise-os lá e anote você mesmo o tipo de armadilha.
 
-![Caderno de erros do Lexkite: erros agrupados por vocabulário, gramática, leitura e audição](media:mistakes "Os erros de audição ficam separados para mostrar qual tipo de armadilha se repete")
+![Registro de erros do Lexkite: erros agrupados por vocabulário, gramática, leitura e audição](media:mistakes "Os erros de audição ficam separados para mostrar qual tipo de armadilha se repete")
 
 Para integrar seu estudo com as demais etapas da prova, veja as [estratégias do TOEIC Part 5](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/) e, para organizar as semanas, o [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/).
 

@@ -127,7 +127,7 @@ Jede der drei Aufgaben hat in Lexkite eine eigene Übungsseite: [Complete the Wo
 - **Listen to an Announcement:** Kurze organisatorische Durchsagen auf dem Campus.
 - **Listen to an Academic Talk:** Gekürzte Vorlesungsausschnitte mit anschließenden Fragen zur Kernaussage und zu Details.
 
-**Tipp:** Achten Sie auf Signalwörter wie *however*, *actually* oder *in contrast*; danach folgt häufig die Information, nach der gefragt wird. Zum Üben dient die [Hörseite von Lexkite](/#/listening) mit einstellbarer Sprechgeschwindigkeit und Diktatmodus.
+**Tipp:** Achten Sie auf Signalwörter wie *however*, *actually* oder *in contrast*; danach folgt häufig die Information, nach der gefragt wird. Zum Üben dienen die Aufgabenseiten [Listen and Choose a Response](/#/toefl-p/response), [Listen to a Conversation](/#/toefl-p/conversation) und [Listen to an Academic Talk](/#/toefl-p/talk) in Lexkite.
 
 ---
 
