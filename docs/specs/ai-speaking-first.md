@@ -30,7 +30,7 @@
 
 ## 4. Cổng (CI, chặn gộp)
 - Độ trễ: hết lời → thẻ phản hồi luật ≤ 300 ms; LLM câu đầu ≤ 2,5 s p75 (stream); TTS chữ đầu ≤ 800 ms tầng A; ra lời mẫu Kokoro dựng sẵn ≤ 150 ms.
-- Chấm đúng trên **tập có nhãn** trong repo: sửa câu (≥ 300 câu L2 thật, 15 L1) precision ≥ 0,90, recall > baseline luật hiện tại; phát âm PCC âm vị speechocean762 ≥ 0,50 (cổng `pron-eval`), báo sai âm ≤ 10 %.
+- Chấm đúng trên **tập có nhãn** trong repo: sửa câu: `scripts/feedback/gec-set.jsonl` (420 câu kiểu ASR, 14 L1 × 30, ⅓ câu đúng gồm câu bẫy; soạn theo lỗi chuyển di đã ghi nhận, không chép corpus) – `scripts/feedback/eval.mjs` trong npm test: precision và editP (từng chỗ sửa đúng) ≥ 0,90, engine viết lại cả câu thêm fixP ≥ 0,90, recall/fixR/editP không lùi so với `baseline.json`. Mốc 05/11 luật Call: báo nhầm 0/140, precision 1, recall 0,20, editP 1, fixP 0,875 (trước khi sửa 3 lỗi gốc: fixP 0,717, recall 0,19); v2 thêm câu thật ẩn danh có opt-in; phát âm PCC âm vị speechocean762 ≥ 0,50 (cổng `pron-eval`), báo sai âm ≤ 10 %.
 - Không giật trên máy tầm trung (Moto G/ Android 4 GB, iPhone 11): INP ≤ 200 ms, model chỉ trong Worker, shell ≤ ngân sách.
 - Tương phản sáng/tối, 15 ngôn ngữ (i18n-qa), giọng đúng giới tính (characters-gate), nút Thoát, không popup ép.
 
@@ -41,7 +41,7 @@
 | T2 | `Feedback.turn()` dùng chung: diff câu + vì sao + câu tự nhiên, luật mở rộng + khóa i18n; gắn vào Call | sau #687 (calls-lot2) |
 | T3 | Prompt AI theo locale (bỏ dịch sau), stream `/api/ai`, phản hồi mỗi lượt Roleplay | sau #742 (bảo mật AI), #666 |
 | T4 | Ghi âm trên máy + nghe mẫu ↔ mình ở Call/Roleplay/Speak | — |
-| T5 | Tập nhãn sửa câu + workflow `feedback-eval` (CI) đo precision/recall | — |
+| T5 | Tập nhãn sửa câu + `feedback-eval` (npm test) đo precision/recall/fixP, mốc không lùi | xong cùng PR spec |
 | T6 | GOP lên web (`window.Gop` trong Worker) sau khi `pron-eval` đạt PCC ≥ 0,50 | R&D pron |
 | T7 | Giọng động theo `Chars.voice` + giới tính đúng khi rơi về giọng máy; Roleplay do Ama/Carlos dẫn | — |
 | T8 | Tổng kết buổi → hồ sơ học → biểu đồ tháng nói/viết | spec outcomes 3–6m |
