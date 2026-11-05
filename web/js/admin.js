@@ -22,7 +22,7 @@
     'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.': 'Daily automated review score and translation meaning checks.',
     'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).': 'Compose posts, schedule and manage social channels (GrabCast).',
     'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.': 'Automated video production pipeline from script to schedule.',
-    'Trung tâm video': 'Video hub', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.': 'To-dos, review, library, production & QC, scripts and posting channels for every short video.',
+    'Trung tâm video': 'Video hub', 'Đăng & hiệu quả': 'Publishing & results', 'Studio': 'Studio', 'Bước 1 – sản xuất: kịch bản, dựng, QC dựng và kho tài sản.': 'Step 1 – production: scripts, rendering, render QC and the asset library.', 'Bước 2 – duyệt, thư viện, lưu trữ; mỗi clip thấy Drive, bài học nhúng và kênh đã đăng.': 'Step 2 – review, library and archive; every clip shows its Drive copy, lesson embeds and posted channels.', 'Bước 3 – kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch theo kênh.': 'Step 3 – lesson embed channels, social channels, routing rules and per-channel calendar.', 'Bước 4 – soạn, duyệt, lịch đăng, bài đã đăng và số liệu mạng xã hội (GrabCast).': 'Step 4 – compose, approve, schedule, published posts and social analytics (GrabCast).', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.': 'To-dos, review, library, production & QC, scripts and posting channels for every short video.',
     'Thư viện video': 'Video library', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.': 'Browse every rendered short (private lexkite-shorts store): filter, play, copy post text, and coverage, QA and credit statistics.',
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.': 'PR posts and profiles linking to lexkite.com, lookalike domains, social accounts, content copies – checked daily.',
     'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.': 'Per-feature quotas, provider breakers, blocks and the unlimited list.',
@@ -219,7 +219,7 @@
     ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.'], ['ads', '💰', 'Quảng cáo', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.']]],
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
-    ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
+    ['Nội dung & Video', [['studio', '🎞️', 'Studio', 'Bước 1 – sản xuất: kịch bản, dựng, QC dựng và kho tài sản.'], ['video', '🎬', 'Thư viện video', 'Bước 2 – duyệt, thư viện, lưu trữ; mỗi clip thấy Drive, bài học nhúng và kênh đã đăng.'], ['dist', '🛰️', 'Kênh & phân phối', 'Bước 3 – kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch theo kênh.'], ['social', '📣', 'Đăng & hiệu quả', 'Bước 4 – soạn, duyệt, lịch đăng, bài đã đăng và số liệu mạng xã hội (GrabCast).'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
     ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['accounts', '🗂️', 'Sổ tài khoản & khóa', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
@@ -486,6 +486,13 @@
     $('#pgHead').innerHTML = `<div class="pg-tx">${it.group ? `<div class="pg-crumb">${esc(L(it.group))}</div>` : ''}<h1 class="pg-t">${esc(L(it.label))}</h1><p class="pg-d">${esc(L(it.desc))}</p></div><div class="pg-act" id="pgAct"></div>`;
     document.title = L(it.label) + ' · Lexkite Admin';
   };
+  // Dải luồng Studio → Thư viện → Phân phối → Đăng (+ Kho Drive) – js/admin-flow.js, tải lười chỉ ở 5 mục đó; lỗi tải không chặn mục
+  const FLOW_TABS = new Set(['studio', 'video', 'dist', 'social', 'drive']);
+  const flowStrip = t => {
+    const el = $('#flowStrip'); if (!el) return;
+    if (!FLOW_TABS.has(t)) { el.hidden = true; el.innerHTML = ''; return; }
+    lazy('AdminFlow', 'js/admin-flow.js').then(() => AdminFlow.paint(el, t, { capi, go, L, esc, lang: () => LANG })).catch(() => { el.hidden = true; });
+  };
   const setActions = html => { const a = $('#pgAct'); if (a) a.innerHTML = html; return a; };
   // Ngăn kéo thanh bên (điện thoại)
   const side = $('#side'), scrim = $('#scrim'), navBtn = $('#navBtn');
@@ -588,7 +595,7 @@
     stopLive(); guard = null; tab = t; const my = ++seq;
     try { const cur = location.hash.slice(1); history.replaceState(null, '', '#' + t + (baseOf(cur) === t ? cur.slice(t.length) : '')); } catch (e) { /* bỏ qua */ }
     document.querySelectorAll('#tabs a[data-tab]').forEach(a => { if (a.dataset.tab === t) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-    pageHead(t); main.innerHTML = skel();
+    pageHead(t); flowStrip(t); main.innerHTML = skel();
     try { await VIEWS[t](); }
     catch (e) { if (o.first || e.message === 'forbidden') throw e; if (my === seq && e.message !== 'reauth') main.innerHTML = errBox(e); }
   }

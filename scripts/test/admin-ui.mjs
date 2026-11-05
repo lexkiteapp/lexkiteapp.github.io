@@ -286,7 +286,7 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
 { // Trung tâm video: thanh mục con dính, Tổng quan ("Cần anh làm"), Chờ duyệt, Thư viện (lưới dự phòng), Sản xuất & QC, Kịch bản, Kênh, Lưu trữ
   const m = $('#main'), cards = () => m.querySelectorAll('.vid-card'), sec = async k => { m.querySelector(`.vx-nav [data-sec="${k}"]`).click(); await tick(60); };
   const tabs = [...m.querySelectorAll('.vx-nav [data-sec]')];
-  ok(h1() === 'Video hub' && tabs.length === 7 && m.querySelector('.vx-nav [aria-current="page"]').dataset.sec === 'overview' && /#video\/overview$/.test(w.location.hash), 'tab Video: tiêu đề EN, 7 mục con, mặc định Tổng quan + #video/overview');
+  ok(h1() === 'Video library' && tabs.length === 7 && m.querySelector('.vx-nav [aria-current="page"]').dataset.sec === 'overview' && /#video\/overview$/.test(w.location.hash), 'tab Video: tiêu đề EN, 7 mục con, mặc định Tổng quan + #video/overview');
   ok(m.querySelectorAll('.vx-list li').length >= 2 && /waiting for your review/.test(m.textContent) && m.querySelectorAll('.vx-list .btn.primary').length === 1 && m.querySelectorAll('.kpis .kpi').length === 5 && (m.querySelectorAll('.ach .ach-c').length === 30 || m.querySelector('.ach-empty')), 'Tổng quan: danh sách "Cần anh làm" (1 nút chính), 5 KPI, biểu đồ 30 ngày liền (js/admin-chart.js) hoặc trạng thái trống');
   ok(m.querySelector('.vx-nav [data-n="review"]').textContent === '2' && m.querySelector('.vx-nav [data-n="qc"]').textContent === '1', 'huy hiệu mục: 2 chờ duyệt, 1 lỗi QA');
   m.querySelector('.vx-more summary').click(); m.querySelector('.vx-more').open = true; m.querySelector('.vx-more').dispatchEvent(new w.Event('toggle')); await tick();
