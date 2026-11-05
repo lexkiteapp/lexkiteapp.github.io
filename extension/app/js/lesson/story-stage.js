@@ -21,7 +21,7 @@
     // ngoài màn / tab ẩn → dừng hẳn vòng vẽ (không tốn CPU); IntersectionObserver không có → coi như đang thấy
     let io = null; if (g.IntersectionObserver) { io = new IntersectionObserver(es => { seen = es[es.length - 1].isIntersecting; sync(); }, { threshold: 0.01 }); io.observe(stage); }
     const vis = () => sync(); D.addEventListener('visibilitychange', vis);
-    const scrollTo = (n, go) => { const smooth = reduced() ? 'auto' : 'smooth'; try { n.scrollIntoView({ block: 'nearest', behavior: smooth }); if (go) go.scrollIntoView({ block: 'nearest', behavior: smooth }); } catch (e) { n.scrollIntoView(); } };
+    const scrollTo = (n, go) => { const smooth = reduced() ? 'auto' : 'smooth'; try { (go || n).scrollIntoView({ block: 'nearest', behavior: smooth }); } catch (e) { n.scrollIntoView(); } /* MỘT lần cuộn tới nút Tiếp tục (dòng mới nằm ngay trên nút): hai lần cuộn mượt nối nhau lặp lại hoạt cảnh → tụt khung hình */ };
     // chạm sân khấu: đang nói → bỏ qua lời; xong rồi → sang câu kế (cùng nút Tiếp tục)
     let talking = false;
     stage.addEventListener('click', () => { const go = D.getElementById('lsnGo'); if (talking) { ['ama', 'carlos'].forEach(k => { const x = tch()[k]; if (x) x.stop(); }); talking = false; speaker(''); } else if (go && !go.disabled && go.offsetParent) go.click(); });
