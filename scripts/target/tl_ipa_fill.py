@@ -34,6 +34,31 @@ def onset_stress(ipa):
     s = ''.join(res)
     return s
 
+# Trọng âm tiếng TBN suy 100 % từ chính tả (dấu sắc; không dấu: tận cùng nguyên âm/n/s → áp chót, còn lại → cuối) – espeak đôi khi đặt sai
+# (computadora → komputaˈðoɾa). Bảng tl-voices.json "stress": "es" → đặt lại ˈ theo luật; số âm tiết chữ ↔ IPA lệch → giữ espeak + gắn cờ.
+def es_stress_from_end(word):
+    w = re.sub(r'([qg])u(?=[eéií])', r'\1', word.lower()); V = 'aeiouáéíóúü'; strong = set('aeoáéóíú'); groups = []; prev = False
+    for i, c in enumerate(w):
+        isv = c in V or (c == 'y' and i == len(w) - 1 and i > 0 and w[i - 1] in V)
+        if isv and prev and not (groups[-1][-1] in strong and c in strong): groups[-1] += c
+        elif isv: groups.append(c)
+        prev = isv
+    if not groups: return 0, 0
+    acc = [k for k, g in enumerate(groups) if re.search('[áéíóú]', g)]
+    k = acc[-1] if acc else (len(groups) - 2 if len(groups) > 1 and w[-1] in V + 'ns' else len(groups) - 1)
+    return len(groups) - k, len(groups)
+
+def nuclei(sg):
+    idx = []
+    for i, ch in enumerate(sg):
+        if ch[0] in 'aeiou': idx.append(i)
+    return idx
+
+def stress_rule(word, ipa_onset):
+    k, n = es_stress_from_end(word); sg = [c for c in segs(ipa_onset) if c not in ('ˈ', 'ˌ')]; nu = nuclei(sg)
+    if not k or len(nu) != n: return None
+    sg.insert(nu[-k], 'ˈ'); return onset_stress(''.join(sg))
+
 nrm = lambda s: re.sub(r'[ˈˌ.‿͡\s-]', '', unicodedata.normalize('NFD', s or ''))
 
 try:
@@ -44,7 +69,13 @@ try:
     be = EspeakBackend(C['espeak'], with_stress=True, preserve_punctuation=False)
 except Exception as e:
     print('✗ espeak-ng không nạp được: ' + str(e)[:200]); sys.exit(3)
-ipa = lambda words: [onset_stress(g.replace('ˌ', '')) for g in be.phonemize(words, strip=True)]
+def ipa(words):
+    out = []
+    for w, g in zip(words, be.phonemize(words, strip=True)):
+        e = onset_stress(g.replace('ˌ', ''))
+        if C.get('stress') == 'es': r = stress_rule(w, e); e = r if r else e
+        out.append(e)
+    return out
 
 summary = []
 # 1) tự kiểm trên seed soát tay (W0 đã sửa theo espeak): phải khớp CẢ dấu nhấn, không chỉ phân đoạn

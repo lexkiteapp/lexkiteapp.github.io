@@ -70,9 +70,9 @@ jobs:
         run: |
           LT=$(node -e "import('./scripts/target/tl-gen.mjs').then(m=>console.log(m.TL_GEN[process.env.TL].lt||''))")
           [ -z "$LT" ] && exit 0
-          docker run -d --name lt -p 8010:8010 erikvl87/languagetool:6.6 >/dev/null
-          for i in $(seq 1 60); do curl -sf "http://localhost:8010/v2/check?language=$LT&text=Hola" >/dev/null && echo "LT_URL=http://localhost:8010" >> "$GITHUB_ENV" && exit 0; sleep 3; done
-          echo '✗ LanguageTool không lên' && exit 1
+          docker run -d --name lt -p 8010:8010 -e Java_Xmx=2g erikvl87/languagetool:6.8 >/dev/null
+          for i in $(seq 1 120); do curl -sf "http://localhost:8010/v2/check?language=$LT&text=Hola" >/dev/null && echo "LT_URL=http://localhost:8010" >> "$GITHUB_ENV" && exit 0; sleep 3; done
+          docker logs lt 2>&1 | tail -30; echo '✗ LanguageTool không lên sau 6 phút' && exit 1
       - name: Ứng viên (khô) hoặc sinh + LanguageTool + 2 giám khảo + dịch ngược + cổng
         env:
           CF_POOL: ${{ secrets.CF_POOL }}
