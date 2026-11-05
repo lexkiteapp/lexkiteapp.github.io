@@ -705,4 +705,8 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Sẽ tải nền khi bạn đang dùng ứng dụng.': 'Will download in the background while you use the app.',
 '{n} MB': '{n} MB',
 'Đã xóa giọng đọc khỏi máy.': 'Voice removed from this device.',
+  // ← en/writing.js
+  'Tô sáng': 'Highlight',
+  'Xóa hết': 'Clear all',
+  'bấm để lưu': 'tap to save',
 }); })(typeof self !== 'undefined' ? self : this);
