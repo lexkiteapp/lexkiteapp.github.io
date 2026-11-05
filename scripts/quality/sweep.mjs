@@ -93,14 +93,15 @@ function probe(mobile) {
     const cs = getComputedStyle(e);
     // Loại dương tính giả của bộ dò (không phải lỗi giao diện): (a) nội dung nhóm <details> đang đóng; (b) phần tử bị khung cuộn/cắt (overflow≠visible) che hết – người dùng không thấy/không chạm được.
     const cd = e.closest('details:not([open])'); if (cd && !(e.tagName === 'SUMMARY' && e.parentElement === cd)) continue;
-    let clipped = false, pinned = cs.position === 'fixed' || cs.position === 'sticky';
+    let clipped = false, pinned = cs.position === 'fixed' || cs.position === 'sticky', vr = { left: r.left, top: r.top, right: r.right, bottom: r.bottom };
     for (let p = e.parentElement; p && p !== document.body; p = p.parentElement) {
       const pc = getComputedStyle(p); if (pc.position === 'fixed' || pc.position === 'sticky') pinned = true; // thanh dính/cố định (thanh đáy, thanh bên, thanh trên): nội dung cuộn dưới chúng là chủ ý
-      if (/(hidden|clip|auto|scroll)/.test(pc.overflowX + pc.overflowY)) { const q = p.getBoundingClientRect(); if (r.right <= q.left + 1 || r.left >= q.right - 1 || r.bottom <= q.top + 1 || r.top >= q.bottom - 1) { clipped = true; break; } }
+      if (/(hidden|clip|auto|scroll)/.test(pc.overflowX + pc.overflowY)) { const q = p.getBoundingClientRect(); if (r.right <= q.left + 1 || r.left >= q.right - 1 || r.bottom <= q.top + 1 || r.top >= q.bottom - 1) { clipped = true; break; }
+        vr = { left: Math.max(vr.left, q.left), top: Math.max(vr.top, q.top), right: Math.min(vr.right, q.right), bottom: Math.min(vr.bottom, q.bottom) }; } // phần thấy được (khung cuộn cắt bớt): hàng menu cuộn dở dưới logo không phải 'đè' (05/11: a.brand ⟷ summary ar desktop)
     }
     if (clipped) continue;
     if (e.type === 'checkbox' || e.type === 'radio') { const lab = e.closest('label') || (e.id && document.querySelector('label[for="' + e.id + '"]')); if (lab) continue; }
-    items.push({ e, r, fixed: pinned, inline: e.tagName === 'A' && cs.display === 'inline' });
+    items.push({ e, r, vr: { ...vr, width: vr.right - vr.left, height: vr.bottom - vr.top }, fixed: pinned, inline: e.tagName === 'A' && cs.display === 'inline' });
   }
   if (mobile) for (const it of items) {
     if (it.inline && it.e.closest('p,td,li,figcaption,dd,small,span')) continue; // WCAG 2.5.8: liên kết trong câu được miễn
@@ -110,7 +111,7 @@ function probe(mobile) {
   for (let i = 0; i < cap.length; i++) for (let j = i + 1; j < cap.length; j++) {
     const a = cap[i], b = cap[j]; if (a.fixed !== b.fixed || a.e.contains(b.e) || b.e.contains(a.e)) continue;
     // Liên kết inline xuống dòng: getBoundingClientRect là hộp bao 2 dòng (phủ cả liên kết kế bên dù không đè) → so từng hộp dòng thật (getClientRects)
-    const boxes = it => it.inline ? [...it.e.getClientRects()].filter(q => q.width > 1 && q.height > 1) : [it.r];
+    const boxes = it => it.inline ? [...it.e.getClientRects()].filter(q => q.width > 1 && q.height > 1) : [it.vr];
     let hit = null;
     for (const p of boxes(a)) for (const q of boxes(b)) {
       const ix = Math.min(p.right, q.right) - Math.max(p.left, q.left), iy = Math.min(p.bottom, q.bottom) - Math.max(p.top, q.top);

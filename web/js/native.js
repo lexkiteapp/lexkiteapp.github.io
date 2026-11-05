@@ -27,7 +27,13 @@
 
   // Rung: dùng Haptics của hệ điều hành
   if (P.Haptics) {
-    try { Object.defineProperty(navigator, 'vibrate', { configurable: true, value: p => { const ms = Array.isArray(p) ? p[0] : p; P.Haptics.vibrate({ duration: Math.max(10, ms || 15) }).catch(() => {}); return true; } }); } catch (e) { /* bỏ qua */ }
+    // Mẫu rung [rung, nghỉ, rung…] phát tuần tự qua Haptics (plugin chỉ nhận 1 khoảng); mẫu mới cắt mẫu cũ
+    let hapT = [];
+    try { Object.defineProperty(navigator, 'vibrate', { configurable: true, value: p => {
+      hapT.forEach(clearTimeout); hapT = [];
+      const a = Array.isArray(p) ? p : [p]; let at = 0;
+      a.forEach((ms, i) => { ms = Math.max(0, +ms || 0); if (i % 2 === 0 && ms) { const go = () => P.Haptics.vibrate({ duration: Math.max(10, ms) }).catch(() => {}); if (at) hapT.push(setTimeout(go, at)); else go(); } at += ms; });
+      return true; } }); } catch (e) { /* bỏ qua */ }
   }
 
   // Nhắc học: lập lịch 7+ ngày cục bộ ở js/remind.js (tải lười, docs/REMINDERS.md). opts.ask: chỉ xin quyền khi người dùng chủ động
