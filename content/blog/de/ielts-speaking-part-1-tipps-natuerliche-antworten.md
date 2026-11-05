@@ -8,6 +8,26 @@ tags: ["IELTS", "Speaking", "Englisch lernen", "Wortschatz"]
 cluster: "ielts-speaking-part-1"
 lang: "de"
 keyword: "ielts speaking part 1"
+quiz: [
+  {
+    q: "Wie lange sollte eine ideale Antwort auf eine einzelne Frage in IELTS Speaking Part 1 dauern?",
+    options: ["1 kurzer Satz (unter 5 Sekunden)", "2 bis 4 vollständige Sätze (ca. 15 bis 25 Sekunden)", "Über 1 Minute ausführliche Rede", "Nur mit 'Yes' oder 'No' antworten"],
+    answer: 1,
+    explain: "In Teil 1 geht es um natürliche Gesprächsflüssigkeit im Alltag. 2 bis 4 Sätze (15 bis 25 Sekunden) bieten ausreichend Sprachmaterial, ohne den Prüfer zu langweilen oder unterbrochen zu werden."
+  },
+  {
+    q: "Welche Antwortstrategie zeigt die beste lexikalische Vielfalt (Lexical Resource) auf die Frage 'Do you like reading books?'",
+    options: ["'Yes, I like reading books because...' und die Frage wörtlich wiederholen", "'Definitely, I consider myself an avid reader.' mit treffender Paraphrasierung", "10 Sekunden stumm nachdenken, um deutsche Sätze im Kopf zu übersetzen", "Einfach 'No' sagen und auf die nächste Frage warten"],
+    answer: 1,
+    explain: "Das geschickte Umformulieren (Paraphrasing) mit Kollokationen wie 'avid reader' zeigt dem Prüfer sofort eine hohe Wortschatzkompetenz."
+  },
+  {
+    q: "In welcher Reihenfolge baut sich die bewährte Drei-Schritte-Formel für Part 1 auf?",
+    options: ["Begründung ➔ Gegenargument ➔ Zusammenfassung", "Direkte Antwort (Direct Answer) ➔ Begründung (Reason) ➔ Konkretes Detail/Beispiel (Detail/Example)", "Kindheitserinnerung ➔ Philosophische Überlegung ➔ Gegenfrage an den Prüfer", "Auswendig gelernter Aufsatz ➔ Wörterbuchdefinition ➔ Schweigen"],
+    answer: 1,
+    explain: "Zuerst wird die Frage direkt beantwortet, danach logisch begründet und abschließend mit einem persönlichen Alltagsbeispiel oder Detail abgerundet."
+  }
+]
 ---
 
 Der Abschnitt **ielts speaking part 1** markiert den Einstieg in Ihre mündliche IELTS-Prüfung und prägt den ersten Eindruck des Prüfers nachhaltig. In 4 bis 5 Minuten beantworten Sie alltägliche Fragen zu Ihrer Person, Heimatstadt, Arbeit, Ihrem Studium oder Ihren Hobbys. Obwohl dieser Teil wie ein zwangloses Kennenlerngespräch wirkt, verschenken viele deutschsprachige Kandidaten hier wertvolle Bewertungspunkte. Häufig fallen die Antworten zu einsilbig und hölzern aus, oder es werden mechanisch auswendig gelernte Phrasen vorgetragen, die unnatürlich klingen.
@@ -133,3 +153,7 @@ Um die Drei-Schritte-Methode zu automatisieren, sollten Sie folgende Übungsrout
 3. **FSRS-gestützte Wiederholung:** Nutzen Sie das integrierte FSRS-System von Lexkite, um Redewendungen genau dann zu wiederholen, wenn Ihr Gedächtnis sie zu vergessen droht. So sitzen idiomatische Ausdrücke am Prüfungstag bombenfest.
 
 Mit einer klaren Struktur und regelmäßiger Praxis verwandeln Sie den Einstiegsteil der mündlichen Prüfung in ein entspanntes Gespräch, das den Grundstein für Ihren angestrebten Band Score legt.
+
+{{cta: /#/speaking | Trainieren Sie echte IELTS Speaking Part 1 Fragen jetzt auf Lexkite}}
+
+{{youtube: | IELTS Speaking Part 1 Leitfaden: 3-Schritte-Formel für flüssige Antworten}}

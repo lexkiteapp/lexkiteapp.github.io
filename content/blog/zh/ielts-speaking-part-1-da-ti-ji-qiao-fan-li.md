@@ -8,6 +8,26 @@ tags: ["雅思", "口语", "英语学习", "词汇"]
 cluster: "ielts-speaking-part-1"
 lang: "zh"
 keyword: "ielts speaking part 1"
+quiz: [
+  {
+    q: "在雅思口语Part 1中，单个问题的最理想作答时长和句子数量通常是？",
+    options: ["1句话（5秒以内）", "2到4句完整表述（约15至25秒）", "长篇大论（超过50秒）", "仅回答Yes或No"],
+    answer: 1,
+    explain: "Part 1作为日常快速破冰环节，单题最佳长度为2至4句（15-25秒），既能充分展示语言功底，又不会因超时被考官打断。"
+  },
+  {
+    q: "面对考官提问“Do you like cooking?”时，哪种回应方式最能展现良好的词汇多样性（Lexical Resource）？",
+    options: ["“Yes, I like cooking because...”机械复读原题动词", "“Definitely, I consider myself a passionate home cook.”自然运用同义改写", "沉默8秒等待思路清晰后再开始说单字", "直接回答“No”并结束对话"],
+    answer: 1,
+    explain: "避免像鹦鹉学舌般重复考官原词，巧妙运用‘passionate home cook’进行同义词替换与词性转化，能在词汇项获得考官青睐。"
+  },
+  {
+    q: "拓展Part 1高分回答的“黄金三步法”逻辑顺序是？",
+    options: ["理由陈述 ➔ 驳斥反例 ➔ 总结陈词", "直接回应（Direct Answer） ➔ 阐述原因（Reason） ➔ 细节补充（Detail/Example）", "讲述童年经历 ➔ 哲学引申 ➔ 反问考官", "背诵长篇范文 ➔ 朗读字典释义 ➔ 极简收尾"],
+    answer: 1,
+    explain: "先直接表明明确观点，接着给出合理解释，最后增添个人生活细节或频次，构成最清晰连贯的逻辑闭环。"
+  }
+]
 ---
 
 在雅思口语考试中，**ielts speaking part 1**是考官评估考生英语沟通能力的第一道大门。在短短的4到5分钟内，考官会就你的家乡、工作、学业、日常生活、兴趣爱好等熟悉的话题进行快速提问。虽然这一部分看似轻松随意的日常闲聊，但许多中国考生却在这里掉入丢分陷阱：要么回答过于简短僵硬（仅回答“Yes”或“No”），要么背诵大段机械呆板的模版，导致考官在最初几分钟内就给出了中庸的分数锚定。
@@ -133,3 +153,7 @@ keyword: "ielts speaking part 1"
 3. **同义替换敏感度练习：** 在日常阅读和练习中，有意识地将简单的常用词（如 *happy*, *busy*, *tired*）替换为地道表达（如 *over the moon*, *snowed under*, *drained*），逐步摆脱中英互译的思维桎梏。
 
 只要掌握科学的答题结构，摆脱死记硬背的枷锁，你就能从容应对Part 1的每一次提问，在轻松自然的交谈中赢得考官的青睐与高分认可。
+
+{{cta: /#/speaking | 立即在Lexkite体验雅思口语实战模拟与即时评测}}
+
+{{youtube: | 雅思口语Part 1黄金三步法与地道高分表达拆解}}

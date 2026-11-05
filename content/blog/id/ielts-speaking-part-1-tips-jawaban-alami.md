@@ -8,6 +8,26 @@ tags: ["IELTS", "Speaking", "Belajar Bahasa Inggris", "Kosakata"]
 cluster: "ielts-speaking-part-1"
 lang: "id"
 keyword: "ielts speaking part 1"
+quiz: [
+  {
+    q: "Berapa durasi waktu dan jumlah kalimat ideal untuk menjawab satu pertanyaan di IELTS Speaking Part 1?",
+    options: ["1 kalimat saja (kurang dari 5 detik)", "2 hingga 4 kalimat (sekitar 15 hingga 25 detik)", "Lebih dari 1 menit penuh", "Hanya menjawab 'Yes' atau 'No'"],
+    answer: 1,
+    explain: "Part 1 adalah percakapan pengantar cepat. Durasi 2-4 kalimat (15-25 detik) memberikan sampel bahasa yang cukup tanpa membuang waktu atau dipotong oleh penguji."
+  },
+  {
+    q: "Ketika penguji menanyakan 'Do you like travelling?', respons manakah yang menunjukkan kekayaan kosakata (Lexical Resource) terbaik?",
+    options: ["'Yes, I like travelling because...' mengulang kata persis dari penguji", "'Definitely, I have a real passion for exploring new destinations.' memparafrasa dengan alami", "Hening selama 10 detik memikirkan terjemahan bahasa Indonesia", "Menjawab singkat 'No' tanpa penjelasan tambahan"],
+    answer: 1,
+    explain: "Memparafrasa pertanyaan menggunakan frasa seperti 'exploring new destinations' menunjukkan kemampuan leksikal yang jauh lebih tinggi daripada meniru kata demi kata."
+  },
+  {
+    q: "Bagaimanakah urutan logis dari formula 3 langkah untuk menyusun jawaban di Part 1?",
+    options: ["Alasan ➔ Sanggahan ➔ Kesimpulan", "Jawaban Langsung (Direct Answer) ➔ Alasan Utama (Reason) ➔ Detail/Contoh Nyata (Detail/Example)", "Cerita masa kecil ➔ Teori ilmiah ➔ Bertanya balik ke penguji", "Menghafal naskah internet ➔ Baca definisi kamus ➔ Jawaban kaku"],
+    answer: 1,
+    explain: "Urutan terbaik adalah menjawab tegas di awal (Direct Answer), memberikan alasan logis (Reason), lalu memperkaya dengan rincian atau contoh konkret (Detail/Example)."
+  }
+]
 ---
 
 Sesi **ielts speaking part 1** merupakan pembuka yang sangat menentukan kesan pertama penguji terhadap kemampuan bahasa Inggris lisan Anda. Selama 4 hingga 5 menit, penguji akan menanyakan hal-hal akrab seputar kampung halaman, pekerjaan, studi, hobi, atau rutinitas sehari-hari. Meskipun terkesan seperti percakapan santai, banyak peserta asal Indonesia kehilangan poin berharga di bagian ini karena memberikan jawaban yang terlalu singkat dan kaku, atau justru menghafal teks panjang yang terdengar tidak wajar.
@@ -133,3 +153,7 @@ Agar respons spontan Anda terbentuk secara alami saat hari ujian tiba, terapkan 
 3. **Praktik Simulasi Bicara:** Manfaatkan fitur interaktif di Lexkite untuk berlatih menjawab pertanyaan secara langsung dengan umpan balik pengucapan yang akurat.
 
 Dengan latihan terarah dan struktur jawaban yang rapi, Anda dapat menjalani Bagian 1 dengan penuh rasa percaya diri dan membuka jalan menuju skor band impian Anda.
+
+{{cta: /#/speaking | Latih pertanyaan asli IELTS Speaking Part 1 sekarang di Lexkite}}
+
+{{youtube: | Panduan IELTS Speaking Part 1: formula 3 langkah untuk jawaban alami band tinggi}}

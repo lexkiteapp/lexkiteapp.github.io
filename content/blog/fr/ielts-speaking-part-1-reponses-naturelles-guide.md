@@ -8,6 +8,26 @@ tags: ["IELTS", "Speaking", "Anglais Oral", "Vocabulaire"]
 cluster: "ielts-speaking-part-1"
 lang: "fr"
 keyword: "ielts speaking part 1"
+quiz: [
+  {
+    q: "Quelle est la durée et le nombre de phrases idéales pour chaque réponse dans l'IELTS Speaking Part 1 ?",
+    options: ["1 phrase très courte (moins de 5 secondes)", "2 à 4 phrases complètes (environ 15 à 25 secondes)", "Un monologue continu de plus d'une minute", "Répondre par un simple 'Yes' ou 'No'"],
+    answer: 1,
+    explain: "La Partie 1 évalue votre aisance quotidienne. 2 à 4 phrases (15 à 25 secondes) permettent d'exposer vos idées clairement sans risquer d'être coupé par l'examinateur."
+  },
+  {
+    q: "Si l'examinateur vous demande « Do you like cooking? », quelle réponse démontre la meilleure richesse lexicale (Lexical Resource) ?",
+    options: ["« Yes, I like cooking because... » en répétant machinalement la question", "« Absolutely, I'm quite passionate about preparing home-cooked meals. » en paraphrasant spontanément", "Garder le silence pendant 10 secondes pour traduire mentalement du français", "Répondre « No » et attendre la question suivante"],
+    answer: 1,
+    explain: "Paraphraser la question en utilisant des collocations variées comme 'passionate about preparing home-cooked meals' prouve une réelle maîtrise lexicale."
+  },
+  {
+    q: "Quel est l'ordre logique de la formule infaillible en 3 temps pour la Partie 1 ?",
+    options: ["Raison ➔ Contre-argument ➔ Résumé", "Réponse directe (Direct Answer) ➔ Justification (Reason) ➔ Détail ou exemple concret (Detail/Example)", "Souvenirs d'enfance ➔ Réflexion philosophique ➔ Question retournée à l'examinateur", "Récitation par cœur ➔ Définition du dictionnaire ➔ Silence"],
+    answer: 1,
+    explain: "La formule consiste à donner d'emblée une réponse claire, à expliquer la raison avec un connecteur logique, puis à illustrer avec un détail personnel."
+  }
+]
 ---
 
 L'épreuve d'**ielts speaking part 1** constitue la première impression que vous laissez à l'examinateur lors de votre test officiel. Durant 4 à 5 minutes, vous devez répondre à des questions simples portant sur votre quotidien, votre ville natale, votre travail ou vos loisirs. Bien que cette section semble informelle et accessible, beaucoup de candidats francophones perdent des points précieux dès l'ouverture de l'entretien. Certains fournissent des réponses trop courtes qui freinent l'évaluation de leur aisance, tandis que d'autres récitent de longs monologues artificiels appris par cœur.
@@ -133,3 +153,7 @@ Pour transformer votre maîtrise théorique en réflexes spontanés le jour de l
 3. **La répétition espacée FSRS :** Utilisez l'algorithme d'apprentissage moderne intégré à Lexkite pour réviser quotidiennement 15 à 20 expressions orales. En espaçant les révisions aux moments optimaux de votre courbe d'oubli, vous ancrez ces structures dans votre mémoire à long terme sans effort inutile.
 
 En vous entraînant régulièrement avec un cadre précis, l'épreuve d'ouverture deviendra une véritable zone de confort qui propulsera l'ensemble de votre performance orale.
+
+{{cta: /#/speaking | Entraînez-vous dès maintenant aux questions réelles d IELTS Speaking Part 1 sur Lexkite}}
+
+{{youtube: | Guide IELTS Speaking Part 1 : la formule en 3 étapes pour des réponses naturelles}}
