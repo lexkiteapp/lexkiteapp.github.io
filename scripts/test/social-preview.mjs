@@ -113,5 +113,18 @@ const clip = { id: 'news_taxi_ab_123', lang: 'en', title: 'Get in or get on a ta
   ok(st.log.length === 50, 'nhật ký giữ 50 mục gần nhất');
 }
 
+// ---- 7) YouTube qua GrabCast tự bật + luật YouTube trực tiếp không làm câm kênh GrabCast ----
+{
+  const A = await import('../../functions/api/_social_auto.js');
+  const c = A.cleanAuto({});
+  ok(c.yt_gc_auto === true && c.plats.youtube === false, 'mặc định: YouTube tắt, tự bật qua GrabCast = bật');
+  ok(!A.ytViaGc(c, []) && A.ytViaGc(c, [{ channel_id: 'gc-youtube-1' }]) && A.effPlats(c, [{}]).plats.youtube === true && c.plats.youtube === false, 'có kênh YouTube GrabCast ok → bật trong lượt (không ghi đè cấu hình)');
+  ok(!A.ytViaGc(A.cleanAuto({ yt_gc_auto: false }), [{}]), 'chủ tắt yt_gc_auto → không tự bật');
+  const cfgs = { 'gc-youtube-7': D.normCfg({}) };
+  const imp = D.implicitSocialRules([{ cond: {}, channel_id: 'UCabc', active: 1 }], cfgs);
+  ok(imp.length === 1 && imp[0].channel_id === 'gc-youtube-7', 'luật YouTube trực tiếp (UC…) không chặn luật ngầm của kênh YouTube GrabCast');
+  ok(D.implicitSocialRules([{ cond: {}, channel_id: 'gc-youtube-7', active: 0 }], cfgs).length === 0, 'luật gc-youtube đã tắt = chủ ý dừng');
+}
+
 console.log(fails ? `✗ social-preview: ${fails}/${n} lỗi` : `✓ social-preview: ${n} kiểm tra đạt (dry-run, hashtag, ngôn ngữ, bìa IG, tạm dừng toàn bộ, nhật ký)`);
 if (fails) process.exit(1);

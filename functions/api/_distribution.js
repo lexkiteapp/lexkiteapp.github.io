@@ -71,7 +71,8 @@ export function langOfChannel(title) {
  *  mỗi kênh nhận clip cùng ngôn ngữ (cond.lang = cfg.lang, mặc định 'en'); nhiều kênh cùng ngôn ngữ → kênh đầu theo id. Nối kênh xong là có lịch, không phải tạo luật tay,
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
-  const have = new Set((allRules || []).map(r => platformOf(r.channel_id))), seen = new Set(), out = [];
+  // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), out = [];
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
     const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
     if (have.has(p) || seen.has(k)) continue; seen.add(k); out.push({ cond: { lang }, channel_id: id, active: 1 });

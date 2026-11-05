@@ -1,5 +1,9 @@
 # YouTube API audit + quota – hồ sơ soạn sẵn (05/11/2026)
 
+> **Hiện trạng 05/11/2026 (điều phối đọc Gmail chủ):** đường CHÍNH lên YouTube = **GrabCast** (dự án `grabcast-youtube`, OAuth đã xác minh 04/10; Compliance Review YouTube API của GrabCast/Digidot: sửa V.1–V.3, trả lời 20/10, Google xác nhận 22/10, chưa có kết quả, đã nhắc trong luồng 05/11). Khi GrabCast qua audit: chủ nối kênh YouTube trên GrabCast → autopilot **tự bật** YouTube (`yt_gc_auto`, bài đầu vẫn chờ duyệt tay).
+> Trong lúc chờ: **YouTube thủ công** ở Quản trị › Video › Gói chờ đăng tay (tải gói/tải tất cả, chép tiêu đề/mô tả/thẻ/hashtag/giờ hẹn, mở Studio đúng hộp tải lên; Studio nhận ≤ 15 video/lần, hẹn giờ trong Studio) – đồng bộ tự khớp marker `lk:<clip>`.
+> Đường API trực tiếp của Lexkite (file này) chỉ là **dự phòng**: dự án chưa audit tải qua `videos.insert` thì video bị **khóa Private, không kháng nghị, không đổi Public được – phải tải lại** → không dùng chế độ `api` trước khi audit đạt.
+
 > TL;DR: Lexkite đăng thẳng lên YouTube qua YouTube Data API v3 (`functions/api/youtube.js` + `.github/workflows/youtube-upload.yml`, upload resumable trên CI, refresh token mã hóa trong D1). Project Google Cloud **chưa qua audit** → mọi video tải qua API bị khóa **Private**. File này là bản nháp để chủ dán vào form audit + kịch bản quay video demo. Thiết lập 1 lần: [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) §1. Tài khoản: **vintagezulilyjewelry@gmail.com** (không dùng khieudinhthong).
 
 ## 1. Form

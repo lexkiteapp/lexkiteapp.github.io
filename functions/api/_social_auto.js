@@ -22,7 +22,7 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube TẮT tới khi Google duyệt app. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {} };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
@@ -31,10 +31,16 @@ export function cleanAuto(a) {
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
     max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
+    yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto,
     provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
     meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };
 }
 /** Mã GrabCast buộc dừng cả lượt (không thử lại) → thời gian mở cầu dao (ms); 0 = không dừng. */
+/** YouTube qua GrabCast TỰ BẬT (yt_gc_auto, mặc định bật): công tắc YouTube tắt nhưng workspace đã có kênh YouTube GrabCast đang ok
+ *  (chủ chỉ nối YouTube trên GrabCast sau khi GrabCast qua audit YouTube) → coi như bật trong lượt này. Bài đầu vẫn chờ duyệt tay (manual_first).
+ *  Video lên YouTube qua GrabCast mang marker lk:<clip> → đồng bộ kênh (youtube.js sync) khớp clip, đường tay/API không đăng lại. */
+export const ytViaGc = (cfg, ytChannels) => !cfg.plats.youtube && !!cfg.yt_gc_auto && (ytChannels || []).length > 0;
+export const effPlats = (cfg, ytChannels) => (ytViaGc(cfg, ytChannels) ? { ...cfg, plats: { ...cfg.plats, youtube: true } } : cfg);
 export function breakerMs(status) {
   if (status === 401 || status === 403) return 12 * 36e5; // khóa sai/hết quyền: chờ owner thay khóa (nút Mở lại khi xong)
   if (status === 409 || status === 422) return 3 * 36e5;
@@ -165,7 +171,8 @@ export async function autoStatus(env, now = Date.now()) {
   const qs = ids.map(() => '?').join(','), bs = ids.length ? new Map((await all(db, `SELECT id, state, note, err FROM soc_board WHERE id IN (${qs})`, ...ids)).map(r => [r.id, r])) : new Map();
   const ls = new Map(); for (const r of up) { const l = await lockOf(db, r.clip, r.channel_id); if (l) ls.set(r.clip + '|' + r.channel_id, l); } // ≤ 40 lượt đọc theo PK
   const { list: mlist, chans } = await metaChannels(env, db, cfg), ms = st.meta || {}; await setupOAuth(db, env);
-  return { cfg, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
+  const ytc = await all(db, "SELECT channel_id, title FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []);
+  return { cfg, yt_via_gc: ytViaGc(cfg, ytc), yt_gc_channels: ytc, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
     provider: { ...(st.provider || { cur: 'grabcast', why: '' }), mode: cfg.provider, gc_down: gcDownWhy(env, st, now) || null },
     meta: { configured: mlist.length > 0, enc: encReady(env), apps: await appStatus(env, db), budget_left: metaLeft(st, cfg, now), channels: chans,
       tokens: mlist.map(m => ({ ...m, health: (ms.th || {})[m.channel_id] || null, breaker: (ms.br || {})[m.channel_id] && ms.br[m.channel_id].until > now ? ms.br[m.channel_id] : null })) },
@@ -250,6 +257,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     await setMeta(db, 'auto_state', st); return rec;
   };
   if (!cfg.on) { rec.stop = 'off'; return save(); }
+  { const yc = await all(db, "SELECT channel_id FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []); if (ytViaGc(cfg, yc)) { Object.assign(cfg, effPlats(cfg, yc)); rec.yt_via_gc = 1; } }
   const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); const p = await DIST.plan_run(db, {}, env); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
   const queuedNew = await ytSetup(db).then(() => autoQueue(env, db, cfg, now)).catch(() => { rec.skipped.push({ why: 'auto-queue-error' }); return 0; }); rec.auto_queued = queuedNew;
   if (cfg.plan_daily && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
