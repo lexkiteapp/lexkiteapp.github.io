@@ -1,58 +1,58 @@
 {
- "total": 48.5,
+ "total": 50.9,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 46.4,
-   "coverage": 46.4,
+   "score": 49.6,
+   "coverage": 49.6,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9183,
+     "have": 9250,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9183,
-     "std": 9183,
+     "have": 9250,
+     "std": 9250,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4669,
+     "have": 4677,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2724,
+     "have": 2758,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6015,
+     "have": 6072,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 3088,
+     "have": 6379,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 289,
+     "have": 356,
      "std": 1000,
      "w": 10,
      "future": false
@@ -147,21 +147,21 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 18.7,
-   "coverage": 18.7,
+   "score": 31.7,
+   "coverage": 31.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "cuộc gọi Ama/Carlos",
-     "have": 11,
+     "have": 35,
      "std": 60,
      "w": 20,
      "future": false
     },
     {
      "k": "roleplay",
-     "have": 16,
+     "have": 31,
      "std": 60,
      "w": 20,
      "future": false
@@ -412,8 +412,8 @@
   },
   "lkf": {
    "name": "Khung Can-do",
-   "score": 79.3,
-   "coverage": 79.3,
+   "score": 80,
+   "coverage": 80,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -433,14 +433,14 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 9955,
-     "std": 9955,
+     "have": 10061,
+     "std": 10061,
      "w": 35,
      "future": false
     },
     {
      "k": "mục tiêu đã có nội dung luyện",
-     "have": 119,
+     "have": 134,
      "std": 600,
      "w": 25,
      "future": false
