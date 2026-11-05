@@ -75,7 +75,24 @@ def build(ep):
         instagram=dict(caption=f'{title}\n\n{value}\n\n{say}: link in bio.', hashtags=tags),
         tiktok=dict(caption=(f'{title} {" ".join(tags[:3])}')[:150]),
     )
-    return dict(title=title, keyword=kw, value=value, hashtags=tags, link=link, script_words=len(script.split()), platforms=plat)
+    return dict(title=title, keyword=kw, value=value, hashtags=tags, link=link, script_words=len(script.split()), platforms=plat, first_comment=first_comment(ep, value))
+
+
+FC_FORMS = ('Quiz answer: {a} {x} Practice it with a free quiz: {link}', "Did you get it? {a} {x} More practice like this (free): {link}", 'Answer: {a} {x} Try the full lesson and quiz here: {link}')
+ASCII_OK = re.compile(r'^[\x00-\x7f\u2018\u2019\u201c\u201d\u2013\u2014\u2026]*$')
+
+
+def first_comment(ep, value):
+    """First comment (#718 shared rule, publish_meta.fc_errors): answers the video's own quiz with the line the teacher says right after it
+    (+ the value line when it is plain English text – IPA / arrows would fail the en-only check), one {link} placeholder, 3 wordings rotated by id."""
+    L = ep['lines']; qi = next((i for i, l in enumerate(L) if l.get('quiz')), None)
+    a = (L[qi + 1]['text'] if qi is not None and qi + 1 < len(L) else value).strip()
+    if a[-1:] not in '.!?': a += '.'
+    x = value.strip() if ASCII_OK.match(value) and value.strip().lower() not in a.lower() else ''
+    if x and x[-1] not in '.!?': x += '.'
+    form = FC_FORMS[sum(map(ord, ep['id'])) % len(FC_FORMS)]
+    out = re.sub(r' +', ' ', form.format(a=a, x=x, link='{link}'))
+    return out if len(out.replace('{link}', '')) <= 260 else re.sub(r' +', ' ', form.format(a=a, x='', link='{link}'))
 
 
 def _base_validate(pub):
