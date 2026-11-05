@@ -17,7 +17,7 @@ import { JSDOM } from 'jsdom';
 import { getPage } from './build-install-links.mjs';
 import { INSTALL, liveChannels } from '../functions/api/_install_links.js'; // link cài: infra/install-links.json (nguồn duy nhất)
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS, PHONE_ICON } from './lib/site-layout.mjs';
+import { CSS, HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS, PHONE_ICON } from './lib/site-layout.mjs';
 import { render as stRender, tr as stTr, teacherIdle, IDLE_JS, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → brand/stitch/web/gen/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -37,6 +37,7 @@ export const pageUrl = l => SITE + landingHref(l);
 // ----- Script 1: định tuyến trước khi vẽ (giữ nhỏ; scripts/test/landing-routing.mjs chạy thử đúng đoạn này) -----
 export const ROUTE_JS = `(function(){try{var l=location,q=new URLSearchParams(l.search),h=l.hash,s=null,d=/^#\\//.test(h);try{s=window.sessionStorage}catch(e){}
 var deep=d||q.has('hl')||q.has('sandbox')||q.has('demo')||q.get('source')==='pwa';
+if(q.has('r')){q.delete('r');var u=q.toString();try{history.replaceState(null,'',l.pathname+(u?'?'+u:'')+h)}catch(e){}}
 if(q.get('home')==='1'){try{s&&s.setItem('lk.home','1')}catch(e){}}
 if(!deep){if(q.get('home')==='1')return;try{if(s&&s.getItem('lk.home'))return}catch(e){}
 var sa=!!(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true,r=null;
@@ -71,8 +72,8 @@ const DESK = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke
 export const storeHref = (ch, place, D = INSTALL) => { const S = `utm_source=lexkite.com&utm_medium=get_app&utm_campaign=${place}`, q = ch.url + (ch.url.includes('?') ? '&' : '?');
   return ch.id === 'play' ? q + 'referrer=' + encodeURIComponent(S) : ch.id === 'ios' ? q + 'ct=get_app_' + place : q + S; };
 export const installSection = (c, D = INSTALL) => { const phone = esc(c.install.phone).replace('{url}', `<bdi dir="ltr"><a href="${D.short.path}">${esc(D.short.label)}</a></bdi>`);
-  return `<section id="install" data-install class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(c.install.h)}</h2><p class="${RES_P}">${esc(c.install.p)}</p></div><div class="inst">${liveChannels(D).map(ch => `<a class="${GA_V3}" href="${esc(storeHref(ch, 'inst', D))}" target="_blank" rel="noopener" data-ch="${ch.id}" data-from="inst">${/^(ios|play)$/.test(ch.id) ? PHONE : DESK}<span class="inst-t"><small>${esc(ch.devices)}</small><b>${esc(ch.name)}</b></span></a>`).join('')}</div><p class="inst-n ${RES_P}">${phone}</p><p class="inst-m" lang="en">${esc(D.trademarks)}</p></section>`; };
-const footStores = (l, D = INSTALL) => `<ul class="inst-f" data-install>${liveChannels(D).map(ch => `<li><a href="${esc(storeHref(ch, 'foot', D))}" target="_blank" rel="noopener" data-ch="${ch.id}" data-from="foot"${/^(ios|play)$/.test(ch.id) ? ` aria-label="${esc(FOOT[l]?.[22] || FOOT.en[22])}: ${esc(ch.name)}"` : ''}>${/^(ios|play)$/.test(ch.id) ? PHONE : DESK}${esc(ch.name)}</a></li>`).join('')}</ul>`;
+  return `<section id="install" data-install class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(c.install.h)}</h2><p class="${RES_P}">${esc(c.install.p)}</p></div><div class="inst">${liveChannels(D).map(ch => `<a class="${GA_V3}" href="${esc(storeHref(ch, 'inst', D))}" target="_blank" data-ch="${ch.id}" data-from="inst">${/^(ios|play)$/.test(ch.id) ? PHONE : DESK}<span class="inst-t"><small>${esc(ch.devices)}</small><b>${esc(ch.name)}</b></span></a>`).join('')}</div><p class="inst-n ${RES_P}">${phone}</p><p class="inst-m" lang="en">${esc(D.trademarks)}</p></section>`; };
+const footStores = (l, D = INSTALL) => `<ul class="inst-f" data-install>${liveChannels(D).map(ch => `<li><a href="${esc(storeHref(ch, 'foot', D))}" target="_blank" data-ch="${ch.id}" data-from="foot"${/^(ios|play)$/.test(ch.id) ? ` aria-label="${esc(FOOT[l]?.[22] || FOOT.en[22])}: ${esc(ch.name)}"` : ''}>${/^(ios|play)$/.test(ch.id) ? PHONE : DESK}${esc(ch.name)}</a></li>`).join('')}</ul>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
@@ -88,7 +89,7 @@ ${STW_VARS}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-surface));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
 ${LSW_CSS}.lsw-m{z-index:60}
 ${TSW_ICON}${TSP_CSS}summary::-webkit-details-marker{display:none}
-#install{scroll-margin-top:16px}.inst{display:flex;flex-wrap:wrap;gap:12px}.inst a{flex:1 1 200px;max-width:340px;min-height:60px;justify-content:flex-start}.inst-t{display:flex;flex-direction:column;text-align:start;margin-inline-start:4px;line-height:1.25}.inst-t small{font-size:13px;font-weight:600}.inst-n{margin-top:16px}.inst-n a{display:inline-flex;align-items:center;min-height:44px;font-weight:800;text-decoration:underline}.inst-m{margin-top:4px;font-size:12px;color:var(--muted)}.inst-f{display:flex;flex-direction:column;margin-top:8px}.inst-f a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:14px;font-weight:600;text-decoration:underline}@media(max-width:767px){nav a[href="#install"]{display:none!important}}`; // !important: lớp Stitch biên dịch (.st .f…) đặt display nặng hơn, thiếu thì tràn ngang @360 (theme-static)
+#install{scroll-margin-top:16px}.inst{display:flex;flex-wrap:wrap;gap:12px}.inst a{flex:1 1 200px;max-width:340px;min-height:60px;justify-content:flex-start}.inst-t{display:grid;text-align:start;margin-inline-start:4px;line-height:1.25}.inst-t small{font-size:13px;font-weight:600}.inst-n{margin-top:16px}.inst-n a,.inst-f a{display:inline-flex;align-items:center;min-height:44px;font-weight:800;text-decoration:underline}.inst-m{margin-top:4px;font-size:12px;color:var(--muted)}.inst-f{display:grid;margin-top:8px}.inst-f a{gap:8px;font-size:14px;font-weight:600}@media(max-width:767px){nav a[href="#install"]{display:none!important}}`; // !important: lớp Stitch biên dịch (.st .f…) đặt display nặng hơn, thiếu thì tràn ngang @360 (theme-static)
 
 // ----- Bỏ CSS không dùng: khung chung (site-layout CSS) phục vụ cả trang SEO/blog; landing chỉ giữ luật có lớp/id/thẻ xuất hiện trong trang
 // (kể cả trong script nội tuyến – lớp do JS thêm như .lhint, .dc, .ga, lsw vẫn được giữ) → landing ≤ 16 KB gzip (scripts/test/landing-routing.mjs)
@@ -172,7 +173,7 @@ function renderFull(lang) {
   const c = copyOf(lang), rtl = lang === 'ar', url = pageUrl(lang), app = appHref(lang);
   const appQ = `/app/?hl=${lang}`, start = `${appQ}#/welcome/setup`, login = `${appQ}#/welcome/login`;
   const vi = lang === 'vi', vocab = vi ? '/tu-vung/' : '/en/vocabulary/', samples = vi ? '/samples/' : '/en/samples/', blog = `/${lang}/blog/`;
-  const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">`;
+  const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${SITE}/">`;
   // ---- dữ liệu THẬT cho khung Stitch (biểu thức trong brand/stitch/web/bind/home.json; chữ thô – khung tự escape) ----
   const hlEn = vi ? 'vi' : 'en'; // trang Từ vựng/Bài mẫu chỉ có bản vi + en → hreflang đúng ngôn ngữ đích
   const chrome0 = siteChrome({ lang, nav: [[app, c.nav.app, lang], [blog, c.nav.blog, lang], [vocab, c.nav.vocab, hlEn], [samples, c.nav.samples, hlEn]],
@@ -227,7 +228,7 @@ ${alt}
 <meta property="og:locale" content="${OG_LOCALE[lang]}">${LANGS.filter(l => l !== lang).map(l => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`).join('')}
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(c.ogTitle || c.title)}"><meta name="twitter:image" content="${SITE}/og-default.png">
 <meta name="theme-color" content="#0F3D3E">
-<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <style>${page.css}
 ${LCSS}</style>
 ${ld(graph)}
@@ -245,7 +246,19 @@ ${GETAPP_JS}</script>
 `;
 }
 
-export const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`;
+export const fileOf = l => `web/${l}/index.html`;
+// "/" tĩnh (web/index.html): trang chọn ngôn ngữ, x-default. Bình thường functions/index.js 302 trước khi tới đây; dùng khi gỡ "/" khỏi web/_routes.json (công tắc tắt) hoặc xem qua máy chủ tĩnh.
+// Bảng nước → ngôn ngữ: GEO trong web/js/i18n.js là nguồn duy nhất; functions/api/_geo.gen.js sinh từ đó (Pages Function không nạp được script cổ điển), --check báo cũ.
+export const geoGen = () => { const m = /const GEO = (\{[^}]+\});/.exec(rd('web/js/i18n.js')); if (!m) throw new Error('build-landing: không thấy GEO trong web/js/i18n.js'); return `/* SINH TỰ ĐỘNG từ GEO trong web/js/i18n.js – sửa ở đó rồi chạy node scripts/build-landing.mjs */\nexport const GEO = ${m[1]};\n`; };
+export const renderRoot = () => themePage(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lexkite – choose your language</title><meta name="description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start.">
+<meta name="google-adsense-account" content="ca-pub-2290668854727752"><link rel="canonical" href="${SITE}/"><meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${SITE}/"><meta property="og:title" content="Lexkite – choose your language"><meta property="og:description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start."><meta property="og:image" content="${SITE}/og-default.png">
+${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n')}
+<link rel="alternate" hreflang="x-default" href="${SITE}/">
+<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><script id="lk-route">${ROUTE_JS}</script>
+<style>${CSS}
+body{margin:0}main{max-width:40rem;margin:0 auto;padding:2.5rem 1rem}h1{font-size:1.6rem;margin:0 0 1rem}ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.5rem}a{display:flex;align-items:center;min-height:44px;padding:0 .8rem;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none}.tsw{font:inherit}</style></head>
+<body><main><h1>Lexkite – choose your language</h1><ul>${LANGS.map(l => `<li><a href="${landingHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}>${LANG_NAMES[l]}</a></li>`).join('')}</ul><p>© Lexkite</p></main>${themeSwitch('en')}${SITE_UI}</body></html>
+`);
 // Trang 404 (web/404.html, viết tay, song ngữ vi/en): chèn nút đổi ngôn ngữ góc trên (→ trang chủ từng ngôn ngữ) vào giữa <!--lsw--><!--/lsw-->.
 // Trang dùng token màu riêng (--card/--fg/--coral) → ánh xạ sang token của khối lsw dùng chung.
 // Chân trang chung (siteFooter vi + Privacy/Terms tiếng Anh như chân trang mini cũ) giữa <!--foot--><!--/foot-->; token riêng của 404 → token chân trang
@@ -265,6 +278,7 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== html) stale.push(fileOf(l)); continue; }
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, html);
   }
+  for (const [n, txt] of [['web/index.html', renderRoot()], ['functions/api/_geo.gen.js', geoGen()]]) { const f = new URL(n, R); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== txt) stale.push(n); } else fs.writeFileSync(f, txt); }
   for (const l of LANGS) { // chữ hướng dẫn "Tải app" theo ngôn ngữ
     const f = new URL('web' + gaFile(l), R), j = gaJson(l);
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + gaFile(l)); continue; }
