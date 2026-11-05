@@ -126,6 +126,8 @@ Se você perceber que abordou todos os pontos do cartão e o examinador ainda n�
 3. **Compare o passado com os dias de hoje**: Finalize descrevendo como aquele acontecimento moldou suas atitudes no presente.  
    *Exemplo*: *"Ever since that afternoon, I make a conscious effort to double-check digital backups before initiating any presentation."*
 
+Antes de treinar o cue card, aqueça com o [IELTS Speaking Part 1](/pt/blog/ielts-speaking-part-1-guia-respostas-naturais/), em que respostas curtas e naturais causam a primeira impressão.
+
 ## Erros fatais no Part 2 e como superá-los
 
 | Erro frequente | Impacto na nota | Solução prática recomendada |
@@ -135,6 +137,6 @@ Se você perceber que abordou todos os pontos do cartão e o examinador ainda n�
 | **Falar rápido demais por nervosismo** | Pronúncia truncada e perda de fôlego | Mantenha um ritmo deliberado, enfatizando palavras de conteúdo |
 | **Ignorar os tópicos do cartão** | Prejuízo na relevância temática | Utilize as perguntas como guia sem se prender rigidamente à ordem delas |
 
-Aprimore sua preparação consultando também nossos artigos sobre [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/) e o guia de [collocations em inglês para IELTS](/pt/blog/collocations-em-ingles-para-ielts/). Para fortalecer sua estrutura sintática, confira [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e as estratégias essenciais em [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/), aliadas à prática de vocabulário em [/tu-vung/](/tu-vung/).
+Aprimore sua preparação consultando também nossos artigos sobre [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/) e o guia de [collocations em inglês para IELTS](/pt/blog/collocations-em-ingles-para-ielts/). Para fortalecer sua estrutura sintática, confira [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e as estratégias essenciais em [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/), aliadas à prática de vocabulário em [/tu-vung/](/en/vocabulary/).
 
 Com a aplicação disciplinada deste template, seu discurso oral será envolvente, rico em vocabulário e plenamente capaz de impressionar os examinadores mais exigentes.
