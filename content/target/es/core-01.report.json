@@ -1,0 +1,159 @@
+{
+ "at": "2026-11-05T01:14:41.041Z",
+ "accepted": 3,
+ "rejected": [
+  {
+   "form": "a",
+   "word": "a",
+   "why": [
+    "dịch ngược lệch: th,ru,tr"
+   ]
+  },
+  {
+   "form": "la",
+   "word": "la",
+   "why": [
+    "dịch ngược lệch: vi,id,th,zh,hi,tr"
+   ]
+  },
+  {
+   "form": "el",
+   "word": "el",
+   "why": [
+    "dịch ngược lệch: vi,id,th,zh,hi,tr"
+   ]
+  },
+  {
+   "form": "y",
+   "word": "y",
+   "why": [
+    "dịch ngược lệch: vi,ru"
+   ]
+  },
+  {
+   "form": "es",
+   "word": "es",
+   "why": [
+    "dịch ngược lệch: vi"
+   ]
+  },
+  {
+   "form": "en",
+   "word": "en",
+   "why": [
+    "dịch ngược lệch: vi,tr"
+   ]
+  },
+  {
+   "form": "lo",
+   "word": "lo",
+   "why": [
+    "dịch ngược lệch: vi,id"
+   ]
+  }
+ ],
+ "tried": [
+  "de",
+  "que",
+  "no",
+  "a",
+  "la",
+  "el",
+  "y",
+  "es",
+  "en",
+  "lo",
+  "un",
+  "por",
+  "qué",
+  "me",
+  "una",
+  "los",
+  "se",
+  "te",
+  "con",
+  "para"
+ ],
+ "spot": [
+  "que"
+ ],
+ "stats": {
+  "used": {
+   "lexai": 5,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 3,
+   "groq": 2
+  },
+  "budget": {
+   "lexai": 1000000000,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 0,
+    "fail": 3,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 3,
+    "fail": 1,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 1,
+    "fail": 1,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 1,
+    "fail": 4,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 1,
+    "bad": 0
+   },
+   "lexai|gemini-3.6-flash": {
+    "ok": 0,
+    "fail": 1,
+    "bad": 0
+   },
+   "lexai|gemini-3-flash-preview": {
+    "ok": 0,
+    "fail": 1,
+    "bad": 0
+   },
+   "lexai|gemma-3-27b-it": {
+    "ok": 0,
+    "fail": 2,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 3,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 79,
+    "parked": {
+     "auth": 2,
+     "minute": 4
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 109,
+    "parked": {}
+   }
+  }
+ },
+ "wiktFlags": []
+}
