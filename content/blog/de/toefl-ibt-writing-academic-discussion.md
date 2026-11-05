@@ -60,6 +60,8 @@ In diesem Strategie-Leitfaden lernst du den genauen Bewertungsmaßstab der ETS k
 ## Anatomie der Aufgabe: Das simulierte Hochschulforum
 
 Auf deinem Prüfungsbildschirm siehst du drei Informationsblöcke:
+
+Mehr dazu findest du in unserem Beitrag [Neues TOEFL Format 2026](/de/blog/neues-toefl-format-2026-vorbereitung/).
 1. **Der Beitrag des Professors (links oben):** Er umreißt ein gesellschaftliches, wirtschaftliches oder technologisches Dilemma und stellt eine konkrete Diskussionsfrage (z. B. *"Should governments spend more money on public transportation or supporting electric cars?"*).
 2. **Student 1 (z. B. Paul):** Vertritt eine klare Position (z. B. Pro ÖPNV) und liefert ein Argument.
 3. **Student 2 (z. B. Kelly):** Vertritt die Gegenposition (z. B. Pro E-Autos) mit einer alternativen Begründung.
