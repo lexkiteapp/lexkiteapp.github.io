@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **ترديد كلمات الفاحص بحذافيرها:** غيّر دائماً الأفعال والصفات الرئيسية إلى مرادفات مكافئة لإبراز مرونتك اللغوية.
 
-ولصقل إيقاعك الكلامي، تفضل بالاطلاع على دليلنا الشامل حول [نبرات الجمل والتشديد في الإنجليزية](/ar/blog/nabarat-al-jumal-wa-al-tashdid-fi-al-injliziyyah/) وتدريبات [تقنية التظليل Shadowing](/ar/blog/taqniyyat-al-shadowing-al-injliziyyah/). كما نوصيك بزيارة [بنك المفردات الإنجليزية الأكاديمية](/ar/tu-vung/) في Lexkite.
+لتأسيس قاعدة صلبة في المقابلة الشفهية، طالع دليلنا عن [IELTS Speaking Part 1 استراتيجيات الإجابة والنصائح](/ar/blog/ielts-speaking-part-1-istratijiyyat-ijabat/). ولصقل إيقاعك الكلامي، تفضل بالاطلاع على دليلنا الشامل حول [نبرات الجمل والتشديد في الإنجليزية](/ar/blog/nabarat-al-jumal-wa-al-tashdid-fi-al-injliziyyah/) وتدريبات [تقنية التظليل Shadowing](/ar/blog/taqniyyat-al-shadowing-al-injliziyyah/). كما نوصيك بزيارة [بنك المفردات الإنجليزية الأكاديمية](/tu-vung/) في Lexkite.
 
 {{youtube: | استراتيجيات توسيع الإجابات والتفكير النقدي في اختبار IELTS Speaking Part 3}}
 
