@@ -7,7 +7,7 @@
   // Nhãn hàng là <a> bên trong span màu chữ → màu liên kết toàn cục (san hô) đè lên, trông như cảnh báo; tấm Tìm hiểu thêm
   try { if (!document.getElementById('meCss')) { const st = document.createElement('style'); st.id = 'meCss'; st.textContent = `.v2-me [data-row] a{color:inherit;text-decoration:none}
 .me-more{list-style:none;padding:0;margin:0;display:grid}
-.me-more a{display:flex;align-items:center;gap:.75rem;min-height:48px;padding:.25rem .25rem;color:var(--text);text-decoration:none;font-weight:600;border-top:1px solid var(--line)}
+#modal .me-more a,.me-more a{display:flex;align-items:center;gap:.75rem;min-height:48px;padding:.25rem .25rem;color:var(--text);text-decoration:none;font-weight:600;border-top:1px solid var(--line);text-decoration:none!important}
 .me-more li:first-child a{border-top:0}
 .me-more a:hover{background:var(--surface-2)}
 .me-more .material-symbols-outlined{font-size:20px;color:var(--heading)}
