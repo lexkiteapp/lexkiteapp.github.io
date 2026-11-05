@@ -18,12 +18,15 @@
       if (e.cores != null && e.cores < 4) return 'off';
       return 'wasm';
     },
-    // Bật từ xa: kl '0'/'1', kl_pct canary theo nhóm máy b (0–99). Không có cấu hình → tắt
-    remote(c, b) { c = c || {}; if (c.kl === '0' || c.kl === false || c.kl === 'false') return false; if (c.kl === '1' || c.kl === true || c.kl === 'true') return true; const p = +c.kl_pct; return p > 0 && b < p; },
+    // Công tắc từ xa: kl '0' tắt khẩn · '1' bật hết · kl_pct (có đặt) = canary theo nhóm máy b (0–99). Không có cấu hình → BẬT
+    // (chủ 5/11: một giọng Kokoro mọi nơi; mặc định tắt khiến 100 % chữ động ra giọng máy – sửa gốc, cấp máy vẫn chặn máy yếu)
+    remote(c, b) { c = c || {}; if (c.kl === '0' || c.kl === false || c.kl === 'false') return false; if (c.kl === '1' || c.kl === true || c.kl === 'true') return true; if (c.kl_pct == null || c.kl_pct === '') return true; const p = +c.kl_pct; return p > 0 && b < p; },
     // Được tải mô hình lần đầu? n = { saveData, eff, type, hidden, cached }
     netOk(n) { if (n.hidden) return false; if (n.cached) return true; if (n.saveData) return false; if (/^(slow-2g|2g|3g)$/.test(n.eff || '')) return false; return n.type !== 'cellular'; },
-    // Lý do: 'idle' chỉ từ phiên thứ 2; 'dynamic' / 'listening' = người dùng vừa cần
-    reasonOk(r, sessions) { return r === 'idle' ? sessions >= 2 : r === 'dynamic' || r === 'listening'; },
+    // Lý do: 'idle' = nạp nền lúc rảnh (mọi phiên; phiên đầu chờ lâu hơn – idleDelay); 'dynamic' / 'listening' = người dùng vừa cần
+    reasonOk(r, sessions) { return r === 'idle' ? sessions >= 1 : r === 'dynamic' || r === 'listening'; },
+    // ms từ lúc nạp klocal.js tới khi xin nạp nền: phiên đầu 60 s (để màn chào/học thử trôi mượt, không tranh mạng), sau đó 20 s
+    idleDelay: sessions => (sessions < 2 ? 60e3 : 20e3),
     rtfOk: (genMs, durMs) => durMs > 0 && genMs / durMs <= RTF_MAX,
     // PCM float32 → WAV 16-bit, đỉnh chuẩn về −1 dBFS (đồng mức file dựng sẵn)
     wav(pcm, sr) {
@@ -119,7 +122,7 @@
         const u = URL.createObjectURL(b); urls.push(u);
         if (o.onSentence) o.onSentence(i, parts[i]);
         curH = LA().play([u], { rate: o.rate || 1,
-          onStart: () => { if (i === 0) { stat('kl_ok'); stat('kl_ttfa', Math.round(performance.now() - t0)); } },
+          onStart: () => { if (i === 0) { stat('kl_ok'); stat('kl_ttfa', Math.round(performance.now() - t0)); if (LA().src) LA().src('k'); } },
           onEnd: () => (i + 1 < parts.length ? setTimeout(() => play(i + 1), o.gap || 0) : play(i + 1)),
           onFail: why => { if (my !== cur) return; note('kl', 'play ' + why); stat('kl_fail'); done(); if (o.onFail) o.onFail(parts.slice(i)); } });
       }).catch(e => { if (my !== cur) return; note('kl', 'gen ' + e.message); stat('kl_fail'); done(); if (/timeout|crash/.test(e.message)) kill(e.message); if (o.onFail) o.onFail(parts.slice(i)); });
@@ -129,11 +132,12 @@
   }
   g.KLocal = {
     ready: () => state === 'ready' && !!worker,
+    allowed: () => state !== 'off' && allowed(), // false = máy/nền tảng/công tắc không cho Kokoro trên máy (đếm lý do 'off')
     state: () => state,
     want: reason => { if (state === 'ready' && !worker) state = 'idle'; if (state === 'idle') start(reason); },
     speak, stop: () => { cur++; if (curH) { curH.stop(); curH = null; } if (worker) worker.postMessage({ type: 'cancel' }); },
   };
-  // App đã ổn định: lúc rảnh, 20 s sau khi mở (từ phiên thứ 2) – tab ẩn thì chờ tới khi hiện lại
+  // App đã ổn định: lúc rảnh, idleDelay sau khi mở – tab ẩn thì chờ tới khi hiện lại; mạng/máy do start() kiểm (netOk, tier)
   const idle = () => (g.requestIdleCallback ? requestIdleCallback(() => g.KLocal.want('idle'), { timeout: 5000 }) : g.KLocal.want('idle'));
-  setTimeout(() => (document.hidden ? document.addEventListener('visibilitychange', function f() { if (!document.hidden) { document.removeEventListener('visibilitychange', f); idle(); } }) : idle()), 20000);
+  setTimeout(() => (document.hidden ? document.addEventListener('visibilitychange', function f() { if (!document.hidden) { document.removeEventListener('visibilitychange', f); idle(); } }) : idle()), P.idleDelay(sessions()));
 })(typeof self !== 'undefined' ? self : this);

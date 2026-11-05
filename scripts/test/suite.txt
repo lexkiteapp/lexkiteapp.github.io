@@ -282,3 +282,4 @@ node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/origin-fetch.mjs
+node scripts/test/voice-source.mjs
