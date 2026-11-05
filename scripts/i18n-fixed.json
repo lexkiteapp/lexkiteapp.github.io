@@ -1761,21 +1761,6 @@
     "ru": "Игры и упражнения",
     "tr": "Oyunlar ve alıştırmalar"
   },
-  "Của tôi": {
-    "es": "Lo mío",
-    "pt": "Meu espaço",
-    "fr": "Mon espace",
-    "de": "Meins",
-    "id": "Milik saya",
-    "th": "ของฉัน",
-    "zh": "我的",
-    "ja": "マイページ",
-    "ko": "내 공간",
-    "hi": "मेरा",
-    "ar": "خاصتي",
-    "ru": "Моё",
-    "tr": "Benim"
-  },
   "Đổi giao diện sáng/tối": {
     "es": "Cambiar tema claro/oscuro",
     "pt": "Alternar tema claro/escuro",
@@ -1866,36 +1851,6 @@
     "ru": "Как в системе",
     "tr": "Sistem teması"
   },
-  "Mục tiêu ôn tập hôm nay": {
-    "es": "Meta de repaso de hoy",
-    "pt": "Meta de revisão de hoje",
-    "fr": "Objectif de révision du jour",
-    "de": "Heutiges Wiederholungsziel",
-    "id": "Target ulasan hari ini",
-    "th": "เป้าหมายทบทวนวันนี้",
-    "zh": "今日复习目标",
-    "ja": "今日の復習目標",
-    "ko": "오늘의 복습 목표",
-    "hi": "आज का दोहराव लक्ष्य",
-    "ar": "هدف المراجعة اليوم",
-    "ru": "Цель повторения на сегодня",
-    "tr": "Bugünkü tekrar hedefi"
-  },
-  "Bắt đầu ôn tập →": {
-    "es": "Empezar repaso →",
-    "pt": "Começar revisão →",
-    "fr": "Commencer la révision →",
-    "de": "Wiederholung starten →",
-    "id": "Mulai mengulang →",
-    "th": "เริ่มทบทวน →",
-    "zh": "开始复习 →",
-    "ja": "復習を始める →",
-    "ko": "복습 시작 →",
-    "hi": "दोहराना शुरू करें →",
-    "ar": "ابدأ المراجعة ←",
-    "ru": "Начать повторение →",
-    "tr": "Tekrara başla →"
-  },
   "Học thông minh": {
     "es": "Aprendizaje inteligente",
     "pt": "Aprendizado inteligente",
@@ -1910,21 +1865,6 @@
     "ar": "تعلّم ذكي",
     "ru": "Умное обучение",
     "tr": "Akıllı öğrenme"
-  },
-  "Chuỗi học": {
-    "es": "Racha",
-    "pt": "Sequência",
-    "fr": "Série",
-    "de": "Serie",
-    "id": "Rangkaian",
-    "th": "สถิติต่อเนื่อง",
-    "zh": "连续天数",
-    "ja": "連続記録",
-    "ko": "연속 기록",
-    "hi": "लगातार दिन",
-    "ar": "السلسلة",
-    "ru": "Серия",
-    "tr": "Seri"
   },
   "Từ trong sổ": {
     "es": "Palabras guardadas",
@@ -1986,21 +1926,6 @@
     "ru": "Режимы практики",
     "tr": "Alıştırma modları"
   },
-  "Tất cả →": {
-    "es": "Ver todo →",
-    "pt": "Ver tudo →",
-    "fr": "Tout voir →",
-    "de": "Alle ansehen →",
-    "id": "Lihat semua →",
-    "th": "ดูทั้งหมด →",
-    "zh": "查看全部 →",
-    "ja": "すべて見る →",
-    "ko": "모두 보기 →",
-    "hi": "सभी देखें →",
-    "ar": "عرض الكل ←",
-    "ru": "Все →",
-    "tr": "Tümünü gör →"
-  },
   "Học tiếp": {
     "es": "Seguir aprendiendo",
     "pt": "Continuar aprendendo",
@@ -2030,21 +1955,6 @@
     "ar": "مقترحات لك",
     "ru": "Рекомендации",
     "tr": "Sana öneriler"
-  },
-  "Thư viện →": {
-    "es": "Biblioteca →",
-    "pt": "Biblioteca →",
-    "fr": "Bibliothèque →",
-    "de": "Bibliothek →",
-    "id": "Pustaka →",
-    "th": "คลังคำ →",
-    "zh": "词库 →",
-    "ja": "ライブラリ →",
-    "ko": "단어장 →",
-    "hi": "संग्रह →",
-    "ar": "المكتبة ←",
-    "ru": "Библиотека →",
-    "tr": "Kütüphane →"
   },
   "Bài đọc hôm nay": {
     "es": "Lectura de hoy",
@@ -11736,21 +11646,6 @@
     "ru": "Мнемоника",
     "tr": "Hafıza ipucu"
   },
-  "Cách dùng khi thi": {
-    "es": "Uso en el examen",
-    "pt": "Uso na prova",
-    "fr": "Usage à l'examen",
-    "de": "Einsatz in der Prüfung",
-    "id": "Penggunaan saat ujian",
-    "th": "การใช้ในการสอบ",
-    "zh": "考试用法",
-    "ja": "試験での使い方",
-    "ko": "시험에서 쓰는 법",
-    "hi": "परीक्षा में प्रयोग",
-    "ar": "الاستخدام في الامتحان",
-    "ru": "Применение на экзамене",
-    "tr": "Sınavda kullanım"
-  },
   "Họ từ": {
     "es": "Familia de palabras",
     "pt": "Família de palavras",
@@ -11765,21 +11660,6 @@
     "ar": "عائلة الكلمة",
     "ru": "Однокоренные слова",
     "tr": "Kelime ailesi"
-  },
-  "Luyện Reading trên máy": {
-    "es": "Reading en computadora",
-    "pt": "Reading no computador",
-    "fr": "Reading sur ordinateur",
-    "de": "Reading am Computer",
-    "id": "Reading di komputer",
-    "th": "Reading บนคอมพิวเตอร์",
-    "zh": "机考阅读",
-    "ja": "コンピューターでリーディング",
-    "ko": "컴퓨터 읽기 연습",
-    "hi": "कंप्यूटर पर रीडिंग",
-    "ar": "القراءة على الحاسوب",
-    "ru": "Reading на компьютере",
-    "tr": "Bilgisayarda Reading"
   },
   "Đang học": {
     "es": "Aprendiendo",
@@ -13460,21 +13340,6 @@
     "ar": "أيام النشاط",
     "ru": "Дней занятий",
     "tr": "Aktif gün"
-  },
-  "Đồng bộ tài khoản": {
-    "es": "Sincronizar cuenta",
-    "pt": "Sincronizar conta",
-    "fr": "Synchroniser le compte",
-    "de": "Konto synchronisieren",
-    "id": "Sinkronkan akun",
-    "th": "ซิงค์บัญชี",
-    "zh": "账户同步",
-    "ja": "アカウント同期",
-    "ko": "계정 동기화",
-    "hi": "खाता सिंक",
-    "ar": "مزامنة الحساب",
-    "ru": "Синхронизация аккаунта",
-    "tr": "Hesap eşitleme"
   },
   "Quảng cáo": {
     "es": "Publicidad",
@@ -15623,11 +15488,6 @@
     "ja": "惜しい · 答え: {answer}",
     "th": "ยังไม่ถูก · คำตอบ: {answer}"
   },
-  "Ôn {n} thẻ đang đến thời điểm vàng": {
-    "ja": "最適なタイミングで {n} 枚のカードを復習する",
-    "th": "ทบทวนการ์ด {n} ใบในเวลาที่เหมาะสมที่สุด",
-    "tr": "{n} kartı en uygun zamanda tekrar edin"
-  },
   "Đang tra “{q}”…": {
     "ja": "「{q}」を検索中…",
     "fr": "Recherche de « {q} »…"
@@ -15653,9 +15513,6 @@
     "es": "Sets de IELTS en curso",
     "de": "IELTS-Sets in Bearbeitung",
     "ko": "진행 중인 IELTS 세트"
-  },
-  "Bật chấm bài bằng AI": {
-    "pt": "Ativar correção por IA"
   },
   "Tự phát âm khi hiện thẻ": {
     "pt": "Reproduzir a pronúncia automaticamente nos cartões"
@@ -15779,9 +15636,6 @@
   },
   "Xu hướng đề Task 2 (2026)": {
     "th": "เทรนด์ Task 2 (2026)"
-  },
-  "Cần khóa miễn phí": {
-    "th": "ต้องใช้คีย์ฟรี"
   },
   "Tải & bật": {
     "th": "ดาวน์โหลดและเปิดใช้งาน",
@@ -31181,21 +31035,6 @@
     "ru": "Звонок учителю",
     "tr": "Öğretmenle ara"
   },
-  "Tính năng học tập": {
-    "es": "Funciones de estudio",
-    "pt": "Recursos de estudo",
-    "fr": "Fonctions d'étude",
-    "de": "Lernfunktionen",
-    "id": "Fitur belajar",
-    "th": "ฟีเจอร์การเรียน",
-    "zh": "学习功能",
-    "ja": "学習機能",
-    "ko": "학습 기능",
-    "hi": "सीखने की सुविधाएँ",
-    "ar": "ميزات التعلّم",
-    "ru": "Возможности обучения",
-    "tr": "Öğrenme özellikleri"
-  },
   "Tiện ích trình duyệt": {
     "es": "Extensión del navegador",
     "pt": "Extensão do navegador",
@@ -31210,66 +31049,6 @@
     "ar": "إضافة المتصفح",
     "ru": "Расширение для браузера",
     "tr": "Tarayıcı eklentisi"
-  },
-  "Lộ trình học tập": {
-    "es": "Ruta de aprendizaje",
-    "pt": "Trilha de aprendizagem",
-    "fr": "Parcours d'apprentissage",
-    "de": "Lernpfad",
-    "id": "Jalur belajar",
-    "th": "เส้นทางการเรียน",
-    "zh": "学习路径",
-    "ja": "学習パス",
-    "ko": "학습 경로",
-    "hi": "सीखने का रास्ता",
-    "ar": "مسار التعلّم",
-    "ru": "Путь обучения",
-    "tr": "Öğrenme yolu"
-  },
-  "Học liệu mở": {
-    "es": "Materiales abiertos",
-    "pt": "Materiais abertos",
-    "fr": "Ressources ouvertes",
-    "de": "Offene Lernmaterialien",
-    "id": "Materi terbuka",
-    "th": "สื่อการเรียนแบบเปิด",
-    "zh": "开放学习资料",
-    "ja": "オープン教材",
-    "ko": "공개 학습 자료",
-    "hi": "खुली अध्ययन सामग्री",
-    "ar": "مواد تعليمية مفتوحة",
-    "ru": "Открытые материалы",
-    "tr": "Açık kaynaklar"
-  },
-  "Có thắc mắc?": {
-    "es": "¿Tienes preguntas?",
-    "pt": "Tem dúvidas?",
-    "fr": "Des questions ?",
-    "de": "Fragen?",
-    "id": "Ada pertanyaan?",
-    "th": "มีคำถามไหม?",
-    "zh": "有疑问？",
-    "ja": "質問がありますか？",
-    "ko": "궁금한 점이 있나요?",
-    "hi": "कोई सवाल?",
-    "ar": "لديك أسئلة؟",
-    "ru": "Есть вопросы?",
-    "tr": "Sorunuz mu var?"
-  },
-  "Sẵn sàng bứt phá?": {
-    "es": "¿Listo para subir?",
-    "pt": "Pronto para subir?",
-    "fr": "Prêt à progresser ?",
-    "de": "Bereit durchzustarten?",
-    "id": "Siap naik level?",
-    "th": "พร้อมก้าวขึ้นหรือยัง?",
-    "zh": "准备好提升了吗？",
-    "ja": "ステップアップの準備は？",
-    "ko": "실력을 올릴 준비 되셨나요?",
-    "hi": "आगे बढ़ने को तैयार?",
-    "ar": "مستعد للتقدّم؟",
-    "ru": "Готовы к росту?",
-    "tr": "Yükselmeye hazır mısın?"
   },
   "Mở menu": {
     "es": "Abrir menú",
@@ -31286,81 +31065,6 @@
     "ru": "Открыть меню",
     "tr": "Menüyü aç"
   },
-  "Giáo viên Ama": {
-    "es": "Profesora Ama",
-    "pt": "Professora Ama",
-    "fr": "Professeure Ama",
-    "de": "Lehrerin Ama",
-    "id": "Guru Ama",
-    "th": "ครูอามา",
-    "zh": "Ama 老师",
-    "ja": "Ama 先生",
-    "ko": "Ama 선생님",
-    "hi": "शिक्षिका Ama",
-    "ar": "المعلّمة Ama",
-    "ru": "Учитель Ама",
-    "tr": "Öğretmen Ama"
-  },
-  "Xem tất cả bài viết": {
-    "es": "Ver todos los artículos",
-    "pt": "Ver todos os artigos",
-    "fr": "Voir tous les articles",
-    "de": "Alle Artikel ansehen",
-    "id": "Lihat semua artikel",
-    "th": "ดูบทความทั้งหมด",
-    "zh": "查看全部文章",
-    "ja": "すべての記事を見る",
-    "ko": "모든 글 보기",
-    "hi": "सभी लेख देखें",
-    "ar": "عرض كل المقالات",
-    "ru": "Все статьи",
-    "tr": "Tüm yazıları gör"
-  },
-  "Đọc bài hướng dẫn": {
-    "es": "Leer la guía",
-    "pt": "Ler o guia",
-    "fr": "Lire le guide",
-    "de": "Leitfaden lesen",
-    "id": "Baca panduan",
-    "th": "อ่านคู่มือ",
-    "zh": "阅读指南",
-    "ja": "ガイドを読む",
-    "ko": "가이드 읽기",
-    "hi": "गाइड पढ़ें",
-    "ar": "اقرأ الدليل",
-    "ru": "Читать",
-    "tr": "Rehberi oku"
-  },
-  "Bài luyện tương tác miễn phí": {
-    "es": "Práctica interactiva gratis",
-    "pt": "Prática interativa grátis",
-    "fr": "Exercice interactif gratuit",
-    "de": "Kostenlose interaktive Übung",
-    "id": "Latihan interaktif gratis",
-    "th": "แบบฝึกโต้ตอบฟรี",
-    "zh": "免费互动练习",
-    "ja": "無料のインタラクティブ練習",
-    "ko": "무료 인터랙티브 연습",
-    "hi": "मुफ़्त इंटरैक्टिव अभ्यास",
-    "ar": "تدريب تفاعلي مجاني",
-    "ru": "Бесплатная интерактивная практика",
-    "tr": "Ücretsiz etkileşimli alıştırma"
-  },
-  "Đường dẫn trang": {
-    "es": "Ruta de navegación",
-    "pt": "Trilha de navegação",
-    "fr": "Fil d'Ariane",
-    "de": "Brotkrümelnavigation",
-    "id": "Navigasi jejak",
-    "th": "เส้นทางนำทาง",
-    "zh": "面包屑导航",
-    "ja": "パンくずリスト",
-    "ko": "이동 경로",
-    "hi": "ब्रेडक्रम्ब",
-    "ar": "مسار التنقل",
-    "ru": "Навигационная цепочка",
-    "tr": "İçerik yolu"
-  },
   "Đang hiện": {
     "es": "Mostrando",
     "pt": "Mostrando",
@@ -31375,96 +31079,6 @@
     "ar": "المعروض",
     "ru": "Показано",
     "tr": "Gösterilen"
-  },
-  "Đọc toàn bài": {
-    "es": "Leer el artículo completo",
-    "pt": "Ler o artigo completo",
-    "fr": "Lire l'article complet",
-    "de": "Ganzen Artikel lesen",
-    "id": "Baca artikel lengkap",
-    "th": "อ่านบทความเต็ม",
-    "zh": "阅读全文",
-    "ja": "記事全文を読む",
-    "ko": "전체 글 읽기",
-    "hi": "पूरा लेख पढ़ें",
-    "ar": "اقرأ المقال كاملًا",
-    "ru": "Читать полностью",
-    "tr": "Yazının tamamını oku"
-  },
-  "Lọc bài viết trên trang này…": {
-    "es": "Filtrar artículos de esta página…",
-    "pt": "Filtrar artigos desta página…",
-    "fr": "Filtrer les articles de cette page…",
-    "de": "Artikel auf dieser Seite filtern…",
-    "id": "Saring artikel di halaman ini…",
-    "th": "กรองบทความในหน้านี้…",
-    "zh": "筛选本页文章…",
-    "ja": "このページの記事を絞り込む…",
-    "ko": "이 페이지의 글 필터…",
-    "hi": "इस पेज के लेख फ़िल्टर करें…",
-    "ar": "تصفية مقالات هذه الصفحة…",
-    "ru": "Фильтр статей на этой странице…",
-    "tr": "Bu sayfadaki yazıları filtrele…"
-  },
-  "Bài viết mới nhất": {
-    "es": "Artículos recientes",
-    "pt": "Artigos recentes",
-    "fr": "Derniers articles",
-    "de": "Neueste Artikel",
-    "id": "Artikel terbaru",
-    "th": "บทความล่าสุด",
-    "zh": "最新文章",
-    "ja": "最新の記事",
-    "ko": "최신 글",
-    "hi": "नवीनतम लेख",
-    "ar": "أحدث المقالات",
-    "ru": "Новые статьи",
-    "tr": "En yeni yazılar"
-  },
-  "Miễn phí 100% • Không tường phí": {
-    "es": "100 % gratis • Sin muro de pago",
-    "pt": "100% grátis • Sem paywall",
-    "fr": "100 % gratuit • Sans paywall",
-    "de": "100 % kostenlos • Keine Paywall",
-    "id": "100% gratis • Tanpa paywall",
-    "th": "ฟรี 100% • ไม่มีเพย์วอลล์",
-    "zh": "100% 免费 • 无付费墙",
-    "ja": "100% 無料 • 課金の壁なし",
-    "ko": "100% 무료 • 유료 장벽 없음",
-    "hi": "100% मुफ़्त • कोई पेवॉल नहीं",
-    "ar": "مجاني 100% • بلا جدار دفع",
-    "ru": "100% бесплатно • Без платного доступа",
-    "tr": "%100 ücretsiz • Ödeme duvarı yok"
-  },
-  "Lặp lại ngắt quãng & luyện ngắn mỗi ngày": {
-    "es": "Repaso espaciado y mini prácticas diarias",
-    "pt": "Revisão espaçada e minitreinos diários",
-    "fr": "Répétition espacée et mini-exercices quotidiens",
-    "de": "Verteilte Wiederholung & tägliche Mini-Übungen",
-    "id": "Pengulangan berjarak & latihan singkat harian",
-    "th": "ทบทวนแบบเว้นระยะ & ฝึกสั้นทุกวัน",
-    "zh": "间隔重复 & 每日小练习",
-    "ja": "間隔反復と毎日のミニ練習",
-    "ko": "간격 반복 & 매일 짧은 연습",
-    "hi": "स्पेस्ड रिपिटिशन और रोज़ के छोटे अभ्यास",
-    "ar": "تكرار متباعد وتمارين يومية قصيرة",
-    "ru": "Интервальные повторения и ежедневные мини-тренировки",
-    "tr": "Aralıklı tekrar ve günlük kısa alıştırmalar"
-  },
-  "Dùng trên web & Chrome": {
-    "es": "Disponible en la web y Chrome",
-    "pt": "Disponível na web e no Chrome",
-    "fr": "Disponible sur le web et Chrome",
-    "de": "Im Web & in Chrome verfügbar",
-    "id": "Tersedia di web & Chrome",
-    "th": "ใช้ได้บนเว็บและ Chrome",
-    "zh": "支持网页和 Chrome",
-    "ja": "Web と Chrome で利用可能",
-    "ko": "웹과 Chrome에서 사용 가능",
-    "hi": "वेब और Chrome पर उपलब्ध",
-    "ar": "متاح على الويب وChrome",
-    "ru": "Доступно в вебе и Chrome",
-    "tr": "Web'de ve Chrome'da"
   },
   "Khiếu nại máy giặt mua online bị lỗi": {
     "es": "Queja por una lavadora defectuosa comprada en línea",
@@ -33806,21 +33420,6 @@
     "tr": "{w}: {m} içinde {n}. sıra",
     "zh": "{w}：第 {n} 位，共 {m} 位"
   },
-  "Chạm thẻ để đặt hoặc gỡ; kéo để đổi chỗ; phím số đặt thẻ, Backspace gỡ thẻ cuối": {
-    "ar": "المس البطاقة لوضعها أو إزالتها؛ اسحب لتغيير مكانها؛ الأرقام تضع البطاقة، وBackspace يزيل الأخيرة",
-    "de": "Tippe auf eine Karte, um sie abzulegen oder zu entfernen; ziehe, um sie zu verschieben; Zifferntasten legen ab, Rücktaste entfernt die letzte",
-    "es": "Toca una ficha para colocarla o quitarla; arrastra para moverla; las teclas numéricas la colocan y Retroceso quita la última",
-    "fr": "Touchez une tuile pour la placer ou la retirer ; faites-la glisser pour la déplacer ; les chiffres la placent, Retour arrière retire la dernière",
-    "hi": "टाइल रखने या हटाने के लिए टैप करें; जगह बदलने के लिए खींचें; नंबर कुंजी टाइल रखती है, Backspace आख़िरी हटाता है",
-    "id": "Ketuk kartu untuk menaruh atau melepasnya; seret untuk memindahkan; tombol angka menaruh kartu, Backspace melepas yang terakhir",
-    "ja": "タイルをタップで配置・取り外し、ドラッグで並べ替え。数字キーで配置、Backspaceで最後を取り外し",
-    "ko": "타일을 탭해 놓거나 빼고, 끌어서 순서를 바꾸세요. 숫자 키로 놓고 Backspace로 마지막 타일을 뺍니다",
-    "pt": "Toque numa peça para colocá-la ou retirá-la; arraste para mudar de lugar; as teclas numéricas colocam e Backspace retira a última",
-    "ru": "Нажмите на карточку, чтобы поставить или убрать её; перетащите, чтобы переставить; цифры ставят карточку, Backspace убирает последнюю",
-    "th": "แตะบัตรเพื่อวางหรือเอาออก ลากเพื่อสลับที่ ปุ่มตัวเลขวางบัตร Backspace เอาบัตรสุดท้ายออก",
-    "tr": "Kartı yerleştirmek ya da kaldırmak için dokun; yerini değiştirmek için sürükle; rakam tuşları yerleştirir, Backspace sonuncuyu kaldırır",
-    "zh": "点按词块放入或移除；拖动可调换位置；数字键放入词块，Backspace 移除最后一个"
-  },
   "Cần gợi ý?": {
     "ar": "تحتاج تلميحًا؟",
     "de": "Brauchst du einen Tipp?",
@@ -33880,36 +33479,6 @@
     "th": "ซ่อนคำแปล",
     "tr": "Çeviriyi gizle",
     "zh": "隐藏翻译"
-  },
-  "Gọi cho Mia": {
-    "es": "Llamar a Mia",
-    "pt": "Ligar para a Mia",
-    "fr": "Appeler Mia",
-    "de": "Mia anrufen",
-    "id": "Telepon Mia",
-    "th": "โทรหา Mia",
-    "zh": "给 Mia 打电话",
-    "ja": "Mia に電話",
-    "ko": "Mia에게 전화",
-    "hi": "Mia को कॉल करें",
-    "ar": "اتصل بـ Mia",
-    "ru": "Позвонить Mia",
-    "tr": "Mia’yı ara"
-  },
-  "Cuộc gọi với Mia": {
-    "es": "Llamada con Mia",
-    "pt": "Chamada com a Mia",
-    "fr": "Appel avec Mia",
-    "de": "Anruf mit Mia",
-    "id": "Panggilan dengan Mia",
-    "th": "สายสนทนากับ Mia",
-    "zh": "与 Mia 通话",
-    "ja": "Mia との通話",
-    "ko": "Mia와 통화",
-    "hi": "Mia के साथ कॉल",
-    "ar": "مكالمة مع Mia",
-    "ru": "Звонок с Mia",
-    "tr": "Mia ile arama"
   },
   "Xem video bài học": {
     "es": "Mira el vídeo de la lección",
@@ -34720,81 +34289,6 @@
     "ar": "تعذّر تشغيل التعرّف على الصوت على الجهاز – تحقّق من الإنترنت ثم انقر على الميكروفون للمحاولة مجددًا.",
     "ru": "Не удалось запустить распознавание речи на устройстве – проверьте интернет и нажмите на микрофон, чтобы повторить.",
     "tr": "Cihazda konuşma tanıma başlatılamadı – internetinizi kontrol edip yeniden denemek için mikrofona dokunun."
-  },
-  "{n} từ sắp quên mất rồi": {
-    "es": "Palabras a punto de olvidarse: {n}",
-    "pt": "Palavras quase esquecidas: {n}",
-    "fr": "Mots sur le point de s'envoler : {n}",
-    "de": "Wörter kurz vorm Vergessen: {n}",
-    "id": "Kata yang hampir terlupa: {n}",
-    "th": "คำที่ใกล้จะลืม: {n}",
-    "zh": "快要忘记的单词：{n} 个",
-    "ja": "忘れかけている単語：{n}語",
-    "ko": "곧 잊힐 단어: {n}개",
-    "hi": "भूलने वाले शब्द: {n}",
-    "ar": "كلمات على وشك النسيان: {n}",
-    "ru": "Слова, которые вот-вот забудутся: {n}",
-    "tr": "Unutulmak üzere olan kelimeler: {n}"
-  },
-  "Chuỗi 🔥{s} ngày đang gặp nguy!": {
-    "es": "¡Tu racha de 🔥{s} días está en peligro!",
-    "pt": "Sua sequência de 🔥{s} dias está em risco!",
-    "fr": "Ta série de 🔥{s} jours est en danger !",
-    "de": "Deine 🔥{s}-Tage-Serie ist in Gefahr!",
-    "id": "Rentetan 🔥{s} harimu dalam bahaya!",
-    "th": "สถิติ 🔥{s} วันของคุณกำลังเสี่ยง!",
-    "zh": "你的 🔥{s} 天连续学习快要中断了！",
-    "ja": "🔥{s}日連続記録がピンチ！",
-    "ko": "🔥{s}일 연속 기록이 위험해요!",
-    "hi": "आपकी 🔥{s} दिन की लय खतरे में है!",
-    "ar": "سلسلتك 🔥{s} يومًا في خطر!",
-    "ru": "Твоя серия 🔥{s} дн. под угрозой!",
-    "tr": "🔥{s} günlük serin tehlikede!"
-  },
-  "Chỉ cần 1 phút để giữ chuỗi hôm nay.": {
-    "es": "Solo 1 minuto la mantiene viva hoy.",
-    "pt": "Só 1 minuto mantém ela viva hoje.",
-    "fr": "Une minute suffit pour la garder aujourd'hui.",
-    "de": "Schon 1 Minute rettet sie heute.",
-    "id": "Cukup 1 menit untuk menjaganya hari ini.",
-    "th": "แค่ 1 นาทีก็รักษาไว้ได้วันนี้",
-    "zh": "只需 1 分钟就能保住今天的连续记录。",
-    "ja": "1分だけで今日の記録を守れるよ。",
-    "ko": "딱 1분이면 오늘 기록을 지킬 수 있어요.",
-    "hi": "आज इसे बचाने में बस 1 मिनट लगेगा।",
-    "ar": "دقيقة واحدة تكفي لإبقائها اليوم.",
-    "ru": "Всего 1 минута — и серия спасена.",
-    "tr": "Bugün korumak için 1 dakika yeter."
-  },
-  "Đừng để chuỗi {s} ngày tắt nhé": {
-    "es": "No dejes que se apague tu racha de {s} días",
-    "pt": "Não deixe sua sequência de {s} dias apagar",
-    "fr": "Ne laisse pas s'éteindre ta série de {s} jours",
-    "de": "Lass deine {s}-Tage-Serie nicht abreißen",
-    "id": "Jangan biarkan rentetan {s} harimu padam",
-    "th": "อย่าปล่อยให้สถิติ {s} วันดับนะ",
-    "zh": "别让 {s} 天的连续记录熄灭",
-    "ja": "{s}日連続の記録を途切れさせないで",
-    "ko": "{s}일 연속 기록이 꺼지지 않게 해요",
-    "hi": "अपनी {s} दिन की लय बुझने न दें",
-    "ar": "لا تدع سلسلة {s} يومًا تنطفئ",
-    "ru": "Не дай серии в {s} дн. прерваться",
-    "tr": "{s} günlük serinin sönmesine izin verme"
-  },
-  "Ôn vài thẻ là giữ được – Kit tin bạn!": {
-    "es": "Unas pocas tarjetas la salvan. ¡Kit confía en ti!",
-    "pt": "Alguns cartões já salvam – o Kit acredita em você!",
-    "fr": "Quelques cartes suffisent – Kit croit en toi !",
-    "de": "Ein paar Karten reichen – Kit glaubt an dich!",
-    "id": "Beberapa kartu saja sudah cukup – Kit percaya padamu!",
-    "th": "ทบทวนไม่กี่ใบก็รักษาไว้ได้ – Kit เชื่อในตัวคุณ!",
-    "zh": "复习几张卡片就能保住——Kit 相信你！",
-    "ja": "数枚の復習で守れる――Kitは信じてるよ！",
-    "ko": "카드 몇 장이면 지킬 수 있어요 – Kit은 당신을 믿어요!",
-    "hi": "कुछ कार्ड से ही बच जाएगी – Kit को आप पर भरोसा है!",
-    "ar": "بضع بطاقات تكفي لإنقاذها – Kit يثق بك!",
-    "ru": "Пара карточек — и серия цела. Kit в тебя верит!",
-    "tr": "Birkaç kart yeter – Kit sana inanıyor!"
   },
   "Lỗi {id} đã được sửa": {
     "es": "El problema {id} se ha solucionado",
@@ -36070,5 +35564,80 @@
     "ar": "فيديوهات YouTube حسب الموضوع، كرّر المقاطع، احفظ الكلمات",
     "ru": "Видео YouTube по темам, повтор фрагментов, сохранение слов",
     "tr": "Konuya göre YouTube videoları, bölüm tekrarı, kelime kaydı"
+  },
+  "Thi": {
+    "es": "Exámenes",
+    "pt": "Provas",
+    "fr": "Examens",
+    "de": "Tests",
+    "id": "Ujian",
+    "th": "สอบ",
+    "zh": "考试",
+    "ja": "試験",
+    "ko": "시험",
+    "hi": "परीक्षा",
+    "ar": "اختبارات",
+    "ru": "Тесты",
+    "tr": "Sınavlar"
+  },
+  "Biết trình độ để xếp lộ trình đúng sức": {
+    "es": "Conoce tu nivel para empezar en el punto justo",
+    "pt": "Conheça seu nível para começar no ponto certo",
+    "fr": "Connaissez votre niveau pour démarrer au bon endroit",
+    "de": "Kenne dein Niveau und starte an der richtigen Stelle",
+    "id": "Ketahui levelmu agar mulai dari tahap yang tepat",
+    "th": "รู้ระดับของคุณเพื่อเริ่มในจุดที่เหมาะสม",
+    "zh": "了解你的水平，从合适的阶段开始",
+    "ja": "レベルを知って、ちょうどよい段階から始めましょう",
+    "ko": "실력을 확인하고 알맞은 단계에서 시작하세요",
+    "hi": "अपना स्तर जानें और सही चरण से शुरू करें",
+    "ar": "اعرف مستواك لتبدأ من المرحلة المناسبة",
+    "ru": "Узнайте свой уровень и начните с подходящего этапа",
+    "tr": "Seviyeni öğren, doğru aşamadan başla"
+  },
+  "Bài kiểm tra ngắn giúp bạn bắt đầu đúng chặng. Không bắt buộc, làm sau cũng được.": {
+    "es": "Una prueba breve te ubica en la etapa adecuada. Es opcional y puedes hacerla más tarde.",
+    "pt": "Um teste rápido coloca você na etapa certa. É opcional e pode ser feito depois.",
+    "fr": "Un court test vous place à la bonne étape. Il est facultatif et peut attendre.",
+    "de": "Ein kurzer Test bringt dich zur passenden Etappe. Er ist freiwillig und geht auch später.",
+    "id": "Tes singkat menempatkanmu di tahap yang tepat. Tidak wajib, bisa dikerjakan nanti.",
+    "th": "แบบทดสอบสั้น ๆ ช่วยจัดคุณให้อยู่ในด่านที่เหมาะสม ไม่บังคับ ทำทีหลังก็ได้",
+    "zh": "简短测试帮你从合适的阶段开始。可选，也可以稍后再做。",
+    "ja": "短いテストで合った段階から始められます。任意なので、後からでも受けられます。",
+    "ko": "짧은 테스트로 알맞은 단계에서 시작할 수 있어요. 선택 사항이며 나중에 해도 됩니다.",
+    "hi": "छोटा टेस्ट आपको सही चरण से शुरू करने में मदद करता है। यह ज़रूरी नहीं है, बाद में भी कर सकते हैं।",
+    "ar": "يساعدك اختبار قصير على البدء من المرحلة المناسبة. إنه اختياري ويمكنك إجراؤه لاحقًا.",
+    "ru": "Короткий тест поможет начать с подходящего этапа. Он необязателен, можно пройти позже.",
+    "tr": "Kısa bir test doğru aşamadan başlamanı sağlar. Zorunlu değildir, sonra da yapabilirsin."
+  },
+  "Mọi bài luyện theo nhóm, luyện thi trước": {
+    "es": "Todas las prácticas por grupo, primero los exámenes",
+    "pt": "Todos os treinos por grupo, provas primeiro",
+    "fr": "Tous les exercices par groupe, examens d'abord",
+    "de": "Alle Übungen nach Gruppen, Prüfungen zuerst",
+    "id": "Semua latihan per kelompok, ujian lebih dulu",
+    "th": "แบบฝึกทั้งหมดตามกลุ่ม เริ่มจากเตรียมสอบ",
+    "zh": "按类别查看全部练习，备考优先",
+    "ja": "すべての練習をグループ別に、試験対策から",
+    "ko": "모든 연습을 그룹별로, 시험 대비부터",
+    "hi": "सभी अभ्यास समूहों में, परीक्षा तैयारी पहले",
+    "ar": "كل التدريبات حسب المجموعة، وتدريب الاختبارات أولًا",
+    "ru": "Все упражнения по группам, сначала подготовка к экзаменам",
+    "tr": "Tüm alıştırmalar gruplara göre, önce sınav hazırlığı"
+  },
+  "Tham gia ngay": {
+    "es": "Unirme ahora",
+    "pt": "Entrar agora",
+    "fr": "Rejoindre",
+    "de": "Jetzt beitreten",
+    "id": "Gabung sekarang",
+    "th": "เข้าร่วมเลย",
+    "zh": "立即加入",
+    "ja": "今すぐ参加",
+    "ko": "지금 참가",
+    "hi": "अभी जुड़ें",
+    "ar": "انضم الآن",
+    "ru": "Присоединиться",
+    "tr": "Hemen katıl"
   }
 }

@@ -46,7 +46,7 @@
     'Bỏ thay đổi chưa lưu?': 'Discard unsaved changes?', 'Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.': 'You have unsaved changes. Leaving this page will lose them.', 'Bỏ thay đổi': 'Discard changes', 'Ở lại': 'Stay',
     // Drive (banner toàn cục)
     'Xem Cảnh báo': 'Open alerts', 'Xem Lưu trữ': 'Open storage',
-    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)': 'CI: {n} workflow(s) using runners abnormally – see issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
+    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trên main trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed on main in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)': 'CI: {n} workflow(s) using runners abnormally – see issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
     'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)': 'D1: read source {r} = {p}% of the Free limit on {d} (budget 10%)', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
     // Đơn vị & thời gian
@@ -88,12 +88,13 @@
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
     '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Số khách (thiết bị) khác nhau.': 'Unique visitors (devices).',
-    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
+    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', '0 khách': '0 visitors', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
     // Phân tích
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
     '🗺️ Khách theo quốc gia · hôm nay': '🗺️ Visitors by country · today', 'Bản đồ khách theo quốc gia hôm nay': 'Map of visitors by country today', 'Không tải được số liệu trực tiếp.': 'Could not load live data.', 'Chi tiết · {r}': 'Details · {r}',
     'Phiên truy cập': 'Sessions', 'Khách (thiết bị)': 'Visitors (devices)', '{n} phiên/khách': '{n} sessions/visitor', 'Thời gian TB/phiên': 'Avg. time/session', 'Trang/phiên': 'Pages/session', 'Khách quay lại': 'Returning visitors',
     'Thoát ngay (&lt;15 giây, 1 trang)': 'Bounce (&lt;15s, 1 page)', 'LCP thật (tốc độ hiện nội dung)': 'Real-user LCP (content load speed)', 'p75 · {p} phiên đạt “Tốt” (≤ 2,5 s)': 'p75 · {p} of sessions “Good” (≤ 2.5 s)',
+    'Nhóm CPM cao': 'High-CPM group', 'Việt Nam': 'Vietnam', 'Nhóm CPM cao (giả định)': 'High-CPM group (assumed)', 'Nước khác': 'Other countries', 'Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.': 'Real visitors in the selected range, excluding bots and admin accounts. Country list: functions/api/_cpm.js.', 'Khách từ ngoài vào trang tĩnh': 'Outside visitors to static pages', 'Nước của khách từ ngoài': 'Their countries', 'Loại trang họ vào': 'Page type they landed on', 'Chưa có lượt nào.': 'No visits yet.',
     'Phiên theo ngày': 'Sessions per day', 'Nguồn truy cập': 'Traffic sources', 'Quốc gia': 'Countries', 'Trang vào đầu tiên': 'Landing pages', 'Tần suất (số phiên mỗi khách)': 'Frequency (sessions per visitor)', '{k} lần': '{k}×',
     'Thiết bị': 'Devices', 'Ngôn ngữ giao diện': 'UI language', 'Thói quen sử dụng': 'Usage habits', 'Giờ cao điểm (giờ Việt Nam)': 'Peak hours (Vietnam time)', 'Ngày trong tuần': 'Day of week', 'Thời lượng phiên': 'Session length',
     'Tăng trưởng': 'Growth', 'Khách mới & khách quay lại theo ngày': 'New vs. returning visitors per day', 'Tài khoản đăng ký mới': 'New sign-ups', 'Chưa có đăng ký mới trong khoảng này': 'No new sign-ups in this range',
@@ -239,7 +240,7 @@
   // Giao diện sáng/tối: Tự động (theo máy) → Sáng → Tối, ghi nhớ trên trình duyệt
   const THEME = { auto: ['🌗', 'Tự động (theo máy)'], light: ['☀️', 'Sáng'], dark: ['🌙', 'Tối'] };
   const themeNow = () => { try { return localStorage.getItem('lk.admTheme') || 'auto'; } catch (e) { return 'auto'; } };
-  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); };
+  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); redrawMap(); };
   const cycleTheme = () => { const order = ['auto', 'light', 'dark']; setTheme(order[(order.indexOf(themeNow()) + 1) % 3]); };
   const paintTheme = () => { const b = document.getElementById('thm'); if (!b) return; const m = THEME[themeNow()] ? themeNow() : 'auto'; b.innerHTML = `${THEME[m][0]} <span class="lbl">${esc(L(THEME[m][1]))}</span>`; b.setAttribute('aria-label', L('Giao diện: {m} – bấm để đổi', { m: L(THEME[m][1]) })); };
   try { const m = localStorage.getItem('lk.admTheme'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) { /* bỏ qua */ }
@@ -601,7 +602,7 @@
     } catch (e) { /* huy hiệu không bắt buộc */ }
   }
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
-  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', 'capacity-src': 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md', ci_hog: 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)' }; // giữ khớp alertTxt trong admin-drive.js
+  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', 'capacity-src': 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trên main trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md', ci_hog: 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)' }; // giữ khớp alertTxt trong admin-drive.js
   let drvAl = null;
   // Cảnh báo chung một nguồn (drive_alerts) nhưng không phải loại nào cũng thuộc Kho Drive → nhãn + trang đích theo loại; huy hiệu Kho Drive chỉ đếm cảnh báo Drive
   // (27/10: cảnh báo CI hiện dưới nhãn "Kho Drive" + ⛔ ở mục Kho Drive → tưởng Drive hỏng).
@@ -687,8 +688,8 @@
   const chart = (rows, key, label) => AdminChart.bars(rows, { key, fmt: num, x: r => String(r.day).slice(5), aria: label, empty: L('Chưa có dữ liệu') }); // js/admin-chart.js – chữ cố định px, lưới, nhãn ngày tự giãn
 
   // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------
-  let liveTimer = null, worldMap = null, mapKey = '', mapLib = null, mapRO = null;
-  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; };
+  let liveTimer = null, worldMap = null, mapKey = '', mapData = null, mapLib = null, mapRO = null;
+  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; mapData = null; };
   const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
   const platName = k => PLAT[k] ? L(PLAT[k][1]) : k || '–', platIcon = k => (PLAT[k] || ['❔'])[0];
   const mkRegion = () => { try { return new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { return null; } }; // trình duyệt cũ → null
@@ -753,24 +754,24 @@
     const js = src => new Promise((y, n) => { const s = document.createElement('script'); s.src = src; s.onload = y; s.onerror = n; document.head.appendChild(s); });
     js('js/vendor/jsvectormap/jsvectormap.min.js').then(() => js('js/vendor/jsvectormap/world.js')).then(() => window.jsVectorMap ? ok(window.jsVectorMap) : fail(new Error('jsvectormap'))).catch(e => { mapLib = null; fail(e); });
   }));
-  const BUCKETS = [['1', 1, '#FFE7C2'], ['2–5', 2, '#FFC94A'], ['6–20', 6, '#FFB054'], ['21–100', 21, '#F2553B'], ['100+', 101, '#CC3F1C']]; // dải màu thương hiệu (kem → vàng → cam)
+  const BUCKETS = [['1', 1], ['2–5', 2], ['6–20', 6], ['21–100', 21], ['100+', 101]]; // màu: --map-1…5, nước 0 khách: --map-0 (admin.css, riêng sáng/tối)
   const bucket = n => [...BUCKETS].reverse().find(b => n >= b[1]);
   async function drawMap(countries) {
     const box = $('#worldMap'); if (!box) return;
     const rows = (countries || []).filter(r => realCC(r.k)), vals = Object.fromEntries(rows.map(r => [r.k, r.n])), known = rows.reduce((a, r) => a + r.n, 0), unk = (countries || []).filter(r => !realCC(r.k)).reduce((a, r) => a + r.n, 0);
-    mapKey = JSON.stringify(countries || []);
+    mapKey = JSON.stringify(countries || []); mapData = countries;
     if ($('#mapSum')) $('#mapSum').textContent = L('{c} quốc gia · {n} khách', { c: rows.length, n: num(known) }) + (unk ? L(' · {n} không rõ', { n: num(unk) }) : '');
-    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span>${BUCKETS.map(b => `<span class="ml-i"><i style="background:${b[2]}"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
+    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span><span class="ml-i"><i style="background:var(--map-0)"></i>${L('0 khách')}</span>${BUCKETS.map((b, i) => `<span class="ml-i"><i style="background:var(--map-${i + 1})"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
     try {
       const JVM = await loadMap(); if (!$('#worldMap') || tab !== 'analytics') return;
       if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; }
       box.innerHTML = '';
-      const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+      const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
       const values = Object.fromEntries(Object.entries(vals).map(([k, n]) => [k, bucket(n)[0]]));
       worldMap = new JVM({
         selector: '#worldMap', map: 'world', backgroundColor: 'transparent', zoomButtons: true, zoomOnScroll: false, zoomMax: 8,
-        regionStyle: { initial: { fill: css('--surface-3') || '#e8e9f4', stroke: css('--surface') || '#ffffff', strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
-        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map(b => [b[0], b[2]])), values }] },
+        regionStyle: { initial: { fill: css('--map-0'), stroke: css('--surface'), strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
+        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map((b, i) => [b[0], css(`--map-${i + 1}`)])), values }] },
         onRegionTooltipShow(e, tip, code) { tip.text(L('{c} – {n} khách hôm nay', { c: cname(code), n: num(vals[code] || 0) })); },
       });
       // Bản đồ tự co giãn theo khung (đổi cỡ cửa sổ / xoay máy)
@@ -780,6 +781,10 @@
       box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, r => FLAG(r.k) + ' · ' + cname(r.k))}`;
     }
   }
+  // Màu đọc lúc vẽ nên đổi sáng/tối phải vẽ lại (owner 4/11: vẽ lúc sáng rồi sang tối → nước trống vẫn kem như có khách). Cả nút giao diện lẫn hệ điều hành đổi ở chế độ Tự động.
+  function redrawMap() { if (mapData && tab === 'analytics' && $('#worldMap')) drawMap(mapData); }
+  const darkMQ = matchMedia('(prefers-color-scheme: dark)'), onSysTheme = () => { if (themeNow() === 'auto') redrawMap(); };
+  if (darkMQ.addEventListener) darkMQ.addEventListener('change', onSysTheme); else darkMQ.addListener(onSysTheme);
   // ---------- Người dùng: hộp thoại chi tiết & xóa dữ liệu (gõ lại UID để xác nhận) ----------
   async function userDel(uid, email, done) {
     const ok = await confirmDlg({ title: L('Xóa vĩnh viễn dữ liệu đồng bộ?'), body: L('Xóa toàn bộ dữ liệu đồng bộ của {e}. Tài khoản Google không bị ảnh hưởng. Không thể hoàn tác.', { e: email || uid }), typed: uid, ok: L('Xóa vĩnh viễn'), danger: true });
@@ -1130,6 +1135,8 @@
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
           <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', s.s)}</div>
+          ${a.cpm ? `<div class="card"><h3>${L('Nhóm CPM cao')}${a.cpm.highPct == null ? '' : ` · ${a.cpm.highPct} %`}</h3>${bars([{ k: 'high', n: a.cpm.high }, { k: 'vn', n: a.cpm.vn }, { k: 'other', n: a.cpm.other }], r => L({ high: 'Nhóm CPM cao (giả định)', vn: 'Việt Nam', other: 'Nước khác' }[r.k]), r => r.n, () => '', a.cpm.total)}<p class="small muted">${L('Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.')}</p></div>` : ''}
+          ${a.land ? `<div class="card"><h3>${L('Khách từ ngoài vào trang tĩnh')} · ${num(a.land.total)}</h3>${a.land.total ? `${bars(a.land.src)}<h3 class="mt">${L('Nước của khách từ ngoài')}</h3>${bars(a.land.countries.slice(0, 10), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', a.land.total)}<h3 class="mt">${L('Loại trang họ vào')}</h3>${bars(a.land.kinds)}` : `<p class="small muted">${L('Chưa có lượt nào.')}</p>`}</div>` : ''}
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>${L('Tần suất (số phiên mỗi khách)')}</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => (a.freq || []).find(f => f.k === k) || { k, n: 0 }), r => L('{k} lần', { k: r.k }))}</div>
           <div class="card"><h3>${L('Thiết bị')}</h3>${bars(a.devs)}<h3 class="mt">${L('Nền tảng@@h')}</h3>${bars(a.plats, r => platName(r.k))}</div>

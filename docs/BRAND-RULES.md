@@ -7,10 +7,11 @@
 |---|---|---|
 | Linh vật **Kit** (6 cảm xúc: happy, win, cheer, think, sad, sleep) | `web/js/kit.js` → `Kit.svg(cảm xúc, cỡ, hoạt cảnh)` | `brand/kit-*.svg` được **xuất tự động** từ file này (`node scripts/build-social-kit.mjs`) – không sửa tay |
 | **Màu (mọi bề mặt)** | `brand/tokens.json` → `node scripts/build-tokens.mjs` | sinh :root sáng/tối của `web/css/style.css`, trang tĩnh (`site-layout.mjs` đọc JSON), bong bóng dịch/kiểm câu add-on (`--d-*`), `web/icons/icon.svg`, logo tối, end card video (`Short.jsx`), `build-social-kit.mjs` |
-| Icon app | `web/icons/icon.svg` (sinh từ `tokens.json` → `icon`) | nền #0F3D3E + vệt sáng trên #17595A, diều #FFB054 → #FF7A4D (≥ 3:1 trên cả vệt sáng), vàng #FFC94A, kem #FFE7C2. PNG (16–512, maskable, Apple, cửa hàng) dựng trên CI |
+| Icon app | `web/icons/icon.svg` (sinh từ `tokens.json` → `icon`) | nền phẳng #0F3D3E, diều #FFB054 → #F2553B (≥ 3:1), vàng #FFC94A, kem #FFE7C2. **Đổi logo/favicon/icon phải được chủ đồng ý trước** (brand-check khóa sha256). PNG (16–512, maskable, Apple, cửa hàng) dựng trên CI |
 | Logo ngang / đơn sắc | `brand/lexkite-logo-{light,dark}.svg`, `brand/lexkite-mark*.svg` | cùng tông icon.svg |
 | Wordmark | "lex" màu chữ + "kite" gradient #E5502F → #FFB054 (`.wordmark b`, `.grad-text` trong `web/css/style.css`) | |
 | Mạng xã hội | `brand/social/` (dựng bằng `scripts/build-social-kit.mjs`) | đọc Kit từ kit.js |
+| Avatar + bìa kênh (FB/IG/TikTok/YouTube, chỉ tiếng Anh) | `brand/social/channel-kit/` (dựng trên CI: `scripts/social/build-channel-kit.mjs`, workflow social-channel-kit) | nguyên logo, Ama/Carlos, QC tự động |
 | Trang trình bày brand | `brand/brand-kit.html` | nạp `../web/js/kit.js` |
 
 ## Nhãn hiệu "Lexkite™"

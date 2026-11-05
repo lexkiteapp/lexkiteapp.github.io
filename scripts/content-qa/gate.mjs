@@ -85,6 +85,30 @@ for (const r of K.READINGS || []) {
   info.usage = { entries: n, withNotes: noted, pct: n ? Math.round(noted / n * 100) : 0 };
 }
 
+// ---------- Truyện & podcast theo cấp (docs/STORIES.md §3–4) – nguồn mới → mọi lỗi CỨNG ----------
+{ const { createRequire } = await import('node:module'); const S = createRequire(import.meta.url)('../../web/js/stories/core.js');
+  const wctx = { console }; wctx.self = wctx; vm.createContext(wctx); vm.runInContext(fs.readFileSync(P('web/js/writecheck-rules.js'), 'utf8'), wctx);
+  const dir = 'content/stories', files = ex(dir) ? fs.readdirSync(P(dir)).filter(f => f.endsWith('.json')) : [], ids = new Set();
+  for (const f of files) {
+    const x = J(dir + '/' + f);
+    if (x.id + '.json' !== f) H('stories', `${f}: tên file phải = id + .json`);
+    if (ids.has(x.id)) H('stories', `${x.id}: trùng id`); ids.add(x.id);
+    for (const m of S.validate(x)) H('stories', m);
+    (x.chapters || []).forEach((ch, ci) => {
+      const allow = new Set((ch.words || []).map(S.base)), where = `${x.id}#ch${ci + 1}`;
+      for (const w of ch.words || []) if (!known(S.base(w))) H('stories', `${where}: từ tô sáng "${w}" không có trong kho từ (IPA/nghĩa lấy từ kho)`);
+      for (const s of S.sentencesOf(ch)) {
+        const over = S.words(s).filter(w => !S.lemmas(w).some(l => allow.has(l)) && !S.lemmas(w).some(l => LEX.has(l) && !cefrOver(l, x.level, LEX).length));
+        const hi = [...new Set(over.filter(w => S.lemmas(w).some(l => LEX.has(l))))];
+        if (hi.length) H('stories', `${where}: từ cao hơn ${x.level} > 1 bậc chưa có trong words: ${hi.join(', ')} – "${s}"`);
+        const bad = wctx.LK_WRITE.check(s).filter(h => h.type === 'grammar' || h.type === 'spelling');
+        if (bad.length) H('stories', `${where}: soát lỗi ${bad.map(h => h.type + ':' + s.slice(h.s, h.e)).join(', ')} – "${s}"`);
+      }
+    });
+  }
+  info.stories = files.length;
+}
+
 // ---------- Giao tiếp tự tin: CEFR bài + cặp ✗/✓ (not → say) + nghĩa/lý do đủ en ----------
 for (const f of fs.readdirSync(P('content/confidence/units')).filter(f => f.endsWith('.json'))) {
   const u = J('content/confidence/units/' + f);

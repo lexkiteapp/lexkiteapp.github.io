@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — YouTube Channel Banner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              bg: '#081518',
+              surface: '#0d2024',
+              teal: '#2ba39a',
+              tealBright: '#45dfd0',
+              tealDark: '#12393d',
+              coral: '#f2553b',
+              coralLedge: '#b53a22',
+              amber: '#ffb054',
+              cream: '#fff7ea',
+              creamMuted: '#e1d9cd',
+              ink: '#111d20'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #040c0e;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Tactile button ledge */
+    .tactile-pill {
+      background: linear-gradient(135deg, #f2553b 0%, #ff6b52 100%);
+      box-shadow: 0 4px 0 #b53a22, 0 10px 24px rgba(242, 85, 59, 0.28);
+    }
+
+    .badge-subtle {
+      box-shadow: 0 3px 0 rgba(18, 57, 61, 0.8);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8 bg-[#040c0e] text-white">
+
+  <!-- YouTube Channel Banner Presentation Container (16:9 aspect ratio standard, 2560x1440 proportion) -->
+  <div class="relative w-full max-w-[1440px] aspect-[16/9] bg-brand-bg rounded-3xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.85),0_0_0_1px_rgba(43,163,154,0.18)] select-none">
+    
+    <!-- Deep Atmospheric Ambient Backdrop -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#061214] via-[#081518] to-[#040c0e]"></div>
+
+    <!-- Soft glow orbs and subtle tactile gradient lighting -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[980px] h-[520px] bg-radial from-[#153e42]/35 via-[#0d282c]/15 to-transparent blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-12 w-[520px] h-[400px] bg-radial from-[#163a3d]/30 to-transparent blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-12 w-[520px] h-[400px] bg-radial from-[#1d3d3a]/25 to-transparent blur-3xl pointer-events-none"></div>
+
+    <!-- Ambient Subtle Geometric Grid / Flight Lines (Outer area decoration) -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dot-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.5" fill="#2ba39a" opacity="0.35" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#dot-grid)" />
+    </svg>
+
+    <!-- Outer Area Decorative Tactile Origami Kites & Dotted Flight Paths -->
+    <!-- Top-Left Floating Kite -->
+    <div class="absolute top-[8%] left-[7%] pointer-events-none transition-transform duration-700 hover:rotate-3">
+      <svg width="130" height="150" viewBox="0 0 130 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)]">
+        <!-- Dashed Trail -->
+        <path d="M65 85 C50 110, 30 120, 20 145" stroke="#2ba39a" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="145" r="3" fill="#ffb054" opacity="0.7"/>
+        <!-- Kite Diamond faceted -->
+        <polygon points="65,15 105,65 65,95 25,65" fill="#184144" stroke="#2ba39a" stroke-width="2"/>
+        <polygon points="65,15 105,65 65,95" fill="#2ba39a" opacity="0.85"/>
+        <polygon points="65,15 25,65 65,95" fill="#1b5256" opacity="0.95"/>
+        <polygon points="65,15 65,95 25,65" fill="#f2553b" opacity="0.35"/>
+        <!-- Cross Frame -->
+        <line x1="65" y1="15" x2="65" y2="95" stroke="#fff7ea" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+        <line x1="25" y1="65" x2="105" y2="65" stroke="#fff7ea" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+        <!-- Kite Ribbon Bows -->
+        <polygon points="58,102 65,98 62,106" fill="#f2553b"/>
+        <polygon points="65,98 72,102 68,106" fill="#ffb054"/>
+      </svg>
+    </div>
+
+    <!-- Top-Right Floating Kite -->
+    <div class="absolute top-[10%] right-[8%] pointer-events-none transition-transform duration-700 hover:-rotate-3">
+      <svg width="150" height="170" viewBox="0 0 150 170" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)]">
+        <!-- Dashed Trail looping -->
+        <path d="M75 95 C95 118, 120 125, 132 155" stroke="#ffb054" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round" opacity="0.45"/>
+        <!-- Faceted Origami Kite -->
+        <polygon points="75,20 120,72 75,108 30,72" fill="#203f3d" stroke="#45dfd0" stroke-width="2"/>
+        <polygon points="75,20 120,72 75,108" fill="#f2553b" opacity="0.9"/>
+        <polygon points="75,20 30,72 75,108" fill="#ffb054" opacity="0.9"/>
+        <polygon points="75,72 120,72 75,108" fill="#d9442b" opacity="0.85"/>
+        <polygon points="75,72 30,72 75,108" fill="#e09439" opacity="0.85"/>
+        <!-- Cross Spars -->
+        <line x1="75" y1="20" x2="75" y2="108" stroke="#fff7ea" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+        <line x1="30" y1="72" x2="120" y2="72" stroke="#fff7ea" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+        <!-- Ribbon Ties -->
+        <circle cx="75" cy="116" r="3.5" fill="#45dfd0"/>
+        <circle cx="95" cy="132" r="3" fill="#f2553b"/>
+      </svg>
+    </div>
+
+    <!-- Far Bottom Left Accent Loop Trail (Outer) -->
+    <svg class="absolute bottom-[24%] left-[2%] w-48 h-36 pointer-events-none opacity-30" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 90 C60 100, 100 40, 140 30 C160 25, 175 40, 165 60 C155 80, 120 70, 130 40" stroke="#2ba39a" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+      <polygon points="130,36 138,40 132,45" fill="#45dfd0"/>
+    </svg>
+
+    <!-- Far Bottom Right Accent Loop Trail (Outer) -->
+    <svg class="absolute bottom-[26%] right-[2%] w-48 h-36 pointer-events-none opacity-30" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M170 90 C120 100, 80 40, 40 30 C20 25, 5 40, 15 60 C25 80, 60 70, 50 40" stroke="#ffb054" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+      <polygon points="50,36 42,40 48,45" fill="#ffb054"/>
+    </svg>
+
+
+    <!-- ================================================================= -->
+    <!-- 2D ILLUSTRATED TEACHER ON THE LEFT: AMA (WOMAN)                   -->
+    <!-- Positioned waist-up at the bottom edge, outside the text safe zone-->
+    <!-- Black woman, curly natural hair, yellow headband, coral blouse,   -->
+    <!-- navy/teal blazer. Flat 2D art, no outlines, no stickers, no halos -->
+    <!-- ================================================================= -->
+    <div class="absolute bottom-0 left-[2.5%] sm:left-[4%] md:left-[5.5%] lg:left-[7%] w-[220px] sm:w-[260px] md:w-[300px] lg:w-[340px] z-10 pointer-events-none select-none flex justify-center">
+      <svg viewBox="0 0 340 400" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+        <defs>
+          <filter id="soft-teacher-shadow-ama" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#020809" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <g filter="url(#soft-teacher-shadow-ama)">
+          <!-- Natural Curly Hair Volume (Behind Shoulders & Head) -->
+          <!-- Organic cloud-like lobes of textured deep hair -->
+          <circle cx="170" cy="115" r="82" fill="#120c0a"/>
+          <circle cx="112" cy="100" r="46" fill="#18100e"/>
+          <circle cx="228" cy="100" r="46" fill="#18100e"/>
+          <circle cx="95" cy="140" r="44" fill="#140d0c"/>
+          <circle cx="245" cy="140" r="44" fill="#140d0c"/>
+          <circle cx="100" cy="180" r="38" fill="#100b09"/>
+          <circle cx="240" cy="180" r="38" fill="#100b09"/>
+
+          <!-- Body / Torso / Shoulders (Waist-Up baseline) -->
+          <!-- Navy / Deep Pine Tailored Blazer -->
+          <path d="M60 400 L75 270 C85 240, 115 225, 145 220 L195 220 C225 225, 255 240, 265 270 L280 400 Z" fill="#102b2f"/>
+          <!-- Blazer Lapel Shadows & Structure -->
+          <path d="M120 222 L170 330 L220 222 L200 400 L140 400 Z" fill="#0c2225"/>
+
+          <!-- Inner Blouse (Warm Coral) -->
+          <path d="M135 220 L170 300 L205 220 Z" fill="#f2553b"/>
+          <path d="M152 245 L170 300 L188 245 Z" fill="#df472e"/>
+
+          <!-- Collarbones / Neck -->
+          <path d="M150 185 C150 208, 190 208, 190 185 L190 160 L150 160 Z" fill="#754728"/>
+          <!-- Subtle neck shadow under chin -->
+          <path d="M150 162 C162 174, 178 174, 190 162 L190 170 C178 178, 162 178, 150 170 Z" fill="#5c341b"/>
+
+          <!-- Face Shape (Rich Warm Brown skin tone) -->
+          <path d="M125 105 C125 65, 215 65, 215 105 C215 152, 195 174, 170 174 C145 174, 125 152, 125 105 Z" fill="#8c5835"/>
+
+          <!-- Ears -->
+          <circle cx="123" cy="115" r="11" fill="#7e4c2b"/>
+          <circle cx="217" cy="115" r="11" fill="#7e4c2b"/>
+          <!-- Small stylish gold hoop earrings -->
+          <circle cx="122" cy="120" r="5" stroke="#ffb054" stroke-width="2.5" fill="none"/>
+          <circle cx="218" cy="120" r="5" stroke="#ffb054" stroke-width="2.5" fill="none"/>
+
+          <!-- Yellow Headband (Signature Ama accessory) -->
+          <path d="M127 82 C135 50, 205 50, 213 82 C206 74, 134 74, 127 82 Z" fill="#ffb054"/>
+          <!-- Headband knot on side -->
+          <ellipse cx="140" cy="72" rx="7" ry="5" fill="#f79e37" transform="rotate(-15 140 72)"/>
+
+          <!-- Top Afro Curls Overlay above Headband -->
+          <circle cx="145" cy="55" r="26" fill="#1b1210"/>
+          <circle cx="170" cy="48" r="28" fill="#150d0c"/>
+          <circle cx="195" cy="55" r="26" fill="#1b1210"/>
+
+          <!-- Eyebrows -->
+          <path d="M140 100 Q152 96 160 101" stroke="#251610" stroke-width="3" stroke-linecap="round"/>
+          <path d="M180 101 Q188 96 200 100" stroke="#251610" stroke-width="3" stroke-linecap="round"/>
+
+          <!-- Warm Smiling Eyes (Friendly curved) -->
+          <path d="M142 110 Q151 118 160 110" stroke="#160e0a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M180 110 Q189 118 198 110" stroke="#160e0a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Nose -->
+          <path d="M168 115 Q170 128 166 131 Q170 133 174 131" stroke="#663c1f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Gentle Warm Smile with soft teeth accent -->
+          <path d="M152 144 Q170 162 188 144" fill="#3a1c12"/>
+          <path d="M156 145 Q170 152 184 145" fill="#fff7ea"/>
+          <!-- Lower lip -->
+          <path d="M158 152 Q170 160 182 152" stroke="#b05244" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Smart Eyeglasses (Teal Frames - Teacher Persona) -->
+          <rect x="135" y="101" width="28" height="19" rx="6" stroke="#2ba39a" stroke-width="2.5" fill="none"/>
+          <rect x="177" y="101" width="28" height="19" rx="6" stroke="#2ba39a" stroke-width="2.5" fill="none"/>
+          <line x1="163" y1="109" x2="177" y2="109" stroke="#2ba39a" stroke-width="2.5"/>
+
+          <!-- Left Lapel / Right Lapel Creases for clean tailoring -->
+          <path d="M125 225 L165 330 L150 400" stroke="#184146" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M215 225 L175 330 L190 400" stroke="#184146" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+
+
+    <!-- ================================================================= -->
+    <!-- 2D ILLUSTRATED TEACHER ON THE RIGHT: CARLOS (MAN)                 -->
+    <!-- Positioned waist-up at the bottom edge, outside the text safe zone-->
+    <!-- Latino man, dark neat taper hair, navy blazer, light sky shirt,   -->
+    <!-- confident warm demeanor. Flat 2D art, no outlines or stickers     -->
+    <!-- ================================================================= -->
+    <div class="absolute bottom-0 right-[2.5%] sm:right-[4%] md:right-[5.5%] lg:right-[7%] w-[220px] sm:w-[260px] md:w-[300px] lg:w-[340px] z-10 pointer-events-none select-none flex justify-center">
+      <svg viewBox="0 0 340 400" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+        <defs>
+          <filter id="soft-teacher-shadow-carlos" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#020809" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <g filter="url(#soft-teacher-shadow-carlos)">
+          <!-- Hair Volume Behind Neck -->
+          <path d="M128 110 C128 65, 212 65, 212 110 L212 150 C212 155, 128 155, 128 150 Z" fill="#141a1c"/>
+
+          <!-- Shoulders & Tailored Navy Blazer (Waist-Up) -->
+          <path d="M60 400 L72 265 C82 235, 112 220, 142 216 L198 216 C228 220, 258 235, 268 265 L280 400 Z" fill="#122533"/>
+          <!-- Blazer Core Center Fold -->
+          <path d="M124 218 L170 340 L216 218 L198 400 L142 400 Z" fill="#0d1b26"/>
+
+          <!-- Inner Dress Shirt (Crisp Light Cream / Sky tone) -->
+          <path d="M142 216 L170 295 L198 216 Z" fill="#e8f3f4"/>
+          <!-- Shirt Collar Flaps -->
+          <polygon points="144,216 160,240 152,246 136,220" fill="#ffffff"/>
+          <polygon points="196,216 180,240 188,246 204,220" fill="#ffffff"/>
+          <!-- Silk Teal Necktie accent -->
+          <polygon points="166,242 174,242 178,330 170,345 162,330" fill="#2ba39a"/>
+          <polygon points="165,240 175,240 173,252 167,252" fill="#1f7a75"/>
+
+          <!-- Neck & Adam's Apple Area (Latino Olive Warm skin) -->
+          <path d="M152 185 C152 206, 188 206, 188 185 L188 158 L152 158 Z" fill="#b88358"/>
+          <path d="M152 160 C162 170, 178 170, 188 160 L188 168 C178 176, 162 176, 152 168 Z" fill="#99663d"/>
+
+          <!-- Jaw & Face Shape -->
+          <path d="M130 105 C130 68, 210 68, 210 105 C210 148, 195 174, 170 174 C145 174, 130 148, 130 105 Z" fill="#cb976c"/>
+
+          <!-- Ears -->
+          <circle cx="127" cy="116" r="10" fill="#b88358"/>
+          <circle cx="213" cy="116" r="10" fill="#b88358"/>
+
+          <!-- Hair Front & Side Fade (Neat, modern parted hair) -->
+          <path d="M127 100 C127 60, 150 48, 175 48 C205 48, 215 62, 213 100 C205 78, 185 70, 168 72 C150 74, 138 88, 127 100 Z" fill="#182023"/>
+          <!-- Subtle Hair Texture Highlight -->
+          <path d="M155 54 Q175 52 195 58" stroke="#2c393e" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Eyebrows (Strong, masculine, expressive) -->
+          <path d="M142 98 Q153 93 162 97" stroke="#1d2629" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M178 97 Q187 93 198 98" stroke="#1d2629" stroke-width="3.5" stroke-linecap="round"/>
+
+          <!-- Kind Confident Eyes (Slight friendly crinkle) -->
+          <ellipse cx="152" cy="109" rx="5" ry="4" fill="#182023"/>
+          <ellipse cx="188" cy="109" rx="5" ry="4" fill="#182023"/>
+          <circle cx="154" cy="107" r="1.5" fill="#ffffff"/>
+          <circle cx="190" cy="107" r="1.5" fill="#ffffff"/>
+          <!-- Upper Eyelid Lines -->
+          <path d="M144 105 Q152 101 160 105" stroke="#754728" stroke-width="2" stroke-linecap="round"/>
+          <path d="M180 105 Q188 101 196 105" stroke="#754728" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Nose -->
+          <path d="M170 106 L171 126 L165 128 Q170 131 175 128" stroke="#99663d" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Well-defined Confident Smile -->
+          <path d="M154 142 Q170 156 186 142" stroke="#251610" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M157 143 Q170 151 183 143" fill="#ffffff"/>
+          <!-- Subtle groomed 5 o'clock shadow accent on chin -->
+          <ellipse cx="170" cy="162" rx="14" ry="4" fill="#ab7b53" opacity="0.35"/>
+
+          <!-- Blazer Lapels & Structural Seams -->
+          <path d="M130 220 L168 335 L152 400" stroke="#1e3a4d" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M210 220 L172 335 L188 400" stroke="#1e3a4d" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Pocket Square Accent (Sunny Gold) -->
+          <polygon points="214,275 228,272 232,279 216,281" fill="#ffb054"/>
+        </g>
+      </svg>
+    </div>
+
+
+    <!-- ================================================================= -->
+    <!-- CENTRAL HORIZONTAL CONTENT STRIP (60% WIDE, 30% TALL)             -->
+    <!-- Safe Area: guaranteed visible across Mobile, Tablet, Desktop & TV -->
+    <!-- ================================================================= -->
+    <div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-auto">
+      <div class="w-[78%] sm:w-[70%] md:w-[62%] max-w-[890px] h-[36%] sm:h-[32%] md:h-[30%] flex flex-col justify-between items-center text-center px-4 md:px-8 py-1 md:py-2">
+
+        <!-- Top Row of the Strip: Brand Identity (Kite Logo + Wordmark) & Quality Badge -->
+        <div class="flex items-center justify-center gap-3 sm:gap-4">
+          <!-- Kite Brand Mark -->
+          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-2xl bg-brand-surface/80 border border-[#2ba39a]/35 shadow-[0_4px_12px_rgba(0,0,0,0.4)] backdrop-blur-sm">
+            <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+              <polygon points="20,4 34,20 20,36 6,20" fill="#184144" stroke="#2ba39a" stroke-width="2"/>
+              <!-- 4 Color quadrants conforming to Lexkite brand -->
+              <polygon points="20,4 34,20 20,20" fill="#2ba39a"/>
+              <polygon points="34,20 20,36 20,20" fill="#f2553b"/>
+              <polygon points="20,36 6,20 20,20" fill="#ffb054"/>
+              <polygon points="6,20 20,4 20,20" fill="#45dfd0"/>
+              <!-- Center Pivot Pin -->
+              <circle cx="20" cy="20" r="2.2" fill="#fff7ea"/>
+            </svg>
+            <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-brand-cream lowercase font-sans">lexkite</span>
+          </div>
+
+          <!-- Subtle 100% Free Pill -->
+          <div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#12393d]/70 border border-[#2ba39a]/40 text-[#45dfd0] text-xs font-bold uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#45dfd0] animate-pulse"></span>
+            100% Free Channel
+          </div>
+        </div>
+
+        <!-- Center Headline: Large, Bold, Authoritative & Warm -->
+        <div class="my-auto py-1">
+          <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-brand-cream leading-[1.08] drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]">
+            Learn English words that <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-amber via-[#ffa842] to-brand-coral underline decoration-[#f2553b]/60 decoration-wavy decoration-[3px] underline-offset-4">stick.</span>
+          </h1>
+          
+          <!-- Secondary Subline -->
+          <p class="mt-2 sm:mt-2.5 text-xs sm:text-sm md:text-base lg:text-[17px] font-semibold text-brand-creamMuted/90 tracking-normal drop-shadow-sm">
+            Free vocabulary for <span class="text-brand-cream font-bold">IELTS</span> <span class="text-brand-teal font-black">·</span> <span class="text-brand-cream font-bold">TOEIC</span> <span class="text-brand-teal font-black">·</span> <span class="text-brand-cream font-bold">everyday English</span>
+          </p>
+        </div>
+
+        <!-- Bottom Feature / Value Proposition Strip & Schedule Callout -->
+        <div class="flex items-center justify-center gap-3 sm:gap-4 flex-wrap pt-0.5">
+          <!-- The Coral Pill Callout -->
+          <div class="tactile-pill inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-brand-ink font-extrabold text-xs sm:text-sm tracking-tight cursor-default transition-all duration-150">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-ink" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            <span>New videos every week</span>
+          </div>
+
+          <!-- Secondary Micro Trust Tag -->
+          <div class="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-brand-tealBright/90 bg-brand-surface/60 px-3 py-1.5 rounded-full border border-brand-teal/20">
+            <svg class="w-3.5 h-3.5 text-brand-amber" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Zero paywalls · Spaced repetition drills</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Soft Safe-Zone Framing Guide Overlay Line (Subtle bottom edge lighting in center) -->
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#2ba39a]/35 to-transparent pointer-events-none"></div>
+  </div>
+
+</body>
+</html>
