@@ -15,7 +15,9 @@ export const GRACE = 25;
 export async function measure() {
   const { jobs, groups } = collect(), { have } = readIndex(), res = readRes(), out = {};
   for (const [g, keys] of groups) { const n = keys.size, h = [...keys].filter(k => have.has(k)).length; out[g] = { total: n, have: h }; }
-  const words = await wordCorpus(), { KVoice } = (() => { const c = { self: {} }; c.self = c; new Function('self', fs.readFileSync('web/js/listen/kvoice.js', 'utf8'))(c); return c; })();
+  // Từ mở rộng (x: 1) cũng đi kèm app (Lex) → luôn đo cả kho; WORD_AUDIO_EXPAND chỉ quyết nơi render, không quyết độ phủ
+  const ex0 = process.env.WORD_AUDIO_EXPAND; process.env.WORD_AUDIO_EXPAND = '1';
+  const words = await wordCorpus().finally(() => { if (ex0 == null) delete process.env.WORD_AUDIO_EXPAND; else process.env.WORD_AUDIO_EXPAND = ex0; }), { KVoice } = (() => { const c = { self: {} }; c.self = c; new Function('self', fs.readFileSync('web/js/listen/kvoice.js', 'utf8'))(c); return c; })();
   VOICES.forEach((v, i) => {
     const h = words.filter(w => (res.get(w) || [])[i] === 'ok' || have.has(KVoice.lineKey(v, w))).length;
     out[`words-${v === 'af_heart' ? 'us' : 'uk'}`] = { total: words.length, have: h };

@@ -143,6 +143,6 @@ Durante os 40 minutos do IELTS Writing Task 2 ou ao redigir ensaios cronometrado
 | **Third** | Past Perfect (had + part.)| would have + part. | Dizer *"would have had"* na oração *if* |
 | **Mixed** | Past Perfect | would + verbo base | Confundir o marco temporal do resultado |
 
-Aprofunde seu conhecimento combinando estas estruturas com o nosso guia de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e estude a seleção de [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/). Revise também os [tempos verbais em inglês](/pt/blog/tempos-verbais-em-ingles-resumo/) e as técnicas de [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/), enriquecendo seu repertório por meio de nosso repositório de vocabulário [/tu-vung/](/tu-vung/).
+Aprofunde seu conhecimento combinando estas estruturas com o nosso guia de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e estude a seleção de [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/). Revise também os [tempos verbais em inglês](/pt/blog/tempos-verbais-em-ingles-resumo/) e as técnicas de [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/), enriquecendo seu repertório por meio de nosso repositório de vocabulário [/tu-vung/](/en/vocabulary/).
 
 Praticando a alternância entre condicionais clássicos, mistos e invertidos, suas redações e respostas orais soarão maduras, naturais e gramaticalmente impecáveis.

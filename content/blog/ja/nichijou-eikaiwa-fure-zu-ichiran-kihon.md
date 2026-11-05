@@ -157,6 +157,6 @@ publishAt: 2026-12-12T07:13:00+09:00
 2. **分散学習（FSRS）での定着**: 忘れかけたベストなタイミングでフレーズ全体を復習し、長期記憶に刻み込みます。
 3. **英語のひとり言（Self-talk）**: 料理中や移動中などに「今自分がしていること」を英語でつぶやき、英語脳を活性化させます。
 
-日常英会話の表現力をさらに広げるために、[英語脳の作り方](/ja/blog/eigonou-tsukurikata-hon-yaku-shinai/)や[シャドーイングのやり方](/ja/blog/shadowing-yarikata/)、海外渡航時に必携の[海外旅行英会話フレーズ](/ja/blog/kaigai-ryokou-eikaiwa-phrases/)、ビジネスシーンで重宝する[ビジネス英語ミーティング表現](/ja/blog/business-eigo-meeting-phrases/)、さらに面接対策の[英語面接対策フレーズ](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)も合わせてご参照ください。語彙の補強には[/tu-vung/](/tu-vung/)をご活用ください。
+日常英会話の表現力をさらに広げるために、[英語脳の作り方](/ja/blog/eigonou-tsukurikata-hon-yaku-shinai/)や[シャドーイングのやり方](/ja/blog/shadowing-yarikata/)、海外渡航時に必携の[海外旅行英会話フレーズ](/ja/blog/kaigai-ryokou-eikaiwa-phrases/)、ビジネスシーンで重宝する[ビジネス英語ミーティング表現](/ja/blog/business-eigo-meeting-phrases/)、さらに面接対策の[英語面接対策フレーズ](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)も合わせてご参照ください。語彙の補強には[/tu-vung/](/en/vocabulary/)をご活用ください。
 
 週に5〜10個の基本フレーズを着実に自分のものにしていくことで、英語でのコミュニケーションが驚くほど気楽で楽しいものへと変わっていきます。
