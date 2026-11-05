@@ -29,12 +29,18 @@ jobs:
           sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
       - name: Kiểm sáng + tối
         run: node scripts/test/theme-static.mjs dist --shots theme-shots
+      # GIF chỉ là ảnh minh hoạ: ffmpeg tĩnh có cache (cùng khóa với video-motion), giới hạn 4 phút; hỏng = lỗi HẠ TẦNG → cảnh báo rõ, không làm đỏ check theme
+      - if: always()
+        uses: actions/cache@v4
+        with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
       - name: GIF app → blog (cho chủ duyệt)
         if: always()
+        timeout-minutes: 4
+        continue-on-error: true
         run: |
           ls theme-shots/app-blog-*.png >/dev/null 2>&1 || exit 0
-          command -v ffmpeg >/dev/null || sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq ffmpeg >/dev/null
-          ffmpeg -loglevel error -y -framerate 0.7 -pattern_type glob -i 'theme-shots/app-blog-*.png' -vf "scale=640:-1:flags=lanczos,split[a][b];[a]palettegen[p];[b][p]paletteuse" -loop 0 theme-shots/app-blog.gif && ls -la theme-shots/app-blog.gif
+          [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 --max-time 120 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg'; } || { echo "::warning title=Hạ tầng::không tải được ffmpeg – bỏ GIF minh hoạ (check theme không bị ảnh hưởng)"; exit 0; }
+          ~/ffbin/ffmpeg -loglevel error -y -framerate 0.7 -pattern_type glob -i 'theme-shots/app-blog-*.png' -vf "scale=640:-1:flags=lanczos,split[a][b];[a]palettegen[p];[b][p]paletteuse" -loop 0 theme-shots/app-blog.gif && ls -la theme-shots/app-blog.gif || echo "::warning title=Hạ tầng::ffmpeg lỗi khi dựng GIF minh hoạ"
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: theme-shots, path: theme-shots/, retention-days: 14, if-no-files-found: ignore }
