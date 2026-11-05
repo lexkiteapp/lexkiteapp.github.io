@@ -52,7 +52,7 @@ A dificuldade dos alunos brasileiros com esses termos decorre de três fatores l
 2. **Diferença de Classe Gramatical (Verbo vs. Substantivo)**: Em português, a palavra "impacto" ou "conselho" pode ser usada com flexibilidade, mas em inglês pares como *affect* (verbo) e *effect* (substantivo), ou *advise* (verbo) e *advice* (substantivo), exigem formas ortográficas distintas.
 3. **Direção Oposta da Ação (Directionality)**: Verbos relacionais como *borrow* (pegar emprestado de alguém, para si) e *lend* (emprestar para alguém, para fora) frequentemente se misturam porque no português informal dizemos simplesmente "empresta aí".
 
-Para dominar a precisão vocabular, consulte o [dicionário monolíngue Lexkite](/#/dict/resilient) e pratique a formação frasal no [módulo de gramática](/#/grammar). Leia também nosso artigo sobre [como aprender vocabulário em inglês com eficácia](/pt/blog/como-aprender-vocabulario-em-ingles/) e o guia de [collocations em inglês para exames](/pt/blog/collocations-em-ingles-para-ielts/). Para navegar pelo banco completo de termos, acesse a [seção de vocabulário](/tu-vung/).
+Para dominar a precisão vocabular, consulte o [dicionário monolíngue Lexkite](/#/dict/resilient) e pratique a formação frasal no [módulo de gramática](/#/grammar). Leia também nosso artigo sobre [como aprender vocabulário em inglês com eficácia](/pt/blog/como-aprender-vocabulario-em-ingles/) e o guia de [collocations em inglês para exames](/pt/blog/collocations-em-ingles-para-ielts/). Para navegar pelo banco completo de termos, acesse a [seção de vocabulário](/en/vocabulary/).
 
 ## 1. Verbo vs. Substantivo: Os Pares de Maior Risco
 
