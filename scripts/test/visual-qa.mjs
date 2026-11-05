@@ -159,12 +159,15 @@ async function openCombo(browser, c) {
   const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, colorScheme: c.s, locale: c.l, reducedMotion: 'reduce' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   // CLS: cộng layout-shift không do thao tác (chuẩn web-vitals); visit() đặt lại về 0 trước mỗi route
-  await ctx.addInitScript(() => { window.__vqaCls = 0; try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__vqaCls += e.value; }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {} });
+  // + ghi phần tử xê dịch nhiều nhất (sources[].node) để báo cáo chỉ đúng chỗ cần giữ chỗ (min-height/aspect-ratio)
+  await ctx.addInitScript(() => { window.__vqaCls = 0; window.__vqaClsSrc = {}; const nm = n => { if (!n || !n.tagName) return '?'; const one = x => x.tagName.toLowerCase() + [...x.classList].slice(0, 2).map(c => '.' + c).join('') + (x.id && !/\d/.test(x.id) ? '#' + x.id : ''); return (n.parentElement && n.parentElement !== document.body ? one(n.parentElement) + ' > ' : '') + one(n); };
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__vqaCls += e.value; for (const s of e.sources || []) { const k = nm(s.node); window.__vqaClsSrc[k] = (window.__vqaClsSrc[k] || 0) + e.value; } } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {} });
   const page = await ctx.newPage();
   page.__vqaErr = [];
   page.on('pageerror', e => { errs.push(`${tagOf(c)}: ${String(e.message).slice(0, 120)}`); page.__vqaErr.push(String(e.message)); });
   // console.error của app (bỏ 'Failed to load resource' = lỗi mạng của /api offline trong CI, đã có quality-sweep đo 4xx/5xx)
-  page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) page.__vqaErr.push(m.text()); });
+  // + bỏ lỗi CORS của host NGOÀI (vd. api.datamuse.com từ máy CI: CDN của họ đệm theo origin) – app đã chịu lỗi (dictionary.js nghỉ 5 phút; test datamuse-resilience); CORS tới chính origin vẫn tính
+  page.on('console', m => { const x = m.text(); if (m.type() !== 'error' || /Failed to load resource/.test(x)) return; const u = (x.match(/Access to \w+ at '([^']+)' from origin/) || [])[1]; if (u && /blocked by CORS policy/.test(x) && !u.startsWith(BASE)) return; page.__vqaErr.push(x); });
   await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
   await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1800); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   return { ctx, page };
@@ -177,8 +180,8 @@ async function visit(page, c, route) {
 }
 // Lỗi JS/console + CLS của route vừa vẽ → mục báo cáo (gom theo thông điệp đã bỏ số/URL); gọi xong thì đặt lại bộ đếm cho route sau
 async function vitals(page) {
-  const out = [], cls = await page.evaluate(() => { const v = window.__vqaCls || 0; window.__vqaCls = 0; return v; }).catch(() => 0);
-  if (cls > 0.1) out.push({ t: 'cls', k: 'layout-shift', x: 'CLS ' + cls.toFixed(3) + ' > 0.1', r: [0, 0, 0, 0] });
+  const out = [], [cls, src] = await page.evaluate(() => { const v = window.__vqaCls || 0, s = Object.entries(window.__vqaClsSrc || {}).sort((a, b) => b[1] - a[1])[0]; window.__vqaCls = 0; window.__vqaClsSrc = {}; return [v, s ? s[0] : '?']; }).catch(() => [0, '?']);
+  if (cls > 0.1) out.push({ t: 'cls', k: 'layout-shift ' + src, x: 'CLS ' + cls.toFixed(3) + ' > 0.1', r: [0, 0, 0, 0] });
   for (const m of page.__vqaErr.splice(0)) out.push({ t: 'js-error', k: m.replace(/https?:\/\/\S+/g, '<url>').replace(/\d+/g, 'N').slice(0, 90), x: m.slice(0, 50), r: [0, 0, 0, 0] });
   return out;
 }

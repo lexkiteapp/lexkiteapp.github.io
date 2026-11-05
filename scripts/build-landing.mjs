@@ -67,7 +67,7 @@ const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn tsp tsb"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
 // Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của PR 303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
-const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
+const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}[data-tsw]{flex:none;min-width:44px;min-height:44px}'; // flex:none: đầu trang ru/de chữ dài → nút bị co < 44 px (visual-qa tap<44 05/11)
 // ----- CSS riêng của landing (chỉ phần mẫu Stitch không vẽ: giữ chỗ nút add-on/Tải app chống CLS, link bỏ qua, dải gợi ý ngôn ngữ, menu đổi ngôn ngữ) -----
 // Màu = token Stitch (--st-*, cùng nguồn brand/stitch/tokens.dtcg.json, tự đổi sáng/tối) → biến dùng chung của khối lsw/lhint.
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-flex!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
