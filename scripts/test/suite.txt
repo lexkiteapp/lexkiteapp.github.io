@@ -215,6 +215,7 @@ node scripts/content-qa/gate.mjs
 node scripts/test/blog-images.mjs
 node scripts/test/blog-captions.mjs
 node scripts/test/blog-youtube.mjs
+node scripts/test/blog-lang-gates.mjs
 node scripts/blog-schedule.mjs --verify
 node scripts/test/axe.js web
 node scripts/test/crawl.js web
