@@ -12,7 +12,7 @@ on:
   pull_request:
     paths: ['scripts/video/teach2d/**', 'scripts/video/teach2d/rig_host.mjs', 'web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'scripts/test/teach2d-rig.mjs', 'scripts/media/origin.py', 'scripts/cine/publish_meta.py', 'brand/library/sfx/**', 'scripts/video/synth.mjs', 'web/teach/characters.json', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
 permissions: { contents: read, actions: read }   # actions: read = count busy runners (scripts/ci/shards.mjs)
-concurrency: { group: 'teach-video-${{ github.ref }}-${{ github.event_name }}', cancel-in-progress: "${{ github.event_name == 'pull_request' }}" }   # a batch on main is never cancelled by the next one (it queues)
+concurrency: { group: 'teach-video-${{ github.ref }}-${{ github.event_name }}', cancel-in-progress: "${{ github.event_name == 'pull_request' || github.ref != 'refs/heads/main' }}" }   # a batch on main is never cancelled by the next one (it queues); on a branch the newest sample run wins (5/11: an old run held the slot for hours)
 jobs:
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
     runs-on: ubuntu-latest
@@ -191,7 +191,7 @@ jobs:
           retention-days: 14
   embed:   # in-app embed preview screenshots (light + dark, phone + desktop) of every 16:9 lesson video
     needs: render
-    if: always() && needs.render.result != 'cancelled'
+    if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) }}   # nothing rendered (preqc red -> render skipped) = nothing to screenshot; never hold a runner / the concurrency slot
     runs-on: ubuntu-latest
     timeout-minutes: 45   # 4 screenshots per episode; a 120-episode batch takes ~25 min
     steps:
@@ -228,7 +228,7 @@ jobs:
         with: { name: 'tv-embed-shots-${{ github.run_id }}', path: shots/, retention-days: 14 }
   sheet:   # one review sheet: every episode's frames + QC score, both themes; then the bank (only QC >= 90 with every gate green)
     needs: [preqc, render, embed]
-    if: always() && needs.render.result != 'cancelled'
+    if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) }}   # no render (preqc red) -> no sheet, no runner held
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
