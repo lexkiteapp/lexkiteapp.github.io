@@ -116,3 +116,26 @@ bank clip gc11_concern 25 cr (7072->7047) n=1
 bank clip gc11_concern try1 FAIL 25 cr: lips part showing teeth during the smile→worry transition (eye check); qc_green passed it (dark-only mouth box) → gate now also counts teeth (>200) and fails it. Try2: first = tail = o3k (no expression transition).
 bank clip gc11_concern 25 cr (7047->7022) n=1
 bank clip gc11_concern try2 FAIL 25 cr (7047->7022): first=tail=o3k still, lips still part showing teeth 1.5–3.4 s (eye). 2 fails → DROP concern. 4 consecutive fails (encourage×2, concern×2) → STOP bank per CREDIT-RULES §6. Bank spend 54 cr (4 img + 50 clip), 0 clips passed. Analysis: v2_5 animates lips on a close face regardless of the lip lock; rig only needs STILLS (pose image fades out while the drawn mouth talks), clips are for video reuse only.
+TICKET 05/11 owner: 'Chỉ làm ảnh' – stills only for the rig, remaining 8 items, 2 cr per pass, 2 fails on an item = drop, inside the 280 cap (floor 6796).
+bank still gc11_thumbs_up 2 cr (7022->7020) n=2
+bank still gc11_thumbs_up PASS s2 (closed lips, clear thumb; s1 teeth smile) → media green/gc11_thumbs_up_still.png
+bank still gc11_clap 2 cr (7020->7018) n=2
+bank still gc11_clap try1 FAIL: both laughing open mouth/teeth (s1 wink). Lip phrase strengthened in all stills (PRESSED TOGETHER, no teeth, not laughing).
+bank still gc11_clap 2 cr (7018->7016) n=2
+bank still gc11_clap try2 FAIL: s1 lips closed but zoomed 15 % (legs would float if rescaled), s2 teeth → DROP clap.
+bank still gc11_hold_card 2 cr (7016->7014) n=2
+bank still gc11_hold_card PASS s1 (blank card, closed lips; s2 card merges with white shirt) → media green/gc11_hold_card_still.png
+bank still gc11_count 2 cr (7014->7012) n=2
+bank still gc11_count try1 FAIL: s1 open palm + both arms crossing (anatomy), s2 unclear fingers, teeth, thin hanging hand. Prompt v2: same-side hand, number three, other arm unchanged.
+bank still gc11_count 2 cr (7012->7010) n=2
+bank still gc11_count try2 FAIL: two fingers / OK sign, figure shifted left, teeth → DROP count (Carlos).
+bank still ga11_thumbs_up 2 cr (7010->7008) n=2
+bank still ga11_hold_card 2 cr (7008->7006) n=2
+bank still ga11_thumbs_up: s1 closed lips but shifted left 57 px → 0-cr fix: shifted right on uniform green (s1x); s2 teeth. ga11_hold_card try1 FAIL: both zoomed in ~1.3×; prompt v2 small card + keep small framing.
+bank still ga11_hold_card 2 cr (7006->7004) n=2
+bank still ga11_hold_card try2 FAIL: s1 zoomed 2×, s2 zoomed 1.17× (0-cr rescale tried: body heavier than the locked ref + seam at the extended trousers → rejected) → DROP hold_card (Ama).
+bank still ga11_clap 2 cr (7004->7002) n=2
+bank still ga11_count 2 cr (7002->7000) n=2
+bank still ga11_clap PASS s1 (closed lips, palms together; s2 teeth) → media green/ga11_clap_still.png. ga11_thumbs_up PASS s1x → media green/ga11_thumbs_up_still.png. ga11_count try1 FAIL: two/one fingers, zoom/shift.
+bank still ga11_count 2 cr (7000->6998) n=2
+bank still ga11_count try2 FAIL: s1 third finger bent (unclear 3), s2 V sign → DROP count (Ama). STILLS RUN DONE: 24 cr (7022->6998). PASS 4: gc11_thumbs_up, gc11_hold_card, ga11_thumbs_up (0-cr shift), ga11_clap → media cine/teachers/green/*_still.png (+ gc11_point = green_carlos_o3_point_cand.png, concern = green_carlos_o3k_ref.png). DROPPED: gc11_encourage, gc11_clap, gc11_count, ga11_hold_card, ga11_count. Day total 132 cr (7130->6998). Lesson: v3 image keeps the locked framing only ~50 %; counting fingers and laughing-free claps are its weak spots.
