@@ -1311,7 +1311,7 @@
     },
     async social() {
       await lazy('AdminSocial', 'js/admin-social.js'); main.innerHTML = ''; // tải lười – chỉ khi mở tab
-      AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
+      AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG, yapi }); // yapi: nút YouTube API dự phòng ở bảng Kênh // js/admin-social.js
     },
     async dist() { // Kênh & phân phối – js/admin-dist.js + js/lib/dist-rules.js (tải lười)
       await lazy('DistRules', 'js/lib/dist-rules.js'); await lazy('AdminDist', 'js/admin-dist.js'); main.innerHTML = '';

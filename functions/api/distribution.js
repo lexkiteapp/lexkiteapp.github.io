@@ -43,6 +43,15 @@ export async function socialSetup(db) {
   for (const r of await all(db, 'SELECT channel_id, account_id FROM dist_ext')) accounts[r.channel_id] = r.account_id;
   return { cfgs, accounts, rules: await rules(db) };
 }
+/** Kênh social (gc-*) cho bảng Kênh ở Quản trị #social: trạng thái dist_ext + ngôn ngữ (cấu hình tay > nhận từ tên trang, langOfChannel). Chỉ đọc D1, 0 lượt GrabCast. */
+export async function socialChannels(db) {
+  const out = [];
+  for (const c of await all(db, 'SELECT channel_id, platform, account_id, title, status, updated FROM dist_ext ORDER BY platform, title LIMIT 100')) {
+    const x = await chanCfg(db, c.channel_id).catch(() => ({ cfg: {}, explicit_lang: false })), auto = langOfChannel(c.title);
+    out.push({ ...c, platform: c.platform || platformOf(c.channel_id), lang: String((x.explicit_lang ? x.cfg.lang : auto || x.cfg.lang) || 'en').toLowerCase(), lang_src: x.explicit_lang ? 'cfg' : auto ? 'name' : 'default', paused_reason: x.paused_reason || null });
+  }
+  return out;
+}
 async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
 /** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
 async function embedCounts(db) {

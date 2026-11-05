@@ -10,15 +10,9 @@ import { guardBackground } from './_d1guard.js';
 import { runAuto, autoStatus } from './_social_auto.js';
 import { manifest } from './admin-shorts.js';
 import { clipOf, socialSetup, setupDist } from './distribution.js';
-import { previewClip, previewText } from './_social_preview.js';
+import { previewClip, previewText, pickPreviewClip, PREVIEW_CLIP_RE as CLIP_RE } from './_social_preview.js';
 
-const CLIP_RE = /^[A-Za-z0-9_.-]{3,120}$/;
-/** Clip để xem trước: id chỉ định, hoặc clip đạt QC mới nhất trong kho (cùng điều kiện autoQueue). */
-export function pickPreviewClip(items, id) {
-  const ok = (items || []).filter(it => it && it.id && !it.rejected);
-  if (id) return ok.find(it => it.id === id) || null;
-  return ok.filter(it => (it.qa || {}).status === 'pass').sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')))[0] || null;
-}
+export { pickPreviewClip }; // dùng ở scripts/social/dryrun.mjs + test (hàm nằm ở _social_preview.js để op Quản trị lk/auto/preview dùng chung)
 
 const json = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 export async function onRequestPost({ request, env }) {
