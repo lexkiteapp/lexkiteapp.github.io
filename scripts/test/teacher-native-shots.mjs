@@ -28,10 +28,7 @@ function measure(SZ) {
     const slot = m.closest('.tslot'), it = { src: (m.getAttribute('src') || '').split('/').slice(-3).join('/'), errs: [], slot: !!slot };
     if (slot) {
       const sr = R(slot), led = slot.querySelector('.tslot-ledge'), mr = R(m);
-      // chạm nền kiểu bong bóng (teacher-bubble.js, .tb-on): không bệ – đáy ảnh phải mờ dần về trong suốt (mask) → không có vạch cắt
-      const tb = slot.closest('.tb-on'), fgm = slot.querySelector('.tslot-fig'), mk = fgm ? (getComputedStyle(fgm).maskImage || getComputedStyle(fgm).webkitMaskImage || '') : '';
-      if (tb) { if (!/linear-gradient\(.*transparent|rgba\(0, 0, 0, 0\)\)$/.test(mk)) it.errs.push(`chạm nền không bệ nhưng đáy không mờ dần (mask: ${mk || 'không'}) → lộ vạch cắt`); }
-      else if (!led) it.errs.push('thiếu .tslot-ledge');
+      if (!led) it.errs.push('thiếu .tslot-ledge');
       else { const lr = R(led), fg = slot.querySelector('.tslot-fig'), vb = Math.min(mr.b, fg ? R(fg).b : mr.b); // đáy NHÌN THẤY (khung .tslot-fig cắt phần mờ dưới bệ)
         if (!(lr.w > 0 && lr.h > 0) || lr.b < vb - 1.5 || lr.t > vb - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(vb)})`); }
       const fr = { l: sr.l + sr.w * 0.15, r: sr.r - sr.w * 0.15, t: sr.t + sr.h * 0.07, b: sr.b }; fr.w = fr.r - fr.l; fr.h = fr.b - fr.t; // vùng người + bệ (bỏ khoảng trong suốt trên đầu/hai bên)

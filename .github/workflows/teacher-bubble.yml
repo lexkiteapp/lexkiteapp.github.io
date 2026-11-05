@@ -22,6 +22,7 @@ jobs:
         run: node scripts/test/teacher-bubble.mjs --static
       - name: Âm lượng pop.mp3 (−16 LUFS ±1,5, đo trên bản lặp 10×)
         run: |
+          command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; }
           L=$(ffmpeg -nostats -stream_loop 9 -i web/sfx/pop.mp3 -af ebur128 -f null - 2>&1 | awk '/^ *I:/{v=$2} END{print v}')
           echo "pop.mp3 = ${L} LUFS"
           awk -v l="$L" 'BEGIN{ if (l < -17.5 || l > -14.5) { print "pop.mp3 ngoài -16 ±1,5 LUFS"; exit 1 } }'
