@@ -503,7 +503,8 @@
     const it = ITEM[t]; if (!it) return;
     $('#pgHead').innerHTML = `<div class="pg-tx">${it.group ? `<div class="pg-crumb">${esc(L(it.group))}</div>` : ''}<h1 class="pg-t">${esc(L(it.label))}</h1><p class="pg-d">${esc(L(it.desc))}</p></div><div class="pg-act" id="pgAct"></div>`;
     document.title = L(it.label) + ' · Lexkite Admin';
-    const hub = HUB_OF[t]; if (hub) { const nav = document.createElement('nav'); nav.className = 'hub-tabs'; nav.setAttribute('aria-label', L(ITEM[hub] ? ITEM[hub].label : '')); nav.innerHTML = HUBS[hub].map(k => `<a href="#${k}" data-go="${k}"${k === t ? ' aria-current="page"' : ''}>${esc(ITEM[k].icon)} ${esc(L(ITEM[k].label))}</a>`).join(''); $('#pgHead').appendChild(nav); }
+    // tab con hub = nút Kit (btn; đang chọn = btn primary) trong .seg-f, nằm dưới mô tả trang – không CSS riêng (giao diện cuối = port Stitch, PR2)
+    const hub = HUB_OF[t]; if (hub) { const nav = document.createElement('nav'); nav.className = 'hub-tabs seg-f'; nav.setAttribute('aria-label', L(ITEM[hub] ? ITEM[hub].label : '')); nav.innerHTML = HUBS[hub].map(k => `<a class="btn${k === t ? ' primary' : ''}" href="#${k}" data-go="${k}"${k === t ? ' aria-current="page"' : ''}>${esc(ITEM[k].icon)} ${esc(L(ITEM[k].label))}</a>`).join(''); $('#pgHead .pg-tx').appendChild(nav); }
   };
   const setActions = html => { const a = $('#pgAct'); if (a) a.innerHTML = html; return a; };
   // Ngăn kéo thanh bên (điện thoại)
@@ -687,7 +688,7 @@
   function sigTable(host, list, o = {}) {
     const st = { lv: o.lv || 'all', src: '' }, srcs = [...new Set(list.map(x => x.src))].sort();
     const cnt = k => k === 'all' ? list.filter(x => x.lv !== 'ok').length : list.filter(x => x.lv === k).length;
-    host.innerHTML = `<div class="sig-tools" role="group" aria-label="${esc(L('Lọc theo mức độ'))}">${['all', 'crit', 'warn', 'info', 'ok'].map(k => `<button type="button" class="btn sm sig-f" data-lv="${k}" aria-pressed="${st.lv === k}">${esc(k === 'all' ? L('Cần xem') : L(LV[k][2]))} <b>${num(cnt(k))}</b></button>`).join('')}
+    host.innerHTML = `<div class="card-h sig-tools"><div class="seg-f" role="group" aria-label="${esc(L('Lọc theo mức độ'))}">${['all', 'crit', 'warn', 'info', 'ok'].map(k => `<button type="button" class="chip-f sig-f" data-lv="${k}" aria-pressed="${st.lv === k}">${esc(k === 'all' ? L('Cần xem') : L(LV[k][2]))} <b>${num(cnt(k))}</b></button>`).join('')}</div>
       <select class="sig-src" aria-label="${esc(L('Lọc theo nguồn'))}"><option value="">${esc(L('Mọi nguồn'))}</option>${srcs.map(x => `<option>${esc(x)}</option>`).join('')}</select></div><div class="sig-t"></div>`;
     const draw = () => {
       host.querySelectorAll('.sig-f').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lv === st.lv)));
@@ -1165,7 +1166,7 @@
       const todo = Array.isArray(sg) ? sg.filter(x => x.lv === 'crit' || x.lv === 'warn') : null;
       const todoHtml = `<section class="card today-q" aria-labelledby="todayT"><div class="card-h"><h2 class="h3" id="todayT">${esc(L('Cần anh xử lý hôm nay'))}</h2><a href="#alerts" data-go="alerts" class="small">${esc(L('Trung tâm cảnh báo →'))}</a></div>${
         !todo ? errBox(sg._err) : !todo.length ? emptyState(L('Không có việc nào cần anh làm'), L('Mọi hệ thống đang ổn – số liệu bên dưới để theo dõi.'), '✓')
-        : `<ol class="today-l">${todo.slice(0, 8).map(x => `<li class="today-i">${lvChip(x.lv)}<span class="today-tx"><b>${esc(x.title)}</b> <span class="small muted">${esc(x.src)}${x.detail ? ' · ' + esc(x.detail) : ''}</span></span>${sigAct(x)}</li>`).join('')}</ol>${todo.length > 8 ? `<p class="small"><a href="#alerts" data-go="alerts">${esc(L('+{n} mục khác', { n: todo.length - 8 }))}</a></p>` : ''}`}</section>`;
+        : `<div class="tbl-wrap"><table class="tbl"><caption class="sr-only">${esc(L('Cần anh xử lý hôm nay'))}</caption><tbody>${todo.slice(0, 8).map(x => `<tr class="today-i"><td class="nowrap">${lvChip(x.lv)}</td><td class="msg"><b>${esc(x.title)}</b><br><span class="small muted">${esc(x.src)}${x.detail ? ' · ' + esc(x.detail) : ''}</span></td><td class="nowrap">${sigAct(x)}</td></tr>`).join('')}</tbody></table></div>${todo.length > 8 ? `<p class="small"><a href="#alerts" data-go="alerts">${esc(L('+{n} mục khác', { n: todo.length - 8 }))}</a></p>` : ''}`}</section>`;
       main.innerHTML = todoHtml + `
         <h2 class="sec-t">${L('Người thật')}</h2>
         <div class="tiles">

@@ -304,7 +304,7 @@ export const LEGACY = {
   },
 };
 
-const OPS = {
+export const OPS = {
   async whoami() { return { admin: true }; }, // cổng phía máy khách: tới được đây = adminGate đã xác nhận (không trả danh sách email)
   async usage(db, b) {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
@@ -649,16 +649,16 @@ const OPS = {
   },
   // Chất lượng: kết quả workflow "Rà soát hằng ngày" (health.yml) – điểm = số hạng mục đạt / tổng; dưới 100% = dưới chuẩn
   async quality(db, b, who, env) {
-    const c = caches.default, key = new Request('https://cache.lexkite.internal/quality'), hit = await c.match(key); if (hit) return hit.json();
-    const gh = u => ghApi(env, u); // lỗi → ném ra (không đệm kết quả rỗng 10 phút)
-    const runs = ((await gh('actions/workflows/health.yml/runs?per_page=14')).workflow_runs || []).filter(r => r.status === 'completed');
-    const CHECK = /^(Kiểm thử|Lẫn tiếng|Kiểm tra kiểu|Cú pháp|Bản live)/;
-    const steps = async r => (((await gh(`actions/runs/${r.id}/jobs`)).jobs || [])[0] || { steps: [] }).steps.filter(x => CHECK.test(x.name)).map(x => ({ name: x.name, ok: x.conclusion === 'success' }));
-    const latest = runs[0] ? await steps(runs[0]) : [];
-    const score = latest.length ? Math.round(latest.filter(x => x.ok).length / latest.length * 100) : null;
-    const out = { score, standard: 100, at: runs[0] ? Date.parse(runs[0].updated_at) : 0, url: runs[0] ? runs[0].html_url : '', checks: latest, history: runs.map(r => ({ at: Date.parse(r.updated_at), ok: r.conclusion === 'success', url: r.html_url })) };
-    await c.put(key, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=600' } }));
-    return out;
+    // cached(): chỉ đệm khi tính xong; lỗi GitHub (403/rate-limit/5xx) → ném ra, KHÔNG đệm kết quả rỗng 10 phút (test: admin-gh.mjs)
+    return cached('quality-v2', 600, async () => {
+      const gh = u => ghApi(env, u);
+      const runs = ((await gh('actions/workflows/health.yml/runs?per_page=14')).workflow_runs || []).filter(r => r.status === 'completed');
+      const CHECK = /^(Kiểm thử|Lẫn tiếng|Kiểm tra kiểu|Cú pháp|Bản live)/;
+      const steps = async r => (((await gh(`actions/runs/${r.id}/jobs`)).jobs || [])[0] || { steps: [] }).steps.filter(x => CHECK.test(x.name)).map(x => ({ name: x.name, ok: x.conclusion === 'success' }));
+      const latest = runs[0] ? await steps(runs[0]) : [];
+      const score = latest.length ? Math.round(latest.filter(x => x.ok).length / latest.length * 100) : null;
+      return { score, standard: 100, at: runs[0] ? Date.parse(runs[0].updated_at) : 0, url: runs[0] ? runs[0].html_url : '', checks: latest, history: runs.map(r => ({ at: Date.parse(r.updated_at), ok: r.conclusion === 'success', url: r.html_url })) };
+    });
   },
   // Kiểm nghĩa bản dịch: câu bị dịch ngược nghi sai (web/i18n/backcheck.json) → AI Cloudflare (gói miễn phí) xác nhận theo lô 15 câu
   async judge(db, b, who, env) {
@@ -747,9 +747,13 @@ const OPS = {
   async alerts(db, b, who, env) {
     const now = Date.now(), out = [];
     try {
-      const runs = (await ghApi(env, 'actions/runs?per_page=40')).workflow_runs || [], seen = new Set();
-      for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); out.push({ kind: 'workflow', name: w.name, status: w.status, ok: w.conclusion === 'success' || w.conclusion === 'skipped' || w.status !== 'completed', conclusion: w.conclusion, at: Date.parse(w.updated_at), url: w.html_url }); }
-    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, conclusion: tx(b, 'không đọc được', 'unreadable') + ' · ' + String(e.message || e).slice(0, 40) }); }
+      // Đệm 60 s (R2): trang Quản trị tự làm mới không đốt hạn mức GitHub; chỉ đệm khi đọc được – lỗi không bao giờ thành "0 workflow"
+      out.push(...await cached('alerts-gh', 60, async () => {
+        const runs = (await ghApi(env, 'actions/runs?per_page=40')).workflow_runs || [], seen = new Set(), rows = [];
+        for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); rows.push({ kind: 'workflow', name: w.name, status: w.status, ok: w.conclusion === 'success' || w.conclusion === 'skipped' || w.status !== 'completed', conclusion: w.conclusion, at: Date.parse(w.updated_at), url: w.html_url }); }
+        return rows;
+      }));
+    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, unreadable: true, conclusion: tx(b, 'không đọc được', 'unreadable') + ' · ' + String(e.message || e).slice(0, 40) }); }
     const e = await one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY);
     const lim = +((await one(db, "SELECT v FROM config WHERE k = 'alert_errors'")).v || 50);
     out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
