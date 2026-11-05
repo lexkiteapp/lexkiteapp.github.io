@@ -1,0 +1,49 @@
+// Chân trang tĩnh gọn (05/11, chủ: "gọn, sạch, chuyên nghiệp như Stripe/Linear"): 3 cột cân (≤ 5 hàng/cột) + hàng đáy © · pháp lý · ngôn ngữ · giao diện.
+// Không cắt link (no-cuts): MỌI link của footGroups vẫn là <a href> crawl được ở 15 ngôn ngữ; điện thoại = accordion đóng hết; chạm ≥ 44 px trên cảm ứng.
+// Node thuần (npm test). Thêm `--browser [dist]` (CI quality-sweep, cần playwright) → đo chiều cao thật: máy tính ≤ 440 px, điện thoại (đã gập) ≤ 760 px.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { siteFooter, footGroups, FOOT_CSS, FOOT_JS, TAP_CSS, LANG_NAMES, LEGAL_RE } from '../lib/site-layout.mjs';
+const LANGS = Object.keys(LANG_NAMES);
+assert.equal(LANGS.length, 15);
+for (const l of LANGS) {
+  const h = siteFooter({ lang: l, text: 'Lexkite – x', tm: 'TM' }), g = footGroups(l);
+  const hrefs = [...h.matchAll(/<a [^>]*href="([^"]+)"/g)].map(m => m[1]);
+  for (const [u] of [...g.product, ...g.learn, ...g.tools, ...g.co]) assert.ok(hrefs.includes(u), `${l}: mất link ${u}`);
+  for (const k of LANGS) assert.ok(h.includes(`hreflang="${k}"`), `${l}: mất link ngôn ngữ ${k}`);
+  const legal = (h.match(/<span class="flegal">(.*?)<\/span>/) || [])[1] || '';
+  assert.equal((legal.match(/<a /g) || []).length, g.co.filter(([u]) => LEGAL_RE.test(u)).length, `${l}: hàng pháp lý`);
+  assert.ok(/privacy#delete/.test(legal) && /\/terms"/.test(legal), `${l}: Điều khoản + Xóa dữ liệu ở hàng đáy`);
+  const cols = [...h.matchAll(/<details class="fg( fw)?" open>.*?<\/details>/g)];
+  assert.equal(cols.length, 3, `${l}: 3 cột`);
+  for (const c of cols) { const n = (c[0].match(/<li>/g) || []).length, rows = c[1] ? Math.ceil(n / 2) : n; assert.ok(rows <= 5, `${l}: cột ${rows} hàng > 5 (ngân sách chiều cao)`); }
+  assert.ok(/class="fbot".*class="fctl".*class="tsp|class="fbot".*class="fctl"/s.test(h) && h.includes('class="ftm"'), `${l}: hàng đáy + nhãn hiệu`);
+}
+// CSS: máy tính gọn (link ≤ 32 px, ≥ 24 px WCAG 2.5.8), cảm ứng/điện thoại ≥ 44 px, accordion trên điện thoại
+assert.match(FOOT_CSS, /\.site-foot \.fg a\{[^}]*min-height:30px/);
+assert.match(FOOT_CSS, /@media \(pointer:coarse\)\{[^}]*min-height:44px/);
+assert.match(FOOT_CSS, /@media \(max-width:720px\)\{.*\.fg summary\{[^}]*pointer-events:auto/s);
+assert.match(TAP_CSS, /@media \(pointer:coarse\),\(max-width:720px\)\{\.site-foot li a,\.flangs a\{min-height:44px/);
+assert.ok(!/\.site-foot li a,\.flangs a\{display:inline-flex[^}]*min-height:44px/.test(TAP_CSS), 'không ép 44px trên máy tính');
+assert.ok(FOOT_JS.includes('x.open=!q.matches') && FOOT_JS.includes("'(max-width:720px)'"), 'điện thoại: gập hết');
+// Trang đã commit đã dựng lại bằng generator (privacy/terms/credits/schools ×16 + 404)
+for (const f of ['web/privacy.html', 'web/en/terms.html', 'web/404.html']) assert.ok(fs.readFileSync(new URL(`../../${f}`, import.meta.url), 'utf8').includes('class="flegal"'), `${f} cũ – chạy build-legal/build-landing`);
+
+if (process.argv.includes('--browser')) {
+  const { chromium } = await import('playwright'), { serve } = await import('../quality/serve.mjs'), path = await import('node:path');
+  const i = process.argv.indexOf('--browser'), ROOT = path.resolve(process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : 'dist');
+  const srv = await serve(ROOT, 0), br = await chromium.launch(); let bad = 0;
+  for (const p of ['/privacy', '/en/terms', '/ar/privacy', '/vi/blog/']) for (const vp of [{ n: 'desktop', width: 1280, height: 800, max: 440 }, { n: 'mobile', width: 390, height: 844, isMobile: true, hasTouch: true, max: 760 }]) {
+    const ctx = await br.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: vp.isMobile, hasTouch: vp.hasTouch }), pg = await ctx.newPage();
+    const r = await pg.goto(srv.origin + p, { waitUntil: 'load' }); if (!r || !r.ok()) { await ctx.close(); continue; }
+    await pg.waitForTimeout(1200);
+    const m = await pg.evaluate(() => { const f = document.querySelector('footer.site-foot'); if (!f) return null; const a = [...f.querySelectorAll('a,summary,button')].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').map(e => e.getBoundingClientRect()); return { h: Math.round(f.getBoundingClientRect().height), sw: document.documentElement.scrollWidth - innerWidth, minTap: Math.round(Math.min(...a.map(r => r.height))) }; });
+    if (!m) continue;
+    const err = [m.h > vp.max && `cao ${m.h}px > ${vp.max}`, m.sw > 0 && `tràn ngang ${m.sw}px`, vp.isMobile && m.minTap < 44 && `vùng chạm ${m.minTap}px < 44`, !vp.isMobile && m.minTap < 24 && `vùng bấm ${m.minTap}px < 24`].filter(Boolean);
+    console.log(`${err.length ? '✗' : '✓'} ${vp.n} ${p}: footer ${m.h}px${err.length ? ' – ' + err.join(', ') : ''}`); bad += err.length;
+    await ctx.close();
+  }
+  await br.close(); srv.close && srv.close();
+  if (bad) { console.error(`site-footer: ${bad} lỗi`); process.exit(1); }
+}
+console.log('✓ site-footer: 15 ngôn ngữ đủ link, 3 cột ≤ 5 hàng, hàng đáy pháp lý, gập trên điện thoại');
