@@ -49,13 +49,14 @@
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
 .ex .lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 .5rem!important;align-content:flex-start;border:0!important;
  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
-.ex .lsn-ans>button{margin:.25rem 0!important;min-height:3rem;touch-action:manipulation}
+.ex .lsn-ans>button{margin:.25rem 0!important;min-height:3rem}
 .ex .lsn-bank{gap:.5rem!important;padding-top:1rem!important;min-height:7.5rem;align-content:flex-start}
-.ex .lsn-bank>button{min-height:3rem;touch-action:manipulation}
+.ex .lsn-bank>button{min-height:3rem} /* KHÔNG đặt touch-action ở đây: word-arrange.js dùng touch-action:none cho thẻ kéo-chèn (Chromium cảm ứng huỷ pointer nếu cho phép cuộn) */
 /* nút nghe: to, rõ + 🐢 cùng cỡ */
 .ex #lsnPlay,.ex #lsnSlow{min-width:56px;min-height:56px;border-radius:9999px}
 .ex #lsnSlow{position:static!important}
 /* Kiểm tra: TẮT = xám phẳng chữ đủ tương phản; BẬT giữ nguyên mẫu Stitch (gradient cam – cổng stitch-diff vùng CTA ≥ 0,99, không được xa mẫu hơn) */
+@media (prefers-reduced-motion:no-preference){.ex #lsnCheck{transition:background-color .15s}}
 .ex #lsnCheck:disabled{background-image:none!important;opacity:1!important;background-color:var(--ex-dis-bg)!important;color:var(--ex-dis-fg)!important;box-shadow:none!important;cursor:not-allowed}
 /* Bỏ qua / Báo lỗi: liên kết chữ nhỏ, lặng, dưới nút chính (không nền, không viền, không bóng) */
 .ex .lsn-qfoot .lsn-skipb,.ex .lsn-qfoot #lsnRep{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--ex-mut)!important;flex:0 0 auto!important;padding:.25rem .5rem!important;min-height:44px}

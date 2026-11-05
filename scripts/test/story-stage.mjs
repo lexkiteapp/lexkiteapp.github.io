@@ -25,13 +25,13 @@ for (const name of ['sáng', 'tối']) {
   const g = k => { const re = name === 'sáng' ? new RegExp(`\\.ex\\{([^}]*)\\}`) : new RegExp(`:root\\[data-theme="dark"\\] \\.ex\\{([^}]*)\\}`); const b = css.match(re); const m = b && b[1].match(new RegExp(`--${k}:(#[0-9A-Fa-f]{6})`)); return m && m[1]; };
   for (const [bg, fg, what] of [['ex-dis-bg', 'ex-dis-fg', 'Kiểm tra (tắt)'], ['ex-on-bg', 'ex-on-fg', 'Kiểm tra (bật)']]) { const a = g(bg), b = g(fg); ok(a && b && ratio(a, b) >= 4.5, `${what} ${name}: tương phản ${a && b ? ratio(a, b).toFixed(2) : '?'} < 4.5`); }
 }
-ok(/#lsnCheck\{background-image:none!important/.test(css), 'nút Kiểm tra còn gradient');
+ok(/#lsnCheck:disabled\{background-image:none!important/.test(css), 'nút Kiểm tra (tắt) còn gradient');
 // chữ giao diện: chỉ khóa đã có bản dịch 15 ngôn ngữ (không khóa mới)
 const en = fs.readdirSync('web/js/i18n/en').map(f => rd('web/js/i18n/en/' + f)).join('\n');
 for (const m of js.matchAll(/\bT\('([^']+)'/g)) ok(en.includes(`'${m[1]}'`), `khóa dịch thiếu trong web/js/i18n/en: ${m[1]}`);
 // bàn phím + rung + chip
 ok(/e\.key === 'Enter'/.test(ui) && /navigator\.vibrate/.test(ui), 'Enter = Kiểm tra / rung phản hồi thiếu');
-ok(/chip: ''/.test(ui), 'chip mục tiêu phải ẩn ở khung bài tập');
+ok(/chip: sh\.chip/.test(ui), 'chip mục tiêu ở khung bài tập phải theo mẫu Stitch (sh.chip, ẩn khi không có mục tiêu)');
 ok(/L\.vids/.test(ui) && /ctx\.vids\(\)/.test(js), 'dừng video người im (park) thiếu'); ok(!/park\(on\)/.test(tj), 'teacher.js thuộc PR #760 – không sửa ở đây');
 // ---------- 2) trình duyệt ----------
 const lines = [];
