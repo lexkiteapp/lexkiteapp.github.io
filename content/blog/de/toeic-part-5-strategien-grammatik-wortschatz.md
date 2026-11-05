@@ -7,8 +7,8 @@ translationKey: toeic-part-5-meo-lam-bai
 category: toeic
 tags: [toeic, part-5, grammatik, wortschatz, pruefung]
 keyword: "toeic part 5"
-cover: path
-coverAlt: "Kandidat bereitet sich auf TOEIC Part 5 mit Grammatikanalyse und Stoppuhr vor"
+cover: toeic
+coverAlt: "Die TOEIC-Seite in Lexkite mit Probetests, Übungen nach Part und dem Wortschatz TSL"
 publishAt: 2027-01-04T12:11:00+01:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -54,7 +54,7 @@ quiz: [
     explain: "Nach der Lücke folgt nur eine Nominalphrase (the heavy rain) ohne finites Verb. Eine einräumende Präposition ist hier nötig, und Despite ist die einzige davon; Although, Even though und Because brauchen einen vollständigen Nebensatz."
   }
 ]
-qualityScore: 92
+qualityScore: 90
 ---
 
 Für Berufstätige und Studierende, die internationale Karriereschritte anstreben, verlangt der TOEIC Reading-Test absolute Präzision unter hohem Zeitdruck. Mit exakt 30 Lückensätzen eröffnet der Abschnitt **toeic part 5** den Leseteil und prägt maßgeblich den weiteren Rhythmus der gesamten Prüfung. Der gesamte Leseteil hat 100 Fragen in 75 Minuten (Part 5: 30, Part 6: 16, Part 7: 54), und es gibt keine Zeitvorgabe pro Part. Jede Minute, die Sie in Part 5 sparen, fehlt Ihnen nicht bei den langen Texten in Part 7.
@@ -79,7 +79,7 @@ Die Fragen lassen sich in zwei grundlegende Aufgabentypen unterteilen:
 | **Pronomen und Determinanten** | Personal-, Reflexiv- oder Possessivpronomen | 10 Sekunden | Bezugswort und grammatische Funktion |
 | **Business-Kollokationen** | Unterschiedliche Begriffe im selben Sachgebiet | 25 Sekunden | Feste Wendungen und Kontextlogik |
 
-![Lexkite-Seite Luyện thi TOEIC mit Probetests, Übungen nach Part und dem TOEIC-Wortschatz TSL](media:toeic "Die TOEIC-Seite in Lexkite: Probetests, Übungen nach Part und der Wortschatz TSL")
+![Die TOEIC-Seite in Lexkite mit Probetests, Übungen nach Part und dem Wortschatz TSL](media:toeic "Die TOEIC-Seite in Lexkite: Probetests, Übungen nach Part und der Wortschatz TSL")
 
 ---
 
@@ -141,6 +141,18 @@ Ergänzen Sie Ihre Kompetenzen für den Berufsalltag durch unseren Leitfaden zu 
 - **Falsche Freunde**: *become* heißt „werden“, nicht „bekommen“; *actual* heißt „tatsächlich“, nicht „aktuell“ (*current*); *eventually* heißt „schließlich“, nicht „eventuell“ (*possibly*).
 - **Adjektiv statt Adverb**: Im Deutschen bleibt „schnell“ in „Er antwortete schnell“ unverändert. Im Englischen braucht das Verb das Adverb: *responded promptly*, nicht *responded prompt*.
 
+## Korrigieren Sie diese Sätze (typische Fehler Deutschsprachiger)
+
+Jeder Satz enthält einen Fehler, den die falschen Optionen in Part 5 gern nachbauen. Korrigieren Sie ihn, bevor Sie die Lösung lesen.
+
+1. *The invoice has been paid yesterday.* → *was paid yesterday*: „ist gestern bezahlt worden“ klingt deutsch richtig, aber *yesterday* verlangt Simple Past.
+2. *Since three years she works here.* → *She has worked here for three years*: „seit drei Jahren arbeitet sie“ wird im Englischen zum Present Perfect mit *for*.
+3. *She answered very quick.* → *very quickly*: Das deutsche „schnell“ ist Adjektiv und Adverb in einem, das englische nicht.
+4. *I will become the documents tomorrow.* → *receive* oder *get*: *become* heißt „werden“, nicht „bekommen“.
+5. *He gave me an advice.* → *a piece of advice* oder *some advice*: *advice* ist nicht zählbar, im Gegensatz zu „ein Rat“.
+
+Wenn Sie bei einem Satz gezögert haben, notieren Sie ihn. Genau diese Muster kosten in Part 5 bei Zeitformen, Wortarten und Determinanten die meisten Punkte.
+
 ## Praktische Übungsaufgaben zu TOEIC Part 5 mit Erklärungen
 
 Testen Sie Ihre Analysefähigkeit anhand von vier prüfungsnahen Beispielen:
@@ -183,6 +195,8 @@ Testen Sie Ihre Analysefähigkeit anhand von vier prüfungsnahen Beispielen:
 
 ---
 
+![Multiple-Choice-Test in Lexkite: die richtige Bedeutung von run out of aus vier Optionen wählen](media:practice-test "Ein Multiple-Choice-Test wie dieser hilft, die Bedeutung von Wendungen wie run out of zu prüfen")
+
 ## Zeitmanagement-Protokoll: Part 5 in 10 Minuten abschließen
 
 Von den 75 Minuten des Leseteils bleiben bei 10 Minuten für Part 5 noch 65 für Part 6 und 7. Ein möglicher Zeittakt (eigene Empfehlung, keine Vorgabe von ETS):
@@ -198,16 +212,16 @@ Wenden Sie folgendes Ablaufmuster am Prüfungstag an:
 - **15–20 Sekunden**: Markieren auf dem Antwortbogen und sofortiger Wechsel zur nächsten Aufgabe.
 - **Stopp-Regel bei Unsicherheit**: Schwanken Sie nach 25 Sekunden zwischen zwei Varianten, wählen Sie Ihre beste Vermutung und gehen Sie weiter. Bleiben Sie keinesfalls minutenlang an einem Einzelsatz hängen.
 
-![Lexkite-Sammlung Sổ lỗi sai, die Fehler nach Wortschatz, Grammatik, Leseverständnis und Hören gruppiert](media:mistakes "Das Fehlerheft sortiert falsche Antworten nach Wortschatz, Grammatik, Leseverständnis und Hören")
+![Lexkite Mistake log: Vocabulary, Grammar, Reading, Listening](media:mistakes "Das Fehlerheft sortiert falsche Antworten nach Wortschatz, Grammatik, Leseverständnis und Hören")
 
 ---
 
-## Gezielt zum Testerfolg mit Lexkite
+## Üben mit Lexkite
 
-Souveränität und Schnelligkeit bei Multiple-Choice-Prüfungen entstehen durch tägliche Praxis und fundierte Wortschatzarbeit:
+Tempo entsteht durch Wiederholung. Das hilft bei Part 5:
 
-- **FSRS-Algorithmus für Spaced Repetition**: Speichern Sie Geschäftsausdrücke und Phrasal Verbs dauerhaft im Langzeitgedächtnis ab.
-- **Integriertes Kontextwörterbuch**: Rufen Sie Definitionen, Kollokationen und die korrekte IPA-Aussprache mit einem Tippen auf.
+- **Wiederholung nach FSRS**: Geschäftsausdrücke und Phrasal Verbs kommen kurz vor dem Vergessen wieder.
+- **Wörterbuch**: Beispielsätze und Aussprache zu jedem Wort.
 - **Fehlerheft**: Falsch beantwortete Aufgaben landen im [Fehlerheft](/#/mistakes), gruppiert nach Wortschatz, Grammatik und Leseverständnis. So sehen Sie, ob Ihre Part-5-Fehler eher bei Wortarten oder bei Kollokationen liegen.
 - **Strukturierter Vorbereitungsplan**: Nutzen Sie unseren kompletten [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/) zur Aufteilung Ihrer Lernwochen.
 
@@ -236,4 +250,4 @@ Am häufigsten sind Adjektiv statt Adverb (im Deutschen steht „schnell“ für
 ### Wie prägt man sich geschäftliche Kollokationen am besten ein?
 Lernen Sie Vokabeln niemals isoliert, sondern stets in festen Verbindungen (*meet the deadline*, *conduct an investigation*, *reach a consensus*). Das Lernen ganzer Phrasen mit einem intelligenten Karteikartensystem beschleunigt die Wiedererkennung im Test maßgeblich.
 
-Um Ihr Hörverstehen im Test zu perfektionieren und Klangfallen zu meiden, lesen Sie unsere [toeic listening part 2 strategien für fragen und antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).
+Für den Hörteil lesen Sie auch unseren Leitfaden zu [TOEIC Listening Part 2: Fragen und Antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).

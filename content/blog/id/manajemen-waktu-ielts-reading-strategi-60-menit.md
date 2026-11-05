@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, ujian-ielts, strategi-membaca]
 keyword: "manajemen waktu ielts reading"
-cover: library
-coverAlt: "Panduan strategi manajemen waktu 60 menit dan pembagian tiga bacaan pada ujian IELTS Reading"
+cover: reading
+coverAlt: "Perpustakaan bacaan Lexkite dengan teks bergaya IELTS dari A2 sampai C1"
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
@@ -74,7 +74,7 @@ IELTS tidak menerbitkan batas waktu per teks dan tingkat kesulitan berbeda dari 
 
 1. **Passage 1 (sering yang paling faktual):** biasanya bertema deskriptif seperti sejarah suatu penemuan, biografi, atau proses alam, dan jawabannya cenderung mengikuti urutan teks. Anggaran awal: sekitar **15 menit** untuk seluruh soalnya.
 2. **Passage 2 (sering berupa studi kasus):** bisa membandingkan pandangan beberapa peneliti atau menjelaskan suatu inovasi. Anggaran awal: sekitar **20 menit**.
-3. **Passage 3 (sering yang paling padat):** biasanya memuat argumen paling abstrak, dengan pendapat penulis dan soal inferensi. Anggaran awal: sekitar **25 menit**, ditambah tiga menit terakhir untuk memeriksa lembar jawaban.
+3. **Passage 3 (sering yang paling padat):** biasanya memuat argumen paling abstrak, dengan pendapat penulis dan soal inferensi. Anggaran awal: sekitar **25 menit**, termasuk tiga menit terakhir untuk memeriksa lembar jawaban (15 + 20 + 25 = 60).
 
 Hal penting lainnya yang kerap terlupakan: pada IELTS Reading **tidak ada waktu tambahan untuk memindahkan jawaban**. Waktu ekstra 10 menit untuk memindahkan jawaban pada sesi Listening berbasis kertas tidak berlaku dalam sesi Reading. Jika Anda terbiasa menulis jawaban sementara di lembar soal dan berniat memindahkannya di akhir, lembar jawaban Anda berisiko ditarik pengawas sebelum sempat terisi penuh. Seluruh jawaban harus langsung ditulis dengan pensil ke lembar jawaban resmi (*Answer Sheet*) saat Anda mengerjakan soal.
 
@@ -99,7 +99,7 @@ Ada beberapa format pertanyaan yang secara khusus menghabiskan banyak menit berh
 | :--- | :--- | :--- |
 | **Matching Headings (Mencocokkan judul paragraf)** | Sangat Tinggi (menuntut pemahaman gagasan utama tiap paragraf). | Kerjakan tipe soal ini paling awal sebelum soal detail, agar membaca sepintas seluruh paragraf langsung terpakai. |
 | **Matching Information to Paragraphs** | Kritis (urutan soal acak dan tidak mengikuti kronologi teks). | Tunda hingga akhir bagian; setelah menjawab soal-soal lain, Anda sudah hafal peta topik tiap paragraf. |
-| **True / False / Not Given (T/F/NG)** | Tinggi (keraguan antara False dan Not Given membuang waktu). | Jika ada pertentangan fakta yang jelas, pilih False. Jika setelah 90 detik tidak ada bukti eksplisit, tandai Not Given lalu lanjutkan. |
+| **True / False / Not Given (T/F/NG)** | Tinggi (keraguan antara False dan Not Given membuang waktu). | Jika teks menyatakan hal yang berlawanan, jawabannya False; jika teks tidak menyinggung hal itu sama sekali, jawabannya Not Given. Bila ragu, tulis tebakan terbaik, beri tanda, lalu kembali nanti. |
 | **Sentence / Summary Completion** | Moderat (harus mematuhi batas kata yang ditentukan arahan soal). | Tentukan jenis kelas kata yang hilang (kata benda tunggal, kata sifat, kata kerja) sebelum mencari di bacaan. |
 
 Apabila Anda bimbang pada suatu pertanyaan lebih dari 60 detik, terapkan aturan 90 detik: pilih jawaban yang paling mendekati logika, bubuhkan tanda bintang di tepi lembar soal, dan langsung beralih ke nomor berikutnya. Ingat bahwa setiap nomor berbobot tepat satu poin; mengorbankan empat soal mudah di akhir hanya demi satu soal rumit di tengah adalah kerugian besar.

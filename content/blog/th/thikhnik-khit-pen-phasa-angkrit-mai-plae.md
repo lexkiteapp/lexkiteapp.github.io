@@ -8,7 +8,7 @@ category: ky-nang
 tags: [speaking, fluency, thinking-in-english]
 keyword: "คิดเป็นภาษาอังกฤษ"
 cover: path
-coverAlt: "แผนที่การเรียนรู้การคิดเป็นภาษาอังกฤษและฝึกพูดอย่างมั่นใจบน Lexkite"
+coverAlt: "หน้าแผนเส้นทางเตรียมสอบ IELTS ของ Lexkite แบ่งเป็นขั้นตามแบนด์ แต่ละขั้นมีคำศัพท์ การฝึก การฟัง และการทดสอบ"
 publishAt: 2027-01-04T08:14:00+07:00
 factChecked: 2026-11-05
 author: Lexkite

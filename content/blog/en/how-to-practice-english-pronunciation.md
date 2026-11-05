@@ -7,8 +7,8 @@ translationKey: luyen-phat-am-tieng-anh
 category: phuong-phap
 tags: [pronunciation, speaking, phonetics, accent]
 keyword: "how to practice english pronunciation"
-cover: path
-coverAlt: "Learner practicing English pronunciation with acoustic microphone feedback and phonetics"
+cover: pron
+coverAlt: "Lexkite pronunciation library with groups of single vowels, diphthongs and consonants, example words and practice for each sound"
 publishAt: 2027-01-25T19:01:00+05:30
 factChecked: 2026-11-05
 author: Lexkite
@@ -105,7 +105,7 @@ Exaggerate your mouth position in front of a mirror:
 
 Lexkite's [pronunciation library](/#/pron) lists the single vowels, diphthongs and consonants with example words, so you can listen to a pair such as sheep / ship and then practise it aloud.
 
-![Lexkite pronunciation library with groups of single vowels, diphthongs and consonants, example words and practice for each sound](media:pron "The pronunciation library groups English sounds so you can drill one pair at a time")
+![Lexkite practice hub listing games and exercises, including pronunciation practice](media:practice "The practice hub lists pronunciation practice alongside other exercises")
 
 ---
 

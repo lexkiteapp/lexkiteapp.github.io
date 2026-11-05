@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, exame-ielts, estrategias-leitura]
 keyword: "gestão do tempo no ielts reading"
-cover: library
-coverAlt: "Estratégias de distribuição de 60 minutos e gerenciamento de tempo no teste IELTS Reading"
+cover: reading
+coverAlt: "Biblioteca de leituras do Lexkite com textos no estilo IELTS de A2 a C1"
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
@@ -74,7 +74,7 @@ O IELTS não divulga um tempo por texto e a dificuldade varia de prova para prov
 
 1. **Texto 1 (muitas vezes o mais factual):** costuma tratar de um tema descritivo, como a história de uma invenção, uma biografia ou um processo natural, e as respostas tendem a seguir a ordem do texto. Orçamento inicial: cerca de **15 minutos** para todas as suas questões.
 2. **Texto 2 (muitas vezes um estudo de caso):** pode comparar opiniões de vários pesquisadores ou descrever uma inovação. Orçamento inicial: cerca de **20 minutos**.
-3. **Texto 3 (muitas vezes o mais denso):** costuma concentrar o argumento mais abstrato, com opiniões do autor e inferências. Orçamento inicial: cerca de **25 minutos**, mais os três últimos para conferir o gabarito.
+3. **Texto 3 (muitas vezes o mais denso):** costuma concentrar o argumento mais abstrato, com opiniões do autor e inferências. Orçamento inicial: cerca de **25 minutos**, incluindo os três últimos para conferir o gabarito (15 + 20 + 25 = 60).
 
 Além disso, há um detalhe operacional vital: no IELTS Reading **não existe tempo extra para passar as respostas a limpo**. Os 10 minutos adicionais concedidos no Listening não se aplicam aqui. Se você marcar as respostas no caderno de questões pensando em transferi-las nos minutos finais, corre o risco de ver a prova ser recolhida antes de preencher a folha oficial (*Answer Sheet*). Cada resposta deve ser anotada a lápis diretamente no gabarito oficial à medida que você avança.
 
@@ -99,7 +99,7 @@ Determinados tipos de exercícios foram elaborados especificamente para induzir 
 | :--- | :--- | :--- |
 | **Matching Headings (Associar títulos a parágrafos)** | Altíssimo (exige captar a tese central de cada parágrafo). | Resolva este bloco sempre primeiro, aproveitando a leitura estrutural inicial do texto. |
 | **Matching Information to Paragraphs** | Crítico (as perguntas não acompanham a cronologia do texto). | Deixe para o final do bloco; a essa altura você já saberá a localização dos temas graças às outras questões resolvidas. |
-| **True / False / Not Given (T/F/NG)** | Alto (a dúvida entre False e Not Given paralisa muitos alunos). | Havendo uma contradição factual direta, assinale False. Se após 90 segundos nenhuma menção explícita for achada, marque Not Given e prossiga. |
+| **True / False / Not Given (T/F/NG)** | Alto (a dúvida entre False e Not Given paralisa muitos alunos). | Se o texto afirma o contrário, é False; se o texto não menciona o assunto, é Not Given. Na dúvida, marque seu melhor palpite, assinale a questão e volte depois. |
 | **Sentence / Summary Completion** | Moderado (exige atenção ao limite rigoroso de palavras). | Identifique a classe gramatical ausente (substantivo no singular, adjetivo, verbo) antes de buscar no parágrafo. |
 
 Se você empacar em qualquer item por mais de 60 segundos, adote a regra dos 90 segundos: anote seu melhor palpite, coloque um asterisco na margem do caderno e passe sem hesitar para a próxima pergunta. Cada questão vale exatamente um ponto; perder cinco minutos em um detalhe obscuro e deixar de responder a quatro questões fáceis no final é um erro imperdoável.

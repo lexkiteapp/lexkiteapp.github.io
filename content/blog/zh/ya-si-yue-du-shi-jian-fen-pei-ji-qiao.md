@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts, reading, time-management, exam-tips]
 keyword: "雅思阅读时间分配"
-cover: path
-coverAlt: "考生在雅思学术类阅读考试中查看计时器并合理规划60分钟答题节奏"
+cover: reading
+coverAlt: "Lexkite 阅读库：从A2到C1的雅思风格阅读文章"
 publishAt: 2027-01-04T07:36:00+08:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -77,7 +77,7 @@ quiz: [
 | Passage 1 | 多为事实或事件描述，答案常按原文顺序出现 | 约15分钟 |
 | Passage 2 | 常见研究报告或多种观点的比较 | 约20分钟 |
 | Passage 3 | 往往论证最抽象、最密集 | 约25分钟 |
-| 最后检查 | 空白、拼写、单复数 | 最后3分钟 |
+| 最后检查 | 空白、拼写、单复数 | Passage 3 那25分钟里的最后3分钟（15+20+25=60） |
 
 如果在Passage 1上用满20分钟，留给最后一篇的时间就会变少。时间一紧，人容易慌，连最基本的同义替换都看漏，后半部分就会丢掉本可拿到的分。
 

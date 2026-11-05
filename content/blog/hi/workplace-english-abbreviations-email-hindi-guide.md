@@ -7,8 +7,8 @@ translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, workplace-communication, email-acronyms, vocabulary]
 keyword: "ऑफिस में इंग्लिश शॉर्ट फॉर्म्स"
-cover: path
-coverAlt: "अंतरराष्ट्रीय कंपनी का कर्मचारी लैपटॉप पर बिजनेस ईमेल और वर्कप्लेस एब्रिविएशन पढ़ते हुए"
+cover: letters
+coverAlt: "Lexkite की IELTS General Task 1 पत्र-लेखन स्क्रीन: औपचारिक, अर्ध-औपचारिक और अनौपचारिक पत्र, यानी लिखने के तीन स्तर"
 publishAt: 2027-01-06T09:46:00+05:30
 factChecked: 2026-11-05
 author: Lexkite

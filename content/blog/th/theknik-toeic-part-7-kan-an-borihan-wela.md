@@ -7,13 +7,13 @@ translationKey: toeic-part-7-doc-hieu
 category: toeic
 tags: [toeic, part-7, reading, time-management]
 keyword: "toeic part 7"
-cover: path
-coverAlt: "ผู้สอบกำลังฝึกทำข้อสอบการอ่านเพื่อความเข้าใจ TOEIC Part 7 พร้อมจับเวลาแบบดิจิทัล"
+cover: toeic
+coverAlt: "หน้า TOEIC ใน Lexkite: ข้อสอบจำลอง ฝึกแยกตาม Part และคำศัพท์ TSL"
 publishAt: 2027-01-03T07:36:00+07:00
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 91
 quiz: [
   {
     q: "จากเวลา TOEIC Reading 75 นาที บทความนี้แนะนำให้ใช้กับ Part 7 ประมาณกี่นาที?",
@@ -69,7 +69,7 @@ quiz: [
 
 บทความเดี่ยวจะปรากฏขึ้นก่อน ในขณะที่บทความชุดหลายชิ้น (Double และ Triple Passages) จะอยู่ช่วงท้ายสุด (ข้อ 176–200) ดังนั้นเมื่อผู้สอบบริหารเวลาไม่ดี ข้อที่ถูกทิ้งจึงมักเป็นกลุ่มใหญ่ถึง 25 ข้อสุดท้าย ซึ่งแต่ละข้อมีค่าเท่ากับข้ออื่นทุกข้อในพาร์ตการอ่าน จึงควรแยกฝึกชุดบทความคู่และสามตอนโดยเฉพาะ
 
-![หน้า Luyện thi TOEIC ใน Lexkite: ข้อสอบจำลอง ฝึกแยกตาม Part และคำศัพท์ TOEIC (TSL)](media:toeic "หน้า TOEIC ใน Lexkite: ข้อสอบจำลองและการฝึกแยกตาม Part ซึ่งมี Part 7 ด้วย")
+![หน้า TOEIC ใน Lexkite: ข้อสอบจำลอง ฝึกแยกตาม Part และคำศัพท์ TSL](media:toeic "หน้า TOEIC ใน Lexkite: ข้อสอบจำลองและการฝึกแยกตาม Part ซึ่งมี Part 7 ด้วย")
 
 ## กฎการคุมเวลา 55 นาที: การจัดสรรเวลาย้อนกลับ
 

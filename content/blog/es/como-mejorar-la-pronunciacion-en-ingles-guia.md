@@ -7,8 +7,8 @@ translationKey: luyen-phat-am-tieng-anh
 category: phuong-phap
 tags: [pronunciacion, speaking, fonetica, acento]
 keyword: "cómo mejorar la pronunciación en inglés"
-cover: path
-coverAlt: "Estudiante practicando pronunciación en inglés con evaluación acústica por micrófono"
+cover: pron
+coverAlt: "Biblioteca de pronunciación de Lexkite con grupos de vocales simples, diptongos y consonantes, palabras de ejemplo y práctica de cada sonido"
 publishAt: 2027-01-02T19:01:00-06:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -111,7 +111,7 @@ Practica frente a un espejo, exagerando el gesto:
 
 La [biblioteca de pronunciación de Lexkite](/#/pron) reúne las vocales simples, los diptongos y las consonantes con palabras de ejemplo, para que escuches un par como sheep / ship y lo repitas.
 
-![Biblioteca de pronunciación de Lexkite con grupos de vocales simples, diptongos y consonantes, palabras de ejemplo y práctica de cada sonido](media:pron "La biblioteca de pronunciación agrupa los sonidos del inglés para practicar un par cada vez")
+![Centro de práctica de Lexkite con juegos y ejercicios, entre ellos práctica de pronunciación](media:practice "El centro de práctica reúne la pronunciación con otros ejercicios")
 
 ---
 

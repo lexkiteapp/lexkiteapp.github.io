@@ -70,8 +70,6 @@ A Parte 1 é o aquecimento da entrevista oral: perguntas do dia a dia sobre estu
 
 Uma boa resposta não é longa nem rebuscada: é uma afirmação direta com uma ampliação curta. Aqui estão a fórmula em três passos, respostas modelo originais para quatro tópicos frequentes, os erros típicos de quem fala português e um roteiro de treino em quatro etapas.
 
-![Sala de Speaking do Lexkite com perguntas de Part 1 organizadas por tópicos e respostas modelo](media:speaking "Treinamento prático de IELTS Speaking no Lexkite com perguntas e modelos de respostas para Part 1, 2 e 3")
-
 ## Como funciona o IELTS Speaking Part 1 na prática
 
 Segundo o British Council e o IELTS.org, o Speaking dura entre 11 e 14 minutos, é uma entrevista face a face com um examinador e tem três partes. A Parte 1 ocupa os primeiros 4 a 5 minutos:
@@ -182,6 +180,8 @@ Para ganhar fluência sem decorar textos:
 Para ensaiar, veja também a página de [prática de speaking](/speaking/) e entre na [sala de speaking do Lexkite](/#/speaking), com perguntas das partes 1, 2 e 3 por tema e respostas modelo. Na [prática de pronúncia](/#/practice/speak) você diz uma frase no microfone e vê a pontuação, útil para conferir se o *-ed* e o *-s* finais aparecem.
 
 Depois de dominar as respostas curtas e dinâmicas, avance para a preparação do [IELTS Speaking Parte 2 e 3](/pt/blog/ielts-speaking-part-2-template-cue-card-dicas/) para dominar o monólogo de 2 minutos. Para organizar a sua rotina de estudos, siga o nosso [cronograma de estudos para IELTS](/pt/blog/cronograma-de-estudos-ielts-autodidata-do-zero-ao-6-5/).
+
+![Simulados de IELTS do Lexkite: escolha Listening, Reading, Writing ou Speaking e veja a estrutura da prova](media:mock "Nos simulados você escolhe Speaking e vê a estrutura da prova antes de começar")
 
 ![Prática de pronúncia do Lexkite com a frase cut down on e um botão de microfone para falar](media:practice-speak "Você diz a frase no microfone e o aplicativo dá uma pontuação pela sua voz")
 

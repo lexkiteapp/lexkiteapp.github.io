@@ -7,8 +7,8 @@ lang: hi
 translationKey: tieng-anh-giao-tiep-hang-ngay
 category: ky-nang
 tags: [ky-nang, speaking, conversation]
-cover: mock
-coverAlt: "Lexkite मोबाइल ऐप पर अंग्रेजी बोलने के अभ्यास और वार्तालाप सिमुलेशन की स्क्रीन"
+cover: practice-speak
+coverAlt: "Lexkite की उच्चारण अभ्यास स्क्रीन: वाक्यांश cut down on और बोलने के लिए माइक का बटन"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
@@ -50,9 +50,9 @@ publishAt: 2026-12-28T19:01:00+05:30
 
 शब्द अलग-अलग रटने के बजाय तैयार वाक्य याद करने के तीन फायदे हैं:
 
-1. **अनुवाद का समय बचता है**: जब *« It's been a while! »* या *« Let me think about that. »* जैसे वाक्य याद होते हैं, तो आप उन्हें बनाते नहीं, सीधे बोलते हैं।
-2. **सही लहजा मिलता है**: अंग्रेजी में सीधे *« That's wrong. »* कहना रुखा लगता है। *« I see it a bit differently. »* जैसे वाक्य वही बात नरमी से कहते हैं।
-3. **सोचने का समय मिलता है**: *« Let me think. »* या *« How can I put this? »* जैसे वाक्य चुप्पी की जगह भरते हैं और आपको सोचने देते हैं।
+1. **अनुवाद का समय बचता है**: जब *“ It's been a while! ”* या *“ Let me think about that. ”* जैसे वाक्य याद होते हैं, तो आप उन्हें बनाते नहीं, सीधे बोलते हैं।
+2. **सही लहजा मिलता है**: अंग्रेजी में सीधे *“ That's wrong. ”* कहना रुखा लगता है। *“ I see it a bit differently. ”* जैसे वाक्य वही बात नरमी से कहते हैं।
+3. **सोचने का समय मिलता है**: *“ Let me think. ”* या *“ How can I put this? ”* जैसे वाक्य चुप्पी की जगह भरते हैं और आपको सोचने देते हैं।
 
 वाक्य सीखने का सबसे अच्छा तरीका है उन्हें बोलना। [Lexkite का बातचीत आत्मविश्वास पाठ्यक्रम](/#/confidence) रोज़ की स्थितियों (मिलना-जुलना, कैफे, खरीदारी, रास्ता पूछना, डॉक्टर) पर छोटे पाठ देता है। साथ ही [अंग्रेजी में बिना अनुवाद के सोचना सीखें](/hi/blog/english-me-kaise-soche-without-translation/) और [यात्रा के लिए अंग्रेजी बातचीत वाक्य](/hi/blog/travel-english-phrases-dialogues-in-hindi/) पढ़ें, या [शब्दावली सूची](/vocabulary/) देखें।
 
@@ -60,18 +60,18 @@ publishAt: 2026-12-28T19:01:00+05:30
 
 ## 1. मिलने पर और हालचाल पूछने के वाक्य
 
-पहली बात: *« How are you? »* के जवाब में हर बार *« I'm fine, thank you. »* कहना किताबी लगता है। इन वाक्यों से शुरुआत करें:
+पहली बात: *“ How are you? ”* के जवाब में हर बार *“ I'm fine, thank you. ”* कहना किताबी लगता है। इन वाक्यों से शुरुआत करें:
 
 ### हालचाल पूछना:
-- **« How've you been? »** : आप कैसे हैं? (काफी दिन बाद मिलने पर)
-- **« What've you been up to? »** : आजकल क्या चल रहा है?
-- **« It's been a while! We should catch up. »** : काफी दिन हो गए! कभी मिलकर बातें करनी चाहिए।
-- **« Good to see you! »** : आपसे मिलकर अच्छा लगा!
+- **“ How've you been? ”** : आप कैसे हैं? (काफी दिन बाद मिलने पर)
+- **“ What've you been up to? ”** : आजकल क्या चल रहा है?
+- **“ It's been a while! We should catch up. ”** : काफी दिन हो गए! कभी मिलकर बातें करनी चाहिए।
+- **“ Good to see you! ”** : आपसे मिलकर अच्छा लगा!
 
 ### जवाब देना:
-- *« Doing well, just busy with work. »* (सब ठीक है, बस काम में व्यस्त हूँ।)
-- *« Can't complain, thanks for asking! »* (शिकायत की कोई बात नहीं, पूछने के लिए शुक्रिया!)
-- *« Pretty good. Things have been quiet lately. »* (बढ़िया है, आजकल सब शांत है।)
+- *“ Doing well, just busy with work. ”* (सब ठीक है, बस काम में व्यस्त हूँ।)
+- *“ Can't complain, thanks for asking! ”* (शिकायत की कोई बात नहीं, पूछने के लिए शुक्रिया!)
+- *“ Pretty good. Things have been quiet lately. ”* (बढ़िया है, आजकल सब शांत है।)
 
 इन्हें अभ्यास में बदलने के लिए [Lexkite रोलप्ले](/#/roleplay) में "पड़ोसी से परिचय" जैसी स्थितियाँ आज़माएँ, जहाँ आप बोलकर या लिखकर जवाब देते हैं और अंत में स्वाभाविकता, विनम्रता और व्याकरण पर प्रतिक्रिया मिलती है।
 
@@ -80,44 +80,44 @@ publishAt: 2026-12-28T19:01:00+05:30
 लिफ्ट में, बस स्टॉप पर या मीटिंग शुरू होने से पहले छोटी बातचीत से माहौल हल्का होता है। सवाल हल्के रखें और जवाब पर कुछ जोड़ें:
 
 ### बातचीत शुरू करना:
-- **« Nice weather today, isn't it? »** : आज मौसम अच्छा है, है ना?
-- **« Did you watch the match last night? »** : कल रात का मैच देखा?
-- **« Any plans for the weekend? »** : वीकेंड पर कुछ खास प्लान है?
+- **“ Nice weather today, isn't it? ”** : आज मौसम अच्छा है, है ना?
+- **“ Did you watch the match last night? ”** : कल रात का मैच देखा?
+- **“ Any plans for the weekend? ”** : वीकेंड पर कुछ खास प्लान है?
 
 ### रुचि दिखाना:
-- **« That sounds great! »** : यह तो बढ़िया लग रहा है!
-- **« That must have been a lot of work. »** : इसमें तो काफी मेहनत लगी होगी।
-- **« Let me know how it goes! »** : बाद में बताना कि कैसा रहा!
+- **“ That sounds great! ”** : यह तो बढ़िया लग रहा है!
+- **“ That must have been a lot of work. ”** : इसमें तो काफी मेहनत लगी होगी।
+- **“ Let me know how it goes! ”** : बाद में बताना कि कैसा रहा!
 
 ## 3. फोन पर बातचीत और मिलने का समय तय करना
 
 फोन पर चेहरा नहीं दिखता, इसलिए आवाज़ और शब्द साफ होने चाहिए:
 
 ### फोन पर:
-- **« Is this a good time to talk? »** : क्या अभी बात करने का सही समय है?
-- **« I'm calling about the document you sent. »** : आपने जो दस्तावेज़ भेजा था, उसी के बारे में फोन किया है।
-- **« Sorry, you cut out for a second. Could you say that again? »** : माफ कीजिए, आपकी आवाज़ एक पल को कट गई थी। फिर से बोलेंगे?
-- **« Great talking to you. Talk soon! »** : बात करके अच्छा लगा, जल्द ही फिर बात होगी! (बातचीत खत्म करते समय)
+- **“ Is this a good time to talk? ”** : क्या अभी बात करने का सही समय है?
+- **“ I'm calling about the document you sent. ”** : आपने जो दस्तावेज़ भेजा था, उसी के बारे में फोन किया है।
+- **“ Sorry, you cut out for a second. Could you say that again? ”** : माफ कीजिए, आपकी आवाज़ एक पल को कट गई थी। फिर से बोलेंगे?
+- **“ Great talking to you. Talk soon! ”** : बात करके अच्छा लगा, जल्द ही फिर बात होगी! (बातचीत खत्म करते समय)
 
 ### मिलने का समय तय करना:
-- **« Are you free for tea tomorrow morning? »** : क्या आप कल सुबह चाय के लिए खाली हैं?
-- **« I'm running about fifteen minutes late because of traffic. »** : ट्रैफिक की वजह से मुझे लगभग पंद्रह मिनट की देरी हो रही है।
-- **« Let's pencil in Friday afternoon. »** : चलिए, फिलहाल शुक्रवार दोपहर रख लेते हैं (बाद में बदल भी सकते हैं)।
+- **“ Are you free for tea tomorrow morning? ”** : क्या आप कल सुबह चाय के लिए खाली हैं?
+- **“ I'm running about fifteen minutes late because of traffic. ”** : ट्रैफिक की वजह से मुझे लगभग पंद्रह मिनट की देरी हो रही है।
+- **“ Let's pencil in Friday afternoon. ”** : चलिए, फिलहाल शुक्रवार दोपहर रख लेते हैं (बाद में बदल भी सकते हैं)।
 
 ## 4. कैफे और रेस्टोरेंट में ऑर्डर देना
 
 सरल और विनम्र रहें: *Can I have…* और *Could I get…* दोनों चलते हैं, साथ में *please*।
 
 ### कैफे में:
-- **« Can I get an iced latte with less syrup, please? »** : क्या मुझे कम सिरप वाली आइस्ड लाते मिल सकती है?
-- **« Do you have almond milk? »** : क्या आपके पास बादाम का दूध है?
-- **« Can I get this to go? »** : क्या इसे पैक करके दे सकते हैं? (ब्रिटेन में *takeaway* भी चलता है)
+- **“ Can I get an iced latte with less syrup, please? ”** : क्या मुझे कम सिरप वाली आइस्ड लाते मिल सकती है?
+- **“ Do you have almond milk? ”** : क्या आपके पास बादाम का दूध है?
+- **“ Can I get this to go? ”** : क्या इसे पैक करके दे सकते हैं? (ब्रिटेन में *takeaway* भी चलता है)
 
 ### रेस्टोरेंट में:
-- **« What's today's special? »** : आज की खास डिश क्या है?
-- **« Could I have the sauce on the side? »** : क्या सॉस अलग से मिल सकता है?
-- **« Can we split the bill? I'll pay my share by UPI. »** : क्या हम बिल बाँट लें? मैं अपना हिस्सा UPI से दे दूँगा।
-- **« Everything was delicious, thank you! »** : सब कुछ लाजवाब था, धन्यवाद!
+- **“ What's today's special? ”** : आज की खास डिश क्या है?
+- **“ Could I have the sauce on the side? ”** : क्या सॉस अलग से मिल सकता है?
+- **“ Can we split the bill? I'll pay my share by UPI. ”** : क्या हम बिल बाँट लें? मैं अपना हिस्सा UPI से दे दूँगा।
+- **“ Everything was delicious, thank you! ”** : सब कुछ लाजवाब था, धन्यवाद!
 
 रोलप्ले में "कैफे में ऑर्डर" और "होटल में चेक-इन" जैसी स्थितियाँ भी हैं, यानी वही वाक्य बिना शर्मिंदगी के बोलने का मौका।
 
@@ -126,16 +126,16 @@ publishAt: 2026-12-28T19:01:00+05:30
 असहमति भी नरमी से कही जा सकती है। *In my humble opinion* अब पुराना या मज़ाकिया लगता है, इसलिए इन आम रूपों का प्रयोग करें:
 
 ### राय रखना:
-- **« I think... »** / **« Personally, I think... »** : मुझे लगता है... / मेरी निजी राय में...
+- **“ I think... ”** / **“ Personally, I think... ”** : मुझे लगता है... / मेरी निजी राय में...
   - *Personally, I think listening every day improves speaking.*
-- **« From my point of view, ... »** : मेरे नज़रिए से...
-- **« I see what you mean, but... »** : मैं समझता हूँ आप क्या कह रहे हैं, लेकिन...
+- **“ From my point of view, ... ”** : मेरे नज़रिए से...
+- **“ I see what you mean, but... ”** : मैं समझता हूँ आप क्या कह रहे हैं, लेकिन...
 
 ### शब्द न मिलने पर समय लेना:
-- **« How can I put this? »** : इसे कैसे कहूँ?
-- **« What I'm trying to say is... »** : मैं जो कहना चाह रहा हूँ वह यह है कि...
-- **« Give me a second to gather my thoughts. »** : मुझे अपने विचार समेटने के लिए एक पल दीजिए।
-- **« It's on the tip of my tongue! »** : यह ज़बान पर है, बस याद नहीं आ रहा!
+- **“ How can I put this? ”** : इसे कैसे कहूँ?
+- **“ What I'm trying to say is... ”** : मैं जो कहना चाह रहा हूँ वह यह है कि...
+- **“ Give me a second to gather my thoughts. ”** : मुझे अपने विचार समेटने के लिए एक पल दीजिए।
+- **“ It's on the tip of my tongue! ”** : यह ज़बान पर है, बस याद नहीं आ रहा!
 
 ## भारतीयों की आम गलतियाँ: अनुवाद से बिगड़े वाक्य
 
@@ -166,8 +166,6 @@ publishAt: 2026-12-28T19:01:00+05:30
 
 बोलकर जाँचने के लिए [Lexkite का उच्चारण अभ्यास](/#/practice/speak) देखें, जहाँ आप कोई वाक्यांश माइक में बोलते हैं और आपके बोलने के आधार पर स्कोर मिलता है।
 
-![Lexkite उच्चारण अभ्यास की स्क्रीन: वाक्यांश cut down on और बोलने के लिए माइक का बटन](media:practice-speak "वाक्यांश पढ़ें, माइक दबाकर बोलें और अपना उच्चारण जाँचें")
-
 ## सारांश: स्थिति के हिसाब से वाक्य
 
 | बातचीत की स्थिति | वाक्य | हिंदी में अर्थ |
@@ -179,18 +177,22 @@ publishAt: 2026-12-28T19:01:00+05:30
 | **मदद की पेशकश** | *Want me to give you a hand with that?* | क्या मैं इसमें आपकी मदद कर दूँ? |
 | **विदा लेना** | *Have a great day, take care!* | आपका दिन अच्छा रहे, ध्यान रखिएगा! |
 
+अपने पसंदीदा वाक्य [वाक्यांश नोटबुक](/#/phrases) में सहेज लें।
+
+![Lexkite की वाक्यांश नोटबुक: उपयोगी वाक्यांश और वाक्य जोड़ने की स्क्रीन](media:phrases "अपनी पसंद के रोज़ के वाक्य नोटबुक में सहेजें और बोलने से पहले दोहराएँ")
+
 दफ़्तर के लिए [बिजनेस मीटिंग अंग्रेजी वाक्यांश](/hi/blog/business-english-meeting-phrases-in-hindi/) और [पेशेवर ईमेल लेखन नियम](/hi/blog/professional-email-writing-in-hindi/) भी पढ़ें।
 
 ## त्वरित अभ्यास
 
 इन स्थितियों में क्या कहेंगे? पहले जवाब सोचें, फिर नीचे का स्वाभाविक वाक्य देखें:
 
-1. *सहकर्मी पूछता है: « How are the preparations going for tomorrow's demo? »*
-   - स्वाभाविक जवाब: *« Almost done. I'm just polishing the slides. »*
+1. *सहकर्मी पूछता है: “ How are the preparations going for tomorrow's demo? ”*
+   - स्वाभाविक जवाब: *“ Almost done. I'm just polishing the slides. ”*
 2. *दोस्त को मनपसंद कंपनी में नौकरी मिल गई:*
-   - स्वाभाविक जवाब: *« That's amazing news! You worked so hard for this! »*
+   - स्वाभाविक जवाब: *“ That's amazing news! You worked so hard for this! ”*
 3. *मीटिंग में एक बात समझ नहीं आई:*
-   - स्वाभाविक जवाब: *« Could you walk me through that one more time? »*
+   - स्वाभाविक जवाब: *“ Could you walk me through that one more time? ”*
 
 इन्हें दिन में कई बार जोर से बोलें। पूरे वाक्य याद रखने के लिए उन्हें बार-बार दोहराना ज़रूरी है, इसलिए नए वाक्य कार्ड में डालकर [Lexkite की रिव्यू स्क्रीन](/#/review) पर अंतराल के साथ दोहराएँ। इस तरीके की व्याख्या [स्पेस्ड रिपिटिशन (FSRS) गाइड](/hi/blog/spaced-repetition-fsrs-vocabulary-hindi/) में है।
 
@@ -206,7 +208,7 @@ publishAt: 2026-12-28T19:01:00+05:30
 नहीं। शुरुआत में सौ-डेढ़ सौ आम वाक्य चुनकर उन्हें पूरा याद कर लेना ज़्यादा काम आता है। ग्रामर बाद में उन्हीं वाक्यों के पीछे का नियम समझाती है। हाँ, *a/the* और *have/has* जैसी बुनियादी चीज़ें साथ-साथ ठीक करते रहें।
 
 ### बोलते समय सही शब्द याद न आए तो क्या करें?
-रुकने या हिंदी में बदलने के बजाय आसान शब्दों में घुमाकर समझाइए: *« It's a thing you use to... »*, *« It's like a... but for... »*। साथ में *« How can I put this? »* बोलकर समय लीजिए।
+रुकने या हिंदी में बदलने के बजाय आसान शब्दों में घुमाकर समझाइए: *“ It's a thing you use to... ”*, *“ It's like a... but for... ”*। साथ में *“ How can I put this? ”* बोलकर समय लीजिए।
 
 ### मेरे अंग्रेजी वाक्य सही होते हैं, फिर भी सामने वाला दोबारा पूछता है। क्यों?
 अक्सर वजह उच्चारण है, व्याकरण नहीं। हिंदी बोलने वालों में *v/w*, *th* और *s* से शुरू होने वाले शब्दों के आगे "इ" जोड़ना सबसे आम है (ऊपर का हिस्सा देखें)। शब्द को लंबे वाक्य में नहीं, पहले अकेले बोलकर ठीक करें, फिर वाक्य में डालें।

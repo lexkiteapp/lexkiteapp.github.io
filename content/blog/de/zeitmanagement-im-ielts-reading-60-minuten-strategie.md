@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, ielts-pruefung, lesestrategien]
 keyword: "zeitmanagement im ielts reading"
-cover: library
-coverAlt: "Strategien für Zeitmanagement und die 60-Minuten-Aufteilung im IELTS Reading Test"
+cover: reading
+coverAlt: "Lexkite-Lesebibliothek mit IELTS-Lesetexten von A2 bis C1"
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
@@ -74,7 +74,7 @@ IELTS veröffentlicht keine Zeit pro Text, und der Schwierigkeitsgrad schwankt v
 
 1. **Passage 1 (oft der sachlichste Text):** Meist ein beschreibendes Thema wie die Geschichte einer Erfindung, eine Biografie oder ein natürlicher Vorgang; die Antworten folgen häufig der Reihenfolge im Text. Startbudget: etwa **15 Minuten** für alle Fragen dieses Textes.
 2. **Passage 2 (oft eine Fallstudie):** Kann die Positionen mehrerer Forschender vergleichen oder eine Innovation darstellen. Startbudget: etwa **20 Minuten**.
-3. **Passage 3 (oft der dichteste Text):** Enthält häufig die abstrakteste Argumentation mit Meinungen des Autors und Schlussfolgerungen. Startbudget: etwa **25 Minuten**, dazu die letzten drei Minuten für die Kontrolle des Antwortbogens.
+3. **Passage 3 (oft der dichteste Text):** Enthält häufig die abstrakteste Argumentation mit Meinungen des Autors und Schlussfolgerungen. Startbudget: etwa **25 Minuten**, darin die letzten drei Minuten für die Kontrolle des Antwortbogens (15 + 20 + 25 = 60).
 
 Ein organisatorischer Aspekt wird dabei besonders oft unterschätzt: Im IELTS Reading gibt es **keine zusätzliche Übertragungszeit am Ende der Prüfung**. Die 10 Minuten, die im papierbasierten Listening zum Übertragen der Notizen gewährt werden, existieren im Lesemodul nicht. Wenn Sie Ihre Antworten vorläufig in das Aufgabenheft schreiben, um sie später zu übertragen, riskieren Sie, dass der Prüfer die Bögen einsammelt, bevor Sie fertig sind. Jede Lösung muss direkt mit Bleistift auf den offiziellen Antwortbogen (*Answer Sheet*) eingetragen werden.
 
@@ -99,7 +99,7 @@ Einige Aufgabenformate kosten überproportional viel Zeit, wenn Sie nicht von vo
 | :--- | :--- | :--- |
 | **Matching Headings (Überschriften zuordnen)** | Sehr hoch (erfordert das Verständnis des gesamten Absatzkerns). | Bearbeiten Sie diese Aufgaben immer zuerst, um das erste globale Überfliegen des Textes direkt optimal zu nutzen. |
 | **Matching Information to Paragraphs** | Extrem hoch (die Fragen folgen nicht der Reihenfolge des Textes). | Stellen Sie diesen Aufgabentyp an das Ende des Abschnitts; durch die anderen Fragen kennen Sie die Absatzinhalte bereits grob. |
-| **True / False / Not Given (T/F/NG)** | Hoch (Zweifel zwischen False und Not Given kosten wertvolle Minuten). | Wenn eine klare sachliche Antithese vorliegt, wählen Sie False. Finden Sie nach 90 Sekunden keinen Beleg, notieren Sie Not Given und gehen weiter. |
+| **True / False / Not Given (T/F/NG)** | Hoch (Zweifel zwischen False und Not Given kosten wertvolle Minuten). | Widerspricht der Text der Aussage ausdrücklich, ist es False; wird der Sachverhalt gar nicht erwähnt, ist es Not Given. Sind Sie unsicher, tragen Sie Ihre beste Vermutung ein, markieren die Frage und kehren später zurück. |
 | **Sentence / Summary Completion** | Moderat (strenge Wortbegrenzung der Aufgabenstellung beachten). | Bestimmen Sie im Vorfeld die grammatikalische Wortart (z. B. Substantiv im Singular, Adjektiv), bevor Sie den Text scannen. |
 
 Sollten Sie bei einer einzelnen Frage länger als 60 Sekunden unschlüssig sein, greifen Sie zur 90-Sekunden-Notbremse: Tragen Sie Ihre beste Vermutung ein, markieren Sie die Aufgabennummer mit einem Sternchen am Rand und fahren Sie sofort fort. Jede Frage bringt exakt einen Rohpunkt; wertvolle Zeit an einer unklaren Frage zu verschwenden und dadurch drei einfache Punkte am Ende zu verpassen, ist ein typischer Grund dafür, den Wunsch-Score zu verfehlen.

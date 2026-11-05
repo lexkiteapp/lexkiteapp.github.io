@@ -66,8 +66,6 @@ A seção de **TOEIC Listening Part 2** (Perguntas e Respostas) abrange 25 quest
 
 Muitos candidatos perdem preciosos pontos não por falta de vocabulário básico, mas por sucumbirem a pegadinhas acústicas pré-fabricadas ou se assustarem com réplicas indiretas. A assimilação rigorosa das **toeic listening part 2 estratégias** detalhadas neste artigo permitirá que você antecipe a lógica dos diálogos, descarte opções falsas com rapidez e melhore com método o seu resultado na parte de audição.
 
-![Interface de treino para o teste TOEIC no Lexkite com simulados completos e prática por seções](media:toeic "Simulados completos de TOEIC Listening e Reading e módulos de treino por seção no Lexkite")
-
 ## A dinâmica da prova: toeic listening part 2 estratégias fundamentais
 
 Nesta prova ágil, você tem apenas alguns segundos entre o fim da última alternativa e o início da questão seguinte. Qualquer hesitação ou tentativa de ruminar um item anterior compromete fatalmente a compreensão do enunciado seguinte.
@@ -87,8 +85,6 @@ Em boa parte das questões da Parte 2, a chave da resposta reside nas três prim
 > **Dica tática:** Caso sua mente vacile no meio de uma pergunta longa como *"Where did Mr. Richardson say he filed the confidential quarterly balance sheets?"*, ter retido com firmeza *"Where did he file..."* é suficiente para localizar com segurança a opção de lugar (*"In the locked storage cabinet"*).
 
 Quanto mais rápido você reconhece o vocabulário de escritório, mais rápido entende a pergunta. Treine as listas da [biblioteca TOEIC do Lexkite](/#/library?g=toeic) e consulte o [repertório de vocabulário](/vocabulary/).
-
-![Página TOEIC do Lexkite: simulados com correção automática, treino por Part e vocabulário TOEIC (TSL)](media:toeic "A mesma página reúne simulados, treino por Part e o vocabulário da TOEIC Service List")
 
 ## Estratégia 2: Neutralizar as três armadilhas acústicas habituais
 
@@ -128,9 +124,9 @@ Para aperfeiçoar seu discernimento auditivo e processamento de fala natural, co
 
 Para que as táticas saiam sozinhas no dia da prova, experimente esta rotina (os tempos são sugestão nossa, não norma oficial):
 
-1. **Simulado auditivo sem pausas (cerca de 15 minutos):** Abra a [página TOEIC do Lexkite](/#/toeic), escolha um Test e o cartão "Part 2 · Hỏi – đáp" (pergunta e resposta). O modo "Nghe 1 lần" toca o áudio uma única vez, como na prova. Se tiver dúvida, marque imediatamente a opção mais plausível e libere sua mente para a questão que virá a seguir.
+1. **Simulado auditivo sem pausas (cerca de 15 minutos):** Abra a [página TOEIC do Lexkite](/#/toeic), escolha um Test e o cartão “Part 2 · Question–Response” (pergunta e resposta). O modo “Listen once” toca o áudio uma única vez, como na prova. Se tiver dúvida, marque imediatamente a opção mais plausível e libere sua mente para a questão que virá a seguir.
 2. **Análise do script (cerca de 15 minutos):** Examine a transcrição textual dos seus erros. Identifique o motivo da falha: foi atração por som parecido, perda do pronome inicial ou interpretação equivocada de uma resposta indireta?
-3. **Ditado dos erros (cerca de 15 minutos):** No mesmo cartão, o modo "Chép chính tả" (ditado) pede que você escreva o que ouve, e o som que escapou fica evidente. Registre a armadilha no [caderno de erros](/#/mistakes).
+3. **Ditado dos erros (cerca de 15 minutos):** No mesmo cartão, o modo “Dictation” (ditado) pede que você escreva o que ouve, e o som que escapou fica evidente. Registre a armadilha no [caderno de erros](/#/mistakes).
 
 ![Caderno de erros do Lexkite: erros agrupados por vocabulário, gramática, leitura e audição](media:mistakes "Os erros de audição ficam separados para mostrar qual tipo de armadilha se repete")
 

@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, examenes]
 cover: toefl
 coverAlt: "Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-07T08:45:00-06:00
@@ -132,10 +132,10 @@ Para ensayar este reparto en la app, la página TOEFL de Lexkite incluye una pr�
 >
 > **Elena**: Mental health services are far more critical because stress and anxiety are the primary reasons students struggle academically.
 
-### Modelo de respuesta de nivel superior (126 palabras)
-> While Mark presents a reasonable case regarding the utility of advanced hardware, I strongly align with Elena's conviction that comprehensive mental health services represent a far more impactful investment. State-of-the-art study pods undoubtedly facilitate technical assignments; however, no amount of computing power can compensate for chronic burnout and psychological distress among undergraduates. In contrast, accessible counseling directly addresses the underlying factors that impede scholastic performance. For instance, a close friend of mine nearly withdrew from two courses during exam season, but a few free counseling sessions helped her manage her anxiety and finish the semester with solid grades. Consequently, investing in mental health resources not only fosters a supportive academic environment but also ensures that students possess the cognitive resilience required to maximize their learning potential.
+### Modelo de respuesta (unas 129 palabras)
+> I agree with Elena. Study pods with good computers help, but a student who is exhausted or anxious will not work well even with the best equipment. Mark is right that hardware makes technical assignments easier; however, counseling deals with a problem that comes first. Pods help the students who already have the energy to use them, while counseling helps the ones who do not. It also costs less per student than building and maintaining new equipment, so the same money reaches more people. A friend of mine nearly dropped two courses during exams, and a few free counseling sessions let her finish the semester with good grades. If the budget is limited, it should go to what lets every student make use of everything else the university offers.
 
-El texto reconoce el punto de Mark, apoya a Elena y añade **ideas propias (agotamiento crónico y abandono de asignaturas)** con un ejemplo concreto. Tampoco inventa estadísticas: un ejemplo personal verosímil es más seguro que un porcentaje que no puedes respaldar.
+El texto responde en la primera frase, reconoce el punto de Mark, apoya a Elena y añade **ideas propias (agotamiento crónico y abandono de asignaturas)** con un ejemplo concreto. Tampoco inventa estadísticas: un ejemplo personal verosímil es más seguro que un porcentaje que no puedes respaldar.
 
 ### Errores típicos de los hispanohablantes en esta tarea
 
@@ -150,15 +150,17 @@ Para el vocabulario, las [listas de vocabulario de Lexkite](/es/vocabulary/) agr
 
 ---
 
-## 2 Plantillas versátiles para debates frecuentes
+## Dos esqueletos breves para debates frecuentes
 
 Úsalas como esqueleto y sustituye los corchetes por tus propias ideas. Los evaluadores ven muchas respuestas casi idénticas, así que la razón y el ejemplo deben ser específicos.
 
-### Plantilla 1: Elección entre dos opciones políticas o sociales
-> While [Student A] puts forward an understandable point regarding [Topic A], I firmly concur with [Student B]'s assertion that [Topic B] is more convincing. The primary rationale is that [Topic B] resolves the systemic root of the issue rather than merely addressing superficial consequences. For instance, in numerous urban contexts, prioritizing [Topic B] generates tangible benefits for underrepresented communities who lack access to premium resources. Therefore, despite the short-term conveniences mentioned by [Student A], investing resources into [Topic B] offers a more sustainable and socially equitable trajectory for our community.
+### Plantilla 1: elegir entre dos opciones
+> I agree with [Student B]. [One concrete reason in one sentence.] For example, [a real or realistic case]. [Student A] is right that [a real advantage of option A], but [why it matters less].
 
-### Plantilla 2: Evaluación de tendencias tecnológicas
-> Although [Student A] correctly highlights the operational efficiency associated with [Technology], I share [Student B]'s reservation regarding its long-term ethical implications. While automated systems streamline repetitive workflows, relying entirely on algorithms introduces severe risks in accountability and creative oversight. In my view, institutions must cultivate collaborative human-centered frameworks rather than pursuing total substitution. Consequently, maintaining rigorous professional supervision remains indispensable to ethical modernization.
+### Plantilla 2: valorar una tecnología
+> [Student A] is right that [technology] saves time, but I share [Student B]'s concern about [one specific risk]. For example, [a short case]. It should be used for [a limited task], with a person still deciding [what].
+
+Los esqueletos (que se escriben en inglés, como tu respuesta) son cortos a propósito: los corchetes son el sitio de tu razón y tu ejemplo, que es lo que más pesa. Adáptalos al enunciado y no los copies sin cambios.
 
 ---
 

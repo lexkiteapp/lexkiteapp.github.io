@@ -7,8 +7,8 @@ translationKey: toeic-part-5-meo-lam-bai
 category: toeic
 tags: [toeic, part-5, grammaire, vocabulaire, examen]
 keyword: "toeic part 5"
-cover: path
-coverAlt: "Candidat préparant le TOEIC Part 5 avec analyse grammaticale et chronomètre"
+cover: toeic
+coverAlt: "Page TOEIC de Lexkite avec tests blancs, entraînement par Part et vocabulaire TSL"
 publishAt: 2027-01-05T08:45:00+01:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -54,23 +54,23 @@ quiz: [
     explain: "Après le blanc vient seulement un groupe nominal (the road works), sans verbe conjugué. Il faut donc une préposition de concession, et Despite est la seule ; les trois autres introduisent une proposition complète."
   }
 ]
-qualityScore: 92
+qualityScore: 90
 ---
 
-Pour franchir la barre des 850 ou 900 points à l'examen d'anglais des affaires, l'épreuve de compréhension écrite ne laisse aucune place à l'improvisation. Avec 30 questions à choix multiples courtes, la section **toeic part 5** constitue le point de départ de la section Reading et conditionne l'ensemble de votre gestion du temps. La section Reading compte 100 questions en 75 minutes (Partie 5 : 30, Partie 6 : 16, Partie 7 : 54), sans durée imposée par partie : chaque minute gagnée ici est une minute de plus pour les textes longs de la Partie 7.
+La **toeic part 5** ouvre la section Reading : 30 phrases à compléter, avec quatre choix chacune. Ce sont les questions les plus courtes de tout le test, donc celles où l'on peut gagner ou perdre du temps le plus facilement. La section Reading compte 100 questions en 75 minutes (Partie 5 : 30, Partie 6 : 16, Partie 7 : 54), sans durée imposée par partie : chaque minute gagnée ici est une minute de plus pour les textes longs de la Partie 7.
 
-En combinant une méthode analytique rigoureuse avec les techniques exposées dans nos [astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/) et notre guide du [TOEIC Part 7 lecture et temps](/fr/blog/toeic-part-7-strategies-lecture-temps/), vous apprendrez à identifier instantanément la catégorie de chaque item pour répondre en une vingtaine de secondes, un repère d'entraînement et non une règle officielle.
+Cet article vous apprend à reconnaître le type de chaque question dès le premier coup d'œil, pour répondre en une vingtaine de secondes (un repère d'entraînement, pas une règle officielle). Pour la suite de la section, voyez nos [astuces TOEIC Listening et Reading](/fr/blog/toeic-listening-reading-astuces/) et le guide sur la [Partie 7 : lecture et gestion du temps](/fr/blog/toeic-part-7-strategies-lecture-temps/).
 
 ---
 
 ## Anatomie du TOEIC Part 5 : Les deux grandes familles de questions
 
-La Partie 5 comporte exactement 30 phrases incomplètes comportant chacune quatre options de réponse (A, B, C, D). Pour résoudre chaque question avec une efficacité maximale, le premier réflexe consiste à observer la nature des choix proposés avant même de déchiffrer la phrase intégrale.
+La Partie 5 compte 30 phrases incomplètes, chacune avec quatre choix (A, B, C, D). Avant de lire la phrase, regardez les quatre choix : ils vous disent déjà quel type de question vous avez devant vous.
 
-Les questions se scindent en deux grandes catégories distinctes :
+Il y a deux grands types de questions :
 
-1. **Les questions de grammaire pure (en général un peu plus de la moitié de la section ; la répartition varie d'un test à l'autre)** : Les quatre options dérivent de la même racine lexicale (par exemple : *manage*, *manager*, *managerial*, *management*). Votre mission consiste à identifier la classe grammaticale requise par la structure syntaxique (nom, verbe conjugué, participe présent, adjectif ou adverbe).
-2. **Les questions de vocabulaire et de collocations (le reste)** : Les quatre options sont des termes totalement différents appartenant souvent à la même catégorie grammaticale (par exemple : *postpone*, *deliver*, *announce*, *exceed*). La réponse dépend alors du contexte sémantique de l'entreprise ou d'associations figées courantes en anglais des affaires.
+1. **Les questions de grammaire pure (en général un peu plus de la moitié de la section ; la répartition varie d'un test à l'autre)** : Les quatre options dérivent de la même racine lexicale (par exemple : *manage*, *manager*, *managerial*, *management*). Il faut trouver la classe de mot que la phrase exige (nom, verbe conjugué, participe présent, adjectif ou adverbe).
+2. **Les questions de vocabulaire et de collocations (le reste)** : Les quatre options sont des termes totalement différents appartenant souvent à la même catégorie grammaticale (par exemple : *postpone*, *deliver*, *announce*, *exceed*). Le sens de la phrase et les associations de mots courantes en anglais des affaires font la différence.
 
 | Type d'exercice | Caractéristiques des options | Repère par question | Compétence évaluée |
 | :--- | :--- | :--- | :--- |
@@ -79,15 +79,15 @@ Les questions se scindent en deux grandes catégories distinctes :
 | **Pronoms et déterminants** | Pronoms personnels, réfléchis ou possessifs | 10 secondes | Analyse des compléments et antécédents |
 | **Collocations d'affaires** | Mots sémantiquement distincts dans le même domaine | 25 secondes | Lexique professionnel contextuel |
 
-![Page Luyện thi TOEIC de Lexkite avec tests blancs, entraînement par Part et vocabulaire TOEIC (TSL)](media:toeic "La page TOEIC de Lexkite : tests blancs, entraînement par Part et vocabulaire TSL")
+![Page TOEIC de Lexkite avec tests blancs, entraînement par Part et vocabulaire TSL](media:toeic "La page TOEIC de Lexkite : tests blancs, entraînement par Part et vocabulaire TSL")
 
 ---
 
 ## Stratégie 1 : Reconnaître immédiatement la fonction syntaxique du mot manquant
 
-Dans les questions de dérivation grammaticale, vous n'avez généralement pas besoin de traduire l'intégralité de la phrase. Observez attentivement les mots situés juste avant et juste après le blanc pour déterminer la fonction attendue.
+Pour les questions de dérivation, inutile de traduire la phrase. Les mots juste avant et juste après le blanc suffisent à dire quelle fonction manque.
 
-Voici les configurations les plus récurrentes au test :
+Voici les trois cas les plus fréquents :
 
 - **Le groupe nominal (Nom sujet ou complément)** : Situé après un article (*a, an, the*), un adjectif possessif (*their, our, his*) ou une préposition (*in, with, about*). Si l'espace est suivi d'un verbe, vous cherchez un nom noyau :
   - *Exemple : The recent _____ in production costs surprised the board. (Options : increase, increasingly, increased)* $\rightarrow$ Réponse : *increase* (nom).
@@ -96,15 +96,15 @@ Voici les configurations les plus récurrentes au test :
 - **L'adverbe en -ly** : Modifie un verbe d'action, un adjectif ou une proposition complète. Lorsqu'une phrase est déjà grammaticalement complète, le mot manquant est presque toujours un adverbe :
   - *Exemple : The logistics department responded _____ to customer inquiries. (Options : prompt, promptly, promptness)* $\rightarrow$ Réponse : *promptly* (adverbe modifiant le verbe *responded*).
 
-Pour consolider vos réflexes sur les nuances de vocabulaire formel, consultez également nos recommandations pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et consultez les [listes de vocabulaire](/en/vocabulary/). Pour vous entraîner sur de vraies questions, la [page TOEIC de Lexkite](/#/toeic) propose pour chaque test blanc un entraînement à la Partie 5 avec explication de chaque réponse après validation.
+Pour retenir le vocabulaire, lisez notre article sur la façon d'[apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) ou parcourez les [listes de vocabulaire](/en/vocabulary/). Pour vous entraîner sur de vraies questions, la [page TOEIC de Lexkite](/#/toeic) propose pour chaque test blanc un entraînement à la Partie 5 ; après validation, chaque réponse est expliquée.
 
 ---
 
 ## Stratégie 2 : Maîtriser les prépositions et les connecteurs logiques
 
-Les concepteurs de l'examen piègent régulièrement les candidats sur la distinction entre prépositions et conjonctions de subordination. Bien que leur sens sémantique soit identique, leur impact structurel sur la phrase est radicalement différent.
+Le test aime opposer une préposition et une conjonction de même sens, par exemple *despite* et *although*. Le sens est le même, mais la construction qui suit n'est pas la même.
 
-La règle d'or à retenir :
+La règle à retenir :
 - **Une préposition** (*due to, despite, in spite of, during*) est obligatoirement suivie d'un groupe nominal ou d'un gérondif en *-ing*. Elle ne peut jamais introduire une proposition avec sujet et verbe conjugué.
 - **Une conjonction** (*because, although, while, since*) introduit impérativement une proposition subordonnée dotée de son propre sujet et d'un verbe conjugué.
 
@@ -122,13 +122,13 @@ Lorsque vous repérez ces options, regardez ce qui suit immédiatement l'espace 
 
 ## Stratégie 3 : Déjouer les pièges des accords et de la voix passive
 
-Une autre erreur fréquente consiste à confondre la voix active et la voix passive. Dans le monde de l'entreprise, de nombreuses actions sont décrites à la forme passive afin de mettre l'accent sur le résultat ou le projet plutôt que sur l'exécutant.
+Autre piège fréquent : actif ou passif. Dans les textes d'entreprise, on utilise beaucoup le passif pour parler du résultat plutôt que de la personne qui agit.
 
 Pour choisir la forme verbale correcte, appliquez ce double filtre en 5 secondes :
 1. **L'accord en nombre** : Le sujet grammatical est-il singulier, pluriel ou indénombrable ? Attention aux sujets séparés du verbe par un complément prépositionnel complexe (*The delivery of office supplies [is/are] scheduled...* $\rightarrow$ le sujet est *delivery*, verbe au singulier : *is*).
 2. **La présence d'un objet direct** : Si le verbe est suivi directement d'un complément d'objet direct (COD), il est à la voix active (*The company expanded its operations*). S'il manque l'objet d'un verbe transitif (*approve*, *reject*) ou si l'agent est introduit par *by*, le verbe est à la voix passive (*The proposal was rejected by the executive committee*).
 
-Complétez votre maîtrise de la communication formelle en explorant nos conseils pour [rédiger un email professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/) et notre répertoire des [abréviations professionnelles en anglais](/fr/blog/abreviations-professionnelles-en-anglais-email-guide/).
+Ces structures sont celles des e-mails de travail : voyez comment [rédiger un e-mail professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/) et les [abréviations professionnelles en anglais](/fr/blog/abreviations-professionnelles-en-anglais-email-guide/).
 
 ---
 
@@ -139,6 +139,18 @@ Complétez votre maîtrise de la communication formelle en explorant nos conseil
 - **Faux amis** : *actually* signifie « en fait », pas « actuellement » (*currently*) ; *eventually* signifie « finalement », pas « éventuellement » (*possibly*) ; *library* est une bibliothèque, pas une librairie (*bookshop*).
 - **Adjectif placé après le nom** : en français, on écrit « un rapport détaillé » ; en anglais, l'adjectif précède le nom (*a detailed report*). En Partie 5, l'adjectif attendu se trouve presque toujours juste devant le nom.
 - **Le -s de la troisième personne** : il disparaît facilement sous la pression du temps (*The manager approve*). Vérifiez-le à chaque question d'accord.
+
+## Corrigez ces phrases de francophone (exercice de repérage)
+
+Chaque phrase contient l'erreur typique d'un francophone, celle que les mauvaises options de la Partie 5 imitent. Corrigez-la avant de lire la solution.
+
+1. *The report has been sent yesterday.* → *was sent yesterday* : le passé composé accepte « hier », pas le present perfect.
+2. *She works here since 2019.* → *has worked here since 2019* : « elle travaille ici depuis » devient un present perfect.
+3. *We are agree with the plan.* → *We agree with the plan* : « être d'accord » se traduit par le verbe *agree*, sans *be*.
+4. *He explained me the procedure.* → *explained the procedure to me* : *explain* ne prend pas directement la personne comme complément.
+5. *We received a useful information.* → *useful information* ou *a useful piece of information* : *information* est indénombrable, il n'a ni *a* ni pluriel.
+
+Si vous avez hésité sur l'une d'elles, notez-la : ce sont exactement les réflexes à surveiller en Partie 5, sur les questions de temps, de verbes et de déterminants.
 
 ## Exercices d'application TOEIC Part 5 avec corrigés détaillés
 
@@ -182,6 +194,8 @@ Entraînez vos compétences d'analyse rapide sur ces quatre questions dans le st
 
 ---
 
+![Test à choix multiples de Lexkite : choisir le sens correct de run out of parmi quatre propositions](media:practice-test "Un test à choix multiples comme celui-ci aide à vérifier le sens d'expressions comme run out of")
+
 ## Protocole chronométrique : Boucler la Partie 5 en 10 minutes
 
 Sur les 75 minutes du Reading, 10 minutes pour la Partie 5 laissent 65 minutes pour les Parties 6 et 7. Voici un rythme possible (suggestion personnelle, pas une consigne d'ETS) :
@@ -191,30 +205,30 @@ Budget Partie 5 = 10 minutes (600 secondes)
 30 questions / 600 secondes = 20 secondes par question en moyenne
 ```
 
-Appliquez le protocole d'exécution suivant le jour de l'épreuve :
+Le jour de l'examen, suivez cet ordre :
 - **0 à 5 secondes** : Coup d'œil sur les 4 choix de réponse pour qualifier le type de test (grammaire ou vocabulaire).
 - **5 à 15 secondes** : Scan des mots encadrant le blanc pour déduire la fonction grammaticale ou le sens clé.
-- **15 à 20 secondes** : Noircissement de la case sur la feuille de réponses.
+- **15 à 20 secondes** : Noircissez la case sur la feuille de réponses.
 - **Règle d'or de blocage** : Si vous hésitez entre deux options après 25 secondes, choisissez votre meilleure intuition et avancez immédiatement. Ne laissez jamais une question blanche et ne revenez pas en arrière au détriment de la fin de l'épreuve.
 
 ![Carnet d'erreurs Lexkite qui classe les fautes en Vocabulaire, Grammaire, Lecture et Écoute](media:mistakes "Le carnet d'erreurs classe vos fautes par vocabulaire, grammaire, lecture et écoute")
 
 ---
 
-## Optimisez votre préparation au test avec Lexkite
+## S'entraîner avec Lexkite
 
-Une vitesse de lecture rapide et une intuition grammaticale affûtée se forgent par une exposition régulière à des structures anglaises variées :
+La rapidité vient de la répétition. Voici ce que Lexkite propose pour la Partie 5 :
 
-- **Répétition espacée FSRS intelligente** : Mémorisez durablement les verbes prépositionnels et les collocations professionnelles indispensables au test.
-- **Dictionnaire interactif intégré** : Explorez instantanément les exemples en contexte et la phonétique de chaque mot complexe.
+- **Révision espacée (FSRS)** : les verbes à particule et les collocations de travail reviennent juste avant que vous les oubliiez.
+- **Dictionnaire** : exemples en contexte et prononciation de chaque mot.
 - **Carnet d'erreurs** : les questions ratées vont dans le [carnet d'erreurs](/#/mistakes), classées par vocabulaire, grammaire ou lecture. Vous voyez si vos fautes de Partie 5 viennent de la nature des mots ou des collocations.
-- **Feuille de route d'apprentissage** : Structurez vos mois de préparation avec notre [programme de révision TOEIC](/fr/blog/plan-entrainement-toeic-guide-autonomie/) en trois phases.
+- **Plan de travail** : pour organiser vos semaines, suivez notre [plan d'entraînement TOEIC en autonomie](/fr/blog/plan-entrainement-toeic-guide-autonomie/).
 
-Essayez : ouvrez la [page TOEIC](/#/toeic), choisissez un test, lancez la Partie 5 et chronométrez-vous vous-même.
+Pour tester : ouvrez la [page TOEIC](/#/toeic), choisissez un test, lancez la Partie 5 et chronométrez-vous vous-même.
 
 {{cta: /#/toeic | S'entraîner à la Partie 5 avec corrigés}}
 
-{{youtube: | Stratégies incontournables et astuces pour réussir le TOEIC Part 5}}
+{{youtube: | TOEIC Part 5 : la méthode en 20 secondes}}
 
 ---
 
@@ -233,6 +247,6 @@ Non. Seules les bonnes réponses comptent, une mauvaise réponse ne retire aucun
 Le present perfect avec un repère daté (*yesterday*), *since* avec une durée (*for three years*), l'adjectif placé après le nom, l'oubli du -s de la 3e personne et les faux amis comme *actually* ou *eventually*. Avant de choisir, vérifiez le sujet du verbe et le repère temporel : fermé (prétérit) ou jusqu'à aujourd'hui (present perfect).
 
 ### Comment mémoriser efficacement les collocations du monde des affaires ?
-Notez les mots en groupe plutôt qu'isolément (par exemple : *meet the deadline*, *conduct an investigation*, *reach a consensus*). L'application d'un système de répétition espacée comme celui de Lexkite permet de fixer ces automatismes lexicaux dans votre mémoire à long terme.
+Notez les mots en groupe plutôt qu'isolément (par exemple : *meet the deadline*, *conduct an investigation*, *reach a consensus*). Une révision espacée, comme celle de Lexkite, les fixe à long terme.
 
-Pour progresser en compréhension orale et maîtriser les questions courtes, consultez notre guide sur les [toeic listening part 2 strategies pour réussir l épreuve](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).
+Pour la partie orale, lisez aussi notre guide sur la [Partie 2 du TOEIC Listening : questions et réponses](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).

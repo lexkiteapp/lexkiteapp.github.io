@@ -66,8 +66,6 @@ Der Abschnitt **TOEIC Listening Part 2** (Frage und Antwort) umfasst 25 aufeinan
 
 Viele Prüfungsteilnehmer verlieren hier wertvolle Punkte nicht durch mangelnde Englischkenntnisse, sondern weil sie in vorbereitete Klangfallen tappen oder durch indirekte Antworten verunsichert werden. Mit den erprobten **toeic listening part 2 strategien** in diesem Leitfaden lernen Sie, Fragemuster blitzschnell zu entschlüsseln, Täuschungen abzuwehren und Ihr Ergebnis im Hörverstehensteil gezielt zu verbessern.
 
-![Lexkite TOEIC Prüfungsvorbereitungsoberfläche mit kompletten Übungstests und partweisem Training](media:toeic "Vorbereitung auf den TOEIC Hörverstehensteil mit Tests und gezielten Part-Übungen auf Lexkite")
-
 ## Die Prüfungsstruktur: toeic listening part 2 strategien für maximale Treffsicherheit
 
 In diesem rasanten Prüfungsabschnitt bleiben Ihnen zwischen dem Ende der letzten Option und der nächsten Aufgabe nur wenige Sekunden. Jedes Zögern oder Grübeln über eine verpasste Antwort gefährdet unmittelbar das Verständnis der folgenden Frage. Wer an einer Frage hängen bleibt, verliert fast zwangsläufig auch die nächste.
@@ -85,8 +83,6 @@ Sehr oft entscheidet das genaue Hören der ersten drei Wörter über die richtig
 - **Zeitform und Bezugsperson:** Ein vergangenes Ereignis (*Did the director...?*), eine aktuelle Routine (*Does your team...?*) oder ein zukünftiges Vorhaben (*Will the shipment...?*).
 
 > **Praxistipp:** Wenn Ihre Konzentration bei einem langen Satz wie *"Where did Mr. Richardson say he filed the confidential quarterly balance sheets?"* nachlässt, genügt das sichere Erfassen von *"Where did he file..."*, um zielsicher die Ortsangabe (*"In the locked storage cabinet"*) auszuwählen. Alles dazwischen ist schmückendes Beiwerk, das oft nur verwirren soll.
-
-![Lexkite TOEIC-Seite: Thi-thử-Tests mit automatischer Auswertung, Training nach Part und TOEIC-Wortschatz (TSL)](media:toeic "Auf der TOEIC-Seite finden Sie auch den Wortschatz der TOEIC Service List, der die typischen Büro- und Geschäftswörter abdeckt")
 
 Wer typische Wendungen aus dem Büroalltag kennt, versteht Fragen schon nach den ersten Lauten. Den Basiswortschatz üben Sie mit den [TOEIC-Wortschatzsets in der Lexkite-Bibliothek](/#/library?g=toeic); weitere Wortlisten finden Sie im [Vokabelverzeichnis](/vocabulary/).
 
@@ -140,9 +136,9 @@ Part 2 verlangt mehrere Minuten ununterbrochene Konzentration, und ein kurzer Au
 
 Damit die Taktiken am Prüfungstag automatisch ablaufen, empfiehlt sich diese Routine (die Zeitangaben sind unser Vorschlag, keine offizielle Vorgabe):
 
-1. **Unterbrechungsfreies Training (ca. 15 Minuten):** Öffnen Sie die [TOEIC-Seite in Lexkite](/#/toeic), wählen Sie einen Test und dort die Karte „Part 2 · Hỏi – đáp“ (Frage und Antwort). Der Modus „Nghe 1 lần“ spielt die Aufgaben nur einmal ab, wie in der Prüfung. Bei Unsicherheit wählen Sie sofort die plausibelste Option. Bei Unsicherheit wählen Sie sofort die plausibelste Option und schalten gedanklich auf die nächste Frage um.
+1. **Unterbrechungsfreies Training (ca. 15 Minuten):** Öffnen Sie die [TOEIC-Seite in Lexkite](/#/toeic), wählen Sie einen Test und dort die Karte „Part 2 · Question–Response“ (Frage und Antwort). Der Modus „Listen once“ spielt die Aufgaben nur einmal ab, wie in der Prüfung. Bei Unsicherheit wählen Sie sofort die plausibelste Option und schalten gedanklich auf die nächste Frage um.
 2. **Skriptanalyse (ca. 15 Minuten):** Lesen Sie das Transkript Ihrer Fehler. Analysieren Sie den Grund: Wurde das Fragewort überhört, sind Sie auf eine Klangfalle hereingefallen oder war die Antwort indirekt formuliert? Notieren Sie unbekannte Redewendungen in einem Fehlerjournal.
-3. **Diktat der Fehler (ca. 15 Minuten):** Schreiben Sie die Aufgaben, die Sie falsch hatten, über den Modus „Chép chính tả“ (Diktat) auf der gleichen Karte mit. Wer jedes Wort mitschreiben muss, hört genau die Laute, die er im Test überhört hat. Tragen Sie die Fallen anschließend ins [Fehlerheft](/#/mistakes) ein.
+3. **Diktat der Fehler (ca. 15 Minuten):** Schreiben Sie die Aufgaben, die Sie falsch hatten, über den Modus „Dictation“ (Diktat) auf der gleichen Karte mit. Wer jedes Wort mitschreiben muss, hört genau die Laute, die er im Test überhört hat. Tragen Sie die Fallen anschließend ins [Fehlerheft](/#/mistakes) ein.
 
 ![Lexkite Fehlerheft: Fehler gesammelt nach Wortschatz, Grammatik, Leseverstehen und Hören](media:mistakes "Im Fehlerheft landen auch die Hörfehler, damit Sie sehen, welche Falle Sie wiederholt erwischt")
 

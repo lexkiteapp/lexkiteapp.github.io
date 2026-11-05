@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, examens]
 cover: toefl
 coverAlt: "Page TOEFL de Lexkite avec le tableau de structure du nouveau format et les types d'épreuves"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-03T07:36:00+01:00
@@ -132,10 +132,10 @@ Pour répéter ce découpage dans l'application, la page TOEFL de Lexkite propos
 >
 > **Sarah**: Expanding laptop access and mobile internet helps bridge the digital divide for students who currently struggle to complete basic coursework.
 
-### Réponse modèle (133 mots)
-> While David offers an interesting argument regarding cutting-edge technological immersion, I firmly align with Sarah's stance that prioritizing universal laptop and internet access delivers a far more profound institutional benefit. State-of-the-art virtual reality equipment unquestionably enriches specialized technical curricula; however, investing in luxury hardware while economically vulnerable undergraduates lack basic computing infrastructure exacerbates academic inequality. In contrast, ensuring equitable digital access removes a foundational barrier to student retention and academic performance. For example, during the pandemic, my cousin could only follow her online lectures after her university lent her a laptop and a hotspot; without them, she would have dropped two of her courses. Therefore, rather than subsidizing niche experimental tools for a few specialized departments, our university must prioritize fundamental educational equity to ensure that every student can fulfill their academic potential.
+### Réponse modèle (environ 123 mots)
+> I prefer Sarah's proposal. Virtual reality headsets are impressive, but a student without a laptop or a connection cannot follow classes at all. David is right that virtual reality makes some courses more concrete; however, it would benefit only a few departments. A loaned laptop, in contrast, helps students in every department, and it makes the existing courses accessible instead of adding a new one. It is also a cheaper investment per student, so the same fund reaches many more people. During the pandemic, my cousin could follow her online lectures only because her university lent her a laptop and a mobile hotspot. Without them she would have dropped two courses. This fund should first make sure that every student can attend class.
 
-La réponse répond à David, soutient Sarah et ajoute **un angle nouveau (le risque d'abandon et l'équité numérique)** avec un exemple concret. Elle évite aussi les statistiques inventées : un exemple personnel plausible est plus sûr qu'un pourcentage que vous ne pourriez pas justifier.
+La réponse répond à la question dès la première phrase, reconnaît David, soutient Sarah et ajoute **un angle nouveau (le risque d'abandon et l'équité numérique)** avec un exemple concret. Elle évite aussi les statistiques inventées : un exemple personnel plausible est plus sûr qu'un pourcentage que vous ne pourriez pas justifier.
 
 ### Les erreurs typiques des francophones dans cette tâche
 
@@ -150,15 +150,17 @@ Pour le vocabulaire, voyez notre guide pour [apprendre le vocabulaire anglais](/
 
 ---
 
-## 2 Gabarits prêts à l'emploi selon le type de débat
+## Deux squelettes courts pour les débats courants
 
 Utilisez-les comme squelettes et remplacez les crochets par vos propres idées. Les correcteurs voient beaucoup de réponses presque identiques : la raison et l'exemple doivent donc être précis.
 
-### Gabarit 1 : Arbitrage entre deux politiques publiques
-> While [Student A] puts forward a compelling argument regarding [Policy A], I firmly agree with [Student B]'s conviction that [Policy B] is the more sustainable solution. The fundamental rationale is that [Policy B] targets the structural origins of the issue rather than merely mitigating secondary consequences. To illustrate, prioritizing [Policy B] tends to generate measurable positive outcomes for marginalized demographic groups who lack access to institutional subsidies. Consequently, despite the short-term benefits highlighted by [Student A], allocating funding toward [Policy B] ensures long-term social equity and economic resilience.
+### Gabarit 1: choisir entre deux options
+> My choice is [Student B]'s idea. The main reason is [one reason]. A realistic case: [short example]. [Student A] has a fair point about [option A], yet [why it counts for less].
 
-### Gabarit 2 : Évaluation d'une technologie disruptive
-> Although [Student A] correctly underlines the productivity gains driven by [Technology], I fully share [Student B]'s apprehension regarding its ethical and sociological repercussions. While automated platforms streamline routine administrative tasks, relying exclusively on predictive algorithms introduces dangerous liabilities regarding algorithmic bias, accountability, and the erosion of critical human judgment. In my view, institutions must foster collaborative human-in-the-loop workflows rather than pursuing unconstrained automation. Therefore, maintaining rigorous professional oversight remains imperative if we aspire to achieve ethical modernization.
+### Gabarit 2: juger une technologie
+> I see why [Student A] likes [technology]: it is quicker. Still, [Student B] has a point about [one risk]. Take [short case]. I would use it only for [limited task] and leave [decision] to a person.
+
+Ces squelettes (en anglais, comme votre réponse) sont courts à dessein : les crochets accueillent votre raison et votre exemple, ce qui compte le plus. Adaptez-les au sujet sans les recopier tels quels.
 
 ---
 

@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts, reading, time-management, exam-tips]
 keyword: "아이엘츠 리딩 시간 배분"
-cover: path
-coverAlt: "아이엘츠 리딩 시험에서 타이머를 확인하며 60분 시간 배분을 조절하는 수험생"
+cover: reading
+coverAlt: "A2부터 C1까지 IELTS 스타일 지문이 나열된 Lexkite 리딩 라이브러리"
 publishAt: 2027-01-02T19:51:00+09:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -77,7 +77,7 @@ quiz: [
 | 지문 1 | 사실이나 사건 묘사가 중심이며 답이 본문 순서대로 나오는 경우가 많음 | 약 15분 |
 | 지문 2 | 연구 보고나 여러 견해의 비교가 많음 | 약 20분 |
 | 지문 3 | 가장 추상적인 논증이 나오는 경우가 많음 | 약 25분 |
-| 마지막 점검 | 빈칸, 철자, 단수·복수 | 마지막 3분 |
+| 마지막 점검 | 빈칸, 철자, 단수·복수 | 지문 3의 25분 중 마지막 3분 (15+20+25=60분) |
 
 만약 비교적 평이한 지문 1에서 20분을 소진해 버리면, 문장 구조가 복잡하고 낯선 학술 어휘가 쏟아지는 지문 3에는 채 20분도 남지 않게 됩니다. 촉박한 시간에 쫓기다 보면 본문의 논리적 흐름을 놓치고 오답의 늪에 빠지게 됩니다.
 

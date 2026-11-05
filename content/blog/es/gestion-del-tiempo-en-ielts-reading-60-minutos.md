@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, examen-ielts, estrategias-lectura]
 keyword: "gestión del tiempo en ielts reading"
-cover: library
-coverAlt: "Estrategias de control de tiempo y distribución de 60 minutos para las tres secciones de la prueba IELTS Reading"
+cover: reading
+coverAlt: "Biblioteca de lecturas de Lexkite con textos estilo IELTS de A2 a C1"
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
@@ -74,7 +74,7 @@ IELTS no publica un tiempo por pasaje y la dificultad cambia de un test a otro, 
 
 1. **Pasaje 1 (a menudo el más factual):** suele tratar un tema descriptivo, como la historia de un invento, una biografía o un proceso natural, y las respuestas tienden a seguir el orden del texto. Presupuesto inicial: unos **15 minutos** para todas sus preguntas.
 2. **Pasaje 2 (a menudo un estudio de caso):** puede comparar posturas de varios investigadores o describir una innovación. Presupuesto inicial: unos **20 minutos**.
-3. **Pasaje 3 (a menudo el más denso):** suele concentrar el argumento más abstracto, con opiniones del autor e inferencias. Presupuesto inicial: unos **25 minutos**, más los tres últimos para revisar la hoja de respuestas.
+3. **Pasaje 3 (a menudo el más denso):** suele concentrar el argumento más abstracto, con opiniones del autor e inferencias. Presupuesto inicial: unos **25 minutos**, incluidos los tres últimos para revisar la hoja de respuestas (15 + 20 + 25 = 60).
 
 Además, existe un factor logístico determinante que muchos olvidan: en IELTS Reading **no dispones de tiempo extra al final** para transferir tus respuestas a la hoja de examen. Los 10 minutos adicionales que se conceden en Listening no existen aquí. Si anotas tus respuestas provisionales en el cuadernillo de preguntas con la intención de pasarlas a limpio al terminar, corres el riesgo de que el examinador retire tu examen cuando solo hayas copiado la mitad. Debes escribir cada respuesta directamente en la hoja oficial a medida que avanzas.
 
@@ -99,7 +99,7 @@ En cada examen existen tipos de preguntas diseñados para consumir desproporcion
 | :--- | :--- | :--- |
 | **Matching Headings (Emparejar encabezados)** | Muy alto (obliga a leer o releer la totalidad de cada párrafo). | Resuélvelas siempre en primer lugar antes de las preguntas de detalle, para aprovechar la lectura global del texto. |
 | **Matching Information to Paragraphs** | Extremo (las respuestas no siguen el orden cronológico del texto). | Déjalas para el final del bloque; para entonces ya conocerás la ubicación aproximada de los temas gracias a las otras preguntas. |
-| **True / False / Not Given (T/F/NG)** | Alto (confundir False con Not Given consume minutos valiosos). | Si la afirmación contradice el texto con hechos opuestos, es False; si tras 90 segundos no hallas evidencia explícita, marca Not Given y continúa. |
+| **True / False / Not Given (T/F/NG)** | Alto (confundir False con Not Given consume minutos valiosos). | Si el texto afirma lo contrario, es False; si el texto no menciona el asunto, es Not Given. Si dudas, anota tu mejor suposición, marca la pregunta y vuelve después. |
 | **Sentence Completion / Summary** | Moderado (requiere respetar el límite exacto de palabras de la consigna). | Identifica la categoría gramatical requerida (sustantivo singular, adjetivo, verbo) antes de buscar en el pasaje. |
 
 Si te encuentras bloqueado en una pregunta durante más de 60 segundos, aplica la regla del segundo intento: marca una hipótesis provisional razonable, dibuja una estrella en el margen de tu cuadernillo y pasa inmediatamente a la siguiente. Un aspirante exitoso comprende que cada pregunta vale exactamente un punto; empeñarse en salvar un punto difícil a costa de perder cuatro preguntas sencillas al final es la receta para el fracaso.
@@ -137,7 +137,7 @@ Las palabras guardadas vuelven en el [repaso con tarjetas](/#/review) a interval
 Dominar este método requiere acondicionamiento mental y resistencia visual. Sigue este cronograma de entrenamiento en tus sesiones de estudio:
 
 - **Semana 1 (Entrenamiento sin cronómetro estricto):** Concéntrate en la precisión al 100%. Trabaja pasajes individuales analizando por qué cada respuesta es correcta o incorrecta e identifica las paráfrasis exactas del texto.
-- **Semana 2 (Monitoreo de pasajes aislados):** Cronometra cada sección por separado. Intenta completar el Pasaje 1 en 16 minutos, el Pasaje 2 en 21 minutos y el Pasaje 3 en 26 minutos. Registra en una libreta cuántos segundos inviertes en cada tipo de ejercicio.
+- **Semana 2 (Monitoreo de pasajes aislados):** Cronometra cada sección por separado. Intenta completar el Pasaje 1 en 15 minutos, el Pasaje 2 en 20 minutos y el Pasaje 3 en 25 minutos. Registra en una libreta cuántos segundos inviertes en cada tipo de ejercicio.
 - **Semana 3 (Simulacros de prueba completa):** Realiza al menos tres exámenes completos de 60 minutos seguidos, en silencio total y sin interrupciones. Practica rellenando directamente la hoja de respuestas oficial con lápiz.
 - **Semana 4 (Ajuste fino de ritmo):** Aplica la regla 15-20-25 estricta. Entrena el hábito de abandonar preguntas ambiguas a los 60 segundos y verifica que siempre te sobren entre dos y tres minutos finales para revisar respuestas en blanco.
 

@@ -78,7 +78,7 @@ Before you start, read [the complete TOEIC test format](/en/blog/toeic-test-form
 In this phase you remove basic grammar confusion and build the business vocabulary the test keeps returning to. Without that base, full practice tests mostly produce frustration.
 
 ### 1. Master high-frequency workplace vocabulary
-TOEIC texts come from offices and travel: purchasing, marketing, reservations, finance, personnel and building maintenance. Instead of memorising random lists, work from the TOEIC Service List (TSL) of about 1,250 frequent words, which Lexkite includes as ten word sets (see also the [vocabulary page](/vocabulary/)).
+TOEIC texts come from offices and travel: purchasing, marketing, reservations, finance, personnel and building maintenance. Instead of memorising random lists, work from the TOEIC Service List (TSL) of about 1,250 frequent words, which Lexkite includes as ten word sets (see also the [vocabulary page](/en/vocabulary/)).
 
 ![Lexkite vocabulary library with tabs including TOEIC (TSL) and core word sets labelled A1 to B2](media:library "The vocabulary library, where the TOEIC (TSL) tab collects the exam word sets")
 
@@ -120,9 +120,9 @@ Beyond 650, time becomes the main limit. The Reading section has 100 questions (
 ### 1. Practise with a pacing plan
 ETS does not prescribe a time per part, so treat this as a starting split to adjust after your own mock tests:
 
-* **Part 5 (30 questions):** about 10 to 12 minutes, which is 20 to 25 seconds an item.
-* **Part 6 (16 questions):** about 8 to 10 minutes.
-* **Part 7 (54 questions):** the remaining 53 to 55 minutes, about a minute a question.
+* **Part 5 (30 questions):** about 10 minutes, which is 20 seconds an item.
+* **Part 6 (16 questions):** about 8 minutes.
+* **Part 7 (54 questions):** the remaining 57 minutes, a little over a minute a question.
 
 If a Part 5 item blocks you, remove the clearly wrong options, pick your best guess and move on. Two minutes spent on one grammar point cost you several easier questions in Part 7.
 
@@ -147,7 +147,7 @@ Open [your mistake notebook](/#/mistakes) once a week and redo the items. After 
 Regular short sessions beat occasional long ones. Here is a six-day template for a working adult; set your exam, target score and weekly hours on the [goal page](/#/goal) first and scale the sessions to those hours.
 
 * **Monday, listening (45 min):** 20 Part 2 questions, then read the script and write out the clips you missed.
-* **Tuesday, grammar (45 min):** 30 Part 5 questions in 12 minutes, then study every wrong item.
+* **Tuesday, grammar (45 min):** 30 Part 5 questions in about 10 minutes, then study every wrong item.
 * **Wednesday, vocabulary (30 min):** review your cards on the [flashcard review page](/#/review): prepositions, collocations and synonyms.
 * **Thursday, extended audio (45 min):** 3 Part 3 sets and 2 Part 4 sets, reading the stems before each recording.
 * **Friday, reading (60 min):** 4 single passages and 2 double passages against the clock.
@@ -163,7 +163,7 @@ Practise each Part, and sit full tests, from the [TOEIC practice page](/#/toeic)
 ## Frequently asked questions about self-studying for TOEIC
 
 ### How many months does it take to jump from 500 to 750?
-There is no official figure and progress differs a lot between people. For planning only, allow roughly 150 to 200 hours of focused study for a rise of 200 to 250 points. At about 1.5 hours a day that is around three to four months. Take a mock test every few weeks and adjust the plan to what it shows.
+There is no official figure and progress differs a lot between people. For planning only, allow roughly 150 to 200 hours of focused study for a rise of 200 to 250 points. At about 1.5 hours a day that is around three to four months. This is our own rough rule of thumb, not an ETS figure. Take a mock test every few weeks and adjust the plan to what it shows.
 
 ### Can I reach 750+ without a test-prep centre?
 Yes, if you stay disciplined. The test uses a predictable format and a recurring business vocabulary, so a self-study plan built on error analysis and spaced repetition can fit your weak points better than a general class. A teacher helps most with speaking and writing feedback, which the Listening & Reading test does not measure.

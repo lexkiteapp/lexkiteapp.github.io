@@ -66,8 +66,6 @@ quiz: [
 
 Pek çok aday, kelime bilgisi yetersizliğinden değil; önceden kurgulanmış ses tuzaklarına (*sound traps*) kapıldıkları veya dolaylı yanıtlara (*indirect responses*) hazırlıksız yakalandıkları için puan kaybeder. Bu rehberde açıklanan **toeic listening part 2 stratejileri** sayesinde soru kalıplarını hızla çözebilir, çeldiricileri eleyebilir ve dinleme bölümündeki sonucunuzu sistemli biçimde yükseltebilirsiniz.
 
-![Lexkite TOEIC deneme sınavları ve soru bazlı pratik arayüzü](media:toeic "Lexkite üzerinde TOEIC Listening ve Reading deneme sınavları ve Part odaklı hazırlık modülü")
-
 ## Bölümün sınav yapısı: toeic listening part 2 stratejileri temelleri
 
 Bu hızlı tempolu bölümde, son seçenek bittikten sonra bir sonraki soruya kadar yalnızca birkaç saniyeniz vardır. Herhangi bir soruda duraksamak veya geçmiş seçeneği zihinde analiz etmeye çalışmak, kaçınılmaz olarak bir sonraki sorunun başını kaçırmanıza yol açar. Kaçırdığınız soruya takılırsanız, ardından gelen soruları da zincirleme kaybedebilirsiniz.
@@ -87,8 +85,6 @@ Part 2 sorularının önemli bir kısmında doğru cevabın anahtarı, konuşmac
 > **Pratik İpucu:** *"Where did Mr. Richardson say he filed the confidential quarterly balance sheets?"* gibi uzun bir cümlenin ortasında dikkatiniz dağılsa bile, baştaki *"Where did he file..."* kısmını net duymanız yer bildiren doğru seçeneği (*"In the locked storage cabinet"*) bulmanız için fazlasıyla yeterlidir. Araya giren ayrıntılar adayların aklını karıştırmak için yerleştirilen detaylardır.
 
 Ofis kelimelerini ne kadar çabuk tanırsanız soruyu o kadar çabuk anlarsınız. Kelime setlerini [Lexkite TOEIC kelime kütüphanesinde](/#/library?g=toeic) çalışın, ayrıca [kelime listesine](/vocabulary/) göz atın.
-
-![Lexkite TOEIC sayfası: otomatik puanlanan deneme sınavları, Part bazlı pratik ve TOEIC kelimeleri (TSL)](media:toeic "Aynı sayfada deneme sınavları, Part bazlı pratik ve TOEIC Service List kelimeleri bulunur")
 
 ## Strateji 2: Üç klasik akustik tuzağı etkisiz hale getirin
 
@@ -136,9 +132,9 @@ Part 2 birkaç dakika boyunca aralıksız dikkat gerektirir. Zihinsel yorgunluğ
 
 Taktiklerin sınavda otomatik çalışması için şu planı deneyin (süreler bizim önerimizdir, resmî bir kural değildir):
 
-1. **Kesintisiz Dinleme Egzersizi (yaklaşık 15 dakika):** [Lexkite TOEIC sayfasını](/#/toeic) açın, bir Test ve "Part 2 · Hỏi – đáp" (soru-cevap) kartını seçin. "Nghe 1 lần" modu sesi sınavdaki gibi yalnızca bir kez çalar. Tereddüt halinde en makul seçeneği işaretleyip hemen bir sonraki soruya odaklanın.
+1. **Kesintisiz Dinleme Egzersizi (yaklaşık 15 dakika):** [Lexkite TOEIC sayfasını](/#/toeic) açın, bir Test ve “Part 2 · Question–Response” (soru-cevap) kartını seçin. “Listen once” modu sesi sınavdaki gibi yalnızca bir kez çalar. Tereddüt halinde en makul seçeneği işaretleyip hemen bir sonraki soruya odaklanın.
 2. **Ses Dökümü Analizi (yaklaşık 15 dakika):** Yanlış yaptığınız soruların metin dökümünü (*transcript*) açın. Hatanın kök nedenini belirleyin: soru kelimesini mi kaçırdınız, ses tuzağına mı düştünüz yoksa dolaylı cevabı mı kavrayamadınız? Hatalarınızı özel bir çalışma defterine kaydedin.
-3. **Yanlışları Dikte Etme (yaklaşık 15 dakika):** Aynı kartta "Chép chính tả" (dikte) modu duyduğunuzu yazdırır; kaçırdığınız ses hemen görünür. Tuzağın türünü [hata defterine](/#/mistakes) kaydedin.
+3. **Yanlışları Dikte Etme (yaklaşık 15 dakika):** Aynı kartta “Dictation” (dikte) modu duyduğunuzu yazdırır; kaçırdığınız ses hemen görünür. Tuzağın türünü [hata defterine](/#/mistakes) kaydedin.
 
 ![Lexkite hata defteri: hatalar kelime, dilbilgisi, okuma ve dinleme olarak gruplanır](media:mistakes "Dinleme hataları ayrı toplanır; hangi tuzağa tekrar tekrar düştüğünüz görünür")
 

@@ -78,7 +78,7 @@ El examen tiene 200 preguntas: 100 de Listening (45 minutos) y 100 de Reading (7
 En esta fase eliminas la confusión entre categorías gramaticales y construyes el vocabulario de negocios que el examen repite una y otra vez. Sin esa base, los simulacros completos solo generan frustración.
 
 ### 1. Dominar el vocabulario laboral de alta frecuencia
-Los textos del TOEIC salen de la oficina y los viajes: compras, marketing, reservas, finanzas, personal y mantenimiento de edificios. En lugar de listas al azar, trabaja con la TOEIC Service List (TSL), unas 1.250 palabras frecuentes que Lexkite ofrece en diez conjuntos (hay más en la [página de vocabulario](/vocabulary/)).
+Los textos del TOEIC salen de la oficina y los viajes: compras, marketing, reservas, finanzas, personal y mantenimiento de edificios. En lugar de listas al azar, trabaja con la TOEIC Service List (TSL), unas 1.250 palabras frecuentes que Lexkite ofrece en diez conjuntos (hay más en la [página de vocabulario](/en/vocabulary/)).
 
 ![Biblioteca de vocabulario de Lexkite con pestañas, entre ellas TOEIC (TSL), y conjuntos de palabras básicas de nivel A1 a B2](media:library "La biblioteca: en la pestaña TOEIC (TSL) están los conjuntos de palabras del examen")
 
@@ -120,9 +120,9 @@ A partir de 650, el tiempo es el límite principal. La sección de Reading tiene
 ### 1. Practicar con un plan de tiempos
 ETS no fija un tiempo por parte, así que toma esta distribución como punto de partida y ajústala según tus simulacros:
 
-* **Part 5 (30 preguntas):** unos 10 a 12 minutos, es decir, 20 a 25 segundos por ítem.
-* **Part 6 (16 preguntas):** unos 8 a 10 minutos.
-* **Part 7 (54 preguntas):** los 53 a 55 minutos restantes, cerca de un minuto por pregunta.
+* **Part 5 (30 preguntas):** unos 10 minutos, es decir, 20 segundos por ítem.
+* **Part 6 (16 preguntas):** unos 8 minutos.
+* **Part 7 (54 preguntas):** los 57 minutos restantes, algo más de un minuto por pregunta.
 
 Si una pregunta de Part 5 te bloquea, descarta las opciones claramente erróneas, elige la mejor y sigue. Dos minutos en una sola duda gramatical te quitan tiempo para varias preguntas más fáciles de Part 7.
 
@@ -147,7 +147,7 @@ Abre tu [cuaderno de errores](/#/mistakes) una vez por semana y repite los ejerc
 Las sesiones cortas y regulares funcionan mejor que las largas y ocasionales. Primero fija examen, puntaje objetivo y horas semanales en la [página de objetivos](/#/goal) y adapta las sesiones a esas horas. Un ejemplo para seis días:
 
 * **Lunes, escucha (45 min):** 20 preguntas de Part 2, luego lee el guion y transcribe los clips que fallaste.
-* **Martes, gramática (45 min):** 30 preguntas de Part 5 en 12 minutos, y después analiza cada error.
+* **Martes, gramática (45 min):** 30 preguntas de Part 5 en unos 10 minutos, y después analiza cada error.
 * **Miércoles, vocabulario (30 min):** repasa tus tarjetas en la [página de repaso](/#/review): preposiciones, colocaciones y sinónimos.
 * **Jueves, audios largos (45 min):** 3 conjuntos de Part 3 y 2 de Part 4, leyendo las preguntas antes de cada audio.
 * **Viernes, lectura (60 min):** 4 textos simples y 2 dobles contra reloj.
@@ -163,7 +163,7 @@ Todas las partes y los exámenes completos están en la [página de práctica TO
 ## Preguntas frecuentes sobre el autoestudio del TOEIC
 
 ### ¿Cuántos meses se necesitan para pasar de 500 a 750?
-No hay una cifra oficial y el avance varía mucho. Solo como referencia, calcula entre 150 y 200 horas de estudio concentrado para subir 200 a 250 puntos. Con unos 90 minutos diarios son más o menos tres o cuatro meses. Haz un simulacro cada pocas semanas y ajusta el plan a lo que muestre.
+No hay una cifra oficial y el avance varía mucho. Solo como referencia, calcula entre 150 y 200 horas de estudio concentrado para subir 200 a 250 puntos. Con unos 90 minutos diarios son más o menos tres o cuatro meses. Es una regla aproximada nuestra, no una cifra de ETS. Haz un simulacro cada pocas semanas y ajusta el plan a lo que muestre.
 
 ### ¿Se puede llegar a 750+ sin academia?
 Sí, si eres constante. El examen tiene un formato fijo y un vocabulario de negocios que se repite, así que un plan de autoestudio con análisis de errores y repetición espaciada puede ajustarse a tus puntos débiles mejor que una clase general. Un profesor ayuda sobre todo con la corrección de speaking y writing, que este examen no mide.

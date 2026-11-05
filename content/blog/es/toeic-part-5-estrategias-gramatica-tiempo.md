@@ -8,12 +8,12 @@ category: toeic
 tags: [toeic, part-5, reading, grammar, exam-prep]
 keyword: "toeic part 5 estrategias"
 cover: toeic
-coverAlt: "Área de preparación de TOEIC con exámenes simulados y módulos de práctica cronometrada para Part 5"
+coverAlt: "Página TOEIC de Lexkite con exámenes simulados, práctica por Part y vocabulario TSL"
 publishAt: 2027-01-09T08:57:00-06:00
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 90
 quiz: [
   {
     q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",
@@ -57,7 +57,7 @@ La Parte 5 del TOEIC consta de 30 preguntas de oraciones incompletas (de la 101 
 
 En esta guía desglosamos el método de decisión en 20 segundos, las fórmulas de descarte por sufijos, el protocolo de tres pasos para las preguntas con verbos y las colocaciones de negocios que conviene conocer.
 
-![Página de Luyện thi TOEIC en Lexkite con exámenes simulados, práctica por Part y vocabulario TOEIC (TSL)](media:toeic "La página TOEIC de Lexkite: exámenes simulados, práctica por Part y vocabulario TSL")
+![Página TOEIC de Lexkite con exámenes simulados, práctica por Part y vocabulario TSL](media:toeic "La página TOEIC de Lexkite: exámenes simulados, práctica por Part y vocabulario TSL")
 
 ## toeic part 5 estrategias: el método de decisión en 20 segundos
 
@@ -129,6 +129,19 @@ El TOEIC no deja las referencias temporales a la ambigüedad; busca siempre la p
 - **Sustantivo antes que adjetivo**: en español el adjetivo suele ir detrás ("un informe detallado"); en inglés va delante (*a detailed report*), y en Part 5 el adjetivo correcto está casi siempre justo antes del sustantivo.
 - **Falsos amigos**: *actually* es "en realidad", no "actualmente" (*currently*); *assist* es "ayudar", no "asistir" (*attend*); *eventually* es "finalmente", no "eventualmente".
 
+## Corrige estas frases (errores típicos de hispanohablantes)
+
+Cada frase tiene un error que las opciones incorrectas de la Parte 5 suelen imitar. Corrígela antes de leer la solución.
+
+1. *We have sent the invoice yesterday.* → *sent*: con *yesterday* se usa Past Simple.
+2. *I am working here since 2022.* → *I have worked here since 2022*: "trabajo aquí desde 2022" se traduce con Present Perfect.
+3. *She is agree with the budget.* → *She agrees with the budget*: "estar de acuerdo" es el verbo *agree*, sin *be*.
+4. *The report has many informations.* → *a lot of information*: *information* no tiene plural.
+5. *The manager explained me the policy.* → *explained the policy to me*: *explain* no lleva la persona como complemento directo.
+6. *He assisted the conference.* → *attended*: *assist* significa "ayudar", no "asistir".
+
+Si dudaste en alguna, anótala: son los reflejos que más puntos cuestan en las preguntas de tiempos, determinantes y vocabulario.
+
 ## Trampas clásicas entre preposiciones y conjunciones
 
 Un recurso habitual de los examinadores consiste en colocar sinónimos conceptuales en las opciones, donde dos son conjunciones y dos son preposiciones. La regla de oro para resolverlas en cinco segundos es: **las conjunciones unen oraciones con verbo conjugado; las preposiciones van seguidas de sustantivos, pronombres o gerundios (-ing)**.
@@ -190,4 +203,4 @@ Los más frecuentes son usar Present Perfect con *yesterday* o *last week*, olvi
 ### ¿Cómo puedo acelerar mi velocidad de respuesta en las preguntas de categorías gramaticales?
 La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y podrás resolver muchas preguntas en 10 a 15 segundos.
 
-Para dominar la sección auditiva y evitar trampas de palabras parecidas, consulta nuestra guía de [toeic listening part 2 estrategias para preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).
+Para la parte de audio, lee también la guía de [TOEIC Listening Part 2: preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).

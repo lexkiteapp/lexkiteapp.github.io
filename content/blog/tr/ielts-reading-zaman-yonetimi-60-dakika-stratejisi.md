@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, ielts-sinavi, okuma-stratejileri]
 keyword: "ielts reading zaman yönetimi"
-cover: library
-coverAlt: "IELTS Reading sınavı için zaman yönetimi stratejileri ve 60 dakikalık üç metin dağılımı"
+cover: reading
+coverAlt: "Lexkite okuma kitaplığı: A2'den C1'e IELTS tarzı metinler"
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
@@ -74,7 +74,7 @@ IELTS her metin için ayrı bir süre yayımlamaz ve zorluk testten teste deği�
 
 1. **Passage 1 (çoğunlukla en olgusal metin):** genellikle bir buluşun tarihi, bir biyografi ya da doğal bir süreç gibi betimleyici bir konudur ve cevaplar çoğu kez metnin sırasını izler. Başlangıç bütçesi: bütün soruları için yaklaşık **15 dakika**.
 2. **Passage 2 (çoğunlukla bir vaka incelemesi):** birkaç araştırmacının görüşlerini karşılaştırabilir ya da bir yeniliği anlatabilir. Başlangıç bütçesi: yaklaşık **20 dakika**.
-3. **Passage 3 (çoğunlukla en yoğun metin):** genellikle en soyut argümanı, yazarın görüşlerini ve çıkarım sorularını barındırır. Başlangıç bütçesi: yaklaşık **25 dakika**, ayrıca cevap kağıdını kontrol için son üç dakika.
+3. **Passage 3 (çoğunlukla en yoğun metin):** genellikle en soyut argümanı, yazarın görüşlerini ve çıkarım sorularını barındırır. Başlangıç bütçesi: yaklaşık **25 dakika**, son üç dakikası cevap kağıdını kontrol için dahil (15 + 20 + 25 = 60).
 
 Sınav salonunda sıklıkla gözden kaçan kritik bir kural da şudur: IELTS Reading sınavında **cevapları optik forma aktarmak için ekstra süre verilmez**. Kağıt tabanlı Listening bölümünde tanınan 10 dakikalık aktarma süresi burada yoktur. Yanıtlarınızı soru kitapçığına yazıp son dakikalarda forma geçirmeyi planlarsanız, sınav görevlileri formu elinizden alırken soruların yarısı boş kalabilir. Her cevabı çözer çözmez doğrudan resmi cevap kağıdına (*Answer Sheet*) kurşun kalemle işlemelisiniz.
 
@@ -99,7 +99,7 @@ Bazı soru kalıpları, stratejik bir yaklaşımla ele alınmadığında dakikal
 | :--- | :--- | :--- |
 | **Matching Headings (Paragraf Başlıklarını Eşleştirme)** | Çok Yüksek (tüm paragrafın ana fikrini kavramayı gerektirir). | Bu soruları metnin başında ilk olarak çözün; böylece ilk genel okumanızı doğrudan puana dönüştürmüş olursunuz. |
 | **Matching Information to Paragraphs** | Kritik (soruların sırası metindeki kronolojiyi takip etmez). | Bu bölümü metnin sonuna bırakın; diğer soruları çözerken paragrafların içeriğini zaten öğrenmiş olursunuz. |
-| **True / False / Not Given (T/F/NG)** | Yüksek (False ile Not Given arasındaki kararsızlık zaman kaybettirir). | Açık bir bilgi çelişkisi varsa False deyin. 90 saniye aradıktan sonra hiçbir açık ifade bulamadıysanız Not Given işaretleyip ilerleyin. |
+| **True / False / Not Given (T/F/NG)** | Yüksek (False ile Not Given arasındaki kararsızlık zaman kaybettirir). | Metin tam tersini söylüyorsa False; metin konuyu hiç anmıyorsa Not Given. Emin değilseniz en iyi tahmininizi yazın, soruyu işaretleyin ve sonra dönün. |
 | **Sentence / Summary Completion** | Orta (yönergedeki kelime sınırına harfiyen uyulmalıdır). | Paragrafta aramaya başlamadan önce eksik kelimenin dilbilgisel türünü (tekil isim, sıfat, fiil) belirleyin. |
 
 Sınavda başarılı adayların önemli ortak özelliklerinden biri, soru tiplerine göre esnek davranabilmeleridir. Örneğin, özet tamamlama (*Summary Completion*) veya tablo doldurma soruları genellikle tek bir paragrafa veya birbirini izleyen iki paragrafa odaklanır. Bu soruları ilk önce çözmek, metnin büyük bir kısmını zahmetsizce taramanızı sağlar. Diğer yandan, araştırmacı isimleriyle iddiaların eşleştirildiği sorularda, önce metindeki tüm araştırmacı isimlerini renkli kalemle kutu içine alıp ardından soruları çözmek arama sürenizi belirgin şekilde kısaltır.

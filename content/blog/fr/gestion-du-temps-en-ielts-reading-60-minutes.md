@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, examen-ielts, strategies-lecture]
 keyword: "gestion du temps en ielts reading"
-cover: library
-coverAlt: "Guide stratégique de gestion du temps pour les trois textes de l'épreuve IELTS Reading en 60 minutes"
+cover: reading
+coverAlt: "Bibliothèque de lectures Lexkite avec des textes de type IELTS de A2 à C1"
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
@@ -74,7 +74,7 @@ L'IELTS ne publie pas de durée par texte et la difficulté varie d'un test à l
 
 1. **Passage 1 (souvent le plus factuel) :** il traite souvent d'un sujet descriptif, comme l'histoire d'une invention, une biographie ou un processus naturel, et les réponses suivent volontiers l'ordre du texte. Budget de départ : environ **15 minutes** pour toutes ses questions.
 2. **Passage 2 (souvent une étude de cas) :** il peut comparer les positions de plusieurs chercheurs ou présenter une innovation. Budget de départ : environ **20 minutes**.
-3. **Passage 3 (souvent le plus dense) :** il concentre souvent l'argumentation la plus abstraite, avec des opinions de l'auteur et des inférences. Budget de départ : environ **25 minutes**, plus les trois dernières pour vérifier la feuille de réponses.
+3. **Passage 3 (souvent le plus dense) :** il concentre souvent l'argumentation la plus abstraite, avec des opinions de l'auteur et des inférences. Budget de départ : environ **25 minutes**, dont les trois dernières pour vérifier la feuille de réponses (15 + 20 + 25 = 60).
 
 Un impératif d'organisation souvent méconnu mérite d'être souligné : en IELTS Reading, **aucun temps supplémentaire n'est alloué en fin d'épreuve** pour reporter vos réponses sur la feuille officielle (*Answer Sheet*). Les 10 minutes additionnelles autorisées en compréhension orale n'existent pas ici. Si vous notez vos réponses sur le livret de sujet avec l'illusion de les recopier plus tard, vous risquez de rendre une copie à moitié vide. Vous devez inscrire chaque réponse au crayon directement sur le document officiel au fur et à mesure.
 
@@ -99,7 +99,7 @@ Certains formats d'exercices sont spécifiquement conçus pour désorganiser vot
 | :--- | :--- | :--- |
 | **Matching Headings (Associer les titres)** | Très élevé (exige de cerner l'idée maîtresse de chaque paragraphe). | Traitez-les en priorité absolue dès le début du passage pour rentabiliser votre première lecture globale. |
 | **Matching Information to Paragraphs** | Critique (l'ordre des questions ne respecte pas l'ordre du texte). | Réservez-les pour la fin du passage : les autres questions vous auront déjà permis de mémoriser l'emplacement des thèmes. |
-| **True / False / Not Given (T/F/NG)** | Élevé (l'hésitation entre False et Not Given paralyse le candidat). | S'il existe une contradiction factuelle avérée, notez False ; si après 90 secondes aucune mention explicite n'apparaît, cochez Not Given. |
+| **True / False / Not Given (T/F/NG)** | Élevé (l'hésitation entre False et Not Given paralyse le candidat). | Si le texte affirme le contraire, c'est False ; s'il ne mentionne pas du tout le point, c'est Not Given. En cas de doute, notez votre meilleure hypothèse, marquez la question et revenez-y plus tard. |
 | **Summary Completion (Texte à trous)** | Modéré (respect strict du nombre de mots exigé par la consigne). | Déterminez au préalable la nature grammaticale manquante (nom singulier, adjectif, verbe) avant de chercher dans l'extrait. |
 
 Si vous restez bloqué sur un point précis plus de 60 secondes, appliquez la discipline de l'abandon tactique : cochez votre meilleure intuition, marquez un astérisque dans la marge et avancez immédiatement. Dans ce test, chaque question rapporte exactement un point ; sacrifier quatre questions abordables en fin de livret pour s'acharner sur un point nébuleux au milieu est une erreur fatale.

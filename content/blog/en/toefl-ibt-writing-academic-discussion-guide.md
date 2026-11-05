@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types"
-qualityScore: 92
+qualityScore: 90
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-27T12:11:00+05:30
@@ -67,7 +67,7 @@ Time is short, so there is no room for a long introduction. What you need is a c
 
 A note on numbers: since 21 January 2026 the TOEFL iBT reports section and overall scores on a 1–6 scale in half-point steps, with a comparable 0–120 score shown during a two-year transition. The "5" in this guide is the top level of the 0–5 rubric used for this one task, not your overall band. No method guarantees a score; it only makes each of your ten minutes count.
 
-Below: how the task is laid out, a minute-by-minute plan, a model answer, two flexible templates and the mistakes that cost the most.
+Below: how the task is laid out, a minute-by-minute plan, a model answer, two short skeletons and the mistakes that cost the most.
 
 ---
 
@@ -132,10 +132,10 @@ Practise this exact split in the app: the Lexkite TOEFL page has a Write for an 
 >
 > **Claire**: Subsidized transit passes help everyone, especially lower-income students who cannot afford electric cars in the first place, reducing overall car usage.
 
-### High-Scoring Response (129 words)
-> While Paul makes a reasonable case regarding electric vehicle adoption, I firmly agree with Claire that subsidizing public transit passes generates far greater systemic benefits. Transitioning to electric automobiles does little to mitigate severe campus parking shortages and road congestion, and electric cars remain financially out of reach for most undergraduate students. In contrast, providing universal transit passes incentivizes thousands of daily commuters to abandon private vehicles entirely in favor of metropolitan buses and light rails. For instance, when the university in my hometown partnered with the city transit authority to offer zero-fare student passes, the morning queues at the campus gates became noticeably shorter within a single semester. Consequently, public transit subsidies not only lower carbon emissions across a broader demographic but also foster socio-economic equity on campus.
+### High-Scoring Response (about 136 words)
+> I agree with Claire. Subsidising transit passes helps more people than charging stations do, because many students cannot afford an electric car in the first place. Paul is right that charging stations help drivers who already own one, but they do nothing about parking shortages or traffic on campus roads. Transit passes reduce both. They also keep working after the grant is spent on a single purchase, because students keep using the bus every day. A charging station, by contrast, serves only the few who can afford to switch cars, and the benefit stays small however well it is built. At my hometown university, zero-fare student passes made the morning queue at the car park gate noticeably shorter within one semester. A grant should go where it reaches the most students, and here that means transit.
 
-The response acknowledges Paul, backs Claire and adds **a new argument (congestion and affordability)** with a concrete example. It also avoids invented statistics: a plausible observation from your own experience is safer than a precise percentage you cannot back up.
+The response answers the question in its first sentence, acknowledges Paul, backs Claire and adds **a new argument (congestion and affordability)** with a concrete example. It also avoids invented statistics: a plausible observation from your own experience is safer than a precise percentage you cannot back up.
 
 For academic phrasing, see our [Academic Word List guide](/en/blog/academic-word-list/) and the [linking words guide](/en/blog/linking-words-for-ielts-writing/). The [Lexkite vocabulary lists](/en/vocabulary/) group core words by topic, and saving the useful ones as flashcards makes them available when you type under pressure.
 
@@ -143,15 +143,17 @@ For academic phrasing, see our [Academic Word List guide](/en/blog/academic-word
 
 ---
 
-## 2 Practical Templates for Common Academic Debate Types
+## Two Short Skeletons for Common Debate Types
 
 Use these as skeletons and replace the brackets with your own ideas. Raters see many near-identical template answers, so the part that is yours (the reason and the example) must be specific.
 
-### Template 1: Preference between Two Discrete Policies
-> While [Student A] puts forward an understandable argument in favor of [Policy A], I find myself in stronger agreement with [Student B]'s conviction that [Policy B] is more effective. The primary reason is that [Policy B] tackles the structural root of the issue rather than merely addressing surface-level symptoms. To illustrate, in many metropolitan communities, implementing targeted incentives yields rapid behavioral shifts among diverse demographic groups. Furthermore, allocating municipal capital toward [Policy B] ensures equitable outcomes for individuals who lack substantial financial reserves. Therefore, despite the apparent benefits highlighted by [Student A], investing in [Policy B] is the more sustainable choice.
+### Template 1: Choosing between two policies
+> I agree with [Student B] that [Policy B] is the better choice. [One concrete reason, in one sentence.] For example, [a specific case from your own experience or a realistic situation]. [Student A] is right that [Policy A] has [one real advantage], but [why it still matters less].
 
-### Template 2: Evaluating an Emerging Technology (e.g., AI or Automation)
-> Although [Student A] rightly points out the potential efficiency gains associated with [Technology], I share [Student B]'s cautious stance regarding its disruptive societal repercussions. While automation undeniably accelerates routine operational output, relying excessively on algorithms introduces substantial vulnerabilities in data integrity, intellectual property protection, and workforce stability. For example, organizations that rush toward full technological substitution can suffer from elevated communication breakdowns and costly procedural errors. In my view, institutions should prioritize collaborative human-machine workflows rather than total replacement. Consequently, preserving active human oversight remains imperative if we hope to foster ethical technological advancement.
+### Template 2: Judging a new technology
+> [Student A] is right that [Technology] saves time, but I share [Student B]'s concern about [one specific risk]. For example, [a short, realistic case]. Institutions should use it for [limited task] and keep a person responsible for [decision].
+
+Both skeletons are short on purpose: the brackets are where your own reason and example go, and those two parts decide how the response is read. Adapt the wording to the prompt; do not paste them unchanged.
 
 ---
 

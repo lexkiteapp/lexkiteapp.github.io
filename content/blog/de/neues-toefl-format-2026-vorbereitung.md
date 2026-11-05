@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, pruefungsformat, vorbereitung]
 cover: toefl
 coverAlt: "TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026"
-qualityScore: 91
+qualityScore: 90
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-02T19:01:00+01:00
@@ -73,11 +73,11 @@ quiz: [
 ]
 ---
 
-Seit dem 21. Januar 2026 gilt weltweit ein **neues TOEFL Format 2026**, das den renommierten US-Sprachtest grundlegend modernisiert hat. Wer sich heute noch ausschließlich mit älteren Lehrbüchern oder Vorbereitungsunterlagen von vor 2026 vorbereitet, profitiert zwar weiterhin von seinem allgemeinen Wortschatz, muss seine Prüfungsstrategie, sein Zeitmanagement und seine Vertrautheit mit den Aufgabenformaten jedoch zwingend aktualisieren.
+Seit dem 21. Januar 2026 gilt ein **neues TOEFL Format 2026**. Wer noch mit älteren Büchern übt, kann den Wortschatz weiter nutzen, muss aber Zeitmanagement und Aufgabentypen neu lernen.
 
-Der TOEFL iBT ist jetzt kompakter (rund 90 Minuten Grundzeit, ohne Anweisungen), adaptiv (der Schwierigkeitsgrad folgt Ihren Antworten), wird auf einer Skala von 1 bis 6 bewertet und enthält neue Aufgaben wie *Complete the Words*, *Read in Daily Life* und *Build a Sentence*. Die Angaben unten stammen von der offiziellen ETS-Seite zu Aufbau und Inhalt des TOEFL iBT.
+Der Test ist kürzer (rund 90 Minuten Grundzeit, ohne Anweisungen), passt die Schwierigkeit an Ihre Antworten an, wird auf einer Skala von 1 bis 6 bewertet und enthält neue Aufgaben wie *Complete the Words*, *Read in Daily Life* und *Build a Sentence*. Die Angaben unten stammen von der offiziellen ETS-Seite zu Aufbau und Inhalt des TOEFL iBT.
 
-Hier finden Sie die Struktur als Tabelle, alle 12 Aufgabentypen mit Tipps, typische Fehler (auch spezifisch für Deutschsprachige) und einen 4-Wochen-Plan.
+Im Folgenden: die Struktur als Tabelle, alle 12 Aufgabentypen mit Tipps, typische Fehler (auch von Deutschsprachigen) und ein 4-Wochen-Plan.
 
 ![TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026](media:toefl "Das TOEFL iBT Vorbereitungsmodul im Lexkite mit der Aufgabenstruktur des neuen Testformats 2026")
 
@@ -86,7 +86,7 @@ Hier finden Sie die Struktur als Tabelle, alle 12 Aufgabentypen mit Tipps, typis
 Drei Änderungen bestimmen, wie Sie sich vorbereiten:
 
 ### 1. Kürzerer Test
-Die vier Sektionen haben zusammen rund 90 Minuten Grundzeit (vor Juli 2023 dauerte der Test knapp drei Stunden). ETS rät, für den gesamten Termin etwa zwei Stunden einzuplanen, weil die Anweisungen nicht mitgezählt sind. Mit weniger Aufgaben fällt jeder einzelne Fehler stärker ins Gewicht, üben Sie also vor allem konzentriertes Durcharbeiten.
+Die vier Sektionen haben zusammen rund 90 Minuten Grundzeit (vor Juli 2023 dauerte der Test knapp drei Stunden). ETS rät, für den gesamten Termin etwa zwei Stunden einzuplanen, weil die Anweisungen nicht mitgezählt sind. Mit weniger Aufgaben zählt jeder Fehler mehr. Üben Sie deshalb, von der ersten bis zur letzten Aufgabe konzentriert zu bleiben.
 
 ### 2. Mehrstufig adaptives Testdesign
 ETS beschreibt den Test als adaptiv: Reading und Listening passen den Schwierigkeitsgrad an Ihre Leistung an. Die genaue Logik und Schwellenwerte veröffentlicht ETS nicht; Zahlen dazu, die im Netz kursieren, sind Vermutungen. Praktische Folge: Behandeln Sie die ersten Aufgaben nicht als Aufwärmphase und bleiben Sie nicht an einer schweren Frage hängen.
@@ -193,7 +193,7 @@ In Woche 1 und 4 lohnt sich das Fehlerbuch besonders, weil es Fehler nach Art so
 Das aktualisierte Format gilt seit dem **21. Januar 2026**; ETS gibt die Ergebnisse seitdem auf der 1–6-Skala an.
 
 ### Werden alte Prüfungsergebnisse auf der 0–120 Skala weiterhin anerkannt?
-Ergebnisse sind in der Regel zwei Jahre ab Testdatum gültig; ob eine Hochschule sie akzeptiert, entscheidet sie selbst, fragen Sie dort nach. Neue Ergebnisse enthalten in der Übergangszeit zusätzlich einen vergleichbaren 0–120-Wert.
+Ergebnisse gelten in der Regel zwei Jahre ab Testdatum. Ob Ihre Hochschule sie akzeptiert, entscheidet sie selbst; fragen Sie dort nach. Neue Ergebnisse enthalten in der Übergangszeit zusätzlich einen vergleichbaren 0–120-Wert.
 
 ### Ist der neue Test einfacher geworden?
 Nicht unbedingt. Er ist kürzer, aber adaptiv, und bei *Complete the Words* oder *Build a Sentence* erzeugen Sie die Antwort selbst, statt eine auszuwählen. Raten hilft dort kaum.

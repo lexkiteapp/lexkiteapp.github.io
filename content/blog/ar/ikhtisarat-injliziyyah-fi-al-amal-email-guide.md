@@ -7,8 +7,8 @@ translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, workplace-communication, email-acronyms, vocabulary]
 keyword: "اختصارات إنجليزية في العمل"
-cover: path
-coverAlt: "موظف في شركة دولية يقرأ بريداً إلكترونياً يحتوي على اختصارات مهنية بالإنجليزية على شاشة الحاسوب"
+cover: letters
+coverAlt: "شاشة رسائل IELTS General Task 1 في Lexkite: رسالة رسمية وشبه رسمية وودية، وهي توضح مستويات الرسمية في الرسائل"
 publishAt: 2026-12-30T07:36:00+03:00
 factChecked: 2026-11-05
 author: Lexkite

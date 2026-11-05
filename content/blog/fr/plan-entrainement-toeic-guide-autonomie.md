@@ -8,7 +8,7 @@ translationKey: lo-trinh-tu-hoc-toeic
 category: toeic
 tags: [toeic, revision, test-prep]
 cover: toeic
-coverAlt: "Interface d entraînement au test TOEIC sur Lexkite avec examens blancs complets et révisions ciblées par section"
+coverAlt: "Page TOEIC de Lexkite : entraînement par Part, tests blancs avec score estimé et vocabulaire TOEIC"
 qualityScore: 92
 factChecked: 2026-11-05
 author: Lexkite
@@ -78,7 +78,7 @@ L'épreuve comporte 200 questions : 100 en Listening (45 minutes) et 100 en Read
 Dans cette phase, vous dissipez les confusions de nature des mots et construisez le vocabulaire d'affaires que l'examen reprend sans cesse. Sans cette base, les tests complets ne produisent surtout que de la frustration.
 
 ### 1. Maîtriser le vocabulaire professionnel courant
-Les textes du TOEIC viennent du bureau et des voyages : achats, marketing, réservations, finance, personnel, entretien des locaux. Plutôt que des listes au hasard, travaillez la TOEIC Service List (TSL), environ 1 250 mots fréquents que Lexkite propose en dix séries (voir aussi la [page de vocabulaire](/vocabulary/)).
+Les textes du TOEIC viennent du bureau et des voyages : achats, marketing, réservations, finance, personnel, entretien des locaux. Plutôt que des listes au hasard, travaillez la TOEIC Service List (TSL), environ 1 250 mots fréquents que Lexkite propose en dix séries (voir aussi la [page de vocabulaire](/en/vocabulary/)).
 
 ![Bibliothèque de vocabulaire de Lexkite avec des onglets dont TOEIC (TSL) et des séries de mots essentiels de niveau A1 à B2](media:library "La bibliothèque : l'onglet TOEIC (TSL) rassemble les séries de mots de l'examen")
 
@@ -120,9 +120,9 @@ Au-delà de 650, le temps devient la principale limite. La section Reading compr
 ### 1. S'entraîner avec un plan de temps
 ETS ne fixe pas de durée par partie ; prenez donc la répartition suivante comme point de départ, à ajuster d'après vos tests blancs :
 
-* **Part 5 (30 questions) :** environ 10 à 12 minutes, soit 20 à 25 secondes par question.
-* **Part 6 (16 questions) :** environ 8 à 10 minutes.
-* **Part 7 (54 questions) :** les 53 à 55 minutes restantes, soit environ une minute par question.
+* **Part 5 (30 questions) :** environ 10 minutes, soit 20 secondes par question.
+* **Part 6 (16 questions) :** environ 8 minutes.
+* **Part 7 (54 questions) :** les 57 minutes restantes, un peu plus d'une minute par question.
 
 Si une question de Part 5 vous bloque, éliminez les options manifestement fausses, choisissez la meilleure et passez à la suivante. Deux minutes sur un seul point de grammaire vous coûtent plusieurs questions plus faciles en Part 7.
 
@@ -147,7 +147,7 @@ Ouvrez votre [carnet d'erreurs](/#/mistakes) une fois par semaine et refaites le
 Des séances courtes et régulières valent mieux que de rares séances longues. Fixez d'abord examen, score visé et heures par semaine sur la [page des objectifs](/#/goal), puis adaptez les séances. Voici un exemple sur six jours :
 
 * **Lundi, écoute (45 min) :** 20 questions de Part 2, puis lecture du script et transcription des extraits manqués.
-* **Mardi, grammaire (45 min) :** 30 questions de Part 5 en 12 minutes, puis analyse de chaque erreur.
+* **Mardi, grammaire (45 min) :** 30 questions de Part 5 en 10 minutes environ, puis analyse de chaque erreur.
 * **Mercredi, vocabulaire (30 min) :** révision de vos cartes sur la [page de révision](/#/review) : prépositions, collocations et synonymes.
 * **Jeudi, enregistrements longs (45 min) :** 3 séries de Part 3 et 2 de Part 4, en lisant les questions avant chaque enregistrement.
 * **Vendredi, lecture (60 min) :** 4 textes simples et 2 textes doubles, chronomètre en main.
@@ -163,7 +163,7 @@ Toutes les parties et les tests complets sont sur la [page d'entraînement TOEIC
 ## Questions fréquentes sur la révision autonome du TOEIC
 
 ### Combien de mois faut-il pour passer de 500 à 750 ?
-Il n'existe pas de chiffre officiel et la progression varie beaucoup. À titre indicatif, comptez environ 150 à 200 heures de travail concentré pour gagner 200 à 250 points. Avec environ 90 minutes par jour, cela fait à peu près trois à quatre mois. Faites un test blanc toutes les quelques semaines et ajustez le programme.
+Il n'existe pas de chiffre officiel et la progression varie beaucoup. À titre indicatif, comptez environ 150 à 200 heures de travail concentré pour gagner 200 à 250 points. Avec environ 90 minutes par jour, cela fait à peu près trois à quatre mois. Ce n'est pas un chiffre d'ETS mais notre règle empirique approximative. Faites un test blanc toutes les quelques semaines et ajustez le programme.
 
 ### Peut-on atteindre 750+ sans cours payants ?
 Oui, avec de la rigueur. L'examen suit un format stable et un vocabulaire d'affaires récurrent : une révision autonome fondée sur l'analyse d'erreurs et la répétition espacée peut cibler vos points faibles mieux qu'un cours collectif généraliste. Un professeur est surtout utile pour corriger l'oral et l'écrit, que ce test ne mesure pas.

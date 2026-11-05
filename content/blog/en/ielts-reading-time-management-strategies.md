@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, reading-skills, test-prep]
 keyword: "ielts reading time management"
-cover: path
-coverAlt: "Test taker monitoring a timer and managing the 60-minute reading test structure"
+cover: reading
+coverAlt: "The Lexkite reading library with IELTS-style passages from A2 to C1"
 publishAt: 2027-01-26T19:51:00+05:30
 factChecked: 2026-11-05
 author: Lexkite
@@ -77,7 +77,7 @@ Use a plan that gives the passage you expect to be hardest more time, then check
 | Passage 1 | Often more factual or descriptive, with answers that follow the text order | about 15 minutes |
 | Passage 2 | Often a case study or a comparison of views | about 20 minutes |
 | Passage 3 | Often the densest argument, with opinion and inference questions | about 25 minutes |
-| Final check | Empty boxes, spelling, singular/plural | the last 3 minutes |
+| Final check | Empty boxes, spelling, singular/plural | the last 3 minutes of Passage 3's 25 (15 + 20 + 25 = 60) |
 
 These patterns are common, not guaranteed. If the first passage in your test is clearly the hardest, move time to it. The skill is making that decision within the first minute, not following the table blindly.
 

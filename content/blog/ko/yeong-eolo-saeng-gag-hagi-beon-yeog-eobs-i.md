@@ -8,7 +8,7 @@ category: ky-nang
 tags: [speaking, fluency, english-thinking]
 keyword: "영어로 생각하기"
 cover: path
-coverAlt: "Lexkite를 활용한 영어 사고력 훈련과 스피킹 유창성 향상 학습 로드맵"
+coverAlt: "Lexkite의 IELTS 학습 로드맵 화면: 밴드별 단계마다 단어, 연습, 듣기, 테스트가 이어진다"
 publishAt: 2027-01-06T08:45:00+09:00
 factChecked: 2026-11-05
 author: Lexkite

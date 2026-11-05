@@ -8,7 +8,7 @@ translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, email, acronyms, jigjang]
 cover: letters
-coverAlt: "외국계 기업 직장인을 위한 비즈니스 영어 줄임말과 영문 이메일 약어 정리 가이드"
+coverAlt: "Lexkite의 IELTS General Task 1 편지 쓰기 화면: 격식체, 준격식체, 비격식체 편지로 글의 격식 수준을 비교할 수 있습니다"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite

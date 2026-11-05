@@ -8,7 +8,7 @@ translationKey: lo-trinh-tu-hoc-toeic
 category: toeic
 tags: [toeic, estudo, preparacao]
 cover: toeic
-coverAlt: "Interface de preparacao para o exame TOEIC no Lexkite com simulados completos e treino focado por secao"
+coverAlt: "Página TOEIC do Lexkite: prática por Part, simulados com pontuação estimada e vocabulário TOEIC"
 qualityScore: 92
 factChecked: 2026-11-05
 author: Lexkite
@@ -78,7 +78,7 @@ A prova tem 200 questões: 100 de Listening (45 minutos) e 100 de Reading (75 mi
 Nesta fase você desfaz a confusão entre classes de palavras e constrói o vocabulário de negócios que a prova repete o tempo todo. Sem essa base, simulados completos só geram frustração.
 
 ### 1. Dominar o vocabulário profissional de alta frequência
-Os textos do TOEIC vêm do escritório e das viagens: compras, marketing, reservas, finanças, pessoal e manutenção predial. Em vez de listas aleatórias, trabalhe com a TOEIC Service List (TSL), cerca de 1.250 palavras frequentes que o Lexkite oferece em dez conjuntos (veja também a [página de vocabulário](/vocabulary/)).
+Os textos do TOEIC vêm do escritório e das viagens: compras, marketing, reservas, finanças, pessoal e manutenção predial. Em vez de listas aleatórias, trabalhe com a TOEIC Service List (TSL), cerca de 1.250 palavras frequentes que o Lexkite oferece em dez conjuntos (veja também a [página de vocabulário](/en/vocabulary/)).
 
 ![Biblioteca de vocabulário do Lexkite com abas, entre elas TOEIC (TSL), e conjuntos de palavras essenciais dos níveis A1 a B2](media:library "A biblioteca: na aba TOEIC (TSL) ficam os conjuntos de palavras da prova")
 
@@ -92,7 +92,7 @@ O método completo está em [estratégias de gramática e vocabulário para a TO
 ### 3. Criar reflexos de escuta nas Parts 1 e 2
 A Part 1 (6 fotografias) e a Part 2 (25 pares de pergunta e resposta) são curtas e dão os ganhos mais rápidos. Na Part 2, preste atenção na primeira palavra (*Who, Where, When, Why, How*) e desconfie de uma resposta que apenas repete uma palavra da pergunta. As táticas estão em [TOEIC Listening Part 2](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).
 
-Muitas vezes o obstáculo não é vocabulário, é som. Nativos ligam e enfraquecem as palavras, e *What did you* soa quase como «uódidju». Se você conhece todas as palavras do roteiro mas não as ouve no áudio, repita o trecho com o roteiro e diga a frase em voz alta. O artigo sobre [connected speech em inglês](/pt/blog/connected-speech-em-ingles-como-ligar-palavras/) explica esses padrões.
+Muitas vezes o obstáculo não é vocabulário, é som. Nativos ligam e enfraquecem as palavras, e *What did you* soa quase como “uódidju”. Se você conhece todas as palavras do roteiro mas não as ouve no áudio, repita o trecho com o roteiro e diga a frase em voz alta. O artigo sobre [connected speech em inglês](/pt/blog/connected-speech-em-ingles-como-ligar-palavras/) explica esses padrões.
 
 ## Fase 2: Ampliar resistência e compreensão (550 a 650)
 
@@ -120,9 +120,9 @@ Acima de 650, o tempo vira o principal limite. A seção Reading tem 100 questõ
 ### 1. Praticar com um plano de tempo
 A ETS não define um tempo por parte, então use esta divisão como ponto de partida e ajuste de acordo com seus simulados:
 
-* **Part 5 (30 questões):** cerca de 10 a 12 minutos, ou seja, 20 a 25 segundos por item.
-* **Part 6 (16 questões):** cerca de 8 a 10 minutos.
-* **Part 7 (54 questões):** os 53 a 55 minutos restantes, cerca de um minuto por questão.
+* **Part 5 (30 questões):** cerca de 10 minutos, ou seja, 20 segundos por item.
+* **Part 6 (16 questões):** cerca de 8 minutos.
+* **Part 7 (54 questões):** os 57 minutos restantes, pouco mais de um minuto por questão.
 
 Se uma questão da Part 5 travar você, elimine as alternativas claramente erradas, escolha a melhor e siga em frente. Dois minutos em uma única dúvida de gramática tiram tempo de várias questões mais fáceis da Part 7.
 
@@ -147,7 +147,7 @@ Abra o seu [caderno de erros](/#/mistakes) uma vez por semana e refaça os exerc
 Sessões curtas e regulares rendem mais que sessões longas e raras. Defina antes a prova, a meta de pontos e as horas semanais na [página de metas](/#/goal) e adapte as sessões a essas horas. Um exemplo para seis dias:
 
 * **Segunda, escuta (45 min):** 20 questões da Part 2, depois leia o roteiro e transcreva os trechos que errou.
-* **Terça, gramática (45 min):** 30 questões da Part 5 em 12 minutos, e então analise cada erro.
+* **Terça, gramática (45 min):** 30 questões da Part 5 em cerca de 10 minutos, e então analise cada erro.
 * **Quarta, vocabulário (30 min):** revise seus cartões na [página de revisão](/#/review): preposições, colocações e sinônimos.
 * **Quinta, áudios longos (45 min):** 3 conjuntos da Part 3 e 2 da Part 4, lendo as perguntas antes de cada áudio.
 * **Sexta, leitura (60 min):** 4 textos simples e 2 duplos contra o relógio.
@@ -163,7 +163,7 @@ Todas as partes e as provas completas estão na [página de prática TOEIC](/#/t
 ## Perguntas frequentes sobre estudar sozinho para o TOEIC
 
 ### Quantos meses leva para ir de 500 a 750?
-Não existe número oficial e o avanço varia muito. Apenas como referência, conte com cerca de 150 a 200 horas de estudo focado para subir 200 a 250 pontos. Com uns 90 minutos por dia, são mais ou menos três a quatro meses. Faça um simulado a cada poucas semanas e ajuste o plano ao resultado.
+Não existe número oficial e o avanço varia muito. Apenas como referência, conte com cerca de 150 a 200 horas de estudo focado para subir 200 a 250 pontos. Com uns 90 minutos por dia, são mais ou menos três a quatro meses. É uma regra prática aproximada nossa, não um número da ETS. Faça um simulado a cada poucas semanas e ajuste o plano ao resultado.
 
 ### Dá para chegar a 750+ sem cursinho?
 Dá, se houver disciplina. A prova segue um formato estável e um vocabulário de negócios recorrente, então um plano sozinho, com análise de erros e repetição espaçada, pode atingir seus pontos fracos melhor que uma aula genérica. Um professor ajuda principalmente com correção de fala e escrita, que este exame não mede.
@@ -172,4 +172,4 @@ Dá, se houver disciplina. A prova segue um formato estável e um vocabulário d
 Na fase de base, um a cada três semanas basta para medir o progresso sem se esgotar. Nas últimas quatro semanas, faça um simulado completo e cronometrado todo fim de semana para aguentar as duas horas.
 
 ### Quais armadilhas atingem brasileiros no TOEIC?
-Os falsos cognatos do inglês de escritório custam pontos diretos na Part 5 e na Part 7: *actually* é «na verdade», não «atualmente» (*currently*); *eventually* é «por fim», não «eventualmente» (*occasionally*); *assist* é «ajudar», não «assistir» (*attend*); *library* é «biblioteca», não «livraria»; *push* é «empurrar», não «puxar». Na escuta, o português tende a acrescentar uma vogal depois de consoante final, e por isso brasileiros ouvem *-ed* e *-s* finais como sílabas à parte ou simplesmente não os ouvem, o que atrapalha na Part 5, onde *worked* e *works* mudam a resposta. Treine com ditado em frases curtas, escrevendo as terminações.
+Os falsos cognatos do inglês de escritório custam pontos diretos na Part 5 e na Part 7: *actually* é “na verdade”, não “atualmente” (*currently*); *eventually* é “por fim”, não “eventualmente” (*occasionally*); *assist* é “ajudar”, não “assistir” (*attend*); *library* é “biblioteca”, não “livraria”; *push* é “empurrar”, não “puxar”. Na escuta, o português tende a acrescentar uma vogal depois de consoante final, e por isso brasileiros ouvem *-ed* e *-s* finais como sílabas à parte ou simplesmente não os ouvem, o que atrapalha na Part 5, onde *worked* e *works* mudam a resposta. Treine com ditado em frases curtas, escrevendo as terminações.

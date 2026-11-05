@@ -102,7 +102,7 @@ Tahap pertama berfokus pada ketepatan bunyi tunggal (*individual sounds*). Pasan
 
 Latih pasangan di atas beberapa menit di depan cermin sambil memperhatikan rahang dan bibir. Di [pustaka pelafalan Lexkite](/#/pron) tiap bunyi punya contoh kata yang bisa didengarkan lalu diulang.
 
-![Pustaka pelafalan Lexkite dengan kelompok vokal tunggal, diftong, dan konsonan, contoh kata, serta latihan per bunyi](media:pron "Pustaka pelafalan mengelompokkan bunyi bahasa Inggris dan menyediakan contoh kata untuk tiap bunyi")
+![Pusat latihan Lexkite berisi permainan dan latihan, termasuk latihan pelafalan](media:practice "Pusat latihan menggabungkan latihan pelafalan dengan latihan lainnya")
 
 ### Tahap 2: Menguasai Word Stress dan Bentuk Lemah (Weak Forms)
 

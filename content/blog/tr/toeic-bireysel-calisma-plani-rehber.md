@@ -8,7 +8,7 @@ translationKey: lo-trinh-tu-hoc-toeic
 category: toeic
 tags: [toeic, calisma-plani, test-prep]
 cover: toeic
-coverAlt: "Lexkite TOEIC sinav hazirlik arayuzunde tam deneme testleri ve bolum bazli alistirma modulleri"
+coverAlt: "Lexkite TOEIC sayfası: Part'a göre çalışma, tahmini puanlı deneme sınavları ve TOEIC kelimeleri"
 qualityScore: 92
 factChecked: 2026-11-05
 author: Lexkite
@@ -78,7 +78,7 @@ Sınav 200 sorudan oluşur: Listening bölümünde 100 soru (45 dakika), Reading
 Bu aşamada sözcük türü karışıklıklarını giderir ve sınavın sürekli tekrarladığı iş kelimelerini oluşturursunuz. Bu temel olmadan tam deneme sınavları çoğunlukla hayal kırıklığı getirir.
 
 ### 1. Sık geçen iş kelimelerini öğrenme
-TOEIC metinleri ofis ve seyahatten gelir: satın alma, pazarlama, rezervasyon, finans, personel ve bina bakımı. Rastgele listeler yerine TOEIC Service List'i (TSL) çalışın; yaklaşık 1.250 sık kelime olan bu liste Lexkite'ta on sette sunuluyor (ayrıca [kelime sayfasına](/vocabulary/) bakın).
+TOEIC metinleri ofis ve seyahatten gelir: satın alma, pazarlama, rezervasyon, finans, personel ve bina bakımı. Rastgele listeler yerine TOEIC Service List'i (TSL) çalışın; yaklaşık 1.250 sık kelime olan bu liste Lexkite'ta on sette sunuluyor (ayrıca [kelime sayfasına](/en/vocabulary/) bakın).
 
 ![Lexkite kelime kütüphanesi: TOEIC (TSL) dahil sekmeler ve A1'den B2'ye çekirdek kelime setleri](media:library "Kütüphane: TOEIC (TSL) sekmesinde sınav kelime setleri yer alır")
 
@@ -92,7 +92,7 @@ Tam yöntem [TOEIC Part 5 dilbilgisi ve kelime stratejileri](/tr/blog/toeic-part
 ### 3. Part 1 ve 2'de dinleme refleksi kazanma
 Part 1 (6 fotoğraf sorusu) ve Part 2 (25 soru-cevap) kısadır ve en hızlı kazancı verir. Part 2'de ilk sözcüğe (*Who, Where, When, Why, How*) odaklanın ve yalnızca sorudaki bir sözcüğü tekrarlayan cevaba şüpheyle yaklaşın. Taktikler [TOEIC Listening Part 2](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazısında.
 
-Engel çoğu zaman kelime değil, sestir. Anadili konuşanlar sözcükleri birbirine bağlar ve zayıflatır; *What did you* yaklaşık «vatcu» gibi duyulur. Metindeki her kelimeyi biliyor ama kayıtta duymuyorsanız, parçayı metinle birlikte tekrar dinleyin ve cümleyi yüksek sesle söyleyin. Teknik [shadowing yöntemi](/tr/blog/shadowing-teknigi-ile-ingilizce-konusma/) yazısında anlatılıyor.
+Engel çoğu zaman kelime değil, sestir. Anadili konuşanlar sözcükleri birbirine bağlar ve zayıflatır; *What did you* yaklaşık “vatcu” gibi duyulur. Metindeki her kelimeyi biliyor ama kayıtta duymuyorsanız, parçayı metinle birlikte tekrar dinleyin ve cümleyi yüksek sesle söyleyin. Teknik [shadowing yöntemi](/tr/blog/shadowing-teknigi-ile-ingilizce-konusma/) yazısında anlatılıyor.
 
 ## Aşama 2: Dayanıklılık ve metin anlama genişletme (550–650)
 
@@ -120,9 +120,9 @@ Bir e-postanın, faturanın ya da ilanın her kelimesini okumanız gerekmez. Ön
 ### 1. Zaman planıyla çalışma
 ETS her bölüm için süre belirlemez; bu yüzden aşağıdaki dağılımı bir başlangıç noktası sayın ve deneme sonuçlarınıza göre ayarlayın:
 
-* **Part 5 (30 soru):** yaklaşık 10–12 dakika, yani soru başına 20–25 saniye.
-* **Part 6 (16 soru):** yaklaşık 8–10 dakika.
-* **Part 7 (54 soru):** kalan 53–55 dakika, soru başına yaklaşık bir dakika.
+* **Part 5 (30 soru):** yaklaşık 10 dakika, yani soru başına 20 saniye.
+* **Part 6 (16 soru):** yaklaşık 8 dakika.
+* **Part 7 (54 soru):** kalan 57 dakika, soru başına bir dakikadan biraz fazla.
 
 Part 5'te bir soru sizi tıkarsa, açıkça yanlış seçenekleri eleyin, en iyi tahmini işaretleyin ve ilerleyin. Tek bir dilbilgisi sorusuna harcanan iki dakika, Part 7'deki birkaç kolay sorunun süresini yer.
 
@@ -147,7 +147,7 @@ Haftada bir [hata defterinizi](/#/mistakes) açın ve soruları yeniden çözün
 Düzenli kısa seanslar, seyrek uzun seanslardan daha verimlidir. Önce [hedef sayfasında](/#/goal) sınavı, hedef puanı ve haftalık saati belirleyin, seansları bu saate göre ayarlayın. Altı günlük bir örnek:
 
 * **Pazartesi, dinleme (45 dk):** Part 2'den 20 soru, sonra metni okuyup kaçırdığınız parçaları yazın.
-* **Salı, dilbilgisi (45 dk):** Part 5'ten 30 soruyu 12 dakikada çözün, sonra her hatayı inceleyin.
+* **Salı, dilbilgisi (45 dk):** Part 5'ten 30 soruyu yaklaşık 10 dakikada çözün, sonra her hatayı inceleyin.
 * **Çarşamba, kelime (30 dk):** [tekrar sayfasında](/#/review) kartlarınızı gözden geçirin: edatlar, kolokasyonlar, eş anlamlılar.
 * **Perşembe, uzun kayıtlar (45 dk):** 3 Part 3 seti ve 2 Part 4 seti, her kayıttan önce soruları okuyarak.
 * **Cuma, okuma (60 dk):** 4 tekli ve 2 çift metin, süreye karşı.
@@ -163,7 +163,7 @@ Tüm Part'lar ve tam sınavlar [TOEIC çalışma sayfasında](/#/toeic) yer alı
 ## TOEIC için bireysel çalışma hakkında sık sorulan sorular
 
 ### 500'den 750'ye çıkmak kaç ay sürer?
-Resmî bir rakam yoktur ve ilerleme kişiden kişiye çok değişir. Yalnızca planlama için, 200–250 puanlık artış adına yaklaşık 150–200 saat odaklı çalışma ayırın. Günde yaklaşık 90 dakikayla bu üç dört ay eder. Birkaç haftada bir deneme sınavı çözün ve planı sonuca göre ayarlayın.
+Resmî bir rakam yoktur ve ilerleme kişiden kişiye çok değişir. Yalnızca planlama için, 200–250 puanlık artış adına yaklaşık 150–200 saat odaklı çalışma ayırın. Günde yaklaşık 90 dakikayla bu üç dört ay eder. Bu ETS'nin değil, bizim kaba hesabımızdır. Birkaç haftada bir deneme sınavı çözün ve planı sonuca göre ayarlayın.
 
 ### Pahalı kurslar olmadan 750+ alınır mı?
 Evet, disiplinliyseniz. Sınavın biçimi sabit ve iş kelimeleri tekrarlıdır; bu yüzden hata analizi ve aralıklı tekrarla yapılan bireysel çalışma, genel bir sınıf dersinden daha isabetli biçimde zayıf yönlerinizi hedefleyebilir. Öğretmen en çok konuşma ve yazma geri bildiriminde işe yarar; bu sınav ikisini ölçmez.
@@ -172,4 +172,4 @@ Evet, disiplinliyseniz. Sınavın biçimi sabit ve iş kelimeleri tekrarlıdır;
 Temel aşamada üç haftada bir yeterlidir; ilerlemeyi ölçer, sizi yormaz. Son dört haftada iki saati taşıyabilmek için her hafta sonu süreli tam bir sınav çözün.
 
 ### Türkçe konuşanlar TOEIC'te hangi tuzaklara düşer?
-Birincisi yanıltıcı benzerlikler: *actual* «gerçek» demektir, «aktüel» değil (o *current*); *sympathetic* «anlayışlı» demektir, «sempatik» değil (o *likeable*); *fabric* «kumaş» demektir, «fabrika» değil (o *factory*); *eventually* «sonunda» demektir, «eventüel» yani «olası» değil (o *possibly*). Bu karışıklıklar Part 5 ve Part 7'de puan götürür. İkincisi okuma: Türkçede sıfat-fiil yapıları uzun öncüller kurar, İngilizcede ise bilgi ilgi cümlesiyle isimden sonra gelir; Part 7'de «the manager who approved the budget that was submitted last week» gibi yapılarda önce ana özne ve fiili bulun. Üçüncüsü ses: Türkçede /w/ ve /θ/ yoktur, bu yüzden *vest* ile *west* ya da *thin* ile *tin* kulağa aynı gelebilir; Part 2 bu benzer sesli tuzakları sever, dikteyle çalışın.
+Birincisi yanıltıcı benzerlikler: *actual* “gerçek” demektir, “aktüel” değil (o *current*); *sympathetic* “anlayışlı” demektir, “sempatik” değil (o *likeable*); *fabric* “kumaş” demektir, “fabrika” değil (o *factory*); *eventually* “sonunda” demektir, “eventüel” yani “olası” değil (o *possibly*). Bu karışıklıklar Part 5 ve Part 7'de puan götürür. İkincisi okuma: Türkçede sıfat-fiil yapıları uzun öncüller kurar, İngilizcede ise bilgi ilgi cümlesiyle isimden sonra gelir; Part 7'de “the manager who approved the budget that was submitted last week” gibi yapılarda önce ana özne ve fiili bulun. Üçüncüsü ses: Türkçede /w/ ve /θ/ yoktur, bu yüzden *vest* ile *west* ya da *thin* ile *tin* kulağa aynı gelebilir; Part 2 bu benzer sesli tuzakları sever, dikteyle çalışın.

@@ -8,7 +8,7 @@ category: ky-nang
 tags: [time-management, business-english, workplace-communication, speaking]
 keyword: "إدارة الوقت بالإنجليزية في العمل"
 cover: path
-coverAlt: "مهندس برمجيات ومدير مشاريع يناقشان مصفوفة إدارة الوقت بالإنجليزية وتحديد أولويات العمل"
+coverAlt: "شاشة مسار IELTS في Lexkite: مراحل مرتبة حسب الـ band، وكل مرحلة تمر بالكلمات ثم التدريب والاستماع والاختبار"
 publishAt: 2026-12-28T19:51:00+03:00
 factChecked: 2026-11-05
 author: Lexkite

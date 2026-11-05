@@ -78,7 +78,7 @@ Ujian ini terdiri atas 200 soal: 100 soal Listening (45 menit) dan 100 soal Read
 Di fase ini Anda menghilangkan kebingungan jenis kata dan membangun kosakata bisnis yang terus muncul di ujian. Tanpa fondasi itu, simulasi penuh hanya menimbulkan frustrasi.
 
 ### 1. Kuasai kosakata kerja yang sering muncul
-Teks TOEIC berasal dari kantor dan perjalanan: pembelian, pemasaran, reservasi, keuangan, kepegawaian, dan perawatan gedung. Alih-alih daftar acak, pakai TOEIC Service List (TSL), sekitar 1.250 kata yang sering muncul, yang di Lexkite tersedia dalam sepuluh set (lihat juga [halaman kosakata](/vocabulary/)).
+Teks TOEIC berasal dari kantor dan perjalanan: pembelian, pemasaran, reservasi, keuangan, kepegawaian, dan perawatan gedung. Alih-alih daftar acak, pakai TOEIC Service List (TSL), sekitar 1.250 kata yang sering muncul, yang di Lexkite tersedia dalam sepuluh set (lihat juga [halaman kosakata](/en/vocabulary/)).
 
 ![Perpustakaan kosakata Lexkite dengan beberapa tab, termasuk TOEIC (TSL), dan set kata inti tingkat A1 sampai B2](media:library "Perpustakaan: tab TOEIC (TSL) berisi set kata untuk ujian")
 
@@ -92,7 +92,7 @@ Metode lengkapnya ada di [tips TOEIC Part 5](/id/blog/tips-toeic-part-5/).
 ### 3. Bangun refleks mendengar di Part 1 dan Part 2
 Part 1 (6 soal foto) dan Part 2 (25 soal tanya-jawab) pendek dan memberi kenaikan paling cepat. Di Part 2, tangkap kata pertama (*Who, Where, When, Why, How*) dan curigai jawaban yang hanya mengulang kata dari pertanyaan. Taktiknya ada di [strategi TOEIC Listening Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
 
-Sering kali hambatannya bukan kosakata, melainkan bunyi. Penutur asli menyambung dan melemahkan kata, sehingga *What did you* terdengar seperti «wotdyu». Jika Anda tahu semua kata di naskah tetapi tidak menangkapnya di audio, putar ulang klip dengan naskah, lalu ucapkan kalimatnya keras-keras. Polanya dijelaskan di [aturan connected speech](/id/blog/connected-speech-bahasa-inggris-aturan-menyambung-kata/).
+Sering kali hambatannya bukan kosakata, melainkan bunyi. Penutur asli menyambung dan melemahkan kata, sehingga *What did you* terdengar seperti “wotdyu”. Jika Anda tahu semua kata di naskah tetapi tidak menangkapnya di audio, putar ulang klip dengan naskah, lalu ucapkan kalimatnya keras-keras. Polanya dijelaskan di [aturan connected speech](/id/blog/connected-speech-bahasa-inggris-aturan-menyambung-kata/).
 
 ## Fase 2: Memperluas stamina dan pemahaman (550 sampai 650)
 
@@ -120,9 +120,9 @@ Di atas 650, waktu menjadi batas utama. Bagian Reading berisi 100 soal (30 di Pa
 ### 1. Berlatih dengan rencana waktu
 ETS tidak menetapkan waktu per part, jadi anggap pembagian berikut sebagai titik awal yang Anda sesuaikan dengan hasil simulasi:
 
-* **Part 5 (30 soal):** sekitar 10 sampai 12 menit, yaitu 20 sampai 25 detik per soal.
-* **Part 6 (16 soal):** sekitar 8 sampai 10 menit.
-* **Part 7 (54 soal):** sisa 53 sampai 55 menit, kira-kira satu menit per soal.
+* **Part 5 (30 soal):** sekitar 10 menit, yaitu 20 detik per soal.
+* **Part 6 (16 soal):** sekitar 8 menit.
+* **Part 7 (54 soal):** sisa 57 menit, sedikit lebih dari satu menit per soal.
 
 Jika satu soal Part 5 menghambat, coret pilihan yang jelas salah, pilih tebakan terbaik, lalu lanjut. Dua menit untuk satu soal tata bahasa mengurangi waktu untuk beberapa soal yang lebih mudah di Part 7.
 
@@ -147,7 +147,7 @@ Buka [buku catatan kesalahan](/#/mistakes) sekali seminggu dan kerjakan ulang so
 Sesi pendek yang rutin mengalahkan sesi panjang yang jarang. Tetapkan dulu ujian, target skor, dan jam belajar per minggu di [halaman tujuan](/#/goal), lalu sesuaikan sesi dengan jam itu. Contoh enam hari:
 
 * **Senin, mendengar (45 menit):** 20 soal Part 2, lalu baca naskah dan tulis ulang klip yang salah.
-* **Selasa, tata bahasa (45 menit):** 30 soal Part 5 dalam 12 menit, lalu bahas setiap kesalahan.
+* **Selasa, tata bahasa (45 menit):** 30 soal Part 5 dalam sekitar 10 menit, lalu bahas setiap kesalahan.
 * **Rabu, kosakata (30 menit):** ulas kartu Anda di [halaman ulasan](/#/review): preposisi, kolokasi, sinonim.
 * **Kamis, audio panjang (45 menit):** 3 set Part 3 dan 2 set Part 4, baca soal sebelum tiap rekaman.
 * **Jumat, membaca (60 menit):** 4 teks tunggal dan 2 teks ganda sambil berpacu dengan waktu.
@@ -163,7 +163,7 @@ Semua part dan ujian lengkap ada di [halaman latihan TOEIC](/#/toeic). Untuk mel
 ## Pertanyaan umum tentang belajar mandiri TOEIC
 
 ### Berapa bulan untuk naik dari 500 ke 750?
-Tidak ada angka resmi dan kemajuan setiap orang berbeda. Sebagai acuan saja, siapkan sekitar 150 sampai 200 jam belajar terfokus untuk naik 200 sampai 250 poin. Dengan sekitar 90 menit sehari, itu kira-kira tiga sampai empat bulan. Lakukan simulasi tiap beberapa minggu dan sesuaikan rencananya.
+Tidak ada angka resmi dan kemajuan setiap orang berbeda. Sebagai acuan saja, siapkan sekitar 150 sampai 200 jam belajar terfokus untuk naik 200 sampai 250 poin. Dengan sekitar 90 menit sehari, itu kira-kira tiga sampai empat bulan. Ini perkiraan kasar kami sendiri, bukan angka resmi ETS. Lakukan simulasi tiap beberapa minggu dan sesuaikan rencananya.
 
 ### Bisakah mencapai 750+ tanpa kursus mahal?
 Bisa, asal disiplin. Ujian memakai format tetap dan kosakata bisnis yang berulang, sehingga belajar mandiri dengan analisis kesalahan dan spaced repetition bisa menyasar kelemahan Anda lebih tepat daripada kelas umum. Guru paling berguna untuk koreksi speaking dan writing, yang tidak diukur ujian ini.
@@ -172,4 +172,4 @@ Bisa, asal disiplin. Ujian memakai format tetap dan kosakata bisnis yang berulan
 Pada fase fondasi, satu kali setiap tiga minggu sudah cukup untuk memantau kemajuan tanpa kelelahan. Pada empat minggu terakhir, kerjakan satu simulasi lengkap bertimer tiap akhir pekan agar kuat menjalani dua jam.
 
 ### Apa jebakan khas penutur bahasa Indonesia di TOEIC?
-Pertama, bahasa Indonesia tidak menandai waktu dan jamak lewat akhiran, sehingga telinga terbiasa mengabaikan *-ed* dan *-s* di ujung kata. Padahal di Part 5 dan Part 3 *worked* dan *works*, atau *book* dan *books*, mengubah jawaban. Latih dengan dictation kalimat pendek dan tulis akhirannya. Kedua, bahasa Indonesia jarang punya gugus konsonan di akhir kata, jadi *asked* atau *texts* terdengar «ask» dan «tex». Ketiga, waspadai kata yang mirip bahasa Indonesia tetapi berbeda: *actual* berarti «sebenarnya», bukan «aktual» (*current*); *eventually* berarti «akhirnya», bukan «eventual» (*possible*); *sensible* berarti «masuk akal», bukan «sensitif». Daftar kata semacam itu ada di [artikel kata yang sering salah arti](/id/blog/kata-bahasa-inggris-yang-sering-salah-arti-confused-words/).
+Pertama, bahasa Indonesia tidak menandai waktu dan jamak lewat akhiran, sehingga telinga terbiasa mengabaikan *-ed* dan *-s* di ujung kata. Padahal di Part 5 dan Part 3 *worked* dan *works*, atau *book* dan *books*, mengubah jawaban. Latih dengan dictation kalimat pendek dan tulis akhirannya. Kedua, bahasa Indonesia jarang punya gugus konsonan di akhir kata, jadi *asked* atau *texts* terdengar “ask” dan “tex”. Ketiga, waspadai kata yang mirip bahasa Indonesia tetapi berbeda: *actual* berarti “sebenarnya”, bukan “aktual” (*current*); *sympathetic* berarti “penuh pengertian”, bukan “simpatik” (*likeable*); *sensible* berarti “masuk akal”, bukan “sensitif”. Daftar kata semacam itu ada di [artikel kata yang sering salah arti](/id/blog/kata-bahasa-inggris-yang-sering-salah-arti-confused-words/).

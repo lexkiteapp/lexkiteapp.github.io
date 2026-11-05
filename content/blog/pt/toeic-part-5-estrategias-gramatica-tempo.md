@@ -7,8 +7,8 @@ translationKey: toeic-part-5-meo-lam-bai
 category: toeic
 tags: [toeic, part-5, gramatica, vocabulario, exame]
 keyword: "toeic part 5"
-cover: path
-coverAlt: "Candidato resolvendo questões do TOEIC Part 5 com cronômetro e análise de opções"
+cover: toeic
+coverAlt: "Página TOEIC do Lexkite com simulados, treino por Part e vocabulário TSL"
 publishAt: 2027-01-14T08:14:00-03:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -54,23 +54,23 @@ quiz: [
     explain: "Depois da lacuna vem só um sintagma nominal (the long delay), sem verbo conjugado. Pede-se uma preposição de concessão, e Despite é a única; as outras três introduzem uma oração completa."
   }
 ]
-qualityScore: 92
+qualityScore: 90
 ---
 
-Na busca por pontuações de destaque no teste de proficiência voltado aos negócios, a seção de leitura do exame não tolera hesitações nem desperdício de minutos. Com 30 itens objetivos de múltipla escolha, a seção **toeic part 5** representa a porta de entrada da prova de Reading e define o ritmo de toda a sua avaliação. A seção de Reading tem 100 questões em 75 minutos (Parte 5: 30, Parte 6: 16, Parte 7: 54) e a ETS não fixa um tempo por parte. Cada minuto economizado aqui sobra para os textos longos da Parte 7.
+A **toeic part 5** abre a seção de Reading: são 30 frases com uma lacuna e quatro alternativas. É a parte mais curta de cada questão em todo o teste, então é onde dá para ganhar ou perder tempo com mais facilidade. A seção de Reading tem 100 questões em 75 minutos (Parte 5: 30, Parte 6: 16, Parte 7: 54) e a ETS não fixa um tempo por parte. Cada minuto economizado aqui sobra para os textos longos da Parte 7.
 
-Ao aliar um método de análise estrutural direto com as orientações apresentadas em nosso guia do [TOEIC Part 7 estratégias de leitura e tempo](/pt/blog/toeic-part-7-estrategias-leitura-tempo/) e as práticas de [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/), você aprenderá a diagnosticar o tipo de cada questão em cerca de 20 segundos (meta de treino, não regra oficial).
+Aqui você aprende a reconhecer o tipo de cada questão logo de cara e a respondê-la em cerca de 20 segundos (meta de treino, não regra oficial). Para o resto da prova, veja o guia da [Part 7: leitura e gestão do tempo](/pt/blog/toeic-part-7-estrategias-leitura-tempo/) e o artigo sobre [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/).
 
 ---
 
 ## Anatomia do TOEIC Part 5: O que é avaliado nas 30 questões?
 
-A Parte 5 é composta por exatamente 30 orações incompletas, cada uma acompanhada por quatro alternativas de preenchimento (A, B, C, D). O segredo para acelerar a resolução consiste em examinar o padrão das opções antes mesmo de traduzir mentalmente a oração por inteiro.
+A Parte 5 tem 30 frases incompletas, cada uma com quatro alternativas (A, B, C, D). Antes de ler a frase, olhe as alternativas: elas já mostram que tipo de questão é.
 
-Essas questões dividem-se em duas naturezas essenciais:
+Há dois tipos principais:
 
-1. **Questões de gramática e classe de palavras (em geral um pouco mais da metade da seção; a proporção varia de prova para prova)**: As quatro alternativas derivam da mesmíssima raiz lexical (como *expand*, *expansion*, *expansive*, *expansively*). O objetivo é identificar a função sintática exigida pela oração (substantivo, adjetivo, advérbio ou forma verbal).
-2. **Questões de vocabulário e combinações fixas (o restante)**: As alternativas trazem vocábulos totalmente diferentes, normalmente pertencentes à mesma classe gramatical (como *deliver*, *postpone*, *negotiate*, *exceed*). O acerto depende da interpretação contextual do mundo corporativo ou de colocações lexicais consagradas.
+1. **Questões de gramática e classe de palavras (em geral um pouco mais da metade da seção; a proporção varia de prova para prova)**: As quatro alternativas derivam da mesmíssima raiz lexical (como *expand*, *expansion*, *expansive*, *expansively*). Você precisa descobrir qual classe de palavra a frase pede (substantivo, adjetivo, advérbio ou forma verbal).
+2. **Questões de vocabulário e combinações fixas (o restante)**: As alternativas trazem vocábulos totalmente diferentes, normalmente pertencentes à mesma classe gramatical (como *deliver*, *postpone*, *negotiate*, *exceed*). O que decide é o sentido da frase e as combinações de palavras usadas no inglês de trabalho.
 
 | Categoria da pergunta | Padrão das alternativas | Meta por item | Foco da verificação |
 | :--- | :--- | :--- | :--- |
@@ -79,15 +79,15 @@ Essas questões dividem-se em duas naturezas essenciais:
 | **Pronomes e determinantes** | Pessoais, reflexivos ou possessivos (*they, their, themselves*) | 10 segundos | Papel sintático e referência ao sujeito |
 | **Colocações corporativas** | Vocábulos distintos no mesmo campo semântico | 25 segundos | Coerência com a rotina de trabalho |
 
-![Página Luyện thi TOEIC do Lexkite com simulados, treino por Part e vocabulário TOEIC (TSL)](media:toeic "A página TOEIC do Lexkite: simulados, treino por Part e vocabulário TSL")
+![Página TOEIC do Lexkite com simulados, treino por Part e vocabulário TSL](media:toeic "A página TOEIC do Lexkite: simulados, treino por Part e vocabulário TSL")
 
 ---
 
 ## Estratégia 1: Identificar a função sintática ao redor da lacuna
 
-Nas questões de derivação gramatical, você raramente precisa ler a frase completa com profundidade. Concentre sua atenção nas palavras posicionadas imediatamente antes e depois do espaço em branco para descobrir a classe exigida.
+Nas questões de derivação, quase nunca é preciso ler a frase toda. As palavras logo antes e logo depois da lacuna já dizem qual classe falta.
 
-Veja os padrões mais frequentes na prova:
+Estes são os três padrões mais comuns:
 
 - **Substantivo (Núcleo do sujeito ou objeto)**: Surge após artigos (*a, an, the*), pronomes possessivos (*our, their, his*) ou preposições (*in, for, about*). Se o espaço estiver antes de um verbo principal, você procura um substantivo:
   - *Exemplo: The recent _____ in operating costs concerned the directors. (Opções: increase, increasingly, increased)* $\rightarrow$ Resposta: *increase* (substantivo).
@@ -96,15 +96,15 @@ Veja os padrões mais frequentes na prova:
 - **Advérbio terminado em -ly**: Modifica verbos de ação, adjetivos ou uma oração inteira já estruturada. Se a frase já possui sujeito, verbo transitivo e objeto direto completos, a lacuna quase sempre pede um advérbio:
   - *Exemplo: The technician resolved the software glitch _____. (Opções: prompt, promptly, promptness)* $\rightarrow$ Resposta: *promptly* (advérbio modificando *resolved*).
 
-Para enriquecer sua base de termos formais de trabalho, veja as [listas de vocabulário](/en/vocabulary/). Para treinar com questões de verdade, a [página TOEIC do Lexkite](/#/toeic) traz, para cada simulado, um treino de Part 5 que explica cada resposta depois do envio.
+Para ampliar o vocabulário de trabalho, veja as [listas de vocabulário](/en/vocabulary/). Para treinar com questões de verdade, a [página TOEIC do Lexkite](/#/toeic) traz, para cada simulado, um treino de Part 5 que explica cada resposta depois do envio.
 
 ---
 
 ## Estratégia 2: Distinguir preposições de conjunções subordinativas
 
-Os examinadores utilizam com grande frequência pares de palavras que compartilham significado semelhante, mas pertencem a classes gramaticais incompatíveis.
+O teste adora colocar lado a lado palavras de sentido parecido que pertencem a classes diferentes, como *despite* e *although*.
 
-A regra estrutural basilar é simples e definitiva:
+A regra é simples:
 - **Preposição** (*due to, despite, in spite of, during*): Deve ser seguida exclusivamente por um substantivo, pronome ou gerúndio (*-ing*). Nunca pode introduzir uma oração com sujeito e verbo conjugado próprio.
 - **Conjunção subordinativa** (*because, although, while, since*): Introduz obrigatoriamente uma oração subordinada completa, contendo sujeito e verbo conjugado.
 
@@ -122,13 +122,13 @@ Ao se deparar com essas opções, examine o segmento seguinte à lacuna. Se houv
 
 ## Estratégia 3: Atenção à voz passiva e concordância sujeito-verbo
 
-A voz passiva é predominante em comunicados corporativos, relatórios de auditoria e contratos, pois o foco recai no resultado ou na ação, e não no indivíduo executor.
+A voz passiva é muito comum em comunicados, relatórios e contratos, porque o foco está no resultado e não em quem fez a ação.
 
-Para definir a forma verbal correta em poucos segundos, adote este roteiro mental:
+Para escolher a forma do verbo em poucos segundos, siga estes dois passos:
 1. **Verifique o sujeito real**: Sujeitos com complementos preposicionais longos costumam induzir a erros de número (*The collection of quarterly sales data [was/were] delayed...* $\rightarrow$ o sujeito é *collection*, singular: *was*).
 2. **Cheque a presença de objeto direto**: Se a forma verbal for seguida diretamente por um substantivo que recebe a ação, o verbo opera na voz ativa (*The company upgraded its server infrastructure*). Se faltar o objeto de um verbo transitivo (*approve*, *upgrade*), ou se o agente vier com *by*, utilize a voz passiva com verbo auxiliar *to be* + particípio passado (*The system was upgraded by the IT staff*).
 
-Mantenha seu vocabulário profissional alinhado com as demandas do mercado conferindo nosso guia de [abreviações em inglês no trabalho](/pt/blog/abreviacoes-em-ingles-no-trabalho-emails-guia/) e explore métodos de apresentação corporativa em [como dar feedback em inglês no trabalho](/pt/blog/como-dar-feedback-em-ingles-no-trabalho/).
+Essas estruturas aparecem nos e-mails de trabalho. Veja também as [abreviações em inglês no trabalho](/pt/blog/abreviacoes-em-ingles-no-trabalho-emails-guia/) e frases para [dar feedback em inglês no trabalho](/pt/blog/como-dar-feedback-em-ingles-no-trabalho/).
 
 ---
 
@@ -138,6 +138,18 @@ Mantenha seu vocabulário profissional alinhado com as demandas do mercado confe
 - **"Faz" + tempo**: "Trabalho aqui faz três anos" leva a *I work here since three years*. O correto é *I have worked here for three years*; use *since* com um ponto no tempo (*since 2023*).
 - **Sujeito oculto**: em português "É importante revisar" dispensa sujeito, mas em inglês ele é obrigatório: *It is important to review*. Se a lacuna está no início da oração, desconfie da falta de *it* ou *there*.
 - **Adjetivo no lugar do advérbio**: "resolveu rápido" é natural no português falado, mas a prova exige *resolved promptly*, nunca *resolved prompt*.
+
+## Corrija estas frases de brasileiro (exercício de reconhecimento)
+
+Cada frase traz um erro típico de quem pensa em português. As alternativas erradas da Part 5 imitam justamente esses erros. Corrija antes de ler a solução.
+
+1. *I am working here since 2020.* → *I have worked here since 2020*: "trabalho aqui desde 2020" pede present perfect, não presente.
+2. *The meeting was postponed to the next week.* → *to next week*: com *next*, *last*, *this* não se usa *the*.
+3. *She explained me the process.* → *explained the process to me*: *explain* não aceita a pessoa direto como complemento.
+4. *We have discussed about the budget.* → *discussed the budget*: em português se "discute sobre", em inglês *discuss* já traz a ideia de "sobre".
+5. *He didn't answer to my email.* → *He didn't answer my email*: *answer* não leva *to*.
+
+Se errou alguma, anote: são os reflexos que mais custam pontos nas questões de tempo verbal e de preposição.
 
 ## Exercícios práticos do TOEIC Part 5 com gabarito comentado
 
@@ -181,6 +193,8 @@ Pratique suas técnicas de leitura e descarte com estas quatro questões no esti
 
 ---
 
+![Teste de múltipla escolha do Lexkite: escolher o significado correto de run out of entre quatro opções](media:practice-test "Um teste de múltipla escolha como este ajuda a conferir o sentido de expressões como run out of")
+
 ## Gestão do tempo: Protocolo de 10 minutos para a Parte 5
 
 Dos 75 minutos de Reading, 10 para a Parte 5 deixam 65 para as Partes 6 e 7. Um cronograma possível (sugestão própria, não regra da ETS):
@@ -190,7 +204,7 @@ Meta para a Parte 5 = 10 minutos (600 segundos)
 30 questões / 600 segundos = 20 segundos por questão em média
 ```
 
-Siga este passo a passo cronometrado durante o exame:
+No dia da prova, siga esta ordem:
 - **0–5 segundos**: Examine as 4 alternativas para classificar o tipo do item (gramatical ou vocabulário puro).
 - **5–15 segundos**: Leia as palavras ao redor da lacuna e elimine as opções incompatíveis com a estrutura da frase.
 - **15–20 segundos**: Marque a alternativa correta na folha de respostas e passe para o próximo item.
@@ -200,12 +214,12 @@ Siga este passo a passo cronometrado durante o exame:
 
 ---
 
-## Conquiste sua melhor pontuação com o Lexkite
+## Treinar no Lexkite
 
-A capacidade de resolver perguntas objetivas rapidamente decorre do contato diário com estruturas formais autênticas:
+A velocidade vem da repetição. O que ajuda na Part 5:
 
-- **Algoritmo FSRS de repetição espaçada**: Memorize termos corporativos e colocações essenciais com retenção duradoura.
-- **Dicionário inteligente integrado**: Consulte definições, sinônimos formais e pronúncia padrão em um único clique.
+- **Repetição espaçada (FSRS)**: termos de trabalho e colocações voltam pouco antes de você esquecê-los.
+- **Dicionário**: exemplos em contexto e pronúncia de cada palavra.
 - **Caderno de erros**: as questões erradas vão para o [caderno de erros](/#/mistakes), agrupadas por vocabulário, gramática ou leitura. Assim você vê se seus erros de Part 5 vêm da classe de palavra ou das colocações.
 - **Roteiro estruturado de autoestudo**: Organize seus meses de treino de ponta a ponta com o nosso [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/) em três fases.
 
@@ -234,4 +248,4 @@ Os mais comuns são usar *since* com duração (*for three years*), o Present Pe
 ### Qual a maneira ideal de memorizar colocações frequentes do exame?
 Evite estudar palavras isoladas. Registre blocos inteiros de significado (*chunks*), como *strictly confidential*, *reach an agreement* e *conduct an audit*. Revisar esses agrupamentos por meio de repetição espaçada acelera significativamente o reconhecimento na hora da prova.
 
-Para maximizar seu rendimento na seção auditiva e evitar pegadinhas de som, confira nossas [toeic listening part 2 estratégias para perguntas e respostas](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).
+Para a parte de áudio, leia também o guia da [Part 2 do TOEIC Listening: perguntas e respostas](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).

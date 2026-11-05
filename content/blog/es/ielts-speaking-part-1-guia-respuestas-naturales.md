@@ -70,8 +70,6 @@ La Parte 1 es el calentamiento de la entrevista oral: preguntas cotidianas sobre
 
 Una buena respuesta no es larga ni rebuscada: es una afirmación directa con una breve ampliación. Aquí verás la fórmula en tres pasos, respuestas modelo originales para cuatro temas frecuentes, los errores típicos de los hispanohablantes y un plan de práctica en cuatro pasos.
 
-![Sala de Speaking de Lexkite con preguntas de Part 1 clasificadas por temas y respuestas modelo](media:speaking "Módulo de práctica de IELTS Speaking en Lexkite con preguntas guiadas para Part 1, 2 y 3")
-
 ## Cómo funciona realmente el IELTS Speaking Part 1
 
 Según el British Council y IELTS.org, la prueba de Speaking dura entre 11 y 14 minutos, es una entrevista cara a cara con un examinador y tiene tres partes. La Parte 1 ocupa los primeros 4 a 5 minutos:
@@ -181,6 +179,8 @@ Para ganar fluidez sin memorizar textos, sigue este plan:
 Para ensayar, mira también la página de [práctica de speaking](/speaking/) y entra en la [sala de speaking de Lexkite](/#/speaking), donde hay preguntas de las partes 1, 2 y 3 por tema con respuestas modelo. Y con la [práctica de pronunciación](/#/practice/speak) puedes decir una frase al micrófono y ver su puntuación, útil para comprobar que se oyen tus terminaciones *-ed* y *-s*.
 
 Una vez que domines las respuestas breves y dinámicas, avanza hacia la preparación de [IELTS Speaking Parte 2 y 3](/es/blog/ielts-speaking-parte-2-y-3-estructura/) para estructurar monólogos de 2 minutos y argumentos de debate abstracto. Para mantener un ritmo de progreso constante, intégralo en un [plan de autoestudio para IELTS](/es/blog/plan-de-estudio-ielts-autodidacta-de-cero-a-6-5/).
+
+![Simulacros de IELTS de Lexkite: se elige Listening, Reading, Writing o Speaking y se ve la estructura de la prueba](media:mock "En los simulacros eliges Speaking y ves la estructura de la prueba antes de empezar")
 
 ![Práctica de pronunciación de Lexkite con la frase cut down on y un botón de micrófono para decirla](media:practice-speak "Dices la frase al micrófono y la aplicación la puntúa según tu voz")
 

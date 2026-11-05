@@ -8,7 +8,7 @@ category: ky-nang
 tags: [time-management, business-english, workplace-communication, speaking]
 keyword: "ऑफिस में टाइम मैनेजमेंट इंग्लिश"
 cover: path
-coverAlt: "सॉफ्टवेयर इंजीनियर और प्रोजेक्ट लीडर ऑफिस में टाइम मैनेजमेंट और प्रोजेक्ट प्राथमिकताओं पर चर्चा करते हुए"
+coverAlt: "Lexkite की IELTS लर्निंग पाथ स्क्रीन: band के हिसाब से चरण, हर चरण में शब्द, अभ्यास, सुनना और टेस्ट"
 publishAt: 2027-01-01T08:14:00+05:30
 factChecked: 2026-11-05
 author: Lexkite

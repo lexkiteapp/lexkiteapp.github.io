@@ -8,7 +8,7 @@ translationKey: viet-tat-tieng-anh-cong-so
 category: tu-vung
 tags: [business-english, email, acronyms, is-hayati]
 cover: letters
-coverAlt: "Kurumsal e-posta ve mesajlaşmada kullanılan iş hayatında İngilizce kısaltmalar rehberi"
+coverAlt: "Lexkite'ta IELTS General Task 1 mektup ekranı: resmî, yarı resmî ve samimi mektup örnekleriyle yazı dilinin üç düzeyi"
 qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
@@ -221,7 +221,7 @@ Küresel ortaklara resmi teklif sunarken [İngilizce iş teklifi nasıl yazılı
 İletişim bağlamına göre kısaltma kullanımı farklılık gösterir:
 
 ### Senaryo 1: Dış Müşteriyle Yaşanan Bir Kriz Anında
-Müşterinin ödeme altyapısında arıza yaşandığında *«Working on fix ASAP, ETA TBD»* şeklinde kestirip atmak duyarsız bir intiba bırakır.
+Müşterinin ödeme altyapısında arıza yaşandığında *“Working on fix ASAP, ETA TBD”* şeklinde kestirip atmak duyarsız bir intiba bırakır.
 - *Doğru yaklaşım*: *"Our engineering specialists are actively investigating the payment gateway latency. We will provide an updated milestone status within 45 minutes."* Detaylı ve saygılı ifadeler müşteriye güven aşılar.
 
 ### Senaryo 2: Dahili Ekip İçi Slack Koordinasyonu
@@ -254,7 +254,7 @@ Sesli prova için [Lexkite telaffuz alıştırmasını](/#/practice/speak) kulla
 
 Kısaltmaları sadece gözle okuyup ezberlemek yetmez; duyduğunuz anda çözebilmeniz gerekir.
 
-1. **Bağlamıyla Birlikte Öğrenin**: Kısaltmayı tek başına değil, yanındaki kalıplaşmış kelimelerle (*«before EOD today»*, *«for your guidance»*) birlikte çalışın. Deyimsel zenginlik için [iş hayatında İngilizce deyimler](/tr/blog/is-hayatinda-ingilizce-deyimler/) yazımızı inceleyin.
+1. **Bağlamıyla Birlikte Öğrenin**: Kısaltmayı tek başına değil, yanındaki kalıplaşmış kelimelerle (*“before EOD today”*, *“for your guidance”*) birlikte çalışın. Deyimsel zenginlik için [iş hayatında İngilizce deyimler](/tr/blog/is-hayatinda-ingilizce-deyimler/) yazımızı inceleyin.
 2. **Harf harf sesli söyleyin**: *e-t-a*, *o-o-o* gibi İngilizce harf adlarıyla yüksek sesle alıştırma yapın.
 3. **Aralıklı tekrar yapın**: Yalnızca işinizde gerçekten karşılaştığınız beş altı kısaltma için kart oluşturun ve [Lexkite tekrar ekranında](/#/review) aralıklarla tekrar edin. Yöntem [aralıklı tekrar (FSRS) rehberinde](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) anlatılıyor.
 

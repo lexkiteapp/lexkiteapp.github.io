@@ -7,8 +7,8 @@ translationKey: ielts-reading-kiem-soat-thoi-gian
 category: ielts
 tags: [ielts-reading, time-management, reading-skills, exam-tips]
 keyword: "cách phân bổ thời gian ielts reading"
-cover: path
-coverAlt: "Thí sinh thi IELTS theo dõi đồng hồ bấm giờ và phân bổ thời gian làm bài Reading 60 phút"
+cover: reading
+coverAlt: "Thư viện bài đọc Lexkite với các bài đọc kiểu IELTS từ A2 đến C1"
 publishAt: 2027-02-10T19:01:00+07:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -79,7 +79,7 @@ Nhiều thí sinh khi mới bắt đầu luyện đề thường áp dụng côn
 | Passage 1 | Thường thiên về mô tả sự việc, đáp án hay theo thứ tự bài | khoảng 15 phút |
 | Passage 2 | Thường là nghiên cứu hoặc so sánh quan điểm | khoảng 20 phút |
 | Passage 3 | Thường có lập luận trừu tượng nhất | khoảng 25 phút |
-| Kiểm tra cuối | Ô trống, chính tả, số ít – số nhiều | 3 phút cuối |
+| Kiểm tra cuối | Ô trống, chính tả, số ít – số nhiều | 3 phút cuối của 25 phút Passage 3 (15 + 20 + 25 = 60) |
 
 Nếu bạn tiêu tốn trọn vẹn 20 phút cho Passage 1, bạn sẽ chỉ còn 40 phút cho hai bài đọc sau. Nếu bài cuối lại là bài dày đặc nhất, bạn dễ phải đoán nhiều câu hơn ở đúng chỗ còn ít thời gian nhất.
 

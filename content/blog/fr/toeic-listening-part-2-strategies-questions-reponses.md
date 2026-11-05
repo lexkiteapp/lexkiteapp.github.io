@@ -66,8 +66,6 @@ La section **TOEIC Listening Part 2** (Questions et Réponses) regroupe 25 quest
 
 De nombreux candidats trébuchent non par manque de vocabulaire, mais parce qu'ils se laissent désarçonner par des pièges phonétiques subtils ou des répliques non littérales. L'application rigoureuse des **toeic listening part 2 strategies** présentées ci-dessous vous permettra de neutraliser ces pièges, d'anticiper la logique des échanges et d'améliorer votre score en compréhension orale.
 
-![Interface d'entraînement au test TOEIC sur Lexkite avec tests blancs complets et pratique par section](media:toeic "Module de tests blancs complets TOEIC Listening et Reading et d'entraînement par Part sur Lexkite")
-
 ## La structure de l'épreuve : toeic listening part 2 strategies fondamentales
 
 Dans cette épreuve rythmée, vous ne disposez que de quelques secondes entre la fin de la dernière option et la question suivante. Toute hésitation prolongée compromet immanquablement la question d'après.
@@ -87,8 +85,6 @@ Dans bon nombre de cas, le sens déterminant de la question est concentré dans 
 > **Conseil pratique :** Si votre attention faiblit au milieu d'une phrase longue telle que *"Where did Ms. Sterling say she left the revised financial audit report?"*, avoir fermement mémorisé *"Where did she leave..."* suffit amplement à repérer la proposition de lieu (*"On the conference table"*).
 
 Plus vous reconnaissez vite le vocabulaire de bureau, plus vite vous comprenez la question. Travaillez les listes de la [bibliothèque TOEIC de Lexkite](/#/library?g=toeic) et parcourez le [glossaire de vocabulaire](/vocabulary/).
-
-![Page TOEIC de Lexkite : tests blancs notés automatiquement, entraînement par Part et vocabulaire TOEIC (TSL)](media:toeic "La même page réunit tests blancs, entraînement par Part et le vocabulaire de la TOEIC Service List")
 
 ## Stratégie 2 : Déjouer les trois leurres acoustiques classiques
 
@@ -128,9 +124,9 @@ Pour consolider vos capacités d'écoute face aux variations de rythme et d'acce
 
 Pour que ces réflexes soient automatiques le jour de l'examen, essayez cette routine (les durées sont notre suggestion, pas une consigne officielle) :
 
-1. **Écoute sans interruption (environ 15 minutes) :** Ouvrez la [page TOEIC de Lexkite](/#/toeic), choisissez un Test et la carte « Part 2 · Hỏi – đáp » (question-réponse). Le mode « Nghe 1 lần » ne joue l'audio qu'une fois, comme à l'examen. En cas de doute, cochez immédiatement l'option qui semble la plus logique et basculez votre attention vers la question d'après.
+1. **Écoute sans interruption (environ 15 minutes) :** Ouvrez la [page TOEIC de Lexkite](/#/toeic), choisissez un Test et la carte « Part 2 · Question–Response » (question-réponse). Le mode « Listen once » ne joue l'audio qu'une fois, comme à l'examen. En cas de doute, cochez immédiatement l'option qui semble la plus logique et basculez votre attention vers la question d'après.
 2. **Analyse du script (environ 15 minutes) :** Reprenez le texte des questions manquées. Déterminez la cause exacte de l'erreur : distraction sur le mot interrogatif, piège de sonorité ou incompréhension d'une réponse indirecte ?
-3. **Dictée de vos erreurs (environ 15 minutes) :** Sur la même carte, le mode « Chép chính tả » (dictée) vous fait écrire ce que vous entendez : vous repérez les sons qui vous ont échappé. Notez ensuite le piège dans le [carnet d'erreurs](/#/mistakes).
+3. **Dictée de vos erreurs (environ 15 minutes) :** Sur la même carte, le mode « Dictation » (dictée) vous fait écrire ce que vous entendez : vous repérez les sons qui vous ont échappé. Notez ensuite le piège dans le [carnet d'erreurs](/#/mistakes).
 
 ![Carnet d'erreurs Lexkite : fautes regroupées par vocabulaire, grammaire, lecture et écoute](media:mistakes "Les erreurs d'écoute sont rangées à part pour voir quel type de piège revient")
 

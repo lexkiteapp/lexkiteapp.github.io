@@ -7,8 +7,8 @@ translationKey: toeic-part-5-meo-lam-bai
 category: toeic
 tags: [toeic, part-5, dilbilgisi, kelime, sinav]
 keyword: "toeic part 5"
-cover: path
-coverAlt: "Öğrenci kronometre ile TOEIC Part 5 dilbilgisi sorularını analiz ediyor"
+cover: toeic
+coverAlt: "Lexkite TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TSL kelimeleri"
 publishAt: 2027-01-02T08:14:00+03:00
 factChecked: 2026-11-05
 author: Lexkite
@@ -54,7 +54,7 @@ quiz: [
     explain: "Boşluktan sonra yalnızca bir isim öbeği (the storm) gelir, çekimli fiil yoktur. Zıtlık bildiren bir edat gerekir ve Despite tek edattır; diğer üçü tam bir yan cümle ister."
   }
 ]
-qualityScore: 92
+qualityScore: 90
 ---
 
 Uluslararası şirketlerde kariyer hedefleyen profesyoneller ve öğrenciler için TOEIC Reading oturumu yüksek hız ve dilbilgisi keskinliği gerektirir. Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan **toeic part 5**, tüm okuma oturumunun temposunu ve adayların moralini belirler. Reading bölümü 75 dakikada 100 sorudur (Part 5: 30, Part 6: 16, Part 7: 54) ve ETS her Part için ayrı süre belirlemez. Part 5'te kazandığınız her dakika, Part 7'deki uzun metinlere kalır.
@@ -79,7 +79,7 @@ Sorular iki temel gruba ayrılır:
 | **Zamirler ve Belirleyiciler** | Kişi, iyelik veya dönüşlülük zamirleri | 10 saniye | Cümledeki işlev ve gönderme yapılan özne |
 | **İş İngilizcesi Eşdizimleri** | Aynı alana ait 4 farklı sözcük | 25 saniye | Kurumsal bağlam ve kelime bilgisi |
 
-![Lexkite Luyện thi TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TOEIC (TSL) kelime listesi](media:toeic "Lexkite TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TSL kelimeleri")
+![Lexkite TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TSL kelimeleri](media:toeic "Lexkite TOEIC sayfası: deneme sınavları, Part bazlı çalışma ve TSL kelimeleri")
 
 ---
 
@@ -139,6 +139,18 @@ Kelimeleri kalıcı hafızaya almak için [aralıklı tekrar kelime ezberleme FS
 - **since ve for**: "Üç yıldır" *for three years*, "2023'ten beri" *since 2023* olur ve genellikle Present Perfect ister (*has worked*), "çalışıyor" çevirisinden gelen *is working since* yapısı yanlıştır.
 - **despite of**: "-e rağmen" karşılığına *of* eklemek yaygın hatadır. Doğrusu *despite* + isim ya da *in spite of* + isimdir.
 - **Türkçe kelime sırasıyla okumak**: Türkçede fiil sondadır; İngilizcede ise yüklem özneden hemen sonra gelir. Soruyu sondan başa çevirmeye çalışmak yerine boşluğun solundaki ve sağındaki kelimeye bakın.
+
+## Bu Cümleleri Düzeltin (Türkçe Konuşanların Tipik Hataları)
+
+Her cümlede, Part 5'in yanlış şıklarının taklit etmeyi sevdiği bir hata var. Çözümü okumadan önce düzeltmeyi deneyin.
+
+1. *He presented proposal to the committee.* → *a proposal* ya da *the proposal*: sayılabilir tekil isimden önce belirleyici gerekir.
+2. *The company announced his results.* → *its results*: Türkçedeki "o" cinsiyet ayırmaz, İngilizcede şirket için *its* kullanılır.
+3. *I am working here since 2020.* → *I have worked here since 2020*: "2020'den beri çalışıyorum" Present Perfect ister.
+4. *Despite of the delay, we finished.* → *Despite the delay*: *despite*'ten sonra *of* gelmez; *in spite of* ayrı bir kalıptır.
+5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçede gün için ek yoktur, İngilizcede *on* gerekir.
+
+Tereddüt ettiğiniz cümleyi not alın: zaman, belirleyici ve edat sorularında en çok puan kaybettiren kalıplar bunlardır.
 
 ## Örnek TOEIC Part 5 Soruları ve Çözüm Analizleri
 
@@ -201,11 +213,11 @@ Sınav günü bu üç adımı uygulayın:
 
 ---
 
-## Lexkite ile Part 5 Hazırlığınızı Güçlendirin
+## Lexkite ile Çalışma
 
-Soruları saniyeler içinde çözebilmek, düzenli pratik ve doğru çalışma araçlarıyla mümkündür:
+Hız tekrarla gelir. Part 5 için işe yarayanlar:
 
-- **FSRS Akıllı Aralıklı Tekrar**: Sınavda çıkan binlerce iş terimini ve deyimsel fiili unutmadan hafızanızda tutun.
+- **FSRS ile aralıklı tekrar**: İş terimleri ve phrasal verb'ler unutmadan hemen önce tekrar karşınıza çıkar.
 - **Entegre Bağlamsal Sözlük**: Kelimelerin gerçek cümlelerdeki kullanımlarını ve IPA telaffuzunu anında görüntüleyin.
 - **Hata defteri**: Yanlış yaptığınız sorular [hata defterine](/#/mistakes) kelime, dilbilgisi ve okuma diye gruplanarak düşer. Part 5 hatalarınızın sözcük türünden mi, eşdizimden mi geldiğini görürsünüz.
 - **Sistemli Çalışma Takvimi**: Hazırlık sürecinizi adım adım organize etmek için [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) rehberimizi takip edin.
@@ -235,4 +247,4 @@ En sık görülenler: sayılabilir tekil isimden önce a/an/the unutmak, şirket
 ### İş İngilizcesi eşdizimleri en kolay nasıl ezberlenir?
 Kelimeleri tek başına değil, kalıp halinde (*meet the deadline*, *conduct an investigation*, *reach a consensus*) öğrenin. Kalıpları aralıklı tekrar sistemiyle çalışmak sınav anında reflekslerinizi olağanüstü hızlandırır.
 
-Dinleme bölümünde benzer ses tuzaklarından korunmak için kapsamlı [toeic listening part 2 stratejileri soru cevap rehberimizi](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) inceleyin.
+Dinleme bölümü için [TOEIC Listening Part 2: soru ve cevap stratejileri](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazımıza da bakın.

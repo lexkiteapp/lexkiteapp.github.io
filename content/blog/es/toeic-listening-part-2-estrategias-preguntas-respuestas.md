@@ -66,8 +66,6 @@ La sección de **TOEIC Listening Part 2** (Pregunta y Respuesta) consta de 25 pr
 
 Muchos candidatos pierden valiosos puntos no por falta de nivel de inglés, sino por caer en trampas acústicas premeditadas o desconcertarse ante respuestas no literales. Aplicar rigurosamente las **toeic listening part 2 estrategias** adecuadas te permitirá anticipar la estructura lógica de cada diálogo, esquivar distractores y mejorar con método tu resultado en la comprensión auditiva.
 
-![Interfaz de preparación para el examen TOEIC en Lexkite con simulacros completos y práctica por secciones](media:toeic "Simulacros completos de TOEIC Listening y Reading y práctica por Part en Lexkite")
-
 ## La anatomía de TOEIC Part 2: toeic listening part 2 estrategias fundamentales
 
 En esta prueba corta pero implacable, dispones solo de unos segundos entre el final de la última opción y la siguiente pregunta. Esto implica que cualquier vacilación o intento de sobreanalizar una respuesta anterior arruinará la comprensión de la siguiente.
@@ -87,8 +85,6 @@ Buena parte de la información clave de una pregunta de Part 2 se concentra en s
 > **Consejo práctico:** Si te distraes a la mitad de una frase larga como *"Where did Ms. Jenkins say she put the confidential quarterly financial reports?"*, con haber retenido con nitidez *"Where did she put..."* tienes suficiente para seleccionar la opción de lugar correcta (*"In the top filing cabinet"*).
 
 Si reconoces rápido el vocabulario de oficina, entiendes la pregunta antes. Practica las listas de la [biblioteca TOEIC de Lexkite](/#/library?g=toeic) y consulta el [catálogo de vocabulario](/vocabulary/).
-
-![Página de TOEIC en Lexkite: simulacros con puntuación automática, práctica por Part y vocabulario TOEIC (TSL)](media:toeic "La misma página reúne simulacros, práctica por Part y el vocabulario de la TOEIC Service List")
 
 ## Estrategia 2: Neutralizar las tres trampas acústicas clásicas
 
@@ -128,9 +124,9 @@ Para profundizar en el entrenamiento del oído frente a diferentes acentos y cad
 
 Para que estas tácticas salgan solas el día del examen, prueba esta rutina (los tiempos son una sugerencia nuestra, no una pauta oficial):
 
-1. **Escucha activa sin pausas (unos 15 minutos):** Abre la [página TOEIC de Lexkite](/#/toeic), elige un Test y la tarjeta «Part 2 · Hỏi – đáp» (pregunta y respuesta). El modo «Nghe 1 lần» reproduce el audio una sola vez, como en el examen. Si dudas en una pregunta, elige la más razonable y olvídala de inmediato para no perder la siguiente.
+1. **Escucha activa sin pausas (unos 15 minutos):** Abre la [página TOEIC de Lexkite](/#/toeic), elige un Test y la tarjeta «Part 2 · Question–Response» (pregunta y respuesta). El modo «Listen once» reproduce el audio una sola vez, como en el examen. Si dudas en una pregunta, elige la más razonable y olvídala de inmediato para no perder la siguiente.
 2. **Análisis de la transcripción (unos 15 minutos):** Revisa el texto escrito de tus fallos. Clasifica cada error: ¿caíste en un sonido similar, no identificaste la primera palabra, o se trataba de una respuesta indirecta?
-3. **Dictado de tus fallos (unos 15 minutos):** En la misma tarjeta, el modo «Chép chính tả» (dictado) te hace escribir lo que oyes; así notas los sonidos que se te escaparon. Después anota la trampa en el [cuaderno de errores](/#/mistakes).
+3. **Dictado de tus fallos (unos 15 minutos):** En la misma tarjeta, el modo «Dictation» (dictado) te hace escribir lo que oyes; así notas los sonidos que se te escaparon. Después anota la trampa en el [cuaderno de errores](/#/mistakes).
 
 ![Cuaderno de errores de Lexkite: fallos agrupados por vocabulario, gramática, lectura y listening](media:mistakes "Los errores de listening se guardan aparte para ver qué tipo de trampa se repite")
 

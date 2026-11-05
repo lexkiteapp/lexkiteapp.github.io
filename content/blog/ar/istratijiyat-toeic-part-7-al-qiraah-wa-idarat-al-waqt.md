@@ -7,13 +7,13 @@ translationKey: toeic-part-7-doc-hieu
 category: toeic
 tags: [toeic, part-7, reading, time-management]
 keyword: "toeic part 7"
-cover: path
-coverAlt: "طالب يتدرب على اختبار قراءة TOEIC Part 7 مع مؤقت رقمي لتنظيم الوقت"
+cover: toeic
+coverAlt: "صفحة TOEIC في Lexkite: اختبارات تجريبية وتدريب حسب الجزء ومفردات TSL"
 publishAt: 2027-01-01T08:45:00+03:00
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 91
 quiz: [
   {
     q: "كم دقيقة تقترح هذه المقالة تخصيصها لـ TOEIC Part 7 من أصل 75 دقيقة لقسم القراءة؟",
@@ -71,7 +71,7 @@ quiz: [
 
 تظهر النصوص الفردية أولاً، بينما تشغل النصوص المزدوجة والثلاثية الختام الحاسم للاختبار (الأسئلة 176–200). ولهذا، عندما ينفد وقت الطالب غير المستعد، تكون الأسئلة المتروكة دون حل كتلة كاملة من 25 سؤالاً، وكل سؤال منها يُحتسب كأي سؤال آخر في القسم. لذلك يستحق التدرب على النصوص المزدوجة والثلاثية وقتاً خاصاً.
 
-![صفحة Luyện thi TOEIC في Lexkite: اختبارات تجريبية وتدريب حسب الجزء ومفردات TOEIC (TSL)](media:toeic "صفحة TOEIC في Lexkite: اختبارات تجريبية وتدريب حسب الجزء، ومنها الجزء السابع")
+![صفحة TOEIC في Lexkite: اختبارات تجريبية وتدريب حسب الجزء ومفردات TSL](media:toeic "صفحة TOEIC في Lexkite: اختبارات تجريبية وتدريب حسب الجزء، ومنها الجزء السابع")
 
 ## قاعدة الـ 55 دقيقة: الميزانية الزمنية العكسية
 
@@ -137,7 +137,7 @@ quiz: [
 
 عند تطبيق استراتيجيات إدارة الوقت والتصفح المنظم في **TOEIC Part 7** بانتظام، ستقلّ كثيراً احتمالات نفاد الوقت، وتبني أساساً متيناً للاقتراب من الدرجة التي تستهدفها.
 
-لإتقان خطة التحضير المتكاملة بين قسمي الاستماع والقراءة، راجع [خطة دراسة ذاتية toeic لتحقيق 750+ درجة](/ar/blog/khitat-dirasa-thatiya-toeic-dalil/) واكتشف أسرار قسم الاستماع عبر [toeic listening part 2 استراتيجيات](/ar/blog/toeic-listening-part-2-istratijiyat-asila-ajwiba/).
+لخطة تحضير تجمع الاستماع والقراءة راجع [خطة الدراسة الذاتية للتويك](/ar/blog/khitat-dirasa-thatiya-toeic-dalil/)، ولقسم الاستماع اقرأ [استراتيجيات TOEIC Listening Part 2](/ar/blog/toeic-listening-part-2-istratijiyat-asila-ajwiba/).
 
 {{cta: /#/toeic | تدرب على الجزء السابع مع شرح الإجابات}}
 

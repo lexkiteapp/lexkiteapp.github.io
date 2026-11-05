@@ -66,8 +66,6 @@ Bagian **TOEIC Listening Part 2** (Tanya Jawab / Question-Response) memuat 25 bu
 
 Banyak peserta kehilangan poin berharga bukan karena miskin kosakata, melainkan karena terjebak oleh kemiripan bunyi fonetik (*sound traps*) atau bingung menghadapi jawaban tidak langsung (*indirect responses*). Menguasai **strategi toeic listening part 2** yang teruji berikut ini akan membantu Anda membaca pola logika dialog, mengabaikan pengecoh, serta meningkatkan hasil Anda pada bagian menyimak.
 
-![Antarmuka latihan ujian TOEIC di Lexkite dengan simulasi lengkap dan latihan per bagian](media:toeic "Simulasi lengkap TOEIC Listening dan Reading serta latihan per bagian di aplikasi Lexkite")
-
 ## Struktur ujian: strategi toeic listening part 2 paling esensial
 
 Pada sesi yang berlangsung cepat ini, jeda antara pilihan terakhir dan pertanyaan berikutnya hanya beberapa detik. Keraguan atau upaya menganalisis soal sebelumnya secara berlebihan akan langsung membuyarkan konsentrasi Anda pada soal yang baru.
@@ -87,8 +85,6 @@ Pada banyak soal Part 2, kunci jawaban sudah ditentukan oleh tiga kata pembuka y
 > **Tips praktis:** Jika konsentrasi Anda buyar di tengah kalimat panjang seperti *"Where did Mr. Richardson say he filed the confidential quarterly balance sheets?"*, cukup pastikan Anda menangkap *"Where did he file..."*. Informasi tersebut sudah lebih dari cukup untuk memilih opsi lokasi (*"In the locked storage cabinet"*).
 
 Semakin cepat Anda mengenali kosakata kantor, semakin cepat pula Anda memahami pertanyaan. Latih daftar kata di [perpustakaan kosakata TOEIC Lexkite](/#/library?g=toeic) dan telusuri [daftar kosakata](/vocabulary/).
-
-![Halaman TOEIC Lexkite: simulasi tes dengan penilaian otomatis, latihan per Part, dan kosakata TOEIC (TSL)](media:toeic "Halaman yang sama memuat simulasi tes, latihan per Part, dan kosakata TOEIC Service List")
 
 ## Strategi 2: Netralkan tiga jebakan akustik klasik
 
@@ -128,9 +124,9 @@ Untuk melatih kepekaan telinga Anda terhadap ragam aksen dan intonasi alami, pel
 
 Agar taktik-taktik ini spontan saat hari ujian, coba rutinitas berikut (durasi hanya saran kami, bukan ketentuan resmi):
 
-1. **Simulasi menyimak tanpa henti (sekitar 15 menit):** Buka [halaman TOEIC Lexkite](/#/toeic), pilih satu Test lalu kartu "Part 2 · Hỏi – đáp" (tanya jawab). Mode "Nghe 1 lần" memutar audio sekali saja, seperti di ujian. Bila ragu pada suatu nomor, segera pilih opsi yang paling masuk akal dan alihkan seluruh perhatian pada pertanyaan berikutnya.
+1. **Simulasi menyimak tanpa henti (sekitar 15 menit):** Buka [halaman TOEIC Lexkite](/#/toeic), pilih satu Test lalu kartu “Part 2 · Question–Response” (tanya jawab). Mode “Listen once” memutar audio sekali saja, seperti di ujian. Bila ragu pada suatu nomor, segera pilih opsi yang paling masuk akal dan alihkan seluruh perhatian pada pertanyaan berikutnya.
 2. **Analisis transkrip (sekitar 15 menit):** Buka naskah audio dari soal-soal yang salah. Cari tahu penyebab kekeliruan: apakah Anda melewatkan kata tanya awal, tergoda oleh bunyi kata yang mirip, atau salah mengartikan jawaban tidak langsung? Catat temuan tersebut di buku evaluasi.
-3. **Dikte soal yang salah (sekitar 15 menit):** Pada kartu yang sama, mode "Chép chính tả" (dikte) meminta Anda menulis apa yang terdengar, sehingga bunyi yang terlewat langsung kelihatan. Catat jebakannya di [buku catatan kesalahan](/#/mistakes).
+3. **Dikte soal yang salah (sekitar 15 menit):** Pada kartu yang sama, mode “Dictation” (dikte) meminta Anda menulis apa yang terdengar, sehingga bunyi yang terlewat langsung kelihatan. Catat jebakannya di [buku catatan kesalahan](/#/mistakes).
 
 ![Buku catatan kesalahan Lexkite: kesalahan dikelompokkan menurut kosakata, tata bahasa, membaca, dan menyimak](media:mistakes "Kesalahan menyimak dikumpulkan tersendiri agar terlihat jebakan apa yang berulang")
 

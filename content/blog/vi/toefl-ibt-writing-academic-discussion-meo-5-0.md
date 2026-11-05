@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Giao diện luyện thi TOEFL iBT trên ứng dụng Lexkite với bảng cấu trúc đề mới và các dạng câu hỏi chuyên sâu"
-qualityScore: 92
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-02-11T19:51:00+07:00
@@ -127,15 +127,13 @@ Kết hợp câu đơn, câu ghép và câu phức (because, although, if) mà v
 
 Dùng làm khung và thay phần trong ngoặc bằng ý của bạn. Phần lý do và ví dụ phải cụ thể, vì giám khảo thấy rất nhiều bài na ná nhau.
 
-### Hướng tiếp cận 1: Đồng tình với một sinh viên và bổ sung góc nhìn mới
-* **Mở đầu**: *"While I appreciate [Tên sinh viên]'s perspective regarding [chủ đề tóm tắt], I strongly align with [Tên sinh viên kia]'s viewpoint that [quan điểm của sinh viên kia]."*
-* **Phát triển ý**: *"To elaborate further, [luận điểm bổ sung của bạn]. A compelling illustration of this is [ví dụ thực tế]. Without addressing this aspect, [hậu quả tiêu cực hoặc hạn chế]."*
-* **Kết luận**: *"Therefore, prioritizing [giải pháp của bạn] offers a far more sustainable outcome."*
+### Hướng tiếp cận 1: Đồng tình với một bạn và bổ sung ý mới
+> I agree with [Student B]. [Một lý do cụ thể, một câu.] For example, [một tình huống thật hoặc hợp lý]. [Student A] is right that [ưu điểm thật của ý A], but [vì sao ý đó ít quan trọng hơn].
 
-### Hướng tiếp cận 2: Đưa ra một giải pháp trung gian hoặc quan điểm độc lập
-* **Mở đầu**: *"Both students raise valid arguments; however, I believe the discussion overlooks a pivotal factor: [yếu tố mới của bạn]."*
-* **Phát triển ý**: *"From my perspective, focusing solely on [giải pháp A] or [giải pháp B] fails to address the root cause. When institutions implement [ý tưởng mới], they can effectively [lợi ích to lớn]. For instance, [dẫn chứng cụ thể]."*
-* **Kết luận**: *"In light of this, combining both approaches with [yếu tố mới] represents the most pragmatic strategy."*
+### Hướng tiếp cận 2: Đưa ra hướng dung hòa
+> Both students make good points, but I think the discussion misses [yếu tố mới]. For example, [ví dụ cụ thể]. A mix of both ideas, with [điều chỉnh của bạn], would work better.
+
+Hai khung này ngắn có chủ đích: phần trong ngoặc là chỗ cho lý do và ví dụ của riêng bạn, và đó là phần quyết định. Hãy chỉnh theo đề, đừng dán nguyên.
 
 Muốn luyện cách lập luận gọn, xem thêm [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/).
 

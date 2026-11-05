@@ -1,5 +1,5 @@
 ---
-title: "ielts writing task 2 템플릿: Band 7+ 4단락 에세이 작성법"
+title: "IELTS Writing Task 2 템플릿: Band 7+ 4단락 에세이 작성법"
 description: "IELTS Writing Task 2 템플릿 활용 4단락 구성 완전 정복: 5대 문제 유형별 서론·본론·결론 전개 공식, 5분 개요 작성법, 논리적 연결어, Band 8 모범 에세이와 감점 방지 팁 완벽 가이드. Lexkite로 실전 연습."
 slug: ielts-writing-task-2-template-4danrak
 lang: ko
@@ -13,7 +13,7 @@ publishAt: 2027-01-03T12:11:00+09:00
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 91
+qualityScore: 90
 quiz: [
   {
     q: "IELTS Writing Task 2의 최소 단어 수와 권장 소요 시간은 얼마인가요?",
@@ -204,23 +204,27 @@ Body 2: 대기질 개선 및 시민 건강 (Air Quality & Health)
 
 ## 모범 본론 단락 분석: 환경 정책 주제
 
-환경 규제를 주제로 PEEL 순서를 따른 본론 한 단락입니다. Band 8을 목표로 Lexkite가 직접 쓴 예시이며, 공식 채점을 받은 답안이 아닙니다.
+환경 규제를 주제로 PEEL 순서를 따른 본론 두 단락입니다. Band 8을 목표로 Lexkite가 직접 쓴 예시이며, 공식 채점을 받은 답안이 아닙니다.
 
 > **에세이 질문 예시:**  
 > *Some people argue that strict government regulations are the most effective way to reduce environmental pollution.*
 
-### 본론 단락 전문 (약 90단어)
+### 본론 1 예시 (약 85단어)
 
-> *The foremost justification for stringent government intervention is its unique capacity to enforce corporate compliance through substantial financial deterrence. When authorities implement rigorous emission caps and levy severe penalties on industrial offenders, large manufacturing corporations are legally compelled to overhaul their operational frameworks. For example, following the introduction of stringent carbon-pricing mechanisms across multiple European nations, heavy industrial manufacturers dramatically accelerated their transition toward sustainable energy sources to avoid punitive fiscal sanctions. Consequently, state-enforced regulatory standards create a systematic and nationwide incentive structure that voluntary civic initiatives simply cannot replicate.*
+> *Strict government rules work because they give companies a financial reason to change. If a factory must pay a heavy fine for every tonne of carbon above a legal limit, cutting emissions becomes cheaper than ignoring the rule. For example, after the European Union introduced carbon pricing for power stations, many of them moved from coal to gas and renewable energy to reduce their costs. Voluntary campaigns can raise awareness, but they cannot force a large company to change how it produces. Therefore, regulation is the most reliable way to reduce industrial pollution.*
 
-### 논리 구조 정밀 해부
+### 본론 2 예시 (약 80단어)
 
-1. **주제문 (Point)**: 엄격한 정부 개입의 강점이 재정적 제재로 기업의 준법을 이끌어 낸다는 점임을 첫 문장에서 제시.
-2. **원리 설명 (Explanation)**: 탄소 배출 상한선과 과징금이 제조 대기업으로 하여금 친환경 공정으로 체질을 개선하도록 법적으로 강제하는 인과관계를 설명.
-3. **구체적 실증 (Example)**: 유럽의 탄소 배출권 가격제 도입과 이에 따른 제조사들의 신재생에너지 전환 가속화라는 지극히 현실적이고 설득력 있는 예시 제시.
-4. **연결 (Link)**: 국가 규제가 자발적 시민 운동으로는 만들기 어려운 전국적 유인 구조를 만든다는 말로 질문(규제가 가장 효과적인가)에 다시 연결.
+> *Regulation also creates a level playing field. Without common rules, a company that invests in clean technology may lose customers to a rival that keeps polluting and charges less. When the same limits apply to every firm in an industry, polluting no longer gives anyone an advantage, so investing in cleaner methods becomes a safe decision. For instance, car makers in many countries must meet the same fuel-efficiency standards, which has pushed all of them to develop more efficient engines. In this way, regulation protects both the environment and honest businesses.*
 
-어휘는 *stringent intervention*, *corporate compliance*, *financial deterrence*, *emission caps* 같은 학술적 연어를 문맥에 맞게 썼습니다. 다만 어려운 단어를 많이 쓰는 것보다 정확하고 자연스럽게 쓰는 것이 Lexical Resource에서 중요합니다. 이 예시의 "across multiple European nations" 같은 사례는 실제 시험에서는 본인이 정확히 아는 내용으로 바꿔 쓰세요.
+### 본론 1의 구조 분석
+
+1. **주제문 (Point)**: 첫 문장이 "규제가 기업에 변화할 경제적 이유를 준다"는 중심 주장을 말합니다.
+2. **설명 (Explanation)**: 벌금이 배출 감축보다 비싸지면 기업이 규칙을 따르는 이유를 한 문장으로 풀어 줍니다.
+3. **사례 (Example)**: 유럽연합의 탄소 가격제 이후 발전소들이 석탄에서 가스·재생에너지로 옮겨 간 일반적인 사례를 듭니다.
+4. **연결 (Link)**: 시민 캠페인의 한계와 대비한 뒤, 질문의 "규제가 가장 효과적인가"에 다시 답하며 닫습니다.
+
+본론 2는 같은 PEEL 순서로 "공정한 경쟁 환경"이라는 다른 논점을 다룹니다. 두 본론이 서로 다른 이유를 말하고 둘 다 같은 입장을 뒷받침하는 점에 주목하세요. 단어는 어렵지 않아도 정확하면 충분합니다. 아래 사례(유럽연합, 자동차 연비 기준)는 예시이므로, 실제 시험에서는 본인이 정확히 아는 사례로 바꿔 쓰세요.
 
 학술 어휘는 [Lexkite 라이브러리](/#/library)에서 Writing 탭의 단어 묶음을 열어 보세요. 단어 묶음을 모아 두고 반복해서 쓰는 데 편합니다.
 
