@@ -13,6 +13,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 86
+quiz: [
+  {
+    q: "¿Cuál es la distribución de tiempo más eficiente para los 3 pasajes de IELTS Reading Académico?",
+    options: [
+      "Dividir el tiempo en partes iguales de 20 minutos por pasaje",
+      "Dedicar 15 minutos al Pasaje 1, 20 minutos al Pasaje 2 y 25 minutos al Pasaje 3",
+      "Comenzar por el Pasaje 3 dedicándole 30 minutos",
+      "Leer primero los tres textos completos durante 30 minutos"
+    ],
+    answer: 1,
+    explain: "El Pasaje 1 presenta vocabulario descriptivo y preguntas más directas, por lo que resolverlo en 15 minutos permite reservar 25 minutos para la mayor densidad léxica y argumentativa del Pasaje 3."
+  },
+  {
+    q: "¿Qué persigue fundamentalmente la regla de los 90 segundos en el examen de lectura?",
+    options: [
+      "Obligar al estudiante a leer una página entera en 90 segundos",
+      "Evitar la trampa del costo hundido y no perder tiempo excesivo en una sola pregunta difícil",
+      "Medir la velocidad de marcado en la hoja de respuestas",
+      "Verificar la ortografía de cada palabra en 90 segundos"
+    ],
+    answer: 1,
+    explain: "Si tras 90 segundos no encuentras el dato, debes marcar tu mejor opción intuitiva y avanzar inmediatamente para proteger las preguntas sencillas que esperan adelante."
+  },
+  {
+    q: "¿Cuándo se deben pasar las respuestas a la hoja oficial (Answer Sheet) en el examen en papel?",
+    options: [
+      "Al finalizar los 60 minutos, aprovechando los 10 minutos de gracia",
+      "Directamente sobre la marcha o al concluir cada pasaje, ya que no existe tiempo extra de transferencia",
+      "Únicamente en los últimos 2 minutos antes de entregar",
+      "Solo se califica lo escrito en el cuadernillo de preguntas"
+    ],
+    answer: 1,
+    explain: "A diferencia de IELTS Listening, en Reading no se otorgan 10 minutos de transferencia al final. Todos los traslados deben completarse dentro de los 60 minutos oficiales."
+  }
+]
 publishAt: 2027-01-03T19:51:00-06:00
 ---
 
@@ -97,3 +132,19 @@ Nunca dejes respuestas en blanco en la hoja de examen, ya que en IELTS no hay pe
 
 ### ¿Es mejor empezar por el Pasaje 3 si es el más difícil?
 Para la mayoría de los candidatos, empezar por el Pasaje 3 resulta contraproducente. Resolver primero el Pasaje 1 te permite asegurar entre 11 y 13 respuestas correctas con un nivel de estrés manejable, construyendo confianza psicológica desde el inicio de la prueba. Cambiar el orden solo es recomendable si eres un lector avanzado que busca consistentemente una banda 8.5 o 9.0.
+{{youtube: | Estrategias de gestión del tiempo en IELTS Reading: cómo dominar los 60 minutos}}
+
+{{cta: /#/ | Practica simulacros de examen IELTS Reading con cronómetro real en Lexkite}}
+
+---
+
+## Preguntas frecuentes sobre el manejo del tiempo en IELTS Reading
+
+### ¿Conviene leer todo el texto primero o ir directo a las preguntas?
+La técnica más rentable es realizar un escaneo preliminar de 60 a 90 segundos sobre el título, subtítulos y primeras líneas de cada párrafo para trazar un mapa conceptual mental (Skimming). Luego, pasa inmediatamente a las preguntas para buscar palabras clave de localización. Leer el texto a fondo de inicio consume de 5 a 7 minutos inútilmente.
+
+### ¿Qué hacer si quedan 5 minutos y aún faltan 5 preguntas por responder?
+Prioriza las preguntas de opción múltiple (Multiple Choice) o True/False/Not Given, ya que incluso respondiendo por descarte estadístico mantienes entre un 25% y un 33% de probabilidad de acierto. Jamás dejes una casilla en blanco en la hoja de respuestas: las respuestas erróneas no restan puntos.
+
+### ¿Tiene ventaja de tiempo el examen de lectura en ordenador frente al papel?
+Sí. El formato digital divide la pantalla en dos columnas paralelas (texto a la izquierda y preguntas a la derecha), ofrece herramientas para resaltar texto y permite copiar y pegar respuestas directamente en los espacios en blanco, eliminando errores ortográficos y ahorrando unos 3 a 4 minutos globales de transcripción.

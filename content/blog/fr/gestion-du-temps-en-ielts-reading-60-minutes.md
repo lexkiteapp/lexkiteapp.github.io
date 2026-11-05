@@ -13,6 +13,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 86
+quiz: [
+  {
+    q: "Quelle est la répartition du temps la plus stratégique pour les 3 sections de l'IELTS Reading Académique ?",
+    options: [
+      "Allouer exactement 20 minutes par section sans distinction",
+      "Consacrer 15 minutes au Passage 1, 20 minutes au Passage 2 et 25 minutes au Passage 3",
+      "Commencer par le Passage 3 en y passant 35 minutes",
+      "Lire les trois textes en entier pendant les 30 premières minutes"
+    ],
+    answer: 1,
+    explain: "Le Passage 1 comporte un lexique plus direct et accessible ; le terminer en 15 minutes permet de préserver 25 minutes indispensables pour la densité argumentative du Passage 3."
+  },
+  {
+    q: "Quel est l'objectif premier de la règle des 90 secondes pendant l'épreuve de lecture ?",
+    options: [
+      "Obliger le candidat à lire chaque page en 90 secondes",
+      "Éviter le piège des coûts irrécupérables (sunk cost fallacy) et ne pas s'enliser sur une question ardue",
+      "Mesurer la vitesse de saisie sur la feuille de réponses",
+      "Imposer une pause de 90 secondes entre chaque section"
+    ],
+    answer: 1,
+    explain: "Passer plus de 90 secondes sur une question insoluble met en danger plusieurs points faciles situés dans les sections ultérieures. Il faut choisir sa meilleure intuition et avancer."
+  },
+  {
+    q: "Comment s'effectue le transfert des réponses sur la feuille officielle (Answer Sheet) pour le test sur papier ?",
+    options: [
+      "Pendant les 10 minutes supplémentaires accordées à la fin de l'épreuve comme en Listening",
+      "Directement au fil de l'eau pendant les 60 minutes, car aucun temps de transfert supplémentaire n'est accordé",
+      "En rendant le brouillon sans remplir la grille officielle",
+      "Uniquement pendant les deux dernières minutes de l'épreuve"
+    ],
+    answer: 1,
+    explain: "Contrairement à l'IELTS Listening, l'épreuve de Reading n'accorde aucun temps de transfert final. Chaque réponse doit être reportée sur la feuille officielle pendant les 60 minutes imparties."
+  }
+]
 publishAt: 2026-12-31T19:01:00+01:00
 ---
 
@@ -97,3 +132,19 @@ Ne laissez sous aucun prétexte de case vide sur votre feuille de réponses : il
 
 ### Est-il judicieux de commencer par le Passage 3 s'il est plus difficile ?
 Pour la grande majorité des étudiants, débuter par le Passage 3 est une fausse bonne idée. Réussir le Passage 1 en 15 minutes permet d'engranger d'emblée 11 à 13 points certains et d'installer une sérénité psychologique indispensable pour la suite. Ce changement d'ordre n'est envisageable que pour des profils bilingues visant d'office un score de 8.5 ou 9.0.
+{{youtube: | Gestion du temps à l'IELTS Reading : maîtriser l'épreuve de 60 minutes}}
+
+{{cta: /#/ | Entraînez-vous aux tests blancs IELTS Reading chronométrés sur Lexkite}}
+
+---
+
+## Foire aux questions sur la gestion du temps à l'IELTS Reading
+
+### Faut-il lire l'intégralité du texte avant de consulter les questions ?
+La stratégie la plus efficace consiste à survoler le titre, les sous-titres et les premières phrases pendant 60 à 90 secondes pour cartographier la structure globale (Skimming). Ensuite, passez immédiatement aux questions pour repérer les mots-clés de localisation. Lire le texte en détail dès le départ dissipe 5 à 7 minutes précieuses sans retenir les éléments précis.
+
+### Que faire s'il ne reste que 5 minutes et 5 questions non résolues ?
+Traitez en priorité les questions à choix multiples (QCM) ou True/False/Not Given, car le hasard offre mathématiquement entre 25 % et 33 % de chances de réussite. Ne laissez aucune case vide sur votre Answer Sheet : les mauvaises réponses ne retirent aucun point à l'IELTS.
+
+### Le test IELTS Reading sur ordinateur offre-t-il un réel gain de temps ?
+Oui. L'écran scindé présente le texte à gauche et les questions à droite en permanence, éliminant les allers-retours de pages physiques. De plus, les outils de surlignage et le copier-coller direct vers les champs à compléter évitent les fautes de frappe et permettent d'économiser environ 3 à 4 minutes sur l'ensemble de l'épreuve.

@@ -13,6 +13,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 86
+quiz: [
+  {
+    q: "Qual é a divisão de tempo mais estratégica para os 3 textos do IELTS Reading Acadêmico?",
+    options: [
+      "Dividir 20 minutos exatos para cada texto sem distinção",
+      "Dedicar 15 minutos ao Texto 1, 20 minutos ao Texto 2 e 25 minutos ao Texto 3",
+      "Começar pelo Texto 3 dedicando 35 minutos a ele",
+      "Ler os três textos completos durante os primeiros 30 minutos"
+    ],
+    answer: 1,
+    explain: "O Texto 1 costuma trazer vocabulário mais direto; concluí-lo em 15 minutos permite resguardar 25 minutos essenciais para a densidade argumentativa do Texto 3."
+  },
+  {
+    q: "Qual é o propósito central da regra dos 90 segundos no teste de leitura do IELTS?",
+    options: [
+      "Obrigar o candidato a ler cada página em 90 segundos",
+      "Evitar a armadilha do custo irrecuperável e impedir que o estudante fique travado em uma questão difícil",
+      "Marcar uma pausa obrigatória a cada 90 segundos",
+      "Contar o tempo de digitação no teclado"
+    ],
+    answer: 1,
+    explain: "Gastar mais de 90 segundos em uma única pergunta compromete o tempo necessário para responder a questões fáceis nas seções seguintes. Escolha sua melhor intuição e avance."
+  },
+  {
+    q: "Quando as respostas devem ser passadas para a folha oficial (Answer Sheet) no exame impresso em papel?",
+    options: [
+      "Nos 10 minutos extras de transferência ao término da prova, como no Listening",
+      "Diretamente ao longo dos 60 minutos regulares, pois não há tempo adicional de transferência",
+      "Apenas nos dois minutos finais antes da entrega",
+      "As respostas podem ser deixadas no caderno de questões sem transferência"
+    ],
+    answer: 1,
+    explain: "Ao contrário da prova de compreensão auditiva (Listening), o IELTS Reading não concede 10 minutos ao final. Toda a transcrição deve ser feita dentro dos 60 minutos oficiais."
+  }
+]
 publishAt: 2027-01-10T19:01:00-03:00
 ---
 
@@ -97,3 +132,19 @@ Jamais deixe respostas em branco no gabarito oficial, pois no IELTS não há pon
 
 ### Vale a pena começar pelo Texto 3 por ser o mais complexo?
 Para a imensa maioria dos candidatos, começar pelo Texto 3 é contraproducente. Resolver o Texto 1 em 15 minutos garante de 11 a 13 pontos seguros com baixo nível de estresse, criando confiança psicológica para o restante da prova. Inverter a ordem só é vantajoso para candidatos avançados com fluência próxima à nativa que miram notas 8.5 ou 9.0.
+{{youtube: | Gestão do tempo no IELTS Reading: estratégias para dominar os 60 minutos}}
+
+{{cta: /#/ | Pratique simulados cronometrados do IELTS Reading com feedback no Lexkite}}
+
+---
+
+## Perguntas frequentes sobre gestão do tempo no IELTS Reading
+
+### É melhor ler o texto inteiro primeiro ou ir direto para as perguntas?
+A estratégia mais recomendada consiste em passar 60 a 90 segundos fazendo uma leitura dinâmica (Skimming) do título, subtítulos e primeiras frases para mapear o tema central. Em seguida, avance diretamente para as perguntas para identificar termos de localização. Ler o texto inteiro linha por linha de início queima de 5 a 7 minutos preciosos sem retenção de detalhes.
+
+### O que fazer se restarem 5 minutos e ainda faltarem 5 questões?
+Dê prioridade a questões de múltipla escolha ou do tipo True/False/Not Given, pois o chute educado oferece de 25% a 33% de probabilidade estatística de acerto. Nunca deixe nenhum espaço em branco na folha de respostas: respostas incorretas não descontam pontos no IELTS.
+
+### A prova do IELTS Reading no computador oferece vantagem real de tempo?
+Sim. A tela dividida exibe o texto à esquerda e as perguntas à direita, eliminando a perda de tempo ao folhear páginas físicas. Ferramentas para grifar trechos e a possibilidade de copiar e colar termos diretamente nos campos de preenchimento evitam erros ortográficos e economizam cerca de 3 a 4 minutos no cômputo geral.

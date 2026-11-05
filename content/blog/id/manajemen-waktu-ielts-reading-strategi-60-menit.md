@@ -13,6 +13,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 85
+quiz: [
+  {
+    q: "Berapa alokasi waktu paling strategis untuk 3 passage dalam IELTS Reading Academic?",
+    options: [
+      "Membagi rata 20 menit per passage tanpa membedakan tingkat kesulitan",
+      "15 menit untuk Passage 1, 20 menit untuk Passage 2, dan 25 menit untuk Passage 3",
+      "Mengerjakan Passage 3 terlebih dahulu selama 35 menit",
+      "Menghabiskan 30 menit pertama hanya untuk membaca ketiga teks secara utuh"
+    ],
+    answer: 1,
+    explain: "Passage 1 umumnya memiliki kosakata deskriptif yang lebih lugas. Menyelesaikannya dalam 15 menit memberi cadangan 25 menit penting untuk mengatasi Passage 3 yang padat dan rumit."
+  },
+  {
+    q: "Apa tujuan utama dari aturan 90 detik saat mengerjakan IELTS Reading?",
+    options: [
+      "Memaksa peserta membaca satu halaman teks dalam 90 detik",
+      "Menghindari jebakan sunk cost fallacy agar tidak terpaku terlalu lama pada satu soal sulit",
+      "Membatasi waktu penggunaan komputer",
+      "Mewajibkan jeda istirahat setiap 90 detik"
+    ],
+    answer: 1,
+    explain: "Menghabiskan waktu lebih dari 90 detik untuk satu soal sulit dapat mengorbankan beberapa soal mudah di bagian berikutnya. Pilih opsi terbaik secara rasional lalu segera lanjutkan."
+  },
+  {
+    q: "Kapan jawaban harus disalin ke lembar jawaban resmi (Answer Sheet) pada tes berbasis kertas?",
+    options: [
+      "Pada waktu tambahan 10 menit di akhir tes seperti pada sesi Listening",
+      "Secara langsung selama 60 menit berlangsung karena tidak ada waktu transfer tambahan",
+      "Hanya pada 2 menit terakhir menjelang waktu habis",
+      "Jawaban cukup dilingkari pada buku soal tanpa disalin"
+    ],
+    answer: 1,
+    explain: "Berbeda dari IELTS Listening, IELTS Reading tidak memberikan waktu transfer 10 menit di akhir. Semua jawaban harus sudah tertulis di lembar jawaban sebelum 60 menit berakhir."
+  }
+]
 publishAt: 2027-01-05T12:11:00+07:00
 ---
 
@@ -95,3 +130,19 @@ Jangan pernah membiarkan lembar jawaban kosong karena tidak ada sistem pengurang
 
 ### Apakah menguntungkan memulai dari Passage 3 terlebih dahulu?
 Bagi sebagian besar peserta, memulai dari Passage 3 justru meningkatkan stres. Menyelesaikan Passage 1 lebih dulu dalam 15 menit memberi modal berharga berupa 11 sampai 13 jawaban benar serta ketenangan mental untuk menghadapi bacaan selanjutnya. Membalik urutan hanya dianjurkan bagi peserta berkemampuan sangat tinggi yang menargetkan skor 8.5 atau 9.0.
+{{youtube: | Strategi manajemen waktu IELTS Reading: cara kuasai ujian 60 menit}}
+
+{{cta: /#/ | Latihan simulasi IELTS Reading dengan batasan waktu nyata di Lexkite}}
+
+---
+
+## Tanya Jawab Seputar Manajemen Waktu IELTS Reading
+
+### Apakah sebaiknya membaca teks secara lengkap terlebih dahulu atau langsung melihat soal?
+Metode paling efisien adalah membaca sekilas (Skimming) judul, subjudul, dan kalimat pembuka setiap paragraf selama 60 hingga 90 detik untuk memetakan alur gagasan. Setelah itu, langsung pelajari pertanyaan untuk mencari kata kunci pencarian. Membaca teks secara mendalam dari awal menghabiskan 5 hingga 7 menit berharga tanpa menjamin ingatan detail.
+
+### Apa yang harus dilakukan jika tersisa 5 menit tetapi masih ada 5 soal belum terjawab?
+Prioritaskan soal pilihan ganda (Multiple Choice) atau True/False/Not Given karena tebakan rasional tetap memberikan peluang benar 25% hingga 33%. Jangan pernah membiarkan kolom kosong di lembar jawaban karena jawaban salah tidak dikenai pengurangan nilai di IELTS.
+
+### Apakah tes IELTS Reading berbasis komputer memberikan keuntungan waktu lebih besar?
+Ya. Layar terbagi menampilkan teks di sebelah kiri dan soal di sebelah kanan secara berdampingan tanpa perlu membalik halaman kertas. Fitur penyorot teks dan kemampuan copy-paste jawaban langsung ke kolom isian menghindari kesalahan ejaan serta menghemat waktu sekitar 3 hingga 4 menit secara keseluruhan.

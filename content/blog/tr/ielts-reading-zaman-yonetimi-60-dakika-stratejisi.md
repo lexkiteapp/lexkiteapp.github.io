@@ -13,6 +13,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 86
+quiz: [
+  {
+    q: "Akademik IELTS Reading sınavındaki 3 metin için en stratejik zaman dağılımı nasıldır?",
+    options: [
+      "Zorluk derecesine bakılmaksızın her metne tam 20 dakika ayırmak",
+      "1. Metne 15 dakika, 2. Metne 20 dakika ve 3. Metne 25 dakika ayırmak",
+      "Önce 3. Metinden başlayıp 35 dakika harcamak",
+      "İlk 30 dakikayı sadece üç metni baştan sona okuyarak geçirmek"
+    ],
+    answer: 1,
+    explain: "1. Metin genellikle daha yalın kelimeler içerir; burayı 15 dakikada tamamlamak, 3. Metnin ağır akademik içeriğine 25 dakika ayırmanızı sağlar."
+  },
+  {
+    q: "IELTS Reading sınavındaki 90 saniye kuralının temel amacı nedir?",
+    options: [
+      "Adayı her sayfayı 90 saniyede okumaya zorlamak",
+      "Batık maliyet yanılgısını önlemek ve çözülemeyen tek bir soruya saplanıp kalmayı engellemek",
+      "Her 90 saniyede bir mola verilmesini sağlamak",
+      "Cevap kağıdına işaretleme hızını ölçmek"
+    ],
+    answer: 1,
+    explain: "Bir soru üzerinde 90 saniyeden fazla takılıp kalmak, sonraki bölümlerdeki kolay soruların süresini tüketir. En mantıklı tercihi işaretleyip hemen ilerlemek gerekir."
+  },
+  {
+    q: "Kağıt tabanlı IELTS sınavında cevaplar optik forma (Answer Sheet) ne zaman aktarılmalıdır?",
+    options: [
+      "Listening bölümünde olduğu gibi sınav sonunda verilen 10 dakikalık ek sürede",
+      "60 dakikalık resmi sınav süresi boyunca doğrudan, çünkü okuma bölümünde ek aktarma süresi verilmez",
+      "Yalnızca sınavın son 2 dakikasında",
+      "Cevaplar soru kitapçığında kalabilir, forma aktarmak zorunlu değildir"
+    ],
+    answer: 1,
+    explain: "IELTS Listening sınavından farklı olarak Reading modülünde süre bitiminde 10 dakika ek süre tanınmaz. Bütün cevaplar 60 dakika içinde forma geçirilmiş olmalıdır."
+  }
+]
 publishAt: 2026-12-29T19:01:00+03:00
 ---
 
@@ -97,3 +132,19 @@ IELTS sınavında yanlış cevaplar için puan kesintisi uygulanmadığından as
 
 ### En zor olduğu için Passage 3'ten başlamak mantıklı mı?
 Adayların büyük bölümü için bu yaklaşım ters teper. Passage 1'i ilk 15 dakikada çözmek, çoğu zaman 11-13 doğru cevabı hızla cebinize koymanızı sağlar ve sınavın geri kalanı için zihinsel rahatlık yaratır. Sıralamayı değiştirmek yalnızca 8.5 veya 9.0 hedefleyen üst düzey okuyucular için uygundur.
+{{youtube: | IELTS Reading zaman yönetimi: 60 dakikalık sınavda yüksek skor taktikleri}}
+
+{{cta: /#/ | Lexkite ile gerçek sınav süresi kısıtlamasında IELTS Reading denemeleri çöz}}
+
+---
+
+## IELTS Reading Zaman Yönetimi Hakkında Sıkça Sorulan Sorular
+
+### Önce metnin tamamı mı okunmalı yoksa doğrudan sorulara mı geçilmeli?
+En karlı taktik, metnin başlığını, alt başlıklarını ve paragrafların ilk cümlelerini 60 ila 90 saniye tarayarak genel çerçeveyi kavramaktır (Skimming). Ardından doğrudan sorulara geçip yer belirleyici anahtar kelimeleri aramalısınız. Metni ilk başta detaylı okumak 5 ila 7 dakikayı boşa harcar.
+
+### Son 5 dakikaya girildiğinde hala 5 boş soru varsa ne yapılmalıdır?
+Önceliği çoktan seçmeli veya True/False/Not Given sorularına verin; çünkü bilinçli bir tahmin istatistiksel olarak %25 ila %33 doğru çıkma şansı sunar. Cevap kağıdında hiçbir kutucuğu boş bırakmayın; IELTS sınavında yanlış cevaplar puan düşürmez.
+
+### Bilgisayarlı IELTS Reading sınavı kağıt tabanlı sınava göre zaman avantajı sağlar mı?
+Evet. Bölünmüş ekranda metin solda ve sorular sağda aynı anda görünür, böylece sayfa çevirme zahmeti ortadan kalkar. Metin vurgulama araçları ve kelimeleri kopyalayıp boşluklara doğrudan yapıştırma olanağı yazım hatalarını önler ve toplamda yaklaşık 3 ila 4 dakika kazandırır.

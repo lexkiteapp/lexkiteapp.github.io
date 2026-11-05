@@ -14,6 +14,41 @@ factChecked: 2026-11-03
 author: Lexkite
 status: ready
 qualityScore: 86
+quiz: [
+  {
+    q: "Chiến lược phân bổ thời gian tối ưu cho 3 đoạn văn trong IELTS Reading Academic là gì?",
+    options: [
+      "Chia đều 20 phút cho mỗi Passage bất kể độ khó",
+      "Dành 15 phút cho Passage 1, 20 phút cho Passage 2 và 25 phút cho Passage 3",
+      "Làm Passage 3 trước trong 30 phút rồi mới làm Passage 1 và 2",
+      "Dành 30 phút đầu đọc toàn bộ 3 bài trước khi trả lời câu hỏi"
+    ],
+    answer: 1,
+    explain: "Passage 1 có từ vựng và câu hỏi đơn giản nhất, nên hoàn thành nhanh trong 15 phút để dành quỹ thời gian 25 phút cho Passage 3 vốn phức tạp và nhiều suy luận nhất."
+  },
+  {
+    q: "Quy tắc 90 giây trong IELTS Reading nhằm mục đích cốt lõi gì?",
+    options: [
+      "Bắt buộc thí sinh phải đọc xong một trang trong 90 giây",
+      "Ngăn chặn bẫy chi phí chìm (sunk cost fallacy), tránh việc sa lầy quá lâu vào một câu hỏi khó",
+      "Giới hạn thời gian chuyển đáp án sang phiếu trả lời",
+      "Bắt buộc kiểm tra lại toàn bộ bài thi mỗi 90 giây"
+    ],
+    answer: 1,
+    explain: "Nếu sau 90 giây vẫn chưa tìm ra đáp án, thí sinh cần chọn phương án theo phán đoán tốt nhất, đánh dấu lại và chuyển tiếp để không làm mất thời gian của các câu hỏi dễ phía sau."
+  },
+  {
+    q: "Khi làm bài thi IELTS Reading trên giấy (Paper-based), việc ghi đáp án vào Answer Sheet cần thực hiện khi nào?",
+    options: [
+      "Chờ hết 60 phút như bài thi Listening để có 10 phút chuyển đáp án",
+      "Điền trực tiếp đáp án vào Answer Sheet ngay sau mỗi đoạn văn hoặc câu hỏi vì không có thêm thời gian bù",
+      "Chỉ điền vào 5 phút cuối cùng sau khi làm xong cả 40 câu",
+      "Không cần điền vào Answer Sheet nếu đã khoanh trên tờ đề"
+    ],
+    answer: 1,
+    explain: "Khác với IELTS Listening, phần thi IELTS Reading không có 10 phút chuyển đáp án ở cuối giờ. Bạn phải chuyển đáp án trực tiếp vào Answer Sheet trong 60 phút quy định."
+  }
+]
 ---
 
 Trong bài thi IELTS Academic hay General Training, phần thi Đọc luôn là thử thách căng thẳng bậc nhất về mặt áp lực đồng hồ. Rất nhiều thí sinh dù sở hữu vốn ngữ pháp vững vàng và điểm thi thử từng phần khá tốt, nhưng khi bước vào phòng thi thật lại rơi vào cảnh thiếu 5 đến 10 phút ở bài đọc cuối cùng (Passage 3). Việc nắm vững **cách phân bổ thời gian ielts reading** chính là chìa khóa phân định giữa mức điểm Band 6.0 và Band 7.5+.
@@ -126,3 +161,21 @@ Kỹ năng quản lý thời gian không thể tự nhiên xuất hiện trong n
   - In tờ Answer Sheet giấy và viết đáp án trực tiếp bằng bút chì, đo đạc chính xác thời gian chuyển đáp án sang phiếu.
 
 Làm chủ **cách phân bổ thời gian ielts reading** chính là việc chuyển hóa bài thi từ một cuộc chạy đua sinh tồn hoảng loạn thành một quy trình tác chiến khoa học, nơi mỗi phút trôi qua đều đem lại số điểm tối đa cho nỗ lực của bạn.
+
+{{youtube: | Chiến lược phân bổ thời gian IELTS Reading 60 phút điểm cao}}
+
+{{cta: /#/ | Luyện tập quản lý thời gian thi thử IELTS Reading trên Lexkite}}
+
+---
+
+## Câu hỏi thường gặp về phân bổ thời gian IELTS Reading
+
+### Thí sinh nên đọc lướt toàn bộ bài văn trước hay đọc câu hỏi trước?
+Chiến lược tối ưu là dành 60 đến 90 giây đọc lướt tiêu đề, phân đoạn mở đầu và các đề mục nhỏ để nắm bức tranh tổng thể của bài đọc (Skimming), sau đó chuyển ngay sang đọc câu hỏi để xác định từ khóa định vị. Đọc toàn bộ bài quá kỹ ngay từ đầu sẽ làm lãng phí 5 đến 7 phút quý giá mà không nhớ được chi tiết.
+
+### Nếu còn 5 phút mà còn 5 câu chưa làm, xử lý thế nào để vớt điểm?
+Ưu tiên giải quyết dạng câu hỏi trắc nghiệm Multiple Choice hoặc True/False/Not Given trước vì đây là những dạng có xác suất đoán đúng từ 25% đến 33%. Tuyệt đối không để trống bất kỳ ô nào trên Answer Sheet vì câu sai không bị trừ điểm.
+
+### Bài thi IELTS Reading trên máy tính (Computer-delivered) có lợi thế thời gian hơn không?
+Có. Trên máy tính, màn hình chia đôi bài đọc bên trái và câu hỏi bên phải, đồng thời có tính năng Highlight từ khóa và Copy-Paste trực tiếp đáp án vào ô trống, giúp loại bỏ hoàn toàn lỗi sai chính tả và tiết kiệm khoảng 3 đến 4 phút so với việc viết tay trên giấy.
+
