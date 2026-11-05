@@ -1547,7 +1547,7 @@ label.struck { text-decoration: line-through; opacity: .5; }
 .gsi:hover { background: var(--surface-2); } .gsi:focus-visible, button.avatar:focus-visible, #sideLevel:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .gsi svg { flex: none; } .gsi-s { display: none; } .top-stats .gsi { min-height: var(--tap, 36px); padding: 0 .8rem; }
 button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weight: 800; }
-.side-acct { flex: none; padding: .1rem 0 .75rem; } .side-acct p { margin: 0 0 .4rem; } .side-acct .gsi { width: 100%; }
+.side-acct { flex: none; padding: .1rem 0 .75rem; } .side-acct p { margin: 0 0 .4rem; } .side-acct .gsi { width: 100%; min-height: var(--tap, 44px); padding-block: var(--sp-1); white-space: normal; text-align: center; line-height: 1.25; } .side-acct .gsi-l { min-width: 0; } /* thanh bên 248 px: nhãn dài (ar/de/ru) xuống dòng thay vì tràn hai mép (05/11 ar desktop) */
 @media (max-width: 900px) { .top-stats .gsi { padding: 0 .65rem; gap: .4rem; } .top-stats .gsi-l { display: none; } .top-stats .gsi-s { display: inline; } }
 @media (max-width: 480px) { .top-stats .gsi { width: 36px; padding: 0; } .top-stats .gsi-s { display: none; } } /* 375 px: không đủ chỗ cho chữ → nút G tròn (biến thể biểu tượng của Google), tên đọc qua aria-label */
 /* Chữ màu ngữ nghĩa đặt inline trong chuỗi dịch (không đổi được khoá i18n) → dùng màu chữ đạt tương phản */
