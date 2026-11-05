@@ -1752,12 +1752,12 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 :root { --dp: #B45309; }
 :root[data-daypart="noon"] { --dp: #0F766E; }
 :root[data-daypart="evening"] { --dp: #B91C1C; }
-:root[data-theme="dark"] { --dp: #F2A65A; }
-:root[data-theme="dark"][data-daypart="noon"] { --dp: #4FD1C5; }
-:root[data-theme="dark"][data-daypart="evening"] { --dp: #FF8A73; }
+:root[data-theme="dark"] { --dp: #FFB054; }
+:root[data-theme="dark"][data-daypart="noon"] { --dp: #2BA39A; }
+:root[data-theme="dark"][data-daypart="evening"] { --dp: #FF7A4D; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --dp: #F2A65A; }
-  :root:not([data-theme="light"])[data-daypart="noon"] { --dp: #4FD1C5; }
-  :root:not([data-theme="light"])[data-daypart="evening"] { --dp: #FF8A73; }
+  :root:not([data-theme="light"]) { --dp: #FFB054; }
+  :root:not([data-theme="light"])[data-daypart="noon"] { --dp: #2BA39A; }
+  :root:not([data-theme="light"])[data-daypart="evening"] { --dp: #FF7A4D; }
 }
 .kit-say { border-inline-start: 3px solid var(--dp); padding-inline-start: .55rem; }
