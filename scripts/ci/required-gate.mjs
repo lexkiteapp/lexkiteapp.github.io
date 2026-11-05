@@ -251,7 +251,8 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
         first = false;
       }
       const runs = await A.recentRuns(), probes = new Map(), why = new Map();
-      if (A.probe) for (const sha of shas.filter(x => seen.get(x)?.state === 'pending').slice(0, 20)) try { probes.set(sha, await A.probe(sha)); } catch (e) { log('::warning::probe ' + sha.slice(0, 8) + ': ' + e.message); }
+      // thăm dò chỉ khi còn hạn mức dư (≥ 400/giờ): lúc CI bận ETag đổi liên tục, 20 sha × 60–120 vòng/giờ có thể ăn hết 1.000 lệnh của GITHUB_TOKEN → nhường cho đánh giá chính (lưới recheck 10 phút vẫn còn)
+      if (A.probe && ((A.rate && A.rate.remaining) ?? Infinity) >= 400) for (const sha of shas.filter(x => seen.get(x)?.state === 'pending').slice(0, 20)) try { probes.set(sha, await A.probe(sha)); } catch (e) { log('::warning::probe ' + sha.slice(0, 8) + ': ' + e.message); }
       const dirty = dirtyShas({ shas, runs, seen, now: t, probes, why }).slice(0, 25);   // ≤ 25 sha/vòng: hạn mức GITHUB_TOKEN 1.000 lệnh/giờ
       for (const p of prs) if (!born.has(p.head.sha)) born.set(p.head.sha, first ? Date.parse(p.updated_at) : t);   // lượt mồi: lấy lúc PR cập nhật
       for (const sha of dirty) {
