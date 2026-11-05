@@ -18,7 +18,7 @@
 | O2 | Cambridge: định dạng `web/js/cambridge/<cấp>/t<N>.js`, nạp vào `exam-format-check` theo spec `cam-*`, đề gold A2 t1 | S-CAM | ☐ |
 | O3 | Trung gian: spec + `mediation-check` + 2 bài gold `content/mediation/*.json` + đăng ký `sources.json` | S-MED | ☐ |
 | O4 | Viết band 6/7: trường `band`, `whyUp` + loader + cổng; 2 bài gold | S-W67 | ☐ |
-| O5 | P0.6: `scripts/i18n-native-score.mjs` (dịch ngược + giám khảo 1–5) + 3 bài ngữ pháp gốc en mẫu | S-EN | ☐ |
+| O5 | P0.6: `scripts/i18n-native-score.mjs` (dịch ngược + giám khảo 1–5) + 3 bài ngữ pháp gốc en mẫu | S-EN | ✅ |
 | O6 | CQ5 tách chữ vi-only ra khoá dịch (TOEIC S&W, TOEFL CW `explain[]`, readings, quiz ngữ pháp, gloss mẫu nói, pron `tip`) | S-EN, dịch | ☐ |
 
 ## Lô Sonnet (xếp theo điểm tổng ÷ công; điểm = phần tổng SCORE /100 khi lô xong)
@@ -30,7 +30,7 @@
 | 4 | S-MED-1…2 | 4 kỹ năng · trung gian 0→30 | `content/mediation/m<NN>.json` (15/lô) | O3 | mediation-check | 30 | 40k/lô | +2,00 | O3 |
 | 5 | S-CAM-A2-1…2, B1-1…3, B2-1…3, C1-1…3, C2-1…3 | Đề thi · Cambridge 0→6 mỗi cấp | `web/js/cambridge/<cấp>/t<N>.js` (A2: 3 đề/lô, còn lại 2) | O2 | exam-format-check (spec cam-*), gate | 30 đề | 80k/lô | +5,71 | O2 |
 | 6 | S-RP-BR | CQ2: nhánh `br` cho 76 lượt roleplay cũ + Confidence ≥ 2 nhánh | `web/js/roleplay/data-{a,b,everyday}.js`, `content/confidence/units/*` | lượt đã có 2 nhánh | gate, confidence test | 76 + 78 lượt | 60k | (chất lượng) | – |
-| 7 | S-EN-1…6 | i18n · điểm bản xứ 0→5 | `web/i18n/content/grammar-en-<lô>.json` (13 bài/lô) rồi mỗi L1 viết thẳng | O5 | native-score ≥ 4,3, i18n-qa --strict | 77 bài | 70k/lô | +3,57 | O5, O6 |
+| 7 | S-EN-1…6 | i18n · điểm bản xứ 0→5 | `content/i18n/en-src/grammar-<lô>.json` (13 bài/lô); L1 sinh từ en trên CI | `content/i18n/en-src/grammar-gold.json` | native-score ≥ 4,3, i18n-qa --strict | 77 bài | 70k/lô | +3,57 | O5, O6 |
 | 8 | S-L1-<lang> ×14 | P0.4 lỗi theo tiếng mẹ đẻ (Can-do + dễ học) | `web/js/grammar/l1/<lang>.js` (chỉ file ngôn ngữ đó) | mục `vi` hiện có | l1-check (Opus viết cùng lô đầu), gate | 25/ngôn ngữ | 30k/lô | gián tiếp | file grammar của #429/#430 phải gộp trước |
 | 9 | S-SENSE-01…15 | Kho từ (nghĩa v2 lõi 3.000) | `content/lexicon/senses/s<NN>.json` (200 từ theo chỉ số lõi `core.mjs`) | `content/lexicon/senses.json` (gold) | sense-check, build-lexicon | 2.900 | 90k/lô | khi `content:score` đếm nghĩa v2 | O1 |
 | 10 | S-W67-1…4 | 4 kỹ năng · viết mẫu 232→400 | `web/js/write/band67-<lô>.js` | O4 | cổng O4, writecheck | 168 bài | 70k/lô | +1,08 | O4 |
@@ -38,3 +38,11 @@
 | 12 | S-SKILL | Đọc ngắn A1/C2, bài đọc, nghe, chủ đề nói + mẫu (có CEFR, band) | `web/js/read/lot-<n>.js`, `web/js/listen/lot-<n>.js`, `web/js/speak/lot-<n>.js` | bài hiện có | content-check, exam-format | ~500 | 80k/lô | +4,5 | – |
 
 Không phải lô Sonnet (tầng 0/CI, chạy đêm): từ#loại 20k (`lexicon-expand.yml`, +1,94), ảnh theo nghĩa (+1,81, CF_POOL ≤ 0,6), gói nghĩa 13 ngôn ngữ (`lexicon-i18n.yml`, +1,69), collocation/đồng nghĩa/IPA Mỹ tầng 0 (≈ +0,5 cho 9.148 mục có sẵn), C2 (+1,03). Sổ mẫu câu chức năng (+2,86) + trắc nghiệm/tự luận ngữ pháp (+3,37) = xưởng #429; mục gold (+2,21) = #427/#430 – sau khi gộp mới giao Sonnet phần còn lại.
+
+## Brief S-EN-1 (sau O5)
+Mục tiêu: 13 bài ngữ pháp A1–A2 có tiếng Anh viết gốc → L1 sinh thẳng từ en (không qua tiếng Việt), native-score ≥ 4,3.
+1. Nhánh `lot/s-en-1` trên real/main. Bài: `a-an-plurals prepositions-time-place-basic ed-s-endings parts-of-speech-patterns pronouns there-is-empty-it questions imperatives-suggestions articles countable-uncountable adjectives-adverbs present-simple present-continuous`.
+2. `node scripts/i18n-native-score.mjs --keys <id>… > $TMPDIR/k.json` → chép vào `content/i18n/en-src/grammar-s-en-1.json`, viết từng giá trị en như GV bản xứ viết cho người học quốc tế: cùng nghĩa, không thêm ý; mẹo chỉ đúng với người Việt → viết trung tính ("Many languages…"); giữ (A)–(D), →, ví dụ tiếng Anh y nguyên. Mẫu: `grammar-gold.json`.
+3. Bản vi thiếu/sai (vd. không nói phần nào sai) → sửa luôn ở `web/js/grammar/*.js` và đổi khóa tương ứng (chất lượng chỉ tăng).
+4. Cổng: `node scripts/test/i18n-native-score.mjs` xanh (thêm id bài vào danh sách kiểm phủ của test) + gate + content-score. Sau gộp: `i18n.yml` sinh L1, rồi `i18n-native-score.yml` (dispatch, fix=1) chấm + sửa; Opus đọc ≥ 10 % mục `low[]`.
+
