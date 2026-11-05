@@ -181,7 +181,7 @@ function pageFbCover(a) {
     ${paperKite(1262, 46, 84, -16)}
     ${fig(POSES['fb-cover'], { x: 1110, h: 560 })}
     <div style="position:absolute;left:0;top:96px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
-      ${chip('Lexkite · 100% free · No paywalls', 28, 12, 28, dot(12, 'sun'))}
+      ${chip('Lexkite · 100% free · No paywalls', 28, 10, 28, sizedSvg(ICON_SVG, 'fbc', `data-logo style="width:40px;height:40px;margin-right:14px;flex:none"`))}
       <div class="h" data-t style="font-size:84px;margin-top:26px">Learn English words</div>
       <div class="h" data-t style="font-size:84px">that <span class="stick" data-t>stick</span>.</div>
       <div class="sub" data-t style="font-size:32px;margin-top:20px">${COPY.sub}</div>
@@ -236,7 +236,7 @@ async function build() {
       const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: sc });
       await page.goto('file://' + f); await page.evaluate(() => document.fonts.ready);
       await page.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth > 0), null, { timeout: 15000 });
-      const fontsOk = await page.evaluate(() => ['800 20px "Bricolage Grotesque"', '600 20px "Plus Jakarta Sans"'].every(f => document.fonts.check(f)));
+      const fontsOk = await page.evaluate(async () => { const fs = [...document.fonts]; await Promise.all(fs.map(f => f.load().catch(() => null))); return fs.length >= 2 && fs.every(f => f.status === 'loaded'); });
       if (!fontsOk) fails.push(`${a.id}: phông chưa nạp`);
       const shot = await page.screenshot({ omitBackground: a.kind === 'watermark', clip: { x: 0, y: 0, width: W, height: H } });
       const name = sc === 1 ? a.file : a.file.replace(/\.png$/, '@2x.png');
