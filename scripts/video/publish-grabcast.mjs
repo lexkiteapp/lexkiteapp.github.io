@@ -14,6 +14,8 @@ const DRY = flag('dry-run'), STORE_ONLY = flag('store-only'), FILE = opt('file')
 if (!FILE || (!META && !STORE_ONLY)) die('cần --file video.mp4 --meta script.json (hoặc --store-only)');
 if (!fs.existsSync(FILE)) die('không thấy file ' + FILE);
 if (AT && (isNaN(Date.parse(AT)) || Date.parse(AT) < Date.now() + 60e3)) die('--at phải là thời điểm ISO trong tương lai: ' + AT);
+// Cổng duyệt: --at xếp lịch THẲNG trên GrabCast (vượt duyệt bài đầu/HOLD của Quản trị). Chỉ chạy khi người chạy xác nhận rõ (--i-approved) và không phải CI tự động.
+if (AT && !DRY && (!flag('i-approved') || process.env.CI)) die('--at xếp lịch thật, bỏ qua cổng duyệt Quản trị → cần --i-approved và không chạy trong CI. Mặc định: để nháp, duyệt ở Quản trị › Video & Social.');
 const BASE = String(process.env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 const KEY = process.env.GRABCAST_API_KEY || '', WS = String(process.env.GRABCAST_WORKSPACE || '4');
 if (!KEY && !DRY) die('thiếu env GRABCAST_API_KEY (secret của repo)');
