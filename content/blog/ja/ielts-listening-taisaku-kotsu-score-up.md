@@ -56,7 +56,7 @@ IELTSのリスニングで最も頻出する失点パターンが、一度述べ
 - `NO MORE THAN TWO WORDS AND/OR A NUMBER`
 - `ONE WORD ONLY`
 
-もし `ONE WORD ONLY` の指示に対して、本文の音そのままに `the solar energy` や `a red jacket` と書いてしまった場合、冠詞が含まれているため無慈悲に0点となります。公式単語集や語彙リスト [/tu-vung/](/tu-vung/) を活用して、単語単体での品詞感覚を研ぎ澄ましておきましょう。
+もし `ONE WORD ONLY` の指示に対して、本文の音そのままに `the solar energy` や `a red jacket` と書いてしまった場合、冠詞が含まれているため無慈悲に0点となります。公式単語集や語彙リスト [/tu-vung/](/en/vocabulary/) を活用して、単語単体での品詞感覚を研ぎ澄ましておきましょう。
 
 ### 4. 紛らわしいアルファベットと数字の聞き分け
 
