@@ -184,6 +184,9 @@ p { margin: .4rem 0; }
 .btn.lg { padding: 14px var(--sp-5); font-size: var(--fs-md); border-radius: var(--r-md); }
 .btn.block { width: 100%; white-space: normal; text-align: center; line-height: 1.35; overflow-wrap: anywhere; } /* nút rộng hết khung: chữ dài tự xuống dòng, không tràn (vd. Bắt đầu: …) */
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
+/* Nút bị vô hiệu vẫn đọc được (AA ≥ 4.5:1 cả sáng/tối): nền nhạt + chữ muted + viền đứt, không làm mờ cả nút. Lý do chưa bấm được: .next-why ngay dưới */
+.btn.btn[disabled] { opacity: 1; background: var(--surface-2); color: var(--muted); border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); box-shadow: none; }
+.next-why { flex-basis: 100%; margin: .35rem 0 0; font-size: .85rem; color: var(--muted); }
 
 .input, select.input, textarea.input { width: 100%; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); outline: none; transition: border-color .15s, box-shadow .15s; }
 /* iOS Safari: ô ngày/giờ có bề rộng nội tại > khung → tràn (24/10). Ép co theo khung, căn trái như ô khác. */
@@ -210,6 +213,7 @@ label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; fo
 .chip { display: inline-flex; align-items: center; gap: .25rem; padding: .14rem .6rem; border-radius: 999px; background: var(--surface-2); font-size: .78rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
 a.chip:hover { background: var(--primary-soft); color: var(--primary-text); }
 .chip.lv { background: var(--primary-soft); color: var(--primary-text); }
+#lkHero .chip { white-space: normal; max-width: 100%; line-height: 1.35; padding-block: .25rem; } /* câu giới thiệu dài (vi/de/fr…) bị cắt ngang ở điện thoại 375 px → xuống dòng */
 .chip.lv.B1 { background: var(--good-soft); color: var(--good-text); }
 .chip.lv.C1, .chip.lv.C2 { background: var(--gold-soft); color: var(--gold-text); }
 .chip.pos { font-style: italic; }
@@ -1188,6 +1192,9 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 #view:focus, #view:focus-visible { outline: none; } /* focus chuyển về nội dung khi đổi trang – không viền quanh cả trang */
 @keyframes viewIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { #view { animation: none; } }
+/* Thanh tab Stitch (shell.js, trong #view): dính đáy NGAY cả khi CSS màn (css/st-v2-*.css) chưa nạp xong – loadCss thôi chờ sau 1,5 s; trước đây lần nạp đầu
+   trên máy chậm (WebKit/iPhone) thanh tab nằm trong luồng ở cuối trang. Cùng giá trị với lớp Tailwind fixed bottom-0 w-full z-50 → không đổi giao diện. */
+body.v2on #view nav.fixed.bottom-0 { position: fixed; bottom: 0; width: 100%; z-index: 50; }
 /* Khung chờ khi tải */
 .skel-page { display: grid; gap: .9rem; padding-top: .4rem; }
 .skel { border-radius: 14px; background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3, var(--line)) 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: skel 1.2s ease-in-out infinite; }
