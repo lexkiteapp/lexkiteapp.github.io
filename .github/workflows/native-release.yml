@@ -94,7 +94,8 @@ jobs:
     steps:
       - name: Thiếu khoá ký → dừng
         if: env.HAS_KEY != 'true'
-        run: { echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64"; exit 1; }
+        run: |
+          echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64"; exit 1
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }

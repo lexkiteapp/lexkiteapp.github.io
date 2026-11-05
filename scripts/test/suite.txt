@@ -272,3 +272,4 @@ node scripts/test/sync-cross-client.mjs
 node scripts/test/native-compat.mjs
 node scripts/native/content-publish.mjs check
 node scripts/test/native-pick-sim.mjs
+node scripts/test/native-visual.mjs --self-test
