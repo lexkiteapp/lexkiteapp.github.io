@@ -163,10 +163,8 @@ await pool(V.merge, 6, async (c, i) => {
 // (sync-drive.js once(): remoteVer === st.ver) → máy có thể không nhận lại dấu xoá "trơ" (thẻ cùng khoá vẫn còn, hoạt động mới hơn dấu xoá:
 // mergeCards không bao giờ dùng tới). Chỉ đúng phần trơ đó được bỏ khi so ở chế độ Drive; mọi thứ khác so tuyệt đối.
 const inert = d => (d ? { ...d, deleted: Object.fromEntries(Object.entries(d.deleted || {}).filter(([k]) => !(d.cards || {})[k])) } : d);
-// Lỗi web ĐÃ BIẾT (báo coordinator, không sửa web ở đây): ở chế độ Drive, sync.js chỉ gọi syncExtension() trong mergeIn, mà mergeIn chỉ chạy khi
-// tệp Drive đổi do máy KHÁC ghi → từ add-on lưu trên máy này không lên tài khoản cho tới khi máy khác ghi Drive. Ca dưới phải còn đỏ;
-// khi web sửa xong, ca chuyển xanh → test báo "đã sửa, bỏ khỏi KNOWN" (không thể âm thầm che lỗi).
-const KNOWN = new Set(['drive|add-on saves a word → web (bridge) → Android/iOS|android']);
+// Lỗi web ĐÃ BIẾT (ca phải còn đỏ; khi web sửa → test báo "bỏ khỏi KNOWN", không thể âm thầm che lỗi). Trống từ #730 (Drive + add-on, 05/11).
+const KNOWN = new Set([]);
 const check = (mode, sc, who, got, want) => {
   const key = `${mode}|${sc}|${who}`, pass = mode === 'drive' ? same(inert(got), inert(want)) : same(got, want);
   if (KNOWN.has(key)) { ok(!pass, `[${mode}] "${sc}" ${who}: lỗi web đã biết nay đã khớp → bỏ khỏi KNOWN`); if (!pass) console.log(`⚠ lỗi web đã biết [${mode}] "${sc}" ${who}: ${diff(got, want).slice(0, 160)}`); return; }
