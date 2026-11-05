@@ -381,9 +381,12 @@
   };
 
   // Bong bóng Hôm nay = TeacherBubble (js/teacher-bubble.js, tải lười; docs/specs/teacher-bubble.md): chữ gõ 1 lần/ngày, 🔊 Ama đọc, miệng/vòng nghỉ bằng TeacherRig.
+  // chỗ giữ nút 🔊 của TeacherBubble: cùng dấu chân dòng với .tb-snd (44 px + lề trái 2 px, cao dòng 16 px nhờ lề âm -14 px) – cổng teacher-bubble.mjs đọc đúng hằng này
+  const TB_SLOT = '<span class="tb-snd-slot" aria-hidden="true" style="display:inline-block;width:46px;height:16px;vertical-align:middle"></span>';
   function sayIn(root, say, mood) {
     const p = [...root.querySelectorAll('p')].find(x => x.textContent.trim() === say); if (!p || !App.loadScript) return;
     p.style.visibility = 'hidden'; // chờ module nạp rồi mới hiện (không nháy chữ đầy → trống → gõ)
+    p.insertAdjacentHTML('beforeend', TB_SLOT); // giữ chỗ nút 🔊 ngay từ khung đầu → gắn bong bóng không xuống dòng/xô bố cục (CLS 0)
     App.loadScript('js/teacher-bubble.js').then(() => window.TeacherBubble && TeacherBubble.attach({ root, textEl: p, slotEl: root.querySelector('[data-tch] .tslot'), who: 'ama', text: say, mood, key: 'today' })).catch(() => {}).finally(() => { p.style.visibility = ''; });
   }
 
