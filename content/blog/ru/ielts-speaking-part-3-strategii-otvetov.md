@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **Прямое повторение формулировок экзаменатора:** Заменяйте ключевые глаголы и прилагательные синонимами или трансформируйте части речи.
 
-Для совершенствования интонационной выразительности изучите материал о [фразовом ударении в английском языке](/ru/blog/frazoe-udarenie-v-angliyskom-yazyke/) и регулярно практикуйте [метод shadowing в английском](/ru/blog/metod-shadowing-angliyskiy-yazyk/). Пополняйте свой запас выражений через наш раздел [тематического английского словаря](/ru/tu-vung/).
+Для комплексной подготовки к устному экзамену начните с базовых тем в [IELTS Speaking Part 1 ответы и советы](/ru/blog/ielts-speaking-part-1-otvety-i-sovety/), для совершенствования интонационной выразительности изучите материал о [фразовом ударении в английском языке](/ru/blog/frazoe-udarenie-v-angliyskom-yazyke/) и регулярно практикуйте [метод shadowing в английском](/ru/blog/metod-shadowing-angliyskiy-yazyk/). Пополняйте свой запас выражений через наш раздел [тематического английского словаря](/ru/vocabulary/).
 
 {{youtube: | Как развернуть ответы и аргументировать позицию в IELTS Speaking Part 3}}
 

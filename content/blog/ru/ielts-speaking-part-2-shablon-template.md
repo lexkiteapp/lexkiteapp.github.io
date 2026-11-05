@@ -139,7 +139,7 @@ quiz: [
 | **Неожиданность** | Suddenly... | *Out of the blue / Much to my astonishment...* |
 | **Обобщение** | In the end... | *When all is said and done / Taking everything into consideration...* |
 
-Тренируйте параллельно навыки скорочтения в [IELTS Reading skimming scanning tehniki](/ru/blog/ielts-reading-skimming-scanning-tehniki/) и изучайте материалы в нашем специальном разделе [практика устной речи и Speaking](/speaking/).
+Тренируйте вводные ответы в [IELTS Speaking Part 1 стратегии](/ru/blog/ielts-speaking-part-1-otvety-i-sovety/), развивайте навыки скорочтения в [IELTS Reading skimming scanning tehniki](/ru/blog/ielts-reading-skimming-scanning-tehniki/) и изучайте материалы в нашем специальном разделе [практика устной речи и Speaking](/speaking/).
 
 {{cta: /speaking/ | Начать подготовку к IELTS Speaking}}
 
