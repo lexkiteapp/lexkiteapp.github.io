@@ -55,7 +55,7 @@ async function probe([i, mode, kbPx]) {
   el.scrollIntoView({ block: 'nearest' }); await wait(80); // người dùng chạm được ô → ô đang nằm trong màn hình đầy đủ
   { // ô người dùng KHÔNG chạm tới được kể cả khi chưa có bàn phím (thanh trên ẩn ở màn học, ô sau lớp phủ…) → không phải lỗi bàn phím; đếm riêng
     const b0 = el.getBoundingClientRect(), cy = b0.top + Math.min(b0.height / 2, 22), h0 = cy >= 0 && cy < innerHeight && document.elementFromPoint(b0.left + Math.min(b0.width / 2, 24), cy);
-    if (!h0 || !(h0 === el || el.contains(h0) || h0.contains(el) || (el.labels && [...el.labels].includes(h0)))) return { unreachable: sel(el) };
+    if (!h0 || !(h0 === el || el.contains(h0) || h0.contains(el) || (el.labels && [...el.labels].includes(h0)))) return { unreachable: sel(el) + ' (' + (h0 ? 'chạm trúng ' + sel(h0) : 'ngoài màn, top ' + Math.round(b0.top)) + ')' };
   }
   el.focus({ preventScroll: true }); await wait(60);
   const padded = [];
@@ -140,7 +140,7 @@ const md = [`# ⌨️ Bàn phím ảo – ${checked.length} lượt ô nhập ×
   `**Kết quả:** ${fails.length ? '❌ ' + fails.join(' · ') : '✅ không ô nào bị bàn phím che'}`, '',
   `| vp | mô hình | route | ô | lỗi | ô (x,y,w,h) | nhìn thấy (top,h) |`, '|---|---|---|---|---|---|---|',
   ...issues.slice(0, 80).map(i => `| ${i.vp} | ${i.mode} | ${i.route} | \`${i.k}\` | ${i.x.replace(/\|/g, '/')} | ${i.rect} | ${i.vv} |`), '',
-  `Ô không chạm tới được ngay cả khi chưa mở bàn phím (bỏ qua, ví dụ thanh trên ẩn ở màn học): ${unreachable.length}`, '',
+  `Ô không chạm tới được ngay cả khi chưa mở bàn phím (bỏ qua, ví dụ thanh trên ẩn ở màn học): ${unreachable.length}`, ...unreachable.slice(0, 40).map(u => '- ' + u), '',
   ...(errs.length ? ['## Lỗi chạy', ...errs.slice(0, 30).map(e => '- ' + e)] : [])].join('\n');
 fs.writeFileSync(`${OUT}/KEYBOARD.md`, md);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
