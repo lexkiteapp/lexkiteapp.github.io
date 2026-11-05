@@ -66,8 +66,9 @@ export function socialMeta(c, platform = 'youtube') {
   const value = c.value ? clean(c.value, 200) : `Learn ${keywordOf(c)} in 20 seconds – natural American English${c.cefr ? ` (${String(c.cefr).toUpperCase()})` : ''}.`;
   const own = (Array.isArray(c.hashtags) ? c.hashtags : []).map(h => '#' + String(h).replace(/^#/, '').toLowerCase()).filter(h => /^#[a-z0-9]+$/.test(h)), hashtags = own.length >= 3 ? [...new Set(own)].slice(0, 5) : hashtagsOf(c, platform);
   const tags = [...new Set([keywordOf(c).toLowerCase(), 'learn english', 'english lesson', c.topic, c.skill && c.skill + ' english', c.cefr && String(c.cefr).toLowerCase() + ' english', c.exam && c.exam + ' english', 'american english'].filter(Boolean))].slice(0, 12);
-  const body = [hook, value, `Full lesson + quiz: ${lessonUrl(c, platform)}`, '', 'Save this and send it to a friend who needs it.', hashtags.join(' ')];
-  if (P.marker) body.push('', markerLine(c.id));
+  // Đuôi cố định (hashtag + marker) KHÔNG bao giờ bị cắt: lỗi cũ cắt cả mô tả tới P.caption nên mô tả dài làm rơi hashtag/marker im lặng → cắt phần thân trước.
+  const tail = [hashtags.join(' '), ...(P.marker ? ['', markerLine(c.id)] : [])].join('\n'), room = Math.max(0, P.caption - tail.length - 1);
+  const head = [hook, value, `Full lesson + quiz: ${lessonUrl(c, platform)}`, '', 'Save this and send it to a friend who needs it.'].join('\n'), body = [head.length > room ? head.slice(0, Math.max(0, room - 1)).replace(/\s+\S*$/, '') + '…' : head, tail];
   const m = { role: 'social', platform, privacy: 'public', no_keyword: k.toLowerCase() === String(c.id || '').toLowerCase(), title: variants[0], variants, description: body.join('\n').slice(0, P.caption), hashtags, tags, made_for_kids: false, synthetic: true };
   m.seo = seoScore(m, k); return m;
 }

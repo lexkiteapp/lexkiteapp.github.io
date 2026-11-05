@@ -130,6 +130,7 @@
 - [specs/audio-quality.md](specs/audio-quality.md) — Chất lượng giọng đọc/phát âm/nghe: điểm hiện tại theo mảng (~64/100), 5 nâng cấp $0 lên 100, có nên dùng ElevenLabs (giá, điều khoản); đọc khi: sửa giọng đọc, chấm phát âm, nghe hoặc cân nhắc TTS trả phí
 - [WORD-AUDIO.md](WORD-AUDIO.md) — Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả; đọc khi: sửa âm thanh từ
 - [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) — Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh; đọc khi: đăng video lên YouTube
+- [YOUTUBE-AUDIT.md](YOUTUBE-AUDIT.md) — Hồ sơ soạn sẵn xin YouTube API audit + quota (câu trả lời form, phạm vi, lưu lượng, kịch bản video demo, việc sau khi duyệt); đọc khi: nộp form audit YouTube
 - [i18n-review-2026-10-16.md](i18n-review-2026-10-16.md) — Nhật ký rà soát bản dịch 16/10/2026 cho các chuỗi bị back-translation gắn cờ (OK/WRONG); đọc khi: tra quyết định dịch cũ
 
 ## Con trỏ tới tài liệu đã chuyển (stub trong docs/)

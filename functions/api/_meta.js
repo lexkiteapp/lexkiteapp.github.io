@@ -87,8 +87,8 @@ export async function fbStatus(mc, video_id) {
 }
 
 /** IG Reels: tạo container (Meta tự tải video_url) → chờ status_code FINISHED (lượt sau) → media_publish. */
-export async function igContainer(mc, igId, { video_url, caption }) {
-  const r = await mc('POST', `${igId}/media`, { media_type: 'REELS', video_url, caption: String(caption || '').slice(0, 2200), share_to_feed: 'true' });
+export async function igContainer(mc, igId, { video_url, caption, cover_url = '' }) {
+  const r = await mc('POST', `${igId}/media`, { media_type: 'REELS', video_url, caption: String(caption || '').slice(0, 2200), share_to_feed: 'true', ...(/^https:\/\//.test(cover_url) ? { cover_url } : {}) });
   const id = String((r.data && r.data.id) || '');
   if (r.status >= 400 || !ID.test(id)) throw Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step: 'container' });
   return id;
