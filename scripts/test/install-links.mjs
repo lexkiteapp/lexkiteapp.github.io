@@ -15,7 +15,7 @@ import { siteFooter, footGroups, FOOT, themePage } from '../lib/site-layout.mjs'
 let fail = 0, n = 0;
 const ok = (c, m) => { n++; if (!c) { fail++; console.error('  ✗ ' + m); } };
 const D = readLinks(), LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`;
+const fileOf = l => `web/${l}/index.html`;
 
 // 1) File sinh + bản trong add-on khớp nguồn
 for (const [p, txt] of targets(D)) ok(fs.existsSync(p) && fs.readFileSync(p, 'utf8') === txt, `${p} cũ so với infra/install-links.json → node scripts/build-install-links.mjs`);
