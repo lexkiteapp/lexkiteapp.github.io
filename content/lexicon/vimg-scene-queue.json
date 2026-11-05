@@ -73,12 +73,6 @@
    "why": "meaning check: no (Is the person offering a briefcase to request a jo)",
    "b": "41615420488"
   },
-  "approach#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is the person choosing one of two possible routes?)",
-   "b": "41615420488"
-  },
   "arbitration#n": {
    "at": "2026-11-04",
    "tries": 6,
@@ -133,12 +127,6 @@
    "why": "meaning check: no (Is the person moving toward the rear of the chair?)",
    "b": "41615420488"
   },
-  "bail#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is the person unlocking a jail cell to let someone)",
-   "b": "41615420488"
-  },
   "bang#v": {
    "at": "2026-11-04",
    "tries": 6,
@@ -161,12 +149,6 @@
    "at": "2026-11-03",
    "tries": 6,
    "why": "meaning check: no (Is the person offering money to persuade the other)",
-   "b": "41615420488"
-  },
-  "burglar#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision description-sentence sim 0.2551",
    "b": "41615420488"
   },
   "burial#n": {
@@ -263,12 +245,6 @@
    "at": "2026-11-03",
    "tries": 6,
    "why": "meaning check: no (Is the person acting only if a certain condition i)",
-   "b": "41615420488"
-  },
-  "consent#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is the second person giving a thumbs‑up to show pe)",
    "b": "41615420488"
   },
   "consequent#adj": {
@@ -379,12 +355,6 @@
    "why": "vision: no (regional offices, decentralization action); vision description-sentence sim 0.1864",
    "b": "40088424311"
   },
-  "defer#v": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision description-sentence sim 0.2482",
-   "b": "41615420488"
-  },
   "delegation#n": {
    "at": "2026-11-04",
    "tries": 6,
@@ -437,12 +407,6 @@
    "at": "2026-11-03",
    "tries": 6,
    "why": "meaning check: no (Is the person tearing a picture of a married coupl)",
-   "b": "41615420488"
-  },
-  "donor#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision: text",
    "b": "41615420488"
   },
   "dossier#n": {
@@ -535,12 +499,6 @@
    "why": "meaning check: no (Is there a strip of hair above the eye?)",
    "b": "41821221567"
   },
-  "faculty#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "size > 6 KB",
-   "b": "41615420488"
-  },
   "faint#v": {
    "at": "2026-11-03",
    "tries": 6,
@@ -606,12 +564,6 @@
    "tries": 6,
    "why": "meaning check: no (Is the person making a broad claim based on only o)",
    "b": "41775450761"
-  },
-  "gorilla#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision: no (no forest floor or trees)",
-   "b": "41615420488"
   },
   "government#n": {
    "at": "2026-11-04",
@@ -787,29 +739,11 @@
    "why": "meaning check: no (Are the two people exchanging money with the expec)",
    "b": "41615420488"
   },
-  "manual handling#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision: no (back not straight, knees not bent)",
-   "b": "41615420488"
-  },
-  "market penetration#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "size > 6 KB",
-   "b": "41615420488"
-  },
   "maximize#v": {
    "at": "2026-11-04",
    "tries": 6,
    "why": "vision: no (balloon not being stretched)",
    "b": "41775450761"
-  },
-  "meal plan#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is the student getting a meal without paying at th)",
-   "b": "41615420488"
   },
   "medical records#n": {
    "at": "2026-11-04",
@@ -985,12 +919,6 @@
    "why": "meaning check: no (Is the person dressed with a hat and eye patch on )",
    "b": "41821221567"
   },
-  "policy#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is a person showing a planned route as a course of)",
-   "b": "41615420488"
-  },
   "pollination#n": {
    "at": "2026-11-04",
    "tries": 6,
@@ -1050,12 +978,6 @@
    "tries": 6,
    "why": "vision: no (cookie jar and kitchen shelf)",
    "b": "41821221567"
-  },
-  "proxy#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is the person acting on behalf of someone who is n)",
-   "b": "41615420488"
   },
   "punctuality#n": {
    "at": "2026-11-04",
@@ -1141,12 +1063,6 @@
    "why": "clip-sentence sim 0.1702",
    "b": "40276144478"
   },
-  "retail#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "text: al",
-   "b": "41615420488"
-  },
   "return ticket#n": {
    "at": "2026-11-03",
    "tries": 6,
@@ -1177,37 +1093,13 @@
    "why": "meaning check: no (Is the cow repeatedly chewing a lump of grass in i)",
    "b": "41775450761"
   },
-  "salesperson#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision: no (shop assistant, bright red)",
-   "b": "41615420488"
-  },
   "saltwater intrusion#n": {
    "at": "2026-11-03",
    "tries": 6,
    "why": "meaning check: no (Is salty water encroaching into the farmer's fresh)",
    "b": "41615420488"
   },
-  "sample order#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is there a small package being examined as a test?)",
-   "b": "41615420488"
-  },
-  "scaffolding#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "size > 6 KB",
-   "b": "41615420488"
-  },
   "securities#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision: text",
-   "b": "41615420488"
-  },
-  "self-checkout#n": {
    "at": "2026-11-03",
    "tries": 6,
    "why": "vision: text",
@@ -1247,12 +1139,6 @@
    "at": "2026-11-03",
    "tries": 6,
    "why": "vision: no (kite not flying, no blue sky)",
-   "b": "41615420488"
-  },
-  "spider#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "size > 6 KB",
    "b": "41615420488"
   },
   "spin#v": {
@@ -1345,12 +1231,6 @@
    "why": "meaning check: no (Is the student giving money to the teacher for les)",
    "b": "41821221567"
   },
-  "unintelligible#adj": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "size > 6 KB",
-   "b": "41615420488"
-  },
   "urine#n": {
    "at": "2026-11-04",
    "tries": 6,
@@ -1387,12 +1267,6 @@
    "why": "meaning check: no (Is the person moving their hand side to side in a )",
    "b": "41615420488"
   },
-  "weathering#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "vision: no (no stream over smooth rock)",
-   "b": "41615420488"
-  },
   "wholly#adv": {
    "at": "2026-11-04",
    "tries": 6,
@@ -1404,12 +1278,6 @@
    "tries": 6,
    "why": "vision: no (grassy bank not shown)",
    "b": "41775450761"
-  },
-  "work permit#n": {
-   "at": "2026-11-03",
-   "tries": 6,
-   "why": "meaning check: no (Is there an official approval document shown as a )",
-   "b": "41615420488"
   },
   "wrinkle#n": {
    "at": "2026-11-03",
