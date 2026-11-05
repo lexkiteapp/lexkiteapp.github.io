@@ -1,8 +1,8 @@
 # Sinh bộ từ lõi ngôn ngữ đích theo lô (pt-BR ~300 · es-419 3.000 lemma A1–B2, lô 300) – chạy tay; docs/specs/target-language.md, spanish-course.md W1.
 # AI qua ai-pool chung (khóa miễn phí): soạn → LanguageTool 0 lỗi (bảng có lt) → 2 giám khảo khác họ → dịch ngược → cổng validate
 # → IPA espeak-ng của bảng (tl_ipa_fill.py) → Wiktionary lemma/giống/số nhiều (wikt-check.mjs) → kiểm cả bộ (build.mjs --check) → mẫu soát ≥ 5 %.
-# Kết quả: tệp lô mới core-NN.json + .report.json (status pending-review). Chạy trên nhánh PR (≠ main) → bot commit lô vào CHÍNH nhánh đó (lượt sau nối tiếp);
-# chạy trên main → chỉ artifact (main có ruleset). Bảng riêng từng ngôn ngữ: scripts/target/tl-gen.mjs.
+# Kết quả: tệp lô mới core-NN.json + .report.json (status pending-review) → artifact bot-output-target-<tl> (không bot commit vào nhánh PR –
+# scripts/test/no-pr-branch-push.mjs); lấy về: bash scripts/ci/bot-output.sh target-<tl> <nhánh> <run-id>, tự commit rồi chạy lượt sau. Bảng riêng từng ngôn ngữ: scripts/target/tl-gen.mjs.
 name: target-content
 run-name: "target-content ${{ github.event.inputs.tl || 'PR' }} ${{ github.event.inputs.dry == '1' && '(khô)' || '' }}"
 on:
@@ -14,7 +14,7 @@ on:
       shards: { description: 'Số job song song (1–12; mỗi shard ≤ n mục)', default: '1' }
   pull_request:
     paths: ['scripts/target/**', 'content/target/**', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
-permissions: { contents: write, id-token: write }   # contents: commit lô vào nhánh PR (không bao giờ main); id-token: JWT OIDC cho /api/lexai
+permissions: { contents: read, id-token: write }   # chỉ đọc repo (lô ra artifact); id-token: JWT OIDC cho /api/lexai
 # Lượt tay nối tiếp lô trước → xếp hàng, KHÔNG huỷ lượt đang sinh (mất hạn mức ai-pool); PR thì huỷ lượt cũ.
 concurrency:
   group: 'target-content-${{ github.ref }}'
@@ -116,11 +116,11 @@ jobs:
       - name: Kiểm cả bộ sau lô
         if: ${{ github.event.inputs.dry != '1' }}
         run: node scripts/target/build.mjs "$TL" --check
-      - name: Commit lô vào nhánh (không phải main)
-        if: ${{ github.event.inputs.dry != '1' && github.ref != 'refs/heads/main' }}
-        run: |
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add "content/target/$TL"/core-*.json
-          git diff --cached --quiet && { echo '✗ không có lô mới'; exit 1; }
-          git commit -qm "Khóa $TL: lô từ vựng $(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1 | xargs basename) (pending-review) [skip ci] [CF-Pages-Skip]"
-          for i in 1 2 3; do git pull -q --rebase --autostash origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep $((i * 7)); done; exit 1
+      # Không đẩy vào nhánh PR (no-pr-branch-push: đầu PR là commit bot → required-gate treo) → artifact bot-output-target-<tl>;
+      # người làm PR / vòng nạp lấy về: bash scripts/ci/bot-output.sh target-<tl> <nhánh> <run-id> rồi tự commit (lượt sau nối tiếp).
+      - name: Lô mới → artifact bot-output (không commit vào nhánh)
+        id: bo
+        uses: ./.github/actions/bot-output
+        with: { name: 'target-${{ github.event.inputs.tl }}', paths: 'content/target/${{ github.event.inputs.tl }}', retention-days: '30' }
+      - if: ${{ steps.bo.outputs.changed != '1' }}
+        run: echo '✗ không có lô mới' && exit 1
