@@ -137,6 +137,7 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-map-colors.mjs
 node scripts/test/ads.mjs
 node scripts/test/ads-admin.mjs
 node scripts/test/ads-revenue.mjs
@@ -202,6 +203,7 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
+node scripts/social/build-channel-kit.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
