@@ -94,8 +94,8 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 ### B1. Nhãn quyền riêng tư App Store (App Privacy)
 Bảng đầy đủ, đối chiếu từng dòng chính sách mục 2: **`store/apple/LISTING.md` § App Privacy** (cập nhật 20/10/2026 – bản cũ thiếu Name, Photos, Device ID, Search History, Other Diagnostic Data so với Play Data safety). `PrivacyInfo.xcprivacy` đã sửa khớp (có hiệu lực từ build TestFlight kế tiếp).
 - Data Used to Track You: **None**.
-- Data Linked to You (App Functionality, đều tùy chọn): Name, Email Address, Customer Support, Photos or Videos (form liên hệ / báo lỗi).
-- Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Crash Data, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
+- Data Linked to You (App Functionality, đều tùy chọn): Name, Email Address, Customer Support, Photos or Videos (form liên hệ / báo lỗi). Từ bản 1.0.2: **Crash Data** (Analytics + App Functionality – Crashlytics gắn mã người dùng đã băm khi đăng nhập).
+- Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
 - Khi bật đăng nhập trong app: thêm User ID (Linked) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` + Play Data safety cùng lúc.
 
 > **22/10 – Đăng nhập gốc (B2):** ✅ Firebase đã có app iOS + Android (đủ 4 SHA Play/upload), 2 file cấu hình đã commit (c6eee5b4); ✅ provider Apple đã bật. 👤 Còn lại duy nhất: tạo khóa Sign in with Apple (.p8) trên Apple Developer → dán vào Firebase › Apple › OAuth code flow (Team ID B285J68262) – để thu hồi token khi xóa tài khoản. Khóa riêng tư → anh chủ tự dán.
@@ -142,6 +142,12 @@ Nguồn: `reviewNotes` trong `store/apple/listing.json` (chữ từng ngôn ng�
 | ⚠️ | Bàn phím / vùng an toàn | iOS `contentInset: never` + CSS `env(safe-area-inset-*)`; Android inset CSS của Capacitor 8 | 🛠 kiểm trên ảnh CI các trang có ô nhập (Viết, tra từ) với bàn phím mở. |
 | ⚠️ | Thương hiệu người bán | Tên hiển thị người bán = **MODIAN LUXURY JEWELRY LLC** (pháp nhân của D-U-N-S) | Không sai luật nhưng người dùng thấy "công ty trang sức" bán app học tiếng Anh. Nếu muốn hiện "Lexkite": đăng ký tên thương mại (DBA "Lexkite") với Wyoming + cập nhật D-U-N-S trước khi đăng ký Apple. |
 | ⚠️ | Email & website khi đăng ký Organization | | Apple/Google xác minh tổ chức: dùng email tên miền (`support@lexkite.com` hoặc `admin@lexkite.com`), website `https://lexkite.com` (trang chính sách đã nêu tên LLC + địa chỉ ✅). Số điện thoại của LLC phải nghe máy được (Apple gọi xác minh). |
+
+### C2. Firebase Crashlytics (bản store 1.0.2+)
+- 🛠 `@capacitor-firebase/crashlytics` (cùng bản các plugin Firebase khác, SPM symlink) · Android: plugin Gradle `com.google.firebase.crashlytics` (build ID; minify đang tắt → chưa có mapping, bật minify thì plugin tự tải mapping) · iOS: `ios-testflight.yml` archive `dwarf-with-dsym` + `upload-symbols` dSYM.
+- Lỗi JS lớp web → non-fatal qua `web/js/crash.js` (native.js giữ hàng đợi lỗi sớm): lọc URL/email/token/số dài/trích dẫn, stack chỉ tên file + dòng, trang = đoạn đầu hash, uid = SHA-256 16 hex khi đăng nhập, ≤ 20 lỗi/phiên. Khoá: `scripts/test/crashlytics.mjs`. Chưa có cài đặt quyền riêng tư nào cho chẩn đoán (lỗi JS vốn đã gửi `/api/hit`) → Crashlytics bật mặc định.
+- Chính sách quyền riêng tư (en/vi + 13 bản dịch) đã thêm Crashlytics (bên xử lý, dữ liệu, 90 ngày).
+- 👤 Sau khi bản 1.0.2 lên: App Store Connect → App Privacy → Crash Data → Edit → chọn **Linked to the user** + thêm mục đích **App Functionality** → Publish. Play Console → App content → Data safety: Crash logs/Diagnostics đã khai (Collected, không Shared) – không đổi. Firebase Console → Crashlytics → bấm **Enable Crashlytics** cho 2 app (iOS + Android) nếu chưa bật.
 
 ## E. Khi bật AdMob (bản app đầu tiên có SDK quảng cáo – docs/ADS.md)
 Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
