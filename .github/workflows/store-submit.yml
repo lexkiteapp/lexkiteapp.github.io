@@ -9,6 +9,9 @@
 # Secret: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (iOS) · ANDROID_KEYSTORE_* (ký) · PLAY_SERVICE_ACCOUNT_JSON (Play; thiếu → bỏ qua Android kèm notice).
 name: Store submit
 on:
+  push:   # TẠM: chạy thử dry-run trên nhánh PR (dispatch cần file ở main) – gỡ trước khi gộp
+    branches: [claude/store-submit]
+    paths: ['.github/workflows/store-submit.yml', 'scripts/store/**']
   workflow_dispatch:
     inputs:
       app: { description: 'App', type: choice, options: [capacitor, native], default: capacitor }
