@@ -325,6 +325,12 @@
    "why": "meaning check: no (Are there two new cells formed from one original c)",
    "b": "42082474448"
   },
+  "checking account#n": {
+   "at": "2026-11-05",
+   "tries": 6,
+   "why": "meaning check: no (Is the person using a bank account to pay for ever)",
+   "b": "42114906598"
+  },
   "cigar#n": {
    "at": "2026-11-05",
    "tries": 6,
@@ -2028,6 +2034,12 @@
    "tries": 12,
    "why": "vision: no (kite not flying upward)",
    "b": "42101006887"
+  },
+  "sometimes#adv": {
+   "at": "2026-11-05",
+   "tries": 6,
+   "why": "vision: no (no coffee cup, wrong person)",
+   "b": "42114906598"
   },
   "source code#n": {
    "at": "2026-11-05",

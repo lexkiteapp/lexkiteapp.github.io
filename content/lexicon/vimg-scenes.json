@@ -11351,15 +11351,17 @@
   },
   "checking account#n": {
    "ex": "My salary goes into my checking account, and I pay my bills from it.",
-   "ps": "a woman hands a paycheck to a bank teller behind a counter",
-   "sc": "a woman hands a paycheck to a bank teller behind a counter",
-   "check": "Is a woman giving a paycheck to a bank teller, implying money goes into an account?",
-   "cap": "woman giving a paycheck to a bank teller",
+   "ps": "a woman holds a tiny bank building model in one hand and a grocery bag in the other",
+   "sc": "a woman holds a tiny bank building model in one hand and a grocery bag in the other",
+   "check": "Is the person using a bank account to pay for everyday items?",
+   "cap": "a woman holding a bank building model and a grocery bag",
+   "key": "a tiny bank building model in hand; a grocery bag with food",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "up": "e4"
+   "tries": 3,
+   "refix": 1
   },
   "checkup#n": {
    "ex": "All staff must have an annual health checkup.",
@@ -35177,7 +35179,7 @@
    "cap": "people taking photos of a product for a prize",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 2
+   "e4bad": 3
   },
   "hastily#adv": {
    "ex": "William hastily got out of bed.",
@@ -70371,15 +70373,17 @@
   },
   "sometimes#adv": {
    "ex": "I sometimes study in the café near my house.",
-   "ps": "a woman studies at a café table with a laptop, coffee, and a tiny house on a shelf",
-   "sc": "a woman studies at a café table with a laptop, coffee, and a tiny house on a shelf",
-   "check": "Is the woman studying at a café with a laptop and coffee?",
-   "cap": "a student working in a café beside a small house model",
+   "ps": "a woman at a table with a coffee cup looks at a blank sheet with a big red circle",
+   "sc": "a woman at a table with a coffee cup looks at a blank sheet with a big red circle",
+   "check": "Is there a blank sheet with a big red circle showing a specific, not regular, day?",
+   "cap": "a woman with coffee looks at a sheet marked by a red circle",
+   "key": "a big red circle on a blank sheet; the woman looking at the sheet",
    "who": 1,
    "draw": 4,
-   "v": "e4",
+   "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 1
+   "tries": 3,
+   "refix": 2
   },
   "somewhat#adv": {
    "ex": "The results were somewhat disappointing.",
