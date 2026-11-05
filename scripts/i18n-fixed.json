@@ -35654,5 +35654,35 @@
     "ar": "الاهتزاز عند الإجابة وإكمال الدرس",
     "ru": "Вибрация при ответах и завершении урока",
     "tr": "Cevaplarda ve ders bitişinde titreşim"
+  },
+  "Chạm ▶ để nghe": {
+    "es": "Toca ▶ para escuchar",
+    "pt": "Toque em ▶ para ouvir",
+    "fr": "Touchez ▶ pour écouter",
+    "de": "Tippe auf ▶ zum Anhören",
+    "id": "Ketuk ▶ untuk mendengar",
+    "th": "แตะ ▶ เพื่อฟัง",
+    "zh": "点按 ▶ 收听",
+    "ja": "▶ をタップして聞く",
+    "ko": "▶ 을 눌러 듣기",
+    "hi": "सुनने के लिए ▶ टैप करें",
+    "ar": "اضغط ▶ للاستماع",
+    "ru": "Нажмите ▶, чтобы слушать",
+    "tr": "Dinlemek için ▶'ye dokun"
+  },
+  "Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)": {
+    "es": "El audio no empezó: toca para escuchar (no gasta tu única escucha)",
+    "pt": "O áudio não começou: toque para ouvir (não conta como sua única escuta)",
+    "fr": "L’audio n’a pas démarré : touchez pour écouter (votre unique écoute n’est pas utilisée)",
+    "de": "Der Ton ist nicht gestartet – tippe zum Anhören (dein einmaliges Anhören wird nicht verbraucht)",
+    "id": "Audio belum diputar – ketuk untuk mendengar (tidak memakai jatah dengar sekali)",
+    "th": "เสียงยังไม่เล่น – แตะเพื่อฟัง (ยังไม่นับเป็นการฟังครั้งเดียวของคุณ)",
+    "zh": "音频未开始播放——点按收听（不占用你唯一的一次收听）",
+    "ja": "音声が再生されませんでした – タップして聞いてください（1 回きりの視聴回数は消費されません）",
+    "ko": "오디오가 재생되지 않았습니다 – 눌러서 들으세요(한 번뿐인 듣기 기회는 사용되지 않습니다)",
+    "hi": "ऑडियो शुरू नहीं हुआ – सुनने के लिए टैप करें (आपका एक बार सुनने का मौका खर्च नहीं होगा)",
+    "ar": "لم يبدأ الصوت – اضغط للاستماع (لن يُحتسب من استماعك الوحيد)",
+    "ru": "Звук не запустился – нажмите, чтобы слушать (ваше единственное прослушивание не засчитано)",
+    "tr": "Ses başlamadı – dinlemek için dokun (tek dinleme hakkın kullanılmaz)"
   }
 }
