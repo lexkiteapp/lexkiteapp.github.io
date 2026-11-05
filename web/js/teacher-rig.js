@@ -20,21 +20,24 @@
     thinking: { brow: .2, knit: .3, tilt: -2.5, look: [-.4, -.5] }, surprise: { brow: .8, smile: .05, o: .45 }, listen: { brow: .15, tilt: 1.2, smile: .08, nodHz: .55, nodPx: 2 },
     sad: { brow: -.1, knit: .55, tilt: -1.5, smile: -.22, look: [0, .25] }, explain: { brow: .12, tilt: -1 },
   };
-  // Cử chỉ: 'proc' = thủ tục trên khớp cổ (cứng) · 'pose' = ảnh tư thế đã duyệt. pending = chưa có footage riêng (gesture bank Kling) → dùng tư thế gần nhất đã duyệt
+  // Cử chỉ: 'proc' = thủ tục trên khớp cổ (cứng) · 'pose' = ảnh tư thế đã duyệt. pending = chưa có ảnh riêng → dùng tư thế gần nhất đã duyệt · alt = thay cho người chưa có ảnh
   const GESTURES = {
     nod: { kind: 'proc', dur: 0.9 }, shake: { kind: 'proc', dur: 1.1 }, blink: { kind: 'proc', dur: 0.16 }, bob: { kind: 'proc', dur: 0.6 },
     wave: { kind: 'pose', pose: 'wave', hold: 1.4, emo: 'happy' }, point: { kind: 'pose', pose: 'point', hold: 1.4, emo: 'explain' },
     explain: { kind: 'pose', pose: 'explain', hold: 1.6, emo: 'explain' }, cheer: { kind: 'pose', pose: 'cheer', hold: 1.2, emo: 'praise' },
     think: { kind: 'pose', pose: 'thinking', hold: 1.6, emo: 'thinking' }, surprised: { kind: 'pose', pose: 'surprise', hold: 1.0, emo: 'surprise' },
     laugh: { kind: 'pose', pose: 'laugh', hold: 1.2, emo: 'praise' }, empathy: { kind: 'pose', pose: 'empathy', hold: 1.4, emo: 'sad' },
-    thumbs_up: { kind: 'pose', pose: 'encourage', hold: 1.2, emo: 'encourage', pending: 1 }, clap: { kind: 'pose', pose: 'cheer', hold: 1.2, emo: 'praise', pending: 1 },
-    count: { kind: 'pose', pose: 'explain', hold: 1.6, emo: 'explain', pending: 1 }, hold_card: { kind: 'pose', pose: 'explain', hold: 2, emo: 'explain', pending: 1 },
+    // ảnh chuẩn riêng (gesture bank 05/11): alt = tư thế đã duyệt cho người CHƯA có ảnh này (Chars.has)
+    thumbs_up: { kind: 'pose', pose: 'thumbs_up', alt: 'encourage', hold: 1.2, emo: 'encourage' }, clap: { kind: 'pose', pose: 'clap', alt: 'cheer', hold: 1.2, emo: 'praise' },
+    count: { kind: 'pose', pose: 'explain', hold: 1.6, emo: 'explain', pending: 1 }, hold_card: { kind: 'pose', pose: 'hold_card', alt: 'explain', hold: 2, emo: 'explain' },
   };
   const KEYS = ['brow', 'knit', 'smile', 'o', 'lx', 'ly', 'tilt'];
   const vec = name => { const e = EMOTIONS[name] || {}; return { brow: e.brow || 0, knit: e.knit || 0, smile: e.smile || 0, o: e.o || 0, lx: (e.look || [0, 0])[0], ly: (e.look || [0, 0])[1], tilt: e.tilt || 0, nodHz: e.nodHz || 0, nodPx: e.nodPx || 0 }; };
   const toward = (cur, want, step) => cur + clamp(want - cur, -step, step);
 
-  /** Lõi state machine (thuần): machine(who, { calm, seed }) → { speak, quiet, setEmotion, gesture, step(now) → khung }. now = giây đồng hồ trang. */
+  /** Tư thế thật của cử chỉ G cho người có ảnh theo has(pose) (Chars.has) – không có ảnh riêng → alt. Không truyền has → pose (lõi thuần). */
+  const poseOf = (G, has) => (G.alt && has && !has(G.pose) ? G.alt : G.pose);
+  /** Lõi state machine (thuần): machine(who, { calm, seed, has }) → { speak, quiet, setEmotion, gesture, step(now) → khung }. now = giây đồng hồ trang. */
   function machine(who, o = {}) {
     const calm = !!o.calm, seed = o.seed || 7, R = LF().RIG[who];
     let emoName = 'neutral', emo = vec('neutral'), want = vec('neutral'), S = null, idle = LF().machine(who, { dur: 120, seed, calm });
@@ -55,7 +58,7 @@
         const G = GESTURES[name]; if (!G) return false;
         if (G.kind === 'proc') { if (calm && name !== 'blink') return true; proc.push({ name, t0: at == null ? (prevNow || 0) : at, dur: G.dur }); return true; }
         if (S) { if (queue.length < 2) queue.push(name); return true; } // đang nói: tư thế che miệng → xếp hàng tới hết câu
-        pose = G.pose; poseWant = 1; held = G.hold; poseUntil = 0; if (G.emo) api.setEmotion(G.emo); return true;
+        pose = poseOf(G, o.has); poseWant = 1; held = G.hold; poseUntil = 0; if (G.emo) api.setEmotion(G.emo); return true;
       },
       pose: () => (poseW > 0 ? pose : null),
       step(now) {
@@ -123,7 +126,7 @@
     return null;
   }
 
-  const core = { LIMITS, FADE, EMOTIONS, GESTURES, machine, matrix, cuesOf };
+  const core = { LIMITS, FADE, EMOTIONS, GESTURES, machine, matrix, cuesOf, poseOf };
   if (node) { module.exports = core; return; }
 
   // ===== Lớp DOM: MỘT <canvas> (đầu trơn + lớp vector + ảnh tư thế), chỉ vẽ khi khung đổi, 0 thay đổi DOM mỗi khung =====
@@ -203,7 +206,7 @@
     };
     const ready = load().then(() => img(g.Chars.head(who, true))).then(h => {
       if (dead) return; if (!h) throw new Error('head');
-      head = h; M = machine(who, { calm: stats.calm, seed: [...who].reduce((a, c) => a * 31 + c.charCodeAt(0), 7) });
+      head = h; M = machine(who, { calm: stats.calm, seed: [...who].reduce((a, c) => a * 31 + c.charCodeAt(0), 7), has: g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null });
       cv = D.createElement('canvas'); cv.className = 'trig-cv'; cv.setAttribute('aria-hidden', 'true'); ctx = cv.getContext('2d');
       fit(); el.appendChild(cv); if (g.ResizeObserver) { ro = new ResizeObserver(() => !dead && fit()); ro.observe(el); } // cỡ đặt TRƯỚC khi gắn → 1 thay đổi DOM duy nhất
       stats.ready = true; raf = requestAnimationFrame(frame);
@@ -225,7 +228,7 @@
       },
       quiet() { if (M) M.quiet(); },
       setEmotion(name) { return ready.then(() => M.setEmotion(name)); },
-      gesture(name) { const G = GESTURES[name]; return ready.then(() => (G && G.kind === 'pose' ? loadPose(G.pose) : null)).then(() => !dead && M.gesture(name, performance.now() / 1000)); }, // ảnh tư thế tải XONG mới mờ chéo (không bật hình)
+      gesture(name) { const G = GESTURES[name]; return ready.then(() => (G && G.kind === 'pose' ? loadPose(poseOf(G, g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null)) : null)).then(() => !dead && M.gesture(name, performance.now() / 1000)); }, // ảnh tư thế tải XONG mới mờ chéo (không bật hình)
       listen(on) { return ready.then(() => { M.setEmotion(on ? 'listen' : 'neutral'); }); },
       state: () => (M ? M.last() : null),
       destroy() { dead = true; cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); el.classList.remove('trig'); },

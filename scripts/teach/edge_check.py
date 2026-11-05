@@ -28,6 +28,8 @@ for who in R['people']:
     pop(f'{who}/poster', np.asarray(Image.open(f'{T}/{who}/poster.webp').convert('RGBA')))
     for k in ('poster', 'avatar'):
         im = np.asarray(Image.open(f'{T}/{who}/{k}.webp').convert('RGBA')); check(f'{who}/{k}', im[..., :3].copy(), im[..., 3])
+    for k in sorted(R['people'][who].get('stills') or {}):   # ảnh tư thế dựng từ ẢNH chuẩn (still_img.py): cùng cổng mép + độ nổi
+        im = np.asarray(Image.open(f'{T}/{who}/still-{k}.webp').convert('RGBA')); check(f'{who}/still-{k}', im[..., :3].copy(), im[..., 3]); pop(f'{who}/still-{k}', im)
     for f in sorted(os.listdir(f'{T}/{who}')):
         if not f.endswith('.mp4'): continue
         W, H2 = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', f'{T}/{who}/{f}'], capture_output=True, text=True).stdout.strip().split(',')); H = H2 // 2   # thường + HD (2×)

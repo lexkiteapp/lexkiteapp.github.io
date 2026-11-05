@@ -34,6 +34,18 @@ for (const who of IDS) {
     if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
   }
 }
+// tư thế chỉ-ảnh (scripts/teach/still_img.py, gesture bank ảnh chuẩn): JSON people.<who>.stills = Chars.stills(who), mỗi mục 1 ảnh có sha, không trùng tư thế clip
+for (const who of IDS) {
+  const js = (C.stills ? C.stills(who) : []).slice().sort().join(), json = Object.keys(R.people[who].stills || {}).sort().join();
+  if (js !== json) errs.push(`Chars.stills(${who}) [${js}] ≠ characters.json people.${who}.stills [${json}]`);
+  for (const p of Object.keys(R.people[who].stills || {})) {
+    if (R.poses.includes(p)) errs.push(`${who}/stills.${p}: trùng tư thế clip – chỉ-ảnh dùng tên riêng`);
+    if (!(R.still_poses || []).includes(p)) errs.push(`${who}/stills.${p}: không có trong characters.json still_poses`);
+    if (!/^cine\/teachers\/green\/[\w-]+\.png$/.test(R.people[who].stills[p].src || '')) errs.push(`${who}/stills.${p}: src phải là ảnh chuẩn cine/teachers/green/*.png`);
+    if (C.still(who, p) !== `teach/${who}/still-${p}.webp` || !C.has(who, p)) errs.push(`Chars.still/has(${who}, ${p}) sai`);
+    want.add(`${who}/still-${p}.webp`);
+  }
+}
 // vòng nghỉ 1–3 s (scripts/teach/idle.py): VP9 alpha + H.264 xếp chồng + poster mắt mở – định dạng/cỡ/mắt kiểm ở idle.py --check (characters-shots.yml)
 for (const who of Object.keys((R.idle || {}).people || {})) {
   if (!IDS.includes(who)) { errs.push(`idle.people.${who}: không thuộc registry`); continue; }

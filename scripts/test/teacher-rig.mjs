@@ -86,7 +86,10 @@ for (const who of ['ama', 'carlos']) {
   for (const [name, G] of Object.entries(R.GESTURES)) {
     if (G.pending) pend.push(`${name}→${G.pose}`);
     if (G.kind !== 'pose') continue;
-    for (const who of ['ama', 'carlos']) if (!reg.people[who].clips[G.pose] || !fs.existsSync(`web/teach/${who}/still-${G.pose}.webp`)) miss.push(`${who}/${G.pose}`);
+    for (const who of ['ama', 'carlos']) { // tư thế thật theo người: clip registry hoặc ảnh chuẩn (people.<who>.stills), không có → alt (phải là tư thế clip)
+      const has = p => !!reg.people[who].clips[p] || !!(reg.people[who].stills || {})[p], P = R.poseOf(G, has);
+      if (!has(P) || !fs.existsSync(`web/teach/${who}/still-${P}.webp`)) miss.push(`${who}/${P}`);
+      if (G.alt && !reg.people[who].clips[G.alt]) miss.push(`${who}/${G.alt} (alt)`); }
     if (G.emo) assert.ok(R.EMOTIONS[G.emo], `${name}: biểu cảm ${G.emo}`);
   }
   ok(!miss.length, `cử chỉ: ${Object.keys(R.GESTURES).length} (${EMO.length} biểu cảm) đều trỏ tư thế registry có ảnh cho cả 2 người ${miss.length ? '– thiếu ' + miss.join(' ') : ''}`);
