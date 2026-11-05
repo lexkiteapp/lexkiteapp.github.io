@@ -4,10 +4,10 @@
 name: Native iOS (SwiftUI)
 on:
   pull_request:
-    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml']
+    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml', 'mobile/ios/App/App/GoogleService-Info.plist', 'web/js/ota-key.js']
   push:
     branches: [main]
-    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml']
+    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml', 'mobile/ios/App/App/GoogleService-Info.plist', 'web/js/ota-key.js']
   workflow_dispatch:
     inputs:
       record: { description: 'Ghi lại ảnh snapshot chuẩn (khi đổi giao diện có chủ đích)', type: boolean, default: false }
@@ -19,9 +19,16 @@ concurrency:
 jobs:
   ios:
     runs-on: macos-15
-    timeout-minutes: 45
+    timeout-minutes: 60   # lần resolve Firebase đầu; có cache SPM
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Caches/org.swift.swiftpm
+            native/ios/build/SourcePackages
+          key: spm-native-ios-${{ hashFiles('native/ios/project.yml', 'native/ios/LexkiteKit/Package.swift') }}
+          restore-keys: spm-native-ios-
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Một nguồn – file sinh khớp nguồn web (tokens, chuỗi 15 ngôn ngữ, khung, vector chấm điểm)
@@ -49,7 +56,7 @@ jobs:
           fi
           set -o pipefail
           "${T[@]}" 2>&1 | tail -60
-          ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 10 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
+          ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 20 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
       - name: Build app (XcodeGen → simulator, không ký)
         working-directory: native/ios
         run: |
@@ -57,11 +64,43 @@ jobs:
           xcodegen generate
           set -o pipefail
           xcodebuild -project Lexkite.xcodeproj -scheme Lexkite -configuration Debug -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tail -30
-          test -d build/Build/Products/Debug-iphonesimulator/Lexkite.app
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build -clonedSourcePackagesDirPath build/SourcePackages \
+            CODE_SIGNING_ALLOWED=NO build 2>&1 | tail -30
+          APP=build/Build/Products/Debug-iphonesimulator/Lexkite.app
+          test -d "$APP"
+          # Một nguồn đã được tiêm (scheme callback Google + khoá nội dung từ web/js/ota-key.js + script migration)
+          /usr/libexec/PlistBuddy -c "Print :CFBundleURLTypes" "$APP/Info.plist" | grep -q googleusercontent
+          test -n "$(/usr/libexec/PlistBuddy -c 'Print :LKContentKeySPKI' "$APP/Info.plist")"
+          test -f "$APP/migration-export.js"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: native-ios-snapshots
           path: native/ios/LexkiteKit/Tests/LKSnapshotTests/__Snapshots__
           retention-days: 14
+  # Ma trận thiết bị (spec §7): parity + bố cục trên từng cỡ màn, song song. Đích lấy từ xcodebuild (không dùng simctl – runtime cũ → exit 70).
+  devices:
+    runs-on: macos-15
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        device: ['iPhone SE (3rd generation)', 'iPhone 17', 'iPhone 17 Pro Max', 'iPad*']   # iPad*: tên iPad đổi theo ảnh máy chủ
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with: { path: ~/Library/Caches/org.swift.swiftpm, key: 'spm-native-ios-kit-${{ hashFiles(''native/ios/LexkiteKit/Package.swift'') }}' }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          if [ -n "$X" ]; then sudo xcode-select -s "$X/Contents/Developer"; fi; xcodebuild -version
+      - name: LKFeaturesTests + LKSyncTests trên ${{ matrix.device }}
+        working-directory: native/ios/LexkiteKit
+        env: { DEVICE: '${{ matrix.device }}' }
+        run: |
+          SCHEME=$(xcodebuild -list -json | python3 -c 'import json,sys;s=json.load(sys.stdin)["workspace"]["schemes"];print(next((x for x in s if x.endswith("-Package")),s[0]))')
+          DEST=$(xcodebuild -showdestinations -scheme "$SCHEME" 2>/dev/null | python3 "$GITHUB_WORKSPACE/scripts/native/pick-sim.py" --name "$DEVICE")
+          test -n "$DEST" || { echo "::error::không có $DEVICE trên máy chủ"; xcodebuild -showdestinations -scheme "$SCHEME"; exit 1; }
+          set -o pipefail
+          xcodebuild test -scheme "$SCHEME" -destination "$DEST" -skipPackagePluginValidation \
+            -only-testing:LKFeaturesTests -only-testing:LKSyncTests 2>&1 | tail -40

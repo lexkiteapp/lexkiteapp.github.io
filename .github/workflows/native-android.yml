@@ -4,10 +4,10 @@
 name: Native Android (Compose)
 on:
   pull_request:
-    paths: ['native/android/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-android.yml']
+    paths: ['native/android/**', 'native/shared/**', 'scripts/native/**', 'mobile/android/app/google-services.json', '.github/workflows/native-android.yml']
   push:
     branches: [main]
-    paths: ['native/android/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-android.yml']
+    paths: ['native/android/**', 'native/shared/**', 'scripts/native/**', 'mobile/android/app/google-services.json', '.github/workflows/native-android.yml']
   workflow_dispatch:
     inputs:
       record: { description: 'Ghi lại ảnh snapshot chuẩn (khi đổi giao diện có chủ đích)', type: boolean, default: false }
@@ -38,10 +38,11 @@ jobs:
             gradle --no-daemon -q :app:recordRoborazziDebug
           fi
           gradle --no-daemon :app:verifyRoborazziDebug
-          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 5 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
-      - name: Build APK debug
+          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 13 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
+      - name: Build APK debug + release (R8 + shrink, không ký, không tải mapping)
         working-directory: native/android
-        run: gradle --no-daemon :app:assembleDebug && ls -la app/build/outputs/apk/debug/
+        env: { LEXKITE_CRASHLYTICS_UPLOAD: '0' }
+        run: gradle --no-daemon :app:assembleDebug :app:assembleRelease && ls -la app/build/outputs/apk/debug/ app/build/outputs/apk/release/
       - uses: actions/upload-artifact@v4
         if: always()
         with:

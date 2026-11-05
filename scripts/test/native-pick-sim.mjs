@@ -13,3 +13,11 @@ assert.equal(run([L('26.0', 'iPhone 16', id(8)), L('18.6', 'iPhone 16', id(9)), 
 assert.equal(run(L('26.2', 'iPhone 16 Pro', id(11))), '', 'không có máy 390 pt → rỗng (workflow đỏ rõ ràng, không chọn bừa)');
 assert.equal(run(''), '');
 console.log('✓ native-pick-sim: 4 ca');
+// --name: ma trận thiết bị chọn đúng tên, runtime cao nhất; tên vắng → rỗng
+const runN = (s, n) => execFileSync('python3', ['scripts/native/pick-sim.py', '--name', n], { input: s, encoding: 'utf8' }).trim();
+assert.equal(runN(sample, 'iPhone SE (3rd generation)'), `platform=iOS Simulator,id=${id(7)}`);
+assert.equal(runN(sample, 'iPad (10th generation)'), '');
+console.log('✓ native-pick-sim --name: 2 ca');
+const ipads = [L('26.1', 'iPad (A16)', id(20)), L('26.2', 'iPad Air 11-inch (M3)', id(21)), L('26.2', 'iPhone 17', id(22))].join('\n');
+assert.equal(runN(ipads, 'iPad*'), `platform=iOS Simulator,id=${id(21)}`, 'tiền tố iPad → iPad runtime cao nhất');
+console.log('✓ native-pick-sim iPad*: 1 ca');

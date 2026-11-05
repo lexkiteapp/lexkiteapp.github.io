@@ -1,0 +1,62 @@
+# Android M1 – new string IDs (merge into native/shared/strings.json, then `node scripts/native/gen.mjs`)
+
+Every Vietnamese key below is copied from web code that already calls `t()` with it (web/js/st/v2/today.js + brand/stitch/v2/bind/today.json,
+web/js/ux1.js home2/homeBase, web/js/sync.js) – so the web i18n pipeline already has the 14 translations; no new copy.
+The Kotlin code already uses the generated enum names (`today.sayDue` → `L10nKey.todaySayDue`), so `:design` compiles only after this merge.
+If gen reports a key missing in a language, add it via the web pipeline (docs/I18N-PIPELINE.md) – do not rename the id.
+
+```json
+{
+  "app.name": "Lexkite",
+  "top.search": "Tra từ",
+  "top.notifications": "Thông báo",
+  "top.language": "Chọn ngôn ngữ giao diện",
+  "today.target": "Mục tiêu điểm",
+  "today.setGoal": "Đặt mục tiêu",
+  "today.streakDays": "Số ngày chuỗi",
+  "today.xp": "XP",
+  "today.goalShort": "Mục tiêu",
+  "today.focus": "Trọng tâm hôm nay",
+  "today.morning": "Chào buổi sáng!",
+  "today.afternoon": "Chào buổi chiều!",
+  "today.evening": "Chào buổi tối!",
+  "today.sayDue": "{g} Hôm nay có {b} từ cần ôn.",
+  "today.sayDone": "{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!",
+  "today.lesson": "Bài học",
+  "today.plan": "Kế hoạch hôm nay",
+  "today.review": "Ôn tập",
+  "today.reviewCards": "Ôn {a}/{b} thẻ",
+  "today.fading": "{n} từ đang phai dần",
+  "today.reviewNow": "Ôn ngay ({m} phút)",
+  "today.quick": "Luyện nhanh · 1 phút",
+  "today.allDrills": "Mọi bài luyện",
+  "today.mistakes": "Lỗi sai",
+  "today.toFix": "{n} cần sửa",
+  "today.words": "Từ vựng cần ôn",
+  "today.dueN": "{n} đến hạn",
+  "today.listening": "Nghe hiểu",
+  "today.audioSprint": "Nghe nhanh",
+  "today.speaking": "Nói",
+  "today.pronDrill": "Bài luyện phát âm",
+  "today.week": "Chuỗi 7 ngày",
+  "acct.title": "Tài khoản & đồng bộ",
+  "acct.pitch": "Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.",
+  "acct.google": "Tiếp tục với Google",
+  "acct.apple": "Tiếp tục với Apple",
+  "acct.free": "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào",
+  "acct.signedIn": "Tài khoản: {name}",
+  "acct.signOut": "Đăng xuất",
+  "acct.signedOut": "Đã đăng xuất – dữ liệu vẫn còn trên máy này",
+  "acct.signInFail": "Không đăng nhập được: {msg}",
+  "acct.otherAccount": "Máy này đang có dữ liệu học của tài khoản khác.\n\nOK = gộp dữ liệu trên máy vào tài khoản này\nHủy = chỉ dùng dữ liệu của tài khoản này",
+  "action.ok": "OK",
+  "action.cancel": "Hủy",
+  "sync.now": "Đồng bộ ngay",
+  "sync.running": "Đang đồng bộ…",
+  "sync.done": "Đã đồng bộ {time}",
+  "sync.paused": "Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.",
+  "sync.offline": "Ngoại tuyến – sẽ tự đồng bộ khi có mạng",
+  "sync.error": "Lỗi đồng bộ: {msg}",
+  "sync.justNow": "vừa xong"
+}
+```

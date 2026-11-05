@@ -3,29 +3,75 @@ import SwiftUI
 import SnapshotTesting
 @testable import LKFeatures
 import LKStrings
+import LKStore
+import LKSync
+import LKDesign
 
-/// Snapshot gate for the app frame at 390 pt: light/dark × en/vi/ar(RTL)/de(+40 %).
+/// Snapshot gate at 390 pt: light/dark × en/vi/ar(RTL)/de(+40 % text) for the app frame and the Today screen.
 /// References live in __Snapshots__; CI records them on first run (SNAPSHOT_RECORD=1) and verifies after.
+@MainActor
 final class AppShellSnapshotTests: XCTestCase {
     override func invokeTest() {
         let record = ProcessInfo.processInfo.environment["SNAPSHOT_RECORD"] == "1"
         withSnapshotTesting(record: record ? .all : .never) { super.invokeTest() }
     }
 
-    @MainActor func testAppShell() {
-        for lang in ["en", "vi", "ar", "de"] {
-            for scheme in [ColorScheme.light, .dark] {
-                let v = AppShell().environment(\.l10n, L10n(lang: lang)).environment(\.colorScheme, scheme)
-                let vc = UIHostingController(rootView: v)
-                vc.overrideUserInterfaceStyle = scheme == .dark ? .dark : .light
-                assertSnapshot(of: vc, as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98),
+    static let langs = ["en", "vi", "ar", "de"]
+    static let schemes: [ColorScheme] = [.light, .dark]
+
+    /// Fixed, realistic learner state (no clock, no network): computed with the web definitions from a fixed document.
+    static func sample(hour: Int = 9) -> TodaySnapshot {
+        var cal = Calendar(identifier: .gregorian); cal.timeZone = TimeZone(identifier: "UTC")!
+        let ms = 1_772_366_400_000.0
+        var cards: [String: JSON] = [:]
+        for i in 0..<8 { cards["w\(i)"] = ["word": .string("w\(i)"), "vi": "x", "srs": ["reps": 2, "last": .number(ms - 864e5), "due": .number(ms - 1000)]] }
+        let doc = SyncDoc(cards: cards, stats: ["days": ["2026-03-01": 12, "2026-02-28": 20, "2026-02-27": 9], "newToday": ["day": "2026-03-01", "n": 10]],
+                          game: ["xp": 2240], settings: ["dailyGoal": 20, "examTarget": "6.5"])
+        var s = TodaySnapshot.compute(doc: doc, mistakes: 5, now: Date(timeIntervalSince1970: ms / 1000), calendar: cal)
+        s.hour = hour
+        return s
+    }
+
+    func host<V: View>(_ v: V, lang: String, scheme: ColorScheme, theme: String = "auto") -> UIViewController {
+        let services = AppServices.preview(snapshot: Self.sample(), lang: lang, theme: theme)
+        let root = v.environment(services).environment(\.l10n, services.l10n)
+            .environment(\.layoutDirection, services.l10n.isRTL ? .rightToLeft : .leftToRight)
+            .environment(\.locale, Locale(identifier: lang))
+            .environment(\.colorScheme, scheme)
+        let vc = UIHostingController(rootView: root)
+        vc.overrideUserInterfaceStyle = scheme == .dark ? .dark : .light
+        return vc
+    }
+
+    func testAppShell() {
+        for lang in Self.langs {
+            for scheme in Self.schemes {
+                assertSnapshot(of: host(AppShell(), lang: lang, scheme: scheme), as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98),
                                named: "\(lang)-\(scheme == .dark ? "dark" : "light")")
             }
         }
     }
 
-    @MainActor func testTopBarVariants() {
-        for scheme in [ColorScheme.light, .dark] {
+    func testToday() {
+        for lang in Self.langs {
+            for scheme in Self.schemes {
+                assertSnapshot(of: host(NavigationStack { TodayView() }, lang: lang, scheme: scheme),
+                               as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98),
+                               named: "\(lang)-\(scheme == .dark ? "dark" : "light")")
+            }
+        }
+    }
+
+    func testMeGuest() {
+        for scheme in Self.schemes {
+            let tab = LKFrameTabs.me
+            assertSnapshot(of: host(MeHub(tab: tab), lang: "en", scheme: scheme), as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98),
+                           named: scheme == .dark ? "dark" : "light")
+        }
+    }
+
+    func testTopBarVariants() {
+        for scheme in Self.schemes {
             let v = VStack(spacing: 0) {
                 TopBar(variant: .hub, title: "Lexkite")
                 TopBar(variant: .inner, title: L10n(lang: "en")(.meProgress))
@@ -37,3 +83,5 @@ final class AppShellSnapshotTests: XCTestCase {
         }
     }
 }
+
+enum LKFrameTabs { static var me: LKFrame.Tab { LKFrame.shared.tabs.first { $0.k == "me" }! } }

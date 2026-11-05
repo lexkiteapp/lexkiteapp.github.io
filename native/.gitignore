@@ -7,3 +7,4 @@ ios/LexkiteKit/.swiftpm/
 android/.gradle/
 android/**/build/
 android/local.properties
+ios/App/Lexkite.entitlements

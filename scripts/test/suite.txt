@@ -268,4 +268,7 @@ node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
 node scripts/test/native-one-source.mjs
 node scripts/test/native-parity.mjs
+node scripts/test/sync-cross-client.mjs
+node scripts/test/native-compat.mjs
+node scripts/native/content-publish.mjs check
 node scripts/test/native-pick-sim.mjs

@@ -1,72 +1,143 @@
 import SwiftUI
 import LKDesign
 import LKStrings
+import LKSync
 
 /// Environment access to the current UI strings.
 private struct L10nKeyEnv: EnvironmentKey { static let defaultValue = L10n(lang: L10n.preferred()) }
 public extension EnvironmentValues { var l10n: L10n { get { self[L10nKeyEnv.self] } set { self[L10nKeyEnv.self] = newValue } } }
 
-/// Root of the native app: the ONE app frame – 5 tabs Today · Vocab · Skills · Tests · Me (generated from web).
-public struct AppShell: View {
-    @State private var tab: String
-    @Environment(\.colorScheme) private var scheme
-    @Environment(\.l10n) private var t
-    private let frame = LKFrame.shared
-    public init(initialTab: String = "home") { _tab = State(initialValue: initialTab) }
-
+/// The app root: services, language (+ RTL), theme, deep links / universal links, sign-in + account sheets.
+public struct RootView: View {
+    @State private var services: AppServices
+    let handleURL: (URL) -> Bool
+    /// - Parameter handleURL: URLs consumed before routing (Google Sign-In callback); return true when handled.
+    public init(services: AppServices, handleURL: @escaping (URL) -> Bool = { _ in false }) {
+        _services = State(initialValue: services); self.handleURL = handleURL
+    }
     public var body: some View {
-        TabView(selection: $tab) {
-            ForEach(frame.tabs) { tb in
-                HubScreen(tab: tb)
-                    .tabItem { Label(t(L10nKey(rawValue: tb.label)!), systemImage: tb.sf) }
-                    .tag(tb.k)
+        @Bindable var s = services
+        let l10n = services.l10n, theme = services.colorScheme
+        AppShell()
+            .environment(services)
+            .environment(\.l10n, l10n)
+            .environment(\.locale, Locale(identifier: l10n.lang))
+            .environment(\.layoutDirection, l10n.isRTL ? .rightToLeft : .leftToRight)
+            .preferredColorScheme(theme)
+            .onOpenURL { if !handleURL($0) { services.router.open(url: $0) } }
+            .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { a in if let u = a.webpageURL { services.router.open(url: u) } }
+            .sheet(isPresented: $s.signInSheet) { SignInSheet().environment(services).environment(\.l10n, l10n).environment(\.layoutDirection, l10n.isRTL ? .rightToLeft : .leftToRight) }
+            .sheet(isPresented: $s.deleteSheet) { DeleteAccountSheet().environment(services).environment(\.l10n, l10n).environment(\.layoutDirection, l10n.isRTL ? .rightToLeft : .leftToRight) }
+            .alert(l10n(.authSwitchAccount), isPresented: Binding(get: { services.accountSwitchPrompt != nil }, set: { if !$0 { answerSwitch(true) } })) {
+                Button(l10n(.actionCancel), role: .cancel) { answerSwitch(false) }
+                Button(l10n(.actionContinue)) { answerSwitch(true) }
             }
-        }
-        .tint(LKColor.primary.resolve(scheme))
-        .environment(\.layoutDirection, t.isRTL ? .rightToLeft : .leftToRight)
+            .task { await services.auth.observe() }
+    }
+    private func answerSwitch(_ merge: Bool) {
+        guard let p = services.accountSwitchPrompt else { return }
+        services.accountSwitchPrompt = nil
+        p.answer.resume(returning: merge)
     }
 }
 
-/// Hub screen placeholder for M0: hub top bar + empty content column. M1 replaces Today with the Stitch port.
+/// P01 – the ONE app frame: 5 tabs Today · Vocab · Skills · Tests · Me (generated frame.json), a NavigationStack per tab
+/// (each tab keeps its stack when switching), inner screens with the system back button + edge swipe, focus flows full screen with X.
+public struct AppShell: View {
+    @Environment(AppServices.self) private var services
+    @Environment(\.colorScheme) private var scheme
+    @Environment(\.l10n) private var t
+    private let frame = LKFrame.shared
+    public init() {}
+
+    public var body: some View {
+        @Bindable var router = services.router
+        TabView(selection: Binding(get: { router.tab }, set: { router.reselect($0) })) {
+            ForEach(services.tabOrder.compactMap { k in frame.tabs.first { $0.k == k } }.filter { !services.hiddenTabs.contains($0.k) }) { tb in
+                NavigationStack(path: router.path(tb.k)) {
+                    root(tb)
+                        .toolbar(.hidden, for: .navigationBar)
+                        .navigationDestination(for: AppRoute.self) { r in InnerScreen(route: r) }
+                }
+                .tabItem { Label(t(L10nKey(rawValue: tb.label) ?? .tabToday), systemImage: tb.sf) }
+                .tag(tb.k)
+                .badge(tb.k == "home" ? services.today.snapshot.total : 0)   // Stitch frame: due count on Today
+            }
+        }
+        .tint(LKColor.primary.resolve(scheme))
+        .fullScreenCover(item: $router.focus) { r in
+            FocusScreen(route: r).environment(services)
+        }
+    }
+
+    @ViewBuilder func root(_ tb: LKFrame.Tab) -> some View {
+        switch tb.k {
+        case "home": TodayView()
+        case "me": MeHub(tab: tb)
+        default: HubScreen(tab: tb)
+        }
+    }
+}
+
+/// Hub screens whose content lands in later milestones (Vocab M3, Skills M4, Tests M5): hub top bar + content column.
 struct HubScreen: View {
     let tab: LKFrame.Tab
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
     var body: some View {
-        let title = t(L10nKey(rawValue: tab.label)!)
         VStack(spacing: 0) {
-            TopBar(variant: .hub, title: title)
+            TopBar(variant: .hub, title: t(L10nKey(rawValue: tab.label) ?? .tabToday))
             ScrollView {
-                VStack(alignment: .leading, spacing: LKSpacing.spaceMd) {
-                    if tab.k == "home" { TodayCard() }
-                }
-                .padding(.horizontal, LKFrame.shared.gutter)
-                .padding(.top, LKSpacing.spaceLg)
-                .frame(maxWidth: LKFrame.shared.width)
-                .frame(maxWidth: .infinity)
+                VStack(alignment: .leading, spacing: LKSpacing.spaceMd) { EmptyView() }
+                    .padding(.horizontal, LKFrame.shared.gutter)
+                    .padding(.top, LKSpacing.spaceLg)
+                    .frame(maxWidth: LKFrame.shared.width)
+                    .frame(maxWidth: .infinity)
             }
         }
         .background(LKColor.background.resolve(scheme).ignoresSafeArea())
     }
 }
 
-struct TodayCard: View {
+/// Inner screen (pushed): system back button (≥ 44 pt) + edge swipe; title = the owning tab until the screen is ported.
+struct InnerScreen: View {
+    let route: AppRoute
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
     var body: some View {
-        VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
-            Text(t(.todayGoal)).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme))
-            Text(t(.todayStreak)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
-            Button(t(.actionContinue)) {}
-                .buttonStyle(PrimaryButtonStyle())
-        }
-        .padding(LKSpacing.spaceMd)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(RoundedRectangle(cornerRadius: LKRadius.xl * 2).fill(LKColor.surfaceContainerLowest.resolve(scheme)))
+        let tab = LKFrame.shared.tabs.first { $0.k == route.tab }
+        ScrollView { Color.clear.frame(height: 1) }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(LKColor.background.resolve(scheme).ignoresSafeArea())
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.visible, for: .navigationBar)
+            .toolbarBackground(LKColor.background.resolve(scheme), for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(t(L10nKey(rawValue: tab?.label ?? "") ?? .tabToday)).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme))
+                }
+            }
+            .accessibilityIdentifier("inner-\(route.name)")
     }
 }
 
-/// One primary CTA per screen: full width, ≥ 44 pt, press-bounce (off with Reduce Motion).
+/// Focus flow (lesson, review, mock…): no tab bar, Close X ≥ 44 pt top-leading, Esc closes. Players land in M2+.
+struct FocusScreen: View {
+    let route: AppRoute
+    @Environment(AppServices.self) private var services
+    @Environment(\.colorScheme) private var scheme
+    @Environment(\.l10n) private var t
+    var body: some View {
+        VStack(spacing: 0) {
+            TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
+            Spacer()
+        }
+        .background(LKColor.background.resolve(scheme).ignoresSafeArea())
+        .accessibilityIdentifier("focus-\(route.name)")
+    }
+}
+
+/// One primary CTA per screen: full width, ≥ 44 pt, press-bounce (off with Reduce Motion), soft haptic.
 public struct PrimaryButtonStyle: ButtonStyle {
     @Environment(\.colorScheme) private var scheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -74,10 +145,17 @@ public struct PrimaryButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .lkText(LKType.titlePill)
-            .frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap)
+            .textCase(.uppercase)
+            .frame(maxWidth: .infinity, minHeight: max(LKFrame.shared.minTap, 52))
             .foregroundStyle(LKColor.onPrimary.resolve(scheme))
-            .background(RoundedRectangle(cornerRadius: LKRadius.xl).fill(LKColor.primary.resolve(scheme)))
-            .scaleEffect(configuration.isPressed && !reduceMotion ? 0.97 : 1)
+            .background {
+                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.primary.resolve(scheme)).brightness(-0.22)   // tactile ledge = primary, darker
+                    .offset(y: configuration.isPressed && !reduceMotion ? 1 : 4)
+                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.primary.resolve(scheme))
+                    .offset(y: configuration.isPressed && !reduceMotion ? 3 : 0)
+            }
+            .scaleEffect(configuration.isPressed && !reduceMotion ? 0.98 : 1)
             .animation(reduceMotion ? nil : .spring(response: 0.25, dampingFraction: 0.6), value: configuration.isPressed)
+            .lkHaptic(.tap, trigger: configuration.isPressed, when: { $0 })
     }
 }
