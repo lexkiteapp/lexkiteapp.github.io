@@ -21,6 +21,9 @@
 //  8) (05/11 – Font audit 7 job/commit, 6 job < 90 s = 20 % số job PR khởi động, hàng chờ 102 job / 40 runner): workflow chạy trên PR có matrix
 //     tĩnh > MATRIX_MAX nhánh (tích các mảng; trong biểu thức ${{ }} lấy mảng lớn nhất) phải gộp phần nhỏ chạy nối tiếp trong 1 job, hoặc ghi lý do
 //     `# ci-policy: matrix – <lý do>` (vd. đo hiệu năng từng máy phải tách runner). Mỗi nhánh = 1 lượt xin runner + setup ~40 s trong hàng chờ.
+//  9) (05/11 – e2e webkit / ux1 bị huỷ sau 20–40 phút vì `playwright install --with-deps` / `apt-get install` treo trên runner, #760): mọi lệnh
+//     cài Playwright/apt phải có giới hạn thời gian: bước CHỈ cài có `timeout-minutes` mức bước; bước vừa cài vừa chạy việc dài (render, e2e) bọc
+//     riêng lệnh cài bằng `timeout <giây>` (không giới hạn nhầm phần việc chính). Treo → bước đỏ rõ ràng sau vài phút thay vì job bị huỷ.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -68,6 +71,34 @@ export function matrixLegs(jobText) {
   for (const a of blk.matchAll(/:\s*(\[[^\[\]]*\])/g)) { legs *= count(a[1]); any = true; }
   return any ? legs : 0;
 }
+// 9) Lệnh cài Playwright/apt (thuần, có test): mỗi bước → { start, insertAt, keyIndent, jobTimeout, installLines, installOnly, bounded }
+const INSTALL_RE = [/\bapt(?:-get)?\s(?:[^\n;&|#]*?\s)?(?:install|update)\b/g, /(?:npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?|node\s+\S*playwright[\w-]*\/cli\.js)\s+install\b/g];
+const SETUP_LINE = /^(npm (i|ci|install)\b|(timeout \d+ )?npx (--yes )?playwright\S* install|(sudo )?(timeout \d+ )?apt(-get)?\b|sudo |pip3? install|python3? -m pip|echo |fc-cache|for i in|if timeout|then\b|fi\b|done\b|do\b|else\b|\[ |google-chrome --version|export |mkdir |corepack|node --version|[{}]|run:\s*\|?\s*$)/;
+const installCmds = line => /^\s*#/.test(line) ? [] : INSTALL_RE.flatMap(re => [...line.matchAll(re)]);
+const boundedCmd = (line, m) => /timeout\s+(?:-\S+\s+)*\d+[smh]?\s+$/.test(line.slice(0, m.index));
+export function installSteps(src) {
+  const L = String(src).split('\n'), out = [];
+  for (let i = 0; i < L.length; i++) {
+    const sm = L[i].match(/^(\s*)steps:\s*(#.*)?$/); if (!sm) continue;
+    const si = sm[1].length, ind = l => l.match(/^\s*/)[0].length;
+    let jobTimeout = 360; for (let k = i - 1; k >= 0 && !/^  [\w-]+:\s*(#.*)?$/.test(L[k]); k--) { const m = L[k].match(/^(\s*)timeout-minutes:\s*(\d+)/); if (m && m[1].length === si) { jobTimeout = +m[2]; break; } }
+    let j = i + 1; const items = [];
+    for (; j < L.length; j++) { const l = L[j]; if (l.trim() && ind(l) <= si && !/^\s*#/.test(l)) break; const m = l.match(/^(\s*)- /); if (m && m[1].length > si && (!items.length || m[1].length === items[0].ind)) items.push({ start: j, ind: m[1].length }); }
+    items.forEach((it, a) => { it.end = a + 1 < items.length ? items[a + 1].start : j; });
+    for (const it of items) {
+      const lines = L.slice(it.start, it.end), installLines = [];
+      lines.forEach((l, k) => { if (installCmds(l).length) installLines.push(it.start + k); });
+      if (!installLines.length) continue;
+      const keyIndent = it.ind + 2, body = lines.join('\n');
+      const stepTimeout = new RegExp('^ {' + keyIndent + '}timeout-minutes:|^\\s*- \\{.*\\btimeout-minutes:', 'm').test(body);
+      const cmds = lines.map(l => l.replace(/^\s*(- )?(name|uses|with|env|if|id|shell|working-directory|continue-on-error):.*$/, '').replace(/^\s*(- )?(run:\s*\|?)?\s*/, '').trim()).filter(c => c && !c.startsWith('#'));
+      const installOnly = cmds.every(c => SETUP_LINE.test(c) || installCmds(c).length);
+      const bounded = stepTimeout || installLines.every(n => installCmds(L[n]).every(m => boundedCmd(L[n], m)));
+      out.push({ start: it.start, insertAt: /^\s*- name:/.test(L[it.start]) ? it.start + 1 : it.end, keyIndent, jobTimeout, installLines, installOnly, bounded });
+    }
+  }
+  return out;
+}
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 export function violations(file, src) {
   const out = [], t = triggers(src);
@@ -95,6 +126,7 @@ export function violations(file, src) {
   }
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
     for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
+  for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
   return out;
 }
 /** Tên các workflow trong workflow_run.workflows (dạng [a, b] hoặc danh sách - 'a'). */
@@ -170,6 +202,17 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(chainCycles([['a.yml', wr(['B']).replace('name: w', 'name: A')], ['b.yml', wr(['A']).replace('name: w', 'name: B')]]).length === 1, 'vòng A → B → A → lỗi');
   ok(chainCycles([['a.yml', wr(['A']).replace('name: w', 'name: A')]]).length === 1, 'tự kích hoạt A → A → lỗi');
   ok(chainCycles([['a.yml', wr(['B']).replace('name: w', 'name: A')], ['c.yml', wr(['A']).replace('name: w', 'name: C')]]).length === 0, 'chuỗi B → A → C không vòng → đạt');
+  { // 9) bước cài có giới hạn thời gian
+    const job = (step) => 'name: i\non:\n  workflow_dispatch:\nconcurrency: { group: i }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    timeout-minutes: 20\n    steps:\n' + step + '      - run: echo xong\n';
+    const v = st => violations('i.yml', job(st)).filter(x => /luật 9/.test(x)).length;
+    ok(v('      - name: Cài\n        run: |\n          npm i playwright@1.48.2\n          npx playwright install --with-deps chromium\n') === 1, 'luật 9: bước cài Playwright không timeout → lỗi');
+    ok(v('      - name: Cài\n        timeout-minutes: 12\n        run: |\n          npx playwright install --with-deps chromium\n') === 0, 'luật 9: bước chỉ cài có timeout-minutes → đạt');
+    ok(v('      - run: sudo apt-get update -qq && sudo apt-get install -y x && node render.mjs\n') === 1, 'luật 9: apt-get trong bước có việc khác, không bọc timeout → lỗi');
+    ok(v('      - run: sudo timeout 600 apt-get update -qq && sudo timeout 600 apt-get install -y x && node render.mjs\n') === 0, 'luật 9: lệnh cài bọc timeout → đạt');
+    ok(v('      - run: |\n          # npx playwright install chromium\n          node a.mjs\n') === 0, 'luật 9: dòng chú thích không tính');
+    const st = installSteps(job('      - name: Cài\n        run: npx playwright install chromium\n'))[0];
+    ok(st && st.installOnly && st.jobTimeout === 20 && st.keyIndent === 8, 'luật 9: installSteps nhận bước chỉ cài + timeout của job');
+  }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);

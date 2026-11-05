@@ -31,8 +31,8 @@ jobs:
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+          timeout 600 npx playwright install --with-deps chromium >/dev/null
+          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
           B=""
           if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
           if [ -n "$BEFORE" ]; then git worktree add -q /tmp/before "$BEFORE"; B=/tmp/before/web; fi
@@ -62,6 +62,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium >/dev/null

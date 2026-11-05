@@ -29,6 +29,7 @@ jobs:
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 tesseract.js@5.1.1
           npx playwright install --with-deps chromium
+        timeout-minutes: 12
       - run: node scripts/report-shot-bench.mjs
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

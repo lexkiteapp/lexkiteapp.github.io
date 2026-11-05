@@ -40,7 +40,7 @@ jobs:
         if: ${{ !cancelled() }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
-          npx playwright install --with-deps chromium >/dev/null
+          timeout 600 npx playwright install --with-deps chromium >/dev/null
           # tầng tĩnh từ điển (deploy riêng qua Worker) – chép 1 mẫu/loại vào dist sau cổng SEO để quét giao diện
           node scripts/dict/build.mjs >/dev/null 2>&1 && for d in $(cd dist-dict && find . -name index.html | sort | awk -F/ '{k=$3"/"NF; if(!s[k]++) print}' | head -12); do mkdir -p "dist/$(dirname "$d")"; cp -n "dist-dict/$d" "dist/$d"; done; echo "dict mẫu: $(find dist/assets -name index.html 2>/dev/null | wc -l)"
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1

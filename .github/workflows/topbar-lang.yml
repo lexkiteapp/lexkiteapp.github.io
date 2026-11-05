@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài trình duyệt
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund --ignore-scripts playwright@1.50.1
           npx playwright install --with-deps chromium >/dev/null

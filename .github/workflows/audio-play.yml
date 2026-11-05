@@ -24,6 +24,7 @@ jobs:
       - name: Chọn giọng máy dự phòng + gói offline
         run: node scripts/test/audio-voice.mjs && node scripts/audio/offline-pack.mjs --check
       - name: Cài Playwright
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium webkit

@@ -20,6 +20,7 @@ jobs:
       - name: Lõi – khớp môi ±33 ms, giới hạn khớp, chống giật, biến đổi cứng
         run: node scripts/test/teacher-rig.mjs
       - name: Playwright
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium

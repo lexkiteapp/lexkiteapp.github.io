@@ -20,6 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài Playwright (WebKit + Chromium)
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium webkit >/dev/null

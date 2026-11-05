@@ -25,6 +25,7 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
           npx playwright install --with-deps chromium >/dev/null
           sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null || true
+        timeout-minutes: 12
       - name: Vẽ + chấm từng mẫu (sáng/tối)
         run: node scripts/test/stitch-quality-qc.mjs brand/stitch/v2q out/stitch-quality-qc
       # Kho v3 (scripts/stitch/batch.mjs): chấm MỌI màn (--all) + tràn ngang/chạm ≥44px (--strict-layout); chỉ màn PASS/PICK gác đỏ.

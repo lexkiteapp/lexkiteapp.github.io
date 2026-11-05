@@ -47,14 +47,14 @@ jobs:
         continue-on-error: true
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          timeout 600 npx playwright install --with-deps chromium
           node scripts/test/e2e.mjs
       - name: Chấm đọc to TOEIC Speaking (micro giả + SpeechRecognition giả)
         id: toeicread
         continue-on-error: true
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          timeout 600 npx playwright install --with-deps chromium
           npm run test:toeic-read
       - name: Kho Drive – quota, token, ngưỡng 80/90 %, bản sao (cảnh báo + thư do máy chủ gửi; docs/ASSET-LIBRARY.md §8.6.2)
         id: drive

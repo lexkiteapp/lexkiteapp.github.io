@@ -26,6 +26,7 @@ jobs:
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium webkit >/dev/null
+        timeout-minutes: 12
       - name: Lặp review-taps
         run: |
           n=${{ inputs.runs || '5' }}; bad=0

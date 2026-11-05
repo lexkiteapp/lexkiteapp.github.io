@@ -32,7 +32,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}   # PR: video-web.yml/video-e2e.yml lo phần video
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chrome
+          timeout 600 npx playwright install --with-deps chrome
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/video-web-e2e.mjs http://localhost:8080 out/video-web
       - if: ${{ always() && github.event_name != 'pull_request' }}
@@ -43,7 +43,7 @@ jobs:
         env: { VQA_QUICK: "${{ github.event.inputs.quick || '0' }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          npx playwright install --with-deps chromium
+          timeout 600 npx playwright install --with-deps chromium
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/visual-qa.mjs http://localhost:8080 vqa-out
           cat vqa-out/report.md >> "$GITHUB_STEP_SUMMARY"
