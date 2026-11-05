@@ -1,7 +1,7 @@
 # Lô nội dung cho phiên Sonnet (lộ trình SCORE ≥ 95)
 
 > TL;DR: Danh sách lô viết nội dung cho phiên Claude Sonnet, mỗi lô một tập file riêng, mẫu chuẩn, cổng phải xanh, số mục, token ước tính; xếp theo điểm SCORE thu được trên mỗi công. Opus (trưởng nội dung) làm trước phần "O" (cổng, loader, mẫu chuẩn) rồi soát 10 % mỗi lô và gộp.
-> Đọc khi: mở phiên Sonnet viết nội dung, hoặc nhận/soát một lô. Kế hoạch + mốc: `docs/CONTENT-WORLD-PLAN.md` §6. Điểm sống: `content/pipeline/SCORE.md`.
+> Đọc khi: mở phiên Sonnet viết nội dung, hoặc nhận/soát một lô. Kế hoạch + mốc: `docs/CONTENT-WORLD-PLAN.md` §6; thứ tự Đợt 2: `docs/specs/content-upgrade-2.md`. Điểm sống: `content/pipeline/SCORE.md`.
 
 ## Luật chung mọi lô (dán vào brief)
 - Làm trên main mới nhất của lexkiteapp (`git fetch real main`), nhánh `lot/<id>`, PR nhỏ; chỉ ghi đúng file của lô. Không sửa file PR mở khác đang giữ (#427/#429/#430/#412).
