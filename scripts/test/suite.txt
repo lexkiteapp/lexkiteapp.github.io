@@ -279,6 +279,8 @@ node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/test/lip-clock.mjs
+node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs

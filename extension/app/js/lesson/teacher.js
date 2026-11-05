@@ -9,8 +9,12 @@
   const saveData = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))); } catch (e) { return false; } };
   const lite = () => { try { return saveData() || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
   const VS = 'attribute vec2 p;varying vec2 v;void main(){v=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0.,1.);}';
-  // u0/u1 = vòng nghe/nói; m = tỉ lệ trộn. Màu đã nhân alpha → xuất thẳng (premultipliedAlpha)
-  const FS = 'precision mediump float;varying vec2 v;uniform sampler2D u0,u1;uniform float m;vec4 px(sampler2D t){vec2 c=vec2(v.x,v.y*.5);return vec4(texture2D(t,c).rgb,texture2D(t,c+vec2(0.,.5)).r);}void main(){vec4 a=px(u0),b=px(u1);vec4 o=mix(a,b,m);gl_FragColor=vec4(min(o.rgb,vec3(o.a)),o.a);}';
+  // u0/u1 = vòng nghe/nói; m = tỉ lệ trộn. Màu đã nhân alpha. 05/11 (vệt đen): highp + không lấy mẫu qua đường nối, tự đo mức đen ở góc đệm (H.264 không gắn
+  // dải màu → có máy đọc 16/255 = khung xám-đen), cắt nhiễu nén ≤ 3 %, nhân lại từ màu thẳng – cùng công thức web/js/teacher-live.js (cổng teacher-quality.mjs)
+  const FS = 'precision highp float;varying vec2 v;uniform sampler2D u0,u1;uniform float m;uniform vec2 e;' +
+    'vec4 px(sampler2D t){vec2 c=vec2(v.x,clamp(v.y*.5,e.y,.5-e.y)),k=e*3.;float a0=texture2D(t,vec2(k.x,.5+k.y)).r,c0=texture2D(t,k).g,s=a0>.03?255./219.:1.;' +
+    'float a=clamp((texture2D(t,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 q=clamp((texture2D(t,c).rgb-c0)*s,0.,1.);float b=clamp((a-.06)/.94,0.,1.);b*=step(.036,b);return vec4(clamp(q/max(a,.004),0.,1.)*b,b);}' +
+    'void main(){gl_FragColor=mix(px(u0),px(u1),m);}';
 
   // Canvas WebGL ghép alpha; trả null nếu máy không hỗ trợ (→ poster)
   function stage(cv) {
@@ -23,10 +27,15 @@
     const tex = [0, 1].map(i => { const t = gl.createTexture(); gl.activeTexture(gl.TEXTURE0 + i); gl.bindTexture(gl.TEXTURE_2D, t);
       for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
       gl.uniform1i(gl.getUniformLocation(pr, 'u' + i), i); return t; });
-    const um = gl.getUniformLocation(pr, 'm');
+    const um = gl.getUniformLocation(pr, 'm'), ue = gl.getUniformLocation(pr, 'e'), seen = [-1, -1], sz = ['', ''];
+    // Lag 05/11: trước tải CẢ 2 video (khung 554×960) mỗi lần 1 trong 2 đổi giờ, kể cả vòng đang ẩn (m = 0/1) → chỉ tải video đang hiện và chỉ khi có khung mới
     return (v0, v1, m) => {
-      [v0, v1].forEach((v, i) => { if (v && v.readyState >= 2) { gl.activeTexture(gl.TEXTURE0 + i); gl.bindTexture(gl.TEXTURE_2D, tex[i]); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); } });
+      let up = 0;
+      [v0, v1].forEach((v, i) => { if (!v || v.readyState < 2 || (i ? m <= 0 : m >= 1) || v.currentTime === seen[i] && sz[i]) return; seen[i] = v.currentTime; up++;
+        gl.activeTexture(gl.TEXTURE0 + i); gl.bindTexture(gl.TEXTURE_2D, tex[i]); const z = v.videoWidth + 'x' + v.videoHeight;
+        if (z !== sz[i]) { sz[i] = z; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, v); });
       gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.uniform1f(um, m); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      return up;
     };
   }
 
@@ -51,11 +60,13 @@
     const calm = motionLow(); // giảm chuyển động: giữ khớp miệng + chớp mắt (thông tin), bỏ nghiêng/gật/liếc
     const stats = { frames: 0, long: 0, draws: 0, t0: 0, mode: 'idle', emo: '' };
     let idleEmo = '', idle = LF.machine(who, { dur: 120, seed: seed(who), calm }), emoUntil = 0;
-    let cv = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
+    let cv = null, hb = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
     const ac = audioCtx();
     const fit = () => { // canvas = đúng khung poster 1108×960 (CSS bài học/Call đặt canvas y như ảnh poster: contain căn đáy, hay phóng 172 % kiểu bán thân) – chỉ khi đổi cỡ
       const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0), W = Math.round(Math.min(1108, w * dpr));
       cv.width = W; cv.height = Math.round(W * 960 / 1108); box = [W / 1108, 0, 0]; last = '';
+      // lag 05/11: vẽ đầu trơn 1108 px THU NHỎ lại mỗi khung (lấy mẫu lại ~1 M điểm ảnh) → thu nhỏ 1 lần theo cỡ canvas, mỗi khung chỉ chép 1:1
+      hb = D.createElement('canvas'); hb.width = cv.width; hb.height = cv.height; const hx = hb.getContext('2d'); if (hx) { hx.imageSmoothingQuality = 'high'; hx.drawImage(pic, 0, 0, hb.width, hb.height); } else hb = null;
     };
     const playing = a => !!(a && !a.paused && !a.ended && a.readyState >= 2);
     const frame = now => {
@@ -67,7 +78,7 @@
       if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(held ? held[0] : ''); } // phản ứng ngắn đã hết → về tư thế đang giữ / nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
       stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
       if (S) {
-        const t = S.clk(); talking = S.a ? playing(S.a) : (performance.now() - S.t0) / 1000 < S.dur;
+        const t = S.clk(now); talking = S.a ? playing(S.a) : (performance.now() - S.t0) / 1000 < S.dur;
         if (S.L) { S.L.tick(t, talking && S.voiced(), Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS.LEAD)); } else s = S.M.at(t);
       } else s = idle.at((now / 1000) % 120);
       // miệng ngậm khi không phát (tạm dừng, hết, chờ tải, tab quay lại sau khi tiếng tắt): trộn về X trong ~80 ms, mở lại ~40 ms – không bao giờ đứng hình giữa âm
@@ -80,7 +91,7 @@
         ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
         ctx.setTransform(box[0], 0, 0, box[0], box[1], box[2]);
         if (s.tilt || s.nod) { ctx.translate(R.pivot[0], R.pivot[1]); ctx.rotate(-s.tilt * Math.PI / 180); ctx.translate(-R.pivot[0], -R.pivot[1] - s.nod); }
-        ctx.drawImage(pic, 0, 0, 1108, 960);
+        ctx.drawImage(hb || pic, 0, 0, 1108, 960);
         for (const p of LF.parts(who, s, id)) if (p) g.LipPaint.draw(ctx, p);
       }
       cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; stats.blink = Math.round((s.blink || 0) * 100) / 100; raf = requestAnimationFrame(frame); // blink: test mắt mở trên khung ghép (call-e2e)
@@ -109,7 +120,8 @@
       speak(src) {
         if (dead) return; self.quiet();
         if (ac && ac.state !== 'running') ac.resume().catch(() => {});
-        const a = src.audio, t0 = performance.now(), clk = a ? () => a.currentTime : () => (performance.now() - t0) / 1000;
+        const a = src.audio, t0 = performance.now(); // đồng hồ hiển thị = tiếng THẬT tới tai (LipSync.clock: nội suy currentTime, − trễ loa, + 1 khung) – lệch ≤ ±33 ms (lip-clock.mjs)
+        const clk = a && LS.clock ? LS.clock(() => ({ t: a.currentTime, playing: playing(a), rate: a.playbackRate }), () => (ac ? ac.outputLatency || ac.baseLatency || 0 : 0)) : a ? () => a.currentTime : () => (performance.now() - t0) / 1000;
         let an = null, buf = null, node = null; const vd = LS.vad();
         const live = () => {
           if (!node && a && a.crossOrigin && self.tap()) { try { node = ac.createMediaElementSource(a); an = ac.createAnalyser(); an.fftSize = 1024; node.connect(an); an.connect(ac.destination); buf = new Float32Array(an.fftSize); } catch (e) { an = null; } }
