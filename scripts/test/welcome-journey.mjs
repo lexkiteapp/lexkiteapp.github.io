@@ -24,6 +24,18 @@ const hashIs = (page, re, timeout = 8000) => page.waitForFunction(r => new RegEx
 const steps = async page => { for (let i = 0; i < 8 && !(await page.$('#go')); i++) { await page.click('#obNext'); await sleep(200); } };
 const answerPlacement = async page => { await page.click('#go'); for (let i = 0; i < 30 && !(await page.$('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) await o.nth(i % 2).click().catch(() => {}); await sleep(450); } };
 
+// ---- 0. App iOS/Android (Capacitor) mở lần đầu: Welcome, không bao giờ vào/hiện blog (chủ 5/11) ----
+{
+  const nav = []; const P = await open('', { init: () => { window.Capacitor = { isNativePlatform: () => true, getPlatform: () => 'ios', Plugins: {} }; } });
+  P.page.on('framenavigated', f => nav.push(f.url())); P.page.on('request', r => { if (/\/blog\//.test(r.url()) && r.isNavigationRequest()) nav.push(r.url()); });
+  ok(await see(P.page, '#wCard'), 'app (Capacitor) mở lần đầu → Welcome');
+  ok(await P.hash() === '#/welcome', 'app: hash = #/welcome');
+  await sleep(1500);
+  ok(!nav.some(u => /\/blog\//.test(u)), 'app: không điều hướng vào blog lúc mở đầu');
+  ok(await P.page.evaluate(() => { const a = document.querySelector('.w-nav a[data-blog]'); return !a || a.hidden || !a.getClientRects().length; }), 'app: Welcome không hiện lối vào blog');
+  await P.ctx.close();
+}
+
 // ---- 1. Người mới: / → Welcome → đủ các bước → Hôm nay ----
 {
   const P = await open('', {});

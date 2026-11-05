@@ -17,6 +17,8 @@ ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \[[^\]]*'js\/welcom
 ok(!/id="wCard"|id="wFeats"|data-wg=/.test(app) && /wCard/.test(wl) && /wFeats/.test(wl) && /#loginH/.test(wl) && /data-wjump/.test(wl), 'markup trang giới thiệu chỉ còn ở welcome.js');
 ok(/!document\.getElementById\('lkHero'\)\) skel = setTimeout/.test(app), 'khung chờ không thay khung chào #lkHero');
 ok(/const bootDog = setTimeout\([\s\S]{0,200}errState\(true, true\); \}, 8000\)/.test(app) && /clearTimeout\(bootDog\)/.test(app) && /reload === true \? location\.reload\(\)/.test(app), 'canh khởi động 8 s: thẻ lỗi, Thử lại = tải lại, boot chạy thì hủy');
+ok(/App\.blogLive && !\(window\.Capacitor && Capacitor\.isNativePlatform && Capacitor\.isNativePlatform\(\)\)\) App\.blogLive\(\)/.test(wl), 'app iOS/Android: Welcome lần mở đầu KHÔNG hiện lối vào blog (chặn hồi quy "mở app ra trang chủ blog", chủ 5/11)');
+ok(!/blog/.test(rd('web/js/onboard.js')) && !/\/blog\//.test(rd('scripts/gen-hero.mjs')), 'thiết lập + khung chào dựng sẵn không có link blog');
 ok(/const fresh = !hasData\(\);/.test(app) && /App\.replaceHash\('#\/welcome'\)/.test(app), 'boot dùng chung phép "có dữ liệu", chuyển bằng replace');
 ok(/location\.replace\(location\.pathname \+ location\.search \+ h\)/.test(app), 'replace giữ /app/ (app có <base href="/">)');
 ok(/const bare = v => String\(v \|\| ''\)\.replace\(\/\\\+\$\/, ''\)/.test(onb) && /examTarget: tg/.test(onb) && /targetBand = tg/.test(onb) && /IELTS 0–9, TOEIC 10–990, TOEFL 1–6, General A1–C2/.test(onb), 'examTarget/targetBand lưu không dấu +, có ghi chú thang');

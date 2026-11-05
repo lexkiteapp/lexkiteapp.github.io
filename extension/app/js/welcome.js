@@ -43,7 +43,7 @@
     for (const b of [$('#loginW'), $('#loginH')]) if (b) { if (window.Sync && Sync.can === false) b.remove(); else b.onclick = login; }
     if (hl) { const b = [$('#loginH'), $('#loginW')].find(x => x && x.isConnected && x.getClientRects().length) || $('#loginH') || $('#loginW'); if (b) { b.classList.add('hl'); b.style.outline = '3px solid var(--primary)'; b.style.outlineOffset = '2px'; b.focus({ preventScroll: true }); } }
     view.querySelectorAll('[data-wjump]').forEach(b => b.onclick = () => document.getElementById(b.dataset.wjump).scrollIntoView({ behavior: 'smooth' }));
-    if (App.blogLive) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
+    if (App.blogLive && !(window.Capacitor && Capacitor.isNativePlatform && Capacitor.isNativePlatform())) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
     paint();
   };
   // hl: vào từ #/welcome/login → làm nổi nút Đăng nhập + đưa focus vào đó
