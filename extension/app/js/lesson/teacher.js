@@ -13,7 +13,7 @@
   // dải màu → có máy đọc 16/255 = khung xám-đen), cắt nhiễu nén ≤ 3 %, nhân lại từ màu thẳng – cùng công thức web/js/teacher-live.js (cổng teacher-quality.mjs)
   const FS = 'precision highp float;varying vec2 v;uniform sampler2D u0,u1;uniform float m;uniform vec2 e;' +
     'vec4 px(sampler2D t){vec2 c=vec2(v.x,clamp(v.y*.5,e.y,.5-e.y)),k=e*3.;float a0=texture2D(t,vec2(k.x,.5+k.y)).r,c0=texture2D(t,k).g,s=a0>.03?255./219.:1.;' +
-    'float a=clamp((texture2D(t,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 q=clamp((texture2D(t,c).rgb-c0)*s,0.,1.);float b=clamp((a-.03)/.97,0.,1.);return vec4(clamp(q/max(a,.004),0.,1.)*b,b);}' +
+    'float a=clamp((texture2D(t,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 q=clamp((texture2D(t,c).rgb-c0)*s,0.,1.);float b=clamp((a-.06)/.94,0.,1.);return vec4(clamp(q/max(a,.004),0.,1.)*b,b);}' +
     'void main(){gl_FragColor=mix(px(u0),px(u1),m);}';
 
   // Canvas WebGL ghép alpha; trả null nếu máy không hỗ trợ (→ poster)
@@ -33,7 +33,7 @@
       let up = 0;
       [v0, v1].forEach((v, i) => { if (!v || v.readyState < 2 || (i ? m <= 0 : m >= 1) || v.currentTime === seen[i] && sz[i]) return; seen[i] = v.currentTime; up++;
         gl.activeTexture(gl.TEXTURE0 + i); gl.bindTexture(gl.TEXTURE_2D, tex[i]); const z = v.videoWidth + 'x' + v.videoHeight;
-        if (z !== sz[i]) { sz[i] = z; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGB, gl.UNSIGNED_BYTE, v); });
+        if (z !== sz[i]) { sz[i] = z; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, v); });
       gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.uniform1f(um, m); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       return up;
     };

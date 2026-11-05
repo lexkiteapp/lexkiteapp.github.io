@@ -20,7 +20,7 @@ const live = fs.readFileSync(path.join(WEB, 'js/teacher-live.js'), 'utf8');
 if (!/const QUIET = new Set\(\[/.test(live) || !/if \(!quiet && !talk\) return;/.test(live)) errs.push('teacher-live.js: thiếu chặn clip nhép miệng khi im lặng (QUIET)');
 if (!/requestVideoFrameCallback/.test(live) || !/visibilitychange/.test(live)) errs.push('teacher-live.js: phải tải texture theo khung video mới (requestVideoFrameCallback) và dừng khi tab ẩn');
 for (const [f, s] of [['teacher-live.js', live], ['lesson/teacher.js', fs.readFileSync(path.join(WEB, 'js/lesson/teacher.js'), 'utf8')]]) {
-  if (/precision mediump/.test(s) || !/a0>\.03\?255\.\/219\.:1\./.test(s) || !/\(a-\.03\)\/\.97/.test(s)) errs.push(`${f}: shader ghép alpha phải highp + tự đo mức đen + cắt nhiễu (vệt đen)`);
+  if (/precision mediump/.test(s) || !/a0>\.03\?255\.\/219\.:1\./.test(s) || !/\(a-\.06\)\/\.94/.test(s)) errs.push(`${f}: shader ghép alpha phải highp + tự đo mức đen + cắt nhiễu (vệt đen)`);
 }
 if (!/LS\.clock\(/.test(fs.readFileSync(path.join(WEB, 'js/lesson/teacher.js'), 'utf8'))) errs.push('lesson/teacher.js: mặt vẽ phải dùng LipSync.clock (đồng hồ = tiếng thật, ±33 ms)');
 if (errs.length) { console.error('✗ teacher-quality (tĩnh):\n  ' + errs.join('\n  ')); process.exit(1); }

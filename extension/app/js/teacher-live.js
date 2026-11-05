@@ -17,7 +17,7 @@
     'void main(){vec2 c=vec2(v.x,clamp(v.y*.5,e.y,.5-e.y));vec2 k=e*3.;' +
     'float a0=texture2D(u,vec2(k.x,.5+k.y)).r,c0=texture2D(u,k).g;float s=a0>.03?255./219.:1.;' + // góc đệm ≈ 16/255 → trình duyệt đọc sai dải → giãn 16–235 về 0–1
     'float a=clamp((texture2D(u,c+vec2(0.,.5)).r-a0)*s,0.,1.);vec3 m=clamp((texture2D(u,c).rgb-c0)*s,0.,1.);' +
-    'float b=clamp((a-.03)/.97,0.,1.);gl_FragColor=vec4(clamp(m/max(a,.004),0.,1.)*b,b);}'; // cắt nhiễu nén ≤ 3 % (khung mờ), màu thẳng × alpha mới (không mép tối)
+    'float b=clamp((a-.06)/.94,0.,1.);gl_FragColor=vec4(clamp(m/max(a,.004),0.,1.)*b,b);}'; // cắt nhiễu nén ≤ 6 % (CI 05/11: 414 điểm mờ xa người với mức 3 %), màu thẳng × alpha mới (không mép tối)
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))) || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; } };
   const live = g.TeacherLive = el => {
     const fig = el.querySelector('.tslot-fig'), src = el.dataset.clip, wm = el.dataset.webm, talk = el.dataset.talk; el.removeAttribute('data-clip'); el.removeAttribute('data-webm'); el.removeAttribute('data-talk'); if (!fig || !src || lite()) return;
@@ -52,7 +52,7 @@
       if (v.readyState < 2) return;
       const sz = v.videoWidth + 'x' + v.videoHeight;
       const tu = performance.now();
-      if (sz !== alloc) { alloc = sz; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGB, gl.UNSIGNED_BYTE, v);
+      if (sz !== alloc) { alloc = sz; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v); gl.uniform2f(ue, 0.5 / v.videoWidth, 0.5 / v.videoHeight); } else gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, v);
       gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       // khung ĐẦU: chỉ giấu ảnh tĩnh khi texture thật có hình (WebKit/GStreamer, driver lỗi: video→texture rỗng → ô trống "mất hình"). Đọc 1 hàng giữa, 1 lần.
       if (!el.classList.contains('live')) { const W = cv.width, row = new Uint8Array(W * 4); gl.readPixels(0, cv.height >> 1, W, 1, gl.RGBA, gl.UNSIGNED_BYTE, row); let op = 0; for (let i = 3; i < row.length; i += 4) if (row[i] > 128) op++;
