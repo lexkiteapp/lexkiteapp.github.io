@@ -23,7 +23,8 @@ async function open(who, o = {}) {
 }
 // mỗi khung: thu nhỏ canvas còn 96 px rộng, trả trung bình |Δ| so với khung trước (0..255) – đo trong trang, không chụp màn
 const DIFF = `(() => { const c = document.querySelector('.trig-cv'), w = 96, h = Math.round(96 * c.height / c.width), o = new OffscreenCanvas(w, h), x = o.getContext('2d', { willReadFrequently: true });
-  let prev = null; window.diffs = []; window.blinks = []; window.firstLast = null; const step = () => { x.clearRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const d = x.getImageData(0, 0, w, h).data;
+  let prev = null; window.diffs = []; window.blinks = []; window.alphas = []; window.firstLast = null; const step = () => { x.clearRect(0, 0, w, h); x.drawImage(c, 0, 0, w, h); const d = x.getImageData(0, 0, w, h).data;
+  let al = 0; for (let i = 3; i < d.length; i += 4) al += d[i]; window.alphas.push(al);
   if (prev) { let s = 0; for (let i = 0; i < d.length; i++) s += Math.abs(d[i] - prev[i]); window.diffs.push(s / d.length); window.blinks.push(window.rig.stats.blink || 0); } if (!window.f0) window.f0 = d.slice(); window.fN = d; prev = d.slice(); if (window.diffOn) requestAnimationFrame(step); };
   window.diffOn = true; requestAnimationFrame(step); })()`;
 const total = page => page.evaluate(() => { let s = 0; for (let i = 0; i < window.f0.length; i++) s += Math.abs(window.f0[i] - window.fN[i]); window.diffOn = false; return s / window.f0.length; });
@@ -54,12 +55,17 @@ for (const who of ['ama', 'carlos']) {
   // --- so khung: mặt vẽ → ảnh tư thế (wave) và biểu cảm sad → happy: không khung nào nhảy quá 35 % tổng thay đổi ---
   for (const [label, act] of [['wave', () => rig.gesture('wave')], ['sad→happy', () => rig.setEmotion('happy')]]) {
     if (label !== 'wave') await page.evaluate(() => rig.setEmotion('sad')), await page.waitForTimeout(900);
+    // câu nói của bài đo CPU (3,75 s) còn đuôi: cử chỉ lúc đang nói xếp hàng (đúng thiết kế) và miệng nhảy viseme (cố ý không làm mượt) → đo chuyển SAU khi im
+    await page.waitForFunction(() => !rig.stats.speaking, null, { timeout: 8000 }); await page.waitForTimeout(150);
     await page.evaluate(DIFF); await page.evaluate(`(${act})()`); await page.waitForTimeout(label === 'wave' ? 700 : 1200);
     if (label === 'wave') await page.screenshot({ path: `${OUT}/${who}-wave.png` });
     // chớp mắt là sự kiện riêng của máy nghỉ (không phải bước chuyển): khung có mi đang khép (cả khung trước) không tính vào "nhảy" – vẫn cộng vào tổng
     const tot = await total(page), D = await page.evaluate(() => ({ d: window.diffs, b: window.blinks })), at = D.d.map((v, i) => (D.b[i] > 0.05 || D.b[i - 1] > 0.05 ? 0 : v)), mx = Math.max(0, ...at), mi = at.indexOf(mx);
     const top = D.d.map((v, i) => [v, i]).sort((x, y) => y[0] - x[0]).slice(0, 3).map(([v, i]) => `${v.toFixed(2)}@${i}${D.b[i] > 0.05 ? 'chớp' : ''}`).join(' ');
     ok(tot > 0.2 && mx <= Math.max(0.35 * tot, 0.6), `${who}: chuyển ${label} liền mạch – khung đổi nhiều nhất ${mx.toFixed(2)}@${mi} / tổng ${tot.toFixed(2)} (≤ 35 %) · lớn nhất ${top} / ${D.d.length} khung`);
+    // mờ chéo không làm người trong suốt giữa chừng (source-over: alpha 1 - w(1-w) → trũng ~25 %): tổng alpha mọi khung ≥ 98 % của min(đầu, cuối)
+    if (label === 'wave') { const al = await page.evaluate(() => window.alphas), lo = Math.min(al[0], al[al.length - 1]), mn = Math.min(...al);
+      ok(mn >= 0.98 * lo, `${who}: mờ chéo giữ độ đục – alpha nhỏ nhất ${(100 * mn / lo).toFixed(1)} % của min(đầu, cuối) (≥ 98 %)`); }
     await page.waitForTimeout(1800);
   }
   const mut = await page.evaluate(() => window.mut);

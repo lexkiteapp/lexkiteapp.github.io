@@ -174,10 +174,12 @@
         if (fade) { if (X.width !== cv.width || X.height !== cv.height) { X.width = cv.width; X.height = cv.height; } c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, X.width, X.height); }
         c.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); c.drawImage(headC, 0, 0); c.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
         for (const p of P) if (p) g.LipPaint.draw(c, p);
-        if (fade) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = f.faceW; ctx.drawImage(X, 0, 0); ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]); }
+        if (fade) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = f.faceW; ctx.drawImage(X, 0, 0); ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]); }
       }
-      if (pi && f.poseW > 0) { const sc = cv.width / 1108; ctx.globalAlpha = f.poseW; ctx.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); ctx.drawImage(scaled[f.pose] || pi, 0, 0, cv.width, cv.height); }
-      ctx.globalAlpha = 1;
+      // mờ chéo CỘNG (lighter = cộng premultiplied): kết quả = (1-w)·mặt + w·tư thế, alpha giữ nguyên chỗ cả hai cùng đục.
+      // source-over thì alpha = 1 - w(1-w) → người trong suốt 25 % giữa lúc chuyển (thấy nền xuyên qua) và khung đầu đổi mạnh nhất (cổng "wave liền mạch")
+      if (pi && f.poseW > 0) { const sc = cv.width / 1108; if (f.faceW > 0) ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = f.poseW; ctx.setTransform(T[0] / sc, T[1] / sc, T[2] / sc, T[3] / sc, T[4], T[5]); ctx.drawImage(scaled[f.pose] || pi, 0, 0, cv.width, cv.height); }
+      ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
     };
     const frame = now => {
       if (dead) return;
@@ -209,7 +211,7 @@
         }
         lastP = P; prof.paint += performance.now() - tp;
       } else prof.skip++;
-      stats.shape = f.shape; stats.pose = f.poseW > 0.5 ? f.pose : null; stats.emo = f.emo; stats.tilt = f.tilt; stats.nod = f.nod; stats.poseW = f.poseW; stats.blink = s.blink || 0;
+      stats.speaking = M.speaking(); stats.shape = f.shape; stats.pose = f.poseW > 0.5 ? f.pose : null; stats.emo = f.emo; stats.tilt = f.tilt; stats.nod = f.nod; stats.poseW = f.poseW; stats.blink = s.blink || 0;
       prof.n++; prof.js += performance.now() - t0;
       raf = requestAnimationFrame(frame);
     };
