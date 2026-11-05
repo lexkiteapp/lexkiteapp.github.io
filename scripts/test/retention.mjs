@@ -160,21 +160,37 @@ box.querySelector('#retNext').click(); await tick(30); ok(win.location.hash === 
   const V = $('#view'), vh = V.innerHTML;
   ok(V.querySelector('.v2-streak') || /v2-streak/.test(vh), 'v2: trang chuỗi dùng khung Stitch');
   ok(V.querySelector('header [data-href="#/home"]') && !V.querySelector('nav'), 'v2: đầu trang × có sẵn, không thanh tab');
-  ok(/>7</.test(vh) && /Chuỗi 7 ngày!/.test(vh) && /Mốc tiếp theo: 14 ngày/.test(vh), 'v2: số ngày + mốc tiếp');
+  ok(/>7</.test(vh) && /Mốc tiếp theo/.test(vh) && /Chuỗi 14 ngày/.test(vh) && /Còn 7 ngày/.test(vh) && V.querySelector('[role=progressbar][aria-valuemax="14"]'), 'v2: số ngày + mốc tiếp (14, còn 7, thanh tiến độ có aria)');
+  ok(V.querySelector('#retNext') && V.querySelectorAll('#retNext').length === 1, 'v2: đúng 1 CTA ghim đáy #retNext');
   ok(/miễn phí/.test(vh), 'v2: nói rõ miễn phí');
-  ok(V.querySelectorAll('[role=listitem]').length === 7 && V.querySelectorAll('[role=listitem][aria-label*="Hôm nay"], [role=listitem][aria-label*="Đã học"]').length >= 1, 'v2: lịch tuần 7 ô có nhãn trạng thái');
+  const wkL = V.querySelector('[role=listitem]').parentElement;
+  ok(wkL.querySelectorAll(':scope > [role=listitem]').length === 7 && wkL.querySelectorAll('[role=listitem][aria-label*="Hôm nay"], [role=listitem][aria-label*="Đã học"]').length >= 1, 'v2: lịch tuần 7 ô có nhãn trạng thái');
+  // lịch tháng: đủ ngày của tháng, có nhãn; ‹ › đổi tháng, không sang tháng tới, lùi tối đa 11 tháng
+  const mL = () => V.querySelector('#retMonth'), mDays = () => mL().querySelectorAll('[role=listitem]').length, mTi = () => mL().closest('section').querySelector('h3').textContent;
+  ok(mDays() >= 28 && mDays() <= 31 && mL().getAttribute('aria-label') && !/undefined/.test(mL().getAttribute('aria-label')), 'v2: lịch tháng đủ ngày + nhãn đọc màn hình');
+  ok(V.querySelector('#retMNext').disabled && !V.querySelector('#retMPrev').disabled, 'v2: tháng này → không sang tháng sau');
+  const t0 = mTi(); V.querySelector('#retMPrev').click(); await tick(5);
+  ok(mTi() !== t0 && !V.querySelector('#retMNext').disabled && V.querySelector('#retHelp'), 'v2: ‹ → tháng trước, chỉ vẽ lại thẻ lịch');
+  for (let i = 0; i < 12; i++) { V.querySelector('#retMPrev').click(); await tick(1); }
+  ok(V.querySelector('#retMPrev').disabled && mDays() >= 28, 'v2: lùi tối đa 11 tháng');
+  win.App.routes.streak(); await tick(10); ok(V.querySelector('#retMNext').disabled && mTi() === t0, 'v2: vào lại trang → về tháng này');
+  V.querySelector('#retHelp').click(); await tick(5);
+  ok(!modalEl.hidden && /miễn phí/.test(modalEl.innerHTML) && modalEl.querySelectorAll('li').length >= 4, 'v2: ? → giải thích luật chuỗi (miễn phí)'); win.UI.closeModal();
   ok(V.querySelector('[data-goal="20"]').getAttribute('aria-checked') === 'true' && V.querySelector('[data-goal="10"]').getAttribute('aria-checked') === 'false', 'v2: mục tiêu đang dùng lấy từ cài đặt thật');
   ok(V.querySelector('[role=progressbar][aria-valuemax="20"]'), 'v2: vòng mục tiêu ngày có aria');
-  ok(V.querySelectorAll('[data-ret-item]').length >= 15, 'v2: bộ sưu tập');
-  ok(V.querySelector('[data-ret-item="s:star"]').disabled, 'v2: món chưa có bị khóa');
-  ok(V.querySelector('[data-ret-item="f:ice"]') && !V.querySelector('[data-ret-item="f:ice"]').disabled, 'v2: món đã có đeo được');
-  ok(/🧊/.test(vh), 'v2: số lượt đóng băng hiện trên trang');
+  ok(V.querySelector('#retColl'), 'v2: hàng Bộ sưu tập');
+  ok(/\d+\/\d+ lượt sẵn sàng/.test(vh) && /Đóng băng chuỗi/.test(vh), 'v2: số lượt đóng băng hiện trên trang');
   ok(V.querySelector('#retChest'), 'v2: có rương chưa mở → nút Mở rương');
   V.querySelector('#retChest').click(); await tick(40);
   ok(modalEl.querySelector('.ret-tile.open') || modalEl.querySelector('#retChestTile'), 'v2: Mở rương từ trang chuỗi');
+  win.UI.closeModal(); state.game.ret.frame = '';
+  V.querySelector('#retColl').click(); await tick(5);
+  ok(modalEl.querySelectorAll('[data-ret-item]').length >= 15, 'v2: bộ sưu tập');
+  ok(modalEl.querySelector('[data-ret-item="s:star"]').disabled, 'v2: món chưa có bị khóa');
+  ok(modalEl.querySelector('[data-ret-item="f:ice"]') && !modalEl.querySelector('[data-ret-item="f:ice"]').disabled, 'v2: món đã có đeo được');
+  modalEl.querySelector('[data-ret-item="f:ice"]').click(); await tick(20);
+  ok(state.game.ret.frame === 'ice' && modalEl.querySelector('[data-ret-item="f:ice"]').getAttribute('aria-pressed') === 'true', 'v2: bấm món → đeo khung');
   win.UI.closeModal();
-  V.querySelector('[data-ret-item="f:ice"]').click(); await tick(20);
-  ok(state.game.ret.frame === 'ice', 'v2: bấm món → đeo khung');
   win.App.ux1On = () => false;
 }
 

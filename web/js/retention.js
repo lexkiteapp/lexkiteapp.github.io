@@ -165,9 +165,12 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     await mutate(r => { r.ms = r.ms || {}; Core.MILESTONES.filter(x => x <= m).forEach(x => { if (!r.ms[x]) r.ms[x] = Date.now(); }); });
     const who = teacherFor(m), fz = state.game.freezeAt === m ? `<span class="ret-chip" data-noicon>🧊 +1</span>` : '';
     if (v2On()) { // 🎨 Stitch v2: cùng khung màn Chuỗi trong hộp thoại (không đầu trang cố định); thẻ phụ = chip băng + ô rương + chỗ quảng cáo
-      const o = g.ST2.streak(v2Data({ n: m, milestone: true, title: t('{n} ngày! 🔥', { n: m }), say: who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'), extra: `<div class="flex items-center justify-center gap-3 flex-wrap mb-[1rem]">${teach2(who)}${fz}${chestTile()}</div><div id="retAd"></div>` }));
+      const d = v2Data({ n: m, milestone: true, say: who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!') });
+      d.teach = teach2(who); d.teachName = who === 'ama' ? 'Ama' : 'Carlos'; // giáo viên của mốc (xen kẽ Ama/Carlos theo mốc)
+      const o = g.ST2.streak(d), sec = v2Secs(o.main), root = o.root.replace(/\s(min-h-screen|pb-28)(?=\s|$)/g, ''); // hộp thoại: bỏ chiều cao toàn màn + chừa thanh tab của trang
       // KHÔNG gắn st/v2on vào <body>: hộp thoại hiện trên mọi trang – v2on sẽ ẩn đầu trang/thanh tab của trang đang mở; khung .v2 tự đủ CSS
-      const box = UI.modal(`<div class="v2s-streak"><div class="${o.root}" data-ret-cel>${o.main}</div></div>`);
+      const box = UI.modal(`<div class="v2s-streak"><div class="${root} p-4 gap-4" data-ret-cel><h2 class="text-2xl font-extrabold text-center lt:text-[#0F3D3E] dk:text-[#E8F1F0]">${esc(t('{n} ngày! 🔥', { n: m }))}</h2>${o.hero}${sec.week}${sec.goals}<div class="flex items-center justify-center gap-3 flex-wrap" data-noicon>${fz}${chestTile()}</div>${o.cta}<div id="retAd"></div></div></div>`);
+      if (g.ST2.css) g.ST2.css('streak', box.querySelector('[data-ret-cel]')); if (box.querySelector('.st-fl') && g.ST2.flameCss) g.ST2.flameCss();
       if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
       buzz([30, 40, 70]); if (!reduce() && typeof g.confetti === 'function') g.confetti(120);
       bindChest(box); bindNext(box); bindGoals(box); return;
@@ -253,7 +256,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     on: 'min-h-[44px] py-2 px-1.5 gap-1 rounded-xl border-2 border-[#2BA39A] flex flex-col items-center justify-center text-center relative active:translate-y-0.5 transition-transform lt:bg-[#E6F4F2] lt:shadow-[0_3px_0_0_#D8CFBC] dk:bg-[#18353A] dk:shadow-[0_3px_0_0_#0E1618]',
   };
 
-  const teach2 = who => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, style: 'margin-bottom:1.75rem' }); // đứng trên dải huy hiệu băng (-mt-7) bên dưới, bệ không bị che // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
+  const teach2 = who => Chars.slot(who, { pose: 'encourage', size: 's', lazy: true }); // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi), cùng cỡ ô giáo viên của thẻ đầu
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
@@ -289,7 +292,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       fz: { lab: t('{a}/{b} lượt sẵn sàng', { a: fi.left, b: fi.max }), slots: Array.from({ length: fi.max }, (_, i) => ({ v: i < fi.left ? 'on' : 'off' })) },
       ms: { next: nx, pct: Math.min(100, Math.round(n / nx * 100)), title: t('Chuỗi {n} ngày', { n: nx }), got: t('Đã giữ {n} ngày', { n }), left: t('Còn {n} ngày', { n: nx - n }) },
       ch: { n: ch, title: t('Bạn có {n} rương chưa mở', { n: ch }), sub: t('Mở để nhận khung hoặc nhãn dán mới') },
-      goalLab: t('{a}/{b} {u} hôm nay', { a: now, b: goal, u: unit }),
+      goalLab: t('{a}/{b} {u} hôm nay', { a: now, b: goal, u: unit }), goal: { now: Math.min(now, goal), max: goal },
       goals: GOALS.map(([key, icon, v, min, nm]) => ({ k: v, v: goal === v ? 'on' : 'off', name: t(nm), sub: t('{n} phút/ngày', { n: min }), al: t(nm) + ': ' + t('{n} phút/ngày', { n: min }) + ', ' + v + ' ' + unit })),
       ev: ev ? { on: 1, icon: EV_IC[ev.id] || 'eco', title: t('Gom {n} mảnh', { n: ev.need }), sub: t('Học 1 ngày = 1 mảnh'), al: t('Đã gom {a}/{b} mảnh', { a: evGot, b: ev.need }), pcs: Array.from({ length: ev.need }, (_, i) => ({ v: i < evGot ? 'on' : 'off', icon: EV_IC[ev.id] || 'eco' })) }
         : { on: 0, icon: 'eco', title: '', sub: '', al: '', pcs: [] } };
@@ -299,11 +302,29 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const pick = async el => { await setGoal(+el.dataset.goal); const cel = root !== view(); if (cel) { root.querySelectorAll('[data-goal]').forEach(x => x.setAttribute('aria-checked', String(x === el))); return; } v2Page(); const b = view().querySelector('[data-goal="' + el.dataset.goal + '"]'); if (b) b.focus(); };
     root.querySelectorAll('[data-goal]').forEach(el => { el.onclick = () => pick(el); el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(el); } }; });
   }
+  const bindWear = box => box.querySelectorAll('[data-ret-item]').forEach(b => { b.onclick = async () => { const id = b.dataset.retItem === 'f:teal' ? '' : b.dataset.retItem.slice(2); await wear(id); box.querySelectorAll('[data-ret-item^="f:"]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }; });
+  // Thẻ của khung dùng lại trong hộp thoại mốc: lịch tuần + mục tiêu ngày (giữ đủ ý của màn cũ)
+  const v2Secs = main => { const tmp = document.createElement('div'); tmp.innerHTML = main; const pick = q => { const el = tmp.querySelector(q); const sc = el && el.closest('section'); return sc ? sc.outerHTML : ''; }; return { week: pick('[role=listitem]'), goals: pick('[data-goal]') }; };
+  // Lịch tháng: ‹ › chỉ vẽ lại thẻ lịch (không dựng lại cả trang), xem lùi tối đa 11 tháng, không sang tháng chưa tới
+  function bindMonth() {
+    const p = document.getElementById('retMPrev'), nx = document.getElementById('retMNext');
+    const lock = (b, off) => { if (!b) return; b.disabled = off; b.setAttribute('aria-disabled', String(off)); b.classList.toggle('opacity-40', off); };
+    lock(p, mOff <= -11); lock(nx, mOff >= 0);
+    const go = (dir, id) => {
+      const nOff = Math.max(-11, Math.min(0, mOff + dir)); if (nOff === mOff) return; mOff = nOff;
+      const cur = document.getElementById('retMonth'), sec = cur && cur.closest('section'); if (!sec) return;
+      const tmp = document.createElement('div'); tmp.innerHTML = g.ST2.streak(v2Data({})).main;
+      const fresh = tmp.querySelector('#retMonth'); if (!fresh) return; sec.replaceWith(fresh.closest('section'));
+      bindMonth(); const f = document.getElementById(id); (f && !f.disabled ? f : document.getElementById(id === 'retMPrev' ? 'retMNext' : 'retMPrev'))?.focus();
+    };
+    if (p) p.onclick = () => go(-1, 'retMPrev'); if (nx) nx.onclick = () => go(1, 'retMNext');
+  }
   function v2Page() {
     const root = g.ST2.mount(view(), 'streak', v2Data({}), null);
-    bindNext(view()); bindGoals(view());
+    bindNext(view()); bindGoals(view()); bindMonth();
     const c = document.getElementById('retChest'); if (c) c.onclick = openChest;
-    view().querySelectorAll('[data-ret-item]').forEach(b => { b.onclick = () => wear(b.dataset.retItem === 'f:teal' ? '' : b.dataset.retItem.slice(2)); });
+    const coll = document.getElementById('retColl'); if (coll) coll.onclick = e => { e.preventDefault(); bindWear(UI.modal(collHtml())); };
+    const help = document.getElementById('retHelp'); if (help) help.onclick = () => UI.modal(helpHtml());
     check(); return root;
   }
 
@@ -311,7 +332,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   function page() {
     css(); applyFrame();
     if (App.ux1On && App.ux1On() && !v2On() && !page.tried && App.lazy) { page.tried = 1; App.lazy('ux1').then(page, page); return; } // khung Stitch nằm ở gói ux1
-    if (v2On()) { v2Page(); return; }
+    if (v2On()) { mOff = 0; v2Page(); return; }
     const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
     const ev = Core.event(today()), got = ev ? ((r.ev || {})[ev.id] || []).length : 0, ch = Core.chests(r), own = r.own || {};
     const items = ['f:teal', ...Object.keys(FRAMES).filter(f => f !== 'teal').map(f => 'f:' + f), ...Object.keys(STICKERS).map(s => 's:' + s)];
