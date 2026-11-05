@@ -71,6 +71,8 @@ function detect(opt) {
       const ix = Math.min(br.right, tr.right) - Math.max(br.left, tr.left), iy = Math.min(br.bottom, tr.bottom) - Math.max(br.top, tr.top);
       if (ix > 3 && iy > 3 && ix * iy > 0.15 * Math.min(br.width * br.height, tr.width * tr.height)) { const ps = getComputedStyle(t).position, pb = getComputedStyle(b).position; if (ps === 'static' && pb === 'static') continue; add('btn-overlap', b, br); break; }
     }
+    { // chữ tràn khỏi nút (nowrap + nhãn dài ar/de/ru: chữ thò 2 mép, icon ra ngoài khung – nút Google thanh bên 05/11)
+      const cs = getComputedStyle(b); if (cs.overflowX === 'visible' && cs.display !== 'inline' && (b.innerText || '').trim() && b.scrollWidth > b.clientWidth + 2 && b.clientWidth > 0) add('btn-text-overflow', b, br); }
     if (opt.mobile) { // vùng chạm nhỏ (bỏ link nằm trong đoạn văn)
       const cs = getComputedStyle(b); if (cs.display === 'inline' && b.closest('p,li,small,span,label')) continue;
       if (/^(checkbox|radio)$/.test(b.type) && b.closest('label')) continue;
@@ -209,7 +211,7 @@ const stateCombos = []; for (const v of QUICK ? ['m', 'd'] : ['m', 't', 'd']) fo
 const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2, 3].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
 
 // ---- Báo cáo + ảnh cắt cho nhóm lỗi đầu bảng
-const order = ['js-error', 'cls', 'icon-invisible', 'clipped', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40', 'tap<44'];
+const order = ['js-error', 'cls', 'icon-invisible', 'clipped', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'btn-text-overflow', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40', 'tap<44'];
 const list = [...groups.values()].sort((a, b) => order.indexOf(a.t) - order.indexOf(b.t) || b.where.size - a.where.size);
 const byType = {}; for (const g of list) byType[g.t] = (byType[g.t] || 0) + 1;
 const SHOTS = +(process.env.VQA_SHOTS || 12); let si = 0;
@@ -235,5 +237,6 @@ fs.writeFileSync(OUT + '/contact.html', `<!doctype html><meta charset=utf-8><tit
 fs.writeFileSync(OUT + '/report.json', JSON.stringify({ byType, groups: list.map(g => ({ t: g.t, k: g.k, screens: g.where.size, ex: [...g.where].slice(0, 4), x: g.ex.x })) }));
 console.log(md.slice(0, 4 + Object.keys(byType).length).join('\n'));
 let fail = 0; try { const bud = JSON.parse(fs.readFileSync(new URL('./visual-qa.budget.json', import.meta.url))); for (const [t, max] of Object.entries(bud)) if ((byType[t] || 0) > max) { fail++; console.log(`✗ ${t}: ${byType[t]} nhóm > ngưỡng ${max}`); } } catch (e) {}
+if (pages < combos.length * 5) { fail++; console.log(`✗ visual-qa: chỉ soát được ${pages} trang (< ${combos.length * 5}) – app không mở được = không có tín hiệu, không được báo xanh (METHODS §4)`); }
 console.log(fail ? `✗ visual-qa: ${fail} loại vượt ngưỡng` : '✓ visual-qa: trong ngưỡng');
 process.exit(fail && !QUICK ? 1 : 0);
