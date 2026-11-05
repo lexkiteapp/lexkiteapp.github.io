@@ -4,7 +4,7 @@
 // Lý do được xoá (và chỉ các lý do này):
 //   failed-run   artifact của lượt chạy failure/cancelled/timed_out/startup_failure
 // Phạm vi: chỉ artifact có tên video (VIDEO_RE). 
-//   superseded   cùng tiền tố tên (bỏ hậu tố số/sha) + cùng workflow, đã có lượt MỚI hơn → giữ bản mới nhất, xoá bản cũ
+//   superseded   cùng tiền tố tên (chỉ bỏ hậu tố số/sha cuối; số giữa giữ nguyên) + cùng nhánh, đã có lượt MỚI hơn → giữ bản mới nhất, xoá bản cũ
 //   gone-episode tên tv-/tvo-<tập>… mà <tập> không còn trong repo (content/video/**) và artifact > 3 ngày
 // KHÔNG BAO GIỜ: `tv-bank-*` của lượt thành công trên main; artifact trẻ hơn --min-age-hours (lượt đang chạy); lượt chưa rõ trạng thái.
 // Dùng scripts/ci/gh-api.mjs (ETag, hạn mức). Docs: docs/VIDEO-STORAGE.md § "Dọn video rác". Test: scripts/test/video-junk.py (thuần: classify).
@@ -18,9 +18,15 @@ export const VIDEO_RE = /^(tvo?|cine|motion|video|mvo?|matte|shorts?|render|teac
 const BAD_RUN = ['failure', 'cancelled', 'timed_out', 'startup_failure'];
 const DAY = 86400e3;
 
-/** Tiền tố ổn định của tên artifact (thuần): bỏ hậu tố số lượt / sha, số đứng giữa thành #. */
+/** Tiền tố ổn định của tên artifact (thuần): chỉ bỏ hậu tố số lượt / sha ở CUỐI tên.
+ *  Số đứng giữa GIỮ NGUYÊN: t2/t3/t4 là bản mẫu khác nhau, e2e-100/e2e-102 là bài khác nhau – gộp chúng (#) từng làm
+ *  660 artifact / 16 GB bị coi "superseded" sai (05/11). */
 export function prefixOf(name) {
-  return String(name).toLowerCase().replace(/[-_.]?(?:\d{4,}|[0-9a-f]{7,40})$/, '').replace(/\d+/g, '#');
+  return String(name).toLowerCase().replace(/[-_.]?(?:\d{4,}|[0-9a-f]{7,40})$/, '');
+}
+/** Khoá nhóm "superseded" (thuần): cùng tiền tố VÀ cùng nhánh – bản của nhánh/PR khác không thay được bản này. */
+export function groupOf(a) {
+  return prefixOf(a.name) + '@' + String(a.workflow_run?.head_branch ?? '');
 }
 /** Tập id tập phim còn trong repo (thuần): tên file/thư mục dưới content/video (chữ thường, bỏ đuôi). */
 export function episodeIds(names) {
@@ -43,14 +49,14 @@ export function classify(arts, { badRuns = new Map(), known = new Set(), now = D
   const failedRun = a => badRuns.has(a.workflow_run?.id);
   const protectedBank = a => /^tv-bank-/i.test(a.name) && a.workflow_run?.head_branch === 'main' && !failedRun(a);
   const good = live.filter(a => !failedRun(a));
-  const newest = new Map();   // tiền tố → artifact mới nhất của lượt không hỏng
-  for (const a of good) { const k = prefixOf(a.name); const b = newest.get(k); if (!b || Date.parse(a.created_at) > Date.parse(b.created_at)) newest.set(k, a); }
+  const newest = new Map();   // tiền tố@nhánh → artifact mới nhất của lượt không hỏng
+  for (const a of good) { const k = groupOf(a); const b = newest.get(k); if (!b || Date.parse(a.created_at) > Date.parse(b.created_at)) newest.set(k, a); }
   for (const a of live) {
     if (protectedBank(a) || age(a) < minAgeH * 3600e3) continue;
     let reason = null;
     if (failedRun(a)) reason = 'failed-run';
     else {
-      const top = newest.get(prefixOf(a.name));
+      const top = newest.get(groupOf(a));
       if (top && top.id !== a.id && a.workflow_run?.id !== top.workflow_run?.id && Date.parse(top.created_at) > Date.parse(a.created_at)) reason = 'superseded';
       else if (hasKnown && /^tvo?-/i.test(a.name) && age(a) > 3 * DAY) { const ep = episodeOf(a.name); if (ep && !known.has(ep) && !ep.split(/[-_]/).some(t => known.has(t) && t.length >= 4)) reason = 'gone-episode'; }
     }

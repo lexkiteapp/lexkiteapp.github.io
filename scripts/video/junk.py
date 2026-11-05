@@ -31,6 +31,9 @@ TEXT_EXT = {'.json', '.md', '.mjs', '.js', '.cjs', '.ts', '.py', '.html', '.txt'
 SKIP_DIRS = {'.git', '__pycache__', 'node_modules', '.DS_Store'}
 BANK_NAMES = {'mei', 'kai', 'daniel'}
 BANK_DIRS = {'green', 'bg', 'chars', 'clips', 'bank', 'banks', 'kfull_pro', 'kmask_pro', 'source', 'sources', 'src', 'teachers3d', 'characters'}
+# Cache render có khoá băm trong tên (scripts/cine/lesson5.py: render5_shots/<khoá>.mp4): tên file không bao giờ xuất hiện trong repo
+# nên "no-ref-in-repo" vô nghĩa; xoá = buộc render lại (nặng). Bảo vệ cả thư mục.
+CACHE_DIR_RE = re.compile(r'^(?:render\d*_shots|.*_cache|cache)$')
 REJECT_DIRS = {'rejected', 'reject', 'rejects', 'red', '_rejected', 'failed'}
 REF_DIRS = ('content', 'docs', 'scripts', 'web', 'infra')
 REGISTRY = ('web/teach/characters.json', 'scripts/video/library-seed.json', 'content/video/cine/news/bank.json')
@@ -51,13 +54,15 @@ def name_tokens(rel):
 
 
 def protected_path(rel):
-    """Bảo vệ theo đường dẫn (thuần): footage Mei/Kai/Daniel hoặc nằm dưới thư mục bank/nguồn. -> lý do hoặc None."""
+    """Bảo vệ theo đường dẫn (thuần): footage Mei/Kai/Daniel, thư mục bank/nguồn, hoặc cache render có khoá băm. -> lý do hoặc None."""
     parts = [p.lower() for p in rel.split('/')]
     if name_tokens(rel) & BANK_NAMES:
         return 'bank-character'
     for p in parts[:-1]:
         if p in BANK_DIRS:
             return 'bank-folder:' + p
+        if CACHE_DIR_RE.match(p):
+            return 'render-cache:' + p
     return None
 
 

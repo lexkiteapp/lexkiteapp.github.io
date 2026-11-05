@@ -52,6 +52,7 @@ try:
     w(lib + '/anchor/mei_talk.mp4', b'MEI' * 4000)          # footage ngân hàng Mei (không ai tham chiếu)
     w(lib + '/anchor/kai_idle.mp4', b'')                    # rỗng nhưng vẫn BẢO VỆ
     w(lib + '/cafe/clips/other_bank.mp4', b'BANK' * 3000)   # dưới thư mục bank
+    w(lib + '/cine/x/tools/render5_shots/ask_r24_ots_ama_talk_12_48_r_a0.07.mp4', b'SHOT' * 3000)   # cache render khoá băm (lesson5.py)
     w(lib + '/render/in_backup_manifest.mp4', b'MANI' * 3000)
     for i in range(10):
         w(lib + '/render/seq_tmp/frame_%04d.png' % i, b'F%d' % i * 50)
@@ -72,6 +73,7 @@ try:
     ok(st('render/ref_ok.mp4')[0] == 'keep', 'được tham chiếu (grep) -> giữ')
     ok(st('anchor/mei_talk.mp4')[0] == 'protected' and st('anchor/kai_idle.mp4')[0] == 'protected', 'Mei/Kai được bảo vệ (kể cả rỗng)')
     ok(st('cafe/clips/other_bank.mp4')[0] == 'protected', 'thư mục bank được bảo vệ')
+    ok(st('cine/x/tools/render5_shots/ask_r24_ots_ama_talk_12_48_r_a0.07.mp4')[0] == 'protected', 'cache render5_shots (tên = khoá băm) được bảo vệ, không phải unreferenced')
     ok(st('render/in_backup_manifest.mp4')[0] == 'protected', 'có trong archive-manifest -> bảo vệ')
     ok(sum(1 for p in E if p.startswith('render/seq_tmp/')) == 10 and st('render/seq_tmp/frame_0000.png') == ('junk', 'unreferenced'), 'chuỗi ảnh được quét (thư mục không tham chiếu -> unreferenced)')
     ok(all(e['status'] != 'junk' for e in E.values() if 'mei' in e['path'] or e['path'].startswith('cafe/clips')), 'không mục bảo vệ nào là rác')
@@ -167,8 +169,10 @@ try:
 import { classify, prefixOf, episodeOf } from %s;
 const now = Date.parse('2026-11-05T00:00:00Z'), iso = d => new Date(now - d * 864e5).toISOString();
 const A = (id, name, run, d, br = 'x') => ({ id, name, size_in_bytes: 100, expired: false, created_at: iso(d), workflow_run: { id: run, head_branch: br } });
-const arts = [A(1, 'tv-bank-1', 10, 9, 'main'), A(2, 'tv-bank-2', 11, 9, 'main'), A(3, 'tv-ep1-111111', 12, 8), A(4, 'tv-ep1-222222', 13, 2), A(5, 'qa-bot', 14, 20), A(6, 'cine-x', 15, 5), A(7, 'tvo-oldep-333333', 16, 9), A(8, 'cine-y', 17, 0.1), A(9, 'tv-ep9', 11, 4)];
-const j = classify(arts, { badRuns: new Map([[11, 'failure'], [15, 'cancelled']]), known: new Set(['ep1', 'ep9']), now });
+const arts = [A(1, 'tv-bank-1', 10, 9, 'main'), A(2, 'tv-bank-2', 11, 9, 'main'), A(3, 'tv-ep1-111111', 12, 8), A(4, 'tv-ep1-222222', 13, 2), A(5, 'qa-bot', 14, 20), A(6, 'cine-x', 15, 5), A(7, 'tvo-oldep-333333', 16, 9), A(8, 'cine-y', 17, 0.1), A(9, 'tv-ep9', 11, 4),
+  A(10, 'tv-t2_verbs_break-short-444444', 20, 6), A(11, 'tv-t4_verbs_break-short-555555', 21, 2), A(12, 'video-e2e-100', 22, 6), A(13, 'video-e2e-102', 23, 2),
+  A(14, 'tv-ep5-666666', 24, 6, 'main'), A(15, 'tv-ep5-777777', 25, 2, 'pr-a')];
+const j = classify(arts, { badRuns: new Map([[11, 'failure'], [15, 'cancelled']]), known: new Set(['ep1', 'ep9', 'ep5', 't2_verbs_break', 't4_verbs_break']), now });
 const by = Object.fromEntries(j.map(x => [x.id, x.reason]));
 console.log(JSON.stringify(by), prefixOf('tv-ep1-222222'), episodeOf('tvo-oldep-333333'));
 """ % json.dumps('file://' + os.path.abspath(os.path.join(HERE, '..', 'video', 'junk-artifacts.mjs')))
@@ -189,6 +193,9 @@ console.log(JSON.stringify(by), prefixOf('tv-ep1-222222'), episodeOf('tvo-oldep-
             ok(by.get('7') == 'gone-episode', 'tập không còn trong repo -> gone-episode')
             ok(by.get('8') is None, 'artifact trẻ (<24h) không bị đụng')
             ok(by.get('9') == 'failed-run', 'lượt hỏng -> failed-run')
+            ok(by.get('10') is None, 'tv-t2_* không bị tv-t4_* "thay" (số giữa tên = bản mẫu khác)')
+            ok(by.get('12') is None, 'video-e2e-100 không bị video-e2e-102 "thay" (bài khác)')
+            ok(by.get('14') is None, 'bản của nhánh main không bị bản mới hơn của nhánh PR khác "thay"')
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 
