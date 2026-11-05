@@ -370,7 +370,7 @@
   }
   const token = async () => { const u = auth.currentUser || user; if (!u) { if (await ask(L('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?'))) await signIn(); throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại')); } return u.getIdToken(); };
   const reauth = async () => { if (await ask(L('Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?'))) { await auth.signOut(); await signIn(); } throw new Error('reauth'); };
-  // Đệm 30 s cho op đọc dùng chung giữa huy hiệu, Hôm nay, Trung tâm cảnh báo, Sức khỏe (R5: tải đầu từng gọi overview/alerts/usage 2 lần). Op khác (ghi) → xoá đệm.
+  // Đệm 30 s cho op đọc dùng chung giữa huy hiệu, Hôm nay, Trung tâm cảnh báo, Sức khỏe (R5: tải đầu từng gọi overview/alerts/usage 2 lần). Op khác (ghi) → xóa đệm.
   const ACACHE = new Map(), CACHEABLE = new Set(['overview', 'alerts', 'quality', 'usage', 'noticeStats', 'geminiStatus', 'errors']);
   const fresh = () => ACACHE.clear();
   function api(op, body = {}) {
