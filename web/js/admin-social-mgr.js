@@ -67,7 +67,7 @@
     'Tất cả nền tảng': 'All platforms', 'Mọi trạng thái': 'Any status', 'Nhóm theo': 'Group by', 'Không nhóm': 'No grouping', 'Nền tảng': 'Platform', 'Nhóm': 'Group', 'Sắp xếp': 'Sort', 'Tên': 'Name', 'Dùng 24 giờ': '24 h usage', 'Bài gần nhất': 'Last post',
     '24 giờ': '24 h', 'Hết hạn': 'Expires', 'Quyền': 'Permissions', 'đăng': 'publish', 'số liệu': 'insights', 'đọc bình luận': 'read comments', 'trả lời': 'reply', 'bình luận đầu': 'first comment', 'thiếu quyền: {s}': 'missing: {s}',
     'Workspace Lexkite (#{ws}) chưa có kênh nào.': 'The Lexkite workspace (#{ws}) has no channels yet.', 'Kết nối lại ↗': 'Reconnect ↗', '(chưa nhóm)': '(ungrouped)',
-    'YouTube & TikTok trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ riêng tư (TikTok SELF_ONLY, YouTube private) cho tới khi Google/TikTok duyệt app GrabCast.': 'YouTube & TikTok on GrabCast are “Private until review”: posts go up private (TikTok SELF_ONLY, YouTube private) until Google/TikTok approve the GrabCast app.',
+    'YouTube trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ private cho tới khi Google duyệt app GrabCast. TikTok đã được duyệt: bài lên công khai.': 'YouTube on GrabCast is “Private until review”: posts go up private until Google approves the GrabCast app. TikTok is approved: posts go up public.',
     '🔗 Kết nối kênh': '🔗 Connect channels', 'Kết nối Facebook & Instagram': 'Connect Facebook & Instagram', 'Kết nối TikTok': 'Connect TikTok', 'Kết nối YouTube': 'Connect YouTube', 'Kết nối Threads': 'Connect Threads',
     'Đăng nhập dùng app Meta đã được duyệt của GrabCast – Lexkite không cần app Meta riêng.': 'Sign-in uses GrabCast’s approved Meta app – Lexkite needs no Meta app of its own.',
     '⏳ Đang chờ kết nối trong cửa sổ GrabCast… (tự nhận kênh mới)': '⏳ Waiting for the connection in the GrabCast window… (new channels are detected automatically)',
@@ -337,7 +337,7 @@
   // ======================= SỨC KHỎE KÊNH =======================
   async function health(el, ctx) {
     const { M, esc, err, pill } = mk(ctx); let H = null; const F = ctx.LS.get('hf', { p: '', s: '', g: 'platform', sort: 'name' });
-    el.innerHTML = `<section class="card"><h3 style="margin-top:0">${M('🩺 Sức khỏe kênh')}</h3><p class="small muted">${M('YouTube & TikTok trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ riêng tư (TikTok SELF_ONLY, YouTube private) cho tới khi Google/TikTok duyệt app GrabCast.')}</p>
+    el.innerHTML = `<section class="card"><h3 style="margin-top:0">${M('🩺 Sức khỏe kênh')}</h3><p class="small muted">${M('YouTube trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ private cho tới khi Google duyệt app GrabCast. TikTok đã được duyệt: bài lên công khai.')}</p>
       <div class="smg-flt"><select id="hP" aria-label="${esc(M('Nền tảng'))}"><option value="">${M('Tất cả nền tảng')}</option>${Object.keys(PN).map(p => `<option value="${p}" ${F.p === p ? 'selected' : ''}>${PN[p]}</option>`).join('')}</select>
       <select id="hS" aria-label="${esc(M('Trạng thái'))}"><option value="">${M('Mọi trạng thái')}</option>${Object.keys(HS).map(s => `<option value="${s}" ${F.s === s ? 'selected' : ''}>${M(HS[s][1])}</option>`).join('')}</select>
       <label class="small">${M('Nhóm theo')} <select id="hG"><option value="">${M('Không nhóm')}</option><option value="platform" ${F.g === 'platform' ? 'selected' : ''}>${M('Nền tảng')}</option><option value="group" ${F.g === 'group' ? 'selected' : ''}>${M('Nhóm')}</option></select></label>
