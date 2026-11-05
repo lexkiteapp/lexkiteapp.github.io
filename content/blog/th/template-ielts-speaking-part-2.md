@@ -122,7 +122,7 @@ quiz: [
 - *"Let me reflect on that for a brief moment... Well, generally speaking..."* (ขอผมคิดสักครู่หนึ่ง... โดยทั่วไปแล้ว...)
 - *"It’s hard to give a definitive answer, but if I had to speculate, I’d say that..."* (ยากที่จะให้คำตอบที่แน่นอน แต่ถ้าให้ผมคาดการณ์ ผมคงจะบอกว่า...)
 
-นอกจากพาร์ตพูดแล้ว ทักษะการอ่านเร็วเพื่อหาประเด็นก็ใช้หลักการจับกลุ่มคำที่คล้ายกัน สามารถอ่านเพิ่มเติมได้ที่ [เทคนิค Skimming Scanning IELTS Reading](/th/blog/theknik-skimming-scanning-ielts-reading/)
+ก่อนเริ่มการนำเสนอเดี่ยว คุณสามารถเสริมความคล่องแคล่วในการตอบคำถามสั้นด้วย [IELTS Speaking Part 1 เทคนิคตอบ](/th/blog/ielts-speaking-part-1-thikhnik-khamtop/) นอกจากพาร์ตพูดแล้ว ทักษะการอ่านเร็วเพื่อหาประเด็นก็ใช้หลักการจับกลุ่มคำที่คล้ายกัน สามารถอ่านเพิ่มเติมได้ที่ [เทคนิค Skimming Scanning IELTS Reading](/th/blog/theknik-skimming-scanning-ielts-reading/)
 
 ![กราฟสถิติการเรียนรู้บน Lexkite พร้อมคะแนน xp และ heatmap บันทึกความต่อเนื่อง](media:stats "สะสมคะแนน xp และติดตามชั่วโมงฝึกซ้อมการพูดภาษาอังกฤษบน heatmap อย่างสม่ำเสมอ")
 

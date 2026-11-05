@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **ทวนคำศัพท์จากคำถามของกรรมการเป๊ะๆ:** พยายามใช้คำไวพจน์ (Synonyms) หรือเปลี่ยนหน้าที่ของคำ (Part of Speech) เพื่อโชว์คลังคำศัพท์ที่ยืดหยุ่น
 
-เพื่อฝึกจังหวะการพูดภาษาอังกฤษให้เป็นธรรมชาติ แนะนำให้อ่านคู่มือ [Sentence Stress ภาษาอังกฤษ](/th/blog/sentence-stress-phasa-angkrit-thikhnik/) และเทคนิค [Shadowing ฝึกพูดภาษาอังกฤษ](/th/blog/thikhnik-shadowing-fuek-phut-phasa-angkrit/) ร่วมด้วย และเสริมคลังศัพท์ผ่าน [คลังคำศัพท์ภาษาอังกฤษวิชาการ](/th/tu-vung/) บนแพลตฟอร์ม Lexkite
+เพื่อฝึกพื้นฐานการตอบคำถามในชีวิตประจำวัน แนะนำให้ศึกษา [IELTS Speaking Part 1 เทคนิคตอบ](/th/blog/ielts-speaking-part-1-thikhnik-khamtop/) ก่อน และเพื่อฝึกจังหวะการพูดภาษาอังกฤษให้เป็นธรรมชาติ แนะนำให้อ่านคู่มือ [Sentence Stress ภาษาอังกฤษ](/th/blog/sentence-stress-phasa-angkrit-thikhnik/) และเทคนิค [Shadowing ฝึกพูดภาษาอังกฤษ](/th/blog/thikhnik-shadowing-fuek-phut-phasa-angkrit/) ร่วมด้วย และเสริมคลังศัพท์ผ่าน [คลังคำศัพท์ภาษาอังกฤษวิชาการ](/tu-vung/) บนแพลตฟอร์ม Lexkite
 
 {{youtube: | รวมเทคนิคการขยายคำตอบและคิดวิเคราะห์เชิงลึกใน IELTS Speaking Part 3}}
 
