@@ -29,6 +29,15 @@ for (let dow = 0; dow < 7; dow++) {
   ok(wk.slice(0, dow).every((x, i) => x.st === (i >= dow - 2 ? 'done' : 'miss')), `trước hôm nay (${dow}): 2 ngày học = done, còn lại miss`);
   if (dow === 0) ok(!wk.some(x => x.k === at(1)), 'Thứ 2: hôm qua (CN tuần trước) không nằm trong lịch tuần');
 }
+{ // Lịch tháng (#/streak, 5/11): lưới Thứ 2 → CN, ô đệm null, trạng thái như week(), tháng trước qua off=-1
+  const now = new Date(2026, 10, 5, 12).getTime(), d = x => key(new Date(2026, 10, x, 12)); // 1/11/2026 = Chủ nhật → 6 ô đệm
+  const mo = C.month(new Set([d(3), d(4)]), { [d(2)]: 1 }, now, 0);
+  ok(mo.y === 2026 && mo.m === 10 && mo.cells.length % 7 === 0 && mo.cells.slice(0, 6).every(c => c === null) && mo.cells[6].day === 1, 'lịch tháng: 1/11 (CN) ở cột 7, ô đệm null, đủ hàng 7');
+  const at = n => mo.cells.find(c => c && c.day === n);
+  ok(at(2).st === 'frozen' && at(3).st === 'done' && at(1).st === 'miss' && at(5).st === 'today' && at(5).today && at(6).st === 'future' && mo.learned === 3, 'lịch tháng: đóng băng/đã học/lỡ/hôm nay/tương lai + đếm ngày giữ chuỗi');
+  const prev = C.month(new Set(), {}, now, -1), dec = C.month(new Set(), {}, new Date(2026, 11, 31, 12).getTime(), 1);
+  ok(prev.m === 9 && prev.cells.filter(Boolean).length === 31 && prev.cells.every(c => !c || c.st === 'miss') && dec.y === 2027 && dec.m === 0, 'lịch tháng: tháng trước toàn quá khứ; qua năm mới đúng');
+}
 const w = C.week(days, { [ago(0)]: 1 }, Date.now());
 ok(w.length === 7 && w[0].dow === 0 && w.some(x => x.st === 'frozen'), 'lịch tuần hôm nay: 7 ô, Thứ 2 đầu tuần, có ô đóng băng');
 ok(!w.some(x => x.k > key(new Date()) && x.st !== 'future'), 'ngày tương lai = future');
