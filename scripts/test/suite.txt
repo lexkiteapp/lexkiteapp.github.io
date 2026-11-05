@@ -293,4 +293,3 @@ node scripts/test/teacher-bubble.mjs --static
 node scripts/test/voice-source.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
-node scripts/test/voice-source.mjs
