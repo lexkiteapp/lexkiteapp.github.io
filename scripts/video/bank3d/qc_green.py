@@ -46,9 +46,9 @@ def geo(f):
 
 def mouth_dark(f, g):
     x0, x1 = g['head']; w = x1 - x0; t = g['top']
-    cx = (x0 + x1) // 2; box = f[t + int(w * 1.0):t + int(w * 1.16), cx - int(w * .17):cx + int(w * .17)]   # w = hair width; lips sit just below the moustache
+    cx = (x0 + x1) // 2; box = f[t + int(w * .97):t + int(w * 1.16), cx - int(w * .17):cx + int(w * .17)]   # w = hair width; lips: Carlos 1.00–1.16 (below the moustache), Ama 0.97–1.12
     if box.size == 0: return 0.0
-    return float((cv2.cvtColor(box, cv2.COLOR_BGR2GRAY) < 50).mean())
+    return float((cv2.cvtColor(box, cv2.COLOR_BGR2GRAY) < 35).mean())   # < 35 = mouth interior; Ama's dark skin sits above it
 
 
 def diff(a, b):
