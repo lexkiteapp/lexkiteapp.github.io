@@ -3,7 +3,7 @@
 */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 'Chuỗi {n} ngày!': '{n} day streak!',
-'Đã học {a}/7 ngày': '{a} of 7 days done',
+'Đã học {a}/7 ngày': '{a} of 7 completed',
 'Đã đạt mục tiêu hôm nay': 'Daily goal reached',
 'Còn {n} {u} hôm nay': '{n} {u} left today',
 'Mục tiêu mỗi ngày': 'Daily goal',
@@ -60,7 +60,11 @@
 'Sự kiện: gom {n} lá': 'Event: collect {n} leaves',
 'Sự kiện: gom {n} bông tuyết': 'Event: collect {n} snowflakes',
 'Sự kiện: gom {n} cánh hoa': 'Event: collect {n} petals',
-'Thử thách mùa thu · học 1 ngày = 1 lá': 'Autumn quest · 1 study day = 1 leaf',
-'Thử thách mùa đông · học 1 ngày = 1 bông tuyết': 'Winter quest · 1 study day = 1 snowflake',
-'Thử thách mùa xuân · học 1 ngày = 1 cánh hoa': 'Spring quest · 1 study day = 1 petal',
+'Học 1 ngày = 1 lá': '1 study day = 1 leaf',
+'Học 1 ngày = 1 bông tuyết': '1 study day = 1 snowflake',
+'Học 1 ngày = 1 cánh hoa': '1 study day = 1 petal',
+'1 rương sẵn sàng': '1 chest ready',
+'{n} rương sẵn sàng': '{n} chests ready',
+'Mở khóa ở mốc {n} ngày': 'Unlocked at the {n}-day milestone',
+'Mở quà': 'Open',
 }); })(typeof self !== 'undefined' ? self : this);

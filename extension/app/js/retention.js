@@ -261,7 +261,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
   // tên + luật sự kiện theo mùa (thẻ sự kiện v2: tên ở dòng đầu, luật "1 ngày học = 1 mảnh" ở dòng phụ)
-  const EV_TXT = { autumn26: ['Sự kiện: gom {n} lá', 'Thử thách mùa thu · học 1 ngày = 1 lá'], winter26: ['Sự kiện: gom {n} bông tuyết', 'Thử thách mùa đông · học 1 ngày = 1 bông tuyết'], spring27: ['Sự kiện: gom {n} cánh hoa', 'Thử thách mùa xuân · học 1 ngày = 1 cánh hoa'] };
+  const EV_TXT = { autumn26: ['Sự kiện: gom {n} lá', 'Học 1 ngày = 1 lá'], winter26: ['Sự kiện: gom {n} bông tuyết', 'Học 1 ngày = 1 bông tuyết'], spring27: ['Sự kiện: gom {n} cánh hoa', 'Học 1 ngày = 1 cánh hoa'] };
   // nhãn thứ 1 chữ như mẫu (Intl 'narrow', theo ngôn ngữ giao diện; 2/11/2026 = thứ Hai)
   const DOW1 = lang => { try { return Array.from({ length: 7 }, (_, i) => new Date(2026, 10, 2 + i).toLocaleDateString(lang, { weekday: 'narrow' })); } catch (e) { return DOW(); } };
   const GOALS = [['casual', 'spa', 10, 5, 'Nhẹ nhàng'], ['regular', 'fitness_center', 20, 10, 'Đều đặn'], ['intense', 'whatshot', 50, 20, 'Tăng tốc']];
@@ -286,7 +286,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const got = wk.filter(x => x.st === 'done' || x.st === 'frozen').length, doneToday = act.has(k) && !(fzd || {})[k];
     const mo = Core.month(act, fzd, Date.now(), mOff), mt = new Date(mo.y, mo.m, 1).toLocaleDateString(lang, { month: 'long', year: 'numeric' }), mTitle = mt.charAt(0).toLocaleUpperCase(lang) + mt.slice(1);
     const cells = mo.cells.map(c => (c ? { v: vOf(c.st), day: c.day, al: new Date(mo.y, mo.m, c.day).toLocaleDateString(lang, { day: 'numeric', month: 'long' }) + (lab[c.st] ? ': ' + lab[c.st] : '') } : { v: 'pad' }));
-    const fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 }, nx = Core.next(n), ch = Core.chests(r);
+    const fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 }, nx = Core.next(n), ch = Core.chests(r), lastMs = Object.keys(r.ms || {}).map(Number).sort((a, b) => a - b).pop() || 0;
     const ev = Core.event(k), evGot = ev ? ((r.ev || {})[ev.id] || []).length : 0, who = n % 2 ? 'carlos' : 'ama';
     // Lời động viên theo trạng thái thật – mừng việc đã đến, không dọa mất chuỗi (notifications-ux: không gây áp lực)
     const say = o.say || (!n ? t('Bắt đầu chuỗi hôm nay – một bài nhỏ là đủ.') : doneToday ? t('Hôm nay bạn đã giữ chuỗi. Tuyệt lắm!') : g.ST2.flameState(n) === 'frozen' ? t('Băng đã giữ chuỗi cho bạn. Một bài nhỏ là học tiếp được.') : t('Nhịp đều lắm – một bài nhỏ là giữ được chuỗi.'));
@@ -295,7 +295,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       dows: L, mon: { title: mTitle, cells, al: t('Lịch {m}: đã giữ chuỗi {n} ngày', { m: mTitle, n: mo.learned }), off: mOff },
       fz: { lab: t('{a}/{b} lượt sẵn sàng', { a: fi.left, b: fi.max }), slots: Array.from({ length: fi.max }, (_, i) => ({ v: i < fi.left ? 'on' : 'off' })) },
       ms: { next: nx, pct: Math.min(100, Math.round(n / nx * 100)), title: t('Chuỗi {n} ngày', { n: nx }), got: t('Đã giữ {n} ngày', { n }), left: t('Còn {n} ngày', { n: nx - n }) },
-      ch: { n: ch, title: t('Bạn có {n} rương chưa mở', { n: ch }), sub: t('Mở để nhận khung hoặc nhãn dán mới') },
+      ch: { n: ch, title: ch === 1 ? t('1 rương sẵn sàng') : t('{n} rương sẵn sàng', { n: ch }), sub: lastMs ? t('Mở khóa ở mốc {n} ngày', { n: lastMs }) : t('Mở để nhận khung hoặc nhãn dán mới') },
       goalLab: t('{a}/{b} {u} hôm nay', { a: now, b: goal, u: unit }), goal: { now: Math.min(now, goal), max: goal },
       goals: GOALS.map(([key, icon, v, min, nm]) => ({ k: v, v: goal === v ? 'on' : 'off', name: t(nm), sub: t('{n} phút/ngày', { n: min }), al: t(nm) + ': ' + t('{n} phút/ngày', { n: min }) + ', ' + v + ' ' + unit })),
       ev: ev ? { on: 1, icon: EV_IC[ev.id] || 'eco', title: EV_TXT[ev.id] ? t(EV_TXT[ev.id][0], { n: ev.need }) : t('Gom {n} mảnh', { n: ev.need }), sub: EV_TXT[ev.id] ? t(EV_TXT[ev.id][1]) : t('Học 1 ngày = 1 mảnh'), al: t('Đã gom {a}/{b} mảnh', { a: evGot, b: ev.need }), pcs: Array.from({ length: ev.need }, (_, i) => ({ v: i < evGot ? 'on' : 'off', icon: EV_IC[ev.id] || 'eco' })) }

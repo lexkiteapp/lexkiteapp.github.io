@@ -35744,5 +35744,50 @@
     "ar": "السلسلة",
     "ru": "Серия",
     "tr": "Seri"
+  },
+  "Mở quà": {
+    "es": "Abrir",
+    "pt": "Abrir",
+    "fr": "Ouvrir",
+    "de": "Öffnen",
+    "id": "Buka",
+    "th": "เปิด",
+    "zh": "打开",
+    "ja": "開ける",
+    "ko": "열기",
+    "hi": "खोलें",
+    "ar": "افتح",
+    "ru": "Открыть",
+    "tr": "Aç"
+  },
+  "1 rương sẵn sàng": {
+    "es": "1 cofre listo",
+    "pt": "1 baú pronto",
+    "fr": "1 coffre prêt",
+    "de": "1 Truhe bereit",
+    "id": "1 peti siap",
+    "th": "หีบพร้อม 1 ใบ",
+    "zh": "1 个宝箱可开",
+    "ja": "宝箱1個 準備OK",
+    "ko": "상자 1개 준비됨",
+    "hi": "1 संदूक तैयार",
+    "ar": "صندوق واحد جاهز",
+    "ru": "1 сундук готов",
+    "tr": "1 sandık hazır"
+  },
+  "{n} rương sẵn sàng": {
+    "es": "{n} cofres listos",
+    "pt": "{n} baús prontos",
+    "fr": "{n} coffres prêts",
+    "de": "{n} Truhen bereit",
+    "id": "{n} peti siap",
+    "th": "หีบพร้อม {n} ใบ",
+    "zh": "{n} 个宝箱可开",
+    "ja": "宝箱{n}個 準備OK",
+    "ko": "상자 {n}개 준비됨",
+    "hi": "{n} संदूक तैयार",
+    "ar": "{n} صناديق جاهزة",
+    "ru": "Сундуков готово: {n}",
+    "tr": "{n} sandık hazır"
   }
 }
