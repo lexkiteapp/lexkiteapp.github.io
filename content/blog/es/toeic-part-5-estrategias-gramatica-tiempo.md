@@ -13,7 +13,7 @@ publishAt: 2027-01-09T08:57:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 87
+qualityScore: 92
 quiz: [
   {
     q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",
@@ -32,7 +32,7 @@ quiz: [
       "thorough",
       "thoroughness",
       "thoroughly",
-      "thoroughbred"
+      "thoroughest"
     ],
     answer: 2,
     explain: "La oración cuenta con sujeto (The committee), verbo transitivo (evaluated) y objeto directo (the audit). Para modificar al verbo en una estructura oracional completa se requiere un adverbio (thoroughly)."
@@ -51,13 +51,13 @@ quiz: [
 ]
 ---
 
-En la sección de lectura del examen TOEIC (*Reading Comprehension*), el reloj es el adversario más implacable de todo aspirante. Con exactamente 100 preguntas que resolver en 75 minutos, dedicar más de 35 o 40 segundos a una frase incompleta en la Parte 5 deja prácticamente sin margen de maniobra para abordar los densos y extensos textos de la Parte 7. Dominar e implementar metódicas **toeic part 5 estrategias** permite a los candidatos que obtienen más de 850 puntos resolver las preguntas de gramática mecánica en apenas 10 o 20 segundos por ítem, blindando un valioso colchón de tiempo para el resto de la prueba.
+La sección de lectura del TOEIC (*Reading*) tiene 100 preguntas para 75 minutos, es decir, unos 45 segundos por pregunta de media. Como los textos de la Parte 7 piden mucho más tiempo que una frase de la Parte 5, conviene resolver las frases incompletas en unos 20 segundos y guardar esa diferencia para leer. Estas **toeic part 5 estrategias** te ayudan a lograrlo; los 20 segundos son un objetivo de entrenamiento, no una regla de ETS.
 
-La Parte 5 del TOEIC consta de 30 preguntas de oraciones incompletas (de la 101 a la 130). Estos ejercicios evalúan dos pilares fundamentales: la mecánica de la sintaxis y las categorías gramaticales por un lado, y el vocabulario profesional junto con sus colocaciones habituales por el otro. Si aprendes a clasificar cada ítem antes de leerlo, desarrollarás un reflejo analítico rápido y libre de dudas.
+La Parte 5 del TOEIC consta de 30 preguntas de oraciones incompletas (de la 101 a la 130). Estos ejercicios evalúan dos pilares fundamentales: la mecánica de la sintaxis y las categorías gramaticales por un lado, y el vocabulario profesional junto con sus colocaciones habituales por el otro. Si aprendes a clasificar cada ítem antes de leerlo, responderás con mucha más rapidez.
 
-En esta guía desglosamos el método de decisión en 20 segundos, las fórmulas de descarte por sufijos más rentables del examen, el protocolo de tres pasos para resolver verbos complejos y las combinaciones léxicas que más se repiten en las convocatorias oficiales.
+En esta guía desglosamos el método de decisión en 20 segundos, las fórmulas de descarte por sufijos, el protocolo de tres pasos para las preguntas con verbos y las colocaciones de negocios que conviene conocer.
 
-![Consulta de la palabra resilient en el diccionario de Lexkite con pronunciación británica y americana](media:dict "Busca colocaciones y definiciones contextuales en el diccionario inteligente de Lexkite para afianzar el vocabulario del TOEIC")
+![Página de Luyện thi TOEIC en Lexkite con exámenes simulados, práctica por Part y vocabulario TOEIC (TSL)](media:toeic "La página TOEIC de Lexkite: exámenes simulados, práctica por Part y vocabulario TSL")
 
 ## toeic part 5 estrategias: el método de decisión en 20 segundos
 
@@ -81,7 +81,7 @@ Una vez confirmada la categoría, reduce tu campo visual a las palabras que rode
 
 ### Paso 3: Marcar y avanzar sin relecturas innecesarias (13–20 segundos)
 
-En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas y pasa de inmediato a la siguiente pregunta. Releer una frase dos o tres veces "para ver si suena bien" es una causa frecuente de que muchos candidatos tengan que adivinar las últimas preguntas del examen.
+En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas y pasa de inmediato a la siguiente pregunta. Releer una frase dos o tres veces "para ver si suena bien" te quita tiempo que luego te faltará en la Parte 7.
 
 ## Fórmulas de descarte para las 4 categorías gramaticales clave
 
@@ -96,11 +96,11 @@ Una parte importante de las 30 preguntas de la Parte 5 (la proporción exacta va
 
 Atención especial a las excepciones morfológicas: aunque la gran mayoría de palabras terminadas en *-ly* son adverbios, en el inglés empresarial existen adjetivos muy recurrentes terminados en *-ly*, tales como *timely* (oportuno), *costly* (costoso) o *friendly* (amigable).
 
-![Sesión de repaso con tarjetas en Lexkite con la palabra pollution y opciones de memoria](media:review "Repasa vocabulario del examen TOEIC con tarjetas flashcard en Lexkite")
+![Biblioteca de Lexkite con las pestañas Todas, NGSL, IELTS, Writing, Speaking y TOEIC (TSL)](media:library "La biblioteca incluye la pestaña TOEIC (TSL), útil para el vocabulario de negocios de la Parte 5")
 
 ## Protocolo en 3 pasos para acertar las preguntas verbales
 
-Los tiempos y modos verbales concentran un porcentaje notable de los errores de los candidatos hispanohablantes. Para evitar fallos, aplica siempre este orden de verificación:
+Los tiempos verbales son una fuente habitual de errores para quienes hablan español. Para evitar fallos, aplica siempre este orden de verificación:
 
 ### 1. Concordancia entre sujeto y verbo (Singular vs. Plural)
 
@@ -111,7 +111,7 @@ Localiza el núcleo del sujeto descartando los sintagmas preposicionales interme
 ### 2. Voz activa frente a voz pasiva
 
 Analiza si el sujeto realiza la acción o la recibe:
-- Si el verbo es transitivo pero no lleva un objeto directo detrás y va seguido de una preposición (como *by the board* o *in 2024*), la opción correcta casi siempre exige voz pasiva (*be + participio*).
+- Si el verbo es transitivo pero no lleva un objeto directo detrás y va seguido de *by* + agente (como *by the board*), la opción correcta casi siempre exige voz pasiva (*be + participio*).
 - Ejemplo: *The revised safety guidelines **were approved** by executive directors yesterday.*
 
 ### 3. Marcadores temporales explícitos
@@ -119,13 +119,14 @@ Analiza si el sujeto realiza la acción o la recibe:
 El TOEIC no deja las referencias temporales a la ambigüedad; busca siempre la pista en la frase:
 - *Since + fecha pasada* o *for the past three quarters* señalan **Present Perfect** (*has/have + participio*).
 - *Last week, yesterday, three months ago, formerly* exigen **Past Simple** (*verbo en pasado*).
-- *By next month, in the forthcoming fiscal year* demandan **Future** (*will + infinitivo* o *is scheduled to*).
+- *Next month, in the forthcoming fiscal year* piden **futuro** (*will + infinitivo* o *is scheduled to*); con *by next month* suele aparecer el futuro perfecto (*will have + participio*).
 
 ### Errores típicos de los hispanohablantes en preguntas verbales
 
-- **Present Perfect con marcador pasado**: "Hemos enviado el informe ayer" es habitual en España, pero en inglés *yesterday* exige Past Simple: *We sent the report yesterday*, nunca *have sent ... yesterday*.
+- **Present Perfect con marcador pasado**: en español el pretérito perfecto se usa con periodos que llegan al presente ("Hemos enviado el informe esta semana"), y eso lleva a trasladarlo a *yesterday*. En inglés un marcador cerrado como *yesterday* exige Past Simple: *We sent the report yesterday*, nunca *have sent ... yesterday*.
 - **"Desde hace"**: "Trabajo aquí desde hace tres años" lleva a *I work here since three years*. Lo correcto es *I have worked here for three years*; *since* va con un punto en el tiempo (*since 2023*).
 - **La -s de tercera persona**: con prisa se escribe *The manager approve*. Revisa siempre el sujeto singular.
+- **Sustantivo antes que adjetivo**: en español el adjetivo suele ir detrás ("un informe detallado"); en inglés va delante (*a detailed report*), y en Part 5 el adjetivo correcto está casi siempre justo antes del sustantivo.
 - **Falsos amigos**: *actually* es "en realidad", no "actualmente" (*currently*); *assist* es "ayudar", no "asistir" (*attend*); *eventually* es "finalmente", no "eventualmente".
 
 ## Trampas clásicas entre preposiciones y conjunciones
@@ -142,7 +143,7 @@ Diferencia crítica entre *until* y *by*:
 - **by**: Marca un límite temporal estricto para culminar una acción (*Please submit the balance sheet by 5:00 PM*).
 - **until**: Expresa la duración ininterrumpida de una situación hasta un momento determinado (*The office will be closed until next Tuesday*).
 
-![Módulo de práctica de pronunciación en Lexkite grabando la frase cut down on con el micrófono](media:practice-speak "Entrena la pronunciación correcta de expresiones laborales y evalúa tu dicción con el micrófono")
+![Prueba de opción múltiple de Lexkite: elegir el significado correcto de run out of entre cuatro opciones](media:practice-test "Un test de opción múltiple como este sirve para comprobar si distingues el significado de expresiones como run out of")
 
 ## Colocaciones profesionales indispensables en el TOEIC
 
@@ -158,30 +159,35 @@ En las preguntas de vocabulario puro, el examen suele evaluar si conoces las com
 
 ## Distribución del tiempo de examen y entrenamiento recomendado
 
-El módulo de lectura del TOEIC dura 75 minutos. La administración cronométrica óptima se estructura de la siguiente manera:
+El módulo de lectura del TOEIC dura 75 minutos (ETS no fija un tiempo por parte). Esta es una distribución razonable, sugerencia propia que puedes ajustar:
 - **Parte 5 (30 preguntas)**: Resolver en **8 a 10 minutos** (máximo 20 segundos por ítem).
 - **Parte 6 (16 preguntas)**: Resolver en **6 a 8 minutos**.
-- **Parte 7 (54 preguntas)**: Disponer de **55 minutos completos** para procesar con calma los textos complejos y cruzados.
+- **Parte 7 (54 preguntas)**: Quedan unos **55 minutos** para los textos simples y los textos múltiples.
 
 Al preparar el examen, practica series completas de 30 preguntas con un cronómetro estricto en la mano. Oblígate a mirar primero las alternativas para internalizar el proceso de descarte automático.
 
-En el ecosistema formativo de Lexkite dispones de un [diccionario contextual](/#/) para analizar colocaciones profesionales, una sala de [conversación guiada](/#/speaking) para ganar soltura en expresiones laborales y un módulo de [entrenamiento de pronunciación](/#/practice/speak) para asegurar la claridad de tu comunicación en inglés.
+En la [página TOEIC de Lexkite](/#/toeic) hay siete exámenes con una práctica de Part 5 por cada uno: al enviar tus respuestas ves la explicación de cada una. Para el vocabulario, los 1.250 términos de la lista TSL están en la [biblioteca](/#/library?g=toeic), y las preguntas que falles se guardan en el [cuaderno de errores](/#/mistakes), agrupadas por vocabulario o gramática.
 
 Para potenciar tu rendimiento global en la prueba, te invitamos a consultar el completo [plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/) para estructurar tu preparación, nuestra guía estratégica sobre [TOEIC Part 7: lectura y gestión del tiempo](/es/blog/toeic-part-7-estrategias-lectura-tiempo/), las pautas sobre [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/), las claves para redactar [informes corporativos en inglés](/es/blog/como-redactar-informes-en-ingles-negocios/) y el artículo sobre el [método de repetición espaciada FSRS](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/). Si deseas consolidar listas temáticas de términos de negocio, accede a nuestro [directorio de vocabulario en inglés](/es/vocabulary/).
 
-{{cta: /#/toeic | Practica preguntas de TOEIC Part 5 en la plataforma de Lexkite}}
+![Cuaderno de errores de Lexkite que agrupa los fallos en Vocabulario, Gramática, Lectura y Listening](media:mistakes "El cuaderno de errores agrupa tus fallos por vocabulario, gramática, lectura y listening")
+
+{{cta: /#/toeic | Practica Part 5 con explicaciones}}
 
 {{youtube: | Estrategias y trucos de TOEIC Part 5 para responder en 20 segundos}}
 
 ## Preguntas frecuentes
 
 ### ¿Qué debo hacer si no conozco ninguna de las cuatro palabras en una pregunta de vocabulario?
-No malgastes más de 20 segundos en una pregunta donde ninguna opción te resulte familiar. Identifica la carga positiva o negativa del contexto, descarta las opciones incompatibles con esa connotación, elige la que parezca más coherente y pasa de inmediato a la siguiente. Todas las preguntas valen los mismos puntos.
+No malgastes más de 20 segundos en una pregunta donde ninguna opción te resulte familiar. Identifica la carga positiva o negativa del contexto, descarta las opciones incompatibles con esa connotación, elige la que parezca más coherente y pasa de inmediato a la siguiente. No hay penalización por fallar, así que nunca dejes una pregunta en blanco.
 
 ### ¿Es conveniente responder las 30 preguntas en estricto orden correlativo?
-Sí, en la Parte 5 es sumamente aconsejable responder en orden secuencial (de la 101 a la 130). Los temas gramaticales y de vocabulario aparecen distribuidos de manera uniforme, y mantener el orden evita confusiones en la hoja de respuestas óptica.
+No es obligatorio, pero en la Parte 5 lo normal es ir en orden (de la 101 a la 130), porque las frases son cortas y casi ninguna merece un salto. Si una pregunta de vocabulario te bloquea, márcala con una respuesta provisional y continúa; así no arriesgas dejarla vacía.
+
+### ¿Qué errores cometen más los hispanohablantes en la Parte 5?
+Los más frecuentes son usar Present Perfect con *yesterday* o *last week*, olvidar la -s de la tercera persona (*The manager approves*), poner *since* con una duración (*for three years*) y confiar en falsos amigos como *actually* o *assist*. Antes de elegir, comprueba siempre el sujeto del verbo y si el marcador temporal es cerrado (Past Simple) o llega hasta hoy (Present Perfect).
 
 ### ¿Cómo puedo acelerar mi velocidad de respuesta en las preguntas de categorías gramaticales?
-La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y resolverás cada reactivo en menos de 15 segundos.
+La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y podrás resolver muchas preguntas en 10 a 15 segundos.
 
 Para dominar la sección auditiva y evitar trampas de palabras parecidas, consulta nuestra guía de [toeic listening part 2 estrategias para preguntas y respuestas](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).

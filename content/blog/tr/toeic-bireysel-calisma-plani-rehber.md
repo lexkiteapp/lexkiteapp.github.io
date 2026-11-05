@@ -9,147 +9,167 @@ category: toeic
 tags: [toeic, calisma-plani, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC sinav hazirlik arayuzunde tam deneme testleri ve bolum bazli alistirma modulleri"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2026-12-31T12:11:00+03:00
 status: ready
 quiz: [
   {
-    q: "TOEIC sınavında adayların 450–550 puan aralığında takılıp kalmasının temel sebebi nedir?",
+    q: "TOEIC Listening & Reading sınavının Reading bölümü kaç sorudan oluşur ve kaç dakika sürer?",
     options: [
-      "Temel kurumsal iş kelimelerindeki eksikler ve Part 5 cümle yapısı analizindeki kararsızlık",
-      "Tam deneme testlerindeki tüm cevap anahtarlarını ezberleyememiş olmak",
-      "Kısa diyaloglarda anadili İngilizce olanların bölgesel aksanlarını hiç anlayamamak",
-      "Her hafta gereğinden fazla süreli deneme sınavı çözmek"
+      "75 dakikada 100 soru",
+      "45 dakikada 100 soru",
+      "120 dakikada 200 soru",
+      "75 dakikada 54 soru"
     ],
     answer: 0,
-    explain: "450-550 puan aralığındaki hataların büyük çoğunluğu iş İngilizcesi kelime dağarcığındaki yetersizlikten ve temel cümle ögesi analizinin yavaşlığından kaynaklanır."
+    explain: "Reading bölümünde 100 soru vardır (Part 5: 30, Part 6: 16, Part 7: 54) ve süre 75 dakikadır. 45 dakika Listening bölümüne aittir."
   },
   {
-    q: "Hazırlığın başında hata analizi yapmadan sürekli tam deneme çözmek neden verimsizdir?",
+    q: "Part 5'te 'comply' kelimesinden sonra 'with' geldiğini bilmediğiniz için bir soruyu yanlış yaptınız. Hata günlüğünde bunu hangi gruba yazarsınız?",
     options: [
-      "Deneme çözmek yalnızca mevcut seviyeyi ölçer; bilinmeyen dilbilgisi kuralını ve kelimeyi öğretmez",
-      "Resmi deneme sınavları anadili İngilizce olan kişilerin ses kayıtlarını içermez",
-      "ETS kuralları ilk haftalarda deneme sınavı çözülmesini kesin olarak yasaklar",
-      "TOEIC sınav formatı her yeni sınav oturumunda baştan aşağı değişir"
+      "Kelime boşluğu: bilinmeyen bir kolokasyon",
+      "Dikkatsizlik: fazla hızlı okuma",
+      "Yapı karışıklığı: cümle sınırını yanlış belirleme",
+      "Hiçbirine: tek bir hata kaydedilmeye değmez"
     ],
     answer: 0,
-    explain: "Ayrıntılı hata analizi yapılmadan çözülen denemeler, kelime ve dilbilgisi boşluklarını kapatmadan zihinsel yorgunluğa yol açar."
+    explain: "Eksik olan sabit bir sözcük birlikteliğidir (comply with), yani kelime ve kolokasyon boşluğudur. Doğru grup, yavaş okumanız ya da cümle yapısını tekrar etmeniz gerekmediğini, kolokasyon çalışmanız gerektiğini gösterir."
+  },
+  {
+    q: "Part 2'de 'When will the shipment arrive?' sorusunu duyuyorsunuz. Hangi cevap en olasıdır?",
+    options: [
+      "Sometime early next week.",
+      "At the main warehouse.",
+      "The shipping department.",
+      "Yes, it arrived yesterday."
+    ],
+    answer: 0,
+    explain: "'When' zamanı sorar, bu yüzden yalnızca bir zaman ifadesi uygundur. 'Warehouse' 'Where' sorusuna, 'department' daha çok 'Who' sorusuna yanıt verir; 'Yes' ise wh- ile başlayan bir soruya uymaz."
   }
 ]
 ---
 
-Uluslararası şirketlerde işe alım, terfi süreçleri ve yurt dışı görevlendirmelerinde TOEIC Listening and Reading sınavından yüksek bir skor almak en prestijli yeterlilik belgelerinden biridir. Buna rağmen binlerce çalışan ve öğrenci, 450 ile 550 puan arasındaki orta seviye barajında sıkışıp kalmaktadır. Bu aşamada kısa günlük diyalogları rahatlıkla anlarsınız; ancak Part 3'teki hızlı iş yeri diyalogları ve Part 7'deki yoğun şirket yazışmaları çalışan belleğinizi hızla tüketir. Bu 250 ila 300 puanlık sıçramayı gerçekleştirmek, iş İngilizcesi kelime dağarcığını, aktif dinleme alışkanlıklarını ve hassas süre yönetimini harmanlayan sistemli bir **toeic bireysel çalışma planı** gerektirir.
+Birçok aday TOEIC Listening & Reading sınavında 450 ile 550 puan arasında takılıp kalır. Basit konuşmaları anlarsınız, ama Part 3 diyalogları çok hızlı akar, Part 7'deki e-posta ve duyurular da sorulara gelmeden çalışan belleğinizi doldurur. 450'den 750'ye çıkmak için önce kelime ve dilbilgisi boşluklarını kapatan, sonra dinlemeyi çalıştıran ve en son hıza geçen bir **toeic bireysel çalışma planı** gerekir.
 
-Bu rehber, üç aşamalı ve kanıtlanmış bir **toeic bireysel çalışma planı** sunmaktadır. İster mesai öncesinde günde 45 dakikanız, ister akşamları 1 saatiniz olsun; bu yapılandırılmış programla 750 veya 850+ puan hedefinize emin adımlarla ilerleyebilirsiniz.
+Bu rehber planı üç aşamada sunuyor; ayrıca işten önce ya da sonra sığdırabileceğiniz bir haftalık program ve her deneme sınavından bir şey öğrenmenizi sağlayan bir hata günlüğü içeriyor. Süreler planlama örneğidir, söz değildir: ilerleme hızınız başlangıç seviyenize ve çalışma saatlerinize bağlıdır.
 
-## TOEIC Bireysel Çalışma Planı Genel Yapısı
+## TOEIC bireysel çalışma planı: yapı ve üç aşama
 
-Pek çok aday, aralıksız onlarca deneme testi çözmenin skoru artırmanın en kestirme yolu olduğuna inanır. Oysa gerçekte deneme sınavı sadece mevcut bilgi seviyenizi ölçer; henüz bilmediğiniz kelimeleri ve dilbilgisi yapılarını size öğretmez.
+Çoğu kişi durmadan deneme sınavı çözmenin en hızlı yol olduğunu düşünür. Oysa deneme sınavı yalnızca bugün ne bildiğinizi ölçer; hatalara yol açan kelime ve dilbilgisi boşluklarını doldurmaz.
 
-Sürekli ve ölçülebilir bir ilerleme sağlamak için çalışma takviminiz mekanik soru çözme hızından önce dil edinimine öncelik vermelidir.
+Bu yüzden planda önce dil, sonra sınav hızı gelir. Her aşama bir deneme sınavıyla biter ve puan tahmininizi o sınavdan alırsınız.
 
-![Lexkite'te TOEIC Listening ve Reading bölümü: deneme sınavları, Part'a göre çalışma ve TOEIC kelime listesi](media:toeic "Lexkite üzerindeki tam kapsamlı TOEIC deneme sınavları ve bölüm bazlı özel antrenman modülleri")
+![Lexkite TOEIC sayfası: Listening ve Reading için Part'a göre çalışma, 10 ile 990 arası tahmini puanlı deneme sınavları ve TOEIC (TSL) kelimeleri](media:toeic "TOEIC sayfası: Part'a göre çalışma, tahmini puanlı tam deneme sınavları ve sınav kelime listesi")
 
-Aşağıdaki tablo, bireysel hazırlık sürecinizin üç ana basamağını özetlemektedir:
+Tablo üç aşamayı özetliyor. Süreler günde yaklaşık bir saat çalışan biri için örnektir; kendi programınıza göre kısaltın ya da uzatın.
 
-| Çalışma Aşaması | Hedef Puan | Öngörülen Süre | Temel Stratejik Odak |
+| Aşama | Hedef puan | Örnek süre | Ana odak |
 |---|---|---|---|
-| 1. Aşama: Temeli Güçlendirme | 450 → 550 | 6–8 Hafta | İş İngilizcesi kelimeleri, Part 5 temel dilbilgisi, Part 1 & 2 kısa dinleme |
-| 2. Aşama: Kondisyonu Artırma | 550 → 650 | 6–8 Hafta | Part 3 & 4 uzun diyaloglar, Part 6 metin tamamlama, Part 7 tekli metinler |
-| 3. Aşama: Hız ve Sınav Refleksleri | 650 → 750+ | 6–8 Hafta | Süreli tam denemeler, çift ve üçlü metin çapraz tarama, hata analizi günlüğü |
+| Aşama 1: Temel | 450 → 550 | 6–8 hafta | İş kelimeleri, Part 5 dilbilgisi, Part 1 ve 2 |
+| Aşama 2: Genişletme | 550 → 650 | 6–8 hafta | Part 3 ve 4, Part 6, Part 7 tekli metinler |
+| Aşama 3: Hız ve dayanıklılık | 650 → 750+ | 6–8 hafta | Süreli bölümler, çift ve üçlü metinler, hata analizi |
 
-Yoğun soru çözümüne geçmeden önce iş dünyasında yazılı iletişimin inceliklerini öğrenmek için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) ve profesyonel başvuru standartları için [İngilizce CV hazırlama ATS resume örnekleri](/tr/blog/ingilizce-cv-hazirlama-ats-resume-ornekleri/) rehberlerimizi inceleyin.
+Sınav 200 sorudan oluşur: Listening bölümünde 100 soru (45 dakika), Reading bölümünde 100 soru (75 dakika), toplam iki saat. Her bölüm 5 ile 495 arasında puanlanır; toplam 10 ile 990 aralığını verir. Her bölümün ayrıntısı için [Part 5](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/), [Part 2](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) ve [Part 7](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) rehberlerine bakın.
 
-## 1. Aşama: Kelime ve Dilbilgisi Boşluklarını Kapatma (450 - 550 Puan)
+## Aşama 1: Temel dilbilgisi ve kelime boşluklarını kapatma (450–550)
 
-Bu ilk evredeki birincil amacınız, sözcük türü karmaşasını çözmek ve kurumsal senaryolara yönelik sağlam bir kelime dağarcığı inşa etmektir. Bu dönemde 200 soruluk tam denemeler çözmeye çalışmak yalnızca moral bozukluğuna yol açar.
+Bu aşamada sözcük türü karışıklıklarını giderir ve sınavın sürekli tekrarladığı iş kelimelerini oluşturursunuz. Bu temel olmadan tam deneme sınavları çoğunlukla hayal kırıklığı getirir.
 
-### 1. Yüksek frekanslı kurumsal kelimeleri öğrenme
-TOEIC sınavı son derece öngörülebilir iş senaryoları etrafında döner: satın alma, nakliye ve lojistik, bütçe raporları, personel alımı, toplantı takvimleri ve tesis bakımı. Rastgele kelime listeleri ezberlemek yerine TOEIC Service List (TSL) kapsamındaki ifadelere odaklanın. Aralıklı tekrar algoritmalarından yararlanarak bu terimleri kalıcı belleğinize yerleştirin.
+### 1. Sık geçen iş kelimelerini öğrenme
+TOEIC metinleri ofis ve seyahatten gelir: satın alma, pazarlama, rezervasyon, finans, personel ve bina bakımı. Rastgele listeler yerine TOEIC Service List'i (TSL) çalışın; yaklaşık 1.250 sık kelime olan bu liste Lexkite'ta on sette sunuluyor (ayrıca [kelime sayfasına](/vocabulary/) bakın).
 
-![Lexkite İngilizce–Vietnamca sözlükte resilient maddesi: UK/US telaffuz, örnek cümle, eşdizim ve flashcard kaydetme düğmesi](media:dict "Resilient gibi iş dünyası terimlerinin sözlük tanımlarını ve profesyonel eşdizimlerini Lexkite ile inceleyin")
+![Lexkite kelime kütüphanesi: TOEIC (TSL) dahil sekmeler ve A1'den B2'ye çekirdek kelime setleri](media:library "Kütüphane: TOEIC (TSL) sekmesinde sınav kelime setleri yer alır")
 
-Yeni bir kelime öğrenirken daima onunla birlikte kullanılan edatları ve kalıp ifadeleri (*collocations*) birlikte not edin. Yalnızca *participate* fiilini değil, *participate in the conference* kalıbını bütün halinde öğrenin. Kapsamlı kelime listelerine [İngilizce kelime hazinesi](/vocabulary/) sayfamızdan ulaşabilirsiniz.
+Her kelimeyi yalnız değil, yol arkadaşlarıyla öğrenin. Sadece *participate* değil, *participate in the seminar* kaydedin; *comply* ile *with*, *responsible* ile *for* birlikte gider. Part 5 tam olarak bu küçük bağları ölçer. Kalıcı ezberleme yöntemleri için [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazısına bakın.
 
-### 2. Part 5 cümle mekaniğine hakim olma
-Part 5 cümle tamamlama bölümündeki hataların çoğu karmaşık dilbilgisi kurallarından değil, sözcük türlerini (*parts of speech*) karıştırmaktan kaynaklanır. İsim eklerini (*-tion, -ment, -ance*), sıfat eklerini (*-able, -ive, -ous*) ve zarf işaretlerini (*-ly*) saniyeler içinde ayırt edebilecek görsel refleksler geliştirin.
+### 2. Part 5: cümle mekaniğine hâkim olma
+Part 5'te boşluklu 30 cümle vardır. Bu seviyede hataların çoğu nadir dilbilgisinden değil, sözcük türü karışıklığından gelir. İsim ekleri (*-tion, -ment, -ance*), sıfat ekleri (*-able, -ive, -ous*) ve zarf eki *-ly* gözünüze hemen takılsın; seçenekleri okumadan önce boşluğun neye ihtiyaç duyduğunu sorun.
 
-Bu bölümdeki taktikleri derinleştirmek için [TOEIC Part 5 stratejileri: dilbilgisi ve kelime taktikleri](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/) yazımıza göz atın.
+Tam yöntem [TOEIC Part 5 dilbilgisi ve kelime stratejileri](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/) yazısında.
 
-### 3. Part 1 ve Part 2 işitsel reflekslerini keskinleştirme
-Part 2, 25 kısa sözlü sorudan oluşur ve sınavda en hızlı puan toplanabilecek alandır. Kulağınızı ilk soru kelimesine (*Who, Where, When, Why, How*) odaklanacak şekilde eğitin ve soru cümlesindeki kelimeleri sesteş tuzak olarak tekrarlayan alakasız şıkları derhal eleyin.
+### 3. Part 1 ve 2'de dinleme refleksi kazanma
+Part 1 (6 fotoğraf sorusu) ve Part 2 (25 soru-cevap) kısadır ve en hızlı kazancı verir. Part 2'de ilk sözcüğe (*Who, Where, When, Why, How*) odaklanın ve yalnızca sorudaki bir sözcüğü tekrarlayan cevaba şüpheyle yaklaşın. Taktikler [TOEIC Listening Part 2](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazısında.
 
-## 2. Aşama: Uzun Dinleme Kondisyonu ve Okuma Anlayışını Geliştirme (550 - 650 Puan)
+Engel çoğu zaman kelime değil, sestir. Anadili konuşanlar sözcükleri birbirine bağlar ve zayıflatır; *What did you* yaklaşık «vatcu» gibi duyulur. Metindeki her kelimeyi biliyor ama kayıtta duymuyorsanız, parçayı metinle birlikte tekrar dinleyin ve cümleyi yüksek sesle söyleyin. Teknik [shadowing yöntemi](/tr/blog/shadowing-teknigi-ile-ingilizce-konusma/) yazısında anlatılıyor.
 
-Dilbilgisi temelleriniz oturduğunda ve kısa soru-cevapları kavradığınızda, odak noktanızı uzun diyaloglara ve kapsamlı şirket içi yazışmalara kaydırın.
+## Aşama 2: Dayanıklılık ve metin anlama genişletme (550–650)
 
-### 1. Part 3 ve Part 4 için aktif dinleme ve ön okuma taktiği
-Part 3 diyaloglarında ve Part 4 kısa konuşmalarında adaylar sıklıkla kaydın ortasında odaklarını kaybederler. Çözüm ön okuma tekniğindedir: Genel yönergeler okunurken veya sorular arasındaki sessizlik anlarında bir sonraki 3 sorunun kökünü hızla tarayın. Bu sayede beyniniz konuşmacının mesleği, gecikmenin nedeni veya randevu saati gibi somut hedeflere kilitlenir.
+Dilbilgisi oturduktan ve kısa konuşmalar netleştikten sonra daha uzun iş metinlerine ve yoğun kayıtlara geçin.
 
-Doğal ses akışını ve telaffuz nüanslarını kavramak için [İngilizce dinleme becerisi nasıl geliştirilir](/tr/blog/ingilizce-listening-gelistirme-yollari-5-adimli-yontem/) rehberimizdeki teknikleri uygulayın.
+### 1. Part 3 ve Part 4'te aktif dinleme
+Part 3'te konuşmalara dair 39, Part 4'te kısa konuşmalara dair 30 soru vardır. Çoğu aday ortada ipucunu kaçırır. Kayıt başlamadan önce, yönergeler okunurken soruları okumak yardımcı olur. Böylece neyi yakalayacağınızı bilirsiniz: konuşmacı kim, sorun ne, sonra ne olacak.
 
-### 2. Part 6 metin tamamlama sorularını hızlandırma
-Part 6, bağımsız cümle dilbilgisi ile paragraf anlamı arasında köprü kurar. Tüm cümle yerleştirme sorularına özellikle dikkat edin: Mantıksal bağlaçları, zaman sıralamasını ve zamir gönderimlerini yakalamak için boşluğun hemen öncesindeki ve sonrasındaki cümleleri titizlikle okuyun.
+Sorular kayıttaki sırayı izler; bu yüzden eski sorulara dönmek yerine cevaplanmamış bir sonraki soruya bakın. Daha geniş çalışma için [İngilizce listening geliştirme yolları](/tr/blog/ingilizce-listening-gelistirme-yollari-5-adimli-yontem/) yazısına göz atın.
 
-![Lexkite'te pollution kelimesiyle flashcard tekrarı: emoji görsel, fonetik transkripsiyon, kartı çevirme düğmesi ve ilerleme çubuğu](media:review "Aralıklı tekrar kartlarıyla kurumsal kelimeleri ve pollution gibi terimleri Lexkite flashcard ile tazeleyin")
+### 2. Part 6: metin tamamlamayı akıllıca çözme
+Part 6 (16 soru), cümle dilbilgisi ile metin okuma arasındadır. Bazı boşluklarda eksik olan tüm bir cümledir. Boşluktan önceki ve sonraki cümleyi okuyun; bağlaçlara (*however, as a result*), zaman sırasına ve zamir göndermelerine bakın.
 
-Aralıklı tekrar sistemi, sınav baskısı altında bu geçiş sözcüklerini tereddütsüz hatırlamanızı sağlar.
+![Lexkite'ta pollution kelimesiyle flashcard tekrar oturumu: emoji görseli, fonetik yazılış, kartı çevirme düğmesi ve ilerleme çubuğu](media:review "Bir tekrar oturumu: kartlar giderek artan aralıklarla geri gelir; hızlı hatırlanması gereken bağlaç ve kolokasyonlar için uygundur")
 
-### 3. Part 7 için seçici okuma taktikleri
-E-postalardaki, faturalardaki veya ilanlardaki her bir sözcüğü baştan sona okumaya kalkışmayın. Gözlerinizi başlık bilgilerine odaklayın: gönderen, alıcı, konu, teslim tarihleri ve sipariş numaraları. Hızlı tarama becerisi için [TOEIC Part 7 okuma stratejileri ve zaman yönetimi](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) rehberimizden yararlanın.
+Bağlaçları ve kolokasyonları aralıklı tekrarla çalışırsanız, saat işlerken daha çabuk aklınıza gelir. Aralıkların nasıl işlediğini [aralıklı tekrar ile kelime ezberleme](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) yazısında bulabilirsiniz.
 
-## 3. Aşama: Sınav Süre Yönetimi ve Zihinsel Direnç (650 - 750+ Puan)
+### 3. Part 7: tekli metinlerde seçici okuma
+Bir e-postanın, faturanın ya da ilanın her kelimesini okumanız gerekmez. Önce yapıyı bulun: gönderen, alıcı, konu, tarihler, sipariş numaraları. Sonra soruyu okuyup yanıtı veren cümleyi bulun. Tüm yaklaşım [TOEIC Part 7 okuma stratejileri ve zaman yönetimi](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) yazısında.
 
-750 puan barajını aşmak milimetrik bir süre disiplini gerektirir. Okuma bölümü, yalnızca 75 dakikada çözülmesi gereken 100 sorudan oluşur (Part 5'te 30, Part 6'da 16, Part 7'de 54 soru).
+## Aşama 3: Tempo ve dayanıklılık (650–750+)
 
-### 1. Bölüm bazlı katı süre sınırları uygulama
-Her okuma alıştırmasında aşağıdaki süre hedeflerine kesinlikle uyun:
-* **Part 5 (30 soru)**: En fazla 10 ila 12 dakika (soru başına ortalama 20–25 saniye).
-* **Part 6 (16 soru)**: En fazla 8 ila 10 dakika (soru başına yaklaşık 30 saniye).
-* **Part 7 (54 soru)**: Kalan 53 ila 55 dakika (soru başına ortalama 60 saniye).
+650'den sonra ana sınır zamandır. Reading bölümü 75 dakikada 100 soru içerir (Part 5'te 30, Part 6'da 16, Part 7'de 54).
 
-Part 5'teki bir dilbilgisi sorusunda kararsız kalırsanız, mantıksız seçenekleri eleyip en makul tahmini işaretleyin ve hemen ilerleyin. Tek bir soruya iki dakika harcamak, Part 7 sonundaki doğrudan ve kolay soruları yanıtlama fırsatınızı elinizden alır.
+### 1. Zaman planıyla çalışma
+ETS her bölüm için süre belirlemez; bu yüzden aşağıdaki dağılımı bir başlangıç noktası sayın ve deneme sonuçlarınıza göre ayarlayın:
 
-### 2. Çift ve üçlü metinlerde çapraz doğrulama
-Part 7'deki çoklu metin blokları daima tek bir belgeye bakarak çözülemeyen çapraz sorular içerir. Bağlantıları aktif olarak arayın: ekteki fatura numarasından bahseden bir e-posta veya şirket içi duyuruda adı geçen toplantı salonunu teyit eden bir seminer programı.
+* **Part 5 (30 soru):** yaklaşık 10–12 dakika, yani soru başına 20–25 saniye.
+* **Part 6 (16 soru):** yaklaşık 8–10 dakika.
+* **Part 7 (54 soru):** kalan 53–55 dakika, soru başına yaklaşık bir dakika.
 
-### 3. Sistematik hata analizi günlüğü tutma
-Süreli bir deneme sınavından sonra, hatalarınızı incelemeye testi çözerken harcadığınız sürenin iki katını ayırın. Her yanlış cevabı üç gruptan birine yerleştirin:
-* *Kelime eksiği*: İfadenin veya kalıbın anlamını bilmiyordum.
-* *Sözdizimi karmaşası*: Cümlenin ana öznesini veya yüklemini yanlış belirledim.
-* *Dikkatsizlik ve acele*: Çok hızlı okuduğum için olumsuzluk kelimesini (*not, except*) gözden kaçırdım.
+Part 5'te bir soru sizi tıkarsa, açıkça yanlış seçenekleri eleyin, en iyi tahmini işaretleyin ve ilerleyin. Tek bir dilbilgisi sorusuna harcanan iki dakika, Part 7'deki birkaç kolay sorunun süresini yer.
 
-Bu analiz günlüğü, gerçek sınav gününde aynı zihinsel tuzaklara düşmenizi engeller.
+### 2. Birden çok metinde çapraz referans
+Part 7'deki çift ve üçlü metinlerde iki ya da üç belgeden bilgi isteyen sorular bulunur. Bağlantıyı arayın: fatura numarası geçen bir e-posta, konuşmacının salonunu doğrulayan bir program, varış saatini değiştiren güncellenmiş bir rezervasyon.
 
-## Yoğun Çalışanlar İçin Örnek Haftalık Program
+### 3. Sistematik hata günlüğü
+Süreli bir testten sonra hataları incelemeye en az testi çözerken harcadığınız kadar zaman ayırın. Her yanlışı üç gruptan birine yazın:
 
-Günde düzenli ve odaklanmış çalışmak, hafta sonu yapılan düzensiz maratonlardan daima daha üstün sonuç verir. İş ve okul temposuna uyum sağlayan 6 günlük haftalık plan:
+* *Kelime boşluğu:* kelimeyi ya da kolokasyonu bilmiyordunuz.
+* *Yapı karışıklığı:* özneyi, fiili ya da yan cümle sınırını yanlış belirlediniz.
+* *Dikkatsizlik:* *not* ya da *except* gibi bir sözcüğü atladınız.
 
-* **Pazartesi (Dinleme Pratiği - 45 dk)**: 20 adet Part 2 sorusu, metin dökümü incelemesi ve çeldirici analizi.
-* **Salı (Dilbilgisi ve Part 5 - 45 dk)**: 12 dakikada 30 adet Part 5 sorusu ve ardından yanlışların ayrıntılı analizi.
-* **Çarşamba (Kelime ve Kart Tekrarı - 30 dk)**: [Lexkite kelime tekrar modülünde](/#/review) iş İngilizcesi kalıpları ve edat çalışmaları.
-* **Perşembe (Uzun Dinleme - 45 dk)**: Soruları önceden okuma taktiğiyle 3 set Part 3 ve 2 set Part 4 çalışması.
-* **Cuma (Süreli Okuma - 60 dk)**: Katı süre kontrolü altında 4 tekli ve 2 çiftli metin çözümü.
-* **Cumartesi (Bölüm Simülasyonu - 90 dk)**: Eksiksiz bir Reading veya Listening bölümünün çözümü ve hemen ardından hata analizi.
-* **Pazar**: Dinlenme ve hafif maruz kalma (İngilizce iş dünyası podcast'leri dinleme veya yabancı ekonomi haberleri okuma).
+Lexkite, Part'a göre Reading çalışmasında yanlış yaptığınız soruları kelime, dilbilgisi, okuma ve dinleme olarak gruplanan bir deftere kaydeder; günlük kendiliğinden oluşur.
 
-Hedefleriniz uluslararası mülakatlar için akıcı konuşmayı da kapsıyorsa, [Lexkite konuşma pratiği laboratuvarında](/#/practice/speak) düzenli telaffuz egzersizleri yapabilirsiniz.
+![Lexkite hata defteri: yanlış cevapları kelime, dilbilgisi, okuma ve dinleme olarak gruplar](media:mistakes "Hata defteri: yanlış yapılan sorular türüne göre toplanır")
 
-{{youtube: | TOEIC bireysel çalışma planı ile 450 puandan 750 puana adım adım}}
+Haftada bir [hata defterinizi](/#/mistakes) açın ve soruları yeniden çözün. Bir ay sonra hangi grubun baskın olduğunu görürsünüz; bu da sıradaki çalışma konusunu gösterir.
 
-{{cta: /#/toeic | Lexkite üzerinde interaktif deneme sınavlarıyla TOEIC bireysel çalışma planına hemen başlayın}}
+## Sürdürülebilir haftalık program
 
-## TOEIC Sınavına Bireysel Hazırlık Hakkında Sıkça Sorulan Sorular
+Düzenli kısa seanslar, seyrek uzun seanslardan daha verimlidir. Önce [hedef sayfasında](/#/goal) sınavı, hedef puanı ve haftalık saati belirleyin, seansları bu saate göre ayarlayın. Altı günlük bir örnek:
 
-### 500 puandan 750 puana çıkmak kaç ay sürer?
-Bunun resmi bir hesabı yoktur ve ilerleme hızı kişiden kişiye çok değişir. Kaba bir planlama ölçüsü olarak 200–250 puanlık artış için yaklaşık 150 ila 200 saatlik odaklanmış çalışma öngörebilirsiniz. Günde 60 ila 90 dakikalık düzenli bir tempoyla bu, kabaca 3 ila 4 aya denk gelir.
+* **Pazartesi, dinleme (45 dk):** Part 2'den 20 soru, sonra metni okuyup kaçırdığınız parçaları yazın.
+* **Salı, dilbilgisi (45 dk):** Part 5'ten 30 soruyu 12 dakikada çözün, sonra her hatayı inceleyin.
+* **Çarşamba, kelime (30 dk):** [tekrar sayfasında](/#/review) kartlarınızı gözden geçirin: edatlar, kolokasyonlar, eş anlamlılar.
+* **Perşembe, uzun kayıtlar (45 dk):** 3 Part 3 seti ve 2 Part 4 seti, her kayıttan önce soruları okuyarak.
+* **Cuma, okuma (60 dk):** 4 tekli ve 2 çift metin, süreye karşı.
+* **Cumartesi, bölüm simülasyonu (90 dk):** 75 dakikalık bir Reading bölümü, ardından hata günlüğü için 15 dakika. 45 dakikalık Listening bölümüyle dönüşümlü yapın.
+* **Pazar:** dinlenme ya da hafif maruz kalma; iş podcast'leri ya da uluslararası haberler gibi.
 
-### Pahalı kurslara gitmeden yalnızca bireysel çalışarak 750+ almak mümkün müdür?
-Evet, kesinlikle mümkündür. TOEIC sınavı oldukça standart ve tekrarlayan iş senaryolarını test ettiğinden, hata analizi ve aralıklı tekrar odaklı bireysel çalışma genellikle kalabalık sınıf derslerinden daha verimli ve kişiye özel sonuç verir.
+Tüm Part'lar ve tam sınavlar [TOEIC çalışma sayfasında](/#/toeic) yer alır. Kulağı metinle çalıştırmak için [dikte yöntemine](/tr/blog/ingilizce-dictation-dikte-listening-gelistirme/) da bakın.
 
-### Ne sıklıkla 200 soruluk tam deneme sınavı çözülmelidir?
-İlk temel atma evresinde her 3 haftada bir tam deneme çözmek ilerlemeyi görmek için yeterlidir. Sınavdan önceki son 4 haftada ise her cumartesi sabahı iki saatlik kesintisiz sınav simülasyonu yaparak zihinsel dayanıklılığınızı zirveye taşıyabilirsiniz.
+{{youtube: | 450'den 750 puana TOEIC bireysel çalışma planı adım adım}}
 
-Soru-cevap bölümünde yüksek doğruluk oranı yakalamak için [toeic listening part 2 stratejileri soru cevap rehberimizi](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) mutlaka uygulayın ve akademik hedefleriniz için [yeni toefl formatı 2026](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) rehberimizden faydalanın.
+{{cta: /#/toeic | TOEIC deneme sınavı çöz ve 10–990 arası tahmini puanını gör}}
+
+## TOEIC için bireysel çalışma hakkında sık sorulan sorular
+
+### 500'den 750'ye çıkmak kaç ay sürer?
+Resmî bir rakam yoktur ve ilerleme kişiden kişiye çok değişir. Yalnızca planlama için, 200–250 puanlık artış adına yaklaşık 150–200 saat odaklı çalışma ayırın. Günde yaklaşık 90 dakikayla bu üç dört ay eder. Birkaç haftada bir deneme sınavı çözün ve planı sonuca göre ayarlayın.
+
+### Pahalı kurslar olmadan 750+ alınır mı?
+Evet, disiplinliyseniz. Sınavın biçimi sabit ve iş kelimeleri tekrarlıdır; bu yüzden hata analizi ve aralıklı tekrarla yapılan bireysel çalışma, genel bir sınıf dersinden daha isabetli biçimde zayıf yönlerinizi hedefleyebilir. Öğretmen en çok konuşma ve yazma geri bildiriminde işe yarar; bu sınav ikisini ölçmez.
+
+### Tam 200 soruluk deneme sınavını ne sıklıkla çözmeliyim?
+Temel aşamada üç haftada bir yeterlidir; ilerlemeyi ölçer, sizi yormaz. Son dört haftada iki saati taşıyabilmek için her hafta sonu süreli tam bir sınav çözün.
+
+### Türkçe konuşanlar TOEIC'te hangi tuzaklara düşer?
+Birincisi yanıltıcı benzerlikler: *actual* «gerçek» demektir, «aktüel» değil (o *current*); *sympathetic* «anlayışlı» demektir, «sempatik» değil (o *likeable*); *fabric* «kumaş» demektir, «fabrika» değil (o *factory*); *eventually* «sonunda» demektir, «eventüel» yani «olası» değil (o *possibly*). Bu karışıklıklar Part 5 ve Part 7'de puan götürür. İkincisi okuma: Türkçede sıfat-fiil yapıları uzun öncüller kurar, İngilizcede ise bilgi ilgi cümlesiyle isimden sonra gelir; Part 7'de «the manager who approved the budget that was submitted last week» gibi yapılarda önce ana özne ve fiili bulun. Üçüncüsü ses: Türkçede /w/ ve /θ/ yoktur, bu yüzden *vest* ile *west* ya da *thin* ile *tin* kulağa aynı gelebilir; Part 2 bu benzer sesli tuzakları sever, dikteyle çalışın.

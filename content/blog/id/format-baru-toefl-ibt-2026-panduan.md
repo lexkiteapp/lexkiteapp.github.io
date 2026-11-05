@@ -1,7 +1,7 @@
 ---
 slug: format-baru-toefl-ibt-2026-panduan
 title: "Format Baru TOEFL iBT 2026: Perubahan dan Panduan Belajar"
-description: "Pelajari format baru toefl ibt 2026: tes adaptif 1,5 jam, skala band 1–6, tipe soal Complete the Words dan rencana belajar 4 minggu meraih skor target."
+description: "Format baru toefl ibt 2026 menurut ETS: 12 tipe soal, sekitar 90 menit waktu dasar, Reading-Listening adaptif, skala 1–6, dan rencana belajar 4 minggu."
 keyword: "format baru toefl ibt 2026"
 lang: id
 translationKey: toefl-ibt-dinh-dang-moi-2026
@@ -9,137 +9,144 @@ category: toefl
 tags: [toefl, toefl-ibt, format-tes, persiapan]
 cover: toefl
 coverAlt: "Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru"
-qualityScore: 85
+qualityScore: 91
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T19:51:00+07:00
 status: ready
 quiz: [
   {
-    q: "Berapa total durasi pengerjaan tes pada format baru TOEFL iBT 2026?",
+    q: "Berapa total waktu dasar keempat bagian TOEFL iBT format baru menurut tabel ETS?",
     options: [
-      "Sekitar 1,5 jam (90 menit) untuk seluruh 4 bagian ujian",
-      "Lebih dari 3,5 jam dengan waktu istirahat wajib 10 menit",
-      "Tepat 2 jam tanpa sesi berbicara (Speaking)",
-      "4 jam yang dibagi ke dalam dua hari pelaksanaan tes"
+      "Sekitar 90 menit di luar petunjuk; ETS menyarankan menyiapkan sekitar dua jam untuk seluruh sesi",
+      "Lebih dari 3,5 jam dengan jeda wajib",
+      "Tepat 2,5 jam tanpa Speaking",
+      "Empat jam dibagi dalam dua hari"
     ],
     answer: 0,
-    explain: "Mulai 21 Januari 2026, ETS resmi memberlakukan pemadatan durasi TOEFL iBT menjadi sekitar 1,5 jam sehingga tes menjadi jauh lebih ringkas dan intensif."
+    explain: "Tabel resmi mencantumkan Reading 30, Listening 29, Writing 23, dan Speaking 8 menit, jadi sekitar 90 menit. Waktu petunjuk tidak dihitung, dan karena tes bersifat adaptif, jumlah soal serta waktu bisa sedikit berbeda."
   },
   {
-    q: "Bagaimana sistem penilaian skala baru yang diterapkan pada TOEFL iBT 2026?",
+    q: "Bagaimana hasil dilaporkan sejak 21 Januari 2026?",
     options: [
-      "Skala band 1 hingga 6 dengan kelipatan 0,5, di mana skor keseluruhan adalah rata-rata dari 4 bagian",
-      "Skala angka tunggal 0 sampai 100 tanpa pemisahan antarketerampilan",
-      "Sistem kelulusan biner Lulus atau Gagal tanpa skor numerik",
-      "Tingkatan huruf dari A sampai F tanpa tabel konversi resmi"
+      "Empat skor bagian dan satu skor total pada skala 1 sampai 6 dengan kelipatan 0,5; skor total adalah rata-rata keempat bagian yang dibulatkan ke setengah band terdekat",
+      "Persentase 0 sampai 100 tanpa rincian per keterampilan",
+      "Hanya lulus atau tidak lulus",
+      "Nilai huruf A sampai F"
     ],
     answer: 0,
-    explain: "Skala penilaian kini menggunakan band 1–6 per bagian dan skor total rata-rata, disertai skor kesetaraan 0–120 selama masa transisi."
+    explain: "ETS melaporkan skor bagian dan skor total pada skala 1-6. Selama masa transisi dua tahun, skor setara pada skala 0-120 juga dicantumkan."
   },
   {
-    q: "Apa karakteristik utama tugas baru 'Complete the Words' pada bagian Reading?",
+    q: "Apa yang diminta pada tugas Complete the Words?",
     options: [
-      "Mengetik langsung huruf-huruf yang hilang pada paruh kedua kata di dalam paragraf akademik",
-      "Memilih sinonim dari menu tarik-turun (drop-down) untuk setiap kata sifat",
-      "Menyalin seluruh teks bacaan secara manual berdasarkan rekaman audio",
-      "Menerjemahkan kalimat bahasa Inggris ke dalam bahasa Indonesia"
+      "Mengetik huruf yang hilang untuk melengkapi kata dalam paragraf akademik pendek",
+      "Memilih sinonim dari menu tarik-turun",
+      "Mengetik ulang teks yang didengar",
+      "Menerjemahkan kalimat ke bahasa Indonesia"
     ],
     answer: 0,
-    explain: "Tugas Complete the Words menguji penguasaan ejaan aktif, kosakata akademik, dan pemahaman tata bahasa kalimat secara bersamaan."
+    explain: "Karena Anda mengetik hurufnya sendiri, ejaan, jenis kata, kala, dan bentuk jamak ikut dinilai. Sekadar mengenali kata tidak cukup."
   },
   {
-    q: "Mengapa performa pada soal-soal awal sangat krusial dalam tes adaptif multi-tahap?",
+    q: "Bagian mana yang digambarkan ETS bersifat adaptif pada format baru?",
     options: [
-      "Karena akurasi jawaban pada tahap awal menentukan tingkat kesulitan paket soal berikutnya dan plafon skor maksimal yang bisa diraih",
-      "Karena soal-soal awal memiliki bobot nilai lima kali lipat lebih besar",
-      "Karena sistem otomatis menghentikan tes jika terjadi dua kesalahan beruntun di awal",
-      "Karena peserta dilarang merevisi jawaban setelah menekan tombol Next"
+      "Reading dan Listening: tingkat kesulitan menyesuaikan jawaban Anda",
+      "Hanya Speaking",
+      "Hanya Writing",
+      "Tidak ada; semua soal sama untuk semua peserta"
     ],
     answer: 0,
-    explain: "Desain tes adaptif mengarahkan peserta dengan performa awal tinggi ke paket soal berbobot lebih sulit yang diperlukan untuk membuka band nilai 5.0 hingga 6.0."
+    explain: "ETS menyebut tes ini adaptif, dengan struktur bertahap untuk Reading dan Listening. Aturan pastinya tidak dipublikasikan, sehingga paling aman fokus sejak soal pertama."
+  },
+  {
+    q: "Kebiasaan apa yang paling membantu penutur bahasa Indonesia pada Listen and Repeat?",
+    options: [
+      "Merekam suara sendiri dan memeriksa akhiran -s dan -ed serta bunyi th",
+      "Mengganti kata sulit dengan sinonim yang lebih mudah",
+      "Menghafal kalimat sebelum tes",
+      "Berbicara secepat mungkin"
+    ],
+    answer: 0,
+    explain: "Tugas ini menilai seberapa tepat Anda mengulang apa yang didengar. Bahasa Indonesia tidak memakai akhiran jamak dan kala lampau, jadi -s dan -ed mudah hilang; mengganti kata juga dihitung tidak tepat."
   }
 ]
 ---
 
 Mulai 21 Januari 2026, **format baru toefl ibt 2026** resmi diberlakukan oleh ETS (*Educational Testing Service*) di seluruh dunia. Pembaruan ini menandai transformasi paling komprehensif dalam sejarah ujian kemahiran bahasa Inggris akademik tersebut. Jika Anda saat ini sedang bersiap menggunakan buku cetak atau bank soal terbitan sebelum tahun 2026, pemahaman kosakata umum Anda tentu tetap bernilai, namun strategi manajemen waktu dan penguasaan format soal wajib disesuaikan secara mendasar.
 
-TOEFL iBT generasi baru ini dirancang jauh lebih ringkas (total durasi sekitar 1,5 jam), bersifat adaptif multi-tahap (tingkat kesulitan menyesuaikan akurasi jawaban Anda), dinilai dengan skala band 1 hingga 6, serta dilengkapi dengan ragam tugas baru seperti *Complete the Words*, *Read in Daily Life*, dan *Build a Sentence*.
+TOEFL iBT versi baru lebih ringkas (sekitar 90 menit waktu dasar, belum termasuk petunjuk), bersifat adaptif, dinilai pada skala 1 sampai 6, dan memuat tugas baru seperti *Complete the Words*, *Read in Daily Life*, dan *Build a Sentence*. Semua angka di bawah diambil dari halaman struktur dan isi TOEFL iBT milik ETS.
 
-Dalam panduan lengkap ini, kami mengupas tuntas seluruh perubahan struktur ujian, membedah 12 tipe soal terbaru, serta menyajikan rencana belajar mandiri 4 minggu agar Anda siap meraih skor impian.
+Isi panduan: tabel struktur, 12 tipe soal beserta tipsnya, kesalahan umum (termasuk kebiasaan khas penutur bahasa Indonesia), dan rencana belajar 4 minggu.
 
 ![Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru](media:toefl "Modul latihan TOEFL iBT di Lexkite dengan rincian struktur tes dan tipe soal format baru 2026")
 
 ## Tiga Perubahan Fundamental: format baru toefl ibt 2026
 
-Bagi calon mahasiswa dan pemburu beasiswa luar negeri, ada tiga pilar utama yang mendasari format baru ini:
+Tiga perubahan yang memengaruhi cara belajar Anda:
 
-### 1. Durasi Ujian Lebih Singkat (Sekitar 90 Menit)
-Dari yang semula memakan waktu sekitar 2 jam (sebelum Juli 2023 bahkan hampir 3 jam), kini ujian dapat diselesaikan dalam waktu sekitar 1,5 jam. Durasi yang lebih singkat ini sangat menguntungkan stamina fokus Anda, tetapi memiliki konsekuensi taktis: jumlah soal yang lebih sedikit berarti bobot penalti untuk setiap kesalahan ceroboh (*careless mistake*) menjadi jauh lebih signifikan terhadap skor akhir.
+### 1. Ujian Lebih Singkat
+Keempat bagian berjumlah sekitar 90 menit waktu dasar (sebelum Juli 2023 ujian hampir 3 jam). ETS menyarankan menyiapkan sekitar dua jam untuk seluruh sesi karena petunjuk tidak dihitung. Soal yang lebih sedikit membuat setiap kesalahan ceroboh lebih terasa, jadi latihlah fokus dari awal sampai akhir.
 
 ### 2. Desain Tes Adaptif Multi-Tahap
-Bagian tes membaca (*Reading*) dan menyimak (*Listening*) kini bekerja secara adaptif dalam dua tahap. Kinerja Anda pada modul pertama menentukan apakah modul kedua akan menyajikan soal dengan tingkat kesulitan standar atau tingkat lanjutan. Performa solid pada tahap pertama adalah syarat mutlak untuk membuka peluang meraih band skor tertinggi (band 5.0–6.0).
+ETS menggambarkan tes ini adaptif: pada Reading dan Listening, tingkat kesulitan menyesuaikan kinerja Anda. Aturan pasti dan ambang batasnya tidak dipublikasikan, jadi angka yang beredar di internet hanyalah dugaan. Saran praktis: jangan anggap soal awal sebagai pemanasan, dan jangan terlalu lama terpaku pada satu soal sulit.
 
 ### 3. Skala Penilaian Band 1–6
-Mengikuti tren standar internasional modern, nilai setiap bagian dan skor keseluruhan kini dilaporkan dalam skala 1 hingga 6 dengan kelipatan setengah band (0,5). Skor keseluruhan merupakan nilai rata-rata dari keempat bagian (*Reading, Listening, Writing, Speaking*). Selama masa transisi, lembar hasil tes resmi ETS juga tetap mencantumkan skor ekuivalen pada skala tradisional 0–120 untuk memudahkan verifikasi oleh universitas penerima.
+ETS melaporkan empat skor bagian dan satu skor total pada skala 1 sampai 6, dengan kelipatan 0,5. Skor total adalah rata-rata keempat bagian (*Reading, Listening, Writing, Speaking*) yang dibulatkan ke setengah band terdekat (5,125 menjadi 5). Selama dua tahun setelah Januari 2026, skor setara pada skala 0-120 juga dicantumkan. Selalu cek skor mana yang diminta universitas atau pemberi beasiswa Anda.
 
-```
-+-------------------------------------------------------------------------+
-|                  Ringkasan Struktur Format Baru TOEFL 2026              |
-+-------------------------------------------------------------------------+
-|  Reading   (~50 pertanyaan / 30 menit) : 3 tipe tugas                   |
-|  Listening (~47 pertanyaan / 29 menit) : 4 tipe tugas                   |
-|  Writing   (~12 pertanyaan / 23 menit) : 3 tipe tugas                   |
-|  Speaking  (~11 pertanyaan / 8 menit)  : 2 tipe tugas                   |
-+-------------------------------------------------------------------------+
-|  Total: ~1,5 jam | 12 tipe tugas terintegrasi | Penilaian: Band 1–6     |
-+-------------------------------------------------------------------------+
-```
+| Bagian | Tipe tugas (nama resmi) | Jumlah soal | Waktu dasar |
+|---|---|---|---|
+| Reading | Complete the Words, Read in Daily Life, Read an Academic Passage | 50 | 30 menit |
+| Listening | Listen and Choose a Response, Listen to a Conversation, Listen to an Announcement, Listen to an Academic Talk | 47 | 29 menit |
+| Writing | Build a Sentence, Write an Email, Write for an Academic Discussion | 12 | 23 menit |
+| Speaking | Listen and Repeat, Take an Interview | 11 | 8 menit |
+
+Sumber: ETS. Waktu tidak termasuk petunjuk; jumlah soal dan waktu bisa sedikit berbeda karena tes adaptif.
 
 ---
 
 ## Rincian 4 Bagian dan Analisis 12 Tipe Soal Terbaru
 
-Berikut adalah peta lengkap 12 tipe soal yang akan Anda hadapi di ruang ujian:
+Berikut 12 tipe tugas per bagian:
 
-### 1. Reading (sekitar 30 Menit – 3 Tipe Soal)
+### 1. Reading (50 soal, sekitar 30 menit)
 - **Complete the Words:** Membaca paragraf akademik pendek di mana paruh kedua dari beberapa kata dihilangkan. Anda harus mengetik huruf yang hilang langsung pada papan ketik.  
   *Contoh:* *Scientists discov___ that certain marine org___ adapt to extreme pressure.* (Jawaban: *discovered*, *organisms*). Tugas ini menguji ejaan presisi dan kesesuaian tata bahasa secara simultan.
 - **Read in Daily Life:** Teks pendek bernuansa keseharian kampus (pengumuman asrama, jadwal kuliah, surel fasilitas universitas, brosur) yang diikuti soal pilihan ganda. Ini bukti bahwa TOEFL kini tak melulu menguji sains murni.
 - **Read an Academic Passage:** Teks ilmiah klasik dengan pertanyaan seputar gagasan utama, pengecualian (*negative factual: NOT/EXCEPT*), inferensi logis, dan makna kata dalam konteks.
 
-Untuk memperkuat kosakata akademik dan istilah universitas, manfaatkan koleksi [daftar kosakata terpilih](/vocabulary/) yang dirancang khusus untuk persiapan tes internasional.
+Setiap tugas punya halaman latihan sendiri di Lexkite: [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily), dan [Read an Academic Passage](/#/toefl-p/academic). Untuk kosakatanya, lihat [daftar kosakata Lexkite](/id/vocabulary/). Penjelasan lebih dalam tentang tugas pertama ada di artikel berbahasa Inggris [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
 
-![Pustaka kosakata bahasa Inggris di Lexkite dengan tingkatan level CEFR A1 hingga B2](media:library "Koleksi kosakata berdasarkan tingkatan A1 hingga B2 untuk memperkaya kata harian dan istilah akademik")
+![Pustaka kosakata Lexkite dengan tab Semua, kosakata inti NGSL, IELTS, Writing, Speaking, dan TOEIC](media:library "Pustaka kosakata Lexkite: kata inti bertingkat A1 hingga B2, berguna untuk membangun kosakata sebelum Complete the Words")
 
 ---
 
-### 2. Listening (sekitar 29 Menit – 4 Tipe Soal)
+### 2. Listening (47 soal, sekitar 29 menit)
 - **Listen and Choose a Response:** Mendengarkan satu kalimat pendek dan memilih tanggapan percakapan yang paling logis.
 - **Listen to a Conversation:** Dialog realistis antara dua mahasiswa atau antara mahasiswa dan staf akademik.
 - **Listen to an Announcement:** Pengumuman resmi melalui pengeras suara kampus mengenai perubahan jadwal atau kebijakan fasilitas.
 - **Listen to an Academic Talk:** Kuliah singkat dosen di kelas dengan pertanyaan pemahaman konsep dan tujuan komunikatif.
 
-**Trik Penting:** Pasang telinga Anda baik-baik saat pembicara mengucapkan kata transisi seperti *however*, *actually*, *on the other hand*, atau *as a matter of fact*. Pertanyaan ujian hampir selalu berpusat pada informasi yang disampaikan tepat setelah kata-kata pembalik arah ini.
+**Tips:** perhatikan kata penghubung seperti *however*, *actually*, atau *on the other hand*; informasi yang menyusul sering menjadi bahan pertanyaan. Untuk berlatih, halaman [Listening Lexkite](/#/listening) menyediakan kecepatan yang bisa diatur dan mode dikte.
 
 ---
 
-### 3. Writing (sekitar 23 Menit – 3 Tipe Soal)
+### 3. Writing (12 soal, sekitar 23 menit)
 - **Build a Sentence:** Menyusun acakan frasa menjadi sebuah kalimat utuh yang benar secara tata bahasa (*word order*).
-- **Write an Email:** Menulis surel formal atau semi-formal dalam waktu sekitar 7 menit untuk merespons situasi tertentu dengan mencakup seluruh instruksi yang diminta.
-- **Write for an Academic Discussion:** Menulis tanggapan diskusi kelas online dalam waktu sekitar 10 menit dengan menyajikan argumen baru yang berbobot (disarankan sekitar 100 kata atau lebih).
+- **Write an Email:** Menulis surel untuk situasi tertentu dengan mencakup semua poin yang diminta. Pengatur waktu latihan di Lexkite sekitar 7 menit; itu angka latihan, bukan angka resmi.
+- **Write for an Academic Discussion:** Membaca pertanyaan dosen dan dua pesan mahasiswa, lalu menulis tanggapan yang menambah gagasan baru. Waktunya sekitar 10 menit, dan ETS menyarankan sekitar 100 kata atau lebih.
 
-Pelajari strategi menulis forum online dalam 10 menit melalui artikel panduan kami tentang [TOEFL iBT Academic Discussion Writing](/id/blog/toefl-ibt-academic-discussion-writing-panduan/) serta panduan menyusun [surel profesional dalam bahasa Inggris](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/).
+Berlatihlah dengan pengatur waktu dan penghitung kata: [Write for an Academic Discussion](/#/toefl-p/discussion) dan [Write an Email](/#/toefl-p/email) masing-masing memuat contoh jawaban dan daftar periksa. Untuk struktur tanggapan, baca [panduan TOEFL iBT Academic Discussion Writing](/id/blog/toefl-ibt-academic-discussion-writing-panduan/); untuk nada surel, lihat [cara menulis surel bisnis dalam bahasa Inggris](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/).
 
 ---
 
-### 4. Speaking (sekitar 8 Menit – 2 Tipe Soal)
-- **Listen and Repeat:** Mendengarkan sebuah kalimat dari penutur asli dan mengulanginya secara persis ke mikrofon. Kuncinya adalah akurasi total: jangan menelan akhiran /-s/ atau /-ed/ dan jangan mengganti kata (*paraphrasing* dilarang di sini).
-- **Take an Interview:** Menjawab serangkaian pertanyaan bergaya wawancara dalam durasi sekitar 45 detik per tanggapan, dengan struktur: jawaban langsung, alasan pendukung, dan contoh nyata.
+### 4. Speaking (11 soal, sekitar 8 menit)
+- **Listen and Repeat:** Mendengarkan sebuah kalimat dari penutur asli dan mengulanginya secara persis ke mikrofon. Yang dinilai adalah ketepatan: jangan menelan akhiran /-s/ atau /-ed/ dan jangan mengganti kata dengan sinonim.
+- **Take an Interview:** Menjawab pertanyaan bergaya wawancara dalam waktu terbatas dengan urutan: jawaban langsung, alasan, lalu contoh singkat.
 
-Untuk membiasakan lidah dan refleks bicara Anda, manfaatkan fitur [ruang latihan berbicara interaktif di Lexkite](/#/speaking) serta latihan pelafalan di [laboratorium pengucapan](/#/practice/speak).
+Kedua tugas bisa dilatih terpisah di Lexkite: [Listen and Repeat](/#/toefl-p/repeat) dan [Take an Interview](/#/toefl-p/interview). Untuk bunyi tunggal seperti *th*, gunakan [pustaka pelafalan IPA](/#/pron).
 
-![Pengaturan target skor dan tanggal ujian TOEFL di Lexkite untuk menyusun rencana belajar](media:goal "Fitur pengaturan target skor dan tanggal tes di Lexkite untuk mengatur ritme belajar mingguan secara otomatis")
+![Halaman Target di Lexkite: memilih ujian, target skor, tanggal ujian, dan jam belajar per minggu](media:goal "Halaman Target di Lexkite: ujian, target skor, tanggal ujian, dan jam belajar per minggu sebagai dasar rencana 4 minggu")
 
 ---
 
@@ -147,32 +154,32 @@ Untuk membiasakan lidah dan refleks bicara Anda, manfaatkan fitur [ruang latihan
 
 Banyak peserta gagal mencapai band impian karena terjebak kebiasaan lama:
 
-1. **Mengabaikan Ejaan Tulisan Tangan/Ketik:** Pada format lama pilihan ganda, cukup mengenali kata secara pasif. Pada tugas *Complete the Words*, kesalahan satu huruf (*enviroment* alih-alih *environment*) akan langsung membuat Anda kehilangan poin.
-2. **Menulis Esai Bertele-tele:** Menulis pengantar panjang pada tugas surel atau diskusi online hanya membuang waktu. ETS menilai efektivitas argumen dan ketercakupan poin tugas, bukan kuantitas kata yang berbusa-busa.
-3. **Membuat Parafrase pada Listen and Repeat:** Jika pada tes lain Anda disarankan menggunakan sinonim, pada tugas ini Anda wajib mengulang kata per kata secara identik. Mengubah *is going to* menjadi *will* dicatat sebagai kesalahan.
+1. **Mengabaikan Ejaan Tulisan Tangan/Ketik:** Pada pilihan ganda cukup mengenali kata. Pada *Complete the Words*, satu huruf salah (*enviroment* alih-alih *environment*) membuat jawaban salah.
+2. **Menulis Esai Bertele-tele:** Pengantar panjang pada surel atau diskusi online membuang waktu. Yang penting adalah semua poin tugas tercakup dan argumennya jelas, bukan jumlah kata.
+3. **Membuat Parafrase pada Listen and Repeat:** Pada tugas lain parafrase wajar, tetapi di sini Anda mengulang apa yang didengar. Mengubah *is going to* menjadi *will* berarti kalimatnya tidak diulang dengan tepat.
 4. **Terlalu Fokus pada Teks Rumit:** Melupakan kosakata praktis seputar registrasi mata kuliah, perpustakaan, atau biaya sewa akan membuat Anda kesulitan di tugas *Read in Daily Life*.
-5. **Kebiasaan khas penutur bahasa Indonesia:** bahasa Indonesia tidak mengenal akhiran jamak dan kala lampau, sehingga *-s* dan *-ed* sering hilang (*two book*, *yesterday I walk*); bunyi *th* juga kerap diucapkan /t/ atau /d/. Dalam *Listen and Repeat* maupun *Complete the Words*, akhiran yang hilang langsung dihitung salah, jadi biasakan memeriksa akhiran setiap kata benda dan kata kerja.
+5. **Kebiasaan khas penutur bahasa Indonesia:** bahasa Indonesia tidak punya akhiran jamak dan kala lampau, sehingga *-s* dan *-ed* sering hilang (*two book*, *yesterday I walk*); bunyi *th* sering menjadi /t/ atau /d/ (*think* terdengar seperti *tink*), dan gugus konsonan akhir disederhanakan (*asked* menjadi *ask*). Dalam *Listen and Repeat* akhiran yang hilang membuat jawaban tidak tepat, dan dalam *Complete the Words* huruf akhir yang salah membuat jawaban salah. Rekam diri sendiri, bandingkan dengan aslinya, dan latih pasangan seperti *walk/walked* dan *book/books*.
 
 ---
 
 ## Rencana Belajar Mandiri 4 Minggu Menghadapi Format 2026
 
-Alokasikan waktu sekitar 45 hingga 60 menit setiap hari dengan jadwal terstruktur berikut:
+Rencana ini mengandaikan 45 hingga 60 menit per hari (saran, bukan aturan resmi):
 
 | Minggu | Fokus Utama | Target Latihan Harian |
 |---|---|---|
-| **Minggu 1** | Diagnostik & Pengenalan Format | Kerjakan satu set latihan dari seluruh 12 tipe soal; catat kelemahan di buku catatan evaluasi |
+| **Minggu 1** | Diagnostik & Pengenalan Format | Coba setiap dari 12 tipe tugas sekali di [halaman TOEFL](/#/toefl); catat kesalahan di buku catatan kesalahan |
 | **Minggu 2** | Penguatan Tugas Produksi Aktif | Latihan harian *Complete the Words* dan *Build a Sentence*; rekam latihan *Listen and Repeat* |
-| **Minggu 3** | Manajemen Waktu Terintegrasi | Simulasi membaca teks harian dan akademik; tulis satu surel (7 menit) dan satu posting diskusi (10 menit) |
-| **Minggu 4** | Simulasi Tes Penuh | Selesaikan dua tes simulasi penuh berdurasi 1,5 jam; tinjau kembali kesalahan ejaan dan kosakata |
+| **Minggu 3** | Manajemen Waktu Terintegrasi | Baca teks keseharian dan akademik dengan batas waktu; tulis satu surel dan satu posting diskusi dengan pengatur waktu |
+| **Minggu 4** | Simulasi Tes Penuh | Kerjakan keempat bagian berurutan satu atau dua kali; tinjau kembali kesalahan yang berulang |
 
-Jika Anda masih menimbang pilihan antara tes ETS dan Cambridge/IDP, simak ulasan kami mengenai [panduan belajar mandiri IELTS](/id/blog/belajar-ielts-otodidak/) serta strategi pengerjaan [TOEIC Listening Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/). Untuk meningkatkan kecepatan membaca teks panjang, pelajari juga [teknik skimming dan scanning](/id/blog/teknik-skimming-scanning-ielts-reading/).
+Jika masih menimbang ujian lain, baca [panduan belajar mandiri IELTS](/id/blog/belajar-ielts-otodidak/). Untuk membaca teks panjang lebih cepat, pelajari [teknik skimming dan scanning](/id/blog/teknik-skimming-scanning-ielts-reading/). Kata baru bisa dicari di [kamus Lexkite](/#/dict).
 
-Periksa arti kata dan contoh pemakaian istilah bisnis di [kamus digital Lexkite](/#/) untuk memperluas pemahaman kontekstual Anda.
+Buku catatan kesalahan paling berguna di minggu 1 dan 4 karena mengelompokkan kesalahan menurut jenis.
 
-![Buku catatan evaluasi kesalahan di Lexkite yang mengelompokkan soal salah berdasarkan kategori](media:mistakes "Analisis kelemahan kosakata dan tata bahasa di buku catatan kesalahan Lexkite untuk perbaikan terarah")
+![Buku catatan kesalahan Lexkite: soal salah dikelompokkan menurut kosakata, tata bahasa, bacaan, dan menyimak](media:mistakes "Buku catatan kesalahan Lexkite: kesalahan Anda dikelompokkan menurut jenis untuk ditinjau di minggu 4")
 
-{{cta: /#/toefl | Coba latihan format baru TOEFL iBT 2026 di Lexkite sekarang}}
+{{cta: /#/toefl | Latih 12 tipe tugas TOEFL | Tabel struktur tes baru dan satu halaman latihan untuk setiap tipe tugas}}
 
 {{youtube: | Bedah tuntas 12 tipe soal format baru TOEFL iBT 2026 dengan contoh nyata}}
 
@@ -181,13 +188,16 @@ Periksa arti kata dan contoh pemakaian istilah bisnis di [kamus digital Lexkite]
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Kapan tepatnya format baru TOEFL iBT mulai berlaku?
-Format baru ini berlaku resmi sejak **21 Januari 2026** di seluruh pusat tes resmi (*test centers*) dan untuk edisi tes di rumah (*Home Edition*).
+Format yang diperbarui berlaku sejak **21 Januari 2026**; ETS kini melaporkan skor pada skala 1-6.
 
 ### Apakah sertifikat hasil tes dengan skor 0–120 masih diakui?
-Ya. Sertifikat hasil tes yang diambil sebelum 21 Januari 2026 tetap berlaku selama masa validitas resminya (2 tahun). Selain itu, lembar skor baru mencantumkan tabel penyetaraan nilai 0–120 selama masa transisi.
+Skor biasanya berlaku dua tahun sejak tanggal tes, tetapi penerimaan tergantung kebijakan tiap institusi, jadi tanyakan langsung ke universitas atau pemberi beasiswa. Selama masa transisi, hasil baru juga mencantumkan skor setara 0-120.
 
 ### Apakah format baru ini lebih mudah daripada format sebelumnya?
-Tidak selalu. Ujian memang lebih singkat dan tidak melelahkan stamina, namun format adaptif dan tipe soal produksi aktif (*Complete the Words*, *Listen and Repeat*) menuntut ketelitian tinggi tanpa memberi ruang untuk sekadar menebak jawaban.
+Belum tentu. Ujian lebih singkat tetapi adaptif, dan pada *Complete the Words* atau *Build a Sentence* Anda menghasilkan jawaban sendiri, bukan memilih, sehingga menebak kurang membantu.
 
 ### Apakah buku persiapan lama masih bisa dipakai?
-Sebagian materi masih relevan, terutama untuk memperkaya kosakata akademik dan pemahaman tata bahasa. Namun, untuk strategi pengerjaan dan pembiasaan tipe soal baru, Anda wajib berlatih dengan materi yang sudah disesuaikan dengan format 2026.
+Sebagian masih berguna untuk kosakata dan tata bahasa. Untuk tipe tugas baru dan manajemen waktu, gunakan materi yang disesuaikan dengan format 2026.
+
+### Kesalahan apa yang paling sering dibuat penutur bahasa Indonesia pada tugas-tugas baru ini?
+Akhiran -s dan -ed yang hilang (*two book*, *yesterday I walk*), bunyi *th* yang menjadi /t/ atau /d/, dan gugus konsonan akhir yang disederhanakan (*asked* menjadi *ask*). Rekam 20 kalimat, bandingkan dengan aslinya, lalu masukkan kata yang salah ke kartu ulasan.

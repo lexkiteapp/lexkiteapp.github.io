@@ -9,147 +9,167 @@ category: toeic
 tags: [toeic, rencana-belajar, persiapan-ujian]
 cover: toeic
 coverAlt: "Antarmuka persiapan ujian TOEIC di Lexkite dengan simulasi ujian lengkap dan latihan per bagian"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-06T07:36:00+07:00
 status: ready
 quiz: [
   {
-    q: "Apa penyebab utama stagnasi skor pada rentang 450 hingga 550 pada ujian TOEIC?",
+    q: "Berapa jumlah soal dan durasi bagian Reading pada TOEIC Listening & Reading?",
     options: [
-      "Kesenjangan kosakata bisnis dasar dan ketidakpastian struktur tata bahasa di Part 5",
-      "Ketidakmampuan menghafal seluruh pola jawaban dari latihan simulasi lengkap",
-      "Kendala logat daerah penutur asli yang mustahil dipahami pada dialog pendek",
-      "Terlalu sering mengerjakan ujian simulasi berwaktu setiap minggunya"
+      "100 soal dalam 75 menit",
+      "100 soal dalam 45 menit",
+      "200 soal dalam 120 menit",
+      "54 soal dalam 75 menit"
     ],
     answer: 0,
-    explain: "Pada kisaran skor 450 hingga 550, sebagian besar kesalahan berakar pada minimnya kosakata profesional dan kelambatan analisis kalimat dasar."
+    explain: "Bagian Reading berisi 100 soal (Part 5: 30, Part 6: 16, Part 7: 54) dengan waktu 75 menit. Durasi 45 menit adalah milik bagian Listening."
   },
   {
-    q: "Mengapa mengerjakan simulasi terus-menerus tanpa analisis kesalahan tidak efektif pada tahap awal?",
+    q: "Anda salah menjawab soal Part 5 karena tidak tahu bahwa 'comply' diikuti 'with'. Di kategori mana kesalahan ini dicatat dalam log kesalahan?",
     options: [
-      "Simulasi hanya mengukur pengetahuan yang ada tanpa mengajarkan aturan dan kosakata baru yang belum dikuasai",
-      "Latihan simulasi resmi tidak memuat rekaman suara dari penutur asli",
-      "Peraturan ETS melarang pengerjaan soal latihan pada minggu-minggu pertama persiapan",
-      "Format ujian TOEIC selalu berubah drastis pada setiap sesi ujian baru"
+      "Celah kosakata: kolokasi yang belum diketahui",
+      "Ceroboh: membaca terlalu cepat",
+      "Kebingungan struktur: batas klausa salah dikenali",
+      "Tidak perlu dicatat: satu kesalahan tidak penting"
     ],
     answer: 0,
-    explain: "Latihan mekanis tanpa evaluasi mendalam hanya menimbulkan kelelahan tanpa mengatasi akar kelemahan kosakata dan tata bahasa."
+    explain: "Yang kurang adalah pasangan kata tetap (comply with), jadi ini celah kosakata dan kolokasi. Dengan kategori yang tepat Anda tahu harus melatih kolokasi, bukan membaca lebih lambat atau mengulang struktur kalimat."
+  },
+  {
+    q: "Di Part 2 Anda mendengar 'When will the shipment arrive?'. Jawaban mana yang paling mungkin benar?",
+    options: [
+      "Sometime early next week.",
+      "At the main warehouse.",
+      "The shipping department.",
+      "Yes, it arrived yesterday."
+    ],
+    answer: 0,
+    explain: "'When' menanyakan waktu, sehingga hanya keterangan waktu yang cocok. 'Warehouse' menjawab 'Where', 'department' lebih mirip jawaban 'Who', dan 'Yes' tidak cocok untuk pertanyaan berawalan wh-."
   }
 ]
 ---
 
-Meraih skor tinggi pada ujian TOEIC Listening and Reading merupakan salah satu standar kualifikasi paling berharga bagi perusahaan multinasional, promosi karier, dan penugasan profesional global. Namun, ribuan pembelajar merasa terperangkap pada batas skor menengah antara 450 dan 550 poin. Pada tingkat ini, Anda mampu memahami percakapan pendek sehari-hari, tetapi percakapan kantor yang cepat pada Part 3 dan dokumen kerja yang padat pada Part 7 membuat memori kerja Anda cepat lelah. Menjembatani lonjakan 250 hingga 300 poin ini memerlukan **rencana belajar mandiri toeic** yang sistematis, memadukan penguasaan kosakata bisnis, latihan mendengarkan aktif, dan kontrol waktu yang ketat.
+Banyak peserta mentok di skor 450 sampai 550 pada TOEIC Listening & Reading. Anda memahami percakapan sederhana, tetapi dialog Part 3 terlalu cepat, dan email serta pengumuman di Part 7 memenuhi memori kerja sebelum Anda sampai ke soalnya. Untuk naik dari 450 ke 750 dibutuhkan **rencana belajar mandiri toeic** yang menutup celah kosakata dan tata bahasa lebih dulu, lalu melatih telinga, dan baru terakhir melatih kecepatan.
 
-Panduan ini menjabarkan **rencana belajar mandiri toeic** teruji yang terbagi ke dalam tiga fase bertahap. Baik Anda memiliki waktu 45 menit sebelum bekerja atau satu jam di malam hari, jadwal terstruktur ini akan memandu Anda mencapai target skor 750 atau 850 poin dengan percaya diri.
+Panduan ini memberikan rencana itu dalam tiga fase, jadwal mingguan yang bisa diselipkan sebelum atau sesudah kerja, dan log kesalahan agar setiap simulasi benar-benar mengajarkan sesuatu. Lama waktu di sini adalah contoh perencanaan, bukan janji: kecepatan Anda bergantung pada level awal dan jam belajar.
 
-## Struktur umum rencana belajar mandiri toeic
+## Struktur dan fase rencana belajar mandiri toeic
 
-Banyak peserta ujian mengira bahwa mengerjakan puluhan paket simulasi adalah jalan pintas tercepat untuk menaikkan nilai. Pada kenyataannya, latihan soal hanya menguji pengetahuan yang telah Anda miliki; ia tidak mengajarkan apa yang belum Anda ketahui.
+Banyak orang mengira mengerjakan simulasi tanpa henti adalah jalan tercepat. Padahal simulasi hanya mengukur apa yang Anda kuasai hari ini; ia tidak menutup celah kosakata dan tata bahasa yang menyebabkan salah.
 
-Agar kemajuan Anda stabil dan terukur, rencana persiapan harus memprioritaskan fondasi bahasa sebelum meningkatkan kecepatan teknis.
+Karena itu rencana ini menaruh bahasa lebih dulu dan kecepatan ujian sesudahnya. Tiap fase ditutup dengan simulasi, dari situ Anda mendapat perkiraan skor.
 
-![Bagian TOEIC Listening dan Reading di Lexkite dengan tes uji coba, latihan per Part, dan daftar kosakata TOEIC](media:toeic "Akses simulasi ujian TOEIC lengkap dan latihan per bagian terarah di Lexkite")
+![Halaman TOEIC di Lexkite dengan latihan per Part untuk Listening dan Reading, simulasi dengan perkiraan skor 10 sampai 990, dan kosakata TOEIC (TSL)](media:toeic "Halaman TOEIC: latihan per Part, simulasi lengkap dengan perkiraan skor, dan daftar kosakata ujian")
 
-Tabel di bawah ini merangkum tiga fase utama dalam jadwal belajar mandiri Anda:
+Tabel berikut meringkas tiga fase. Durasinya contoh untuk belajar sekitar satu jam per hari; pendekkan atau panjangkan sesuai jadwal Anda.
 
-| Fase Belajar | Target Skor | Perkiraan Durasi | Fokus Strategis Utama |
+| Fase | Target skor | Contoh durasi | Fokus utama |
 |---|---|---|---|
-| Fase 1: Membangun Fondasi | 450 → 550 | 6–8 Minggu | Kosakata bisnis, tata bahasa Part 5, respon cepat Part 1 & 2 |
-| Fase 2: Memperluas Stamina | 550 → 650 | 6–8 Minggu | Percakapan Part 3 & 4, teks rumpang Part 6, teks tunggal Part 7 |
-| Fase 3: Kecepatan & Ketahanan | 650 → 750+ | 6–8 Minggu | Simulasi lengkap berwaktu, teks ganda dan tiga dokumen, analisis kesalahan |
+| Fase 1: Fondasi | 450 → 550 | 6–8 minggu | Kosakata kerja, tata bahasa Part 5, Part 1 dan 2 |
+| Fase 2: Perluasan | 550 → 650 | 6–8 minggu | Part 3 dan 4, Part 6, teks tunggal Part 7 |
+| Fase 3: Kecepatan dan stamina | 650 → 750+ | 6–8 minggu | Bagian bertimer, teks ganda dan tripel, analisis kesalahan |
 
-Sebelum memulai latihan intensif, pastikan Anda memahami dasar-dasar korespondensi kerja dengan membaca panduan [cara menulis email bahasa Inggris bisnis](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/) dan format lamaran profesional melalui [cara membuat CV bahasa Inggris ATS](/id/blog/cara-membuat-cv-bahasa-inggris-ats-resume/).
+Ujian ini terdiri atas 200 soal: 100 soal Listening (45 menit) dan 100 soal Reading (75 menit), total dua jam. Tiap bagian diberi skor 5 sampai 495, sehingga skala totalnya 10 sampai 990. Rincian tiap part ada di panduan [Part 5](/id/blog/tips-toeic-part-5/), [Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/), dan [Part 7](/id/blog/toeic-part-7-strategi-membaca-manajemen-waktu/).
 
-## Fase 1: Menguatkan fondasi kosakata dan tata bahasa (450 ke 550)
+## Fase 1: Menutup celah dasar tata bahasa dan kosakata (450 sampai 550)
 
-Pada tahap awal ini, tujuan utama Anda adalah menuntaskan keraguan kelas kata dan membangun perbendaharaan istilah korporat yang kokoh. Langsung mengerjakan paket soal lengkap pada fase ini hanya akan menimbulkan rasa frustrasi.
+Di fase ini Anda menghilangkan kebingungan jenis kata dan membangun kosakata bisnis yang terus muncul di ujian. Tanpa fondasi itu, simulasi penuh hanya menimbulkan frustrasi.
 
-### 1. Menguasai kosakata bisnis berfrekuensi tinggi
-TOEIC berfokus pada situasi kantor yang teratur: pengadaan barang, pengiriman logistik, laporan anggaran, rekrutmen pegawai, rapat kerja, dan reservasi perjalanan. Daripada menghafal daftar kata acak, utamakan istilah dari TOEIC Service List (TSL). Manfaatkan metode pengulangan berspasi digital agar kata-kata tersebut melekat erat dalam memori jangka panjang.
+### 1. Kuasai kosakata kerja yang sering muncul
+Teks TOEIC berasal dari kantor dan perjalanan: pembelian, pemasaran, reservasi, keuangan, kepegawaian, dan perawatan gedung. Alih-alih daftar acak, pakai TOEIC Service List (TSL), sekitar 1.250 kata yang sering muncul, yang di Lexkite tersedia dalam sepuluh set (lihat juga [halaman kosakata](/vocabulary/)).
 
-![Kamus Inggris–Vietnam di Lexkite dengan kata resilient, pelafalan UK/US, contoh kalimat, kolokasi, dan tombol simpan flashcard](media:dict "Periksa definisi kamus dan kolokasi bisnis untuk istilah penting seperti resilient di Lexkite")
+![Perpustakaan kosakata Lexkite dengan beberapa tab, termasuk TOEIC (TSL), dan set kata inti tingkat A1 sampai B2](media:library "Perpustakaan: tab TOEIC (TSL) berisi set kata untuk ujian")
 
-Saat mencatat kata baru, selalu pelajari preposisi dan kolokasi pendampingnya. Jangan hanya menghafal kata kerja *participate*, melainkan seluruh frasa *participate in the conference*. Anda dapat menelusuri koleksi istilah fungsional pada halaman [kosakata bahasa Inggris](/vocabulary/).
+Pelajari setiap kata bersama pasangannya, bukan sendirian. Jangan hanya menyimpan *participate*, simpan *participate in the seminar*; *comply* berpasangan dengan *with*, *responsible* dengan *for*. Hubungan kecil seperti inilah yang diuji Part 5. Cara menghafal kata yang tahan lama dibahas di [spaced repetition untuk menghafal kosakata](/id/blog/spaced-repetition-menghafal-kosakata-fsrs/).
 
-### 2. Menguasai mekanika kalimat di Part 5
-Mayoritas kesalahan di Part 5 tidak disebabkan oleh teori tata bahasa rumit, melainkan kebingungan menentukan kelas kata. Latihlah mata Anda untuk langsung mengenali akhiran kata benda (*-tion, -ment, -ance*), kata sifat (*-able, -ive, -ous*), dan penanda kata keterangan (*-ly*).
+### 2. Part 5: kuasai mekanika kalimat
+Part 5 berisi 30 kalimat dengan satu bagian kosong. Pada level ini kebanyakan kesalahan datang dari tertukarnya jenis kata, bukan dari tata bahasa langka. Kenali akhiran kata benda (*-tion, -ment, -ance*), kata sifat (*-able, -ive, -ous*), dan kata keterangan *-ly*, lalu tanyakan jenis kata apa yang dibutuhkan bagian kosong sebelum membaca pilihan.
 
-Pelajari teknik penyelesaian kalimat cepat pada panduan [strategi TOEIC Part 5 tata bahasa dan kosakata](/id/blog/tips-toeic-part-5/).
+Metode lengkapnya ada di [tips TOEIC Part 5](/id/blog/tips-toeic-part-5/).
 
-### 3. Mengasah refleks auditori di Part 1 dan Part 2
-Part 2 memuat 25 pertanyaan lisan singkat dan menjadi ladang termudah untuk mendulang poin kilat. Biasakan telinga Anda menangkap kata tanya pembuka (*Who, Where, When, Why, How*) dan segera coret opsi jebakan yang mengulang kata berbunyi mirip dari rekaman soal dengan makna melenceng.
+### 3. Bangun refleks mendengar di Part 1 dan Part 2
+Part 1 (6 soal foto) dan Part 2 (25 soal tanya-jawab) pendek dan memberi kenaikan paling cepat. Di Part 2, tangkap kata pertama (*Who, Where, When, Why, How*) dan curigai jawaban yang hanya mengulang kata dari pertanyaan. Taktiknya ada di [strategi TOEIC Listening Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
 
-## Fase 2: Mengembangkan daya tahan menyimak dan membaca (550 ke 650)
+Sering kali hambatannya bukan kosakata, melainkan bunyi. Penutur asli menyambung dan melemahkan kata, sehingga *What did you* terdengar seperti «wotdyu». Jika Anda tahu semua kata di naskah tetapi tidak menangkapnya di audio, putar ulang klip dengan naskah, lalu ucapkan kalimatnya keras-keras. Polanya dijelaskan di [aturan connected speech](/id/blog/connected-speech-bahasa-inggris-aturan-menyambung-kata/).
 
-Setelah fondasi tata bahasa stabil dan Anda lancar memahami dialog pendek, alihkan konsentrasi ke percakapan panjang dan dokumen kantor yang terstruktur.
+## Fase 2: Memperluas stamina dan pemahaman (550 sampai 650)
 
-### 1. Menyimak aktif dan teknik prabaca pada Part 3 dan Part 4
-Pada dialog Part 3 dan monolog pendek Part 4, banyak peserta kehilangan arah di tengah-tengah audio. Kuncinya terletak pada teknik prabaca: bacalah ketiga pertanyaan terkait selama instruksi awal atau jeda antar-rekaman. Langkah ini memandu telinga Anda mencari data spesifik, seperti profesi pembicara, alasan keterlambatan, atau jam pertemuan.
+Ketika tata bahasa sudah stabil dan percakapan pendek terasa jelas, beralihlah ke teks bisnis dan rekaman yang lebih panjang.
 
-Untuk melatih kepekaan bunyi dan ritme alami, pelajari metode dalam panduan [cara meningkatkan listening bahasa Inggris](/id/blog/cara-meningkatkan-listening-bahasa-inggris-metode-5-tahap/).
+### 1. Mendengar aktif di Part 3 dan Part 4
+Part 3 berisi 39 soal tentang percakapan dan Part 4 berisi 30 soal tentang pembicaraan singkat. Banyak peserta kehilangan alur di tengah. Yang membantu adalah membaca soal sebelum audio mulai, memakai waktu saat petunjuk direkam dibacakan. Dengan begitu Anda tahu apa yang harus ditangkap: siapa pembicara, apa masalahnya, apa yang terjadi berikutnya.
 
-### 2. Mengoptimalkan penyelesaian teks rumpang Part 6
-Part 6 menghubungkan analisis kalimat tunggal dengan pemahaman paragraf utuh. Perhatikan baik-baik soal penyisipan kalimat penuh: telaah kalimat sebelum dan sesudahnya guna mengidentifikasi kata penghubung logis, alur waktu, dan kata ganti rujukan.
+Soal mengikuti urutan audio, jadi arahkan mata ke soal berikutnya yang belum dijawab, jangan kembali ke soal sebelumnya. Untuk latihan lebih luas, lihat [cara meningkatkan listening bahasa Inggris](/id/blog/cara-meningkatkan-listening-bahasa-inggris-metode-5-tahap/).
 
-![Ulasan flashcard di Lexkite dengan kata pollution, gambar emoji, transkripsi fonetik, tombol balik kartu, dan bilah kemajuan](media:review "Kuasai kosakata bisnis melalui kartu pengulangan berspasi seperti istilah pollution di Lexkite")
+### 2. Part 6: melengkapi teks dengan cermat
+Part 6 (16 soal) berada di antara tata bahasa kalimat dan membaca teks. Pada sebagian bagian kosong, yang hilang adalah satu kalimat utuh. Baca kalimat sebelum dan sesudahnya, lalu cari kata penghubung (*however, as a result*), urutan waktu, dan rujukan kata ganti.
 
-Pengulangan berspasi menjamin Anda mampu mengingat kembali kata transisi dan istilah baku tanpa ragu di bawah tekanan waktu.
+![Sesi ulasan flashcard di Lexkite dengan kata pollution, gambar emoji, transkripsi fonetik, tombol balik kartu, dan bilah kemajuan](media:review "Sesi ulasan: kartu muncul kembali dengan jeda yang makin panjang, cocok untuk kata penghubung dan kolokasi yang harus cepat diingat")
 
-### 3. Strategi membaca selektif pada Part 7
-Jangan berusaha membaca setiap kata pada email, nota pembelian, atau brosur iklan. Arahkan mata Anda ke bagian kepala dokumen: pengirim, penerima, perihal, tenggat waktu, dan nomor referensi. Tingkatkan kecepatan membaca analitis Anda dengan membaca [strategi membaca dan manajemen waktu TOEIC Part 7](/id/blog/toeic-part-7-strategi-membaca-manajemen-waktu/).
+Jika kata penghubung dan kolokasi diulang dengan spaced repetition, keduanya lebih cepat muncul saat waktu terus berjalan.
 
-## Fase 3: Ketepatan waktu dan ketahanan kognitif (650 ke 750+)
+### 3. Part 7: teks tunggal dengan membaca selektif
+Anda tidak perlu membaca setiap kata dalam email, faktur, atau iklan. Kenali dulu strukturnya: pengirim, penerima, subjek, tanggal, nomor pesanan. Lalu baca soal dan temukan kalimat yang menjawabnya. Pendekatan lengkap ada di [TOEIC Part 7: strategi membaca dan manajemen waktu](/id/blog/toeic-part-7-strategi-membaca-manajemen-waktu/).
 
-Menembus skor di atas 750 poin menuntut manajemen jam ujian yang presisi. Bagian membaca mencakup 100 soal (30 di Part 5, 16 di Part 6, dan 54 di Part 7) yang harus diselesaikan hanya dalam 75 menit.
+## Fase 3: Menguasai ritme dan stamina (650 sampai 750+)
 
-### 1. Menerapkan batas waktu ketat per bagian
-Patuhi batas waktu berikut dalam setiap sesi latihan membaca:
-* **Part 5 (30 soal)**: Maksimal 10 hingga 12 menit (sekitar 20–25 detik per butir soal).
-* **Part 6 (16 soal)**: Maksimal 8 hingga 10 menit (sekitar 30 detik per butir soal).
-* **Part 7 (54 soal)**: Sisa waktu 53 hingga 55 menit (rata-rata 60 detik per soal).
+Di atas 650, waktu menjadi batas utama. Bagian Reading berisi 100 soal (30 di Part 5, 16 di Part 6, dan 54 di Part 7) dalam 75 menit.
 
-Jika Anda bimbang pada soal tata bahasa Part 5, singkirkan opsi yang jelas salah, pilih tebakan terbaik, dan segera lanjutkan. Membuang dua menit pada satu soal akan merenggut waktu berharga untuk menjawab soal-soal mudah di ujung lembar ujian.
+### 1. Berlatih dengan rencana waktu
+ETS tidak menetapkan waktu per part, jadi anggap pembagian berikut sebagai titik awal yang Anda sesuaikan dengan hasil simulasi:
 
-### 2. Menyelesaikan teks ganda dan tiga dokumen lintas-referensi
-Bacaan ganda dan bertingkat di Part 7 selalu menyertakan pertanyaan penghubung antar-dokumen yang tidak dapat dijawab hanya dengan melihat satu lembar saja. Cari tautan logisnya: email yang menyebutkan nomor faktur lampiran atau jadwal seminar yang mengonfirmasi ruangan yang dibahas dalam memo.
+* **Part 5 (30 soal):** sekitar 10 sampai 12 menit, yaitu 20 sampai 25 detik per soal.
+* **Part 6 (16 soal):** sekitar 8 sampai 10 menit.
+* **Part 7 (54 soal):** sisa 53 sampai 55 menit, kira-kira satu menit per soal.
 
-### 3. Menyusun buku jurnal analisis kesalahan
-Setelah menyelesaikan simulasi berwaktu, luangkan waktu dua kali lebih lama untuk membedah kesalahan Anda dibandingkan durasi pengerjaan tes. Kelompokkan setiap kekeliruan ke dalam tiga penyebab:
-* *Kesenjangan kosakata*: Saya tidak mengetahui arti atau kolokasi kata tersebut.
-* *Kebingungan sintaksis*: Salah mengenali subjek atau kata kerja utama kalimat.
-* *Kecerobohan terburu-buru*: Membaca terlalu cepat sehingga melewatkan kata negasi (*not, except*).
+Jika satu soal Part 5 menghambat, coret pilihan yang jelas salah, pilih tebakan terbaik, lalu lanjut. Dua menit untuk satu soal tata bahasa mengurangi waktu untuk beberapa soal yang lebih mudah di Part 7.
 
-Mencatat pola kesalahan ini melindungi Anda agar tidak mengulang pola pikir keliru yang sama pada hari ujian resmi.
+### 2. Rujukan silang pada teks ganda
+Teks ganda dan tripel di Part 7 memuat soal yang membutuhkan informasi dari dua atau tiga dokumen. Cari kaitannya: email yang menyebut nomor faktur, jadwal yang menegaskan ruangan pembicara, pemesanan yang diubah dan memindahkan jam kedatangan.
 
-## Jadwal belajar mingguan yang realistis bagi pekerja
+### 3. Log kesalahan yang sistematis
+Setelah simulasi bertimer, luangkan waktu untuk membahas kesalahan setidaknya sama lama dengan waktu mengerjakannya. Masukkan tiap jawaban salah ke salah satu dari tiga kelompok:
 
-Konsistensi belajar harian berdurasi sedang selalu mengalahkan belajar maraton di akhir pekan. Jadwal mingguan 6 hari ini dirancang agar pas dengan kesibukan kerja atau kuliah:
+* *Celah kosakata:* Anda tidak tahu kata atau kolokasinya.
+* *Kebingungan struktur:* Anda salah mengenali subjek, kata kerja, atau batas klausa.
+* *Ceroboh:* Anda terlewat kata seperti *not* atau *except*.
 
-* **Senin (Latihan menyimak - 45 menit)**: 20 soal Part 2 dengan dikte dan analisis opsi pengecoh.
-* **Selasa (Tata bahasa & Part 5 - 45 menit)**: 30 soal Part 5 berwaktu 12 menit, diikuti pembahasan mendalam jawaban yang salah.
-* **Rabu (Kosakata & kartu memori - 30 menit)**: Pengulangan berspasi istilah bisnis dan preposisi pada [fitur review Lexkite](/#/review).
-* **Kamis (Audio panjang - 45 menit)**: 3 paket Part 3 dan 2 rekaman Part 4 dengan latihan prabaca soal.
-* **Jumat (Latihan membaca cepat - 60 menit)**: 4 bacaan tunggal dan 2 bacaan ganda di bawah pengawasan waktu ketat.
-* **Sabtu (Simulasi bagian penuh - 90 menit)**: Pengerjaan penuh satu seksi Reading atau Listening dengan koreksi langsung.
-* **Minggu**: Istirahat aktif (mendengarkan siniar bisnis atau membaca berita internasional berbahasa Inggris).
+Lexkite menyimpan soal yang salah pada latihan Reading per Part ke dalam buku catatan yang dikelompokkan menjadi kosakata, tata bahasa, membaca, dan mendengar, jadi lognya tersusun sendiri.
 
-Bila karier Anda juga menuntut kelancaran berbicara untuk wawancara kerja dan rapat tim global, latih artikulasi suara Anda di [laboratorium latihan berbicara Lexkite](/#/practice/speak).
+![Buku catatan kesalahan Lexkite yang mengelompokkan jawaban salah menurut kosakata, tata bahasa, membaca, dan mendengar](media:mistakes "Buku catatan kesalahan: soal yang salah dikumpulkan per jenis")
+
+Buka [buku catatan kesalahan](/#/mistakes) sekali seminggu dan kerjakan ulang soalnya. Setelah sebulan Anda akan melihat kelompok mana yang dominan, dan itu menunjukkan apa yang perlu dipelajari berikutnya.
+
+## Jadwal mingguan yang berkelanjutan
+
+Sesi pendek yang rutin mengalahkan sesi panjang yang jarang. Tetapkan dulu ujian, target skor, dan jam belajar per minggu di [halaman tujuan](/#/goal), lalu sesuaikan sesi dengan jam itu. Contoh enam hari:
+
+* **Senin, mendengar (45 menit):** 20 soal Part 2, lalu baca naskah dan tulis ulang klip yang salah.
+* **Selasa, tata bahasa (45 menit):** 30 soal Part 5 dalam 12 menit, lalu bahas setiap kesalahan.
+* **Rabu, kosakata (30 menit):** ulas kartu Anda di [halaman ulasan](/#/review): preposisi, kolokasi, sinonim.
+* **Kamis, audio panjang (45 menit):** 3 set Part 3 dan 2 set Part 4, baca soal sebelum tiap rekaman.
+* **Jumat, membaca (60 menit):** 4 teks tunggal dan 2 teks ganda sambil berpacu dengan waktu.
+* **Sabtu, simulasi satu bagian (90 menit):** satu bagian Reading 75 menit lalu 15 menit untuk log kesalahan. Gantian dengan satu bagian Listening 45 menit.
+* **Minggu:** istirahat atau paparan ringan, misalnya podcast bisnis atau berita internasional.
+
+Semua part dan ujian lengkap ada di [halaman latihan TOEIC](/#/toeic). Untuk melatih telinga dengan naskah, lihat juga [metode dictation](/id/blog/metode-dictation-meningkatkan-listening-bahasa-inggris/).
 
 {{youtube: | Rencana belajar mandiri TOEIC dari skor 450 ke 750 langkah demi langkah}}
 
-{{cta: /#/toeic | Mulai rencana belajar mandiri TOEIC dengan latihan simulasi interaktif di Lexkite}}
+{{cta: /#/toeic | Coba simulasi TOEIC dan lihat perkiraan skor 10 sampai 990}}
 
-## Pertanyaan umum seputar belajar mandiri TOEIC
+## Pertanyaan umum tentang belajar mandiri TOEIC
 
-### Berapa bulan yang diperlukan untuk naik dari skor 500 ke 750?
-Tidak ada patokan resmi, dan kecepatan kemajuan tiap orang sangat berbeda. Sebagai perkiraan kasar untuk perencanaan, siapkan sekitar 150 hingga 200 jam belajar terfokus untuk kenaikan 200 hingga 250 poin. Dengan 60 sampai 90 menit setiap hari, itu kira-kira setara 3 hingga 4 bulan.
+### Berapa bulan untuk naik dari 500 ke 750?
+Tidak ada angka resmi dan kemajuan setiap orang berbeda. Sebagai acuan saja, siapkan sekitar 150 sampai 200 jam belajar terfokus untuk naik 200 sampai 250 poin. Dengan sekitar 90 menit sehari, itu kira-kira tiga sampai empat bulan. Lakukan simulasi tiap beberapa minggu dan sesuaikan rencananya.
 
-### Apakah mungkin meraih skor 750+ tanpa mengikuti bimbingan belajar mahal?
-Ya, sangat mungkin. Karena TOEIC menguji pola dan kosakata kerja yang sangat teratur, belajar mandiri berbasis analisis kesalahan dan pengulangan berspasi sering kali lebih efektif dan sesuai kebutuhan pribadi dibanding kelas kuliah umum.
+### Bisakah mencapai 750+ tanpa kursus mahal?
+Bisa, asal disiplin. Ujian memakai format tetap dan kosakata bisnis yang berulang, sehingga belajar mandiri dengan analisis kesalahan dan spaced repetition bisa menyasar kelemahan Anda lebih tepat daripada kelas umum. Guru paling berguna untuk koreksi speaking dan writing, yang tidak diukur ujian ini.
 
-### Seberapa sering sebaiknya mengambil simulasi lengkap 200 soal?
-Pada minggu-minggu awal pembentukan dasar, tes lengkap setiap 3 minggu sekali sudah memadai untuk mengukur progres tanpa memicu kejenuhan. Pada bulan terakhir menjelang hari H ujian, kerjakan simulasi lengkap berdurasi dua jam setiap Sabtu pagi untuk membiasakan daya konsentrasi Anda.
+### Seberapa sering sebaiknya mengerjakan simulasi lengkap 200 soal?
+Pada fase fondasi, satu kali setiap tiga minggu sudah cukup untuk memantau kemajuan tanpa kelelahan. Pada empat minggu terakhir, kerjakan satu simulasi lengkap bertimer tiap akhir pekan agar kuat menjalani dua jam.
 
-Bagi Anda yang ingin memaksimalkan skor pada sesi tanya jawab, simak ulasan [strategi toeic listening part 2 tanya jawab](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/), serta pelajari persiapan studi lanjut ke luar negeri dalam ulasan [format baru toefl ibt 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
+### Apa jebakan khas penutur bahasa Indonesia di TOEIC?
+Pertama, bahasa Indonesia tidak menandai waktu dan jamak lewat akhiran, sehingga telinga terbiasa mengabaikan *-ed* dan *-s* di ujung kata. Padahal di Part 5 dan Part 3 *worked* dan *works*, atau *book* dan *books*, mengubah jawaban. Latih dengan dictation kalimat pendek dan tulis akhirannya. Kedua, bahasa Indonesia jarang punya gugus konsonan di akhir kata, jadi *asked* atau *texts* terdengar «ask» dan «tex». Ketiga, waspadai kata yang mirip bahasa Indonesia tetapi berbeda: *actual* berarti «sebenarnya», bukan «aktual» (*current*); *eventually* berarti «akhirnya», bukan «eventual» (*possible*); *sensible* berarti «masuk akal», bukan «sensitif». Daftar kata semacam itu ada di [artikel kata yang sering salah arti](/id/blog/kata-bahasa-inggris-yang-sering-salah-arti-confused-words/).

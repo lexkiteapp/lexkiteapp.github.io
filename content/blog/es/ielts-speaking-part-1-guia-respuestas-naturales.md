@@ -9,82 +9,84 @@ category: ielts
 tags: [ielts, speaking, part-1, preparacion]
 cover: speaking
 coverAlt: "Sala de Speaking de Lexkite con preguntas de Part 1 clasificadas por temas y respuestas modelo"
-qualityScore: 89
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T12:11:00-06:00
 status: ready
 quiz: [
   {
-    q: "¿Cuál es la duración recomendada para una respuesta estándar en el IELTS Speaking Part 1?",
+    q: "¿Qué tipo de respuesta funciona mejor en el IELTS Speaking Part 1?",
     options: [
-      "Entre 15 y 25 segundos (de 2 a 3 oraciones completas y conectadas)",
-      "Una sola palabra o frase de menos de 3 segundos",
-      "Un monólogo extenso de más de 2 minutos sin pausas",
-      "Exactamente 5 minutos con un discurso memorizado"
+      "Dos o tres frases conectadas: respuesta directa, motivo y un detalle",
+      "Una sola palabra, para no cometer errores",
+      "Un monólogo de dos minutos, como en la Parte 2",
+      "Un texto memorizado que sirva para cualquier pregunta"
     ],
     answer: 0,
-    explain: "En la Parte 1 las respuestas deben ser breves, naturales y directas: responder con claridad, dar una razón y añadir un detalle de apoyo."
+    explain: "En la Parte 1 el examinador necesita oír suficiente inglés para evaluarte. Una respuesta breve pero desarrollada lo da; una palabra no, y un monólogo largo tampoco es lo que se pide en esta parte."
   },
   {
-    q: "¿Cuál es la fórmula ideal de 3 pasos para estructurar cada respuesta en la Parte 1?",
+    q: "Te preguntan «Do you enjoy cooking?». ¿Cuál es la mejor estructura para responder?",
     options: [
-      "Respuesta directa + Motivo o justificación + Detalle concreto o ejemplo",
-      "Repetir la pregunta del examinador tres veces con distinta entonación",
-      "Introducción filosófica + Conclusión + Silencio",
-      "Traducir literalmente desde el español palabra por palabra"
+      "Responder sí o no, explicar por qué y añadir un ejemplo concreto",
+      "Repetir la pregunta con otras palabras y callar",
+      "Dar tres opiniones sin explicar ninguna",
+      "Cambiar de tema para hablar de algo que domines"
     ],
     answer: 0,
-    explain: "La estructura Respuesta + Razón + Detalle garantiza suficiente rango gramatical y léxico sin extenderse innecesariamente."
+    explain: "Respuesta + motivo + detalle da una muestra completa de lenguaje sin alargarse. Repetir la pregunta o cambiar de tema no aporta evidencia de tu nivel."
   },
   {
-    q: "¿Qué sucede si el examinador te interrumpe durante el Speaking Part 1?",
+    q: "El examinador te interrumpe amablemente en la Parte 1 para pasar a la pregunta siguiente. ¿Qué significa?",
     options: [
-      "Es completamente normal, ya que debe cumplir un guion con tiempos estrictos por tema",
-      "Significa que tu respuesta es incorrecta y te restarán medio punto",
-      "Indica que el examen ha concluido por falta de tiempo",
-      "Implica que debes repetir la respuesta desde el principio"
+      "Es normal: debe seguir el guion y el tiempo previstos",
+      "Que tu respuesta fue incorrecta y te restarán puntos",
+      "Que el examen ha terminado antes de tiempo",
+      "Que debes volver a empezar tu respuesta"
     ],
     answer: 0,
-    explain: "Las interrupciones son rutinarias en el formato oficial del IELTS para gestionar los 4 a 5 minutos asignados a la Parte 1."
+    explain: "El examinador sigue un guion fijo y puede cortar para respetar el tiempo. No es una penalización."
   },
   {
-    q: "¿Cuál es uno de los errores fonéticos más comunes de los hispanohablantes en la entrevista oral?",
+    q: "¿Qué error es típico de los hispanohablantes al hablar en la entrevista?",
     options: [
-      "Añadir una vocal 'e' antes de palabras que empiezan por 's' líquida (como *eschool* o *estudy*)",
-      "Pronunciar todas las palabras en susurros",
-      "Hablar con acento británico exagerado sin vocalizar",
-      "Utilizar demasiadas oraciones compuestas complejas"
+      "Decir «I live here since three years» en lugar de «I have lived here for three years»",
+      "Usar demasiados conectores",
+      "Hablar demasiado despacio con pausas largas siempre",
+      "Responder con oraciones demasiado complejas"
     ],
     answer: 0,
-    explain: "La prótesis de la vocal 'e' antes de combinaciones con 's' (*school*, *special*, *student*) es un rasgo frecuente del español que afecta la puntuación de pronunciación."
+    explain: "En español usamos «desde hace tres años» con el presente. En inglés, una duración que llega hasta ahora pide present perfect con for; since se reserva para el momento de inicio (since 2023)."
   }
 ]
 ---
 
-*"Do you work or are you a student?"* Parece una pregunta tan elemental que muchos candidatos apenas le dedican atención durante su preparación. Sin embargo, en la sala de examen real, una gran cantidad de aspirantes responde únicamente *"I'm a student"* y se queda en completo silencio. El examinador asiente, formula la siguiente pregunta y recibe otra contestación escueta de tres palabras. Tras cuatro minutos, la prueba inicial concluye sin que el evaluador haya obtenido suficiente muestra de lenguaje para calificar positivamente.
+En el **IELTS Speaking Part 1** debes responder con dos o tres frases conectadas: una respuesta directa, un motivo y un detalle concreto. Eso basta para mostrar tu inglés sin alargarte.
 
-El módulo **ielts speaking part 1** es la fase de calentamiento de la entrevista oral. En ella se formulan preguntas cotidianas sobre tu vida, tus estudios o profesión, tus hábitos y tus preferencias personales. El contenido conceptual no reviste gran complejidad intelectual, pero es precisamente aquí donde el examinador forja su primera impresión diagnóstica sobre tu soltura comunicativa. Aprender [cómo pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/) resulta fundamental para responder con inmediatez y fluidez natural.
+Tómalo en serio, porque parece fácil. Ante *"Do you work or are you a student?"*, muchos candidatos dicen solo *"I'm a student"* y se quedan callados. Con cuatro minutos de respuestas de tres palabras, el examinador no tiene suficiente inglés que evaluar.
 
-Una respuesta sobresaliente en la Parte 1 no necesita ser ni excesivamente larga ni rebuscada. Debe ser simplemente **justa y precisa**: una afirmación directa seguida de una breve ampliación contextual. En esta guía detallada descubrirás la fórmula exacta en tres pasos, respuestas modelo originales para los temas más recurrentes, estrategias para evitar los errores típicos de los hispanohablantes y cómo practicar con retroalimentación inmediata.
+La Parte 1 es el calentamiento de la entrevista oral: preguntas cotidianas sobre tu vida, estudios o trabajo, hábitos y gustos. Las preguntas son sencillas, pero es donde el examinador empieza a formarse una idea de tu soltura. Si te cuesta responder sin pensar en español primero, mira [cómo pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/).
+
+Una buena respuesta no es larga ni rebuscada: es una afirmación directa con una breve ampliación. Aquí verás la fórmula en tres pasos, respuestas modelo originales para cuatro temas frecuentes, los errores típicos de los hispanohablantes y un plan de práctica en cuatro pasos.
 
 ![Sala de Speaking de Lexkite con preguntas de Part 1 clasificadas por temas y respuestas modelo](media:speaking "Módulo de práctica de IELTS Speaking en Lexkite con preguntas guiadas para Part 1, 2 y 3")
 
 ## Cómo funciona realmente el IELTS Speaking Part 1
 
-La prueba completa de Speaking tiene una duración total de entre 11 y 14 minutos y consta de tres secciones bien delimitadas. La Parte 1 suele ocupar los primeros 4 a 5 minutos:
+Según el British Council y IELTS.org, la prueba de Speaking dura entre 11 y 14 minutos, es una entrevista cara a cara con un examinador y tiene tres partes. La Parte 1 ocupa los primeros 4 a 5 minutos:
 
-- El examinador se presenta cordialmente, solicita tu nombre y verifica tu documento de identidad oficial.
-- A continuación, te formula preguntas organizadas en **dos o tres áreas temáticas cotidianas**.
-- Cada bloque temático suele constar de entre tres y cuatro preguntas breves.
+- El examinador se presenta, te pide el nombre y comprueba tu documento de identidad.
+- Después te hace preguntas sobre **dos o tres temas cotidianos**.
+- Cada tema suele tener entre tres y cuatro preguntas breves.
 
-El primer tema aborda prácticamente siempre aspectos esenciales de tu vida: si estudias o trabajas, tu ciudad natal (*hometown*) o las características de tu vivienda actual. Los temas posteriores abarcan facetas ordinarias: el clima, la música, los medios de transporte, el uso del teléfono móvil, las rutinas de fin de semana, la lectura o los regalos.
+El primer tema suele ser sobre ti: si estudias o trabajas, tu ciudad (*hometown*) o tu vivienda. Los siguientes son temas de la vida diaria, como el clima, la música, el transporte, el móvil, el fin de semana, la lectura o los regalos.
 
-El examinador sigue un guion estandarizado muy riguroso; por lo tanto, no entablará una conversación abierta ni reaccionará expresivamente a tus anécdotas personales. Esta actitud neutra es protocolaria y no guarda relación con la calidad de tu desempeño. La entrevista se evalúa bajo cuatro criterios uniformes: fluidez y coherencia (*Fluency and Coherence*), riqueza léxica (*Lexical Resource*), variedad y precisión gramatical (*Grammatical Range and Accuracy*), y pronunciación (*Pronunciation*). Aunque la Parte 1 no genera una calificación aislada, cada frase emitida constituye evidencia tangible para el evaluador.
+El examinador sigue un guion, así que no conversa libremente ni reacciona a tus anécdotas. Esa neutralidad es protocolo y no dice nada sobre tu resultado. La entrevista se evalúa con cuatro criterios: fluidez y coherencia (*Fluency and Coherence*), recursos léxicos (*Lexical Resource*), variedad y precisión gramatical (*Grammatical Range and Accuracy*) y pronunciación (*Pronunciation*). La Parte 1 no tiene una nota propia, pero cada frase que dices cuenta como evidencia para la banda final.
 
-## La fórmula infalible: Respuesta + Motivo + Detalle
+## La fórmula en tres pasos: Respuesta + Motivo + Detalle
 
-Una respuesta bien calibrada para la Parte 1 suele constar de **dos a tres oraciones bien cohesionadas**, lo que representa aproximadamente entre 15 y 25 segundos de habla continua. Un esquema práctico para lograrlo sin titubeos:
+IELTS no fija una duración por respuesta; como orientación nuestra, apunta a **dos o tres frases conectadas**, unos 15 a 25 segundos hablando. Un esquema para lograrlo sin titubear:
 
 1. **Responde directamente** a la interrogante en las primeras palabras sin repetir textualmente toda la pregunta.
 2. **Aporta un motivo o causa:** explica de forma concisa por qué esa afirmación es válida para ti (*because, since, mainly due to*).
@@ -98,7 +100,7 @@ Analicemos un caso práctico original:
 >
 > **Respuesta de nivel superior:** *Yes, absolutely, mainly because it helps me decompress after spending eight hours glued to a computer screen. Most evenings I take a brisk walk around the local park, and just last weekend I managed to hike nearly ten kilometres in the countryside with my brother.*
 
-La respuesta destacada no recurre a términos arcaicos ni a construcciones forzadas. Su eficacia radica en la solidez de su estructura: un acuerdo explícito (*Yes, absolutely*), una justificación funcional (*it helps me decompress*), un hábito periódico (*Most evenings I take a brisk walk*) y un acontecimiento en pasado simple (*last weekend I managed to hike*). Esa combinación natural de tiempos verbales es exactamente lo que recompensa el examen. Si deseas enriquecer tu discurso con giros expresivos, consulta nuestra selección de [collocations en inglés para IELTS](/es/blog/collocations-en-ingles-para-ielts/) para integrarlas con naturalidad.
+La respuesta mejor no usa palabras raras. Funciona por su estructura: una respuesta clara (*Yes, absolutely*), un motivo (*it helps me decompress*), un hábito (*Most evenings I take a brisk walk*) y un hecho concreto en pasado simple (*last weekend I managed to hike*). Mezclar presente y pasado así es natural y muestra rango gramatical. Para sonar más natural, mira nuestras [collocations en inglés para IELTS](/es/blog/collocations-en-ingles-para-ielts/).
 
 ### 5 técnicas para expandir tu respuesta cuando te falten ideas
 
@@ -142,44 +144,47 @@ A continuación presentamos cuatro bloques temáticos de máxima frecuencia en l
 - **Pregunta:** *Do you prefer reading printed books or e-books?*  
   *Respuesta modelo:* *I definitely lean towards printed books whenever I'm at home, simply because I love turning real paper pages and avoiding extra screen fatigue. However, if I'm travelling, an electronic reader is undeniably more convenient.*
 
-Si estás afianzando tu vocabulario temático, explora el [vocabulario en inglés por temas](/es/vocabulary/) para incorporar un repertorio léxico más preciso en tus respuestas orales.
+Para ampliar el vocabulario de estos temas, lee [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/) y usa la biblioteca de Lexkite, que tiene listas de vocabulario con una pestaña de Speaking.
 
-![Pantalla de biblioteca de vocabulario de Lexkite con términos clasificados por niveles](media:library "Amplía tu vocabulario temático para la entrevista oral de IELTS con las listas clasificadas de Lexkite")
+![Biblioteca de vocabulario de Lexkite con pestañas, entre ellas Speaking, y bloques de palabras por nivel](media:library "La biblioteca de Lexkite agrupa el vocabulario en listas, con una pestaña para Speaking")
 
 ---
 
 ## Errores habituales de los hispanohablantes en Part 1
 
-Al afrontar la prueba oral, los hablantes nativos de español suelen tropezar en patrones lingüísticos predecibles provocados por la transferencia directa de su lengua materna:
+Los hispanohablantes tropiezan en la prueba oral con errores muy predecibles, casi todos por traducir del español:
 
-1. **La prótesis vocálica ante 'S' inicial:** En español no existen palabras que comiencen por una consonante 's' seguida de otra consonante sin una vocal previa. Esto induce a muchos candidatos a pronunciar *eschool*, *estudent*, *esport* o *especial*. Practica el ataque consonántico limpio y sordo manteniendo la punta de la lengua en los alvéolos superiores.
-2. **Confusión en los tiempos de duración con 'since' y 'for':** Es común escuchar calcos del español como *"I live here since three years"*. En inglés estándar, la duración acumulada hasta el presente exige *present perfect* acompañado de *for*: *"I have lived here for three years"* (reservando *since* exclusivamente para el punto temporal de origen, e.g., *since 2023*).
-3. **Elisión indebida de pronombres sujeto:** Como el español es una lengua de sujeto nulo o tácito (*pro-drop*), muchos candidatos dicen frases como *"Is very interesting"* o *"Depend on the weather"*. En inglés, cada oración requiere un sujeto explícito: *"It is very interesting"* o *"It depends on the weather"*.
-4. **Respuestas de tipo telegrama monosilábico:** Decir simplemente *"Yes"*, *"No"*, o *"I don't know"* paraliza el flujo evaluativo. Incluso si un tema no te agrada o te resulta desconocido, debes verbalizar esa falta de interés mediante una oración completa: *"To be honest, I'm not really into modern art, so I rarely visit galleries."*
-5. **Memorizar respuestas enlatadas:** Los examinadores experimentados identifican en cuestión de segundos las respuestas preparadas de memoria procedentes de plantillas de Internet. El tono se vuelve plano, la velocidad artificial y, si el examinador varía levemente la pregunta, la respuesta suena completamente incoherente.
+1. **La «e» delante de s + consonante:** en español ninguna palabra empieza por s + consonante (*escuela*, *estudiante*, *especial*), así que muchos dicen *es-school*, *es-student* o *es-sport*. Empieza con una /s/ larga y pasa directo a la consonante (*sss-chool*); lo practicamos en la guía de [cómo mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/) y en la [biblioteca de pronunciación](/#/pron) de Lexkite.
+2. **Duración con «since» y «for»:** el español dice «vivo aquí desde hace tres años», y de ahí sale *"I live here since three years"*. En inglés se usa present perfect con *for*: *"I have lived here for three years"*; *since* va solo con el momento de inicio (*since 2023*). Más en [present perfect vs past simple](/es/blog/present-perfect-vs-past-simple/).
+3. **Sujeto omitido:** el español permite decir «Es muy interesante» o «Depende del clima». En inglés la frase necesita sujeto: *"It is very interesting"*, *"It depends on the weather"*.
+4. **Calcos con «tener», «estar de acuerdo» y artículos:** *"I have 25 years"* (correcto: *I'm 25*), *"I am agree"* (*I agree*), *"I'm student"* (*I'm a student*), *"I depend of my parents"* (*on*). También *"actually"* no es «actualmente» (es «en realidad»; para «actualmente» usa *currently*).
+5. **Respuestas de una palabra:** *"Yes"*, *"No"* o *"I don't know"* no dan material para evaluar. Si el tema no te interesa, dilo con una frase completa: *"To be honest, I'm not really into modern art, so I rarely visit galleries."*
+6. **Respuestas memorizadas:** suenan planas y rápidas, y si el examinador cambia un poco la pregunta, la respuesta ya no encaja. Mejor prepara ideas, no textos.
+7. **/ʃ/ y /tʃ/:** *ship* y *chip* son palabras distintas; el español tiene /tʃ/ pero no /ʃ/. Revisa *I work in a shop / chop*, *sheep / cheap*.
 
-Revisa nuestra guía sobre [errores comunes en inglés por falsos amigos](/es/blog/falsos-amigos-ingles-espanol/) para depurar tu expresión oral de interferencias gramaticales y léxicas.
-
-![Pantalla del cuaderno de frases de Lexkite para registrar expresiones y modismos útiles](media:phrases "Guarda frases útiles y expresiones idiomáticas en tu cuaderno digital para utilizarlas en la Parte 1")
+Para otros calcos de vocabulario, como *actually* o *library*, revisa los [falsos amigos inglés-español](/es/blog/falsos-amigos-ingles-espanol/).
 
 ---
 
 ## Plan de entrenamiento práctico en 4 pasos
 
-Para alcanzar fluidez sin recurrir a la memorización forzada, implementa este protocolo de entrenamiento autónomo:
+Para ganar fluidez sin memorizar textos, sigue este plan:
 
 1. **Anota 3 hechos verídicos sobre ti para cada tema:** lugar, periodicidad y justificación. La verdad personal fluye con mayor rapidez y requiere menos esfuerzo de invención en el examen real.
-2. **Reúne 5 colocaciones idiomáticas asociadas a esos hechos:** expresiones funcionales como *a demanding schedule*, *a scenic commute*, *cut down on screen time* o *a habit of mine*.
+2. **Reúne 5 expresiones para esos hechos:** por ejemplo *a demanding schedule*, *a scenic commute*, *cut down on screen time* o *a habit of mine*. Puedes guardarlas en el [cuaderno de frases](/#/phrases) de Lexkite, donde se añaden frases y cada una puede marcarse con su tarea.
+
+![Cuaderno de frases de Lexkite para guardar expresiones y estructuras útiles](media:phrases "El cuaderno de frases sirve para guardar las expresiones que quieres usar en tus respuestas")
+
 3. **Habla en voz alta y grábate sin notas escritas:** simula la pregunta real y responde usando el esquema de 3 pasos.
 4. **Escucha tu grabación y corrige un único aspecto:** ¿faltó el sujeto? ¿hubo un error de plural o tercera persona singular? Vuelve a responder la pregunta puliendo ese detalle concreto.
 
-Para poner a prueba tus respuestas con simulaciones interactivas, puedes entrar directamente en la [sala de speaking de Lexkite](/#/speaking) y utilizar la [herramienta de práctica de pronunciación](/#/practice/speak) para comprobar si tus terminaciones en *-ed* o *-s* se escuchan nítidas.
+Para ensayar, mira también la página de [práctica de speaking](/speaking/) y entra en la [sala de speaking de Lexkite](/#/speaking), donde hay preguntas de las partes 1, 2 y 3 por tema con respuestas modelo. Y con la [práctica de pronunciación](/#/practice/speak) puedes decir una frase al micrófono y ver su puntuación, útil para comprobar que se oyen tus terminaciones *-ed* y *-s*.
 
 Una vez que domines las respuestas breves y dinámicas, avanza hacia la preparación de [IELTS Speaking Parte 2 y 3](/es/blog/ielts-speaking-parte-2-y-3-estructura/) para estructurar monólogos de 2 minutos y argumentos de debate abstracto. Para mantener un ritmo de progreso constante, intégralo en un [plan de autoestudio para IELTS](/es/blog/plan-de-estudio-ielts-autodidacta-de-cero-a-6-5/).
 
-![Pantalla de práctica de pronunciación con grabación de voz y evaluación en Lexkite](media:practice-speak "Graba tu voz y recibe retroalimentación inmediata sobre la claridad de tus frases para el examen oral")
+![Práctica de pronunciación de Lexkite con la frase cut down on y un botón de micrófono para decirla](media:practice-speak "Dices la frase al micrófono y la aplicación la puntúa según tu voz")
 
-{{cta: /#/speaking | Practica preguntas reales de IELTS Speaking Part 1 en Lexkite}}
+{{cta: /#/speaking | Practica preguntas de Part 1 por tema con respuestas modelo}}
 
 {{youtube: | Claves de IELTS Speaking Part 1: respuestas cortas y naturales que suman puntos}}
 
@@ -188,13 +193,16 @@ Una vez que domines las respuestas breves y dinámicas, avanza hacia la preparac
 ## Preguntas frecuentes (FAQ)
 
 ### ¿Cuánto debe durar cada respuesta en IELTS Speaking Part 1?
-Lo ideal es responder en un lapso de entre 15 y 25 segundos, lo que equivale a dos o tres oraciones bien estructuradas. No intentes construir un monólogo extenso, ya que esa destreza se evalúa específicamente en la Parte 2.
+IELTS no fija un tiempo exacto. Como guía, dos o tres frases (unos 15 a 25 segundos) suelen dar suficiente material. Deja el monólogo largo para la Parte 2.
 
 ### ¿Qué hago si no entiendo una palabra o la pregunta del examinador?
-Puedes solicitar una aclaración educadamente diciendo: *"Could you repeat the question, please?"*. En la Parte 1 el examinador tiene permitido repetir el enunciado con claridad, aunque por protocolo oficial no redefinirá términos léxicos individuales. Pedir repetición en una ocasión no penalizará tu puntuación.
+Pide que repitan: *"Could you repeat the question, please?"*. El examinador puede repetir la pregunta, pero no explicará palabras sueltas. Pedirlo una vez no es un problema; si ocurre a menudo, puede indicar dificultades de comprensión.
 
 ### ¿Puedo responder con una opinión negativa si no me gusta el tema?
-Por supuesto. El IELTS evalúa tu competencia lingüística en inglés, no tus gustos personales ni tu simpatía por un tema. Si odias madrugar o no disfrutas ir de compras, exprésalo con franqueza y soltura: *"Honestly, shopping malls give me a headache, so I do all my buying online."*
+Sí. IELTS evalúa tu inglés, no tus gustos. Si odias madrugar o ir de compras, dilo con naturalidad: *"Honestly, shopping malls give me a headache, so I do all my buying online."*
 
 ### ¿Afecta mucho la Parte 1 a la calificación final de Speaking?
-La banda final se otorga valorando el conjunto de las tres partes de la entrevista. No obstante, la Parte 1 establece el tono inicial de la prueba, reduce los nervios y permite al evaluador situar tu nivel dentro de una primera franja estimada, por lo que comenzar con firmeza y naturalidad genera una ventaja psicológica determinante.
+La banda de Speaking se da por el conjunto de las tres partes, no por separado. Aun así, la Parte 1 es lo primero que oye el examinador, y empezar con respuestas desarrolladas te ayuda a ganar confianza para las partes 2 y 3.
+
+### ¿Cómo evito decir «I am agree» o «I have 25 years»?
+Son calcos de «estoy de acuerdo» y «tengo 25 años». En inglés *agree* es un verbo (*I agree*) y la edad se dice con *be* (*I'm 25*). Graba tus respuestas, anota estos errores en una lista y repásala antes de cada práctica.

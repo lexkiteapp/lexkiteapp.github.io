@@ -1,6 +1,6 @@
 ---
 title: "Cách phân bổ thời gian IELTS Reading: chiến lược 60 phút điểm cao"
-description: "Cách phân bổ thời gian IELTS Reading 60 phút hiệu quả: quy tắc 15-20-25 phút, thứ tự giải quyết 14 dạng câu hỏi, mẹo xử lý đoạn khó và tránh bẫy hết giờ."
+description: "Cách phân bổ thời gian IELTS Reading 60 phút hiệu quả: quy tắc 15-20-25 phút, thứ tự làm 11 dạng câu hỏi, quy tắc 90 giây và lịch luyện 4 tuần."
 slug: cach-phan-bo-thoi-gian-ielts-reading-60-phut
 lang: vi
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -10,124 +10,117 @@ keyword: "cách phân bổ thời gian ielts reading"
 cover: path
 coverAlt: "Thí sinh thi IELTS theo dõi đồng hồ bấm giờ và phân bổ thời gian làm bài Reading 60 phút"
 publishAt: 2027-02-10T19:01:00+07:00
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 86
+qualityScore: 91
 quiz: [
   {
-    q: "Chiến lược phân bổ thời gian tối ưu cho 3 đoạn văn trong IELTS Reading Academic là gì?",
+    q: "IELTS Reading có 40 câu trong 60 phút. Điều này có nghĩa gì với nhịp làm bài của bạn?",
     options: [
-      "Chia đều 20 phút cho mỗi Passage bất kể độ khó",
-      "Dành 15 phút cho Passage 1, 20 phút cho Passage 2 và 25 phút cho Passage 3",
-      "Làm Passage 3 trước trong 30 phút rồi mới làm Passage 1 và 2",
-      "Dành 30 phút đầu đọc toàn bộ 3 bài trước khi trả lời câu hỏi"
+      "Khoảng 30 giây mỗi câu vì các bài đọc ngắn",
+      "Trung bình khoảng 90 giây mỗi câu, và thời gian này đã gồm cả việc đọc bài",
+      "Khoảng 90 giây mỗi câu, chưa tính thời gian đọc các bài",
+      "Khoảng 3 phút mỗi câu vì chỉ một nửa số câu được chấm"
     ],
     answer: 1,
-    explain: "Passage 1 có từ vựng và câu hỏi đơn giản nhất, nên hoàn thành nhanh trong 15 phút để dành quỹ thời gian 25 phút cho Passage 3 vốn phức tạp và nhiều suy luận nhất."
+    explain: "60 phút chia cho 40 câu là 90 giây mỗi câu, và việc đọc, tìm thông tin, kiểm tra đều nằm trong cùng một giờ đó."
   },
   {
-    q: "Quy tắc 90 giây trong IELTS Reading nhằm mục đích cốt lõi gì?",
+    q: "Với bài thi IELTS Reading trên giấy, bạn chép đáp án sang phiếu trả lời khi nào?",
     options: [
-      "Bắt buộc thí sinh phải đọc xong một trang trong 90 giây",
-      "Ngăn chặn bẫy chi phí chìm (sunk cost fallacy), tránh việc sa lầy quá lâu vào một câu hỏi khó",
-      "Giới hạn thời gian chuyển đáp án sang phiếu trả lời",
-      "Bắt buộc kiểm tra lại toàn bộ bài thi mỗi 90 giây"
+      "Trong 10 phút thêm sau 60 phút, giống như Listening",
+      "Chỉ trong hai phút cuối, sau khi đánh dấu trong tập đề",
+      "Trong lúc làm bài, vì phiếu trả lời phải hoàn tất trong 60 phút",
+      "Sau khi thi xong, khi giám thị trả lại phiếu"
     ],
-    answer: 1,
-    explain: "Nếu sau 90 giây vẫn chưa tìm ra đáp án, thí sinh cần chọn phương án theo phán đoán tốt nhất, đánh dấu lại và chuyển tiếp để không làm mất thời gian của các câu hỏi dễ phía sau."
+    answer: 2,
+    explain: "Khác với Listening bản giấy, Reading không có thời gian chép đáp án riêng. Đáp án nào chưa nằm trên phiếu khi hết 60 phút thì không được chấm."
   },
   {
-    q: "Khi làm bài thi IELTS Reading trên giấy (Paper-based), việc ghi đáp án vào Answer Sheet cần thực hiện khi nào?",
+    q: "Mục đích của việc đặt giới hạn khoảng 90 giây cho mỗi câu là gì?",
     options: [
-      "Chờ hết 60 phút như bài thi Listening để có 10 phút chuyển đáp án",
-      "Điền trực tiếp đáp án vào Answer Sheet ngay sau mỗi đoạn văn hoặc câu hỏi vì không có thêm thời gian bù",
-      "Chỉ điền vào 5 phút cuối cùng sau khi làm xong cả 40 câu",
-      "Không cần điền vào Answer Sheet nếu đã khoanh trên tờ đề"
+      "Để đọc mỗi đoạn văn đúng 90 giây",
+      "Để một câu khó không ngốn thời gian của nhiều câu dễ hơn đang chờ phía sau",
+      "Để mắt được nghỉ giữa các câu",
+      "Để tuân thủ quy định của giám thị"
     ],
     answer: 1,
-    explain: "Khác với IELTS Listening, phần thi IELTS Reading không có 10 phút chuyển đáp án ở cuối giờ. Bạn phải chuyển đáp án trực tiếp vào Answer Sheet trong 60 phút quy định."
+    explain: "Mỗi câu chỉ 1 điểm, nên một câu cứng đầu mất ba phút sẽ lấy đi những điểm dễ mà bạn không bao giờ kịp làm. Giới hạn này là quy tắc cá nhân của bạn, không phải quy định của kỳ thi."
+  },
+  {
+    q: "Còn ba phút và có năm ô đáp án trống. Cách tốt nhất là gì?",
+    options: [
+      "Bỏ trống vì trả lời sai sẽ bị trừ điểm",
+      "Điền phỏng đoán hợp lý nhất vào mọi ô vì trả lời sai không bị trừ điểm",
+      "Chép lại các đáp án cũ cho đẹp và để nguyên các ô trống",
+      "Ngừng viết và đọc lại bài đầu tiên"
+    ],
+    answer: 1,
+    explain: "IELTS Reading cho 1 điểm với mỗi đáp án đúng và không trừ điểm đáp án sai, nên ô trống chỉ có thể gây thiệt."
   }
 ]
 ---
 
-Trong bài thi IELTS Academic hay General Training, phần thi Đọc luôn là thử thách căng thẳng bậc nhất về mặt áp lực đồng hồ. Rất nhiều thí sinh dù sở hữu vốn ngữ pháp vững vàng và điểm thi thử từng phần khá tốt, nhưng khi bước vào phòng thi thật lại rơi vào cảnh thiếu 5 đến 10 phút ở bài đọc cuối cùng (Passage 3). Việc nắm vững **cách phân bổ thời gian ielts reading** chính là chìa khóa phân định giữa mức điểm Band 6.0 và Band 7.5+.
+Trong bài thi IELTS Academic hay General Training, phần thi Đọc luôn là thử thách căng thẳng bậc nhất về mặt áp lực đồng hồ. Rất nhiều thí sinh dù sở hữu vốn ngữ pháp vững vàng và điểm thi thử từng phần khá tốt, nhưng khi bước vào phòng thi thật lại rơi vào cảnh thiếu thời gian ở bài đọc cuối cùng (Passage 3). Việc nắm vững **cách phân bổ thời gian ielts reading** chính là chìa khóa phân định giữa mức điểm Band 6.0 và Band 7.5+.
 
 Với đề Academic, bạn có 60 phút cố định cho 3 đoạn văn dài từ 2.150 đến 2.750 từ cùng 40 câu hỏi chi tiết, bạn chỉ có trung bình đúng 90 giây cho mỗi câu hỏi. Quỹ thời gian này bao gồm cả việc đọc đề, quét tìm vị trí văn bản, đối chiếu ý nghĩa và ghi đáp án vào phiếu trả lời (Answer Sheet). Khác với Listening bản giấy (có thêm 10 phút chép đáp án), Reading **không có thời gian chép đáp án riêng** – hết 60 phút là thu bài, nên hãy chép đáp án sau mỗi Passage thay vì dồn đến cuối giờ.
 
 Nếu không có một chiến lược đo lường thời gian kỷ luật, bạn rất dễ sa đà vào những câu hỏi phân loại hóc búa ở Passage 1 hoặc Passage 2 và đánh mất toàn bộ điểm số ở những câu hỏi dễ cuối đề. Bạn có thể tra cứu và củng cố thêm các thuật ngữ học thuật quan trọng tại [kho từ vựng IELTS của Lexkite](/tu-vung/).
 
-Bài viết này cung cấp bản đồ phân bổ thời gian chuẩn xác, quy tắc tỷ lệ 15–20–25 phút, quy trình xử lý 14 dạng bài theo mức độ ưu tiên, cùng các kỹ thuật thoát bẫy tâm lý khi kim đồng hồ trôi về những phút cuối.
+Bài viết này cung cấp bản đồ phân bổ thời gian chuẩn xác, quy tắc tỷ lệ 15–20–25 phút, thứ tự xử lý 11 dạng câu hỏi gom thành 4 nhóm, cùng các kỹ thuật thoát bẫy tâm lý khi kim đồng hồ trôi về những phút cuối.
 
 ## Thực trạng phân bổ thời gian sai lầm trong phòng thi IELTS Reading
 
-Nhiều thí sinh khi mới bắt đầu luyện đề thường áp dụng công thức chia đều một cách máy móc: 20 phút cho mỗi Passage. Tuy nhiên, trên thực tế, độ khó của đề thi IELTS luôn được thiết kế theo thang bậc tăng dần:
+Nhiều thí sinh khi mới bắt đầu luyện đề thường áp dụng công thức chia đều một cách máy móc: 20 phút cho mỗi Passage. Tuy nhiên, nhiều người thấy bài đọc sau khó hơn bài đầu, trong khi IELTS không công bố thời gian cho từng Passage và độ khó thay đổi theo từng đề. Bảng dưới đây vì vậy chỉ là ngân sách khởi điểm để bạn kiểm chứng bằng đề thử:
 
-```
-                    Độ phức tạp và phân bổ thời gian đề xuất
-          +-----------------------------------------------------------------+
-          | Passage 1: Chủ đề phổ thông, dữ liệu sự kiện cụ thể             |
-          | - Độ dài: ~700–800 từ | Dạng bài: Điền từ, T/F/NG cơ bản        |
-          | - Thời gian tối ưu: 15 PHÚT (Không quá 16 phút)                 |
-          +-----------------------------------------------------------------+
-                                        |
-                                        v
-          +-----------------------------------------------------------------+
-          | Passage 2: Báo cáo khoa học, phân tích xã hội, quan điểm        |
-          | - Độ dài: ~800–900 từ | Dạng bài: Matching Headings, Features   |
-          | - Thời gian tối ưu: 20 PHÚT (Bao gồm chuyển đáp án)             |
-          +-----------------------------------------------------------------+
-                                        |
-                                        v
-          +-----------------------------------------------------------------+
-          | Passage 3: Bài nghiên cứu học thuật phức tạp, tranh luận lý thuyết|
-          | - Độ dài: ~900–1.000 từ | Dạng bài: Multiple Choice, Yes/No/NG  |
-          | - Thời gian tối ưu: 25 PHÚT (Cần đọc sâu và phân tích logic)    |
-          +-----------------------------------------------------------------+
-```
+| Passage | Thường gặp | Ngân sách khởi điểm |
+| :--- | :--- | :--- |
+| Passage 1 | Thường thiên về mô tả sự việc, đáp án hay theo thứ tự bài | khoảng 15 phút |
+| Passage 2 | Thường là nghiên cứu hoặc so sánh quan điểm | khoảng 20 phút |
+| Passage 3 | Thường có lập luận trừu tượng nhất | khoảng 25 phút |
+| Kiểm tra cuối | Ô trống, chính tả, số ít – số nhiều | 3 phút cuối |
 
-Nếu bạn tiêu tốn trọn vẹn 20 phút cho Passage 1, bạn sẽ chỉ còn 40 phút cho hai bài đọc sau với độ phức tạp về từ vựng và cấu trúc tăng gấp đôi. Hậu quả là bạn phải "đánh lụi" từ 5 đến 7 câu ở Passage 3—nơi thường quyết định việc nâng điểm lên các band xuất sắc.
-
-![Giao diện tra cứu từ điển số Lexkite với từ resilient và ví dụ](media:dict "Màn hình từ điển số Lexkite hiển thị từ resilient, phiên âm IPA quốc tế và nút lưu flashcard")
+Nếu bạn tiêu tốn trọn vẹn 20 phút cho Passage 1, bạn sẽ chỉ còn 40 phút cho hai bài đọc sau. Nếu bài cuối lại là bài dày đặc nhất, bạn dễ phải đoán nhiều câu hơn ở đúng chỗ còn ít thời gian nhất.
 
 ## Quy tắc vàng 15 – 20 – 25 phút: Cách phân bổ thời gian IELTS Reading tối ưu
 
-Để kiểm soát nhịp độ làm bài mà không bị hoảng loạn, hãy chia 60 phút thi thành 3 chặng rõ rệt với mục tiêu số câu đúng cụ thể:
+Để kiểm soát nhịp độ làm bài mà không bị hoảng loạn, hãy chia 60 phút thi thành 3 chặng rõ rệt với ngân sách thời gian khởi điểm sau (hãy chỉnh lại theo kết quả luyện đề của bạn):
 
-### Chặng 1: Passage 1 (Mục tiêu 15 phút, đúng 11–13/13 câu)
+### Chặng 1: Passage 1 (Mục tiêu khởi điểm 15 phút)
 - **Đặc trưng**: Ngôn ngữ mô tả sự kiện, tiểu sử nhà khoa học hoặc lịch sử phát minh.
 - **Chiến lược**: 
   - Dành 60 giây đầu tiên lướt tiêu đề và câu hỏi để định vị các mỏ neo bất biến (tên riêng, năm tháng, thuật ngữ in hoa).
   - Áp dụng kỹ thuật scanning để hoàn thành nhanh dạng bài Gap Fill (điền từ vào bảng/tóm tắt). Để làm quen với kỹ năng này, hãy xem bài hướng dẫn [skimming scanning IELTS Reading](/vi/blog/ielts-reading-skimming-scanning/).
   - Khi đồng hồ điểm phút thứ 15, bắt buộc phải dừng bút và chuyển sang Passage 2, bất kể bạn còn 1 hay 2 câu chưa chắc chắn. Hãy ghi tạm đáp án khả dĩ nhất vào phiếu trả lời.
 
-### Chặng 2: Passage 2 (Mục tiêu 20 phút, đúng 9–11/13 câu)
+### Chặng 2: Passage 2 (Mục tiêu khởi điểm 20 phút)
 - **Đặc trưng**: Bắt đầu xuất hiện các dạng bài tìm thông tin tổng quát như Matching Headings hoặc Matching Information.
 - **Chiến lược**:
   - Không đọc bài từ đầu đến cuối trước khi xem câu hỏi. Hãy xử lý các câu hỏi chi tiết trước (như điền từ hoặc câu hỏi theo thứ tự đoạn văn), sau đó mới quay lại làm câu hỏi bao quát toàn bài.
-  - Sau khi kết thúc Passage 2 ở phút thứ 35, bạn đã giải quyết xong 26 câu hỏi nền tảng và có trong tay quỹ thời gian thoải mái nhất cho phần thi hóc búa phía trước.
+  - Sau khi kết thúc Passage 2 ở phút thứ 35, bạn đã giải quyết xong khoảng 26 câu hỏi nền tảng và có trong tay quỹ thời gian thoải mái nhất cho phần thi hóc búa phía trước.
 
-### Chặng 3: Passage 3 (Mục tiêu 25 phút, đúng 8–10/14 câu)
+### Chặng 3: Passage 3 (Mục tiêu khởi điểm 25 phút)
 - **Đặc trưng**: Văn phong trừu tượng, chứa nhiều cấu trúc câu đảo ngữ và các cặp quan điểm đối lập.
 - **Chiến lược**:
   - 3 phút đầu: Đọc lướt (skimming) câu đầu và câu cuối mỗi đoạn để nắm được mạch lập luận của tác giả.
   - Phân tích cẩn thận các câu hỏi Yes/No/Not Given để tránh bẫy quan điểm. Bạn có thể tham khảo thêm [cách phân biệt False và Not Given](/vi/blog/ielts-reading-true-false-not-given/) để tránh mất điểm đáng tiếc.
   - Dành trọn vẹn 3 phút cuối cùng (phút 57–60) để kiểm tra lại toàn bộ phiếu trả lời, đảm bảo không bỏ trống bất kỳ ô nào và không sai chính tả, số ít – số nhiều hay vượt giới hạn số từ theo yêu cầu đề bài.
 
-![Màn hình ôn tập flashcard với thẻ từ vựng và thanh tiến độ trong Lexkite](media:review "Màn hình ôn tập flashcard thẻ từ với nút lật thẻ và thanh tiến độ ghi nhớ trong Lexkite")
-
 ## Chiến thuật chọn thứ tự làm bài: Không làm tuần tự từ trên xuống dưới
 
-Một sai lầm chiến thuật khác là làm bài theo thứ tự xuất hiện của câu hỏi trong đề thi. Các chuyên gia khảo thí thường khuyến nghị phân loại dạng bài theo tốc độ xử lý:
+Một sai lầm chiến thuật khác là làm bài theo thứ tự xuất hiện của câu hỏi trong đề thi. Một cách sắp xếp hợp lý là phân loại dạng bài theo lượng văn bản mà mỗi dạng buộc bạn phải đọc (đây là gợi ý, không phải quy định của đề thi):
 
 | Nhóm dạng bài | Đặc điểm nhận dạng | Tốc độ xử lý dự kiến | Thứ tự ưu tiên |
 | :--- | :--- | :--- | :--- |
-| **Nhóm 1: Điền từ (Gap Fill)** | Tóm tắt đoạn văn, bảng biểu, sơ đồ quy trình | Rất nhanh (~45–60 giây/câu) | Làm đầu tiên |
-| **Nhóm 2: Nhận định sự kiện (T/F/NG)** | Dữ liệu xuất hiện tuần tự theo mạch văn bản | Trung bình (~60–75 giây/câu) | Làm thứ hai |
-| **Nhóm 3: Trắc nghiệm (Multiple Choice)** | Đòi hỏi đối chiếu 4 phương án lựa chọn | Khá chậm (~90–100 giây/câu) | Làm thứ ba |
-| **Nhóm 4: Nối tiêu đề (Matching Headings)** | Đòi hỏi hiểu chủ đề toàn đoạn văn | Rất chậm (~120 giây/câu) | Làm sau cùng của Passage |
+| **Nhóm 1: Điền từ (Gap Fill)** | Tóm tắt đoạn văn, bảng biểu, sơ đồ quy trình | Rất nhanh | Làm đầu tiên |
+| **Nhóm 2: Nhận định sự kiện (T/F/NG)** | Dữ liệu xuất hiện tuần tự theo mạch văn bản | Trung bình | Làm thứ hai |
+| **Nhóm 3: Trắc nghiệm (Multiple Choice)** | Đòi hỏi đối chiếu 4 phương án lựa chọn | Khá chậm | Làm thứ ba |
+| **Nhóm 4: Nối tiêu đề (Matching Headings)** | Đòi hỏi hiểu chủ đề toàn đoạn văn | Rất chậm | Làm sau cùng của Passage |
 
-Khi bạn giải quyết các câu hỏi điền từ trước, mắt bạn đã vô tình quét qua 60–70% bài đọc. Đến khi quay lại làm dạng Matching Information hay Matching Headings, bạn đã có sẵn một bản đồ vị trí trong đầu, giúp giảm một nửa thời gian tìm kiếm. Để tăng tốc độ nhận diện câu và đoạn, bạn có thể áp dụng thêm các phương pháp trong bài [cách đọc hiểu tiếng Anh nhanh](/vi/blog/cach-doc-hieu-tieng-anh-nhanh/).
+IELTS Reading có 11 dạng câu hỏi, và bốn nhóm trên bao trùm tất cả: **nhóm 1** gồm sentence completion, summary/note/table/flow-chart completion, diagram label completion và short-answer questions; **nhóm 2** gồm True/False/Not Given (identifying information) và Yes/No/Not Given (identifying writer's views); **nhóm 3** là multiple choice; **nhóm 4** gồm matching headings, matching information, matching features và matching sentence endings. Một Passage thường chỉ có vài dạng trong số đó, vì vậy hãy lướt qua các dạng câu hỏi ngay phút đầu để sắp thứ tự làm.
+
+Khi bạn giải quyết các câu hỏi điền từ trước, mắt bạn đã quét qua phần lớn bài đọc. Đến khi quay lại làm dạng Matching Information hay Matching Headings, bạn đã có sẵn một bản đồ vị trí trong đầu và đỡ phải đọc lại. Để tăng tốc độ nhận diện câu và đoạn, bạn có thể áp dụng thêm các phương pháp trong bài [cách đọc hiểu tiếng Anh nhanh](/vi/blog/cach-doc-hieu-tieng-anh-nhanh/).
 
 ## Quy tắc 90 giây và nghệ thuật từ bỏ đúng lúc
 
@@ -138,9 +131,23 @@ Trong phòng thi, điều nguy hiểm nhất đối với tâm lý thí sinh là
 2. Nếu chạm mốc 90 giây mà bạn vẫn phân vân giữa hai phương án, hãy khoanh vùng phương án có trực giác tốt nhất, đánh một dấu hoa thị to ở lề tờ đề và lập tức chuyển sang câu tiếp theo.
 3. Không bao giờ để một câu hỏi 1 điểm làm ảnh hưởng đến cơ hội lấy điểm của 3 câu hỏi tiếp theo phía sau.
 
-Việc luyện tập kỹ năng phản xạ và kiểm soát sự tập trung dưới áp lực phòng thi có thể được nâng cao đáng kể khi bạn kết hợp rèn luyện nói lưu loát tại [phòng luyện nói tiếng Anh tương tác Lexkite](/#/speaking) và luyện phát âm chuẩn xác qua [công cụ luyện nói phản xạ Lexkite](/#/practice/speak).
+## Luyện đúng nhịp 60 phút trong Lexkite
 
-![Màn hình luyện phát âm cụm từ có chấm điểm qua micro trên Lexkite](media:practice-speak "Giao diện luyện phát âm cụm từ cut down on có micro thu âm và hệ thống chấm điểm giọng nói trên Lexkite")
+Quản lý thời gian là một thói quen, và luyện tốt nhất khi dùng đúng định dạng của bài thi. Hãy làm theo thứ tự này:
+
+1. [Reading trên màn hình](/#/cbt) mô phỏng bài thi trên máy tính: bài đọc và câu hỏi cạnh nhau, đồng hồ đếm ngược, bút tô ba màu, ghi chú và cờ đánh dấu để xem lại. Bắt đầu với một Passage và giữ đúng ngân sách phút bạn đã đặt.
+2. [Reading theo dạng câu hỏi](/#/rtype) gom các câu cùng dạng từ mọi đề để bạn luyện đúng dạng đang ngốn thời gian của mình. Trang gợi ý chuyển sang dạng khác khi bạn đúng khoảng 70–80% ở dạng hiện tại.
+3. Khi một Passage đã ổn, hãy làm một [bài thi thử IELTS trọn vẹn](/#/mock) và chọn Reading: ba Passage, 40 câu, 60 phút. Bài đọc trong phần thi thử do Lexkite biên soạn, nên kết quả chỉ mang tính tham khảo, không phải band chính thức.
+
+![Mục thi thử IELTS của Lexkite cho chọn Listening, Reading, Writing hoặc Speaking](media:mock "Chọn Reading để luyện ba Passage với đủ 60 phút")
+
+Giữa các buổi luyện, hãy đọc theo trình độ của mình trong [thư viện bài đọc](/#/reading) từ A2 đến C1: chạm vào bất kỳ từ nào để xem nghĩa và lưu cùng câu chứa từ đó.
+
+![Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi](media:read-article "Chạm vào một từ để xem nghĩa ngay khi đọc")
+
+Các từ đã lưu sẽ quay lại trong [phần ôn thẻ](/#/review) theo khoảng cách ngày càng giãn, nên lần sau gặp lại trong bài, từ đó ngốn của bạn ít thời gian hơn.
+
+![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Đoán nghĩa trong đầu trước khi bấm “Flip”")
 
 ## Kế hoạch 4 tuần rèn luyện kiểm soát thời gian tại nhà
 
@@ -157,25 +164,28 @@ Kỹ năng quản lý thời gian không thể tự nhiên xuất hiện trong n
   - Khi luyện đề Full Test tại nhà, hãy đặt đồng hồ ở mức **55 phút** thay vì 60 phút.
   - Việc tạo áp lực thời gian khắt khe hơn thực tế sẽ giúp hệ thần kinh của bạn thích nghi với trạng thái căng thẳng, nhờ đó khi vào phòng thi thật bạn sẽ cảm thấy 60 phút trôi qua rất chủ động và bình tĩnh.
 - **Tuần 4: Mô phỏng phòng thi chuẩn mực (Exam Simulation)**
-  - Làm bài vào buổi sáng, gần với khung giờ thi thật.
+  - Làm bài vào đúng khung giờ bạn đã đăng ký thi.
   - In tờ Answer Sheet giấy và viết đáp án trực tiếp bằng bút chì, đo đạc chính xác thời gian chuyển đáp án sang phiếu.
 
-Làm chủ **cách phân bổ thời gian ielts reading** chính là việc chuyển hóa bài thi từ một cuộc chạy đua sinh tồn hoảng loạn thành một quy trình tác chiến khoa học, nơi mỗi phút trôi qua đều đem lại số điểm tối đa cho nỗ lực của bạn.
-
-{{youtube: | Chiến lược phân bổ thời gian IELTS Reading 60 phút điểm cao}}
-
-{{cta: /#/ | Luyện tập quản lý thời gian thi thử IELTS Reading trên Lexkite}}
-
----
+Khi **cách phân bổ thời gian ielts reading** đã thành thói quen, 60 phút không còn là cuộc chạy đua mà là một kế hoạch bạn đã tập nhiều lần: biết mỗi bài được bao lâu, câu nào làm trước và lúc nào thì bỏ qua.
 
 ## Câu hỏi thường gặp về phân bổ thời gian IELTS Reading
 
-### Thí sinh nên đọc lướt toàn bộ bài văn trước hay đọc câu hỏi trước?
-Chiến lược tối ưu là dành 60 đến 90 giây đọc lướt tiêu đề, phân đoạn mở đầu và các đề mục nhỏ để nắm bức tranh tổng thể của bài đọc (Skimming), sau đó chuyển ngay sang đọc câu hỏi để xác định từ khóa định vị. Đọc toàn bộ bài quá kỹ ngay từ đầu sẽ làm lãng phí 5 đến 7 phút quý giá mà không nhớ được chi tiết.
+### Có nên đọc hết bài trước khi xem câu hỏi không?
+Không nên. Ba bài Academic dài khoảng 2.150–2.750 từ và bạn chỉ có khoảng 90 giây mỗi câu, tính cả thời gian đọc. Hãy dành một phút lướt tiêu đề, tiêu đề phụ và câu đầu mỗi đoạn, rồi đọc câu hỏi, đánh dấu từ khóa và chỉ đọc kỹ ở những chỗ từ khóa dẫn tới. Đọc từng chữ ngay từ đầu sẽ không còn đủ thời gian cho các bài sau.
 
-### Nếu còn 5 phút mà còn 5 câu chưa làm, xử lý thế nào để vớt điểm?
-Ưu tiên giải quyết dạng câu hỏi trắc nghiệm Multiple Choice hoặc True/False/Not Given trước vì đây là những dạng có xác suất đoán đúng từ 25% đến 33%. Tuyệt đối không để trống bất kỳ ô nào trên Answer Sheet vì câu sai không bị trừ điểm.
+### Còn ba phút mà năm ô vẫn trống thì làm gì?
+Điền hết mọi ô. Mỗi đáp án đúng được 1 điểm và đáp án sai không bị trừ, nên đoán không mất gì. Hãy bắt đầu từ True/False/Not Given (ba lựa chọn) và trắc nghiệm (thường bốn lựa chọn), nơi đoán có xác suất thật sự; với câu điền từ, dựa vào ngữ pháp của chỗ trống và chủ đề của câu.
 
-### Bài thi IELTS Reading trên máy tính (Computer-delivered) có lợi thế thời gian hơn không?
-Có. Trên máy tính, màn hình chia đôi bài đọc bên trái và câu hỏi bên phải, đồng thời có tính năng Highlight từ khóa và Copy-Paste trực tiếp đáp án vào ô trống, giúp loại bỏ hoàn toàn lỗi sai chính tả và tiết kiệm khoảng 3 đến 4 phút so với việc viết tay trên giấy.
+### Thi trên máy tính có nhanh hơn thi trên giấy không?
+Thời gian như nhau, 60 phút và 40 câu, và cả hai đều không có thời gian chép đáp án riêng. Trên máy tính bạn gõ thẳng đáp án và có thể tô sáng văn bản, ghi chú nên không có bước chép lại; trên giấy bạn ghi vào phiếu trả lời trong cùng một giờ. Hình thức nào hợp với bạn tùy vào luyện tập, vì vậy hãy thử cả hai có bấm giờ trước khi quyết định.
 
+### Có thể bắt đầu từ Passage 3 hoặc đổi thứ tự làm bài không?
+Bạn có thể làm theo thứ tự nào cũng được trong một giờ. Bắt đầu từ bài bạn thấy dễ nhất thường tạo được nền điểm, nhưng chỉ có lợi nếu vẫn còn đủ thời gian cho các bài còn lại: hãy quyết định trong phút đầu và giữ đúng ngân sách. Đừng bắt đầu từ bài khó nhất nếu bạn chưa từng chủ động luyện như vậy.
+
+### Người Việt hay mất điểm ở đâu trong Reading?
+Tiếng Việt không chia số ít – số nhiều bằng đuôi từ và không chia thì bằng đuôi động từ, nên mắt dễ lướt qua *-s*, *-ed*, *will*, *would*, *used to*, vốn quyết định đáp án True/False/Not Given (ví dụ “has increased” khác “will increase”). Khi viết đáp án, tay cũng hay bỏ phụ âm cuối, chẳng hạn viết *farmer* thay vì *farmers* hay *effect* thay vì *effects*, và bị tính sai dù đã tìm đúng vị trí. Hãy gạch chân dấu hiệu thì và số trong câu hỏi trước khi quét bài, rồi dành hai phút cuối soát lại đuôi từ của mọi đáp án.
+
+{{youtube: | Chiến lược phân bổ thời gian IELTS Reading 60 phút điểm cao}}
+
+{{cta: /#/mock | Làm một bài thi thử IELTS Reading trọn vẹn: ba Passage, 40 câu, đồng hồ 60 phút}}

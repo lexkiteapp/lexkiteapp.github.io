@@ -8,86 +8,97 @@ translationKey: toefl-ibt-academic-discussion-writing
 category: toefl
 tags: [toefl, writing, academic-discussion, examens]
 cover: toefl
-coverAlt: "Format du test TOEFL iBT sur ordinateur avec les sections d examen dans Lexkite"
-qualityScore: 85
+coverAlt: "Page TOEFL de Lexkite avec le tableau de structure du nouveau format et les types d'épreuves"
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-03T07:36:00+01:00
 status: ready
 quiz: [
   {
-    q: "Quelle est la durée officielle et la longueur recommandée pour l'exercice Academic Discussion du TOEFL iBT ?",
+    q: "Quelle description de l'épreuve Write for an Academic Discussion est exacte ?",
     options: [
-      "10 minutes pour rédiger au moins 100 mots (recommandé : 120 à 140 mots)",
-      "30 minutes pour rédiger une dissertation classique de 300 mots",
-      "20 minutes pour un texte de 200 mots",
-      "15 minutes sans consigne de longueur minimale"
+      "Un message court de forum de classe, d'une centaine de mots ou plus, rédigé en environ 10 minutes après lecture du professeur et de deux étudiants",
+      "Une dissertation indépendante de 30 minutes sans document",
+      "Une réponse orale d'une minute à une question enregistrée",
+      "Un résumé écrit d'un texte et d'un cours en 20 minutes"
     ],
     answer: 0,
-    explain: "ETS alloue environ 10 minutes pour lire l'énoncé du professeur, les avis de deux étudiants et rédiger une contribution personnelle substantielle d'au moins 100 mots."
+    explain: "C'est l'une des trois épreuves de Writing. Vous lisez la question du professeur et deux messages d'étudiants, puis vous écrivez votre contribution. Selon ETS, les réponses efficaces comptent en général au moins 100 mots. La dissertation de 30 minutes et la tâche intégrée de 20 minutes appartiennent à l'ancien format."
   },
   {
-    q: "Quel écueil majeur pénalise lourdement la note de développement selon la grille d'ETS ?",
+    q: "Une étudiante dit que les pass de transport aident les étudiants modestes. Quelle phrase d'ouverture apporte le plus ?",
     options: [
-      "Se contenter de paraphraser ou résumer les avis des camarades sans apporter d'argument ni d'exemple original",
-      "Dépasser 130 mots dans un style académique soutenu",
-      "Nuancer sa prise de position en s'appuyant sur l'avis d'un étudiant",
-      "Utiliser des connecteurs logiques de cause et de conséquence"
+      "Je suis d'accord avec Claire parce que les pass sont bons pour les étudiants.",
+      "Claire dit que les pass aident ceux qui ne peuvent pas payer une voiture.",
+      "Claire a raison sur le coût, mais le gain principal est la baisse du nombre de voitures sur le campus, ce qui réduit aussi la pression sur le stationnement.",
+      "Les transports existent depuis longtemps."
     ],
-    answer: 0,
-    explain: "La grille d'évaluation 5.0 valorise explicitement l'apport d'une perspective inédite ou d'un exemple concret enrichissant le débat universitaire en ligne."
+    answer: 2,
+    explain: "La grille récompense une contribution pertinente et développée. La meilleure phrase reconnaît brièvement l'idée de l'autre puis ajoute une raison nouvelle. Répéter ou approuver sans rien ajouter n'apporte rien, et la dernière phrase ne répond pas à la question."
   },
   {
-    q: "Comment répartir efficacement les 10 minutes imparties lors de l'examen réel ?",
+    q: "Vous avez environ dix minutes au total. Comment employer la dernière minute ou les deux dernières ?",
     options: [
-      "1 à 1,5 minute de lecture et choix de thèse, 6,5 à 7 minutes de rédaction active, et 1,5 à 2 minutes de relecture attentive",
-      "5 minutes à analyser le sujet et 5 minutes à taper sans relire",
-      "Taper immédiatement au hasard sans lire la question du professeur",
-      "Rédiger un brouillon manuscrit sur papier pendant 8 minutes"
+      "Relire le texte pour traquer le -s de la troisième personne, les articles et les fautes de frappe",
+      "Ajouter un argument sans rapport à la dernière seconde",
+      "Supprimer l'exemple pour raccourcir le texte",
+      "Réécrire trois fois la première phrase"
     ],
     answer: 0,
-    explain: "Consacrer 90 secondes à cibler l'argument clé, 6,5 minutes à rédiger un paragraphe compact de 120 à 140 mots et 90 secondes à corriger les fautes de frappe permet de rendre un texte complet et soigné."
+    explain: "Une faute comme « David argue » se corrige en quelques secondes et pèse sur la correction de la langue. Un nouvel argument de dernière minute reste souvent inachevé, et supprimer l'exemple retire le développement que cherchent les correcteurs."
+  },
+  {
+    q: "À quoi renvoie le « 0 à 5 » cité dans les guides sur l'Academic Discussion ?",
+    options: [
+      "Au niveau de grille attribué à cette seule tâche, pas à votre bande globale de 1 à 6",
+      "Au nombre de minutes par message d'étudiant",
+      "À votre bande globale depuis le 21 janvier 2026",
+      "Au nombre de paragraphes autorisés"
+    ],
+    answer: 0,
+    explain: "Depuis le 21 janvier 2026, ETS donne les scores de section et global de 1 à 6. La grille de la tâche est une échelle distincte, utilisée pour noter cette réponse ; il ne faut pas les confondre."
   }
 ]
 ---
-L'introduction de l'épreuve **toefl ibt writing academic discussion** constitue la réforme la plus radicale de la section rédactionnelle du TOEFL depuis deux décennies. En remplacement de la traditionnelle dissertation indépendante de 30 minutes, cet exercice simule une participation en direct à un forum de discussion universitaire en ligne : vous devez lire la problématique soumise par un enseignant ainsi que les interventions de deux camarades, puis rédiger une réponse structurée et percutante en **10 minutes montre en main**.
+L'épreuve **toefl ibt writing academic discussion** a remplacé la dissertation indépendante de 30 minutes. Vous lisez la question d'un professeur et les réponses de deux camarades sur un forum de classe fictif, puis vous écrivez votre propre message en **environ 10 minutes**. Depuis le 21 janvier 2026, c'est l'une des trois épreuves de Writing, avec Build a Sentence et Write an Email (le tableau officiel d'ETS indique 12 items de Writing pour environ 23 minutes de temps de base).
 
-Face à cette contrainte temporelle extrême, toute hésitation ou introduction verbeuse s'avère rédhibitoire. Viser le niveau le plus élevé de la grille exige de bien connaître les attentes d'ETS, une frappe rapide au clavier et l'application d'un gabarit de paragraphe dense.
+Avec si peu de temps, pas de place pour une longue introduction. Il faut savoir ce que la grille récompense, suivre une structure fixe en un paragraphe et taper avec aisance.
 
 Une précision sur les chiffres : depuis le 21 janvier 2026, le TOEFL iBT communique les scores sur une échelle de 1 à 6 par demi-points, avec un score comparable sur 120 pendant la période de transition. Le « 5 » cité dans ce guide désigne le niveau maximal de la grille de 0 à 5 utilisée pour cette seule tâche, et non votre bande globale. Aucune méthode ne garantit un score ; elle vous aide simplement à exploiter chacune des dix minutes.
 
-Dans ce guide méthodologique, nous décryptons les attentes des correcteurs, établissons un chronométrage tactique minute par minute et partageons des modèles de réponses exemplaires.
+Ci-dessous : la mise en page de l'épreuve, un plan minute par minute, une réponse modèle, deux gabarits, les erreurs qui coûtent le plus et les fautes typiques des francophones.
 
 ---
 
 ## Anatomie de la tâche TOEFL Academic Discussion
 
-Dès le lancement du compte à rebours de 10 minutes, l'écran de test affiche simultanément quatre zones distinctes :
+L'écran affiche quatre éléments :
 
-1. **La consigne professorale** : Un texte d'introduction concise exposant un dilemme académique, économique ou environnemental contemporain (par exemple, la gratuité des transports publics, l'intégration de l'intelligence artificielle ou le financement des énergies renouvelables), suivi d'une question ouverte.
-2. **L'intervention de l'Étudiant A** : Un court paragraphe d'environ 30 à 45 mots défendant une première position avec un argument précis.
+1. **La consigne professorale** : Un court texte sur une question académique ou de société (par exemple la gratuité des transports, l'intelligence artificielle en classe ou le financement des énergies renouvelables), suivi d'une question ouverte.
+2. **L'intervention de l'Étudiant A** : Un court message qui défend une position avec un argument.
 3. **L'intervention de l'Étudiant B** : Une prise de position divergente proposant une alternative ou soulignant un angle mort.
-4. **La zone de rédaction** : La boîte de texte où vous devez saisir au minimum 100 mots (la fourchette idéale pour démontrer une aisance argumentative se situe entre **120 et 150 mots**).
+4. **La zone de rédaction** : La zone de texte. Selon ETS, les réponses efficaces comptent en général au moins 100 mots ; viser **120 à 150 mots** laisse la place d'un exemple concret.
 
-Pour comprendre comment cet exercice s'articule avec les autres épreuves d'évaluation linguistique, découvrez notre analyse comparative [TOEFL ou IELTS lequel choisir](/fr/blog/toefl-ou-ielts-lequel-choisir/).
+Pour situer cette épreuve dans tout le test, lisez notre guide du [nouveau format TOEFL 2026](/fr/blog/nouveau-format-toefl-ibt-2026/). Et pour comparer avec un autre examen, voyez [TOEFL ou IELTS : lequel choisir](/fr/blog/toefl-ou-ielts-lequel-choisir/).
 
-![Format du test TOEFL iBT sur ordinateur avec les sections d examen dans Lexkite](media:toefl "Visualisez la structure des épreuves du TOEFL iBT et leurs temps alloués sur Lexkite")
+![Format du test TOEFL iBT sur ordinateur avec les sections d examen dans Lexkite](media:toefl "La page TOEFL de Lexkite : aperçu du nouveau format, tableau de structure et une carte d'entraînement par type d'épreuve")
 
 ---
 
 ## TOEFL iBT Writing Academic Discussion: Grille de Notation 5.0
 
-ETS note cette tâche de façon globale sur une grille de 0 à 5, en combinant correcteurs humains et évaluation automatisée. Aucune pondération en pourcentage n'est publiée : la réponse de niveau maximal est décrite comme pertinente, bien développée et témoignant d'une aisance linguistique constante. Concrètement, trois dimensions sont appréciées ensemble :
+ETS note les réponses de Writing en combinant évaluation automatisée et correcteurs formés. Cette tâche a été notée de façon globale sur une grille de 0 à 5, sans pondération publiée en pourcentage. La réponse maximale est décrite comme pertinente, bien développée et claire sur le plan de la langue. Concrètement, trois choses sont jugées ensemble :
 
-- **Pertinence et apport argumentatif substantiel** : Répondre directement à l'interrogation du professeur, apporter un argument ou un exemple inédit, et éviter de paraphraser stérilement les idées déjà formulées par les deux camarades virtuels.
-- **Variété syntaxique et précision grammaticale** : Mobiliser des phrases complexes, des propositions circonstancielles et des conditionnels sans commettre de fautes récurrentes d'accord sujet-verbe ou de temps.
-- **Richesse lexicale et collocations académiques** : Déployer un lexique formel soutenu et des connecteurs logiques nuancés. Pour structurer vos idées avec clarté, appliquez les principes méthodologiques détaillés dans notre guide sur l'[IELTS Writing Task 2 structure](/fr/blog/ielts-writing-task-2-plan/).
+- **Pertinence et apport argumentatif substantiel** : répondre à la question du professeur et apporter un argument ou un exemple que les deux camarades n'ont pas donné.
+- **Variété syntaxique et précision grammaticale** : utiliser des phrases avec *because*, *although* ou *if* sans erreur d'accord, d'article ou de temps.
+- **Richesse lexicale et collocations académiques** : choisir des mots précis et nuancer les affirmations trop tranchées. Pour structurer un argument, voyez notre guide du [plan de l'IELTS Writing Task 2](/fr/blog/ielts-writing-task-2-plan/).
 
 ---
 
 ## Gestion tactique des 10 minutes à l'écran
 
-Une gestion millimétrée de votre temps est indispensable pour éviter de rendre une phrase tronquée :
+Ce découpage est une suggestion, pas un barème officiel ; adaptez-le à votre vitesse de frappe.
 
 | Chronomètre | Étape | Objectif prioritaire |
 |---|---|---|
@@ -99,14 +110,16 @@ Une gestion millimétrée de votre temps est indispensable pour éviter de rendr
 
 ## Formule en 4 phrases pour un paragraphe académique parfait
 
-Contrairement aux dissertations classiques nécessitant une introduction et une conclusion autonomes, cet exercice exige une **extrême densité argumentative condensée dans un unique paragraphe** :
+Pas besoin d'une dissertation avec introduction et conclusion séparées : **un seul paragraphe dense** de 4 à 6 phrases suffit.
 
 1. **Phrase 1 (Ancrage et prise de position)** : Exprimez clairement votre point de vue en dialoguant avec les avis formulés (*"While both classmates present thought-provoking viewpoints, I strongly side with Claire's proposal regarding..."*).
 2. **Phrase 2 (Thèse centrale et justification première)** : Formulez le principe fondamental ou le levier logique qui valide votre jugement.
 3. **Phrases 3–4 (Exemple concret ou perspective inédite)** : Introduisez une illustration originale ou une chaîne causale factuelle absente des propos des deux camarades.
 4. **Phrase 5 (Nuance critique et réfutation de l'alternative)** : Expliquez succinctement pourquoi l'approche opposée demeure insuffisante ou moins pérenne.
 
-![Dictionnaire anglais–vietnamien de Lexkite avec le mot resilient, prononciation UK/US, exemples, collocations et bouton d'enregistrement en flashcard](media:dict "Consultez le dictionnaire intelligent Lexkite pour vérifier le vocabulaire académique soutenu")
+Pour répéter ce découpage dans l'application, la page TOEFL de Lexkite propose un entraînement à Write for an Academic Discussion : consigne, deux messages d'étudiants, compteur de mots, compte à rebours qui démarre quand vous tapez, réponse modèle, liste d'autocontrôle et commentaire IA facultatif. L'atelier d'écriture voisin repose sur l'IELTS Task 2, mais ses sujets et ses trames servent aussi à prendre l'habitude de planifier avant de taper.
+
+![Atelier d'écriture de Lexkite avec choix de thèmes, idées suggérées, trame de rédaction et réponses modèles annotées](media:write "L'atelier d'écriture de Lexkite (sujets IELTS Task 2) : utile pour planifier un argument et s'exercer à une trame avant de taper")
 
 ---
 
@@ -122,7 +135,7 @@ Contrairement aux dissertations classiques nécessitant une introduction et une 
 ### Réponse modèle (133 mots)
 > While David offers an interesting argument regarding cutting-edge technological immersion, I firmly align with Sarah's stance that prioritizing universal laptop and internet access delivers a far more profound institutional benefit. State-of-the-art virtual reality equipment unquestionably enriches specialized technical curricula; however, investing in luxury hardware while economically vulnerable undergraduates lack basic computing infrastructure exacerbates academic inequality. In contrast, ensuring equitable digital access removes a foundational barrier to student retention and academic performance. For example, during the pandemic, my cousin could only follow her online lectures after her university lent her a laptop and a hotspot; without them, she would have dropped two of her courses. Therefore, rather than subsidizing niche experimental tools for a few specialized departments, our university must prioritize fundamental educational equity to ensure that every student can fulfill their academic potential.
 
-Cette réponse engage le dialogue avec David, soutient Sarah avec vigueur, et intègre **un angle inédit (le risque d'abandon et l'équité numérique)** dans un anglais académique irréprochable. Remarquez aussi ce qu'elle évite : les statistiques inventées. Un exemple personnel plausible est plus sûr qu'un pourcentage que vous ne pourriez pas justifier.
+La réponse répond à David, soutient Sarah et ajoute **un angle nouveau (le risque d'abandon et l'équité numérique)** avec un exemple concret. Elle évite aussi les statistiques inventées : un exemple personnel plausible est plus sûr qu'un pourcentage que vous ne pourriez pas justifier.
 
 ### Les erreurs typiques des francophones dans cette tâche
 
@@ -131,18 +144,18 @@ Cette réponse engage le dialogue avec David, soutient Sarah avec vigueur, et in
 - **Le -s de la troisième personne** : *Sarah suggest* au lieu de *Sarah suggests* revient souvent sous la pression du chrono.
 - **Majuscules et ponctuation** : les jours, mois et nationalités prennent une majuscule en anglais (*Monday*, *French students*), et pas d'espace avant « ? » ou « : ».
 
-Pour consolider vos expressions formelles, explorez nos ressources sur l'[apprentissage du vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et découvrez nos techniques pour [paraphraser en anglais](/fr/blog/comment-paraphraser-ielts-techniques/). Consultez également le [répertoire de vocabulaire anglais](/fr/vocabulary/) pour enrichir votre lexique.
+Pour le vocabulaire, voyez notre guide pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/), les techniques pour [paraphraser en anglais](/fr/blog/comment-paraphraser-ielts-techniques/) et les [listes de vocabulaire](/fr/vocabulary/) de Lexkite classées par thème. Enregistrer les mots utiles en cartes aide à les retrouver sous pression.
 
-![Révision de flashcards sur Lexkite avec le mot pollution, image emoji, transcription phonétique, bouton Retourner et barre de progression](media:review "Révisez vos flashcards de vocabulaire sur l'application Lexkite")
+![Carte de révision Lexkite avec le mot pollution, un dessin, la transcription phonétique, un bouton Retourner et une barre de progression](media:review "Révision de cartes dans Lexkite : le mot au recto, un bouton pour retourner la carte et une barre qui indique les cartes restantes")
 
 ---
 
 ## 2 Gabarits prêts à l'emploi selon le type de débat
 
-Selon que le sujet porte sur un arbitrage budgétaire ou sur l'adoption d'une innovation technologique, vous pouvez mobiliser ces schémas rhétoriques :
+Utilisez-les comme squelettes et remplacez les crochets par vos propres idées. Les correcteurs voient beaucoup de réponses presque identiques : la raison et l'exemple doivent donc être précis.
 
 ### Gabarit 1 : Arbitrage entre deux politiques publiques
-> While [Student A] puts forward a compelling argument regarding [Policy A], I firmly agree with [Student B]'s conviction that [Policy B] represents a vastly more sustainable solution. The fundamental rationale is that [Policy B] targets the structural origins of the issue rather than merely mitigating secondary consequences. To illustrate, prioritizing [Policy B] tends to generate measurable positive outcomes for marginalized demographic groups who lack access to institutional subsidies. Consequently, despite the short-term benefits highlighted by [Student A], allocating funding toward [Policy B] ensures long-term social equity and economic resilience.
+> While [Student A] puts forward a compelling argument regarding [Policy A], I firmly agree with [Student B]'s conviction that [Policy B] is the more sustainable solution. The fundamental rationale is that [Policy B] targets the structural origins of the issue rather than merely mitigating secondary consequences. To illustrate, prioritizing [Policy B] tends to generate measurable positive outcomes for marginalized demographic groups who lack access to institutional subsidies. Consequently, despite the short-term benefits highlighted by [Student A], allocating funding toward [Policy B] ensures long-term social equity and economic resilience.
 
 ### Gabarit 2 : Évaluation d'une technologie disruptive
 > Although [Student A] correctly underlines the productivity gains driven by [Technology], I fully share [Student B]'s apprehension regarding its ethical and sociological repercussions. While automated platforms streamline routine administrative tasks, relying exclusively on predictive algorithms introduces dangerous liabilities regarding algorithmic bias, accountability, and the erosion of critical human judgment. In my view, institutions must foster collaborative human-in-the-loop workflows rather than pursuing unconstrained automation. Therefore, maintaining rigorous professional oversight remains imperative if we aspire to achieve ethical modernization.
@@ -151,31 +164,41 @@ Selon que le sujet porte sur un arbitrage budgétaire ou sur l'adoption d'une in
 
 ## 3 Pièges rédhibitoires à proscrire en 10 minutes
 
-1. **Rédiger une introduction solennelle de 30 mots** : Des formules pompeuses du type *"Depuis l'aube de l'humanité, l'éducation est un sujet complexe..."* gaspillent un temps précieux et n'apportent aucun point. Entrez immédiatement au cœur de la controverse.
-2. **Copier des portions entières des messages des étudiants** : Les passages recopiés ne comptent pas comme votre contribution et appauvrissent la réponse aux yeux des correcteurs. Résumez les idées d'autrui en moins de cinq mots personnels.
-3. **Négliger les 90 secondes de relecture finale** : Une faute d'inattention répétée sur un verbe à la troisième personne (*"David argue"* au lieu de *"David argues"*) dégrade instantanément la note attribuée à votre correction grammaticale.
+1. **Une longue phrase d'ouverture vide** : *"Since the dawn of humanity, education has been a complex topic..."* prend du temps et ne dit rien. Commencez par votre position.
+2. **Copier des portions entières des messages des étudiants** : Les passages recopiés ne sont pas votre contribution. Si vous mentionnez l'idée d'un camarade, reformulez-la en quelques mots à vous et passez à votre propos.
+3. **Ne pas se garder une ou deux minutes de relecture** : un *-s* oublié (*"David argue"*) ou un article manquant donne une impression de langue peu fiable.
+
+Si vous refaites les mêmes fautes, notez-les : le carnet d'erreurs de Lexkite les range par type (vocabulaire, grammaire, lecture, écoute).
+
+![Carnet d'erreurs de Lexkite avec les erreurs regroupées par vocabulaire, grammaire, compréhension écrite et écoute](media:mistakes "Carnet d'erreurs de Lexkite : vos fautes regroupées par type, à revoir avant le prochain entraînement")
 
 {{youtube: | TOEFL iBT Writing Academic Discussion: conseils et modèles de réponses}}
 
 ---
 
-## Entraînez votre rédaction académique avec Lexkite
+## S'entraîner dans Lexkite
 
-Taper avec précision sous la pression du chronomètre réclame une pratique régulière et ciblée :
+Écrire contre la montre progresse avec un entraînement chronométré et une correction honnête :
 
-- **Module d'écriture chronométrée** : Entraînez-vous dans l'[atelier d'écriture Lexkite](/#/write) avec compteur de mots en direct et sujets d'actualité.
-- **Mémorisation FSRS du lexique soutenu** : Ancrez des centaines de connecteurs logiques et de verbes académiques grâce au [module de révision espacée Lexkite](/#/review).
+- **Write for an Academic Discussion** : ouvrez l'[entraînement Academic Discussion](/#/toefl-p/discussion), écrivez contre le minuteur, puis comparez avec la réponse modèle et la liste d'autocontrôle.
+- **Write an Email** : l'autre épreuve d'écriture de la section est dans [Write an Email](/#/toefl-p/email) ; elle demande de couvrir tous les points de la consigne.
+- **Vocabulaire formel** : révisez les mots que vous collectez dans la [révision des cartes](/#/review).
 
-Pour replacer cette tâche dans la structure d'ensemble de l'examen rénové, consultez notre guide sur le [nouveau format toefl 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
-
-Connectez-vous dès aujourd'hui sur l'[application web Lexkite](/#/) pour transformer l'épreuve de l'Academic Discussion du TOEFL en votre plus bel atout de score !
-
-{{cta: /#/ | Essayer Lexkite gratuitement | Enrichissez votre vocabulaire académique pour réussir le TOEFL iBT Writing}}
+{{cta: /#/toefl-p/discussion | S'entraîner à l'Academic Discussion | Consigne chronométrée, compteur de mots, réponse modèle et liste d'autocontrôle pour l'épreuve TOEFL}}
 
 ## Foire aux questions (FAQ)
 
-### Combien de mots faut-il rédiger en 10 minutes ?
-ETS recommande au moins 100 mots. En pratique, une contribution bien argumentée de 120 à 140 mots permet d'obtenir la note maximale (4,5 - 5,0) sans faire d'erreurs de précipitation.
+### Combien de mots faut-il rédiger pour l'Academic Discussion ?
+Selon ETS, les réponses efficaces comptent en général au moins 100 mots. Beaucoup de bonnes réponses font 120 à 150 mots, mais le développement compte plus que la longueur : une raison claire et un exemple concret valent mieux que cinq idées vagues.
 
-### Doit-on obligatoirement citer les prénoms des étudiants de l'énoncé ?
-Il est très apprécié de faire référence à leurs contributions (ex. "While Claire makes a valid point regarding..."), car cela démontre votre capacité à interagir dans une vraie discussion de séminaire universitaire.
+### Doit-on citer les prénoms des étudiants ?
+Ce n'est pas obligatoire, mais faire référence à leurs messages (« While Claire makes a valid point about... ») montre que vous participez à une vraie discussion et rend votre apport plus clair.
+
+### L'épreuve existe-t-elle toujours dans le nouveau format ?
+Oui. Depuis le 21 janvier 2026, Writing comprend trois épreuves : Build a Sentence, Write an Email et Write for an Academic Discussion (source : page ETS sur le contenu et la structure du TOEFL iBT).
+
+### Peut-on utiliser un gabarit ?
+Une trame pour l'ouverture et la conclusion est acceptable, mais le milieu doit répondre précisément au sujet. Les paragraphes appris par cœur dérivent souvent hors sujet, ce qui coûte en pertinence.
+
+### Quelles fautes les francophones font-ils le plus ici ?
+Les faux amis (*actually*, *eventually*), les calques comme *I am agree* ou *since three years*, le *-s* oublié à la troisième personne et les majuscules oubliées sur les jours et les nationalités. Relisez votre brouillon en cherchant ces quatre points un par un.

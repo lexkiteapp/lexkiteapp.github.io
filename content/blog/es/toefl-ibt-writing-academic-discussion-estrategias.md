@@ -9,85 +9,96 @@ category: toefl
 tags: [toefl, writing, academic-discussion, examenes]
 cover: toefl
 coverAlt: "Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-07T08:45:00-06:00
 status: ready
 quiz: [
   {
-    q: "¿Cuál es el tiempo asignado y la extensión sugerida para la tarea de Academic Discussion en el TOEFL iBT?",
+    q: "¿Qué describe correctamente la tarea Write for an Academic Discussion del TOEFL iBT?",
     options: [
-      "10 minutos para escribir un mínimo de 100 palabras (recomendado: 120–140 palabras)",
-      "30 minutos para redactar un ensayo clásico de 300 palabras",
-      "20 minutos para un texto de 250 palabras",
-      "15 minutos sin límite de palabras"
+      "Una publicación breve en un foro de clase, de unas 100 palabras o más, escrita en unos 10 minutos tras leer al profesor y a dos compañeros",
+      "Un ensayo independiente de 30 minutos sin texto de apoyo",
+      "Una respuesta oral de un minuto a una pregunta grabada",
+      "Un resumen escrito de una lectura y una conferencia en 20 minutos"
     ],
     answer: 0,
-    explain: "ETS otorga unos 10 minutos para leer la intervención del profesor y dos compañeros y redactar una respuesta de al menos 100 palabras."
+    explain: "Es una de las tres tareas de Writing. Lees la consigna del profesor y dos mensajes de compañeros y escribes tu aportación. Las pautas de ETS indican que las respuestas eficaces suelen tener al menos 100 palabras. El ensayo de 30 minutos y la tarea integrada de 20 minutos son del formato anterior."
   },
   {
-    q: "¿Qué error penaliza gravemente la puntuación en la tarea de debate académico online?",
+    q: "Un compañero dice que los pases de transporte ayudan a estudiantes con pocos recursos. ¿Qué frase inicial aporta más?",
     options: [
-      "Copiar o parafrasear únicamente las ideas de los compañeros sin aportar un argumento o ejemplo original",
-      "Superar las 130 palabras con un inglés académico claro",
-      "Estar de acuerdo con un compañero aportando una perspectiva complementaria",
-      "Utilizar conectores de contraste como 'whereas' o 'consequently'"
+      "Estoy de acuerdo con Claire porque los pases son buenos para los estudiantes.",
+      "Claire dice que los pases ayudan a quien no puede pagar un coche.",
+      "Claire acierta con la asequibilidad, pero el mayor beneficio es que hay menos coches en el campus, lo que también reduce la presión del aparcamiento.",
+      "El transporte existe desde hace muchos años."
     ],
-    answer: 0,
-    explain: "El criterio oficial de ETS exige una contribución propia y constructiva al foro, no un simple resumen de lo que ya han dicho otros estudiantes."
+    answer: 2,
+    explain: "La rúbrica premia una contribución pertinente y desarrollada. La mejor frase reconoce brevemente la idea del compañero y añade una razón nueva. Repetir lo que ya se dijo o limitarse a asentir no aporta nada, y la última frase no responde a la pregunta."
   },
   {
-    q: "¿Cómo se recomienda distribuir los 10 minutos durante la prueba real?",
+    q: "Con unos diez minutos en total, ¿cómo conviene usar el último minuto o dos?",
     options: [
-      "1 a 1,5 minutos de lectura y elección de postura, 6,5 a 7 minutos de redacción, y 1,5 a 2 minutos de revisión",
-      "5 minutos leyendo el foro y 5 minutos tecleando sin revisar",
-      "Escribir de inmediato sin leer la pregunta del profesor",
-      "Hacer un borrador completo en papel durante 8 minutos"
+      "Releer buscando la -s de tercera persona, los artículos y las erratas",
+      "Añadir un argumento nuevo sin relación con el resto",
+      "Borrar el ejemplo para que la respuesta parezca más corta",
+      "Reescribir tres veces la primera frase"
     ],
     answer: 0,
-    explain: "Dedicar 90 segundos a analizar las posturas, teclear un párrafo compacto de 120-140 palabras y reservar casi 2 minutos para corregir errores ortográficos maximiza la precisión."
+    explain: "Errores como 'Elena suggest' se corrigen en segundos y restan puntos de uso del idioma. Un argumento nuevo a última hora suele quedar incompleto, y quitar el ejemplo elimina el desarrollo que buscan los evaluadores."
+  },
+  {
+    q: "¿A qué se refiere el '0-5' de las guías sobre Academic Discussion?",
+    options: [
+      "Al nivel de rúbrica que se da a esta tarea concreta, no a tu banda global del TOEFL de 1 a 6",
+      "A los minutos que puedes dedicar a cada mensaje",
+      "A tu banda global desde el 21 de enero de 2026",
+      "Al número de párrafos permitidos"
+    ],
+    answer: 0,
+    explain: "Desde el 21 de enero de 2026 ETS informa las puntuaciones de sección y global en una escala de 1 a 6. La rúbrica de la tarea es una escala distinta que sirve para corregir esta respuesta, y no conviene mezclarlas."
   }
 ]
 ---
-La incorporación de la tarea **toefl ibt writing academic discussion** representa el cambio más trascendental en la sección de redacción del examen TOEFL en décadas. Al sustituir al antiguo ensayo independiente de 30 minutos, este ejercicio simula la participación en un foro universitario online contemporáneo: debes leer una pregunta formulada por un docente y dos opiniones de compañeros de clase para redactar una contribución académica rigurosa en **apenas 10 minutos**.
+La incorporación de la tarea **toefl ibt writing academic discussion** representa el cambio más trascendental en la sección de redacción del examen TOEFL en décadas. Sustituyó al antiguo ensayo independiente de 30 minutos. Lees la pregunta de un profesor y las respuestas de dos compañeros en un foro de clase imaginario, y escribes tu propia aportación en **unos 10 minutos**. Desde el 21 de enero de 2026 es una de las tres tareas de Writing, junto con Build a Sentence y Write an Email (la tabla oficial de ETS indica 12 elementos de Writing en unos 23 minutos de tiempo base).
 
-Debido a la estricta limitación de tiempo, no hay margen para improvisar introducciones vagas o divagar sin rumbo. Acercarse al nivel más alto de la rúbrica exige conocer bien lo que valora ETS, aplicar una estructura lógica en un solo párrafo denso y escribir en el teclado con agilidad.
+Con tan poco tiempo no cabe una introducción larga. Necesitas saber qué premia la rúbrica, usar una estructura fija en un solo párrafo y teclear con soltura.
 
 Una aclaración sobre las cifras: desde el 21 de enero de 2026 el TOEFL iBT informa la puntuación en una escala de bandas de 1 a 6 (en pasos de 0,5), con una puntuación comparable de 0 a 120 durante la transición. El "5" que verás en esta guía se refiere al nivel máximo de la rúbrica de 0 a 5 que se aplica a esta tarea concreta, no a tu banda global. Ninguna estrategia garantiza una nota; lo que sí puede hacer es que aproveches cada uno de los diez minutos.
 
-En esta guía desglosamos las expectativas de los evaluadores, establecemos una táctica de gestión del tiempo minuto a minuto y compartimos plantillas pensadas a partir de lo que premia la rúbrica.
+Aquí encontrarás cómo es la tarea, un plan minuto a minuto, un modelo de respuesta, dos plantillas, los errores que más cuestan y los fallos típicos de los hispanohablantes.
 
 ---
 
 ## Anatomía de la tarea Academic Discussion del TOEFL iBT
 
-Al comenzar el cronómetro de 10 minutos, la interfaz de la prueba presenta cuatro componentes principales:
+En pantalla verás cuatro elementos:
 
-1. **La consigna del profesor**: Un breve texto introductorio sobre una cuestión académica o social controvertida (por ejemplo, subsidios energéticos, inteligencia artificial en el aula, teletrabajo o inversión en transporte), que concluye con una pregunta directa.
-2. **La publicación del Estudiante A**: Una intervención concisa (de 30 a 45 palabras) que defiende una postura determinada con una razón específica.
+1. **La consigna del profesor**: Un breve texto sobre un asunto académico o social (por ejemplo, inteligencia artificial en el aula, teletrabajo o inversión en transporte) que termina con una pregunta directa.
+2. **La publicación del Estudiante A**: Un mensaje corto que defiende una postura con una razón.
 3. **La publicación del Estudiante B**: Una respuesta que sostiene la postura opuesta o enfatiza otro aspecto del problema.
-4. **El cuadro de redacción**: El espacio donde debes teclear tu contribución de al menos 100 palabras (el rango óptimo para obtener la máxima nota suele situarse entre **120 y 150 palabras** bien argumentadas).
+4. **El cuadro de redacción**: El espacio donde tecleas tu aportación. Las pautas de ETS indican que las respuestas eficaces suelen tener al menos 100 palabras; apuntar a **120–150** deja espacio para un ejemplo concreto.
 
-Para comprender cómo se integra esta tarea en la arquitectura de la evaluación completa, consulta nuestra guía sobre el [nuevo formato toefl 2026](/es/blog/nuevo-formato-toefl-ibt-2026/).
+Para ver dónde encaja esta tarea en el examen completo, lee nuestra guía del [nuevo formato TOEFL 2026](/es/blog/nuevo-formato-toefl-ibt-2026/). En la página TOEFL de Lexkite ves la misma tabla de estructura con las 12 tareas.
 
-![Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6](media:toefl "Conoce el simulador de tareas TOEFL iBT y los límites de tiempo en Lexkite")
+![Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6](media:toefl "La página TOEFL de Lexkite: resumen del nuevo formato, tabla de estructura y una tarjeta de práctica por cada tipo de tarea")
 
 ---
 
 ## TOEFL iBT Writing Academic Discussion: Criterios de Evaluación
 
-ETS puntúa esta tarea de forma global con una rúbrica de 0 a 5, combinando evaluadores humanos y corrección automática. No publica porcentajes por criterio; describe la respuesta de nivel máximo como pertinente, bien desarrollada y con un dominio constante del idioma. En la práctica, eso se traduce en tres pilares que se valoran juntos:
+ETS corrige Writing con una combinación de puntuación automática y evaluadores humanos. Esta tarea se ha puntuado de forma global con una rúbrica de 0 a 5, y ETS no publica porcentajes por criterio. La respuesta máxima se describe como pertinente, bien desarrollada y con un uso claro del idioma. En la práctica se valoran juntos tres aspectos:
 
-- **Relevancia y desarrollo sustancial del argumento**: Responder de manera directa y precisa a la pregunta del profesor, aportando ideas nuevas, razonamientos lógicos o ejemplos ilustrativos originales en lugar de limitarse a repetir lo ya expuesto.
-- **Variedad sintáctica y precisión gramatical**: Construir oraciones compuestas y complejas, utilizar oraciones condicionales y subordinadas adverbiales, y evitar errores reiterados de concordancia o tiempos verbales.
-- **Riqueza léxica y registro formal**: Emplear vocabulario formal preciso, colocaciones idiomáticas naturales y marcadores discursivos académicos. Puedes repasar cómo conectar ideas con precisión en nuestra guía de [conectores en inglés](/es/blog/conectores-en-ingles-linking-words-guia/) y dominar la variedad sintáctica con [oraciones complejas en inglés](/es/blog/oraciones-complejas-ielts-writing-task-2/).
+- **Relevancia y desarrollo sustancial del argumento**: responder a la pregunta del profesor y aportar una idea o un ejemplo que los compañeros no hayan dado.
+- **Variedad sintáctica y precisión gramatical**: usar oraciones con *because*, *although* o *if* sin perder concordancia, artículos ni tiempos verbales.
+- **Riqueza léxica y registro formal**: elegir palabras exactas y matizar afirmaciones tajantes. Para enlazar ideas mira la guía de [conectores en inglés](/es/blog/conectores-en-ingles-linking-words-guia/) y para variar la sintaxis las [oraciones complejas en inglés](/es/blog/oraciones-complejas-ielts-writing-task-2/).
 
 ---
 
 ## Plan táctico de distribución de los 10 minutos
 
-Una administración disciplinada de cada segundo en pantalla es la clave para no dejar frases inconclusas:
+Es una propuesta orientativa, no un reparto oficial; ajústala a tu velocidad de escritura.
 
 | Franja de tiempo | Fase de trabajo | Acción recomendada |
 |---|---|---|
@@ -99,14 +110,16 @@ Una administración disciplinada de cada segundo en pantalla es la clave para no
 
 ## Estructura en 4 partes para un párrafo de puntuación perfecta
 
-A diferencia de otros exámenes que exigen ensayos extensos con introducción y conclusión separadas, esta tarea premia la **densidad conceptual en un único párrafo integrado**:
+No necesitas un ensayo con introducción y conclusión separadas; un **único párrafo compacto** de 4 a 6 oraciones basta:
 
 1. **Oración 1 (Toma de postura y mención del foro)**: Expresa tu opinión clara mientras dialogas con la aportación de uno de los alumnos (*"While both classmates raise valid arguments, I find Claire's perspective on public transit investments significantly more persuasive."*).
 2. **Oración 2 (Tesis principal y justificación de fondo)**: Expón el principio lógico o económico que fundamenta tu elección.
 3. **Oraciones 3–4 (Ejemplo o desarrollo original no mencionado)**: Incorpora un argumento inédito o una evidencia empírica que enriquezca el debate colectivo.
 4. **Oración 5 (Contraste crítico y síntesis de cierre)**: Aborda brevemente la postura contraria para demostrar por qué tu solución ofrece un impacto superior a largo plazo.
 
-![Diccionario inglés–vietnamita de Lexkite con la palabra resilient, pronunciación UK/US, ejemplos, colocaciones y botón para guardar flashcard](media:dict "Consulta definiciones y colocaciones académicas avanzadas en el diccionario inteligente Lexkite")
+Para ensayar este reparto en la app, la página TOEFL de Lexkite incluye una práctica de Write for an Academic Discussion con consigna, dos mensajes de compañeros, contador de palabras, cuenta atrás que arranca al escribir, respuesta modelo, lista de autoevaluación y comentario opcional de IA. La sala de escritura cercana se basa en IELTS Task 2, pero sus consignas y esquemas sirven para el hábito de planificar antes de teclear.
+
+![Sala de escritura de Lexkite con temas, ideas sugeridas, esquema y respuestas modelo comentadas](media:write "La sala de escritura de Lexkite (consignas de IELTS Task 2): útil para planificar un argumento y ensayar un esquema antes de teclear")
 
 ---
 
@@ -122,7 +135,7 @@ A diferencia de otros exámenes que exigen ensayos extensos con introducción y 
 ### Modelo de respuesta de nivel superior (126 palabras)
 > While Mark presents a reasonable case regarding the utility of advanced hardware, I strongly align with Elena's conviction that comprehensive mental health services represent a far more impactful investment. State-of-the-art study pods undoubtedly facilitate technical assignments; however, no amount of computing power can compensate for chronic burnout and psychological distress among undergraduates. In contrast, accessible counseling directly addresses the underlying factors that impede scholastic performance. For instance, a close friend of mine nearly withdrew from two courses during exam season, but a few free counseling sessions helped her manage her anxiety and finish the semester with solid grades. Consequently, investing in mental health resources not only fosters a supportive academic environment but also ensures that students possess the cognitive resilience required to maximize their learning potential.
 
-Observa cómo el texto reconoce el punto de Mark, apoya a Elena, e introduce **conceptos originales como la deserción estudiantil y el agotamiento crónico** con un léxico académico impecable. Fíjate también en lo que evita: estadísticas inventadas. Un ejemplo personal verosímil es más seguro que un porcentaje que no puedes respaldar.
+El texto reconoce el punto de Mark, apoya a Elena y añade **ideas propias (agotamiento crónico y abandono de asignaturas)** con un ejemplo concreto. Tampoco inventa estadísticas: un ejemplo personal verosímil es más seguro que un porcentaje que no puedes respaldar.
 
 ### Errores típicos de los hispanohablantes en esta tarea
 
@@ -131,18 +144,18 @@ Observa cómo el texto reconoce el punto de Mark, apoya a Elena, e introduce **c
 - **Falsos amigos**: *actually* significa "en realidad", no "actualmente" (*currently*); *eventually* es "finalmente", no "eventualmente".
 - **Frases kilométricas con comas**: el español tolera encadenar ideas con comas, pero en inglés eso produce *comma splices*. Separa con punto o usa *however*, *therefore* con punto y coma.
 
-Para afianzar tu vocabulario de examen, explora nuestro [directorio de vocabulario en inglés de Lexkite](/es/vocabulary/) y revisa cómo estructurar respuestas analíticas en nuestra guía de [consejos IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/).
+Para el vocabulario, las [listas de vocabulario de Lexkite](/es/vocabulary/) agrupan palabras por tema, y guardarlas como tarjetas ayuda a recordarlas bajo presión. Para estructurar respuestas argumentativas, consulta los [consejos para IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/). Otra guía de esta tarea: [TOEFL Academic Discussion: ejemplo](/es/blog/toefl-academic-discussion-ejemplo/).
 
-![Repaso de flashcards en Lexkite con la palabra pollution, imagen emoji, transcripción fonética, botón de voltear y barra de progreso](media:review "Repasa tarjetas de vocabulario y estructuras formales con repetición espaciada en Lexkite")
+![Tarjeta de repaso de Lexkite con la palabra pollution, un dibujo, transcripción fonética, botón de voltear y barra de progreso](media:review "Repaso de tarjetas en Lexkite: la palabra al frente, botón de voltear y una barra que muestra cuántas tarjetas quedan")
 
 ---
 
 ## 2 Plantillas versátiles para debates frecuentes
 
-Dependiendo de si el debate plantea elegir entre dos políticas públicas o analizar una innovación tecnológica, puedes memorizar estas matrices lógicas:
+Úsalas como esqueleto y sustituye los corchetes por tus propias ideas. Los evaluadores ven muchas respuestas casi idénticas, así que la razón y el ejemplo deben ser específicos.
 
 ### Plantilla 1: Elección entre dos opciones políticas o sociales
-> While [Student A] puts forward an understandable point regarding [Topic A], I firmly concur with [Student B]'s assertion that [Topic B] is considerably more advantageous. The primary rationale is that [Topic B] resolves the systemic root of the issue rather than merely addressing superficial consequences. For instance, in numerous urban contexts, prioritizing [Topic B] generates tangible benefits for underrepresented communities who lack access to premium resources. Therefore, despite the short-term conveniences mentioned by [Student A], investing resources into [Topic B] offers a more sustainable and socially equitable trajectory for our community.
+> While [Student A] puts forward an understandable point regarding [Topic A], I firmly concur with [Student B]'s assertion that [Topic B] is more convincing. The primary rationale is that [Topic B] resolves the systemic root of the issue rather than merely addressing superficial consequences. For instance, in numerous urban contexts, prioritizing [Topic B] generates tangible benefits for underrepresented communities who lack access to premium resources. Therefore, despite the short-term conveniences mentioned by [Student A], investing resources into [Topic B] offers a more sustainable and socially equitable trajectory for our community.
 
 ### Plantilla 2: Evaluación de tendencias tecnológicas
 > Although [Student A] correctly highlights the operational efficiency associated with [Technology], I share [Student B]'s reservation regarding its long-term ethical implications. While automated systems streamline repetitive workflows, relying entirely on algorithms introduces severe risks in accountability and creative oversight. In my view, institutions must cultivate collaborative human-centered frameworks rather than pursuing total substitution. Consequently, maintaining rigorous professional supervision remains indispensable to ethical modernization.
@@ -151,9 +164,13 @@ Dependiendo de si el debate plantea elegir entre dos políticas públicas o anal
 
 ## 3 Errores críticos que debes evitar en los 10 minutos
 
-1. **Gastar 30 palabras en introducciones filosóficas vacías**: Frases como *"Desde el origen de la humanidad, este ha sido un tema muy debatido por sabios..."* no aportan nada a la calificación y consumen una parte valiosa de tu tiempo. Ve directamente al grano.
-2. **Copiar oraciones textuales de los compañeros**: Las frases copiadas no cuentan como aportación propia y hacen que tu respuesta parezca pobre ante los evaluadores. Si citas una idea ajena, sintetízala en menos de cinco palabras con tu propio estilo.
-3. **No reservar tiempo para la corrección final**: Errores elementales de tecleo o descuidos en la tercera persona del singular (*"Elena suggest"* en lugar de *"Elena suggests"*) dañan directamente tu nota de gramática.
+1. **Una introducción larga y vacía**: *"Since the dawn of civilization, this topic has been debated..."* gasta tiempo y no dice nada. Empieza con tu postura.
+2. **Copiar oraciones textuales de los compañeros**: Las frases copiadas no son tu aportación. Si mencionas una idea ajena, resúmela con pocas palabras propias y pasa a lo tuyo.
+3. **No reservar tiempo para la corrección final**: Fallos como la -s de tercera persona (*"Elena suggest"*) o artículos olvidados bajan la impresión de uso del idioma. Reserva uno o dos minutos para releer.
+
+Si repites siempre los mismos fallos, anótalos: el cuaderno de errores de Lexkite agrupa lo que fallas por tipo (vocabulario, gramática, lectura, escucha) para que lo repases.
+
+![Cuaderno de errores de Lexkite con los fallos agrupados por vocabulario, gramática, lectura y escucha](media:mistakes "Cuaderno de errores de Lexkite: tus fallos agrupados por tipo para revisarlos antes de la siguiente práctica")
 
 {{youtube: | TOEFL iBT Writing Academic Discussion: estrategias y modelos de respuesta}}
 
@@ -161,20 +178,27 @@ Dependiendo de si el debate plantea elegir entre dos políticas públicas o anal
 
 ## Prepara tu redacción académica con Lexkite
 
-Escribir bajo la presión de un reloj de 10 minutos requiere entrenamiento metódico y retroalimentación constante:
+Escribir contra el reloj mejora con práctica cronometrada y revisión honesta:
 
-- **Práctica de redacción cronometrada**: Entrena en la [sala de escritura de Lexkite](/#/write) con contador de palabras y consignas temáticas reales.
-- **Vocabulario académico con FSRS**: Asimila cientos de colocaciones formales y conectores de ensayo mediante el [módulo de repaso espaciado de Lexkite](/#/review).
-- **Entrenamiento fonético y de dicción**: Mejora tu precisión lingüística global en el [laboratorio de pronunciación de Lexkite](/#/pron).
+- **Write for an Academic Discussion**: abre la [práctica de Academic Discussion](/#/toefl-p/discussion), escribe contra el reloj y compara con la respuesta modelo y la lista de autoevaluación.
+- **Write an Email**: la otra tarea de escritura de la sección está en [Write an Email](/#/toefl-p/email); exige cubrir todos los puntos de la consigna.
+- **Vocabulario formal**: repasa las palabras que vas reuniendo en el [repaso de tarjetas](/#/review).
 
-Entra hoy en la [aplicación web de Lexkite](/#/) y convierte la tarea Academic Discussion de TOEFL en una de tus tareas más sólidas.
-
-{{cta: /#/ | Practica gratis en Lexkite | Domina conectores académicos y vocabulario para TOEFL iBT Writing}}
+{{cta: /#/toefl-p/discussion | Practica Academic Discussion | Consigna cronometrada, contador de palabras, respuesta modelo y lista de autoevaluación para la tarea de TOEFL}}
 
 ## Preguntas frecuentes (FAQ)
 
-### ¿Cuántas palabras son ideales para la tarea de Discusión Académica del TOEFL?
-ETS sugiere un mínimo de 100 palabras, pero las respuestas con puntuaciones máximas (4.5 a 5.0) suelen tener entre 120 y 150 palabras bien estructuradas con ejemplos específicos.
+### ¿Cuántas palabras debo escribir en la tarea Academic Discussion?
+Las pautas de ETS indican que las respuestas eficaces suelen tener al menos 100 palabras. Muchas respuestas sólidas rondan las 120–150, pero importa más el desarrollo: una razón clara y un ejemplo concreto valen más que cinco ideas vagas.
+
+### ¿Debo estar de acuerdo con uno de los compañeros?
+No es obligatorio. Puedes apoyar a uno y añadir una razón nueva, discrepar de los dos o combinar ambas posturas. Lo que buscan los evaluadores es una respuesta pertinente con algo que los compañeros no hayan dicho.
 
 ### ¿Se penaliza usar ejemplos personales?
-No. Los evaluadores de ETS y el motor e-rater valoran ejemplos concretos y bien explicados, ya provengan de tu experiencia personal o de observaciones generales.
+No. Un ejemplo concreto y bien explicado, personal o general, desarrolla tu argumento. Evita inventar cifras o estudios que no puedas respaldar.
+
+### ¿Sigue existiendo esta tarea en el nuevo formato?
+Sí. Desde el 21 de enero de 2026 Writing tiene tres tareas: Build a Sentence, Write an Email y Write for an Academic Discussion (fuente: página de estructura y contenido del TOEFL iBT de ETS).
+
+### ¿Qué errores cometen más los hispanohablantes aquí?
+Omitir el sujeto (*Is important* en vez de *It is important*), encadenar frases solo con comas (*comma splice*), confundir falsos amigos como *actually* y olvidar la -s de tercera persona. Tras escribir, busca esos cuatro fallos uno por uno en tu borrador.

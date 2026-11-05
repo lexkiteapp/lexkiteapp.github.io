@@ -15,15 +15,15 @@ author: Lexkite
 status: ready
 quiz: [
   {
-    q: "Qual é o tempo médio recomendado por questão no TOEIC Part 5?",
+    q: "Qual é uma meta de tempo razoável por questão no TOEIC Part 5?",
     options: [
       "Mais de 60 segundos por item",
-      "Entre 15 e 20 segundos por questão para garantir tempo na Parte 7",
+      "Cerca de 20 segundos por questão, para sobrar tempo para as Partes 6 e 7",
       "Exatamente 40 segundos por pergunta",
       "Não há necessidade de cronometrar"
     ],
     answer: 1,
-    explain: "Resolver os 30 itens da Parte 5 em menos de 10 minutos (15 a 20 segundos cada) é crucial para sobrar tempo para os textos densos da Parte 7."
+    explain: "A seção de Reading tem 100 questões em 75 minutos. Cerca de 20 segundos por item resolve as 30 questões em 10 minutos e deixa mais tempo para os textos longos. É uma meta de treino, não uma regra da ETS."
   },
   {
     q: "O que você deve analisar primeiro ao abrir uma questão da Parte 5?",
@@ -40,20 +40,26 @@ quiz: [
     q: "Qual é a técnica para resolver questões de classes gramaticais em segundos?",
     options: [
       "Identificar a função sintática analisando as palavras imediatamente antes e depois da lacuna",
-      "Tentar traduzir a frase de trás para frente",
+      "Ler a frase de trás para frente até soar natural",
       "Escolher a palavra mais curta",
       "Procurar verbos no infinitivo"
     ],
-    answer: 1,
+    answer: 0,
     explain: "A posição estrutural da lacuna (por exemplo, entre um artigo e um substantivo) define a classe de palavra necessária sem exigir a leitura da frase inteira."
+  },
+  {
+    q: "Qual alternativa completa a frase: '___ the long delay, the flight landed safely'?",
+    options: ["Although", "Despite", "Because", "Even though"],
+    answer: 1,
+    explain: "Depois da lacuna vem só um sintagma nominal (the long delay), sem verbo conjugado. Pede-se uma preposição de concessão, e Despite é a única; as outras três introduzem uma oração completa."
   }
 ]
-qualityScore: 86
+qualityScore: 92
 ---
 
-Na busca por pontuações de destaque no teste de proficiência voltado aos negócios, a seção de leitura do exame não tolera hesitações nem desperdício de minutos. Com 30 itens objetivos de múltipla escolha, a seção **toeic part 5** representa a porta de entrada da prova de Reading e define o ritmo de toda a sua avaliação. Um candidato que gaste mais de 12 minutos nessa etapa inicial corre sério risco de chutar várias questões ao encarar os longos textos do final da prova.
+Na busca por pontuações de destaque no teste de proficiência voltado aos negócios, a seção de leitura do exame não tolera hesitações nem desperdício de minutos. Com 30 itens objetivos de múltipla escolha, a seção **toeic part 5** representa a porta de entrada da prova de Reading e define o ritmo de toda a sua avaliação. A seção de Reading tem 100 questões em 75 minutos (Parte 5: 30, Parte 6: 16, Parte 7: 54) e a ETS não fixa um tempo por parte. Cada minuto economizado aqui sobra para os textos longos da Parte 7.
 
-Ao aliar um método de análise estrutural direto com as orientações apresentadas em nosso guia do [TOEIC Part 7 estratégias de leitura e tempo](/pt/blog/toeic-part-7-estrategias-leitura-tempo/) e as práticas de [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/), você aprenderá a diagnosticar o perfil de cada questão em menos de 20 segundos, assegurando uma margem segura de acertos.
+Ao aliar um método de análise estrutural direto com as orientações apresentadas em nosso guia do [TOEIC Part 7 estratégias de leitura e tempo](/pt/blog/toeic-part-7-estrategias-leitura-tempo/) e as práticas de [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/), você aprenderá a diagnosticar o tipo de cada questão em cerca de 20 segundos (meta de treino, não regra oficial).
 
 ---
 
@@ -66,14 +72,14 @@ Essas questões dividem-se em duas naturezas essenciais:
 1. **Questões de gramática e classe de palavras (em geral um pouco mais da metade da seção; a proporção varia de prova para prova)**: As quatro alternativas derivam da mesmíssima raiz lexical (como *expand*, *expansion*, *expansive*, *expansively*). O objetivo é identificar a função sintática exigida pela oração (substantivo, adjetivo, advérbio ou forma verbal).
 2. **Questões de vocabulário e combinações fixas (o restante)**: As alternativas trazem vocábulos totalmente diferentes, normalmente pertencentes à mesma classe gramatical (como *deliver*, *postpone*, *negotiate*, *exceed*). O acerto depende da interpretação contextual do mundo corporativo ou de colocações lexicais consagradas.
 
-| Categoria da pergunta | Padrão das alternativas | Tempo alvo por item | Foco da verificação |
+| Categoria da pergunta | Padrão das alternativas | Meta por item | Foco da verificação |
 | :--- | :--- | :--- | :--- |
 | **Classes gramaticais (Parts of Speech)** | Mesma raiz com sufixos variados (*-tion, -ly, -ive*) | 15 segundos | Identificação da posição sintática |
 | **Tempos verbais e voz** | Formas verbais conjugadas (*has approved, was approving*) | 20 segundos | Concordância e aspecto ativo/passivo |
 | **Pronomes e determinantes** | Pessoais, reflexivos ou possessivos (*they, their, themselves*) | 10 segundos | Papel sintático e referência ao sujeito |
 | **Colocações corporativas** | Vocábulos distintos no mesmo campo semântico | 25 segundos | Coerência com a rotina de trabalho |
 
-![Interface do dicionário Lexkite com busca pelo termo corporativo resilient e transcrição fonética](media:dict "Pesquisa de termos corporativos e consulta de exemplos contextuais no dicionário Lexkite")
+![Página Luyện thi TOEIC do Lexkite com simulados, treino por Part e vocabulário TOEIC (TSL)](media:toeic "A página TOEIC do Lexkite: simulados, treino por Part e vocabulário TSL")
 
 ---
 
@@ -90,7 +96,7 @@ Veja os padrões mais frequentes na prova:
 - **Advérbio terminado em -ly**: Modifica verbos de ação, adjetivos ou uma oração inteira já estruturada. Se a frase já possui sujeito, verbo transitivo e objeto direto completos, a lacuna quase sempre pede um advérbio:
   - *Exemplo: The technician resolved the software glitch _____. (Opções: prompt, promptly, promptness)* $\rightarrow$ Resposta: *promptly* (advérbio modificando *resolved*).
 
-Para enriquecer sua base de termos formais de trabalho, confira também nosso acervo de [modelos de correspondência corporativa](/samples/).
+Para enriquecer sua base de termos formais de trabalho, veja as [listas de vocabulário](/tu-vung/). Para treinar com questões de verdade, a [página TOEIC do Lexkite](/#/toeic) traz, para cada simulado, um treino de Part 5 que explica cada resposta depois do envio.
 
 ---
 
@@ -110,7 +116,7 @@ A regra estrutural basilar é simples e definitiva:
 
 Ao se deparar com essas opções, examine o segmento seguinte à lacuna. Se houver um verbo conjugado acompanhado de sujeito, descarte imediatamente todas as preposições da lista de alternativas.
 
-![Interface de revisão por flashcards no Lexkite exibindo termo corporativo e transcrição fonética](media:review "Sessão de estudo com flashcards e repetição espaçada de vocabulário no aplicativo Lexkite")
+![Biblioteca do Lexkite com as abas Todas, NGSL, IELTS, Writing, Speaking e TOEIC (TSL)](media:library "A biblioteca tem a aba TOEIC (TSL) para o vocabulário corporativo da Parte 5")
 
 ---
 
@@ -120,7 +126,7 @@ A voz passiva é predominante em comunicados corporativos, relatórios de audito
 
 Para definir a forma verbal correta em poucos segundos, adote este roteiro mental:
 1. **Verifique o sujeito real**: Sujeitos com complementos preposicionais longos costumam induzir a erros de número (*The collection of quarterly sales data [was/were] delayed...* $\rightarrow$ o sujeito é *collection*, singular: *was*).
-2. **Cheque a presença de objeto direto**: Se a forma verbal for seguida diretamente por um substantivo que recebe a ação, o verbo opera na voz ativa (*The company upgraded its server infrastructure*). Se não houver objeto após a lacuna, ou se a oração apresentar a preposição *by*, utilize a voz passiva com verbo auxiliar *to be* + particípio passado (*The system was upgraded by the IT staff*).
+2. **Cheque a presença de objeto direto**: Se a forma verbal for seguida diretamente por um substantivo que recebe a ação, o verbo opera na voz ativa (*The company upgraded its server infrastructure*). Se faltar o objeto de um verbo transitivo (*approve*, *upgrade*), ou se o agente vier com *by*, utilize a voz passiva com verbo auxiliar *to be* + particípio passado (*The system was upgraded by the IT staff*).
 
 Mantenha seu vocabulário profissional alinhado com as demandas do mercado conferindo nosso guia de [abreviações em inglês no trabalho](/pt/blog/abreviacoes-em-ingles-no-trabalho-emails-guia/) e explore métodos de apresentação corporativa em [como dar feedback em inglês no trabalho](/pt/blog/como-dar-feedback-em-ingles-no-trabalho/).
 
@@ -128,7 +134,7 @@ Mantenha seu vocabulário profissional alinhado com as demandas do mercado confe
 
 ### Armadilhas típicas para brasileiros
 
-- **Falsos cognatos**: *pretend* é "fingir", não "pretender" (*intend*); *actually* é "na verdade", não "atualmente" (*currently*); *push* é "empurrar", não "puxar". Em questões de vocabulário, esses pares aparecem como distratores.
+- **Falsos cognatos**: *pretend* é "fingir", não "pretender" (*intend*); *actually* é "na verdade", não "atualmente" (*currently*); Em questões de vocabulário, esses pares aparecem como distratores.
 - **"Faz" + tempo**: "Trabalho aqui faz três anos" leva a *I work here since three years*. O correto é *I have worked here for three years*; use *since* com um ponto no tempo (*since 2023*).
 - **Sujeito oculto**: em português "É importante revisar" dispensa sujeito, mas em inglês ele é obrigatório: *It is important to review*. Se a lacuna está no início da oração, desconfie da falta de *it* ou *there*.
 - **Adjetivo no lugar do advérbio**: "resolveu rápido" é natural no português falado, mas a prova exige *resolved promptly*, nunca *resolved prompt*.
@@ -177,10 +183,10 @@ Pratique suas técnicas de leitura e descarte com estas quatro questões no esti
 
 ## Gestão do tempo: Protocolo de 10 minutos para a Parte 5
 
-Para garantir que você chegue aos textos múltiplos da Parte 7 com tempo hábil e tranquilidade, adote este cronograma:
+Dos 75 minutos de Reading, 10 para a Parte 5 deixam 65 para as Partes 6 e 7. Um cronograma possível (sugestão própria, não regra da ETS):
 
 ```
-Meta global para a Parte 5 = 10 minutos (600 segundos)
+Meta para a Parte 5 = 10 minutos (600 segundos)
 30 questões / 600 segundos = 20 segundos por questão em média
 ```
 
@@ -190,7 +196,7 @@ Siga este passo a passo cronometrado durante o exame:
 - **15–20 segundos**: Marque a alternativa correta na folha de respostas e passe para o próximo item.
 - **Regra de ouro contra o travamento**: Se estiver em dúvida entre duas alternativas após 25 segundos, opte pela hipótese mais provável e siga em frente. Jamais deixe uma questão sem resposta nem sacrifique o tempo das seções seguintes.
 
-![Módulo de treinamento de pronúncia no Lexkite com microfone e pontuação de voz](media:practice-speak "Treino de pronúncia e reconhecimento de voz com suporte interativo no aplicativo Lexkite")
+![Caderno de erros do Lexkite que agrupa os erros em Vocabulário, Gramática, Leitura e Escuta](media:mistakes "O caderno de erros agrupa suas falhas por vocabulário, gramática, leitura e escuta")
 
 ---
 
@@ -200,12 +206,12 @@ A capacidade de resolver perguntas objetivas rapidamente decorre do contato diá
 
 - **Algoritmo FSRS de repetição espaçada**: Memorize termos corporativos e colocações essenciais com retenção duradoura.
 - **Dicionário inteligente integrado**: Consulte definições, sinônimos formais e pronúncia padrão em um único clique.
-- **Laboratório acústico de conversação**: Pratique clareza e ritmo vocal utilizando nosso espaço de [prática oral de Lexkite](/#/practice/speak) com devolutiva analítica.
+- **Caderno de erros**: as questões erradas vão para o [caderno de erros](/#/mistakes), agrupadas por vocabulário, gramática ou leitura. Assim você vê se seus erros de Part 5 vêm da classe de palavra ou das colocações.
 - **Roteiro estruturado de autoestudo**: Organize seus meses de treino de ponta a ponta com o nosso [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/) em três fases.
 
-Acesse a [plataforma web Lexkite](/#/) agora mesmo e transforme sua preparação para o TOEIC Part 5 em uma rotina ágil e produtiva!
+Experimente: abra a [página TOEIC](/#/toeic), escolha um simulado, entre na Part 5 e cronometre você mesmo.
 
-{{cta: /#/ | Praticar inglês corporativo na plataforma Lexkite}}
+{{cta: /#/toeic | Treinar a Part 5 com respostas comentadas}}
 
 {{youtube: | Dicas práticas e estratégias essenciais para gabaritar o TOEIC Part 5}}
 
@@ -218,6 +224,12 @@ Nas questões de classes de palavras (derivação de sufixos e pronomes), examin
 
 ### Quantos erros posso cometer na Parte 5 para alcançar 850 pontos?
 Não existe uma conta fixa: a ETS converte os acertos brutos para a escala de 5 a 495 por seção de acordo com cada versão da prova e não publica uma tabela oficial de erros permitidos por parte. A regra prática para metas altas é chegar a uma Parte 5 quase sem erros nos simulados, porque ali estão os pontos mais rápidos da seção de Reading. Anote cada erro com a causa (classe de palavra, tempo verbal, colocação) e volte à regra correspondente.
+
+### Perde-se ponto por resposta errada?
+Não. Só os acertos contam; errar não tira pontos. Por isso, nunca deixe uma questão em branco: elimine as alternativas impossíveis e marque a mais provável.
+
+### Que erros brasileiros cometem mais na Parte 5?
+Os mais comuns são usar *since* com duração (*for three years*), o Present Perfect com *yesterday*, o advérbio omitido (*resolved prompt* em vez de *promptly*) e os falsos cognatos como *actually* e *pretend*. Antes de marcar, confira o sujeito do verbo e se a marca de tempo é fechada (Simple Past) ou chega até hoje (Present Perfect).
 
 ### Qual a maneira ideal de memorizar colocações frequentes do exame?
 Evite estudar palavras isoladas. Registre blocos inteiros de significado (*chunks*), como *strictly confidential*, *reach an agreement* e *conduct an audit*. Revisar esses agrupamentos por meio de repetição espaçada acelera significativamente o reconhecimento na hora da prova.

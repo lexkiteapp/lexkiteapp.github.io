@@ -1,6 +1,6 @@
 ---
 title: "Cómo mejorar la pronunciación en inglés: 5 errores comunes"
-description: "Aprende cómo mejorar la pronunciación en inglés: elimina errores en consonantes finales, vocales cortas y largas, acento de palabra y entonación."
+description: "Cómo mejorar la pronunciación en inglés si hablas español: corrige la e delante de s, th, b/v, vocales largas y cortas y consonantes finales cada día."
 slug: como-mejorar-la-pronunciacion-en-ingles-guia
 lang: es
 translationKey: luyen-phat-am-tieng-anh
@@ -13,106 +13,105 @@ publishAt: 2027-01-02T19:01:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 87
+qualityScore: 92
 quiz: [
   {
-    q: "¿Qué técnica de pronunciación consiste en imitar a un hablante nativo casi simultáneamente con una fracción de segundo de retraso?",
-    options: [
-      "Lectura silenciosa",
-      "Shadowing (sombreado)",
-      "Traducción palabra por palabra",
-      "Copia ortográfica"
-    ],
+    q: "¿Qué técnica consiste en repetir un audio nativo casi a la vez que el hablante, con una fracción de segundo de retraso?",
+    options: ["Lectura silenciosa", "Shadowing (sombreado)", "Traducción palabra por palabra", "Copia ortográfica"],
     answer: 1,
-    explain: "El shadowing entrena el ritmo, la entonación y la colocación muscular de la boca en tiempo real."
+    explain: "El shadowing te obliga a copiar ritmo, entonación y sonidos al mismo tiempo que oyes el modelo."
   },
   {
-    q: "¿Cuál es el error más frecuente de los hispanohablantes al pronunciar palabras como 'school' o 'speak'?",
+    q: "¿Por qué muchos hispanohablantes dicen /es-kul/ en lugar de /skuːl/ para 'school'?",
     options: [
-      "Omitir la letra 's'",
-      "Añadir una vocal 'e' epentética inicial (/es-kul/ en lugar de /skuːl/)",
-      "Pronunciar la 'k' como una 'j'",
-      "Acentuar la última sílaba"
+      "Porque en español ninguna palabra empieza con s + consonante sin vocal de apoyo",
+      "Porque la s inglesa se escribe distinto",
+      "Porque el inglés acentúa siempre la primera sílaba",
+      "Porque la k de 'school' es muda en inglés"
     ],
-    answer: 1,
-    explain: "En español no existen palabras que comiencen por 's' líquida seguida de consonante, por lo que el cerebro tiende a insertar una 'e'."
+    answer: 0,
+    explain: "En español las palabras con ese grupo llevan una e inicial (escuela, estudiante). El cerebro aplica el mismo hábito al inglés. La solución es empezar con una s larga y pasar directo a la consonante."
   },
   {
-    q: "¿Cómo optimiza el algoritmo FSRS el dominio de pares mínimos fonéticos?",
-    options: [
-      "Obliga a memorizar reglas gramaticales",
-      "Programa repeticiones auditivas y de producción justo antes de que el cerebro olvide el contraste acústico",
-      "Elimina la necesidad de escuchar grabaciones nativas",
-      "Solo funciona con palabras escritas"
-    ],
-    answer: 1,
-    explain: "El sistema FSRS fija contrastes sutiles (como /ɪ/ vs /iː/) mediante intervalos de repetición adaptativos."
+    q: "¿Qué par de palabras se distingue sobre todo por la duración y la tensión de la vocal?",
+    options: ["sheep / ship", "berry / very", "think / sink", "desert / dessert"],
+    answer: 0,
+    explain: "En sheep /ʃiːp/ la vocal es larga y tensa, y en ship /ʃɪp/ es breve y relajada. Berry/very se diferencian en la consonante inicial, think/sink también, y desert/dessert en el acento y la consonante central."
+  },
+  {
+    q: "Si hablas español de España, ¿qué sonido inglés ya tienes en tu idioma?",
+    options: ["/θ/ de think, igual que la z de zapato", "/ʃ/ de ship", "/v/ de very", "/h/ de hello"],
+    answer: 0,
+    explain: "La z/c del español peninsular es la misma /θ/ de think. En cambio, /v/ y /h/ no existen en español estándar, y /ʃ/ tampoco."
   }
 ]
 ---
 
-Lee esta frase en voz alta ahora mismo: *"I liked the three big books."* Si el español es tu lengua materna y no has recibido entrenamiento fonético, es muy probable que hayas omitido los grupos consonánticos finales, igualado la duración de las vocales o sustituido el sonido interdental por una simple /d/ o /t/. Los hablantes nativos pueden deducir tu mensaje por el contexto, pero su cerebro debe realizar un esfuerzo adicional constante para descifrar tus palabras. En una entrevista de trabajo o en una reunión internacional, esa fricción comunicativa reduce notablemente tu impacto profesional.
+Lee esta frase en voz alta ahora mismo: *"I liked the three big books."* Si tu lengua materna es el español, es probable que hayas soltado las consonantes finales de *liked* o *books*, pronunciado igual las vocales largas y cortas, o cambiado la *th* por una /d/ o una /t/. El oyente suele entenderte por el contexto, pero le cuesta más esfuerzo, y en una entrevista o una reunión ese esfuerzo se nota.
 
-Comprender **cómo mejorar la pronunciación en inglés** no consiste en fingir un acento aristocrático británico ni en sonar forzadamente como un actor de cine. El estándar real de la comunicación global es la inteligibilidad: articular con claridad, respetar la duración vocálica y dominar el ritmo acentual para que cualquier interlocutor internacional te comprenda sin esfuerzo.
+Comprender **cómo mejorar la pronunciación en inglés** no consiste en imitar un acento británico o americano. El objetivo práctico es la inteligibilidad: articular con claridad, respetar la duración de las vocales y el ritmo de la frase para que cualquier interlocutor te entienda sin esfuerzo.
 
-Al integrar los ejercicios de nuestra [guía de pronunciación IPA en inglés](/es/blog/guia-pronunciacion-ipa-ingles/), las pautas del [acento oracional en inglés guía](/es/blog/acento-oracional-en-ingles-guia/) y las estrategias para [cómo pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/), este manual práctico te ayudará a corregir los cinco errores más frecuentes de los hispanohablantes.
+Esta guía recorre los cinco errores más frecuentes de los hispanohablantes, cada uno con su ejercicio, y termina con una rutina de 10 minutos. Para los símbolos fonéticos, consulta la [guía de pronunciación IPA en inglés](/es/blog/guia-pronunciacion-ipa-ingles/); para el ritmo de la frase, el [acento oracional en inglés](/es/blog/acento-oracional-en-ingles-guia/); y para practicar por imitación, la [técnica de shadowing paso a paso](/es/blog/tecnica-shadowing-ingles-paso-a-paso/).
 
 ---
 
 ## Por qué los hispanohablantes cometen errores fonéticos predecibles
 
-El aparato fonador de los adultos se encuentra condicionado por los patrones motores de su lengua materna. Cuando un hispanohablante intenta hablar inglés, su cerebro tiende a sustituir los fonemas desconocidos por los sonidos más cercanos del repertorio español.
+De adultos, los músculos con los que hablamos están acostumbrados a los sonidos de nuestra lengua materna. Por eso, al hablar inglés, el hispanohablante sustituye los sonidos que no conoce por los más parecidos del español.
 
 Existen tres divergencias fonológicas esenciales entre ambos idiomas:
 
-1. **Ritmo silábico frente a ritmo acentual**: El español es una lengua de ritmo silábico (*syllable-timed*), donde cada sílaba tiene una duración similar. El inglés es una lengua de ritmo acentual (*stress-timed*): las sílabas tónicas se alargan notablemente, mientras que las sílabas átonas intermedias se comprimen en la vocal neutra schwa /ə/.
-2. **Grupos consonánticos finales densos**: En español, la inmensa mayoría de las palabras terminan en vocal o en unas pocas consonantes suaves (*-n, -s, -r, -l, -d, -z*). En inglés, las palabras acumulan densos grupos consonánticos finales que contienen información gramatical decisiva (*finished* /ˈfɪn.ɪʃt/, *texts* /tɛksts/).
-3. **Pares de vocales tensas y relajadas**: El español cuenta con solo 5 sonidos vocálicos puros y estables. El inglés posee entre 12 y 14 monoptongos, donde la diferencia entre una vocal tensa y una relajada altera totalmente el significado de la palabra (como en *sheet* frente a *shit*, o *beach* frente a *bitch*).
+1. **Ritmo silábico frente a ritmo acentual**: El español es una lengua de ritmo silábico (*syllable-timed*), donde cada sílaba tiene una duración similar. El inglés es una lengua de ritmo acentual (*stress-timed*): las sílabas tónicas de las palabras de contenido se alargan, mientras que las átonas y las palabras gramaticales cortas (*to*, *of*, *can*) se acortan y a menudo se reducen a la vocal neutra schwa /ə/.
+2. **Grupos consonánticos finales densos**: En español, casi todas las palabras terminan en vocal o en unas pocas consonantes (*-n, -s, -r, -l, -d, -z*). En inglés es normal terminar en grupos de consonantes que llevan información gramatical (*finished* /ˈfɪnɪʃt/, *texts* /tɛksts/).
+3. **Pares de vocales tensas y relajadas**: El español tiene solo 5 vocales. El inglés británico estándar tiene 12 vocales simples y 8 diptongos, y la diferencia entre una vocal larga y tensa y una corta y relajada cambia la palabra (*sheep* frente a *ship*, *leave* frente a *live*).
 
 | Aspecto fonético | Error común del hispanohablante | Impacto en la inteligibilidad | Solución acústica |
 | :--- | :--- | :--- | :--- |
-| **Consonantes finales** | Omitir la última consonante (*lik* por *liked*) | Grave (confunde tiempos y plurales) | Cierre articular y expulsión de aire |
+| **Consonantes finales** | Omitir la última consonante (*lik* por *liked*) | Grave (se pierden el pasado y el plural) | Pronunciar y soltar cada consonante final |
 | **Sonido interdental /θ, ð/** | Sustituir por /s, z/ o /t, d/ | Medio (*tree* en lugar de *three*) | Colocar la punta de la lengua entre los dientes |
-| **Pares /iː/ vs /ɪ/** | Pronunciar ambas como la /i/ española | Alto (modifica el significado léxico) | Relajar la mandíbula en la vocal corta |
-| **Acento de palabra** | Acentuar todas las sílabas con igual fuerza | Alto (dificulta el reconocimiento auditivo) | Alargar notablemente la vocal de la sílaba tónica |
+| **Pares /iː/ vs /ɪ/** | Pronunciar ambas como la /i/ española | Alto (cambia la palabra: *sheep* / *ship*) | Vocal larga y tensa frente a vocal corta y relajada |
+| **Acento de palabra** | Acentuar todas las sílabas con igual fuerza | Alto (el oyente no reconoce la palabra) | Alargar y marcar la sílaba tónica |
 
-![Interfaz del diccionario Lexkite con el término resilient y transcripción fonética](media:dict "Búsqueda de términos corporativos y símbolos fonéticos IPA en el diccionario Lexkite")
+![Entrada del diccionario Lexkite para resilient con transcripción fonética británica y americana, audio y frases de ejemplo](media:dict "Una entrada del diccionario muestra la transcripción IPA, la sílaba tónica y el audio de la palabra")
 
 ---
 
 ## Error 1: Omitir o ensordecer las consonantes finales
 
-En inglés, los finales de palabra no son adornos opcionales: determinan el tiempo verbal pasado (*-ed*), el plural de los sustantivos (*-s, -es*) y la tercera persona del singular.
+En inglés, los finales de palabra no son opcionales: marcan el pasado (*-ed*), el plural (*-s, -es*) y la tercera persona del singular.
 
-Muchos estudiantes hispanohablantes tienden a relajar la boca antes de tiempo y suprimen el sonido final:
+Como en español casi no hay consonantes finales, muchos estudiantes cierran la palabra antes de tiempo y suprimen el sonido final:
 - *Ejemplo*: Decir *"She like work"* en vez de *"She likes working"*.
 - *Ejemplo*: Decir *"I arrive yesterday"* en lugar de *"I arrived yesterday"* (/əˈraɪvd/).
 
 ### Cómo corregirlo
-Divide el grupo consonántico en microbloques de articulación. Para el sufijo *-ed* tras consonantes sordas como en *helped* (/hɛlpt/):
-1. Articula la /p/ cerrando los labios con firmeza.
-2. Sin añadir una vocal intermedia, abre los labios y suelta de inmediato el golpe seco de la /t/: *help-t*.
-3. Enlaza con la palabra siguiente si empieza por vocal: *"He helped us"* → *"He help-t-us"*.
+Divide el grupo en pasos pequeños. Para *-ed* tras consonante sorda, como en *helped* (/hɛlpt/):
+1. Di *help* y cierra los labios para la /p/.
+2. Sin añadir ninguna vocal, toca con la punta de la lengua detrás de los dientes superiores para la /t/: *help-t*.
+3. Si la palabra siguiente empieza por vocal, enlázalas: *"He helped us"* suena como *"He help-tus"*.
 
-Perfecciona tus patrones de expresión formal consultando nuestros [modelos de texto y ensayos](/samples/).
+El sufijo *-ed* tiene tres pronunciaciones (/t/, /d/ e /ɪd/): lo explicamos en la guía de [pronunciación de -ed en inglés](/es/blog/pronunciacion-ed-en-ingles/), y cómo se unen las palabras en [enlace de palabras en inglés (connected speech)](/es/blog/enlace-de-palabras-en-ingles-connected-speech/).
 
 ---
 
 ## Error 2: Confundir las vocales tensas y relajadas
 
-Al disponer el español de solo cinco vocales estables, el oído hispanohablante tiende a fusionar pares ingleses que para un nativo suenan completamente opuestos.
+Con solo cinco vocales en español, el oído tiende a fundir pares ingleses que para un nativo son palabras distintas.
 
 Presta especial atención a estos pares mínimos críticos:
 - **/iː/ frente a /ɪ/**: *sheep* /ʃiːp/ (labios estirados, vocal larga y tensa) frente a *ship* /ʃɪp/ (mandíbula relajada, sonido breve y centrado).
 - **/uː/ frente a /ʊ/**: *fool* /fuːl/ (labios muy redondeados y tensos) frente a *full* /fʊl/ (boca relajada, similar a un suspiro breve).
-- **/æ/ frente a /e/**: *man* /mæn/ (mandíbula muy abierta hacia abajo) frente a *men* /mɛn/ (apertura media).
+- **/æ/ frente a /e/**: *man* /mæn/ (mandíbula más abierta) frente a *men* /mɛn/ (apertura media).
+- **/ʌ/ frente a /æ/ frente a /ɑː/**: *cup* /kʌp/, *cap* /kæp/ y *cop* (americano /kɑːp/). El español tiende a decir /a/ en las tres.
 
 ### Cómo corregirlo
-Practica frente a un espejo exagerando la postura muscular:
-- Para las vocales tensas (/iː/, /uː/), tensa los músculos de las mejillas y sonríe ampliamente.
-- Para las vocales relajadas (/ɪ/, /ʊ/, /ə/), suelta la mandíbula y mantén la lengua flotando en el centro de la boca sin tocar los dientes.
+Practica frente a un espejo, exagerando el gesto:
+- Para las vocales largas (/iː/, /uː/), estira los labios en una sonrisa (/iː/) o redondéalos con fuerza (/uː/), y alarga un poco el sonido.
+- Para las cortas (/ɪ/, /ʊ/), relaja labios y mandíbula y no alargues. Frase de práctica: *"Leave the live fish on the ship."*
 
-![Pantalla de repaso con tarjetas flashcard en la aplicación Lexkite](media:review "Sesión de estudio con tarjetas flashcard y repetición espaciada de vocabulario en Lexkite")
+La [biblioteca de pronunciación de Lexkite](/#/pron) reúne las vocales simples, los diptongos y las consonantes con palabras de ejemplo, para que escuches un par como sheep / ship y lo repitas.
+
+![Biblioteca de pronunciación de Lexkite con grupos de vocales simples, diptongos y consonantes, palabras de ejemplo y práctica de cada sonido](media:pron "La biblioteca de pronunciación agrupa los sonidos del inglés para practicar un par cada vez")
 
 ---
 
@@ -120,32 +119,33 @@ Practica frente a un espejo exagerando la postura muscular:
 
 En inglés, equivocarse en la sílaba tónica (*word stress*) suele desorientar al oyente nativo más que un pequeño fallo gramatical. La posición del acento define con frecuencia la categoría de la palabra:
 
-- *PRE-sent* (sustantivo: regalo) frente a *pre-SENT* (verbo: presentar).
-- *DES-ert* (*desert*, sustantivo: desierto) frente a *des-SERT* (*dessert*, sustantivo: postre).
-- *e-CO-no-my* (acento en la 2.ª sílaba) frente a *e-co-NO-mic* (acento en la 3.ª sílaba).
+- *PRES-ent* (sustantivo: regalo) frente a *pre-SENT* (verbo: presentar).
+- *DES-ert* (*desert*, sustantivo: desierto) frente a *de-SERT* (*dessert*, postre).
+- *e-CON-o-my* (acento en la 2.ª sílaba) frente a *e-co-NOM-ic* (acento en la 3.ª sílaba).
 
 ### Cómo corregirlo
-Cuando aprendas una palabra polisilábica, memoriza siempre su dibujo acentual. En inglés, una sílaba tónica se distingue físicamente por tres factores:
-1. **Tono más agudo**: La voz sube ligeramente de escala musical.
-2. **Mayor duración**: La vocal se mantiene claramente más tiempo que las vecinas.
-3. **Mayor volumen**: La salida de aire desde los pulmones es más enérgica.
+Cuando aprendas una palabra de varias sílabas, memoriza dónde va el acento. La sílaba tónica en inglés suele destacar por tres cosas:
+1. **Tono más alto**: la voz sube en esa sílaba.
+2. **Vocal más larga**: dura más que las vocales vecinas.
+3. **Algo más de volumen**.
 
-Fortalece tu repertorio léxico con nuestra guía sobre [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/) y explora el [directorio de vocabulario por temas](/es/vocabulary/).
+En el diccionario, la marca ˈ va antes de la sílaba tónica: *economy* /ɪˈkɒnəmi/. Acostúmbrate a mirarla cada vez que busques una palabra nueva. Más patrones en nuestra guía de [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/).
 
 ---
 
 ## Error 4: Añadir una "E" fantasma antes de la S líquida
 
-El español no admite palabras que comiencen por la combinación *s + consonante* sin una vocal de apoyo previa (*España*, *estudiante*, *escuela*). Por instinto motor inconsciente, los hispanohablantes tienden a pronunciar una /e/ delante de vocablos ingleses que inician por *s-*:
+El español no admite palabras que comiencen por la combinación *s + consonante* sin una vocal de apoyo previa (*España*, *estudiante*, *escuela*). Por costumbre, los hispanohablantes añaden una /e/ delante de las palabras inglesas que empiezan por *s* + consonante:
 
 - Decir *"eschool"* en lugar de *"school"* (/skuːl/).
-- Decir *"especial"* en vez de *"special"* (/ˈspɛʃ.əl/).
+- Decir *"es-special"* en vez de *"special"* (/ˈspɛʃəl/).
 - Decir *"estart"* en vez de *"start"* (/stɑːrt/).
 
 ### Cómo corregirlo
-Inicia la palabra emitiendo exclusivamente el silbido continuo de la /s/, similar al sonido que imita a una serpiente o al pedir silencio (*sssssh*).
+Inicia la palabra emitiendo exclusivamente el silbido continuo de la /s/, como cuando se imita a una serpiente.
 1. Junta los dientes y exhala aire continuamente: *ssssss...*
-2. Sin detener el flujo de aire ni abrir la boca, salta directamente a la consonante siguiente: *sss-peak*, *sss-tudy*, *sss-top*.
+2. Sin detener el aire ni insertar ninguna vocal, pasa directamente a la consonante siguiente: *sss-peak*, *sss-tudy*, *sss-top*.
+3. Acorta poco a poco la s larga hasta que suene natural: *school, speak, study, stop, spring, strong*.
 
 ---
 
@@ -156,7 +156,7 @@ Los dos sonidos de la grafía *th* son el gran clásico del acento hispano: /θ/
 - Si hablas español peninsular, la /θ/ es exactamente la *z* de *zapato* o la *c* de *cena*. En Latinoamérica, donde se sesea, suele salir /t/ o /s/: *tree* o *sree* en lugar de *three*.
 - La /ð/ es la *d* suave que haces entre vocales en *dedo*, *cada* o *nada*. El problema es que al principio de palabra la conviertes en /d/ fuerte: *dey* en lugar de *they*, *de* en lugar de *the*.
 
-El segundo cambio típico es la fusión de *b* y *v*: en español suenan igual, pero en inglés *very* /ˈveri/ y *berry* /ˈberi/, o *vest* y *best*, son palabras distintas. La /v/ inglesa se articula apoyando los dientes superiores sobre el labio inferior, como una /f/ con vibración de las cuerdas vocales.
+El segundo cambio típico es la fusión de *b* y *v*: en español suenan igual, pero en inglés *very* /ˈvɛri/ y *berry* /ˈbɛri/, o *vest* y *best*, son palabras distintas. La /v/ inglesa se hace apoyando los dientes superiores sobre el labio inferior, como una /f/ con la voz encendida.
 
 ### Cómo corregirlo
 1. Di *cena* (o *zapato*) despacio y aísla el sonido de la *z*: ese es el arranque de *think*. Si seseas, apoya la punta de la lengua entre los dientes y sopla sin cortar el aire.
@@ -166,53 +166,65 @@ El segundo cambio típico es la fusión de *b* y *v*: en español suenan igual, 
 
 ---
 
-## Cómo Mejorar la Pronunciación en Inglés: Rutina Diaria de 10 Minutos
+## Otros errores típicos del español que conviene vigilar
 
-Para transformar estos conceptos en reflejos neuromusculares duraderos, aplica este protocolo matutino:
-
-```
-Paso 1: Calentamiento de pares mínimos (2 minutos)
-Entrena 10 pares contrastivos (/iː/ vs /ɪ/, /s/ vs /θ/) exagerando la apertura bucal.
-
-Paso 2: Segmentación rítmica de frases (3 minutos)
-Lee 3 frases de un artículo corporativo. Marca las sílabas tónicas y las pausas lógicas (//).
-
-Paso 3: Técnica de imitación simultánea / Shadowing (3 minutos)
-Escucha un audio nativo de 15 segundos y repite con un desfase de medio segundo.
-
-Paso 4: Grabación y auditoría de voz (2 minutos)
-Graba tu locución en el teléfono y compárala con el original para detectar finales omitidos.
-```
-
-Para optimizar tu oído y discriminar estos sonidos con mayor agilidad, revisa nuestros consejos en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/). Si te preparas para certificar tu nivel, comprueba cómo aplicar esta dicción limpia en las respuestas cortas de [IELTS Speaking Part 1](/es/blog/ielts-speaking-part-1-guia-respuestas-naturales/).
-
-![Módulo interactivo de práctica oral con micrófono y análisis acústico en Lexkite](media:practice-speak "Práctica de expresión oral y análisis acústico con micrófono en la aplicación Lexkite")
+- **/ʃ/ frente a /tʃ/**: el español tiene /tʃ/ (*chico*) pero no /ʃ/, así que *ship* suena como *chip* y *shoes* como *choose*. Para /ʃ/, alarga el sonido de "shhh" sin cortar el aire.
+- **/dʒ/ frente a /j/**: *jet* y *yet* son palabras distintas; en algunas zonas la *y* y la *ll* del español se pronuncian muy cerca de /dʒ/ (*yo*, *llamar*). Contrasta *jam / yam*, *Jess / yes*.
+- **La h inglesa**: en español la h es muda, pero en inglés *hello* o *house* llevan un soplo de aire /h/. Si en tu zona la *j* suena áspera (/x/), evita ese roce: es un soplo suave, sin fricción en la garganta.
+- **Vocales de *cup, cap, cop***: ya vistas arriba; el español las reduce a /a/.
+- **Palabras parecidas con otro acento**: *animal* y *hospital* se escriben como en español, pero el acento va en la primera sílaba (AN-i-mal, HOS-pi-tal). Más en [falsos amigos inglés-español](/es/blog/falsos-amigos-ingles-espanol/).
 
 ---
 
-## Eleva tu claridad comunicativa con Lexkite
+## Cómo Mejorar la Pronunciación en Inglés: Rutina Diaria de 10 Minutos
 
-Una pronunciación impecable consolida tu credibilidad en juntas de negocios y exámenes internacionales:
+Diez minutos al día rinden más que una hora a la semana. Una rutina sencilla:
 
-- **Algoritmo FSRS de repetición espaciada**: Asimila colocaciones, verbos frasales y transcripciones fonéticas con retención a largo plazo.
-- **Diccionario fonético integrado**: Consulta la transcripción IPA y escucha el audio de cualquier término al instante.
-- **Entrenamiento con micrófono en tiempo real**: Entrena tu dicción en la [sección de práctica oral de Lexkite](/#/practice/speak) para pulir consonantes difíciles.
+```
+Paso 1: Calentamiento de pares mínimos (2 minutos)
+Di 10 pares contrastivos (/iː/ vs /ɪ/, /ʃ/ vs /tʃ/, /b/ vs /v/) exagerando el gesto.
 
-Accede hoy a la [plataforma web de Lexkite](/#/) y haz de tu pronunciación en inglés una herramienta de éxito internacional.
+Paso 2: Grupos de sentido (3 minutos)
+Lee 3 frases de un artículo. Marca las sílabas tónicas y las pausas (//), y léelas en voz alta.
 
-{{cta: /#/ | Comenzar entrenamiento de pronunciación en Lexkite}}
+Paso 3: Shadowing (3 minutos)
+Reproduce un audio de 15 segundos y repítelo con una pequeña demora respecto al hablante.
 
-{{youtube: | 5 técnicas esenciales para mejorar tu pronunciación en inglés}}
+Paso 4: Grábate y compara (2 minutos)
+Graba tu voz con el teléfono y escúchala después del modelo para detectar finales omitidos.
+```
+
+Si quieres oír mejor estos sonidos, mira [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/). Si te preparas para un examen, aplica esta dicción en las respuestas cortas de [IELTS Speaking Part 1](/es/blog/ielts-speaking-part-1-guia-respuestas-naturales/); la página de [práctica de speaking](/speaking/) tiene preguntas de las partes 1, 2 y 3.
+
+![Pantalla de práctica de pronunciación de Lexkite con la frase cut down on, botón de micrófono y puntuación](media:practice-speak "En Lexkite dices una frase al micrófono y recibes una puntuación según lo cerca que estuvo")
+
+---
+
+## Practica estos pasos en Lexkite
+
+- **Paso 1 (pares mínimos):** abre la [biblioteca de pronunciación](/#/pron), elige un par de vocales o consonantes y escúchalo antes de decirlo.
+- **Pasos 2 y 4 (comprueba tu voz):** di una frase en la [práctica de pronunciación](/#/practice/speak) y compara la puntuación entre intento e intento.
+- **Palabras nuevas:** búscalas en el [diccionario](/#/dict/resilient) para ver el IPA, oír el audio y guardarlas como flashcard.
+
+{{cta: /#/pron | Abre la biblioteca de pronunciación y practica tu primer par de sonidos}}
+
+{{youtube: | Rutina de 10 minutos para mejorar la pronunciación en inglés}}
 
 ---
 
 ## Preguntas frecuentes
 
 ### ¿Es imprescindible eliminar el acento hispano por completo?
-No. El objetivo de la comunicación profesional es la inteligibilidad, no la imitación perfecta de un acento nativo regional. Un acento suave y claro resulta perfectamente comprensible y respetado en cualquier entorno global.
+No. Lo importante es que te entiendan, no sonar como un nativo. Un acento hispano suave y claro es perfectamente comprensible; lo que sí conviene corregir son los errores que cambian la palabra, como la *e* delante de *s*, los finales omitidos o *ship* dicho como *chip*.
 
 ### ¿Conviene centrarse en el inglés británico o en el americano?
-Elige el modelo que mejor se ajuste a tus metas laborales o de estudio. Las reglas de pares vocálicos, reducción a schwa y acentuación de palabras son idénticas en ambas variantes estándar.
+Elige el que uses más (trabajo, estudios, examen) y mantenlo. Los dos se aceptan en IELTS y TOEFL. Cambian detalles, como la /r/ al final de sílaba o la vocal de *bath*, pero el acento de palabra, el ritmo y las consonantes funcionan igual.
 
 ### ¿Por qué mi voz suena extraña cuando me grabo practicando?
-Al hablar en directo, percibes tu voz a través de la conducción ósea de los huesos del cráneo. Escuchar una grabación te devuelve el sonido real transmitido por el aire, permitiéndote identificar con precisión las consonantes omitidas.
+Al hablar, oyes tu voz en parte por los huesos de la cabeza, y por eso suena distinta. Una grabación te deja oír lo que oye el otro, y así detectas consonantes finales omitidas o una entonación plana que no notabas.
+
+### ¿Cómo evito la «e» delante de la s, como en «especial» por «special»?
+Alarga la *s* sin vocal y pasa directamente a la consonante siguiente (*sss-peak*). Practica primero con la s muy larga y ve acortándola. Grábate con *school, speak, study, stop*: si oyes una /e/ antes de la s, repite más despacio.
+
+### ¿Por qué *ship* suena como *chip* cuando lo digo?
+Porque el español tiene /tʃ/ pero no /ʃ/. Para /ʃ/ el aire sale de forma continua, como en «shhh», sin el golpe inicial de la *ch*. Contrasta *ship / chip* y *shoes / choose* frente al espejo.

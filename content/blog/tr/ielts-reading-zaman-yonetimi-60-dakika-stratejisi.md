@@ -9,49 +9,60 @@ tags: [ielts-reading, time-management, ielts-sinavi, okuma-stratejileri]
 keyword: "ielts reading zaman yönetimi"
 cover: library
 coverAlt: "IELTS Reading sınavı için zaman yönetimi stratejileri ve 60 dakikalık üç metin dağılımı"
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 86
+qualityScore: 91
 quiz: [
   {
-    q: "Akademik IELTS Reading sınavındaki 3 metin için en stratejik zaman dağılımı nasıldır?",
+    q: "IELTS Reading 60 dakikada 40 sorudan oluşur. Bu, tempo açısından ne anlama gelir?",
     options: [
-      "Zorluk derecesine bakılmaksızın her metne tam 20 dakika ayırmak",
-      "1. Metne 15 dakika, 2. Metne 20 dakika ve 3. Metne 25 dakika ayırmak",
-      "Önce 3. Metinden başlayıp 35 dakika harcamak",
-      "İlk 30 dakikayı sadece üç metni baştan sona okuyarak geçirmek"
+      "Metinler kısa olduğu için soru başına yaklaşık 30 saniye",
+      "Ortalama olarak soru başına yaklaşık 90 saniye; bu süre metni okumayı da kapsar",
+      "Soru başına yaklaşık 90 saniye; metinleri okuma süresi buna dahil değildir",
+      "Soruların yalnızca yarısı değerlendirildiği için soru başına yaklaşık 3 dakika"
     ],
     answer: 1,
-    explain: "1. Metin genellikle daha yalın kelimeler içerir; burayı 15 dakikada tamamlamak, 3. Metnin ağır akademik içeriğine 25 dakika ayırmanızı sağlar."
+    explain: "Altmış dakikanın kırk soruya bölünmesi soru başına 90 saniye verir; okuma, arama ve kontrol de aynı saatin içinde yapılır."
   },
   {
-    q: "IELTS Reading sınavındaki 90 saniye kuralının temel amacı nedir?",
+    q: "Kağıt tabanlı IELTS Reading sınavında cevapları resmi cevap kağıdına ne zaman aktarırsınız?",
     options: [
-      "Adayı her sayfayı 90 saniyede okumaya zorlamak",
-      "Batık maliyet yanılgısını önlemek ve çözülemeyen tek bir soruya saplanıp kalmayı engellemek",
-      "Her 90 saniyede bir mola verilmesini sağlamak",
-      "Cevap kağıdına işaretleme hızını ölçmek"
+      "Listening'deki gibi 60 dakikadan sonraki 10 ek dakikada",
+      "Soru kitapçığına işaretledikten sonra yalnızca son iki dakikada",
+      "Çözerken, çünkü cevap kağıdı 60 dakika içinde tamamlanmış olmalıdır",
+      "Sınav bittikten sonra, gözetmen kağıtları geri verdiğinde"
     ],
-    answer: 1,
-    explain: "Bir soru üzerinde 90 saniyeden fazla takılıp kalmak, sonraki bölümlerdeki kolay soruların süresini tüketir. En mantıklı tercihi işaretleyip hemen ilerlemek gerekir."
+    answer: 2,
+    explain: "Kağıt tabanlı Listening'in aksine Reading'de aktarma için ek süre yoktur. 60 dakika dolduğunda cevap kağıdında olmayan hiçbir şey değerlendirilmez."
   },
   {
-    q: "Kağıt tabanlı IELTS sınavında cevaplar optik forma (Answer Sheet) ne zaman aktarılmalıdır?",
+    q: "Soru başına yaklaşık 90 saniyelik bir sınır koymanın amacı nedir?",
     options: [
-      "Listening bölümünde olduğu gibi sınav sonunda verilen 10 dakikalık ek sürede",
-      "60 dakikalık resmi sınav süresi boyunca doğrudan, çünkü okuma bölümünde ek aktarma süresi verilmez",
-      "Yalnızca sınavın son 2 dakikasında",
-      "Cevaplar soru kitapçığında kalabilir, forma aktarmak zorunlu değildir"
+      "Her paragrafı tam 90 saniyede okumak",
+      "Tek bir zor sorunun, hâlâ bekleyen birkaç kolay sorunun süresini yememesini sağlamak",
+      "Sorular arasında gözleri dinlendirmek",
+      "Gözetmenin koyduğu bir kurala uymak"
     ],
     answer: 1,
-    explain: "IELTS Listening sınavından farklı olarak Reading modülünde süre bitiminde 10 dakika ek süre tanınmaz. Bütün cevaplar 60 dakika içinde forma geçirilmiş olmalıdır."
+    explain: "Her soru bir puandır; üç dakikanızı alan inatçı bir soru, hiç ulaşamayacağınız kolay puanlara mal olur. Bu sınır sizin kişisel kuralınızdır, sınavın değil."
+  },
+  {
+    q: "Üç dakika kaldı ve beş cevap boş. En iyi hamle nedir?",
+    options: [
+      "Yanlış cevaplar puan düşürdüğü için boş bırakmak",
+      "Yanlış cevaplar puan düşürmediği için her kutuya en iyi tahmini yazmak",
+      "Önceki cevapları düzgünce yeniden yazıp boşları bırakmak",
+      "Yazmayı bırakıp ilk metni yeniden okumak"
+    ],
+    answer: 1,
+    explain: "IELTS Reading her doğru cevaba bir puan verir, yanlışlar için puan düşürmez; boş kutu yalnızca zarar verebilir."
   }
 ]
 publishAt: 2026-12-29T19:01:00+03:00
 ---
 
-Akademik veya Genel Eğitim modülüne hazırlanan adayların büyük çoğunluğu için **ielts reading zaman yönetimi**, 6.0 bandında takılı kalmakla 7.5 veya üzerine çıkmak arasındaki en belirleyici dönüm noktasıdır. Ses kaydının sınav akışını otomatik olarak yönlendirdiği Dinleme (*Listening*) bölümünün aksine, Okuma bölümünde yaklaşık 2.750 kelimeden oluşan üç uzun akademik metni incelemek ve 40 farklı soruyu yanıtlamak için verilen 60 dakikanın tek yöneticisi sizsiniz.
+Akademik veya Genel Eğitim modülüne hazırlanan adayların büyük çoğunluğu için **ielts reading zaman yönetimi**, 6.0 bandında takılı kalmakla 7.5 veya üzerine çıkmak arasındaki en belirleyici dönüm noktasıdır. Ses kaydının sınav akışını otomatik olarak yönlendirdiği Dinleme (*Listening*) bölümünün aksine, Okuma bölümünde toplamı yaklaşık 2.150 ile 2.750 kelime arasında olan üç uzun akademik metni incelemek ve 40 farklı soruyu yanıtlamak için verilen 60 dakikanın tek yöneticisi sizsiniz.
 
 Sınava girenlerin sıklıkla düştüğü en büyük hata, 60 dakikayı her metin için 20'şer dakika olarak eşit parçalara bölmektir. Bu matematiksel yaklaşım hemen hemen her zaman zaman yetersizliğiyle sonuçlanır: Passage 1 doğrudan ve olgusal bir dille yazılmışken, Passage 3 soyut kuramlar, araştırmacıların çelişen savları ve karmaşık argümanlar içerir. İlk metinde 20 dakika harcarsanız, sınavın en zor sorularının yer aldığı son bölümde düşünmek için gerekli zihinsel enerjiyi ve süreyi tüketmiş olursunuz.
 
@@ -59,13 +70,11 @@ Bu kapsamlı rehberde, altın niteliğindeki 15-20-25 dakika kuralını, zaman t
 
 ## Eşit 20-20-20 Bölüşümü Neden Başarısız Olur?
 
-IELTS Reading sınavı, zorluk düzeyi metinden metne kademeli olarak artacak şekilde özel olarak tasarlanmıştır. Gereken bilişsel çabanın gerçekçi analizi bu durumu açıkça ortaya koyar:
+IELTS her metin için ayrı bir süre yayımlamaz ve zorluk testten teste değişir; bu yüzden aşağıdaki dakikalar kendi deneme sınavlarınızla sınamanız gereken bir başlangıç bütçesidir, sınav kuralı değildir. Cambridge, Academic bölümünde en az bir metnin ayrıntılı mantıksal argüman içerdiğini belirtir:
 
-1. **Passage 1 (Orta Düzey B2):** Bilimsel buluşların tarihi, biyografiler veya doğal olgular. Yanıtlar genellikle metnin akışını sırayla takip eder. 13 sorunun tamamı en fazla **15 dakika** içinde tamamlanmalıdır.
-2. **Passage 2 (Orta-İleri Düzey B2/C1):** Vaka analizleri, çevresel sorunlar veya teknolojik gelişmeler. Farklı uzman görüşlerinin karşılaştırılmasını gerektirir ve **20 dakika** ayrılmalıdır.
-3. **Passage 3 (İleri Düzey C1):** Yoğun akademik metinler, üstü kapalı çıkarımlar ve karmaşık eşleştirme soruları. Derinlemesine analiz ve doğrulama için en az **25 dakika** süreye ihtiyaç duyar.
-
-![Lexkite dijital sözlük ve akademik kelime arama modülü telaffuz](media:dict "Lexkite dijital sözlük ekranında fonetik transkripsiyon ve okuma metinleri için örnek cümleler")
+1. **Passage 1 (çoğunlukla en olgusal metin):** genellikle bir buluşun tarihi, bir biyografi ya da doğal bir süreç gibi betimleyici bir konudur ve cevaplar çoğu kez metnin sırasını izler. Başlangıç bütçesi: bütün soruları için yaklaşık **15 dakika**.
+2. **Passage 2 (çoğunlukla bir vaka incelemesi):** birkaç araştırmacının görüşlerini karşılaştırabilir ya da bir yeniliği anlatabilir. Başlangıç bütçesi: yaklaşık **20 dakika**.
+3. **Passage 3 (çoğunlukla en yoğun metin):** genellikle en soyut argümanı, yazarın görüşlerini ve çıkarım sorularını barındırır. Başlangıç bütçesi: yaklaşık **25 dakika**, ayrıca cevap kağıdını kontrol için son üç dakika.
 
 Sınav salonunda sıklıkla gözden kaçan kritik bir kural da şudur: IELTS Reading sınavında **cevapları optik forma aktarmak için ekstra süre verilmez**. Kağıt tabanlı Listening bölümünde tanınan 10 dakikalık aktarma süresi burada yoktur. Yanıtlarınızı soru kitapçığına yazıp son dakikalarda forma geçirmeyi planlarsanız, sınav görevlileri formu elinizden alırken soruların yarısı boş kalabilir. Her cevabı çözer çözmez doğrudan resmi cevap kağıdına (*Answer Sheet*) kurşun kalemle işlemelisiniz.
 
@@ -81,8 +90,6 @@ Metne dönmeden önce ilk soru grubunu dikkatle okuyun. Eş anlamlılarıyla kol
 
 ### Aşama 3: Hedefe Yönelik Tarama ve Doğrulama (12 - 16 Dakika)
 Doğru paragrafı hızla bulmak için tarama (*scanning*) yöntemini uygulayın. İlgili bölüme ulaştığınızda okuma hızınızı yavaşlatın ve etraftaki iki cümleyi büyük bir titizlikle inceleyin. Sınayıcı mutlak ifadelere (*solely, invariably, unprecedented, never*) dikkat edin; True/False/Not Given tuzakları genellikle bu küçük kelimelerde saklıdır. Metindeki doğrudan kanıtı görmeden kendi genel kültür bilginize dayanarak asla işaretleme yapmayın; IELTS Reading yalnızca metinde yazılı olan gerçeği ölçer.
-
-![Lexkite aralıklı tekrar çalışma kartları ve hafıza arayüzü](media:review "Lexkite sınav kelimeleri aralıklı tekrar modülünde hafıza kartları ve planlı gözden geçirme ekranı")
 
 ## Çok Zaman Harcatan Soru Tiplerini Etkisiz Hale Getirme
 
@@ -103,13 +110,27 @@ Bir soruda 60 saniyeden uzun süre kararsız kalırsanız 90 saniye acil çıkı
 
 Akademik okuma hızı yalnızca gözleri sayfada hızlı gezdirmekle ilgili değil, kelimeleri otomatik olarak tanıma becerisiyle ilgilidir. Metinde *detrimental, pervasive* veya *counterintuitive* gibi alışılmadık bir sözcükle karşılaştığınızda, zihniniz anlam çıkarmak için birkaç saniyelik mikro duraksamalar yaşar. Bu duraksama sayfa başına yirmi kez tekrarlandığında, birkaç dakikalık devasa bir zaman kaybı oluşur.
 
-Konuşma akıcılığınızı ve anlık tepki yeteneğinizi [Lexkite etkileşimli konuşma odasında](/#/speaking) geliştirebilir, telaffuz doğruluğunuzu ise [konuşma ve pronunciation pratik modülünde](/#/practice/speak) en üst seviyeye taşıyabilirsiniz.
-
-![Lexkite pronunciation telaffuz değerlendirme ve konuşma alıştırması](media:practice-speak "Lexkite telaffuz ve sesli konuşma arayüzünde mikrofon kaydıyla anında akustik geri bildirim")
-
 Bu sessiz zaman kayıplarını ortadan kaldırmak için, aralıklı tekrar algoritmalarıyla üst düzey akademik kelimeleri uzun süreli hafızaya kazımak gerekir. Kelime dağarcığınızı zenginleştirmek için [IELTS için İngilizce collocations rehberi](/tr/blog/ielts-icin-ingilizce-collocations-rehberi/) içeriğimize göz atabilir ve cümle dönüştürme becerilerini [IELTS paraphrase yapma teknikleri](/tr/blog/ielts-paraphrase-yapma-teknikleri-ornekler/) yazımızdan öğrenebilirsiniz.
 
 Ayrıca okuma reflekslerinizi geliştirmek için [IELTS reading skimming scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) ve [IELTS reading True False Not Given taktikleri](/tr/blog/ielts-reading-true-false-not-given-taktikleri/) rehberlerimizi inceleyin. Sınavın diğer bölümlerine yönelik eksiksiz bir hazırlık için [IELTS listening taktikleri](/tr/blog/ielts-listening-taktikleri/) ve [IELTS Speaking Part 3 cevap genişletme stratejileri](/tr/blog/ielts-speaking-part-3-cevap-genisletme-stratejileri/) makalelerimizden yararlanabilirsiniz.
+
+## 60 dakikalık ritmi Lexkite'ta çalışın
+
+Zaman yönetimi bir alışkanlıktır ve en iyi sınavla aynı biçimde çalışılır. Şu sırayı izleyin:
+
+1. [Ekranda Reading](/#/cbt) bilgisayar tabanlı sınavı taklit eder: metin ve sorular yan yana, geri sayım saati, üç renkli fosforlu kalem, notlar ve sonra bakmak için işaretler. Tek bir metinle başlayın ve belirlediğiniz dakika bütçesine uyun.
+2. [Soru tipine göre Reading](/#/rtype) tüm testlerden aynı türdeki soruları toplar; böylece sizi en çok geciktiren tipi çalışabilirsiniz. Sayfa, o tipte doğru oranınız yaklaşık yüzde 70-80'e ulaşınca sonraki tipe geçmenizi önerir.
+3. Bir metin oturunca [tam bir IELTS deneme sınavı](/#/mock) çözün ve Reading'i seçin: üç metin, 40 soru, 60 dakika. Deneme metinleri Lexkite tarafından yazıldığı için sonuç resmî bir band değil, kabaca bir göstergedir.
+
+![IELTS deneme sınavı arayüzü](media:mock "Üç metni tam 60 dakikayla çalışmak için Reading'i seçin")
+
+Oturumlar arasında, A2'den C1'e uzanan [okuma kitaplığında](/#/reading) kendi seviyenizde okuyun: herhangi bir kelimeye dokunup anlamını görün ve geçtiği cümleyle birlikte kaydedin.
+
+![A2'den C1'e seviyeler içeren, tıklayarak kelime arama ve kaydetme özellikli Lexkite IELTS okuma ekranı](media:read-article "Okurken bir kelimeye dokunup anlamını görün")
+
+Kaydettiğiniz kelimeler [kart tekrarında](/#/review) giderek açılan aralıklarla geri gelir; böylece aynı kelime bir sonraki metinde karşınıza çıktığında size daha az zaman kaybettirir.
+
+![Lexkite aralıklı tekrar çalışma kartları ve hafıza arayüzü](media:review "Önce aklınızda cevaplayın, sonra kartı çevirin")
 
 ## 4 Haftalık Aşamalı Çalışma Planı
 
@@ -122,29 +143,23 @@ Zaman disiplinini baskı altında korumak planlı bir antrenman süreci gerektir
 
 Sınav öncesinde en sık çıkan kavramları düzenli olarak tazelemek için tematik [İngilizce kelime listeleri](/vocabulary/) arşivimizi inceleyebilir ve okuma hızınızdaki değişimi gözlemleyebilirsiniz.
 
-## IELTS Reading Zamanı Hakkında Sıkça Sorulan Sorular
+## IELTS Reading zaman yönetimi hakkında sık sorulan sorular
 
-### Sorulara bakmadan önce metnin tamamını okumalı mıyım?
-Kesinlikle hayır. Hangi bilgileri arayacağınızı bilmeden 900 kelimelik yoğun bir makaleyi okumak hafızanızı gereksiz yere yorar. Genel konuyu anlamak için bir dakikalık skimming yapın ve hemen ardından soruları inceleyerek amaca yönelik okumaya başlayın.
+### Sorulardan önce metnin tamamını okumalı mıyım?
+Hayır. Academic'teki üç metin toplamda yaklaşık 2.150 ile 2.750 kelimedir ve okuma dahil soru başına yaklaşık 90 saniyeniz var. Başlığa, alt başlıklara ve her paragrafın ilk cümlesine bir dakika ayırın, sonra soruları okuyup anahtar kelimeleri işaretleyin ve yalnızca o kelimelerin gösterdiği yerleri dikkatle okuyun. Baştan kelime kelime okumak sonraki metinlere yeterli zaman bırakmaz.
 
-### Son 3 dakika kala 5 sorum boşsa ne yapmalıyım?
-IELTS sınavında yanlış cevaplar için puan kesintisi uygulanmadığından asla boş cevap bırakmayın. Çoktan seçmeli veya True/False/Not Given sorularında mantığınıza en yakın gelen seçeneği vakit kaybetmeden işaretleyin. Boşluk doldurma sorularında ise göze çarpan anahtar kelimelerin yer aldığı paragrafa göz atıp dilbilgisine uygun bir kelime yazın.
+### Üç dakika kaldı ve beş cevap boşsa ne yapmalıyım?
+Tüm kutuları doldurun. Her doğru cevap bir puandır ve yanlışlar puan düşürmez; tahmin etmek bir şeye mal olmaz. True/False/Not Given (üç seçenek) ve çoktan seçmeli (çoğunlukla dört seçenek) sorularla başlayın, çünkü tahminin gerçek bir şansı vardır; boşluk doldurma sorularında boşluğun dilbilgisinden ve cümlenin konusundan yararlanın.
 
-### En zor olduğu için Passage 3'ten başlamak mantıklı mı?
-Adayların büyük bölümü için bu yaklaşım ters teper. Passage 1'i ilk 15 dakikada çözmek, çoğu zaman 11-13 doğru cevabı hızla cebinize koymanızı sağlar ve sınavın geri kalanı için zihinsel rahatlık yaratır. Sıralamayı değiştirmek yalnızca 8.5 veya 9.0 hedefleyen üst düzey okuyucular için uygundur.
+### Bilgisayarlı sınav kağıt sınavdan daha mı hızlı?
+Süre aynıdır: 60 dakika ve 40 soru; hiçbir formatta cevapları aktarmak için ayrı süre yoktur. Bilgisayarda cevapları doğrudan yazar, metni vurgulayıp not alabilirsiniz; yani kopyalama adımı yoktur. Kağıtta ise aynı saat içinde cevap kağıdına yazarsınız. Hangisinin size uyduğu pratiğe bağlıdır, bu yüzden karar vermeden önce ikisini de zaman tutarak deneyin.
+
+### Passage 3 ile başlayabilir veya sırayı değiştirebilir miyim?
+Saat boyunca istediğiniz sırayla çalışabilirsiniz. Size en kolay gelen metinle başlamak çoğu kez sağlam bir puan tabanı oluşturur; ancak yalnızca diğer metinlere de zaman kalırsa işe yarar: ilk dakikada karar verin ve bütçenize uyun. En zor metinle yalnızca bunu bilerek çalıştıysanız başlayın.
+
+### Türkçe konuşuyorum: Reading'de en çok nerede puan kaybederim?
+Tanıdık Türkçe sözcüklere benzeyen yanıltıcı kelimelerde: *actually* “aslında” demektir, “aktüel” (güncel) değildir; *sympathetic* “anlayış gösteren” demektir, “sempatik” (hoş) değildir; *college* çoğunlukla üniversite düzeyinde bir okul demektir, Türkiye'deki özel “kolej” (lise) değil. True/False/Not Given'da böyle bir yanlış okuma cevabı tersine çevirir. Kısa bir kişisel yanıltıcı kelime listesi tutun ve her soruda anahtar kelimenin metinde Türkçeden beklediğiniz anlama gelip gelmediğini kontrol edin.
+
 {{youtube: | IELTS Reading zaman yönetimi: 60 dakikalık sınavda yüksek skor taktikleri}}
 
-{{cta: /#/ | Lexkite ile gerçek sınav süresi kısıtlamasında IELTS Reading denemeleri çöz}}
-
----
-
-## IELTS Reading Zaman Yönetimi Hakkında Sıkça Sorulan Sorular
-
-### Önce metnin tamamı mı okunmalı yoksa doğrudan sorulara mı geçilmeli?
-En karlı taktik, metnin başlığını, alt başlıklarını ve paragrafların ilk cümlelerini 60 ila 90 saniye tarayarak genel çerçeveyi kavramaktır (Skimming). Ardından doğrudan sorulara geçip yer belirleyici anahtar kelimeleri aramalısınız. Metni ilk başta detaylı okumak 5 ila 7 dakikayı boşa harcar.
-
-### Son 5 dakikaya girildiğinde hala 5 boş soru varsa ne yapılmalıdır?
-Önceliği çoktan seçmeli veya True/False/Not Given sorularına verin; çünkü bilinçli bir tahmin istatistiksel olarak %25 ila %33 doğru çıkma şansı sunar. Cevap kağıdında hiçbir kutucuğu boş bırakmayın; IELTS sınavında yanlış cevaplar puan düşürmez.
-
-### Bilgisayarlı IELTS Reading sınavı kağıt tabanlı sınava göre zaman avantajı sağlar mı?
-Evet. Bölünmüş ekranda metin solda ve sorular sağda aynı anda görünür, böylece sayfa çevirme zahmeti ortadan kalkar. Metin vurgulama araçları ve kelimeleri kopyalayıp boşluklara doğrudan yapıştırma olanağı yazım hatalarını önler ve toplamda yaklaşık 3 ila 4 dakika kazandırır.
+{{cta: /#/mock | Tam bir IELTS Reading deneme sınavı çözün: üç metin, 40 soru, 60 dakikalık saat}}

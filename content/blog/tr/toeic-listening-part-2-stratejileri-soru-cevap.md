@@ -9,72 +9,73 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC deneme sınavları ve soru bazlı pratik arayüzü"
-qualityScore: 86
+qualityScore: 91
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-01T07:36:00+03:00
 status: ready
 quiz: [
   {
-    q: "TOEIC Part 2'de sorudaki kelimeyle aynı veya benzer ses içeren bir seçenek neden çoğunlukla bir çeldiricidir?",
+    q: "Şunu duyuyorsunuz: Did you review the annual financial report? Seçeneklerden biri: Yes, the reporter was very professional. Bu seçenek neden büyük olasılıkla bir tuzaktır?",
     options: [
-      "Çünkü sınav yazarları, anlamı kavramak yerine sadece ses benzerliğine güvenen adayları elemek için kasıtlı akustik tuzaklar kurar",
-      "Çünkü İngilizce dilbilgisi kuralları birbirini izleyen diyalog cümlelerinde aynı ismin kullanılmasını yasaklar",
-      "Çünkü anadili İngilizce olanlar iş hayatında asla karşı tarafın kullandığı terimleri tekrar etmez",
-      "Çünkü benzer sesli kelimeler sınavın orijinal ses kaydında teknik bir arıza olduğunu gösterir"
+      "Sorudaki tanıdık bir sesi (report / reporter) alıyor ama sorulan şeyi yanıtlamıyor",
+      "Yes ile başlayan seçenekler Part 2'de her zaman yanlıştır",
+      "professional kelimesi ofis ortamında kullanılmaz",
+      "Böyle bir seçenek sınavda her zaman diğerlerinden daha yavaş okunur"
     ],
     answer: 0,
-    explain: "TOEIC sınavını hazırlayanlar, bağlamı tam anlamayan adayları yanıltmak amacıyla kafiyeli sözcükleri veya farklı anlamdaki aynı kökleri sıklıkla çeldirici olarak kullanır."
+    explain: "Seçenek bilinen bir kelimeyi (report) başka anlamda (muhabir, mali rapor değil) kullanıyor. Anlama değil sese göre seçen aday tuzağa düşer. Evet/hayır sorularında Yes doğru da olabilir."
   },
   {
-    q: "'Could you give me a ride to the client presentation tomorrow morning?' sorusuna verilen hangi yanıt modern sınavın tipik dolaylı cevabını yansıtır?",
+    q: "Soru: Can you attend the board meeting at two o'clock? Hangisi mantıklı bir dolaylı yanıttır?",
     options: [
-      "My car is currently in the repair shop until Friday afternoon",
-      "Yes, I really enjoy riding bicycles through the city park",
-      "The client delivered a very persuasive presentation yesterday",
-      "Tomorrow morning at eight o'clock sharp in the auditorium"
+      "She chaired the board for ten years.",
+      "The meeting room has a new projector.",
+      "I attended a meeting yesterday morning.",
+      "My flight has been delayed by three hours."
     ],
-    answer: 0,
-    explain: "Düz bir 'No, I cannot' yerine, TOEIC sınavı nesnel durumun kibar bir gerekçe oluşturduğu bağlamsal dolaylı yanıtları tercih eder."
+    answer: 3,
+    explain: "Uçuş gecikmesi, Yes ya da No demeden katılamayacağını nazikçe anlatır. Diğer seçenekler sorudaki kelimeleri (board, meeting, attend) tekrarlar ama katılıp katılmayacağını söylemez."
   },
   {
-    q: "Wh- soru kelimeleriyle (Who, Where, When, Why, What) başlayan açık uçlu bilgi sorularında temel altın kural nedir?",
+    q: "Soru: When does the new intern start? Hangi seçenek en uygunudur?",
     options: [
-      "'Yes' veya 'No' ile başlayan seçenekler neredeyse yüzde 100 oranında derhal elenmelidir",
-      "Doğru cevap mutlaka sorudaki soru kelimesini aynen tekrar etmelidir",
-      "Cevap kağıdına işaretleme yapmadan önce ses kaydının ikinci kez çalınması beklenmelidir",
-      "Geçmiş zaman fiili içeren tüm seçenekler otomatik olarak hatalı sayılır"
+      "Yes, she started on Monday.",
+      "Next Monday, I believe.",
+      "In the interns' room on the third floor.",
+      "She studied at a university abroad."
     ],
-    answer: 0,
-    explain: "Mekan, zaman veya neden bildiren bilgi sorularına mantıksal olarak basit bir Evet ya da Hayır ile cevap verilemez."
+    answer: 1,
+    explain: "When zaman sorar ve bir tarih veren tek seçenek budur. Bilgi sorusuna Yes ile başlayan yanıt uymaz; yer ya da eğitim bilgisi başlama zamanını vermez."
   },
   {
-    q: "İki ardışık soru arasındaki 5 saniyelik sessizlik süresinde en doğru zihinsel tutum nedir?",
+    q: "Şunu duyuyorsunuz: Did you pack the samples? Hangi yanıt en anlamlıdır?",
     options: [
-      "Seçeneği hemen optik forma işaretleyip dikkatin yüzde yüzünü bir sonraki sorunun ilk üç kelimesine odaklamak",
-      "Gözleri kapatıp az önce duyulan diyaloğu Türkçeye kelimesi kelimesine çevirmeye çalışmak",
-      "İlk soruyu hatırlayabilmek için üçüncü seçeneğin tamamen bitmesini beklemek",
-      "Duyulan her cümlenin fonetik sembollerini soru kitapçığına not almak"
+      "I'll be back around two.",
+      "The park is just across the street.",
+      "Yes, the sample size was too small.",
+      "Yes, they're already in the van."
     ],
-    answer: 0,
-    explain: "Soru kitapçığında hiçbir şey yazılı olmadığından, bir sonraki cümlenin açılış sözcüklerini yakalamak ritmi korumanın en kritik unsurudur."
+    answer: 3,
+    explain: "Numunelerin paketlenip yüklendiğini söyleyen tek yanıt budur. İlk ikisi ses tuzaklarıdır (pack / back, pack / park), üçüncüsü sample kelimesini başka anlamda tekrarlar ve soruyu yanıtlamaz."
   }
 ]
 ---
 
 **TOEIC Listening Part 2** (Soru-Cevap / Question-Response) bölümü, 7. sorudan 31. soruya kadar uzanan 25 ardışık sorudan oluşur ve sınavın en yoğun odaklanma gerektiren bölümlerinden biridir. Sınavın diğer bölümlerinin aksine, soru kitapçığında veya ekranda hiçbir metin basılı değildir: hem sorulan cümle hem de üç yanıt seçeneği (A, B ve C) yalnızca bir kez kulaklıktan duyulur.
 
-Pek çok aday, kelime bilgisi yetersizliğinden değil; önceden kurgulanmış ses tuzaklarına (*sound traps*) kapıldıkları veya dolaylı yanıtlara (*indirect responses*) hazırlıksız yakalandıkları için puan kaybeder. Bu rehberde açıklanan **toeic listening part 2 stratejileri** sayesinde soru kalıplarını hızla çözebilir, çeldiricileri eleyebilir ve dinleme bölümünde 400 puan hedefine sistemli biçimde yaklaşabilirsiniz.
+Pek çok aday, kelime bilgisi yetersizliğinden değil; önceden kurgulanmış ses tuzaklarına (*sound traps*) kapıldıkları veya dolaylı yanıtlara (*indirect responses*) hazırlıksız yakalandıkları için puan kaybeder. Bu rehberde açıklanan **toeic listening part 2 stratejileri** sayesinde soru kalıplarını hızla çözebilir, çeldiricileri eleyebilir ve dinleme bölümündeki sonucunuzu sistemli biçimde yükseltebilirsiniz.
 
 ![Lexkite TOEIC deneme sınavları ve soru bazlı pratik arayüzü](media:toeic "Lexkite üzerinde TOEIC Listening ve Reading deneme sınavları ve Part odaklı hazırlık modülü")
 
 ## Bölümün sınav yapısı: toeic listening part 2 stratejileri temelleri
 
-Bu hızlı tempolu bölümde, C seçeneğinin okunması bittikten sonra bir sonraki sorunun ses sinyaline kadar yalnızca yaklaşık 5 saniyeniz bulunur. Herhangi bir soruda duraksamak veya geçmiş seçeneği zihinde analiz etmeye çalışmak, kaçınılmaz olarak bir sonraki sorunun başını kaçırmanıza yol açar. Bir soruyu kaçırdığınızda onun üzerinde düşünmeyi sürdürürseniz, hemen ardından gelen 2-3 soruyu da zincirleme şekilde kaybedersiniz.
+Bu hızlı tempolu bölümde, son seçenek bittikten sonra bir sonraki soruya kadar yalnızca birkaç saniyeniz vardır. Herhangi bir soruda duraksamak veya geçmiş seçeneği zihinde analiz etmeye çalışmak, kaçınılmaz olarak bir sonraki sorunun başını kaçırmanıza yol açar. Kaçırdığınız soruya takılırsanız, ardından gelen soruları da zincirleme kaybedebilirsiniz.
 
 Konsantrasyonunuzu kaybetmemek için duyduğunuz her soruyu zihninizde şu üç ana formata ayırın:
+
 1. **Wh- Bilgi Soruları (Information Questions):** Part 2'de en sık karşılaşılan soru tipidir (*Who, Where, When, Why, What, Which, How*). Zaman, mekan, yetkili kişi veya gerekçe gibi somut verileri hedefler.
-2. **Onay ve Evet/Hayır Soruları (Yes/No Questions):** Yardımcı fiiller veya modal fiillerle başlar (*Do, Does, Did, Have, Has, Is, Are, Can, Could, Would, Should*). Bu sorularda doğrudan evet veya hayır yanıtları verilebileceği gibi, çoğu zaman gerekçe içeren bağlamsal açıklamalar da sunulur.
+2. **Onay ve Evet/Hayır Soruları (Yes/No Questions):** Yardımcı fiiller veya modal fiillerle başlar (*Do, Does, Did, Have, Has, Is, Are, Can, Could, Would, Should*). Bu sorularda doğrudan evet veya hayır yanıtları verilebileceği gibi gerekçe içeren bağlamsal açıklamalar da sunulabilir.
 3. **Düz Cümleler ve İfadeler (Statements):** Soru kelimesi içermeyen, ofisteki bir sorunu, duyuruyu veya durumu bildiren cümlelerdir (*"The copy machine on the second floor is out of paper again"*). Sosyal veya mantıksal bir iş yeri tepkisi gerektirir.
 
 ## Strateji 1: Sorunun ilk üç kelimesine odaklanın
@@ -85,9 +86,9 @@ Part 2 sorularının önemli bir kısmında doğru cevabın anahtarı, konuşmac
 
 > **Pratik İpucu:** *"Where did Mr. Richardson say he filed the confidential quarterly balance sheets?"* gibi uzun bir cümlenin ortasında dikkatiniz dağılsa bile, baştaki *"Where did he file..."* kısmını net duymanız yer bildiren doğru seçeneği (*"In the locked storage cabinet"*) bulmanız için fazlasıyla yeterlidir. Araya giren ayrıntılar adayların aklını karıştırmak için yerleştirilen detaylardır.
 
-![Lexkite kelime tekrar arayüzü ve pollution terimi](media:review "Lexkite akıllı kartlar ve aralıklı tekrar yöntemiyle kurumsal kelimeleri pekiştirme ekranı")
+Ofis kelimelerini ne kadar çabuk tanırsanız soruyu o kadar çabuk anlarsınız. Kelime setlerini [Lexkite TOEIC kelime kütüphanesinde](/#/library?g=toeic) çalışın, ayrıca [kelime listesine](/vocabulary/) göz atın.
 
-İş dünyası terminolojisine aşinalık kazanmak ve kulak reflekslerinizi güçlendirmek için [Lexkite profesyonel kelime listesini](/vocabulary/) inceleyebilir, kurumsal yazışma dinamiklerini anlamak için [örnek iş İngilizcesi diyalogları ve e-posta şablonlarından](/samples/) yararlanabilirsiniz.
+![Lexkite TOEIC sayfası: otomatik puanlanan deneme sınavları, Part bazlı pratik ve TOEIC kelimeleri (TSL)](media:toeic "Aynı sayfada deneme sınavları, Part bazlı pratik ve TOEIC Service List kelimeleri bulunur")
 
 ## Strateji 2: Üç klasik akustik tuzağı etkisiz hale getirin
 
@@ -108,9 +109,7 @@ Soru belirli bir erkek meslektaşla (*"Mr. Gallagher"*) ilgiliyse, öncesinde ba
 
 ## Strateji 3: Dolaylı ve bağlamsal yanıtları yakalayın
 
-Modern TOEIC sınavlarında doğru yanıtların azımsanmayacak bir kısmı kalıplaşmış doğrudan yanıtlar değildir. Kurumsal hayatta anadili İngilizce olan profesyoneller sıklıkla kaçamak yanıtlar, bilgi eksikliği bildirimleri veya karşı sorular kullanır:
-
-![Lexkite sözlüğünde resilient terimi ve IPA telaffuz bilgisi](media:dict "Resilient gibi kurumsal sözcüklerin İngiliz ve Amerikan telaffuzları ile eşdizimlerini sunan Lexkite sözlüğü")
+Part 2'de doğru yanıtların hepsi doğrudan değildir (ETS oran yayımlamaz); bir kısmı kalıplaşmış yanıtlardan farklıdır. Kurumsal hayatta anadili İngilizce olan profesyoneller sıklıkla kaçamak yanıtlar, bilgi eksikliği bildirimleri veya karşı sorular kullanır:
 
 - **Bilgisizlik beyanı veya konuyu yetkiliye yönlendirme:**
   - *Soru:* "What time is the keynote speaker arriving?"
@@ -123,40 +122,50 @@ Modern TOEIC sınavlarında doğru yanıtların azımsanmayacak bir kısmı kal�
   - *Soru:* "Could you help me carry these heavy archive boxes?"
   - *Dolaylı cevap:* "Where is the hand cart stored?"
 
-Farklı aksanlara ve doğal konuşma hızına alışmak için [5 adımlı İngilizce listening geliştirme rehberimizi](/tr/blog/ingilizce-listening-gelistirme-yollari-5-adimli-yontem/) ve [İngilizce dictation ile dinleme becerisi güçlendirme tekniklerini](/tr/blog/ingilizce-dictation-dikte-listening-gelistirme/) mutlaka uygulayın. İş yeri jargonunu kavramak için [iş hayatında İngilizce kısaltmalar rehberi](/tr/blog/is-hayatinda-ingilizce-kisaltmalar-email-rehberi/) de oldukça faydalıdır.
+Farklı aksanlara ve doğal konuşma hızına alışmak için [5 adımlı İngilizce listening geliştirme rehberimizi](/tr/blog/ingilizce-listening-gelistirme-yollari-5-adimli-yontem/) ve [İngilizce dictation ile dinleme becerisi güçlendirme tekniklerini](/tr/blog/ingilizce-dictation-dikte-listening-gelistirme/) mutlaka uygulayın. İş yeri jargonunu kavramak için [iş hayatında İngilizce kısaltmalar rehberi](/tr/blog/is-hayatinda-ingilizce-kisaltmalar-email-rehberi/) de oldukça faydalıdır. Sesler birbirine karışıyorsa [IPA fonetik alfabe tablosuna](/tr/blog/ipa-fonetik-alfabe-ingilizce-telaffuz-tablosu/) da bakın.
 
 ## Sınav gününde zihinsel dayanıklılık ve zaman kontrolü
 
-Part 2 yaklaşık 8-10 dakika boyunca aralıksız yüksek dikkat gerektirir. Sınav sırasında zihinsel yorgunluğu önlemek için şu taktikleri uygulayın:
-- **3 Saniye Kuralı:** İki seçenek arasında tereddüt ederseniz, şüpheli ses benzerliği içermeyen seçeneği 3 saniye içinde işaretleyin ve o soruyu tamamen unutun. Kaçan bir soru genel sonucu etkilemez; ancak o soruya takılıp kalmak art arda 3-4 soruyu kaybetmenize yol açar.
-- **Optik Formu Senkronize Doldurma:** Kaleminizin ucunu her zaman ilgili soru numarasının üzerinde tutun ve bir sonraki soru numarası anons edilirken daireyi hızla karalayın. Bu sayede soru kaydırma riskini sıfıra indirirsiniz.
+Part 2 birkaç dakika boyunca aralıksız dikkat gerektirir. Zihinsel yorgunluğu önlemek için şu taktikleri deneyin:
+
+- **Hızlı karar:** İki seçenek arasında tereddüt ederseniz, şüpheli ses benzerliği içermeyeni işaretleyin ve o soruyu bırakın. Kaçan bir soru tek başına büyük kayıp değildir; ona takılmak sonraki soruları da götürebilir.
+- **Optik formda kayma riskini azaltın:** Kaleminizi ilgili soru numarasının üzerinde tutun ve bir sonraki soru başlarken daireyi doldurun; numara kayması riskini böylece azaltırsınız.
 - **Aktif Öngörü (Anticipation):** Bir soru kelimesi duyduğunuzda (*"Why did the client..."*), zihniniz otomatik olarak neden-sonuç bildiren bir yanıta (*"Because..."*, *"Due to..."* veya *"The shipment was delayed"*) odaklanmalıdır. Önceden beklenti oluşturmak, cevabı duyduğunuz anda tanımanızı kolaylaştırır.
 
-## 25 Soruda 23+ Doğru İçin Günlük Çalışma Rutini
+## Taktikleri Reflekse Dönüştürecek Çalışma Rutini
 
-Bu taktiklerin sınav anında otomatik reflekslere dönüşmesi için şu çalışma planını takip edin:
+Taktiklerin sınavda otomatik çalışması için şu planı deneyin (süreler bizim önerimizdir, resmî bir kural değildir):
 
-1. **Kesintisiz Dinleme Egzersizi (15 Dakika):** Part 2'den 25 soruluk tam bir seti hiç duraklatmadan optik form üzerinde çözün. Tereddüt halinde en makul seçeneği işaretleyip hemen bir sonraki soruya odaklanın.
-2. **Ayrıntılı Ses Dökümü Analizi (15 Dakika):** Yanlış yaptığınız soruların metin dökümünü (*transcript*) açın. Hatanın kök nedenini belirleyin: soru kelimesini mi kaçırdınız, ses tuzağına mı düştünüz yoksa dolaylı cevabı mı kavrayamadınız? Hatalarınızı özel bir çalışma defterine kaydedin.
-3. **Shadowing Çalışması (15 Dakika):** Hatalı soruları tekrar dinleyin ve konuşmacının tonlamasını, ritmini ve ulama kurallarını (*connected speech*) birebir taklit ederek yüksek sesle eşzamanlı tekrar edin. Bu egzersiz beyindeki akustik tanıma yollarını kalıcı olarak güçlendirir.
+1. **Kesintisiz Dinleme Egzersizi (yaklaşık 15 dakika):** [Lexkite TOEIC sayfasını](/#/toeic) açın, bir Test ve "Part 2 · Hỏi – đáp" (soru-cevap) kartını seçin. "Nghe 1 lần" modu sesi sınavdaki gibi yalnızca bir kez çalar. Tereddüt halinde en makul seçeneği işaretleyip hemen bir sonraki soruya odaklanın.
+2. **Ses Dökümü Analizi (yaklaşık 15 dakika):** Yanlış yaptığınız soruların metin dökümünü (*transcript*) açın. Hatanın kök nedenini belirleyin: soru kelimesini mi kaçırdınız, ses tuzağına mı düştünüz yoksa dolaylı cevabı mı kavrayamadınız? Hatalarınızı özel bir çalışma defterine kaydedin.
+3. **Yanlışları Dikte Etme (yaklaşık 15 dakika):** Aynı kartta "Chép chính tả" (dikte) modu duyduğunuzu yazdırır; kaçırdığınız ses hemen görünür. Tuzağın türünü [hata defterine](/#/mistakes) kaydedin.
+
+![Lexkite hata defteri: hatalar kelime, dilbilgisi, okuma ve dinleme olarak gruplanır](media:mistakes "Dinleme hataları ayrı toplanır; hangi tuzağa tekrar tekrar düştüğünüz görünür")
 
 Sınavın diğer bölümlerine dair kapsamlı hazırlık için [TOEIC Part 5 dilbilgisi ve kelime stratejileri](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/) ile [TOEIC Part 7 okuma stratejileri ve zaman yönetimi](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) rehberlerimizi inceleyebilir, haftalık çalışma düzeninizi [TOEIC bireysel çalışma planı rehberimize](/tr/blog/toeic-bireysel-calisma-plani-rehber/) göre şekillendirebilirsiniz.
 
-Ayrıca spontane konuşma hızınızı artırmak için [Lexkite etkileşimli konuşma modülünü](/#/speaking) ve artikülasyonunuzu geliştirmek için [Lexkite konuşma pratiği alanını](/#/practice/speak) düzenli olarak kullanabilirsiniz.
+Kulağınızdan kaçan sesler için [Lexkite IPA telaffuz kütüphanesi](/#/pron) her ünlü ve ünsüzü örnek kelimelerle sunar.
+
+![Lexkite IPA telaffuz kütüphanesi: tek ünlüler, çift ünlüler ve ünsüzler, örnek kelimeler ve ses bazlı pratik](media:pron "Ses tuzaklarında karışan sesleri tek tek çalışın")
 
 ## TOEIC Listening Part 2 Hakkında Sıkça Sorulan Sorular
 
 ### Soruyu hiç anlamadıysam nasıl bir tahmin yürütmeliyim?
-Akustik tuzak eleme kuralını işletin: Soruda yarım yamalak duyduğunuz dikkat çekici kelimeleri tekrar eden tüm seçenekleri eleyin. Geriye kalanlar arasında temkinli bir bilgisizlik belirten ya da dolaylı bir yanıt varsa (*"I haven't checked yet"*, *"Nobody told me"*), onu işaretleyin; sınav yazarları bu tür diplomatik cevapları çok sık doğru yanıt yapmaktadır.
+Akustik tuzak eleme kuralını işletin: Soruda yarım yamalak duyduğunuz dikkat çekici kelimeleri tekrar eden tüm seçenekleri eleyin. Geriye kalanlar arasında temkinli bir bilgisizlik belirten ya da dolaylı bir yanıt varsa (*"I haven't checked yet"*, *"Nobody told me"*), bu tür diplomatik yanıtlar Part 2'de sık görüldüğü için onu öncelikle düşünün; hızlı seçip sonraki soruya geçin.
 
 ### TOEIC sınavında yanlış cevaplar doğruyu götürür mü?
-Hayır, TOEIC sınavında yanlış cevaplar puanınızı düşürmez. Bu nedenle cevap kağıdında kesinlikle boş daire bırakmayın. Emin olamadığınızda iki saniye içinde en mantıklı seçeneği işaretleyip bir sonraki soruya odaklanın. Her işaretleme size yüzde 33.3 kazanma şansı sunar.
+Hayır, TOEIC sınavında yanlış cevaplar puanınızı düşürmez. Bu nedenle cevap kağıdında kesinlikle boş daire bırakmayın. Emin olamadığınızda iki saniye içinde en mantıklı seçeneği işaretleyip bir sonraki soruya odaklanın. Üç seçenek olduğundan tahminle de doğru yapma şansınız vardır.
 
-### İngiliz ve Avustralya aksanlarına nasıl alışabilirim?
-TOEIC sınavı ABD, İngiltere, Kanada ve Avustralya (Yeni Zelanda dahil) aksanlarını içerir. İngiliz aksanındaki hece sonu /r/ sesinin düşmesi ve *schedule, advertisement* gibi yaygın sözcüklerdeki sesli harf değişimlerine kulak dolgunluğu kazanmak için uluslararası haber yayınlarını düzenli takip edin.
+### Farklı aksanlara nasıl alışabilirim?
+Kayıtlarda farklı aksanlara sahip anadili konuşurlar yer alır; yalnızca Amerikan İngilizcesiyle çalışmayın. İngiliz aksanında hece sonundaki /r/ söylenmez; *schedule*, *advertisement* gibi sözcükler aksana göre değişir. [Lexkite dinleme alıştırması](/#/listening) (IELTS materyali; İngiliz, Amerikan ve Avustralyalı sesler, ayarlanabilir hız) kulağı farklı seslere alıştırmak için kullanılabilir.
+
+![Lexkite dinleme alıştırması: dört bölümlü on test, İngiliz, Amerikan ve Avustralyalı sesler, ayarlanabilir hız](media:listening "IELTS materyali; farklı aksan ve hızlara kulağı alıştırmak için kullanılabilir")
+
+### Türkçe konuşanlar Part 2'de en çok neyi yanlış duyar?
+Üç şey öne çıkar. Birincisi, Türkçede kelime başında ünsüz kümesi olmadığı için *school*, *student*, *special* gibi sözcüklerde kulak baştaki sesten önce bir ünlü bekler ("ıskul", "istudent"); bu da sorunun ilk kelimelerini kaçırtır. İkincisi, Türkçede /w/ yoktur ve /v/ ile karışır: *west* ile *vest*, *wine* ile *vine* aynı duyulur. Üçüncüsü, kısa ve uzun ünlü ayrımı: *ship / sheep* ve *full / fool* birbirine benzer. Ayrıca sözcük sonundaki b, d, g sesleri Türkçede p, t, k gibi söylendiğinden *bad / bat*, *bag / back* kolay karışır. Part 2 tuzakları bu çiftleri kullanır; bu yüzden tek bir sese değil, yanıtın tamamının anlamına bakın.
 
 Bu **toeic listening part 2 stratejileri** ile soru-cevap bölümünde sınav stresini kontrol altına alabilir, dinleme skorunuzu en üst seviyeye taşıyabilirsiniz.
 
 {{youtube: | TOEIC Listening Part 2 Stratejileri: Dolaylı yanıtlar ve ses benzerliği tuzaklarını aşma}}
 
-{{cta: /#/ | Lexkite ile TOEIC Listening Part 2 sesli alıştırmalarını anında geri bildirimle çözün}}
+{{cta: /#/toeic | TOEIC alıştırmasını aç: Part 2 tek dinleme, dikte ve deneme sınavları}}

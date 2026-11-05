@@ -1,6 +1,6 @@
 ---
 title: "IELTS Reading Time Management: 60-Minute Exam Strategy"
-description: "Master IELTS reading time management: 15-20-25 minute distribution rule, question type prioritization, the 90-second cutoff, and high-band practice routines."
+description: "IELTS reading time management for the 60-minute paper: a starting 15-20-25 plan, question order, a 90-second cut-off and a 4-week timing routine."
 slug: ielts-reading-time-management-strategies
 lang: en
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -10,174 +10,162 @@ keyword: "ielts reading time management"
 cover: path
 coverAlt: "Test taker monitoring a timer and managing the 60-minute reading test structure"
 publishAt: 2027-01-26T19:51:00+05:30
-factChecked: 2026-11-03
+factChecked: 2026-11-05
 author: Lexkite
 status: ready
-qualityScore: 85
+qualityScore: 92
 quiz: [
   {
-    q: "Why is the uniform 20-20-20 minute pacing strategy considered flawed for IELTS Reading?",
+    q: "IELTS Reading has 40 questions in 60 minutes. What does this mean for your pacing?",
     options: [
-      "Because Passage 3 contains fewer questions than Passage 1",
-      "Because passages progressively increase in lexical density, abstraction, and syntactic complexity",
-      "Because test centers force candidates to submit Passage 1 after 15 minutes",
-      "Because multiple-choice questions only appear in Passage 1"
+      "About 30 seconds per question, because the passages are short",
+      "About 1.5 minutes per question on average, and that must also cover reading the text",
+      "About 1.5 minutes per question, not counting the time needed to read the passages",
+      "About 3 minutes per question, because only half of the questions are marked"
     ],
     answer: 1,
-    explain: "Passage 1 is typically descriptive and straightforward, whereas Passage 3 features discursive arguments and complex vocabulary, requiring significantly more processing time."
+    explain: "Sixty minutes divided by forty questions gives 90 seconds each, and all the reading, searching and checking happens inside that same hour."
   },
   {
-    q: "What is the primary objective of the 90-second cutoff rule in IELTS Reading?",
+    q: "On the paper-based IELTS Reading test, when do you write your answers on the answer sheet?",
     options: [
-      "To force candidates to read an entire paragraph in 90 seconds",
-      "To prevent the sunk cost fallacy by avoiding prolonged delays on a single intractable question",
-      "To mandate checking candidate identification cards every 90 seconds",
-      "To limit computer screen viewing time"
+      "In a separate 10-minute transfer period after the 60 minutes, as in Listening",
+      "In the last two minutes only, after you have marked them in the question booklet",
+      "As you work, because the answer sheet must be completed within the 60 minutes",
+      "After the exam, when the invigilator hands the sheets back"
     ],
-    answer: 1,
-    explain: "If you spend more than 90 seconds searching for one answer, you risk running out of time for multiple easier questions waiting in subsequent sections."
+    answer: 2,
+    explain: "Unlike paper-based Listening, Reading has no extra transfer time. Anything not on the answer sheet when the 60 minutes end is not marked."
   },
   {
-    q: "How does answer transfer timing differ between paper-based IELTS Listening and IELTS Reading?",
+    q: "What is the purpose of a 90-second limit per question?",
     options: [
-      "Both exams provide 10 minutes of extra time at the end to transfer answers",
-      "IELTS Reading provides no extra transfer time at the end; answers must be entered on the sheet within the 60 minutes",
-      "IELTS Reading allows candidates to submit rough notes instead of the answer sheet",
-      "IELTS Listening does not allow answer sheet transfer time"
+      "To make sure you read each paragraph in exactly 90 seconds",
+      "To stop one hard question from using up the time of several easier ones that are still waiting",
+      "To leave a pause so your eyes can rest between questions",
+      "To follow a rule set by the examiner"
     ],
     answer: 1,
-    explain: "Unlike IELTS Listening, IELTS Reading does not give a 10-minute transfer window. All answers must be recorded on the official Answer Sheet before the 60-minute bell rings."
+    explain: "Every question is worth one mark, so a stubborn question that takes three minutes costs you the easier marks you never reach. The limit is your own rule, not an exam rule."
+  },
+  {
+    q: "Three minutes are left and five answers are blank. What is the best move?",
+    options: [
+      "Leave them blank, because wrong answers lose marks",
+      "Write a best guess in every blank, because wrong answers are not penalised",
+      "Recopy your earlier answers neatly and leave the blanks",
+      "Stop writing and re-read the first passage"
+    ],
+    answer: 1,
+    explain: "IELTS Reading scores one mark per correct answer and takes nothing away for wrong ones, so an empty box can only cost you."
   }
 ]
 ---
 
-In both IELTS Academic and General Training modules, the Reading paper presents a notorious clock-management dilemma. Many test takers who demonstrate strong grammatical grasp and solid passive comprehension in untimed self-study struggle to finish Passage 3 under real examination pressure. Achieving consistent scores above Band 7.5 depends heavily on mastering disciplined **ielts reading time management** rather than simply reading faster.
+IELTS Reading gives you 60 minutes for three passages and 40 questions, so on average you have about 90 seconds per question, and that has to include reading, searching and checking. Good **ielts reading time management** means deciding in advance how long each passage may take, which questions to do first, and when to let a question go. This guide gives you a starting plan you can adjust, a question order, a 90-second rule and a four-week routine to practise it.
 
-In the Academic module you get exactly 60 minutes for three extensive passages (spanning roughly 2,150 to 2,750 words) and 40 analytical questions, you have an average of just 90 seconds per question. This strict window includes scanning the passage, verifying textual evidence, confirming nuanced paraphrases, and transferring responses directly onto the official Answer Sheet. Candidates who lack a structured pacing formula often burn excessive minutes on tricky classification questions in Passage 1 or 2, leaving easy marks uncollected at the end. To build the academic lexicon required for high-speed comprehension, explore the curated [Lexkite IELTS vocabulary directory](/vocabulary/).
+The format is the same for Academic and General Training: 60 minutes, 40 questions, one mark each ([Cambridge English test format](https://www.cambridgeenglish.org/exams-and-tests/ielts/test-format/)). Academic texts add up to 2,150-2,750 words in total; General Training texts add up to 2,150-2,375 words. IELTS does not publish a time limit per passage, so the numbers below are advice, not rules. They are a starting budget for you to test and change.
 
-This comprehensive guide presents an optimal time allocation blueprint, the proven 15–20–25 minute rule, question triage hierarchies, and tactical psychological drills to remain calm when the countdown enters its final stretch.
+## Why equal thirds (20-20-20) is a weak default
 
-## The Flawed Uniformity Trap: Why 20-20-20 Fails
+Splitting the hour into three equal parts looks fair, but it ignores two facts. First, passages are not equally demanding for every candidate. Many people find a descriptive text about a process or a person quicker than a text built on a long argument, and Cambridge notes that at least one Academic text contains detailed logical argument. Second, the answer sheet has to be filled within the same 60 minutes, so every minute you give to the first passage is taken from the last.
 
-Novice test takers frequently assume the safest pacing strategy is dividing the hour equally into three 20-minute segments. However, Cambridge exam designers construct test modules with an intentional, progressive difficulty gradient:
+Use a plan that gives the passage you expect to be hardest more time, then check it against your own practice results:
 
-```
-                    IELTS Reading Pacing Hierarchy & Passage Complexity
-          +-----------------------------------------------------------------+
-          | Passage 1: Descriptive, factual, concrete historical data        |
-          | - Length: ~700–800 words | Types: Table completion, basic T/F/NG|
-          | - Optimal Allocation: 15 MINUTES (Hard ceiling: 16 mins)        |
-          +-----------------------------------------------------------------+
-                                        |
-                                        v
-          +-----------------------------------------------------------------+
-          | Passage 2: Explanatory science, social research, analytical debate|
-          | - Length: ~800–900 words | Types: Matching Headings, Features   |
-          | - Optimal Allocation: 20 MINUTES (Including answer recording)   |
-          +-----------------------------------------------------------------+
-                                        |
-                                        v
-          +-----------------------------------------------------------------+
-          | Passage 3: Dense academic discourse, abstract philosophical logic|
-          | - Length: ~900–1,000 words | Types: Multiple Choice, Yes/No/NG  |
-          | - Optimal Allocation: 25 MINUTES (Requires deep inference)      |
-          +-----------------------------------------------------------------+
-```
+| Passage | What it often looks like | Starting budget |
+| :--- | :--- | :--- |
+| Passage 1 | Often more factual or descriptive, with answers that follow the text order | about 15 minutes |
+| Passage 2 | Often a case study or a comparison of views | about 20 minutes |
+| Passage 3 | Often the densest argument, with opinion and inference questions | about 25 minutes |
+| Final check | Empty boxes, spelling, singular/plural | the last 3 minutes |
 
-If you exhaust 20 minutes on Passage 1, you surrender the essential time cushion required to dissect convoluted argumentative claims in Passage 3. As syntax complexity spikes in the final text, rushed candidates routinely blind-guess 5 to 7 high-value questions, capping their final band score.
+These patterns are common, not guaranteed. If the first passage in your test is clearly the hardest, move time to it. The skill is making that decision within the first minute, not following the table blindly.
 
-![Looking up vocabulary in the Lexkite dictionary interface](media:dict "Reviewing lexical definitions and phonetic IPA transcriptions in the Lexkite dictionary tool")
+On paper there is no ten-minute transfer period as in Listening. Write each answer on the answer sheet as you finish a group of questions, or at the end of each passage, so that you never face 40 numbers to copy in the final minutes.
 
-## Master IELTS Reading Time Management with the 15–20–25 Blueprint
+![A Lexkite reading page with highlighted keywords and True/False/Not Given questions](media:read-article "Keywords are highlighted and any word can be tapped for its meaning while you read")
 
-Establishing unambiguous milestone checkpoints prevents emotional panic from derailing cognitive focus. Rather than drifting aimlessly through paragraphs without temporal benchmarks, disciplined test takers divide their 60-minute window into three distinct tactical phases with pre-assigned targets:
+## IELTS reading time management in practice: a routine for every passage (15-20-25)
 
-### Phase 1: Passage 1 (Target: 15 minutes, Accuracy: 11–13/13)
-- **Profile**: Straightforward narrative or factual account (e.g., the development of refrigeration or the life of an agricultural pioneer).
-- **Tactical Action**:
-  - Spend 45 seconds previewing the task types to register immutable locator anchors (proper names, four-digit years, capitalized botanical terms).
-  - Rapidly execute factual gap-fill tasks and sequential True/False/Not Given items. Review our dedicated guide on [skimming and scanning techniques](/en/blog/ielts-reading-skimming-and-scanning/) to master peripheral eye tracking.
-  - At the 15-minute mark, instantly close Passage 1 regardless of whether 1 or 2 items remain unresolved. Write down your strongest educated guess on the Answer Sheet and proceed immediately to Passage 2.
+Whatever the budget, use the same three steps on every passage:
 
-### Phase 2: Passage 2 (Target: 20 minutes, Accuracy: 9–11/13)
-- **Profile**: Multi-perspective case study or technical innovation report featuring varied stakeholder viewpoints.
-- **Tactical Action**:
-  - Never read the prose from top to bottom before assessing question formats. Solve localized questions first (summary completion, classification) before tackling global questions like Matching Information.
-  - Completing Passage 2 by minute 35 secures 26 fundamental answers and protects a 25-minute runway for the toughest portion of the examination.
+1. **Map the text (about one minute).** Read the title, any sub-headings, the first sentence of each paragraph and look at diagrams. You are only finding out where things are, not reading for detail. Our guide to [skimming and scanning](/en/blog/ielts-reading-skimming-and-scanning/) shows how to do this quickly.
+2. **Read the first question group and mark anchors (one to two minutes).** Underline words that rarely change: names, years, numbers, technical terms. Paraphrasable words (such as *increase* or *problem*) are harder to search for, so note likely synonyms next to them.
+3. **Search, then read closely (the rest of the budget).** Scan to the paragraph, then slow down and read the sentence before and after. Pay attention to limiting words such as *only*, *all*, *never* and *mainly*, because they decide True/False/Not Given answers. The guide to [True / False / Not Given](/en/blog/ielts-reading-true-false-not-given/) explains how to separate "the text says the opposite" from "the text does not say".
 
-### Phase 3: Passage 3 (Target: 25 minutes, Accuracy: 8–10/14)
-- **Profile**: Theoretical critique featuring complex clauses, concessions, and nuanced thesis statements.
-- **Tactical Action**:
-  - Invest 3 minutes skimming topic sentences and concluding statements to map the author's logical progression.
-  - Scrutinize claim-matching and Yes/No/Not Given prompts. To avoid logical fallacies between contradiction and absence of evidence, consult our breakdown on [True False Not Given distinction](/en/blog/ielts-reading-true-false-not-given/).
-  - Reserve the final 3 minutes (minutes 57–60) for a thorough Answer Sheet verification, ensuring no blank boxes remain and all spelling conforms to singular/plural instructions.
+When the budget for a passage ends, write a best guess for anything unfinished and move on. You can come back if time remains at the end.
 
-![Studying flashcards with memory retention intervals in Lexkite](media:review "Reviewing vocabulary flashcards with interactive flip options and progress tracking in Lexkite")
+## Which questions to do first
 
-## Strategic Question Prioritization: Never Work Strictly Top-to-Bottom
+You do not have to answer questions in the printed order within a passage. A useful way to choose is by how much of the text each type makes you read:
 
-Exam candidates often assume questions must be completed in the exact sequence printed on the test booklet. However, experienced instructors recommend triaging question types according to information retrieval velocity:
+| Question type | Why it costs time | Suggested order |
+| :--- | :--- | :--- |
+| Sentence, note, table or summary completion | The gap and its grammar narrow your search | early |
+| True / False / Not Given, Yes / No / Not Given | Usually follow the text order, but need careful comparison | early to middle |
+| Multiple choice | Four options to compare with the text | middle |
+| Matching headings, matching information | Need the main idea of whole paragraphs | after the detail questions |
 
-| Question Cluster | Identifying Characteristics | Processing Speed | Solving Sequence |
-| :--- | :--- | :--- | :--- |
-| **Tier 1: Gap Fill (Summaries/Diagrams)** | Micro-context constraints, predictable grammar | Rapid (~45–60s per item) | Priority 1 |
-| **Tier 2: Factual Verification (T/F/NG)** | Chronological order through text sections | Moderate (~60–75s per item) | Priority 2 |
-| **Tier 3: Multiple Choice (4 Options)** | Requires verifying four distinct paraphrases | Deliberate (~90–100s per item) | Priority 3 |
-| **Tier 4: Global Matching (Headings)** | Requires synthesizing whole-paragraph themes | Intensive (~120s per item) | Priority 4 (Last) |
+The order is a suggestion based on how these questions work, not an official ranking. The reasoning is simple: while you search for gap-fill answers you read much of the passage anyway, so by the time you reach the paragraph-level questions you already know where each topic sits. Our article on [matching headings](/en/blog/ielts-reading-matching-headings/) covers that question type in detail.
 
-When you resolve summary completions first, your gaze scans 60% of the text. By the time you address complex Matching Headings tasks, you already possess an accurate mental layout of the essay, eliminating redundant re-reading.
+## The 90-second rule: let go of a question on purpose
 
-## The 90-Second Rule and Decisive Sunk Cost Management
+The costliest habit in the Reading room is the sunk-cost reflex: you have already spent two minutes on a question, so you spend two more. Every question is worth one mark, and an obscure date in Passage 3 counts exactly the same as an easy noun in Passage 1.
 
-The greatest psychological trap in the Reading room is the sunk-cost reflex. When a candidate spends 120 seconds hunting for a single missing date without success, frustration tempts them to invest an additional 2 minutes out of stubborn pride. This behavioral flaw ruins overall performance because every single question in the IELTS Reading paper carries equal weighting: finding an obscure philosopher's birth year in Passage 3 awards exactly 1 mark, precisely identical to completing an effortless noun in Passage 1.
+Set yourself this rule and practise it until it is automatic:
 
-To defend your time budget, enforce the **90-Second Hard Cut**:
-1. If 60 seconds pass without locating the target paragraph, immediately shift your scanning radius one paragraph higher or lower to check for synonymous paraphrase or contrastive markers (*however, conversely, despite*).
-2. If the clock hits 90 seconds and you remain torn between two options, select your best intuitive option, mark a prominent asterisk in your question booklet margin, and move on immediately.
-3. Never allow a single 1-mark question to jeopardize three straightforward answers waiting downstream.
+1. After about 60 seconds without finding the right paragraph, widen the search by one paragraph on each side and look for contrast words such as *however*, *whereas* and *despite*, which often mark a paraphrase of what you want.
+2. At about 90 seconds, choose the answer you think is most likely, put a mark next to the question number and move on.
+3. If time remains at the end of the passage or the test, return to the marked questions.
 
-### Paper-Based vs. Computer-Delivered Reading Considerations
+The 90 seconds is a personal limit, not an exam rule. Some matching questions need longer and some completion questions less, so treat it as an average and adjust it after you have timed yourself.
 
-Candidates often underestimate the operational differences between testing modalities when timing their workflows:
-- **Paper-Based Testing**: There is no separate 10-minute transfer window as in IELTS Listening. All 40 answers must be transcribed onto the external Answer Sheet within the 60-minute duration. Candidates should transfer responses at the end of each passage (e.g., minute 14, minute 34, and minute 56) rather than leaving 40 numbers to copy in a frantic final rush.
-- **Computer-Delivered Testing**: Highlighting text and making digital notes is faster, and split-screen viewing eliminates page-flipping delays. However, eye fatigue can degrade reading speed during Passage 3. Practice sustained screen reading using academic articles to condition optical endurance.
+### Paper-based and computer-delivered tests
 
-Developing cognitive agility and conversational confidence under time pressure complements your academic focus. Enhance your fluency through the [Lexkite interactive conversational module](/#/speaking) and refine acoustic precision using the [Lexkite pronunciation practice tool](/#/practice/speak).
+Both versions have 60 minutes and 40 questions with no separate transfer time. On paper you write on the answer sheet within the hour. On computer you type your answers directly, and you can highlight text and make notes. Neither format changes the total time, so practise in the format you booked: use pencil on a printed answer sheet for the paper test, and a split screen with a visible clock for the computer test.
 
-![Acoustic pronunciation practice and scoring feedback in Lexkite](media:practice-speak "Practicing spoken pronunciation with microphone input and acoustic evaluation in the Lexkite application")
+## Practise the 60-minute rhythm in Lexkite
 
-## Structured 4-Week Pacing Conditioning Regimen
+Timing is a habit, so train it in the same format as the test. Work through these in order:
 
-Pacing discipline must be ingrained into muscle memory long before test day through deliberate rehearsal:
+1. [Reading on screen](/#/cbt) copies the computer-delivered layout: passage and questions side by side, a countdown clock, a highlighter in three colours, notes and review flags. Start with one passage and keep to the budget you set.
+2. [Reading by question type](/#/rtype) gathers the same type of question from every test, so you can drill the one that eats your time. It suggests moving on once you reach about 70-80% correct in that type.
+3. When one passage feels steady, take a [full IELTS mock](/#/mock) and choose Reading: three passages, 40 questions, 60 minutes. The mock passages are written by Lexkite, so treat the result as a rough guide, not an official band.
 
-- **Week 1: Individual Timed Sections (Isolated Drills)**
-  - Solve Passage 1 in isolation under a strict 15-minute countdown timer.
-  - Complete Passage 2 separately under an exact 20-minute limit.
-  - Review syntactic bottlenecks: Are delays caused by unfamiliar academic collocations or inefficient sentence parsing? For grammatical acceleration, study [sentence parsing for IELTS reading](/en/blog/sentence-parsing-for-ielts-reading/).
-- **Week 2: Keyword Paraphrase Hunting (Micro-Sprints)**
-  - Target academic vocabulary pairs that frequently trigger test traps, reinforced through our review of [commonly confused words in English](/en/blog/commonly-confused-words-in-english/).
-  - Set a 3-minute timer to pinpoint 10 paraphrased keywords across unfamiliar prose.
-- **Week 3: The 55-Minute Constraint Drill (Under-Time Conditioning)**
-  - Administer full mock examinations at home with a timer set to **55 minutes** instead of 60.
-  - Conditioning your central nervous system to heightened urgency builds emotional composure, ensuring the official 60-minute window feels spacious and manageable.
-- **Week 4: Authentic Exam Simulation**
-  - Sit for complete simulations in the morning, mirroring the typical test-day schedule.
-  - Write directly onto printed paper Answer Sheets using HB pencils to gauge physical transcription latency accurately.
+![The Lexkite mock test page where you choose Listening, Reading, Writing or Speaking](media:mock "Choose Reading to practise the three passages against the full 60 minutes")
 
-Systematic mastery of **ielts reading time management** transforms the 60-minute test from an intimidating struggle into a predictable, tactical deployment where every minute yields maximum band score returns.
-{{youtube: | Master IELTS Reading Time Management with the 15-20-25 Pacing Strategy}}
+Between sessions, build the vocabulary that makes reading faster with the [IELTS vocabulary lists](/vocabulary/) and read at your own level in the [reading library](/#/reading), which runs from A2 to C1. Tap any word to see its meaning and save it with the sentence it came from. If you often stop on unfamiliar words, [sentence parsing for IELTS reading](/en/blog/sentence-parsing-for-ielts-reading/) shows how to read long sentences without stopping. Words you save come back in [flashcard review](/#/review) at spaced intervals, so the same word costs you less time the next time it appears.
 
-{{cta: /#/ | Practice timed IELTS Reading mock tests with instant analytics on Lexkite}}
+![A Lexkite flashcard review card for the word pollution with a flip button](media:review "Answer in your head first, then flip the card")
 
----
+Wrong answers caused by look-alike words also cost time; our guide to [commonly confused words](/en/blog/commonly-confused-words-in-english/) lists the pairs that appear most.
 
-## Frequently Asked Questions
+## A four-week timing routine
 
-### Should candidates read the whole text first or inspect questions first?
-The most efficient method is spending 60 to 90 seconds skimming the heading, subheadings, and first paragraph to map the overall structure, and then immediately proceeding to the question stems to identify specific locator keywords. Reading the entire article in detail upfront burns 5 to 7 minutes without retaining granular answers.
+- **Week 1: accuracy first.** Do single passages without a timer. For every error, find the exact words in the text that decide the answer and write down the paraphrase.
+- **Week 2: one passage at a time with the clock.** Time Passage 1 at 15 minutes, Passage 2 at 20 and Passage 3 at 25. Note which question types push you over.
+- **Week 3: full tests.** Do three complete 60-minute tests, writing straight onto a printed answer sheet with a pencil. If you are short of time, practise once with 55 minutes on the clock so that the real 60 feels roomier.
+- **Week 4: simulate test day.** Sit a full test at the time of day your booked exam will start, with no breaks, and finish with the three-minute check.
 
-### What should you do with 5 minutes remaining and 5 questions unanswered?
-Prioritize multiple-choice and True/False/Not Given questions first, as blind guessing still offers a 25% to 33% statistical probability of success. Ensure every single box on your Answer Sheet contains an answer, as there is zero penalty for incorrect choices in IELTS.
+After each test, count how many questions you guessed because the clock ran out. If the answer is more than two, your budget is wrong for that passage, or one question type needs separate drills.
 
-### Does the computer-delivered test offer an inherent time advantage?
-Yes. The computer format splits the screen into parallel passage and question panes, includes text highlighting, and allows direct copy-pasting into completion boxes, eliminating handwriting cramps and saving an estimated 3 to 4 minutes overall.
+## Frequently asked questions
+
+### Should I read the whole passage before the questions?
+No. Three passages add up to roughly 2,150-2,750 words in Academic, and you have about 90 seconds per question including reading. Spend about a minute mapping the title, sub-headings and first sentences, then read the questions, mark the keywords and read closely only where those keywords lead you. A word-by-word first read leaves too little time for the later passages.
+
+### What should I do with three minutes left and five answers blank?
+Fill every box. Each correct answer is one mark and wrong answers are not penalised, so a guess costs nothing. Start with True/False/Not Given (three options) and multiple choice (usually four), where a guess has a fair chance, then use the grammar of the gap and the topic of the sentence for completion questions.
+
+### Is the computer-delivered test faster than paper?
+The time is the same, 60 minutes and 40 questions, and neither version gives separate transfer time. On computer you type answers directly and can highlight and take notes, so there is no copying step. Whether that suits you depends on practice, so try both formats with a clock before you decide.
+
+### Can I start with Passage 3 or change the order?
+You can work in any order within the hour. Starting with the passage you find easiest usually builds a safe base of marks, but it only helps if you do not run out of time for the others, so decide in the first minute and keep to your budget. Do not start with the hardest passage unless you have practised that on purpose.
+
+### Do I lose marks for UK or US spelling?
+No. Both are accepted, but your spelling must be correct, you must respect the word limit in the instructions, and you should copy words exactly as they appear in the passage. A correct answer with a spelling slip or an extra word is marked wrong, which is one more reason to leave two minutes at the end for a check.
+
+{{youtube: | IELTS Reading time management: how to use the 60 minutes}}
+
+{{cta: /#/mock | Take a full IELTS Reading mock: three passages, 40 questions, a 60-minute clock}}

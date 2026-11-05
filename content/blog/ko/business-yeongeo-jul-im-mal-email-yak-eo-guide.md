@@ -1,6 +1,6 @@
 ---
 slug: business-yeongeo-jul-im-mal-email-yak-eo-guide
-title: "글로벌 직장인 필수: 자주 쓰는 비즈니스 영어 줄임말 과 이메일 약어 완벽 정리"
+title: "글로벌 직장인 필수: 자주 쓰는 비즈니스 영어 줄임말, 이메일 약어 완벽 정리"
 description: "외국계 기업과 글로벌 비즈니스 실무에서 빈번히 사용되는 비즈니스 영어 줄임말 핵심 가이드. ASAP, FYI, ETA, EOD, OOO, TBD 등 영문 이메일과 사내 메신저 필수 약어와 실전 예문 및 정중한 커뮤니케이션 에티켓을 상세히 알아봅니다."
 keyword: "비즈니스 영어 줄임말"
 lang: ko
@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, jigjang]
 cover: letters
 coverAlt: "외국계 기업 직장인을 위한 비즈니스 영어 줄임말과 영문 이메일 약어 정리 가이드"
-qualityScore: 86
+qualityScore: 91
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
@@ -17,48 +17,57 @@ coverArt: {mood: cheer, icon: pen}
 publishAt: 2027-01-01T19:01:00+09:00
 quiz: [
   {
-    q: "프로젝트 납기 일정 논의 시 'EOD'는 일반적으로 어떤 시점을 의미하나요?",
+    q: "서울 본사 직원이 뉴욕 동료에게 \"Please send it by EOD Friday.\"라고 썼습니다. 오해를 가장 확실히 줄이는 방법은 무엇인가요?",
     options: [
-      "End of Discussion (토론 종료 시점)",
-      "End of Day (당일 업무 종료 시간, 보통 오후 5~6시)",
-      "Early Operational Delivery (조기 운영 인도)",
-      "Every Other Day (이틀에 한 번)"
+      "EOD 대신 ASAP를 덧붙인다",
+      "시각과 타임존을 함께 적는다 (예: 6 p.m. KST)",
+      "EOD를 소문자로 쓴다",
+      "금요일을 빼고 EOD만 쓴다"
     ],
     answer: 1,
-    explain: "EOD는 End of Day의 약어로, 통상 당일 정규 근무 시간이 끝나는 시점을 뜻합니다."
+    explain: "EOD는 보내는 사람의 업무 종료 시점을 가리키기 쉬워서 시차가 있으면 해석이 갈립니다. 시각과 타임존을 적으면 해석이 하나로 정해집니다."
   },
   {
-    q: "외국계 기업 직원이 휴가나 출장 중일 때 이메일 자동 응답에 가장 널리 설정하는 약어는 무엇인가요?",
+    q: "휴가 중 자동 회신에 '사무실 부재 중'임을 알리는 가장 흔한 약어는 무엇인가요?",
     options: [
-      "BRB (Be Right Back)",
-      "OOO (Out of Office)",
-      "TBD (To Be Determined)",
-      "FYI (For Your Information)"
+      "BRB",
+      "OOO",
+      "TBD",
+      "FYI"
     ],
     answer: 1,
-    explain: "OOO는 Out of Office의 줄임말로 사무실 부재 중임을 알리는 표준 약어입니다."
+    explain: "OOO는 Out of Office의 약어로 자동 회신(out-of-office reply)에 널리 씁니다. BRB는 잠깐 자리를 비울 때 채팅에서 쓰는 표현입니다."
   },
   {
-    q: "중요한 외부 고객이나 임원에게 메일을 보낼 때 'ASAP' 사용을 지양해야 하는 주된 이유는 무엇인가요?",
+    q: "처음 거래하는 외부 고객에게 보내는 메일에서 \"Please reply ASAP.\"가 문제가 될 수 있는 이유는 무엇인가요?",
     options: [
-      "상대방을 지나치게 재촉하거나 무례하게 들릴 수 있는 어조가 될 위험이 있기 때문입니다.",
-      "현대 비즈니스 영어에서 공식적으로 금지된 문법 오류이기 때문입니다.",
-      "오직 사내 재무 감사 보고서에만 허용되는 용어이기 때문입니다.",
-      "법무팀의 사전 서면 승인이 필수적인 특수 코드이기 때문입니다."
+      "상대에게 재촉하는 명령조로 들릴 수 있고, 기한도 불분명하다",
+      "ASAP는 영어 문법상 틀린 표현이다",
+      "ASAP는 사내 문서에서만 쓸 수 있도록 규정되어 있다",
+      "ASAP를 쓰면 메일이 자동으로 스팸 처리된다"
     ],
     answer: 0,
-    explain: "ASAP는 다소 직설적이고 조급한 명령조로 느껴질 수 있으므로 격식체에서는 'at your earliest convenience' 등을 권장합니다."
+    explain: "ASAP는 재촉하는 인상을 주고 구체적인 시각도 없습니다. 'by 3 p.m. KST'처럼 기한을 적으면 정중하고 명확합니다."
+  },
+  {
+    q: "\"FYI, the maintenance window has moved to Sunday night.\" 이 메시지를 받은 사람에게 기대되는 행동은 무엇인가요?",
+    options: [
+      "즉시 답장하고 승인한다",
+      "내용을 알아두면 되고 별도 조치는 필요 없다",
+      "일요일 회의를 취소한다",
+      "메일을 모든 팀원에게 전달한다"
+    ],
+    answer: 1,
+    explain: "FYI(For Your Information)는 참고용 공유입니다. 조치가 필요하면 'Action required'처럼 따로 표시합니다."
   }
 ]
 ---
 
 ## 비즈니스 영어 줄임말 이해가 글로벌 실무에서 중요한 이유
 
-외국계 기업이나 글로벌 테크 기업의 일상 업무에서는 신속한 정보 공유를 위해 다양한 **비즈니스 영어 줄임말** (Acronyms & Abbreviations)이 활발하게 쓰입니다. 본사와의 이메일 스레드, 슬랙(Slack), 마이크로소프트 팀즈(Teams) 메신저 채널 등에서 알파벳 대문자로 된 약어는 긴 문장을 압축하여 소통 속도를 비약적으로 끌어올립니다.
+ASAP, FYI, EOD, ETA, OOO 같은 **비즈니스 영어 줄임말** (Acronyms & Abbreviations)은 외국계 기업의 이메일, 슬랙(Slack), 팀즈(Teams)에서 매일 오갑니다. 이 글은 가장 자주 만나는 약어의 뜻, 쓰면 안 되는 상황, 한국인이 자주 틀리는 부분을 정리했습니다. 먼저 기억할 것 두 가지는 EOD처럼 타임존에 따라 시각이 달라지는 약어에는 시각과 타임존을 함께 적는다는 것, 처음 연락하는 고객에게는 약어 대신 풀어 쓴다는 것입니다.
 
-하지만 약어의 올바른 의미와 미묘한 격식 수준을 모르면 동료의 마감 요청을 오해하거나, 외부 고객에게 지나치게 캐주얼하거나 무례한 인상을 남길 위험이 있습니다. 실무 필수 약어들을 체계적으로 분류하고 올바른 에티켓을 익혀두면 글로벌 협업에서 탁월한 전문성을 발휘할 수 있습니다. 관련 비즈니스 어휘는 Lexkite의 [어휘 라이브러리](/vocabulary/)에서도 다양하게 찾아보실 수 있습니다.
-
-![resilient 단어의 발음 기호와 연어 표현을 검색하는 Lexkite 사전 화면](media:dict "비즈니스 영어 이메일 작성 시 resilient와 같은 핵심 어휘의 정확한 발음 기호와 용례를 Lexkite 사전에서 확인")
+약어의 뜻과 격식 수준을 모르면 동료의 마감 요청을 잘못 읽거나, 고객에게 무례한 인상을 줄 수 있습니다. 관련 비즈니스 어휘는 Lexkite의 [어휘 라이브러리](/vocabulary/)에서도 찾아볼 수 있습니다.
 
 ## 업무 일정과 마감 시간(Deadline) 관련 핵심 약어
 
@@ -73,10 +82,10 @@ quiz: [
   - *사용 팁*: 시차가 다른 다국적 팀과 협업할 때는 어느 타임존 기준인지 함께 명시하는 것이 오해를 방지합니다.
   - *실전 예문*: *"Please submit your quarterly expense receipts by EOD today."* (오늘 퇴근 시간 전까지 분기별 경비 영수증을 제출해 주시기 바랍니다.)
 - **COB (Close of Business)**
-  - *뜻*: 영업 마감 시간 (EOD와 유사하나 금융권 및 전통 엔터프라이즈 기업에서 좀 더 선호되는 공식적 표현).
+  - *뜻*: 영업 마감 시간 (EOD와 거의 같은 뜻으로 쓰입니다. 업무 시간이 끝나는 시점이라는 점이 조금 더 분명합니다).
   - *실전 예문*: *"The final revised contract must be countersigned before COB Friday."* (최종 수정 계약서는 금요일 영업 마감 전까지 상호 서명되어야 합니다.)
 - **TBD (To Be Determined) / TBA (To Be Announced)**
-  - *뜻*: 추후 결정 예정 / 추후 공지 예정.
+  - *뜻*: TBD는 아직 결정되지 않음, TBA는 결정은 됐지만 아직 공지되지 않음.
   - *사용 팁*: 안건이나 일정 표에서 세부 사항이 미정일 때 빈칸 대신 명확히 표기하는 데 유용합니다.
   - *실전 예문*: *"The venue for our annual global partner summit is currently TBD."* (연례 글로벌 파트너 서밋 장소는 현재 미정 상태입니다.)
 
@@ -100,11 +109,9 @@ quiz: [
 - **TL;DR (Too Long; Didn't Read)**
   - *뜻*: 요약본 (내용이 너무 길어 핵심만 요약함).
   - *사용 맥락*: 장문의 기술 보고서나 전략 기획안 서두에 2~3줄의 핵심 요약글을 붙일 때 씁니다.
-  - *실전 예문*: *"TL;DR: The pilot test reduced customer churn by 14% over three months."* (요약: 파일럿 테스트 결과 3개월간 고객 이탈률이 14% 감소했습니다.)
+  - *실전 예문*: *"TL;DR: The pilot test went well, and we recommend a full launch in Q2."* (요약: 파일럿 테스트가 잘 끝났고, 2분기 정식 출시를 권장합니다.)
 
 직장 내 소통 능력을 한층 끌어올리고 싶다면 [직장 영어 스몰토크 노하우](/ko/blog/jigjang-yeongeo-small-talk-jabdam/) 콘텐츠도 확인해 보시기 바랍니다.
-
-![Lexkite 복습 화면에서 단어 pollution 플래시카드를 뒤집어 복습하는 화면](media:review "pollution 등 단어를 Lexkite 플래시카드로 복습하고 남은 카드 진행 막대를 확인")
 
 ## 부재 및 근무 상태를 나타내는 사내 상태 약어
 
@@ -131,13 +138,13 @@ quiz: [
 
 - **EOM (End of Message)**
   - *뜻*: 본문 없음 (제목이 메시지의 전부임).
-  - *사용 팁*: 이메일 제목 끝에 `[EOM]`을 달아두면 수신자가 굳이 메일을 열어볼 필요가 없어 시간을 절약해 줍니다.
+  - *사용 팁*: 이메일 제목 끝에 `[EOM]`을 달아두면 수신자가 메일을 열지 않아도 됩니다. 단, 재무 쪽에서는 EOM이 *end of month*(월말)를 뜻하기도 하므로 상대가 모를 수 있다면 쓰지 않는 편이 안전합니다.
   - *실전 예문*: *"Subject: Team standup moved to Room 302 at 2 PM [EOM]"*
 - **NRN (No Reply Needed)**
   - *뜻*: 회신 불필요.
-  - *사용 팁*: 메일 수신자의 이메일함 피로도를 줄여주는 배려 넘치는 에티켓 약어입니다.
+  - *사용 팁*: 답장 부담을 줄여 주는 약어입니다. 다만 EOD나 FYI만큼 흔하지는 않아서, 처음 보는 상대에게는 *"No need to reply."*라고 풀어 쓰는 편이 안전합니다.
 - **MoM (Minutes of Meeting)**
-  - *뜻*: 회의록.
+  - *뜻*: 회의록 (주로 인도·아시아계 기업에서 쓰는 표현이며, 영미권에서는 *meeting minutes*가 더 흔합니다. 재무 문서의 MoM은 *month-over-month*, 즉 전월 대비를 뜻하므로 문맥으로 구분하세요).
   - *실전 예문*: *"I will circulate the approved MoM before our next sprint planning."* (다음 스프린트 기획 회의 전까지 확정된 회의록을 배포하겠습니다.)
 - **KPI (Key Performance Indicator) & OKR (Objectives and Key Results)**
   - *뜻*: 핵심 성과 지표 / 목표 및 핵심 결과.
@@ -160,9 +167,9 @@ quiz: [
 3. **대문자 전체 표기(ALL CAPS) 유의**
    - 이메일 본문 전체를 대문자 약어로 채우면 영미권 문화에서는 소리를 지르는(shouting) 느낌을 줄 수 있습니다.
 
-발음과 자연스러운 억양 연습은 전용 인터페이스 [/#/speaking](/#/speaking)과 마이크 발화 채점 기능 [/#/practice/speak](/#/practice/speak)에서 손쉽게 실습하실 수 있습니다.
+자주 쓰는 약어와 예문은 [Lexkite 표현 노트](/#/phrases)에 저장해 두면 메일을 쓸 때 바로 꺼내 쓸 수 있습니다.
 
-![cut down on 구문과 녹음 마이크 버튼이 표시된 Lexkite 발음 연습 화면](media:practice-speak "Lexkite 발음 연습 화면에서 cut down on 구문을 소리 내어 발음하고 마이크 버튼을 눌러 음성 평가를 받는 모습")
+![Lexkite 표현 노트 화면: 유용한 표현과 문장을 추가해 저장하는 화면](media:phrases "표현 노트에 이메일 약어가 들어간 예문을 저장해 두고 필요할 때 다시 열어봅니다")
 
 ## 실전 비즈니스 이메일 답장 예문
 
@@ -178,7 +185,7 @@ Thanks for the update.
 TL;DR: The staging environment verification is complete, and we are on track for the target deployment date.
 
 Please find the detailed architecture review attached for your reference (FYR). 
-Our DevOps team expects the full production rollout to finish before EOD this Friday (EST).
+Our DevOps team expects the full production rollout to finish by 5 p.m. ET this Friday.
 
 I will be OOO tomorrow afternoon for a client visit, but Sarah will be available if any urgent blocker arises.
 
@@ -207,22 +214,37 @@ Senior Software Engineer
 - **"확인 부탁드립니다"를 "Please check."로만 쓰기**: 한국어로는 정중하지만 영어로는 짧은 명령처럼 읽힙니다. *"Could you take a look and let me know if anything needs changing?"*처럼 무엇을 확인할지 함께 적으세요.
 - **"수고하셨습니다"를 직역하기**: *"Thank you for your hard work"*는 상사가 부하에게 하는 말처럼 들릴 수 있습니다. 동료에게는 *"Thanks for pulling this together"*가 자연스럽습니다.
 - **ASAP에 Please만 붙이면 괜찮다고 생각하기**: *"Please reply ASAP"*도 여전히 재촉입니다. *"Could you reply by 3 p.m. KST?"*처럼 구체적인 시간을 주세요.
-- **EOD를 한국 퇴근 시간 기준으로 계산하기**: 서울 오후 6시는 뉴욕 새벽입니다. 본사가 해외라면 반드시 타임존(KST, EST 등)을 붙이세요.
+- **EOD를 한국 퇴근 시간 기준으로 계산하기**: 서울 오후 6시는 뉴욕에서는 같은 날 새벽입니다. 본사가 해외라면 반드시 타임존(KST, ET 등)을 붙이세요.
 
-## Lexkite로 비즈니스 약어를 완벽하게 마스터하는 법
+## 한국어 화자가 약어를 말할 때 틀리기 쉬운 발음
 
-단순히 글자로만 외운 약어는 회의 중 귀로 들었을 때 즉시 인식하기 어렵습니다. 
+약어는 알파벳 이름을 하나씩 읽기 때문에, 한국어에 없는 소리가 그대로 드러납니다.
+
+- **F와 P**: 한국어에는 /f/가 없어서 *FYI*가 "파이"처럼 들립니다. 윗니를 아랫입술에 살짝 대고 바람을 내보내세요 ("에프"가 아니라 /ef/).
+- **R과 L**: *TL;DR*, *ROI*, *SLA*, *OKR*에서 갈립니다. L은 혀끝을 윗잇몸에 붙이고, R은 혀를 말아 입천장에 닿지 않게 합니다.
+- **끝소리 뒤에 모음 붙이기**: 한국어는 받침 없이 모음으로 끝나는 경향이 있어 *ASAP*의 마지막 P를 "에이사프"처럼 "프"로 늘리기 쉽습니다. *ASAP*는 "에이샙"처럼 한 단어로 읽거나 A-S-A-P로 끊어 읽는데, 어느 쪽이든 마지막 P 뒤에 모음을 붙이지 말고 입술만 닫으세요.
+- **강세**: *FYI*, *ETA*처럼 알파벳을 하나씩 읽는 약어는 마지막 글자에 강세가 옵니다 (ef-why-**EYE**).
+
+전화 회의 전에 위 약어들을 소리 내어 읽어 보고 싶다면 [Lexkite 발음 연습](/#/practice/speak)에서 구문을 마이크로 읽고 점수를 확인해 보세요.
+
+![cut down on 구문과 녹음 마이크 버튼이 표시된 Lexkite 발음 연습 화면](media:practice-speak "구문을 소리 내어 읽고 마이크 버튼을 눌러 발음 점수를 확인합니다")
+
+## Lexkite로 비즈니스 약어를 마스터하는 법
+
+눈으로만 외운 약어는 회의에서 귀로 들었을 때 바로 떠오르지 않습니다.
 
 1. **소리와 축약형 동시 학습**: "이-티-에이", "에프-와이-아이"처럼 알파벳을 부르는 소리와 실제 발음을 매칭합니다. 영어 발음 개선 전반에 관한 훈련법은 [영어 발음 교정 가이드](/ko/blog/yeongeo-balum-gyojeong/)를 추천합니다.
-2. **예문 맥락 속 반복**: 단독 알파벳이 아닌 이메일 문맥 속에서 학습하여 콜로케이션 감각을 체화합니다.
-3. **스마트 간격 복습**: 망각 곡선에 맞춘 최적 복습 타이밍을 제공하는 [간격 반복 단어 암기 FSRS](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/) 방식을 활용해 장기 기억에 안착시킵니다.
-4. **상황별 관용 표현 연계**: 실무 관용구와 함께 복습하면 응용력이 배가됩니다. [비즈니스 영어 관용구 모음](/ko/blog/business-yeongeo-gwanyonggu-jigjang/)도 유용하게 활용해 보세요.
+2. **예문 맥락 속 반복**: 알파벳만 외우지 말고 예문 한 문장과 함께 외웁니다. 위 예문을 표현 노트에 넣어 두세요.
+3. **간격을 두고 복습**: 내 업무에 실제로 나오는 약어 대여섯 개만 카드로 만들어 [Lexkite 복습](/#/review)에서 간격을 두고 복습합니다. 원리는 [간격 반복 단어 암기 FSRS](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/)에 정리되어 있습니다.
 
-정확하고 세련된 약어 활용은 여러분의 글로벌 비즈니스 역량을 한 단계 끌어올리는 든든한 무기가 될 것입니다.
+![Lexkite 복습 화면: pollution 플래시카드와 카드를 뒤집는 버튼, 남은 카드 진행 막대](media:review "카드를 뒤집어 답을 확인하고, 진행 막대로 남은 카드를 봅니다")
+4. **말로 연습하기**: [Lexkite 롤플레이](/#/roleplay)에는 "프로젝트 지연 보고", "해외 상사와 회의" 같은 업무 상황이 있어서, 약어가 나오는 대화를 말로 또는 글로 답하고 마지막에 자연스러움·공손함·명확성·문법 평가를 받을 수 있습니다. 표현을 더 늘리려면 [비즈니스 영어 관용구 모음](/ko/blog/business-yeongeo-gwanyonggu-jigjang/)도 읽어 보세요.
+
+약어는 정확한 뜻과 적절한 상황만 알면 어렵지 않습니다. 이번 주 메일에서 두세 개를 골라 써 보세요.
 
 {{youtube: | 비즈니스 영어 줄임말 및 이메일 약어 완벽 정리: ASAP부터 EOD까지}}
 
-{{cta: /#/ | Lexkite에서 비즈니스 이메일 약어와 실전 이메일 작성 표현을 학습하세요}}
+{{cta: /#/phrases | 이메일 약어 예문을 표현 노트에 저장해 보세요}}
 
 ---
 
@@ -232,8 +254,14 @@ Senior Software Engineer
 고객이나 외부 파트너, 고위 임원에게 보내는 공식 서한에서는 약어 사용을 지양하고 전체 문장을 표기하는 것이 예의입니다. 약어는 주로 사내 메신저나 친숙한 팀 내 커뮤니케이션에 적합합니다.
 
 ### EOD와 COB는 정확히 몇 시를 의미하나요?
-COB(Close of Business)는 통상 정규 업무 마감 시간인 오후 5시를 가리키며, EOD(End of Day)는 자정 전 또는 업무 당일 퇴근 전을 의미하므로 시차가 있는 글로벌 업무 시 타임존을 명시하는 것이 안전합니다.
+두 약어 모두 보통 "그날 업무가 끝나는 시점"을 뜻하고, 정확히 몇 시인지는 회사와 사람마다 다릅니다. COB는 업무 시간이 끝난다는 뜻이 더 분명하고, EOD는 사람에 따라 자정까지로 읽기도 합니다. 그래서 "5 p.m. KST"처럼 시각과 타임존을 적는 것이 가장 안전합니다.
 
 ### 대문자와 소문자 표기(예: ASAP vs asap)에 차이가 있나요?
 이메일 본문에서는 대문자 표기가 표준적이며 가독성이 높습니다. 소문자 표기는 슬랙 등 실시간 사내 메신저에서 흔히 쓰입니다.
+
+### 약어를 말할 때 "에프와이아이"라고 하면 외국인이 못 알아듣나요?
+대부분 알아듣지만, /f/가 /p/로 들리면 "PYI"처럼 들려 한 번 더 묻는 경우가 있습니다. 윗니를 아랫입술에 대고 /f/ 소리를 내고, 마지막 글자 I에 강세를 주세요.
+
+### 한국어 "확인 부탁드립니다"는 약어로 어떻게 쓰나요?
+약어보다 구체적인 요청이 낫습니다. *"Could you review the attached file by 3 p.m. KST?"*처럼 무엇을, 언제까지 하는지 적으면 정중하고 오해도 없습니다.
 

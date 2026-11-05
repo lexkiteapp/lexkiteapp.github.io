@@ -9,147 +9,167 @@ category: toeic
 tags: [toeic, estudo, preparacao]
 cover: toeic
 coverAlt: "Interface de preparacao para o exame TOEIC no Lexkite com simulados completos e treino focado por secao"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-12T12:11:00-03:00
 status: ready
 quiz: [
   {
-    q: "Qual é a causa principal da estagnação na faixa entre 450 e 550 pontos no TOEIC?",
+    q: "Quantas questões e quantos minutos tem a seção Reading do TOEIC Listening & Reading?",
     options: [
-      "Lacunas em vocabulário corporativo básico e dúvidas na gramática fundamental da Parte 5",
-      "Falta de velocidade para memorizar o gabarito de simulados inteiros",
-      "Dificuldade insuperável com os diferentes sotaques nativos em áudios curtos",
-      "Fazer simulados cronometrados com frequência excessiva toda semana"
+      "100 questões em 75 minutos",
+      "100 questões em 45 minutos",
+      "200 questões em 120 minutos",
+      "54 questões em 75 minutos"
     ],
     answer: 0,
-    explain: "Na faixa de 450 a 550 pontos, a grande maioria dos erros decorre da falta de vocabulário profissional e da lentidão na análise morfossintática básica."
+    explain: "A seção Reading tem 100 questões (Part 5: 30, Part 6: 16, Part 7: 54) e dura 75 minutos. Os 45 minutos pertencem à seção Listening."
   },
   {
-    q: "Por que fazer simulados em sequência sem análise de erros é ineficiente no início?",
+    q: "Você erra uma questão da Part 5 porque não sabia que 'comply' é seguido de 'with'. Em qual categoria do seu registro de erros isso entra?",
     options: [
-      "Fazer testes apenas mede o nível atual, mas não ensina a gramática e o léxico desconhecidos",
-      "Os simulados de treino não trazem gravações de voz em áudio real",
-      "O regulamento oficial proíbe resolver simulados completos nas primeiras semanas",
-      "O exame TOEIC altera sua estrutura a cada nova edição aplicada"
+      "Lacuna de vocabulário: uma colocação desconhecida",
+      "Descuido: leitura apressada demais",
+      "Confusão estrutural: limite da oração identificado errado",
+      "Nenhuma: um único erro não vale ser registrado"
     ],
     answer: 0,
-    explain: "A repetição mecânica de questões sem correção detalhada apenas gera cansaço mental sem preencher as lacunas reais de vocabulário e estrutura."
+    explain: "O que falta é uma combinação fixa de palavras (comply with), ou seja, uma lacuna de vocabulário e colocações. Com a categoria certa você sabe que deve treinar colocações, e não ler mais devagar nem revisar a estrutura da oração."
+  },
+  {
+    q: "Na Part 2 você ouve 'When will the shipment arrive?'. Qual resposta é a mais provável?",
+    options: [
+      "Sometime early next week.",
+      "At the main warehouse.",
+      "The shipping department.",
+      "Yes, it arrived yesterday."
+    ],
+    answer: 0,
+    explain: "'When' pergunta sobre tempo, então só uma expressão de tempo serve. 'Warehouse' responde a 'Where', 'department' lembra 'Who', e 'Yes' não combina com pergunta iniciada por wh-."
   }
 ]
 ---
 
-Alcançar uma pontuação expressiva no exame TOEIC Listening and Reading é um dos requisitos mais valorizados por multinacionais, empresas de tecnologia e processos seletivos globais para comprovar a fluência em inglês corporativo. No entanto, milhares de profissionais sentem-se bloqueados na faixa intermediária entre 450 e 550 pontos. Nesse patamar, você compreende conversas curtas cotidianas, mas os diálogos rápidos da Parte 3 e os textos corporativos densos da Parte 7 esgotam sua capacidade de processamento. Vencer esse desafio de 250 a 300 pontos exige um **plano de estudo toeic** metódico, ancorado no domínio do vocabulário corporativo, no treino auditivo intencional e na gestão milimétrica do tempo.
+Muita gente fica parada entre 450 e 550 pontos no TOEIC Listening & Reading. Você entende conversas simples, mas os diálogos da Part 3 passam rápido demais, e os e-mails e avisos da Part 7 enchem sua memória de trabalho antes de você chegar às perguntas. Para ir de 450 a 750 é preciso um **plano de estudo toeic** que primeiro feche as lacunas de vocabulário e gramática, depois treine o ouvido e só então trabalhe a velocidade.
 
-Este guia prático apresenta um **plano de estudo toeic** comprovado, dividido em três fases progressivas. Seja estudando 45 minutos pela manhã ou uma hora à noite, este cronograma estruturado guiará sua evolução até atingir com confiança os 750 ou 850 pontos.
+Este guia apresenta esse plano em três fases, uma agenda semanal para encaixar antes ou depois do trabalho e um registro de erros para que cada simulado ensine algo. Os prazos são exemplos de planejamento, não promessas: o seu ritmo depende do nível de partida e das horas que você estuda.
 
-## Visão geral do plano de estudo toeic
+## Estrutura e fases do plano de estudo toeic
 
-Muitos candidatos acreditam equivocadamente que resolver dezenas de simulados é o caminho mais rápido para aumentar a pontuação. Na prática, um simulado apenas afere o conhecimento que você já possui; ele não ensina o que você ainda não aprendeu.
+É comum achar que fazer simulados sem parar é o caminho mais rápido. Só que um simulado mede apenas o que você sabe hoje; ele não preenche as lacunas de vocabulário e gramática que causaram os erros.
 
-Para assegurar uma evolução consistente, seu plano precisa priorizar a consolidação linguística antes de acelerar a velocidade mecânica.
+Por isso o plano coloca o idioma em primeiro lugar e a velocidade de prova em segundo. Cada fase termina com um simulado, de onde sai a sua estimativa de pontuação.
 
-![Seção TOEIC Listening e Reading do Lexkite com simulados, treino por Part e lista de vocabulário TOEIC](media:toeic "Explore simulados completos do exame TOEIC e modulos de treino por secao no Lexkite")
+![Página TOEIC do Lexkite com prática por Part de Listening e Reading, simulados com pontuação estimada de 10 a 990 e vocabulário TOEIC (TSL)](media:toeic "A página TOEIC: prática por Part, simulados completos com pontuação estimada e o vocabulário da prova")
 
-A tabela a seguir resume as três etapas centrais da sua jornada de autoestudo:
+A tabela resume as três fases. As durações valem como exemplo para quem estuda cerca de uma hora por dia; encurte ou alongue conforme a sua rotina.
 
-| Etapa de estudo | Meta de pontuação | Duração estimada | Foco estratégico essencial |
+| Fase | Meta de pontos | Duração de exemplo | Foco principal |
 |---|---|---|---|
-| Fase 1: Base sólida | 450 → 550 | 6–8 Semanas | Vocabulário corporativo, gramática da Parte 5, questões curtas Partes 1 e 2 |
-| Fase 2: Expansão de fôlego | 550 → 650 | 6–8 Semanas | Conversas Partes 3 e 4, textos incompletos Parte 6, textos simples Parte 7 |
-| Fase 3: Ritmo e reflexos rápidos | 650 → 750+ | 6–8 Semanas | Simulados integrais cronometrados, textos múltiplos, diagnóstico rigoroso de erros |
+| Fase 1: Base | 450 → 550 | 6–8 semanas | Vocabulário de trabalho, gramática da Part 5, Parts 1 e 2 |
+| Fase 2: Ampliação | 550 → 650 | 6–8 semanas | Parts 3 e 4, Part 6, textos simples da Part 7 |
+| Fase 3: Velocidade e resistência | 650 → 750+ | 6–8 semanas | Seções cronometradas, textos duplos e triplos, análise de erros |
 
-Antes de mergulhar na resolução de exercícios, certifique-se de dominar as convenções do inglês profissional conhecendo as boas práticas de [como escrever email formal em inglês](/pt/blog/como-escrever-email-em-ingles-formal/) e como estruturar seu currículo com [como fazer currículo em inglês ATS](/pt/blog/como-fazer-curriculo-em-ingles-ats-resume/).
+A prova tem 200 questões: 100 de Listening (45 minutos) e 100 de Reading (75 minutos), duas horas no total. Cada seção vale de 5 a 495 pontos, o que forma a escala de 10 a 990. Para o detalhe de cada parte, leia os guias da [Part 5](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/), da [Part 2](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/) e da [Part 7](/pt/blog/toeic-part-7-estrategias-leitura-tempo/).
 
-## Fase 1: Construção de alicerces lexicais e gramaticais (450 a 550)
+## Fase 1: Fechar as lacunas básicas de gramática e vocabulário (450 a 550)
 
-Nesta primeira etapa, seu objetivo primordial é sanar dúvidas morfológicas básicas e construir um repertório léxico indispensável para o ambiente corporativo. Fazer testes completos neste momento causaria apenas frustração desnecessária.
+Nesta fase você desfaz a confusão entre classes de palavras e constrói o vocabulário de negócios que a prova repete o tempo todo. Sem essa base, simulados completos só geram frustração.
 
-### 1. Dominar o vocabulário comercial de alta recorrência
-O TOEIC gira em torno de situações comerciais previsíveis: ordens de compra, distribuição logística, relatórios financeiros, recrutamento e seleção, reuniões de diretoria e manutenção patrimonial. Em vez de memorizar listas aleatórias, priorize termos da TOEIC Service List (TSL). Utilize ferramentas de repetição espaçada para reter essas palavras com máxima retenção.
+### 1. Dominar o vocabulário profissional de alta frequência
+Os textos do TOEIC vêm do escritório e das viagens: compras, marketing, reservas, finanças, pessoal e manutenção predial. Em vez de listas aleatórias, trabalhe com a TOEIC Service List (TSL), cerca de 1.250 palavras frequentes que o Lexkite oferece em dez conjuntos (veja também a [página de vocabulário](/vocabulary/)).
 
-![Dicionário inglês–vietnamita do Lexkite com a palavra resilient, pronúncia UK/US, exemplos, collocations e botão para salvar flashcard](media:dict "Consulte definicoes e collocations corporativas para palavras como resilient no dicionario Lexkite")
+![Biblioteca de vocabulário do Lexkite com abas, entre elas TOEIC (TSL), e conjuntos de palavras essenciais dos níveis A1 a B2](media:library "A biblioteca: na aba TOEIC (TSL) ficam os conjuntos de palavras da prova")
 
-Ao aprender um termo novo, registre sempre as preposições e combinações com as quais ele costuma ocorrer. Não decore apenas o verbo *participate*, mas a expressão inteira *participate in the conference*. Você pode consultar listas temáticas de termos úteis na seção de [vocabulário em inglês](/vocabulary/).
+Aprenda cada palavra com suas companheiras, nunca sozinha. Não salve só *participate*; salve *participate in the seminar*. *Comply* vai com *with*, *responsible* com *for*. Essas ligações pequenas são exatamente o que a Part 5 cobra. Mais técnicas em [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/).
 
-### 2. Dominar a anatomia das frases na Parte 5
-A maior parte dos tropeços na Parte 5 decorre de confusão entre classes gramaticais, e não de regras literárias obscuras. Treine seus olhos para identificar instantaneamente sufixos de substantivos (*-tion, -ment, -ance*), de adjetivos (*-able, -ive, -ous*) e marcadores de advérbios (*-ly*).
+### 2. Part 5: dominar a mecânica da frase
+A Part 5 tem 30 frases com uma lacuna. Nesse nível, quase todo erro vem da confusão entre classes de palavras, não de gramática rara. Treine o olho para terminações de substantivos (*-tion, -ment, -ance*), adjetivos (*-able, -ive, -ous*) e o advérbio em *-ly*, e pergunte o que a lacuna exige antes de ler as alternativas.
 
-Aprofunde suas táticas de resolução oracional lendo nosso guia sobre [estratégias de gramática e tempo para o TOEIC Parte 5](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/).
+O método completo está em [estratégias de gramática e vocabulário para a TOEIC Part 5](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/).
 
-### 3. Criar reflexos auditivos nas Partes 1 e 2
-A Parte 2 contém 25 perguntas curtas e representa a oportunidade mais rápida para acumular pontos. Acostume seu ouvido a captar com precisão a primeira palavra interrogativa (*Who, Where, When, Why, How*) e descarte de imediato as pegadinhas acústicas que repetem sons idênticos com significados totalmente diferentes.
+### 3. Criar reflexos de escuta nas Parts 1 e 2
+A Part 1 (6 fotografias) e a Part 2 (25 pares de pergunta e resposta) são curtas e dão os ganhos mais rápidos. Na Part 2, preste atenção na primeira palavra (*Who, Where, When, Why, How*) e desconfie de uma resposta que apenas repete uma palavra da pergunta. As táticas estão em [TOEIC Listening Part 2](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).
 
-## Fase 2: Desenvolvimento de fôlego auditivo e leitura ampliada (550 a 650)
+Muitas vezes o obstáculo não é vocabulário, é som. Nativos ligam e enfraquecem as palavras, e *What did you* soa quase como «uódidju». Se você conhece todas as palavras do roteiro mas não as ouve no áudio, repita o trecho com o roteiro e diga a frase em voz alta. O artigo sobre [connected speech em inglês](/pt/blog/connected-speech-em-ingles-como-ligar-palavras/) explica esses padrões.
 
-Quando sua base gramatical estiver estável e você compreender intercâmbios orais curtos, direcione sua atenção para conversas longas e memorandos empresariais detalhados.
+## Fase 2: Ampliar resistência e compreensão (550 a 650)
 
-### 1. Escuta ativa e pré-leitura nas Partes 3 e 4
-Nos diálogos da Parte 3 e nas palestras curtas da Parte 4, muitos candidatos perdem a concentração no meio do áudio. A solução está na técnica da pré-leitura: leia atentamente as três perguntas correspondentes durante as instruções iniciais ou nas pausas entre os áudios. Essa leitura orienta seu cérebro para buscar detalhes objetivos, como a profissão de quem fala, o motivo de um atraso ou o local de uma reunião.
+Quando a gramática está firme e os diálogos curtos ficam claros, passe a textos de negócios mais longos e a áudios com mais conteúdo.
 
-Para afinar sua percepção de sons emendados e naturalidade de fala, consulte as diretrizes sobre [como melhorar o listening em inglês](/pt/blog/como-melhorar-o-listening-em-ingles-metodo/).
+### 1. Escuta ativa nas Parts 3 e 4
+A Part 3 tem 39 questões sobre conversas e a Part 4 tem 30 sobre falas curtas. É comum perder o fio no meio. O que ajuda é ler as perguntas antes de o áudio começar, usando o tempo das instruções gravadas. Assim você sabe o que captar: quem fala, qual é o problema, o que acontece depois.
 
-### 2. Otimização dos textos incompletos na Parte 6
-A Parte 6 une a gramática de frases soltas à interpretação de parágrafos inteiros. Dedique cuidado redobrado às questões de inserção de frases completas: leia a frase anterior e a posterior para identificar pronomes de referência, cronologia de fatos e conectivos de causa e efeito.
+As perguntas seguem a ordem do áudio, então mantenha os olhos na próxima pergunta sem resposta em vez de voltar às anteriores. Para treinar além disso, veja [como melhorar o listening em inglês](/pt/blog/como-melhorar-o-listening-em-ingles-metodo/).
 
-![Revisão de flashcards no Lexkite com a palavra pollution, imagem emoji, transcrição fonética, botão de virar e barra de progresso](media:review "Fixe o vocabulario profissional com repeticao espacada atraves de cards como pollution no Lexkite")
+### 2. Part 6: completar textos com critério
+A Part 6 (16 questões) fica entre a gramática de frases e a leitura de textos. Em algumas lacunas falta uma frase inteira. Leia a frase anterior e a seguinte e procure conectivos (*however, as a result*), ordem cronológica e referências de pronomes.
 
-O método de repetição espaçada assegura que você recupere conectivos e termos formais sem hesitação sob a pressão do relógio.
+![Sessão de revisão de flashcards no Lexkite com a palavra pollution, uma imagem emoji, transcrição fonética, botão de virar e barra de progresso](media:review "Uma sessão de revisão: os cartões voltam em intervalos crescentes, bom para conectivos e colocações que você precisa lembrar rápido")
 
-### 3. Técnicas de leitura seletiva na Parte 7
-Evite ler cada linha de ponta a ponta em emails, faturas ou avisos de circulação interna. Treine seu olhar para rastrear rapidamente os cabeçalhos essenciais: remetente, destinatário, assunto, datas de entrega e números de fatura. Desenvolva sua velocidade analítica aplicando as recomendações de [estratégias de leitura e tempo para o TOEIC Parte 7](/pt/blog/toeic-part-7-estrategias-leitura-tempo/).
+Revisar conectivos e colocações com repetição espaçada faz com que eles venham à mente mais depressa com o relógio correndo.
 
-## Fase 3: Ritmo cronométrico e resistência cognitiva (650 a 750+)
+### 3. Part 7: textos simples com leitura seletiva
+Você não precisa ler cada palavra de um e-mail, de uma fatura ou de um anúncio. Identifique antes a estrutura: remetente, destinatário, assunto, datas, números de pedido. Depois leia a pergunta e localize a frase que a responde. A abordagem completa está em [TOEIC Part 7: leitura e gestão do tempo](/pt/blog/toeic-part-7-estrategias-leitura-tempo/).
 
-Ultrapassar a marca dos 750 pontos exige precisão temporal inegociável. A seção de leitura compreende 100 perguntas (30 na Parte 5, 16 na Parte 6 e 54 na Parte 7) que devem ser resolvidas em apenas 75 minutos.
+## Fase 3: Domínio do ritmo e resistência (650 a 750+)
 
-### 1. Aplicação de limites rigorosos de tempo por seção
-Estabeleça e cumpra à risca estas metas em cada treino de leitura:
-* **Parte 5 (30 questões)**: No máximo 10 a 12 minutos (entre 20 e 25 segundos por item).
-* **Parte 6 (16 questões)**: No máximo 8 a 10 minutos (cerca de 30 segundos por item).
-* **Parte 7 (54 questões)**: Os 53 a 55 minutos restantes (em média 60 segundos por questão).
+Acima de 650, o tempo vira o principal limite. A seção Reading tem 100 questões (30 na Part 5, 16 na Part 6 e 54 na Part 7) em 75 minutos.
 
-Se hesitar em uma pergunta de gramática na Parte 5, elimine os absurdos, selecione sua melhor hipótese e siga em frente. Gastar dois minutos em uma única questão rouba o tempo necessário para pontuar em itens diretos e fáceis no final da prova.
+### 1. Praticar com um plano de tempo
+A ETS não define um tempo por parte, então use esta divisão como ponto de partida e ajuste de acordo com seus simulados:
 
-### 2. Resolução de textos múltiplos com cruzamento de dados
-Os blocos de textos duplos e triplos da Parte 7 trazem sempre questões de conferência cruzada que não podem ser respondidas consultando apenas uma página. Procure ativamente os elos lógicos: um email que menciona o número de um pedido faturado em anexo ou uma programação de congresso que confirma o auditório citado em uma mensagem.
+* **Part 5 (30 questões):** cerca de 10 a 12 minutos, ou seja, 20 a 25 segundos por item.
+* **Part 6 (16 questões):** cerca de 8 a 10 minutos.
+* **Part 7 (54 questões):** os 53 a 55 minutos restantes, cerca de um minuto por questão.
 
-### 3. Caderno de diagnóstico sistemático de erros
-Após finalizar um simulado cronometrado, reserve o dobro do tempo para dissecar seus erros em comparação com o tempo gasto na realização do teste. Agrupe cada falha em uma destas três categorias:
-* *Lacuna lexical*: Eu não conhecia o significado ou a collocation.
-* *Confusão sintática*: Identifiquei incorretamente o sujeito ou a oração principal.
-* *Pressa por desatenção*: Li rápido demais e não percebi uma palavra de negação (*not, except*).
+Se uma questão da Part 5 travar você, elimine as alternativas claramente erradas, escolha a melhor e siga em frente. Dois minutos em uma única dúvida de gramática tiram tempo de várias questões mais fáceis da Part 7.
 
-Mapear esses padrões recorrentes impede que você cometa os mesmos enganos de raciocínio no dia do exame oficial.
+### 2. Referências cruzadas em textos múltiplos
+Os textos duplos e triplos da Part 7 têm questões que exigem informação de dois ou três documentos. Procure a ligação: um e-mail que cita o número de uma fatura, uma programação que confirma a sala de um palestrante, uma reserva alterada que muda o horário de chegada.
 
-## Cronograma semanal sugerido para rotinas profissionais
+### 3. Um registro de erros sistemático
+Depois de um simulado cronometrado, dedique à revisão dos erros pelo menos o mesmo tempo que gastou na prova. Classifique cada erro em um de três grupos:
 
-A constância diária supera com folga o estudo intensivo concentrado nos fins de semana. Este plano semanal de 6 dias foi desenhado para se adequar a quem trabalha ou estuda:
+* *Lacuna de vocabulário:* você não conhecia a palavra ou a colocação.
+* *Confusão estrutural:* você identificou mal o sujeito, o verbo ou o limite da oração.
+* *Descuido:* você deixou passar uma palavra como *not* ou *except*.
 
-* **Segunda-feira (Treino auditivo - 45 min)**: 20 questões da Parte 2 com transcrição e análise de respostas capciosas.
-* **Terça-feira (Gramática e Parte 5 - 45 min)**: 30 questões da Parte 5 cronometradas em 12 minutos, seguidas da revisão minuciosa dos erros.
-* **Quarta-feira (Vocabulário e flashcards - 30 min)**: Sessão de repetição espaçada focada em expressões corporativas e preposições no [módulo de revisão Lexkite](/#/review).
-* **Quinta-feira (Áudios extensos - 45 min)**: 3 diálogos da Parte 3 e 2 monólogos da Parte 4 com aplicação de pré-leitura.
-* **Sexta-feira (Leitura sob pressão - 60 min)**: 4 textos simples e 2 textos duplos sob controle rigoroso de tempo.
-* **Sábado (Simulacro de seção completa - 90 min)**: Execução integral de uma seção de Reading ou Listening com correção detalhada.
-* **Domingo**: Descanso ativo (ouvir podcasts de negócios ou ler notícias internacionais em inglês).
+O Lexkite guarda as questões que você erra na prática de Reading por Part em um caderno organizado por vocabulário, gramática, leitura e escuta, então o registro se monta sozinho.
 
-Se sua meta profissional também exige comunicação falada para entrevistas e reuniões internacionais, fortaleça sua pronúncia praticando no [laboratório de conversação do Lexkite](/#/practice/speak).
+![Caderno de erros do Lexkite que agrupa respostas erradas por vocabulário, gramática, leitura e escuta](media:mistakes "O caderno de erros: questões erradas reunidas por tipo")
 
-{{youtube: | Plano de estudo TOEIC completo de 450 a 750 pontos passo a passo}}
+Abra o seu [caderno de erros](/#/mistakes) uma vez por semana e refaça os exercícios. Depois de um mês você vê qual grupo domina, e isso indica o que estudar em seguida.
 
-{{cta: /#/toeic | Inicie seu plano de estudo TOEIC com simulados interativos no Lexkite}}
+## Agenda semanal sustentável
 
-## Perguntas frequentes sobre o autoestudo para o TOEIC
+Sessões curtas e regulares rendem mais que sessões longas e raras. Defina antes a prova, a meta de pontos e as horas semanais na [página de metas](/#/goal) e adapte as sessões a essas horas. Um exemplo para seis dias:
 
-### Quantos meses são necessários para saltar de 500 para 750 pontos?
-Não existe uma conta oficial, e o ritmo varia muito de pessoa para pessoa. Como referência aproximada para planejar, reserve cerca de 150 a 200 horas de estudo intencional para subir de 200 a 250 pontos. Com 60 a 90 minutos por dia, isso dá mais ou menos 3 a 4 meses.
+* **Segunda, escuta (45 min):** 20 questões da Part 2, depois leia o roteiro e transcreva os trechos que errou.
+* **Terça, gramática (45 min):** 30 questões da Part 5 em 12 minutos, e então analise cada erro.
+* **Quarta, vocabulário (30 min):** revise seus cartões na [página de revisão](/#/review): preposições, colocações e sinônimos.
+* **Quinta, áudios longos (45 min):** 3 conjuntos da Part 3 e 2 da Part 4, lendo as perguntas antes de cada áudio.
+* **Sexta, leitura (60 min):** 4 textos simples e 2 duplos contra o relógio.
+* **Sábado, simulado de seção (90 min):** uma seção Reading de 75 minutos e 15 minutos para o registro de erros. Alterne com uma seção Listening de 45 minutos.
+* **Domingo:** descanso ou exposição leve, como podcasts de negócios ou notícias internacionais.
 
-### É possível ultrapassar 750 pontos sem matricular-se em cursinhos caros?
-Sim, perfeitamente. Como o exame TOEIC aborda formatos e situações corporativas bastante previsíveis, o autoestudo guiado por diagnóstico de erros e repetição espaçada costuma ser mais ágil e focado nas suas carências do que aulas coletivas padronizadas.
+Todas as partes e as provas completas estão na [página de prática TOEIC](/#/toeic). Para treinar o ouvido com texto na mão, veja também a técnica de [ditado em inglês](/pt/blog/ditado-em-ingles-dictation-listening/).
 
-### Com que frequência devo fazer um simulado integral de 200 questões?
-Nas semanas iniciais de nivelamento, um simulado completo a cada 3 semanas é suficiente para monitorar a evolução sem causar esgotamento. No último mês antes da prova real, faça um simulado integral aos sábados para acostumar sua mente ao ritmo contínuo de duas horas de concentração.
+{{youtube: | Plano de estudo TOEIC de 450 a 750 pontos passo a passo}}
 
-Para blindar sua preparação contra pegadinhas no teste de escuta, confira em detalhes as [toeic listening part 2 estratégias para perguntas e respostas](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/).
+{{cta: /#/toeic | Faça um simulado TOEIC e veja sua pontuação estimada de 10 a 990}}
+
+## Perguntas frequentes sobre estudar sozinho para o TOEIC
+
+### Quantos meses leva para ir de 500 a 750?
+Não existe número oficial e o avanço varia muito. Apenas como referência, conte com cerca de 150 a 200 horas de estudo focado para subir 200 a 250 pontos. Com uns 90 minutos por dia, são mais ou menos três a quatro meses. Faça um simulado a cada poucas semanas e ajuste o plano ao resultado.
+
+### Dá para chegar a 750+ sem cursinho?
+Dá, se houver disciplina. A prova segue um formato estável e um vocabulário de negócios recorrente, então um plano sozinho, com análise de erros e repetição espaçada, pode atingir seus pontos fracos melhor que uma aula genérica. Um professor ajuda principalmente com correção de fala e escrita, que este exame não mede.
+
+### Com que frequência devo fazer um simulado completo de 200 questões?
+Na fase de base, um a cada três semanas basta para medir o progresso sem se esgotar. Nas últimas quatro semanas, faça um simulado completo e cronometrado todo fim de semana para aguentar as duas horas.
+
+### Quais armadilhas atingem brasileiros no TOEIC?
+Os falsos cognatos do inglês de escritório custam pontos diretos na Part 5 e na Part 7: *actually* é «na verdade», não «atualmente» (*currently*); *eventually* é «por fim», não «eventualmente» (*occasionally*); *assist* é «ajudar», não «assistir» (*attend*); *library* é «biblioteca», não «livraria»; *push* é «empurrar», não «puxar». Na escuta, o português tende a acrescentar uma vogal depois de consoante final, e por isso brasileiros ouvem *-ed* e *-s* finais como sílabas à parte ou simplesmente não os ouvem, o que atrapalha na Part 5, onde *worked* e *works* mudam a resposta. Treine com ditado em frases curtas, escrevendo as terminações.

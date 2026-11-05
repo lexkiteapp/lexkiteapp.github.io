@@ -9,54 +9,65 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-27T12:11:00+05:30
 status: ready
 quiz: [
   {
-    q: "What is the recommended word count and time limit for the TOEFL iBT Academic Discussion task?",
+    q: "Which description of the TOEFL iBT Academic Discussion task is accurate?",
     options: [
-      "10 minutes, with a recommended target of 100 to 140 words",
-      "30 minutes, with a recommended target of 300 words",
-      "20 minutes, with a recommended target of 250 words",
-      "15 minutes, with no minimum word count"
+      "A short online-forum post of roughly 100 or more words, written in about ten minutes in response to a professor and two classmates",
+      "A 30-minute independent essay on a familiar topic with no reading material",
+      "A spoken reply of about one minute to a classmate's recorded question",
+      "A summary of a lecture and a reading passage written in 20 minutes"
     ],
     answer: 0,
-    explain: "ETS gives about 10 minutes for the Academic Discussion task and recommends at least 100 words. Many strong responses land around 120 to 140 well-developed words."
+    explain: "Write for an Academic Discussion is one of the three Writing tasks. You read a professor's question and two classmate posts, then type your own contribution. ETS guidance is that effective responses usually have at least 100 words. The 30-minute essay and the 20-minute integrated task belong to the older format."
   },
   {
-    q: "What is the biggest mistake test takers make when responding to the student opinions?",
+    q: "A classmate says transit passes help low-income students. Which opening line adds the most to the discussion?",
     options: [
-      "Merely summarizing or repeating what the other students wrote without introducing an original argument or fresh perspective",
-      "Writing more than 150 words in clear academic English",
-      "Agreeing partially with one classmate while giving a personal reason",
-      "Using transition words like 'furthermore' and 'consequently'"
+      "I agree with Claire because transit passes are good for students.",
+      "Claire says that transit passes help students who cannot afford cars.",
+      "Claire is right about affordability, but the bigger gain is fewer cars on campus roads, which also cuts parking pressure.",
+      "Transit and cars have both existed for many years."
     ],
-    answer: 0,
-    explain: "The rubric explicitly rewards original contribution to the online discussion. Simply paraphrasing Paul or Claire's words results in a low score for development."
+    answer: 2,
+    explain: "The rubric rewards a relevant, well-developed contribution. The strongest line agrees briefly and then adds a new reason. Repeating the classmate's point or giving empty agreement adds no new idea, and the last line does not answer the question."
   },
   {
-    q: "How should you divide the 10-minute timer during the exam?",
+    q: "You have about ten minutes in total. What is the most sensible use of the last minute or two?",
     options: [
-      "1 to 2 minutes reading the prompt, 6 to 7 minutes typing your response, and 1 to 2 minutes proofreading",
-      "5 minutes reading and 5 minutes typing without any proofreading",
-      "Start typing immediately without reading the professor's question",
-      "Spend 8 minutes brainstorming on paper and 2 minutes typing"
+      "Read your draft for missing -s endings, articles and typos",
+      "Add a second, unrelated argument at the very end",
+      "Delete the example so the response looks shorter",
+      "Rewrite the opening sentence three times"
     ],
     answer: 0,
-    explain: "Allocating 90 seconds to read the discussion, 6.5 minutes to write 120+ words, and leaving 90 seconds for proofreading grammar and typos maximizes your score."
+    explain: "Small grammar slips such as 'Claire argue' are cheap to fix and hurt language-use scoring. A new argument at the last second usually arrives unfinished, and removing your example removes the development raters look for."
+  },
+  {
+    q: "What does the 0-5 you may read about in Academic Discussion guides refer to?",
+    options: [
+      "The rubric level raters give this single task, not your 1-6 TOEFL band",
+      "The number of minutes you may spend on each classmate post",
+      "Your overall TOEFL band after 21 January 2026",
+      "The number of paragraphs allowed in the response"
+    ],
+    answer: 0,
+    explain: "Since 21 January 2026 ETS reports section and overall scores on a 1-6 scale. The task rubric is a separate scale used to score this one response, so the two numbers should not be mixed up."
   }
 ]
 ---
-The introduction of the **toefl ibt writing academic discussion** task marked the most significant shift in the TOEFL writing section in decades. Replacing the former 30-minute Independent Essay, this concise task challenges candidates to simulate a live university online forum: reading a professor's prompt and two classmate opinions, then typing a cohesive, persuasive response in **just 10 minutes**.
+The **toefl ibt writing academic discussion** task replaced the old 30-minute independent essay. You read a professor's question and two classmates' replies on an imaginary class forum, then type your own reply in **about 10 minutes**. Since 21 January 2026 it is one of three Writing tasks, next to Build a Sentence and Write an Email (the official ETS table lists 12 Writing items in about 23 minutes of base time).
 
-Because time is severely constrained, you cannot afford to hesitate or write rambling introductions. Success requires a sharp understanding of the ETS 0–5 task rubric, a reliable paragraph structure, and fluent typing.
+Time is short, so there is no room for a long introduction. What you need is a clear picture of what the rubric rewards, a reliable paragraph structure and comfortable typing.
 
-A note on numbers: since 21 January 2026 the TOEFL iBT reports scores on a 1–6 band scale in 0.5 steps (with a 0–120 comparable score shown during the transition). The "5" you see in this guide refers to the top level of the 0–5 rubric raters use for this single task, not your overall band. No strategy can guarantee a score; what it can do is make every one of your ten minutes count.
+A note on numbers: since 21 January 2026 the TOEFL iBT reports section and overall scores on a 1–6 scale in half-point steps, with a comparable 0–120 score shown during a two-year transition. The "5" in this guide is the top level of the 0–5 rubric used for this one task, not your overall band. No method guarantees a score; it only makes each of your ten minutes count.
 
-In this guide, we unpack the task mechanics, provide a step-by-step 10-minute execution plan, and share templates built around what the rubric rewards.
+Below: how the task is laid out, a minute-by-minute plan, a model answer, two flexible templates and the mistakes that cost the most.
 
 ---
 
@@ -65,48 +76,50 @@ In this guide, we unpack the task mechanics, provide a step-by-step 10-minute ex
 When the screen appears, you see four distinct elements:
 
 1. **The Professor's Prompt**: A brief framing of a real-world or academic issue (such as environmental policy, artificial intelligence, remote education, or public funding), followed by a specific debate question.
-2. **Student A's Post**: A short paragraph (about 30–45 words) taking a clear stance with a supporting point (e.g., favoring immediate corporate tax incentives).
-3. **Student B's Post**: A contrasting paragraph presenting an alternative viewpoint (e.g., advocating direct public infrastructure investments).
-4. **Your Response Box**: An empty text area where you must compose a contribution of at least 100 words (aim for **120–150 words** for maximum elaboration).
+2. **Student A's post**: a few sentences taking a clear stance with one supporting point.
+3. **Student B's post**: a contrasting view, often on a different angle of the same question.
+4. **Your response box**: an empty text area. ETS guidance is that effective responses generally contain at least 100 words; aiming for **120–150 words** leaves room for one real example.
 
-To see how this fits into the wider test structure, review our guide to the [new TOEFL format 2026](/en/blog/new-toefl-ibt-format-2026/).
+To see where this task sits in the whole test, read our guide to the [new TOEFL format 2026](/en/blog/new-toefl-ibt-format-2026/). In the Lexkite TOEFL page you can see the same structure table, with all 12 task types.
 
-![Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types](media:toefl "Explore the TOEFL exam format and review timing constraints across all sections in Lexkite")
+![Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types](media:toefl "The TOEFL page in Lexkite: the new-format overview and structure table, with a practice card for each task type")
 
 ---
 
 ## TOEFL iBT Writing Academic Discussion: Scoring Dimensions
 
-ETS scores this task holistically on a 0–5 rubric, combining human raters with automated scoring. There are no published percentage weights; instead, a top response is described as relevant, well elaborated and showing consistent facility in language. In practice, raters look at three things together:
+ETS scores Writing responses with a combination of automated scoring and trained human raters. This task has been scored holistically on a 0–5 rubric, and ETS publishes no percentage weights. A top response is described as relevant, well elaborated and consistently clear in language. In practice, three things are judged together:
 
 - **Relevant and Well-Elaborated Contribution**: Do you directly answer the professor's inquiry? Do you present an original insight rather than recycling ideas? Do you illustrate your reasoning with concrete examples or logical consequences?
-- **Syntactic Variety and Grammatical Precision**: Can you construct complex sentences, adverbial clauses, and conditional statements without repeated grammatical blunders?
-- **Precise Vocabulary and Academic Tone**: Do you deploy precise academic vocabulary, idiomatic collocations, and effective cautious language? Mastering [hedging in academic writing](/en/blog/hedging-in-academic-writing/) prevents oversimplified claims that weaken scholarly writing.
+- **Sentence variety and accuracy**: can you use because/although/if clauses and still keep verbs, articles and plurals correct?
+- **Precise vocabulary and tone**: do you pick exact words and soften sweeping claims ("tends to", "in most cases")? Our guide to [hedging in academic writing](/en/blog/hedging-in-academic-writing/) shows how.
 
 ---
 
 ## The 10-Minute Tactical Timing Plan
 
-Managing your screen time with precision makes the difference between a rushed fragment and a polished, top-rubric response:
+This is a suggested split, not an official one. Adjust it to your own typing speed.
 
 | Minute | Phase | Core Action |
 |---|---|---|
 | **0:00 – 1:30** | Reading & Stance Selection | Read the professor's question and both student posts. Decide immediately whether to side with Student A, Student B, or take a synthesized middle ground. |
 | **1:30 – 8:00** | Draft Composition | Type your response using the 4-part framework below. Reach at least 120 words without stopping to fix minor typos. |
-| **8:00 – 10:00** | Revision & Polish | Scan for subject-verb agreement, verb tenses, singular/plural noun endings, and typographical errors. |
+| **8:00 – 10:00** | Revision & polish | Scan for subject-verb agreement, verb tenses, singular/plural noun endings, and typographical errors. |
 
 ---
 
 ## High-Scoring 4-Part Response Framework
 
-You do not need an elaborate multi-paragraph essay. A single, tightly structured paragraph of 4 to 6 sentences delivers ideal density:
+You do not need an elaborate multi-paragraph essay. One tight paragraph of 4 to 6 sentences is enough:
 
 1. **Sentence 1 (Stance & Contextual Engagement)**: State your stance clearly while acknowledging the classroom dialogue (*"While both classmates raise compelling perspectives, I strongly align with Claire's viewpoint regarding..."*).
 2. **Sentence 2 (Core Rationale)**: Articulate the central principle supporting your position (*"In modern urban economies, sustainable public transit offers far more equitable benefits than individual subsidies."*).
 3. **Sentences 3–4 (Original Evidence & Elaboration)**: Provide an original example, real-world case, or logical cause-and-effect chain that neither classmate mentioned.
 4. **Sentence 5 (Nuanced Synthesis or Counter-Argument Refutation)**: Address the alternative view raised by the other student and explain why your solution remains superior.
 
-![Lexkite English–Vietnamese dictionary entry for resilient with UK/US pronunciation, audio, example sentences, collocations and a save-flashcard button](media:dict "Look up definitions and collocations for formal vocabulary on the Lexkite dictionary")
+Practise this exact split in the app: the Lexkite TOEFL page has a Write for an Academic Discussion practice page with a prompt, two classmate posts, a word counter, a countdown that starts when you type, a model answer, a self-check list and an optional AI comment. The nearby Writing room is built around IELTS Task 2, but its topic prompts and essay frames work for the same habit of planning before typing.
+
+![The Lexkite Writing room with topic choices, idea hints, a writing frame and annotated model answers](media:write "The Lexkite Writing room (IELTS Task 2 prompts): useful for planning an argument and practising a frame before you type")
 
 ---
 
@@ -122,20 +135,20 @@ You do not need an elaborate multi-paragraph essay. A single, tightly structured
 ### High-Scoring Response (129 words)
 > While Paul makes a reasonable case regarding electric vehicle adoption, I firmly agree with Claire that subsidizing public transit passes generates far greater systemic benefits. Transitioning to electric automobiles does little to mitigate severe campus parking shortages and road congestion, and electric cars remain financially out of reach for most undergraduate students. In contrast, providing universal transit passes incentivizes thousands of daily commuters to abandon private vehicles entirely in favor of metropolitan buses and light rails. For instance, when the university in my hometown partnered with the city transit authority to offer zero-fare student passes, the morning queues at the campus gates became noticeably shorter within a single semester. Consequently, public transit subsidies not only lower carbon emissions across a broader demographic but also foster socio-economic equity on campus.
 
-Notice how the response acknowledges Paul, backs Claire, and injects **an entirely new argument (congestion and affordability)** supported by a concrete personal example. Notice also what it avoids: invented statistics. A vivid, plausible observation from your own experience is safer than a precise percentage you cannot back up.
+The response acknowledges Paul, backs Claire and adds **a new argument (congestion and affordability)** with a concrete example. It also avoids invented statistics: a plausible observation from your own experience is safer than a precise percentage you cannot back up.
 
-To bolster your academic phrasing, explore our curated [Academic Word List guide](/en/blog/academic-word-list/) and practice linking ideas smoothly with our [IELTS and TOEFL linking words guide](/en/blog/linking-words-for-ielts-writing/).
+For academic phrasing, see our [Academic Word List guide](/en/blog/academic-word-list/) and the [linking words guide](/en/blog/linking-words-for-ielts-writing/). The [Lexkite vocabulary lists](/en/vocabulary/) group core words by topic, and saving the useful ones as flashcards makes them available when you type under pressure.
 
-![Lexkite flashcard review with the word pollution, an emoji image, phonetic transcription, a flip button and a progress bar](media:review "Review academic vocabulary cards using spaced repetition intervals on Lexkite")
+![A Lexkite flashcard for the word pollution, with a picture, phonetic transcription, a flip button and a progress bar](media:review "Flashcard review in Lexkite: the word on the front, a flip button, and a progress bar showing how many cards are left")
 
 ---
 
 ## 2 Practical Templates for Common Academic Debate Types
 
-Depending on the prompt format, test takers can deploy structured rhetorical templates to jumpstart their typing within the first two minutes:
+Use these as skeletons and replace the brackets with your own ideas. Raters see many near-identical template answers, so the part that is yours (the reason and the example) must be specific.
 
 ### Template 1: Preference between Two Discrete Policies
-> While [Student A] puts forward an understandable argument in favor of [Policy A], I find myself in stronger agreement with [Student B]'s conviction that [Policy B] is vastly more effective. The primary reason is that [Policy B] tackles the structural root of the issue rather than merely addressing surface-level symptoms. To illustrate, in many metropolitan communities, implementing targeted incentives yields rapid behavioral shifts among diverse demographic groups. Furthermore, allocating municipal capital toward [Policy B] ensures equitable outcomes for individuals who lack substantial financial reserves. Therefore, despite the apparent benefits highlighted by [Student A], investing in [Policy B] provides a significantly more sustainable and socially responsible framework for long-term growth.
+> While [Student A] puts forward an understandable argument in favor of [Policy A], I find myself in stronger agreement with [Student B]'s conviction that [Policy B] is more effective. The primary reason is that [Policy B] tackles the structural root of the issue rather than merely addressing surface-level symptoms. To illustrate, in many metropolitan communities, implementing targeted incentives yields rapid behavioral shifts among diverse demographic groups. Furthermore, allocating municipal capital toward [Policy B] ensures equitable outcomes for individuals who lack substantial financial reserves. Therefore, despite the apparent benefits highlighted by [Student A], investing in [Policy B] is the more sustainable choice.
 
 ### Template 2: Evaluating an Emerging Technology (e.g., AI or Automation)
 > Although [Student A] rightly points out the potential efficiency gains associated with [Technology], I share [Student B]'s cautious stance regarding its disruptive societal repercussions. While automation undeniably accelerates routine operational output, relying excessively on algorithms introduces substantial vulnerabilities in data integrity, intellectual property protection, and workforce stability. For example, organizations that rush toward full technological substitution can suffer from elevated communication breakdowns and costly procedural errors. In my view, institutions should prioritize collaborative human-machine workflows rather than total replacement. Consequently, preserving active human oversight remains imperative if we hope to foster ethical technological advancement.
@@ -144,32 +157,39 @@ Depending on the prompt format, test takers can deploy structured rhetorical tem
 
 ## 3 Critical Pitfalls to Avoid in 10 Minutes
 
-1. **Paraphrasing the Question for 30 Words**: In a 10-minute task, writing *"Since the dawn of human civilization, transportation has been an important topic debated by many scholars..."* consumes precious time and adds zero content value. Jump straight into the argument.
-2. **Copying Classmate Sentences Verbatim**: Copied wording does not count as your own contribution and makes the response look thin to raters. If you refer to Paul's idea, synthesize it in your own words in fewer than 10 words.
-3. **Failing to Budget Time for Proofreading**: Grammatical slips like missing third-person *-s* (*"Claire argue"* instead of *"Claire argues"*) or dropped articles directly reduce your linguistic precision score. Always leave at least 90 seconds to review.
+1. **A long warm-up sentence**: *"Since the dawn of human civilization, transportation has been debated by many scholars..."* uses up time and says nothing. Start with your position.
+2. **Copying a classmate's sentences**: copied wording is not your contribution. If you refer to Paul's idea, restate it in a few words of your own and move on to your point.
+3. **Failing to Budget Time for Proofreading**: Slips like a missing third-person *-s* (*"Claire argue"*) or dropped articles lower the language-use impression. Leave a minute or two to read the draft through.
 
-For broader test preparation strategies, explore the [Lexkite vocabulary directory](/en/vocabulary/) to master high-frequency academic vocabulary.
+More on this task: [TOEFL Academic Discussion: how to write a strong post](/en/blog/toefl-academic-discussion-writing/). For the other new Writing and Reading tasks, see [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
 
 {{youtube: | TOEFL iBT Writing Academic Discussion Guide: Strategies and Sample Answers}}
 
 ---
 
-## Master Academic Writing with Lexkite
+## Practise in Lexkite
 
-Speed and accuracy under pressure require systematic keyboard practice and objective feedback:
+Speed and accuracy under pressure come from timed practice and honest checking:
 
-- **Timed Academic Writing Drills**: Practice real-world academic tasks inside the [Lexkite Writing Room](/#/write) with real-time word counting and topic prompts.
-- **FSRS-Powered Academic Vocabulary**: Retain hundreds of formal verbs, adverbs, and transition markers effortlessly using the [Lexkite Review Engine](/#/review).
-- **Interactive Grammar & Speech Tools**: Sharpen your syntax and oral fluency in the [Lexkite Speaking Lab](/#/practice/speak).
+- **Write for an Academic Discussion**: open [TOEFL practice: Academic Discussion](/#/toefl-p/discussion), type your reply against the clock, then compare it with the model answer and the self-check list.
+- **Write an Email**: the same section's other writing task is in [TOEFL practice: Write an Email](/#/toefl-p/email); it asks you to cover every point in the prompt.
+- **Vocabulary for formal writing**: review the academic words you collect in the [flashcard review](/#/review).
 
-Open the [Lexkite Web App](/#/) today to turn the 10-minute TOEFL Academic Discussion into your strongest competitive advantage!
-
-{{cta: /#/ | Practice Free on Lexkite | Build advanced academic vocabulary and transition phrases for TOEFL iBT Writing}}
+{{cta: /#/toefl-p/discussion | Practise Academic Discussion | Timed prompt, word counter, model answer and self-check list for the TOEFL Write for an Academic Discussion task}}
 
 ## Frequently Asked Questions
 
-### What word count is recommended for the TOEFL Academic Discussion task?
-While ETS sets a minimum recommendation of 100 words, high-scoring responses (4.5–5.0) typically range between 120 and 150 words. Aim for depth of development rather than empty fluff.
+### How many words should I write in the TOEFL Academic Discussion task?
+ETS guidance is that effective responses generally contain at least 100 words. Many strong answers are around 120 to 150 words, but depth matters more than length: one clear reason plus one concrete example beats five vague points.
 
-### Should I agree with one of the student perspectives or introduce an entirely new view?
-You can do either. Building on a classmate's point with a novel supporting example or contrasting perspective is often the fastest strategy under the 10-minute time constraint.
+### Should I agree with one of the classmates or give my own view?
+Either works. You can agree with one student and add a new reason, disagree with both, or combine the two. What raters look for is a relevant answer to the professor's question with something the classmates did not already say.
+
+### Is the Academic Discussion task still in the new TOEFL format?
+Yes. After 21 January 2026 the Writing section has three tasks: Build a Sentence, Write an Email and Write for an Academic Discussion (source: ETS TOEFL iBT content and structure page).
+
+### Can I use a template?
+A skeleton for the opening and the closing is fine, but the middle must be specific to the prompt. Memorised, generic paragraphs often drift off topic, and that costs you on relevance.
+
+### Does typing speed matter?
+Yes, because you type everything. If you type slowly, plan less and write one tight example, and practise with a timer so that 120 words in the available time feels normal.

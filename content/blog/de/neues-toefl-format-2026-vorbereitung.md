@@ -1,7 +1,7 @@
 ---
 slug: neues-toefl-format-2026-vorbereitung
 title: "Neues TOEFL Format 2026: Änderungen und Vorbereitungsplan"
-description: "Alles über das neue toefl format 2026: 1,5 Stunden Prüfungsdauer, adaptive 1–6 Band-Skala, neue Aufgaben wie Complete the Words und 4-Wochen-Lernplan."
+description: "Neues toefl format 2026 nach ETS: 12 Aufgabentypen, rund 90 Minuten Grundzeit, adaptives Reading und Listening, 1–6-Skala, dazu ein 4-Wochen-Plan."
 keyword: "neues toefl format 2026"
 lang: de
 translationKey: toefl-ibt-dinh-dang-moi-2026
@@ -9,139 +9,146 @@ category: toefl
 tags: [toefl, toefl-ibt, pruefungsformat, vorbereitung]
 cover: toefl
 coverAlt: "TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026"
-qualityScore: 85
+qualityScore: 91
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T19:01:00+01:00
 status: ready
 quiz: [
   {
-    q: "Welche Gesamtdauer hat der TOEFL iBT im neuen Format seit dem 21. Januar 2026?",
+    q: "Wie lang ist die reine Testzeit der vier TOEFL-iBT-Sektionen zusammen laut ETS-Tabelle im neuen Format?",
     options: [
-      "Etwa 1,5 Stunden (rund 90 Minuten) für alle vier Testsektionen",
-      "Über 3,5 Stunden mit einer verpflichtenden 10-Minuten-Pause",
-      "Genau 2,5 Stunden ohne mündliche Sprechprüfung",
-      "4 Stunden aufgeteilt auf zwei aufeinanderfolgende Testtage"
+      "Rund 90 Minuten Grundzeit ohne Anweisungen; für den ganzen Termin empfiehlt ETS etwa zwei Stunden",
+      "Über 3,5 Stunden mit einer verpflichtenden Pause",
+      "Genau 2,5 Stunden ohne Speaking",
+      "4 Stunden an zwei aufeinanderfolgenden Tagen"
     ],
     answer: 0,
-    explain: "Mit der Reform vom 21. Januar 2026 wurde die Testdauer drastisch auf rund 1,5 Stunden komprimiert, wodurch jede Teilaufgabe ein höheres relatives Gewicht erhält."
+    explain: "Die ETS-Tabelle nennt Reading 30, Listening 29, Writing 23 und Speaking 8 Minuten Grundzeit, zusammen etwa 90 Minuten. Anweisungen sind nicht eingerechnet, und weil der Test adaptiv ist, können Zeit und Aufgabenzahl leicht abweichen."
   },
   {
-    q: "Wie funktioniert die neue Bewertungsskala des TOEFL iBT ab 2026?",
+    q: "Wie werden die Ergebnisse seit dem 21. Januar 2026 angegeben?",
     options: [
-      "Eine Skala von Band 1 bis 6 in Halbbandschritten, wobei der Gesamtscore der Mittelwert der vier Sektionen ist",
-      "Eine reine Prozentpunktzahl von 0 bis 100 ohne Aufschlüsselung nach Fertigkeiten",
-      "Ein einfaches Bestanden/Nicht-Bestanden-System ohne numerische Differenzierung",
-      "Eine Buchstabenbewertung von A bis F ohne Vergleichswerte"
+      "Vier Sektionsscores und ein Gesamtscore auf einer Skala von 1 bis 6; der Gesamtscore ist der auf einen halben Punkt gerundete Mittelwert",
+      "Als Prozentwert von 0 bis 100 ohne Aufschlüsselung",
+      "Nur als Bestanden/Nicht bestanden",
+      "Als Buchstabennote von A bis F"
     ],
     answer: 0,
-    explain: "Die ETS verwendet nun eine 1–6 Band-Skala in 0,5-Schritten und stellt während der Übergangsphase eine Vergleichstabelle zur klassischen 0–120 Skala bereit."
+    explain: "ETS gibt Sektions- und Gesamtscore auf der 1–6-Skala in Halbpunkt-Schritten an. In einer zweijährigen Übergangszeit steht zusätzlich ein vergleichbarer Wert auf der 0–120-Skala im Ergebnis."
   },
   {
-    q: "Was verlangt die neue Leseaufgabe 'Complete the Words' im Reading-Bereich?",
+    q: "Was verlangt die Aufgabe Complete the Words?",
     options: [
-      "In einem kurzen akademischen Text die fehlende zweite Hälfte bestimmter Wörter direkt per Tastatur einzutippen",
-      "Synonyme aus einem Dropdown-Menü für markierte Verben auszuwählen",
-      "Einen gesamten Text anhand eines vorgelesenen Audio-Ausschnitts abzutippen",
-      "Englische Fachbegriffe ins Deutsche zu übersetzen"
+      "In einem kurzen akademischen Text fehlende Buchstaben von Wörtern per Tastatur ergänzen",
+      "Synonyme aus einem Dropdown-Menü wählen",
+      "Einen vorgelesenen Text komplett mittippen",
+      "Fachbegriffe ins Deutsche übersetzen"
     ],
     answer: 0,
-    explain: "Complete the Words prüft aktiven Wortschatz, Rechtschreibung und grammatikalisches Satzverständnis gleichzeitig durch das Vervollständigen von Wortenden."
+    explain: "Weil Sie die Buchstaben selbst tippen, zählen Rechtschreibung, Wortart, Zeit und Singular/Plural. Bloßes Wiedererkennen reicht nicht."
   },
   {
-    q: "Warum ist bei einem adaptiven Testdesign der Start besonders entscheidend?",
+    q: "Welche Sektionen beschreibt ETS im neuen Format als adaptiv?",
     options: [
-      "Weil die Trefferquote in den ersten Aufgaben den Schwierigkeitsgrad der nachfolgenden Aufgabenblöcke bestimmt",
-      "Weil die ersten drei Aufgaben automatisch die dreifache Punktzahl bringen",
-      "Weil der Test nach 15 Minuten abbricht, wenn man keine Antwort eingibt",
-      "Weil falsche Antworten am Anfang zu Punktabzug bei der Grammatik führen"
+      "Reading und Listening: der Schwierigkeitsgrad passt sich Ihren Antworten an",
+      "Nur Speaking",
+      "Nur Writing",
+      "Keine; alle Aufgaben sind für alle gleich"
     ],
     answer: 0,
-    explain: "Bei einem mehrstufig adaptiven Test führen korrekte Antworten zu anspruchsvolleren Aufgaben, die wiederum für das Erreichen der Spitzen-Bänder (5.0 bis 6.0) zwingend nötig sind."
+    explain: "Der Test ist adaptiv aufgebaut, bei Reading und Listening mehrstufig. Wie genau die Stufen vergeben werden, veröffentlicht ETS nicht, deshalb lohnt sich konzentriertes Arbeiten von der ersten Aufgabe an."
+  },
+  {
+    q: "Welche Gewohnheit hilft deutschsprachigen Lernenden bei Listen and Repeat am meisten?",
+    options: [
+      "Sich aufnehmen und gezielt th, w/v und Endungen wie -s und -ed prüfen",
+      "Schwierige Wörter durch Synonyme ersetzen",
+      "Die Sätze vorab auswendig lernen",
+      "Möglichst schnell sprechen"
+    ],
+    answer: 0,
+    explain: "Die Aufgabe misst, wie genau Sie das Gehörte wiedergeben. Typische Stolpersteine sind th als s/z, w als v und verschluckte Endungen; ein Wortaustausch gilt als Abweichung."
   }
 ]
 ---
 
 Seit dem 21. Januar 2026 gilt weltweit ein **neues TOEFL Format 2026**, das den renommierten US-Sprachtest grundlegend modernisiert hat. Wer sich heute noch ausschließlich mit älteren Lehrbüchern oder Vorbereitungsunterlagen von vor 2026 vorbereitet, profitiert zwar weiterhin von seinem allgemeinen Wortschatz, muss seine Prüfungsstrategie, sein Zeitmanagement und seine Vertrautheit mit den Aufgabenformaten jedoch zwingend aktualisieren.
 
-Der TOEFL iBT präsentiert sich im neuen Gewand wesentlich kompakter (Gesamtdauer rund 1,5 Stunden), mehrstufig adaptiv (der Schwierigkeitsgrad passt sich der Genauigkeit Ihrer Antworten an), bewertet auf einer Band-Skala von 1 bis 6 und erweitert um völlig neue Fragetypen wie *Complete the Words*, *Read in Daily Life* und *Build a Sentence*.
+Der TOEFL iBT ist jetzt kompakter (rund 90 Minuten Grundzeit, ohne Anweisungen), adaptiv (der Schwierigkeitsgrad folgt Ihren Antworten), wird auf einer Skala von 1 bis 6 bewertet und enthält neue Aufgaben wie *Complete the Words*, *Read in Daily Life* und *Build a Sentence*. Die Angaben unten stammen von der offiziellen ETS-Seite zu Aufbau und Inhalt des TOEFL iBT.
 
-In diesem fundierten Leitfaden analysieren wir alle strukturellen Neuerungen, stellen die 12 Aufgabentypen im Detail vor und liefern Ihnen einen praxiserprobten 4-Wochen-Vorbereitungsplan für Ihren Prüfungserfolg.
+Hier finden Sie die Struktur als Tabelle, alle 12 Aufgabentypen mit Tipps, typische Fehler (auch spezifisch für Deutschsprachige) und einen 4-Wochen-Plan.
 
 ![TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026](media:toefl "Das TOEFL iBT Vorbereitungsmodul im Lexkite mit der Aufgabenstruktur des neuen Testformats 2026")
 
 ## Die drei Kernpfeiler der Reform: neues toefl format 2026 im Detail
 
-Drei fundamentale Veränderungen prägen das neue Prüfungserlebnis und verlangen ein Umdenken in der Prüfungsvorbereitung:
+Drei Änderungen bestimmen, wie Sie sich vorbereiten:
 
-### 1. Kompakte Gesamtlänge von nur 1,5 Stunden
-Verglichen mit dem bisherigen Format (rund 2 Stunden, vor Juli 2023 sogar knapp 3 Stunden) dauert die gesamte Prüfung nun etwa 90 Minuten. Dieser Zeitgewinn schont Ihre Konzentrationsfähigkeit enorm, erhöht aber gleichzeitig den Druck auf jede einzelne Frage: Bei weniger Aufgaben hat jede Unaufmerksamkeit spürbar größere Auswirkungen auf die Endnote.
+### 1. Kürzerer Test
+Die vier Sektionen haben zusammen rund 90 Minuten Grundzeit (vor Juli 2023 dauerte der Test knapp drei Stunden). ETS rät, für den gesamten Termin etwa zwei Stunden einzuplanen, weil die Anweisungen nicht mitgezählt sind. Mit weniger Aufgaben fällt jeder einzelne Fehler stärker ins Gewicht, üben Sie also vor allem konzentriertes Durcharbeiten.
 
 ### 2. Mehrstufig adaptives Testdesign
-Der Test passt sich in mehreren Abschnitten an Ihre Leistung an. Zeigen Sie in den ersten Aufgabenblöcken eine hohe Treffsicherheit, schaltet das System anspruchsvollere Aufgaben frei, die für die Bänder 5 und 6 erforderlich sind. Betrachten Sie die ersten Aufgaben daher keinesfalls als Aufwärmphase.
+ETS beschreibt den Test als adaptiv: Reading und Listening passen den Schwierigkeitsgrad an Ihre Leistung an. Die genaue Logik und Schwellenwerte veröffentlicht ETS nicht; Zahlen dazu, die im Netz kursieren, sind Vermutungen. Praktische Folge: Behandeln Sie die ersten Aufgaben nicht als Aufwärmphase und bleiben Sie nicht an einer schweren Frage hängen.
 
 ### 3. Die neue 1–6 Band-Skala
-Analog zu internationalen Standards vergibt die ETS nun Noten von 1,0 bis 6,0 in Halbbandschritten. Der Gesamtscore entspricht dem Durchschnitt der vier Teilbereiche (*Reading, Listening, Writing, Speaking*). Für Universitäten, deren Zulassungskriterien noch auf der alten 0–120 Skala basieren, weist der offizielle Ergebnisbericht während der Übergangsphase zusätzlich einen vergleichbaren Wert auf der 0–120 Skala aus.
+ETS vergibt vier Sektionsscores und einen Gesamtscore von 1 bis 6 in Halbpunkt-Schritten. Der Gesamtscore ist der Durchschnitt der vier Sektionen, gerundet auf den nächsten halben Punkt (5,125 ergibt 5). Zwei Jahre lang nach Januar 2026 steht zusätzlich ein vergleichbarer Wert auf der 0–120-Skala im Ergebnis. Prüfen Sie immer, welchen Wert Ihre Hochschule verlangt.
 
-```
-+-------------------------------------------------------------------------+
-|                  Übersicht über die Struktur des TOEFL 2026             |
-+-------------------------------------------------------------------------+
-|  Reading   (ca. 50 Aufgaben / 30 Min.) : 3 Aufgabentypen                |
-|  Listening (ca. 47 Aufgaben / 29 Min.) : 4 Aufgabentypen                |
-|  Writing   (ca. 12 Aufgaben / 23 Min.) : 3 Aufgabentypen                |
-|  Speaking  (ca. 11 Aufgaben / 8 Min.)  : 2 Aufgabentypen                |
-+-------------------------------------------------------------------------+
-|  Gesamtdauer: ~90 Min. | 12 Aufgabentypen | Bewertung: Band 1 bis 6     |
-+-------------------------------------------------------------------------+
-```
+| Sektion | Aufgabentypen (offizielle Namen) | Aufgaben | Grundzeit |
+|---|---|---|---|
+| Reading | Complete the Words, Read in Daily Life, Read an Academic Passage | 50 | 30 Min. |
+| Listening | Listen and Choose a Response, Listen to a Conversation, Listen to an Announcement, Listen to an Academic Talk | 47 | 29 Min. |
+| Writing | Build a Sentence, Write an Email, Write for an Academic Discussion | 12 | 23 Min. |
+| Speaking | Listen and Repeat, Take an Interview | 11 | 8 Min. |
+
+Quelle: ETS. Die Zeiten enthalten keine Anweisungen; Aufgabenzahl und Zeit können wegen der Adaptivität leicht abweichen.
 
 ---
 
 ## Die 4 Sektionen und ihre 12 Aufgabentypen im Überblick
 
-Das im Lexkite-Übungsmodul hinterlegte Referenzmodell fasst die 12 Fragetypen präzise zusammen:
+Die 12 Aufgabentypen im Einzelnen:
 
-### 1. Reading (Leseverstehen) – 3 Aufgabentypen (~30 Minuten)
+### 1. Reading (Leseverstehen): 50 Aufgaben, ca. 30 Minuten
 - **Complete the Words:** Ein kurzer akademischer Absatz, bei dem von ausgewählten Wörtern die zweite Hälfte fehlt. Sie tippen die fehlenden Buchstaben ein.  
   *Beispiel:* *Plant roots abs___ water and miner___ from the soil.* (Antworten: *absorb*, *minerals*). Hier werden Rechtschreibung, Wortarten und Kontextverständnis gleichzeitig geprüft.
 - **Read in Daily Life:** Alltagsrelevante Kurztexte (Aushänge, E-Mails, Campus-Nachrichten, Richtlinien) mit Multiple-Choice-Fragen. Der TOEFL beschränkt sich somit nicht mehr nur auf dichte Fachliteratur.
 - **Read an Academic Passage:** Klassische universitäre Fachtexte mit Detailfragen, Verneinungsfragen (NOT/EXCEPT) und Vokabelfragen im Kontext.
 
-Um Ihren aktiven Fachwortschatz gezielt auszubauen, empfiehlt sich ein Blick in unsere [Wortschatz-Bibliothek](/vocabulary/) sowie das Training mit hochfrequenten akademischen Wortlisten.
+Jede der drei Aufgaben hat in Lexkite eine eigene Übungsseite: [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) und [Read an Academic Passage](/#/toefl-p/academic). Für den Wortschatz dahinter gibt es die [Wortschatzlisten](/de/vocabulary/). Mehr zu der neuen Lückenaufgabe steht in unserem englischen Artikel [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
 
-![Bibliothek für akademischen und alltäglichen Wortschatz im Lexkite mit Einstufung von A1 bis B2](media:library "Wortschatzlisten nach GER-Stufen von A1 bis B2 zur Festigung von Alltags- und Wissenschaftsenglisch")
+![Wortschatzbibliothek in Lexkite mit Reitern wie Alle, NGSL-Kernwortschatz, IELTS, Writing, Speaking und TOEIC](media:library "Wortschatzbibliothek in Lexkite: Kernwortschatz in Stufen von A1 bis B2, hilfreich für die Wortschatzbasis vor Complete the Words")
 
 ---
 
-### 2. Listening (Hörverstehen) – 4 Aufgabentypen (~29 Minuten)
+### 2. Listening (Hörverstehen): 47 Aufgaben, ca. 29 Minuten
 - **Listen and Choose a Response:** Ein kurzer Satz wird abgespielt; Sie wählen die pragmatisch passendste Antwort aus.
 - **Listen to a Conversation:** Dialoge aus dem universitären Alltag zwischen Studierenden oder mit Universitätsmitarbeitern.
 - **Listen to an Announcement:** Kurze behördliche oder organisatorische Durchsagen auf dem Campus.
 - **Listen to an Academic Talk:** Gekürzte Vorlesungsausschnitte mit anschließenden Fragen zur Kernaussage und zu Details.
 
-**Prüfungstipp:** Achten Sie ganz besonders auf Signalwörter wie *however*, *actually* oder *in contrast*, da Prüfungsfragen sehr häufig direkt auf die Information abzielen, die unmittelbar nach diesen Wendungen folgt.
+**Tipp:** Achten Sie auf Signalwörter wie *however*, *actually* oder *in contrast*; danach folgt häufig die Information, nach der gefragt wird. Zum Üben dient die [Hörseite von Lexkite](/#/listening) mit einstellbarer Sprechgeschwindigkeit und Diktatmodus.
 
 ---
 
-### 3. Writing (Schreiben) – 3 Aufgabentypen (~23 Minuten)
+### 3. Writing (Schreiben): 12 Aufgaben, ca. 23 Minuten
 - **Build a Sentence:** Satzbausteine müssen per Mausklick in die korrekte grammatikalische Reihenfolge gebracht werden.
-- **Write an Email:** In rund 7 Minuten verfassen Sie eine zielgerichtete E-Mail zu einem vorgegebenen Anlass und decken dabei alle geforderten Punkte ab.
-- **Write for an Academic Discussion:** In etwa 10 Minuten beteiligen Sie sich an einer Online-Diskussion mit Professor und Kommilitonen und bringen einen eigenen, neuen Aspekt ein (empfohlen sind rund 100 Wörter oder mehr).
+- **Write an Email:** Sie schreiben eine E-Mail zu einem vorgegebenen Anlass und decken alle geforderten Punkte ab (der Übungstimer in Lexkite steht auf etwa 7 Minuten; das ist ein Übungswert, keine offizielle Angabe).
+- **Write for an Academic Discussion:** Sie beteiligen sich an einer Online-Diskussion mit Professor und zwei Kommilitonen und bringen einen eigenen, neuen Aspekt ein. Veranschlagt werden etwa 10 Minuten; ETS empfiehlt rund 100 Wörter oder mehr.
 
-Für eine detaillierte Anleitung zu diesem kompakten Aufsatzformat lesen Sie unseren Leitfaden [TOEFL iBT Academic Discussion Writing](/de/blog/toefl-ibt-writing-academic-discussion/) und vertiefen Sie formelle Wendungen mit unserem Guide zum Thema [geschäftliche E-Mails auf Englisch schreiben](/de/blog/business-english-email-schreiben/).
+Üben Sie beides mit Zeitlimit und Wortzähler: [Write for an Academic Discussion](/#/toefl-p/discussion) und [Write an Email](/#/toefl-p/email) enthalten jeweils eine Musterantwort und eine Checkliste. Zur Struktur des Diskussionsbeitrags lesen Sie unseren Leitfaden [TOEFL iBT Academic Discussion Writing](/de/blog/toefl-ibt-writing-academic-discussion/), für formelle Wendungen den Artikel [geschäftliche E-Mails auf Englisch schreiben](/de/blog/business-english-email-schreiben/).
 
-Im Writing-Bereich sollten Sie sich klarmachen, dass die Bewertung neben inhaltlicher Klarheit auch syntaktische Vielfalt berücksichtigt. Statt sich in langen Schachtelsätzen zu verheddern, empfiehlt sich eine gezielte Mischung aus klaren Hauptsätzen, konditionalen Gefügen (*if-clauses*) und konzessiven Satzverbindungen (*although, despite*). Achten Sie darauf, in der E-Mail-Aufgabe alle geforderten Aspekte mit mindestens einem eigenständigen Satz präzise abzuarbeiten.
+Neben inhaltlicher Klarheit zählt die Sprachverwendung. Statt langer Schachtelsätze, wie man sie aus dem Deutschen kennt, wirken klare Hauptsätze, gelegentlich ein *if*-Satz und ein Gegensatz mit *although* besser. In der E-Mail behandeln Sie jeden geforderten Punkt in mindestens einem eigenen Satz.
 
 ---
 
-### 4. Speaking (Sprechen) – 2 Aufgabentypen (~8 Minuten)
+### 4. Speaking (Sprechen): 11 Aufgaben, ca. 8 Minuten
 - **Listen and Repeat:** Einen vorgesprochenen Satz exakt und fehlerfrei ins Mikrofon nachsprechen. Hier zählt absolute phonetische und grammatikalische Präzision (Endungen wie /-s/ oder /-ed/ dürfen nicht verschluckt werden).
-- **Take an Interview:** Beantwortung von Interviewfragen in etwa 45 Sekunden mit klarer These, Begründung und greifbarem Beispiel.
+- **Take an Interview:** Sie beantworten Interviewfragen in knapper Zeit: erst die Antwort, dann ein Grund, dann ein kurzes Beispiel.
 
-Das tägliche Training im [interaktiven Sprechbereich von Lexkite](/#/speaking) sowie gezielte Wiederholungen im [Aussprache-Labor](/#/pron) schaffen die nötige Routine für den Sprechtest.
+Beide Aufgaben können Sie in Lexkite einzeln üben: [Listen and Repeat](/#/toefl-p/repeat) und [Take an Interview](/#/toefl-p/interview). Einzelne Laute wie *th* oder *w* trainieren Sie in der [IPA-Aussprachebibliothek](/#/pron).
 
-![Lernziel und Prüfungsdatum im Lexkite einstellen für einen maßgeschneiderten Wochenplan](media:goal "Eingabe von Ziel-Score und Testdatum im Lexkite zur automatischen Erstellung eines adaptiven Lernplans")
+![Zielseite in Lexkite: Prüfung wählen, Zielpunktzahl, Prüfungsdatum und Wochenstunden einstellen](media:goal "Zielseite in Lexkite: Prüfung, Zielpunktzahl, Prüfungsdatum und Lernstunden pro Woche festlegen, als Grundlage für den 4-Wochen-Plan")
 
 ---
 
@@ -150,31 +157,31 @@ Das tägliche Training im [interaktiven Sprechbereich von Lexkite](/#/speaking) 
 Viele Kandidaten scheitern nicht an ihren Sprachkenntnissen, sondern an falschen Gewohnheiten:
 
 1. **Reine Wiedererkennung statt aktiver Rechtschreibung:** In alten Multiple-Choice-Tests reichte passives Wiedererkennen. Bei *Complete the Words* führt ein einziger Buchstabendreher (*recieve* statt *receive*) zum Punktverlust.
-2. **Zu lange Texte im Writing verfassen:** Wer versucht, in 10 Minuten einen 300-Wörter-Aufsatz zu schreiben, verliert den roten Faden. Präzision und vollständige Erfüllung aller Aufgabenpunkte schlagen bloße Textlänge.
-3. **Paraphrasieren bei Listen and Repeat:** Bei den meisten Sprechtests ist Umschreiben erwünscht. Bei dieser Aufgabe gilt jedoch: Exakte Worttreue ist Pflicht. Ein Ersetzen von *is going to* durch *will* wird als Fehler gewertet.
+2. **Zu lange Texte im Writing:** Wer in rund 10 Minuten 300 Wörter erzwingen will, verliert den roten Faden. Alle Aufgabenpunkte sauber abzudecken ist wichtiger als Länge.
+3. **Paraphrasieren bei Listen and Repeat:** Bei anderen Sprechaufgaben ist Umschreiben normal. Hier geht es um möglichst genaue Wiedergabe; wer *is going to* durch *will* ersetzt, gibt den Satz nicht korrekt wieder.
 4. **Vernachlässigung des Alltagsvokabulars:** Die neuen Aufgaben *Read in Daily Life* verlangen Wörter aus den Bereichen Öffnungszeiten, Fristen, Gebühren und studentische Dienstleistungen.
-5. **Typisch deutsche Aussprachefallen:** Das englische /w/ wird oft wie das deutsche „w“ gesprochen (*west* klingt wie *vest*), *th* wird zu /s/ oder /z/ (*think* klingt wie *sink*), und die Auslautverhärtung macht aus *bad* ein „bat“. Bei *Listen and Repeat* kann so ein anderes Wort entstehen – nehmen Sie sich auf und hören Sie gezielt auf diese Laute.
+5. **Typisch deutsche Aussprachefallen:** Das englische /w/ wird oft wie deutsches „w“ /v/ gesprochen (*west* klingt wie *vest*), *th* wird zu /s/ oder /z/ (*think* klingt wie *sink*), und die Auslautverhärtung macht aus *bad* ein „bat“. Bei *Listen and Repeat* kann so ein anderes Wort entstehen. Nehmen Sie sich auf, vergleichen Sie mit dem Original und üben Sie Minimalpaare wie *west/vest* und *bad/bat*.
 
 ---
 
 ## 4-Wochen-Lernplan für das TOEFL-Format 2026
 
-Mit rund 45 Minuten fokussierter täglicher Übungszeit erzielen Sie den besten Trainingsfortschritt:
+Der Plan geht von rund 45 Minuten täglich aus (ein Vorschlag, keine offizielle Vorgabe):
 
 | Woche | Schwerpunkt | Empfohlenes Tagespensum |
 |---|---|---|
-| **Woche 1** | Diagnose & Aufgabentypen | Je ein Set aller 12 Aufgabenformate unter Zeitdruck durchspielen; Fehlerursachen im Fehlerbuch festhalten |
+| **Woche 1** | Diagnose & Aufgabentypen | Jeden der 12 Aufgabentypen einmal auf der [TOEFL-Seite](/#/toefl) ausprobieren; Fehler im Fehlerbuch festhalten |
 | **Woche 2** | Aktive Produktion | Tägliches Training von *Complete the Words* und *Build a Sentence*; Audioaufnahmen bei *Listen and Repeat* |
-| **Woche 3** | Integriertes Zeittraining | Gekoppelte Sets aus *Read in Daily Life* und Fachtexten; je eine E-Mail (7 Min.) und ein Diskussionsbeitrag (10 Min.) |
-| **Woche 4** | Vollsimulation | Zwei 90-minütige Gesamttests unter realen Bedingungen absolvieren; gezielte Rechtschreibprüfung problematischer Wörter |
+| **Woche 3** | Integriertes Zeittraining | *Read in Daily Life* und Fachtexte mit Zeitlimit; je eine E-Mail und ein Diskussionsbeitrag mit Timer |
+| **Woche 4** | Vollsimulation | Ein bis zwei Durchläufe aller vier Sektionen am Stück; problematische Wörter gezielt nacharbeiten |
 
-Wenn Sie noch abwägen, welche Prüfung für Ihr Vorhaben optimal ist, nutzen Sie unseren großen Vergleich [TOEFL oder IELTS](/de/blog/toefl-oder-ielts-vergleich/) sowie unseren [TOEIC-Lernplan-Guide](/de/blog/toeic-selbststudium-lernplan-guide/). Zum schnellen Erfassen langer Passagen verweisen wir zudem auf unseren Leitfaden zum Thema [Skimming und Scanning im Lesetest](/de/blog/ielts-reading-skimming-scanning/).
+Wenn Sie noch zwischen Prüfungen schwanken, hilft der Vergleich [TOEFL oder IELTS](/de/blog/toefl-oder-ielts-vergleich/). Für das schnelle Erfassen langer Texte gibt es den Leitfaden zu [Skimming und Scanning im Lesetest](/de/blog/ielts-reading-skimming-scanning/). Unbekannte Wörter schlagen Sie im [Wörterbuch](/#/dict) nach.
 
-Trainieren Sie Ihr Gehör und Ihre Sprachgenauigkeit direkt mit dem [Sprachtool im Lexkite](/#/practice/speak) und schlagen Sie unbekannte Begriffe in unserem [Online-Wörterbuch](/#/) nach.
+In Woche 1 und 4 lohnt sich das Fehlerbuch besonders, weil es Fehler nach Art sortiert.
 
-![Fehlerbuch im Lexkite mit Gruppierung nach Fehlerkategorien wie Grammatik und Wortschatz](media:mistakes "Gezielte Fehleranalyse im Lexkite-Fehlerbuch zur Beseitigung von Schwachstellen in Wortschatz und Satzbau")
+![Fehlerbuch in Lexkite: Fehler gruppiert nach Wortschatz, Grammatik, Leseverstehen und Hören](media:mistakes "Fehlerbuch in Lexkite: Ihre Fehler nach Kategorie sortiert, zum gezielten Wiederholen in Woche 4")
 
-{{cta: /#/toefl | Jetzt das neue TOEFL iBT 2026 Format auf Lexkite kostenlos testen}}
+{{cta: /#/toefl | Die 12 TOEFL-Aufgabentypen üben | Strukturtabelle des neuen Tests und Übungsseiten für jeden Aufgabentyp}}
 
 {{youtube: | Das neue TOEFL Format 2026: Alle 12 Aufgabentypen mit praktischen Lösungsbeispielen}}
 
@@ -183,13 +190,16 @@ Trainieren Sie Ihr Gehör und Ihre Sprachgenauigkeit direkt mit dem [Sprachtool 
 ## Häufig gestellte Fragen (FAQ)
 
 ### Ab wann gilt das neue TOEFL-Format verbindlich?
-Das Format ist seit dem **21. Januar 2026** für alle regulären Testzentren weltweit sowie die *TOEFL iBT Home Edition* ausnahmslos gültig.
+Das aktualisierte Format gilt seit dem **21. Januar 2026**; ETS gibt die Ergebnisse seitdem auf der 1–6-Skala an.
 
 ### Werden alte Prüfungsergebnisse auf der 0–120 Skala weiterhin anerkannt?
-Ja, bereits abgelegte Prüfungen behalten ihre offizielle zweijährige Gültigkeit. Zudem weist die ETS auf neuen Zeugnissen während der Übergangszeit sowohl den Band-Score (1–6) als auch den entsprechenden Wert auf der 120er-Skala aus.
+Ergebnisse sind in der Regel zwei Jahre ab Testdatum gültig; ob eine Hochschule sie akzeptiert, entscheidet sie selbst, fragen Sie dort nach. Neue Ergebnisse enthalten in der Übergangszeit zusätzlich einen vergleichbaren 0–120-Wert.
 
 ### Ist der neue Test einfacher geworden?
-Nicht zwingend. Er ist zwar deutlich kürzer und weniger ermüdend, verlangt jedoch durch das adaptive Design und Aufgaben wie *Complete the Words* und *Listen and Repeat* eine weitaus höhere aktive Präzision ohne Raum für bloßes Raten.
+Nicht unbedingt. Er ist kürzer, aber adaptiv, und bei *Complete the Words* oder *Build a Sentence* erzeugen Sie die Antwort selbst, statt eine auszuwählen. Raten hilft dort kaum.
 
 ### Kann man alte Vorbereitungsbücher noch verwenden?
-Teilweise. Der enthaltene akademische Wortschatz und allgemeine Grammatikregeln bleiben uneingeschränkt wertvoll. Für die konkreten Fragetypen, die adaptive Taktik und das Zeitmanagement sind jedoch zwingend aktuelle, auf das 2026er-Format ausgerichtete Lernmaterialien erforderlich.
+Teilweise. Wortschatz und Grammatik bleiben nützlich. Für die neuen Aufgabentypen und das Zeitmanagement brauchen Sie aber Material, das auf das Format ab 2026 zugeschnitten ist.
+
+### Welche Fehler machen deutschsprachige Lernende bei den neuen Aufgaben am häufigsten?
+Bei *Listen and Repeat* sind es *th* (als s/z), *w* (als v) und die Auslautverhärtung (*bad* als *bat*); bei *Complete the Words* oft die Verwechslung von *ie/ei* wie in *receive* und die Doppelkonsonanten (*occurred*). Nehmen Sie 20 Sätze auf, vergleichen Sie sie mit dem Original und führen Sie ein Fehlerbuch.

@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, is-hayati]
 cover: letters
 coverAlt: "Kurumsal e-posta ve mesajlaşmada kullanılan iş hayatında İngilizce kısaltmalar rehberi"
-qualityScore: 86
+qualityScore: 91
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
@@ -17,48 +17,57 @@ coverArt: {mood: cheer, icon: pen}
 publishAt: 2026-12-30T19:51:00+03:00
 quiz: [
   {
-    q: "Proje takviminde teslim tarihi belirtirken 'EOD' ifadesi neyi simgeler?",
+    q: "New York'taki bir meslektaşınız size \"Please send it by EOD Friday.\" yazdı. Yanlış anlaşılmayı en iyi ne önler?",
     options: [
-      "End of Discussion (tartışmanın sona ermesi)",
-      "End of Day (mesai bitimi, genellikle 17:00–18:00)",
-      "Early Operational Delivery (erken operasyonel teslim)",
-      "Every Other Day (iki günde bir)"
-    ],
-    answer: 1,
-    explain: "EOD, 'End of Day' ifadesinin kısaltmasıdır ve ilgili iş gününün mesai bitim saatini belirtir."
-  },
-  {
-    q: "Yıllık izin veya iş seyahatinde olan çalışanların otomatik e-posta yanıtlarında en sık kullandığı kısaltma nedir?",
-    options: [
-      "BRB (Be Right Back)",
-      "OOO (Out of Office)",
-      "TBD (To Be Determined)",
-      "FYI (For Your Information)"
-    ],
-    answer: 1,
-    explain: "OOO (Out of Office), ofis dışında veya izinde olunduğunu belirten evrensel kurumsal durum kodudur."
-  },
-  {
-    q: "Dış müşterilere veya üst düzey yöneticilere e-posta yazarken 'ASAP' kısaltmasından neden kaçınılmalıdır?",
-    options: [
-      "Kaba, sabırsız ve emrivaki bir ton oluşturabileceği için.",
-      "Modern İngilizce dilbilgisinde resmi olarak yasaklandığı için.",
-      "Yalnızca mali teftiş raporlarında kullanılması zorunlu olduğu için.",
-      "Hukuk departmanının önceden yazılı onayını gerektirdiği için."
+      "Saati ve saat dilimini açıkça belirtmek, örneğin \"17:00 Istanbul saati\"",
+      "Sonuna ASAP eklemek",
+      "EOD'yi küçük harfle yazmak",
+      "Friday kelimesini çıkarmak"
     ],
     answer: 0,
-    explain: "ASAP baskıcı bir talimat tonu yaratabilir; bunun yerine 'at your earliest convenience' demek çok daha profesyoneldir."
+    explain: "EOD genellikle gönderenin mesai bitimidir ve sizde o an gece olabilir. Saat ve saat dilimi yazmak tek bir yoruma indirir."
+  },
+  {
+    q: "Yıllık izne çıkarken otomatik yanıt mesajında ofiste olmadığınızı belirtmek için en yaygın kısaltma hangisidir?",
+    options: [
+      "BRB",
+      "OOO",
+      "TBD",
+      "FYI"
+    ],
+    answer: 1,
+    explain: "OOO, Out of Office demektir ve otomatik yanıtlarda kullanılır. BRB ise sohbette birkaç dakikalığına ayrılırken yazılır."
+  },
+  {
+    q: "Yeni bir dış müşteriye ilk e-postada \"Please reply ASAP.\" yazmak neden sakıncalıdır?",
+    options: [
+      "Emir gibi duyulur ve gerçek bir son tarih vermez",
+      "ASAP dilbilgisi hatasıdır",
+      "ASAP yalnızca mali raporlarda kullanılabilir",
+      "ASAP içeren e-postalar otomatik olarak spam'e düşer"
+    ],
+    answer: 0,
+    explain: "ASAP baskı hissi verir ve ne zaman yanıt beklendiğini söylemez. \"by 3 p.m. today\" gibi somut bir saat daha nazik ve nettir."
+  },
+  {
+    q: "Bir mesajda \"The venue is TBD.\" yazıyorsa ne anlaşılmalıdır?",
+    options: [
+      "Mekan henüz kararlaştırılmadı",
+      "Mekan belli ama henüz duyurulmadı",
+      "Mekan iptal edildi",
+      "Mekan ofistir"
+    ],
+    answer: 0,
+    explain: "TBD, To Be Determined demektir: karar henüz verilmedi. Karar verilmiş ama açıklanmamışsa genellikle TBA (To Be Announced) yazılır."
   }
 ]
 ---
 
 ## Çok Uluslu Şirketlerde İş Hayatında İngilizce Kısaltmalar Neden Önemlidir?
 
-Uluslararası şirketlerde, küresel teknoloji girişimlerinde ve sınır ötesi danışmanlık projelerinde iletişim hızı hayati bir değer taşır. Bu dinamik iş ortamında **iş hayatında ingilizce kısaltmalar** (Business English Acronyms & Abbreviations), uzun kurumsal cümleleri birkaç büyük harfe sığdırarak bilgi akışını hızlandırır. Slack kanallarından Jira biletlerine, e-posta konu başlıklarından yönetim kurulu özetlerine kadar her yerde karşımıza çıkarlar.
+ASAP, FYI, ETA, EOD, OOO: **iş hayatında ingilizce kısaltmalar** (Business English Abbreviations) e-posta konularında, Slack mesajlarında, Teams toplantılarında ve Jira biletlerinde her gün karşınıza çıkar. Başlamadan önce iki şeyi aklınızda tutun: EOD saat dilimine göre değişir, bu yüzden yanına saat ve saat dilimi yazın; ASAP ise yeni bir müşteriye yazılan ilk e-postada emir gibi duyulur. Aşağıda anlamlar gruplar halinde, nezaket kuralları, iki örnek e-posta, Türkçe konuşanların sık hataları ve akılda tutma yöntemi var.
 
-Ancak bu kısaltmalar iki ucu keskin bir kılıçtır. Yerinde ve doğru bağlamda kullanıldığında profesyonel bir çeviklik kazandırırken, uygunsuz yerlerde veya yanlış anlamlandırılarak kullanıldığında ciddi itibar ve iş kayıplarına yol açabilir. Dış müşteriye gönderilen bir e-postada kurumsal jargona boğulmak amatör bir izlenim yaratabilir; kritik bir teslim saati kısaltmasını yanlış okumak ise operasyonel kriz doğurabilir. Kelime dağarcığınızı zenginleştirmek için Lexkite'ın [tematik İngilizce kelime listelerinden](/tr/vocabulary/) de faydalanabilirsiniz.
-
-![Lexkite sözlük arayüzünde resilient kelimesi ve fonetik okunuşu](media:dict "İş İngilizcesi yazışmalarında resilient gibi kilit kavramların doğru telaffuz ve örnek kullanımlarını Lexkite sözlüğünde inceleyin")
+Kısaltmalar zaman kazandırır, ama yanlış yerde kullanılırsa müşteride kötü izlenim bırakır; teslim saatini yanlış okumak da işi aksatır. Kelime dağarcığınızı genişletmek için Lexkite'ın [tematik İngilizce kelime listelerinden](/tr/vocabulary/) de faydalanabilirsiniz.
 
 ## Teslim Tarihi ve Zaman Yönetimi Kısaltmaları (Deadlines & Scheduling)
 
@@ -70,13 +79,13 @@ Uluslararası ekiplerle proje yürütürken zaman sınırlarını şeffaf ve net
   - *Örnek cümle*: *"What is the updated ETA for the cloud database failover test?"* (Bulut veritabanı yedekleme testinin güncellenmiş tahmini tamamlanma süresi nedir?)
 - **EOD (End of Day)**
   - *Anlamı*: Mesai bitimi (genellikle saat 17:00 veya 18:00).
-  - *Kullanım ipucu*: Farklı saat dilimlerinde (time zone) çalışan ekiplerle iletişim kurarken hangi saat diliminin kastedildiğini (*EOD GMT*, *EOD EST*) açıkça belirtmek kargaşayı önler.
+  - *Kullanım ipucu*: Farklı saat dilimlerinde (time zone) çalışan ekiplerle iletişim kurarken saat ve saat dilimini yazın: *5 p.m. CET* ya da *5 p.m. ET* (ET, ABD'nin hem kış hem yaz saatini kapsar). Türkiye için *5 p.m. Istanbul time* anlaşılır.
   - *Örnek cümle*: *"Please forward the sprint velocity review before EOD today."* (Lütfen sprint hız değerlendirmesini bugün mesai bitiminden önce iletiniz.)
 - **COB (Close of Business)**
-  - *Anlamı*: İş günü / seans kapanışı (EOD ile eş anlamlıdır, bankacılık ve finans sektöründe daha sık tercih edilir).
+  - *Anlamı*: İş günü kapanışı (pratikte EOD ile yakındır; mesai kapanışına açıkça bağlı olduğu için biraz daha net).
   - *Örnek cümle*: *"The revised mutual nondisclosure agreement must be finalized before COB Friday."* (Güncellenmiş karşılıklı gizlilik sözleşmesi cuma mesai bitiminden önce tamamlanmalıdır.)
 - **TBD (To Be Determined) / TBA (To Be Announced)**
-  - *Anlamı*: Henüz belirlenmedi / Daha sonra duyurulacak.
+  - *Anlamı*: TBD karar henüz verilmedi demektir; TBA karar verildi ama henüz duyurulmadı demektir.
   - *Kullanım bağlamı*: Proje planlarında henüz netleşmeyen parametreleri boş bırakmak yerine profesyonelce belirtmek için kullanılır.
   - *Örnek cümle*: *"The location for our EMEA customer summit is currently TBD."* (EMEA müşteri zirvemizin yapılacağı konum şu an için henüz belirlenmemiştir.)
 
@@ -100,11 +109,11 @@ Bir e-postanın aciliyet derecesini ve alıcının yapması gereken eylemi ilk b
 - **TL;DR (Too Long; Didn't Read)**
   - *Anlamı*: Çok uzundu, okumayanlar için özet.
   - *Kullanım bağlamı*: Çok kapsamlı analizlerin ve teknik şartnamelerin başında 2–3 cümlelik yönetici özeti geçmek için kullanılır.
-  - *Örnek cümle*: *"TL;DR: The migration reduced infrastructure cloud spend by 22%."* (Özet: Taşıma işlemi altyapı bulut harcamalarını %22 oranında azalttı.)
+  - *Örnek cümle*: *"TL;DR: The pilot migration went well, and we recommend a full rollout."* (Özet: Pilot taşıma iyi geçti, tam geçişi öneriyoruz.)
 
 İş yerinde meslektaşlarla kurulan gayriresmi diyaloglarda rahat etmek için [iş yerinde İngilizce small talk kalıpları](/tr/blog/is-yerinde-ingilizce-small-talk/) içeriğimizden ilham alabilirsiniz.
 
-![Lexkite kelime kartları tekrar ekranında pollution sözcüğü ve kart çevirme butonu](media:review "pollution gibi sözcükleri Lexkite flashcard sistemiyle pekiştirin")
+Bazı kısaltmaların birden fazla anlamı vardır. `POC` hem *point of contact* (irtibat kişisi) hem *proof of concept* (kavram kanıtlama) olabilir; `PM` ise *project manager*, *product manager* ya da öğleden sonra (`3 PM`) anlamına gelir. Emin değilseniz sorun: *"Just to confirm, does POC mean point of contact here?"*
 
 ## Çalışma Durumu ve Ofis Dışında Olma Kısaltmaları (Presence & Availability)
 
@@ -129,12 +138,12 @@ Günlük iş temposunu ve görev önceliklendirmeyi kusursuz yönetmek için [i�
 Düzenli toplantılarda ve görev takiplerinde kullanılan kurumsal standartlar:
 
 - **EOM (End of Message)**
-  - *Anlamı*: Mesajın sonu (E-postanın gövdesinde metin yok, tüm mesaj konu satırında).
+  - *Anlamı*: Mesajın sonu (E-postanın gövdesinde metin yok, tüm mesaj konu satırında). Dikkat: finansta EOM *end of month* (ay sonu) anlamına da gelir; tanımadığınız biriyle kullanmayın.
   - *Örnek konu*: *"Weekly team standup moved to Room 402 at 14:00 [EOM]"*. Alıcının e-postayı açarak vakit kaybetmesini engeller.
 - **NRN (No Reply Needed)**
-  - *Anlamı*: Yanıt gerekmez. Karşı tarafın gelen kutusunu rahatlatan nazik bir e-posta kültürü unsurudur.
+  - *Anlamı*: Yanıt gerekmez. FYI veya EOD kadar yaygın değildir; yeni tanıştığınız biri için *"No need to reply"* yazmak daha güvenlidir.
 - **MoM (Minutes of Meeting)**
-  - *Anlamı*: Toplantı tutanağı / Toplantı notları.
+  - *Anlamı*: Toplantı tutanağı (Asya merkezli şirketlerde daha yaygın; ABD ve Birleşik Krallık'ta genelde *meeting minutes* denir. Finans raporlarında MoM ise *month-over-month*, yani bir önceki aya göre demektir).
   - *Örnek cümle*: *"I will distribute the approved MoM before our sprint planning."* (Sprint planlamamızdan önce onaylanmış toplantı tutanağını paylaşacağım.)
 - **KPI (Key Performance Indicator) & OKR (Objectives and Key Results)**
   - *Anlamı*: Temel performans göstergesi / Hedefler ve anahtar sonuçlar.
@@ -155,9 +164,21 @@ Kısaltmalar pratiklik sağlasa da, yanlış ton kurumsal imajınızı zedeleyeb
 3. **Büyük Harf Kirliliğinden Kaçının**
    - E-posta metninin tamamını büyük harfli kısaltmalarla doldurmak bağırma (shouting) hissi yaratır ve gözü yorar.
 
-Konuşma özgüveninizi artırmak için telaffuz odamız [/#/speaking](/#/speaking) ve sesli mikrofona konuşma alanımızı [/#/practice/speak](/#/practice/speak) kullanabilirsiniz.
+## Sohbet ve Toplantılarda Kullanılan Diğer Kısaltmalar
 
-![Lexkite konuşma pratiği ekranında cut down on kalıbı ve mikrofon değerlendirmesi](media:practice-speak "İş İngilizcesi müzakereleri öncesinde cut down on deyimini mikrofonla seslendirerek telaffuz doğruluğunu test etme")
+| Kısaltma | Anlamı | Örnek |
+| :--- | :--- | :--- |
+| **BTW** | By The Way (bu arada) | *"BTW, the client moved the call to Friday."* |
+| **IMO** | In My Opinion (bana göre) | *"IMO, we should test it first."* |
+| **AFAIK** | As Far As I Know (bildiğim kadarıyla) | *"AFAIK, the invoice is paid."* |
+| **ICYMI** | In Case You Missed It (kaçırdıysanız) | *"ICYMI, the schedule changed."* |
+| **EOW** | End Of Week (hafta sonu, yani haftanın bitişi) | *"Draft due by EOW."* |
+| **N/A** | Not Applicable (geçerli değil) | *"Budget: N/A for this phase."* |
+| **LGTM** | Looks Good To Me (bana uygun görünüyor; kod incelemesinde yaygın) | *"LGTM, merging now."* |
+
+İşinizde sık kullandığınız cümleleri [Lexkite kalıp defterine](/#/phrases) kaydederseniz e-posta yazmadan önce hızla göz atabilirsiniz.
+
+![Lexkite kalıp defteri ekranı: yararlı kalıp ve cümleleri ekleme](media:phrases "Kısaltma içeren örnek cümleleri kalıp defterinde saklayıp daha sonra tekrar açabilirsiniz")
 
 ## Gerçekçi Bir İş E-postası Örneği
 
@@ -173,7 +194,7 @@ Thanks for the follow-up.
 TL;DR: Staging verification completed successfully, and target rollout remains on track.
 
 Please find the detailed architecture review attached for your reference (FYR). 
-Our DevOps squad anticipates final production cutover before EOD this Thursday (CET).
+Our DevOps team expects the final production cutover by 5 p.m. CET this Thursday.
 
 I will be OOO tomorrow morning for a customer audit, but Mark will cover urgent escalations.
 
@@ -214,32 +235,54 @@ C-level yöneticilerle yazışırken stratejik metrikler (*ROI*, *KPI*, *Capex*,
 - **Kısaltmaları Türkçe alfabeyle okumak**: Toplantıda ETA'yı "e-te-a", EOD'yi "e-o-de" diye okumak karşı tarafı bir an duraksatır. İngilizce harf adlarıyla (*i-ti-ey*, *i-ou-di*) söylemeyi alışkanlık hâline getirin.
 - **"Cevabınızı bekliyorum"u kelimesi kelimesine çevirmek**: *"I am waiting your answer"* hem dilbilgisi açısından eksik (*waiting for*) hem de sabırsız durur. Yerine *"I look forward to hearing from you"* yazın.
 - **"Bilgi verir misiniz?" kalıbını "Please inform me" yapmak**: Kulağa resmî bir dilekçe gibi gelir. *"Could you let me know…?"* çok daha doğaldır.
-- **ASAP'ı "rica ederim" nezaketiyle yumuşattığını sanmak**: *"Please send ASAP"* yine de bir emirdir. Somut bir saat verin: *"Could you send it by 3 p.m. today (TRT)?"*
+- **ASAP'ı "rica ederim" nezaketiyle yumuşattığını sanmak**: *"Please send ASAP"* yine de bir emirdir. Somut bir saat verin: *"Could you send it by 3 p.m. Istanbul time today?"*
+- **Resmî Türkçe kalıpları çevirmek**: "Gereğini rica ederim" için *"Please take the necessary action"* yerine *"Could you take care of this by Thursday?"* yazın. "Bilgilerinize sunarım" için *FYI* ya da *"For your information"* yeterlidir. Yazının sonunda "Saygılarımla" yerine *Best regards* ya da *Kind regards* kullanın.
+- **Saat biçimi**: Türkiye'de 24 saat (17.00) kullanılır, İngilizce e-postada *5 p.m.* yazılır; a.m. ile p.m.'yi karıştırmayın.
 
-## Lexkite ile İş İngilizcesi Kısaltmalarını Kalıcı Olarak Öğrenin
+## Türkçe Konuşanlar İçin Telaffuz Noktaları
 
-Kısaltmaları sadece gözle okuyup ezberlemek yetersizdir; duyduğunuz an zihninizin kelimeyi çözümlemesi gerekir.
+- **W ve V**: Türkçede /w/ yok; *WIP* ve *WFH* içindeki W dudakları yuvarlayarak söylenir, dişler alt dudağa değmez. *V* ise alt dudak ve üst dişle çıkar. İkisini aynı söylemek *work* sözcüğünü *vork* gibi duyurur.
+- **Kelime başındaki ünsüz kümesi**: Türkçede *s + ünsüz* ile başlayan kelime yoktur, bu yüzden *sprint*, *scope*, *stakeholder* sözcükleri "isprint", "iskop", "isteykholdır" olur. Önce /s/ sesini uzatın, ardından ünsüze geçin: *sss-print*.
+- **Sondaki ünsüz**: *COB* gibi sözcük olarak okunan kısaltmalarda sondaki /b/ ve /d/ yumuşamaz; Türkçedeki gibi /p/ ve /t/ olarak sertleşmesin. *Approved* ve *scheduled* sözcüklerinde -d sesini de açıkça söyleyin.
+- **Vurgu**: *FYI* ve *ETA* gibi harf harf okunan kısaltmalarda vurgu son harftedir (ef-wai-**AI**).
+
+Sesli prova için [Lexkite telaffuz alıştırmasını](/#/practice/speak) kullanın: bir ifadeyi mikrofona okursunuz ve telaffuzunuz için puan alırsınız. Daha geniş bir plan için [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) yazısına da bakın.
+
+![Lexkite telaffuz alıştırması: cut down on ifadesi ve mikrofon düğmesi](media:practice-speak "İfadeyi mikrofona okuyun ve telaffuz puanınızı görün")
+
+## İş İngilizcesi Kısaltmalarını Kalıcı Olarak Öğrenme
+
+Kısaltmaları sadece gözle okuyup ezberlemek yetmez; duyduğunuz anda çözebilmeniz gerekir.
 
 1. **Bağlamıyla Birlikte Öğrenin**: Kısaltmayı tek başına değil, yanındaki kalıplaşmış kelimelerle (*«before EOD today»*, *«for your guidance»*) birlikte çalışın. Deyimsel zenginlik için [iş hayatında İngilizce deyimler](/tr/blog/is-hayatinda-ingilizce-deyimler/) yazımızı inceleyin.
-2. **Harf Harf Sesletim Pratiği Yapın**: Kısaltmaların harflerini (*«i-ti-ey»*, *«ou-ou-ou»*) sesli olarak söyleyerek işitsel refleksi güçlendirin.
-3. **Aralıklı Tekrar Yöntemini Kullanın**: Lexkite'ın FSRS algoritması, kısaltmaları unutulmaya yüz tuttuğu an karşınıza çıkararak uzun süreli belleğinize aktarır.
+2. **Harf harf sesli söyleyin**: *e-t-a*, *o-o-o* gibi İngilizce harf adlarıyla yüksek sesle alıştırma yapın.
+3. **Aralıklı tekrar yapın**: Yalnızca işinizde gerçekten karşılaştığınız beş altı kısaltma için kart oluşturun ve [Lexkite tekrar ekranında](/#/review) aralıklarla tekrar edin. Yöntem [aralıklı tekrar (FSRS) rehberinde](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) anlatılıyor.
 
-Doğru yerde ve ölçülü kullanılan iş İngilizcesi kısaltmaları, uluslararası kariyerinizde sizi etkin ve güvenilir bir profesyonel konumuna taşıyacaktır.
+   ![Lexkite tekrar ekranı: pollution kartı, kartı çevirme düğmesi ve ilerleme çubuğu](media:review "Kartı çevirip cevabı kontrol edin; ilerleme çubuğu kalan kartları gösterir")
+4. **Konuşarak prova yapın**: [Lexkite rol yapma](/#/roleplay) bölümünde "Proje gecikmesi raporu" ve "Yabancı yöneticiyle toplantı" gibi iş senaryoları vardır. Sesle veya yazıyla yanıt verirsiniz; sonunda doğallık, nezaket, açıklık ve dilbilgisi için değerlendirme alırsınız.
+
+Özetle: önce anlamı doğrulayın, saat ve saat dilimini yazın, tanımadığınız kişiye kısaltmasız yazın.
 
 {{youtube: | İş Hayatında İngilizce Kısaltmalar ve E-posta Rehberi: ASAP'ten EOD'ye}}
 
-{{cta: /#/ | İş İngilizcesi ve profesyonel e-posta kalıplarını Lexkite ile geliştirin}}
+{{cta: /#/phrases | E-posta cümlelerinizi kalıp defterine kaydedin}}
 
 ---
 
 ## İş İngilizcesinde E-posta Kısaltmaları Hakkında Sıkça Sorulan Sorular
 
 ### Müşterilere yazarken bu kısaltmaları kullanmak uygun mudur?
-Müşteriler veya üst düzey yöneticilerle yazışırken kısaltma yerine açık ifadeler kullanmak daha profesyoneldir. Kısaltmalar şirket içi yazışmalara daha uygundur.
+İlk e-postada ve tanımadığınız kişilere açık ifadeler yazın. Müşteri kendisi ETA ya da FYI yazıyorsa siz de kullanabilirsiniz. TL;DR, IMO ve LGTM sohbete daha uygundur.
 
 ### COB ve EOD arasındaki zaman farkı nedir?
-COB (Close of Business) genellikle mesai bitimini (17:00), EOD (End of Day) ise gün sonunu (gece yarısından önce) ifade eder.
+Pratikte ikisi de iş gününün bitişini anlatır, ancak kesin saat şirkete ve kişiye göre değişir. COB mesai kapanışına daha açık bağlıdır, EOD'yi bazıları gece yarısı olarak anlar. Bu yüzden *5 p.m. CET* gibi saat ve saat dilimi yazın.
 
 ### Kısaltmalar büyük harfle mi yazılmalıdır?
-E-postalarda büyük harf kullanımı (ASAP, FYI) standarttır ve okunabilirliği artırır.
+E-postalarda çoğunlukla büyük harf kullanılır: ASAP, FYI, ETA. Meslektaşlar arası sohbette `asap` ya da `btw` küçük harfle de görülür. `N/A` ve `TL;DR` olduğu gibi yazılır.
+
+### FYI ya da WIP dediğimde karşımdaki tekrar soruyor, neden?
+Genellikle sorun ses, anlam değil. *WIP* içinde W'yi V gibi söylemek ve sondaki /p/'yi yutmak yaygındır; *FYI*'da vurgu son harfe gelmelidir. Önce kısaltmayı tek başına yavaş söyleyin, sonra cümleye yerleştirin.
+
+### "Gereğini rica ederim" cümlesini İngilizce e-postada nasıl yazmalıyım?
+Kelimesi kelimesine çevirmeyin. *"Could you take care of this by Thursday?"* hem nazik hem net olur ve ne zaman beklendiğini de söyler.
 
