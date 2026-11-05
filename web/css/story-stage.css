@@ -21,6 +21,7 @@
 /* dòng thoại: nhẹ, không viền dày; 🔊 + 🐢 cùng hàng, cùng chỗ cho cả hai người (cuối bong bóng, đầu dòng) */
 .ss .lsn-ln{border-width:1px!important;box-shadow:none!important;content-visibility:auto;contain-intrinsic-size:auto 96px}
 .ss .lsn-ln.ss-in{animation:ss-in .24s cubic-bezier(.2,.8,.2,1) both}
+.ss .ss-col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
 .ss .ss-act{display:flex;gap:.5rem;align-items:center;justify-content:flex-start;margin-top:.5rem;flex-direction:row!important}
 .ss .ss-act>button{order:0!important;margin:0!important;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:9999px}
 .ss .ss-slow{font-size:20px;line-height:1;background:transparent;border:0;color:inherit;cursor:pointer}

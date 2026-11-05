@@ -31,7 +31,7 @@
       const play = n.querySelector('button'); if (!play || n.querySelector('.ss-act')) return;
       const act = D.createElement('div'); act.className = 'ss-act'; const slow = D.createElement('button'); slow.type = 'button'; slow.className = 'ss-slow';
       slow.setAttribute('aria-label', T('Nghe chậm') + ' · ' + (it.who === 'carlos' ? 'Carlos' : 'Ama')); slow.innerHTML = '<span aria-hidden="true">🐢</span>'; slow.onclick = ev => { ev.stopPropagation(); ctx.say(it.sent, true, it.who); };
-      (play.parentNode).appendChild(act); act.appendChild(play); act.appendChild(slow); play.classList.remove('order-last', 'order-first');
+      const bub = play.parentNode, p = bub.querySelector('p'), col = D.createElement('div'); col.className = 'ss-col'; if (p) { bub.insertBefore(col, p); col.appendChild(p); } else bub.appendChild(col); col.appendChild(act); act.appendChild(play); act.appendChild(slow); play.classList.remove('order-last', 'order-first'); // chữ ở trên, hàng 🔊 + 🐢 ngay dưới (cùng chỗ cho cả hai người)
       if (!reduced()) { n.classList.add('ss-in'); n.addEventListener('animationend', () => n.classList.remove('ss-in'), { once: true }); }
       const x = tch()[it.who]; if (x && x.react) x.react(emoOf(it.sent), 2200);
     }
