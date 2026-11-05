@@ -160,4 +160,4 @@ Yes. Complete accent elimination is unnecessary and unrealistic; what matters is
 Choose whichever dialect aligns with your academic, career, or immigration goals. The fundamental rules of vowel length, consonant articulation, and sentence stress are virtually identical across both major varieties. Maintain consistency rather than mixing regional vowel shifts.
 
 ### How does recording myself improve pronunciation?
-When speaking, your skull conducts sound vibrations directly to your inner ear, masking your true acoustic output. Listening to your recorded voice externalizes the sound, allowing you to objectively detect dropped consonants and flat intonation that you missed during live speech.
+When speaking, your skull conducts sound vibrations directly to your inner ear, masking your true acoustic output. Listening to your recorded voice externalizes the sound, allowing you to objectively detect dropped consonants and flat intonation that you missed during live speech. Discover structured self-recording loops and solo practice techniques in our guide on [how to speak English fluently](/en/blog/how-to-speak-english-fluently/).

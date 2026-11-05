@@ -156,7 +156,7 @@ Most motivated learners notice a substantial reduction in mental hesitation with
 
 ### What should I do when I get stuck on an unknown word while speaking?
 
-Never freeze or revert to your native language. Instead, practice paraphrasing immediately. Describe the object's characteristics, purpose, or context. For example, if you forget the word *stapler*, say *the small metal tool that binds paper sheets together*. In official tests like IELTS Speaking, paraphrasing smoothly demonstrates high communicative competence and actually boosts your Lexical Resource rating.
+Never freeze or revert to your native language. Instead, practice circumlocution and paraphrasing immediately. Describe the object's characteristics, purpose, or context. For example, if you forget the word *stapler*, say *the small metal tool that binds paper sheets together*. Explore dedicated solo speaking drills in our comprehensive guide on [how to speak English fluently](/en/blog/how-to-speak-english-fluently/). In official tests like IELTS Speaking, paraphrasing smoothly demonstrates high communicative competence and actually boosts your Lexical Resource rating.
 
 ### Does watching English movies with subtitles help me think in English?
 
