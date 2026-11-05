@@ -90,5 +90,17 @@
  "link": "https://lexkite.com/app/#/fix",
  "cta": "Check your grammar on lexkite.com",
  "est": 23.5,
- "end_alt": "n_8c570f_e2"
+ "end_alt": "n_8c570f_e2",
+ "publish": {
+  "title": "Stop saying \"I very like it\"",
+  "keyword": "very vs really",
+  "value": "Say \"I really like it\" instead.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a1english"
+  ],
+  "first_comment": "\"Very\" can't go before a verb, but \"really\" can: I really like it, I really want it. Full lesson and quiz: {link}"
+ }
 }

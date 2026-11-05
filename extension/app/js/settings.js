@@ -69,6 +69,7 @@
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
         + (OFFP ? tog('sOff', LKAudio.offline.on(), '📥 ' + t('Nghe offline: tải sẵn khoảng {n} từ thông dụng và bài đang học', { n: LKAudio.offline.N.toLocaleString(I18N.lang ? I18N.lang() : undefined) }), t('Khoảng {mb} MB, tối đa {max} MB. Tắt để xóa khỏi máy.', { mb: LKAudio.offline.EST_MB, max: LKAudio.offline.MAX_MB })) + '<div id="offStat" class="tip small set-tip" aria-live="polite" hidden></div>' : '')
         + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh'))
+        + tog('sHap', !!(window.Sfx && Sfx.haptics && Sfx.haptics()), t('Rung khi trả lời và hoàn thành bài'))
         + tog('sFeel', !!(window.Sfx && Sfx.feel && Sfx.feel()), t('Âm thanh & hiệu ứng kiểu trò chơi')))}
       ${sec('remind', UI.icon('alarm-clock') + t('Nhắc học hằng ngày'),
         tog('sRem', s.reminderOn, t('Bật nhắc học'))
@@ -161,6 +162,7 @@
       App.onCleanup && App.onCleanup(() => clearInterval(tm));
     }
     if ($('#sFeel')) $('#sFeel').onchange = e => { if (window.Sfx && Sfx.feel) Sfx.feel(e.target.checked); }; // 🎮 docs/GAME-FEEL.md – lưu vb.feel, bật/tắt ngay
+    if ($('#sHap')) $('#sHap').onchange = e => { if (window.Sfx && Sfx.haptics) Sfx.haptics(e.target.checked); }; // vb.haptics – tôn trọng tắt âm + giảm chuyển động
     $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
     $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
     $('#sTest').onclick = () => R && R.notify(true);

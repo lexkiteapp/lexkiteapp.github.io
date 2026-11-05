@@ -19,6 +19,15 @@ import { meter, spent, addSpent, overBudget, isShedError } from './_readbudget.j
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
+// GitHub API cho Quản trị (R2, docs/specs/admin-audit.md): có token thì 5.000 lượt/giờ thay vì 60/giờ/IP dùng chung của Cloudflare;
+// trả lỗi rõ (HTTP 403/5xx) thay vì JSON rỗng → giao diện báo "không đọc được", KHÔNG hiện "0 tác vụ" giả. Test: scripts/test/admin-gh.mjs
+export const ghApi = async (env, u, f = fetch) => {
+  const tok = env && (env.GH_DISPATCH_TOKEN || env.GH_ISSUES_TOKEN), h = { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' };
+  if (tok) h.Authorization = 'Bearer ' + tok;
+  const r = await f(`https://api.github.com/repos/${REPO}/${u}`, { headers: h });
+  if (!r.ok) throw new Error('GitHub HTTP ' + r.status);
+  return r.json();
+};
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu)
 const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min'];
 const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_KEYS];
@@ -29,6 +38,8 @@ const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 
 // Hạn mức gói miễn phí (cập nhật khi nhà cung cấp đổi) – dùng cho thẻ dung lượng & cảnh báo
+// Ngưỡng hạn mức (vàng/đỏ) – PHẢI khớp METRICS.quota ở web/js/admin.js (cổng scripts/test/admin-metrics.mjs)
+const QUOTA_WARN = 70, QUOTA_CRIT = 90;
 const FREE = { dbBytes: 500 * 1024 * 1024, writesDay: 100000, readsDay: 5000000, authMau: 50000, aiDay: 400 };
 let ready = false;
 
@@ -295,7 +306,7 @@ export const LEGACY = {
   },
 };
 
-const OPS = {
+export const OPS = {
   async whoami() { return { admin: true }; }, // cổng phía máy khách: tới được đây = adminGate đã xác nhận (không trả danh sách email)
   async usage(db, b) {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
@@ -639,17 +650,17 @@ const OPS = {
     return { ok: true, n: batch.length };
   },
   // Chất lượng: kết quả workflow "Rà soát hằng ngày" (health.yml) – điểm = số hạng mục đạt / tổng; dưới 100% = dưới chuẩn
-  async quality() {
-    const c = caches.default, key = new Request('https://cache.lexkite.internal/quality'), hit = await c.match(key); if (hit) return hit.json();
-    const gh = u => fetch(`https://api.github.com/repos/${REPO}/${u}`, { headers: { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' } }).then(r => r.json());
-    const runs = ((await gh('actions/workflows/health.yml/runs?per_page=14')).workflow_runs || []).filter(r => r.status === 'completed');
-    const CHECK = /^(Kiểm thử|Lẫn tiếng|Kiểm tra kiểu|Cú pháp|Bản live)/;
-    const steps = async r => (((await gh(`actions/runs/${r.id}/jobs`)).jobs || [])[0] || { steps: [] }).steps.filter(x => CHECK.test(x.name)).map(x => ({ name: x.name, ok: x.conclusion === 'success' }));
-    const latest = runs[0] ? await steps(runs[0]) : [];
-    const score = latest.length ? Math.round(latest.filter(x => x.ok).length / latest.length * 100) : null;
-    const out = { score, standard: 100, at: runs[0] ? Date.parse(runs[0].updated_at) : 0, url: runs[0] ? runs[0].html_url : '', checks: latest, history: runs.map(r => ({ at: Date.parse(r.updated_at), ok: r.conclusion === 'success', url: r.html_url })) };
-    await c.put(key, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=600' } }));
-    return out;
+  async quality(db, b, who, env) {
+    // cached(): chỉ đệm khi tính xong; lỗi GitHub (403/rate-limit/5xx) → ném ra, KHÔNG đệm kết quả rỗng 10 phút (test: admin-gh.mjs)
+    return cached('quality-v2', 600, async () => {
+      const gh = u => ghApi(env, u);
+      const runs = ((await gh('actions/workflows/health.yml/runs?per_page=14')).workflow_runs || []).filter(r => r.status === 'completed');
+      const CHECK = /^(Kiểm thử|Lẫn tiếng|Kiểm tra kiểu|Cú pháp|Bản live)/;
+      const steps = async r => (((await gh(`actions/runs/${r.id}/jobs`)).jobs || [])[0] || { steps: [] }).steps.filter(x => CHECK.test(x.name)).map(x => ({ name: x.name, ok: x.conclusion === 'success' }));
+      const latest = runs[0] ? await steps(runs[0]) : [];
+      const score = latest.length ? Math.round(latest.filter(x => x.ok).length / latest.length * 100) : null;
+      return { score, standard: 100, at: runs[0] ? Date.parse(runs[0].updated_at) : 0, url: runs[0] ? runs[0].html_url : '', checks: latest, history: runs.map(r => ({ at: Date.parse(r.updated_at), ok: r.conclusion === 'success', url: r.html_url })) };
+    });
   },
   // Kiểm nghĩa bản dịch: câu bị dịch ngược nghi sai (web/i18n/backcheck.json) → AI Cloudflare (gói miễn phí) xác nhận theo lô 15 câu
   async judge(db, b, who, env) {
@@ -735,19 +746,22 @@ const OPS = {
     const wrongs = L.flagged.filter(f => done[f.h] && !done[f.h].ok).map(f => ({ ...f, ...parse(done[f.h].note) }));
     return { lang, reviewed: L.flagged.filter(f => done[f.h]).length, total: L.flagged.length, pending: L.flagged.filter(f => !done[f.h]).length, models: [...used], wrong: wrongs };
   },
-  async alerts(db, b) {
+  async alerts(db, b, who, env) {
     const now = Date.now(), out = [];
     try {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs?per_page=40`, { headers: { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' } });
-      const runs = (await r.json()).workflow_runs || [], seen = new Set();
-      for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); out.push({ kind: 'workflow', name: w.name, status: w.status, ok: w.conclusion === 'success' || w.conclusion === 'skipped' || w.status !== 'completed', conclusion: w.conclusion, at: Date.parse(w.updated_at), url: w.html_url }); }
-    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, conclusion: tx(b, 'không đọc được', 'unreadable') }); }
+      // Đệm 60 s (R2): trang Quản trị tự làm mới không đốt hạn mức GitHub; chỉ đệm khi đọc được – lỗi không bao giờ thành "0 workflow"
+      out.push(...await cached('alerts-gh', 60, async () => {
+        const runs = (await ghApi(env, 'actions/runs?per_page=40')).workflow_runs || [], seen = new Set(), rows = [];
+        for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); rows.push({ kind: 'workflow', name: w.name, status: w.status, ok: w.conclusion === 'success' || w.conclusion === 'skipped' || w.status !== 'completed', conclusion: w.conclusion, at: Date.parse(w.updated_at), url: w.html_url }); }
+        return rows;
+      }));
+    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, unreadable: true, conclusion: tx(b, 'không đọc được', 'unreadable') + ' · ' + String(e.message || e).slice(0, 40) }); }
     const e = await one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY);
     const lim = +((await one(db, "SELECT v FROM config WHERE k = 'alert_errors'")).v || 50);
-    out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
+    out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, n: +e.hits || 0, kinds: +e.kinds || 0, lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
     const c = await one(db, 'SELECT COUNT(*) AS n, MIN(at) AS oldest FROM contact_msgs WHERE COALESCE(handled, 0) = 0');
     const oldH = Math.round((now - c.oldest) / 36e5);
-    out.push({ kind: 'inbox', name: tx(b, 'Tin nhắn chưa xử lý', 'Open messages'), ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? tx(b, `${c.n} tin, cũ nhất ${oldH} giờ`, `${c.n} message(s), oldest ${oldH}h`) : tx(b, 'không có', 'none') });
+    out.push({ kind: 'inbox', name: tx(b, 'Tin nhắn chưa xử lý', 'Open messages'), n: +c.n || 0, ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? tx(b, `${c.n} tin, cũ nhất ${oldH} giờ`, `${c.n} message(s), oldest ${oldH}h`) : tx(b, 'không có', 'none') });
     const f = await one(db, 'SELECT COUNT(*) AS n FROM contact_msgs WHERE sent = 0 AND at > ?', now - 7 * DAY);
     out.push({ kind: 'mail', name: tx(b, 'Thư chuyển tiếp lỗi (7 ngày)', 'Failed email forwards (7 days)'), ok: !f.n, conclusion: f.n ? tx(b, `${f.n} tin chưa chuyển được vào Gmail – xem Hộp thư`, `${f.n} message(s) not forwarded to Gmail – see Inbox`) : tx(b, 'ổn', 'OK') });
     // Backlink, PR & Thương hiệu (functions/api/backlinks.js, workflow pr-check.yml): đỏ khi có sự cố, vàng khi có thay đổi cần cập nhật / lâu chưa kiểm
@@ -767,7 +781,7 @@ const OPS = {
         out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: sus ? tx(b, `${sus} trang ngoài chứa nguyên văn/canary`, `${sus} external page(s) with verbatim text/canary`) : copy.configured === false ? tx(b, 'chỉ dò canary trên GitHub – bật Brave (BRAVE_SEARCH_KEY) để dò cả web', 'canary GitHub search only – add BRAVE_SEARCH_KEY for web search') : tx(b, 'không thấy', 'none found') }); }
     } catch (e) { /* chưa có bảng bw_* (chưa chạy lần nào) */ }
     const u = await OPS.usage(db, b);
-    for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
+    for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, pct: m.pct, ok: m.pct < QUOTA_WARN, warn: m.pct >= QUOTA_WARN && m.pct < QUOTA_CRIT, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
     return { rows: out };
   },
   async noticeCreate(db, b, who) {
