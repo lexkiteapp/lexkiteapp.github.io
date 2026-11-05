@@ -1,7 +1,7 @@
 ---
 slug: yeni-toefl-format-2026-hazirlik-rehberi
 title: "Yeni TOEFL Formatı 2026: Değişiklikler ve Hazırlık Rehberi"
-description: "Yeni toefl formatı 2026, ETS verilerine göre: 12 görev, yaklaşık 90 dakika temel süre, adaptif Reading ve Listening, 1–6 puan skalası ve 4 haftalık plan."
+description: "Yeni TOEFL formatı 2026, ETS verilerine göre: 12 görev, yaklaşık 90 dakika temel süre, adaptif Reading ve Listening, 1–6 puan skalası ve 4 haftalık plan."
 keyword: "yeni toefl formatı 2026"
 lang: tr
 translationKey: toefl-ibt-dinh-dang-moi-2026
@@ -18,10 +18,10 @@ quiz: [
   {
     q: "ETS tablosuna göre yeni TOEFL iBT'nin dört bölümünün toplam temel süresi yaklaşık ne kadardır?",
     options: [
-      "Yönergeler hariç yaklaşık 90 dakika; tüm oturum için ETS yaklaşık iki saat ayırmanızı önerir",
-      "Zorunlu moladan sonra 3,5 saati aşan süre",
-      "Speaking olmadan tam 2,5 saat",
-      "İki güne bölünmüş dört saat"
+      "Yaklaşık 90 dakika; oturum için ETS yaklaşık iki saat önerir",
+      "Bölümler arası zorunlu molalarla birlikte 3,5 saati aşan süre",
+      "Speaking bölümü hariç tutulduğunda tam 2,5 saatlik süre",
+      "İki ardışık güne bölünmüş toplam dört saatlik süre"
     ],
     answer: 0,
     explain: "Resmi tabloda Reading 30, Listening 29, Writing 23 ve Speaking 8 dakika vardır; toplam yaklaşık 90 dakikadır. Yönerge süresi dahil değildir ve sınav adaptif olduğu için soru sayısı ile süre biraz değişebilir."
@@ -29,21 +29,21 @@ quiz: [
   {
     q: "21 Ocak 2026'dan sonra sonuçlar nasıl bildiriliyor?",
     options: [
-      "Dört bölüm puanı ve bir genel puan, 1–6 skalasında 0,5'lik adımlarla; genel puan dört bölümün ortalamasının en yakın yarım banda yuvarlanmış hâlidir",
-      "Becerilere ayrılmamış 0–100 yüzde puanı",
-      "Yalnızca geçti veya kaldı",
-      "A'dan F'ye harf notu"
+      "Dört bölüm puanı ve bir genel puan, 1–6 skalasında",
+      "Becerilere hiç ayrılmamış, tek parça 0–100 yüzde puanı",
+      "Puansız, yalnızca geçti veya kaldı şeklinde bir bilgi",
+      "Her bölüm için A'dan F'ye kadar ayrı bir harf notu"
     ],
     answer: 0,
-    explain: "ETS bölüm ve genel puanları 1–6 skalasında verir. Ocak 2026'dan sonraki iki yıllık geçiş döneminde 0–120 skalasında karşılaştırılabilir bir puan da yer alır."
+    explain: "ETS bölüm ve genel puanları 1–6 skalasında, 0,5'lik adımlarla verir; genel puan dört bölümün ortalamasıdır. Ocak 2026'dan sonraki iki yıllık geçiş döneminde 0–120 skalasında karşılaştırılabilir bir puan da yer alır."
   },
   {
     q: "Complete the Words görevinde ne yaparsınız?",
     options: [
-      "Kısa bir akademik metinde eksik harfleri klavyeyle yazarak kelimeleri tamamlarsınız",
-      "Açılır listeden eş anlamlı kelime seçersiniz",
-      "Dinlediğiniz metni baştan sona yazarsınız",
-      "İngilizce cümleleri Türkçeye çevirirsiniz"
+      "Kısa bir metinde eksik harfleri klavyeyle yazarsınız",
+      "Açılır listeden uygun eş anlamlı kelimeyi seçersiniz",
+      "Dinlediğiniz metni kelimesi kelimesine klavyeyle yazarsınız",
+      "Metindeki İngilizce cümleleri Türkçeye çevirirsiniz"
     ],
     answer: 0,
     explain: "Harfleri kendiniz yazdığınız için imla, sözcük türü, zaman ve tekil-çoğul hepsi ölçülür. Kelimeyi gözle tanımak yetmez."
@@ -51,10 +51,10 @@ quiz: [
   {
     q: "Yeni formatta ETS hangi bölümleri adaptif olarak tanımlıyor?",
     options: [
-      "Reading ve Listening: zorluk yanıtlarınıza göre ayarlanır",
-      "Yalnızca Speaking",
-      "Yalnızca Writing",
-      "Hiçbiri; herkes aynı soruları görür"
+      "Reading ve Listening: zorluk yanıtlarınıza uyar",
+      "Yalnızca Speaking; diğer bölümler herkese aynıdır",
+      "Yalnızca Writing; diğer bölümler herkese aynıdır",
+      "Hiçbiri; tüm adaylar tamamen aynı soruları görür"
     ],
     answer: 0,
     explain: "ETS sınavı adaptif olarak tanımlar; Reading ve Listening çok aşamalıdır. Aşamaların tam kuralları yayımlanmadığı için ilk sorudan itibaren dikkatli olmak en güvenlisidir."
@@ -62,10 +62,10 @@ quiz: [
   {
     q: "Türkçe konuşan bir aday için Listen and Repeat'te en yararlı alışkanlık hangisidir?",
     options: [
-      "Kendi sesini kaydedip th, w/v sesleri ve -s, -ed gibi sondaki ekleri kontrol etmek",
-      "Zor kelimeleri daha kolay eş anlamlılarıyla değiştirmek",
-      "Cümleleri önceden ezberlemek",
-      "Olabildiğince hızlı konuşmak"
+      "Kendi sesini kaydedip th, w/v ve -s, -ed eklerine bakmak",
+      "Zor kelimeleri daha kolay eş anlamlılarıyla değiştirip söylemek",
+      "Olası bütün cümleleri sınav gününden önce ezberlemek",
+      "Süreye yetişmek için olabildiğince hızlı ve sürekli konuşmak"
     ],
     answer: 0,
     explain: "Görev, duyduğunuzu ne kadar doğru tekrarladığınızı ölçer. Türkçede th sesi yoktur (t, d veya s'ye kayar), w ve v karışır ve eklerin düşmesi kolaydır; kelime değiştirmek ise hatalı tekrar sayılır."
@@ -73,7 +73,7 @@ quiz: [
 ]
 ---
 
-21 Ocak 2026 itibarıyla küresel ölçekte yürürlüğe giren **yeni toefl formatı 2026**, dünyanın en saygın akademik İngilizce yeterlilik sınavlarından birinde tarihi bir dönüşüm başlatmıştır. Yurt dışı lisans, yüksek lisans veya burs başvuruları için eski basım kitaplar ve 2026 öncesi kaynaklarla çalışan adayların genel İngilizce birikimi geçerliliğini korusa da, zaman yönetimi stratejilerini ve yeni soru kalıplarını hızla güncellemeleri şarttır.
+21 Ocak 2026'dan itibaren yeni TOEFL formatı 2026 yürürlükte: kelime bilginiz işe yarar, ama zaman yönetimi ve görev türleri yeni. Eski kitaplarla çalışıyorsanız onları kelime ve dilbilgisi için kullanın, görev alıştırmalarını güncel materyalle tamamlayın.
 
 Yeni TOEFL iBT daha kısadır (yönergeler hariç yaklaşık 90 dakika temel süre), adaptiftir, 1–6 skalasıyla puanlanır ve *Complete the Words*, *Read in Daily Life* ile *Build a Sentence* gibi yeni görevler içerir. Aşağıdaki sayılar ETS'nin TOEFL iBT yapı ve içerik sayfasından alınmıştır.
 
@@ -81,11 +81,11 @@ Rehberde yapı tablosu, 12 görev için ipuçları, sık yapılan hatalar (Türk
 
 ![Lexkite TOEFL iBT hazırlık modülü: 2026 yeni sınav yapısı ve soru türleri tablosu](media:toefl "Lexkite TOEFL iBT hazırlık modülü ile 2026 formatındaki sınav yapısı ve yeni soru formatları")
 
-## Yeni Sınav Formatının 3 Temel Direği: yeni toefl formatı 2026
+## Yeni TOEFL Formatı 2026: Hazırlığınızı Değiştiren 3 Yenilik
 
 Çalışma biçiminizi belirleyen üç değişiklik:
 
-### 1. 1,5 Saate İndirilen Sınav Süresi
+### 1. Dört Bölümün Temel Süresi: Yaklaşık 90 Dakika
 Dört bölümün temel süresi toplam yaklaşık 90 dakikadır (Temmuz 2023 öncesinde sınav 3 saate yaklaşıyordu). Yönergeler sayılmadığı için ETS tüm oturum için yaklaşık iki saat ayırmanızı önerir. Soru sayısı azaldığından her sorunun göreli ağırlığı artar; bu yüzden yalnızca hız değil, baştan sona odak da çalışın.
 
 ### 2. Aşamalı Adaptif Değerlendirme
@@ -105,17 +105,17 @@ Kaynak: ETS. Süreler yönergeleri içermez; sınav adaptif olduğu için soru s
 
 ---
 
-## 4 Bölüm ve 12 Yeni Soru Tipinin Detaylı Analizi
+## 4 Bölüm ve 12 Görev (Bir Kısmı Yeni)
 
-Bölümlere göre 12 görev:
+Bazı görevler eski sınavdan devam ediyor (Academic Discussion, Academic Talk, kampüs konuşmaları). Yeni olanlar arasında Complete the Words, Read in Daily Life, Build a Sentence, Listen and Choose a Response, Listen and Repeat, Take an Interview ve Write an Email var. Bölümlere göre 12 görev:
 
 ### 1. Reading (Okuma): 50 soru, yaklaşık 30 dakika
 - **Complete the Words:** Bazı kelimelerinin son yarısı silinmiş kısa bir akademik metin okursunuz ve eksik harfleri doğrudan klavyeden yazarak tamamlarsınız.  
   *Örnek:* *Ancient civiliz___ developed sophist___ irrigation systems.* (Cevaplar: *civilizations*, *sophisticated*). Bu görev hem kelime dağarcığını hem de imla doğruluğunu ölçer.
-- **Read in Daily Life:** Kampüs duyuruları, e-postalar, ilanlar ve yönetmelikler gibi günlük yaşam metinlerini içeren çoktan seçmeli sorular. TOEFL artık sadece ağır biyoloji makalelerinden ibaret değildir.
-- **Read an Academic Passage:** Ana fikir, olumsuz olgular (*NOT/EXCEPT*) ve bağlam içi kelime anlamı sorularından oluşan klasik akademik metinler.
+- **Read in Daily Life:** Kampüs duyuruları, e-postalar, ilanlar ve yönetmelikler gibi günlük yaşam metinlerini içeren çoktan seçmeli sorular.
+- **Read an Academic Passage:** Kısa akademik metinler: ana fikir, ayrıntı, metinde yer almayan bilgiler (*NOT/EXCEPT*), çıkarım ve bağlam içi kelime anlamı soruları.
 
-Üç görevin de Lexkite'ta ayrı bir alıştırma sayfası var: [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) ve [Read an Academic Passage](/#/toefl-p/academic). Altyapı için [kelime listelerine](/tr/vocabulary/) bakabilirsiniz; Complete the Words'ün ayrıntıları için İngilizce makalemiz: [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
+Üç görevin de Lexkite'ta ayrı bir alıştırma sayfası var: [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) ve [Read an Academic Passage](/#/toefl-p/academic). Altyapı için [kelime listelerine (İngilizce sayfa)](/en/vocabulary/) bakabilirsiniz; Complete the Words'ün ayrıntıları için İngilizce makalemiz: [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
 
 ![Lexkite kelime kütüphanesi: Tümü, NGSL temel kelimeler, IELTS, Writing, Speaking ve TOEIC sekmeleri](media:library "Lexkite kelime kütüphanesi: A1'den B2'ye düzeylere ayrılmış temel kelimeler; Complete the Words öncesinde kelime tabanı oluşturmak için")
 
@@ -132,13 +132,13 @@ Bölümlere göre 12 görev:
 ---
 
 ### 3. Writing (Yazma): 12 soru, yaklaşık 23 dakika
-- **Build a Sentence:** Karışık olarak verilen sözcük gruplarını mantıklı ve dilbilgisel açıdan doğru bir cümle haline getirmek.
-- **Write an Email:** Belirli bir duruma uygun e-posta yazıp istenen tüm maddeleri karşılamak. Lexkite'taki alıştırma zamanlayıcısı yaklaşık 7 dakikaya ayarlıdır; bu bir alıştırma değeridir, resmî rakam değildir.
+- **Build a Sentence:** Karışık olarak verilen sözcük gruplarını mantıklı ve dilbilgisel açıdan doğru bir cümle haline getirmek. Alıştırma için [Build a Sentence sayfası](/#/toefl-p/sentence) var.
+- **Write an Email:** Belirli bir duruma uygun e-posta yazıp istenen tüm maddeleri karşılamak. ETS, okuma ve yanıt için yaklaşık 7 dakika öngörür; Lexkite'taki alıştırma zamanlayıcısı da aynı süreye ayarlıdır.
 - **Write for an Academic Discussion:** Profesörün sorusunu ve iki öğrencinin mesajını okuyup yeni bir fikir ekleyen bir yazı yazmak. Süre yaklaşık 10 dakikadır ve ETS yaklaşık 100 kelime veya daha fazlasını önerir.
 
 Zamanlayıcı ve kelime sayacıyla çalışın: [Write for an Academic Discussion](/#/toefl-p/discussion) ve [Write an Email](/#/toefl-p/email) sayfalarında örnek cevap ve öz denetim listesi var. Yazı yapısı için [TOEFL iBT Academic Discussion Writing Rehberi](/tr/blog/toefl-ibt-academic-discussion-writing-rehberi/), e-posta üslubu için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) yazısına bakın.
 
-E-postada her maddeyi karşılayın: biri eksik kalırsa görev tamamlama zarar görür. Tartışmada öğrencilerin fikrini özetlemek yerine kendi gerekçeniz ve kısa bir örnekle yeni bir şey ekleyin. Karmaşık cümleler yerine açık ve hatasız cümleler tercih edin.
+E-postada her maddeyi karşılayın: biri eksik kalırsa puanınız düşer. Tartışmada öğrencilerin fikrini özetlemek yerine kendi gerekçeniz ve kısa bir örnekle yeni bir şey ekleyin. Karmaşık cümleler yerine açık ve hatasız cümleler tercih edin.
 
 ---
 
@@ -148,7 +148,6 @@ E-postada her maddeyi karşılayın: biri eksik kalırsa görev tamamlama zarar 
 
 İki görevi Lexkite'ta ayrı ayrı çalışabilirsiniz: [Listen and Repeat](/#/toefl-p/repeat) ve [Take an Interview](/#/toefl-p/interview). th ve w gibi tekil sesler için [IPA telaffuz kütüphanesine](/#/pron) ve [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) rehberine bakın.
 
-![Lexkite hedef sayfası: sınav seçimi, hedef puan, sınav tarihi ve haftalık çalışma saati](media:goal "Lexkite hedef sayfası: sınav, hedef puan, sınav tarihi ve haftalık çalışma saatini belirleyerek aşağıdaki 4 haftalık plana başlayın")
 
 ---
 
@@ -164,7 +163,7 @@ Eski hazırlık kalıplarını terk edemeyen adaylar şu tuzaklara düşebilmekt
 
 ---
 
-## 4 Haftalık Hızlandırılmış TOEFL Hazırlık Planı
+## 4 Haftalık TOEFL Hazırlık Planı
 
 Plan günde 45-60 dakika varsayar (bir öneridir, resmî kural değil):
 
@@ -175,11 +174,13 @@ Plan günde 45-60 dakika varsayar (bir öneridir, resmî kural değil):
 | **3. Hafta** | Zaman Yönetimi | *Read in Daily Life* ve akademik pasajları süreli çözmek; zamanlayıcıyla e-posta ve tartışma yazısı yazmak |
 | **4. Hafta** | Tam Simülasyon | Dört bölümü art arda bir veya iki kez çözmek; tekrarlayan hataları gözden geçirmek |
 
+![Lexkite hedef sayfası: sınav seçimi, hedef puan, sınav tarihi ve haftalık çalışma saati](media:goal "Lexkite hedef sayfası: sınav, hedef puan, sınav tarihi ve haftalık çalışma saatini belirleyerek 4 haftalık planın başlangıç noktası olarak kullanın")
+
 Hangi sınava gireceğinizden emin değilseniz [IELTS çalışma planı](/tr/blog/ielts-calisma-plani-sifirdan-6-5-seviyesine/) yazımıza göz atın. Uzun metinleri hızlı okumak için [skimming ve scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) işinize yarar. Bilmediğiniz kelimeleri [Lexkite sözlüğünde](/#/dict) arayabilirsiniz.
 
-Hata defteri 1. ve 4. haftada özellikle işe yarar, çünkü hataları türüne göre toplar.
+Hata defteri 1. ve 4. haftada özellikle işe yarar, çünkü kelime, dilbilgisi, okuma ve dinleme alıştırmalarındaki hataları tek yerde toplar.
 
-![Lexkite hata defteri: yanlışlar kelime, dilbilgisi, okuma ve dinlemeye göre gruplanır](media:mistakes "Lexkite hata defteri: yanlışlarınız türüne göre gruplanır, 4. haftada tekrar etmek için")
+![Lexkite hata defteri: yanlışlar kelime, dilbilgisi, okuma ve dinlemeye göre gruplanır](media:mistakes "Lexkite hata defteri: kelime, dilbilgisi, okuma ve dinleme alıştırmalarındaki yanlışlarınız, 4. haftada tekrar etmek için")
 
 {{cta: /#/toefl | TOEFL'ın 12 görevini çalışın | Yeni sınavın yapı tablosu ve her görev için ayrı alıştırma sayfası}}
 

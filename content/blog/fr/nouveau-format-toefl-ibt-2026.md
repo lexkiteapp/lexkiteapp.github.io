@@ -1,7 +1,7 @@
 ---
 slug: nouveau-format-toefl-ibt-2026
-title: "Nouveau format TOEFL 2026: Changements et guide de préparation"
-description: "Le nouveau format toefl 2026 selon ETS : 12 épreuves, 90 min de temps de base, Reading et Listening adaptatifs, échelle de 1 à 6, plan sur 4 semaines."
+title: "Nouveau format TOEFL 2026 : changements et guide de préparation"
+description: "Le nouveau format TOEFL 2026 selon ETS : 12 épreuves, 90 min de temps de base, Reading et Listening adaptatifs, échelle de 1 à 6, plan sur 4 semaines."
 keyword: "nouveau format toefl 2026"
 lang: fr
 translationKey: toefl-ibt-dinh-dang-moi-2026
@@ -18,10 +18,10 @@ quiz: [
   {
     q: "Quel est le temps de base des quatre sections du TOEFL iBT dans le nouveau format, d'après le tableau d'ETS ?",
     options: [
-      "Environ 90 minutes hors consignes ; ETS conseille de prévoir environ deux heures pour toute la séance",
-      "Plus de 3 h 30 avec une pause obligatoire",
-      "Exactement 2 h 30 sans l'expression orale",
-      "4 heures réparties sur deux jours"
+      "Environ 90 minutes ; ETS conseille de prévoir deux heures",
+      "Plus de 3 h 30 avec une pause obligatoire entre les sections",
+      "Exactement 2 h 30, mais sans la section d'expression orale",
+      "Quatre heures au total, réparties sur deux jours consécutifs"
     ],
     answer: 0,
     explain: "Le tableau officiel indique 30 minutes pour Reading, 29 pour Listening, 23 pour Writing et 8 pour Speaking, soit environ 90 minutes. Le temps des consignes n'est pas compté, et comme le test est adaptatif, le nombre d'items et la durée peuvent varier légèrement."
@@ -29,10 +29,10 @@ quiz: [
   {
     q: "Comment les résultats sont-ils exprimés depuis le 21 janvier 2026 ?",
     options: [
-      "Quatre scores de section et un score global sur une échelle de 1 à 6, le global étant la moyenne arrondie au demi-point",
-      "Une note sur 100 sans détail par compétence",
-      "Uniquement admis ou non admis",
-      "Une lettre de A à F"
+      "Quatre scores de section et un score global de 1 à 6",
+      "Une note unique sur 100 sans aucun détail par compétence",
+      "Uniquement la mention admis ou non admis, sans score",
+      "Une lettre de A à F attribuée à chaque section du test"
     ],
     answer: 0,
     explain: "ETS donne les scores de section et le score global de 1 à 6 par demi-points. Pendant une transition de deux ans, un score comparable sur l'échelle 0 à 120 figure aussi sur le relevé."
@@ -40,10 +40,10 @@ quiz: [
   {
     q: "En quoi consiste l'épreuve Complete the Words ?",
     options: [
-      "Taper les lettres manquantes de mots dans un court paragraphe académique",
-      "Choisir un synonyme dans un menu déroulant",
-      "Retaper un texte entendu en audio",
-      "Traduire des phrases vers le français"
+      "Taper les lettres manquantes dans un court texte",
+      "Choisir un synonyme adapté dans un menu déroulant",
+      "Retaper mot à mot un texte entendu dans un audio",
+      "Traduire toutes les phrases du texte vers le français"
     ],
     answer: 0,
     explain: "Comme vous tapez vous-même les lettres, l'orthographe, la nature du mot, le temps verbal et le pluriel comptent. Reconnaître le mot ne suffit pas."
@@ -51,9 +51,9 @@ quiz: [
   {
     q: "Quelles sections ETS présente-t-elle comme adaptatives dans le nouveau format ?",
     options: [
-      "Reading et Listening : la difficulté s'ajuste à vos réponses",
-      "Speaking uniquement",
-      "Writing uniquement",
+      "Reading et Listening : la difficulté suit vos réponses",
+      "Seulement Speaking, les autres sections sont fixes",
+      "Seulement Writing, les autres sections sont fixes",
       "Aucune ; les questions sont identiques pour tous"
     ],
     answer: 0,
@@ -62,10 +62,10 @@ quiz: [
   {
     q: "Quel réflexe aide le plus un francophone en Listen and Repeat ?",
     options: [
-      "S'enregistrer et vérifier le th, le h aspiré et les terminaisons -s et -ed",
-      "Remplacer les mots difficiles par des synonymes",
-      "Apprendre les phrases par cœur",
-      "Parler le plus vite possible"
+      "S'enregistrer et contrôler le th, le h et les finales -s/-ed",
+      "Remplacer les mots difficiles par des synonymes plus simples",
+      "Apprendre par cœur toutes les phrases d'exemple possibles",
+      "Parler le plus vite possible afin de finir à temps"
     ],
     answer: 0,
     explain: "L'épreuve mesure la fidélité de la répétition. Les pièges typiques sont th prononcé s ou z, le h qui disparaît (hair devient air) et les terminaisons avalées ; remplacer un mot est une inexactitude."
@@ -73,7 +73,7 @@ quiz: [
 ]
 ---
 
-Depuis le 21 janvier 2026, le **nouveau format toefl 2026** est entré officiellement en vigueur, transformant en profondeur l'un des tests d'anglais académique les plus reconnus au monde. Si vous vous préparez avec d'anciens manuels ou des annales publiées avant 2026, vos compétences fondamentales en anglais restent précieuses, mais votre stratégie de gestion du temps et votre connaissance des types d'épreuves doivent impérativement être actualisées.
+Depuis le 21 janvier 2026, le nouveau format TOEFL 2026 du TOEFL iBT s'applique : vos acquis restent utiles, mais la gestion du temps et les types d'épreuves sont nouveaux. Si vous vous préparez avec d'anciens manuels ou des annales d'avant 2026, gardez le vocabulaire et la grammaire, et reprenez le reste avec du matériel à jour.
 
 Le TOEFL iBT est plus court (environ 90 minutes de temps de base, consignes non comprises), adaptatif, noté sur une échelle de 1 à 6, et comprend de nouvelles épreuves comme *Complete the Words*, *Read in Daily Life* ou *Build a Sentence*. Les chiffres ci-dessous proviennent de la page officielle d'ETS sur le contenu et la structure du test.
 
@@ -81,7 +81,7 @@ Vous trouverez ici la structure sous forme de tableau, les 12 épreuves avec des
 
 ![Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves](media:toefl "Module d'entraînement au TOEFL iBT sur Lexkite avec la structure actualisée du nouveau format 2026")
 
-## Les trois piliers de la réforme : nouveau format toefl 2026 décrypté
+## Les trois changements à connaître
 
 Trois changements orientent votre préparation :
 
@@ -91,7 +91,7 @@ Les quatre sections totalisent environ 90 minutes de temps de base (le test dura
 ### 2. Une conception adaptative à plusieurs niveaux
 ETS décrit le test comme adaptatif : Reading et Listening ajustent la difficulté à vos performances. La logique exacte et les seuils ne sont pas publiés ; les chiffres qui circulent sur le web sont des suppositions. En pratique, ne prenez pas les premières questions pour un échauffement et ne vous acharnez pas sur une question difficile.
 
-### 3. La transition vers une échelle de 1 à 6 (Bands)
+### 3. La nouvelle échelle de 1 à 6
 ETS donne quatre scores de section et un score global de 1 à 6 par paliers de 0,5. Le score global est la moyenne des quatre sections, arrondie au demi-point le plus proche (5,125 donne 5). Pendant deux ans après janvier 2026, un score comparable sur l'échelle 0 à 120 figure aussi sur le relevé. Vérifiez toujours quelle valeur votre établissement exige.
 
 | Section | Épreuves (noms officiels) | Items | Temps de base |
@@ -105,17 +105,17 @@ Source : ETS. Les durées excluent les consignes ; items et durée peuvent varie
 
 ---
 
-## Structure détaillée par section et analyse des nouvelles épreuves
+## Les 12 épreuves section par section
 
-Voici les 12 épreuves, section par section :
+Certaines épreuves existaient déjà (Academic Discussion, Academic Talk, conversations de campus) ; d'autres sont nouvelles (Complete the Words, Read in Daily Life, Build a Sentence, Listen and Choose a Response, Listen and Repeat, Take an Interview, Write an Email). Voici les 12 épreuves :
 
 ### Section Reading (Lecture) : 50 items, environ 30 minutes
 1. **Complete the Words :** Vous lisez un court paragraphe académique dans lequel la seconde moitié de certains mots a été supprimée, et vous devez taper au clavier les lettres manquantes.  
    *Exemple :* *Researchers obser___ that migratory birds trav___ great distances.* (Réponses : *observed*, *travel*). Cet exercice évalue simultanément la syntaxe, l'orthographe exacte et la morphologie lexicale.
-2. **Read in Daily Life :** Des textes courts de la vie courante et étudiante (notes de service, courriels administratifs, affiches de campus, règlements) suivis de questions à choix multiples. C'est une rupture majeure : le TOEFL ne se limite plus exclusivement à des traités scientifiques denses.
-3. **Read an Academic Passage :** Un texte universitaire traditionnel suivi de questions ciblées sur les idées principales, les faits négatifs (NOT/EXCEPT), les inférences logiques et le vocabulaire en contexte.
+2. **Read in Daily Life :** Des textes courts de la vie courante et étudiante (notes de service, courriels administratifs, affiches de campus, règlements) suivis de questions à choix multiples. Le TOEFL ne se limite plus aux textes académiques.
+3. **Read an Academic Passage :** Un court texte universitaire suivi de questions sur les idées principales, les informations qui ne figurent pas dans le texte (NOT/EXCEPT), les inférences logiques et le vocabulaire en contexte.
 
-Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) et [Read an Academic Passage](/#/toefl-p/academic). Pour le vocabulaire qui les sous-tend, consultez les [listes de vocabulaire](/fr/vocabulary/). Complete the Words est détaillée dans notre article en anglais [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
+Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) et [Read an Academic Passage](/#/toefl-p/academic). Pour le vocabulaire qui les sous-tend, consultez les [listes de vocabulaire (page en anglais)](/en/vocabulary/). Complete the Words est détaillée dans notre article en anglais [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
 
 ![Bibliothèque de vocabulaire Lexkite avec des onglets : tout, vocabulaire de base NGSL, IELTS, Writing, Speaking, TOEIC](media:library "Bibliothèque de vocabulaire Lexkite : listes de mots de base classées de A1 à B2, utiles pour consolider le vocabulaire avant Complete the Words")
 
@@ -132,11 +132,11 @@ Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#
 ---
 
 ### Section Writing (Expression écrite) : 12 items, environ 23 minutes
-1. **Build a Sentence :** Vous devez remettre dans le bon ordre syntaxique des groupes de mots désorganisés pour constituer une phrase parfaitement grammaticale.
-2. **Write an Email :** Rédiger un courriel en réponse à une situation concrète (demande d'information, réclamation, organisation de projet). Le minuteur d'entraînement de Lexkite est réglé sur environ 7 minutes : c'est une valeur d'entraînement, pas une donnée officielle.
+1. **Build a Sentence :** Vous devez remettre dans le bon ordre des groupes de mots pour constituer une phrase grammaticale. Entraînez-vous sur la [page Build a Sentence](/#/toefl-p/sentence).
+2. **Write an Email :** Rédiger un courriel en réponse à une situation concrète (demande d'information, réclamation, organisation de projet). ETS prévoit environ 7 minutes pour lire et répondre ; le minuteur d'entraînement de Lexkite utilise la même durée.
 3. **Write for an Academic Discussion :** Contribuer à un débat de classe en ligne lancé par un professeur, après avoir lu deux messages d'étudiants, en apportant une idée nouvelle. La durée prévue est d'environ 10 minutes ; ETS recommande une centaine de mots ou plus.
 
-Entraînez-vous avec minuteur et compteur de mots : [Write for an Academic Discussion](/#/toefl-p/discussion) et [Write an Email](/#/toefl-p/email) proposent chacune un modèle de réponse et une liste d'autocontrôle. Pour la structure du message, lisez le [guide de l'épreuve Academic Discussion](/fr/blog/toefl-ibt-writing-academic-discussion-guide-fr/) ; pour le registre des courriels, l'article sur la façon de [rédiger un email professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/).
+Entraînez-vous avec minuteur et compteur de mots : [Write for an Academic Discussion](/#/toefl-p/discussion) et [Write an Email](/#/toefl-p/email) proposent chacune un modèle de réponse et une liste d'autocontrôle. Pour la structure du message, lisez le [guide de l'épreuve Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/) ; pour le registre des courriels, l'article sur la façon de [rédiger un email professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/).
 
 ---
 
@@ -146,7 +146,6 @@ Entraînez-vous avec minuteur et compteur de mots : [Write for an Academic Discu
 
 Les deux épreuves ont leur page dans Lexkite : [Listen and Repeat](/#/toefl-p/repeat) et [Take an Interview](/#/toefl-p/interview). Pour des sons isolés comme le *th* ou le *h*, utilisez la [bibliothèque de prononciation IPA](/#/pron), et pour le rythme la [technique du shadowing](/fr/blog/technique-du-shadowing-anglais-oral/).
 
-![Page Objectif de Lexkite : choix de l'examen, score visé, date d'examen et heures d'étude par semaine](media:goal "Page Objectif de Lexkite : examen, score visé, date d'examen et heures par semaine, point de départ du plan sur 4 semaines")
 
 ---
 
@@ -154,7 +153,7 @@ Les deux épreuves ont leur page dans Lexkite : [Listen and Repeat](/#/toefl-p/r
 
 De nombreux candidats formés sur l'ancien modèle commettent des erreurs stratégiques évitables :
 
-- **Négliger l'orthographe active :** Dans les anciens QCM, reconnaître visuellement un mot suffisait. Avec l'épreuve *Complete the Words*, une inversion de lettres (*enviroment* au lieu de *environment*) annule le point.
+- **Négliger l'orthographe active :** Dans les anciens QCM, reconnaître visuellement un mot suffisait. Avec l'épreuve *Complete the Words*, une lettre oubliée (*enviroment* au lieu de *environment*) annule le point.
 - **Rédiger des essais fleuves :** Les épreuves d'écriture sont courtes et minutées. Un courriel concis qui traite tous les points demandés vaut mieux qu'un long texte inachevé.
 - **Paraphraser lors du Listen and Repeat :** Dans d'autres épreuves orales, reformuler est normal. Ici, il s'agit de répéter fidèlement ; remplacer *is going to* par *will* revient à ne pas répéter la phrase.
 - **Focaliser uniquement sur les textes scientifiques :** Le nouveau volet *Read in Daily Life* accorde une place prépondérante aux situations du quotidien universitaire (horaires de bibliothèque, remboursements, bourses, inscriptions).
@@ -173,11 +172,13 @@ Le plan suppose environ 45 minutes par jour (une proposition, pas une consigne o
 | **Semaine 3** | Chronométrage intégré | Séries minutées de *Read in Daily Life* et textes académiques ; un courriel et un message de discussion avec minuteur |
 | **Semaine 4** | Simulation complète | Un ou deux passages complets des quatre sections d'affilée ; révision ciblée des erreurs récurrentes |
 
+![Page Objectif de Lexkite : choix de l'examen, score visé, date d'examen et heures d'étude par semaine](media:goal "Page Objectif de Lexkite : examen, score visé, date d'examen et heures par semaine, point de départ du plan sur 4 semaines")
+
 Si vous hésitez encore entre plusieurs tests, lisez notre comparatif [TOEFL ou IELTS : lequel choisir](/fr/blog/toefl-ou-ielts-lequel-choisir/). Pour la vitesse de lecture, voyez le dossier [skimming et scanning](/fr/blog/ielts-reading-skimming-scanning/). Un mot inconnu se cherche dans le [dictionnaire](/#/dict).
 
-Le carnet d'erreurs est surtout utile aux semaines 1 et 4, car il range vos erreurs par type.
+Le carnet d'erreurs est surtout utile aux semaines 1 et 4, car il rassemble les erreurs de vos exercices de vocabulaire, de grammaire, de lecture et d'écoute.
 
-![Carnet d'erreurs Lexkite : erreurs classées par vocabulaire, grammaire, compréhension écrite et écoute](media:mistakes "Carnet d'erreurs Lexkite : vos erreurs classées par catégorie, à revoir en semaine 4")
+![Carnet d'erreurs Lexkite : erreurs classées par vocabulaire, grammaire, compréhension écrite et écoute](media:mistakes "Carnet d'erreurs Lexkite : erreurs de vocabulaire, grammaire, lecture et écoute à revoir en semaine 4")
 
 {{cta: /#/toefl | S'entraîner aux 12 épreuves du TOEFL | Tableau de structure du nouveau test et une page d'entraînement par épreuve}}
 
