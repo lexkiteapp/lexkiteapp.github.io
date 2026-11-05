@@ -1,0 +1,36 @@
+# Dọn artifact Actions video rác (tv-*, tvo-*, cine/motion render của lượt hỏng / bị thay / tập đã bỏ): lịch tuần CHỈ liệt kê (dry-run) → manifest + GB.
+# Xoá thật: chạy tay với apply=true (chủ/điều phối quyết). Không bao giờ xoá tv-bank-* của lượt thành công trên main.
+# Mã: scripts/video/junk-artifacts.mjs (test scripts/test/video-junk.py). Thư viện footage trên Mac: scripts/video/junk.py. Docs: docs/VIDEO-STORAGE.md § "Dọn video rác".
+name: video-junk
+on:
+  workflow_dispatch:
+    inputs:
+      apply: { description: 'true = xoá thật artifact rác (mặc định false: chỉ liệt kê)', default: 'false' }
+  schedule:
+    - cron: '37 5 * * 0'
+concurrency: { group: video-junk, cancel-in-progress: false }   # xoá dở dang không được huỷ giữa chừng
+permissions: { actions: write, contents: read }
+jobs:
+  junk:
+    if: ${{ github.repository == 'lexkiteapp/lexkiteapp.github.io' }}   # bản fork không chạy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Liệt kê (và xoá nếu apply=true) artifact rác
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          APPLY: ${{ github.event.inputs.apply || 'false' }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/junk"
+          if [ "$APPLY" = "true" ]; then A=--apply; else A=; fi
+          node scripts/video/junk-artifacts.mjs --out "$RUNNER_TEMP/junk/artifacts-manifest.json" $A
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: video-junk-manifest
+          path: ${{ runner.temp }}/junk/artifacts-manifest.json
+          retention-days: 14
+          if-no-files-found: ignore
