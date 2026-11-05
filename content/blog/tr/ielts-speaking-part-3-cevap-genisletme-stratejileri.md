@@ -140,7 +140,7 @@ Therefore, from my vantage point, digital innovation has not extinguished intell
    - *"Well, looking at this phenomenon through a sociological lens, one could observe that..."*
 3. **Sorudaki kelimeleri papağan gibi aynen tekrarlamak:** Soruda geçen temel fiil ve sıfatları eş anlamlılarıyla değiştirerek veya farklı kelime türlerine dönüştürerek sözcük esnekliğinizi sergileyin.
 
-Doğal konuşma ritmini kavramak için [İngilizce cümle vurgusu ve ritim rehberi](/tr/blog/ingilizce-cumle-vurgusu-ve-ritim-rehber/) ile [shadowing tekniği ile İngilizce konuşma](/tr/blog/shadowing-teknigi-ile-ingilizce-konusma/) makalelerimizi mutlaka inceleyin. Ayrıca kelime haznenizi [İngilizce tematik kelime kütüphanemiz](/tr/tu-vung/) ile sürekli zenginleştirin.
+Sözlü mülakatın temellerini sağlamlaştırmak için önce [IELTS Speaking Part 1 taktikleri](/tr/blog/ielts-speaking-part-1-taktikleri-ornek-cevaplar/) rehberimizi okuyun. Doğal konuşma ritmini kavramak için [İngilizce cümle vurgusu ve ritim rehberi](/tr/blog/ingilizce-cumle-vurgusu-ve-ritim-rehber/) ile [shadowing tekniği ile İngilizce konuşma](/tr/blog/shadowing-teknigi-ile-ingilizce-konusma/) makalelerimizi mutlaka inceleyin. Ayrıca kelime haznenizi [İngilizce tematik kelime kütüphanemiz](/tu-vung/) ile sürekli zenginleştirin.
 
 {{youtube: | IELTS Speaking Part 3 için cevap genişletme taktikleri ve eleştirel düşünme rehberi}}
 

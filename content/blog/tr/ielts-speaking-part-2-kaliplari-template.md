@@ -153,7 +153,7 @@ Konuşurken tekdüze kalmamak için bağlaçları işlevlerine göre çeşitlend
 | **Kişisel Düşünce** | In my opinion... | As far as I am concerned / From my personal vantage point... |
 | **Özet ve Çıkarım** | Finally / In the end... | When all is said and done / Reflecting back on this incident... |
 
-Speaking becerilerinizi sistematik biçimde ilerletmek için kapsamlı [konuşma ve speaking hazırlık rehberimize](/speaking/) göz atabilir, okuma becerilerinizi eş zamanlı yükseltmek için [IELTS Reading skimming scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) yazımızı okuyabilirsiniz.
+Speaking becerilerinizi sistematik biçimde ilerletmek için [IELTS Speaking Part 1 taktikleri](/tr/blog/ielts-speaking-part-1-taktikleri-ornek-cevaplar/) rehberimize ve kapsamlı [konuşma ve speaking hazırlık rehberimize](/speaking/) göz atabilir, okuma becerilerinizi eş zamanlı yükseltmek için [IELTS Reading skimming scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) yazımızı okuyabilirsiniz.
 
 Ayrıca okuyun: [İngilizce Bağlaçlar: Essay Yazımı İçin Linking Words Rehberi](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/) · [İngilizce If Clauses: Koşul Cümleleri Kuralları ve Örnekleri](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) · [İngilizce Sunum Kalıpları: Profesyonel İfadeler ve İpuçları](/tr/blog/ingilizce-sunum-yapma-teknikleri-ve-kaliplari/)
 
