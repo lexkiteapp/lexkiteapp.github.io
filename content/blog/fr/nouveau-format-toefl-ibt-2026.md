@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, examens, preparation]
 cover: toefl
 coverAlt: "Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves"
-qualityScore: 90
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-01T19:51:00+01:00
@@ -75,18 +75,16 @@ quiz: [
 
 Le nouveau format TOEFL 2026 est en vigueur depuis le 21 janvier : vos acquis restent utiles, mais la gestion du temps et les types d'épreuves sont nouveaux. Si vous vous préparez avec d'anciens manuels ou des annales d'avant 2026, gardez le vocabulaire et la grammaire, et reprenez le reste avec du matériel à jour.
 
-Le TOEFL iBT est plus court (environ 90 minutes de temps de base, consignes non comprises), adaptatif, noté sur une échelle de 1 à 6, et comprend de nouvelles épreuves comme *Complete the Words*, *Read in Daily Life* ou *Build a Sentence*. Les chiffres ci-dessous proviennent de la page officielle d'ETS sur le contenu et la structure du test.
+Les chiffres ci-dessous proviennent de la page officielle d'ETS sur le contenu et la structure du test : temps de base d'environ 90 minutes (consignes non comprises), Reading et Listening adaptatifs, notes de 1 à 6.
 
 Vous trouverez ici la structure sous forme de tableau, les 12 épreuves avec des conseils, les erreurs typiques (dont celles des francophones) et un plan sur 4 semaines.
-
-![Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves](media:toefl "Module d'entraînement au TOEFL iBT sur Lexkite avec la structure actualisée du nouveau format 2026")
 
 ## Les trois changements à connaître
 
 Trois changements orientent votre préparation :
 
 ### 1. Un examen plus court
-Les quatre sections totalisent environ 90 minutes de temps de base (le test durait près de trois heures avant juillet 2023). ETS conseille de prévoir environ deux heures pour la séance, car les consignes ne sont pas comptées. En général, mieux vaut s'entraîner à rester concentré du début à la fin que de chercher seulement la vitesse.
+Les quatre sections totalisent environ 90 minutes de temps de base (le test durait près de trois heures avant juillet 2023). ETS conseille de prévoir environ deux heures, car les consignes ne sont pas comptées. Pour vous y habituer, faites au moins une fois une séance de lecture de 30 minutes sans pause.
 
 ### 2. Une conception adaptative à plusieurs niveaux
 ETS décrit le test comme adaptatif : Reading et Listening ajustent la difficulté à vos performances. La logique exacte et les seuils ne sont pas publiés ; les chiffres qui circulent sur le web sont des suppositions. En pratique, ne prenez pas les premières questions pour un échauffement et ne vous acharnez pas sur une question difficile.
@@ -111,13 +109,12 @@ Certaines épreuves existaient déjà (Academic Discussion, Academic Talk, conve
 
 ### Section Reading (Lecture) : 50 items, environ 30 minutes
 1. **Complete the Words :** Vous lisez un court paragraphe académique dans lequel la seconde moitié de certains mots a été supprimée, et vous devez taper au clavier les lettres manquantes.  
-   *Exemple inventé :* *Researchers obser___ that migratory birds trav___ great distances.* (Réponses : *observed*, *travel*). Cet exercice évalue simultanément la syntaxe, l'orthographe exacte et la morphologie lexicale.
-2. **Read in Daily Life :** Des textes courts de la vie courante et étudiante (notes de service, courriels administratifs, affiches de campus, règlements) suivis de questions à choix multiples. Le TOEFL ne se limite plus aux textes académiques.
+   *Exemple inventé :* *Researchers obser___ that migratory birds trav___ great distances.* (Réponses : *observed*, *travel*). Il faut donc maîtriser l'orthographe, la forme du mot (temps, pluriel) et le sens du contexte.
+2. **Read in Daily Life :** Des textes de la vie courante (annonces, e-mails, dépliants, SMS), suivis de questions à choix multiples, comme le décrit la page d'entraînement de Lexkite. Le TOEFL ne se limite donc plus aux textes académiques.
+   *Exemple inventé (pas un vrai sujet) :* un e-mail de la bibliothèque annonce que la date limite de retour des livres est repoussée à vendredi ; la question demande quel est le dernier jour pour rendre un livre.
 3. **Read an Academic Passage :** Un court texte universitaire suivi de questions sur les détails, les informations qui ne figurent pas dans le texte (NOT/EXCEPT), les inférences, le vocabulaire en contexte et l'intention de l'auteur.
 
 Chaque épreuve a sa page d'entraînement dans Lexkite : [Complete the Words](/#/toefl-p/cw), [Read in Daily Life](/#/toefl-p/daily) et [Read an Academic Passage](/#/toefl-p/academic). Pour le vocabulaire qui les sous-tend, consultez les [listes de vocabulaire (page en anglais)](/en/vocabulary/). Complete the Words est détaillée dans notre article en anglais [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/).
-
-![Bibliothèque de vocabulaire Lexkite avec des onglets : tout, vocabulaire de base NGSL, IELTS, Writing, Speaking, TOEIC](media:library "Bibliothèque de vocabulaire Lexkite : listes de mots de base classées de A1 à B2, utiles pour consolider le vocabulaire avant Complete the Words")
 
 ---
 
@@ -155,9 +152,9 @@ De nombreux candidats formés sur l'ancien modèle commettent des erreurs strat�
 
 - **Négliger l'orthographe active :** Dans les anciens QCM, reconnaître visuellement un mot suffisait. Avec l'épreuve *Complete the Words*, une lettre oubliée (*enviroment* au lieu de *environment*) annule le point.
 - **Rédiger des essais fleuves :** Les épreuves d'écriture sont courtes et minutées. Un courriel concis qui traite tous les points demandés vaut mieux qu'un long texte inachevé.
-- **Paraphraser lors du Listen and Repeat :** Dans d'autres épreuves orales, reformuler est normal. Ici, il s'agit de répéter fidèlement ; remplacer *is going to* par *will* revient à ne pas répéter la phrase.
-- **Focaliser uniquement sur les textes scientifiques :** Le nouveau volet *Read in Daily Life* accorde une place prépondérante aux situations du quotidien universitaire (horaires de bibliothèque, remboursements, bourses, inscriptions).
-- **Les pièges typiques des francophones :** le *th* prononcé /s/ ou /z/ (*think* devient « sink »), le *h* qui disparaît (*hair* devient *air*), l'accent tonique déplacé en fin de mot, et à l'écrit les faux amis (*actually* ne veut pas dire « actuellement »). En *Listen and Repeat*, un *h* omis peut changer le mot. Enregistrez-vous, comparez avec l'original et travaillez des paires comme *hair/air* et *think/sink*.
+- **Paraphraser lors du Listen and Repeat :** Il s'agit ici de répéter fidèlement, pas de reformuler : remplacer *is going to* par *will* revient à ne pas répéter la phrase.
+- **Focaliser uniquement sur les textes scientifiques :** Avec *Read in Daily Life*, il faut aussi savoir lire des annonces, des e-mails et des SMS de tous les jours, pas seulement des textes scientifiques.
+- **Les pièges typiques des francophones en *Listen and Repeat* :** le *th* prononcé /s/ ou /z/ (*think* devient « sink »), le *h* qui disparaît (*hair* devient *air*) et les finales avalées (*-ed*, *-s*). Un *h* omis peut changer le mot, donc la répétition est inexacte. Enregistrez-vous, comparez avec l'original et travaillez des paires comme *hair/air* et *think/sink*.
 
 ---
 
@@ -174,7 +171,7 @@ Le plan suppose environ 1 h à 1 h 30 par jour (une proposition, pas une consign
 
 ![Page Objectif de Lexkite : choix de l'examen, score visé, date d'examen et heures d'étude par semaine](media:goal "Page Objectif de Lexkite : examen, score visé, date d'examen et heures par semaine, point de départ du plan sur 4 semaines")
 
-Si vous hésitez encore entre plusieurs tests, lisez notre comparatif [TOEFL ou IELTS : lequel choisir](/fr/blog/toefl-ou-ielts-lequel-choisir/). Pour la vitesse de lecture, voyez le dossier [skimming et scanning](/fr/blog/ielts-reading-skimming-scanning/). Un mot inconnu se cherche dans le [dictionnaire](/#/dict).
+Si vous hésitez encore entre plusieurs tests, lisez notre comparatif [TOEFL ou IELTS : lequel choisir](/fr/blog/toefl-ou-ielts-lequel-choisir/). Pour travailler la lecture rapide, l'article [skimming et scanning](/fr/blog/ielts-reading-skimming-scanning/) est écrit pour l'IELTS Reading, mais la méthode vaut aussi pour le TOEFL. Un mot inconnu se cherche dans le [dictionnaire](/#/dict) ; les [listes de vocabulaire (page en anglais)](/en/vocabulary/) aident à consolider les bases avant *Complete the Words*.
 
 Le carnet d'erreurs est surtout utile aux semaines 1 et 4, car il rassemble les erreurs de vos exercices de vocabulaire, de grammaire, de lecture et d'écoute.
 
@@ -201,4 +198,4 @@ Pas nécessairement. Il est plus court mais adaptatif, et pour *Complete the Wor
 En partie. Ils restent utiles pour le vocabulaire et la grammaire. Pour les nouvelles épreuves et la gestion du temps, il faut du matériel conçu pour le format de 2026.
 
 ### Quelles erreurs les francophones font-ils le plus souvent dans ces épreuves ?
-À l'oral, le *th* prononcé s ou z, le *h* qui disparaît (*hair* devient *air*) et l'accent tonique placé en fin de mot ; à l'écrit, les faux amis (*actually*, *eventually*) et les consonnes doubles (*occurred*, *recommend*). Enregistrez une vingtaine de phrases, comparez-les à l'original et notez vos erreurs.
+À l'oral, le *th* prononcé s ou z, le *h* qui disparaît (*hair* devient *air*) et les finales *-ed*/*-s* avalées ; à l'écrit, les consonnes doubles (*occurred*, *recommend*), qui comptent en *Complete the Words*. Enregistrez une vingtaine de phrases, comparez-les à l'original et notez vos erreurs.

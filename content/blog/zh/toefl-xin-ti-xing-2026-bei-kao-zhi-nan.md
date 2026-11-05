@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, bei-kao]
 cover: toefl
 coverAlt: "Lexkite托福备考界面：2026年新题型考试结构与各科目题型模块展示"
-qualityScore: 90
+qualityScore: 91
 factChecked: 2026-11-05
 author: Lexkite
 publishAt: 2027-01-01T19:01:00+08:00
@@ -73,23 +73,21 @@ quiz: [
 ]
 ---
 
-2026年1月21日，美国教育考试服务中心（ETS）正式面向全球考场与家考版本推行**托福新题型2026**。新版四个科目的基础时间合计约90分钟（2023年7月之前接近3小时），不含考试说明时间，因此ETS建议整场预留约两小时；阅读与听力为自适应。
+2026年1月21日，美国教育考试服务中心（ETS）正式面向全球考场与家考版本推行**托福新题型2026**。新版四个科目的基础时间合计约90分钟，不含考试说明时间，ETS建议整场预留约两小时。
 
 词汇量与学术英语能力依然是根本，但题型变了。新版共有12类任务，其中*Complete the Words*、*Read in Daily Life*、*Build a Sentence*、*Listen and Repeat*等是新题型（学术讨论、学术讲座和校园对话延续了旧版的考查思路），成绩改为1至6分量表。
 
 本文包含结构表、12类任务的要点、常见误区（含中文母语者的易错点）和一份4周计划。数据按ETS的TOEFL iBT结构与内容页面（ets.org/toefl）整理，题数与时间以ETS官方表格为准。
 
-![Lexkite托福备考界面：2026年新题型考试结构与各科目题型模块展示](media:toefl "Lexkite的托福iBT备考模块：展示2026年新考试结构与新题型解析")
-
 ## 托福新题型2026的三项关键变化
 
 三项变化决定了备考方式：
 
-### 1. 考试时长压缩至约90分钟
-四个科目基础时间合计约90分钟（2023年7月之前接近3小时）。说明时间不计入，所以ETS建议为整场预留约两小时。一般来说，全程保持专注比单纯追求速度更重要。
+### 1. 四科基础时间合计约90分钟（不含说明，建议预留约两小时）
+2023年7月之前的托福接近3小时，新版明显更短。建议在备考中至少完整做一次30分钟的阅读，中途不暂停，熟悉连续作答的节奏。
 
 ### 2. 多阶段自适应（Multi-Stage Adaptive）机制
-ETS将新考试描述为自适应：阅读和听力的难度会根据你的表现调整。具体的阶段规则和门槛并未公布，网上流传的数字多为猜测。实用建议是：别把前几题当热身，也别在某道难题上耗太久。
+ETS将新考试描述为自适应：阅读和听力的难度会根据你的表现调整。具体的阶段规则和门槛并未公布，网上流传的数字多为猜测。
 
 ### 3. 全新的1至6分量表
 ETS给出四个科目分数和一个总分，均为1至6分、步长0.5。总分是四科平均分按最接近的0.5取整（5.125记为5）。2026年1月之后的两年内，成绩单还会附带可比的0至120分参考值。申请前务必确认院校要求哪一种分数。
@@ -107,17 +105,16 @@ ETS给出四个科目分数和一个总分，均为1至6分、步长0.5。总分
 
 ## 四大科目与12类任务详解（其中部分为新题型）
 
-学术讨论、学术讲座和校园对话延续了旧版的考查思路；新题型包括Complete the Words、Read in Daily Life、Build a Sentence、Listen and Choose a Response、Listen and Repeat、Take an Interview和Write an Email。按科目逐项说明12类任务：
+下面按科目逐项说明12类任务：
 
 ### 1. 阅读科目（Reading，50题，约30分钟）
 - **Complete the Words（单词拼写填空）：** 给定一段学术短文，文中若干单词仅保留词头字母，考生需在键盘上手动拼写补全后半部分缺失的字母。  
   *自编示例：* *Photosynthesis enab___ plants to conv___ light into energy.*（需补全为 *enables* 与 *convert*）。此题不仅考察学术词汇的被动识别，更检验时态、单复数、词性变化的主动输出准确度。
-- **Read in Daily Life（生活应用阅读）：** 考察大学校园日常应用场景，包括选课通知、图书馆规程、社团邮件等，主要以单选题形式快速测试关键信息的定位能力。
+- **Read in Daily Life（生活应用阅读）：** 阅读日常生活中的通知、邮件、传单和短信，并回答选择题（Lexkite练习页的任务说明如此）。
+  *自编示例（并非真题）：* 一封图书馆邮件写明“还书截止日期延至周五”，题目问：学生最晚哪天还书？答案取决于从邮件里找到准确的日期。
 - **Read an Academic Passage（学术短文阅读）：** 学术性短文，Lexkite练习涵盖细节、排除（NOT）、推断、词义和修辞目的等题型。
 
-三个任务在Lexkite中各有独立练习页：[Complete the Words](/#/toefl-p/cw)、[Read in Daily Life](/#/toefl-p/daily)和[Read an Academic Passage](/#/toefl-p/academic)。词汇基础可看[词汇列表（英文页面）](/en/vocabulary/)；Complete the Words的详细讲解见英文文章[TOEFL Complete the Words](/en/blog/toefl-complete-the-words/)。
-
-![Lexkite词汇库界面，含全部、NGSL核心词汇、IELTS、Writing、Speaking、TOEIC等标签](media:library "Lexkite词汇库：按A1至B2整理的核心词汇，适合在练Complete the Words之前打好词汇基础")
+三个任务在Lexkite中各有独立练习页：[Complete the Words](/#/toefl-p/cw)、[Read in Daily Life](/#/toefl-p/daily)和[Read an Academic Passage](/#/toefl-p/academic)。Complete the Words的详细讲解见中文文章[托福Complete the Words攻略](/zh/blog/tuo-fu-complete-the-words/)。
 
 ---
 
@@ -144,18 +141,18 @@ ETS给出四个科目分数和一个总分，均为1至6分、步长0.5。总分
 - **Listen and Repeat（原音听音复述）：** 听取耳机中朗读的原声英文短句，在提示音后立刻准确复述。漏读-s/-ed词尾或换用同义词，都会让复述不准确。
 - **Take an Interview（情景模拟面试）：** 针对面试问题在有限时间内作答：先给答案，再说理由，最后补一个简短例子。
 
-两个任务在Lexkite中可分别练习：[Listen and Repeat](/#/toefl-p/repeat)和[Take an Interview](/#/toefl-p/interview)。单个音素（如l/r、th）可用[IPA发音库](/#/pron)专项练习。
+两个任务在Lexkite中可分别练习：[Listen and Repeat](/#/toefl-p/repeat)和[Take an Interview](/#/toefl-p/interview)。单个音素（如l/r、th）可用[IPA发音库](/#/pron)专项练习。音标基础可参考[IPA国际音标与英语发音](/zh/blog/ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao/)。
 
 
 ---
 
 ## 5个常见误区（含中文母语者易错点）
 
-1. **死记硬背单词却忽略手动拼写：** 以前做选择题只需“眼熟”，但*Complete the Words*里*accommodate*、*occurrence*拼错一个字母就算错。
+1. **死记硬背单词却忽略手动拼写：** *Complete the Words*里的字母要自己输入，*accommodate*、*occurrence*拼错一个字母就算错。
 2. **写作开头铺垫过长导致时间耗尽：** 时间很短，不需要长篇铺垫，第一句话就亮明观点。
 3. **复述题目随意发挥改写：** 在*Listen and Repeat*中，把*going to*改成*will*就是复述不准确，这里考的是准确再现而不是改写。
 4. **轻视校园应用语料：** *Read in Daily Life*涉及注册、宿舍、缴费和截止日期等词汇，只背学术词汇不够。
-5. **中文母语者常见的“吞词尾”：** 汉语音节几乎不以辅音收尾，很多考生会把*asked*读成“ask”、把*months*的/-nθs/省掉，还容易混淆l/r（*light*与*right*）。汉语没有冠词和复数词尾，写作时也容易漏掉a/the和-s。在*Listen and Repeat*中词尾遗漏会让复述不完整；练习时请录音，对比原音，并专门练*light/right*、*walk/walked*、*book/books*这样的词对。
+5. **中文母语者常见的“吞词尾”和漏标时态：** 汉语音节几乎不以辅音收尾，很多考生会把*asked*读成“ask”、把*months*的/-nθs/省掉，还容易混淆l/r（*light*与*right*）。汉语没有冠词和复数词尾，写作时也容易漏掉a/the和-s。汉语动词不随时态变化，所以*Build a Sentence*中容易忽略词块里的-ed、-s，把语序排对了却漏掉形式。在*Listen and Repeat*中词尾遗漏会让复述不完整；练习时请录音，对比原音，并专门练*light/right*、*walk/walked*、*book/books*这样的词对。
 
 ---
 
@@ -172,11 +169,11 @@ ETS给出四个科目分数和一个总分，均为1至6分、步长0.5。总分
 
 ![Lexkite目标页：选择考试、目标分数、考试日期与每周学习小时数](media:goal "Lexkite目标页：设置考试、目标分数、考试日期和每周学习小时数，作为4周计划的起点")
 
-如果也在备考雅思听力，可以看[雅思听力提分技巧](/zh/blog/ya-si-ting-li-ti-fen-ji-qiao-ielts-listening/)。遇到生词可到[Lexkite词典](/#/dict)查询。
+遇到生词可到[Lexkite词典](/#/dict)查询；词汇基础可看[词汇列表（英文页面）](/en/vocabulary/)。
 
 错题本在第1周和第4周尤其有用，因为它归集词汇、语法、阅读和听力练习中的错题。
 
-![Lexkite错题本：按词汇、语法、阅读、听力归集错题](media:mistakes "Lexkite错题本：词汇、语法、阅读和听力练习的错题，便于在第4周复习")
+![Lexkite错题本：按词汇、语法、阅读、听力归集错题](media:mistakes "Lexkite错题本：词汇、语法、阅读和听力练习的错题，便于在第1周和第4周回顾")
 
 {{cta: /#/toefl | 练习托福12类任务 | 新考试的结构表，以及每类任务的独立练习页}}
 

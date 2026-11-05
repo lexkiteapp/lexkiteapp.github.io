@@ -16,18 +16,18 @@ status: ready
 qualityScore: 90
 quiz: [
   {
-    q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",
+    q: "Según el método de esta guía, ¿cómo conviene empezar una pregunta de TOEIC Part 5?",
     options: [
-      "Examinar las cuatro opciones para ver si es de gramática o de vocabulario",
-      "Leer toda la frase de izquierda a derecha y traducirla mentalmente al español",
-      "Saltar inmediatamente a las lecturas de Part 7 para ahorrar tiempo",
-      "Contar el número total de palabras del enunciado para calcular la dificultad"
+      "Mirar primero las cuatro opciones para ver si cambian los sufijos, el tiempo verbal o la palabra entera",
+      "Leer la frase completa dos veces y traducirla mentalmente al español antes de ver las opciones",
+      "Buscar la palabra más difícil del enunciado y deducir su significado por el contexto",
+      "Elegir la opción que mejor suene en español y comprobar después si encaja en la frase"
     ],
     answer: 0,
-    explain: "Inspeccionar las opciones primero permite identificar si las alternativas comparten la misma raíz léxica con distintos sufijos (pregunta de categoría gramatical), en cuyo caso se responde analizando únicamente el entorno inmediato del hueco sin leer toda la frase."
+    explain: "Las opciones indican qué se está evaluando. Si comparten raíz y cambian los sufijos, es una pregunta de categoría gramatical y basta con analizar las palabras que rodean el hueco, sin leer ni traducir toda la frase."
   },
   {
-    q: "¿Qué palabra completa correctamente la frase: 'The compliance committee evaluated the financial audit _____ before publishing the results.'?",
+    q: "¿Qué palabra completa correctamente la frase: 'The committee reviewed the report _____ before it was published.'?",
     options: [
       "thorough",
       "thoroughness",
@@ -35,7 +35,7 @@ quiz: [
       "thoroughest"
     ],
     answer: 2,
-    explain: "La oración cuenta con sujeto (The committee), verbo transitivo (evaluated) y objeto directo (the audit). Para modificar al verbo en una estructura oracional completa se requiere un adverbio (thoroughly)."
+    explain: "La oración ya tiene sujeto (the committee), verbo transitivo (reviewed) y objeto directo (the report). Lo que falta es una palabra que modifique al verbo, y para eso se necesita un adverbio (thoroughly)."
   },
   {
     q: "En el contexto de negocios del TOEIC, ¿qué preposición expresa una fecha límite estricta de entrega ('a más tardar el viernes')?",
@@ -63,21 +63,21 @@ En esta guía desglosamos el método de decisión en 20 segundos, las fórmulas 
 
 Un error frecuente es leer el enunciado palabra por palabra como si fuera una novela antes de mirar las alternativas. Conviene invertir este flujo: **mira primero las opciones, escanea el entorno del hueco y elige sin titubear**.
 
-### Paso 1: Examinar las cuatro opciones (0–3 segundos)
+### Paso 1: Mira las cuatro opciones (0–3 segundos)
 
-Las cuatro alternativas delatan al instante la naturaleza del desafío:
+Las cuatro alternativas te dicen enseguida qué tipo de pregunta es:
 
 1. **Preguntas de categoría gramatical (*Word Form*)**: Las cuatro opciones comparten exactamente la misma raíz pero difieren en sus sufijos (por ejemplo: *decide, decision, decisive, decisively*). En este caso, no es necesario traducir la frase; basta con analizar qué función sintáctica falta en el hueco.
 2. **Preguntas de formas verbales**: Las opciones muestran conjugaciones del mismo verbo (*submits, submitted, has submitted, was submitted*). El objetivo inmediato es identificar al sujeto (singular o plural), la voz (activa o pasiva) y las palabras clave de tiempo.
-3. **Preguntas de conectores y preposiciones**: Se mezclan conjunciones subordinadas (*although, because*) y locuciones preposicionales (*despite, because of*). Aquí la clave radica en comprobar si después del hueco hay una cláusula completa con verbo o un sintagma nominal.
+3. **Preguntas de conectores y preposiciones**: Se mezclan conjunciones subordinadas (*although, because*) y locuciones preposicionales (*despite, because of*). Aquí la clave está en comprobar si después del hueco viene una oración completa con verbo o solo un sustantivo (con sus complementos).
 4. **Preguntas de vocabulario puro**: Las cuatro opciones son palabras completamente distintas (*allocate, provide, resolve, inspect*). Únicamente en este supuesto es imprescindible leer la oración completa para captar el sentido y la colocación correcta en el contexto de trabajo.
 
-### Paso 2: Escanear el perímetro del hueco (4–12 segundos)
+### Paso 2: Mira las palabras que rodean el hueco (4–12 segundos)
 
-Una vez confirmada la categoría, reduce tu campo visual a las palabras que rodean directamente el espacio en blanco:
+Una vez confirmada la categoría, fíjate solo en las palabras que están justo junto al espacio en blanco:
 - ¿Hay un artículo (*a, an, the*), un adjetivo o un posesivo justo antes del hueco?
 - ¿Sigue un sustantivo, un verbo en infinitivo o un signo de puntuación?
-- ¿Dónde están el sujeto principal y el verbo rector de la cláusula?
+- ¿Dónde están el sujeto principal y el verbo principal de la oración?
 
 ### Paso 3: Marcar y avanzar sin relecturas innecesarias (13–20 segundos)
 
@@ -85,7 +85,7 @@ En cuanto la regla sintáctica encaje, marca la opción en tu hoja de respuestas
 
 ## Fórmulas de descarte para las 4 categorías gramaticales clave
 
-Una parte importante de las 30 preguntas de la Parte 5 (la proporción exacta varía en cada versión del examen) mide la posición de sustantivos, adjetivos, adverbios y pronombres. Estas posiciones son muy estables en la sintaxis formal en inglés:
+Muchas de las 30 preguntas de la Parte 5 miden qué clase de palabra (sustantivo, adjetivo, adverbio o pronombre) va en cada posición; ETS no publica cuántas hay de cada tipo. Estas posiciones son muy estables en la sintaxis formal en inglés:
 
 | Categoría gramatical | Entorno sintáctico habitual | Formas típicas | Ejemplo realista de examen |
 |---|---|---|---|
@@ -111,7 +111,7 @@ Localiza el núcleo del sujeto descartando los sintagmas preposicionales interme
 ### 2. Voz activa frente a voz pasiva
 
 Analiza si el sujeto realiza la acción o la recibe:
-- Si el verbo es transitivo pero no lleva un objeto directo detrás y va seguido de *by* + agente (como *by the board*), la opción correcta casi siempre exige voz pasiva (*be + participio*).
+- Si el verbo es transitivo y no tiene objeto directo detrás, la opción correcta suele ser la voz pasiva (*be* + participio); un *by* + agente (como *by the board*) refuerza esa pista.
 - Ejemplo: *The revised safety guidelines **were approved** by executive directors yesterday.*
 
 ### 3. Marcadores temporales explícitos
@@ -133,7 +133,7 @@ Para repasar estas reglas, lee [la voz pasiva en inglés](/es/blog/voz-pasiva-en
 
 ## Corrige estas frases (errores típicos de hispanohablantes)
 
-Cada frase tiene un error que las opciones incorrectas de la Parte 5 suelen imitar. Corrígela antes de leer la solución.
+Las frases 1 a 3 reproducen el tipo de error que las opciones incorrectas de la Parte 5 imitan (tiempo verbal y verbo). Las frases 4 a 6 no son típicas de las opciones de la Parte 5: son errores habituales de los hispanohablantes al escribir y que verás en las Partes 6 y 7. Corrígelas antes de leer la solución.
 
 1. *We have sent the invoice yesterday.* → *sent*: con *yesterday* se usa Past Simple.
 2. *I am working here since 2022.* → *I have worked here since 2022*: "trabajo aquí desde 2022" se traduce con Present Perfect.
@@ -142,7 +142,7 @@ Cada frase tiene un error que las opciones incorrectas de la Parte 5 suelen imit
 5. *The manager explained me the policy.* → *explained the policy to me*: *explain* no lleva la persona como complemento directo.
 6. *He assisted the conference.* → *attended*: *assist* significa "ayudar", no "asistir".
 
-Si dudaste en alguna, anótala: son errores muy frecuentes en las preguntas de tiempos, determinantes y vocabulario.
+Si dudaste en alguna, anótala: son errores muy frecuentes en tiempos verbales, determinantes y vocabulario.
 
 ## Trampas clásicas entre preposiciones y conjunciones
 
@@ -170,14 +170,14 @@ En las preguntas de vocabulario puro, el examen suele evaluar si conoces las com
 - **heavily dependent on** imported raw materials (altamente dependiente de materias primas importadas)
 - grant **authorization to** inspect equipment (conceder autorización para inspeccionar los equipos)
 
-Lexkite también tiene tests de vocabulario de opción múltiple, como este de *run out of*, para practicar expresiones fuera de la Part 5.
+Para que estas colocaciones se queden, repásalas como tarjetas con repetición espaciada: guarda la expresión completa (*comply with*, no solo *comply*) y revísala unos minutos al día.
 
-![Prueba de opción múltiple de Lexkite: elegir el significado correcto de run out of entre cuatro opciones](media:practice-test "Un test de vocabulario de Lexkite (no es de la Parte 5): comprueba el significado de expresiones como run out of")
+![Tarjeta de repaso de Lexkite con la palabra pollution, imagen, pronunciación, botón para girar la tarjeta y barra de progreso](media:review "Repaso con tarjetas en Lexkite (ejemplo con la palabra pollution): útil para fijar colocaciones completas")
 
 ## Distribución del tiempo de examen y entrenamiento recomendado
 
 El módulo de lectura del TOEIC dura 75 minutos (ETS no fija un tiempo por parte). Esta es una distribución razonable, sugerencia propia que puedes ajustar:
-- **Parte 5 (30 preguntas)**: Resolver en **8 a 10 minutos** (máximo 20 segundos por ítem).
+- **Parte 5 (30 preguntas)**: Resolver en **8 a 10 minutos** (unos 20 segundos por ítem).
 - **Parte 6 (16 preguntas)**: Resolver en **6 a 8 minutos**.
 - **Parte 7 (54 preguntas)**: Quedan entre **57 y 61 minutos** para los textos simples y los textos múltiples.
 
@@ -196,13 +196,13 @@ Para organizar tus semanas, consulta el [plan de autoestudio TOEIC](/es/blog/pla
 ## Preguntas frecuentes
 
 ### ¿Qué debo hacer si no conozco ninguna de las cuatro palabras en una pregunta de vocabulario?
-No malgastes más de 20 segundos en una pregunta donde ninguna opción te resulte familiar. Identifica la carga positiva o negativa del contexto, descarta las opciones incompatibles con esa connotación, elige la que parezca más coherente y pasa de inmediato a la siguiente. No hay penalización por fallar, así que nunca dejes una pregunta en blanco.
+No malgastes más de 20 segundos o así en una pregunta donde ninguna opción te resulte familiar. Identifica la carga positiva o negativa del contexto, descarta las opciones incompatibles con esa connotación, elige la que parezca más coherente y pasa de inmediato a la siguiente. No hay penalización por fallar, así que nunca dejes una pregunta en blanco.
 
 ### ¿Es conveniente responder las 30 preguntas en estricto orden correlativo?
-No es obligatorio, pero en la Parte 5 lo normal es ir en orden (de la 101 a la 130), porque las frases son cortas y casi ninguna merece un salto. Si una pregunta de vocabulario te bloquea, márcala con una respuesta provisional y continúa; así no arriesgas dejarla vacía.
+No es obligatorio, pero en la Parte 5 lo normal es ir en orden (de la 101 a la 130), porque las frases son cortas y casi ninguna merece un salto. Si una pregunta de vocabulario te bloquea, marca una respuesta provisional y continúa; así no te quedas sin contestar. Un hábito típico de quien estudia desde el español es traducir cada frase mentalmente; en las preguntas de categoría gramatical no hace falta y es lo que más tiempo te quita.
 
 ### ¿Qué errores cometen más los hispanohablantes en la Parte 5?
-Los más frecuentes son usar Present Perfect con *yesterday* o *last week*, olvidar la -s de la tercera persona (*The manager approve* en vez de *approves*), usar *since* con una duración (se dice *for three years*) y confiar en falsos amigos como *actually* o *assist*. Antes de elegir, comprueba siempre el sujeto del verbo y si el marcador temporal es cerrado (Past Simple) o llega hasta hoy (Present Perfect).
+Te ayuda saber que el español usa el pretérito perfecto con periodos abiertos y que ahí se cuela el inglés. Los más frecuentes son usar Present Perfect con *yesterday* o *last week*, olvidar la -s de la tercera persona (*The manager approve* en vez de *approves*), usar *since* con una duración (se dice *for three years*) y confiar en falsos amigos como *actually* o *assist*. Antes de elegir, comprueba siempre el sujeto del verbo y si el marcador temporal es cerrado (Past Simple) o llega hasta hoy (Present Perfect).
 
 ### ¿Cómo puedo acelerar mi velocidad de respuesta en las preguntas de categorías gramaticales?
-La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y podrás resolver muchas preguntas en 10 a 15 segundos.
+La clave está en automatizar la identificación de sufijos morfológicos (*-tion, -ment, -able, -ly*). Al reconocer al instante qué terminación corresponde a cada función sintáctica, dejarás de traducir mentalmente las frases completas y las preguntas de categoría gramatical te llevarán bastante menos que las de vocabulario.
