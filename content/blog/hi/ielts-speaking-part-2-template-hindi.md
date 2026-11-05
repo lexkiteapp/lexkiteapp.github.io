@@ -163,7 +163,7 @@ quiz: [
 2. **परीक्षक के साथ आई-कॉन्टैक्ट रखें**: अपने नोट्स की तरफ केवल एक झलक देखें; लगातार कागज में देखकर पढ़ना रटी हुई भाषा जैसा लगता है और अंक कटवाता है।
 3. **सच्चाई की चिंता न करें**: कहानी 100% सच्ची होना जरूरी नहीं है; परीक्षक भाषा का परीक्षण कर रहे हैं, आपके जीवन का नहीं।
 
-स्पीकिंग कौशल को निखारने के लिए हमारी मुख्य गाइड [IELTS Speaking Band 7 गाइड](/hi/blog/ielts-speaking-band-7-hindi/) का अध्ययन करें, रीडिंग तकनीकों के लिए [IELTS Reading Skimming Scanning Tips](/hi/blog/ielts-reading-skimming-scanning-tips-hindi/) देखें, निबंध लेखन के लिए [IELTS Writing Task 2 Format](/hi/blog/ielts-writing-task-2-hindi/) पढ़ें, और समग्र रणनीति के लिए [IELTS की तैयारी कैसे करें](/hi/blog/ielts-ki-taiyari-kaise-kare/) से मार्गदर्शन लें।
+प्रारंभिक मौखिक प्रश्नों की तैयारी के लिए [IELTS Speaking Part 1 Tips in Hindi](/hi/blog/ielts-speaking-part-1-tips-in-hindi/) पढ़ें, स्पीकिंग कौशल को निखारने के लिए हमारी मुख्य गाइड [IELTS Speaking Band 7 गाइड](/hi/blog/ielts-speaking-band-7-hindi/) का अध्ययन करें, रीडिंग तकनीकों के लिए [IELTS Reading Skimming Scanning Tips](/hi/blog/ielts-reading-skimming-scanning-tips-hindi/) देखें, निबंध लेखन के लिए [IELTS Writing Task 2 Format](/hi/blog/ielts-writing-task-2-hindi/) पढ़ें, और समग्र रणनीति के लिए [IELTS की तैयारी कैसे करें](/hi/blog/ielts-ki-taiyari-kaise-kare/) से मार्गदर्शन लें।
 
 अकादमिक विषयों के और अधिक सैंपल्स के लिए हमारे [स्पीकिंग विषय और मॉडल उत्तर](/speaking/) पेज को देखें।
 
