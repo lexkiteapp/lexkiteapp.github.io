@@ -275,3 +275,4 @@ node scripts/test/legal-i18n.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
+node scripts/test/origin-fetch.mjs
