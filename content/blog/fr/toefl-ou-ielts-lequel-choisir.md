@@ -54,6 +54,8 @@ quiz: [
 
 Que vous prépariez une candidature pour une université prestigieuse en Amérique du Nord, un échange universitaire Erasmus au Royaume-Uni ou un dossier d'expatriation professionnelle, la question fatidique se pose inévitablement : **toefl ou ielts lequel choisir** pour maximiser vos chances de réussite ? Ces deux mastodontes de l'évaluation linguistique jouissent d'une réputation planétaire indiscutable, mais ils reposent sur des philosophies d'examen, des formats d'épreuves et des types d'interactions radicalement différents.
 
+Si votre projet est l'immigration, lisez aussi notre guide [IELTS pour immigrer au Canada, en Australie ou au Royaume-Uni](/fr/blog/ielts-pour-immigrer-canada-australie-royaume-uni/).
+
 Choisir le mauvais test peut vous pénaliser lourdement : un candidat très à l'aise face à un interlocuteur humain perdra ses moyens devant le chronomètre strict d'un ordinateur au TOEFL, tandis qu'un profil adepte des QCM standardisés et des claviers QWERTY sera déstabilisé par les réponses manuscrites de l'IELTS.
 
 Dans ce comparatif exhaustif et objectif, nous analysons point par point les formats d'épreuve, les barèmes de notation, les coûts et la reconnaissance institutionnelle pour vous guider vers l'examen le plus adapté à votre profil d'apprentissage.

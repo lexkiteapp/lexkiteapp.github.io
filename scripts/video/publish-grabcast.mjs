@@ -58,7 +58,7 @@ if (DRY) {
   const p = post(['<media_id>']); p.targets = ids.map(id => ({ account_id: id, kind: 'video', options: {} }));
   console.log(JSON.stringify({ base: BASE, workspace: WS, key: KEY ? '***' : '(chưa đặt)', steps: [
     { POST: 'storage/objects', body: begin }, { PUT: '<upload_url>', bytes: stat.size }, { POST: 'storage/objects/<object_id>/complete' }, { POST: 'storage/objects/<object_id>/use' },
-    { POST: 'posts/validate', body: p }, { POST: 'posts', headers: { 'Idempotency-Key': idemFor(ids) }, body: p },
+    { POST: 'validate', body: p }, { POST: 'posts', headers: { 'Idempotency-Key': idemFor(ids) }, body: p },
     AT ? { POST: 'posts/<post_id>/schedule', body: { scheduled_at: new Date(AT).toISOString(), consent: true } } : { note: 'không có --at → giữ bản nháp' }] }, null, 2));
   process.exit(0);
 }
@@ -91,7 +91,7 @@ const mediaId = pick(used, 'media_id') || pick(used.media || {}, 'id') || pick(u
 if (!mediaId) die('GrabCast không trả về media_id');
 // 3) validate → tạo bài → lên lịch
 const payload = post([mediaId]); payload.targets = targetsAcc.map(a => ({ account_id: a.id, kind: kindFor(a), options: {} }));
-const v = await gc('POST', 'posts/validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
+const v = await gc('POST', 'validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
 if (v.valid === false || v.ok === false || errs.length) die('validate không qua: ' + JSON.stringify(errs.length ? errs : v).slice(0, 600));
 const created = await gc('POST', 'posts', payload, { 'Idempotency-Key': idemFor(targetsAcc.map(a => String(a.id))) });
 const postId = pick(created, 'id') || pick(created.post || created.data || {}, 'id');
