@@ -192,8 +192,8 @@ function pageFbCover(a) {
 function pageYtBanner(a) {
   const W = a.w, H = a.h; // vùng an toàn mọi thiết bị: x 507–2053, y 508–931
   return { W, H, html: `<div class="stage" style="width:${W}px;height:${H}px">${bg(W, H, '50% 50%', 44)}${topRule(W, 8)}
-    ${trail(W, H, 'M 120 1300 C 260 1180, 330 1120, 420 1040')}${trail(W, H, 'M 2130 640 C 2260 600, 2330 700, 2440 760 S 2520 880, 2470 960', 'apricot')}
-    ${paperKite(300, 300, 150, -12)}${paperKite(2140, 330, 170, 14)}
+    ${trail(W, H, 'M 90 520 C 160 430, 250 400, 360 410')}${trail(W, H, 'M 1990 470 C 2070 380, 2190 360, 2290 430', 'apricot')}
+    ${paperKite(380, 110, 140, -12)}${paperKite(2250, 100, 150, 14)}
     ${spark(700, 420, 44, 'apricot')}${spark(1880, 380, 36)}${spark(1280, 300, 28, 'tealBright2', .8)}${spark(640, 1080, 30, 'sun', .7)}${spark(1960, 1110, 26, 'apricot', .7)}
     ${fig(POSES['yt-banner-l'], { x: -300, h: 971 })}
     ${fig(POSES['yt-banner-r'], { x: 1700, h: 971 })}
