@@ -10,7 +10,7 @@
 .ss .ss-stage{position:relative;display:flex;justify-content:space-between;align-items:flex-end;height:var(--ss-h);margin:0 -1rem;padding:0 var(--sp-1);contain:layout paint;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ss .ss-seat{position:relative;flex:0 0 52%;height:100%;pointer-events:none;transform-origin:50% 100%;transition:transform .26s cubic-bezier(.2,.8,.2,1);will-change:transform}
 .ss .ss-seat[data-who="ama"]{transform:translateX(3%) scale(.94)}.ss .ss-seat[data-who="carlos"]{transform:translateX(-3%) scale(.94)}
-.ss .ss-fig{position:absolute;inset:0;opacity:.62;transition:opacity .26s linear;-webkit-mask-image:linear-gradient(#000 70%,transparent 96%);mask-image:linear-gradient(#000 70%,transparent 96%)}
+.ss .ss-fig{position:absolute;inset:0;opacity:.62;transition:opacity .26s linear} /* không mặt nạ mờ trên khung đang vẽ động: ép ghép lớp bằng CPU mỗi khung (fps 4×); sàn .ss-floor đã che đáy ảnh */
 .ss .ss-stage[data-speaker=""] .ss-fig,.ss .ss-seat.on .ss-fig{opacity:1}
 .ss .ss-seat.on[data-who="ama"]{transform:translateX(3%) scale(1.04)}.ss .ss-seat.on[data-who="carlos"]{transform:translateX(-3%) scale(1.04)}
 /* sàn chung: cùng màu mặt khung chat bên dưới; mép trên mờ nhẹ + bóng dưới chân hai người → đứng trên sàn, không lơ lửng */
@@ -20,7 +20,7 @@
 /* chỉ báo người nói: chấm sáng trên chip tên */
 .ss .ss-who-on{outline:2px solid currentColor;outline-offset:1px}
 /* dòng thoại: nhẹ, không viền dày; 🔊 + 🐢 cùng hàng, cùng chỗ cho cả hai người (cuối bong bóng, đầu dòng) */
-.ss .lsn-ln{border-width:1px!important;box-shadow:none!important;content-visibility:auto;contain-intrinsic-size:auto 96px}
+.ss .lsn-ln{border-width:1px!important;box-shadow:none!important}
 .ss .lsn-ln.ss-in{animation:ss-in .24s cubic-bezier(.2,.8,.2,1) both}
 .ss .ss-col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
 .ss .ss-act{display:flex;gap:var(--sp-2);align-items:center;justify-content:flex-start;margin-top:var(--sp-2);flex-direction:row!important}
