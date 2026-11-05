@@ -48,10 +48,10 @@ jobs:
         run: |
           node scripts/video/web-rendition.mjs plan shorts-repo
           if [ -s .webvid/dirs.txt ]; then git -C shorts-repo sparse-checkout add $(cat .webvid/dirs.txt); fi
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài ffmpeg + dựng kho từ
         if: steps.plan.outputs.todo != '0'
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           node scripts/build-lexicon.mjs --write >/dev/null
       - name: Dựng bản web + phụ đề EN + thẻ + câu đố EN
         if: steps.plan.outputs.todo != '0'
