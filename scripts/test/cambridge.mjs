@@ -16,12 +16,19 @@ for (const f of ['js/cambridge/rubric.js', 'js/cambridge.js', 'js/qengine.js']) 
 // 2) helper chấm viết của màn thi (chạy thật trong vm) – bài mẫu phải qua đủ ý, đủ từ, ≥ 2 từ nối
 const ctx = { self: {}, console, UI: { $: () => null, $$: () => [], esc: s => s }, t: s => s };
 ctx.self = ctx; ctx.window = ctx; ctx.App = { state: { game: {} }, routes: {}, view: {} }; vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('web/js/cambridge/rubric.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/js/cambridge.js', 'utf8'), ctx);
+vm.runInContext(fs.readFileSync('web/js/qengine.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/js/cambridge/rubric.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/js/cambridge.js', 'utf8'), ctx);
 const H = ctx.App.cambridge, R = ctx.CAMBRIDGE_RUBRIC;
 if (!H || typeof ctx.App.routes.cambridge !== 'function') errs.push('cambridge.js không đăng ký routes.cambridge / App.cambridge');
 else {
   if (H.wc("I'd like to see the new film.") !== 7) errs.push('wc đếm sai');
   if (H.pointHits('We can meet outside', [['film'], ['meet']]).join() !== 'false,true') errs.push('pointHits sai');
+  // mỗi nhóm câu có đúng 1 khung [data-g] (lỗi 05/11: Part 1 đẩy thêm nhóm rỗng → nộp bài lỗi) + mọi câu có ô trả lời
+  for (const x of T) for (const pp of ['rw', 'listening']) {
+    const { groups, html } = H.build(x, pp), ids = groups.map(([k, j]) => `${k}-${j}`);
+    for (const id of ids) if ((html.match(new RegExp(`data-g="${id}"`, 'g')) || []).length !== 1) errs.push(`${x.id} ${pp}: nhóm ${id} không có đúng 1 khung data-g`);
+    const n = groups.reduce((a, [, , g]) => a + g.items.length, 0), boxes = (html.match(/data-item="\d+"/g) || []).length;
+    if (boxes !== n) errs.push(`${x.id} ${pp}: ${n} câu nhưng ${boxes} ô trả lời`);
+  }
   for (const x of T) for (const p of (x.rw || {}).parts || []) if (p.model) {
     const miss = H.pointHits(p.model, p.checks).map((h, i) => h ? null : i + 1).filter(Boolean);
     if (miss.length) errs.push(`${x.id} Part ${p.n}: bài mẫu không qua kiểm ý ${miss.join(',')} (checks quá hẹp hoặc bài mẫu thiếu ý)`);

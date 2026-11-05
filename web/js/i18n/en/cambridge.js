@@ -17,5 +17,4 @@
 '{n} từ – nên nói khoảng {m} từ trở lên': '{n} words – aim for about {m} words or more',
 'Thêm lý do hoặc ví dụ (because, so, for example…)': 'Add a reason or an example (because, so, for example…)',
 'Câu trả lời mẫu': 'Model answer',
-'Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói': 'A2 Key → C2 Proficiency tests: Reading & Writing, Listening, Speaking',
 }); })(typeof self !== 'undefined' ? self : this);

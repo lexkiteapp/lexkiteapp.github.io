@@ -15,7 +15,7 @@
   // Kiểm ý: mỗi ý bắt buộc = 1 nhóm từ khóa, đạt khi bài có ít nhất 1 từ của nhóm (tự kiểm nhanh, không thay giám khảo)
   const pointHits = (text, checks) => (checks || []).map(g => g.some(w => low(text).includes(w.toLowerCase())));
   const linkersUsed = (text, L) => (L || []).filter(w => new RegExp(`\\b${w}\\b`, 'i').test(text));
-  App.cambridge = { wc, pointHits, linkersUsed };
+  App.cambridge = { wc, pointHits, linkersUsed, build: (T, p) => build(T, p) };
   const passage = tx => (Array.isArray(tx) ? tx : String(tx || '').split('\n')).map(p => `<p style="margin:.35rem 0;white-space:pre-wrap">${esc(p).replace(/\((\d{1,2})\)/g, '<b class="qn">$1</b>')}</p>`).join('');
   const QTYPE = { 'mcq': 'mcq', 'mcq-picture': 'mcq', 'mcq-gap': 'mcq', 'matching': 'match', 'gap': 'form', 'open-gap': 'form' };
   // Nhóm câu theo định dạng QE (qengine.js) – chấm, đánh dấu và "xem chỗ có đáp án" dùng chung với IELTS/TOEIC/TOEFL
@@ -46,13 +46,18 @@
     view.innerHTML = head(`🎓 ${esc(T.title)}`, `<a href="#/cambridge">← Cambridge English</a>`) + tabs + '<div id="camBody"></div>';
     const body = $('#camBody');
     if (p === 'speaking') return speaking(T, body);
-    const P = (T[p] || {}).parts || [], groups = [];
-    body.innerHTML = P.map((x, k) => `<div class="card" data-part="${k}"><h3 style="margin-top:0">Part ${x.n}</h3><p class="lq-instr">${esc(x.instr || x.prompt || '')}</p>${partHtml(x, k, p, groups)}</div>`).join('')
+    const { P, groups, html } = build(T, p);
+    body.innerHTML = html
       + `<div class="row" style="margin-top:1rem"><button class="btn primary" id="camSub">✅ ${t('Nộp bài & xem giải thích')}</button></div><div id="camRes" style="margin-top:1rem"></div>`;
     $$('.lq-wrap', body).forEach(el => QE.bind(el));
     $$('[data-w]', body).forEach(ta => { const out = $(`[data-wc="${ta.dataset.w}"]`, body); ta.oninput = () => { out.textContent = t('{n} từ', { n: wc(ta.value) }); }; });
     if (p === 'listening') bindPlayers(P, body);
     $('#camSub').onclick = () => submit(T, p, P, groups, body);
+  }
+  // Dựng HTML + danh sách nhóm câu [phần, khung, nhóm QE] – mỗi nhóm PHẢI có đúng một khung [data-g] (test cambridge.mjs)
+  function build(T, p) {
+    const P = (T[p] || {}).parts || [], groups = [];
+    return { P, groups, html: P.map((x, k) => `<div class="card" data-part="${k}"><h3 style="margin-top:0">Part ${x.n}</h3><p class="lq-instr">${esc(x.instr || x.prompt || '')}</p>${partHtml(x, k, p, groups)}</div>`).join('') };
   }
   function partHtml(x, k, p, groups) {
     if (x.type === 'email' || x.type === 'story') return `${x.points ? `<ul class="small">${x.points.map(s => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${x.pictures ? `<div class="grid g3">${x.pictures.map((pc, i) => `<div class="card" style="margin:0;text-align:center"><div style="font-size:2.4rem" aria-hidden="true">${pc.ic}</div><div class="tiny muted">${i + 1}. ${esc(pc.alt)}</div></div>`).join('')}</div>` : ''}
@@ -62,11 +67,11 @@
       return `<div class="toeic-u" data-u="${k}-${j}">${u.title ? `<b>${esc(u.title)}</b>` : ''}<div class="row nowrap" style="margin:.4rem 0"><button class="btn sm primary" data-play="${k}-${j}">▶ ${t('Nghe')}</button><span class="tiny muted" data-now="${k}-${j}"></span></div>
         ${x.type === 'matching' && j === 0 ? `<div class="lq-box">${x.options.map(o => `<span>${esc(o)}</span>`).join('')}</div>` : ''}<div class="lq-wrap" data-g="${k}-${j}">${QE.questionsHtml({ groups: [g] })}</div>
         <details data-tr="${k}-${j}" hidden><summary class="small"><b>📜 ${t('Lời thoại (transcript)')}</b></summary>${u.script.filter(l => l.t).map(l => `<div class="small"><b>${esc((u.speakers[l.s] || {}).name || l.s)}:</b> ${esc(l.t)}</div>`).join('')}</details></div>`; }).join('');
-    const g = groupOf(x, x.items); groups.push([k, 0, g]);
     const lead = x.texts ? x.texts.map(y => `<div class="card" style="margin:.4rem 0"><b>${y.code} · ${esc(y.title)}</b>${passage(y.text)}</div>`).join('')
       : x.text ? `${x.title ? `<h4 style="margin:.2rem 0">${esc(x.title)}</h4>` : ''}${x.by ? `<div class="tiny muted">${esc(x.by)}</div>` : ''}${passage(x.text)}` : '';
     // Part 1 (biển báo, tin nhắn): mỗi câu một văn bản ngắn ngay trên câu hỏi
     if (x.items.some(it => it.text && it.options)) return x.items.map(it => { const g1 = groupOf(x, [it]); groups.push([k, 'i' + it.n, g1]); return `<div class="card" style="margin:.4rem 0;white-space:pre-wrap;font-weight:600">${esc(it.text)}</div><div class="lq-wrap" data-g="${k}-i${it.n}">${QE.questionsHtml({ groups: [g1] })}</div>`; }).join('');
+    const g = groupOf(x, x.items); groups.push([k, 0, g]);
     return `${lead}<div class="lq-wrap" data-g="${k}-0">${QE.questionsHtml({ groups: [g] })}</div>`;
   }
   function bindPlayers(P, body) {
@@ -81,7 +86,7 @@
   function submit(T, p, P, groups, body) {
     let right = 0, total = 0;
     for (const [k, j, g] of groups) {
-      const root = $(`[data-g="${k}-${j}"]`, body), res = QE.collect({ groups: [g] }, root);
+      const root = $(`[data-g="${k}-${j}"]`, body); if (!root) continue; const res = QE.collect({ groups: [g] }, root);
       QE.mark(root, res);
       for (const it of g.items) { total++; if (res[it.n] && res[it.n].ok) right++; const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
     }
