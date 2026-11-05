@@ -11,7 +11,8 @@ Mask = everything that is NOT green-screen (hue 35–90 in OpenCV units, saturat
   feet/legs planted (bottom-row person columns ≈ first), head top and scale within tolerance, background clean (no non-green
   blobs away from the person), no single-frame cut/glitch, start ≈ first, end ≈ tail (or ≈ first), mouth stays closed
   (dark pixels inside the mouth box below the moustache, tracked from the head box, ≤ first + margin).
-Hands (5 fingers) and identity stay an eye check on the sheet (docs/CREDIT-RULES.md §3.9)."""
+Hands (5 fingers), identity and LIPS (face strip at the bottom of the sheet) stay an eye check (docs/CREDIT-RULES.md §3.9):
+05/11 gc11_concern passed every metric twice while the lips parted showing teeth."""
 import cv2, sys, numpy as np
 
 W, H = 540, 960
@@ -48,7 +49,8 @@ def mouth_dark(f, g):
     x0, x1 = g['head']; w = x1 - x0; t = g['top']
     cx = (x0 + x1) // 2; box = f[t + int(w * .97):t + int(w * 1.16), cx - int(w * .17):cx + int(w * .17)]   # w = hair width; lips: Carlos 1.00–1.16 (below the moustache), Ama 0.97–1.12
     if box.size == 0: return 0.0
-    return float((cv2.cvtColor(box, cv2.COLOR_BGR2GRAY) < 35).mean())   # < 35 = mouth interior; Ama's dark skin sits above it
+    g = cv2.cvtColor(box, cv2.COLOR_BGR2GRAY)
+    return float((g < 35).mean() + 2 * (g > 200).mean())   # < 35 = mouth interior (Ama's dark skin sits above it); > 200 = teeth (05/11 concern: parted lips showed teeth, dark-only missed it)
 
 
 def diff(a, b):
@@ -96,5 +98,9 @@ ok = {'start = locked first frame (diff < 6)': d_start < 6,
       'mouth closed (≤ 1 sampled frame with an open-mouth dark box)': open_frames <= 1}
 idx = [int(i * (n - 1) / 11) for i in range(12)]
 row = lambda ii: np.hstack([cv2.resize(fr[i], (180, 320)) for i in ii])
-cv2.imwrite(sheet, np.vstack([row(idx[:6]), row(idx[6:])]), [cv2.IMWRITE_JPEG_QUALITY, 82])
+def face(i):   # head crop from the tracked hair box: lips/teeth are an EYE check (the box metric misses parted lips when the head tilts onto the white collar)
+    g = geo(fr[i]); x0, x1 = g['head']; w = x1 - x0; t = g['top']
+    return cv2.resize(fr[i][max(0, t - 10):t + int(w * 1.4), max(0, x0 - int(w * .25)):x1 + int(w * .25)], (180, 180))
+faces = np.hstack([face(i) for i in idx[::2]]); faces = np.pad(faces, ((0, 0), (0, 1080 - faces.shape[1]), (0, 0)), constant_values=255)
+cv2.imwrite(sheet, np.vstack([row(idx[:6]), row(idx[6:]), faces]), [cv2.IMWRITE_JPEG_QUALITY, 82])
 report(ok, f"frames {n} start {d_start:.1f} end {d_end:.1f} legs dx {legdx} top dy {topdy} mouth base {m0:.3f} max {max(md):.3f} open {open_frames} spikes {spikes[:5]}")
