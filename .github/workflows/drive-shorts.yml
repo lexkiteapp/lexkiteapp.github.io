@@ -50,7 +50,7 @@ jobs:
         run: node scripts/ci/quota-skip.mjs node scripts/video/shorts-archive.mjs --repo /tmp/shorts
       - name: Bù metadata clip (tiêu đề, link, hook) cho bài đăng
         if: ${{ steps.lease.outputs.skip != '1' && (!cancelled() && github.event.inputs.dry_run != 'true') }}
-        run: node scripts/video/shorts-meta.mjs --repo /tmp/shorts
+        run: node scripts/ci/quota-skip.mjs node scripts/video/shorts-meta.mjs --repo /tmp/shorts
       - name: Manifest thư viện quản trị → Kho Drive
         if: ${{ steps.lease.outputs.skip != '1' && (!cancelled() && github.event.inputs.dry_run != 'true') }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
