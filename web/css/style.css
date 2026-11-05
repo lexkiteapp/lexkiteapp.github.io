@@ -674,7 +674,7 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .steps { display: flex; gap: .3rem; overflow-x: auto; padding: .3rem 0 .8rem; scrollbar-width: none; }
 .stepdot { flex: 1; min-width: 74px; display: flex; flex-direction: column; align-items: center; gap: .2rem; border: 0; background: transparent; cursor: pointer; color: var(--muted); font-weight: 700; }
 .stepdot span { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); font-size: 1.1rem; border: 2px solid var(--line); }
-.stepdot small { font-size: .68rem; white-space: nowrap; }
+.stepdot small { font-size: .68rem; line-height: 1.2; max-width: 100%; text-align: center; text-wrap: balance; overflow-wrap: break-word; } /* nhãn dài (Ghép công thức/Build the formula, de/ru) xuống dòng trong ô, không tràn đè ô bên (visual-qa btn-text-overflow 05/11) */
 .stepdot.on span { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 .stepdot.on { color: var(--primary); }
 .stepdot.done span { background: var(--done); color: var(--on-done); border-color: var(--done); }
@@ -1761,4 +1761,4 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
   :root:not([data-theme="light"])[data-daypart="noon"] { --dp: #2BA39A; }
   :root:not([data-theme="light"])[data-daypart="evening"] { --dp: #FF7A4D; }
 }
-.kit-say { border-inline-start: 3px solid var(--dp); padding-inline-start: .55rem; }
+.kit-say { border-inline-start: 3px solid var(--dp); padding-inline-start: var(--sp-2); }
