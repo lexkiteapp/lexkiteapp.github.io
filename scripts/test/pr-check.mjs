@@ -227,6 +227,7 @@ const noLeak = (r, m) => ok(![SECRET, GHT].some(k => r.text.includes(k)), 'khôn
     ok(r2.s === 429 && r2.j.error === 'too-fast' && r2.j.retryAfter > 0 && gcalls.filter(c => c.url.includes('/dispatches')).length === n0, 'Kiểm ngay bấm lại < 2 phút → 429, không gọi GitHub lần nữa');
     sql.prepare("UPDATE config SET v = ? WHERE k = 'bw_dispatch'").run(JSON.stringify({ at: Date.now() - 130e3 }));
     ok((await call(ADM, { op: 'checkNow' })).s === 200 && gcalls.filter(c => c.url.includes('/dispatches')).length === n0 + 1, 'Kiểm ngay sau 2 phút → chạy lại'); }
+  { const css = fs.readFileSync(new URL('../../web/css/admin.css', import.meta.url), 'utf8'); ok(/#bwFs, #bwFt, #bwFl \{ width: auto;/.test(css), 'Backlinks: 3 ô lọc không giãn toàn chiều rộng (xếp 1 hàng ngang)'); }
   ok(sql.prepare("SELECT name FROM sqlite_master WHERE type = 'index' AND name = 'bw_checks_at'").get(), 'bw_checks có chỉ mục theo thời gian (list/dọn không quét cả bảng)');
   // CI
   ok((await ci({ op: 'ciSync' }, { env: { ...ENV, STUDIO_CALLBACK_SECRET: '' } })).s === 503, 'máy chủ chưa có secret → 503');
