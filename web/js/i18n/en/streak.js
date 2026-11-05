@@ -7,7 +7,6 @@
 'Chuỗi {n} ngày, {f} lượt đóng băng': '{n}-day streak, {f} streak freeze',
 '{n}/{max} lượt': '{n}/{max} left',
 'Đóng băng chuỗi': 'Streak freeze',
-'Ngày đóng băng (chuỗi được bảo toàn)': 'Streak freeze day (streak preserved)',
 'Đóng băng': 'Freeze',
 'Hết lượt': 'Empty',
 'Chuỗi {n} ngày': '{n}-day streak',
