@@ -51,10 +51,14 @@ for (const [k, cap] of Object.entries(budget.routeGz || {})) {
   routes.push(`${k} ${kb(n)}/${kb(cap)}`);
   if (n > cap) errs.push(`Gói "${k}" tải lần đầu ${n} B gz > ${cap} B – tách màn ít dùng sang tải theo màn (vd st/v2/runtime.js LZ), không cắt tính năng`);
 }
+// 3d) Gói nội dung tải lười web/cpack (ngoài web/js; tải theo gói, tên băm, immutable – scripts/build-cpack.mjs): vẫn có trần, không phải đường tắt
+let cpackRaw = 0; const cwalk = d => { if (!fs.existsSync(d)) return; for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) cwalk(p); else if (p.endsWith('.js')) { cpackRaw += fs.statSync(p).size; const g = gz(p); if (g > budget.fileGz) errs.push(`Gói nội dung ${p} ${kb(g)} gzip > ${kb(budget.fileGz)} – tách lô`); } } };
+cwalk('web/cpack');
+if (cpackRaw > budget.cpackTotal) errs.push(`web/cpack ${cpackRaw} B > ${budget.cpackTotal} B (budget.cpackTotal) – rà dữ liệu thừa trước khi nâng`);
 // 4) Chất lượng nội dung (ratchet)
 let warn = -1; try { const out = execFileSync('node', ['scripts/test/content-check.mjs'], { encoding: 'utf8' }); warn = +((out.match(/(\d+) cảnh báo/) || [])[1] ?? -1); } catch (e) { errs.push('content-check lỗi: ' + String(e.stdout || e.message).split('\n').slice(-3).join(' ')); }
 if (warn >= 0 && warn > budget.contentWarn) errs.push(`Cảnh báo nội dung tăng ${budget.contentWarn} → ${warn} – nội dung mới phải đủ phiên âm/ví dụ/lời giải (xem docs/CONTENT-RULES.md)`);
 if (process.argv.includes('--update') || (warn >= 0 && warn < budget.contentWarn)) { if (warn >= 0) budget.contentWarn = warn; fs.writeFileSync(B, JSON.stringify(budget, null, 2) + '\n'); }
-const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz${routes.length ? ' · gói ' + routes.join(', ') : ''} · giới thiệu ≤ ${kb(landMax)}/${kb(LAND_GZ)} gz · người học ${(total / 1048576).toFixed(2)}/${(budget.totalJs / 1048576).toFixed(2)} MB (nền+${LB.topLang}, còn ${kb(free)}) · cả kho ${(LB.total / 1048576).toFixed(1)} MB · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
+const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz${routes.length ? ' · gói ' + routes.join(', ') : ''} · giới thiệu ≤ ${kb(landMax)}/${kb(LAND_GZ)} gz · người học ${(total / 1048576).toFixed(2)}/${(budget.totalJs / 1048576).toFixed(2)} MB (nền+${LB.topLang}, còn ${kb(free)}) · gói nội dung ${(cpackRaw / 1048576).toFixed(2)} MB · cả kho ${(LB.total / 1048576).toFixed(1)} MB · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
 if (errs.length) { console.error('✗ size-budget: ' + line + '\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log('✓ size-budget: ' + line);

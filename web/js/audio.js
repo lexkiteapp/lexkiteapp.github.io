@@ -50,14 +50,22 @@
 
   // Mở khóa (iOS Safari/WebKit): AudioContext + WAV im lặng 1 mẫu (data: có trong CSP media-src)
   const SILENT = 'data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQIAAAAAAA==';
-  let ctx = null, unlocked = false;
+  let ctx = null, unlocked = false, rr = 0; const POOL_N = 4, pool = [];
+  function borrow() {
+    for (let i = pool.length - 1; i >= 0; i--) if (pool[i]._lkWA) pool.splice(i, 1);
+    if (!pool.length) return new Audio();
+    let a = pool.find(x => x.paused && x !== cur) || pool[rr++ % pool.length];
+    try { a._lkPrime = 0; a.onplaying = a.onended = a.onerror = a.onpause = a.ontimeupdate = null; a.pause(); a._lkDone = 0; a.volume = 1; a.muted = false; a.playbackRate = 1; a.removeAttribute('crossorigin'); delete a.dataset.lkMix; } catch (e) { a = new Audio(); }
+    return a;
+  }
+  function blocked(where) { stats.blocked = (stats.blocked || 0) + 1; note('blocked', where || ''); try { g.dispatchEvent(new CustomEvent('lk-audio-blocked', { detail: { where } })); } catch (e) { /* bỏ qua */ } }
   function unlock() {
     if (unlocked) return true;
     try {
       const AC = g.AudioContext || g.webkitAudioContext;
       if (AC) { ctx = ctx || new AC(); if (ctx.state === 'suspended' && ctx.resume) ctx.resume().catch(() => {}); const b = ctx.createBuffer(1, 1, 22050), s = ctx.createBufferSource(); s.buffer = b; s.connect(ctx.destination); (s.start || s.noteOn).call(s, 0); }
     } catch (e) { /* bỏ qua */ }
-    try { const a = new Audio(SILENT); a.dataset.lkMix = '1'; a.muted = false; a.volume = 0; const p = a.play(); if (p && p.catch) p.catch(() => {}); } catch (e) { /* bỏ qua */ }
+    for (let i = 0; i < POOL_N; i++) { try { const a = new Audio(); a.preload = 'auto'; a.src = SILENT; a.volume = 0; const p = a.play(); a._lkPrime = 1; if (p && p.then) p.then(() => { if (a._lkPrime) { a.pause(); a.volume = 1; } }, () => { if (a._lkPrime) a.volume = 1; }); pool.push(a); } catch (e) { /* bỏ qua */ } }
     try { if ('speechSynthesis' in g && /iP(hone|ad|od)|Macintosh.*Mobile|Safari/.test(navigator.userAgent) && !/Chrome|Android/.test(navigator.userAgent)) { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } } catch (e) { /* Safari: giọng máy cũng cần 1 lần nói trong cử chỉ người dùng */ }
     unlocked = true; stats.unlocked = Date.now();
     ['pointerdown', 'touchend', 'keydown', 'click'].forEach(t => g.removeEventListener(t, unlock, true));
@@ -89,7 +97,7 @@
     const tryAt = i => {
       if (my !== seq) return;
       if (i >= urls.length) return fail('all');
-      const el = h.el = new Audio(); let ok = false, timer = 0;
+      const el = h.el = borrow(); let ok = false, timer = 0;
       const next = why => { if (ok || el._lkDone) return; el._lkDone = 1; clearTimeout(timer); el.onerror = el.onended = null; try { el.pause(); el.removeAttribute('src'); el.load(); } catch (e) { /* bỏ qua */ } if (why === 'timeout') note('timeout', urls[i]); if (o.onBase) o.onBase(i, why); if (i + 1 < urls.length) note('cdn', why + ' ' + urls[i]); tryAt(i + 1); };
       el.preload = 'auto'; el.preservesPitch = true; if (o.cross) el.crossOrigin = 'anonymous'; el.src = urls[i]; if (o.onEl) o.onEl(el); el.playbackRate = o.rate || 1; // cross: Web Audio đo tiếng (mặt vẽ live) · onEl: mặt vẽ bám phần tử đang thử
       el.onerror = () => next('error');
@@ -98,7 +106,7 @@
       timer = setTimeout(() => next('timeout'), o.timeout || TIMEOUT);
       try {
         const p = el.play();
-        if (p && p.catch) p.catch(err => { if (ok || el._lkDone) return; if (err && err.name === 'NotAllowedError') { el._lkDone = 1; clearTimeout(timer); return fail('blocked'); } if (err && err.name === 'AbortError') return; /* bị giọng khác dừng – không thử gốc khác */ next('reject'); });
+        if (p && p.catch) p.catch(err => { if (ok || el._lkDone) return; if (err && err.name === 'NotAllowedError') { el._lkDone = 1; clearTimeout(timer); blocked('play'); return fail('blocked'); } if (err && err.name === 'AbortError') return; /* bị giọng khác dừng – không thử gốc khác */ next('reject'); });
       } catch (e) { next('throw'); }
     };
     tryAt(0);
@@ -133,6 +141,6 @@
   g.addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && flushVo());
   g.addEventListener('pagehide', flushVo);
   if (offOn()) setTimeout(() => call('resume'), 15000); // lần trước chưa tải xong → tiếp tục âm thầm
-  Object.assign(api, { flushVo, unlock, play, preload, isVoice, offline, silent: SILENT, isUnlocked: () => unlocked });
+  Object.assign(api, { flushVo, unlock, play, preload, isVoice, offline, silent: SILENT, isUnlocked: () => unlocked, el: borrow, blocked, poolSize: () => pool.length });
   g.LKAudio = api;
 })(typeof self !== 'undefined' ? self : globalThis);

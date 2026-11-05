@@ -344,7 +344,7 @@
       audioSrc(url).then(src => {
         if (my !== speakSeq) return; // người dùng đã bấm nghe từ khác
         try {
-          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1; if (on) audioEl.onplaying = () => on(1);
+          audioEl = g.LKAudio && LKAudio.el ? LKAudio.el() : new Audio(); audioEl.src = src; audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1; if (on) audioEl.onplaying = () => on(1);
           if (src.startsWith('blob:')) audioEl.onended = () => URL.revokeObjectURL(src);
           audioEl.play().catch(fb);
         } catch (e) { fb(); }
