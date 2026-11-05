@@ -119,7 +119,7 @@ s = z(1.12, ox, hx1, cap0, 12); print(json.dumps(dict(s=s, edge=ox + (hx1 - ox) 
   const h = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/rig_host.mjs'), 'utf8'), rg = fs.readFileSync(path.join(ROOT, 'web/js/teacher-rig.js'), 'utf8');
   ok(/gesture\(name\) \{[^\n]*ready\.then\(\(\) => \(G && G\.kind === 'pose' \? loadPose\([^\n]*\.then\(\(\) => !dead && M\.gesture\(/.test(rg), 'teacher-rig gesture() applies a pose only after loadPose resolved (rig_host relies on it)');
   ok(/else await page\.evaluate\(n => rig\.gesture\(n\), e\.name\)/.test(h), 'rig_host awaits rig.gesture (the still is loaded before the next frame)');
-  ok(/await page\.clock\.pauseAt\(2 \* BASE - base\)/.test(h) && /Math\.abs\(base - BASE\) > 1e-6\) die/.test(h), 'rig_host: every page starts at performance.now() == BASE (timeOrigin cancelled; idle breath is a function of absolute time)');
+  ok(/await page\.clock\.pauseAt\(BASE \/ 2\)/.test(h) && /performance\.now\(\) - Date\.now\(\)/.test(h) && /await page\.clock\.pauseAt\(BASE - off\)/.test(h) && /Math\.abs\(base - BASE\) > 1e-6\) die/.test(h), 'rig_host: every page starts at performance.now() == BASE (timeOrigin cancelled; idle breath is a function of absolute time)');
   ok(!/while \(o\.draws === d0\)/.test(h) && /was never served/.test(h), 'rig_host: no same-instant redraw wait; a pose still that was never served fails loudly');
 }
 const bsrc = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8');

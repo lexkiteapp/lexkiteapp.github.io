@@ -52,10 +52,13 @@ async function open(who) {
   // performance.now() = fake Date - timeOrigin, and timeOrigin = the fake time the page LOADED at (real load time after install, varies per run):
   // pauseAt(BASE) alone left base = BASE - load ms -> idle breath (sin of absolute now) shifted between main and re-run (run 42047456815:
   // "59/60 differ", diag state-drift, breath 3 frames apart). Second pauseAt cancels the origin so every page starts at exactly BASE.
-  await page.clock.pauseAt(BASE);
-  let base = await page.evaluate(() => performance.now());
-  if (base !== BASE) { await page.clock.pauseAt(2 * BASE - base); base = await page.evaluate(() => performance.now()); }
-  if (Math.abs(base - BASE) > 1e-6) die(`page clock base ${base} != ${BASE} after cancelling timeOrigin`);
+  // The offset can be either sign (run 42074451657 short: performance.now() AHEAD of Date -> "Cannot fast-forward to the past"), so measure it
+  // at BASE/2 first, then jump once to the Date that makes performance.now() == BASE (always forward while |offset| < BASE/2 = 300 s).
+  await page.clock.pauseAt(BASE / 2);
+  const off = await page.evaluate(() => performance.now() - Date.now());
+  await page.clock.pauseAt(BASE - off);
+  const base = await page.evaluate(() => performance.now());
+  if (Math.abs(base - BASE) > 1e-6) die(`page clock base ${base} != ${BASE} after cancelling timeOrigin (offset ${off})`);
   return { ctx, page, errs, miss, served, base };
 }
 
