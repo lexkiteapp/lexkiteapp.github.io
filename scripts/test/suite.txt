@@ -95,8 +95,11 @@ node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
+node scripts/test/social-preview.mjs
+node scripts/test/social-admin.mjs
 node scripts/test/social-meta.mjs
 node scripts/test/social-meta-oauth.mjs
+node scripts/test/social-first-comment.mjs
 node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
@@ -141,6 +144,9 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-tabs.mjs
+node scripts/test/admin-gh.mjs
+node scripts/test/admin-metrics.mjs
 node scripts/test/admin-map-colors.mjs
 node scripts/test/ads.mjs
 node scripts/test/ads-admin.mjs
