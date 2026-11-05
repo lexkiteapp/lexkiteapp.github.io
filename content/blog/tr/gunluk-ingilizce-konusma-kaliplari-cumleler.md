@@ -52,7 +52,7 @@ Uygulamalı dilbilim araştırmaları, konuşma akıcılığının kelimeleri te
 2. **Kültürel Nezaket Standartlarını Yakalatır**: Doğrudan "I disagree" demek yerine *« I could be wrong, but perhaps... »* demek sizi çok daha kibar ve profesyonel gösterir.
 3. **Düşünme Payı Kazandırır**: Uygun geçiş ifadeleri, kelime ararken oluşabilecek garip sessizlikleri (*awkward silence*) ustalıkla örter ve konuşmacıya zaman kazandırır.
 
-Konuşma pratiğinizi geliştirmek için [Lexkite konuşma odası modülünü](/#/speaking) kullanabilir ve takıldığınız kelimelerin anlamlarını [akıllı sözlüğümüzden](/#/dict/resilient) teyit edebilirsiniz. Ayrıca [İngilizce kelime ezberleme yöntemleri](/tr/blog/ingilizce-kelime-ezberleme/) ve [IELTS konuşma sınavı taktikleri](/tr/blog/ielts-speaking-part-2-kaliplari-template/) yazılarımızı inceleyebilirsiniz. Tüm kelime listeleri için [kelime kütüphanesi](/tu-vung/) sayfamızı ziyaret edin.
+Konuşma pratiğinizi geliştirmek için [Lexkite konuşma odası modülünü](/#/speaking) kullanabilir ve takıldığınız kelimelerin anlamlarını [akıllı sözlüğümüzden](/#/dict/resilient) teyit edebilirsiniz. Ayrıca [İngilizce kelime ezberleme yöntemleri](/tr/blog/ingilizce-kelime-ezberleme/) ve [IELTS konuşma sınavı taktikleri](/tr/blog/ielts-speaking-part-2-kaliplari-template/) yazılarımızı inceleyebilirsiniz. Tüm kelime listeleri için [kelime kütüphanesi](/en/vocabulary/) sayfamızı ziyaret edin.
 
 ## 1. Doğal Selamlaşma ve Hatır Sorma Kalıpları
 

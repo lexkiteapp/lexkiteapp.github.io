@@ -52,7 +52,7 @@ publishAt: 2026-12-06T08:45:00+09:00
 2. **원어민 특유의 완곡한 뉘앙스 습득**: 서구권 문화에서는 직설적인 비판보다 "I could be wrong, but perhaps..."처럼 조심스럽게 완곡화하는 어법이 필수적인 대화 에티켓입니다.
 3. **돌발 상황 대처 및 침묵 방지**: 적절한 맞장구와 시간 벌기 표현을 알고 있으면 대화 중 어색한 정적(*Awkward Silence*)을 자연스럽게 넘길 수 있습니다.
 
-스피킹 실전 감각을 기르기 위해 [Lexkite 스피킹 실전 연습실](/#/speaking)과 [대화형 단어 검색](/#/dict/resilient)을 적극 활용해 보세요. 또한 [번역 없이 영어로 생각하는 훈련법](/ko/blog/yeongeo-ro-saenggakhagi-beonyeok-eopsi/)과 [영단어 암기 비법 가이드](/ko/blog/yeongdaneo-amgibeop/)도 함께 읽어보시길 권장합니다. 전체 어휘 목록은 [어휘 학습 센터](/tu-vung/)에서 살펴보실 수 있습니다.
+스피킹 실전 감각을 기르기 위해 [Lexkite 스피킹 실전 연습실](/#/speaking)과 [대화형 단어 검색](/#/dict/resilient)을 적극 활용해 보세요. 또한 [번역 없이 영어로 생각하는 훈련법](/ko/blog/yeongeo-ro-saenggakhagi-beonyeok-eopsi/)과 [영단어 암기 비법 가이드](/ko/blog/yeongdaneo-amgibeop/)도 함께 읽어보시길 권장합니다. 전체 어휘 목록은 [어휘 학습 센터](/en/vocabulary/)에서 살펴보실 수 있습니다.
 
 ## 1. 자연스러운 인사와 안부 묻기
 
