@@ -12,6 +12,7 @@ on:
       n: { description: 'Số mục mới (1 lô)', default: '300' }
       dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
       shards: { description: 'Số job song song (1–12; mỗi shard ≤ n mục)', default: '1' }
+      spread: { description: 'Pilot: rải đều ứng viên theo thứ hạng 1…R (vd 12000 ≈ A1–C1); trống = lấy theo thứ hạng', default: '' }
   pull_request:
     paths: ['scripts/target/**', 'content/target/**', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
 permissions: { contents: read, id-token: write }   # chỉ đọc repo (lô ra artifact); id-token: JWT OIDC cho /api/lexai
@@ -81,7 +82,7 @@ jobs:
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
-        run: node scripts/target/gen.mjs --tl "$TL" --n ${{ github.event.inputs.n || 300 }} --shard "${{ matrix.k }}/$SHARDS" ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
+        run: node scripts/target/gen.mjs --tl "$TL" --n ${{ github.event.inputs.n || 300 }} --shard "${{ matrix.k }}/$SHARDS" ${{ github.event.inputs.spread && format('--spread {0}', github.event.inputs.spread) || '' }} ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
       - name: IPA espeak-ng theo bảng (ghi đè IPA người soạn, lệch → qa.ipaAi)
         if: ${{ github.event.inputs.dry != '1' }}
         run: |

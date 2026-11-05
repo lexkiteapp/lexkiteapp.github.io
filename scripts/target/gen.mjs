@@ -13,7 +13,7 @@ import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile
 import { TL_GEN } from './tl-gen.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-const TL = arg('tl', 'pt'), N = +arg('n', 300), DRY = process.argv.includes('--dry'), BATCH = 10;
+const TL = arg('tl', 'pt'), N = +arg('n', 300), DRY = process.argv.includes('--dry'), BATCH = 10, SPREAD = +arg('spread', 0);
 if (!process.env.CI && !DRY) { console.error('Chỉ chạy trên CI (target-content.yml)'); process.exit(75); }
 const G = TL_GEN[TL]; if (!G) { console.error(`✗ tl "${TL}" chưa có dòng trong scripts/target/tl-gen.mjs`); process.exit(2); }
 export const SOURCE = G.source;
@@ -35,7 +35,7 @@ const prev = coreFiles(TL).flatMap(f => readJSON(f).words); // lô trước: ch�
 const have = new Set([...seed, ...prev.map(w => w.word.toLowerCase())]);
 // dạng đã từng bị loại/đã quy về lemma có trong report các lô trước → không gửi lại (tiết kiệm hạn mức ai-pool)
 const tried = new Set(coreFiles(TL).flatMap(f => { const rf = f.replace(/\.json$/, '.report.json'); return fs.existsSync(rf) ? (readJSON(rf).tried || []) : []; }));
-const cand = txt.split('\n').map((l, i) => ({ form: l.split(' ')[0], rank: i + 1 })).filter(x => /^\p{L}+$/u.test(x.form || '') && (x.form.length > 1 || G.one.test(x.form)) && !have.has(x.form.toLowerCase()) && !tried.has(x.form.toLowerCase())).filter((x, i) => i % SN === SK).slice(0, N * 6); // ×6: nhiều dạng chia quy về cùng lemma
+const cand = txt.split('\n').map((l, i) => ({ form: l.split(' ')[0], rank: i + 1 })).filter(x => /^\p{L}+$/u.test(x.form || '') && (x.form.length > 1 || G.one.test(x.form)) && !have.has(x.form.toLowerCase()) && !tried.has(x.form.toLowerCase())).filter(x => !SPREAD || x.rank <= SPREAD).filter((x, i, A) => !SPREAD || i % Math.max(1, Math.floor(A.length / (N * SN * 6))) === 0).filter((x, i) => i % SN === SK).slice(0, N * 6); // ×6: nhiều dạng chia quy về cùng lemma · --spread R: rải đều thứ hạng 1…R (pilot A1–C1)
 console.log(`ứng viên ${cand.length} (đã có ${have.size}) – nguồn ${SOURCE.name}`);
 if (DRY) { console.log(cand.slice(0, 40).map(x => x.rank + ':' + x.form).join(' ')); process.exit(cand.length ? 0 : 1); }
 
