@@ -1,0 +1,884 @@
+{
+ "id": "phone-plan",
+ "group": "services",
+ "cefr": "B1",
+ "title": {
+  "en": "Choosing a phone plan",
+  "vi": "Chọn gói điện thoại",
+  "es": "Elegir un plan de móvil",
+  "pt": "Escolher um plano de celular",
+  "fr": "Choisir un forfait mobile",
+  "de": "Handytarif wählen",
+  "id": "Memilih paket telepon",
+  "th": "เลือกแพ็กเกจมือถือ",
+  "zh": "选择手机套餐",
+  "ja": "携帯プランを選ぶ",
+  "ko": "휴대폰 요금제 고르기",
+  "hi": "फ़ोन प्लान चुनना",
+  "ar": "اختيار باقة الهاتف",
+  "ru": "Выбор тарифа для телефона",
+  "tr": "Telefon tarifesi seçmek"
+ },
+ "goal": {
+  "en": "Pick the right plan for you!",
+  "vi": "Chọn gói phù hợp với bạn!",
+  "es": "¡Elige el plan que más te convenga!",
+  "pt": "Escolha o plano certo para você!",
+  "fr": "Choisissez le forfait qui vous convient !",
+  "de": "Wähle den passenden Tarif für dich!",
+  "id": "Pilih paket yang cocok untukmu!",
+  "th": "เลือกแพ็กเกจที่เหมาะกับคุณ!",
+  "zh": "选出最适合你的套餐！",
+  "ja": "自分に合ったプランを選ぼう！",
+  "ko": "나에게 맞는 요금제를 골라요!",
+  "hi": "अपने लिए सही प्लान चुनें!",
+  "ar": "اختر الباقة المناسبة لك!",
+  "ru": "Выбери подходящий тариф!",
+  "tr": "Sana uygun tarifeyi seç!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "needs",
+   "title": {
+    "en": "Your needs",
+    "vi": "Nhu cầu của bạn",
+    "es": "Lo que necesitas",
+    "pt": "O que você precisa",
+    "fr": "Vos besoins",
+    "de": "Dein Bedarf",
+    "id": "Kebutuhanmu",
+    "th": "ความต้องการของคุณ",
+    "zh": "你的需求",
+    "ja": "必要なこと",
+    "ko": "필요한 것",
+    "hi": "आपकी ज़रूरतें",
+    "ar": "احتياجاتك",
+    "ru": "Ваши потребности",
+    "tr": "İhtiyaçların"
+   },
+   "lines": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+   ]
+  },
+  {
+   "id": "details",
+   "title": {
+    "en": "Contract & costs",
+    "vi": "Hợp đồng & chi phí",
+    "es": "Contrato y costes",
+    "pt": "Contrato e custos",
+    "fr": "Contrat et coûts",
+    "de": "Vertrag & Kosten",
+    "id": "Kontrak & biaya",
+    "th": "สัญญาและค่าใช้จ่าย",
+    "zh": "合约与费用",
+    "ja": "契約と料金",
+    "ko": "계약과 비용",
+    "hi": "अनुबंध और ख़र्च",
+    "ar": "العقد والتكاليف",
+    "ru": "Контракт и расходы",
+    "tr": "Sözleşme ve ücretler"
+   },
+   "lines": [
+    "p5",
+    "p6",
+    "p7",
+    "p8"
+   ]
+  },
+  {
+   "id": "decide",
+   "title": {
+    "en": "Decide",
+    "vi": "Quyết định",
+    "es": "Decidir",
+    "pt": "Decidir",
+    "fr": "Décider",
+    "de": "Entscheiden",
+    "id": "Memutuskan",
+    "th": "ตัดสินใจ",
+    "zh": "做决定",
+    "ja": "決める",
+    "ko": "결정하기",
+    "hi": "फ़ैसला करें",
+    "ar": "اتخاذ القرار",
+    "ru": "Решение",
+    "tr": "Karar ver"
+   },
+   "lines": [
+    "p9",
+    "p10",
+    "p11",
+    "p12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "p1",
+   "who": "customer",
+   "en": "Hi, I'm looking for a new phone plan.",
+   "variants": {
+    "polite": "Hello, I'm looking for a new phone plan. Could you help me?",
+    "casual": "Hi, I need a new phone plan."
+   },
+   "gloss": {
+    "en": "Telling the shop assistant you want a new phone plan.",
+    "vi": "Nói với nhân viên rằng bạn cần một gói điện thoại mới.",
+    "es": "Hola, busco un plan de móvil nuevo.",
+    "pt": "Olá, estou procurando um plano de celular novo.",
+    "fr": "Bonjour, je cherche un nouveau forfait mobile.",
+    "de": "Hallo, ich suche einen neuen Handytarif.",
+    "id": "Halo, saya sedang mencari paket telepon baru.",
+    "th": "สวัสดีค่ะ กำลังหาแพ็กเกจมือถือใหม่อยู่ค่ะ",
+    "zh": "你好，我想办一个新的手机套餐。",
+    "ja": "こんにちは、新しい携帯プランを探しています。",
+    "ko": "안녕하세요, 새 휴대폰 요금제를 찾고 있어요.",
+    "hi": "नमस्ते, मैं एक नया फ़ोन प्लान ढूँढ रहा/रही हूँ।",
+    "ar": "مرحبًا، أبحث عن باقة هاتف جديدة.",
+    "ru": "Здравствуйте, я ищу новый тариф для телефона.",
+    "tr": "Merhaba, yeni bir telefon tarifesi arıyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p2",
+   "who": "barista",
+   "en": "Sure. How much data do you usually use each month?",
+   "variants": {
+    "polite": "Of course. Roughly how much data do you use in a month?",
+    "casual": "Sure. How much data do you use?"
+   },
+   "gloss": {
+    "en": "The assistant asks how much mobile data you use.",
+    "vi": "Nhân viên hỏi bạn dùng bao nhiêu dung lượng dữ liệu.",
+    "es": "Claro. ¿Cuántos datos suele usar al mes?",
+    "pt": "Claro. Quantos dados você costuma usar por mês?",
+    "fr": "Bien sûr. Vous consommez combien de data par mois ?",
+    "de": "Gern. Wie viel Datenvolumen verbrauchen Sie normalerweise pro Monat?",
+    "id": "Tentu. Biasanya berapa banyak data yang Anda pakai tiap bulan?",
+    "th": "ได้ค่ะ ปกติใช้อินเทอร์เน็ตเดือนละประมาณเท่าไรคะ",
+    "zh": "好的。您平时每个月大概用多少流量？",
+    "ja": "かしこまりました。普段、月にどのくらいデータを使いますか？",
+    "ko": "네. 보통 한 달에 데이터를 얼마나 쓰세요?",
+    "hi": "ज़रूर। आप हर महीने आमतौर पर कितना डेटा इस्तेमाल करते हैं?",
+    "ar": "بالتأكيد. كم تستخدم من البيانات عادةً في الشهر؟",
+    "ru": "Конечно. Сколько трафика вы обычно расходуете в месяц?",
+    "tr": "Tabii. Genelde ayda ne kadar internet kullanıyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "data",
+     "ipa": "/ˈdeɪ.tə/",
+     "hi": "DAY",
+     "note": {
+      "en": "Say DAY-tuh (some speakers say DAH-tuh), not “dat”.",
+      "vi": "Đọc ĐÂY-tờ (có người đọc ĐA-tờ), không phải “đát”.",
+      "es": "Di DEI-ta (algunos dicen DA-ta), no “dat”.",
+      "pt": "Diga DEI-ta (alguns dizem DA-ta), não “dat”.",
+      "fr": "Dites DEÏ-ta (certains disent DA-ta), pas « dat ».",
+      "de": "Sprich DEI-ta (manche sagen DA-ta), nicht „dat“.",
+      "id": "Ucapkan DEI-ta (sebagian orang DA-ta), bukan “dat”.",
+      "th": "ออกเสียง เด-ทา (บางคนพูด ดา-ทา) ไม่ใช่ “แดท”",
+      "zh": "读作 DAY-tuh（也有人读 DAH-tuh），不是 “dat”。",
+      "ja": "「デイタ」（「ダータ」と言う人もいます）。「ダット」ではありません。",
+      "ko": "‘데이-터’(‘다-터’라고도 해요)라고 읽어요. ‘닷’이 아니에요.",
+      "hi": "“डे-टा” बोलें (कुछ लोग “डा-टा” कहते हैं), “डैट” नहीं।",
+      "ar": "انطق ديـ-تا (وبعضهم يقول دا-تا)، وليس “دات”.",
+      "ru": "Произносите ДЭЙ-тэ (иногда ДА-тэ), а не «дат».",
+      "tr": "DEY-ta diye okunur (bazıları DA-ta der), “dat” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "who": "customer",
+   "en": "I stream a lot of videos, so I need at least 50 gigabytes.",
+   "variants": {
+    "polite": "I watch a lot of videos on my phone, so I'd need at least 50 gigabytes.",
+    "casual": "I watch lots of videos, so about 50 gigs."
+   },
+   "gloss": {
+    "en": "Saying you watch lots of videos and need plenty of data.",
+    "vi": "Nói bạn xem nhiều video nên cần ít nhất 50 GB.",
+    "es": "Veo muchos vídeos, así que necesito al menos 50 gigas.",
+    "pt": "Assisto a muitos vídeos, então preciso de pelo menos 50 gigas.",
+    "fr": "Je regarde beaucoup de vidéos, donc il me faut au moins 50 gigas.",
+    "de": "Ich streame viele Videos und brauche daher mindestens 50 Gigabyte.",
+    "id": "Saya sering menonton video, jadi butuh minimal 50 gigabita.",
+    "th": "ดูวิดีโอเยอะมาก เลยต้องการอย่างน้อย 50 กิกะไบต์ค่ะ",
+    "zh": "我经常看视频，所以至少需要50GB。",
+    "ja": "動画をよく見るので、少なくとも50ギガは必要です。",
+    "ko": "영상을 많이 봐서 최소 50기가는 필요해요.",
+    "hi": "मैं बहुत वीडियो देखता/देखती हूँ, इसलिए मुझे कम से कम 50 जीबी चाहिए।",
+    "ar": "أشاهد الكثير من الفيديوهات، لذا أحتاج إلى 50 غيغابايت على الأقل.",
+    "ru": "Я много смотрю видео, поэтому мне нужно не меньше 50 гигабайт.",
+    "tr": "Çok video izliyorum, bu yüzden en az 50 gigabayta ihtiyacım var."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "gigabytes",
+     "ipa": "/ˈɡɪɡ.ə.baɪts/",
+     "hi": "GIG",
+     "note": {
+      "en": "The first g is hard: GIG-uh-bytes, not JIG.",
+      "vi": "Chữ g đầu đọc cứng: GHÍG-ờ-bai, không phải “dzíg”.",
+      "es": "La primera g es fuerte: GUIG-a-bait, no YIG.",
+      "pt": "O primeiro g é duro: GUIG-a-baits, não JIG.",
+      "fr": "Le premier g est dur : GUIG-a-baït, pas DJIG.",
+      "de": "Das erste g ist hart: GIG-a-baits, nicht DSCHIG.",
+      "id": "Huruf g pertama keras: GIG-a-bait, bukan JIG.",
+      "th": "ตัว g แรกออกเสียงแข็ง: กิก-กะ-ไบต์ ไม่ใช่ จิก",
+      "zh": "第一个 g 是硬音：GIG-uh-bytes，不是 JIG。",
+      "ja": "最初のgは濁音：ギガバイツ。ジガではありません。",
+      "ko": "첫 g는 ‘ㄱ’ 소리예요: 기가-바이츠, ‘지’가 아니에요.",
+      "hi": "पहला g कठोर है: गिग-ए-बाइट्स, “जिग” नहीं।",
+      "ar": "حرف g الأول قوي: قيق-ا-بايتس، وليس جيج.",
+      "ru": "Первое g твёрдое: ГИГ-а-байтс, а не ДЖИГ.",
+      "tr": "İlk g sert okunur: GİG-a-bayts, “CİG” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "who": "barista",
+   "en": "Then I'd recommend our unlimited plan. It's thirty dollars a month.",
+   "variants": {
+    "polite": "In that case, I'd recommend our unlimited plan at thirty dollars a month.",
+    "casual": "Then try our unlimited plan. It's thirty a month."
+   },
+   "gloss": {
+    "en": "The assistant recommends an unlimited-data plan and gives the price.",
+    "vi": "Nhân viên giới thiệu gói không giới hạn và nói giá.",
+    "es": "Entonces le recomiendo nuestro plan ilimitado. Cuesta treinta dólares al mes.",
+    "pt": "Então recomendo o nosso plano ilimitado. Custa trinta dólares por mês.",
+    "fr": "Alors je vous conseille notre forfait illimité. Il coûte trente dollars par mois.",
+    "de": "Dann empfehle ich unseren Flatrate-Tarif. Er kostet dreißig Dollar im Monat.",
+    "id": "Kalau begitu, saya sarankan paket tanpa batas kami. Harganya tiga puluh dolar per bulan.",
+    "th": "งั้นขอแนะนำแพ็กเกจไม่จำกัดของเราค่ะ เดือนละสามสิบดอลลาร์",
+    "zh": "那我推荐我们的无限流量套餐，每月三十美元。",
+    "ja": "それでしたら、使い放題プランがおすすめです。月30ドルです。",
+    "ko": "그럼 무제한 요금제를 추천해 드려요. 한 달에 30달러예요.",
+    "hi": "तो मैं हमारा अनलिमिटेड प्लान सुझाऊँगा। यह तीस डॉलर प्रति माह है।",
+    "ar": "إذًا أنصحك بباقتنا غير المحدودة. سعرها ثلاثون دولارًا في الشهر.",
+    "ru": "Тогда рекомендую наш безлимитный тариф. Он стоит тридцать долларов в месяц.",
+    "tr": "O zaman sınırsız tarifemizi öneririm. Ayda otuz dolar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "unlimited",
+     "ipa": "/ʌnˈlɪm.ɪ.tɪd/",
+     "hi": "LIM",
+     "note": {
+      "en": "Stress the second syllable: un-LIM-i-tid.",
+      "vi": "Nhấn âm tiết thứ hai: ăn-LIM-i-tịt.",
+      "es": "Acentúa la segunda sílaba: an-LIM-i-tid.",
+      "pt": "Acentue a segunda sílaba: an-LIM-i-tid.",
+      "fr": "Accentuez la deuxième syllabe : eun-LIM-i-tid.",
+      "de": "Betone die zweite Silbe: an-LIM-i-tid.",
+      "id": "Tekankan suku kata kedua: an-LIM-i-tid.",
+      "th": "เน้นพยางค์ที่สอง: อัน-ลิม-มิ-ทิด",
+      "zh": "重音在第二个音节：un-LIM-i-tid。",
+      "ja": "2番目を強く：アン・リミ・ティッド。",
+      "ko": "두 번째 음절에 강세: 언-리미-티드.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अन-लिम-इ-टिड।",
+      "ar": "شدّد على المقطع الثاني: أن-ليم-ي-تد.",
+      "ru": "Ударение на второй слог: ан-ЛИМ-и-тид.",
+      "tr": "Vurgu ikinci hecede: an-LİM-i-tid."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p5",
+   "who": "customer",
+   "en": "Is there a contract, or can I cancel at any time?",
+   "variants": {
+    "polite": "Could you tell me whether there's a contract, or can I cancel at any time?",
+    "casual": "Is there a contract? Can I cancel anytime?"
+   },
+   "gloss": {
+    "en": "Asking if you are locked into a contract.",
+    "vi": "Hỏi xem có bị ràng buộc hợp đồng không.",
+    "es": "¿Hay contrato o puedo cancelar cuando quiera?",
+    "pt": "Há contrato ou posso cancelar a qualquer momento?",
+    "fr": "Y a-t-il un engagement, ou puis-je résilier à tout moment ?",
+    "de": "Gibt es eine Vertragsbindung, oder kann ich jederzeit kündigen?",
+    "id": "Apakah ada kontrak, atau bisa berhenti kapan saja?",
+    "th": "มีสัญญาผูกมัดไหมคะ หรือยกเลิกเมื่อไรก็ได้คะ",
+    "zh": "有合约吗？还是可以随时取消？",
+    "ja": "契約期間はありますか？それともいつでも解約できますか？",
+    "ko": "약정이 있나요, 아니면 언제든 해지할 수 있나요?",
+    "hi": "क्या कोई अनुबंध है, या मैं कभी भी रद्द कर सकता/सकती हूँ?",
+    "ar": "هل هناك عقد، أم يمكنني الإلغاء في أي وقت؟",
+    "ru": "Есть ли контракт, или можно отказаться в любой момент?",
+    "tr": "Sözleşme var mı, yoksa istediğim zaman iptal edebilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p6",
+   "who": "barista",
+   "en": "It's a twelve-month contract, but you can switch plans after six months.",
+   "variants": {
+    "polite": "It's a twelve-month contract, although you're free to switch plans after six months.",
+    "casual": "It's twelve months, but you can switch after six."
+   },
+   "gloss": {
+    "en": "The assistant explains the contract length and when you can change plans.",
+    "vi": "Nhân viên nói thời hạn hợp đồng và khi nào được đổi gói.",
+    "es": "Es un contrato de doce meses, pero puede cambiar de plan a los seis.",
+    "pt": "É um contrato de doze meses, mas você pode trocar de plano após seis.",
+    "fr": "C'est un contrat de douze mois, mais vous pouvez changer de forfait après six mois.",
+    "de": "Es ist ein Zwölfmonatsvertrag, aber nach sechs Monaten können Sie den Tarif wechseln.",
+    "id": "Kontraknya dua belas bulan, tetapi Anda boleh ganti paket setelah enam bulan.",
+    "th": "เป็นสัญญา 12 เดือนค่ะ แต่เปลี่ยนแพ็กเกจได้หลังจากหกเดือน",
+    "zh": "合约期是十二个月，但六个月后可以更换套餐。",
+    "ja": "12か月契約ですが、6か月後にプラン変更もできます。",
+    "ko": "12개월 약정이지만 6개월 뒤에는 요금제를 바꿀 수 있어요.",
+    "hi": "यह बारह महीने का अनुबंध है, लेकिन आप छह महीने बाद प्लान बदल सकते हैं।",
+    "ar": "العقد لمدة اثني عشر شهرًا، لكن يمكنك تغيير الباقة بعد ستة أشهر.",
+    "ru": "Контракт на двенадцать месяцев, но через шесть месяцев тариф можно сменить.",
+    "tr": "On iki aylık sözleşme, ama altı ay sonra tarife değiştirebilirsiniz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p7",
+   "who": "customer",
+   "en": "Does that price include calls and texts abroad?",
+   "variants": {
+    "polite": "Does that price include calls and texts when I'm abroad?",
+    "casual": "Is calling abroad included?"
+   },
+   "gloss": {
+    "en": "Asking whether using your phone overseas is covered.",
+    "vi": "Hỏi giá đó đã gồm gọi và nhắn tin ở nước ngoài chưa.",
+    "es": "¿Ese precio incluye llamadas y mensajes en el extranjero?",
+    "pt": "Esse preço inclui chamadas e mensagens no exterior?",
+    "fr": "Ce prix inclut-il les appels et SMS à l'étranger ?",
+    "de": "Sind in dem Preis Anrufe und SMS im Ausland enthalten?",
+    "id": "Apakah harga itu sudah termasuk telepon dan SMS di luar negeri?",
+    "th": "ราคานี้รวมโทรและส่งข้อความต่างประเทศไหมคะ",
+    "zh": "这个价格包含国外的通话和短信吗？",
+    "ja": "その料金には海外での通話とSMSは含まれていますか？",
+    "ko": "그 가격에 해외 통화와 문자도 포함돼 있나요?",
+    "hi": "क्या इस कीमत में विदेश में कॉल और टेक्स्ट शामिल हैं?",
+    "ar": "هل يشمل هذا السعر المكالمات والرسائل في الخارج؟",
+    "ru": "Входят ли в эту цену звонки и SMS за границей?",
+    "tr": "Bu fiyata yurt dışındaki aramalar ve mesajlar dahil mi?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "abroad",
+     "ipa": "/əˈbrɔːd/",
+     "hi": "BRAWD",
+     "note": {
+      "en": "Stress the second syllable: uh-BRAWD.",
+      "vi": "Nhấn âm tiết thứ hai: ơ-BRÔD.",
+      "es": "Acentúa la segunda sílaba: a-BROD.",
+      "pt": "Acentue a segunda sílaba: a-BRÓD.",
+      "fr": "Accentuez la deuxième syllabe : eu-BROD.",
+      "de": "Betone die zweite Silbe: ə-BROD.",
+      "id": "Tekankan suku kata kedua: e-BROD.",
+      "th": "เน้นพยางค์ที่สอง: อะ-บรอด",
+      "zh": "重音在第二个音节：uh-BRAWD。",
+      "ja": "2番目を強く：ア・ブロード。",
+      "ko": "두 번째 음절에 강세: 어-브로드.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अ-ब्रॉड।",
+      "ar": "شدّد على المقطع الثاني: ـبرود.",
+      "ru": "Ударение на второй слог: э-БРОД.",
+      "tr": "Vurgu ikinci hecede: ı-BROD."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p8",
+   "who": "barista",
+   "en": "Calls are included in Europe, but not elsewhere. Roaming costs extra.",
+   "variants": {
+    "polite": "Calls are included in Europe, but roaming elsewhere costs extra.",
+    "casual": "Europe's included. Elsewhere, roaming costs extra."
+   },
+   "gloss": {
+    "en": "The assistant says where calls are covered and that roaming costs more.",
+    "vi": "Nhân viên nói gọi ở châu Âu đã gồm, nơi khác dùng chuyển vùng sẽ mất thêm.",
+    "es": "Las llamadas están incluidas en Europa, pero no en otros sitios. El roaming cuesta aparte.",
+    "pt": "As chamadas estão incluídas na Europa, mas não em outros lugares. O roaming é cobrado à parte.",
+    "fr": "Les appels sont inclus en Europe, mais pas ailleurs. L'itinérance coûte en plus.",
+    "de": "Anrufe sind in Europa inklusive, anderswo nicht. Roaming kostet extra.",
+    "id": "Telepon sudah termasuk di Eropa, tetapi tidak di tempat lain. Roaming dikenai biaya tambahan.",
+    "th": "โทรในยุโรปรวมในแพ็กเกจแล้ว แต่ที่อื่นไม่รวมค่ะ โรมมิ่งมีค่าใช้จ่ายเพิ่ม",
+    "zh": "欧洲境内通话包含在内，其他地区不包含。漫游需另外收费。",
+    "ja": "ヨーロッパ内の通話は含まれますが、他の地域は含まれません。ローミングは別料金です。",
+    "ko": "유럽에서는 통화가 포함되지만 다른 지역은 아니에요. 로밍은 추가 요금이 들어요.",
+    "hi": "यूरोप में कॉल शामिल हैं, लेकिन कहीं और नहीं। रोमिंग का ख़र्च अलग से लगता है।",
+    "ar": "المكالمات مشمولة في أوروبا، لكن ليس في أماكن أخرى. والتجوال يكلّف إضافيًا.",
+    "ru": "Звонки в Европе включены, в других регионах — нет. Роуминг оплачивается отдельно.",
+    "tr": "Avrupa'da aramalar dahil, başka yerlerde değil. Dolaşım ek ücrete tabi."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p9",
+   "who": "customer",
+   "en": "That's more than I wanted to pay. Do you have anything cheaper?",
+   "variants": {
+    "polite": "That's a little more than I wanted to pay. Do you have anything cheaper?",
+    "casual": "That's too much for me. Anything cheaper?"
+   },
+   "gloss": {
+    "en": "Politely saying the price is too high and asking for a cheaper option.",
+    "vi": "Lịch sự nói giá hơi cao và hỏi có gói rẻ hơn không.",
+    "es": "Es más de lo que quería pagar. ¿Tiene algo más barato?",
+    "pt": "É mais do que eu queria pagar. Tem algo mais barato?",
+    "fr": "C'est plus que ce que je voulais payer. Vous avez moins cher ?",
+    "de": "Das ist mehr, als ich zahlen wollte. Haben Sie etwas Günstigeres?",
+    "id": "Itu lebih dari yang ingin saya bayar. Ada yang lebih murah?",
+    "th": "แพงกว่าที่ตั้งใจไว้นิดหน่อยค่ะ มีแพ็กเกจที่ถูกกว่านี้ไหมคะ",
+    "zh": "这比我预想的贵。有便宜一点的吗？",
+    "ja": "予算より少し高いですね。もっと安いものはありますか？",
+    "ko": "생각했던 것보다 비싸네요. 더 저렴한 건 없나요?",
+    "hi": "यह मेरे बजट से ज़्यादा है। क्या कोई सस्ता प्लान है?",
+    "ar": "هذا أكثر مما أردت دفعه. هل لديكم شيء أرخص؟",
+    "ru": "Это дороже, чем я хотел платить. Есть что-нибудь подешевле?",
+    "tr": "Bu ödemek istediğimden fazla. Daha ucuz bir şey var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p10",
+   "who": "barista",
+   "en": "There's a twenty-dollar plan with twenty gigabytes. Would that suit you?",
+   "variants": {
+    "polite": "We have a twenty-dollar plan with twenty gigabytes. Would that suit you?",
+    "casual": "There's a twenty-dollar one with twenty gigs. Okay?"
+   },
+   "gloss": {
+    "en": "The assistant offers a cheaper plan with less data.",
+    "vi": "Nhân viên đề xuất gói rẻ hơn với ít dung lượng hơn.",
+    "es": "Hay un plan de veinte dólares con veinte gigas. ¿Le iría bien?",
+    "pt": "Temos um plano de vinte dólares com vinte gigas. Serviria para você?",
+    "fr": "Il y a un forfait à vingt dollars avec vingt gigas. Ça vous irait ?",
+    "de": "Es gibt einen Tarif für zwanzig Dollar mit zwanzig Gigabyte. Würde der passen?",
+    "id": "Ada paket dua puluh dolar dengan dua puluh gigabita. Apakah cocok?",
+    "th": "มีแพ็กเกจยี่สิบดอลลาร์ ได้ยี่สิบกิกะไบต์ค่ะ แบบนี้เหมาะไหมคะ",
+    "zh": "有一个二十美元、含20GB的套餐，适合您吗？",
+    "ja": "20ドルで20ギガのプランがあります。いかがでしょうか？",
+    "ko": "20달러에 20기가짜리 요금제가 있어요. 괜찮으세요?",
+    "hi": "बीस डॉलर का एक प्लान है जिसमें बीस जीबी मिलते हैं। क्या यह आपके लिए ठीक रहेगा?",
+    "ar": "لدينا باقة بعشرين دولارًا مع عشرين غيغابايت. هل تناسبك؟",
+    "ru": "Есть тариф за двадцать долларов с двадцатью гигабайтами. Вам подойдёт?",
+    "tr": "Yirmi dolara yirmi gigabaytlık bir tarife var. Size uyar mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p11",
+   "who": "customer",
+   "en": "That sounds better. What do I need to bring to sign up?",
+   "variants": {
+    "polite": "That sounds better. What would I need to bring to sign up?",
+    "casual": "Sounds good. What do I need to sign up?"
+   },
+   "gloss": {
+    "en": "Showing interest and asking what is needed to sign up.",
+    "vi": "Tỏ ý đồng tình và hỏi cần mang gì để đăng ký.",
+    "es": "Eso suena mejor. ¿Qué necesito traer para contratarlo?",
+    "pt": "Parece melhor. O que preciso levar para contratar?",
+    "fr": "Ça me semble mieux. Qu'est-ce que je dois apporter pour souscrire ?",
+    "de": "Das klingt besser. Was muss ich zum Abschluss mitbringen?",
+    "id": "Kedengarannya lebih baik. Apa yang perlu saya bawa untuk mendaftar?",
+    "th": "ฟังดีกว่าเยอะเลยค่ะ ต้องเตรียมอะไรมาสมัครบ้างคะ",
+    "zh": "听起来不错。办理需要带什么？",
+    "ja": "その方がよさそうです。申し込みには何を持ってくればいいですか？",
+    "ko": "그게 더 좋겠네요. 가입하려면 뭘 가져와야 하나요?",
+    "hi": "यह बेहतर लग रहा है। साइन अप के लिए मुझे क्या लाना होगा?",
+    "ar": "هذا يبدو أفضل. ماذا أحتاج أن أحضر للاشتراك؟",
+    "ru": "Это лучше. Что мне нужно принести для оформления?",
+    "tr": "Bu daha iyi görünüyor. Kayıt için yanımda ne getirmem gerekiyor?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p12",
+   "who": "customer",
+   "en": "Great. Could I keep my current number when I switch?",
+   "variants": {
+    "polite": "Great. Would it be possible to keep my current number when I switch?",
+    "casual": "Great. Can I keep my number?"
+   },
+   "gloss": {
+    "en": "Asking to keep your old phone number when you change provider.",
+    "vi": "Hỏi có giữ nguyên số điện thoại cũ khi đổi nhà mạng không.",
+    "es": "Perfecto. ¿Puedo conservar mi número actual al cambiarme?",
+    "pt": "Ótimo. Posso manter meu número atual ao trocar?",
+    "fr": "Parfait. Puis-je garder mon numéro actuel en changeant ?",
+    "de": "Prima. Kann ich meine bisherige Nummer beim Wechsel behalten?",
+    "id": "Bagus. Bisakah saya tetap memakai nomor saya yang sekarang saat pindah?",
+    "th": "เยี่ยมเลยค่ะ ย้ายค่ายแล้วขอใช้เบอร์เดิมได้ไหมคะ",
+    "zh": "太好了。转网时我可以保留现在的号码吗？",
+    "ja": "いいですね。乗り換えても今の番号を使えますか？",
+    "ko": "좋아요. 옮길 때 지금 번호를 그대로 쓸 수 있을까요?",
+    "hi": "बढ़िया। क्या बदलते समय मैं अपना मौजूदा नंबर रख सकता/सकती हूँ?",
+    "ar": "رائع. هل يمكنني الاحتفاظ برقمي الحالي عند الانتقال؟",
+    "ru": "Отлично. Могу ли я сохранить свой номер при переходе?",
+    "tr": "Harika. Geçiş yaparken mevcut numaramı koruyabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "iphone",
+    "samsung",
+    "android",
+    "pixel",
+    "huawei",
+    "xiaomi",
+    "old",
+    "new",
+    "none",
+    "my own",
+    "galaxy"
+   ],
+   "en": "Which phone do you have at the moment?",
+   "variants": {
+    "polite": "Could you tell me which phone you're using at the moment?",
+    "casual": "What phone have you got?"
+   },
+   "gloss": {
+    "en": "The assistant asks which phone you currently have.",
+    "vi": "Nhân viên hỏi hiện bạn dùng điện thoại nào.",
+    "es": "¿Qué móvil tiene ahora?",
+    "pt": "Que celular você tem agora?",
+    "fr": "Quel téléphone avez-vous en ce moment ?",
+    "de": "Welches Handy haben Sie im Moment?",
+    "id": "Saat ini Anda memakai ponsel apa?",
+    "th": "ตอนนี้ใช้มือถือรุ่นอะไรอยู่คะ",
+    "zh": "您现在用的是什么手机？",
+    "ja": "今はどの携帯をお使いですか？",
+    "ko": "지금 어떤 휴대폰을 쓰고 계세요?",
+    "hi": "अभी आपके पास कौन-सा फ़ोन है?",
+    "ar": "ما الهاتف الذي تستخدمه حاليًا؟",
+    "ru": "Какой телефон у вас сейчас?",
+    "tr": "Şu anda hangi telefonu kullanıyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "calls",
+    "texts",
+    "video",
+    "videos",
+    "streaming",
+    "music",
+    "social media",
+    "games",
+    "maps",
+    "work",
+    "browsing",
+    "photos"
+   ],
+   "en": "What do you mostly use your phone for?",
+   "variants": {
+    "polite": "Could you tell me what you mainly use your phone for?",
+    "casual": "What do you use it for?"
+   },
+   "gloss": {
+    "en": "The assistant asks what you mainly use your phone for.",
+    "vi": "Nhân viên hỏi bạn chủ yếu dùng điện thoại để làm gì.",
+    "es": "¿Para qué usa más el móvil?",
+    "pt": "Para que você mais usa o celular?",
+    "fr": "À quoi vous sert surtout votre téléphone ?",
+    "de": "Wofür nutzen Sie Ihr Handy hauptsächlich?",
+    "id": "Anda terutama memakai ponsel untuk apa?",
+    "th": "ส่วนใหญ่ใช้มือถือทำอะไรคะ",
+    "zh": "您主要用手机做什么？",
+    "ja": "主に携帯を何に使いますか？",
+    "ko": "휴대폰을 주로 어떤 용도로 쓰세요?",
+    "hi": "आप फ़ोन ज़्यादातर किसलिए इस्तेमाल करते हैं?",
+    "ar": "فيمَ تستخدم هاتفك في الغالب؟",
+    "ru": "Для чего вы в основном используете телефон?",
+    "tr": "Telefonunuzu çoğunlukla ne için kullanıyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hi there, how can I help?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'm looking for a new phone plan."
+  },
+  {
+   "who": "barista",
+   "en": "Sure. How much data do you usually use each month?"
+  },
+  {
+   "who": "customer",
+   "en": "I stream a lot of videos, so I need at least 50 gigabytes."
+  },
+  {
+   "who": "barista",
+   "en": "Then I'd recommend our unlimited plan. It's thirty dollars a month."
+  },
+  {
+   "who": "customer",
+   "en": "Is there a contract, or can I cancel at any time?"
+  },
+  {
+   "who": "barista",
+   "en": "It's a twelve-month contract, but you can switch plans after six months."
+  },
+  {
+   "who": "customer",
+   "en": "That's more than I wanted to pay. Do you have anything cheaper?"
+  },
+  {
+   "who": "barista",
+   "en": "There's a twenty-dollar plan with twenty gigabytes. Would that suit you?"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Your bill is forty-two dollars this month because you went over your data limit."
+    },
+    {
+     "who": "customer",
+     "en": "Oh, I didn't know that. Can I add more data?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, ten extra gigabytes costs five dollars."
+    }
+   ],
+   "q": {
+    "en": "Why is the bill higher this month?",
+    "vi": "Vì sao hóa đơn tháng này cao hơn?",
+    "es": "¿Por qué la factura de este mes es más alta?",
+    "pt": "Por que a fatura deste mês está mais alta?",
+    "fr": "Pourquoi la facture de ce mois est-elle plus élevée ?",
+    "de": "Warum ist die Rechnung diesen Monat höher?",
+    "id": "Mengapa tagihan bulan ini lebih tinggi?",
+    "th": "ทำไมบิลเดือนนี้ถึงสูงขึ้น",
+    "zh": "为什么这个月的账单更高？",
+    "ja": "今月の請求額が高いのはなぜですか？",
+    "ko": "이번 달 요금이 더 많이 나온 이유는 무엇인가요?",
+    "hi": "इस महीने का बिल ज़्यादा क्यों है?",
+    "ar": "لماذا الفاتورة هذا الشهر أعلى؟",
+    "ru": "Почему счёт в этом месяце больше?",
+    "tr": "Bu ayki fatura neden daha yüksek?"
+   },
+   "answer": "went over your data limit"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "I'd like to cancel my contract, please."
+    },
+    {
+     "who": "barista",
+     "en": "You're still in your contract until March, so there's a cancellation fee of sixty dollars."
+    },
+    {
+     "who": "customer",
+     "en": "That's a lot. I'll wait until March."
+    }
+   ],
+   "q": {
+    "en": "How much is the cancellation fee?",
+    "vi": "Phí hủy hợp đồng là bao nhiêu?",
+    "es": "¿Cuánto es la penalización por cancelar?",
+    "pt": "Quanto é a multa de cancelamento?",
+    "fr": "À combien s'élèvent les frais de résiliation ?",
+    "de": "Wie hoch sind die Kündigungsgebühren?",
+    "id": "Berapa biaya pembatalannya?",
+    "th": "ค่าธรรมเนียมการยกเลิกเท่าไร",
+    "zh": "解约费是多少？",
+    "ja": "解約手数料はいくらですか？",
+    "ko": "해지 수수료는 얼마인가요?",
+    "hi": "रद्द करने का शुल्क कितना है?",
+    "ar": "كم تبلغ رسوم الإلغاء؟",
+    "ru": "Сколько составляет плата за расторжение?",
+    "tr": "İptal ücreti ne kadar?"
+   },
+   "answer": "sixty dollars"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "data",
+    "title": {
+     "en": "Say how much data you need",
+     "vi": "Nói bạn cần bao nhiêu dung lượng",
+     "es": "Di cuántos datos necesitas",
+     "pt": "Diga de quantos dados você precisa",
+     "fr": "Dire de combien de data vous avez besoin",
+     "de": "Sagen, wie viel Datenvolumen du brauchst",
+     "id": "Sebutkan kebutuhan datamu",
+     "th": "บอกว่าต้องการดาต้าเท่าไร",
+     "zh": "说出你需要多少流量",
+     "ja": "必要なデータ量を伝える",
+     "ko": "필요한 데이터양 말하기",
+     "hi": "बताएँ कि आपको कितना डेटा चाहिए",
+     "ar": "قل كم تحتاج من البيانات",
+     "ru": "Скажи, сколько трафика тебе нужно",
+     "tr": "Ne kadar veriye ihtiyacın olduğunu söyle"
+    },
+    "intents": [
+     "p3"
+    ]
+   },
+   {
+    "id": "contract",
+    "title": {
+     "en": "Ask about the contract",
+     "vi": "Hỏi về hợp đồng",
+     "es": "Pregunta por el contrato",
+     "pt": "Pergunte sobre o contrato",
+     "fr": "Poser une question sur le contrat",
+     "de": "Nach dem Vertrag fragen",
+     "id": "Tanyakan soal kontrak",
+     "th": "ถามเรื่องสัญญา",
+     "zh": "询问合约",
+     "ja": "契約について聞く",
+     "ko": "약정에 대해 묻기",
+     "hi": "अनुबंध के बारे में पूछें",
+     "ar": "اسأل عن العقد",
+     "ru": "Спроси про контракт",
+     "tr": "Sözleşmeyi sor"
+    },
+    "intents": [
+     "p5"
+    ]
+   },
+   {
+    "id": "cheaper",
+    "title": {
+     "en": "Ask for a cheaper plan",
+     "vi": "Hỏi gói rẻ hơn",
+     "es": "Pide un plan más barato",
+     "pt": "Peça um plano mais barato",
+     "fr": "Demander un forfait moins cher",
+     "de": "Nach einem günstigeren Tarif fragen",
+     "id": "Minta paket yang lebih murah",
+     "th": "ขอแพ็กเกจที่ถูกกว่า",
+     "zh": "要求更便宜的套餐",
+     "ja": "もっと安いプランを頼む",
+     "ko": "더 저렴한 요금제 요청하기",
+     "hi": "सस्ता प्लान माँगें",
+     "ar": "اطلب باقة أرخص",
+     "ru": "Попроси тариф подешевле",
+     "tr": "Daha ucuz bir tarife iste"
+    },
+    "intents": [
+     "p9"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Phone plans vary a lot, so compare the monthly price, the data allowance, the contract length and any extra fees such as roaming. Many places also offer prepaid or “pay as you go” plans with no contract. Ask for the total monthly cost including taxes, and expect to show an ID or proof of address when you sign up.",
+  "vi": "Gói điện thoại rất khác nhau, nên hãy so sánh giá mỗi tháng, dung lượng dữ liệu, thời hạn hợp đồng và các khoản phí thêm như chuyển vùng. Nhiều nơi còn có gói trả trước, không cần hợp đồng. Hãy hỏi tổng chi phí mỗi tháng đã gồm thuế, và chuẩn bị giấy tờ tùy thân hoặc giấy tờ chứng minh địa chỉ khi đăng ký.",
+  "es": "Los planes de móvil varían mucho: compara el precio mensual, los datos incluidos, la duración del contrato y los cargos extra, como el roaming. En muchos sitios también hay planes de prepago sin contrato. Pregunta el coste total al mes con impuestos y ten a mano un documento de identidad o un comprobante de domicilio.",
+  "pt": "Os planos de celular variam muito: compare o preço mensal, a franquia de dados, a duração do contrato e as taxas extras, como o roaming. Em muitos lugares também há planos pré-pagos, sem contrato. Pergunte o custo mensal total com impostos e leve um documento de identidade ou comprovante de endereço.",
+  "fr": "Les forfaits varient beaucoup : comparez le prix mensuel, le volume de data, la durée d'engagement et les frais supplémentaires comme l'itinérance. Beaucoup d'endroits proposent aussi des offres prépayées sans engagement. Demandez le coût mensuel total, taxes comprises, et prévoyez une pièce d'identité ou un justificatif de domicile.",
+  "de": "Handytarife unterscheiden sich stark: Vergleiche den Monatspreis, das Datenvolumen, die Vertragslaufzeit und Zusatzkosten wie Roaming. Vielerorts gibt es auch Prepaid-Tarife ohne Vertrag. Frag nach den monatlichen Gesamtkosten inklusive Steuern und halte einen Ausweis oder Adressnachweis bereit.",
+  "id": "Paket telepon sangat beragam, jadi bandingkan harga bulanan, kuota data, lama kontrak, dan biaya tambahan seperti roaming. Di banyak tempat ada juga paket prabayar tanpa kontrak. Tanyakan total biaya per bulan termasuk pajak, dan siapkan kartu identitas atau bukti alamat saat mendaftar.",
+  "th": "แพ็กเกจมือถือต่างกันมาก ควรเทียบราคาต่อเดือน ปริมาณดาต้า ระยะสัญญา และค่าใช้จ่ายเพิ่ม เช่น โรมมิ่ง หลายที่มีแพ็กเกจเติมเงินที่ไม่ต้องทำสัญญาด้วย ถามยอดรวมต่อเดือนรวมภาษีแล้ว และเตรียมบัตรประจำตัวหรือหลักฐานที่อยู่ไว้ตอนสมัคร",
+  "zh": "手机套餐差别很大，要比较月费、流量额度、合约期限以及漫游等额外费用。很多地方也有无需合约的预付费套餐。请问清含税后的每月总费用，办理时准备好身份证件或地址证明。",
+  "ja": "携帯プランは種類が多いので、月額料金、データ容量、契約期間、ローミングなどの追加料金を比べましょう。契約なしのプリペイドプランがある地域も多いです。税込みの月額総額を確認し、申し込み時には身分証明書か住所確認書類を用意しておくと安心です。",
+  "ko": "휴대폰 요금제는 종류가 많으니 월 요금, 데이터 제공량, 약정 기간, 로밍 같은 추가 요금을 비교해 보세요. 약정 없는 선불 요금제가 있는 곳도 많아요. 세금 포함 월 총액을 물어보고, 가입할 때는 신분증이나 주소 증빙을 준비하세요.",
+  "hi": "फ़ोन प्लान बहुत अलग-अलग होते हैं, इसलिए मासिक कीमत, डेटा की मात्रा, अनुबंध की अवधि और रोमिंग जैसे अतिरिक्त शुल्क की तुलना करें। कई जगह बिना अनुबंध के प्रीपेड प्लान भी मिलते हैं। टैक्स सहित कुल मासिक ख़र्च पूछें और साइन अप करते समय पहचान-पत्र या पते का प्रमाण साथ रखें।",
+  "ar": "تختلف باقات الهاتف كثيرًا، لذا قارن السعر الشهري وكمية البيانات ومدة العقد والرسوم الإضافية مثل التجوال. وتوفر أماكن كثيرة باقات مسبقة الدفع دون عقد. اسأل عن التكلفة الشهرية الإجمالية شاملة الضرائب، وأحضر هوية أو إثبات عنوان عند الاشتراك.",
+  "ru": "Тарифы сильно различаются: сравнивайте цену в месяц, объём трафика, срок контракта и дополнительные платежи, например за роуминг. Во многих местах есть и предоплаченные тарифы без контракта. Узнайте итоговую ежемесячную сумму с налогами и при оформлении имейте при себе удостоверение личности или подтверждение адреса.",
+  "tr": "Telefon tarifeleri çok değişir; aylık ücreti, internet miktarını, sözleşme süresini ve dolaşım gibi ek ücretleri karşılaştırın. Birçok yerde sözleşmesiz faturasız hatlar da vardır. Vergiler dahil aylık toplam tutarı sorun ve kayıt sırasında kimlik veya adres belgesi bulundurun."
+ }
+}
