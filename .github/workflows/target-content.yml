@@ -1,39 +1,97 @@
-# Sinh bộ từ lõi ngôn ngữ đích (pt-BR ~300 từ) – chạy tay; docs/specs/target-language.md. AI qua ai-pool chung (khóa miễn phí, như lexicon-expand):
-# soạn → 2 giám khảo khác họ → dịch ngược → cổng validate → mẫu soát ≥ 5 %. Kết quả = artifact (status pending-review), KHÔNG tự commit ở lát 1.
+# Sinh bộ từ lõi ngôn ngữ đích theo lô (pt-BR ~300 · es-419 3.000 lemma A1–B2, lô 300) – chạy tay; docs/specs/target-language.md, spanish-course.md W1.
+# AI qua ai-pool chung (khóa miễn phí): soạn → LanguageTool 0 lỗi (bảng có lt) → 2 giám khảo khác họ → dịch ngược → cổng validate
+# → IPA espeak-ng của bảng (tl_ipa_fill.py) → Wiktionary lemma/giống/số nhiều (wikt-check.mjs) → kiểm cả bộ (build.mjs --check) → mẫu soát ≥ 5 %.
+# Kết quả: tệp lô mới core-NN.json + .report.json (status pending-review). Chạy trên nhánh PR (≠ main) → bot commit lô vào CHÍNH nhánh đó (lượt sau nối tiếp);
+# chạy trên main → chỉ artifact (main có ruleset). Bảng riêng từng ngôn ngữ: scripts/target/tl-gen.mjs.
 name: target-content
+run-name: "target-content ${{ github.event.inputs.tl || 'PR' }} ${{ github.event.inputs.dry == '1' && '(khô)' || '' }}"
 on:
   workflow_dispatch:
     inputs:
-      tl: { description: 'Ngôn ngữ đích', default: 'pt' }
-      n: { description: 'Số mục mới', default: '300' }
+      tl: { description: 'Ngôn ngữ đích (khóa trong scripts/target/tl-gen.mjs)', default: 'es' }
+      n: { description: 'Số mục mới (1 lô)', default: '300' }
       dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
   pull_request:
-    paths: ['scripts/target/**', 'content/target/**', '.github/workflows/target-content.yml']
-permissions: { contents: read, id-token: write }   # id-token: JWT OIDC cho /api/lexai
-concurrency: { group: 'target-content-${{ github.ref }}', cancel-in-progress: true }
+    paths: ['scripts/target/**', 'content/target/**', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
+permissions: { contents: write, id-token: write }   # contents: commit lô vào nhánh PR (không bao giờ main); id-token: JWT OIDC cho /api/lexai
+# Lượt tay nối tiếp lô trước → xếp hàng, KHÔNG huỷ lượt đang sinh (mất hạn mức ai-pool); PR thì huỷ lượt cũ.
+concurrency:
+  group: 'target-content-${{ github.ref }}'
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 env:
   CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
 jobs:
-  gen:
+  check:
+    # PR: khô cho mọi tl + tự kiểm IPA espeak (seed khớp cả dấu nhấn) + Wiktionary trên seed (100 %)
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 20
+    strategy: { fail-fast: false, matrix: { tl: [pt, es] } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Kiểm seed + bản sao app
-        run: node scripts/target/build.mjs ${{ github.event.inputs.tl || 'pt' }} --check
-      - name: Ứng viên (khô) hoặc sinh + 2 giám khảo + dịch ngược + cổng
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: node scripts/target/build.mjs ${{ matrix.tl }} --check
+      - run: node scripts/target/gen.mjs --tl ${{ matrix.tl }} --n 300 --dry
+      - name: IPA espeak-ng tự kiểm trên seed (es)
+        if: ${{ matrix.tl == 'es' }}
+        run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=es python3 scripts/target/tl_ipa_fill.py --self
+      - name: Wiktionary trên seed (es)
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/wikt-check.mjs --tl es --self
+  gen:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env: { TL: '${{ github.event.inputs.tl }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: Kiểm seed + bản sao app + các lô trước
+        run: node scripts/target/build.mjs "$TL" --check
+      - name: LanguageTool tự chạy (bảng có lt) – cổng §5.1
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: |
+          LT=$(node -e "import('./scripts/target/tl-gen.mjs').then(m=>console.log(m.TL_GEN[process.env.TL].lt||''))")
+          [ -z "$LT" ] && exit 0
+          docker run -d --name lt -p 8010:8010 erikvl87/languagetool:6.6 >/dev/null
+          for i in $(seq 1 60); do curl -sf "http://localhost:8010/v2/check?language=$LT&text=Hola" >/dev/null && echo "LT_URL=http://localhost:8010" >> "$GITHUB_ENV" && exit 0; sleep 3; done
+          echo '✗ LanguageTool không lên' && exit 1
+      - name: Ứng viên (khô) hoặc sinh + LanguageTool + 2 giám khảo + dịch ngược + cổng
         env:
           CF_POOL: ${{ secrets.CF_POOL }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
-        run: node scripts/target/gen.mjs --tl ${{ github.event.inputs.tl || 'pt' }} --n ${{ github.event.inputs.n || 300 }} ${{ (github.event_name == 'pull_request' || github.event.inputs.dry == '1') && '--dry' || '' }}
-      - if: ${{ always() && github.event_name == 'workflow_dispatch' && github.event.inputs.dry != '1' }}
+        run: node scripts/target/gen.mjs --tl "$TL" --n ${{ github.event.inputs.n || 300 }} ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
+      - name: IPA espeak-ng theo bảng (ghi đè IPA người soạn, lệch → qa.ipaAi)
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: |
+          [ "$(jq -r --arg t "$TL" '.[$t].espeak // ""' scripts/word-audio/tl-voices.json)" = "" ] && exit 0
+          pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && python3 scripts/target/tl_ipa_fill.py
+      - name: Wiktionary lemma / giống / số nhiều
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: node scripts/target/wikt-check.mjs --tl "$TL"
+      - name: Kiểm cả bộ sau lô
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: node scripts/target/build.mjs "$TL" --check
+      - name: Commit lô vào nhánh (không phải main)
+        if: ${{ github.event.inputs.dry != '1' && github.ref != 'refs/heads/main' }}
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add "content/target/$TL"/core-*.json
+          git diff --cached --quiet && { echo '✗ không có lô mới'; exit 1; }
+          git commit -qm "Khóa $TL: lô từ vựng $(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1 | xargs basename) (pending-review) [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase --autostash origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep $((i * 7)); done; exit 1
+      - if: ${{ always() && github.event.inputs.dry != '1' }}
         uses: actions/upload-artifact@v4
         with:
-          name: target-core-${{ github.event.inputs.tl || 'pt' }}
-          path: content/target/${{ github.event.inputs.tl || 'pt' }}/core*.json
+          name: target-core-${{ github.event.inputs.tl }}-${{ github.run_number }}
+          path: content/target/${{ github.event.inputs.tl }}/core*.json
           retention-days: 30
