@@ -107,7 +107,7 @@ const fontCss = `
 @font-face{font-family:'Bricolage Grotesque';font-weight:800;src:url('${fileUrl('brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf')}')}`;
 // Ảnh giáo viên 1108×960 (2x) có dải mờ 95 px ở đáy → khung cắt bỏ dải đó, mép dưới TRÙNG mép ảnh (chạm nền tự nhiên: không đường cắt/quầng/viền dán).
 const FIG = { w: 1108, h: 865 };
-export const POSES = { 'fb-cover': ['ama', 'happy'], 'yt-banner-l': ['ama', 'encourage'], 'yt-banner-r': ['carlos', 'wave'], 'yt-thumb': ['carlos', 'cheer'] };
+export const POSES = { 'fb-cover': ['ama', 'happy'], 'yt-banner-l': ['ama', 'encourage'], 'yt-banner-r': ['carlos', 'happy'], 'yt-thumb': ['carlos', 'cheer'] };
 function fig([who, pose], { x, h }) {
   const s = h / FIG.h, w = FIG.w * s;
   return `<div class="fig" data-fig="${who}" style="left:${x}px;bottom:0;width:${w.toFixed(1)}px;height:${h}px">
@@ -156,6 +156,7 @@ html,body{width:${W}px;background:transparent;overflow:hidden}
   background:${col('d-surface')};box-shadow:inset 0 0 0 0.09em ${col('tealBright2')}88,0 0.16em 0 ${col('d-ledge')}}
 .stick{color:${col('coralMid')};text-decoration:underline wavy ${col('coral')};text-decoration-thickness:.06em;text-underline-offset:.16em}
 [data-t]{white-space:nowrap}
+.chip[data-case]{text-transform:none;letter-spacing:.01em}
 .hide-text [data-t]{visibility:hidden}
 .only-fig .bg,.only-fig .deco,.only-fig [data-t],.only-fig .pill,.only-fig .chip,.only-fig .logo{visibility:hidden!important}
 .only-fig .pill,.only-fig .chip{background:none!important;box-shadow:none!important}
@@ -179,7 +180,7 @@ function pageFbCover(a) {
     ${trail(W, H, 'M 150 560 C 300 420, 520 380, 700 330 S 1120 230, 1290 150')}
     ${spark(560, 150, 26, 'apricot')}${spark(1110, 112, 22)}${spark(330, 200, 16, 'tealBright2', .8)}${spark(1250, 330, 20, 'apricot', .9)}
     ${paperKite(1262, 46, 84, -16)}
-    ${fig(POSES['fb-cover'], { x: 1110, h: 560 })}
+    ${fig(POSES['fb-cover'], { x: 1160, h: 560 })}
     <div style="position:absolute;left:0;top:96px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
       ${chip('Lexkite · 100% free · No paywalls', 28, 10, 28, sizedSvg(ICON_SVG, 'fbc', `data-logo style="width:40px;height:40px;margin-right:14px;flex:none"`))}
       <div class="h" data-t style="font-size:84px;margin-top:26px">Learn English words</div>
@@ -194,13 +195,13 @@ function pageYtBanner(a) {
     ${trail(W, H, 'M 120 1300 C 260 1180, 330 1120, 420 1040')}${trail(W, H, 'M 2130 640 C 2260 600, 2330 700, 2440 760 S 2520 880, 2470 960', 'apricot')}
     ${paperKite(300, 300, 150, -12)}${paperKite(2140, 330, 170, 14)}
     ${spark(700, 420, 44, 'apricot')}${spark(1880, 380, 36)}${spark(1280, 300, 28, 'tealBright2', .8)}${spark(640, 1080, 30, 'sun', .7)}${spark(1960, 1110, 26, 'apricot', .7)}
-    ${fig(POSES['yt-banner-l'], { x: -250, h: 900 })}
-    ${fig(POSES['yt-banner-r'], { x: 1960, h: 760 })}
+    ${fig(POSES['yt-banner-l'], { x: -300, h: 971 })}
+    ${fig(POSES['yt-banner-r'], { x: 1700, h: 971 })}
     <div style="position:absolute;left:0;top:532px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
       <div style="display:flex;align-items:center;gap:22px">${wordmark('yt', 66)}${chip('100% free channel', 44, 12, 34, dot(18, 'tealBright2'))}</div>
       <div class="h" data-t style="font-size:96px;margin-top:22px">Learn English words that <span class="stick" data-t>stick</span>.</div>
       <div class="sub" data-t style="font-size:44px;margin-top:12px">${COPY.sub}</div>
-      <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(COPY.weekly, 44, 13, 44, play(42))}${chip(COPY.url, 44, 13, 36)}</div>
+      <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(COPY.weekly, 44, 13, 44, play(42))}${chip(COPY.url, 44, 13, 36).replace('class="chip"', 'class="chip" data-case')}</div>
     </div></div>` };
 }
 function pageYtThumb(a) {
