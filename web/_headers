@@ -74,6 +74,10 @@
   X-Robots-Tag: noindex
   Cache-Control: public, max-age=3600
 
+# Gói nội dung tải lười (web/cpack → dist/cpack/<tên>.<mã băm>.js, scripts/build-cpack.mjs): đổi nội dung = đổi tên → immutable 1 năm trên Cloudflare (miễn phí)
+/cpack/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /packs/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
