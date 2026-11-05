@@ -30,9 +30,11 @@ export async function zombieRuns(gh, { now = Date.now(), cancel = true } = {}) {
     const z = { id: r.id, file: String(r.path || '').split('/').pop() || r.name, min: Math.round((now - Date.parse(r.created_at)) / 6e4) };
     if (cancel) {
       const why = e => String(e.message || e).replace(/^.*→ /, '');
-      try { await gh(`/actions/runs/${r.id}/cancel`, { method: 'POST' }); z.cancel = 'ok'; } catch (e) { z.cancel = why(e); }
-      if (z.cancel !== 'ok') try { await gh(`/actions/runs/${r.id}/force-cancel`, { method: 'POST' }); z.cancel = 'ok'; } catch (e) { /* giữ lý do của cancel */ }
-      if (z.cancel !== 'ok' && z.min >= DELETE_MIN) try { await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); z.deleted = true; } catch (e) { z.deleted = why(e); }
+      // 05/11: gh của required-gate NUỐT lỗi (trả null, chỉ in ::warning::) → cancel 409 trông như "ok", không bao giờ tới force-cancel/DELETE (17 lượt 26/10 sống tiếp sau #766). Nên "ok" chỉ khi đọc lại thấy lượt không còn queued.
+      const gone = async () => { try { const x = await gh(`/actions/runs/${r.id}`); return !!x && x.status !== 'queued'; } catch (e) { return false; } };
+      try { await gh(`/actions/runs/${r.id}/cancel`, { method: 'POST' }); z.cancel = (await gone()) ? 'ok' : '409'; } catch (e) { z.cancel = why(e); }
+      if (z.cancel !== 'ok') try { await gh(`/actions/runs/${r.id}/force-cancel`, { method: 'POST' }); if (await gone()) z.cancel = 'ok'; } catch (e) { /* giữ lý do của cancel */ }
+      if (z.cancel !== 'ok' && z.min >= DELETE_MIN) try { const d = await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); z.deleted = (await gh(`/actions/runs/${r.id}`)) ? 'DELETE không hiệu lực' : true; } catch (e) { z.deleted = why(e); }
     }
     out.push(z);
   }
