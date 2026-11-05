@@ -26,6 +26,8 @@ jobs:
           python3 scripts/video/teach2d/gen.py -q
           git status --porcelain content/video/teach2d/eps | grep . && { echo "::error::eps/*.json differ from gen.py output (pilots.json + auto.json) – regenerate and review"; exit 1; }
           python3 scripts/test/teach2d-gen.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          python3 scripts/video/teach2d/mix.py --check   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
+          python3 scripts/test/teach2d-mix.py
           python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
           python3 - <<'PY'
           import json, glob, sys
@@ -132,7 +134,8 @@ jobs:
           python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --public $O/pub --out $O/props.json
           for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
-          if [ ${{ matrix.fmt }} = short ]; then for L in side bubble; do   # layout variants (owner 29/10: show layout variety) – stills only
+          LAY=$(python3 -c "import json;print((json.load(open('content/video/teach2d/mix.json'))['mix'].get(json.load(open('$E'))['id']) or {}).get('layout','corner'))")
+          if [ ${{ matrix.fmt }} = short ]; then for L in corner side bubble; do [ $L = $LAY ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format short --layout $L --public $O/pub_lay_$L --out $O/props_lay_$L.json; done; fi
           # pass 2: the rig on this timeline (same voice clock in every look/layout) -> rig.webm + rig.frames.json, then into every pub dir
           node scripts/video/teach2d/rig_host.mjs $O/props.json.timeline.json vo host | tee -a $O/host.log

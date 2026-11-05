@@ -38,6 +38,12 @@
 - Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), layout, example scene. Look = `dusk` (owner pick 29/10).
 - Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
+## Mix – the 0-credit build bank (owner 5/11: "kho dựng 0đ, hàng triệu clip, không lặp")
+- Every clip = episode (template × data row × teacher, reviewed script untouched) + one seeded combination of pieces we already own: `scripts/video/teach2d/mix.py` → `content/video/teach2d/mix.json` (render order = pilots then auto, seed = sha256(episode id), regenerated identically in preqc).
+- Axes: layout 3 · canvas blob arrangement 4 (`TeachShort.jsx` BLOBS, series tint always large and high) · music 6 (`synth.mjs`) · camera rhythm 4 (`build.py` FR) · hook stinger 4 + card swish 2 (`brand/library/sfx`) · silence gestures after a teaching line / after the quiz answer (TeacherRig pose gestures with the teacher's OWN approved image only – an `alt` stand-in is not counted as variety).
+- Anti-repeat: no axis repeats the previous clip; background (layout+canvas) and opening (hook+cam) never repeat in the last 6, gestures and music never in the last 4. Diversity = mean pairwise normalised Hamming distance per 6-clip window, gate ≥ 70 (`mix.py --check`, `scripts/test/teach2d-mix.py`). `mix.py --stats` = pieces, distinct clips, score.
+- Kling only ADDS a new kind of piece (a new approved gesture image → it enters the gesture lists automatically via `characters.json`); never per clip. Look stays `dusk` (owner pick); dark/light are an axis only after the owner says so.
+
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
 voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · lipsync_rig (rig host: every Rhubarb cue ≥ 50 ms on screen within ±33 ms, X in silences > 0.35 s, no pose over the mouth while the voice is on, frame count; `lipsync_gate.py`) · mouth (registry host: talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
 layout (text in SAFE, no overlap, nothing on the head, caption off the face, nothing under the ring) · contrast (≥ 4.5:1, ≥ 56 px ≥ 3:1, real fill) · min_text (40 / 34 px) ·

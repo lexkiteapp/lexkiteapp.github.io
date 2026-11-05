@@ -69,6 +69,7 @@ export function schedule(T, lines, B) {
   const ev = [], hook = (T.hook && T.hook.line) || lines[0].id, rings = (T.nodes || []).filter(n => n.type === 'ring').map(n => n.ring);
   const wEnd = l => (l.words && l.words.length ? l.words[l.words.length - 1].e : l.t1), wStart = l => (l.words && l.words.length ? l.words[0].s : l.t0);
   const isQuiz = l => !!l.quiz || rings.some(r => r.t0 >= wEnd(l) - 0.2 && r.t0 <= l.t1 + (l.pause || 0));
+  const MX = mixGestures(T.mix);
   const react = T.pose && T.pose.clip ? { after: T.pose.after, g: GEST_FOR_POSE(T.pose.clip) } : null;
   const at = (t, kind, name, why) => ev.push({ t: r3(Math.max(0, t)), kind, name, why });
   lines.forEach((l, i) => {
@@ -87,8 +88,8 @@ export function schedule(T, lines, B) {
     let name = null, need = 2 * F + 0.5;
     if (react && react.after === l.id && react.g) { name = react.g; need = 2 * F + 0.3; }
     else if (l.repeat) name = 'point';           // "say it with me" -> your turn
-    else if (lines[lines.indexOf(l) - 1] && isQuiz(lines[lines.indexOf(l) - 1])) name = 'cheer';
-    else name = 'explain';
+    else if (lines[lines.indexOf(l) - 1] && isQuiz(lines[lines.indexOf(l) - 1])) name = MX.g_praise || 'cheer';   // mix.py silence gestures (0-credit bank)
+    else name = MX.g_line || 'explain';
     if (room >= need) at(g0, 'gesture', name, `silence ${(B[i + 1].v0 - B[i].v1).toFixed(2)} s`);
     else at(g0, 'emo', 'neutral', 'silence');
   }
@@ -137,4 +138,6 @@ export function simulate(P, o = {}) {
 /** The logged per-frame state (same fields from the page: rig.state()). */
 export const stateOf = s => ({ shape: s.shape, pose: s.poseW > 0 ? s.pose : null, poseW: Math.round(s.poseW * 1000) / 1000, emo: s.emo, talking: !!s.talking });
 /** Pose stills a render can show (static geometry): silence poses + the react pose. */
-export const geomPoses = reactClip => [...new Set([...posesOf(SILENCE_POSES), ...(reactClip ? posesOf([GEST_FOR_POSE(reactClip)].filter(Boolean)) : [])])];
+/** mix.py silence gestures, kept only when TeacherRig knows them as pose gestures (an unknown name falls back to the series default). */
+export const mixGestures = m => Object.fromEntries(['g_line', 'g_praise'].filter(k => m && CORE.GESTURES[m[k]] && CORE.GESTURES[m[k]].kind === 'pose').map(k => [k, m[k]]));
+export const geomPoses = (reactClip, mix) => [...new Set([...posesOf(SILENCE_POSES), ...posesOf(Object.values(mixGestures(mix))), ...(reactClip ? posesOf([GEST_FOR_POSE(reactClip)].filter(Boolean)) : [])])];

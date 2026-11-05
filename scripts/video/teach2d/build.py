@@ -23,9 +23,12 @@ ap.add_argument('--format', default='short', choices=['short', 'wide'])
 ap.add_argument('--fps', type=int, default=30)
 ap.add_argument('--theme', default='', help='override the episode theme (dark | dusk | light)')
 ap.add_argument('--fonts', default=f'{ROOT}/brand/social/src/fonts')
+ap.add_argument('--mix', default=f'{ROOT}/content/video/teach2d/mix.json', help='0-credit build bank (mix.py): layout / canvas / music / camera / stingers / silence gestures per episode; "" = series defaults')
 ap.add_argument('--layout', default='', help='short layout: corner (teacher bottom-centre) | side (teacher left, larger) | bubble (big card, teacher in a round call window)')
 o = ap.parse_args()
 EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
+MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
+if o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
@@ -739,7 +742,8 @@ if 'pose' in LEN: HOST['pose'] = 'host_pose.webm'   # react reaction pose (Teach
 SHOTS = []; CAP_GAP = 12   # px between the zoomed head box and the caption band (qc.py layout 'caption band on the head')
 if SOCIAL and not BB:
     ox, oy = box[0] + (hb[0] + hb[2]) / 2 * k, box[1] + hb[1] * k; side = LAYOUT == 'side'
-    FR = [(0, 1.0, 0), (1, 1.07, 60), (2, 1.07, -60)]; cap_s = min(1.12, 1.0 / k)
+    FR = dict(push=[(0, 1.0, 0), (1, 1.07, 60), (2, 1.07, -60)], mirror=[(0, 1.0, 0), (1, 1.07, -60), (2, 1.07, 60)], calm=[(0, 1.0, 0), (1, 1.03, 0), (2, 1.05, 0)],
+              tight=[(0, 1.05, 0), (1, 1.1, 40), (2, 1.0, -40)])[MIX.get('cam', 'push')]; cap_s = min(1.12, 1.0 / k)   # camera rhythm (mix.py 'cam')
     if side and FMT['cap']:   # side: captions sit right of the teacher at head height -> zoom only while the head's right edge stays >= CAP_GAP px
         hx1 = box[0] + hb[2] * k   # left of the caption band (pilot #679 short/dusk: s 1.12 pushed the head to x 519 > band 510 -> layout FAIL)
         cap_s = side_zoom_cap(cap_s, ox, hx1, FMT['cap'][0], CAP_GAP)
@@ -790,12 +794,12 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     def put(name, t0, extra_db=0.0):
         x = sample(name) * 10 ** ((MAN[name]['gainDb'] + extra_db) / 20); i0 = max(0, int(t0 * SR)); m_ = min(len(x), len(mix) - i0)
         if m_ > 0: mix[i0:i0 + m_] += x[:m_]; SFX.append(dict(t=round(t0, 3), sfx=name, db=MAN[name]['gainDb'] + extra_db))
-    put('bass-drop', 0.0, -4)                                     # the hook slam
+    put(MIX.get('hook', 'bass-drop'), 0.0, -4)                    # the hook stinger (mix.py 'hook')
     seen = []
     for n in sorted(NODES, key=lambda n: n['in']['t']):
         t_ = n['in']['t']
         if n.get('parent') or t_ < 0.3 or n['type'] not in ('card', 'split', 'candy', 'pic', 'brick', 'flip') or any(abs(t_ - x) < 0.35 for x in seen): continue
-        put('whoosh', max(0, t_ - 0.12), -6); seen.append(t_)    # one soft whoosh per entering card group
+        put(MIX.get('card', 'whoosh'), max(0, t_ - 0.12), -6); seen.append(t_)    # one soft swish per entering card group (mix.py 'card')
         if n['type'] in ('candy', 'brick'): put('pop', t_ + 0.1, -2)
     for n in NODES:
         if n['type'] in ('check',) and n['in']['k'] == 'pop': put('riser', max(0, n['in']['t'] - 1.45), -8); put('ding', n['in']['t'], -4)
@@ -804,7 +808,8 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     PRE = dict(usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
                grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright')
-    mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', PRE.get(EP['template'], 'lofi-warm'), str(TOTAL + 0.5), mf], check=True, capture_output=True)
+    MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)
+    mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', MUS, str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
     if ch_ == 2: mu = mu.reshape(-1, 2).mean(1)
     mu = np.interp(np.arange(len(mix)) / SR, np.arange(len(mu)) / sr_, mu).astype(np.float32); os.remove(mf)
@@ -813,7 +818,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     for a_, b_ in SPEECH: duck[max(0, int((a_ - 0.1) * SR)):int((b_ + 0.15) * SR)] = 1
     kk = int(0.25 * SR); duck = np.convolve(duck, np.ones(kk) / kk, 'same'); gain = 10 ** (-12 * duck / 20)
     env = np.minimum(1, np.minimum(np.arange(len(mix)) / (0.6 * SR), (len(mix) - np.arange(len(mix))) / (0.8 * SR)))
-    mix += mu * gain * env; SFX.append(dict(music=PRE.get(EP['template']), rms_db=-30, duck_db=-12))
+    mix += mu * gain * env; SFX.append(dict(music=MUS, rms_db=-30, duck_db=-12))
     mix = np.tanh(mix * 1.1) / 1.1   # soft limiter
 wav_out(f'{o.public}/voice.wav', mix); os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
 
@@ -836,12 +841,12 @@ if EP['template'] == 'guess':   # picture from content/lexicon/img.json (license
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
-props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
+props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, canvas=int(MIX.get('canvas', 0)), layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, nf=NF, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
                               quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
-               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'),
+               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), mix=MIX or None,
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
                voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
           open(o.out + '.timeline.json', 'w'), indent=0)

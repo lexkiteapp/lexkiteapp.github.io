@@ -57,9 +57,9 @@ async function open(who) {
 /** Static geometry (same schema as host.py geom.json): alpha union of the bare head + every pose still the render may show, under every
  *  rig transform inside TeacherRig.core.LIMITS (tilt −6..6° in 5 steps, nod/sway/breath at both limits) – conservative, so the layout built
  *  from it holds for every rendered frame. Head = top 34 % of the figure, columns of the bare head, widened 8 % (host.py). */
-async function geom(who, reactClip) {
+async function geom(who, reactClip, mix) {
   if (!REG.people[who]) die(`${who} is not in web/teach/characters.json`);
-  const poses = geomPoses(reactClip), { ctx, page, errs, miss } = await open(null);
+  const poses = geomPoses(reactClip, mix), { ctx, page, errs, miss } = await open(null);
   const g = await page.evaluate(async ({ who, poses, L, W, H }) => {
     await TeacherRig.load();
     const ld = src => new Promise(ok => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => ok(null); i.src = src; });
@@ -89,7 +89,8 @@ async function geom(who, reactClip) {
 if (mode === 'geom') {
   const [who, out] = A; fs.mkdirSync(out, { recursive: true });
   const E = process.env.E && fs.existsSync(process.env.E) ? JSON.parse(fs.readFileSync(process.env.E, 'utf8')) : null;
-  const G = await geom(who, E && E.pose ? E.pose.clip : null);
+  const MIXF = path.join(ROOT, 'content/video/teach2d/mix.json'), MIX = E && fs.existsSync(MIXF) ? JSON.parse(fs.readFileSync(MIXF, 'utf8')).mix[E.id] || null : null;   // same file build.py reads
+  const G = await geom(who, E && E.pose ? E.pose.clip : null, MIX);
   fs.writeFileSync(path.join(out, 'geom.json'), JSON.stringify(G, null, 1)); console.log(JSON.stringify(G));
   await browser.close(); process.exit(0);
 }
