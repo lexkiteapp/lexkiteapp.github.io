@@ -1,6 +1,6 @@
 /* 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md, docs/UX-BENCHMARK.md §7).
  * Bật: lk.cfg.v.ux1 · thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1.
- * - 5 tab (Học · Ôn · Luyện · Giải đấu · Tôi) ở thanh dưới (điện thoại) và menu gọn bên trái (máy tính ≥ 1024 px: 3 cột + cột phải).
+ * - 5 tab §5d (Hôm nay · Từ vựng · Kỹ năng · Thi · Tôi; Giải đấu ở Hôm nay) ở thanh dưới (điện thoại) và menu gọn bên trái (máy tính ≥ 1024 px: 3 cột + cột phải).
  * - Trang chủ = bản đồ chặng (lesson/ui.js gọi Ux1.map): chặng theo mục tiêu + trình độ, băng tiêu đề "Bạn sẽ…", nút kiểm tra kỹ năng thi.
  * - Lần đầu: chọn mục tiêu 1 chạm (IELTS / TOEIC / TOEFL / Giao tiếp + điểm) → settings.exam / examTarget / goalPick.
  * - #/train = Luyện: mọi tính năng cũ gom thành ô biểu tượng theo nhóm, "Luyện thi" đầu tiên. Không bỏ tính năng nào.
@@ -18,16 +18,16 @@
   const keyOf = w => (window.Core && Core.keyOf ? Core.keyOf(w) : String(w || '').toLowerCase());
 
   // ---------- 5 tab ----------
-  const TABS = () => [['learn', '#/home', 'house', t('Học')], ['review', '#/review', 'layers', t('Ôn')], ['train', '#/train', 'target', t('Luyện')], ['league', '#/league', 'trophy', t('Giải đấu')], ['me', '#/me', 'user', t('Tôi')]];
+  const TABS = () => [['home', '#/home', 'house', t('Hôm nay')], ['vocab', '#/vocab', 'book-open', t('Từ vựng')], ['skills', '#/skills', 'target', t('Kỹ năng')], ['tests', '#/tests', 'flag', t('Thi')], ['me', '#/me', 'user', t('Tôi')]];
   const ME = ['me', 'goal', 'stats', 'mistakes', 'settings', 'class', 'method', 'resources', 'tracks', 'streak', 'contact'];
-  const tabOf = name => (!name || ['home', 'lesson', 'path', 'day'].includes(name) ? 'learn' : name === 'review' ? 'review' : name === 'league' ? 'league' : ME.includes(name) ? 'me' : 'train');
+  const tabOf = (name, arg) => { if (!name || ['home', 'lesson', 'path', 'day', 'league'].includes(name)) return 'home'; if (ME.includes(name)) return 'me'; const o = (navOf0 ? navOf0(name, arg) : [])[0]; return o === 'vocab' || o === 'tests' ? o : 'skills'; }; // còn lại (#/train, #/say, #/call…) thuộc Kỹ năng
   const SKN = () => ({ listening: t('Nghe hiểu'), reading: t('Đọc hiểu'), writing: t('Viết'), speaking: t('Nói') });
   const navOf0 = App.navOf, crumb0 = App.crumb, after0 = App.afterRoute;
-  App.navOf = (name, arg) => { if (!on()) return navOf0 ? navOf0(name, arg) : [name, name]; const k = tabOf(name); return [k, k]; };
+  App.navOf = (name, arg) => { if (!on()) return navOf0 ? navOf0(name, arg) : [name, name]; const k = tabOf(name, arg); return [k, k]; };
   App.crumb = (name, arg) => {
     if (!on()) return crumb0 ? crumb0(name, arg) : '';
-    const k = tabOf(name); if ((k !== 'train' && k !== 'me') || name === k) return '';
-    const parts = [k === 'me' ? `<a href="#/me">${t('Tôi')}</a>` : `<a href="#/train">${t('Luyện')}</a>`];
+    const k = tabOf(name, arg); if (k === 'home' || name === k) return '';
+    const parts = [`<a href="#/${k}">${{ me: t('Tôi'), vocab: t('Từ vựng'), tests: t('Thi') }[k] || t('Kỹ năng')}</a>`];
     const old = navOf0 ? navOf0(name, arg) : [];
     if (old[1] && /^skill-/.test(old[1]) && name !== 'skill') parts.push(`<a href="#/skill/${old[1].slice(6)}">${SKN()[old[1].slice(6)] || t('Kỹ năng')}</a>`);
     return `<nav class="crumb small" aria-label="${t('Đường dẫn')}">${parts.join('<span aria-hidden="true">›</span>')}</nav>`;
@@ -51,7 +51,7 @@
     const bn = document.getElementById('bnav');
     if (bn) { bn.setAttribute('aria-label', t('Điều hướng chính')); bn.classList.add('st-nav', ...ST.NAV_CLS.split(' ')); bn.innerHTML = ST.nav(tabs); } // thanh tab kiểu Stitch (web/js/st/common.js)
     const nav = document.getElementById('nav');
-    if (nav) nav.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-route="${k}" class="nav-top"><span class="ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'review' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join('');
+    if (nav) nav.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-route="${k}" class="nav-top"><span class="ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'vocab' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join('');
     const shell = document.querySelector('.shell');
     if (shell && !document.getElementById('ux1Rail')) { const r = document.createElement('aside'); r.className = 'ux1-rail'; r.id = 'ux1Rail'; r.setAttribute('aria-label', t('Tiến độ hôm nay')); shell.appendChild(r); }
     if (App.updateChrome) try { App.updateChrome(); } catch (e) { /* bỏ qua */ }
@@ -91,11 +91,19 @@
       <p class="center"><a class="small" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ (5 phút)')}</a></p></div>`;
     view.querySelectorAll('[data-pk]').forEach(b => { b.onclick = () => choose(b.dataset.pk, b.dataset.tg); });
   }
+  // 🧭 Chọn kỳ thi mà chưa rõ trình độ → mời kiểm tra đầu vào 5 phút trước bài đầu; không ép (Bỏ qua nhớ theo settings.plSkip, đồng bộ).
+  const needLevel = () => { const s = state.settings || {}; return on() && picked() && exam() !== 'general' && !s.placement && !s.plSkip && !Object.keys((s.tracks || {}).lv || {}).length; };
+  function levelInvite(then) {
+    const box = UI.modal(`<h2 style="margin-top:0">${ic('compass')} ${t('Biết trình độ để xếp lộ trình đúng sức')}</h2><p class="muted">${t('Bài kiểm tra ngắn giúp bạn bắt đầu đúng chặng. Không bắt buộc, làm sau cũng được.')}</p><div class="row center"><a class="btn primary" id="lvlGo" href="#/placement">${t('Kiểm tra trình độ (5 phút)')}</a><button type="button" class="btn" id="lvlSkip">${t('Bỏ qua')}</button></div>`);
+    box.querySelector('#lvlGo').onclick = () => UI.closeModal();
+    box.querySelector('#lvlSkip').onclick = async () => { state.settings.plSkip = Date.now(); UI.closeModal(); try { await App.saveSettings(); } catch (e) { /* vẫn đi tiếp */ } if (window.Sync && Sync.schedule) Sync.schedule(); if (then) then(); };
+  }
   async function choose(ex, tg) {
     const s = state.settings; s.exam = ex; s.examTarget = tg; s.goalPick = { exam: ex, target: ex === 'general' ? cefrN(tg) : +tg, at: Date.now() }; ls.set('lk.ux1.pk', ex);
     try { await App.saveSettings(); } catch (e) { /* vẫn vào bản đồ */ }
     if (window.Sync && Sync.schedule) Sync.schedule(); if (App.updateExamChip) App.updateExamChip();
     if (!/[?&]pick=1\b/.test(location.hash) && (/^#\/(home)?(\?|$)/.test(location.hash) || !location.hash)) App.route(); else location.hash = '#/home';
+    if (needLevel()) levelInvite(() => { if (/^#\/(home)?(\?|$)/.test(location.hash) || !location.hash) App.route(); });
   }
 
   // ---------- Chặng: chủ đề theo mục tiêu + trình độ (docs/LEARNING-PATH.md §2) ----------
@@ -181,7 +189,7 @@
       const toCur = root => { const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ } };
       // 🏠 Home v2 "Hôm nay" (docs/HOME-V2.md): khối hôm nay + lộ trình ĐẦY ĐỦ (khung path) trong khối "Your path"
       if (ST2.today) return home2({ demo, fresh, Q, P, at, n, u, nodes, dp: Object.assign({}, d, { teacher: pT('m') }) /* lồng trong thẻ Hôm nay: cột hẹp hơn → m (l lòi mép thẻ 360 px) */, xpTo, nxMin, guide, demoNote, toCur });
-      const root = ST2.mount(view, 'path', d, 'learn');
+      const root = ST2.mount(view, 'path', d, 'home');
       demoNote(root); guide(root); toCur(root);
       return;
     }
@@ -203,6 +211,7 @@
   const PLAN_TTL = 30e3; let planC = null; // kế hoạch hôm nay: nhớ 30 s (cột phải vẽ lại mỗi lần đổi trang)
   const planOf = async () => { if (planC && Date.now() - planC.at < PLAN_TTL) return planC.v; let v = []; try { v = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { v = []; } planC = { at: Date.now(), v }; return v; };
   const mockOverall = async () => { const ex = exam(); if ((ex !== 'ielts' && ex !== 'ieltsgt') || !window.Core || !Core.Store) return ''; try { const m = await Core.Store.get('mocks', []), x = (m || [])[0]; return x && x.overall != null ? String(x.overall) : ''; } catch (e) { return ''; } };
+  const lgInvite = () => ({ tier: t('Giải đấu'), rank: t('Tham gia ngay'), zone: '', left: '' }); // chưa tham gia: thẻ vẫn hiện (lối vào duy nhất của Giải đấu trên Hôm nay), giữ chỗ để không nhảy bố cục
   const lgGet = () => { try { return JSON.parse(ls.get('lk.ux1.lg') || 'null'); } catch (e) { return null; } };
   // Dữ liệu dùng chung cho Hôm nay + cột phải: số liệu đầu trang, kỳ thi, kế hoạch hôm nay, chuỗi 7 ngày, giải đấu (bộ nhớ đệm lần trước)
   async function homeBase() {
@@ -215,7 +224,7 @@
     const fN = new Intl.DateTimeFormat(lang, { weekday: 'narrow' }), fL = new Intl.DateTimeFormat(lang, { weekday: 'long' }); let wn = 0;
     const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(mon); d.setDate(mon.getDate() + i); const key = Core.todayKey(d), on = act.has(key), today = key === k; if (on) wn++;
       return { v: today ? 'now' : on && d < now ? 'done' : 'off', mark: on ? '✓' : '⚡', l: fN.format(d), aria: fL.format(d) + (on ? ' ✓' : '') }; });
-    const lg = lgGet() || { tier: '', rank: '', zone: '', left: '' };
+    const lg = lgGet() || lgInvite();
     return { lang: lang.toUpperCase(), ex, Xe, tg, left,
       c: { tg: tg || '–', tgL: tg ? t('Mục tiêu điểm') : t('Đặt mục tiêu'), tgHref: tg ? '#/goal' : '#/lesson?pick=1', streak: String(streak), xp: (g.xp || 0).toLocaleString(lang), goal: `${Math.min(rv, goal)}/${goal}`, ring: `${gp}, 100`,
         exName: Xe.name || Xe.short, streakDays: t('{n} ngày', { n: streak }), flame: streak ? t('Chuỗi đang cháy') : t('Học hôm nay để bắt đầu chuỗi'), xpToday: t('+{n} XP hôm nay', { n: ((g.days || {})[k] || {}).xp || 0 }), goalLeft: rv >= goal ? t('Đã đạt mục tiêu ngày') : t('Còn {n} thẻ', { n: goal - rv }) },
@@ -234,10 +243,19 @@
         v = { tier: tr.name(), rank: t('Hạng #{r}/{n}', { r: me ? me.rank : '–', n: (res.board || []).length || 30 }), zone: me && me.zone === 'up' ? '▲ ' + t('Vùng thăng hạng') : me && me.zone === 'down' ? '▼ ' + t('Vùng xuống hạng') : '● ' + t('Vùng an toàn'), left: League.timeRemaining ? League.timeRemaining(res.week && res.week.end) : '' }; } } } catch (e) { v = lgGet(); }
     ls.set('lk.ux1.lg', v ? JSON.stringify(v) : '');
     if (!root.isConnected) return;
-    root.querySelectorAll('[data-lg]').forEach(el => { const f = el.getAttribute('data-lg'); if (f === 'card') { el.classList.toggle('hidden', !v); el.classList.toggle('flex', !!v); } else if (v && v[f] != null) el.textContent = v[f]; });
+    const c = v || (legacy ? null : lgInvite()); // cột phải có thẻ cũ thay vào; Hôm nay luôn còn lối vào
+    root.querySelectorAll('[data-lg]').forEach(el => { const f = el.getAttribute('data-lg'); if (f === 'card') { el.classList.toggle('hidden', !c); el.classList.toggle('flex', !!c); } else if (c && c[f] != null) el.textContent = c[f]; });
     if (!v && legacy && window.League && League.renderHomeCard) League.renderHomeCard(legacy);
   }
   const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
+  // Đầu màn Hôm nay trên điện thoại (thanh trên của app ẩn dưới 1024 px): dùng lại đúng ô tìm #gq, bảng #notifBtn, nút sáng/tối và bộ chọn kỳ thi – không viết chức năng thứ hai
+  const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
+    on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
+    on('notif', () => { const n = el('notifBtn'); if (n) n.click(); });
+    on('menu', () => { const X = (App.EXAMS || {})[exam()] || {}, box = UI.modal(`<div class="ux1-menu"><h2>${t('Tài khoản')}</h2><a class="btn" data-m="x" href="#/me">${t('Tài khoản')}</a><button type="button" class="btn ghost" data-m="exam">${t('Kỳ thi')}${X.short ? ': ' + esc(X.short) : ''}</button><button type="button" class="btn ghost" data-m="theme">${t('Đổi giao diện sáng/tối')}</button></div>`), m = document.querySelector('.ux1-menu');
+      if (!m) return; const go = f => { const c = UI.closeModal || window.closeModal; if (c) c(); f(); };
+      m.addEventListener('click', e => { const w = e.target.closest('[data-m]'); if (!w) return; const v = w.dataset.m; go(() => { if (v === 'exam' && App.examPicker) App.examPicker(); if (v === 'theme') { const b = el('themeBtn'); if (b) b.click(); } }); }); box; });
+    const src = el('notifBadge'), dots = root.querySelectorAll('[data-notif-badge]'); if (src && dots.length) { const sync = () => dots.forEach(d => { d.textContent = src.textContent; d.className = src.hidden ? 'hidden' : 'notif-dot'; }); sync(); const o = new MutationObserver(sync); o.observe(src, { attributes: true, childList: true, characterData: true, subtree: true }); if (App.onCleanup) App.onCleanup(() => o.disconnect()); } };
   const langBtn = root => root.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); }));
   async function home2(o) {
     const tok = location.hash, { demo, fresh, Q, P, at, n, u, nodes, dp, xpTo, nxMin } = o;
@@ -262,7 +280,7 @@
       q: { mistN: mist, mist: t('{n} cần sửa', { n: mist }), mistHref: mist ? '#/mistakes?retry=1' : '#/mistakes', dueN: due, due: t('{n} đến hạn', { n: due }), dueHref: due ? '#/review' : '#/quick' },
       s: stories.slice(0, DSK() ? 3 : 2), mock: MOCK[b.ex] || '#/mock', story: stories[0] ? stories[0].href : '#/lesson/go' });
     if (fresh) { // người mới: 3 bước, bước đang làm = khuôn nổi bật
-      const S = [{ k: 'goal', done: picked(), t: t('Chọn mục tiêu'), sub: t('IELTS, TOEIC, giao tiếp'), href: '#/lesson?pick=1' }, { k: 'level', done: !!(state.settings || {}).placement, t: t('Kiểm tra trình độ nhanh'), sub: t('Bài kiểm tra thích ứng, có khoảng band'), min: t('{n} phút', { n: 5 }), href: '#/placement' }, { k: 'lesson', done: false, t: t('Bài học đầu tiên'), sub: t('Từ vựng thông dụng theo mục tiêu'), min: t('{n} phút', { n: KMIN.lesson }), href: `#/lesson/go${Q}` }];
+      const S = [{ k: 'goal', done: picked(), t: t('Chọn mục tiêu'), sub: t('IELTS, TOEIC, giao tiếp'), href: '#/lesson?pick=1' }, { k: 'level', done: !!((state.settings || {}).placement || (state.settings || {}).plSkip), t: t('Kiểm tra trình độ nhanh'), sub: t('Bài kiểm tra thích ứng, có khoảng band'), min: t('{n} phút', { n: 5 }), href: '#/placement' }, { k: 'lesson', done: false, t: t('Bài học đầu tiên'), sub: t('Từ vựng thông dụng theo mục tiêu'), min: t('{n} phút', { n: KMIN.lesson }), href: `#/lesson/go${Q}` }];
       const on = S.findIndex(x => !x.done); d.go = S[on].href;
       d.steps = S.flatMap((x, i) => [...(i ? [{ v: 'line' }] : []), Object.assign(x, { v: i === on ? 'on' : 'off', n: x.done ? '✓' : String(i + 1), min: x.min || '' })]);
       d.c.tgL = picked() ? t('Mục tiêu điểm') : t('Đặt mục tiêu'); d.say = `“${t('Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.')}”`;
@@ -270,8 +288,9 @@
     }
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
-    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('learn') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
-    prune(root); langBtn(root);
+    sayIn(root, d.say, fresh);
+    if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
+    prune(root); langBtn(root); headBtns(root);
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
@@ -335,7 +354,7 @@
       sp: { xp: '+' + (((g.days || {})[k] || {}).xp || 0) + ' XP', title: t('Nước rút ngày {a}/{b}', { a: dn, b: tot }), left: t('Còn {n} bài', { n: tot - dn }), pct, aria: sprAria, cta: t('Tiếp tục'), href: nx && nx.href ? nx.href : '#/home?all=1' },
       count: t('{n} mô-đun', { n: tiles.length }), tiles,
       mock: { title: mockName, chip: mins ? t('{n} phút', { n: mins }) : Xe.short, cta: t('Bắt đầu'), href: MOCK[ex] || '#/mock', aria: t('Bắt đầu thi thử {x}', { x: Xe.short }) } };
-    ST2.mount(view, 'practice', d, 'train');
+    ST2.mount(view, 'practice', d, 'skills');
   }
   // 🎨 Stitch v2 "Review" (hub Ôn): số thẻ đến hạn, trí nhớ, bộ thẻ theo nguồn; nút Bắt đầu mở phiên ôn thật (#/review → study.js). study.js gọi khi vào bằng thanh tab (#/review?hub=1).
   const ORI_IC = { youtube: 'smart_display', web: 'language', reading: 'auto_stories', dict: 'search', library: 'local_library', anki: 'style' }; // @icons smart_display language auto_stories search local_library style
@@ -352,7 +371,7 @@
       cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: nNew ? t('Ước tính ~{m} phút · {n} thẻ mới', { m: Math.max(1, Math.ceil(due / 3)), n: nNew }) : t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }) /* sắp quên + quen (chip) + mới (dòng này) = số trên vòng (dc.total) */,
       famHref: ahead ? '#/review?ahead=2' : '#/review', famAria: t('Thẻ quen: {n}', { n: fam }), readyHref: ahead ? '#/review?ahead=2' : '#/review', trainHref: '#/deck?m=12', permHref: '#/deck?m=3', // ô số liệu + chip "quen" bấm được (ô Đang luyện = mức 1–2, Nhớ lâu = mức 3, như SRS.mastery)
       training: studied.filter(c => SRS.mastery(c.srs) < 3).length, perm: studied.filter(c => SRS.mastery(c.srs) === 3).length, decksTitle: t('Bộ thẻ • {n} đang dùng', { n: decks.length }), decks };
-    return ST2.mount(view, 'review', d, 'review');
+    return ST2.mount(view, 'review', d, 'vocab');
   }
   routes.train = function () {
     if (self.ST2 && ST2.practice && on()) { trainV2(); return; }
@@ -361,17 +380,24 @@
       + GROUPS().map(([h, big, items]) => `<h2 class="set-h ux1-gh">${esc(h)}</h2><div class="ux1-tiles${big ? ' big' : ''}">${items.map(([href, i, n, d]) => `<a class="ux1-tile" href="${href}"><span class="ux1-ti" aria-hidden="true">${ic(i)}</span><b>${esc(n)}</b>${big && d ? `<small>${esc(d)}</small>` : ''}</a>`).join('')}</div>`).join('');
   };
 
+  // Bong bóng Hôm nay: chữ hiện dần lúc Ama nói, xong về vòng nghỉ; mỗi câu chạy 1 lần mỗi lần tải trang.
+  let saidHome = '';
+  function sayIn(root, say, fresh) {
+    if (!say || say === saidHome || !window.SayText) return;
+    const p = [...root.querySelectorAll('p')].find(x => x.textContent.trim() === say), c = p && SayText.prep(p, { wait: 0 }); if (!c) return;
+    saidHome = say;
+    const slot = root.querySelector('[data-tch] .tslot'), hasClip = slot && slot.dataset.clip && !fresh;
+    if (hasClip) slot.dataset.talk = Chars.clip('ama', 'talk');
+    const ms = Math.max(1200, Math.min(7000, c.est * 45)), t0 = performance.now();
+    const go = () => { if (!p.isConnected) return c.all(); if (hasClip && !slot.classList.contains('live') && performance.now() - t0 < 700) return setTimeout(go, 40); c.clock(ms, () => { if (slot && slot.lkQuiet) slot.lkQuiet(); }); };
+    setTimeout(go, 0);
+  }
+
   // ---------- CSS (chỉ khi cờ bật) ----------
   function css() {
     if (document.getElementById('ux1Css')) return;
     const s = document.createElement('style'); s.id = 'ux1Css';
     s.textContent = `
-body.ux1 .side-level{display:none}
-body.ux1 .sidebar{--nav-pad:.8rem}
-body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
-body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem var(--nav-pad);border-radius:var(--r-md);font-weight:700;font-size:1rem;color:var(--text);border:2px solid transparent}
-body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
-body.ux1 #nav a .ic{width:26px}body.ux1 #nav a .ic svg{width:26px;height:26px}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
@@ -395,9 +421,7 @@ body.ux1 #nav a .ic{width:26px}body.ux1 #nav a .ic svg{width:26px;height:26px}
 .ux1-tiles.big .ux1-tile b{font-size:var(--fs-md)}
 .ux1-rail{display:none}
 @media (min-width:1024px){
-  body.ux1 .shell{grid-template-columns:232px minmax(0,1fr) 340px}
   body.ux1:not(.focus):not(.bare) .ux1-rail{display:flex;flex-direction:column;gap:.8rem;position:sticky;top:0;height:100vh;overflow-y:auto;padding:1.2rem 1.2rem 1.2rem .4rem}
-  body.ux1.focus .shell,body.ux1.bare .shell{grid-template-columns:minmax(0,1fr)}
   body.ux1 .ux1-exam-top{display:none}
 }
 .ux1-stat{display:flex;gap:1rem;justify-content:space-around;font-size:var(--fs-md);padding:.3rem 0}.ux1-stat span{display:inline-flex;gap:.35rem;align-items:center}
@@ -415,5 +439,5 @@ body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transiti
     document.head.appendChild(s);
   }
 
-  window.Ux1 = { reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
+  window.Ux1 = { reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level, needLevel, levelInvite }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
 })();
