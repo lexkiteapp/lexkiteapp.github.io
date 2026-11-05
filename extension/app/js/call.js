@@ -33,7 +33,8 @@
   // nút biểu tượng nhỏ cùng hàng "Gợi ý trả lời" (không thêm chiều cao khung Stitch; vùng chạm 44px bằng lề âm) · @icons lock cloud edit
   const IB = 'inline-flex items-center justify-center min-w-[44px] min-h-[44px] -my-[12px] -me-[10px] bg-transparent border-0 p-0 cursor-pointer lt:text-[#0D6964] dk:text-[#2BA39A]';
   const PRIV_IC = { cloud: 'cloud', tap: 'edit' };
-  const TIP_FIX = (bad, good, why) => `<span lang="en"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block ${MUT}">${esc(why)}</span>`;
+  // Thẻ sửa câu dùng chung (web/js/feedback/turn.js, spec ai-speaking-first T2): tô từng chỗ sửa + tên cấu trúc + vì sao + ví dụ + bài ngữ pháp
+  const FB = (text, q) => (window.Feedback ? Feedback.turn(text, q) : null);
   const vOf = w => (Chars.voice ? Chars.voice(w) : (window.LessonTeacher && LessonTeacher.VOICE || {})[w]);
   const mmss = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.max(0, s) % 60).padStart(2, '0');
 
@@ -92,7 +93,7 @@
 .call-cue{width:100%;max-width:560px;margin:0 0 .6rem;padding:.6rem .9rem;border-radius:14px;background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.35);font-size:.92rem}
 .call-cue ul{margin:.3rem 0 0;padding-inline-start:1.1rem}.call-clock{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.1rem}
 .call-tip{width:100%;max-width:560px;padding:.6rem .8rem;border-radius:14px;background:rgba(245,165,36,.18);border:1px solid rgba(245,165,36,.45);font-size:.92rem;margin-bottom:.6rem}
-.call-tip s{opacity:.75}.call-you{width:100%;max-width:560px;font-size:.92rem;opacity:.9;margin:-.2rem 0 .5rem;text-align:end}
+.call-tip s{opacity:.75}.fb-card{line-height:1.45}.fb-diff{font-size:1rem;margin-bottom:.25rem}.fb-del{opacity:.7}.fb-add{font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}.fb-item{margin-top:.2rem}.fb-why{opacity:.92}.fb-ex{margin-top:.15rem;opacity:.9}.fb-lesson{display:inline-block;margin-top:.2rem;font-weight:600;text-decoration:underline;color:inherit}.call-you{width:100%;max-width:560px;font-size:.92rem;opacity:.9;margin:-.2rem 0 .5rem;text-align:end}
 .call-opts{width:100%;max-width:560px;display:flex;flex-direction:column;gap:.45rem}
 .call-opts button,.call-ask button{min-height:44px;padding:.55rem .9rem;border-radius:14px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;font:inherit;text-align:start;cursor:pointer}
 .call-opts button:hover,.call-opts button:focus-visible,.call-ask button:hover,.call-ask button:focus-visible{background:rgba(255,255,255,.18)}
@@ -273,9 +274,10 @@ body.call-on{overflow:hidden}
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
       if (tch && tch.react) tch.react(fix || sl.length ? 'encourage' : 'happy', 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
-      if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
+      const fb = fix ? FB(text, n.m) : null;
+      if (fb && V2) tipBox.innerHTML = Feedback.card(fb, { compact: true });
       else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
-      else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
+      else if (fb) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}${Feedback.card(fb)}</div>`;
       else if (sl.length) tipBox.innerHTML = `<div class="call-tip">👂 ${t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant })}</div>`;
       const r = E.step(c, id, text);
       id = r.next; turn++;

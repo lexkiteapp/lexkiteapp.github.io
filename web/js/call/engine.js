@@ -44,32 +44,32 @@
   const PAST3 = { goes: 'went', has: 'had', does: 'did', rains: 'rained', snows: 'snowed', works: 'worked', likes: 'liked', wants: 'wanted', needs: 'needed', lives: 'lived', watches: 'watched', studies: 'studied', plays: 'played', makes: 'made', comes: 'came', eats: 'ate', buys: 'bought', sees: 'saw', takes: 'took', gets: 'got', visits: 'visited', calls: 'called', says: 'said', tells: 'told' };
   const keepCase = (from, to) => (/^[A-Z]/.test(from) ? to[0].toUpperCase() + to.slice(1) : to);
   const RULES = [
-    { why: () => t('“Agree” đã là động từ – không cần “am/is/are” đứng trước.'), fix: s => s.replace(/\b(I|we|they|you)\s+(am|are|'m|'re)\s+agree\b/i, (m, p) => p + ' agree') },
-    { why: () => t('Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.'), fix: s => s.replace(/\b(he|she|it)\s+don'?t\b/i, (m, p) => p + " doesn't") },
-    { why: () => t('Sau can/could/should/will không dùng “to”.'), fix: s => s.replace(/\b(can|could|should|will|must)\s+to\s+(\w+)/i, '$1 $2') },
-    { why: () => t('Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.'), fix: s => s.replace(/\bmore\s+(better|easier|faster|bigger|cheaper|closer|worse)\b/i, '$1') },
-    { why: () => t('Danh từ không đếm được (information, advice…) không thêm -s.'), fix: s => s.replace(new RegExp('\\b(?:(too|so|how)\\s+many|(many)|(an?))\\s+' + UNC + 's?\\b|\\b' + UNC + 's\\b', 'gi'), (m, q, many, a, u1, u2) => (q ? q + ' much ' + u1 : many ? keepCase(many, 'a lot of') + ' ' + u1 : a ? u1 : u2)) },
-    { why: () => t('“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.'), fix: s => s.replace(/\bI\s+very\s+(like|love|want|enjoy)\b/i, 'I really $1') },
-    { why: () => t('Sau want/need/would like, động từ tiếp theo cần “to”.'), fix: s => s.replace(/\b(want|need|would like|'d like)\s+(go|eat|buy|see|try|have|book|make|visit|ask|join|pay|come)\b/i, '$1 to $2') },
-    { why: () => t('Trước nghề nghiệp số ít cần mạo từ “a/an”.'), fix: s => s.replace(/\b(I'm|I am)\s+(engineer|teacher|student|developer|designer|manager|doctor|nurse|accountant|intern)\b/i, (m, p, w) => p + (/^[aeiou]/i.test(w) ? ' an ' : ' a ') + w) },
-    { why: () => t('Với he/she/it ở thì hiện tại đơn, động từ thêm -s/-es.'), fix: s => s.replace(/\b(he|she)\s+(go|do|have|work|like|want|need|live|watch|study|play|make|know|think)\b/gi, (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) ? m : p + ' ' + keepCase(v, S3[v.toLowerCase()]))) },
-    { past: true, own: true, why: () => t('Có mốc thời gian đã qua (hôm qua, năm ngoái…) thì dùng quá khứ đơn, không dùng “have + V3”.'), fix: s => s.replace(new RegExp("\\b(I|we|they|you|he|she|it)(?:\\s+(have|has)|'ve)\\s+(" + V3P + ')\\b', 'gi'), (m, p, h, v) => p + ' ' + (v.toLowerCase() === 'been' ? (/^(I|he|she|it)$/i.test(p) ? 'was' : 'were') : V3TO2[v.toLowerCase()] || v)) },
-    { past: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(I|we|they|he|she|and)\\s+(' + Object.keys(PAST).join('|') + ')\\b', 'gi'), (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) || (/^have$/i.test(v) && PERF_AUX.test(str.slice(off + m.length))) ? m : p + ' ' + keepCase(v, PAST[v.toLowerCase()]))) },
-    { past: true, own: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(he|she|it)\\s+(' + Object.keys(PAST3).join('|') + ')\\b', 'gi'), (m, p, v) => p + ' ' + PAST3[v.toLowerCase()]) },
+    { id: 'be-agree', why: () => t('“Agree” đã là động từ – không cần “am/is/are” đứng trước.'), fix: s => s.replace(/\b(I|we|they|you)\s+(am|are|'m|'re)\s+agree\b/i, (m, p) => p + ' agree') },
+    { id: 'doesnt', why: () => t('Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.'), fix: s => s.replace(/\b(he|she|it)\s+don'?t\b/i, (m, p) => p + " doesn't") },
+    { id: 'modal-to', why: () => t('Sau can/could/should/will không dùng “to”.'), fix: s => s.replace(/\b(can|could|should|will|must)\s+to\s+(\w+)/i, '$1 $2') },
+    { id: 'more-er', why: () => t('Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.'), fix: s => s.replace(/\bmore\s+(better|easier|faster|bigger|cheaper|closer|worse)\b/i, '$1') },
+    { id: 'uncount', why: () => t('Danh từ không đếm được (information, advice…) không thêm -s.'), fix: s => s.replace(new RegExp('\\b(?:(too|so|how)\\s+many|(many)|(an?))\\s+' + UNC + 's?\\b|\\b' + UNC + 's\\b', 'gi'), (m, q, many, a, u1, u2) => (q ? q + ' much ' + u1 : many ? keepCase(many, 'a lot of') + ' ' + u1 : a ? u1 : u2)) },
+    { id: 'very-verb', why: () => t('“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.'), fix: s => s.replace(/\bI\s+very\s+(like|love|want|enjoy)\b/i, 'I really $1') },
+    { id: 'want-to', why: () => t('Sau want/need/would like, động từ tiếp theo cần “to”.'), fix: s => s.replace(/\b(want|need|would like|'d like)\s+(go|eat|buy|see|try|have|book|make|visit|ask|join|pay|come)\b/i, '$1 to $2') },
+    { id: 'article-job', why: () => t('Trước nghề nghiệp số ít cần mạo từ “a/an”.'), fix: s => s.replace(/\b(I'm|I am)\s+(engineer|teacher|student|developer|designer|manager|doctor|nurse|accountant|intern)\b/i, (m, p, w) => p + (/^[aeiou]/i.test(w) ? ' an ' : ' a ') + w) },
+    { id: 'sva', why: () => t('Với he/she/it ở thì hiện tại đơn, động từ thêm -s/-es.'), fix: s => s.replace(/\b(he|she)\s+(go|do|have|work|like|want|need|live|watch|study|play|make|know|think)\b/gi, (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) ? m : p + ' ' + keepCase(v, S3[v.toLowerCase()]))) },
+    { id: 'past-perfect', past: true, own: true, why: () => t('Có mốc thời gian đã qua (hôm qua, năm ngoái…) thì dùng quá khứ đơn, không dùng “have + V3”.'), fix: s => s.replace(new RegExp("\\b(I|we|they|you|he|she|it)(?:\\s+(have|has)|'ve)\\s+(" + V3P + ')\\b', 'gi'), (m, p, h, v) => p + ' ' + (v.toLowerCase() === 'been' ? (/^(I|he|she|it)$/i.test(p) ? 'was' : 'were') : V3TO2[v.toLowerCase()] || v)) },
+    { id: 'past', past: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(I|we|they|he|she|and)\\s+(' + Object.keys(PAST).join('|') + ')\\b', 'gi'), (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) || (/^have$/i.test(v) && PERF_AUX.test(str.slice(off + m.length))) ? m : p + ' ' + keepCase(v, PAST[v.toLowerCase()]))) },
+    { id: 'past-s', past: true, own: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(he|she|it)\\s+(' + Object.keys(PAST3).join('|') + ')\\b', 'gi'), (m, p, v) => p + ' ' + PAST3[v.toLowerCase()]) },
   ];
   const PAST_Q = /\b(did you|how was|what did|yesterday|last (night|week|weekend))\b/i;
   const PAST_OWN = /\b(yesterday|last (night|week|weekend|month|year|summer|winter|time)|ago|in (19|20)\d\d)\b/i;
   function correct(text, prompt) {
     // Áp MỌI luật theo thứ tự (trước 05/11 dừng ở luật đầu → câu "đã sửa" còn lỗi; đo: scripts/feedback/eval.mjs)
     // own: chỉ khi CHÍNH câu người học có mốc quá khứ (câu hỏi "Did you…?" không đủ: "it says…", "I have done it" vẫn đúng)
-    const own = PAST_OWN.test(text), past = own || PAST_Q.test(prompt || ''), whys = [];
+    const own = PAST_OWN.test(text), past = own || PAST_Q.test(prompt || ''), whys = [], ids = [];
     let good = String(text || '');
     for (const r of RULES) {
       if (r.past && !past || r.own && !own) continue;
       const g2 = r.fix(good);
-      if (g2 !== good) { good = g2; const w = r.why(); if (!whys.includes(w)) whys.push(w); }
+      if (g2 !== good) { good = g2; ids.push(r.id); const w = r.why(); if (!whys.includes(w)) whys.push(w); }
     }
-    return good !== text ? { bad: text, good, why: whys[0], whys } : null;
+    return good !== text ? { bad: text, good, why: whys[0], whys, ids } : null; // ids → thẻ lỗi (web/js/feedback/turn.js)
   }
 
   // ---------- Nhầm cặp âm (bread ≠ breast): máy nghe ra từ "anh em" của từ cần nói ----------
@@ -169,5 +169,5 @@
     return e.sr ? (e.pref === 'cloud' ? 'cloud' : 'ask') : 'tap';
   }
 
-  g.CallEngine = { prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
+  g.CallEngine = { prep, depth, step, correct, ruleIds: () => RULES.map(r => r.id), whyOf: id => { const r = RULES.find(x => x.id === id); return r ? r.why() : ''; }, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
 })(typeof self !== 'undefined' ? self : this);
