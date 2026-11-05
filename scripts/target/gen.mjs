@@ -50,10 +50,14 @@ const SYS = {
 };
 // lexai: 0 – /api/lexai có chế độ CÙNG TÊN (lxgen/lxjudge/lxaudit) với lời nhắc kho tiếng Anh ở máy chủ → không bao giờ đi tuyến đó (như scripts/factory/lib.mjs)
 const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: SYS[req.mode] + '\nReply with ONE valid JSON object only, no markdown.', user: JSON.stringify(req.items), temp: 0.1 }) });
+// Soạn = bản NHÁP (luật: AI free chỉ nháp/giám khảo; nội dung dạy do Sonnet duyệt theo lô trước khi gộp – status pending-review).
+// 05/11: Groq trước (GROQ_POOL ~1.000 lượt/khoá/ngày, xoay khoá + nghỉ theo Retry-After trong ai-pool) → GrabCast groq (/api/owner-ai/generate) → Gemini
+// (~20 lượt/khoá/ngày = nút cổ chai cũ). Giám khảo giữ chuỗi chuẩn của ai-pool (khác họ với bản soạn).
+const GEN_CHAIN = ['groq', 'gc-groq', 'gem', 'gc-gemini'];
 const accepted = [...prev], rejected = [], seen = new Set(have);
 for (let i = 0; i < cand.length && accepted.length - prev.length < N; i += BATCH) {
   const items = cand.slice(i, i + BATCH).map(x => ({ k: x.form, form: x.form, rank: x.rank }));
-  const g = await AI.gen({ mode: 'lxgen', items }); if (!g) { console.log('ai-pool: hết tuyến soạn → dừng (lượt sau làm tiếp)'); break; }
+  const g = await AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }); if (!g) { console.log('ai-pool: hết tuyến soạn → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
     .map(({ it, e }) => ({ k: it.k, e: { word: e.word, pos: e.pos, ...(e.pos === 'n' ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());

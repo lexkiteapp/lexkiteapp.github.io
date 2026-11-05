@@ -78,6 +78,7 @@ jobs:
           CF_POOL: ${{ secrets.CF_POOL }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
         run: node scripts/target/gen.mjs --tl "$TL" --n ${{ github.event.inputs.n || 300 }} --shard "${{ matrix.k }}/$SHARDS" ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
