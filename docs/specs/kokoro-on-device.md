@@ -16,7 +16,7 @@ Lý do:
 - Bản ghi ngoài (Wiktionary/dictionaryapi) bị bỏ khi máy có giọng đọc – chỉ file của Lexkite (một giọng).
 - `UI.tts(text, accent, rate, opts)`: opts `{ onSentence, onEnd, voice (mã Kokoro) | who ('ama'|'carlos') }`; giọng mặc định theo accent (`Target.kokoroVoice`). Thứ tự CỐ ĐỊNH (test `klocal.mjs`): file `audio/l/<KVoice.lineKey>` (cả đoạn hoặc từng câu, nghỉ `SENT_GAP` 280 ms) → Kokoro trên máy → giọng HĐH (app Capacitor) → `speechSynthesis`. 🐢 câu = cùng file ở tốc độ thấp.
 - Gốc CDN: `audio.lexkite.com` (Worker `workers/audio`, cache 1 năm) → Pages kho media m2 → `lexkiteapp.github.io/audio`; mỗi lần phát thử gốc hiện hành rồi các gốc sau (lỗi/404/quá 7 s → gốc kế), 2 lỗi liên tiếp → chuyển gốc cả phiên. Đăng ký `infra/resources.json`, `docs/STORAGE.md`.
-- Native SwiftUI/Compose (khi thay Capacitor): dùng CÙNG `KVoice.lineKey` + `LISTEN_AUDIO` + `audio/w` + chuỗi trên; chỉ gọi TTS hệ điều hành khi không có file và không chạy được Kokoro.
+- Native SwiftUI/Compose (khi thay Capacitor): dùng CÙNG `KVoice.lineKey` + `LISTEN_AUDIO` + `audio/w` + chuỗi trên; chỉ gọi TTS hệ điều hành khi không có file và không chạy được Kokoro. Điều kiện tải mô hình giữ nguyên `netWhy`: iOS `NWPathMonitor` (`isExpensive`/`isConstrained` = di động/tiết kiệm dữ liệu), Android `ConnectivityManager` (`NET_CAPABILITY_NOT_METERED`); chỗ trống qua `volumeAvailableCapacityForImportantUsage` / `StatFs`; cùng 4 điều khiển trong Cài đặt › Âm thanh. App Capacitor hiện dùng `navigator.connection` của WebView (iOS không có → coi là di động).
 
 ## Luồng
 1. `UI.tts(text)`: có đủ khóa trong `LISTEN_AUDIO` thì phát file như cũ.
@@ -33,7 +33,8 @@ Lý do:
 ## Khi nào tải (`KLocalPolicy.mayLoad`)
 - Không có trong gói app (shell không đổi). `js/klocal.js` (~6 KB) nạp lười qua `App.need('klocal')`, Worker và mô hình nạp riêng.
 - Lý do tải: (a) app đã ổn định: `requestIdleCallback` sau `idleDelay` (phiên đầu 60 s, sau 20 s); hoặc (b) người dùng gặp chỗ đọc động hay mở Listening lần đầu.
-- Mạng: không `saveData`, không 2g/3g, không `connection.type = cellular`. Tab ẩn thì không tải. Đã có trong Cache Storage thì nạp ở mọi mạng.
+- Mạng & chỗ trống (`KLocalPolicy.netWhy`, chủ 5/11): chỉ Wi-Fi/mạng không tính cước; không `saveData`, không 2g/3g; `cellular`, `connection.metered` hoặc điện thoại không rõ loại mạng (iOS WebView) = di động → chỉ tải khi người dùng bật «Cho phép tải bằng dữ liệu di động» (`lk.kl.cell`). Cần ≥ 300 MB trống (`storage.estimate`). Tab ẩn thì không tải. Đã có trong Cache Storage thì nạp ở mọi mạng. Không hộp thoại/quyền HĐH nào: `storage.persist()` bỏ qua trên Firefox (Firefox hỏi quyền).
+- Cài đặt › Âm thanh (`KLocal.settings`, vẽ trong `klocal.js`, settings.js chỉ chừa `#klBox`; add-on không có): bật/tắt (`lk.kl`), trạng thái (sẵn sàng / đang tải % / chờ Wi-Fi / thiếu chỗ / máy yếu), MB đã dùng (3 kho `transformers-cache`, `kokoro-voices`, `lk-kl-audio`), Xóa khỏi máy (xóa 3 kho + `lk.kl.ok/probe`, tắt), dữ liệu di động. Chính sách quyền riêng tư §4 (15 ngôn ngữ) mô tả đúng hành vi này.
 - Bật từ xa (`/api/config`): `kl` `'0'` tắt khẩn / `'1'` bật hết; `kl_pct` (nếu đặt) = canary (nhóm `lk.kb` 0–99, cố định theo máy). **Không có cấu hình thì BẬT** (chủ 5/11); cấp máy + đo RTF vẫn chặn máy yếu.
 - Nạp nền lúc rảnh ở MỌI phiên: phiên đầu chờ 60 s (màn chào mượt), sau đó 20 s (`idleDelay`). Không hỏi, không popup.
 
