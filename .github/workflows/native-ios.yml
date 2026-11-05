@@ -31,25 +31,24 @@ jobs:
           X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
           if [ -n "$X" ]; then sudo xcode-select -s "$X/Contents/Developer"; else echo "::warning::Chưa có Xcode 26 trên máy chủ"; fi
           xcodebuild -version
-      - name: Chọn iPhone giả lập
-        id: sim
-        run: |
-          DEV=$(xcrun simctl list devices available | grep -m1 -oE 'iPhone 1[5-9][^(]*\(([A-F0-9-]+)\)' | grep -oE '[A-F0-9-]{36}')
-          test -n "$DEV" && echo "dest=platform=iOS Simulator,id=$DEV" >> "$GITHUB_OUTPUT"
       - name: Test LexkiteKit (chuẩn + snapshot)
         working-directory: native/ios/LexkiteKit
-        env: { DEST: '${{ steps.sim.outputs.dest }}' }
         run: |
           SCHEME=$(xcodebuild -list -json | python3 -c 'import json,sys;s=json.load(sys.stdin)["workspace"]["schemes"];print(next((x for x in s if x.endswith("-Package")),s[0]))')
           echo "scheme=$SCHEME"
-          T="xcodebuild test -scheme $SCHEME -destination $DEST -skipPackagePluginValidation"
+          # Đích lấy từ CHÍNH xcodebuild (simctl liệt kê cả runtime cũ mà Xcode đang chọn không chạy được → exit 70):
+          # iPhone 17 > 16 > 15 (khung 390 pt), runtime iOS cao nhất.
+          DEST=$(xcodebuild -showdestinations -scheme "$SCHEME" 2>/dev/null | python3 "$GITHUB_WORKSPACE/scripts/native/pick-sim.py")
+          test -n "$DEST" || { echo "::error::không tìm thấy iPhone giả lập hợp lệ"; xcodebuild -showdestinations -scheme "$SCHEME"; exit 1; }
+          echo "dest=$DEST"
+          T=(xcodebuild test -scheme "$SCHEME" -destination "$DEST" -skipPackagePluginValidation)
           if [ "${{ inputs.record }}" = "true" ] || ! ls Tests/LKSnapshotTests/__Snapshots__/*/*.png >/dev/null 2>&1; then
             echo "::warning::Chưa có ảnh snapshot chuẩn → ghi lần đầu, rồi chạy lại để kiểm ổn định; tải artifact native-ios-snapshots và commit vào Tests/LKSnapshotTests/__Snapshots__"
-            SNAPSHOT_RECORD=1 $T -only-testing:LKSnapshotTests > "$RUNNER_TEMP/record.log" 2>&1 || true
-            tail -5 "$RUNNER_TEMP/record.log"
+            SNAPSHOT_RECORD=1 "${T[@]}" -only-testing:LKSnapshotTests > "$RUNNER_TEMP/record.log" 2>&1 || true
+            grep -E "error:|failed|Test Suite .* (passed|failed)" "$RUNNER_TEMP/record.log" | tail -30
           fi
           set -o pipefail
-          $T 2>&1 | tail -60
+          "${T[@]}" 2>&1 | tail -60
           ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 10 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
       - name: Build app (XcodeGen → simulator, không ký)
         working-directory: native/ios
