@@ -32,6 +32,7 @@
 - Độ trễ: hết lời → thẻ phản hồi luật ≤ 300 ms; LLM câu đầu ≤ 2,5 s p75 (stream); TTS chữ đầu ≤ 800 ms tầng A; ra lời mẫu Kokoro dựng sẵn ≤ 150 ms.
 - Chấm đúng trên **tập có nhãn** trong repo: sửa câu: `scripts/feedback/gec-set.jsonl` (420 câu kiểu ASR, 14 L1 × 30, ⅓ câu đúng gồm câu bẫy; soạn theo lỗi chuyển di đã ghi nhận, không chép corpus) – `scripts/feedback/eval.mjs` trong npm test: precision và editP (từng chỗ sửa đúng) ≥ 0,90, engine viết lại cả câu thêm fixP ≥ 0,90, recall/fixR/editP không lùi so với `baseline.json`. Mốc 05/11 luật Call: báo nhầm 0/140, precision 1, recall 0,20, editP 1, fixP 0,875 (trước khi sửa 3 lỗi gốc: fixP 0,717, recall 0,19); v2 thêm câu thật ẩn danh có opt-in; phát âm PCC âm vị speechocean762 ≥ 0,50 (cổng `pron-eval`), báo sai âm ≤ 10 %.
 - Không giật trên máy tầm trung (Moto G/ Android 4 GB, iPhone 11): INP ≤ 200 ms, model chỉ trong Worker, shell ≤ ngân sách.
+- Giáo viên (chủ 05/11: "khớp môi, tay chân, cử chỉ, miệng biểu cảm chuẩn như các ông lớn"): mọi lời Ama/Carlos – cả câu AI sinh động – khớp môi ±33 ms (cùng cổng [teacher-rive-rig.md](teacher-rive-rig.md)); cử chỉ/biểu cảm theo trạng thái lượt (nói · nghe · nghĩ · khen · sửa nhẹ), nhấn tay rơi vào từ nhấn; không giật, không đứng hình, không vệt viền; CI chụp + đo từng trạng thái.
 - Tương phản sáng/tối, 15 ngôn ngữ (i18n-qa), giọng đúng giới tính (characters-gate), nút Thoát, không popup ép.
 
 ## 5. Việc theo PR (mỗi việc 1 nhánh, 1 PR)
@@ -46,3 +47,4 @@
 | T7 | Giọng động theo `Chars.voice` + giới tính đúng khi rơi về giọng máy; Roleplay do Ama/Carlos dẫn | — |
 | T8 | Tổng kết buổi → hồ sơ học → biểu đồ tháng nói/viết | spec outcomes 3–6m |
 | T9 | Tầng A LLM trên máy (opt-in, một host) | đo trên CI trước |
+| T10 | Khớp môi + cử chỉ cho câu AI sinh động: mốc viseme lấy từ âm vị Kokoro trên máy (không đoán theo chữ), biểu cảm theo trạng thái lượt, cổng ±33 ms | dùng rig/cue của chủ sở hữu teacher-rive-rig, không sửa file rig |
