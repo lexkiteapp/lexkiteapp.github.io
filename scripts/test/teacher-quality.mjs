@@ -40,6 +40,7 @@ const srv = http.createServer((q, s) => {
   s.writeHead(200, { ...h, 'content-length': n }); fs.createReadStream(p).pipe(s);
 });
 await new Promise(r => srv.listen(0, '127.0.0.1', r)); const BASE = `http://127.0.0.1:${srv.address().port}`;
+// Chromium: dùng Google Chrome (có sẵn trên runner ubuntu, có H.264) – bản Chromium của Playwright không có codec độc quyền → clip không phát
 // đo trong trang: điểm mờ (khung) + viền tối trên ảnh đọc lại từ canvas WebGL của chỗ giáo viên
 const PROBE = `(() => { const o = document.createElement('canvas'), x = o.getContext('2d', { willReadFrequently: true });
   return [...document.querySelectorAll('#row canvas')].map(c => { o.width = c.width; o.height = c.height; x.clearRect(0, 0, o.width, o.height); x.drawImage(c, 0, 0);
@@ -51,7 +52,7 @@ const PROBE = `(() => { const o = document.createElement('canvas'), x = o.getCon
     return { haze, band, dark, op }; }); })()`;
 const results = {};
 for (const name of ['chromium', 'webkit']) {
-  const br = await pw[name].launch().catch(e => { console.log(`teacher-quality: không mở được ${name} – ${String(e).split('\n')[0]}`); return null; }); if (!br) { if (name === 'chromium') process.exit(1); continue; }
+  const br = await (name === 'chromium' ? pw.chromium.launch({ channel: 'chrome' }).catch(() => pw.chromium.launch()) : pw[name].launch()).catch(e => { console.log(`teacher-quality: không mở được ${name} – ${String(e).split('\n')[0]}`); return null; }); if (!br) { if (name === 'chromium') process.exit(1); continue; }
   const page = await br.newPage({ viewport: { width: 390, height: 844 } }), perr = [], bytes = { teach: 0 };
   page.on('pageerror', e => perr.push(String(e))); page.on('response', async r => { if (/\/teach\//.test(r.url())) { const b = await r.body().catch(() => null); if (b) bytes.teach += b.length; } });
   await page.goto(BASE + '/__tq.html'); await page.waitForFunction(() => window.Chars && Chars.slot && window.LessonTeacher);
