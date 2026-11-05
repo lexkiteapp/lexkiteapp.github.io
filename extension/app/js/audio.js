@@ -1,7 +1,5 @@
-/* 🔊 LKAudio – phát giọng đọc ổn định mọi máy (docs/specs/audio-quality.md việc 4; nạp trước ui.js). Mở khóa ở lần chạm đầu (iOS),
- * MỘT kênh giọng đọc (file …/audio/l|w/… hoặc giọng máy – cái mới dừng cái cũ; sfx/video không tính; data-lk-mix = phát chồng có chủ đích),
- * play(urls): từng gốc CDN có hạn chờ → hết gốc mới onFail (giọng máy đúng người nói: Ama nữ, Carlos nam, UK/US), gói offline (web/sw.js 'lk-offline').
- * Test: scripts/test/audio-voice.mjs (Node) · scripts/test/audio-play.mjs (Chromium + WebKit). */
+/* 🔊 LKAudio – một kênh giọng đọc, mở khóa iOS, play(urls) qua từng gốc CDN, đếm nguồn giọng – docs/specs/kokoro-on-device.md §Chuỗi phát.
+ * Test: scripts/test/audio-voice.mjs · audio-play.mjs · voice-source.mjs */
 (function (g) {
   'use strict';
   const FEM = /\b(Female|Samantha|Ava|Allison|Susan|Zoe|Serena|Kate|Martha|Libby|Sonia|Jenny|Aria|Ana|Karen|Moira|Tessa|Fiona|Victoria|Joanna|Salli|Kimberly|Ivy|Kendra|Emma|Amy|Hazel|Zira|Catherine|Nicky|Stephanie|Michelle|Emily|Olivia|Sara|Nancy|Heather|Jane|Ashley|Cora|Elizabeth|Maisie|Bella|Abbi|Hollie|Shelley|Sandy|Flo|Grandma|Kathy|Vicki)\b/i;
@@ -34,7 +32,7 @@
     return (mine && (!gender || !genderOf(mine.name) || genderOf(mine.name) === gender) ? mine : list[0]) || null;
   }
 
-  // Nhật ký dự phòng: console + đếm theo ngày trong localStorage (không gửi đi)
+  // Nhật ký dự phòng: console + đếm theo ngày trong localStorage
   const stats = { cdn: 0, tts: 0, timeout: 0, last: '' };
   function note(kind, info) {
     stats[kind] = (stats[kind] || 0) + 1; stats.last = kind + ':' + (info || '');
@@ -42,8 +40,12 @@
     try { const d = new Date().toISOString().slice(0, 10), o = JSON.parse(localStorage.getItem('lk.audio.fb') || '{}'); const x = o.d === d ? o : { d }; x[kind] = (x[kind] || 0) + 1; localStorage.setItem('lk.audio.fb', JSON.stringify(x)); } catch (e) { /* bỏ qua */ }
   }
 
+  // Nguồn giọng thực phát f/k/s + lý do (docs/specs/kokoro-on-device.md §Số đo)
+  const VO_WHY = ['off', 'wait', 'load', 'fail', 'lang', 'pref'], vo = {}, inc = k => { vo[k] = (vo[k] || 0) + 1; };
+  const src = (k, w) => { if (!/^[fks]$/.test(k)) return; inc(k); stats['src_' + k] = vo[k]; if (k === 's' && VO_WHY.includes(w)) inc('s_' + w); };
+  const sysRate = c => (c.s || 0) / Math.max(1, (c.f || 0) + (c.k || 0) + (c.s || 0));
   const fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }; // = khóa audio/w (ui.js, sw.js)
-  const api = { fnv36, genderOf, kokoro, genderFor, voiceScore, rank, pickVoice, stats, note };
+  const api = { fnv36, genderOf, kokoro, genderFor, voiceScore, rank, pickVoice, stats, note, src, vo, sysRate, VO_WHY };
   if (typeof module !== 'undefined' && module.exports && !g.document) { module.exports = api; return; }
 
   // Mở khóa (iOS Safari/WebKit): AudioContext + WAV im lặng 1 mẫu (data: có trong CSP media-src)
@@ -120,7 +122,17 @@
     enable: accent => call('enable', accent), disable: () => call('disable'), status: () => call('status'),
     lesson: (items, accent) => (offOn() && items ? call('lesson', items, accent) : Promise.resolve(null)), // bài đang học → cất audio câu/từ của bài
   };
+  // Gửi số đếm khi ẩn tab → /api/hit t:'vo' (không văn bản/định danh; bỏ qua CI, localhost, lk.noTrack)
+  function flushVo() {
+    const h = location.hostname; let skip = navigator.webdriver || /^(localhost|127\.|\[::1\])|\.(localhost|test)$/.test(h);
+    try { skip = skip || localStorage.getItem('lk.noTrack') === '1'; } catch (e) { /* bỏ qua */ }
+    if (!Object.keys(vo).length) return;
+    const p = (g.Store && g.Store.isExtension) || /-extension:$/.test(location.protocol) ? 'ext' : g.Capacitor && g.Capacitor.isNativePlatform && g.Capacitor.isNativePlatform() ? 'app' : 'web';
+    try { if (skip || navigator.sendBeacon((/(^|\.)lexkite\.(com|pages\.dev)$/.test(h) ? '' : 'https://lexkite.com') + '/api/hit', JSON.stringify({ t: 'vo', c: vo, p }))) Object.keys(vo).forEach(k => delete vo[k]); } catch (e) { /* bỏ qua */ }
+  }
+  g.addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && flushVo());
+  g.addEventListener('pagehide', flushVo);
   if (offOn()) setTimeout(() => call('resume'), 15000); // lần trước chưa tải xong → tiếp tục âm thầm
-  Object.assign(api, { unlock, play, preload, isVoice, offline, silent: SILENT, isUnlocked: () => unlocked });
+  Object.assign(api, { flushVo, unlock, play, preload, isVoice, offline, silent: SILENT, isUnlocked: () => unlocked });
   g.LKAudio = api;
 })(typeof self !== 'undefined' ? self : globalThis);
