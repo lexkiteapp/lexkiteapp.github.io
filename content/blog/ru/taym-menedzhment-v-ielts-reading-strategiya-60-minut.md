@@ -1,6 +1,6 @@
 ---
 title: "Тайм-менеджмент в IELTS Reading: Стратегия на 60 Минут"
-description: "Освойте тайм-менеджмент в IELTS Reading по правилу 15-20-25 минут, применяйте быстрое сканирование текста и уверенно сдайте экзамен на Band 7.5+."
+description: "Освойте тайм-менеджмент в IELTS Reading по правилу 15-20-25 минут, применяйте быстрое сканирование текста и уверенно сдайте экзамен на высокий балл."
 slug: taym-menedzhment-v-ielts-reading-strategiya-60-minut
 lang: ru
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -12,7 +12,7 @@ coverAlt: "Стратегия распределения 60 минут и тай
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 85
+qualityScore: 92
 publishAt: 2026-12-31T07:36:00+03:00
 ---
 

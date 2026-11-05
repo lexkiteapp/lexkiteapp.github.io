@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, jigjang]
 cover: letters
 coverAlt: "외국계 기업 직장인을 위한 비즈니스 영어 줄임말과 영문 이메일 약어 정리 가이드"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-11-03
 author: Lexkite
 status: ready

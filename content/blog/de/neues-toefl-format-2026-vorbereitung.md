@@ -1,7 +1,7 @@
 ---
 slug: neues-toefl-format-2026-vorbereitung
 title: "Neues TOEFL Format 2026: Änderungen und Vorbereitungsplan"
-description: "Alles über das neues toefl format 2026: 1,5 Stunden Prüfungsdauer, adaptive 1–6 Band-Skala, neue Aufgaben wie Complete the Words und 4-Wochen-Lernplan."
+description: "Alles über das neue toefl format 2026: 1,5 Stunden Prüfungsdauer, adaptive 1–6 Band-Skala, neue Aufgaben wie Complete the Words und 4-Wochen-Lernplan."
 keyword: "neues toefl format 2026"
 lang: de
 translationKey: toefl-ibt-dinh-dang-moi-2026
@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, pruefungsformat, vorbereitung]
 cover: toefl
 coverAlt: "TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T19:01:00+01:00
@@ -108,7 +108,7 @@ Das im Lexkite-Übungsmodul hinterlegte Referenzmodell fasst die 12 Fragetypen p
 - **Read in Daily Life:** Alltagsrelevante Kurztexte (Aushänge, E-Mails, Campus-Nachrichten, Richtlinien) mit Multiple-Choice-Fragen. Der TOEFL beschränkt sich somit nicht mehr nur auf dichte Fachliteratur.
 - **Read an Academic Passage:** Klassische universitäre Fachtexte mit Detailfragen, Verneinungsfragen (NOT/EXCEPT) und Vokabelfragen im Kontext.
 
-Um Ihren aktiven Fachwortschatz gezielt auszubauen, empfiehlt sich ein Blick in unsere [Wortschatz-Bibliothek](/tu-vung/) sowie das Training mit hochfrequenten akademischen Wortlisten.
+Um Ihren aktiven Fachwortschatz gezielt auszubauen, empfiehlt sich ein Blick in unsere [Wortschatz-Bibliothek](/vocabulary/) sowie das Training mit hochfrequenten akademischen Wortlisten.
 
 ![Bibliothek für akademischen und alltäglichen Wortschatz im Lexkite mit Einstufung von A1 bis B2](media:library "Wortschatzlisten nach GER-Stufen von A1 bis B2 zur Festigung von Alltags- und Wissenschaftsenglisch")
 

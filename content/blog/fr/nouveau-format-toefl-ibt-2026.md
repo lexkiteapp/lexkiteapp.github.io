@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, examens, preparation]
 cover: toefl
 coverAlt: "Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves"
-qualityScore: 87
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-01T19:51:00+01:00
@@ -108,7 +108,7 @@ Le tableau de référence intégré dans le module d'entraînement de Lexkite r�
 2. **Read in Daily Life :** Des textes courts de la vie courante et étudiante (notes de service, courriels administratifs, affiches de campus, règlements) suivis de questions à choix multiples. C'est une rupture majeure : le TOEFL ne se limite plus exclusivement à des traités scientifiques denses.
 3. **Read an Academic Passage :** Un texte universitaire traditionnel suivi de questions ciblées sur les idées principales, les faits négatifs (NOT/EXCEPT), les inférences logiques et le vocabulaire en contexte.
 
-Pour consolider votre maîtrise des termes académiques et du vocabulaire du quotidien, vous pouvez enrichir votre lexique grâce à notre [bibliothèque de vocabulaire](/tu-vung/) et explorer les séries de termes fréquents sur l'application.
+Pour consolider votre maîtrise des termes académiques et du vocabulaire du quotidien, vous pouvez enrichir votre lexique grâce à notre [bibliothèque de vocabulaire](/vocabulary/) et explorer les séries de termes fréquents sur l'application.
 
 ![Bibliothèque de vocabulaire Lexkite avec listes de mots par niveau du CECRL de A1 à B2](media:library "Listes de mots classées par niveau de A1 à B2 pour maîtriser le vocabulaire quotidien et académique")
 

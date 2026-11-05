@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, format-tes, persiapan]
 cover: toefl
 coverAlt: "Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T19:51:00+07:00
@@ -108,7 +108,7 @@ Berikut adalah peta lengkap 12 tipe soal yang akan Anda hadapi di ruang ujian:
 - **Read in Daily Life:** Teks pendek bernuansa keseharian kampus (pengumuman asrama, jadwal kuliah, surel fasilitas universitas, brosur) yang diikuti soal pilihan ganda. Ini bukti bahwa TOEFL kini tak melulu menguji sains murni.
 - **Read an Academic Passage:** Teks ilmiah klasik dengan pertanyaan seputar gagasan utama, pengecualian (*negative factual: NOT/EXCEPT*), inferensi logis, dan makna kata dalam konteks.
 
-Untuk memperkuat kosakata akademik dan istilah universitas, manfaatkan koleksi [daftar kosakata terpilih](/tu-vung/) yang dirancang khusus untuk persiapan tes internasional.
+Untuk memperkuat kosakata akademik dan istilah universitas, manfaatkan koleksi [daftar kosakata terpilih](/vocabulary/) yang dirancang khusus untuk persiapan tes internasional.
 
 ![Pustaka kosakata bahasa Inggris di Lexkite dengan tingkatan level CEFR A1 hingga B2](media:library "Koleksi kosakata berdasarkan tingkatan A1 hingga B2 untuk memperkaya kata harian dan istilah akademik")
 

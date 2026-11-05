@@ -13,7 +13,7 @@ publishAt: 2027-01-06T08:14:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 87
+qualityScore: 92
 quiz: [
   {
     q: "¿Qué postula la 'Curva del Olvido' descubierta empíricamente por Hermann Ebbinghaus?",
@@ -161,7 +161,7 @@ Puedes estructurar tu rutina diaria combinando nuestras herramientas interactiva
 - Amplía tu repertorio léxico consultando el [diccionario integrado](/#/), donde encontrarás pronunciaciones auténticas en IPA y ejemplos extraídos de contextos profesionales reales.
 - Lleva los términos recién memorizados al terreno de la expresión oral en las [sesiones guiadas de conversación](/#/speaking) y perfecciona la nitidez de tus frases mediante el [entrenador de pronunciación interactivo](/#/practice/speak).
 
-Para complementar tu estrategia de aprendizaje y acelerar tu dominio del idioma, te recomendamos explorar nuestros artículos especializados sobre [cómo aprender vocabulario en inglés de forma sistemática](/es/blog/como-aprender-vocabulario-en-ingles/), las técnicas para [pensar en inglés sin traducir mentalmente](/es/blog/como-pensar-en-ingles-sin-traducir/), el uso correcto de las [collocations en inglés para exámenes oficiales](/es/blog/collocations-en-ingles-para-ielts/) y las claves para [organizar tu tiempo de estudio de inglés](/es/blog/gestion-del-tiempo-en-ingles-en-el-trabajo/). También puedes enriquecer tu léxico consultando nuestro banco de términos organizado por niveles en [/tu-vung/](/tu-vung/).
+Para complementar tu estrategia de aprendizaje y acelerar tu dominio del idioma, te recomendamos explorar nuestros artículos especializados sobre [cómo aprender vocabulario en inglés de forma sistemática](/es/blog/como-aprender-vocabulario-en-ingles/), las técnicas para [pensar en inglés sin traducir mentalmente](/es/blog/como-pensar-en-ingles-sin-traducir/), el uso correcto de las [collocations en inglés para exámenes oficiales](/es/blog/collocations-en-ingles-para-ielts/) y las claves para [organizar tu tiempo de estudio de inglés](/es/blog/gestion-del-tiempo-en-ingles-en-el-trabajo/). También puedes enriquecer tu léxico consultando nuestro banco de términos organizado por niveles en [/vocabulary/](/vocabulary/).
 
 {{cta: /#/review | Comienza tus repasos diarios con el algoritmo FSRS en Lexkite}}
 

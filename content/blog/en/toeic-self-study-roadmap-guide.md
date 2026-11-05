@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, study-plan, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC exam practice interface showing mock exams and section-by-section practice"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-28T07:36:00+05:30

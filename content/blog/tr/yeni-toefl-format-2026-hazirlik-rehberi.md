@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, sinav-formati, hazirlik]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT hazırlık modülü: 2026 yeni sınav yapısı ve soru türleri tablosu"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-03T08:45:00+03:00
@@ -108,7 +108,7 @@ Lexkite çalışma modülünde de kullanılan yapıya göre sınavda karşılaş
 - **Read in Daily Life:** Kampüs duyuruları, e-postalar, ilanlar ve yönetmelikler gibi günlük yaşam metinlerini içeren çoktan seçmeli sorular. TOEFL artık sadece ağır biyoloji makalelerinden ibaret değildir.
 - **Read an Academic Passage:** Ana fikir, olumsuz olgular (*NOT/EXCEPT*) ve bağlam içi kelime anlamı sorularından oluşan klasik akademik metinler.
 
-Akademik sözcük bilginizi güçlendirmek için [kelime kütüphanesi bölümümüzü](/tu-vung/) ziyaret edebilir ve sınavlarda en çok çıkan sözcük listelerini inceleyebilirsiniz.
+Akademik sözcük bilginizi güçlendirmek için [kelime kütüphanesi bölümümüzü](/vocabulary/) ziyaret edebilir ve sınavlarda en çok çıkan sözcük listelerini inceleyebilirsiniz.
 
 ![Lexkite A1 ile B2 seviyeleri arası kelime kütüphanesi arayüzü](media:library "A1'den B2'ye CEFR seviyelerine göre ayrılmış sözcük listeleri ile günlük ve akademik kelime pratiği")
 

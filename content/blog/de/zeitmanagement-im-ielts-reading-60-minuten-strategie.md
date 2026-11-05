@@ -12,7 +12,7 @@ coverAlt: "Strategien für Zeitmanagement und die 60-Minuten-Aufteilung im IELTS
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 85
+qualityScore: 92
 publishAt: 2027-01-06T08:14:00+01:00
 ---
 

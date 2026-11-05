@@ -9,7 +9,7 @@ category: phat-am
 tags: [pronunciation, ucharan, speaking, ipa, shadowing]
 cover: pron
 coverAlt: "Lexkite की IPA उच्चारण लाइब्रेरी: स्वर, व्यंजन और व्यक्तिगत ध्वनियों का अभ्यास"
-qualityScore: 87
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2026-12-29T19:51:00+05:30

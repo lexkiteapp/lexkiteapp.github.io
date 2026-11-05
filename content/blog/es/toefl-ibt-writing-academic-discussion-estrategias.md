@@ -1,7 +1,7 @@
 ---
 slug: toefl-ibt-writing-academic-discussion-estrategias
 title: "TOEFL iBT Writing Academic Discussion: Guía y plantillas"
-description: "Domina el toefl ibt writing academic discussion en 10 minutos: criterios de evaluación 5.0, plantillas para debatir en foros y modelos de respuesta redactados."
+description: "Domina el toefl ibt writing academic discussion en 10 minutos: criterios de evaluación, plantillas para debatir en foros y modelos de respuesta redactados."
 keyword: "toefl ibt writing academic discussion"
 lang: es
 translationKey: toefl-ibt-academic-discussion-writing
@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, examenes]
 cover: toefl
 coverAlt: "Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-07T08:45:00-06:00

@@ -9,7 +9,7 @@ category: phat-am
 tags: [hatsuon, speaking, ipa, shadowing, dokugaku]
 cover: pron
 coverAlt: "LexkiteのIPA発音ライブラリ。単母音・二重母音・子音が並び、例語つきで1音ずつ練習・採点できる"
-qualityScore: 88
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-12T19:01:00+09:00

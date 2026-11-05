@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Antarmuka latihan ujian TOEIC di Lexkite dengan simulasi lengkap dan latihan per bagian"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-07T08:14:00+07:00

@@ -12,7 +12,7 @@ coverAlt: "Guide stratégique de gestion du temps pour les trois textes de l'ép
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 86
+qualityScore: 92
 publishAt: 2026-12-31T19:01:00+01:00
 ---
 

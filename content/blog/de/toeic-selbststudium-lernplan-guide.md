@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, lernplan, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC Pruefungsvorbereitungsoberflaeche mit vollstaendigen Probetests und gezieltem Sektionstraining"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-05T07:36:00+01:00

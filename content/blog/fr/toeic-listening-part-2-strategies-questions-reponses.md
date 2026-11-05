@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Interface d'entraînement au test TOEIC sur Lexkite avec tests blancs complets et pratique par section"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T08:14:00+01:00

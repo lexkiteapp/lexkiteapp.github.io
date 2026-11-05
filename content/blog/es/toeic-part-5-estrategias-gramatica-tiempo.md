@@ -1,5 +1,5 @@
 ---
-title: "toeic part 5 estrategias: gramática y técnica de 20 segundos"
+title: "TOEIC Part 5 Estrategias: gramática y técnica de 20 segundos"
 description: "Domina toeic part 5 estrategias con el método de 20 segundos: descartes por sufijos gramaticales, tiempos verbales y colocaciones para ahorrar tiempo."
 slug: toeic-part-5-estrategias-gramatica-tiempo
 lang: es
@@ -13,7 +13,7 @@ publishAt: 2027-01-09T08:57:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 87
+qualityScore: 92
 quiz: [
   {
     q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",

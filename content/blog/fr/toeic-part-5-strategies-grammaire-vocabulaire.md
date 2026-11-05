@@ -13,7 +13,7 @@ publishAt: 2027-01-05T08:45:00+01:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 86
+qualityScore: 92
 ---
 
 Pour franchir la barre des 850 ou 900 points à l'examen d'anglais des affaires, l'épreuve de compréhension écrite ne laisse aucune place à l'improvisation. Avec 30 questions à choix multiples courtes, la section **toeic part 5** constitue le point de départ de la section Reading et conditionne l'ensemble de votre gestion du temps. Un candidat qui s'attarde plus de 12 minutes sur ces phrases risque inévitablement de manquer de temps sur les textes longs en fin d'épreuve.

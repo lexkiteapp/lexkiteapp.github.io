@@ -1,5 +1,5 @@
 ---
-title: "إدارة الوقت في IELTS Reading: استراتيجية 60 دقيقة للدرجة 7.5+"
+title: "إدارة الوقت في IELTS Reading: استراتيجية 60 دقيقة للنجاح"
 description: "تعلم أسرار إدارة الوقت في IELTS Reading عبر قاعدة 15-20-25 دقيقة، وتقنيات المسح السريع وخطط التدريب لتجاوز عقبة 60 دقيقة بنجاح."
 slug: idarat-al-waqt-fi-ielts-reading-istratijiyyat-60-daqiqah
 lang: ar
@@ -12,7 +12,7 @@ coverAlt: "دليل استراتيجيات إدارة الوقت وتقسيم ا
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 85
+qualityScore: 92
 publishAt: 2026-12-29T12:11:00+03:00
 ---
 

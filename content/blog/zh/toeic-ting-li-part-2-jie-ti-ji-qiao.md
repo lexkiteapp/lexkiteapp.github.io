@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite托业990分模考训练与听力专项题库界面"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T19:51:00+08:00

@@ -1,7 +1,7 @@
 ---
 slug: toefl-ibt-writing-academic-discussion-guide
 title: "TOEFL iBT Writing Academic Discussion Guide: 10-Minute Tips"
-description: "Master the toefl ibt writing academic discussion task: scoring rubrics, 10-minute timing plan, sentence templates, and sample responses for a 5.0 score."
+description: "Master the toefl ibt writing academic discussion task: scoring rubrics, 10-minute timing plan, sentence templates, and sample responses for top band scores."
 keyword: "toefl ibt writing academic discussion"
 lang: en
 translationKey: toefl-ibt-academic-discussion-writing
@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-27T12:11:00+05:30

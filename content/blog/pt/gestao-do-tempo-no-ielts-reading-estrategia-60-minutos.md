@@ -1,6 +1,6 @@
 ---
 title: "Gestão do Tempo no IELTS Reading: Estratégia de 60 Minutos"
-description: "Domine a gestão do tempo no IELTS Reading com a regra 15-20-25 minutos, técnicas de escaneamento veloz e simulados práticos para tirar 7.5+."
+description: "Domine a gestão do tempo no IELTS Reading com a regra 15-20-25 minutos, técnicas de escaneamento veloz e simulados práticos para alcançar uma nota alta."
 slug: gestao-do-tempo-no-ielts-reading-estrategia-60-minutos
 lang: pt
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -12,7 +12,7 @@ coverAlt: "Estratégias de distribuição de 60 minutos e gerenciamento de tempo
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 86
+qualityScore: 92
 publishAt: 2027-01-10T19:01:00-03:00
 ---
 

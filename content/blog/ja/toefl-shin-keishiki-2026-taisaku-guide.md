@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, taisaku]
 cover: toefl
 coverAlt: "LexkiteのTOEFL iBT対策画面：2026年新形式テスト構造と新問題形式一覧"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-14T12:11:00+09:00
@@ -108,7 +108,7 @@ LexkiteのTOEFL学習モジュールに完全準拠した、新形式の12タス
 - **Read in Daily Life:** キャンパス内の掲示板、事務連絡メール、施設案内、シラバスなど、大学生活に直結する日常的な短文を読んで四肢択一に答えます。
 - **Read an Academic Passage:** 従来の学術的な論文や教科書からの抜粋文で、主旨把握、事実確認（NOT/EXCEPT問題）、推論問題、文脈語彙問題が出題されます。
 
-学術語彙やキャンパス頻出単語を効率よく強化するには、Lexkiteの[単語ライブラリ](/tu-vung/)でレベル別の厳選単語セットを活用するのが近道です。
+学術語彙やキャンパス頻出単語を効率よく強化するには、Lexkiteの[単語ライブラリ](/vocabulary/)でレベル別の厳選単語セットを活用するのが近道です。
 
 ![LexkiteのCEFRレベル別英単語ライブラリ画面](media:library "A1からB2レベルまで体系化されたLexkiteの語彙セットで日常英語と学術英単語を習得")
 

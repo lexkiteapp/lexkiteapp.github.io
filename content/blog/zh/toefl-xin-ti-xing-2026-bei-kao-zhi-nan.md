@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, bei-kao]
 cover: toefl
 coverAlt: "Lexkite托福备考界面：2026年新题型考试结构与各科目题型模块展示"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-01T19:01:00+08:00
@@ -112,7 +112,7 @@ quiz: [
 - **Read in Daily Life（生活应用阅读）：** 考察大学校园日常应用场景，包括选课通知、图书馆规程、社团邮件等，主要以单选题形式快速测试关键信息的定位能力。
 - **Read an Academic Passage（学术长文阅读）：** 延续传统托福的经典学术篇章，包含主旨题、细节排除题、句子插入题与推断题。
 
-扩充学术高频词汇与短语搭配，可通过Lexkite的[词汇学习库](/tu-vung/)按CEFR分级进行高强度主动记忆与拼写强化。
+扩充学术高频词汇与短语搭配，可通过Lexkite的[词汇学习库](/vocabulary/)按CEFR分级进行高强度主动记忆与拼写强化。
 
 ![Lexkite的CEFR分级词汇库界面：按难度系统整理学术高频词](media:library "Lexkite词汇库包含A1至B2分级词汇，涵盖学术与日常高频词")
 

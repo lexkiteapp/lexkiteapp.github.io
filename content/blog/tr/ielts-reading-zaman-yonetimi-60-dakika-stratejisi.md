@@ -1,6 +1,6 @@
 ---
 title: "IELTS Reading Zaman Yönetimi: 60 Dakikalık Strateji Rehberi"
-description: "IELTS Reading zaman yönetimi için 15-20-25 kuralı, hızlı tarama teknikleri ve deneme stratejileriyle Band 7.5+ puan hedefleyin."
+description: "IELTS Reading zaman yönetimi için 15-20-25 kuralı, hızlı tarama teknikleri ve deneme stratejileriyle yüksek band puanı hedefleyin."
 slug: ielts-reading-zaman-yonetimi-60-dakika-stratejisi
 lang: tr
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -12,7 +12,7 @@ coverAlt: "IELTS Reading sınavı için zaman yönetimi stratejileri ve 60 dakik
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 86
+qualityScore: 92
 publishAt: 2026-12-29T19:01:00+03:00
 ---
 

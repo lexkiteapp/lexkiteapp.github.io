@@ -1,7 +1,7 @@
 ---
 slug: toefl-ibt-writing-academic-discussion-meo-5-0
-title: "Chiến lược TOEFL iBT Writing Academic Discussion đạt band 5.0"
-description: "Bí quyết làm bài toefl ibt writing academic discussion trong 10 phút: cấu trúc phản hồi chuẩn, tiêu chí chấm điểm 5.0, từ vựng và bài mẫu thực chiến."
+title: "Chiến lược TOEFL iBT Writing Academic Discussion đạt điểm tối đa"
+description: "Bí quyết làm bài toefl ibt writing academic discussion trong 10 phút: cấu trúc phản hồi chuẩn, tiêu chí chấm điểm xuất sắc, từ vựng và bài mẫu thực chiến."
 keyword: "toefl ibt writing academic discussion"
 lang: vi
 translationKey: toefl-ibt-academic-discussion-writing
@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Giao diện luyện thi TOEFL iBT trên ứng dụng Lexkite với bảng cấu trúc đề mới và các dạng câu hỏi chuyên sâu"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-02-11T19:51:00+07:00

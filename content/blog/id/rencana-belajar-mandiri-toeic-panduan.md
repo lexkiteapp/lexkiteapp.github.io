@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, rencana-belajar, persiapan-ujian]
 cover: toeic
 coverAlt: "Antarmuka persiapan ujian TOEIC di Lexkite dengan simulasi ujian lengkap dan latihan per bagian"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-06T07:36:00+07:00

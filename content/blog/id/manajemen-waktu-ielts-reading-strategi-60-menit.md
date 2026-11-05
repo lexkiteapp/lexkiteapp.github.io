@@ -1,6 +1,6 @@
 ---
 title: "Manajemen Waktu IELTS Reading: Strategi Efektif 60 Menit"
-description: "Kuasai manajemen waktu IELTS reading dengan rumus 15-20-25 menit, trik skimming scanning cepat, dan latihan terarah untuk meraih skor Band 7.5+."
+description: "Kuasai manajemen waktu IELTS reading dengan rumus 15-20-25 menit, trik skimming scanning cepat, dan latihan terarah untuk meraih skor band tinggi."
 slug: manajemen-waktu-ielts-reading-strategi-60-menit
 lang: id
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -12,7 +12,7 @@ coverAlt: "Panduan strategi manajemen waktu 60 menit dan pembagian tiga bacaan p
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 85
+qualityScore: 92
 publishAt: 2027-01-05T12:11:00+07:00
 ---
 

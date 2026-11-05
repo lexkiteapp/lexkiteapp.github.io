@@ -13,7 +13,7 @@ publishAt: 2027-01-03T12:11:00+09:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 88
+qualityScore: 92
 quiz: [
   {
     q: "IELTS Writing Task 2에서 Band 7.0 이상을 노릴 때 가장 많이 권장되는 에세이 구조는?",
@@ -236,7 +236,7 @@ Lexkite 웹 애플리케이션은 수험생의 자율적인 라이팅 향상을 
 - 에세이에 활용할 고급 학술 어휘와 콜로케이션을 발굴하고 싶다면 [스마트 사전 도구](/#/)를 통해 검증된 예문과 연어 표현을 검색하고 저장할 수 있습니다.
 - 또한, 전체적인 문장 구성력과 논리 순발력을 기르기 위해 [스피킹 대화 세션](/#/speaking)에서 자신의 주장을 문단 단위로 스피치해 보는 훈련을 병행하면 시너지 효과가 매우 큽니다. 올바른 발음과 억양 점검은 [발음 피드백 기능](/#/practice/speak)을 통해 확인하세요.
 
-아이엘츠 준비를 보다 완벽하게 완성하고 싶다면 당사 블로그의 [IELTS 독학 로드맵 초보 6.5 공략법](/ko/blog/ielts-dokhak-gongbubeop-roadmap-chobo-6-5/), [IELTS 리딩 시간 배분 전략](/ko/blog/ielts-reading-sigan-baebun-jeollyak/), [IELTS 복합문 문법 정복](/ko/blog/ielts-writing-bokhabmun-complex-sentences/), 그리고 [IELTS Writing Task 1 도표 분석 비법](/ko/blog/ielts-writing-task-1-dopyo-bunseog-bibeop/) 가이드도 함께 정독하시길 권장합니다. 풍부한 시험 필수 단어 정리는 사이트 내 단어장 [/tu-vung/](/tu-vung/)에서 확인하실 수 있습니다.
+아이엘츠 준비를 보다 완벽하게 완성하고 싶다면 당사 블로그의 [IELTS 독학 로드맵 초보 6.5 공략법](/ko/blog/ielts-dokhak-gongbubeop-roadmap-chobo-6-5/), [IELTS 리딩 시간 배분 전략](/ko/blog/ielts-reading-sigan-baebun-jeollyak/), [IELTS 복합문 문법 정복](/ko/blog/ielts-writing-bokhabmun-complex-sentences/), 그리고 [IELTS Writing Task 1 도표 분석 비법](/ko/blog/ielts-writing-task-1-dopyo-bunseog-bibeop/) 가이드도 함께 정독하시길 권장합니다. 풍부한 시험 필수 단어 정리는 사이트 내 단어장 [/vocabulary/](/vocabulary/)에서 확인하실 수 있습니다.
 
 {{cta: /#/write | Lexkite 라이팅 룸에서 4단락 에세이 템플릿 실전 연습하기}}
 

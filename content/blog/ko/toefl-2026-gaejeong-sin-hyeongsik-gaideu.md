@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, gongbubeop]
 cover: toefl
 coverAlt: "Lexkite 토플 대비 화면: 2026년 개정 신유형 시험 구조와 영역별 태스크 목록"
-qualityScore: 87
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T07:36:00+09:00
@@ -112,7 +112,7 @@ Lexkite 스마트 학습 모듈의 연구 데이터를 바탕으로 정리한 12
 - **Read in Daily Life (캠퍼스 실용 독해):** 수강 신청 공지, 기숙사 규칙, 교수 이메일, 시설 이용 안내 등 대학 일상 영어 텍스트를 읽고 빠른 정보 파악 능력을 측정합니다.
 - **Read an Academic Passage (학술 장문 독해):** 기존 토플의 핵심 학술 지문으로, 주제문 파악, 팩트/불일치(EXCEPT), 문장 삽입, 추론 문제가 출제됩니다.
 
-학술 어휘와 캠퍼스 빈출 표현을 빈틈없이 익히려면 Lexkite의 [단어 라이브러리](/tu-vung/)에서 CEFR 레벨별 어휘 세트를 활용하는 것이 효과적입니다.
+학술 어휘와 캠퍼스 빈출 표현을 빈틈없이 익히려면 Lexkite의 [단어 라이브러리](/vocabulary/)에서 CEFR 레벨별 어휘 세트를 활용하는 것이 효과적입니다.
 
 ![Lexkite의 레벨별 영단어 라이브러리 화면](media:library "A1부터 B2 레벨까지 체계화된 Lexkite 어휘 세트로 학술 및 일상 영어 단어를 완벽 학습")
 

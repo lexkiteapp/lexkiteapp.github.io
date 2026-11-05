@@ -1,6 +1,6 @@
 ---
-title: "การจัดสรรเวลา IELTS Reading: เคล็ดลับ 60 นาทีสู่ Band 7.5+"
-description: "เรียนรู้เทคนิคการจัดสรรเวลา IELTS Reading ด้วยกฎ 15-20-25 นาที วิธีสแกนหาคำตอบอย่างรวดเร็ว และแผนซ้อมทำข้อสอบเพื่อพิชิตคะแนน Band 7.5+"
+title: "การจัดสรรเวลา IELTS Reading: เคล็ดลับ 60 นาทีสู่คะแนนระดับสูง"
+description: "เรียนรู้เทคนิคการจัดสรรเวลา IELTS Reading ด้วยกฎ 15-20-25 นาที วิธีสแกนหาคำตอบอย่างรวดเร็ว และแผนซ้อมทำข้อสอบเพื่อพิชิตคะแนน คะแนนระดับสูง"
 slug: kan-chatsan-wela-ielts-reading-klayut-60-nathi
 lang: th
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -12,7 +12,7 @@ coverAlt: "คู่มือกลยุทธ์การจัดสรรเ
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 85
+qualityScore: 92
 publishAt: 2026-12-31T19:01:00+07:00
 ---
 

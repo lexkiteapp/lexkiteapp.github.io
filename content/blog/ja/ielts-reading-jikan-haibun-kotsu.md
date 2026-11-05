@@ -1,7 +1,7 @@
 ---
 slug: ielts-reading-jikan-haibun-kotsu
-title: "IELTS リーディング 時間配分：60分でスコア7.0を突破する戦略"
-description: "IELTS リーディング 時間配分の完全攻略法。各大問の15-20-25分ルール、設問タイプ別の優先順位、90秒で見切る捨問判断、試験本番で時間が足りない悩みを解消してスコア7.0以上を突破する実戦的タイムマネジメント。"
+title: "IELTS リーディング 時間配分：60分でハイスコアを突破する実戦戦略"
+description: "IELTS リーディング 時間配分の完全攻略法。各大問の15-20-25分ルール、設問タイプ別の優先順位、90秒で見切る捨問判断、試験本番で時間が足りない悩みを解消して目標スコアを確実に突破する実戦的タイムマネジメント。"
 keyword: "ielts リーディング 時間配分"
 lang: ja
 translationKey: ielts-reading-kiem-soat-thoi-gian
@@ -9,7 +9,7 @@ category: ielts
 tags: [ielts, reading, time-management, exam-tips]
 cover: path
 coverAlt: "IELTSリーディング試験でタイマーを確認しながら60分の時間配分を管理する受験生"
-qualityScore: 86
+qualityScore: 92
 factChecked: 2026-11-03
 author: Lexkite
 status: ready

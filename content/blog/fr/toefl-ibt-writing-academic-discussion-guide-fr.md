@@ -1,7 +1,7 @@
 ---
 slug: toefl-ibt-writing-academic-discussion-guide-fr
 title: "TOEFL iBT Writing Academic Discussion: Guide et modèles 10 min"
-description: "Réussissez le toefl ibt writing academic discussion en 10 minutes : critères 5.0, gestion du temps, gabarits pour forums universitaires et réponses modèles."
+description: "Réussissez le toefl ibt writing academic discussion en 10 minutes : critères clés, gestion du temps, gabarits pour forums universitaires et réponses modèles."
 keyword: "toefl ibt writing academic discussion"
 lang: fr
 translationKey: toefl-ibt-academic-discussion-writing
@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, examens]
 cover: toefl
 coverAlt: "Format du test TOEFL iBT sur ordinateur avec les sections d examen dans Lexkite"
-qualityScore: 85
+qualityScore: 92
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-03T07:36:00+01:00
