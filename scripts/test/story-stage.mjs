@@ -86,7 +86,7 @@ async function browser() {
       ok(await p2.evaluate(() => document.querySelectorAll('#lsnAns>button').length === 1), `${tag}: chạm từ không bay vào dòng trả lời`);
       ok(await p2.evaluate(() => !document.querySelector('#lsnCheck').disabled), `${tag}: Kiểm tra không bật sau khi đặt từ`);
       const on = await p2.evaluate(() => { const c = document.querySelector('#lsnCheck'), s = getComputedStyle(c); return [s.backgroundColor, s.color, getComputedStyle(c).backgroundImage]; });
-      ok(on[0] !== col.bg && on[2] !== 'none', `${tag}: nút Kiểm tra (bật) phải khác bản tắt và giữ gradient mẫu Stitch ${on}`);
+      ok(ratio(rgb(on[0]), rgb(on[1])) >= 4.5 && on[0] !== col.bg && on[2] !== 'none', `${tag}: nút Kiểm tra (bật) tương phản ≥ 4.5, khác bản tắt, giữ gradient mẫu Stitch ${on}`);
       const h1 = await p2.evaluate(() => document.querySelector('#lsnBank').getBoundingClientRect().height); ok(Math.abs(h1 - h0) < 1, `${tag}: ngân hàng đổi chiều cao ${h0}→${h1}`);
       await p2.screenshot({ path: `${OUT}/exercise-${tag}.png` });
       await p2.click('#lsnAns>button'); await p2.waitForTimeout(350);
@@ -102,7 +102,7 @@ async function browser() {
     // hiệu năng: Chromium CPU 4× – tác vụ dài > 50 ms ≤ 2 khi dòng hiện, fps ≥ 50, CLS 0
     if (eng === 'chromium') {
       const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
-      await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput && !(window.__clk && e.startTime >= window.__clk && e.startTime - window.__clk < 4000)) { /* dịch bố cục do chính lần chạm Tiếp tục (dòng mới) tính 4 s: CPU 4× kéo phản hồi quá cửa sổ 500 ms chuẩn */ window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
+      await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
       await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
       await page.evaluate(() => { window.__f = 0; const t0 = performance.now(); (function f() { window.__f++; if (performance.now() - t0 < 3000) requestAnimationFrame(f); })(); window.__lt = 0; });
       await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(1500);
