@@ -13,6 +13,7 @@ node scripts/test/bundle-names.mjs web
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ext-sync.mjs
 node scripts/test/sync-drive.mjs
+node scripts/test/sync-ext-drive.mjs
 node scripts/test/account-flow.mjs
 node scripts/vi-lint.mjs
 node scripts/cws-check.mjs
@@ -122,6 +123,7 @@ node scripts/test/ci-filler.mjs
 node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
+node scripts/test/queue-report.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/focus-targets.mjs
@@ -266,6 +268,8 @@ node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
 node scripts/test/haptics.mjs
 node scripts/test/ext-newtab-quiz.mjs
+node scripts/test/teacher-rig.mjs
+node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
@@ -277,3 +281,6 @@ node scripts/native/content-publish.mjs check
 node scripts/test/native-pick-sim.mjs
 node scripts/test/native-visual.mjs --self-test
 node scripts/test/legal-i18n.mjs
+node scripts/test/token-drift.mjs --self
+node scripts/test/token-drift.mjs
+node scripts/test/st-web-i18n.mjs
