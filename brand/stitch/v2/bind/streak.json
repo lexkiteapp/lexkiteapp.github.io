@@ -139,6 +139,9 @@
    "h-16": "'h-[88px] overflow-hidden'",
    "border-dashed": "'border-solid'",
    "items-center": "'items-end'"
+  },
+  ":scope": {
+   "w-[390px]": "'w-full'"
   }
  },
  "parts": {
@@ -258,11 +261,6 @@
      },
      "html": {
       ":scope > div": "e(r.day)"
-     },
-     "cls": {
-      ":scope > div": {
-       "lt:text-white": "'lt:text-[#1B0B04]'"
-      }
      }
     },
     "frozen": {

@@ -9,7 +9,7 @@
  "hex": { "#D8CFBC": "#0E1618", "#B53A22": "#9E2F1A", "#FFF7EA": "#10191B", "#0F3D3E": "#E8F1F0" },
  "cls": {
   "border-[#EADEC8]/40": "border-[#2A3F45]/40", "from-[#FFFDF9]": "from-[#1E2F33]", "border-[#FBD9A6]": "border-[#37525A]",
-  "border-[#A8DDD7]": "border-[#2D464D]", "bg-[#F4FAF9]": "bg-[#142629]", "bg-white": "bg-[#172427]", "text-white": "text-[#1B0B04]",
+  "border-[#A8DDD7]": "border-[#2D464D]", "bg-[#F4FAF9]": "bg-[#142629]", "bg-white": "bg-[#172427]", "text-white": "text-[#1B0B04]", "text-coral-ledge": "text-coral-cta",
   "bg-[#F5ECE0]": "bg-[#1E2F33]", "bg-[#E5D5C0]": "bg-[#37525A]", "text-[#C2B7A3]": "text-[#6B8489]",
   "text-[#0077B6]": "text-[#8ECAE6]", "text-[#8ECAE6]": "text-[#4FA8DE]", "bg-[#FFF2DE]": "bg-[#2E2717]", "border-[#F3BE7A]": "border-[#7A5A2A]",
   "text-[#874A00]": "text-[#FFC94A]", "text-amber-600": "text-[#FFB054]", "bg-[#F0E6D8]": "bg-[#0E1618]", "border-[#0F3D3E]": "border-[#12514D]",

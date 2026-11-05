@@ -54,4 +54,5 @@
 '{a}/{b} {u} hôm nay': '{a}/{b} {u} today',
 '{n} phút/ngày': '{n} min/day',
 'Đã gom {a}/{b} mảnh': '{a}/{b} pieces collected',
+'Đã đóng băng': 'Frozen',
 }); })(typeof self !== 'undefined' ? self : this);

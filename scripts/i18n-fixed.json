@@ -35714,5 +35714,20 @@
     "ar": "{n} د/يوم",
     "ru": "{n} мин/день",
     "tr": "{n} dk/gün"
+  },
+  "Đã đóng băng": {
+    "es": "Congelado",
+    "pt": "Congelado",
+    "fr": "Gelé",
+    "de": "Eingefroren",
+    "id": "Dibekukan",
+    "th": "แช่แข็งแล้ว",
+    "zh": "已冻结",
+    "ja": "凍結済み",
+    "ko": "동결됨",
+    "hi": "फ़्रीज़ हुआ",
+    "ar": "مُجمَّد",
+    "ru": "Заморожено",
+    "tr": "Donduruldu"
   }
 }
