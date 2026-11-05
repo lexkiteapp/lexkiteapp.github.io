@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"gain\" mean?",
+  "keyword": "gain",
+  "value": "Gain means to get something wanted, needed, or valued.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=gain",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"gain\" mean?",
+    "description": "Gain means to get something wanted, needed, or valued.\n\nReview your words, free: https://lexkite.com/app/#/review?w=gain\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "gain",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"gain\" mean?\n\nGain means to get something wanted, needed, or valued.\n\nReview your words, free: https://lexkite.com/app/#/review?w=gain"
+   },
+   "instagram": {
+    "caption": "What does \"gain\" mean?\n\nGain means to get something wanted, needed, or valued.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"gain\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to get something wanted, needed, or valued. Gain means to get something wanted, needed, or valued. Try the full lesson and quiz here: {link}"
  }
 }

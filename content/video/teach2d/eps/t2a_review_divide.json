@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"divide\" mean?",
+  "keyword": "divide",
+  "value": "Divide means to separate something into parts or groups.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=divide",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"divide\" mean?",
+    "description": "Divide means to separate something into parts or groups.\n\nReview your words, free: https://lexkite.com/app/#/review?w=divide\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "divide",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"divide\" mean?\n\nDivide means to separate something into parts or groups.\n\nReview your words, free: https://lexkite.com/app/#/review?w=divide"
+   },
+   "instagram": {
+    "caption": "What does \"divide\" mean?\n\nDivide means to separate something into parts or groups.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"divide\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to separate something into parts or groups. Divide means to separate something into parts or groups. Practice it with a free quiz: {link}"
  }
 }

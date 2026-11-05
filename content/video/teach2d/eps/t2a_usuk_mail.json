@@ -79,5 +79,46 @@
   "words": 44,
   "seconds": 27.1,
   "wpm": 97
+ },
+ "publish": {
+  "title": "Mail or post? US vs UK English",
+  "keyword": "mail vs post",
+  "value": "Americans say mail. British people say post.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/mail",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "Mail or post? US vs UK English",
+    "description": "Americans say mail. British people say post.\n\nLook up any word, free: https://lexkite.com/app/#/dict/mail\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mail vs post",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mail or post? US vs UK English\n\nAmericans say mail. British people say post.\n\nLook up any word, free: https://lexkite.com/app/#/dict/mail"
+   },
+   "instagram": {
+    "caption": "Mail or post? US vs UK English\n\nAmericans say mail. British people say post.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mail or post? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Post! Americans say mail. British people say post. Try the full lesson and quiz here: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"car\" mean?",
+  "keyword": "car",
+  "value": "Car means a vehicle with four wheels and engine that can carry things.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=car",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"car\" mean?",
+    "description": "Car means a vehicle with four wheels and engine that can carry things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=car\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "car",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"car\" mean?\n\nCar means a vehicle with four wheels and engine that can carry things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=car"
+   },
+   "instagram": {
+    "caption": "What does \"car\" mean?\n\nCar means a vehicle with four wheels and engine that can carry things.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"car\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a vehicle with four wheels and engine that can carry things. Car means a vehicle with four wheels and engine that can carry things. Try the full lesson and quiz here: {link}"
  }
 }

@@ -79,5 +79,46 @@
   "words": 45,
   "seconds": 27.6,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Cellphone or mobile? US vs UK English",
+  "keyword": "cellphone vs mobile",
+  "value": "Americans say cellphone. British people say mobile.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/cellphone",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Cellphone or mobile? US vs UK English",
+    "description": "Americans say cellphone. British people say mobile.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cellphone\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cellphone vs mobile",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cellphone or mobile? US vs UK English\n\nAmericans say cellphone. British people say mobile.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cellphone"
+   },
+   "instagram": {
+    "caption": "Cellphone or mobile? US vs UK English\n\nAmericans say cellphone. British people say mobile.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cellphone or mobile? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Mobile! Americans say cellphone. British people say mobile. Practice it with a free quiz: {link}"
  }
 }

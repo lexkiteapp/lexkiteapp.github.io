@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"character\" mean?",
+  "keyword": "character",
+  "value": "Character means a person in a book, film or play.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=character",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"character\" mean?",
+    "description": "Character means a person in a book, film or play.\n\nReview your words, free: https://lexkite.com/app/#/review?w=character\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "character",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"character\" mean?\n\nCharacter means a person in a book, film or play.\n\nReview your words, free: https://lexkite.com/app/#/review?w=character"
+   },
+   "instagram": {
+    "caption": "What does \"character\" mean?\n\nCharacter means a person in a book, film or play.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"character\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a person in a book, film or play. Character means a person in a book, film or play. Practice it with a free quiz: {link}"
  }
 }

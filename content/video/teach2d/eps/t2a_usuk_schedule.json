@@ -79,5 +79,46 @@
   "words": 46,
   "seconds": 28.1,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Schedule or timetable? US vs UK English",
+  "keyword": "schedule vs timetable",
+  "value": "Americans say schedule. British people say timetable.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/schedule",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Schedule or timetable? US vs UK English",
+    "description": "Americans say schedule. British people say timetable.\n\nLook up any word, free: https://lexkite.com/app/#/dict/schedule\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "schedule vs timetable",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Schedule or timetable? US vs UK English\n\nAmericans say schedule. British people say timetable.\n\nLook up any word, free: https://lexkite.com/app/#/dict/schedule"
+   },
+   "instagram": {
+    "caption": "Schedule or timetable? US vs UK English\n\nAmericans say schedule. British people say timetable.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Schedule or timetable? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Timetable! Americans say schedule. British people say timetable. Try the full lesson and quiz here: {link}"
  }
 }

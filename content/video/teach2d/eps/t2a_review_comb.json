@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"comb\" mean?",
+  "keyword": "comb",
+  "value": "Comb means a tool for tidying hair.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=comb",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"comb\" mean?",
+    "description": "Comb means a tool for tidying hair.\n\nReview your words, free: https://lexkite.com/app/#/review?w=comb\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "comb",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"comb\" mean?\n\nComb means a tool for tidying hair.\n\nReview your words, free: https://lexkite.com/app/#/review?w=comb"
+   },
+   "instagram": {
+    "caption": "What does \"comb\" mean?\n\nComb means a tool for tidying hair.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"comb\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a tool for tidying hair. Comb means a tool for tidying hair. More practice like this (free): {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"lab\" mean?",
+  "keyword": "lab",
+  "value": "Lab means a room for scientific work.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lab",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lab\" mean?",
+    "description": "Lab means a room for scientific work.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lab\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lab",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lab\" mean?\n\nLab means a room for scientific work.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lab"
+   },
+   "instagram": {
+    "caption": "What does \"lab\" mean?\n\nLab means a room for scientific work.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lab\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a room for scientific work. Lab means a room for scientific work. More practice like this (free): {link}"
  }
 }
