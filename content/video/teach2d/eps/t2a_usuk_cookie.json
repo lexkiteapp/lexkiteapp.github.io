@@ -79,5 +79,45 @@
   "words": 44,
   "seconds": 27.1,
   "wpm": 97
+ },
+ "publish": {
+  "title": "Cookie or biscuit? US vs UK English",
+  "keyword": "cookie vs biscuit",
+  "value": "Americans say cookie. British people say biscuit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/cookie",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "Cookie or biscuit? US vs UK English",
+    "description": "Americans say cookie. British people say biscuit.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cookie\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cookie vs biscuit",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cookie or biscuit? US vs UK English\n\nAmericans say cookie. British people say biscuit.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cookie"
+   },
+   "instagram": {
+    "caption": "Cookie or biscuit? US vs UK English\n\nAmericans say cookie. British people say biscuit.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cookie or biscuit? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  }
  }
 }

@@ -72,5 +72,45 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"bike\" mean?",
+  "keyword": "bike",
+  "value": "Bike means a vehicle with two wheels that a person can ride.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bike",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bike\" mean?",
+    "description": "Bike means a vehicle with two wheels that a person can ride.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bike\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bike",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bike\" mean?\n\nBike means a vehicle with two wheels that a person can ride.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bike"
+   },
+   "instagram": {
+    "caption": "What does \"bike\" mean?\n\nBike means a vehicle with two wheels that a person can ride.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bike\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  }
  }
 }
