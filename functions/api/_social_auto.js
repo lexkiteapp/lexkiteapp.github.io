@@ -10,6 +10,7 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
+import { foreignAccount, pausedAccount } from './_distribution.js';
 import { setup as ytSetup } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
@@ -345,7 +346,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     const getAccounts = async () => {
       if (accounts) return accounts;
       const ar = await call('GET', 'accounts'); if (ar.status >= 400) throw stopErr(ar.status, ar.code);
-      accounts = (ar.data && ar.data.accounts) || []; return accounts;
+      accounts = ((ar.data && ar.data.accounts) || []).filter(a => !foreignAccount(a) && !pausedAccount(a)); return accounts; // không bao giờ đăng lên Page/IG GrabCast.click hay kênh đã Pause
     };
     // Hồi phục: hủy bài GrabCast còn treo của các bài Meta đã đăng thay (≤ 3 bài/lượt, theo chỉ mục soc_lock_cancel)
     for (const l of await all(db, "SELECT clip, channel_id, gc_post FROM soc_lock WHERE gc_cancel = 'pending' LIMIT 3")) {

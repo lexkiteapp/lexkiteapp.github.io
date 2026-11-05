@@ -21,7 +21,7 @@ export function blockOf(cfg, clip) {
   if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return 'topic';
   if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return 'skill';
   if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return 'cefr';
-  if (cfg.lang && String(clip.lang || 'en').toLowerCase() !== String(cfg.lang).toLowerCase()) return 'lang'; // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
+  if (cfg.lang && String(cfg.lang).toLowerCase() !== 'en' && String(clip.lang || 'en').toLowerCase() !== String(cfg.lang).toLowerCase()) return 'lang'; // page EN chung nhận mọi ngôn ngữ (fallback); page ngôn ngữ riêng chỉ nhận đúng ngôn ngữ // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
   return '';
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
@@ -72,13 +72,18 @@ export function langOfChannel(title) {
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
   // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
-  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), out = [];
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [];
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
     const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
-    if (have.has(p) || seen.has(k)) continue; seen.add(k); out.push({ cond: { lang }, channel_id: id, active: 1 });
+    if (have.has(p) || seen.has(k)) continue; seen.add(k);
+    // page ngôn ngữ riêng chỉ nhận clip cùng ngôn ngữ (đứng trước); page EN chung = mọi ngôn ngữ chưa có page riêng (05/11: mới có 1 page "Lexkite.com")
+    (lang === 'en' ? general : own).push({ cond: lang === 'en' ? {} : { lang }, channel_id: id, active: 1 });
   }
-  return out;
+  return [...own, ...general];
 }
+/** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
+export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
+export const pausedAccount = a => /^(paused|disabled|inactive)$/i.test(String((a && (a.publishing || a.status)) || '')) || (a && (a.paused === true || a.publishing_paused === true));
 /** Rules editor "test a clip": why each rule wins / misses (off · no-match:<cond> · blocked:<cfg field> · shadowed = platform already taken) + final routes. */
 export function explain(rules, cfgs, clip, fallback) {
   const won = new Set(), trace = rules.map((r, i) => {
