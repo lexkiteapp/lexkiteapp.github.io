@@ -102,6 +102,7 @@ No necesitas dedicarle horas al día; la constancia vence a la intensidad espor�
 
 ## Artículos recomendados para potenciar tus habilidades orales
 
+- **Fluidez y práctica individual**: Aprende la técnica 4/3/2 y el ciclo de autograbación en [Cómo hablar inglés con fluidez](/es/blog/como-hablar-ingles-con-fluidez/)
 - **Comprensión auditiva profunda**: Descubre estrategias en [Cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/)
 - **Entrenamiento con dictados**: Conecta el oído y la ortografía con [Técnica de dictado en inglés para listening](/es/blog/tecnica-dictado-en-ingles-listening/)
 - **Pronunciación de terminaciones**: Domina las reglas fonéticas con [Pronunciación de -ed en inglés](/es/blog/pronunciacion-ed-en-ingles/)

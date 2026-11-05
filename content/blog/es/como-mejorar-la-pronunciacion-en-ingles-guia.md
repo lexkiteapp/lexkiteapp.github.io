@@ -163,4 +163,4 @@ No. El objetivo de la comunicación profesional es la inteligibilidad, no la imi
 Elige el modelo que mejor se ajuste a tus metas laborales o de estudio. Las reglas de pares vocálicos, reducción a schwa y acentuación de palabras son idénticas en ambas variantes estándar.
 
 ### ¿Por qué mi voz suena extraña cuando me grabo practicando?
-Al hablar en directo, percibes tu voz a través de la conducción ósea de los huesos del cráneo. Escuchar una grabación te devuelve el sonido real transmitido por el aire, permitiéndote identificar con precisión las consonantes omitidas.
+Al hablar en directo, percibes tu voz a través de la conducción ósea de los huesos del cráneo. Escuchar una grabación te devuelve el sonido real transmitido por el aire, permitiéndote identificar con precisión las consonantes omitidas. Aprende a estructurar tus sesiones de autograbación en nuestra guía sobre [cómo hablar inglés con fluidez](/es/blog/como-hablar-ingles-con-fluidez/).

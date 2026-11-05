@@ -136,7 +136,7 @@ Consolida la retención a largo plazo repasando conceptos diariamente en el [mó
 Si practicas los ejercicios de monólogo interno durante **15 minutos al día de manera constante**, la mayoría de los estudiantes empiezan a experimentar destellos automáticos de pensamiento en inglés en un plazo de **3 a 6 semanas**.
 
 ### ¿Qué debo hacer si no encuentro una palabra en inglés mientras hablo?
-Aprende a **circunloquiar** (describir la idea con otras palabras). Si olvidaste cómo se dice *umbrella*, di *"the object you use when it rains to stay dry"*. Los nativos hacen esto todo el tiempo; no es un signo de debilidad, sino una muestra magistral de destreza comunicativa.
+Aprende a **circunloquiar** (describir la idea con otras palabras). Si olvidaste cómo se dice *umbrella*, di *"the object you use when it rains to stay dry"*. Los nativos hacen esto todo el tiempo; no es un signo de debilidad, sino una muestra magistral de destreza comunicativa. Conoce técnicas de práctica individual en nuestra guía sobre [cómo hablar inglés con fluidez](/es/blog/como-hablar-ingles-con-fluidez/).
 
 ### ¿Cambiar el idioma de mi teléfono y redes sociales realmente ayuda?
 Sí, enormemente. Aunque parezca un detalle menor, configurar tu móvil, ordenador y cuentas de streaming en inglés te expone pasivamente a cientos de microinteracciones diarias con palabras de alta frecuencia (*settings*, *share*, *download*, *mute*, *battery*).
