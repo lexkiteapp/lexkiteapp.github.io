@@ -197,7 +197,7 @@
       state: () => (M ? M.last() : null),
       destroy() { dead = true; cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); el.classList.remove('trig'); },
     };
-    ready.catch(() => { stats.failed = true; if (!dead && g.Chars) el.insertAdjacentHTML('beforeend', g.Chars.img(who, { kind: 'poster', cls: 'trig-poster', size: 384 })); }); // thiếu tài sản → ảnh 2D tĩnh, không bao giờ trống
+    ready.catch(() => { stats.failed = true; if (!dead && g.Chars) el.insertAdjacentHTML('beforeend', g.Chars.slot ? g.Chars.slot(who, { size: 'xl', cls: 'trig-poster', ground: false }) : ''); }); // thiếu tài sản → ảnh 2D tĩnh qua chỗ giáo viên chung (Chars.slot), không bao giờ trống
     return api;
   }
 
