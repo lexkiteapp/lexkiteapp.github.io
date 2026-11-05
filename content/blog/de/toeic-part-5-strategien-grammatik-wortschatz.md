@@ -17,10 +17,10 @@ quiz: [
   {
     q: "Welche Zeit pro Aufgabe ist in TOEIC Part 5 ein sinnvoller Richtwert?",
     options: [
-      "Über 60 Sekunden für genaue Textanalyse",
-      "Etwa 20 Sekunden pro Frage als Richtwert, damit mehr Zeit für Part 6 und 7 bleibt",
-      "Genau 45 Sekunden pro Aufgabe",
-      "Beliebig viel Zeit, da Part 5 am wichtigsten ist"
+      "Über 60 Sekunden pro Aufgabe, damit die Textanalyse ganz genau wird",
+      "Etwa 20 Sekunden pro Aufgabe, damit Zeit für Part 6 und 7 bleibt",
+      "Genau 45 Sekunden pro Aufgabe, damit alle Teile gleich viel Zeit bekommen",
+      "Beliebig viel Zeit, weil Part 5 der wichtigste Teil des Tests ist"
     ],
     answer: 1,
     explain: "Der Leseteil hat 100 Fragen in 75 Minuten. 30 Aufgaben in rund 10 Minuten ergeben etwa 20 Sekunden pro Aufgabe und lassen mehr Zeit für die langen Texte. Das ist ein Richtwert; ETS gibt keine Zeit pro Part vor."
@@ -28,10 +28,10 @@ quiz: [
   {
     q: "Was ist der erste Schritt bei der Analyse einer Part-5-Aufgabe?",
     options: [
-      "Zuerst den gesamten Satz von Anfang bis Ende übersetzen",
-      "Zuerst die vier Antwortoptionen scannen, um den Fragetyp (Grammatik oder Vokabular) zu bestimmen",
-      "Sofort die längste Antwortmöglichkeit auswählen",
-      "Nur nach Signalwörtern für Zeitformen suchen"
+      "Zuerst den gesamten Satz von Anfang bis Ende ins Deutsche übersetzen",
+      "Zuerst die vier Optionen scannen, um den Fragetyp zu bestimmen",
+      "Sofort die längste Antwortmöglichkeit auswählen und weitergehen",
+      "Nur nach Signalwörtern für Zeitformen im Satz suchen"
     ],
     answer: 1,
     explain: "Ein schneller Blick auf die Optionen verrät sofort, ob es sich um eine Wortartenfrage (gleicher Wortstamm) oder eine semantische Vokabelfrage handelt."
@@ -39,37 +39,37 @@ quiz: [
   {
     q: "Wie löst man Wortarten-Fragen (Parts of Speech) am schnellsten?",
     options: [
-      "Durch lautes Aussprechen aller Optionen",
-      "Durch Analyse der syntaktischen Lücke (z. B. zwischen Artikel und Substantiv steht ein Adjektiv)",
-      "Durch Auszählen der Silben",
-      "Durch Raten des vertrautesten Wortes"
+      "Durch lautes Aussprechen aller vier Optionen nacheinander",
+      "Durch Analyse der Lücke: Zwischen Artikel und Substantiv steht ein Adjektiv",
+      "Durch Auszählen der Silben jeder einzelnen Option",
+      "Durch Raten des vertrautesten Wortes aus der Liste"
     ],
     answer: 1,
     explain: "Die syntaktische Umgebung der Lücke bestimmt eindeutig die erforderliche Wortart, ohne dass der gesamte Satzinhalt verstanden werden muss."
   },
   {
-    q: "Welche Option passt: ___ the heavy rain, the outdoor event went ahead as planned.",
-    options: ["Although", "Despite", "Even though", "Because"],
+    q: "Welche Option passt: ___ a delay in the shipment, the store opened one day late.",
+    options: ["Because", "Because of", "Although", "While"],
     answer: 1,
-    explain: "Nach der Lücke folgt nur eine Nominalphrase (the heavy rain) ohne finites Verb. Eine einräumende Präposition ist hier nötig, und Despite ist die einzige davon; Although, Even though und Because brauchen einen vollständigen Nebensatz."
+    explain: "Nach der Lücke folgt nur eine Nominalphrase (a delay in the shipment) ohne finites Verb. Hier ist eine Präposition nötig, und Because of ist die einzige davon; Because, Although und While leiten einen vollständigen Nebensatz mit Subjekt und Verb ein."
   }
 ]
 qualityScore: 90
 ---
 
-Für Berufstätige und Studierende, die internationale Karriereschritte anstreben, verlangt der TOEIC Reading-Test absolute Präzision unter hohem Zeitdruck. Mit exakt 30 Lückensätzen eröffnet der Abschnitt **toeic part 5** den Leseteil und prägt maßgeblich den weiteren Rhythmus der gesamten Prüfung. Der gesamte Leseteil hat 100 Fragen in 75 Minuten (Part 5: 30, Part 6: 16, Part 7: 54), und es gibt keine Zeitvorgabe pro Part. Jede Minute, die Sie in Part 5 sparen, fehlt Ihnen nicht bei den langen Texten in Part 7.
+Für Berufstätige und Studierende mit internationalen Karrierezielen verlangt der TOEIC Reading-Test Tempo und Genauigkeit. Mit 30 Lückensätzen eröffnet TOEIC Part 5 den Leseteil und gibt den Rhythmus für den Rest vor. Sie lernen hier, jede Aufgabe in rund 20 Sekunden einzuordnen. Der gesamte Leseteil hat 100 Fragen in 75 Minuten (Part 5: 30, Part 6: 16, Part 7: 54), und es gibt keine Zeitvorgabe pro Part. Die Zeit, die Sie in Part 5 sparen, steht Ihnen für die langen Texte in Part 7 zur Verfügung.
 
-Durch eine strukturierte Analysemethode und die Prinzipien aus unserem Leitfaden zu [TOEIC Part 7 Leseverständnis und Zeitmanagement](/de/blog/toeic-part-7-leseverstaendnis-zeitmanagement/) sowie unserem Guide zum [Business English E-Mail schreiben](/de/blog/business-english-email-schreiben/) lernen Sie, die meisten Aufgaben in etwa 20 Sekunden zu lösen. Das ist ein Richtwert, keine offizielle Vorgabe.
+Mit der Analysemethode in diesem Artikel lösen Sie die meisten Aufgaben in etwa 20 Sekunden. Das ist ein Richtwert, keine offizielle Vorgabe.
 
 ---
 
 ## Aufbau von TOEIC Part 5: Die zwei Hauptkategorien der 30 Aufgaben
 
-Part 5 besteht aus 30 unvollständigen Sätzen, für die jeweils vier Antwortoptionen (A, B, C, D) zur Auswahl stehen. Die goldene Regel für maximale Geschwindigkeit lautet: Betrachten Sie zuerst die Antwortoptionen, noch bevor Sie den gesamten Satz lesen.
+Part 5 besteht aus 30 unvollständigen Sätzen, für die jeweils vier Antwortoptionen (A, B, C, D) zur Auswahl stehen. Die wichtigste Regel für das Tempo lautet: Betrachten Sie zuerst die Antwortoptionen, noch bevor Sie den gesamten Satz lesen.
 
 Die Fragen lassen sich in zwei grundlegende Aufgabentypen unterteilen:
 
-1. **Reine Grammatik- und Wortartenfragen (meist gut die Hälfte des Abschnitts, die genaue Verteilung schwankt von Test zu Test)**: Die vier Optionen teilen denselben Wortstamm, unterscheiden sich jedoch durch ihre Suffixe (z. B. *manage*, *manager*, *managerial*, *management*). Hier müssen Sie ermitteln, welche Wortart die syntaktische Struktur verlangt (Substantiv, Adjektiv, Adverb oder konjugiertes Verb).
+1. **Reine Grammatik- und Wortartenfragen (ein großer Teil des Abschnitts, die genaue Verteilung schwankt von Test zu Test)**: Die vier Optionen teilen denselben Wortstamm, unterscheiden sich jedoch durch ihre Suffixe (z. B. *manage*, *manager*, *managerial*, *management*). Hier müssen Sie ermitteln, welche Wortart die syntaktische Struktur verlangt (Substantiv, Adjektiv, Adverb oder konjugiertes Verb).
 2. **Wortschatz- und Kollokationsfragen (der übrige Teil)**: Die Optionen präsentieren völlig unterschiedliche Wörter derselben Wortart (z. B. *postpone*, *deliver*, *announce*, *exceed*). Die richtige Lösung erfordert Verständnis für Geschäftskontexte und feste Wortverbindungen.
 
 | Aufgabentyp | Merkmal der Optionen | Richtwert pro Aufgabe | Prüfungsfokus |
@@ -90,11 +90,11 @@ Bei Aufgaben zur Wortableitung müssen Sie selten den gesamten Satz Zeile für Z
 Typische syntaktische Muster im Prüfungsalltag:
 
 - **Substantiv (Subjekt- oder Objektposition)**: Folgt häufig auf Artikel (*a, an, the*), Possessivpronomen (*our, their, his*) oder Präpositionen (*in, for, about*). Steht die Lücke vor einem Prädikat, suchen Sie in der Regel ein Nomen:
-  - *Beispiel: The recent _____ in production costs surprised the board. (Optionen: increase, increasingly, increased)* $\rightarrow$ Lösung: *increase* (Substantiv).
+  - *Beispiel: The recent _____ in production costs surprised the board. (Optionen: increase, increasingly, increased, increasing)* → Lösung: *increase* (Substantiv).
 - **Adjektiv (Attribut)**: Steht direkt vor einem Substantiv oder nach Kopulaverben (*be, seem, remain, become*). Es beschreibt eine Eigenschaft:
-  - *Beispiel: Ms. Higgins presented a _____ proposal during the meeting. (Optionen: comprehensive, comprehensively, comprehend)* $\rightarrow$ Lösung: *comprehensive* (Adjektiv zu *proposal*).
+  - *Beispiel: Ms. Higgins presented a _____ proposal during the meeting. (Optionen: comprehensive, comprehensively, comprehend, comprehension)* → Lösung: *comprehensive* (Adjektiv zu *proposal*).
 - **Adverb mit Endung -ly**: Modifiziert Verben, Adjektive oder vollständige Sätze. Ist ein Satz syntaktisch bereits komplett mit Subjekt, Prädikat und Objekt ausgestattet, fordert die Lücke fast immer ein Adverb:
-  - *Beispiel: The customer support team responded _____ to the ticket. (Optionen: prompt, promptly, promptness)* $\rightarrow$ Lösung: *promptly* (Adverb modifiziert *responded*).
+  - *Beispiel: The customer support team responded _____ to the ticket. (Optionen: prompt, promptly, promptness, prompted)* → Lösung: *promptly* (Adverb modifiziert *responded*).
 
 Vertiefen Sie Ihr Vokabularwissen auch mit unseren Ratschlägen zu [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/) und üben Sie die Wortarten-Muster direkt an echten Aufgaben: In [Lexkite TOEIC](/#/toeic) gibt es zu jedem Probetest eine eigene Übung für Part 5, die nach dem Abgeben jede Antwort erklärt.
 
@@ -116,7 +116,7 @@ Die syntaktische Faustregel lautet:
 
 Sobald Sie solche Optionen sehen, prüfen Sie die Worte nach der Lücke: Befindet sich dort ein konjugiertes Verb, scheiden sämtliche Präpositionen automatisch aus.
 
-Business-Wörter und ihre festen Verbindungen finden Sie auch in der [Wortschatz-Übersicht](/en/vocabulary/); in der Bibliothek der App gibt es dazu den Reiter TOEIC (TSL).
+Business-Wörter und ihre festen Verbindungen finden Sie auch in der [englischsprachigen Wortlisten](/en/vocabulary/); in der Bibliothek der App gibt es dazu den Reiter TOEIC (TSL).
 
 ![Lexkite-Bibliothek mit den Reitern Alle, NGSL, IELTS, Writing, Speaking und TOEIC (TSL)](media:library "Die Bibliothek mit dem Reiter TOEIC (TSL): Business-Wortschatz für Part 5")
 
@@ -127,14 +127,14 @@ Business-Wörter und ihre festen Verbindungen finden Sie auch in der [Wortschatz
 In der angelsächsischen Geschäftskorrespondenz werden Vorgänge oft im Passiv formuliert, um die Maßnahme oder das Resultat in den Vordergrund zu stellen.
 
 Gehen Sie bei Verben in zwei Schritten vor:
-1. **Kongruenzprüfung (Singular oder Plural)**: Achten Sie genau auf das Kernsubstantiv, wenn lange präpositionale Attribute dazwischengeschoben sind (*The implementation of new software tools [was/were] approved...* $\rightarrow$ das Kernsubstantiv ist *implementation*, Singular: *was*).
-2. **Aktiv- oder Passivstatus**: Folgt dem Verb direkt ein Akkusativobjekt, liegt ein Aktivsatz vor (*The company expanded its logistics network*). Fehlt bei einem transitiven Verb (wie *approve* oder *reject*) das Objekt, oder wird der Handelnde mit *by* ergänzt, steht das Passiv (*The proposal was rejected by the steering committee*).
+1. **Kongruenzprüfung (Singular oder Plural)**: Achten Sie genau auf das Kernsubstantiv, wenn lange präpositionale Attribute dazwischengeschoben sind (*The implementation of new software tools [was/were] approved...* → das Kernsubstantiv ist *implementation*, Singular: *was*).
+2. **Aktiv- oder Passivstatus**: Folgt dem Verb direkt ein direktes Objekt, liegt ein Aktivsatz vor (*The company expanded its logistics network*). Fehlt bei einem transitiven Verb (wie *approve* oder *reject*) das Objekt, oder wird der Handelnde mit *by* ergänzt, steht das Passiv (*The proposal was rejected by the steering committee*).
 
-Ergänzen Sie Ihre Kompetenzen für den Berufsalltag durch unseren Leitfaden zu [Englische Abkürzungen im Beruf](/de/blog/englische-abkuerzungen-im-beruf-email-guide/) sowie Formulierungen für [Feedback auf Englisch geben](/de/blog/feedback-auf-englisch-geben-im-beruf/).
+Mehr zur Bildung und Verwendung des Passivs finden Sie im Artikel [Passiv im Englischen: Bildung und Regeln](/de/blog/passiv-englisch-bildung-regeln-passive-voice/). Wie Sie *yesterday*, *since* und *for* mit der richtigen Zeitform kombinieren, erklärt [Present Perfect oder Simple Past](/de/blog/present-perfect-oder-simple-past/).
 
 ---
 
-### Typische Fallen für deutschsprachige Lernende
+## Typische Fallen für deutschsprachige Lernende
 
 - **Perfekt statt Simple Past**: Im Deutschen sagt man „Die Zusammenfassung ist gestern weitergeleitet worden“. Im Englischen schließt *yesterday* das Present Perfect aus: *was forwarded yesterday*, nicht *has been forwarded yesterday*.
 - **since oder for**: „seit drei Jahren“ heißt *for three years*, „seit 2023“ heißt *since 2023*, beide meist mit Present Perfect (*has worked*), nicht mit Präsens (*works since*).
@@ -145,7 +145,7 @@ Ergänzen Sie Ihre Kompetenzen für den Berufsalltag durch unseren Leitfaden zu 
 
 Jeder Satz enthält einen Fehler, den die falschen Optionen in Part 5 gern nachbauen. Korrigieren Sie ihn, bevor Sie die Lösung lesen.
 
-1. *The invoice has been paid yesterday.* → *was paid yesterday*: „ist gestern bezahlt worden“ klingt deutsch richtig, aber *yesterday* verlangt Simple Past.
+1. *We have met the client last week.* → *We met the client last week*: „Wir haben den Kunden letzte Woche getroffen“ klingt deutsch richtig, aber *last week* verlangt Simple Past.
 2. *Since three years she works here.* → *She has worked here for three years*: „seit drei Jahren arbeitet sie“ wird im Englischen zum Present Perfect mit *for*.
 3. *She answered very quick.* → *very quickly*: Das deutsche „schnell“ ist Adjektiv und Adverb in einem, das englische nicht.
 4. *I will become the documents tomorrow.* → *receive* oder *get*: *become* heißt „werden“, nicht „bekommen“.
@@ -195,15 +195,13 @@ Testen Sie Ihre Analysefähigkeit anhand von vier prüfungsnahen Beispielen:
 
 ---
 
-![Multiple-Choice-Test in Lexkite: die richtige Bedeutung von run out of aus vier Optionen wählen](media:practice-test "Ein Multiple-Choice-Test wie dieser hilft, die Bedeutung von Wendungen wie run out of zu prüfen")
-
 ## Zeitmanagement-Protokoll: Part 5 in 10 Minuten abschließen
 
 Von den 75 Minuten des Leseteils bleiben bei 10 Minuten für Part 5 noch 65 für Part 6 und 7. Ein möglicher Zeittakt (eigene Empfehlung, keine Vorgabe von ETS):
 
 ```
 Zeitbudget für Part 5 = 10 Minuten (600 Sekunden)
-30 Aufgaben / 600 Sekunden = ca. 20 Sekunden pro Aufgabe
+600 Sekunden / 30 Aufgaben = 20 Sekunden pro Aufgabe
 ```
 
 Wenden Sie folgendes Ablaufmuster am Prüfungstag an:
@@ -212,7 +210,7 @@ Wenden Sie folgendes Ablaufmuster am Prüfungstag an:
 - **15–20 Sekunden**: Markieren auf dem Antwortbogen und sofortiger Wechsel zur nächsten Aufgabe.
 - **Stopp-Regel bei Unsicherheit**: Schwanken Sie nach 25 Sekunden zwischen zwei Varianten, wählen Sie Ihre beste Vermutung und gehen Sie weiter. Bleiben Sie keinesfalls minutenlang an einem Einzelsatz hängen.
 
-![Lexkite Mistake log: Vocabulary, Grammar, Reading, Listening](media:mistakes "Das Fehlerheft sortiert falsche Antworten nach Wortschatz, Grammatik, Leseverständnis und Hören")
+![Lexkite-Fehlerheft mit den Reitern Wortschatz, Grammatik, Lesen und Hören](media:mistakes "Das Fehlerheft hat Reiter für Wortschatz, Grammatik, Lesen und Hören; falsche TOEIC-Antworten stehen unter Lesen")
 
 ---
 
@@ -222,14 +220,14 @@ Tempo entsteht durch Wiederholung. Das hilft bei Part 5:
 
 - **Wiederholung nach FSRS**: Geschäftsausdrücke und Phrasal Verbs kommen kurz vor dem Vergessen wieder.
 - **Wörterbuch**: Beispielsätze und Aussprache zu jedem Wort.
-- **Fehlerheft**: Falsch beantwortete Aufgaben landen im [Fehlerheft](/#/mistakes), gruppiert nach Wortschatz, Grammatik und Leseverständnis. So sehen Sie, ob Ihre Part-5-Fehler eher bei Wortarten oder bei Kollokationen liegen.
+- **Fehlerheft**: Falsche Antworten landen im [Fehlerheft](/#/mistakes) unter Leseverständnis, jeweils mit Erklärung. Notieren Sie selbst, ob es eine Wortart- oder eine Kollokationsfrage war.
 - **Strukturierter Vorbereitungsplan**: Nutzen Sie unseren kompletten [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/) zur Aufteilung Ihrer Lernwochen.
 
 Probieren Sie es aus: Wählen Sie in [Lexkite TOEIC](/#/toeic) einen Test, öffnen Sie Part 5 und stoppen Sie Ihre Zeit selbst.
 
 {{cta: /#/toeic | Part 5 mit Erklärungen üben}}
 
-{{youtube: | TOEIC Part 5 Grammatik- und Wortschatzstrategien für Bestnoten}}
+{{youtube: | TOEIC Part 5 Grammatik- und Wortschatzstrategien im Überblick}}
 
 ---
 
@@ -248,6 +246,8 @@ Nein. Beim TOEIC Listening & Reading zählen nur richtige Antworten, falsche Ant
 Am häufigsten sind Adjektiv statt Adverb (im Deutschen steht „schnell“ für beides), die Zeitform bei *since*/*for* und das Present Perfect mit Zeitangaben wie *yesterday*. Hinzu kommen falsche Freunde wie *actual* oder *eventually*. Prüfen Sie bei jeder Wortartenfrage zuerst, ob das Verb schon im Satz steht: Dann fehlt fast immer ein Adverb oder ein Adjektiv, kein weiteres Verb.
 
 ### Wie prägt man sich geschäftliche Kollokationen am besten ein?
-Lernen Sie Vokabeln niemals isoliert, sondern stets in festen Verbindungen (*meet the deadline*, *conduct an investigation*, *reach a consensus*). Das Lernen ganzer Phrasen mit einem intelligenten Karteikartensystem beschleunigt die Wiedererkennung im Test maßgeblich.
+Lernen Sie Vokabeln niemals isoliert, sondern stets in festen Verbindungen (*meet the deadline*, *conduct an investigation*, *reach a consensus*). Das Lernen ganzer Phrasen mit einem Karteikartensystem erleichtert die Wiedererkennung im Test.
 
-Für den Hörteil lesen Sie auch unseren Leitfaden zu [TOEIC Listening Part 2: Fragen und Antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).
+![Multiple-Choice-Test in Lexkite: die richtige Bedeutung von run out of aus vier Optionen wählen](media:practice-test "Ein Vokabeltest in Lexkite (kein Part 5): Er prüft die Bedeutung von Wendungen wie run out of")
+
+Weiter geht es mit dem Leitfaden zu [TOEIC Part 7: Leseverständnis und Zeitmanagement](/de/blog/toeic-part-7-leseverstaendnis-zeitmanagement/) und dem Guide zum [Business English E-Mail schreiben](/de/blog/business-english-email-schreiben/). Für den Hörteil lesen Sie unseren Leitfaden zu [TOEIC Listening Part 2: Fragen und Antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).

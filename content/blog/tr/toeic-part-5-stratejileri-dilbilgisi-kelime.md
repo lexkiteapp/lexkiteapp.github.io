@@ -17,10 +17,10 @@ quiz: [
   {
     q: "TOEIC Part 5'te soru başına makul bir süre hedefi hangisidir?",
     options: [
-      "Her soru için 60 saniyeden fazla",
-      "Part 6 ve 7'ye zaman kalması için soru başına yaklaşık 20 saniye",
-      "Soru başına tam 45 saniye",
-      "Süre sınırı olmaksızın çözülmelidir"
+      "Her soru için 60 saniyeden fazla, ayrıntılı analiz için",
+      "Soru başına yaklaşık 20 saniye, sonrası için zaman kalsın diye",
+      "Soru başına tam 45 saniye, hiç sapmadan",
+      "Süre sınırı olmaksızın, emin olana kadar çözülmelidir"
     ],
     answer: 1,
     explain: "Reading bölümünde 75 dakikada 100 soru vardır. Soru başına yaklaşık 20 saniye, 30 soruyu 10 dakikada bitirip uzun metinlere zaman bırakır. Bu bir çalışma hedefidir; ETS Part başına süre belirlemez."
@@ -28,10 +28,10 @@ quiz: [
   {
     q: "Part 5 sorusunu çözerken ilk olarak neye bakılmalıdır?",
     options: [
-      "Cümlenin tamamını Türkçeye çevirmeye",
-      "Sorunun dilbilgisi mi yoksa kelime sorusu mu olduğunu anlamak için 4 şıkka",
-      "Yalnızca bağlaçlara",
-      "En uzun seçeneğe"
+      "Cümlenin tamamını kelime kelime Türkçeye çevirmeye",
+      "Soru türünü anlamak için dört şıkka",
+      "Yalnızca cümledeki bağlaçlara",
+      "Her zaman en uzun seçeneğe"
     ],
     answer: 1,
     explain: "Seçeneklere hızlıca göz atmak, sorunun sözcük türü (aynı kök, farklı ekler) mi yoksa anlam sorusu mu olduğunu anında gösterir."
@@ -39,33 +39,33 @@ quiz: [
   {
     q: "Sözcük türü (Parts of Speech) soruları en hızlı nasıl çözülür?",
     options: [
-      "Boşluğun hemen öncesi ve sonrasındaki dilbilgisel yapıyı analiz ederek",
+      "Boşluğun hemen öncesine ve sonrasına bakarak",
       "Cümleyi art arda birkaç kez fısıldayarak okuyarak",
-      "Kelimelerin hecelerini sayarak",
-      "Tüm seçenekleri tek tek deneyerek"
+      "Her kelimenin hecelerini tek tek sayarak",
+      "Tüm seçenekleri tek tek boşluğa deneyerek"
     ],
     answer: 0,
     explain: "Boşluğun bulunduğu konum (örneğin sıfat ile isim arası) gerekli kelime türünü net biçimde belirler; cümlenin tamamını anlamak gerekmez."
   },
   {
-    q: "Hangi seçenek doğrudur: '___ the storm, the ferry left on time.'",
-    options: ["Although", "Despite", "Because", "Even though"],
+    q: "Hangi seçenek doğrudur: '___ a delay in the shipment, the store opened one day late.'",
+    options: ["Because", "Because of", "Although", "While"],
     answer: 1,
-    explain: "Boşluktan sonra yalnızca bir isim öbeği (the storm) gelir, çekimli fiil yoktur. Zıtlık bildiren bir edat gerekir ve Despite tek edattır; diğer üçü tam bir yan cümle ister."
+    explain: "Boşluktan sonra yalnızca bir isim öbeği (a delay in the shipment) gelir, çekimli fiil yoktur. Bir edat gerekir ve Because of tek edattır; diğer üçü özne ve fiil içeren tam bir yan cümle ister."
   }
 ]
 qualityScore: 90
 ---
 
-Uluslararası şirketlerde kariyer hedefleyen profesyoneller ve öğrenciler için TOEIC Reading oturumu yüksek hız ve dilbilgisi keskinliği gerektirir. Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan **toeic part 5**, tüm okuma oturumunun temposunu ve adayların moralini belirler. Reading bölümü 75 dakikada 100 sorudur (Part 5: 30, Part 6: 16, Part 7: 54) ve ETS her Part için ayrı süre belirlemez. Part 5'te kazandığınız her dakika, Part 7'deki uzun metinlere kalır.
+Uluslararası şirketlerde kariyer hedefleyen profesyoneller ve öğrenciler için TOEIC Reading oturumu hız ve dilbilgisi hâkimiyeti gerektirir. Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan TOEIC Part 5, Reading oturumunun temposunu belirler. Reading bölümü 75 dakikada 100 sorudur (Part 5: 30, Part 6: 16, Part 7: 54) ve ETS her Part için ayrı süre belirlemez. Part 5'te kazandığınız her dakika, Part 7'deki uzun metinlere kalır.
 
-[TOEIC Part 7 okuma stratejileri](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) rehberimizdeki zaman modellerini kurumsal iletişim ilkeleriyle birleştiren bu kılavuz, soruları soru başına yaklaşık 20 saniyede çözmeniz için taktikler sunar. Bu süre bir çalışma hedefidir, resmî bir kural değildir.
+Bu kılavuz, soruları soru başına yaklaşık 20 saniyede çözmeniz için taktikler sunar. Bu süre bir çalışma hedefidir, resmî bir kural değildir.
 
 ---
 
-## TOEIC Part 5'in Anatomisi: Sınanan İki Ana Soru Türü
+## TOEIC Part 5'in anatomisi: sınanan iki ana soru türü
 
-Part 5'teki 30 soru, dört seçenekli (A, B, C, D) cümle tamamlama kalıplarından meydana gelir. Hızınızı ikiye katlayacak en temel kural şudur: Cümleyi baştan sona okumadan önce doğrudan seçeneklere bakın.
+Part 5'teki 30 soru, dört seçenekli (A, B, C, D) cümle tamamlama kalıplarından meydana gelir. Hız kazandıran temel kural şudur: Cümleyi baştan sona okumadan önce doğrudan seçeneklere bakın.
 
 Sorular iki temel gruba ayrılır:
 
@@ -83,24 +83,24 @@ Sorular iki temel gruba ayrılır:
 
 ---
 
-## Strateji 1: Boşluğun Önündeki ve Arkasındaki Sözcüklerden Tür Tespiti
+## Strateji 1: boşluğun önündeki ve arkasındaki sözcüklerden tür tespiti
 
 Sözcük türetme sorularında cümlenin her kelimesini Türkçeye çevirmenize gerek yoktur. Yalnızca boşluğun hemen solundaki ve sağındaki sözcüklere odaklanarak doğru parçayı bulabilirsiniz.
 
 Sınavda en sık karşılaşılan sentaktik dizilimler şunlardır:
 
 - **İsim (Noun)**: Tanımlıklardan (*a, an, the*), iyelik sıfatlarından (*our, their, his*) veya edatlardan (*in, at, for, about*) sonra gelir. Boşluk bir ana fiilden önce yer alıyorsa özne konumunda bir isme ihtiyacınız vardır:
-  - *Örnek: The recent _____ in production costs surprised the board. (Seçenekler: increase, increasingly, increased)* $\rightarrow$ Yanıt: *increase* (isim).
+  - *Örnek: The recent _____ in production costs surprised the board. (Seçenekler: increase, increasingly, increased, increasing)* → Yanıt: *increase* (isim).
 - **Sıfat (Adjective)**: Bir ismi nitelemek üzere doğrudan ismin önünde veya durum bildiren bağlama fiillerinden (*be, seem, remain, become*) sonra yer alır:
-  - *Örnek: Ms. Higgins presented a _____ proposal during the meeting. (Seçenekler: comprehensive, comprehensively, comprehend)* $\rightarrow$ Yanıt: *comprehensive* (*proposal* ismini niteleyen sıfat).
+  - *Örnek: Ms. Higgins presented a _____ proposal during the meeting. (Seçenekler: comprehensive, comprehensively, comprehend, comprehension)* → Yanıt: *comprehensive* (*proposal* ismini niteleyen sıfat).
 - **Zarf (-ly ile biten Adverb)**: Bir eylem fiilini, bir sıfatı veya cümlenin tamamını niteler. Cümle temel yapıtaşları bakımından (Özne + Yüklem + Nesne) zaten eksiksiz ise, boşluğa neredeyse her zaman bir zarf gelmelidir:
-  - *Örnek: The logistics team responded _____ to customer inquiries. (Seçenekler: prompt, promptly, promptness)* $\rightarrow$ Yanıt: *promptly* (*responded* fiilini niteleyen zarf).
+  - *Örnek: The logistics team responded _____ to customer inquiries. (Seçenekler: prompt, promptly, promptness, prompted)* → Yanıt: *promptly* (*responded* fiilini niteleyen zarf).
 
-İş dünyası dilinizi zenginleştirmek için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberimize ve [kelime listelerine](/en/vocabulary/) bakabilirsiniz. Kalıpları gerçek sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
+İş kelimeleri için [İngilizce kelime listelerine](/en/vocabulary/) (sayfa İngilizce) bakabilirsiniz. Kalıpları gerçek sorular üzerinde denemek için [Lexkite TOEIC sayfasında](/#/toeic) her deneme sınavının Part 5 çalışması vardır; cevapları gönderince her sorunun açıklaması görünür.
 
 ---
 
-## Strateji 2: Edatlar ile Yan Cümle Bağlaçlarını Birbirinden Ayırma
+## Strateji 2: edatlarla yan cümle bağlaçlarını birbirinden ayırma
 
 Adayların sıklıkla düştüğü tuzaklardan biri, benzer anlama gelen ancak yapısal olarak tamamen farklı bağlaç ve edatları karıştırmaktır.
 
@@ -120,27 +120,27 @@ Bu seçenekleri gördüğünüzde boşluğun hemen sonrasını tarayın: Eğer �
 
 ---
 
-## Strateji 3: Edilgen Çatı ve Özne-Yüklem Uyumu Kontrolü
+## Strateji 3: edilgen çatı ve özne-yüklem uyumu kontrolü
 
 Kurumsal raporlarda ve şirket duyurularında eylemi yapan kişiden ziyade ortaya çıkan sonuç veya proje öne çıkarıldığı için edilgen çatı (*Passive Voice*) çok sık tercih edilir.
 
 Fiil sorularında şu iki adımlı filtreyi saniyeler içinde uygulayın:
-1. **Gerçek Özneyi Bulun**: Uzun edat öbekleriyle fiilden uzaklaştırılmış öznelere dikkat edin (*The delivery of office supplies [was/were] scheduled...* $\rightarrow$ gerçek özne *delivery*, tekil: *was*).
+1. **Gerçek Özneyi Bulun**: Uzun edat öbekleriyle fiilden uzaklaştırılmış öznelere dikkat edin (*The delivery of office supplies [was/were] scheduled...* → gerçek özne *delivery*, tekil: *was*).
 2. **Nesne Varlığını Denetleyin**: Boşluktan hemen sonra eylemden etkilenen bir doğrudan nesne geliyorsa fiil etkendir (*The company expanded its operations*). Geçişli bir fiilin (*approve*, *reject*) nesnesi yoksa veya yapan kişi *by* ile belirtilmişse edilgen çatı kullanılır (*The proposal was rejected by the executive committee*).
 
-Kelimeleri kalıcı hafızaya almak için [aralıklı tekrar kelime ezberleme FSRS](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) metodundan yararlanın ve genel kelime hazinenizi geliştirmek için [İngilizce kelime ezberleme teknikleri](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyin.
+Edilgen çatının kuruluşunu hatırlamak için [İngilizce edilgen çatı kuralları](/tr/blog/ingilizce-passive-voice-edilgen-cati-kurallari/) yazımıza bakın. *yesterday*, *since* ve *for* ile doğru zamanı seçmek için [Present Perfect ile Simple Past farkı](/tr/blog/present-perfect-simple-past-farki/) yazısı işinize yarar.
 
 ---
 
-### Türk Adayların En Sık Düştüğü Tuzaklar
+## Türk Adayların En Sık Düştüğü Tuzaklar
 
 - **Tanımlık unutmak**: Türkçede *a/an/the* karşılığı yoktur, bu yüzden *presented comprehensive proposal* gibi eksik yapılar gözden kaçar. Tekil sayılabilir bir isim gördüğünüzde önünde bir belirleyici arayın.
-- **his/her/its karışıklığı**: Türkçedeki "o" ve "-(s)I" eki cinsiyet ayırmaz. *The company announced ___ results* sorusunda doğru yanıt *its*'tir; şirket için *his* veya *their* seçmeyin.
+- **his/her/its karışıklığı**: Türkçedeki "o" ve "-(s)I" eki cinsiyet ayırmaz. *The company announced ___ results* sorusunda doğru yanıt *its*'tir; Resmî TOEIC cevaplarında şirket genellikle tekil *its* ile eşleşir; günlük İngilizcede *their* de yaygındır, ama *his* yanlıştır.
 - **since ve for**: "Üç yıldır" *for three years*, "2023'ten beri" *since 2023* olur ve genellikle Present Perfect ister (*has worked*), "çalışıyor" çevirisinden gelen *is working since* yapısı yanlıştır.
 - **despite of**: "-e rağmen" karşılığına *of* eklemek yaygın hatadır. Doğrusu *despite* + isim ya da *in spite of* + isimdir.
 - **Türkçe kelime sırasıyla okumak**: Türkçede fiil sondadır; İngilizcede ise yüklem özneden hemen sonra gelir. Soruyu sondan başa çevirmeye çalışmak yerine boşluğun solundaki ve sağındaki kelimeye bakın.
 
-## Bu Cümleleri Düzeltin (Türkçe Konuşanların Tipik Hataları)
+## Bu cümleleri düzeltin (Türkçe konuşanların tipik hataları)
 
 Her cümlede, Part 5'in yanlış şıklarının taklit etmeyi sevdiği bir hata var. Çözümü okumadan önce düzeltmeyi deneyin.
 
@@ -148,7 +148,7 @@ Her cümlede, Part 5'in yanlış şıklarının taklit etmeyi sevdiği bir hata 
 2. *The company announced his results.* → *its results*: Türkçedeki "o" cinsiyet ayırmaz, İngilizcede şirket için *its* kullanılır.
 3. *I am working here since 2020.* → *I have worked here since 2020*: "2020'den beri çalışıyorum" Present Perfect ister.
 4. *Despite of the delay, we finished.* → *Despite the delay*: *despite*'ten sonra *of* gelmez; *in spite of* ayrı bir kalıptır.
-5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçede gün için ek yoktur, İngilizcede *on* gerekir.
+5. *The meeting is at 3 o'clock in Monday.* → *on Monday*: Türkçedeki -de eki in/on/at ayrımı yapmaz; İngilizcede günlerle *on* kullanılır.
 
 Tereddüt ettiğiniz cümleyi not alın: zaman, belirleyici ve edat sorularında en çok puan kaybettiren kalıplar bunlardır.
 
@@ -194,22 +194,22 @@ Tekniklerinizi dört tipik sınav sorusu üzerinde test edin:
 
 ---
 
-## Zaman Yönetimi: Part 5'i 10 Dakikada Bitirme Protokolü
+## Zaman yönetimi: Part 5'i 10 dakikada bitirme planı
 
-75 dakikalık Reading bölümünde Part 5'e 10 dakika ayırırsanız Part 6 ve 7 için 65 dakika kalır. Olası bir zaman bütçesi (kendi önerim, ETS kuralı değil):
+75 dakikalık Reading bölümünde Part 5'e 10 dakika ayırırsanız Part 6 ve 7 için 65 dakika kalır. Olası bir zaman bütçesi (önerimiz, ETS kuralı değil):
 
 ```
 Part 5 Süre Bütçesi = 10 Dakika (600 Saniye)
-30 Soru / 600 Saniye = Soru başına ortalama 20 Saniye
+600 saniye / 30 soru = soru başına ortalama 20 saniye
 ```
 
-Sınav günü bu üç adımı uygulayın:
+Sınav günü şu adımları uygulayın:
 - **0–5 saniye**: Seçeneklere göz atarak sorunun türünü (dilbilgisi mi kelime mi) teşhis edin.
 - **5–15 saniye**: Boşluğu çevreleyen sözcükleri tarayarak uymayan seçenekleri hızla eleyin.
 - **15–20 saniye**: Cevap kağıdını kodlayın ve hemen bir sonraki soruya geçin.
 - **Tereddüt Kuralı**: 25 saniye geçmesine rağmen iki seçenek arasında kaldıysanız, ilk mantıklı tahmininizi işaretleyin ve devam edin. Yanlış cevap puan düşürmez, o yüzden hiçbir soruyu boş bırakmayın.
 
-![Lexkite hata defteri: hatalar Kelime, Dilbilgisi, Okuma ve Dinleme olarak gruplanır](media:mistakes "Hata defteri yanlışlarınızı kelime, dilbilgisi, okuma ve dinleme diye gruplar")
+![Lexkite hata defteri: Kelime, Dilbilgisi, Okuma ve Dinleme sekmeleri](media:mistakes "Hata defterinde kelime, dilbilgisi, okuma ve dinleme sekmeleri var; yanlış TOEIC soruları Okuma sekmesine düşer")
 
 ---
 
@@ -218,15 +218,15 @@ Sınav günü bu üç adımı uygulayın:
 Hız tekrarla gelir. Part 5 için işe yarayanlar:
 
 - **FSRS ile aralıklı tekrar**: İş terimleri ve phrasal verb'ler unutmadan hemen önce tekrar karşınıza çıkar.
-- **Entegre Bağlamsal Sözlük**: Kelimelerin gerçek cümlelerdeki kullanımlarını ve IPA telaffuzunu anında görüntüleyin.
-- **Hata defteri**: Yanlış yaptığınız sorular [hata defterine](/#/mistakes) kelime, dilbilgisi ve okuma diye gruplanarak düşer. Part 5 hatalarınızın sözcük türünden mi, eşdizimden mi geldiğini görürsünüz.
+- **Sözlük**: Her kelime için örnek cümleler, IPA telaffuzu ve sık kullanılan kalıplar.
+- **Hata defteri**: Yanlış yaptığınız sorular açıklamalarıyla [hata defterine](/#/mistakes) (Okuma sekmesi) düşer. Hatanın sözcük türünden mi, eşdizimden mi geldiğini kendiniz not edin.
 - **Sistemli Çalışma Takvimi**: Hazırlık sürecinizi adım adım organize etmek için [TOEIC bireysel çalışma planı](/tr/blog/toeic-bireysel-calisma-plani-rehber/) rehberimizi takip edin.
 
 Deneyin: [TOEIC sayfasını](/#/toeic) açın, bir deneme sınavı seçin, Part 5'i başlatın ve süreyi kendiniz tutun.
 
 {{cta: /#/toeic | Part 5'i açıklamalı çözün}}
 
-{{youtube: | TOEIC Part 5 dilbilgisi ve kelime taktikleri ile skor yükseltme}}
+{{youtube: | TOEIC Part 5 dilbilgisi ve kelime taktikleri ile stratejileri}}
 
 ---
 
@@ -242,9 +242,9 @@ Sabit bir hesap yoktur: ETS ham puanları her sınav formu için ayrı ayrı 5�
 Hayır. Yalnızca doğru cevaplar sayılır, yanlış cevap puan kaybettirmez. Bu yüzden boş soru bırakmayın; imkânsız şıkları eleyin ve en olası olanı işaretleyin.
 
 ### Türk adaylar Part 5'te en çok hangi hataları yapar?
-En sık görülenler: sayılabilir tekil isimden önce a/an/the unutmak, şirket için *his* ya da *their* seçmek (*its* gerekir), *since* ile süre kullanmak (*for three years*) ve *despite of* demek. Seçmeden önce boşluğun önündeki belirleyiciye ve boşluktan sonra özne + fiil olup olmadığına bakın.
+En sık görülenler: sayılabilir tekil isimden önce a/an/the unutmak, şirket için *his* seçmek (genellikle *its* beklenir), *since* ile süre kullanmak (*for three years*) ve *despite of* demek. Seçmeden önce boşluğun önündeki belirleyiciye ve boşluktan sonra özne + fiil olup olmadığına bakın.
 
 ### İş İngilizcesi eşdizimleri en kolay nasıl ezberlenir?
-Kelimeleri tek başına değil, kalıp halinde (*meet the deadline*, *conduct an investigation*, *reach a consensus*) öğrenin. Kalıpları aralıklı tekrar sistemiyle çalışmak sınav anında reflekslerinizi olağanüstü hızlandırır.
+Kelimeleri tek başına değil, kalıp halinde (*meet the deadline*, *conduct an investigation*, *reach a consensus*) öğrenin. Kalıpları aralıklı tekrar sistemiyle çalışmak sınav anında kalıpları daha çabuk tanımanıza yardımcı olur.
 
-Dinleme bölümü için [TOEIC Listening Part 2: soru ve cevap stratejileri](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazımıza da bakın.
+İş yazışmaları için [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberine, okuma bölümünün devamı için [TOEIC Part 7 okuma stratejileri](/tr/blog/toeic-part-7-okuma-stratejileri-zaman-yonetimi/) rehberine bakın. Dinleme bölümü için [TOEIC Listening Part 2: soru ve cevap stratejileri](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazımıza da bakın.

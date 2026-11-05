@@ -17,10 +17,10 @@ quiz: [
   {
     q: "Quel repère de temps par question est raisonnable dans la Partie 5 du TOEIC ?",
     options: [
-      "Plus de 50 secondes par item",
-      "Environ 20 secondes par question, pour garder du temps pour les Parties 6 et 7",
-      "Exactement 40 secondes par question",
-      "Tout le temps nécessaire jusqu'à certitude"
+      "Plus de 50 secondes par item, pour analyser chaque phrase à fond",
+      "Environ 20 secondes par question, pour garder du temps ensuite",
+      "Exactement 40 secondes par question, sans variation possible",
+      "Tout le temps nécessaire jusqu'à être certain de la réponse"
     ],
     answer: 1,
     explain: "La section Reading compte 100 questions en 75 minutes. Environ 20 secondes par item permettent de finir les 30 questions en 10 minutes et de garder du temps pour les textes longs. C'est un repère personnel : ETS ne fixe pas de durée par partie."
@@ -28,10 +28,10 @@ quiz: [
   {
     q: "Quel réflexe adopter en premier face à une question de Partie 5 ?",
     options: [
-      "Lire et traduire l'intégralité de la phrase",
-      "Observer les 4 choix pour identifier la typologie de la question (grammaire ou lexique)",
-      "Chercher immédiatement les adverbes de fréquence",
-      "Cocher systématiquement la réponse la plus courte"
+      "Lire et traduire l'intégralité de la phrase en français",
+      "Observer les 4 choix pour identifier le type de question",
+      "Chercher immédiatement les adverbes de fréquence dans la phrase",
+      "Cocher systématiquement la réponse la plus courte du lot"
     ],
     answer: 1,
     explain: "L'inspection des choix de réponses révèle instantanément s'il s'agit d'un test de dérivation grammaticale ou d'un choix lexical contextuel."
@@ -39,37 +39,37 @@ quiz: [
   {
     q: "Comment résoudre efficacement les questions de nature grammaticale ?",
     options: [
-      "En analysant l'environnement syntaxique immédiat autour du blanc",
+      "En analysant l'environnement immédiat autour du blanc",
       "En répétant la phrase à voix basse jusqu'à ce qu'elle sonne bien",
-      "En traduisant mot à mot",
-      "En éliminant les verbes conjugués"
+      "En traduisant mot à mot toute la phrase en français",
+      "En éliminant d'abord tous les verbes conjugués"
     ],
     answer: 0,
     explain: "La position syntaxique du vide (par exemple entre un adverbe et un nom) indique directement la classe grammaticale requise sans nécessiter la traduction globale."
   },
   {
-    q: "Quelle option complète correctement : « ___ the road works, the bus arrived on schedule » ?",
-    options: ["Although", "Despite", "Because", "Even though"],
+    q: "Quelle option complète correctement : « ___ a delay in the shipment, the store opened one day late » ?",
+    options: ["Because", "Because of", "Although", "While"],
     answer: 1,
-    explain: "Après le blanc vient seulement un groupe nominal (the road works), sans verbe conjugué. Il faut donc une préposition de concession, et Despite est la seule ; les trois autres introduisent une proposition complète."
+    explain: "Après le blanc vient seulement un groupe nominal (a delay in the shipment), sans verbe conjugué. Il faut donc une préposition, et Because of est la seule ; les trois autres introduisent une proposition complète avec sujet et verbe."
   }
 ]
 qualityScore: 90
 ---
 
-La **toeic part 5** ouvre la section Reading : 30 phrases à compléter, avec quatre choix chacune. Ce sont les questions les plus courtes de tout le test, donc celles où l'on peut gagner ou perdre du temps le plus facilement. La section Reading compte 100 questions en 75 minutes (Partie 5 : 30, Partie 6 : 16, Partie 7 : 54), sans durée imposée par partie : chaque minute gagnée ici est une minute de plus pour les textes longs de la Partie 7.
+La Partie 5 du TOEIC (TOEIC Part 5) ouvre la section Reading : 30 phrases à compléter, avec quatre choix chacune. Ce sont parmi les questions les plus courtes de la section Reading, donc celles où l'on peut gagner ou perdre du temps le plus facilement. La section Reading compte 100 questions en 75 minutes (Partie 5 : 30, Partie 6 : 16, Partie 7 : 54), sans durée imposée par partie : chaque minute gagnée ici est une minute de plus pour les textes longs de la Partie 7.
 
-Cet article vous apprend à reconnaître le type de chaque question dès le premier coup d'œil, pour répondre en une vingtaine de secondes (un repère d'entraînement, pas une règle officielle). Pour la suite de la section, voyez nos [astuces TOEIC Listening et Reading](/fr/blog/toeic-listening-reading-astuces/) et le guide sur la [Partie 7 : lecture et gestion du temps](/fr/blog/toeic-part-7-strategies-lecture-temps/).
+Cet article vous apprend à reconnaître le type de chaque question dès le premier coup d'œil, pour répondre en une vingtaine de secondes (un repère d'entraînement, pas une règle officielle).
 
 ---
 
-## Anatomie du TOEIC Part 5 : Les deux grandes familles de questions
+## Anatomie du TOEIC Part 5 : les deux grandes familles de questions
 
 La Partie 5 compte 30 phrases incomplètes, chacune avec quatre choix (A, B, C, D). Avant de lire la phrase, regardez les quatre choix : ils vous disent déjà quel type de question vous avez devant vous.
 
 Il y a deux grands types de questions :
 
-1. **Les questions de grammaire pure (en général un peu plus de la moitié de la section ; la répartition varie d'un test à l'autre)** : Les quatre options dérivent de la même racine lexicale (par exemple : *manage*, *manager*, *managerial*, *management*). Il faut trouver la classe de mot que la phrase exige (nom, verbe conjugué, participe présent, adjectif ou adverbe).
+1. **Les questions de grammaire pure (en général un peu plus de la moitié de la section ; la répartition varie d'un test à l'autre)** : Les quatre options dérivent de la même racine lexicale (par exemple : *manage*, *manager*, *managerial*, *management*). Il faut trouver la classe de mot que la phrase exige (nom, adjectif, adverbe ou forme verbale).
 2. **Les questions de vocabulaire et de collocations (le reste)** : Les quatre options sont des termes totalement différents appartenant souvent à la même catégorie grammaticale (par exemple : *postpone*, *deliver*, *announce*, *exceed*). Le sens de la phrase et les associations de mots courantes en anglais des affaires font la différence.
 
 | Type d'exercice | Caractéristiques des options | Repère par question | Compétence évaluée |
@@ -90,13 +90,13 @@ Pour les questions de dérivation, inutile de traduire la phrase. Les mots juste
 Voici les trois cas les plus fréquents :
 
 - **Le groupe nominal (Nom sujet ou complément)** : Situé après un article (*a, an, the*), un adjectif possessif (*their, our, his*) ou une préposition (*in, with, about*). Si l'espace est suivi d'un verbe, vous cherchez un nom noyau :
-  - *Exemple : The recent _____ in production costs surprised the board. (Options : increase, increasingly, increased)* $\rightarrow$ Réponse : *increase* (nom).
+  - *Exemple : The recent _____ in production costs surprised the board. (Options : increase, increasingly, increased, increasing)* → Réponse : *increase* (nom).
 - **L'adjectif qualificatif** : Placé directement avant un nom ou après un verbe d'état (*be, seem, remain, become*). Il apporte une précision descriptive :
-  - *Exemple : Ms. Higgins presented a _____ proposal during the meeting. (Options : comprehensive, comprehensively, comprehend)* $\rightarrow$ Réponse : *comprehensive* (adjectif qualifiant *proposal*).
+  - *Exemple : Ms. Higgins presented a _____ proposal during the meeting. (Options : comprehensive, comprehensively, comprehend, comprehension)* → Réponse : *comprehensive* (adjectif qualifiant *proposal*).
 - **L'adverbe en -ly** : Modifie un verbe d'action, un adjectif ou une proposition complète. Lorsqu'une phrase est déjà grammaticalement complète, le mot manquant est presque toujours un adverbe :
-  - *Exemple : The logistics department responded _____ to customer inquiries. (Options : prompt, promptly, promptness)* $\rightarrow$ Réponse : *promptly* (adverbe modifiant le verbe *responded*).
+  - *Exemple : The logistics department responded _____ to customer inquiries. (Options : prompt, promptly, promptness, prompted)* → Réponse : *promptly* (adverbe modifiant le verbe *responded*).
 
-Pour retenir le vocabulaire, lisez notre article sur la façon d'[apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) ou parcourez les [listes de vocabulaire](/en/vocabulary/). Pour vous entraîner sur de vraies questions, la [page TOEIC de Lexkite](/#/toeic) propose pour chaque test blanc un entraînement à la Partie 5 ; après validation, chaque réponse est expliquée.
+Pour retenir le vocabulaire, lisez notre article sur la façon d'[apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) ou parcourez les [listes de vocabulaire (en anglais)](/en/vocabulary/). Pour vous entraîner sur de vraies questions, la [page TOEIC de Lexkite](/#/toeic) propose pour chaque test blanc un entraînement à la Partie 5 ; après validation, chaque réponse est expliquée.
 
 ---
 
@@ -108,7 +108,7 @@ La règle à retenir :
 - **Une préposition** (*due to, despite, in spite of, during*) est obligatoirement suivie d'un groupe nominal ou d'un gérondif en *-ing*. Elle ne peut jamais introduire une proposition avec sujet et verbe conjugué.
 - **Une conjonction** (*because, although, while, since*) introduit impérativement une proposition subordonnée dotée de son propre sujet et d'un verbe conjugué.
 
-| Sens sémantique | Préposition (+ Nom / V-ing) | Conjonction (+ Sujet + Verbe) |
+| Sens | Préposition (+ Nom / V-ing) | Conjonction (+ Sujet + Verbe) |
 | :--- | :--- | :--- |
 | **La cause** | *Due to, Owing to, Because of* | *Because, Since, As* |
 | **La concession / opposition** | *Despite, In spite of* | *Although, Even though, While* |
@@ -124,15 +124,15 @@ Lorsque vous repérez ces options, regardez ce qui suit immédiatement l'espace 
 
 Autre piège fréquent : actif ou passif. Dans les textes d'entreprise, on utilise beaucoup le passif pour parler du résultat plutôt que de la personne qui agit.
 
-Pour choisir la forme verbale correcte, appliquez ce double filtre en 5 secondes :
-1. **L'accord en nombre** : Le sujet grammatical est-il singulier, pluriel ou indénombrable ? Attention aux sujets séparés du verbe par un complément prépositionnel complexe (*The delivery of office supplies [is/are] scheduled...* $\rightarrow$ le sujet est *delivery*, verbe au singulier : *is*).
+Pour choisir la forme verbale correcte, appliquez ce double filtre en quelques secondes :
+1. **L'accord en nombre** : Le sujet grammatical est-il singulier, pluriel ou indénombrable ? Attention aux sujets séparés du verbe par un complément prépositionnel complexe (*The delivery of office supplies [is/are] scheduled...* → le sujet est *delivery*, verbe au singulier : *is*).
 2. **La présence d'un objet direct** : Si le verbe est suivi directement d'un complément d'objet direct (COD), il est à la voix active (*The company expanded its operations*). S'il manque l'objet d'un verbe transitif (*approve*, *reject*) ou si l'agent est introduit par *by*, le verbe est à la voix passive (*The proposal was rejected by the executive committee*).
 
-Ces structures sont celles des e-mails de travail : voyez comment [rédiger un e-mail professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/) et les [abréviations professionnelles en anglais](/fr/blog/abreviations-professionnelles-en-anglais-email-guide/).
+Pour revoir la formation du passif, lisez [la voix passive en anglais : règles](/fr/blog/voix-passive-en-anglais-regles/). Pour *yesterday*, *since* et *for*, voyez [present perfect ou prétérit](/fr/blog/present-perfect-ou-preterit/).
 
 ---
 
-### Les pièges typiques des francophones
+## Les pièges typiques des francophones
 
 - **Present perfect calqué sur le passé composé** : « Le rapport a été envoyé hier » pousse à écrire *has been sent yesterday*. Avec un repère passé daté (*yesterday*, *last week*), l'anglais exige le prétérit : *was sent yesterday*.
 - **since / for** : « depuis trois ans » se dit *for three years*, « depuis 2023 » se dit *since 2023*, avec le present perfect (*has worked*) et non le présent (*works since*) calqué sur « travaille depuis ».
@@ -194,15 +194,13 @@ Entraînez vos compétences d'analyse rapide sur ces quatre questions dans le st
 
 ---
 
-![Test à choix multiples de Lexkite : choisir le sens correct de run out of parmi quatre propositions](media:practice-test "Un test à choix multiples comme celui-ci aide à vérifier le sens d'expressions comme run out of")
-
 ## Protocole chronométrique : Boucler la Partie 5 en 10 minutes
 
 Sur les 75 minutes du Reading, 10 minutes pour la Partie 5 laissent 65 minutes pour les Parties 6 et 7. Voici un rythme possible (suggestion personnelle, pas une consigne d'ETS) :
 
 ```
 Budget Partie 5 = 10 minutes (600 secondes)
-30 questions / 600 secondes = 20 secondes par question en moyenne
+600 secondes / 30 questions = 20 secondes par question en moyenne
 ```
 
 Le jour de l'examen, suivez cet ordre :
@@ -211,7 +209,7 @@ Le jour de l'examen, suivez cet ordre :
 - **15 à 20 secondes** : Noircissez la case sur la feuille de réponses.
 - **Règle d'or de blocage** : Si vous hésitez entre deux options après 25 secondes, choisissez votre meilleure intuition et avancez immédiatement. Ne laissez jamais une question blanche et ne revenez pas en arrière au détriment de la fin de l'épreuve.
 
-![Carnet d'erreurs Lexkite qui classe les fautes en Vocabulaire, Grammaire, Lecture et Écoute](media:mistakes "Le carnet d'erreurs classe vos fautes par vocabulaire, grammaire, lecture et écoute")
+![Carnet d'erreurs Lexkite avec les onglets Vocabulaire, Grammaire, Lecture et Écoute](media:mistakes "Le carnet d'erreurs a des onglets Vocabulaire, Grammaire, Lecture et Écoute ; les questions TOEIC ratées vont dans Lecture")
 
 ---
 
@@ -221,7 +219,7 @@ La rapidité vient de la répétition. Voici ce que Lexkite propose pour la Part
 
 - **Révision espacée (FSRS)** : les verbes à particule et les collocations de travail reviennent juste avant que vous les oubliiez.
 - **Dictionnaire** : exemples en contexte et prononciation de chaque mot.
-- **Carnet d'erreurs** : les questions ratées vont dans le [carnet d'erreurs](/#/mistakes), classées par vocabulaire, grammaire ou lecture. Vous voyez si vos fautes de Partie 5 viennent de la nature des mots ou des collocations.
+- **Carnet d'erreurs** : les questions ratées vont dans le [carnet d'erreurs](/#/mistakes) (onglet Lecture) avec leur explication ; notez vous-même s'il s'agissait d'une question de nature de mot ou de collocation.
 - **Plan de travail** : pour organiser vos semaines, suivez notre [plan d'entraînement TOEIC en autonomie](/fr/blog/plan-entrainement-toeic-guide-autonomie/).
 
 Pour tester : ouvrez la [page TOEIC](/#/toeic), choisissez un test, lancez la Partie 5 et chronométrez-vous vous-même.
@@ -244,9 +242,11 @@ Il n'existe pas de barème fixe : ETS convertit les bonnes réponses brutes sur 
 Non. Seules les bonnes réponses comptent, une mauvaise réponse ne retire aucun point. Ne laissez donc aucune question blanche : éliminez les options impossibles, puis choisissez.
 
 ### Quelles erreurs les francophones font-ils le plus en Partie 5 ?
-Le present perfect avec un repère daté (*yesterday*), *since* avec une durée (*for three years*), l'adjectif placé après le nom, l'oubli du -s de la 3e personne et les faux amis comme *actually* ou *eventually*. Avant de choisir, vérifiez le sujet du verbe et le repère temporel : fermé (prétérit) ou jusqu'à aujourd'hui (present perfect).
+Le present perfect avec un repère daté (*yesterday*), *since* employé avec une durée (il faut *for three years*), l'adjectif placé après le nom, l'oubli du -s de la 3e personne et les faux amis comme *actually* ou *eventually*. Avant de choisir, vérifiez le sujet du verbe et le repère temporel : fermé (prétérit) ou jusqu'à aujourd'hui (present perfect).
 
 ### Comment mémoriser efficacement les collocations du monde des affaires ?
 Notez les mots en groupe plutôt qu'isolément (par exemple : *meet the deadline*, *conduct an investigation*, *reach a consensus*). Une révision espacée, comme celle de Lexkite, les fixe à long terme.
 
-Pour la partie orale, lisez aussi notre guide sur la [Partie 2 du TOEIC Listening : questions et réponses](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).
+![Test à choix multiples de Lexkite : choisir le sens correct de run out of parmi quatre propositions](media:practice-test "Un test de vocabulaire dans Lexkite (pas de la Partie 5) : il vérifie le sens d'expressions comme run out of")
+
+Pour la suite de la section, voyez nos [astuces TOEIC Listening et Reading](/fr/blog/toeic-listening-reading-astuces/) et le guide sur la [Partie 7 : lecture et gestion du temps](/fr/blog/toeic-part-7-strategies-lecture-temps/). Pour la partie orale, lisez aussi notre guide sur la [Partie 2 du TOEIC Listening : questions et réponses](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).
