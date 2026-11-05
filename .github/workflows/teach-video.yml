@@ -10,7 +10,7 @@ on:
       eps: { description: 'comma list of episode ids (content/video/teach2d/eps), empty = shards / pilots', default: '' }
       shards: { description: 'render the next N gated episodes not yet in bank.json (gen.py --todo; ci-filler fills idle runners with this), 0 = pilots', default: '0' }
   pull_request:
-    paths: ['scripts/video/teach2d/**', 'scripts/video/teach2d/rig_host.mjs', 'web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'scripts/test/teach2d-rig.mjs', 'scripts/media/origin.py', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
+    paths: ['scripts/video/teach2d/**', 'scripts/video/teach2d/rig_host.mjs', 'web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'scripts/test/teach2d-rig.mjs', 'scripts/media/origin.py', 'scripts/cine/publish_meta.py', 'brand/library/sfx/**', 'scripts/video/synth.mjs', 'web/teach/characters.json', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
 permissions: { contents: read, actions: read }   # actions: read = count busy runners (scripts/ci/shards.mjs)
 concurrency: { group: 'teach-video-${{ github.ref }}-${{ github.event_name }}', cancel-in-progress: "${{ github.event_name == 'pull_request' }}" }   # a batch on main is never cancelled by the next one (it queues)
 jobs:
