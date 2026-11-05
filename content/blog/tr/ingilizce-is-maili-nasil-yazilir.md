@@ -194,6 +194,8 @@ B) Please find attached the quarterly financial report.
 C) I send you file check it now.  
 *Doğru Cevap:* B ("Please find attached..." iş dünyasında evrensel kabul gören en kibar ek dosya bildirim kalıbıdır).
 
+E-postalarda sık geçen kısaltmaların anlamı için [iş hayatında İngilizce kısaltmalar rehberine](/tr/blog/is-hayatinda-ingilizce-kisaltmalar-email-rehberi/) bakabilirsiniz.
+
 ## Sıkça Sorulan Sorular (SSS)
 
 ### İngilizce iş mailinde ünlem işareti (!) kullanılabilir mi?

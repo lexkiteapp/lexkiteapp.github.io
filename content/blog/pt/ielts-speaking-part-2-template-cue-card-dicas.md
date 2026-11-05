@@ -126,6 +126,8 @@ Se você perceber que abordou todos os pontos do cartão e o examinador ainda n�
 3. **Compare o passado com os dias de hoje**: Finalize descrevendo como aquele acontecimento moldou suas atitudes no presente.  
    *Exemplo*: *"Ever since that afternoon, I make a conscious effort to double-check digital backups before initiating any presentation."*
 
+Antes de treinar o cue card, aqueça com o [IELTS Speaking Part 1](/pt/blog/ielts-speaking-part-1-guia-respostas-naturais/), em que respostas curtas e naturais causam a primeira impressão.
+
 ## Erros fatais no Part 2 e como superá-los
 
 | Erro frequente | Impacto na nota | Solução prática recomendada |

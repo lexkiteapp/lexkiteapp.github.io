@@ -136,6 +136,8 @@ Scanning คือเทคนิคการใช้สายตาสแก�
 
 {{youtube: | IELTS Reading Skimming and Scanning Strategy}}
 
+เมื่อเก็บเทคนิคการอ่านเร็วได้แล้ว ลองดู[การจัดสรรเวลา IELTS Reading ใน 60 นาที](/th/blog/kan-chatsan-wela-ielts-reading-klayut-60-nathi/)เพื่อวางเวลาให้แต่ละพาสเสจ
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### Q1. ควรอ่านคำถามก่อนหรืออ่านบทความก่อนในข้อสอบ IELTS Reading?

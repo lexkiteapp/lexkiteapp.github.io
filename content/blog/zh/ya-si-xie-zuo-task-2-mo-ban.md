@@ -129,6 +129,8 @@ qualityScore: 94
 
 {{cta: /#/write | 进入雅思写作Task 2实战训练}}
 
+如果你同时在比较雅思和托福，可以看看[托福新题型2026备考指南](/zh/blog/toefl-xin-ti-xing-2026-bei-kao-zhi-nan/)了解新版考试结构。
+
 ## 常见问题解答
 
 ### 写作字数写得越多，分数就会越高吗？

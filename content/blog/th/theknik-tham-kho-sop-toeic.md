@@ -98,6 +98,10 @@ qualityScore: 94
 
 {{cta: /#/toeic | เริ่มฝึกข้อสอบ TOEIC ทันที}}
 
+ในส่วนฟัง Part 2 ต้องตัดสินใจเร็วที่สุด ดู[เทคนิค TOEIC Listening Part 2](/th/blog/theknik-toeic-listening-part-2-kham-tham-kham-top/)เพิ่มเติมได้เลย
+
+เมื่อต้องบริหารเวลาในส่วนอ่าน ให้ดู[เทคนิคอ่าน TOEIC Part 7 ให้ทันเวลา](/th/blog/theknik-toeic-part-7-kan-an-borihan-wela/)
+
 ## คำถามที่พบบ่อย
 
 ### ตอบข้อสอบผิดใน TOEIC มีการติดลบคะแนนไหม?

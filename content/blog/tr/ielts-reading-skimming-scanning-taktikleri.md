@@ -148,6 +148,8 @@ Sınav salonunda kitapçığı açtığınız anda panik yapmamak ve 40 soruyu e
 
 {{youtube: | IELTS Reading Skimming Scanning Strategy Guide}}
 
+Okuma süresini planlamak için [IELTS Reading zaman yönetimi: 60 dakikalık strateji rehberi](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) yazısına da göz atabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Q1. Soruları metinden önce mi yoksa sonra mı okumalıyım?

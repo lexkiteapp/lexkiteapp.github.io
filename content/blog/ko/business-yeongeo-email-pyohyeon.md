@@ -155,6 +155,8 @@ Supply Chain Lead
 
 {{cta: /#/write | 비즈니스 영작문 실습 시작}}
 
+이메일 속 줄임말이 낯설다면 [비즈니스 영어 줄임말 이메일 가이드](/ko/blog/business-yeongeo-jul-im-mal-email-yak-eo-guide/)에서 자주 쓰는 약어를 미리 정리해 두세요.
+
 ## 자주 묻는 질문
 
 ### 이메일 끝인사로 Sincerely와 Best regards 중 무엇이 더 자연스러운가요?

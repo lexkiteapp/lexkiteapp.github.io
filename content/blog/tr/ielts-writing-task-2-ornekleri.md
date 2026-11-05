@@ -136,6 +136,8 @@ B) Beyin fırtınası yapmak, soru kökünü analiz etmek ve paragraf taslağı 
 C) Kelimelerin sözlük anlamlarını kontrol etmek  
 *Doğru Cevap:* B (İlk 5 dakikayı planlamaya ayırmak yazarken duraksamanızı ve mantık hatalarını önler).
 
+IELTS ile TOEFL yazma bölümlerini kıyaslıyorsanız [yeni TOEFL formatı 2026](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) rehberine de bakabilirsiniz.
+
 ## Sıkça Sorulan Sorular (SSS)
 
 ### IELTS Writing Task 2'de 250 kelimenin altında kalırsam ne olur?
