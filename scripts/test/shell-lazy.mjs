@@ -23,6 +23,7 @@ const LAZY = [
   { file: 'js/phrases-model.js', bundle: 'writing', routes: ['model', 'models', 'phrases'] },
   { file: 'js/dict-page.js', bundle: 'dictp', routes: ['dict'] },
   { file: 'js/league.js', bundle: 'league', routes: ['league'] },
+  { file: 'js/reading.js', bundle: 'readings', routes: ['read', 'reading'] },
 ];
 for (const L of LAZY) {
   ok(fs.existsSync('web/' + L.file), `${L.file} tồn tại`);
