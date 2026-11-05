@@ -1,0 +1,28 @@
+{
+  "_note": "Ghi chú phát hành store (What's New / Release notes) – scripts/store/release-notes.mjs. Mỗi vùng: regex đường dẫn (match) và/hoặc regex tiêu đề commit (subject) → MỘT câu tiếng Việt ấm áp (khóa i18n). Bản tiếng Anh: web/js/i18n/en/storenotes.js (nhóm tải lười 'storenotes'), 13 ngôn ngữ còn lại: bot i18n.yml → i18n/ui/<lang>/storenotes.js (docs/I18N-PIPELINE.md). Thêm/sửa câu: sửa ở đây + en/storenotes.js cùng commit, rồi bash scripts/build-i18n.sh.",
+  "maxAreas": 5,
+  "closing": "Cùng nhiều sửa lỗi nhỏ giúp app ổn định hơn. Cảm ơn bạn đã học cùng Lexkite!",
+  "skipSubject": "\\[skip ci\\]|^(i18n: cập nhật|release-archive|Merge |Revert \"|codemap|docs?[:(]|ci[:(]|test[:(]|chore[:(])|^(CI|Docs|Test|Admin|Quản trị|SEO|Blog|Video|Infra)\\b",
+  "apps": {
+    "capacitor": "^(web/(js|css|app|fonts|data|packs|audio|img)/|mobile/(ios|android|assets|capacitor\\.config\\.json)|i18n/ui/|content/(lesson|situations|confidence|grammar|pron|speak))",
+    "native": "^native/"
+  },
+  "ignore": "^web/js/(admin|site|seo-twin|blog|ads|ad-offers)|/admin|/test/|\\.test\\.|/__snapshots__/|/generated/|README|\\.md$",
+  "areas": [
+    { "id": "review", "match": "web/js/(study|study-modes|study-swipe|study-games|retention|reflex|qengine|game|anki|choice-kit)\\.js|/(Review|SRS|Answer)[A-Za-z]*\\.(swift|kt)$|feature-review", "vi": "Ôn tập từ vựng mượt mà và vui hơn, nhớ từ lâu hơn." },
+    { "id": "dict", "match": "web/js/(dictionary|dict-page|lex|lexis|wordcard|vocab-img|phrases|usage[\\w-]*)\\.js|web/js/(vimg|usage)/|web/(data|packs|img)/|/(Dictionary|Word)[A-Za-z]*\\.(swift|kt)$", "vi": "Tra từ nhanh hơn, nghĩa và ví dụ rõ ràng, dễ nhớ hơn." },
+    { "id": "speak", "match": "web/js/(speak|pron|call|roleplay)/|web/js/(speaking|pron|say|say-text|roleplay|call|handsfree)\\.js|content/(situations|pron|speak)/|/(Speak|Pron)[A-Za-z]*\\.(swift|kt)$", "vi": "Luyện nói và phát âm tự nhiên hơn, phản hồi dễ hiểu hơn." },
+    { "id": "listen", "match": "web/js/listen/|web/js/(listening|audio|audio-offline|watch|watch-topics|lesson-video)\\.js|web/audio/|/(Listen|Audio)[A-Za-z]*\\.(swift|kt)$", "vi": "Nghe rõ hơn với bài nghe và giọng đọc được chăm chút kỹ." },
+    { "id": "write", "match": "web/js/write/|web/js/(write|writecheck-rules|task1|paraphrase|fixer)\\.js|/Write[A-Za-z]*\\.(swift|kt)$", "vi": "Luyện viết với gợi ý sửa câu chính xác và dễ hiểu hơn." },
+    { "id": "grammar", "match": "web/js/grammar/|web/js/(grammar|structures|verbs|verbs-core|word-arrange|letters)\\.js|content/grammar/|/Grammar[A-Za-z]*\\.(swift|kt)$", "vi": "Ngữ pháp dễ hiểu hơn với ví dụ gần gũi đời thường." },
+    { "id": "exams", "match": "web/js/(toeic|toefl|readtest)/|web/js/(toeic|toefl|mock|placement|reading|readings|readings-more|criteria|cbt|target)\\.js|/(Exam|Test)[A-Za-z]*View\\.(swift|kt)$", "vi": "Luyện thi IELTS, TOEIC, TOEFL sát đề thật hơn." },
+    { "id": "path", "match": "web/js/(lesson|stories|notes)/|web/js/(path|path-day|path-mix|plan|courses|tracks|method|goal|next-step|onboard|lesson-fx|ux1|ux1-me|hubs)\\.js|content/(lesson|confidence)/|feature-today|/Today[A-Za-z]*\\.(swift|kt)$", "vi": "Lộ trình học mỗi ngày rõ ràng hơn, cùng bài học mới thú vị." },
+    { "id": "teacher", "match": "web/js/tutor/|web/js/(teacher-live|teacher-slot|characters|ai|ai-local|assist|klocal|klocal-worker|explain-card|lkt)\\.js|web/js/explain/|/Teacher[A-Za-z]*\\.(swift|kt)$", "vi": "Giáo viên AI trò chuyện tự nhiên và giải thích dễ hiểu hơn." },
+    { "id": "motivation", "match": "web/js/(streak-ui|league|path-reward|feel|remind|notices|share-card|classroom|report|report-pill|report-pill-ui)\\.js|/(Haptics|Streak|Remind)[A-Za-z]*\\.(swift|kt)$", "vi": "Chuỗi ngày học, phần thưởng và lời nhắc nhẹ nhàng, dễ chịu hơn." },
+    { "id": "account", "match": "web/js/(account|account-delete|sync|sync-drive|native-auth|settings|export|handoff)\\.js|/(Account|Auth|Sync|LegacyMigration)[A-Za-z]*\\.(swift|kt)$|native/[^/]+/.*(LKSync|LKStore|feature-me)", "vi": "Đăng nhập và đồng bộ tiến độ giữa các thiết bị ổn định hơn." },
+    { "id": "speed", "match": "web/js/(app|core|ota|ota-key|data|native|heal|exit-guard|distract|ctx|models|tools)\\.js|web/js/(lib|vendor|tools)/|mobile/(ios|android)/|native/(ios|android)/(App|app/src/main/kotlin/com/lexkite/app/(platform|LexkiteApp))", "vi": "App mở nhanh hơn và chạy mượt hơn, kể cả trên máy cấu hình thấp." },
+    { "id": "look", "match": "web/(css|fonts|app)/|web/js/(ui|kit|lang-menu|site-ui)\\.js|native/[^/]+/.*(design|Theme|Design|AppShell|TopBar|Router)", "vi": "Giao diện gọn gàng, dễ nhìn và dễ thao tác hơn." },
+    { "id": "widget", "match": "mobile/(ios/App/LexkiteWidget|android/app/src/main/java/.*Widget)|web/js/widget-feed\\.js|Widget", "vi": "Tiện ích màn hình chính giúp bạn ôn từ mỗi ngày dễ hơn." },
+    { "id": "languages", "subject": "bản dịch|dịch thật|i18n|ngôn ngữ|translation", "match": "^i18n/ui/|^web/js/i18n/", "vi": "Bản dịch giao diện tự nhiên hơn ở cả 15 ngôn ngữ." }
+  ]
+}

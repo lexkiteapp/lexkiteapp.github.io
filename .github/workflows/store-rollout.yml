@@ -1,0 +1,52 @@
+# Tăng dần phần trăm phát hành Google Play production (staged rollout) của bản do store-submit.yml nộp: 1 → 5 → 20 → 50 → 100 %.
+# Mỗi bậc ≥ 24 giờ (mốc = ngày của tag store-android-<ver> / store-android-<ver>-rollout-<pct>) VÀ Play vitals đạt
+# (crash do người dùng thấy ≤ 1,09 %, ANR ≤ 0,47 % – ngưỡng "bad behavior" của Play, API Play Developer Reporting).
+# Vitals xấu → GIỮ bậc + ::warning:: (không tự dừng bản). API vitals không truy cập được → tăng theo lịch + ::notice::.
+# Crashlytics chưa có API đọc công khai cho CI → dùng Play vitals (cùng nguồn sự cố trên Android). iOS: Apple tự tăng phased release 7 ngày.
+# Chưa có secret PLAY_SERVICE_ACCOUNT_JSON → bỏ qua kèm notice.
+name: Store rollout (Play)
+on:
+  schedule:
+    - cron: '23 3 * * *'   # 10:23 giờ VN mỗi ngày – trong giờ làm việc để kịp xem nếu vitals xấu
+  workflow_dispatch:
+    inputs:
+      dry_run: { description: 'Chỉ đọc, không tăng bậc', type: boolean, default: false }
+permissions:
+  contents: write   # đẩy tag mốc store-android-<ver>-rollout-<pct>
+concurrency: { group: store-rollout, cancel-in-progress: false }   # ci-policy: tuần tự, không huỷ lượt đang commit edit Play
+jobs:
+  advance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON != '' }}
+    steps:
+      - name: Chưa có PLAY_SERVICE_ACCOUNT_JSON → bỏ qua
+        if: env.HAS_PLAY != 'true'
+        run: echo "::notice title=store-rollout::chưa có secret PLAY_SERVICE_ACCOUNT_JSON – không có bản Play nào để tăng"
+      - uses: actions/checkout@v4
+        if: env.HAS_PLAY == 'true'
+      - uses: actions/setup-node@v4
+        if: env.HAS_PLAY == 'true'
+        with: { node-version: 22 }
+      - name: Mốc bậc trước (ngày tag store-android-* mới nhất)
+        if: env.HAS_PLAY == 'true'
+        run: |
+          git fetch -q --force origin 'refs/tags/store-android-*:refs/tags/store-android-*' || true
+          T=$(git for-each-ref --sort=-taggerdate --count=1 --format='%(refname:short)' 'refs/tags/store-android-*')
+          AT=$([ -n "$T" ] && git for-each-ref --format='%(taggerdate:unix)' "refs/tags/$T" || echo 0)
+          echo "tag mốc: ${T:-–} ($AT)"; echo "LAST_AT=${AT:-0}" >> "$GITHUB_ENV"
+      - name: Tăng bậc nếu vitals đạt
+        id: r
+        if: env.HAS_PLAY == 'true'
+        env: { PLAY_SERVICE_ACCOUNT_JSON: '${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}' }
+        run: node scripts/store/play-api.mjs rollout --min-hours 24 --last-step-at "$LAST_AT" ${{ inputs.dry_run && '--dry-run' || '' }}
+      - name: Tag mốc bậc mới
+        if: steps.r.outputs.advanced == 'yes'
+        env: { NAME: '${{ steps.r.outputs.name }}', PCT: '${{ steps.r.outputs.pct }}' }
+        run: |
+          VER=$(echo "$NAME" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+          git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
+          git tag -a "store-android-$VER-rollout-$PCT" -m "Google Play $NAME → $PCT % (store-rollout run $GITHUB_RUN_ID)" "$GITHUB_SHA"
+          git push origin "store-android-$VER-rollout-$PCT" || echo "::warning::không đẩy được tag mốc – lần sau tính giờ từ mốc cũ"
+          echo "::notice title=store-rollout::STORE-ROLLOUT android $NAME → $PCT %"

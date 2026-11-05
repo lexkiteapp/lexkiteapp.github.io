@@ -1214,6 +1214,20 @@
    "minutes": 3,
    "lease": false,
    "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
+  },
+  {
+   "id": "store-rollout",
+   "workflow": "store-rollout.yml",
+   "cron": [
+    "23 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
   }
  ],
  "reservations": {

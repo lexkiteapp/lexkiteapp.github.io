@@ -1,0 +1,126 @@
+# Workflow TÁI DÙNG: archive + ký (tự động qua App Store Connect API key) + tải bản iOS lên App Store Connect.
+# Một nguồn cho mọi đường lên store: ios-testflight.yml (bản thử Capacitor), store-submit.yml (nộp duyệt tự động), native-release (app native).
+# app = capacitor → mobile/ios/App (App.xcodeproj, có widget + App Group) · app = native → native/ios (XcodeGen, Lexkite.xcodeproj).
+# Secret: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (nội dung AuthKey_*.p8 – không bao giờ in ra log). Gọi với `secrets: inherit`.
+name: Store build iOS (tái dùng)
+# ci-policy: no-concurrency – workflow tái dùng: concurrency nằm ở workflow gọi (mỗi lượt khác version/build, gộp nhóm sẽ huỷ mất bản build)
+on:
+  workflow_call:
+    inputs:
+      app: { type: string, required: false, default: capacitor }
+      version: { type: string, required: true, description: 'MARKETING_VERSION (vd 1.0.2) – lấy từ asc-submit.mjs plan, không dùng lại' }
+      build: { type: string, required: true, description: 'CURRENT_PROJECT_VERSION – lớn hơn mọi build đã có trên App Store Connect' }
+      upload: { type: boolean, required: false, default: true }
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      TEAM: B285J68262
+      VER: ${{ inputs.version }}
+      BUILD: ${{ inputs.build }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn dự án theo app
+        run: |
+          case "${{ inputs.app }}" in
+            capacitor) { echo "DIR=mobile/ios/App"; echo "PROJ=App.xcodeproj"; echo "SCHEME=App"; echo "APPNAME=App"; } >> "$GITHUB_ENV" ;;
+            native) [ -d native/ios ] || { echo "::error::Chưa có native/ios trên nhánh này (app native chưa gộp vào main)"; exit 1; }
+                    { echo "DIR=native/ios"; echo "PROJ=Lexkite.xcodeproj"; echo "SCHEME=Lexkite"; echo "APPNAME=Lexkite"; } >> "$GITHUB_ENV" ;;
+            *) echo "::error::app phải là capacitor|native"; exit 1 ;;
+          esac
+          [[ "$VER" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]] && [[ "$BUILD" =~ ^[0-9]+$ ]] || { echo "::error::version/build lạ: $VER / $BUILD"; exit 1; }
+      # App Store Connect chỉ nhận bản build bằng Xcode 26+ / iOS 26 SDK
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] || { echo "::error::Máy chủ chưa có Xcode 26 – App Store Connect sẽ từ chối bản build"; exit 1; }
+          sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - name: Build web → mobile/www → cap sync
+        if: inputs.app == 'capacitor'
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: Native – file sinh khớp nguồn web + XcodeGen
+        if: inputs.app == 'native'
+        run: |
+          node scripts/native/gen.mjs --check
+          command -v xcodegen >/dev/null || brew install xcodegen
+          (cd native/ios && xcodegen generate)
+      - name: Khoá App Store Connect API
+        env: { ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
+        run: |
+          [ -n "$ASC_KEY_P8" ] || { echo "::error::Thiếu secret ASC_KEY_P8"; exit 1; }
+          printf '%s' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"; chmod 600 "$RUNNER_TEMP/AuthKey.p8"
+      - name: Archive (Release, ký tự động qua API key)
+        working-directory: ${{ env.DIR }}
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        run: |
+          set -o pipefail
+          xcodebuild -project "$PROJ" -scheme "$SCHEME" -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
+            DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic MARKETING_VERSION="$VER" CURRENT_PROJECT_VERSION="$BUILD" \
+            archive 2>&1 | tail -60
+          test -d "$RUNNER_TEMP/Lexkite.xcarchive"
+      - name: Kiểm entitlements + khai mã hoá (Sign in with Apple, App Group, ITSAppUsesNonExemptEncryption=false)
+        run: |
+          APP="$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/$APPNAME.app"
+          codesign -d --entitlements :- "$APP" > "$RUNNER_TEMP/ent.plist" 2>/dev/null; cat "$RUNNER_TEMP/ent.plist"
+          grep -q 'com.apple.developer.applesignin' "$RUNNER_TEMP/ent.plist" || { echo "::error::Bản ký thiếu Sign in with Apple – bật capability cho App ID com.lexkite.app"; exit 1; }
+          grep -q 'group.com.lexkite.app' "$RUNNER_TEMP/ent.plist" || { echo "::error::App thiếu App Group group.com.lexkite.app – xem docs/STORE-READINESS.md (Widget Từ mỗi giờ)"; exit 1; }
+          # Không khai → Apple giữ bản ở "Missing Compliance", nộp duyệt tự động bị kẹt
+          [ "$(/usr/libexec/PlistBuddy -c 'Print :ITSAppUsesNonExemptEncryption' "$APP/Info.plist" 2>/dev/null)" = "false" ] || echo "::warning::Info.plist thiếu ITSAppUsesNonExemptEncryption=false – asc-submit sẽ khai qua API"
+          [ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP/Info.plist")" = "$VER" ] || { echo "::error::CFBundleShortVersionString ≠ $VER"; exit 1; }
+          [ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$APP/Info.plist")" = "$BUILD" ] || { echo "::error::CFBundleVersion ≠ $BUILD"; exit 1; }
+          if [ "${{ inputs.app }}" = capacitor ]; then
+            security cms -D -i "$APP/embedded.mobileprovision" 2>/dev/null | grep -A3 -E 'applesignin|application-groups' || true
+            # Widget (ôn tập + "Từ mỗi giờ") đọc dữ liệu qua App Group: thiếu → widget trống. Bước tay trên portal: docs/STORE-READINESS.md mục B.x
+            WX="$APP/PlugIns/LexkiteWidget.appex"
+            [ -d "$WX" ] || { echo "::error::Không thấy LexkiteWidget.appex trong bản archive"; exit 1; }
+            codesign -d --entitlements :- "$WX" 2>/dev/null | grep -q 'group.com.lexkite.app' || { echo "::error::Extension widget thiếu App Group group.com.lexkite.app – bật App Groups cho App ID com.lexkite.app.widget (docs/STORE-READINESS.md mục B.x)"; exit 1; }
+            echo "✓ App + widget extension đều có App Group group.com.lexkite.app" >> "$GITHUB_STEP_SUMMARY"
+            [ -f "$APP/GoogleService-Info.plist" ] && echo "✓ Có GoogleService-Info.plist – đăng nhập gốc BẬT" >> "$GITHUB_STEP_SUMMARY" || echo "⚠ Chưa có GoogleService-Info.plist – đăng nhập trong app TẮT" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Export + tải lên App Store Connect
+        if: inputs.upload
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+            <key>uploadSymbols</key><true/>
+          </dict></plist>
+          EOF
+          set -o pipefail
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" 2>&1 | tail -40
+          echo "✓ Đã tải ${{ inputs.app }} $VER ($BUILD) lên App Store Connect – Apple xử lý 5–30 phút rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
+      - name: Xuất IPA đã ký để lưu trữ (release-archive → Kho Drive; lỗi bước này KHÔNG ảnh hưởng bản đã tải lên)
+        if: inputs.upload && inputs.app == 'capacitor'
+        continue-on-error: true
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        run: |
+          sed -e 's#<string>upload</string>#<string>export</string>#' "$RUNNER_TEMP/ExportOptions.plist" > "$RUNNER_TEMP/ExportOptions-ipa.plist"
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions-ipa.plist" \
+            -exportPath "$RUNNER_TEMP/ipa" -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" | tail -20
+          cp "$RUNNER_TEMP"/ipa/*.ipa "lexkite-$VER-$BUILD.ipa"
+      - uses: actions/upload-artifact@v4
+        if: inputs.upload && inputs.app == 'capacitor'
+        continue-on-error: true
+        with: { name: lexkite-ios-ipa, path: 'lexkite-*.ipa', retention-days: 30, if-no-files-found: ignore }
+      - name: Xoá khoá
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"

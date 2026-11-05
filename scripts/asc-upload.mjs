@@ -16,6 +16,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { load as loadMetadata } from './store-metadata.mjs';
+import { ascKeyFromEnv, createAsc } from './lib/asc-api.mjs';
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -93,35 +94,9 @@ function mdCheck(write) {
   return false;
 }
 
-// ---------- App Store Connect API ----------
-const API = 'https://api.appstoreconnect.apple.com';
-function key() {
-  const kid = process.env.ASC_KEY_ID, iss = process.env.ASC_ISSUER_ID;
-  let pem = process.env.ASC_KEY_P8 || (process.env.ASC_KEY_PATH && fs.readFileSync(process.env.ASC_KEY_PATH, 'utf8'));
-  if (!kid || !iss || !pem) return null;
-  return { kid, iss, pem };
-}
-let K = null, tok = null, tokExp = 0;
-function jwt() {
-  const now = Math.floor(Date.now() / 1000);
-  if (tok && now < tokExp - 60) return tok;
-  const b64 = o => Buffer.from(JSON.stringify(o)).toString('base64url');
-  const head = b64({ alg: 'ES256', kid: K.kid, typ: 'JWT' }), body = b64({ iss: K.iss, iat: now, exp: now + 1100, aud: 'appstoreconnect-v1' });
-  const sig = crypto.sign('sha256', Buffer.from(`${head}.${body}`), { key: K.pem, dsaEncoding: 'ieee-p1363' }).toString('base64url');
-  tokExp = now + 1100; tok = `${head}.${body}.${sig}`; return tok;
-}
-async function api(method, p, body) {
-  for (let attempt = 0; ; attempt++) {
-    const r = await fetch(API + p, { method, headers: { Authorization: `Bearer ${jwt()}`, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
-    if (r.status === 429 && attempt < 4) { await new Promise(s => setTimeout(s, 3000 * (attempt + 1))); continue; }
-    const txt = await r.text();
-    if (!r.ok) {
-      let detail = txt.slice(0, 600); try { detail = JSON.parse(txt).errors.map(e => `${e.code}: ${e.detail || e.title}` + (e.meta?.associatedErrors ? ' ' + JSON.stringify(e.meta.associatedErrors).slice(0, 2500) : '')).join(' | '); } catch { /* giữ nguyên */ }
-      throw new Error(`${method} ${p.split('?')[0]} → ${r.status} ${detail}`);
-    }
-    return txt ? JSON.parse(txt) : {};
-  }
-}
+// ---------- App Store Connect API (client chung: scripts/lib/asc-api.mjs) ----------
+let K = null, C = null;
+const api = (method, p, body) => C.api(method, p, body);
 const get = p => api('GET', p);
 const changes = [], errors = [];
 // Ghi nhận 1 thay đổi; trả về true nếu được phép ghi thật (không phải dry-run)
@@ -227,7 +202,7 @@ async function syncShots(vl) {
 const EU27 = ['AUT', 'BEL', 'BGR', 'HRV', 'CYP', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE'];
 const manual = [];
 async function step(name, fn) { try { await fn(); } catch (e) { errors.push(`${name}: ${e.message}`); console.error(`  ✗ ${name}: ${e.message}`); } }
-async function all(p) { const out = [], inc = []; for (let next = p; next;) { const r = await get(next); out.push(...r.data); inc.push(...(r.included || [])); next = r.links?.next ? r.links.next.replace(API, '') : null; } return { data: out, included: inc }; }
+const all = p => C.all(p);
 async function syncReview(app, ver) {
   // 1) build: VALID mới nhất (hoặc ASC_BUILD) của đúng phiên bản → gắn vào appStoreVersion
   const want = (process.env.ASC_BUILD || '').trim();
@@ -330,11 +305,12 @@ async function main() {
     console.log(`✓ asc-check: ${Object.keys(L.locales).length} ngôn ngữ đúng giới hạn Apple, ${MD} khớp listing.json`);
     return;
   }
-  K = key();
+  K = ascKeyFromEnv();
   if (!K) {
     if (DRY) { console.log('ℹ dry-run offline (thiếu ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_P8): listing hợp lệ; cần khóa để so với App Store Connect.'); return; }
     console.error('✗ thiếu ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_P8 (hoặc ASC_KEY_PATH)'); process.exit(1);
   }
+  C = createAsc(K);
   const app = (await get(`/v1/apps/${L.appId}`)).data;
   if (app.attributes.bundleId !== L.bundleId) throw new Error(`app ${L.appId} có bundleId ${app.attributes.bundleId}, không phải ${L.bundleId}`);
   const vers = (await get(`/v1/apps/${app.id}/appStoreVersions?filter[platform]=IOS&filter[versionString]=${L.version}`)).data;
