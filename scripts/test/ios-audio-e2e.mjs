@@ -3,7 +3,7 @@
 // phần tử giọng đạt `playing` + currentTime > 0 (timeupdate), nhiều dòng nối nhau (setTimeout, ngoài cử chỉ) vẫn phát, LKAudio.stats.blocked = 0.
 // Màn: Mock › Listening (bấm "Nghe ngay" VÀ để bộ đếm 30 s tự chạy), Luyện nghe thi 40 câu (#/listen-test), TOEIC Mock (#/toeic-test), UI.speak (thẻ từ vựng; sau await).
 // Phủ định: play() bị ép NotAllowedError → hiện nút ▶ (#mkTap / #tTap), KHÔNG ghi "Đang phát"; chạm nút → phát được.
-// Bỏ qua (có lý do): call / handsfree cần micro + quyền; lesson cần dữ liệu bài + đăng nhập → UI.speak đã phủ đường phát chung (LKAudio.el).
+// Bài học (#/lesson/go?demo=1, mọi dạng có 🔊: xếp câu, chọn từ nghe, gõ, nói, truyện) + iPhone: giáo viên không gọi createMediaElementSource. Bỏ qua: call / handsfree (cần micro + quyền); bong bóng Hôm nay (chỉ chữ, không âm thanh).
 // Hermetic: web/ trên https://lk.test (stitch-screens serve), file mp3 → WAV tự sinh, mọi host ngoài bị chặn. Chạy: node scripts/test/ios-audio-e2e.mjs [web] [chromium,webkit]
 import path from 'node:path';
 import { chromium, webkit, devices } from 'playwright';
@@ -31,6 +31,9 @@ const INIT = ({ fast, block }) => {
     if (window.__block && !String(this.src || '').startsWith('data:')) return Promise.reject(new DOMException('play() bị chặn (giả lập iOS)', 'NotAllowedError'));
     return play0.apply(this, arguments);
   };
+  window.__cmes = 0; window.__tts = 0;
+  for (const AC of [window.AudioContext, window.webkitAudioContext]) if (AC && AC.prototype.createMediaElementSource) { const c0 = AC.prototype.createMediaElementSource; AC.prototype.createMediaElementSource = function () { window.__cmes++; return c0.apply(this, arguments); }; } // iOS: không được nối <audio> vào Web Audio (công tắc im lặng)
+  try { const SS = window.speechSynthesis, sp = SS && SS.speak; if (sp) SS.speak = function () { window.__tts++; return sp.apply(this, arguments); }; } catch (e) { /* */ }
   const si = window.setInterval; window.setInterval = function (f, d, ...r) { return si.call(this, f, window.__fast && d === 1000 ? 20 : d, ...r); };
 };
 
@@ -127,6 +130,61 @@ async function speakCase(browser, opts) {
   await ctx.close();
 }
 
+
+// ----- Bài học (#/lesson): MỌI dạng bài có nút 🔊 / "Nghe lại" (#lsnPlay): xếp câu (build, ngân hàng từ), chọn từ nghe (gap), gõ chính tả (type), nói (say), dòng truyện (line) -----
+// Lái bài thử (App._lsn, không ghi FSRS/XP) như DRIVE của stitch-screens; ở mỗi dạng MỚI: chờ lời tự đọc xong, xoá sự kiện, CHẠM THẬT 🔊 → phần tử giọng playing + currentTime > 0.
+const STEP = () => { const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], nz = v => String(v).trim().replace(/[.,!?;:]+$/, '').toLowerCase(), it = window.App && App._lsn && App._lsn.sess.cur;
+  if (q('.lsn-end')) return 'end'; if (!it) return 'none';
+  if (q('#lsnGo')) { q('#lsnGo').click(); return 'go'; }
+  const pick = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)), o2 = qa('#lsnBody .lsn-opt').find(b => b.dataset.o === String(it.answer));
+  if (pick) pick.click(); else if (o2) o2.click();
+  else if (q('#lsnBank')) { const used = new Set(); for (const x of String(it.answer).split(/\s+/)) { const b = qa('#lsnBank .lsn-tile').find(t => !used.has(t) && nz(t.textContent) === nz(x)); if (b) { used.add(b); b.click(); } } }
+  else if (q('#lsnIn')) { q('#lsnIn').value = it.answer; q('#lsnIn').dispatchEvent(new Event('input')); }
+  else if (q('.lsn-match')) { for (const a of qa('.lsn-match [data-s="w"]')) { a.click(); const b = q(`.lsn-match [data-s="m"][data-m="${a.dataset.m}"]`); if (b) b.click(); } }
+  else if (q('#lsnNoS')) { q('#lsnNoS').click(); return 'nos'; }
+  return 'answer'; };
+const AFTER = () => { const q = s => document.querySelector(s); if (q('#lsnCheck') && !q('#lsnCheck').disabled) q('#lsnCheck').click(); return !!q('#lsnNext'); };
+const NEXT = () => { const b = document.querySelector('#lsnNext'); if (b) b.click(); };
+const PLAYBTN = () => { const b = document.querySelector('#lsnPlay'); return !!b && !b.hidden && !!(b.offsetWidth || b.offsetHeight) && !b.closest('[hidden]'); };
+const curType = () => window.App && App._lsn && App._lsn.sess.cur ? App._lsn.sess.cur.type + (document.querySelector('#lsnBank') ? '+bank' : '') : '';
+
+async function lessonCase(browser, opts, tag, setup, need, ios) {
+  const { ctx, page, errs } = await open(browser, opts); var tested = new Set();
+  try {
+    await goto(page, '#/home');
+    await page.touchscreen.tap(5, 5); // cú chạm đầu của người dùng → mở khóa
+    await page.waitForFunction(() => LKAudio.isUnlocked(), null, { timeout: 10000 });
+    await page.evaluate(async s => { await App.need('lesson'); const h = await new Function('return (' + s + ')')()(); location.hash = h; }, setup.toString());
+    await page.waitForFunction(() => window.App && App._lsn && App._lsn.sess.cur, null, { timeout: 30000 });
+    const soft = [];
+    for (let n = 0; n < 40; n++) {
+      if (await page.evaluate(() => !!document.querySelector('.lsn-end'))) break;
+      const ty = await page.evaluate(curType), has = await page.evaluate(PLAYBTN);
+      if (has && ty && !tested.has(ty)) {
+        tested.add(ty);
+        await page.waitForTimeout(2600); // lời tự đọc (WAV 1,5 s) xong
+        await page.evaluate(() => { window.__ev = {}; window.__tts0 = window.__tts; });
+        await tap(page, '#lsnPlay');
+        const ok = await waitHeard(page, 1, 12000), tts = await page.evaluate(() => window.__tts - window.__tts0);
+        if (ok) check(true, `${tag} · ${ty}: chạm 🔊/Nghe lại → giọng playing + currentTime > 0`);
+        else if (tts > 0) { soft.push(ty); console.log(`  ⓘ ${tag} · ${ty}: câu chưa có file Kokoro → giọng máy đọc (${tts} lần), không phần tử`); }
+        else check(false, `${tag} · ${ty}: chạm 🔊/Nghe lại KHÔNG ra tiếng (không phần tử playing, không giọng máy)`);
+      }
+      const st = await page.evaluate(STEP); if (st === 'end' || st === 'none') break;
+      await page.waitForTimeout(150); const nx = await page.evaluate(AFTER); await page.waitForTimeout(450); if (nx) await page.evaluate(NEXT); await page.waitForTimeout(350);
+    }
+    console.log(`  ⓘ ${tag}: đã thử dạng ${[...tested].join(', ') || '(không có)'}`);
+    for (const need1 of need) check([...tested].some(x => x === need1 || x.startsWith(need1 + '+')), `${tag}: có dạng ${need1} với nút 🔊/Nghe lại để kiểm`);
+    check(await blockedN(page) === 0, `${tag}: LKAudio.stats.blocked = 0 (${await blockedN(page)})`);
+    if (ios) check(await page.evaluate(() => window.__cmes) === 0, `${tag}: giáo viên KHÔNG gọi createMediaElementSource trên iOS (${await page.evaluate(() => window.__cmes)} lần)`);
+  } catch (e) { check(false, `${tag}: ${String(e.message).split('\n')[0]}`); }
+  check(errs.length === 0, `${tag}: không lỗi JS` + (errs.length ? ': ' + errs.join(' | ') : ''));
+  await ctx.close();
+  return tested;
+}
+const SET_PATH = k => `(() => async () => { localStorage.setItem('lk.lsn.path.demo', '${k}'); return '#/lesson/go?demo=1'; })()`;
+const SET_STORY = `(() => async () => { localStorage.setItem('lk.lsn.path.demo', '0'); const s = (window.LESSON_STORIES || []).find(x => x.kind === 'story') || (window.LESSON_STORIES || [])[0]; return '#/lesson/go?demo=1&story=' + (s ? s.id : ''); })()`;
+
 for (const name of which) {
   const P = PROJECTS[name]; if (!P) continue;
   const [type, dev] = P; console.log(`— ${name} (${dev})`);
@@ -134,7 +192,12 @@ for (const name of which) {
   for (const [key, mode] of [['mock', 'skip'], ['mock', 'count'], ['mock', 'block'], ['listenTest', 'skip'], ['listenTest', 'count'], ['listenTest', 'block']]) await examCase(browser, opts, key, mode);
   await toeicCase(browser, opts, 'play'); await toeicCase(browser, opts, 'block');
   await speakCase(browser, opts);
-  console.log('  ⏭ bỏ qua: call / handsfree (cần micro + quyền, không có trong trình giả), lesson (cần bài + đăng nhập) – đường phát chung đã phủ bởi UI.speak/LKAudio.el');
+  const ios = name === 'webkit';
+  const seen = new Set();
+  for (const k of [0, 1, 2, 3]) (await lessonCase(browser, opts, `Bài học · chặng ${k}`, SET_PATH(k), [], ios)).forEach(x => seen.add(x));
+  (await lessonCase(browser, opts, 'Bài học · Truyện', SET_STORY, ['line'], ios)).forEach(x => seen.add(x));
+  check([...seen].some(x => x.startsWith('build')), `Bài học: dạng xếp câu (ngân hàng từ + Nghe lại) đã được kiểm (${[...seen].join(', ')})`);
+  console.log('  ⏭ bỏ qua: call / handsfree (cần micro + quyền, không có trong trình giả); bong bóng Hôm nay (chỉ chữ hiện dần SayText, không phát âm thanh)');
   await browser.close();
 }
 console.log(fails ? `✗ ios-audio-e2e: ${fails} lỗi, ${passes} đạt` : `✓ ios-audio-e2e: ${passes} kiểm tra đạt (${which.join(', ')})`);
