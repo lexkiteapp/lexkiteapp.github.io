@@ -71,7 +71,7 @@ const SKIP = /(^|\/)(node_modules|\.git|archive|i18n|data|lib|packs|dict|blog|au
 const walk = p => !fs.existsSync(p) ? [] : fs.statSync(p).isDirectory() ? fs.readdirSync(p).flatMap(f => SKIP.test(f) ? [] : walk(path.join(p, f))) : [p];
 const used = {};
 for (const f of ROOTS.flatMap(walk)) {
-  if (!/\.(m?js|html|css|json|ts|tsx|py|sh|svg|xml|webmanifest)$/.test(f) || f.startsWith('web/teach/') || ALLOW.has(f)) continue;
+  if (!/\.(m?js|html|css|json|ts|tsx|py|sh|svg|xml|webmanifest)$/.test(f) || f.startsWith('web/teach/') || f.startsWith('extension/app/teach/') || ALLOW.has(f)) continue; // extension/app/teach = bản chép y hệt web/teach (build-extension.sh, ext-sync kiểm khớp)
   const s = fs.readFileSync(f, 'utf8'); if (s.length > 4e6) continue;
   for (const m of [...s.matchAll(REF), ...s.matchAll(OTHER)]) {
     const w = WAIVE[f]; if (w && w[0].test(m[0])) { used[f] = 1; continue; }
