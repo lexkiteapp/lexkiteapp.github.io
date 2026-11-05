@@ -144,7 +144,7 @@ Ein realistischer Ablauf:
 4. **Vorletzte Woche:** vollständige Probetests unter Zeit.
 5. **Buchung:** erst wenn die Teilwerte in den Übungen stabil über dem Ziel liegen.
 
-Beim Wortschatz hilft die Sammlung auf [Englisch Vokabeln](/de/vocabulary/). Eine Auswahl an Musterbeispielen gibt es auf der englischsprachigen Seite [Samples](/en/samples/) (auf Englisch).
+Beim Wortschatz hilft die Sammlung auf [Englisch Vokabeln](/en/vocabulary/) (die Wortliste ist auf Englisch). Eine Auswahl an Musterbeispielen gibt es auf der englischsprachigen Seite [Samples](/en/samples/) (auf Englisch).
 
 {{cta: /app/#/goal | Ziel und Lernplan für Ihren IELTS-Test festlegen}}
 
