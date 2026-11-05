@@ -96,6 +96,9 @@ async function toeicCase(browser, opts, mode) {
     // cú chạm thật vào lối vào (mở khóa); trang Part tự phát SAU khi nạp gói (ngoài cử chỉ) – đúng đường iOS hay hỏng
     const link = 'a[href="#/toeic-test/1"]';
     if (await page.$(link)) await tap(page, link); else { await page.touchscreen.tap(5, 5); await page.evaluate(() => { location.hash = '#/toeic-test/1'; }); }
+    // màn giới thiệu đề (bảng cấu trúc + "Thử loa") → chạm thật "Bắt đầu làm bài" như người dùng; Part 1 mới dựng #tState + trình phát
+    await page.waitForSelector('#tGo', { timeout: 30000 });
+    await tap(page, '#tGo');
     await page.waitForSelector('#tState', { timeout: 30000 });
     if (mode === 'play') {
       check(await waitHeard(page, 2, 40000), `${tag}: ≥ 2 dòng giọng nối nhau đạt playing + currentTime > 0`);
@@ -120,10 +123,16 @@ async function speakCase(browser, opts) {
     await goto(page, '#/home');
     await page.touchscreen.tap(5, 5); // cú chạm đầu của người dùng → mở khóa
     await page.waitForFunction(() => LKAudio.isUnlocked(), null, { timeout: 10000 });
-    const before = (await heard(page)).length;
-    await page.evaluate(() => new Promise(r => setTimeout(r, 1200)).then(() => UI.speak('apple', 'en-GB'))); // ngoài cử chỉ
-    await page.evaluate(() => new Promise(r => setTimeout(r, 400)).then(() => UI.speak('banana', 'en-GB', 'https://lk.test/stub/banana.mp3'))); // đường "sau await" (ui.js audioEl)
-    check(await waitHeard(page, before + 1, 20000), `${tag}: phát được ngoài cử chỉ (playing + currentTime > 0)`);
+    // Hai đường phần tử, kiểm RIÊNG từng đường: (1) từ CÓ trong kho INDEX → file từ Kokoro (LA().play, phần tử pool);
+    // (2) URL bản ghi của Lexkite → audioSrc → audioEl (ui.js bỏ URL ngoài lexkite khi máy có giọng đọc → URL lk.test cũ rơi về giọng máy, không kiểm được gì)
+    await page.waitForFunction(() => window.IELTS_DATA && Object.keys(IELTS_DATA.INDEX).some(k => /^[a-z]{3,}$/.test(k)), null, { timeout: 20000 });
+    const word = await page.evaluate(() => Object.keys(IELTS_DATA.INDEX).find(k => /^[a-z]{3,}$/.test(k)));
+    let before = (await heard(page)).length;
+    await page.evaluate(w => new Promise(r => setTimeout(r, 1200)).then(() => UI.speak(w, 'en-GB')), word); // ngoài cử chỉ
+    check(await waitHeard(page, before + 1, 20000), `${tag}: từ "${word}" (file từ) phát được ngoài cử chỉ (playing + currentTime > 0)`);
+    before = (await heard(page)).length;
+    await page.evaluate(() => new Promise(r => setTimeout(r, 400)).then(() => UI.speak('banana', 'en-GB', 'https://audio.lexkite.com/stub/banana.mp3'))); // sau await
+    check(await waitHeard(page, before + 1, 20000), `${tag}: URL bản ghi Lexkite phát được sau await (playing + currentTime > 0)`);
     check(await blockedN(page) === 0, `${tag}: LKAudio.stats.blocked = 0`);
   } catch (e) { check(false, `${tag}: ${String(e.message).split('\n')[0]}`); }
   check(errs.length === 0, `${tag}: không lỗi JS` + (errs.length ? ': ' + errs.join(' | ') : ''));
