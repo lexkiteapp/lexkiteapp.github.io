@@ -9,7 +9,7 @@ tags: [pronunciation, speaking, phonetics, accent]
 keyword: "how to practice english pronunciation"
 cover: pron
 coverAlt: "Lexkite pronunciation library with groups of single vowels, diphthongs and consonants, example words and practice for each sound"
-publishAt: 2027-01-25T19:01:00+05:30
+publishAt: 2027-01-27T19:01:00+05:30
 factChecked: 2026-11-05
 author: Lexkite
 status: ready
