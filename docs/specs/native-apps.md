@@ -1,11 +1,11 @@
 # Spec – App iOS/Android native (SwiftUI + Jetpack Compose)
 
-> TL;DR: Owner 05/11 chọn viết lại app di động NATIVE THẬT (iOS SwiftUI, Android Kotlin + Compose), chuyên nghiệp như Duolingo, không web bọc vỏ. Bản Capacitor (`mobile/`, App Store 1.0, Play 1.0.1) giữ nguyên trên store tới khi đạt đủ parity (28 mục, `native/shared/parity.json`). Chống lệch 3 bộ code: tokens, chuỗi 15 ngôn ngữ, khung 5 tab và luật chấm điểm đều SINH từ repo (`scripts/native/gen.mjs`), không chép tay; CI kiểm bằng vector chuẩn. Build/test chỉ trên CI (`native-ios.yml` macOS, `native-android.yml` Ubuntu).
+> TL;DR: Owner 05/11 chọn viết lại app di động NATIVE THẬT (iOS SwiftUI, Android Kotlin + Compose), chuyên nghiệp như Duolingo, không web bọc vỏ. Bản Capacitor (`mobile/`, App Store 1.0, Play 1.0.1) giữ nguyên trên store tới khi đạt đủ parity (29 mục, `native/shared/parity.json`). Chống lệch 3 bộ code: tokens, chuỗi 15 ngôn ngữ, khung 5 tab và luật chấm điểm đều SINH từ repo (`scripts/native/gen.mjs`), không chép tay; CI kiểm bằng vector chuẩn. Build/test chỉ trên CI (`native-ios.yml` macOS, `native-android.yml` Ubuntu).
 > Đọc khi: sửa bất cứ gì trong `native/`, `scripts/native/`, thêm route/tính năng web (phải thêm mục parity), hoặc lên kế hoạch thay bản Capacitor trên store.
 
 ## 1. Mục tiêu & điều kiện xong
 - App native thay đúng app đang live: **cùng bundle ID `com.lexkite.app`** (iOS + Android), cùng tài khoản store, cùng scheme `lexkite://`, cùng thiết bị hỗ trợ (iPhone + iPad; Android minSdk 24). Version mới 2.0.0; owner tự bấm submit.
-- Xong khi: 28/28 mục parity "done" (test cả 2 nền tảng), migration dữ liệu từ bản Capacitor không mất gì (C03), QC CI xanh (snapshot, contrast, Back/X, 60/120 fps, reduced-motion), TestFlight + Play internal track chạy thật.
+- Xong khi: 29/29 mục parity "done" (test cả 2 nền tảng), migration dữ liệu từ bản Capacitor không mất gì (C03), QC CI xanh (snapshot, contrast, Back/X, 60/120 fps, reduced-motion), TestFlight + Play internal track chạy thật.
 - Luật cứng: Stitch "Lexkite Kit" là nguồn thiết kế duy nhất; khung 390 + 5 tab Today/Vocab/Skills/Tests/Me (`docs/DESIGN-SYSTEM.md` §5d); nhân vật 2D Ama (giọng nữ) / Carlos (giọng nam); mọi màn học có Back/X ≥ 44; chuyển động mượt, tôn trọng Reduce Motion; $0; không đụng logo/icon khi chưa có OK của owner; không cắt tính năng nào.
 
 ## 2. Danh sách parity (kiểm kê app hiện tại)
@@ -15,7 +15,7 @@ Nguồn máy đọc: `native/shared/parity.json` (P01–P12 = 74 route web từ 
 
 | Mốc | Mục |
 |---|---|
-| M1 | C01 đăng nhập · C02 offline + sync (data contract §4) · nội dung server-driven + Remote Config + Crashlytics (§4) · C03 migration · P01 khung 5 tab · P02 Today · C08 deep link · C09 haptics · C10 i18n · C11 theme |
+| M1 | C17 onboarding lần mở đầu · C01 đăng nhập · C02 offline + sync (data contract §4) · nội dung server-driven + Remote Config + Crashlytics (§4) · C03 migration · P01 khung 5 tab · P02 Today · C08 deep link · C09 haptics · C10 i18n · C11 theme |
 | M2 | P03 trình học bài · C04 âm thanh · C05 giáo viên Rive |
 | M3 | P04 ôn tập FSRS · P05 từ vựng/từ điển |
 | M4 | P06 nghe/đọc · P07 nói/phát âm · P08 gọi Ama/Carlos · P09 viết/ngữ pháp |
@@ -59,6 +59,12 @@ Logic lớn hơn (dựng bài `LessonEngine.build`, `pathPlan`, `Session`) cũng
 - `content-pack/` (`scripts/native/content-pack.mjs`): `today.json` + `lesson-ngsl1.1.json` (19 từ NGSL đầu, ~6 KB, trần 32 KB).
 - `native/shared/flags.json` → `Flags.swift` (LKCore) / `Flags.kt` (:core) + `gen/flags.json` (mặc định Remote Config an toàn offline). `vectors/compat.json` (`scripts/native/content-schema.mjs` = bộ đọc tham chiếu): JSON nội dung `{kind:"lexkite-content-v1", type: today|modules|banner, schema, minApp, version, body, signature}`, ký ECDSA P-256 như OTA web (`scripts/ota/lib.mjs`, khóa `web/js/ota-key.js`; CLI `content-schema.mjs sign` chạy trên CI với `OTA_SIGNING_KEY`), 28 ca app mới↔JSON cũ / app cũ↔JSON mới; test `scripts/test/native-compat.mjs`. Nguồn `native/shared/content/<type>.json` → `content-publish.mjs sign` (CI) → `web/native/content/<type>.json` (commit, Pages phục vụ) = `https://lexkite.com/native/content/<type>.json`. `sync_drive_enabled` mặc định TẮT ở M1 (bản Capacitor live dùng D1). `sync.json`/`migration.json`/`contract` có `lib` = mục thư viện thật cho thẻ L:1.
 - `scripts/test/sync-cross-client.mjs` (npm test, ~2 s): vector = merge web; giao hoán/lũy đẳng/hấp thụ; 37 ca qua D1 thật (`functions/api/sync.js` trên node:sqlite); 6 kịch bản × D1 + Drive giả (máy mới đăng nhập = `expect.server`); script xuất chạy lại, không ghi IndexedDB.
+
+### Lần mở đầu – onboarding (owner 05/11, HARD; mục parity C17)
+- Luồng: splash thương hiệu (< 1 s, không chặn bởi mạng) → Welcome (nhân vật 2D Ama/Carlos, cùng nguồn Stitch với Welcome web PR #608) → 3–4 bước: ngôn ngữ mẹ đẻ · mục tiêu (IELTS/TOEIC/giao tiếp…) · trình độ (kiểm tra nhanh tuỳ chọn, Bỏ qua được) · thời lượng/ngày → Today với bài học đầu. TUYỆT ĐỐI không mở trang blog/trang chủ web.
+- Chuẩn Duolingo/Headspace/Apple: một việc/màn, nút chính rõ, thanh tiến độ, Back + Bỏ qua luôn có; học thử trước, mời tạo tài khoản sau; không popup dồn, không quảng cáo; xin quyền thông báo sau bài đầu có giải thích (notifications-ux). Offline được (gói khởi động), i18n 15 ngôn ngữ + RTL, Reduce Motion.
+- Lựa chọn lưu vào settings theo data contract (cùng khoá web) → đồng bộ khi đăng nhập sau.
+- Test (XCTest + JUnit `testParityC17`/`parity_C17`): lần mở đầu luôn vào onboarding, không bao giờ vào blog; mở lại → Today; Back/Bỏ qua mọi bước; người dùng migrate từ Capacitor đã có dữ liệu → bỏ qua onboarding vào Today.
 
 ### Cập nhật không cần duyệt lại store (owner 05/11 – thay OTA của Capacitor)
 - **Nội dung do server điều khiển**: bài học, chuỗi dịch, thứ tự module, banner/sự kiện, cấu hình màn Today = JSON đã ký (Ed25519, cùng khoá công khai kiểu `web/js/ota-key.js`) từ CÙNG nguồn web, app chỉ render bằng component native có sẵn. KHÔNG tải code thực thi (App Review 2.5.2 / 3.3.1(B), Play Device and Network Abuse); không đổi mục đích app. Chữ ký sai/hỏng → giữ bản cache cuối + gói khởi động.

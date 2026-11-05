@@ -63,8 +63,11 @@ public struct TodayView: View {
 struct LKCard<Content: View>: View {
     var fill: LKDynamicColor = LKColor.surfaceContainer
     var padding: CGFloat = LKSpacing.spaceMd
-    @ViewBuilder var content: Content
+    let content: Content
     @Environment(\.colorScheme) private var scheme
+    init(fill: LKDynamicColor = LKColor.surfaceContainer, padding: CGFloat = LKSpacing.spaceMd, @ViewBuilder content: () -> Content) {
+        self.fill = fill; self.padding = padding; self.content = content()
+    }
     var body: some View {
         content
             .padding(padding)
@@ -83,9 +86,9 @@ struct LKPressStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .contentShape(Rectangle())
-            .offset(y: configuration.isPressed && !reduceMotion ? 2 : 0)
-            .scaleEffect(configuration.isPressed && !reduceMotion ? 0.985 : 1)
-            .animation(reduceMotion ? nil : .spring(response: 0.22, dampingFraction: 0.7), value: configuration.isPressed)
+            .offset(y: LKMotionPolicy.pressOffset(pressed: configuration.isPressed, reduce: reduceMotion, down: 2))
+            .scaleEffect(LKMotionPolicy.pressScale(pressed: configuration.isPressed, reduce: reduceMotion, down: 0.985))
+            .animation(LKMotionPolicy.animation(response: 0.22, damping: 0.7, reduce: reduceMotion), value: configuration.isPressed)
             .lkHaptic(.tap, trigger: configuration.isPressed, when: { $0 })
     }
 }
@@ -178,7 +181,7 @@ struct GoalChip: View {
                 ZStack {
                     Circle().stroke(LKColor.trail.resolve(scheme), lineWidth: 4)
                     Circle().trim(from: 0, to: progress).stroke(LKColor.success.resolve(scheme), style: StrokeStyle(lineWidth: 4, lineCap: .round)).rotationEffect(.degrees(-90))
-                        .animation(reduceMotion ? nil : .easeOut(duration: Double(LKMotion.fadeMs) / 1000), value: progress)
+                        .animation(LKMotionPolicy.progressAnimation(reduce: reduceMotion), value: progress)
                     Text("\(Fmt.int(done, t.lang))/\(Fmt.int(goal, t.lang))").lkText(LKType.labelBadge).minimumScaleFactor(0.6).lineLimit(1).padding(3)
                 }
                 .frame(width: 38, height: 38)

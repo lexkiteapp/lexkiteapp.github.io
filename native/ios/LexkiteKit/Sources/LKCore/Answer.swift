@@ -5,9 +5,14 @@ public enum Answer {
     public static func norm(_ s: String) -> String {
         var x = s.lowercased().replacingOccurrences(of: "\u{2019}", with: "'").replacingOccurrences(of: "\u{2018}", with: "'")
         // JS: replace(/[^a-z0-9' -]+/g, ' ') on UTF-16 units – keep only ASCII letters/digits/apostrophe/space/hyphen
-        x = String(String.UnicodeScalarView(x.unicodeScalars.map { c in
-            (c >= "a" && c <= "z") || (c >= "0" && c <= "9") || c == "'" || c == " " || c == "-" ? c : " "
-        }))
+        var kept = String.UnicodeScalarView()
+        let space: Unicode.Scalar = " "
+        for c in x.unicodeScalars {
+            let v: UInt32 = c.value   // a-z 97…122 · 0-9 48…57 · ' 39 · space 32 · - 45
+            let keep: Bool = (v >= 97 && v <= 122) || (v >= 48 && v <= 57) || v == 39 || v == 32 || v == 45
+            kept.append(keep ? c : space)
+        }
+        x = String(kept)
         x = x.replacingOccurrences(of: "-", with: " ")
         return x.split(whereSeparator: { $0 == " " || $0 == "\t" || $0 == "\n" }).joined(separator: " ")
     }

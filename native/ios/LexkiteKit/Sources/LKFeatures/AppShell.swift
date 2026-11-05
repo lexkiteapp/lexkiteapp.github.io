@@ -53,7 +53,7 @@ public struct AppShell: View {
     public var body: some View {
         @Bindable var router = services.router
         TabView(selection: Binding(get: { router.tab }, set: { router.reselect($0) })) {
-            ForEach(services.tabOrder.compactMap { k in frame.tabs.first { $0.k == k } }.filter { !services.hiddenTabs.contains($0.k) }) { tb in
+            ForEach(visibleTabs) { tb in
                 NavigationStack(path: router.path(tb.k)) {
                     root(tb)
                         .toolbar(.hidden, for: .navigationBar)
@@ -68,6 +68,15 @@ public struct AppShell: View {
         .fullScreenCover(item: $router.focus) { r in
             FocusScreen(route: r).environment(services)
         }
+    }
+
+    /// Tabs in the order of the signed `modules` document (default = frame.json), hidden ones removed.
+    private var visibleTabs: [LKFrame.Tab] {
+        var out: [LKFrame.Tab] = []
+        for k in services.tabOrder where !services.hiddenTabs.contains(k) {
+            if let tab = frame.tabs.first(where: { $0.k == k }) { out.append(tab) }
+        }
+        return out
     }
 
     @ViewBuilder func root(_ tb: LKFrame.Tab) -> some View {
@@ -150,12 +159,12 @@ public struct PrimaryButtonStyle: ButtonStyle {
             .foregroundStyle(LKColor.onPrimary.resolve(scheme))
             .background {
                 RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.primary.resolve(scheme)).brightness(-0.22)   // tactile ledge = primary, darker
-                    .offset(y: configuration.isPressed && !reduceMotion ? 1 : 4)
+                    .offset(y: LKMotionPolicy.pressOffset(pressed: configuration.isPressed, reduce: reduceMotion, rest: 4, down: 1))
                 RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.primary.resolve(scheme))
-                    .offset(y: configuration.isPressed && !reduceMotion ? 3 : 0)
+                    .offset(y: LKMotionPolicy.pressOffset(pressed: configuration.isPressed, reduce: reduceMotion, down: 3))
             }
-            .scaleEffect(configuration.isPressed && !reduceMotion ? 0.98 : 1)
-            .animation(reduceMotion ? nil : .spring(response: 0.25, dampingFraction: 0.6), value: configuration.isPressed)
+            .scaleEffect(LKMotionPolicy.pressScale(pressed: configuration.isPressed, reduce: reduceMotion, down: 0.98))
+            .animation(LKMotionPolicy.animation(response: 0.25, damping: 0.6, reduce: reduceMotion), value: configuration.isPressed)
             .lkHaptic(.tap, trigger: configuration.isPressed, when: { $0 })
     }
 }

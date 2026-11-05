@@ -17,7 +17,14 @@ public struct LKTextStyle: Sendable {
         self.size = size; self.lineHeight = lineHeight; self.weight = weight; self.tracking = tracking
     }
     public var font: Font {
-        let w: Font.Weight = switch weight { case ..<450: .regular; case ..<550: .medium; case ..<650: .semibold; case ..<750: .bold; default: .heavy }
+        let w: Font.Weight
+        switch weight {
+        case ..<450: w = .regular
+        case ..<550: w = .medium
+        case ..<650: w = .semibold
+        case ..<750: w = .bold
+        default: w = .heavy
+        }
         // relativeTo: keeps Dynamic Type scaling; M1 swaps in the bundled Plus Jakarta Sans (same OFL source as web)
         return .system(size: size, weight: w, design: .rounded)
     }
@@ -36,4 +43,13 @@ public struct LKFrame: Decodable, Sendable {
         let url = Bundle.module.url(forResource: "frame", withExtension: "json")!
         return try! JSONDecoder().decode(LKFrame.self, from: Data(contentsOf: url))
     }()
+}
+
+/// Reduce Motion policy as pure functions (the SwiftUI key `accessibilityReduceMotion` is read-only, so views read it and call these;
+/// tests call them with both values). reduce = true → no animation, no offset, no scale.
+public enum LKMotionPolicy {
+    public static func pressOffset(pressed: Bool, reduce: Bool, rest: CGFloat = 0, down: CGFloat) -> CGFloat { pressed && !reduce ? down : rest }
+    public static func pressScale(pressed: Bool, reduce: Bool, down: CGFloat) -> CGFloat { pressed && !reduce ? down : 1 }
+    public static func animation(response: Double, damping: Double, reduce: Bool) -> Animation? { reduce ? nil : .spring(response: response, dampingFraction: damping) }
+    public static func progressAnimation(reduce: Bool) -> Animation? { reduce ? nil : .easeOut(duration: Double(LKMotion.fadeMs) / 1000) }
 }

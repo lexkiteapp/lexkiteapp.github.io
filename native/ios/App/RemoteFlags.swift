@@ -29,8 +29,8 @@ final class FirebaseRemoteFlags: LKRemoteConfig, @unchecked Sendable {
         guard v.source == .remote else { return nil }
         switch FlagDefaults.all[key] {
         case is Bool: return .bool(v.boolValue)
-        case is Int: return .number(v.numberValue.doubleValue)
-        case is String: return .string(v.stringValue)
+        case is Int: return .number(((v.numberValue as NSNumber?) ?? NSNumber(value: 0)).doubleValue)
+        case is String: return .string((v.stringValue as String?) ?? "")
         default: return nil
         }
     }

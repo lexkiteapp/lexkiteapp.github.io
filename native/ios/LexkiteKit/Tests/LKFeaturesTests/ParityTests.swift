@@ -212,10 +212,22 @@ final class ParityTests: XCTestCase {
 
     /// Reduce Motion: the press animation is disabled (no movement) – checked on the style used by every CTA.
     func testReduceMotionStyles() {
-        let v = Button("") {}.buttonStyle(PrimaryButtonStyle()).environment(\.accessibilityReduceMotion, true)
+        // \.accessibilityReduceMotion is a read-only SwiftUI environment key (cannot be overridden): the style is laid out under the system setting
+        let v = Button("") {}.buttonStyle(PrimaryButtonStyle())
         let host = UIHostingController(rootView: v)
         host.view.frame = CGRect(x: 0, y: 0, width: 390, height: 60)
         host.view.layoutIfNeeded()
+        // reduce = true → nothing moves; reduce = false → real motion
+        XCTAssertNil(LKMotionPolicy.animation(response: 0.25, damping: 0.6, reduce: true))
+        XCTAssertNil(LKMotionPolicy.progressAnimation(reduce: true))
+        XCTAssertEqual(LKMotionPolicy.pressOffset(pressed: true, reduce: true, rest: 4, down: 1), 4)
+        XCTAssertEqual(LKMotionPolicy.pressOffset(pressed: true, reduce: true, down: 3), 0)
+        XCTAssertEqual(LKMotionPolicy.pressScale(pressed: true, reduce: true, down: 0.98), 1)
+        XCTAssertNotNil(LKMotionPolicy.animation(response: 0.25, damping: 0.6, reduce: false))
+        XCTAssertNotNil(LKMotionPolicy.progressAnimation(reduce: false))
+        XCTAssertEqual(LKMotionPolicy.pressOffset(pressed: true, reduce: false, rest: 4, down: 1), 1)
+        XCTAssertEqual(LKMotionPolicy.pressScale(pressed: true, reduce: false, down: 0.98), 0.98)
+        XCTAssertEqual(LKMotionPolicy.pressScale(pressed: false, reduce: false, down: 0.98), 1)
         XCTAssertLessThanOrEqual(LKMotion.fadeMs, 200, "animations ≤ 200 ms")
     }
 

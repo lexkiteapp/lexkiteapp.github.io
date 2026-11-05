@@ -165,9 +165,12 @@ async function selfTest(argv) {
     ['bad-bar/ios/AppShellSnapshotTests/testAppShell.en-light.png', { theme: 'light', scale: 1, tallBar: 40 }],
   ];
   for (const [rel, o] of spec) {
-    const buf = L.encodePng(makeFixture(o).img), f = path.join(dir, rel);
-    if (write) { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, buf); }
-    else if (!fs.existsSync(f) || !fs.readFileSync(f).equals(buf)) errs.push(`fixture ${rel} thiếu hoặc lỗi thời (node scripts/test/native-visual.mjs --self-test --write-fixtures)`);
+    const img = makeFixture(o).img, f = path.join(dir, rel);
+    if (write) { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, L.encodePng(img)); continue; }
+    // So PIXEL đã giải mã, không so byte PNG: zlib mỗi bản Node nén khác byte (Node 26 máy ≠ Node 22 CI) dù ảnh y hệt
+    let same = false;
+    if (fs.existsSync(f)) { try { const d = L.decodePng(fs.readFileSync(f)); same = d.w === img.w && d.h === img.h && Buffer.from(d.data).equals(Buffer.from(img.data)); } catch { same = false; } }
+    if (!same) errs.push(`fixture ${rel} thiếu hoặc lỗi thời (node scripts/test/native-visual.mjs --self-test --write-fixtures)`);
   }
   if (write) console.log(`đã ghi ${spec.length} fixture → ${path.relative(ROOT, dir)}`);
   const gate = (sub) => { const es = [...collect(path.join(dir, sub, 'ios'), 'ios'), ...collect(path.join(dir, sub, 'android'), 'android')], rs = es.map(e => { const r = analyze(e, L.decodePng(fs.readFileSync(e.file))); r.platform = e.platform; r.screen = e.screen; r.key = `today-${e.lang}-${e.theme}`; return r; }); return { rs, cross: crossCheck(rs) }; };

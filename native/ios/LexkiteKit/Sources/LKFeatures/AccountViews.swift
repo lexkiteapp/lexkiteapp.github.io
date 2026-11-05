@@ -141,7 +141,9 @@ struct DeleteAccountSheet: View {
     @Environment(\.l10n) private var t
     @Environment(\.colorScheme) private var scheme
     @Environment(\.dismiss) private var dismiss
-    @State private var wipeLocal = false, sure = false, running = false
+    @State private var wipeLocal = false
+    @State private var sure = false
+    @State private var running = false
     @State private var message = ""
     var body: some View {
         VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {

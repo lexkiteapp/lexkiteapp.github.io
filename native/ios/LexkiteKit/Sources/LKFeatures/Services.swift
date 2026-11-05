@@ -153,9 +153,9 @@ public final class AppServices {
     public static let langKey = "lk.uiLang"
     public var accountSwitchPrompt: (old: String, new: String, answer: CheckedContinuation<Bool, Never>)?
 
-    public init(router: AppRouter = AppRouter(), auth: AuthModel, today: TodayModel, repo: LKRepository?, engine: SyncEngine?, crash: LKCrash?,
+    public init(router: AppRouter? = nil, auth: AuthModel, today: TodayModel, repo: LKRepository?, engine: SyncEngine?, crash: LKCrash?,
                 remote: LKRemoteConfig = DefaultRemoteConfig(), content: ContentStore? = nil) {
-        self.router = router; self.auth = auth; self.today = today; self.repo = repo; self.engine = engine; self.crash = crash
+        self.router = router ?? AppRouter(); self.auth = auth; self.today = today; self.repo = repo; self.engine = engine; self.crash = crash
         self.remote = remote; self.content = content
         let l = UserDefaults.standard.string(forKey: Self.langKey).flatMap { L10nLangs.all.contains($0) ? $0 : nil } ?? L10n.preferred()
         uiLang = l; l10n = L10n(lang: l)

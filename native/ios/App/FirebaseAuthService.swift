@@ -127,8 +127,8 @@ final class FirebaseAuthService: NSObject, LKAuth, @unchecked Sendable {
         let n = e as NSError
         guard n.domain == AuthErrorDomain else { return e }
         switch n.code {
-        case AuthErrorCode.requiresRecentLogin.rawValue: return LKAuthError.requiresRecentLogin
-        case AuthErrorCode.webContextCancelled.rawValue: return LKAuthError.cancelled
+        case AuthErrorCode.Code.requiresRecentLogin.rawValue: return LKAuthError.requiresRecentLogin
+        case AuthErrorCode.Code.webContextCancelled.rawValue: return LKAuthError.cancelled
         default: return LKAuthError.failed(n.localizedDescription)
         }
     }

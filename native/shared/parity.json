@@ -255,6 +255,12 @@
       "m": 6,
       "title": "Target languages beyond English (Spanish course) through the same content API",
       "routes": []
+    },
+    {
+      "id": "C17",
+      "m": 1,
+      "title": "First-run onboarding: splash → Welcome → native language/goal/level/daily time → Today first lesson; never the blog; try before sign-up",
+      "routes": []
     }
   ]
 }

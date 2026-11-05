@@ -107,7 +107,8 @@ public actor SyncEngine {
             mode = .d1; await pullMerge(); return
         }
         mode = .drive
-        let bridge = st.d1Had != 0 && now() - st.at < config.bridgeDays * 864e5 && now() - st.lastD1 > 20 * 3600e3
+        let nowMs: Double = now(), bridgeWindow: Double = config.bridgeDays * 864e5, d1Gap: Double = 20 * 3600e3
+        let bridge: Bool = st.d1Had != 0 && (nowMs - st.at) < bridgeWindow && (nowMs - st.lastD1) > d1Gap
         if st.on == 0 || bridge {
             if let had = await pullMerge(migrate: true) {
                 meta = await store.loadMeta()
@@ -362,7 +363,9 @@ public actor SyncEngine {
             st.scope = "no"; await save(); return .noScope
         } catch {
             st.fail += 1
-            st.nextAt = now() + min(6 * 3600e3, 30e3 * pow(2, Double(max(0, st.fail - 1)))) * (0.75 + random() * 0.5)
+            let backoff: Double = min(6 * 3600e3, 30e3 * pow(2.0, Double(max(0, st.fail - 1))))
+            let jitter: Double = 0.75 + random() * 0.5
+            st.nextAt = now() + backoff * jitter
             await save()
             return .retry
         }
@@ -397,7 +400,7 @@ public actor SyncEngine {
     }
     private func retryLater() {
         guard retryTask == nil, mode == .d1 else { return }
-        let ms = min(600_000, 30_000 * pow(2, Double(netN))); netN += 1
+        let ms: Double = min(600_000.0, 30_000.0 * pow(2.0, Double(netN))); netN += 1
         retryTask = Task { [weak self] in
             try? await Task.sleep(nanoseconds: UInt64(ms * 1e6))
             await self?.retryFire()

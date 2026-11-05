@@ -43,13 +43,13 @@ public enum JSON: Sendable, Hashable {
     /// JS ToNumber (`+x`, operands of `Math.max`, `>`). `undefined` (Swift nil) is NaN; use `JSON.num(nil)`.
     public var toNumber: Double {
         switch self {
-        case .null: 0
-        case .bool(let b): b ? 1 : 0
-        case .number(let n): n
+        case .null: return 0
+        case .bool(let b): return b ? 1 : 0
+        case .number(let n): return n
         case .string(let s):
             let t = s.trimmingCharacters(in: .whitespacesAndNewlines)
             if t.isEmpty { return 0 }
-            if t.hasPrefix("0x") || t.hasPrefix("0X") { return UInt64(t.dropFirst(2), radix: 16).map(Double.init) ?? .nan }
+            if t.hasPrefix("0x") || t.hasPrefix("0X") { return UInt64(t.dropFirst(2), radix: 16).map { Double($0) } ?? Double.nan }
             if t == "Infinity" || t == "+Infinity" { return .infinity }
             if t == "-Infinity" { return -.infinity }
             // JS does not accept "inf"/"nan" words that Double(_:) does
@@ -59,7 +59,7 @@ public enum JSON: Sendable, Hashable {
             if a.isEmpty { return 0 }
             if a.count == 1 { return JSON.string(a[0].jsToString).toNumber }
             return .nan
-        case .object: .nan
+        case .object: return .nan
         }
     }
     public static func num(_ v: JSON?) -> Double { v?.toNumber ?? .nan }
@@ -83,8 +83,8 @@ public enum JSON: Sendable, Hashable {
     public static func spread(_ v: JSON?) -> [String: JSON] {
         switch v {
         case .object(let o)?: return o
-        case .array(let a)?: return Dictionary(uniqueKeysWithValues: a.enumerated().map { (String($0.offset), $0.element) })
-        case .string(let s)?: return Dictionary(uniqueKeysWithValues: s.utf16.enumerated().map { (String($0.offset), .string(String(utf16CodeUnits: [$0.element], count: 1))) })
+        case .array(let a)?: return Dictionary(uniqueKeysWithValues: a.enumerated().map { (String($0.offset), $0.element) as (String, JSON) })
+        case .string(let s)?: return Dictionary(uniqueKeysWithValues: s.utf16.enumerated().map { (String($0.offset), JSON.string(String(utf16CodeUnits: [$0.element], count: 1))) })
         default: return [:]
         }
     }

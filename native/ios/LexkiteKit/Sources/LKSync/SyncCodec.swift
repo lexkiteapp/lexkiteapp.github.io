@@ -45,7 +45,8 @@ public enum SyncCodec {
         guard i < b.count - 8 else { throw CodecError.gzip }
         let body = Data(b[i..<(b.count - 8)])
         guard let raw = try? (body as NSData).decompressed(using: .zlib) as Data else { throw CodecError.gzip }
-        let crc = UInt32(b[b.count - 8]) | UInt32(b[b.count - 7]) << 8 | UInt32(b[b.count - 6]) << 16 | UInt32(b[b.count - 5]) << 24
+        let c0 = UInt32(b[b.count - 8]), c1 = UInt32(b[b.count - 7]) << 8, c2 = UInt32(b[b.count - 6]) << 16, c3 = UInt32(b[b.count - 5]) << 24
+        let crc: UInt32 = c0 | c1 | c2 | c3
         guard crc == crc32(raw) else { throw CodecError.gzip }
         return raw
     }
@@ -90,7 +91,9 @@ public enum SyncCodec {
         return gzip(txt) ?? txt
     }
     public static func driveUnpack(_ bytes: Data) throws -> JSON {
-        let raw: Data = bytes.count > 2 && bytes[bytes.startIndex] == 0x1F && bytes[bytes.startIndex + 1] == 0x8B ? try gunzip(bytes) : bytes
+        let isGzip = bytes.count > 2 && bytes[bytes.startIndex] == 0x1F && bytes[bytes.startIndex + 1] == 0x8B
+        let raw: Data
+        if isGzip { raw = try gunzip(bytes) } else { raw = bytes }
         guard let env = try? JSON.parse(raw) else { throw CodecError.json }
         guard env["kind"]?.string == driveKind, let data = env["data"]?.string, JSON.num(env["v"]) >= 1 else { throw CodecError.envelope }
         let v = Int(JSON.num(env["v"]))
