@@ -16,7 +16,17 @@ for (const f of fs.readdirSync(DIR).filter(f => /-(light|dark)\.html$/.test(f)).
     const to = roleHex(T, r, mode).toUpperCase(); if (to === '#' + hex.toUpperCase()) return all;
     n++; return `${k}-[${to}]`;
   });
-  if (n) { swaps += n; files++; if (check) stale.push(`${f} (${n})`); else fs.writeFileSync(p, out); }
+  // Màu ĐẶT TÊN trong tailwind config của file ("surface-container-low": "#f2f4f3") → app nhận giá trị này qua stitch-v2-convert rồi
+  // st-theme-snap đổi theo loại lớp (bg/text/border) → ở đây đổi cùng cách để ảnh mẫu = app. Chỉ đổi khóa mà file dùng với MỘT kết quả
+  // (mọi lớp bg-/text-/border-<khóa> cho cùng vai trò); khóa còn dùng ở gradient/ring/shadow/fill… giữ nguyên (snap không đụng các lớp đó).
+  const out2 = out.replace(/("([a-z][a-z0-9-]*)"\s*:\s*")(#[0-9A-Fa-f]{6})(")/g, (all, pre, key, hex, post) => {
+    const esc = key.replace(/[-]/g, '\\-'), uses = [...out.matchAll(new RegExp(`(?<![\\w-])(?:[a-z]+:)*([a-z]+)-${esc}(?![\\w-])`, 'g'))].map(m => m[1]);
+    if (!uses.length || uses.some(u => !KIND[u])) return all;
+    const to = [...new Set(uses.map(u => { const r = pick(T, KIND[u], mode, hex.toUpperCase()); return r ? roleHex(T, r, mode).toUpperCase() : null; }))];
+    if (to.length !== 1 || !to[0] || to[0] === hex.toUpperCase()) return all;
+    n++; return pre + to[0] + post;
+  });
+  if (n) { swaps += n; files++; if (check) stale.push(`${f} (${n})`); else fs.writeFileSync(p, out2); }
 }
 // Bản đồ gắn dữ liệu (bind/<màn>.json) nhắc lớp đã ghép cặp lt:/dk: theo hex → đổi cùng hàm, theo chế độ của tiền tố
 const BIND = path.join(DIR, 'bind');
