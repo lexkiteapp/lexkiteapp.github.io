@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, is-hayati]
 cover: letters
 coverAlt: "Kurumsal e-posta ve mesajlaşmada kullanılan iş hayatında İngilizce kısaltmalar rehberi"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-11-03
 author: Lexkite
 status: ready

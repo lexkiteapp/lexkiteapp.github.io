@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, format-tes, persiapan]
 cover: toefl
 coverAlt: "Halaman latihan modul TOEFL iBT di Lexkite dengan tabel struktur tes dan jenis soal terbaru"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T19:51:00+07:00

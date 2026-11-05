@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, bei-kao]
 cover: toefl
 coverAlt: "Lexkite托福备考界面：2026年新题型考试结构与各科目题型模块展示"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-01T19:01:00+08:00

@@ -9,7 +9,7 @@ category: ky-nang
 tags: [ky-nang, speaking, conversation]
 cover: mock
 coverAlt: "Lexkite मोबाइल ऐप पर अंग्रेजी बोलने के अभ्यास और वार्तालाप सिमुलेशन की स्क्रीन"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

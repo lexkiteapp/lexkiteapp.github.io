@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "หน้าจอฝึกทำข้อสอบ TOEIC ใน Lexkite พร้อมชุดข้อสอบจำลองและการฝึกฝนรายพาร์ต"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T12:11:00+07:00

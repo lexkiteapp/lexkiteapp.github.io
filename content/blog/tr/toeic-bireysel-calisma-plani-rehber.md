@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, calisma-plani, test-prep]
 cover: toeic
 coverAlt: "Lexkite TOEIC sinav hazirlik arayuzunde tam deneme testleri ve bolum bazli alistirma modulleri"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2026-12-31T12:11:00+03:00

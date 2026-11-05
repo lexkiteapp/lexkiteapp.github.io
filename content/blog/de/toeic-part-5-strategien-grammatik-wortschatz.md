@@ -13,7 +13,7 @@ publishAt: 2027-01-04T12:11:00+01:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 86
 ---
 
 Für Berufstätige und Studierende, die internationale Karriereschritte anstreben, verlangt der TOEIC Reading-Test absolute Präzision unter hohem Zeitdruck. Mit exakt 30 Lückensätzen eröffnet der Abschnitt **toeic part 5** den Leseteil und prägt maßgeblich den weiteren Rhythmus der gesamten Prüfung. Wer mehr als 12 Minuten in diese Sätze investiert, gerät bei den anspruchsvollen Mehrfachtexten am Ende der Prüfung unausweichlich in Zeitnot.

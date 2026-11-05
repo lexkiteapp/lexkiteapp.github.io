@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, sinav-formati, hazirlik]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT hazırlık modülü: 2026 yeni sınav yapısı ve soru türleri tablosu"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-03T08:45:00+03:00

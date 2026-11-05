@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, tahdir]
 cover: toefl
 coverAlt: "واجهة التحضير لاختبار توفل على ليكسكايت توضح هيكل الامتحان الجديد لعام 2026 وأقسامه"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2026-12-27T19:01:00+03:00

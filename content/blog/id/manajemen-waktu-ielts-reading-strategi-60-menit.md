@@ -12,7 +12,7 @@ coverAlt: "Panduan strategi manajemen waktu 60 menit dan pembagian tiga bacaan p
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 85
 publishAt: 2027-01-05T12:11:00+07:00
 ---
 

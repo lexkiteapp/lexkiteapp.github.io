@@ -12,7 +12,7 @@ coverAlt: "Estrategias de control de tiempo y distribución de 60 minutos para l
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 86
 publishAt: 2027-01-03T19:51:00-06:00
 ---
 

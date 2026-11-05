@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, pruefungsformat, vorbereitung]
 cover: toefl
 coverAlt: "TOEFL iBT Vorbereitungsmodul im Lexkite mit modernem Testformat ab Januar 2026"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T19:01:00+01:00

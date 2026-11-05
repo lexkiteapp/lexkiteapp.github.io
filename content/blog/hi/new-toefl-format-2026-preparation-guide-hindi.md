@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, test-format, taiyari]
 cover: toefl
 coverAlt: "लेक्सकाइट पर तोफेल तैयारी इंटरफेस: 2026 का नया परीक्षा प्रारूप और सभी सेक्शंस"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2026-12-31T07:36:00+05:30

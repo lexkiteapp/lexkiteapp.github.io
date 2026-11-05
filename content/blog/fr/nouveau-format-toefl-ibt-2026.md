@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, toefl-ibt, examens, preparation]
 cover: toefl
 coverAlt: "Interface de préparation au TOEFL iBT dans Lexkite avec le tableau des sections et épreuves"
-qualityScore: 92
+qualityScore: 87
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-01T19:51:00+01:00

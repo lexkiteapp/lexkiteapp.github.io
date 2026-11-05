@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, examens]
 cover: toefl
 coverAlt: "Format du test TOEFL iBT sur ordinateur avec les sections d examen dans Lexkite"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-03T07:36:00+01:00

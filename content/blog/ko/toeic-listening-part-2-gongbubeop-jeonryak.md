@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, listening, part-2, test-prep]
 cover: toeic
 coverAlt: "Lexkite 토익 모의고사 및 파트별 실전 연습 화면"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-05T08:14:00+09:00

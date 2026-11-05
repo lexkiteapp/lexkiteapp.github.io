@@ -13,7 +13,7 @@ publishAt: 2027-01-06T08:14:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 87
 quiz: [
   {
     q: "¿Qué postula la 'Curva del Olvido' descubierta empíricamente por Hermann Ebbinghaus?",

@@ -12,7 +12,7 @@ coverAlt: "IELTS Reading sınavı için zaman yönetimi stratejileri ve 60 dakik
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 86
 publishAt: 2026-12-29T19:01:00+03:00
 ---
 

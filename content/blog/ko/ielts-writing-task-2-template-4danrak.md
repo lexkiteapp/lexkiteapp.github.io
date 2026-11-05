@@ -13,7 +13,7 @@ publishAt: 2027-01-03T12:11:00+09:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 88
 quiz: [
   {
     q: "IELTS Writing Task 2에서 Band 7.0 이상을 노릴 때 가장 많이 권장되는 에세이 구조는?",

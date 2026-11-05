@@ -9,7 +9,7 @@ category: tu-vung
 tags: [business-english, email, acronyms, thamma-ngan]
 cover: letters
 coverAlt: "คู่มือคำย่อภาษาอังกฤษที่ทำงานและตัวย่อสำหรับอีเมลและการสื่อสารองค์กรข้ามชาติ"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-11-03
 author: Lexkite
 status: ready

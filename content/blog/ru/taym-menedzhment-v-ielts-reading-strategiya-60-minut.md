@@ -12,7 +12,7 @@ coverAlt: "Стратегия распределения 60 минут и тай
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 85
 publishAt: 2026-12-31T07:36:00+03:00
 ---
 

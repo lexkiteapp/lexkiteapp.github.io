@@ -12,7 +12,7 @@ coverAlt: "Estratégias de distribuição de 60 minutos e gerenciamento de tempo
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 86
 publishAt: 2027-01-10T19:01:00-03:00
 ---
 

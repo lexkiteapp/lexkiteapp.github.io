@@ -13,7 +13,7 @@ publishAt: 2027-01-14T08:14:00-03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 86
 ---
 
 Na busca por pontuações de destaque no teste de proficiência voltado aos negócios, a seção de leitura do exame não tolera hesitações nem desperdício de minutos. Com 30 itens objetivos de múltipla escolha, a seção **toeic part 5** representa a porta de entrada da prova de Reading e define o ritmo de toda a sua avaliação. Um candidato que gaste mais de 12 minutos nessa etapa inicial corre sério risco de chutar várias questões ao encarar os longos textos do final da prova.

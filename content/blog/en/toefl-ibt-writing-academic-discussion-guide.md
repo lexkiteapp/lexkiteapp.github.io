@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-27T12:11:00+05:30

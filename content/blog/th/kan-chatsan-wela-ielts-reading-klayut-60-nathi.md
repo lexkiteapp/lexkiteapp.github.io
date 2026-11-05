@@ -12,7 +12,7 @@ coverAlt: "คู่มือกลยุทธ์การจัดสรรเ
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 85
 publishAt: 2026-12-31T19:01:00+07:00
 ---
 

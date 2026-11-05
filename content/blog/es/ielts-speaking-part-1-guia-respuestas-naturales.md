@@ -9,7 +9,7 @@ category: ielts
 tags: [ielts, speaking, part-1, preparacion]
 cover: speaking
 coverAlt: "Sala de Speaking de Lexkite con preguntas de Part 1 clasificadas por temas y respuestas modelo"
-qualityScore: 92
+qualityScore: 89
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-04T12:11:00-06:00

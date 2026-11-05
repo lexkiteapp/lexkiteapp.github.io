@@ -12,7 +12,7 @@ coverAlt: "دليل استراتيجيات إدارة الوقت وتقسيم ا
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 85
 publishAt: 2026-12-29T12:11:00+03:00
 ---
 

@@ -9,7 +9,7 @@ category: toefl
 tags: [toefl, writing, academic-discussion, test-prep]
 cover: toefl
 coverAlt: "Giao diện luyện thi TOEFL iBT trên ứng dụng Lexkite với bảng cấu trúc đề mới và các dạng câu hỏi chuyên sâu"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-02-11T19:51:00+07:00

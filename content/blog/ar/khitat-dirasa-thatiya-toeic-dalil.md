@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, study-plan, test-prep]
 cover: toeic
 coverAlt: "واجهة تدريب اختبار TOEIC في تطبيق Lexkite مع نماذج الاختبارات والتدريب حسب الأقسام"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2027-01-02T08:24:00+03:00

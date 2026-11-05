@@ -13,7 +13,7 @@ publishAt: 2027-01-26T19:51:00+05:30
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 85
 ---
 
 In both IELTS Academic and General Training modules, the Reading paper presents a notorious clock-management dilemma. Many test takers who demonstrate strong grammatical grasp and solid passive comprehension in untimed self-study struggle to finish Passage 3 under real examination pressure. Achieving consistent scores above Band 7.5 depends heavily on mastering disciplined **ielts reading time management** rather than simply reading faster.

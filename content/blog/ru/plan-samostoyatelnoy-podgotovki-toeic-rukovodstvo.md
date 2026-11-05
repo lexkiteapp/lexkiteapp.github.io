@@ -9,7 +9,7 @@ category: toeic
 tags: [toeic, plan-podgotovki, test-prep]
 cover: toeic
 coverAlt: "Интерфейс подготовки к экзамену TOEIC в Lexkite с полными пробными тестами и тренировкой по частям"
-qualityScore: 92
+qualityScore: 85
 factChecked: 2026-10-15
 author: Lexkite
 publishAt: 2026-12-30T12:11:00+03:00

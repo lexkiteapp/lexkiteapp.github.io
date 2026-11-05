@@ -9,7 +9,7 @@ category: ielts
 tags: [ielts, reading, time-management, exam-tips]
 cover: path
 coverAlt: "IELTSリーディング試験でタイマーを確認しながら60分の時間配分を管理する受験生"
-qualityScore: 92
+qualityScore: 86
 factChecked: 2026-11-03
 author: Lexkite
 status: ready

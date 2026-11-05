@@ -13,7 +13,7 @@ publishAt: 2027-01-09T08:57:00-06:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 87
 quiz: [
   {
     q: "Al enfrentarse a una pregunta de TOEIC Part 5, ¿cuál debe ser la primera acción inmediata en los primeros 3 segundos?",

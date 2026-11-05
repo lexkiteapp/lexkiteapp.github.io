@@ -13,7 +13,7 @@ publishAt: 2027-01-02T08:14:00+03:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 85
 ---
 
 Uluslararası şirketlerde kariyer hedefleyen profesyoneller ve öğrenciler için TOEIC Reading oturumu yüksek hız ve dilbilgisi keskinliği gerektirir. Tam olarak 30 kısa boşluk tamamlama sorusundan oluşan **toeic part 5**, tüm okuma oturumunun temposunu ve adayların moralini belirler. Bu 30 cümlede 12 dakikadan fazla zaman harcayan bir adayın, sınavın sonundaki uzun çoklu metinleri yetiştirmesi neredeyse imkansızdır.

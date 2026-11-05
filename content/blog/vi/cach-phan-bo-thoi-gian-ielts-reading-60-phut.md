@@ -13,7 +13,7 @@ publishAt: 2027-02-10T19:01:00+07:00
 factChecked: 2026-11-03
 author: Lexkite
 status: ready
-qualityScore: 92
+qualityScore: 86
 ---
 
 Trong bài thi IELTS Academic hay General Training, phần thi Đọc luôn là thử thách căng thẳng bậc nhất về mặt áp lực đồng hồ. Rất nhiều thí sinh dù sở hữu vốn ngữ pháp vững vàng và điểm thi thử từng phần khá tốt, nhưng khi bước vào phòng thi thật lại rơi vào cảnh thiếu 5 đến 10 phút ở bài đọc cuối cùng (Passage 3). Việc nắm vững **cách phân bổ thời gian ielts reading** chính là chìa khóa phân định giữa mức điểm Band 6.0 và Band 7.5+.
