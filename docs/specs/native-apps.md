@@ -15,12 +15,12 @@ Nguồn máy đọc: `native/shared/parity.json` (P01–P12 = 74 route web từ 
 
 | Mốc | Mục |
 |---|---|
-| M1 | P01 khung 5 tab · P02 Today · P03 trình học bài · C01 đăng nhập · C03 migration · C04 âm thanh · C05 giáo viên Rive · C08 deep link · C09 haptics · C10 i18n · C11 theme |
-| M2 | P04 ôn tập FSRS · P05 từ vựng/từ điển · C02 offline + sync |
-| M3 | P06 nghe/đọc · P07 nói/phát âm · P09 viết/ngữ pháp |
-| M4 | P08 gọi Ama/Carlos · P10 thi thử/readiness |
-| M5 | P11 Me (stats, streak, league, settings, báo lỗi…) · P12 video · C06 thông báo · C07 widget · C15 chia sẻ |
-| M6 | C12 AI trên máy · C13 quảng cáo · C14 cập nhật · C16 khóa học ngôn ngữ khác → **thay bản Capacitor trên store** |
+| M1 | C01 đăng nhập · C02 offline + sync (data contract §4) · C03 migration · P01 khung 5 tab · P02 Today · C08 deep link · C09 haptics · C10 i18n · C11 theme |
+| M2 | P03 trình học bài · C04 âm thanh · C05 giáo viên Rive |
+| M3 | P04 ôn tập FSRS · P05 từ vựng/từ điển |
+| M4 | P06 nghe/đọc · P07 nói/phát âm · P08 gọi Ama/Carlos · P09 viết/ngữ pháp |
+| M5 | P10 thi thử/readiness |
+| M6 | P11 Me · P12 video · C06 thông báo · C07 widget · C12 AI · C13 quảng cáo · C14 cập nhật · C15 chia sẻ · C16 ngôn ngữ khác → thay bản Capacitor |
 
 ## 3. Một nguồn – chống lệch 3 bộ code (HARD)
 `node scripts/native/gen.mjs` (ghi) / `--check` (CI: đỏ khi file sinh lệch nguồn hoặc thiếu bản dịch). Không file Swift/Kotlin nào chứa màu, chữ giao diện hay hằng số chấm điểm viết tay – `scripts/test/native-one-source.mjs` chặn (hex/`Color(0x…)`, `Text("…")`, `.strings`/`strings.xml` viết tay, hằng FSRS ngoài `SRS.*`).
@@ -40,7 +40,7 @@ Logic lớn hơn (dựng bài `LessonEngine.build`, `pathPlan`, `Session`) cũng
 - `native/ios/LexkiteKit` (Swift Package): `LKDesign` (tokens, `LKFrame`), `LKStrings` (`L10n`, 15 ngôn ngữ, RTL), `LKCore` (FSRS, chấm đáp án, sau thêm engine bài học), `LKFeatures` (màn hình). App mỏng `native/ios/App` + `project.yml` (XcodeGen, không sửa tay `.pbxproj`).
 - MVVM với `@Observable` view model / màn; điều hướng `NavigationStack` mỗi tab + `TabView` (giữ stack khi đổi tab); màn focus (bài học) là `fullScreenCover` có X + xác nhận nhẹ khi mất tiến độ; vuốt mép iOS + Esc hoạt động.
 - Offline-first: SwiftData (`CardModel`, `StatDay`, `Settings`, `SyncMeta` – cùng lược đồ `Cards.make` của web) là nguồn thật; repository + `SyncEngine` actor.
-- iOS 15–16 (bản Capacitor đang hỗ trợ): Apple giữ bản 1.x tương thích cuối cho máy đó (last compatible version) – không mất người dùng; ghi trong release note.
+- iOS 17+ (coordinator duyệt 05/11). iOS 15–16: Apple giữ bản 1.x tương thích cuối (last compatible version) – không mất người dùng; BẮT BUỘC ghi trong spec này và release note 2.0.0.
 
 ### Android (Kotlin + Compose, minSdk 24, target 36)
 - `native/android/app` (M1 tách module `:core`, `:design`, `:feature-*`). MVVM: `ViewModel` + `StateFlow`, Navigation Compose (graph mỗi tab, `BackHandler` cho Back/X), Material 3 chỉ làm khung – mọi màu/kiểu từ token sinh.
@@ -48,12 +48,13 @@ Logic lớn hơn (dựng bài `LessonEngine.build`, `pathPlan`, `Session`) cũng
 
 ### Đồng bộ & đăng nhập (cả 2)
 - Firebase Auth hiện có (cùng project, cùng `GoogleService-Info.plist`/`google-services.json` của `mobile/`): Google + Sign in with Apple; khách dùng được không đăng nhập.
-- Sync như web (`docs/SYNC-DRIVE.md`): Google Drive `appDataFolder` của chính người học (scope `drive.appdata`) là đường chính, D1 `/api/sync` dự phòng (Apple/không cấp Drive); gộp 2 chiều xác định theo hoạt động gần nhất + tombstone – port + vector chuẩn từ `web/js/sync.js`.
+- **Data contract dùng chung (HARD, owner 05/11)**: web, add-on, iOS, Android dùng ĐÚNG một backend + schema hiện có, không kho riêng. Tài khoản = Firebase uid. Kho = Google Drive `appDataFolder` (scope `drive.appdata`, đường chính) hoặc D1 `/api/sync` (`functions/api/sync.js`, dự phòng: Apple/không cấp Drive). Tài liệu: `meta` = `{ v: 2, at, stats, game, settings, settingsAt, deleted }` + `cards_0..n` (thẻ theo `Core.Cards.make` + `slim()`: từ vựng, nghĩa, ngữ cảnh, trạng thái FSRS `S/D/due/last/reps/lapses/step/interval`). Gộp 2 chiều, giao hoán + lũy đẳng (`web/js/sync.js`): thẻ theo thời điểm hoạt động gần nhất của TỪNG thẻ, xoá = tombstone `deleted[k]=t` (lấy max), settings theo `settingsAt`, stats/streak/game theo `mergeStats0/mergeRet/mergeGame0`. Offline: ghi local trước (SwiftData/Room), hàng đợi đẩy khi có mạng, cùng nhịp gom như web (`LK_SYNC.d1Every`). gen.mjs xuất `native/shared/gen/contract.json` (JSON Schema sinh từ chính các hàm trên) ở M1.
+- **Test CI chéo client (bắt buộc trước khi C02 "done")**: `scripts/test/sync-cross-client.mjs` dựng máy chủ giả (D1 `/api/sync` handler thật trên SQLite bộ nhớ + Drive giả) và 1 tài khoản test giả (không dùng tài khoản thật); kịch bản: web sửa → iOS đọc đúng; Android offline sửa cùng thẻ + xoá thẻ khác → đồng bộ → web/iOS thấy đúng; xung đột cùng thẻ → bản sửa sau thắng. Kịch bản sinh thành vector (`vectors/sync.json`) từ merge JS web; job matrix chạy cùng vector trên Node (web + add-on), XCTest (iOS) và JUnit (Android) song song.
 - **Migration (C03)**: lần mở đầu tiên sau khi cập nhật từ bản Capacitor, app đọc IndexedDB cũ (WKWebView ẩn cùng origin `capacitor://localhost` / WebView `https://localhost` trên Android, chạy script export 1 lần) → ghi vào SwiftData/Room → đánh dấu xong. Có test với dump IndexedDB thật (ẩn danh) trên CI.
 
 ## 5. Âm thanh, nhân vật, hệ thống
 - **Âm thanh (C04)**: dùng lại file Kokoro đã prerender trên CDN (cùng URL/thứ tự gốc như `web/js/audio.js`, `/audio/{l,w}/…mp3`), cache đĩa + gói offline; chữ động → engine TTS miễn phí trên máy theo tầng (`docs/specs/kokoro-on-device.md`, model tải khi người dùng bật, không nằm trong app), cuối cùng `AVSpeechSynthesizer`/`TextToSpeech` đúng giới tính (Ama nữ, Carlos nam). −16 LUFS như web.
-- **Giáo viên (C05)**: Rive native runtime (`rive-ios`, `rive-android`, MIT). Một file `.riv` / nhân vật dựng từ CHÍNH art 2D trong `web/teach/characters.json` (không vẽ mới, không 3D); state machine: input `viseme` (0–N, cùng bảng viseme `LessonEngine.visemes`/`scripts/lipsync`), `emotion`, `gesture` (thumbs_up, clap, hold_card…), `idle`. Lip sync: timeline viseme sinh trên CI từ audio Kokoro (`scripts/lipsync/visemes-sync.mjs`) phát kèm file âm thanh, đồng bộ theo đồng hồ của player, sai lệch ≤ ±33 ms (test CI đo trên frame). Reduce Motion → tư thế tĩnh + miệng tối giản. Đặt giáo viên kiểu Duolingo (cùng ánh sáng/tỉ lệ, chạm nền, không quầng). File `.riv` cần owner duyệt art trước (luật nhân vật).
+- **Giáo viên (C05)**: Rive native runtime (`rive-ios`, `rive-android`, MIT). Một file `.riv` / nhân vật dựng từ CHÍNH art 2D trong `web/teach/characters.json` (không vẽ mới, không 3D); state machine: input `viseme` (0–N, cùng bảng viseme `LessonEngine.visemes`/`scripts/lipsync`), `emotion`, `gesture` (thumbs_up, clap, hold_card…), `idle`. Lip sync: timeline viseme sinh trên CI từ audio Kokoro (`scripts/lipsync/visemes-sync.mjs`) phát kèm file âm thanh, đồng bộ theo đồng hồ của player, sai lệch ≤ ±33 ms (test CI đo trên frame). Reduce Motion → tư thế tĩnh + miệng tối giản. Đặt giáo viên kiểu Duolingo (cùng ánh sáng/tỉ lệ, chạm nền, không quầng). File `.riv` dựng từ art 2D hiện có KHÔNG cần owner duyệt hình (design-approval 2/11: CI QC xanh + coordinator xem → gộp) nếu giữ đúng style 2D, đúng Ama/Carlos, viseme ±33 ms; chỉ hỏi owner khi đổi style hoặc tốn credit.
 - **Thông báo (C06)**: FCM (Android) / APNs qua FCM (iOS) dùng lại backend hiện có + lịch nhắc cục bộ (`UNUserNotificationCenter`, `AlarmManager`/WorkManager) theo `docs/specs/notifications.md`: hỏi quyền mềm sau giá trị, ≤ 1/ngày, giờ yên lặng, giãn cách, lời ấm 15 ngôn ngữ (chuỗi sinh).
 - **Haptics (C09)**: `sensoryFeedback` (iOS) / `HapticFeedbackConstants` (Android) cho đúng/sai/xong bài; tắt theo cài đặt hệ thống.
 - **Widget (C07)**: viết lại widget hiện có (`mobile/ios/App/LexkiteWidget`, `WordWidget.kt`) bằng WidgetKit + Glance; App Group / DataStore chia sẻ với app; chuỗi 15 ngôn ngữ từ gen.
@@ -70,10 +71,11 @@ Logic lớn hơn (dựng bài `LessonEngine.build`, `pathPlan`, `Session`) cũng
 - Snapshot: lần đầu (chưa có ảnh chuẩn) workflow tự ghi rồi chạy kiểm lại (chứng minh ổn định) và tải artifact `native-*-snapshots`; commit ảnh vào `Tests/LKSnapshotTests/__Snapshots__` / `app/src/test/snapshots` → từ đó mọi PR so ảnh. Đổi giao diện có chủ đích: dispatch với `record: true`.
 - Ký + phát hành (M6): mở rộng `ios-testflight.yml` / `android.yml` với target native (cùng secret ASC/Play), owner bấm submit.
 
-## 7. Lộ trình
-- **M0 (PR này)**: spec, gen một nguồn, khung `native/ios` + `native/android` chạy trên CI (5 tab, top bar 3 biến thể, Today card, FSRS + chấm đáp án port khớp vector, snapshot), gate parity/one-source.
-- **M1**: khung 5 tab thật (port Stitch Today + lesson v2: `brand/stitch/v2`), trình học bài đủ 7 dạng + feedback sheet + lesson complete, đăng nhập Firebase, migration C03, âm thanh Kokoro, giáo viên Rive (sau khi owner duyệt `.riv`), deep link, haptics, font Plus Jakarta Sans + Material Symbols subset (cùng nguồn OFL/Apache với web) – cả 2 nền tảng, so SSIM với ref Stitch.
-- **M2–M5**: theo bảng §2. **M6**: phần còn lại → TestFlight/Play internal → owner submit 2.0.0 thay bản Capacitor; sau đó `mobile/` chuyển sang chế độ chỉ-sửa-lỗi rồi lưu trữ.
+## 7. Lộ trình (owner 05/11: nhanh nhờ song song, không giảm chất lượng)
+- Mỗi mốc 2–3 ngày, có bản chạy thật: CI tự build + đẩy TestFlight và Play Internal testing sau mỗi mốc xanh (thiếu chứng chỉ/API key → danh sách bước owner trong owner-pending). Bản native chỉ thay app live khi đủ parity, nhưng owner có bản thử sớm.
+- Thứ tự theo luồng người học dùng nhiều nhất: **M1** đăng nhập + đồng bộ (C01, C02, C03 migration, data contract + test chéo client) + khung 5 tab + Today → **M2** trình học bài + nhân vật Rive + âm thanh → **M3** Vocab/SRS → **M4** Skills → **M5** Tests → **M6** Me + thông báo/widget/AI/ads → thay bản Capacitor (submit 2.0.0, owner bấm).
+- Song song: iOS và Android do 2 subagent làm ở 2 thư mục riêng; CI chạy iOS/Android song song, test chia shard, snapshot theo matrix thiết bị (iPhone SE/15/Pro Max/iPad; Android compact/medium), luôn giữ paths/concurrency/timeout. Không nới ngưỡng, không bỏ test/tính năng.
+- Trong lúc chờ native: gửi coordinator danh sách lỗi/tính năng vá nhanh cho bản Capacitor 1.0.x (qua OTA/bản 1.0.x).
 
 ## 8. Rủi ro
 - Lệch hành vi web ↔ native → mọi logic có vector chuẩn sinh từ JS; thêm hàm = thêm vector trước khi port.
