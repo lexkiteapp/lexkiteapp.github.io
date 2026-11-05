@@ -69,7 +69,7 @@ Un grupo de apenas 1.000 a 2.000 palabras compone más del 80% del inglés que e
 Para que el cerebro absorba estructuras de manera intuitiva, el material de lectura y escucha debe entenderse en un 80% o 90%. El 10% restante se deduce por el contexto sin esfuerzo. Aprende a aplicar esta estrategia en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/).
 
 ### 4. Repetición espaciada con tarjetas interactivas
-La memoria a corto plazo olvida rápidamente la información que no se utiliza. La única forma de consolidar palabras en la memoria a largo plazo sin esfuerzo titánico es repasarlas justo antes del momento de olvido, entrenando el cerebro para [pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/).
+La memoria a corto plazo olvida rápidamente la información que no se utiliza. La única forma de consolidar palabras en la memoria a largo plazo sin esfuerzo titánico es repasarlas justo antes del momento de olvido (te lo explicamos en la guía de [repetición espaciada con FSRS](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/)), entrenando el cerebro para [pensar en inglés sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/).
 
 ![Sesión de repaso con tarjetas interactivas de vocabulario y transcripción fonética en Lexkite](media:review "Repasa diariamente las tarjetas pendientes de vocabulario con el algoritmo FSRS en Lexkite")
 

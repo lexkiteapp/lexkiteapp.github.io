@@ -21,4 +21,8 @@ assert.equal(run({ body: 'Siehe [Speaking](/speaking/).\n' }).e('lang-link').len
 assert.equal(run({ body: 'Siehe [Speaking](/en/speaking/) und [Muster](/en/samples/).\n' }).e('dead-link').length + run({ body: 'Siehe [Speaking](/en/speaking/).\n' }).e('lang-link').length, 0, '/en/speaking/, /en/samples/ hợp lệ');
 assert.equal(run({ lang: 'vi', body: 'Xem [mẫu](/samples/) và [ngữ pháp](/ngu-phap/).\n' }).e('lang-link').length + run({ lang: 'vi', body: 'Xem [mẫu](/samples/).\n' }).e('dead-link').length, 0, 'bài vi được trỏ trang tĩnh tiếng Việt');
 assert.equal(run({ factChecked: '2026-10-20', body: 'Siehe [Wortschatz](/de/vocabulary/).\n' }).w('dead-link').length, 1, 'bài cũ: link chết chỉ cảnh báo');
-console.log('✓ blog-lang-gates: dead-link, lang-link, lang-mix (lỗi/cảnh báo theo factChecked), cover-truth');
+const Q = (a, o) => ({ q: 'q', options: o, answer: a, explain: 'e' });
+assert.equal(run({ quiz: [Q(0, ['long correct option', 'short', 'tiny']), Q(1, ['x', 'long correct option', 'y']), Q(0, ['a', 'bb', 'ccc'])] }).e('quiz').length, 1, 'đáp án đúng dài nhất 2/3 câu → lỗi');
+assert.equal(run({ quiz: [Q(0, ['a', 'bb', 'ccc']), Q(1, ['xxx', 'y', 'zz']), Q(2, ['aaaa', 'b', 'cc'])] }).e('quiz').length, 0, 'độ dài cân → không lỗi');
+assert.equal(run({ quiz: [Q(0, ['a', 'b']), Q(1, ['a', 'b'])] }).e('quiz').length, 1, 'quiz 2 câu → lỗi');
+console.log('✓ blog-lang-gates: quiz, dead-link, lang-link, lang-mix (lỗi/cảnh báo theo factChecked), cover-truth');

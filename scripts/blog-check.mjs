@@ -141,6 +141,11 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
         if (pre ? pre !== 'en' || !enSec : !viSec) EF('dead-link', `liên kết ${m[0].slice(2)} không tồn tại – dùng /en/${enSec ? sec : 'vocabulary'}/${p.lang === 'vi' ? ' hoặc trang tiếng Việt' : ''}`);
         else if (!pre && p.lang !== 'vi' && sec !== 'tu-vung') EF('lang-link', `liên kết ${m[0].slice(2)} là trang tiếng Việt – bài ${p.lang} dùng /en/${{ 'ngu-phap': 'grammar' }[sec] || sec}/`);
       }
+      // Quiz cuối bài (lô B5-R2): ≥ 3 câu; đáp án đúng không được hầu như luôn là phương án dài nhất (người làm đoán được không cần đọc bài).
+      { const qs = Array.isArray(p.quiz) ? p.quiz : (p.quiz && p.quiz.items) || [];
+        if (qs.length && qs.length < 3) EF('quiz', `quiz chỉ ${qs.length} câu – cần ≥ 3`);
+        const tell = qs.filter(q => Array.isArray(q?.options) && q.options.length > 1 && q.options.every((o, i) => i === q.answer || len(o) < len(q.options[q.answer]))).length;
+        if (qs.length >= 3 && tell > qs.length / 2) EF('quiz', `đáp án đúng là phương án dài nhất ở ${tell}/${qs.length} câu – cân độ dài phương án nhiễu`); }
       if (p.lang !== 'vi') {
         if (/\]\(\/tu-vung\//.test(body)) E('lang-link', 'liên kết /tu-vung/ là trang tiếng Việt – bài ngôn ngữ khác dùng /en/vocabulary/');
         const VI = /[ươạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđĐ]/;
