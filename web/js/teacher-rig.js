@@ -42,7 +42,7 @@
     const calm = !!o.calm, seed = o.seed || 7, R = LF().RIG[who];
     let emoName = 'neutral', emo = vec('neutral'), want = vec('neutral'), S = null, idle = LF().machine(who, { dur: 120, seed, calm });
     const proc = [], queue = []; let pose = null, poseW = 0, poseWant = 0, poseUntil = 0, last = null, prevNow = null, openK = 0, held = 0;
-    const out = { tilt: 0, nod: 0, sway: 0, brow: 0, knit: 0, smile: 0, lx: 0, ly: 0 };
+    const out = { tilt: 0, nod: 0, sway: 0, brow: 0, knit: 0, smile: 0, lx: 0, ly: 0 }, emoV = Object.fromEntries(KEYS.map(k => [k, 0]));
     const api = {
       who, LIMITS,
       /** speak({ clock, playing, cues | live, dur, text }) – clock() = giây của đồng hồ âm thanh; cues: [{value,start}] (mốc CI/Kokoro/Rhubarb) */
@@ -64,7 +64,9 @@
       step(now) {
         const dt = prevNow == null ? 1 / 60 : clamp(now - prevNow, 0, 0.1), k = dt * 60; prevNow = now;
         // trộn biểu cảm: tiến dần về đích, giới hạn tốc độ mỗi khung (không bao giờ nhảy khi đổi máy nói/nghỉ)
-        for (const key of KEYS) emo[key] = toward(emo[key], want[key], (key === 'tilt' ? 0.08 : 0.02) * k + Math.abs(want[key] - emo[key]) * (1 - Math.pow(0.88, k)));
+        // trộn biểu cảm = lò xo tắt dần tới hạn (ω 9 rad/s, ~0,5 s): vận tốc bắt đầu từ 0 → không có khung "giật" đầu tiên như phép mũ
+        const dts = Math.min(dt, 1 / 30); // khung bị chặn lâu (tải ảnh, GC) không làm vọt bước
+        for (const key of KEYS) { const w = 9, a = w * w * (want[key] - emo[key]) - 2 * w * emoV[key]; emoV[key] += a * dts; emo[key] += emoV[key] * dts; }
         emo.nodHz = want.nodHz; emo.nodPx = want.nodPx;
         // lớp miệng/mắt: máy nói (đồng hồ âm thanh) hoặc máy nghỉ
         let s, talking = false;
@@ -78,7 +80,7 @@
         // tư thế: mờ vào → giữ → mờ ra (mặt vẽ nghịch đảo)
         if (poseWant && poseW >= 1 && !poseUntil) poseUntil = now + held;
         if (poseUntil && now >= poseUntil) { poseWant = 0; poseUntil = 0; }
-        poseW = clamp(poseW + Math.sign(poseWant - poseW) * Math.min(Math.abs(poseWant - poseW), dt / FADE), 0, 1);
+        poseW = clamp(poseW + Math.sign(poseWant - poseW) * Math.min(Math.abs(poseWant - poseW), Math.min(dt, 1 / 30) / FADE), 0, 1); // khung chặn lâu không nhảy nửa mờ chéo
         if (!poseW && !poseWant && !S && queue.length) api.gesture(queue.shift());
         // khớp cổ: nghiêng (biểu cảm + máy) + gật/lắc thủ tục, mọi thứ kẹp trong giới hạn, giới hạn tốc độ
         let pt = 0, pn = 0, ps = 0, blink = 0;
@@ -144,15 +146,19 @@
     who = g.Chars ? g.Chars.id(who) : who;
     const stats = { frames: 0, long: 0, draws: 0, low: 0, ready: false, shape: 'X', pose: null, emo: 'neutral', calm: reduced() };
     let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
-    const poses = {}, scaled = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
+    const poses = {}, scaled = {}, pend = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
     let headC = null, faceC = null, lastT = '', lastP = [], boxes = null;
     el.classList.add('trig');
     if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">.trig{position:relative}.trig>canvas{display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
     const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
     const fit = () => { const w = el.clientWidth || 240, W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
+    // thu nhỏ KHÔNG chặn luồng chính (createImageBitmap resize, ngoài luồng vẽ) – bản canvas đồng bộ chỉ là dự phòng
+    const shrinkAsync = im => (g.createImageBitmap ? g.createImageBitmap(im, { resizeWidth: cv.width, resizeHeight: cv.height, resizeQuality: 'high' }).catch(() => shrink(im)) : Promise.resolve(shrink(im)));
     const loadPose = name => {
       if (typeof poses[name] === 'object' || poses[name] === 2) return Promise.resolve(poses[name]);
-      poses[name] = 1; return img(g.Chars.still(who, name)).then(i => { poses[name] = i || 2; if (i && cv) scaled[name] = shrink(i); lastK = lastT = ''; return i; });
+      if (poses[name] === 1 && pend[name]) return pend[name];
+      poses[name] = 1;
+      return (pend[name] = img(g.Chars.still(who, name)).then(i => (i && cv ? shrinkAsync(i).then(b => { scaled[name] = b; return i; }) : i)).then(i => { poses[name] = i || 2; lastK = lastT = ''; return i; }));
     };
     // vùng vẽ lại khi CHỈ mặt đổi (khung xương đứng yên): mắt+mày · miệng+ria (tọa độ poster 1108×960, có lề cho chớp/nhướng/há)
     const regions = R => {
