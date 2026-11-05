@@ -137,6 +137,7 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-map-colors.mjs
 node scripts/test/ads.mjs
 node scripts/test/ads-admin.mjs
 node scripts/test/ads-revenue.mjs
@@ -224,6 +225,7 @@ node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
@@ -259,3 +261,4 @@ node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
+node scripts/test/ext-newtab-quiz.mjs
