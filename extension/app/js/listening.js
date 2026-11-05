@@ -73,7 +73,7 @@
       if (l.say && opts.skipNarrator) { next(); return; }
       const key = hqKey(l);
       if (key) {
-        el = window.LKAudio && LKAudio.el ? LKAudio.el() : new Audio(); el.src = aUrl(key); el.preservesPitch = true; // phần tử đã mồi trong cú chạm đầu: iOS cho phát câu kế sau setTimeout el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
+        el = window.LKAudio && LKAudio.el ? LKAudio.el() : new Audio(); el.src = aUrl(key); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95)); // phần tử đã mồi trong cú chạm đầu: iOS cho phát câu kế sau setTimeout
         const me = el; let ok = false;
         el.onplaying = () => { ok = true; audioDown = 0; sound(); };
         el.onended = () => { if (el === me) timer = setTimeout(next, l.say ? 600 : 280); };
