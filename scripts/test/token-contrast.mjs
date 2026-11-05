@@ -3,7 +3,7 @@
 // Ngưỡng chỉ được TĂNG (luật no-cuts). Kèm: bước gom màu Stitch (st-theme-snap) phải idempotent và chỉ trỏ tới vai trò có thật.
 // Dùng: node scripts/test/token-contrast.mjs
 import fs from 'node:fs';
-import { snapCss, roleHex as rh } from '../lib/st-theme-snap.mjs';
+import { snapCss, pick, oklab, roleHex as rh } from '../lib/st-theme-snap.mjs';
 const T = JSON.parse(fs.readFileSync('brand/tokens.json', 'utf8')), err = [];
 const lum = h => { const c = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; };
 const cr = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
@@ -34,6 +34,12 @@ for (const dir of ['web/css', 'extension/app/css']) if (fs.existsSync(dir)) for 
   if (snapCss(s, T) !== s) err.push(`${dir}/${f}: còn lớp lt:/dk: trung tính chưa gom → node scripts/build-tokens.mjs`);
   for (const [, r] of s.matchAll(/var\(--st-([a-z0-9-]+)\)/g)) if (!T.roles[r] && r !== 'hl') { err.push(`${dir}/${f}: --st-${r} không có trong brand/tokens.json roles`); break; }
 }
+// 3b) Gom màu giữ BẬC: ô/viên/rãnh Stitch tối hơn nền trang (#f2f4f3 trên thanh/thẻ trắng) không được gộp vào nền trang (viên XP/chuỗi ngày,
+//     rãnh tiến độ biến mất – stitch-diff header review/practice/leagues sáng); viền mảnh tối của Kit (#233942) = hairline --line, không sáng hơn --line-2
+{ const sh = (h, m) => oklab(h)[0], bg = rh(T, 'background', 'light');
+  for (const h of ['#F2F4F3', '#E9EFEB']) { const r = pick(T, 'bg', 'light', h); if (!r || sh(rh(T, r, 'light')) >= sh(bg)) err.push(`st-theme-snap: ${h} (sáng) gom vào ${r} – mất bậc nền so với ${bg}`); }
+  const ov = rh(T, 'outline-variant', 'dark'); if (sh(ov) > sh(T.dark['--line-2'])) err.push(`outline-variant tối ${ov} sáng hơn --line-2 ${T.dark['--line-2']} – viền thẻ Stitch nổi hơn viền web`);
+  if (pick(T, 'border', 'dark', '#233942') !== 'outline-variant') err.push('st-theme-snap: viền Kit #233942 (tối) phải gom vào outline-variant'); }
 // 4) Đổi theme mượt + không chớp: chuyển màu ≤ 200 ms chỉ khi KHÔNG giảm chuyển động; app gọi fadeTheme; nền native theo sáng/tối hệ thống
 { const css = fs.readFileSync('web/css/style.css', 'utf8'), js = fs.readFileSync('web/js/app.js', 'utf8');
   const m = css.match(/@media \(prefers-reduced-motion: no-preference\) \{ html\.lk-theming[^{]*\{([^}]*)\}/);

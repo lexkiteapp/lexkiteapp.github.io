@@ -133,7 +133,7 @@ Vai trò M3 (màn Stitch `--st-*`, SwiftUI `LKColor`, Compose) – một giá tr
 | on-tertiary-fixed | #261A00 / #261A00 | #261A00 | #261A00 |
 | on-tertiary-fixed-variant | #5B4300 / #5B4300 | #5B4300 | #5B4300 |
 | outline | #74817F / #7E9599 | #74817F | #7E9599 |
-| outline-variant | #E6DCCB / #33494F | #E6DCCB | #33494F |
+| outline-variant | #E6DCCB / `--line` | #E6DCCB | #213438 |
 | primary | #A83A24 / #FFB4A6 | #A83A24 | #FFB4A6 |
 | primary-container | #F2553B / #FA5B40 | #F2553B | #FA5B40 |
 | primary-fixed | #FFB054 / #FFDAD3 | #FFB054 | #FFDAD3 |
@@ -149,7 +149,7 @@ Vai trò M3 (màn Stitch `--st-*`, SwiftUI `LKColor`, Compose) – một giá tr
 | surface-container | `--surface` | #FFFFFF | #162528 |
 | surface-container-high | `--surface` / `--surface-2` | #FFFFFF | #1D2F33 |
 | surface-container-highest | `--surface-3` | #ECE4D7 | #263A3F |
-| surface-container-low | `--bg` / #122023 | #FBF7F1 | #122023 |
+| surface-container-low | `--surface-2` / #122023 | #F5EFE6 | #122023 |
 | surface-container-lowest | `--bg` / #091416 | #FBF7F1 | #091416 |
 | surface-dim | `--bg` | #FBF7F1 | #0E191C |
 | surface-tint | #F2553B / #FFB4A6 | #F2553B | #FFB4A6 |

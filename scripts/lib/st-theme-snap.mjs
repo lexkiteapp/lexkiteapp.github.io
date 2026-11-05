@@ -17,7 +17,7 @@ const lch = h => { const [, a, b] = oklab(h); return [Math.hypot(a, b), ((Math.a
 // Vai trò ứng viên theo (thuộc tính, chế độ) – chỉ thang trung tính
 const CAND = {
   'bg:dark': ['background', 'surface-container-lowest', 'surface-container-low', 'surface-container', 'surface-container-high', 'surface-container-highest', 'surface-bright'],
-  'bg:light': ['background', 'surface-container', 'surface-container-highest'],
+  'bg:light': ['background', 'surface-container-low', 'surface-container', 'surface-container-highest'],
   'text:dark': ['on-surface', 'on-surface-variant'], 'text:light': ['on-surface', 'on-surface-variant'],
   'border:dark': ['outline-variant', 'outline'], 'border:light': ['outline-variant', 'outline'],
 };
@@ -34,7 +34,10 @@ export function roleHex(T, r, mode) { const v = T.roles[r]; const x = typeof v =
 export function pick(T, kind, mode, hex) {
   if (!neutral(hex, mode)) return null;
   let best = null;
-  for (const r of CAND[kind + ':' + mode]) { const d = dist(hex, roleHex(T, r, mode)); if (!best || d < best.d) best = { r, d }; }
+  // Giữ BẬC nền: ô/viên/rãnh Stitch vẽ TỐI hơn nền trang (vd surface-container-low #f2f4f3 trên thanh/thẻ trắng) không được gộp vào nền
+  // trang (sáng ngang/hơn nó) – gộp thì viên XP/chuỗi ngày, rãnh tiến độ biến mất trên nền trắng. Chỉ xét vai trò cùng phía hoặc tối hơn.
+  const L = oklab(hex)[0], Lbg = oklab(roleHex(T, 'background', mode))[0], step = kind === 'bg' && mode === 'light' && L < Lbg - .008;
+  for (const r of CAND[kind + ':' + mode]) { const rh = roleHex(T, r, mode); if (step && oklab(rh)[0] >= Lbg) continue; const d = dist(hex, rh); if (!best || d < best.d) best = { r, d }; }
   return best && best.d <= (kind === 'bg' ? .03 : .06) ? best.r : null;
 }
 const PROP = { bg: 'background-color', text: 'color', border: 'border-color' };

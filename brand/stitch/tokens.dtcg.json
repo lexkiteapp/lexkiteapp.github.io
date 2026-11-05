@@ -291,7 +291,7 @@
   },
   "outline-variant": {
    "$type": "color",
-   "$value": "#33494F",
+   "$value": "#213438",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#E6DCCB"
@@ -438,7 +438,7 @@
    "$value": "#122023",
    "$extensions": {
     "com.lexkite.mode": {
-     "light": "#FBF7F1"
+     "light": "#F5EFE6"
     }
    }
   },
