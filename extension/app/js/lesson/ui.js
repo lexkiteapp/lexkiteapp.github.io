@@ -119,7 +119,7 @@
     await imgP();
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), sAt = parseInt(ls.get(SK) || '0', 10) || 0, sOrd = sl.map((_, i) => sl[(sAt + i) % sl.length]), sSeen = sDone(demo), story = XS || sOrd.find(x => !sSeen.includes(x.id)) || sOrd[0] || null;
-    const pickCards = demo && cards.length ? cards.map((_, i) => cards[(i + n * 4) % cards.length]).slice(0, 4) : cards; // bài thử không ghi thẻ: chọn 4 từ xoay theo nút lộ trình để bài kế có bộ từ khác
+    const pickCards = demo && n > 0 && cards.length ? cards.map((_, i) => cards[(i + n * 4) % cards.length]) : cards; // bài thử không ghi thẻ: chọn 4 từ xoay theo nút lộ trình để bài kế có bộ từ khác
     const picks = story ? [] : E.pickWords(pickCards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
     let pool0 = [];
     if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
