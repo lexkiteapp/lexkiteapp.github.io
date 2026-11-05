@@ -61,6 +61,7 @@ assert.ok(/storage\.persist && P\.persistOk\(/.test(kl), 'storage.persist() ch�
 const st = fs.readFileSync('web/js/settings.js', 'utf8');
 assert.ok(/Store\.isExtension \? '' : '<div id="klBox"><\/div>'/.test(st) && /KLocal\.settings\(\$\('#klBox'\)\)/.test(st), 'Cài đặt có mục giọng Kokoro trên máy (#klBox)');
 assert.ok(/sw\('sKl',/.test(kl) && /sw\('sKlCell',/.test(kl) && /id="klDel"/.test(kl) && /id="klMb"/.test(kl), 'mục Cài đặt: bật/tắt, dữ liệu di động, Xóa, MB');
+assert.ok(/id="klDel"[^>]*min-height:44px/.test(kl), 'nút Xóa khỏi máy: vùng chạm ≥ 44px (qa-bot tap)');
 const en = fs.readFileSync('web/js/i18n/en/lazyui.js', 'utf8');
 for (const k of [...kl.matchAll(/\bt\('([^']+)'/g)].map(m => m[1])) assert.ok(en.includes(`'${k}'`), 'thiếu tiếng Anh: ' + k);
 // Không vào shell: chỉ nạp lười qua App.need('klocal')

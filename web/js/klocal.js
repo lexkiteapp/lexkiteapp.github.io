@@ -174,7 +174,7 @@
     const sw = (id, v, label, hint) => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${v ? 'checked' : ''}></label>`;
     box.innerHTML = sw('sKl', on(), '🎧 ' + t('Giọng đọc chất lượng cao trên máy'), t('Mọi câu đọc cùng một giọng tự nhiên, chạy ngay trên máy và dùng được khi mất mạng. Tải nền một lần (khoảng {mb} MB), chỉ khi có Wi-Fi và máy còn đủ chỗ trống. Văn bản không gửi đi đâu.', { mb: P.MODEL_MB }))
       + `<div id="klOpts" ${on() ? '' : 'hidden'}>` + sw('sKlCell', ls.get('lk.kl.cell') === '1', t('Cho phép tải bằng dữ liệu di động'), t('Tắt: chỉ tải khi có Wi-Fi.')) + '</div>'
-      + `<div class="set-row"><div class="set-l"><span>${t('Dung lượng đang dùng')}</span><small id="klStat" aria-live="polite"></small></div><div class="set-c"><b id="klMb">…</b> <button type="button" class="btn sm" id="klDel">${t('Xóa khỏi máy')}</button></div></div>`;
+      + `<div class="set-row"><div class="set-l"><span>${t('Dung lượng đang dùng')}</span><small id="klStat" aria-live="polite"></small></div><div class="set-c"><b id="klMb">…</b> <button type="button" class="btn sm" id="klDel" style="min-height:44px">${t('Xóa khỏi máy')}</button></div></div>`;
     const $ = q => box.querySelector(q);
     const status = () => { const e = env(), tier = P.tier({ ...e, user: null }), st = $('#klStat'); if (!st) return;
       st.textContent = !on() ? t('Đang tắt – câu chưa có sẵn sẽ đọc bằng giọng của máy.')
