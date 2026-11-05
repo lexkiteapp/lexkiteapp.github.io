@@ -252,6 +252,7 @@
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'], // phrases-model.js: #/model #/models #/phrases (tách khỏi phrases.js 01/11)
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
+    dist: ['js/distract.js'],
     tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
     speak: ['js/i18n/en/speakt.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js'],
@@ -337,10 +338,13 @@
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
   // Tải sẵn lúc rảnh – bỏ qua khi tiết kiệm dữ liệu, mạng chậm, máy yếu
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
+  // Lần vẽ đầu: việc phụ chờ mốc này (docs/UX-PUBLIC.md §LCP)
+  let drawnRes; App.painted = new Promise(r => { drawnRes = r; setTimeout(r, 8000); });
+  const afterPaint = cb => { let d = 0; const f = () => { if (!d) { d = 1; cb(); } }; requestAnimationFrame(() => setTimeout(f, 0)); setTimeout(f, 1000); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
   // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi.
   // Chỉ bắt đầu khi trang đã tải xong (load) và không còn gói nào đang tải; xếp hàng 3 file một lúc (200+ file cùng lúc làm 4G chậm nghẽn gói của trang kế tiếp – mobile-qa LCP)
-  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); go(); };
+  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); App.painted.then(() => setTimeout(go, 2500)); };
 
 
   // Làm mới phiên âm của thẻ lưu từ bản cũ (trước khi chọn IPA theo từ loại): chạy ngầm lúc rảnh, chậm rãi, mỗi thẻ 1 lần
@@ -397,6 +401,13 @@
     w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
     return fn.apply(this, a);
   };
+  // Kho từ không cần cho lần vẽ đầu màn này: nạp sau khi vẽ (LCP, late-insert.mjs)
+  const softOf = (name, arg, q) => {
+    if (name === 'review') return q.get('hub') || q.get('src') ? [] : ['words'];
+    if (name !== 'practice' || !arg) return [];
+    const src = q.get('src') || 'deck', m = /^topic:(.+)/.exec(src), tp = m && topicOf(m[1]);
+    return (m ? tp && tp.words && tp.words.length : /^(deck|due|weak|forgetting|phrases)$/.test(src)) ? ['words', 'tsl'] : [];
+  };
   const V2_ROUTES = new Set(['train', 'me', 'say', 'goal']);
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
@@ -425,7 +436,8 @@
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
     else if (!STUDY.test(location.hash)) backHash = '';
     curHash = location.hash;
-    const b = [].concat(ROUTE_BUNDLE[name] || []), ux1 = App.ux1On();
+    const b = [].concat(ROUTE_BUNDLE[name] || []), ux1 = App.ux1On(), sf = softOf(name, arg, query);
+    if (sf.length) { sf.forEach(x => { const i = b.indexOf(x); if (i >= 0) b.splice(i, 1); }); if (name === 'practice') b.push('dist'); }
     if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
@@ -433,6 +445,7 @@
     document.body.classList.toggle('v2pre', ux1 && (reviewHub || V2_ROUTES.has(name) || ((name === 'call' || name === 'lesson') && !!arg) || (name === 'league' && !!state.user)));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
+    if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -465,7 +478,8 @@
       crumb(); // trang vẽ .page-head sau bước bất đồng bộ
       setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500);
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
-      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
+      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
+      if (sf.length) afterPaint(() => idle(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -1541,7 +1555,7 @@
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
     setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
-    idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
+    App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.mine(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
     window.addEventListener('lk:tl', async () => { state.cards = await Cards.mine(); updateChrome(); }); // đổi ngôn ngữ đích (Cài đặt) → Sổ từ/Ôn theo ngôn ngữ mới
