@@ -96,7 +96,8 @@ for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']
   const st = await ev(`const el = document.activeElement, vv = visualViewport, b = el && el.getBoundingClientRect();
     return el && el.matches(${JSON.stringify(css)}) ? { top: b.top, h: b.height, vt: vv.offsetTop, vh: vv.height, sc: vv.scale, ih: innerHeight } : { lost: el ? el.tagName + (el.id ? '#' + el.id : '') : 'null' }`);
   shot(`kbd-${route}`);
-  if (!shown) bad.push(`[bàn phím] #/${route}: chạm ${css} không mở bàn phím (mInputShown=false)`);
+  if (!shown) { const sb = /InsetsSource[^\n]*?type=statusBars[^\n]*?frame=\[\d+,\d+\]\[\d+,(\d+)\]/.exec(adb('shell', 'dumpsys', 'window')); const ae = await ev('const a = document.activeElement; return a ? a.tagName + (a.id ? "#" + a.id : "") : "null"');
+    bad.push(`[bàn phím] #/${route}: chạm ${css} không mở bàn phím (mInputShown=false) – chạm ở ${Math.round(sx)},${Math.round(sy)} px màn hình, thanh trạng thái tới ${sb ? sb[1] : '?'} px, activeElement ${ae}`); }
   else if (!st || st.__err || st.lost) bad.push(`[bàn phím] #/${route}: ${css} mất focus sau khi mở bàn phím (${st && (st.lost || st.__err)})`);
   else {
     const head = Math.min(st.h, 48), yTop = wb[1] + (st.top - st.vt) * st.sc * pos.dpr, yHead = wb[1] + (st.top + head - st.vt) * st.sc * pos.dpr;
