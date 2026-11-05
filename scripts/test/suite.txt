@@ -268,3 +268,6 @@ node scripts/test/haptics.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/test/legal-i18n.mjs
+node scripts/test/token-drift.mjs --self
+node scripts/test/token-drift.mjs
+node scripts/test/st-web-i18n.mjs
