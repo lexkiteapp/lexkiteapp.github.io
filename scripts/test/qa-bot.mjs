@@ -40,7 +40,7 @@ let dueK = 0; // thẻ đầu (từ dài, 2 phiên âm) đến hạn sớm nhấ
 const card = (word, vi, pos = 'noun') => ({ word, vi, pos, ex: '', contexts: [], added: NOW - 9 * DAY, mod: NOW - 2 * DAY, srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: NOW - 5 * DAY + (dueK++) * 3600e3, last: NOW - 4 * DAY, step: 0, S: 3, D: 4 } });
 const CARDS = Object.fromEntries([['rote learning', 'học vẹt'], ['sustainable', 'bền vững'], ['negotiate', 'đàm phán', 'verb'], ['budget', 'ngân sách'], ['deadline', 'hạn chót'], ['resilience', 'khả năng phục hồi']].map(([w, v, p]) => [w, card(w, v, p)]));
 const settings = theme => JSON.stringify({ onboarded: true, theme });
-// Trạng thái chụp + quét (dùng chung cho trước/sau). ux1: bật cờ "Một app" (Học/Ôn/Luyện/Giải đấu/Tôi) như bản live đang chạy.
+// Trạng thái chụp + quét (dùng chung cho trước/sau). ux1: bật cờ "Một app" (Hôm nay/Từ vựng/Kỹ năng/Thi/Tôi) như bản live đang chạy.
 const STATES = [
   ['home', '/home'], ['vocab', '/vocab'], ['review', '/review'], ['practice', '/practice'], ['skills', '/skills'], ['tests', '/tests'],
   ['me', '/me'], ['settings', '/settings'], ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
@@ -261,6 +261,25 @@ async function ui(w, theme) {
   }
 }
 
+
+// Khung hẹp chưa nằm trong WIDTHS: 360 (điện thoại nhỏ) và 1024 (cột phải hẹp nhất) × sáng/tối, màn ux1. Chỉ soi phần tử thừa/đè lên nội dung:
+// inlinebox = đỏ (lỗi cấu trúc, không có baseline), covered = cảnh báo (đầu dò đầy đủ đã chạy ở 390/768/1440).
+const NARROW = [360, 1024];
+async function narrow(w, theme) {
+  const list = STATES.filter(s => s[2] && s[2].ux1), { ctx, page, take } = await context(w, theme, { ux1: 1 });
+  for (const [name, hash] of list) {
+    const key = `${name}@${w}${theme[0]}`, rec = { state: name, w, theme, key, issues: [], cls: 0, errors: [], narrow: true };
+    try {
+      await page.goto('about:blank'); await boot(page, hash); await sleep(500);
+      rec.issues = (await page.evaluate(() => QAB.scan({ tap: 0, align: [] }))).filter(i => i.k === 'inlinebox' || i.k === 'covered').map(i => (i.k === 'covered' ? { ...i, sev: 'warn' } : i));
+      if (rec.issues.some(i => i.sev === 'fail')) await page.screenshot({ path: `${OUT}/shots/${key}.png` });
+    } catch (e) { rec.errors.push('quét dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
+    rec.errors.push(...await take());
+    R.ui.push(rec);
+  }
+  await ctx.close();
+}
+
 // ---------- 3) Hiệu năng: chuyển tab → FPS, long task, INP ----------
 async function perf(w) {
   const { ctx, page, take } = await context(w, 'light');
@@ -316,6 +335,7 @@ async function storage() {
 try {
   if (ONLY.includes('journeys')) { await journey(390, 'light'); await journey(1440, 'dark'); }
   if (ONLY.includes('ui')) for (const w of WIDTHS) for (const t of THEMES) await ui(w, t);
+  if (ONLY.includes('ui') && WIDTHS.length === 3) for (const w of NARROW) for (const t of THEMES) await narrow(w, t);
   if (ONLY.includes('perf')) for (const w of [390, 1440]) await perf(w);
   if (ONLY.includes('storage')) await storage();
 } catch (e) { R.errors.push('bot dừng: ' + e.message); }

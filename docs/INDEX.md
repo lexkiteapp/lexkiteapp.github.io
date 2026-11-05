@@ -19,6 +19,7 @@
 - [samples-visual](specs/samples-visual.md) — thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO); đọc khi sửa /samples/ và các tab cùng họ
 - [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
+- [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
 - [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch (oEmbed, RSS, Data API có trần), add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
@@ -37,6 +38,7 @@
 - [CONTENT-PROTECTION.md](CONTENT-PROTECTION.md) — Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, giám sát bản sao; đọc khi: xử lý sao chép/DMCA hoặc sửa WAF
 - [CONTENT-QA.md](CONTENT-QA.md) — Cổng QA nội dung bắt buộc cho mọi nguồn: sổ nguồn, bảy lớp kiểm, baseline chỉ được giảm, luồng cho nội dung sinh tự động; đọc khi: thêm/sinh nội dung học hàng loạt
 - [CONTENT-FACTORY.md](CONTENT-FACTORY.md) — Xưởng nội dung lô đêm dùng chung (luật → ai-pool → 2 giám khảo → soát mẫu → 1 PR bot); đọc khi: thêm loại nội dung sinh hàng loạt hoặc xem lô đêm
+- [STORIES.md](STORIES.md) — Truyện/sách phỏng theo A1–C1 + podcast: kiểm kê dùng lại, dữ liệu, luật bản quyền PD, cổng chất lượng, mốc M1–M3; đọc khi: thêm truyện hoặc làm trình đọc
 - [CONTENT-ROADMAP.md](CONTENT-ROADMAP.md) — Lộ trình nội dung (audit 24/10): điểm từng mảng, lỗi chặn, cách sửa, thứ tự làm và ai làm; đọc khi: chọn mảng nội dung cần nâng
 - [CONTENT-WORLD-PLAN.md](CONTENT-WORLD-PLAN.md) — Chuẩn đích top 1 (CEFR/EVP/EGP/GSE/đặc tả đề) + kế hoạch P0/P1/P2 và 7 PR P0; đọc khi: mở PR nội dung mới hoặc nâng chỉ tiêu
 - [CURRICULUM-PLAN.md](CURRICULUM-PLAN.md) — Khung chương trình A1→C2 (kỹ năng × chủ đề × chức năng), kho kịch bản chung `sc:`, thiết kế lại Call, chống nhàm/nhớ lâu, mốc "nói như bản xứ", PR giai đoạn 1; đọc khi: thêm cuộc gọi/roleplay/tình huống nói/sổ mẫu câu hoặc chọn việc nội dung tiếp
@@ -69,6 +71,7 @@
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
 - [MEDIA-QA-RUBRIC.md](MEDIA-QA-RUBRIC.md) — Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90; đọc khi: chấm lô ảnh/video
+- [PERF-SCROLL.md](PERF-SCROLL.md) — Cuộn mượt: luật khung màn, content-visibility, hiệu ứng vô hạn; cách đo và cổng CI scroll-perf.
 - [OTA.md](OTA.md) — Cập nhật OTA cho app Android/iOS: bản web ký ECDSA phát qua GitHub Release, /api/ota, kiểm chữ ký/minNative/rollback, nhắc cập nhật native; đọc khi: sửa web/js/ota.js, scripts/ota, hoặc prod-release job ota
 - [METHODS.md](METHODS.md) — Luật lõi: điều phối, repo/remote/ship, ngân sách, việc nặng = CI, i18n, nội dung, video, lỗi đã mắc, tài khoản & hạ tầng; đọc khi: ĐẦU MỖI PHIÊN
 - [BACKLINKS.md](BACKLINKS.md) — Kế hoạch backlink miễn phí mới: 20 nơi đăng (kho dữ liệu, học liệu mở, chợ học liệu, kỹ thuật bản địa) chữ điền sẵn; đọc khi: làm backlink/PR

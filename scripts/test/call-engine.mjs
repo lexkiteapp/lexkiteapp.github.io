@@ -2,7 +2,7 @@
 // độ trôi chảy, tổng kết + điểm tử tế, luyện lại câu yếu, chọn đường nhận dạng (trên máy trước). Kịch bản mẫu chạy hết từ đầu đến cuối bằng câu gợi ý.
 import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:assert/strict';
 const c = {}; vm.createContext(c); c.self = c;
-for (const f of ['pron/pairs.js', 'call/calls.js', 'call/calls-exam.js', 'call/engine.js']) vm.runInContext(fs.readFileSync('web/js/' + f, 'utf8'), c);
+for (const f of ['pron/pairs.js', 'call/calls.js', 'call/calls-exam.js', 'call/calls-lot1.js', 'call/engine.js']) vm.runInContext(fs.readFileSync('web/js/' + f, 'utf8'), c);
 const E = c.CallEngine, CALLS = c.CALLS; let n = 0;
 const ok = (v, m) => { assert.ok(v, m || 'lỗi'); n++; }, eq = (a, b, m) => { assert.equal(JSON.stringify(a), JSON.stringify(b), m || JSON.stringify(a)); n++; };
 const byId = id => E.prep(CALLS.find(x => x.id === id));

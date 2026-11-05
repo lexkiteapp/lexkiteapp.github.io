@@ -23,10 +23,10 @@ const TARGETS = [
   ['ô Đang luyện', '.v2-review main .grid > a:nth-child(2)', '#/deck?m=12'],
   ['ô Nhớ lâu', '.v2-review main .grid > a:nth-child(3)', '#/deck?m=3'],
   ['Quản lý', '.v2-review main button[data-href="#/deck"]', '#/deck'],
-  ['tab Học', '.v2 nav a[data-tab="learn"]', '#/home'],
-  ['tab Ôn (đang mở)', '.v2 nav a[data-tab="review"]', null],
-  ['tab Luyện', '.v2 nav a[data-tab="train"]', '#/train'],
-  ['tab Giải đấu', '.v2 nav a[data-tab="league"]', '#/league'],
+  ['tab Hôm nay', '.v2 nav a[data-tab="home"]', '#/home'],
+  ['tab Từ vựng', '.v2 nav a[data-tab="vocab"]', '#/vocab'],
+  ['tab Kỹ năng', '.v2 nav a[data-tab="skills"]', '#/skills'],
+  ['tab Thi', '.v2 nav a[data-tab="tests"]', '#/tests'],
   ['tab Tôi', '.v2 nav a[data-tab="me"]', '#/me'],
 ];
 // thẻ bộ (theo nguồn): chạm giữa thẻ VÀ chạm vào chip "n đến hạn" đều mở bộ đó
