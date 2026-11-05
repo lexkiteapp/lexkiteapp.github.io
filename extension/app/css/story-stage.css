@@ -54,8 +54,8 @@
 .ex .lsn-bank{gap:.5rem!important;padding-top:1rem!important;min-height:7.5rem;align-content:flex-start}
 .ex .lsn-bank>button{min-height:3rem} /* KHÔNG đặt touch-action ở đây: word-arrange.js dùng touch-action:none cho thẻ kéo-chèn (Chromium cảm ứng huỷ pointer nếu cho phép cuộn) */
 /* nút nghe: to, rõ + 🐢 cùng cỡ */
-.ex #lsnPlay,.ex #lsnSlow{min-width:56px;min-height:56px;border-radius:9999px}
-.ex #lsnSlow{position:static!important}
+/* nút nghe: vùng chạm ≥ 44 px nhưng KHÔNG đổi chỗ/chiều cao khung (🐢 vẫn absolute góc thẻ như mẫu Stitch → cổng stitch-diff) */
+.ex #lsnPlay,.ex #lsnSlow{min-width:44px;min-height:44px;border-radius:9999px}
 /* Kiểm tra: TẮT = xám phẳng chữ đủ tương phản; BẬT giữ nguyên mẫu Stitch (gradient cam – cổng stitch-diff vùng CTA ≥ 0,99, không được xa mẫu hơn) */
 @media (prefers-reduced-motion:no-preference){.ex #lsnCheck{transition:background-color .15s}}
 .ex #lsnCheck:disabled{background-image:none!important;opacity:1!important;background-color:var(--ex-dis-bg)!important;color:var(--ex-dis-fg)!important;box-shadow:none!important;cursor:not-allowed}
