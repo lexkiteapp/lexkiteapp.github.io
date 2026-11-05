@@ -78,6 +78,8 @@ export function scanWorkflow(name, src) {
     let envSsh = false; const mainPush = [], commits = [], sshBad = [];
     for (const s of steps) {
       let external = false, ssh = envSsh;
+      // bước có `if:` loại main (github.ref != 'refs/heads/main', không kèm ||) → không bao giờ chạy trên main → push HEAD:$GITHUB_REF_NAME không phải đẩy main
+      const stepOnMain = onMain && !s.lines.some(([, l]) => /^\s*(?:- )?if:[^\n]*github\.ref\s*!=\s*'refs\/heads\/main'/.test(l) && !/\|\|/.test(l));
       for (const [n, l] of s.lines) {
         if (isComment(l)) continue;
         if (/\bcd\s+(?!"?\$GITHUB_WORKSPACE|"?\$\{\{\s*github\.workspace)(\S+)/.test(l)) external = true;
@@ -88,7 +90,7 @@ export function scanWorkflow(name, src) {
         for (const [f, re] of Object.entries(SCRIPT_MAIN)) if (re.test(l)) { mainPush.push(n); if (ssh && !/env\s+-u\s+GIT_SSH_COMMAND/.test(l)) sshBad.push(n); void f; }
         // lệnh push (có thể nhiều trên 1 dòng)
         for (const seg of l.split(/(?=(?<![\w./:@-])git\s)/)) {
-          const p = parsePush(seg, onMain); if (!p || p.external) continue;
+          const p = parsePush(seg, stepOnMain); if (!p || p.external) continue;
           if (external || !p.main) continue;
           if (p.url) errs.push(`${at(n)} push main bằng URL token – ruleset chặn; dùng origin SSH từ checkout ssh-key`);
           mainPush.push(n);
@@ -151,6 +153,9 @@ if (self) {
     ['khoá có điều kiện không-PR', W(sched, `      - uses: actions/checkout@v4\n        with: { ssh-key: "\${{ github.event_name != 'pull_request' && secrets.BOT_DEPLOY_KEY || '' }}" }\n` + run('git commit -qm "x [skip ci]"\ngit push -q origin HEAD:main')), 0],
     ['khoá chỉ khi chạy trên main', W(sched, `      - uses: actions/checkout@v4\n        with: { ssh-key: "\${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }\n` + run('git commit -qm "x [skip ci]"\ngit push -q origin HEAD:main')), 0],
     ['checkout path khác', W(sched, `      - uses: actions/checkout@v4\n        with: { path: x, ssh-key: '${KEY}' }\n` + run('git commit -qm "x [skip ci]"\ngit push -q origin HEAD:main')), 1],
+    ['bước if: ref != main đẩy HEAD:$GITHUB_REF_NAME', W(sched, CO0 + "      - if: ${{ github.ref != 'refs/heads/main' }}\n        run: git push -q origin \"HEAD:$GITHUB_REF_NAME\"\n"), 0],
+    ['bước if: ref != main || … vẫn có thể chạy main', W(sched, CO0 + "      - if: ${{ github.ref != 'refs/heads/main' || inputs.x }}\n        run: git push -q origin \"HEAD:$GITHUB_REF_NAME\"\n"), 1],
+    ['bước if: ref != main nhưng đẩy HEAD:main', W(sched, CO0 + "      - if: ${{ github.ref != 'refs/heads/main' }}\n        run: git push -q origin HEAD:main\n"), 1],
     ['2 commit 1 dòng thiếu 1', W(sched, CO + run('git commit -qm "a [skip ci]"; git commit -qm "b"; git push -q origin HEAD:main')), 1],
   ];
   for (const [t, src, want] of cases) { const n = scanWorkflow('mẫu', src).errs.length; if ((n > 0) !== (want > 0)) bad(`tự kiểm "${t}": ${n} lỗi, cần ${want ? '≥1' : '0'}`); }
