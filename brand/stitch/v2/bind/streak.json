@@ -14,7 +14,7 @@
   "Collection: frames & stickers": "Bộ sưu tập: khung & nhãn dán"
  },
  "html": {
-  ":scope > header > h1": "e(t('Chuỗi ngày học'))",
+  ":scope > header > h1": "e(t('Chuỗi học'))",
   ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "ST2.flame(d.fl, 64)",
   ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.n)",
   ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": "e(d.unit1)",
@@ -30,7 +30,7 @@
   ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > div:nth-child(1) > div > span:nth-child(1)": "e(d.ch.title)",
   ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > div:nth-child(1) > div > span:nth-child(2)": "e(d.ch.sub)",
   ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > button": "e(t('Mở rương'))",
-  ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(1) > div:nth-child(1) > h3": "e(t('Mục tiêu mỗi ngày'))",
+  ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(1) > div:nth-child(1) > h3": "e(t('Mục tiêu học mỗi ngày'))",
   ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(1) > span": "e(d.goalLab)",
   ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > span": "e(d.ev.icon)",
   ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div > span:nth-child(1)": "e(d.ev.title)",

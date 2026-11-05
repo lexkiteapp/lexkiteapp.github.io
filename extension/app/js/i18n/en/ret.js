@@ -55,4 +55,12 @@
 '{n} phút/ngày': '{n} min/day',
 'Đã gom {a}/{b} mảnh': '{a}/{b} pieces collected',
 'Đã đóng băng': 'Frozen',
+'Chuỗi học': 'Streak',
+'Mục tiêu học mỗi ngày': 'Daily study goal',
+'Sự kiện: gom {n} lá': 'Event: collect {n} leaves',
+'Sự kiện: gom {n} bông tuyết': 'Event: collect {n} snowflakes',
+'Sự kiện: gom {n} cánh hoa': 'Event: collect {n} petals',
+'Thử thách mùa thu · học 1 ngày = 1 lá': 'Autumn quest · 1 study day = 1 leaf',
+'Thử thách mùa đông · học 1 ngày = 1 bông tuyết': 'Winter quest · 1 study day = 1 snowflake',
+'Thử thách mùa xuân · học 1 ngày = 1 cánh hoa': 'Spring quest · 1 study day = 1 petal',
 }); })(typeof self !== 'undefined' ? self : this);

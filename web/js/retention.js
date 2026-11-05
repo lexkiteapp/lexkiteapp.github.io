@@ -260,6 +260,10 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
+  // tên + luật sự kiện theo mùa (thẻ sự kiện v2: tên ở dòng đầu, luật "1 ngày học = 1 mảnh" ở dòng phụ)
+  const EV_TXT = { autumn26: ['Sự kiện: gom {n} lá', 'Thử thách mùa thu · học 1 ngày = 1 lá'], winter26: ['Sự kiện: gom {n} bông tuyết', 'Thử thách mùa đông · học 1 ngày = 1 bông tuyết'], spring27: ['Sự kiện: gom {n} cánh hoa', 'Thử thách mùa xuân · học 1 ngày = 1 cánh hoa'] };
+  // nhãn thứ 1 chữ như mẫu (Intl 'narrow', theo ngôn ngữ giao diện; 2/11/2026 = thứ Hai)
+  const DOW1 = lang => { try { return Array.from({ length: 7 }, (_, i) => new Date(2026, 10, 2 + i).toLocaleDateString(lang, { weekday: 'narrow' })); } catch (e) { return DOW(); } };
   const GOALS = [['casual', 'spa', 10, 5, 'Nhẹ nhàng'], ['regular', 'fitness_center', 20, 10, 'Đều đặn'], ['intense', 'whatshot', 50, 20, 'Tăng tốc']];
   // Bộ sưu tập (khung ảnh đại diện + nhãn dán): tấm riêng mở từ hàng "Bộ sưu tập" (#retColl) – giữ đủ món, đeo khung như trang cũ
   function collHtml() {
@@ -275,10 +279,10 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   let mOff = 0; // tháng đang xem trên lịch (0 = tháng này, âm = tháng trước)
   function v2Data(o) {
     const k = today(), se = state.settings || {}, goal = +se.dailyGoal || 20, now = ((state.stats || {}).days || {})[k] || 0, unit = t('lượt ôn'), lang = (g.I18N && g.I18N.lang && g.I18N.lang()) || 'vi';
-    const n = o.n != null ? o.n : streakN(), L = DOW(), act = days(), fzd = (state.game || {}).frozen, wk = Core.week(act, fzd, Date.now()), r = ret();
+    const n = o.n != null ? o.n : streakN(), L = DOW1(lang), LL = DOW(), act = days(), fzd = (state.game || {}).frozen, wk = Core.week(act, fzd, Date.now()), r = ret();
     const lab = { done: t('Đã học'), frozen: t('Đóng băng giữ chuỗi'), today: t('Hôm nay'), future: '', miss: t('Chưa học') };
     const vOf = st => (st === 'done' || st === 'frozen' || st === 'today' ? st : 'future'); // lỡ (miss) = ô trống như ngày tới, nhãn đọc màn hình nói rõ "Chưa học"
-    const week = wk.map(x => ({ v: vOf(x.st), l: x.k === k ? t('Hôm nay') : L[x.dow], al: L[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : '') }));
+    const week = wk.map(x => ({ v: vOf(x.st), l: x.k === k ? t('Hôm nay') : L[x.dow], al: LL[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : '') }));
     const got = wk.filter(x => x.st === 'done' || x.st === 'frozen').length, doneToday = act.has(k) && !(fzd || {})[k];
     const mo = Core.month(act, fzd, Date.now(), mOff), mt = new Date(mo.y, mo.m, 1).toLocaleDateString(lang, { month: 'long', year: 'numeric' }), mTitle = mt.charAt(0).toLocaleUpperCase(lang) + mt.slice(1);
     const cells = mo.cells.map(c => (c ? { v: vOf(c.st), day: c.day, al: new Date(mo.y, mo.m, c.day).toLocaleDateString(lang, { day: 'numeric', month: 'long' }) + (lab[c.st] ? ': ' + lab[c.st] : '') } : { v: 'pad' }));
@@ -294,7 +298,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       ch: { n: ch, title: t('Bạn có {n} rương chưa mở', { n: ch }), sub: t('Mở để nhận khung hoặc nhãn dán mới') },
       goalLab: t('{a}/{b} {u} hôm nay', { a: now, b: goal, u: unit }), goal: { now: Math.min(now, goal), max: goal },
       goals: GOALS.map(([key, icon, v, min, nm]) => ({ k: v, v: goal === v ? 'on' : 'off', name: t(nm), sub: t('{n} phút/ngày', { n: min }), al: t(nm) + ': ' + t('{n} phút/ngày', { n: min }) + ', ' + v + ' ' + unit })),
-      ev: ev ? { on: 1, icon: EV_IC[ev.id] || 'eco', title: t('Gom {n} mảnh', { n: ev.need }), sub: t('Học 1 ngày = 1 mảnh'), al: t('Đã gom {a}/{b} mảnh', { a: evGot, b: ev.need }), pcs: Array.from({ length: ev.need }, (_, i) => ({ v: i < evGot ? 'on' : 'off', icon: EV_IC[ev.id] || 'eco' })) }
+      ev: ev ? { on: 1, icon: EV_IC[ev.id] || 'eco', title: EV_TXT[ev.id] ? t(EV_TXT[ev.id][0], { n: ev.need }) : t('Gom {n} mảnh', { n: ev.need }), sub: EV_TXT[ev.id] ? t(EV_TXT[ev.id][1]) : t('Học 1 ngày = 1 mảnh'), al: t('Đã gom {a}/{b} mảnh', { a: evGot, b: ev.need }), pcs: Array.from({ length: ev.need }, (_, i) => ({ v: i < evGot ? 'on' : 'off', icon: EV_IC[ev.id] || 'eco' })) }
         : { on: 0, icon: 'eco', title: '', sub: '', al: '', pcs: [] } };
   }
   async function setGoal(v) { state.settings = state.settings || {}; state.settings.dailyGoal = v; try { if (App.saveSettings) await App.saveSettings(); if (g.Sync && g.Sync.schedule) g.Sync.schedule(); } catch (e) { /* bỏ qua */ } }
