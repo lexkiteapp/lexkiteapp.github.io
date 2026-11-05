@@ -77,7 +77,7 @@
       ${grp([go('account', UI.icon('cloud'), t('Tài khoản'), u ? (u.displayName || u.email || '') : t('Đăng nhập'))])}
       <div id="setIdxAdm"></div>
       ${grp([go('look', UI.icon('palette'), t('Giao diện'), LN + ' · ' + (TH[s.theme] || TH.auto)),
-        go('study', UI.icon('target'), t('Mục tiêu học'), s.dailyNew + ' · ' + s.dailyGoal),
+        go('study', UI.icon('target'), t('Mục tiêu học'), t('{n} từ mới/ngày', { n: s.dailyNew })),
         go('sound', UI.icon('volume-2'), t('Âm thanh'), (s.accent === 'en-US' ? 'US' : 'UK') + ' · ' + (s.ttsRate || 0.92).toFixed(2) + '×'),
         go('remind', UI.icon('alarm-clock'), t('Nhắc học'), s.reminderOn ? (s.reminderAuto !== false ? t('Tự động') : s.reminderTime) : t('Tắt'))])}
       ${grp([go('ai', UI.icon('bot'), 'AI'), ...(Store.isExtension ? [] : [go('ext', UI.icon('puzzle'), t('Add-on từ điển cho Chrome'))]), go('data', UI.icon('database'), t('Dữ liệu'))])}
