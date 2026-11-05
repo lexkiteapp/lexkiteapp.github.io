@@ -1598,6 +1598,7 @@ div.dp-unit > h3 { flex: 1 1 calc(100% - 2.6rem); } /* tiêu đề chặng chi�
 /* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */
 body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
 /* Lời mời cài add-on trong trang Từ điển (web/js/ext-cta.js hiện/ẩn) */
+.dict-res { min-height: 70vh; } /* giữ chỗ mục từ khi đang tra: thẻ add-on bên dưới không bị đẩy xuống khi kết quả hiện (visual-qa cls 0.30 #/dict 05/11) */
 .ext-card { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem; padding: 12px 14px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); }
 .ext-card > div { flex: 1 1 260px; min-width: 0; }
 .ext-card p { margin: 4px 0 0; }
