@@ -69,13 +69,21 @@
     return base + (base.indexOf('?') < 0 ? '?' : '&') + 'utm_source=blog&utm_medium=quiz' + frag;
   }
 
+  // Trộn thứ tự phương án mỗi lần tải: bài viết tay hay để đáp án ở cùng một vị trí (B5-R2: 166/269 ở A, 0 ở D)
+  // → người học đoán theo vị trí. Giữ đúng đáp án bằng cách trộn chỉ số rồi tìm lại vị trí của answer.
+  function shuffle(q) {
+    const ord = q.options.map(function (_, i) { return i; });
+    for (let i = ord.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)), x = ord[i]; ord[i] = ord[j]; ord[j] = x; }
+    return Object.assign({}, q, { options: ord.map(function (i) { return q.options[i]; }), answer: ord.indexOf(q.answer) });
+  }
+
   function init(c) {
     if (c.dataset.lkReady) return;
     let d;
     try { d = JSON.parse(c.dataset.quiz || ''); } catch (e) { return; }
     const it = (Array.isArray(d) ? d : (d && d.items) || []).filter(function (q) {
       return q && q.q && Array.isArray(q.options) && q.options.length > 1 && q.answer >= 0 && q.answer < q.options.length;
-    });
+    }).map(shuffle);
     if (!it.length) return;
     c.dataset.lkReady = '1';
     css();

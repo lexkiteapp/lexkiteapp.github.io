@@ -5,6 +5,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath }
 import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE, publishTime } from './lib/blog-content.mjs';
 import { specOf, mediaId, wantedItems, altUntruths, appRoutes, routeName, validateItem } from './lib/blog-images.mjs';
 import { loadFacts, postExams, captionIssues } from './lib/blog-captions.mjs';
+import { loadYoutube } from './blog-youtube.mjs';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
@@ -37,7 +38,7 @@ export function latinTitle(lang, title) {
 }
 
 export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() } = {}) {
-  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root);
+  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root), YTOK = loadYoutube(path.join(root, 'youtube.json'));
   const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
   const slugs = new Set([...all, ...posts].map(p => `${p.lang}/${p.slug}`));
   if (media.fallback) warnings.push(`${rel(path.join(root, 'media.json'))}: [media] chưa có media.json – tạm kiểm id ảnh theo shots.json`);
@@ -136,7 +137,7 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
       const s = m[1].trim(), y = s.match(/^youtube:\s*([^|]*?)\s*(\|[\s\S]*)?$/), c = s.match(/^cta:\s*(\/\S*)\s*\|\s*(\S[\s\S]*)$/);
       const dg = s.match(/^diagram:\s*([a-z][a-z0-9-]*)\s*(\|[\s\S]*)?$/);
       if (dg) { if (!diagIds.has(dg[1])) E('diagram', `{{diagram: ${dg[1]}}} chưa khai báo trong diagrams: (id ${[...diagIds].join(', ') || 'chưa có'})`); continue; }
-      if (y) { yt++; if (y[1] && !YT.test(y[1])) E('youtube', `ID YouTube "${y[1]}" không hợp lệ (trống hoặc 11 ký tự)`); }
+      if (y) { yt++; if (y[1] && !YT.test(y[1])) E('youtube', `ID YouTube "${y[1]}" không hợp lệ (trống hoặc 11 ký tự)`); else if (y[1] && !YTOK[y[1]]) E('youtube', `ID YouTube "${y[1]}" chưa kiểm – chạy node scripts/blog-youtube.mjs add ${y[1]} (oEmbed: có thật + cho nhúng), xem đúng chủ đề rồi mới dùng; không có video phù hợp → để trống ID`); }
       else if (c) ctas.push(c[1]);
       else if (/^cta:/.test(s)) E('cta', `sai cú pháp "{{${s}}}" – cần {{cta: /đường-dẫn | chữ nút}}`);
       else E('shortcode', `mã lạ "{{${s.slice(0, 40)}}}"`);

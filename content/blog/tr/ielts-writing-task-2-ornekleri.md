@@ -118,7 +118,7 @@ Aşağıdaki geçiş bağlaçlarını (transitional words) kompozisyonlarınızd
 | Örnek Verme | For example, Like | *To illustrate this point, A compelling instance of this is* |
 | Özetleme | In the end | *To encapsulate, In conclusion, Taking all points into account* |
 
-{{youtube: sRFEVUtq9LA | IELTS Writing Task 2'de 40 Dakikada 250+ Kelimelik Kompozisyon Yazma Rehberi}}
+{{youtube: | IELTS Writing Task 2'de 40 Dakikada 250+ Kelimelik Kompozisyon Yazma Rehberi}}
 
 {{cta: /#/write | IELTS Task 2 Yazma Odasını Dene}}
 
