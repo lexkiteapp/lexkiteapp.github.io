@@ -13,7 +13,7 @@ const IPA_OK = /^[a-zɐɑɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧ�
 export const seedPath = tl => path.join(ROOT, 'content/target', tl, 'seed.json');
 // Lô lõi do gen.mjs sinh: content/target/<tl>/core-NN.json (mỗi lượt CI 1 tệp, ≤ 300 mục) – tệp .report.json đi kèm KHÔNG phải bộ từ
 export const coreFiles = tl => { const d = path.join(ROOT, 'content/target', tl); return fs.existsSync(d) ? fs.readdirSync(d).filter(f => /^core(-\d{2,})?\.json$/.test(f)).sort().map(f => path.join(d, f)) : []; };
-export const nextCoreFile = tl => { const n = coreFiles(tl).map(f => +((/core-(\d+)\.json$/.exec(f) || [])[1] || 0)); return path.join(ROOT, 'content/target', tl, `core-${String(Math.max(0, ...n) + 1).padStart(2, '0')}.json`); };
+export const nextCoreFile = (tl, k = 0) => { const n = coreFiles(tl).map(f => +((/core-(\d+)\.json$/.exec(f) || [])[1] || 0)); return path.join(ROOT, 'content/target', tl, `core-${String(Math.max(0, ...n) + 1 + k).padStart(2, '0')}.json`); };
 export const webSeedPath = tl => path.join(ROOT, 'web/js', `target-${tl}-seed.json`);
 export const readJSON = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 export const imgKeys = () => new Set(Object.keys(readJSON(path.join(ROOT, 'content/lexicon/img.json')).items || {}));

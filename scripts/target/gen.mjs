@@ -17,7 +17,9 @@ const TL = arg('tl', 'pt'), N = +arg('n', 300), DRY = process.argv.includes('--d
 if (!process.env.CI && !DRY) { console.error('Chỉ chạy trên CI (target-content.yml)'); process.exit(75); }
 const G = TL_GEN[TL]; if (!G) { console.error(`✗ tl "${TL}" chưa có dòng trong scripts/target/tl-gen.mjs`); process.exit(2); }
 export const SOURCE = G.source;
-const OUT = path.join(ROOT, 'content/target', TL), outFile = nextCoreFile(TL), repFile = outFile.replace(/\.json$/, '.report.json');
+// --shard k/K: nhiều job CI song song chia ứng viên theo thứ hạng (i % K = k), mỗi shard 1 tệp core-NN (NN = số lô kế + k); trùng lemma giữa shard → scripts/target/dedupe.mjs
+const [SK, SN] = (arg('shard', '0/1')).split('/').map(Number);
+const OUT = path.join(ROOT, 'content/target', TL), outFile = nextCoreFile(TL, SK), repFile = outFile.replace(/\.json$/, '.report.json');
 const LT = G.lt && process.env.LT_URL; if (G.lt && !DRY && !LT) { console.error('✗ thiếu LT_URL – cổng LanguageTool bắt buộc cho ' + TL); process.exit(2); }
 // LanguageTool: mọi lỗi (kể cả chính tả/dấu câu) = loại; lỗi mạng = dừng lượt (không bỏ cổng)
 async function ltErrors(text) {
@@ -33,7 +35,7 @@ const prev = coreFiles(TL).flatMap(f => readJSON(f).words); // lô trước: ch�
 const have = new Set([...seed, ...prev.map(w => w.word.toLowerCase())]);
 // dạng đã từng bị loại/đã quy về lemma có trong report các lô trước → không gửi lại (tiết kiệm hạn mức ai-pool)
 const tried = new Set(coreFiles(TL).flatMap(f => { const rf = f.replace(/\.json$/, '.report.json'); return fs.existsSync(rf) ? (readJSON(rf).tried || []) : []; }));
-const cand = txt.split('\n').map((l, i) => ({ form: l.split(' ')[0], rank: i + 1 })).filter(x => /^\p{L}+$/u.test(x.form || '') && (x.form.length > 1 || G.one.test(x.form)) && !have.has(x.form.toLowerCase()) && !tried.has(x.form.toLowerCase())).slice(0, N * 6); // ×6: nhiều dạng chia quy về cùng lemma
+const cand = txt.split('\n').map((l, i) => ({ form: l.split(' ')[0], rank: i + 1 })).filter(x => /^\p{L}+$/u.test(x.form || '') && (x.form.length > 1 || G.one.test(x.form)) && !have.has(x.form.toLowerCase()) && !tried.has(x.form.toLowerCase())).filter((x, i) => i % SN === SK).slice(0, N * 6); // ×6: nhiều dạng chia quy về cùng lemma
 console.log(`ứng viên ${cand.length} (đã có ${have.size}) – nguồn ${SOURCE.name}`);
 if (DRY) { console.log(cand.slice(0, 40).map(x => x.rank + ':' + x.form).join(' ')); process.exit(cand.length ? 0 : 1); }
 
