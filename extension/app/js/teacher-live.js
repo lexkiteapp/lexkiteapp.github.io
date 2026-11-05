@@ -57,7 +57,7 @@
       // khung ĐẦU: chỉ giấu ảnh tĩnh khi texture thật có hình (WebKit/GStreamer, driver lỗi: video→texture rỗng → ô trống "mất hình"). Đọc 1 hàng giữa, 1 lần.
       if (!el.classList.contains('live')) { const W = cv.width, row = new Uint8Array(W * 4); gl.readPixels(0, cv.height >> 1, W, 1, gl.RGBA, gl.UNSIGNED_BYTE, row); let op = 0; for (let i = 3; i < row.length; i += 4) if (row[i] > 128) op++;
         if (op < 3) { if (++blank >= 3) stop(); return; } el.classList.add('live'); }
-      el.lkFrames = (el.lkFrames || 0) + 1; el.lkMs = Math.max(el.lkMs || 0, performance.now() - tu); // cổng teacher-quality: số khung tải lên ≈ khung video, không phải số rAF
+      el.lkFrames = (el.lkFrames || 0) + 1; const du = performance.now() - tu; el.lkMs = Math.max(el.lkMs || 0, du); el.lkSum = (el.lkSum || 0) + du; // cổng teacher-quality: số khung tải lên ≈ khung video, không phải số rAF
     };
     const rvfc = !!v.requestVideoFrameCallback;
     const next = () => { if (pend || v.paused) return; if (rvfc) pend = v.requestVideoFrameCallback(() => { draw(); next(); }); else { let lt = -1; const f = () => { pend = 0; if (v.paused) return; if (v.currentTime !== lt) { lt = v.currentTime; draw(); } pend = requestAnimationFrame(f); }; pend = requestAnimationFrame(f); } };

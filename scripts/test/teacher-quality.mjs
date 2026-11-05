@@ -45,11 +45,11 @@ await new Promise(r => srv.listen(0, '127.0.0.1', r)); const BASE = `http://127.
 const PROBE = `(() => { const o = document.createElement('canvas'), x = o.getContext('2d', { willReadFrequently: true });
   return [...document.querySelectorAll('#row canvas')].map(c => { o.width = c.width; o.height = c.height; x.clearRect(0, 0, o.width, o.height); x.drawImage(c, 0, 0);
     const W = o.width, H = o.height, d = x.getImageData(0, 0, W, H).data, A = i => d[i * 4 + 3], L = i => (d[i * 4] * .2126 + d[i * 4 + 1] * .7152 + d[i * 4 + 2] * .0722) / 255;
-    let haze = 0, band = 0, dark = 0, op = 0;
-    for (let i = 0; i < W * H; i++) { const a = A(i); if (a > 0 && a < 8) haze++; if (a > 247) op++;
+    let haze = 0, hzNear = 0, band = 0, dark = 0, op = 0;
+    for (let i = 0; i < W * H; i++) { const a = A(i); if (a > 0 && a < 8) { haze++; let near = 0; const y = (i / W) | 0, xx = i % W; for (let dy = -3; dy <= 3 && !near; dy++) for (let dx = -3; dx <= 3; dx++) { const j = (y + dy) * W + xx + dx; if (j >= 0 && j < W * H && A(j) > 128) { near = 1; break; } } if (near) hzNear++; } if (a > 247) op++;
       if (a > 12 && a < 230) { let nb = 0; const y = (i / W) | 0, xx = i % W; for (let dy = -3; dy <= 3; dy++) for (let dx = -3; dx <= 3; dx++) { const j = (y + dy) * W + xx + dx; if (j >= 0 && j < W * H && A(j) > 247) nb = Math.max(nb, L(j)); }
         if (nb > 0.25) { band++; if (L(i) < 0.5 * nb) dark++; } } }
-    return { haze, band, dark, op }; }); })()`;
+    return { haze, hzNear, band, dark, op }; }); })()`;
 const results = {};
 for (const name of ['chromium', 'webkit']) {
   const br = await (name === 'chromium' ? pw.chromium.launch({ channel: 'chrome' }).catch(() => pw.chromium.launch()) : pw[name].launch()).catch(e => { console.log(`teacher-quality: không mở được ${name} – ${String(e).split('\n')[0]}`); return null; }); if (!br) { if (name === 'chromium') process.exit(1); continue; }
@@ -77,15 +77,16 @@ for (const name of ['chromium', 'webkit']) {
   if (played) {
     const f0 = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => s.lkFrames || 0)), t0 = Date.now();
     let worst = { haze: 0, darkPct: 0 };
-    for (let k = 0; k < 6; k++) { await page.waitForTimeout(400); for (const m of await page.evaluate(PROBE)) { worst.haze = Math.max(worst.haze, m.haze); worst.darkPct = Math.max(worst.darkPct, m.band ? Math.round(m.dark / m.band * 1000) / 10 : 0); if (m.op < 1000) errs.push(`${name}: canvas giáo viên gần như trống (${m.op} điểm đục) – mất hình`); } }
+    for (let k = 0; k < 6; k++) { await page.waitForTimeout(400); for (const m of await page.evaluate(PROBE)) { worst.haze = Math.max(worst.haze, m.haze); worst.hzNear = Math.max(worst.hzNear || 0, m.hzNear); worst.darkPct = Math.max(worst.darkPct, m.band ? Math.round(m.dark / m.band * 1000) / 10 : 0); if (m.op < 1000) errs.push(`${name}: canvas giáo viên gần như trống (${m.op} điểm đục) – mất hình`); } }
     const secs = (Date.now() - t0) / 1000, up = (await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => s.lkFrames || 0))).map((n, i) => (n - f0[i]) / secs);
-    Object.assign(res, { uploadMaxMs: await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => Math.round(s.lkMs || 0))), haze: worst.haze, darkPct: worst.darkPct, uploadsPerSec: up.map(x => Math.round(x)) });
+    Object.assign(res, { uploadMaxMs: await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => Math.round(s.lkMs || 0))), uploadAvgMs: await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => +((s.lkSum || 0) / Math.max(1, s.lkFrames || 0)).toFixed(1))), hazeNear3px: worst.hzNear, haze: worst.haze, darkPct: worst.darkPct, uploadsPerSec: up.map(x => Math.round(x)) });
     if (worst.haze > 20) errs.push(`${name}: ${worst.haze} điểm mờ ngoài người (khung xám-đen trên nền sáng) > 20`);
     if (worst.darkPct > 10) errs.push(`${name}: viền tối ${worst.darkPct} % mép > 10 %`);
     if (up.some(x => x > 24 * 1.15 + 2)) errs.push(`${name}: tải texture ${up.map(Math.round)} lần/s > khung video (24/s) – vẽ theo rAF thay vì theo khung mới`);
   } else if (name === 'chromium') errs.push('chromium: clip có lời không phát được (WebGL/H.264) – không đo được khung đen');
   else res.note = 'không phát H.264 trong WebKit Linux → giữ ảnh tĩnh (đúng hạ cấp)';
   // (c) mặt vẽ khớp miệng trong bài học + CPU chậm 4× (chỉ Chromium có CDP)
+  const u0 = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]));
   const cdp = name === 'chromium' ? await page.context().newCDPSession(page) : null; if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
   await page.evaluate(() => { window.__lt = LessonTeacher.mount(document.getElementById('lt'), 'ama', { lip: true }); });
   await page.waitForFunction(() => window.__lt.lip() && window.__lt.lip().frames > 10, null, { timeout: 15000 }).catch(() => {});
@@ -93,7 +94,7 @@ for (const name of ['chromium', 'webkit']) {
     window.__lt.say('Hello there, let us practise this sentence together right now, nice and slow.', { dur: 4 });
     const s0 = window.__lt.lip() ? window.__lt.lip().frames : 0; let n = 0; const t0 = performance.now(); const f = () => { n++; if (performance.now() - t0 < 4000) requestAnimationFrame(f); else r({ fps: Math.round(n / ((performance.now() - t0) / 1000)), long: lt, face: window.__lt.lip() ? window.__lt.lip().frames - s0 : -1 }); }; requestAnimationFrame(f); }));
   if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
-  res.perf = perf;
+  res.perf = perf; res.upload4x = (await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]))).map(([a, n], i) => (n - u0[i][1] ? +((a - u0[i][0]) / (n - u0[i][1])).toFixed(1) + 'ms×' + (n - u0[i][1]) : 0));
   if (perf.face < 0) errs.push(`${name}: mặt vẽ khớp miệng không chạy`);
   if (name === 'chromium' && (perf.fps < 50 || perf.long > 2)) errs.push(`chromium CPU 4×: ${perf.fps} fps, ${perf.long} tác vụ dài – cần ≥ 50 fps, ≤ 2`);
   if (perr.length) errs.push(`${name}: lỗi JS: ${perr.slice(0, 3).join(' | ')}`);
