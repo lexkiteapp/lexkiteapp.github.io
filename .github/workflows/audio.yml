@@ -39,7 +39,6 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
-        env: { LX_ONLY_CUES: '${{ github.event.inputs.only_call_cues }}' }
         run: |
           left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
           [ "$LX_ONLY_CUES" = "true" ] && left=0
@@ -48,7 +47,7 @@ jobs:
           echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
           echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "$LX_SHARDS")" >> "$GITHUB_OUTPUT"
-        env: { GITHUB_TOKEN: '${{ github.token }}', LX_SHARDS: '${{ github.event.inputs.shards || ''24'' }}' }
+        env: { GITHUB_TOKEN: '${{ github.token }}', LX_ONLY_CUES: '${{ github.event.inputs.only_call_cues }}', LX_SHARDS: '${{ github.event.inputs.shards || ''24'' }}' }
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
