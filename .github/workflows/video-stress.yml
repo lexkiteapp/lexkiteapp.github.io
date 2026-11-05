@@ -34,9 +34,10 @@ jobs:
         if: steps.pick.outputs.run == '1'
         with:
           python-version: '3.12'
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài ffmpeg + phông
         if: steps.pick.outputs.run == '1'
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core unzip >/dev/null
       - name: Đệm Remotion (node_modules)
         if: steps.pick.outputs.run == '1'
         uses: actions/cache@v4
