@@ -277,12 +277,6 @@
    "why": "meaning check: no (Is there a blank paper with an official seal confi)",
    "b": "41821221567"
   },
-  "busy#adj": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1823",
-   "b": "40276144478"
-  },
   "cancellation policy#n": {
    "at": "2026-11-05",
    "tries": 6,
