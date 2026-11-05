@@ -92,3 +92,4 @@ for (const name of PAGES) {
   fs.writeFileSync(new URL(`web/${name}.html`, R), html);
 }
 console.log(`✓ build-legal: ${Object.keys(LANGS).length} ngôn ngữ × ${PAGES.length} trang${missing ? ` · ${missing} dòng chưa dịch (đang hiện tiếng Anh – chạy --translate)` : ''}`);
+if (blocked) console.log(`::warning title=build-legal: dịch máy bị chặn::gtx lỗi > 5 lần – dừng dịch, ${missing} dòng vẫn tiếng Anh (trang đó là bản nháp noindex). Bản dịch thật: content/legal/cache/<lang>.json, cổng scripts/test/legal-i18n.mjs`);
