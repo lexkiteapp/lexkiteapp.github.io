@@ -230,7 +230,7 @@
   //   Ủy quyền trên document (pha bắt): sync.js vẽ lại #avatarBtn bằng outerHTML (nút đăng nhập / ảnh tài khoản) → bộ nghe gắn thẳng vào nút sẽ mất
   document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#avatarBtn'), b = $('#themeBtn'); if (!a || !b || b.getClientRects().length || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); e.stopPropagation(); App.accountMenu(); }, true);
   // Avatar đầu trang Stitch (< 1024 px, không có nút sáng/tối) → cùng menu tài khoản (mục "Tài khoản" vẫn sang #/me)
-  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('.v2 header a[href="#/me"]'); if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); App.accountMenu(); });
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('.v2 header a[href="#/me"]'); if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); App.accountMenu(); }, true); // pha bắt: bộ chặn liên kết "#…" của index.html (<base>) đã preventDefault ở pha nổi trước bộ này
   // 🔥 Cờ lớp giữ thói quen (docs/RETENTION.md §5): ?ret=1/0 (thử máy này) > config ret '0' tắt khẩn / '1' bật hết > ret_pct: nhóm lk.rb (0–99, ngẫu nhiên, cố định theo máy) < ret_pct
   // Đo D7: App.retArm() = 'on' (nhóm bật) | 'off' (đối chứng cùng cỡ: lk.rb ∈ [50, 50+pct)) | '' → retTrack gửi 1 lần/máy 'seen' và 1 lần khi chuỗi chạm 7 (functions/api/hit.js RET_EV)
   const retCfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
