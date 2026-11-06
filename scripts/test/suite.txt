@@ -115,6 +115,7 @@ node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
+node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
@@ -197,6 +198,7 @@ node scripts/test/ext-bundles.mjs
 node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
+node scripts/test/audio-pr-branch.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs

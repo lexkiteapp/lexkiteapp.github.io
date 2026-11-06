@@ -74,7 +74,7 @@
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
 - [MEDIA-QA-RUBRIC.md](MEDIA-QA-RUBRIC.md) — Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90; đọc khi: chấm lô ảnh/video
-- [PERF-SCROLL.md](PERF-SCROLL.md) — Cuộn mượt: luật khung màn, content-visibility, hiệu ứng vô hạn; cách đo và cổng CI scroll-perf.
+- [PERF-SCROLL.md](PERF-SCROLL.md) — Hiệu năng web: cuộn mượt (luật khung màn, content-visibility, cổng scroll-perf) + tải trang 6 route (LCP/TBT/CLS/INP/byte trên lexkite.com, danh sách việc theo lợi ích).
 - [OTA.md](OTA.md) — Cập nhật OTA cho app Android/iOS: bản web ký ECDSA phát qua GitHub Release, /api/ota, kiểm chữ ký/minNative/rollback, nhắc cập nhật native; đọc khi: sửa web/js/ota.js, scripts/ota, hoặc prod-release job ota
 - [METHODS.md](METHODS.md) — Luật lõi: điều phối, repo/remote/ship, ngân sách, việc nặng = CI, i18n, nội dung, video, lỗi đã mắc, tài khoản & hạ tầng; đọc khi: ĐẦU MỖI PHIÊN
 - [BACKLINKS.md](BACKLINKS.md) — Kế hoạch backlink miễn phí mới: 20 nơi đăng (kho dữ liệu, học liệu mở, chợ học liệu, kỹ thuật bản địa) chữ điền sẵn; đọc khi: làm backlink/PR
