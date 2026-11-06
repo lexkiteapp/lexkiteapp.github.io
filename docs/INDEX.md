@@ -25,6 +25,7 @@
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
 - [specs/admin-audit.md](specs/admin-audit.md) — Kiểm toán Quản trị 05/11: 12 lỗi gốc R1–R12, IA 6 nhóm/hub, kế hoạch 3 PR, kiểm kê từng tab; đọc khi: sửa trang /admin.html
 - [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch (oEmbed, RSS, Data API có trần), add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
+- [welcome](specs/welcome.md) — màn chào + thiết lập lần đầu: ai thấy gì, đi đâu; đọc khi sửa welcome.js, onboard.js, gen-hero
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [specs/community.md](specs/community.md) — Spec Cộng đồng người học 3/11: phòng học, chat, phòng nói WebRTC, mời bạn/bạn học, học chung, an toàn + tuổi, $0 (DO/D1/TURN), 7 đợt sau cờ `community`; đọc khi: làm bất kỳ phần nào của #/community
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
