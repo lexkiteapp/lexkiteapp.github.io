@@ -12,6 +12,8 @@ on:
   workflow_run:
     workflows: [codemap]
     types: [completed]
+  schedule:
+    - cron: '23,53 * * * *'   # lưới an toàn: GitHub có thể đang tính mergeable lúc main đổi (06/11 bỏ sót #757)
   workflow_dispatch:
     inputs:
       pr: { description: 'Số PR (bỏ trống = mọi PR dirty đang hoạt động)', required: false }
