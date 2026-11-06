@@ -252,9 +252,7 @@
   const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
     on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
     on('notif', () => { const n = el('notifBtn'); if (n) n.click(); });
-    on('menu', () => { const X = (App.EXAMS || {})[exam()] || {}, box = UI.modal(`<div class="ux1-menu"><h2>${t('Tài khoản')}</h2><a class="btn" data-m="x" href="#/me">${t('Tài khoản')}</a><button type="button" class="btn ghost" data-m="exam">${t('Kỳ thi')}${X.short ? ': ' + esc(X.short) : ''}</button><button type="button" class="btn ghost" data-m="theme">${t('Đổi giao diện sáng/tối')}</button></div>`), m = document.querySelector('.ux1-menu');
-      if (!m) return; const go = f => { const c = UI.closeModal || window.closeModal; if (c) c(); f(); };
-      m.addEventListener('click', e => { const w = e.target.closest('[data-m]'); if (!w) return; const v = w.dataset.m; go(() => { if (v === 'exam' && App.examPicker) App.examPicker(); if (v === 'theme') { const b = el('themeBtn'); if (b) b.click(); } }); }); box; });
+    on('menu', () => App.accountMenu()); // một menu tài khoản chung (app.js)
     const src = el('notifBadge'), dots = root.querySelectorAll('[data-notif-badge]'); if (src && dots.length) { const sync = () => dots.forEach(d => { d.textContent = src.textContent; d.className = src.hidden ? 'hidden' : 'notif-dot'; }); sync(); const o = new MutationObserver(sync); o.observe(src, { attributes: true, childList: true, characterData: true, subtree: true }); if (App.onCleanup) App.onCleanup(() => o.disconnect()); } };
   const langBtn = root => root.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); }));
   async function home2(o) {
@@ -429,7 +427,7 @@
 .ux1-today{display:flex;flex-direction:column;gap:.45rem;color:var(--text);text-decoration:none}.ux1-today small{color:var(--muted)}
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
 @media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))!important}}
+@media (max-width:1023px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))!important}}
 /* chuyển động: chỉ transform/opacity (60 fps), View Transitions cho đổi tab, @starting-style cho thẻ cột phải */
 .ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
 .ux1-rail>*{transition:opacity .18s ease}@starting-style{.ux1-rail>*{opacity:0}}
@@ -439,5 +437,5 @@ body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transiti
     document.head.appendChild(s);
   }
 
-  window.Ux1 = { reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level, needLevel, levelInvite }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
+  window.Ux1 = { headBtns, reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level, needLevel, levelInvite }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
 })();
