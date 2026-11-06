@@ -47,6 +47,6 @@ for (const f of fs.readdirSync(path.join(ROOT, 'web/js')).filter(x => x.endsWith
   assert.equal(n, f === 'dictionary.js' ? 1 : 0, `${f}: gọi Datamuse trực tiếp ${n} lần`);
 }
 // Biểu đồ 14 cột dự báo: cột hẹp thì nhãn thưa, nhãn cuối không bao giờ tràn (trước: chỉ đỏ khi cột cuối rơi vào thứ Hai → QA bot đỏ theo ngày)
-assert.ok(/class="bars dense"/.test(read('web/js/app.js')), 'biểu đồ dự báo dùng .bars.dense');
-assert.ok(/@container[^{]*\{[^}]*\.bars\.dense > div:nth-child\(even\) > small[^}]*display: none/.test(read('web/css/style.css')), '14 cột: cột cuối (chẵn) không có nhãn khi hẹp');
+assert.ok(/class="bars dense"/.test(read('web/js/stats-page.js')), 'biểu đồ dự báo dùng .bars.dense');
+assert.ok(/@container[^{]*\{[^}]*\.bars\.dense > div:nth-child\(even\) > small[^}]*display: none/.test(read('web/css/style.css') + read('web/css/lazy-ui.css')), '14 cột: cột cuối (chẵn) không có nhãn khi hẹp');
 console.log('✓ datamuse-resilience: khóa đệm theo origin, 1 lệnh hỏng rồi nghỉ, dự phòng + Thử lại, không gọi trực tiếp, nhãn biểu đồ');

@@ -8,7 +8,7 @@ export function collect() {
   vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
   for (const f of fs.readdirSync('web/js/listen').filter(f => /^test\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/js/listen/' + f, 'utf8'), c);
   for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
-  for (const f of fs.readdirSync('web/js/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/js/toefl/' + f, 'utf8'), c);
+  for (const f of fs.readdirSync('web/cpack/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/cpack/toefl/' + f, 'utf8'), c);
   // Cambridge A2–C2 (docs/specs/cambridge.md): mỗi unit nghe có speakers + script như TOEFL
   if (fs.existsSync('web/js/cambridge')) for (const l of fs.readdirSync('web/js/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/js/cambridge/' + l).filter(f => /^t\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync(`web/js/cambridge/${l}/${f}`, 'utf8'), c);
   const camUnits = (c.CAMBRIDGE || []).flatMap(T => ((T.listening || {}).parts || []).flatMap(p => p.units || [])).map(u => ({ ...u, _g: 'cambridge-listening' }));
@@ -86,12 +86,7 @@ export function collect() {
         for (const t of strs(u.task === 'opinion' ? [u.model] : (u.questions || []).map(q => q.model))) bothSplit(t, 'toeic-speaking'); }
       for (const v of Object.values(GEN)) addOne(v, 'This is a sound check. If you can hear this clearly, you are ready.', 'ui-lines'); }
     // TOEFL Interview: câu trả lời mẫu (data-saysent → accent người học)
-    // Cambridge Speaking: câu hỏi giám khảo (UI.tts 'en-GB') + lời bạn cùng thi (UI.tts 'en-US') – web/js/cambridge.js
-  for (const T of c.CAMBRIDGE || []) for (const p of (T.speaking || {}).parts || []) {
-    for (const q of [...(p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]), p.prompt, ...(p.follow || [])]) if (q) addOne(GEN['en-GB'], q, 'cambridge-speaking');
-    for (const l of p.partnerLines || []) addOne(GEN['en-US'], l, 'cambridge-speaking');
-  }
-  for (const u of (c.TOEFL || {}).speaking || []) for (const q of u.questions || []) bothSplit(q.model, 'toefl-models');
+    for (const u of (c.TOEFL || {}).speaking || []) for (const q of u.questions || []) bothSplit(q.model, 'toefl-models');
     // Thi thử Speaking Part 2 (mock.js, giọng Anh): lời dẫn + đề, UI.tts tách câu
     { const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13, B = vm.runInNewContext(sp.slice(i0, sp.indexOf('\n  ];', i0) + 4), { t: v => v });
       for (const b of [...B, ...(c.SPEAK_MORE || [])]) { const t = `Now I'd like you to talk about a topic for one to two minutes. You have one minute to prepare. ${b.p2.q}`; for (const sen of c.KVoice.split(t)) addOne(GEN['en-GB'], sen, 'mock-speaking'); } }

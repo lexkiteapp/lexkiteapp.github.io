@@ -17,11 +17,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Playwright + espeak-ng
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+          sudo apt-get install -y -qq espeak-ng >/dev/null
           python3 -m pip install -q pillow
       - name: Mẫu âm thanh (giọng espeak-ng, 16 kHz mono, có khoảng lặng)
         run: |

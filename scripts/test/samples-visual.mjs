@@ -31,7 +31,9 @@ const check = () => {
     if (over && getComputedStyle(r).display === 'none') out.push(`hàng cuộn "${nav.className}" không có dấu hiệu cuộn`);
     if (!over && (getComputedStyle(r).display !== 'none' || getComputedStyle(l).display !== 'none')) out.push(`hàng "${nav.className}" có nút cuộn thừa`);
     if (getComputedStyle(nav).overflowX === 'hidden') out.push('hàng lọc bị cắt, không cuộn được');
-    for (const b of [r, l]) if (getComputedStyle(b).display !== 'none' && (b.offsetWidth < 44 || b.offsetHeight < 44)) out.push('nút cuộn < 44 px'); }
+    for (const b of [r, l]) if (getComputedStyle(b).display !== 'none' && (b.offsetWidth < 44 || b.offsetHeight < 44)) out.push('nút cuộn < 44 px');
+    if (over) { const nr = nav.getBoundingClientRect(); for (const b of [r, l]) { const br = b.getBoundingClientRect(); if (br.width && br.right > nr.left + 1 && br.left < nr.right - 1) out.push('nút cuộn đè lên chip (phải nằm trong lề riêng .tfw.ovf)'); }
+      if (l.getAttribute('aria-disabled') !== 'true') out.push('đầu hàng: nút lùi phải aria-disabled'); } }
   // Hub nhất quán (05/11, chủ: "/tu-vung/ lộn xộn, nhảy lung tung"): MỘT điều hướng danh mục, ô đều, icon/chữ một cỡ, lề thẳng
   const navs = [...main.querySelectorAll('nav')].filter(n => n.querySelector('a[href^="#g-"]'));
   if (navs.length > 1) out.push(`trùng điều hướng: ${navs.length} nav cùng liệt kê danh mục (${navs.map(n => n.className).join(' + ')})`);

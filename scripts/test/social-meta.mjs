@@ -115,7 +115,7 @@ due(CB, 'gc-facebook_page-2', now + 2 * H); const bB = await board(CB, 'gc-faceb
 GC.down = true; gcCalls = []; MG.calls = [];
 let r = await A.runAuto(ENV, { now, sleep });
 ok(/db_budget/.test(String(r.stop)) && r.provider.cur === 'meta' && r.provider.why === 'db_budget_guard', `lượt 1: GrabCast 503 db_budget_guard → cầu dao + chuyển Meta NGAY trong lượt (${r.stop} ${JSON.stringify(r.provider)})`);
-ok(r.alerts.length === 1 && r.alerts[0].k === 'failover' && /Meta/.test(r.alerts[0].text), 'cảnh báo failover (1 issue/email) giao cho CI');
+{ const fo = r.alerts.filter(a => !/^(no-new-clips|manifest-stale|no-channels|no-approved|nothing-planned)$/.test(a.k)); /* cảnh báo sức khỏe chuỗi có test riêng ở social-auto */ ok(fo.length === 1 && fo[0].k === 'failover' && /Meta/.test(fo[0].text), 'cảnh báo failover (1 issue/email) giao cho CI'); }
 gcCalls = []; r = await A.runAuto(ENV, { now: now + M60, sleep });
 
 ok(r.provider.cur === 'meta' && !r.alerts.length && !gcCalls.length, 'lượt 2: cầu dao còn mở → Meta, 0 lượt GrabCast, không báo lại');
