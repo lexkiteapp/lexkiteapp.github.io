@@ -22,7 +22,7 @@
 .ss .lsn-ln{box-shadow:none!important} /* viền: để bong bóng giữ viền Stitch (border-2); trước đây border-width:1px!important đặt lên <li> ngoài (không có màu viền → hộp trắng cứng quanh cả dòng) */
 .ss .lsn-ln.ss-in{animation:ss-in .24s cubic-bezier(.2,.8,.2,1) both}
 .ss .ss-col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
-.ss .ss-act{display:flex;gap:var(--sp-2);align-items:center;justify-content:flex-start;margin-top:var(--sp-2);flex-direction:row!important}
+.ss .ss-act{display:flex;gap:var(--sp-2);align-items:center;justify-content:flex-start;margin-top:var(--sp-1);flex-direction:row!important}
 .ss .ss-act>button{order:0!important;margin:0!important;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:9999px}
 .ss .ss-slow{font-size:var(--ss-fs-emoji);line-height:1;background:transparent;border:0;color:inherit;cursor:pointer}
 .ss .lsn-ln p{touch-action:manipulation}
@@ -60,7 +60,7 @@
 .lsn-fx #lsnPlay,.lsn-fx #lsnSlow{min-width:44px;min-height:44px;border-radius:9999px}
 /* Kiểm tra: TẮT = xám phẳng chữ đủ tương phản; BẬT giữ nguyên mẫu Stitch (gradient cam – cổng stitch-diff vùng CTA ≥ 0,99, không được xa mẫu hơn) */
 @media (prefers-reduced-motion:no-preference){.lsn-fx #lsnCheck{transition:background-color .15s}}
-.lsn-fx #lsnCheck{text-transform:uppercase;letter-spacing:.02em} /* nút Kiểm tra viết hoa như mẫu Stitch (CHECK ANSWER), cùng kiểu nút Tiếp tục */
+#lsnCheck{text-transform:uppercase;letter-spacing:.02em} /* nút Kiểm tra viết hoa như mẫu Stitch (CHECK ANSWER), cùng kiểu nút Tiếp tục */
 .lsn-fx #lsnCheck:disabled{background-image:none!important;opacity:1!important;background-color:var(--ex-dis-bg)!important;color:var(--ex-dis-fg)!important;box-shadow:none!important;cursor:not-allowed}
 .lsn-fx .lsn-qfoot{--ss-fs-ic:16px}
 /* Bỏ qua / Báo lỗi: liên kết chữ nhỏ, lặng, dưới nút chính (không nền, không viền, không bóng) */
@@ -79,3 +79,7 @@
 :root .lsn-fx:has(.lsn-fv2) .lsn-opts{gap:var(--sp-2);animation:ss-in .2s cubic-bezier(.2,.8,.2,1) both}
 :root .lsn-fx:has(.lsn-fv2.ok) .lsn-opts .lsn-opt{height:4.5rem;min-height:4.5rem;padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
 @media (prefers-reduced-motion:reduce){:root .lsn-fx:has(.lsn-fv2) .lsn-opts{animation:none}}
+
+/* khớp nhịp dọc mẫu story-duo (đo trên ảnh stitch-diff): nhãn Ama sát sân khấu hơn 7 px, khối câu hỏi cách thẻ A/B/C 16 px như mẫu */
+.ss .lsn-chatp{margin-top:-.45rem}
+.ss .lsn-qblk{margin-bottom:-.5rem}

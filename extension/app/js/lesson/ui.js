@@ -20,7 +20,7 @@
     { word: 'salary', pos: 'noun', ipa: '/ˈsæl.ər.i/', ipaUS: '/ˈsæl.ɚ.i/', vi: 'tiền lương', def: 'money you get every month for your job', ex: 'Her salary is paid every month.', sentences: [{ en: 'Her salary is paid every month.', vi: 'Lương của cô ấy được trả hằng tháng.' }], srs: SRS(now0, 0) },
     { word: 'key card', pos: 'noun', ipa: '/ˈkiː ˌkɑːd/', ipaUS: '/ˈkiː ˌkɑːrd/', vi: 'thẻ từ (mở cửa phòng)', def: 'a plastic card that opens a door', ex: "My key card doesn't work.", srs: SRS(now0, 0) },
     { word: 'decide', pos: 'verb', ipa: '/dɪˈsaɪd/', ipaUS: '/dɪˈsaɪd/', vi: 'quyết định', def: 'to choose after thinking', ctx: 'We decided to stay at home tonight.', src: 'blog.example.com', sentences: [{ en: 'We decided to stay at home.', vi: 'Chúng tôi quyết định ở nhà.' }], srs: SRS(now0 + 5 * 864e5, 2) },
-    { word: 'listen', pos: 'verb', ipa: '/ˈlɪs.ən/', ipaUS: '/ˈlɪs.ən/', vi: 'lắng nghe', def: 'to pay attention to sound', ex: 'I like listening to music.', srs: SRS(now0 - 864e5, 1) },
+    { word: 'listening', pos: 'noun', ipa: '/ˈlɪs.ən.ɪŋ/', ipaUS: '/ˈlɪs.ən.ɪŋ/', vi: 'sự lắng nghe', def: 'the act of paying attention to sound', ex: 'I like listening to music.', srs: SRS(now0 - 864e5, 1) },
   ].map(c => (learnVi() ? c : Object.assign({}, c, { sentences: [] }))); // câu song ngữ mẫu chỉ có tiếng Việt → ngôn ngữ khác bỏ dạng dịch
   const STARTER = () => DEMO().map(c => Object.assign({}, c, { ctx: '', src: '', srs: SRS(now0, 0) }));
 
