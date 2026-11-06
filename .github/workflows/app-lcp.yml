@@ -77,7 +77,7 @@ jobs:
         run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
       - name: Đo 6 route ×3
         timeout-minutes: 18
-        env: { ONLY: '${{ inputs.only }}', TRACE: '${{ inputs.trace }}' }
+        env: { ONLY: 'today,review,lesson', TRACE: '1', RUNS: '1' }
         run: node scripts/test/route-vitals.mjs ${{ inputs.base || 'https://lexkite.com' }} out/route-vitals.json
       - if: always()
         uses: actions/upload-artifact@v4
