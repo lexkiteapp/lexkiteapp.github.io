@@ -48,7 +48,7 @@
     <li>회원님은 언제든지 데이터를 내보내고, 기기에서 삭제하고, 서버 사본의 삭제를 요청할 수 있습니다. <a href="#delete">데이터 삭제 방법</a>을 참조하세요.</li>
     </ul>
     <h2 id="data">2. 당사가 수집하는 데이터</h2>
-    <table>
+    <table tabindex="0">
     <tr><th>데이터</th><th>수집 시점</th><th>저장 위치</th></tr>
     <tr><td>조회하거나 저장한 단어, 그 주변 문장(최대 200자, 이메일이나 전화번호처럼 보이는 텍스트는 제외), 그리고 저장한 페이지의 제목과 웹사이트 이름(전체 주소가 아닌 도메인만이며, 영상 링크는 클립을 다시 재생할 수 있도록 유지됩니다) – 애드온 팝업의 “문맥 문장 저장”에서 끌 수 있습니다. 학습 진행 상황(복습 일정, XP, 연속 학습, 통계) 및 설정</td><td>학습하는 동안</td><td>회원님의 기기(브라우저 저장소, 앱 저장소 또는 확장 프로그램 저장소)</td></tr>
     <tr><td>Google 계정 이름, 이메일 주소, 프로필 사진 및 Firebase 사용자 ID</td><td>“Google로 로그인”을 선택한 경우에만</td><td>Firebase Authentication(Google). 이름, 이메일 주소, 사용자 ID는 최초 및 마지막 동기화 날짜, 동기화 횟수, 플랫폼(웹, iOS, Android, 확장 프로그램), 가장 최근 동기화의 국가(Cloudflare가 IP 주소로 판별하는 두 글자 코드이며 IP 주소 자체는 저장되지 않음)와 함께 Cloudflare D1의 당사 계정 테이블에도 보관됩니다</td></tr>
@@ -79,7 +79,7 @@
     <p>당사는 회원님에게 법적 효과 또는 이에 준하는 중대한 영향을 미치는 자동화된 의사결정에 회원님의 데이터를 사용하지 않습니다. AI 점수는 연습용 피드백일 뿐입니다.</p>
     <h2 id="third-parties">4. 서비스 제공업체 및 제3자 서비스</h2>
     <p>당사는 다음 제공업체를 이용합니다. 일부는 당사를 대신하여 데이터를 처리하며(수탁자), Google 번역이나 브라우저에 내장된 음성 인식 등 다른 서비스는 회원님의 기기로부터 요청을 직접 받아 각자의 개인정보 처리방침에 따라 처리합니다.</p>
-    <table>
+    <table tabindex="0">
     <tr><th>제공업체</th><th>용도</th><th>관련 데이터</th></tr>
     <tr><td>Cloudflare(<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">개인정보 처리방침</a>)</td><td>호스팅(Pages), 서버 기능, 데이터베이스(D1), Workers AI, 문의 양식의 Turnstile 스팸 방지 검사, 이메일 라우팅, 오디오 및 이미지 전송(audio.lexkite.com, media.lexkite.com)</td><td>위에서 설명한 모든 서버 측 데이터, 그리고 IP 주소와 브라우저 유형 등 기술적 요청 데이터</td></tr>
     <tr><td>Google Firebase Authentication / Google 로그인(<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase 개인정보 보호</a>, <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>)</td><td>로그인</td><td>이름, 이메일 주소, 프로필 사진, 사용자 ID</td></tr>
@@ -128,7 +128,7 @@
     <li><b>Google 광고 쿠키:</b> Google을 포함한 제3자 공급업체는 회원님의 Lexkite 또는 다른 웹사이트 이전 방문을 기반으로 광고를 게재하기 위해 쿠키를 사용합니다. Google이 광고 쿠키를 사용하면 Google과 그 파트너는 회원님의 Lexkite 및/또는 인터넷상의 다른 사이트 방문을 기반으로 광고를 게재할 수 있습니다. <a href="https://myadcenter.google.com/" rel="noopener">Google 내 광고 센터</a>(또는 <a href="https://adssettings.google.com/" rel="noopener">광고 설정</a>)에서 맞춤형 광고를 거부할 수 있으며, <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a> 또는 <a href="https://www.youronlinechoices.eu/" rel="noopener">youronlinechoices.eu</a>에서 일부 제3자 공급업체의 쿠키 사용을 거부할 수 있습니다. 휴대전화에서는 기기 설정에서 광고 식별자를 재설정하거나 제한할 수 있습니다.</li>
     </ul>
     <h2 id="retention">8. 데이터 보관 기간</h2>
-    <table>
+    <table tabindex="0">
     <tr><th>데이터</th><th>보관 기간</th></tr>
     <tr><td>기기의 학습 데이터</td><td>회원님이 삭제하거나, 사이트 데이터를 지우거나, 앱 또는 확장 프로그램을 제거할 때까지</td></tr>
     <tr><td>동기화된 학습 데이터, 계정 정보, 방문자 식별자와 계정 간의 연결 정보</td><td>계정을 사용하는 동안. 삭제 요청 후 30일 이내에 삭제</td></tr>

@@ -54,7 +54,7 @@ const page = (lang, name, body, translated, draft) => {
   <main class="doc">
     <div class="lg"><a class="brand" href="${landingHref(draft ? 'en' : lang)}" style="padding:0"><img class="logo" src="/icons/icon.svg?v=3" alt=""><span class="wordmark">lex<b>kite</b></span></a>
       <div class="tbx">${themeSwitch(draft ? 'en' : lang)}${langSwitch({ lang, langHref: twin, label: FOOT[draft ? 'en' : lang][16] })}</div></div>
-${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.split('\n').filter(Boolean).map(l => '    ' + l).join('\n')}
+${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.replace(/<table>/g, '<table tabindex="0">').split('\n').filter(Boolean).map(l => '    ' + l).join('\n')}
   </main>
 ${siteFooter({ lang: draft ? 'en' : lang, text: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].foot, tm: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].tm, langHref: twin }).replace('<footer class="site-foot">', `<footer class="site-foot"${draft && lang !== 'en' ? ' lang="en"' : ''}>`)}
 </body>
