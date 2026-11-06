@@ -15,7 +15,7 @@ Quy trình & tiêu chí nghiệm thu: `docs/CONTENT-PIPELINE.md`. Lấy lô Đ�
 | 9 | Ngữ pháp – bài A2 | 14 / 18 bài | 78% | 3 bài | điểm A2 hiện chỉ dạy ở bài B1 (quá khứ tiếp diễn bối cảnh, hiện tại hoàn thành trải nghiệm, will/going to…) – bài A2 nhẹ hơn (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check) | `web/js/grammar/*.js` |  |
 | 10 | IELTS Listening | 400 / 480 câu | 83% | 40 câu | — | `web/js/listen/test*.js` | Part 1: 100, Part 2: 100, Part 3: 100, Part 4: 100 |
 | 11 | IELTS Reading AC | 400 / 480 câu | 83% | 40 câu | — | `web/js/readtest/test*.js` | Passage 1: 130, Passage 2: 130, Passage 3: 140 |
-| 12 | TOEFL Reading | 240 / 280 câu | 86% | 40 câu | — | `web/js/toefl/data*.js` | Complete the Words: 100, daily: 40, academic: 100 |
+| 12 | TOEFL Reading | 240 / 280 câu | 86% | 40 câu | — | `web/cpack/toefl/data*.js` | Complete the Words: 100, daily: 40, academic: 100 |
 | 13 | TOEIC Listening | 700 / 800 câu | 88% | 50 câu | Part 1 (ảnh) ≥ 60 | `web/js/toeic/listening*.js` | Part 1: 42, Part 2: 175, Part 3: 273, Part 4: 210 |
 | 14 | TOEIC Reading | 700 / 800 câu | 88% | 50 câu | — | `web/js/toeic/reading*.js` | Part 5: 210, Part 6: 112, Part 7: 378 |
 | 15 | Ngữ pháp – bài B1 | 30 / 33 bài | 91% | 3 bài | bổ sung điểm B1 chưa có bài riêng (be able to, unless/in case, câu hỏi gián tiếp…) (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check) | `web/js/grammar/*.js` |  |

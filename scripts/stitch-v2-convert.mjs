@@ -67,7 +67,9 @@ function merge(L, D, RL, RD, doc) {
   const out = doc.createElement(L.tagName.toLowerCase());
   for (const a of L.attributes) if (!/^(class|style|on\w+|data-active-classes)$/i.test(a.name)) out.setAttribute(a.name, a.value);
   if (D) { const cl = classesOf(L, RL), cd = classesOf(D, RD), sl = new Set(cl), sd = new Set(cd);
-    const cls = [...cl.filter(c => sd.has(c)), ...cl.filter(c => !sd.has(c)).map(c => 'lt:' + c), ...cd.filter(c => !sl.has(c)).map(c => 'dk:' + c)];
+    // điểm dừng gradient: from-* tách lt:/dk: mà to-/via-* chung → Tailwind cho from-* đặt lại --tw-gradient-to (trong suốt) ở tầng lt:/dk: SAU to-* chung → gradient nhạt dần. Kéo to-/via-* chung theo cùng tầng.
+    const varFrom = cl.some(c => /^from-/.test(c) && !sd.has(c)) || cd.some(c => /^from-/.test(c) && !sl.has(c)), stop = c => varFrom && /^(to|via)-/.test(c);
+    const cls = [...cl.filter(c => sd.has(c) && !stop(c)), ...cl.filter(c => !sd.has(c) || stop(c)).map(c => 'lt:' + c), ...cd.filter(c => !sl.has(c) || stop(c)).map(c => 'dk:' + c)];
     if (cls.length) out.setAttribute('class', cls.join(' '));
     for (const a of D.attributes) if (!out.hasAttribute(a.name) && !/^(class|style|on\w+|data-active-classes)$/i.test(a.name)) out.setAttribute(a.name, a.value); // thuộc tính chỉ bản tối có (aria…)
   } else { const c = classesOf(L, RL); if (c.length) out.setAttribute('class', c.join(' ')); }
@@ -104,7 +106,7 @@ function emit(root, bind, k) {
     for (const [sel, expr] of Object.entries(b.after || {})) for (const el of QA(scope, sel)) el.after(el.ownerDocument.createTextNode(mark(expr))); // chèn thêm (vd giáo viên Chars cạnh nút hiện tại)
     for (const [sel, o] of Object.entries(b.attr || {})) for (const el of QA(scope, sel)) for (const [a, expr] of Object.entries(o)) { if (expr === 'null') el.removeAttribute(a); else el.setAttribute(a, mark(`e(${expr})`)); }
     for (const [sel, o] of Object.entries(b.cls || {})) for (const el of QA(scope, sel)) { const c = (el.getAttribute('class') || '').split(' ');
-      for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = mark(expr); } el.setAttribute('class', c.join(' ')); }
+      for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = el === scope && /^'[\w\-[\]./:]*'$/.test(expr) ? expr.slice(1, -1) : mark(expr); } el.setAttribute('class', c.join(' ')); } // gốc khung (root) là chuỗi class tĩnh → chỉ nhận literal, ghi thẳng
     for (const [sel, c] of Object.entries(b.setClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', c); // đặt lại cả class: chỉ ô giữ chỗ giáo viên (bỏ nền/viền ô, không hộp sau lưng giáo viên)
     for (const [sel, c] of Object.entries(b.addClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', ((el.getAttribute('class') || '') + ' ' + c).trim()); // chỉ class không đổi hình (cắt tràn, móc kiểm thử…)
     for (const [sel, o] of Object.entries(b.tag || {})) for (const el of QA(scope, sel)) { const n = el.ownerDocument.createElement(o.to); for (const a of el.attributes) n.setAttribute(a.name, a.value); // đổi thẻ (div → a href) giữ nguyên class

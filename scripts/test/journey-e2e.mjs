@@ -452,7 +452,14 @@ async function j7(lang) {
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
     // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
     const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
-    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
+    let shown = false; for (let i = 0; i < 4 && !shown; i++) { await pg.locator('#w').dblclick(); shown = await popUp(); }
+    // Đỏ ngẫu nhiên (1 lần ở #760, ar): bảng tra không hiện mà không pageerror → ghi trạng thái từng khâu để lần sau chỉ thẳng gốc
+    // (mồi boot.js có chạy/tự gỡ không · content.js đã chèn chưa · SW còn trả lkInject · phần tử bảng tra có trong DOM không)
+    if (!shown) {
+      const dom = await pg.evaluate(() => ({ el: !!document.querySelector('ielts-lexi-popup'), sr: !!document.querySelector('ielts-lexi-popup')?.shadowRoot, sel: String(getSelection() || '') })).catch(e => ({ err: e.message }));
+      const iso = await sw.evaluate(async () => { const [t] = await chrome.tabs.query({ url: 'https://news.example.test/*' }); if (!t) return { tab: 0 }; const [r] = await chrome.scripting.executeScript({ target: { tabId: t.id }, func: () => ({ boot: !!window.__lkBoot, off: !!(window.__lkBoot && window.__lkBoot.off), cs: !!window.__lkCS }) }); return { tab: t.id, ...(r && r.result) }; }).catch(e => ({ err: String(e.message || e).slice(0, 120) }));
+      fail('chẩn đoán bảng tra không hiện: ' + JSON.stringify({ dom, iso }));
+    }
     await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();

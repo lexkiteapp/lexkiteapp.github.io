@@ -25,19 +25,19 @@ diagrams: [
 quiz: [
   {
     q: "カナダのExpress Entryに使うIELTSは、どちらの種類ですか？",
-    options: ["Academicのみ", "General Trainingのみ", "どちらでもよい", "Life Skillsのみ"],
+    options: ["Academic（大学・大学院向け）のみ", "General Trainingのみ", "どちらでもよい（種類は問われない）", "Life Skills（面接形式）のみ"],
     answer: 1,
     explain: "カナダ政府（IRCC）のページでは、Express Entryに使えるIELTSはGeneral Trainingのみと案内されています。申し込み前に必ず種類を確認してください。"
   },
   {
     q: "「I want to live in Canada because there is a big nature.」の自然な直し方はどれですか？",
-    options: ["I want to live in Canada because there is big nature.", "I want to live in Canada because it has beautiful nature.", "I want to live in Canada because of a big nature.", "I want to live in Canada because the nature is a big."],
+    options: ["I want to live in Canada because there is big nature everywhere.", "I want to live in Canada because it has beautiful nature.", "I want to live in Canada because of a big nature around it.", "I want to live in Canada because the nature is a big one."],
     answer: 1,
     explain: "natureは数えられない名詞なので a をつけません。「自然が豊か」は it has beautiful nature のように have を使うと自然です。"
   },
   {
     q: "IELTSの結果の有効期間について、正しい考え方はどれですか？",
-    options: ["一度取れば永久に使える", "国と制度ごとに決まっているので、申請の公式ページで確認する", "どの国でも1年", "どの国でも10年"],
+    options: ["一度スコアを取れば、どの制度でも永久に使える", "国と制度ごとに決まっているので、申請の公式ページで確認する", "どの国でも取得から1年以内と決まっている", "どの国でも取得から10年間は有効とされている"],
     answer: 1,
     explain: "確認した範囲でも、カナダ・イギリス・ニュージーランドは「2年以内」、オーストラリアは原則「3年以内」と国ごとに違い、制度も変わることがあります。申請直前に公式ページで確認しましょう。"
   }

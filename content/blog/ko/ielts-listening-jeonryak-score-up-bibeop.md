@@ -56,7 +56,7 @@ IELTS 청취 훈련의 기본은 한국어로 번역하는 습관을 버리고 [
 - `NO MORE THAN TWO WORDS AND/OR A NUMBER`
 - `ONE WORD ONLY`
 
-만약 `ONE WORD ONLY` 조건인데 `the internet`이나 `a silver necklace`처럼 관사를 덧붙이면 즉시 오답 처리됩니다. 단어 자체의 의미 단위와 품사를 정확히 구분하려면 공인 어휘 자료 [/tu-vung/](/tu-vung/)를 주기적으로 확인하며 단어 감각을 키워야 합니다.
+만약 `ONE WORD ONLY` 조건인데 `the internet`이나 `a silver necklace`처럼 관사를 덧붙이면 즉시 오답 처리됩니다. 단어 자체의 의미 단위와 품사를 정확히 구분하려면 공인 어휘 자료 [/tu-vung/](/en/vocabulary/)를 주기적으로 확인하며 단어 감각을 키워야 합니다.
 
 ### 4. 알파벳 스펠링과 십단위 숫자 철저히 구별하기
 

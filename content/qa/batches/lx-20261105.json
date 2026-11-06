@@ -1,0 +1,212 @@
+{
+ "id": "20261105",
+ "source": "lexicon-expand",
+ "n": 54,
+ "checked": [
+  {
+   "id": "combative#adj",
+   "ok": true
+  },
+  {
+   "id": "tinnitus#n",
+   "ok": true
+  },
+  {
+   "id": "theologian#n",
+   "ok": true
+  },
+  {
+   "id": "distaste#n",
+   "ok": true
+  },
+  {
+   "id": "distinguishable#adj",
+   "ok": true
+  },
+  {
+   "id": "alkali#n",
+   "ok": true
+  },
+  {
+   "id": "electrochemical#adj",
+   "ok": true
+  },
+  {
+   "id": "refractive#adj",
+   "ok": true
+  },
+  {
+   "id": "acumen#n",
+   "ok": true
+  },
+  {
+   "id": "deft#adj",
+   "ok": true
+  },
+  {
+   "id": "aorta#n",
+   "ok": true
+  },
+  {
+   "id": "militarily#adv",
+   "ok": true
+  },
+  {
+   "id": "leprosy#n",
+   "ok": true
+  },
+  {
+   "id": "persevere#v",
+   "ok": true
+  },
+  {
+   "id": "microprocessor#n",
+   "ok": true
+  },
+  {
+   "id": "cognizant#adj",
+   "ok": true
+  },
+  {
+   "id": "smuggler#n",
+   "ok": true
+  },
+  {
+   "id": "hallucination#n",
+   "ok": true
+  },
+  {
+   "id": "destabilize#v",
+   "ok": true
+  },
+  {
+   "id": "futility#n",
+   "ok": true
+  },
+  {
+   "id": "ovulation#n",
+   "ok": true
+  },
+  {
+   "id": "coerce#v",
+   "ok": true
+  },
+  {
+   "id": "narcissist#n",
+   "ok": true
+  },
+  {
+   "id": "necrosis#n",
+   "ok": true
+  },
+  {
+   "id": "transgression#n",
+   "ok": true
+  },
+  {
+   "id": "cirrhosis#n",
+   "ok": true
+  },
+  {
+   "id": "intensification#n",
+   "ok": true
+  },
+  {
+   "id": "commercialization#n",
+   "ok": true
+  },
+  {
+   "id": "helical#adj",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): pos: adjective given but sense is a noun synset"
+  },
+  {
+   "id": "hypothermia#n",
+   "ok": true
+  },
+  {
+   "id": "hernia#n",
+   "ok": true
+  },
+  {
+   "id": "ischemia#n",
+   "ok": true
+  },
+  {
+   "id": "geopolitics#n",
+   "ok": true
+  },
+  {
+   "id": "quantification#n",
+   "ok": true
+  },
+  {
+   "id": "biosphere#n",
+   "ok": true
+  },
+  {
+   "id": "causality#n",
+   "ok": true
+  },
+  {
+   "id": "coaxial#adj",
+   "ok": true
+  },
+  {
+   "id": "annihilate#v",
+   "ok": true
+  },
+  {
+   "id": "succinctly#adv",
+   "ok": true
+  },
+  {
+   "id": "synthesize#v",
+   "ok": true
+  },
+  {
+   "id": "racehorse#n",
+   "ok": true
+  },
+  {
+   "id": "patently#adv",
+   "ok": true
+  },
+  {
+   "id": "decorator#n",
+   "ok": true
+  },
+  {
+   "id": "electrostatic#adj",
+   "ok": true
+  },
+  {
+   "id": "convergent#adj",
+   "ok": true
+  },
+  {
+   "id": "flawlessly#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: translation is adjective not adverb"
+  },
+  {
+   "id": "infrequently#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): level: C2 too high for a common adverb"
+  },
+  {
+   "id": "unattainable#adj",
+   "ok": true
+  },
+  {
+   "id": "pharmacological#adj",
+   "ok": true
+  },
+  {
+   "id": "biosynthesis#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-06",
+ "status": "published"
+}

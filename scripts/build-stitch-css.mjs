@@ -7,9 +7,10 @@
 // Cần tailwindcss@3.4.17 (CI: npm i --no-save). TAILWIND_BIN=… để chỉ đường khác. docs/DESIGN-SYSTEM.md §Stitch.
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
+import { snapCss } from './lib/st-theme-snap.mjs';
 
 const ROOT = process.cwd(), A = new Set(process.argv.slice(2)), BUDGET = 10 * 1024;
-const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8'));
+const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8')), TKN = JSON.parse(fs.readFileSync('brand/tokens.json', 'utf8')); // dtcg.color được SINH từ brand/tokens.json (build-tokens.mjs)
 // Nhóm màn = 1 file CSS. common.js (đầu trang, thanh tab, nút) góp vào mọi nhóm.
 const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['web/js/st/common.js', 'web/js/st/lesson.js'], goal: ['web/js/st/common.js', 'web/js/st/goal.js'] };
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
@@ -95,7 +96,8 @@ function hexA(h) { const a = h.length > 7 ? (parseInt(h.slice(7, 9), 16) / 255).
 function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR; return path.dirname(createRequire(path.join(ROOT, 'package.json')).resolve('tailwindcss/package.json')); }
 
 // RTL (ar): Stitch viết text-left/text-right (vật lý) → ở RTL chữ dính lề trái (visual-qa rtl-text-left). Đổi sang logical start/end: LTR y hệt, RTL tự lật.
-export const logical = css => css.replace(/text-align:left/g, 'text-align:start').replace(/text-align:right/g, 'text-align:end');
+export const logical = css => snapCss(css, TKN).replace(/text-align:left/g, 'text-align:start').replace(/text-align:right/g, 'text-align:end');
+// Một bảng màu: lớp lt:/dk: có màu trung tính → biến vai trò --st-* (scripts/lib/st-theme-snap.mjs, nguồn brand/tokens.json)
 function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
   fs.writeFileSync(cfg, (/^(v2|w)-/.test(g) ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng

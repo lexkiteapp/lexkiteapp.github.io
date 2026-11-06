@@ -205,7 +205,6 @@
 'Đóng': 'Close',
 
 /* ---------- method.js ---------- */
-'Đường cong quên lãng': 'Forgetting curve',
 '{n} thẻ đang ở thời điểm vàng': '{n} cards at their optimal time',
 'Không còn thẻ đến hạn': 'No cards due',
 'Lặp lại ngắt quãng': 'Spaced repetition',

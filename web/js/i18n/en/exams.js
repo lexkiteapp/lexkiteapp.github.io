@@ -15,6 +15,8 @@
 'Kéo để đổi độ rộng cột': 'Drag to resize the columns',
 'Lời dẫn': 'Narrator',
 'Đang phát – chỉ nghe 1 lần': 'Playing – you will hear this only once',
+'Chạm ▶ để nghe': 'Tap ▶ to listen',
+'Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)': 'The audio didn’t start – tap to listen (this doesn’t use up your one listen)',
 'Sang phần tiếp': 'Next section',
 'Phần nghe chưa phát xong. Vẫn chuyển tiếp?': 'The recording hasn’t finished. Move on anyway?',
 'Nộp bài Reading?': 'Submit Reading?',
