@@ -22,6 +22,9 @@ for (const l of LANGS) {
 // CSS: vùng bấm ≥ 44 px cả máy tính (cổng web-sweep/theme-static), ≥ 48 px điện thoại; gọn nhờ bố cục, không nhờ thu nhỏ ô bấm
 assert.match(FOOT_CSS, /\.site-foot \.fg a,\.flegal a\{[^}]*min-height:44px/);
 assert.match(FOOT_CSS, /\.fbtn\{[^}]*min-height:44px/);
+// web-sweep đo cả tiêu đề nhóm (summary) trên desktop và bề ngang link pháp lý ngắn ("Terms") trên điện thoại
+assert.match(FOOT_CSS, /\.fg summary\{[^}]*min-height:44px/);
+assert.match(FOOT_CSS, /\.flegal a\{[^}]*min-width:44px/);
 assert.match(FOOT_CSS, /@media \(max-width:720px\)\{.*\.site-foot \.fg a,\.flegal a\{min-height:48px\}/s);
 assert.match(FOOT_CSS, /@media \(max-width:720px\)\{.*\.fg summary\{[^}]*pointer-events:auto/s);
 assert.match(TAP_CSS, /\.site-foot li a,\.flangs a\{display:inline-flex[^}]*min-height:44px/);
@@ -37,7 +40,7 @@ if (process.argv.includes('--browser')) {
     const ctx = await br.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: vp.isMobile, hasTouch: vp.hasTouch }), pg = await ctx.newPage();
     const r = await pg.goto(srv.origin + p, { waitUntil: 'load' }); if (!r || !r.ok()) { await ctx.close(); continue; }
     await pg.waitForTimeout(1200);
-    const m = await pg.evaluate(() => { const f = document.querySelector('footer.site-foot'); if (!f) return null; const a = [...f.querySelectorAll('a,summary,button')].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').map(e => e.getBoundingClientRect()); return { h: Math.round(f.getBoundingClientRect().height), sw: document.documentElement.scrollWidth - innerWidth, minTap: Math.round(Math.min(...a.map(r => r.height))) }; });
+    const m = await pg.evaluate(() => { const f = document.querySelector('footer.site-foot'); if (!f) return null; const a = [...f.querySelectorAll('a,summary,button')].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').map(e => e.getBoundingClientRect()); return { h: Math.round(f.getBoundingClientRect().height), sw: document.documentElement.scrollWidth - innerWidth, minTap: Math.round(Math.min(...a.map(r => Math.min(r.height, r.width)))) }; });
     if (!m) continue;
     const err = [m.h > vp.max && `cao ${m.h}px > ${vp.max}`, m.sw > 0 && `tràn ngang ${m.sw}px`, vp.isMobile && m.minTap < 44 && `vùng chạm ${m.minTap}px < 44`, !vp.isMobile && m.minTap < 44 && `vùng bấm ${m.minTap}px < 44`].filter(Boolean);
     console.log(`${err.length ? '✗' : '✓'} ${vp.n} ${p}: footer ${m.h}px${err.length ? ' – ' + err.join(', ') : ''}`); bad += err.length;
