@@ -3,13 +3,16 @@
 // Node thuần (npm test). Thêm `--browser [dist]` (CI quality-sweep, cần playwright) → đo chiều cao thật: máy tính ≤ 480 px, điện thoại (đã gập) ≤ 760 px.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { siteFooter, footGroups, FOOT_CSS, FOOT_JS, TAP_CSS, LANG_NAMES, LEGAL_RE } from '../lib/site-layout.mjs';
+import { siteFooter, footGroups, FOOT_CSS, FOOT_JS, TAP_CSS, LANG_NAMES, LEGAL_RE, FOOT } from '../lib/site-layout.mjs';
 const LANGS = Object.keys(LANG_NAMES);
 assert.equal(LANGS.length, 15);
 for (const l of LANGS) {
   const h = siteFooter({ lang: l, text: 'Lexkite – x', tm: 'TM' }), g = footGroups(l);
   const hrefs = [...h.matchAll(/<a [^>]*href="([^"]+)"/g)].map(m => m[1]);
   for (const [u] of [...g.product, ...g.learn, ...g.tools, ...g.co]) assert.ok(hrefs.includes(u), `${l}: mất link ${u}`);
+  // gate SEO họ trang thư viện so chữ hiển thị với main: gộp cột không được làm mất nhãn nhóm (Sản phẩm/Học/Công cụ miễn phí/Thông tin)
+  for (const i of [0, 18, 19, 2]) { const t = g.f[i] || FOOT.en[i]; assert.ok(h.includes(t), `${l}: mất nhãn nhóm "${t}"`); }
+  for (const [, t] of [...g.product, ...g.learn, ...g.tools, ...g.co]) assert.ok(h.includes(t), `${l}: mất chữ link "${t}"`);
   for (const k of LANGS) assert.ok(h.includes(`hreflang="${k}"`), `${l}: mất link ngôn ngữ ${k}`);
   const legal = (h.match(/<span class="flegal">(.*?)<\/span>/) || [])[1] || '';
   assert.equal((legal.match(/<a /g) || []).length, g.co.filter(([u]) => LEGAL_RE.test(u)).length, `${l}: hàng pháp lý`);
