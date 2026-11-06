@@ -26,17 +26,21 @@ export async function listRuns(gh, status) {
 export const stillOpen = r => !!r && r.status !== 'completed';
 export async function zombieRuns(gh, { now = Date.now(), cancel = true, settleMs = 4000, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const queued = await listRuns(gh, 'queued'), out = [];
-  for (const r of queued.filter(x => isZombie(x, now)).slice(0, MAX_CHECK)) {
+  // 06/11: 17 lượt > 24 giờ KHÔNG gỡ được qua API (cancel/force-cancel 409, DELETE 403) – chiếm hết MAX_CHECK + mỗi giờ tốn ~2 phút ngủ vô ích và che lượt zombie mới.
+  // Lượt ≥ DELETE_MIN: DELETE thẳng (1 lệnh, không huỷ/ngủ, không tính vào MAX_CHECK); không gỡ được → ghi rõ "cần GitHub Support", không thử lại bằng huỷ.
+  const all = queued.filter(x => isZombie(x, now)), oldRuns = all.filter(x => now - Date.parse(x.created_at) >= DELETE_MIN * 6e4), youngRuns = all.filter(x => !oldRuns.includes(x)).slice(0, MAX_CHECK);
+  const why = e => String(e.message || e).replace(/^.*→ /, '');
+  for (const r of [...oldRuns, ...youngRuns]) {
     const jobs = (await gh(`/actions/runs/${r.id}/jobs?per_page=1`)) || {};
     if (jobs.total_count !== 0) continue;
     const z = { id: r.id, file: String(r.path || '').split('/').pop() || r.name, min: Math.round((now - Date.parse(r.created_at)) / 6e4) };
-    if (cancel) {
-      const why = e => String(e.message || e).replace(/^.*→ /, '');
+    if (cancel && z.min >= DELETE_MIN) {
+      try { await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); z.deleted = true; z.cancel = 'xoá'; } catch (e) { z.deleted = why(e); z.cancel = 'không gỡ được qua API (cancel 409 / DELETE ' + why(e) + ') – cần GitHub Support'; }
+    } else if (cancel) {
       const open = async () => { await sleep(settleMs); return stillOpen(await gh(`/actions/runs/${r.id}`).catch(() => null)); };   // 202 ≠ đã huỷ: đọc lại
       try { await gh(`/actions/runs/${r.id}/cancel`, { method: 'POST' }); z.cancel = 'ok'; } catch (e) { z.cancel = why(e); }
       if (z.cancel === 'ok' && await open()) z.cancel = 'cancel 202 nhưng vẫn queued';
       if (z.cancel !== 'ok') try { await gh(`/actions/runs/${r.id}/force-cancel`, { method: 'POST' }); z.cancel = 'ok'; if (await open()) z.cancel = 'force-cancel 202 nhưng vẫn queued'; } catch (e) { /* giữ lý do của cancel */ }
-      if (z.cancel !== 'ok' && z.min >= DELETE_MIN) try { await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); z.deleted = true; } catch (e) { z.deleted = why(e); }
     }
     out.push(z);
   }
