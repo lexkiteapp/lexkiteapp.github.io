@@ -83,3 +83,7 @@
 /* khớp nhịp dọc mẫu story-duo (đo trên ảnh stitch-diff): nhãn Ama sát sân khấu hơn 7 px, khối câu hỏi cách thẻ A/B/C 16 px như mẫu */
 .ss .lsn-chatp{margin-top:-.45rem}
 .ss .lsn-qblk{margin-bottom:-.5rem}
+/* Mẫu Stitch: tấm hội thoại chạm ngay chân nhân vật (không dải sàn 34 px) → cắt đáy sân khấu, ảnh giữ nguyên vị trí đầu */
+.ss .ss-stage{height:calc(var(--ss-h) - 34px);align-items:flex-start}
+.ss .ss-seat{height:var(--ss-h)}
+.ss .ss-floor{display:none}
