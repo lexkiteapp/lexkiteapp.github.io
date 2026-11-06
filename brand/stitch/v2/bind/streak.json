@@ -177,7 +177,7 @@
      },
      "cls": {
       ":scope > div:nth-child(1) > div:nth-child(2) > div > span": {
-       "dk:text-[#EEF6F7]": "'dk:text-[#261A00]'"
+       "dk:text-[#EAF2F2]": "'dk:text-[#261A00]'"
       }
      }
     }
