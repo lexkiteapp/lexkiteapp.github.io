@@ -63,6 +63,11 @@ async function browser() {
       const geo = await page.evaluate(() => { const r = s => { const e = document.querySelector(s); return e && e.getBoundingClientRect().toJSON(); }; const chips = [...document.querySelectorAll('main > div > div:first-child span')].map(e => e.getBoundingClientRect().toJSON()); return { hdr: r('header'), chips, stage: r('.ss-stage'), floor: r('.ss-floor'), imgs: [...document.querySelectorAll('.ss-fig img')].map(i => i.getBoundingClientRect().toJSON()) }; });
       ok(geo.chips.every(c => c.top >= geo.hdr.bottom - 1), `${tag}: chip AMA/ĐỐI THOẠI/CARLOS bị đầu trang che`);
       ok(geo.imgs.every(i => i.bottom <= geo.floor.bottom + 1 && i.bottom >= geo.floor.top - 1), `${tag}: chân nhân vật không nằm trên/trong sàn (đường cắt lộ)`);
+      { const fl = await page.evaluate(() => { const r = s => { const e = document.querySelector(s); return e && e.getBoundingClientRect().toJSON(); }; return { floor: r('.ss-stage .ss-floor'), stage: r('.ss-stage'), sheet: r('#lsnChat'), vh: innerHeight, bg: getComputedStyle(document.querySelector('.ss-stage .ss-floor')).backgroundColor, dis: getComputedStyle(document.querySelector('.ss-stage .ss-floor')).display }; });
+        ok(fl.dis !== 'none' && fl.floor.height > 0 && fl.bg !== 'rgba(0, 0, 0, 0)', `${tag}: bệ .ss-floor phải hiển thị (cao > 0, có màu)`);
+        ok(fl.floor.top >= fl.stage.top - 1 && fl.floor.bottom <= fl.stage.bottom + 1, `${tag}: bệ .ss-floor bị khung sân khấu cắt (nằm ngoài .ss-stage)`);
+        ok(fl.floor.bottom <= fl.vh && fl.floor.top >= 0, `${tag}: bệ .ss-floor ngoài viewport`);
+        ok(fl.sheet.top - fl.floor.top >= 4, `${tag}: bệ .ss-floor bị tấm hội thoại che hết (cần lộ ≥ 4 px)`); }
       // chạm Tiếp tục → âm chỉ phát sau chạm, người nói sáng, đổi theo dòng
       const speakers = []; { await page.click('#lsnGo').catch(() => {}); await page.waitForFunction(() => { const s = document.querySelector('.ss-stage'); return s && s.dataset.speaker; }, null, { timeout: 3000 }).catch(() => {}); speakers.push(await page.evaluate(() => (document.querySelector('.ss-stage') || {}).dataset?.speaker)); } // 1 lần chạm: dòng 2 (Carlos); chạm tiếp là vào bài Xếp câu của truyện
       ok(new Set(speakers.filter(Boolean)).size >= 1, `${tag}: người nói không sáng (data-speaker)`);
