@@ -85,11 +85,11 @@
        "border-[#2BA39A]": "r.on ? 'border-[#2BA39A]' : 'lt:border-[#EADEC8] dk:border-[#2B4750]'",
        "lt:bg-[#E3F6F4]/60": "r.on ? 'lt:bg-[#E3F6F4]/60' : 'lt:bg-white'",
        "lt:shadow-[0_5px_0_0_#125A55]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
-       "dk:bg-[#143D3B]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#14272D]'",
+       "dk:bg-[#143D3B]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
        "dk:shadow-[0_5px_0_0_#0A2726]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
       },
       ":scope > div:nth-child(2)": {
-       "bg-[#2BA39A]": "r.on ? 'bg-[#2BA39A]' : 'lt:bg-[#FFF7EA]/80 dk:bg-[#0E1E22]'",
+       "bg-[#2BA39A]": "r.on ? 'bg-[#2BA39A]' : 'lt:bg-[#FBF7F1]/80 dk:bg-[#122023]'",
        "lt:border-white": "r.on ? 'lt:border-white' : 'lt:border-[#EADEC8]'",
        "dk:border-[#6BD8CE]": "r.on ? 'dk:border-[#6BD8CE]' : 'dk:border-[#2B4750]'"
       }
@@ -115,15 +115,15 @@
        "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
        "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
-       "dk:bg-[#14272D]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#14272D]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
        "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
       },
       ":scope > div:nth-child(2)": {
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
-       "lt:bg-[#FFF7EA]/80": "r.on ? '' : 'lt:bg-[#FFF7EA]/80'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
-       "dk:bg-[#0E1E22]": "r.on ? '' : 'dk:bg-[#0E1E22]'"
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
       }
      },
      "after": {
@@ -147,15 +147,15 @@
        "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
        "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
-       "dk:bg-[#14272D]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#14272D]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
        "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
       },
       ":scope > div:nth-child(2)": {
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
-       "lt:bg-[#FFF7EA]/80": "r.on ? '' : 'lt:bg-[#FFF7EA]/80'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
-       "dk:bg-[#0E1E22]": "r.on ? '' : 'dk:bg-[#0E1E22]'"
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
       }
      },
      "after": {
@@ -179,15 +179,15 @@
        "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
        "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
-       "dk:bg-[#14272D]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#14272D]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
        "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
       },
       ":scope > div:nth-child(2)": {
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
-       "lt:bg-[#FFF7EA]/80": "r.on ? '' : 'lt:bg-[#FFF7EA]/80'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
-       "dk:bg-[#0E1E22]": "r.on ? '' : 'dk:bg-[#0E1E22]'"
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
       }
      },
      "after": {
@@ -211,15 +211,15 @@
        "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
        "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
-       "dk:bg-[#14272D]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#14272D]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
        "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
       },
       ":scope > div:nth-child(2)": {
        "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
-       "lt:bg-[#FFF7EA]/80": "r.on ? '' : 'lt:bg-[#FFF7EA]/80'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
        "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
-       "dk:bg-[#0E1E22]": "r.on ? '' : 'dk:bg-[#0E1E22]'"
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
       }
      },
      "after": {

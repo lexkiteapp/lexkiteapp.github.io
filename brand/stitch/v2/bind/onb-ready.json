@@ -1,7 +1,7 @@
 {
  "_doc": "Thiết lập – bước Sẵn sàng. 4 chỉ số thật (gói · trình độ · mục tiêu · cường độ) thành lưới 2 × 2: bản cũ có đủ 4 dòng, không bỏ dòng nào. Mẫu không có Back: thêm nút cùng khuôn top-bar (§5d, ≥ 44 px). Bỏ quầng mờ sau giáo viên (METHODS §0).",
  "styles": true,
- "rootClass": "relative overflow-x-hidden flex flex-col items-center justify-center min-h-screen lt:bg-[#FFF7EA] dk:bg-[#081518] lt:text-[#0F3D3E] dk:text-[#EEF6F7]",
+ "rootClass": "relative overflow-x-hidden flex flex-col items-center justify-center min-h-screen lt:bg-[#FBF7F1] dk:bg-[#091416] lt:text-[#0F3D3E] dk:text-[#EAF2F2]",
  "text": {
   "Diagnostic Complete • 4 of 4": "d.stepTxt",
   "You're all set!": "d.q",
@@ -42,7 +42,7 @@
   }
  },
  "after": {
-  ":scope > div:nth-child(6)": "'<button id=\"onbBack\" type=\"button\" aria-label=\"' + e(t('Quay lại')) + '\" class=\"absolute top-3 start-4 z-20 w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 flex items-center justify-center ms-flip lt:bg-white lt:border-[#EADEC8] lt:text-[#0F3D3E] lt:shadow-[0_3px_0_0_#D8CFBC] dk:bg-[#13252B] dk:border-[#28434D] dk:text-[#EEF6F7] dk:shadow-[0_3px_0_0_#0A1518] active:translate-y-0.5\"><span class=\"material-symbols-rounded text-2xl\" aria-hidden=\"true\">arrow_back</span></button>'"
+  ":scope > div:nth-child(6)": "'<button id=\"onbBack\" type=\"button\" aria-label=\"' + e(t('Quay lại')) + '\" class=\"absolute top-3 start-4 z-20 w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 flex items-center justify-center ms-flip lt:bg-white lt:border-[#EADEC8] lt:text-[#0F3D3E] lt:shadow-[0_3px_0_0_#D8CFBC] dk:bg-[#162528] dk:border-[#28434D] dk:text-[#EAF2F2] dk:shadow-[0_3px_0_0_#0A1518] active:translate-y-0.5\"><span class=\"material-symbols-rounded text-2xl\" aria-hidden=\"true\">arrow_back</span></button>'"
  },
  "remove": [
   ":scope > main > div:nth-child(2) > div:nth-child(1)"

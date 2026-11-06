@@ -1,7 +1,7 @@
 {
  "_doc": "Thiết lập – bước Cường độ. 3 mức thật (paces() của onboard.js: phút khớp Tutor PACE, số từ khớp dailyNew), mẫu vẽ 4 mức + nhắc nhở giờ giả + chuỗi 14 ngày giả → bỏ. Icon từng mức lấy từ mẫu qua protos.",
  "styles": true,
- "rootClass": "lt:bg-[#FFF7EA] dk:bg-[#081518] lt:text-[#0F3D3E] dk:text-[#EEF6F7]",
+ "rootClass": "lt:bg-[#FBF7F1] dk:bg-[#091416] lt:text-[#0F3D3E] dk:text-[#EAF2F2]",
  "text": {
   "3 / 4": "d.stepTxt",
   "Habit Builder": "d.kicker",

@@ -4,7 +4,7 @@
  "swap": {
   "w-[1280px]": "w-full"
  },
- "rootClass": "lt:bg-[#FFF8F5] dk:bg-[#081518] lt:text-[#191C1B] dk:text-[#EEF6F7]",
+ "rootClass": "lt:bg-[#FBF7F1] dk:bg-[#091416] lt:text-[#162124] dk:text-[#EAF2F2]",
  "text": {
   "lexkite": "'lexkite'",
   "sustainable": "'sustainable'",

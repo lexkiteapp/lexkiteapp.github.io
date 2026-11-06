@@ -16,10 +16,10 @@
           colors: {
             cream: '#FFF7EA',
             'cream-tint': '#FBF1E0',
-            'card-border': '#E3D2B4',
-            'card-ledge': '#E3D2B4',
-            'ink-main': '#102225',
-            'ink-muted': '#435254',
+            'card-border': '#DED4C4',
+            'card-ledge': '#DED4C4',
+            'ink-main': '#162124',
+            'ink-muted': '#45555A',
             'teal-link': '#17595A',
             'teal-glyph': '#17595A',
             'cta-ink': '#1A0E0B',
@@ -49,7 +49,7 @@
     }
     body {
       background-color: #FFF7EA;
-      color: #102225;
+      color: #162124;
       font-family: 'Plus Jakarta Sans', sans-serif;
       margin: 0;
       padding: 0;
@@ -71,33 +71,33 @@
     }
     .secondary-card-btn {
       background: #FFFFFF;
-      border: 2px solid #E3D2B4;
+      border: 2px solid #DED4C4;
       border-radius: 9999px;
-      box-shadow: 0 4px 0 #E3D2B4;
-      color: #102225;
+      box-shadow: 0 4px 0 #DED4C4;
+      color: #162124;
       font-weight: 700;
       transition: transform 0.08s ease, box-shadow 0.08s ease;
     }
     .secondary-card-btn:active {
       transform: translateY(2px);
-      box-shadow: 0 2px 0 #E3D2B4;
+      box-shadow: 0 2px 0 #DED4C4;
     }
     .card-tactile {
       background: #FFFFFF;
-      border: 2px solid #E3D2B4;
+      border: 2px solid #DED4C4;
       border-radius: 16px;
-      box-shadow: 0 4px 0 #E3D2B4;
+      box-shadow: 0 4px 0 #DED4C4;
     }
     .grade-btn {
       background: #FFFFFF;
-      border: 2px solid #E3D2B4;
+      border: 2px solid #DED4C4;
       border-radius: 12px;
-      box-shadow: 0 3px 0 #E3D2B4;
+      box-shadow: 0 3px 0 #DED4C4;
       transition: transform 0.08s ease, box-shadow 0.08s ease;
     }
     .grade-btn:active {
       transform: translateY(2px);
-      box-shadow: 0 1px 0 #E3D2B4;
+      box-shadow: 0 1px 0 #DED4C4;
     }
   </style>
 </head>
@@ -107,7 +107,7 @@
   <header class="w-[390px] h-16 px-4 bg-cream flex items-center justify-between sticky top-0 z-50 border-b border-card-border/60">
     <!-- Brand left: kite logo placeholder + wordmark 'lexkite' -->
     <a href="#" class="flex items-center gap-2 min-h-[44px] py-1">
-      <div class="w-8 h-8 rounded-lg bg-cream-tint border border-card-border flex items-center justify-center text-teal-glyph shadow-[0_2px_0_#E3D2B4]">
+      <div class="w-8 h-8 rounded-lg bg-cream-tint border border-card-border flex items-center justify-center text-teal-glyph shadow-[0_2px_0_#DED4C4]">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#F2553B" opacity="0.9"/>
           <path d="M12 2L12 22M3 11L21 11" stroke="#17595A" stroke-width="2" stroke-linecap="round"/>
@@ -119,13 +119,13 @@
     <!-- Right: language selector pill and 'Sign in' button -->
     <div class="flex items-center gap-2">
       <!-- Language selector pill (min 44px) -->
-      <button type="button" class="h-11 px-3 rounded-full bg-white border-2 border-card-border flex items-center gap-1 text-sm font-semibold text-ink-main shadow-[0_2px_0_#E3D2B4] active:translate-y-0.5" aria-label="Change language">
+      <button type="button" class="h-11 px-3 rounded-full bg-white border-2 border-card-border flex items-center gap-1 text-sm font-semibold text-ink-main shadow-[0_2px_0_#DED4C4] active:translate-y-0.5" aria-label="Change language">
         <span class="material-symbols-rounded text-[18px] text-teal-glyph">language</span>
         <span>EN</span>
       </button>
 
       <!-- Sign in button (min 44px) -->
-      <button type="button" class="h-11 px-4 rounded-full bg-white border-2 border-card-border text-sm font-bold text-ink-main shadow-[0_2px_0_#E3D2B4] active:translate-y-0.5 flex items-center justify-center">
+      <button type="button" class="h-11 px-4 rounded-full bg-white border-2 border-card-border text-sm font-bold text-ink-main shadow-[0_2px_0_#DED4C4] active:translate-y-0.5 flex items-center justify-center">
         Sign in
       </button>
     </div>
@@ -154,7 +154,7 @@
       <!-- TEACHER SLOT: empty soft rounded block standing on a floor line -->
       <div class="w-full flex flex-col items-center mb-6">
         <div class="w-[200px] h-[170px] rounded-2xl bg-cream-tint"></div>
-        <!-- Floor line: 4px rounded line #E3D2B4 beneath it -->
+        <!-- Floor line: 4px rounded line #DED4C4 beneath it -->
         <div class="w-[240px] h-1 bg-card-ledge rounded-full mt-2"></div>
       </div>
 
@@ -198,7 +198,7 @@
       <!-- Interactive Flashcard -->
       <div class="card-tactile p-5 flex flex-col items-center text-center mb-4">
         <!-- Speaker / Listen icon button (min 44px) -->
-        <button type="button" class="w-11 h-11 rounded-full bg-cream-tint border border-card-border flex items-center justify-center text-teal-glyph shadow-[0_2px_0_#E3D2B4] active:translate-y-0.5 mb-3" aria-label="Listen pronunciation">
+        <button type="button" class="w-11 h-11 rounded-full bg-cream-tint border border-card-border flex items-center justify-center text-teal-glyph shadow-[0_2px_0_#DED4C4] active:translate-y-0.5 mb-3" aria-label="Listen pronunciation">
           <span class="material-symbols-rounded text-2xl">volume_up</span>
         </button>
 
