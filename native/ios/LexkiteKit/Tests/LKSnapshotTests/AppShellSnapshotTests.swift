@@ -7,7 +7,7 @@ import LKStore
 import LKSync
 import LKDesign
 
-/// Snapshot gate at 390 pt: light/dark × en/vi/ar(RTL)/de(+40 % text) for the app frame and the Today screen.
+/// Snapshot gate at 390 pt: light/dark × en/vi/ar(RTL)/de(+40 % text) for the Today screen, Me (guest) and the top bars.
 /// References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing, all with =1) and verifies after.
 @MainActor
 final class AppShellSnapshotTests: XCTestCase {
@@ -15,42 +15,16 @@ final class AppShellSnapshotTests: XCTestCase {
         withSnapshotTesting(record: snapshotRecordMode()) { super.invokeTest() }
     }
 
-    static let langs = ["en", "vi", "ar", "de"]
-    static let schemes: [ColorScheme] = [.light, .dark]
-
-    /// Fixed, realistic learner state (no clock, no network): computed with the web definitions from a fixed document.
-    static func sample(hour: Int = 9) -> TodaySnapshot {
-        var cal = Calendar(identifier: .gregorian); cal.timeZone = TimeZone(identifier: "UTC")!
-        let ms = 1_772_366_400_000.0
-        var cards: [String: JSON] = [:]
-        for i in 0..<8 { cards["w\(i)"] = ["word": .string("w\(i)"), "vi": "x", "srs": ["reps": 2, "last": .number(ms - 864e5), "due": .number(ms - 1000)]] }
-        let doc = SyncDoc(cards: cards, stats: ["days": ["2026-03-01": 12, "2026-02-28": 20, "2026-02-27": 9], "newToday": ["day": "2026-03-01", "n": 10]],
-                          game: ["xp": 2240], settings: ["dailyGoal": 20, "examTarget": "6.5"])
-        var s = TodaySnapshot.compute(doc: doc, mistakes: 5, now: Date(timeIntervalSince1970: ms / 1000), calendar: cal)
-        s.hour = hour
-        return s
-    }
+    static let langs = SnapshotFixtures.langs
+    static let schemes = SnapshotFixtures.schemes
 
     func host<V: View>(_ v: V, lang: String, scheme: ColorScheme, theme: String = "auto") -> UIViewController {
-        let services = AppServices.preview(snapshot: Self.sample(), lang: lang, theme: theme)
-        let root = v.environment(services).environment(\.l10n, services.l10n)
-            .environment(\.layoutDirection, services.l10n.isRTL ? .rightToLeft : .leftToRight)
-            .environment(\.locale, Locale(identifier: lang))
-            .environment(\.colorScheme, scheme)
-        let vc = UIHostingController(rootView: root)
-        vc.overrideUserInterfaceStyle = scheme == .dark ? .dark : .light
-        return vc
+        SnapshotFixtures.host(v, lang: lang, scheme: scheme, theme: theme)
     }
 
-    func testAppShell() {
-        for lang in Self.langs {
-            for scheme in Self.schemes {
-                // TabView (iOS 26) attaches tab content + LazyVStack rows one runloop after the window: snapshot after it, not the empty first pass
-                assertSnapshot(of: host(AppShell(), lang: lang, scheme: scheme), as: .wait(for: 0.5, on: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98)),
-                               named: "\(lang)-\(scheme == .dark ? "dark" : "light")")
-            }
-        }
-    }
+    // testAppShell (the 5-tab frame, 8 images in __Snapshots__/AppShellSnapshotTests) runs in the app-hosted suite
+    // native/ios/AppTests/AppShellHostedSnapshotTests.swift: the iOS 26 TabView (Liquid Glass) only draws in a real key window,
+    // layer.render here gave an empty body + white bar (#721).
 
     func testToday() {
         for lang in Self.langs {

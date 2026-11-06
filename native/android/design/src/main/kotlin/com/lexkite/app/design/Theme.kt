@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -55,8 +56,15 @@ val LocalL10n = staticCompositionLocalOf<L10n> { error("LKTheme missing") }
 /** True when the system asks for no motion (Settings › Remove animations / animator duration scale 0). */
 val LocalReduceMotion = staticCompositionLocalOf { false }
 val LocalHaptics = staticCompositionLocalOf { LKHaptics.Off }
+/** True for joined scripts (Arabic, Devanagari): see [toCompose]. Set by [LKTheme] from the language. */
+val LocalJoinedScript = staticCompositionLocalOf { false }
+private val JOINED_SCRIPTS = setOf("ar", "hi")
 
-fun LKTextStyle.toCompose(): TextStyle = TextStyle(fontSize = size, lineHeight = lineHeight, fontWeight = FontWeight(weight), letterSpacing = trackingEm.em)
+/** Token tracking (e.g. headlineLg −0.02 em) is for Latin/Cyrillic/CJK only: on joined scripts it cuts the letter joins and
+ *  Compose measures the word too wide, so the Arabic Lesson title "درس" wrapped as "در / س" (#721). Those render at 0 tracking. */
+@Composable @ReadOnlyComposable
+fun LKTextStyle.toCompose(): TextStyle = TextStyle(fontSize = size, lineHeight = lineHeight, fontWeight = FontWeight(weight),
+    letterSpacing = if (LocalJoinedScript.current) 0.em else trackingEm.em)
 
 object LKAnim {
     val ease = CubicBezierEasing(LKMotion.EASE[0], LKMotion.EASE[1], LKMotion.EASE[2], LKMotion.EASE[3])
@@ -72,7 +80,7 @@ fun LKTheme(t: L10n, dark: Boolean, reduceMotion: Boolean = false, haptics: LKHa
     val m3 = if (dark) LKM3.dark else LKM3.light
     CompositionLocalProvider(
         LocalLKColors provides c, LocalL10n provides t, LocalReduceMotion provides reduceMotion, LocalHaptics provides haptics,
-        LocalLayoutDirection provides if (t.isRtl) LayoutDirection.Rtl else LayoutDirection.Ltr,
+        LocalLayoutDirection provides if (t.isRtl) LayoutDirection.Rtl else LayoutDirection.Ltr, LocalJoinedScript provides (t.lang in JOINED_SCRIPTS),
     ) { MaterialTheme(colorScheme = m3, content = content) }
 }
 
