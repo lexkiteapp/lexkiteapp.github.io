@@ -32,6 +32,7 @@
       // khung chữ + hàng 🔊/🐢 do MẪU Stitch (story-duo) dựng sẵn (.ss-col > p + .ss-act > nút nghe + .ss-slow) → chỉ gắn nhãn/hành động; thiếu (khung cũ) thì tự dựng như trước
       let act = n.querySelector('.ss-act'), slow = n.querySelector('.ss-slow'); const bub = play.closest('.ss-col') ? play.closest('.ss-col').parentNode : play.parentNode;
       if (!act || !slow) { act = D.createElement('div'); act.className = 'ss-act'; slow = D.createElement('button'); slow.type = 'button'; slow.className = 'ss-slow'; slow.innerHTML = '<span aria-hidden="true">🐢</span>'; const p = bub.querySelector('p'), col = D.createElement('div'); col.className = 'ss-col'; if (p) { bub.insertBefore(col, p); col.appendChild(p); } else bub.appendChild(col); col.appendChild(act); act.appendChild(play); act.appendChild(slow); play.classList.remove('order-last', 'order-first'); }
+      slow.setAttribute('data-noicon', ''); if (slow.querySelector('svg')) slow.innerHTML = '<span aria-hidden="true">🐢</span>'; // mẫu Stitch dùng emoji 🐢 màu (ui.js GLYPH sẽ vẽ lại thành icon Lucide trông như xe → lệch mẫu)
       slow.setAttribute('aria-label', T('Nghe chậm') + ' · ' + (it.who === 'carlos' ? 'Carlos' : 'Ama')); slow.onclick = ev => { ev.stopPropagation(); ctx.say(it.sent, true, it.who); };
       if (!reduced()) { n.classList.add('ss-in'); n.addEventListener('animationend', () => n.classList.remove('ss-in'), { once: true }); }
       const x = tch()[it.who]; if (x && x.react) x.react(emoOf(it.sent), 2200);

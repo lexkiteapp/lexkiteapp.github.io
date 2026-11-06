@@ -14,7 +14,7 @@
 .ss .ss-stage[data-speaker=""] .ss-fig,.ss .ss-seat.on .ss-fig{opacity:1}
 .ss .ss-seat.on[data-who="ama"]{transform:translateX(3%) scale(1.04)}.ss .ss-seat.on[data-who="carlos"]{transform:translateX(-3%) scale(1.04)}
 /* sàn chung: cùng màu mặt khung chat bên dưới; mép trên mờ nhẹ + bóng dưới chân hai người → đứng trên sàn, không lơ lửng */
-.ss .ss-floor{position:absolute;left:0;right:0;bottom:0;height:34px;background:var(--ss-floor);border-radius:var(--ss-r-top) var(--ss-r-top) 0 0;box-shadow:0 -1px 0 var(--ss-shade);pointer-events:none}
+.ss .ss-floor{position:absolute;left:0;right:0;bottom:0;height:30px;background:var(--ss-floor);border-radius:var(--ss-r-top) var(--ss-r-top) 0 0;box-shadow:0 -1px 0 var(--ss-shade);pointer-events:none}
 .ss .ss-floor::before{content:"";position:absolute;left:8%;right:8%;top:-7px;height:10px;border-radius:50%;background:radial-gradient(closest-side,var(--ss-shade),transparent)}
 /* chỉ báo người nói: chấm sáng trên chip tên */
 .ss .ss-who-on{outline:2px solid currentColor;outline-offset:1px}
@@ -84,6 +84,13 @@
 .ss .lsn-chatp{margin-top:-.45rem}
 .ss .lsn-qblk{margin-bottom:-.5rem}
 /* Căn theo ảnh stitch-diff (lượt 175b114e2): story – tấm hội thoại lên 20 px (bệ .ss-floor vẫn lộ ~20 px phía trên tấm); feedback – nút Tiếp tục sát hàng "Vì sao?" 13 px; lesson – nút Kiểm tra lên 4 px */
-.ss .ss-stage{margin-bottom:-20px}
+.ss .ss-stage{margin-bottom:-32px}
 :root .lsn-fx .lsn-fv2 #lsnNext{margin-top:-.8rem}
 :root .lsn-fx #lsnCheck{margin-top:-.25rem}
+/* Lượt ảnh stitch-diff 0fb658a7b: story – tấm hội thoại lên thêm 12 px (bệ vẫn lộ ~6 px) + bong bóng thấp hơn 4,5 px mỗi cái (mẫu: nhãn Ama/thẻ A-B-C lệch +13…+21 px); feedback sai – hàng nghe lại/thẻ từ điển gọn như mẫu (+14 px dồn lại) */
+.ss .lsn-ln>div:nth-child(2){padding-block:.86rem}
+:root .lsn-fx:has(.lsn-fv2.bad) .lsn-qcard{margin-top:.1rem}
+:root .lsn-fx:has(.lsn-fv2.bad) #lsnPlay{padding-block:.1rem}
+:root .lsn-fx:has(.lsn-fv2.bad) #lsnBub{padding-bottom:.15rem}
+:root .lsn-fv2.bad .lsn-dict button{margin-block:-.2rem}
+:root .lsn-fv2.bad .lsn-dict>p{margin-top:0}
