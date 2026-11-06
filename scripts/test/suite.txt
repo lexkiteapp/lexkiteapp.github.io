@@ -254,6 +254,7 @@ node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
+node scripts/test/css-lazy.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs
