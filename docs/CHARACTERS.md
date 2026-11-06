@@ -39,8 +39,10 @@
 
 Ghi chú cho `web/js/teacher-slot.js` (`.tslot-fig`, `.tslot-img`, `.tslot-ledge`):
 
-- Hình học (ảnh 1108×960, người chiếm y 8 %→100 %): ảnh cao 1,2 khung, đáy ảnh lùi 0,18 khung dưới đáy khung (phần mờ + quần bị khung cắt),
-- bệ cao 0,16 khung che dải 72 %→86 % ảnh (vạt áo) → mép nhìn thấy duy nhất là mặt bệ bo tròn; đầu cách đỉnh khung ~7 %.
+- Hình học (ảnh 1108×960, người y 62–911, đục tới y 865, thắt lưng Ama y 786–798): ảnh cao 1,1 khung (`--fh`), đáy ảnh lùi 0,01 khung (`--fb`) – MỘT nguồn cho ảnh tĩnh, clip và rig (`.tb-rig`).
+- Bệ cao 0,16 khung: mép trên ở y ≈ 812 – DƯỚI thắt lưng, TRÊN vạt mờ → người đứng trên mặt bệ, bệ không che thân; tay/đầu cao nhất (y 62) vẫn trong khung cắt (đỉnh −0,1).
+- 06/11 (ảnh chủ, Hôm nay tối): rig tụt 0,1 khung sau khi tải vì `.trig{position:relative}` chèn sau đè `.tb-rig{absolute}` → CSS mặc định của rig dùng `:where()` (độ ưu tiên 0); trước đó ảnh cao 1,2 / đáy −0,18 làm bệ che tới ngực.
+- Cổng: `scripts/test/teacher-bubble.mjs` (CI teacher-bubble.yml) – 360/1280 × sáng/tối × mọi cỡ: khung/ảnh/bệ/rig lệch ≤ 1 px trước ↔ sau khi ảnh + rig tải, CLS 0, mép bệ dưới thắt lưng đo trên chính ảnh.
 - Khung cắt .tslot-fig chỉ rộng vừa ảnh (ảnh rộng 1,2×1108/960 = 1,385 khung-cao, khung rộng 0,9 → mỗi bên lố 0,243 → lề 0,25) và cao hơn đỉnh 0,1.
 - overflow:clip (không phải hidden): khung hidden là KHUNG CUỘN – scrollIntoView/focus/tìm trong trang cuộn ảnh lên 0,18 khung → thân mờ lộ trên bệ
 - (final-qc streak: ảnh đáy = đáy khung dù bottom -20 px); clip không cuộn được. hidden đứng trước làm dự phòng cho trình duyệt cũ:

@@ -3,11 +3,12 @@
  * không khối xám, không lơ lửng. Cỡ chuẩn s/m/l/xl theo chiều cao khung (đồng bộ cổng scripts/test/teacher-native.mjs). Ảnh chỉ qua Chars (registry). */
 (function (g) {
   const SIZES = { xs: 48, s: 72, m: 112, l: 152, xl: 208 }; // px chiều cao khung (đầu → mặt bệ) – thêm cỡ = sửa docs/CHARACTERS.md + cổng
-  // Hình học khung và bệ: docs/CHARACTERS.md §Hình học chỗ giáo viên
-  const CSS = `.tslot{--h:112px;position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
+  // Hình học khung và bệ: docs/CHARACTERS.md §Hình học chỗ giáo viên. --fh/--fb = cao/đáy hình người – MỘT nguồn cho ảnh tĩnh, clip và rig (teacher-bubble .tb-rig):
+  // mép trên bệ (0,16 khung) nằm dưới thắt lưng (ảnh y ≤ 798/960) và trên vạt mờ (y ≥ 865) → người đứng trên mặt bệ, bệ không che thân (cổng teacher-bubble.mjs)
+  const CSS = `.tslot{--h:112px;--fh:calc(var(--h)*1.1);--fb:calc(var(--h)*-.01);position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
 .tslot-xs{--h:48px}.tslot-s{--h:72px}.tslot-m{--h:112px}.tslot-l{--h:152px}.tslot-xl{--h:208px}
 .tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden;overflow:clip}
-.tslot-img{position:absolute;left:50%;bottom:calc(var(--h)*-.18);height:calc(var(--h)*1.2);width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
+.tslot-img{position:absolute;left:50%;bottom:var(--fb);height:var(--fh);width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
 .tslot-flip .tslot-img{transform:translateX(-50%) scaleX(-1)}
 :is(canvas,video).tslot-img{opacity:0;transition:opacity .18s}.tslot.live :is(canvas,video).tslot-img{opacity:1}.tslot.live img.tslot-img{visibility:hidden}
 .tslot-ledge{position:absolute;left:2%;right:2%;bottom:0;height:calc(var(--h)*.16);border-radius:999px 999px calc(var(--h)*.06) calc(var(--h)*.06);background:var(--surface-2);box-shadow:inset 0 1px 0 rgb(255 255 255/.10),inset 0 calc(var(--h)*.02) calc(var(--h)*.03) rgb(0 0 0/.10),0 calc(var(--h)*.03) 0 var(--ledge)}

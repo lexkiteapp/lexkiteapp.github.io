@@ -54,7 +54,7 @@
 .tb-on[data-tch]{border-style:solid!important;border-color:transparent!important;background:none!important;box-shadow:none!important;overflow:visible}
 .tb-on .tslot-ledge{border-radius:calc(var(--h)*.03) calc(var(--h)*.03) calc(var(--h)*.05) calc(var(--h)*.05)}
 .tb-on .tslot::after{content:"";position:absolute;left:14%;right:14%;bottom:calc(var(--h)*.12);height:calc(var(--h)*.08);border-radius:50%;background:radial-gradient(closest-side,rgb(0 0 0/.22),rgb(0 0 0/.08) 55%,transparent);pointer-events:none}
-.tb-rig{position:absolute;left:50%;bottom:calc(var(--h)*-.18);height:calc(var(--h)*1.2);width:calc(var(--h)*1.2*1108/960);transform:translateX(-50%);pointer-events:none}
+.tb-rig{position:absolute;left:50%;bottom:var(--fb);height:var(--fh);width:calc(var(--fh)*1108/960);transform:translateX(-50%);pointer-events:none}
 .tb-rig>canvas{width:100%;height:100%}
 .tb-live .tslot-img{visibility:hidden}
 .tb-b::before{translate:0 var(--tb-d1,0px)}.tb-b::after{translate:0 var(--tb-d2,0px)}
