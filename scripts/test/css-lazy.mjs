@@ -93,6 +93,10 @@ if (import.meta.url === `file://${path.resolve(process.argv[1] || '')}`) {
   ok(!first.includes('/css/lazy-ui.css'), 'lazy-ui.css KHÔNG nằm trong file nạp ngay (SHELL ∪ web/app/index.html)');
   ok(/const LZCSS = n => \/\^\(ux1\|i18nx\|i18nl\)\$\/\.test\(n\) \? \[\] : \['css\/lazy-ui\.css'\]/.test(app) && /need1 = [^\n]*LZCSS\(n\)[^\n]*map\(loadCss\)/.test(app), 'need1 nạp + chờ lazy-ui.css cho mọi gói lười (trừ ux1/i18n)');
   ok(/App\.loadScript = src => Promise\.all\(\[loadScript\(src\), loadCss\('css\/lazy-ui\.css'\)\]\)/.test(app), 'App.loadScript (file lười lẻ) cũng chờ lazy-ui.css');
+  // thêm: App.loadScript (speak/app.js: js/speak/s/<id>.js) chỉ nạp tệp NGOÀI gói lười
+  const lzFiles = [...lazyModel().lazy].map(f => f.slice(4)), lsPre = [];
+  for (const f of fs.readdirSync('web/js', { recursive: true }).filter(f => /\.js$/.test(f) && f !== 'app.js')) { const t = rd('web/js/' + f); if (/App\.loadScript\b/.test(t)) for (const m of t.matchAll(/(?:App\.loadScript|\bld)\(\s*'([^']+)'/g)) lsPre.push(m[1]); }
+  ok(lsPre.length > 0 && !lsPre.some(p => lzFiles.some(f => f.startsWith(p))), `App.loadScript chỉ nạp tệp ngoài gói lười (${[...new Set(lsPre)].join(', ')})`);
   console.log(`  style.css ${(gzSize(rd(STYLE)) / 1024).toFixed(1)} KB gz (khung) · lazy-ui.css ${(gzSize(rd(LAZY_CSS)) / 1024).toFixed(1)} KB gz (lười)`);
   if (fail) process.exit(1);
 }
