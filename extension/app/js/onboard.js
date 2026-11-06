@@ -87,7 +87,7 @@
       if (k === 'ready') Object.assign(d, { q: t('Lộ trình của bạn'), goTxt: pick.lv === 'test' ? '🧭 ' + t('Làm bài kiểm tra đầu vào') : t('Bắt đầu Ngày {n}', { n: 1 }), sum: [
         { tpl: 'c1', ic: 'menu_book', k: t('Mục tiêu'), v: trName() }, { tpl: 'c1', ic: 'school', k: t('Trình độ'), v: pick.lv === 'test' ? '🧭 ' + t('Làm bài kiểm tra đầu vào') : lvName() || (K ? 'CEFR ' + K.TR[pick.track].stages[0].cefr : '') },
         { tpl: 'c2', ic: 'verified', k: tLabel().replace(/\?$/, ''), v: pick.target }, { tpl: 'c3', ic: 'local_fire_department', k: P[1], v: P[2] }] });
-      S.mount(view, 'onb-' + k, d, null);
+      S.mount(view, 'onb-' + k, d, null).classList.add('overflow-x-clip'); // giáo viên ở mép trái (px-5): canvas trong suốt của Chars.slot vượt mép màn 360/412 → cắt ở mép màn (phần nhìn thấy nằm trong màn), không cuộn ngang
       // thẻ gói = div role=radio của mẫu → bàn phím Enter/Space như bấm
       view.querySelectorAll('[role=radio][data-track]').forEach(c => c.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); } });
     };
