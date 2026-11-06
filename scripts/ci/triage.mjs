@@ -115,7 +115,7 @@ const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 const API = (process.env.GITHUB_API_URL || 'https://api.github.com') + '/repos/' + REPO;
 async function gh(path, { method = 'GET', body, raw = false, accept, fetcher = fetch } = {}) {
   const r = await fetcher(path.startsWith('http') ? path : API + path, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: accept === 'raw' ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-triage', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
-  if (!r.ok && r.status !== 404) throw new Error(`GitHub ${method} ${path.slice(0, 80)} → ${r.status}`);
+  if (!r.ok && r.status !== 404) throw new Error(`GitHub ${method} ${path.slice(0, 80)} → ${r.status}${[401, 403, 409].includes(r.status) ? ' ' + String(await r.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 140) : ''}`);   // 06/11: 403/409 của DELETE/cancel không kèm lý do → không biết vì sao 17 lượt không gỡ được
   if (r.status === 404) return null;
   return raw ? r.text() : r.status === 204 ? {} : r.json().catch(() => ({}));
 }
