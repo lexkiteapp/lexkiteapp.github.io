@@ -314,6 +314,7 @@
   const CDN = (() => { try { if (Store.isExtension || (window.VBNative && VBNative.is)) return null; const el = document.getElementById('vb-cdn'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })(); // { base: GitHub Pages, files: [file dữ liệu] }
   let cdnDown = false;
   const loadOne = src => new Promise(res => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => res(true); s.onerror = () => res(false); document.head.appendChild(s); });
+  const UNHASH = /^\/?h\/(.+)\.[0-9a-f]{10}(\.(?:js|css))$/; // h/js/x.<băm>.js → js/x.js (dự phòng khi bản băm đã gỡ)
   const loadScript = async src => {
     const viaCdn = CDN && !cdnDown && CDN.files.includes(src);
     if (viaCdn && await loadOne(CDN.base + src)) {}
@@ -321,7 +322,10 @@
       if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
       if (!await loadOne(src)) {
         // Đang triển khai (file tạm trả HTML lỗi) → chờ 1,5 s, thử lại 1 lần, bỏ bộ đệm
-        await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
+        // bản theo mã băm (h/…, scripts/build-hash.mjs) đã gỡ ở lần deploy mới (trang mở từ trước) → file gốc cùng đường dẫn
+        const plain = src.replace(UNHASH, '$1$2');
+        if (plain !== src && await loadOne(plain)) return;
+        await new Promise(r => setTimeout(r, 1500)); await loadOne(plain + (plain.includes('?') ? '&' : '?') + 'r=' + Date.now());
       }
     }
     const m = src.match(/^js\/i18n\/en\/([^/]+)\.js$/);
@@ -333,7 +337,7 @@
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
   const BCSS = { watch: 'css/watch.css', say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */ }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
-  const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
+  const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = () => res(); l.onerror = () => { const p = h.replace(UNHASH, '$1$2'); if (p !== h && l.getAttribute('href') === h) l.href = p; else res(); }; setTimeout(res, 1500); document.head.appendChild(l); }));
   App.loadCss = loadCss; App.lean = () => lean(); // ST2.mount: CSS màn v2 tải theo màn (st/v2/runtime.js LZ)
   // gói ux1: Hôm nay mở đầu → chỉ CSS Lộ trình + Hôm nay (size-budget routeGz.ux1); trang đầu là tab khác / máy tính / người mới → nạp luôn CSS màn đó
   //   cùng gói (được chờ trước khi vẽ: không nháy, không ẩn khung). Màn còn lại: st/v2/runtime.js tải theo màn + nạp lúc rảnh.
