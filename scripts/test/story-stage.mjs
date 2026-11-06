@@ -91,6 +91,9 @@ async function browser() {
       const rgb = s => '#' + s.match(/\d+/g).slice(0, 3).map(n => (+n).toString(16).padStart(2, '0')).join('');
       ok(col.dis && ratio(rgb(col.bg), rgb(col.fg)) >= 4.5, `${tag}: nút Kiểm tra (tắt) tương phản ${ratio(rgb(col.bg), rgb(col.fg)).toFixed(2)}`);
       ok(!col.chip, `${tag}: chip mục tiêu còn ở màn bài tập`);
+      { const fl = await p2.evaluate(() => { const f = document.querySelector('.lsn-fx .ex-seat .ss-floor'); if (!f) return null; const cs = getComputedStyle(f), b = f.getBoundingClientRect(), s = f.parentElement.getBoundingClientRect(); return { dis: cs.display, vis: cs.visibility, op: +cs.opacity, bg: cs.backgroundColor, h: b.height, w: b.width, inSeat: b.left >= s.left - 1 && b.right <= s.right + 1 && b.top >= s.top - 1 && b.bottom <= s.bottom + 1, inVp: b.right > 0 && b.left < innerWidth }; });
+        ok(fl && fl.dis !== 'none' && fl.vis !== 'hidden' && fl.op > 0 && fl.h > 0 && fl.w > 0 && fl.bg !== 'rgba(0, 0, 0, 0)', `${tag}: bệ .ss-floor dưới Ama ở bài tập phải hiển thị ${JSON.stringify(fl)}`);
+        ok(fl && fl.inSeat && fl.inVp, `${tag}: bệ .ss-floor ở bài tập bị khung .ex-seat cắt hoặc ngoài màn hình ${JSON.stringify(fl)}`); }
       ok(col.skip && /rgba\(0, 0, 0, 0\)|transparent/.test(col.skip.bg) && col.skip.size <= 13, `${tag}: Bỏ qua/Báo lỗi chưa lặng (${JSON.stringify(col.skip)})`);
       const rules = await p2.evaluate(() => { const a = document.querySelector('#lsnAns'); const s = getComputedStyle(a); return { img: s.backgroundImage.includes('gradient'), h: a.getBoundingClientRect().height }; });
       ok(rules.img && rules.h >= 100, `${tag}: không thấy dòng kẻ trả lời`);
