@@ -679,12 +679,6 @@
    "why": "vision description-sentence sim 0.1465",
    "b": "41821221567"
   },
-  "ecological footprint#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "vision: no (no footprint shown)",
-   "b": "41821221567"
-  },
   "economist#n": {
    "at": "2026-11-05",
    "tries": 6,
@@ -1561,12 +1555,6 @@
    "why": "meaning check: no (Is the person secretly taking a dead animal from t)",
    "b": "42082474448"
   },
-  "pollination#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "meaning check: no (Is a bee moving pollen from one part of the flower)",
-   "b": "41821221567"
-  },
   "port congestion#n": {
    "at": "2026-11-04",
    "tries": 6,
@@ -1981,6 +1969,12 @@
    "why": "vision: no (two more bricks and floor details)",
    "b": "42082474448"
   },
+  "succinctly#adv": {
+   "at": "2026-11-06",
+   "tries": 6,
+   "why": "meaning check: no (Is the person giving a brief and clear explanation)",
+   "b": "42165019349"
+  },
   "sue#v": {
    "at": "2026-11-05",
    "tries": 6,
@@ -2094,6 +2088,12 @@
    "tries": 6,
    "why": "meaning check: no (Is a sealed blank document being handed as proof o)",
    "b": "42101006887"
+  },
+  "transgression#n": {
+   "at": "2026-11-06",
+   "tries": 6,
+   "why": "meaning check: no (Is someone taking something that belongs to anothe)",
+   "b": "42165019349"
   },
   "transplant#n": {
    "at": "2026-11-05",

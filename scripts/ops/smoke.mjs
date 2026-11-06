@@ -43,6 +43,8 @@ export async function waitDeploy(sha, maxMin, base) {
   }
   return 'timeout';
 }
+/** 06/11: Pages gom deploy 180 phút (chế độ hook) → commit mới chưa lên site khi smoke chờ hết hạn ('timeout'); site live là bản TRƯỚC nên tuyến/nội dung mới của commit này 404/thiếu – không phải sự cố. Thuần: tách lỗi mềm (404 / thiếu nội dung = chưa deploy) khỏi lỗi cứng (5xx, hết giờ, lỗi mạng = site hỏng thật, vẫn đỏ). */
+export function splitUndeployed(bad) { const soft = [], hard = []; for (const b of bad) (/: (HTTP 404|thiếu )/.test(b) ? soft : hard).push(b); return { soft, hard }; }
 export function prevTag(cur) { // tag prod-* ngay trước bản hiện tại (theo ngày tạo)
   try { const t = execFileSync('git', ['tag', '--list', 'prod-2*', '--sort=-creatordate'], { encoding: 'utf8' }).split('\n').filter(Boolean); const i = t.findIndex(x => cur && x.endsWith('-' + String(cur).slice(0, 7))); return t[i + 1] || (i < 0 ? t[1] : '') || ''; } catch { return ''; }
 }
@@ -57,8 +59,10 @@ async function main() {
   const r = await runSmoke(base), rb = prevTag(sha), cmd = `bash scripts/ops/rollback-pages.sh ${rb || 'previous'}`;
   const out = `### ${r.bad.length ? '❌' : '✅'} Smoke ${base} · ${r.ok.length} đạt · ${r.bad.length} lỗi · ${(r.ms / 1000).toFixed(0)}s${sha ? ' · ' + sha.slice(0, 7) : ''}\n` + (r.bad.length ? r.bad.map(b => '- ❌ ' + b).join('\n') + `\n\n**Khôi phục (cần chủ OK, KHÔNG tự chạy):** \`${cmd}\` · xem trước: \`${cmd} --dry-run\` · hướng dẫn: docs/ROLLBACK.md` : '- mọi tuyến + API quan trọng đạt') + (note ? '\n- ⚠ ' + note : '');
   summary(out);
+  if (r.bad.length && /không thấy deploy/.test(note)) { const { soft, hard } = splitUndeployed(r.bad); if (!hard.length) { console.log(`::warning::commit ${sha.slice(0, 7)} chưa lên site (Pages gom deploy) → ${soft.length} tuyến mới 404/thiếu bị bỏ qua, KHÔNG xác minh được; không dời prod-good/OTA. ${soft.slice(0, 3).join(' | ')}`); summary('### ⏭️ Smoke: commit chưa deploy (Pages gom 180 phút) – chưa xác minh, không dời prod-good'); if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'verified=false\n'); return 0; } }
   if (r.bad.length) { console.log(`::error::Smoke production lỗi ${r.bad.length}/${r.ok.length + r.bad.length}: ${r.bad.slice(0, 4).join(' | ')}`); console.log(`::error::ROLLBACK (cần chủ OK): ${cmd}`); if (!noAlert) await alert('deploy', false, `Smoke production lỗi (${r.bad.length}): ${r.bad[0]} · rollback: ${cmd}`); return 1; }
   if (!noAlert) await alert('deploy', true, 'ok');
+  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'verified=true\n');
   return 0;
 }
 if (process.argv[1] && process.argv[1].endsWith('smoke.mjs')) main().then(c => process.exit(c)).catch(e => { console.error('✗ ' + e.message); process.exit(1); });

@@ -8,7 +8,7 @@ test -n "$(git status --porcelain -- content web scripts/factory)" || { echo "x�
 br="bot/content-factory-$(date -u +%Y%m%d)-${GITHUB_RUN_ID:-local}"
 git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
 git checkout -q -b "$br"
-git add -A content web
+git add -A content web extension
 git commit -qm "Xưởng nội dung: lô đêm $(date -u +%F) [CF-Pages-Skip]"
 git push -q origin "HEAD:refs/heads/$br"
 repo="${GITHUB_REPOSITORY:-lexkiteapp/lexkiteapp.github.io}"
