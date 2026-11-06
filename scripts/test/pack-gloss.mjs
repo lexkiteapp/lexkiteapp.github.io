@@ -57,3 +57,7 @@ for (const l of LANGS) for (const w of ['pregnant', 'currently']) ok(packs[l][w]
 
 const legacy = Object.fromEntries(LANGS.map(l => [l, Object.values(packs[l]).filter(v => v[1] === FLAG.LEGACY).length]));
 console.log(`✓ pack-gloss: ${n} kiểm · ${applied} nghĩa tay đã áp · còn chờ tinh chỉnh kiểm ngược (cờ 1): ${JSON.stringify(legacy)}`);
+
+// hồi quy 06/11 (a6bf18c13): bot lexicon-i18n phải ÁP LẠI bảng tay sau rebase + chạy pack-gloss trước khi đẩy main
+{ const y = (await import('node:fs')).readFileSync('.github/workflows/lexicon-i18n.yml', 'utf8'); const i = y.indexOf('rebase');
+  if (!(/gen-word-packs\.mjs "\$L" --gloss-only/.test(y) && /pack-gloss\.mjs \|\|[^\n]*KHÔNG đẩy/.test(y) && y.indexOf('--gloss-only') < y.indexOf('git push -q origin HEAD:main &&'))) { console.error('✗ lexicon-i18n.yml: sau rebase phải áp lại bảng tay (--gloss-only) và chạy pack-gloss trước khi push'); process.exit(1); } }
