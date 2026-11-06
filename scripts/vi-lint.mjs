@@ -8,7 +8,7 @@ const OLD = /(?<![\p{L}q])(?:[bcdđghklmnprstvx]|ch|kh|ng|nh|ph|th|tr)?(oà|oá|
 const files = []; const walk = (d, ext) => { if (!fs.statSync(d, { throwIfNoEntry: false })?.isDirectory()) return; for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) walk(p, ext); else if (p.endsWith(ext) && !SKIP.test(p)) files.push(p); } }; walk(ROOT, '.js'); if (fs.existsSync('content/blog')) for (const d of fs.readdirSync('content/blog')) walk(path.join('content/blog', d), '.md'); // chỉ thư mục bài (vi/, en/…), bỏ WRITING-GUIDE.md (có ví dụ sai cố ý)
 let n = 0;
 const NEWSTYLE = { oà: 'òa', oá: 'óa', oả: 'ỏa', oã: 'õa', oạ: 'ọa', oè: 'òe', oé: 'óe', oẻ: 'ỏe', oẽ: 'õe', oẹ: 'ọe', uỳ: 'ùy', uý: 'úy', uỷ: 'ủy', uỹ: 'ũy', uỵ: 'ụy' };
-const fixVi = s => s.replace(OLD, m => m.replace(/(oà|oá|oả|oã|oạ|oè|oé|oẻ|oẽ|oẹ|uỳ|uý|uỷ|uỹ|uỵ)$/iu, g => NEWSTYLE[g.toLowerCase()] || g)).replace(/[\p{L}]+/gu, w => { const t = TYPO[w.toLowerCase()]; return t === undefined ? w : (w[0] !== w[0].toLowerCase() ? t[0].toUpperCase() + t.slice(1) : t); });
+const fixVi = s => s.replace(OLD, m => m.replace(/(oà|oá|oả|oã|oạ|oè|oé|oẻ|oẽ|oẹ|uỳ|uý|uỷ|uỹ|uỵ)$/iu, g => NEWSTYLE[g.toLowerCase()] || g)).replace(/[\p{L}]+/gu, w => { const t = Object.hasOwn(TYPO, w.toLowerCase()) ? TYPO[w.toLowerCase()] : undefined; return t === undefined ? w : (w[0] !== w[0].toLowerCase() ? t[0].toUpperCase() + t.slice(1) : t); });
 if (process.argv.includes('--fix')) for (const f of files) { const a = fs.readFileSync(f, 'utf8').normalize('NFC'), b = fixVi(a); if (a !== b) { fs.writeFileSync(f, b); console.log('đã sửa', f); } }
 for (const f of files) {
   const s = fs.readFileSync(f, 'utf8').normalize('NFC');

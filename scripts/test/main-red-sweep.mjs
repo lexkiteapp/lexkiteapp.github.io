@@ -30,4 +30,11 @@ ok(/deployLagMin/.test(lc) && /SW_GRACE_MIN/.test(lc) && /GITHUB_TOKEN/.test(rd(
 ok(/on:[\s\S]*push:\s*\n\s+branches: \[main, stitch-quality\]/.test(rd('.github/workflows/stitch-quality-qc.yml')), 'stitch-quality-qc canh main');
 ok(/console\.error\(`✗ \$\{x\.f\.rel\}: \$\{String\(e\.code/.test(rd('scripts/footage/archive.mjs')), 'footage-archive: lỗi tải không còn im lặng');
 ok(/build-extension\.sh\s*\n\s+- name: npm test/.test(rd('.github/workflows/content-factory.yml')) && /git add -A content web extension/.test(rd('scripts/factory/open-pr.sh')), 'content-factory: dựng lại extension/app trước npm test và đưa vào PR bot (ext-sync đỏ ở collect)');
+// vi-lint --fix chạy THẬT trong thư mục tạm: "constructor"/"toString" (khóa Object.prototype) không được bị thay bằng mã nguồn hàm (06/11: engine.js hỏng ở Xưởng nội dung); "hoá" → "hóa"
+{ const { execFileSync } = await import('node:child_process'), os = await import('node:os'), path = await import('node:path'); const abs = path.resolve('scripts/vi-lint.mjs'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'vilint-'));
+  fs.mkdirSync(d + '/web/js', { recursive: true }); fs.copyFileSync('web/js/dictionary.js', d + '/web/js/dictionary.js');
+  fs.writeFileSync(d + '/web/js/x.js', "class A { constructor(a) {} toString() {} valueOf() {} }\n// hoá đơn, khoẻ\n");
+  try { execFileSync('node', [abs, '--fix'], { cwd: d, stdio: 'pipe' }); } catch (e) { /* còn lỗi khác thì thôi – chỉ kiểm nội dung */ }
+  const out = fs.readFileSync(d + '/web/js/x.js', 'utf8');
+  ok(out.includes('constructor(a)') && out.includes('toString()') && !out.includes('native code'), 'vi-lint --fix không phá constructor/toString'); ok(out.includes('hóa đơn') && out.includes('khỏe'), 'vi-lint --fix sửa hoá→hóa, khoẻ→khỏe'); }
 console.log(`main-red-sweep: ${n} kiểm tra PASS`);
