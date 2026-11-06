@@ -89,10 +89,10 @@
     const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';
     const DESC = 'Học từ vựng IELTS, TOEIC & TOEFL miễn phí: flashcard FSRS, từ điển song ngữ có phát âm, luyện 4 kỹ năng và thi thử có giải thích chi tiết.';
     const boot = () => {
-      if (coreDone) apply();
+      if (coreDone || D.en) apply();   // từ điển đã có (nạp trước/đồng bộ) → dịch ngay; chưa có → chờ lượt dịch sau khi file về
       // Trang ?hl=xx là phiên bản riêng của ngôn ngữ đó (không phải bản trùng của trang gốc)
       try { if (new URLSearchParams(location.search).get('hl') === lang) { const c = /** @type {HTMLLinkElement|null} */ (document.querySelector('link[rel="canonical"]')); if (c) c.href = c.href.split('?')[0] + '?hl=' + lang; } } catch (e) { /* bỏ qua */ }
-      if (coreDone) meta();
+      if (coreDone || D.en) meta();
     };
     // Gọi lại khi file từ điển nạp xong (script nạp động không chặn DOMContentLoaded)
     const meta = g.I18N.meta = () => { if (lang === 'vi') return; document.title = t(TITLE); const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t(DESC)); };
