@@ -132,13 +132,17 @@
   // ---------- Theme ----------
   // Một lựa chọn chung app ↔ trang ngoài (landing, blog, pháp lý…): localStorage 'lk.theme' (+ mốc 'lk.themeAt'), cùng mã chống nháy
   // trong <head> (scripts/lib/site-layout.mjs THEME_HEAD → lkT()); đổi ở tab khác → sự kiện storage. Thanh trình duyệt (meta theme-color) theo --bg.
+  const fadeTheme = () => { const r = document.documentElement; if (!fadeTheme.on || matchMedia('(prefers-reduced-motion: reduce)').matches) return; r.classList.add('lk-theming'); clearTimeout(fadeTheme.tm); fadeTheme.tm = setTimeout(() => r.classList.remove('lk-theming'), 240); };
   function applyTheme(o) {
     const t = state.settings.theme, r = document.documentElement, F = t === 'light' || t === 'dark';
+    fadeTheme(); fadeTheme.on = 1;
     if (F) r.setAttribute('data-theme', t); else r.removeAttribute('data-theme');
     const bg = F && getComputedStyle(r).getPropertyValue('--bg').trim();
     document.querySelectorAll('meta[name=theme-color]').forEach(m => { if (!m.dataset.c) m.dataset.c = m.content; m.content = bg || m.dataset.c; });
     if (!(o && o.remote)) try { const ls = localStorage; if ((ls.getItem('lk.theme') || 'auto') !== t || !ls.getItem('lk.themeAt')) { if (F) ls.setItem('lk.theme', t); else ls.removeItem('lk.theme'); ls.setItem('lk.themeAt', Date.now()); } } catch (e) { /* bỏ qua */ }
   }
+  { const mq = matchMedia('(prefers-color-scheme: dark)'), f = () => { if (state.settings.theme === 'auto') fadeTheme(); };
+    if (mq && mq.addEventListener) mq.addEventListener('change', f); else if (mq && mq.addListener) mq.addListener(f); }
   addEventListener('storage', e => { if (e.key === 'lk.theme') { state.settings.theme = e.newValue === 'light' || e.newValue === 'dark' ? e.newValue : 'auto'; applyTheme({ remote: 1 }); } });
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
@@ -815,17 +819,17 @@
 
   function modeTiles() {
     return [
-      ['learn', '🧠', t('Học thông minh'), t('Trắc nghiệm → gõ từ, thích ứng theo bạn'), '#ecebff'],
-      ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), '#fff4dc'],
-      ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), '#fde8f3'],
-      ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), '#e3f7ea'],
-      ['cloze', '✍️', t('Điền từ'), t('Hoàn thành câu IELTS'), '#dff6f5'],
-      ['listen', '🎧', t('Nghe & chép'), t('Nghe phát âm, gõ lại'), '#e6f0ff'],
-      ['handsfree', '🎧', t('Học rảnh tay'), t('Nghe liên tục, khóa màn hình vẫn học'), '#fdf2e9'],
-      ['reflex', '⚡', t('Phản xạ 60 giây'), t('Nghe câu ngắn, nhại lại, chấm từng từ'), '#eef6ff'],
-      ['test', '📝', t('Bài kiểm tra'), t('20 câu tổng hợp, chấm điểm'), '#f3e8ff'],
-      ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), '#fff1e6'],
-      ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), '#e0f2fe'],
+      ['learn', '🧠', t('Học thông minh'), t('Trắc nghiệm → gõ từ, thích ứng theo bạn'), 'var(--accent-soft)'],
+      ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), 'var(--gold-soft)'],
+      ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'],
+      ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), 'var(--good-soft)'],
+      ['cloze', '✍️', t('Điền từ'), t('Hoàn thành câu IELTS'), 'var(--accent-soft)'],
+      ['listen', '🎧', t('Nghe & chép'), t('Nghe phát âm, gõ lại'), 'var(--good-soft)'],
+      ['handsfree', '🎧', t('Học rảnh tay'), t('Nghe liên tục, khóa màn hình vẫn học'), 'var(--gold-soft)'],
+      ['reflex', '⚡', t('Phản xạ 60 giây'), t('Nghe câu ngắn, nhại lại, chấm từng từ'), 'var(--primary-soft)'],
+      ['test', '📝', t('Bài kiểm tra'), t('20 câu tổng hợp, chấm điểm'), 'var(--accent-soft)'],
+      ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), 'var(--gold-soft)'],
+      ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), 'var(--good-soft)'],
     ].map(([id, em, name, desc, bg]) => `<a class="mode" href="${id === 'write' || id === 'speaking' || id === 'handsfree' || id === 'reflex' ? '#/' + id : '#/practice/' + id}"><span class="em" style="background:${bg}">${UI.glyph(em)}</span><b>${name}</b><span class="muted small">${desc}</span></a>`);
   }
   App.modeTiles = modeTiles;
