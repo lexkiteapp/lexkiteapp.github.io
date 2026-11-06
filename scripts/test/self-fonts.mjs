@@ -25,15 +25,15 @@ for (const f of faces) {
   ok(f.family !== 'Be Vietnam Pro' || f.display === 'swap', `${f.file}: chữ thân phải font-display:swap (không chặn chữ)`);
 }
 
-// 3) preload đúng 1 font, có crossorigin + type, trỏ tới mặt 400 thường latin đã khai báo
+// 3) preload ĐÚNG 1 font: không link tĩnh (ux1 sẽ tải cả 2); script đầu <head> chọn pjs (ux1) HOẶC PRELOAD (mặc định), cùng hàm a() đặt crossOrigin+type
 const pre = [...head.matchAll(/<link\b[^>]*rel="preload"[^>]*>/g)].map(m => m[0]).filter(l => /as="font"/.test(l));
-ok(pre.length === 1, `preload font tĩnh trong <head>: ${pre.length} (phải đúng 1 – preload thừa tranh băng thông với chữ LCP)`);
-if (pre[0]) {
-  ok(/\scrossorigin\b/.test(pre[0]) && /type="font\/woff2"/.test(pre[0]), 'preload font thiếu crossorigin/type → trình duyệt tải 2 lần');
-  ok(pre[0].includes(`href="${PRELOAD}"`), 'preload không trỏ ' + PRELOAD);
-  const f = faces.find(x => 'fonts/' + x.file === PRELOAD);
-  ok(f && f.weight === '400' && f.style === 'normal' && f.file.endsWith('-latin.woff2'), 'font preload phải là mặt 400 thường, mảnh latin');
-}
+ok(!pre.length, `preload font tĩnh trong <head>: ${pre.length} (để script chọn đúng 1 theo giao diện)`);
+const sc = (/<script>\/\* Preload ĐÚNG 1 font[\s\S]*?<\/script>/.exec(head) || [''])[0];
+ok(/l\.type='font\/woff2';l\.crossOrigin=''/.test(sc), 'preload font thiếu crossorigin/type → trình duyệt tải 2 lần');
+ok(/\{a\('preload','fonts\/pjs-latin\.woff2','font'\);[^}]*\}else a\('preload','fonts\/bvp-400-latin\.woff2','font'\)/.test(sc) && sc.includes(`'${PRELOAD}'`), 'script preload phải là if(ux1) pjs-latin else ' + PRELOAD + ' (đúng 1 font)');
+ok((sc.match(/,'font'\)/g) || []).length === 3, 'script preload: chỉ 2 nhánh pjs/bvp (+ catch bvp)');
+const f0 = faces.find(x => 'fonts/' + x.file === PRELOAD);
+ok(f0 && f0.weight === '400' && f0.style === 'normal' && f0.file.endsWith('-latin.woff2'), 'font preload phải là mặt 400 thường, mảnh latin');
 
 // 4) mỗi mặt chữ thân đủ 3 mảnh; mảnh phủ mọi chữ Latin trong bản dịch 15 ngôn ngữ
 const key = f => `${f.family}|${f.style}|${f.weight}`, groups = {};
@@ -54,4 +54,4 @@ for (const c of fs.readdirSync(path.join(ROOT, 'web/css')).filter(f => f.endsWit
   for (const m of rd('web/css/' + c).matchAll(/url\(["']?\.\.\/fonts\/([^"')]+)/g)) ok(fs.existsSync(path.join(ROOT, 'web/fonts', m[1])), `${c}: thiếu web/fonts/${m[1]}`);
 
 if (bad.length) { console.error('✗ self-fonts:\n  ' + bad.join('\n  ')); process.exit(1); }
-console.log(`✓ self-fonts: ${faces.length} mặt tự lưu trữ, 1 preload (${PRELOAD}), phủ chữ Latin của ${langs.length} bản dịch, add-on có font`);
+console.log(`✓ self-fonts: ${faces.length} mặt tự lưu trữ, preload đúng 1 (ux1 pjs / mặc định ${PRELOAD}), phủ chữ Latin của ${langs.length} bản dịch, add-on có font`);

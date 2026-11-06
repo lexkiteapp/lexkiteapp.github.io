@@ -3,6 +3,7 @@
 // Trước: 2 CSS từ fonts.googleapis.com + file từ fonts.gstatic.com → 2 kết nối mới (DNS+TLS) trên 4G chậm trước khi có font.
 // Cắt gọn theo 15 ngôn ngữ giao diện: chữ Latin của vi/en/es/fr/de/pt/id/tr cần đúng 3 mảnh latin · latin-ext · vietnamese
 // (unicode-range → trình duyệt chỉ tải mảnh có ký tự trên trang); ar/hi/ja/ko/ru/th/zh dùng font hệ thống trong --font (css/style.css :lang).
+// Preload đúng 1 font LCP do script đầu <head> chọn (ux1 → pjs-latin, mặc định → PRELOAD) – link tĩnh sẽ tải cả 2 ở ux1.
 // Dùng: node scripts/build-fonts.mjs          → ghi lại khối <!--fonts--> từ web/fonts/fonts.json (không cần mạng)
 //       node scripts/build-fonts.mjs --fetch  → tải lại từ Google Fonts (OFL), ghi web/fonts/{bvp,bri}-*.woff2 + fonts.json
 import fs from 'node:fs';
@@ -45,7 +46,7 @@ async function fetchAll() {
 
 export function block(faces) {
   const css = faces.map(f => `@font-face{font-family:"${f.family}";font-style:${f.style};font-weight:${f.weight};font-display:${f.display};src:url(fonts/${f.file}) format("woff2");unicode-range:${f.range}}`).join('');
-  return `<!--fonts--><link rel="preload" href="${PRELOAD}" as="font" type="font/woff2" crossorigin><style>${css}</style><!--/fonts-->`;
+  return `<!--fonts--><style>${css}</style><!--/fonts-->`; // preload: script đầu <head> chọn ĐÚNG 1 font theo giao diện (ux1 → pjs, mặc định → PRELOAD)
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
