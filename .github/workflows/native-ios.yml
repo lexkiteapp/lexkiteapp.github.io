@@ -47,11 +47,10 @@ jobs:
           T=(xcodebuild test -scheme "$SCHEME" -destination "$DEST" -skipPackagePluginValidation)
           if [ "${{ inputs.record }}" = "true" ] || ! ls Tests/LKSnapshotTests/__Snapshots__/*/*.png >/dev/null 2>&1; then
             echo "::warning::Chưa có ảnh snapshot chuẩn → ghi lần đầu, rồi chạy lại để kiểm ổn định; tải artifact native-ios-snapshots và commit vào Tests/LKSnapshotTests/__Snapshots__"
-            SNAPSHOT_RECORD=1 "${T[@]}" -only-testing:LKSnapshotTests > "$RUNNER_TEMP/record.log" 2>&1 || true
-            grep -E "error:|failed|Test Suite .* (passed|failed)" "$RUNNER_TEMP/record.log" | tail -30
+            # xcodebuild only forwards TEST_RUNNER_-prefixed env to the simulator test process (prefix stripped → SNAPSHOT_RECORD=1)
+            TEST_RUNNER_SNAPSHOT_RECORD=1 bash "$GITHUB_WORKSPACE/scripts/native/xctest.sh" "$RUNNER_TEMP/record.log" "${T[@]}" -only-testing:LKSnapshotTests || true
           fi
-          set -o pipefail
-          "${T[@]}" 2>&1 | tail -60
+          bash "$GITHUB_WORKSPACE/scripts/native/xctest.sh" "$RUNNER_TEMP/test.log" "${T[@]}"
           ls Tests/LKSnapshotTests/__Snapshots__/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 62 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
       - name: Build app (XcodeGen → simulator, không ký)
         working-directory: native/ios
@@ -94,6 +93,5 @@ jobs:
           DEST=$(bash "$GITHUB_WORKSPACE/scripts/native/ios-sim.sh" --name "$DEVICE")
           test -n "$DEST" || { echo "::error::không có $DEVICE trên mọi Xcode 26"; exit 1; }
           SCHEME=$(xcodebuild -list -json | python3 -c 'import json,sys;s=json.load(sys.stdin)["workspace"]["schemes"];print(next((x for x in s if x.endswith("-Package")),s[0]))')
-          set -o pipefail
-          xcodebuild test -scheme "$SCHEME" -destination "$DEST" -skipPackagePluginValidation \
-            -only-testing:LKFeaturesTests -only-testing:LKSyncTests 2>&1 | tail -40
+          bash "$GITHUB_WORKSPACE/scripts/native/xctest.sh" "$RUNNER_TEMP/test.log" xcodebuild test -scheme "$SCHEME" -destination "$DEST" -skipPackagePluginValidation \
+            -only-testing:LKFeaturesTests -only-testing:LKSyncTests
