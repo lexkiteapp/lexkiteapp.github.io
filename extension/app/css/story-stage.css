@@ -70,4 +70,7 @@
 .lsn-fx .lsn-qfoot>div:first-child{justify-content:center!important;gap:var(--sp-4)}
 
 /* câu đề: cao như mẫu Stitch (ô trống dạng viên 38 px) → thẻ đề + CTA đúng chỗ của mẫu */
-.lsn-fx #lsnBub{padding-block:var(--sp-3)}
+.lsn-fx #lsnBub{padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
+:root[data-theme="dark"] .lsn-fx #lsnBub{padding-block:var(--sp-3)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx #lsnBub{padding-block:var(--sp-3)}}
+:root .lsn-fx:has(.lsn-fv2) #lsnBub{padding-block:var(--sp-2)} /* tấm phản hồi đang mở: thẻ đề về cỡ mẫu feedback-* (thấp hơn mẫu lesson-question) */
