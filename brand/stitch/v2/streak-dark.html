@@ -81,10 +81,10 @@
     .tslot{--h:112px;position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom}.tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden}.tslot-img{position:absolute;left:50%;bottom:calc(var(--h)*-.18);height:calc(var(--h)*1.2);width:auto;max-width:none;transform:translateX(-50%)}.tslot-ledge{position:absolute;left:2%;right:2%;bottom:0;height:calc(var(--h)*.16);border-radius:999px 999px calc(var(--h)*.06) calc(var(--h)*.06);background:#1E2F33;box-shadow:inset 0 1px 0 rgb(255 255 255/.10),inset 0 calc(var(--h)*.02) calc(var(--h)*.03) rgb(0 0 0/.10),0 calc(var(--h)*.03) 0 #132023}.tslot-img{filter:brightness(.95) saturate(.96)}
   </style>
 </head>
-<body class="bg-canvas-bg min-h-screen flex justify-center selection:bg-teal-light selection:text-[#E8F1F0]">
+<body class="bg-canvas-bg min-h-screen flex justify-center selection:bg-teal-light selection:text-[#EAF2F2]">
 
   <!-- Mobile Container (Exact 390px, Inner Screen layout with no bottom tab bar) -->
-  <main class="w-[390px] max-w-[390px] min-h-screen bg-canvas-bg flex flex-col relative pb-28 border-x border-[#2A3F45]/40 shadow-sm overflow-x-hidden">
+  <main class="w-[390px] max-w-[390px] min-h-screen bg-canvas-bg flex flex-col relative pb-28 border-x border-[#213438]/40 shadow-sm overflow-x-hidden">
 
     <!-- Top App Bar (Inner Screen variant: Back arrow 44px + Title "Streak" + Help icon 44px) -->
     <header class="sticky top-0 z-40 bg-canvas-bg/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b-2 border-card-border/60">
@@ -129,7 +129,7 @@
             </div>
 
             <!-- Ô giáo viên (Chars.slot cỡ m 112px, bệ + ảnh tĩnh thật – luật CHARACTERS ≥12 % cao màn) -->
-            <div class="h-[116px] overflow-hidden rounded-xl border-2 border-solid border-[#2BA39A]/60 bg-[#142629] flex items-end justify-center gap-2 px-3 text-teal-brand" title="teacher-slot"><span class="tslot tslot-m" aria-hidden="true"><span class="tslot-fig"><img class="tslot-img" src="../../../web/teach/ama/still-encourage.webp" alt="" width="112" height="97"></span><i class="tslot-ledge"></i></span></div>
+            <div class="h-[116px] overflow-hidden rounded-xl border-2 border-solid border-[#2BA39A]/60 bg-[#162528] flex items-end justify-center gap-2 px-3 text-teal-brand" title="teacher-slot"><span class="tslot tslot-m" aria-hidden="true"><span class="tslot-fig"><img class="tslot-img" src="../../../web/teach/ama/still-encourage.webp" alt="" width="112" height="97"></span><i class="tslot-ledge"></i></span></div>
           </div>
         </div>
       </section>
@@ -186,7 +186,7 @@
           <!-- Sat: TODAY outlined in coral with a dot & label "Today" -->
           <div class="flex flex-col items-center gap-1">
             <span class="text-[11px] font-extrabold text-coral-cta">Today</span>
-            <div class="w-10 h-10 rounded-full bg-[#172427] border-2 border-coral-cta flex items-center justify-center text-coral-cta relative shadow-tactile-btn" title="Sat: Today">
+            <div class="w-10 h-10 rounded-full bg-[#162528] border-2 border-coral-cta flex items-center justify-center text-coral-cta relative shadow-tactile-btn" title="Sat: Today">
               <span class="w-3.5 h-3.5 rounded-full bg-coral-cta"></span>
             </div>
           </div>
@@ -194,7 +194,7 @@
           <!-- Sun: Future day soft and empty -->
           <div class="flex flex-col items-center gap-1">
             <span class="text-[11px] font-extrabold text-ink-muted">S</span>
-            <div class="w-10 h-10 rounded-full bg-[#1E2F33] border-2 border-card-border flex items-center justify-center text-transparent" title="Sun: Upcoming">
+            <div class="w-10 h-10 rounded-full bg-[#1D2F33] border-2 border-card-border flex items-center justify-center text-transparent" title="Sun: Upcoming">
               <span class="w-2 h-2 rounded-full bg-[#37525A]"></span>
             </div>
           </div>
@@ -254,7 +254,7 @@
           <!-- Day 13: Learned -->
           <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">13</div></div>
           <!-- Day 14: TODAY -->
-          <div class="flex justify-center"><div class="w-7 h-7 rounded-full border-2 border-coral-cta text-coral-cta font-extrabold flex items-center justify-center text-[11px] bg-[#172427]">14</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full border-2 border-coral-cta text-coral-cta font-extrabold flex items-center justify-center text-[11px] bg-[#162528]">14</div></div>
           <!-- Day 15+: Future -->
           <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">15</div></div>
           <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">16</div></div>
@@ -285,7 +285,7 @@
             <span class="text-teal-brand">Frozen</span>
           </div>
           <div class="flex items-center gap-1.5">
-            <span class="w-3 h-3 rounded-full border-2 border-coral-cta bg-[#172427]"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-coral-cta bg-[#162528]"></span>
             <span class="text-teal-brand">Today</span>
           </div>
         </div>
@@ -335,7 +335,7 @@
             <span>14 days locked</span>
             <span class="text-ink-muted">16 days to go</span>
           </div>
-          <div class="w-full h-3 rounded-full bg-[#0E1618] border border-card-border overflow-hidden p-0.5">
+          <div class="w-full h-3 rounded-full bg-[#0E191C] border border-card-border overflow-hidden p-0.5">
             <div class="h-full rounded-full bg-gradient-to-r from-coral-cta to-amber-sun transition-all duration-300" style="width: 46.6%;"></div>
           </div>
         </div>
