@@ -295,8 +295,11 @@ node scripts/test/st-web-i18n.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
 node scripts/test/side-menu.mjs
+node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
 node scripts/test/voice-source.mjs
+node scripts/test/pr-unconflict.mjs
 node scripts/test/main-red-sweep.mjs
+node scripts/test/ci-queue-gate.mjs
