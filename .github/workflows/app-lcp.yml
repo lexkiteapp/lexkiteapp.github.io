@@ -9,7 +9,7 @@ on:
       base: { description: 'route-vitals: gốc đo (vd preview Pages)', default: '' }
   push:
     branches: ['perf/app-lcp*']
-    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs', 'scripts/test/route-vitals.mjs']
+    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs', 'scripts/test/route-vitals.mjs', 'scripts/build-hash.mjs', 'web/_headers']
 permissions:
   contents: read
 concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
@@ -67,7 +67,7 @@ jobs:
   # 6 route chính trên bản thật lexkite.com (4G chậm, CPU×4): LCP/TBT/CLS/INP + byte + 10 tài nguyên nặng nhất – docs/PERF-SCROLL.md › Tải trang
   routes:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -81,14 +81,16 @@ jobs:
         run: node scripts/test/route-vitals.mjs ${{ inputs.base || 'https://lexkite.com' }} out/route-vitals.json
       - name: Trước/sau trên bản dựng dist (main vs nhánh, máy chủ có nén, cùng runner)
         if: ${{ github.ref != 'refs/heads/main' && !cancelled() }}
-        timeout-minutes: 25
-        env: { ONLY: 'today,review,lesson,welcome', UX1: '1' }
+        timeout-minutes: 40
+        env: { ONLY: 'today,review,lesson', UX1: '1' }
         run: |
           npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null
           git fetch -q --depth 1 origin main && git worktree add -q ../base FETCH_HEAD && (cd ../base && npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null)
           (node scripts/test/serve-web.mjs ../base/dist 8081 >/dev/null 2>&1 &) ; (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
-          echo "### TRƯỚC (main)"; node scripts/test/route-vitals.mjs http://localhost:8081 out/before.json
-          echo "### SAU (nhánh)"; node scripts/test/route-vitals.mjs http://localhost:8080 out/after.json
+          echo "### TRƯỚC (main) – lạnh"; node scripts/test/route-vitals.mjs http://localhost:8081 out/before.json
+          echo "### SAU (nhánh) – lạnh"; node scripts/test/route-vitals.mjs http://localhost:8080 out/after.json
+          echo "### TRƯỚC (main) – ấm"; WARM=1 node scripts/test/route-vitals.mjs http://localhost:8081 out/before-warm.json
+          echo "### SAU (nhánh) – ấm"; WARM=1 node scripts/test/route-vitals.mjs http://localhost:8080 out/after-warm.json
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: route-vitals, path: out, retention-days: 14 }
