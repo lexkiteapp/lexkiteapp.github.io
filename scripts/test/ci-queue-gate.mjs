@@ -10,7 +10,12 @@ const mk = runs => { const calls = []; const gh = async (p, o = {}) => { calls.p
   if (o.method === 'DELETE') return {};
   const id = +p.match(/runs\/(\d+)$/)?.[1]; return runs.find(r => r.id === id) || {}; }; return { gh, calls }; };
 { const { gh, calls } = mk([old]); const z = await zombieRuns(gh, { now, settleMs: 0 });
-  assert.ok(calls.includes('DELETE /actions/runs/7'), 'cancel 202 mà vẫn queued > 24 giờ → xoá (trước: báo "đã huỷ" mãi)'); assert.equal(z[0].deleted, true); assert.notEqual(z[0].cancel, 'ok', 'không báo "đã huỷ" khi lượt còn queued'); }
+  assert.ok(calls.includes('DELETE /actions/runs/7') && !calls.some(c => /cancel$/.test(c)), 'lượt > 24 giờ → DELETE thẳng, không huỷ giả 202'); assert.equal(z[0].deleted, true); assert.notEqual(z[0].cancel, 'ok'); }
+// DELETE bị 403 (GitHub: lượt kẹt không gỡ được qua API) → báo thật, không ngủ/thử huỷ, và KHÔNG chiếm MAX_CHECK của lượt zombie mới
+{ const t0 = Date.now(), olds = Array.from({ length: 40 }, (_, i) => ({ id: 500 + i, status: 'queued', created_at: '2026-10-26T04:00:00Z', path: '.github/workflows/x.yml' })), calls = [];
+  const gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`); if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [...olds, young] }; if (/\/jobs/.test(p)) return { total_count: 0 }; if (o.method === 'DELETE') throw new Error('GitHub DELETE /x → 403'); if (/\/cancel$/.test(p)) return {}; return young; };
+  const z = await zombieRuns(gh, { now, settleMs: 0 }); assert.equal(z.length, 41, '40 lượt không gỡ được + lượt mới vẫn được xử lý (không bị MAX_CHECK nuốt)');
+  assert.ok(z.slice(0, 40).every(x => /GitHub Support/.test(x.cancel)) && !calls.some(c => /runs\/5\d\d\/(force-)?cancel/.test(c)), 'báo cần GitHub Support, không huỷ lại'); assert.ok(calls.some(c => c === 'POST /actions/runs/8/cancel'), 'lượt mới được huỷ'); }
 { const { gh, calls } = mk([young]); const z = await zombieRuns(gh, { now, settleMs: 0 });
   assert.ok(!calls.some(c => c.startsWith('DELETE')), 'lượt < 24 giờ không bị xoá'); assert.ok(calls.some(c => /force-cancel$/.test(c)), 'nhưng được leo lên force-cancel'); assert.notEqual(z[0].cancel, 'ok', 'báo thật: chưa huỷ được'); }
 { const done = { ...young, status: 'completed' }; const gh = async (p, o = {}) => (p.startsWith('/actions/runs?status=queued') ? { workflow_runs: [young] } : /\/jobs/.test(p) ? { total_count: 0 } : /\/cancel$/.test(p) ? {} : done);

@@ -8668,3 +8668,6 @@ ergonomics
 incinerator
 fanaticism
 peruse
+authenticate
+sate
+capitulate
