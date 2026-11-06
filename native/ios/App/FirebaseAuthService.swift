@@ -127,8 +127,9 @@ final class FirebaseAuthService: NSObject, LKAuth, @unchecked Sendable {
         let n = e as NSError
         guard n.domain == AuthErrorDomain else { return e }
         switch n.code {
-        case AuthErrorCode.Code.requiresRecentLogin.rawValue: return LKAuthError.requiresRecentLogin
-        case AuthErrorCode.Code.webContextCancelled.rawValue: return LKAuthError.cancelled
+        // Firebase ≥ 11 (Swift Auth): AuthErrorCode is an Int enum (no nested `.Code`); `.case.rawValue` compiles on 10 and 11+
+        case AuthErrorCode.requiresRecentLogin.rawValue: return LKAuthError.requiresRecentLogin
+        case AuthErrorCode.webContextCancelled.rawValue: return LKAuthError.cancelled
         default: return LKAuthError.failed(n.localizedDescription)
         }
     }

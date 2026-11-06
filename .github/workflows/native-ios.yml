@@ -63,7 +63,8 @@ jobs:
           set -o pipefail
           xcodebuild -project Lexkite.xcodeproj -scheme Lexkite -configuration Debug -sdk iphonesimulator \
             -destination 'generic/platform=iOS Simulator' -derivedDataPath build -clonedSourcePackagesDirPath build/SourcePackages \
-            CODE_SIGNING_ALLOWED=NO build 2>&1 | tail -30
+            CODE_SIGNING_ALLOWED=NO build > "$RUNNER_TEMP/build.log" 2>&1 || { grep -E ': error:|error: |\*\* BUILD' "$RUNNER_TEMP/build.log" | sort -u | head -60 | sed 's/^/::error::/'; tail -15 "$RUNNER_TEMP/build.log"; exit 1; }
+          tail -5 "$RUNNER_TEMP/build.log"   # lỗi biên dịch được in đầy đủ (trước: tail -30 che mất dòng error)
           APP=build/Build/Products/Debug-iphonesimulator/Lexkite.app
           test -d "$APP"
           # Một nguồn đã được tiêm (scheme callback Google + khoá nội dung từ web/js/ota-key.js + script migration)

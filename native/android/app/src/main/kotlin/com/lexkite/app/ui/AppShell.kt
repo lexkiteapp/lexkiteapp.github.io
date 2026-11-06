@@ -3,6 +3,10 @@ package com.lexkite.app.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -107,9 +111,10 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
         containerColor = c.background,
         bottomBar = {
             // Stitch today-*.html <nav>: own surface (bg-white = surface-container-high) + 2 px cream top border; active tab = teal pill
-            if (onHub) Column {
+            // h-16 = 64 dp (Material default 80 dp); system nav-bar inset below as its own spacer so items are never squeezed
+            if (onHub) Column(Modifier.background(c.cardHigh)) {
                 Box(Modifier.fillMaxWidth().height(2.dp).background(c.outlineVariant))
-                NavigationBar(containerColor = c.cardHigh, contentColor = c.onSurface) {
+                NavigationBar(Modifier.height(64.dp), containerColor = c.cardHigh, contentColor = c.onSurface, windowInsets = WindowInsets(0)) {
                 frame.tabs.forEach { tb ->
                     val selected = dest?.hierarchy?.any { it.route == Routes.graph(tb.k) } ?: (tb.k == initialTab)
                     NavigationBarItem(
@@ -124,6 +129,7 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                     )
                 }
                 }
+                Spacer(Modifier.fillMaxWidth().windowInsetsBottomHeight(WindowInsets.navigationBars))
             }
         },
     ) { pad ->
