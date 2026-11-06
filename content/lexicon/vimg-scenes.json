@@ -5978,17 +5978,17 @@
   },
   "avoidable#adj": {
    "ex": "That problem is not avoidable.",
-   "ps": "a person stands between two doors, one door blocked by a large rock, the other door open",
-   "sc": "a person stands between two doors, one door blocked by a large rock, the other door open",
-   "check": "Is there a blocked door that the person can choose to avoid?",
-   "cap": "a person choosing the open door over the blocked one",
-   "key": "door blocked by a large rock; the other door open",
+   "ps": "a man stands directly in front of a solid brick wall, unable to go around",
+   "sc": "a man stands directly in front of a solid brick wall, unable to go around",
+   "check": "Is the person blocked by an unmovable solid wall?",
+   "cap": "a man blocked by a solid brick wall he cannot bypass",
+   "key": "a solid brick wall blocking the path; the man's frustrated stance",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "await#v": {
    "ex": "We await your reply to our proposal with great interest.",
@@ -59879,6 +59879,10 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "property management system#n": {
+   "skip": "cannot depict without prohibited elements",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "property manager#n": {
    "ex": "Contact the property manager if the heating stops working.",
    "sc": "person A, a tenant, points at a broken wall heater while person B, the property manager, holds a phone and listens, both standing in a small apartment living area with the heater visible",
@@ -61406,17 +61410,17 @@
   },
   "racehorse#n": {
    "ex": "Later, several successful racehorse stud farms were founded.",
-   "ps": "a brown horse with a jockey in bright silks gallops on a racetrack with a finish line",
-   "sc": "a brown horse with a jockey in bright silks gallops on a racetrack with a finish line",
-   "check": "Is the horse shown as a fast racing animal with a jockey in silks?",
-   "cap": "a horse racing on a track with a jockey",
-   "key": "horse with a jockey in bright silks; galloping on a racetrack",
+   "ps": "a brown horse with a colorful jockey racing on a dirt track",
+   "sc": "a brown horse with a colorful jockey racing on a dirt track",
+   "check": "Is there a horse with a rider sprinting on a track?",
+   "cap": "a brown horse and a bright jockey racing on a dirt track",
+   "key": "a sleek horse with a jockey in bright silks; the horse's fast galloping pose on a track",
    "who": 1,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "racial#adj": {
    "ex": "The law protects people from racial discrimination.",
@@ -73973,15 +73977,17 @@
   },
   "succinctly#adv": {
    "ex": "The professor briefly and succinctly described the topic of his study.",
-   "ps": "a man in a suit stands at a podium holding a clear glass and a large stopwatch",
-   "sc": "a man in a suit stands at a podium holding a clear glass and a large stopwatch",
-   "check": "Is the person speaking in a short and easy-to-understand way?",
-   "cap": "a professor holds a glass and a stopwatch while speaking",
-   "key": "a clear glass; a large stopwatch",
+   "ps": "a man in a suit holds a laser pointer, pointing at a single blue circle on a canvas",
+   "sc": "a man in a suit holds a laser pointer, pointing at a single blue circle on a canvas",
+   "check": "Is the person giving a brief and clear explanation?",
+   "cap": "a professor points at a simple shape on a canvas",
+   "key": "laser pointer aimed at a single large circle; the man's confident expression",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "sudden#adj": {
    "ex": "There was a sudden change in the weather.",
@@ -78322,16 +78328,17 @@
   },
   "transgression#n": {
    "ex": "That is such a moral transgression.",
-   "ps": "a person reaches for an apple on a market stall while the stall owner watches surprised",
-   "sc": "a person reaches for an apple on a market stall while the stall owner watches surprised",
-   "check": "Is the person taking something they shouldn't from a stall?",
-   "cap": "a person reaching for an apple while being watched",
-   "key": "person reaching for apple on stall; stall owner's surprised face",
+   "ps": "a boy reaches for a piece of cake on a plate while a girl watches with a shocked face",
+   "sc": "a boy reaches for a piece of cake on a plate while a girl watches with a shocked face",
+   "check": "Is someone taking something that belongs to another person?",
+   "cap": "a child grabs a cake piece while another looks upset",
+   "key": "a hand reaching for a piece of cake on a plate; the girl's shocked face",
    "who": 2,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 2
   },
   "transit time#n": {
    "skip": "sentence requires abstract time representation that relies on symbols or text",
@@ -79403,6 +79410,19 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "unattainable#adj": {
+   "ex": "Don't set yourself unattainable goals.",
+   "ps": "a boy reaches for a low apple on a tree branch, while an apple hangs far above the highest branch",
+   "sc": "a boy reaches for a low apple on a tree branch, while an apple hangs far above the highest branch",
+   "check": "Is the higher fruit clearly out of the person's reach?",
+   "cap": "a boy trying to reach a low apple while another apple is far above",
+   "key": "low apple within reach; high apple far above the branch",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "unattended#adj": {
    "ex": "Do not leave your bags unattended anywhere in the airport.",
