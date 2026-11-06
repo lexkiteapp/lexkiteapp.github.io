@@ -59,7 +59,12 @@
     const open = H.name === 'settings' && SUB.includes(H.arg) ? H.arg : (H.query && H.query.get('delete') === 'account' ? 'account' : '');
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
     const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
-    const row = (label, ctl, hint = '') => (ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`), `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`);
+    // nhãn NHÌN THẤY gắn ô đầu tiên (<label for>) – aria-label chỉ cho trình đọc màn hình, người nhìn cần nhãn bấm được (qa-bot nolabel 06/11)
+    let fN = 0;
+    const row = (label, ctl, hint = '') => { let fid = '';
+      ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`);
+      ctl = ctl.replace(/<(select|input)\b([^>]*)>/, (m, tag, at) => /type="file"/.test(at) ? m : (fid = (at.match(/\bid="([^"]+)"/) || [])[1] || 'setf' + (++fN), at.includes(`id="${fid}"`) ? m : `<${tag} id="${fid}"${at}>`));
+      return `<div class="set-row"><div class="set-l">${fid ? `<label for="${fid}">${label}</label>` : `<span>${label}</span>`}${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`; };
     // 🌍 Ngôn ngữ đang học (ngôn ngữ đích – web/js/target.js, docs/specs/target-language.md): chỉ hiện khi cờ một ngôn ngữ đích bật (Target.avail: pt_pilot/lk.pt, es_course/lk.es)
     const TL = window.Target && Target.enabled() ? Target.cur() : '';
     const tlRow = () => (TL ? row(t('Ngôn ngữ đang học'), seg('sTl', Target.avail().map(k => [k, k === 'en' ? 'English' : Target.table(k).label, ` translate="no" lang="${k}"`]), TL)

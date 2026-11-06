@@ -1,26 +1,6 @@
 {
  "note": "Lỗi giao diện đã biết (qa-bot). Chỉ được XOÁ dòng khi đã sửa – không thêm dòng để làm xanh. docs/QA-BOT.md",
  "known": {
-  "clip|div#lsnTch>div.tch-rig": [
-   "lesson@390l",
-   "lesson@390d",
-   "lesson@768l",
-   "lesson@768d",
-   "lesson@1440l",
-   "lesson@1440d"
-  ],
-  "clip|main#view>div.card.hero-main": [
-   "stats@390l",
-   "stats@390d",
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
-  ],
-  "clip|main#view>div.card>div.heat": [
-   "stats@390l",
-   "stats@390d"
-  ],
   "clip|span#xpPill": [
    "home@1440l",
    "stats@1440l",
@@ -93,12 +73,6 @@
    "review-card@768d",
    "review-type@768d"
   ],
-  "tap|div#goldenCard>a.btn.primary": [
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
-  ],
   "tap|div#leagueHomeCard>div.card.league-home-card>a.btn.sm": [
    "home@768l",
    "home@768d",
@@ -113,12 +87,6 @@
    "ux1-train@1440d",
    "ux1-me@1440d"
   ],
-  "tap|div.card>div.row.between>a.small": [
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
-  ],
   "tap|div.main>header.topbar>a.brand": [
    "home@768l",
    "vocab@768l",
@@ -126,12 +94,6 @@
    "skills@768l",
    "tests@768l",
    "me@768l"
-  ],
-  "tap|div>div.big-num>button.streak-freeze-badge": [
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
   ],
   "tap|div>div.row>button.btn.sm": [
    "home@768l",

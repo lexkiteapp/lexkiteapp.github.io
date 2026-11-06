@@ -24,6 +24,9 @@ for (const m of me.matchAll(/\bic\.textContent = '([a-z_0-9]+)'/g)) if (!msym.in
 const bot = fs.readFileSync('scripts/test/qa-bot.mjs', 'utf8'), botSub = (bot.match(/\.\.\.\[([^\]]+)\]\.map\(k => \['settings-' \+ k/) || [])[1] || '';
 for (const id of (sub || '').match(/'[a-z]+'/g).map(x => x.slice(1, -1))) if (id !== 'admin' && !botSub.includes(`'${id}'`)) fail(`qa-bot chưa quét trang con /settings/${id}`);
 if (!/\.set-wrap\[data-open\] \.btn\.sm,[^{]*\{min-height:44px;min-width:44px\}/.test(src)) fail('trang con: thiếu vùng chạm ≥44 px cho .btn.sm/tab');
+// 7) ô chọn/nhập có nhãn NHÌN THẤY gắn ô (<label for>), không chỉ aria-label (qa-bot nolabel 06/11) – settings.js row() và ai.js r()
+if (!/<label for="\$\{fid\}">/.test(src)) fail('row(): nhãn hàng phải là <label for> gắn ô đầu tiên');
+if (!/<label for="\$\{f\}">/.test(fs.readFileSync('web/js/ai.js', 'utf8'))) fail('ai.js r(): thiếu <label for> cho ô (aiModel)');
 if (/\.set-nav|data-jump/.test(src)) fail('còn thanh chip set-nav cũ (đã thay bằng mục lục)');
 if (!/a === 'more'/.test(me) || !/act: 'more'/.test(me)) fail("trang Tôi: thiếu hàng/handler 'more'");
 if (!/\.v2-me \[data-row\] a\{color:inherit/.test(me)) fail('trang Tôi: thiếu chặn màu liên kết toàn cục cho nhãn hàng');
