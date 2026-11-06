@@ -81,7 +81,6 @@
      "attr": {
       ":scope": {
        "data-pace": "r.v",
-       "aria-pressed": "'true'",
        "aria-checked": "'true'",
        "tabindex": "null",
        "type": "'button'"
@@ -104,7 +103,6 @@
      "attr": {
       ":scope": {
        "data-pace": "r.v",
-       "aria-pressed": "'false'",
        "aria-checked": "'false'",
        "tabindex": "null",
        "type": "'button'"

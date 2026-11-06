@@ -123,7 +123,7 @@ for (const h of ['#/tests', '#/dict/hello']) {
   await P.page.click('[data-track=ielts]').catch(() => {}); await sleep(250);
   await P.page.click('#obNext'); await see(P.page, '[data-lv]');
   const stage = await P.page.evaluate(() => App.state.settings.placement.stage);
-  ok(await P.page.locator(`[data-lv=${stage}][aria-pressed=true]`).count() === 1, 'trình độ ghi sẵn từ kết quả: ' + stage);
+  ok(await P.page.locator(`[data-lv=${stage}][aria-checked=true]`).count() === 1, 'trình độ ghi sẵn từ kết quả: ' + stage);
   await P.page.click('#obNext'); ok(await see(P.page, '#bandT'), 'không hỏi lại: Tiếp tục đi thẳng bước sau');
   await steps(P.page); await P.page.click('#go');
   ok(await hashIs(P.page, /^#\/day/, 15000), 'xong thiết lập → Ngày 1');
