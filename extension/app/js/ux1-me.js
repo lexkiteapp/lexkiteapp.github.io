@@ -88,11 +88,24 @@
   // Tấm "Tìm hiểu thêm": cùng danh sách liên kết cũ, mỗi hàng ≥ 44 px, liên kết ngoài mở tab mới
   const moreModal = list => UI.modal(`<h2 style="margin-top:0">${esc(t('Tìm hiểu thêm'))}</h2><ul class="me-more">${list.map(r => `<li><a href="${esc(r.href)}"${r.ext ? ' target="_blank" rel="noopener"' : ''}${r.hook || ''}><span class="material-symbols-outlined" aria-hidden="true">${esc(r.icon)}</span><span>${esc(r.label)}</span><span class="material-symbols-outlined me-more-c" aria-hidden="true">${r.ext ? 'open_in_new' : 'chevron_right'}</span></a></li>`).join('')}</ul>`);
 
+  // Đầu trang Tôi trên điện thoại (< 1024 px, thanh trên của app ẩn): như mọi trang chính – có logo + nút tra từ (cùng ô #gq của app, Ux1.headBtns).
+  //   4 viên số của mẫu Stitch giữ nguyên chỗ; logo 24 px + nút tra từ tròn 32 px đứng cạnh avatar (khoảng trống của mẫu). < 375 px: viên XP nhường chỗ
+  //   (style.css – Tổng XP lớn ngay dưới trong trang Tôi).
+  function hubHead(root) {
+    const h = root.querySelector(':scope > header'), av = h && h.querySelector('a[href="#/me"]'); if (!av) return;
+    const logo = document.createElement('img'); Object.assign(logo, { className: 'logo', src: 'icons/icon.svg?v=3', alt: 'Lexkite', width: 24, height: 24 }); logo.style.cssText = 'width:24px;height:24px;border-radius:7px;box-shadow:none';
+    const sb = document.createElement('button'); sb.type = 'button'; sb.dataset.act = 'search'; sb.setAttribute('aria-label', t('Tra từ'));
+    sb.className = "w-8 h-8 rounded-[9999px] flex items-center justify-center shrink-0 lt:bg-[#f2f4f3] dk:bg-[#162528] dk:border dk:border-[#213438] relative after:absolute after:-inset-1.5 after:content-['']";
+    sb.innerHTML = '<svg class="i" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>';
+    const right = document.createElement('div'); right.className = 'flex items-center shrink-0'; right.style.gap = '4px'; av.before(right); right.append(logo, sb, av);
+    if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h);
+  }
   const render = App.guard ? App.guard : f => f;
   let paint = null, lastMore = [];
   const me = render(async function () {
     const d = await build(); lastMore = d.more; const y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
     const root = ST2.mount(view, 'me', d, 'me');
+    hubHead(root);
     if (App.getApp) App.getApp(view);
     // Chưa đăng nhập: icon logout → login (đổi trong JS nên phải khai @icons login để có trong msym.woff2, nếu không chữ "login" hiện ra bị cắt – stitch-diff 06/11)
     if (!state.user) root.querySelectorAll('[data-act="out"] .material-symbols-outlined, [data-act="out"] .material-symbols-rounded').forEach(ic => { if (ic.textContent.trim() === 'logout') ic.textContent = 'login'; });
