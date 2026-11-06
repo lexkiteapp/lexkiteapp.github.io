@@ -29,7 +29,7 @@ jobs:
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}", UX1: "${{ contains(github.ref_name, 'ux1') && '1' || '' }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          timeout 600 npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
           B=""
           if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi

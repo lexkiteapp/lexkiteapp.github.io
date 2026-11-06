@@ -174,7 +174,7 @@ jobs:
         with: { pattern: 'tv-*-wide-${{ github.run_id }}', path: art, merge-multiple: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && (google-chrome --version || npx playwright install --with-deps chrome)
+      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && (google-chrome --version || bash scripts/ci/pw-install.sh --with-deps chrome)
         timeout-minutes: 12
       - name: Screenshots
         run: |

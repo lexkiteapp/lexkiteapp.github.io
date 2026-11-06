@@ -24,10 +24,10 @@ jobs:
       - name: Chọn giọng máy dự phòng + gói offline
         run: node scripts/test/audio-voice.mjs && node scripts/audio/offline-pack.mjs --check
       - name: Cài Playwright
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium webkit
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
       - name: Phát audio – Chromium + WebKit
         run: node scripts/test/audio-play.mjs chromium,webkit
       - name: iOS mở khóa âm thanh theo phần tử – chạm thật (iPhone 13 WebKit + Pixel 7 Chromium)

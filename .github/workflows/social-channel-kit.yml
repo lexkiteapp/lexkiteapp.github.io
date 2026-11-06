@@ -22,10 +22,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài Playwright + sharp
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 sharp@0.33.5
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Dựng + QC
         run: node scripts/social/build-channel-kit.mjs
       - name: Kiểm file vừa dựng (như npm test)

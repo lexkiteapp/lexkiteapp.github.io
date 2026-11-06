@@ -21,10 +21,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - name: Playwright
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Ảnh quản trị (sáng/tối × máy tính/điện thoại)
         run: node scripts/test/admin-dist-shots.mjs out/admin-dist
       - name: Mặt tiền video + hiệu năng

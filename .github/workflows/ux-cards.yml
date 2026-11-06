@@ -35,7 +35,7 @@ jobs:
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          timeout 600 npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
           B=""
           if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
@@ -66,10 +66,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk >/dev/null || true
       - name: Trước (main/commit 'before') – chỉ để làm tờ so sánh, không chặn
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }

@@ -126,6 +126,9 @@ export function violations(file, src) {
   }
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
     for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
+  // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
+  //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
+  if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
   for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
   return out;
 }
@@ -212,6 +215,11 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(v('      - run: |\n          # npx playwright install chromium\n          node a.mjs\n') === 0, 'luật 9: dòng chú thích không tính');
     const st = installSteps(job('      - name: Cài\n        run: npx playwright install chromium\n'))[0];
     ok(st && st.installOnly && st.jobTimeout === 20 && st.keyIndent === 8, 'luật 9: installSteps nhận bước chỉ cài + timeout của job');
+    const v10 = st => violations('i.yml', job(st)).filter(x => /luật 10/.test(x)).length;
+    ok(v10('      - timeout-minutes: 12\n        run: timeout 600 npx playwright install --with-deps chromium\n') === 1, 'luật 10: cài Playwright trần (kể cả bọc timeout) → lỗi');
+    ok(v10('      - timeout-minutes: 14\n        run: bash scripts/ci/pw-install.sh --with-deps chromium\n') === 0, 'luật 10: qua pw-install.sh → đạt');
+    ok(v10('      - run: |\n          for i in 1 2 3; do\n            if timeout 240 npx playwright install chromium; then break; fi\n          done\n') === 0, 'luật 10: vòng thử lại tự viết → đạt');
+    ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);

@@ -32,10 +32,10 @@ jobs:
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh >/dev/null
       - name: Cài Playwright
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Mốc Duolingo (Lighthouse trang chủ, ≤ 1 lần/tuần)
         if: github.ref == 'refs/heads/main'
         env: { FORCE: "${{ inputs.force_duolingo == '1' && '1' || '' }}" }

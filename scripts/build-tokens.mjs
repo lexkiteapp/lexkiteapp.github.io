@@ -75,9 +75,9 @@ export const roleHex = (r, mode) => { const v = T.roles[r], x = typeof v === 'st
 
 // 6) Native Capacitor (mobile/): nền trước khi web vẽ = --bg theo sáng/tối hệ thống → không chớp trắng/kem khi mở app ở chế độ tối
 { const L = T.light['--bg'], Dk = T.dark['--bg'];
-  const xml = (c, note) => `<?xml version="1.0" encoding="utf-8"?>\n<!-- SINH bởi scripts/build-tokens.mjs từ brand/tokens.json – không sửa tay. ${note.replace(/-{2,}/g, '')} -->\n<resources>\n    <color name="lk_bg">${c}</color>\n</resources>\n`;
-  put('mobile/android/app/src/main/res/values/lk_theme.xml', xml(L, 'Sáng "Bright Day" (token bg); tối ở values-night/.'));
-  put('mobile/android/app/src/main/res/values-night/lk_theme.xml', xml(Dk, 'Tối "Tactile Night" (token bg).'));
+  const xml = (c, note) => { if (note.includes('--')) throw new Error('chú thích XML không được chứa "--" (aapt từ chối)'); return `<?xml version="1.0" encoding="utf-8"?>\n<!-- SINH bởi scripts/build-tokens.mjs từ brand/tokens.json – không sửa tay. ${note} -->\n<resources>\n    <color name="lk_bg">${c}</color>\n</resources>\n`; };
+  put('mobile/android/app/src/main/res/values/lk_theme.xml', xml(L, 'Sáng "Bright Day" token bg; tối ở values-night/.'));
+  put('mobile/android/app/src/main/res/values-night/lk_theme.xml', xml(Dk, 'Tối "Tactile Night" token bg.'));
   const f = 'mobile/ios/App/App/LexkiteBridgeViewController.swift', s = fs.readFileSync(f, 'utf8'), re = /\/\*@tokens\*\/[^\n]*?\/\*@end\*\//;
   if (!re.test(s)) throw new Error(f + ': thiếu /*@tokens*/…/*@end*/');
   put(f, s.replace(re, `/*@tokens*/ static let bgLight: UInt32 = 0x${L.slice(1)}, bgDark: UInt32 = 0x${Dk.slice(1)} /*@end*/`)); }

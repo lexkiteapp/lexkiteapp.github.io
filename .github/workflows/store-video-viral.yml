@@ -23,7 +23,7 @@ jobs:
       - name: Quay + dựng
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          timeout 600 npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
           bash scripts/build-extension.sh
           for i in 1 2 3; do RAW_OUT=/tmp/raw LANG_V=en node scripts/store-video.mjs /tmp/x && break; echo "thử lại $i"; done

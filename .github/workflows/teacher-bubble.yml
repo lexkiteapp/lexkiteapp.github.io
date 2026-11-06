@@ -22,10 +22,10 @@ jobs:
       - name: Tĩnh – cụm ký tự, tốc độ, không tự đọc, giọng nữ, bản sao add-on, 15 ngôn ngữ
         run: node scripts/test/teacher-bubble.mjs --static
       - name: Playwright
-        timeout-minutes: 10
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Âm lượng pop.mp3 (−16 LUFS ±1,5, đo trên bản lặp 10×)
         timeout-minutes: 3
         run: |

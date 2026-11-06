@@ -39,10 +39,10 @@ jobs:
           npm ci --no-audit --no-fund
           if [ -z "$BASE_URL" ]; then bash scripts/build-web.sh >/dev/null; fi
       - name: Cài Playwright
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
       - name: Chặn lexkite.com khi chạy dist cục bộ (0 lượt chạm prod)
         if: env.BASE_URL == ''
@@ -82,7 +82,7 @@ jobs:
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh >/dev/null
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          timeout 600 npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: nav-sweep
         run: node scripts/test/nav-sweep.mjs --root dist --out out/nav-sweep --write-known
@@ -108,11 +108,11 @@ jobs:
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh >/dev/null
       - name: Cài Playwright
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm ci --no-audit --no-fund
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Chụp + quét nhánh gốc (cùng bot, cùng đầu dò của PR)

@@ -36,10 +36,10 @@ jobs:
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh >/dev/null
       - name: Cài Playwright
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps ${{ matrix.device == 'webkit' && 'webkit' || 'chromium' }} >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps ${{ matrix.device == 'webkit' && 'webkit' || 'chromium' }}
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Đo cuộn ${{ matrix.device }}
