@@ -19,6 +19,9 @@ w.addEventListener('error', e => errors.push(e.message));
 w.console.error = (...a) => errors.push(a.join(' '));
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} });
 w.CSS = { escape: s => s };
+// 06/11: đồng hồ neo 12:00 UTC (vẫn chạy tiếp) – lượt chạy qua 00:00 UTC làm trang stats (ngày/chuỗi hôm nay) đổi chữ giữa "solo" và các lượt đua → 73/230 đỏ (Prod release 23:58→00:01Z)
+{ const D = w.Date, now = D.now(), off = D.UTC(new D(now).getUTCFullYear(), new D(now).getUTCMonth(), new D(now).getUTCDate(), 12) - now;
+  w.Date = class extends D { constructor(...a) { if (a.length) super(...a); else super(D.now() + off); } static now() { return D.now() + off; } }; }
 w.fetch = async () => ({ ok: false, status: 404, json: async () => ({}), text: async () => '' });
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
@@ -81,6 +84,7 @@ for (const h of ['#/stats', '#/vocab', '#/settings']) {
   ok(w.location.hash.startsWith('#/practice/learn') && $('#fi') === el && sig() === s0, `học → home → học (mảnh ảnh chậm): lượt cũ không vẽ lại phiên học (${s0})`);
   w.VImg = V0;
 }
+ok(new w.Date().getUTCHours() >= 12 && new w.Date().getUTCHours() < 13, 'đồng hồ trang neo 12:00 UTC – kết quả không phụ thuộc giờ chạy (qua nửa đêm UTC)');
 // 4) Tổng quát: MỌI route trong bảng App.routes — đi tới R rồi chuyển ngay sang #/stats (và ngược lại) ở nhiều độ trễ; trang cuối phải giống hệt khi vào thẳng, không có lượt cũ vẽ đè.
 {
   const view = () => $('#view'), snap = () => ((view() || {}).textContent || '').replace(/\s+/g, ' ').trim().slice(0, 200) + '|' + ((view() || {}).children.length);

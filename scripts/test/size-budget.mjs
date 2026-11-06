@@ -10,6 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { gzSize, firstLoadFiles, swShell } from '../lib/gz-canon.mjs'; // gzip chuẩn (pako = zlib gốc): cùng số trên máy & CI
 import { execFileSync } from 'child_process';
+import { lowHeadroom } from '../lib/headroom.mjs';
 import { learnerBytes } from '../lib/js-budget.mjs'; // byte người học tải: bỏ mã chỉ quản trị + nguồn dựng en.js (đã gộp vào en.js)
 const B = 'scripts/test/budget.json', budget = JSON.parse(fs.readFileSync(B, 'utf8'));
 const gz = f => gzSize(fs.readFileSync(f)), kb = n => (n / 1024).toFixed(0) + ' KB';
@@ -59,6 +60,11 @@ if (cpackRaw > budget.cpackTotal) errs.push(`web/cpack ${cpackRaw} B > ${budget.
 let warn = -1; try { const out = execFileSync('node', ['scripts/test/content-check.mjs'], { encoding: 'utf8' }); warn = +((out.match(/(\d+) cảnh báo/) || [])[1] ?? -1); } catch (e) { errs.push('content-check lỗi: ' + String(e.stdout || e.message).split('\n').slice(-3).join(' ')); }
 if (warn >= 0 && warn > budget.contentWarn) errs.push(`Cảnh báo nội dung tăng ${budget.contentWarn} → ${warn} – nội dung mới phải đủ phiên âm/ví dụ/lời giải (xem docs/CONTENT-RULES.md)`);
 if (process.argv.includes('--update') || (warn >= 0 && warn < budget.contentWarn)) { if (warn >= 0) budget.contentWarn = warn; fs.writeFileSync(B, JSON.stringify(budget, null, 2) + '\n'); }
+// 06/11: cảnh báo sớm mọi ngân sách (dư < 5 KB hoặc < 2 %) – máy gác budget-watch (scripts/ci/guards.mjs) đọc dòng HEADROOM: để mở issue
+const headroom = lowHeadroom([{ name: 'khung app (gz)', used: shellGz, cap: budget.shellGz }, { name: 'byte người học (web/js)', used: total, cap: budget.totalJs }, { name: 'cả kho web/js', used: LB.total, cap: budget.totalAll },
+  { name: 'web/cpack', used: cpackRaw, cap: budget.cpackTotal }, { name: 'gói ngôn ngữ lớn nhất', used: Math.max(0, ...Object.values(LB.packs)), cap: budget.langPackMax }, { name: 'trang giới thiệu (gz)', used: landMax, cap: LAND_GZ }]);
+for (const h of headroom) console.log(`${process.env.GITHUB_ACTIONS ? '::warning::' : '⚠ '}size-budget: ${h.name} còn ${kb(h.free)} trống (${(100 * h.free / h.cap).toFixed(1)} %) – sắp hết ngân sách, rà dữ liệu thừa trước khi PR kế tiếp đỏ`);
+if (process.argv.includes('--headroom')) console.log('HEADROOM:' + JSON.stringify(headroom));
 const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz${routes.length ? ' · gói ' + routes.join(', ') : ''} · giới thiệu ≤ ${kb(landMax)}/${kb(LAND_GZ)} gz · người học ${(total / 1048576).toFixed(2)}/${(budget.totalJs / 1048576).toFixed(2)} MB (nền+${LB.topLang}, còn ${kb(free)}) · gói nội dung ${(cpackRaw / 1048576).toFixed(2)} MB · cả kho ${(LB.total / 1048576).toFixed(1)} MB · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
 if (errs.length) { console.error('✗ size-budget: ' + line + '\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log('✓ size-budget: ' + line);
