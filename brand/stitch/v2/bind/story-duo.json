@@ -102,43 +102,57 @@
     "ama": {
      "addClass": {
       ":scope": "lsn-ln ama lsn-lnA",
-      ":scope > div:nth-child(2) > button": "relative after:absolute after:-inset-1.5 after:content-['']"
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": "relative after:absolute after:-inset-1.5 after:content-['']",
+      ":scope > div:nth-child(2) > div > div": "ss-act",
+      ":scope > div:nth-child(2) > div": "ss-col",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "ss-slow"
      },
      "attr": {
       ":scope": {
        "data-who": "'ama'",
        "lang": "'en'"
       },
-      ":scope > div:nth-child(2) > button": {
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": {
        "type": "'button'",
        "aria-label": "r.play",
        "data-i": "i"
+      },
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": {
+       "type": "'button'"
       }
      },
      "html": {
       ":scope > div:nth-child(1) > span": "e(r.name)",
-      ":scope > div:nth-child(2) > p": "e(r.en)"
+      ":scope > div:nth-child(2) > div > p": "e(r.en)",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "'<span aria-hidden=\"true\">🐢</span>'"
      }
     },
     "carlos": {
      "addClass": {
       ":scope": "lsn-ln carlos lsn-lnC",
-      ":scope > div:nth-child(2) > button:nth-child(2)": "relative after:absolute after:-inset-1.5 after:content-['']"
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": "relative after:absolute after:-inset-1.5 after:content-['']",
+      ":scope > div:nth-child(2) > div > div": "ss-act",
+      ":scope > div:nth-child(2) > div": "ss-col",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "ss-slow"
      },
      "attr": {
       ":scope": {
        "data-who": "'carlos'",
        "lang": "'en'"
       },
-      ":scope > div:nth-child(2) > button": {
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": {
        "type": "'button'",
        "aria-label": "r.play",
        "data-i": "i"
+      },
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": {
+       "type": "'button'"
       }
      },
      "html": {
       ":scope > div:nth-child(1) > span": "e(r.name)",
-      ":scope > div:nth-child(2) > p": "e(r.en)"
+      ":scope > div:nth-child(2) > div > p": "e(r.en)",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "'<span aria-hidden=\"true\">🐢</span>'"
      }
     }
    }
