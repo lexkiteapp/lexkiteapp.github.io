@@ -71,7 +71,7 @@
     const u = state.user, LN = I18N.LANGS && I18N.LANGS[I18N.lang()] ? I18N.LANGS[I18N.lang()][1] : I18N.lang();
     const TH = { auto: t('Tự động'), light: t('Sáng'), dark: t('Tối') };
     const SUBT = { account: t('Tài khoản'), admin: t('Quản trị hệ thống'), look: t('Giao diện'), study: t('Mục tiêu học'), sound: t('Âm thanh & phát âm'), remind: t('Nhắc học hằng ngày'), ai: 'AI', ext: t('Add-on từ điển cho Chrome'), data: t('Dữ liệu'), help: t('Pháp lý & hỗ trợ') };
-    const go = (id, ic, label, val = '') => `<a class="set-go" href="#/settings/${id}" data-go="${id}"><span class="set-ic" aria-hidden="true">${ic}</span><span class="set-go-l">${label}</span>${val ? `<span class="set-go-v">${esc(val)}</span>` : ''}<span class="set-chev" aria-hidden="true">›</span></a>`;
+    const go = (id, ic, label, val = '') => `<a class="set-go" href="#/settings/${id}" data-go="${id}"><span class="set-ic" aria-hidden="true">${ic}</span><span class="set-go-l">${label}</span>${val ? `<span class="set-go-v" title="${esc(val)}">${esc(val)}</span>` : ''}<span class="set-chev" aria-hidden="true">›</span></a>`;
     const grp = rows => `<div class="set-grp">${rows.join('')}</div>`;
     const idx = `<div class="set-idx" id="setIdx">
       ${grp([go('account', UI.icon('cloud'), t('Tài khoản'), u ? (u.displayName || u.email || '') : t('Đăng nhập'))])}

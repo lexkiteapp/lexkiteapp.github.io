@@ -187,7 +187,7 @@ async function journey(w, theme) {
   });
   await step('me', async () => { await go(page, '/me'); await go(page, '/stats'); });
   await step('theme', async () => {
-    await go(page, '/settings');
+    await go(page, '/settings/look'); // Cài đặt = mục lục + trang con: Chế độ màu ở nhóm Giao diện
     const lum = () => page.evaluate(() => { const c = getComputedStyle(document.body).backgroundColor.match(/\d+(\.\d+)?/g).map(Number); return (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255; });
     await click('#sTheme button[data-v="dark"]', 600);
     ok(await page.evaluate(() => document.documentElement.getAttribute('data-theme')) === 'dark', 'chọn Tối → html[data-theme=dark]');

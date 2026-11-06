@@ -15,6 +15,11 @@ for (const id of (sub || '').match(/'[a-z]+'/g).map(x => x.slice(1, -1))) {
   if (secN !== 1) fail(`trang con "${id}": ${secN} section (cần đúng 1)`);
   if (!src.includes(`go('${id}',`)) fail(`trang con "${id}" không có hàng ở mục lục`);
 }
+// 4) ô giá trị mục lục cắt "…" (text-overflow:ellipsis) phải có title đủ chữ (visual-qa ellipsis-no-title, 06/11)
+if (!/<span class="set-go-v" title="\$\{esc\(val\)\}">/.test(src)) fail('mục lục: ô giá trị .set-go-v thiếu title (bị cắt … không đọc được)');
+// 5) icon Material đổi bằng JS (ic.textContent = 'login') phải có trong font thu gọn, nếu không chữ tên icon hiện ra bị cắt (stitch-diff 06/11)
+const msym = JSON.parse(fs.readFileSync('web/fonts/msym.json', 'utf8'));
+for (const m of me.matchAll(/\bic\.textContent = '([a-z_0-9]+)'/g)) if (!msym.includes(m[1])) fail(`icon "${m[1]}" đổi trong ux1-me.js chưa có trong web/fonts/msym.woff2 → khai @icons rồi node scripts/build-stitch-css.mjs --fonts`);
 if (/\.set-nav|data-jump/.test(src)) fail('còn thanh chip set-nav cũ (đã thay bằng mục lục)');
 if (!/a === 'more'/.test(me) || !/act: 'more'/.test(me)) fail("trang Tôi: thiếu hàng/handler 'more'");
 if (!/\.v2-me \[data-row\] a\{color:inherit/.test(me)) fail('trang Tôi: thiếu chặn màu liên kết toàn cục cho nhãn hàng');
