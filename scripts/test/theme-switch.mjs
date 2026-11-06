@@ -133,7 +133,7 @@ w = runL({ 'vb.uiLang': 'vi' });
 w = runL({}); ok(w.document.querySelector('.logo').getAttribute('href') === '/en/' && w.document.querySelector('header a[href^="/app/"]').getAttribute('href') === '/app/?hl=en#/topic/a', 'chưa chọn ngôn ngữ → link giữ nguyên');
 w = runL({ 'lk.lang': 'ar' }, 'ja'); ok(w.document.querySelector('.logo').getAttribute('href') === '/ar/', 'chỉ có lk.lang → vẫn theo lk.lang');
 w = runL({ 'vb.uiLang': '"/><x' }); ok(w.document.querySelector('.logo').getAttribute('href') === '/en/', 'mã ngôn ngữ lạ → bỏ qua');
-{ const d = runL({}).document, g = [...d.querySelectorAll('.fg')]; ok(g.length === 4 && g.every(x => x.open) && d.querySelector('.flang summary').getAttribute('aria-label').startsWith('Language: '), 'chân trang: 4 nhóm (máy tính luôn mở), menu ngôn ngữ có aria-label'); }
+{ const d = runL({}).document, g = [...d.querySelectorAll('.fg')]; ok(g.length === 3 && g.every(x => x.open) && d.querySelectorAll('.flegal a').length === 4 && d.querySelector('.flang summary').getAttribute('aria-label').startsWith('Language: '), 'chân trang: 3 nhóm (máy tính luôn mở) + 4 link pháp lý ở hàng đáy, menu ngôn ngữ có aria-label'); }
 
 // Bộ đổi CSS: hai chiều + bất biến khi chạy lại
 const c1 = themeCss(':root{--a:1;color-scheme:light dark}@media (prefers-color-scheme:dark){:root{--a:2}.x,[dir=rtl] .y{color:red}}@media (prefers-color-scheme:light){.z{color:blue}}');

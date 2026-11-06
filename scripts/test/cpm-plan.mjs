@@ -12,7 +12,11 @@ ok(new Set(T.map(t => t.keyword)).size === T.length, 'từ khoá trùng: một t
 ok(P.priority.every(c => T.some(t => t.cluster === c)) && T.every(t => P.priority.includes(t.cluster)), 'cụm trong priority phải khớp topics');
 for (const c of P.priority) ok(T.filter(t => t.cluster === c && t.role === 'pillar').length === 1, `${c}: đúng 1 bài trụ`);
 for (const t of T) {
-  ok(!posts.has(t.id), `${t.id}: trùng slug bài đã có`);
+  // Chủ đề 'planned' không được trùng slug bài đã có; đã viết ('writing'/'published') thì bài en phải có thật và cùng translationKey
+  if (t.status === 'planned') ok(!posts.has(t.id), `${t.id}: trùng slug bài đã có`);
+  else ok(['writing', 'published'].includes(t.status), `${t.id}: status lạ ${t.status}`);
+  for (const [l, x] of Object.entries(t.locales || {})) { ok(LANGS.includes(l) && l !== 'en' && /^[a-z0-9-]+$/.test(x.slug) && x.keyword, `${t.id}: locales.${l} thiếu slug/keyword`); ok(!T.some(u => u.id === x.slug), `${t.id}: locales.${l} trùng id chủ đề`); }
+  if (t.status === 'published') for (const [l, f] of [['en', t.id], ...Object.entries(t.locales || {}).map(([l, x]) => [l, x.slug])]) { const fp = `content/blog/${l}/${f}.md`; ok(fs.existsSync(fp) && new RegExp(`^translationKey: ${t.translationKey}$`, 'm').test(fs.readFileSync(fp, 'utf8')), `${t.id}: ${fp} thiếu hoặc lệch translationKey`); }
   ok(t.markets.length && t.markets.every(m => Object.hasOwn(HIGH_CPM, m)), `${t.id}: thị trường ngoài nhóm CPM`);
   ok(t.factCheck.length > 0 && t.appSupports, `${t.id}: thiếu nguồn kiểm hoặc phần app hỗ trợ`);
   const r = /^\/app\/#\/([a-z-]+)(?:\/(.+))?$/.exec(t.feature); ok(r, `${t.id}: feature phải là route app`);

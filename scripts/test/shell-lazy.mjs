@@ -23,6 +23,7 @@ const LAZY = [
   { file: 'js/phrases-model.js', bundle: 'writing', routes: ['model', 'models', 'phrases'] },
   { file: 'js/dict-page.js', bundle: 'dictp', routes: ['dict'] },
   { file: 'js/league.js', bundle: 'league', routes: ['league'] },
+  { file: 'js/stats-page.js', bundle: 'statsp', routes: ['stats'] }, // 06/11: Tiến độ & huy hiệu + thời điểm vàng/tuần này/cấp độ nhớ
 ];
 for (const L of LAZY) {
   ok(fs.existsSync('web/' + L.file), `${L.file} tồn tại`);
@@ -38,6 +39,7 @@ for (const L of LAZY) {
 for (const k of ['lemmaT', 'lemma', 'cleanText', 'phrasePop', 'savePhraseDialog', 'isPhrase', 'parseHash', 'extCta', 'bindCommon', 'guard'])
   ok(new RegExp(`App\\.${k} = `).test(firstSrc), `App.${k} định nghĩa ở khung (file lười dùng ngay khi nạp)`);
 ok(/inDeck, [^}]*masteryDots/.test(app) && /\breward, addWord, inDeck\b/.test(app), 'App có state/routes/view/inDeck/masteryDots/reward/addWord (dict-page.js lấy từ App)');
+ok(/masteryDots, view, avatarInner \}/.test(app) && /\bstreak\b[^}]*\bview\b/.test(app.slice(app.indexOf('const App = {'), app.indexOf('window.App = App'))), 'App có streak/view/avatarInner (stats-page.js lấy từ App)');
 
 // 3) thước đo tất định, cùng danh sách
 const sb = rd('scripts/test/size-budget.mjs'), ss = rd('scripts/test/shell-size.mjs');

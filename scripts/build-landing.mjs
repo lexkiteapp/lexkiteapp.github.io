@@ -67,12 +67,12 @@ const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn tsp tsb"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
 // Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của PR 303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
-const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
+const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}[data-tsw]{flex:none;min-width:44px;min-height:44px}'; // flex:none: đầu trang ru/de chữ dài → nút bị co < 44 px (visual-qa tap<44 05/11)
 // ----- CSS riêng của landing (chỉ phần mẫu Stitch không vẽ: giữ chỗ nút add-on/Tải app chống CLS, link bỏ qua, dải gợi ý ngôn ngữ, menu đổi ngôn ngữ) -----
 // Màu = token Stitch (--st-*, cùng nguồn brand/stitch/tokens.dtcg.json, tự đổi sáng/tối) → biến dùng chung của khối lsw/lhint.
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-flex!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
 ${STW_VARS}
-[data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
+[data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60;min-height:44px;display:inline-flex;align-items:center}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-surface));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
 ${LSW_CSS}.lsw-m{z-index:60}
 ${TSW_ICON}${TSP_CSS}summary::-webkit-details-marker{display:none}`;
@@ -118,20 +118,26 @@ const PSEUDO_EL = /::?(?:before|after|first-line|first-letter)\b|::[\w-]+(?:\([^
 const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any-link|checked|disabled|enabled|placeholder-shown|target|open|popover-open|invalid|valid|required|optional|autofill|-webkit-autofill|indeterminate|default|read-only|read-write|user-invalid|user-valid)(?![\w-])/g;
 // Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
 const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
+const LAYOUT = /^(display|grid(-[\w-]+)?|gap|row-gap|column-gap|flex(-[\w-]+)?|order|(min-|max-)?(width|height)|aspect-ratio|margin(-[\w-]+)?|padding(-[\w-]+)?|(align|justify|place)-[\w-]+|font-size|line-height|letter-spacing|white-space|box-sizing|border(-(top|right|bottom|left))?-width)$/;
 export function criticalCss(css, html) {
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
   // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
   const S = doc.querySelectorAll('section'), first = S[Math.min(1, S.length - 1)], crit = new Set();
   for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
+  // + section thứ 3 chỉ lấy THUỘC TÍNH BỐ CỤC (lưới/khoảng cách/cỡ chữ): ở 1440×900 bản chữ ngắn (es) lưới tính năng lọt màn đầu → lưới tới muộn = CLS 0,395 (visual-qa 05/11);
+  //   phần trang trí (màu/bóng/bo góc) vẫn tới muộn – không xê dịch, giữ CSS nội tuyến dưới trần 16 KB gz của trang giới thiệu
+  const third = S[2], lay = new Set(third ? [third, ...third.querySelectorAll('*')].filter(e => !crit.has(e)) : []);
   const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
     let q = sel.replace(/:root(?::not\(\[data-theme=\w+\]\)|\[data-theme=\w+\])/g, ':root').replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '') /* nhánh nút giao diện (PR 303): trang lúc build không có data-theme → so như :root, kẻo vẽ đầu sai nền khi ép tối/sáng */.replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
-    let r; try { r = [...doc.querySelectorAll(q)].some(e => crit.has(e)); } catch { r = true; }
+    let r; try { const all = [...doc.querySelectorAll(q)]; r = all.some(e => crit.has(e)) ? true : all.some(e => lay.has(e)) ? 'lay' : false; } catch { r = true; }
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
-    const k = splitSel(sel).filter(x => !INTERACT.test(x) && hit(x)); return k.length ? k.join(',') + b.slice(j) : ''; }).join('');
+    const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
+    const lb = l.length ? b.slice(j + 1, -1).split(';').filter(d => LAYOUT.test(d.split(':')[0].trim())).join(';') : '';
+    return (k.length ? k.join(',') + b.slice(j) : '') + (lb ? l.join(',') + '{' + lb + '}' : ''); }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
   return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');

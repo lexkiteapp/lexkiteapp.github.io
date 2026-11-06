@@ -4,6 +4,8 @@
  *     late:1 + t0 = phiên gửi bù sau khi /api chết (web/js/app.js lk.hitq) → ghi vào ngày gốc t0 (lateAt), đếm ext_events 'hit:late'
  *     cur = trang đang xem (→ last_path, last = lúc nhận → "đang online"); pv = { route: số lượt xem mới từ lần gửi trước } (≤ 20 trang) → pageviews_day
  *   { t:'l', ref, p, lang }                                           → khách từ NGOÀI vào trang tĩnh (js/site-ui.js SRC_JS, ≤ 1 lần/nguồn/30 phút/máy): chỉ đếm, ext_events 'land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>'. Tắt: biến Pages HIT_LAND=0
+ *   { t:'vo', c:{f,k,s,s_off,s_wait,s_load,s_fail,s_lang,s_pref}, p:'web'|'app'|'ext' } → nguồn giọng THỰC phát (web/js/audio.js flushVo): f file Kokoro dựng sẵn ·
+ *     k Kokoro trên máy · s giọng máy (+ lý do) → ext_events 'vo:<k>' + 'vo:<f|k|s>:<p>' (chỉ số đếm; tỷ lệ giọng máy = s/(f+k+s), docs/specs/kokoro-on-device.md §Số đo)
  *   { t:'e', msg, src, line, path, ver }                              → gộp lỗi giống nhau thành 1 dòng + đếm
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
@@ -30,6 +32,15 @@ const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', '
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
+// Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
+export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref'], VO_PLAT = ['web', 'app', 'ext'];
+export function voRows(b) {
+  const c = b && b.c && typeof b.c === 'object' ? b.c : null; if (!c) return [];
+  const n = k => Math.min(Math.max(Math.floor(+c[k] || 0), 0), 500), p = VO_PLAT.includes(b.p) ? b.p : 'web', rows = [];
+  for (const k of VO_KEYS) if (n(k) > 0) rows.push(['vo:' + k, n(k)]);
+  for (const k of ['f', 'k', 's']) if (n(k) > 0) rows.push([`vo:${k}:${p}`, n(k)]);
+  return rows;
+}
 let ready = false;
 const ok = () => new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } });
 const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
@@ -250,6 +261,11 @@ export async function onRequestPost({ request, env }) {
       if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(day, kind, n)));
       // Cổng giữ chân: tối đa 1 lần/giờ/trung tâm dữ liệu, chỉ đọc khoảng ngày (SEARCH theo PK) – không quét bảng
       if (!(await limit('ads-guard', 1, 3600))) await adsGuard(env.DB, now).catch(() => {});
+    } else if (b.t === 'vo' && !automation(request) && !devOrigin(request)) {
+      // 🔊 Nguồn giọng (web/js/audio.js flushVo): 1 beacon/lần ẩn tab – giám sát tỷ lệ rơi về giọng máy (Quản trị + health)
+      if (await limit('hvo:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
+      const rows = voRows(b);
+      if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(dayOf(now), kind, n)));
     } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
       await env.DB.prepare('INSERT INTO errors (h, msg, src, path, ver, n, first, last) VALUES (?1, ?2, ?3, ?4, ?5, 1, ?6, ?6) ON CONFLICT (h) DO UPDATE SET n = n + 1, last = ?6, path = ?4, ver = ?5')

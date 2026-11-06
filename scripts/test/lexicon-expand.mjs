@@ -432,4 +432,13 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
     ok(rows.length === 2 && rows.every(r => /^sw12\.\d+$/.test(r[0]) && r[1] === 'eng'), 'simplewiki: chỉ trang chính, id sw<trang>.<n>');
     ok(rows[0][2] === 'Cats are small mammals that people keep as pets.' && rows[1][2].startsWith('Most farmers'), 'simplewiki: gỡ markup, bỏ số/đại từ/danh sách/tiêu đề');
     fs.rmSync(dir, { recursive: true, force: true }); } }
+// 05/11 Common Voice en (commonvoice.py, CC0): lọc hình thức + dễ, id cv<tệp>.<dòng>, bỏ trùng/đại từ/số
+{ const { execFileSync } = await import('node:child_process'), os = await import('node:os');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'cv-'));
+  fs.writeFileSync(dir + '/a.txt', 'The farmer planted tall trees near the river bank yesterday.\nHe likes the big red apple that fell.\nShort one.\nThe farmer planted tall trees near the river bank yesterday.\nThe quick brown fox jumped over 3 lazy dogs again.\n');
+  try { execFileSync('python3', [path.join(ROOT, 'scripts/lexicon/expand/commonvoice.py'), '--out', dir + '/o.tsv', dir + '/a.txt'], { stdio: 'pipe' });
+    const rows = fs.readFileSync(dir + '/o.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
+    ok(rows.length === 1 && rows[0][0] === 'cv0.1' && rows[0][1] === 'eng', 'commonvoice: 1 câu đạt (bỏ đại từ, số, quá ngắn, trùng), id cv<tệp>.<dòng>');
+  } catch (e) { if (!/wordfreq/.test(String(e.stderr || e))) throw e; console.log('(bỏ qua test commonvoice: thiếu wordfreq cục bộ)'); }
+  fs.rmSync(dir, { recursive: true, force: true }); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }

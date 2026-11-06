@@ -85,5 +85,17 @@
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
  "est": 26.0,
- "end_alt": "n_3c01b9_e2"
+ "end_alt": "n_3c01b9_e2",
+ "publish": {
+  "title": "How to ask for things at a hotel in English",
+  "keyword": "hotel requests",
+  "value": "Late checkout, Wi-Fi, and more towels.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Try this at check-in: \"Could I get a room with a view?\" It never hurts to ask. Practice all the hotel phrases: {link}"
+ }
 }
