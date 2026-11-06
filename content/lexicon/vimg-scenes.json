@@ -294,16 +294,17 @@
   },
   "academic integrity#n": {
    "ex": "All students sign a pledge of academic integrity at enrolment.",
-   "ps": "a student and a teacher smile over a blank sheet marked with a green tick",
-   "sc": "a student and a teacher smile over a blank sheet marked with a green tick",
-   "check": "Is a student receiving a paper marked with a green tick from a teacher?",
-   "cap": "a student and teacher approving a paper with a green tick",
-   "key": "a big green tick mark on a blank sheet; the student and teacher smiling",
+   "ps": "a boy and a girl sit at a table, each holding a puzzle piece, fitting them together and smiling",
+   "sc": "a boy and a girl sit at a table, each holding a puzzle piece, fitting them together and smiling",
+   "check": "Are the two students honestly working together on a shared puzzle?",
+   "cap": "two students cooperating on a puzzle",
+   "key": "two students each holding a puzzle piece; they are smiling while fitting pieces together",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "academic journal#n": {
    "ex": "She published her findings in an international academic journal.",
@@ -1687,17 +1688,17 @@
   },
   "adoption#n": {
    "ex": "The adoption of new accounting software has improved efficiency in the finance team.",
-   "ps": "two people stand beside a new shiny box, both smiling as they open it together",
-   "sc": "two people stand beside a new shiny box, both smiling as they open it together",
-   "check": "Are the people beginning to use a new device together?",
-   "cap": "two people opening a new box together",
-   "key": "a new shiny box being opened; two people smiling and reaching for it",
+   "ps": "a man and a woman stand side by side, each holding a sleek rectangular device, smiling at each other",
+   "sc": "a man and a woman stand side by side, each holding a sleek rectangular device, smiling at each other",
+   "check": "Are the two people exchanging new devices to start using them?",
+   "cap": "two people smiling while holding new rectangular devices",
+   "key": "the sleek rectangular devices being held; the smiling faces",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "adorable#adj": {
    "ex": "That's such an adorable face.",
@@ -3716,17 +3717,17 @@
   },
   "antibody#n": {
    "ex": "Blood tests showed high levels of antibodies after the second vaccine dose.",
-   "ps": "a large Y‑shaped protein molecule floating in a clear liquid, colored blue with orange arms",
-   "sc": "a large Y‑shaped protein molecule floating in a clear liquid, colored blue with orange arms",
-   "check": "Is there a Y‑shaped molecule that looks like a protein?",
-   "cap": "a blue Y‑shaped protein floating in clear liquid",
-   "key": "the Y‑shaped structure of the molecule; the blue color with orange arms",
+   "ps": "a Y‑shaped protein floats near a spiky ball, the Y attaches to the ball's surface",
+   "sc": "a Y‑shaped protein floats near a spiky ball, the Y attaches to the ball's surface",
+   "check": "Is there a Y‑shaped protein attached to a virus-like ball?",
+   "cap": "a Y‑shaped protein binding a spiky virus model",
+   "key": "a Y‑shaped protein; a spiky ball representing a virus with the Y attached",
    "who": 0,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "anticipate#v": {
    "skip": "hard to show anticipation without abstract symbols",
@@ -12099,17 +12100,17 @@
   },
   "classroom#n": {
    "ex": "The new classroom has a large interactive whiteboard and fast internet.",
-   "ps": "a teacher stands at a blank board while a child sits at a desk facing forward",
-   "sc": "a teacher stands at a blank board while a child sits at a desk facing forward",
-   "check": "Is there a room with a teacher and students at desks for learning?",
-   "cap": "a teacher and students in a room with desks and a board",
-   "key": "the teacher standing at a board; the child sitting at a desk facing the teacher",
+   "ps": "a bright room with rows of desks, a teacher at the front, and a large empty board",
+   "sc": "a bright room with rows of desks, a teacher at the front, and a large empty board",
+   "check": "Is there a room where lessons are taught with desks and a teacher?",
+   "cap": "a bright learning space with desks and a teacher",
+   "key": "rows of desks; a large empty board",
    "who": 2,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "clause#n": {
    "skip": "draw 3: a person fits a single puzzle piece into a larger picture on",
@@ -17675,17 +17676,17 @@
   },
   "creative brief#n": {
    "ex": "The creative brief asked for a fun video under thirty seconds.",
-   "ps": "a woman in a studio holds a blank sheet with a big red tick, while a man watches",
-   "sc": "a woman in a studio holds a blank sheet with a big red tick, while a man watches",
-   "check": "Is the sheet being used as a document that outlines a project?",
-   "cap": "a designer showing a brief on a plain sheet",
-   "key": "a blank sheet with a big red tick; the woman's pointing hand",
+   "ps": "a woman holds a blank sheet with three simple picture frames while a man points at it",
+   "sc": "a woman holds a blank sheet with three simple picture frames while a man points at it",
+   "check": "Is the paper being used to show a visual plan for a creative project?",
+   "cap": "a person presenting a sketch plan to a colleague",
+   "key": "a blank sheet with three simple picture frames; a person pointing at the sheet",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "creative#adj": {
    "skip": "sentence describes an internal attribute without observable action",
@@ -18031,6 +18032,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "cross-selling#n": {
+   "ex": "Cross-selling phone cases with new phones increased average order value.",
+   "ps": "a salesperson holds a coffee mug next to a coffee machine while a customer watches",
+   "sc": "a salesperson holds a coffee mug next to a coffee machine while a customer watches",
+   "check": "Is a seller offering an extra related item to a buyer?",
+   "cap": "a salesperson offering a mug beside a coffee machine to a customer",
+   "key": "a salesperson holding a coffee mug; the coffee mug placed beside a coffee machine",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "crossroads#n": {
    "ex": "Turn right at the crossroads and the farm shop is on your left.",
@@ -20137,16 +20151,17 @@
   },
   "delegation#n": {
    "ex": "A trade delegation from Japan visited the factory.",
-   "ps": "a man and a woman each hold a suitcase, standing together in front of a factory",
-   "sc": "a man and a woman each hold a suitcase, standing together in front of a factory",
-   "check": "Are the two people together, each with a suitcase, visiting a factory as a group?",
-   "cap": "two travelers with suitcases standing before a factory",
-   "key": "two people each holding a suitcase; the factory building behind them",
+   "ps": "a man and a woman stand side by side in front of a large factory",
+   "sc": "a man and a woman stand side by side in front of a large factory",
+   "check": "Are the two people shown as a group visiting a specific place?",
+   "cap": "two adults stand together in front of a factory",
+   "key": "two people standing together; a factory building behind them",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "delete#v": {
    "ex": "Please delete the old files from the server.",
@@ -40616,17 +40631,17 @@
   },
   "interrogate#v": {
    "ex": "I don't like being interrogated.",
-   "ps": "a stern man leans forward, pointing a finger at a nervous woman sitting opposite him",
-   "sc": "a stern man leans forward, pointing a finger at a nervous woman sitting opposite him",
-   "check": "Is the man shown asking many questions to a nervous individual?",
-   "cap": "a stern man pointing at a nervous woman across a table",
-   "key": "stern man's pointing finger; nervous woman's anxious posture",
+   "ps": "a man standing over a seated woman, the man holds a tall stack of blank sheets and points at her, both look serious",
+   "sc": "a man standing over a seated woman, the man holds a tall stack of blank sheets and points at her, both look serious",
+   "check": "Is the man asking many questions to the nervous seated woman?",
+   "cap": "a man pointing at a seated woman while holding many sheets",
+   "key": "a man holding a tall stack of blank sheets; a seated woman looking nervous",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "interrogator#n": {
    "ex": "The interrogator expected Tom to confess.",
@@ -50947,17 +50962,17 @@
   },
   "ocean acidification#n": {
    "ex": "Ocean acidification makes it harder for corals to build skeletons.",
-   "ps": "a diver swims near a coral reef where the corals are white and brittle, while a fish swims nearby",
-   "sc": "a diver swims near a coral reef where the corals are white and brittle, while a fish swims nearby",
-   "check": "Are the corals looking bleached and damaged in the water?",
-   "cap": "a diver observing a bleached coral reef",
-   "key": "white brittle corals; a diver looking at them",
+   "ps": "a diver with a concerned face swims near a white bleached coral while colorful coral lies farther away",
+   "sc": "a diver with a concerned face swims near a white bleached coral while colorful coral lies farther away",
+   "check": "Is the diver seeing a coral that has lost its color due to a chemical change in the water?",
+   "cap": "a diver observes a pale coral compared to bright coral nearby",
+   "key": "a white bleached coral; a diver with a concerned face",
    "who": 1,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "octopus#n": {
    "ex": "Octopi live in the sea.",
@@ -51310,17 +51325,17 @@
   },
   "one-stop shop#n": {
    "ex": "Citizens can submit documents at the one-stop shop of the district.",
-   "ps": "a man behind a single desk assists a woman who holds a key, a small box, and a blank sheet",
-   "sc": "a man behind a single desk assists a woman who holds a key, a small box, and a blank sheet",
-   "check": "Is a person getting several different services at one desk?",
-   "cap": "a clerk helping a customer with multiple items at one desk",
-   "key": "single desk with a clerk; customer holding three different items",
-   "who": 2,
-   "draw": 5,
+   "ps": "a man at a counter receives a key, a small box, and a blank sheet with a green tick",
+   "sc": "a man at a counter receives a key, a small box, and a blank sheet with a green tick",
+   "check": "Is a single place giving a person several different items at once?",
+   "cap": "a counter where one person receives multiple service items",
+   "key": "a key and a small box; a blank sheet with a green tick",
+   "who": 1,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "one-way#adj": {
    "ex": "A one-way ticket to Osaka costs almost as much as a return.",
@@ -56504,15 +56519,17 @@
   },
   "pollination#n": {
    "ex": "Wind pollination is common in grasses and many trees.",
-   "ps": "a fuzzy yellow bee lands on a pink flower, its legs touching the center",
-   "sc": "a fuzzy yellow bee lands on a pink flower, its legs touching the center",
-   "check": "Is a bee moving pollen from one part of the flower to another?",
-   "cap": "a bee visiting a pink flower and touching its center",
-   "key": "fuzzy yellow bee on pink flower; bee's legs touching the flower's center",
+   "ps": "a fuzzy bee flies from a yellow flower to a pink flower, pollen dust on its legs",
+   "sc": "a fuzzy bee flies from a yellow flower to a pink flower, pollen dust on its legs",
+   "check": "Is a bee transferring pollen between two flowers?",
+   "cap": "a bee moving pollen from one blossom to another",
+   "key": "bee with pollen dust; two different flowers",
    "who": 0,
    "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "pollinator#n": {
    "ex": "Bats are important pollinators of desert cactus flowers.",
@@ -64885,6 +64902,10 @@
    "skip": "no concrete visible action for abstract “retain”",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "retargeting#n": {
+   "skip": "too abstract to depict without prohibited elements",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "retention#n": {
    "ex": "Customer retention is cheaper than finding new customers.",
    "ps": "a woman stays inside a shop holding a bag while a man walks out the door",
@@ -65801,17 +65822,17 @@
   },
   "rotation#n": {
    "ex": "The rotation of the Earth causes day and night.",
-   "ps": "a big Ferris wheel with many cabins rotating slowly against a clear sky",
-   "sc": "a big Ferris wheel with many cabins rotating slowly against a clear sky",
-   "check": "Is there a large circular wheel turning around a central axis?",
-   "cap": "a big Ferris wheel turning under a clear sky",
-   "key": "the Ferris wheel with cabins; the wheel's turning position",
-   "who": 0,
-   "draw": 5,
+   "ps": "a child rides a round merry-go-round that spins around a central pole",
+   "sc": "a child rides a round merry-go-round that spins around a central pole",
+   "check": "Is there a child on a round platform turning around a central pole?",
+   "cap": "a child riding a spinning merry-go-round",
+   "key": "a child on a rotating merry-go-round; the central pole of the ride",
+   "who": 1,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "rote learning#n": {
    "ex": "Rote learning may help students pass exams but rarely develops critical thinking.",
@@ -81709,15 +81730,17 @@
   },
   "ward#n": {
    "ex": "The patient was moved to a private ward.",
-   "ps": "a hospital room contains a single bed, bedside table, and a nurse standing nearby",
-   "sc": "a hospital room contains a single bed, bedside table, and a nurse standing nearby",
-   "check": "Is there a hospital room with a bed and medical equipment?",
-   "cap": "a hospital room showing a bed and a bedside table",
-   "key": "a hospital bed with a bedside table; a nurse in the room",
-   "who": 1,
-   "draw": 4,
+   "ps": "a hospital bed with side rails holds a lying patient, while a nurse in a uniform stands beside the bed",
+   "sc": "a hospital bed with side rails holds a lying patient, while a nurse in a uniform stands beside the bed",
+   "check": "Is there a hospital room with a bed and a nurse caring for a patient?",
+   "cap": "a hospital bed with a patient and a nurse nearby",
+   "key": "hospital bed with side rails; the nurse standing beside the bed",
+   "who": 2,
+   "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "ware#n": {
    "ex": "It is not difficult to sell wares here.",
