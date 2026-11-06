@@ -23,6 +23,8 @@
 .set-wrap.idx>.set-sec{display:none}
 .set-wrap.one>.set-sec:not([data-on]){display:none}
 .set-wrap.one>.set-sec>.set-h{display:none}
+/* vùng chạm ≥44 px cho mọi nút/tab trong trang con (qa-bot tap) */
+.set-wrap[data-open] .btn.sm,.set-wrap[data-open] .set-c .tabs button{min-height:44px;min-width:44px}
 @media (prefers-reduced-motion:reduce){.set-go{transition:none}}`; document.head.appendChild(st); } } catch (e) { /* bỏ qua */ }
   const { $, $$, esc, toast, download, speak } = UI;
   const App = window.App;

@@ -43,7 +43,7 @@ const settings = theme => JSON.stringify({ onboarded: true, theme });
 // Trạng thái chụp + quét (dùng chung cho trước/sau). ux1: bật cờ "Một app" (Hôm nay/Từ vựng/Kỹ năng/Thi/Tôi) như bản live đang chạy.
 const STATES = [
   ['home', '/home'], ['vocab', '/vocab'], ['review', '/review'], ['practice', '/practice'], ['skills', '/skills'], ['tests', '/tests'],
-  ['me', '/me'], ['settings', '/settings'], ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
+  ['me', '/me'], ['settings', '/settings'], ...['account', 'look', 'study', 'sound', 'remind', 'ai', 'ext', 'data', 'help'].map(k => ['settings-' + k, '/settings/' + k]), // trang con Cài đặt (admin cần quyền quản trị – không quét) ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
   ['review-card', '/review', { ux1: 1, mode: 'flip' }], ['review-type', '/review', { ux1: 1, mode: 'type' }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
 ];
 // Cột trái máy tính: mép trái nội dung của mục menu, khối tiến độ và chân thanh bên phải thẳng một hàng

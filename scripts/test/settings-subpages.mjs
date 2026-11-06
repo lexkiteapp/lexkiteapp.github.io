@@ -20,6 +20,10 @@ if (!/<span class="set-go-v" title="\$\{esc\(val\)\}">/.test(src)) fail('mục l
 // 5) icon Material đổi bằng JS (ic.textContent = 'login') phải có trong font thu gọn, nếu không chữ tên icon hiện ra bị cắt (stitch-diff 06/11)
 const msym = JSON.parse(fs.readFileSync('web/fonts/msym.json', 'utf8'));
 for (const m of me.matchAll(/\bic\.textContent = '([a-z_0-9]+)'/g)) if (!msym.includes(m[1])) fail(`icon "${m[1]}" đổi trong ux1-me.js chưa có trong web/fonts/msym.woff2 → khai @icons rồi node scripts/build-stitch-css.mjs --fonts`);
+// 6) qa-bot quét mọi trang con (trừ admin) – nút dời sang trang con thì baseline không được "tự xanh" vì bot không thấy (06/11); nút trong trang con ≥44 px
+const bot = fs.readFileSync('scripts/test/qa-bot.mjs', 'utf8'), botSub = (bot.match(/\.\.\.\[([^\]]+)\]\.map\(k => \['settings-' \+ k/) || [])[1] || '';
+for (const id of (sub || '').match(/'[a-z]+'/g).map(x => x.slice(1, -1))) if (id !== 'admin' && !botSub.includes(`'${id}'`)) fail(`qa-bot chưa quét trang con /settings/${id}`);
+if (!/\.set-wrap\[data-open\] \.btn\.sm,[^{]*\{min-height:44px;min-width:44px\}/.test(src)) fail('trang con: thiếu vùng chạm ≥44 px cho .btn.sm/tab');
 if (/\.set-nav|data-jump/.test(src)) fail('còn thanh chip set-nav cũ (đã thay bằng mục lục)');
 if (!/a === 'more'/.test(me) || !/act: 'more'/.test(me)) fail("trang Tôi: thiếu hàng/handler 'more'");
 if (!/\.v2-me \[data-row\] a\{color:inherit/.test(me)) fail('trang Tôi: thiếu chặn màu liên kết toàn cục cho nhãn hàng');
