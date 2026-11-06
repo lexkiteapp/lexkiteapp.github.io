@@ -74,3 +74,24 @@ export function validate(deck, o = {}) {
 /** Bản sao cho app: chỉ trường app dùng (settings.js addTlSeed) – dựng bởi scripts/target/build.mjs, test so khớp. */
 export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
 export const webSeedText = deck => JSON.stringify(webSeed(deck)) + '\n';
+
+// Mục Wiktionary (kaikki.org, CC BY-SA) của 1 từ – tệp nhỏ /meaning/… (không tải bản 1,1 GB). CHỈ dùng để kiểm chéo trên CI (wikt-check, conj-check),
+// không ghi dữ liệu Wiktionary vào repo. 404 → []; lỗi mạng/5xx sau 3 lần → thoát 3 (dừng lượt, không bỏ cổng).
+export async function kaikki(lang, w) {
+  const l = w.toLowerCase(), c = [...l], u = `https://kaikki.org/dictionary/${lang}/meaning/${encodeURIComponent(c[0])}/${encodeURIComponent(c.slice(0, 2).join(''))}/${encodeURIComponent(l)}.jsonl`;
+  for (let t = 1; t <= 3; t++) {
+    try {
+      const r = await fetch(u); if (r.status === 404) return [];
+      if (r.ok) return (await r.text()).split('\n').filter(Boolean).map(x => JSON.parse(x));
+    } catch {}
+    await new Promise(z => setTimeout(z, 1500 * t));
+  }
+  console.error('✗ kaikki.org không trả lời (' + w + ') – dừng lượt'); process.exit(3);
+}
+
+// LanguageTool tự chạy trên runner (spanish-course.md §5.1; dựng bằng scripts/ci/lt-up.sh): mọi lỗi (kể cả chính tả/dấu câu) = loại; lỗi mạng = ném (dừng lượt, không bỏ cổng)
+export async function ltErrors(url, lang, text) {
+  const r = await fetch(url + '/v2/check', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ text, language: lang }) });
+  if (!r.ok) throw new Error('LanguageTool ' + r.status);
+  return (await r.json()).matches.map(m => `${m.rule.id}: ${text.slice(m.offset, m.offset + m.length)} – ${m.message}`);
+}
