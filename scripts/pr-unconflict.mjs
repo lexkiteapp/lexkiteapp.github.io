@@ -21,7 +21,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json'];
-export const UNION = ['scripts/test/suite.txt'];
+export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách chỉ thêm dòng: gộp union + khử trùng (docs-budget vẫn kiểm INDEX)
 export const ACTIVE_H = 24, MAX = 4;
 
 /** Kế hoạch gỡ cho danh sách tệp xung đột: null nếu có tệp ngoài danh sách tự gỡ. */

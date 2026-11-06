@@ -154,6 +154,7 @@
     toast({ auto: '🌓 ' + t('Giao diện theo hệ thống'), light: '☀️ ' + t('Giao diện sáng'), dark: '🌙 ' + t('Giao diện tối') }[state.settings.theme]);
   };
 
+
   // ---------- Thưởng XP / nhiệm vụ / huy hiệu ----------
   async function reward(delta, el) {
     const ctx = { cards: Object.keys(state.cards).length, mastered: masteredCount(), streak: streak() + ((state.game.days[todayKey()] || {}).xp ? 0 : 1) };
@@ -218,6 +219,18 @@
   const routes = {};
   const App = { enrichLater, ORIGINS, origin, forgetting, state, routes, load, reward, addWord, inDeck, allWords, topicOf, updateChrome, saveSettings, streak, activeDays, masteredCount, masteryDots, view, avatarInner }; // avatarInner: stats-page.js (gói lười statsp)
   window.App = App;
+  // Menu tài khoản MỘT bản (đầu trang Stitch điện thoại + avatar thanh trên): đủ mục mà thanh trên hẹp phải ẩn (sáng/tối, kỳ thi, XP) – không mất chức năng ở bất kỳ độ rộng/zoom nào
+  App.accountMenu = () => {
+    const X = (App.EXAMS || {})[App.exam ? App.exam() : 'ielts'] || {}, sh = String(X.short || '').replace(/[&<>"']/g, '');
+    UI.modal(`<div class="ux1-menu"><h2>${t('Tài khoản')}</h2><p class="muted" data-m-xp>${UI.icon('star')} ${t('Tổng XP')}: <b>${fmtInt(state.game.xp)}</b></p><a class="btn" data-m="x" href="#/me">${t('Tài khoản')}</a><button type="button" class="btn ghost" data-m="exam">${t('Kỳ thi')}${sh ? ': ' + sh : ''}</button><button type="button" class="btn ghost" data-m="theme">${t('Đổi giao diện sáng/tối')}</button>${!state.user && window.Sync && Sync.gBtn ? Sync.gBtn() : ''}</div>`); // chưa đăng nhập: nút đăng nhập (avatar thanh trên lúc này mở menu) – sync.js xử lý data-acct
+    const m = document.querySelector('.ux1-menu'); if (!m) return;
+    m.addEventListener('click', e => { const w = e.target.closest('[data-m]'); if (!w) return; const v = w.dataset.m, c = UI.closeModal || window.closeModal; if (c) c(); if (v === 'exam' && App.examPicker) App.examPicker(); if (v === 'theme') $('#themeBtn').onclick(); });
+  };
+  // Avatar thanh trên: khi nút sáng/tối bị ẩn vì thiếu chỗ (≤ 900 px, 1024–1279 px, zoom lớn) → mở menu tài khoản thay vì sang #/me
+  //   Ủy quyền trên document (pha bắt): sync.js vẽ lại #avatarBtn bằng outerHTML (nút đăng nhập / ảnh tài khoản) → bộ nghe gắn thẳng vào nút sẽ mất
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#avatarBtn'), b = $('#themeBtn'); if (!a || !b || b.getClientRects().length || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); e.stopPropagation(); App.accountMenu(); }, true);
+  // Avatar đầu trang Stitch (< 1024 px, không có nút sáng/tối) → cùng menu tài khoản (mục "Tài khoản" vẫn sang #/me)
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('.v2 header a[href="#/me"]'); if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); App.accountMenu(); }, true); // pha bắt: bộ chặn liên kết "#…" của index.html (<base>) đã preventDefault ở pha nổi trước bộ này
   // 🔥 Cờ lớp giữ thói quen (docs/RETENTION.md §5): ?ret=1/0 (thử máy này) > config ret '0' tắt khẩn / '1' bật hết > ret_pct: nhóm lk.rb (0–99, ngẫu nhiên, cố định theo máy) < ret_pct
   // Đo D7: App.retArm() = 'on' (nhóm bật) | 'off' (đối chứng cùng cỡ: lk.rb ∈ [50, 50+pct)) | '' → retTrack gửi 1 lần/máy 'seen' và 1 lần khi chuỗi chạm 7 (functions/api/hit.js RET_EV)
   const retCfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
@@ -559,7 +572,8 @@
   const vimgOn = () => { try { const f = localStorage.getItem('lk.vimg'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.vocab_img; if (v === false || v === '0' || v === 'false') return false; if (localStorage.getItem('lk.vimg.adm') === '1' || v === '1' || v === true) return true; const p = c && c.v && c.v.vocab_img_pct, pct = p != null && p !== '' && !isNaN(+p) ? +p : 10, b = localStorage.getItem('lk.vb'); return b == null || +b < pct; } catch (e) { return false; } };   // bật dần: nhóm lk.vb < vocab_img_pct (mặc định 10 %) – module tự quyết lần đầu (tạo lk.vb)   // chưa đặt = tự động: module + chỉ mục nhỏ tự quyết (on ≥ 150 ảnh)
   App.vimgReady = list => (vimgOn() ? App.need('vimg').then(() => window.VImg && VImg.ready(list)).catch(() => null) : Promise.resolve(null));
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
-  App.vimgReady();
+  // Màn đầu (chào/trang chủ, lần tải lạnh): hoãn nạp module+chỉ mục ảnh tới lúc rảnh – chạy lúc khởi động nó chặn luồng chính ~100 ms (TBT mobile). Màn khác (học/ôn/tra từ): nạp ngay như cũ để thẻ đầu đã có ảnh.
+  /^#?\/?(welcome|home)?\/?(\?|$)/.test(location.hash) ? idle(() => App.vimgReady()) : App.vimgReady();
   // thẻ ngôn ngữ đích khác: chỉ ảnh có khóa tiếng Anh từ#loại khớp ĐÚNG nghĩa (trường img, content/target/<tl>/) – không có → không ảnh
   App.imgKey = c => (c.tl ? String(c.img || '').split('#') : [c.word, c.pos]); // [từ, loại] để gọi App.vimg; thẻ tl không có img → người gọi bỏ ảnh
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
@@ -674,7 +688,7 @@
   window.addEventListener('hashchange', route);
   document.addEventListener('click', e => {
     const a = e.target.closest && e.target.closest('a[href^="#/"]');
-    if (a && a.getAttribute('href') === location.hash) { e.preventDefault(); route(); }
+    if (a && !e.defaultPrevented && a.getAttribute('href') === location.hash) { e.preventDefault(); route(); } // đã có bộ nghe khác nhận (vd avatar #/me mở menu tài khoản ngay trên trang Tôi) → không vẽ lại trang (đóng mất menu)
   });
 
   // ---------- Tìm kiếm toàn cục + gợi ý ----------
