@@ -10,7 +10,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (1298 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (89 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (1055 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (1057 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (181 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1504 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
@@ -19,7 +19,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (207 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (41): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit,i18nfix,img,jobs,keys,league,lexai,notices,ota,push,quota,report,report-shot,social,social-auto,studio,sync,watch,youtube
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:697 s/test:424 s/video:104 js/vimg:64 s/cine:51 s/lib:51 s/lexicon:33 s/vocab-img:33 js/grammar:27 js/notes:27 js/st:27 s/stitch:26 js/speak:22 js/readtest:21 s/ci:20 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12 js/listen:12 s/teach:10 js/call:10 s/tts-ab:9 js/write:9 s/capacity:8 s/footage:8 s/content-qa:7 s/factory:7 s/target:7 js/usage:7 s/dict:6 s/sentence-audio:6 js/pron:6 s/cdn:5 s/quality:5 js/lesson:5 s/audio:4 s/teacher:4 js/ads:4 js/roleplay:4 js/vendor:4 s/explain:3 s/feedback:3 s/free-tier:3 s/media:3 s/ota:3 s/scriptbank:3 s/social:3 s/world:3 js/tools:3
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:697 s/test:425 s/video:104 js/vimg:64 s/cine:51 s/lib:51 s/lexicon:33 s/vocab-img:33 js/grammar:27 js/notes:27 js/st:27 s/stitch:26 js/speak:22 s/ci:21 js/readtest:21 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12 js/listen:12 s/teach:10 js/call:10 s/tts-ab:9 js/write:9 s/capacity:8 s/footage:8 s/content-qa:7 s/factory:7 s/target:7 js/usage:7 s/dict:6 s/sentence-audio:6 js/pron:6 s/cdn:5 s/quality:5 js/lesson:5 s/audio:4 s/teacher:4 js/ads:4 js/roleplay:4 js/vendor:4 s/explain:3 s/feedback:3 s/free-tier:3 s/media:3 s/ota:3 s/scriptbank:3 s/social:3 s/world:3 js/tools:3
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md. Test: scripts/test/i18n-*.mjs
@@ -130,12 +130,12 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [push,pr,manual,call] journey-e2e: Hành trình người dùng đầu-cuối…
 - [push:main,cron,manual,after-wf] pr-unconflict: Tự gỡ xung đột ở tệp TỰ SINH…
 
-## Test (362) → vùng phủ (file đích chi tiết: json `tests`)
+## Test (363) → vùng phủ (file đích chi tiết: json `tests`)
 - `web/js`: account-delete account-flow account-ui admin-gate admin-metrics admin-share admin-tabs admin-ui ads-admin ads-cls ads anki audio-play audio-voice call-e2e call-engine choice-kit client-security clips-perf comment-code confidence criteria datamuse-resilience dict-entry-layout dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app haptics inline-box ios-audio-unlock ipa-accent js-budget klocal landing-routing league learn-flow lesson-drag lex lip-clock lipsync-lesson lipsync mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui reminders report-ui retention say-text scroll-boot sel-translate settings-subpages shell-size social-ui speak-ipa speak-split speak st-web-i18n st2-href stories streak-flame streak-ui sync-drive sync-ext-drive target-lang teacher-loop teacher-native teacher-rig theme-switch today-mobile-actions tutor unit usage verbs video-web watch word-arrange-e2e
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe ci-policy clutter confidence-shots content-check contrast crawl d1-scan dispatch-guard docs-budget e2e explain-shots ffmpeg-setup-policy figure-layout final-qc i18n-switch ios-audio-e2e ios-driver-watchdog lazyfix lip-shots listing-check native-facade nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps route-race run-suite samples-seo-parity samples-visual screens seo-pages seo-sitemap seo-words-shots serve-web shell-responsive side-menu smoke teacher-native-shots teacher-rig-browser toeic-read-e2e tools-ui topbar-lang tsc-check ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep workflow-yaml
 - `functions/api`: accounts admin-ads-shots admin-dist-shots admin-gh admin-guard admin-prefs admin-rollup ads-revenue ai-pool aiearn analytics api-security capacity classroom clip-bulk d1-cap dist-roles distribution drive-repair drive hit-retry img-api jobs keys live-check notices post-deploy-check pr-check quota report root-lang schema-lock sessions-scan-gate social-admin social-auto social-first-comment social-meta-oauth social-meta social-mgr social-preview social-proxy static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual
 - `scripts`: authority-pages axe blog-images blog-lang-gates blog-youtube bot-push-key brand-check ci-triage codemap-budget cpack explain-check explain-let frame-consistency i18n-english i18n-single journey-e2e lesson-content links-js mobile-polish mqa-parity-self mqa-parity origin-fetch pack-gloss pages-skip pr-unconflict protection samples-ui sentence-asr sw-cache-fixed token-drift tools-pages ux1 word-ipa world-scorecard
-- `scripts/ci`: audio-coverage ci-guards ci-hog ci-queue-gate commit-regen cron-watch gh-api no-pr-branch-push qa-fill queue-report required-gate-stale zombie-pages
+- `scripts/ci`: audio-coverage audio-pr-branch ci-guards ci-hog ci-queue-gate commit-regen cron-watch gh-api no-pr-branch-push qa-fill queue-report required-gate-stale zombie-pages
 - `brand/stitch`: landing-v3 layout-guards stitch-coverage stitch-diff stitch-quality-qc stitch-refs-qc stitch-render stitch-screens stitch-web-diff
 - `content/video`: characters-gate library studio video-layout video-pron video-templates video
 - `scripts/lib`: ci-header-scope font-audit lastmod qa-classify syntax-check theme-static word-depth
@@ -186,5 +186,5 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/dict`: dict-pages
 - `workers/mail`: mail-prefs
 
-## Mô-đun JS chính (1/1222, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (1/1223, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `web/` sw.js →ads.js,ai.js,app.js ←1 (world-scorecard.mjs)
