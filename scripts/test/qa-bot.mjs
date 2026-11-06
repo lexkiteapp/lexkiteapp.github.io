@@ -43,7 +43,7 @@ const settings = theme => JSON.stringify({ onboarded: true, theme });
 // Trạng thái chụp + quét (dùng chung cho trước/sau). ux1: bật cờ "Một app" (Hôm nay/Từ vựng/Kỹ năng/Thi/Tôi) như bản live đang chạy.
 const STATES = [
   ['home', '/home'], ['vocab', '/vocab'], ['review', '/review'], ['practice', '/practice'], ['skills', '/skills'], ['tests', '/tests'],
-  ['me', '/me'], ['settings', '/settings'], ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
+  ['me', '/me'], ['settings', '/settings'], ...['account', 'look', 'study', 'sound', 'remind', 'ai', 'ext', 'data', 'help'].map(k => ['settings-' + k, '/settings/' + k]), // trang con Cài đặt (admin cần quyền quản trị – không quét) ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
   ['review-card', '/review', { ux1: 1, mode: 'flip' }], ['review-type', '/review', { ux1: 1, mode: 'type' }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
 ];
 // Cột trái máy tính: mép trái nội dung của mục menu, khối tiến độ và chân thanh bên phải thẳng một hàng
@@ -187,7 +187,7 @@ async function journey(w, theme) {
   });
   await step('me', async () => { await go(page, '/me'); await go(page, '/stats'); });
   await step('theme', async () => {
-    await go(page, '/settings');
+    await go(page, '/settings/look'); // Cài đặt = mục lục + trang con: Chế độ màu ở nhóm Giao diện
     const lum = () => page.evaluate(() => { const c = getComputedStyle(document.body).backgroundColor.match(/\d+(\.\d+)?/g).map(Number); return (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255; });
     await click('#sTheme button[data-v="dark"]', 600);
     ok(await page.evaluate(() => document.documentElement.getAttribute('data-theme')) === 'dark', 'chọn Tối → html[data-theme=dark]');

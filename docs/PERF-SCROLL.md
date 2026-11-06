@@ -1,7 +1,8 @@
-# Cuộn mượt – chuẩn, cách đo, cổng CI
+# Hiệu năng web – cuộn mượt + tải trang: chuẩn, cách đo, cổng CI
 
 > TL;DR: Cuộn phải không xô giao diện, không tự nhảy, Back về đúng chỗ. Đo bằng cử chỉ cuộn thật trên CI (`scroll-perf.yml`), ngưỡng trong `scripts/test/scroll-perf.budget.json` chỉ được siết.
-> Đọc khi: sửa khung app, thêm hiệu ứng vô hạn, danh sách dài, ảnh tải lười, hoặc cổng scroll-perf đỏ.
+> Tải trang: 6 route chính đo trên bản thật bằng `scripts/test/route-vitals.mjs` (job `routes` của `app-lcp.yml`), số và danh sách việc ở mục "Tải trang" cuối file.
+> Đọc khi: sửa khung app, đổi cách nạp JS/CSS/font/media, thêm hiệu ứng vô hạn, danh sách dài, ảnh tải lười, hoặc cổng scroll-perf đỏ.
 
 ## Luật
 - Khung màn (thanh trên, tab dưới, cột bên) phải đúng từ lúc chạm và từ lần vẽ đầu. Màn mới dùng khung v2/focus thì thêm vào `V2_ROUTES` (`web/js/app.js`), `ExitGuard` và script đầu `<body>` của `web/app/index.html`. `scroll-boot.mjs` khoá các danh sách này khớp nhau.
@@ -21,3 +22,37 @@
 - Runner CI không có GPU. Tỉ lệ rớt khung trên WebKit Linux và Simulator là vẽ phần mềm, không đại diện cho máy thật, nên WebKit chỉ gác số tất định (nhảy cuộn, chiều cao, thanh dính, Back).
 - `path` ở WebKit tăng chiều cao vì vẽ dần xuống dưới, không xô phần đang xem, nên có ngưỡng riêng.
 - Chưa đo được: cảm giác trên iPhone/Android thật, bật nảy (`overscroll-behavior`), thanh địa chỉ Safari.
+
+## Tải trang – 6 route (lexkite.com, 06/11)
+Đo bằng `node scripts/test/route-vitals.mjs https://lexkite.com` trên CI (run 42230583218): điện thoại 412×823, 4G chậm (RTT 150 ms, 1,6 Mbps), CPU ×4, trung vị 3 lần. Route trong app dùng khách cũ (dữ liệu `?demo=1`, 60 thẻ), nhưng HTTP cache và SW bị xoá trước mỗi lần đo. INP là lần chạm thật vào 2 nút đầu trong `#view`. Máy đo đặt `lk.noTrack=1`, nên không ghi phiên. Lighthouse lab hằng tuần (`reports/lighthouse.json`) chỉ đo trang mở lạnh, nên không thấy các route khách cũ.
+
+| Route | LCP | FCP | TBT | CLS | INP | Byte (request) | Nặng nhất |
+|---|---|---|---|---|---|---|---|
+| `#/welcome` (khách mới) | 0,75 s | 0,75 s | 87 ms | 0,046 | 160 ms | 645 KB (117) | font 174 KB, `app.js` 40, firebase-auth 39, grammar/tenses 33 + verbs 27 |
+| Hôm nay `#/home` | **5,43 s** | 0,72 s | **227 ms** | 0 | 88 ms | **905 KB (259)** | `lib/ngsl.js` 151, `awl.js` 51, skills 33, topics-more 28, office 24, font 209 |
+| Ôn `#/review` | **5,27 s** | **5,27 s** | 56 ms | 0,029 | **224 ms** | **944 KB (255)** | như Hôm nay + Bricolage 40 KB |
+| Bài học `#/lesson/go?demo=1` | **4,81 s** | **4,81 s** | 52 ms | 0 | 80 ms | 619 KB (**311**) | CSS 105 KB, `lesson/ui.js` 20 |
+| Từ điển `#/dict/hello` | 3,61 s | 0,73 s | **262 ms** | 0,001 | 56 ms | 775 KB (**325**) | **font 330 KB**, `notes/h.json` 28 |
+| Trang giới thiệu `/vi/` | 0,81 s | 0,81 s | **379 ms** | 0,049 | 104 ms | 372 KB (13) | `teach/*/idle.webm` 209 KB, `fonts/msymr.woff2` 63 |
+| Blog (bài) | – | – | – | – | – | – | runner CI bị Cloudflare chặn bằng trang thử thách (challenge, 400 KB): chưa đo được; Lighthouse tuần 05/11: LCP 2,0 s, TBT 0 |
+
+Đọc số:
+- Khách mới vào nhanh (LCP < 1 s). Khách cũ quay lại thì chậm 3,6–5,4 s, vì app chờ nạp mọi module và kho từ (`lib/*.js`, khoảng 300 KB) rồi mới vẽ. Mỗi route phát 250–325 request.
+- `/js/*` và `/css/*` đang `Cache-Control: no-cache` (`web/_headers`), và SW ép `no-cache` cho JS/CSS. Vì vậy mỗi lần mở, mỗi file tốn thêm 1 lượt đi-về 150 ms để hỏi lại máy chủ, dù file chưa đổi.
+- Font tốn 88–330 KB mỗi route: Be Vietnam Pro 7 kiểu (có nghiêng), tải từ Google, cộng thêm Bricolage.
+- firebase-auth (39 KB) nạp cả khi khách chưa đăng nhập.
+- `#793` đang sửa TBT màn đầu (vocab-img, i18n), không trùng với các việc dưới đây.
+
+Việc xếp theo lợi ích/chi phí (mỗi việc 1 PR nhỏ, có số trước/sau từ job `routes`):
+1. **Khách cũ vẽ trước, nạp kho từ sau.** Xong ở #799: `PAINT_FIRST` = Hôm nay + Ôn, gói `words` nạp sau lần vẽ đầu (khóa ở `shell-lazy.mjs` mục 4).
+2. **Cache bất biến theo mã băm.** Đang làm. `scripts/build-hash.mjs` tạo bản sao `/h/<đường dẫn>.<băm10>.<đuôi>` cho JS/CSS và trỏ mọi tham chiếu chữ trong `app/index.html`, `sw.js`, `js/`, `css/` sang bản băm. Băm theo tầng: file con đổi thì file cha đổi tên theo. `/h/*` immutable 1 năm; HTML và `sw.js` giữ no-cache/no-store. SW cache-first cho `/h/`.
+   - File gốc giữ nguyên để đường dẫn ghép động, trang tĩnh, add-on và app di động (`NO_HASH=1`) vẫn chạy.
+   - Không băm: `js/i18n/**`, file tự tìm vị trí của mình, và file nằm trong chu trình tham chiếu.
+   - Bản băm đã gỡ ở lần deploy mới (trang mở từ trước): SW và `loadScript`/`loadCss` quay về file gốc. Khóa bằng `scripts/test/build-hash.mjs`.
+3. **Font gọn.** Tự host Be Vietnam Pro bản cắt (latin + vietnamese, 3 độ đậm, bỏ nghiêng nếu không dùng), `preload` 1 file; Bricolage chỉ nạp ở màn có tiêu đề lớn. Ước tính −150 đến −250 KB mỗi route.
+4. firebase-auth nạp khi bấm Đăng nhập, hoặc khi đã có phiên.
+5. Trang giới thiệu: video `idle.webm` (209 KB) chỉ nạp khi rảnh và đang hiện trên màn; trước đó dùng ảnh poster. Đồng thời tìm nguồn TBT 379 ms.
+6. Speculation rules / prefetch lúc rảnh cho màn kế tiếp (Hôm nay → Ôn/Bài học).
+7. Ôn: INP 224 ms (lật thẻ). Tách việc nặng sau lần vẽ bằng `yield`.
+8. Ảnh AVIF/WebP có srcset và đủ kích thước; `content-visibility` cho danh sách dài (đã có luật ở trên). Ảnh chưa nằm trong top 10 byte của route nào.
+9. Đo blog: tìm cách để runner CI qua được trang thử thách (hoặc đo `lexkite.pages.dev`), và kiểm xem trang thử thách có chặn người hay crawler thật không.

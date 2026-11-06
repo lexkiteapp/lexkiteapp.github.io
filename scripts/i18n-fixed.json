@@ -1,4 +1,19 @@
 {
+  "{n} từ mới/ngày": {
+    "es": "{n} palabras nuevas/día",
+    "pt": "{n} palavras novas/dia",
+    "fr": "{n} nouveaux mots/jour",
+    "de": "{n} neue Wörter/Tag",
+    "id": "{n} kata baru/hari",
+    "th": "คำใหม่ {n} คำ/วัน",
+    "zh": "每天 {n} 个新词",
+    "ja": "1日{n}語の新しい単語",
+    "ko": "하루 새 단어 {n}개",
+    "hi": "{n} नए शब्द/दिन",
+    "ar": "{n} كلمات جديدة/يوم",
+    "ru": "{n} новых слов/день",
+    "tr": "Günde {n} yeni kelime"
+  },
   "Tỉ lệ đúng": {
     "es": "Precisión",
     "pt": "Precisão",
@@ -36059,5 +36074,65 @@
     "ar": "لم يبدأ الصوت – اضغط للاستماع (لن يُحتسب من استماعك الوحيد)",
     "ru": "Звук не запустился – нажмите, чтобы слушать (ваше единственное прослушивание не засчитано)",
     "tr": "Ses başlamadı – dinlemek için dokun (tek dinleme hakkın kullanılmaz)"
+  },
+  "Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.": {
+    "es": "Repasa 10 tarjetas para desbloquear {n} turnos más, gratis.",
+    "pt": "Revise 10 cartões para liberar mais {n} usos – grátis.",
+    "fr": "Révisez 10 cartes pour débloquer {n} essais de plus – gratuit.",
+    "de": "Wiederhole 10 Karten, um {n} weitere Versuche freizuschalten – kostenlos.",
+    "id": "Ulas 10 kartu untuk membuka {n} giliran lagi – gratis.",
+    "th": "ทบทวน 10 การ์ดเพื่อปลดล็อกอีก {n} ครั้ง – ฟรี",
+    "zh": "复习 10 张卡片,即可再解锁 {n} 次 – 免费。",
+    "ja": "カードを10枚復習すると、あと{n}回使えます(無料)。",
+    "ko": "카드 10장을 복습하면 {n}회가 더 열려요 – 무료.",
+    "hi": "{n} और बार पाने के लिए 10 कार्ड दोहराएँ – मुफ़्त।",
+    "ar": "راجع 10 بطاقات لتفتح {n} محاولات إضافية – مجانًا.",
+    "ru": "Повторите 10 карточек, чтобы открыть ещё {n} попытки – бесплатно.",
+    "tr": "{n} hak daha açmak için 10 kartı tekrar et – ücretsiz."
+  },
+  "Ôn thẻ ngay": {
+    "es": "Repasar ahora",
+    "pt": "Revisar agora",
+    "fr": "Réviser maintenant",
+    "de": "Jetzt wiederholen",
+    "id": "Ulas sekarang",
+    "th": "ทบทวนเลย",
+    "zh": "马上复习",
+    "ja": "今すぐ復習",
+    "ko": "지금 복습",
+    "hi": "अभी दोहराएँ",
+    "ar": "راجع الآن",
+    "ru": "Повторить сейчас",
+    "tr": "Şimdi tekrar et"
+  },
+  "Nhờ ôn thẻ, bạn được thêm {n} lượt.": {
+    "es": "Gracias a tu repaso, tienes {n} turnos más.",
+    "pt": "Graças à sua revisão, você ganhou mais {n} usos.",
+    "fr": "Grâce à votre révision, vous gagnez {n} essais de plus.",
+    "de": "Dank deiner Wiederholung hast du {n} weitere Versuche.",
+    "id": "Berkat ulasanmu, kamu mendapat {n} giliran lagi.",
+    "th": "เพราะคุณทบทวนการ์ด จึงได้เพิ่มอีก {n} ครั้ง",
+    "zh": "因为你复习了卡片,多得到 {n} 次。",
+    "ja": "復習したので、あと{n}回使えるようになりました。",
+    "ko": "복습한 덕분에 {n}회가 더 생겼어요.",
+    "hi": "कार्ड दोहराने से आपको {n} और बार मिले।",
+    "ar": "بفضل مراجعتك حصلت على {n} محاولات إضافية.",
+    "ru": "Благодаря повторению вы получили ещё {n} попытки.",
+    "tr": "Kartları tekrar ettiğin için {n} hak daha kazandın."
+  },
+  "Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.": {
+    "es": "Hoy has repasado {r}/{need} tarjetas: repasa más para ganar turnos.",
+    "pt": "Hoje você revisou {r}/{need} cartões – revise mais para ganhar usos.",
+    "fr": "{r}/{need} cartes révisées aujourd’hui – révisez-en plus pour gagner des essais.",
+    "de": "Heute {r}/{need} Karten wiederholt – wiederhole mehr, um Versuche zu bekommen.",
+    "id": "Hari ini sudah mengulas {r}/{need} kartu – ulas lagi untuk dapat giliran.",
+    "th": "วันนี้ทบทวนแล้ว {r}/{need} การ์ด – ทบทวนเพิ่มเพื่อรับสิทธิ์",
+    "zh": "今天已复习 {r}/{need} 张卡片 – 再多复习一些即可获得次数。",
+    "ja": "今日は{r}/{need}枚を復習しました。もっと復習すると回数がもらえます。",
+    "ko": "오늘 {r}/{need}장 복습 – 더 복습하면 횟수를 받아요.",
+    "hi": "आज {r}/{need} कार्ड दोहराए – और दोहराएँ तो बार मिलेंगे।",
+    "ar": "راجعت اليوم {r}/{need} بطاقة – راجع المزيد لتحصل على محاولات.",
+    "ru": "Сегодня повторено {r}/{need} карточек – повторите ещё, чтобы получить попытки.",
+    "tr": "Bugün {r}/{need} kart tekrar edildi – hak kazanmak için daha fazlasını tekrar et."
   }
 }
