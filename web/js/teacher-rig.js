@@ -148,8 +148,8 @@
     let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, paused = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
     const poses = {}, scaled = {}, pend = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
     let headC = null, faceC = null, lastT = '', lastP = [], boxes = null;
-    el.classList.add('trig');
-    if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">.trig{position:relative}.trig>canvas{display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
+    el.classList.add('trig'); // CSS mặc định :where() = độ ưu tiên 0: host tự đặt vị trí (vd. .tb-rig absolute trong chỗ giáo viên) luôn thắng – .trig{relative} chèn sau từng đè absolute → rig tụt 0,1 khung sau khi tải
+    if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">:where(.trig){position:relative}:where(.trig>canvas){display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
     const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
     const fit = () => { const w = el.clientWidth || 240, W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
     // thu nhỏ KHÔNG chặn luồng chính (createImageBitmap resize, ngoài luồng vẽ) – bản canvas đồng bộ chỉ là dự phòng
