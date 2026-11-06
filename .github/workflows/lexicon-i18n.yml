@@ -42,6 +42,9 @@ jobs:
       - name: Dịch theo nghĩa + duyệt
         if: env.SKIP != '1'
         run: node scripts/lexicon/i18n-job.mjs --calls "${{ github.event.inputs.calls || '120' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }}
+      - name: Cổng gói nghĩa (bảng tay giữ cờ MANUAL) trước khi đẩy – commit [skip ci] nên CI PR không thấy
+        if: env.SKIP != '1'
+        run: node scripts/test/pack-gloss.mjs
       - name: Lưu kết quả
         if: env.SKIP != '1'
         run: |

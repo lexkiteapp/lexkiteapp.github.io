@@ -34,6 +34,9 @@ ok(!backCheck('pregnant', [[['full of', 0]], [['adjective', ['full', 'replete']]
 ok(backCheck('commute', [[['commuting', 0]], null]), 'dạng biến đổi (commuting) vẫn khớp');
 ok(!backCheck('currently', [[['actually', 0]], null]), 'currently ≠ actually');
 
+// ---- nguồn: job dịch đêm (lexicon-i18n) phải ghi bảng tay bằng cờ MANUAL (06/11 ghi cờ 1 → 320 nghĩa ko bị hạ, main đỏ)
+ok(/pack\[w\] = \[m, FLAG\.MANUAL/.test(fs.readFileSync(new URL('scripts/lexicon/i18n-job.mjs', R), 'utf8')), 'i18n-job: bảng tay ghi cờ FLAG.MANUAL');
+
 // ---- 2) bảng tay đã áp (cờ 2) · 3) danh sách cấm
 const LANGS = fs.readFileSync(new URL('scripts/i18n-langs.txt', R), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 ok(LANGS.length === 13, '13 ngôn ngữ gói');
