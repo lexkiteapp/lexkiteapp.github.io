@@ -19,8 +19,9 @@ const ROUTES = [
 const RUNS = +process.env.RUNS || 3;
 const b = await chromium.launch();
 const mkCtx = () => b.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, locale: 'vi-VN' });
-const init = () => {
-  try { localStorage.setItem('lk.noTrack', '1'); } catch (e) { /* trang không có localStorage */ }
+const UX1 = process.env.UX1 === '1'; // bản dựng cục bộ không có /api/config → bật giao diện 5 tab (ux1) như lexkite.com
+const init = UX1 => {
+  try { localStorage.setItem('lk.noTrack', '1'); if (UX1) localStorage.setItem('lk.ux1', '1'); } catch (e) { /* trang không có localStorage */ }
   const V = window.__v = { lcp: 0, lcpEl: '', cls: 0, lt: [], ev: [], fcp: 0 };
   let sw = 0, sv = 0, last = 0, first = 0;
   const po = (type, fn, o = {}) => { try { new PerformanceObserver(l => l.getEntries().forEach(fn)).observe({ type, buffered: true, ...o }); } catch (e) { /* không hỗ trợ */ } };
@@ -38,7 +39,7 @@ async function measure(ctx, path) {
   let frozen = false;
   cdp.on('Network.responseReceived', e => { if (!frozen) req.set(e.requestId, { url: e.response.url, type: e.type, cache: e.response.fromDiskCache || e.response.fromServiceWorker }); });
   cdp.on('Network.loadingFinished', e => { const r = req.get(e.requestId); if (r && !frozen) r.bytes = e.encodedDataLength; });
-  await pg.addInitScript(init);
+  await pg.addInitScript(init, UX1);
   const t0 = Date.now();
   await pg.goto(base + path, { waitUntil: 'load', timeout: 90000 });
   // chờ yên: 3 s không long task mới (tối đa 20 s) – như cửa sổ TTI
@@ -63,7 +64,7 @@ async function measure(ctx, path) {
 // tab khách cũ: nạp dữ liệu mẫu một lần
 const seeded = await mkCtx();
 {
-  const pg = await seeded.newPage(); await pg.addInitScript(init);
+  const pg = await seeded.newPage(); await pg.addInitScript(init, UX1);
   await pg.goto(base + '/app/?hl=vi&demo=1#/home', { waitUntil: 'load', timeout: 90000 });
   await pg.waitForFunction(() => window.App && App.state && App.state.settings && App.state.settings.onboarded, null, { timeout: 60000 }).catch(e => console.log('⚠ seed: ' + e.message.slice(0, 120)));
   console.log('seed: cards=' + await pg.evaluate(() => Object.keys((App.state && App.state.cards) || {}).length).catch(() => '?'));
