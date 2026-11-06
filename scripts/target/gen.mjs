@@ -9,7 +9,7 @@
 // Chạy: node scripts/target/gen.mjs --tl es --n 300 [--dry]   (--dry: chỉ dựng danh sách ứng viên, không gọi AI)
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile } from './lib.mjs';
+import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile, ltErrors as ltErr } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -21,12 +21,7 @@ export const SOURCE = G.source;
 const [SK, SN] = (arg('shard', '0/1')).split('/').map(Number);
 const OUT = path.join(ROOT, 'content/target', TL), outFile = nextCoreFile(TL, SK), repFile = outFile.replace(/\.json$/, '.report.json');
 const LT = G.lt && process.env.LT_URL; if (G.lt && !DRY && !LT) { console.error('✗ thiếu LT_URL – cổng LanguageTool bắt buộc cho ' + TL); process.exit(2); }
-// LanguageTool: mọi lỗi (kể cả chính tả/dấu câu) = loại; lỗi mạng = dừng lượt (không bỏ cổng)
-async function ltErrors(text) {
-  const r = await fetch(LT + '/v2/check', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ text, language: G.lt }) });
-  if (!r.ok) throw new Error('LanguageTool ' + r.status);
-  return (await r.json()).matches.map(m => `${m.rule.id}: ${text.slice(m.offset, m.offset + m.length)} – ${m.message}`);
-}
+const ltErrors = text => ltErr(LT, G.lt, text); // LanguageTool: mọi lỗi = loại (lib.mjs)
 
 // ---------- 1) ứng viên theo tần suất ----------
 const txt = await (await fetch(SOURCE.url)).text();

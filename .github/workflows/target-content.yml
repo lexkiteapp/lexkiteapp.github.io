@@ -13,7 +13,7 @@ on:
       dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
       shards: { description: 'Số job song song (1–12; mỗi shard ≤ n mục)', default: '1' }
   pull_request:
-    paths: ['scripts/target/**', 'content/target/**', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
+    paths: ['scripts/target/**', 'content/target/**', 'scripts/content-qa/grammar-map-check.mjs', 'scripts/ci/lt-up.sh', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
 permissions: { contents: read, id-token: write }   # chỉ đọc repo (lô ra artifact); id-token: JWT OIDC cho /api/lexai
 # Lượt tay nối tiếp lô trước → xếp hàng, KHÔNG huỷ lượt đang sinh (mất hạn mức ai-pool); PR thì huỷ lượt cũ.
 concurrency:
@@ -23,7 +23,7 @@ env:
   CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
 jobs:
   check:
-    # PR: khô cho mọi tl + tự kiểm IPA espeak (seed khớp cả dấu nhấn) + Wiktionary trên seed (100 %)
+    # PR: khô cho mọi tl + tự kiểm IPA espeak (seed khớp cả dấu nhấn) + Wiktionary trên seed (100 %) + chia động từ ↔ Wiktionary + kho ngữ pháp es
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -42,6 +42,15 @@ jobs:
       - name: Wiktionary trên seed (es)
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/target/wikt-check.mjs --tl es --self
+      - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/conj-check.mjs
+      - name: LanguageTool tự chạy (es) – câu ví dụ kho ngữ pháp
+        if: ${{ matrix.tl == 'es' }}
+        run: bash scripts/ci/lt-up.sh es
+      - name: Kho điểm ngữ pháp (es) + LanguageTool 0 lỗi
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/content-qa/grammar-map-check.mjs --tl es
   plan:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
@@ -69,10 +78,7 @@ jobs:
         if: ${{ github.event.inputs.dry != '1' }}
         run: |
           LT=$(node -e "import('./scripts/target/tl-gen.mjs').then(m=>console.log(m.TL_GEN[process.env.TL].lt||''))")
-          [ -z "$LT" ] && exit 0
-          docker run -d --name lt -p 8010:8010 -e Java_Xmx=2g erikvl87/languagetool:6.8 >/dev/null
-          for i in $(seq 1 120); do curl -sf "http://localhost:8010/v2/check?language=$LT&text=Hola" >/dev/null && echo "LT_URL=http://localhost:8010" >> "$GITHUB_ENV" && exit 0; sleep 3; done
-          docker logs lt 2>&1 | tail -30; echo '✗ LanguageTool không lên sau 6 phút' && exit 1
+          bash scripts/ci/lt-up.sh "$LT"
       - name: Ứng viên (khô) hoặc sinh + LanguageTool + 2 giám khảo + dịch ngược + cổng
         env:
           CF_POOL: ${{ secrets.CF_POOL }}

@@ -114,6 +114,7 @@ node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
+node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
