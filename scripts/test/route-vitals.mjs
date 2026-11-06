@@ -17,6 +17,7 @@ const ROUTES = [
   { key: 'blog', path: '/vi/blog/gerund-va-to-infinitive/', fresh: true },
 ];
 const RUNS = +process.env.RUNS || 3;
+const WARM = process.env.WARM === '1'; // 1 = khách quay lại còn cache (mở 1 lượt trước khi đo); mặc định xoá HTTP cache + SW (lần tải lạnh)
 const b = await chromium.launch();
 const mkCtx = () => b.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, locale: 'vi-VN' });
 const UX1 = process.env.UX1 === '1'; // bản dựng cục bộ không có /api/config → bật giao diện 5 tab (ux1) như lexkite.com
@@ -76,6 +77,7 @@ for (const r of ROUTES.filter(x => !ONLY || ONLY.includes(x.key))) {
   for (let i = 0; i < RUNS; i++) {
     let ctx = seeded;
     if (r.fresh) ctx = await mkCtx();
+    else if (WARM) { const pg = await seeded.newPage(); await pg.goto(base + r.path, { waitUntil: 'load', timeout: 90000 }); await pg.waitForTimeout(4000); await pg.close(); } // khách quay lại thật: HTTP cache + SW còn nguyên sau 1 lượt mở
     else { const pg = await seeded.newPage(), cdp = await seeded.newCDPSession(pg); await pg.goto(base + '/robots.txt'); await cdp.send('Network.clearBrowserCache'); await cdp.send('Storage.clearDataForOrigin', { origin: base, storageTypes: 'service_workers,cache_storage' }); await pg.close(); }
     try { runs.push(await measure(ctx, r.path)); } catch (e) { console.log('✗ ' + r.key + ' #' + i + ': ' + e.message.slice(0, 160)); }
     if (r.fresh) await ctx.close();
@@ -85,7 +87,7 @@ for (const r of ROUTES.filter(x => !ONLY || ONLY.includes(x.key))) {
   const m = runs[Math.floor((runs.length - 1) / 2)];
   m.runs = runs.map(x => `${x.lcp}/${x.tbt}/${x.cls}/${x.inp}`);
   res[r.key] = m;
-  console.log(`== ${r.key.padEnd(8)} LCP ${m.lcp} ms · FCP ${m.fcp} · TBT ${m.tbt} ms · CLS ${m.cls} · INP ${m.inp} ms (${m.taps} chạm) · ${m.kb} KB/${m.reqs} req · lần: ${m.runs.join(' | ')}`);
+  console.log(`== ${(r.key + (WARM && !r.fresh ? '·ấm' : '')).padEnd(10)} LCP ${m.lcp} ms · FCP ${m.fcp} · TBT ${m.tbt} ms · CLS ${m.cls} · INP ${m.inp} ms (${m.taps} chạm) · ${m.kb} KB/${m.reqs} req · lần: ${m.runs.join(' | ')}`);
   console.log(`   LCP el: ${m.lcpEl} · url ${m.url} · theo loại ${JSON.stringify(m.byType)}`);
   m.top.forEach(t => console.log(`   ${String(t[0]).padStart(5)} KB ${t[1].padEnd(10)} ${t[2]}`));
   // TRACE=1: thác tài nguyên tới LCP (bắt đầu→xong ms) – tìm chuỗi chặn lần vẽ

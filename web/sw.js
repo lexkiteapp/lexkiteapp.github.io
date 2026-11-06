@@ -34,6 +34,7 @@ const vimgFetch = e => caches.open(VIMG).then(c => c.match(e.request).then(hit =
   if (hit) { const keep = hit.clone(); e.waitUntil(c.delete(e.request).then(() => c.put(e.request, keep)).catch(() => {})); return hit; } // làm mới thứ tự LRU
   return fetch(e.request).then(r => { if (r.ok) { const x = r.clone(); e.waitUntil(c.put(e.request, x).then(() => trimVimg(c)).catch(() => {})); } return r; });
 }));
+const HASHED = /^\/h\/(.+)\.[0-9a-f]{10}(\.(?:js|css))$/; // bản băm của scripts/build-hash.mjs → đường dẫn gốc: '/$1$2'
 const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
@@ -66,6 +67,16 @@ self.addEventListener('fetch', e => {
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng
   if (url.pathname.startsWith('/data/lex/')) return; // mảnh kho từ: immutable + IndexedDB (lex.js)
+  // JS/CSS theo mã băm (/h/…, scripts/build-hash.mjs): nội dung không bao giờ đổi → cache-first, không hỏi lại máy chủ. Trang cũ (cache) trỏ tên băm
+  // đã gỡ ở lần deploy mới → 404/trang HTML → lấy file gốc cùng đường dẫn (bản mới nhất) thay vì vỡ trang; mất mạng → bản gốc trong cache.
+  if (HASHED.test(url.pathname)) {
+    const plain = url.pathname.replace(HASHED, '/$1$2');
+    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => {
+      if (!r.ok || /text\/html/.test(r.headers.get('content-type') || '')) return fetch(plain, { cache: 'no-cache' });
+      const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); return r;
+    }, () => caches.match(plain, { ignoreSearch: true }).then(x => x || Response.error()))));
+    return;
+  }
   if (STATIC.test(url.pathname)) {
     e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); return r; })));
     return;
