@@ -32,7 +32,7 @@ for (const a of m.querySelectorAll('a')) assert.ok(a.querySelector('[data-i18n]'
 // CSS: ẩn chân cũ trước JS, chừa ô ⋯, menu mở lên trên, report-pill.js giữ nút trong menu
 const blk = (css.match(/\/\* side-menu[\s\S]*?\/\* \/report-pill \*\//) || [''])[0];
 assert.match(blk, /\.sidebar \.side-foot:not\(\.sf-ok\)\{display:none\}/);
-assert.match(blk, /\.side-level\{padding:[^}]*3\.4rem/);
+assert.match(blk, /\.side-level\{padding:[^}]*calc\(var\(--sp-6\) \+ var\(--sp-5\)\)/); // chừa 56px ≥ ô ⋯ 44px + lề (token, không viết cứng)
 assert.match(blk, /\.sp-on \.sf-more>summary\{[^}]*width:44px;height:44px/);
 assert.match(R("js/report-pill.js"), /\.inMenu/);
 console.log(`✓ side-menu: ${it.length} mục trong menu ⋯ (đủ ${before.length} link cũ + Tôi/Cài đặt/Báo lỗi), bàn phím + Esc + trả focus, chừa chỗ CLS 0`);
