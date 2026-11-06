@@ -34,7 +34,7 @@ const vimgFetch = e => caches.open(VIMG).then(c => c.match(e.request).then(hit =
   if (hit) { const keep = hit.clone(); e.waitUntil(c.delete(e.request).then(() => c.put(e.request, keep)).catch(() => {})); return hit; } // làm mới thứ tự LRU
   return fetch(e.request).then(r => { if (r.ok) { const x = r.clone(); e.waitUntil(c.put(e.request, x).then(() => trimVimg(c)).catch(() => {})); } return r; });
 }));
-const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$/; // âm thanh đặt tên theo nội dung → không bao giờ đổi
+const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (LEGACY) { // phạm vi "/" (bản cài cũ): mọi thứ đi mạng như không có SW; riêng mở "/" khi mất mạng → app trong cache /app/

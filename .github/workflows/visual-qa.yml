@@ -14,6 +14,8 @@ on:
     - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 # lượt tay/lịch: nhóm 'visual-qa' không huỷ (ci-filler cần – infra/ci-backlog.json); PR: nhóm riêng theo nhánh, lượt mới huỷ lượt cũ
 concurrency:
   group: ${{ github.event_name == 'pull_request' && format('visual-qa-pr-{0}', github.ref) || 'visual-qa' }}
@@ -25,6 +27,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }

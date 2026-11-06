@@ -23,6 +23,8 @@ Die Wahl des falschen Tests kann viel Geld kosten, unnötigen Stress verursachen
 
 Bevor wir in die feinen Details der vier Einzeldisziplinen eintauchen, verschafft Ihnen diese Gegenüberstellung einen schnellen Überblick über die organisatorischen Rahmenbedingungen:
 
+Passend dazu: [Neues TOEFL Format 2026](/de/blog/neues-toefl-format-2026-vorbereitung/).
+
 | Prüfungsmerkmal | IELTS Academic | TOEFL iBT (Modernes Format) |
 |---|---|---|
 | **Verantwortliche Organisationen** | British Council, IDP, Cambridge English | Educational Testing Service (ETS, USA) |
