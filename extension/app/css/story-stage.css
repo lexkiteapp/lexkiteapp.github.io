@@ -86,4 +86,4 @@
 /* Mẫu Stitch: tấm hội thoại chạm ngay chân nhân vật (không dải sàn 34 px) → cắt đáy sân khấu, ảnh giữ nguyên vị trí đầu */
 .ss .ss-stage{height:calc(var(--ss-h) - 34px);align-items:flex-start}
 .ss .ss-seat{height:var(--ss-h)}
-.ss .ss-floor{display:none}
+.ss .ss-floor{bottom:-34px}
