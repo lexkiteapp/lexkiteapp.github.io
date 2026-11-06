@@ -3,6 +3,10 @@
 name: App LCP
 on:
   workflow_dispatch:
+    inputs:
+      only: { description: 'route-vitals: chỉ các route (welcome,today,…)', default: '' }
+      trace: { description: 'route-vitals: in thác tài nguyên tới LCP (1)', default: '' }
+      base: { description: 'route-vitals: gốc đo (vd preview Pages)', default: '' }
   push:
     branches: ['perf/app-lcp*']
     paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs', 'scripts/test/route-vitals.mjs']
@@ -73,7 +77,8 @@ jobs:
         run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
       - name: Đo 6 route ×3
         timeout-minutes: 18
-        run: node scripts/test/route-vitals.mjs https://lexkite.com out/route-vitals.json
+        env: { ONLY: '${{ inputs.only }}', TRACE: '${{ inputs.trace }}' }
+        run: node scripts/test/route-vitals.mjs ${{ inputs.base || 'https://lexkite.com' }} out/route-vitals.json
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: route-vitals, path: out, retention-days: 14 }

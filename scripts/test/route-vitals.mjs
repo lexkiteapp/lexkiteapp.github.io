@@ -6,6 +6,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 const base = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, ''), out = process.argv[3] || 'out/route-vitals.json';
+const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const ROUTES = [
   { key: 'welcome', path: '/app/?hl=vi#/welcome', fresh: true },
   { key: 'today', path: '/app/?hl=vi#/home' },
@@ -43,7 +44,7 @@ async function measure(ctx, path) {
   // chờ yên: 3 s không long task mới (tối đa 20 s) – như cửa sổ TTI
   for (let i = 0; i < 40; i++) { await pg.waitForTimeout(500); const q = await pg.evaluate(() => { const l = __v.lt.at(-1); return !l || performance.now() - (l[0] + l[1]) > 3000; }); if (q && i >= 5) break; }
   frozen = true;
-  const v0 = await pg.evaluate(() => ({ ...__v, url: location.href }));
+  const v0 = await pg.evaluate(() => ({ ...__v, url: location.href, wf: performance.getEntriesByType('resource').map(x => [Math.round(x.startTime), Math.round(x.responseEnd), x.name.replace(location.origin, '').slice(0, 80)]) }));
   // INP: chạm thật tối đa 2 nút hiển thị trong vùng nội dung (không mở trang ngoài)
   const sel = path.startsWith('/app/') ? '#view button:visible, #view [role=button]:visible' : 'main button:visible, header button:visible, nav button:visible';
   const btns = await pg.locator(sel).all();
@@ -57,7 +58,7 @@ async function measure(ctx, path) {
   await pg.close();
   return { lcp: v0.lcp, fcp: v0.fcp, cls: v0.cls, tbt, inp: Object.values(byId).length ? Math.max(...Object.values(byId)) : null, taps, lcpEl: v0.lcpEl, url: v0.url.replace(base, ''),
     kb: Math.round(rs.reduce((a, r) => a + r.bytes, 0) / 1024), reqs: rs.length, byType: Object.fromEntries(Object.entries(byType).map(([k, x]) => [k, Math.round(x / 1024)])),
-    top: rs.sort((x, y) => y.bytes - x.bytes).slice(0, 10).map(r => [Math.round(r.bytes / 1024), r.type, r.url.replace(base, '').slice(0, 110)]), ms: Date.now() - t0 };
+    wf: v0.wf, top: rs.sort((x, y) => y.bytes - x.bytes).slice(0, 10).map(r => [Math.round(r.bytes / 1024), r.type, r.url.replace(base, '').slice(0, 110)]), ms: Date.now() - t0 };
 }
 // tab khách cũ: nạp dữ liệu mẫu một lần
 const seeded = await mkCtx();
@@ -69,7 +70,7 @@ const seeded = await mkCtx();
   await pg.close();
 }
 const res = {};
-for (const r of ROUTES) {
+for (const r of ROUTES.filter(x => !ONLY || ONLY.includes(x.key))) {
   const runs = [];
   for (let i = 0; i < RUNS; i++) {
     let ctx = seeded;
@@ -86,6 +87,8 @@ for (const r of ROUTES) {
   console.log(`== ${r.key.padEnd(8)} LCP ${m.lcp} ms · FCP ${m.fcp} · TBT ${m.tbt} ms · CLS ${m.cls} · INP ${m.inp} ms (${m.taps} chạm) · ${m.kb} KB/${m.reqs} req · lần: ${m.runs.join(' | ')}`);
   console.log(`   LCP el: ${m.lcpEl} · url ${m.url} · theo loại ${JSON.stringify(m.byType)}`);
   m.top.forEach(t => console.log(`   ${String(t[0]).padStart(5)} KB ${t[1].padEnd(10)} ${t[2]}`));
+  // TRACE=1: thác tài nguyên tới LCP (bắt đầu→xong ms) – tìm chuỗi chặn lần vẽ
+  if (process.env.TRACE) m.wf.filter(w => w[0] <= m.lcp).forEach(w => console.log(`   ⏱ ${String(w[0]).padStart(5)}→${String(w[1]).padStart(5)} ${w[2]}`));
 }
 await b.close();
 fs.mkdirSync(out.replace(/\/[^/]+$/, ''), { recursive: true });
