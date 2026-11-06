@@ -26,6 +26,8 @@ Dans ce guide complet, nous détaillons une feuille de route en quatre phases di
 
 L'erreur la plus fréquente des autodidactes consiste à ouvrir immédiatement un recueil de tests Cambridge et à tenter des épreuves chronométrées intégrales dès la première semaine. Si votre socle lexical et votre maîtrise de la grammaire de base se situent encore en dessous du niveau B1 ou B2 du CECRL, vous confronter directement à des textes universitaires complexes ne produira que découragement et fatigue mentale.
 
+Vous pouvez également consulter [la méthode des 60 minutes pour gérer son temps en IELTS Reading](/fr/blog/gestion-du-temps-en-ielts-reading-60-minutes/).
+
 ![Test de positionnement de 20 questions avec suggestions de parcours sur Lexkite](media:placement "Évaluation initiale de vocabulaire et de grammaire en 20 questions sur Lexkite")
 
 Avant d'inscrire des heures de révision sur votre agenda, établissez un diagnostic précis :

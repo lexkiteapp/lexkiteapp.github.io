@@ -95,6 +95,8 @@ async function setup(db) {
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).first()) || {};
 const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).all()).results || [];
 const dayStr = t => new Date(t).toISOString().slice(0, 10); // ngày UTC – hạn mức nhà cung cấp (D1, AI) reset 0h UTC
+// 🔊 Nguồn giọng 7 ngày (hit.js t:'vo'): PK (day, kind) → SEARCH theo ngày + tiền tố 'vo:' → { f, k, s, s_<lý do>, '<f|k|s>:<nền tảng>' }
+const VO_SQL = "SELECT kind AS k, SUM(n) AS n FROM ext_events WHERE day >= ? AND kind >= 'vo:' AND kind < 'vo;' GROUP BY kind", voiceOf = rows => Object.fromEntries((rows || []).map(r => [r.k.slice(3), r.n]));
 const LAND_SQL = "SELECT kind, SUM(n) AS n FROM ext_events WHERE day >= ? AND kind >= 'land:' AND kind < 'land;' GROUP BY kind"; // khách ngoài vào trang tĩnh (hit.js t:'l')
 // Thống kê truy cập: "ngày" theo giờ Việt Nam (vday, hit.js) · chỉ người thật: bỏ máy tự động (cột bot) và khách là tài khoản quản trị
 // (vid đã gắn uid có email trong ADMIN_EMAILS – chỉ dùng trong SQL, không trả về máy khách)
@@ -292,14 +294,16 @@ export const LEGACY = {
         excluded: { s: auto.reduce((a, r) => a + r.s, 0), kinds: auto }, late: late.n || 0 };
     });
     const slow = await cached('live-slow-v2', 600, async () => {
-      const [total, series, plats30, pages7] = await Promise.all([
+      const [total, series, plats30, pages7, vo7] = await Promise.all([
         one(db, `SELECT COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE ${H}`),
         all(db, `SELECT day, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14),
         all(db, `SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day >= ? GROUP BY k ORDER BY n DESC`, d30),
         all(db, 'SELECT path AS k, SUM(n) AS n FROM pageviews_day WHERE day >= ? GROUP BY path ORDER BY n DESC LIMIT 10', d7),
+        // 🔊 Nguồn giọng 7 ngày (hit.js t:'vo'): PK (day, kind) → SEARCH theo khoảng ngày + tiền tố 'vo:' – tỷ lệ rơi về giọng máy
+        all(db, VO_SQL, d7).catch(() => []),
       ]);
       const by = Object.fromEntries(series.map(r => [r.day, r]));
-      return { total, plats30, pages7, series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY); return { day: d, views: (by[d] || {}).views || 0, visitors: (by[d] || {}).visitors || 0 }; }) };
+      return { total, plats30, pages7, voice: voiceOf(vo7), series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY); return { day: d, views: (by[d] || {}).views || 0, visitors: (by[d] || {}).visitors || 0 }; }) };
     });
     const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
     return { at: now, tz: TZ, day: d1, rate, ...fast, ...slow };
@@ -621,12 +625,13 @@ export const OPS = {
         excluded: { s: auto.reduce((a, r) => a + r.s, 0), kinds: auto }, late: late.n || 0 };
     });
     const slow = await cached(`live-slow-r1?x=${xh}`, 600, async () => {
-      const [D, pages7] = await Promise.all([
+      const [D, pages7, vo7] = await Promise.all([
         loadDays(db, '0000-00-00', adm, now), // toàn bộ lịch sử: ≤ 1 dòng/ngày (≤ 400 ngày – hit.js dọn sessions quá 400 ngày)
         all(db, 'SELECT path AS k, SUM(n) AS n FROM pageviews_day WHERE day >= ? GROUP BY path ORDER BY n DESC LIMIT 10', d7),
+        all(db, VO_SQL, d7).catch(() => []),
       ]);
       const all0 = merge(D, '0000-00-00');
-      return { total: { views: all0.pS, visitors: all0.vids.size }, plats30: distinctBy(merge(D, d30), 'plat', 1e3, webPlat), pages7,
+      return { total: { views: all0.pS, visitors: all0.vids.size }, plats30: distinctBy(merge(D, d30), 'plat', 1e3, webPlat), pages7, voice: voiceOf(vo7),
         series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY), x = merge(D, d, d); return { day: d, views: x.pS, visitors: x.vids.size }; }) };
     });
     const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
