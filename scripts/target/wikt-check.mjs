@@ -4,24 +4,14 @@
 // Lỗi mạng/5xx sau 3 lần → thoát 3 (dừng lượt, không bỏ cổng). Từ bị loại chuyển sang <lô>.report.json (rejected, why "wiktionary: …").
 // Chạy: node scripts/target/wikt-check.mjs --tl es [tệp core-NN.json]   · --self: chỉ kiểm seed.json (phải đạt 100 %)
 import fs from 'node:fs';
-import { readJSON, coreFiles, seedPath } from './lib.mjs';
+import { readJSON, coreFiles, seedPath, kaikki } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const TL = arg('tl', 'es'), G = TL_GEN[TL], SELF = process.argv.includes('--self');
 if (!G || !G.kaikki) { console.error(`✗ tl "${TL}" chưa có kaikki trong tl-gen.mjs`); process.exit(2); }
 const POS = { n: ['noun'], v: ['verb'], adj: ['adj'], adv: ['adv'], pron: ['pron'], prep: ['prep'], conj: ['conj'], num: ['num'], interj: ['intj'], det: ['det', 'article'] };
-const url = w => { const l = w.toLowerCase(), c = [...l]; return `https://kaikki.org/dictionary/${G.kaikki}/meaning/${encodeURIComponent(c[0])}/${encodeURIComponent(c.slice(0, 2).join(''))}/${encodeURIComponent(l)}.jsonl`; };
-async function entries(w) {
-  for (let t = 1; t <= 3; t++) {
-    try {
-      const r = await fetch(url(w)); if (r.status === 404) return [];
-      if (r.ok) return (await r.text()).split('\n').filter(Boolean).map(l => JSON.parse(l));
-    } catch {}
-    await new Promise(z => setTimeout(z, 1500 * t));
-  }
-  console.error('✗ kaikki.org không trả lời (' + w + ') – dừng lượt'); process.exit(3);
-}
+const entries = w => kaikki(G.kaikki, w);
 const genderOf = e => { const s = new Set(); for (const h of e.head_templates || []) for (const v of Object.values(h.args || {})) if (/^(m|f|mf|mfbysense|m-p|f-p)$/.test(v)) s.add(v.replace(/-p$/, '').replace('mfbysense', 'mf')); for (const x of e.senses || []) for (const t of x.tags || []) { if (t === 'masculine') s.add('m'); if (t === 'feminine') s.add('f'); } if (s.has('m') && s.has('f')) s.add('mf'); return s; };
 const pluralsOf = e => new Set((e.forms || []).filter(f => (f.tags || []).includes('plural')).map(f => f.form.toLowerCase()));
 
