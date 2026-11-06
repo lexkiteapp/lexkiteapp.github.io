@@ -291,7 +291,7 @@
     await syncExtension();
     await App.load();
     const after = stable([await Cards.all(), await Core.Stats.get(), await Game.get(), await Store.get('settings', {})]);
-    if (after !== before && /^#\/(home|deck|library|stats|settings|path)?(\?|$)/.test(location.hash || '#/')) { const y = scrollY; App.route(); requestAnimationFrame(() => scrollTo(0, y)); }
+    if (after !== before && /^#\/(home|deck|library|stats|settings|path|welcome(\/.*)?)?(\?|$)/.test(location.hash || '#/')) { const y = scrollY; App.route(); requestAnimationFrame(() => scrollTo(0, y)); }
   }
 
   // ---------- Đồng bộ Drive (local-first, js/sync-drive.js) ----------
@@ -344,7 +344,11 @@
     }
     return r;
   }
-  async function start() {
+  // Chọn đường đồng bộ khi đăng nhập/mở app; tự di chuyển từ D1 sang Drive ở lần đăng nhập đầu tiên có quyền Drive
+  let startP = null; // lượt gộp gần nhất: màn chào chờ gộp xong rồi mới biết tài khoản có dữ liệu không (Sync.merged)
+  function start() { return (startP = start0()); }
+  Sync.merged = () => startP || Promise.resolve();
+  async function start0() {
     const u = Sync.user; if (!u) return;
     if (syncMode() === 'off') { Sync.mode = 'off'; return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); }
     Sync.driveOffer = false;
