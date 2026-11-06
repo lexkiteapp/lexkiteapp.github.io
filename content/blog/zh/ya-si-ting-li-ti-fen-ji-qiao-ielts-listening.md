@@ -117,6 +117,6 @@ Part 2 和 Part 3 的长选择题往往文字量极大，45 秒内不可能逐�
 | **数字拼写漏写** | "...cost is *45 dollars*..." (题目已印 `$` 符号) | `$45` 或 `$45 dollars` | `45` |
 | **连字符复合词** | "...a *part-time* receptionist..." | `part time` (如要求ONE WORD) | `part-time` |
 
-结合科学的背单词与复习节奏，能够进一步巩固听力中高频核心词汇的听音辨析度。如果你正在背诵雅思核心词库，可以参考我们的 [艾宾浩斯与 FSRS 间隔重复记忆法](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/)，并在碎片时间利用 [背单词的高效方法](/zh/blog/bei-dan-ci-de-fang-fa/) 积累学术听力场景词。想要掌握更多高分词汇与学术词块，可随时查阅官方推荐的雅思必备词表 [/tu-vung/](/tu-vung/)。对于听力中经常遇到的连读与音变现象，学习 [国际音标发音指南](/zh/blog/ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao/) 以及培养良好的语流习惯，能从根本上扫清听觉理解障碍。
+结合科学的背单词与复习节奏，能够进一步巩固听力中高频核心词汇的听音辨析度。如果你正在背诵雅思核心词库，可以参考我们的 [艾宾浩斯与 FSRS 间隔重复记忆法](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/)，并在碎片时间利用 [背单词的高效方法](/zh/blog/bei-dan-ci-de-fang-fa/) 积累学术听力场景词。想要掌握更多高分词汇与学术词块，可随时查阅官方推荐的雅思必备词表 [/tu-vung/](/en/vocabulary/)。对于听力中经常遇到的连读与音变现象，学习 [国际音标发音指南](/zh/blog/ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao/) 以及培养良好的语流习惯，能从根本上扫清听觉理解障碍。
 
 只要掌握严谨的审题定位预判、避开干扰项套路并在考前坚持模考，雅思听力提分将水到渠成。

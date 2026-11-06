@@ -28,7 +28,7 @@ If you repeat full tests without intervening analysis, you accomplish two negati
 1. **You habituate cognitive errors:** Every time you misinterpret a True/False/Not Given statement or drop an '-s' ending in Listening without diagnosing the root cause, your brain strengthens that faulty procedural habit.
 2. **You induce test burnout:** Spending three consecutive hours taking full tests several days a week causes mental exhaustion while leaving underlying structural deficits untouched.
 
-An effective feedback loop reverses this ratio. Elite test prep follows the **1:2 Rule**: for every one hour spent taking an exam under timed conditions, you must dedicate at least two hours to decomposing errors, researching linguistic causes, and executing targeted drills.
+An effective feedback loop reverses this ratio. Elite test prep follows the **1:2 Rule**: for every one hour spent taking an exam under timed conditions, you must dedicate at least two hours to decomposing errors, researching linguistic causes, and executing targeted drills. If your goal is a Canadian CLB level, the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) table shows which skill band to aim for.
 
 ## The 3 Diagnostic Layers of Every IELTS Error
 

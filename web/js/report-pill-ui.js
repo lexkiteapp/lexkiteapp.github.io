@@ -3,16 +3,29 @@
 (function (w, d) {
   var p = w.LexPill; if (!p || p.ui) return; p.ui = 1;
   var b = p.b, load = w.LexReportLoad;
-  // Chân thanh bên: giữ Blog + Giới thiệu, link phụ (từ vựng, bài mẫu, liên hệ, pháp lý) vào popover "⋯ Xem thêm" (<details>: Enter/Space, Esc đóng + trả focus).
-  // style.css đã ẩn sẵn link phụ + chừa 1 hàng 44 px cho nút ⋯ cho tới khi có .sf-ok → không xô bố cục.
+  // Chân thanh bên GỌN (05/11, chủ: như Linear/Notion): 1 hàng hồ sơ (#sideLevel: avatar + tên + chip cấp, vạch XP mảnh) + nút "⋯" ở cuối hàng
+  // mở menu: Tôi · Cài đặt | Blog · Giới thiệu · Từ vựng · Bài mẫu · Liên hệ · pháp lý | Báo lỗi. Không bỏ link nào (no-cuts).
+  // A11y: <details>/<summary> (Enter/Space, aria-expanded gốc), mũi tên ↑↓/Home/End giữa mục, Esc đóng + trả focus về ⋯, Tab ra ngoài → đóng.
+  // style.css (§ side-menu) giữ sẵn ô ⋯ trong hàng hồ sơ → không xô bố cục (CLS 0). Lỗi tải file này → report-pill.js thêm .sf-ok → hiện lại chân cũ.
   var f = d.querySelector('.side-foot');
   if (f && !f.querySelector('.sf-more')) {
-    var dt = d.createElement('details'), L = w.t ? t('Xem thêm') : 'More'; dt.className = 'sf-more';
-    dt.innerHTML = '<summary aria-haspopup="true"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-ellipsis"/></svg></span><span data-i18n="Xem thêm">' + L + '</span></summary><div class="sf-m"></div>';
-    var m = dt.lastChild;
-    [].slice.call(f.querySelectorAll(':scope>a')).forEach(function (a) { if (!a.hasAttribute('data-blog') && a.getAttribute('data-l') !== 'about') m.appendChild(a); });
-    f.insertBefore(dt, b.parentNode === f ? b : null); f.classList.add('sf-ok');
+    var dt = d.createElement('details'), T = function (k, en) { return w.t ? t(k) : en; }, L = T('Xem thêm', 'More'); dt.className = 'sf-more';
+    dt.innerHTML = '<summary aria-haspopup="true" aria-label="' + L + '" title="' + L + '" data-i18n-title="Xem thêm"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-ellipsis"/></svg></span><span class="sf-l" data-i18n="Xem thêm">' + L + '</span></summary><div class="sf-m"></div>';
+    var m = dt.lastChild, ic = function (i) { return '<span class="ic"><svg class="i" aria-hidden="true"><use href="#i-' + i + '"/></svg></span>'; };
+    m.innerHTML = '<a href="#/me">' + ic('user') + '<bdi data-i18n="Tôi">' + T('Tôi', 'Me') + '</bdi></a><a href="#/settings">' + ic('settings') + '<bdi data-i18n="Cài đặt">' + T('Cài đặt', 'Settings') + '</bdi></a><hr>';
+    [].slice.call(f.querySelectorAll(':scope>a')).forEach(function (a) { m.appendChild(a); }); // Blog, Từ vựng, Bài mẫu, Liên hệ, pháp lý, Giới thiệu (hubs.js vẫn bắt click .side-foot a[data-l])
+    var ab = m.querySelector('a[data-l=about]'), bl = m.querySelector('a[data-blog]'); if (ab && bl) m.insertBefore(ab, bl.nextSibling); // Blog · Giới thiệu đứng đầu nhóm
+    m.appendChild(d.createElement('hr'));
+    f.insertBefore(dt, f.firstChild); f.classList.add('sf-ok', 'sp-on');
+    var sl = d.getElementById('sideLevel'); if (sl && sl.parentNode === f.parentNode) { var row = d.createElement('div'); row.className = 'sp-row'; sl.parentNode.insertBefore(row, sl); row.appendChild(sl); row.appendChild(f); } // hàng hồ sơ = #sideLevel + ⋯ (ô ⋯ đã chừa sẵn bằng padding)
+    var rep = function () { if (b.parentNode === f) m.appendChild(b); }; rep(); p.inMenu = m; // nút Báo lỗi vào cuối menu (report-pill.js place() giữ nguyên chỗ nếu đã ở trong f)
+    var items = function () { return [].slice.call(m.querySelectorAll('a,button')).filter(function (x) { return !x.hidden && !x.disabled; }); };
     var close = function (fx) { if (!dt.open) return; dt.open = false; if (fx) dt.firstChild.focus(); };
+    dt.addEventListener('toggle', function () { if (dt.open) { var it = items()[0]; if (it && d.activeElement === dt.firstChild && dt._kb) it.focus(); } dt._kb = 0; });
+    dt.firstChild.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') dt._kb = 1; if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); dt._kb = 1; if (!dt.open) dt.open = true; else { var it = items(); (e.key === 'ArrowUp' ? it[it.length - 1] : it[0]).focus(); } } });
+    m.addEventListener('keydown', function (e) { var it = items(), i = it.indexOf(d.activeElement), n = it.length; if (!n) return;
+      var j = e.key === 'ArrowDown' ? (i + 1) % n : e.key === 'ArrowUp' ? (i - 1 + n) % n : e.key === 'Home' ? 0 : e.key === 'End' ? n - 1 : -1; if (j >= 0) { e.preventDefault(); it[j].focus(); } });
+    m.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a,button')) setTimeout(function () { close(); }, 0); }); // chọn mục → đóng
     dt.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.stopPropagation(); close(true); } });
     d.addEventListener('click', function (e) { if (!dt.contains(e.target)) close(); });
     dt.addEventListener('focusout', function (e) { if (e.relatedTarget && !dt.contains(e.relatedTarget)) close(); });

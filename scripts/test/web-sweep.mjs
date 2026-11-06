@@ -10,7 +10,7 @@
 // Ngưỡng = scripts/test/web-sweep.known.json: số lỗi mỗi loại×kiểm chỉ được GIẢM (cái mới = 0). Hết lỗi → hạ số trong file (không bao giờ nâng).
 // Dùng: node scripts/test/web-sweep.mjs <base-url> <dist> <out> [--write-known]
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
-import { noProd } from './lib/no-prod.mjs';
+import { noProd, warm } from './lib/no-prod.mjs';
 import { scan } from '../lib/layout-scan.mjs';
 import { selftest } from '../lib/layout-scan-selftest.mjs';
 import { extUnavailable, splitConsoleErrors, corsBlockedUrl } from '../lib/qa-classify.mjs';
@@ -106,6 +106,9 @@ async function run(j) {
   report.push({ ...j, errs: errs.length, http: http.length, tap: p.small.length, contrast: c?.n || 0, cls: p.cls, lcp: p.lcp });
   await ctx.close();
 }
+// Làm nóng ảnh CDN là phần tử LCP (poster video, og:image trên CDN) TRƯỚC khi đo: đồng hồ LCP chỉ đo trang, không đo độ trễ đuôi của GitHub Release (sweep đỏ /L/video/*/ LCP 8-10 s dù ngưỡng 2500 giữ nguyên).
+{ const urls = new Set(); for (const j of jobs) { const h = fs.readFileSync(path.join(DIST, j.f), 'utf8').slice(0, 60000); for (const m of h.matchAll(/(?:poster="|property="og:image" content=")(https:\/\/media\.lexkite\.com\/[^"]+)/g)) urls.add(m[1].replace(/&amp;/g, '&')); }
+  const wctx = await noProd(await browser.newContext()); console.log(`warm CDN: ${await warm(wctx, [...urls])} ảnh`); await wctx.close(); }
 const q = [...jobs]; await Promise.all(Array.from({ length: 4 }, async () => { while (q.length) await run(q.shift()); }));
 await browser.close();
 

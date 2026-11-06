@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { normCfg, route, routeAll, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
+import { langOfChannel, foreignAccount, pausedAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -23,7 +23,7 @@ const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) 
 const rules = async db => (await all(db, 'SELECT * FROM yt_rules ORDER BY pos, id')).map(r => { let cond = {}; try { cond = JSON.parse(r.cond || '{}'); } catch (e) { /* empty */ } return { id: r.id, name: r.name, cond, channel_id: r.channel_id, active: r.active }; });
 async function channels(db) {
   const out = []; for (const c of await all(db, 'SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id')) { const x = await chanCfg(db, c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
-  for (const c of await all(db, 'SELECT channel_id, platform, title, thumb, status FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id); out.push({ ...c, cfg: { ...x.cfg, role: 'social' }, paused_reason: x.paused_reason, ext: 1 }); }
+  for (const c of await all(db, 'SELECT channel_id, platform, title, thumb, status FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id); out.push({ ...c, cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
 }
 let DS = false;
@@ -36,7 +36,22 @@ export async function setupDist(db) {
 }
 const isExt = id => /^gc-[a-z_]+-[A-Za-z0-9_-]{1,80}$/.test(String(id || ''));
 const knownIds = async db => new Set([...(await all(db, 'SELECT channel_id FROM yt_channel')), ...(await all(db, 'SELECT channel_id FROM dist_ext'))].map(r => r.channel_id));
-const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
+export const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, lang: String(it.lang || 'en').toLowerCase(), exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, url: it.url, headline: it.title || '', value: it.value || '', hashtags: it.hashtags || [], first_comment: typeof it.first_comment === 'string' ? it.first_comment : '', region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
+/** Kênh social đã nối (ok) + luật + account_id – cho xem trước autopilot (_social_preview.js). Chỉ đọc. */
+export async function socialSetup(db) {
+  const cfgs = {}, accounts = {}; for (const c of await channels(db)) if (c.ext && c.status === 'ok') cfgs[c.channel_id] = c.cfg;
+  for (const r of await all(db, 'SELECT channel_id, account_id FROM dist_ext')) accounts[r.channel_id] = r.account_id;
+  return { cfgs, accounts, rules: await rules(db) };
+}
+/** Kênh social (gc-*) cho bảng Kênh ở Quản trị #social: trạng thái dist_ext + ngôn ngữ (cấu hình tay > nhận từ tên trang, langOfChannel). Chỉ đọc D1, 0 lượt GrabCast. */
+export async function socialChannels(db) {
+  const out = [];
+  for (const c of await all(db, 'SELECT channel_id, platform, account_id, title, status, updated FROM dist_ext ORDER BY platform, title LIMIT 100')) {
+    const x = await chanCfg(db, c.channel_id).catch(() => ({ cfg: {}, explicit_lang: false })), auto = langOfChannel(c.title);
+    out.push({ ...c, platform: c.platform || platformOf(c.channel_id), lang: String((x.explicit_lang ? x.cfg.lang : auto || x.cfg.lang) || 'en').toLowerCase(), lang_src: x.explicit_lang ? 'cfg' : auto ? 'name' : 'default', paused_reason: x.paused_reason || null });
+  }
+  return out;
+}
 async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
 /** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
 async function embedCounts(db) {
@@ -78,13 +93,14 @@ const OPS = {
   async plan_run(db, b, who, env) {
     const now = Date.now(), m = await manifest(env), by = new Map(m.items.map(x => [x.id, x]));
     if (b.replan) await run(db, "DELETE FROM yt_plan WHERE source = 'auto' AND clip IN (SELECT clip FROM yt_queue WHERE status IN ('manual', 'queued'))");
-    const q = await all(db, "SELECT q.clip, q.title, q.video_id FROM yt_queue q WHERE q.status IN ('manual', 'queued') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
-    const cfgs = await cfgMap(db), embedCfgs = Object.fromEntries(Object.entries(cfgs).filter(([id, c]) => c.role === 'embed' && !isExt(id))), counts = await embedCounts(db), rl = (await rules(db)).filter(r => r.active), fb = await dflt(db), routed = {}, skipped = [], rows = [];
-    const ytRules = rl.filter(r => platformOf(r.channel_id) === 'youtube'), soRules = rl.filter(r => platformOf(r.channel_id) !== 'youtube'), social = {}, sRows = new Map(), sDone = new Set((await all(db, 'SELECT clip, channel_id FROM dist_social')).map(r => r.clip + '|' + r.channel_id));
+    const q = await all(db, "SELECT q.clip, q.title, q.video_id, q.status FROM yt_queue q WHERE q.status IN ('manual', 'queued', 'uploading', 'done', 'failed', 'social') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
+    const cfgs = await cfgMap(db), embedCfgs = Object.fromEntries(Object.entries(cfgs).filter(([id, c]) => c.role === 'embed' && !isExt(id))), counts = await embedCounts(db), allRules = await rules(db), rl = allRules.filter(r => r.active), fb = await dflt(db), routed = {}, skipped = [], rows = [];
+    const ytRules = rl.filter(r => platformOf(r.channel_id) === 'youtube'), soRules = [...rl.filter(r => platformOf(r.channel_id) !== 'youtube'), ...implicitSocialRules(allRules, cfgs)], social = {}, sRows = new Map(), sDone = new Set((await all(db, 'SELECT clip, channel_id FROM dist_social')).map(r => r.clip + '|' + r.channel_id));
     for (const r of q) {
       const it = by.get(r.clip); if (!it) { skipped.push({ id: r.clip, why: 'unknown' }); continue; }
       const old = planned.get(r.clip), c = clipOf(it, r.title);
       for (const so of routeAll(soRules, cfgs, c, null)) if (!sDone.has(r.clip + '|' + so.channel_id)) { (social[so.channel_id] = social[so.channel_id] || []).push(c); sRows.set(r.clip + '|' + so.channel_id, so); }
+      if (!['manual', 'queued'].includes(r.status)) continue; // đã/đang lên YouTube hoặc YouTube lỗi: social vẫn được xếp (ở trên), kế hoạch YouTube thì thôi
       if (old && old.source === 'manual' && old.slot_ms) continue;
       let ch = old && old.source === 'manual' ? { channel_id: old.channel_id, rule: -2 } : route(ytRules, cfgs, c, fb);
       if (ch.rule !== -2 && ch.channel_id && embedCfgs[ch.channel_id]) { const pick = pickEmbed(embedCfgs, counts, { ...c, channel_id: old && old.channel_id, video_id: r.video_id }); // several embed channels → rotate
@@ -128,10 +144,10 @@ const OPS = {
     const now = Date.now(), keep = [];
     for (const a of list) {
       const p = String((a && a.platform) || '').toLowerCase().replace(/^facebook$/, 'facebook_page'), aid = String((a && a.id) || '');
-      if (!PLATFORMS[p] || !/^[A-Za-z0-9_-]{1,80}$/.test(aid)) continue;
+      if (!PLATFORMS[p] || !/^[A-Za-z0-9_-]{1,80}$/.test(aid) || foreignAccount(a)) continue; // không phản chiếu Page/IG GrabCast.click → bị gỡ khỏi dist_ext như tài khoản đã mất
       const id = `gc-${p}-${aid}`; keep.push(id);
       await run(db, 'INSERT INTO dist_ext (channel_id, platform, account_id, title, thumb, status, updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, status = excluded.status, updated = excluded.updated',
-        id, p, aid, String(a.name || a.title || aid).slice(0, 80), /^https:\/\//.test(String(a.thumb || a.avatar || '')) ? String(a.thumb || a.avatar).slice(0, 300) : null, a.status === 'error' || a.status === 'disconnected' ? 'error' : 'ok', now);
+        id, p, aid, String(a.name || a.title || aid).slice(0, 80), /^https:\/\//.test(String(a.thumb || a.avatar || '')) ? String(a.thumb || a.avatar).slice(0, 300) : null, a.status === 'error' || a.status === 'disconnected' ? 'error' : pausedAccount(a) ? 'paused' : 'ok', now);
     }
     const gone = (await all(db, 'SELECT channel_id FROM dist_ext')).map(r => r.channel_id).filter(x => !keep.includes(x));
     for (const id of gone) await run(db, "UPDATE dist_ext SET status = 'gone', updated = ? WHERE channel_id = ?", now, id);
