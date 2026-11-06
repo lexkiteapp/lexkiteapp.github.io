@@ -103,11 +103,15 @@ const html = rd('web/app/index.html'), appjs = rd('web/js/app.js'), sw = rd('web
 ok(!/vocab-img|lexicon-img/.test(html), 'app/index.html không nạp vocab-img / chỉ mục');
 ok(!/lexicon-img\.json/.test(appjs) && !/<script[^>]*vocab-img/.test(appjs), 'app.js không nạp tĩnh module/chỉ mục');
 ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img\.js'\]/.test(appjs), 'app.js chỉ nhắc vocab-img.js trong bó tải lười BUNDLES.vimg');
-{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*App\.vimgReady\(\);/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
+{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
   for (const [store, want] of [[{}, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: false } }) }, 0], [{ 'lk.vimg': '0', 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 0], [{ 'lk.vimg': '1' }, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 1]]) {
-    const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {} };
+    const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash: '#/study' }, idle: f => f() };
     vm.runInNewContext(m[0], ctx); ok(need.length === want && (!want || need[0] === 'vimg'), `cờ ${JSON.stringify(store)} → ${want ? 'tải bó vimg' : 'KHÔNG tải gì'}`);
     ok(ctx.App.vimg('apple', 'n') === '', 'App.vimg khi chưa có module → chuỗi rỗng (không hộp)'); } }
+{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs);
+  for (const [hash, deferred] of [['', 1], ['#/welcome', 1], ['#/home', 1], ['#/home?x=1', 1], ['#/study', 0], ['#/dict/hello', 0], ['#/homework', 0]]) {
+    const need = [], q = []; vm.runInNewContext(m[0], { localStorage: { getItem: () => null }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash }, idle: f => q.push(f) });
+    ok(deferred ? !need.length && q.length === 1 : need.length === 1 && !q.length, `màn đầu '${hash}' → ${deferred ? 'hoãn nạp ảnh tới lúc rảnh (TBT)' : 'nạp ngay'}`); q.forEach(f => f()); ok(!deferred || need.length === 1, `'${hash}': lúc rảnh vẫn nạp bó vimg`); } }
 const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vocab-img|lexicon-img/.test(SHELL), 'SW SHELL không chứa vocab-img/chỉ mục');
 { const dictjs = rd('web/js/dict-page.js'); ok(/await vimgP;/.test(dictjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 'dict', photo: true, capt: false \}/.test(dictjs), "tra từ: chờ ready() rồi vẽ hộp vai dict 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển, js/dict-page.js)"); }
 // 3b. quy tắc tích hợp hình (docs/LEXICON.md § Quy tắc tích hợp hình): vai → cỡ, ảnh cảnh luôn kèm câu ví dụ, nền trong suốt cho chế độ tối, tiết kiệm dữ liệu → tắt
