@@ -36,7 +36,7 @@ public actor LKRepository: ModelActor, SyncLocalStore {
         stats["days"] = .object(days)
         doc.stats = .object(stats)
         doc.game = Self.parse(m.game).flatMap { $0 == .null ? nil : $0 }
-        doc.deleted = (Self.parse(m.deleted)?.object ?? [:]).compactMapValues(\.double)
+        doc.deleted = (Self.parse(m.tombstones)?.object ?? [:]).compactMapValues(\.double)
         if let s = try settingsRow() { doc.settings = s.json; doc.settingsAt = s.settingsAt }
         return doc
     }
@@ -75,7 +75,7 @@ public actor LKRepository: ModelActor, SyncLocalStore {
             for k in rows.keys where days[k] == nil { modelContext.delete(rows[k]!) }
         }
         if before.game != after.game { m.game = after.game.map(\.data) }
-        if before.deleted != after.deleted { m.deleted = JSON.object(after.deleted.mapValues { .number($0) }).data }
+        if before.deleted != after.deleted { m.tombstones = JSON.object(after.deleted.mapValues { .number($0) }).data }
         if before.settings != after.settings || before.settingsAt != after.settingsAt {
             let payload = (after.settings ?? .object([:])).data
             if let s = try settingsRow() { s.payload = payload; s.settingsAt = after.settingsAt }

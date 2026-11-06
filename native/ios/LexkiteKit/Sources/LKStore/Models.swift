@@ -64,8 +64,9 @@ public final class SyncMeta {
     public var statsExtra: Data
     /// `game` (XP, days, freezes, badges, …) – null when none
     public var game: Data?
-    /// tombstones `deleted[key] = ms`
-    public var deleted: Data
+    /// tombstones = sync doc `deleted[key] = ms`. NOT named `deleted`: that is an NSManagedObject property (isDeleted) –
+    /// Core Data aborts on save (crash in LKRepository.write); guarded by SchemaTests.testNoReservedAttributeNames
+    public var tombstones: Data
     /// SyncMetaState (pulledHashes, lastUid, syncPausedUntil, Drive state)
     public var state: Data
     /// C03: when the Capacitor (IndexedDB) data was imported; nil = not yet
@@ -73,7 +74,7 @@ public final class SyncMeta {
     /// web `acctBackup` (account switch → "use only this account's data")
     public var accountBackup: Data?
     public init() {
-        id = "main"; statsExtra = Data("{}".utf8); game = nil; deleted = Data("{}".utf8); state = (try? JSONEncoder().encode(SyncMetaState())) ?? Data()
+        id = "main"; statsExtra = Data("{}".utf8); game = nil; tombstones = Data("{}".utf8); state = (try? JSONEncoder().encode(SyncMetaState())) ?? Data()
     }
 }
 
@@ -92,9 +93,7 @@ public enum LKSchema {
     public static let models: [any PersistentModel.Type] = [CardModel.self, StatDay.self, Settings.self, SyncMeta.self, LegacyKV.self]
     public static func container(inMemory: Bool = false) throws -> ModelContainer {
         let schema = Schema(models)
-        // in-memory (tests/previews): a UNIQUE store name per container – several repositories with the same named in-memory store
-        // in one process share/clash in Core Data and abort on save (crash in LKRepository.write on CI)
-        let cfg = ModelConfiguration(inMemory ? "Lexkite-mem-\(UUID().uuidString)" : "Lexkite", schema: schema, isStoredInMemoryOnly: inMemory)
+        let cfg = ModelConfiguration("Lexkite", schema: schema, isStoredInMemoryOnly: inMemory)
         return try ModelContainer(for: schema, configurations: [cfg])
     }
 }
