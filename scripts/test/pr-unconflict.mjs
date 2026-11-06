@@ -52,5 +52,12 @@ assert.equal(fs.readFileSync(path.join(d, 'web.js'), 'utf8'), 'x\n', 'giữ nguy
 g('checkout', '-q', 'main'); w('web.js', 'main\n'); g('add', '-A'); g('commit', '-qm', 'main2'); g('fetch', '-q', 'origin');
 const out2 = run(process.execPath, [path.join(d, 'drv.mjs')], { cwd: d, encoding: 'utf8' });
 assert.match(out2, /RESULT manual/, out2);
+// 5) gộp "sạch" nhờ merge=union nhưng nhân đôi dòng (cả hai phía cùng thêm một dòng) → vẫn khử trùng
+g('checkout', '-q', '-B', 'feat2', 'main'); w('.gitattributes', 'scripts/test/suite.txt merge=union\n'); w('scripts/test/suite.txt', 'node dup\nnode a\nnode b\nnode main\n'); g('add', '-A'); g('commit', '-qm', 'f2');
+g('checkout', '-q', 'main'); w('.gitattributes', 'scripts/test/suite.txt merge=union\n'); w('scripts/test/suite.txt', 'node a\nnode b\nnode main\nnode dup\n'); g('add', '-A'); g('commit', '-qm', 'm3'); g('fetch', '-q', 'origin');
+fs.writeFileSync(path.join(d, 'drv2.mjs'), `const m = await import(${JSON.stringify(script)}); process.chdir(${JSON.stringify(d)}); console.log('RESULT', m.fix({ number: 2, head: { ref: 'feat2' } }, true));`);
+const out3 = run(process.execPath, [path.join(d, 'drv2.mjs')], { cwd: d, encoding: 'utf8' });
+const s3 = fs.readFileSync(path.join(d, 'scripts/test/suite.txt'), 'utf8').split('\n');
+assert.equal(s3.filter(l => l === 'node dup').length, 1, 'union sạch vẫn phải khử trùng: ' + out3);
 fs.rmSync(d, { recursive: true, force: true });
 console.log('✓ pr-unconflict: chỉ tự gỡ tệp tự sinh, CODEMAP lấy main, suite.txt union không trùng, tệp người viết để nguyên');
