@@ -32,7 +32,9 @@ function measure(SZ) {
       else { const lr = R(led), fg = slot.querySelector('.tslot-fig'), vb = Math.min(mr.b, fg ? R(fg).b : mr.b); // đáy NHÌN THẤY (khung .tslot-fig cắt phần mờ dưới bệ)
         if (!(lr.w > 0 && lr.h > 0) || lr.b < vb - 1.5 || lr.t > vb - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(vb)})`);
         // bệ không che thân hơn mẫu: mép trên bệ ở hàng 688/960 của ảnh ± 1,5 px (lỗi 06/11: rig tụt → bệ che tới vai)
-        const mi = slot.querySelector('img.tslot-img'); if (mi) { const ir = R(mi), wy = ir.t + ir.h * 688 / 960; if (Math.abs(lr.t - wy) > 1.5) it.errs.push(`bệ lệch mẫu (mép bệ ${Math.round(lr.t)} ≠ ${Math.round(wy)} = 72 % ảnh)`); } }
+        const mi = slot.querySelector('img.tslot-img'); if (mi) { const ir = R(mi);
+          if (slot.classList.contains('tslot-hip')) { const hy = ir.t + ir.h * TeacherSlot.HIP / 960; if (lr.t < hy - 0.5) it.errs.push(`bệ che hông (mép bệ ${Math.round(lr.t)} < hông ${Math.round(hy)})`); } // hip:true: lộ tới hông
+          else { const wy = ir.t + ir.h * 688 / 960; if (Math.abs(lr.t - wy) > 1.5) it.errs.push(`bệ lệch mẫu (mép bệ ${Math.round(lr.t)} ≠ ${Math.round(wy)} = 72 % ảnh)`); } } }
       const fr = { l: sr.l + sr.w * 0.15, r: sr.r - sr.w * 0.15, t: sr.t + sr.h * 0.07, b: sr.b }; fr.w = fr.r - fr.l; fr.h = fr.b - fr.t; // vùng người + bệ (bỏ khoảng trong suốt trên đầu/hai bên)
       for (const e of all) { // đè chữ / nút khác
         if (e.contains(slot) || slot.contains(e) || e === document.body) continue;
