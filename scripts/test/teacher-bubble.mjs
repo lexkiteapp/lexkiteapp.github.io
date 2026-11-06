@@ -3,7 +3,8 @@
 //   pop.mp3 ≤ 6 KB, KHÔNG tự đọc khi attach, giọng nữ Ama, không âm "tick", bản sao add-on trùng web, 15 ngôn ngữ cho nút 🔊, rig có pause, vị trí miệng khớp RIG.
 //  Phần trình duyệt (CI teacher-bubble.yml; bỏ qua nếu thiếu playwright): CLS = 0 khi gõ, chiều cao bong bóng không đổi, chạm = hiện hết, giảm chuyển động = hiện ngay,
 //   aria-live đủ chữ, vòng nghỉ dừng khi tab ẩn/ngoài màn, khớp môi p95 ≤ 33 ms (đường nói của bong bóng), khung không viền đứt, mũi nhọn ≤ 12 px so với miệng,
-//   bong bóng không đè giáo viên, tương phản ≥ 4,5:1 sáng/tối, nút 🔊 ≥ 44 px, không tự đọc. Ảnh 360 px trước/sau → out/teacher-bubble/ (artifact).
+//   bong bóng không đè giáo viên, tương phản ≥ 4,5:1 sáng/tối, nút 🔊 ≥ 44 px, không tự đọc; khung giáo viên giữ chỗ (ảnh/rig tải xong lệch ≤ 1 px, CLS 0)
+//   + mép trên bệ đúng mẫu 72 % ảnh; Hôm nay (hip:true) mép bệ = hông, lộ tới hông (360/1280 × sáng/tối × mọi cỡ). Ảnh 360 px trước/sau → out/teacher-bubble/ (artifact).
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 import { fileURLToPath } from 'node:url';
@@ -36,6 +37,7 @@ ok(!/tick\.(mp3|wav)|typing-?sound|sfx\/(?!pop)/i.test(src) && !fs.existsSync(W(
   ok(/btn\.hidden = !p/.test(src) && /genderOf\(v\.name\) === 'f'/.test(src), 'nút 🔊 ẩn khi không có giọng nữ cho ngôn ngữ giao diện (không giả)');
 }
 { const ux = read('js/ux1.js'); const f = ux.slice(ux.indexOf('function sayIn'), ux.indexOf('// ---------- CSS')); ok(/TeacherBubble\.attach/.test(f) && !/SayText/.test(f), 'Hôm nay (ux1.js sayIn) dùng TeacherBubble, không còn SayText'); ok(!/tts\(|speak\(/.test(f), 'sayIn không tự đọc'); }
+ok(/Chars\.slot\('ama', Object\.assign\([^;]*hip: true/.test(read('js/ux1.js')), 'Hôm nay/Welcome: chỗ giáo viên hip:true (lộ tới hông như mẫu streak) – trang thử dựng y như vậy');
 { const r = read('js/teacher-rig.js'); ok(/pause\(on\)/.test(r) && /cancelAnimationFrame\(raf\)/.test(r), 'TeacherRig.pause(on) có (dừng rAF khi tab ẩn/ngoài màn)'); }
 { const fc = read('js/call/face.js'), m = /ama: \{[\s\S]*?mouth: \[(\d+), (\d+)\]/.exec(fc); ok(m && Math.abs(+m[2] / 960 - core.MOUTH_Y) < 1e-6, `MOUTH_Y ${core.MOUTH_Y.toFixed(3)} = RIG.ama.mouth ${m ? m[2] : '?'}/960 (face.js)`); }
 for (const f of ['js/teacher-bubble.js', 'js/teacher-rig.js', 'js/ux1.js', 'sfx/pop.mp3']) { const e = path.join(ROOT, 'extension/app', f); ok(fs.existsSync(e) && fs.readFileSync(e).equals(fs.readFileSync(W(f))), `add-on trùng web: ${f}`); }
@@ -65,18 +67,18 @@ body{margin:0;background:var(--bg);font-family:system-ui,sans-serif}#row{display
 <script>window.t=s=>s;window.I18N={lang:()=>'en'};window.UI={tts(text,accent,rate,o){window.__tts={text,accent,o};setTimeout(()=>o.onEnd&&o.onEnd(),80)},stopSpeak(){}};
 window.__cls=0;window.__clsSrc=[];new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput){window.__cls+=e.value;for(const s of e.sources||[])window.__clsSrc.push((s.node&&(s.node.id||s.node.className||s.node.nodeName))+' '+JSON.stringify([s.previousRect.x,s.previousRect.y,s.previousRect.width,s.previousRect.height])+'→'+JSON.stringify([s.currentRect.x,s.currentRect.y,s.currentRect.width,s.currentRect.height]))}}).observe({type:'layout-shift',buffered:true});</script>
 <script src="js/characters.js"></script><script src="js/teacher-slot.js"></script><script src="js/call/cues.js"></script><script src="js/teacher-bubble.js"></script>
-<script>document.querySelector('[data-tch]').innerHTML=Chars.slot('ama',{size:'m',lazy:false,style:'margin-left:auto'});</script>`;
+<script>document.querySelector('[data-tch]').innerHTML=Chars.slot('ama',{size:'m',hip:true,lazy:false,style:'margin-left:auto'});</script>`;
   const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
   const open = async (o = {}) => {
-    const ctx = await browser.newContext({ viewport: { width: 360, height: 640 }, deviceScaleFactor: 2, reducedMotion: o.reduce ? 'reduce' : 'no-preference', colorScheme: o.dark ? 'dark' : 'light' });
+    const ctx = await browser.newContext({ viewport: { width: o.w || 360, height: 640 }, deviceScaleFactor: 2, reducedMotion: o.reduce ? 'reduce' : 'no-preference', colorScheme: o.dark ? 'dark' : 'light' });
     await ctx.addInitScript(() => { try { localStorage.setItem('lk.tb', '1'); } catch (e) { /* bỏ qua */ } }); // bật gõ chữ/rig trong trình duyệt tự động hóa (mặc định tắt để các cổng khác ổn định)
-    await ctx.route('**/*', r => {
-      const u = new URL(r.request().url()); if (u.pathname === '/tb.html') return r.fulfill({ body: PAGE, contentType: 'text/html' }); if (u.pathname === '/t.wav') return r.fulfill({ body: wav, contentType: 'audio/wav' });
+    await ctx.route('**/*', async r => {
+      const u = new URL(r.request().url()); if (o.slow && /^\/teach\/.+\.webp$/.test(u.pathname)) await new Promise(ok => setTimeout(ok, 700)); /* ảnh giáo viên đến chậm: đo khung TRƯỚC khi ảnh tải */ if (u.pathname === '/tb.html') return r.fulfill({ body: PAGE, contentType: 'text/html' }); if (u.pathname === '/t.wav') return r.fulfill({ body: wav, contentType: 'audio/wav' });
       const f = path.join(W(''), decodeURIComponent(u.pathname)); if (!f.startsWith(W('')) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' });
       r.fulfill({ body: fs.readFileSync(f), contentType: TYPES[path.extname(f).slice(1)] || 'application/octet-stream' });
     });
     const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(String(e))); page.on('console', m => m.type() === 'error' && !/404|Failed to load resource/.test(m.text()) && errs.push(m.text()));
-    await page.goto('http://lk.test/tb.html'); if (o.dark) await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
+    await page.goto('http://lk.test/tb.html', { waitUntil: o.slow ? 'domcontentloaded' : 'load' }); if (o.dark) await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
     return { ctx, page, errs };
   };
   const ATT = (key = 'k1', mood = 'greet') => `(() => { const p = document.getElementById('p'); window.ctl = TeacherBubble.attach({ root: document, textEl: p, slotEl: document.querySelector('[data-tch] .tslot'), who: 'ama', text: p.textContent.trim(), mood: '${mood}', key: '${key}' }); return !!window.ctl; })()`;
@@ -151,6 +153,46 @@ window.__cls=0;window.__clsSrc=[];new PerformanceObserver(l=>{for(const e of l.g
       ok(L.n > 100 && L.cues > 20 && L.p95 <= 0.033 && L.mism <= L.n * 0.2, `khớp môi (bong bóng→rig): ${L.n} khung, ${L.mism} lệch hình, p95 cách mốc gần nhất ${Math.round(L.p95 * 1000)} ms (≤ 33)`);
     }
     ok(errs.length === 0, `0 lỗi JS (rig)${errs.length ? ': ' + errs[0] : ''}`); await ctx.close();
+  }
+  { // --- khung giữ chỗ trước khi ảnh/rig tải (CLS 0, lệch ≤ 1 px) + bệ không che thân hơn mẫu Stitch (mép bệ 72 % ảnh): 360/1280 × sáng/tối × mọi cỡ ---
+    // Lỗi 06/11 (ảnh chủ, Hôm nay tối): .trig{position:relative} của rig chèn SAU .tb-rig{absolute} → rig tụt 0,1 khung sau khi tải; bệ che nửa thân.
+    const LEDGE_Y = 688; // hàng ảnh (/960) ở mép trên bệ theo mẫu: (1,2 − 0,18 − 0,16) / 1,2 – docs/CHARACTERS.md §Hình học
+    // chỗ hip:true (Hôm nay/Welcome): mép bệ = hông (TeacherSlot.HIP) ± 1 px VÀ che dải 15 % đáy người (cùng phép đo final-qc 'not-pasted-on'); đầu/mặt cùng cỡ chỗ thường (1,2 khung)
+    const EXTRA = [['xs', 'talk'], ['s', 'wave'], ['l', 'cheer'], ['xl', 'surprise']]; // surprise = tay cao nhất trong Chars.poses (y 68)
+    for (const [w, dark] of [[360, false], [360, true], [1280, false], [1280, true]]) {
+      const tag = `${w}px ${dark ? 'tối' : 'sáng'}`, { ctx, page, errs } = await open({ dark, w, slow: true });
+      // thở CSS (scaleY ≤ 1,2 %) đổi hộp ảnh theo thời gian → đưa hoạt ảnh về khung 0 trước khi đo (đo bố cục, không đo nhịp thở)
+      const snap = () => page.evaluate(() => { const A = document.getAnimations(); A.forEach(a => { a.pause(); a.currentTime = 0; }); const R = e => { if (!e) return null; const b = e.getBoundingClientRect(); return [b.left, b.top, b.width, b.height]; };
+        return [...document.querySelectorAll('.tslot')].map(s => ({ size: s.className.match(/tslot-(\w+)/)[1], slot: R(s), img: R(s.querySelector('img.tslot-img')), fig: R(s.querySelector('.tslot-fig')), ledge: R(s.querySelector('.tslot-ledge')),
+          hip: s.classList.contains('tslot-hip'), rig: R(s.querySelector('.tb-rig canvas')), done: s.querySelector('img.tslot-img').complete && s.querySelector('img.tslot-img').naturalWidth > 0, src: s.querySelector('img.tslot-img').getAttribute('src') }))
+        .concat(A.forEach(a => a.play()) || []); });
+      await page.evaluate(X => { const d = document.createElement('div'); d.id = 'more'; d.style.cssText = 'display:flex;align-items:flex-end;gap:24px;padding:24px 40px'; d.innerHTML = X.map(([size, pose]) => Chars.slot('ama', { size, pose, lazy: false })).join(''); document.getElementById('row').after(d); }, EXTRA);
+      const before = await snap();
+      ok(before.every(x => !x.done), `${tag}: đo khung TRƯỚC khi ảnh tải (${before.filter(x => !x.done).length}/${before.length} ảnh chưa về)`);
+      await page.evaluate(ATT('k6' + w + dark)); const rigOk = await page.evaluate(() => window.ctl.ready().then(r => !!r)).catch(() => false);
+      await page.waitForFunction(() => [...document.querySelectorAll('img.tslot-img')].every(i => i.complete && i.naturalWidth), null, { timeout: 8000 }).catch(() => {});
+      await page.waitForTimeout(700); const after = await snap();
+      const d = (a, b) => (a && b ? Math.max(...a.map((v, i) => Math.abs(v - b[i]))) : 99);
+      const moved = before.map((x, i) => [x.size, Math.max(d(x.slot, after[i].slot), d(x.img, after[i].img), d(x.ledge, after[i].ledge))]).filter(([, v]) => v > 1);
+      ok(after.every(x => x.done) && !moved.length, `${tag}: khung, ảnh, bệ đứng yên khi ảnh tải xong (lệch ≤ 1 px)${moved.length ? ' – lệch ' + JSON.stringify(moved) : ''}`);
+      const m = after.find(x => x.rig); ok(rigOk && m && d(m.rig, m.img) <= 1 && d(m.rig, before.find(x => x.size === m.size).img) <= 1, `${tag}: rig (canvas) trùng ảnh tĩnh trước/sau khi tải ≤ 1 px (rig ${m && m.rig.map(Math.round)}, ảnh ${m && m.img.map(Math.round)})`);
+      const C = await page.evaluate(() => ({ v: window.__cls, s: window.__clsSrc.slice(0, 4) })); ok(C.v === 0, `${tag}: CLS = 0 khi ảnh + rig tải${C.v ? ` (${C.v.toFixed(4)}: ${C.s.join(' | ')})` : ''}`);
+      // thắt lưng / vạt mờ / đỉnh người đo trên CHÍNH ảnh đã tải (cột giữa: hàng đầu có quần xám; hàng cuối còn đục; hàng đầu có người)
+      const G = await page.evaluate(srcs => Promise.all(srcs.map(async src => { const im = new Image(); im.src = src; await im.decode(); const c = document.createElement('canvas'); c.width = im.naturalWidth; c.height = im.naturalHeight; const x = c.getContext('2d'); x.drawImage(im, 0, 0);
+        const W = c.width, H = c.height, px = x.getImageData(0, 0, W, H).data, at = (i, j) => px.subarray((j * W + i) * 4, (j * W + i) * 4 + 4);
+        const gray = p => p[3] > 200 && Math.max(p[0], p[1], p[2]) - Math.min(p[0], p[1], p[2]) < 14 && p[0] > 70 && p[0] < 160;
+        let waist = -1, fade = -1, top = -1, t8 = -1, b8 = -1; for (let j = 0; j < H; j++) { let n = 0, op = 0, any = 0, k8 = 0; for (let i = 0; i < W; i += 4) { const p = at(i, j); if (p[3] >= 250) op = 1; if (p[3] > 128) any = 1; if (p[3] > 8) k8++; if (Math.abs(i - W / 2) < 40 && gray(p)) n++; }
+          if (top < 0 && any) top = j; if (waist < 0 && j >= H * 0.6 && n >= 12) waist = j; if (op) fade = j; if (k8 >= 2) { if (t8 < 0) t8 = j; b8 = j; } }
+        return { src, H, waist, fade, top, tail: b8 - 0.15 * (b8 - t8 + 1) }; })), [...new Set(after.map(x => x.src))]);
+      const HIP = await page.evaluate(() => TeacherSlot.HIP);
+      for (const x of after) { const g = G.find(y => y.src === x.src), y = r => x.img[1] + x.img[3] * r / g.H, lt = x.ledge[1];
+        const sameHead = Math.abs(x.img[3] - x.slot[3] * 1.2) <= 1; // đầu/mặt cùng cỡ mọi chỗ (ảnh = 1,2 khung)
+        if (x.hip) ok(sameHead && g.waist > 0 && Math.abs(lt - y(HIP)) <= 1 && lt < y(g.tail) && Math.abs(lt - y(g.waist)) <= x.img[3] * 20 / 960 && y(g.top) >= x.fig[1] - 0.5, `${tag} ${x.size} hip ${x.src.split('/').pop()}: mép trên bệ ${lt.toFixed(1)} = hông ${y(HIP).toFixed(1)} (HIP ${HIP}/960) ± 1 px, sát đầu quần đo được ${y(g.waist).toFixed(1)} (≤ 20/960 ảnh), che dải 15 % đáy người từ ${y(g.tail).toFixed(1)} (final-qc), đầu không bị cắt (${y(g.top).toFixed(1)} ≥ ${x.fig[1].toFixed(1)}), ảnh ${x.img[3].toFixed(1)} = 1,2 × khung`);
+        else ok(sameHead && Math.abs(lt - y(LEDGE_Y)) <= 1 && lt <= y(g.fade) && y(g.top) >= x.fig[1] - 0.5, `${tag} ${x.size} ${x.src.split('/').pop()}: mép trên bệ ${lt.toFixed(1)} = mẫu ${y(LEDGE_Y).toFixed(1)} ± 1 px (không che thân hơn mẫu), che vạt mờ ${y(g.fade).toFixed(1)}, đầu/tay không bị cắt (${y(g.top).toFixed(1)} ≥ ${x.fig[1].toFixed(1)})`); }
+      ok(after.some(x => x.hip), `${tag}: có chỗ hip:true (Hôm nay) trong phép đo`);
+      if (w === 360) await page.screenshot({ path: `${OUT}/slot-360-${dark ? 'dark' : 'light'}.png` });
+      ok(errs.length === 0, `${tag}: 0 lỗi JS${errs.length ? ': ' + errs[0] : ''}`); await ctx.close();
+    }
   }
   await browser.close();
 }

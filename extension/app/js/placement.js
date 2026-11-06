@@ -95,7 +95,7 @@
       }
       cur = { item, correct, c: 1 / opts.length };
       const i = resp.length;
-      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="study-top"><a class="icon-btn" href="#/home" id="plX" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
+      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="study-top"><a class="icon-btn" href="${App.homeHref()}" id="plX" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
           <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${N}" aria-valuenow="${i}"><i style="width:${i / N * 100}%"></i></div><span class="small muted">${i + 1}/${N}</span></div>
         <div class="card q-card">${prompt}</div>
         <div class="options">${opts.map((o, k) => `<button type="button" class="option" data-k="${k}"><span class="kbd" aria-hidden="true">${k + 1}</span><span${kind === 'grammar' ? ' lang="en"' : ''}>${esc(o)}</span></button>`).join('')}<button type="button" class="option opt-idk" data-k="-1"><span aria-hidden="true">🤷</span><span>${t('Tôi không biết')}</span></button></div></div>`;
@@ -107,7 +107,7 @@
         if (!resp.length) return;
         e.preventDefault();
         modal(`<div class="celebrate"><h2>${t('Thoát giữa chừng?')}</h2><p class="muted">${t('Kết quả của lượt này sẽ không được lưu.')}</p>
-          <div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="#/home" data-close>${t('Thoát')}</a></div></div>`);
+          <div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="${App.homeHref()}" data-close>${t('Thoát')}</a></div></div>`);
       };
     };
     const answer = b => {
@@ -130,10 +130,13 @@
     const finish = async () => {
       document.removeEventListener('keydown', keys);
       const E = estimate(resp);
+      const isNew = !App.hasData(); // từ Welcome, chưa thiết lập: XP cộng khi xong thiết lập, nếu không "có XP" = "có dữ liệu" và #/welcome/setup sẽ chuyển về Home (docs/specs/welcome.md)
       state.settings.placement = { v: 2, band: E.band, lo: E.lo, hi: E.hi, vocab: E.vocab.band, grammar: E.grammar.band, vCefr: E.vocab.cefr, gCefr: E.grammar.cefr, weak: E.weak, stage: E.stage, n: E.n, idk: E.idk, se: E.se, pct: Math.round(E.right / Math.max(1, E.n) * 100), at: Date.now() };
+      if (isNew) state.settings.plXpDue = 1;
       await App.saveSettings();
       if (g.Sync && Sync.schedule) Sync.schedule();
-      App.reward({ quizzes: 1, xp: 20 }); Sfx.win(); confetti();
+      if (!isNew) App.reward({ quizzes: 1, xp: 20 });
+      Sfx.win(); confetti();
       const weak = E.weak === 'vocab' ? t('từ vựng') : t('ngữ pháp');
       const STG = { s0: t('Chặng 0 · Từ cốt lõi'), s1: t('Chặng 1 · Nền tảng'), s2: t('Chặng 2 · Mở rộng chủ đề'), s3: t('Chặng 3 · Học thuật') };
       const sk = (s, label, color) => `<div class="pl-skill">${ring(s.band / 9 * 100, f1(s.band), color)}<b>${label}</b><span class="small muted">${s.cefr}</span></div>`;
@@ -143,7 +146,7 @@
         <p>${t('Điểm cần ưu tiên: <b>{weak}</b>. Kế hoạch hôm nay trên trang chủ đã được điều chỉnh theo kết quả này.', { weak })}</p>
         <p class="small muted">${t('Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.', { stage: STG[E.stage] })}</p>
         <p class="small muted pl-how">${t('Ước tính từ {n} câu thích ứng: câu khó dần khi bạn trả lời đúng, dễ dần khi bạn sai. Khoảng điểm cho biết độ chắc chắn – làm lại sau vài tuần để cập nhật.', { n: E.n })} ${t('Kết quả chỉ để tham khảo, không thay thế bài thi thật.')}</p>
-        <div class="pl-cta"><a class="btn primary lg block" href="#/home">${t('Xem kế hoạch hôm nay →')}</a><a class="btn block" href="#/path">🗺️ ${t('Lộ trình')}</a></div></div></div>`;
+        <div class="pl-cta">${state.settings.onboarded ? `<a class="btn primary lg block" href="#/home">${t('Xem kế hoạch hôm nay →')}</a>` : `<a class="btn primary lg block" href="#/welcome/setup">${t('Tiếp tục thiết lập lộ trình →')}</a>`}<a class="btn block" href="#/path">🗺️ ${t('Lộ trình')}</a></div></div></div>`;
     };
     view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result"><div class="pl-em" aria-hidden="true">🧭</div><h2 class="pl-h">${t('Kiểm tra đầu vào (5 phút)')}</h2>
       <p>${t('20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.')}</p>

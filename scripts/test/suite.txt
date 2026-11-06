@@ -64,6 +64,7 @@ node scripts/test/explain.mjs
 node scripts/test/script-bank.mjs
 node scripts/test/wordcard-ui.mjs
 node scripts/test/learn-flow.mjs
+node scripts/test/welcome-flow.mjs
 node scripts/test/mobile-polish.mjs
 node scripts/path/build-mix.mjs --check
 node scripts/test/next-step.mjs
@@ -260,6 +261,7 @@ node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
 node scripts/test/build-hash.mjs
+node scripts/test/self-fonts.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs

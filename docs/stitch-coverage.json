@@ -20,7 +20,7 @@
 
   {"id":"lesson-variants","area":"app","name":"Học: dạng nối/gõ/nói/nghe/đúng-sai","routes":[],"status":"ref","batch":"A1","note":"dùng khung lesson-question, chưa có screen riêng","refs":{"lsn-listen":["86b5cff2","f1a6c062"],"lsn-speak":["c54530d2","06f40e87"],"lsn-truefalse":["aacec35b","3d25105f"]}},
   {"id":"lesson-sheets","area":"app","name":"Thoát giữa chừng · gợi ý · hết giờ · lên cấp","routes":[],"status":"ref","batch":"A1","refs":{"lsn-hint":["b848e9b9","8d912380"],"lsn-timeup":["2b3d9336","82d13d8d"],"lsn-levelup":["cda38453","497d9d1c"]}},
-  {"id":"welcome","area":"app","name":"Chào mừng / thiết lập","routes":["welcome"],"status":"ref","batch":"A1","refs":{"onb-band":["8b34cceb","de9abc22"]}},
+  {"id":"welcome","area":"app","name":"Chào mừng / thiết lập","routes":["welcome"],"status":"stitch","stitch":["d2c0773b","de3f3ff3"],"gate":"diff:welcome","batch":"-"},
   {"id":"placement","area":"app","name":"Kiểm tra trình độ","routes":["placement"],"status":"ref","batch":"A1","stitch":["ec75f4c0","ca9d4b84"],"ref":"brand/stitch/v3/app/placement"},
   {"id":"vocab-path","area":"app","name":"Lộ trình từ vựng / ngày / phần thưởng","routes":["path","day","tracks"],"status":"ref","batch":"A1","refs":{"vpath":["67867976","9eafa7ce"],"vday":["7c66c343","685ac34b"],"vreward":["03538f51","3dcadfd0"]}},
 

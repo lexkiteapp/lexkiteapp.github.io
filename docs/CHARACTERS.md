@@ -40,8 +40,11 @@
 
 Ghi chú cho `web/js/teacher-slot.js` (`.tslot-fig`, `.tslot-img`, `.tslot-ledge`):
 
-- Hình học (ảnh 1108×960, người chiếm y 8 %→100 %): ảnh cao 1,2 khung, đáy ảnh lùi 0,18 khung dưới đáy khung (phần mờ + quần bị khung cắt),
+- Hình học (ảnh 1108×960, người chiếm y 8 %→100 %): ảnh cao 1,2 khung (`--fh`), đáy ảnh lùi 0,18 khung (`--fb`) dưới đáy khung (phần mờ + quần bị khung cắt) – MỘT nguồn cho ảnh tĩnh, clip và rig (`.tb-rig`); kích thước theo mẫu Stitch (stitch-diff).
 - bệ cao 0,16 khung che dải 72 %→86 % ảnh (vạt áo) → mép nhìn thấy duy nhất là mặt bệ bo tròn; đầu cách đỉnh khung ~7 %.
+- 06/11 (ảnh chủ, Hôm nay tối): rig tụt 0,1 khung sau khi tải (bệ che tới vai) vì `.trig{position:relative}` chèn sau đè `.tb-rig{absolute}` → CSS mặc định của rig dùng `:where()` (độ ưu tiên 0). Ảnh xl giãn 1,1 px khi tải vì hộp trước khi tải lấy tỉ lệ từ width/height làm tròn → `img.tslot-img{aspect-ratio:1108/960}` (= tỉ lệ cuối).
+- `hip:true` (Hôm nay/Welcome – như mẫu streak, chủ 06/11): đầu/mặt cùng cỡ (ảnh 1,2 khung), người nâng (`--fb` −0,125), bệ mỏng 0,1 → mép bệ đúng hàng 780/960 = hông (`TeacherSlot.HIP`; đầu quần y 786–798): lộ tới hông + tay, bệ là dải thấp sau chân và vẫn che dải 15 % đáy người (mờ dần, final-qc 'not-pasted-on').
+- Cổng: `scripts/test/teacher-bubble.mjs` (CI teacher-bubble.yml) – 360/1280 × sáng/tối × mọi cỡ: khung/ảnh/bệ/rig lệch ≤ 1 px trước ↔ sau khi ảnh + rig tải, CLS 0, mép bệ đúng 72 % ảnh (không che thân hơn mẫu); chỗ hip:true mép bệ = HIP ± 1 px và che dải 15 % đáy người.
 - Khung cắt .tslot-fig chỉ rộng vừa ảnh (ảnh rộng 1,2×1108/960 = 1,385 khung-cao, khung rộng 0,9 → mỗi bên lố 0,243 → lề 0,25) và cao hơn đỉnh 0,1.
 - overflow:clip (không phải hidden): khung hidden là KHUNG CUỘN – scrollIntoView/focus/tìm trong trang cuộn ảnh lên 0,18 khung → thân mờ lộ trên bệ
 - (final-qc streak: ảnh đáy = đáy khung dù bottom -20 px); clip không cuộn được. hidden đứng trước làm dự phòng cho trình duyệt cũ:

@@ -77,7 +77,6 @@ p { margin: .4rem 0; }
 .side-foot > a:hover, .sf-more > summary:hover, .sf-more[open] > summary, .lk-rep.in-side:hover { background: var(--surface-2); color: var(--text); }
 .side-foot .ic { width: 22px; flex: none; display: inline-grid; place-items: center; }
 .side-foot .ic .i { width: 18px; height: 18px; }
-.w-lk { display: flex; align-items: center; min-height: 44px; font-weight: 700; }
 .avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #fff; background: linear-gradient(135deg, var(--primary), #FFB054); flex: none; overflow: hidden; }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -609,7 +608,9 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 /* Bài tập từ bài mẫu */
 .bank { display: flex; flex-wrap: wrap; gap: .35rem; padding: .7rem; background: var(--surface-2); border-radius: 12px; }
 .gap { border: 0; border-bottom: 2px solid var(--primary); background: var(--primary-soft); border-radius: 6px 6px 0 0; padding: .1rem .35rem; font: inherit; line-height: 1.25; vertical-align: baseline; color: inherit; margin: 0 .1rem; } /* line-height riêng: "font: inherit" kéo theo line-height của đoạn (2.3) → ô cao hơn dòng chữ, đẩy lệch chữ quanh ô */
-/* Đầu trang dính (.topbar 64 px) + thanh tab dưới cố định: focus ô nhập / liên kết #… / scrollIntoView dừng NGOÀI hai thanh,
+/* Thanh trên chung điện thoại/máy tính bảng = 56 px như mẫu Stitch (frame-consistency topbar.h): nút 44 px + viền 1 px, không đệm dọc; vùng tai thỏ (standalone/native) cộng thêm ở dưới */
+@media (max-width: 1023px) { .topbar { padding-top: 0; padding-bottom: 0; min-height: 56px; box-sizing: border-box; } }
+/* Đầu trang dính (.topbar 56 px) + thanh tab dưới cố định: focus ô nhập / liên kết #… / scrollIntoView dừng NGOÀI hai thanh,
  * không để tiêu đề thẻ hay ô đang gõ nằm dưới thanh (lỗi "Desert Plants" bị che nửa trên iPhone) */
 html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 @media (max-width: 1023px) { html { scroll-padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); } }
@@ -818,10 +819,6 @@ html:has(.learn-bar) { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { sc
 }
 /* Màn hình chào trên điện thoại: logo trái – chọn ngôn ngữ gọn bên phải; nút chính rộng hết màn hình */
 @media (max-width: 560px) {
-  .w-nav, .w-tools #loginH { display: none; }
-  .w-head { margin: -.5rem -1rem 1.2rem; padding: .6rem 1rem; }
-  .w-tools [data-lang-pick] { padding: .2rem; } .w-tools [data-lang-pick] button { padding: .35rem .6rem; font-size: .8rem; }
-  .w-cta { flex-direction: column; align-items: stretch; } .w-cta .btn { width: 100%; justify-content: center; }
 }
 @media (max-width: 1023px) { body:not(.bare) .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới */
 /* Cảm giác app gốc trên điện thoại: không nháy ô xanh khi chạm, không kéo giãn trang, nút không bị bôi đen chữ */
@@ -881,7 +878,9 @@ html.native, html.native body {
   overscroll-behavior: none;
 }
 /* 1. Safe-area trên/dưới & thanh bên */
-html.native .topbar, html.native .w-head { padding-top: max(.6rem, calc(env(safe-area-inset-top, 0px) + .35rem)); }
+html.native .topbar { padding-top: max(.6rem, calc(env(safe-area-inset-top, 0px) + .35rem)); }
+/* Khung Stitch màn chào/thiết lập (không có topbar): chừa tai thỏ; đầu trang dính của Welcome tự chừa để không trôi dưới tai thỏ */
+html.native body.bare.v2on #view { padding-top: env(safe-area-inset-top, 0px); }
 html.native .sidebar { padding-top: max(1.1rem, calc(env(safe-area-inset-top, 0px) + .5rem)); padding-left: max(.9rem, env(safe-area-inset-left, 0px)); }
 html.native .shell { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
 html.native .view { padding-bottom: max(6.8rem, calc(5.5rem + env(safe-area-inset-bottom, 0px))); }
@@ -1171,22 +1170,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .skip-link { position: fixed; left: .8rem; top: -3.5rem; z-index: 100; display: inline-flex; align-items: center; min-height: var(--tap, 44px); padding: .6rem 1rem; border-radius: 10px; background: var(--primary); color: var(--primary-ink); font-weight: 700; transition: top .15s; }
 .skip-link:focus { top: .8rem; }
 /* Trang chào mừng: thẻ demo tương tác, khối nổi bật, footer */
-.w-head { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 1rem; margin: -1rem -1rem 2rem; padding: .75rem 1rem; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-.w-nav { display: flex; gap: .2rem; margin-right: auto; margin-left: 1rem; }
-.w-nav a, .w-nav button { background: none; border: 0; font: inherit; font-weight: 600; font-size: .92rem; color: var(--muted); padding: .45rem .7rem; border-radius: 8px; cursor: pointer; text-decoration: none; }
-.w-nav a:hover, .w-nav button:hover { color: var(--text); background: var(--line); }
-.w-head .w-tools { gap: .5rem; margin-left: auto; flex-wrap: nowrap; }
-.w-card { cursor: pointer; transition: transform .15s; }
-.w-card:hover { transform: translateY(-2px); }
-.w-foot { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
-.w-foot > div { display: flex; flex-direction: column; gap: .45rem; }
-.w-foot a { color: var(--muted); font-size: .9rem; }
-.w-foot a:hover { color: var(--primary); }
 @media (max-width: 640px) {
-  .w-feats { display: none; }
-  .w-cta .btn { flex: 1 1 100%; padding: .95rem 1rem; font-size: 1.05rem; }
-  .w-foot { grid-template-columns: 1fr 1fr; } .w-foot > div:first-child { grid-column: 1 / -1; }
-  .w-hl { grid-template-columns: 1fr; }
 }
 /* Phản hồi chạm: nút & thẻ nảy nhẹ khi bấm */
 .btn:active, .card.hover:active, .hub-card:active, .plan-item:active, .option:active { transform: scale(.97); transition: transform 80ms; }
@@ -1221,7 +1205,7 @@ body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-e
 @media (max-width:480px){.top-stats .lsw-b{width:var(--tap, 44px);min-width:44px;min-height:44px;padding:0;justify-content:center}.top-stats .lsw-c{display:none}}
 /* Danh sách dài & khối dưới trang: chỉ vẽ khi cuộn tới (Baseline content-visibility) – LCP nhanh & cuộn mượt */
 @supports (overflow-anchor: auto) {
-  .word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
+.word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
   .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 }
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
@@ -1252,7 +1236,6 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good-text); font-weigh
 .pp-q { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
 
 /* Trang chào mừng trên màn hẹp: ẩn menu chữ (Tính năng/Thi thử/Add-on) để không xuống dòng – đã có nút Bắt đầu & Đăng nhập */
-@media (max-width: 600px) { .w-head .w-nav { display: none; } }
 html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không quảng cáo add-on Chrome */
 
 /* Ghi chú học từ chờ dịch sang ngôn ngữ người học (app.js contentTranslate) – ẩn để không lộ tiếng Việt */
@@ -1304,10 +1287,10 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 }
 @media (pointer: coarse) { /* vùng chạm tối thiểu: MỘT token --tap (quality-sweep, WCAG 2.5.8) */
   :root { --tap: 2.8rem; }
-  .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a, .tabs button, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { min-height: var(--tap) !important; }
+  .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .row > a.small, .grid > a.small, .crumb a, .tabs button, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { min-height: var(--tap) !important; }
   .icon-btn, .fi-btn, .ctx-say, .gsi, .lsw-b, .brand, .btn.sm, button.chip, a.chip, .streak-freeze-badge, .me-more, .crumb a, .word-row .w { min-width: var(--tap) !important; }
   .streak-freeze-badge { min-height: var(--tap) !important; }
-  button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { display: inline-flex; align-items: center; }
+  button.linkish, .row > a.small, .grid > a.small, .crumb a, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { display: inline-flex; align-items: center; }
   .crumb a { justify-content: center; }
   /* Liên kết-nút đứng riêng (không nằm trong câu p/li/td/span – WCAG 2.5.8 chỉ miễn liên kết trong câu): tab dạng <a>, nút nav cài đặt, liên kết .small/.tiny cuối khối, từ trong bảng/danh sách thẻ */
   .tabs a, .set-nav button, :is(div, nav, section, header, th) > a.small, :is(div, th, dt) > a:not([class]), .deck-row a:not(.btn) { min-height: var(--tap) !important; display: inline-flex; align-items: center; }
