@@ -45,6 +45,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000 | ✓ |
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
+| 00:41 | `main-red-sweep` | `41 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
 | 00:47 | `cdn-mirror` | `47 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |

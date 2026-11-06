@@ -25,6 +25,11 @@ export async function measure() {
   for (const x of Object.values(out)) { x.missing = x.total - x.have; x.pct = x.total ? +(100 * x.have / x.total).toFixed(2) : 100; }
   return out;
 }
+// Từ (chưa) có giọng Kokoro của MỌI giọng (thuần theo dữ liệu repo) – cổng xuất lô lexicon-expand dùng: lô mới nhiều từ chưa có giọng làm npm test đỏ (06/11: 54 từ > GRACE ${GRACE})
+export function wordsWithoutAudio(words) {
+  const { have } = readIndex(), res = readRes(), { KVoice } = (() => { const c = { self: {} }; c.self = c; new Function('self', fs.readFileSync('web/js/listen/kvoice.js', 'utf8'))(c); return c; })();
+  return words.filter(w => VOICES.some((v, i) => !((res.get(w) || [])[i] === 'ok' || have.has(KVoice.lineKey(v, w)))));
+}
 const table = m => ['| Nhóm | Có file | Tổng | % | Thiếu (giọng máy) |', '|---|---:|---:|---:|---:|',
   ...Object.entries(m).sort().map(([g, x]) => `| ${g} | ${x.have} | ${x.total} | ${x.pct} | ${x.missing} |`),
   `| **Tổng** | ${sum(m, 'have')} | ${sum(m, 'total')} | ${(100 * sum(m, 'have') / Math.max(1, sum(m, 'total'))).toFixed(2)} | **${sum(m, 'missing')}** |`].join('\n');
