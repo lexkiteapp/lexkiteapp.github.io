@@ -319,12 +319,6 @@
    "why": "text: SS",
    "b": "42082474448"
   },
-  "classroom#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "meaning check: no (Is there a room with a teacher and students at des)",
-   "b": "41821221567"
-  },
   "clause#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -685,12 +679,6 @@
    "why": "vision description-sentence sim 0.1465",
    "b": "41821221567"
   },
-  "ecological footprint#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "vision: no (no footprint shown)",
-   "b": "41821221567"
-  },
   "economist#n": {
    "at": "2026-11-05",
    "tries": 6,
@@ -733,12 +721,6 @@
    "why": "meaning check: no (Is there a grand building where foreign officials )",
    "b": "42101006887"
   },
-  "ember#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "vision: no (no ember on ash)",
-   "b": "41821221567"
-  },
   "enrich#v": {
    "at": "2026-11-05",
    "tries": 6,
@@ -756,12 +738,6 @@
    "tries": 12,
    "why": "vision: text",
    "b": "42082474448"
-  },
-  "epidemic#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "size > 6 KB",
-   "b": "41775450761"
   },
   "escalate#v": {
    "at": "2026-11-04",
@@ -954,6 +930,12 @@
    "tries": 6,
    "why": "api: unsafe",
    "b": "42082474448"
+  },
+  "geopolitics#n": {
+   "at": "2026-11-06",
+   "tries": 6,
+   "why": "size > 6 KB",
+   "b": "42149329324"
   },
   "government#n": {
    "at": "2026-11-04",
@@ -1249,12 +1231,6 @@
    "why": "meaning check: no (Is the picture showing a piece of furniture being )",
    "b": "42101006887"
   },
-  "leather#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "vision: no (leather texture, close-up, wooden hanger)",
-   "b": "41821221567"
-  },
   "legislator#n": {
    "at": "2026-11-05",
    "tries": 12,
@@ -1344,12 +1320,6 @@
    "tries": 12,
    "why": "vision: no (person not on rock)",
    "b": "42129689900"
-  },
-  "meteorite#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "vision: no (no dark, pitted, burnt rock)",
-   "b": "41775450761"
   },
   "microfilm#n": {
    "at": "2026-11-04",
@@ -1458,12 +1428,6 @@
    "tries": 12,
    "why": "meaning check: no (Is the person shown as someone who has just commit)",
    "b": "42101006887"
-  },
-  "one-stop shop#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "meaning check: no (Is a person getting several different services at )",
-   "b": "41821221567"
   },
   "online review#n": {
    "at": "2026-11-05",
@@ -1591,12 +1555,6 @@
    "why": "meaning check: no (Is the person secretly taking a dead animal from t)",
    "b": "42082474448"
   },
-  "pollination#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "meaning check: no (Is a bee moving pollen from one part of the flower)",
-   "b": "41821221567"
-  },
   "port congestion#n": {
    "at": "2026-11-04",
    "tries": 6,
@@ -1620,6 +1578,12 @@
    "tries": 6,
    "why": "meaning check: no (Is a person giving another a blank paper that lets)",
    "b": "41821221567"
+  },
+  "praxis#n": {
+   "at": "2026-11-06",
+   "tries": 6,
+   "why": "vision: no (no half-built bridge, no stream)",
+   "b": "42149329324"
   },
   "presumption of innocence#n": {
    "at": "2026-11-05",
@@ -2005,6 +1969,12 @@
    "why": "vision: no (two more bricks and floor details)",
    "b": "42082474448"
   },
+  "succinctly#adv": {
+   "at": "2026-11-06",
+   "tries": 6,
+   "why": "meaning check: no (Is the person giving a brief and clear explanation)",
+   "b": "42165019349"
+  },
   "sue#v": {
    "at": "2026-11-05",
    "tries": 6,
@@ -2118,6 +2088,12 @@
    "tries": 6,
    "why": "meaning check: no (Is a sealed blank document being handed as proof o)",
    "b": "42101006887"
+  },
+  "transgression#n": {
+   "at": "2026-11-06",
+   "tries": 6,
+   "why": "meaning check: no (Is someone taking something that belongs to anothe)",
+   "b": "42165019349"
   },
   "transplant#n": {
    "at": "2026-11-05",
