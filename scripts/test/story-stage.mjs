@@ -19,6 +19,7 @@ for (const m of css.matchAll(/transition:([^;}]+)/g)) ok(m[1].trim() === 'none' 
 for (const m of css.matchAll(/@keyframes [\w-]+\{([^@]*?\}\})/g)) ok(!/(?:width|height|top|left|margin|padding)\s*:/.test(m[1]), 'keyframes chạm thuộc tính bố cục');
 ok(/prefers-reduced-motion:reduce/.test(css) && /prefers-reduced-motion:no-preference/.test(css), 'thiếu prefers-reduced-motion');
 ok(/backdrop-filter:none/.test(css), 'đầu trang cố định phải bỏ backdrop-filter');
+ok(!/\.ex[^{]*#lsnTch\{[^}]*(mask|clip-path)/.test(css), 'Ama ở khung bài tập không được có mặt nạ/clip-path (final-qc not-pasted-on)'); ok(/\.ss \.ss-stage\{[^}]*direction:ltr/.test(css), 'sân khấu Truyện phải direction:ltr (RTL: Ama dịch ra ngoài mép → final-qc rtl-ar)');
 ok(/<i class="ss-floor"/.test(ui), 'sàn chung (.ss-floor) thiếu trong ui.js');
 // tương phản nút Kiểm tra: tắt/bật × sáng/tối (đọc từ biến CSS)
 for (const name of ['sáng', 'tối']) {
@@ -26,6 +27,8 @@ for (const name of ['sáng', 'tối']) {
   for (const [bg, fg, what] of [['ex-dis-bg', 'ex-dis-fg', 'Kiểm tra (tắt)'], ['ex-on-bg', 'ex-on-fg', 'Kiểm tra (bật)']]) { const a = g(bg), b = g(fg); ok(a && b && ratio(a, b) >= 4.5, `${what} ${name}: tương phản ${a && b ? ratio(a, b).toFixed(2) : '?'} < 4.5`); }
 }
 ok(/#lsnCheck:disabled\{background-image:none!important/.test(css), 'nút Kiểm tra (tắt) còn gradient');
+// dòng kẻ trả lời chọn theo #lsnAns, KHÔNG theo lớp .lsn-ans: tấm phản hồi sai có span.lsn-ans = "Correct answer: …" (mẫu feedback-wrong) – chọn theo lớp làm nó cao 2 dòng kẻ trống
+ok(!/\.ex \.lsn-ans/.test(css) && /\.ex #lsnAns\{/.test(css), 'story-stage.css chọn .lsn-ans theo lớp → dính cả dòng "Correct answer" của tấm phản hồi; dùng #lsnAns');
 // chữ giao diện: chỉ khóa đã có bản dịch 15 ngôn ngữ (không khóa mới)
 const en = fs.readdirSync('web/js/i18n/en').map(f => rd('web/js/i18n/en/' + f)).join('\n');
 for (const m of js.matchAll(/\bT\('([^']+)'/g)) ok(en.includes(`'${m[1]}'`), `khóa dịch thiếu trong web/js/i18n/en: ${m[1]}`);
@@ -74,6 +77,8 @@ async function browser() {
       if (!found) { lines.push(`${tag}: không gặp bài Xếp câu trong demo (bỏ kiểm khung bài tập)`); await c2.close(); continue; }
       await p2.waitForTimeout(500);
       const col = await p2.evaluate(() => { const bg = e => getComputedStyle(e).backgroundColor, fg = e => getComputedStyle(e).color; const c = document.querySelector('#lsnCheck'); return { dis: c.disabled, bg: bg(c), fg: fg(c), chip: !!document.querySelector('.lsn-ex,.lsn-chip') && [...document.querySelectorAll('#lsn *')].some(e => /Mục tiêu|Target/.test(e.textContent) && e.children.length === 0 && e.offsetParent), skip: (() => { const s = document.querySelector('.lsn-skipb'); return s && { bg: bg(s), size: parseFloat(getComputedStyle(s.querySelector('span:last-child')).fontSize) }; })() }; });
+      // chẩn đoán (không phải cổng): chiều dọc các khối đầu khung bài tập – so với mẫu Stitch lesson-question (chip 64 px, thẻ đề 111 px ở khổ 390)
+      lines.push(`  ${tag} dọc: ` + JSON.stringify(await p2.evaluate(() => { const r = (e, n) => { if (!e) return null; const b = e.getBoundingClientRect(), c = getComputedStyle(e); return `${n}:${Math.round(b.top + scrollY)}+${Math.round(b.height)} pt${c.paddingTop} mt${c.marginTop} mb${c.marginBottom} ${c.position}`; }; const m = document.querySelector('#lsn > main, #lsn main'); const w = m && m.firstElementChild; return [r(document.querySelector('#lsn > header'), 'header'), r(m, 'main'), r(w, 'wrap'), ...(w ? [...w.children].slice(0, 6).map((e, i) => r(e, i + ':' + String(e.className).split(' ').filter(c => /^lsn-|^ex-/.test(c)).join('.'))) : []), r(document.querySelector('#lsn'), 'root'), r(document.querySelector('#lsn').parentElement, 'rootParent'), r(document.querySelector('#view'), 'view')]; })));
       const rgb = s => '#' + s.match(/\d+/g).slice(0, 3).map(n => (+n).toString(16).padStart(2, '0')).join('');
       ok(col.dis && ratio(rgb(col.bg), rgb(col.fg)) >= 4.5, `${tag}: nút Kiểm tra (tắt) tương phản ${ratio(rgb(col.bg), rgb(col.fg)).toFixed(2)}`);
       ok(!col.chip, `${tag}: chip mục tiêu còn ở màn bài tập`);
@@ -106,9 +111,10 @@ async function browser() {
       const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
       await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
       await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
-      await page.evaluate(() => { window.__f = 0; const t0 = performance.now(); (function f() { window.__f++; if (performance.now() - t0 < 3000) requestAnimationFrame(f); })(); window.__lt = 0; });
-      await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await page.waitForTimeout(1500);
-      await page.waitForTimeout(500); const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / 3 }));
+      // cửa sổ đo 3 s TRỌN (gồm cú bấm + dòng mới hiện): đợi vòng đếm khung kết thúc rồi chia cho thời gian thật – đọc sớm khi mới trôi ~2 s mà vẫn chia 3 làm fps tụt giả (42 thay vì 61)
+      await page.evaluate(() => { window.__f = 0; window.__fdone = false; const t0 = performance.now(); (function f(now) { window.__f++; if (now - t0 < 3000) requestAnimationFrame(f); else { window.__fdt = now - t0; window.__fdone = true; } })(t0); window.__lt = 0; });
+      await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await page.waitForFunction(() => window.__fdone, null, { timeout: 15000 });
+      const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / (window.__fdt / 1000) }));
       lines.push(`chromium 4×: longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)}`);
       ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`);
       // chẩn đoán (không phải cổng): fps khi tắt dần từng nguồn vẽ → biết chi phí nằm ở đâu

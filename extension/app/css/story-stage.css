@@ -7,7 +7,7 @@
 /* Đầu trang cố định (h-14 + vùng an toàn iPhone): nội dung chính luôn bắt đầu dưới nó → chip AMA / ĐỐI THOẠI / CARLOS không bị che */
 .ss>main{padding-top:calc(var(--ss-hdr) + env(safe-area-inset-top,0px) + var(--sp-2))}
 .ss>header{-webkit-backdrop-filter:none;backdrop-filter:none} /* làm mờ nền đầu trang cố định = lỗi giật khi cuộn trên Safari iPhone; nền đã gần đục (95 %) */
-.ss .ss-stage{position:relative;display:flex;justify-content:space-between;align-items:flex-end;height:var(--ss-h);margin:0 -1rem;padding:0 var(--sp-1);contain:layout paint;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ss .ss-stage{position:relative;display:flex;direction:ltr;justify-content:space-between;align-items:flex-end;height:var(--ss-h);margin:0 -1rem;padding:0 var(--sp-1);contain:layout paint;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ss .ss-seat{position:relative;flex:0 0 52%;height:100%;pointer-events:none;transform-origin:50% 100%;transition:transform .26s cubic-bezier(.2,.8,.2,1);will-change:transform}
 .ss .ss-seat[data-who="ama"]{transform:translateX(3%) scale(.94)}.ss .ss-seat[data-who="carlos"]{transform:translateX(-3%) scale(.94)}
 .ss .ss-fig{position:absolute;inset:0;opacity:.62;transition:opacity .26s linear} /* không mặt nạ mờ trên khung đang vẽ động: ép ghép lớp bằng CPU mỗi khung (fps 4×); sàn .ss-floor đã che đáy ảnh */
@@ -46,12 +46,11 @@
 :root[data-theme="dark"] .ex{--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ex{--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}}
 .ex .ex-seat{position:relative}
-.ex .ex-seat #lsnTch{-webkit-mask-image:linear-gradient(#000 74%,transparent 98%);mask-image:linear-gradient(#000 74%,transparent 98%)}
 .ex .ex-seat .ss-floor{height:30px;left:-4%;right:-4%}
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
-.ex .lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
+.ex #lsnAns{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
-.ex .lsn-ans>button{margin:var(--sp-1) 0!important;min-height:3rem}
+.ex #lsnAns>button{margin:var(--sp-1) 0!important;min-height:3rem}
 .ex .lsn-bank{gap:var(--sp-2)!important;padding-top:var(--sp-4)!important;min-height:7.5rem;align-content:flex-start}
 .ex .lsn-bank>button{min-height:3rem} /* KHÔNG đặt touch-action ở đây: word-arrange.js dùng touch-action:none cho thẻ kéo-chèn (Chromium cảm ứng huỷ pointer nếu cho phép cuộn) */
 /* nút nghe: to, rõ + 🐢 cùng cỡ */
