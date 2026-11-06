@@ -268,7 +268,7 @@
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'], // phrases-model.js: #/model #/models #/phrases (tách khỏi phrases.js 01/11)
-    mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
+    mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/_i.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
     tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
     speak: ['js/i18n/en/speakt.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js'],
@@ -314,6 +314,7 @@
   const CDN = (() => { try { if (Store.isExtension || (window.VBNative && VBNative.is)) return null; const el = document.getElementById('vb-cdn'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })(); // { base: GitHub Pages, files: [file dữ liệu] }
   let cdnDown = false;
   const loadOne = src => new Promise(res => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => res(true); s.onerror = () => res(false); document.head.appendChild(s); });
+  const UNHASH = /^\/?h\/(.+)\.[0-9a-f]{10}(\.(?:js|css))$/; // h/js/x.<băm>.js → js/x.js (dự phòng khi bản băm đã gỡ)
   const loadScript = async src => {
     const viaCdn = CDN && !cdnDown && CDN.files.includes(src);
     if (viaCdn && await loadOne(CDN.base + src)) {}
@@ -321,7 +322,10 @@
       if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
       if (!await loadOne(src)) {
         // Đang triển khai (file tạm trả HTML lỗi) → chờ 1,5 s, thử lại 1 lần, bỏ bộ đệm
-        await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
+        // bản theo mã băm (h/…, scripts/build-hash.mjs) đã gỡ ở lần deploy mới (trang mở từ trước) → file gốc cùng đường dẫn
+        const plain = src.replace(UNHASH, '$1$2');
+        if (plain !== src && await loadOne(plain)) return;
+        await new Promise(r => setTimeout(r, 1500)); await loadOne(plain + (plain.includes('?') ? '&' : '?') + 'r=' + Date.now());
       }
     }
     const m = src.match(/^js\/i18n\/en\/([^/]+)\.js$/);
@@ -333,7 +337,7 @@
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
   const BCSS = { welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css', onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'], watch: 'css/watch.css', say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */ }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
-  const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
+  const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = () => res(); l.onerror = () => { const p = h.replace(UNHASH, '$1$2'); if (p !== h && l.getAttribute('href') === h) l.href = p; else res(); }; setTimeout(res, 1500); document.head.appendChild(l); }));
   App.loadCss = loadCss; App.lean = () => lean(); // ST2.mount: CSS màn v2 tải theo màn (st/v2/runtime.js LZ)
   // gói ux1: Hôm nay mở đầu → chỉ CSS Lộ trình + Hôm nay (size-budget routeGz.ux1); trang đầu là tab khác / máy tính / người mới → nạp luôn CSS màn đó
   //   cùng gói (được chờ trước khi vẽ: không nháy, không ẩn khung). Màn còn lại: st/v2/runtime.js tải theo màn + nạp lúc rảnh.
