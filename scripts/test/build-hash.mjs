@@ -2,7 +2,7 @@
 // tự tìm vị trí / gói i18n, CSS url() đổi sang tuyệt đối, đường cập nhật an toàn (HTML + sw.js no-cache, /h/ immutable, SW + loadScript
 // quay về file gốc khi bản băm đã gỡ), app di động không mang bản /h/. Dùng: node scripts/test/build-hash.mjs  (trong npm test)
 import fs from 'node:fs';
-import { plan, hashedName, absUrls } from '../build-hash.mjs';
+import { plan, hashedName, absUrls, plainRefs } from '../build-hash.mjs';
 let fail = 0; const ok = (c, m) => { if (c) console.log('✓ build-hash: ' + m); else { fail++; console.error('✗ build-hash: ' + m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
 
@@ -27,6 +27,8 @@ const B = plan(F({ ...base, 'js/lib/ngsl2.js': 'add("ngsl2 v2")' }), scan), C = 
 ok(B.map['js/lib/ngsl2.js'] !== A.map['js/lib/ngsl2.js'] && B.map['js/app.js'] !== A.map['js/app.js'] && B.map['js/lib/ngsl.js'] === A.map['js/lib/ngsl.js'], 'đổi 1 file con → con + cha đổi tên, file khác giữ tên');
 ok(JSON.stringify(C.map) === JSON.stringify(A.map), 'cùng nội dung → cùng tên (tất định)');
 ok(hashedName('css/x.css', 'abcdef0123') === 'h/css/x.abcdef0123.css', 'hashedName');
+ok(plainRefs(A.out.get('js/app.js'), A.map) === base['js/app.js'] && plainRefs('x', {}) === 'x', 'plainRefs: bộ kiểm dist đọc tên băm về tên gốc qua manifest (theme-switch đọc site.js)');
+ok(/plainRefs\(fs\.readFileSync\(path\.join\(r, 'js\/site\.js'\)/.test(rd('scripts/test/theme-switch.mjs')), 'theme-switch đọc dist/js/site.js qua manifest, không cố định tên');
 
 // Đường quay về file gốc: SW (HASHED) và app.js (UNHASH) phải hiểu đúng tên do build-hash tạo
 const sw = rd('web/sw.js'), app = rd('web/js/app.js');

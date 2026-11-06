@@ -6,7 +6,7 @@
 //  4) hành vi: lưu lk.theme, vòng tự động → sáng → tối → tự động, aria-label đổi theo trạng thái, đồng bộ tab, không có lk.theme = theo hệ thống
 // Trình duyệt thật (tương phản axe sáng + tối, không nháy): scripts/test/theme-static.mjs (CI theme-qa.yml).
 // Dùng: node scripts/test/theme-switch.mjs [dist]  (mặc định kiểm web/ + dist/ nếu đã dựng)
-import fs from 'node:fs'; import path from 'node:path'; import { JSDOM } from 'jsdom';
+import fs from 'node:fs'; import path from 'node:path'; import { JSDOM } from 'jsdom'; import { manifestOf, plainRefs } from '../build-hash.mjs';
 import { THEME_HEAD, THEME_META, THEME_COLOR, LKT_JS, TSW_JS, LANG_JS, FOOT_JS, SITE_UI_JS, SITE_UI_V, themeCss, themeLabels, themeSwitch, themePill, siteFooter, LANG_NAMES } from '../lib/site-layout.mjs';
 
 const bad = []; let pages = 0;
@@ -18,7 +18,7 @@ const walk = (d, base = d) => fs.readdirSync(d, { withFileTypes: true }).flatMap
   if (e.isDirectory()) return SKIP.test(r + '/') ? [] : walk(p, base);
   return e.name.endsWith('.html') && !SKIP.test(r) ? [p] : [];
 });
-const SJ = {}, siteJs = r => SJ[r] ??= (fs.existsSync(path.join(r, 'js/site.js')) ? fs.readFileSync(path.join(r, 'js/site.js'), 'utf8') : '');
+const SJ = {}, siteJs = r => SJ[r] ??= (fs.existsSync(path.join(r, 'js/site.js')) ? plainRefs(fs.readFileSync(path.join(r, 'js/site.js'), 'utf8'), manifestOf(r)) : ''); // dist: tên băm /h/… đọc về tên gốc (scripts/build-hash.mjs)
 const roots = process.argv[2] ? [process.argv[2]] : ['web', ...(fs.existsSync('dist') ? ['dist'] : [])];
 for (const root of roots) for (const f of walk(root)) {
   const h = fs.readFileSync(f, 'utf8'); if (!/^\s*<!doctype html/i.test(h)) continue; // mảnh HTML (partial) không phải trang

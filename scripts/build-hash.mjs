@@ -19,6 +19,10 @@ const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export const refRe = rel => new RegExp(`(^|[^\\w./-])(/?)${esc(rel)}(?=[^\\w./-]|$)`, 'g');
 export const hashedName = (rel, h) => 'h/' + rel.replace(/(\.\w+)$/, `.${h}$1`);
 
+// Đọc NGƯỢC cho bộ kiểm dist (theme-switch, …): đổi tên băm trong nội dung về tên gốc theo dist/h/manifest.json → kiểm theo tên gốc,
+// không cố định tên băm. Không có manifest (web/, NO_HASH) → trả nguyên văn.
+export const manifestOf = root => { try { return JSON.parse(fs.readFileSync(path.join(root, 'h', 'manifest.json'), 'utf8')); } catch (e) { return {}; } };
+export const plainRefs = (text, map) => { for (const [r, hn] of Object.entries(map)) if (text.includes(hn)) text = text.split(hn).join(r); return text; };
 // files: Map rel → nội dung (đã rút gọn). Trả { map: rel → tên băm, out: Map rel → nội dung sau khi trỏ tham chiếu, skipped: [[rel, lý do]] }
 export function plan(files, scan) {
   const cand = new Set(), skipped = [];
