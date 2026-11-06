@@ -86,7 +86,9 @@
 /* Căn theo ảnh stitch-diff (lượt 175b114e2): story – tấm hội thoại lên 20 px (bệ .ss-floor vẫn lộ ~20 px phía trên tấm); feedback – nút Tiếp tục sát hàng "Vì sao?" 13 px; lesson – nút Kiểm tra lên 4 px */
 .ss .ss-stage{margin-bottom:-32px}
 :root .lsn-fx .lsn-fv2 #lsnNext{margin-top:-.8rem}
-:root .lsn-fx #lsnCheck{margin-top:-.25rem}
+:root .lsn-fx #lsnCheck{margin-top:0} /* sáng: sau gộp main lệch 4 px so mẫu (cta 0,955) */
+:root[data-theme="dark"] .lsn-fx #lsnCheck{margin-top:-.25rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx #lsnCheck{margin-top:-.25rem}}
 /* Lượt ảnh stitch-diff 0fb658a7b: story – tấm hội thoại lên thêm 12 px (bệ vẫn lộ ~6 px) + bong bóng thấp hơn 4,5 px mỗi cái (mẫu: nhãn Ama/thẻ A-B-C lệch +13…+21 px); feedback sai – hàng nghe lại/thẻ từ điển gọn như mẫu (+14 px dồn lại) */
 .ss .lsn-ln>div:nth-child(2){padding-block:.86rem}
 :root .lsn-fx:has(.lsn-fv2.bad) .lsn-qcard{margin-top:.1rem}
