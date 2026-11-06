@@ -38,6 +38,7 @@ for (const dir of ['web/css', 'extension/app/css']) if (fs.existsSync(dir)) for 
 //     rãnh tiến độ biến mất – stitch-diff header review/practice/leagues sáng); viền mảnh tối của Kit (#233942) = hairline --line, không sáng hơn --line-2
 { const sh = (h, m) => oklab(h)[0], bg = rh(T, 'background', 'light');
   for (const h of ['#F2F4F3', '#E9EFEB']) { const r = pick(T, 'bg', 'light', h); if (!r || sh(rh(T, r, 'light')) >= sh(bg)) err.push(`st-theme-snap: ${h} (sáng) gom vào ${r} – mất bậc nền so với ${bg}`); }
+  need(T.light['--cta-2'], rh(T, 'surface-container-low', 'light'), 3.1, 'icon cam CTA (chuỗi ngày, mic, edit_note) trên viên/ô surface-container-low sáng – đo pixel thấp hơn ~.06');
   const ov = rh(T, 'outline-variant', 'dark'); if (sh(ov) > sh(T.dark['--line-2'])) err.push(`outline-variant tối ${ov} sáng hơn --line-2 ${T.dark['--line-2']} – viền thẻ Stitch nổi hơn viền web`);
   if (pick(T, 'border', 'dark', '#233942') !== 'outline-variant') err.push('st-theme-snap: viền Kit #233942 (tối) phải gom vào outline-variant'); }
 // 4) Đổi theme mượt + không chớp: chuyển màu ≤ 200 ms chỉ khi KHÔNG giảm chuyển động; app gọi fadeTheme; nền native theo sáng/tối hệ thống
