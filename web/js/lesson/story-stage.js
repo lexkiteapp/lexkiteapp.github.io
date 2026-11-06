@@ -28,10 +28,11 @@
     function speaker(who) { cur = who || ''; stage.dataset.speaker = cur; talking = !!cur; root.querySelectorAll('.lsn-ln').forEach(n => n.classList.toggle('ss-cur', !!cur && n === chat.lastElementChild && n.dataset.who === cur)); sync(); }
     // mỗi dòng mới: 🔊 và 🐢 cùng hàng (đầu dòng, dưới chữ) cho cả hai người; hiện nhẹ
     function line(n, it) {
-      const play = n.querySelector('button'); if (!play || n.querySelector('.ss-act')) return; owner = it.who === 'carlos' ? 'carlos' : 'ama'; sync();
-      const act = D.createElement('div'); act.className = 'ss-act'; const slow = D.createElement('button'); slow.type = 'button'; slow.className = 'ss-slow';
-      slow.setAttribute('aria-label', T('Nghe chậm') + ' · ' + (it.who === 'carlos' ? 'Carlos' : 'Ama')); slow.innerHTML = '<span aria-hidden="true">🐢</span>'; slow.onclick = ev => { ev.stopPropagation(); ctx.say(it.sent, true, it.who); };
-      const bub = play.parentNode, p = bub.querySelector('p'), col = D.createElement('div'); col.className = 'ss-col'; if (p) { bub.insertBefore(col, p); col.appendChild(p); } else bub.appendChild(col); col.appendChild(act); act.appendChild(play); act.appendChild(slow); play.classList.remove('order-last', 'order-first'); // chữ ở trên, hàng 🔊 + 🐢 ngay dưới (cùng chỗ cho cả hai người)
+      const play = n.querySelector('button'); if (!play || n.dataset.ssDone) return; n.dataset.ssDone = '1'; owner = it.who === 'carlos' ? 'carlos' : 'ama'; sync();
+      // khung chữ + hàng 🔊/🐢 do MẪU Stitch (story-duo) dựng sẵn (.ss-col > p + .ss-act > nút nghe + .ss-slow) → chỉ gắn nhãn/hành động; thiếu (khung cũ) thì tự dựng như trước
+      let act = n.querySelector('.ss-act'), slow = n.querySelector('.ss-slow'); const bub = play.closest('.ss-col') ? play.closest('.ss-col').parentNode : play.parentNode;
+      if (!act || !slow) { act = D.createElement('div'); act.className = 'ss-act'; slow = D.createElement('button'); slow.type = 'button'; slow.className = 'ss-slow'; slow.innerHTML = '<span aria-hidden="true">🐢</span>'; const p = bub.querySelector('p'), col = D.createElement('div'); col.className = 'ss-col'; if (p) { bub.insertBefore(col, p); col.appendChild(p); } else bub.appendChild(col); col.appendChild(act); act.appendChild(play); act.appendChild(slow); play.classList.remove('order-last', 'order-first'); }
+      slow.setAttribute('aria-label', T('Nghe chậm') + ' · ' + (it.who === 'carlos' ? 'Carlos' : 'Ama')); slow.onclick = ev => { ev.stopPropagation(); ctx.say(it.sent, true, it.who); };
       if (!reduced()) { n.classList.add('ss-in'); n.addEventListener('animationend', () => n.classList.remove('ss-in'), { once: true }); }
       const x = tch()[it.who]; if (x && x.react) x.react(emoOf(it.sent), 2200);
     }

@@ -16,7 +16,6 @@
 /* sàn chung: cùng màu mặt khung chat bên dưới; mép trên mờ nhẹ + bóng dưới chân hai người → đứng trên sàn, không lơ lửng */
 .ss .ss-floor{position:absolute;left:0;right:0;bottom:0;height:34px;background:var(--ss-floor);border-radius:var(--ss-r-top) var(--ss-r-top) 0 0;box-shadow:0 -1px 0 var(--ss-shade);pointer-events:none}
 .ss .ss-floor::before{content:"";position:absolute;left:8%;right:8%;top:-7px;height:10px;border-radius:50%;background:radial-gradient(closest-side,var(--ss-shade),transparent)}
-.ss .lsn-chatp{margin-top:-2.1rem}
 /* chỉ báo người nói: chấm sáng trên chip tên */
 .ss .ss-who-on{outline:2px solid currentColor;outline-offset:1px}
 /* dòng thoại: nhẹ, không viền dày; 🔊 + 🐢 cùng hàng, cùng chỗ cho cả hai người (cuối bong bóng, đầu dòng) */
@@ -74,3 +73,8 @@
 :root[data-theme="dark"] .lsn-fx #lsnBub{padding-block:var(--sp-3)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx #lsnBub{padding-block:var(--sp-3)}}
 :root .lsn-fx:has(.lsn-fv2) #lsnBub{padding-block:var(--sp-2)} /* tấm phản hồi đang mở: thẻ đề về cỡ mẫu feedback-* (thấp hơn mẫu lesson-question) */
+/* Tấm phản hồi đang mở: lưới đáp án gọn như mẫu feedback-* (khe 8 px; đúng → thẻ 72 px) → máy nhỏ không bị đẩy nội dung/phải cuộn; chưa có phản hồi giữ thẻ 96 px.
+ * Đổi cỡ xảy ra ngay lúc bấm Kiểm tra (không tính CLS: có thao tác vừa nhập) + hiện nhẹ bằng opacity/transform (không chuyển động bố cục). */
+:root .lsn-fx:has(.lsn-fv2) .lsn-opts{gap:var(--sp-2);animation:ss-in .2s cubic-bezier(.2,.8,.2,1) both}
+:root .lsn-fx:has(.lsn-fv2.ok) .lsn-opts .lsn-opt{height:4.5rem;padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
+@media (prefers-reduced-motion:reduce){:root .lsn-fx:has(.lsn-fv2) .lsn-opts{animation:none}}
