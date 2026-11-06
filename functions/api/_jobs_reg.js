@@ -292,6 +292,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "main-red-sweep",
+   "workflow": "main-red-sweep.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-filler",
    "workflow": "ci-filler.yml",
    "cron": [
