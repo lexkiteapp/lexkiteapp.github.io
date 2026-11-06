@@ -9,6 +9,7 @@
 '“Agree” đã là động từ – không cần “am/is/are” đứng trước.': '“Agree” is already a verb – you don’t need “am/is/are” before it.',
 'Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.': 'With he/she/it, the negative is “doesn’t”, not “don’t”.',
 'Sau can/could/should/will không dùng “to”.': 'Don’t use “to” after can/could/should/will.',
+'Có mốc thời gian đã qua (hôm qua, năm ngoái…) thì dùng quá khứ đơn, không dùng “have + V3”.': 'With a finished time (yesterday, last year…), use the past simple, not “have + past participle”.',
 'Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.': 'Comparatives like “better” already mean “more” – drop “more”.',
 'Danh từ không đếm được (information, advice…) không thêm -s.': 'Uncountable nouns (information, advice…) don’t take -s.',
 '“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.': '“Very” can’t go before a verb – use “really”, or “very much” at the end.',

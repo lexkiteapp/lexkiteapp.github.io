@@ -4,7 +4,7 @@
  * @icons school style format_quote mic sports_esports extension menu_book graphic_eq assignment auto_stories schema smart_display language travel_explore */
 (function (g) {
   const App = g.App, { state, view } = App, { $, $$, esc, speak } = UI;
-  const DESK = '(min-width:1024px)', pose = p => (g.Chars ? Chars.img('ama', { kind: 'still', pose: p, size: 200, alt: '', cls: 'w-full h-full object-contain object-bottom' }) : '');
+  const DESK = '(min-width:1024px)', pose = p => (g.Chars ? Chars.slot('ama', { pose: p, size: g.matchMedia && matchMedia(DESK).matches ? 'xl' : 'l' }) : ''); // chỗ giáo viên chung (bệ, cỡ chuẩn): điện thoại ô 200×170 → l, máy tính ô cao 240 → xl
   const noArrow = s => s.replace(/\s*→\s*$/, ''); // khóa cũ có sẵn → trong chữ, mẫu Stitch vẽ mũi tên riêng
   let st = null, mq = null; // trạng thái thẻ thử qua được lần vẽ lại khi đổi khung
   const data = k => {

@@ -71,10 +71,10 @@
     const vsOf = (x, on) => (on && x.vs ? `<div class="trk-vs" role="group" aria-label="${esc(x.name)}">${x.vs.map(([k, nm]) => `<button type="button" data-tv="${k}" aria-pressed="${(pick.v[x.id] || x.vs[0][0]) === k}">${esc(nm)}</button>`).join('')}</div>` : '');
     const BARS = [['h-2.5', 'h-4', 'h-[22px]', 'h-7'], 'bg-[#2BA39A]', 'lt:bg-[#EADEC8] dk:bg-[#2B4750]'];
     const bars = (i, n) => BARS[0].map((h, j) => `<span class="w-1.5 ${h} rounded-sm ${j < Math.ceil((i + 1) / n * 4) ? BARS[1] : BARS[2]}"></span>`).join('');
-    const v2 = (k, say) => {
+    const v2 = (k, say) => { // giáo viên qua Chars.slot, cỡ theo ô khung Stitch: target 56×64 → xs, goal 110×140 → m, còn lại 140×170 → l
       const n = pick.step, S = g.ST2, K = TK(), meta = n === 0 ? `<div class="onb-meta px-5 max-w-xl mx-auto w-full">${canAcct() ? `<button type="button" class="onb-acct" id="setupIn">${t('Đã có tài khoản?')} <b>${t('Đăng nhập')}</b></button>` : '<span></span>'}${App.langPicker ? App.langPicker() : ''}</div>` : '';
       const d = { step: n + 1, steps: STEPS.length, stepTxt: `${n + 1} / ${STEPS.length}`, pct: Math.round((n + 1) / STEPS.length * 100), progAria: t('Tiến độ'), meta, say, foot: t('Miễn phí · Dữ liệu học thuộc về bạn'),
-        kicker: g.Chars ? Chars.name('ama') : '', teacher: g.Chars ? Chars.img('ama', { kind: 'still', pose: pick.said === k ? 'cheer' : 'point', size: 120, alt: '', cls: 'w-full h-full object-contain object-bottom' }) : '' };
+        kicker: g.Chars ? Chars.name('ama') : '', teacher: g.Chars ? Chars.slot('ama', { pose: pick.said === k ? 'cheer' : 'point', size: k === 'target' ? 'xs' : k === 'goal' ? 'm' : 'l' }) : '' };
       const tr = K && K.TR[pick.track], P = paces().find(x => x[0] === pick.pace) || paces()[1];
       if (k === 'goal') { if (K) K.setupGoal(pick); // nạp CSS .trk-vs (chip biến thể) của tracks.js
         Object.assign(d, { q: t('Mục tiêu của bạn là gì?'), foot: t('Chọn 1 gói – có thể học thêm gói khác sau.'),

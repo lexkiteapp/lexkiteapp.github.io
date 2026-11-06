@@ -79,6 +79,7 @@ node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/call-engine.mjs
+node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
 node scripts/test/review-done.mjs
@@ -282,6 +283,7 @@ node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
 node scripts/test/haptics.mjs
+node scripts/test/aiearn.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
@@ -293,6 +295,7 @@ node scripts/test/cpack.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
+node scripts/test/settings-subpages.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
 node scripts/test/teacher-bubble.mjs --static
