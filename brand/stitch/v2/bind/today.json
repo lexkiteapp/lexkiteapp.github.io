@@ -78,7 +78,8 @@
    "href": "d.c.tgHref"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(2)": {
-   "href": "'#/streak'"
+   "href": "'#/streak'",
+   "aria-label": "t('Chuỗi ngày học') + ': ' + d.c.streak"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(3)": {
    "href": "'#/stats'"
