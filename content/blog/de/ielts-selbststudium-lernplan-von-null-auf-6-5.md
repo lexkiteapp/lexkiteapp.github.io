@@ -24,6 +24,10 @@ In diesem ausführlichen Leitfaden stellen wir ein erprobtes 4-Phasen-Modell vor
 
 Der häufigste Fehler beim eigenständigen Lernen besteht darin, am ersten Tag ein dickes Testbuch aufzuschlagen und sofort vollständige Prüfungen unter Zeitdruck zu simulieren. Wenn Ihr Wortschatz und Ihre grammatikalische Basis noch unterhalb des B1- oder B2-Niveaus nach dem Gemeinsamen Europäischen Referenzrahmen (GER) liegen, führt das direkte Bearbeiten komplexer Fachtexte lediglich zu Frustration und mentaler Erschöpfung.
 
+Wenn du tiefer einsteigen möchtest, lies auch [Zeitmanagement im IELTS Reading](/de/blog/zeitmanagement-im-ielts-reading-60-minuten-strategie/).
+
+Wenn du tiefer einsteigen möchtest, lies auch [Neues TOEFL Format 2026](/de/blog/neues-toefl-format-2026-vorbereitung/).
+
 ![Einstufungstest mit 20 Vokabel- und Grammatikfragen in Lexkite](media:placement "Diagnostischer 5-Minuten-Einstufungstest mit 20 Fragen in Lexkite")
 
 Bevor Sie Ihren Kalender mit festen Lernblöcken füllen, sollten Sie eine objektive Bestandsaufnahme durchführen:

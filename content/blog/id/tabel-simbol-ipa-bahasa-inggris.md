@@ -47,6 +47,8 @@ Dalam panduan praktis ini, Anda akan mempelajari cara membaca 44 simbol IPA, men
 
 Bahasa Indonesia memiliki korespondensi huruf-ke-bunyi yang sangat teratur: huruf 'a' hampir selalu berbunyi [a]. Namun dalam bahasa Inggris, satu huruf bisa menghasilkan belasan variasi bunyi tergantung konteks suku katanya.
 
+Artikel terkait: [panduan latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
+
 Bagi pembelajar asal Indonesia, menguasai IPA mengatasi empat kesalahan umum:
 
 1. **Tidak membedakan vokal pendek dan panjang**: Pasangan kata seperti *ship* /ʃɪp/ (kapal) dan *sheep* /ʃiːp/ (domba), atau *fit* /fɪt/ dan *feet* /fiːt/ sering tertukar karena bahasa Indonesia hanya memiliki satu varian bunyi 'i'.

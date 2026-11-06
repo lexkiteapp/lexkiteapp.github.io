@@ -9,6 +9,8 @@ on:
     branches: ['ux-shots*']
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
   group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -19,6 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp

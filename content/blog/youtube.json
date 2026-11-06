@@ -1,0 +1,6 @@
+{
+  "_note": "YouTube ID được phép nhúng trong {{youtube: ID | …}}. Chỉ thêm qua `node scripts/blog-youtube.mjs add <ID>` (gọi oEmbed: video tồn tại + cho nhúng). blog-check báo lỗi ID không có ở đây. Kiểm lại: `node scripts/blog-youtube.mjs verify`.",
+  "videos": {
+    "1mHjMNZZvFo": { "title": "08 common Interview question and answers - Job Interview Skills", "channel": "Learn English | Let's Talk - Free English Lessons", "checked": "2026-11-05" }
+  }
+}
