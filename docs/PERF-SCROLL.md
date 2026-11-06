@@ -44,8 +44,11 @@
 - `#793` đang sửa TBT màn đầu (vocab-img, i18n), không trùng với các việc dưới đây.
 
 Việc xếp theo lợi ích/chi phí (mỗi việc 1 PR nhỏ, có số trước/sau từ job `routes`):
-1. **Khách cũ vẽ trước, nạp kho từ sau.** Hôm nay, Ôn và Bài học không chặn lần vẽ đầu bằng `lib/ngsl|awl|skills|topics-more|office.js`: chỉ nạp phần route cần, phần còn lại nạp khi rảnh. Mục tiêu LCP < 2,5 s, khoảng −300 KB trên đường găng.
-2. **Cache bất biến theo mã băm.** `/js` và `/css` đặt tên theo mã băm lúc build, `Cache-Control: immutable` trên Pages và jsDelivr; SW dùng cache-first cho file có băm và stale-while-revalidate cho JSON dữ liệu. Lần mở lại không còn 250 lượt hỏi lại.
+1. **Khách cũ vẽ trước, nạp kho từ sau.** Xong ở #799: `PAINT_FIRST` = Hôm nay + Ôn, gói `words` nạp sau lần vẽ đầu (khóa ở `shell-lazy.mjs` mục 4).
+2. **Cache bất biến theo mã băm.** Đang làm. `scripts/build-hash.mjs` tạo bản sao `/h/<đường dẫn>.<băm10>.<đuôi>` cho JS/CSS và trỏ mọi tham chiếu chữ trong `app/index.html`, `sw.js`, `js/`, `css/` sang bản băm. Băm theo tầng: file con đổi thì file cha đổi tên theo. `/h/*` immutable 1 năm; HTML và `sw.js` giữ no-cache/no-store. SW cache-first cho `/h/`.
+   - File gốc giữ nguyên để đường dẫn ghép động, trang tĩnh, add-on và app di động (`NO_HASH=1`) vẫn chạy.
+   - Không băm: `js/i18n/**`, file tự tìm vị trí của mình, và file nằm trong chu trình tham chiếu.
+   - Bản băm đã gỡ ở lần deploy mới (trang mở từ trước): SW và `loadScript`/`loadCss` quay về file gốc. Khóa bằng `scripts/test/build-hash.mjs`.
 3. **Font gọn.** Tự host Be Vietnam Pro bản cắt (latin + vietnamese, 3 độ đậm, bỏ nghiêng nếu không dùng), `preload` 1 file; Bricolage chỉ nạp ở màn có tiêu đề lớn. Ước tính −150 đến −250 KB mỗi route.
 4. firebase-auth nạp khi bấm Đăng nhập, hoặc khi đã có phiên.
 5. Trang giới thiệu: video `idle.webm` (209 KB) chỉ nạp khi rảnh và đang hiện trên màn; trước đó dùng ảnh poster. Đồng thời tìm nguồn TBT 379 ms.
