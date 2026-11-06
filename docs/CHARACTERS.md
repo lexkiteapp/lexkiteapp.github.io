@@ -34,6 +34,8 @@
 
 `SayText` (`web/js/say-text.js`) hiện chữ theo từng từ khi giáo viên nói: có file tiếng thì bám mốc khớp miệng `LK_CUES`, không có thì theo đồng hồ. Chữ chờ chỉ mờ, không xô bố cục; tiếng lỗi hoặc bị chặn thì hiện đủ câu. Giảm chuyển động và tiết kiệm dữ liệu thì tắt. Máy kiểm thử mặc định tắt; đặt `lk.saytext=1` để bật. Gọi qua `teacher.say(text, { caption })`. Cổng: `scripts/test/say-text.mjs`.
 
+**Bong bóng lời giáo viên (5/11):** gõ chữ 1 lần/ngày, pop nhẹ, 🔊 Ama đọc, miệng bám âm thanh, vòng nghỉ dừng khi ẩn = `TeacherBubble` (`web/js/teacher-bubble.js`) – spec + kiểm kê các chỗ giáo viên nói: [docs/specs/teacher-bubble.md](specs/teacher-bubble.md).
+
 ## Hình học chỗ giáo viên
 
 Ghi chú cho `web/js/teacher-slot.js` (`.tslot-fig`, `.tslot-img`, `.tslot-ledge`):

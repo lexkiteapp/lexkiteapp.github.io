@@ -6,6 +6,7 @@
   "web/js/lesson/teacher.js": { "engine": "LessonTeacher.say → UI.tts giọng nhân vật" },
   "web/js/grammar.js": { "groups": ["grammar", "gold-examples"] },
   "web/js/confidence.js": { "groups": ["confidence"] },
+  "web/js/teacher-bubble.js": { "groups": [], "dynamic": "lời Ama trên Hôm nay ghép số liệu thật (việc trong kế hoạch, từ cần ôn) – chỉ đọc khi bấm 🔊" },
   "web/js/criteria.js": { "groups": ["speaking-samples"], "dynamic": "đọc đoạn người học đang xem trong bộ chấm tiêu chí" },
   "web/js/call.js": { "groups": ["calls"], "dynamic": "nút đọc lại câu người học vừa nói (cSpk)" },
   "web/js/lesson/story-stage.js": { "groups": ["lesson-stories"], "dynamic": "dòng truyện từ dữ liệu bài học, chỉ đọc khi chạm 🔊/🐢 (qua say của ui.js)" },
