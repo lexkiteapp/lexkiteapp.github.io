@@ -7,9 +7,10 @@
 // Cần tailwindcss@3.4.17 (CI: npm i --no-save). TAILWIND_BIN=… để chỉ đường khác. docs/DESIGN-SYSTEM.md §Stitch.
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
+import { snapCss } from './lib/st-theme-snap.mjs';
 
 const ROOT = process.cwd(), A = new Set(process.argv.slice(2)), BUDGET = 10 * 1024;
-const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8'));
+const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8')), TKN = JSON.parse(fs.readFileSync('brand/tokens.json', 'utf8')); // dtcg.color được SINH từ brand/tokens.json (build-tokens.mjs)
 // Nhóm màn = 1 file CSS. common.js (đầu trang, thanh tab, nút) góp vào mọi nhóm.
 const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['web/js/st/common.js', 'web/js/st/lesson.js'], goal: ['web/js/st/common.js', 'web/js/st/goal.js'] };
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
@@ -94,12 +95,15 @@ module.exports = { content: ${JSON.stringify(content.map(f => path.join(ROOT, f)
 function hexA(h) { const a = h.length > 7 ? (parseInt(h.slice(7, 9), 16) / 255).toFixed(2) : 1; return `rgba(${rgb(h).replace(/ /g, ',')},${a})`; }
 function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR; return path.dirname(createRequire(path.join(ROOT, 'package.json')).resolve('tailwindcss/package.json')); }
 
+// RTL (ar): Stitch viết text-left/text-right (vật lý) → ở RTL chữ dính lề trái (visual-qa rtl-text-left). Đổi sang logical start/end: LTR y hệt, RTL tự lật.
+export const logical = css => snapCss(css, TKN).replace(/text-align:left/g, 'text-align:start').replace(/text-align:right/g, 'text-align:end');
+// Một bảng màu: lớp lt:/dk: có màu trung tính → biến vai trò --st-* (scripts/lib/st-theme-snap.mjs, nguồn brand/tokens.json)
 function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
   fs.writeFileSync(cfg, (/^(v2|w)-/.test(g) ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
   execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
   const wc = g.startsWith('w-') ? ['home', g.slice(2)].filter((x, i, a) => a.indexOf(x) === i).map(x => `brand/stitch/web/gen/${x}.css`).filter(f => fs.existsSync(f)).map(f => fs.readFileSync(f, 'utf8').replace(/^\/\*[^\n]*\*\/\n/, '').replace(/:W /g, `.v2s-web-${g.slice(2)} `)).join('') : ''; // CSS thành phần Stitch (nút 3D/thẻ) của vỏ chung (home) + trang
-  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${g.startsWith('w-') ? WPRE : NOPRE.has(g) ? `/* tiền tố chung: css/st-${Object.keys(SHARED).find(k => SHARED[k].includes(g))}.css */` : PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n${wc}`;
+  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${g.startsWith('w-') ? WPRE : NOPRE.has(g) ? `/* tiền tố chung: css/st-${Object.keys(SHARED).find(k => SHARED[k].includes(g))}.css */` : PRE}\n${logical(fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, ''))}\n${logical(wc)}`;
 }
 
 // ---- font tự host (chạy khi đổi danh sách icon): Google Fonts CSS2 API, UA Chrome để nhận WOFF2 ----

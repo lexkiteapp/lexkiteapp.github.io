@@ -68,7 +68,9 @@
         + tog('sWhisper', s.whisperMode, '🤫 ' + t('Chế độ thì thầm khi luyện nói'))
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
         + (OFFP ? tog('sOff', LKAudio.offline.on(), '📥 ' + t('Nghe offline: tải sẵn khoảng {n} từ thông dụng và bài đang học', { n: LKAudio.offline.N.toLocaleString(I18N.lang ? I18N.lang() : undefined) }), t('Khoảng {mb} MB, tối đa {max} MB. Tắt để xóa khỏi máy.', { mb: LKAudio.offline.EST_MB, max: LKAudio.offline.MAX_MB })) + '<div id="offStat" class="tip small set-tip" aria-live="polite" hidden></div>' : '')
+        + (Store.isExtension ? '' : '<div id="klBox"></div>') // 🎧 Kokoro trên máy: bật/tắt, MB, Xóa, dữ liệu di động – vẽ trong js/klocal.js (KLocal.settings)
         + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh'))
+        + tog('sHap', !!(window.Sfx && Sfx.haptics && Sfx.haptics()), t('Rung khi trả lời và hoàn thành bài'))
         + tog('sFeel', !!(window.Sfx && Sfx.feel && Sfx.feel()), t('Âm thanh & hiệu ứng kiểu trò chơi')))}
       ${sec('remind', UI.icon('alarm-clock') + t('Nhắc học hằng ngày'),
         tog('sRem', s.reminderOn, t('Bật nhắc học'))
@@ -122,6 +124,7 @@
     $('#sGoal').oninput = e => { s.dailyGoal = +e.target.value; $('#vGoal').textContent = s.dailyGoal; save(); };
     const drawAI = async () => { const b = $('#aiBox'); if (!b || !window.AI) return; b.innerHTML = await AI.settingsHtml(); AI.bindSettings(drawAI); };
     drawAI();
+    if ($('#klBox')) App.need('klocal').then(() => window.KLocal && KLocal.settings && KLocal.settings($('#klBox'))).catch(() => {});
     if ($('#wwBox')) App.need('wfeed').then(() => window.WidgetFeed && WidgetFeed.settings($('#wwBox'), state, save)).catch(() => {}); // 📱 widget "Từ mỗi giờ" (app gốc)
     $('#sRet').oninput = e => { s.retention = +e.target.value; SRS.retentionTarget = s.retention; $('#vRet').textContent = Math.round(s.retention * 100) + '%'; save(); };
     $('#sGold').onchange = e => { s.goldenOn = e.target.checked; $('#goldOpts').hidden = !s.goldenOn; save(); };
@@ -161,6 +164,7 @@
       App.onCleanup && App.onCleanup(() => clearInterval(tm));
     }
     if ($('#sFeel')) $('#sFeel').onchange = e => { if (window.Sfx && Sfx.feel) Sfx.feel(e.target.checked); }; // 🎮 docs/GAME-FEEL.md – lưu vb.feel, bật/tắt ngay
+    if ($('#sHap')) $('#sHap').onchange = e => { if (window.Sfx && Sfx.haptics) Sfx.haptics(e.target.checked); }; // vb.haptics – tôn trọng tắt âm + giảm chuyển động
     $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
     $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
     $('#sTest').onclick = () => R && R.notify(true);

@@ -47,7 +47,7 @@ const STATES = [
   ['review-card', '/review', { ux1: 1, mode: 'flip' }], ['review-type', '/review', { ux1: 1, mode: 'type' }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
 ];
 // Cột trái máy tính: mép trái nội dung của mục menu, khối tiến độ và chân thanh bên phải thẳng một hàng
-const ALIGN = [{ name: 'sidebar', items: ['.sidebar #nav > a', '.sidebar #nav > details > summary', '.sidebar .side-foot > :first-child'] }];
+const ALIGN = [{ name: 'sidebar', items: ['.sidebar #nav > a', '.sidebar #nav > details > summary', '.sidebar .side-foot:not(.sp-on) > :first-child'] }]; // 05/11: chân gọn (.sp-on) = nút ⋯ cố ý ở cuối hàng hồ sơ, không phải mục cột; bố cục dự phòng (lỗi tải) vẫn đo
 
 const vp = w => w <= 430 ? { ...devices['Pixel 7'], viewport: { width: w, height: 844 }, screen: { width: w, height: 844 } } : { viewport: { width: w, height: w >= 1200 ? 900 : 1024 }, deviceScaleFactor: 1 };
 const INIT = ({ seed, theme }) => {

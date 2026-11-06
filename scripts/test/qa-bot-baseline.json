@@ -237,14 +237,6 @@
    "settings@1440l",
    "settings@1440d"
   ],
-  "tap|div#sideAcct>button.gsi": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
-  ],
   "tap|div#ux1League>div.card.league-home-card>a.btn.sm": [
    "ux1-home@1440l",
    "ux1-train@1440l",
