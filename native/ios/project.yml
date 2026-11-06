@@ -29,13 +29,9 @@ targets:
     platform: iOS
     sources:
       - App
-      # SAME Firebase project/config as the live app – referenced, never copied (C01)
-      - path: ../../mobile/ios/App/App/GoogleService-Info.plist
-        buildPhase: resources
-      # C03 export script generated from web (scripts/native/gen.mjs); bundled as a resource, run once in a hidden WKWebView
-      - path: ../shared/gen/migration-export.js
-        buildPhase: resources
-        optional: true
+      # Files outside native/ios (Firebase config of the live app – C01; C03 migration-export.js from scripts/native/gen.mjs) are
+      # copied into the bundle by the first post-build script: XcodeGen's createIntermediateGroups resolves "../" sources to a
+      # wrong path (native/<repo>/native/…, CI #721), and one source stays one source (nothing duplicated in the repo).
     dependencies:
       - package: LexkiteKit
         product: LexkiteKit
@@ -82,6 +78,14 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"   # live app ships iPhone + iPad – no cuts
         OTHER_LDFLAGS: [$(inherited), -ObjC]   # Firebase static frameworks
     postBuildScripts:
+      - name: "Bundle one-source files from outside native/ios (GoogleService-Info.plist, migration-export.js)"
+        basedOnDependencyAnalysis: false
+        shell: /bin/sh
+        script: |
+          set -e
+          R="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+          cp "${SRCROOT}/../../mobile/ios/App/App/GoogleService-Info.plist" "$R/"
+          cp "${SRCROOT}/../shared/gen/migration-export.js" "$R/"
       - name: "Inject Google Sign-In URL scheme + content key (one source: GoogleService-Info.plist, web/js/ota-key.js)"
         basedOnDependencyAnalysis: false
         shell: /bin/sh
