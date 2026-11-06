@@ -261,6 +261,7 @@ node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
 node scripts/test/build-hash.mjs
+node scripts/test/self-fonts.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs
@@ -312,3 +313,4 @@ node scripts/test/ci-guards.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
+node scripts/test/android-xml-comments.mjs
