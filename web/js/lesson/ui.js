@@ -217,7 +217,7 @@
       if (fl) fl.style.width = pc + '%'; b.setAttribute('aria-valuenow', pc); if (pe) pe.textContent = pc + '%';
       if (qn2) qn2.textContent = t('Câu {a}/{b}', { a: Math.min(s.solved + 1, s.total), b: s.total });
       const kind = s.combo >= 3 ? '' : (s.cur && TITLE(s.cur)) || ''; // chip trái luôn có chữ (như "3 IN A ROW" của mẫu Stitch): ≥3 đúng liền = COMBO, còn lại = dạng bài (Chọn từ còn thiếu…) → hàng huy hiệu không mồ côi
-      if (ct) ct.textContent = s.combo >= 3 ? t('COMBO ×{n}', { n: s.combo }) : kind; if (cb) { cb.classList.toggle('on', s.combo >= 3); cb.style.visibility = ct && ct.textContent ? 'visible' : ''; const ic = cb.querySelector('.material-symbols-outlined'); if (ic) ic.textContent = s.combo >= 3 ? 'local_fire_department' : 'quiz'; }
+      if (ct) ct.textContent = s.combo >= 3 ? t('COMBO ×{n}', { n: s.combo }) : kind; if (cb) { cb.classList.toggle('on', s.combo >= 3); cb.style.visibility = ct && ct.textContent ? 'visible' : ''; const ic = cb.querySelector('.material-symbols-outlined'); if (ic) ic.textContent = s.combo >= 3 ? 'local_fire_department' : 'edit_note'; }
       if (window.Feel && Feel.on) { if (Feel.fill) Feel.fill(b, pc); if (Feel.combo && s.combo >= 3 && cb) Feel.combo(cb, s.combo); }
       return;
     }
@@ -295,7 +295,7 @@
     L.v2 = false; L.log = L.log || [];
     const row = x => ({ v: x.who === 'carlos' ? 'carlos' : 'ama', name: TNAME(x.who), en: x.radio ? RADIO : x.sent, play: t('Nghe lại') + ' · ' + TNAME(x.who) });
     const box = (id, w) => `<div class="lsn-tchw ss-seat" data-who="${w}" aria-hidden="true"><div id="${id}" class="ss-fig"></div></div>`; // sân khấu Truyện (css/story-stage.css): 2 chỗ đứng + sàn chung
-    const d = { close: L.sh.close, title: L.sh.title, pct: '0%', mid: L.story.kind === 'radio' ? '● ON AIR' : t('Đối thoại'), duo: `<div class="lsn-duo2 ss-stage" data-speaker="">${box('lsnTch', 'ama')}${box('lsnTch2', 'carlos')}<i class="ss-floor" aria-hidden="true"></i></div>`,
+    const d = { close: L.sh.close, title: L.sh.title, pct: '0%', mid: L.story.kind === 'radio' ? '● ON AIR' : t('Đối thoại'), duo: `${box('lsnTch', 'ama')}${box('lsnTch2', 'carlos')}<i class="ss-floor" aria-hidden="true"></i>`,
       log: [{ who: 'ama' }, { who: 'carlos' }].concat(L.log).map(row), qt: '', opts: ['on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
     d.log[0].v = 'ama'; d.log[1].v = 'carlos';
     const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story');
@@ -511,7 +511,7 @@
     const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: i1 && i2 && i1 !== i2 ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
       a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
     const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
-    const extra = pills ? `<div class="lsn-fb flex flex-wrap gap-[0.5rem]">${pills}</div>` : '';
+    const extra = pills; // ruột hàng .lsn-fb của mẫu (feedback-*: hàng chip streak/COMBO, rỗng thì ẩn bằng empty:hidden)
     // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard): câu có chỗ trống điền từ đã chọn (đúng = viên teal, sai = viên đỏ); dạng không có câu → chỉ viên từ
     const pick = ok ? String(it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
     const q = { qkind: TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };

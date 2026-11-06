@@ -20,7 +20,7 @@
 /* chỉ báo người nói: chấm sáng trên chip tên */
 .ss .ss-who-on{outline:2px solid currentColor;outline-offset:1px}
 /* dòng thoại: nhẹ, không viền dày; 🔊 + 🐢 cùng hàng, cùng chỗ cho cả hai người (cuối bong bóng, đầu dòng) */
-.ss .lsn-ln{border-width:1px!important;box-shadow:none!important}
+.ss .lsn-ln{box-shadow:none!important} /* viền: để bong bóng giữ viền Stitch (border-2); trước đây border-width:1px!important đặt lên <li> ngoài (không có màu viền → hộp trắng cứng quanh cả dòng) */
 .ss .lsn-ln.ss-in{animation:ss-in .24s cubic-bezier(.2,.8,.2,1) both}
 .ss .ss-col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
 .ss .ss-act{display:flex;gap:var(--sp-2);align-items:center;justify-content:flex-start;margin-top:var(--sp-2);flex-direction:row!important}
@@ -48,8 +48,8 @@
 /* Ama đứng GIỮA bệ: teacher.js thêm lớp .tch vào #lsnTch → ui.js `.lsn-v2 .tch{position:absolute;inset:0}` + w-[170px] ghim hộp vào mép TRÁI (Ama lệch trái, cả trên main); trả về dòng chảy flex để justify-center căn giữa */
 .lsn-fx .ex-seat #lsnTch{position:relative;inset:auto;flex:none}
 .lsn-fx .ex-seat{position:relative;align-items:flex-end;padding-bottom:var(--sp-1)}
-/* bệ: viên bo tròn có gờ đáy dưới chân Ama (không lơ lửng); cùng số đo với mẫu Stitch lesson-question (hàng giáo viên cao 150 px, KHÔNG chồng thẻ đề bài) */
-.lsn-fx .ex-seat .ss-floor{position:absolute;left:50%;bottom:0;width:200px;max-width:86%;height:14px;transform:translateX(-50%);border-radius:9999px;background:var(--lf-plinth);box-shadow:0 3px 0 var(--lf-edge);pointer-events:none}
+/* bệ cao 28 px che dải mờ ở đáy ảnh (final-qc not-pasted-on: thân mờ phải khuất sau mặt đục): viên bo tròn có gờ đáy dưới chân Ama (không lơ lửng); cùng số đo với mẫu Stitch lesson-question (hàng giáo viên cao 150 px, KHÔNG chồng thẻ đề bài) */
+.lsn-fx .ex-seat .ss-floor{position:absolute;left:50%;bottom:0;width:200px;max-width:86%;height:28px;transform:translateX(-50%);border-radius:9999px;background:var(--lf-plinth);box-shadow:0 3px 0 var(--lf-edge);pointer-events:none}
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
 .lsn-fx div.lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
@@ -68,3 +68,6 @@
 .lsn-fx .lsn-qfoot .lsn-skipb *,.lsn-fx .lsn-qfoot #lsnRep *{font-size:var(--fs-xs)!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important}
 .lsn-fx .lsn-qfoot .lsn-skipb .material-symbols-outlined,.lsn-fx .lsn-qfoot #lsnRep .material-symbols-outlined{font-size:var(--ss-fs-ic)!important}
 .lsn-fx .lsn-qfoot>div:first-child{justify-content:center!important;gap:var(--sp-4)}
+
+/* câu đề: cao như mẫu Stitch (ô trống dạng viên 38 px) → thẻ đề + CTA đúng chỗ của mẫu */
+.lsn-fx #lsnBub{padding-block:var(--sp-3)}
