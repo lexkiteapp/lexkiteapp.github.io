@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { laneVerdict, issueAction, mainRedNeeded, wipVerdict, touchesWeb, webStall, WIP_MAX } from '../ci/guards.mjs';
+import { splitUndeployed } from '../ops/smoke.mjs';
 import { lowHeadroom } from '../lib/headroom.mjs';
 const wf = f => fs.readFileSync(`.github/workflows/${f}`, 'utf8');
 
@@ -54,4 +55,8 @@ assert.equal(webStall({ mergedWeb24h: 0, openWeb: 3 }), true, '0 gộp mà còn 
 assert.equal(webStall({ mergedWeb24h: 0, openWeb: 0 }), false, 'không còn PR web → không báo');
 assert.equal(webStall({ mergedWeb24h: 2, openWeb: 5 }), false);
 assert.ok(/cron:/.test(wf('web-merge-daily.yml')) && /guards\.mjs web-daily/.test(wf('web-merge-daily.yml')));
+// 06/11 Prod release đỏ giả: Pages gom deploy 180 phút → commit chưa lên site, smoke 404 tuyến mới (AASA/assetlinks) rồi ROLLBACK giả. Lỗi 404/thiếu khi 'timeout' = chưa deploy (mềm); 5xx/mạng vẫn cứng.
+{ const v = splitUndeployed(['/.well-known/assetlinks.json: HTTP 404', '/x: thiếu "abc"', '/api/config: HTTP 500', '/y: lỗi mạng']);
+  assert.deepEqual(v.soft, ['/.well-known/assetlinks.json: HTTP 404', '/x: thiếu "abc"']); assert.deepEqual(v.hard, ['/api/config: HTTP 500', '/y: lỗi mạng']); }
+assert.ok(/verified: '\$\{\{ steps\.smoke\.outputs\.verified/.test(pr) && (pr.match(/needs\.smoke\.outputs\.verified != 'false'/g) || []).length === 2, 'mark + ota chỉ chạy khi smoke xác minh được commit');
 console.log('✓ ci-guards: làn nhanh (7 workflow nặng) · main-red · ngân sách vàng · wip-guard · chỉ số web/ hằng ngày');
