@@ -311,6 +311,9 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
 // 🧩 Stitch v2.1 story-duo (cờ ux1): Truyện/Radio trên khung mới – Ama trái + Carlos phải (Chars/LessonTeacher) SAU khung chat đục; mỗi câu thoại đúng giọng người nói; bài kiểm giữa truyện = khung lesson-question
 ok(w.ST2['story-duo'], 'story-duo: khung nạp được');
 { const h = w.ST2['story-duo']({ log: [], opts: [{ v: 'on', o: 'x', k: 'A', t: 'x' }] }).main, tp = w.document.createElement('template'); tp.innerHTML = h; const ic = tp.content.querySelector('#lsnBody .lsn-opt > div:last-child .material-symbols-outlined'); ok(ic && ic.textContent.trim() === 'check', `story-duo: đáp án đang chọn có dấu ✓ ở góc phải, không phải chữ cái (${ic && ic.textContent})`); }
+// khung chat = MẶT riêng: nền lt:/dk: của khung khác nền trang (main) ở CẢ hai giao diện (so màu thật theo bảng, không dò một hex cố định)
+const chatSurface = ch => { const bg = (el, v) => ((el && el.className.match(new RegExp(`\\b${v}:bg-\\[(#[0-9A-Fa-f]{6})\\]`))) || [])[1], m = ch.closest('main');
+  return ['lt', 'dk'].every(v => bg(ch, v) && bg(m, v) && bg(ch, v).toUpperCase() !== bg(m, v).toUpperCase()); };
 for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
   w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);
   w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
@@ -318,7 +321,7 @@ for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' 
   ok(D.querySelector('.v2-story-duo') && $('#lsn.lsn-v2') && T && T.ama && T.carlos && $('#lsnTch') && $('#lsnTch2') && $('.lsn-bar').getAttribute('role') === 'progressbar' && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', `v2 ${kind}: khung story-duo, Ama + Carlos (2 LessonTeacher), thanh tiến độ, ✕ về bản đồ`);
   ok(D.querySelectorAll('.lsn-ln').length === 1 && $('#lsnPlay') && $('#lsnGo') && /Tiếp tục|Continue/.test($('#lsnGo').textContent), `v2 ${kind}: câu đầu hiện, nút Nghe lại + Tiếp tục`);
   const tw = [...D.querySelectorAll('.lsn-tchw')], ch = $('#lsnChat');
-  ok(tw.length === 2 && $('#lsnTch').compareDocumentPosition($('#lsnTch2')) & 4 && tw.every(x => x.compareDocumentPosition(ch) & 4) && /z-10/.test(ch.className) && /lt:bg-\[#F0F4F3\]/.test(ch.className) && !/lt:bg-\[#FFF7EA\]/.test(ch.className), `v2 ${kind}: Ama trái + Carlos phải, cả hai đứng SAU khung chat là MẶT Stitch thấy được (khác màu nền trang) z-10`);
+  ok(tw.length === 2 && $('#lsnTch').compareDocumentPosition($('#lsnTch2')) & 4 && tw.every(x => x.compareDocumentPosition(ch) & 4) && /z-10/.test(ch.className) && chatSurface(ch), `v2 ${kind}: Ama trái + Carlos phải, cả hai đứng SAU khung chat là MẶT Stitch thấy được (khác màu nền trang) z-10`);
   ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]'), `v2 ${kind}: không vòng / hào quang / khung quanh giáo viên`);
   for (const k of ['ama', 'carlos']) { const x = T[k], o = x.say; x.say = (txt, op) => { said.push({ k, op: op || {} }); return o.call(x, txt, op); }; }
   let g2 = 0, prevLines = 0;
