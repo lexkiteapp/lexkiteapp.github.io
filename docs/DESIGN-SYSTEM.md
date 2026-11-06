@@ -58,6 +58,7 @@ Colour: only the brand palette and semantic tokens (`--primary*` = CTA, `--accen
 |---|---|---|
 | `--bg` | #FBF7F1 | #0E191C |
 | `--surface` | #FFFFFF | #162528 |
+| `--chip` | #F8F4EC | #122023 |
 | `--surface-2` | #F5EFE6 | #1D2F33 |
 | `--surface-3` | #ECE4D7 | #263A3F |
 | `--text` | #162124 | #EAF2F2 |
@@ -149,7 +150,7 @@ Vai trò M3 (màn Stitch `--st-*`, SwiftUI `LKColor`, Compose) – một giá tr
 | surface-container | `--surface` | #FFFFFF | #162528 |
 | surface-container-high | `--surface` / `--surface-2` | #FFFFFF | #1D2F33 |
 | surface-container-highest | `--surface-3` | #ECE4D7 | #263A3F |
-| surface-container-low | #F8F4EC / #122023 | #F8F4EC | #122023 |
+| surface-container-low | `--chip` | #F8F4EC | #122023 |
 | surface-container-lowest | `--bg` / #091416 | #FBF7F1 | #091416 |
 | surface-dim | `--bg` | #FBF7F1 | #0E191C |
 | surface-tint | #F2553B / #FFB4A6 | #F2553B | #FFB4A6 |
