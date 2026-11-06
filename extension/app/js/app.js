@@ -559,7 +559,8 @@
   const vimgOn = () => { try { const f = localStorage.getItem('lk.vimg'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.vocab_img; if (v === false || v === '0' || v === 'false') return false; if (localStorage.getItem('lk.vimg.adm') === '1' || v === '1' || v === true) return true; const p = c && c.v && c.v.vocab_img_pct, pct = p != null && p !== '' && !isNaN(+p) ? +p : 10, b = localStorage.getItem('lk.vb'); return b == null || +b < pct; } catch (e) { return false; } };   // bật dần: nhóm lk.vb < vocab_img_pct (mặc định 10 %) – module tự quyết lần đầu (tạo lk.vb)   // chưa đặt = tự động: module + chỉ mục nhỏ tự quyết (on ≥ 150 ảnh)
   App.vimgReady = list => (vimgOn() ? App.need('vimg').then(() => window.VImg && VImg.ready(list)).catch(() => null) : Promise.resolve(null));
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
-  App.vimgReady();
+  // Màn đầu (chào/trang chủ, lần tải lạnh): hoãn nạp module+chỉ mục ảnh tới lúc rảnh – chạy lúc khởi động nó chặn luồng chính ~100 ms (TBT mobile). Màn khác (học/ôn/tra từ): nạp ngay như cũ để thẻ đầu đã có ảnh.
+  /^#?\/?(welcome|home)?\/?(\?|$)/.test(location.hash) ? idle(() => App.vimgReady()) : App.vimgReady();
   // thẻ ngôn ngữ đích khác: chỉ ảnh có khóa tiếng Anh từ#loại khớp ĐÚNG nghĩa (trường img, content/target/<tl>/) – không có → không ảnh
   App.imgKey = c => (c.tl ? String(c.img || '').split('#') : [c.word, c.pos]); // [từ, loại] để gọi App.vimg; thẻ tl không có img → người gọi bỏ ảnh
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
