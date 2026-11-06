@@ -158,7 +158,7 @@
     m.addEventListener('click', e => { const w = e.target.closest('[data-m]'); if (!w) return; const v = w.dataset.m, c = UI.closeModal || window.closeModal; if (c) c(); if (v === 'exam' && App.examPicker) App.examPicker(); if (v === 'theme') $('#themeBtn').onclick(); });
   };
   // Avatar thanh trên: khi nút sáng/tối bị ẩn vì thiếu chỗ (≤ 900 px, 1024–1279 px, zoom lớn) → mở menu tài khoản thay vì sang #/me
-  $('#avatarBtn').addEventListener('click', e => { const b = $('#themeBtn'); if (!b || b.getClientRects().length) return; e.preventDefault(); App.accountMenu(); });
+  const avBtn = $('#avatarBtn'); if (avBtn) avBtn.addEventListener('click', e => { const b = $('#themeBtn'); if (!b || b.getClientRects().length) return; e.preventDefault(); App.accountMenu(); });
   // Avatar đầu trang Stitch (< 1024 px, không có nút sáng/tối) → cùng menu tài khoản (mục "Tài khoản" vẫn sang #/me)
   document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('.v2 header a[href="#/me"]'); if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); App.accountMenu(); });
 
