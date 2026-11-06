@@ -14,6 +14,13 @@ export const STREAK_NOW = '2026-10-30T12:00:00Z';
 export const FIX_CLOCK = page => page.clock.setFixedTime(new Date(STREAK_NOW));
 export const SEED_STREAK = async () => { const k = d => { const x = new Date(); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
   const days = {}; for (let i = 1; i < 14; i++) days[k(i)] = 5; days[k(0)] = 14; App.state.stats.days = Object.assign(App.state.stats.days || {}, days); App.state.game = App.state.game || {}; App.state.game.xp = Math.max(App.state.game.xp || 0, 820); App.state.settings.dailyGoal = 20; await App.saveSettings(); await Core.Store.set('stats', App.state.stats); };
+// Màn Chuỗi (mẫu Stitch streak-v5, 5/11): kịch bản RIÊNG đúng như mẫu – thứ Bảy 14/11/2026, chuỗi 14 ngày (31/10→13/11), thứ Năm 12/11 đóng băng, hôm nay chưa học,
+//   còn 1/2 lượt băng, 1 rương chưa mở (mốc 3/7/14 đã chúc mừng), sự kiện thu 2/5 mảnh. Chỉ áp cho màn streak (các màn khác giữ STREAK_NOW thứ Sáu).
+export const STREAK_V5_NOW = '2026-11-14T12:00:00Z';
+export const SEED_STREAK_V5 = async () => { const k = d => { const x = new Date(); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
+  const days = {}; for (let i = 1; i <= 14; i++) if (i !== 2) days[k(i)] = 5; App.state.stats.days = days; const g = App.state.game = App.state.game || {};
+  g.days = {}; g.frozen = { [k(2)]: 1 }; g.freezes = 1; g.ret = { ms: { 3: 1, 7: 1, 14: 1 }, opened: 2, ev: { autumn26: [k(4), k(3)] } }; App.state.settings.dailyGoal = 20; await App.saveSettings(); await Core.Store.set('stats', App.state.stats); };
+export const SEED_SCREEN = async (page, k) => { if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
 export const SEED_LEAGUE = () => {
   const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
