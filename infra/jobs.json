@@ -89,6 +89,20 @@
    "lease": false
   },
   {
+   "id": "web-merge-daily",
+   "workflow": "web-merge-daily.yml",
+   "cron": [
+    "23 5 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "blog-daily",
    "workflow": "blog-daily.yml",
    "cron": [
