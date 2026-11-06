@@ -75,11 +75,24 @@
   const langModal = () => UI.modal(`<h2 style="margin-top:0">${esc(t('Ngôn ngữ'))}</h2><ul style="list-style:none;padding:0;margin:0;display:grid;gap:.4rem">${I18N.SUPPORTED.map(l => `<li><button type="button" class="btn block" data-lang="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}" aria-pressed="${l === I18N.lang()}" style="width:100%;justify-content:flex-start">${esc(I18N.LANGS[l][1])}</button></li>`).join('')}</ul>`);
   const esc = s => UI.esc(s);
 
+  // Đầu trang Tôi trên điện thoại (< 1024 px, thanh trên của app ẩn): như mọi trang chính – có logo + nút tra từ (cùng ô #gq của app, Ux1.headBtns).
+  //   4 viên số của mẫu Stitch giữ nguyên chỗ; logo 24 px + nút tra từ tròn 32 px đứng cạnh avatar (khoảng trống của mẫu). < 375 px: viên XP nhường chỗ
+  //   (style.css – Tổng XP lớn ngay dưới trong trang Tôi).
+  function hubHead(root) {
+    const h = root.querySelector(':scope > header'), av = h && h.querySelector('a[href="#/me"]'); if (!av) return;
+    const logo = document.createElement('img'); Object.assign(logo, { className: 'logo', src: 'icons/icon.svg?v=3', alt: 'Lexkite', width: 24, height: 24 }); logo.style.cssText = 'width:24px;height:24px;border-radius:7px;box-shadow:none';
+    const sb = document.createElement('button'); sb.type = 'button'; sb.dataset.act = 'search'; sb.setAttribute('aria-label', t('Tra từ'));
+    sb.className = "w-8 h-8 rounded-[9999px] flex items-center justify-center shrink-0 lt:bg-[#f2f4f3] dk:bg-[#162528] dk:border dk:border-[#213438] relative after:absolute after:-inset-1.5 after:content-['']";
+    sb.innerHTML = '<svg class="i" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>';
+    const right = document.createElement('div'); right.className = 'flex items-center shrink-0'; right.style.gap = '4px'; av.before(right); right.append(logo, sb, av);
+    if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h);
+  }
   const render = App.guard ? App.guard : f => f;
   let paint = null;
   const me = render(async function () {
     const d = await build(), y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
     const root = ST2.mount(view, 'me', d, 'me');
+    hubHead(root);
     if (App.getApp) App.getApp(view);
     view.querySelectorAll('[data-row="getapp"]').forEach(row => { const a = row.querySelector('[data-get-app]'); const sync = () => { row.hidden = !a || a.hidden || a.hasAttribute('data-off'); }; sync(); if (a && window.MutationObserver) new MutationObserver(sync).observe(a, { attributes: true, attributeFilter: ['hidden', 'data-off'] }); });
     if (ae) { const b = root.querySelector('[data-act="' + ae + '"]'); if (b) b.focus({ preventScroll: true }); window.scrollTo(0, y); }

@@ -1105,12 +1105,6 @@
    "why": "meaning check: no (Is the person carrying a suitcase moving into a ne)",
    "b": "41775450761"
   },
-  "impetus#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "vision: no (boy not pushing, in cart)",
-   "b": "41821221567"
-  },
   "import duty#n": {
    "at": "2026-11-05",
    "tries": 6,
@@ -1477,12 +1471,6 @@
    "why": "meaning check: no (Is the person unable to move the shown arm volunta)",
    "b": "42082474448"
   },
-  "patent#n": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "meaning check: no (Is the gadget secured with a lock that only the ma)",
-   "b": "41821221567"
-  },
   "pay-per-click#adj": {
    "at": "2026-11-05",
    "tries": 12,
@@ -1752,12 +1740,6 @@
    "tries": 6,
    "why": "meaning check: no (Is there a paper that explains a planned experimen)",
    "b": "41821221567"
-  },
-  "resound#v": {
-   "at": "2026-11-04",
-   "tries": 6,
-   "why": "clip-sentence sim 0.1636; vision description-sentence sim 0.2805",
-   "b": "41775450761"
   },
   "resplendent#adj": {
    "at": "2026-11-05",
