@@ -86,7 +86,9 @@ async function browser() {
       ok(await p2.evaluate(() => document.querySelectorAll('#lsnAns>button').length === 1), `${tag}: chạm từ không bay vào dòng trả lời`);
       ok(await p2.evaluate(() => !document.querySelector('#lsnCheck').disabled), `${tag}: Kiểm tra không bật sau khi đặt từ`);
       const on = await p2.evaluate(() => { const c = document.querySelector('#lsnCheck'), s = getComputedStyle(c); return [s.backgroundColor, s.color, getComputedStyle(c).backgroundImage]; });
-      ok(ratio(rgb(on[0]), rgb(on[1])) >= 4.5 && on[0] !== col.bg && on[2] !== 'none', `${tag}: nút Kiểm tra (bật) tương phản ≥ 4.5, khác bản tắt, giữ gradient mẫu Stitch ${on}`);
+      // nền là gradient (background-color trong suốt) → đo chữ với TỪNG điểm dừng màu của gradient (kém nhất quyết định); không gradient thì đo nền phẳng
+      const stops = (on[2].match(/rgba?\([^)]*\)/g) || []).map(rgb), bgs = stops.length ? stops : [rgb(on[0])];
+      ok(Math.min(...bgs.map(b => ratio(b, rgb(on[1])))) >= 4.5 && (on[0] !== col.bg || on[2] !== 'none') && on[2] !== 'none', `${tag}: nút Kiểm tra (bật) tương phản ≥ 4.5 trên mọi điểm dừng gradient, khác bản tắt, giữ gradient mẫu Stitch ${on}`);
       const h1 = await p2.evaluate(() => document.querySelector('#lsnBank').getBoundingClientRect().height); ok(Math.abs(h1 - h0) < 1, `${tag}: ngân hàng đổi chiều cao ${h0}→${h1}`);
       await p2.screenshot({ path: `${OUT}/exercise-${tag}.png` });
       await p2.click('#lsnAns>button'); await p2.waitForTimeout(350);
