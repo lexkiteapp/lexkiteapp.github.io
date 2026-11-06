@@ -21,6 +21,7 @@ ok(/prefers-reduced-motion:reduce/.test(css) && /prefers-reduced-motion:no-prefe
 ok(/backdrop-filter:none/.test(css), 'đầu trang cố định phải bỏ backdrop-filter');
 ok(!/\.lsn-fx[^{]*#lsnTch\{[^}]*(mask|clip-path)/.test(css), 'Ama ở khung bài tập không được có mặt nạ/clip-path (final-qc not-pasted-on)'); ok(/\.ss \.ss-stage\{[^}]*direction:ltr/.test(css), 'sân khấu Truyện phải direction:ltr (RTL: Ama dịch ra ngoài mép → final-qc rtl-ar)');
 ok(/\.lsn-fx \.ex-seat #lsnTch\{[^}]*position:relative/.test(css), 'Ama ở khung bài tập phải position:relative (đè .lsn-v2 .tch{absolute;inset:0} → lệch trái, không giữa bệ)');
+ok(!/root\.style\.visibility = 'hidden'/.test(ui), 'ui.js ẩn khung chờ CSS bằng visibility:hidden → ExitGuard không thấy nút ✕, chèn thanh .lk-exitbar 64 px (lệch mẫu Stitch); dùng opacity');
 ok(/<i class="ss-floor"/.test(ui), 'sàn chung (.ss-floor) thiếu trong ui.js');
 // tương phản nút Kiểm tra: tắt/bật × sáng/tối (đọc từ biến CSS)
 for (const name of ['sáng', 'tối']) {

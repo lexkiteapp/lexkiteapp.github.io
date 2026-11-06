@@ -166,7 +166,7 @@
     const g = root.querySelector('#lsnBody'); L.tpl = { off: g.children[0], on: g.children[1] }; g.textContent = ''; // khuôn thẻ đáp án (chưa chọn / đã chọn) lấy từ khung Stitch
     if (!sh.chip) root.querySelector('.lsn-combo').nextElementSibling.hidden = true;
     // khung bài tập: sàn/bệ + nút Kiểm tra/Bỏ qua/Báo lỗi (css/story-stage.css, tải lười); ẩn tới khi CSS về (≤1,5 s) → không nhảy bố cục
-    root.classList.add('lsn-fx'); root.style.visibility = 'hidden'; const shown = () => { root.style.visibility = ''; }; setTimeout(shown, 1600);
+    root.classList.add('lsn-fx'); root.style.opacity = '0'; const shown = () => { root.style.opacity = ''; }; /* opacity, KHÔNG visibility: ExitGuard (exit-guard.js shown()) coi nút ✕ trong khung visibility:hidden là không có → chèn thêm thanh .lk-exitbar 64 px phía trên (gốc lệch 64 px so mẫu Stitch) */ setTimeout(shown, 1600);
     L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown(); let n = root.querySelector('#lsnBub'), c = ''; while (n && n !== root) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) root.style.setProperty('--ss-floor', c); }); // bệ = đúng màu thẻ đề bài
   }
   const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; return n; };
@@ -300,7 +300,7 @@
     d.log[0].v = 'ama'; d.log[1].v = 'carlos';
     const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story');
     // sân khấu: CSS + JS tải lười (không vào khung app); khung ẩn tới khi CSS về (≤1,5 s) → không nhảy bố cục
-    root.style.visibility = 'hidden'; const shown = () => { root.style.visibility = ''; }; root.addEventListener('pointerdown', () => { if (L) L.tapped = true; }, { capture: true, once: true }); // truyện chỉ cất tiếng sau lần chạm đầu (🔊, 🐢, Tiếp tục, sân khấu)
+    root.style.opacity = '0'; const shown = () => { root.style.opacity = ''; }; root.addEventListener('pointerdown', () => { if (L) L.tapped = true; }, { capture: true, once: true }); // truyện chỉ cất tiếng sau lần chạm đầu (🔊, 🐢, Tiếp tục, sân khấu)
     Promise.all([App.loadCss ? App.loadCss('css/story-stage.css') : 0, App.loadScript ? App.loadScript('js/lesson/story-stage.js') : 0]).catch(() => 0).then(() => { if (!L || L.dead || !window.StoryStage || !L.teachers) { shown(); return; } L.ss = StoryStage.attach(root, { say: (x, slow, who) => say(x, slow, who), teachers: () => L && L.teachers, vids: () => (L && L.vids) || {} }); const last = $('#lsnChat').lastElementChild; if (L.ss && last && last.dataset.who) L.ss.line(last, L.log[L.log.length - 1] || { who: last.dataset.who, sent: '' }); shown(); }); // khung hiện sau khi dòng đầu đã dựng 🔊/🐢 → không dịch bố cục (CLS 0)
     setTimeout(shown, 4000); // dự phòng mạng chậm (CSS/JS lười chưa về): quá 4 s thì hiện luôn
     const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
