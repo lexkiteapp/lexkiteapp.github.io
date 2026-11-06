@@ -45,7 +45,9 @@
 .lsn-fx{--lf-plinth:#E4EBE9;--lf-edge:#CBD5D2;--ex-rule:#C9D3D1;--ex-dis-bg:#E2E8E7;--ex-dis-fg:#4E5F62;--ex-on-bg:#0D6964;--ex-on-fg:#FFFFFF;--ex-on-edge:#07423F;--ex-mut:#4E5F62}
 :root[data-theme="dark"] .lsn-fx{--lf-plinth:#1A2C33;--lf-edge:#0D1A1E;--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx{--lf-plinth:#1A2C33;--lf-edge:#0D1A1E;--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}}
-.lsn-fx .ex-seat{position:relative;align-items:flex-end;padding-bottom:6px}
+/* Ama đứng GIỮA bệ: teacher.js thêm lớp .tch vào #lsnTch → ui.js `.lsn-v2 .tch{position:absolute;inset:0}` + w-[170px] ghim hộp vào mép TRÁI (Ama lệch trái, cả trên main); trả về dòng chảy flex để justify-center căn giữa */
+.lsn-fx .ex-seat #lsnTch{position:relative;inset:auto;flex:none}
+.lsn-fx .ex-seat{position:relative;align-items:flex-end;padding-bottom:var(--sp-1)}
 /* bệ: viên bo tròn có gờ đáy dưới chân Ama (không lơ lửng); cùng số đo với mẫu Stitch lesson-question (hàng giáo viên cao 150 px, KHÔNG chồng thẻ đề bài) */
 .lsn-fx .ex-seat .ss-floor{position:absolute;left:50%;bottom:0;width:200px;max-width:86%;height:14px;transform:translateX(-50%);border-radius:9999px;background:var(--lf-plinth);box-shadow:0 3px 0 var(--lf-edge);pointer-events:none}
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
