@@ -180,10 +180,10 @@
      },
      "cls": {
       ":scope": {
-       "lt:text-[#15803D]": "r.p ? 'lt:text-[#1A1816]' : 'lt:text-[#15803D]'",
-       "lt:bg-[#ECFDF5]": "r.p ? 'lt:bg-[#F7EEE3]' : 'lt:bg-[#ECFDF5]'",
+       "lt:text-[#15803D]": "r.p ? 'lt:text-[#162124]' : 'lt:text-[#15803D]'",
+       "lt:bg-[#ECFDF5]": "r.p ? 'lt:bg-[#FBF7F1]' : 'lt:bg-[#ECFDF5]'",
        "dk:text-[#34d399]": "r.p ? 'dk:text-[#ffffff]' : 'dk:text-[#34d399]'",
-       "dk:bg-[#102a28]": "r.p ? 'dk:bg-[#102227]' : 'dk:bg-[#102a28]'",
+       "dk:bg-[#162528]": "r.p ? 'dk:bg-[#122023]' : 'dk:bg-[#162528]'",
        "dk:border-[#184c47]": "r.p ? 'dk:border-[#1e3e46]' : 'dk:border-[#184c47]'"
       }
      }
