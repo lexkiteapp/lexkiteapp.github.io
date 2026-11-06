@@ -51,9 +51,9 @@
 /* bệ: viên bo tròn có gờ đáy dưới chân Ama (không lơ lửng); cùng số đo với mẫu Stitch lesson-question (hàng giáo viên cao 150 px, KHÔNG chồng thẻ đề bài) */
 .lsn-fx .ex-seat .ss-floor{position:absolute;left:50%;bottom:0;width:200px;max-width:86%;height:14px;transform:translateX(-50%);border-radius:9999px;background:var(--lf-plinth);box-shadow:0 3px 0 var(--lf-edge);pointer-events:none}
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
-.lsn-fx #lsnAns{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
+.lsn-fx div.lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
-.lsn-fx #lsnAns>button{margin:var(--sp-1) 0!important;min-height:3rem}
+.lsn-fx div.lsn-ans>button{margin:var(--sp-1) 0!important;min-height:3rem}
 .lsn-fx .lsn-bank{gap:var(--sp-2)!important;padding-top:var(--sp-4)!important;min-height:7.5rem;align-content:flex-start}
 .lsn-fx .lsn-bank>button{min-height:3rem} /* KHÔNG đặt touch-action ở đây: word-arrange.js dùng touch-action:none cho thẻ kéo-chèn (Chromium cảm ứng huỷ pointer nếu cho phép cuộn) */
 /* nút nghe: to, rõ + 🐢 cùng cỡ */

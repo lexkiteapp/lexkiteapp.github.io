@@ -32,7 +32,7 @@ ok(/#lsnCheck:disabled\{background-image:none!important/.test(css), 'nút Kiểm
 // lớp khung bài tập là .lsn-fx, KHÔNG .ex (style.css có .ex{font-style:italic;color:muted} cho câu ví dụ → cả màn bị nghiêng + xám)
 ok(!/classList\.add\('ex'\)/.test(ui) && /classList\.add\('lsn-fx'\)/.test(ui), 'khung bài tập không được dùng lớp .ex (đụng style.css: chữ nghiêng/xám)');
 // dòng kẻ trả lời chọn theo #lsnAns, KHÔNG theo lớp .lsn-ans: tấm phản hồi sai có span.lsn-ans = "Correct answer: …" (mẫu feedback-wrong) – chọn theo lớp làm nó cao 2 dòng kẻ trống
-ok(!/\.lsn-fx \.lsn-ans/.test(css) && /\.lsn-fx #lsnAns\{/.test(css), 'story-stage.css chọn .lsn-ans theo lớp → dính cả dòng "Correct answer" của tấm phản hồi; dùng #lsnAns');
+ok(!/\.lsn-fx \.lsn-ans/.test(css) && /\.lsn-fx div\.lsn-ans\{/.test(css) && !/\.lsn-fx #lsnAns/.test(css), 'story-stage.css: dòng kẻ trả lời chọn div.lsn-ans (không lớp trần: dính span "Correct answer" của tấm phản hồi; không #lsnAns: reserve() đo trên bản sao mất id)');
 // chữ giao diện: chỉ khóa đã có bản dịch 15 ngôn ngữ (không khóa mới)
 const en = fs.readdirSync('web/js/i18n/en').map(f => rd('web/js/i18n/en/' + f)).join('\n');
 for (const m of js.matchAll(/\bT\('([^']+)'/g)) ok(en.includes(`'${m[1]}'`), `khóa dịch thiếu trong web/js/i18n/en: ${m[1]}`);
