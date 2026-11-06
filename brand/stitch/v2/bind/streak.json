@@ -40,7 +40,7 @@
  "text": {
   "5 of 7 completed": "d.wk",
   "1 of 2 ready": "d.fz.lab",
-  "“Nice rhythm – one small lesson keeps it going.”": "d.say"
+  "Nice rhythm – one short lesson keeps your streak.": "d.say"
  },
  "attr": {
   ":scope > header > button:nth-child(1)": {
@@ -135,11 +135,6 @@
   ":scope > div:nth-child(2) > section:nth-child(7) > a > div > span:nth-child(1)": {
    "lt:text-amber-600": "'lt:text-[#874A00]'"
   },
-  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
-   "h-[116px]": "'h-[116px] overflow-hidden'",
-   "border-dashed": "'border-solid'",
-   "items-center": "'items-end'"
-  },
   ":scope": {
    "w-[390px]": "'w-full'"
   }
@@ -177,12 +172,6 @@
      },
      "addClass": {
       ":scope > div > span": "fill ![font-variation-settings:'FILL'_1,'wght'_600] !leading-none"
-     },
-     "cls": {
-      ":scope > div": {
-       "from-[#FF9248]": "'lt:from-[#F2553B] dk:from-[#FF9248]'",
-       "to-[#F2553B]": "'lt:to-[#D94228] dk:to-[#F2553B]'"
-      }
      }
     },
     "frozen": {
