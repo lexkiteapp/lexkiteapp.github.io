@@ -22,6 +22,7 @@ jobs:
       - name: Tĩnh – cụm ký tự, tốc độ, không tự đọc, giọng nữ, bản sao add-on, 15 ngôn ngữ
         run: node scripts/test/teacher-bubble.mjs --static
       - name: Playwright
+        timeout-minutes: 10
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium
