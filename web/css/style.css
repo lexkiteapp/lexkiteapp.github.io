@@ -604,7 +604,9 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 /* Bài tập từ bài mẫu */
 .bank { display: flex; flex-wrap: wrap; gap: .35rem; padding: .7rem; background: var(--surface-2); border-radius: 12px; }
 .gap { border: 0; border-bottom: 2px solid var(--primary); background: var(--primary-soft); border-radius: 6px 6px 0 0; padding: .1rem .35rem; font: inherit; line-height: 1.25; vertical-align: baseline; color: inherit; margin: 0 .1rem; } /* line-height riêng: "font: inherit" kéo theo line-height của đoạn (2.3) → ô cao hơn dòng chữ, đẩy lệch chữ quanh ô */
-/* Đầu trang dính (.topbar 64 px) + thanh tab dưới cố định: focus ô nhập / liên kết #… / scrollIntoView dừng NGOÀI hai thanh,
+/* Thanh trên chung điện thoại/máy tính bảng = 56 px như mẫu Stitch (frame-consistency topbar.h): nút 44 px + viền 1 px, không đệm dọc; vùng tai thỏ (standalone/native) cộng thêm ở dưới */
+@media (max-width: 1023px) { .topbar { padding-top: 0; padding-bottom: 0; min-height: 56px; box-sizing: border-box; } }
+/* Đầu trang dính (.topbar 56 px) + thanh tab dưới cố định: focus ô nhập / liên kết #… / scrollIntoView dừng NGOÀI hai thanh,
  * không để tiêu đề thẻ hay ô đang gõ nằm dưới thanh (lỗi "Desert Plants" bị che nửa trên iPhone) */
 html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 @media (max-width: 1023px) { html { scroll-padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); } }
