@@ -8,7 +8,7 @@ const pf = (app.match(/App\.prefetchAll = [^\n]+/) || [''])[0];
 ok(/let inflight = 0/.test(app) && /inflight\+\+/.test(app) && /finally\(\(\) => \{ inflight--; \}\)/.test(app), 'đếm số gói đang tải (need1)');
 ok(/inflight \|\| document\.readyState !== 'complete'/.test(pf), 'tải sẵn chỉ bắt đầu khi trang đã load và không còn gói đang tải (không giành băng thông 4G với trang đang mở → LCP)');
 ok(/l\.onload = l\.onerror = next/.test(pf) && /for \(let i = 0; i < 3; i\+\+\) next\(\)/.test(pf) && !/\.forEach\(f => \{ const l = document\.createElement\('link'\)/.test(pf), 'tải sẵn xếp hàng 3 file một lúc (không đổ 200+ <link prefetch> cùng lúc)');
-const css = rd('web/css/style.css');
+const css = rd('web/css/style.css') + rd('web/css/lazy-ui.css'); // luật trang lười ở lazy-ui.css (scripts/test/css-lazy.mjs)
 ok(/\.top-stats #installBtn \{[^}]*min-width: 44px[^}]*min-height: 44px/.test(css), 'nút cài app ở thanh trên ≥ 44×44 (360 px từng là 38×35)');
 const appSrc = fs.readFileSync('web/js/app.js', 'utf8'), bip = appSrc.slice(appSrc.indexOf("addEventListener('beforeinstallprompt'")).split('\n')[0];
 ok(/addEventListener\('hashchange', showInstallBtn, \{ once: true \}\)/.test(bip) && !/\bshowInstallBtn\(\)/.test(bip), 'beforeinstallprompt không chèn nút ngay: thanh trên không xê dịch khi đang đọc (CLS, J8)');
