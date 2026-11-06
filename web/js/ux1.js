@@ -437,5 +437,5 @@ body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transiti
     document.head.appendChild(s);
   }
 
-  window.Ux1 = { reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level, needLevel, levelInvite }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
+  window.Ux1 = { headBtns, reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level, needLevel, levelInvite }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
 })();

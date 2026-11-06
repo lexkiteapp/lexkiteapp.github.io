@@ -75,11 +75,25 @@
   const langModal = () => UI.modal(`<h2 style="margin-top:0">${esc(t('Ngôn ngữ'))}</h2><ul style="list-style:none;padding:0;margin:0;display:grid;gap:.4rem">${I18N.SUPPORTED.map(l => `<li><button type="button" class="btn block" data-lang="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}" aria-pressed="${l === I18N.lang()}" style="width:100%;justify-content:flex-start">${esc(I18N.LANGS[l][1])}</button></li>`).join('')}</ul>`);
   const esc = s => UI.esc(s);
 
+  // Đầu trang Tôi trên điện thoại (< 1024 px, thanh trên của app ẩn): như mọi trang chính – logo + nút tra từ (cùng ô #gq của app, Ux1.headBtns).
+  //   Viên chuỗi ngày/XP của đầu trang chung nhường chỗ (360 px không đủ) vì ngay dưới là ô số Chuỗi ngày + Tổng XP lớn của chính trang Tôi; kỳ thi + mục tiêu ngày giữ.
+  function hubHead(root) {
+    const h = root.querySelector(':scope > header'), g = h && h.querySelector('[data-hdr="goal"]'), av = h && h.querySelector('a[href="#/me"]'); if (!g || !av) return;
+    h.querySelectorAll('[data-hdr="streak"], [data-hdr="xp"]').forEach(x => x.remove());
+    const left = g.parentElement, logo = document.createElement('img');
+    Object.assign(logo, { className: 'logo', src: 'icons/icon.svg?v=3', alt: 'Lexkite', width: 32, height: 32 }); logo.style.cssText = 'width:32px;height:32px;border-radius:9px';
+    left.prepend(logo);
+    const sb = document.createElement('button'); sb.type = 'button'; sb.className = g.className; sb.dataset.act = 'search'; sb.setAttribute('aria-label', t('Tra từ'));
+    sb.innerHTML = `<div class="${esc(g.firstElementChild.className)}"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></div>`;
+    const right = document.createElement('div'); right.className = 'flex items-center gap-2'; av.before(right); right.append(sb, av);
+    if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h);
+  }
   const render = App.guard ? App.guard : f => f;
   let paint = null;
   const me = render(async function () {
     const d = await build(), y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
     const root = ST2.mount(view, 'me', d, 'me');
+    hubHead(root);
     if (App.getApp) App.getApp(view);
     view.querySelectorAll('[data-row="getapp"]').forEach(row => { const a = row.querySelector('[data-get-app]'); const sync = () => { row.hidden = !a || a.hidden || a.hasAttribute('data-off'); }; sync(); if (a && window.MutationObserver) new MutationObserver(sync).observe(a, { attributes: true, attributeFilter: ['hidden', 'data-off'] }); });
     if (ae) { const b = root.querySelector('[data-act="' + ae + '"]'); if (b) b.focus({ preventScroll: true }); window.scrollTo(0, y); }
