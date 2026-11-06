@@ -1,4 +1,19 @@
 {
+  "{n} từ mới/ngày": {
+    "es": "{n} palabras nuevas/día",
+    "pt": "{n} palavras novas/dia",
+    "fr": "{n} nouveaux mots/jour",
+    "de": "{n} neue Wörter/Tag",
+    "id": "{n} kata baru/hari",
+    "th": "คำใหม่ {n} คำ/วัน",
+    "zh": "每天 {n} 个新词",
+    "ja": "1日{n}語の新しい単語",
+    "ko": "하루 새 단어 {n}개",
+    "hi": "{n} नए शब्द/दिन",
+    "ar": "{n} كلمات جديدة/يوم",
+    "ru": "{n} новых слов/день",
+    "tr": "Günde {n} yeni kelime"
+  },
   "Tỉ lệ đúng": {
     "es": "Precisión",
     "pt": "Precisão",
