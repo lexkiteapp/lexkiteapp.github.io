@@ -34,13 +34,9 @@ g('add', '-A'); g('commit', '-qm', 'feat');
 g('checkout', '-q', 'main'); w('docs/CODEMAP.md', 'map main\n'); w('scripts/test/suite.txt', 'node a\nnode b\nnode main\n');
 g('add', '-A'); g('commit', '-qm', 'main');
 g('remote', 'add', 'origin', d); g('fetch', '-q', 'origin');
-// mô phỏng PR: nhánh feat dirty; chạy fix() qua chế độ --dry với API giả bằng biến môi trường không cần – gọi trực tiếp module
-const { execFileSync: run } = await import('node:child_process');
-const script = path.resolve('scripts/pr-unconflict.mjs');
-const code = `import * as m from ${JSON.stringify(script)}; globalThis.__fix = m;`;
-fs.writeFileSync(path.join(d, 'drv.mjs'), `${code}
-import { execFileSync } from 'node:child_process';
-const fixMod = await import(${JSON.stringify(script)});
+// mô phỏng PR dirty: gọi fix() ở chế độ dry trong repo tạm (không mạng)
+const script = path.resolve('scripts/pr-unconflict.mjs'), run = execFileSync;
+fs.writeFileSync(path.join(d, 'drv.mjs'), `const fixMod = await import(${JSON.stringify(script)});
 process.chdir(${JSON.stringify(d)});
 const r = fixMod.fix({ number: 1, head: { ref: 'feat' } }, true);
 console.log('RESULT', r);`);
