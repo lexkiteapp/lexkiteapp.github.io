@@ -83,3 +83,7 @@
 /* khớp nhịp dọc mẫu story-duo (đo trên ảnh stitch-diff): nhãn Ama sát sân khấu hơn 7 px, khối câu hỏi cách thẻ A/B/C 16 px như mẫu */
 .ss .lsn-chatp{margin-top:-.45rem}
 .ss .lsn-qblk{margin-bottom:-.5rem}
+/* Căn theo ảnh stitch-diff (lượt 175b114e2): story – tấm hội thoại lên 20 px (bệ .ss-floor vẫn lộ ~20 px phía trên tấm); feedback – nút Tiếp tục sát hàng "Vì sao?" 13 px; lesson – nút Kiểm tra lên 4 px */
+.ss .ss-stage{margin-bottom:-20px}
+:root .lsn-fx .lsn-fv2 #lsnNext{margin-top:-.8rem}
+:root .lsn-fx #lsnCheck{margin-top:-.25rem}
