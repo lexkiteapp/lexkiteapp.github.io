@@ -182,3 +182,4 @@
 - [archive/ROADMAP-2026-10.md](archive/ROADMAP-2026-10.md) — Lộ trình thương mại hóa 14/10, hiện trạng đã cũ; trạng thái store xem STORE-READINESS.md. Đọc khi: tra lịch sử.
 - [archive/AI-PLAN-2026-10.md](archive/AI-PLAN-2026-10.md) — Kế hoạch AI miễn phí nhiều tầng 15/10; hiện hành xem AI-LOCAL.md và EXPLAIN.md. Đọc khi: tra lịch sử.
 - [specs/teacher-rive-rig.md](specs/teacher-rive-rig.md) — Rig 2D Ama/Carlos kiểu Rive (TeacherRig: speak/setEmotion/gesture), vì sao không .riv, cổng khớp môi ±33 ms/khớp xương/fps/alpha, kế hoạch gesture bank chờ duyệt credit; đọc khi: thêm cử chỉ/biểu cảm hoặc gắn giáo viên vào màn mới
+- [specs/teacher-bubble.md](specs/teacher-bubble.md) — TeacherBubble: bong bóng lời giáo viên dùng chung (gõ 1 lần/ngày, pop, 🔊 Ama đọc giọng nữ, miệng bám âm thanh, idle dừng khi ẩn) + kiểm kê chỗ giáo viên nói; đọc khi đổi lời thoại giáo viên ở màn nào.
