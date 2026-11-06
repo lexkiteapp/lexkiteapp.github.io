@@ -159,14 +159,14 @@
   const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
   function v2shell(sh) {
     const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
-      teacher: '<div class="lsn-tchw ex-seat relative z-0 -mb-14 h-[172px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[200px] h-[172px] max-w-full"></div><i class="ss-floor" aria-hidden="true"></i></div>',
+      teacher: '<div id="lsnTch" class="relative w-[170px] h-[144px] max-w-full"></div><i class="ss-floor" aria-hidden="true"></i>',
       slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span></button>`,
       opts: ['off', 'on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
     const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
     const g = root.querySelector('#lsnBody'); L.tpl = { off: g.children[0], on: g.children[1] }; g.textContent = ''; // khuôn thẻ đáp án (chưa chọn / đã chọn) lấy từ khung Stitch
     if (!sh.chip) root.querySelector('.lsn-combo').nextElementSibling.hidden = true;
     // khung bài tập: sàn/bệ + nút Kiểm tra/Bỏ qua/Báo lỗi (css/story-stage.css, tải lười); ẩn tới khi CSS về (≤1,5 s) → không nhảy bố cục
-    root.classList.add('ex'); root.style.visibility = 'hidden'; const shown = () => { root.style.visibility = ''; }; setTimeout(shown, 1600);
+    root.classList.add('lsn-fx'); root.style.visibility = 'hidden'; const shown = () => { root.style.visibility = ''; }; setTimeout(shown, 1600);
     L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown(); let n = root.querySelector('#lsnBub'), c = ''; while (n && n !== root) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) root.style.setProperty('--ss-floor', c); }); // bệ = đúng màu thẻ đề bài
   }
   const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; return n; };
@@ -216,7 +216,8 @@
       const pc = Math.round(s.progress * 100), fl = $('#lsnFill'), pe = $('#lsnPct'), qn2 = $('#lsnQn'), cb = $('#lsnCombo'), ct = $('#lsnComboT');
       if (fl) fl.style.width = pc + '%'; b.setAttribute('aria-valuenow', pc); if (pe) pe.textContent = pc + '%';
       if (qn2) qn2.textContent = t('Câu {a}/{b}', { a: Math.min(s.solved + 1, s.total), b: s.total });
-      if (ct) ct.textContent = s.combo >= 3 ? t('COMBO ×{n}', { n: s.combo }) : ''; if (cb) cb.classList.toggle('on', s.combo >= 3);
+      const kind = s.combo >= 3 ? '' : (s.cur && TITLE(s.cur)) || ''; // chip trái luôn có chữ (như "3 IN A ROW" của mẫu Stitch): ≥3 đúng liền = COMBO, còn lại = dạng bài (Chọn từ còn thiếu…) → hàng huy hiệu không mồ côi
+      if (ct) ct.textContent = s.combo >= 3 ? t('COMBO ×{n}', { n: s.combo }) : kind; if (cb) { cb.classList.toggle('on', s.combo >= 3); cb.style.visibility = ct && ct.textContent ? 'visible' : ''; const ic = cb.querySelector('.material-symbols-outlined'); if (ic) ic.textContent = s.combo >= 3 ? 'local_fire_department' : 'quiz'; }
       if (window.Feel && Feel.on) { if (Feel.fill) Feel.fill(b, pc); if (Feel.combo && s.combo >= 3 && cb) Feel.combo(cb, s.combo); }
       return;
     }

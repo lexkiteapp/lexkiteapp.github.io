@@ -19,16 +19,18 @@ for (const m of css.matchAll(/transition:([^;}]+)/g)) ok(m[1].trim() === 'none' 
 for (const m of css.matchAll(/@keyframes [\w-]+\{([^@]*?\}\})/g)) ok(!/(?:width|height|top|left|margin|padding)\s*:/.test(m[1]), 'keyframes chạm thuộc tính bố cục');
 ok(/prefers-reduced-motion:reduce/.test(css) && /prefers-reduced-motion:no-preference/.test(css), 'thiếu prefers-reduced-motion');
 ok(/backdrop-filter:none/.test(css), 'đầu trang cố định phải bỏ backdrop-filter');
-ok(!/\.ex[^{]*#lsnTch\{[^}]*(mask|clip-path)/.test(css), 'Ama ở khung bài tập không được có mặt nạ/clip-path (final-qc not-pasted-on)'); ok(/\.ss \.ss-stage\{[^}]*direction:ltr/.test(css), 'sân khấu Truyện phải direction:ltr (RTL: Ama dịch ra ngoài mép → final-qc rtl-ar)');
+ok(!/\.lsn-fx[^{]*#lsnTch\{[^}]*(mask|clip-path)/.test(css), 'Ama ở khung bài tập không được có mặt nạ/clip-path (final-qc not-pasted-on)'); ok(/\.ss \.ss-stage\{[^}]*direction:ltr/.test(css), 'sân khấu Truyện phải direction:ltr (RTL: Ama dịch ra ngoài mép → final-qc rtl-ar)');
 ok(/<i class="ss-floor"/.test(ui), 'sàn chung (.ss-floor) thiếu trong ui.js');
 // tương phản nút Kiểm tra: tắt/bật × sáng/tối (đọc từ biến CSS)
 for (const name of ['sáng', 'tối']) {
-  const g = k => { const re = name === 'sáng' ? new RegExp(`\\.ex\\{([^}]*)\\}`) : new RegExp(`:root\\[data-theme="dark"\\] \\.ex\\{([^}]*)\\}`); const b = css.match(re); const m = b && b[1].match(new RegExp(`--${k}:(#[0-9A-Fa-f]{6})`)); return m && m[1]; };
+  const g = k => { const re = name === 'sáng' ? new RegExp(`\\.lsn-fx\\{([^}]*)\\}`) : new RegExp(`:root\\[data-theme="dark"\\] \\.lsn-fx\\{([^}]*)\\}`); const b = css.match(re); const m = b && b[1].match(new RegExp(`--${k}:(#[0-9A-Fa-f]{6})`)); return m && m[1]; };
   for (const [bg, fg, what] of [['ex-dis-bg', 'ex-dis-fg', 'Kiểm tra (tắt)'], ['ex-on-bg', 'ex-on-fg', 'Kiểm tra (bật)']]) { const a = g(bg), b = g(fg); ok(a && b && ratio(a, b) >= 4.5, `${what} ${name}: tương phản ${a && b ? ratio(a, b).toFixed(2) : '?'} < 4.5`); }
 }
 ok(/#lsnCheck:disabled\{background-image:none!important/.test(css), 'nút Kiểm tra (tắt) còn gradient');
+// lớp khung bài tập là .lsn-fx, KHÔNG .ex (style.css có .ex{font-style:italic;color:muted} cho câu ví dụ → cả màn bị nghiêng + xám)
+ok(!/classList\.add\('ex'\)/.test(ui) && /classList\.add\('lsn-fx'\)/.test(ui), 'khung bài tập không được dùng lớp .ex (đụng style.css: chữ nghiêng/xám)');
 // dòng kẻ trả lời chọn theo #lsnAns, KHÔNG theo lớp .lsn-ans: tấm phản hồi sai có span.lsn-ans = "Correct answer: …" (mẫu feedback-wrong) – chọn theo lớp làm nó cao 2 dòng kẻ trống
-ok(!/\.ex \.lsn-ans/.test(css) && /\.ex #lsnAns\{/.test(css), 'story-stage.css chọn .lsn-ans theo lớp → dính cả dòng "Correct answer" của tấm phản hồi; dùng #lsnAns');
+ok(!/\.lsn-fx \.lsn-ans/.test(css) && /\.lsn-fx #lsnAns\{/.test(css), 'story-stage.css chọn .lsn-ans theo lớp → dính cả dòng "Correct answer" của tấm phản hồi; dùng #lsnAns');
 // chữ giao diện: chỉ khóa đã có bản dịch 15 ngôn ngữ (không khóa mới)
 const en = fs.readdirSync('web/js/i18n/en').map(f => rd('web/js/i18n/en/' + f)).join('\n');
 for (const m of js.matchAll(/\bT\('([^']+)'/g)) ok(en.includes(`'${m[1]}'`), `khóa dịch thiếu trong web/js/i18n/en: ${m[1]}`);
