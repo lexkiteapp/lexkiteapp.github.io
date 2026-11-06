@@ -107,7 +107,7 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   const z3 = await zombieRuns(gh3, { now }); assert.deepEqual(del, ['POST /actions/runs/9/cancel', 'POST /actions/runs/9/force-cancel', 'DELETE /actions/runs/9']);
   assert.equal(z3[0].deleted, true, 'zombie 10 ngày bị DELETE');
   assert.deepEqual((await zombieRuns(gh3, { now, cancel: false })).map(x => x.deleted), [undefined], 'cancel: false (chạy khô) không xoá gì');
-  // job THẬT xếp hàng > 3 giờ → báo (không huỷ); job mới hoặc đang chạy thì không
+  // job THẬT xếp hàng > 2 giờ → báo (không huỷ); job mới hoặc đang chạy thì không
   const gh4 = async (p, o = {}) => { assert.ok(!o.method, 'stuckJobs chỉ đọc');
     if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ id: 5, path: '.github/workflows/teach-video.yml', created_at: '2026-11-03T18:00:00Z' }, { id: 6, path: '.github/workflows/qa-bot.yml', created_at: '2026-11-03T22:40:00Z' }] };
     if (p.startsWith('/actions/runs?status=in_progress')) return { workflow_runs: [{ id: 7, path: '.github/workflows/video.yml', created_at: '2026-11-03T18:00:00Z' }] };

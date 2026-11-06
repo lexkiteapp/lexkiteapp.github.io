@@ -1,10 +1,10 @@
 {
- "at": "2026-11-04T14:39:01.794Z",
+ "at": "2026-11-05T16:44:32.820Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
   "ok": true,
-  "seconds": 6.1,
+  "seconds": 6.5,
   "taps": 10,
   "trail": [
    "[data-cta=start], .ctas a.btn.lg",

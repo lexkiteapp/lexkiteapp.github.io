@@ -110,16 +110,34 @@ const mine = r => r.path === SELF_PATH || (r.path || '').startsWith(SELF_PATH + 
  * Còn pending và vẫn có lượt khác của sha đang chạy → bỏ qua (gate chỉ có thể vẫn pending) trừ khi vừa có lượt đỏ;
  * gate đã xanh/đỏ mà có lượt mới đổi (chạy lại) → đánh giá; pending lâu không đổi (status/app ngoài) → đánh giá lại sau recheckMs.
  */
-export function dirtyShas({ shas, runs, seen, now, recheckMs = 10 * 60e3 }) {
-  const out = [];
+export function dirtyShas({ shas, runs, seen, now, recheckMs = 10 * 60e3, probes = null, staleMs = 5 * 60e3, why = null }) {
+  const out = [], mark = (sha, r) => { out.push(sha); why?.set(sha, r); };
   for (const sha of shas) {
     const s = seen.get(sha);
-    if (!s) { out.push(sha); continue; }
-    const own = runs.filter(r => r.head_sha === sha && !mine(r)), changed = own.filter(r => Date.parse(r.updated_at) > s.at);
-    if (!changed.length) { if ((s.state === 'pending' && now - s.at >= recheckMs) || (s.recheckAt && now >= s.recheckAt)) out.push(sha); continue; }
-    if (s.state !== 'pending' || changed.some(DONE_BAD) || !own.some(r => r.status !== 'completed')) out.push(sha);
+    if (!s) { mark(sha, 'new'); continue; }
+    // GỐC LỖI (PR #710 05/11, #602 04/11): danh sách /actions/runs?per_page=100 là 100 lượt MỚI TẠO nhất của cả repo (sắp theo created_at).
+    // Lượt 'QA bot' tạo sớm bị 100 lượt filler/cron chen ra ngoài trang → job sau (needs:) xong muộn, run.updated_at đổi mà ta không bao giờ thấy;
+    // lượt chạy lại (rerun) giữ run_id, chỉ tăng run_attempt, cũng trượt như vậy. Nên ngoài so updated_at, (1) so run_attempt, (2) với sha đang pending
+    // mỗi vòng thăm dò check-runs của chính sha đó (probes: sha → { sig, active }; ETag, 304 miễn phí) – chữ ký đổi → đánh giá lại,
+    // (3) lưới cuối: pending ≥ staleMs mà không còn check nào queued/in_progress → bắt buộc đánh giá lại.
+    const own = runs.filter(r => r.head_sha === sha && !mine(r));
+    const changed = own.filter(r => Date.parse(r.updated_at) > s.at || (r.run_attempt || 1) > ((s.attempts && s.attempts[r.id]) || 1));
+    const pr = probes && probes.get(sha);
+    if (pr && s.state === 'pending' && s.sig != null && pr.sig !== s.sig) { mark(sha, 'sig'); continue; }
+    if (!changed.length) {
+      if (pr && s.state === 'pending' && !pr.active && now - s.at >= staleMs) { mark(sha, 'stale'); continue; }
+      if ((s.state === 'pending' && now - s.at >= recheckMs) || (s.recheckAt && now >= s.recheckAt)) mark(sha, 'recheck');
+      continue;
+    }
+    if (s.state !== 'pending' || changed.some(DONE_BAD) || !own.some(r => r.status !== 'completed')) mark(sha, 'changed');
   }
   return out;
+}
+
+/** Chữ ký check-runs của 1 sha: đổi khi bất kỳ check nào đổi id/trạng thái/kết luận/lượt chạy lại. active = còn check queued/in_progress. */
+export function probeOf(checkRuns = []) {
+  const act = c => c.status !== 'completed';
+  return { sig: checkRuns.map(c => `${c.id}:${c.status}:${c.conclusion || ''}:${c.completed_at || ''}`).sort().join('|'), active: checkRuns.some(act), n: checkRuns.length };
 }
 
 // ---------- API (chỉ đọc + ghi 1 status) ----------
@@ -161,6 +179,8 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
     dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
+    // thăm dò nhẹ cho sha đang pending: 1 trang check-runs (ETag → 304 không trừ hạn mức)
+    probe: async sha => probeOf((await call(`/commits/${sha}/check-runs?filter=latest&per_page=100`)).check_runs || []),
     gateState: async sha => ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(s => s.context === CONTEXT),
   };
 }
@@ -230,10 +250,14 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
         for (const sha of shas) { const g = await A.gateState(sha); if (g && g.state !== 'pending') seen.set(sha, { at: Date.parse(g.updated_at || g.created_at) || t, state: g.state, desc: g.description }); }
         first = false;
       }
-      const dirty = dirtyShas({ shas, runs: await A.recentRuns(), seen, now: t }).slice(0, 25);   // ≤ 25 sha/vòng: hạn mức GITHUB_TOKEN 1.000 lệnh/giờ
+      const runs = await A.recentRuns(), probes = new Map(), why = new Map();
+      // thăm dò chỉ khi còn hạn mức dư (≥ 400/giờ): lúc CI bận ETag đổi liên tục, 20 sha × 60–120 vòng/giờ có thể ăn hết 1.000 lệnh của GITHUB_TOKEN → nhường cho đánh giá chính (lưới recheck 10 phút vẫn còn)
+      if (A.probe && ((A.rate && A.rate.remaining) ?? Infinity) >= 400) for (const sha of shas.filter(x => seen.get(x)?.state === 'pending').slice(0, 20)) try { probes.set(sha, await A.probe(sha)); } catch (e) { log('::warning::probe ' + sha.slice(0, 8) + ': ' + e.message); }
+      const dirty = dirtyShas({ shas, runs, seen, now: t, probes, why }).slice(0, 25);   // ≤ 25 sha/vòng: hạn mức GITHUB_TOKEN 1.000 lệnh/giờ
       for (const p of prs) if (!born.has(p.head.sha)) born.set(p.head.sha, first ? Date.parse(p.updated_at) : t);   // lượt mồi: lấy lúc PR cập nhật
       for (const sha of dirty) {
         const at = clock.now(), s = seen.get(sha);
+        if (why.get(sha) === 'stale') log(`gate-stale: PR #${prs.find(p => p.head.sha === sha)?.number} tự đánh giá lại`);
         let res = evaluate(await A.gather(sha)), recheckAt = 0;
         if (res.state === 'success' && at - born.get(sha) < YOUNG) { recheckAt = born.get(sha) + YOUNG; res = { ...res, state: 'pending', description: 'Chờ workflow khởi động trên commit mới' }; }
         if (!s || s.state !== res.state || s.desc !== res.description) {
@@ -241,7 +265,9 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
           if (!dry) await A.post(sha, res, url);
           out.push({ sha, ...res });
         }
-        seen.set(sha, { at: at - 5e3, state: res.state, desc: res.description, recheckAt });   // lùi 5 s: lượt xong sát lúc đọc vẫn được thấy ở vòng sau
+        const attempts = {}; for (const r of runs) if (r.head_sha === sha) attempts[r.id] = r.run_attempt || 1;
+        let sig = null; if (A.probe && res.state === 'pending') try { sig = (probes.get(sha) || await A.probe(sha)).sig; } catch { /* lần sau */ }
+        seen.set(sha, { at: at - 5e3, state: res.state, desc: res.description, recheckAt, attempts, sig });   // lùi 5 s: lượt xong sát lúc đọc vẫn được thấy ở vòng sau
       }
       for (const k of seen.keys()) if (!shas.includes(k)) seen.delete(k), born.delete(k);   // PR đã gộp/đóng/đẩy commit mới
       const rate = A.rate || { remaining: Infinity };
