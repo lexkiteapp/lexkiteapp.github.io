@@ -1213,15 +1213,17 @@
   },
   "acumen#n": {
    "ex": "Drake did not possess good business acumen.",
-   "ps": "a man holding a magnifying glass over a tangled maze, smiling confidently",
-   "sc": "a man holding a magnifying glass over a tangled maze, smiling confidently",
-   "check": "Is the person clearly understanding something difficult?",
-   "cap": "a man examining a maze with a confident expression",
-   "key": "a magnifying glass over a maze; the man's confident smile",
+   "ps": "a man looks puzzled then smiles as a missing puzzle piece fits into a nearly completed puzzle",
+   "sc": "a man looks puzzled then smiles as a missing puzzle piece fits into a nearly completed puzzle",
+   "check": "Is the person showing a clear moment of understanding by fitting a piece into a puzzle?",
+   "cap": "a man completes a puzzle with a fitting piece",
+   "key": "a missing puzzle piece fitting into a gap; the person's surprised face turning to a smile",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "acute#adj": {
    "ex": "He was admitted to the emergency department with acute abdominal pain.",
@@ -2403,17 +2405,17 @@
   },
   "air waybill#n": {
    "ex": "The air waybill number lets you track the parcel online.",
-   "ps": "a man holds a blank rectangular sheet and a cardboard box while an airplane flies above",
-   "sc": "a man holds a blank rectangular sheet and a cardboard box while an airplane flies above",
-   "check": "Is the blank sheet shown as a transport document for the box being shipped by air?",
-   "cap": "a man with a blank sheet and a box under a flying airplane",
-   "key": "blank rectangular sheet; cardboard box being shipped",
-   "who": 1,
+   "ps": "a blank white sheet with a big red cross, beside a wooden box being lifted onto a silver airplane",
+   "sc": "a blank white sheet with a big red cross, beside a wooden box being lifted onto a silver airplane",
+   "check": "Is there a paper used to record the shipment of goods by airplane?",
+   "cap": "a blank sheet with a red cross beside a box on an airplane",
+   "key": "a blank white sheet with a big red cross; a wooden box being loaded onto an airplane",
+   "who": 0,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "air#n": {
    "ex": "Let's open the window and get some fresh air.",
@@ -12807,15 +12809,17 @@
   },
   "cognizant#adj": {
    "ex": "We are cognizant of the problem.",
-   "ps": "a woman leans close to a man and whispers; the man looks attentive and nods",
-   "sc": "a woman leans close to a man and whispers; the man looks attentive and nods",
-   "check": "Is the man listening carefully and showing he understands?",
-   "cap": "a woman whispers to a man who listens and nods",
-   "key": "a woman whispering to a man; the man's attentive face and nod",
-   "who": 2,
+   "ps": "a man with a worried face looks at a metal pipe dripping water onto the floor",
+   "sc": "a man with a worried face looks at a metal pipe dripping water onto the floor",
+   "check": "Is the person looking at a leaking pipe and appearing aware of the problem?",
+   "cap": "a man examines a dripping pipe with a worried expression",
+   "key": "a leaking pipe with water droplets; the person's worried face",
+   "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "coherent#adj": {
    "ex": "A good essay presents a coherent argument.",
@@ -20286,17 +20290,17 @@
   },
   "deft#adj": {
    "ex": "He assembled it in one fluid, deft motion.",
-   "ps": "a woman sits at a wooden table, her hands swiftly fitting two wooden puzzle pieces together",
-   "sc": "a woman sits at a wooden table, her hands swiftly fitting two wooden puzzle pieces together",
-   "check": "Are the hands moving quickly and skillfully?",
-   "cap": "a woman carefully joins wooden pieces at a table",
-   "key": "hands swiftly fitting two wooden puzzle pieces together; the woman's focused expression",
-   "who": 1,
+   "ps": "a man with smooth graceful hands assembles a small model; a second man with tangled messy hands fumbles",
+   "sc": "a man with smooth graceful hands assembles a small model; a second man with tangled messy hands fumbles",
+   "check": "Are the hands moving smoothly and skillfully?",
+   "cap": "two people handling a model, one skillfully, one clumsily",
+   "key": "smooth graceful hands assembling a small model; tangled messy hands fumbling",
+   "who": 2,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "defy#v": {
    "ex": "Sales of the new product defied expectations and kept rising for months.",
@@ -25550,16 +25554,17 @@
   },
   "electrostatic#adj": {
    "ex": "Electrostatic motors have also been used.",
-   "ps": "a balloon touching the head lifts his hair up, making it stand on end",
-   "sc": "a balloon touching the head lifts his hair up, making it stand on end",
-   "check": "Is the hair lifted and standing on end because of static electricity?",
-   "cap": "a balloon causing hair to stand up on a man's head",
-   "key": "a balloon touching the head; hair standing on end",
-   "who": 1,
-   "draw": 4,
+   "ps": "a boy rubs a balloon on his sweater, his hair lifts up while a girl nearby has flat hair",
+   "sc": "a boy rubs a balloon on his sweater, his hair lifts up while a girl nearby has flat hair",
+   "check": "Is a person's hair lifted up as if charged by static electricity?",
+   "cap": "a boy's hair rises after rubbing a balloon",
+   "key": "the boy's hair lifted up after rubbing a balloon; the girl's hair remains flat",
+   "who": 2,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "elegance#n": {
    "ex": "The bride was elegance personified.",
@@ -40645,15 +40650,17 @@
   },
   "intensification#n": {
    "ex": "The storm then had more rapid intensification.",
-   "ps": "a small candle with a tiny flame beside a larger candle with a big flame",
-   "sc": "a small candle with a tiny flame beside a larger candle with a big flame",
-   "check": "Is the flame getting noticeably larger?",
-   "cap": "two candles showing a small flame and a larger flame",
-   "key": "a tiny flame next to a big flame; two candles of different sizes",
-   "who": 0,
+   "ps": "a hand adds wood to a small campfire, and the flames grow taller and brighter",
+   "sc": "a hand adds wood to a small campfire, and the flames grow taller and brighter",
+   "check": "Is the fire clearly becoming larger after more wood is added?",
+   "cap": "wood is added and the campfire flames grow",
+   "key": "a hand adding wood to the fire; the flames growing taller and brighter",
+   "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "intensify#v": {
    "ex": "Competition between the two budget airlines has intensified this year.",
@@ -53454,16 +53461,17 @@
   },
   "ovulation#n": {
    "ex": "Is there some way to check for ovulation?",
-   "ps": "a large egg emerges from a small ovary shape on a woman's side",
-   "sc": "a large egg emerges from a small ovary shape on a woman's side",
-   "check": "Is an egg shown coming out of a woman's ovary?",
-   "cap": "a woman with an egg emerging from her ovary",
-   "key": "a large egg emerging from a small ovary shape; the woman's side torso",
+   "ps": "a side view of a woman's torso shows a pink ovary releasing a tiny yellow egg",
+   "sc": "a side view of a woman's torso shows a pink ovary releasing a tiny yellow egg",
+   "check": "Is a small round object being released from a woman's ovary?",
+   "cap": "a woman's ovary releases a tiny yellow egg",
+   "key": "a pink ovary shape; a yellow egg moving outward",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "owe#v": {
    "ex": "I owe you ten dollars.",
@@ -65689,15 +65697,17 @@
   },
   "revenue management#n": {
    "ex": "Revenue management helped the hotel raise prices during festival week.",
-   "ps": "a hotel manager holds a large gold coin while a crowd of guests gathers outside",
-   "sc": "a hotel manager holds a large gold coin while a crowd of guests gathers outside",
-   "check": "Is the person adjusting price because many guests are arriving?",
-   "cap": "a hotel manager holds a big coin as guests gather outside",
-   "key": "a manager holding a large gold coin; a crowd of guests outside the hotel",
+   "ps": "a hotel manager balances a scale with guests on one side and coins on the other",
+   "sc": "a hotel manager balances a scale with guests on one side and coins on the other",
+   "check": "Is a person balancing a group of guests against a pile of money to decide on pricing?",
+   "cap": "a manager balances a crowd of guests with a stack of coins",
+   "key": "the manager holding a scale; the scale showing guests on one side and coins on the other",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "revenue stream#n": {
    "ex": "Advertising is a new revenue stream for the app.",
@@ -70541,15 +70551,17 @@
   },
   "smuggler#n": {
    "ex": "I knew you were a smuggler.",
-   "ps": "a man in a dark coat carries a large wooden crate, glancing over his shoulder while walking past a fence",
-   "sc": "a man in a dark coat carries a large wooden crate, glancing over his shoulder while walking past a fence",
-   "check": "Is the person secretly moving a large container while looking around?",
-   "cap": "a man transporting a crate while watching cautiously",
-   "key": "a man carrying a large crate; his cautious glance over his shoulder",
+   "ps": "a man in a long coat opens a hidden panel under a cargo truck, placing a large sealed box inside",
+   "sc": "a man in a long coat opens a hidden panel under a cargo truck, placing a large sealed box inside",
+   "check": "Is a person secretly putting a big sealed box into a hidden part of a truck?",
+   "cap": "a man in a coat hides a box inside a truck",
+   "key": "a hidden panel under a cargo truck; a large sealed box being placed inside",
    "who": 1,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "snail#n": {
    "ex": "I am watching these two snails.",

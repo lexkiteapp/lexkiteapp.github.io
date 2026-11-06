@@ -3,7 +3,7 @@
  *   lớp mặt  = đầu trơn + mắt/mày/miệng vector (LipFace/LipMouth/LipPaint, #293) – miệng theo viseme, không bao giờ bị làm mượt trễ (khớp ±33 ms, cổng teacher-rig.mjs)
  *   lớp thân = biến đổi CỨNG quanh khớp cổ (xoay + tịnh tiến, thở = co giãn đều ≤ 0,6 %) → không méo, không gãy khớp, độ dài chi không đổi
  *   lớp tư thế = ảnh tư thế đã duyệt (Chars.still, footage registry) mờ chéo 180 ms trong CÙNG 1 canvas (0 thay đổi DOM mỗi khung)
- * API: TeacherRig.mount(el, who, o) → { speak(audio, visemes, o), setEmotion(name), gesture(name), listen(on), destroy(), stats }
+ * API: TeacherRig.mount(el, who, o) → { speak(audio, visemes, o), setEmotion(name), gesture(name), listen(on), pause(on), destroy(), stats }
  * Lõi thuần (Node + trình duyệt): TeacherRig.core – cổng CI chạy đúng lõi này. Tải lười: chỉ màn có giáo viên nạp tệp này (shell không đổi). */
 (function (g) {
   const node = typeof module !== 'undefined' && module.exports;
@@ -145,7 +145,7 @@
   function mount(el, who, o = {}) {
     who = g.Chars ? g.Chars.id(who) : who;
     const stats = { frames: 0, long: 0, draws: 0, low: 0, ready: false, shape: 'X', pose: null, emo: 'neutral', calm: reduced() };
-    let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
+    let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, paused = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
     const poses = {}, scaled = {}, pend = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
     let headC = null, faceC = null, lastT = '', lastP = [], boxes = null;
     el.classList.add('trig');
@@ -220,7 +220,7 @@
       head = h; M = machine(who, { calm: stats.calm, seed: [...who].reduce((a, c) => a * 31 + c.charCodeAt(0), 7), has: g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null });
       cv = D.createElement('canvas'); cv.className = 'trig-cv'; cv.setAttribute('aria-hidden', 'true'); ctx = cv.getContext('2d');
       fit(); el.appendChild(cv); if (g.ResizeObserver) { ro = new ResizeObserver(() => !dead && fit()); ro.observe(el); } // cỡ đặt TRƯỚC khi gắn → 1 thay đổi DOM duy nhất
-      stats.ready = true; raf = requestAnimationFrame(frame);
+      stats.ready = true; if (!paused) raf = requestAnimationFrame(frame);
     });
     const api = {
       who, stats, ready,
@@ -238,6 +238,8 @@
         }));
       },
       quiet() { if (M) M.quiet(); },
+      /** pause(true) = dừng hẳn vòng vẽ (tab ẩn / ngoài màn: 0 CPU); pause(false) = chạy lại, đồng hồ khung không nhảy (prev đặt lại) */
+      pause(on) { on = !!on; if (on === paused) return; paused = on; if (on) { cancelAnimationFrame(raf); raf = 0; } else if (stats.ready && !dead) { prev = 0; raf = requestAnimationFrame(frame); } },
       setEmotion(name) { return ready.then(() => M.setEmotion(name)); },
       gesture(name) { const G = GESTURES[name]; return ready.then(() => (G && G.kind === 'pose' ? loadPose(poseOf(G, g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null)) : null)).then(() => !dead && M.gesture(name, performance.now() / 1000)); }, // ảnh tư thế tải XONG mới mờ chéo (không bật hình)
       listen(on) { return ready.then(() => { M.setEmotion(on ? 'listen' : 'neutral'); }); },

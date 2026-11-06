@@ -343,6 +343,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Báo cáo não bộ qua email': 'Weekly brain report via email',
 'Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)': 'Send an FSRS memory summary and words at risk of fading on Sunday morning (when signed in)',
 'Mục tiêu học': 'Study goals',
+'{n} từ mới/ngày': '{n} new words/day',
 'Từ mới mỗi ngày:': 'New words per day:',
 'Mục tiêu lượt ôn mỗi ngày:': 'Daily review goal:',
 'Tối đa thẻ mỗi phiên ôn:': 'Max cards per session:',

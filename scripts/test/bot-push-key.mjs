@@ -22,7 +22,7 @@ export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledge
 // đẩy NHÁNH PR bot (refs/heads/bot/…) vào repo chính để mở PR – CẦN kích check (không [skip ci]), không bao giờ đẩy main; được kiểm bên dưới
 export const PR_BRANCH = new Set(['scripts/factory/open-pr.sh']);
 // gộp main vào nhánh PR CÓ SẴN (pr-unconflict): không bao giờ đẩy main, không force-push
-export const PR_UPDATE = new Set(['scripts/pr-unconflict.mjs']);
+export const PR_UPDATE = new Set(['scripts/pr-unconflict.mjs', 'scripts/ci/commit-regen-pr.sh']);
 export function scanPrUpdate(f, s) {
   const e = [], pushes = s.split('\n').filter(l => /'push'|git push/.test(l) && !/^\s*(\/\/|#)/.test(l));
   if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script cập nhật nhánh PR không được đẩy main`);
