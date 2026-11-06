@@ -1,26 +1,7 @@
 /* Lexkite v2 */
 :root {
-  /* @tokens brand/tokens.json */ --bg: #FFF7EA; --surface: #FFFFFF; --surface-2: #FBF1E0; --surface-3: #F3E6CF; --text: #102225; --heading: #0F3D3E; --muted: #435254; --line: #F0E2C8; --line-2: #E3D2B4; --faint: #7A8584; --ledge: #E9D9BC; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #1F7A75; --done-ink: #17595A; --on-done: #ffffff; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22; --sun: #B57A00;
-  --primary: #CC3F1C; /* đạt tương phản WCAG AA 4.9:1 với chữ trắng */
-  --primary-2: #FF7A4D;
-  --primary-ink: #ffffff;
-  --primary-soft: #FFEBE4;
-  --accent: #0D6964; /* đạt tương phản WCAG AA > 5.5:1 trên accent-soft */
-  --accent-soft: #DDF1EE;
+  /* @tokens brand/tokens.json */ --bg: #FBF7F1; --surface: #FFFFFF; --chip: #F8F4EC; --surface-2: #F5EFE6; --surface-3: #ECE4D7; --text: #162124; --heading: #0F3D3E; --muted: #45555A; --line: #ECE5D9; --line-2: #DED4C4; --faint: #74817F; --ledge: #E6DCCB; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #1F7A75; --done-ink: #17595A; --on-done: #ffffff; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22; --sun: #A26E00; --primary: #CC3F1C; --primary-2: #FF7A4D; --primary-ink: #FFFFFF; --primary-soft: #FFEBE4; --accent: #0D6964; --accent-soft: #DDF1EE; --gold: #F5A524; --gold-soft: #FFF3DA; --again: #D1343A; --hard: #F59E0B; --good: #15803D; --easy: #2563EB; --good-soft: #E3F4E8; --again-soft: #FCE9E7; --primary-text: #B03718; --accent-text: #0D6964; --good-text: #166534; --again-text: #B42318; --gold-text: #92400E; --shadow-sm: 0 1px 2px rgba(15, 61, 62, .06); --shadow: 0 1px 2px rgba(15, 61, 62, .05), 0 8px 24px rgba(15, 61, 62, .07); --shadow-lg: 0 20px 56px rgba(15, 61, 62, .16);
   --brand-ink: #0F3D3E;
-  --gold: #f5a524;
-  --gold-soft: #fff4dc;
-  --again: #d1343a;
-  --hard: #f59e0b;
-  --good: #15803d;
-  --easy: #2563eb;
-  --good-soft: #e3f7ea;
-  --again-soft: #fde8e8;
-  /* Màu CHỮ theo ngữ nghĩa (đạt AA ≥4.5:1 trên nền thường & nền -soft; bản tối sáng hơn) */
-  --primary-text: #B03718; --accent-text: #0D6964; --good-text: #166534; --again-text: #B42318; --gold-text: #92400e;
-  --shadow-sm: 0 1px 2px rgba(20, 20, 60, .06);
-  --shadow: 0 1px 2px rgba(20, 20, 60, .05), 0 8px 28px rgba(20, 20, 60, .07);
-  --shadow-lg: 0 20px 60px rgba(20, 20, 60, .18);
   --radius: var(--r-lg);
   --radius-sm: var(--r-sm);
   --font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -37,23 +18,17 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    /* @tokens brand/tokens.json */ --bg: #10191B; --surface: #172427; --surface-2: #1E2F33; --surface-3: #26393E; --text: #F3F8F8; --heading: #F3F8F8; --muted: #A3B9B7; --line: #1F3337; --line-2: #23373B; --faint: #5A7175; --ledge: #132023; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #10191B; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22; --sun: #FFC94A;
-    --primary: #FF8466; --primary-2: #FFA582; --primary-ink: #1A0E0B; --primary-soft: #3A221C;
-    --accent-soft: #10302f; --gold-soft: #3a2e12; --good-soft: #12301d; --again-soft: #3a1a1c;
-    --primary-text: #FF8466; --accent-text: #5FD0C4; --good-text: #4ade80; --again-text: #ff7b7f; --gold-text: #fbbf24;
-    --shadow-sm: 0 1px 2px rgba(0,0,0,.45); --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35); --shadow-lg: 0 20px 60px rgba(0,0,0,.6);
+    /* @tokens brand/tokens.json */ --bg: #0E191C; --surface: #162528; --chip: #122023; --surface-2: #1D2F33; --surface-3: #263A3F; --text: #EAF2F2; --heading: #EAF2F2; --muted: #A3B9B7; --line: #213438; --line-2: #2A3F44; --faint: #6F878B; --ledge: #0A1517; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #0E191C; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22; --sun: #FFC94A; --primary: #FF8466; --primary-2: #FFA582; --primary-ink: #1A0E0B; --primary-soft: #3A221C; --accent-soft: #10302F; --gold-soft: #3A2E12; --good-soft: #12301D; --again-soft: #3A1A1C; --primary-text: #FF8466; --accent-text: #5FD0C4; --good-text: #4ADE80; --again-text: #FF7B7F; --gold-text: #FBBF24; --shadow-sm: 0 1px 2px rgba(0, 0, 0, .45); --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35); --shadow-lg: 0 20px 60px rgba(0, 0, 0, .6);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  /* @tokens brand/tokens.json */ --bg: #10191B; --surface: #172427; --surface-2: #1E2F33; --surface-3: #26393E; --text: #F3F8F8; --heading: #F3F8F8; --muted: #A3B9B7; --line: #1F3337; --line-2: #23373B; --faint: #5A7175; --ledge: #132023; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #10191B; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22; --sun: #FFC94A;
-  --primary: #FF8466; --primary-2: #FFA582; --primary-ink: #1A0E0B; --primary-soft: #3A221C;
-  --accent-soft: #10302f; --gold-soft: #3a2e12; --good-soft: #12301d; --again-soft: #3a1a1c;
-  --primary-text: #FF8466; --accent-text: #5FD0C4; --good-text: #4ade80; --again-text: #ff7b7f; --gold-text: #fbbf24;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.45); --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35); --shadow-lg: 0 20px 60px rgba(0,0,0,.6);
+  /* @tokens brand/tokens.json */ --bg: #0E191C; --surface: #162528; --chip: #122023; --surface-2: #1D2F33; --surface-3: #263A3F; --text: #EAF2F2; --heading: #EAF2F2; --muted: #A3B9B7; --line: #213438; --line-2: #2A3F44; --faint: #6F878B; --ledge: #0A1517; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #0E191C; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22; --sun: #FFC94A; --primary: #FF8466; --primary-2: #FFA582; --primary-ink: #1A0E0B; --primary-soft: #3A221C; --accent-soft: #10302F; --gold-soft: #3A2E12; --good-soft: #12301D; --again-soft: #3A1A1C; --primary-text: #FF8466; --accent-text: #5FD0C4; --good-text: #4ADE80; --again-text: #FF7B7F; --gold-text: #FBBF24; --shadow-sm: 0 1px 2px rgba(0, 0, 0, .45); --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35); --shadow-lg: 0 20px 60px rgba(0, 0, 0, .6);
   color-scheme: dark;
 }
 
+/* Đổi sáng/tối mượt (app.js fadeTheme → html.lk-theming ~240 ms): chỉ chuyển MÀU 180 ms, không chớp; tắt khi giảm chuyển động (docs/DESIGN-SYSTEM.md §2a) */
+@media (prefers-reduced-motion: no-preference) { html.lk-theming, html.lk-theming *, html.lk-theming *::before, html.lk-theming *::after { transition: background-color .18s var(--ease-std), color .18s var(--ease-std), border-color .18s var(--ease-std), fill .18s var(--ease-std), stroke .18s var(--ease-std), box-shadow .18s var(--ease-std) !important; } }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body { background: var(--bg); color: var(--text); font: 15.5px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
@@ -1487,7 +1462,7 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .side-foot:not(.sf-ok)>a:not([data-blog]):not([data-l=about]){display:none}.side-foot:not(.sf-ok) .lk-rep.in-side{margin-top:44px}.side-foot:not(.sf-ok):not(:has(.lk-rep.in-side:not([hidden])))::after{content:'';display:block;min-height:44px}
 /* /report-pill */
 
-/* 🌤️ Sắc thái theo giờ (game.js daypart → html[data-daypart]): CHỈ màu nhấn lời chào; nền/chữ giữ nguyên (tối #10191B). Sáng = đậm hơn để ≥3:1 trên nền sáng */
+/* 🌤️ Sắc thái theo giờ (game.js daypart → html[data-daypart]): CHỈ màu nhấn lời chào; nền/chữ giữ nguyên (tối = --bg). Sáng = đậm hơn để ≥3:1 trên nền sáng */
 :root { --dp: #B45309; }
 :root[data-daypart="noon"] { --dp: #0F766E; }
 :root[data-daypart="evening"] { --dp: #B91C1C; }
