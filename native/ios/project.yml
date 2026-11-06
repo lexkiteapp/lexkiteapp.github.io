@@ -66,6 +66,9 @@ targets:
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         ITSAppUsesNonExemptEncryption: false
+        # ONE app frame (DESIGN-SYSTEM §5d, Stitch "Lexkite Kit"): full-width opaque tab bar in token colours, same as web + Android.
+        # iOS 26 otherwise draws a floating Liquid Glass pill that ignores toolbarBackground (native QC #721: 0–7 icons found, 10–21 px bar).
+        UIDesignRequiresCompatibility: true
         # 15 UI languages (C10) – lets iOS show the per-app language picker in Settings
         CFBundleLocalizations: [vi, en, es, pt, fr, de, id, th, zh-Hans, ja, ko, hi, ar, ru, tr]
         CFBundleAllowMixedLocalizations: true
