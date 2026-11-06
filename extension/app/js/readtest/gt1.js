@@ -16,7 +16,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Look at the six texts, A–F. Which text mentions the following? Write the correct letter, A–F. NB You may use any letter more than once.',
+instr: g.RTI[10],
 options: ['A', 'B', 'C', 'D', 'E', 'F'],
 items: [
 { n: 1, text: 'a service that is provided less often at one time of the year', a: 'C', cue: 'During the winter months, collections take place once a month only' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'a cost that has to be paid completely at the time of booking', a: 'A', cue: 'which must be paid in full when you book' },
 ] },
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in the texts? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[6],
 items: [
 { n: 7, text: 'Swimming classes for adult beginners take place on weekday afternoons.', a: 'FALSE', cue: "adult beginners' classes run on Saturday mornings" },
 { n: 8, text: 'Members on the Flexi plan can use the fitness studio at weekends.', a: 'TRUE', cue: 'including evenings and weekends' },
@@ -101,7 +101,7 @@ items: [
 { n: 22, text: 'Holiday is not normally allowed in ___ because stores are busy', a: ['December'], cue: 'holiday is not normally allowed during December' },
 { n: 23, text: 'Absence of more than seven days in a row: a note from your ___ is needed', a: ['doctor'], cue: 'you will need to provide a note from your doctor' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 24, q: 'What should new employees do on their first day?',
 options: ['Collect their name badge from the staff shop.', 'Arrive early and go to the customer service desk.', 'Bring two uniform shirts from home.', 'Meet their buddy at the staff entrance.'],
@@ -149,7 +149,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 3 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–F from the list of headings below.',
+instr: g.RTI[7],
 options: [
 'i Books for those who could pay a fee',
 'ii From handwritten treasures to printed books',
@@ -163,11 +163,11 @@ items: [
 { n: 28, text: 'Paragraph B', a: 'ii', cue: 'The invention of the printing press in the fifteenth century gradually changed this situation' },
 { n: 29, text: 'Paragraph C', a: 'i', cue: 'who paid a yearly fee and could then borrow books to read at home' },
 { n: 30, text: 'Paragraph D', a: 'v', cue: 'allowed town councils to raise local taxes to fund libraries' },
-{ n: 31, text: 'Paragraph E', a: 'iii', cue: 'a condition intended to make sure that the community valued it' },
+{ n: 31, text: 'Paragraph E', a: 'iii', cue: g.RTI[23] },
 { n: 32, text: 'Paragraph F', a: 'iv', cue: 'Libraries also took on a wider social role' },
 ] },
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 3? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[4],
 items: [
 { n: 33, text: 'The library of Alexandria was open to all the residents of the city.', a: 'FALSE', cue: 'it served scholars invited by the king, not the ordinary people of the city' },
 { n: 34, text: "Chetham's Library still welcomes readers today.", a: 'TRUE', cue: 'is still open to readers today' },
@@ -186,9 +186,9 @@ options: [
 items: [
 { n: 37, text: 'In some medieval libraries, books were chained to the shelves', a: 'B', cue: 'they were chained to the shelves to prevent theft' },
 { n: 38, text: 'Supporters of the Public Libraries Act of 1850 believed that libraries would', a: 'C', cue: 'libraries would encourage self-improvement among working people' },
-{ n: 39, text: 'Carnegie required each town to spend money on its library every year', a: 'D', cue: 'a condition intended to make sure that the community valued it' },
+{ n: 39, text: 'Carnegie required each town to spend money on its library every year', a: 'D', cue: g.RTI[23] },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'What point does the writer make in paragraph G?',
 options: ['More books are borrowed from libraries now than ever before.', 'Most public libraries have closed because of the internet.', 'Many people visit libraries for reasons other than borrowing books.', 'Librarians believe libraries should stop lending books.'],
