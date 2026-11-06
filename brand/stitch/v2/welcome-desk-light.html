@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280">
+  <title>Lexkite — Public Welcome Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FBF7F1;
+      color: #162124;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .material-symbols-rounded {
+      font-family: 'Material Symbols Rounded';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+      font-feature-settings: 'liga';
+    }
+
+    /* Tactile Cards */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #DED4C4;
+      box-shadow: 0 4px 0 #DED4C4;
+      border-radius: 16px;
+    }
+
+    /* Primary CTA */
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 28px;
+      border-radius: 9999px;
+      background: linear-gradient(to right, #F2553B, #FFB054);
+      color: #1A0E0B;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 0 #B53A22;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .primary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    /* Top bar CTA */
+    .topbar-primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 20px;
+      border-radius: 9999px;
+      background: linear-gradient(to right, #F2553B, #FFB054);
+      color: #1A0E0B;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 4px 0 #B53A22;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .topbar-primary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    /* Secondary Buttons */
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 16px;
+      background: #FFFFFF;
+      border: 2px solid #DED4C4;
+      box-shadow: 0 4px 0 #DED4C4;
+      color: #162124;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #DED4C4;
+    }
+
+    .topbar-secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      border: 2px solid #DED4C4;
+      box-shadow: 0 4px 0 #DED4C4;
+      color: #162124;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .topbar-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #DED4C4;
+    }
+
+    /* Grade buttons for flashcard */
+    .grade-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 12px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      border: 2px solid #DED4C4;
+      box-shadow: 0 3px 0 #DED4C4;
+      color: #162124;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.1s ease;
+      flex: 1;
+    }
+    .grade-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #DED4C4;
+    }
+
+    /* Teacher Slot */
+    .teacher-slot {
+      background-color: #F5EFE6;
+      border-radius: 24px;
+      width: 100%;
+      height: 240px;
+    }
+
+    .floor-line {
+      height: 4px;
+      background-color: #DED4C4;
+      border-radius: 9999px;
+      width: 80%;
+      margin: 12px auto 0 auto;
+    }
+  </style>
+</head>
+<body class="w-[1280px] mx-auto min-h-screen flex flex-col justify-between">
+
+  <!-- TOP BAR -->
+  <header class="w-full bg-[#FBF7F1] border-b-2 border-[#E6DCCB] sticky top-0 z-50">
+    <div class="max-w-[1200px] mx-auto h-20 px-6 flex items-center justify-between">
+      <!-- Logo & Wordmark -->
+      <a href="#" class="flex items-center gap-3 decoration-transparent">
+        <div class="w-10 h-10 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] flex items-center justify-center text-[#17595A] shadow-[0_2px_0_#DED4C4]">
+          <span class="material-symbols-rounded text-2xl">kitesurfing</span>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-[#162124]">lexkite</span>
+      </a>
+
+      <!-- Nav links -->
+      <nav class="flex items-center gap-8">
+        <a href="#features" class="text-[15px] font-semibold text-[#162124] hover:text-[#17595A] transition-colors py-2">Features</a>
+        <a href="#mock-tests" class="text-[15px] font-semibold text-[#162124] hover:text-[#17595A] transition-colors py-2">Mock tests</a>
+        <a href="#chrome-add-on" class="text-[15px] font-semibold text-[#162124] hover:text-[#17595A] transition-colors py-2">Chrome add-on</a>
+        <a href="#blog" class="text-[15px] font-semibold text-[#162124] hover:text-[#17595A] transition-colors py-2">Blog</a>
+      </nav>
+
+      <!-- Language selector & Auth buttons -->
+      <div class="flex items-center gap-4">
+        <!-- Language selector -->
+        <div class="flex items-center gap-1.5 px-3 py-2 bg-white rounded-xl border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] text-[14px] font-semibold text-[#162124] cursor-pointer min-h-[44px]">
+          <span class="material-symbols-rounded text-[#17595A] text-[20px]">language</span>
+          <span>English</span>
+          <span class="material-symbols-rounded text-[18px] text-[#45555A]">expand_more</span>
+        </div>
+
+        <a href="#signin" class="topbar-secondary-btn">Sign in</a>
+        <a href="#start" class="topbar-primary-btn">Start learning</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HERO SECTION (TWO COLUMNS) -->
+  <main class="flex-grow">
+    <section class="max-w-[1200px] mx-auto px-6 pt-12 pb-16">
+      <div class="grid grid-cols-12 gap-12 items-start">
+        
+        <!-- LEFT COLUMN: Value Proposition & CTAs -->
+        <div class="col-span-7 pt-4">
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F8F4EC] border border-[#E6DCCB] text-[13px] font-bold text-[#17595A] tracking-wide mb-6">
+            <span class="material-symbols-rounded text-[18px]">school</span>
+            <span>For IELTS, TOEIC &amp; TOEFL learners</span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="text-[44px] leading-[1.15] font-extrabold text-[#162124] mb-5 tracking-tight">
+            English vocabulary that sticks, scores that climb.
+          </h1>
+
+          <!-- Lead text -->
+          <p class="text-[18px] leading-[1.5] font-medium text-[#45555A] mb-8 max-w-[560px]">
+            Study 15 minutes a day with flashcards that know when you are about to forget.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-4 mb-6">
+            <a href="#start" class="primary-btn text-[17px] min-h-[52px] px-8">Start for free</a>
+            <a href="#signin" class="secondary-btn text-[16px] min-h-[52px] px-6">I already have an account</a>
+          </div>
+
+          <!-- Secondary Links -->
+          <div class="flex items-center gap-6 mb-6 pt-1">
+            <a href="#level-test" class="text-[15px] font-bold text-[#17595A] hover:underline flex items-center gap-1.5 py-1">
+              <span>Check your level first (5 min)</span>
+              <span class="material-symbols-rounded text-[18px]">arrow_forward</span>
+            </a>
+            <span class="text-[#45555A]">•</span>
+            <a href="#english-style" class="text-[15px] font-bold text-[#17595A] hover:underline flex items-center gap-1.5 py-1">
+              <span>Your English style (1 min)</span>
+              <span class="material-symbols-rounded text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Note -->
+          <div class="flex items-center gap-2 text-[14px] font-semibold text-[#45555A]">
+            <span class="material-symbols-rounded text-[18px] text-[#17595A]">check_circle</span>
+            <span>Free · No account needed to start</span>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Teacher slot & Flashcard & Highlights -->
+        <div class="col-span-5 space-y-6">
+          
+          <!-- Teacher Slot Area -->
+          <div class="w-full">
+            <div class="teacher-slot"></div>
+            <div class="floor-line"></div>
+          </div>
+
+          <!-- Interactive Flashcard -->
+          <div class="tactile-card p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-[26px] font-extrabold text-[#162124] tracking-tight">sustainable</h3>
+                <p class="text-[15px] font-semibold text-[#45555A] mt-0.5">/səˈsteɪnəbl/ · adj · B2</p>
+              </div>
+              <button type="button" aria-label="Listen" class="w-11 h-11 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] hover:translate-y-[-1px] transition-transform">
+                <span class="material-symbols-rounded text-[22px]">volume_up</span>
+              </button>
+            </div>
+
+            <!-- Flip prompt banner -->
+            <div class="my-4 py-3 px-4 rounded-xl bg-[#FBF7F1] border border-[#E6DCCB] flex items-center justify-center gap-2 text-[#17595A] font-bold text-[14px] cursor-pointer hover:bg-[#F8F4EC] transition-colors">
+              <span class="material-symbols-rounded text-[20px]">touch_app</span>
+              <span>Tap to flip</span>
+            </div>
+
+            <!-- Four Grade Buttons -->
+            <div class="flex items-center gap-2 mt-4 pt-1">
+              <button type="button" class="grade-btn text-[#B42318]">Again</button>
+              <button type="button" class="grade-btn text-[#92400E]">Hard</button>
+              <button type="button" class="grade-btn text-[#17595A]">Good</button>
+              <button type="button" class="grade-btn text-[#166534]">Easy</button>
+            </div>
+          </div>
+
+          <!-- Two small highlight cards -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="tactile-card p-4 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0">
+                <span class="material-symbols-rounded text-[22px]">smart_display</span>
+              </div>
+              <div class="text-[14px] font-bold text-[#162124] leading-tight">
+                Catch words on YouTube
+              </div>
+            </div>
+
+            <div class="tactile-card p-4 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0">
+                <span class="material-symbols-rounded text-[22px]">travel_explore</span>
+              </div>
+              <div class="text-[14px] font-bold text-[#162124] leading-tight">
+                Look up on any website
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: EVERYTHING INSIDE (3-COLUMN GRID OF 9 TILES) -->
+    <section id="features" class="max-w-[1200px] mx-auto px-6 py-16 border-t-2 border-[#E6DCCB]">
+      <div class="mb-10 text-center">
+        <h2 class="text-[34px] font-extrabold text-[#162124] tracking-tight">Everything inside</h2>
+      </div>
+
+      <div class="grid grid-cols-3 gap-6">
+        
+        <!-- Tile 1 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">menu_book</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">Vocabulary for IELTS, TOEIC &amp; TOEFL</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Curated word collections organized by official exam syllabus and frequency.</p>
+          </div>
+        </div>
+
+        <!-- Tile 2 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">style</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">FSRS flashcards like Anki</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Spaced repetition engine that schedules reviews right before memory decay occurs.</p>
+          </div>
+        </div>
+
+        <!-- Tile 3 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">auto_stories</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">Words with context</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Authentic sentence examples and natural collocations showing real-world language use.</p>
+          </div>
+        </div>
+
+        <!-- Tile 4 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">mic</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">Pronunciation with scoring</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Interactive speech evaluation that highlights stress patterns and phoneme accuracy.</p>
+          </div>
+        </div>
+
+        <!-- Tile 5 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">sports_esports</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">Games &amp; quizzes</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Bite-sized word pairing challenges and sentence building drills for active recall.</p>
+          </div>
+        </div>
+
+        <!-- Tile 6 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">extension</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">Chrome add-on</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Double-click translation and one-tap flashcard saving on any webpage you read.</p>
+          </div>
+        </div>
+
+        <!-- Tile 7 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">schema</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">Visual grammar lessons</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Clear structural diagrams explaining tense rules, connectors, and sentence logic.</p>
+          </div>
+        </div>
+
+        <!-- Tile 8 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">graphic_eq</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">IPA pronunciation library</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Comprehensive audio guide covering standard international phonetic chart sounds.</p>
+          </div>
+        </div>
+
+        <!-- Tile 9 -->
+        <div class="tactile-card p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] shadow-[0_2px_0_#DED4C4] flex items-center justify-center text-[#17595A] flex-shrink-0 mt-0.5">
+            <span class="material-symbols-rounded text-[26px]">assignment</span>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-[#162124] mb-1.5 leading-snug">IELTS &amp; TOEIC mock tests</h3>
+            <p class="text-[14px] font-medium text-[#45555A] leading-relaxed">Timed diagnostic assessments calibrated to official test formats and question styles.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- MULTI-COLUMN FOOTER -->
+  <footer class="w-full bg-[#FBF7F1] border-t-2 border-[#E6DCCB] pt-14 pb-12 mt-12">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-12 gap-12 pb-12 border-b border-[#E6DCCB]">
+        
+        <!-- Left Brand & Tagline -->
+        <div class="col-span-5 pr-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-[#F8F4EC] border-2 border-[#E6DCCB] flex items-center justify-center text-[#17595A] shadow-[0_2px_0_#DED4C4]">
+              <span class="material-symbols-rounded text-xl">kitesurfing</span>
+            </div>
+            <span class="text-2xl font-extrabold tracking-tight text-[#162124]">lexkite</span>
+          </div>
+          <p class="text-[15px] font-medium text-[#45555A] mb-4 leading-relaxed">
+            Tactile language learning designed for exam mastery and long-term retention.
+          </p>
+          <p class="text-[13px] text-[#45555A] leading-relaxed">
+            IELTS, TOEIC and TOEFL are registered trademarks of their respective owners. Lexkite is an independent educational tool.
+          </p>
+        </div>
+
+        <!-- Spacer -->
+        <div class="col-span-1"></div>
+
+        <!-- Product Group -->
+        <div class="col-span-3">
+          <h4 class="text-[15px] font-extrabold text-[#162124] uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-3 text-[15px]">
+            <li><a href="#web-app" class="font-semibold text-[#17595A] hover:underline">Web app</a></li>
+            <li><a href="#chrome-add-on" class="font-semibold text-[#17595A] hover:underline">Chrome add-on</a></li>
+            <li><a href="#mock-tests" class="font-semibold text-[#17595A] hover:underline">Mock tests</a></li>
+            <li><a href="#blog" class="font-semibold text-[#17595A] hover:underline">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal & Support Group -->
+        <div class="col-span-3">
+          <h4 class="text-[15px] font-extrabold text-[#162124] uppercase tracking-wider mb-4">Legal &amp; support</h4>
+          <ul class="space-y-3 text-[15px]">
+            <li><a href="#privacy" class="font-semibold text-[#17595A] hover:underline">Privacy policy</a></li>
+            <li><a href="#terms" class="font-semibold text-[#17595A] hover:underline">Terms of use</a></li>
+            <li><a href="#contact" class="font-semibold text-[#17595A] hover:underline">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Small Copyright Row -->
+      <div class="pt-8 flex items-center justify-between text-[13px] text-[#45555A]">
+        <div>© 2025 Lexkite. All rights reserved.</div>
+        <div>Bright Day · Lexkite Kit</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
