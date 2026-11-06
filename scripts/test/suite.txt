@@ -296,6 +296,7 @@ node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
 node scripts/test/teacher-bubble.mjs --static
 node scripts/test/voice-source.mjs
+node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
