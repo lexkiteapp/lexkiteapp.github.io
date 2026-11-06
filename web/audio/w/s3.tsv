@@ -8878,3 +8878,6 @@ ergonomics	ok	ok
 incinerator	ok	ok
 fanaticism	ok	ok
 peruse	ok	ok
+authenticate	ok	ok
+sate	ok	cut_wordis:"SAIT" 0.48s · cut_wordis:"Date" 0.34s · dot100:"Say it." 0.56s · cut_wordis100:"SAIT" 0.66s · cut_wordis100:"SAIT" 0.55s · cut_next:"SAIT" 0.57s · cut_next:"Date" 0.42s · plain095:"Say it." 0.60s · dot090:"and say it" 0.64s
+capitulate	ok	ok
