@@ -73,6 +73,8 @@ jobs:
         with: { pattern: 'factory-*', path: out/factory, merge-multiple: true }
       - name: Gom lô → nguồn + lo + content/qa/batches + bảng điểm
         run: node scripts/factory/merge.mjs out/factory --summary out/factory-summary.md
+      - name: Chuẩn hóa chính tả Việt do AI sinh (vi-lint --fix)
+        run: node scripts/vi-lint.mjs --fix || true   # AI hay ra hoá/khoẻ (kiểu cũ) → sửa tự động; npm test sau đó vẫn chặn lỗi còn lại
       - name: npm test
         run: npm ci --no-audit --no-fund && npm test
       - name: Bản vá lô (lượt thử PR – phiên chính áp vào PR, bot không đẩy vào nhánh PR)
