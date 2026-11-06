@@ -136,7 +136,7 @@
    "lt:text-amber-600": "'lt:text-[#874A00]'"
   },
   ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
-   "h-16": "'h-[76px] overflow-hidden'",
+   "h-16": "'h-[116px] overflow-hidden'",
    "border-dashed": "'border-solid'",
    "items-center": "'items-end'"
   },

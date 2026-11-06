@@ -291,7 +291,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     // Lời động viên theo trạng thái thật – mừng việc đã đến, không dọa mất chuỗi (notifications-ux: không gây áp lực)
     const say = o.say || (!n ? t('Bắt đầu chuỗi hôm nay – một bài nhỏ là đủ.') : doneToday ? t('Hôm nay bạn đã giữ chuỗi. Tuyệt lắm!') : g.ST2.flameState(n) === 'frozen' ? t('Băng đã giữ chuỗi cho bạn. Một bài nhỏ là học tiếp được.') : t('Nhịp đều lắm – một bài nhỏ là giữ được chuỗi.'));
     return { n, fl: g.ST2.flameState(n, o), unit1: t('ngày liên tiếp'), say, back: '#/home', teachName: who === 'ama' ? 'Ama' : 'Carlos',
-      teach: Chars.slot(who, { pose: 'encourage', size: 's', lazy: true }), wk: t('Đã học {a}/7 ngày', { a: got }), week,
+      teach: Chars.slot(who, { pose: 'encourage', size: 'm', lazy: true }), wk: t('Đã học {a}/7 ngày', { a: got }), week,
       dows: L, mon: { title: mTitle, cells, al: t('Lịch {m}: đã giữ chuỗi {n} ngày', { m: mTitle, n: mo.learned }), off: mOff },
       fz: { lab: t('{a}/{b} lượt sẵn sàng', { a: fi.left, b: fi.max }), slots: Array.from({ length: fi.max }, (_, i) => ({ v: i < fi.left ? 'on' : 'off' })) },
       ms: { next: nx, pct: Math.min(100, Math.round(n / nx * 100)), title: t('Chuỗi {n} ngày', { n: nx }), got: t('Đã giữ {n} ngày', { n }), left: t('Còn {n} ngày', { n: nx - n }) },
