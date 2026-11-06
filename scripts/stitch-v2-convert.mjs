@@ -189,8 +189,10 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const o = emit(root, bind, k);
   if (WEB) { const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd), cf = path.join(OUT, k + '.css');
     if (CHECK) { if (!fs.existsSync(cf) || fs.readFileSync(cf, 'utf8') !== cs) errs.push(`${cf} trôi`); } else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(cf, cs); } }
+  // Thanh tab: icon = sprite SVG #i-* của index.html (cùng nguồn với menu trái + #bnav) thay chữ ghép Material Symbols – font chậm/thiếu glyph không bao giờ lộ chữ "home"/"H"; mục đang chọn = tô đầy (st-ti-on)
+  const svgTabs = n => { let i = 0; const r = n.replace(/<span class="material-symbols-outlined[^"]*">\$\{x\.icon\}<\/span>/g, () => `<svg class="i st-ti${i++ ? '' : ' st-ti-on'}" aria-hidden="true" focusable="false"><use href="#\${e(x.svg)}"/></svg>`); if (i !== 2) throw new Error('shell nav: cần đúng 2 ô icon tab (đang chọn + thường), thấy ' + i); return r; };
   if (bind.shell) { // đầu trang + thanh tab chuẩn chung cho mọi màn có tab (lấy từ màn này) → shell.js; màn này chỉ giữ main
-    const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${plain(o.header)},\n nav: ${plain(o.nav)} });\n`;
+    const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${plain(o.header)},\n nav: ${svgTabs(plain(o.nav))} });\n`;
     const so = path.join(OUT, 'shell.js'); if (CHECK) { if (!fs.existsSync(so) || fs.readFileSync(so, 'utf8') !== sh) errs.push(`${so} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(so, sh); }
     o.header = '``'; o.nav = '``'; }
   if (WEB && bind.chrome) { // web: đầu trang + chân trang chung cho MỌI trang tĩnh (lấy từ trang này) → chrome.js; các trang khác `remove` header/footer của Stitch

@@ -5,8 +5,9 @@
 (function () {
   const S = self.ST2 || (self.ST2 = {});
   // 5 tab chính (khóa = Ux1 tabOf) – icon theo mẫu Stitch v2
-  const TABS = [['home', '#/home', 'home', 'Hôm nay'], ['vocab', '#/vocab', 'menu_book', 'Từ vựng'], ['skills', '#/skills', 'target', 'Kỹ năng'], ['tests', '#/tests', 'flag', 'Thi'], ['me', '#/me', 'person', 'Tôi']];
-  S.tabs = on => TABS.map(([k, href, icon, l]) => ({ k, href, icon, label: t(l), on: k === on }));
+  // svg = id trong sprite #lk-sprite của index.html (MỘT bộ icon cho menu trái, #bnav và thanh tab Stitch – không phụ thuộc font chữ ghép)
+  const TABS = [['home', '#/home', 'home', 'Hôm nay', 'i-house'], ['vocab', '#/vocab', 'menu_book', 'Từ vựng', 'i-book-open'], ['skills', '#/skills', 'target', 'Kỹ năng', 'i-target'], ['tests', '#/tests', 'flag', 'Thi', 'i-flag'], ['me', '#/me', 'person', 'Tôi', 'i-user']];
+  S.tabs = on => TABS.map(([k, href, icon, l, svg]) => ({ k, href, icon, svg, label: t(l), on: k === on }));
   // Viên số đầu trang: kỳ thi · chuỗi ngày · XP · mục tiêu thẻ hôm nay (cùng nguồn với cột phải ux1.rail)
   S.hdr = () => { const st = App.state || {}, g = st.game || {}, se = st.settings || {}, X = (App.EXAMS || {})[se.exam || 'ielts'] || { short: 'IELTS' };
     const k = window.Core && Core.todayKey ? Core.todayKey() : '', rv = ((st.stats || {}).days || {})[k] || 0, goal = se.dailyGoal || 20;
