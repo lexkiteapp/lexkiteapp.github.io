@@ -190,6 +190,7 @@ node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
 node scripts/test/klocal.mjs
+node scripts/test/ios-audio-unlock.mjs
 node scripts/test/ext-bundles.mjs
 node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
@@ -213,6 +214,8 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
+node scripts/test/token-contrast.mjs
+node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
@@ -222,6 +225,8 @@ node scripts/test/content-qa.mjs
 node scripts/content-qa/gate.mjs
 node scripts/test/blog-images.mjs
 node scripts/test/blog-captions.mjs
+node scripts/test/blog-youtube.mjs
+node scripts/test/blog-lang-gates.mjs
 node scripts/blog-schedule.mjs --verify
 node scripts/test/axe.js web
 node scripts/test/crawl.js web
@@ -236,6 +241,7 @@ node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
 node scripts/content-qa/lkf-check.mjs
@@ -248,6 +254,7 @@ node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
+node scripts/test/css-lazy.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs
@@ -258,6 +265,7 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/ffmpeg-setup-policy.mjs
 node scripts/test/scroll-boot.mjs
 node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
@@ -277,9 +285,22 @@ node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/test/lip-clock.mjs
+node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
+node scripts/test/cpack.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/settings-subpages.mjs
+node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
+node scripts/test/side-menu.mjs
+node scripts/test/site-footer.mjs
+node scripts/test/v2pre-ring.mjs
+node scripts/test/zombie-pages.mjs
+node scripts/test/ci-guards.mjs
+node scripts/test/voice-source.mjs
+node scripts/test/pr-unconflict.mjs
+node scripts/test/main-red-sweep.mjs
+node scripts/test/ci-queue-gate.mjs

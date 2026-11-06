@@ -70,6 +70,8 @@ publishAt: 2026-11-21T12:44:00+05:30
 
 मानक अंग्रेजी उच्चारण (Received Pronunciation और General American) में कुल 44 मूल ध्वनियाँ (*phonemes*) होती हैं, जिन्हें दो मुख्य भागों में बाँटा गया है:
 
+इसके बारे में और जानने के लिए [English Pronunciation कैसे सुधारें](/hi/blog/english-pronunciation-kaise-sudhare-tips/) भी पढ़ें।
+
 1. **स्वर ध्वनियाँ (Vowels - 20 ध्वनियाँ)**:
    - एकल स्वर (*Monophthongs*): 12 ध्वनियाँ (ह्रस्व और दीर्घ स्वर)।
    - संयुक्त स्वर (*Diphthongs*): 8 ध्वनियाँ (जहाँ जीभ एक स्वर से दूसरे स्वर की ओर फिसलती है)।
