@@ -72,7 +72,7 @@ window.__cls=0;window.__clsSrc=[];new PerformanceObserver(l=>{for(const e of l.g
     const ctx = await browser.newContext({ viewport: { width: o.w || 360, height: 640 }, deviceScaleFactor: 2, reducedMotion: o.reduce ? 'reduce' : 'no-preference', colorScheme: o.dark ? 'dark' : 'light' });
     await ctx.addInitScript(() => { try { localStorage.setItem('lk.tb', '1'); } catch (e) { /* bỏ qua */ } }); // bật gõ chữ/rig trong trình duyệt tự động hóa (mặc định tắt để các cổng khác ổn định)
     await ctx.route('**/*', async r => {
-      const u = new URL(r.request().url()); if (o.slow && /^\/teach\/.+\.webp$/.test(u.pathname)) await new Promise(ok => setTimeout(ok, 700)); // ảnh giáo viên đến chậm: đo khung TRƯỚC khi ảnh tải if (u.pathname === '/tb.html') return r.fulfill({ body: PAGE, contentType: 'text/html' }); if (u.pathname === '/t.wav') return r.fulfill({ body: wav, contentType: 'audio/wav' });
+      const u = new URL(r.request().url()); if (o.slow && /^\/teach\/.+\.webp$/.test(u.pathname)) await new Promise(ok => setTimeout(ok, 700)); /* ảnh giáo viên đến chậm: đo khung TRƯỚC khi ảnh tải */ if (u.pathname === '/tb.html') return r.fulfill({ body: PAGE, contentType: 'text/html' }); if (u.pathname === '/t.wav') return r.fulfill({ body: wav, contentType: 'audio/wav' });
       const f = path.join(W(''), decodeURIComponent(u.pathname)); if (!f.startsWith(W('')) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' });
       r.fulfill({ body: fs.readFileSync(f), contentType: TYPES[path.extname(f).slice(1)] || 'application/octet-stream' });
     });
