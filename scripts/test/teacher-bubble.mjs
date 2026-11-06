@@ -4,7 +4,7 @@
 //  Phần trình duyệt (CI teacher-bubble.yml; bỏ qua nếu thiếu playwright): CLS = 0 khi gõ, chiều cao bong bóng không đổi, chạm = hiện hết, giảm chuyển động = hiện ngay,
 //   aria-live đủ chữ, vòng nghỉ dừng khi tab ẩn/ngoài màn, khớp môi p95 ≤ 33 ms (đường nói của bong bóng), khung không viền đứt, mũi nhọn ≤ 12 px so với miệng,
 //   bong bóng không đè giáo viên, tương phản ≥ 4,5:1 sáng/tối, nút 🔊 ≥ 44 px, không tự đọc; khung giáo viên giữ chỗ (ảnh/rig tải xong lệch ≤ 1 px, CLS 0)
-//   + mép trên bệ đúng mẫu 72 % ảnh; Hôm nay (hip:true) mép bệ ≥ hông, lộ tới hông (360/1280 × sáng/tối × mọi cỡ). Ảnh 360 px trước/sau → out/teacher-bubble/ (artifact).
+//   + mép trên bệ đúng mẫu 72 % ảnh; Hôm nay (hip:true) mép bệ = hông, lộ tới hông (360/1280 × sáng/tối × mọi cỡ). Ảnh 360 px trước/sau → out/teacher-bubble/ (artifact).
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 import { fileURLToPath } from 'node:url';
@@ -157,7 +157,7 @@ window.__cls=0;window.__clsSrc=[];new PerformanceObserver(l=>{for(const e of l.g
   { // --- khung giữ chỗ trước khi ảnh/rig tải (CLS 0, lệch ≤ 1 px) + bệ không che thân hơn mẫu Stitch (mép bệ 72 % ảnh): 360/1280 × sáng/tối × mọi cỡ ---
     // Lỗi 06/11 (ảnh chủ, Hôm nay tối): .trig{position:relative} của rig chèn SAU .tb-rig{absolute} → rig tụt 0,1 khung sau khi tải; bệ che nửa thân.
     const LEDGE_Y = 688; // hàng ảnh (/960) ở mép trên bệ theo mẫu: (1,2 − 0,18 − 0,16) / 1,2 – docs/CHARACTERS.md §Hình học
-    // chỗ hip:true (Hôm nay/Welcome): mép bệ ≥ hông (TeacherSlot.HIP) VÀ dưới thắt lưng đo trên chính ảnh; đầu/mặt cùng cỡ chỗ thường (1,2 khung)
+    // chỗ hip:true (Hôm nay/Welcome): mép bệ = hông (TeacherSlot.HIP) ± 1 px VÀ che dải 15 % đáy người (cùng phép đo final-qc 'not-pasted-on'); đầu/mặt cùng cỡ chỗ thường (1,2 khung)
     const EXTRA = [['xs', 'talk'], ['s', 'wave'], ['l', 'cheer'], ['xl', 'surprise']]; // surprise = tay cao nhất trong Chars.poses (y 68)
     for (const [w, dark] of [[360, false], [360, true], [1280, false], [1280, true]]) {
       const tag = `${w}px ${dark ? 'tối' : 'sáng'}`, { ctx, page, errs } = await open({ dark, w, slow: true });
@@ -181,13 +181,13 @@ window.__cls=0;window.__clsSrc=[];new PerformanceObserver(l=>{for(const e of l.g
       const G = await page.evaluate(srcs => Promise.all(srcs.map(async src => { const im = new Image(); im.src = src; await im.decode(); const c = document.createElement('canvas'); c.width = im.naturalWidth; c.height = im.naturalHeight; const x = c.getContext('2d'); x.drawImage(im, 0, 0);
         const W = c.width, H = c.height, px = x.getImageData(0, 0, W, H).data, at = (i, j) => px.subarray((j * W + i) * 4, (j * W + i) * 4 + 4);
         const gray = p => p[3] > 200 && Math.max(p[0], p[1], p[2]) - Math.min(p[0], p[1], p[2]) < 14 && p[0] > 70 && p[0] < 160;
-        let waist = -1, fade = -1, top = -1; for (let j = 0; j < H; j++) { let n = 0, op = 0, any = 0; for (let i = 0; i < W; i += 4) { const p = at(i, j); if (p[3] >= 250) op = 1; if (p[3] > 128) any = 1; if (Math.abs(i - W / 2) < 40 && gray(p)) n++; }
-          if (top < 0 && any) top = j; if (waist < 0 && j >= H * 0.6 && n >= 12) waist = j; if (op) fade = j; }
-        return { src, H, waist, fade, top }; })), [...new Set(after.map(x => x.src))]);
+        let waist = -1, fade = -1, top = -1, t8 = -1, b8 = -1; for (let j = 0; j < H; j++) { let n = 0, op = 0, any = 0, k8 = 0; for (let i = 0; i < W; i += 4) { const p = at(i, j); if (p[3] >= 250) op = 1; if (p[3] > 128) any = 1; if (p[3] > 8) k8++; if (Math.abs(i - W / 2) < 40 && gray(p)) n++; }
+          if (top < 0 && any) top = j; if (waist < 0 && j >= H * 0.6 && n >= 12) waist = j; if (op) fade = j; if (k8 >= 2) { if (t8 < 0) t8 = j; b8 = j; } }
+        return { src, H, waist, fade, top, tail: b8 - 0.15 * (b8 - t8 + 1) }; })), [...new Set(after.map(x => x.src))]);
       const HIP = await page.evaluate(() => TeacherSlot.HIP);
       for (const x of after) { const g = G.find(y => y.src === x.src), y = r => x.img[1] + x.img[3] * r / g.H, lt = x.ledge[1];
         const sameHead = Math.abs(x.img[3] - x.slot[3] * 1.2) <= 1; // đầu/mặt cùng cỡ mọi chỗ (ảnh = 1,2 khung)
-        if (x.hip) ok(sameHead && g.waist > 0 && lt >= y(HIP) && lt > y(g.waist) && lt <= y(g.fade) && y(g.top) >= x.fig[1] - 0.5, `${tag} ${x.size} hip ${x.src.split('/').pop()}: mép trên bệ ${lt.toFixed(1)} ≥ hông ${y(HIP).toFixed(1)} (HIP ${HIP}/960) và dưới thắt lưng đo được ${y(g.waist).toFixed(1)} (+${(lt - y(g.waist)).toFixed(1)} px), che vạt mờ ${y(g.fade).toFixed(1)}, đầu không bị cắt (${y(g.top).toFixed(1)} ≥ ${x.fig[1].toFixed(1)}), ảnh ${x.img[3].toFixed(1)} = 1,2 × khung`);
+        if (x.hip) ok(sameHead && g.waist > 0 && Math.abs(lt - y(HIP)) <= 1 && lt < y(g.tail) && Math.abs(lt - y(g.waist)) <= x.img[3] * 20 / 960 && y(g.top) >= x.fig[1] - 0.5, `${tag} ${x.size} hip ${x.src.split('/').pop()}: mép trên bệ ${lt.toFixed(1)} = hông ${y(HIP).toFixed(1)} (HIP ${HIP}/960) ± 1 px, sát đầu quần đo được ${y(g.waist).toFixed(1)} (≤ 20/960 ảnh), che dải 15 % đáy người từ ${y(g.tail).toFixed(1)} (final-qc), đầu không bị cắt (${y(g.top).toFixed(1)} ≥ ${x.fig[1].toFixed(1)}), ảnh ${x.img[3].toFixed(1)} = 1,2 × khung`);
         else ok(sameHead && Math.abs(lt - y(LEDGE_Y)) <= 1 && lt <= y(g.fade) && y(g.top) >= x.fig[1] - 0.5, `${tag} ${x.size} ${x.src.split('/').pop()}: mép trên bệ ${lt.toFixed(1)} = mẫu ${y(LEDGE_Y).toFixed(1)} ± 1 px (không che thân hơn mẫu), che vạt mờ ${y(g.fade).toFixed(1)}, đầu/tay không bị cắt (${y(g.top).toFixed(1)} ≥ ${x.fig[1].toFixed(1)})`); }
       ok(after.some(x => x.hip), `${tag}: có chỗ hip:true (Hôm nay) trong phép đo`);
       if (w === 360) await page.screenshot({ path: `${OUT}/slot-360-${dark ? 'dark' : 'light'}.png` });

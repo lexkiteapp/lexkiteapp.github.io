@@ -15,7 +15,7 @@ img.tslot-img{aspect-ratio:1108/960}
 :is(canvas,video).tslot-img{opacity:0;transition:opacity .18s}.tslot.live :is(canvas,video).tslot-img{opacity:1}.tslot.live img.tslot-img{visibility:hidden}
 .tslot-ledge{position:absolute;left:2%;right:2%;bottom:0;height:calc(var(--h)*.16);border-radius:999px 999px calc(var(--h)*.06) calc(var(--h)*.06);background:var(--surface-2);box-shadow:inset 0 1px 0 rgb(255 255 255/.10),inset 0 calc(var(--h)*.02) calc(var(--h)*.03) rgb(0 0 0/.10),0 calc(var(--h)*.03) 0 var(--ledge)}
 [data-ground="0"] .tslot-ledge{background:var(--bg);box-shadow:none}
-.tslot-hip{--fb:calc(var(--h)*-.05)}.tslot-hip .tslot-ledge{height:calc(var(--h)*.1)}
+.tslot-hip{--fb:calc(var(--h)*-.125)}.tslot-hip .tslot-ledge{height:calc(var(--h)*.1)}
 :root[data-theme="dark"] .tslot-img{filter:brightness(.95) saturate(.96)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tslot-img{filter:brightness(.95) saturate(.96)}}
 @media (prefers-reduced-motion:no-preference){img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip .tslot-img{animation:tslot-in .18s ease-out both}}
@@ -29,9 +29,9 @@ img.tslot-img{aspect-ratio:1108/960}
   const hydrate = () => { pend = 0; if (document.querySelector('.tslot[data-clip]')) lib().then(() => { if (g.TeacherLive) document.querySelectorAll('.tslot[data-clip]').forEach(g.TeacherLive); }); };
   let on = 0;
   const css = () => { if (on || !g.document || !document.head) return; on = 1; const s = document.createElement('style'); s.id = 'tslot-css'; s.textContent = CSS; document.head.appendChild(s); };
-  // HIP = hàng ảnh (/960) của hông Ama: quần bắt đầu ở y 786–798 trên mọi ảnh tư thế (đo bằng cổng teacher-bubble.mjs). hip:true (Hôm nay/Welcome, mẫu streak):
-  // người nâng 0,13 khung (đầu/mặt giữ cỡ 1,2 khung), bệ mỏng 0,1 → mép bệ ở y 840 ≥ HIP: lộ tới hông + tay, bệ là dải thấp sau chân; vạt mờ (y ≥ 865) vẫn sau bệ
-  g.TeacherSlot = { SIZES, css, HIP: 800 };
+  // HIP = hàng ảnh (/960) của hông: đầu quần Ama ở y 786–798; dải 15 % đáy người (mờ dần – final-qc buộc khuất sau mặt đục) bắt đầu ở y ≥ 783 mọi tư thế.
+  // hip:true (Hôm nay/Welcome, mẫu streak): đầu/mặt giữ 1,2 khung, người nâng 0,055 khung, bệ mỏng 0,1 → (0,125 + 0,1) / 1,2 → mép bệ đúng hàng 780: lộ tới hông + tay, che dải đáy
+  g.TeacherSlot = { SIZES, css, HIP: 780 };
   const C = g.Chars; if (!C) return;
   // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', hip:true = lộ tới hông (bệ mỏng, xem HIP), cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
   C.slot = (w, o = {}) => {
