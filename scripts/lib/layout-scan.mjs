@@ -123,11 +123,14 @@ export function scan({ root = '#view', sel = APP_SEL, okScroll = '', boxes = '' 
     }
   }
   const ctlOf = l => l.control || (l.htmlFor && document.getElementById(l.htmlFor)) || l.querySelector('input, select, textarea');
-  const textRect = (l, ctl) => { let r = null; const tw = document.createTreeWalker(l, NodeFilter.SHOW_TEXT); for (let t; (t = tw.nextNode());) { if (!t.textContent.trim() || (ctl && ctl.contains(t)) || t.parentElement.closest('select, option, .sr-only, .visually-hidden') || !shown(t.parentElement)) continue; const rg = document.createRange(); rg.selectNodeContents(t); const b = rg.getBoundingClientRect(); if (!b.width) continue; r = r ? { left: Math.min(r.left, b.left), top: Math.min(r.top, b.top), right: Math.max(r.right, b.right), bottom: Math.max(r.bottom, b.bottom) } : { left: b.left, top: b.top, right: b.right, bottom: b.bottom }; } return r; };
+  const textRect = (l, ctl) => { let r = null; const tw = document.createTreeWalker(l, NodeFilter.SHOW_TEXT); for (let t; (t = tw.nextNode());) { if (!t.textContent.trim() || (ctl && ctl.contains(t)) || t.parentElement.closest('select, option, .sr-only, .visually-hidden') || !shown(t.parentElement)) continue; const rg = document.createRange(); rg.selectNodeContents(t); let b = rg.getBoundingClientRect(); const pe = t.parentElement, ps = cs(pe); if (ps.overflowX !== 'visible') { const q = pe.getBoundingClientRect(); b = { left: Math.max(b.left, q.left), top: b.top, right: Math.min(b.right, q.right), bottom: b.bottom, width: Math.min(b.right, q.right) - Math.max(b.left, q.left) }; } if (!(b.width > 0)) continue; r = r ? { left: Math.min(r.left, b.left), top: Math.min(r.top, b.top), right: Math.max(r.right, b.right), bottom: Math.max(r.bottom, b.bottom) } : { left: b.left, top: b.top, right: b.right, bottom: b.bottom }; } return r; };
   const groups = new Map();
   for (const l of new Set(scope.flatMap(s => [...s.querySelectorAll('label')]))) {
     const ctl = ctlOf(l); if (!ctl || !shown(l) || !shown(ctl) || hid(l) || floating(l) || /checkbox|radio|hidden/.test(ctl.type || '')) continue;
-    const tr = textRect(l, ctl), cb = ctl.getBoundingClientRect(); if (!tr || !cb.width) continue;
+    // control nằm ngoài nhãn (label for=…): so KHỐI chứa nhãn với KHỐI chứa control dưới tổ tiên chung (vd. nhãn + chip ở .fld-top, thanh trượt + ô số ở .range-row)
+    let tr = textRect(l, ctl), cb = ctl.getBoundingClientRect();
+    if (!l.contains(ctl)) { let a = l.parentElement; while (a && !a.contains(ctl)) a = a.parentElement; const kid = e => { while (e && e.parentElement !== a) e = e.parentElement; return e; }; const lb = kid(l), kb = kid(ctl); if (a && lb && kb && lb !== kb) { const q = lb.getBoundingClientRect(); if (tr) tr = { left: tr.left, top: q.top, right: tr.right, bottom: q.bottom }; cb = kb.getBoundingClientRect(); } }
+    if (!tr || !cb.width) continue;
     const vOver = Math.min(tr.bottom, cb.bottom) - Math.max(tr.top, cb.top), hOver = Math.min(tr.right, cb.right) - Math.max(tr.left, cb.left);
     const name = `nhãn "${(l.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 20)}"`;
     let kind;

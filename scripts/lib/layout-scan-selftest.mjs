@@ -22,8 +22,9 @@ const HEAD = `<tr><th><input type="checkbox" aria-label="all"></th><th>Users</th
 const FILTERS = dated => `<div class="tools">${['Role', 'Status', 'Platform', 'Country', 'Last active', 'Visits', 'Tag', 'Access', 'Sync block'].map(n => `<label class="sel"><span>${n}</span><select><option>All</option></select></label>`).join('')}
 ${dated ? `<label class="sel"><span>Joined from</span><input type="date"></label><label class="sel"><span>to</span><input type="date"></label>` : `<label class="sel"><span>Joined from</span><select><option>Any</option></select></label><label class="sel"><span>to</span><select><option>Any</option></select></label>`}</div>`;
 const HTML = `<style>${CSS}</style>
-<section id="bad"><table><thead>${HEAD}</thead><tbody><tr>${ROW}</tr></tbody></table>${FILTERS(true)}</section>
+<section id="bad"><table><thead>${HEAD}</thead><tbody><tr>${ROW}</tr></tbody></table>${FILTERS(true)}<div><label for="lone">Lonely label</label><div style="height:120px"></div><input id="lone"></div></section>
 <section id="good"><table><colgroup><col class="c-ck"><col class="c-who"><col span="7" style="width:110px"><col style="width:540px"></colgroup><thead>${HEAD}</thead><tbody><tr>${ROW.replace('<td class="badges">', '<td class="badges"><div class="bw">').replace('<span class="chip">Beta</span></td>', '<span class="chip">Beta</span></div></td>')}</tr></tbody></table>${FILTERS(false)}
+<div class="fld" style="width:360px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;align-items:baseline"><label for="rate">Sampling rate</label><span class="chip">Default: 1</span><span class="chip">Edited 2h ago by admin</span><span class="chip">Reset to default</span></div><div style="display:flex;gap:12px"><input type="range" style="flex:1" aria-label="rate"><input id="rate" type="number" style="width:80px"></div></div>
 <p class="cjk">日本語の説明文はスペースがなくても普通の幅で読めます。中文段落也一样，不应被误报为逐字换行。</p><span class="sr">Screen reader only long text here</span></section>`;
 
 export async function selftest(browser) {
@@ -36,6 +37,7 @@ export async function selftest(browser) {
     if (!bad.cell.some(x => /display:flex/.test(x))) fail.push('cell: không bắt td display:flex');
     if (!bad.cell.some(x => /cột thừa/.test(x))) fail.push('cell: không bắt cột ô chọn rộng thừa');
     if (!bad.orphan.some(x => /trộn kiểu nhãn/.test(x))) fail.push('orphan: không bắt nhóm lọc trộn nhãn bên cạnh/bên trên');
+    if (!bad.orphan.some(x => /Lonely label/.test(x))) fail.push('orphan: không bắt nhãn for= cách xa control');
     for (const k of ['stack', 'cell', 'orphan']) if (good[k].length) fail.push(`${k}: báo nhầm ca đúng – ${good[k][0]}`);
     return { ok: !fail.length, fail, bad: { stack: bad.stack, cell: bad.cell, orphan: bad.orphan } };
   } finally { await page.close(); }
