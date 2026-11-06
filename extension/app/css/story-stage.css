@@ -60,6 +60,7 @@
 .lsn-fx #lsnPlay,.lsn-fx #lsnSlow{min-width:44px;min-height:44px;border-radius:9999px}
 /* Kiểm tra: TẮT = xám phẳng chữ đủ tương phản; BẬT giữ nguyên mẫu Stitch (gradient cam – cổng stitch-diff vùng CTA ≥ 0,99, không được xa mẫu hơn) */
 @media (prefers-reduced-motion:no-preference){.lsn-fx #lsnCheck{transition:background-color .15s}}
+.lsn-fx #lsnCheck{text-transform:uppercase;letter-spacing:.02em} /* nút Kiểm tra viết hoa như mẫu Stitch (CHECK ANSWER), cùng kiểu nút Tiếp tục */
 .lsn-fx #lsnCheck:disabled{background-image:none!important;opacity:1!important;background-color:var(--ex-dis-bg)!important;color:var(--ex-dis-fg)!important;box-shadow:none!important;cursor:not-allowed}
 .lsn-fx .lsn-qfoot{--ss-fs-ic:16px}
 /* Bỏ qua / Báo lỗi: liên kết chữ nhỏ, lặng, dưới nút chính (không nền, không viền, không bóng) */
@@ -76,5 +77,5 @@
 /* Tấm phản hồi đang mở: lưới đáp án gọn như mẫu feedback-* (khe 8 px; đúng → thẻ 72 px) → máy nhỏ không bị đẩy nội dung/phải cuộn; chưa có phản hồi giữ thẻ 96 px.
  * Đổi cỡ xảy ra ngay lúc bấm Kiểm tra (không tính CLS: có thao tác vừa nhập) + hiện nhẹ bằng opacity/transform (không chuyển động bố cục). */
 :root .lsn-fx:has(.lsn-fv2) .lsn-opts{gap:var(--sp-2);animation:ss-in .2s cubic-bezier(.2,.8,.2,1) both}
-:root .lsn-fx:has(.lsn-fv2.ok) .lsn-opts .lsn-opt{height:4.5rem;padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
+:root .lsn-fx:has(.lsn-fv2.ok) .lsn-opts .lsn-opt{height:4.5rem;min-height:4.5rem;padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
 @media (prefers-reduced-motion:reduce){:root .lsn-fx:has(.lsn-fv2) .lsn-opts{animation:none}}
