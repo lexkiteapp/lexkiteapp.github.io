@@ -16,5 +16,7 @@ print("xcresult:", d.get("result"), "passed", d.get("passedTests"), "failed", d.
 for f in d.get("testFailures", [])[:60]: print("::error::%s %s: %s" % (f.get("targetName",""), f.get("testName",""), f.get("failureText","")[:300]))
 for e in d.get("errors", [])[:20]: print("::error::xcresult:", (e.get("message") or str(e))[:400])
 '
+  # crash reason (uncaught exception / fatalError text) only lives in the test process console, not in the xcodebuild log
+  [ -n "$res" ] && xcrun xcresulttool get log --path "$res" --type console 2>/dev/null | grep -iE -B2 -A12 "terminating|exception|fatal error|reason:|precondition|assertion failed" | head -80
 fi
 exit $rc

@@ -4,6 +4,7 @@
 set -e
 cd "$(dirname "$0")/.."
 node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-on, icon.svg (docs/BRAND-RULES.md)
+node scripts/test/native-visual.mjs --self-test --write-fixtures >/dev/null   # token đổi → ảnh mẫu QC native sinh lại (không thì npm test đỏ "fixture lỗi thời")
 node scripts/ci/required-gate.mjs --check  # gate = bộ canh lịch, không quay lại workflow_run (docs/CI-RUNNERS.md)
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
 node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js

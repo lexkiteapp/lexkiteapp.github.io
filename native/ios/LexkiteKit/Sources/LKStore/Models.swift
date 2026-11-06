@@ -92,7 +92,9 @@ public enum LKSchema {
     public static let models: [any PersistentModel.Type] = [CardModel.self, StatDay.self, Settings.self, SyncMeta.self, LegacyKV.self]
     public static func container(inMemory: Bool = false) throws -> ModelContainer {
         let schema = Schema(models)
-        let cfg = ModelConfiguration("Lexkite", schema: schema, isStoredInMemoryOnly: inMemory)
+        // in-memory (tests/previews): a UNIQUE store name per container – several repositories with the same named in-memory store
+        // in one process share/clash in Core Data and abort on save (crash in LKRepository.write on CI)
+        let cfg = ModelConfiguration(inMemory ? "Lexkite-mem-\(UUID().uuidString)" : "Lexkite", schema: schema, isStoredInMemoryOnly: inMemory)
         return try ModelContainer(for: schema, configurations: [cfg])
     }
 }
