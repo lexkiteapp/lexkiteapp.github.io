@@ -174,7 +174,7 @@ jobs:
         run: |
           if [ "${{ inputs.native }}" = 1 ] || { [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%u)" = 1 ]; }; then
             echo "jn=1" >> "$GITHUB_OUTPUT"
-            gh workflow run ios-e2e.yml && gh workflow run native-auth-e2e.yml && echo "note=đã kích hoạt ios-e2e + native-auth-e2e (Android emulator) – xem tab Actions" >> "$GITHUB_OUTPUT" || echo "note=kích hoạt native THẤT BẠI" >> "$GITHUB_OUTPUT"
+            bash scripts/ci/gh-retry.sh gh workflow run ios-e2e.yml && bash scripts/ci/gh-retry.sh gh workflow run native-auth-e2e.yml && echo "note=đã kích hoạt ios-e2e + native-auth-e2e (Android emulator) – xem tab Actions" >> "$GITHUB_OUTPUT" || echo "note=kích hoạt native THẤT BẠI" >> "$GITHUB_OUTPUT"
           else echo "note=chưa đến tuần (chạy thứ Hai)" >> "$GITHUB_OUTPUT"; fi
 
   # Hành trình người dùng đầu-cuối (journey-e2e.yml) – mỗi đêm web vi/en/ar × máy tính/điện thoại + add-on; thứ Hai thêm hành trình 1–3 trên Android + iOS
