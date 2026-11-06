@@ -29,4 +29,5 @@ const lc = rd('scripts/test/live-check.mjs');
 ok(/deployLagMin/.test(lc) && /SW_GRACE_MIN/.test(lc) && /GITHUB_TOKEN/.test(rd('.github/workflows/health.yml')), 'health: sw.js lệch live trong khung gom deploy 180′ chỉ cảnh báo');
 ok(/on:[\s\S]*push:\s*\n\s+branches: \[main, stitch-quality\]/.test(rd('.github/workflows/stitch-quality-qc.yml')), 'stitch-quality-qc canh main');
 ok(/console\.error\(`✗ \$\{x\.f\.rel\}: \$\{String\(e\.code/.test(rd('scripts/footage/archive.mjs')), 'footage-archive: lỗi tải không còn im lặng');
+ok(/build-extension\.sh\s*\n\s+- name: npm test/.test(rd('.github/workflows/content-factory.yml')) && /git add -A content web extension/.test(rd('scripts/factory/open-pr.sh')), 'content-factory: dựng lại extension/app trước npm test và đưa vào PR bot (ext-sync đỏ ở collect)');
 console.log(`main-red-sweep: ${n} kiểm tra PASS`);
