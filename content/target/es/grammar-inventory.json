@@ -553,7 +553,7 @@
    "area": "verb",
    "name": "imperfect of ser, ir and ver",
    "can_do_en": "Can use era, iba and veía to describe the past.",
-   "example": "Antes era tímido y íbamos a la playa.",
+   "example": "Antes era tímido e íbamos a la playa.",
    "example_en": "I used to be shy and we went to the beach.",
    "tenses": [
     "impf"
@@ -2183,8 +2183,8 @@
    "area": "word",
    "name": "augmentatives -ón, -azo",
    "can_do_en": "Can recognise augmentatives such as -ón, -ote and -azo and their tone.",
-   "example": "Tiene un casón enorme y un perrazo.",
-   "example_en": "He has a huge house and a big dog.",
+   "example": "Vive en un casón enorme y siempre da un portazo al salir.",
+   "example_en": "He lives in a huge house and always slams the door when he leaves.",
    "tenses": [
     "pres"
    ],
@@ -3015,8 +3015,8 @@
    "area": "word",
    "name": "appreciative suffixes (-illo, -ucho, -ote)",
    "can_do_en": "Can use appreciative suffixes to add shades of meaning such as scorn or affection.",
-   "example": "Es un cuartucho, pero el hotelito es lindo.",
-   "example_en": "It's a shabby little room, but the little hotel is nice.",
+   "example": "Es un cuartucho, pero la casita es linda.",
+   "example_en": "It's a shabby little room, but the little house is nice.",
    "tenses": [
     "pres"
    ],
@@ -3041,7 +3041,7 @@
    "area": "discourse",
    "name": "collocations and light verbs",
    "can_do_en": "Can use fixed combinations like hacer caso, dar lugar and tomar en cuenta.",
-   "example": "Tomó en cuenta mis ideas y hizo caso a mi consejo.",
+   "example": "Tomó en cuenta mis ideas e hizo caso a mi consejo.",
    "example_en": "He took my ideas into account and heeded my advice.",
    "tenses": [
     "pret"

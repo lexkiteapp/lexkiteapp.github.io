@@ -39,6 +39,6 @@ async function check(v) {
 }
 for (let i = 0; i < verbs.length; i += 4) await Promise.all(verbs.slice(i, i + 4).map(check)); // 4 yêu cầu song song – nhẹ cho kaikki.org
 const txt = [`## Chia động từ ↔ Wiktionary: ${verbs.length} động từ, khớp ${ok}/${ok + miss} ô (${nodata} ô Wiktionary trống), lệch ${miss}${noPage.length ? `, không có trang: ${noPage.join(' ')}` : ''}`,
-  ...bad.slice(0, 80).map(x => '- ✗ ' + x)].join('\n');
+  ...(bad.length ? ['động từ lệch: ' + [...new Set(bad.map(x => x.split(' ')[0]))].join(' ')] : []), ...bad.slice(0, 80).map(x => '- ✗ ' + x)].join('\n');
 console.log(txt); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, txt + '\n');
 process.exit(miss || noPage.length ? 1 : 0);

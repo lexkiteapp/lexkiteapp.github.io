@@ -24,7 +24,7 @@ const put = (k, s) => list(s).forEach(v => { SC[v] = k; });
 put('e>ie', `pensar empezar comenzar cerrar despertar sentar entender perder querer preferir sentir mentir divertir convertir advertir sugerir hervir
   defender encender recomendar negar nevar gobernar atravesar calentar confesar apretar fregar regar tropezar quebrar temblar sembrar manifestar merendar
   ascender descender extender tender atender consentir referir requerir herir invertir digerir interferir transferir inferir discernir verter
-  despertarse sentarse divertirse arrepentir arrepentirse mentir desmentir presentir resentir subarrendar acertar enterrar plegar desplegar renegar
+  arrepentir mentir desmentir presentir subarrendar acertar enterrar plegar desplegar renegar
   reventar serrar segar cegar asentar alentar comenzar recomenzar escarmentar`);
 put('i>ie', 'adquirir inquirir');
 put('o>ue', `poder volver dormir morir contar costar encontrar mostrar probar recordar soñar sonar volar almorzar acostar aprobar colgar demostrar
@@ -47,6 +47,7 @@ function change(stem, rule) {
     if (stem[i] === a) {
       let r = b;
       if (rule === 'o>ue' && i === 0) r = 'hue'; // oler → huelo
+      if (rule === 'o>ue' && stem[i - 1] === 'g') r = 'üe'; // avergonzar → avergüenzo
       if (rule === 'u>ue' && /g$/.test(stem.slice(0, i))) r = 'ue';
       return stem.slice(0, i) + r + stem.slice(i + 1);
     }
@@ -102,6 +103,7 @@ const IRR = {
   describir: { part: 'descrito' }, inscribir: { part: 'inscrito' }, suscribir: { part: 'suscrito' }, romper: { part: 'roto' }, imprimir: { part: 'impreso' },
   volver: { part: 'vuelto' }, devolver: { part: 'devuelto' }, envolver: { part: 'envuelto' }, revolver: { part: 'revuelto' }, resolver: { part: 'resuelto' },
   disolver: { part: 'disuelto' }, absolver: { part: 'absuelto' }, proveer: { part: 'provisto' },
+  discernir: { small: null }, // e>ie nhưng không đổi nhỏ: discernió, discerniendo
   guiar: { mono: true }, fiar: { mono: true }, criar: { mono: true }, liar: { mono: true },
   bendecir: { yo: 'bendigo', ps: 'bendij', impTu: 'bendice', sc: 'e>i' }, maldecir: { yo: 'maldigo', ps: 'maldij', impTu: 'maldice', sc: 'e>i' },
 };
@@ -124,6 +126,7 @@ function compound(inf) {
   if (b === 'decir') { // predecir/contradecir: tương lai đều, mệnh lệnh tú -dice
     o.fut = FUT.map(e => inf + e); o.cond = COND.map(e => inf + e); o.imp.tu = p + 'dice';
   }
+  if (b === 'hacer' && /[aeiou]$/.test(p)) { o.pret[0] = p + 'híce'; o.pret[2] = p + 'hízo'; } // re-hí-ce: hiatus qua h câm → dấu
   return o;
 }
 
@@ -132,7 +135,7 @@ export function conjugate(input) {
   if (!/^\p{L}*[aeií]r$/u.test(inf)) throw new Error('không phải động từ nguyên mẫu: ' + input);
   if (COMPOUNDS[inf]) return compound(inf);
   const R = IRR[inf] || {}, cls = strip(inf).slice(-2), E = END[cls], s = strip(inf).slice(0, -2);
-  const sc = R.sc || SC[inf] || (/[^cg]uar$/.test(inf) ? 'u>ú' : null), small = cls === 'ir' ? (R.small || SMALL[sc]) : null;
+  const sc = R.sc || SC[inf] || (/[^cg]uar$/.test(inf) ? 'u>ú' : null), small = cls === 'ir' ? ('small' in R ? R.small : SMALL[sc]) : null;
   const big = change(s, sc), sm = change(s, small);
   const vowelStem = VOWEL_END.test(s), uir = /[^gq]u$/.test(s) && cls === 'ir', soft = /(ñ|ll)$/.test(s);
   const o = { inf };
@@ -193,4 +196,4 @@ export function form(inf, tense) {
 }
 
 /** Danh sách động từ bảng quy tắc đã biết (lớp đổi gốc, bất quy tắc, ghép) – conj-check.mjs kiểm chéo toàn bộ trên CI. */
-export const KNOWN = [...new Set([...Object.keys(SC), ...Object.keys(IRR), ...Object.keys(COMPOUNDS)])];
+export const KNOWN = [...new Set([...Object.keys(SC), ...Object.keys(IRR), ...Object.keys(COMPOUNDS)].map(v => v.replace(/(?<=[aeií]r)se$/, '')))];

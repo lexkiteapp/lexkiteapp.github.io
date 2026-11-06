@@ -31,6 +31,9 @@ decir|ger|diciendo
 tener|subjFut|tuviere tuvieres tuviere tuviéremos tuvieren
 terminar|pretAnt|hube terminado hubiste terminado hubo terminado hubimos terminado hubieron terminado
 volver|part|vuelto
+rehacer|pret|rehíce rehiciste rehízo rehicimos rehicieron
+discernir|pret|discerní discerniste discernió discernimos discernieron
+avergonzar|pres|avergüenzo avergüenzas avergüenza avergonzamos avergüenzan
 teñir|ger|tiñendo
 empezar|subj|empiece empieces empiece empecemos empiecen
 vencer|pres|venzo vences vence vencemos vencen
