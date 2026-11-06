@@ -84,8 +84,10 @@ jobs:
         timeout-minutes: 40
         env: { ONLY: 'today,review,lesson', UX1: '1' }
         run: |
-          npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null
-          git fetch -q --depth 1 origin main && git worktree add -q ../base FETCH_HEAD && (cd ../base && npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null)
+          mkdir -p out
+          b() { (cd "$1" && npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh) > "$2" 2>&1 || { echo "::error::dựng $1 lỗi"; grep -v -E '│|╵|WARNING|original key' "$2" | tail -40; exit 1; }; }
+          b . out/build-head.log
+          git fetch -q --depth 1 origin main && git worktree add -q ../base FETCH_HEAD && b ../base out/build-base.log
           (node scripts/test/serve-web.mjs ../base/dist 8081 >/dev/null 2>&1 &) ; (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
           echo "### TRƯỚC (main) – lạnh"; node scripts/test/route-vitals.mjs http://localhost:8081 out/before.json
           echo "### SAU (nhánh) – lạnh"; node scripts/test/route-vitals.mjs http://localhost:8080 out/after.json
