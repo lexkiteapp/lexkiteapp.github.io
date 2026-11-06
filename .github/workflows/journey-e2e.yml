@@ -5,7 +5,7 @@
 name: Journey E2E
 on:
   pull_request:
-    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'web/index.html', 'web/sw.js', 'web/i18n/**', 'extension/**', 'scripts/build-web.sh', 'scripts/test/journey-e2e.mjs', 'scripts/test/journey-e2e/**', 'scripts/quality/serve.mjs', '.github/workflows/journey-e2e.yml']
+    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'web/index.html', 'web/sw.js', 'web/i18n/**', 'extension/**', 'scripts/build-web.sh', 'scripts/test/journey-e2e.mjs', 'scripts/test/welcome-journey.mjs', 'scripts/test/stitch-screens.mjs', 'scripts/test/journey-e2e/**', 'scripts/quality/serve.mjs', '.github/workflows/journey-e2e.yml']
   push:
     branches: ['journey-e2e*']
   workflow_dispatch:
@@ -51,6 +51,9 @@ jobs:
       - name: Hành trình 1–2 trên điện thoại 360/390 px (vi) + kiểm hình tự động
         if: always() && matrix.lang == 'vi'
         run: node scripts/test/journey-e2e.mjs --root dist --lang vi --device m360,m390 --only 1,2 --out je-out/vi-360
+      - name: Welcome + thiết lập lần đầu (docs/specs/welcome.md)
+        if: always() && matrix.lang == 'vi'
+        run: node scripts/test/welcome-journey.mjs --root dist
       - if: always()
         run: cat je-out/${{ matrix.lang }}*/summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
       - uses: actions/upload-artifact@v4
