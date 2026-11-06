@@ -26,6 +26,8 @@ En prolongeant les principes exposés dans [toeic listening reading astuces](/fr
 
 Au cours des 75 minutes allouées à la section Reading, la Partie 7 démarre immédiatement après la Partie 5 (30 phrases à compléter) et la Partie 6 (16 questions de texte à trous). Les supports reproduisent fidèlement la correspondance professionnelle du monde de l'entreprise : courriels, mémos internes, communiqués de presse, offres d'emploi, factures commerciales, formulaires de commande et discussions instantanées à plusieurs intervenants.
 
+À lire aussi : [la méthode des 60 minutes pour gérer son temps en IELTS Reading](/fr/blog/gestion-du-temps-en-ielts-reading-60-minutes/).
+
 Les 54 questions s'articulent autour de trois configurations textuelles distinctes :
 
 | Format | Structure documentaire | Volume de questions | Défi analytique principal |

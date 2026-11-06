@@ -24,6 +24,8 @@ Dans ce guide pratique, nous examinerons les causes phonétiques et cognitives p
 
 Lorsque l'on ouvre la transcription textuelle d'un extrait audio qui semblait incompréhensible, la surprise est presque toujours la même : 90 % des mots utilisés font déjà partie de notre bagage lexical. Ce blocage s'explique par quatre mécanismes bien précis :
 
+Pour aller plus loin, lisez aussi [nos stratégies pour TOEIC Listening Part 2](/fr/blog/toeic-listening-part-2-strategies-questions-reponses/).
+
 1. **Vous connaissez l'orthographe, pas la signature sonore :** en apprenant l'anglais principalement dans les manuels scolaires sans support audio systématique, le cerveau associe le mot à sa représentation graphique et imagine une prononciation calquée sur le français. Face à la prononciation authentique d'un natif, le cerveau ne retrouve pas le mot dans sa mémoire auditive.
 2. **L'anglais parlé ne sépare pas les mots :** à l'écrit, les espaces délimitent clairement chaque terme. À l'oral, les sons s'enchaînent continuellement par le phénomène de la parole liée (*connected speech*). Pour comprendre ces mécanismes en détail, découvrez notre article sur le [connected speech en anglais et le rythme des liaisons](/fr/blog/connected-speech-anglais-liaisons-et-rythme/).
 3. **Le rythme de l'anglais est basé sur l'accent tonique (*stress-timed*) :** contrairement au français où chaque syllabe possède une durée relativement égale, l'anglais concentre son énergie sur les syllabes accentuées et compresse les mots fonctionnels (prépositions, articles, auxiliaires).

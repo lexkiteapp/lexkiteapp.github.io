@@ -135,6 +135,6 @@ Task 2のエッセイでは、以下の4つの複文パターンを状況に応�
 2. **本論パラグラフ（Body Paragraphs）**: トピックセンテンスは端的な複文で開始し、具体例の提示には関係詞節（`..., which illustrates that...`）や分詞構文（`..., thereby demonstrating...`）を組み合わせて論理的密度を高めます。
 3. **結論パラグラフ（Conclusion）**: 主張の再提示には強調構文や条件節の倒置（`Had governments...`）を効果的に織り交ぜ、文章全体に格調高い締めくくりをもたらします。
 
-試験対策の総仕上げとして、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [IELTSパラフレーズの言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) を再確認しておきましょう。また、文全体の説得力を高めるために [IELTS環境問題の英単語とコロケーション](/ja/blog/ielts-kankyou-mondai-eitango-collocation/) や [自然な英語コロケーション一覧](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) を併せて学習し、公式単語集 [/tu-vung/](/tu-vung/) でアカデミック語彙を強固にしておくことが推奨されます。
+試験対策の総仕上げとして、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [IELTSパラフレーズの言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) を再確認しておきましょう。また、文全体の説得力を高めるために [IELTS環境問題の英単語とコロケーション](/ja/blog/ielts-kankyou-mondai-eitango-collocation/) や [自然な英語コロケーション一覧](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) を併せて学習し、公式単語集 [/tu-vung/](/en/vocabulary/) でアカデミック語彙を強固にしておくことが推奨されます。
 
 複文を正しく操り、明快かつ説得力に富んだエッセイでIELTS Writingの目標スコアを確実に達成してください。
