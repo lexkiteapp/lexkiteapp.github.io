@@ -294,16 +294,17 @@
   },
   "academic integrity#n": {
    "ex": "All students sign a pledge of academic integrity at enrolment.",
-   "ps": "a student and a teacher smile over a blank sheet marked with a green tick",
-   "sc": "a student and a teacher smile over a blank sheet marked with a green tick",
-   "check": "Is a student receiving a paper marked with a green tick from a teacher?",
-   "cap": "a student and teacher approving a paper with a green tick",
-   "key": "a big green tick mark on a blank sheet; the student and teacher smiling",
+   "ps": "a boy and a girl sit at a table, each holding a puzzle piece, fitting them together and smiling",
+   "sc": "a boy and a girl sit at a table, each holding a puzzle piece, fitting them together and smiling",
+   "check": "Are the two students honestly working together on a shared puzzle?",
+   "cap": "two students cooperating on a puzzle",
+   "key": "two students each holding a puzzle piece; they are smiling while fitting pieces together",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "academic journal#n": {
    "ex": "She published her findings in an international academic journal.",
@@ -1210,6 +1211,20 @@
    "tries": 3,
    "refix": 2
   },
+  "acumen#n": {
+   "ex": "Drake did not possess good business acumen.",
+   "ps": "a man looks puzzled then smiles as a missing puzzle piece fits into a nearly completed puzzle",
+   "sc": "a man looks puzzled then smiles as a missing puzzle piece fits into a nearly completed puzzle",
+   "check": "Is the person showing a clear moment of understanding by fitting a piece into a puzzle?",
+   "cap": "a man completes a puzzle with a fitting piece",
+   "key": "a missing puzzle piece fitting into a gap; the person's surprised face turning to a smile",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "acute#adj": {
    "ex": "He was admitted to the emergency department with acute abdominal pain.",
    "ps": "a man clutches his stomach with a red bandage, grimacing, while a second man stands relaxed",
@@ -1687,17 +1702,17 @@
   },
   "adoption#n": {
    "ex": "The adoption of new accounting software has improved efficiency in the finance team.",
-   "ps": "two people stand beside a new shiny box, both smiling as they open it together",
-   "sc": "two people stand beside a new shiny box, both smiling as they open it together",
-   "check": "Are the people beginning to use a new device together?",
-   "cap": "two people opening a new box together",
-   "key": "a new shiny box being opened; two people smiling and reaching for it",
+   "ps": "a man and a woman stand side by side, each holding a sleek rectangular device, smiling at each other",
+   "sc": "a man and a woman stand side by side, each holding a sleek rectangular device, smiling at each other",
+   "check": "Are the two people exchanging new devices to start using them?",
+   "cap": "two people smiling while holding new rectangular devices",
+   "key": "the sleek rectangular devices being held; the smiling faces",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "adorable#adj": {
    "ex": "That's such an adorable face.",
@@ -2390,17 +2405,17 @@
   },
   "air waybill#n": {
    "ex": "The air waybill number lets you track the parcel online.",
-   "ps": "a man holds a blank rectangular sheet and a cardboard box while an airplane flies above",
-   "sc": "a man holds a blank rectangular sheet and a cardboard box while an airplane flies above",
-   "check": "Is the blank sheet shown as a transport document for the box being shipped by air?",
-   "cap": "a man with a blank sheet and a box under a flying airplane",
-   "key": "blank rectangular sheet; cardboard box being shipped",
-   "who": 1,
+   "ps": "a blank white sheet with a big red cross, beside a wooden box being lifted onto a silver airplane",
+   "sc": "a blank white sheet with a big red cross, beside a wooden box being lifted onto a silver airplane",
+   "check": "Is there a paper used to record the shipment of goods by airplane?",
+   "cap": "a blank sheet with a red cross beside a box on an airplane",
+   "key": "a blank white sheet with a big red cross; a wooden box being loaded onto an airplane",
+   "who": 0,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "air#n": {
    "ex": "Let's open the window and get some fresh air.",
@@ -2647,6 +2662,20 @@
    "cap": "a fisherman pulling a wriggling fish from water",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "alkali#n": {
+   "ex": "The strength of an alkali can be found using universal indicator.",
+   "ps": "a person pours a white powder into a clear glass of water, bubbles rise",
+   "sc": "a person pours a white powder into a clear glass of water, bubbles rise",
+   "check": "Is a white powder being added to water causing bubbles?",
+   "cap": "white powder dropped into water creating bubbles",
+   "key": "white powder being poured into water; bubbles rising in the glass",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "all-hands meeting#n": {
    "ex": "The CEO will announce the new strategy at Monday's all-hands meeting.",
@@ -3509,6 +3538,19 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "annihilate#v": {
+   "ex": "Vast numbers of species are being annihilated.",
+   "ps": "a man swings a large hammer at a wooden crate, and the crate shatters into dust",
+   "sc": "a man swings a large hammer at a wooden crate, and the crate shatters into dust",
+   "check": "Is the man smashing the crate until it turns into dust?",
+   "cap": "a man smashing a wooden crate with a hammer",
+   "key": "a large hammer striking a wooden crate; broken pieces turning to dust",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
+  },
   "anniversary#n": {
    "ex": "The company will celebrate its 50th anniversary with a party for all staff.",
    "ps": "a man and a woman raise glasses beside a cake with many candles, surrounded by balloons",
@@ -3716,17 +3758,17 @@
   },
   "antibody#n": {
    "ex": "Blood tests showed high levels of antibodies after the second vaccine dose.",
-   "ps": "a large Y‑shaped protein molecule floating in a clear liquid, colored blue with orange arms",
-   "sc": "a large Y‑shaped protein molecule floating in a clear liquid, colored blue with orange arms",
-   "check": "Is there a Y‑shaped molecule that looks like a protein?",
-   "cap": "a blue Y‑shaped protein floating in clear liquid",
-   "key": "the Y‑shaped structure of the molecule; the blue color with orange arms",
+   "ps": "a Y‑shaped protein floats near a spiky ball, the Y attaches to the ball's surface",
+   "sc": "a Y‑shaped protein floats near a spiky ball, the Y attaches to the ball's surface",
+   "check": "Is there a Y‑shaped protein attached to a virus-like ball?",
+   "cap": "a Y‑shaped protein binding a spiky virus model",
+   "key": "a Y‑shaped protein; a spiky ball representing a virus with the Y attached",
    "who": 0,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "anticipate#v": {
    "skip": "hard to show anticipation without abstract symbols",
@@ -3868,6 +3910,18 @@
   "anywhere#adv": {
    "skip": "draw 3: a woman kneels on the floor, searching under a couch for her",
    "v": "e4",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "aorta#n": {
+   "ex": "Smaller arteries branch off from the aorta.",
+   "ps": "a red model of a heart with a large tube extending from the top, shown in a clear view",
+   "sc": "a red model of a heart with a large tube extending from the top, shown in a clear view",
+   "check": "Is there a large artery exiting the heart?",
+   "cap": "a heart model displaying a prominent tube representing a main artery",
+   "key": "a heart model with a large tube exiting it; the tube is prominently displayed",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
   "apart#adv": {
@@ -5924,6 +5978,20 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "avoidable#adj": {
+   "ex": "That problem is not avoidable.",
+   "ps": "a man stands directly in front of a solid brick wall, unable to go around",
+   "sc": "a man stands directly in front of a solid brick wall, unable to go around",
+   "check": "Is the person blocked by an unmovable solid wall?",
+   "cap": "a man blocked by a solid brick wall he cannot bypass",
+   "key": "a solid brick wall blocking the path; the man's frustrated stance",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "await#v": {
    "ex": "We await your reply to our proposal with great interest.",
    "ps": "a woman stands on a sidewalk, eyes fixed on a large bus arriving",
@@ -7532,6 +7600,33 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "biosphere#n": {
+   "ex": "The biosphere is very important to humans.",
+   "ps": "a globe shows green continents, blue oceans, and small trees and animals on the land",
+   "sc": "a globe shows green continents, blue oceans, and small trees and animals on the land",
+   "check": "Is the globe displaying land, water, plants and animals that support life?",
+   "cap": "a globe with green land, blue water, trees and animals",
+   "key": "green continents with trees and animals; blue oceans surrounding them",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
+  },
+  "biosynthesis#n": {
+   "ex": "Biosynthesis happens because of chemical reactions.",
+   "ps": "inside a round cell, several small colored dots join together to form one larger green dot",
+   "sc": "inside a round cell, several small colored dots join together to form one larger green dot",
+   "check": "Are small parts inside the cell combining to create a bigger molecule?",
+   "cap": "small colored pieces merging inside a cell",
+   "key": "several small colored dots joining together; one larger green dot formed inside the cell",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "biotechnology#n": {
    "ex": "Clearly, she knows a lot about biotechnology.",
@@ -10601,6 +10696,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "causality#n": {
+   "ex": "It is hard to get clear-cut evidence of causality.",
+   "ps": "a boy pushes a tall red domino, and a second domino falls to the right",
+   "sc": "a boy pushes a tall red domino, and a second domino falls to the right",
+   "check": "Is the first domino being pushed causing another domino to fall?",
+   "cap": "a boy triggers a domino to tumble",
+   "key": "the boy's hand pushing the first domino; the second domino falling",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "causation#n": {
    "ex": "Correlation alone does not prove causation, so the authors interpret results cautiously.",
    "ps": "a child pushes a tall red domino that knocks over a blue domino beside it",
@@ -11247,6 +11356,18 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "chasm#n": {
+   "ex": "How deep is that chasm?",
+   "ps": "a deep narrow gap splits a rocky cliff, showing dark shadows at the bottom",
+   "sc": "a deep narrow gap splits a rocky cliff, showing dark shadows at the bottom",
+   "check": "Is there a deep narrow opening in the earth?",
+   "cap": "a dark opening cutting through a rocky cliff",
+   "key": "a deep narrow gap in a rocky cliff",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "chat#v": {
    "ex": "We chatted for an hour over coffee.",
    "sc": "person A and person B sit at a café table, each with a coffee mug, leaning toward each other, smiling and gesturing with their hands",
@@ -11847,6 +11968,19 @@
    "by": "openai/gpt-oss-120b",
    "e4bad": 3
   },
+  "cirrhosis#n": {
+   "ex": "Many years of infection may cause cirrhosis.",
+   "ps": "a doctor points at a large liver model covered in dark scar patches, patient looks worried",
+   "sc": "a doctor points at a large liver model covered in dark scar patches, patient looks worried",
+   "check": "Is the liver shown with many scarred areas?",
+   "cap": "a doctor examines a scarred liver model with a concerned patient",
+   "key": "a large liver model with many dark scar patches; a doctor pointing at the liver",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3
+  },
   "citation#n": {
    "skip": "hard to depict citation without writing, draw would be low",
    "by": "@cf/openai/gpt-oss-120b"
@@ -12099,17 +12233,17 @@
   },
   "classroom#n": {
    "ex": "The new classroom has a large interactive whiteboard and fast internet.",
-   "ps": "a teacher stands at a blank board while a child sits at a desk facing forward",
-   "sc": "a teacher stands at a blank board while a child sits at a desk facing forward",
-   "check": "Is there a room with a teacher and students at desks for learning?",
-   "cap": "a teacher and students in a room with desks and a board",
-   "key": "the teacher standing at a board; the child sitting at a desk facing the teacher",
+   "ps": "a bright room with rows of desks, a teacher at the front, and a large empty board",
+   "sc": "a bright room with rows of desks, a teacher at the front, and a large empty board",
+   "check": "Is there a room where lessons are taught with desks and a teacher?",
+   "cap": "a bright learning space with desks and a teacher",
+   "key": "rows of desks; a large empty board",
    "who": 2,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "clause#n": {
    "skip": "draw 3: a person fits a single puzzle piece into a larger picture on",
@@ -12580,6 +12714,18 @@
    "tries": 3,
    "refix": 2
   },
+  "coaxial#adj": {
+   "ex": "The length and quality of coaxial cables are important.",
+   "ps": "a cross‑section view shows a small inner circle centered inside a larger outer circle, next to two separate circles",
+   "sc": "a cross‑section view shows a small inner circle centered inside a larger outer circle, next to two separate circles",
+   "check": "Is there a pair of circles that share the same center?",
+   "cap": "a close‑up of concentric circles beside separate circles",
+   "key": "a small inner circle centered inside a larger outer circle; two separate circles not sharing a center",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "code review#n": {
    "ex": "Code review helps junior developers learn good practices.",
    "ps": "a man in a shirt points at a printed sheet with lines of code while a boy watches attentively",
@@ -12598,6 +12744,18 @@
    "cap": "A hand entering a keypad as the door opens",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "coerce#v": {
+   "ex": "Tom was coerced into doing that.",
+   "ps": "a man shoves a woman holding a large box, her face looks scared",
+   "sc": "a man shoves a woman holding a large box, her face looks scared",
+   "check": "Is the larger person forcing the smaller one to move a big object against their will?",
+   "cap": "a man shoving a woman holding a large box",
+   "key": "a large box being held; the man's forceful shove",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "coffin#n": {
    "ex": "Your coffin has an unusual shape.",
@@ -12648,6 +12806,20 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "cognizant#adj": {
+   "ex": "We are cognizant of the problem.",
+   "ps": "a man with a worried face looks at a metal pipe dripping water onto the floor",
+   "sc": "a man with a worried face looks at a metal pipe dripping water onto the floor",
+   "check": "Is the person looking at a leaking pipe and appearing aware of the problem?",
+   "cap": "a man examines a dripping pipe with a worried expression",
+   "key": "a leaking pipe with water droplets; the person's worried face",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "coherent#adj": {
    "ex": "A good essay presents a coherent argument.",
@@ -12952,6 +13124,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 2
   },
+  "combative#adj": {
+   "ex": "Tom is a combative player.",
+   "ps": "a man with clenched fists and scowling face stands next to a relaxed man smiling",
+   "sc": "a man with clenched fists and scowling face stands next to a relaxed man smiling",
+   "check": "Is one of the people showing an aggressive, ready-to-fight attitude?",
+   "cap": "two men, one aggressive and one relaxed",
+   "key": "a man with clenched fists and scowling face; a man with relaxed posture and smile",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "combination#n": {
    "ex": "The dish is a combination of rice, beans and vegetables.",
    "sc": "a close‑up view of a plate where cooked rice, beans, and assorted vegetables are mixed together.",
@@ -13239,6 +13423,18 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3
+  },
+  "commercialization#n": {
+   "ex": "The government tried to accelerate the commercialization of this development.",
+   "ps": "a scientist holds a prototype gadget while a businessman in a suit places the same gadget on a store shelf",
+   "sc": "a scientist holds a prototype gadget while a businessman in a suit places the same gadget on a store shelf",
+   "check": "Is there a transition from a lab object to a product displayed for sale?",
+   "cap": "a scientist and a businessman moving a gadget to a shop shelf",
+   "key": "a scientist holding a prototype; a businessman putting it on a shelf",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "commission#n": {
    "ex": "The salesman earns a commission on every car he sells.",
@@ -16265,6 +16461,18 @@
    "tries": 3,
    "refix": 1
   },
+  "convergent#adj": {
+   "ex": "Earthquakes and volcanoes are common near convergent boundaries.",
+   "ps": "two clear streams flow from opposite sides of a rocky valley and merge into a single river",
+   "sc": "two clear streams flow from opposite sides of a rocky valley and merge into a single river",
+   "check": "Do the two water flows come together into a single channel?",
+   "cap": "two streams meeting to form one river",
+   "key": "two streams joining into one river",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "conversation#n": {
    "ex": "I had an interesting conversation with my neighbour.",
    "sc": "person A and person B, a man and a woman of different ages, sit at a kitchen table, leaning forward, gesturing with hands while sipping coffee, no devices visible",
@@ -16963,6 +17171,20 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "cosmology#n": {
+   "ex": "Cosmology studies the universe in general.",
+   "ps": "a woman sits on a hill, gazing up at a vast star‑filled night sky",
+   "sc": "a woman sits on a hill, gazing up at a vast star‑filled night sky",
+   "check": "Is there a person looking up at a starry night sky, appearing to wonder about the universe?",
+   "cap": "a person sitting on a hill under a starry sky",
+   "key": "a person looking up at a vast star‑filled night sky; the thoughtful expression of the person",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "cosmos#n": {
    "ex": "Humans have always been curious about their place in the cosmos.",
@@ -17675,17 +17897,17 @@
   },
   "creative brief#n": {
    "ex": "The creative brief asked for a fun video under thirty seconds.",
-   "ps": "a woman in a studio holds a blank sheet with a big red tick, while a man watches",
-   "sc": "a woman in a studio holds a blank sheet with a big red tick, while a man watches",
-   "check": "Is the sheet being used as a document that outlines a project?",
-   "cap": "a designer showing a brief on a plain sheet",
-   "key": "a blank sheet with a big red tick; the woman's pointing hand",
+   "ps": "a woman holds a blank sheet with three simple picture frames while a man points at it",
+   "sc": "a woman holds a blank sheet with three simple picture frames while a man points at it",
+   "check": "Is the paper being used to show a visual plan for a creative project?",
+   "cap": "a person presenting a sketch plan to a colleague",
+   "key": "a blank sheet with three simple picture frames; a person pointing at the sheet",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "creative#adj": {
    "skip": "sentence describes an internal attribute without observable action",
@@ -18031,6 +18253,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "cross-selling#n": {
+   "ex": "Cross-selling phone cases with new phones increased average order value.",
+   "ps": "a salesperson holds a coffee mug next to a coffee machine while a customer watches",
+   "sc": "a salesperson holds a coffee mug next to a coffee machine while a customer watches",
+   "check": "Is a seller offering an extra related item to a buyer?",
+   "cap": "a salesperson offering a mug beside a coffee machine to a customer",
+   "key": "a salesperson holding a coffee mug; the coffee mug placed beside a coffee machine",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "crossroads#n": {
    "ex": "Turn right at the crossroads and the farm shop is on your left.",
@@ -19662,6 +19897,19 @@
    "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "decorator#n": {
+   "ex": "She's a professional cake decorator.",
+   "ps": "a woman stands at a kitchen counter, holding a piping bag, decorating a round white cake",
+   "sc": "a woman stands at a kitchen counter, holding a piping bag, decorating a round white cake",
+   "check": "Is the person adding frosting designs to a cake with a piping bag?",
+   "cap": "a woman frosting a round cake with a piping bag",
+   "key": "a piping bag held by the woman; a round white cake being decorated",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3
+  },
   "decrease#v": {
    "ex": "The number of smokers has decreased in recent years.",
    "ps": "a woman puts out a cigarette on an ashtray, dropping the ash",
@@ -20040,6 +20288,20 @@
    "tries": 3,
    "refix": 2
   },
+  "deft#adj": {
+   "ex": "He assembled it in one fluid, deft motion.",
+   "ps": "a man with smooth graceful hands assembles a small model; a second man with tangled messy hands fumbles",
+   "sc": "a man with smooth graceful hands assembles a small model; a second man with tangled messy hands fumbles",
+   "check": "Are the hands moving smoothly and skillfully?",
+   "cap": "two people handling a model, one skillfully, one clumsily",
+   "key": "smooth graceful hands assembling a small model; tangled messy hands fumbling",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "defy#v": {
    "ex": "Sales of the new product defied expectations and kept rising for months.",
    "ps": "a boy with arms crossed turns his head away from a plate of green broccoli on a table",
@@ -20137,16 +20399,17 @@
   },
   "delegation#n": {
    "ex": "A trade delegation from Japan visited the factory.",
-   "ps": "a man and a woman each hold a suitcase, standing together in front of a factory",
-   "sc": "a man and a woman each hold a suitcase, standing together in front of a factory",
-   "check": "Are the two people together, each with a suitcase, visiting a factory as a group?",
-   "cap": "two travelers with suitcases standing before a factory",
-   "key": "two people each holding a suitcase; the factory building behind them",
+   "ps": "a man and a woman stand side by side in front of a large factory",
+   "sc": "a man and a woman stand side by side in front of a large factory",
+   "check": "Are the two people shown as a group visiting a specific place?",
+   "cap": "two adults stand together in front of a factory",
+   "key": "two people standing together; a factory building behind them",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "delete#v": {
    "ex": "Please delete the old files from the server.",
@@ -21089,6 +21352,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 2
+  },
+  "destabilize#v": {
+   "ex": "They want to destabilize civilization.",
+   "ps": "a man pulls the front leg off a wooden table, making it tilt and a cup spill",
+   "sc": "a man pulls the front leg off a wooden table, making it tilt and a cup spill",
+   "check": "Is the table being made unstable by the person pulling its leg?",
+   "cap": "a man pulls a table leg causing it to wobble",
+   "key": "the man pulling the front leg of the table; the table tilting and a cup spilling",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "destination#n": {
    "ex": "Vietnam has become a popular tourist destination.",
@@ -22887,6 +23164,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "up": "e4"
   },
+  "distaste#n": {
+   "ex": "Believe that I understand your distaste.",
+   "ps": "a woman makes a grimacing face while looking at a plate of wilted broccoli",
+   "sc": "a woman makes a grimacing face while looking at a plate of wilted broccoli",
+   "check": "Is the person showing a clear feeling of dislike?",
+   "cap": "a woman frowning at an unappealing vegetable dish",
+   "key": "a grimacing face; a plate with wilted broccoli",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "distinct#adj": {
    "ex": "There are two distinct groups of students.",
    "ps": "a boy in a red shirt stands apart from a girl in a blue shirt",
@@ -22924,6 +23213,18 @@
   },
   "distinguish#v": {
    "skip": "hard to depict auditory distinction visually",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "distinguishable#adj": {
+   "ex": "The sub-species are visually distinguishable.",
+   "ps": "a red apple sits next to a green apple on a plain surface",
+   "sc": "a red apple sits next to a green apple on a plain surface",
+   "check": "Are the two fruits clearly different in color?",
+   "cap": "a red apple beside a green apple",
+   "key": "a red apple; a green apple",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
   "distort#v": {
@@ -25179,6 +25480,20 @@
    "tries": 3,
    "refix": 1
   },
+  "electrochemical#adj": {
+   "ex": "An electrochemical gradient has two components.",
+   "ps": "two glass beakers side by side; left one has battery wires and bubbling liquid, right one is still",
+   "sc": "two glass beakers side by side; left one has battery wires and bubbling liquid, right one is still",
+   "check": "Does the left beaker show a reaction caused by the battery while the right does not?",
+   "cap": "one beaker reacts with bubbles when connected to a battery",
+   "key": "battery wires attached to the left beaker; bubbles rising in the left liquid",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "electrode#n": {
    "ex": "The negative electrode is usually made of carbon.",
    "ps": "a large silver metal rod attached to a battery connects via a wire to a glowing bulb",
@@ -25236,6 +25551,20 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "electrostatic#adj": {
+   "ex": "Electrostatic motors have also been used.",
+   "ps": "a boy rubs a balloon on his sweater, his hair lifts up while a girl nearby has flat hair",
+   "sc": "a boy rubs a balloon on his sweater, his hair lifts up while a girl nearby has flat hair",
+   "check": "Is a person's hair lifted up as if charged by static electricity?",
+   "cap": "a boy's hair rises after rubbing a balloon",
+   "key": "the boy's hair lifted up after rubbing a balloon; the girl's hair remains flat",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "elegance#n": {
    "ex": "The bride was elegance personified.",
@@ -32558,6 +32887,18 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "futility#n": {
+   "ex": "Tom was overcome with a sense of futility.",
+   "ps": "a man tries to fill a bucket with a hole, water spills out as he looks frustrated",
+   "sc": "a man tries to fill a bucket with a hole, water spills out as he looks frustrated",
+   "check": "Is the person attempting a task that clearly does not succeed?",
+   "cap": "a person pours water into a leaky bucket, looking discouraged",
+   "key": "a bucket with a visible hole leaking water; the person looks frustrated while pouring",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "future#n": {
    "skip": "draw 3: a woman walks forward on a long road that stretches into the",
    "v": "e4",
@@ -33166,6 +33507,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 2
+  },
+  "geopolitics#n": {
+   "ex": "Let's talk about the geopolitics of Algeria.",
+   "ps": "a man and a woman stand by a plain globe, the man points, the woman holds an oil barrel",
+   "sc": "a man and a woman stand by a plain globe, the man points, the woman holds an oil barrel",
+   "check": "Does the picture show people discussing how a country's location and natural resources affect its political choices?",
+   "cap": "two adults examine a globe while holding an oil barrel",
+   "key": "a plain globe with continents; an oil barrel held by one person",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "geothermal energy#n": {
    "ex": "Iceland heats most of its homes with geothermal energy.",
@@ -34846,6 +35201,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "up": "e4"
   },
+  "hallucination#n": {
+   "ex": "Have you ever had hallucinations?",
+   "ps": "a woman covering her ears, eyes wide, standing alone in an empty room",
+   "sc": "a woman covering her ears, eyes wide, standing alone in an empty room",
+   "check": "Is the person appearing to hear something that no one else can see?",
+   "cap": "a woman looks startled while covering her ears in an empty space",
+   "key": "woman covering ears with a startled expression; empty room with no other people",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "hallucinogenic#adj": {
    "ex": "After eating some hallucinogenic mushrooms, he said he saw a lot of pretty colors.",
    "ps": "a man sits on a forest floor, eyes wide, with bright rainbow swirls floating around his head",
@@ -35761,6 +36128,20 @@
    "key": "the old stone arch with carvings; the woman's admiring gaze",
    "who": 1,
    "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
+  "hernia#n": {
+   "ex": "There are various types of hernia.",
+   "ps": "a man stands with a hand on his lower abdomen, showing a noticeable bulge",
+   "sc": "a man stands with a hand on his lower abdomen, showing a noticeable bulge",
+   "check": "Is there a person with a visible bulge in the belly area?",
+   "cap": "a man touching a swollen spot on his stomach",
+   "key": "a noticeable bulge in the lower abdomen; the man's hand resting on the bulge",
+   "who": 1,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
@@ -37045,6 +37426,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 2
+  },
+  "hypothermia#n": {
+   "ex": "They were treated for hypothermia.",
+   "ps": "a person shivers, arms hugging themselves, with visible white breath in cold air",
+   "sc": "a person shivers, arms hugging themselves, with visible white breath in cold air",
+   "check": "Is the person visibly cold with breath fog and shivering?",
+   "cap": "a shivering person with visible breath in cold air",
+   "key": "person's visible white breath; person shivering with arms hugging themselves",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "hypothesis#n": {
    "ex": "The scientists tested their hypothesis in the lab.",
@@ -40254,6 +40648,20 @@
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "intensification#n": {
+   "ex": "The storm then had more rapid intensification.",
+   "ps": "a hand adds wood to a small campfire, and the flames grow taller and brighter",
+   "sc": "a hand adds wood to a small campfire, and the flames grow taller and brighter",
+   "check": "Is the fire clearly becoming larger after more wood is added?",
+   "cap": "wood is added and the campfire flames grow",
+   "key": "a hand adding wood to the fire; the flames growing taller and brighter",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "intensify#v": {
    "ex": "Competition between the two budget airlines has intensified this year.",
    "ps": "a man turns a large volume knob on a big speaker, his face showing effort",
@@ -40616,17 +41024,17 @@
   },
   "interrogate#v": {
    "ex": "I don't like being interrogated.",
-   "ps": "a stern man leans forward, pointing a finger at a nervous woman sitting opposite him",
-   "sc": "a stern man leans forward, pointing a finger at a nervous woman sitting opposite him",
-   "check": "Is the man shown asking many questions to a nervous individual?",
-   "cap": "a stern man pointing at a nervous woman across a table",
-   "key": "stern man's pointing finger; nervous woman's anxious posture",
+   "ps": "a man standing over a seated woman, the man holds a tall stack of blank sheets and points at her, both look serious",
+   "sc": "a man standing over a seated woman, the man holds a tall stack of blank sheets and points at her, both look serious",
+   "check": "Is the man asking many questions to the nervous seated woman?",
+   "cap": "a man pointing at a seated woman while holding many sheets",
+   "key": "a man holding a tall stack of blank sheets; a seated woman looking nervous",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "interrogator#n": {
    "ex": "The interrogator expected Tom to confess.",
@@ -41309,6 +41717,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "ischemia#n": {
+   "ex": "A heart attack means ischemia is causing heart muscle to die.",
+   "ps": "a doctor in a white coat points at a man's pale leg while the other leg looks normal",
+   "sc": "a doctor in a white coat points at a man's pale leg while the other leg looks normal",
+   "check": "Is the person's leg noticeably paler than the other, suggesting reduced blood flow?",
+   "cap": "a doctor points to a man's unusually pale leg",
+   "key": "the man's leg is noticeably paler than the other; the doctor pointing at the leg",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "iso standard#n": {
    "skip": "reference to ISO standard involves textual certification symbols",
@@ -43357,6 +43777,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 2
+  },
+  "leprosy#n": {
+   "ex": "His skin lesions are caused by leprosy.",
+   "ps": "a man with spotted skin on his arms sits as a doctor in a white coat checks his back",
+   "sc": "a man with spotted skin on his arms sits as a doctor in a white coat checks his back",
+   "check": "Does the person have noticeable skin lesions caused by a disease?",
+   "cap": "a doctor examining a man with spotted skin lesions",
+   "key": "spotted skin lesions on the man's arms; the doctor examining them",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "less#adv": {
    "ex": "I'm trying to spend less time on my phone.",
@@ -47227,6 +47659,18 @@
    "tries": 3,
    "refix": 1
   },
+  "microprocessor#n": {
+   "ex": "Both companies agreed to cross-license microprocessor patents.",
+   "ps": "a large silver chip with many tiny squares sits on a wooden table",
+   "sc": "a large silver chip with many tiny squares sits on a wooden table",
+   "check": "Is the object a small electronic component with many tiny parts?",
+   "cap": "a shiny chip covered in tiny squares on a table",
+   "key": "the silver chip with many tiny squares; the wooden table surface",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "microservice#n": {
    "ex": "The payment microservice can be updated without stopping the whole system.",
    "ps": "a man plugs a small white box into a rack while a larger server glows unchanged",
@@ -47373,6 +47817,20 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "militarily#adv": {
+   "ex": "Algeria has become militarily powerful.",
+   "ps": "a man in camouflage uniform marches straight with stiff posture and raised right arm",
+   "sc": "a man in camouflage uniform marches straight with stiff posture and raised right arm",
+   "check": "Is the person moving in a strict, army-like manner?",
+   "cap": "a man marches in a strict, uniformed style",
+   "key": "camouflage uniform; stiff marching posture with raised arm",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "military#adj": {
    "ex": "He did two years of military service.",
@@ -48925,6 +49383,20 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "narcissist#n": {
+   "ex": "Don't go toe to toe with a narcissist.",
+   "ps": "a man looks at his own face in a handheld mirror, smiling proudly",
+   "sc": "a man looks at his own face in a handheld mirror, smiling proudly",
+   "check": "Is the person admiring his own reflection in the mirror?",
+   "cap": "a man admiring himself in a small mirror",
+   "key": "the man's hand holding the mirror; his proud smile",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "narrate#v": {
    "ex": "Carlos was narrating the story.",
    "ps": "a woman stands with arms wide, mouth open, pointing at a large picture of a castle while a child watches",
@@ -49276,6 +49748,18 @@
    "cap": "a person drinking water from a bottle",
    "who": 1,
    "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "necrosis#n": {
+   "ex": "One example relates to liver necrosis in rats.",
+   "ps": "a green leaf with a brown dead spot on one edge",
+   "sc": "a green leaf with a brown dead spot on one edge",
+   "check": "Is there a part of the leaf that looks dead and brown?",
+   "cap": "a green leaf showing a brown dead spot",
+   "key": "a brown dead spot on a green leaf",
+   "who": 0,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
@@ -50947,17 +51431,17 @@
   },
   "ocean acidification#n": {
    "ex": "Ocean acidification makes it harder for corals to build skeletons.",
-   "ps": "a diver swims near a coral reef where the corals are white and brittle, while a fish swims nearby",
-   "sc": "a diver swims near a coral reef where the corals are white and brittle, while a fish swims nearby",
-   "check": "Are the corals looking bleached and damaged in the water?",
-   "cap": "a diver observing a bleached coral reef",
-   "key": "white brittle corals; a diver looking at them",
+   "ps": "a diver with a concerned face swims near a white bleached coral while colorful coral lies farther away",
+   "sc": "a diver with a concerned face swims near a white bleached coral while colorful coral lies farther away",
+   "check": "Is the diver seeing a coral that has lost its color due to a chemical change in the water?",
+   "cap": "a diver observes a pale coral compared to bright coral nearby",
+   "key": "a white bleached coral; a diver with a concerned face",
    "who": 1,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "octopus#n": {
    "ex": "Octopi live in the sea.",
@@ -51310,17 +51794,17 @@
   },
   "one-stop shop#n": {
    "ex": "Citizens can submit documents at the one-stop shop of the district.",
-   "ps": "a man behind a single desk assists a woman who holds a key, a small box, and a blank sheet",
-   "sc": "a man behind a single desk assists a woman who holds a key, a small box, and a blank sheet",
-   "check": "Is a person getting several different services at one desk?",
-   "cap": "a clerk helping a customer with multiple items at one desk",
-   "key": "single desk with a clerk; customer holding three different items",
-   "who": 2,
-   "draw": 5,
+   "ps": "a man at a counter receives a key, a small box, and a blank sheet with a green tick",
+   "sc": "a man at a counter receives a key, a small box, and a blank sheet with a green tick",
+   "check": "Is a single place giving a person several different items at once?",
+   "cap": "a counter where one person receives multiple service items",
+   "key": "a key and a small box; a blank sheet with a green tick",
+   "who": 1,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "one-way#adj": {
    "ex": "A one-way ticket to Osaka costs almost as much as a return.",
@@ -52975,6 +53459,20 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 2
   },
+  "ovulation#n": {
+   "ex": "Is there some way to check for ovulation?",
+   "ps": "a side view of a woman's torso shows a pink ovary releasing a tiny yellow egg",
+   "sc": "a side view of a woman's torso shows a pink ovary releasing a tiny yellow egg",
+   "check": "Is a small round object being released from a woman's ovary?",
+   "cap": "a woman's ovary releases a tiny yellow egg",
+   "key": "a pink ovary shape; a yellow egg moving outward",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "owe#v": {
    "ex": "I owe you ten dollars.",
    "ps": "a man hands a stack of cash to a woman who smiles",
@@ -54015,6 +54513,19 @@
    "tries": 3,
    "refix": 2
   },
+  "patently#adv": {
+   "ex": "To Reeves, the query was patently absurd.",
+   "ps": "a person holds a huge magnifying glass over a tiny ant, making it clearly visible",
+   "sc": "a person holds a huge magnifying glass over a tiny ant, making it clearly visible",
+   "check": "Is the person using a large magnifying glass to make the tiny ant clearly visible?",
+   "cap": "a person magnifying a tiny ant with a large glass",
+   "key": "huge magnifying glass over tiny ant; person's focused face",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
+  },
   "pathogen#n": {
    "ex": "The laboratory identified the pathogen within hours of receiving the samples.",
    "ps": "a scientist in a lab coat looks at a petri dish with a red spiky germ",
@@ -55002,6 +55513,18 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "persevere#v": {
+   "ex": "You need to persevere to succeed in life.",
+   "ps": "a climber grips a rope, pulling himself up a steep rock face toward a distant peak",
+   "sc": "a climber grips a rope, pulling himself up a steep rock face toward a distant peak",
+   "check": "Is the climber continuing to climb despite the steep rock face?",
+   "cap": "a climber scaling a steep rock face",
+   "key": "a climber gripping a rope on a steep rock; a distant peak in view",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "persist#v": {
    "ex": "Inequality persists despite decades of economic growth.",
    "ps": "a man pushes a huge gray boulder up a steep hill, straining but not stopping",
@@ -55299,6 +55822,20 @@
    "cap": "a patient consulting a pharmacy counter about medicine",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "pharmacological#adj": {
+   "ex": "Another treatment option includes pharmacological suppression of thyroid hormone.",
+   "ps": "a tray filled with many colorful pills sits beside a tray holding a single green leaf",
+   "sc": "a tray filled with many colorful pills sits beside a tray holding a single green leaf",
+   "check": "Is there a group of tiny colored pills displayed?",
+   "cap": "a tray holding many pills next to a tray holding a leaf",
+   "key": "a tray filled with many colorful pills; a tray holding a single green leaf",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "pharmacology#n": {
    "ex": "All nursing students take a course in basic pharmacology in their second year.",
@@ -56504,15 +57041,17 @@
   },
   "pollination#n": {
    "ex": "Wind pollination is common in grasses and many trees.",
-   "ps": "a fuzzy yellow bee lands on a pink flower, its legs touching the center",
-   "sc": "a fuzzy yellow bee lands on a pink flower, its legs touching the center",
-   "check": "Is a bee moving pollen from one part of the flower to another?",
-   "cap": "a bee visiting a pink flower and touching its center",
-   "key": "fuzzy yellow bee on pink flower; bee's legs touching the flower's center",
+   "ps": "a fuzzy bee flies from a yellow flower to a pink flower, pollen dust on its legs",
+   "sc": "a fuzzy bee flies from a yellow flower to a pink flower, pollen dust on its legs",
+   "check": "Is a bee transferring pollen between two flowers?",
+   "cap": "a bee moving pollen from one blossom to another",
+   "key": "bee with pollen dust; two different flowers",
    "who": 0,
    "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "pollinator#n": {
    "ex": "Bats are important pollinators of desert cactus flowers.",
@@ -57205,6 +57744,20 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "praxis#n": {
+   "ex": "Aristotle further divided the knowledge derived from praxis into ethics, economics and politics.",
+   "ps": "a man holds a small wooden bridge model while adding a beam to a half-built bridge over a stream",
+   "sc": "a man holds a small wooden bridge model while adding a beam to a half-built bridge over a stream",
+   "check": "Is a person building a real bridge while holding a small model of it?",
+   "cap": "a man constructing a bridge using a miniature model",
+   "key": "a small wooden bridge model held in hand; a half-built bridge over a stream",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "pray#v": {
    "ex": "Many people go to the temple to pray for good luck.",
@@ -59334,6 +59887,10 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "property management system#n": {
+   "skip": "cannot depict without prohibited elements",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "property manager#n": {
    "ex": "Contact the property manager if the heating stops working.",
    "sc": "person A, a tenant, points at a broken wall heater while person B, the property manager, holds a phone and listens, both standing in a small apartment living area with the heater visible",
@@ -59885,6 +60442,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 2
+  },
+  "psychoanalytic#adj": {
+   "ex": "However, more complex variations of psychoanalytic criticism are possible.",
+   "ps": "a person lies on a long therapist's couch while another person sits nearby listening attentively",
+   "sc": "a person lies on a long therapist's couch while another person sits nearby listening attentively",
+   "check": "Is there a person reclining on a therapist's couch with someone else listening?",
+   "cap": "a person reclines on a couch as a listener sits nearby",
+   "key": "a long therapist's couch; a person reclined on it",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "psychographics#n": {
    "ex": "Psychographics show our buyers care deeply about sustainability.",
@@ -60529,6 +61099,18 @@
    "tries": 3,
    "refix": 1
   },
+  "quantification#n": {
+   "ex": "Real-time techniques allow for quantification of the virus.",
+   "ps": "a scientist holds a balance scale with two pans, one side heavier than the other",
+   "sc": "a scientist holds a balance scale with two pans, one side heavier than the other",
+   "check": "Is the picture showing the act of measuring amounts?",
+   "cap": "a researcher comparing weights on a balance scale",
+   "key": "a balance scale with two pans holding different amounts; the scientist holding the scale",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "quantify#v": {
    "ex": "It is difficult to quantify the benefits of training.",
    "ps": "a woman scoops a big heap of flour with a large wooden spoon into a big white bowl",
@@ -60828,6 +61410,20 @@
    "cap": "two athletes racing on a track with a finish line",
    "key": "two runners on a track; one runner crossing the finish line ahead",
    "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
+  "racehorse#n": {
+   "ex": "Later, several successful racehorse stud farms were founded.",
+   "ps": "a brown horse with a colorful jockey racing on a dirt track",
+   "sc": "a brown horse with a colorful jockey racing on a dirt track",
+   "check": "Is there a horse with a rider sprinting on a track?",
+   "cap": "a brown horse and a bright jockey racing on a dirt track",
+   "key": "a sleek horse with a jockey in bright silks; the horse's fast galloping pose on a track",
+   "who": 1,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
@@ -62070,6 +62666,18 @@
    "tries": 3,
    "refix": 2
   },
+  "recursive#adj": {
+   "ex": "Closed-form recursive designs have been found.",
+   "ps": "two mirrors face each other, creating endless reflections that repeat into the distance",
+   "sc": "two mirrors face each other, creating endless reflections that repeat into the distance",
+   "check": "Do the mirrors reflect each other repeatedly creating endless images?",
+   "cap": "two mirrors facing each other showing endless reflections",
+   "key": "two facing mirrors creating endless reflections; the reflections repeat into the distance",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "recycle#v": {
    "ex": "Please recycle used paper in the blue bins next to the copier.",
    "sc": "person A, an adult, stands beside a copier and puts a stack of used paper into a blue recycling bin placed next to the machine; the bin is open and visible",
@@ -62433,6 +63041,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 2
+  },
+  "refractive#adj": {
+   "ex": "For infrared light refractive indices can be considerably higher.",
+   "ps": "a clear glass prism on a table splits a white beam into a rainbow",
+   "sc": "a clear glass prism on a table splits a white beam into a rainbow",
+   "check": "Is there a clear object that bends light into colors?",
+   "cap": "a glass prism creating a rainbow from a light beam",
+   "key": "a clear glass prism; a white beam turning into a rainbow",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "refresh#v": {
    "ex": "Refresh the page to see the latest prices.",
@@ -64885,6 +65506,10 @@
    "skip": "no concrete visible action for abstract “retain”",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "retargeting#n": {
+   "skip": "too abstract to depict without prohibited elements",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "retention#n": {
    "ex": "Customer retention is cheaper than finding new customers.",
    "ps": "a woman stays inside a shop holding a bag while a man walks out the door",
@@ -65072,15 +65697,17 @@
   },
   "revenue management#n": {
    "ex": "Revenue management helped the hotel raise prices during festival week.",
-   "ps": "a hotel manager holds a large gold coin while a crowd of guests gathers outside",
-   "sc": "a hotel manager holds a large gold coin while a crowd of guests gathers outside",
-   "check": "Is the person adjusting price because many guests are arriving?",
-   "cap": "a hotel manager holds a big coin as guests gather outside",
-   "key": "a manager holding a large gold coin; a crowd of guests outside the hotel",
+   "ps": "a hotel manager balances a scale with guests on one side and coins on the other",
+   "sc": "a hotel manager balances a scale with guests on one side and coins on the other",
+   "check": "Is a person balancing a group of guests against a pile of money to decide on pricing?",
+   "cap": "a manager balances a crowd of guests with a stack of coins",
+   "key": "the manager holding a scale; the scale showing guests on one side and coins on the other",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "revenue stream#n": {
    "ex": "Advertising is a new revenue stream for the app.",
@@ -65801,17 +66428,17 @@
   },
   "rotation#n": {
    "ex": "The rotation of the Earth causes day and night.",
-   "ps": "a big Ferris wheel with many cabins rotating slowly against a clear sky",
-   "sc": "a big Ferris wheel with many cabins rotating slowly against a clear sky",
-   "check": "Is there a large circular wheel turning around a central axis?",
-   "cap": "a big Ferris wheel turning under a clear sky",
-   "key": "the Ferris wheel with cabins; the wheel's turning position",
-   "who": 0,
-   "draw": 5,
+   "ps": "a child rides a round merry-go-round that spins around a central pole",
+   "sc": "a child rides a round merry-go-round that spins around a central pole",
+   "check": "Is there a child on a round platform turning around a central pole?",
+   "cap": "a child riding a spinning merry-go-round",
+   "key": "a child on a rotating merry-go-round; the central pole of the ride",
+   "who": 1,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "rote learning#n": {
    "ex": "Rote learning may help students pass exams but rarely develops critical thinking.",
@@ -67527,6 +68154,19 @@
    "cap": "Officer inspects a suitcase at an airport checkpoint",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "sedative#n": {
+   "ex": "The sedative is taking effect.",
+   "ps": "a man holds a small white pill near his mouth, eyes closed, relaxed",
+   "sc": "a man holds a small white pill near his mouth, eyes closed, relaxed",
+   "check": "Is there a small white tablet that calms a person?",
+   "cap": "a man holding a white pill, eyes closed, looking calm",
+   "key": "a small white pill; the person's relaxed face",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "sedentary#adj": {
    "ex": "Office workers often lead a sedentary lifestyle.",
@@ -69908,6 +70548,20 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "smuggler#n": {
+   "ex": "I knew you were a smuggler.",
+   "ps": "a man in a long coat opens a hidden panel under a cargo truck, placing a large sealed box inside",
+   "sc": "a man in a long coat opens a hidden panel under a cargo truck, placing a large sealed box inside",
+   "check": "Is a person secretly putting a big sealed box into a hidden part of a truck?",
+   "cap": "a man in a coat hides a box inside a truck",
+   "key": "a hidden panel under a cargo truck; a large sealed box being placed inside",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "snail#n": {
    "ex": "I am watching these two snails.",
@@ -73333,6 +73987,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "succinctly#adv": {
+   "ex": "The professor briefly and succinctly described the topic of his study.",
+   "ps": "a man in a suit holds a laser pointer, pointing at a single blue circle on a canvas",
+   "sc": "a man in a suit holds a laser pointer, pointing at a single blue circle on a canvas",
+   "check": "Is the person giving a brief and clear explanation?",
+   "cap": "a professor points at a simple shape on a canvas",
+   "key": "laser pointer aimed at a single large circle; the man's confident expression",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "sudden#adj": {
    "ex": "There was a sudden change in the weather.",
    "sc": "person A stands on a field under a bright sky, then a dark cloud rolls in and rain starts, prompting them to quickly open an umbrella.",
@@ -74597,6 +75265,18 @@
    "key": "different colored puzzle pieces; a completed single picture",
    "who": 1,
    "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "synthesize#v": {
+   "ex": "The lab was able to synthesize a new compound.",
+   "ps": "a woman in a lab coat pours blue and red liquids into a large beaker, forming purple",
+   "sc": "a woman in a lab coat pours blue and red liquids into a large beaker, forming purple",
+   "check": "Are two different liquids being mixed to produce a new color?",
+   "cap": "a scientist mixes blue and red liquids, creating purple",
+   "key": "blue and red liquids being poured together into a beaker; the resulting mixture is purple",
+   "who": 1,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
@@ -75947,6 +76627,18 @@
    "tries": 3,
    "refix": 1
   },
+  "theologian#n": {
+   "ex": "Williams is a distinguished theologian and poet.",
+   "ps": "a man in a suit speaks at a podium before a large stained glass window showing a religious scene",
+   "sc": "a man in a suit speaks at a podium before a large stained glass window showing a religious scene",
+   "check": "Is the person delivering a talk in front of a religious artwork?",
+   "cap": "a speaker at a podium with a stained glass backdrop",
+   "key": "a man speaking at a podium; a stained glass window behind",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "theology#n": {
    "ex": "Tom wants to study theology.",
    "ps": "a person sits on a wooden bench in a quiet chapel, hands clasped, gazing at a stained‑glass window",
@@ -76636,6 +77328,20 @@
    "who": 1,
    "by": "openai/gpt-oss-120b",
    "e4bad": 3
+  },
+  "tinnitus#n": {
+   "ex": "Trauma to the skull may cause tinnitus.",
+   "ps": "a person sits alone in a quiet room, covering both ears with hands and looking uncomfortable",
+   "sc": "a person sits alone in a quiet room, covering both ears with hands and looking uncomfortable",
+   "check": "Is the person showing signs of hearing a sound that has no outside source?",
+   "cap": "a person covering ears in a silent room feeling discomfort",
+   "key": "person covering both ears with hands; quiet room with no visible sound source",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "tiny#adj": {
    "ex": "They live in a tiny flat in the city centre.",
@@ -77631,6 +78337,20 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "transgression#n": {
+   "ex": "That is such a moral transgression.",
+   "ps": "a boy reaches for a piece of cake on a plate while a girl watches with a shocked face",
+   "sc": "a boy reaches for a piece of cake on a plate while a girl watches with a shocked face",
+   "check": "Is someone taking something that belongs to another person?",
+   "cap": "a child grabs a cake piece while another looks upset",
+   "key": "a hand reaching for a piece of cake on a plate; the girl's shocked face",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "transit time#n": {
    "skip": "sentence requires abstract time representation that relies on symbols or text",
@@ -78702,6 +79422,19 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "unattainable#adj": {
+   "ex": "Don't set yourself unattainable goals.",
+   "ps": "a boy reaches for a low apple on a tree branch, while an apple hangs far above the highest branch",
+   "sc": "a boy reaches for a low apple on a tree branch, while an apple hangs far above the highest branch",
+   "check": "Is the higher fruit clearly out of the person's reach?",
+   "cap": "a boy trying to reach a low apple while another apple is far above",
+   "key": "low apple within reach; high apple far above the branch",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 2
   },
   "unattended#adj": {
    "ex": "Do not leave your bags unattended anywhere in the airport.",
@@ -81709,15 +82442,17 @@
   },
   "ward#n": {
    "ex": "The patient was moved to a private ward.",
-   "ps": "a hospital room contains a single bed, bedside table, and a nurse standing nearby",
-   "sc": "a hospital room contains a single bed, bedside table, and a nurse standing nearby",
-   "check": "Is there a hospital room with a bed and medical equipment?",
-   "cap": "a hospital room showing a bed and a bedside table",
-   "key": "a hospital bed with a bedside table; a nurse in the room",
-   "who": 1,
-   "draw": 4,
+   "ps": "a hospital bed with side rails holds a lying patient, while a nurse in a uniform stands beside the bed",
+   "sc": "a hospital bed with side rails holds a lying patient, while a nurse in a uniform stands beside the bed",
+   "check": "Is there a hospital room with a bed and a nurse caring for a patient?",
+   "cap": "a hospital bed with a patient and a nurse nearby",
+   "key": "hospital bed with side rails; the nurse standing beside the bed",
+   "who": 2,
+   "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "ware#n": {
    "ex": "It is not difficult to sell wares here.",

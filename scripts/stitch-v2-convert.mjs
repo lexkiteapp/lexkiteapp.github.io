@@ -63,7 +63,9 @@ function merge(L, D, RL, RD, doc) {
   const out = doc.createElement(L.tagName.toLowerCase());
   for (const a of L.attributes) if (!/^(class|style|on\w+|data-active-classes)$/i.test(a.name)) out.setAttribute(a.name, a.value);
   if (D) { const cl = classesOf(L, RL), cd = classesOf(D, RD), sl = new Set(cl), sd = new Set(cd);
-    const cls = [...cl.filter(c => sd.has(c)), ...cl.filter(c => !sd.has(c)).map(c => 'lt:' + c), ...cd.filter(c => !sl.has(c)).map(c => 'dk:' + c)];
+    // điểm dừng gradient: from-* tách lt:/dk: mà to-/via-* chung → Tailwind cho from-* đặt lại --tw-gradient-to (trong suốt) ở tầng lt:/dk: SAU to-* chung → gradient nhạt dần. Kéo to-/via-* chung theo cùng tầng.
+    const varFrom = cl.some(c => /^from-/.test(c) && !sd.has(c)) || cd.some(c => /^from-/.test(c) && !sl.has(c)), stop = c => varFrom && /^(to|via)-/.test(c);
+    const cls = [...cl.filter(c => sd.has(c) && !stop(c)), ...cl.filter(c => !sd.has(c) || stop(c)).map(c => 'lt:' + c), ...cd.filter(c => !sl.has(c) || stop(c)).map(c => 'dk:' + c)];
     if (cls.length) out.setAttribute('class', cls.join(' '));
     for (const a of D.attributes) if (!out.hasAttribute(a.name) && !/^(class|style|on\w+|data-active-classes)$/i.test(a.name)) out.setAttribute(a.name, a.value); // thuộc tính chỉ bản tối có (aria…)
   } else { const c = classesOf(L, RL); if (c.length) out.setAttribute('class', c.join(' ')); }
@@ -100,7 +102,7 @@ function emit(root, bind, k) {
     for (const [sel, expr] of Object.entries(b.after || {})) for (const el of QA(scope, sel)) el.after(el.ownerDocument.createTextNode(mark(expr))); // chèn thêm (vd giáo viên Chars cạnh nút hiện tại)
     for (const [sel, o] of Object.entries(b.attr || {})) for (const el of QA(scope, sel)) for (const [a, expr] of Object.entries(o)) el.setAttribute(a, mark(`e(${expr})`));
     for (const [sel, o] of Object.entries(b.cls || {})) for (const el of QA(scope, sel)) { const c = (el.getAttribute('class') || '').split(' ');
-      for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = mark(expr); } el.setAttribute('class', c.join(' ')); }
+      for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = el === scope && /^'[\w\-[\]./:]*'$/.test(expr) ? expr.slice(1, -1) : mark(expr); } el.setAttribute('class', c.join(' ')); } // gốc khung (root) là chuỗi class tĩnh → chỉ nhận literal, ghi thẳng
     for (const [sel, c] of Object.entries(b.addClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', ((el.getAttribute('class') || '') + ' ' + c).trim()); // chỉ class không đổi hình (cắt tràn, móc kiểm thử…)
     for (const [sel, o] of Object.entries(b.tag || {})) for (const el of QA(scope, sel)) { const n = el.ownerDocument.createElement(o.to); for (const a of el.attributes) n.setAttribute(a.name, a.value); // đổi thẻ (div → a href) giữ nguyên class
       if (o.addClass) n.setAttribute('class', (n.getAttribute('class') || '') + ' ' + o.addClass); n.append(...el.childNodes); el.replaceWith(n); if (el === scope) scope = n; } // đổi thẻ chính phần tử gốc → các phép sau (chữ) chạy trên thẻ mới
@@ -168,8 +170,10 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const o = emit(root, bind, k);
   if (WEB) { const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd), cf = path.join(OUT, k + '.css');
     if (CHECK) { if (!fs.existsSync(cf) || fs.readFileSync(cf, 'utf8') !== cs) errs.push(`${cf} trôi`); } else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(cf, cs); } }
+  // Thanh tab: icon = sprite SVG #i-* của index.html (cùng nguồn với menu trái + #bnav) thay chữ ghép Material Symbols – font chậm/thiếu glyph không bao giờ lộ chữ "home"/"H"; mục đang chọn = tô đầy (st-ti-on)
+  const svgTabs = n => { let i = 0; const r = n.replace(/<span class="material-symbols-outlined[^"]*">\$\{x\.icon\}<\/span>/g, () => `<svg class="i st-ti${i++ ? '' : ' st-ti-on'}" aria-hidden="true" focusable="false"><use href="#\${e(x.svg)}"/></svg>`); if (i !== 2) throw new Error('shell nav: cần đúng 2 ô icon tab (đang chọn + thường), thấy ' + i); return r; };
   if (bind.shell) { // đầu trang + thanh tab chuẩn chung cho mọi màn có tab (lấy từ màn này) → shell.js; màn này chỉ giữ main
-    const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n nav: ${o.nav} });\n`;
+    const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n nav: ${svgTabs(o.nav)} });\n`;
     const so = path.join(OUT, 'shell.js'); if (CHECK) { if (!fs.existsSync(so) || fs.readFileSync(so, 'utf8') !== sh) errs.push(`${so} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(so, sh); }
     o.header = '``'; o.nav = '``'; }
   if (WEB && bind.chrome) { // web: đầu trang + chân trang chung cho MỌI trang tĩnh (lấy từ trang này) → chrome.js; các trang khác `remove` header/footer của Stitch

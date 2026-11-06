@@ -78,6 +78,7 @@ node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/call-engine.mjs
+node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
 node scripts/test/review-done.mjs
@@ -113,6 +114,7 @@ node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
+node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
@@ -195,6 +197,7 @@ node scripts/test/ext-bundles.mjs
 node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
+node scripts/test/audio-pr-branch.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs
@@ -214,6 +217,8 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
+node scripts/test/token-contrast.mjs
+node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
@@ -252,6 +257,7 @@ node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
+node scripts/test/css-lazy.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs
@@ -278,6 +284,7 @@ node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
 node scripts/test/haptics.mjs
+node scripts/test/aiearn.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
@@ -289,8 +296,16 @@ node scripts/test/cpack.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
+node scripts/test/settings-subpages.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
+node scripts/test/teacher-bubble.mjs --static
+node scripts/test/voice-source.mjs
+node scripts/test/side-menu.mjs
+node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
-node scripts/test/voice-source.mjs
+node scripts/test/ci-guards.mjs
+node scripts/test/pr-unconflict.mjs
+node scripts/test/main-red-sweep.mjs
+node scripts/test/ci-queue-gate.mjs

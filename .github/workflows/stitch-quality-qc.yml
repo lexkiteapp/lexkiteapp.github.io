@@ -6,7 +6,8 @@ on:
   pull_request:
     paths: ['brand/stitch/v2q/**', 'brand/stitch/v3/**', 'scripts/test/stitch-quality-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-quality-qc.yml']
   push:
-    branches: [stitch-quality]
+    branches: [main, stitch-quality]   # canh cả main (trước đây 0 lượt trên main)
+    paths: ['brand/stitch/v2q/**', 'brand/stitch/v3/**', 'scripts/test/stitch-quality-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-quality-qc.yml']
   workflow_dispatch:
 permissions:
   contents: read
