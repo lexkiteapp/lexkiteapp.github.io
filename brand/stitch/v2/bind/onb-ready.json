@@ -1,7 +1,7 @@
 {
  "_doc": "Thiết lập – bước Sẵn sàng. 4 chỉ số thật (gói · trình độ · mục tiêu · cường độ) thành lưới 2 × 2: bản cũ có đủ 4 dòng, không bỏ dòng nào. Mẫu không có Back: thêm nút cùng khuôn top-bar (§5d, ≥ 44 px). Bỏ quầng mờ sau giáo viên (METHODS §0).",
  "styles": true,
- "rootClass": "relative overflow-x-hidden flex flex-col items-center justify-center min-h-screen lt:bg-[#FBF7F1] dk:bg-[#091416] lt:text-[#0F3D3E] dk:text-[#EAF2F2]",
+ "rootClass": "relative overflow-x-hidden flex flex-col items-center justify-center min-h-screen lt:bg-[#FBF7F1] dk:bg-[#0E191C] lt:text-[#0F3D3E] dk:text-[#EAF2F2]",
  "text": {
   "Diagnostic Complete • 4 of 4": "d.stepTxt",
   "You're all set!": "d.q",

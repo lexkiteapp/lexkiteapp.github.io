@@ -133,7 +133,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
     qc[`${k}-${scheme}-${QW}`] = await page.evaluate(() => { const W = innerWidth, over = [], clip = [], tap = [];
       for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
         if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
-        if (e.children.length === 0 && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
+        if (e.children.length === 0 && e.textContent.trim() && !e.closest('.sr-only') && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
         if (e.matches('a,button,[role=button],input') && (() => { // vùng bấm thật = khung ∪ hộp ::after (absolute: tính theo khối chứa định vị gần nhất – nới vô hình hoặc "stretched link" phủ cả thẻ)
           const x = getComputedStyle(e, '::after'); let w = r.width, h = r.height;
           if (x.content !== 'none' && x.position === 'absolute') { let cb = e; while (cb && cb !== document.body && getComputedStyle(cb).position === 'static') cb = cb.parentElement;

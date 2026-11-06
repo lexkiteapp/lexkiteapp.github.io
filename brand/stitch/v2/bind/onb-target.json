@@ -1,7 +1,7 @@
 {
  "_doc": "Thiết lập – bước Điểm mục tiêu. Ô = TARGETS của onboard.js (thang thật #582), nhãn '+' chỉ để hiển thị. label/input của mẫu → button (id #bandT, [data-v], aria-pressed như bản cũ).",
  "styles": true,
- "rootClass": "flex justify-center min-h-screen lt:bg-[#FBF7F1] dk:bg-[#091416] lt:text-[#162124] dk:text-[#EAF2F2]",
+ "rootClass": "flex justify-center min-h-screen lt:bg-[#FBF7F1] dk:bg-[#0E191C] lt:text-[#162124] dk:text-[#EAF2F2]",
  "text": {
   "Pick the band your goal needs.": "d.say",
   "What band are you aiming for?": "d.q",
