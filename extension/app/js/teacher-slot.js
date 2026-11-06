@@ -5,8 +5,8 @@
   const SIZES = { xs: 48, s: 72, m: 112, l: 152, xl: 208 }; // px chiều cao khung (đầu → mặt bệ) – thêm cỡ = sửa docs/CHARACTERS.md + cổng
   // img.tslot-img aspect-ratio 1108/960 = tỉ lệ thật mọi ảnh tĩnh (characters.json): width/height làm tròn (h = 0,87 w) cho hộp trước khi tải lệch → ảnh xl giãn 1,1 px khi tải xong (cổng teacher-bubble.mjs)
   // Hình học khung và bệ: docs/CHARACTERS.md §Hình học chỗ giáo viên. --fh/--fb = cao/đáy hình người – MỘT nguồn cho ảnh tĩnh, clip và rig (teacher-bubble .tb-rig):
-  // mép trên bệ (0,16 khung) nằm dưới thắt lưng (ảnh y ≤ 798/960) và trên vạt mờ (y ≥ 865) → người đứng trên mặt bệ, bệ không che thân (cổng teacher-bubble.mjs)
-  const CSS = `.tslot{--h:112px;--fh:calc(var(--h)*1.1);--fb:calc(var(--h)*-.01);position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
+  // kích thước = mẫu Stitch (ảnh 1,2 khung, đáy −0,18): mép trên bệ ở y 688/960 (72 %), không đổi trước ↔ sau khi tải (cổng teacher-bubble.mjs, stitch-diff)
+  const CSS = `.tslot{--h:112px;--fh:calc(var(--h)*1.2);--fb:calc(var(--h)*-.18);position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
 .tslot-xs{--h:48px}.tslot-s{--h:72px}.tslot-m{--h:112px}.tslot-l{--h:152px}.tslot-xl{--h:208px}
 .tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden;overflow:clip}
 .tslot-img{position:absolute;left:50%;bottom:var(--fb);height:var(--fh);width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
