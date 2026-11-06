@@ -89,6 +89,7 @@ p { margin: .4rem 0; }
 .gsearch input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 @media (max-width: 1023px) { body.v2on.v2-gs .topbar { display: flex !important; position: fixed; inset: 0 0 auto; z-index: 60; padding: .5rem .75rem; } body.v2on.v2-gs .topbar > :not(.gsearch) { display: none; } body.v2-gs .gsearch { max-width: none; } }
 /* Máy tính: màn hub v2 cùng độ rộng trang thường (816 px), không kẹt khổ điện thoại 480 px; màn học tập trung (body.focus) giữ khổ hẹp */
+@media (max-width: 374px) { .v2-me > header [data-hdr="xp"] { display: none; } } /* Tôi < 375 px: chỗ cho logo + tra từ (ux1-me.js hubHead) – Tổng XP lớn ngay dưới */
 @media (min-width: 1024px) { body.v2on:not(.focus) :is(.v2-practice, .v2-me, .v2-exam-readiness, .v2-streak, .v2-today-new) { max-width: 816px; } }
 .notif-dot { position: absolute; top: -4px; inset-inline-end: -4px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 999px; background: #C2410C; color: #fff; font-size: 10px; font-weight: 800; line-height: 16px; text-align: center; }
 .ux1-menu .btn { display: flex; justify-content: center; width: 100%; margin-top: .5rem; }
