@@ -8,12 +8,11 @@ import LKSync
 import LKDesign
 
 /// Snapshot gate at 390 pt: light/dark × en/vi/ar(RTL)/de(+40 % text) for the app frame and the Today screen.
-/// References live in __Snapshots__; CI records them on first run (SNAPSHOT_RECORD=1) and verifies after.
+/// References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing, all with =1) and verifies after.
 @MainActor
 final class AppShellSnapshotTests: XCTestCase {
     override func invokeTest() {
-        let record = ProcessInfo.processInfo.environment["SNAPSHOT_RECORD"] == "1"
-        withSnapshotTesting(record: record ? .all : .never) { super.invokeTest() }
+        withSnapshotTesting(record: snapshotRecordMode()) { super.invokeTest() }
     }
 
     static let langs = ["en", "vi", "ar", "de"]

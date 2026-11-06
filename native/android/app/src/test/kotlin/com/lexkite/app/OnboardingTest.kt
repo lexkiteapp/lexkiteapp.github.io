@@ -8,7 +8,6 @@ import androidx.compose.ui.test.assertHeightIsAtLeast
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.assertDoesNotExist
 import androidx.compose.ui.unit.dp
 import com.lexkite.app.core.migration.Migration
 import com.lexkite.app.core.sync.SyncDoc

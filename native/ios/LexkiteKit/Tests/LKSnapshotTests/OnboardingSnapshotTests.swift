@@ -8,12 +8,11 @@ import LKSync
 import LKDesign
 
 /// C17 first-run onboarding: splash + 6 steps, light/dark × en/vi/ar(RTL) at 390 pt = 42 images.
-/// References live in __Snapshots__; CI records them on first run (SNAPSHOT_RECORD=1) and verifies after.
+/// References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing, all with =1) and verifies after.
 @MainActor
 final class OnboardingSnapshotTests: XCTestCase {
     override func invokeTest() {
-        let record = ProcessInfo.processInfo.environment["SNAPSHOT_RECORD"] == "1"
-        withSnapshotTesting(record: record ? .all : .never) { super.invokeTest() }
+        withSnapshotTesting(record: snapshotRecordMode()) { super.invokeTest() }
     }
 
     static let langs = ["en", "vi", "ar"]
@@ -36,11 +35,12 @@ final class OnboardingSnapshotTests: XCTestCase {
         return p
     }
 
-    func shoot<V: View>(_ make: () -> V, pick: OnboardingPick = OnboardingPick()) {
+    /// `testName` is forwarded: assertSnapshot inside a helper would otherwise name every image after the helper ("shoot-_-pick") and the 7 tests overwrite each other.
+    func shoot<V: View>(_ make: () -> V, pick: OnboardingPick = OnboardingPick(), testName: String = #function) {
         for lang in Self.langs {
             for scheme in Self.schemes {
                 assertSnapshot(of: host(make(), lang: lang, scheme: scheme, pick: pick), as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98),
-                               named: "\(lang)-\(scheme == .dark ? "dark" : "light")")
+                               named: "\(lang)-\(scheme == .dark ? "dark" : "light")", testName: testName)
             }
         }
     }

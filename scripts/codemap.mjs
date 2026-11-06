@@ -180,8 +180,8 @@ const byFile = {}; for (const [r, fs_] of routeList) for (const f of fs_) (byFil
 for (const [f, rs] of Object.entries(byFile).sort()) out.push(`- \`${short(f, 'web/js/')}\`: ${rs.join(' ')}`);
 // Gộp theo bộ trigger (mỗi bộ in 1 lần) thay vì lặp [trigger] trên từng dòng.
 out.push('', `## Workflows (${workflows.length}) theo trigger: tên: việc kiểm/làm`);
-const WF_DESC = 32, wfName = w => w.file.replace(/\.ya?ml$/, '');
-// mô tả workflow: cắt theo TỪ ≤ WF_DESC ký tự + '…' (điều phối 05/11: 40→32, trần 25 KB giữ nguyên) – bản đầy đủ ở json workflows[].desc (cổng codemap-budget)
+const WF_DESC = 28, wfName = w => w.file.replace(/\.ya?ml$/, '');
+// mô tả workflow: cắt theo TỪ ≤ WF_DESC ký tự + '…' (điều phối 05/11: 40→32; 06/11 #721 thêm 5 workflow native: 32→28; trần 25 KB giữ nguyên) – bản đầy đủ ở json workflows[].desc (cổng codemap-budget)
 const brief = d => d.length > WF_DESC ? d.slice(0, WF_DESC).replace(/\s+\S*$/, '').replace(/[:;,(\s]+$/, '') + '…' : d;
 const byTrig = {}; for (const w of workflows) (byTrig[w.triggers.join(',') || '?'] ||= []).push(w);
 for (const [t, ws] of Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])))
