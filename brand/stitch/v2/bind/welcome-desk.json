@@ -174,7 +174,7 @@
  },
  "setClass": {
   ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "w-full h-[240px]",
-  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)": "h-1 w-4/5 mx-auto rounded-full lt:bg-[#D5C4B8] dk:bg-[#5E8A92]"
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)": "h-1 w-4/5 mx-auto rounded-full lt:bg-[#ECE4D7] dk:bg-[#263A3F]"
  },
  "addClass": {
   ":scope > header": "w-head",
