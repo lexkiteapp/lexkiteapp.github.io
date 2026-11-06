@@ -11,6 +11,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
@@ -25,6 +27,8 @@ jobs:
         theme: [light, dark]
     steps:
       - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - name: Dựng dist
