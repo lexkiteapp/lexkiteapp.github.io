@@ -7,6 +7,7 @@ set -u
 MSG=$1; REGEN=$2; shift 2
 BR=${BR:?cần BR=<nhánh PR>}
 case "$BR" in main|master|"") echo "commit-regen-pr: từ chối nhánh '$BR'"; exit 1;; esac
+case "$MSG" in *"[CF-Pages-Skip]"*) ;; *) MSG="$MSG [CF-Pages-Skip]";; esac   # tệp sinh: không dựng lại Pages/preview (scripts/test/pages-skip.mjs); KHÔNG [skip ci] – check PR phải chạy lại
 git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
 for i in 1 2 3 4 5 6; do
   git fetch -q origin "$BR" && git reset -q --hard FETCH_HEAD || { sleep 5; continue; }
