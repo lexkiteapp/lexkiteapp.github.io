@@ -1,9 +1,13 @@
 package com.lexkite.app
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.lexkite.app.design.LKTheme
+import com.lexkite.app.design.LocalLKColors   // page background like the app frame (no default #FAFAFA window around the card)
 import com.lexkite.app.feature.me.MeActions
 import com.lexkite.app.feature.me.MeScreen
 import com.lexkite.app.feature.me.MeState
@@ -29,7 +33,7 @@ class AppShellSnapshotTest {
     }
     private fun me(lang: String, dark: Boolean) {
         val t = Fixtures.t(lang)
-        rule.setContent { LKTheme(t, dark) { MeScreen(MeState(null, SyncStatus()), object : MeActions { override fun signInGoogle() {}; override fun signInApple() {}; override fun signOut() {}; override fun syncNow() {}; override fun chooseAccount(merge: Boolean) {} }) } }
+        rule.setContent { LKTheme(t, dark) { Box(Modifier.background(LocalLKColors.current.background)) { MeScreen(MeState(null, SyncStatus()), object : MeActions { override fun signInGoogle() {}; override fun signInApple() {}; override fun signOut() {}; override fun syncNow() {}; override fun chooseAccount(merge: Boolean) {} }) } } }
         rule.onRoot().captureRoboImage("src/test/snapshots/me-$lang-${if (dark) "dark" else "light"}.png")
     }
 

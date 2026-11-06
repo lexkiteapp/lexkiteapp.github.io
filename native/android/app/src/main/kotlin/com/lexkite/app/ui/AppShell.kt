@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -105,7 +106,10 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
     Scaffold(
         containerColor = c.background,
         bottomBar = {
-            if (onHub) NavigationBar(containerColor = c.card, contentColor = c.onSurface) {
+            // Stitch today-*.html <nav>: own surface (bg-white = surface-container-high) + 2 px cream top border; active tab = teal pill
+            if (onHub) Column {
+                Box(Modifier.fillMaxWidth().height(2.dp).background(c.outlineVariant))
+                NavigationBar(containerColor = c.cardHigh, contentColor = c.onSurface) {
                 frame.tabs.forEach { tb ->
                     val selected = dest?.hierarchy?.any { it.route == Routes.graph(tb.k) } ?: (tb.k == initialTab)
                     NavigationBarItem(
@@ -114,10 +118,11 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                         label = { Text(t(l10nKey(tb.label)), style = LKType.labelBadge.toCompose()) },
                         modifier = Modifier.testTag("tab-${tb.k}"),
                         colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = c.primary, selectedTextColor = c.primary, indicatorColor = c.cardHigh,
+                            selectedIconColor = c.secondary, selectedTextColor = c.secondary, indicatorColor = c.secondaryContainer.copy(alpha = 0.22f),
                             unselectedIconColor = c.onSurfaceVariant, unselectedTextColor = c.onSurfaceVariant,
                         ),
                     )
+                }
                 }
             }
         },

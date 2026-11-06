@@ -306,25 +306,27 @@ struct TodayReviewBanner: View {
     @Environment(\.l10n) private var t
     @Environment(\.colorScheme) private var scheme
     var body: some View {
+        // Stitch today-*.html "review nudge": warm tertiary card + tertiary border, teal pill (same tokens as Android ReviewNudge) – no off-token white.
+        let shape = RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous)
         Button { services.router.open(AppRoute("review")) } label: {
             HStack(spacing: LKSpacing.spaceSm) {
-                Image(systemName: "brain.head.profile").font(.system(size: 26, weight: .bold))
+                Image(systemName: "rectangle.on.rectangle.angled").font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(LKColor.onSurface.resolve(scheme))
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(t(.todayFading, ["n": Fmt.int(due, t.lang)])).lkText(LKType.headlineSm)
-                    Text(t(.todayReviewNow, ["m": max(1, Int((Double(due) / 6).rounded(.up)))])).lkText(LKType.bodyMd).opacity(0.9)
+                    Text(t(.todayFading, ["n": Fmt.int(due, t.lang)])).lkText(LKType.titlePill)
+                        .foregroundStyle(LKColor.onSurface.resolve(scheme))
+                    Text(t(.todayReviewNow, ["m": max(1, Int((Double(due) / 6).rounded(.up)))])).lkText(LKType.bodySm)
+                        .foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
                 }
                 Spacer(minLength: 0)
-                Text(t(.todayReview)).lkText(LKType.titlePill)
+                Text(t(.todayReview)).lkText(LKType.labelMetric)
                     .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
-                    .background(Capsule().fill(LKColor.surfaceBright.resolve(.light)))
-                    .foregroundStyle(LKColor.banner2.resolve(scheme))
+                    .background(Capsule().fill(LKColor.secondaryContainer.resolve(scheme)))
+                    .foregroundStyle(LKColor.onSecondaryContainer.resolve(scheme))
             }
-            .foregroundStyle(LKColor.onSecondary.resolve(.light))
-            .padding(LKSpacing.spaceMd)
-            .background {
-                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.banner2.resolve(scheme)).offset(y: 3)
-                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.banner.resolve(scheme))
-            }
+            .padding(LKSpacing.spaceSm)
+            .background(shape.fill(LKColor.tertiaryContainer.resolve(scheme).opacity(scheme == .dark ? 0.35 : 0.25)))
+            .overlay(shape.strokeBorder(LKColor.tertiary.resolve(scheme), lineWidth: 2))
         }
         .buttonStyle(LKPressStyle())
     }

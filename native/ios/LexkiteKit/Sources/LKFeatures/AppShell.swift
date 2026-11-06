@@ -59,12 +59,14 @@ public struct AppShell: View {
                         .toolbar(.hidden, for: .navigationBar)
                         .navigationDestination(for: AppRoute.self) { r in InnerScreen(route: r) }
                 }
+                .toolbarBackground(LKColor.surfaceContainerHigh.resolve(scheme), for: .tabBar)   // Stitch <nav>: own surface, not the page colour
+                .toolbarBackground(.visible, for: .tabBar)
                 .tabItem { Label(t(L10nKey(rawValue: tb.label) ?? .tabToday), systemImage: tb.sf) }
                 .tag(tb.k)
                 .badge(tb.k == "home" ? services.today.snapshot.total : 0)   // Stitch frame: due count on Today
             }
         }
-        .tint(LKColor.primary.resolve(scheme))
+        .tint(LKColor.secondary.resolve(scheme))   // Stitch frame: active tab = teal (same as Android NavigationBar)
         .fullScreenCover(item: $router.focus) { r in
             FocusScreen(route: r).environment(services)
         }
@@ -146,7 +148,7 @@ struct FocusScreen: View {
     }
 }
 
-/// One primary CTA per screen: full width, ≥ 44 pt, press-bounce (off with Reduce Motion), soft haptic.
+/// One primary CTA per screen: full width, pill (Stitch rounded-full = Android LKPrimaryButton), ≥ 44 pt, press-bounce (off with Reduce Motion), soft haptic.
 public struct PrimaryButtonStyle: ButtonStyle {
     @Environment(\.colorScheme) private var scheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -158,9 +160,9 @@ public struct PrimaryButtonStyle: ButtonStyle {
             .frame(maxWidth: .infinity, minHeight: max(LKFrame.shared.minTap, 52))
             .foregroundStyle(LKColor.onPrimary.resolve(scheme))
             .background {
-                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.primary.resolve(scheme)).brightness(-0.22)   // tactile ledge = primary, darker
+                Capsule().fill(LKColor.primary.resolve(scheme)).brightness(-0.22)   // tactile ledge = primary, darker
                     .offset(y: LKMotionPolicy.pressOffset(pressed: configuration.isPressed, reduce: reduceMotion, rest: 4, down: 1))
-                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.primary.resolve(scheme))
+                Capsule().fill(LKColor.primary.resolve(scheme))
                     .offset(y: LKMotionPolicy.pressOffset(pressed: configuration.isPressed, reduce: reduceMotion, down: 3))
             }
             .scaleEffect(LKMotionPolicy.pressScale(pressed: configuration.isPressed, reduce: reduceMotion, down: 0.98))

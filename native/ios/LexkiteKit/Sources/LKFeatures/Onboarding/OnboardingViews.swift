@@ -165,7 +165,8 @@ struct OnbChoiceRow: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(verbatim: title).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme))
                     if let sub, !sub.isEmpty {
-                        Text(verbatim: sub).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+                        Text(verbatim: sub).lkText(LKType.bodySm)   // selected: on-surface – on-surface-variant on the tinted chip is 3.1:1 in dark (< AA 4.5)
+                            .foregroundStyle((selected ? LKColor.onSurface : LKColor.onSurfaceVariant).resolve(scheme))
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

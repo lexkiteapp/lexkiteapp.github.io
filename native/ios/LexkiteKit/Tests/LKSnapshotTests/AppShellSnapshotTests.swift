@@ -45,7 +45,8 @@ final class AppShellSnapshotTests: XCTestCase {
     func testAppShell() {
         for lang in Self.langs {
             for scheme in Self.schemes {
-                assertSnapshot(of: host(AppShell(), lang: lang, scheme: scheme), as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98),
+                // TabView (iOS 26) attaches tab content + LazyVStack rows one runloop after the window: snapshot after it, not the empty first pass
+                assertSnapshot(of: host(AppShell(), lang: lang, scheme: scheme), as: .wait(for: 0.5, on: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98)),
                                named: "\(lang)-\(scheme == .dark ? "dark" : "light")")
             }
         }
@@ -75,7 +76,9 @@ final class AppShellSnapshotTests: XCTestCase {
                 TopBar(variant: .hub, title: "Lexkite")
                 TopBar(variant: .inner, title: L10n(lang: "en")(.meProgress))
                 TopBar(variant: .focus(progress: 0.4), title: "")
-            }.frame(width: 390).environment(\.l10n, L10n(lang: "en")).environment(\.colorScheme, scheme)
+            }.frame(width: 390, height: 180, alignment: .top)
+                .background(LKColor.background.resolve(scheme))   // page colour behind the bars, as in the app (no transparent PNG)
+                .environment(\.l10n, L10n(lang: "en")).environment(\.colorScheme, scheme)
             let vc = UIHostingController(rootView: v)
             vc.overrideUserInterfaceStyle = scheme == .dark ? .dark : .light
             assertSnapshot(of: vc, as: .image(size: CGSize(width: 390, height: 180)), named: scheme == .dark ? "dark" : "light")

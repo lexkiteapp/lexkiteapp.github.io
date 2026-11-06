@@ -33,9 +33,14 @@ jobs:
       - name: Test (chuẩn + snapshot)
         working-directory: native/android
         run: |
-          if [ "${{ inputs.record }}" = "true" ] || ! ls app/src/test/snapshots/*.png >/dev/null 2>&1; then
-            echo "::warning::Chưa có ảnh snapshot chuẩn → ghi lần đầu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
+          N=$(ls app/src/test/snapshots/*.png 2>/dev/null | wc -l)
+          if [ "${{ inputs.record }}" = "true" ] || [ "$N" -lt 55 ]; then
+            # bấm tay record → ghi lại tất cả; thiếu ảnh (test mới / ảnh đổi có chủ đích đã xoá) → chỉ thêm ảnh còn thiếu, ảnh chuẩn đã commit vẫn được so
+            echo "::warning::Ảnh snapshot chuẩn $N/55 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
+            KEEP="$RUNNER_TEMP/keep"; mkdir -p "$KEEP"
+            [ "${{ inputs.record }}" = "true" ] || cp app/src/test/snapshots/*.png "$KEEP/" 2>/dev/null || true
             gradle --no-daemon -q :app:recordRoborazziDebug
+            cp "$KEEP"/*.png app/src/test/snapshots/ 2>/dev/null || true
           fi
           gradle --no-daemon :app:verifyRoborazziDebug
           test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 55 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
