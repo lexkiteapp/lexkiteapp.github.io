@@ -12,6 +12,8 @@ export function decodePng(buf) {
   while (p < buf.length) {
     const len = buf.readUInt32BE(p), type = buf.toString('latin1', p + 4, p + 8), d = buf.subarray(p + 8, p + 8 + len); p += 12 + len;
     if (type === 'IHDR') { w = d.readUInt32BE(0); h = d.readUInt32BE(4); bd = d[8]; ct = d[9]; il = d[12]; }
+    // màu so với token sRGB: ảnh mang hồ sơ khác (vd Display P3 khi chụp cửa sổ thật) lệch ΔE giả → chặn ngay ở gốc (#721)
+    else if (type === 'iCCP') { const nm = d.toString('latin1', 0, d.indexOf(0)); if (!/srgb/i.test(nm)) throw new Error(`PNG mang hồ sơ màu "${nm}", cần sRGB (chụp ảnh ở dải màu chuẩn)`); }
     else if (type === 'PLTE') pal = d; else if (type === 'IDAT') idat.push(d); else if (type === 'IEND') break;
   }
   if (il) throw new Error('PNG xen kẽ (Adam7) chưa hỗ trợ');
