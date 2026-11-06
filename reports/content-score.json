@@ -1,58 +1,58 @@
 {
- "total": 50.9,
+ "total": 51.2,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 49.6,
-   "coverage": 49.6,
+   "score": 50.6,
+   "coverage": 50.6,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9250,
+     "have": 9304,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9250,
-     "std": 9250,
+     "have": 9304,
+     "std": 9304,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4677,
+     "have": 4692,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2758,
+     "have": 2769,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6072,
+     "have": 6118,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 6379,
+     "have": 6902,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 356,
+     "have": 410,
      "std": 1000,
      "w": 10,
      "future": false
@@ -191,8 +191,8 @@
   },
   "skills": {
    "name": "4 kỹ năng",
-   "score": 48.2,
-   "coverage": 48.2,
+   "score": 49.2,
+   "coverage": 49.2,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -275,7 +275,7 @@
     },
     {
      "k": "trung gian (mediation)",
-     "have": 0,
+     "have": 2,
      "std": 30,
      "w": 14,
      "future": true
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10061,
-     "std": 10061,
+     "have": 10115,
+     "std": 10115,
      "w": 35,
      "future": false
     },
