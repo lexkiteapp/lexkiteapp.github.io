@@ -452,6 +452,7 @@
     if (!dirty) { await extPull(); if (!dirty && !(await localDiff().catch(() => false))) return; }
     clearTimeout(timer); timer = null; return Sync.mode === 'drive' ? driveRun('hide') : push();
   };
+  Sync.flush = flush; // đẩy ngay bản mới nhất (vd. trước khi máy chủ đọc bằng chứng ôn – /api/aiearn)
   window.addEventListener('online', () => { if (Sync.mode === 'drive') return driveRun('online'); if (!Sync.user || Sync.mode === 'off' || !(needPull || dirty || netT)) return; syncOk(); return needPull ? pullMerge({ quiet: true }) : push(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) flush(); else extPull(); });
   window.addEventListener('pagehide', flush);

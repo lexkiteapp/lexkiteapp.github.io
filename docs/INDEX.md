@@ -157,6 +157,7 @@
 - [study4-courses.md](research/study4-courses.md) — Ghi chú nghiên cứu cấu trúc khóa học & bài tập của Study4 (15/10/2026, duyệt chỉ đọc); đọc khi: thiết kế khóa học/bài tập
 - [study4-syllabi.md](research/study4-syllabi.md) — Ghi chú nghiên cứu giáo trình Study4; đọc khi: thiết kế giáo trình
 - [pron-phoneme-plan.md](research/pron-phoneme-plan.md) — Kế hoạch R&D chấm phát âm từng âm vị kiểu ELSA, 100% miễn phí (wav2vec2 ONNX trên máy, GOP, P0–P3 + ước lượng token); đọc khi: làm chấm phát âm
+- [ai-speaking-first.md](specs/ai-speaking-first.md) — Spec-lite 05/11: đưa Nói với AI (Call/Roleplay) lên 1 chạm, phản hồi mỗi lượt (sửa câu · vì sao · câu tự nhiên · phát âm), cổng độ trễ/độ đúng, 9 việc PR; đọc khi sửa lối vào hoặc chấm nói
 - [play-and-speak.md](specs/play-and-speak.md) — Spec-lite (chờ chủ duyệt) vừa học vừa chơi + luyện nói theo tình huống: kiểm kê, so app top, 9 tính năng, P0–P2, kế hoạch 40 tình huống × 12 mẫu câu, $0; đọc khi: làm luyện nói/mini-game nói/nhập vai
 
 ## Lưu trữ (docs/archive/ – nguyên văn, chỉ để tra cứu)

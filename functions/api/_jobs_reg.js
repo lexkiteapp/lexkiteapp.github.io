@@ -289,6 +289,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "pr-unconflict",
+   "workflow": "pr-unconflict.yml",
+   "cron": [
+    "23,53 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
