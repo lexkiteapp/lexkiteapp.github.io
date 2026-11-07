@@ -215,9 +215,6 @@
   ":scope > main > div > section:nth-child(3) > div:nth-child(5) > span": {
    "aria-hidden": "'true'"
   },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
-   "data-pv": "'1'"
-  },
   ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(1)": {
    "href": "d.pv[0].href",
    "aria-label": "d.pv[0].aria"
@@ -259,6 +256,9 @@
   },
   ":scope > main > div": {
    "py-3": "'py-4'"
+  },
+  ":scope > main > div > section:nth-child(5)": {
+   "hidden": "''"
   }
  },
  "tag": {
