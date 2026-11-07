@@ -52,7 +52,7 @@
   function injectBar(v) {
     const b = document.createElement('div');
     b.className = 'study-top lk-exitbar';
-    b.innerHTML = `<button type="button" class="icon-btn lk-exit-x" data-exit aria-label="${t('Thoát bài học')}">${g.UI && UI.icon ? UI.icon('x') : '✕'}</button><div class="progress" aria-hidden="true"><i style="width:0%"></i></div>`;
+    b.innerHTML = `<button type="button" class="icon-btn lk-exit-x" data-exit aria-label="${t('Thoát bài học')}">${g.UI && UI.icon ? UI.icon('x') : '✕'}</button><div class="progress" aria-hidden="true"><i style="width:0%"></i></div><button type="button" id="lkTheme" class="icon-btn lk-exit-x" aria-label="${t('Đổi giao diện sáng/tối')}"><span class="material-symbols-outlined">light_mode</span></button>`; /* desktop: header mẫu bị ẩn → thanh thoát thay header, mang nút sáng/tối (hành vi gắn ở app.js focusTheme) */
     v.prepend(b);
     return b;
   }
