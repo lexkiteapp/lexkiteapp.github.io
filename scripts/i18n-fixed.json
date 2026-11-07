@@ -29,7 +29,6 @@
     "ru": "Точность",
     "tr": "Doğruluk"
   },
-  "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào nguồn i18n/ui/<lang>.js (rồi sinh gói web/js/i18n/<lang> bằng i18n-pack) sau mỗi lần dịch tự động.",
   "Ghi chú": {
     "es": "Nota",
     "pt": "Nota",
@@ -35804,6 +35803,21 @@
     "ar": "الاهتزاز عند الإجابة وإكمال الدرس",
     "ru": "Вибрация при ответах и завершении урока",
     "tr": "Cevaplarda ve ders bitişinde titreşim"
+  },
+  "Nghe hết phần này để mở nút tiếp": {
+    "es": "Escucha toda esta parte para continuar",
+    "pt": "Ouça toda esta parte para continuar",
+    "fr": "Écoutez toute cette partie pour continuer",
+    "de": "Hören Sie den ganzen Teil an, um fortzufahren",
+    "id": "Dengarkan seluruh bagian ini untuk melanjutkan",
+    "th": "ฟังส่วนนี้ให้จบเพื่อไปต่อ",
+    "zh": "听完这一部分才能继续",
+    "ja": "このパートを最後まで聞くと次へ進めます",
+    "ko": "이 파트를 끝까지 들으면 다음으로 넘어갈 수 있어요",
+    "hi": "आगे बढ़ने के लिए इस भाग को पूरा सुनें",
+    "ar": "استمع إلى هذا الجزء كاملاً للمتابعة",
+    "ru": "Прослушайте эту часть до конца, чтобы продолжить",
+    "tr": "Devam etmek için bu bölümü sonuna kadar dinleyin"
   },
   "Giọng đọc chất lượng cao trên máy": {
     "es": "Voz de alta calidad en el dispositivo",
