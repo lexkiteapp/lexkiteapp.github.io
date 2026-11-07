@@ -22,7 +22,7 @@ shots: [
 quiz: [
   {
     q: "Which IELTS version does Canada's Express Entry accept?",
-    options: ["Academic only", "General Training only", "Either version", "IELTS Online only"],
+    options: ["The Academic version only", "General Training only", "Either version, as you prefer", "IELTS Online taken at home"],
     answer: 1,
     explain: "IRCC states that for Express Entry you must take the IELTS General Training option."
   },
@@ -34,7 +34,7 @@ quiz: [
   },
   {
     q: "A UK route requires a Secure English Language Test. What should you book?",
-    options: ["Any IELTS test", "IELTS for UKVI at an approved centre", "IELTS Online at home", "A practice test"],
+    options: ["Any IELTS test, Academic or General", "IELTS for UKVI at an approved centre", "IELTS Online taken at home", "A free practice test from a prep site"],
     answer: 1,
     explain: "A SELT must be taken with an approved provider at an approved centre, and IELTS for UKVI is one of the approved tests."
   }

@@ -64,6 +64,7 @@ node scripts/test/explain.mjs
 node scripts/test/script-bank.mjs
 node scripts/test/wordcard-ui.mjs
 node scripts/test/learn-flow.mjs
+node scripts/test/welcome-flow.mjs
 node scripts/test/mobile-polish.mjs
 node scripts/path/build-mix.mjs --check
 node scripts/test/next-step.mjs
@@ -78,6 +79,7 @@ node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/call-engine.mjs
+node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
 node scripts/test/review-done.mjs
@@ -113,6 +115,7 @@ node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
+node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
@@ -181,6 +184,7 @@ node scripts/test/i18n-switch.mjs web
 node scripts/test/explain-check.mjs
 node scripts/test/size-budget.mjs
 node scripts/test/js-budget.mjs
+node scripts/test/readtest-dedupe.mjs
 node scripts/test/shell-size.mjs
 node scripts/test/docs-budget.mjs
 node scripts/test/infra-check.mjs
@@ -190,10 +194,13 @@ node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
 node scripts/test/klocal.mjs
+node scripts/test/ios-audio-unlock.mjs
 node scripts/test/ext-bundles.mjs
 node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
+node scripts/test/audio-pr-branch.mjs
+node scripts/test/pages-lag.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
 node scripts/test/api-security.mjs
@@ -211,8 +218,11 @@ node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
 node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
+node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
+node scripts/test/token-contrast.mjs
+node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
@@ -222,6 +232,8 @@ node scripts/test/content-qa.mjs
 node scripts/content-qa/gate.mjs
 node scripts/test/blog-images.mjs
 node scripts/test/blog-captions.mjs
+node scripts/test/blog-youtube.mjs
+node scripts/test/blog-lang-gates.mjs
 node scripts/blog-schedule.mjs --verify
 node scripts/test/axe.js web
 node scripts/test/crawl.js web
@@ -236,6 +248,7 @@ node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
 node scripts/content-qa/lkf-check.mjs
@@ -248,6 +261,9 @@ node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
+node scripts/test/css-lazy.mjs
+node scripts/test/build-hash.mjs
+node scripts/test/self-fonts.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/dispatch-guard.mjs
 node scripts/test/mqa-parity.mjs
@@ -258,6 +274,7 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
+node scripts/test/ffmpeg-setup-policy.mjs
 node scripts/test/scroll-boot.mjs
 node scripts/test/datamuse-resilience.mjs
 node scripts/test/suite-guard.mjs
@@ -273,11 +290,42 @@ node scripts/test/root-lang.mjs
 node scripts/test/cpm-plan.mjs
 node scripts/test/probe-cta.mjs
 node scripts/test/haptics.mjs
+node scripts/test/aiearn.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/native/gen.mjs --check
+node scripts/test/native-one-source.mjs --self-test
+node scripts/test/native-one-source.mjs
+node scripts/test/native-parity.mjs
+node scripts/test/sync-cross-client.mjs
+node scripts/test/native-compat.mjs
+node scripts/native/content-publish.mjs check
+node scripts/test/native-pick-sim.mjs
+node scripts/test/native-visual.mjs --self-test
+node scripts/test/lip-clock.mjs
+node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
+node scripts/test/cpack.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
+node scripts/test/settings-subpages.mjs
+node scripts/test/required-gate-stale.mjs
+node scripts/test/origin-fetch.mjs
+node scripts/test/story-stage.mjs
+node scripts/test/teacher-bubble.mjs --static
+node scripts/test/teacher-mood.mjs --static
+node scripts/test/voice-source.mjs
+node scripts/test/side-menu.mjs
+node scripts/test/site-footer.mjs
+node scripts/test/v2pre-ring.mjs
+node scripts/test/zombie-pages.mjs
+node scripts/test/ci-guards.mjs
+node scripts/test/pr-unconflict.mjs
+node scripts/test/main-red-sweep.mjs
+node scripts/test/ci-queue-gate.mjs
+node scripts/test/android-xml-comments.mjs
+node scripts/test/retry5xx.mjs
+node scripts/test/sparse-imports.mjs

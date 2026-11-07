@@ -14,6 +14,8 @@ on:
     - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 # lượt tay/lịch: nhóm 'visual-qa' không huỷ (ci-filler cần – infra/ci-backlog.json); PR: nhóm riêng theo nhánh, lượt mới huỷ lượt cũ
 concurrency:
   group: ${{ github.event_name == 'pull_request' && format('visual-qa-pr-{0}', github.ref) || 'visual-qa' }}
@@ -25,6 +27,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
@@ -32,7 +36,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}   # PR: video-web.yml/video-e2e.yml lo phần video
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chrome
+          bash scripts/ci/pw-install.sh --with-deps chrome
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/video-web-e2e.mjs http://localhost:8080 out/video-web
       - if: ${{ always() && github.event_name != 'pull_request' }}
@@ -43,7 +47,7 @@ jobs:
         env: { VQA_QUICK: "${{ github.event.inputs.quick || '0' }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/visual-qa.mjs http://localhost:8080 vqa-out
           cat vqa-out/report.md >> "$GITHUB_STEP_SUMMARY"
@@ -67,11 +71,11 @@ jobs:
           git worktree add -q "$RUNNER_TEMP/base" origin/main
           (cd "$RUNNER_TEMP/base" && SEO_DIST="$GITHUB_WORKSPACE/out/before" node scripts/build-seo-pages.mjs | tail -1)
       - name: Chụp
-        timeout-minutes: 8
+        timeout-minutes: 14
         env: { PAGES: "${{ github.event.inputs.seo_words }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
           node scripts/test/seo-words-shots.mjs out "$PAGES" seo-words-shots
       - if: always()

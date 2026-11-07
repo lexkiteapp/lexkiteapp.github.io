@@ -8,6 +8,8 @@
   const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x, ok = (w, p) => POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk';
   g.Chars = Object.assign(g.Chars || {}, { // nạp lại (gói lười 'pas' có characters.js) KHÔNG xóa phần mở rộng đã gắn (Chars.slot – teacher-slot.js)
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
+    // tư thế → biểu cảm mặt vẽ (face.js EMO): LessonTeacher + TeacherMood
+    POSE_EMO: { cheer: 'cheer', concern: 'concern', happy: 'happy', laugh: 'happy', encourage: 'encourage', empathy: 'concern', thinking: 'thinking', surprise: 'cheer', explain: 'explain', wave: 'happy', point: 'explain' },
     voice: w => VOICE[id(w)],
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
     head: (w, x2) => f(w, 'head-bare' + (x2 ? '-2x' : '') + '.webp'), // "đầu trơn" (khung poster, đã xóa mắt/mày/miệng/ria) – nền cho mặt VẼ khớp miệng (web/js/call/face.js)

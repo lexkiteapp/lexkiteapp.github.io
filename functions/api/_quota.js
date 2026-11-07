@@ -145,11 +145,15 @@ async function strike(db, key, feature) {
   } catch (e) { /* bỏ qua */ }
 }
 
-const UP = 'INSERT INTO quota_count (k, day, n) VALUES (?1, ?2, ?3) ON CONFLICT (k, day) DO UPDATE SET n = n + ?3 RETURNING n';
+export const UP = 'INSERT INTO quota_count (k, day, n) VALUES (?1, ?2, ?3) ON CONFLICT (k, day) DO UPDATE SET n = n + ?3 RETURNING n';
 const plainJson = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
 /** Cổng hạn mức. opt: { who: claims|null (bỏ trống = tự đọc header Authorization), json: (req, status, data) => Response (CORS của endpoint) }
  *  Trả đối tượng q: q.res (Response 429 nếu bị chặn) · q.tier · q.id · q.take(n) (tính lượt ngày cho store 'd1') · q.near(p, keys) · q.use(p, n) · q.busy() */
+/** Cộng lượt thưởng (quảng cáo có thưởng, ôn thẻ): câu lệnh trừ bộ đếm ngày của các khóa (gộp vào batch của endpoint) +
+ * xoá dấu "hết lượt hôm nay" ở biên của các khóa đó – không xoá thì gate vẫn chặn tới nửa đêm dù D1 đã được cộng (dấu theo trung tâm dữ liệu). */
+export function credit(db, feature, keys, n, day = dayKey()) { return keys.map(k => db.prepare(UP).bind(feature + '|' + k, day, -Math.abs(n))); }
+export async function unmark(feature, keys) { for (const k of keys) try { await /** @type {any} */ (caches).default.delete(ck(`qx:${feature}:${k}`)); } catch (e) { /* bỏ qua */ } }
 export async function gate(request, env, feature, opt = {}) {
   const db = env.DB, now = Date.now(), s = db ? await state(db) : st, c = budget(feature, s);
   let who = opt.who;
@@ -203,7 +207,12 @@ export async function gate(request, env, feature, opt = {}) {
   if (unlimited) return q;
   for (const k of keys) { const u = s.block.get(k); if (u === 0 || u > now) return q.deny('quota.blocked', u || null); }
   if (!perDay) return q.deny('quota.daily', reset);
-  if (c.store === 'd1') for (const k of id === ip ? [id] : [id, ip]) if (await peek(`qx:${feature}:${k}`)) return q.deny('quota.daily', reset, k);
+  // Dấu "hết lượt" ở biên tránh lượt GHI D1; gặp dấu → 1 lượt ĐỌC bộ đếm: đã được cộng lượt thưởng (credit – quảng cáo SSV chạy ở trung tâm dữ liệu khác, ôn thẻ) thì gỡ dấu, cho qua
+  if (c.store === 'd1') for (const k of id === ip ? [id] : [id, ip]) if (await peek(`qx:${feature}:${k}`)) {
+    const r = db ? await db.prepare('SELECT n FROM quota_count WHERE k = ? AND day = ?').bind(feature + '|' + k, day).first().catch(() => false) : false;
+    if (r === false || (r && r.n > (k === id ? perDay : ipDay))) return q.deny('quota.daily', reset, k);
+    await unmark(feature, [k]);
+  }
   let w;
   if (perMin && (w = await limit(`qm:${feature}:${id}`, perMin, 60))) return q.deny('quota.burst', now + w * 1000, id);
   if (ip !== id && ipMin && (w = await limit(`qm:${feature}:${ip}`, ipMin, 60))) return q.deny('quota.burst', now + w * 1000, ip);
