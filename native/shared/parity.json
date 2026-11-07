@@ -122,7 +122,7 @@
     {
       "id": "P10",
       "m": 5,
-      "title": "Tests: readiness/goal, mock, CBT, placement, TOEIC (R, SW, test), TOEFL (+practice), IELTS",
+      "title": "Tests: readiness/goal, mock, CBT, placement, TOEIC (R, SW, test), TOEFL (+practice), IELTS, Cambridge",
       "routes": [
         "#/goal",
         "#/mock",
@@ -133,7 +133,8 @@
         "#/toeic-sw",
         "#/toeic-test",
         "#/toefl",
-        "#/toefl-p"
+        "#/toefl-p",
+        "#/cambridge"
       ]
     },
     {
