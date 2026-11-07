@@ -159,7 +159,7 @@ private fun Teacher(s: TodaySummary, teacher: (@Composable () -> Unit)?) {
     val say = if (s.due > 0) t(L10nKey.todaySayDue, mapOf("g" to g, "b" to s.due)) else t(L10nKey.todaySayDone, mapOf("g" to g))
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
         // teacher slot (Stitch draws no people; the 2D Ama still is filled in by the app, grounded, no crop/halo)
-        Box(Modifier.width(120.dp).height(140.dp), contentAlignment = Alignment.BottomCenter) { teacher?.invoke() ?: Icon(Icons.Filled.School, null, tint = c.outlineVariant, modifier = Modifier.size(40.dp)) }
+        Box(Modifier.width(120.dp).then(if (teacher != null) Modifier.height(140.dp) else Modifier), contentAlignment = Alignment.BottomCenter) { teacher?.invoke() ?: Icon(Icons.Filled.School, null, tint = c.outlineVariant, modifier = Modifier.size(40.dp)) }
         Column(Modifier.weight(1f).clip(RoundedCornerShape(LKRadius.xl * 2)).background(c.card).border(2.dp, c.outlineVariant, RoundedCornerShape(LKRadius.xl * 2)).padding(LKSpacing.spaceSm),
             verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
             Text(t(L10nKey.todayFocus), style = LKType.labelBadge.toCompose(), color = c.secondary)

@@ -13,7 +13,7 @@
         "#/tests",
         "#/me"
       ],
-      "status": "skeleton"
+      "status": "done"
     },
     {
       "id": "P02",
@@ -26,7 +26,8 @@
         "#/tracks",
         "#/course",
         "#/courses"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P03",
@@ -164,19 +165,22 @@
       "id": "C01",
       "m": 1,
       "title": "Auth: Firebase Google + Apple sign-in, same project, guest mode, delete account",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C02",
       "m": 1,
       "title": "Offline-first store (SwiftData/Room) + sync: Drive appDataFolder primary, D1 /api/sync fallback, deterministic 2-way merge with tombstones",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C03",
       "m": 1,
       "title": "Migration from the Capacitor app: import IndexedDB data (cards, stats, settings, streak) on first native launch, zero loss",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C04",
@@ -206,25 +210,29 @@
       "id": "C08",
       "m": 1,
       "title": "Deep links: lexkite://review, lexkite://word/<w>, https://lexkite.com universal/app links to routes",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C09",
       "m": 1,
       "title": "Haptics (correct/wrong/complete), respects system settings",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C10",
       "m": 1,
       "title": "i18n 15 languages + RTL (ar) + +40 % text growth; generated from web i18n",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C11",
       "m": 1,
       "title": "Themes: Bright Day (light) / Tactile Night (dark) / follow system; generated tokens; contrast ≥4.5:1",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C12",
@@ -260,7 +268,8 @@
       "id": "C17",
       "m": 1,
       "title": "First-run onboarding: splash → Welcome → native language/goal/level/daily time → Today first lesson; never the blog; try before sign-up",
-      "routes": []
+      "routes": [],
+      "status": "done"
     }
   ]
 }
