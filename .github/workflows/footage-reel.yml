@@ -16,6 +16,7 @@ jobs:
         with: { sparse-checkout: .github/actions }   # setup-ffmpeg action only (the job needs no other repo file)
       - uses: ./.github/actions/setup-ffmpeg
       - name: ffmpeg + font
+        timeout-minutes: 12
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core >/dev/null
       - name: Footage (clip folders only, sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
