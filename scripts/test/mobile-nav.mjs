@@ -33,9 +33,9 @@ async function open(scheme, ux1, { hangIdb = false, fresh = false } = {}) {
 }
 const ready = page => page.waitForFunction(() => { const v = document.getElementById('view'); return v && v.children.length && !v.querySelector('.skel-page,.skel-study') && !document.body.classList.contains('bare'); }, null, { timeout: 15000 }).then(() => true, () => false);
 const overflow = page => page.evaluate(() => { const W = innerWidth; if (document.documentElement.scrollWidth <= W + 1) return []; return [...document.querySelectorAll('#view *')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.right > W + 1 && !e.closest('[class*="overflow-x"],.tabs,.steps,.set-nav,.hscroll,[style*="overflow"]'); }).slice(0, 5).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 3).join('.') + ' →' + Math.round(e.getBoundingClientRect().right)); });
-// Tab "Tôi" đang HIỆN ở đáy màn hình (thanh Stitch trong #view hoặc #bnav cũ)
+// Tab "Tôi" đang HIỆN ở đáy màn hình (thanh Stitch trong #view hoặc #bnav cũ) // chấm theo TÂM tab nằm trong khung nhìn: thanh dưới của trang Từ vựng/Kỹ năng/Thi (st/common.js) có ô tab cao hơn thanh 4 px (đo CI: 762+54=816 > 812) – chạm vẫn đúng tâm; thanh dính đáy do navPin kiểm riêng
 const tabAt = (page, key) => page.evaluate(key => {
-  const vis = a => { const r = a.getBoundingClientRect(), s = getComputedStyle(a); return r.width > 0 && r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2 && s.visibility !== 'hidden'; };
+  const vis = a => { const r = a.getBoundingClientRect(), s = getComputedStyle(a); return r.width > 0 && r.height > 0 && r.top + r.height / 2 <= innerHeight && r.top >= innerHeight / 2 && s.visibility !== 'hidden'; };
   const a = [...document.querySelectorAll(`a[data-tab="${key}"]`)].find(vis); if (!a) return null;
   const r = a.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2, top = document.elementFromPoint(x, y);
   const d = e => e ? e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + '.' + [...e.classList].slice(0, 4).join('.') : '∅';
@@ -53,11 +53,11 @@ const navPin = page => page.evaluate(() => {
   for (let e = n.parentElement; e; e = e.parentElement) { const s = getComputedStyle(e); const z = ['transform', 'filter', 'backdropFilter', 'willChange', 'contain', 'perspective', 'containerType'].filter(k => s[k] && !/^(none|auto|normal)$/.test(s[k])).map(k => k + '=' + s[k]); if (z.length) anc.push((e.id ? '#' + e.id : e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 3).join('.')) + '{' + z.join(';') + '}'); }
   return { ok: Math.abs(r.bottom - innerHeight) <= 2, bot: Math.round(r.bottom), top: Math.round(r.top), ih: innerHeight, vv: window.visualViewport ? Math.round(visualViewport.height) : 0, sy: Math.round(scrollY), pos: getComputedStyle(n).position, nav: n.id || [...n.classList].slice(0, 3).join('.'), anc: anc.join(' ') };
 });
-async function pinned(page, k, where) {
+async function pinned(page, k, where, { allowNone = false } = {}) { // allowNone: màn làm bài thi (focus) cố ý ẩn thanh tab – nếu CÓ thì vẫn phải dính đáy
   for (const sc of [false, true]) {
     if (sc) { await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight)); await page.waitForTimeout(350); }
     const p = await navPin(page);
-    if (p.none) { bad(k, `${where}: không có thanh tab dưới`); return; }
+    if (p.none) { if (!allowNone) bad(k, `${where}: không có thanh tab dưới`); return; }
     if (!p.ok) bad(k, `${where}${sc ? ' (đã cuộn hết trang)' : ''}: thanh tab không dính đáy – đáy ${p.bot}/${p.ih} (vv ${p.vv}, scrollY ${p.sy}, ${p.pos}, ${p.nav}) tổ tiên: ${p.anc || '∅'}`);
   }
   await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(150);
@@ -85,10 +85,10 @@ async function run(scheme, ux1) {
   for (const from of ['home', 'vocab', 'skills', 'tests', 'settings']) { // khóa tab (data-tab) của thanh dưới: main dùng cùng 4 khóa cho Stitch và thanh cũ (st/v2/runtime.js TABS)
     if (from === 'settings') await page.evaluate(() => { location.hash = '#/settings'; });
     else { // lần nạp đầu: thanh tab Stitch thay thanh cũ ngay sau lượt vẽ đầu (đo CI WebKit: 167 ms) → cho tối đa 1 s; chậm hơn vẫn là LỖI
-      if (from === 'learn' || from === 'home') await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2; }), from, { timeout: 1000 }).catch(() => {});
+      if (from === 'learn' || from === 'home') await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.top + r.height / 2 <= innerHeight && r.top >= innerHeight / 2; }), from, { timeout: 1000 }).catch(() => {});
       const tb = await tabAt(page, from); if (!tb) { // chẩn đoán: thanh tab ở đâu, CSS màn đã nạp chưa, bao lâu sau mới hiện (vẫn tính LỖI)
         const p = await navPin(page), css = await page.evaluate(() => [...document.styleSheets].map(x => (x.href || '').split('/').pop()).filter(h => /^st-/.test(h)).join(',')), t0 = Date.now();
-        const late = await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2; }), from, { timeout: 5000 }).then(() => Date.now() - t0, () => -1);
+        const late = await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.top + r.height / 2 <= innerHeight && r.top >= innerHeight / 2; }), from, { timeout: 5000 }).then(() => Date.now() - t0, () => -1);
         await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-notab-${from}.png` });
         bad(k, `không thấy tab "${from}" ở thanh dưới (đang ở ${await page.evaluate(() => location.hash)}; thanh: ${p.none ? 'không có' : `đáy ${p.bot}/${p.ih} ${p.pos} ${p.nav}`}; css st: ${css || '∅'}; a: [${await tabDiag(page, from)}]; ${late < 0 ? 'vẫn không hiện sau 5 s' : `hiện muộn ${late} ms`})`); continue; }
       await page.touchscreen.tap(tb.x, tb.y); }
@@ -105,7 +105,7 @@ async function run(scheme, ux1) {
   await page.evaluate(() => { location.hash = '#/listen-test/1'; }); await page.waitForTimeout(900); await ready(page);
   const go = await page.$('#tGo'); if (!go) bad(k, '#/listen-test/1: không thấy nút "Bắt đầu thi"'); else {
     await go.tap(); await page.waitForTimeout(700);
-    await pinned(page, k, '#/listen-test/1 Part 1');
+    await pinned(page, k, '#/listen-test/1 Part 1', { allowNone: true });
     const c = await contrastOf(page, '#tNext');
     if (!c) bad(k, 'Listening: không thấy nút "Sang phần tiếp"');
     else { if (!c.disabled) bad(k, 'Listening: nút "Sang phần tiếp" phải khóa khi chưa nghe xong'); if (c.ratio < 4.5) bad(k, `Listening: nút "Sang phần tiếp" bị khóa tương phản ${c.ratio.toFixed(2)} < 4.5`); if (!c.why) bad(k, 'Listening: nút bị khóa không nói lý do (aria-describedby)'); log(`  · nút khóa: ${c.ratio.toFixed(2)}:1 – "${c.why}"`); }
