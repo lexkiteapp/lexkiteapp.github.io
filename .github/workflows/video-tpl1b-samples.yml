@@ -30,6 +30,7 @@ jobs:
           echo "IDS=$IDS_IN" >> "$GITHUB_ENV"
       - uses: ./.github/actions/setup-ffmpeg
       - name: Libraries + ffmpeg
+        timeout-minutes: 12
         run: |
           pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
           sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin fontconfig >/dev/null

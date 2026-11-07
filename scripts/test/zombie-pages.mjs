@@ -39,3 +39,15 @@ console.log('✓ zombie-pages: zombie/job kẹt ở trang 2+ của hàng chờ �
   assert.notEqual(r.cancel, 'ok', 'cancel 409 bị nuốt không được tính là ok');
 }
 console.log('✓ zombie-delete: gh nuốt lỗi vẫn force-cancel → DELETE');
+// DELETE bị nuốt (lượt vẫn còn khi đọc lại) → KHÔNG được báo đã xoá
+{
+  const stuck = async (p, o = {}) => { const m = o.method || 'GET';
+    if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [ghost] };
+    if (p.endsWith('/9/jobs?per_page=1')) return { total_count: 0 };
+    if (m === 'POST' || m === 'DELETE') return null;
+    if (p === '/actions/runs/9') return { id: 9, status: 'queued' };
+    return {}; };
+  const [r] = await zombieRuns(stuck, { now, cancel: true });
+  assert.notEqual(r.deleted, true, 'DELETE không hiệu lực không được tính là đã xoá');
+}
+console.log('✓ zombie-delete: DELETE bị nuốt không báo đã xoá');

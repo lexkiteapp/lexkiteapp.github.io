@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
+import { retry5xx } from '../lib/retry5xx.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
 export const SELF_JOB = 'required-gate-eval';      // tên job của chính workflow này – không tự chờ mình (bộ canh chạy trên main nên không bám head PR)
@@ -145,7 +146,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
   const base = `https://api.github.com/repos/${repo}`, etags = new Map(), rate = { remaining: Infinity, reset: 0 };
   const call = async (p, init = {}) => {
     const u = p.startsWith('http') ? p : base + p, get = !init.method || init.method === 'GET', c = get && etags.get(u);
-    const r = await fetchImpl(u, { ...init, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(c ? { 'If-None-Match': c.etag } : {}), ...(init.headers || {}) } });
+    const r = await retry5xx(() => fetchImpl(u, { ...init, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(c ? { 'If-None-Match': c.etag } : {}), ...(init.headers || {}) } }));
     const h = k => r.headers?.get?.(k);
     if (h('x-ratelimit-remaining') != null) { rate.remaining = +h('x-ratelimit-remaining'); rate.reset = +h('x-ratelimit-reset') * 1000; }
     if (r.status === 304 && c) return c.body;   // GET có điều kiện: 304 không trừ hạn mức API

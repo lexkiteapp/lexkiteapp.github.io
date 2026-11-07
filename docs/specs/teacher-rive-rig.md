@@ -61,3 +61,13 @@ Ngưỡng chỉ được siết, không nới.
 2. Trong rig: đổi `pending` → tư thế thật (1 dòng trong `GESTURES`).
 3. Tái dùng nguyên clip cho video (`registry_clips.py`) và `teacher-live` (phát clip trên chỗ giáo viên).
 4. Mỗi clip là tài sản một lần trong bank; từ đó mọi câu/màn mới dùng lại với chi phí 0.
+
+## Ghi chú kiến trúc (chuyển từ đầu web/js/teacher-rig.js, 07/11)
+
+- 🎭 TeacherRig – rig hoạt hình 2D Ama/Carlos kiểu Rive (input số + state machine + blend), dùng chung cho Call, màn dạy học, video (spec: docs/specs/teacher-rive-rig.md).
+- Không có .riv: Rive cần editor GUI + gói trả phí để bỏ splash và vẽ lại hình đã duyệt (#583 đo: runtime 468 KB gz) → rig tự viết, cùng mô hình input của Rive:
+- lớp mặt  = đầu trơn + mắt/mày/miệng vector (LipFace/LipMouth/LipPaint, #293) – miệng theo viseme, không bao giờ bị làm mượt trễ (khớp ±33 ms, cổng teacher-rig.mjs)
+- lớp thân = biến đổi CỨNG quanh khớp cổ (xoay + tịnh tiến, thở = co giãn đều ≤ 0,6 %) → không méo, không gãy khớp, độ dài chi không đổi
+- lớp tư thế = ảnh tư thế đã duyệt (Chars.still, footage registry) mờ chéo 180 ms trong CÙNG 1 canvas (0 thay đổi DOM mỗi khung)
+- API: TeacherRig.mount(el, who, o) → { speak(audio, visemes, o), setEmotion(name), gesture(name), listen(on), pause(on), destroy(), stats }
+- Lõi thuần (Node + trình duyệt): TeacherRig.core – cổng CI chạy đúng lõi này. Tải lười: chỉ màn có giáo viên nạp tệp này (shell không đổi).
