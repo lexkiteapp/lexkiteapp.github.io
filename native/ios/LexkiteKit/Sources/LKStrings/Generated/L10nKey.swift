@@ -25,6 +25,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case todayStreakDays = "today.streakDays"
     case todayXp = "today.xp"
     case todayGoalShort = "today.goalShort"
+    case todayDailyGoal = "today.dailyGoal"
     case todayFocus = "today.focus"
     case todayMorning = "today.morning"
     case todayAfternoon = "today.afternoon"

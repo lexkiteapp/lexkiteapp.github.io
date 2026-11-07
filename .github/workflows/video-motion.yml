@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – render video trên PR chờ npm test xanh (job `gate`, luật 11)
 
 # video-motion: Stitch overlay shorts (docs/VIDEO-MOTION.md). ONE sample per template in content/video/cine/news/templates-motion/<t>.json.
 # 0 credits: Kokoro + Rhubarb + faster-whisper word clock (voice) -> render_v9.py --overlay (host plate: teacher + captions + audio, high bitrate)
@@ -17,15 +18,35 @@ env:
   DIR: templates-motion
   HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   setup:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { list: '${{ steps.m.outputs.list }}' }
     steps:
       - id: m
-        run: echo "list=$(python3 -c "import json;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates || 'drill,mistake,tip,ready' }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+        run: echo "list=$(python3 -c "import json;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates || (github.event_name == 'pull_request' && 'drill' || 'drill,mistake,tip,ready') }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
   voice:
-    needs: setup
+    needs: [setup, gate]
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -63,7 +84,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: 'vo*/', retention-days: 3 }
   render:
-    needs: [setup, voice]
+    needs: [setup, voice, gate]
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 75
     strategy:
