@@ -36270,6 +36270,21 @@
     "ru": "Сегодня повторено {r}/{need} карточек – повторите ещё, чтобы получить попытки.",
     "tr": "Bugün {r}/{need} kart tekrar edildi – hak kazanmak için daha fazlasını tekrar et."
   },
+  "Tìm ngôn ngữ": {
+    "es": "Buscar idioma",
+    "pt": "Pesquisar idioma",
+    "fr": "Rechercher une langue",
+    "de": "Sprache suchen",
+    "id": "Cari bahasa",
+    "th": "ค้นหาภาษา",
+    "zh": "搜索语言",
+    "ja": "言語を検索",
+    "ko": "언어 검색",
+    "hi": "भाषा खोजें",
+    "ar": "ابحث عن لغة",
+    "ru": "Поиск языка",
+    "tr": "Dil ara"
+  },
   "{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!": {
     "es": "{g} No pasa nada, todos tenemos días ocupados. ¡Hoy empezamos de nuevo juntos!",
     "pt": "{g} Tudo bem, todo mundo tem dias corridos. Hoje recomeçamos juntos!",

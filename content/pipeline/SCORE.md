@@ -6,7 +6,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **50.6** | 45.2 | 50.6% | 100% | 0 |
+| Kho từ | **51** | 45.2 | 51% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
 | Giao tiếp | **31.7** | 14.1 | 31.7% | 100% | 0 |
 | 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
@@ -18,13 +18,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 9304 / 20000 | 47% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 9304 / 9304 | 100% | 20 |
-| collocation | 4692 / 20000 | 23% | 12 |
-| đồng nghĩa | 2769 / 20000 | 14% | 8 |
-| IPA Mỹ | 6118 / 20000 | 31% | 5 |
-| ảnh theo nghĩa | 6902 / 20000 | 35% | 15 |
-| C2 | 410 / 1000 | 41% | 10 |
+| từ#loại duy nhất | 9334 / 20000 | 47% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 9334 / 9334 | 100% | 20 |
+| collocation | 4696 / 20000 | 23% | 12 |
+| đồng nghĩa | 2776 / 20000 | 14% | 8 |
+| IPA Mỹ | 6140 / 20000 | 31% | 5 |
+| ảnh theo nghĩa | 6956 / 20000 | 35% | 15 |
+| C2 | 440 / 1000 | 44% | 10 |
 | A1 | 858 / 1000 | 86% | 5 |
 
 ## Ngữ pháp
@@ -97,7 +97,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 10115 / 10115 | 100% | 35 |
+| nội dung có lo hợp lệ | 10145 / 10145 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 134 / 600 | 22% | 25 |
 
 ## i18n

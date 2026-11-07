@@ -34,5 +34,5 @@ jobs:
       - name: Viền đen · fps · dung lượng (Chromium + WebKit)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium webkit
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
           node scripts/test/teacher-quality.mjs
