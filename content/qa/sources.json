@@ -165,7 +165,8 @@
   {
    "id": "listening",
    "paths": [
-    "web/js/listen"
+    "web/js/listen",
+    "web/cpack/listen"
    ],
    "owner": "claude",
    "gen": false,
@@ -196,7 +197,8 @@
   {
    "id": "toefl",
    "paths": [
-    "web/js/toefl"
+    "web/js/toefl",
+    "web/cpack/toefl"
    ],
    "owner": "claude",
    "gen": false,
@@ -207,6 +209,24 @@
    "delegate": [
     "test/content-check.mjs"
    ]
+  },
+  {
+   "id": "cambridge",
+   "paths": [
+    "web/cpack/cambridge"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs",
+    "test/cambridge.mjs"
+   ],
+   "doc": "docs/specs/cambridge.md"
   },
   {
    "id": "exam-spec",
@@ -333,6 +353,7 @@
    "id": "lesson",
    "paths": [
     "web/js/lesson",
+    "web/cpack/lesson",
     "content/lesson"
    ],
    "owner": "claude",
