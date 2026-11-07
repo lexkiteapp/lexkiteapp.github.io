@@ -77256,17 +77256,17 @@
   },
   "time sheet#n": {
    "ex": "Hourly staff must submit their time sheets every Friday before noon.",
-   "ps": "a worker sits at a desk marking large empty boxes on a blank sheet",
-   "sc": "a worker sits at a desk marking large empty boxes on a blank sheet",
-   "check": "Is the person filling in a sheet with boxes to record work hours?",
-   "cap": "a worker filling out a box chart on a sheet",
-   "key": "large empty boxes on a blank sheet; the worker marking them",
-   "who": 1,
-   "draw": 5,
+   "ps": "a man hands a blank sheet covered with many small circles to a supervisor who nods approvingly",
+   "sc": "a man hands a blank sheet covered with many small circles to a supervisor who nods approvingly",
+   "check": "Is there a paper showing many recorded work hours?",
+   "cap": "an employee giving a circle‑filled sheet to a supervisor",
+   "key": "a blank sheet covered with many small circles; the employee handing the sheet to the supervisor",
+   "who": 2,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "time#n": {
    "skip": "abstract noun 'time' requires time symbols to convey meaning",
