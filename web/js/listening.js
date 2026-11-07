@@ -199,8 +199,9 @@
     const exam = query && query.get('mode') === 'exam';
     let submitted = false, plays = 0;
     view.innerHTML = `
-      <div class="row between"><a href="${/^tl/.test(p.id) ? '#/toeic' : '#/listening'}" class="small">← ${/^tl/.test(p.id) ? 'TOEIC' : t('Luyện nghe')}</a>${exam ? `<a class="btn sm ghost" href="#/listen/${p.id}">${UI.icon('target')} ${t('Chế độ luyện tập')}</a>` : `<a class="btn sm ghost" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Chế độ thi thật')}</a>`}</div>
-      <div class="page-head" style="margin-top:.6rem"><div><div class="tiny muted">Test ${p.test} · Part ${p.part} · ${partName(p)} · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</div><h1 style="margin:.2rem 0">${esc(p.title)}</h1><p class="muted" style="margin:0">${esc(p.context || '')}</p><div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div></div></div>
+      <div class="row between listen-top"><a href="${/^tl/.test(p.id) ? '#/toeic' : '#/listening'}" class="small listen-back" data-exit>${UI.icon('arrow-left')}<span>${/^tl/.test(p.id) ? 'TOEIC' : t('Luyện nghe')}</span></a>${exam ? `<a class="btn sm ghost" href="#/listen/${p.id}">${UI.icon('target')} ${t('Chế độ luyện tập')}</a>` : `<a class="btn sm ghost" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Chế độ thi thật')}</a>`}</div>
+      <div class="progress listen-prog" aria-hidden="true" style="margin:.4rem 0"><i id="lProg" style="width:0%"></i></div>
+      <div class="listen-head"><div><div class="tiny muted">Test ${p.test} · Part ${p.part} · ${partName(p)} · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</div><h1 style="margin:.2rem 0">${esc(p.title)}</h1><p class="muted" style="margin:0">${esc(p.context || '')}</p><div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div></div></div>
       <div class="card lplayer" id="lPlayer">
         <button class="btn primary lg" id="lPlay">▶ ${t('Nghe')}</button>
         ${exam ? `<span class="small muted" id="lNote">${t('Chế độ thi thật: chỉ nghe được 1 lần, không tua lại.')}</span>` : `<button class="btn" id="lBack" title="${t('Nghe lại câu trước')}">⏪ ${t('Câu trước')}</button>${rateSel()}<label class="small row nowrap" style="gap:.3rem"><input type="checkbox" id="lLive"> ${t('Hiện lời thoại khi nghe')}</label>`}
@@ -241,6 +242,8 @@
     let lastRes = {};
     const hear = n => { const r = lastRes[n]; if (!r || !r.cue) return; const i = p.script.findIndex(l => l.t && l.t.includes(r.cue)); if (i < 0) return; const el = $(`.tl[data-line="${i}"]`, trans); if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' }); let k = i; if (k > 0 && p.script[k - 1].t) k--; player.play(k); };
     QE.bind($('#lQs'));
+    const syncProg = () => { const its = $$('.lq-item', $('#lQs')); const done = its.filter(x => $$('input,select', x).some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : !!(i.value || '').trim())).length; $('#lProg').style.width = (its.length ? Math.round(done / its.length * 100) : 0) + '%'; }; // thanh tiến độ: số câu đã trả lời / tổng
+    $('#lQs').addEventListener('input', syncProg); $('#lQs').addEventListener('change', syncProg);
     $('#lSubmit').onclick = async () => {
       if (submitted) return;
       if (player.playing && exam && !confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
