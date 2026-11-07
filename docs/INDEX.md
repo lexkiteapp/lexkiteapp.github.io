@@ -187,3 +187,4 @@
 - [specs/teacher-rive-rig.md](specs/teacher-rive-rig.md) — Rig 2D Ama/Carlos kiểu Rive (TeacherRig: speak/setEmotion/gesture), vì sao không .riv, cổng khớp môi ±33 ms/khớp xương/fps/alpha, kế hoạch gesture bank chờ duyệt credit; đọc khi: thêm cử chỉ/biểu cảm hoặc gắn giáo viên vào màn mới
 - [specs/me-settings-ux.md](specs/me-settings-ux.md) — Tôi + Cài đặt gọn: mục lục nhóm có giá trị hiện tại, trang con #/settings/<mục>, gom liên kết đọc thêm; đọc khi sửa settings.js/ux1-me.js
 - [specs/teacher-bubble.md](specs/teacher-bubble.md) — TeacherBubble: bong bóng lời giáo viên dùng chung (gõ 1 lần/ngày, pop, 🔊 Ama đọc giọng nữ, miệng bám âm thanh, idle dừng khi ẩn) + kiểm kê chỗ giáo viên nói; đọc khi đổi lời thoại giáo viên ở màn nào.
+- [specs/story-stage.md](specs/story-stage.md) — Màn Truyện Ama↔Carlos + khung bài tập (Xếp câu, nghe, điền, chính tả) chuẩn Duolingo Stories: lỗi → gốc → sửa, bảng kiểm màn tương tự; đọc khi sửa màn hội thoại/bài tập có giáo viên
