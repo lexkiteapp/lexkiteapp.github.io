@@ -23,9 +23,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Playwright
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null || true
       - name: Ảnh TRƯỚC (main, chỉ chụp)
         run: |

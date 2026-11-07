@@ -36269,5 +36269,20 @@
     "ar": "راجعت اليوم {r}/{need} بطاقة – راجع المزيد لتحصل على محاولات.",
     "ru": "Сегодня повторено {r}/{need} карточек – повторите ещё, чтобы получить попытки.",
     "tr": "Bugün {r}/{need} kart tekrar edildi – hak kazanmak için daha fazlasını tekrar et."
+  },
+  "Tìm ngôn ngữ": {
+    "es": "Buscar idioma",
+    "pt": "Pesquisar idioma",
+    "fr": "Rechercher une langue",
+    "de": "Sprache suchen",
+    "id": "Cari bahasa",
+    "th": "ค้นหาภาษา",
+    "zh": "搜索语言",
+    "ja": "言語を検索",
+    "ko": "언어 검색",
+    "hi": "भाषा खोजें",
+    "ar": "ابحث عن لغة",
+    "ru": "Поиск языка",
+    "tr": "Dil ara"
   }
 }
