@@ -102,5 +102,17 @@
  "link": "https://lexkite.com/app/#/toeic",
  "cta": "Practice TOEIC free on lexkite.com",
  "est": 24.6,
- "end_alt": "n_23140c_e2"
+ "end_alt": "n_23140c_e2",
+ "publish": {
+  "title": "How to disagree politely at work",
+  "keyword": "disagree politely",
+  "value": "Three ways to disagree at work and stay polite.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#b1english"
+  ],
+  "first_comment": "Start with what you agree with, then say \"but\". It keeps the meeting friendly. Practice polite disagreeing free: {link}"
+ }
 }

@@ -53,7 +53,7 @@ const capi = async op => { calls++; if (op !== 'flow') throw new Error('op'); if
 const opt = { capi, go: t => { went = t; }, L: s => s, esc, lang: () => 'en' };
 await F.paint(el, 'video', opt);
 ok(!el.hidden && el.querySelectorAll('.flow-step').length === 4 && el.querySelector('[aria-current="step"]').dataset.flow === 'video', '4 bước, bước hiện tại đánh dấu aria-current');
-ok(/Video library/.test(el.textContent) && /to review/.test(el.textContent) && /Drive storage/.test(el.textContent), 'tiếng Anh khi lang=en');
+ok(/Video hub/.test(el.textContent) && /to review/.test(el.textContent) && /Drive storage/.test(el.textContent), 'tiếng Anh khi lang=en');
 ok(el.querySelector('.flow-bar[role="meter"]').getAttribute('aria-valuenow') === '21', 'thanh Drive có role meter');
 await F.paint(el, 'studio', opt); ok(calls === 1, 'chuyển mục trong 60 s: không gọi lại máy chủ');
 el.querySelector('[data-flow="dist"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true })); ok(went === 'dist', 'bấm bước → sang mục');

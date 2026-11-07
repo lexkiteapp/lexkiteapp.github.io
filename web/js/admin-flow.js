@@ -1,12 +1,12 @@
 /* Quản trị › Nội dung & Video: dải luồng chung đầu 4 mục (docs/VIDEO.md §9)
- *   1 Studio (#studio) → 2 Thư viện video (#video) → 3 Kênh & phân phối (#dist) → 4 Đăng & hiệu quả (#social) + viên Kho Drive (#drive).
+ *   1 Studio (#studio) → 2 Trung tâm video (#video) → 3 Kênh & phân phối (#dist) → 4 Đăng & hiệu quả (#social) + viên Kho Drive (#drive).
  * Mỗi số = dữ liệu thật từ POST /api/admin-clips op 'flow' (functions/api/admin-clips.js flowStats). null = "chưa có dữ liệu" (—), không bịa 0.
  * Đệm 60 s phía khách: chuyển qua lại giữa 4 mục không gọi lại máy chủ. Đang tải / lỗi (+ Thử lại) / rỗng đều có trạng thái rõ.
  * AdminFlow.paint(el, tab, { capi, go, L, esc }) – el nằm NGOÀI #main nên các mô-đun mục vẽ lại #main không xóa dải. */
 (function () {
   'use strict';
   const EN = {
-    'Luồng video': 'Video pipeline', 'Studio': 'Studio', 'Thư viện video': 'Video library', 'Kênh & phân phối': 'Channels & distribution', 'Đăng & hiệu quả': 'Publishing & results',
+    'Luồng video': 'Video pipeline', 'Studio': 'Studio', 'Trung tâm video': 'Video hub', 'Kênh & phân phối': 'Channels & distribution', 'Đăng & hiệu quả': 'Publishing & results',
     'Sản xuất': 'Produce', 'Duyệt & lưu': 'Review & store', 'Phân phối': 'Distribute', 'Đăng': 'Publish',
     '{a} đang làm · {q} chờ QC': '{a} in production · {q} awaiting QC', '{n} lỗi QC': '{n} failed QC',
     '{p} chờ duyệt · {a} đã duyệt': '{p} to review · {a} approved', '{n} lỗi QA': '{n} failed QA',
@@ -18,7 +18,7 @@
   };
   const STEPS = [
     { tab: 'studio', n: 1, icon: '🎞️', t: 'Studio', k: 'Sản xuất' },
-    { tab: 'video', n: 2, icon: '🎬', t: 'Thư viện video', k: 'Duyệt & lưu' },
+    { tab: 'video', n: 2, icon: '🎬', t: 'Trung tâm video', k: 'Duyệt & lưu' },
     { tab: 'dist', n: 3, icon: '🛰️', t: 'Kênh & phân phối', k: 'Phân phối' },
     { tab: 'social', n: 4, icon: '📣', t: 'Đăng & hiệu quả', k: 'Đăng' },
   ];

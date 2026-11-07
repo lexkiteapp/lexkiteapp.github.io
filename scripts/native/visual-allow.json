@@ -1,0 +1,16 @@
+{
+  "$comment": "Ngoại lệ có lý do cho scripts/test/native-visual.mjs. rects: vùng ảnh minh hoạ/giáo viên (đơn vị 390 px, [x,y,w,h]) bị bỏ qua khi kiểm bảng màu; match = glob theo tên 'nền-màn-ngôn ngữ-theme' (vd 'ios-appshell-en-light'). colors: màu ngoài token được chấp nhận (cần reason). Chỉ thêm khi đã được duyệt – không dùng để che lỗi.",
+  "rects": [
+    {
+      "match": "ios-meguest-*",
+      "rect": [
+        28,
+        217,
+        334,
+        58
+      ],
+      "reason": "Sign in with Apple: Apple HIG bắt buộc nút đen (sáng) / trắng (tối) của hệ thống (SignInWithAppleButton) – không được tô màu token"
+    }
+  ],
+  "colors": []
+}

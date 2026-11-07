@@ -117,7 +117,7 @@ Ein hochentwickelter Algorithmus entfaltet seine volle Durchschlagskraft nur dan
 * **Empfohlen:** Erstelle für unterschiedliche Bedeutungen separate Kontextkarten, etwa *run a business* (ein Unternehmen leiten) und *run out of time* (keine Zeit mehr haben).
 
 ### 2. Kontext schlägt isolierte Wörter
-Das isolierte Einprägen deutscher Übersetzungen führt dazu, dass man Wörter im echten Gespräch nicht spontan abrufen kann. Verbinde jedes neue Wort mit einem prägnanten Beispielsatz oder einer typischen Wortverbindung (Kollokation). Dies verknüpft die neue Vokabel mit vorhandenem Weltwissen und syntaktischen Mustern. Erkunde dazu auch strukturierte [Vokabel-Themenbereiche](/tu-vung/) für gezieltes Aufbautraining.
+Das isolierte Einprägen deutscher Übersetzungen führt dazu, dass man Wörter im echten Gespräch nicht spontan abrufen kann. Verbinde jedes neue Wort mit einem prägnanten Beispielsatz oder einer typischen Wortverbindung (Kollokation). Dies verknüpft die neue Vokabel mit vorhandenem Weltwissen und syntaktischen Mustern. Erkunde dazu auch strukturierte [Vokabel-Themenbereiche](/en/vocabulary/) für gezieltes Aufbautraining.
 
 ### 3. Aktiver Abruf statt passivem Wiedererkennen
 Viele Lernende betrachten eine Vokabel, nicken zustimmend und denken: „Klar, das kenne ich.“ Kognitionswissenschaftler bezeichnen dies als die *Illusion des Wissens* (Illusion of Competence). Nur der aktive Abruf (Active Recall) – das bewusste Ringen um die Antwort vor dem Umdrehen der Karte – setzt den notwendigen Reiz für synaptisches Wachstum.

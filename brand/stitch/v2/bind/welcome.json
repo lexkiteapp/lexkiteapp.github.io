@@ -1,0 +1,214 @@
+{
+ "_doc": "Trang giới thiệu điện thoại (#/welcome, web/js/welcome.js). Mẫu 2eb… key1 project 7268539912208977707. d do welcome.js dựng. Chữ = khóa thật của trang cũ, KHÔNG dùng câu mẫu Stitch. Logo: icons/icon.svg. Giáo viên: Chars (ô trong suốt, chân chạm vạch sàn). w-[390px] → w-full để co theo 360–430 px; ≥ 600 px là cột giữa.",
+ "styles": true,
+ "swap": {
+  "w-[390px]": "w-full"
+ },
+ "text": {
+  "lexkite": "'lexkite'",
+  "sustainable": "'sustainable'",
+  "/səˈsteɪnəbl/ · adj · B2": "'/səˈsteɪnəbl/ · adj · B2'",
+  "Sign in": "t('Đăng nhập')",
+  "For IELTS, TOEIC & TOEFL learners": "d.kicker",
+  "Study 15 minutes a day with flashcards that know when you are about to forget.": "d.lead",
+  "Start for free": "d.start",
+  "I already have an account": "d.have",
+  "Check your level first (5 min)": "d.lkTest",
+  "Your English style (1 min)": "d.lkStyle",
+  "Free · No account needed to start": "d.free",
+  "Try it now": "t('Thử ngay')",
+  "Tap to flip": "t('Chạm để lật')",
+  "Again": "t('Quên')",
+  "Hard": "t('Khó')",
+  "Good": "t('Nhớ')",
+  "Easy": "t('Dễ')",
+  "Everything inside": "t('Mọi thứ bên trong')",
+  "Tactile language acquisition for ambitious exam candidates.": "d.tag",
+  "IELTS, TOEIC and TOEFL are registered trademarks of their respective owners.": "d.tm",
+  "Product": "t('Sản phẩm')",
+  "Web app": "t('Ứng dụng web')",
+  "Chrome add-on": "t('Add-on Chrome')",
+  "Mock tests": "t('Thi thử')",
+  "Blog": "t('Blog học tiếng Anh')",
+  "Legal & support": "t('Pháp lý & hỗ trợ')",
+  "Privacy policy": "t('Chính sách quyền riêng tư')",
+  "Terms of use": "t('Điều khoản sử dụng')",
+  "Contact": "t('Liên hệ')",
+  "© 2025 Lexkite. All rights reserved.": "d.copy"
+ },
+ "protos": {
+  "fp": {
+   "sel": ":scope > main > section:nth-child(3) > div > div:nth-child(1) > div:nth-child(2) > p",
+   "html": {
+    ":scope": "e(d.s)"
+   }
+  },
+  "cta": {
+   "sel": ":scope > main > section:nth-child(1) > div:nth-child(5) > button:nth-child(1)",
+   "tag": {
+    ":scope": {
+     "to": "a",
+     "addClass": "mt-3 px-4 text-center"
+    }
+   },
+   "attr": {
+    ":scope": {
+     "href": "d.href",
+     "type": "null"
+    }
+   },
+   "html": {
+    ":scope": "e(d.s)"
+   }
+  }
+ },
+ "html": {
+  ":scope > header > a > div": "d.logo",
+  ":scope > main > section:nth-child(1) > h1": "d.h1",
+  ":scope > main > section:nth-child(1) > div:nth-child(4) > div:nth-child(1)": "d.teacher",
+  ":scope > main > footer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)": "d.logo",
+  ":scope > header > div > button:nth-child(1) > span:nth-child(2)": "e(d.langTxt)"
+ },
+ "after": {
+  ":scope > header > div > button:nth-child(1) > span:nth-child(2)": "d.lang",
+  ":scope > main > section:nth-child(2) > div:nth-child(2) > div": "d.back"
+ },
+ "attr": {
+  ":scope > header > a": {
+   "href": "'#/welcome'",
+   "aria-label": "'Lexkite'"
+  },
+  ":scope > header > div > button:nth-child(1)": {
+   "aria-label": "null",
+   "type": "null"
+  },
+  ":scope > header > div > button:nth-child(2)": {
+   "id": "'loginH'"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(5) > button:nth-child(1)": {
+   "href": "'#/welcome/setup'",
+   "type": "null"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(5) > button:nth-child(2)": {
+   "id": "'loginW'"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(4) > div:nth-child(1)": {
+   "id": "'wKit'"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(6) > a:nth-child(1)": {
+   "href": "'#/placement'"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(6) > a:nth-child(2)": {
+   "href": "'#/style'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(2)": {
+   "id": "'wCard'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(2) > button": {
+   "id": "'wSay'",
+   "aria-label": "t('Nghe') + ': sustainable'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(2) > div": {
+   "id": "'wFront'",
+   "type": "'button'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(3)": {
+   "id": "'wGrades'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(3) > button:nth-child(1)": {
+   "data-wg": "'again'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(3) > button:nth-child(2)": {
+   "data-wg": "'hard'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(3) > button:nth-child(3)": {
+   "data-wg": "'good'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(3) > button:nth-child(4)": {
+   "data-wg": "'easy'"
+  },
+  ":scope > main > section:nth-child(3)": {
+   "id": "'wFeats'"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(1) > a:nth-child(2)": {
+   "href": "'#/welcome/setup'"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(1) > a:nth-child(3)": {
+   "href": "'#/settings'"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(1) > a:nth-child(4)": {
+   "href": "'#/tests'"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(1) > a:nth-child(5)": {
+   "href": "d.blog"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(2) > a:nth-child(2)": {
+   "href": "d.privacy"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(2) > a:nth-child(3)": {
+   "href": "d.terms"
+  },
+  ":scope > main > footer > div:nth-child(2) > div:nth-child(2) > a:nth-child(4)": {
+   "href": "'#/contact'"
+  }
+ },
+ "setClass": {
+  ":scope > main > section:nth-child(1) > div:nth-child(4) > div:nth-child(1)": "w-[200px] h-[170px]"
+ },
+ "cls": {
+  ":scope > main > section:nth-child(1) > div:nth-child(4) > div:nth-child(2)": {
+   "mt-2": "''"
+  }
+ },
+ "addClass": {
+  ":scope > header": "w-head",
+  ":scope > main": "max-w-[600px] mx-auto",
+  ":scope > header > div > button:nth-child(1)": "relative focus-within:outline focus-within:outline-2",
+  ":scope > main > section:nth-child(1) > div:nth-child(5)": "w-cta",
+  ":scope > main > section:nth-child(1) > div:nth-child(6) > a > span:nth-child(2)": "ms-flip",
+  ":scope > main > footer": "w-foot"
+ },
+ "tag": {
+  ":scope > header > div > button:nth-child(1)": {
+   "to": "div"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(5) > button:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(2) > div": {
+   "to": "button"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.hl",
+   "as": "r",
+   "sel": ":scope > main > section:nth-child(2) > div:nth-child(4) > div:nth-child(1)",
+   "samples": ":scope > main > section:nth-child(2) > div:nth-child(4) > div",
+   "html": {
+    ":scope > div > span": "r.ic",
+    ":scope > h4": "e(r.ti)"
+   },
+   "after": {
+    ":scope > h4": "self.ST2.P['welcome'](t, e).fp({ s: r.d })"
+   }
+  },
+  {
+   "list": "d.feats",
+   "as": "r",
+   "sel": ":scope > main > section:nth-child(3) > div > div:nth-child(1)",
+   "samples": ":scope > main > section:nth-child(3) > div > div",
+   "html": {
+    ":scope > div:nth-child(1) > span": "r.ic",
+    ":scope > div:nth-child(2) > h4": "e(r.ti)",
+    ":scope > div:nth-child(2) > p": "e(r.d)"
+   }
+  }
+ ],
+ "keys": {
+  "Thử ngay": "Try it now",
+  "Mọi thứ bên trong": "Everything inside",
+  "80 bài ngữ pháp trực quan": "80 visual grammar lessons",
+  "Học từng bước, 2.000 câu luyện: trắc nghiệm, viết lại câu, tìm lỗi sai": "Step by step, with 2,000 exercises: multiple choice, sentence rewriting, error spotting"
+ }
+}

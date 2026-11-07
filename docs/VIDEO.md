@@ -121,7 +121,7 @@ Kiểm kê live 05/11 (ảnh trước: ghi chú phiên `admin-cv-before/`). Vấ
 | Bước | Mục (nav) | Sở hữu duy nhất |
 |---|---|---|
 | 1 | 🎞️ **Studio** (sản xuất) | job/kịch bản/dựng, QC dựng (chuyển từ hub "Sản xuất & QC" + "Kịch bản"), kho tài sản |
-| 2 | 🎬 **Thư viện video** (hub) | tổng quan việc cần làm, duyệt, thư viện ảo hoá, lưu trữ, **ngăn Clip 360°** (Drive · bài học nhúng · kênh/bài đăng · hiệu quả) |
+| 2 | 🎬 **Trung tâm video** (hub) | tổng quan việc cần làm, duyệt, thư viện ảo hoá, lưu trữ, **ngăn Clip 360°** (Drive · bài học nhúng · kênh/bài đăng · hiệu quả) |
 | 3 | 🛰️ **Kênh & phân phối** | kết nối YouTube + vai trò kênh (chuyển từ hub "Kênh & phân phối"), luật định tuyến, lịch kế hoạch gộp, trạng thái nhúng bài học |
 | 4 | 📣 **Đăng & hiệu quả** (social) | soạn/duyệt bài, lịch GrabCast, hàng đợi, bài đăng, sức khoẻ tài khoản, số liệu, bình luận |
 | hạ tầng | 🗄️ Kho Drive (Hệ thống) | dung lượng, bản sao, duyệt file; nhận `?clip=` từ ngăn Clip 360° |

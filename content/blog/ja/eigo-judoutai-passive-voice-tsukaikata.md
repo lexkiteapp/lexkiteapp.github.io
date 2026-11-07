@@ -135,6 +135,6 @@ Task 2のエッセイでは、能動文と受動文を7:3から6:4程度の黄�
 | **過去分詞のスペルミス** | "The contract was wrote carefully." | "The contract **was written** carefully." |
 | **不要なby句の乱用** | "The bridge was built by construction workers."| "The bridge was **built** in 1995." *(自明な動作主は省く)* |
 
-文法表現の幅をさらに広げるために、[IELTS Writing複文（Complex Sentences）攻略法](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/) や [英語のつなぎ言葉（Linking Words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/) を併せて復習しましょう。また、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [パラフレーズ言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) をマスターし、公式単語集 [/tu-vung/](/tu-vung/) を活用して、揺るぎないアカデミックライティング力を完成させてください。
+文法表現の幅をさらに広げるために、[IELTS Writing複文（Complex Sentences）攻略法](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/) や [英語のつなぎ言葉（Linking Words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/) を併せて復習しましょう。また、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [パラフレーズ言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) をマスターし、公式単語集 [/tu-vung/](/en/vocabulary/) を活用して、揺るぎないアカデミックライティング力を完成させてください。
 
 受動態を正しく使い分け、論理的で格調高い英文を着実に生み出していきましょう。
