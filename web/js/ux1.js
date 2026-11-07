@@ -264,7 +264,7 @@
     const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
     const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
     const pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`;
-    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
+    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so0 = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1))), sDn = (() => { try { const a = JSON.parse(ls.get('lk.lsn.sd' + (demo ? '.demo' : '')) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } })(), so = so0.filter(x => !sDn.includes(x.id)).concat(so0.filter(x => sDn.includes(x.id))); // truyện đã học xuống cuối, thẻ đầu luôn là bài mới
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
