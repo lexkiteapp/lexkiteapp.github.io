@@ -23,6 +23,8 @@ This guide explains each rule with examples and IPA, shows the traps that catch 
 
 In every English word of two or more syllables, one syllable is **stressed**. It is longer, a little louder, often higher in pitch, and it keeps a full vowel. The other syllables get weaker, and many of their vowels shrink to the neutral sound /ə/ (schwa). Endings matter too: [ed pronunciation rules](/en/blog/ed-pronunciation-rules/) explain why *walked* has one syllable.
 
+If this helps, our guide to [how to practice English pronunciation](/en/blog/how-to-practice-english-pronunciation/) goes deeper.
+
 Take *banana* /bəˈnɑːnə/. Only the middle syllable is strong; the first and last are both schwa. The mark ˈ in IPA appears **before** the stressed syllable, and ˌ marks a weaker secondary stress, as in *education* /ˌedʒuˈkeɪʃn/.
 
 Why does this matter? Native and fluent listeners recognise words largely by their stress shape. If you say *ho-TEL* correctly but *DE-sert* when you mean *de-SERT* (dessert), the listener hears a different word. A wrong stress often causes more confusion than a slightly wrong vowel.

@@ -95,6 +95,8 @@ qualityScore: 94
 2. **วิเคราะห์จุดอ่อนในสมุดบันทึกข้อผิดพลาด:** ทบทวนข้อที่ทำผิดใน [สมุดบันทึกข้อผิดพลาด](/#/mistakes) เพื่อดูว่าเรามักพลาดเพราะคำศัพท์หรือการตีความตรรกะ
 3. **พัฒนาทักษะเชื่อมโยง:** ศึกษาเทคนิคการอ่านเร็วใน [ielts reading skimming scanning taktikleri](/th/blog/theknik-skimming-scanning-ielts-reading/) และฝึกสังเกตกลุ่มคำศัพท์ใน [collocations phasa angkrit ielts](/th/blog/collocations-phasa-angkrit-ielts/) เสริมความรู้โครงสร้างประโยคผ่าน [kham chueam phasa angkrit linking words](/th/blog/kham-chueam-phasa-angkrit-linking-words/) และค้นคว้าหลักภาษาเพิ่มเติมได้ที่หน้า [/ngu-phap/](/ngu-phap/) นอกจากนี้ยังสามารถทบทวน [kham sap ielts singwaetlom environment](/th/blog/kham-sap-ielts-singwaetlom-environment/) เพื่อสะสมคลังคำศัพท์วิชาการ
 
+หากกำลังฝึกทำข้อสอบแบบจับเวลา ให้อ่าน[เคล็ดลับการจัดสรรเวลา IELTS Reading ใน 60 นาที](/th/blog/kan-chatsan-wela-ielts-reading-klayut-60-nathi/)ควบคู่กันไป
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### True/False/Not Given ต่างจาก Yes/No/Not Given อย่างไร?

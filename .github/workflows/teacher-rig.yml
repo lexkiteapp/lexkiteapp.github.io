@@ -1,0 +1,35 @@
+name: teacher-rig
+# Cổng rig giáo viên 2D (TeacherRig, docs/specs/teacher-rive-rig.md): khớp môi ±33 ms, khớp xương/không méo, chống giật (Node, lõi)
+# + trình duyệt thật: fps CPU 1×/4×, so khung lúc chuyển trạng thái, alpha nền sạch, giảm chuyển động, 0 lỗi JS. Ảnh từng trạng thái → artifact.
+on:
+  pull_request:
+    paths: ['web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'web/teach/**', 'scripts/test/teacher-rig.mjs', 'scripts/test/teacher-rig-browser.mjs', '.github/workflows/teacher-rig.yml']
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency:
+  group: teacher-rig-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  rig:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Lõi – khớp môi ±33 ms, giới hạn khớp, chống giật, biến đổi cứng
+        run: node scripts/test/teacher-rig.mjs
+      - name: Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Trình duyệt – fps, so khung, alpha, giảm chuyển động
+        run: node scripts/test/teacher-rig-browser.mjs --out qa/teacher-rig
+      - name: Tóm tắt
+        if: always()
+        run: |
+          { echo "### teacher-rig"; echo '```'; cat qa/teacher-rig/result.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: teacher-rig, path: qa/teacher-rig, retention-days: 14 }

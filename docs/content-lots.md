@@ -1,7 +1,7 @@
 # Lô nội dung cho phiên Sonnet (lộ trình SCORE ≥ 95)
 
 > TL;DR: Danh sách lô viết nội dung cho phiên Claude Sonnet, mỗi lô một tập file riêng, mẫu chuẩn, cổng phải xanh, số mục, token ước tính; xếp theo điểm SCORE thu được trên mỗi công. Opus (trưởng nội dung) làm trước phần "O" (cổng, loader, mẫu chuẩn) rồi soát 10 % mỗi lô và gộp.
-> Đọc khi: mở phiên Sonnet viết nội dung, hoặc nhận/soát một lô. Kế hoạch + mốc: `docs/CONTENT-WORLD-PLAN.md` §6. Điểm sống: `content/pipeline/SCORE.md`.
+> Đọc khi: mở phiên Sonnet viết nội dung, hoặc nhận/soát một lô. Kế hoạch + mốc: `docs/CONTENT-WORLD-PLAN.md` §6; thứ tự Đợt 2: `docs/specs/content-upgrade-2.md`. Điểm sống: `content/pipeline/SCORE.md`.
 
 ## Luật chung mọi lô (dán vào brief)
 - Làm trên main mới nhất của lexkiteapp (`git fetch real main`), nhánh `lot/<id>`, PR nhỏ; chỉ ghi đúng file của lô. Không sửa file PR mở khác đang giữ (#427/#429/#430/#412).
@@ -16,10 +16,16 @@
 |---|---|---|---|
 | O1 | P0.2: `sense-check` + spec `specs/sense-v2.md` + lô gold 100 từ | S-SENSE | ⏳ (phiên content-audit 3/11) |
 | O2 | Cambridge: định dạng `web/js/cambridge/<cấp>/t<N>.js`, nạp vào `exam-format-check` theo spec `cam-*`, đề gold A2 t1 | S-CAM | ☐ |
-| O3 | Trung gian: spec + `mediation-check` + 2 bài gold `content/mediation/*.json` + đăng ký `sources.json` | S-MED | ☐ |
+| O3 | Trung gian: spec + `mediation-check` + 2 bài gold `content/mediation/*.json` + đăng ký `sources.json` | S-MED | ✅ (màn luyện: bước sau, cần duyệt hình) |
 | O4 | Viết band 6/7: trường `band`, `whyUp` + loader + cổng; 2 bài gold | S-W67 | ☐ |
 | O5 | P0.6: `scripts/i18n-native-score.mjs` (dịch ngược + giám khảo 1–5) + 3 bài ngữ pháp gốc en mẫu | S-EN | ☐ |
 | O6 | CQ5 tách chữ vi-only ra khoá dịch (TOEIC S&W, TOEFL CW `explain[]`, readings, quiz ngữ pháp, gloss mẫu nói, pron `tip`) | S-EN, dịch | ☐ |
+
+## Brief S-MED-1 (sau O3)
+Mục tiêu: 14 bài trung gian `content/mediation/m03…m16.json`, mỗi bài 1 mục tiêu `M.*` khác nhau trong lkf.json, phủ A2 (3) · B1 (4) · B2 (4) · C1 (3); đủ 6 activity, ≥ 4 bài `speak`, ≥ 3 nguồn chart/dialogue; đủ 3 đối tượng gen/acad/work.
+1. Nhánh `lot/s-med-1` trên real/main; chỉ ghi `content/mediation/`. Mẫu + luật: `docs/specs/mediation.md`, `m01.json`, `m02.json`.
+2. Mỗi bài: tình huống đời thật có một người nhận cụ thể và lý do cần; ý cần ≥ 3 (có số liệu/việc phải làm), ý nên bỏ ≥ 1 hợp lý; bài mẫu bằng lời của mình đúng cấp; tips nói rõ vì sao chọn/bỏ.
+3. Cổng: `node scripts/content-qa/mediation-check.mjs` + `node scripts/test/mediation.mjs` + gate + content-score (ghi điểm trước → sau). Opus đọc ≥ 2 bài/lô.
 
 ## Lô Sonnet (xếp theo điểm tổng ÷ công; điểm = phần tổng SCORE /100 khi lô xong)
 | # | Id | Thành phần SCORE | File riêng của lô | Mẫu chuẩn | Cổng phải xanh | Số mục | Token ~ | +điểm | Chặn bởi |
@@ -27,7 +33,7 @@
 | 1 | S-SIT-1…3 | Giao tiếp · tình huống Play & Speak 1→40 | `content/situations/<id>.json` (13/lô, id theo bảng chủ đề trong brief) | `content/situations/cafe.json` | `scripts/test/situations.mjs`, gate, lkf-check | 39 | 45k/lô | +2,79 | – |
 | 2 | S-CALL-1…4 | Giao tiếp · cuộc gọi Ama/Carlos 11→60 | `web/js/call/calls-<lô>.js` (12/lô) | `web/js/call/calls.js` | call-qa, gate, voice gate (Ama nữ/Carlos nam) | 49 | 50k/lô | +2,33 | – |
 | 3 | S-RP-1…3 | Giao tiếp · roleplay 16→60 | `web/js/roleplay/data-<lô>.js` (15/lô), mọi lượt có `br` ≥ 2 nhánh | `web/js/roleplay/data-everyday.js` | roleplay test, gate | 44 | 50k/lô | +2,10 | – |
-| 4 | S-MED-1…2 | 4 kỹ năng · trung gian 0→30 | `content/mediation/m<NN>.json` (15/lô) | O3 | mediation-check | 30 | 40k/lô | +2,00 | O3 |
+| 4 | S-MED-1…2 | 4 kỹ năng · trung gian 2→30 | `content/mediation/m<NN>.json` (14/lô) | `m01.json`, `m02.json` (docs/specs/mediation.md) | mediation-check, test/mediation | 30 | 40k/lô | +2,00 | O3 |
 | 5 | S-CAM-A2-1…2, B1-1…3, B2-1…3, C1-1…3, C2-1…3 | Đề thi · Cambridge 0→6 mỗi cấp | `web/js/cambridge/<cấp>/t<N>.js` (A2: 3 đề/lô, còn lại 2) | O2 | exam-format-check (spec cam-*), gate | 30 đề | 80k/lô | +5,71 | O2 |
 | 6 | S-RP-BR | CQ2: nhánh `br` cho 76 lượt roleplay cũ + Confidence ≥ 2 nhánh | `web/js/roleplay/data-{a,b,everyday}.js`, `content/confidence/units/*` | lượt đã có 2 nhánh | gate, confidence test | 76 + 78 lượt | 60k | (chất lượng) | – |
 | 7 | S-EN-1…6 | i18n · điểm bản xứ 0→5 | `web/i18n/content/grammar-en-<lô>.json` (13 bài/lô) rồi mỗi L1 viết thẳng | O5 | native-score ≥ 4,3, i18n-qa --strict | 77 bài | 70k/lô | +3,57 | O5, O6 |

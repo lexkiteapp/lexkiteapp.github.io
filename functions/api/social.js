@@ -18,7 +18,7 @@ const ID = '[A-Za-z0-9_-]{1,100}'; // không cho '.' → chặn posts/.. (đi ng
 const ROUTES = [
   ['GET', 'accounts'], ['GET', 'posts'], ['GET', `posts/${ID}`], ['GET', `media/${ID}`],
   ['POST', 'media/upload-url'], ['POST', `media/${ID}/complete`],
-  ['POST', 'validate'], ['POST', 'posts/validate'], ['POST', 'posts'], ['PATCH', `posts/${ID}`],
+  ['POST', 'validate'], ['POST', 'posts'], ['PATCH', `posts/${ID}`],
   ['GET', `posts/${ID}/insights`], ['GET', `tiktok/creator-info/${ID}`], // ngăn chi tiết (số liệu) · biểu mẫu TikTok (quyền riêng tư của creator)
   ['POST', `posts/${ID}/(?:schedule|unschedule|publish-now|retry|cancel)`],
   ['POST', `storage/objects/${ID}/use`],
@@ -51,7 +51,7 @@ export async function onRequestPost({ request, env }) {
     const op = opFor(method, path) || autoOpFor(method, path); if (!op) return json(request, 400, { error: 'route' });
     if (!env.DB) return json(request, 412, { error: 'not-configured' });
     const who = g.who.email;
-    if (await limit('lk:' + who, 120, 60) || (path === 'lk/ai/caption' && await limit('lkai:' + who, 10, 60)) || (/^lk\/(clips\/push|queue\/apply|auto\/run)$/.test(path) && await limit('lkpush:' + who, 12, 60))) return json(request, 429, { error: 'too-fast' });
+    if (await limit('lk:' + who, 120, 60) || (path === 'lk/ai/caption' && await limit('lkai:' + who, 10, 60)) || (/^lk\/(clips\/push|queue\/apply|auto\/run|auto\/channels\/sync)$/.test(path) && await limit('lkpush:' + who, 12, 60))) return json(request, 429, { error: 'too-fast' });
     const bb = b.body && typeof b.body === 'object' && !Array.isArray(b.body) ? b.body : {};
     try {
       await setupMgr(env.DB);

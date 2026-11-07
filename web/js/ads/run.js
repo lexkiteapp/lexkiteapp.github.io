@@ -200,12 +200,37 @@
     one('js/i18n/en/ads.js').then(() => (l !== 'en' && l !== 'vi' ? one(`js/i18n/${l}/ads.js`) : null)).then(res);
   }));
   async function quota(j) {
-    const feat = j && j.feature, n = { ai: 3, chat: 10 }[feat];
-    if (!n || !j || j.msg !== 'quota.daily' || !P.rewarded({ ...ctx(), brk: true }, F(), feat) || !ready(feat) || !g.UI || !g.UI.modal) return; // hộp thoại hết lượt = điểm nghỉ (mic/gọi vẫn chặn)
+    const feat = j && j.feature, n = { ai: 3, chat: 10 }[feat], gr = { ai: 2, chat: 5 }[feat];
+    if (!n || !j || j.msg !== 'quota.daily' || !g.UI || !g.UI.modal) return;
+    const rew = P.rewarded({ ...ctx(), brk: true }, F(), feat) && ready(feat), earn = canEarn(feat); // hộp thoại hết lượt = điểm nghỉ (mic/gọi vẫn chặn)
+    if (!rew && !earn) return;
     await strings();
-    const box = g.UI.modal(`<div class="center"><p>${t('Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.', { n })}</p>
-      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap"><button class="btn primary" type="button" data-rw>▶ ${t('Xem video')}</button><button class="btn ghost" type="button" data-close>${t('Để sau')}</button></div></div>`);
-    box.querySelector('[data-rw]').onclick = async () => { const ok = await rewarded(feat, { brk: true }); g.UI.closeModal(); if (ok) g.UI.toast(t('Đã cộng thêm lượt – thử lại sau vài giây.'), 4000); };
+    const box = g.UI.modal(`<div class="center">${rew ? `<p>${t('Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.', { n })}</p>` : ''}
+      ${earn ? `<p${rew ? ' class="small muted"' : ''}>${t('Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.', { n: gr })}</p>` : ''}
+      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap">${rew ? `<button class="btn primary" type="button" data-rw>▶ ${t('Xem video')}</button>` : ''}${earn ? `<a class="btn${rew ? '' : ' primary'}" href="#/review" data-earn>${t('Ôn thẻ ngay')}</a>` : ''}<button class="btn ghost" type="button" data-close>${t('Để sau')}</button></div></div>`);
+    const rb = box.querySelector('[data-rw]'); if (rb) rb.onclick = async () => { const ok = await rewarded(feat, { brk: true }); g.UI.closeModal(); if (ok) g.UI.toast(t('Đã cộng thêm lượt – thử lại sau vài giây.'), 4000); };
+    const eb = box.querySelector('[data-earn]'); if (eb) eb.addEventListener('click', () => { try { sessionStorage.setItem(EARN_K, feat); } catch (e) { /* bỏ qua */ } g.UI.closeModal(); });
+  }
+
+  // Ôn thẻ để mở thêm lượt AI (đợt 1 #10): chỉ khi đã đăng nhập (máy chủ đọc bằng chứng ôn từ bản đồng bộ D1), chỉ gợi ý – không ép, không thông báo đẩy
+  const EARN_K = 'lk.earn';
+  const dayLocal = () => (g.Core && g.Core.todayKey ? g.Core.todayKey() : ''), MAX_K = f => 'lk.earnMax.' + f;
+  const maxedToday = f => { try { return !!f && localStorage.getItem(MAX_K(f)) === dayLocal(); } catch (e) { return false; } }; // đã nhận đủ hôm nay → không gợi ý suông
+  const canEarn = f => !!(g.Sync && g.Sync.user && g.Sync.mode !== 'drive' && g.Sync.mode !== 'off') && !maxedToday(f);
+  async function claimEarn() {
+    let feat = ''; try { feat = sessionStorage.getItem(EARN_K) || ''; } catch (e) { /* bỏ qua */ }
+    if (!feat || /^#\/review/.test(g.location.hash) || !canEarn(feat)) return; // còn đang ôn → đợi tới khi rời trang ôn
+    try { sessionStorage.removeItem(EARN_K); } catch (e) { /* bỏ qua */ }
+    try {
+      try { await g.Sync.flush(); } catch (e) { /* đẩy bản mới nhất; lỗi thì máy chủ dùng bản đã có */ }
+      const day = dayLocal();
+      const r = await fetch(BASE + '/api/aiearn', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await g.Sync.user.getIdToken() }, body: JSON.stringify({ feature: feat, day }) });
+      const o = await r.json().catch(() => null); if (!r.ok || !o) return;
+      if (o.maxed) try { localStorage.setItem(MAX_K(feat), day); } catch (e) { /* bỏ qua */ }
+      await strings();
+      if (o.granted > 0) g.UI.toast(t('Nhờ ôn thẻ, bạn được thêm {n} lượt.', { n: o.granted }), 5000);
+      else if (!o.maxed && o.need) g.UI.toast(t('Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.', { r: o.reviews, need: o.need }), 5000);
+    } catch (e) { /* mạng lỗi: lần sau */ }
   }
 
   // ---------- Đổi/rút lại đồng ý (Cài đặt › Quyền riêng tư & quảng cáo) ----------
@@ -224,6 +249,7 @@
 
   // ---------- khởi động ----------
   function start() {
+    g.addEventListener('hashchange', () => setTimeout(claimEarn, 400));
     if (native) { syncBanner(); g.addEventListener('hashchange', () => setTimeout(() => { syncBanner(); maybeInter(); }, 60)); return; }
     const v = d.getElementById('view');
     fillWeb();
