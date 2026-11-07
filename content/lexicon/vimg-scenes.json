@@ -36100,7 +36100,8 @@
    "cap": "businesspeople examining a newspaper with a merger illustration",
    "who": 1,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 3
+   "e4bad": 4,
+   "badAt": "2026-11-07T12:07:00.586Z"
   },
   "headquarter#n": {
    "ex": "Our company headquarters are located in Tokyo, near the central station.",
@@ -42541,15 +42542,16 @@
   },
   "journal#n": {
    "ex": "She published her research in a science journal.",
-   "ps": "a woman places a thick book on a table next to a microscope",
-   "sc": "a woman places a thick book on a table next to a microscope",
-   "check": "Is the woman holding a thick book next to a microscope?",
-   "cap": "a woman puts a thick book beside a microscope",
-   "who": 1,
-   "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 3
+   "ps": "a leather-bound journal closed with a black fountain pen beside it",
+   "sc": "a leather-bound journal closed with a black fountain pen beside it",
+   "check": "Is there a bound notebook used for keeping records?",
+   "cap": "a leather-bound notebook with a pen beside it",
+   "key": "a leather-bound journal; a black fountain pen beside it",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "journalism#n": {
    "skip": "hard to depict 'degree in journalism' without text; draw likely below 4",

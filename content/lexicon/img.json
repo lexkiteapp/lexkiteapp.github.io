@@ -91776,6 +91776,33 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "journal#n": {
+   "h": "cc851be1a83b13b7",
+   "url": "https://media.lexkite.com/vimg/cc851be1a83b13b7.webp",
+   "alt": "journal",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.293,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 1
+   },
+   "ph": "be12c16dcaca4b95",
+   "at": "2026-11-07",
+   "b": "42370782230",
+   "repo": "m4"
+  },
   "journalist#n": {
    "h": "627ceaed8ff94bdb",
    "url": "https://media.lexkite.com/vimg/627ceaed8ff94bdb.webp",
