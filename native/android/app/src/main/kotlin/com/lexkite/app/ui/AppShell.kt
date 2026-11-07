@@ -32,6 +32,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.Hyphens
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -120,7 +123,8 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                     NavigationBarItem(
                         selected = selected, onClick = { nav.selectTab(tb.k) },
                         icon = { Icon(ICONS.getValue(tb.compose), contentDescription = null) },
-                        label = { Text(t(l10nKey(tb.label)), style = LKType.labelBadge.toCompose()) },
+                        // long words (de "Fertigkeiten" in a 78 dp slot): no badge tracking + proper hyphenation, never a bare mid-word break or a shrunk label
+                        label = { Text(t(l10nKey(tb.label)), style = LKType.labelBadge.toCompose().copy(letterSpacing = 0.sp, hyphens = Hyphens.Auto, textAlign = TextAlign.Center)) },
                         modifier = Modifier.testTag("tab-${tb.k}"),
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = c.secondary, selectedTextColor = c.secondary, indicatorColor = c.secondaryContainer.copy(alpha = 0.22f),

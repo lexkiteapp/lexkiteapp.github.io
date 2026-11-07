@@ -27,6 +27,7 @@ enum class L10nKey(val id: String) {
     todayStreakDays("today.streakDays"),
     todayXp("today.xp"),
     todayGoalShort("today.goalShort"),
+    todayDailyGoal("today.dailyGoal"),
     todayFocus("today.focus"),
     todayMorning("today.morning"),
     todayAfternoon("today.afternoon"),
