@@ -248,6 +248,8 @@
     if (!v && legacy && window.League && League.renderHomeCard) League.renderHomeCard(legacy);
   }
   const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
+  // Một lối nhắc ôn: kế hoạch còn việc ôn → gỡ khối "phai dần" + số trên ô Từ cần ôn (ô vẫn dẫn tới #/review)
+  const oneReview = d => { if (d.p.items.some(x => x.href === '#/review' && x.tag !== '✓')) { d.r.due = 0; d.q.dueN = 0; } };
   // Đầu màn Hôm nay trên điện thoại (thanh trên của app ẩn dưới 1024 px): dùng lại đúng ô tìm #gq, bảng #notifBtn, nút sáng/tối và bộ chọn kỳ thi – không viết chức năng thứ hai
   const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
     on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
@@ -285,6 +287,7 @@
       d.c.tgL = picked() ? t('Mục tiêu điểm') : t('Đặt mục tiêu'); d.say = `“${t('Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.')}”`;
       d.pathSec = picked() ? `<section class="v2-hpath" data-blk="path">${pathHtml}</section>` : ''; // chưa chọn mục tiêu → chưa có lộ trình (bước 1)
     }
+    if (!fresh) oneReview(d);
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
     sayIn(root, d.say, lost, fresh ? 'greet' : lost ? 'review' : !b.p.left && !due ? 'goal' : due ? 'review' : 'plan'); // người mới chào · xong kế hoạch khen · có từ cần ôn khuyến khích (không dọa) · còn việc chỉ nút Bắt đầu

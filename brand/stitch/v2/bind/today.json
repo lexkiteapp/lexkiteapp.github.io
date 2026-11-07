@@ -230,6 +230,9 @@
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
    "max-w-[240px]": "''"
+  },
+  ":scope > main > div": {
+   "py-3": "'py-4'"
   }
  },
  "tag": {
