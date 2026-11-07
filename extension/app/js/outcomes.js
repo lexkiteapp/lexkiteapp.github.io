@@ -110,7 +110,7 @@
     [t('Số từ viết trong 10 phút'), c => c.wr ? c.wr.w : null, false],
   ];
   async function hub(view) {
-    const checks = await load(), d = O.due(checks), last = checks[checks.length - 1], first = checks[0];
+    const checks = await App.live(load()), d = O.due(checks), last = checks[checks.length - 1], first = checks[0];
     if (!checks.length) {
       view.innerHTML = `<div class="oc-wrap"><div class="card"><div class="oc-step">${t('Đo đầu ra')}</div><h2>${t('Bài đo đầu vào: nói + viết')}</h2>
         <p>${t('Khoảng 12 phút, 3 phần: đọc to một đoạn ngắn, nói tự do 1–2 phút và viết 10 phút. Lexkite đo tốc độ nói, độ rõ, lỗi trên 100 từ, độ đa dạng từ và bài viết, rồi ước tính trình độ CEFR từng khía cạnh.')}</p>
