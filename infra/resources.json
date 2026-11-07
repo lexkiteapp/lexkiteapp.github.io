@@ -219,7 +219,7 @@
       "key": "fcm",
       "name": "Firebase Cloud Messaging (lexkite-app)",
       "kind": "push",
-      "purpose": "Thông báo đẩy app gốc (iOS qua APNs key tải lên Firebase, Android) – chỉ kéo lại sau ≥ 3 ngày + tiến bộ tuần; cờ FCM_ON",
+      "purpose": "Thông báo đẩy app gốc (iOS qua APNs key tải lên Firebase, Android) – chỉ kéo lại sau ≥ 3 ngày (ngày 0–2 = lịch cục bộ); cờ FCM_ON mặc định bật, chỉ hiệu lực khi Worker có FCM_SA",
       "console": "https://console.firebase.google.com/project/lexkite-app/settings/cloudmessaging",
       "free": "Miễn phí, không giới hạn",
       "upgrade": "Không cần",
