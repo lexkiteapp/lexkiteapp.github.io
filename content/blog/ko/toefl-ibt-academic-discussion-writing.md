@@ -160,6 +160,8 @@ quiz: [
 ### 두 학생의 의견 중 하나를 반드시 선택해야 하나요? 제3의 의견을 내면 감점인가요?
 반드시 학생 A나 B의 편을 들 필요는 없습니다. 두 학생이 다루지 않은 제3의 새로운 대안을 제시하는 것도 매우 훌륭한 고득점 전략입니다. 예를 들어 "Both classmates focused heavily on economic tools, but I believe public education and cultural awareness are far more fundamental..."과 같이 새로운 차원의 논점을 제시하면 비판적 사고력(Critical thinking) 측면에서 채점관에게 깊은 인상을 남길 수 있습니다.
 
+새 시험에서 이 문항이 어디에 놓이는지는 [2026 토플 개정 신유형 가이드](/ko/blog/toefl-2026-gaejeong-sin-hyeongsik-gaideu/)에 정리되어 있습니다.
+
 ## 결론: 10분의 집중력이 라이팅 점수를 바꿉니다
 
 토플 학술 토론형 라이팅은 길고 지루한 문장력을 시험하는 것이 아니라, 명확한 핵심 논점을 신속하게 포착하고 이를 설득력 있게 뒷받침하는 지적 순발력을 평가하는 시험입니다.

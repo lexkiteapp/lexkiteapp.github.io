@@ -90,5 +90,17 @@
  "link": "https://lexkite.com/app/#/usage?c=pair",
  "cta": "Compare tricky words on lexkite.com",
  "est": 23.5,
- "end_alt": "n_a30db6_e2"
+ "end_alt": "n_a30db6_e2",
+ "publish": {
+  "title": "Make dinner or do dinner?",
+  "keyword": "make vs do",
+  "value": "You make dinner. You don't do it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Make is for food and drinks: make dinner, make tea, make a sandwich. Test yourself with a free quiz: {link}"
+ }
 }

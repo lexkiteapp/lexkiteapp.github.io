@@ -1,0 +1,121 @@
+{
+ "_doc": "Thiết lập – bước Cường độ. 3 mức thật (paces() của onboard.js: phút khớp Tutor PACE, số từ khớp dailyNew), mẫu vẽ 4 mức + nhắc nhở giờ giả + chuỗi 14 ngày giả → bỏ. Icon từng mức lấy từ mẫu qua protos.",
+ "styles": true,
+ "rootClass": "lt:bg-[#FBF7F1] dk:bg-[#0E191C] lt:text-[#0F3D3E] dk:text-[#EAF2F2]",
+ "text": {
+  "3 / 4": "d.stepTxt",
+  "Habit Builder": "d.kicker",
+  "Pick your daily goal": "d.q",
+  "Five minutes a day builds lasting exam recall. You can adjust anytime.": "d.say",
+  "Continue": "t('Tiếp tục')",
+  "100% Free forever • Modify your schedule anytime in Settings": "d.foot"
+ },
+ "protos": {
+  "b0": ":scope > main > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+  "b1": ":scope > main > section:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+  "b2": ":scope > main > section:nth-child(3) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)"
+ },
+ "html": {
+  ":scope > main > section:nth-child(2) > div:nth-child(1)": "d.teacher"
+ },
+ "attr": {
+  ":scope > main > header > button": {
+   "id": "'onbBack'",
+   "type": "'button'",
+   "aria-label": "t('Quay lại')"
+  },
+  ":scope > main > header > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-label": "d.progAria",
+   "aria-valuemin": "1",
+   "aria-valuemax": "d.steps",
+   "aria-valuenow": "d.step"
+  },
+  ":scope > main > header > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(2) > p": {
+   "role": "'status'",
+   "aria-live": "'polite'",
+   "id": "'onbSay'"
+  },
+  ":scope > main > section:nth-child(2) > div:nth-child(2) > h1": {
+   "id": "'onbQ'"
+  },
+  ":scope > main > section:nth-child(3)": {
+   "aria-labelledby": "'onbQ'",
+   "aria-label": "d.q"
+  },
+  ":scope > main > footer > button": {
+   "id": "'obNext'",
+   "type": "'button'"
+  }
+ },
+ "setClass": {
+  ":scope > main > section:nth-child(2) > div:nth-child(1)": "w-[140px] h-[170px] flex-shrink-0"
+ },
+ "addClass": {
+  ":scope > main > header > button": "relative after:absolute after:-inset-1 after:content-[''] ms-flip"
+ },
+ "remove": [
+  ":scope > main > div:nth-child(4)"
+ ],
+ "repeat": [
+  {
+   "list": "d.paces",
+   "as": "r",
+   "variants": {
+    "on": ":scope > main > section:nth-child(3) > div:nth-child(2)",
+    "off": ":scope > main > section:nth-child(3) > div:nth-child(1)"
+   },
+   "samples": ":scope > main > section:nth-child(3) > div",
+   "pick": "r.on ? 'on' : 'off'",
+   "bind": {
+    "on": {
+     "tag": {
+      ":scope": {
+       "to": "button",
+       "addClass": "w-full text-start"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "data-pace": "r.v",
+       "aria-checked": "'true'",
+       "tabindex": "null",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": "r.badge",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "e(r.ti)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "e(r.sub)",
+      ":scope > div:nth-child(2) > span": "e(r.min)"
+     }
+    },
+    "off": {
+     "tag": {
+      ":scope": {
+       "to": "button",
+       "addClass": "w-full text-start"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "data-pace": "r.v",
+       "aria-checked": "'false'",
+       "tabindex": "null",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": "r.badge",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "e(r.ti)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "e(r.sub)",
+      ":scope > div:nth-child(2) > span": "e(r.min)"
+     }
+    }
+   }
+  }
+ ]
+}

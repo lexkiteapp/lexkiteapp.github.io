@@ -34,6 +34,8 @@ The **TOEIC test format** for Listening & Reading is simple to summarize: 200 mu
 
 All content is set in workplace and everyday situations: offices, travel, shopping, meetings, schedules, emails and announcements. You do not need specialist business knowledge, but you do need business vocabulary. This guide covers the Listening & Reading test; TOEIC Speaking & Writing is a separate test.
 
+If this helps, our guide to [the TOEIC self-study roadmap](/en/blog/toeic-self-study-roadmap-guide/) goes deeper.
+
 ## Listening: Parts 1–4
 
 In the Listening section you hear each recording **only once**, and the audio controls the pace. You cannot go back.

@@ -107,7 +107,7 @@ Kendi kendinize çalışırken telaffuz kaslarınızı dönüştürmek için şu
 
 Pratik yapmak için [sesli konuşma laboratuvarını](/#/practice/speak) ve [IPA kütüphanesini](/#/pron) kullanabilir, daha fazla konuşma konusu için [İngilizce konuşma kaynakları](/speaking/) sayfamıza göz atabilirsiniz.
 
-{{youtube: h_04bH_R2YI | Türkler için İngilizce telaffuz ipuçları ve sık yapılan hataların çözümleri}}
+{{youtube: | Türkler için İngilizce telaffuz ipuçları ve sık yapılan hataların çözümleri}}
 
 ## Kendinizi Sınayın: Fonetik Farkındalık Testi (Self-Check)
 

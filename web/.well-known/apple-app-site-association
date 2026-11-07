@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["B285J68262.com.lexkite.app"],
+        "components": [
+          { "/": "/app", "comment": "Lexkite web app root → open the iOS app" },
+          { "/": "/app/*", "comment": "Every /app/… link (router uses /app/#/<page>) → open the iOS app" }
+        ]
+      }
+    ]
+  }
+}

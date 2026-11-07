@@ -192,6 +192,10 @@ publishAt: 2026-11-18T12:11:00+08:00
 
 {{youtube: | 视频创意：托业 Part 5 先看选项——用 10 道题演示五种题型的判断方法}}
 
+听力部分的备考，可以接着看[TOEIC听力Part 2解题技巧](/zh/blog/toeic-ting-li-part-2-jie-ti-ji-qiao/)。
+
+整体备考节奏可以看[TOEIC自学备考规划指南](/zh/blog/toeic-zi-xue-bei-kao-gui-hua/)。
+
 ## 常见问题
 
 ### 托业 Part 5 每题应该花多少时间？

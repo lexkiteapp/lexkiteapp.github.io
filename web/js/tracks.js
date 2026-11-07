@@ -194,7 +194,7 @@
     state.settings.tracks = { cur: id, on: [id], legacy: id, lv: {}, v: { ielts: v.ielts || 'ac', toeic: v.toeic || 'lr' }, goals: {} };
     if (pick.lv && pick.lv !== 'test') state.settings.tracks.lv[id] = { s: pick.lv, at: Date.now() };
     await App.saveSettings();
-    return pick.lv === 'test' ? '#/placement' : '#/day';
+    return !pick.lv || pick.lv === 'test' ? '#/placement' : '#/day'; // chưa chọn trình độ / chọn kiểm tra → lời mời bài đầu vào (bỏ qua được)
   }
 
   // ---------- Trang #/tracks: chọn gói, theo dõi nhiều gói, đổi biến thể/trình độ ----------
