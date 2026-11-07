@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { mixPool, RETRY_SHARE, yieldSplit, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { mixPool, RETRY_SHARE, yieldSplit, quotaDry, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -356,4 +356,5 @@ AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 // kho AI cạn hoàn toàn (mọi mục bỏ qua hạ tầng, không mục nào vào hàng duyệt) = KHÔNG phải lỗi: lịch 3 giờ thử lại (27/10 – kho CF cửa sổ 24 giờ trượt)
 if (!pass && (why.infra || 0) >= items.length && items.length) { console.log('::warning::lexicon-expand: kho AI cạn (' + (why.infra || 0) + '/' + items.length + ' bỏ qua hạ tầng) – lượt sau thử lại'); process.exit(0); }
+if (quotaDry(stat, pass)) { console.log(`::warning::lexicon-expand: hết hạn mức AI (${stat.fail}/${stat.calls} lệnh gọi thất bại – mọi tuyến 429/từ chối) – lượt sau thử lại, không tính lỗi`); process.exit(0); }
 if (!pass) { console.error('✗ lexicon-expand: 0 mục đạt' + (stat.pool ? ' – mọi tuyến AI hỏng/hết hạn mức (xem Quản trị › Khóa API › Sức chứa)' : '')); process.exit(1); }
