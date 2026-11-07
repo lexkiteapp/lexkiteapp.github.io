@@ -20734,6 +20734,193 @@
    ],
    "angle": "Comprehensive guide to business english idioms: decoding corporate jargon, nuanced meanings in boardrooms, negotiation calls, and executive emails.",
    "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "ielts-for-immigration-guide",
+   "keyword": "ielts for immigration",
+   "topic": "IELTS for immigration: which test, which band, for Canada, Australia, UK and New Zealand",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "immigration",
+    "ielts-general",
+    "canada",
+    "australia"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "CPM cluster 2027-01 pillar (US/GB/CA/AU/NZ): General vs Academic, IELTS for UKVI, minimum scores by country/visa (official tables), validity 2 years, how to plan prep from current level. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "de",
+   "slug": "ielts-fuer-auswanderung-kanada-australien-uk",
+   "keyword": "ielts auswandern",
+   "topic": "IELTS für die Auswanderung: welcher Test und welches Band für Kanada, Australien, UK und Neuseeland",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "auswandern",
+    "ielts-general",
+    "kanada",
+    "australien"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "CPM-Cluster pillar, bản địa cho người Đức/Áo/Thụy Sĩ muốn di cư/Work and Holiday: lỗi người nói tiếng Đức (false friends, word order, th/w), Express Entry CLB, Working Holiday visa, chi phí thi ở Đức (British Council/IDP Deutschland). Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "fr",
+   "slug": "ielts-pour-immigrer-canada-australie-royaume-uni",
+   "keyword": "ielts immigration canada",
+   "topic": "IELTS pour immigrer : quel test et quel score pour le Canada, l’Australie et le Royaume-Uni",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "immigration",
+    "ielts-general",
+    "canada",
+    "australie"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "Pillar bản địa cho người Pháp/Bỉ/Thụy Sĩ: Express Entry (IELTS General + TEF/TCF cho tiếng Pháp cộng điểm), PVT Canada/Australie, lỗi người nói tiếng Pháp (faux amis, h muet, -ed). Nói rõ TEF/TCF chỉ cho tiếng Pháp, app không luyện TEF. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "ja",
+   "slug": "ielts-ijuu-kanada-goshuu-eikoku-guide",
+   "keyword": "ielts 移住",
+   "topic": "IELTSで海外移住：カナダ・オーストラリア・イギリス・NZに必要なスコアと試験の選び方",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "ijuu",
+    "ielts-general",
+    "working-holiday"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "Pillar bản địa cho người Nhật: 永住権/技術移民/ワーホリ, General vs Academic, UKVI, phí và nơi thi ở Nhật (公式), lỗi người Nhật (カタカナ発音, 冠詞, L/R). Đếm ký tự ≥ 3.200. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "ko",
+   "slug": "ielts-imin-jeomsu-kaenada-hoju-yeongguk",
+   "keyword": "이민 ielts 점수",
+   "topic": "이민 IELTS 점수 총정리: 캐나다·호주·영국·뉴질랜드 시험 선택과 목표 밴드",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "imin",
+    "ielts-general",
+    "canada",
+    "australia"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "Pillar bản địa cho người Hàn: 캐나다 Express Entry CLB, 호주 기술이민 점수, 워홀, General vs Academic, 한국 시험장/비용 (공식), lỗi người Hàn (관사, f/p, 시제). Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "en",
+   "slug": "english-for-newcomers-renting",
+   "keyword": "english phrases for renting an apartment",
+   "topic": "English phrases for renting an apartment: viewings, leases, deposits and repairs",
+   "category": "ky-nang",
+   "tags": [
+    "newcomers",
+    "renting",
+    "speaking",
+    "everyday-english"
+   ],
+   "shots": [
+    "phrases",
+    "speaking"
+   ],
+   "routes": [
+    "/#/confidence/renting",
+    "/#/phrases"
+   ],
+   "angle": "CPM cluster pillar newcomer-english (US/GB/CA/AU/NZ): phrases by stage (enquiry, viewing, application, lease terms US vs UK vocab: lease/tenancy, deposit/bond (AU), landlord/letting agent, maintenance request email). Không tư vấn pháp lý; chỉ nói quyền chung + trỏ trang chính phủ.",
+   "intent": "informational",
+   "cluster": "newcomer-english",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "en",
+   "slug": "ielts-clb-score-canada",
+   "keyword": "ielts to clb conversion",
+   "topic": "IELTS to CLB conversion: the official chart for Express Entry and what each band means",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "canada",
+    "clb",
+    "express-entry"
+   ],
+   "shots": [
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Spoke của ielts-for-immigration-guide (CA): bảng IELTS General → CLB chính thức từ canada.ca theo từng kỹ năng, ví dụ CLB 7/9, không suy diễn điểm CRS ngoài nguồn. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "translationKey": "ielts-clb-score-canada",
+   "pillar": "ielts-for-immigration-guide"
   }
  ]
 }

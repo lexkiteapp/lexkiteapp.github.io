@@ -51,12 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
-      - uses: actions/cache@v4
-        with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
-      - name: ffmpeg (static build, cached)
-        run: |
-          [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
-          sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
+      - uses: ./.github/actions/setup-ffmpeg
       - uses: actions/cache@v4
         with: { path: ~/.cache/pip, key: 'pip-teach2d-voice-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
       - run: timeout 480 pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3
@@ -104,12 +99,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
-      - uses: actions/cache@v4
-        with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
-      - name: ffmpeg (static build, cached)
-        run: |
-          [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
-          sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
+      - uses: ./.github/actions/setup-ffmpeg
       - run: pip install -q numpy==2.1.3 pillow==11.0.0 qrcode==7.4.2 pyflakes==3.2.0 && python3 -m pyflakes scripts/video/teach2d/*.py
       - uses: actions/download-artifact@v4
         with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: vo }
@@ -134,7 +124,7 @@ jobs:
         with: { path: scripts/video/remotion/node_modules, key: 'remotion-${{ hashFiles(''scripts/video/remotion/package-lock.json'') }}-v1' }
       - name: Remotion (Chrome Headless Shell)
         run: |
-          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 fonts-noto-color-emoji >/dev/null
+          sudo timeout 600 apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 fonts-noto-color-emoji >/dev/null
           cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
       - name: Render (30 fps, CRF 17 short / CRF 26 embed) + other-theme stills
         run: |
@@ -184,7 +174,8 @@ jobs:
         with: { pattern: 'tv-*-wide-${{ github.run_id }}', path: art, merge-multiple: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && (google-chrome --version || npx playwright install --with-deps chrome)
+      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && (google-chrome --version || bash scripts/ci/pw-install.sh --with-deps chrome)
+        timeout-minutes: 12
       - name: Screenshots
         run: |
           mkdir -p shots; (python3 -m http.server 8765 >/dev/null 2>&1 &); sleep 1; cat > shot.mjs <<'JS'

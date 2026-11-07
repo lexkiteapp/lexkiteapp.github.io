@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} meanings"
+ },
+ "ntQzTag": {
+  "message": "Quick quiz"
+ },
+ "ntQzQ": {
+  "message": "Pick the right meaning"
+ },
+ "ntQzTime": {
+  "message": "{s} seconds"
+ },
+ "ntQzRight": {
+  "message": "Correct!"
+ },
+ "ntQzWrong": {
+  "message": "Not quite — it will come back soon"
+ },
+ "ntQzTimeout": {
+  "message": "Time's up — no worries"
+ },
+ "ntQzSkip": {
+  "message": "Skip"
  }
 }
