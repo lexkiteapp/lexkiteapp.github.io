@@ -98,10 +98,10 @@ fun LKPillButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifie
 
 /** Thin rounded progress bar with progressbar semantics. */
 @Composable
-fun LKProgress(fraction: Float, modifier: Modifier = Modifier, color: Color = LocalLKColors.current.primary, label: String? = null) {
+fun LKProgress(fraction: Float, modifier: Modifier = Modifier, color: Color = LocalLKColors.current.primary, label: String? = null, track: Color = LocalLKColors.current.cardHigh) {
     val c = LocalLKColors.current
     val f = fraction.coerceIn(0f, 1f)
-    Box(modifier.fillMaxWidth().height(8.dp).clip(PillShape).background(c.cardHigh).semantics { progressBarRangeInfo = ProgressBarRangeInfo(f, 0f..1f); if (label != null) contentDescription = label }) {
+    Box(modifier.fillMaxWidth().height(8.dp).clip(PillShape).background(track).semantics { progressBarRangeInfo = ProgressBarRangeInfo(f, 0f..1f); if (label != null) contentDescription = label }) {
         if (f > 0f) Box(Modifier.fillMaxHeight().fillMaxWidth(f).background(color, PillShape))
     }
 }
