@@ -62,7 +62,7 @@ export function collect() {
   // Đọc dài theo từng câu (UI.tts tách câu): câu trả lời mẫu Speaking + 30 bài đọc – theo accent người học (cả 2 giọng)
   {
     for (const f of ['web/js/readings.js', 'web/cpack/readings/more.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
-    vm.runInContext(fs.readFileSync('web/js/speak/samples.js', 'utf8'), c);
+    vm.runInContext(fs.readFileSync('web/cpack/speak/samples.js', 'utf8'), c);
     for (const r of c.READINGS || []) for (const sen of c.KVoice.split(r.text)) both(sen, 'readings');
     for (const x of Object.values(c.SPEAK_SAMPLES || {})) for (const sen of c.KVoice.split(x.a)) both(sen, 'speaking-samples');
   }
@@ -116,7 +116,7 @@ export function collect() {
     if (fs.existsSync('web/data/say.json')) { const V = { ama: 'af_heart', carlos: 'am_michael' };
       for (const s of JSON.parse(fs.readFileSync('web/data/say.json', 'utf8')).series || []) for (const it of s.items || []) oneSplit(V[s.teacher] || V.ama, it.say, 'say-native'); }
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
-    { const x = ctx(); L(x, 'web/js/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
+    { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar/*.js
     { const x = ctx(); for (const f of fs.readdirSync('web/js/grammar').filter(f => f.endsWith('.js'))) L(x, `web/js/grammar/${f}`);
       const seen = new Set(), walk = o => { if (!o || typeof o !== 'object' || seen.has(o)) return; seen.add(o); for (const [k, v] of Object.entries(o)) { if (k === 'ex') for (const t of strs(v)) bothSplit(t, 'grammar'); else walk(v); } };
