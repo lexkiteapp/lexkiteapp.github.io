@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 
 const R = p => fs.readFileSync(new URL('../../' + p, import.meta.url), 'utf8');
 const ctx = { console }; ctx.self = ctx; vm.createContext(ctx);
-for (const f of ['web/js/writecheck-rules.js', 'web/js/outcomes-forms.js', 'web/js/outcomes-core.js']) vm.runInContext(R(f), ctx, { filename: f });
+for (const f of ['web/js/writecheck-rules.js', 'web/cpack/outcomes/forms.js', 'web/js/outcomes-core.js']) vm.runInContext(R(f), ctx, { filename: f });
 const O = ctx.Outcomes, F = ctx.OUTCOME_FORMS;
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 
@@ -78,7 +78,7 @@ ok(!s.sp.items && !s.wr.items && s.wr.text.length === 1500, 'slim: bỏ items, c
 
 // 8. Nối vào app: gói lười, route, lối thoát, không t() lúc nạp module
 const app = R('web/js/app.js'), ui = R('web/js/outcomes.js');
-ok(/\boutcome: \['js\/i18n\/en\/outcomes\.js'[^\]]*'js\/outcomes\.js'\]/.test(app) && /\boutcome: 'outcome'\}/.test(app), 'BUNDLES + ROUTE_BUNDLE');
+ok(/\boutcome: \['js\/i18n\/en\/outcomes\.js'[^\]]*'js\/outcomes\.js'\]/.test(app) && /\boutcome: 'outcome'[,}]/.test(app), 'BUNDLES + ROUTE_BUNDLE');
 ok(/WITH_ARG = \[[^\]]*'outcome'/.test(R('web/js/exit-guard.js')), 'ExitGuard WITH_ARG');
 ok(/routes\.outcome = /.test(ui) && !/^\s{0,4}const [A-Z_]+ = t\(/m.test(ui), 'route + không t() lúc nạp');
 ok(/LAZY="[^"]*\boutcomes\b/.test(R('scripts/build-i18n.sh')), 'nhóm i18n lười outcomes');

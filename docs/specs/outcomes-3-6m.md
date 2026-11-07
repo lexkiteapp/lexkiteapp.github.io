@@ -64,7 +64,7 @@ Danh mục nhiệm vụ = lô S-OUT-TASK (§7). Lộ trình chọn theo kết qu
 | Soát viết | `LK_WRITE.check`, `fixer.js`, UPG | luật lỗi theo L1 (S-L1-*) |
 | Khung | LKF 585 Can-do, 300 điểm ngữ pháp, placement | danh mục nhiệm vụ tuần → **S-OUT-TASK** |
 | Nói theo nhiệm vụ | 11 Call, 16 roleplay, tình huống P&S | lô S-CALL/S-RP/S-SIT đang chạy |
-| Đề bài đo | 6 đề song song (mốc 1, `outcomes-forms.js`) | thêm tới 6 đề/cấp → **S-OUT-CHECK** |
+| Đề bài đo | 6 đề song song (mốc 1, `web/cpack/outcomes/forms.js`) | thêm tới 6 đề/cấp → **S-OUT-CHECK** |
 | Thẻ lỗi | FSRS, `App.addWord` | drill cho mỗi luật lỗi → **S-OUT-DRILL** |
 | Chunk / 4-3-2 / shadowing | `phrases.js`, Kokoro | kịch bản 4/3/2 + shadowing → **S-OUT-FLU** |
 

@@ -60,6 +60,6 @@ Mỗi lô một tập file riêng, không trùng nhau và không trùng lô trê
 | # | Id | Việc | File riêng của lô | Số mục | Token ~ | Chặn bởi |
 |---|---|---|---|---|---|---|
 | 13 | S-OUT-TASK-gen / -work / -ielts | Nhiệm vụ đầu ra 24 tuần × 1 nhánh: đề, Can-do, 8–12 chunk, bài mẫu A2/B1/B2, tiêu chí đạt (rubric §5) | `content/outcomes/tasks/<nhánh>.json` | 24/lô | 70k/lô | O7 |
-| 14 | S-OUT-CHECK-a / -b / -c | Đề đo song song: đoạn đọc to 40–60 từ, đề nói 1–2', đề viết 10' (thêm đề 3→6 mỗi cấp, độ khó tương đương đề 1–2 trong `web/js/outcomes-forms.js`) | `content/outcomes/checks/<cấp>.json` | 4/lô | 20k/lô | O7 |
+| 14 | S-OUT-CHECK-a / -b / -c | Đề đo song song: đoạn đọc to 40–60 từ, đề nói 1–2', đề viết 10' (thêm đề 3→6 mỗi cấp, độ khó tương đương đề 1–2 trong `web/js/web/cpack/outcomes/forms.js`) | `content/outcomes/checks/<cấp>.json` | 4/lô | 20k/lô | O7 |
 | 15 | S-OUT-DRILL | Mỗi luật `LK_WRITE` (id trong `writecheck-rules.js`) 3 câu drill sai→đúng để nói/gõ lại, giải thích en | `content/outcomes/drills.json` | ~80 luật | 60k | O7 |
 | 16 | S-OUT-FLU | Kịch bản 4/3/2 + shadowing: 1 câu chuyện mẫu/chủ đề, 3 vòng gợi ý, câu shadowing có nhịp | `content/outcomes/fluency/<cấp>.json` (a, b, c) | 20/lô | 50k/lô | O7 |
