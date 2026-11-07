@@ -35961,11 +35961,15 @@
   },
   "hashtag#n": {
    "ex": "Customers posted photos with the campaign hashtag to win prizes.",
-   "sc": "two customers each hold up a smartphone showing a photo of the same product, while a gift box with a ribbon sits on a table nearby",
-   "cap": "people taking photos of a product for a prize",
+   "ps": "a woman and a man each hold a printed photo showing the same smiling cat picture",
+   "sc": "a woman and a man each hold a printed photo showing the same smiling cat picture",
+   "check": "Are the two people holding identical photos?",
+   "cap": "two people holding photos that display identical pictures",
+   "key": "both photos show the same picture; the two people holding photos",
    "who": 2,
-   "by": "openai/gpt-oss-120b",
-   "e4bad": 3
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "hastily#adv": {
    "ex": "William hastily got out of bed.",
