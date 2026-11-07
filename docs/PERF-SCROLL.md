@@ -75,3 +75,12 @@ Việc xếp theo lợi ích/chi phí (mỗi việc 1 PR nhỏ, có số trướ
 9. Đo blog: tìm cách để runner CI qua được trang thử thách (hoặc đo `lexkite.pages.dev`), và kiểm xem trang thử thách có chặn người hay crawler thật không.
 10. Hôm nay: dời gói `words` tới SAU mốc LCP thật (chờ phần tử chặng vẽ xong + mạng rảnh), không theo hẹn giờ 2,5 s. Đo bằng `TRACE=1` để thấy thác tài nguyên.
 11. Bài học: tách CSS màn học (105 KB) thành phần cần cho lần vẽ đầu và phần nạp sau; gom các request nhỏ của gói `lesson`.
+
+## Lưu trữ phía máy người học (07/11)
+Đo: `scripts/test/storage-audit.mjs` – 7 ngày học giả lập trên dist (SW thật), main vs nhánh trong workflow **Storage audit**; số ghi ở PR từng bước.
+Mỗi bước 1 PR, có số byte trước/sau:
+1. **Trần cache SW** – cache khung app: khung SHELL luôn giữ, phần runtime LRU ≤ `RT_MAX` 400 mục (trước: không trần); âm thanh 2000 / ảnh từ vựng 800 thành LRU thật
+   (nghe/xem lại = mới nhất); đổi phiên bản xóa cache khung cũ, máy cài cũ vượt trần về trần khi kích hoạt; không cất phản hồi lỗi. Test `scripts/test/sw-storage.mjs`.
+2. Dữ liệu lớn trong localStorage → IndexedDB (ngân sách `lsItemMax` trong `storage-audit.budget.json`).
+3. Cài đặt: dòng "Dung lượng đang dùng" + nút dọn (15 ngôn ngữ).
+4. `navigator.storage.persist()` chỉ khi người học bật học offline.
