@@ -239,7 +239,7 @@ ok(!!CUR, 'sw: có hằng CACHE');
     const rsp = await x.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } });
     ok(rsp !== undefined, 'sw: gọi lexkite.com khác nguồn có respondWith');
     const v = await rsp;
-    ok(v instanceof Response && v.type === 'error', 'sw: lexkite.com khác nguồn, mất mạng + chưa có cache → trả Response.error() (không phải null/undefined)');
+    ok(v instanceof Response && !v.ok && v.status === 503, 'sw: lexkite.com khác nguồn, mất mạng + chưa có cache → trả phản hồi 503 hợp lệ, thân rỗng (không phải null/undefined, không nội dung sai)');
     const c = await sw('https://localhost:8080/app/', { cache: { [CUR]: { '/api/notices': 'cached' } }, online: false });
     ok((await (await c.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } })).text()) === 'cached', 'sw: lexkite.com khác nguồn, mất mạng, đã có cache → trả bản cache');
   }
