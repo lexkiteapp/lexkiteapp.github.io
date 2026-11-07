@@ -5,10 +5,10 @@ name: Frame consistency
 # Ratchet: đỏ khi có lệch mới/tăng hoặc khi lệch giảm mà frame-consistency.known.json chưa hạ (baseline chỉ đi xuống).
 on:
   pull_request:
-    paths: ['scripts/test/frame-consistency.known.json', 'web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', '.github/workflows/frame-consistency.yml']
+    paths: ['scripts/test/frame-consistency.known.json', 'web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/today-fold.mjs', '.github/workflows/frame-consistency.yml']
   push:
     branches: [main]
-    paths: ['web/**', 'extension/app/**', 'scripts/test/frame-consistency.*']
+    paths: ['web/**', 'extension/app/**', 'scripts/test/frame-consistency.*', 'scripts/test/today-fold.mjs']
   workflow_dispatch:
 permissions:
   contents: read
@@ -33,6 +33,9 @@ jobs:
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Quét khung mọi route
         run: node scripts/test/frame-consistency.mjs --root dist --out out/frame-consistency || { echo '--- known-now.json (baseline hiện tại) ---'; cat out/frame-consistency/known-now.json; echo; exit 1; }
+      - name: Màn đầu Hôm nay 360×640 (CTA trong màn đầu, dải chuỗi·XP·mục tiêu, % tiến độ, CLS)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/today-fold.mjs --root dist
       - name: Tóm tắt
         if: always()
         run: test -f out/frame-consistency/report.md && head -c 60000 out/frame-consistency/report.md >> "$GITHUB_STEP_SUMMARY" || true

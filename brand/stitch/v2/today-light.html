@@ -190,55 +190,51 @@
     <div class="px-4 py-3 flex flex-col gap-4">
 
       <!-- 1) STATS STRIP: 4 Equal Tactile Mini-Cards -->
-      <section class="grid grid-cols-4 gap-2">
+      <section data-strip="" class="grid grid-cols-4 gap-2">
         <!-- Tile 1: Target -->
-        <div class="bg-white border-2 border-cream-border rounded-2xl p-2 flex flex-col items-center justify-center shadow-[0_3px_0_0_#E4D5C5]">
+        <div class="bg-white border-2 border-cream-border rounded-2xl h-11 px-1 flex flex-col items-center justify-center gap-0.5 shadow-[0_3px_0_0_#E4D5C5]">
           <!-- Glossy Target Ring Icon -->
-          <div class="w-6 h-6 rounded-full bg-teal-surface flex items-center justify-center mb-1">
+          <div class="flex items-center gap-1"><div class="w-5 h-5 rounded-full bg-teal-surface flex items-center justify-center">
             <div class="w-4 h-4 rounded-full border-2 border-teal-primary flex items-center justify-center">
               <div class="w-1.5 h-1.5 rounded-full bg-teal-primary"></div>
             </div>
-          </div>
-          <span class="text-xs font-black text-ink-deep leading-tight">6.5</span>
-          <span class="text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle mt-0.5">Target</span>
+          </div><span class="text-xs font-black text-ink-deep">6.5</span></div>
+          <span class="max-w-full truncate leading-none text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle">Target</span>
         </div>
 
         <!-- Tile 2: Streak -->
-        <div class="bg-white border-2 border-cream-border rounded-2xl p-2 flex flex-col items-center justify-center shadow-[0_3px_0_0_#E4D5C5]">
+        <div class="bg-white border-2 border-cream-border rounded-2xl h-11 px-1 flex flex-col items-center justify-center gap-0.5 shadow-[0_3px_0_0_#E4D5C5]">
           <!-- Flame Icon -->
-          <div class="w-6 h-6 rounded-full bg-[#FBF7F1] flex items-center justify-center mb-1">
+          <div class="flex items-center gap-1"><div class="w-5 h-5 rounded-full bg-[#FBF7F1] flex items-center justify-center">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="#F59E0B">
               <path d="M12 2c-.6 2.4-2.8 4.2-3.8 6.4C7.1 10.6 7 12 7 13.5 7 17.1 9.2 20 12 20s5-2.9 5-6.5c0-2.3-.9-4.2-2.2-6.1C13.8 5.6 12.8 3.9 12 2z"/>
               <path d="M12 9c-.4 1.2-1.4 2.1-1.9 3.2-.5 1.1-.6 1.8-.6 2.5 0 1.8 1.1 3.3 2.5 3.3s2.5-1.5 2.5-3.3c0-1.2-.4-2.1-1.1-3.1-.5-.9-1-1.8-1.4-2.6z" fill="#EF4444"/>
             </svg>
-          </div>
-          <span class="text-xs font-black text-ink-deep leading-tight">3</span>
-          <span class="text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle mt-0.5">Streak</span>
+          </div><span class="text-xs font-black text-ink-deep">3</span></div>
+          <span class="max-w-full truncate leading-none text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle">Streak</span>
         </div>
 
         <!-- Tile 3: XP -->
-        <div class="bg-white border-2 border-cream-border rounded-2xl p-2 flex flex-col items-center justify-center shadow-[0_3px_0_0_#E4D5C5]">
+        <div class="bg-white border-2 border-cream-border rounded-2xl h-11 px-1 flex flex-col items-center justify-center gap-0.5 shadow-[0_3px_0_0_#E4D5C5]">
           <!-- Star Icon -->
-          <div class="w-6 h-6 rounded-full bg-[#FBF7F1] flex items-center justify-center mb-1">
+          <div class="flex items-center gap-1"><div class="w-5 h-5 rounded-full bg-[#FBF7F1] flex items-center justify-center">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#EAB308">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
             </svg>
-          </div>
-          <span class="text-xs font-black text-ink-deep leading-tight">220</span>
-          <span class="text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle mt-0.5">XP</span>
+          </div><span class="text-xs font-black text-ink-deep">220</span></div>
+          <span class="max-w-full truncate leading-none text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle">XP</span>
         </div>
 
         <!-- Tile 4: Daily Goal -->
-        <div class="bg-white border-2 border-cream-border rounded-2xl p-2 flex flex-col items-center justify-center shadow-[0_3px_0_0_#E4D5C5]">
+        <div class="bg-white border-2 border-cream-border rounded-2xl h-11 px-1 flex flex-col items-center justify-center gap-0.5 shadow-[0_3px_0_0_#E4D5C5]">
           <!-- Progress Ring mini -->
-          <div class="w-6 h-6 rounded-full bg-teal-surface flex items-center justify-center mb-1">
+          <div class="flex items-center gap-1"><div class="w-5 h-5 rounded-full bg-teal-surface flex items-center justify-center">
             <svg width="18" height="18" viewBox="0 0 36 36" class="-rotate-90">
               <path stroke="#D1EAE7" stroke-width="4" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
               <path stroke="#136B66" stroke-dasharray="60, 100" stroke-width="4" stroke-linecap="round" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
             </svg>
-          </div>
-          <span class="text-xs font-black text-ink-deep leading-tight">12/20</span>
-          <span class="text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle mt-0.5">Goal</span>
+          </div><span class="text-xs font-black text-ink-deep">12/20</span></div>
+          <span class="max-w-full truncate leading-none text-[9px] font-extrabold uppercase tracking-wider text-ink-subtle">Goal</span>
         </div>
       </section>
 
@@ -310,9 +306,7 @@
         </div>
 
         <!-- Thin Progress Bar -->
-        <div class="w-full bg-[#ECE4D7] h-2 rounded-full overflow-hidden mb-4">
-          <div class="bg-teal-primary h-full rounded-full" style="width: 16%;"></div>
-        </div>
+        <div class="flex items-center gap-2 mb-4"><div class="flex-1 bg-[#ECE4D7] h-2 rounded-full overflow-hidden"><div class="bg-teal-primary h-full rounded-full" style="width: 16%;"></div></div><span class="text-[11px] font-black text-teal-primary tabular-nums">16%</span></div>
 
         <!-- Full-Width Candy-Orange Inline Button (Strictly #1C1003 text) -->
         <button class="w-full py-3.5 btn-orange-tactile text-sm flex items-center justify-center gap-2 tracking-wide">
