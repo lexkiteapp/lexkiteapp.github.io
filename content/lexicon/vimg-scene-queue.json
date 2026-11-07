@@ -643,6 +643,12 @@
    "why": "vision description-sentence sim 0.2064",
    "b": "42210116547"
   },
+  "download#v": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is the person receiving data from the internet?)",
+   "b": "42371535046"
+  },
   "economist#n": {
    "at": "2026-11-07",
    "tries": 12,
