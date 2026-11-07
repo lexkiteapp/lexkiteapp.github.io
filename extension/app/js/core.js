@@ -14,17 +14,11 @@
   const BIG = new Set(['cards', 'dcIndex', 'sentences']);
   const isBig = key => BIG.has(key) || String(key).startsWith('dc2:') || String(key).startsWith('dc:'); // flashcard + bộ nhớ đệm từ điển → IndexedDB (không chạm giới hạn 5 MB của localStorage)
   let dbp = null;
-  // indexedDB.open có thể KHÔNG BAO GIỜ trả lời (WebKit/iOS, lệnh xóa CSDL đang chờ…) → trước đây load() treo, app kẹt ở màn chào, không gì bấm được.
-  // Quá 5 s: báo lỗi → Store tạm dùng localStorage (bigGet gộp lại vào IndexedDB khi mở được, không mất dữ liệu); CSDL mở muộn vẫn được dùng cho các lượt sau.
-  const IDB_WAIT = 5000;
   const idb = () => dbp || (dbp = new Promise((res, rej) => {
     if (typeof indexedDB === 'undefined') return rej(new Error('no-idb'));
-    let late = false;
-    const tm = setTimeout(() => { late = true; rej(new Error('idb-timeout')); }, IDB_WAIT);
     const rq = indexedDB.open('lexkite', 1);
     rq.onupgradeneeded = () => rq.result.createObjectStore('kv');
-    rq.onsuccess = () => { clearTimeout(tm); const db = rq.result; if (late) { dbp = Promise.resolve(db); return; } migrateOldDb(db).then(() => res(db), () => res(db)); };
-    rq.onerror = () => { clearTimeout(tm); rej(rq.error); }; rq.onblocked = () => { clearTimeout(tm); rej(new Error('blocked')); };
+    rq.onsuccess = () => migrateOldDb(rq.result).then(() => res(rq.result), () => res(rq.result)); rq.onerror = () => rej(rq.error); rq.onblocked = () => rej(new Error('blocked'));
   }));
   // Chuyển dữ liệu từ CSDL tên cũ "vocaband" (1 lần): chỉ chép khóa còn thiếu, chép xong mới xóa CSDL cũ → không mất tiến độ học
   async function migrateOldDb(db) {

@@ -1,6 +1,6 @@
 // 📱 Điện thoại 375×812 (sáng + tối, giao diện Stitch ux1 bật + tắt): CHẠM THẬT vào tab "Tôi" (Cá nhân) ở thanh dưới từ mọi tab chính,
 // kiểm không có lớp nào che tab (elementFromPoint), trang Tôi vẽ ra, các hàng trong trang bấm được (Chế độ màu, Ngôn ngữ, Mục tiêu),
-// không tràn ngang. Thêm: IndexedDB treo (WebKit/iOS hay gặp: indexedDB.open không bao giờ trả lời) → app vẫn khởi động, vẫn bấm được.
+// không tràn ngang. Thêm: IndexedDB treo (WebKit/iOS hay gặp: indexedDB.open không bao giờ trả lời) → #view không trắng vĩnh viễn (vẽ được hoặc thẻ lỗi Thử lại).
 // Chủ báo 01/11: "mobile vẫn còn lỗi giao diện, Cá nhân không bấm chọn được". Chạy trong mobile-qa.yml.
 // Chạy: node scripts/test/mobile-nav.mjs http://localhost:8080 out/mobile-nav   → thoát 1 nếu có lỗi; ảnh chụp từng bước trong thư mục ra.
 import fs from 'node:fs';
@@ -42,6 +42,8 @@ const tabAt = (page, key) => page.evaluate(key => {
   return { x, y, hit: !!top && a.contains(top), top: d(top), pe: getComputedStyle(a).pointerEvents, href: a.getAttribute('href') };
 }, key);
 const meTab = page => tabAt(page, 'me');
+// chẩn đoán khi không thấy tab: mọi <a data-tab=KEY> với hộp, hiển thị, tổ tiên ẩn (để sửa gốc, không đoán)
+const tabDiag = (page, key) => page.evaluate(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].map(a => { const r = a.getBoundingClientRect(), s = getComputedStyle(a); let h = ''; for (let e = a; e; e = e.parentElement) { const c = getComputedStyle(e); if (c.display === 'none' || c.visibility === 'hidden') { h = e.tagName + (e.id ? '#' + e.id : '') + ':' + (c.display === 'none' ? 'display' : 'visibility'); break; } } return `${Math.round(r.x)},${Math.round(r.y)} ${Math.round(r.width)}x${Math.round(r.height)} vis=${s.visibility} inH=${innerHeight} hide=${h || '–'}`; }).join(' | ') || 'không có <a>', key);
 // Thanh tab phải DÍNH ĐÁY viewport (chủ báo 01/11: trên iPhone thanh tab trôi lên giữa màn, khoảng trống lớn bên dưới). Lỗi → in tổ tiên có
 // transform/filter/contain/will-change (biến position:fixed thành bám theo thẻ cha trên WebKit) để sửa tận gốc.
 const navPin = page => page.evaluate(() => {
@@ -88,13 +90,13 @@ async function run(scheme, ux1) {
         const p = await navPin(page), css = await page.evaluate(() => [...document.styleSheets].map(x => (x.href || '').split('/').pop()).filter(h => /^st-/.test(h)).join(',')), t0 = Date.now();
         const late = await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2; }), from, { timeout: 5000 }).then(() => Date.now() - t0, () => -1);
         await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-notab-${from}.png` });
-        bad(k, `không thấy tab "${from}" ở thanh dưới (đang ở ${await page.evaluate(() => location.hash)}; thanh: ${p.none ? 'không có' : `đáy ${p.bot}/${p.ih} ${p.pos} ${p.nav}`}; css st: ${css || '∅'}; ${late < 0 ? 'vẫn không hiện sau 5 s' : `hiện muộn ${late} ms`})`); continue; }
+        bad(k, `không thấy tab "${from}" ở thanh dưới (đang ở ${await page.evaluate(() => location.hash)}; thanh: ${p.none ? 'không có' : `đáy ${p.bot}/${p.ih} ${p.pos} ${p.nav}`}; css st: ${css || '∅'}; a: [${await tabDiag(page, from)}]; ${late < 0 ? 'vẫn không hiện sau 5 s' : `hiện muộn ${late} ms`})`); continue; }
       await page.touchscreen.tap(tb.x, tb.y); }
     await page.waitForTimeout(900); await ready(page);
     await pinned(page, k, `#/${from} (${await page.evaluate(() => location.hash)})`);
     const ov = await overflow(page); if (ov.length) bad(k, `#/${from} tràn ngang: ${ov.join(', ')}`);
     const tab = await meTab(page);
-    if (!tab) { bad(k, `#/${from}: không thấy tab "Tôi" ở thanh dưới`); continue; }
+    if (!tab) { bad(k, `#/${from}: không thấy tab "Tôi" ở thanh dưới [${await tabDiag(page, 'me')}]`); continue; }
     if (!tab.hit || tab.pe === 'none') bad(k, `#/${from}: tab "Tôi" bị che bởi ${tab.top} (pointer-events ${tab.pe})`);
     await page.touchscreen.tap(tab.x, tab.y);
     if (!(await onMe(page))) { bad(k, `#/${from}: chạm tab "Tôi" không mở trang Tôi (hash ${await page.evaluate(() => location.hash)})`); await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-from-${from}.png` }); }
@@ -147,14 +149,15 @@ async function welcome(scheme) {
   await browser.close();
 }
 
-// IndexedDB treo → app phải tự chuyển sang lưu cục bộ và vẫn vẽ trang + bấm được tab Tôi (trước đây: kẹt ở màn chào, không gì bấm được)
+// IndexedDB treo → #view KHÔNG được trắng vĩnh viễn: app vẽ được (chế độ thử/sandbox) HOẶC canh khởi động 8 s (app.js, #608) hiện thẻ lỗi có "Thử lại";
+// chạm thật được ở cả hai trường hợp (chủ báo 01/11: kẹt ở màn chào, không gì bấm được). Chi tiết thẻ lỗi: welcome-journey.mjs mục 9.
 async function hungIdb() {
   const k = `${BT.name()}·IndexedDB treo`; log(`▶ ${k}`);
   const { browser, page } = await open('light', true, { hangIdb: true });
   await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/home`, { waitUntil: 'load' });
-  if (!(await ready(page))) { bad(k, 'app kẹt khi IndexedDB không trả lời (không vẽ trang Học trong 15 s)'); await page.screenshot({ path: `${OUT}/idb-hang.png` }); await browser.close(); return; }
-  const tab = await meTab(page);
-  if (!tab) bad(k, 'không thấy tab "Tôi"'); else { await page.touchscreen.tap(tab.x, tab.y); if (!(await onMe(page))) bad(k, 'chạm tab "Tôi" không mở trang Tôi'); }
+  const st = await page.waitForFunction(() => { const v = document.getElementById('view'); if (!v) return 0; if (v.querySelector('.err-state [data-retry]')) return 2; return v.children.length && !v.querySelector('.skel-page,.skel-study') && !document.body.classList.contains('bare') ? 1 : 0; }, null, { timeout: 15000 }).then(h => h.jsonValue(), () => 0);
+  if (!st) { bad(k, 'app kẹt khi IndexedDB không trả lời (#view trắng, không thẻ lỗi, 15 s)'); await page.screenshot({ path: `${OUT}/idb-hang.png` }); await browser.close(); return; }
+  if (st === 1) { const tab = await meTab(page); if (!tab) bad(k, 'không thấy tab "Tôi"'); else { await page.touchscreen.tap(tab.x, tab.y); if (!(await onMe(page))) bad(k, 'chạm tab "Tôi" không mở trang Tôi'); } }
   await browser.close();
 }
 
