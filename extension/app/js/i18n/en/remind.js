@@ -42,7 +42,6 @@
 "Còn {r} thẻ nữa là đạt mục tiêu – bạn sắp tới rồi!": "{r} more to reach today's goal – you're nearly there!",
 "Sắp đạt mục tiêu hôm nay rồi": "Today's goal is within reach",
 "Thêm {r} thẻ là xong mục tiêu {g} thẻ. Nhẹ nhàng thôi!": "{r} more cards completes your {g}-card goal. Nice and easy!",
-"Mục tiêu hôm nay": "Today's goal",
 "Kit thấy bạn hay học lúc khoảng {time}.": "You usually study around {time}.",
 "Bài “{u}” đang chờ bạn": "Your lesson “{u}” is waiting",
 "Bạn đang học dở – thêm 5 phút cho bước tiếp theo.": "You're partway through – 5 more minutes for the next step.",

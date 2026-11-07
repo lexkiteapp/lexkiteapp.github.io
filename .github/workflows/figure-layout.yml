@@ -8,6 +8,7 @@ on:
       - 'web/js/task1.js'
       - 'web/js/write/task1-more*.js'
       - 'web/css/style.css'
+      - 'web/css/lazy-ui.css'
       - 'scripts/test/figure-layout.mjs'
       - 'scripts/test/lib/figure-layout.js'
       - 'scripts/test/fixtures/figure-layout.html'
@@ -18,6 +19,7 @@ on:
       - 'web/js/task1.js'
       - 'web/js/write/task1-more*.js'
       - 'web/css/style.css'
+      - 'web/css/lazy-ui.css'
       - 'scripts/test/figure-layout.mjs'
       - 'scripts/test/lib/figure-layout.js'
       - 'scripts/test/fixtures/figure-layout.html'
@@ -39,7 +41,7 @@ jobs:
       - name: Kiểm bố cục mọi hình đề
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           node scripts/test/figure-layout.mjs
       - if: always()
         uses: actions/upload-artifact@v4

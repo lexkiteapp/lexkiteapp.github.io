@@ -187,7 +187,7 @@
     if (ro) ro.observe(o.ans);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (!d) reserve(); });
     function destroy() { end(); if (ro) ro.disconnect(); [o.ans, o.bank].forEach(c => { c.removeEventListener('pointerdown', down); c.removeEventListener('click', click, true); }); scope.removeEventListener('keydown', key); if (live) { live.remove(); live = null; } }
-    return { place, remove, undo, destroy, reset() { hist.length = 0; render(); } };
+    return { place, remove, undo, destroy, reserve() { if (!d) reserve(); }, reset() { hist.length = 0; render(); } };
   }
   g.WordArrange = { bind, insertAt, slotIndex, rowsOf };
 })(typeof self !== 'undefined' ? self : globalThis);
