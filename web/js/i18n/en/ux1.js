@@ -82,6 +82,8 @@
 "Chào buổi chiều!": "Good afternoon!",
 "Chào buổi tối!": "Good evening!",
 "{g} Hôm nay còn {a} việc trong kế hoạch.": "{g} {a} tasks left in today's plan.",
+"{n} mục tiêu": "{n} goals",
+"{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.": "{g} {a} tasks in today's plan and {b} words to review.",
 "{g} Hôm nay có {b} từ cần ôn.": "{g} {b} words to review today.",
 "{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!": "{g} You finished today's plan – great work!",
 "Bài {a}/{b}": "Lesson {a}/{b}",
