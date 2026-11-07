@@ -24,3 +24,15 @@
 | `st/common.js` `tStill`/`tFace` (chip, thẻ) | slot tĩnh/clip | không lời | Không |
 | Add-on Chrome (`extension/app`) | cùng mã web (mirror) | tự theo web | Tự động (build-extension) |
 | App native iOS/Android | WebView Capacitor = web; SwiftUI/Compose viết lại (docs native-apps) | — | Bản native làm lại cùng bảng hành vi trên |
+
+## Ghi chú hành vi (chuyển từ đầu web/js/teacher-bubble.js, 07/11)
+
+💬 TeacherBubble – bong bóng lời giáo viên dùng chung (docs/specs/teacher-bubble.md; Hôm nay dùng đầu tiên, màn khác tái dùng).
+- Chữ hiện dần ~40 chữ/s theo CỤM KÝ TỰ (Intl.Segmenter 'grapheme': dấu tiếng Việt/Hindi không bao giờ bị tách), chỉ lần xem ĐẦU trong ngày cho mỗi câu; lần sau hiện ngay.
+  Chạm/Enter/Space vào bong bóng = hiện hết. Chiều cao đặt sẵn lúc đầu (cả câu có trong DOM, phần chưa gõ ẩn bằng visibility) → CLS 0.
+  Giảm chuyển động / tiết kiệm dữ liệu / trình duyệt tự động hóa → hiện ngay. Trình đọc màn hình: chữ gõ aria-hidden + một bản đọc 1 lần (aria-live).
+- Âm: "bốp" nhẹ (sfx/pop.mp3, −16 LUFS) khi bong bóng hiện lần đầu trong ngày và sfx bật. KHÔNG tiếng gõ, KHÔNG tự đọc: giọng chỉ phát khi bấm 🔊.
+- 🔊 chỉ hiện khi giọng NỮ đọc được ngôn ngữ giao diện: en = Ama (Kokoro af_heart qua UI.tts who:'ama'); ngôn ngữ khác = chỉ khi máy có giọng nữ cho ngôn ngữ đó.
+- Miệng/biểu cảm: TeacherRig (tải lười) – theo đồng hồ file âm thanh đang phát (bắt Audio giọng qua HTMLMediaElement.play trong lúc đọc),
+  không có file (giọng máy/Kokoro trên máy) → đồng hồ trang + chữ. Gõ chữ: miệng cử động nhẹ theo nhịp gõ rồi dừng. Vòng nghỉ chớp/thở dừng khi tab ẩn hoặc ngoài màn.
+Lõi thuần (Node + trình duyệt): TeacherBubble.core – cổng scripts/test/teacher-bubble.mjs.

@@ -103,6 +103,8 @@
     while (days.has(todayKey(d))) { n++; d.setDate(d.getDate() - 1); }
     return n;
   }
+  // lỡ chuỗi (hôm nay + hôm qua trống, trước đó ≥ 2 ngày) → số ngày cũ, không thì 0 – giáo viên an ủi (TeacherMood)
+  function streakLost() { const days = activeDays(), d = new Date(); if (days.has(todayKey(d))) return 0; d.setDate(d.getDate() - 1); if (days.has(todayKey(d))) return 0; let n = 0; d.setDate(d.getDate() - 1); while (days.has(todayKey(d))) { n++; d.setDate(d.getDate() - 1); } return n >= 2 ? n : 0; }
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
   // Số < 1000 không có dấu phân nhóm → khỏi khởi tạo Intl/ICU (lần đầu ~70 ms ở CPU mobile, tác vụ dài lúc khởi động – TBT). 'ar' dùng chữ số Ả Rập-Ấn → luôn qua Intl.
@@ -217,7 +219,7 @@
 
   // ---------- Router ----------
   const routes = {};
-  const App = { enrichLater, ORIGINS, origin, forgetting, state, routes, load, reward, addWord, inDeck, allWords, topicOf, updateChrome, saveSettings, streak, activeDays, masteredCount, masteryDots, view, avatarInner }; // avatarInner: stats-page.js (gói lười statsp)
+  const App = { enrichLater, ORIGINS, origin, forgetting, state, routes, load, reward, addWord, inDeck, allWords, topicOf, updateChrome, saveSettings, streak, streakLost, activeDays, masteredCount, masteryDots, view, avatarInner }; // avatarInner: stats-page.js (gói lười statsp)
   window.App = App;
   // Menu tài khoản MỘT bản (đầu trang Stitch điện thoại + avatar thanh trên): đủ mục mà thanh trên hẹp phải ẩn (sáng/tối, kỳ thi, XP) – không mất chức năng ở bất kỳ độ rộng/zoom nào
   App.accountMenu = () => {

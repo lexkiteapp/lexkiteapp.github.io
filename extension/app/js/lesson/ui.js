@@ -122,7 +122,8 @@
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
-    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS };
+    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS, s0: App.streak ? App.streak() : 0 };
+    if (window.TeacherMood) moodSub(); else if (App.loadScript) App.loadScript('js/teacher-mood.js').then(moodSub).catch(() => {});
     if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
     if (demo || /[?&]sandbox=1/.test(location.search)) App._lsn = L; // bài thử / sandbox: gác bố cục CI (ux1-guard.mjs, qa-bot.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
@@ -419,8 +420,13 @@
   }
 
   // 🎮 Phản hồi kiểu game: âm + rung (Sfx dùng chung, tắt theo Cài đặt › Hiệu ứng âm thanh / giảm chuyển động) + giáo viên phản ứng mỗi câu
+  // 🎭 TeacherMood (teacher-mood.js) quyết tư thế; chưa nạp → tư thế cũ
+  const MOOD = (e, d, def) => { try { return window.TeacherMood ? TeacherMood.emit(e, d).pose : def; } catch (x) { return def; } };
+  let moodOn = false;
+  const moodSub = () => { if (moodOn || !window.TeacherMood) return; moodOn = true; TeacherMood.on(m => { if (!L || L.dead || !L.teacher || !L.teacher.pose || L.checked) return; if (m.type === 'idle') L.teacher.pose(m.pose); else if (m.type === 'calm') L.teacher.pose(null); }); };
   const OK_LINES = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!'], NO_LINES = ['Almost!', 'Not quite.', "Let's try again."];
   function react(ok, combo) {
+    L.pose = MOOD('answer', { ok }, ok ? 'cheer' : 'concern');
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
     if (el) { el.classList.remove('nod', 'shake'); void el.offsetWidth; el.classList.add(ok ? 'nod' : 'shake'); }
@@ -431,7 +437,7 @@
   }
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
-  const chips = ok => ST.lsnChips({ ok, face: ST.tStill(L.who === 'carlos' ? 'carlos' : 'ama', ok ? 'cheer' : 'concern'), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
+  const chips = ok => ST.lsnChips({ ok, face: ST.tStill(L.who === 'carlos' ? 'carlos' : 'ama', L.pose || (ok ? 'cheer' : 'concern')), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
   // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
   function feedback(it, ok, heard) {
     if (L.v2 && window.ST2 && ST2['feedback-correct'] && ST2['feedback-wrong']) return feedbackV2(it, ok);
@@ -487,7 +493,7 @@
     const foot = $('#lsnFoot'), c = it.card, last = L.sess.log.slice(-1)[0] || {}, qf = view.querySelector('.lsn-qfoot'), combo = L.sess.combo, streak = App.streak ? App.streak() : 0;
     if (qf) { qf.hidden = true; qf.after(foot); }
     foot.hidden = false; foot.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
-    if (L.teacher && L.teacher.pose) L.teacher.pose(ok ? 'cheer' : 'concern');
+    if (L.teacher && L.teacher.pose) L.teacher.pose(L.pose || (ok ? 'cheer' : 'concern'));
     const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold';
     const pills = (streak ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">local_fire_department</span>${esc(t('{n} ngày liên tiếp', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
     // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html); chỉ gắn dữ liệu thật: giáo viên · từ · IPA (2 giọng khác nhau → cả 2) · 2 loa đúng giọng · nghĩa
@@ -563,7 +569,7 @@
     if (L.teachers && L.teachers.carlos) { try { L.teachers.carlos.destroy(); } catch (e) { /* bỏ qua */ } } L.teachers = null;
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
-    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose('cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
+    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose(App.streak && App.streak() > L.s0 ? MOOD('streak', {}, 'cheer') : 'cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
     if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-stats > div:nth-child(1) > span:nth-child(2)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
     const sh = $('#lsnShare'); if (sh) sh.onclick = async () => { const text = t('Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP', { a: s.accuracy, x: xp }); try { if (navigator.share) await navigator.share({ title: 'Lexkite', text, url: location.origin + '/' }); else if (navigator.clipboard) { await navigator.clipboard.writeText(text); UI.toast(t('Đã sao chép')); } } catch (e) { /* người dùng hủy */ } };
     $('#lsnAgain').onclick = () => routes.lesson('go');
