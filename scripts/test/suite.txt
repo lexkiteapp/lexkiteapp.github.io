@@ -314,6 +314,7 @@ node scripts/test/settings-subpages.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
 node scripts/test/teacher-bubble.mjs --static
+node scripts/test/teacher-mood.mjs --static
 node scripts/test/voice-source.mjs
 node scripts/test/side-menu.mjs
 node scripts/test/site-footer.mjs
@@ -325,3 +326,4 @@ node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
+node scripts/test/sparse-imports.mjs

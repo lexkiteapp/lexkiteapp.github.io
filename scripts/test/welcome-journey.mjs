@@ -131,6 +131,23 @@ for (const h of ['#/tests', '#/dict/hello']) {
   ok(await P.page.evaluate(() => App.state.game.xp >= 20 && !App.state.settings.plXpDue), 'XP bài đầu vào cộng sau khi thiết lập');
   await P.ctx.close();
 }
+// ---- 6b. Lời mời bài đầu vào trong thiết lập (chưa chọn trình độ): Bỏ qua / làm xong → Hôm nay ----
+for (const done of [false, true]) {
+  const P = await open('#/welcome/setup');
+  await see(P.page, '#obNext'); await P.page.click('[data-track]'); await sleep(250);
+  await steps(P.page); await P.page.click('#go');
+  ok(await hashIs(P.page, /^#\/placement/, 15000) && await see(P.page, '#plSkip') && await see(P.page, '.pl-inv .tslot'), 'chưa chọn trình độ → lời mời 5 phút có Ama + Bỏ qua');
+  if (done) {
+    await answerPlacement(P.page);
+    ok(await see(P.page, '.pl-result a[href="#/home"]', 30000), 'làm xong: kết quả có nút về Hôm nay');
+    ok(await P.page.evaluate(() => { const s = App.state.settings, T = window.Tracks; return !!(s.placement && T && T.start(T.TR[s.tracks.cur])); }), 'kết quả gán chặng của gói');
+    await P.page.click('.pl-result a[href="#/home"]');
+  } else await P.page.click('#plSkip');
+  ok(await hashIs(P.page, /^#\/home$/, 8000) && await P.page.locator('#view h1, #view .card, #view [data-blk]').count() > 0, (done ? 'làm xong' : 'Bỏ qua') + ' → Hôm nay vẽ được');
+  ok(await P.page.evaluate(() => Object.keys(App.state.cards).length > 0 && !sessionStorage.getItem('lk.plInv')), 'có bộ thẻ, lời mời đã xóa');
+  ok(!P.errs.length, 'không lỗi JS: ' + P.errs.join(' | '));
+  await P.ctx.close();
+}
 // ---- 7. #/style: Back về Welcome ----
 {
   const P = await open('#/welcome');

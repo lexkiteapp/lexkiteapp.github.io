@@ -88,6 +88,7 @@
 "{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!": "{g} You finished today's plan – great work!",
 "Bài {a}/{b}": "Lesson {a}/{b}",
 "Bạn sẽ học {n} từ:": "You'll learn {n} words:",
+"Thu gọn lộ trình": "Show less",
 "Đọc một đoạn hội thoại ngắn rồi trả lời câu hỏi.": "Read a short dialogue, then answer questions.",
 "Nghe một đoạn radio ngắn rồi trả lời câu hỏi.": "Listen to a short radio clip, then answer questions.",
 "Luyện một kỹ năng thi để qua mốc kiểm tra.": "Practise one exam skill to pass this checkpoint.",
@@ -107,4 +108,5 @@
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.": "Hi, I'm Ama! Let's get you ready in 3 small steps.",
 "Nghe Ama đọc": "Listen to Ama read this",
 "Dừng Ama đọc": "Stop Ama reading",
+"{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!": "{g} No worries – everyone has busy days. Let's start again together today!",
 }); })(typeof self !== 'undefined' ? self : this);

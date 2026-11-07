@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr2', test: 2, title: 'TOEIC Reading Test 2', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'Dr. Alvarez reviewed the clinical data ------- before approving the final report.', options: ['careful', 'carefully', 'care', 'carefulness'], a: 1, cue: 'reviewed the clinical data',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "reviewed" → "carefully" (một cách cẩn thận). "careful" là tính từ, "care/carefulness" là danh từ.' },
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'Notice', text:
 `ATTENTION, PATRONS OF THE ELMWOOD PUBLIC LIBRARY
@@ -122,7 +122,7 @@ Account Executive`,
 "Many customers told us they wanted fresher flowers delivered straight to their homes," said marketing director Pham Thu Ha. "The online store makes that -----(140)-----."
 
 Orders placed before noon are delivered the same day within Da Lat and the next day to Ho Chi Minh City. -----(141)-----. The company also plans to offer weekly flower subscriptions -----(142)----- the end of the year.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['exclusively', 'exclusive', 'exclusion', 'excluding'], a: 0, cue: 'had sold its roses and lilies',
               explain: 'Cần trạng từ bổ nghĩa cho động từ "had sold" → "exclusively" (chỉ, độc quyền) bán cho nhà bán buôn và khách sạn.' },
             { n: 140, q: '(140)', options: ['possibility', 'possibly', 'possible', 'possibilities'], a: 2, cue: 'The online store makes that',
@@ -149,7 +149,7 @@ Residents who need help carrying heavy items during this period may contact the 
 Sincerely,
 Gareth Lowell
 Property Manager`,
-          groups: [ { type: 'mcq', instr: 'Questions 143-146 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[13], items: [
             { n: 143, q: '(143)', options: ['finish', 'finishing', 'finished', 'finishes'], a: 0, cue: 'is scheduled to',
               explain: '"be scheduled to + V nguyên mẫu" → "finish".' },
             { n: 144, q: '(144)', options: ['The rent will increase on January 1.', 'Both wings are connected by a hallway on every floor.', 'The swimming pool is open until 10 P.M.', 'New residents must register their vehicles.'], a: 1, cue: 'use the elevators in the west wing',
@@ -162,7 +162,7 @@ Property Manager`,
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Invoice', text:
 `Copperfield Catering Co.
@@ -196,7 +196,7 @@ Bilal Haddad [2:08 P.M.]: Then it might be the bulb or the power supply. I can't
 Hana Kowalski [2:09 P.M.]: What should I do, then?
 Bilal Haddad [2:10 P.M.]: Room D has a large wall screen, and nobody has booked it this afternoon. I'll move the reservation now and put a sign on the door of Room B.
 Hana Kowalski [2:11 P.M.]: Perfect. I'll copy my slides onto a flash drive and head over there.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'At 2:06 P.M., what does Ms. Kowalski mean when she writes, "Yes, that was the first thing I tried"?', options: ['She already confirmed that the projector has power connected.', 'She has asked the cleaning crew for help.', 'She has used the projector before.', 'She has already moved the meeting.'], a: 0, cue: 'Did you check whether it\'s plugged in?',
               explain: 'Đáp lại câu hỏi "có kiểm tra phích cắm chưa?", cô nói đó là việc đầu tiên đã thử → đã kiểm tra máy được cắm điện.' },
             { n: 150, q: 'What will Mr. Haddad most likely do next?', options: ['Replace a bulb', 'Contact the board members', 'Change a room booking', 'Buy a new projector'], a: 2, cue: 'I\'ll move the reservation now',
@@ -264,8 +264,8 @@ MANILA (September 12) — A growing number of delivery companies in Metro Manila
 Not everyone is convinced, however. Some businesses point out that the bikes can carry only about 150 kilograms, which limits them to smaller parcels. Others worry about riders' safety during the rainy season.
 
 To address these concerns, Swiftline has provided its riders with waterproof gear and requires them to complete a two-day safety course. The company is also working with city officials on a plan to add protected bike lanes along major roads by 2028.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
-            { n: 158, q: 'What is the article mainly about?', options: ['A new traffic law in Metro Manila', 'The opening of a bicycle factory', 'The use of an alternative delivery vehicle', 'A decline in online shopping'], a: 2, cue: 'replacing small vans with electric cargo bikes',
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
+            { n: 158, q: g.TQR[3], options: ['A new traffic law in Metro Manila', 'The opening of a bicycle factory', 'The use of an alternative delivery vehicle', 'A decline in online shopping'], a: 2, cue: 'replacing small vans with electric cargo bikes',
               explain: 'Bài viết nói về việc các công ty giao hàng thay xe tải nhỏ bằng xe đạp chở hàng điện → phương tiện giao hàng thay thế.' },
             { n: 159, q: 'According to Mr. Santos, what is an advantage of cargo bikes?', options: ['They can carry heavier loads than vans.', 'They can make more deliveries in congested areas.', 'They are popular with older customers.', 'They are manufactured locally.'], a: 1, cue: 'In heavy traffic, a cargo bike can complete almost twice as many deliveries per day as a van',
               explain: 'Khi kẹt xe, xe đạp chở hàng giao được gần gấp đôi số đơn so với xe tải. (A) ngược lại – chỉ chở được khoảng 150 kg.' },
@@ -282,7 +282,7 @@ Celeste Moreau [10:08 A.M.]: Can you call them today and explain the new deadlin
 Darnell Price [10:09 A.M.]: I'll try. If they can't respond by Wednesday morning, I'll use last year's prices and add a note.
 Yuki Tanabe [10:10 A.M.]: Celeste, would you like to do a practice run on Wednesday afternoon?
 Celeste Moreau [10:11 A.M.]: Good idea. Let's meet in my office at 3:00. I'll send everyone a calendar invitation.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
             { n: 161, q: 'Why was the presentation rescheduled?', options: ['A client executive will be traveling.', 'The design team needs more time.', 'A meeting room is unavailable.', 'A supplier changed its prices.'], a: 0, cue: 'their CEO is flying to Madrid on Saturday',
               explain: 'CEO của khách hàng sẽ bay đi Madrid thứ Bảy và muốn xem đề xuất trước → lịch được dời sớm hơn.' },
             { n: 162, q: 'What is suggested about Ms. Tanabe?', options: ['She will contact the suppliers.', 'She works on visual designs.', 'She is meeting the CEO in Madrid.', 'She has finished her cost estimates.'], a: 1, cue: 'The design mock-ups are almost finished',
@@ -303,7 +303,7 @@ Customers with an affected kettle may return it to any Halvorsen retail store fo
 
 We apologize for the inconvenience and thank you for your understanding.`,
           groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following notice.', items: [
-            { n: 165, q: 'What is the purpose of the notice?', options: ['To announce the launch of a new kettle model', 'To warn customers about a possible problem with a product', 'To explain how to clean an electric appliance', 'To advertise a seasonal discount on kitchenware'], a: 1, cue: 'the switch may fail to turn off automatically after the water boils',
+            { n: 165, q: g.TQR[19], options: ['To announce the launch of a new kettle model', 'To warn customers about a possible problem with a product', 'To explain how to clean an electric appliance', 'To advertise a seasonal discount on kitchenware'], a: 1, cue: 'the switch may fail to turn off automatically after the water boils',
               explain: 'Thông báo nói một số ấm đun "may fail to turn off automatically" (có thể không tự ngắt sau khi nước sôi) và đề nghị ngừng sử dụng → cảnh báo lỗi sản phẩm. Không hề giới thiệu mẫu mới, hướng dẫn vệ sinh hay khuyến mãi.' },
             { n: 166, q: 'What is NOT mentioned as an option for customers with an affected kettle?', options: ['Returning it to a store for a refund', 'Requesting a replacement online', 'Receiving a new kettle by mail at no charge', 'Having it repaired by a technician'], a: 3, cue: 'may return it to any Halvorsen retail store for a full refund',
               explain: 'Khách có thể "return it to any Halvorsen retail store for a full refund" (trả lại cửa hàng để hoàn tiền) hoặc điền form trực tuyến để nhận ấm thay thế gửi miễn phí. Thông báo KHÔNG nhắc đến việc nhờ kỹ thuật viên sửa chữa.' }
@@ -337,7 +337,7 @@ Sofia Lindgren [10:10 A.M.]: Yes. I'd rather they hear it from us than notice th
 Kwame Asante [10:13 A.M.]: I can draft an e-mail to those customers this morning. Should we offer them anything for the inconvenience?
 Leticia Ferraz [10:15 A.M.]: A free shipping code would be a nice gesture. Kwame, please send me the draft before it goes out.
 Kwame Asante [10:16 A.M.]: Sure thing. You'll have it by noon.`,
-          groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[9], items: [
             { n: 169, q: 'What problem are the writers discussing?', options: ['A printing company cannot deliver an order on time.', 'A bookstore has canceled a launch event.', 'An author is unable to attend an event.', 'Some books were printed with errors.'], a: 0, cue: 'Their main press broke down',
               explain: '"Their main press broke down" (máy in chính bị hỏng) nên 2.000 cuốn sẽ trễ đến thứ Sáu tuần sau → nhà in không giao đúng hạn. Sự kiện ra mắt vẫn diễn ra, không có chuyện tác giả vắng mặt hay sách in lỗi.' },
             { n: 170, q: 'At 10:09 A.M., what does Mr. Mehta most likely mean when he writes, "Good point"?', options: ['He thinks the event should be moved to a larger venue.', 'He wants Pellham Books to order more copies.', 'He plans to cancel all of the online orders.', 'He agrees that the smaller print run will meet the immediate need.'], a: 3, cue: 'Pellham only ordered 250 copies for the event, so 300 would cover it',
@@ -356,8 +356,8 @@ PORT ELMSWORTH (February 18) – Logistics firm Tavera Freight has completed the
 The project was partly funded by a regional grant program that supports businesses switching to renewable energy. —[3]— Tavera received about one-third of the project's total cost through the program.
 
 Mr. Esposito said the company is now considering adding battery storage so that power generated during the day can be used for night shifts. —[4]— A decision is expected later this year.`,
-          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
-            { n: 172, q: 'What is the article mainly about?', options: ['The construction of a new harbor', 'A shortage of warehouse space', 'A rise in electricity prices', "A company's use of renewable energy at its facilities"], a: 3, cue: 'has completed the installation of solar panels on the roofs of its three warehouses',
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ['The construction of a new harbor', 'A shortage of warehouse space', 'A rise in electricity prices', "A company's use of renewable energy at its facilities"], a: 3, cue: 'has completed the installation of solar panels on the roofs of its three warehouses',
               explain: 'Bài viết nói Tavera Freight "has completed the installation of solar panels" trên mái ba nhà kho → công ty dùng năng lượng tái tạo tại cơ sở của mình. Không nói về xây cảng, thiếu kho hay giá điện tăng.' },
             { n: 173, q: 'What is indicated about the solar panels?', options: ['They were manufactured by Tavera Freight.', "They are expected to meet more than half of the sites' power needs.", 'They took seven years to install.', 'They will be used to charge delivery trucks.'], a: 1, cue: 'supply roughly 60 percent of the electricity used at the sites',
               explain: '"supply roughly 60 percent of the electricity" = cung cấp khoảng 60% lượng điện → hơn một nửa nhu cầu. "Seven years" là thời gian hoàn vốn, không phải thời gian lắp đặt; bài không nói công ty tự sản xuất tấm pin hay sạc xe tải.' },
@@ -430,7 +430,7 @@ Thursday, June 13 | 1:00 P.M.–5:00 P.M. | Marcus Bell | 3
 Monday, June 17 | 8:00 A.M.–12:00 P.M. | Aiko Tanaka | 5
 Wednesday, June 26 | 1:00 P.M.–5:00 P.M. | Aiko Tanaka | 6`,
           groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following memo and schedule.', items: [
-            { n: 181, q: 'What is the purpose of the memo?', options: ['To announce a required training course', 'To introduce a new safety coordinator', 'To report an accident in the warehouse', 'To explain changes to shift schedules'], a: 0, cue: 'must complete a recertification course this month',
+            { n: 181, q: g.TQR[11], options: ['To announce a required training course', 'To introduce a new safety coordinator', 'To report an accident in the warehouse', 'To explain changes to shift schedules'], a: 0, cue: 'must complete a recertification course this month',
               explain: 'Memo yêu cầu mọi nhân viên lái xe nâng "must complete a recertification course this month" (phải hoàn thành khóa cấp lại chứng nhận trong tháng) → thông báo khóa đào tạo bắt buộc. Không có tai nạn, nhân sự mới hay thay đổi ca làm.' },
             { n: 182, q: 'In the memo, the word "exempt" in paragraph 3, line 1, is closest in meaning to', options: ['released', 'excused', 'prepared', 'promoted'], a: 1, cue: 'are exempt but must submit a copy of their certificate',
               explain: '"are exempt" ở đây = được miễn (không phải học lại khóa) → "excused". "released" (được thả, phát hành), "prepared" (đã chuẩn bị), "promoted" (được thăng chức) không hợp nghĩa.' },

@@ -224,16 +224,22 @@
    "b": "42210116547"
   },
   "callback#n": {
-   "at": "2026-11-05",
-   "tries": 6,
-   "why": "meaning check: no (Is a person making a phone call to someone who pre)",
-   "b": "42123824939"
+   "at": "2026-11-07",
+   "tries": 12,
+   "why": "meaning check: no (Is one person returning a phone call that was made)",
+   "b": "42345795157"
   },
   "cancellation policy#n": {
    "at": "2026-11-07",
    "tries": 12,
    "why": "vision: text; vision description-sentence sim 0.2257",
    "b": "42315140853"
+  },
+  "capitulate#v": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is the person kneeling with arms raised, showing t)",
+   "b": "42337969910"
   },
   "career services#n": {
    "at": "2026-11-07",
@@ -757,6 +763,12 @@
    "why": "size > 6 KB",
    "b": "42210116547"
   },
+  "flywheel#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is there a heavy metal disc that spins to store en)",
+   "b": "42337969910"
+  },
   "follow-up#n": {
    "at": "2026-11-07",
    "tries": 12,
@@ -1262,10 +1274,10 @@
    "b": "42322284048"
   },
   "online review#n": {
-   "at": "2026-11-05",
-   "tries": 6,
-   "why": "vision description-sentence sim 0.26",
-   "b": "42116223291"
+   "at": "2026-11-07",
+   "tries": 12,
+   "why": "meaning check: no (Is a person writing a negative comment about a hot)",
+   "b": "42340402468"
   },
   "operational#adj": {
    "at": "2026-11-07",
@@ -1410,6 +1422,12 @@
    "tries": 6,
    "why": "vision: no (no half-built bridge, no stream)",
    "b": "42149329324"
+  },
+  "preservative#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is a clear liquid being added to food to keep it f)",
+   "b": "42337969910"
   },
   "presumption of innocence#n": {
    "at": "2026-11-07",
@@ -1879,6 +1897,12 @@
    "why": "meaning check: no (Is the judge announcing a decision about a case?)",
    "b": "42315140853"
   },
+  "vertebra#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is there a bony segment with a round opening that )",
+   "b": "42337969910"
+  },
   "violate#v": {
    "at": "2026-11-07",
    "tries": 12,
@@ -1926,6 +1950,12 @@
    "tries": 18,
    "why": "meaning check: no (Is the person moving their hand side to side in a )",
    "b": "42322284048"
+  },
+  "website#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is the person looking at a network of blank pages )",
+   "b": "42342700537"
   },
   "wheat#n": {
    "at": "2026-11-07",

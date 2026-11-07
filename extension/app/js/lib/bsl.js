@@ -1,8 +1,9 @@
 /* Business Service List 1.20 © Browne & Culligan (newgeneralservicelist.com), CC BY-SA 4.0. Phiên âm: Wiktionary (CC BY-SA); định nghĩa tiếng Anh, câu ví dụ, nghĩa tiếng Việt: Lexkite tự biên soạn (content/wordlists/<id>.edit.json).
 * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */
 (function (g) {
+const _ds = ['Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC'];
 const add = g.IELTS_DATA.add;
-add('bsl1', 'BSL 1–100', '💼', 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', [
+add('bsl1', 'BSL 1–100', '💼', _ds[0], [
 ['maturity', '/məˈtjʊərɪti/', 'n', 'sự đáo hạn', 'the date when an investment or loan must be paid back', 'The government bond reaches maturity in ten years, when investors are repaid in full.', '', '', 'B1', '', '/məˈtʃʊrəti/'],
 ['volatility', '/ˌvɒləˈtɪləti/', 'n', 'sự biến động', 'the tendency to change suddenly and unpredictably', 'Investors are worried about the volatility of the market.', '', '', 'B1', '', '/ˌvɑːləˈtɪləti/'],
 ['creditor', '/ˈkredɪtə/', 'n', 'chủ nợ', 'a person or company that is owed money', 'The company must repay its creditors by the end of the year.', '', '', 'B1', '', '/ˈkredətər/'],
@@ -104,7 +105,7 @@ add('bsl1', 'BSL 1–100', '💼', 'Business Service List: từ vựng công vi�
 ['unfair', '/ʌnˈfeə/', 'adj', 'không công bằng', 'not treating people equally or reasonably', 'Customers complained that the new fees were unfair.', '', '', 'B1', '', '/ənˈfer/'],
 ['nationalist', '/ˈnæʃənəlɪst/', 'n', 'người theo chủ nghĩa dân tộc', 'a person who strongly supports their own nation\'s independence or interests', 'Nationalist parties gained more support in several countries during the last election.', '', '', 'B1', '', '/ˈnæʃənələst/'],
 ], 'bsl');
-add('bsl2', 'BSL 101–200', '💼', 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', [
+add('bsl2', 'BSL 101–200', '💼', _ds[0], [
 ['demographic', '/ˌdeməˈɡræfɪk/', 'adj', 'nhân khẩu học', 'relating to the structure of a population, such as age and income', 'Demographic changes, such as an ageing population, affect the demand for housing.', '', '', 'B1', ''],
 ['conglomerate', '/kənˈɡlɒm(ə)rɪt/', 'n', 'tập đoàn', 'a large company made up of many different businesses', 'The conglomerate owns hotels, airlines and supermarkets in more than ten countries.', '', '', 'B1', '', '/kənˈɡlɑːmərət/'],
 ['senator', '/ˈsenətə/', 'n', 'thượng nghị sĩ', 'a member of a senate', 'The senator gave a speech about trade policy at the annual business conference.', '', '', 'C1', '', '/ˈsenətər/'],
@@ -206,7 +207,7 @@ add('bsl2', 'BSL 101–200', '💼', 'Business Service List: từ vựng công v
 ['antitrust', '/ˌæntiˈtrʌst/', 'adj', 'chống độc quyền', 'intended to stop companies from controlling a market unfairly', 'The government started an antitrust investigation into the tech giant.', '', '', 'B1', '', '/ˌæntaɪˈtrʌst/'],
 ['align', '/əˈlaɪn/', 'v', 'căn chỉnh; điều chỉnh cho thống nhất', 'to arrange things so they are in line; to make plans or goals match', 'We need to align our marketing with our sales strategy.', '', '', 'C1', ''],
 ], 'bsl');
-add('bsl3', 'BSL 201–300', '💼', 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', [
+add('bsl3', 'BSL 201–300', '💼', _ds[0], [
 ['provincial', '/prəˈvɪnʃəl/', 'adj', 'thuộc tỉnh', 'relating to a province or region outside the capital', 'The provincial government approved funding for a new hospital in the region.', '', '', 'C1', '', '/prəˈvɪnʃl/'],
 ['fierce', '/fɪəs/', 'adj', 'khốc liệt', 'very strong and determined; very intense', 'There is fierce competition between the two airlines.', '', '', 'C1', '', '/fɪrs/'],
 ['veto', '/ˈviːtəʊ/', 'n', 'phủ quyết', 'the right to officially reject a decision or plan', 'The president used his veto to block the new law.', '', '', 'B1', '', '/ˈviːtoʊ/'],
@@ -308,7 +309,7 @@ add('bsl3', 'BSL 201–300', '💼', 'Business Service List: từ vựng công v
 ['constituency', '/kənˈstɪtʃuənsi/', 'n', 'khu vực bầu cử', 'an area whose voters elect a representative', 'The politician met business owners in her constituency.', '', '', 'C1', ''],
 ['explosion', '/ɪkˈspləʊʒən/', 'n', 'sự bùng nổ', 'a sudden large increase; also a violent burst', 'There has been an explosion in online shopping.', '', '', 'B1', '', '/ɪkˈsploʊʒn/'],
 ], 'bsl');
-add('bsl4', 'BSL 301–400', '💼', 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', [
+add('bsl4', 'BSL 301–400', '💼', _ds[0], [
 ['remarkably', '/rɪˈmɑːkəbli/', 'adv', 'đáng chú ý', 'in a surprising or unusual way', 'Sales held up remarkably well during the crisis.', '', '', 'B1', '', '/rɪˈmɑːrkəbli/'],
 ['spark', '/spɑːk/', 'n', 'yếu tố khơi mào', 'something that causes an activity to start', 'The announcement sparked a rise in share prices.', '', '', 'B1', '', '/spɑːrk/'],
 ['competitiveness', '/kəmˈpetɪtɪvnəs/', 'n', 'khả năng cạnh tranh', 'the ability to compete successfully', 'Lower production costs improved the company\'s competitiveness in international markets.', '', '', 'B1', '', '/kəmˈpetɪtɪvnɪs/'],
@@ -410,7 +411,7 @@ add('bsl4', 'BSL 301–400', '💼', 'Business Service List: từ vựng công v
 ['entrepreneurial', '/ˌɒntrəprəˈnɜːriəl/', 'adj', 'có tinh thần kinh doanh', 'showing the qualities needed to start and run a business', 'She has a strong entrepreneurial spirit and started her first business at twenty.', '', '', 'B1', '', '/ˌɑːntrəprəˈnɜːriəl/'],
 ['precious', '/ˈpreʃəs/', 'adj', 'quý giá', 'very valuable or important', 'Time is precious, so let\'s start the meeting.', '', '', 'B2', ''],
 ], 'bsl');
-add('bsl5', 'BSL 401–500', '💼', 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', [
+add('bsl5', 'BSL 401–500', '💼', _ds[0], [
 ['regain', '/riːˈɡeɪn/', 'v', 'lấy lại', 'to get back something that was lost', 'The company regained its position as market leader.', '', '', 'C1', '', '/rɪˈɡeɪn/'],
 ['restrictive', '/rɪˈstrɪktɪv/', 'adj', 'hạn chế', 'limiting what people can do', 'The bank\'s lending rules are very restrictive for people who are self-employed.', '', '', 'B1', ''],
 ['deed', '/diːd/', 'n', 'chứng thư', 'a legal document showing who owns a property', 'Keep the property deed in a safe place.', '', '', 'C1', ''],
@@ -512,7 +513,7 @@ add('bsl5', 'BSL 401–500', '💼', 'Business Service List: từ vựng công v
 ['deliberate', '/dɪˈlɪb(ə)rət/', 'adj', 'có chủ ý', 'done on purpose', 'It was a deliberate decision to keep prices low.', '', '', 'B2', '', '/dɪˈlɪbərət/'],
 ['blast', '/blɑːst/', 'n', 'vụ nổ', 'a strong explosion; also a powerful rush of air', 'The marketing team had a blast at the conference.', '', '', 'C1', '', '/blæst/'],
 ], 'bsl');
-add('bsl6', 'BSL 501–542', '💼', 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', [
+add('bsl6', 'BSL 501–542', '💼', _ds[0], [
 ['alas', '/əˈlæs/', 'adv', 'than ôi', 'used to express sadness or regret (old-fashioned)', 'We hoped to win the contract, but alas, the client chose another supplier.', '', '', 'B1', ''],
 ['impair', '/ɪmˈpeə/', 'v', 'làm suy yếu', 'to damage or weaken something', 'Lack of sleep can seriously impair your judgment when making important decisions.', '', '', 'B1', '', '/ɪmˈper/'],
 ['testify', '/ˈtestɪfaɪ/', 'v', 'làm chứng', 'to give evidence in court', 'The manager was asked to testify in court.', '', '', 'C1', '', '/ˈtestəfaɪ/'],

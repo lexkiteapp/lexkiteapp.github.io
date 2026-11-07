@@ -152,3 +152,12 @@ Xem artifact `lipsync-lab` của run CI mới nhất (report.md, metrics.json, v
 - **Cờ:** `lk.lipsync` mặc định BẬT; `localStorage lk.lipsync=0` hoặc cfg `lipsync:false` = tắt (vòng clip).
 - **CI không gọi kho media:** call-e2e dựng WAV giả từ độ lớn tiếng đã lưu trong cues.js (đúng độ dài → chế độ pre).
 - **Lab:** workflow lipsync-lab.yml + trang web/lab/{face,lipsync}.html (dùng bởi scripts/lipsync/lab.mjs, drawn_frames.mjs) để ở nhánh `wip/lipsync-lab` – thêm lại khi ci-triage.yml rảnh (PR #429/#172); cổng sản xuất từng câu vẫn chạy trong audio.yml (call_cues.mjs).
+
+## Ghi chú web/js/lesson/teacher.js (chuyển từ đầu tệp, 07/11)
+
+- 👩‍🏫 Ama / Carlos đọc lời nhắc trong bài học – clip PHÔNG XANH đã tách nền PRO (scripts/teach/build.py, CI teach-build.yml), nền trong suốt, đủ đầu.
+- Đang nói → vòng "talk" (miệng thật của clip, khớp nhịp), im/nghe → vòng "listen"; trộn 160 ms trong CÙNG 1 canvas (không 2 lớp chồng nhau).
+- Video H.264 "xếp chồng" (nửa trên màu đã nhân alpha, nửa dưới alpha) → WebGL ghép thành nền trong suốt: mọi trình duyệt, giải mã phần cứng.
+- Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen, đầu trơn).
+- 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
+- audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster.
