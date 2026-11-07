@@ -156,6 +156,7 @@
   // ---------- Bản đồ (gọi từ lesson/ui.js) ----------
   const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: Object.values(state.cards || {}).some(c => c && c.srs && c.srs.lapses > 0) ? t('Ôn lỗi') : t('Ôn tập'), story: t('Truyện'), radio: 'Radio' }[k] || k);
   const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat', story: 'book-open', radio: 'audio-lines' };
+  const KDESC = { story: 'Đọc một đoạn hội thoại ngắn rồi trả lời câu hỏi.', radio: 'Nghe một đoạn radio ngắn rồi trả lời câu hỏi.', exam: 'Luyện một kỹ năng thi để qua mốc kiểm tra.' }; // dòng mô tả thẻ bài Hôm nay khi bài không có danh sách từ (khóa t() gọi lúc vẽ)
   const KMIN = { lesson: 4, listen: 3, speak: 3, review: 3, story: 4, radio: 3, exam: 5 }; // phút ước tính mỗi loại bài (nhãn "· 4 phút")
   const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
   function map(o) {
@@ -270,8 +271,9 @@
     let mist = 0; try { mist = demo ? 0 : ((await Core.Store.get('mistakes', [])) || []).filter(x => !x.fixed).length; } catch (e) { mist = 0; }
     if (location.hash !== tok) return;
     const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
-    const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
-    const pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`;
+    const lazyPath = !fresh && !(DSK() && ST2['today-desk']); // điện thoại: khối Your path thu gọn 3 nút như mẫu, lộ trình ĐẦY ĐỦ vẽ lười khi mở (không cắt tính năng)
+    const mkPath = () => { const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
+    return `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`; }, pathHtml = lazyPath ? '' : mkPath();
     const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
@@ -280,9 +282,9 @@
     const say = lost ? t('{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!', { g: greet }) : b.p.left ? t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left }) : all ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: all }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
     // teacher-pose-map: Ama sau bệ – người mới vẫy chào (wave), đang học vòng nghỉ (idle, happy)
     const tch = fresh => Chars.slot('ama', Object.assign(fresh ? { pose: 'wave', clip: true, loop: 6000 } : lost ? { pose: 'empathy' } : { pose: 'happy', idle: true }, { size: 'm', hip: true, lazy: false, style: 'margin-left:auto' })); // hip: lộ tới hông như mẫu streak (chủ 06/11) · sát bong bóng: khung cắt rộng 1,4 khung-cao lòi mép màn 360 px nếu căn giữa ô 120 px
-    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name,
+    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name, pv: [0, 1, 2].map(i => { const j = (at + i) % P.length, x = nodes[j] || {}; return { label: `${j + 1}. ${x.label || ''}`, href: `#/lesson/go${Q}`, aria: `${x.label || ''} – ${i ? t('Đã khóa') : t('Đang học')}` }; }), // 3 nút đá kê: bài hiện tại + 2 bài kế (dữ liệu thật)
       k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
-        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
+        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : KDESC[kind] ? esc(t(KDESC[kind])) : '' }, // bài không dạy danh sách từ (truyện/radio/kiểm tra) vẫn có 1 dòng nói rõ sẽ làm gì – thẻ đủ cấu trúc mẫu Stitch
       r: { due, title: t('{n} từ đang phai dần', { n: due }), sub: t('Ôn ngay ({m} phút)', { m: Math.max(1, Math.ceil(due / 6)) }) },
       q: { mistN: mist, mist: t('{n} cần sửa', { n: mist }), mistHref: mist ? '#/mistakes?retry=1' : '#/mistakes', dueN: due, due: t('{n} đến hạn', { n: due }), dueHref: all ? '#/review' : '#/quick' },
       s: stories.slice(0, DSK() ? 3 : 2), mock: MOCK[b.ex] || '#/mock', story: stories[0] ? stories[0].href : '#/lesson/go' });
@@ -302,7 +304,10 @@
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
-    if (/[?&]at=path\b/.test(location.hash)) o.toCur(root); // tới thẳng nút hiện tại (liên kết cũ "bản đồ") – mặc định trang mở ở đầu "Hôm nay"
+    const px = root.querySelector('[data-act="pathx"]'), pf = root.querySelector('[data-pathfull]'), pv = root.querySelector('[data-pv]');
+    const pathOpen = (on, go) => { if (on && !pf.firstChild) { pf.innerHTML = mkPath(); o.guide(pf); } pf.hidden = !on; pv.style.display = on ? 'none' : ''; px.setAttribute('aria-expanded', String(on)); px.textContent = on ? t('Thu gọn lộ trình') : t('Xem toàn bộ lộ trình →'); if (on && go) o.toCur(pf); }; // mở/đóng tại chỗ: nút thật (Enter/Space), aria-expanded; vẽ lười lần đầu mở
+    if (px && pf && pv) px.addEventListener('click', e => { e.preventDefault(); pathOpen(px.getAttribute('aria-expanded') !== 'true', true); });
+    if (/[?&]at=path\b/.test(location.hash)) { if (px && pf && pv) pathOpen(true, false); o.toCur(root); } // tới thẳng nút hiện tại (liên kết cũ "bản đồ") – mặc định trang mở ở đầu "Hôm nay"
     if (!demo && root.querySelector('[data-lg]')) fillLeague(root, null);
     return root;
   }
