@@ -6,6 +6,7 @@
 // Kiểm (npm test): 1) style.css KHÔNG còn luật lười (khung phình lại) → chạy --move; 2) mọi luật trong lazy-ui.css vẫn lười (khung bắt đầu
 // dùng lớp đó → phải trả luật về style.css, kẻo vẽ thiếu kiểu trước khi gói lười nạp); 3) lazy-ui.css không nạp ngay, need1 nạp nó.
 // Dùng: node scripts/test/css-lazy.mjs [--move]
+import { isMain } from '../lib/is-main.mjs';
 import fs from 'fs';
 import path from 'path';
 import { firstLoadFiles, gzSize } from '../lib/gz-canon.mjs';
@@ -67,7 +68,7 @@ export function split(items, isLazy) {
   return { keep, mv };
 }
 
-if (import.meta.url === `file://${path.resolve(process.argv[1] || '')}`) {
+if (isMain(import.meta.url)) {
   let fail = 0; const ok = (c, m) => { if (c) console.log('✓ css-lazy: ' + m); else { fail++; console.error('✗ css-lazy: ' + m); } };
   const { selLazy } = lazyModel();
   const src = rd(STYLE), items = parseCss(src);

@@ -2,6 +2,7 @@
 // cạnh ảnh web (Stitch render) trong một tờ so sánh, và các mốc bố cục (thanh 5 tab, nút chính) nằm trong dung sai suy từ token. Không phụ thuộc gói ngoài (PNG tự đọc bằng node:zlib).
 // Chạy: node scripts/test/native-visual.mjs [--ios DIR] [--android DIR] [--web DIR] [--out DIR] [--langs en,vi] [--landmarks fail|warn]   |   --self-test [--write-fixtures]
 // Chưa có ảnh snapshot (chưa ghi lần đầu) → qua kèm thông báo. CI: xem scripts/native/VISUAL-CI-REQUEST.md.
+import { isMain } from '../lib/is-main.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -193,4 +194,4 @@ async function selfTest(argv) {
 }
 
 const argv = process.argv.slice(2);
-if (import.meta.url === 'file://' + process.argv[1] || process.argv[1]?.endsWith('native-visual.mjs')) process.exit(argv.includes('--self-test') ? await selfTest(argv) : run(argv));
+if (isMain(import.meta.url)) process.exit(argv.includes('--self-test') ? await selfTest(argv) : run(argv));
