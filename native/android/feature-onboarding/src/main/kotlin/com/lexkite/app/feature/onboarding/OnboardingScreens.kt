@@ -144,7 +144,7 @@ private fun StepFrame(k: Chrome, footer: @Composable ColumnScope.() -> Unit, bod
             Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).padding(horizontal = LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                 if (k.onBack != null) IconButton(onClick = k.onBack, modifier = Modifier.size(48.dp).testTag(TAG_BACK)) { Icon(Icons.AutoMirrored.Filled.ArrowBack, t(L10nKey.actionBack), tint = c.onSurface) } else Spacer(Modifier.size(48.dp))
                 if (OnbFlow.stepNo(k.step) > 0) {
-                    LKProgress(OnbFlow.fraction(k.step), Modifier.weight(1f), color = c.secondary, label = t(L10nKey.meProgress))   // Stitch onb-*.html + iOS OnbProgress: teal step bar
+                    LKProgress(OnbFlow.fraction(k.step), Modifier.weight(1f), color = c.secondary, label = t(L10nKey.meProgress), track = c.outlineVariant)   // Stitch onb-*.html + iOS OnbProgress: teal step bar
                     Text(t.num(OnbFlow.stepNo(k.step)) + " / " + t.num(OnbFlow.TOTAL), style = LKType.labelBadge.toCompose(), color = c.onSurfaceVariant)
                 } else Spacer(Modifier.weight(1f))
                 if (k.onSkip != null) Box(Modifier.heightIn(min = 48.dp).testTag(TAG_SKIP).tactile(k.onSkip).padding(horizontal = LKSpacing.spaceSm), contentAlignment = Alignment.Center) {
@@ -217,7 +217,7 @@ private fun LanguageStep(k: Chrome, selected: String, onNext: () -> Unit, onPick
         BasicTextField(
             value = q, onValueChange = { q = it }, singleLine = true,
             textStyle = LKType.bodyLg.toCompose().copy(color = c.onSurface), cursorBrush = SolidColor(c.primary),
-            modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(PillShape).background(c.cardHigh).padding(horizontal = LKSpacing.spaceMd).testTag("onb-lang-search"),
+            modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(PillShape).background(c.card).border(2.dp, c.outlineVariant, PillShape).padding(horizontal = LKSpacing.spaceMd).testTag("onb-lang-search"),
             decorationBox = { inner ->
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                     Icon(Icons.Filled.Search, null, tint = c.onSurfaceVariant)
@@ -286,7 +286,7 @@ private fun GoalStep(k: Chrome, choice: OnbChoice, fresh: Boolean, teacher: @Com
                 val cur = choice.variant.ifEmpty { tr.variants.first().id }
                 for (v in tr.variants) {
                     val vOn = v.id == cur
-                    Box(Modifier.heightIn(min = 44.dp).testTag("onb-variant-${v.id}").semantics { selected = vOn }.clip(PillShape).background(if (vOn) c.primaryContainer else c.cardHigh).tactile({ onChange(choice.copy(variant = v.id)) }, role = Role.RadioButton).padding(horizontal = LKSpacing.spaceMd), contentAlignment = Alignment.Center) {
+                    Box(Modifier.heightIn(min = 44.dp).testTag("onb-variant-${v.id}").semantics { selected = vOn }.clip(PillShape).background(if (vOn) c.primaryContainer else c.card).border(2.dp, if (vOn) c.primaryContainer else c.outlineVariant, PillShape).tactile({ onChange(choice.copy(variant = v.id)) }, role = Role.RadioButton).padding(horizontal = LKSpacing.spaceMd), contentAlignment = Alignment.Center) {
                         Text(v.label, style = LKType.labelMetric.toCompose(), color = if (vOn) c.onPrimaryContainer else c.onSurface)
                     }
                 }
@@ -301,7 +301,7 @@ private fun GoalStep(k: Chrome, choice: OnbChoice, fresh: Boolean, teacher: @Com
 private fun LevelBars(filled: Int, total: Int) {
     val c = LocalLKColors.current
     Row(Modifier.size(48.dp), horizontalArrangement = Arrangement.spacedBy(3.dp), verticalAlignment = Alignment.Bottom) {
-        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).background(if (j < Math.ceil(filled.toDouble() / total * 4).toInt()) c.secondary else c.cardHigh))
+        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).background(if (j < Math.ceil(filled.toDouble() / total * 4).toInt()) c.secondary else c.outlineVariant))
     }
 }
 
