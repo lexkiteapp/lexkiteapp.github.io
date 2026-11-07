@@ -261,7 +261,7 @@ private fun ChoiceCard(on: Boolean, tag: String, icon: ImageVector?, title: Stri
                 Text(title, style = LKType.headlineSm.toCompose(), color = c.onSurface)
                 if (sub != null) Text(sub, style = LKType.bodyMd.toCompose(), color = c.onSurfaceVariant)
             }
-            Box(Modifier.size(28.dp).clip(CircleShape).background(if (on) c.secondary else c.cardHigh).border(2.dp, if (on) c.secondary else c.outlineVariant, CircleShape), contentAlignment = Alignment.Center) {
+            Box(Modifier.size(28.dp).clip(CircleShape).background(if (on) c.secondary else Color.Transparent).border(2.dp, if (on) c.secondary else c.outlineVariant, CircleShape), contentAlignment = Alignment.Center) {
                 if (on) Icon(Icons.Filled.Check, null, tint = c.onSecondary, modifier = Modifier.size(16.dp))
             }
         }
